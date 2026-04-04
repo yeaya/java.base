@@ -1,5 +1,4 @@
 #include <java/util/jar/Manifest$FastInputStream.h>
-
 #include <java/io/FilterInputStream.h>
 #include <java/io/InputStream.h>
 #include <java/util/jar/Manifest.h>
@@ -16,53 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace util {
 		namespace jar {
-
-$FieldInfo _Manifest$FastInputStream_FieldInfo_[] = {
-	{"buf", "[B", nullptr, $PRIVATE, $field(Manifest$FastInputStream, buf)},
-	{"count", "I", nullptr, $PRIVATE, $field(Manifest$FastInputStream, count)},
-	{"pos", "I", nullptr, $PRIVATE, $field(Manifest$FastInputStream, pos)},
-	{}
-};
-
-$MethodInfo _Manifest$FastInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(Manifest$FastInputStream, init$, void, $InputStream*)},
-	{"<init>", "(Ljava/io/InputStream;I)V", nullptr, 0, $method(Manifest$FastInputStream, init$, void, $InputStream*, int32_t)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(Manifest$FastInputStream, available, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Manifest$FastInputStream, close, void), "java.io.IOException"},
-	{"fill", "()V", nullptr, $PRIVATE, $method(Manifest$FastInputStream, fill, void), "java.io.IOException"},
-	{"peek", "()B", nullptr, $PUBLIC, $virtualMethod(Manifest$FastInputStream, peek, int8_t), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(Manifest$FastInputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(Manifest$FastInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"readLine", "([BII)I", nullptr, $PUBLIC, $virtualMethod(Manifest$FastInputStream, readLine, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"readLine", "([B)I", nullptr, $PUBLIC, $virtualMethod(Manifest$FastInputStream, readLine, int32_t, $bytes*), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(Manifest$FastInputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Manifest$FastInputStream_InnerClassesInfo_[] = {
-	{"java.util.jar.Manifest$FastInputStream", "java.util.jar.Manifest", "FastInputStream", $STATIC},
-	{}
-};
-
-$ClassInfo _Manifest$FastInputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.jar.Manifest$FastInputStream",
-	"java.io.FilterInputStream",
-	nullptr,
-	_Manifest$FastInputStream_FieldInfo_,
-	_Manifest$FastInputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Manifest$FastInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.jar.Manifest"
-};
-
-$Object* allocate$Manifest$FastInputStream($Class* clazz) {
-	return $of($alloc(Manifest$FastInputStream));
-}
 
 void Manifest$FastInputStream::init$($InputStream* in) {
 	Manifest$FastInputStream::init$(in, 8192);
@@ -123,7 +75,7 @@ int32_t Manifest$FastInputStream::readLine($bytes* b, int32_t off, int32_t len) 
 		}
 		int32_t tpos = this->pos;
 		int32_t maxpos = tpos + n;
-		int8_t c = (int8_t)0;
+		int8_t c = 0;
 		while (true) {
 			bool var$1 = tpos < maxpos;
 			bool var$0 = var$1 && (c = $nc(tbuf)->get(tpos++)) != u'\n';
@@ -131,6 +83,7 @@ int32_t Manifest$FastInputStream::readLine($bytes* b, int32_t off, int32_t len) 
 				break;
 			}
 			{
+				;
 			}
 		}
 		if (c == u'\r' && tpos < maxpos && $nc(tbuf)->get(tpos) == u'\n') {
@@ -169,7 +122,7 @@ int8_t Manifest$FastInputStream::peek() {
 		fill();
 	}
 	if (this->pos == this->count) {
-		return (int8_t)-1;
+		return -1;
 	}
 	return $nc(this->buf)->get(this->pos);
 }
@@ -217,7 +170,48 @@ Manifest$FastInputStream::Manifest$FastInputStream() {
 }
 
 $Class* Manifest$FastInputStream::load$($String* name, bool initialize) {
-	$loadClass(Manifest$FastInputStream, name, initialize, &_Manifest$FastInputStream_ClassInfo_, allocate$Manifest$FastInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"buf", "[B", nullptr, $PRIVATE, $field(Manifest$FastInputStream, buf)},
+		{"count", "I", nullptr, $PRIVATE, $field(Manifest$FastInputStream, count)},
+		{"pos", "I", nullptr, $PRIVATE, $field(Manifest$FastInputStream, pos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(Manifest$FastInputStream, init$, void, $InputStream*)},
+		{"<init>", "(Ljava/io/InputStream;I)V", nullptr, 0, $method(Manifest$FastInputStream, init$, void, $InputStream*, int32_t)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(Manifest$FastInputStream, available, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Manifest$FastInputStream, close, void), "java.io.IOException"},
+		{"fill", "()V", nullptr, $PRIVATE, $method(Manifest$FastInputStream, fill, void), "java.io.IOException"},
+		{"peek", "()B", nullptr, $PUBLIC, $virtualMethod(Manifest$FastInputStream, peek, int8_t), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(Manifest$FastInputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(Manifest$FastInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"readLine", "([BII)I", nullptr, $PUBLIC, $virtualMethod(Manifest$FastInputStream, readLine, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"readLine", "([B)I", nullptr, $PUBLIC, $virtualMethod(Manifest$FastInputStream, readLine, int32_t, $bytes*), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(Manifest$FastInputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.jar.Manifest$FastInputStream", "java.util.jar.Manifest", "FastInputStream", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.jar.Manifest$FastInputStream",
+		"java.io.FilterInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.jar.Manifest"
+	};
+	$loadClass(Manifest$FastInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Manifest$FastInputStream);
+	});
 	return class$;
 }
 

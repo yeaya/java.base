@@ -1,11 +1,8 @@
 #include <UnicodeSpec.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/File.h>
 #include <java/io/FileReader.h>
 #include <java/io/IOException.h>
-#include <java/io/Reader.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/Math.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/StringBuffer.h>
@@ -94,9 +91,6 @@ using $BufferedReader = ::java::io::BufferedReader;
 using $File = ::java::io::File;
 using $FileReader = ::java::io::FileReader;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
-using $Reader = ::java::io::Reader;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -109,184 +103,12 @@ using $StringBuffer = ::java::lang::StringBuffer;
 using $ArrayList = ::java::util::ArrayList;
 using $Pattern = ::java::util::regex::Pattern;
 
-$FieldInfo _UnicodeSpec_FieldInfo_[] = {
-	{"codePoint", "I", nullptr, 0, $field(UnicodeSpec, codePoint)},
-	{"name", "Ljava/lang/String;", nullptr, 0, $field(UnicodeSpec, name)},
-	{"generalCategory", "B", nullptr, 0, $field(UnicodeSpec, generalCategory)},
-	{"bidiCategory", "B", nullptr, 0, $field(UnicodeSpec, bidiCategory)},
-	{"combiningClass", "I", nullptr, 0, $field(UnicodeSpec, combiningClass)},
-	{"decomposition", "Ljava/lang/String;", nullptr, 0, $field(UnicodeSpec, decomposition)},
-	{"decimalValue", "I", nullptr, 0, $field(UnicodeSpec, decimalValue)},
-	{"digitValue", "I", nullptr, 0, $field(UnicodeSpec, digitValue)},
-	{"numericValue", "Ljava/lang/String;", nullptr, 0, $field(UnicodeSpec, numericValue)},
-	{"mirrored", "Z", nullptr, 0, $field(UnicodeSpec, mirrored)},
-	{"oldName", "Ljava/lang/String;", nullptr, 0, $field(UnicodeSpec, oldName)},
-	{"comment", "Ljava/lang/String;", nullptr, 0, $field(UnicodeSpec, comment)},
-	{"upperMap", "I", nullptr, 0, $field(UnicodeSpec, upperMap)},
-	{"lowerMap", "I", nullptr, 0, $field(UnicodeSpec, lowerMap)},
-	{"titleMap", "I", nullptr, 0, $field(UnicodeSpec, titleMap)},
-	{"REQUIRED_FIELDS", "I", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, REQUIRED_FIELDS)},
-	{"UNASSIGNED", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, UNASSIGNED)},
-	{"UPPERCASE_LETTER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, UPPERCASE_LETTER)},
-	{"LOWERCASE_LETTER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, LOWERCASE_LETTER)},
-	{"TITLECASE_LETTER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, TITLECASE_LETTER)},
-	{"MODIFIER_LETTER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, MODIFIER_LETTER)},
-	{"OTHER_LETTER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, OTHER_LETTER)},
-	{"NON_SPACING_MARK", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, NON_SPACING_MARK)},
-	{"ENCLOSING_MARK", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, ENCLOSING_MARK)},
-	{"COMBINING_SPACING_MARK", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, COMBINING_SPACING_MARK)},
-	{"DECIMAL_DIGIT_NUMBER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DECIMAL_DIGIT_NUMBER)},
-	{"LETTER_NUMBER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, LETTER_NUMBER)},
-	{"OTHER_NUMBER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, OTHER_NUMBER)},
-	{"SPACE_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, SPACE_SEPARATOR)},
-	{"LINE_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, LINE_SEPARATOR)},
-	{"PARAGRAPH_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, PARAGRAPH_SEPARATOR)},
-	{"CONTROL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, CONTROL)},
-	{"FORMAT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, FORMAT)},
-	{"PRIVATE_USE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, PRIVATE_USE)},
-	{"SURROGATE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, SURROGATE)},
-	{"DASH_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DASH_PUNCTUATION)},
-	{"START_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, START_PUNCTUATION)},
-	{"END_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, END_PUNCTUATION)},
-	{"CONNECTOR_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, CONNECTOR_PUNCTUATION)},
-	{"OTHER_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, OTHER_PUNCTUATION)},
-	{"MATH_SYMBOL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, MATH_SYMBOL)},
-	{"CURRENCY_SYMBOL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, CURRENCY_SYMBOL)},
-	{"MODIFIER_SYMBOL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, MODIFIER_SYMBOL)},
-	{"OTHER_SYMBOL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, OTHER_SYMBOL)},
-	{"INITIAL_QUOTE_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, INITIAL_QUOTE_PUNCTUATION)},
-	{"FINAL_QUOTE_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, FINAL_QUOTE_PUNCTUATION)},
-	{"GENERAL_CATEGORY_COUNT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, GENERAL_CATEGORY_COUNT)},
-	{"SHORT", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, SHORT)},
-	{"LONG", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, LONG)},
-	{"generalCategoryList", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(UnicodeSpec, generalCategoryList)},
-	{"DIRECTIONALITY_UNDEFINED", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_UNDEFINED)},
-	{"DIRECTIONALITY_LEFT_TO_RIGHT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_LEFT_TO_RIGHT)},
-	{"DIRECTIONALITY_RIGHT_TO_LEFT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_RIGHT_TO_LEFT)},
-	{"DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC)},
-	{"DIRECTIONALITY_EUROPEAN_NUMBER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_EUROPEAN_NUMBER)},
-	{"DIRECTIONALITY_EUROPEAN_NUMBER_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_EUROPEAN_NUMBER_SEPARATOR)},
-	{"DIRECTIONALITY_EUROPEAN_NUMBER_TERMINATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_EUROPEAN_NUMBER_TERMINATOR)},
-	{"DIRECTIONALITY_ARABIC_NUMBER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_ARABIC_NUMBER)},
-	{"DIRECTIONALITY_COMMON_NUMBER_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_COMMON_NUMBER_SEPARATOR)},
-	{"DIRECTIONALITY_NONSPACING_MARK", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_NONSPACING_MARK)},
-	{"DIRECTIONALITY_BOUNDARY_NEUTRAL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_BOUNDARY_NEUTRAL)},
-	{"DIRECTIONALITY_PARAGRAPH_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_PARAGRAPH_SEPARATOR)},
-	{"DIRECTIONALITY_SEGMENT_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_SEGMENT_SEPARATOR)},
-	{"DIRECTIONALITY_WHITESPACE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_WHITESPACE)},
-	{"DIRECTIONALITY_OTHER_NEUTRALS", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_OTHER_NEUTRALS)},
-	{"DIRECTIONALITY_LEFT_TO_RIGHT_EMBEDDING", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_LEFT_TO_RIGHT_EMBEDDING)},
-	{"DIRECTIONALITY_LEFT_TO_RIGHT_OVERRIDE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_LEFT_TO_RIGHT_OVERRIDE)},
-	{"DIRECTIONALITY_RIGHT_TO_LEFT_EMBEDDING", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_RIGHT_TO_LEFT_EMBEDDING)},
-	{"DIRECTIONALITY_RIGHT_TO_LEFT_OVERRIDE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_RIGHT_TO_LEFT_OVERRIDE)},
-	{"DIRECTIONALITY_POP_DIRECTIONAL_FORMAT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_POP_DIRECTIONAL_FORMAT)},
-	{"DIRECTIONALITY_LEFT_TO_RIGHT_ISOLATE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_LEFT_TO_RIGHT_ISOLATE)},
-	{"DIRECTIONALITY_RIGHT_TO_LEFT_ISOLATE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_RIGHT_TO_LEFT_ISOLATE)},
-	{"DIRECTIONALITY_FIRST_STRONG_ISOLATE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_FIRST_STRONG_ISOLATE)},
-	{"DIRECTIONALITY_POP_DIRECTIONAL_ISOLATE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_POP_DIRECTIONAL_ISOLATE)},
-	{"DIRECTIONALITY_CATEGORY_COUNT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_CATEGORY_COUNT)},
-	{"bidiCategoryList", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(UnicodeSpec, bidiCategoryList)},
-	{"FIELD_VALUE", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_VALUE)},
-	{"FIELD_NAME", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_NAME)},
-	{"FIELD_CATEGORY", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_CATEGORY)},
-	{"FIELD_CLASS", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_CLASS)},
-	{"FIELD_BIDI", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_BIDI)},
-	{"FIELD_DECOMPOSITION", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_DECOMPOSITION)},
-	{"FIELD_DECIMAL", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_DECIMAL)},
-	{"FIELD_DIGIT", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_DIGIT)},
-	{"FIELD_NUMERIC", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_NUMERIC)},
-	{"FIELD_MIRRORED", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_MIRRORED)},
-	{"FIELD_OLDNAME", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_OLDNAME)},
-	{"FIELD_COMMENT", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_COMMENT)},
-	{"FIELD_UPPERCASE", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_UPPERCASE)},
-	{"FIELD_LOWERCASE", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_LOWERCASE)},
-	{"FIELD_TITLECASE", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_TITLECASE)},
-	{"tokenSeparator", "Ljava/util/regex/Pattern;", nullptr, $STATIC | $FINAL, $staticField(UnicodeSpec, tokenSeparator)},
-	{}
-};
-
-$MethodInfo _UnicodeSpec_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UnicodeSpec, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(UnicodeSpec, init$, void, int32_t)},
-	{"getBidiCategory", "()B", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getBidiCategory, int8_t)},
-	{"getCodePoint", "()I", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getCodePoint, int32_t)},
-	{"getCombiningClass", "()I", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getCombiningClass, int32_t)},
-	{"getComment", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getComment, $String*)},
-	{"getDecimalValue", "()I", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getDecimalValue, int32_t)},
-	{"getDecomposition", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getDecomposition, $String*)},
-	{"getDigitValue", "()I", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getDigitValue, int32_t)},
-	{"getGeneralCategory", "()B", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getGeneralCategory, int8_t)},
-	{"getLowerMap", "()I", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getLowerMap, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getName, $String*)},
-	{"getNumericValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getNumericValue, $String*)},
-	{"getOldName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getOldName, $String*)},
-	{"getTitleMap", "()I", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getTitleMap, int32_t)},
-	{"getUpperMap", "()I", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getUpperMap, int32_t)},
-	{"hasLowerMap", "()Z", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, hasLowerMap, bool)},
-	{"hasTitleMap", "()Z", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, hasTitleMap, bool)},
-	{"hasUpperMap", "()Z", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, hasUpperMap, bool)},
-	{"hex4", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(UnicodeSpec, hex4, $String*, int32_t)},
-	{"hex6", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(UnicodeSpec, hex6, $String*, int32_t)},
-	{"isDecimalValue", "()Z", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, isDecimalValue, bool)},
-	{"isDigitValue", "()Z", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, isDigitValue, bool)},
-	{"isMirrored", "()Z", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, isMirrored, bool)},
-	{"isNumericValue", "()Z", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, isNumericValue, bool)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, main, void, $StringArray*)},
-	{"parse", "(Ljava/lang/String;)LUnicodeSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parse, UnicodeSpec*, $String*)},
-	{"parseBidiCategory", "(Ljava/lang/String;)B", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseBidiCategory, int8_t, $String*), "java.lang.Exception"},
-	{"parseCodePoint", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseCodePoint, int32_t, $String*), "java.lang.NumberFormatException"},
-	{"parseCombiningClass", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseCombiningClass, int32_t, $String*), "java.lang.Exception"},
-	{"parseComment", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseComment, $String*, $String*), "java.lang.Exception"},
-	{"parseDecimalValue", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseDecimalValue, int32_t, $String*), "java.lang.NumberFormatException"},
-	{"parseDecomposition", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseDecomposition, $String*, $String*), "java.lang.Exception"},
-	{"parseDigitValue", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseDigitValue, int32_t, $String*), "java.lang.NumberFormatException"},
-	{"parseGeneralCategory", "(Ljava/lang/String;)B", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseGeneralCategory, int8_t, $String*), "java.lang.Exception"},
-	{"parseLowerMap", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseLowerMap, int32_t, $String*), "java.lang.NumberFormatException"},
-	{"parseMirrored", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseMirrored, bool, $String*), "java.lang.Exception"},
-	{"parseName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseName, $String*, $String*), "java.lang.Exception"},
-	{"parseNumericValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseNumericValue, $String*, $String*), "java.lang.Exception"},
-	{"parseOldName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseOldName, $String*, $String*), "java.lang.Exception"},
-	{"parseTitleMap", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseTitleMap, int32_t, $String*), "java.lang.NumberFormatException"},
-	{"parseUpperMap", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseUpperMap, int32_t, $String*), "java.lang.NumberFormatException"},
-	{"readSpecFile", "(Ljava/io/File;I)[LUnicodeSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, readSpecFile, $UnicodeSpecArray*, $File*, int32_t), "java.io.FileNotFoundException"},
-	{"setBidiCategory", "(B)V", nullptr, 0, $virtualMethod(UnicodeSpec, setBidiCategory, void, int8_t)},
-	{"setCodePoint", "(I)V", nullptr, 0, $virtualMethod(UnicodeSpec, setCodePoint, void, int32_t)},
-	{"setCombiningClass", "(I)V", nullptr, 0, $virtualMethod(UnicodeSpec, setCombiningClass, void, int32_t)},
-	{"setComment", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(UnicodeSpec, setComment, void, $String*)},
-	{"setDecimalValue", "(I)V", nullptr, 0, $virtualMethod(UnicodeSpec, setDecimalValue, void, int32_t)},
-	{"setDecomposition", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(UnicodeSpec, setDecomposition, void, $String*)},
-	{"setDigitValue", "(I)V", nullptr, 0, $virtualMethod(UnicodeSpec, setDigitValue, void, int32_t)},
-	{"setGeneralCategory", "(B)V", nullptr, 0, $virtualMethod(UnicodeSpec, setGeneralCategory, void, int8_t)},
-	{"setLowerMap", "(I)V", nullptr, 0, $virtualMethod(UnicodeSpec, setLowerMap, void, int32_t)},
-	{"setMirrored", "(Z)V", nullptr, 0, $virtualMethod(UnicodeSpec, setMirrored, void, bool)},
-	{"setName", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(UnicodeSpec, setName, void, $String*)},
-	{"setNumericValue", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(UnicodeSpec, setNumericValue, void, $String*)},
-	{"setOldName", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(UnicodeSpec, setOldName, void, $String*)},
-	{"setTitleMap", "(I)V", nullptr, 0, $virtualMethod(UnicodeSpec, setTitleMap, void, int32_t)},
-	{"setUpperMap", "(I)V", nullptr, 0, $virtualMethod(UnicodeSpec, setUpperMap, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, toString, $String*)},
-	{}
-};
-
-$ClassInfo _UnicodeSpec_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"UnicodeSpec",
-	"java.lang.Object",
-	nullptr,
-	_UnicodeSpec_FieldInfo_,
-	_UnicodeSpec_MethodInfo_
-};
-
-$Object* allocate$UnicodeSpec($Class* clazz) {
-	return $of($alloc(UnicodeSpec));
-}
-
 $StringArray2* UnicodeSpec::generalCategoryList = nullptr;
 $StringArray2* UnicodeSpec::bidiCategoryList = nullptr;
 $Pattern* UnicodeSpec::tokenSeparator = nullptr;
 
 void UnicodeSpec::init$() {
-	UnicodeSpec::init$(0x0000FFFF);
+	UnicodeSpec::init$(0x0000ffff);
 }
 
 void UnicodeSpec::init$(int32_t codePoint) {
@@ -294,9 +116,9 @@ void UnicodeSpec::init$(int32_t codePoint) {
 	this->generalCategory = UnicodeSpec::UNASSIGNED;
 	this->bidiCategory = UnicodeSpec::DIRECTIONALITY_UNDEFINED;
 	this->mirrored = false;
-	this->titleMap = 0x0000FFFF;
-	this->upperMap = 0x0000FFFF;
-	this->lowerMap = 0x0000FFFF;
+	this->titleMap = 0x0000ffff;
+	this->upperMap = 0x0000ffff;
+	this->lowerMap = 0x0000ffff;
 	this->decimalValue = -1;
 	this->digitValue = -1;
 	$set(this, numericValue, ""_s);
@@ -306,15 +128,15 @@ void UnicodeSpec::init$(int32_t codePoint) {
 }
 
 $String* UnicodeSpec::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, result, $new($StringBuffer, $(hex6(this->codePoint))));
-	if (getUpperMap() != 0x0000FFFF) {
+	if (getUpperMap() != 0x0000ffff) {
 		result->append(", upper="_s)->append($(hex6(this->upperMap)));
 	}
-	if (getLowerMap() != 0x0000FFFF) {
+	if (getLowerMap() != 0x0000ffff) {
 		result->append(", lower="_s)->append($(hex6(this->lowerMap)));
 	}
-	if (getTitleMap() != 0x0000FFFF) {
+	if (getTitleMap() != 0x0000ffff) {
 		result->append(", title="_s)->append($(hex6(this->titleMap)));
 	}
 	return result->toString();
@@ -322,41 +144,41 @@ $String* UnicodeSpec::toString() {
 
 $String* UnicodeSpec::hex4(int32_t n) {
 	$init(UnicodeSpec);
-	$useLocalCurrentObjectStackCache();
-	$var($String, q, $nc($($Long::toHexString((int32_t)(n & (uint32_t)0x0000FFFF))))->toUpperCase());
+	$useLocalObjectStack();
+	$var($String, q, $$nc($Long::toHexString(n & 0xffff))->toUpperCase());
 	return $str({$("0000"_s->substring($Math::min(4, q->length()))), q});
 }
 
 $String* UnicodeSpec::hex6(int32_t n) {
 	$init(UnicodeSpec);
-	$useLocalCurrentObjectStackCache();
-	$var($String, str, $nc($($Integer::toHexString((int32_t)(n & (uint32_t)0x00FFFFFF))))->toUpperCase());
+	$useLocalObjectStack();
+	$var($String, str, $$nc($Integer::toHexString(n & 0x00ffffff))->toUpperCase());
 	return $str({$("000000"_s->substring($Math::min(6, str->length()))), str});
 }
 
 UnicodeSpec* UnicodeSpec::parse($String* s) {
 	$init(UnicodeSpec);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(UnicodeSpec, spec, nullptr);
 	$var($StringArray, tokens, nullptr);
 	try {
 		$assign(tokens, $nc(UnicodeSpec::tokenSeparator)->split(s, UnicodeSpec::REQUIRED_FIELDS));
 		$assign(spec, $new(UnicodeSpec));
 		spec->setCodePoint(parseCodePoint($nc(tokens)->get(UnicodeSpec::FIELD_VALUE)));
-		spec->setName($(parseName($nc(tokens)->get(UnicodeSpec::FIELD_NAME))));
-		spec->setGeneralCategory(parseGeneralCategory($nc(tokens)->get(UnicodeSpec::FIELD_CATEGORY)));
-		spec->setBidiCategory(parseBidiCategory($nc(tokens)->get(UnicodeSpec::FIELD_BIDI)));
-		spec->setCombiningClass(parseCombiningClass($nc(tokens)->get(UnicodeSpec::FIELD_CLASS)));
-		spec->setDecomposition($(parseDecomposition($nc(tokens)->get(UnicodeSpec::FIELD_DECOMPOSITION))));
-		spec->setDecimalValue(parseDecimalValue($nc(tokens)->get(UnicodeSpec::FIELD_DECIMAL)));
-		spec->setDigitValue(parseDigitValue($nc(tokens)->get(UnicodeSpec::FIELD_DIGIT)));
-		spec->setNumericValue($(parseNumericValue($nc(tokens)->get(UnicodeSpec::FIELD_NUMERIC))));
-		spec->setMirrored(parseMirrored($nc(tokens)->get(UnicodeSpec::FIELD_MIRRORED)));
-		spec->setOldName($(parseOldName($nc(tokens)->get(UnicodeSpec::FIELD_OLDNAME))));
-		spec->setComment($(parseComment($nc(tokens)->get(UnicodeSpec::FIELD_COMMENT))));
-		spec->setUpperMap(parseUpperMap($nc(tokens)->get(UnicodeSpec::FIELD_UPPERCASE)));
-		spec->setLowerMap(parseLowerMap($nc(tokens)->get(UnicodeSpec::FIELD_LOWERCASE)));
-		spec->setTitleMap(parseTitleMap($nc(tokens)->get(UnicodeSpec::FIELD_TITLECASE)));
+		spec->setName($(parseName(tokens->get(UnicodeSpec::FIELD_NAME))));
+		spec->setGeneralCategory(parseGeneralCategory(tokens->get(UnicodeSpec::FIELD_CATEGORY)));
+		spec->setBidiCategory(parseBidiCategory(tokens->get(UnicodeSpec::FIELD_BIDI)));
+		spec->setCombiningClass(parseCombiningClass(tokens->get(UnicodeSpec::FIELD_CLASS)));
+		spec->setDecomposition($(parseDecomposition(tokens->get(UnicodeSpec::FIELD_DECOMPOSITION))));
+		spec->setDecimalValue(parseDecimalValue(tokens->get(UnicodeSpec::FIELD_DECIMAL)));
+		spec->setDigitValue(parseDigitValue(tokens->get(UnicodeSpec::FIELD_DIGIT)));
+		spec->setNumericValue($(parseNumericValue(tokens->get(UnicodeSpec::FIELD_NUMERIC))));
+		spec->setMirrored(parseMirrored(tokens->get(UnicodeSpec::FIELD_MIRRORED)));
+		spec->setOldName($(parseOldName(tokens->get(UnicodeSpec::FIELD_OLDNAME))));
+		spec->setComment($(parseComment(tokens->get(UnicodeSpec::FIELD_COMMENT))));
+		spec->setUpperMap(parseUpperMap(tokens->get(UnicodeSpec::FIELD_UPPERCASE)));
+		spec->setLowerMap(parseLowerMap(tokens->get(UnicodeSpec::FIELD_LOWERCASE)));
+		spec->setTitleMap(parseTitleMap(tokens->get(UnicodeSpec::FIELD_TITLECASE)));
 	} catch ($Exception& e) {
 		$assign(spec, nullptr);
 		$nc($System::out)->println("Error parsing spec line."_s);
@@ -380,8 +202,8 @@ $String* UnicodeSpec::parseName($String* s) {
 int8_t UnicodeSpec::parseGeneralCategory($String* s) {
 	$init(UnicodeSpec);
 	int8_t category = UnicodeSpec::GENERAL_CATEGORY_COUNT;
-	for (int8_t x = (int8_t)0; x < $nc(UnicodeSpec::generalCategoryList)->length; ++x) {
-		if ($nc(s)->equals($nc($nc(UnicodeSpec::generalCategoryList)->get(x))->get(UnicodeSpec::SHORT))) {
+	for (int8_t x = 0; x < UnicodeSpec::generalCategoryList->length; ++x) {
+		if ($nc(s)->equals($nc(UnicodeSpec::generalCategoryList->get(x))->get(UnicodeSpec::SHORT))) {
 			category = x;
 			break;
 		}
@@ -395,8 +217,8 @@ int8_t UnicodeSpec::parseGeneralCategory($String* s) {
 int8_t UnicodeSpec::parseBidiCategory($String* s) {
 	$init(UnicodeSpec);
 	int8_t category = UnicodeSpec::DIRECTIONALITY_CATEGORY_COUNT;
-	for (int8_t x = (int8_t)0; x < $nc(UnicodeSpec::bidiCategoryList)->length; ++x) {
-		if ($nc(s)->equals($nc($nc(UnicodeSpec::bidiCategoryList)->get(x))->get(UnicodeSpec::SHORT))) {
+	for (int8_t x = 0; x < UnicodeSpec::bidiCategoryList->length; ++x) {
+		if ($nc(s)->equals($nc(UnicodeSpec::bidiCategoryList->get(x))->get(UnicodeSpec::SHORT))) {
 			category = x;
 			break;
 		}
@@ -485,7 +307,7 @@ $String* UnicodeSpec::parseOldName($String* s) {
 
 int32_t UnicodeSpec::parseUpperMap($String* s) {
 	$init(UnicodeSpec);
-	int32_t upperCase = 0x0000FFFF;
+	int32_t upperCase = 0x0000ffff;
 	if ($nc(s)->length() >= 4) {
 		upperCase = $Integer::parseInt(s, 16);
 	} else if (s->length() != 0) {
@@ -496,7 +318,7 @@ int32_t UnicodeSpec::parseUpperMap($String* s) {
 
 int32_t UnicodeSpec::parseLowerMap($String* s) {
 	$init(UnicodeSpec);
-	int32_t lowerCase = 0x0000FFFF;
+	int32_t lowerCase = 0x0000ffff;
 	if ($nc(s)->length() >= 4) {
 		lowerCase = $Integer::parseInt(s, 16);
 	} else if (s->length() != 0) {
@@ -507,7 +329,7 @@ int32_t UnicodeSpec::parseLowerMap($String* s) {
 
 int32_t UnicodeSpec::parseTitleMap($String* s) {
 	$init(UnicodeSpec);
-	int32_t titleCase = 0x0000FFFF;
+	int32_t titleCase = 0x0000ffff;
 	if ($nc(s)->length() >= 4) {
 		titleCase = $Integer::parseInt(s, 16);
 	} else if (s->length() != 0) {
@@ -518,7 +340,7 @@ int32_t UnicodeSpec::parseTitleMap($String* s) {
 
 $UnicodeSpecArray* UnicodeSpec::readSpecFile($File* file, int32_t plane) {
 	$init(UnicodeSpec);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, list, $new($ArrayList, 3000));
 	$var($UnicodeSpecArray, result, nullptr);
 	int32_t count = 0;
@@ -670,7 +492,7 @@ int32_t UnicodeSpec::getUpperMap() {
 }
 
 bool UnicodeSpec::hasUpperMap() {
-	return this->upperMap != 0x0000FFFF;
+	return this->upperMap != 0x0000ffff;
 }
 
 void UnicodeSpec::setLowerMap(int32_t ch) {
@@ -682,7 +504,7 @@ int32_t UnicodeSpec::getLowerMap() {
 }
 
 bool UnicodeSpec::hasLowerMap() {
-	return this->lowerMap != 0x0000FFFF;
+	return this->lowerMap != 0x0000ffff;
 }
 
 void UnicodeSpec::setTitleMap(int32_t ch) {
@@ -694,12 +516,12 @@ int32_t UnicodeSpec::getTitleMap() {
 }
 
 bool UnicodeSpec::hasTitleMap() {
-	return this->titleMap != 0x0000FFFF;
+	return this->titleMap != 0x0000ffff;
 }
 
 void UnicodeSpec::main($StringArray* args) {
 	$init(UnicodeSpec);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UnicodeSpecArray, spec, nullptr);
 	if ($nc(args)->length == 2) {
 		try {
@@ -707,8 +529,8 @@ void UnicodeSpec::main($StringArray* args) {
 			int32_t plane = $Integer::parseInt(args->get(1));
 			$assign(spec, UnicodeSpec::readSpecFile(file, plane));
 			$nc($System::out)->println($$str({"UnicodeSpec["_s, $$str($nc(spec)->length), "]:"_s}));
-			for (int32_t x = 0; x < $nc(spec)->length; ++x) {
-				$nc($System::out)->println($($nc(spec->get(x))->toString()));
+			for (int32_t x = 0; x < spec->length; ++x) {
+				$System::out->println($($nc(spec->get(x))->toString()));
 			}
 		} catch ($Exception& e) {
 			e->printStackTrace();
@@ -716,8 +538,8 @@ void UnicodeSpec::main($StringArray* args) {
 	}
 }
 
-void clinit$UnicodeSpec($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void UnicodeSpec::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(UnicodeSpec::generalCategoryList, $new($StringArray2, {
 		$$new($StringArray, {
 			"Cn"_s,
@@ -945,7 +767,174 @@ UnicodeSpec::UnicodeSpec() {
 }
 
 $Class* UnicodeSpec::load$($String* name, bool initialize) {
-	$loadClass(UnicodeSpec, name, initialize, &_UnicodeSpec_ClassInfo_, clinit$UnicodeSpec, allocate$UnicodeSpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"codePoint", "I", nullptr, 0, $field(UnicodeSpec, codePoint)},
+		{"name", "Ljava/lang/String;", nullptr, 0, $field(UnicodeSpec, name)},
+		{"generalCategory", "B", nullptr, 0, $field(UnicodeSpec, generalCategory)},
+		{"bidiCategory", "B", nullptr, 0, $field(UnicodeSpec, bidiCategory)},
+		{"combiningClass", "I", nullptr, 0, $field(UnicodeSpec, combiningClass)},
+		{"decomposition", "Ljava/lang/String;", nullptr, 0, $field(UnicodeSpec, decomposition)},
+		{"decimalValue", "I", nullptr, 0, $field(UnicodeSpec, decimalValue)},
+		{"digitValue", "I", nullptr, 0, $field(UnicodeSpec, digitValue)},
+		{"numericValue", "Ljava/lang/String;", nullptr, 0, $field(UnicodeSpec, numericValue)},
+		{"mirrored", "Z", nullptr, 0, $field(UnicodeSpec, mirrored)},
+		{"oldName", "Ljava/lang/String;", nullptr, 0, $field(UnicodeSpec, oldName)},
+		{"comment", "Ljava/lang/String;", nullptr, 0, $field(UnicodeSpec, comment)},
+		{"upperMap", "I", nullptr, 0, $field(UnicodeSpec, upperMap)},
+		{"lowerMap", "I", nullptr, 0, $field(UnicodeSpec, lowerMap)},
+		{"titleMap", "I", nullptr, 0, $field(UnicodeSpec, titleMap)},
+		{"REQUIRED_FIELDS", "I", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, REQUIRED_FIELDS)},
+		{"UNASSIGNED", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, UNASSIGNED)},
+		{"UPPERCASE_LETTER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, UPPERCASE_LETTER)},
+		{"LOWERCASE_LETTER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, LOWERCASE_LETTER)},
+		{"TITLECASE_LETTER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, TITLECASE_LETTER)},
+		{"MODIFIER_LETTER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, MODIFIER_LETTER)},
+		{"OTHER_LETTER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, OTHER_LETTER)},
+		{"NON_SPACING_MARK", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, NON_SPACING_MARK)},
+		{"ENCLOSING_MARK", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, ENCLOSING_MARK)},
+		{"COMBINING_SPACING_MARK", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, COMBINING_SPACING_MARK)},
+		{"DECIMAL_DIGIT_NUMBER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DECIMAL_DIGIT_NUMBER)},
+		{"LETTER_NUMBER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, LETTER_NUMBER)},
+		{"OTHER_NUMBER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, OTHER_NUMBER)},
+		{"SPACE_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, SPACE_SEPARATOR)},
+		{"LINE_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, LINE_SEPARATOR)},
+		{"PARAGRAPH_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, PARAGRAPH_SEPARATOR)},
+		{"CONTROL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, CONTROL)},
+		{"FORMAT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, FORMAT)},
+		{"PRIVATE_USE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, PRIVATE_USE)},
+		{"SURROGATE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, SURROGATE)},
+		{"DASH_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DASH_PUNCTUATION)},
+		{"START_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, START_PUNCTUATION)},
+		{"END_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, END_PUNCTUATION)},
+		{"CONNECTOR_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, CONNECTOR_PUNCTUATION)},
+		{"OTHER_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, OTHER_PUNCTUATION)},
+		{"MATH_SYMBOL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, MATH_SYMBOL)},
+		{"CURRENCY_SYMBOL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, CURRENCY_SYMBOL)},
+		{"MODIFIER_SYMBOL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, MODIFIER_SYMBOL)},
+		{"OTHER_SYMBOL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, OTHER_SYMBOL)},
+		{"INITIAL_QUOTE_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, INITIAL_QUOTE_PUNCTUATION)},
+		{"FINAL_QUOTE_PUNCTUATION", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, FINAL_QUOTE_PUNCTUATION)},
+		{"GENERAL_CATEGORY_COUNT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, GENERAL_CATEGORY_COUNT)},
+		{"SHORT", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, SHORT)},
+		{"LONG", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, LONG)},
+		{"generalCategoryList", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(UnicodeSpec, generalCategoryList)},
+		{"DIRECTIONALITY_UNDEFINED", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_UNDEFINED)},
+		{"DIRECTIONALITY_LEFT_TO_RIGHT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_LEFT_TO_RIGHT)},
+		{"DIRECTIONALITY_RIGHT_TO_LEFT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_RIGHT_TO_LEFT)},
+		{"DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC)},
+		{"DIRECTIONALITY_EUROPEAN_NUMBER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_EUROPEAN_NUMBER)},
+		{"DIRECTIONALITY_EUROPEAN_NUMBER_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_EUROPEAN_NUMBER_SEPARATOR)},
+		{"DIRECTIONALITY_EUROPEAN_NUMBER_TERMINATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_EUROPEAN_NUMBER_TERMINATOR)},
+		{"DIRECTIONALITY_ARABIC_NUMBER", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_ARABIC_NUMBER)},
+		{"DIRECTIONALITY_COMMON_NUMBER_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_COMMON_NUMBER_SEPARATOR)},
+		{"DIRECTIONALITY_NONSPACING_MARK", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_NONSPACING_MARK)},
+		{"DIRECTIONALITY_BOUNDARY_NEUTRAL", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_BOUNDARY_NEUTRAL)},
+		{"DIRECTIONALITY_PARAGRAPH_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_PARAGRAPH_SEPARATOR)},
+		{"DIRECTIONALITY_SEGMENT_SEPARATOR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_SEGMENT_SEPARATOR)},
+		{"DIRECTIONALITY_WHITESPACE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_WHITESPACE)},
+		{"DIRECTIONALITY_OTHER_NEUTRALS", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_OTHER_NEUTRALS)},
+		{"DIRECTIONALITY_LEFT_TO_RIGHT_EMBEDDING", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_LEFT_TO_RIGHT_EMBEDDING)},
+		{"DIRECTIONALITY_LEFT_TO_RIGHT_OVERRIDE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_LEFT_TO_RIGHT_OVERRIDE)},
+		{"DIRECTIONALITY_RIGHT_TO_LEFT_EMBEDDING", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_RIGHT_TO_LEFT_EMBEDDING)},
+		{"DIRECTIONALITY_RIGHT_TO_LEFT_OVERRIDE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_RIGHT_TO_LEFT_OVERRIDE)},
+		{"DIRECTIONALITY_POP_DIRECTIONAL_FORMAT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_POP_DIRECTIONAL_FORMAT)},
+		{"DIRECTIONALITY_LEFT_TO_RIGHT_ISOLATE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_LEFT_TO_RIGHT_ISOLATE)},
+		{"DIRECTIONALITY_RIGHT_TO_LEFT_ISOLATE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_RIGHT_TO_LEFT_ISOLATE)},
+		{"DIRECTIONALITY_FIRST_STRONG_ISOLATE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_FIRST_STRONG_ISOLATE)},
+		{"DIRECTIONALITY_POP_DIRECTIONAL_ISOLATE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_POP_DIRECTIONAL_ISOLATE)},
+		{"DIRECTIONALITY_CATEGORY_COUNT", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeSpec, DIRECTIONALITY_CATEGORY_COUNT)},
+		{"bidiCategoryList", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(UnicodeSpec, bidiCategoryList)},
+		{"FIELD_VALUE", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_VALUE)},
+		{"FIELD_NAME", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_NAME)},
+		{"FIELD_CATEGORY", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_CATEGORY)},
+		{"FIELD_CLASS", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_CLASS)},
+		{"FIELD_BIDI", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_BIDI)},
+		{"FIELD_DECOMPOSITION", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_DECOMPOSITION)},
+		{"FIELD_DECIMAL", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_DECIMAL)},
+		{"FIELD_DIGIT", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_DIGIT)},
+		{"FIELD_NUMERIC", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_NUMERIC)},
+		{"FIELD_MIRRORED", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_MIRRORED)},
+		{"FIELD_OLDNAME", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_OLDNAME)},
+		{"FIELD_COMMENT", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_COMMENT)},
+		{"FIELD_UPPERCASE", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_UPPERCASE)},
+		{"FIELD_LOWERCASE", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_LOWERCASE)},
+		{"FIELD_TITLECASE", "B", nullptr, $STATIC | $FINAL, $constField(UnicodeSpec, FIELD_TITLECASE)},
+		{"tokenSeparator", "Ljava/util/regex/Pattern;", nullptr, $STATIC | $FINAL, $staticField(UnicodeSpec, tokenSeparator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UnicodeSpec, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(UnicodeSpec, init$, void, int32_t)},
+		{"getBidiCategory", "()B", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getBidiCategory, int8_t)},
+		{"getCodePoint", "()I", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getCodePoint, int32_t)},
+		{"getCombiningClass", "()I", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getCombiningClass, int32_t)},
+		{"getComment", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getComment, $String*)},
+		{"getDecimalValue", "()I", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getDecimalValue, int32_t)},
+		{"getDecomposition", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getDecomposition, $String*)},
+		{"getDigitValue", "()I", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getDigitValue, int32_t)},
+		{"getGeneralCategory", "()B", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getGeneralCategory, int8_t)},
+		{"getLowerMap", "()I", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getLowerMap, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getName, $String*)},
+		{"getNumericValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getNumericValue, $String*)},
+		{"getOldName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getOldName, $String*)},
+		{"getTitleMap", "()I", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getTitleMap, int32_t)},
+		{"getUpperMap", "()I", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, getUpperMap, int32_t)},
+		{"hasLowerMap", "()Z", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, hasLowerMap, bool)},
+		{"hasTitleMap", "()Z", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, hasTitleMap, bool)},
+		{"hasUpperMap", "()Z", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, hasUpperMap, bool)},
+		{"hex4", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(UnicodeSpec, hex4, $String*, int32_t)},
+		{"hex6", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(UnicodeSpec, hex6, $String*, int32_t)},
+		{"isDecimalValue", "()Z", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, isDecimalValue, bool)},
+		{"isDigitValue", "()Z", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, isDigitValue, bool)},
+		{"isMirrored", "()Z", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, isMirrored, bool)},
+		{"isNumericValue", "()Z", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, isNumericValue, bool)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, main, void, $StringArray*)},
+		{"parse", "(Ljava/lang/String;)LUnicodeSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parse, UnicodeSpec*, $String*)},
+		{"parseBidiCategory", "(Ljava/lang/String;)B", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseBidiCategory, int8_t, $String*), "java.lang.Exception"},
+		{"parseCodePoint", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseCodePoint, int32_t, $String*), "java.lang.NumberFormatException"},
+		{"parseCombiningClass", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseCombiningClass, int32_t, $String*), "java.lang.Exception"},
+		{"parseComment", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseComment, $String*, $String*), "java.lang.Exception"},
+		{"parseDecimalValue", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseDecimalValue, int32_t, $String*), "java.lang.NumberFormatException"},
+		{"parseDecomposition", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseDecomposition, $String*, $String*), "java.lang.Exception"},
+		{"parseDigitValue", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseDigitValue, int32_t, $String*), "java.lang.NumberFormatException"},
+		{"parseGeneralCategory", "(Ljava/lang/String;)B", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseGeneralCategory, int8_t, $String*), "java.lang.Exception"},
+		{"parseLowerMap", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseLowerMap, int32_t, $String*), "java.lang.NumberFormatException"},
+		{"parseMirrored", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseMirrored, bool, $String*), "java.lang.Exception"},
+		{"parseName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseName, $String*, $String*), "java.lang.Exception"},
+		{"parseNumericValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseNumericValue, $String*, $String*), "java.lang.Exception"},
+		{"parseOldName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseOldName, $String*, $String*), "java.lang.Exception"},
+		{"parseTitleMap", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseTitleMap, int32_t, $String*), "java.lang.NumberFormatException"},
+		{"parseUpperMap", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, parseUpperMap, int32_t, $String*), "java.lang.NumberFormatException"},
+		{"readSpecFile", "(Ljava/io/File;I)[LUnicodeSpec;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeSpec, readSpecFile, $UnicodeSpecArray*, $File*, int32_t), "java.io.FileNotFoundException"},
+		{"setBidiCategory", "(B)V", nullptr, 0, $virtualMethod(UnicodeSpec, setBidiCategory, void, int8_t)},
+		{"setCodePoint", "(I)V", nullptr, 0, $virtualMethod(UnicodeSpec, setCodePoint, void, int32_t)},
+		{"setCombiningClass", "(I)V", nullptr, 0, $virtualMethod(UnicodeSpec, setCombiningClass, void, int32_t)},
+		{"setComment", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(UnicodeSpec, setComment, void, $String*)},
+		{"setDecimalValue", "(I)V", nullptr, 0, $virtualMethod(UnicodeSpec, setDecimalValue, void, int32_t)},
+		{"setDecomposition", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(UnicodeSpec, setDecomposition, void, $String*)},
+		{"setDigitValue", "(I)V", nullptr, 0, $virtualMethod(UnicodeSpec, setDigitValue, void, int32_t)},
+		{"setGeneralCategory", "(B)V", nullptr, 0, $virtualMethod(UnicodeSpec, setGeneralCategory, void, int8_t)},
+		{"setLowerMap", "(I)V", nullptr, 0, $virtualMethod(UnicodeSpec, setLowerMap, void, int32_t)},
+		{"setMirrored", "(Z)V", nullptr, 0, $virtualMethod(UnicodeSpec, setMirrored, void, bool)},
+		{"setName", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(UnicodeSpec, setName, void, $String*)},
+		{"setNumericValue", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(UnicodeSpec, setNumericValue, void, $String*)},
+		{"setOldName", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(UnicodeSpec, setOldName, void, $String*)},
+		{"setTitleMap", "(I)V", nullptr, 0, $virtualMethod(UnicodeSpec, setTitleMap, void, int32_t)},
+		{"setUpperMap", "(I)V", nullptr, 0, $virtualMethod(UnicodeSpec, setUpperMap, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicodeSpec, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"UnicodeSpec",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnicodeSpec, name, initialize, &classInfo$$, UnicodeSpec::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(UnicodeSpec);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/tree/analysis/SmallSet$IteratorImpl.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/NoSuchElementException.h>
 #include <jdk/internal/org/objectweb/asm/tree/analysis/SmallSet.h>
@@ -20,45 +19,6 @@ namespace jdk {
 					namespace tree {
 						namespace analysis {
 
-$FieldInfo _SmallSet$IteratorImpl_FieldInfo_[] = {
-	{"firstElement", "Ljava/lang/Object;", "TT;", $PRIVATE, $field(SmallSet$IteratorImpl, firstElement)},
-	{"secondElement", "Ljava/lang/Object;", "TT;", $PRIVATE, $field(SmallSet$IteratorImpl, secondElement)},
-	{}
-};
-
-$MethodInfo _SmallSet$IteratorImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TT;)V", 0, $method(SmallSet$IteratorImpl, init$, void, Object$*, Object$*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(SmallSet$IteratorImpl, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(SmallSet$IteratorImpl, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(SmallSet$IteratorImpl, remove, void)},
-	{}
-};
-
-$InnerClassInfo _SmallSet$IteratorImpl_InnerClassesInfo_[] = {
-	{"jdk.internal.org.objectweb.asm.tree.analysis.SmallSet$IteratorImpl", "jdk.internal.org.objectweb.asm.tree.analysis.SmallSet", "IteratorImpl", $STATIC},
-	{}
-};
-
-$ClassInfo _SmallSet$IteratorImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.tree.analysis.SmallSet$IteratorImpl",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_SmallSet$IteratorImpl_FieldInfo_,
-	_SmallSet$IteratorImpl_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Iterator<TT;>;",
-	nullptr,
-	_SmallSet$IteratorImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.org.objectweb.asm.tree.analysis.SmallSet"
-};
-
-$Object* allocate$SmallSet$IteratorImpl($Class* clazz) {
-	return $of($alloc(SmallSet$IteratorImpl));
-}
-
 void SmallSet$IteratorImpl::init$(Object$* firstElement, Object$* secondElement) {
 	$set(this, firstElement, firstElement);
 	$set(this, secondElement, secondElement);
@@ -75,7 +35,7 @@ $Object* SmallSet$IteratorImpl::next() {
 	$var($Object, element, this->firstElement);
 	$set(this, firstElement, this->secondElement);
 	$set(this, secondElement, nullptr);
-	return $of(element);
+	return element;
 }
 
 void SmallSet$IteratorImpl::remove() {
@@ -86,7 +46,40 @@ SmallSet$IteratorImpl::SmallSet$IteratorImpl() {
 }
 
 $Class* SmallSet$IteratorImpl::load$($String* name, bool initialize) {
-	$loadClass(SmallSet$IteratorImpl, name, initialize, &_SmallSet$IteratorImpl_ClassInfo_, allocate$SmallSet$IteratorImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"firstElement", "Ljava/lang/Object;", "TT;", $PRIVATE, $field(SmallSet$IteratorImpl, firstElement)},
+		{"secondElement", "Ljava/lang/Object;", "TT;", $PRIVATE, $field(SmallSet$IteratorImpl, secondElement)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TT;)V", 0, $method(SmallSet$IteratorImpl, init$, void, Object$*, Object$*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(SmallSet$IteratorImpl, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(SmallSet$IteratorImpl, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(SmallSet$IteratorImpl, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.org.objectweb.asm.tree.analysis.SmallSet$IteratorImpl", "jdk.internal.org.objectweb.asm.tree.analysis.SmallSet", "IteratorImpl", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.tree.analysis.SmallSet$IteratorImpl",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Iterator<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.org.objectweb.asm.tree.analysis.SmallSet"
+	};
+	$loadClass(SmallSet$IteratorImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SmallSet$IteratorImpl);
+	});
 	return class$;
 }
 

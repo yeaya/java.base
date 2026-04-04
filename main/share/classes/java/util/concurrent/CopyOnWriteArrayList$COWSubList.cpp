@@ -1,5 +1,4 @@
 #include <java/util/concurrent/CopyOnWriteArrayList$COWSubList.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/invoke/CallSite.h>
@@ -63,33 +62,29 @@ public:
 	virtual bool test(Object$* e) override {
 		 return CopyOnWriteArrayList$COWSubList::lambda$removeAll$0(c, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CopyOnWriteArrayList$COWSubList$$Lambda$lambda$removeAll$0>());
-	}
 	$Collection* c = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CopyOnWriteArrayList$COWSubList$$Lambda$lambda$removeAll$0::fieldInfos[2] = {
-	{"c", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(CopyOnWriteArrayList$COWSubList$$Lambda$lambda$removeAll$0, c)},
-	{}
-};
-$MethodInfo CopyOnWriteArrayList$COWSubList$$Lambda$lambda$removeAll$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(CopyOnWriteArrayList$COWSubList$$Lambda$lambda$removeAll$0, init$, void, $Collection*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList$$Lambda$lambda$removeAll$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo CopyOnWriteArrayList$COWSubList$$Lambda$lambda$removeAll$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.concurrent.CopyOnWriteArrayList$COWSubList$$Lambda$lambda$removeAll$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* CopyOnWriteArrayList$COWSubList$$Lambda$lambda$removeAll$0::load$($String* name, bool initialize) {
-	$loadClass(CopyOnWriteArrayList$COWSubList$$Lambda$lambda$removeAll$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"c", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(CopyOnWriteArrayList$COWSubList$$Lambda$lambda$removeAll$0, c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(CopyOnWriteArrayList$COWSubList$$Lambda$lambda$removeAll$0, init$, void, $Collection*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList$$Lambda$lambda$removeAll$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.concurrent.CopyOnWriteArrayList$COWSubList$$Lambda$lambda$removeAll$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CopyOnWriteArrayList$COWSubList$$Lambda$lambda$removeAll$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CopyOnWriteArrayList$COWSubList$$Lambda$lambda$removeAll$0);
+	});
 	return class$;
 }
 $Class* CopyOnWriteArrayList$COWSubList$$Lambda$lambda$removeAll$0::class$ = nullptr;
@@ -103,114 +98,32 @@ public:
 	virtual bool test(Object$* e) override {
 		 return CopyOnWriteArrayList$COWSubList::lambda$retainAll$1(c, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CopyOnWriteArrayList$COWSubList$$Lambda$lambda$retainAll$1$1>());
-	}
 	$Collection* c = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CopyOnWriteArrayList$COWSubList$$Lambda$lambda$retainAll$1$1::fieldInfos[2] = {
-	{"c", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(CopyOnWriteArrayList$COWSubList$$Lambda$lambda$retainAll$1$1, c)},
-	{}
-};
-$MethodInfo CopyOnWriteArrayList$COWSubList$$Lambda$lambda$retainAll$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(CopyOnWriteArrayList$COWSubList$$Lambda$lambda$retainAll$1$1, init$, void, $Collection*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList$$Lambda$lambda$retainAll$1$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo CopyOnWriteArrayList$COWSubList$$Lambda$lambda$retainAll$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.concurrent.CopyOnWriteArrayList$COWSubList$$Lambda$lambda$retainAll$1$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* CopyOnWriteArrayList$COWSubList$$Lambda$lambda$retainAll$1$1::load$($String* name, bool initialize) {
-	$loadClass(CopyOnWriteArrayList$COWSubList$$Lambda$lambda$retainAll$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"c", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(CopyOnWriteArrayList$COWSubList$$Lambda$lambda$retainAll$1$1, c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(CopyOnWriteArrayList$COWSubList$$Lambda$lambda$retainAll$1$1, init$, void, $Collection*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList$$Lambda$lambda$retainAll$1$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.concurrent.CopyOnWriteArrayList$COWSubList$$Lambda$lambda$retainAll$1$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CopyOnWriteArrayList$COWSubList$$Lambda$lambda$retainAll$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CopyOnWriteArrayList$COWSubList$$Lambda$lambda$retainAll$1$1);
+	});
 	return class$;
 }
 $Class* CopyOnWriteArrayList$COWSubList$$Lambda$lambda$retainAll$1$1::class$ = nullptr;
-
-$FieldInfo _CopyOnWriteArrayList$COWSubList_FieldInfo_[] = {
-	{"this$0", "Ljava/util/concurrent/CopyOnWriteArrayList;", nullptr, $FINAL | $SYNTHETIC, $field(CopyOnWriteArrayList$COWSubList, this$0)},
-	{"offset", "I", nullptr, $PRIVATE | $FINAL, $field(CopyOnWriteArrayList$COWSubList, offset)},
-	{"size", "I", nullptr, $PRIVATE, $field(CopyOnWriteArrayList$COWSubList, size$)},
-	{"expectedArray", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(CopyOnWriteArrayList$COWSubList, expectedArray)},
-	{}
-};
-
-$MethodInfo _CopyOnWriteArrayList$COWSubList_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/util/concurrent/CopyOnWriteArrayList;[Ljava/lang/Object;II)V", nullptr, 0, $method(CopyOnWriteArrayList$COWSubList, init$, void, $CopyOnWriteArrayList*, $ObjectArray*, int32_t, int32_t)},
-	{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, add, bool, Object$*)},
-	{"add", "(ILjava/lang/Object;)V", "(ITE;)V", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, add, void, int32_t, Object$*)},
-	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, addAll, bool, $Collection*)},
-	{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, addAll, bool, int32_t, $Collection*)},
-	{"bulkRemove", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PRIVATE, $method(CopyOnWriteArrayList$COWSubList, bulkRemove, bool, $Predicate*)},
-	{"checkForComodification", "()V", nullptr, $PRIVATE, $method(CopyOnWriteArrayList$COWSubList, checkForComodification, void)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, contains, bool, Object$*)},
-	{"containsAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, containsAll, bool, $Collection*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, equals, bool, Object$*)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, forEach, void, $Consumer*)},
-	{"get", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, get, $Object*, int32_t)},
-	{"getArrayChecked", "()[Ljava/lang/Object;", nullptr, $PRIVATE, $method(CopyOnWriteArrayList$COWSubList, getArrayChecked, $ObjectArray*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, hashCode, int32_t)},
-	{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, indexOf, int32_t, Object$*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, isEmpty, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, iterator, $Iterator*)},
-	{"lambda$removeAll$0", "(Ljava/util/Collection;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CopyOnWriteArrayList$COWSubList, lambda$removeAll$0, bool, $Collection*, Object$*)},
-	{"lambda$retainAll$1", "(Ljava/util/Collection;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CopyOnWriteArrayList$COWSubList, lambda$retainAll$1, bool, $Collection*, Object$*)},
-	{"lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, lastIndexOf, int32_t, Object$*)},
-	{"listIterator", "()Ljava/util/ListIterator;", "()Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, listIterator, $ListIterator*)},
-	{"listIterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, listIterator, $ListIterator*, int32_t)},
-	{"rangeCheck", "(I)V", nullptr, $PRIVATE, $method(CopyOnWriteArrayList$COWSubList, rangeCheck, void, int32_t)},
-	{"rangeCheckForAdd", "(I)V", nullptr, $PRIVATE, $method(CopyOnWriteArrayList$COWSubList, rangeCheckForAdd, void, int32_t)},
-	{"remove", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, remove, $Object*, int32_t)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, remove, bool, Object$*)},
-	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, removeAll, bool, $Collection*)},
-	{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, removeIf, bool, $Predicate*)},
-	{"replaceAll", "(Ljava/util/function/UnaryOperator;)V", "(Ljava/util/function/UnaryOperator<TE;>;)V", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, replaceAll, void, $UnaryOperator*)},
-	{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, retainAll, bool, $Collection*)},
-	{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITE;)TE;", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, set, $Object*, int32_t, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, size, int32_t)},
-	{"sort", "(Ljava/util/Comparator;)V", "(Ljava/util/Comparator<-TE;>;)V", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, sort, void, $Comparator*)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, spliterator, $Spliterator*)},
-	{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, subList, $List*, int32_t, int32_t)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, toArray, $ObjectArray*, $ObjectArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _CopyOnWriteArrayList$COWSubList_InnerClassesInfo_[] = {
-	{"java.util.concurrent.CopyOnWriteArrayList$COWSubList", "java.util.concurrent.CopyOnWriteArrayList", "COWSubList", $PRIVATE},
-	{}
-};
-
-$ClassInfo _CopyOnWriteArrayList$COWSubList_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.concurrent.CopyOnWriteArrayList$COWSubList",
-	"java.lang.Object",
-	"java.util.List,java.util.RandomAccess",
-	_CopyOnWriteArrayList$COWSubList_FieldInfo_,
-	_CopyOnWriteArrayList$COWSubList_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/List<TE;>;Ljava/util/RandomAccess;",
-	nullptr,
-	_CopyOnWriteArrayList$COWSubList_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.CopyOnWriteArrayList"
-};
-
-$Object* allocate$CopyOnWriteArrayList$COWSubList($Class* clazz) {
-	return $of($alloc(CopyOnWriteArrayList$COWSubList));
-}
 
 $Object* CopyOnWriteArrayList$COWSubList::clone() {
 	 return this->$List::clone();
@@ -316,7 +229,7 @@ bool CopyOnWriteArrayList$COWSubList::contains(Object$* o) {
 }
 
 bool CopyOnWriteArrayList$COWSubList::containsAll($Collection* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, es, nullptr);
 	int32_t offset = 0;
 	int32_t size = 0;
@@ -358,14 +271,14 @@ int32_t CopyOnWriteArrayList$COWSubList::hashCode() {
 }
 
 bool CopyOnWriteArrayList$COWSubList::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(o, this)) {
 		return true;
 	}
 	if (!($instanceOf($List, o))) {
 		return false;
 	}
-	$var($Iterator, it, $nc(($cast($List, o)))->iterator());
+	$var($Iterator, it, $nc($cast($List, o))->iterator());
 	$var($ObjectArray, es, nullptr);
 	int32_t offset = 0;
 	int32_t size = 0;
@@ -374,14 +287,10 @@ bool CopyOnWriteArrayList$COWSubList::equals(Object$* o) {
 		offset = this->offset;
 		size = this->size$;
 	}
-	{
-		int32_t i = offset;
-		int32_t end = offset + size;
-		for (; i < end; ++i) {
-			bool var$0 = !$nc(it)->hasNext();
-			if (var$0 || !$Objects::equals($nc(es)->get(i), $($nc(it)->next()))) {
-				return false;
-			}
+	for (int32_t i = offset, end = offset + size; i < end; ++i) {
+		bool var$0 = !$nc(it)->hasNext();
+		if (var$0 || !$Objects::equals($nc(es)->get(i), $(it->next()))) {
+			return false;
 		}
 	}
 	return !$nc(it)->hasNext();
@@ -393,7 +302,7 @@ $Object* CopyOnWriteArrayList$COWSubList::set(int32_t index, Object$* element) {
 		checkForComodification();
 		$var($Object, x, this->this$0->set(this->offset + index, element));
 		$set(this, expectedArray, this->this$0->getArray());
-		return $of(x);
+		return x;
 	}
 }
 
@@ -401,7 +310,7 @@ $Object* CopyOnWriteArrayList$COWSubList::get(int32_t index) {
 	$synchronized(this->this$0->lock) {
 		rangeCheck(index);
 		checkForComodification();
-		return $of(this->this$0->get(this->offset + index));
+		return this->this$0->get(this->offset + index);
 	}
 }
 
@@ -467,7 +376,7 @@ $Object* CopyOnWriteArrayList$COWSubList::remove(int32_t index) {
 		$var($Object, result, this->this$0->remove(this->offset + index));
 		$set(this, expectedArray, this->this$0->getArray());
 		--this->size$;
-		return $of(result);
+		return result;
 	}
 }
 
@@ -510,7 +419,7 @@ $List* CopyOnWriteArrayList$COWSubList::subList(int32_t fromIndex, int32_t toInd
 }
 
 void CopyOnWriteArrayList$COWSubList::forEach($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(action);
 	int32_t i = 0;
 	int32_t end = 0;
@@ -543,12 +452,12 @@ void CopyOnWriteArrayList$COWSubList::sort($Comparator* c) {
 
 bool CopyOnWriteArrayList$COWSubList::removeAll($Collection* c) {
 	$Objects::requireNonNull(c);
-	return bulkRemove(static_cast<$Predicate*>($$new(CopyOnWriteArrayList$COWSubList$$Lambda$lambda$removeAll$0, c)));
+	return bulkRemove($$new(CopyOnWriteArrayList$COWSubList$$Lambda$lambda$removeAll$0, c));
 }
 
 bool CopyOnWriteArrayList$COWSubList::retainAll($Collection* c) {
 	$Objects::requireNonNull(c);
-	return bulkRemove(static_cast<$Predicate*>($$new(CopyOnWriteArrayList$COWSubList$$Lambda$lambda$retainAll$1$1, c)));
+	return bulkRemove($$new(CopyOnWriteArrayList$COWSubList$$Lambda$lambda$retainAll$1$1, c));
 }
 
 bool CopyOnWriteArrayList$COWSubList::removeIf($Predicate* filter) {
@@ -586,14 +495,86 @@ CopyOnWriteArrayList$COWSubList::CopyOnWriteArrayList$COWSubList() {
 
 $Class* CopyOnWriteArrayList$COWSubList::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(CopyOnWriteArrayList$COWSubList$$Lambda$lambda$removeAll$0::classInfo$.name)) {
+		if (name->equals("java.util.concurrent.CopyOnWriteArrayList$COWSubList$$Lambda$lambda$removeAll$0")) {
 			return CopyOnWriteArrayList$COWSubList$$Lambda$lambda$removeAll$0::load$(name, initialize);
 		}
-		if (name->equals(CopyOnWriteArrayList$COWSubList$$Lambda$lambda$retainAll$1$1::classInfo$.name)) {
+		if (name->equals("java.util.concurrent.CopyOnWriteArrayList$COWSubList$$Lambda$lambda$retainAll$1$1")) {
 			return CopyOnWriteArrayList$COWSubList$$Lambda$lambda$retainAll$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(CopyOnWriteArrayList$COWSubList, name, initialize, &_CopyOnWriteArrayList$COWSubList_ClassInfo_, allocate$CopyOnWriteArrayList$COWSubList);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/concurrent/CopyOnWriteArrayList;", nullptr, $FINAL | $SYNTHETIC, $field(CopyOnWriteArrayList$COWSubList, this$0)},
+		{"offset", "I", nullptr, $PRIVATE | $FINAL, $field(CopyOnWriteArrayList$COWSubList, offset)},
+		{"size", "I", nullptr, $PRIVATE, $field(CopyOnWriteArrayList$COWSubList, size$)},
+		{"expectedArray", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(CopyOnWriteArrayList$COWSubList, expectedArray)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/util/concurrent/CopyOnWriteArrayList;[Ljava/lang/Object;II)V", nullptr, 0, $method(CopyOnWriteArrayList$COWSubList, init$, void, $CopyOnWriteArrayList*, $ObjectArray*, int32_t, int32_t)},
+		{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, add, bool, Object$*)},
+		{"add", "(ILjava/lang/Object;)V", "(ITE;)V", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, add, void, int32_t, Object$*)},
+		{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, addAll, bool, $Collection*)},
+		{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, addAll, bool, int32_t, $Collection*)},
+		{"bulkRemove", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PRIVATE, $method(CopyOnWriteArrayList$COWSubList, bulkRemove, bool, $Predicate*)},
+		{"checkForComodification", "()V", nullptr, $PRIVATE, $method(CopyOnWriteArrayList$COWSubList, checkForComodification, void)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, contains, bool, Object$*)},
+		{"containsAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, containsAll, bool, $Collection*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, equals, bool, Object$*)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, forEach, void, $Consumer*)},
+		{"get", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, get, $Object*, int32_t)},
+		{"getArrayChecked", "()[Ljava/lang/Object;", nullptr, $PRIVATE, $method(CopyOnWriteArrayList$COWSubList, getArrayChecked, $ObjectArray*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, hashCode, int32_t)},
+		{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, indexOf, int32_t, Object$*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, isEmpty, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, iterator, $Iterator*)},
+		{"lambda$removeAll$0", "(Ljava/util/Collection;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CopyOnWriteArrayList$COWSubList, lambda$removeAll$0, bool, $Collection*, Object$*)},
+		{"lambda$retainAll$1", "(Ljava/util/Collection;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CopyOnWriteArrayList$COWSubList, lambda$retainAll$1, bool, $Collection*, Object$*)},
+		{"lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, lastIndexOf, int32_t, Object$*)},
+		{"listIterator", "()Ljava/util/ListIterator;", "()Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, listIterator, $ListIterator*)},
+		{"listIterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, listIterator, $ListIterator*, int32_t)},
+		{"rangeCheck", "(I)V", nullptr, $PRIVATE, $method(CopyOnWriteArrayList$COWSubList, rangeCheck, void, int32_t)},
+		{"rangeCheckForAdd", "(I)V", nullptr, $PRIVATE, $method(CopyOnWriteArrayList$COWSubList, rangeCheckForAdd, void, int32_t)},
+		{"remove", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, remove, $Object*, int32_t)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, remove, bool, Object$*)},
+		{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, removeAll, bool, $Collection*)},
+		{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, removeIf, bool, $Predicate*)},
+		{"replaceAll", "(Ljava/util/function/UnaryOperator;)V", "(Ljava/util/function/UnaryOperator<TE;>;)V", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, replaceAll, void, $UnaryOperator*)},
+		{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, retainAll, bool, $Collection*)},
+		{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITE;)TE;", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, set, $Object*, int32_t, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, size, int32_t)},
+		{"sort", "(Ljava/util/Comparator;)V", "(Ljava/util/Comparator<-TE;>;)V", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, sort, void, $Comparator*)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, spliterator, $Spliterator*)},
+		{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, subList, $List*, int32_t, int32_t)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, toArray, $ObjectArray*, $ObjectArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubList, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.CopyOnWriteArrayList$COWSubList", "java.util.concurrent.CopyOnWriteArrayList", "COWSubList", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.concurrent.CopyOnWriteArrayList$COWSubList",
+		"java.lang.Object",
+		"java.util.List,java.util.RandomAccess",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/List<TE;>;Ljava/util/RandomAccess;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.CopyOnWriteArrayList"
+	};
+	$loadClass(CopyOnWriteArrayList$COWSubList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CopyOnWriteArrayList$COWSubList));
+	});
 	return class$;
 }
 

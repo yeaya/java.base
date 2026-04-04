@@ -1,5 +1,4 @@
 #include <LookupTest$Server.h>
-
 #include <LookupTest.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -8,7 +7,6 @@
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/Socket.h>
-#include <java/net/SocketAddress.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
 #include <jcpp.h>
@@ -27,52 +25,12 @@ using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
-using $SocketAddress = ::java::net::SocketAddress;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
-
-$FieldInfo _LookupTest$Server_FieldInfo_[] = {
-	{"done", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LookupTest$Server, done)},
-	{"requestEnd", "[B", nullptr, $STATIC | $FINAL, $staticField(LookupTest$Server, requestEnd)},
-	{}
-};
-
-$MethodInfo _LookupTest$Server_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LookupTest$Server, init$, void), "java.io.IOException"},
-	{"readOneRequest", "(Ljava/io/InputStream;)V", nullptr, 0, $virtualMethod(LookupTest$Server, readOneRequest, void, $InputStream*), "java.io.IOException"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LookupTest$Server, run, void)},
-	{"terminate", "()V", nullptr, 0, $virtualMethod(LookupTest$Server, terminate, void)},
-	{}
-};
-
-$InnerClassInfo _LookupTest$Server_InnerClassesInfo_[] = {
-	{"LookupTest$Server", "LookupTest", "Server", $STATIC},
-	{}
-};
-
-$ClassInfo _LookupTest$Server_ClassInfo_ = {
-	$ACC_SUPER,
-	"LookupTest$Server",
-	"java.lang.Thread",
-	nullptr,
-	_LookupTest$Server_FieldInfo_,
-	_LookupTest$Server_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LookupTest$Server_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"LookupTest"
-};
-
-$Object* allocate$LookupTest$Server($Class* clazz) {
-	return $of($alloc(LookupTest$Server));
-}
 
 $bytes* LookupTest$Server::requestEnd = nullptr;
 
 void LookupTest$Server::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Thread::init$();
 	$var($InetAddress, loopback, $InetAddress::getLoopbackAddress());
 	$init($LookupTest);
@@ -82,41 +40,39 @@ void LookupTest$Server::init$() {
 }
 
 void LookupTest$Server::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		while (!this->done) {
 			{
 				$init($LookupTest);
 				$var($Socket, s, $nc($LookupTest::serverSocket)->accept());
-				{
-					$var($Throwable, var$0, nullptr);
+				$var($Throwable, var$0, nullptr);
+				try {
 					try {
-						try {
-							readOneRequest($($nc(s)->getInputStream()));
-							$var($OutputStream, o, $nc(s)->getOutputStream());
-							$var($String, rsp, "HTTP/1.1 200 Ok\r\nConnection: close\r\nContent-length: 0\r\n\r\n"_s);
-							$init($StandardCharsets);
-							$nc(o)->write($(rsp->getBytes($StandardCharsets::US_ASCII)));
-						} catch ($Throwable& t$) {
-							if (s != nullptr) {
-								try {
-									s->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-							}
-							$throw(t$);
-						}
-					} catch ($Throwable& var$1) {
-						$assign(var$0, var$1);
-					} /*finally*/ {
+						readOneRequest($($nc(s)->getInputStream()));
+						$var($OutputStream, o, s->getOutputStream());
+						$var($String, rsp, "HTTP/1.1 200 Ok\r\nConnection: close\r\nContent-length: 0\r\n\r\n"_s);
+						$init($StandardCharsets);
+						$nc(o)->write($(rsp->getBytes($StandardCharsets::US_ASCII)));
+					} catch ($Throwable& t$) {
 						if (s != nullptr) {
-							s->close();
+							try {
+								s->close();
+							} catch ($Throwable& x2) {
+								t$->addSuppressed(x2);
+							}
 						}
+						$throw(t$);
 					}
-					if (var$0 != nullptr) {
-						$throw(var$0);
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
+				} /*finally*/ {
+					if (s != nullptr) {
+						s->close();
 					}
+				}
+				if (var$0 != nullptr) {
+					$throw(var$0);
 				}
 			}
 		}
@@ -141,7 +97,7 @@ void LookupTest$Server::readOneRequest($InputStream* is) {
 	int32_t requestEndCount = 0;
 	int32_t r = 0;
 	while ((r = $nc(is)->read()) != -1) {
-		if (r == $nc(LookupTest$Server::requestEnd)->get(requestEndCount)) {
+		if (r == LookupTest$Server::requestEnd->get(requestEndCount)) {
 			++requestEndCount;
 			if (requestEndCount == 4) {
 				break;
@@ -152,7 +108,7 @@ void LookupTest$Server::readOneRequest($InputStream* is) {
 	}
 }
 
-void clinit$LookupTest$Server($Class* class$) {
+void LookupTest$Server::clinit$($Class* clazz) {
 	$assignStatic(LookupTest$Server::requestEnd, $new($bytes, {
 		(int8_t)u'\r',
 		(int8_t)u'\n',
@@ -165,7 +121,40 @@ LookupTest$Server::LookupTest$Server() {
 }
 
 $Class* LookupTest$Server::load$($String* name, bool initialize) {
-	$loadClass(LookupTest$Server, name, initialize, &_LookupTest$Server_ClassInfo_, clinit$LookupTest$Server, allocate$LookupTest$Server);
+	$FieldInfo fieldInfos$$[] = {
+		{"done", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LookupTest$Server, done)},
+		{"requestEnd", "[B", nullptr, $STATIC | $FINAL, $staticField(LookupTest$Server, requestEnd)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LookupTest$Server, init$, void), "java.io.IOException"},
+		{"readOneRequest", "(Ljava/io/InputStream;)V", nullptr, 0, $virtualMethod(LookupTest$Server, readOneRequest, void, $InputStream*), "java.io.IOException"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LookupTest$Server, run, void)},
+		{"terminate", "()V", nullptr, 0, $virtualMethod(LookupTest$Server, terminate, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"LookupTest$Server", "LookupTest", "Server", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"LookupTest$Server",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"LookupTest"
+	};
+	$loadClass(LookupTest$Server, name, initialize, &classInfo$$, LookupTest$Server::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LookupTest$Server);
+	});
 	return class$;
 }
 

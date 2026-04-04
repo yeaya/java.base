@@ -1,5 +1,4 @@
 #include <java/security/PrivateKey.h>
-
 #include <java/security/Key.h>
 #include <jcpp.h>
 
@@ -11,38 +10,6 @@ using $Key = ::java::security::Key;
 
 namespace java {
 	namespace security {
-
-$CompoundAttribute _PrivateKey_FieldAnnotations_serialVersionUID[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _PrivateKey_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(PrivateKey, serialVersionUID), _PrivateKey_FieldAnnotations_serialVersionUID},
-	{}
-};
-
-$MethodInfo _PrivateKey_MethodInfo_[] = {
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{}
-};
-
-$ClassInfo _PrivateKey_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.security.PrivateKey",
-	nullptr,
-	"java.security.Key,javax.security.auth.Destroyable",
-	_PrivateKey_FieldInfo_,
-	_PrivateKey_MethodInfo_
-};
-
-$Object* allocate$PrivateKey($Class* clazz) {
-	return $of($alloc(PrivateKey));
-}
 
 int32_t PrivateKey::hashCode() {
 	 return this->$Key::hashCode();
@@ -65,7 +32,33 @@ void PrivateKey::finalize() {
 }
 
 $Class* PrivateKey::load$($String* name, bool initialize) {
-	$loadClass(PrivateKey, name, initialize, &_PrivateKey_ClassInfo_, allocate$PrivateKey);
+	$CompoundAttribute serialVersionUIDfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(PrivateKey, serialVersionUID), serialVersionUIDfieldAnnotations$$},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.security.PrivateKey",
+		nullptr,
+		"java.security.Key,javax.security.auth.Destroyable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PrivateKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PrivateKey));
+	});
 	return class$;
 }
 

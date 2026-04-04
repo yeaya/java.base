@@ -1,5 +1,4 @@
 #include <java/time/OffsetTime$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/time/OffsetTime.h>
 #include <java/time/temporal/ChronoUnit.h>
@@ -23,73 +22,37 @@ using $ChronoUnit = ::java::time::temporal::ChronoUnit;
 namespace java {
 	namespace time {
 
-$FieldInfo _OffsetTime$1_FieldInfo_[] = {
-	{"$SwitchMap$java$time$temporal$ChronoUnit", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(OffsetTime$1, $SwitchMap$java$time$temporal$ChronoUnit)},
-	{}
-};
-
-$EnclosingMethodInfo _OffsetTime$1_EnclosingMethodInfo_ = {
-	"java.time.OffsetTime",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _OffsetTime$1_InnerClassesInfo_[] = {
-	{"java.time.OffsetTime$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _OffsetTime$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"java.time.OffsetTime$1",
-	"java.lang.Object",
-	nullptr,
-	_OffsetTime$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_OffsetTime$1_EnclosingMethodInfo_,
-	_OffsetTime$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.OffsetTime"
-};
-
-$Object* allocate$OffsetTime$1($Class* clazz) {
-	return $of($alloc(OffsetTime$1));
-}
-
 $ints* OffsetTime$1::$SwitchMap$java$time$temporal$ChronoUnit = nullptr;
 
-void clinit$OffsetTime$1($Class* class$) {
+void OffsetTime$1::clinit$($Class* clazz) {
 	$assignStatic(OffsetTime$1::$SwitchMap$java$time$temporal$ChronoUnit, $new($ints, $($ChronoUnit::values())->length));
 	{
 		try {
-			$nc(OffsetTime$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::NANOS->ordinal(), 1);
+			OffsetTime$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::NANOS->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(OffsetTime$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::MICROS->ordinal(), 2);
+			OffsetTime$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::MICROS->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(OffsetTime$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::MILLIS->ordinal(), 3);
+			OffsetTime$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::MILLIS->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(OffsetTime$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::SECONDS->ordinal(), 4);
+			OffsetTime$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::SECONDS->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(OffsetTime$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::MINUTES->ordinal(), 5);
+			OffsetTime$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::MINUTES->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(OffsetTime$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::HOURS->ordinal(), 6);
+			OffsetTime$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::HOURS->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(OffsetTime$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::HALF_DAYS->ordinal(), 7);
+			OffsetTime$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::HALF_DAYS->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -99,7 +62,37 @@ OffsetTime$1::OffsetTime$1() {
 }
 
 $Class* OffsetTime$1::load$($String* name, bool initialize) {
-	$loadClass(OffsetTime$1, name, initialize, &_OffsetTime$1_ClassInfo_, clinit$OffsetTime$1, allocate$OffsetTime$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$time$temporal$ChronoUnit", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(OffsetTime$1, $SwitchMap$java$time$temporal$ChronoUnit)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.time.OffsetTime",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.OffsetTime$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"java.time.OffsetTime$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.OffsetTime"
+	};
+	$loadClass(OffsetTime$1, name, initialize, &classInfo$$, OffsetTime$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(OffsetTime$1);
+	});
 	return class$;
 }
 

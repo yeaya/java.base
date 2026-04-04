@@ -35,6 +35,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t size, ::java::util::function::IntFunction* generator);
 	virtual void accept(Object$* t) override;
 	virtual void begin(int64_t size) override;

@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/ChaCha20Poly1305Parameters.h>
-
 #include <java/io/IOException.h>
 #include <java/security/AlgorithmParametersSpi.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
@@ -30,37 +29,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _ChaCha20Poly1305Parameters_FieldInfo_[] = {
-	{"DEFAULT_FMT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ChaCha20Poly1305Parameters, DEFAULT_FMT)},
-	{"nonce", "[B", nullptr, $PRIVATE, $field(ChaCha20Poly1305Parameters, nonce)},
-	{}
-};
-
-$MethodInfo _ChaCha20Poly1305Parameters_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ChaCha20Poly1305Parameters, init$, void)},
-	{"engineGetEncoded", "()[B", nullptr, $PROTECTED, $virtualMethod(ChaCha20Poly1305Parameters, engineGetEncoded, $bytes*), "java.io.IOException"},
-	{"engineGetEncoded", "(Ljava/lang/String;)[B", nullptr, $PROTECTED, $virtualMethod(ChaCha20Poly1305Parameters, engineGetEncoded, $bytes*, $String*), "java.io.IOException"},
-	{"engineGetParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", $PROTECTED, $virtualMethod(ChaCha20Poly1305Parameters, engineGetParameterSpec, $AlgorithmParameterSpec*, $Class*), "java.security.spec.InvalidParameterSpecException"},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(ChaCha20Poly1305Parameters, engineInit, void, $AlgorithmParameterSpec*), "java.security.spec.InvalidParameterSpecException"},
-	{"engineInit", "([B)V", nullptr, $PROTECTED, $virtualMethod(ChaCha20Poly1305Parameters, engineInit, void, $bytes*), "java.io.IOException"},
-	{"engineInit", "([BLjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ChaCha20Poly1305Parameters, engineInit, void, $bytes*, $String*), "java.io.IOException"},
-	{"engineToString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(ChaCha20Poly1305Parameters, engineToString, $String*)},
-	{}
-};
-
-$ClassInfo _ChaCha20Poly1305Parameters_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.ChaCha20Poly1305Parameters",
-	"java.security.AlgorithmParametersSpi",
-	nullptr,
-	_ChaCha20Poly1305Parameters_FieldInfo_,
-	_ChaCha20Poly1305Parameters_MethodInfo_
-};
-
-$Object* allocate$ChaCha20Poly1305Parameters($Class* clazz) {
-	return $of($alloc(ChaCha20Poly1305Parameters));
-}
-
 $String* ChaCha20Poly1305Parameters::DEFAULT_FMT = nullptr;
 
 void ChaCha20Poly1305Parameters::init$() {
@@ -87,7 +55,7 @@ void ChaCha20Poly1305Parameters::engineInit($bytes* encoded) {
 }
 
 void ChaCha20Poly1305Parameters::engineInit($bytes* encoded, $String* decodingMethod) {
-	if (decodingMethod == nullptr || $nc(decodingMethod)->equalsIgnoreCase(ChaCha20Poly1305Parameters::DEFAULT_FMT)) {
+	if (decodingMethod == nullptr || decodingMethod->equalsIgnoreCase(ChaCha20Poly1305Parameters::DEFAULT_FMT)) {
 		engineInit(encoded);
 	} else {
 		$throwNew($IOException, $$str({"Unsupported parameter format: "_s, decodingMethod}));
@@ -110,7 +78,7 @@ $bytes* ChaCha20Poly1305Parameters::engineGetEncoded() {
 }
 
 $bytes* ChaCha20Poly1305Parameters::engineGetEncoded($String* encodingMethod) {
-	if (encodingMethod == nullptr || $nc(encodingMethod)->equalsIgnoreCase(ChaCha20Poly1305Parameters::DEFAULT_FMT)) {
+	if (encodingMethod == nullptr || encodingMethod->equalsIgnoreCase(ChaCha20Poly1305Parameters::DEFAULT_FMT)) {
 		return engineGetEncoded();
 	} else {
 		$throwNew($IOException, $$str({"Unsupported encoding format: "_s, encodingMethod}));
@@ -118,7 +86,7 @@ $bytes* ChaCha20Poly1305Parameters::engineGetEncoded($String* encodingMethod) {
 }
 
 $String* ChaCha20Poly1305Parameters::engineToString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, LINE_SEP, $System::lineSeparator());
 	$var($HexDumpEncoder, encoder, $new($HexDumpEncoder));
 	$var($StringBuilder, sb, $new($StringBuilder, $$str({LINE_SEP, "nonce:"_s, LINE_SEP, "["_s, $(encoder->encodeBuffer(this->nonce)), "]"_s})));
@@ -128,12 +96,38 @@ $String* ChaCha20Poly1305Parameters::engineToString() {
 ChaCha20Poly1305Parameters::ChaCha20Poly1305Parameters() {
 }
 
-void clinit$ChaCha20Poly1305Parameters($Class* class$) {
+void ChaCha20Poly1305Parameters::clinit$($Class* clazz) {
 	$assignStatic(ChaCha20Poly1305Parameters::DEFAULT_FMT, "ASN.1"_s);
 }
 
 $Class* ChaCha20Poly1305Parameters::load$($String* name, bool initialize) {
-	$loadClass(ChaCha20Poly1305Parameters, name, initialize, &_ChaCha20Poly1305Parameters_ClassInfo_, clinit$ChaCha20Poly1305Parameters, allocate$ChaCha20Poly1305Parameters);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_FMT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ChaCha20Poly1305Parameters, DEFAULT_FMT)},
+		{"nonce", "[B", nullptr, $PRIVATE, $field(ChaCha20Poly1305Parameters, nonce)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ChaCha20Poly1305Parameters, init$, void)},
+		{"engineGetEncoded", "()[B", nullptr, $PROTECTED, $virtualMethod(ChaCha20Poly1305Parameters, engineGetEncoded, $bytes*), "java.io.IOException"},
+		{"engineGetEncoded", "(Ljava/lang/String;)[B", nullptr, $PROTECTED, $virtualMethod(ChaCha20Poly1305Parameters, engineGetEncoded, $bytes*, $String*), "java.io.IOException"},
+		{"engineGetParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", $PROTECTED, $virtualMethod(ChaCha20Poly1305Parameters, engineGetParameterSpec, $AlgorithmParameterSpec*, $Class*), "java.security.spec.InvalidParameterSpecException"},
+		{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(ChaCha20Poly1305Parameters, engineInit, void, $AlgorithmParameterSpec*), "java.security.spec.InvalidParameterSpecException"},
+		{"engineInit", "([B)V", nullptr, $PROTECTED, $virtualMethod(ChaCha20Poly1305Parameters, engineInit, void, $bytes*), "java.io.IOException"},
+		{"engineInit", "([BLjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ChaCha20Poly1305Parameters, engineInit, void, $bytes*, $String*), "java.io.IOException"},
+		{"engineToString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(ChaCha20Poly1305Parameters, engineToString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.ChaCha20Poly1305Parameters",
+		"java.security.AlgorithmParametersSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ChaCha20Poly1305Parameters, name, initialize, &classInfo$$, ChaCha20Poly1305Parameters::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ChaCha20Poly1305Parameters);
+	});
 	return class$;
 }
 

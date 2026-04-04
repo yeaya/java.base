@@ -85,6 +85,7 @@ class $import MessageFormat : public ::java::text::Format {
 public:
 	MessageFormat();
 	using ::java::text::Format::format;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* pattern);
 	void init$($String* pattern, ::java::util::Locale* locale);
 	void append(::java::lang::StringBuffer* result, ::java::text::CharacterIterator* iterator);
@@ -114,7 +115,7 @@ public:
 	virtual void setLocale(::java::util::Locale* locale);
 	::java::lang::StringBuffer* subformat($ObjectArray* arguments, ::java::lang::StringBuffer* result, ::java::text::FieldPosition* fp, ::java::util::List* characterIterators);
 	virtual $String* toPattern();
-	static const int64_t serialVersionUID = (int64_t)0x59EA973E12BD01A8;
+	static const int64_t serialVersionUID = (int64_t)0x59ea973e12bd01a8;
 	::java::util::Locale* locale = nullptr;
 	$String* pattern = nullptr;
 	static const int32_t INITIAL_FORMATS = 10;

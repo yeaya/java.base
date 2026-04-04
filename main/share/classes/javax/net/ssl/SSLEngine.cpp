@@ -1,5 +1,4 @@
 #include <javax/net/ssl/SSLEngine.h>
-
 #include <java/lang/Runnable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/nio/ByteBuffer.h>
@@ -27,68 +26,6 @@ using $SSLSession = ::javax::net::ssl::SSLSession;
 namespace javax {
 	namespace net {
 		namespace ssl {
-
-$FieldInfo _SSLEngine_FieldInfo_[] = {
-	{"peerHost", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SSLEngine, peerHost)},
-	{"peerPort", "I", nullptr, $PRIVATE, $field(SSLEngine, peerPort)},
-	{}
-};
-
-$MethodInfo _SSLEngine_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(SSLEngine, init$, void)},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PROTECTED, $method(SSLEngine, init$, void, $String*, int32_t)},
-	{"beginHandshake", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, beginHandshake, void), "javax.net.ssl.SSLException"},
-	{"closeInbound", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, closeInbound, void), "javax.net.ssl.SSLException"},
-	{"closeOutbound", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, closeOutbound, void)},
-	{"getApplicationProtocol", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLEngine, getApplicationProtocol, $String*)},
-	{"getDelegatedTask", "()Ljava/lang/Runnable;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, getDelegatedTask, $Runnable*)},
-	{"getEnableSessionCreation", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, getEnableSessionCreation, bool)},
-	{"getEnabledCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, getEnabledCipherSuites, $StringArray*)},
-	{"getEnabledProtocols", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, getEnabledProtocols, $StringArray*)},
-	{"getHandshakeApplicationProtocol", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLEngine, getHandshakeApplicationProtocol, $String*)},
-	{"getHandshakeApplicationProtocolSelector", "()Ljava/util/function/BiFunction;", "()Ljava/util/function/BiFunction<Ljavax/net/ssl/SSLEngine;Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SSLEngine, getHandshakeApplicationProtocolSelector, $BiFunction*)},
-	{"getHandshakeSession", "()Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC, $virtualMethod(SSLEngine, getHandshakeSession, $SSLSession*)},
-	{"getHandshakeStatus", "()Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, getHandshakeStatus, $SSLEngineResult$HandshakeStatus*)},
-	{"getNeedClientAuth", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, getNeedClientAuth, bool)},
-	{"getPeerHost", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLEngine, getPeerHost, $String*)},
-	{"getPeerPort", "()I", nullptr, $PUBLIC, $virtualMethod(SSLEngine, getPeerPort, int32_t)},
-	{"getSSLParameters", "()Ljavax/net/ssl/SSLParameters;", nullptr, $PUBLIC, $virtualMethod(SSLEngine, getSSLParameters, $SSLParameters*)},
-	{"getSession", "()Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, getSession, $SSLSession*)},
-	{"getSupportedCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, getSupportedCipherSuites, $StringArray*)},
-	{"getSupportedProtocols", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, getSupportedProtocols, $StringArray*)},
-	{"getUseClientMode", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, getUseClientMode, bool)},
-	{"getWantClientAuth", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, getWantClientAuth, bool)},
-	{"isInboundDone", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, isInboundDone, bool)},
-	{"isOutboundDone", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, isOutboundDone, bool)},
-	{"setEnableSessionCreation", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, setEnableSessionCreation, void, bool)},
-	{"setEnabledCipherSuites", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, setEnabledCipherSuites, void, $StringArray*)},
-	{"setEnabledProtocols", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, setEnabledProtocols, void, $StringArray*)},
-	{"setHandshakeApplicationProtocolSelector", "(Ljava/util/function/BiFunction;)V", "(Ljava/util/function/BiFunction<Ljavax/net/ssl/SSLEngine;Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(SSLEngine, setHandshakeApplicationProtocolSelector, void, $BiFunction*)},
-	{"setNeedClientAuth", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, setNeedClientAuth, void, bool)},
-	{"setSSLParameters", "(Ljavax/net/ssl/SSLParameters;)V", nullptr, $PUBLIC, $virtualMethod(SSLEngine, setSSLParameters, void, $SSLParameters*)},
-	{"setUseClientMode", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, setUseClientMode, void, bool)},
-	{"setWantClientAuth", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, setWantClientAuth, void, bool)},
-	{"unwrap", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)Ljavax/net/ssl/SSLEngineResult;", nullptr, $PUBLIC, $virtualMethod(SSLEngine, unwrap, $SSLEngineResult*, $ByteBuffer*, $ByteBuffer*), "javax.net.ssl.SSLException"},
-	{"unwrap", "(Ljava/nio/ByteBuffer;[Ljava/nio/ByteBuffer;)Ljavax/net/ssl/SSLEngineResult;", nullptr, $PUBLIC, $virtualMethod(SSLEngine, unwrap, $SSLEngineResult*, $ByteBuffer*, $ByteBufferArray*), "javax.net.ssl.SSLException"},
-	{"unwrap", "(Ljava/nio/ByteBuffer;[Ljava/nio/ByteBuffer;II)Ljavax/net/ssl/SSLEngineResult;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, unwrap, $SSLEngineResult*, $ByteBuffer*, $ByteBufferArray*, int32_t, int32_t), "javax.net.ssl.SSLException"},
-	{"wrap", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)Ljavax/net/ssl/SSLEngineResult;", nullptr, $PUBLIC, $virtualMethod(SSLEngine, wrap, $SSLEngineResult*, $ByteBuffer*, $ByteBuffer*), "javax.net.ssl.SSLException"},
-	{"wrap", "([Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)Ljavax/net/ssl/SSLEngineResult;", nullptr, $PUBLIC, $virtualMethod(SSLEngine, wrap, $SSLEngineResult*, $ByteBufferArray*, $ByteBuffer*), "javax.net.ssl.SSLException"},
-	{"wrap", "([Ljava/nio/ByteBuffer;IILjava/nio/ByteBuffer;)Ljavax/net/ssl/SSLEngineResult;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, wrap, $SSLEngineResult*, $ByteBufferArray*, int32_t, int32_t, $ByteBuffer*), "javax.net.ssl.SSLException"},
-	{}
-};
-
-$ClassInfo _SSLEngine_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.net.ssl.SSLEngine",
-	"java.lang.Object",
-	nullptr,
-	_SSLEngine_FieldInfo_,
-	_SSLEngine_MethodInfo_
-};
-
-$Object* allocate$SSLEngine($Class* clazz) {
-	return $of($alloc(SSLEngine));
-}
 
 void SSLEngine::init$() {
 	$set(this, peerHost, nullptr);
@@ -138,7 +75,7 @@ $SSLSession* SSLEngine::getHandshakeSession() {
 }
 
 $SSLParameters* SSLEngine::getSSLParameters() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SSLParameters, params, $new($SSLParameters));
 	params->setCipherSuites($(getEnabledCipherSuites()));
 	params->setProtocols($(getEnabledProtocols()));
@@ -192,7 +129,64 @@ SSLEngine::SSLEngine() {
 }
 
 $Class* SSLEngine::load$($String* name, bool initialize) {
-	$loadClass(SSLEngine, name, initialize, &_SSLEngine_ClassInfo_, allocate$SSLEngine);
+	$FieldInfo fieldInfos$$[] = {
+		{"peerHost", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SSLEngine, peerHost)},
+		{"peerPort", "I", nullptr, $PRIVATE, $field(SSLEngine, peerPort)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(SSLEngine, init$, void)},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PROTECTED, $method(SSLEngine, init$, void, $String*, int32_t)},
+		{"beginHandshake", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, beginHandshake, void), "javax.net.ssl.SSLException"},
+		{"closeInbound", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, closeInbound, void), "javax.net.ssl.SSLException"},
+		{"closeOutbound", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, closeOutbound, void)},
+		{"getApplicationProtocol", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLEngine, getApplicationProtocol, $String*)},
+		{"getDelegatedTask", "()Ljava/lang/Runnable;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, getDelegatedTask, $Runnable*)},
+		{"getEnableSessionCreation", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, getEnableSessionCreation, bool)},
+		{"getEnabledCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, getEnabledCipherSuites, $StringArray*)},
+		{"getEnabledProtocols", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, getEnabledProtocols, $StringArray*)},
+		{"getHandshakeApplicationProtocol", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLEngine, getHandshakeApplicationProtocol, $String*)},
+		{"getHandshakeApplicationProtocolSelector", "()Ljava/util/function/BiFunction;", "()Ljava/util/function/BiFunction<Ljavax/net/ssl/SSLEngine;Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SSLEngine, getHandshakeApplicationProtocolSelector, $BiFunction*)},
+		{"getHandshakeSession", "()Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC, $virtualMethod(SSLEngine, getHandshakeSession, $SSLSession*)},
+		{"getHandshakeStatus", "()Ljavax/net/ssl/SSLEngineResult$HandshakeStatus;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, getHandshakeStatus, $SSLEngineResult$HandshakeStatus*)},
+		{"getNeedClientAuth", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, getNeedClientAuth, bool)},
+		{"getPeerHost", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLEngine, getPeerHost, $String*)},
+		{"getPeerPort", "()I", nullptr, $PUBLIC, $virtualMethod(SSLEngine, getPeerPort, int32_t)},
+		{"getSSLParameters", "()Ljavax/net/ssl/SSLParameters;", nullptr, $PUBLIC, $virtualMethod(SSLEngine, getSSLParameters, $SSLParameters*)},
+		{"getSession", "()Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, getSession, $SSLSession*)},
+		{"getSupportedCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, getSupportedCipherSuites, $StringArray*)},
+		{"getSupportedProtocols", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, getSupportedProtocols, $StringArray*)},
+		{"getUseClientMode", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, getUseClientMode, bool)},
+		{"getWantClientAuth", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, getWantClientAuth, bool)},
+		{"isInboundDone", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, isInboundDone, bool)},
+		{"isOutboundDone", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, isOutboundDone, bool)},
+		{"setEnableSessionCreation", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, setEnableSessionCreation, void, bool)},
+		{"setEnabledCipherSuites", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, setEnabledCipherSuites, void, $StringArray*)},
+		{"setEnabledProtocols", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, setEnabledProtocols, void, $StringArray*)},
+		{"setHandshakeApplicationProtocolSelector", "(Ljava/util/function/BiFunction;)V", "(Ljava/util/function/BiFunction<Ljavax/net/ssl/SSLEngine;Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(SSLEngine, setHandshakeApplicationProtocolSelector, void, $BiFunction*)},
+		{"setNeedClientAuth", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, setNeedClientAuth, void, bool)},
+		{"setSSLParameters", "(Ljavax/net/ssl/SSLParameters;)V", nullptr, $PUBLIC, $virtualMethod(SSLEngine, setSSLParameters, void, $SSLParameters*)},
+		{"setUseClientMode", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, setUseClientMode, void, bool)},
+		{"setWantClientAuth", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, setWantClientAuth, void, bool)},
+		{"unwrap", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)Ljavax/net/ssl/SSLEngineResult;", nullptr, $PUBLIC, $virtualMethod(SSLEngine, unwrap, $SSLEngineResult*, $ByteBuffer*, $ByteBuffer*), "javax.net.ssl.SSLException"},
+		{"unwrap", "(Ljava/nio/ByteBuffer;[Ljava/nio/ByteBuffer;)Ljavax/net/ssl/SSLEngineResult;", nullptr, $PUBLIC, $virtualMethod(SSLEngine, unwrap, $SSLEngineResult*, $ByteBuffer*, $ByteBufferArray*), "javax.net.ssl.SSLException"},
+		{"unwrap", "(Ljava/nio/ByteBuffer;[Ljava/nio/ByteBuffer;II)Ljavax/net/ssl/SSLEngineResult;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, unwrap, $SSLEngineResult*, $ByteBuffer*, $ByteBufferArray*, int32_t, int32_t), "javax.net.ssl.SSLException"},
+		{"wrap", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)Ljavax/net/ssl/SSLEngineResult;", nullptr, $PUBLIC, $virtualMethod(SSLEngine, wrap, $SSLEngineResult*, $ByteBuffer*, $ByteBuffer*), "javax.net.ssl.SSLException"},
+		{"wrap", "([Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)Ljavax/net/ssl/SSLEngineResult;", nullptr, $PUBLIC, $virtualMethod(SSLEngine, wrap, $SSLEngineResult*, $ByteBufferArray*, $ByteBuffer*), "javax.net.ssl.SSLException"},
+		{"wrap", "([Ljava/nio/ByteBuffer;IILjava/nio/ByteBuffer;)Ljavax/net/ssl/SSLEngineResult;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLEngine, wrap, $SSLEngineResult*, $ByteBufferArray*, int32_t, int32_t, $ByteBuffer*), "javax.net.ssl.SSLException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.net.ssl.SSLEngine",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SSLEngine, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLEngine);
+	});
 	return class$;
 }
 

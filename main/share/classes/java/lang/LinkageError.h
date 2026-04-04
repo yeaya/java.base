@@ -21,10 +21,13 @@ public:
 	void init$();
 	void init$($String* s);
 	void init$($String* s, $Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0x31AD4B5534A84ABA;
+	static const int64_t serialVersionUID = (int64_t)0x31ad4b5534a84aba;
 	LinkageError(const LinkageError& e);
 	virtual void throw$() override;
-	inline LinkageError* operator ->() {
+	inline LinkageError* operator ->() const {
+		return (LinkageError*)throwing$;
+	}
+	inline operator LinkageError*() const {
 		return (LinkageError*)throwing$;
 	}
 };

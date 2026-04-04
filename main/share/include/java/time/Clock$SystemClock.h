@@ -26,6 +26,7 @@ public:
 	Clock$SystemClock();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::time::ZoneId* zone);
 	virtual bool equals(Object$* obj) override;
 	virtual ::java::time::ZoneId* getZone() override;
@@ -34,7 +35,7 @@ public:
 	virtual int64_t millis() override;
 	virtual $String* toString() override;
 	virtual ::java::time::Clock* withZone(::java::time::ZoneId* zone) override;
-	static const int64_t serialVersionUID = (int64_t)0x5D8B8814510769EB;
+	static const int64_t serialVersionUID = (int64_t)0x5d8b8814510769eb;
 	static ::java::time::Clock$SystemClock* UTC;
 	::java::time::ZoneId* zone = nullptr;
 };

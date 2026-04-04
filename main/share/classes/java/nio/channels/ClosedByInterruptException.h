@@ -14,10 +14,13 @@ class $export ClosedByInterruptException : public ::java::nio::channels::Asynchr
 public:
 	ClosedByInterruptException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xC1B6BD9213BA0862;
+	static const int64_t serialVersionUID = (int64_t)0xc1b6bd9213ba0862;
 	ClosedByInterruptException(const ClosedByInterruptException& e);
 	virtual void throw$() override;
-	inline ClosedByInterruptException* operator ->() {
+	inline ClosedByInterruptException* operator ->() const {
+		return (ClosedByInterruptException*)throwing$;
+	}
+	inline operator ClosedByInterruptException*() const {
 		return (ClosedByInterruptException*)throwing$;
 	}
 };

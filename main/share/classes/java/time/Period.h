@@ -70,6 +70,7 @@ public:
 	Period();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t years, int32_t months, int32_t days);
 	virtual ::java::time::temporal::Temporal* addTo(::java::time::temporal::Temporal* temporal) override;
 	static ::java::time::Period* between(::java::time::LocalDate* startDateInclusive, ::java::time::LocalDate* endDateExclusive);
@@ -116,7 +117,7 @@ public:
 	void writeExternal(::java::io::DataOutput* out);
 	$Object* writeReplace();
 	static ::java::time::Period* ZERO;
-	static const int64_t serialVersionUID = (int64_t)0xFFF3416852FC6044;
+	static const int64_t serialVersionUID = (int64_t)0xfff3416852fc6044;
 	static ::java::util::regex::Pattern* PATTERN;
 	static ::java::util::List* SUPPORTED_UNITS;
 	int32_t years = 0;

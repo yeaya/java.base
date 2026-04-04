@@ -1,5 +1,4 @@
 #include <sun/util/resources/LocaleData$SupplementaryStrategy.h>
-
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
 #include <java/util/Locale.h>
@@ -31,46 +30,6 @@ namespace sun {
 	namespace util {
 		namespace resources {
 
-$FieldInfo _LocaleData$SupplementaryStrategy_FieldInfo_[] = {
-	{"INSTANCE", "Lsun/util/resources/LocaleData$SupplementaryStrategy;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LocaleData$SupplementaryStrategy, INSTANCE)},
-	{"JAVA_BASE_LOCALES", "Ljava/util/Set;", "Ljava/util/Set<Ljava/util/Locale;>;", $PRIVATE | $STATIC, $staticField(LocaleData$SupplementaryStrategy, JAVA_BASE_LOCALES)},
-	{}
-};
-
-$MethodInfo _LocaleData$SupplementaryStrategy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(LocaleData$SupplementaryStrategy, init$, void)},
-	{"getCandidateLocales", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List<Ljava/util/Locale;>;", $PUBLIC, $virtualMethod(LocaleData$SupplementaryStrategy, getCandidateLocales, $List*, $String*, $Locale*)},
-	{"getResourceBundleProviderType", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/Class<+Ljava/util/spi/ResourceBundleProvider;>;", $PUBLIC, $virtualMethod(LocaleData$SupplementaryStrategy, getResourceBundleProviderType, $Class*, $String*, $Locale*)},
-	{"inJavaBaseModule", "(Ljava/lang/String;Ljava/util/Locale;)Z", nullptr, 0, $virtualMethod(LocaleData$SupplementaryStrategy, inJavaBaseModule, bool, $String*, $Locale*)},
-	{}
-};
-
-$InnerClassInfo _LocaleData$SupplementaryStrategy_InnerClassesInfo_[] = {
-	{"sun.util.resources.LocaleData$SupplementaryStrategy", "sun.util.resources.LocaleData", "SupplementaryStrategy", $PRIVATE | $STATIC},
-	{"sun.util.resources.LocaleData$LocaleDataStrategy", "sun.util.resources.LocaleData", "LocaleDataStrategy", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _LocaleData$SupplementaryStrategy_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.resources.LocaleData$SupplementaryStrategy",
-	"sun.util.resources.LocaleData$LocaleDataStrategy",
-	nullptr,
-	_LocaleData$SupplementaryStrategy_FieldInfo_,
-	_LocaleData$SupplementaryStrategy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LocaleData$SupplementaryStrategy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.resources.LocaleData"
-};
-
-$Object* allocate$LocaleData$SupplementaryStrategy($Class* clazz) {
-	return $of($alloc(LocaleData$SupplementaryStrategy));
-}
-
 LocaleData$SupplementaryStrategy* LocaleData$SupplementaryStrategy::INSTANCE = nullptr;
 $Set* LocaleData$SupplementaryStrategy::JAVA_BASE_LOCALES = nullptr;
 
@@ -91,7 +50,7 @@ bool LocaleData$SupplementaryStrategy::inJavaBaseModule($String* baseName, $Loca
 	return $nc(LocaleData$SupplementaryStrategy::JAVA_BASE_LOCALES)->contains(locale);
 }
 
-void clinit$LocaleData$SupplementaryStrategy($Class* class$) {
+void LocaleData$SupplementaryStrategy::clinit$($Class* clazz) {
 	$assignStatic(LocaleData$SupplementaryStrategy::INSTANCE, $new(LocaleData$SupplementaryStrategy));
 	$init($Locale);
 	$assignStatic(LocaleData$SupplementaryStrategy::JAVA_BASE_LOCALES, $Set::of($Locale::ROOT, $Locale::ENGLISH, $Locale::US));
@@ -101,7 +60,41 @@ LocaleData$SupplementaryStrategy::LocaleData$SupplementaryStrategy() {
 }
 
 $Class* LocaleData$SupplementaryStrategy::load$($String* name, bool initialize) {
-	$loadClass(LocaleData$SupplementaryStrategy, name, initialize, &_LocaleData$SupplementaryStrategy_ClassInfo_, clinit$LocaleData$SupplementaryStrategy, allocate$LocaleData$SupplementaryStrategy);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Lsun/util/resources/LocaleData$SupplementaryStrategy;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LocaleData$SupplementaryStrategy, INSTANCE)},
+		{"JAVA_BASE_LOCALES", "Ljava/util/Set;", "Ljava/util/Set<Ljava/util/Locale;>;", $PRIVATE | $STATIC, $staticField(LocaleData$SupplementaryStrategy, JAVA_BASE_LOCALES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(LocaleData$SupplementaryStrategy, init$, void)},
+		{"getCandidateLocales", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/List<Ljava/util/Locale;>;", $PUBLIC, $virtualMethod(LocaleData$SupplementaryStrategy, getCandidateLocales, $List*, $String*, $Locale*)},
+		{"getResourceBundleProviderType", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/Class<+Ljava/util/spi/ResourceBundleProvider;>;", $PUBLIC, $virtualMethod(LocaleData$SupplementaryStrategy, getResourceBundleProviderType, $Class*, $String*, $Locale*)},
+		{"inJavaBaseModule", "(Ljava/lang/String;Ljava/util/Locale;)Z", nullptr, 0, $virtualMethod(LocaleData$SupplementaryStrategy, inJavaBaseModule, bool, $String*, $Locale*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.resources.LocaleData$SupplementaryStrategy", "sun.util.resources.LocaleData", "SupplementaryStrategy", $PRIVATE | $STATIC},
+		{"sun.util.resources.LocaleData$LocaleDataStrategy", "sun.util.resources.LocaleData", "LocaleDataStrategy", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.resources.LocaleData$SupplementaryStrategy",
+		"sun.util.resources.LocaleData$LocaleDataStrategy",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.resources.LocaleData"
+	};
+	$loadClass(LocaleData$SupplementaryStrategy, name, initialize, &classInfo$$, LocaleData$SupplementaryStrategy::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleData$SupplementaryStrategy);
+	});
 	return class$;
 }
 

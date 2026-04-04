@@ -1,13 +1,9 @@
 #include <java/util/Formatter$FixedString.h>
-
 #include <java/lang/Appendable.h>
-#include <java/lang/CharSequence.h>
 #include <java/util/Formatter.h>
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
-using $Appendable = ::java::lang::Appendable;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -17,48 +13,6 @@ using $Locale = ::java::util::Locale;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Formatter$FixedString_FieldInfo_[] = {
-	{"this$0", "Ljava/util/Formatter;", nullptr, $FINAL | $SYNTHETIC, $field(Formatter$FixedString, this$0)},
-	{"s", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Formatter$FixedString, s)},
-	{"start", "I", nullptr, $PRIVATE | $FINAL, $field(Formatter$FixedString, start)},
-	{"end", "I", nullptr, $PRIVATE | $FINAL, $field(Formatter$FixedString, end)},
-	{}
-};
-
-$MethodInfo _Formatter$FixedString_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Formatter;Ljava/lang/String;II)V", nullptr, 0, $method(Formatter$FixedString, init$, void, $Formatter*, $String*, int32_t, int32_t)},
-	{"index", "()I", nullptr, $PUBLIC, $virtualMethod(Formatter$FixedString, index, int32_t)},
-	{"print", "(Ljava/lang/Object;Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(Formatter$FixedString, print, void, Object$*, $Locale*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Formatter$FixedString, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Formatter$FixedString_InnerClassesInfo_[] = {
-	{"java.util.Formatter$FixedString", "java.util.Formatter", "FixedString", $PRIVATE},
-	{"java.util.Formatter$FormatString", "java.util.Formatter", "FormatString", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Formatter$FixedString_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Formatter$FixedString",
-	"java.lang.Object",
-	"java.util.Formatter$FormatString",
-	_Formatter$FixedString_FieldInfo_,
-	_Formatter$FixedString_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Formatter$FixedString_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Formatter"
-};
-
-$Object* allocate$Formatter$FixedString($Class* clazz) {
-	return $of($alloc(Formatter$FixedString));
-}
 
 void Formatter$FixedString::init$($Formatter* this$0, $String* s, int32_t start, int32_t end) {
 	$set(this, this$0, this$0);
@@ -83,7 +37,43 @@ Formatter$FixedString::Formatter$FixedString() {
 }
 
 $Class* Formatter$FixedString::load$($String* name, bool initialize) {
-	$loadClass(Formatter$FixedString, name, initialize, &_Formatter$FixedString_ClassInfo_, allocate$Formatter$FixedString);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/Formatter;", nullptr, $FINAL | $SYNTHETIC, $field(Formatter$FixedString, this$0)},
+		{"s", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Formatter$FixedString, s)},
+		{"start", "I", nullptr, $PRIVATE | $FINAL, $field(Formatter$FixedString, start)},
+		{"end", "I", nullptr, $PRIVATE | $FINAL, $field(Formatter$FixedString, end)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Formatter;Ljava/lang/String;II)V", nullptr, 0, $method(Formatter$FixedString, init$, void, $Formatter*, $String*, int32_t, int32_t)},
+		{"index", "()I", nullptr, $PUBLIC, $virtualMethod(Formatter$FixedString, index, int32_t)},
+		{"print", "(Ljava/lang/Object;Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(Formatter$FixedString, print, void, Object$*, $Locale*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Formatter$FixedString, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Formatter$FixedString", "java.util.Formatter", "FixedString", $PRIVATE},
+		{"java.util.Formatter$FormatString", "java.util.Formatter", "FormatString", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Formatter$FixedString",
+		"java.lang.Object",
+		"java.util.Formatter$FormatString",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Formatter"
+	};
+	$loadClass(Formatter$FixedString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Formatter$FixedString);
+	});
 	return class$;
 }
 

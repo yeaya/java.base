@@ -1,5 +1,4 @@
 #include <TestAnnotatedElement.h>
-
 #include <java/lang/SuppressWarnings.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/reflect/Constructor.h>
@@ -13,87 +12,63 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SuppressWarnings = ::java::lang::SuppressWarnings;
-using $Constructor = ::java::lang::reflect::Constructor;
-using $Method = ::java::lang::reflect::Method;
 using $TypeVariable = ::java::lang::reflect::TypeVariable;
 
-$MethodInfo _TestAnnotatedElement_MethodInfo_[] = {
-	{"<init>", "()V", "<C:Ljava/lang/Object;>()V", $PRIVATE, $method(TestAnnotatedElement, init$, void)},
-	{"m", "(Ljava/lang/Object;)Ljava/lang/Object;", "<B:Ljava/lang/Object;>(TB;)TB;", $PRIVATE | $STATIC, $staticMethod(TestAnnotatedElement, m, $Object*, Object$*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(TestAnnotatedElement, main, void, $StringArray*), "java.lang.ReflectiveOperationException"},
-	{"testTypeVariable", "([Ljava/lang/reflect/TypeVariable;)I", "([Ljava/lang/reflect/TypeVariable<*>;)I", $PRIVATE | $STATIC, $staticMethod(TestAnnotatedElement, testTypeVariable, int32_t, $TypeVariableArray*)},
-	{}
-};
-
-$ClassInfo _TestAnnotatedElement_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestAnnotatedElement",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestAnnotatedElement_MethodInfo_,
-	"<A:Ljava/lang/Object;>Ljava/lang/Object;"
-};
-
-$Object* allocate$TestAnnotatedElement($Class* clazz) {
-	return $of($alloc(TestAnnotatedElement));
-}
-
 $Object* TestAnnotatedElement::m(Object$* b) {
-	return $of(nullptr);
+	return nullptr;
 }
 
 void TestAnnotatedElement::init$() {
 }
 
 void TestAnnotatedElement::main($StringArray* argv) {
+	$useLocalObjectStack();
 	$load(TestAnnotatedElement);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t errors = 0;
 	$Class* clazz = TestAnnotatedElement::class$;
-	errors += testTypeVariable($($nc(clazz)->getTypeParameters()));
-	errors += testTypeVariable($($nc($($nc(clazz)->getDeclaredConstructor($$new($ClassArray, 0))))->getTypeParameters()));
-	errors += testTypeVariable($($nc($($nc(clazz)->getDeclaredMethod("m"_s, $$new($ClassArray, {$Object::class$}))))->getTypeParameters()));
+	errors += testTypeVariable($(clazz->getTypeParameters()));
+	errors += testTypeVariable($($$nc(clazz->getDeclaredConstructor($$new($ClassArray, 0)))->getTypeParameters()));
+	errors += testTypeVariable($($$nc(clazz->getDeclaredMethod("m"_s, $$new($ClassArray, {$Object::class$})))->getTypeParameters()));
 	if (errors > 0) {
 		$throwNew($RuntimeException, $$str({$$str(errors), " failures"_s}));
 	}
 }
 
 int32_t TestAnnotatedElement::testTypeVariable($TypeVariableArray* typeVars) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t errors = 0;
 	if ($nc(typeVars)->length == 0) {
 		return ++errors;
 	}
 	{
 		$var($TypeVariableArray, arr$, typeVars);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($TypeVariable, typeVar, arr$->get(i$));
 			{
 				try {
 					$nc(typeVar)->getAnnotation(nullptr);
 					++errors;
 				} catch ($NullPointerException& npe) {
+					;
 				}
 				$load($SuppressWarnings);
 				if ($nc(typeVar)->getAnnotation($SuppressWarnings::class$) != nullptr) {
 					++errors;
 				}
 				try {
-					$nc(typeVar)->isAnnotationPresent(nullptr);
+					typeVar->isAnnotationPresent(nullptr);
 					++errors;
 				} catch ($NullPointerException& npe) {
+					;
 				}
-				if ($nc(typeVar)->isAnnotationPresent($SuppressWarnings::class$)) {
+				if (typeVar->isAnnotationPresent($SuppressWarnings::class$)) {
 					++errors;
 				}
-				if ($nc($($nc(typeVar)->getAnnotations()))->length != 0) {
+				if ($nc($(typeVar->getAnnotations()))->length != 0) {
 					++errors;
 				}
-				if ($nc($($nc(typeVar)->getDeclaredAnnotations()))->length != 0) {
+				if ($nc($(typeVar->getDeclaredAnnotations()))->length != 0) {
 					++errors;
 				}
 			}
@@ -106,7 +81,25 @@ TestAnnotatedElement::TestAnnotatedElement() {
 }
 
 $Class* TestAnnotatedElement::load$($String* name, bool initialize) {
-	$loadClass(TestAnnotatedElement, name, initialize, &_TestAnnotatedElement_ClassInfo_, allocate$TestAnnotatedElement);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", "<C:Ljava/lang/Object;>()V", $PRIVATE, $method(TestAnnotatedElement, init$, void)},
+		{"m", "(Ljava/lang/Object;)Ljava/lang/Object;", "<B:Ljava/lang/Object;>(TB;)TB;", $PRIVATE | $STATIC, $staticMethod(TestAnnotatedElement, m, $Object*, Object$*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(TestAnnotatedElement, main, void, $StringArray*), "java.lang.ReflectiveOperationException"},
+		{"testTypeVariable", "([Ljava/lang/reflect/TypeVariable;)I", "([Ljava/lang/reflect/TypeVariable<*>;)I", $PRIVATE | $STATIC, $staticMethod(TestAnnotatedElement, testTypeVariable, int32_t, $TypeVariableArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestAnnotatedElement",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<A:Ljava/lang/Object;>Ljava/lang/Object;"
+	};
+	$loadClass(TestAnnotatedElement, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestAnnotatedElement);
+	});
 	return class$;
 }
 

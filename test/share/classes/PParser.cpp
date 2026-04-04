@@ -1,5 +1,4 @@
 #include <PParser.h>
-
 #include <java/io/FileReader.h>
 #include <java/io/IOException.h>
 #include <java/io/Reader.h>
@@ -30,7 +29,6 @@
 
 using $FileReader = ::java::io::FileReader;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $Reader = ::java::io::Reader;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -43,7 +41,6 @@ using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $Consumer = ::java::util::function::Consumer;
 
 class PParser$$Lambda$lambda$dump$0 : public $Consumer {
@@ -54,27 +51,24 @@ public:
 	virtual void accept(Object$* l) override {
 		PParser::lambda$dump$0(l);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PParser$$Lambda$lambda$dump$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo PParser$$Lambda$lambda$dump$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PParser$$Lambda$lambda$dump$0, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PParser$$Lambda$lambda$dump$0, accept, void, Object$*)},
-	{}
-};
-$ClassInfo PParser$$Lambda$lambda$dump$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"PParser$$Lambda$lambda$dump$0",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	nullptr,
-	methodInfos
 };
 $Class* PParser$$Lambda$lambda$dump$0::load$($String* name, bool initialize) {
-	$loadClass(PParser$$Lambda$lambda$dump$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PParser$$Lambda$lambda$dump$0, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PParser$$Lambda$lambda$dump$0, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"PParser$$Lambda$lambda$dump$0",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PParser$$Lambda$lambda$dump$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PParser$$Lambda$lambda$dump$0);
+	});
 	return class$;
 }
 $Class* PParser$$Lambda$lambda$dump$0::class$ = nullptr;
@@ -88,85 +82,32 @@ public:
 	virtual void accept(Object$* l) override {
 		PParser::lambda$dump$1(ht, $cast($String, l));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PParser$$Lambda$lambda$dump$1$1>());
-	}
 	$Map* ht = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo PParser$$Lambda$lambda$dump$1$1::fieldInfos[2] = {
-	{"ht", "Ljava/util/Map;", nullptr, $PUBLIC, $field(PParser$$Lambda$lambda$dump$1$1, ht)},
-	{}
-};
-$MethodInfo PParser$$Lambda$lambda$dump$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(PParser$$Lambda$lambda$dump$1$1, init$, void, $Map*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PParser$$Lambda$lambda$dump$1$1, accept, void, Object$*)},
-	{}
-};
-$ClassInfo PParser$$Lambda$lambda$dump$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"PParser$$Lambda$lambda$dump$1$1",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* PParser$$Lambda$lambda$dump$1$1::load$($String* name, bool initialize) {
-	$loadClass(PParser$$Lambda$lambda$dump$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"ht", "Ljava/util/Map;", nullptr, $PUBLIC, $field(PParser$$Lambda$lambda$dump$1$1, ht)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(PParser$$Lambda$lambda$dump$1$1, init$, void, $Map*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PParser$$Lambda$lambda$dump$1$1, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"PParser$$Lambda$lambda$dump$1$1",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PParser$$Lambda$lambda$dump$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PParser$$Lambda$lambda$dump$1$1);
+	});
 	return class$;
 }
 $Class* PParser$$Lambda$lambda$dump$1$1::class$ = nullptr;
-
-$FieldInfo _PParser_FieldInfo_[] = {
-	{"OPEN_PAIR", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PParser, OPEN_PAIR)},
-	{"CLOSE_PAIR", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PParser, CLOSE_PAIR)},
-	{"OPEN_ARRAY", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PParser, OPEN_ARRAY)},
-	{"CLOSE_ARRAY", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PParser, CLOSE_ARRAY)},
-	{"MORE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PParser, MORE)},
-	{"EQUAL", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PParser, EQUAL)},
-	{"STRING", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PParser, STRING)},
-	{"WS", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PParser, WS)},
-	{"reader", "Ljava/io/Reader;", nullptr, $PROTECTED, $field(PParser, reader)},
-	{"bufferedToken", "Z", nullptr, $PROTECTED, $field(PParser, bufferedToken)},
-	{"stringBuffer", "Ljava/lang/StringBuffer;", nullptr, $PROTECTED, $field(PParser, stringBuffer)},
-	{"lastChar", "I", nullptr, $PROTECTED, $field(PParser, lastChar)},
-	{"lastToken", "I", nullptr, $PROTECTED, $field(PParser, lastToken)},
-	{"lineNumber", "I", nullptr, $PROTECTED, $field(PParser, lineNumber)},
-	{"column", "I", nullptr, $PROTECTED, $field(PParser, column)},
-	{}
-};
-
-$MethodInfo _PParser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PParser, init$, void)},
-	{"dump", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PParser, dump, void, Object$*)},
-	{"error", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(PParser, error, void, $String*)},
-	{"getToken", "()I", nullptr, $PROTECTED, $virtualMethod(PParser, getToken, int32_t), "java.io.IOException"},
-	{"getToken", "(ZZ)I", nullptr, $PROTECTED, $virtualMethod(PParser, getToken, int32_t, bool, bool), "java.io.IOException"},
-	{"lambda$dump$0", "(Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PParser, lambda$dump$0, void, Object$*)},
-	{"lambda$dump$1", "(Ljava/util/Map;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PParser, lambda$dump$1, void, $Map*, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PParser, main, void, $StringArray*)},
-	{"parse", "(Ljava/io/Reader;)Ljava/util/Map;", "(Ljava/io/Reader;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(PParser, parse, $Map*, $Reader*), "java.io.IOException"},
-	{"parseArray", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(PParser, parseArray, $Object*), "java.io.IOException"},
-	{"parsePair", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PROTECTED, $virtualMethod(PParser, parsePair, $Map*), "java.io.IOException"},
-	{"parseValue", "(I)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(PParser, parseValue, $Object*, int32_t), "java.io.IOException"},
-	{"ungetToken", "()V", nullptr, $PROTECTED, $virtualMethod(PParser, ungetToken, void)},
-	{}
-};
-
-$ClassInfo _PParser_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"PParser",
-	"java.lang.Object",
-	nullptr,
-	_PParser_FieldInfo_,
-	_PParser_MethodInfo_
-};
-
-$Object* allocate$PParser($Class* clazz) {
-	return $of($alloc(PParser));
-}
 
 void PParser::init$() {
 	$set(this, stringBuffer, $new($StringBuffer));
@@ -192,27 +133,19 @@ $Object* PParser::parseValue(int32_t lookAhead) {
 	}
 	switch (token) {
 	case PParser::STRING:
-		{
-			return $of($nc(this->stringBuffer)->toString());
-		}
+		return $of($nc(this->stringBuffer)->toString());
 	case PParser::OPEN_ARRAY:
-		{
-			return $of(parseArray());
-		}
+		return parseArray();
 	case PParser::OPEN_PAIR:
-		{
-			return $of(parsePair());
-		}
+		return parsePair();
 	default:
-		{
-			error("Expecting value"_s);
-		}
+		error("Expecting value"_s);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* PParser::parseArray() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, array, $new($ArrayList));
 	int32_t token = 0;
 	while ((token = getToken()) != PParser::CLOSE_ARRAY) {
@@ -223,11 +156,11 @@ $Object* PParser::parseArray() {
 			array->add($(parseValue(token)));
 		}
 	}
-	return $of(array);
+	return array;
 }
 
 $Map* PParser::parsePair() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, ht, $new($HashMap, 11));
 	int32_t token = 0;
 	while ((token = getToken()) != PParser::CLOSE_PAIR) {
@@ -266,7 +199,7 @@ int32_t PParser::getToken(bool wantsWS, bool inString) {
 	while ((this->lastChar = $nc(this->reader)->read()) != -1) {
 		if (this->column == 0 && this->lastChar == u'#') {
 			while (true) {
-				bool var$0 = (this->lastChar = $nc(this->reader)->read()) != -1;
+				bool var$0 = (this->lastChar = this->reader->read()) != -1;
 				if (!(var$0 && this->lastChar != u'\n')) {
 					break;
 				}
@@ -280,112 +213,90 @@ int32_t PParser::getToken(bool wantsWS, bool inString) {
 		++this->column;
 		switch (this->lastChar) {
 		case u'\n':
-			{
-				++this->lineNumber;
-				this->column = 0;
-			}
+			++this->lineNumber;
+			this->column = 0;
 		case u' ':
-			{}
 		case u'\r':
-			{}
 		case u'\t':
-			{
-				if (wantsWS) {
-					this->lastToken = PParser::WS;
-					return PParser::WS;
-				}
-				break;
+			if (wantsWS) {
+				this->lastToken = PParser::WS;
+				return PParser::WS;
 			}
+			break;
 		case u',':
-			{
-				this->lastToken = PParser::MORE;
-				return PParser::MORE;
-			}
+			this->lastToken = PParser::MORE;
+			return PParser::MORE;
 		case u'(':
-			{
-				this->lastToken = PParser::OPEN_ARRAY;
-				return PParser::OPEN_ARRAY;
-			}
+			this->lastToken = PParser::OPEN_ARRAY;
+			return PParser::OPEN_ARRAY;
 		case u')':
-			{
-				this->lastToken = PParser::CLOSE_ARRAY;
-				return PParser::CLOSE_ARRAY;
-			}
+			this->lastToken = PParser::CLOSE_ARRAY;
+			return PParser::CLOSE_ARRAY;
 		case u'{':
-			{
-				this->lastToken = PParser::OPEN_PAIR;
-				return PParser::OPEN_PAIR;
-			}
+			this->lastToken = PParser::OPEN_PAIR;
+			return PParser::OPEN_PAIR;
 		case u'}':
-			{
-				this->lastToken = PParser::CLOSE_PAIR;
-				return PParser::CLOSE_PAIR;
-			}
+			this->lastToken = PParser::CLOSE_PAIR;
+			return PParser::CLOSE_PAIR;
 		case u'=':
-			{
-				this->lastToken = PParser::EQUAL;
-				return PParser::EQUAL;
-			}
+			this->lastToken = PParser::EQUAL;
+			return PParser::EQUAL;
 		case u'\"':
-			{
-				this->lastToken = PParser::STRING;
-				if (!inString) {
-					$nc(this->stringBuffer)->setLength(0);
-					while (true) {
-						getToken(true, true);
-						if (this->lastChar == u'\"') {
-							this->lastToken = PParser::STRING;
-							return PParser::STRING;
-						}
-						$nc(this->stringBuffer)->append((char16_t)this->lastChar);
+			this->lastToken = PParser::STRING;
+			if (!inString) {
+				$nc(this->stringBuffer)->setLength(0);
+				while (true) {
+					getToken(true, true);
+					if (this->lastChar == u'\"') {
+						this->lastToken = PParser::STRING;
+						return PParser::STRING;
 					}
-				}
-				return PParser::STRING;
-			}
-		default:
-			{
-				this->lastToken = PParser::STRING;
-				if (!inString) {
-					$nc(this->stringBuffer)->setLength(0);
 					$nc(this->stringBuffer)->append((char16_t)this->lastChar);
-					while (getToken(true, true) == PParser::STRING) {
-						if (this->lastChar == u'\"') {
-							error("Unexpected quote"_s);
-						}
-						$nc(this->stringBuffer)->append((char16_t)this->lastChar);
-					}
-					ungetToken();
 				}
-				return PParser::STRING;
 			}
+			return PParser::STRING;
+		default:
+			this->lastToken = PParser::STRING;
+			if (!inString) {
+				$nc(this->stringBuffer)->setLength(0);
+				this->stringBuffer->append((char16_t)this->lastChar);
+				while (getToken(true, true) == PParser::STRING) {
+					if (this->lastChar == u'\"') {
+						error("Unexpected quote"_s);
+					}
+					$nc(this->stringBuffer)->append((char16_t)this->lastChar);
+				}
+				ungetToken();
+			}
+			return PParser::STRING;
 		}
 	}
 	return -1;
 }
 
 void PParser::error($String* errorString) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$throwNew($RuntimeException, $$str({errorString, " at line "_s, $$str(this->lineNumber), " column "_s, $$str(this->column)}));
 }
 
 void PParser::dump(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($String, o)) {
 		$nc($System::out)->print(o);
 	} else if ($instanceOf($List, o)) {
 		dump(" ("_s);
-		$nc(($cast($List, o)))->forEach(static_cast<$Consumer*>($$new(PParser$$Lambda$lambda$dump$0)));
+		$cast($List, o)->forEach($$new(PParser$$Lambda$lambda$dump$0));
 		dump(" )"_s);
 	} else {
 		$var($Map, ht, $cast($Map, o));
 		dump(" {"_s);
-		$nc($($nc(ht)->keySet()))->forEach(static_cast<$Consumer*>($$new(PParser$$Lambda$lambda$dump$1$1, ht)));
+		$$nc($nc(ht)->keySet())->forEach($$new(PParser$$Lambda$lambda$dump$1$1, ht));
 		dump(" }"_s);
 	}
 }
 
 void PParser::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(args)->length == 0) {
 		$nc($System::out)->println("need filename"_s);
 	} else {
@@ -418,14 +329,58 @@ PParser::PParser() {
 
 $Class* PParser::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(PParser$$Lambda$lambda$dump$0::classInfo$.name)) {
+		if (name->equals("PParser$$Lambda$lambda$dump$0")) {
 			return PParser$$Lambda$lambda$dump$0::load$(name, initialize);
 		}
-		if (name->equals(PParser$$Lambda$lambda$dump$1$1::classInfo$.name)) {
+		if (name->equals("PParser$$Lambda$lambda$dump$1$1")) {
 			return PParser$$Lambda$lambda$dump$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(PParser, name, initialize, &_PParser_ClassInfo_, allocate$PParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"OPEN_PAIR", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PParser, OPEN_PAIR)},
+		{"CLOSE_PAIR", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PParser, CLOSE_PAIR)},
+		{"OPEN_ARRAY", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PParser, OPEN_ARRAY)},
+		{"CLOSE_ARRAY", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PParser, CLOSE_ARRAY)},
+		{"MORE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PParser, MORE)},
+		{"EQUAL", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PParser, EQUAL)},
+		{"STRING", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PParser, STRING)},
+		{"WS", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(PParser, WS)},
+		{"reader", "Ljava/io/Reader;", nullptr, $PROTECTED, $field(PParser, reader)},
+		{"bufferedToken", "Z", nullptr, $PROTECTED, $field(PParser, bufferedToken)},
+		{"stringBuffer", "Ljava/lang/StringBuffer;", nullptr, $PROTECTED, $field(PParser, stringBuffer)},
+		{"lastChar", "I", nullptr, $PROTECTED, $field(PParser, lastChar)},
+		{"lastToken", "I", nullptr, $PROTECTED, $field(PParser, lastToken)},
+		{"lineNumber", "I", nullptr, $PROTECTED, $field(PParser, lineNumber)},
+		{"column", "I", nullptr, $PROTECTED, $field(PParser, column)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PParser, init$, void)},
+		{"dump", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PParser, dump, void, Object$*)},
+		{"error", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(PParser, error, void, $String*)},
+		{"getToken", "()I", nullptr, $PROTECTED, $virtualMethod(PParser, getToken, int32_t), "java.io.IOException"},
+		{"getToken", "(ZZ)I", nullptr, $PROTECTED, $virtualMethod(PParser, getToken, int32_t, bool, bool), "java.io.IOException"},
+		{"lambda$dump$0", "(Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PParser, lambda$dump$0, void, Object$*)},
+		{"lambda$dump$1", "(Ljava/util/Map;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PParser, lambda$dump$1, void, $Map*, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PParser, main, void, $StringArray*)},
+		{"parse", "(Ljava/io/Reader;)Ljava/util/Map;", "(Ljava/io/Reader;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(PParser, parse, $Map*, $Reader*), "java.io.IOException"},
+		{"parseArray", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(PParser, parseArray, $Object*), "java.io.IOException"},
+		{"parsePair", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PROTECTED, $virtualMethod(PParser, parsePair, $Map*), "java.io.IOException"},
+		{"parseValue", "(I)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(PParser, parseValue, $Object*, int32_t), "java.io.IOException"},
+		{"ungetToken", "()V", nullptr, $PROTECTED, $virtualMethod(PParser, ungetToken, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"PParser",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PParser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PParser);
+	});
 	return class$;
 }
 

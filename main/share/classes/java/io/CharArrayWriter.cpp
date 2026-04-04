@@ -1,5 +1,4 @@
 #include <java/io/CharArrayWriter.h>
-
 #include <java/io/Writer.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/IndexOutOfBoundsException.h>
@@ -20,50 +19,12 @@ using $Arrays = ::java::util::Arrays;
 namespace java {
 	namespace io {
 
-$FieldInfo _CharArrayWriter_FieldInfo_[] = {
-	{"buf", "[C", nullptr, $PROTECTED, $field(CharArrayWriter, buf)},
-	{"count", "I", nullptr, $PROTECTED, $field(CharArrayWriter, count)},
-	{}
-};
-
-$MethodInfo _CharArrayWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CharArrayWriter, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(CharArrayWriter, init$, void, int32_t)},
-	{"append", "(Ljava/lang/CharSequence;)Ljava/io/CharArrayWriter;", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, append, CharArrayWriter*, $CharSequence*)},
-	{"append", "(Ljava/lang/CharSequence;II)Ljava/io/CharArrayWriter;", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, append, CharArrayWriter*, $CharSequence*, int32_t, int32_t)},
-	{"append", "(C)Ljava/io/CharArrayWriter;", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, append, CharArrayWriter*, char16_t)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, close, void)},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, flush, void)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, reset, void)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, size, int32_t)},
-	{"toCharArray", "()[C", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, toCharArray, $chars*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, toString, $String*)},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, write, void, int32_t)},
-	{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, write, void, $chars*, int32_t, int32_t)},
-	{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, write, void, $String*, int32_t, int32_t)},
-	{"writeTo", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, writeTo, void, $Writer*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _CharArrayWriter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.CharArrayWriter",
-	"java.io.Writer",
-	nullptr,
-	_CharArrayWriter_FieldInfo_,
-	_CharArrayWriter_MethodInfo_
-};
-
-$Object* allocate$CharArrayWriter($Class* clazz) {
-	return $of($alloc(CharArrayWriter));
-}
-
 void CharArrayWriter::init$() {
 	CharArrayWriter::init$(32);
 }
 
 void CharArrayWriter::init$(int32_t initialSize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Writer::init$();
 	if (initialSize < 0) {
 		$throwNew($IllegalArgumentException, $$str({"Negative initial size: "_s, $$str(initialSize)}));
@@ -75,9 +36,9 @@ void CharArrayWriter::write(int32_t c) {
 	$synchronized(this->lock) {
 		int32_t newcount = this->count + 1;
 		if (newcount > $nc(this->buf)->length) {
-			$set(this, buf, $Arrays::copyOf(this->buf, $Math::max($nc(this->buf)->length << 1, newcount)));
+			$set(this, buf, $Arrays::copyOf(this->buf, $Math::max(this->buf->length << 1, newcount)));
 		}
-		$nc(this->buf)->set(this->count, (char16_t)c);
+		this->buf->set(this->count, (char16_t)c);
 		this->count = newcount;
 	}
 }
@@ -91,7 +52,7 @@ void CharArrayWriter::write($chars* c, int32_t off, int32_t len) {
 	$synchronized(this->lock) {
 		int32_t newcount = this->count + len;
 		if (newcount > $nc(this->buf)->length) {
-			$set(this, buf, $Arrays::copyOf(this->buf, $Math::max($nc(this->buf)->length << 1, newcount)));
+			$set(this, buf, $Arrays::copyOf(this->buf, $Math::max(this->buf->length << 1, newcount)));
 		}
 		$System::arraycopy(c, off, this->buf, this->count, len);
 		this->count = newcount;
@@ -102,7 +63,7 @@ void CharArrayWriter::write($String* str, int32_t off, int32_t len) {
 	$synchronized(this->lock) {
 		int32_t newcount = this->count + len;
 		if (newcount > $nc(this->buf)->length) {
-			$set(this, buf, $Arrays::copyOf(this->buf, $Math::max($nc(this->buf)->length << 1, newcount)));
+			$set(this, buf, $Arrays::copyOf(this->buf, $Math::max(this->buf->length << 1, newcount)));
 		}
 		$nc(str)->getChars(off, off + len, this->buf, this->count);
 		this->count = newcount;
@@ -116,13 +77,13 @@ void CharArrayWriter::writeTo($Writer* out) {
 }
 
 CharArrayWriter* CharArrayWriter::append($CharSequence* csq) {
-	$var($String, s, $String::valueOf($of(csq)));
+	$var($String, s, $String::valueOf(csq));
 	write(s, 0, s->length());
 	return this;
 }
 
 CharArrayWriter* CharArrayWriter::append($CharSequence* csq$renamed, int32_t start, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CharSequence, csq, csq$renamed);
 	if (csq == nullptr) {
 		$assign(csq, "null"_s);
@@ -131,7 +92,7 @@ CharArrayWriter* CharArrayWriter::append($CharSequence* csq$renamed, int32_t sta
 }
 
 CharArrayWriter* CharArrayWriter::append(char16_t c) {
-	write((int32_t)c);
+	write(c);
 	return this;
 }
 
@@ -165,7 +126,40 @@ CharArrayWriter::CharArrayWriter() {
 }
 
 $Class* CharArrayWriter::load$($String* name, bool initialize) {
-	$loadClass(CharArrayWriter, name, initialize, &_CharArrayWriter_ClassInfo_, allocate$CharArrayWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"buf", "[C", nullptr, $PROTECTED, $field(CharArrayWriter, buf)},
+		{"count", "I", nullptr, $PROTECTED, $field(CharArrayWriter, count)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CharArrayWriter, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(CharArrayWriter, init$, void, int32_t)},
+		{"append", "(Ljava/lang/CharSequence;)Ljava/io/CharArrayWriter;", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, append, CharArrayWriter*, $CharSequence*)},
+		{"append", "(Ljava/lang/CharSequence;II)Ljava/io/CharArrayWriter;", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, append, CharArrayWriter*, $CharSequence*, int32_t, int32_t)},
+		{"append", "(C)Ljava/io/CharArrayWriter;", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, append, CharArrayWriter*, char16_t)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, close, void)},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, flush, void)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, reset, void)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, size, int32_t)},
+		{"toCharArray", "()[C", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, toCharArray, $chars*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, toString, $String*)},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, write, void, int32_t)},
+		{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, write, void, $chars*, int32_t, int32_t)},
+		{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, write, void, $String*, int32_t, int32_t)},
+		{"writeTo", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $virtualMethod(CharArrayWriter, writeTo, void, $Writer*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.CharArrayWriter",
+		"java.io.Writer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CharArrayWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CharArrayWriter));
+	});
 	return class$;
 }
 

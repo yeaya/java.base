@@ -1,5 +1,4 @@
 #include <java/io/LineNumberInputStream.h>
-
 #include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -21,49 +20,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 namespace java {
 	namespace io {
 
-$CompoundAttribute _LineNumberInputStream_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _LineNumberInputStream_FieldInfo_[] = {
-	{"pushBack", "I", nullptr, 0, $field(LineNumberInputStream, pushBack)},
-	{"lineNumber", "I", nullptr, 0, $field(LineNumberInputStream, lineNumber)},
-	{"markLineNumber", "I", nullptr, 0, $field(LineNumberInputStream, markLineNumber)},
-	{"markPushBack", "I", nullptr, 0, $field(LineNumberInputStream, markPushBack)},
-	{}
-};
-
-$MethodInfo _LineNumberInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(LineNumberInputStream, init$, void, $InputStream*)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(LineNumberInputStream, available, int32_t), "java.io.IOException"},
-	{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(LineNumberInputStream, getLineNumber, int32_t)},
-	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(LineNumberInputStream, mark, void, int32_t)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(LineNumberInputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(LineNumberInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(LineNumberInputStream, reset, void), "java.io.IOException"},
-	{"setLineNumber", "(I)V", nullptr, $PUBLIC, $virtualMethod(LineNumberInputStream, setLineNumber, void, int32_t)},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(LineNumberInputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _LineNumberInputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.LineNumberInputStream",
-	"java.io.FilterInputStream",
-	nullptr,
-	_LineNumberInputStream_FieldInfo_,
-	_LineNumberInputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_LineNumberInputStream_Annotations_
-};
-
-$Object* allocate$LineNumberInputStream($Class* clazz) {
-	return $of($alloc(LineNumberInputStream));
-}
-
 void LineNumberInputStream::init$($InputStream* in) {
 	$FilterInputStream::init$(in);
 	this->pushBack = -1;
@@ -79,17 +35,13 @@ int32_t LineNumberInputStream::read() {
 	}
 	switch (c) {
 	case u'\r':
-		{
-			this->pushBack = $nc(this->in)->read();
-			if (this->pushBack == u'\n') {
-				this->pushBack = -1;
-			}
+		this->pushBack = $nc(this->in)->read();
+		if (this->pushBack == u'\n') {
+			this->pushBack = -1;
 		}
 	case u'\n':
-		{
-			++this->lineNumber;
-			return u'\n';
-		}
+		++this->lineNumber;
+		return u'\n';
 	}
 	return c;
 }
@@ -97,7 +49,7 @@ int32_t LineNumberInputStream::read() {
 int32_t LineNumberInputStream::read($bytes* b, int32_t off, int32_t len) {
 	if (b == nullptr) {
 		$throwNew($NullPointerException);
-	} else if ((off < 0) || (off > $nc(b)->length) || (len < 0) || ((off + len) > $nc(b)->length) || ((off + len) < 0)) {
+	} else if ((off < 0) || (off > b->length) || (len < 0) || ((off + len) > b->length) || ((off + len) < 0)) {
 		$throwNew($IndexOutOfBoundsException);
 	} else if (len == 0) {
 		return 0;
@@ -170,7 +122,44 @@ LineNumberInputStream::LineNumberInputStream() {
 }
 
 $Class* LineNumberInputStream::load$($String* name, bool initialize) {
-	$loadClass(LineNumberInputStream, name, initialize, &_LineNumberInputStream_ClassInfo_, allocate$LineNumberInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"pushBack", "I", nullptr, 0, $field(LineNumberInputStream, pushBack)},
+		{"lineNumber", "I", nullptr, 0, $field(LineNumberInputStream, lineNumber)},
+		{"markLineNumber", "I", nullptr, 0, $field(LineNumberInputStream, markLineNumber)},
+		{"markPushBack", "I", nullptr, 0, $field(LineNumberInputStream, markPushBack)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(LineNumberInputStream, init$, void, $InputStream*)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(LineNumberInputStream, available, int32_t), "java.io.IOException"},
+		{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(LineNumberInputStream, getLineNumber, int32_t)},
+		{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(LineNumberInputStream, mark, void, int32_t)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(LineNumberInputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(LineNumberInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(LineNumberInputStream, reset, void), "java.io.IOException"},
+		{"setLineNumber", "(I)V", nullptr, $PUBLIC, $virtualMethod(LineNumberInputStream, setLineNumber, void, int32_t)},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(LineNumberInputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.LineNumberInputStream",
+		"java.io.FilterInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(LineNumberInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LineNumberInputStream);
+	});
 	return class$;
 }
 

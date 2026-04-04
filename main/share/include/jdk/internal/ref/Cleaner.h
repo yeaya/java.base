@@ -26,6 +26,7 @@ class $import Cleaner : public ::java::lang::ref::PhantomReference {
 	$class(Cleaner, $PRELOAD, ::java::lang::ref::PhantomReference)
 public:
 	Cleaner();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* referent, ::java::lang::Runnable* thunk);
 	static ::jdk::internal::ref::Cleaner* add(::jdk::internal::ref::Cleaner* cl);
 	virtual void clean();

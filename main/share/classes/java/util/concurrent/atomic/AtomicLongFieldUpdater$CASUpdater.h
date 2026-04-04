@@ -25,6 +25,7 @@ class AtomicLongFieldUpdater$CASUpdater : public ::java::util::concurrent::atomi
 	$class(AtomicLongFieldUpdater$CASUpdater, 0, ::java::util::concurrent::atomic::AtomicLongFieldUpdater)
 public:
 	AtomicLongFieldUpdater$CASUpdater();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Class* tclass, $String* fieldName, $Class* caller);
 	void accessCheck(Object$* obj);
 	virtual int64_t addAndGet(Object$* obj, int64_t delta) override;

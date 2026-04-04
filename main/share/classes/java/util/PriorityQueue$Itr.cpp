@@ -1,5 +1,4 @@
 #include <java/util/PriorityQueue$Itr.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/ArrayDeque.h>
 #include <java/util/ConcurrentModificationException.h>
@@ -20,49 +19,6 @@ using $PriorityQueue = ::java::util::PriorityQueue;
 namespace java {
 	namespace util {
 
-$FieldInfo _PriorityQueue$Itr_FieldInfo_[] = {
-	{"this$0", "Ljava/util/PriorityQueue;", nullptr, $FINAL | $SYNTHETIC, $field(PriorityQueue$Itr, this$0)},
-	{"cursor", "I", nullptr, $PRIVATE, $field(PriorityQueue$Itr, cursor)},
-	{"lastRet", "I", nullptr, $PRIVATE, $field(PriorityQueue$Itr, lastRet)},
-	{"forgetMeNot", "Ljava/util/ArrayDeque;", "Ljava/util/ArrayDeque<TE;>;", $PRIVATE, $field(PriorityQueue$Itr, forgetMeNot)},
-	{"lastRetElt", "Ljava/lang/Object;", "TE;", $PRIVATE, $field(PriorityQueue$Itr, lastRetElt)},
-	{"expectedModCount", "I", nullptr, $PRIVATE, $field(PriorityQueue$Itr, expectedModCount)},
-	{}
-};
-
-$MethodInfo _PriorityQueue$Itr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/PriorityQueue;)V", nullptr, 0, $method(PriorityQueue$Itr, init$, void, $PriorityQueue*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(PriorityQueue$Itr, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(PriorityQueue$Itr, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(PriorityQueue$Itr, remove, void)},
-	{}
-};
-
-$InnerClassInfo _PriorityQueue$Itr_InnerClassesInfo_[] = {
-	{"java.util.PriorityQueue$Itr", "java.util.PriorityQueue", "Itr", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _PriorityQueue$Itr_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.PriorityQueue$Itr",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_PriorityQueue$Itr_FieldInfo_,
-	_PriorityQueue$Itr_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
-	nullptr,
-	_PriorityQueue$Itr_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.PriorityQueue"
-};
-
-$Object* allocate$PriorityQueue$Itr($Class* clazz) {
-	return $of($alloc(PriorityQueue$Itr));
-}
-
 void PriorityQueue$Itr::init$($PriorityQueue* this$0) {
 	$set(this, this$0, this$0);
 	this->lastRet = -1;
@@ -70,7 +26,7 @@ void PriorityQueue$Itr::init$($PriorityQueue* this$0) {
 }
 
 bool PriorityQueue$Itr::hasNext() {
-	return this->cursor < this->this$0->size$ || (this->forgetMeNot != nullptr && !$nc(this->forgetMeNot)->isEmpty());
+	return this->cursor < this->this$0->size$ || (this->forgetMeNot != nullptr && !this->forgetMeNot->isEmpty());
 }
 
 $Object* PriorityQueue$Itr::next() {
@@ -78,13 +34,13 @@ $Object* PriorityQueue$Itr::next() {
 		$throwNew($ConcurrentModificationException);
 	}
 	if (this->cursor < this->this$0->size$) {
-		return $of($nc(this->this$0->queue)->get(this->lastRet = this->cursor++));
+		return $nc(this->this$0->queue)->get(this->lastRet = this->cursor++);
 	}
 	if (this->forgetMeNot != nullptr) {
 		this->lastRet = -1;
-		$set(this, lastRetElt, $nc(this->forgetMeNot)->poll());
+		$set(this, lastRetElt, this->forgetMeNot->poll());
 		if (this->lastRetElt != nullptr) {
-			return $of(this->lastRetElt);
+			return this->lastRetElt;
 		}
 	}
 	$throwNew($NoSuchElementException);
@@ -118,7 +74,44 @@ PriorityQueue$Itr::PriorityQueue$Itr() {
 }
 
 $Class* PriorityQueue$Itr::load$($String* name, bool initialize) {
-	$loadClass(PriorityQueue$Itr, name, initialize, &_PriorityQueue$Itr_ClassInfo_, allocate$PriorityQueue$Itr);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/PriorityQueue;", nullptr, $FINAL | $SYNTHETIC, $field(PriorityQueue$Itr, this$0)},
+		{"cursor", "I", nullptr, $PRIVATE, $field(PriorityQueue$Itr, cursor)},
+		{"lastRet", "I", nullptr, $PRIVATE, $field(PriorityQueue$Itr, lastRet)},
+		{"forgetMeNot", "Ljava/util/ArrayDeque;", "Ljava/util/ArrayDeque<TE;>;", $PRIVATE, $field(PriorityQueue$Itr, forgetMeNot)},
+		{"lastRetElt", "Ljava/lang/Object;", "TE;", $PRIVATE, $field(PriorityQueue$Itr, lastRetElt)},
+		{"expectedModCount", "I", nullptr, $PRIVATE, $field(PriorityQueue$Itr, expectedModCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/PriorityQueue;)V", nullptr, 0, $method(PriorityQueue$Itr, init$, void, $PriorityQueue*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(PriorityQueue$Itr, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(PriorityQueue$Itr, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(PriorityQueue$Itr, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.PriorityQueue$Itr", "java.util.PriorityQueue", "Itr", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.PriorityQueue$Itr",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.PriorityQueue"
+	};
+	$loadClass(PriorityQueue$Itr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PriorityQueue$Itr);
+	});
 	return class$;
 }
 

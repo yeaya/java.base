@@ -1,5 +1,4 @@
 #include <java/lang/invoke/VarHandleShorts$FieldStaticReadOnly.h>
-
 #include <java/lang/constant/ClassDesc.h>
 #include <java/lang/invoke/MethodHandleStatics.h>
 #include <java/lang/invoke/MethodType.h>
@@ -34,77 +33,10 @@ using $VarHandle$VarHandleDesc = ::java::lang::invoke::VarHandle$VarHandleDesc;
 using $VarHandles = ::java::lang::invoke::VarHandles;
 using $Field = ::java::lang::reflect::Field;
 using $Optional = ::java::util::Optional;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$CompoundAttribute _VarHandleShorts$FieldStaticReadOnly_MethodAnnotations_get4[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleShorts$FieldStaticReadOnly_MethodAnnotations_getAcquire5[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleShorts$FieldStaticReadOnly_MethodAnnotations_getOpaque6[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleShorts$FieldStaticReadOnly_MethodAnnotations_getVolatile7[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$FieldInfo _VarHandleShorts$FieldStaticReadOnly_FieldInfo_[] = {
-	{"base", "Ljava/lang/Object;", nullptr, $FINAL, $field(VarHandleShorts$FieldStaticReadOnly, base)},
-	{"fieldOffset", "J", nullptr, $FINAL, $field(VarHandleShorts$FieldStaticReadOnly, fieldOffset)},
-	{"FORM", "Ljava/lang/invoke/VarForm;", nullptr, $STATIC | $FINAL, $staticField(VarHandleShorts$FieldStaticReadOnly, FORM)},
-	{}
-};
-
-$MethodInfo _VarHandleShorts$FieldStaticReadOnly_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;J)V", nullptr, 0, $method(VarHandleShorts$FieldStaticReadOnly, init$, void, Object$*, int64_t)},
-	{"<init>", "(Ljava/lang/Object;JLjava/lang/invoke/VarForm;Z)V", nullptr, $PROTECTED, $method(VarHandleShorts$FieldStaticReadOnly, init$, void, Object$*, int64_t, $VarForm*, bool)},
-	{"accessModeTypeUncached", "(Ljava/lang/invoke/VarHandle$AccessType;)Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $virtualMethod(VarHandleShorts$FieldStaticReadOnly, accessModeTypeUncached, $MethodType*, $VarHandle$AccessType*)},
-	{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/invoke/VarHandle$VarHandleDesc;>;", $PUBLIC, $virtualMethod(VarHandleShorts$FieldStaticReadOnly, describeConstable, $Optional*)},
-	{"get", "(Ljava/lang/invoke/VarHandle;)S", nullptr, $STATIC, $staticMethod(VarHandleShorts$FieldStaticReadOnly, get, int16_t, $VarHandle*), nullptr, nullptr, _VarHandleShorts$FieldStaticReadOnly_MethodAnnotations_get4},
-	{"getAcquire", "(Ljava/lang/invoke/VarHandle;)S", nullptr, $STATIC, $staticMethod(VarHandleShorts$FieldStaticReadOnly, getAcquire, int16_t, $VarHandle*), nullptr, nullptr, _VarHandleShorts$FieldStaticReadOnly_MethodAnnotations_getAcquire5},
-	{"getOpaque", "(Ljava/lang/invoke/VarHandle;)S", nullptr, $STATIC, $staticMethod(VarHandleShorts$FieldStaticReadOnly, getOpaque, int16_t, $VarHandle*), nullptr, nullptr, _VarHandleShorts$FieldStaticReadOnly_MethodAnnotations_getOpaque6},
-	{"getVolatile", "(Ljava/lang/invoke/VarHandle;)S", nullptr, $STATIC, $staticMethod(VarHandleShorts$FieldStaticReadOnly, getVolatile, int16_t, $VarHandle*), nullptr, nullptr, _VarHandleShorts$FieldStaticReadOnly_MethodAnnotations_getVolatile7},
-	{"withInvokeBehavior", "()Ljava/lang/invoke/VarHandleShorts$FieldStaticReadOnly;", nullptr, $PUBLIC, $virtualMethod(VarHandleShorts$FieldStaticReadOnly, withInvokeBehavior, VarHandleShorts$FieldStaticReadOnly*)},
-	{"withInvokeExactBehavior", "()Ljava/lang/invoke/VarHandleShorts$FieldStaticReadOnly;", nullptr, $PUBLIC, $virtualMethod(VarHandleShorts$FieldStaticReadOnly, withInvokeExactBehavior, VarHandleShorts$FieldStaticReadOnly*)},
-	{}
-};
-
-$InnerClassInfo _VarHandleShorts$FieldStaticReadOnly_InnerClassesInfo_[] = {
-	{"java.lang.invoke.VarHandleShorts$FieldStaticReadOnly", "java.lang.invoke.VarHandleShorts", "FieldStaticReadOnly", $STATIC},
-	{}
-};
-
-$ClassInfo _VarHandleShorts$FieldStaticReadOnly_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.VarHandleShorts$FieldStaticReadOnly",
-	"java.lang.invoke.VarHandle",
-	nullptr,
-	_VarHandleShorts$FieldStaticReadOnly_FieldInfo_,
-	_VarHandleShorts$FieldStaticReadOnly_MethodInfo_,
-	nullptr,
-	nullptr,
-	_VarHandleShorts$FieldStaticReadOnly_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.VarHandleShorts"
-};
-
-$Object* allocate$VarHandleShorts$FieldStaticReadOnly($Class* clazz) {
-	return $of($alloc(VarHandleShorts$FieldStaticReadOnly));
-}
 
 $VarForm* VarHandleShorts$FieldStaticReadOnly::FORM = nullptr;
 
@@ -127,8 +59,7 @@ VarHandleShorts$FieldStaticReadOnly* VarHandleShorts$FieldStaticReadOnly::withIn
 }
 
 $Optional* VarHandleShorts$FieldStaticReadOnly::describeConstable() {
-	$useLocalCurrentObjectStackCache();
-	$init($Short);
+	$useLocalObjectStack();
 	$var($Optional, fieldTypeRef, $nc($Short::TYPE)->describeConstable());
 	if (!$nc(fieldTypeRef)->isPresent()) {
 		return $Optional::empty();
@@ -138,13 +69,12 @@ $Optional* VarHandleShorts$FieldStaticReadOnly::describeConstable() {
 	if (!$nc(receiverTypeRef)->isPresent()) {
 		return $Optional::empty();
 	}
-	$var($ClassDesc, var$0, $cast($ClassDesc, $nc(receiverTypeRef)->get()));
+	$var($ClassDesc, var$0, $cast($ClassDesc, receiverTypeRef->get()));
 	$var($String, var$1, staticField->getName());
-	return $Optional::of($($VarHandle$VarHandleDesc::ofStaticField(var$0, var$1, $cast($ClassDesc, $($nc(fieldTypeRef)->get())))));
+	return $Optional::of($($VarHandle$VarHandleDesc::ofStaticField(var$0, var$1, $$cast($ClassDesc, fieldTypeRef->get()))));
 }
 
 $MethodType* VarHandleShorts$FieldStaticReadOnly::accessModeTypeUncached($VarHandle$AccessType* at) {
-	$init($Short);
 	return $nc(at)->accessModeType(nullptr, $Short::TYPE, $$new($ClassArray, 0));
 }
 
@@ -152,32 +82,31 @@ int16_t VarHandleShorts$FieldStaticReadOnly::get($VarHandle* ob) {
 	$init(VarHandleShorts$FieldStaticReadOnly);
 	$var(VarHandleShorts$FieldStaticReadOnly, handle, $cast(VarHandleShorts$FieldStaticReadOnly, ob));
 	$init($MethodHandleStatics);
-	return $nc($MethodHandleStatics::UNSAFE)->getShort($nc(handle)->base, handle->fieldOffset);
+	return $nc($MethodHandleStatics::UNSAFE)->getShort($nc(handle)->base, $nc(handle)->fieldOffset);
 }
 
 int16_t VarHandleShorts$FieldStaticReadOnly::getVolatile($VarHandle* ob) {
 	$init(VarHandleShorts$FieldStaticReadOnly);
 	$var(VarHandleShorts$FieldStaticReadOnly, handle, $cast(VarHandleShorts$FieldStaticReadOnly, ob));
 	$init($MethodHandleStatics);
-	return $nc($MethodHandleStatics::UNSAFE)->getShortVolatile($nc(handle)->base, handle->fieldOffset);
+	return $nc($MethodHandleStatics::UNSAFE)->getShortVolatile($nc(handle)->base, $nc(handle)->fieldOffset);
 }
 
 int16_t VarHandleShorts$FieldStaticReadOnly::getOpaque($VarHandle* ob) {
 	$init(VarHandleShorts$FieldStaticReadOnly);
 	$var(VarHandleShorts$FieldStaticReadOnly, handle, $cast(VarHandleShorts$FieldStaticReadOnly, ob));
 	$init($MethodHandleStatics);
-	return $nc($MethodHandleStatics::UNSAFE)->getShortOpaque($nc(handle)->base, handle->fieldOffset);
+	return $nc($MethodHandleStatics::UNSAFE)->getShortOpaque($nc(handle)->base, $nc(handle)->fieldOffset);
 }
 
 int16_t VarHandleShorts$FieldStaticReadOnly::getAcquire($VarHandle* ob) {
 	$init(VarHandleShorts$FieldStaticReadOnly);
 	$var(VarHandleShorts$FieldStaticReadOnly, handle, $cast(VarHandleShorts$FieldStaticReadOnly, ob));
 	$init($MethodHandleStatics);
-	return $nc($MethodHandleStatics::UNSAFE)->getShortAcquire($nc(handle)->base, handle->fieldOffset);
+	return $nc($MethodHandleStatics::UNSAFE)->getShortAcquire($nc(handle)->base, $nc(handle)->fieldOffset);
 }
 
-void clinit$VarHandleShorts$FieldStaticReadOnly($Class* class$) {
-	$init($Short);
+void VarHandleShorts$FieldStaticReadOnly::clinit$($Class* clazz) {
 	$assignStatic(VarHandleShorts$FieldStaticReadOnly::FORM, $new($VarForm, VarHandleShorts$FieldStaticReadOnly::class$, nullptr, $Short::TYPE, $$new($ClassArray, 0)));
 }
 
@@ -185,7 +114,63 @@ VarHandleShorts$FieldStaticReadOnly::VarHandleShorts$FieldStaticReadOnly() {
 }
 
 $Class* VarHandleShorts$FieldStaticReadOnly::load$($String* name, bool initialize) {
-	$loadClass(VarHandleShorts$FieldStaticReadOnly, name, initialize, &_VarHandleShorts$FieldStaticReadOnly_ClassInfo_, clinit$VarHandleShorts$FieldStaticReadOnly, allocate$VarHandleShorts$FieldStaticReadOnly);
+	$FieldInfo fieldInfos$$[] = {
+		{"base", "Ljava/lang/Object;", nullptr, $FINAL, $field(VarHandleShorts$FieldStaticReadOnly, base)},
+		{"fieldOffset", "J", nullptr, $FINAL, $field(VarHandleShorts$FieldStaticReadOnly, fieldOffset)},
+		{"FORM", "Ljava/lang/invoke/VarForm;", nullptr, $STATIC | $FINAL, $staticField(VarHandleShorts$FieldStaticReadOnly, FORM)},
+		{}
+	};
+	$CompoundAttribute getmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getOpaquemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;J)V", nullptr, 0, $method(VarHandleShorts$FieldStaticReadOnly, init$, void, Object$*, int64_t)},
+		{"<init>", "(Ljava/lang/Object;JLjava/lang/invoke/VarForm;Z)V", nullptr, $PROTECTED, $method(VarHandleShorts$FieldStaticReadOnly, init$, void, Object$*, int64_t, $VarForm*, bool)},
+		{"accessModeTypeUncached", "(Ljava/lang/invoke/VarHandle$AccessType;)Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $virtualMethod(VarHandleShorts$FieldStaticReadOnly, accessModeTypeUncached, $MethodType*, $VarHandle$AccessType*)},
+		{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/invoke/VarHandle$VarHandleDesc;>;", $PUBLIC, $virtualMethod(VarHandleShorts$FieldStaticReadOnly, describeConstable, $Optional*)},
+		{"get", "(Ljava/lang/invoke/VarHandle;)S", nullptr, $STATIC, $staticMethod(VarHandleShorts$FieldStaticReadOnly, get, int16_t, $VarHandle*), nullptr, nullptr, getmethodAnnotations$$},
+		{"getAcquire", "(Ljava/lang/invoke/VarHandle;)S", nullptr, $STATIC, $staticMethod(VarHandleShorts$FieldStaticReadOnly, getAcquire, int16_t, $VarHandle*), nullptr, nullptr, getAcquiremethodAnnotations$$},
+		{"getOpaque", "(Ljava/lang/invoke/VarHandle;)S", nullptr, $STATIC, $staticMethod(VarHandleShorts$FieldStaticReadOnly, getOpaque, int16_t, $VarHandle*), nullptr, nullptr, getOpaquemethodAnnotations$$},
+		{"getVolatile", "(Ljava/lang/invoke/VarHandle;)S", nullptr, $STATIC, $staticMethod(VarHandleShorts$FieldStaticReadOnly, getVolatile, int16_t, $VarHandle*), nullptr, nullptr, getVolatilemethodAnnotations$$},
+		{"withInvokeBehavior", "()Ljava/lang/invoke/VarHandleShorts$FieldStaticReadOnly;", nullptr, $PUBLIC, $virtualMethod(VarHandleShorts$FieldStaticReadOnly, withInvokeBehavior, VarHandleShorts$FieldStaticReadOnly*)},
+		{"withInvokeExactBehavior", "()Ljava/lang/invoke/VarHandleShorts$FieldStaticReadOnly;", nullptr, $PUBLIC, $virtualMethod(VarHandleShorts$FieldStaticReadOnly, withInvokeExactBehavior, VarHandleShorts$FieldStaticReadOnly*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.VarHandleShorts$FieldStaticReadOnly", "java.lang.invoke.VarHandleShorts", "FieldStaticReadOnly", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.VarHandleShorts$FieldStaticReadOnly",
+		"java.lang.invoke.VarHandle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.VarHandleShorts"
+	};
+	$loadClass(VarHandleShorts$FieldStaticReadOnly, name, initialize, &classInfo$$, VarHandleShorts$FieldStaticReadOnly::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(VarHandleShorts$FieldStaticReadOnly);
+	});
 	return class$;
 }
 

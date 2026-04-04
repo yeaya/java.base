@@ -1,5 +1,4 @@
 #include <java/util/zip/GZIPOutputStream.h>
-
 #include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/util/zip/CRC32.h>
@@ -24,41 +23,6 @@ using $DeflaterOutputStream = ::java::util::zip::DeflaterOutputStream;
 namespace java {
 	namespace util {
 		namespace zip {
-
-$FieldInfo _GZIPOutputStream_FieldInfo_[] = {
-	{"crc", "Ljava/util/zip/CRC32;", nullptr, $PROTECTED, $field(GZIPOutputStream, crc)},
-	{"GZIP_MAGIC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GZIPOutputStream, GZIP_MAGIC)},
-	{"TRAILER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GZIPOutputStream, TRAILER_SIZE)},
-	{"OS_UNKNOWN", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GZIPOutputStream, OS_UNKNOWN)},
-	{}
-};
-
-$MethodInfo _GZIPOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;I)V", nullptr, $PUBLIC, $method(GZIPOutputStream, init$, void, $OutputStream*, int32_t), "java.io.IOException"},
-	{"<init>", "(Ljava/io/OutputStream;IZ)V", nullptr, $PUBLIC, $method(GZIPOutputStream, init$, void, $OutputStream*, int32_t, bool), "java.io.IOException"},
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(GZIPOutputStream, init$, void, $OutputStream*), "java.io.IOException"},
-	{"<init>", "(Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC, $method(GZIPOutputStream, init$, void, $OutputStream*, bool), "java.io.IOException"},
-	{"finish", "()V", nullptr, $PUBLIC, $virtualMethod(GZIPOutputStream, finish, void), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GZIPOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"writeHeader", "()V", nullptr, $PRIVATE, $method(GZIPOutputStream, writeHeader, void), "java.io.IOException"},
-	{"writeInt", "(I[BI)V", nullptr, $PRIVATE, $method(GZIPOutputStream, writeInt, void, int32_t, $bytes*, int32_t), "java.io.IOException"},
-	{"writeShort", "(I[BI)V", nullptr, $PRIVATE, $method(GZIPOutputStream, writeShort, void, int32_t, $bytes*, int32_t), "java.io.IOException"},
-	{"writeTrailer", "([BI)V", nullptr, $PRIVATE, $method(GZIPOutputStream, writeTrailer, void, $bytes*, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _GZIPOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.zip.GZIPOutputStream",
-	"java.util.zip.DeflaterOutputStream",
-	nullptr,
-	_GZIPOutputStream_FieldInfo_,
-	_GZIPOutputStream_MethodInfo_
-};
-
-$Object* allocate$GZIPOutputStream($Class* clazz) {
-	return $of($alloc(GZIPOutputStream));
-}
 
 void GZIPOutputStream::init$($OutputStream* out, int32_t size) {
 	GZIPOutputStream::init$(out, size, false);
@@ -91,7 +55,7 @@ void GZIPOutputStream::finish() {
 	if (!$nc(this->def)->finished()) {
 		$nc(this->def)->finish();
 		while (!$nc(this->def)->finished()) {
-			int32_t len = $nc(this->def)->deflate(this->buf, 0, $nc(this->buf)->length);
+			int32_t len = this->def->deflate(this->buf, 0, $nc(this->buf)->length);
 			if ($nc(this->def)->finished() && len <= $nc(this->buf)->length - GZIPOutputStream::TRAILER_SIZE) {
 				writeTrailer(this->buf, len);
 				len = len + GZIPOutputStream::TRAILER_SIZE;
@@ -113,12 +77,12 @@ void GZIPOutputStream::writeHeader() {
 		(int8_t)GZIPOutputStream::GZIP_MAGIC,
 		(int8_t)(GZIPOutputStream::GZIP_MAGIC >> 8),
 		(int8_t)$Deflater::DEFLATED,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
-		(int8_t)0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
 		GZIPOutputStream::OS_UNKNOWN
 	}));
 }
@@ -129,20 +93,50 @@ void GZIPOutputStream::writeTrailer($bytes* buf, int32_t offset) {
 }
 
 void GZIPOutputStream::writeInt(int32_t i, $bytes* buf, int32_t offset) {
-	writeShort((int32_t)(i & (uint32_t)0x0000FFFF), buf, offset);
-	writeShort((int32_t)((i >> 16) & (uint32_t)0x0000FFFF), buf, offset + 2);
+	writeShort(i & 0xffff, buf, offset);
+	writeShort((i >> 16) & 0xffff, buf, offset + 2);
 }
 
 void GZIPOutputStream::writeShort(int32_t s, $bytes* buf, int32_t offset) {
-	$nc(buf)->set(offset, (int8_t)((int32_t)(s & (uint32_t)255)));
-	buf->set(offset + 1, (int8_t)((int32_t)((s >> 8) & (uint32_t)255)));
+	$nc(buf)->set(offset, (int8_t)(s & 0xff));
+	buf->set(offset + 1, (int8_t)((s >> 8) & 0xff));
 }
 
 GZIPOutputStream::GZIPOutputStream() {
 }
 
 $Class* GZIPOutputStream::load$($String* name, bool initialize) {
-	$loadClass(GZIPOutputStream, name, initialize, &_GZIPOutputStream_ClassInfo_, allocate$GZIPOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"crc", "Ljava/util/zip/CRC32;", nullptr, $PROTECTED, $field(GZIPOutputStream, crc)},
+		{"GZIP_MAGIC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GZIPOutputStream, GZIP_MAGIC)},
+		{"TRAILER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GZIPOutputStream, TRAILER_SIZE)},
+		{"OS_UNKNOWN", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GZIPOutputStream, OS_UNKNOWN)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/OutputStream;I)V", nullptr, $PUBLIC, $method(GZIPOutputStream, init$, void, $OutputStream*, int32_t), "java.io.IOException"},
+		{"<init>", "(Ljava/io/OutputStream;IZ)V", nullptr, $PUBLIC, $method(GZIPOutputStream, init$, void, $OutputStream*, int32_t, bool), "java.io.IOException"},
+		{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(GZIPOutputStream, init$, void, $OutputStream*), "java.io.IOException"},
+		{"<init>", "(Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC, $method(GZIPOutputStream, init$, void, $OutputStream*, bool), "java.io.IOException"},
+		{"finish", "()V", nullptr, $PUBLIC, $virtualMethod(GZIPOutputStream, finish, void), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(GZIPOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"writeHeader", "()V", nullptr, $PRIVATE, $method(GZIPOutputStream, writeHeader, void), "java.io.IOException"},
+		{"writeInt", "(I[BI)V", nullptr, $PRIVATE, $method(GZIPOutputStream, writeInt, void, int32_t, $bytes*, int32_t), "java.io.IOException"},
+		{"writeShort", "(I[BI)V", nullptr, $PRIVATE, $method(GZIPOutputStream, writeShort, void, int32_t, $bytes*, int32_t), "java.io.IOException"},
+		{"writeTrailer", "([BI)V", nullptr, $PRIVATE, $method(GZIPOutputStream, writeTrailer, void, $bytes*, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.zip.GZIPOutputStream",
+		"java.util.zip.DeflaterOutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GZIPOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GZIPOutputStream));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/security/auth/login/LoginContext$1.h>
-
 #include <javax/security/auth/login/Configuration.h>
 #include <javax/security/auth/login/LoginContext.h>
 #include <jcpp.h>
@@ -17,61 +16,54 @@ namespace javax {
 		namespace auth {
 			namespace login {
 
-$FieldInfo _LoginContext$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/security/auth/login/LoginContext;", nullptr, $FINAL | $SYNTHETIC, $field(LoginContext$1, this$0)},
-	{}
-};
-
-$MethodInfo _LoginContext$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/login/LoginContext;)V", nullptr, 0, $method(LoginContext$1, init$, void, $LoginContext*)},
-	{"run", "()Ljavax/security/auth/login/Configuration;", nullptr, $PUBLIC, $virtualMethod(LoginContext$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _LoginContext$1_EnclosingMethodInfo_ = {
-	"javax.security.auth.login.LoginContext",
-	"init",
-	"(Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _LoginContext$1_InnerClassesInfo_[] = {
-	{"javax.security.auth.login.LoginContext$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LoginContext$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.security.auth.login.LoginContext$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_LoginContext$1_FieldInfo_,
-	_LoginContext$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljavax/security/auth/login/Configuration;>;",
-	&_LoginContext$1_EnclosingMethodInfo_,
-	_LoginContext$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.security.auth.login.LoginContext"
-};
-
-$Object* allocate$LoginContext$1($Class* clazz) {
-	return $of($alloc(LoginContext$1));
-}
-
 void LoginContext$1::init$($LoginContext* this$0) {
 	$set(this, this$0, this$0);
 }
 
 $Object* LoginContext$1::run() {
-	return $of($Configuration::getConfiguration());
+	return $Configuration::getConfiguration();
 }
 
 LoginContext$1::LoginContext$1() {
 }
 
 $Class* LoginContext$1::load$($String* name, bool initialize) {
-	$loadClass(LoginContext$1, name, initialize, &_LoginContext$1_ClassInfo_, allocate$LoginContext$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/security/auth/login/LoginContext;", nullptr, $FINAL | $SYNTHETIC, $field(LoginContext$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/security/auth/login/LoginContext;)V", nullptr, 0, $method(LoginContext$1, init$, void, $LoginContext*)},
+		{"run", "()Ljavax/security/auth/login/Configuration;", nullptr, $PUBLIC, $virtualMethod(LoginContext$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.security.auth.login.LoginContext",
+		"init",
+		"(Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.security.auth.login.LoginContext$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.security.auth.login.LoginContext$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljavax/security/auth/login/Configuration;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.security.auth.login.LoginContext"
+	};
+	$loadClass(LoginContext$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LoginContext$1);
+	});
 	return class$;
 }
 

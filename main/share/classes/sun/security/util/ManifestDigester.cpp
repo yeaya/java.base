@@ -1,5 +1,4 @@
 #include <sun/security/util/ManifestDigester.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -48,79 +47,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* dummy) override {
-		 return $of(ManifestDigester::lambda$new$0($cast($String, dummy)));
+		 return ManifestDigester::lambda$new$0($cast($String, dummy));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ManifestDigester$$Lambda$lambda$new$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ManifestDigester$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ManifestDigester$$Lambda$lambda$new$0, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ManifestDigester$$Lambda$lambda$new$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ManifestDigester$$Lambda$lambda$new$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.security.util.ManifestDigester$$Lambda$lambda$new$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* ManifestDigester$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
-	$loadClass(ManifestDigester$$Lambda$lambda$new$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ManifestDigester$$Lambda$lambda$new$0, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ManifestDigester$$Lambda$lambda$new$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.security.util.ManifestDigester$$Lambda$lambda$new$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ManifestDigester$$Lambda$lambda$new$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ManifestDigester$$Lambda$lambda$new$0);
+	});
 	return class$;
 }
 $Class* ManifestDigester$$Lambda$lambda$new$0::class$ = nullptr;
-
-$FieldInfo _ManifestDigester_FieldInfo_[] = {
-	{"MF_MAIN_ATTRS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ManifestDigester, MF_MAIN_ATTRS)},
-	{"rawBytes", "[B", nullptr, $PRIVATE | $FINAL, $field(ManifestDigester, rawBytes)},
-	{"mainAttsEntry", "Lsun/security/util/ManifestDigester$Entry;", nullptr, $PRIVATE | $FINAL, $field(ManifestDigester, mainAttsEntry)},
-	{"entries", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Lsun/security/util/ManifestDigester$Entry;>;", $PRIVATE | $FINAL, $field(ManifestDigester, entries)},
-	{}
-};
-
-$MethodInfo _ManifestDigester_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(ManifestDigester, init$, void, $bytes*)},
-	{"findSection", "(ILsun/security/util/ManifestDigester$Position;)Z", nullptr, $PRIVATE, $method(ManifestDigester, findSection, bool, int32_t, $ManifestDigester$Position*)},
-	{"get", "(Ljava/lang/String;)Lsun/security/util/ManifestDigester$Entry;", nullptr, $PUBLIC, $virtualMethod(ManifestDigester, get, $ManifestDigester$Entry*, $String*)},
-	{"get", "(Ljava/lang/String;Z)Lsun/security/util/ManifestDigester$Entry;", nullptr, $PUBLIC, $virtualMethod(ManifestDigester, get, $ManifestDigester$Entry*, $String*, bool)},
-	{"getMainAttsEntry", "()Lsun/security/util/ManifestDigester$Entry;", nullptr, $PUBLIC, $virtualMethod(ManifestDigester, getMainAttsEntry, $ManifestDigester$Entry*)},
-	{"getMainAttsEntry", "(Z)Lsun/security/util/ManifestDigester$Entry;", nullptr, $PUBLIC, $virtualMethod(ManifestDigester, getMainAttsEntry, $ManifestDigester$Entry*, bool)},
-	{"isNameAttr", "([BI)Z", nullptr, $PRIVATE, $method(ManifestDigester, isNameAttr, bool, $bytes*, int32_t)},
-	{"lambda$new$0", "(Ljava/lang/String;)Lsun/security/util/ManifestDigester$Entry;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ManifestDigester, lambda$new$0, $ManifestDigester$Entry*, $String*)},
-	{"manifestDigest", "(Ljava/security/MessageDigest;)[B", nullptr, $PUBLIC, $virtualMethod(ManifestDigester, manifestDigest, $bytes*, $MessageDigest*)},
-	{}
-};
-
-$InnerClassInfo _ManifestDigester_InnerClassesInfo_[] = {
-	{"sun.security.util.ManifestDigester$Section", "sun.security.util.ManifestDigester", "Section", $PRIVATE | $STATIC},
-	{"sun.security.util.ManifestDigester$Entry", "sun.security.util.ManifestDigester", "Entry", $PUBLIC | $STATIC},
-	{"sun.security.util.ManifestDigester$Position", "sun.security.util.ManifestDigester", "Position", $STATIC},
-	{}
-};
-
-$ClassInfo _ManifestDigester_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.ManifestDigester",
-	"java.lang.Object",
-	nullptr,
-	_ManifestDigester_FieldInfo_,
-	_ManifestDigester_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ManifestDigester_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.util.ManifestDigester$Section,sun.security.util.ManifestDigester$Entry,sun.security.util.ManifestDigester$Position"
-};
-
-$Object* allocate$ManifestDigester($Class* clazz) {
-	return $of($alloc(ManifestDigester));
-}
 
 $String* ManifestDigester::MF_MAIN_ATTRS = nullptr;
 
@@ -133,37 +82,31 @@ bool ManifestDigester::findSection(int32_t offset, $ManifestDigester$Position* p
 	int32_t UNASSIGNED = $Integer::MIN_VALUE;
 	$nc(pos)->endOfFirstLine = UNASSIGNED;
 	while (i < len) {
-		int8_t b = $nc(this->rawBytes)->get(i);
+		int8_t b = this->rawBytes->get(i);
 		switch (b) {
 		case u'\r':
-			{
-				if (pos->endOfFirstLine == UNASSIGNED) {
-					pos->endOfFirstLine = i - 1;
-				}
-				if (i < len - 1 && $nc(this->rawBytes)->get(i + 1) == u'\n') {
-					++i;
-				}
+			if (pos->endOfFirstLine == UNASSIGNED) {
+				pos->endOfFirstLine = i - 1;
+			}
+			if (i < len - 1 && this->rawBytes->get(i + 1) == u'\n') {
+				++i;
 			}
 		case u'\n':
-			{
-				if (pos->endOfFirstLine == UNASSIGNED) {
-					pos->endOfFirstLine = i - 1;
-				}
-				if (allBlank || (i == len - 1)) {
-					pos->endOfSection = allBlank ? last : i;
-					pos->startOfNext = i + 1;
-					return true;
-				} else {
-					last = i;
-					allBlank = true;
-				}
-				break;
+			if (pos->endOfFirstLine == UNASSIGNED) {
+				pos->endOfFirstLine = i - 1;
 			}
+			if (allBlank || (i == len - 1)) {
+				pos->endOfSection = allBlank ? last : i;
+				pos->startOfNext = i + 1;
+				return true;
+			} else {
+				last = i;
+				allBlank = true;
+			}
+			break;
 		default:
-			{
-				allBlank = false;
-				break;
-			}
+			allBlank = false;
+			break;
 		}
 		++i;
 	}
@@ -171,7 +114,7 @@ bool ManifestDigester::findSection(int32_t offset, $ManifestDigester$Position* p
 }
 
 void ManifestDigester::init$($bytes* bytes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, entries, $new($HashMap));
 	$set(this, rawBytes, bytes);
 	$var($ManifestDigester$Position, pos, $new($ManifestDigester$Position));
@@ -216,8 +159,8 @@ void ManifestDigester::init$($bytes* bytes) {
 					}
 				}
 				$init($StandardCharsets);
-				$var($Object, var$0, $of(nameBuf->toString($StandardCharsets::UTF_8)));
-				$nc(($cast($ManifestDigester$Entry, $($nc(this->entries)->computeIfAbsent(var$0, static_cast<$Function*>($$new(ManifestDigester$$Lambda$lambda$new$0)))))))->addSection($$new($ManifestDigester$Section, start, sectionLen, sectionLenWithBlank, this->rawBytes));
+				$var($Object, var$0, nameBuf->toString($StandardCharsets::UTF_8));
+				$$sure($ManifestDigester$Entry, this->entries->computeIfAbsent(var$0, $$new(ManifestDigester$$Lambda$lambda$new$0)))->addSection($$new($ManifestDigester$Section, start, sectionLen, sectionLenWithBlank, this->rawBytes));
 			}
 		}
 		start = pos->startOfNext;
@@ -225,7 +168,7 @@ void ManifestDigester::init$($bytes* bytes) {
 }
 
 bool ManifestDigester::isNameAttr($bytes* bytes, int32_t start) {
-	return (($nc(bytes)->get(start) == u'N') || ($nc(bytes)->get(start) == u'n')) && ((bytes->get(start + 1) == u'a') || ($nc(bytes)->get(start + 1) == u'A')) && ((bytes->get(start + 2) == u'm') || ($nc(bytes)->get(start + 2) == u'M')) && ((bytes->get(start + 3) == u'e') || ($nc(bytes)->get(start + 3) == u'E')) && (bytes->get(start + 4) == u':') && (bytes->get(start + 5) == u' ');
+	return (($nc(bytes)->get(start) == u'N') || (bytes->get(start) == u'n')) && ((bytes->get(start + 1) == u'a') || (bytes->get(start + 1) == u'A')) && ((bytes->get(start + 2) == u'm') || (bytes->get(start + 2) == u'M')) && ((bytes->get(start + 3) == u'e') || (bytes->get(start + 3) == u'E')) && (bytes->get(start + 4) == u':') && (bytes->get(start + 5) == u' ');
 }
 
 $ManifestDigester$Entry* ManifestDigester::getMainAttsEntry() {
@@ -238,12 +181,12 @@ $ManifestDigester$Entry* ManifestDigester::getMainAttsEntry(bool oldStyle) {
 }
 
 $ManifestDigester$Entry* ManifestDigester::get($String* name) {
-	return $cast($ManifestDigester$Entry, $nc(this->entries)->get(name));
+	return $cast($ManifestDigester$Entry, this->entries->get(name));
 }
 
 $ManifestDigester$Entry* ManifestDigester::get($String* name, bool oldStyle) {
 	$var($ManifestDigester$Entry, e, get(name));
-	if (e == nullptr && $nc(ManifestDigester::MF_MAIN_ATTRS)->equals(name)) {
+	if (e == nullptr && ManifestDigester::MF_MAIN_ATTRS->equals(name)) {
 		$assign(e, getMainAttsEntry());
 	}
 	if (e != nullptr) {
@@ -266,17 +209,58 @@ $ManifestDigester$Entry* ManifestDigester::lambda$new$0($String* dummy) {
 ManifestDigester::ManifestDigester() {
 }
 
-void clinit$ManifestDigester($Class* class$) {
+void ManifestDigester::clinit$($Class* clazz) {
 	$assignStatic(ManifestDigester::MF_MAIN_ATTRS, "Manifest-Main-Attributes"_s);
 }
 
 $Class* ManifestDigester::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ManifestDigester$$Lambda$lambda$new$0::classInfo$.name)) {
+		if (name->equals("sun.security.util.ManifestDigester$$Lambda$lambda$new$0")) {
 			return ManifestDigester$$Lambda$lambda$new$0::load$(name, initialize);
 		}
 	}
-	$loadClass(ManifestDigester, name, initialize, &_ManifestDigester_ClassInfo_, clinit$ManifestDigester, allocate$ManifestDigester);
+	$FieldInfo fieldInfos$$[] = {
+		{"MF_MAIN_ATTRS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ManifestDigester, MF_MAIN_ATTRS)},
+		{"rawBytes", "[B", nullptr, $PRIVATE | $FINAL, $field(ManifestDigester, rawBytes)},
+		{"mainAttsEntry", "Lsun/security/util/ManifestDigester$Entry;", nullptr, $PRIVATE | $FINAL, $field(ManifestDigester, mainAttsEntry)},
+		{"entries", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Lsun/security/util/ManifestDigester$Entry;>;", $PRIVATE | $FINAL, $field(ManifestDigester, entries)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(ManifestDigester, init$, void, $bytes*)},
+		{"findSection", "(ILsun/security/util/ManifestDigester$Position;)Z", nullptr, $PRIVATE, $method(ManifestDigester, findSection, bool, int32_t, $ManifestDigester$Position*)},
+		{"get", "(Ljava/lang/String;)Lsun/security/util/ManifestDigester$Entry;", nullptr, $PUBLIC, $virtualMethod(ManifestDigester, get, $ManifestDigester$Entry*, $String*)},
+		{"get", "(Ljava/lang/String;Z)Lsun/security/util/ManifestDigester$Entry;", nullptr, $PUBLIC, $virtualMethod(ManifestDigester, get, $ManifestDigester$Entry*, $String*, bool)},
+		{"getMainAttsEntry", "()Lsun/security/util/ManifestDigester$Entry;", nullptr, $PUBLIC, $virtualMethod(ManifestDigester, getMainAttsEntry, $ManifestDigester$Entry*)},
+		{"getMainAttsEntry", "(Z)Lsun/security/util/ManifestDigester$Entry;", nullptr, $PUBLIC, $virtualMethod(ManifestDigester, getMainAttsEntry, $ManifestDigester$Entry*, bool)},
+		{"isNameAttr", "([BI)Z", nullptr, $PRIVATE, $method(ManifestDigester, isNameAttr, bool, $bytes*, int32_t)},
+		{"lambda$new$0", "(Ljava/lang/String;)Lsun/security/util/ManifestDigester$Entry;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ManifestDigester, lambda$new$0, $ManifestDigester$Entry*, $String*)},
+		{"manifestDigest", "(Ljava/security/MessageDigest;)[B", nullptr, $PUBLIC, $virtualMethod(ManifestDigester, manifestDigest, $bytes*, $MessageDigest*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.ManifestDigester$Section", "sun.security.util.ManifestDigester", "Section", $PRIVATE | $STATIC},
+		{"sun.security.util.ManifestDigester$Entry", "sun.security.util.ManifestDigester", "Entry", $PUBLIC | $STATIC},
+		{"sun.security.util.ManifestDigester$Position", "sun.security.util.ManifestDigester", "Position", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.ManifestDigester",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.util.ManifestDigester$Section,sun.security.util.ManifestDigester$Entry,sun.security.util.ManifestDigester$Position"
+	};
+	$loadClass(ManifestDigester, name, initialize, &classInfo$$, ManifestDigester::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ManifestDigester);
+	});
 	return class$;
 }
 

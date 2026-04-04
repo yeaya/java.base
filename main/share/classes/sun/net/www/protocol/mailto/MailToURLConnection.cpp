@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/mailto/MailToURLConnection.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -42,42 +41,6 @@ namespace sun {
 			namespace protocol {
 				namespace mailto {
 
-$FieldInfo _MailToURLConnection_FieldInfo_[] = {
-	{"is", "Ljava/io/InputStream;", nullptr, 0, $field(MailToURLConnection, is)},
-	{"os", "Ljava/io/OutputStream;", nullptr, 0, $field(MailToURLConnection, os)},
-	{"client", "Lsun/net/smtp/SmtpClient;", nullptr, 0, $field(MailToURLConnection, client)},
-	{"permission", "Ljava/security/Permission;", nullptr, 0, $field(MailToURLConnection, permission)},
-	{"connectTimeout", "I", nullptr, $PRIVATE, $field(MailToURLConnection, connectTimeout)},
-	{"readTimeout", "I", nullptr, $PRIVATE, $field(MailToURLConnection, readTimeout)},
-	{}
-};
-
-$MethodInfo _MailToURLConnection_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;)V", nullptr, 0, $method(MailToURLConnection, init$, void, $URL*)},
-	{"connect", "()V", nullptr, $PUBLIC, $virtualMethod(MailToURLConnection, connect, void), "java.io.IOException"},
-	{"getConnectTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(MailToURLConnection, getConnectTimeout, int32_t)},
-	{"getFromAddress", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MailToURLConnection, getFromAddress, $String*)},
-	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MailToURLConnection, getOutputStream, $OutputStream*), "java.io.IOException"},
-	{"getPermission", "()Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(MailToURLConnection, getPermission, $Permission*), "java.io.IOException"},
-	{"getReadTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(MailToURLConnection, getReadTimeout, int32_t)},
-	{"setConnectTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(MailToURLConnection, setConnectTimeout, void, int32_t)},
-	{"setReadTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(MailToURLConnection, setReadTimeout, void, int32_t)},
-	{}
-};
-
-$ClassInfo _MailToURLConnection_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.www.protocol.mailto.MailToURLConnection",
-	"sun.net.www.URLConnection",
-	nullptr,
-	_MailToURLConnection_FieldInfo_,
-	_MailToURLConnection_MethodInfo_
-};
-
-$Object* allocate$MailToURLConnection($Class* clazz) {
-	return $of($alloc(MailToURLConnection));
-}
-
 void MailToURLConnection::init$($URL* u) {
 	$URLConnection::init$(u);
 	$set(this, is, nullptr);
@@ -90,7 +53,7 @@ void MailToURLConnection::init$($URL* u) {
 }
 
 $String* MailToURLConnection::getFromAddress() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, $System::getProperty("user.fromaddr"_s));
 	if (str == nullptr) {
 		$var($SecurityManager, sm, $System::getSecurityManager());
@@ -102,7 +65,7 @@ $String* MailToURLConnection::getFromAddress() {
 			$var($String, host, $System::getProperty("mail.host"_s));
 			if (host == nullptr) {
 				try {
-					$assign(host, $nc($($InetAddress::getLocalHost()))->getHostName());
+					$assign(host, $$nc($InetAddress::getLocalHost())->getHostName());
 				} catch ($UnknownHostException& e) {
 				}
 			}
@@ -116,12 +79,12 @@ $String* MailToURLConnection::getFromAddress() {
 
 void MailToURLConnection::connect() {
 	$set(this, client, $new($SmtpClient, this->connectTimeout));
-	$nc(this->client)->setReadTimeout(this->readTimeout);
+	this->client->setReadTimeout(this->readTimeout);
 }
 
 $OutputStream* MailToURLConnection::getOutputStream() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->os != nullptr) {
 			return this->os;
 		} else if (this->is != nullptr) {
@@ -131,13 +94,13 @@ $OutputStream* MailToURLConnection::getOutputStream() {
 		$var($String, to, $ParseUtil::decode($($nc(this->url)->getPath())));
 		$nc(this->client)->from($(getFromAddress()));
 		$nc(this->client)->to(to);
-		$set(this, os, $nc(this->client)->startMessage());
+		$set(this, os, this->client->startMessage());
 		return this->os;
 	}
 }
 
 $Permission* MailToURLConnection::getPermission() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->permission == nullptr) {
 		connect();
 		$var($String, host, $str({$($nc(this->client)->getMailHost()), ":"_s, $$str(25)}));
@@ -172,7 +135,38 @@ MailToURLConnection::MailToURLConnection() {
 }
 
 $Class* MailToURLConnection::load$($String* name, bool initialize) {
-	$loadClass(MailToURLConnection, name, initialize, &_MailToURLConnection_ClassInfo_, allocate$MailToURLConnection);
+	$FieldInfo fieldInfos$$[] = {
+		{"is", "Ljava/io/InputStream;", nullptr, 0, $field(MailToURLConnection, is)},
+		{"os", "Ljava/io/OutputStream;", nullptr, 0, $field(MailToURLConnection, os)},
+		{"client", "Lsun/net/smtp/SmtpClient;", nullptr, 0, $field(MailToURLConnection, client)},
+		{"permission", "Ljava/security/Permission;", nullptr, 0, $field(MailToURLConnection, permission)},
+		{"connectTimeout", "I", nullptr, $PRIVATE, $field(MailToURLConnection, connectTimeout)},
+		{"readTimeout", "I", nullptr, $PRIVATE, $field(MailToURLConnection, readTimeout)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/URL;)V", nullptr, 0, $method(MailToURLConnection, init$, void, $URL*)},
+		{"connect", "()V", nullptr, $PUBLIC, $virtualMethod(MailToURLConnection, connect, void), "java.io.IOException"},
+		{"getConnectTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(MailToURLConnection, getConnectTimeout, int32_t)},
+		{"getFromAddress", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MailToURLConnection, getFromAddress, $String*)},
+		{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MailToURLConnection, getOutputStream, $OutputStream*), "java.io.IOException"},
+		{"getPermission", "()Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(MailToURLConnection, getPermission, $Permission*), "java.io.IOException"},
+		{"getReadTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(MailToURLConnection, getReadTimeout, int32_t)},
+		{"setConnectTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(MailToURLConnection, setConnectTimeout, void, int32_t)},
+		{"setReadTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(MailToURLConnection, setReadTimeout, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.www.protocol.mailto.MailToURLConnection",
+		"sun.net.www.URLConnection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MailToURLConnection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MailToURLConnection);
+	});
 	return class$;
 }
 

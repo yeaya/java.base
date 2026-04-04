@@ -24,6 +24,7 @@ class $export FileLengthTest : public ::java::lang::Object {
 	$class(FileLengthTest, 0, ::java::lang::Object)
 public:
 	FileLengthTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createDummyFile($String* fileName);
 	static void lambda$startLengthThread$0();

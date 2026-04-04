@@ -1,10 +1,7 @@
 #include <ClosedChannelTransfer.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/File.h>
-#include <java/io/InputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/io/RandomAccessFile.h>
 #include <java/nio/channels/Channels.h>
 #include <java/nio/channels/ClosedChannelException.h>
@@ -16,8 +13,6 @@
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $File = ::java::io::File;
-using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $RandomAccessFile = ::java::io::RandomAccessFile;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -28,32 +23,11 @@ using $FileChannel = ::java::nio::channels::FileChannel;
 using $ReadableByteChannel = ::java::nio::channels::ReadableByteChannel;
 using $WritableByteChannel = ::java::nio::channels::WritableByteChannel;
 
-$MethodInfo _ClosedChannelTransfer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ClosedChannelTransfer, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ClosedChannelTransfer, main, void, $StringArray*), "java.lang.Exception"},
-	{"test1", "(Ljava/nio/channels/FileChannel;)V", nullptr, $STATIC, $staticMethod(ClosedChannelTransfer, test1, void, $FileChannel*), "java.lang.Exception"},
-	{"test2", "(Ljava/nio/channels/FileChannel;)V", nullptr, $STATIC, $staticMethod(ClosedChannelTransfer, test2, void, $FileChannel*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ClosedChannelTransfer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ClosedChannelTransfer",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ClosedChannelTransfer_MethodInfo_
-};
-
-$Object* allocate$ClosedChannelTransfer($Class* clazz) {
-	return $of($alloc(ClosedChannelTransfer));
-}
-
 void ClosedChannelTransfer::init$() {
 }
 
 void ClosedChannelTransfer::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, file, $File::createTempFile("test1"_s, nullptr));
 	$nc(file)->deleteOnExit();
 	$var($FileChannel, channel, ($$new($RandomAccessFile, "aaa"_s, "rw"_s))->getChannel());
@@ -64,14 +38,14 @@ void ClosedChannelTransfer::main($StringArray* args) {
 }
 
 void ClosedChannelTransfer::test1($FileChannel* channel) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteArrayInputStream, istr, $new($ByteArrayInputStream, $$new($bytes, {
-		(int8_t)1,
-		(int8_t)2,
-		(int8_t)3,
-		(int8_t)4
+		1,
+		2,
+		3,
+		4
 	})));
-	$var($ReadableByteChannel, rbc, $Channels::newChannel(static_cast<$InputStream*>(istr)));
+	$var($ReadableByteChannel, rbc, $Channels::newChannel(istr));
 	$nc(rbc)->close();
 	try {
 		$nc(channel)->transferFrom(rbc, 0, 2);
@@ -81,9 +55,9 @@ void ClosedChannelTransfer::test1($FileChannel* channel) {
 }
 
 void ClosedChannelTransfer::test2($FileChannel* channel) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteArrayOutputStream, istr, $new($ByteArrayOutputStream, 4));
-	$var($WritableByteChannel, wbc, $Channels::newChannel(static_cast<$OutputStream*>(istr)));
+	$var($WritableByteChannel, wbc, $Channels::newChannel(istr));
 	$nc(wbc)->close();
 	try {
 		$nc(channel)->transferTo(0, 2, wbc);
@@ -96,7 +70,24 @@ ClosedChannelTransfer::ClosedChannelTransfer() {
 }
 
 $Class* ClosedChannelTransfer::load$($String* name, bool initialize) {
-	$loadClass(ClosedChannelTransfer, name, initialize, &_ClosedChannelTransfer_ClassInfo_, allocate$ClosedChannelTransfer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ClosedChannelTransfer, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ClosedChannelTransfer, main, void, $StringArray*), "java.lang.Exception"},
+		{"test1", "(Ljava/nio/channels/FileChannel;)V", nullptr, $STATIC, $staticMethod(ClosedChannelTransfer, test1, void, $FileChannel*), "java.lang.Exception"},
+		{"test2", "(Ljava/nio/channels/FileChannel;)V", nullptr, $STATIC, $staticMethod(ClosedChannelTransfer, test2, void, $FileChannel*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ClosedChannelTransfer",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ClosedChannelTransfer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClosedChannelTransfer);
+	});
 	return class$;
 }
 

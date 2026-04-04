@@ -101,6 +101,7 @@ class CodePointTrie : public ::jdk::internal::icu::util::CodePointMap {
 public:
 	CodePointTrie();
 	using ::jdk::internal::icu::util::CodePointMap::getRange;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($chars* index, ::jdk::internal::icu::util::CodePointTrie$Data* data, int32_t highStart, int32_t index3NullOffset, int32_t dataNullOffset);
 	int32_t asciiGet(int32_t c);
 	virtual int32_t cpIndex(int32_t c) {return 0;}
@@ -115,7 +116,7 @@ public:
 	int32_t smallIndex(::jdk::internal::icu::util::CodePointTrie$Type* type, int32_t c);
 	int32_t toBinary(::java::io::OutputStream* os);
 	static bool $assertionsDisabled;
-	static const int32_t MAX_UNICODE = 0x0010FFFF;
+	static const int32_t MAX_UNICODE = 0x0010ffff;
 	static const int32_t ASCII_LIMIT = 128;
 	static const int32_t FAST_SHIFT = 6;
 	static const int32_t FAST_DATA_BLOCK_LENGTH = 64; // 1 << FAST_SHIFT
@@ -139,12 +140,12 @@ public:
 	static const int32_t INDEX_3_MASK = 31; // INDEX_3_BLOCK_LENGTH - 1
 	static const int32_t SMALL_DATA_BLOCK_LENGTH = 16; // 1 << SHIFT_3
 	static const int32_t SMALL_DATA_MASK = 15; // SMALL_DATA_BLOCK_LENGTH - 1
-	static const int32_t OPTIONS_DATA_LENGTH_MASK = 0x0000F000;
+	static const int32_t OPTIONS_DATA_LENGTH_MASK = 0x0000f000;
 	static const int32_t OPTIONS_DATA_NULL_OFFSET_MASK = 3840;
 	static const int32_t OPTIONS_RESERVED_MASK = 56;
 	static const int32_t OPTIONS_VALUE_BITS_MASK = 7;
 	static const int32_t NO_INDEX3_NULL_OFFSET = 32767;
-	static const int32_t NO_DATA_NULL_OFFSET = 0x000FFFFF;
+	static const int32_t NO_DATA_NULL_OFFSET = 0x000fffff;
 	$ints* ascii = nullptr;
 	$chars* index = nullptr;
 	::jdk::internal::icu::util::CodePointTrie$Data* data = nullptr;

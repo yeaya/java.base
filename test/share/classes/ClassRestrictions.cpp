@@ -1,5 +1,4 @@
 #include <ClassRestrictions.h>
-
 #include <ClassRestrictions$Bar.h>
 #include <ClassRestrictions$Bashful.h>
 #include <ClassRestrictions$Baz.h>
@@ -22,7 +21,6 @@ using $ClassRestrictions$Bashful = ::ClassRestrictions$Bashful;
 using $ClassRestrictions$Baz = ::ClassRestrictions$Baz;
 using $URLArray = $Array<::java::net::URL>;
 using $File = ::java::io::File;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $Error = ::java::lang::Error;
@@ -33,47 +31,8 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Modifier = ::java::lang::reflect::Modifier;
 using $Proxy = ::java::lang::reflect::Proxy;
-using $URI = ::java::net::URI;
 using $URLClassLoader = ::java::net::URLClassLoader;
-using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
-
-$FieldInfo _ClassRestrictions_FieldInfo_[] = {
-	{"nonPublicIntrfaceName", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ClassRestrictions, nonPublicIntrfaceName)},
-	{}
-};
-
-$MethodInfo _ClassRestrictions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassRestrictions, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassRestrictions, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _ClassRestrictions_InnerClassesInfo_[] = {
-	{"ClassRestrictions$Bashful", "ClassRestrictions", "Bashful", $STATIC | $INTERFACE | $ABSTRACT},
-	{"ClassRestrictions$Baz", "ClassRestrictions", "Baz", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"ClassRestrictions$Bar", "ClassRestrictions", "Bar", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ClassRestrictions_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ClassRestrictions",
-	"java.lang.Object",
-	nullptr,
-	_ClassRestrictions_FieldInfo_,
-	_ClassRestrictions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassRestrictions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"ClassRestrictions$Bashful,ClassRestrictions$Baz,ClassRestrictions$Bar"
-};
-
-$Object* allocate$ClassRestrictions($Class* clazz) {
-	return $of($alloc(ClassRestrictions));
-}
 
 $String* ClassRestrictions::nonPublicIntrfaceName = nullptr;
 
@@ -82,7 +41,7 @@ void ClassRestrictions::init$() {
 
 void ClassRestrictions::main($StringArray* args) {
 	$init(ClassRestrictions);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$nc($System::err)->println("\nTest of restrictions on parameters to Proxy.getProxyClass\n"_s);
 	try {
@@ -95,16 +54,15 @@ void ClassRestrictions::main($StringArray* args) {
 			$throwNew($Error, "proxy class created with java.lang.Object as interface"_s);
 		} catch ($IllegalArgumentException& e) {
 			e->printStackTrace();
-			$nc($System::err)->println();
+			$System::err->println();
 		}
 		try {
-			$init($Integer);
 			$assign(interfaces, $new($ClassArray, {$Integer::TYPE}));
 			proxyClass = $Proxy::getProxyClass(loader, interfaces);
 			$throwNew($Error, "proxy class created with int.class as interface"_s);
 		} catch ($IllegalArgumentException& e) {
 			e->printStackTrace();
-			$nc($System::err)->println();
+			$System::err->println();
 		}
 		try {
 			$load($ClassRestrictions$Bar);
@@ -116,13 +74,13 @@ void ClassRestrictions::main($StringArray* args) {
 			$throwNew($Error, "proxy class created with repeated interfaces"_s);
 		} catch ($IllegalArgumentException& e) {
 			e->printStackTrace();
-			$nc($System::err)->println();
+			$System::err->println();
 		}
 		$init($File);
-		$var($StringArray, cpaths, $nc($($System::getProperty("test.classes"_s, "."_s)))->split($File::pathSeparator));
+		$var($StringArray, cpaths, $$nc($System::getProperty("test.classes"_s, "."_s))->split($File::pathSeparator));
 		$var($URLArray, urls, $new($URLArray, cpaths->length));
 		for (int32_t i = 0; i < cpaths->length; ++i) {
-			urls->set(i, $($nc($($nc($($Paths::get(cpaths->get(i), $$new($StringArray, 0))))->toUri()))->toURL()));
+			urls->set(i, $($$nc($$nc($Paths::get(cpaths->get(i), $$new($StringArray, 0)))->toUri())->toURL()));
 		}
 		$var($ClassLoader, altLoader, $new($URLClassLoader, urls, ($ClassLoader*)nullptr));
 		$Class* altBarClass = nullptr;
@@ -134,12 +92,12 @@ void ClassRestrictions::main($StringArray* args) {
 			$throwNew($Error, "proxy class created with interface not visible to class loader"_s);
 		} catch ($IllegalArgumentException& e) {
 			e->printStackTrace();
-			$nc($System::err)->println();
+			$System::err->println();
 		}
 		$load($ClassRestrictions$Bashful);
 		$Class* nonPublic1 = $ClassRestrictions$Bashful::class$;
 		$Class* nonPublic2 = $Class::forName(ClassRestrictions::nonPublicIntrfaceName);
-		if ($Modifier::isPublic($nc(nonPublic2)->getModifiers())) {
+		if ($Modifier::isPublic(nonPublic2->getModifiers())) {
 			$throwNew($Error, $$str({"Interface "_s, ClassRestrictions::nonPublicIntrfaceName, " is public and need to be changed!"_s}));
 		}
 		try {
@@ -151,7 +109,7 @@ void ClassRestrictions::main($StringArray* args) {
 			$throwNew($Error, "proxy class created with two non-public interfaces in different packages"_s);
 		} catch ($IllegalArgumentException& e) {
 			e->printStackTrace();
-			$nc($System::err)->println();
+			$System::err->println();
 		}
 		try {
 			$load($ClassRestrictions$Baz);
@@ -163,11 +121,11 @@ void ClassRestrictions::main($StringArray* args) {
 			$throwNew($Error, "proxy class created with conflicting methods"_s);
 		} catch ($IllegalArgumentException& e) {
 			e->printStackTrace();
-			$nc($System::err)->println();
+			$System::err->println();
 		}
-		$nc($System::err)->println("\nTEST PASSED"_s);
+		$System::err->println("\nTEST PASSED"_s);
 	} catch ($Throwable& e) {
-		$nc($System::err)->println("\nTEST FAILED:"_s);
+		$System::err->println("\nTEST FAILED:"_s);
 		e->printStackTrace();
 		$throwNew($Error, "TEST FAILED: "_s, e);
 	}
@@ -176,12 +134,43 @@ void ClassRestrictions::main($StringArray* args) {
 ClassRestrictions::ClassRestrictions() {
 }
 
-void clinit$ClassRestrictions($Class* class$) {
+void ClassRestrictions::clinit$($Class* clazz) {
 	$assignStatic(ClassRestrictions::nonPublicIntrfaceName, "java.util.zip.ZipConstants"_s);
 }
 
 $Class* ClassRestrictions::load$($String* name, bool initialize) {
-	$loadClass(ClassRestrictions, name, initialize, &_ClassRestrictions_ClassInfo_, clinit$ClassRestrictions, allocate$ClassRestrictions);
+	$FieldInfo fieldInfos$$[] = {
+		{"nonPublicIntrfaceName", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ClassRestrictions, nonPublicIntrfaceName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ClassRestrictions, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassRestrictions, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ClassRestrictions$Bashful", "ClassRestrictions", "Bashful", $STATIC | $INTERFACE | $ABSTRACT},
+		{"ClassRestrictions$Baz", "ClassRestrictions", "Baz", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"ClassRestrictions$Bar", "ClassRestrictions", "Bar", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ClassRestrictions",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"ClassRestrictions$Bashful,ClassRestrictions$Baz,ClassRestrictions$Bar"
+	};
+	$loadClass(ClassRestrictions, name, initialize, &classInfo$$, ClassRestrictions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassRestrictions);
+	});
 	return class$;
 }
 

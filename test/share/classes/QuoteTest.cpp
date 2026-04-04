@@ -1,44 +1,16 @@
 #include <QuoteTest.h>
-
-#include <java/io/Reader.h>
 #include <java/io/StreamTokenizer.h>
 #include <java/io/StringReader.h>
 #include <jcpp.h>
 
 #undef TT_EOF
 
-using $PrintStream = ::java::io::PrintStream;
-using $Reader = ::java::io::Reader;
 using $StreamTokenizer = ::java::io::StreamTokenizer;
 using $StringReader = ::java::io::StringReader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-
-$FieldInfo _QuoteTest_FieldInfo_[] = {
-	{"testStr", "Ljava/lang/String;", nullptr, $STATIC, $staticField(QuoteTest, testStr)},
-	{}
-};
-
-$MethodInfo _QuoteTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(QuoteTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(QuoteTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _QuoteTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"QuoteTest",
-	"java.lang.Object",
-	nullptr,
-	_QuoteTest_FieldInfo_,
-	_QuoteTest_MethodInfo_
-};
-
-$Object* allocate$QuoteTest($Class* clazz) {
-	return $of($alloc(QuoteTest));
-}
 
 $String* QuoteTest::testStr = nullptr;
 
@@ -47,25 +19,21 @@ void QuoteTest::init$() {
 
 void QuoteTest::main($StringArray* args) {
 	$init(QuoteTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::err)->println($$str({"Parsing String: "_s, QuoteTest::testStr}));
-	$var($StreamTokenizer, st, $new($StreamTokenizer, static_cast<$Reader*>($$new($StringReader, QuoteTest::testStr))));
+	$var($StreamTokenizer, st, $new($StreamTokenizer, $$new($StringReader, QuoteTest::testStr)));
 	bool foundToken = false;
 	$var($String, matchStr, nullptr);
 	while (st->nextToken() != $StreamTokenizer::TT_EOF) {
 		switch (st->ttype) {
 		case u'\"':
-			{
-				foundToken = true;
-				$assign(matchStr, st->toString());
-				$nc($System::err)->println($$str({"Found token "_s, matchStr}));
-				break;
-			}
+			foundToken = true;
+			$assign(matchStr, st->toString());
+			$System::err->println($$str({"Found token "_s, matchStr}));
+			break;
 		default:
-			{
-				$nc($System::err)->println($$str({"Found token "_s, st}));
-				break;
-			}
+			$System::err->println($$str({"Found token "_s, st}));
+			break;
 		}
 	}
 	if (!foundToken) {
@@ -76,7 +44,7 @@ void QuoteTest::main($StringArray* args) {
 	}
 }
 
-void clinit$QuoteTest($Class* class$) {
+void QuoteTest::clinit$($Class* clazz) {
 	$assignStatic(QuoteTest::testStr, "token1 token2 \"The test string\" token4"_s);
 }
 
@@ -84,7 +52,26 @@ QuoteTest::QuoteTest() {
 }
 
 $Class* QuoteTest::load$($String* name, bool initialize) {
-	$loadClass(QuoteTest, name, initialize, &_QuoteTest_ClassInfo_, clinit$QuoteTest, allocate$QuoteTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"testStr", "Ljava/lang/String;", nullptr, $STATIC, $staticField(QuoteTest, testStr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(QuoteTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(QuoteTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"QuoteTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(QuoteTest, name, initialize, &classInfo$$, QuoteTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(QuoteTest);
+	});
 	return class$;
 }
 

@@ -21,10 +21,13 @@ public:
 	ZoneRulesException();
 	void init$($String* message);
 	void init$($String* message, $Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0xE9587BD1CEA8B031;
+	static const int64_t serialVersionUID = (int64_t)0xe9587bd1cea8b031;
 	ZoneRulesException(const ZoneRulesException& e);
 	virtual void throw$() override;
-	inline ZoneRulesException* operator ->() {
+	inline ZoneRulesException* operator ->() const {
+		return (ZoneRulesException*)throwing$;
+	}
+	inline operator ZoneRulesException*() const {
 		return (ZoneRulesException*)throwing$;
 	}
 };

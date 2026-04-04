@@ -1,5 +1,4 @@
 #include <Substring.h>
-
 #include <java/lang/StringBuffer.h>
 #include <jcpp.h>
 
@@ -8,33 +7,14 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $StringBuffer = ::java::lang::StringBuffer;
 
-$MethodInfo _Substring_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Substring, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Substring, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _Substring_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Substring",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Substring_MethodInfo_
-};
-
-$Object* allocate$Substring($Class* clazz) {
-	return $of($alloc(Substring));
-}
-
 void Substring::init$() {
 }
 
 void Substring::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, buffer, $new($StringBuffer));
 	buffer->append("Guten Morgen!"_s);
-	if ($nc($(buffer->substring(0)))->length() != 13) {
+	if ($$nc(buffer->substring(0))->length() != 13) {
 		$throwNew($RuntimeException);
 	}
 }
@@ -43,7 +23,22 @@ Substring::Substring() {
 }
 
 $Class* Substring::load$($String* name, bool initialize) {
-	$loadClass(Substring, name, initialize, &_Substring_ClassInfo_, allocate$Substring);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Substring, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Substring, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Substring",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Substring, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Substring);
+	});
 	return class$;
 }
 

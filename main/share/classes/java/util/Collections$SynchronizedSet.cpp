@@ -1,5 +1,4 @@
 #include <java/util/Collections$SynchronizedSet.h>
-
 #include <java/util/Collection.h>
 #include <java/util/Collections$SynchronizedCollection.h>
 #include <java/util/Collections.h>
@@ -28,67 +27,6 @@ using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Collections$SynchronizedSet_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$SynchronizedSet, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Collections$SynchronizedSet_MethodInfo_[] = {
-	{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<TE;>;)V", 0, $method(Collections$SynchronizedSet, init$, void, $Set*)},
-	{"<init>", "(Ljava/util/Set;Ljava/lang/Object;)V", "(Ljava/util/Set<TE;>;Ljava/lang/Object;)V", 0, $method(Collections$SynchronizedSet, init$, void, $Set*, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$SynchronizedSet, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$SynchronizedSet, hashCode, int32_t)},
-	{"*size", "()I", nullptr, $PUBLIC},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
-	{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC},
-	{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Collections$SynchronizedSet_InnerClassesInfo_[] = {
-	{"java.util.Collections$SynchronizedSet", "java.util.Collections", "SynchronizedSet", $STATIC},
-	{"java.util.Collections$SynchronizedCollection", "java.util.Collections", "SynchronizedCollection", $STATIC},
-	{}
-};
-
-$ClassInfo _Collections$SynchronizedSet_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$SynchronizedSet",
-	"java.util.Collections$SynchronizedCollection",
-	"java.util.Set",
-	_Collections$SynchronizedSet_FieldInfo_,
-	_Collections$SynchronizedSet_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/Collections$SynchronizedCollection<TE;>;Ljava/util/Set<TE;>;",
-	nullptr,
-	_Collections$SynchronizedSet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$SynchronizedSet($Class* clazz) {
-	return $of($alloc(Collections$SynchronizedSet));
-}
 
 int32_t Collections$SynchronizedSet::size() {
 	 return this->$Collections$SynchronizedCollection::size();
@@ -205,7 +143,62 @@ Collections$SynchronizedSet::Collections$SynchronizedSet() {
 }
 
 $Class* Collections$SynchronizedSet::load$($String* name, bool initialize) {
-	$loadClass(Collections$SynchronizedSet, name, initialize, &_Collections$SynchronizedSet_ClassInfo_, allocate$Collections$SynchronizedSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$SynchronizedSet, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<TE;>;)V", 0, $method(Collections$SynchronizedSet, init$, void, $Set*)},
+		{"<init>", "(Ljava/util/Set;Ljava/lang/Object;)V", "(Ljava/util/Set<TE;>;Ljava/lang/Object;)V", 0, $method(Collections$SynchronizedSet, init$, void, $Set*, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$SynchronizedSet, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$SynchronizedSet, hashCode, int32_t)},
+		{"*size", "()I", nullptr, $PUBLIC},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+		{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC},
+		{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$SynchronizedSet", "java.util.Collections", "SynchronizedSet", $STATIC},
+		{"java.util.Collections$SynchronizedCollection", "java.util.Collections", "SynchronizedCollection", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$SynchronizedSet",
+		"java.util.Collections$SynchronizedCollection",
+		"java.util.Set",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/Collections$SynchronizedCollection<TE;>;Ljava/util/Set<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$SynchronizedSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Collections$SynchronizedSet));
+	});
 	return class$;
 }
 

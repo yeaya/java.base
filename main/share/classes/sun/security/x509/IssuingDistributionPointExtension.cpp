@@ -1,5 +1,4 @@
 #include <sun/security/x509/IssuingDistributionPointExtension.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/util/Enumeration.h>
@@ -51,62 +50,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _IssuingDistributionPointExtension_FieldInfo_[] = {
-	{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IssuingDistributionPointExtension, IDENT)},
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IssuingDistributionPointExtension, NAME)},
-	{"POINT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IssuingDistributionPointExtension, POINT)},
-	{"REASONS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IssuingDistributionPointExtension, REASONS)},
-	{"ONLY_USER_CERTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IssuingDistributionPointExtension, ONLY_USER_CERTS)},
-	{"ONLY_CA_CERTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IssuingDistributionPointExtension, ONLY_CA_CERTS)},
-	{"ONLY_ATTRIBUTE_CERTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IssuingDistributionPointExtension, ONLY_ATTRIBUTE_CERTS)},
-	{"INDIRECT_CRL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IssuingDistributionPointExtension, INDIRECT_CRL)},
-	{"distributionPoint", "Lsun/security/x509/DistributionPointName;", nullptr, $PRIVATE, $field(IssuingDistributionPointExtension, distributionPoint)},
-	{"revocationReasons", "Lsun/security/x509/ReasonFlags;", nullptr, $PRIVATE, $field(IssuingDistributionPointExtension, revocationReasons)},
-	{"hasOnlyUserCerts", "Z", nullptr, $PRIVATE, $field(IssuingDistributionPointExtension, hasOnlyUserCerts)},
-	{"hasOnlyCACerts", "Z", nullptr, $PRIVATE, $field(IssuingDistributionPointExtension, hasOnlyCACerts)},
-	{"hasOnlyAttributeCerts", "Z", nullptr, $PRIVATE, $field(IssuingDistributionPointExtension, hasOnlyAttributeCerts)},
-	{"isIndirectCRL", "Z", nullptr, $PRIVATE, $field(IssuingDistributionPointExtension, isIndirectCRL)},
-	{"TAG_DISTRIBUTION_POINT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IssuingDistributionPointExtension, TAG_DISTRIBUTION_POINT)},
-	{"TAG_ONLY_USER_CERTS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IssuingDistributionPointExtension, TAG_ONLY_USER_CERTS)},
-	{"TAG_ONLY_CA_CERTS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IssuingDistributionPointExtension, TAG_ONLY_CA_CERTS)},
-	{"TAG_ONLY_SOME_REASONS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IssuingDistributionPointExtension, TAG_ONLY_SOME_REASONS)},
-	{"TAG_INDIRECT_CRL", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IssuingDistributionPointExtension, TAG_INDIRECT_CRL)},
-	{"TAG_ONLY_ATTRIBUTE_CERTS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IssuingDistributionPointExtension, TAG_ONLY_ATTRIBUTE_CERTS)},
-	{}
-};
-
-$MethodInfo _IssuingDistributionPointExtension_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Lsun/security/x509/DistributionPointName;Lsun/security/x509/ReasonFlags;ZZZZ)V", nullptr, $PUBLIC, $method(IssuingDistributionPointExtension, init$, void, $DistributionPointName*, $ReasonFlags*, bool, bool, bool, bool), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(IssuingDistributionPointExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(IssuingDistributionPointExtension, delete$, void, $String*), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(IssuingDistributionPointExtension, encode, void, $OutputStream*), "java.io.IOException"},
-	{"encodeThis", "()V", nullptr, $PRIVATE, $method(IssuingDistributionPointExtension, encodeThis, void), "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IssuingDistributionPointExtension, get, $Object*, $String*), "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(IssuingDistributionPointExtension, getElements, $Enumeration*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IssuingDistributionPointExtension, getName, $String*)},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(IssuingDistributionPointExtension, set, void, $String*, Object$*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IssuingDistributionPointExtension, toString, $String*)},
-	{}
-};
-
-$ClassInfo _IssuingDistributionPointExtension_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.IssuingDistributionPointExtension",
-	"sun.security.x509.Extension",
-	"sun.security.x509.CertAttrSet",
-	_IssuingDistributionPointExtension_FieldInfo_,
-	_IssuingDistributionPointExtension_MethodInfo_,
-	"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
-};
-
-$Object* allocate$IssuingDistributionPointExtension($Class* clazz) {
-	return $of($alloc(IssuingDistributionPointExtension));
-}
-
 int32_t IssuingDistributionPointExtension::hashCode() {
 	 return this->$Extension::hashCode();
 }
@@ -156,7 +99,7 @@ void IssuingDistributionPointExtension::init$($DistributionPointName* distributi
 }
 
 void IssuingDistributionPointExtension::init$($Boolean* critical, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Extension::init$();
 	$set(this, distributionPoint, nullptr);
 	$set(this, revocationReasons, nullptr);
@@ -175,7 +118,7 @@ void IssuingDistributionPointExtension::init$($Boolean* critical, Object$* value
 	if (val->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "Invalid encoding for IssuingDistributionPointExtension."_s);
 	}
-	if ((val->data$ == nullptr) || ($nc(val->data$)->available() == 0)) {
+	if ((val->data$ == nullptr) || (val->data$->available() == 0)) {
 		return;
 	}
 	$var($DerInputStream, in, val->data$);
@@ -185,27 +128,27 @@ void IssuingDistributionPointExtension::init$($Boolean* critical, Object$* value
 		if (var$0 && opt->isConstructed()) {
 			$set(this, distributionPoint, $new($DistributionPointName, $($nc(opt->data$)->getDerValue())));
 		} else {
-			bool var$2 = opt->isContextSpecific(IssuingDistributionPointExtension::TAG_ONLY_USER_CERTS);
-			if (var$2 && !opt->isConstructed()) {
+			bool var$1 = opt->isContextSpecific(IssuingDistributionPointExtension::TAG_ONLY_USER_CERTS);
+			if (var$1 && !opt->isConstructed()) {
 				opt->resetTag($DerValue::tag_Boolean);
 				this->hasOnlyUserCerts = opt->getBoolean();
 			} else {
-				bool var$4 = opt->isContextSpecific(IssuingDistributionPointExtension::TAG_ONLY_CA_CERTS);
-				if (var$4 && !opt->isConstructed()) {
+				bool var$2 = opt->isContextSpecific(IssuingDistributionPointExtension::TAG_ONLY_CA_CERTS);
+				if (var$2 && !opt->isConstructed()) {
 					opt->resetTag($DerValue::tag_Boolean);
 					this->hasOnlyCACerts = opt->getBoolean();
 				} else {
-					bool var$6 = opt->isContextSpecific(IssuingDistributionPointExtension::TAG_ONLY_SOME_REASONS);
-					if (var$6 && !opt->isConstructed()) {
+					bool var$3 = opt->isContextSpecific(IssuingDistributionPointExtension::TAG_ONLY_SOME_REASONS);
+					if (var$3 && !opt->isConstructed()) {
 						$set(this, revocationReasons, $new($ReasonFlags, opt));
 					} else {
-						bool var$8 = opt->isContextSpecific(IssuingDistributionPointExtension::TAG_INDIRECT_CRL);
-						if (var$8 && !opt->isConstructed()) {
+						bool var$4 = opt->isContextSpecific(IssuingDistributionPointExtension::TAG_INDIRECT_CRL);
+						if (var$4 && !opt->isConstructed()) {
 							opt->resetTag($DerValue::tag_Boolean);
 							this->isIndirectCRL = opt->getBoolean();
 						} else {
-							bool var$10 = opt->isContextSpecific(IssuingDistributionPointExtension::TAG_ONLY_ATTRIBUTE_CERTS);
-							if (var$10 && !opt->isConstructed()) {
+							bool var$5 = opt->isContextSpecific(IssuingDistributionPointExtension::TAG_ONLY_ATTRIBUTE_CERTS);
+							if (var$5 && !opt->isConstructed()) {
 								opt->resetTag($DerValue::tag_Boolean);
 								this->hasOnlyAttributeCerts = opt->getBoolean();
 							} else {
@@ -224,7 +167,7 @@ $String* IssuingDistributionPointExtension::getName() {
 }
 
 void IssuingDistributionPointExtension::encode($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);
@@ -251,22 +194,22 @@ void IssuingDistributionPointExtension::set($String* name, Object$* obj) {
 		if (!($instanceOf($Boolean, obj))) {
 			$throwNew($IOException, "Attribute value should be of type Boolean."_s);
 		}
-		this->isIndirectCRL = $nc(($cast($Boolean, obj)))->booleanValue();
+		this->isIndirectCRL = $nc($cast($Boolean, obj))->booleanValue();
 	} else if (name->equalsIgnoreCase(IssuingDistributionPointExtension::ONLY_USER_CERTS)) {
 		if (!($instanceOf($Boolean, obj))) {
 			$throwNew($IOException, "Attribute value should be of type Boolean."_s);
 		}
-		this->hasOnlyUserCerts = $nc(($cast($Boolean, obj)))->booleanValue();
+		this->hasOnlyUserCerts = $nc($cast($Boolean, obj))->booleanValue();
 	} else if (name->equalsIgnoreCase(IssuingDistributionPointExtension::ONLY_CA_CERTS)) {
 		if (!($instanceOf($Boolean, obj))) {
 			$throwNew($IOException, "Attribute value should be of type Boolean."_s);
 		}
-		this->hasOnlyCACerts = $nc(($cast($Boolean, obj)))->booleanValue();
+		this->hasOnlyCACerts = $nc($cast($Boolean, obj))->booleanValue();
 	} else if (name->equalsIgnoreCase(IssuingDistributionPointExtension::ONLY_ATTRIBUTE_CERTS)) {
 		if (!($instanceOf($Boolean, obj))) {
 			$throwNew($IOException, "Attribute value should be of type Boolean."_s);
 		}
-		this->hasOnlyAttributeCerts = $nc(($cast($Boolean, obj)))->booleanValue();
+		this->hasOnlyAttributeCerts = $nc($cast($Boolean, obj))->booleanValue();
 	} else {
 		$throwNew($IOException, $$str({"Attribute name ["_s, name, "] not recognized by CertAttrSet:IssuingDistributionPointExtension."_s}));
 	}
@@ -275,11 +218,11 @@ void IssuingDistributionPointExtension::set($String* name, Object$* obj) {
 
 $Object* IssuingDistributionPointExtension::get($String* name) {
 	if ($nc(name)->equalsIgnoreCase(IssuingDistributionPointExtension::POINT)) {
-		return $of(this->distributionPoint);
+		return this->distributionPoint;
 	} else if (name->equalsIgnoreCase(IssuingDistributionPointExtension::INDIRECT_CRL)) {
 		return $of($Boolean::valueOf(this->isIndirectCRL));
 	} else if (name->equalsIgnoreCase(IssuingDistributionPointExtension::REASONS)) {
-		return $of(this->revocationReasons);
+		return this->revocationReasons;
 	} else if (name->equalsIgnoreCase(IssuingDistributionPointExtension::ONLY_USER_CERTS)) {
 		return $of($Boolean::valueOf(this->hasOnlyUserCerts));
 	} else if (name->equalsIgnoreCase(IssuingDistributionPointExtension::ONLY_CA_CERTS)) {
@@ -322,7 +265,7 @@ $Enumeration* IssuingDistributionPointExtension::getElements() {
 }
 
 void IssuingDistributionPointExtension::encodeThis() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->distributionPoint == nullptr && this->revocationReasons == nullptr && !this->hasOnlyUserCerts && !this->hasOnlyCACerts && !this->hasOnlyAttributeCerts && !this->isIndirectCRL) {
 		$set(this, extensionValue, nullptr);
 		return;
@@ -330,7 +273,7 @@ void IssuingDistributionPointExtension::encodeThis() {
 	$var($DerOutputStream, tagged, $new($DerOutputStream));
 	if (this->distributionPoint != nullptr) {
 		$var($DerOutputStream, tmp, $new($DerOutputStream));
-		$nc(this->distributionPoint)->encode(tmp);
+		this->distributionPoint->encode(tmp);
 		tagged->writeImplicit($DerValue::createTag($DerValue::TAG_CONTEXT, true, IssuingDistributionPointExtension::TAG_DISTRIBUTION_POINT), tmp);
 	}
 	if (this->hasOnlyUserCerts) {
@@ -345,7 +288,7 @@ void IssuingDistributionPointExtension::encodeThis() {
 	}
 	if (this->revocationReasons != nullptr) {
 		$var($DerOutputStream, tmp, $new($DerOutputStream));
-		$nc(this->revocationReasons)->encode(tmp);
+		this->revocationReasons->encode(tmp);
 		tagged->writeImplicit($DerValue::createTag($DerValue::TAG_CONTEXT, false, IssuingDistributionPointExtension::TAG_ONLY_SOME_REASONS), tmp);
 	}
 	if (this->isIndirectCRL) {
@@ -364,14 +307,14 @@ void IssuingDistributionPointExtension::encodeThis() {
 }
 
 $String* IssuingDistributionPointExtension::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($Extension::toString()))->append("IssuingDistributionPoint [\n  "_s);
 	if (this->distributionPoint != nullptr) {
-		sb->append($of(this->distributionPoint));
+		sb->append(this->distributionPoint);
 	}
 	if (this->revocationReasons != nullptr) {
-		sb->append($of(this->revocationReasons));
+		sb->append(this->revocationReasons);
 	}
 	sb->append("  Only contains user certs: "_s)->append(this->hasOnlyUserCerts)->append(u'\n')->append("  Only contains CA certs: "_s)->append(this->hasOnlyCACerts)->append(u'\n')->append("  Only contains attribute certs: "_s)->append(this->hasOnlyAttributeCerts)->append(u'\n')->append("  Indirect CRL: "_s)->append(this->isIndirectCRL)->append("\n]\n"_s);
 	return sb->toString();
@@ -380,7 +323,7 @@ $String* IssuingDistributionPointExtension::toString() {
 IssuingDistributionPointExtension::IssuingDistributionPointExtension() {
 }
 
-void clinit$IssuingDistributionPointExtension($Class* class$) {
+void IssuingDistributionPointExtension::clinit$($Class* clazz) {
 	$assignStatic(IssuingDistributionPointExtension::IDENT, "x509.info.extensions.IssuingDistributionPoint"_s);
 	$assignStatic(IssuingDistributionPointExtension::NAME, "IssuingDistributionPoint"_s);
 	$assignStatic(IssuingDistributionPointExtension::POINT, "point"_s);
@@ -392,7 +335,58 @@ void clinit$IssuingDistributionPointExtension($Class* class$) {
 }
 
 $Class* IssuingDistributionPointExtension::load$($String* name, bool initialize) {
-	$loadClass(IssuingDistributionPointExtension, name, initialize, &_IssuingDistributionPointExtension_ClassInfo_, clinit$IssuingDistributionPointExtension, allocate$IssuingDistributionPointExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IssuingDistributionPointExtension, IDENT)},
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IssuingDistributionPointExtension, NAME)},
+		{"POINT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IssuingDistributionPointExtension, POINT)},
+		{"REASONS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IssuingDistributionPointExtension, REASONS)},
+		{"ONLY_USER_CERTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IssuingDistributionPointExtension, ONLY_USER_CERTS)},
+		{"ONLY_CA_CERTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IssuingDistributionPointExtension, ONLY_CA_CERTS)},
+		{"ONLY_ATTRIBUTE_CERTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IssuingDistributionPointExtension, ONLY_ATTRIBUTE_CERTS)},
+		{"INDIRECT_CRL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IssuingDistributionPointExtension, INDIRECT_CRL)},
+		{"distributionPoint", "Lsun/security/x509/DistributionPointName;", nullptr, $PRIVATE, $field(IssuingDistributionPointExtension, distributionPoint)},
+		{"revocationReasons", "Lsun/security/x509/ReasonFlags;", nullptr, $PRIVATE, $field(IssuingDistributionPointExtension, revocationReasons)},
+		{"hasOnlyUserCerts", "Z", nullptr, $PRIVATE, $field(IssuingDistributionPointExtension, hasOnlyUserCerts)},
+		{"hasOnlyCACerts", "Z", nullptr, $PRIVATE, $field(IssuingDistributionPointExtension, hasOnlyCACerts)},
+		{"hasOnlyAttributeCerts", "Z", nullptr, $PRIVATE, $field(IssuingDistributionPointExtension, hasOnlyAttributeCerts)},
+		{"isIndirectCRL", "Z", nullptr, $PRIVATE, $field(IssuingDistributionPointExtension, isIndirectCRL)},
+		{"TAG_DISTRIBUTION_POINT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IssuingDistributionPointExtension, TAG_DISTRIBUTION_POINT)},
+		{"TAG_ONLY_USER_CERTS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IssuingDistributionPointExtension, TAG_ONLY_USER_CERTS)},
+		{"TAG_ONLY_CA_CERTS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IssuingDistributionPointExtension, TAG_ONLY_CA_CERTS)},
+		{"TAG_ONLY_SOME_REASONS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IssuingDistributionPointExtension, TAG_ONLY_SOME_REASONS)},
+		{"TAG_INDIRECT_CRL", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IssuingDistributionPointExtension, TAG_INDIRECT_CRL)},
+		{"TAG_ONLY_ATTRIBUTE_CERTS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IssuingDistributionPointExtension, TAG_ONLY_ATTRIBUTE_CERTS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Lsun/security/x509/DistributionPointName;Lsun/security/x509/ReasonFlags;ZZZZ)V", nullptr, $PUBLIC, $method(IssuingDistributionPointExtension, init$, void, $DistributionPointName*, $ReasonFlags*, bool, bool, bool, bool), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(IssuingDistributionPointExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
+		{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(IssuingDistributionPointExtension, delete$, void, $String*), "java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(IssuingDistributionPointExtension, encode, void, $OutputStream*), "java.io.IOException"},
+		{"encodeThis", "()V", nullptr, $PRIVATE, $method(IssuingDistributionPointExtension, encodeThis, void), "java.io.IOException"},
+		{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IssuingDistributionPointExtension, get, $Object*, $String*), "java.io.IOException"},
+		{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(IssuingDistributionPointExtension, getElements, $Enumeration*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IssuingDistributionPointExtension, getName, $String*)},
+		{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(IssuingDistributionPointExtension, set, void, $String*, Object$*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IssuingDistributionPointExtension, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.IssuingDistributionPointExtension",
+		"sun.security.x509.Extension",
+		"sun.security.x509.CertAttrSet",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
+	};
+	$loadClass(IssuingDistributionPointExtension, name, initialize, &classInfo$$, IssuingDistributionPointExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(IssuingDistributionPointExtension));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/regex/Pattern$LastNode.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/util/regex/Matcher.h>
 #include <java/util/regex/Pattern$Node.h>
@@ -19,38 +18,6 @@ namespace java {
 	namespace util {
 		namespace regex {
 
-$MethodInfo _Pattern$LastNode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Pattern$LastNode, init$, void)},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$LastNode, match, bool, $Matcher*, int32_t, $CharSequence*)},
-	{}
-};
-
-$InnerClassInfo _Pattern$LastNode_InnerClassesInfo_[] = {
-	{"java.util.regex.Pattern$LastNode", "java.util.regex.Pattern", "LastNode", $STATIC},
-	{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
-	{}
-};
-
-$ClassInfo _Pattern$LastNode_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.regex.Pattern$LastNode",
-	"java.util.regex.Pattern$Node",
-	nullptr,
-	nullptr,
-	_Pattern$LastNode_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pattern$LastNode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.regex.Pattern"
-};
-
-$Object* allocate$Pattern$LastNode($Class* clazz) {
-	return $of($alloc(Pattern$LastNode));
-}
-
 void Pattern$LastNode::init$() {
 	$Pattern$Node::init$();
 }
@@ -59,9 +26,9 @@ bool Pattern$LastNode::match($Matcher* matcher, int32_t i, $CharSequence* seq) {
 	if ($nc(matcher)->acceptMode == $Matcher::ENDANCHOR && i != matcher->to) {
 		return false;
 	}
-	$nc(matcher)->last = i;
+	matcher->last = i;
 	$nc(matcher->groups)->set(0, matcher->first);
-	$nc(matcher->groups)->set(1, matcher->last);
+	matcher->groups->set(1, matcher->last);
 	return true;
 }
 
@@ -69,7 +36,34 @@ Pattern$LastNode::Pattern$LastNode() {
 }
 
 $Class* Pattern$LastNode::load$($String* name, bool initialize) {
-	$loadClass(Pattern$LastNode, name, initialize, &_Pattern$LastNode_ClassInfo_, allocate$Pattern$LastNode);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Pattern$LastNode, init$, void)},
+		{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$LastNode, match, bool, $Matcher*, int32_t, $CharSequence*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Pattern$LastNode", "java.util.regex.Pattern", "LastNode", $STATIC},
+		{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.regex.Pattern$LastNode",
+		"java.util.regex.Pattern$Node",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.regex.Pattern"
+	};
+	$loadClass(Pattern$LastNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$LastNode);
+	});
 	return class$;
 }
 

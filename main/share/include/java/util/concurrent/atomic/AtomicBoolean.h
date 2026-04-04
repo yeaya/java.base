@@ -25,6 +25,7 @@ class $import AtomicBoolean : public ::java::io::Serializable {
 	$class(AtomicBoolean, 0, ::java::io::Serializable)
 public:
 	AtomicBoolean();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool initialValue);
 	void init$();
 	bool compareAndExchange(bool expectedValue, bool newValue);
@@ -47,7 +48,7 @@ public:
 	virtual bool weakCompareAndSetPlain(bool expectedValue, bool newValue);
 	bool weakCompareAndSetRelease(bool expectedValue, bool newValue);
 	bool weakCompareAndSetVolatile(bool expectedValue, bool newValue);
-	static const int64_t serialVersionUID = (int64_t)0x4098B70A4F3FFC33;
+	static const int64_t serialVersionUID = (int64_t)0x4098b70a4f3ffc33;
 	static ::java::lang::invoke::VarHandle* VALUE;
 	$volatile(int32_t) value = 0;
 };

@@ -28,7 +28,7 @@ public:
 	virtual bool isEchoOn();
 	virtual void setPassword($chars* password);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x1F7780E27139C5E6;
+	static const int64_t serialVersionUID = (int64_t)0x1f7780e27139c5e6;
 	$String* prompt = nullptr;
 	bool echoOn = false;
 	$chars* inputPassword = nullptr;

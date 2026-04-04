@@ -118,7 +118,7 @@ public:
 	$ObjectArray* elementData$ = nullptr;
 	int32_t elementCount = 0;
 	int32_t capacityIncrement = 0;
-	static const int64_t serialVersionUID = (int64_t)0xD9977D5B803BAF01;
+	static const int64_t serialVersionUID = (int64_t)0xd9977d5b803baf01;
 };
 
 	} // util

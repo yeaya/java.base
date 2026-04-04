@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/TypeReference.h>
-
 #include <jdk/internal/org/objectweb/asm/ByteVector.h>
 #include <jcpp.h>
 
@@ -38,69 +37,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 
-$FieldInfo _TypeReference_FieldInfo_[] = {
-	{"CLASS_TYPE_PARAMETER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, CLASS_TYPE_PARAMETER)},
-	{"METHOD_TYPE_PARAMETER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, METHOD_TYPE_PARAMETER)},
-	{"CLASS_EXTENDS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, CLASS_EXTENDS)},
-	{"CLASS_TYPE_PARAMETER_BOUND", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, CLASS_TYPE_PARAMETER_BOUND)},
-	{"METHOD_TYPE_PARAMETER_BOUND", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, METHOD_TYPE_PARAMETER_BOUND)},
-	{"FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, FIELD)},
-	{"METHOD_RETURN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, METHOD_RETURN)},
-	{"METHOD_RECEIVER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, METHOD_RECEIVER)},
-	{"METHOD_FORMAL_PARAMETER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, METHOD_FORMAL_PARAMETER)},
-	{"THROWS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, THROWS)},
-	{"LOCAL_VARIABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, LOCAL_VARIABLE)},
-	{"RESOURCE_VARIABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, RESOURCE_VARIABLE)},
-	{"EXCEPTION_PARAMETER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, EXCEPTION_PARAMETER)},
-	{"INSTANCEOF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, INSTANCEOF)},
-	{"NEW", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, NEW)},
-	{"CONSTRUCTOR_REFERENCE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, CONSTRUCTOR_REFERENCE)},
-	{"METHOD_REFERENCE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, METHOD_REFERENCE)},
-	{"CAST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, CAST)},
-	{"CONSTRUCTOR_INVOCATION_TYPE_ARGUMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, CONSTRUCTOR_INVOCATION_TYPE_ARGUMENT)},
-	{"METHOD_INVOCATION_TYPE_ARGUMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, METHOD_INVOCATION_TYPE_ARGUMENT)},
-	{"CONSTRUCTOR_REFERENCE_TYPE_ARGUMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, CONSTRUCTOR_REFERENCE_TYPE_ARGUMENT)},
-	{"METHOD_REFERENCE_TYPE_ARGUMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, METHOD_REFERENCE_TYPE_ARGUMENT)},
-	{"targetTypeAndInfo", "I", nullptr, $PRIVATE | $FINAL, $field(TypeReference, targetTypeAndInfo)},
-	{}
-};
-
-$MethodInfo _TypeReference_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(TypeReference, init$, void, int32_t)},
-	{"getExceptionIndex", "()I", nullptr, $PUBLIC, $virtualMethod(TypeReference, getExceptionIndex, int32_t)},
-	{"getFormalParameterIndex", "()I", nullptr, $PUBLIC, $virtualMethod(TypeReference, getFormalParameterIndex, int32_t)},
-	{"getSort", "()I", nullptr, $PUBLIC, $virtualMethod(TypeReference, getSort, int32_t)},
-	{"getSuperTypeIndex", "()I", nullptr, $PUBLIC, $virtualMethod(TypeReference, getSuperTypeIndex, int32_t)},
-	{"getTryCatchBlockIndex", "()I", nullptr, $PUBLIC, $virtualMethod(TypeReference, getTryCatchBlockIndex, int32_t)},
-	{"getTypeArgumentIndex", "()I", nullptr, $PUBLIC, $virtualMethod(TypeReference, getTypeArgumentIndex, int32_t)},
-	{"getTypeParameterBoundIndex", "()I", nullptr, $PUBLIC, $virtualMethod(TypeReference, getTypeParameterBoundIndex, int32_t)},
-	{"getTypeParameterIndex", "()I", nullptr, $PUBLIC, $virtualMethod(TypeReference, getTypeParameterIndex, int32_t)},
-	{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(TypeReference, getValue, int32_t)},
-	{"newExceptionReference", "(I)Ljdk/internal/org/objectweb/asm/TypeReference;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeReference, newExceptionReference, TypeReference*, int32_t)},
-	{"newFormalParameterReference", "(I)Ljdk/internal/org/objectweb/asm/TypeReference;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeReference, newFormalParameterReference, TypeReference*, int32_t)},
-	{"newSuperTypeReference", "(I)Ljdk/internal/org/objectweb/asm/TypeReference;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeReference, newSuperTypeReference, TypeReference*, int32_t)},
-	{"newTryCatchReference", "(I)Ljdk/internal/org/objectweb/asm/TypeReference;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeReference, newTryCatchReference, TypeReference*, int32_t)},
-	{"newTypeArgumentReference", "(II)Ljdk/internal/org/objectweb/asm/TypeReference;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeReference, newTypeArgumentReference, TypeReference*, int32_t, int32_t)},
-	{"newTypeParameterBoundReference", "(III)Ljdk/internal/org/objectweb/asm/TypeReference;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeReference, newTypeParameterBoundReference, TypeReference*, int32_t, int32_t, int32_t)},
-	{"newTypeParameterReference", "(II)Ljdk/internal/org/objectweb/asm/TypeReference;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeReference, newTypeParameterReference, TypeReference*, int32_t, int32_t)},
-	{"newTypeReference", "(I)Ljdk/internal/org/objectweb/asm/TypeReference;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeReference, newTypeReference, TypeReference*, int32_t)},
-	{"putTarget", "(ILjdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $STATIC, $staticMethod(TypeReference, putTarget, void, int32_t, $ByteVector*)},
-	{}
-};
-
-$ClassInfo _TypeReference_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.TypeReference",
-	"java.lang.Object",
-	nullptr,
-	_TypeReference_FieldInfo_,
-	_TypeReference_MethodInfo_
-};
-
-$Object* allocate$TypeReference($Class* clazz) {
-	return $of($alloc(TypeReference));
-}
-
 void TypeReference::init$(int32_t typeRef) {
 	this->targetTypeAndInfo = typeRef;
 }
@@ -118,7 +54,7 @@ TypeReference* TypeReference::newTypeParameterBoundReference(int32_t sort, int32
 }
 
 TypeReference* TypeReference::newSuperTypeReference(int32_t itfIndex) {
-	return $new(TypeReference, (TypeReference::CLASS_EXTENDS << 24) | (((int32_t)(itfIndex & (uint32_t)0x0000FFFF)) << 8));
+	return $new(TypeReference, (TypeReference::CLASS_EXTENDS << 24) | ((itfIndex & 0xffff) << 8));
 }
 
 TypeReference* TypeReference::newFormalParameterReference(int32_t paramIndex) {
@@ -142,31 +78,31 @@ int32_t TypeReference::getSort() {
 }
 
 int32_t TypeReference::getTypeParameterIndex() {
-	return ((int32_t)(this->targetTypeAndInfo & (uint32_t)0x00FF0000)) >> 16;
+	return (this->targetTypeAndInfo & 0x00ff0000) >> 0x10;
 }
 
 int32_t TypeReference::getTypeParameterBoundIndex() {
-	return ((int32_t)(this->targetTypeAndInfo & (uint32_t)0x0000FF00)) >> 8;
+	return (this->targetTypeAndInfo & 0xff00) >> 8;
 }
 
 int32_t TypeReference::getSuperTypeIndex() {
-	return (int16_t)(((int32_t)(this->targetTypeAndInfo & (uint32_t)0x00FFFF00)) >> 8);
+	return (int16_t)((this->targetTypeAndInfo & 0x00ffff00) >> 8);
 }
 
 int32_t TypeReference::getFormalParameterIndex() {
-	return ((int32_t)(this->targetTypeAndInfo & (uint32_t)0x00FF0000)) >> 16;
+	return (this->targetTypeAndInfo & 0x00ff0000) >> 0x10;
 }
 
 int32_t TypeReference::getExceptionIndex() {
-	return ((int32_t)(this->targetTypeAndInfo & (uint32_t)0x00FFFF00)) >> 8;
+	return (this->targetTypeAndInfo & 0x00ffff00) >> 8;
 }
 
 int32_t TypeReference::getTryCatchBlockIndex() {
-	return ((int32_t)(this->targetTypeAndInfo & (uint32_t)0x00FFFF00)) >> 8;
+	return (this->targetTypeAndInfo & 0x00ffff00) >> 8;
 }
 
 int32_t TypeReference::getTypeArgumentIndex() {
-	return (int32_t)(this->targetTypeAndInfo & (uint32_t)255);
+	return this->targetTypeAndInfo & 0xff;
 }
 
 int32_t TypeReference::getValue() {
@@ -176,61 +112,35 @@ int32_t TypeReference::getValue() {
 void TypeReference::putTarget(int32_t targetTypeAndInfo, $ByteVector* output) {
 	switch ((int32_t)((uint32_t)targetTypeAndInfo >> 24)) {
 	case TypeReference::CLASS_TYPE_PARAMETER:
-		{}
 	case TypeReference::METHOD_TYPE_PARAMETER:
-		{}
 	case TypeReference::METHOD_FORMAL_PARAMETER:
-		{
-			$nc(output)->putShort((int32_t)((uint32_t)targetTypeAndInfo >> 16));
-			break;
-		}
+		$nc(output)->putShort((int32_t)((uint32_t)targetTypeAndInfo >> 16));
+		break;
 	case TypeReference::FIELD:
-		{}
 	case TypeReference::METHOD_RETURN:
-		{}
 	case TypeReference::METHOD_RECEIVER:
-		{
-			$nc(output)->putByte((int32_t)((uint32_t)targetTypeAndInfo >> 24));
-			break;
-		}
+		$nc(output)->putByte((int32_t)((uint32_t)targetTypeAndInfo >> 24));
+		break;
 	case TypeReference::CAST:
-		{}
 	case TypeReference::CONSTRUCTOR_INVOCATION_TYPE_ARGUMENT:
-		{}
 	case TypeReference::METHOD_INVOCATION_TYPE_ARGUMENT:
-		{}
 	case TypeReference::CONSTRUCTOR_REFERENCE_TYPE_ARGUMENT:
-		{}
 	case TypeReference::METHOD_REFERENCE_TYPE_ARGUMENT:
-		{
-			$nc(output)->putInt(targetTypeAndInfo);
-			break;
-		}
+		$nc(output)->putInt(targetTypeAndInfo);
+		break;
 	case TypeReference::CLASS_EXTENDS:
-		{}
 	case TypeReference::CLASS_TYPE_PARAMETER_BOUND:
-		{}
 	case TypeReference::METHOD_TYPE_PARAMETER_BOUND:
-		{}
 	case TypeReference::THROWS:
-		{}
 	case TypeReference::EXCEPTION_PARAMETER:
-		{}
 	case TypeReference::INSTANCEOF:
-		{}
 	case TypeReference::NEW:
-		{}
 	case TypeReference::CONSTRUCTOR_REFERENCE:
-		{}
 	case TypeReference::METHOD_REFERENCE:
-		{
-			$nc(output)->put12((int32_t)((uint32_t)targetTypeAndInfo >> 24), ((int32_t)(targetTypeAndInfo & (uint32_t)0x00FFFF00)) >> 8);
-			break;
-		}
+		$nc(output)->put12((int32_t)((uint32_t)targetTypeAndInfo >> 24), (targetTypeAndInfo & 0x00ffff00) >> 8);
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException);
-		}
+		$throwNew($IllegalArgumentException);
 	}
 }
 
@@ -238,7 +148,65 @@ TypeReference::TypeReference() {
 }
 
 $Class* TypeReference::load$($String* name, bool initialize) {
-	$loadClass(TypeReference, name, initialize, &_TypeReference_ClassInfo_, allocate$TypeReference);
+	$FieldInfo fieldInfos$$[] = {
+		{"CLASS_TYPE_PARAMETER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, CLASS_TYPE_PARAMETER)},
+		{"METHOD_TYPE_PARAMETER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, METHOD_TYPE_PARAMETER)},
+		{"CLASS_EXTENDS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, CLASS_EXTENDS)},
+		{"CLASS_TYPE_PARAMETER_BOUND", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, CLASS_TYPE_PARAMETER_BOUND)},
+		{"METHOD_TYPE_PARAMETER_BOUND", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, METHOD_TYPE_PARAMETER_BOUND)},
+		{"FIELD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, FIELD)},
+		{"METHOD_RETURN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, METHOD_RETURN)},
+		{"METHOD_RECEIVER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, METHOD_RECEIVER)},
+		{"METHOD_FORMAL_PARAMETER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, METHOD_FORMAL_PARAMETER)},
+		{"THROWS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, THROWS)},
+		{"LOCAL_VARIABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, LOCAL_VARIABLE)},
+		{"RESOURCE_VARIABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, RESOURCE_VARIABLE)},
+		{"EXCEPTION_PARAMETER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, EXCEPTION_PARAMETER)},
+		{"INSTANCEOF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, INSTANCEOF)},
+		{"NEW", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, NEW)},
+		{"CONSTRUCTOR_REFERENCE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, CONSTRUCTOR_REFERENCE)},
+		{"METHOD_REFERENCE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, METHOD_REFERENCE)},
+		{"CAST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, CAST)},
+		{"CONSTRUCTOR_INVOCATION_TYPE_ARGUMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, CONSTRUCTOR_INVOCATION_TYPE_ARGUMENT)},
+		{"METHOD_INVOCATION_TYPE_ARGUMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, METHOD_INVOCATION_TYPE_ARGUMENT)},
+		{"CONSTRUCTOR_REFERENCE_TYPE_ARGUMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, CONSTRUCTOR_REFERENCE_TYPE_ARGUMENT)},
+		{"METHOD_REFERENCE_TYPE_ARGUMENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TypeReference, METHOD_REFERENCE_TYPE_ARGUMENT)},
+		{"targetTypeAndInfo", "I", nullptr, $PRIVATE | $FINAL, $field(TypeReference, targetTypeAndInfo)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(TypeReference, init$, void, int32_t)},
+		{"getExceptionIndex", "()I", nullptr, $PUBLIC, $virtualMethod(TypeReference, getExceptionIndex, int32_t)},
+		{"getFormalParameterIndex", "()I", nullptr, $PUBLIC, $virtualMethod(TypeReference, getFormalParameterIndex, int32_t)},
+		{"getSort", "()I", nullptr, $PUBLIC, $virtualMethod(TypeReference, getSort, int32_t)},
+		{"getSuperTypeIndex", "()I", nullptr, $PUBLIC, $virtualMethod(TypeReference, getSuperTypeIndex, int32_t)},
+		{"getTryCatchBlockIndex", "()I", nullptr, $PUBLIC, $virtualMethod(TypeReference, getTryCatchBlockIndex, int32_t)},
+		{"getTypeArgumentIndex", "()I", nullptr, $PUBLIC, $virtualMethod(TypeReference, getTypeArgumentIndex, int32_t)},
+		{"getTypeParameterBoundIndex", "()I", nullptr, $PUBLIC, $virtualMethod(TypeReference, getTypeParameterBoundIndex, int32_t)},
+		{"getTypeParameterIndex", "()I", nullptr, $PUBLIC, $virtualMethod(TypeReference, getTypeParameterIndex, int32_t)},
+		{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(TypeReference, getValue, int32_t)},
+		{"newExceptionReference", "(I)Ljdk/internal/org/objectweb/asm/TypeReference;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeReference, newExceptionReference, TypeReference*, int32_t)},
+		{"newFormalParameterReference", "(I)Ljdk/internal/org/objectweb/asm/TypeReference;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeReference, newFormalParameterReference, TypeReference*, int32_t)},
+		{"newSuperTypeReference", "(I)Ljdk/internal/org/objectweb/asm/TypeReference;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeReference, newSuperTypeReference, TypeReference*, int32_t)},
+		{"newTryCatchReference", "(I)Ljdk/internal/org/objectweb/asm/TypeReference;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeReference, newTryCatchReference, TypeReference*, int32_t)},
+		{"newTypeArgumentReference", "(II)Ljdk/internal/org/objectweb/asm/TypeReference;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeReference, newTypeArgumentReference, TypeReference*, int32_t, int32_t)},
+		{"newTypeParameterBoundReference", "(III)Ljdk/internal/org/objectweb/asm/TypeReference;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeReference, newTypeParameterBoundReference, TypeReference*, int32_t, int32_t, int32_t)},
+		{"newTypeParameterReference", "(II)Ljdk/internal/org/objectweb/asm/TypeReference;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeReference, newTypeParameterReference, TypeReference*, int32_t, int32_t)},
+		{"newTypeReference", "(I)Ljdk/internal/org/objectweb/asm/TypeReference;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeReference, newTypeReference, TypeReference*, int32_t)},
+		{"putTarget", "(ILjdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $STATIC, $staticMethod(TypeReference, putTarget, void, int32_t, $ByteVector*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.TypeReference",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TypeReference, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeReference);
+	});
 	return class$;
 }
 

@@ -17,6 +17,7 @@ class CalendarNameProviderImpl$LengthBasedComparator : public ::java::util::Comp
 	$class(CalendarNameProviderImpl$LengthBasedComparator, 0, ::java::util::Comparator)
 public:
 	CalendarNameProviderImpl$LengthBasedComparator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t compare($String* o1, $String* o2);
 	virtual int32_t compare(Object$* o1, Object$* o2) override;

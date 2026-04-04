@@ -1,5 +1,4 @@
 #include <java/lang/invoke/MethodHandleImpl$WrappedMember.h>
-
 #include <java/lang/invoke/DelegatingMethodHandle.h>
 #include <java/lang/invoke/MemberName.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -19,49 +18,6 @@ using $MethodType = ::java::lang::invoke::MethodType;
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$FieldInfo _MethodHandleImpl$WrappedMember_FieldInfo_[] = {
-	{"target", "Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $FINAL, $field(MethodHandleImpl$WrappedMember, target)},
-	{"member", "Ljava/lang/invoke/MemberName;", nullptr, $PRIVATE | $FINAL, $field(MethodHandleImpl$WrappedMember, member)},
-	{"callerClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(MethodHandleImpl$WrappedMember, callerClass)},
-	{"isInvokeSpecial", "Z", nullptr, $PRIVATE | $FINAL, $field(MethodHandleImpl$WrappedMember, isInvokeSpecial$)},
-	{}
-};
-
-$MethodInfo _MethodHandleImpl$WrappedMember_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MemberName;ZLjava/lang/Class;)V", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MemberName;ZLjava/lang/Class<*>;)V", $PRIVATE, $method(MethodHandleImpl$WrappedMember, init$, void, $MethodHandle*, $MethodType*, $MemberName*, bool, $Class*)},
-	{"asTypeUncached", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$WrappedMember, asTypeUncached, $MethodHandle*, $MethodType*)},
-	{"getTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PROTECTED, $virtualMethod(MethodHandleImpl$WrappedMember, getTarget, $MethodHandle*)},
-	{"internalCallerClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0, $virtualMethod(MethodHandleImpl$WrappedMember, internalCallerClass, $Class*)},
-	{"internalMemberName", "()Ljava/lang/invoke/MemberName;", nullptr, 0, $virtualMethod(MethodHandleImpl$WrappedMember, internalMemberName, $MemberName*)},
-	{"isInvokeSpecial", "()Z", nullptr, 0, $virtualMethod(MethodHandleImpl$WrappedMember, isInvokeSpecial, bool)},
-	{}
-};
-
-$InnerClassInfo _MethodHandleImpl$WrappedMember_InnerClassesInfo_[] = {
-	{"java.lang.invoke.MethodHandleImpl$WrappedMember", "java.lang.invoke.MethodHandleImpl", "WrappedMember", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MethodHandleImpl$WrappedMember_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.invoke.MethodHandleImpl$WrappedMember",
-	"java.lang.invoke.DelegatingMethodHandle",
-	nullptr,
-	_MethodHandleImpl$WrappedMember_FieldInfo_,
-	_MethodHandleImpl$WrappedMember_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MethodHandleImpl$WrappedMember_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.MethodHandleImpl"
-};
-
-$Object* allocate$MethodHandleImpl$WrappedMember($Class* clazz) {
-	return $of($alloc(MethodHandleImpl$WrappedMember));
-}
 
 void MethodHandleImpl$WrappedMember::init$($MethodHandle* target, $MethodType* type, $MemberName* member, bool isInvokeSpecial, $Class* callerClass) {
 	$DelegatingMethodHandle::init$(type, target);
@@ -95,7 +51,44 @@ MethodHandleImpl$WrappedMember::MethodHandleImpl$WrappedMember() {
 }
 
 $Class* MethodHandleImpl$WrappedMember::load$($String* name, bool initialize) {
-	$loadClass(MethodHandleImpl$WrappedMember, name, initialize, &_MethodHandleImpl$WrappedMember_ClassInfo_, allocate$MethodHandleImpl$WrappedMember);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $FINAL, $field(MethodHandleImpl$WrappedMember, target)},
+		{"member", "Ljava/lang/invoke/MemberName;", nullptr, $PRIVATE | $FINAL, $field(MethodHandleImpl$WrappedMember, member)},
+		{"callerClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(MethodHandleImpl$WrappedMember, callerClass)},
+		{"isInvokeSpecial", "Z", nullptr, $PRIVATE | $FINAL, $field(MethodHandleImpl$WrappedMember, isInvokeSpecial$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MemberName;ZLjava/lang/Class;)V", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MemberName;ZLjava/lang/Class<*>;)V", $PRIVATE, $method(MethodHandleImpl$WrappedMember, init$, void, $MethodHandle*, $MethodType*, $MemberName*, bool, $Class*)},
+		{"asTypeUncached", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$WrappedMember, asTypeUncached, $MethodHandle*, $MethodType*)},
+		{"getTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PROTECTED, $virtualMethod(MethodHandleImpl$WrappedMember, getTarget, $MethodHandle*)},
+		{"internalCallerClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0, $virtualMethod(MethodHandleImpl$WrappedMember, internalCallerClass, $Class*)},
+		{"internalMemberName", "()Ljava/lang/invoke/MemberName;", nullptr, 0, $virtualMethod(MethodHandleImpl$WrappedMember, internalMemberName, $MemberName*)},
+		{"isInvokeSpecial", "()Z", nullptr, 0, $virtualMethod(MethodHandleImpl$WrappedMember, isInvokeSpecial, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.MethodHandleImpl$WrappedMember", "java.lang.invoke.MethodHandleImpl", "WrappedMember", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.invoke.MethodHandleImpl$WrappedMember",
+		"java.lang.invoke.DelegatingMethodHandle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.MethodHandleImpl"
+	};
+	$loadClass(MethodHandleImpl$WrappedMember, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodHandleImpl$WrappedMember);
+	});
 	return class$;
 }
 

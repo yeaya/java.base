@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/ChaCha20Cipher$EngineAEADDec.h>
-
 #include <com/sun/crypto/provider/ChaCha20Cipher.h>
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/lang/IllegalStateException.h>
@@ -24,7 +23,6 @@ using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $VarHandle = ::java::lang::invoke::VarHandle;
 using $Objects = ::java::util::Objects;
 using $AEADBadTagException = ::javax::crypto::AEADBadTagException;
 using $ShortBufferException = ::javax::crypto::ShortBufferException;
@@ -33,47 +31,6 @@ namespace com {
 	namespace sun {
 		namespace crypto {
 			namespace provider {
-
-$FieldInfo _ChaCha20Cipher$EngineAEADDec_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/crypto/provider/ChaCha20Cipher;", nullptr, $FINAL | $SYNTHETIC, $field(ChaCha20Cipher$EngineAEADDec, this$0)},
-	{"cipherBuf", "Ljava/io/ByteArrayOutputStream;", nullptr, $PRIVATE | $FINAL, $field(ChaCha20Cipher$EngineAEADDec, cipherBuf)},
-	{"tag", "[B", nullptr, $PRIVATE | $FINAL, $field(ChaCha20Cipher$EngineAEADDec, tag)},
-	{}
-};
-
-$MethodInfo _ChaCha20Cipher$EngineAEADDec_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/crypto/provider/ChaCha20Cipher;)V", nullptr, $PRIVATE, $method(ChaCha20Cipher$EngineAEADDec, init$, void, $ChaCha20Cipher*), "java.security.InvalidKeyException"},
-	{"doFinal", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(ChaCha20Cipher$EngineAEADDec, doFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException,javax.crypto.AEADBadTagException,java.security.KeyException"},
-	{"doUpdate", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(ChaCha20Cipher$EngineAEADDec, doUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"getOutputSize", "(IZ)I", nullptr, $PUBLIC, $virtualMethod(ChaCha20Cipher$EngineAEADDec, getOutputSize, int32_t, int32_t, bool)},
-	{}
-};
-
-$InnerClassInfo _ChaCha20Cipher$EngineAEADDec_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.ChaCha20Cipher$EngineAEADDec", "com.sun.crypto.provider.ChaCha20Cipher", "EngineAEADDec", $PRIVATE | $FINAL},
-	{"com.sun.crypto.provider.ChaCha20Cipher$ChaChaEngine", "com.sun.crypto.provider.ChaCha20Cipher", "ChaChaEngine", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ChaCha20Cipher$EngineAEADDec_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.ChaCha20Cipher$EngineAEADDec",
-	"java.lang.Object",
-	"com.sun.crypto.provider.ChaCha20Cipher$ChaChaEngine",
-	_ChaCha20Cipher$EngineAEADDec_FieldInfo_,
-	_ChaCha20Cipher$EngineAEADDec_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ChaCha20Cipher$EngineAEADDec_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.ChaCha20Cipher"
-};
-
-$Object* allocate$ChaCha20Cipher$EngineAEADDec($Class* clazz) {
-	return $of($alloc(ChaCha20Cipher$EngineAEADDec));
-}
 
 int32_t ChaCha20Cipher$EngineAEADDec::getOutputSize(int32_t inLen, bool isFinal) {
 	return (isFinal ? $Integer::max($Math::addExact((inLen - 16), $nc(this->cipherBuf)->size()), 0) : 0);
@@ -95,7 +52,7 @@ int32_t ChaCha20Cipher$EngineAEADDec::doUpdate($bytes* in, int32_t inOff, int32_
 		}
 		if (in != nullptr) {
 			$Objects::checkFromIndexSize(inOff, inLen, in->length);
-			$nc(this->cipherBuf)->write(in, inOff, inLen);
+			this->cipherBuf->write(in, inOff, inLen);
 		}
 	} else {
 		$throwNew($IllegalStateException, "Must use either a different key or iv."_s);
@@ -104,19 +61,19 @@ int32_t ChaCha20Cipher$EngineAEADDec::doUpdate($bytes* in, int32_t inOff, int32_
 }
 
 int32_t ChaCha20Cipher$EngineAEADDec::doFinal($bytes* in, int32_t inOff, int32_t inLen, $bytes* out, int32_t outOff) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, ctPlusTag, nullptr);
 	int32_t ctPlusTagLen = 0;
-	if ($nc(this->cipherBuf)->size() == 0 && inOff == 0) {
+	if (this->cipherBuf->size() == 0 && inOff == 0) {
 		doUpdate(nullptr, inOff, inLen, out, outOff);
 		$assign(ctPlusTag, in);
 		ctPlusTagLen = inLen;
 	} else {
 		doUpdate(in, inOff, inLen, out, outOff);
-		$assign(ctPlusTag, $nc(this->cipherBuf)->toByteArray());
+		$assign(ctPlusTag, this->cipherBuf->toByteArray());
 		ctPlusTagLen = $nc(ctPlusTag)->length;
 	}
-	$nc(this->cipherBuf)->reset();
+	this->cipherBuf->reset();
 	if (ctPlusTagLen < 16) {
 		$throwNew($AEADBadTagException, "Input too short - need tag"_s);
 	}
@@ -127,10 +84,10 @@ int32_t ChaCha20Cipher$EngineAEADDec::doFinal($bytes* in, int32_t inOff, int32_t
 		$throwNew($ShortBufferException, "Output buffer too small"_s);
 	}
 	this->this$0->authFinalizeData(ctPlusTag, 0, ctLen, this->tag, 0);
-	int64_t var$1 = $longValue($nc($ChaCha20Cipher::asLongView)->get($$new($ObjectArray, {$of(ctPlusTag), $$of(ctLen)})));
-	int64_t var$0 = (var$1 ^ $longValue($nc($ChaCha20Cipher::asLongView)->get($$new($ObjectArray, {$of(this->tag), $$of(0)}))));
-	int64_t var$3 = $longValue($nc($ChaCha20Cipher::asLongView)->get($$new($ObjectArray, {$of(ctPlusTag), $$of((ctLen + $Long::BYTES))})));
-	int64_t var$2 = (var$3 ^ $longValue($nc($ChaCha20Cipher::asLongView)->get($$new($ObjectArray, {$of(this->tag), $$of($Long::BYTES)}))));
+	int64_t var$1 = $longValue($nc($ChaCha20Cipher::asLongView)->get($$new($ObjectArray, {ctPlusTag, $$of(ctLen)})));
+	int64_t var$0 = (var$1 ^ $longValue($ChaCha20Cipher::asLongView->get($$new($ObjectArray, {this->tag, $$of(0)}))));
+	int64_t var$3 = $longValue($ChaCha20Cipher::asLongView->get($$new($ObjectArray, {ctPlusTag, $$of(ctLen + $Long::BYTES)})));
+	int64_t var$2 = (var$3 ^ $longValue($ChaCha20Cipher::asLongView->get($$new($ObjectArray, {this->tag, $$of($Long::BYTES)}))));
 	int64_t tagCompare = var$0 | var$2;
 	if (tagCompare != 0) {
 		$throwNew($AEADBadTagException, "Tag mismatch"_s);
@@ -144,7 +101,42 @@ ChaCha20Cipher$EngineAEADDec::ChaCha20Cipher$EngineAEADDec() {
 }
 
 $Class* ChaCha20Cipher$EngineAEADDec::load$($String* name, bool initialize) {
-	$loadClass(ChaCha20Cipher$EngineAEADDec, name, initialize, &_ChaCha20Cipher$EngineAEADDec_ClassInfo_, allocate$ChaCha20Cipher$EngineAEADDec);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/crypto/provider/ChaCha20Cipher;", nullptr, $FINAL | $SYNTHETIC, $field(ChaCha20Cipher$EngineAEADDec, this$0)},
+		{"cipherBuf", "Ljava/io/ByteArrayOutputStream;", nullptr, $PRIVATE | $FINAL, $field(ChaCha20Cipher$EngineAEADDec, cipherBuf)},
+		{"tag", "[B", nullptr, $PRIVATE | $FINAL, $field(ChaCha20Cipher$EngineAEADDec, tag)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/crypto/provider/ChaCha20Cipher;)V", nullptr, $PRIVATE, $method(ChaCha20Cipher$EngineAEADDec, init$, void, $ChaCha20Cipher*), "java.security.InvalidKeyException"},
+		{"doFinal", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(ChaCha20Cipher$EngineAEADDec, doFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException,javax.crypto.AEADBadTagException,java.security.KeyException"},
+		{"doUpdate", "([BII[BI)I", nullptr, $PUBLIC, $virtualMethod(ChaCha20Cipher$EngineAEADDec, doUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"getOutputSize", "(IZ)I", nullptr, $PUBLIC, $virtualMethod(ChaCha20Cipher$EngineAEADDec, getOutputSize, int32_t, int32_t, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.ChaCha20Cipher$EngineAEADDec", "com.sun.crypto.provider.ChaCha20Cipher", "EngineAEADDec", $PRIVATE | $FINAL},
+		{"com.sun.crypto.provider.ChaCha20Cipher$ChaChaEngine", "com.sun.crypto.provider.ChaCha20Cipher", "ChaChaEngine", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.ChaCha20Cipher$EngineAEADDec",
+		"java.lang.Object",
+		"com.sun.crypto.provider.ChaCha20Cipher$ChaChaEngine",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.ChaCha20Cipher"
+	};
+	$loadClass(ChaCha20Cipher$EngineAEADDec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ChaCha20Cipher$EngineAEADDec);
+	});
 	return class$;
 }
 

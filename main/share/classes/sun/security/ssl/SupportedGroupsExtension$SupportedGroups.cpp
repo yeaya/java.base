@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SupportedGroupsExtension$SupportedGroups.h>
-
 #include <java/security/AlgorithmConstraints.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
@@ -37,47 +36,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SupportedGroupsExtension$SupportedGroups_FieldInfo_[] = {
-	{"enableFFDHE", "Z", nullptr, $STATIC | $FINAL, $staticField(SupportedGroupsExtension$SupportedGroups, enableFFDHE)},
-	{"supportedNamedGroups", "[Lsun/security/ssl/NamedGroup;", nullptr, $STATIC | $FINAL, $staticField(SupportedGroupsExtension$SupportedGroups, supportedNamedGroups)},
-	{}
-};
-
-$MethodInfo _SupportedGroupsExtension$SupportedGroups_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SupportedGroupsExtension$SupportedGroups, init$, void)},
-	{"getPreferredGroup", "(Lsun/security/ssl/ProtocolVersion;Ljava/security/AlgorithmConstraints;[Lsun/security/ssl/NamedGroup$NamedGroupSpec;Ljava/util/List;)Lsun/security/ssl/NamedGroup;", "(Lsun/security/ssl/ProtocolVersion;Ljava/security/AlgorithmConstraints;[Lsun/security/ssl/NamedGroup$NamedGroupSpec;Ljava/util/List<Lsun/security/ssl/NamedGroup;>;)Lsun/security/ssl/NamedGroup;", $STATIC, $staticMethod(SupportedGroupsExtension$SupportedGroups, getPreferredGroup, $NamedGroup*, $ProtocolVersion*, $AlgorithmConstraints*, $NamedGroup$NamedGroupSpecArray*, $List*)},
-	{"getPreferredGroup", "(Lsun/security/ssl/ProtocolVersion;Ljava/security/AlgorithmConstraints;[Lsun/security/ssl/NamedGroup$NamedGroupSpec;)Lsun/security/ssl/NamedGroup;", nullptr, $STATIC, $staticMethod(SupportedGroupsExtension$SupportedGroups, getPreferredGroup, $NamedGroup*, $ProtocolVersion*, $AlgorithmConstraints*, $NamedGroup$NamedGroupSpecArray*)},
-	{"isActivatable", "(Ljava/security/AlgorithmConstraints;Lsun/security/ssl/NamedGroup$NamedGroupSpec;)Z", nullptr, $STATIC, $staticMethod(SupportedGroupsExtension$SupportedGroups, isActivatable, bool, $AlgorithmConstraints*, $NamedGroup$NamedGroupSpec*)},
-	{"isActivatable", "(Ljava/security/AlgorithmConstraints;Lsun/security/ssl/NamedGroup;)Z", nullptr, $STATIC, $staticMethod(SupportedGroupsExtension$SupportedGroups, isActivatable, bool, $AlgorithmConstraints*, $NamedGroup*)},
-	{"isSupported", "(Lsun/security/ssl/NamedGroup;)Z", nullptr, $STATIC, $staticMethod(SupportedGroupsExtension$SupportedGroups, isSupported, bool, $NamedGroup*)},
-	{}
-};
-
-$InnerClassInfo _SupportedGroupsExtension$SupportedGroups_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SupportedGroupsExtension$SupportedGroups", "sun.security.ssl.SupportedGroupsExtension", "SupportedGroups", $STATIC},
-	{}
-};
-
-$ClassInfo _SupportedGroupsExtension$SupportedGroups_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.ssl.SupportedGroupsExtension$SupportedGroups",
-	"java.lang.Object",
-	nullptr,
-	_SupportedGroupsExtension$SupportedGroups_FieldInfo_,
-	_SupportedGroupsExtension$SupportedGroups_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SupportedGroupsExtension$SupportedGroups_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SupportedGroupsExtension"
-};
-
-$Object* allocate$SupportedGroupsExtension$SupportedGroups($Class* clazz) {
-	return $of($alloc(SupportedGroupsExtension$SupportedGroups));
-}
-
 bool SupportedGroupsExtension$SupportedGroups::enableFFDHE = false;
 $NamedGroupArray* SupportedGroupsExtension$SupportedGroups::supportedNamedGroups = nullptr;
 
@@ -89,19 +47,15 @@ bool SupportedGroupsExtension$SupportedGroups::isActivatable($AlgorithmConstrain
 	bool hasFFDHEGroups = false;
 	{
 		$var($NamedGroupArray, arr$, SupportedGroupsExtension$SupportedGroups::supportedNamedGroups);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$NamedGroup* namedGroup = arr$->get(i$);
-			{
-				if ($nc(namedGroup)->isAvailable$ && namedGroup->spec == type) {
-					if (namedGroup->isPermitted(constraints)) {
-						return true;
-					}
-					$init($NamedGroup$NamedGroupSpec);
-					if (!hasFFDHEGroups && (type == $NamedGroup$NamedGroupSpec::NAMED_GROUP_FFDHE)) {
-						hasFFDHEGroups = true;
-					}
+			if ($nc(namedGroup)->isAvailable$ && namedGroup->spec == type) {
+				if (namedGroup->isPermitted(constraints)) {
+					return true;
+				}
+				$init($NamedGroup$NamedGroupSpec);
+				if (!hasFFDHEGroups && (type == $NamedGroup$NamedGroupSpec::NAMED_GROUP_FFDHE)) {
+					hasFFDHEGroups = true;
 				}
 			}
 		}
@@ -115,22 +69,16 @@ bool SupportedGroupsExtension$SupportedGroups::isActivatable($AlgorithmConstrain
 	if (!$nc(namedGroup)->isAvailable$ || !isSupported(namedGroup)) {
 		return false;
 	}
-	return $nc(namedGroup)->isPermitted(constraints);
+	return namedGroup->isPermitted(constraints);
 }
 
 bool SupportedGroupsExtension$SupportedGroups::isSupported($NamedGroup* namedGroup) {
 	$init(SupportedGroupsExtension$SupportedGroups);
-	{
-		$var($NamedGroupArray, arr$, SupportedGroupsExtension$SupportedGroups::supportedNamedGroups);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$NamedGroup* group = arr$->get(i$);
-			{
-				if ($nc(namedGroup)->id == $nc(group)->id) {
-					return true;
-				}
-			}
+	$var($NamedGroupArray, arr$, SupportedGroupsExtension$SupportedGroups::supportedNamedGroups);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$NamedGroup* group = arr$->get(i$);
+		if ($nc(namedGroup)->id == $nc(group)->id) {
+			return true;
 		}
 	}
 	return false;
@@ -138,17 +86,15 @@ bool SupportedGroupsExtension$SupportedGroups::isSupported($NamedGroup* namedGro
 
 $NamedGroup* SupportedGroupsExtension$SupportedGroups::getPreferredGroup($ProtocolVersion* negotiatedProtocol, $AlgorithmConstraints* constraints, $NamedGroup$NamedGroupSpecArray* types, $List* requestedNamedGroups) {
 	$init(SupportedGroupsExtension$SupportedGroups);
-	{
-		$var($Iterator, i$, $nc(requestedNamedGroups)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$NamedGroup* namedGroup = $cast($NamedGroup, i$->next());
-			{
-				bool var$2 = ($NamedGroup$NamedGroupSpec::arrayContains(types, $nc(namedGroup)->spec));
-				bool var$1 = var$2 && $nc(namedGroup)->isAvailable(negotiatedProtocol);
-				bool var$0 = var$1 && isSupported(namedGroup);
-				if (var$0 && namedGroup->isPermitted(constraints)) {
-					return namedGroup;
-				}
+	$var($Iterator, i$, $nc(requestedNamedGroups)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$NamedGroup* namedGroup = $cast($NamedGroup, i$->next());
+		{
+			bool var$2 = $NamedGroup$NamedGroupSpec::arrayContains(types, $nc(namedGroup)->spec);
+			bool var$1 = var$2 && namedGroup->isAvailable(negotiatedProtocol);
+			bool var$0 = var$1 && isSupported(namedGroup);
+			if (var$0 && namedGroup->isPermitted(constraints)) {
+				return namedGroup;
 			}
 		}
 	}
@@ -157,26 +103,22 @@ $NamedGroup* SupportedGroupsExtension$SupportedGroups::getPreferredGroup($Protoc
 
 $NamedGroup* SupportedGroupsExtension$SupportedGroups::getPreferredGroup($ProtocolVersion* negotiatedProtocol, $AlgorithmConstraints* constraints, $NamedGroup$NamedGroupSpecArray* types) {
 	$init(SupportedGroupsExtension$SupportedGroups);
-	{
-		$var($NamedGroupArray, arr$, SupportedGroupsExtension$SupportedGroups::supportedNamedGroups);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$NamedGroup* namedGroup = arr$->get(i$);
-			{
-				bool var$1 = ($NamedGroup$NamedGroupSpec::arrayContains(types, $nc(namedGroup)->spec));
-				bool var$0 = var$1 && $nc(namedGroup)->isAvailable(negotiatedProtocol);
-				if (var$0 && namedGroup->isPermitted(constraints)) {
-					return namedGroup;
-				}
+	$var($NamedGroupArray, arr$, SupportedGroupsExtension$SupportedGroups::supportedNamedGroups);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$NamedGroup* namedGroup = arr$->get(i$);
+		{
+			bool var$1 = $NamedGroup$NamedGroupSpec::arrayContains(types, $nc(namedGroup)->spec);
+			bool var$0 = var$1 && namedGroup->isAvailable(negotiatedProtocol);
+			if (var$0 && namedGroup->isPermitted(constraints)) {
+				return namedGroup;
 			}
 		}
 	}
 	return nullptr;
 }
 
-void clinit$SupportedGroupsExtension$SupportedGroups($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void SupportedGroupsExtension$SupportedGroups::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	SupportedGroupsExtension$SupportedGroups::enableFFDHE = $Utilities::getBooleanProperty("jsse.enableFFDHE"_s, true);
 	{
 		$var($String, property, $GetPropertyAction::privilegedGetProperty("jdk.tls.namedGroups"_s));
@@ -193,9 +135,7 @@ void clinit$SupportedGroupsExtension$SupportedGroups($Class* class$) {
 			$assign(groupList, $new($ArrayList, groups->length));
 			{
 				$var($StringArray, arr$, groups);
-				int32_t len$ = arr$->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
+				for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 					$var($String, group, arr$->get(i$));
 					{
 						$assign(group, $nc(group)->trim());
@@ -230,14 +170,10 @@ void clinit$SupportedGroupsExtension$SupportedGroups($Class* class$) {
 			$assign(groupList, $new($ArrayList, groups->length));
 			{
 				$var($NamedGroupArray, arr$, groups);
-				int32_t len$ = arr$->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
+				for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 					$NamedGroup* group = arr$->get(i$);
-					{
-						if ($nc(group)->isAvailable$) {
-							groupList->add(group);
-						}
+					if ($nc(group)->isAvailable$) {
+						groupList->add(group);
 					}
 				}
 			}
@@ -254,7 +190,7 @@ void clinit$SupportedGroupsExtension$SupportedGroups($Class* class$) {
 			for (; $nc(i$)->hasNext();) {
 				$NamedGroup* namedGroup = $cast($NamedGroup, i$->next());
 				{
-					$nc(SupportedGroupsExtension$SupportedGroups::supportedNamedGroups)->set(i++, namedGroup);
+					SupportedGroupsExtension$SupportedGroups::supportedNamedGroups->set(i++, namedGroup);
 				}
 			}
 		}
@@ -265,7 +201,42 @@ SupportedGroupsExtension$SupportedGroups::SupportedGroupsExtension$SupportedGrou
 }
 
 $Class* SupportedGroupsExtension$SupportedGroups::load$($String* name, bool initialize) {
-	$loadClass(SupportedGroupsExtension$SupportedGroups, name, initialize, &_SupportedGroupsExtension$SupportedGroups_ClassInfo_, clinit$SupportedGroupsExtension$SupportedGroups, allocate$SupportedGroupsExtension$SupportedGroups);
+	$FieldInfo fieldInfos$$[] = {
+		{"enableFFDHE", "Z", nullptr, $STATIC | $FINAL, $staticField(SupportedGroupsExtension$SupportedGroups, enableFFDHE)},
+		{"supportedNamedGroups", "[Lsun/security/ssl/NamedGroup;", nullptr, $STATIC | $FINAL, $staticField(SupportedGroupsExtension$SupportedGroups, supportedNamedGroups)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SupportedGroupsExtension$SupportedGroups, init$, void)},
+		{"getPreferredGroup", "(Lsun/security/ssl/ProtocolVersion;Ljava/security/AlgorithmConstraints;[Lsun/security/ssl/NamedGroup$NamedGroupSpec;Ljava/util/List;)Lsun/security/ssl/NamedGroup;", "(Lsun/security/ssl/ProtocolVersion;Ljava/security/AlgorithmConstraints;[Lsun/security/ssl/NamedGroup$NamedGroupSpec;Ljava/util/List<Lsun/security/ssl/NamedGroup;>;)Lsun/security/ssl/NamedGroup;", $STATIC, $staticMethod(SupportedGroupsExtension$SupportedGroups, getPreferredGroup, $NamedGroup*, $ProtocolVersion*, $AlgorithmConstraints*, $NamedGroup$NamedGroupSpecArray*, $List*)},
+		{"getPreferredGroup", "(Lsun/security/ssl/ProtocolVersion;Ljava/security/AlgorithmConstraints;[Lsun/security/ssl/NamedGroup$NamedGroupSpec;)Lsun/security/ssl/NamedGroup;", nullptr, $STATIC, $staticMethod(SupportedGroupsExtension$SupportedGroups, getPreferredGroup, $NamedGroup*, $ProtocolVersion*, $AlgorithmConstraints*, $NamedGroup$NamedGroupSpecArray*)},
+		{"isActivatable", "(Ljava/security/AlgorithmConstraints;Lsun/security/ssl/NamedGroup$NamedGroupSpec;)Z", nullptr, $STATIC, $staticMethod(SupportedGroupsExtension$SupportedGroups, isActivatable, bool, $AlgorithmConstraints*, $NamedGroup$NamedGroupSpec*)},
+		{"isActivatable", "(Ljava/security/AlgorithmConstraints;Lsun/security/ssl/NamedGroup;)Z", nullptr, $STATIC, $staticMethod(SupportedGroupsExtension$SupportedGroups, isActivatable, bool, $AlgorithmConstraints*, $NamedGroup*)},
+		{"isSupported", "(Lsun/security/ssl/NamedGroup;)Z", nullptr, $STATIC, $staticMethod(SupportedGroupsExtension$SupportedGroups, isSupported, bool, $NamedGroup*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SupportedGroupsExtension$SupportedGroups", "sun.security.ssl.SupportedGroupsExtension", "SupportedGroups", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.ssl.SupportedGroupsExtension$SupportedGroups",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SupportedGroupsExtension"
+	};
+	$loadClass(SupportedGroupsExtension$SupportedGroups, name, initialize, &classInfo$$, SupportedGroupsExtension$SupportedGroups::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SupportedGroupsExtension$SupportedGroups);
+	});
 	return class$;
 }
 

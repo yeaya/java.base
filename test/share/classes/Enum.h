@@ -14,6 +14,7 @@ class Enum : public ::java::lang::Enum {
 public:
 	Enum();
 	static $Array<Enum>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::Enum* valueOf($String* name);
 	static $Array<Enum>* values();

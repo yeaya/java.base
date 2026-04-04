@@ -1,5 +1,4 @@
 #include <sun/security/x509/RFC822Name.h>
-
 #include <java/io/IOException.h>
 #include <java/util/Locale.h>
 #include <sun/security/util/DerOutputStream.h>
@@ -28,39 +27,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _RFC822Name_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RFC822Name, name)},
-	{}
-};
-
-$MethodInfo _RFC822Name_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(RFC822Name, init$, void, $DerValue*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RFC822Name, init$, void, $String*), "java.io.IOException"},
-	{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC, $virtualMethod(RFC822Name, constrains, int32_t, $GeneralNameInterface*), "java.lang.UnsupportedOperationException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(RFC822Name, encode, void, $DerOutputStream*), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RFC822Name, equals, bool, Object$*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RFC822Name, getName, $String*)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(RFC822Name, getType, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RFC822Name, hashCode, int32_t)},
-	{"parseName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RFC822Name, parseName, void, $String*), "java.io.IOException"},
-	{"subtreeDepth", "()I", nullptr, $PUBLIC, $virtualMethod(RFC822Name, subtreeDepth, int32_t), "java.lang.UnsupportedOperationException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RFC822Name, toString, $String*)},
-	{}
-};
-
-$ClassInfo _RFC822Name_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.RFC822Name",
-	"java.lang.Object",
-	"sun.security.x509.GeneralNameInterface",
-	_RFC822Name_FieldInfo_,
-	_RFC822Name_MethodInfo_
-};
-
-$Object* allocate$RFC822Name($Class* clazz) {
-	return $of($alloc(RFC822Name));
-}
-
 void RFC822Name::init$($DerValue* derValue) {
 	$set(this, name, $nc(derValue)->getIA5String());
 	parseName(this->name);
@@ -72,10 +38,10 @@ void RFC822Name::init$($String* name) {
 }
 
 void RFC822Name::parseName($String* name) {
-	if (name == nullptr || $nc(name)->isEmpty()) {
+	if (name == nullptr || name->isEmpty()) {
 		$throwNew($IOException, "RFC822Name may not be null or empty"_s);
 	}
-	$var($String, domain, $nc(name)->substring(name->indexOf((int32_t)u'@') + 1));
+	$var($String, domain, $nc(name)->substring($nc(name)->indexOf(u'@') + 1));
 	if (domain->isEmpty()) {
 		$throwNew($IOException, "RFC822Name may not end with @"_s);
 	} else if (domain->startsWith("."_s)) {
@@ -118,20 +84,20 @@ int32_t RFC822Name::hashCode() {
 }
 
 int32_t RFC822Name::constrains($GeneralNameInterface* inputName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t constraintType = 0;
 	if (inputName == nullptr) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
-	} else if ($nc(inputName)->getType() != ($GeneralNameInterface::NAME_RFC822)) {
+	} else if (inputName->getType() != ($GeneralNameInterface::NAME_RFC822)) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
 	} else {
 		$init($Locale);
-		$var($String, inName, $nc(($($nc(($cast(RFC822Name, inputName)))->getName())))->toLowerCase($Locale::ENGLISH));
+		$var($String, inName, ($$nc($cast(RFC822Name, inputName)->getName()))->toLowerCase($Locale::ENGLISH));
 		$var($String, thisName, $nc(this->name)->toLowerCase($Locale::ENGLISH));
 		if (inName->equals(thisName)) {
 			constraintType = $GeneralNameInterface::NAME_MATCH;
 		} else if (thisName->endsWith(inName)) {
-			if (inName->indexOf((int32_t)u'@') != -1) {
+			if (inName->indexOf(u'@') != -1) {
 				constraintType = $GeneralNameInterface::NAME_SAME_TYPE;
 			} else if (inName->startsWith("."_s)) {
 				constraintType = $GeneralNameInterface::NAME_WIDENS;
@@ -144,7 +110,7 @@ int32_t RFC822Name::constrains($GeneralNameInterface* inputName) {
 				}
 			}
 		} else if (inName->endsWith(thisName)) {
-			if (thisName->indexOf((int32_t)u'@') != -1) {
+			if (thisName->indexOf(u'@') != -1) {
 				constraintType = $GeneralNameInterface::NAME_SAME_TYPE;
 			} else if (thisName->startsWith("."_s)) {
 				constraintType = $GeneralNameInterface::NAME_NARROWS;
@@ -166,13 +132,13 @@ int32_t RFC822Name::constrains($GeneralNameInterface* inputName) {
 int32_t RFC822Name::subtreeDepth() {
 	$var($String, subtree, this->name);
 	int32_t i = 1;
-	int32_t atNdx = $nc(subtree)->lastIndexOf((int32_t)u'@');
+	int32_t atNdx = $nc(subtree)->lastIndexOf(u'@');
 	if (atNdx >= 0) {
 		++i;
 		$assign(subtree, subtree->substring(atNdx + 1));
 	}
-	for (; subtree->lastIndexOf((int32_t)u'.') >= 0; ++i) {
-		$assign(subtree, subtree->substring(0, subtree->lastIndexOf((int32_t)u'.')));
+	for (; subtree->lastIndexOf(u'.') >= 0; ++i) {
+		$assign(subtree, subtree->substring(0, subtree->lastIndexOf(u'.')));
 	}
 	return i;
 }
@@ -181,7 +147,35 @@ RFC822Name::RFC822Name() {
 }
 
 $Class* RFC822Name::load$($String* name, bool initialize) {
-	$loadClass(RFC822Name, name, initialize, &_RFC822Name_ClassInfo_, allocate$RFC822Name);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RFC822Name, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(RFC822Name, init$, void, $DerValue*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RFC822Name, init$, void, $String*), "java.io.IOException"},
+		{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC, $virtualMethod(RFC822Name, constrains, int32_t, $GeneralNameInterface*), "java.lang.UnsupportedOperationException"},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(RFC822Name, encode, void, $DerOutputStream*), "java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RFC822Name, equals, bool, Object$*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RFC822Name, getName, $String*)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(RFC822Name, getType, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RFC822Name, hashCode, int32_t)},
+		{"parseName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RFC822Name, parseName, void, $String*), "java.io.IOException"},
+		{"subtreeDepth", "()I", nullptr, $PUBLIC, $virtualMethod(RFC822Name, subtreeDepth, int32_t), "java.lang.UnsupportedOperationException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RFC822Name, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.RFC822Name",
+		"java.lang.Object",
+		"sun.security.x509.GeneralNameInterface",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RFC822Name, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RFC822Name);
+	});
 	return class$;
 }
 

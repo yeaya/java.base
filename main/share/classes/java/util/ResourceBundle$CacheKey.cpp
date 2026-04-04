@@ -1,5 +1,4 @@
 #include <java/util/ResourceBundle$CacheKey.h>
-
 #include <java/lang/ClassCastException.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/Module.h>
@@ -32,68 +31,6 @@ using $ServiceLoader = ::java::util::ServiceLoader;
 namespace java {
 	namespace util {
 
-$FieldInfo _ResourceBundle$CacheKey_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ResourceBundle$CacheKey, name)},
-	{"locale", "Ljava/util/Locale;", nullptr, $PRIVATE | $VOLATILE, $field(ResourceBundle$CacheKey, locale)},
-	{"moduleRef", "Ljava/util/ResourceBundle$KeyElementReference;", "Ljava/util/ResourceBundle$KeyElementReference<Ljava/lang/Module;>;", $PRIVATE | $FINAL, $field(ResourceBundle$CacheKey, moduleRef)},
-	{"callerRef", "Ljava/util/ResourceBundle$KeyElementReference;", "Ljava/util/ResourceBundle$KeyElementReference<Ljava/lang/Module;>;", $PRIVATE | $FINAL, $field(ResourceBundle$CacheKey, callerRef)},
-	{"modulesHash", "I", nullptr, $PRIVATE | $FINAL, $field(ResourceBundle$CacheKey, modulesHash)},
-	{"format", "Ljava/lang/String;", nullptr, $PRIVATE | $VOLATILE, $field(ResourceBundle$CacheKey, format)},
-	{"loadTime", "J", nullptr, $PRIVATE | $VOLATILE, $field(ResourceBundle$CacheKey, loadTime)},
-	{"expirationTime", "J", nullptr, $PRIVATE | $VOLATILE, $field(ResourceBundle$CacheKey, expirationTime)},
-	{"cause", "Ljava/lang/Throwable;", nullptr, $PRIVATE | $VOLATILE, $field(ResourceBundle$CacheKey, cause)},
-	{"providers", "Ljava/util/ServiceLoader;", "Ljava/util/ServiceLoader<Ljava/util/spi/ResourceBundleProvider;>;", $PRIVATE | $VOLATILE, $field(ResourceBundle$CacheKey, providers)},
-	{"providersChecked", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ResourceBundle$CacheKey, providersChecked)},
-	{"callerHasProvider", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $VOLATILE, $field(ResourceBundle$CacheKey, callerHasProvider$)},
-	{}
-};
-
-$MethodInfo _ResourceBundle$CacheKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/Module;Ljava/lang/Module;)V", nullptr, 0, $method(ResourceBundle$CacheKey, init$, void, $String*, $Locale*, $Module*, $Module*)},
-	{"<init>", "(Ljava/util/ResourceBundle$CacheKey;)V", nullptr, 0, $method(ResourceBundle$CacheKey, init$, void, ResourceBundle$CacheKey*)},
-	{"callerHasProvider", "()Z", nullptr, 0, $method(ResourceBundle$CacheKey, callerHasProvider, bool)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$CacheKey, equals, bool, Object$*)},
-	{"getCallerModule", "()Ljava/lang/Module;", nullptr, 0, $method(ResourceBundle$CacheKey, getCallerModule, $Module*)},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PRIVATE, $method(ResourceBundle$CacheKey, getCause, $Throwable*)},
-	{"getFormat", "()Ljava/lang/String;", nullptr, 0, $method(ResourceBundle$CacheKey, getFormat, $String*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, 0, $method(ResourceBundle$CacheKey, getLocale, $Locale*)},
-	{"getModule", "()Ljava/lang/Module;", nullptr, 0, $method(ResourceBundle$CacheKey, getModule, $Module*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $method(ResourceBundle$CacheKey, getName, $String*)},
-	{"getProviders", "()Ljava/util/ServiceLoader;", "()Ljava/util/ServiceLoader<Ljava/util/spi/ResourceBundleProvider;>;", 0, $method(ResourceBundle$CacheKey, getProviders, $ServiceLoader*)},
-	{"hasProviders", "()Z", nullptr, 0, $method(ResourceBundle$CacheKey, hasProviders, bool)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$CacheKey, hashCode, int32_t)},
-	{"setCause", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(ResourceBundle$CacheKey, setCause, void, $Throwable*)},
-	{"setFormat", "(Ljava/lang/String;)V", nullptr, 0, $method(ResourceBundle$CacheKey, setFormat, void, $String*)},
-	{"setLocale", "(Ljava/util/Locale;)Ljava/util/ResourceBundle$CacheKey;", nullptr, 0, $method(ResourceBundle$CacheKey, setLocale, ResourceBundle$CacheKey*, $Locale*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$CacheKey, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _ResourceBundle$CacheKey_InnerClassesInfo_[] = {
-	{"java.util.ResourceBundle$CacheKey", "java.util.ResourceBundle", "CacheKey", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ResourceBundle$CacheKey_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.ResourceBundle$CacheKey",
-	"java.lang.Object",
-	nullptr,
-	_ResourceBundle$CacheKey_FieldInfo_,
-	_ResourceBundle$CacheKey_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ResourceBundle$CacheKey_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.ResourceBundle"
-};
-
-$Object* allocate$ResourceBundle$CacheKey($Class* clazz) {
-	return $of($alloc(ResourceBundle$CacheKey));
-}
-
 void ResourceBundle$CacheKey::init$($String* baseName, $Locale* locale, $Module* module, $Module* caller) {
 	$Objects::requireNonNull(module);
 	$Objects::requireNonNull(caller);
@@ -107,11 +44,11 @@ void ResourceBundle$CacheKey::init$($String* baseName, $Locale* locale, $Module*
 }
 
 void ResourceBundle$CacheKey::init$(ResourceBundle$CacheKey* src) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ResourceBundle);
 	$set(this, moduleRef, $new($ResourceBundle$KeyElementReference, $cast($Module, $Objects::requireNonNull($($nc(src)->getModule()))), $ResourceBundle::referenceQueue, this));
-	$set(this, callerRef, $new($ResourceBundle$KeyElementReference, $cast($Module, $Objects::requireNonNull($($nc(src)->getCallerModule()))), $ResourceBundle::referenceQueue, this));
-	$set(this, name, $nc(src)->name);
+	$set(this, callerRef, $new($ResourceBundle$KeyElementReference, $cast($Module, $Objects::requireNonNull($(src->getCallerModule()))), $ResourceBundle::referenceQueue, this));
+	$set(this, name, src->name);
 	$set(this, locale, src->locale);
 	this->modulesHash = src->modulesHash;
 	$set(this, format, src->format);
@@ -153,12 +90,11 @@ bool ResourceBundle$CacheKey::hasProviders() {
 }
 
 bool ResourceBundle$CacheKey::callerHasProvider() {
-	$init($Boolean);
 	return this->callerHasProvider$ == $Boolean::TRUE;
 }
 
 bool ResourceBundle$CacheKey::equals(Object$* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, other)) {
 		return true;
 	}
@@ -167,16 +103,16 @@ bool ResourceBundle$CacheKey::equals(Object$* other) {
 		if (this->modulesHash != $nc(otherEntry)->modulesHash) {
 			return false;
 		}
-		if (!$nc(this->name)->equals($nc(otherEntry)->name)) {
+		if (!$nc(this->name)->equals(otherEntry->name)) {
 			return false;
 		}
-		if (!$nc(this->locale)->equals($nc(otherEntry)->locale)) {
+		if (!$nc(this->locale)->equals(otherEntry->locale)) {
 			return false;
 		}
 		$var($Module, module, getModule());
 		$var($Module, caller, getCallerModule());
-		bool var$0 = (module != nullptr) && ($of(module)->equals($($nc(otherEntry)->getModule()))) && (caller != nullptr);
-		return (var$0 && ($of(caller)->equals($($nc(otherEntry)->getCallerModule()))));
+		bool var$0 = (module != nullptr) && (module->equals($(otherEntry->getModule()))) && (caller != nullptr);
+		return (var$0 && (caller->equals($(otherEntry->getCallerModule()))));
 	} catch ($NullPointerException& e) {
 	} catch ($ClassCastException& e) {
 	}
@@ -184,7 +120,7 @@ bool ResourceBundle$CacheKey::equals(Object$* other) {
 }
 
 int32_t ResourceBundle$CacheKey::hashCode() {
-	int32_t var$0 = ($nc(this->name)->hashCode() << 3);
+	int32_t var$0 = $nc(this->name)->hashCode() << 3;
 	return (var$0 ^ $nc(this->locale)->hashCode()) ^ this->modulesHash;
 }
 
@@ -209,27 +145,91 @@ $Throwable* ResourceBundle$CacheKey::getCause() {
 }
 
 $String* ResourceBundle$CacheKey::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, l, $nc(this->locale)->toString());
 	if ($nc(l)->isEmpty()) {
-		if (!$nc($($nc(this->locale)->getVariant()))->isEmpty()) {
+		if (!$$nc($nc(this->locale)->getVariant())->isEmpty()) {
 			$assign(l, $str({"__"_s, $($nc(this->locale)->getVariant())}));
 		} else {
 			$assign(l, "\"\""_s);
 		}
 	}
-	$var($String, var$3, $$str({"CacheKey["_s, this->name, ", locale="_s, l, ", module="_s, $(getModule()), ", callerModule="_s}));
-	$var($String, var$2, $$concat(var$3, $(getCallerModule())));
-	$var($String, var$1, $$concat(var$2, ", format="_s));
-	$var($String, var$0, $$concat(var$1, this->format));
-	return $concat(var$0, "]"_s);
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("CacheKey["_s);
+	var$0->append(this->name);
+	var$0->append(", locale="_s);
+	var$0->append(l);
+	var$0->append(", module="_s);
+	var$0->append($(getModule()));
+	var$0->append(", callerModule="_s);
+	var$0->append($(getCallerModule()));
+	var$0->append(", format="_s);
+	var$0->append(this->format);
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 ResourceBundle$CacheKey::ResourceBundle$CacheKey() {
 }
 
 $Class* ResourceBundle$CacheKey::load$($String* name, bool initialize) {
-	$loadClass(ResourceBundle$CacheKey, name, initialize, &_ResourceBundle$CacheKey_ClassInfo_, allocate$ResourceBundle$CacheKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ResourceBundle$CacheKey, name)},
+		{"locale", "Ljava/util/Locale;", nullptr, $PRIVATE | $VOLATILE, $field(ResourceBundle$CacheKey, locale)},
+		{"moduleRef", "Ljava/util/ResourceBundle$KeyElementReference;", "Ljava/util/ResourceBundle$KeyElementReference<Ljava/lang/Module;>;", $PRIVATE | $FINAL, $field(ResourceBundle$CacheKey, moduleRef)},
+		{"callerRef", "Ljava/util/ResourceBundle$KeyElementReference;", "Ljava/util/ResourceBundle$KeyElementReference<Ljava/lang/Module;>;", $PRIVATE | $FINAL, $field(ResourceBundle$CacheKey, callerRef)},
+		{"modulesHash", "I", nullptr, $PRIVATE | $FINAL, $field(ResourceBundle$CacheKey, modulesHash)},
+		{"format", "Ljava/lang/String;", nullptr, $PRIVATE | $VOLATILE, $field(ResourceBundle$CacheKey, format)},
+		{"loadTime", "J", nullptr, $PRIVATE | $VOLATILE, $field(ResourceBundle$CacheKey, loadTime)},
+		{"expirationTime", "J", nullptr, $PRIVATE | $VOLATILE, $field(ResourceBundle$CacheKey, expirationTime)},
+		{"cause", "Ljava/lang/Throwable;", nullptr, $PRIVATE | $VOLATILE, $field(ResourceBundle$CacheKey, cause)},
+		{"providers", "Ljava/util/ServiceLoader;", "Ljava/util/ServiceLoader<Ljava/util/spi/ResourceBundleProvider;>;", $PRIVATE | $VOLATILE, $field(ResourceBundle$CacheKey, providers)},
+		{"providersChecked", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ResourceBundle$CacheKey, providersChecked)},
+		{"callerHasProvider", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $VOLATILE, $field(ResourceBundle$CacheKey, callerHasProvider$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/Module;Ljava/lang/Module;)V", nullptr, 0, $method(ResourceBundle$CacheKey, init$, void, $String*, $Locale*, $Module*, $Module*)},
+		{"<init>", "(Ljava/util/ResourceBundle$CacheKey;)V", nullptr, 0, $method(ResourceBundle$CacheKey, init$, void, ResourceBundle$CacheKey*)},
+		{"callerHasProvider", "()Z", nullptr, 0, $method(ResourceBundle$CacheKey, callerHasProvider, bool)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$CacheKey, equals, bool, Object$*)},
+		{"getCallerModule", "()Ljava/lang/Module;", nullptr, 0, $method(ResourceBundle$CacheKey, getCallerModule, $Module*)},
+		{"getCause", "()Ljava/lang/Throwable;", nullptr, $PRIVATE, $method(ResourceBundle$CacheKey, getCause, $Throwable*)},
+		{"getFormat", "()Ljava/lang/String;", nullptr, 0, $method(ResourceBundle$CacheKey, getFormat, $String*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, 0, $method(ResourceBundle$CacheKey, getLocale, $Locale*)},
+		{"getModule", "()Ljava/lang/Module;", nullptr, 0, $method(ResourceBundle$CacheKey, getModule, $Module*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $method(ResourceBundle$CacheKey, getName, $String*)},
+		{"getProviders", "()Ljava/util/ServiceLoader;", "()Ljava/util/ServiceLoader<Ljava/util/spi/ResourceBundleProvider;>;", 0, $method(ResourceBundle$CacheKey, getProviders, $ServiceLoader*)},
+		{"hasProviders", "()Z", nullptr, 0, $method(ResourceBundle$CacheKey, hasProviders, bool)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$CacheKey, hashCode, int32_t)},
+		{"setCause", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(ResourceBundle$CacheKey, setCause, void, $Throwable*)},
+		{"setFormat", "(Ljava/lang/String;)V", nullptr, 0, $method(ResourceBundle$CacheKey, setFormat, void, $String*)},
+		{"setLocale", "(Ljava/util/Locale;)Ljava/util/ResourceBundle$CacheKey;", nullptr, 0, $method(ResourceBundle$CacheKey, setLocale, ResourceBundle$CacheKey*, $Locale*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$CacheKey, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ResourceBundle$CacheKey", "java.util.ResourceBundle", "CacheKey", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.ResourceBundle$CacheKey",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.ResourceBundle"
+	};
+	$loadClass(ResourceBundle$CacheKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourceBundle$CacheKey);
+	});
 	return class$;
 }
 

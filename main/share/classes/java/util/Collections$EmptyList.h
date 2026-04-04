@@ -61,7 +61,7 @@ public:
 	virtual $ObjectArray* toArray() override;
 	virtual $ObjectArray* toArray($ObjectArray* a) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x7AB817B43CA79EDE;
+	static const int64_t serialVersionUID = (int64_t)0x7ab817b43ca79ede;
 };
 
 	} // util

@@ -1,5 +1,4 @@
 #include <test/java/time/format/MockIOExceptionAppendable.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/Appendable.h>
 #include <java/lang/CharSequence.h>
@@ -15,27 +14,6 @@ namespace test {
 	namespace java {
 		namespace time {
 			namespace format {
-
-$MethodInfo _MockIOExceptionAppendable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MockIOExceptionAppendable, init$, void)},
-	{"append", "(Ljava/lang/CharSequence;)Ljava/lang/Appendable;", nullptr, $PUBLIC, $virtualMethod(MockIOExceptionAppendable, append, $Appendable*, $CharSequence*), "java.io.IOException"},
-	{"append", "(C)Ljava/lang/Appendable;", nullptr, $PUBLIC, $virtualMethod(MockIOExceptionAppendable, append, $Appendable*, char16_t), "java.io.IOException"},
-	{"append", "(Ljava/lang/CharSequence;II)Ljava/lang/Appendable;", nullptr, $PUBLIC, $virtualMethod(MockIOExceptionAppendable, append, $Appendable*, $CharSequence*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _MockIOExceptionAppendable_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"test.java.time.format.MockIOExceptionAppendable",
-	"java.lang.Object",
-	"java.lang.Appendable",
-	nullptr,
-	_MockIOExceptionAppendable_MethodInfo_
-};
-
-$Object* allocate$MockIOExceptionAppendable($Class* clazz) {
-	return $of($alloc(MockIOExceptionAppendable));
-}
 
 void MockIOExceptionAppendable::init$() {
 }
@@ -59,7 +37,24 @@ MockIOExceptionAppendable::MockIOExceptionAppendable() {
 }
 
 $Class* MockIOExceptionAppendable::load$($String* name, bool initialize) {
-	$loadClass(MockIOExceptionAppendable, name, initialize, &_MockIOExceptionAppendable_ClassInfo_, allocate$MockIOExceptionAppendable);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MockIOExceptionAppendable, init$, void)},
+		{"append", "(Ljava/lang/CharSequence;)Ljava/lang/Appendable;", nullptr, $PUBLIC, $virtualMethod(MockIOExceptionAppendable, append, $Appendable*, $CharSequence*), "java.io.IOException"},
+		{"append", "(C)Ljava/lang/Appendable;", nullptr, $PUBLIC, $virtualMethod(MockIOExceptionAppendable, append, $Appendable*, char16_t), "java.io.IOException"},
+		{"append", "(Ljava/lang/CharSequence;II)Ljava/lang/Appendable;", nullptr, $PUBLIC, $virtualMethod(MockIOExceptionAppendable, append, $Appendable*, $CharSequence*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"test.java.time.format.MockIOExceptionAppendable",
+		"java.lang.Object",
+		"java.lang.Appendable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MockIOExceptionAppendable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MockIOExceptionAppendable);
+	});
 	return class$;
 }
 

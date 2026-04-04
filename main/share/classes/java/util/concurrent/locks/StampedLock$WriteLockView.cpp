@@ -1,5 +1,4 @@
 #include <java/util/concurrent/locks/StampedLock$WriteLockView.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/concurrent/TimeUnit.h>
 #include <java/util/concurrent/locks/Condition.h>
@@ -20,47 +19,6 @@ namespace java {
 		namespace concurrent {
 			namespace locks {
 
-$FieldInfo _StampedLock$WriteLockView_FieldInfo_[] = {
-	{"this$0", "Ljava/util/concurrent/locks/StampedLock;", nullptr, $FINAL | $SYNTHETIC, $field(StampedLock$WriteLockView, this$0)},
-	{}
-};
-
-$MethodInfo _StampedLock$WriteLockView_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/locks/StampedLock;)V", nullptr, 0, $method(StampedLock$WriteLockView, init$, void, $StampedLock*)},
-	{"lock", "()V", nullptr, $PUBLIC, $virtualMethod(StampedLock$WriteLockView, lock, void)},
-	{"lockInterruptibly", "()V", nullptr, $PUBLIC, $virtualMethod(StampedLock$WriteLockView, lockInterruptibly, void), "java.lang.InterruptedException"},
-	{"newCondition", "()Ljava/util/concurrent/locks/Condition;", nullptr, $PUBLIC, $virtualMethod(StampedLock$WriteLockView, newCondition, $Condition*)},
-	{"tryLock", "()Z", nullptr, $PUBLIC, $virtualMethod(StampedLock$WriteLockView, tryLock, bool)},
-	{"tryLock", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC, $virtualMethod(StampedLock$WriteLockView, tryLock, bool, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
-	{"unlock", "()V", nullptr, $PUBLIC, $virtualMethod(StampedLock$WriteLockView, unlock, void)},
-	{}
-};
-
-$InnerClassInfo _StampedLock$WriteLockView_InnerClassesInfo_[] = {
-	{"java.util.concurrent.locks.StampedLock$WriteLockView", "java.util.concurrent.locks.StampedLock", "WriteLockView", $FINAL},
-	{}
-};
-
-$ClassInfo _StampedLock$WriteLockView_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.locks.StampedLock$WriteLockView",
-	"java.lang.Object",
-	"java.util.concurrent.locks.Lock",
-	_StampedLock$WriteLockView_FieldInfo_,
-	_StampedLock$WriteLockView_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StampedLock$WriteLockView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.locks.StampedLock"
-};
-
-$Object* allocate$StampedLock$WriteLockView($Class* clazz) {
-	return $of($alloc(StampedLock$WriteLockView));
-}
-
 void StampedLock$WriteLockView::init$($StampedLock* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -74,11 +32,11 @@ void StampedLock$WriteLockView::lockInterruptibly() {
 }
 
 bool StampedLock$WriteLockView::tryLock() {
-	return this->this$0->tryWriteLock() != (int64_t)0;
+	return this->this$0->tryWriteLock() != 0;
 }
 
 bool StampedLock$WriteLockView::tryLock(int64_t time, $TimeUnit* unit) {
-	return this->this$0->tryWriteLock(time, unit) != (int64_t)0;
+	return this->this$0->tryWriteLock(time, unit) != 0;
 }
 
 void StampedLock$WriteLockView::unlock() {
@@ -94,7 +52,42 @@ StampedLock$WriteLockView::StampedLock$WriteLockView() {
 }
 
 $Class* StampedLock$WriteLockView::load$($String* name, bool initialize) {
-	$loadClass(StampedLock$WriteLockView, name, initialize, &_StampedLock$WriteLockView_ClassInfo_, allocate$StampedLock$WriteLockView);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/concurrent/locks/StampedLock;", nullptr, $FINAL | $SYNTHETIC, $field(StampedLock$WriteLockView, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/locks/StampedLock;)V", nullptr, 0, $method(StampedLock$WriteLockView, init$, void, $StampedLock*)},
+		{"lock", "()V", nullptr, $PUBLIC, $virtualMethod(StampedLock$WriteLockView, lock, void)},
+		{"lockInterruptibly", "()V", nullptr, $PUBLIC, $virtualMethod(StampedLock$WriteLockView, lockInterruptibly, void), "java.lang.InterruptedException"},
+		{"newCondition", "()Ljava/util/concurrent/locks/Condition;", nullptr, $PUBLIC, $virtualMethod(StampedLock$WriteLockView, newCondition, $Condition*)},
+		{"tryLock", "()Z", nullptr, $PUBLIC, $virtualMethod(StampedLock$WriteLockView, tryLock, bool)},
+		{"tryLock", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC, $virtualMethod(StampedLock$WriteLockView, tryLock, bool, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+		{"unlock", "()V", nullptr, $PUBLIC, $virtualMethod(StampedLock$WriteLockView, unlock, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.locks.StampedLock$WriteLockView", "java.util.concurrent.locks.StampedLock", "WriteLockView", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.locks.StampedLock$WriteLockView",
+		"java.lang.Object",
+		"java.util.concurrent.locks.Lock",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.locks.StampedLock"
+	};
+	$loadClass(StampedLock$WriteLockView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StampedLock$WriteLockView);
+	});
 	return class$;
 }
 

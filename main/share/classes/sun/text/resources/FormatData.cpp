@@ -1,5 +1,4 @@
 #include <sun/text/resources/FormatData.h>
-
 #include <sun/util/resources/ParallelListResourceBundle.h>
 #include <jcpp.h>
 
@@ -12,31 +11,12 @@ namespace sun {
 	namespace text {
 		namespace resources {
 
-$MethodInfo _FormatData_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.FormatData",
-	"sun.util.resources.ParallelListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_MethodInfo_
-};
-
-$Object* allocate$FormatData($Class* clazz) {
-	return $of($alloc(FormatData));
-}
-
 void FormatData::init$() {
 	$ParallelListResourceBundle::init$();
 }
 
 $ObjectArray2* FormatData::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, julianEras, $new($StringArray, {
 		"BC"_s,
 		"AD"_s
@@ -63,8 +43,8 @@ $ObjectArray2* FormatData::getContents() {
 	}));
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("MonthNames"_s),
-			$of($$new($StringArray, {
+			"MonthNames"_s,
+			$$new($StringArray, {
 				"January"_s,
 				"February"_s,
 				"March"_s,
@@ -78,11 +58,11 @@ $ObjectArray2* FormatData::getContents() {
 				"November"_s,
 				"December"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("MonthAbbreviations"_s),
-			$of($$new($StringArray, {
+			"MonthAbbreviations"_s,
+			$$new($StringArray, {
 				"Jan"_s,
 				"Feb"_s,
 				"Mar"_s,
@@ -96,11 +76,11 @@ $ObjectArray2* FormatData::getContents() {
 				"Nov"_s,
 				"Dec"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("MonthNarrows"_s),
-			$of($$new($StringArray, {
+			"MonthNarrows"_s,
+			$$new($StringArray, {
 				"1"_s,
 				"2"_s,
 				"3"_s,
@@ -114,11 +94,11 @@ $ObjectArray2* FormatData::getContents() {
 				"11"_s,
 				"12"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DayNames"_s),
-			$of($$new($StringArray, {
+			"DayNames"_s,
+			$$new($StringArray, {
 				"Sunday"_s,
 				"Monday"_s,
 				"Tuesday"_s,
@@ -126,11 +106,11 @@ $ObjectArray2* FormatData::getContents() {
 				"Thursday"_s,
 				"Friday"_s,
 				"Saturday"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DayAbbreviations"_s),
-			$of($$new($StringArray, {
+			"DayAbbreviations"_s,
+			$$new($StringArray, {
 				"Sun"_s,
 				"Mon"_s,
 				"Tue"_s,
@@ -138,11 +118,11 @@ $ObjectArray2* FormatData::getContents() {
 				"Thu"_s,
 				"Fri"_s,
 				"Sat"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DayNarrows"_s),
-			$of($$new($StringArray, {
+			"DayNarrows"_s,
+			$$new($StringArray, {
 				"S"_s,
 				"M"_s,
 				"T"_s,
@@ -150,80 +130,80 @@ $ObjectArray2* FormatData::getContents() {
 				"T"_s,
 				"F"_s,
 				"S"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("AmPmMarkers"_s),
-			$of($$new($StringArray, {
+			"AmPmMarkers"_s,
+			$$new($StringArray, {
 				"AM"_s,
 				"PM"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("narrow.AmPmMarkers"_s),
-			$of($$new($StringArray, {
+			"narrow.AmPmMarkers"_s,
+			$$new($StringArray, {
 				"a"_s,
 				"p"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("Eras"_s),
-			$of(julianEras)
+			"Eras"_s,
+			julianEras
 		}),
 		$$new($ObjectArray, {
-			$of("short.Eras"_s),
-			$of(julianEras)
+			"short.Eras"_s,
+			julianEras
 		}),
 		$$new($ObjectArray, {
-			$of("narrow.Eras"_s),
-			$of($$new($StringArray, {
+			"narrow.Eras"_s,
+			$$new($StringArray, {
 				"B"_s,
 				"A"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.Eras"_s),
-			$of(buddhistEras)
+			"buddhist.Eras"_s,
+			buddhistEras
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.short.Eras"_s),
-			$of(buddhistEras)
+			"buddhist.short.Eras"_s,
+			buddhistEras
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.narrow.Eras"_s),
-			$of(buddhistEras)
+			"buddhist.narrow.Eras"_s,
+			buddhistEras
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.Eras"_s),
-			$of(japaneseEras)
+			"japanese.Eras"_s,
+			japaneseEras
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.short.Eras"_s),
-			$of(japaneseEraAbbrs)
+			"japanese.short.Eras"_s,
+			japaneseEraAbbrs
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.narrow.Eras"_s),
-			$of(japaneseEraAbbrs)
+			"japanese.narrow.Eras"_s,
+			japaneseEraAbbrs
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.FirstYear"_s),
-			$of($$new($StringArray, 0))
+			"japanese.FirstYear"_s,
+			$$new($StringArray, 0)
 		}),
 		$$new($ObjectArray, {
-			$of("NumberPatterns"_s),
-			$of($$new($StringArray, {
+			"NumberPatterns"_s,
+			$$new($StringArray, {
 				"#,##0.###;-#,##0.###"_s,
 				u"¤ #,##0.00;-¤ #,##0.00"_s,
 				"#,##0%"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DefaultNumberingSystem"_s),
-			$of(""_s)
+			"DefaultNumberingSystem"_s,
+			""_s
 		}),
 		$$new($ObjectArray, {
-			$of("NumberElements"_s),
-			$of($$new($StringArray, {
+			"NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -235,11 +215,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				u"�"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("arab.NumberElements"_s),
-			$of($$new($StringArray, {
+			"arab.NumberElements"_s,
+			$$new($StringArray, {
 				u"٫"_s,
 				u"٬"_s,
 				u"؛"_s,
@@ -251,11 +231,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"؉"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("arabext.NumberElements"_s),
-			$of($$new($StringArray, {
+			"arabext.NumberElements"_s,
+			$$new($StringArray, {
 				u"٫"_s,
 				u"٬"_s,
 				u"؛"_s,
@@ -267,11 +247,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"؉"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("bali.NumberElements"_s),
-			$of($$new($StringArray, {
+			"bali.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -283,11 +263,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("beng.NumberElements"_s),
-			$of($$new($StringArray, {
+			"beng.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -299,11 +279,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("cham.NumberElements"_s),
-			$of($$new($StringArray, {
+			"cham.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -315,11 +295,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("deva.NumberElements"_s),
-			$of($$new($StringArray, {
+			"deva.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -331,11 +311,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("fullwide.NumberElements"_s),
-			$of($$new($StringArray, {
+			"fullwide.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -347,11 +327,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("gujr.NumberElements"_s),
-			$of($$new($StringArray, {
+			"gujr.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -363,11 +343,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("guru.NumberElements"_s),
-			$of($$new($StringArray, {
+			"guru.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -379,11 +359,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("java.NumberElements"_s),
-			$of($$new($StringArray, {
+			"java.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -395,11 +375,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("kali.NumberElements"_s),
-			$of($$new($StringArray, {
+			"kali.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -411,11 +391,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("khmr.NumberElements"_s),
-			$of($$new($StringArray, {
+			"khmr.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -427,11 +407,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("knda.NumberElements"_s),
-			$of($$new($StringArray, {
+			"knda.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -443,11 +423,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("laoo.NumberElements"_s),
-			$of($$new($StringArray, {
+			"laoo.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -459,11 +439,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("lana.NumberElements"_s),
-			$of($$new($StringArray, {
+			"lana.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -475,11 +455,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("lanatham.NumberElements"_s),
-			$of($$new($StringArray, {
+			"lanatham.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -491,11 +471,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("latn.NumberElements"_s),
-			$of($$new($StringArray, {
+			"latn.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -507,11 +487,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				u"�"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("lepc.NumberElements"_s),
-			$of($$new($StringArray, {
+			"lepc.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -523,11 +503,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("limb.NumberElements"_s),
-			$of($$new($StringArray, {
+			"limb.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -539,11 +519,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("mlym.NumberElements"_s),
-			$of($$new($StringArray, {
+			"mlym.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -555,11 +535,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("mong.NumberElements"_s),
-			$of($$new($StringArray, {
+			"mong.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -571,11 +551,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("mtei.NumberElements"_s),
-			$of($$new($StringArray, {
+			"mtei.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -587,11 +567,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("mymr.NumberElements"_s),
-			$of($$new($StringArray, {
+			"mymr.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -603,11 +583,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("mymrshan.NumberElements"_s),
-			$of($$new($StringArray, {
+			"mymrshan.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -619,11 +599,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("nkoo.NumberElements"_s),
-			$of($$new($StringArray, {
+			"nkoo.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -635,11 +615,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("olck.NumberElements"_s),
-			$of($$new($StringArray, {
+			"olck.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -651,11 +631,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("orya.NumberElements"_s),
-			$of($$new($StringArray, {
+			"orya.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -667,11 +647,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("saur.NumberElements"_s),
-			$of($$new($StringArray, {
+			"saur.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -683,11 +663,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("sund.NumberElements"_s),
-			$of($$new($StringArray, {
+			"sund.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -699,11 +679,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("talu.NumberElements"_s),
-			$of($$new($StringArray, {
+			"talu.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -715,11 +695,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("tamldec.NumberElements"_s),
-			$of($$new($StringArray, {
+			"tamldec.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -731,11 +711,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("telu.NumberElements"_s),
-			$of($$new($StringArray, {
+			"telu.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -747,11 +727,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("thai.NumberElements"_s),
-			$of($$new($StringArray, {
+			"thai.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -763,11 +743,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				u"�"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("tibt.NumberElements"_s),
-			$of($$new($StringArray, {
+			"tibt.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -779,11 +759,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("vaii.NumberElements"_s),
-			$of($$new($StringArray, {
+			"vaii.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				","_s,
 				";"_s,
@@ -795,11 +775,11 @@ $ObjectArray2* FormatData::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				"NaN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("short.CompactNumberPatterns"_s),
-			$of($$new($StringArray, {
+			"short.CompactNumberPatterns"_s,
+			$$new($StringArray, {
 				""_s,
 				""_s,
 				""_s,
@@ -815,11 +795,11 @@ $ObjectArray2* FormatData::getContents() {
 				"0T"_s,
 				"00T"_s,
 				"000T"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("long.CompactNumberPatterns"_s),
-			$of($$new($StringArray, {
+			"long.CompactNumberPatterns"_s,
+			$$new($StringArray, {
 				""_s,
 				""_s,
 				""_s,
@@ -835,77 +815,77 @@ $ObjectArray2* FormatData::getContents() {
 				"0 trillion"_s,
 				"00 trillion"_s,
 				"000 trillion"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("TimePatterns"_s),
-			$of($$new($StringArray, {
+			"TimePatterns"_s,
+			$$new($StringArray, {
 				"h:mm:ss a z"_s,
 				"h:mm:ss a z"_s,
 				"h:mm:ss a"_s,
 				"h:mm a"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DatePatterns"_s),
-			$of($$new($StringArray, {
+			"DatePatterns"_s,
+			$$new($StringArray, {
 				"EEEE, MMMM d, yyyy"_s,
 				"MMMM d, yyyy"_s,
 				"MMM d, yyyy"_s,
 				"M/d/yy"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DateTimePatterns"_s),
-			$of($$new($StringArray, {"{1} {0}"_s}))
+			"DateTimePatterns"_s,
+			$$new($StringArray, {"{1} {0}"_s})
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.TimePatterns"_s),
-			$of($$new($StringArray, {
+			"buddhist.TimePatterns"_s,
+			$$new($StringArray, {
 				"H:mm:ss z"_s,
 				"H:mm:ss z"_s,
 				"H:mm:ss"_s,
 				"H:mm"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.DatePatterns"_s),
-			$of($$new($StringArray, {
+			"buddhist.DatePatterns"_s,
+			$$new($StringArray, {
 				"EEEE d MMMM G yyyy"_s,
 				"d MMMM yyyy"_s,
 				"d MMM yyyy"_s,
 				"d/M/yyyy"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.DateTimePatterns"_s),
-			$of($$new($StringArray, {"{1}, {0}"_s}))
+			"buddhist.DateTimePatterns"_s,
+			$$new($StringArray, {"{1}, {0}"_s})
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.TimePatterns"_s),
-			$of($$new($StringArray, {
+			"japanese.TimePatterns"_s,
+			$$new($StringArray, {
 				"h:mm:ss a z"_s,
 				"h:mm:ss a z"_s,
 				"h:mm:ss a"_s,
 				"h:mm a"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.DatePatterns"_s),
-			$of($$new($StringArray, {
+			"japanese.DatePatterns"_s,
+			$$new($StringArray, {
 				"GGGG yyyy MMMM d (EEEE)"_s,
 				"GGGG yyyy MMMM d"_s,
 				"GGGG yyyy MMM d"_s,
 				"Gy.MM.dd"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.DateTimePatterns"_s),
-			$of($$new($StringArray, {"{1} {0}"_s}))
+			"japanese.DateTimePatterns"_s,
+			$$new($StringArray, {"{1} {0}"_s})
 		}),
 		$$new($ObjectArray, {
-			$of("DateTimePatternChars"_s),
-			$of("GyMdkHmsSEDFwWahKzZ"_s)
+			"DateTimePatternChars"_s,
+			"GyMdkHmsSEDFwWahKzZ"_s
 		})
 	});
 }
@@ -914,7 +894,22 @@ FormatData::FormatData() {
 }
 
 $Class* FormatData::load$($String* name, bool initialize) {
-	$loadClass(FormatData, name, initialize, &_FormatData_ClassInfo_, allocate$FormatData);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.FormatData",
+		"sun.util.resources.ParallelListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData);
+	});
 	return class$;
 }
 

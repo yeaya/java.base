@@ -14,10 +14,13 @@ public:
 	ArrayStoreException();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0xC13DF09DBF50BEDF;
+	static const int64_t serialVersionUID = (int64_t)0xc13df09dbf50bedf;
 	ArrayStoreException(const ArrayStoreException& e);
 	virtual void throw$() override;
-	inline ArrayStoreException* operator ->() {
+	inline ArrayStoreException* operator ->() const {
+		return (ArrayStoreException*)throwing$;
+	}
+	inline operator ArrayStoreException*() const {
 		return (ArrayStoreException*)throwing$;
 	}
 };

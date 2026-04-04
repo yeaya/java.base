@@ -1,5 +1,4 @@
 #include <java/nio/file/FileTreeWalker$DirectoryNode.h>
-
 #include <java/nio/file/DirectoryStream.h>
 #include <java/nio/file/FileTreeWalker.h>
 #include <java/nio/file/Path.h>
@@ -18,51 +17,6 @@ namespace java {
 	namespace nio {
 		namespace file {
 
-$FieldInfo _FileTreeWalker$DirectoryNode_FieldInfo_[] = {
-	{"dir", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $FINAL, $field(FileTreeWalker$DirectoryNode, dir)},
-	{"key", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(FileTreeWalker$DirectoryNode, key$)},
-	{"stream", "Ljava/nio/file/DirectoryStream;", "Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;", $PRIVATE | $FINAL, $field(FileTreeWalker$DirectoryNode, stream$)},
-	{"iterator", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PRIVATE | $FINAL, $field(FileTreeWalker$DirectoryNode, iterator$)},
-	{"skipped", "Z", nullptr, $PRIVATE, $field(FileTreeWalker$DirectoryNode, skipped$)},
-	{}
-};
-
-$MethodInfo _FileTreeWalker$DirectoryNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;Ljava/lang/Object;Ljava/nio/file/DirectoryStream;)V", "(Ljava/nio/file/Path;Ljava/lang/Object;Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;)V", 0, $method(FileTreeWalker$DirectoryNode, init$, void, $Path*, Object$*, $DirectoryStream*)},
-	{"directory", "()Ljava/nio/file/Path;", nullptr, 0, $virtualMethod(FileTreeWalker$DirectoryNode, directory, $Path*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", 0, $virtualMethod(FileTreeWalker$DirectoryNode, iterator, $Iterator*)},
-	{"key", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(FileTreeWalker$DirectoryNode, key, $Object*)},
-	{"skip", "()V", nullptr, 0, $virtualMethod(FileTreeWalker$DirectoryNode, skip, void)},
-	{"skipped", "()Z", nullptr, 0, $virtualMethod(FileTreeWalker$DirectoryNode, skipped, bool)},
-	{"stream", "()Ljava/nio/file/DirectoryStream;", "()Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;", 0, $virtualMethod(FileTreeWalker$DirectoryNode, stream, $DirectoryStream*)},
-	{}
-};
-
-$InnerClassInfo _FileTreeWalker$DirectoryNode_InnerClassesInfo_[] = {
-	{"java.nio.file.FileTreeWalker$DirectoryNode", "java.nio.file.FileTreeWalker", "DirectoryNode", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _FileTreeWalker$DirectoryNode_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.file.FileTreeWalker$DirectoryNode",
-	"java.lang.Object",
-	nullptr,
-	_FileTreeWalker$DirectoryNode_FieldInfo_,
-	_FileTreeWalker$DirectoryNode_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FileTreeWalker$DirectoryNode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.nio.file.FileTreeWalker"
-};
-
-$Object* allocate$FileTreeWalker$DirectoryNode($Class* clazz) {
-	return $of($alloc(FileTreeWalker$DirectoryNode));
-}
-
 void FileTreeWalker$DirectoryNode::init$($Path* dir, Object$* key, $DirectoryStream* stream) {
 	$set(this, dir, dir);
 	$set(this, key$, key);
@@ -75,7 +29,7 @@ $Path* FileTreeWalker$DirectoryNode::directory() {
 }
 
 $Object* FileTreeWalker$DirectoryNode::key() {
-	return $of(this->key$);
+	return this->key$;
 }
 
 $DirectoryStream* FileTreeWalker$DirectoryNode::stream() {
@@ -98,7 +52,46 @@ FileTreeWalker$DirectoryNode::FileTreeWalker$DirectoryNode() {
 }
 
 $Class* FileTreeWalker$DirectoryNode::load$($String* name, bool initialize) {
-	$loadClass(FileTreeWalker$DirectoryNode, name, initialize, &_FileTreeWalker$DirectoryNode_ClassInfo_, allocate$FileTreeWalker$DirectoryNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"dir", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $FINAL, $field(FileTreeWalker$DirectoryNode, dir)},
+		{"key", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(FileTreeWalker$DirectoryNode, key$)},
+		{"stream", "Ljava/nio/file/DirectoryStream;", "Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;", $PRIVATE | $FINAL, $field(FileTreeWalker$DirectoryNode, stream$)},
+		{"iterator", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PRIVATE | $FINAL, $field(FileTreeWalker$DirectoryNode, iterator$)},
+		{"skipped", "Z", nullptr, $PRIVATE, $field(FileTreeWalker$DirectoryNode, skipped$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/Path;Ljava/lang/Object;Ljava/nio/file/DirectoryStream;)V", "(Ljava/nio/file/Path;Ljava/lang/Object;Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;)V", 0, $method(FileTreeWalker$DirectoryNode, init$, void, $Path*, Object$*, $DirectoryStream*)},
+		{"directory", "()Ljava/nio/file/Path;", nullptr, 0, $virtualMethod(FileTreeWalker$DirectoryNode, directory, $Path*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", 0, $virtualMethod(FileTreeWalker$DirectoryNode, iterator, $Iterator*)},
+		{"key", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(FileTreeWalker$DirectoryNode, key, $Object*)},
+		{"skip", "()V", nullptr, 0, $virtualMethod(FileTreeWalker$DirectoryNode, skip, void)},
+		{"skipped", "()Z", nullptr, 0, $virtualMethod(FileTreeWalker$DirectoryNode, skipped, bool)},
+		{"stream", "()Ljava/nio/file/DirectoryStream;", "()Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;", 0, $virtualMethod(FileTreeWalker$DirectoryNode, stream, $DirectoryStream*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.file.FileTreeWalker$DirectoryNode", "java.nio.file.FileTreeWalker", "DirectoryNode", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.file.FileTreeWalker$DirectoryNode",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.nio.file.FileTreeWalker"
+	};
+	$loadClass(FileTreeWalker$DirectoryNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileTreeWalker$DirectoryNode);
+	});
 	return class$;
 }
 

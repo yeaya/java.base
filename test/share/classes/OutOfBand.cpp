@@ -1,5 +1,4 @@
 #include <OutOfBand.h>
-
 #include <OutOfBand$1.h>
 #include <OutOfBand$2.h>
 #include <java/lang/AssertionError.h>
@@ -30,53 +29,11 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
-using $ServerSocket = ::java::net::ServerSocket;
-using $Socket = ::java::net::Socket;
 using $SocketAddress = ::java::net::SocketAddress;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 using $Random = ::java::util::Random;
-
-$FieldInfo _OutOfBand_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(OutOfBand, $assertionsDisabled)},
-	{"rand", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OutOfBand, rand)},
-	{}
-};
-
-$MethodInfo _OutOfBand_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(OutOfBand, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OutOfBand, main, void, $StringArray*), "java.lang.Exception"},
-	{"test1", "(Ljava/nio/channels/SocketChannel;Ljava/nio/channels/SocketChannel;)V", nullptr, $STATIC, $staticMethod(OutOfBand, test1, void, $SocketChannel*, $SocketChannel*), "java.lang.Exception"},
-	{"test2", "(Ljava/nio/channels/SocketChannel;Ljava/nio/channels/SocketChannel;)V", nullptr, $STATIC, $staticMethod(OutOfBand, test2, void, $SocketChannel*, $SocketChannel*), "java.lang.Exception"},
-	{"test3", "(Ljava/nio/channels/SocketChannel;Ljava/nio/channels/SocketChannel;)V", nullptr, $STATIC, $staticMethod(OutOfBand, test3, void, $SocketChannel*, $SocketChannel*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _OutOfBand_InnerClassesInfo_[] = {
-	{"OutOfBand$2", nullptr, nullptr, 0},
-	{"OutOfBand$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _OutOfBand_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"OutOfBand",
-	"java.lang.Object",
-	nullptr,
-	_OutOfBand_FieldInfo_,
-	_OutOfBand_MethodInfo_,
-	nullptr,
-	nullptr,
-	_OutOfBand_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"OutOfBand$2,OutOfBand$1"
-};
-
-$Object* allocate$OutOfBand($Class* clazz) {
-	return $of($alloc(OutOfBand));
-}
 
 bool OutOfBand::$assertionsDisabled = false;
 $Random* OutOfBand::rand = nullptr;
@@ -86,51 +43,49 @@ void OutOfBand::init$() {
 
 void OutOfBand::main($StringArray* args) {
 	$init(OutOfBand);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerSocketChannel, ssc, nullptr);
 	$var($SocketChannel, sc1, nullptr);
 	$var($SocketChannel, sc2, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$assign(ssc, $cast($ServerSocketChannel, $nc($($ServerSocketChannel::open()))->bind($$new($InetSocketAddress, 0))));
-			$var($InetAddress, lh, $InetAddress::getLocalHost());
-			$var($SocketAddress, remote, $new($InetSocketAddress, lh, $nc($($nc(ssc)->socket()))->getLocalPort()));
-			$assign(sc1, $SocketChannel::open(remote));
-			$assign(sc2, $nc(ssc)->accept());
-			$nc($($nc(sc2)->socket()))->setOOBInline(true);
-			test1(sc1, sc2);
-			test2(sc1, sc2);
-			test3(sc1, sc2);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (sc1 != nullptr) {
-				sc1->close();
-			}
-			if (sc2 != nullptr) {
-				sc2->close();
-			}
-			if (ssc != nullptr) {
-				ssc->close();
-			}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$assign(ssc, $cast($ServerSocketChannel, $$nc($ServerSocketChannel::open())->bind($$new($InetSocketAddress, 0))));
+		$var($InetAddress, lh, $InetAddress::getLocalHost());
+		$var($SocketAddress, remote, $new($InetSocketAddress, lh, $$nc($nc(ssc)->socket())->getLocalPort()));
+		$assign(sc1, $SocketChannel::open(remote));
+		$assign(sc2, ssc->accept());
+		$$nc($nc(sc2)->socket())->setOOBInline(true);
+		test1(sc1, sc2);
+		test2(sc1, sc2);
+		test3(sc1, sc2);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (sc1 != nullptr) {
+			sc1->close();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (sc2 != nullptr) {
+			sc2->close();
 		}
+		if (ssc != nullptr) {
+			ssc->close();
+		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void OutOfBand::test1($SocketChannel* client, $SocketChannel* server) {
 	$init(OutOfBand);
-	$useLocalCurrentObjectStackCache();
-	if (!OutOfBand::$assertionsDisabled && !$nc($($nc(server)->socket()))->getOOBInline()) {
+	$useLocalObjectStack();
+	if (!OutOfBand::$assertionsDisabled && !$$nc($nc(server)->socket())->getOOBInline()) {
 		$throwNew($AssertionError);
 	}
 	$var($ByteBuffer, bb, $ByteBuffer::allocate(100));
 	for (int32_t i = 0; i < 1000; ++i) {
-		int32_t b1 = -127 + $nc(OutOfBand::rand)->nextInt(384);
-		$nc($($nc(client)->socket()))->sendUrgentData(b1);
+		int32_t b1 = -127 + OutOfBand::rand->nextInt(384);
+		$$nc($nc(client)->socket())->sendUrgentData(b1);
 		$nc(bb)->clear();
 		if ($nc(server)->read(bb) != 1) {
 			$throwNew($RuntimeException, "One byte expected"_s);
@@ -145,8 +100,8 @@ void OutOfBand::test1($SocketChannel* client, $SocketChannel* server) {
 
 void OutOfBand::test2($SocketChannel* client, $SocketChannel* server) {
 	$init(OutOfBand);
-	$useLocalCurrentObjectStackCache();
-	if (!OutOfBand::$assertionsDisabled && !$nc($($nc(server)->socket()))->getOOBInline()) {
+	$useLocalObjectStack();
+	if (!OutOfBand::$assertionsDisabled && !$$nc($nc(server)->socket())->getOOBInline()) {
 		$throwNew($AssertionError);
 	}
 	$var($Runnable, sender, $new($OutOfBand$1, client));
@@ -158,8 +113,8 @@ void OutOfBand::test2($SocketChannel* client, $SocketChannel* server) {
 			$throwNew($RuntimeException, "Unexpected EOF"_s);
 		}
 	}
-	$nc(bb)->flip();
-	int8_t expect = (int8_t)0;
+	bb->flip();
+	int8_t expect = 0;
 	while (bb->hasRemaining()) {
 		if (bb->get() != expect) {
 			$throwNew($RuntimeException, "Unexpected byte"_s);
@@ -171,15 +126,15 @@ void OutOfBand::test2($SocketChannel* client, $SocketChannel* server) {
 
 void OutOfBand::test3($SocketChannel* client, $SocketChannel* server) {
 	$init(OutOfBand);
-	$useLocalCurrentObjectStackCache();
-	int32_t STOP = $nc(OutOfBand::rand)->nextInt(256);
-	if (!OutOfBand::$assertionsDisabled && !$nc($($nc(server)->socket()))->getOOBInline()) {
+	$useLocalObjectStack();
+	int32_t STOP = OutOfBand::rand->nextInt(256);
+	if (!OutOfBand::$assertionsDisabled && !$$nc($nc(server)->socket())->getOOBInline()) {
 		$throwNew($AssertionError);
 	}
 	$var($Runnable, reader, $new($OutOfBand$2, server, STOP));
 	$var($Thread, thr, $new($Thread, reader));
 	thr->start();
-	$nc($($nc(client)->socket()))->sendUrgentData(STOP);
+	$$nc($nc(client)->socket())->sendUrgentData(STOP);
 	$var($ByteBuffer, bb, $ByteBuffer::allocate(100));
 	int32_t n = client->read(bb);
 	if (n != 1) {
@@ -192,7 +147,7 @@ void OutOfBand::test3($SocketChannel* client, $SocketChannel* server) {
 	thr->join();
 }
 
-void clinit$OutOfBand($Class* class$) {
+void OutOfBand::clinit$($Class* clazz) {
 	OutOfBand::$assertionsDisabled = !OutOfBand::class$->desiredAssertionStatus();
 	$assignStatic(OutOfBand::rand, $new($Random));
 }
@@ -201,7 +156,41 @@ OutOfBand::OutOfBand() {
 }
 
 $Class* OutOfBand::load$($String* name, bool initialize) {
-	$loadClass(OutOfBand, name, initialize, &_OutOfBand_ClassInfo_, clinit$OutOfBand, allocate$OutOfBand);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(OutOfBand, $assertionsDisabled)},
+		{"rand", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OutOfBand, rand)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(OutOfBand, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OutOfBand, main, void, $StringArray*), "java.lang.Exception"},
+		{"test1", "(Ljava/nio/channels/SocketChannel;Ljava/nio/channels/SocketChannel;)V", nullptr, $STATIC, $staticMethod(OutOfBand, test1, void, $SocketChannel*, $SocketChannel*), "java.lang.Exception"},
+		{"test2", "(Ljava/nio/channels/SocketChannel;Ljava/nio/channels/SocketChannel;)V", nullptr, $STATIC, $staticMethod(OutOfBand, test2, void, $SocketChannel*, $SocketChannel*), "java.lang.Exception"},
+		{"test3", "(Ljava/nio/channels/SocketChannel;Ljava/nio/channels/SocketChannel;)V", nullptr, $STATIC, $staticMethod(OutOfBand, test3, void, $SocketChannel*, $SocketChannel*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"OutOfBand$2", nullptr, nullptr, 0},
+		{"OutOfBand$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"OutOfBand",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"OutOfBand$2,OutOfBand$1"
+	};
+	$loadClass(OutOfBand, name, initialize, &classInfo$$, OutOfBand::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(OutOfBand);
+	});
 	return class$;
 }
 

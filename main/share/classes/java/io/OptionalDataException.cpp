@@ -1,5 +1,4 @@
 #include <java/io/OptionalDataException.h>
-
 #include <java/io/ObjectStreamException.h>
 #include <jcpp.h>
 
@@ -10,32 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _OptionalDataException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(OptionalDataException, serialVersionUID)},
-	{"length", "I", nullptr, $PUBLIC, $field(OptionalDataException, length)},
-	{"eof", "Z", nullptr, $PUBLIC, $field(OptionalDataException, eof)},
-	{}
-};
-
-$MethodInfo _OptionalDataException_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(OptionalDataException, init$, void, int32_t)},
-	{"<init>", "(Z)V", nullptr, 0, $method(OptionalDataException, init$, void, bool)},
-	{}
-};
-
-$ClassInfo _OptionalDataException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.OptionalDataException",
-	"java.io.ObjectStreamException",
-	nullptr,
-	_OptionalDataException_FieldInfo_,
-	_OptionalDataException_MethodInfo_
-};
-
-$Object* allocate$OptionalDataException($Class* clazz) {
-	return $of($alloc(OptionalDataException));
-}
 
 void OptionalDataException::init$(int32_t len) {
 	$ObjectStreamException::init$();
@@ -60,7 +33,28 @@ void OptionalDataException::throw$() {
 }
 
 $Class* OptionalDataException::load$($String* name, bool initialize) {
-	$loadClass(OptionalDataException, name, initialize, &_OptionalDataException_ClassInfo_, allocate$OptionalDataException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(OptionalDataException, serialVersionUID)},
+		{"length", "I", nullptr, $PUBLIC, $field(OptionalDataException, length)},
+		{"eof", "Z", nullptr, $PUBLIC, $field(OptionalDataException, eof)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(OptionalDataException, init$, void, int32_t)},
+		{"<init>", "(Z)V", nullptr, 0, $method(OptionalDataException, init$, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.OptionalDataException",
+		"java.io.ObjectStreamException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OptionalDataException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OptionalDataException);
+	});
 	return class$;
 }
 

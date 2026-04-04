@@ -56,6 +56,7 @@ class $export Wrapper : public ::java::lang::Enum {
 public:
 	Wrapper();
 	static $Array<::sun::invoke::util::Wrapper>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $Class* wtype, $String* wtypeName, $Class* ptype, $String* ptypeName, char16_t tchar, Object$* emptyArray, int32_t format);
 	virtual $Class* arrayType();
 	static $Class* asPrimitiveType($Class* type);

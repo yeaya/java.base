@@ -25,6 +25,7 @@ class $export GetCallerClassTest : public ::java::lang::Object {
 	$class(GetCallerClassTest, 0, ::java::lang::Object)
 public:
 	GetCallerClassTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::StackWalker* sw, bool expect);
 	static void assertEquals($Class* c, $Class* expected);
 	static bool causeIsUOE($Throwable* t);

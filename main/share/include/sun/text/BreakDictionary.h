@@ -19,6 +19,7 @@ class $import BreakDictionary : public ::java::lang::Object {
 	$class(BreakDictionary, 0, ::java::lang::Object)
 public:
 	BreakDictionary();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* dictionaryName, $bytes* dictionaryData);
 	bool cellIsPopulated(int32_t row, int32_t col);
 	int16_t getNextState(int32_t row, int32_t col);

@@ -70,6 +70,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::concurrent::ForkJoinTask* adapt(::java::lang::Runnable* runnable);
 	static ::java::util::concurrent::ForkJoinTask* adapt(::java::lang::Runnable* runnable, Object$* result);
@@ -140,13 +141,13 @@ public:
 	static const int32_t DONE = 0x80000000; // 1 << 31
 	static const int32_t ABNORMAL = 65536; // 1 << 16
 	static const int32_t THROWN = 131072; // 1 << 17
-	static const int32_t SMASK = 0x0000FFFF;
+	static const int32_t SMASK = 0x0000ffff;
 	static const int32_t UNCOMPENSATE = 65536; // 1 << 16
 	$volatile(int32_t) status = 0;
 	$volatile(::java::util::concurrent::ForkJoinTask$Aux*) aux = nullptr;
 	static ::java::lang::invoke::VarHandle* STATUS;
 	static ::java::lang::invoke::VarHandle* AUX;
-	static const int64_t serialVersionUID = (int64_t)0x94D6A336567902B1;
+	static const int64_t serialVersionUID = (int64_t)0x94d6a336567902b1;
 };
 
 		} // concurrent

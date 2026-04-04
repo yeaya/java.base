@@ -1,5 +1,4 @@
 #include <javax/net/ssl/TrustManagerFactory$1.h>
-
 #include <java/security/Security.h>
 #include <javax/net/ssl/TrustManagerFactory.h>
 #include <jcpp.h>
@@ -14,43 +13,6 @@ namespace javax {
 	namespace net {
 		namespace ssl {
 
-$MethodInfo _TrustManagerFactory$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TrustManagerFactory$1, init$, void)},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TrustManagerFactory$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _TrustManagerFactory$1_EnclosingMethodInfo_ = {
-	"javax.net.ssl.TrustManagerFactory",
-	"getDefaultAlgorithm",
-	"()Ljava/lang/String;"
-};
-
-$InnerClassInfo _TrustManagerFactory$1_InnerClassesInfo_[] = {
-	{"javax.net.ssl.TrustManagerFactory$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TrustManagerFactory$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.net.ssl.TrustManagerFactory$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_TrustManagerFactory$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
-	&_TrustManagerFactory$1_EnclosingMethodInfo_,
-	_TrustManagerFactory$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.net.ssl.TrustManagerFactory"
-};
-
-$Object* allocate$TrustManagerFactory$1($Class* clazz) {
-	return $of($alloc(TrustManagerFactory$1));
-}
-
 void TrustManagerFactory$1::init$() {
 }
 
@@ -62,7 +24,38 @@ TrustManagerFactory$1::TrustManagerFactory$1() {
 }
 
 $Class* TrustManagerFactory$1::load$($String* name, bool initialize) {
-	$loadClass(TrustManagerFactory$1, name, initialize, &_TrustManagerFactory$1_ClassInfo_, allocate$TrustManagerFactory$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TrustManagerFactory$1, init$, void)},
+		{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TrustManagerFactory$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.net.ssl.TrustManagerFactory",
+		"getDefaultAlgorithm",
+		"()Ljava/lang/String;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.net.ssl.TrustManagerFactory$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.net.ssl.TrustManagerFactory$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.net.ssl.TrustManagerFactory"
+	};
+	$loadClass(TrustManagerFactory$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TrustManagerFactory$1);
+	});
 	return class$;
 }
 

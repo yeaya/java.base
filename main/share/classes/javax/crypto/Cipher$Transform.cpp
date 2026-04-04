@@ -1,6 +1,4 @@
 #include <javax/crypto/Cipher$Transform.h>
-
-#include <java/lang/CharSequence.h>
 #include <java/lang/Math.h>
 #include <java/security/Provider$Service.h>
 #include <java/util/Locale.h>
@@ -14,7 +12,6 @@
 
 #undef ENGLISH
 
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -24,57 +21,11 @@ using $Provider$Service = ::java::security::Provider$Service;
 using $Locale = ::java::util::Locale;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
-using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
 using $CipherSpi = ::javax::crypto::CipherSpi;
 
 namespace javax {
 	namespace crypto {
-
-$FieldInfo _Cipher$Transform_FieldInfo_[] = {
-	{"transform", "Ljava/lang/String;", nullptr, $FINAL, $field(Cipher$Transform, transform)},
-	{"suffix", "Ljava/lang/String;", nullptr, $FINAL, $field(Cipher$Transform, suffix)},
-	{"mode", "Ljava/lang/String;", nullptr, $FINAL, $field(Cipher$Transform, mode)},
-	{"pad", "Ljava/lang/String;", nullptr, $FINAL, $field(Cipher$Transform, pad)},
-	{"patternCache", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/lang/String;Ljava/util/regex/Pattern;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Cipher$Transform, patternCache)},
-	{}
-};
-
-$MethodInfo _Cipher$Transform_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(Cipher$Transform, init$, void, $String*, $String*, $String*, $String*)},
-	{"matches", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Cipher$Transform, matches, bool, $String*, $String*)},
-	{"setModePadding", "(Ljavax/crypto/CipherSpi;)V", nullptr, 0, $virtualMethod(Cipher$Transform, setModePadding, void, $CipherSpi*), "java.security.NoSuchAlgorithmException,javax.crypto.NoSuchPaddingException"},
-	{"supports", "(Ljava/security/Provider$Service;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Cipher$Transform, supports, int32_t, $Provider$Service*, $String*, $String*)},
-	{"supportsMode", "(Ljava/security/Provider$Service;)I", nullptr, 0, $virtualMethod(Cipher$Transform, supportsMode, int32_t, $Provider$Service*)},
-	{"supportsModePadding", "(Ljava/security/Provider$Service;)I", nullptr, 0, $virtualMethod(Cipher$Transform, supportsModePadding, int32_t, $Provider$Service*)},
-	{"supportsPadding", "(Ljava/security/Provider$Service;)I", nullptr, 0, $virtualMethod(Cipher$Transform, supportsPadding, int32_t, $Provider$Service*)},
-	{}
-};
-
-$InnerClassInfo _Cipher$Transform_InnerClassesInfo_[] = {
-	{"javax.crypto.Cipher$Transform", "javax.crypto.Cipher", "Transform", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Cipher$Transform_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.crypto.Cipher$Transform",
-	"java.lang.Object",
-	nullptr,
-	_Cipher$Transform_FieldInfo_,
-	_Cipher$Transform_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Cipher$Transform_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.crypto.Cipher"
-};
-
-$Object* allocate$Cipher$Transform($Class* clazz) {
-	return $of($alloc(Cipher$Transform));
-}
 
 $ConcurrentMap* Cipher$Transform::patternCache = nullptr;
 
@@ -126,17 +77,17 @@ int32_t Cipher$Transform::supports($Provider$Service* s, $String* attrName, $Str
 
 bool Cipher$Transform::matches($String* regexp, $String* str) {
 	$init(Cipher$Transform);
-	$useLocalCurrentObjectStackCache();
-	$var($Pattern, pattern, $cast($Pattern, $nc(Cipher$Transform::patternCache)->get(regexp)));
+	$useLocalObjectStack();
+	$var($Pattern, pattern, $cast($Pattern, Cipher$Transform::patternCache->get(regexp)));
 	if (pattern == nullptr) {
 		$assign(pattern, $Pattern::compile(regexp));
-		$nc(Cipher$Transform::patternCache)->putIfAbsent(regexp, pattern);
+		Cipher$Transform::patternCache->putIfAbsent(regexp, pattern);
 	}
 	$init($Locale);
-	return $nc($($nc(pattern)->matcher($($nc(str)->toUpperCase($Locale::ENGLISH)))))->matches();
+	return $$nc($nc(pattern)->matcher($($nc(str)->toUpperCase($Locale::ENGLISH))))->matches();
 }
 
-void clinit$Cipher$Transform($Class* class$) {
+void Cipher$Transform::clinit$($Class* clazz) {
 	$assignStatic(Cipher$Transform::patternCache, $new($ConcurrentHashMap));
 }
 
@@ -144,7 +95,46 @@ Cipher$Transform::Cipher$Transform() {
 }
 
 $Class* Cipher$Transform::load$($String* name, bool initialize) {
-	$loadClass(Cipher$Transform, name, initialize, &_Cipher$Transform_ClassInfo_, clinit$Cipher$Transform, allocate$Cipher$Transform);
+	$FieldInfo fieldInfos$$[] = {
+		{"transform", "Ljava/lang/String;", nullptr, $FINAL, $field(Cipher$Transform, transform)},
+		{"suffix", "Ljava/lang/String;", nullptr, $FINAL, $field(Cipher$Transform, suffix)},
+		{"mode", "Ljava/lang/String;", nullptr, $FINAL, $field(Cipher$Transform, mode)},
+		{"pad", "Ljava/lang/String;", nullptr, $FINAL, $field(Cipher$Transform, pad)},
+		{"patternCache", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/lang/String;Ljava/util/regex/Pattern;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Cipher$Transform, patternCache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(Cipher$Transform, init$, void, $String*, $String*, $String*, $String*)},
+		{"matches", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Cipher$Transform, matches, bool, $String*, $String*)},
+		{"setModePadding", "(Ljavax/crypto/CipherSpi;)V", nullptr, 0, $virtualMethod(Cipher$Transform, setModePadding, void, $CipherSpi*), "java.security.NoSuchAlgorithmException,javax.crypto.NoSuchPaddingException"},
+		{"supports", "(Ljava/security/Provider$Service;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Cipher$Transform, supports, int32_t, $Provider$Service*, $String*, $String*)},
+		{"supportsMode", "(Ljava/security/Provider$Service;)I", nullptr, 0, $virtualMethod(Cipher$Transform, supportsMode, int32_t, $Provider$Service*)},
+		{"supportsModePadding", "(Ljava/security/Provider$Service;)I", nullptr, 0, $virtualMethod(Cipher$Transform, supportsModePadding, int32_t, $Provider$Service*)},
+		{"supportsPadding", "(Ljava/security/Provider$Service;)I", nullptr, 0, $virtualMethod(Cipher$Transform, supportsPadding, int32_t, $Provider$Service*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.crypto.Cipher$Transform", "javax.crypto.Cipher", "Transform", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.crypto.Cipher$Transform",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.crypto.Cipher"
+	};
+	$loadClass(Cipher$Transform, name, initialize, &classInfo$$, Cipher$Transform::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Cipher$Transform);
+	});
 	return class$;
 }
 

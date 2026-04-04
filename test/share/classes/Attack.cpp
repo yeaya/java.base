@@ -1,5 +1,4 @@
 #include <Attack.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/SecurityException.h>
@@ -18,34 +17,6 @@ using $InetAddress = ::java::net::InetAddress;
 using $Socket = ::java::net::Socket;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 
-$FieldInfo _Attack_FieldInfo_[] = {
-	{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $FINAL, $field(Attack, latch)},
-	{"failedDueToSecurityException", "Z", nullptr, $PRIVATE | $VOLATILE, $field(Attack, failedDueToSecurityException$)},
-	{}
-};
-
-$MethodInfo _Attack_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Attack, init$, void)},
-	{"Attack", "()V", nullptr, $PUBLIC, $virtualMethod(Attack, Attack$, void)},
-	{"failedDueToSecurityException", "()Z", nullptr, $PUBLIC, $virtualMethod(Attack, failedDueToSecurityException, bool)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Attack, run, void)},
-	{"waitUntilDone", "()V", nullptr, $PUBLIC, $virtualMethod(Attack, waitUntilDone, void), "java.lang.InterruptedException"},
-	{}
-};
-
-$ClassInfo _Attack_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Attack",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_Attack_FieldInfo_,
-	_Attack_MethodInfo_
-};
-
-$Object* allocate$Attack($Class* clazz) {
-	return $of($alloc(Attack));
-}
-
 void Attack::init$() {
 	$set(this, latch, $new($CountDownLatch, 1));
 }
@@ -58,31 +29,29 @@ void Attack::Attack$() {
 }
 
 void Attack::run() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$$new($Socket, $($InetAddress::getLoopbackAddress()), 9999)->close();
-				$throwNew($RuntimeException, "Connected (not expected)"_s);
-			} catch ($IOException& e) {
-				$throwNew($RuntimeException, "IOException (not expected)"_s);
-			} catch ($SecurityException& e) {
-				this->failedDueToSecurityException$ = true;
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->latch)->countDown();
+			$$new($Socket, $($InetAddress::getLoopbackAddress()), 9999)->close();
+			$throwNew($RuntimeException, "Connected (not expected)"_s);
+		} catch ($IOException& e) {
+			$throwNew($RuntimeException, "IOException (not expected)"_s);
+		} catch ($SecurityException& e) {
+			this->failedDueToSecurityException$ = true;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->latch->countDown();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void Attack::waitUntilDone() {
-	$nc(this->latch)->await();
+	this->latch->await();
 }
 
 bool Attack::failedDueToSecurityException() {
@@ -93,7 +62,30 @@ Attack::Attack() {
 }
 
 $Class* Attack::load$($String* name, bool initialize) {
-	$loadClass(Attack, name, initialize, &_Attack_ClassInfo_, allocate$Attack);
+	$FieldInfo fieldInfos$$[] = {
+		{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $FINAL, $field(Attack, latch)},
+		{"failedDueToSecurityException", "Z", nullptr, $PRIVATE | $VOLATILE, $field(Attack, failedDueToSecurityException$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Attack, init$, void)},
+		{"Attack", "()V", nullptr, $PUBLIC, $virtualMethod(Attack, Attack$, void)},
+		{"failedDueToSecurityException", "()Z", nullptr, $PUBLIC, $virtualMethod(Attack, failedDueToSecurityException, bool)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Attack, run, void)},
+		{"waitUntilDone", "()V", nullptr, $PUBLIC, $virtualMethod(Attack, waitUntilDone, void), "java.lang.InterruptedException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Attack",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Attack, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Attack);
+	});
 	return class$;
 }
 

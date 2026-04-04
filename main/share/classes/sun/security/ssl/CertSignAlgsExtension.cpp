@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CertSignAlgsExtension.h>
-
 #include <sun/security/ssl/CertSignAlgsExtension$CHCertSignatureSchemesConsumer.h>
 #include <sun/security/ssl/CertSignAlgsExtension$CHCertSignatureSchemesProducer.h>
 #include <sun/security/ssl/CertSignAlgsExtension$CHCertSignatureSchemesUpdate.h>
@@ -33,52 +32,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _CertSignAlgsExtension_FieldInfo_[] = {
-	{"chNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(CertSignAlgsExtension, chNetworkProducer)},
-	{"chOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(CertSignAlgsExtension, chOnLoadConsumer)},
-	{"chOnTradeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $STATIC | $FINAL, $staticField(CertSignAlgsExtension, chOnTradeConsumer)},
-	{"crNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(CertSignAlgsExtension, crNetworkProducer)},
-	{"crOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(CertSignAlgsExtension, crOnLoadConsumer)},
-	{"crOnTradeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $STATIC | $FINAL, $staticField(CertSignAlgsExtension, crOnTradeConsumer)},
-	{"ssStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(CertSignAlgsExtension, ssStringizer)},
-	{}
-};
-
-$MethodInfo _CertSignAlgsExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CertSignAlgsExtension, init$, void)},
-	{}
-};
-
-$InnerClassInfo _CertSignAlgsExtension_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertSignAlgsExtension$CRCertSignatureSchemesUpdate", "sun.security.ssl.CertSignAlgsExtension", "CRCertSignatureSchemesUpdate", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.CertSignAlgsExtension$CRCertSignatureSchemesConsumer", "sun.security.ssl.CertSignAlgsExtension", "CRCertSignatureSchemesConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.CertSignAlgsExtension$CRCertSignatureSchemesProducer", "sun.security.ssl.CertSignAlgsExtension", "CRCertSignatureSchemesProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.CertSignAlgsExtension$CHCertSignatureSchemesUpdate", "sun.security.ssl.CertSignAlgsExtension", "CHCertSignatureSchemesUpdate", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.CertSignAlgsExtension$CHCertSignatureSchemesConsumer", "sun.security.ssl.CertSignAlgsExtension", "CHCertSignatureSchemesConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.CertSignAlgsExtension$CHCertSignatureSchemesProducer", "sun.security.ssl.CertSignAlgsExtension", "CHCertSignatureSchemesProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.CertSignAlgsExtension$CertSignatureSchemesStringizer", "sun.security.ssl.CertSignAlgsExtension", "CertSignatureSchemesStringizer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CertSignAlgsExtension_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CertSignAlgsExtension",
-	"java.lang.Object",
-	nullptr,
-	_CertSignAlgsExtension_FieldInfo_,
-	_CertSignAlgsExtension_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CertSignAlgsExtension_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertSignAlgsExtension$CRCertSignatureSchemesUpdate,sun.security.ssl.CertSignAlgsExtension$CRCertSignatureSchemesConsumer,sun.security.ssl.CertSignAlgsExtension$CRCertSignatureSchemesProducer,sun.security.ssl.CertSignAlgsExtension$CHCertSignatureSchemesUpdate,sun.security.ssl.CertSignAlgsExtension$CHCertSignatureSchemesConsumer,sun.security.ssl.CertSignAlgsExtension$CHCertSignatureSchemesProducer,sun.security.ssl.CertSignAlgsExtension$CertSignatureSchemesStringizer"
-};
-
-$Object* allocate$CertSignAlgsExtension($Class* clazz) {
-	return $of($alloc(CertSignAlgsExtension));
-}
-
 $HandshakeProducer* CertSignAlgsExtension::chNetworkProducer = nullptr;
 $SSLExtension$ExtensionConsumer* CertSignAlgsExtension::chOnLoadConsumer = nullptr;
 $HandshakeConsumer* CertSignAlgsExtension::chOnTradeConsumer = nullptr;
@@ -90,7 +43,7 @@ $SSLStringizer* CertSignAlgsExtension::ssStringizer = nullptr;
 void CertSignAlgsExtension::init$() {
 }
 
-void clinit$CertSignAlgsExtension($Class* class$) {
+void CertSignAlgsExtension::clinit$($Class* clazz) {
 	$assignStatic(CertSignAlgsExtension::chNetworkProducer, $new($CertSignAlgsExtension$CHCertSignatureSchemesProducer));
 	$assignStatic(CertSignAlgsExtension::chOnLoadConsumer, $new($CertSignAlgsExtension$CHCertSignatureSchemesConsumer));
 	$assignStatic(CertSignAlgsExtension::chOnTradeConsumer, $new($CertSignAlgsExtension$CHCertSignatureSchemesUpdate));
@@ -104,7 +57,47 @@ CertSignAlgsExtension::CertSignAlgsExtension() {
 }
 
 $Class* CertSignAlgsExtension::load$($String* name, bool initialize) {
-	$loadClass(CertSignAlgsExtension, name, initialize, &_CertSignAlgsExtension_ClassInfo_, clinit$CertSignAlgsExtension, allocate$CertSignAlgsExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"chNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(CertSignAlgsExtension, chNetworkProducer)},
+		{"chOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(CertSignAlgsExtension, chOnLoadConsumer)},
+		{"chOnTradeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $STATIC | $FINAL, $staticField(CertSignAlgsExtension, chOnTradeConsumer)},
+		{"crNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(CertSignAlgsExtension, crNetworkProducer)},
+		{"crOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(CertSignAlgsExtension, crOnLoadConsumer)},
+		{"crOnTradeConsumer", "Lsun/security/ssl/HandshakeConsumer;", nullptr, $STATIC | $FINAL, $staticField(CertSignAlgsExtension, crOnTradeConsumer)},
+		{"ssStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(CertSignAlgsExtension, ssStringizer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CertSignAlgsExtension, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertSignAlgsExtension$CRCertSignatureSchemesUpdate", "sun.security.ssl.CertSignAlgsExtension", "CRCertSignatureSchemesUpdate", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.CertSignAlgsExtension$CRCertSignatureSchemesConsumer", "sun.security.ssl.CertSignAlgsExtension", "CRCertSignatureSchemesConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.CertSignAlgsExtension$CRCertSignatureSchemesProducer", "sun.security.ssl.CertSignAlgsExtension", "CRCertSignatureSchemesProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.CertSignAlgsExtension$CHCertSignatureSchemesUpdate", "sun.security.ssl.CertSignAlgsExtension", "CHCertSignatureSchemesUpdate", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.CertSignAlgsExtension$CHCertSignatureSchemesConsumer", "sun.security.ssl.CertSignAlgsExtension", "CHCertSignatureSchemesConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.CertSignAlgsExtension$CHCertSignatureSchemesProducer", "sun.security.ssl.CertSignAlgsExtension", "CHCertSignatureSchemesProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.CertSignAlgsExtension$CertSignatureSchemesStringizer", "sun.security.ssl.CertSignAlgsExtension", "CertSignatureSchemesStringizer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CertSignAlgsExtension",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertSignAlgsExtension$CRCertSignatureSchemesUpdate,sun.security.ssl.CertSignAlgsExtension$CRCertSignatureSchemesConsumer,sun.security.ssl.CertSignAlgsExtension$CRCertSignatureSchemesProducer,sun.security.ssl.CertSignAlgsExtension$CHCertSignatureSchemesUpdate,sun.security.ssl.CertSignAlgsExtension$CHCertSignatureSchemesConsumer,sun.security.ssl.CertSignAlgsExtension$CHCertSignatureSchemesProducer,sun.security.ssl.CertSignAlgsExtension$CertSignatureSchemesStringizer"
+	};
+	$loadClass(CertSignAlgsExtension, name, initialize, &classInfo$$, CertSignAlgsExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CertSignAlgsExtension);
+	});
 	return class$;
 }
 

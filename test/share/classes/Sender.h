@@ -20,6 +20,7 @@ class $export Sender : public ::java::lang::Object {
 	$class(Sender, 0, ::java::lang::Object)
 public:
 	Sender();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void test();

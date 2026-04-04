@@ -1,5 +1,4 @@
 #include <sun/nio/cs/DelegatableDecoder.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/charset/CoderResult.h>
@@ -15,28 +14,24 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$MethodInfo _DelegatableDecoder_MethodInfo_[] = {
-	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DelegatableDecoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
-	{"implFlush", "(Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DelegatableDecoder, implFlush, $CoderResult*, $CharBuffer*)},
-	{"implReset", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DelegatableDecoder, implReset, void)},
-	{}
-};
-
-$ClassInfo _DelegatableDecoder_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.nio.cs.DelegatableDecoder",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DelegatableDecoder_MethodInfo_
-};
-
-$Object* allocate$DelegatableDecoder($Class* clazz) {
-	return $of($alloc(DelegatableDecoder));
-}
-
 $Class* DelegatableDecoder::load$($String* name, bool initialize) {
-	$loadClass(DelegatableDecoder, name, initialize, &_DelegatableDecoder_ClassInfo_, allocate$DelegatableDecoder);
+	$MethodInfo methodInfos$$[] = {
+		{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DelegatableDecoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+		{"implFlush", "(Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DelegatableDecoder, implFlush, $CoderResult*, $CharBuffer*)},
+		{"implReset", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DelegatableDecoder, implReset, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.nio.cs.DelegatableDecoder",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DelegatableDecoder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DelegatableDecoder);
+	});
 	return class$;
 }
 

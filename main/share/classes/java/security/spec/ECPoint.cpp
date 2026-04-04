@@ -1,5 +1,4 @@
 #include <java/security/spec/ECPoint.h>
-
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
@@ -14,36 +13,6 @@ using $BigInteger = ::java::math::BigInteger;
 namespace java {
 	namespace security {
 		namespace spec {
-
-$FieldInfo _ECPoint_FieldInfo_[] = {
-	{"x", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(ECPoint, x)},
-	{"y", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(ECPoint, y)},
-	{"POINT_INFINITY", "Ljava/security/spec/ECPoint;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ECPoint, POINT_INFINITY)},
-	{}
-};
-
-$MethodInfo _ECPoint_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ECPoint, init$, void)},
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(ECPoint, init$, void, $BigInteger*, $BigInteger*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ECPoint, equals, bool, Object$*)},
-	{"getAffineX", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(ECPoint, getAffineX, $BigInteger*)},
-	{"getAffineY", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(ECPoint, getAffineY, $BigInteger*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ECPoint, hashCode, int32_t)},
-	{}
-};
-
-$ClassInfo _ECPoint_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.spec.ECPoint",
-	"java.lang.Object",
-	nullptr,
-	_ECPoint_FieldInfo_,
-	_ECPoint_MethodInfo_
-};
-
-$Object* allocate$ECPoint($Class* clazz) {
-	return $of($alloc(ECPoint));
-}
 
 ECPoint* ECPoint::POINT_INFINITY = nullptr;
 
@@ -83,8 +52,8 @@ bool ECPoint::equals(Object$* obj) {
 	}
 	bool var$0 = var$1;
 	if (var$0) {
-		bool var$2 = ($nc(this->x)->equals($nc(other)->x));
-		var$0 = (var$2 && ($nc(this->y)->equals($nc(other)->y)));
+		bool var$2 = $nc(this->x)->equals($nc(other)->x);
+		var$0 = var$2 && ($nc(this->y)->equals(other->y));
 	}
 	return var$0;
 }
@@ -97,7 +66,7 @@ int32_t ECPoint::hashCode() {
 	return $sl(var$0, 5 + $nc(this->y)->hashCode());
 }
 
-void clinit$ECPoint($Class* class$) {
+void ECPoint::clinit$($Class* clazz) {
 	$assignStatic(ECPoint::POINT_INFINITY, $new(ECPoint));
 }
 
@@ -105,7 +74,32 @@ ECPoint::ECPoint() {
 }
 
 $Class* ECPoint::load$($String* name, bool initialize) {
-	$loadClass(ECPoint, name, initialize, &_ECPoint_ClassInfo_, clinit$ECPoint, allocate$ECPoint);
+	$FieldInfo fieldInfos$$[] = {
+		{"x", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(ECPoint, x)},
+		{"y", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(ECPoint, y)},
+		{"POINT_INFINITY", "Ljava/security/spec/ECPoint;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ECPoint, POINT_INFINITY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ECPoint, init$, void)},
+		{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(ECPoint, init$, void, $BigInteger*, $BigInteger*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ECPoint, equals, bool, Object$*)},
+		{"getAffineX", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(ECPoint, getAffineX, $BigInteger*)},
+		{"getAffineY", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(ECPoint, getAffineY, $BigInteger*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ECPoint, hashCode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.spec.ECPoint",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ECPoint, name, initialize, &classInfo$$, ECPoint::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ECPoint);
+	});
 	return class$;
 }
 

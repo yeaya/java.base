@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/TlsPrfGenerator.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/Math.h>
 #include <java/nio/charset/Charset.h>
@@ -58,66 +57,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _TlsPrfGenerator_FieldInfo_[] = {
-	{"B0", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TlsPrfGenerator, B0)},
-	{"LABEL_MASTER_SECRET", "[B", nullptr, $STATIC | $FINAL, $staticField(TlsPrfGenerator, LABEL_MASTER_SECRET)},
-	{"LABEL_EXTENDED_MASTER_SECRET", "[B", nullptr, $STATIC | $FINAL, $staticField(TlsPrfGenerator, LABEL_EXTENDED_MASTER_SECRET)},
-	{"LABEL_KEY_EXPANSION", "[B", nullptr, $STATIC | $FINAL, $staticField(TlsPrfGenerator, LABEL_KEY_EXPANSION)},
-	{"LABEL_CLIENT_WRITE_KEY", "[B", nullptr, $STATIC | $FINAL, $staticField(TlsPrfGenerator, LABEL_CLIENT_WRITE_KEY)},
-	{"LABEL_SERVER_WRITE_KEY", "[B", nullptr, $STATIC | $FINAL, $staticField(TlsPrfGenerator, LABEL_SERVER_WRITE_KEY)},
-	{"LABEL_IV_BLOCK", "[B", nullptr, $STATIC | $FINAL, $staticField(TlsPrfGenerator, LABEL_IV_BLOCK)},
-	{"HMAC_ipad64", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TlsPrfGenerator, HMAC_ipad64)},
-	{"HMAC_ipad128", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TlsPrfGenerator, HMAC_ipad128)},
-	{"HMAC_opad64", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TlsPrfGenerator, HMAC_opad64)},
-	{"HMAC_opad128", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TlsPrfGenerator, HMAC_opad128)},
-	{"SSL3_CONST", "[[B", nullptr, $STATIC | $FINAL, $staticField(TlsPrfGenerator, SSL3_CONST)},
-	{"MSG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TlsPrfGenerator, MSG)},
-	{"spec", "Lsun/security/internal/spec/TlsPrfParameterSpec;", nullptr, $PRIVATE, $field(TlsPrfGenerator, spec)},
-	{}
-};
-
-$MethodInfo _TlsPrfGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TlsPrfGenerator, init$, void)},
-	{"concat", "([B[B)[B", nullptr, $STATIC, $staticMethod(TlsPrfGenerator, concat, $bytes*, $bytes*, $bytes*)},
-	{"doTLS10PRF", "([B[B[BI)[B", nullptr, $STATIC, $staticMethod(TlsPrfGenerator, doTLS10PRF, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "java.security.NoSuchAlgorithmException,java.security.DigestException"},
-	{"doTLS10PRF", "([B[B[BILjava/security/MessageDigest;Ljava/security/MessageDigest;)[B", nullptr, $STATIC, $staticMethod(TlsPrfGenerator, doTLS10PRF, $bytes*, $bytes*, $bytes*, $bytes*, int32_t, $MessageDigest*, $MessageDigest*), "java.security.DigestException"},
-	{"doTLS12PRF", "([B[B[BILjava/lang/String;II)[B", nullptr, $STATIC, $staticMethod(TlsPrfGenerator, doTLS12PRF, $bytes*, $bytes*, $bytes*, $bytes*, int32_t, $String*, int32_t, int32_t), "java.security.NoSuchAlgorithmException,java.security.DigestException"},
-	{"doTLS12PRF", "([B[B[BILjava/security/MessageDigest;II)[B", nullptr, $STATIC, $staticMethod(TlsPrfGenerator, doTLS12PRF, $bytes*, $bytes*, $bytes*, $bytes*, int32_t, $MessageDigest*, int32_t, int32_t), "java.security.DigestException"},
-	{"engineGenerateKey0", "(Z)Ljavax/crypto/SecretKey;", nullptr, 0, $virtualMethod(TlsPrfGenerator, engineGenerateKey0, $SecretKey*, bool)},
-	{"engineInit", "(Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(TlsPrfGenerator, engineInit, void, $SecureRandom*)},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(TlsPrfGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
-	{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(TlsPrfGenerator, engineInit, void, int32_t, $SecureRandom*)},
-	{"expand", "(Ljava/security/MessageDigest;I[BII[B[B[B[B[B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TlsPrfGenerator, expand, void, $MessageDigest*, int32_t, $bytes*, int32_t, int32_t, $bytes*, $bytes*, $bytes*, $bytes*, $bytes*), "java.security.DigestException"},
-	{"genConst", "()[[B", nullptr, $PRIVATE | $STATIC, $staticMethod(TlsPrfGenerator, genConst, $byteArray2*)},
-	{"genPad", "(BI)[B", nullptr, $STATIC, $staticMethod(TlsPrfGenerator, genPad, $bytes*, int8_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _TlsPrfGenerator_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.TlsPrfGenerator$V10", "com.sun.crypto.provider.TlsPrfGenerator", "V10", $PUBLIC | $STATIC},
-	{"com.sun.crypto.provider.TlsPrfGenerator$V12", "com.sun.crypto.provider.TlsPrfGenerator", "V12", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _TlsPrfGenerator_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.crypto.provider.TlsPrfGenerator",
-	"javax.crypto.KeyGeneratorSpi",
-	nullptr,
-	_TlsPrfGenerator_FieldInfo_,
-	_TlsPrfGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TlsPrfGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.TlsPrfGenerator$V10,com.sun.crypto.provider.TlsPrfGenerator$V12"
-};
-
-$Object* allocate$TlsPrfGenerator($Class* clazz) {
-	return $of($alloc(TlsPrfGenerator));
-}
-
 $bytes* TlsPrfGenerator::B0 = nullptr;
 $bytes* TlsPrfGenerator::LABEL_MASTER_SECRET = nullptr;
 $bytes* TlsPrfGenerator::LABEL_EXTENDED_MASTER_SECRET = nullptr;
@@ -151,7 +90,7 @@ $bytes* TlsPrfGenerator::concat($bytes* b1, $bytes* b2) {
 
 $byteArray2* TlsPrfGenerator::genConst() {
 	$init(TlsPrfGenerator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = 10;
 	$var($byteArray2, arr, $new($byteArray2, n));
 	for (int32_t i = 0; i < n; ++i) {
@@ -171,7 +110,7 @@ void TlsPrfGenerator::engineInit($SecureRandom* random) {
 }
 
 void TlsPrfGenerator::engineInit($AlgorithmParameterSpec* params, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($TlsPrfParameterSpec, params) == false) {
 		$throwNew($InvalidAlgorithmParameterException, TlsPrfGenerator::MSG);
 	}
@@ -187,72 +126,65 @@ void TlsPrfGenerator::engineInit(int32_t keysize, $SecureRandom* random) {
 }
 
 $SecretKey* TlsPrfGenerator::engineGenerateKey0(bool tls12) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->spec == nullptr) {
 		$throwNew($IllegalStateException, "TlsPrfGenerator must be initialized"_s);
 	}
 	$var($SecretKey, key, $nc(this->spec)->getSecret());
-	$var($bytes, secret, (key == nullptr) ? ($bytes*)nullptr : $nc(key)->getEncoded());
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($SecretKey, var$2, nullptr);
-		bool return$1 = false;
+	$var($bytes, secret, (key == nullptr) ? ($bytes*)nullptr : key->getEncoded());
+	$var($Throwable, var$0, nullptr);
+	$var($SecretKey, var$2, nullptr);
+	bool return$1 = false;
+	try {
 		try {
+			$init($StandardCharsets);
+			$var($bytes, labelBytes, $$nc($nc(this->spec)->getLabel())->getBytes($StandardCharsets::UTF_8));
+			int32_t n = $nc(this->spec)->getOutputLength();
+			$var($bytes, var$3, nullptr);
+			if (tls12) {
+				$var($bytes, var$4, $nc(this->spec)->getSeed());
+				$var($String, var$5, this->spec->getPRFHashAlg());
+				int32_t var$6 = this->spec->getPRFHashLength();
+				$assign(var$3, doTLS12PRF(secret, labelBytes, var$4, n, var$5, var$6, this->spec->getPRFBlockSize()));
+			} else {
+				$assign(var$3, doTLS10PRF(secret, labelBytes, $(this->spec->getSeed()), n));
+			}
+			$var($bytes, prfBytes, var$3);
+			$var($Throwable, var$7, nullptr);
+			$var($SecretKey, var$9, nullptr);
+			bool return$8 = false;
 			try {
-				$init($StandardCharsets);
-				$var($bytes, labelBytes, $nc($($nc(this->spec)->getLabel()))->getBytes($StandardCharsets::UTF_8));
-				int32_t n = $nc(this->spec)->getOutputLength();
-				$var($bytes, var$3, nullptr);
-				if (tls12) {
-					$var($bytes, var$4, secret);
-					$var($bytes, var$5, labelBytes);
-					$var($bytes, var$6, $nc(this->spec)->getSeed());
-					int32_t var$7 = n;
-					$var($String, var$8, $nc(this->spec)->getPRFHashAlg());
-					int32_t var$9 = $nc(this->spec)->getPRFHashLength();
-					$assign(var$3, doTLS12PRF(var$4, var$5, var$6, var$7, var$8, var$9, $nc(this->spec)->getPRFBlockSize()));
-				} else {
-					$assign(var$3, doTLS10PRF(secret, labelBytes, $($nc(this->spec)->getSeed()), n));
-				}
-				$var($bytes, prfBytes, var$3);
-				{
-					$var($Throwable, var$10, nullptr);
-					$var($SecretKey, var$12, nullptr);
-					bool return$11 = false;
-					try {
-						$assign(var$12, $new($SecretKeySpec, prfBytes, "TlsPrf"_s));
-						return$11 = true;
-						goto $finally1;
-					} catch ($Throwable& var$13) {
-						$assign(var$10, var$13);
-					} $finally1: {
-						$Arrays::fill(prfBytes, (int8_t)0);
-					}
-					if (var$10 != nullptr) {
-						$throw(var$10);
-					}
-					if (return$11) {
-						$assign(var$2, var$12);
-						return$1 = true;
-						goto $finally;
-					}
-				}
-			} catch ($GeneralSecurityException& e) {
-				$throwNew($ProviderException, "Could not generate PRF"_s, e);
+				$assign(var$9, $new($SecretKeySpec, prfBytes, "TlsPrf"_s));
+				return$8 = true;
+				goto $finally1;
+			} catch ($Throwable& var$10) {
+				$assign(var$7, var$10);
+			} $finally1: {
+				$Arrays::fill(prfBytes, (int8_t)0);
 			}
-		} catch ($Throwable& var$14) {
-			$assign(var$0, var$14);
-		} $finally: {
-			if (secret != nullptr) {
-				$Arrays::fill(secret, (int8_t)0);
+			if (var$7 != nullptr) {
+				$throw(var$7);
 			}
+			if (return$8) {
+				$assign(var$2, var$9);
+				return$1 = true;
+				goto $finally;
+			}
+		} catch ($GeneralSecurityException& e) {
+			$throwNew($ProviderException, "Could not generate PRF"_s, e);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$11) {
+		$assign(var$0, var$11);
+	} $finally: {
+		if (secret != nullptr) {
+			$Arrays::fill(secret, (int8_t)0);
 		}
-		if (return$1) {
-			return var$2;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -268,7 +200,7 @@ $bytes* TlsPrfGenerator::doTLS12PRF($bytes* secret, $bytes* labelBytes, $bytes* 
 
 $bytes* TlsPrfGenerator::doTLS12PRF($bytes* secret$renamed, $bytes* labelBytes, $bytes* seed, int32_t outputLength, $MessageDigest* mdPRF, int32_t mdPRFLen, int32_t mdPRFBlockSize) {
 	$init(TlsPrfGenerator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, secret, secret$renamed);
 	if (secret == nullptr) {
 		$assign(secret, TlsPrfGenerator::B0);
@@ -281,21 +213,15 @@ $bytes* TlsPrfGenerator::doTLS12PRF($bytes* secret$renamed, $bytes* labelBytes, 
 	$var($bytes, opad, nullptr);
 	switch (mdPRFBlockSize) {
 	case 64:
-		{
-			$assign(ipad, $cast($bytes, $nc(TlsPrfGenerator::HMAC_ipad64)->clone()));
-			$assign(opad, $cast($bytes, $nc(TlsPrfGenerator::HMAC_opad64)->clone()));
-			break;
-		}
+		$assign(ipad, $cast($bytes, $nc(TlsPrfGenerator::HMAC_ipad64)->clone()));
+		$assign(opad, $cast($bytes, $nc(TlsPrfGenerator::HMAC_opad64)->clone()));
+		break;
 	case 128:
-		{
-			$assign(ipad, $cast($bytes, $nc(TlsPrfGenerator::HMAC_ipad128)->clone()));
-			$assign(opad, $cast($bytes, $nc(TlsPrfGenerator::HMAC_opad128)->clone()));
-			break;
-		}
+		$assign(ipad, $cast($bytes, $nc(TlsPrfGenerator::HMAC_ipad128)->clone()));
+		$assign(opad, $cast($bytes, $nc(TlsPrfGenerator::HMAC_opad128)->clone()));
+		break;
 	default:
-		{
-			$throwNew($DigestException, "Unexpected block size."_s);
-		}
+		$throwNew($DigestException, "Unexpected block size."_s);
 	}
 	expand(mdPRF, mdPRFLen, secret, 0, $nc(secret)->length, labelBytes, seed, output, ipad, opad);
 	return output;
@@ -303,7 +229,7 @@ $bytes* TlsPrfGenerator::doTLS12PRF($bytes* secret$renamed, $bytes* labelBytes, 
 
 $bytes* TlsPrfGenerator::doTLS10PRF($bytes* secret, $bytes* labelBytes, $bytes* seed, int32_t outputLength) {
 	$init(TlsPrfGenerator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MessageDigest, md5, $MessageDigest::getInstance("MD5"_s));
 	$var($MessageDigest, sha, $MessageDigest::getInstance("SHA1"_s));
 	return doTLS10PRF(secret, labelBytes, seed, outputLength, md5, sha);
@@ -311,13 +237,13 @@ $bytes* TlsPrfGenerator::doTLS10PRF($bytes* secret, $bytes* labelBytes, $bytes* 
 
 $bytes* TlsPrfGenerator::doTLS10PRF($bytes* secret$renamed, $bytes* labelBytes, $bytes* seed, int32_t outputLength, $MessageDigest* md5, $MessageDigest* sha) {
 	$init(TlsPrfGenerator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, secret, secret$renamed);
 	if (secret == nullptr) {
 		$assign(secret, TlsPrfGenerator::B0);
 	}
 	int32_t off = $nc(secret)->length >> 1;
-	int32_t seclen = off + ((int32_t)(secret->length & (uint32_t)1));
+	int32_t seclen = off + (secret->length & 1);
 	$var($bytes, secKey, secret);
 	int32_t keyLen = seclen;
 	$var($bytes, output, $new($bytes, outputLength));
@@ -327,14 +253,8 @@ $bytes* TlsPrfGenerator::doTLS10PRF($bytes* secret$renamed, $bytes* labelBytes, 
 		md5->reset();
 		keyLen = $nc(secKey)->length;
 	}
-	$var($MessageDigest, var$0, md5);
-	$var($bytes, var$1, secKey);
-	int32_t var$2 = keyLen;
-	$var($bytes, var$3, labelBytes);
-	$var($bytes, var$4, seed);
-	$var($bytes, var$5, output);
-	$var($bytes, var$6, $cast($bytes, $nc(TlsPrfGenerator::HMAC_ipad64)->clone()));
-	expand(var$0, 16, var$1, 0, var$2, var$3, var$4, var$5, var$6, $cast($bytes, $($nc(TlsPrfGenerator::HMAC_opad64)->clone())));
+	$var($bytes, var$0, $cast($bytes, $nc(TlsPrfGenerator::HMAC_ipad64)->clone()));
+	expand(md5, 16, secKey, 0, keyLen, labelBytes, seed, output, var$0, $$cast($bytes, $nc(TlsPrfGenerator::HMAC_opad64)->clone()));
 	if (seclen > 64) {
 		$nc(sha)->update(secret, off, seclen);
 		$assign(secKey, sha->digest());
@@ -342,21 +262,14 @@ $bytes* TlsPrfGenerator::doTLS10PRF($bytes* secret$renamed, $bytes* labelBytes, 
 		keyLen = $nc(secKey)->length;
 		off = 0;
 	}
-	$var($MessageDigest, var$7, sha);
-	$var($bytes, var$8, secKey);
-	int32_t var$9 = off;
-	int32_t var$10 = keyLen;
-	$var($bytes, var$11, labelBytes);
-	$var($bytes, var$12, seed);
-	$var($bytes, var$13, output);
-	$var($bytes, var$14, $cast($bytes, $nc(TlsPrfGenerator::HMAC_ipad64)->clone()));
-	expand(var$7, 20, var$8, var$9, var$10, var$11, var$12, var$13, var$14, $cast($bytes, $($nc(TlsPrfGenerator::HMAC_opad64)->clone())));
+	$var($bytes, var$1, $cast($bytes, TlsPrfGenerator::HMAC_ipad64->clone()));
+	expand(sha, 20, secKey, off, keyLen, labelBytes, seed, output, var$1, $$cast($bytes, TlsPrfGenerator::HMAC_opad64->clone()));
 	return output;
 }
 
 void TlsPrfGenerator::expand($MessageDigest* digest, int32_t hmacSize, $bytes* secret, int32_t secOff, int32_t secLen, $bytes* label, $bytes* seed, $bytes* output, $bytes* pad1, $bytes* pad2) {
 	$init(TlsPrfGenerator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < secLen; ++i) {
 		(*$nc(pad1))[i] ^= $nc(secret)->get(i + secOff);
 		(*$nc(pad2))[i] ^= secret->get(i + secOff);
@@ -398,108 +311,108 @@ void TlsPrfGenerator::expand($MessageDigest* digest, int32_t hmacSize, $bytes* s
 	$Arrays::fill(tmp, (int8_t)0);
 }
 
-void clinit$TlsPrfGenerator($Class* class$) {
+void TlsPrfGenerator::clinit$($Class* clazz) {
 	$assignStatic(TlsPrfGenerator::MSG, "TlsPrfGenerator must be initialized using a TlsPrfParameterSpec"_s);
 	$assignStatic(TlsPrfGenerator::B0, $new($bytes, 0));
 	$assignStatic(TlsPrfGenerator::LABEL_MASTER_SECRET, $new($bytes, {
-		(int8_t)109,
-		(int8_t)97,
-		(int8_t)115,
-		(int8_t)116,
-		(int8_t)101,
-		(int8_t)114,
-		(int8_t)32,
-		(int8_t)115,
-		(int8_t)101,
-		(int8_t)99,
-		(int8_t)114,
-		(int8_t)101,
-		(int8_t)116
+		109,
+		97,
+		115,
+		116,
+		101,
+		114,
+		32,
+		115,
+		101,
+		99,
+		114,
+		101,
+		116
 	}));
 	$assignStatic(TlsPrfGenerator::LABEL_EXTENDED_MASTER_SECRET, $new($bytes, {
-		(int8_t)101,
-		(int8_t)120,
-		(int8_t)116,
-		(int8_t)101,
-		(int8_t)110,
-		(int8_t)100,
-		(int8_t)101,
-		(int8_t)100,
-		(int8_t)32,
-		(int8_t)109,
-		(int8_t)97,
-		(int8_t)115,
-		(int8_t)116,
-		(int8_t)101,
-		(int8_t)114,
-		(int8_t)32,
-		(int8_t)115,
-		(int8_t)101,
-		(int8_t)99,
-		(int8_t)114,
-		(int8_t)101,
-		(int8_t)116
+		101,
+		120,
+		116,
+		101,
+		110,
+		100,
+		101,
+		100,
+		32,
+		109,
+		97,
+		115,
+		116,
+		101,
+		114,
+		32,
+		115,
+		101,
+		99,
+		114,
+		101,
+		116
 	}));
 	$assignStatic(TlsPrfGenerator::LABEL_KEY_EXPANSION, $new($bytes, {
-		(int8_t)107,
-		(int8_t)101,
-		(int8_t)121,
-		(int8_t)32,
-		(int8_t)101,
-		(int8_t)120,
-		(int8_t)112,
-		(int8_t)97,
-		(int8_t)110,
-		(int8_t)115,
-		(int8_t)105,
-		(int8_t)111,
-		(int8_t)110
+		107,
+		101,
+		121,
+		32,
+		101,
+		120,
+		112,
+		97,
+		110,
+		115,
+		105,
+		111,
+		110
 	}));
 	$assignStatic(TlsPrfGenerator::LABEL_CLIENT_WRITE_KEY, $new($bytes, {
-		(int8_t)99,
-		(int8_t)108,
-		(int8_t)105,
-		(int8_t)101,
-		(int8_t)110,
-		(int8_t)116,
-		(int8_t)32,
-		(int8_t)119,
-		(int8_t)114,
-		(int8_t)105,
-		(int8_t)116,
-		(int8_t)101,
-		(int8_t)32,
-		(int8_t)107,
-		(int8_t)101,
-		(int8_t)121
+		99,
+		108,
+		105,
+		101,
+		110,
+		116,
+		32,
+		119,
+		114,
+		105,
+		116,
+		101,
+		32,
+		107,
+		101,
+		121
 	}));
 	$assignStatic(TlsPrfGenerator::LABEL_SERVER_WRITE_KEY, $new($bytes, {
-		(int8_t)115,
-		(int8_t)101,
-		(int8_t)114,
-		(int8_t)118,
-		(int8_t)101,
-		(int8_t)114,
-		(int8_t)32,
-		(int8_t)119,
-		(int8_t)114,
-		(int8_t)105,
-		(int8_t)116,
-		(int8_t)101,
-		(int8_t)32,
-		(int8_t)107,
-		(int8_t)101,
-		(int8_t)121
+		115,
+		101,
+		114,
+		118,
+		101,
+		114,
+		32,
+		119,
+		114,
+		105,
+		116,
+		101,
+		32,
+		107,
+		101,
+		121
 	}));
 	$assignStatic(TlsPrfGenerator::LABEL_IV_BLOCK, $new($bytes, {
-		(int8_t)73,
-		(int8_t)86,
-		(int8_t)32,
-		(int8_t)98,
-		(int8_t)108,
-		(int8_t)111,
-		(int8_t)99,
-		(int8_t)107
+		73,
+		86,
+		32,
+		98,
+		108,
+		111,
+		99,
+		107
 	}));
 	$assignStatic(TlsPrfGenerator::HMAC_ipad64, TlsPrfGenerator::genPad((int8_t)54, 64));
 	$assignStatic(TlsPrfGenerator::HMAC_ipad128, TlsPrfGenerator::genPad((int8_t)54, 128));
@@ -512,7 +425,61 @@ TlsPrfGenerator::TlsPrfGenerator() {
 }
 
 $Class* TlsPrfGenerator::load$($String* name, bool initialize) {
-	$loadClass(TlsPrfGenerator, name, initialize, &_TlsPrfGenerator_ClassInfo_, clinit$TlsPrfGenerator, allocate$TlsPrfGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"B0", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TlsPrfGenerator, B0)},
+		{"LABEL_MASTER_SECRET", "[B", nullptr, $STATIC | $FINAL, $staticField(TlsPrfGenerator, LABEL_MASTER_SECRET)},
+		{"LABEL_EXTENDED_MASTER_SECRET", "[B", nullptr, $STATIC | $FINAL, $staticField(TlsPrfGenerator, LABEL_EXTENDED_MASTER_SECRET)},
+		{"LABEL_KEY_EXPANSION", "[B", nullptr, $STATIC | $FINAL, $staticField(TlsPrfGenerator, LABEL_KEY_EXPANSION)},
+		{"LABEL_CLIENT_WRITE_KEY", "[B", nullptr, $STATIC | $FINAL, $staticField(TlsPrfGenerator, LABEL_CLIENT_WRITE_KEY)},
+		{"LABEL_SERVER_WRITE_KEY", "[B", nullptr, $STATIC | $FINAL, $staticField(TlsPrfGenerator, LABEL_SERVER_WRITE_KEY)},
+		{"LABEL_IV_BLOCK", "[B", nullptr, $STATIC | $FINAL, $staticField(TlsPrfGenerator, LABEL_IV_BLOCK)},
+		{"HMAC_ipad64", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TlsPrfGenerator, HMAC_ipad64)},
+		{"HMAC_ipad128", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TlsPrfGenerator, HMAC_ipad128)},
+		{"HMAC_opad64", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TlsPrfGenerator, HMAC_opad64)},
+		{"HMAC_opad128", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TlsPrfGenerator, HMAC_opad128)},
+		{"SSL3_CONST", "[[B", nullptr, $STATIC | $FINAL, $staticField(TlsPrfGenerator, SSL3_CONST)},
+		{"MSG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TlsPrfGenerator, MSG)},
+		{"spec", "Lsun/security/internal/spec/TlsPrfParameterSpec;", nullptr, $PRIVATE, $field(TlsPrfGenerator, spec)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TlsPrfGenerator, init$, void)},
+		{"concat", "([B[B)[B", nullptr, $STATIC, $staticMethod(TlsPrfGenerator, concat, $bytes*, $bytes*, $bytes*)},
+		{"doTLS10PRF", "([B[B[BI)[B", nullptr, $STATIC, $staticMethod(TlsPrfGenerator, doTLS10PRF, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "java.security.NoSuchAlgorithmException,java.security.DigestException"},
+		{"doTLS10PRF", "([B[B[BILjava/security/MessageDigest;Ljava/security/MessageDigest;)[B", nullptr, $STATIC, $staticMethod(TlsPrfGenerator, doTLS10PRF, $bytes*, $bytes*, $bytes*, $bytes*, int32_t, $MessageDigest*, $MessageDigest*), "java.security.DigestException"},
+		{"doTLS12PRF", "([B[B[BILjava/lang/String;II)[B", nullptr, $STATIC, $staticMethod(TlsPrfGenerator, doTLS12PRF, $bytes*, $bytes*, $bytes*, $bytes*, int32_t, $String*, int32_t, int32_t), "java.security.NoSuchAlgorithmException,java.security.DigestException"},
+		{"doTLS12PRF", "([B[B[BILjava/security/MessageDigest;II)[B", nullptr, $STATIC, $staticMethod(TlsPrfGenerator, doTLS12PRF, $bytes*, $bytes*, $bytes*, $bytes*, int32_t, $MessageDigest*, int32_t, int32_t), "java.security.DigestException"},
+		{"engineGenerateKey0", "(Z)Ljavax/crypto/SecretKey;", nullptr, 0, $virtualMethod(TlsPrfGenerator, engineGenerateKey0, $SecretKey*, bool)},
+		{"engineInit", "(Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(TlsPrfGenerator, engineInit, void, $SecureRandom*)},
+		{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(TlsPrfGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
+		{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(TlsPrfGenerator, engineInit, void, int32_t, $SecureRandom*)},
+		{"expand", "(Ljava/security/MessageDigest;I[BII[B[B[B[B[B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TlsPrfGenerator, expand, void, $MessageDigest*, int32_t, $bytes*, int32_t, int32_t, $bytes*, $bytes*, $bytes*, $bytes*, $bytes*), "java.security.DigestException"},
+		{"genConst", "()[[B", nullptr, $PRIVATE | $STATIC, $staticMethod(TlsPrfGenerator, genConst, $byteArray2*)},
+		{"genPad", "(BI)[B", nullptr, $STATIC, $staticMethod(TlsPrfGenerator, genPad, $bytes*, int8_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.TlsPrfGenerator$V10", "com.sun.crypto.provider.TlsPrfGenerator", "V10", $PUBLIC | $STATIC},
+		{"com.sun.crypto.provider.TlsPrfGenerator$V12", "com.sun.crypto.provider.TlsPrfGenerator", "V12", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.crypto.provider.TlsPrfGenerator",
+		"javax.crypto.KeyGeneratorSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.TlsPrfGenerator$V10,com.sun.crypto.provider.TlsPrfGenerator$V12"
+	};
+	$loadClass(TlsPrfGenerator, name, initialize, &classInfo$$, TlsPrfGenerator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TlsPrfGenerator);
+	});
 	return class$;
 }
 

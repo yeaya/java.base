@@ -1,5 +1,4 @@
 #include <java/util/stream/Nodes$ConcNode$OfDouble.h>
-
 #include <java/util/Spliterator.h>
 #include <java/util/function/Consumer.h>
 #include <java/util/function/IntFunction.h>
@@ -9,7 +8,6 @@
 #include <java/util/stream/Nodes$ConcNode$OfPrimitive.h>
 #include <java/util/stream/Nodes$ConcNode.h>
 #include <java/util/stream/Nodes$InternalNodeSpliterator$OfDouble.h>
-#include <java/util/stream/Nodes$InternalNodeSpliterator$OfPrimitive.h>
 #include <java/util/stream/Nodes$InternalNodeSpliterator.h>
 #include <java/util/stream/StreamShape.h>
 #include <jcpp.h>
@@ -23,69 +21,14 @@ using $Consumer = ::java::util::function::Consumer;
 using $IntFunction = ::java::util::function::IntFunction;
 using $Node = ::java::util::stream::Node;
 using $Node$OfDouble = ::java::util::stream::Node$OfDouble;
-using $Node$OfPrimitive = ::java::util::stream::Node$OfPrimitive;
 using $Nodes$ConcNode$OfPrimitive = ::java::util::stream::Nodes$ConcNode$OfPrimitive;
 using $Nodes$InternalNodeSpliterator = ::java::util::stream::Nodes$InternalNodeSpliterator;
 using $Nodes$InternalNodeSpliterator$OfDouble = ::java::util::stream::Nodes$InternalNodeSpliterator$OfDouble;
-using $Nodes$InternalNodeSpliterator$OfPrimitive = ::java::util::stream::Nodes$InternalNodeSpliterator$OfPrimitive;
 using $StreamShape = ::java::util::stream::StreamShape;
 
 namespace java {
 	namespace util {
 		namespace stream {
-
-$MethodInfo _Nodes$ConcNode$OfDouble_MethodInfo_[] = {
-	{"*asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*asPrimitiveArray", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*copyInto", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC},
-	{"*copyInto", "([Ljava/lang/Object;I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*copyInto", "([Ljava/lang/Double;I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*count", "()J", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getChild", "(I)Ljava/util/stream/Node;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getChildCount", "()I", nullptr, $PUBLIC},
-	{"*getShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/stream/Node$OfDouble;Ljava/util/stream/Node$OfDouble;)V", nullptr, 0, $method(Nodes$ConcNode$OfDouble, init$, void, $Node$OfDouble*, $Node$OfDouble*)},
-	{"*newArray", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"spliterator", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC, $virtualMethod(Nodes$ConcNode$OfDouble, spliterator, $Spliterator*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node;", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$InnerClassInfo _Nodes$ConcNode$OfDouble_InnerClassesInfo_[] = {
-	{"java.util.stream.Nodes$ConcNode", "java.util.stream.Nodes", "ConcNode", $STATIC | $FINAL},
-	{"java.util.stream.Nodes$ConcNode$OfDouble", "java.util.stream.Nodes$ConcNode", "OfDouble", $STATIC | $FINAL},
-	{"java.util.stream.Nodes$ConcNode$OfPrimitive", "java.util.stream.Nodes$ConcNode", "OfPrimitive", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.stream.Node$OfDouble", "java.util.stream.Node", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.Spliterator$OfDouble", "java.util.Spliterator", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Nodes$ConcNode$OfDouble_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.Nodes$ConcNode$OfDouble",
-	"java.util.stream.Nodes$ConcNode$OfPrimitive",
-	"java.util.stream.Node$OfDouble",
-	nullptr,
-	_Nodes$ConcNode$OfDouble_MethodInfo_,
-	"Ljava/util/stream/Nodes$ConcNode$OfPrimitive<Ljava/lang/Double;Ljava/util/function/DoubleConsumer;[DLjava/util/Spliterator$OfDouble;Ljava/util/stream/Node$OfDouble;>;Ljava/util/stream/Node$OfDouble;",
-	nullptr,
-	_Nodes$ConcNode$OfDouble_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Nodes"
-};
-
-$Object* allocate$Nodes$ConcNode$OfDouble($Class* clazz) {
-	return $of($alloc(Nodes$ConcNode$OfDouble));
-}
 
 void Nodes$ConcNode$OfDouble::forEach(Object$* consumer) {
 	this->$Nodes$ConcNode$OfPrimitive::forEach(consumer);
@@ -244,14 +187,62 @@ void Nodes$ConcNode$OfDouble::init$($Node$OfDouble* left, $Node$OfDouble* right)
 }
 
 $Spliterator* Nodes$ConcNode$OfDouble::spliterator() {
-	return static_cast<$Spliterator*>(static_cast<$Nodes$InternalNodeSpliterator*>(static_cast<$Nodes$InternalNodeSpliterator$OfPrimitive*>($new($Nodes$InternalNodeSpliterator$OfDouble, $as($Node$OfDouble, this)))));
+	return $cast($Nodes$InternalNodeSpliterator, $new($Nodes$InternalNodeSpliterator$OfDouble, $as($Node$OfDouble, this)));
 }
 
 Nodes$ConcNode$OfDouble::Nodes$ConcNode$OfDouble() {
 }
 
 $Class* Nodes$ConcNode$OfDouble::load$($String* name, bool initialize) {
-	$loadClass(Nodes$ConcNode$OfDouble, name, initialize, &_Nodes$ConcNode$OfDouble_ClassInfo_, allocate$Nodes$ConcNode$OfDouble);
+	$MethodInfo methodInfos$$[] = {
+		{"*asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*asPrimitiveArray", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*copyInto", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC},
+		{"*copyInto", "([Ljava/lang/Object;I)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*copyInto", "([Ljava/lang/Double;I)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*count", "()J", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getChild", "(I)Ljava/util/stream/Node;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getChildCount", "()I", nullptr, $PUBLIC},
+		{"*getShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/stream/Node$OfDouble;Ljava/util/stream/Node$OfDouble;)V", nullptr, 0, $method(Nodes$ConcNode$OfDouble, init$, void, $Node$OfDouble*, $Node$OfDouble*)},
+		{"*newArray", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"spliterator", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC, $virtualMethod(Nodes$ConcNode$OfDouble, spliterator, $Spliterator*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node;", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Nodes$ConcNode", "java.util.stream.Nodes", "ConcNode", $STATIC | $FINAL},
+		{"java.util.stream.Nodes$ConcNode$OfDouble", "java.util.stream.Nodes$ConcNode", "OfDouble", $STATIC | $FINAL},
+		{"java.util.stream.Nodes$ConcNode$OfPrimitive", "java.util.stream.Nodes$ConcNode", "OfPrimitive", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.stream.Node$OfDouble", "java.util.stream.Node", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.Spliterator$OfDouble", "java.util.Spliterator", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.Nodes$ConcNode$OfDouble",
+		"java.util.stream.Nodes$ConcNode$OfPrimitive",
+		"java.util.stream.Node$OfDouble",
+		nullptr,
+		methodInfos$$,
+		"Ljava/util/stream/Nodes$ConcNode$OfPrimitive<Ljava/lang/Double;Ljava/util/function/DoubleConsumer;[DLjava/util/Spliterator$OfDouble;Ljava/util/stream/Node$OfDouble;>;Ljava/util/stream/Node$OfDouble;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Nodes"
+	};
+	$loadClass(Nodes$ConcNode$OfDouble, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Nodes$ConcNode$OfDouble));
+	});
 	return class$;
 }
 

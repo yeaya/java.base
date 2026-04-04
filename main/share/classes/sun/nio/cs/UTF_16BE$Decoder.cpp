@@ -1,5 +1,4 @@
 #include <sun/nio/cs/UTF_16BE$Decoder.h>
-
 #include <java/nio/charset/Charset.h>
 #include <sun/nio/cs/UTF_16BE.h>
 #include <sun/nio/cs/UnicodeDecoder.h>
@@ -17,36 +16,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$MethodInfo _UTF_16BE$Decoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(UTF_16BE$Decoder, init$, void, $Charset*)},
-	{}
-};
-
-$InnerClassInfo _UTF_16BE$Decoder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.UTF_16BE$Decoder", "sun.nio.cs.UTF_16BE", "Decoder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _UTF_16BE$Decoder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.UTF_16BE$Decoder",
-	"sun.nio.cs.UnicodeDecoder",
-	nullptr,
-	nullptr,
-	_UTF_16BE$Decoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UTF_16BE$Decoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.UTF_16BE"
-};
-
-$Object* allocate$UTF_16BE$Decoder($Class* clazz) {
-	return $of($alloc(UTF_16BE$Decoder));
-}
-
 void UTF_16BE$Decoder::init$($Charset* cs) {
 	$UnicodeDecoder::init$(cs, $UnicodeDecoder::BIG);
 }
@@ -55,7 +24,32 @@ UTF_16BE$Decoder::UTF_16BE$Decoder() {
 }
 
 $Class* UTF_16BE$Decoder::load$($String* name, bool initialize) {
-	$loadClass(UTF_16BE$Decoder, name, initialize, &_UTF_16BE$Decoder_ClassInfo_, allocate$UTF_16BE$Decoder);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(UTF_16BE$Decoder, init$, void, $Charset*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.UTF_16BE$Decoder", "sun.nio.cs.UTF_16BE", "Decoder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.UTF_16BE$Decoder",
+		"sun.nio.cs.UnicodeDecoder",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.UTF_16BE"
+	};
+	$loadClass(UTF_16BE$Decoder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UTF_16BE$Decoder);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/impl/Norm2AllModes$Norm2AllModesSingleton.h>
-
 #include <jdk/internal/icu/impl/Norm2AllModes.h>
 #include <jdk/internal/icu/impl/NormalizerImpl.h>
 #include <jdk/internal/icu/util/VersionInfo.h>
@@ -22,44 +21,8 @@ namespace jdk {
 		namespace icu {
 			namespace impl {
 
-$FieldInfo _Norm2AllModes$Norm2AllModesSingleton_FieldInfo_[] = {
-	{"allModes", "Ljdk/internal/icu/impl/Norm2AllModes;", nullptr, $PRIVATE, $field(Norm2AllModes$Norm2AllModesSingleton, allModes)},
-	{"exception", "Ljava/lang/RuntimeException;", nullptr, $PRIVATE, $field(Norm2AllModes$Norm2AllModesSingleton, exception)},
-	{}
-};
-
-$MethodInfo _Norm2AllModes$Norm2AllModesSingleton_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Norm2AllModes$Norm2AllModesSingleton, init$, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _Norm2AllModes$Norm2AllModesSingleton_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.impl.Norm2AllModes$Norm2AllModesSingleton", "jdk.internal.icu.impl.Norm2AllModes", "Norm2AllModesSingleton", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Norm2AllModes$Norm2AllModesSingleton_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.icu.impl.Norm2AllModes$Norm2AllModesSingleton",
-	"java.lang.Object",
-	nullptr,
-	_Norm2AllModes$Norm2AllModesSingleton_FieldInfo_,
-	_Norm2AllModes$Norm2AllModesSingleton_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Norm2AllModes$Norm2AllModesSingleton_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.impl.Norm2AllModes"
-};
-
-$Object* allocate$Norm2AllModes$Norm2AllModesSingleton($Class* clazz) {
-	return $of($alloc(Norm2AllModes$Norm2AllModesSingleton));
-}
-
 void Norm2AllModes$Norm2AllModesSingleton::init$($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($VersionInfo);
 		$var($String, DATA_FILE_NAME, $str({"/jdk/internal/icu/impl/data/icudt"_s, $VersionInfo::ICU_DATA_VERSION_PATH, "/"_s, name, ".nrm"_s}));
@@ -74,7 +37,37 @@ Norm2AllModes$Norm2AllModesSingleton::Norm2AllModes$Norm2AllModesSingleton() {
 }
 
 $Class* Norm2AllModes$Norm2AllModesSingleton::load$($String* name, bool initialize) {
-	$loadClass(Norm2AllModes$Norm2AllModesSingleton, name, initialize, &_Norm2AllModes$Norm2AllModesSingleton_ClassInfo_, allocate$Norm2AllModes$Norm2AllModesSingleton);
+	$FieldInfo fieldInfos$$[] = {
+		{"allModes", "Ljdk/internal/icu/impl/Norm2AllModes;", nullptr, $PRIVATE, $field(Norm2AllModes$Norm2AllModesSingleton, allModes)},
+		{"exception", "Ljava/lang/RuntimeException;", nullptr, $PRIVATE, $field(Norm2AllModes$Norm2AllModesSingleton, exception)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Norm2AllModes$Norm2AllModesSingleton, init$, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.impl.Norm2AllModes$Norm2AllModesSingleton", "jdk.internal.icu.impl.Norm2AllModes", "Norm2AllModesSingleton", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.icu.impl.Norm2AllModes$Norm2AllModesSingleton",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.impl.Norm2AllModes"
+	};
+	$loadClass(Norm2AllModes$Norm2AllModesSingleton, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Norm2AllModes$Norm2AllModesSingleton);
+	});
 	return class$;
 }
 

@@ -33,6 +33,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::Spliterator* spliterator, ::java::util::stream::PipelineHelper* helper, int32_t arrayLength);
 	void init$(::java::util::stream::Nodes$SizedCollectorTask* parent, ::java::util::Spliterator* spliterator, int64_t offset, int64_t length, int32_t arrayLength);
 	virtual void begin(int64_t size) override;

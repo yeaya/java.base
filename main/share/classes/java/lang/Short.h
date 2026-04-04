@@ -29,11 +29,12 @@ namespace java {
 	namespace lang {
 
 class $export Short : public ::java::lang::Number, public ::java::lang::Comparable, public ::java::lang::constant::Constable {
-	$class(Short, 0, ::java::lang::Number, ::java::lang::Comparable, ::java::lang::constant::Constable)
+	$class(Short, $PREINIT, ::java::lang::Number, ::java::lang::Comparable, ::java::lang::constant::Constable)
 public:
 	Short();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int16_t value);
 	void init$($String* s);
 	virtual int8_t byteValue() override;
@@ -67,7 +68,7 @@ public:
 	int16_t value = 0;
 	static const int32_t SIZE = 16;
 	static const int32_t BYTES = 2; // SIZE / Byte.SIZE
-	static const int64_t serialVersionUID = (int64_t)0x684D37133460DA52;
+	static const int64_t serialVersionUID = (int64_t)0x684d37133460da52;
 };
 
 	} // lang

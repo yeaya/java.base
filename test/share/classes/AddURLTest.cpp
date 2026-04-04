@@ -1,5 +1,4 @@
 #include <AddURLTest.h>
-
 #include <AddURLTest$MyURLClassLoader.h>
 #include <java/net/URL.h>
 #include <jcpp.h>
@@ -12,41 +11,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $URL = ::java::net::URL;
 
-$MethodInfo _AddURLTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AddURLTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AddURLTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _AddURLTest_InnerClassesInfo_[] = {
-	{"AddURLTest$MyURLClassLoader", "AddURLTest", "MyURLClassLoader", $STATIC},
-	{}
-};
-
-$ClassInfo _AddURLTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"AddURLTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_AddURLTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AddURLTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"AddURLTest$MyURLClassLoader"
-};
-
-$Object* allocate$AddURLTest($Class* clazz) {
-	return $of($alloc(AddURLTest));
-}
-
 void AddURLTest::init$() {
 }
 
 void AddURLTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URLArray, urls, $new($URLArray, {$$new($URL, "http://foobar.jar"_s)}));
 	$var($AddURLTest$MyURLClassLoader, ucl, $new($AddURLTest$MyURLClassLoader, urls));
 	ucl->addURL(nullptr);
@@ -60,9 +29,9 @@ void AddURLTest::main($StringArray* args) {
 		$throwNew($RuntimeException, "Failed: There should only be 1 url in the list of search URLs"_s);
 	}
 	$var($URL, url, nullptr);
-	for (int32_t i = 0; i < $nc(urls)->length; ++i) {
+	for (int32_t i = 0; i < urls->length; ++i) {
 		$assign(url, urls->get(i));
-		if (url == nullptr || !$nc(url)->equals($$new($URL, "http://foobar.jar"_s))) {
+		if (url == nullptr || !url->equals($$new($URL, "http://foobar.jar"_s))) {
 			$throwNew($RuntimeException, "Failed: The url should not be null and should be http://foobar.jar"_s);
 		}
 	}
@@ -72,7 +41,32 @@ AddURLTest::AddURLTest() {
 }
 
 $Class* AddURLTest::load$($String* name, bool initialize) {
-	$loadClass(AddURLTest, name, initialize, &_AddURLTest_ClassInfo_, allocate$AddURLTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AddURLTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AddURLTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"AddURLTest$MyURLClassLoader", "AddURLTest", "MyURLClassLoader", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"AddURLTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"AddURLTest$MyURLClassLoader"
+	};
+	$loadClass(AddURLTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AddURLTest);
+	});
 	return class$;
 }
 

@@ -17,10 +17,13 @@ public:
 	void init$($String* message, $Throwable* cause);
 	void init$($Throwable* cause);
 	void init$($String* message, $Throwable* cause, bool enableSuppression, bool writableStackTrace);
-	static const int64_t serialVersionUID = (int64_t)0x451D36568B820E56;
+	static const int64_t serialVersionUID = (int64_t)0x451d36568b820e56;
 	Error(const Error& e);
 	virtual void throw$() override;
-	inline Error* operator ->() {
+	inline Error* operator ->() const {
+		return (Error*)throwing$;
+	}
+	inline operator Error*() const {
 		return (Error*)throwing$;
 	}
 };

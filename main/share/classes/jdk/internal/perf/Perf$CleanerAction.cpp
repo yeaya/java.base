@@ -1,5 +1,4 @@
 #include <jdk/internal/perf/Perf$CleanerAction.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/nio/ByteBuffer.h>
 #include <jdk/internal/perf/Perf.h>
@@ -17,44 +16,6 @@ namespace jdk {
 	namespace internal {
 		namespace perf {
 
-$FieldInfo _Perf$CleanerAction_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Perf$CleanerAction, $assertionsDisabled)},
-	{"bb", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $FINAL, $field(Perf$CleanerAction, bb)},
-	{"perf", "Ljdk/internal/perf/Perf;", nullptr, $PRIVATE | $FINAL, $field(Perf$CleanerAction, perf)},
-	{}
-};
-
-$MethodInfo _Perf$CleanerAction_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/perf/Perf;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(Perf$CleanerAction, init$, void, $Perf*, $ByteBuffer*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Perf$CleanerAction, run, void)},
-	{}
-};
-
-$InnerClassInfo _Perf$CleanerAction_InnerClassesInfo_[] = {
-	{"jdk.internal.perf.Perf$CleanerAction", "jdk.internal.perf.Perf", "CleanerAction", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Perf$CleanerAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.perf.Perf$CleanerAction",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_Perf$CleanerAction_FieldInfo_,
-	_Perf$CleanerAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Perf$CleanerAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.perf.Perf"
-};
-
-$Object* allocate$Perf$CleanerAction($Class* clazz) {
-	return $of($alloc(Perf$CleanerAction));
-}
-
 bool Perf$CleanerAction::$assertionsDisabled = false;
 
 void Perf$CleanerAction::init$($Perf* perf, $ByteBuffer* bb) {
@@ -67,12 +28,12 @@ void Perf$CleanerAction::run() {
 		$nc(this->perf)->detach(this->bb);
 	} catch ($Throwable& th) {
 		if (!Perf$CleanerAction::$assertionsDisabled) {
-			$throwNew($AssertionError, $($of(th->toString())));
+			$throwNew($AssertionError, $$of(th->toString()));
 		}
 	}
 }
 
-void clinit$Perf$CleanerAction($Class* class$) {
+void Perf$CleanerAction::clinit$($Class* clazz) {
 	$load($Perf);
 	Perf$CleanerAction::$assertionsDisabled = !$Perf::class$->desiredAssertionStatus();
 }
@@ -81,7 +42,39 @@ Perf$CleanerAction::Perf$CleanerAction() {
 }
 
 $Class* Perf$CleanerAction::load$($String* name, bool initialize) {
-	$loadClass(Perf$CleanerAction, name, initialize, &_Perf$CleanerAction_ClassInfo_, clinit$Perf$CleanerAction, allocate$Perf$CleanerAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Perf$CleanerAction, $assertionsDisabled)},
+		{"bb", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $FINAL, $field(Perf$CleanerAction, bb)},
+		{"perf", "Ljdk/internal/perf/Perf;", nullptr, $PRIVATE | $FINAL, $field(Perf$CleanerAction, perf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/perf/Perf;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(Perf$CleanerAction, init$, void, $Perf*, $ByteBuffer*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Perf$CleanerAction, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.perf.Perf$CleanerAction", "jdk.internal.perf.Perf", "CleanerAction", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.perf.Perf$CleanerAction",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.perf.Perf"
+	};
+	$loadClass(Perf$CleanerAction, name, initialize, &classInfo$$, Perf$CleanerAction::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Perf$CleanerAction);
+	});
 	return class$;
 }
 

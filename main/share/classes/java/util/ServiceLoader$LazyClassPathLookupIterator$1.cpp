@@ -1,5 +1,4 @@
 #include <java/util/ServiceLoader$LazyClassPathLookupIterator$1.h>
-
 #include <java/util/ServiceLoader$LazyClassPathLookupIterator.h>
 #include <jcpp.h>
 
@@ -14,49 +13,6 @@ using $ServiceLoader$LazyClassPathLookupIterator = ::java::util::ServiceLoader$L
 namespace java {
 	namespace util {
 
-$FieldInfo _ServiceLoader$LazyClassPathLookupIterator$1_FieldInfo_[] = {
-	{"this$1", "Ljava/util/ServiceLoader$LazyClassPathLookupIterator;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceLoader$LazyClassPathLookupIterator$1, this$1)},
-	{}
-};
-
-$MethodInfo _ServiceLoader$LazyClassPathLookupIterator$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ServiceLoader$LazyClassPathLookupIterator;)V", nullptr, 0, $method(ServiceLoader$LazyClassPathLookupIterator$1, init$, void, $ServiceLoader$LazyClassPathLookupIterator*)},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(ServiceLoader$LazyClassPathLookupIterator$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _ServiceLoader$LazyClassPathLookupIterator$1_EnclosingMethodInfo_ = {
-	"java.util.ServiceLoader$LazyClassPathLookupIterator",
-	"hasNext",
-	"()Z"
-};
-
-$InnerClassInfo _ServiceLoader$LazyClassPathLookupIterator$1_InnerClassesInfo_[] = {
-	{"java.util.ServiceLoader$LazyClassPathLookupIterator", "java.util.ServiceLoader", "LazyClassPathLookupIterator", $PRIVATE | $FINAL},
-	{"java.util.ServiceLoader$LazyClassPathLookupIterator$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ServiceLoader$LazyClassPathLookupIterator$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.ServiceLoader$LazyClassPathLookupIterator$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_ServiceLoader$LazyClassPathLookupIterator$1_FieldInfo_,
-	_ServiceLoader$LazyClassPathLookupIterator$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
-	&_ServiceLoader$LazyClassPathLookupIterator$1_EnclosingMethodInfo_,
-	_ServiceLoader$LazyClassPathLookupIterator$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.ServiceLoader"
-};
-
-$Object* allocate$ServiceLoader$LazyClassPathLookupIterator$1($Class* clazz) {
-	return $of($alloc(ServiceLoader$LazyClassPathLookupIterator$1));
-}
-
 void ServiceLoader$LazyClassPathLookupIterator$1::init$($ServiceLoader$LazyClassPathLookupIterator* this$1) {
 	$set(this, this$1, this$1);
 }
@@ -69,7 +25,43 @@ ServiceLoader$LazyClassPathLookupIterator$1::ServiceLoader$LazyClassPathLookupIt
 }
 
 $Class* ServiceLoader$LazyClassPathLookupIterator$1::load$($String* name, bool initialize) {
-	$loadClass(ServiceLoader$LazyClassPathLookupIterator$1, name, initialize, &_ServiceLoader$LazyClassPathLookupIterator$1_ClassInfo_, allocate$ServiceLoader$LazyClassPathLookupIterator$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljava/util/ServiceLoader$LazyClassPathLookupIterator;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceLoader$LazyClassPathLookupIterator$1, this$1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/ServiceLoader$LazyClassPathLookupIterator;)V", nullptr, 0, $method(ServiceLoader$LazyClassPathLookupIterator$1, init$, void, $ServiceLoader$LazyClassPathLookupIterator*)},
+		{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(ServiceLoader$LazyClassPathLookupIterator$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.ServiceLoader$LazyClassPathLookupIterator",
+		"hasNext",
+		"()Z"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ServiceLoader$LazyClassPathLookupIterator", "java.util.ServiceLoader", "LazyClassPathLookupIterator", $PRIVATE | $FINAL},
+		{"java.util.ServiceLoader$LazyClassPathLookupIterator$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.ServiceLoader$LazyClassPathLookupIterator$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.ServiceLoader"
+	};
+	$loadClass(ServiceLoader$LazyClassPathLookupIterator$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServiceLoader$LazyClassPathLookupIterator$1);
+	});
 	return class$;
 }
 

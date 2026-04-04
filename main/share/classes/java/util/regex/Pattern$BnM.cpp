@@ -1,5 +1,4 @@
 #include <java/util/regex/Pattern$BnM.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/Math.h>
 #include <java/util/regex/Matcher.h>
@@ -28,54 +27,13 @@ namespace java {
 	namespace util {
 		namespace regex {
 
-$FieldInfo _Pattern$BnM_FieldInfo_[] = {
-	{"buffer", "[I", nullptr, 0, $field(Pattern$BnM, buffer)},
-	{"lastOcc", "[I", nullptr, 0, $field(Pattern$BnM, lastOcc)},
-	{"optoSft", "[I", nullptr, 0, $field(Pattern$BnM, optoSft)},
-	{}
-};
-
-$MethodInfo _Pattern$BnM_MethodInfo_[] = {
-	{"<init>", "([I[I[ILjava/util/regex/Pattern$Node;)V", nullptr, 0, $method(Pattern$BnM, init$, void, $ints*, $ints*, $ints*, $Pattern$Node*)},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$BnM, match, bool, $Matcher*, int32_t, $CharSequence*)},
-	{"optimize", "(Ljava/util/regex/Pattern$Node;)Ljava/util/regex/Pattern$Node;", nullptr, $STATIC, $staticMethod(Pattern$BnM, optimize, $Pattern$Node*, $Pattern$Node*)},
-	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$BnM, study, bool, $Pattern$TreeInfo*)},
-	{}
-};
-
-$InnerClassInfo _Pattern$BnM_InnerClassesInfo_[] = {
-	{"java.util.regex.Pattern$BnM", "java.util.regex.Pattern", "BnM", $STATIC},
-	{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
-	{}
-};
-
-$ClassInfo _Pattern$BnM_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.regex.Pattern$BnM",
-	"java.util.regex.Pattern$Node",
-	nullptr,
-	_Pattern$BnM_FieldInfo_,
-	_Pattern$BnM_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pattern$BnM_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.regex.Pattern"
-};
-
-$Object* allocate$Pattern$BnM($Class* clazz) {
-	return $of($alloc(Pattern$BnM));
-}
-
 $Pattern$Node* Pattern$BnM::optimize($Pattern$Node* node) {
 	$init(Pattern$BnM);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($Pattern$Slice, node))) {
 		return node;
 	}
-	$var($ints, src, $nc(($cast($Pattern$Slice, node)))->buffer);
+	$var($ints, src, $nc($cast($Pattern$Slice, node))->buffer);
 	int32_t patternLength = $nc(src)->length;
 	if (patternLength < 4) {
 		return node;
@@ -85,7 +43,7 @@ $Pattern$Node* Pattern$BnM::optimize($Pattern$Node* node) {
 	$var($ints, lastOcc, $new($ints, 128));
 	$var($ints, optoSft, $new($ints, patternLength));
 	for (i = 0; i < patternLength; ++i) {
-		lastOcc->set((int32_t)(src->get(i) & (uint32_t)127), i + 1);
+		lastOcc->set(src->get(i) & 0x7f, i + 1);
 	}
 	bool NEXT$continue = false;
 	for (i = patternLength; i > 0; --i) {
@@ -107,9 +65,9 @@ $Pattern$Node* Pattern$BnM::optimize($Pattern$Node* node) {
 	}
 	optoSft->set(patternLength - 1, 1);
 	if ($instanceOf($Pattern$SliceS, node)) {
-		return $new($Pattern$BnMS, src, lastOcc, optoSft, $nc(node)->next);
+		return $new($Pattern$BnMS, src, lastOcc, optoSft, node->next);
 	}
-	return $new(Pattern$BnM, src, lastOcc, optoSft, $nc(node)->next);
+	return $new(Pattern$BnM, src, lastOcc, optoSft, node->next);
 }
 
 void Pattern$BnM::init$($ints* src, $ints* lastOcc, $ints* optoSft, $Pattern$Node* next) {
@@ -129,7 +87,7 @@ bool Pattern$BnM::match($Matcher* matcher, int32_t i, $CharSequence* seq) {
 		for (int32_t j = patternLength - 1; j >= 0; --j) {
 			int32_t ch = $nc(seq)->charAt(i + j);
 			if (ch != src->get(j)) {
-				i += $Math::max(j + 1 - $nc(this->lastOcc)->get((int32_t)(ch & (uint32_t)127)), $nc(this->optoSft)->get(j));
+				i += $Math::max(j + 1 - $nc(this->lastOcc)->get(ch & 0x7f), $nc(this->optoSft)->get(j));
 				NEXT$continue = true;
 				break;
 			}
@@ -143,7 +101,7 @@ bool Pattern$BnM::match($Matcher* matcher, int32_t i, $CharSequence* seq) {
 		if (ret) {
 			matcher->first = i;
 			$nc(matcher->groups)->set(0, matcher->first);
-			$nc(matcher->groups)->set(1, matcher->last);
+			matcher->groups->set(1, matcher->last);
 			return true;
 		}
 		++i;
@@ -162,7 +120,42 @@ Pattern$BnM::Pattern$BnM() {
 }
 
 $Class* Pattern$BnM::load$($String* name, bool initialize) {
-	$loadClass(Pattern$BnM, name, initialize, &_Pattern$BnM_ClassInfo_, allocate$Pattern$BnM);
+	$FieldInfo fieldInfos$$[] = {
+		{"buffer", "[I", nullptr, 0, $field(Pattern$BnM, buffer)},
+		{"lastOcc", "[I", nullptr, 0, $field(Pattern$BnM, lastOcc)},
+		{"optoSft", "[I", nullptr, 0, $field(Pattern$BnM, optoSft)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([I[I[ILjava/util/regex/Pattern$Node;)V", nullptr, 0, $method(Pattern$BnM, init$, void, $ints*, $ints*, $ints*, $Pattern$Node*)},
+		{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$BnM, match, bool, $Matcher*, int32_t, $CharSequence*)},
+		{"optimize", "(Ljava/util/regex/Pattern$Node;)Ljava/util/regex/Pattern$Node;", nullptr, $STATIC, $staticMethod(Pattern$BnM, optimize, $Pattern$Node*, $Pattern$Node*)},
+		{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$BnM, study, bool, $Pattern$TreeInfo*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Pattern$BnM", "java.util.regex.Pattern", "BnM", $STATIC},
+		{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.regex.Pattern$BnM",
+		"java.util.regex.Pattern$Node",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.regex.Pattern"
+	};
+	$loadClass(Pattern$BnM, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$BnM);
+	});
 	return class$;
 }
 

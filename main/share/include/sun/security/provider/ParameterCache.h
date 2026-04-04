@@ -38,6 +38,7 @@ class $import ParameterCache : public ::java::lang::Object {
 	$class(ParameterCache, 0, ::java::lang::Object)
 public:
 	ParameterCache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::crypto::spec::DHParameterSpec* getCachedDHParameterSpec(int32_t keyLength);
 	static ::java::security::spec::DSAParameterSpec* getCachedDSAParameterSpec(int32_t primeLen, int32_t subprimeLen);

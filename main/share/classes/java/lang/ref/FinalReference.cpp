@@ -1,5 +1,4 @@
 #include <java/lang/ref/FinalReference.h>
-
 #include <java/lang/InternalError.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
@@ -15,34 +14,12 @@ namespace java {
 	namespace lang {
 		namespace ref {
 
-$MethodInfo _FinalReference_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(TT;Ljava/lang/ref/ReferenceQueue<-TT;>;)V", $PUBLIC, $method(FinalReference, init$, void, Object$*, $ReferenceQueue*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(FinalReference, clear, void)},
-	{"enqueue", "()Z", nullptr, $PUBLIC, $virtualMethod(FinalReference, enqueue, bool)},
-	{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(FinalReference, get, $Object*)},
-	{}
-};
-
-$ClassInfo _FinalReference_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.ref.FinalReference",
-	"java.lang.ref.Reference",
-	nullptr,
-	nullptr,
-	_FinalReference_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/ref/Reference<TT;>;"
-};
-
-$Object* allocate$FinalReference($Class* clazz) {
-	return $of($alloc(FinalReference));
-}
-
 void FinalReference::init$(Object$* referent, $ReferenceQueue* q) {
 	$Reference::init$(referent, q);
 }
 
 $Object* FinalReference::get() {
-	return $of(getFromInactiveFinalReference());
+	return getFromInactiveFinalReference();
 }
 
 void FinalReference::clear() {
@@ -58,7 +35,25 @@ FinalReference::FinalReference() {
 }
 
 $Class* FinalReference::load$($String* name, bool initialize) {
-	$loadClass(FinalReference, name, initialize, &_FinalReference_ClassInfo_, allocate$FinalReference);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(TT;Ljava/lang/ref/ReferenceQueue<-TT;>;)V", $PUBLIC, $method(FinalReference, init$, void, Object$*, $ReferenceQueue*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(FinalReference, clear, void)},
+		{"enqueue", "()Z", nullptr, $PUBLIC, $virtualMethod(FinalReference, enqueue, bool)},
+		{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(FinalReference, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.ref.FinalReference",
+		"java.lang.ref.Reference",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/ref/Reference<TT;>;"
+	};
+	$loadClass(FinalReference, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FinalReference);
+	});
 	return class$;
 }
 

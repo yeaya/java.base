@@ -1,5 +1,4 @@
 #include <sun/security/provider/certpath/OCSPResponse$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <sun/security/provider/certpath/OCSPResponse$ResponseStatus.h>
 #include <sun/security/provider/certpath/OCSPResponse.h>
@@ -22,61 +21,25 @@ namespace sun {
 		namespace provider {
 			namespace certpath {
 
-$FieldInfo _OCSPResponse$1_FieldInfo_[] = {
-	{"$SwitchMap$sun$security$provider$certpath$OCSPResponse$ResponseStatus", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(OCSPResponse$1, $SwitchMap$sun$security$provider$certpath$OCSPResponse$ResponseStatus)},
-	{}
-};
-
-$EnclosingMethodInfo _OCSPResponse$1_EnclosingMethodInfo_ = {
-	"sun.security.provider.certpath.OCSPResponse",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _OCSPResponse$1_InnerClassesInfo_[] = {
-	{"sun.security.provider.certpath.OCSPResponse$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _OCSPResponse$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"sun.security.provider.certpath.OCSPResponse$1",
-	"java.lang.Object",
-	nullptr,
-	_OCSPResponse$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_OCSPResponse$1_EnclosingMethodInfo_,
-	_OCSPResponse$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.certpath.OCSPResponse"
-};
-
-$Object* allocate$OCSPResponse$1($Class* clazz) {
-	return $of($alloc(OCSPResponse$1));
-}
-
 $ints* OCSPResponse$1::$SwitchMap$sun$security$provider$certpath$OCSPResponse$ResponseStatus = nullptr;
 
-void clinit$OCSPResponse$1($Class* class$) {
+void OCSPResponse$1::clinit$($Class* clazz) {
 	$assignStatic(OCSPResponse$1::$SwitchMap$sun$security$provider$certpath$OCSPResponse$ResponseStatus, $new($ints, $($OCSPResponse$ResponseStatus::values())->length));
 	{
 		try {
-			$nc(OCSPResponse$1::$SwitchMap$sun$security$provider$certpath$OCSPResponse$ResponseStatus)->set($OCSPResponse$ResponseStatus::SUCCESSFUL->ordinal(), 1);
+			OCSPResponse$1::$SwitchMap$sun$security$provider$certpath$OCSPResponse$ResponseStatus->set($OCSPResponse$ResponseStatus::SUCCESSFUL->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(OCSPResponse$1::$SwitchMap$sun$security$provider$certpath$OCSPResponse$ResponseStatus)->set($OCSPResponse$ResponseStatus::TRY_LATER->ordinal(), 2);
+			OCSPResponse$1::$SwitchMap$sun$security$provider$certpath$OCSPResponse$ResponseStatus->set($OCSPResponse$ResponseStatus::TRY_LATER->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(OCSPResponse$1::$SwitchMap$sun$security$provider$certpath$OCSPResponse$ResponseStatus)->set($OCSPResponse$ResponseStatus::INTERNAL_ERROR->ordinal(), 3);
+			OCSPResponse$1::$SwitchMap$sun$security$provider$certpath$OCSPResponse$ResponseStatus->set($OCSPResponse$ResponseStatus::INTERNAL_ERROR->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(OCSPResponse$1::$SwitchMap$sun$security$provider$certpath$OCSPResponse$ResponseStatus)->set($OCSPResponse$ResponseStatus::UNAUTHORIZED->ordinal(), 4);
+			OCSPResponse$1::$SwitchMap$sun$security$provider$certpath$OCSPResponse$ResponseStatus->set($OCSPResponse$ResponseStatus::UNAUTHORIZED->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -86,7 +49,37 @@ OCSPResponse$1::OCSPResponse$1() {
 }
 
 $Class* OCSPResponse$1::load$($String* name, bool initialize) {
-	$loadClass(OCSPResponse$1, name, initialize, &_OCSPResponse$1_ClassInfo_, clinit$OCSPResponse$1, allocate$OCSPResponse$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$sun$security$provider$certpath$OCSPResponse$ResponseStatus", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(OCSPResponse$1, $SwitchMap$sun$security$provider$certpath$OCSPResponse$ResponseStatus)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.provider.certpath.OCSPResponse",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.certpath.OCSPResponse$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"sun.security.provider.certpath.OCSPResponse$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.certpath.OCSPResponse"
+	};
+	$loadClass(OCSPResponse$1, name, initialize, &classInfo$$, OCSPResponse$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(OCSPResponse$1);
+	});
 	return class$;
 }
 

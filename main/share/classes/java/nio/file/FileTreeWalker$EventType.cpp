@@ -1,5 +1,4 @@
 #include <java/nio/file/FileTreeWalker$EventType.h>
-
 #include <java/lang/Enum.h>
 #include <java/nio/file/FileTreeWalker.h>
 #include <jcpp.h>
@@ -18,47 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _FileTreeWalker$EventType_FieldInfo_[] = {
-	{"START_DIRECTORY", "Ljava/nio/file/FileTreeWalker$EventType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FileTreeWalker$EventType, START_DIRECTORY)},
-	{"END_DIRECTORY", "Ljava/nio/file/FileTreeWalker$EventType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FileTreeWalker$EventType, END_DIRECTORY)},
-	{"ENTRY", "Ljava/nio/file/FileTreeWalker$EventType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FileTreeWalker$EventType, ENTRY)},
-	{"$VALUES", "[Ljava/nio/file/FileTreeWalker$EventType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(FileTreeWalker$EventType, $VALUES)},
-	{}
-};
-
-$MethodInfo _FileTreeWalker$EventType_MethodInfo_[] = {
-	{"$values", "()[Ljava/nio/file/FileTreeWalker$EventType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileTreeWalker$EventType, $values, $FileTreeWalker$EventTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(FileTreeWalker$EventType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/FileTreeWalker$EventType;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileTreeWalker$EventType, valueOf, FileTreeWalker$EventType*, $String*)},
-	{"values", "()[Ljava/nio/file/FileTreeWalker$EventType;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileTreeWalker$EventType, values, $FileTreeWalker$EventTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _FileTreeWalker$EventType_InnerClassesInfo_[] = {
-	{"java.nio.file.FileTreeWalker$EventType", "java.nio.file.FileTreeWalker", "EventType", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _FileTreeWalker$EventType_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"java.nio.file.FileTreeWalker$EventType",
-	"java.lang.Enum",
-	nullptr,
-	_FileTreeWalker$EventType_FieldInfo_,
-	_FileTreeWalker$EventType_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/nio/file/FileTreeWalker$EventType;>;",
-	nullptr,
-	_FileTreeWalker$EventType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.nio.file.FileTreeWalker"
-};
-
-$Object* allocate$FileTreeWalker$EventType($Class* clazz) {
-	return $of($alloc(FileTreeWalker$EventType));
-}
 
 FileTreeWalker$EventType* FileTreeWalker$EventType::START_DIRECTORY = nullptr;
 FileTreeWalker$EventType* FileTreeWalker$EventType::END_DIRECTORY = nullptr;
@@ -88,7 +46,7 @@ void FileTreeWalker$EventType::init$($String* $enum$name, int32_t $enum$ordinal)
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$FileTreeWalker$EventType($Class* class$) {
+void FileTreeWalker$EventType::clinit$($Class* clazz) {
 	$assignStatic(FileTreeWalker$EventType::START_DIRECTORY, $new(FileTreeWalker$EventType, "START_DIRECTORY"_s, 0));
 	$assignStatic(FileTreeWalker$EventType::END_DIRECTORY, $new(FileTreeWalker$EventType, "END_DIRECTORY"_s, 1));
 	$assignStatic(FileTreeWalker$EventType::ENTRY, $new(FileTreeWalker$EventType, "ENTRY"_s, 2));
@@ -99,7 +57,42 @@ FileTreeWalker$EventType::FileTreeWalker$EventType() {
 }
 
 $Class* FileTreeWalker$EventType::load$($String* name, bool initialize) {
-	$loadClass(FileTreeWalker$EventType, name, initialize, &_FileTreeWalker$EventType_ClassInfo_, clinit$FileTreeWalker$EventType, allocate$FileTreeWalker$EventType);
+	$FieldInfo fieldInfos$$[] = {
+		{"START_DIRECTORY", "Ljava/nio/file/FileTreeWalker$EventType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FileTreeWalker$EventType, START_DIRECTORY)},
+		{"END_DIRECTORY", "Ljava/nio/file/FileTreeWalker$EventType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FileTreeWalker$EventType, END_DIRECTORY)},
+		{"ENTRY", "Ljava/nio/file/FileTreeWalker$EventType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FileTreeWalker$EventType, ENTRY)},
+		{"$VALUES", "[Ljava/nio/file/FileTreeWalker$EventType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(FileTreeWalker$EventType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/nio/file/FileTreeWalker$EventType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileTreeWalker$EventType, $values, $FileTreeWalker$EventTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(FileTreeWalker$EventType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/FileTreeWalker$EventType;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileTreeWalker$EventType, valueOf, FileTreeWalker$EventType*, $String*)},
+		{"values", "()[Ljava/nio/file/FileTreeWalker$EventType;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileTreeWalker$EventType, values, $FileTreeWalker$EventTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.file.FileTreeWalker$EventType", "java.nio.file.FileTreeWalker", "EventType", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"java.nio.file.FileTreeWalker$EventType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/nio/file/FileTreeWalker$EventType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.nio.file.FileTreeWalker"
+	};
+	$loadClass(FileTreeWalker$EventType, name, initialize, &classInfo$$, FileTreeWalker$EventType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FileTreeWalker$EventType));
+	});
 	return class$;
 }
 

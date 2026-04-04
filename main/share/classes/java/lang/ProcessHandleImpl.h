@@ -54,6 +54,7 @@ class ProcessHandleImpl : public ::java::lang::ProcessHandle {
 	$class(ProcessHandleImpl, 0, ::java::lang::ProcessHandle)
 public:
 	ProcessHandleImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t pid, int64_t startTime);
 	virtual ::java::util::stream::Stream* children() override;
 	static ::java::util::stream::Stream* children(int64_t pid);

@@ -30,6 +30,7 @@ class $export ProxySelector : public ::java::lang::Object {
 	$class(ProxySelector, 0, ::java::lang::Object)
 public:
 	ProxySelector();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void connectFailed(::java::net::URI* uri, ::java::net::SocketAddress* sa, ::java::io::IOException* ioe) {}
 	static ::java::net::ProxySelector* getDefault();

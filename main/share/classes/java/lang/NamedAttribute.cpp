@@ -23,6 +23,7 @@
 #include <java/io/DataOutputStream.h>
 #include <jdk/internal/reflect/ConstantPool.h>
 #include <jcpp.h>
+#include <string.h>
 
 namespace java {
 	namespace lang {
@@ -53,6 +54,31 @@ void NamedAttribute::visit(::jdk::internal::reflect::ConstantPool* cp) {
 	//for (; field != nullptr; field++) {
 
 	//}
+}
+
+NamedAttribute* NamedAttribute::cloneArray(NamedAttribute* array) {
+	if (array == nullptr) {
+		return nullptr;
+	}
+	NamedAttribute* it = array;
+	int32_t count = 0;
+	for (; true; it++) {
+		if (it->isEnd()) {
+			break;
+		}
+		count++;
+	}
+	count++; // for end null
+	NamedAttribute* newArray = $allocRawStatic(NamedAttribute, count);
+	memcpy(newArray, array, sizeof(NamedAttribute) * count);
+	it = newArray;
+	for (; true; it++) {
+		if (it->isEnd()) {
+			break;
+		}
+		it->cloneSelf();
+	}
+	return newArray;
 }
 
 	} // lang

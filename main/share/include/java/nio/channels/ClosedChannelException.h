@@ -14,10 +14,13 @@ class $import ClosedChannelException : public ::java::io::IOException {
 public:
 	ClosedChannelException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x0C40412C49960BC1;
+	static const int64_t serialVersionUID = (int64_t)0x0c40412c49960bc1;
 	ClosedChannelException(const ClosedChannelException& e);
 	virtual void throw$() override;
-	inline ClosedChannelException* operator ->() {
+	inline ClosedChannelException* operator ->() const {
+		return (ClosedChannelException*)throwing$;
+	}
+	inline operator ClosedChannelException*() const {
 		return (ClosedChannelException*)throwing$;
 	}
 };

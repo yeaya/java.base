@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/http/HttpURLConnection$1.h>
-
 #include <java/net/Authenticator$RequestorType.h>
 #include <java/net/Authenticator.h>
 #include <java/net/InetAddress.h>
@@ -23,7 +22,6 @@ using $InetAddress = ::java::net::InetAddress;
 using $PasswordAuthentication = ::java::net::PasswordAuthentication;
 using $URL = ::java::net::URL;
 using $HttpURLConnection = ::sun::net::www::protocol::http::HttpURLConnection;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 
 namespace sun {
@@ -31,57 +29,6 @@ namespace sun {
 		namespace www {
 			namespace protocol {
 				namespace http {
-
-$FieldInfo _HttpURLConnection$1_FieldInfo_[] = {
-	{"val$authType", "Ljava/net/Authenticator$RequestorType;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$1, val$authType)},
-	{"val$scheme", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$1, val$scheme)},
-	{"val$prompt", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$1, val$prompt)},
-	{"val$protocol", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$1, val$protocol)},
-	{"val$port", "I", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$1, val$port)},
-	{"val$addr", "Ljava/net/InetAddress;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$1, val$addr)},
-	{"val$authenticator", "Ljava/net/Authenticator;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$1, val$authenticator)},
-	{"val$url", "Ljava/net/URL;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$1, val$url)},
-	{"val$host", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$1, val$host)},
-	{}
-};
-
-$MethodInfo _HttpURLConnection$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/net/URL;Ljava/net/Authenticator;Ljava/net/InetAddress;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/net/Authenticator$RequestorType;)V", nullptr, 0, $method(HttpURLConnection$1, init$, void, $String*, $URL*, $Authenticator*, $InetAddress*, int32_t, $String*, $String*, $String*, $Authenticator$RequestorType*)},
-	{"run", "()Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _HttpURLConnection$1_EnclosingMethodInfo_ = {
-	"sun.net.www.protocol.http.HttpURLConnection",
-	"privilegedRequestPasswordAuthentication",
-	"(Ljava/net/Authenticator;Ljava/lang/String;Ljava/net/InetAddress;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/net/URL;Ljava/net/Authenticator$RequestorType;)Ljava/net/PasswordAuthentication;"
-};
-
-$InnerClassInfo _HttpURLConnection$1_InnerClassesInfo_[] = {
-	{"sun.net.www.protocol.http.HttpURLConnection$1", nullptr, nullptr, 0},
-	{"java.net.Authenticator$RequestorType", "java.net.Authenticator", "RequestorType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _HttpURLConnection$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.www.protocol.http.HttpURLConnection$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_HttpURLConnection$1_FieldInfo_,
-	_HttpURLConnection$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/net/PasswordAuthentication;>;",
-	&_HttpURLConnection$1_EnclosingMethodInfo_,
-	_HttpURLConnection$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.www.protocol.http.HttpURLConnection"
-};
-
-$Object* allocate$HttpURLConnection$1($Class* clazz) {
-	return $of($alloc(HttpURLConnection$1));
-}
 
 void HttpURLConnection$1::init$($String* val$host, $URL* val$url, $Authenticator* val$authenticator, $InetAddress* val$addr, int32_t val$port, $String* val$protocol, $String* val$prompt, $String* val$scheme, $Authenticator$RequestorType* val$authType) {
 	$set(this, val$host, val$host);
@@ -96,24 +43,68 @@ void HttpURLConnection$1::init$($String* val$host, $URL* val$url, $Authenticator
 }
 
 $Object* HttpURLConnection$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($HttpURLConnection);
 	$init($PlatformLogger$Level);
 	if ($nc($HttpURLConnection::logger)->isLoggable($PlatformLogger$Level::FINEST)) {
-		$nc($HttpURLConnection::logger)->finest($$str({"Requesting Authentication: host ="_s, this->val$host, " url = "_s, this->val$url}));
+		$HttpURLConnection::logger->finest($$str({"Requesting Authentication: host ="_s, this->val$host, " url = "_s, this->val$url}));
 	}
 	$var($PasswordAuthentication, pass, $Authenticator::requestPasswordAuthentication(this->val$authenticator, this->val$host, this->val$addr, this->val$port, this->val$protocol, this->val$prompt, this->val$scheme, this->val$url, this->val$authType));
-	if ($nc($HttpURLConnection::logger)->isLoggable($PlatformLogger$Level::FINEST)) {
-		$nc($HttpURLConnection::logger)->finest($$str({"Authentication returned: "_s, (pass != nullptr ? $($nc($of(pass))->toString()) : "null"_s)}));
+	if ($HttpURLConnection::logger->isLoggable($PlatformLogger$Level::FINEST)) {
+		$HttpURLConnection::logger->finest($$str({"Authentication returned: "_s, (pass != nullptr ? $(pass->toString()) : "null"_s)}));
 	}
-	return $of(pass);
+	return pass;
 }
 
 HttpURLConnection$1::HttpURLConnection$1() {
 }
 
 $Class* HttpURLConnection$1::load$($String* name, bool initialize) {
-	$loadClass(HttpURLConnection$1, name, initialize, &_HttpURLConnection$1_ClassInfo_, allocate$HttpURLConnection$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$authType", "Ljava/net/Authenticator$RequestorType;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$1, val$authType)},
+		{"val$scheme", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$1, val$scheme)},
+		{"val$prompt", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$1, val$prompt)},
+		{"val$protocol", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$1, val$protocol)},
+		{"val$port", "I", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$1, val$port)},
+		{"val$addr", "Ljava/net/InetAddress;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$1, val$addr)},
+		{"val$authenticator", "Ljava/net/Authenticator;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$1, val$authenticator)},
+		{"val$url", "Ljava/net/URL;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$1, val$url)},
+		{"val$host", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$1, val$host)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/net/URL;Ljava/net/Authenticator;Ljava/net/InetAddress;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/net/Authenticator$RequestorType;)V", nullptr, 0, $method(HttpURLConnection$1, init$, void, $String*, $URL*, $Authenticator*, $InetAddress*, int32_t, $String*, $String*, $String*, $Authenticator$RequestorType*)},
+		{"run", "()Ljava/net/PasswordAuthentication;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.net.www.protocol.http.HttpURLConnection",
+		"privilegedRequestPasswordAuthentication",
+		"(Ljava/net/Authenticator;Ljava/lang/String;Ljava/net/InetAddress;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/net/URL;Ljava/net/Authenticator$RequestorType;)Ljava/net/PasswordAuthentication;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.www.protocol.http.HttpURLConnection$1", nullptr, nullptr, 0},
+		{"java.net.Authenticator$RequestorType", "java.net.Authenticator", "RequestorType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.www.protocol.http.HttpURLConnection$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/net/PasswordAuthentication;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.www.protocol.http.HttpURLConnection"
+	};
+	$loadClass(HttpURLConnection$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpURLConnection$1);
+	});
 	return class$;
 }
 

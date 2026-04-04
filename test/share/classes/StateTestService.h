@@ -15,6 +15,7 @@ class $export StateTestService : public ::java::lang::Object {
 	$class(StateTestService, 0, ::java::lang::Object)
 public:
 	StateTestService();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void check(bool okay);
 	static void initLogFile();

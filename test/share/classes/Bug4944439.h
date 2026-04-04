@@ -15,6 +15,7 @@ class $export Bug4944439 : public ::java::lang::Object {
 	$class(Bug4944439, 0, ::java::lang::Object)
 public:
 	Bug4944439();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void check_Double($String* s);
 	static void check_Long($String* s);

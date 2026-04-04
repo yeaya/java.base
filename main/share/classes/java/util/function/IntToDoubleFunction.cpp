@@ -1,5 +1,4 @@
 #include <java/util/function/IntToDoubleFunction.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,35 +9,30 @@ namespace java {
 	namespace util {
 		namespace function {
 
-$CompoundAttribute _IntToDoubleFunction_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _IntToDoubleFunction_MethodInfo_[] = {
-	{"applyAsDouble", "(I)D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntToDoubleFunction, applyAsDouble, double, int32_t)},
-	{}
-};
-
-$ClassInfo _IntToDoubleFunction_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.function.IntToDoubleFunction",
-	nullptr,
-	nullptr,
-	nullptr,
-	_IntToDoubleFunction_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_IntToDoubleFunction_Annotations_
-};
-
-$Object* allocate$IntToDoubleFunction($Class* clazz) {
-	return $of($alloc(IntToDoubleFunction));
-}
-
 $Class* IntToDoubleFunction::load$($String* name, bool initialize) {
-	$loadClass(IntToDoubleFunction, name, initialize, &_IntToDoubleFunction_ClassInfo_, allocate$IntToDoubleFunction);
+	$MethodInfo methodInfos$$[] = {
+		{"applyAsDouble", "(I)D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntToDoubleFunction, applyAsDouble, double, int32_t)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.function.IntToDoubleFunction",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(IntToDoubleFunction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntToDoubleFunction);
+	});
 	return class$;
 }
 

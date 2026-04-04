@@ -90,6 +90,7 @@ public:
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
 	virtual bool isOpen() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::channels::spi::SelectorProvider* sp);
 	void init$(::java::nio::channels::spi::SelectorProvider* sp, ::java::net::ProtocolFamily* family);
 	void init$(::java::nio::channels::spi::SelectorProvider* sp, ::java::net::ProtocolFamily* family, ::java::io::FileDescriptor* fd, ::java::net::SocketAddress* remoteAddress);

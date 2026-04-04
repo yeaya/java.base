@@ -1,5 +1,4 @@
 #include <TestClassLoader.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Package.h>
 #include <java/net/URL.h>
@@ -11,27 +10,6 @@ using $ClassLoader = ::java::lang::ClassLoader;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Package = ::java::lang::Package;
 using $URL = ::java::net::URL;
-
-$MethodInfo _TestClassLoader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestClassLoader, init$, void)},
-	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(TestClassLoader, init$, void, $ClassLoader*)},
-	{"defineEmptyPackage", "(Ljava/lang/String;)Ljava/lang/Package;", nullptr, $PUBLIC, $virtualMethod(TestClassLoader, defineEmptyPackage, $Package*, $String*)},
-	{"testPackageView", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(TestClassLoader, testPackageView, bool, $String*)},
-	{}
-};
-
-$ClassInfo _TestClassLoader_ClassInfo_ = {
-	$ACC_SUPER,
-	"TestClassLoader",
-	"java.lang.ClassLoader",
-	nullptr,
-	nullptr,
-	_TestClassLoader_MethodInfo_
-};
-
-$Object* allocate$TestClassLoader($Class* clazz) {
-	return $of($alloc(TestClassLoader));
-}
 
 void TestClassLoader::init$() {
 	$ClassLoader::init$();
@@ -46,11 +24,11 @@ $Package* TestClassLoader::defineEmptyPackage($String* name) {
 }
 
 bool TestClassLoader::testPackageView($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PackageArray, pkgs, getPackages());
 	$var($Package, pkg, getPackage(name));
 	for (int32_t i = 0; i < $nc(pkgs)->length; ++i) {
-		if ($nc($($nc(pkgs->get(i))->getName()))->equals(name) && pkgs->get(i) == pkg) {
+		if ($$nc($nc(pkgs->get(i))->getName())->equals(name) && pkgs->get(i) == pkg) {
 			return true;
 		}
 	}
@@ -61,7 +39,24 @@ TestClassLoader::TestClassLoader() {
 }
 
 $Class* TestClassLoader::load$($String* name, bool initialize) {
-	$loadClass(TestClassLoader, name, initialize, &_TestClassLoader_ClassInfo_, allocate$TestClassLoader);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestClassLoader, init$, void)},
+		{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(TestClassLoader, init$, void, $ClassLoader*)},
+		{"defineEmptyPackage", "(Ljava/lang/String;)Ljava/lang/Package;", nullptr, $PUBLIC, $virtualMethod(TestClassLoader, defineEmptyPackage, $Package*, $String*)},
+		{"testPackageView", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(TestClassLoader, testPackageView, bool, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TestClassLoader",
+		"java.lang.ClassLoader",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestClassLoader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestClassLoader);
+	});
 	return class$;
 }
 

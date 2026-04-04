@@ -1,5 +1,4 @@
 #include <sun/util/locale/LocaleExtensions.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
@@ -52,48 +51,6 @@ namespace sun {
 	namespace util {
 		namespace locale {
 
-$FieldInfo _LocaleExtensions_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LocaleExtensions, $assertionsDisabled)},
-	{"extensionMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Character;Lsun/util/locale/Extension;>;", $PRIVATE | $FINAL, $field(LocaleExtensions, extensionMap)},
-	{"id", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(LocaleExtensions, id)},
-	{"CALENDAR_JAPANESE", "Lsun/util/locale/LocaleExtensions;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LocaleExtensions, CALENDAR_JAPANESE)},
-	{"NUMBER_THAI", "Lsun/util/locale/LocaleExtensions;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LocaleExtensions, NUMBER_THAI)},
-	{}
-};
-
-$MethodInfo _LocaleExtensions_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Character;Lsun/util/locale/Extension;)V", nullptr, $PRIVATE, $method(LocaleExtensions, init$, void, $String*, $Character*, $Extension*)},
-	{"<init>", "(Ljava/util/Map;Ljava/util/Set;Ljava/util/Map;)V", "(Ljava/util/Map<Lsun/util/locale/InternalLocaleBuilder$CaseInsensitiveChar;Ljava/lang/String;>;Ljava/util/Set<Lsun/util/locale/InternalLocaleBuilder$CaseInsensitiveString;>;Ljava/util/Map<Lsun/util/locale/InternalLocaleBuilder$CaseInsensitiveString;Ljava/lang/String;>;)V", 0, $method(LocaleExtensions, init$, void, $Map*, $Set*, $Map*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LocaleExtensions, equals, bool, Object$*)},
-	{"getExtension", "(Ljava/lang/Character;)Lsun/util/locale/Extension;", nullptr, $PUBLIC, $virtualMethod(LocaleExtensions, getExtension, $Extension*, $Character*)},
-	{"getExtensionValue", "(Ljava/lang/Character;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocaleExtensions, getExtensionValue, $String*, $Character*)},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocaleExtensions, getID, $String*)},
-	{"getKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Character;>;", $PUBLIC, $virtualMethod(LocaleExtensions, getKeys, $Set*)},
-	{"getUnicodeLocaleAttributes", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(LocaleExtensions, getUnicodeLocaleAttributes, $Set*)},
-	{"getUnicodeLocaleKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(LocaleExtensions, getUnicodeLocaleKeys, $Set*)},
-	{"getUnicodeLocaleType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocaleExtensions, getUnicodeLocaleType, $String*, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LocaleExtensions, hashCode, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(LocaleExtensions, isEmpty, bool)},
-	{"isValidKey", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LocaleExtensions, isValidKey, bool, char16_t)},
-	{"isValidUnicodeLocaleKey", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LocaleExtensions, isValidUnicodeLocaleKey, bool, $String*)},
-	{"toID", "(Ljava/util/SortedMap;)Ljava/lang/String;", "(Ljava/util/SortedMap<Ljava/lang/Character;Lsun/util/locale/Extension;>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(LocaleExtensions, toID, $String*, $SortedMap*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocaleExtensions, toString, $String*)},
-	{}
-};
-
-$ClassInfo _LocaleExtensions_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.locale.LocaleExtensions",
-	"java.lang.Object",
-	nullptr,
-	_LocaleExtensions_FieldInfo_,
-	_LocaleExtensions_MethodInfo_
-};
-
-$Object* allocate$LocaleExtensions($Class* clazz) {
-	return $of($alloc(LocaleExtensions));
-}
-
 bool LocaleExtensions::$assertionsDisabled = false;
 LocaleExtensions* LocaleExtensions::CALENDAR_JAPANESE = nullptr;
 LocaleExtensions* LocaleExtensions::NUMBER_THAI = nullptr;
@@ -104,7 +61,7 @@ void LocaleExtensions::init$($String* id, $Character* key, $Extension* value) {
 }
 
 void LocaleExtensions::init$($Map* extensions, $Set* uattributes, $Map* ukeywords) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool hasExtension = !$LocaleUtils::isEmpty(extensions);
 	bool hasUAttributes = !$LocaleUtils::isEmpty(uattributes);
 	bool hasUKeywords = !$LocaleUtils::isEmpty(ukeywords);
@@ -115,22 +72,20 @@ void LocaleExtensions::init$($Map* extensions, $Set* uattributes, $Map* ukeyword
 	}
 	$var($SortedMap, map, $new($TreeMap));
 	if (hasExtension) {
-		{
-			$var($Iterator, i$, $nc($($nc(extensions)->entrySet()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Map$Entry, ext, $cast($Map$Entry, i$->next()));
-				{
-					char16_t key = $LocaleUtils::toLower($nc(($cast($InternalLocaleBuilder$CaseInsensitiveChar, $($nc(ext)->getKey()))))->value());
-					$var($String, value, $cast($String, $nc(ext)->getValue()));
-					if ($LanguageTag::isPrivateusePrefixChar(key)) {
-						$assign(value, $InternalLocaleBuilder::removePrivateuseVariant(value));
-						if (value == nullptr) {
-							continue;
-						}
+		$var($Iterator, i$, $$nc($nc(extensions)->entrySet())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Map$Entry, ext, $cast($Map$Entry, i$->next()));
+			{
+				char16_t key = $LocaleUtils::toLower($$sure($InternalLocaleBuilder$CaseInsensitiveChar, $nc(ext)->getKey())->value());
+				$var($String, value, $cast($String, ext->getValue()));
+				if ($LanguageTag::isPrivateusePrefixChar(key)) {
+					$assign(value, $InternalLocaleBuilder::removePrivateuseVariant(value));
+					if (value == nullptr) {
+						continue;
 					}
-					$var($Object, var$0, $of($Character::valueOf(key)));
-					map->put(var$0, $$new($Extension, key, $($LocaleUtils::toLowerString(value))));
 				}
+				$var($Object, var$0, $Character::valueOf(key));
+				map->put(var$0, $$new($Extension, key, $($LocaleUtils::toLowerString(value))));
 			}
 		}
 	}
@@ -152,12 +107,12 @@ void LocaleExtensions::init$($Map* extensions, $Set* uattributes, $Map* ukeyword
 		if (hasUKeywords) {
 			$assign(ukmap, $new($TreeMap));
 			{
-				$var($Iterator, i$, $nc($($nc(ukeywords)->entrySet()))->iterator());
+				$var($Iterator, i$, $$nc($nc(ukeywords)->entrySet())->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($Map$Entry, kwd, $cast($Map$Entry, i$->next()));
 					{
-						$var($String, key, $LocaleUtils::toLowerString($($nc(($cast($InternalLocaleBuilder$CaseInsensitiveString, $($nc(kwd)->getKey()))))->value())));
-						$var($String, type, $LocaleUtils::toLowerString($cast($String, $($nc(kwd)->getValue()))));
+						$var($String, key, $LocaleUtils::toLowerString($($$sure($InternalLocaleBuilder$CaseInsensitiveString, $nc(kwd)->getKey())->value())));
+						$var($String, type, $LocaleUtils::toLowerString($$cast($String, kwd->getValue())));
 						ukmap->put(key, type);
 					}
 				}
@@ -179,7 +134,7 @@ $Set* LocaleExtensions::getKeys() {
 	if ($nc(this->extensionMap)->isEmpty()) {
 		return $Collections::emptySet();
 	}
-	return $Collections::unmodifiableSet($($nc(this->extensionMap)->keySet()));
+	return $Collections::unmodifiableSet($(this->extensionMap->keySet()));
 }
 
 $Extension* LocaleExtensions::getExtension($Character* key) {
@@ -187,7 +142,7 @@ $Extension* LocaleExtensions::getExtension($Character* key) {
 }
 
 $String* LocaleExtensions::getExtensionValue($Character* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Extension, ext, $cast($Extension, $nc(this->extensionMap)->get($($Character::valueOf($LocaleUtils::toLower($nc(key)->charValue()))))));
 	if (ext == nullptr) {
 		return nullptr;
@@ -196,7 +151,7 @@ $String* LocaleExtensions::getExtensionValue($Character* key) {
 }
 
 $Set* LocaleExtensions::getUnicodeLocaleAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Extension, ext, $cast($Extension, $nc(this->extensionMap)->get($($Character::valueOf($UnicodeLocaleExtension::SINGLETON)))));
 	if (ext == nullptr) {
 		return $Collections::emptySet();
@@ -204,11 +159,11 @@ $Set* LocaleExtensions::getUnicodeLocaleAttributes() {
 	if (!LocaleExtensions::$assertionsDisabled && !($instanceOf($UnicodeLocaleExtension, ext))) {
 		$throwNew($AssertionError);
 	}
-	return $nc(($cast($UnicodeLocaleExtension, ext)))->getUnicodeLocaleAttributes();
+	return $nc($cast($UnicodeLocaleExtension, ext))->getUnicodeLocaleAttributes();
 }
 
 $Set* LocaleExtensions::getUnicodeLocaleKeys() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Extension, ext, $cast($Extension, $nc(this->extensionMap)->get($($Character::valueOf($UnicodeLocaleExtension::SINGLETON)))));
 	if (ext == nullptr) {
 		return $Collections::emptySet();
@@ -216,11 +171,11 @@ $Set* LocaleExtensions::getUnicodeLocaleKeys() {
 	if (!LocaleExtensions::$assertionsDisabled && !($instanceOf($UnicodeLocaleExtension, ext))) {
 		$throwNew($AssertionError);
 	}
-	return $nc(($cast($UnicodeLocaleExtension, ext)))->getUnicodeLocaleKeys();
+	return $nc($cast($UnicodeLocaleExtension, ext))->getUnicodeLocaleKeys();
 }
 
 $String* LocaleExtensions::getUnicodeLocaleType($String* unicodeLocaleKey) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Extension, ext, $cast($Extension, $nc(this->extensionMap)->get($($Character::valueOf($UnicodeLocaleExtension::SINGLETON)))));
 	if (ext == nullptr) {
 		return nullptr;
@@ -228,7 +183,7 @@ $String* LocaleExtensions::getUnicodeLocaleType($String* unicodeLocaleKey) {
 	if (!LocaleExtensions::$assertionsDisabled && !($instanceOf($UnicodeLocaleExtension, ext))) {
 		$throwNew($AssertionError);
 	}
-	return $nc(($cast($UnicodeLocaleExtension, ext)))->getUnicodeLocaleType($($LocaleUtils::toLowerString(unicodeLocaleKey)));
+	return $nc($cast($UnicodeLocaleExtension, ext))->getUnicodeLocaleType($($LocaleUtils::toLowerString(unicodeLocaleKey)));
 }
 
 bool LocaleExtensions::isEmpty() {
@@ -248,24 +203,23 @@ bool LocaleExtensions::isValidUnicodeLocaleKey($String* ukey) {
 
 $String* LocaleExtensions::toID($SortedMap* map) {
 	$init(LocaleExtensions);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	$var($Extension, privuse, nullptr);
 	{
-		$var($Iterator, i$, $nc($($nc(map)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(map)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
-				char16_t singleton = $nc(($cast($Character, $($nc(entry)->getKey()))))->charValue();
+				char16_t singleton = $$sure($Character, $nc(entry)->getKey())->charValue();
 				$var($Extension, extension, $cast($Extension, entry->getValue()));
 				if ($LanguageTag::isPrivateusePrefixChar(singleton)) {
 					$assign(privuse, extension);
 				} else {
 					if (buf->length() > 0) {
-						$init($LanguageTag);
 						buf->append($LanguageTag::SEP);
 					}
-					buf->append($of(extension));
+					buf->append(extension);
 				}
 			}
 		}
@@ -275,7 +229,7 @@ $String* LocaleExtensions::toID($SortedMap* map) {
 			$init($LanguageTag);
 			buf->append($LanguageTag::SEP);
 		}
-		buf->append($of(privuse));
+		buf->append(privuse);
 	}
 	return buf->toString();
 }
@@ -299,22 +253,59 @@ bool LocaleExtensions::equals(Object$* other) {
 	if (!($instanceOf(LocaleExtensions, other))) {
 		return false;
 	}
-	return $nc(this->id)->equals($nc(($cast(LocaleExtensions, other)))->id);
+	return $nc(this->id)->equals($nc($cast(LocaleExtensions, other))->id);
 }
 
-void clinit$LocaleExtensions($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void LocaleExtensions::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	LocaleExtensions::$assertionsDisabled = !LocaleExtensions::class$->desiredAssertionStatus();
 	$init($UnicodeLocaleExtension);
-	$assignStatic(LocaleExtensions::CALENDAR_JAPANESE, $new(LocaleExtensions, "u-ca-japanese"_s, $($Character::valueOf($UnicodeLocaleExtension::SINGLETON)), static_cast<$Extension*>($UnicodeLocaleExtension::CA_JAPANESE)));
-	$assignStatic(LocaleExtensions::NUMBER_THAI, $new(LocaleExtensions, "u-nu-thai"_s, $($Character::valueOf($UnicodeLocaleExtension::SINGLETON)), static_cast<$Extension*>($UnicodeLocaleExtension::NU_THAI)));
+	$assignStatic(LocaleExtensions::CALENDAR_JAPANESE, $new(LocaleExtensions, "u-ca-japanese"_s, $($Character::valueOf($UnicodeLocaleExtension::SINGLETON)), $UnicodeLocaleExtension::CA_JAPANESE));
+	$assignStatic(LocaleExtensions::NUMBER_THAI, $new(LocaleExtensions, "u-nu-thai"_s, $($Character::valueOf($UnicodeLocaleExtension::SINGLETON)), $UnicodeLocaleExtension::NU_THAI));
 }
 
 LocaleExtensions::LocaleExtensions() {
 }
 
 $Class* LocaleExtensions::load$($String* name, bool initialize) {
-	$loadClass(LocaleExtensions, name, initialize, &_LocaleExtensions_ClassInfo_, clinit$LocaleExtensions, allocate$LocaleExtensions);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LocaleExtensions, $assertionsDisabled)},
+		{"extensionMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Character;Lsun/util/locale/Extension;>;", $PRIVATE | $FINAL, $field(LocaleExtensions, extensionMap)},
+		{"id", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(LocaleExtensions, id)},
+		{"CALENDAR_JAPANESE", "Lsun/util/locale/LocaleExtensions;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LocaleExtensions, CALENDAR_JAPANESE)},
+		{"NUMBER_THAI", "Lsun/util/locale/LocaleExtensions;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LocaleExtensions, NUMBER_THAI)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Character;Lsun/util/locale/Extension;)V", nullptr, $PRIVATE, $method(LocaleExtensions, init$, void, $String*, $Character*, $Extension*)},
+		{"<init>", "(Ljava/util/Map;Ljava/util/Set;Ljava/util/Map;)V", "(Ljava/util/Map<Lsun/util/locale/InternalLocaleBuilder$CaseInsensitiveChar;Ljava/lang/String;>;Ljava/util/Set<Lsun/util/locale/InternalLocaleBuilder$CaseInsensitiveString;>;Ljava/util/Map<Lsun/util/locale/InternalLocaleBuilder$CaseInsensitiveString;Ljava/lang/String;>;)V", 0, $method(LocaleExtensions, init$, void, $Map*, $Set*, $Map*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LocaleExtensions, equals, bool, Object$*)},
+		{"getExtension", "(Ljava/lang/Character;)Lsun/util/locale/Extension;", nullptr, $PUBLIC, $virtualMethod(LocaleExtensions, getExtension, $Extension*, $Character*)},
+		{"getExtensionValue", "(Ljava/lang/Character;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocaleExtensions, getExtensionValue, $String*, $Character*)},
+		{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocaleExtensions, getID, $String*)},
+		{"getKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Character;>;", $PUBLIC, $virtualMethod(LocaleExtensions, getKeys, $Set*)},
+		{"getUnicodeLocaleAttributes", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(LocaleExtensions, getUnicodeLocaleAttributes, $Set*)},
+		{"getUnicodeLocaleKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(LocaleExtensions, getUnicodeLocaleKeys, $Set*)},
+		{"getUnicodeLocaleType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocaleExtensions, getUnicodeLocaleType, $String*, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LocaleExtensions, hashCode, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(LocaleExtensions, isEmpty, bool)},
+		{"isValidKey", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LocaleExtensions, isValidKey, bool, char16_t)},
+		{"isValidUnicodeLocaleKey", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LocaleExtensions, isValidUnicodeLocaleKey, bool, $String*)},
+		{"toID", "(Ljava/util/SortedMap;)Ljava/lang/String;", "(Ljava/util/SortedMap<Ljava/lang/Character;Lsun/util/locale/Extension;>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(LocaleExtensions, toID, $String*, $SortedMap*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocaleExtensions, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.locale.LocaleExtensions",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LocaleExtensions, name, initialize, &classInfo$$, LocaleExtensions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleExtensions);
+	});
 	return class$;
 }
 

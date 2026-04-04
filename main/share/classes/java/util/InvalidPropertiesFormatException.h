@@ -28,10 +28,13 @@ public:
 	void init$($String* message);
 	void readObject(::java::io::ObjectInputStream* in);
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t serialVersionUID = (int64_t)0x6BBBEA5EE5F9CB5B;
+	static const int64_t serialVersionUID = (int64_t)0x6bbbea5ee5f9cb5b;
 	InvalidPropertiesFormatException(const InvalidPropertiesFormatException& e);
 	virtual void throw$() override;
-	inline InvalidPropertiesFormatException* operator ->() {
+	inline InvalidPropertiesFormatException* operator ->() const {
+		return (InvalidPropertiesFormatException*)throwing$;
+	}
+	inline operator InvalidPropertiesFormatException*() const {
 		return (InvalidPropertiesFormatException*)throwing$;
 	}
 };

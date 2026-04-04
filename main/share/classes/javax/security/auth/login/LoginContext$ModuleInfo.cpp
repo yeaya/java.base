@@ -1,5 +1,4 @@
 #include <javax/security/auth/login/LoginContext$ModuleInfo.h>
-
 #include <javax/security/auth/login/AppConfigurationEntry.h>
 #include <javax/security/auth/login/LoginContext.h>
 #include <javax/security/auth/spi/LoginModule.h>
@@ -17,42 +16,6 @@ namespace javax {
 		namespace auth {
 			namespace login {
 
-$FieldInfo _LoginContext$ModuleInfo_FieldInfo_[] = {
-	{"entry", "Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, 0, $field(LoginContext$ModuleInfo, entry)},
-	{"module", "Ljavax/security/auth/spi/LoginModule;", nullptr, 0, $field(LoginContext$ModuleInfo, module)},
-	{}
-};
-
-$MethodInfo _LoginContext$ModuleInfo_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/login/AppConfigurationEntry;Ljavax/security/auth/spi/LoginModule;)V", nullptr, 0, $method(LoginContext$ModuleInfo, init$, void, $AppConfigurationEntry*, $LoginModule*)},
-	{}
-};
-
-$InnerClassInfo _LoginContext$ModuleInfo_InnerClassesInfo_[] = {
-	{"javax.security.auth.login.LoginContext$ModuleInfo", "javax.security.auth.login.LoginContext", "ModuleInfo", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _LoginContext$ModuleInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.security.auth.login.LoginContext$ModuleInfo",
-	"java.lang.Object",
-	nullptr,
-	_LoginContext$ModuleInfo_FieldInfo_,
-	_LoginContext$ModuleInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LoginContext$ModuleInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.security.auth.login.LoginContext"
-};
-
-$Object* allocate$LoginContext$ModuleInfo($Class* clazz) {
-	return $of($alloc(LoginContext$ModuleInfo));
-}
-
 void LoginContext$ModuleInfo::init$($AppConfigurationEntry* newEntry, $LoginModule* newModule) {
 	$set(this, entry, newEntry);
 	$set(this, module, newModule);
@@ -62,7 +25,37 @@ LoginContext$ModuleInfo::LoginContext$ModuleInfo() {
 }
 
 $Class* LoginContext$ModuleInfo::load$($String* name, bool initialize) {
-	$loadClass(LoginContext$ModuleInfo, name, initialize, &_LoginContext$ModuleInfo_ClassInfo_, allocate$LoginContext$ModuleInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"entry", "Ljavax/security/auth/login/AppConfigurationEntry;", nullptr, 0, $field(LoginContext$ModuleInfo, entry)},
+		{"module", "Ljavax/security/auth/spi/LoginModule;", nullptr, 0, $field(LoginContext$ModuleInfo, module)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/security/auth/login/AppConfigurationEntry;Ljavax/security/auth/spi/LoginModule;)V", nullptr, 0, $method(LoginContext$ModuleInfo, init$, void, $AppConfigurationEntry*, $LoginModule*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.security.auth.login.LoginContext$ModuleInfo", "javax.security.auth.login.LoginContext", "ModuleInfo", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.security.auth.login.LoginContext$ModuleInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.security.auth.login.LoginContext"
+	};
+	$loadClass(LoginContext$ModuleInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LoginContext$ModuleInfo);
+	});
 	return class$;
 }
 

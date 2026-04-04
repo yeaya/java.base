@@ -59,6 +59,7 @@ public:
 	JarURLConnection();
 	using ::java::net::JarURLConnection::getHeaderField;
 	using ::java::net::JarURLConnection::getContent;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::URL* url, ::sun::net::www::protocol::jar::Handler* handler);
 	virtual void addRequestProperty($String* key, $String* value) override;
 	virtual void connect() override;

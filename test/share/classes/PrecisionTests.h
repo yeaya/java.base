@@ -18,6 +18,7 @@ class $export PrecisionTests : public ::java::lang::Object {
 	$class(PrecisionTests, 0, ::java::lang::Object)
 public:
 	PrecisionTests();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* argv);
 	static int32_t testPrecision(::java::math::BigDecimal* bd, int32_t expected);

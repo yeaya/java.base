@@ -1,5 +1,4 @@
 #include <sun/security/ssl/DTLSInputRecord.h>
-
 #include <java/lang/Math.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/GeneralSecurityException.h>
@@ -56,62 +55,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _DTLSInputRecord_FieldInfo_[] = {
-	{"reassembler", "Lsun/security/ssl/DTLSInputRecord$DTLSReassembler;", nullptr, $PRIVATE, $field(DTLSInputRecord, reassembler)},
-	{"readEpoch", "I", nullptr, $PRIVATE, $field(DTLSInputRecord, readEpoch)},
-	{}
-};
-
-$MethodInfo _DTLSInputRecord_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/security/ssl/HandshakeHash;)V", nullptr, 0, $method(DTLSInputRecord, init$, void, $HandshakeHash*)},
-	{"acquirePlaintext", "()Lsun/security/ssl/Plaintext;", nullptr, 0, $virtualMethod(DTLSInputRecord, acquirePlaintext, $Plaintext*), "javax.net.ssl.SSLProtocolException"},
-	{"bytesInCompletePacket", "([Ljava/nio/ByteBuffer;II)I", nullptr, 0, $virtualMethod(DTLSInputRecord, bytesInCompletePacket, int32_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
-	{"bytesInCompletePacket", "(Ljava/nio/ByteBuffer;)I", nullptr, $PRIVATE, $method(DTLSInputRecord, bytesInCompletePacket, int32_t, $ByteBuffer*), "javax.net.ssl.SSLException"},
-	{"changeReadCiphers", "(Lsun/security/ssl/SSLCipher$SSLReadCipher;)V", nullptr, 0, $virtualMethod(DTLSInputRecord, changeReadCiphers, void, $SSLCipher$SSLReadCipher*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(DTLSInputRecord, close, void), "java.io.IOException"},
-	{"decode", "([Ljava/nio/ByteBuffer;II)[Lsun/security/ssl/Plaintext;", nullptr, 0, $virtualMethod(DTLSInputRecord, decode, $PlaintextArray*, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException,javax.crypto.BadPaddingException"},
-	{"decode", "(Ljava/nio/ByteBuffer;)[Lsun/security/ssl/Plaintext;", nullptr, 0, $method(DTLSInputRecord, decode, $PlaintextArray*, $ByteBuffer*), "javax.net.ssl.SSLProtocolException"},
-	{"estimateFragmentSize", "(I)I", nullptr, 0, $virtualMethod(DTLSInputRecord, estimateFragmentSize, int32_t, int32_t)},
-	{"expectingFinishFlight", "()V", nullptr, 0, $virtualMethod(DTLSInputRecord, expectingFinishFlight, void)},
-	{"finishHandshake", "()V", nullptr, 0, $virtualMethod(DTLSInputRecord, finishHandshake, void)},
-	{"isEmpty", "()Z", nullptr, 0, $virtualMethod(DTLSInputRecord, isEmpty, bool)},
-	{"parseHandshakeMessage", "(BBB[BIJLjava/nio/ByteBuffer;)Lsun/security/ssl/DTLSInputRecord$HandshakeFragment;", nullptr, $PRIVATE | $STATIC, $staticMethod(DTLSInputRecord, parseHandshakeMessage, $DTLSInputRecord$HandshakeFragment*, int8_t, int8_t, int8_t, $bytes*, int32_t, int64_t, $ByteBuffer*), "javax.net.ssl.SSLProtocolException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DTLSInputRecord_InnerClassesInfo_[] = {
-	{"sun.security.ssl.DTLSInputRecord$DTLSReassembler", "sun.security.ssl.DTLSInputRecord", "DTLSReassembler", $FINAL},
-	{"sun.security.ssl.DTLSInputRecord$HandshakeFlight", "sun.security.ssl.DTLSInputRecord", "HandshakeFlight", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.DTLSInputRecord$HoleDescriptor", "sun.security.ssl.DTLSInputRecord", "HoleDescriptor", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.DTLSInputRecord$HandshakeFragment", "sun.security.ssl.DTLSInputRecord", "HandshakeFragment", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.DTLSInputRecord$RecordFragment", "sun.security.ssl.DTLSInputRecord", "RecordFragment", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DTLSInputRecord_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.DTLSInputRecord",
-	"sun.security.ssl.InputRecord",
-	"sun.security.ssl.DTLSRecord",
-	_DTLSInputRecord_FieldInfo_,
-	_DTLSInputRecord_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DTLSInputRecord_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.DTLSInputRecord$DTLSReassembler,sun.security.ssl.DTLSInputRecord$HandshakeFlight,sun.security.ssl.DTLSInputRecord$HoleDescriptor,sun.security.ssl.DTLSInputRecord$HandshakeFragment,sun.security.ssl.DTLSInputRecord$RecordFragment"
-};
-
-$Object* allocate$DTLSInputRecord($Class* clazz) {
-	return $of($alloc(DTLSInputRecord));
-}
-
 int32_t DTLSInputRecord::hashCode() {
 	 return this->$InputRecord::hashCode();
 }
@@ -150,7 +93,7 @@ void DTLSInputRecord::close() {
 }
 
 bool DTLSInputRecord::isEmpty() {
-	return ((this->reassembler == nullptr) || $nc(this->reassembler)->isEmpty());
+	return ((this->reassembler == nullptr) || this->reassembler->isEmpty());
 }
 
 int32_t DTLSInputRecord::estimateFragmentSize(int32_t packetSize) {
@@ -163,7 +106,7 @@ int32_t DTLSInputRecord::estimateFragmentSize(int32_t packetSize) {
 
 void DTLSInputRecord::expectingFinishFlight() {
 	if (this->reassembler != nullptr) {
-		$nc(this->reassembler)->expectingFinishFlight();
+		this->reassembler->expectingFinishFlight();
 	}
 }
 
@@ -173,18 +116,18 @@ void DTLSInputRecord::finishHandshake() {
 
 $Plaintext* DTLSInputRecord::acquirePlaintext() {
 	if (this->reassembler != nullptr) {
-		return $nc(this->reassembler)->acquirePlaintext();
+		return this->reassembler->acquirePlaintext();
 	}
 	return nullptr;
 }
 
 $PlaintextArray* DTLSInputRecord::decode($ByteBufferArray* srcs, int32_t srcsOffset, int32_t srcsLength) {
-	$useLocalCurrentObjectStackCache();
-	if (srcs == nullptr || $nc(srcs)->length == 0 || srcsLength == 0) {
+	$useLocalObjectStack();
+	if (srcs == nullptr || srcs->length == 0 || srcsLength == 0) {
 		$var($Plaintext, pt, acquirePlaintext());
 		return pt == nullptr ? $new($PlaintextArray, 0) : $new($PlaintextArray, {pt});
 	} else if (srcsLength == 1) {
-		return decode($nc(srcs)->get(srcsOffset));
+		return decode(srcs->get(srcsOffset));
 	} else {
 		$var($ByteBuffer, packet, extract(srcs, srcsOffset, srcsLength, $DTLSRecord::headerSize));
 		return decode(packet);
@@ -192,13 +135,13 @@ $PlaintextArray* DTLSInputRecord::decode($ByteBufferArray* srcs, int32_t srcsOff
 }
 
 $PlaintextArray* DTLSInputRecord::decode($ByteBuffer* packet) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->isClosed$) {
 		return nullptr;
 	}
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("packet"_s)) {
-		$SSLLogger::fine("Raw read"_s, $$new($ObjectArray, {$of(packet)}));
+		$SSLLogger::fine("Raw read"_s, $$new($ObjectArray, {packet}));
 	}
 	int32_t srcPos = $nc(packet)->position();
 	int32_t srcLim = packet->limit();
@@ -207,21 +150,25 @@ $PlaintextArray* DTLSInputRecord::decode($ByteBuffer* packet) {
 	int8_t minorVersion = packet->get();
 	$var($bytes, recordEnS, $new($bytes, 8));
 	packet->get(recordEnS);
-	int32_t recordEpoch = (((int32_t)(recordEnS->get(0) & (uint32_t)255)) << 8) | ((int32_t)(recordEnS->get(1) & (uint32_t)255));
-	int64_t recordSeq = (((((((int64_t)(recordEnS->get(2) & (uint64_t)(int64_t)255)) << 40) | (((int64_t)(recordEnS->get(3) & (uint64_t)(int64_t)255)) << 32)) | (((int64_t)(recordEnS->get(4) & (uint64_t)(int64_t)255)) << 24)) | (((int64_t)(recordEnS->get(5) & (uint64_t)(int64_t)255)) << 16)) | (((int64_t)(recordEnS->get(6) & (uint64_t)(int64_t)255)) << 8)) | ((int64_t)(recordEnS->get(7) & (uint64_t)(int64_t)255));
-	int32_t var$0 = (((int32_t)(packet->get() & (uint32_t)255)) << 8);
-	int32_t contentLen = var$0 | ((int32_t)(packet->get() & (uint32_t)255));
+	int32_t recordEpoch = ((recordEnS->get(0) & 0xff) << 8) | (recordEnS->get(1) & 0xff);
+	int64_t recordSeq = ((((((recordEnS->get(2) & (int64_t)0xff) << 40) | ((recordEnS->get(3) & (int64_t)0xff) << 32)) | ((recordEnS->get(4) & (int64_t)0xff) << 24)) | ((recordEnS->get(5) & (int64_t)0xff) << 16)) | ((recordEnS->get(6) & (int64_t)0xff) << 8)) | (recordEnS->get(7) & (int64_t)0xff);
+	int32_t var$0 = (packet->get() & 0xff) << 8;
+	int32_t contentLen = var$0 | (packet->get() & 0xff);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("record"_s)) {
-		$var($String, var$3, $$str({"READ: "_s, $($ProtocolVersion::nameOf(majorVersion, minorVersion)), " "_s}));
-		$var($String, var$2, $$concat(var$3, $($ContentType::nameOf(contentType))));
-		$var($String, var$1, $$concat(var$2, ", length = "_s));
-		$SSLLogger::fine($$concat(var$1, $$str(contentLen)), $$new($ObjectArray, 0));
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append("READ: "_s);
+		var$1->append($($ProtocolVersion::nameOf(majorVersion, minorVersion)));
+		var$1->append(" "_s);
+		var$1->append($($ContentType::nameOf(contentType)));
+		var$1->append(", length = "_s);
+		var$1->append(contentLen);
+		$SSLLogger::fine($$str(var$1), $$new($ObjectArray, 0));
 	}
 	int32_t recLim = $Math::addExact(srcPos, $DTLSRecord::headerSize + contentLen);
 	if (this->readEpoch > recordEpoch) {
 		packet->position(recLim);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("record"_s)) {
-			$SSLLogger::fine("READ: discard this old record"_s, $$new($ObjectArray, {$of(recordEnS)}));
+			$SSLLogger::fine("READ: discard this old record"_s, $$new($ObjectArray, {recordEnS}));
 		}
 		return nullptr;
 	}
@@ -248,39 +195,37 @@ $PlaintextArray* DTLSInputRecord::decode($ByteBuffer* packet) {
 	packet->limit(recLim);
 	packet->position(srcPos + $DTLSRecord::headerSize);
 	$var($ByteBuffer, plaintextFragment, nullptr);
-	{
-		$var($Throwable, var$4, nullptr);
-		$var($PlaintextArray, var$6, nullptr);
-		bool return$5 = false;
+	$var($Throwable, var$2, nullptr);
+	$var($PlaintextArray, var$4, nullptr);
+	bool return$3 = false;
+	try {
 		try {
-			try {
-				$var($Plaintext, plaintext, $nc(this->readCipher)->decrypt(contentType, packet, recordEnS));
-				$assign(plaintextFragment, $nc(plaintext)->fragment);
-				contentType = plaintext->contentType;
-			} catch ($GeneralSecurityException& gse) {
-				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
-					$SSLLogger::fine($$str({"Discard invalid record: "_s, gse}), $$new($ObjectArray, 0));
-				}
-				$assign(var$6, nullptr);
-				return$5 = true;
-				goto $finally;
+			$var($Plaintext, plaintext, $nc(this->readCipher)->decrypt(contentType, packet, recordEnS));
+			$assign(plaintextFragment, $nc(plaintext)->fragment);
+			contentType = plaintext->contentType;
+		} catch ($GeneralSecurityException& gse) {
+			if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
+				$SSLLogger::fine($$str({"Discard invalid record: "_s, gse}), $$new($ObjectArray, 0));
 			}
-		} catch ($Throwable& var$7) {
-			$assign(var$4, var$7);
-		} $finally: {
-			packet->limit(srcLim);
-			packet->position(recLim);
+			$assign(var$4, nullptr);
+			return$3 = true;
+			goto $finally;
 		}
-		if (var$4 != nullptr) {
-			$throw(var$4);
-		}
-		if (return$5) {
-			return var$6;
-		}
+	} catch ($Throwable& var$5) {
+		$assign(var$2, var$5);
+	} $finally: {
+		packet->limit(srcLim);
+		packet->position(recLim);
+	}
+	if (var$2 != nullptr) {
+		$throw(var$2);
+	}
+	if (return$3) {
+		return var$4;
 	}
 	$init($ContentType);
 	if (contentType != $ContentType::CHANGE_CIPHER_SPEC->id && contentType != $ContentType::HANDSHAKE->id) {
-		if ((this->reassembler != nullptr) && ($nc(this->reassembler)->handshakeEpoch < recordEpoch)) {
+		if ((this->reassembler != nullptr) && (this->reassembler->handshakeEpoch < recordEpoch)) {
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("verbose"_s)) {
 				$SSLLogger::fine("Cleanup the handshake reassembler"_s, $$new($ObjectArray, 0));
 			}
@@ -309,7 +254,7 @@ $PlaintextArray* DTLSInputRecord::decode($ByteBuffer* packet) {
 		}
 	}
 	if (this->reassembler != nullptr) {
-		$var($Plaintext, pt, $nc(this->reassembler)->acquirePlaintext());
+		$var($Plaintext, pt, this->reassembler->acquirePlaintext());
 		return pt == nullptr ? ($PlaintextArray*)nullptr : $new($PlaintextArray, {pt});
 	}
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("verbose"_s)) {
@@ -323,11 +268,11 @@ int32_t DTLSInputRecord::bytesInCompletePacket($ByteBufferArray* srcs, int32_t s
 }
 
 int32_t DTLSInputRecord::bytesInCompletePacket($ByteBuffer* packet) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(packet)->remaining() < $DTLSRecord::headerSize) {
 		return -1;
 	}
-	int32_t pos = $nc(packet)->position();
+	int32_t pos = packet->position();
 	int8_t contentType = packet->get(pos);
 	if ($ContentType::valueOf(contentType) == nullptr) {
 		$throwNew($SSLException, "Unrecognized SSL message, plaintext connection?"_s);
@@ -337,8 +282,8 @@ int32_t DTLSInputRecord::bytesInCompletePacket($ByteBuffer* packet) {
 	if (!$ProtocolVersion::isNegotiable(majorVersion, minorVersion, true, false)) {
 		$throwNew($SSLException, $$str({"Unrecognized record version "_s, $($ProtocolVersion::nameOf(majorVersion, minorVersion)), " , plaintext connection?"_s}));
 	}
-	int32_t var$0 = (((int32_t)(packet->get(pos + 11) & (uint32_t)255)) << 8);
-	int32_t fragLen = var$0 + ((int32_t)(packet->get(pos + 12) & (uint32_t)255)) + $DTLSRecord::headerSize;
+	int32_t var$0 = (packet->get(pos + 11) & 0xff) << 8;
+	int32_t fragLen = var$0 + (packet->get(pos + 12) & 0xff) + $DTLSRecord::headerSize;
 	if (fragLen > $Record::maxFragmentSize) {
 		$throwNew($SSLException, $$str({"Record overflow, fragment length ("_s, $$str(fragLen), ") MUST not exceed "_s, $$str($Record::maxFragmentSize)}));
 	}
@@ -347,7 +292,7 @@ int32_t DTLSInputRecord::bytesInCompletePacket($ByteBuffer* packet) {
 
 $DTLSInputRecord$HandshakeFragment* DTLSInputRecord::parseHandshakeMessage(int8_t contentType, int8_t majorVersion, int8_t minorVersion, $bytes* recordEnS, int32_t recordEpoch, int64_t recordSeq, $ByteBuffer* plaintextFragment) {
 	$init(DTLSInputRecord);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t remaining = $nc(plaintextFragment)->remaining();
 	if (remaining < $DTLSRecord::handshakeHeaderSize) {
 		$init($SSLLogger);
@@ -360,25 +305,25 @@ $DTLSInputRecord$HandshakeFragment* DTLSInputRecord::parseHandshakeMessage(int8_
 	if (!$SSLHandshake::isKnown(handshakeType)) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
-			$SSLLogger::fine($$str({"Discard invalid record: unknown handshake type size, Handshake.msg_type = "_s, $$str(((int32_t)(handshakeType & (uint32_t)255)))}), $$new($ObjectArray, 0));
+			$SSLLogger::fine($$str({"Discard invalid record: unknown handshake type size, Handshake.msg_type = "_s, $$str((handshakeType & 0xff))}), $$new($ObjectArray, 0));
 		}
 		return nullptr;
 	}
-	int32_t var$1 = (((int32_t)(plaintextFragment->get() & (uint32_t)255)) << 16);
-	int32_t var$0 = var$1 | (((int32_t)(plaintextFragment->get() & (uint32_t)255)) << 8);
-	int32_t messageLength = var$0 | ((int32_t)(plaintextFragment->get() & (uint32_t)255));
+	int32_t var$1 = (plaintextFragment->get() & 0xff) << 16;
+	int32_t var$0 = var$1 | ((plaintextFragment->get() & 0xff) << 8);
+	int32_t messageLength = var$0 | (plaintextFragment->get() & 0xff);
 	$init($SSLConfiguration);
 	if (messageLength > $SSLConfiguration::maxHandshakeMessageSize) {
 		$throwNew($SSLProtocolException, $$str({"The size of the handshake message ("_s, $$str(messageLength), ") exceeds the maximum allowed size ("_s, $$str($SSLConfiguration::maxHandshakeMessageSize), ")"_s}));
 	}
-	int32_t var$2 = (((int32_t)(plaintextFragment->get() & (uint32_t)255)) << 8);
-	int32_t messageSeq = var$2 | ((int32_t)(plaintextFragment->get() & (uint32_t)255));
-	int32_t var$4 = (((int32_t)(plaintextFragment->get() & (uint32_t)255)) << 16);
-	int32_t var$3 = var$4 | (((int32_t)(plaintextFragment->get() & (uint32_t)255)) << 8);
-	int32_t fragmentOffset = var$3 | ((int32_t)(plaintextFragment->get() & (uint32_t)255));
-	int32_t var$6 = (((int32_t)(plaintextFragment->get() & (uint32_t)255)) << 16);
-	int32_t var$5 = var$6 | (((int32_t)(plaintextFragment->get() & (uint32_t)255)) << 8);
-	int32_t fragmentLength = var$5 | ((int32_t)(plaintextFragment->get() & (uint32_t)255));
+	int32_t var$2 = (plaintextFragment->get() & 0xff) << 8;
+	int32_t messageSeq = var$2 | (plaintextFragment->get() & 0xff);
+	int32_t var$4 = (plaintextFragment->get() & 0xff) << 16;
+	int32_t var$3 = var$4 | ((plaintextFragment->get() & 0xff) << 8);
+	int32_t fragmentOffset = var$3 | (plaintextFragment->get() & 0xff);
+	int32_t var$6 = (plaintextFragment->get() & 0xff) << 16;
+	int32_t var$5 = var$6 | ((plaintextFragment->get() & 0xff) << 8);
+	int32_t fragmentLength = var$5 | (plaintextFragment->get() & 0xff);
 	if ((remaining - $DTLSRecord::handshakeHeaderSize) < fragmentLength) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl"_s)) {
@@ -395,7 +340,57 @@ DTLSInputRecord::DTLSInputRecord() {
 }
 
 $Class* DTLSInputRecord::load$($String* name, bool initialize) {
-	$loadClass(DTLSInputRecord, name, initialize, &_DTLSInputRecord_ClassInfo_, allocate$DTLSInputRecord);
+	$FieldInfo fieldInfos$$[] = {
+		{"reassembler", "Lsun/security/ssl/DTLSInputRecord$DTLSReassembler;", nullptr, $PRIVATE, $field(DTLSInputRecord, reassembler)},
+		{"readEpoch", "I", nullptr, $PRIVATE, $field(DTLSInputRecord, readEpoch)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/security/ssl/HandshakeHash;)V", nullptr, 0, $method(DTLSInputRecord, init$, void, $HandshakeHash*)},
+		{"acquirePlaintext", "()Lsun/security/ssl/Plaintext;", nullptr, 0, $virtualMethod(DTLSInputRecord, acquirePlaintext, $Plaintext*), "javax.net.ssl.SSLProtocolException"},
+		{"bytesInCompletePacket", "([Ljava/nio/ByteBuffer;II)I", nullptr, 0, $virtualMethod(DTLSInputRecord, bytesInCompletePacket, int32_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
+		{"bytesInCompletePacket", "(Ljava/nio/ByteBuffer;)I", nullptr, $PRIVATE, $method(DTLSInputRecord, bytesInCompletePacket, int32_t, $ByteBuffer*), "javax.net.ssl.SSLException"},
+		{"changeReadCiphers", "(Lsun/security/ssl/SSLCipher$SSLReadCipher;)V", nullptr, 0, $virtualMethod(DTLSInputRecord, changeReadCiphers, void, $SSLCipher$SSLReadCipher*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(DTLSInputRecord, close, void), "java.io.IOException"},
+		{"decode", "([Ljava/nio/ByteBuffer;II)[Lsun/security/ssl/Plaintext;", nullptr, 0, $virtualMethod(DTLSInputRecord, decode, $PlaintextArray*, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException,javax.crypto.BadPaddingException"},
+		{"decode", "(Ljava/nio/ByteBuffer;)[Lsun/security/ssl/Plaintext;", nullptr, 0, $method(DTLSInputRecord, decode, $PlaintextArray*, $ByteBuffer*), "javax.net.ssl.SSLProtocolException"},
+		{"estimateFragmentSize", "(I)I", nullptr, 0, $virtualMethod(DTLSInputRecord, estimateFragmentSize, int32_t, int32_t)},
+		{"expectingFinishFlight", "()V", nullptr, 0, $virtualMethod(DTLSInputRecord, expectingFinishFlight, void)},
+		{"finishHandshake", "()V", nullptr, 0, $virtualMethod(DTLSInputRecord, finishHandshake, void)},
+		{"isEmpty", "()Z", nullptr, 0, $virtualMethod(DTLSInputRecord, isEmpty, bool)},
+		{"parseHandshakeMessage", "(BBB[BIJLjava/nio/ByteBuffer;)Lsun/security/ssl/DTLSInputRecord$HandshakeFragment;", nullptr, $PRIVATE | $STATIC, $staticMethod(DTLSInputRecord, parseHandshakeMessage, $DTLSInputRecord$HandshakeFragment*, int8_t, int8_t, int8_t, $bytes*, int32_t, int64_t, $ByteBuffer*), "javax.net.ssl.SSLProtocolException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.DTLSInputRecord$DTLSReassembler", "sun.security.ssl.DTLSInputRecord", "DTLSReassembler", $FINAL},
+		{"sun.security.ssl.DTLSInputRecord$HandshakeFlight", "sun.security.ssl.DTLSInputRecord", "HandshakeFlight", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.DTLSInputRecord$HoleDescriptor", "sun.security.ssl.DTLSInputRecord", "HoleDescriptor", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.DTLSInputRecord$HandshakeFragment", "sun.security.ssl.DTLSInputRecord", "HandshakeFragment", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.DTLSInputRecord$RecordFragment", "sun.security.ssl.DTLSInputRecord", "RecordFragment", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.DTLSInputRecord",
+		"sun.security.ssl.InputRecord",
+		"sun.security.ssl.DTLSRecord",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.DTLSInputRecord$DTLSReassembler,sun.security.ssl.DTLSInputRecord$HandshakeFlight,sun.security.ssl.DTLSInputRecord$HoleDescriptor,sun.security.ssl.DTLSInputRecord$HandshakeFragment,sun.security.ssl.DTLSInputRecord$RecordFragment"
+	};
+	$loadClass(DTLSInputRecord, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DTLSInputRecord));
+	});
 	return class$;
 }
 

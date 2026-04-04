@@ -1,5 +1,4 @@
 #include <java/util/concurrent/CompletableFuture$OrRun.h>
-
 #include <java/lang/Runnable.h>
 #include <java/util/concurrent/CompletableFuture$AltResult.h>
 #include <java/util/concurrent/CompletableFuture$BiCompletion.h>
@@ -22,50 +21,13 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _CompletableFuture$OrRun_FieldInfo_[] = {
-	{"fn", "Ljava/lang/Runnable;", nullptr, 0, $field(CompletableFuture$OrRun, fn)},
-	{}
-};
-
-$MethodInfo _CompletableFuture$OrRun_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/lang/Runnable;)V", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/concurrent/CompletableFuture<TU;>;Ljava/lang/Runnable;)V", 0, $method(CompletableFuture$OrRun, init$, void, $Executor*, $CompletableFuture*, $CompletableFuture*, $CompletableFuture*, $Runnable*)},
-	{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $FINAL, $virtualMethod(CompletableFuture$OrRun, tryFire, $CompletableFuture*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CompletableFuture$OrRun_InnerClassesInfo_[] = {
-	{"java.util.concurrent.CompletableFuture$OrRun", "java.util.concurrent.CompletableFuture", "OrRun", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$BiCompletion", "java.util.concurrent.CompletableFuture", "BiCompletion", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CompletableFuture$OrRun_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.CompletableFuture$OrRun",
-	"java.util.concurrent.CompletableFuture$BiCompletion",
-	nullptr,
-	_CompletableFuture$OrRun_FieldInfo_,
-	_CompletableFuture$OrRun_MethodInfo_,
-	"<T:Ljava/lang/Object;U:Ljava/lang/Object;>Ljava/util/concurrent/CompletableFuture$BiCompletion<TT;TU;Ljava/lang/Void;>;",
-	nullptr,
-	_CompletableFuture$OrRun_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.CompletableFuture"
-};
-
-$Object* allocate$CompletableFuture$OrRun($Class* clazz) {
-	return $of($alloc(CompletableFuture$OrRun));
-}
-
 void CompletableFuture$OrRun::init$($Executor* executor, $CompletableFuture* dep, $CompletableFuture* src, $CompletableFuture* snd, $Runnable* fn) {
 	$CompletableFuture$BiCompletion::init$(executor, dep, src, snd);
 	$set(this, fn, fn);
 }
 
 $CompletableFuture* CompletableFuture$OrRun::tryFire(int32_t mode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CompletableFuture, d, nullptr);
 	$var($CompletableFuture, a, nullptr);
 	$var($CompletableFuture, b, nullptr);
@@ -75,7 +37,7 @@ $CompletableFuture* CompletableFuture$OrRun::tryFire(int32_t mode) {
 	bool var$0 = ($assign(a, this->src)) == nullptr || ($assign(b, this->snd)) == nullptr;
 	if (!var$0) {
 		bool var$1 = ($assign(r, $nc(a)->result)) == nullptr;
-		var$0 = (var$1 && ($assign(r, $nc(b)->result)) == nullptr);
+		var$0 = var$1 && ($assign(r, $nc(b)->result)) == nullptr;
 	}
 	if (var$0 || ($assign(d, this->dep)) == nullptr || ($assign(f, this->fn)) == nullptr) {
 		return nullptr;
@@ -84,7 +46,7 @@ $CompletableFuture* CompletableFuture$OrRun::tryFire(int32_t mode) {
 		try {
 			if (mode <= 0 && !claim()) {
 				return nullptr;
-			} else if ($instanceOf($CompletableFuture$AltResult, r) && ($assign(x, $nc(($cast($CompletableFuture$AltResult, r)))->ex)) != nullptr) {
+			} else if ($instanceOf($CompletableFuture$AltResult, r) && ($assign(x, $cast($CompletableFuture$AltResult, r)->ex)) != nullptr) {
 				d->completeThrowable(x, r);
 			} else {
 				$nc(f)->run();
@@ -98,14 +60,45 @@ $CompletableFuture* CompletableFuture$OrRun::tryFire(int32_t mode) {
 	$set(this, snd, nullptr);
 	$set(this, dep, nullptr);
 	$set(this, fn, nullptr);
-	return $nc(d)->postFire(a, b, mode);
+	return d->postFire(a, b, mode);
 }
 
 CompletableFuture$OrRun::CompletableFuture$OrRun() {
 }
 
 $Class* CompletableFuture$OrRun::load$($String* name, bool initialize) {
-	$loadClass(CompletableFuture$OrRun, name, initialize, &_CompletableFuture$OrRun_ClassInfo_, allocate$CompletableFuture$OrRun);
+	$FieldInfo fieldInfos$$[] = {
+		{"fn", "Ljava/lang/Runnable;", nullptr, 0, $field(CompletableFuture$OrRun, fn)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/lang/Runnable;)V", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/concurrent/CompletableFuture<TU;>;Ljava/lang/Runnable;)V", 0, $method(CompletableFuture$OrRun, init$, void, $Executor*, $CompletableFuture*, $CompletableFuture*, $CompletableFuture*, $Runnable*)},
+		{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $FINAL, $virtualMethod(CompletableFuture$OrRun, tryFire, $CompletableFuture*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.CompletableFuture$OrRun", "java.util.concurrent.CompletableFuture", "OrRun", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$BiCompletion", "java.util.concurrent.CompletableFuture", "BiCompletion", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.CompletableFuture$OrRun",
+		"java.util.concurrent.CompletableFuture$BiCompletion",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;U:Ljava/lang/Object;>Ljava/util/concurrent/CompletableFuture$BiCompletion<TT;TU;Ljava/lang/Void;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.CompletableFuture"
+	};
+	$loadClass(CompletableFuture$OrRun, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CompletableFuture$OrRun));
+	});
 	return class$;
 }
 

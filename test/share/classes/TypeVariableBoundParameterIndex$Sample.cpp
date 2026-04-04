@@ -1,5 +1,4 @@
 #include <TypeVariableBoundParameterIndex$Sample.h>
-
 #include <TypeVariableBoundParameterIndex.h>
 #include <jcpp.h>
 
@@ -8,42 +7,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $TypeAnnotation = ::java::lang::TypeAnnotation;
 
-$TypeAnnotation _TypeVariableBoundParameterIndex$Sample_TypeAnnotations_[] = {
-	{"LTypeVariableBoundParameterIndex$TypeAnnotation;", nullptr, "CLASS_TYPE_PARAMETER_BOUND, param_index = 0, bound_index = 1, location = (TYPE_ARGUMENT(0))"},
-	{"LTypeVariableBoundParameterIndex$TypeAnnotation;", nullptr, "CLASS_TYPE_PARAMETER_BOUND, param_index = 1, bound_index = 1, location = (TYPE_ARGUMENT(0))"},
-	{}
-};
-
-$MethodInfo _TypeVariableBoundParameterIndex$Sample_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TypeVariableBoundParameterIndex$Sample, init$, void)},
-	{}
-};
-
-$InnerClassInfo _TypeVariableBoundParameterIndex$Sample_InnerClassesInfo_[] = {
-	{"TypeVariableBoundParameterIndex$Sample", "TypeVariableBoundParameterIndex", "Sample", $STATIC},
-	{}
-};
-
-$ClassInfo _TypeVariableBoundParameterIndex$Sample_ClassInfo_ = {
-	$ACC_SUPER,
-	"TypeVariableBoundParameterIndex$Sample",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TypeVariableBoundParameterIndex$Sample_MethodInfo_,
-	"<T::Ljava/util/concurrent/Callable<*>;S::Ljava/util/concurrent/Callable<*>;U::Ljava/util/concurrent/Callable<*>;>Ljava/lang/Object;",
-	nullptr,
-	_TypeVariableBoundParameterIndex$Sample_InnerClassesInfo_,
-	nullptr,
-	_TypeVariableBoundParameterIndex$Sample_TypeAnnotations_,
-	nullptr,
-	"TypeVariableBoundParameterIndex"
-};
-
-$Object* allocate$TypeVariableBoundParameterIndex$Sample($Class* clazz) {
-	return $of($alloc(TypeVariableBoundParameterIndex$Sample));
-}
-
 void TypeVariableBoundParameterIndex$Sample::init$() {
 }
 
@@ -51,7 +14,37 @@ TypeVariableBoundParameterIndex$Sample::TypeVariableBoundParameterIndex$Sample()
 }
 
 $Class* TypeVariableBoundParameterIndex$Sample::load$($String* name, bool initialize) {
-	$loadClass(TypeVariableBoundParameterIndex$Sample, name, initialize, &_TypeVariableBoundParameterIndex$Sample_ClassInfo_, allocate$TypeVariableBoundParameterIndex$Sample);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TypeVariableBoundParameterIndex$Sample, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TypeVariableBoundParameterIndex$Sample", "TypeVariableBoundParameterIndex", "Sample", $STATIC},
+		{}
+	};
+	$TypeAnnotation typeAnnotations$$[] = {
+		{"LTypeVariableBoundParameterIndex$TypeAnnotation;", nullptr, "CLASS_TYPE_PARAMETER_BOUND, param_index = 0, bound_index = 1, location = (TYPE_ARGUMENT(0))"},
+		{"LTypeVariableBoundParameterIndex$TypeAnnotation;", nullptr, "CLASS_TYPE_PARAMETER_BOUND, param_index = 1, bound_index = 1, location = (TYPE_ARGUMENT(0))"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TypeVariableBoundParameterIndex$Sample",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T::Ljava/util/concurrent/Callable<*>;S::Ljava/util/concurrent/Callable<*>;U::Ljava/util/concurrent/Callable<*>;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		typeAnnotations$$,
+		nullptr,
+		"TypeVariableBoundParameterIndex"
+	};
+	$loadClass(TypeVariableBoundParameterIndex$Sample, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeVariableBoundParameterIndex$Sample);
+	});
 	return class$;
 }
 

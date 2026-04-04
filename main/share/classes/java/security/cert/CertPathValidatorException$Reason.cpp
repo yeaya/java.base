@@ -1,5 +1,4 @@
 #include <java/security/cert/CertPathValidatorException$Reason.h>
-
 #include <java/security/cert/CertPathValidatorException.h>
 #include <jcpp.h>
 
@@ -10,33 +9,29 @@ namespace java {
 	namespace security {
 		namespace cert {
 
-$InnerClassInfo _CertPathValidatorException$Reason_InnerClassesInfo_[] = {
-	{"java.security.cert.CertPathValidatorException$Reason", "java.security.cert.CertPathValidatorException", "Reason", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CertPathValidatorException$Reason_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.security.cert.CertPathValidatorException$Reason",
-	nullptr,
-	"java.io.Serializable",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_CertPathValidatorException$Reason_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.cert.CertPathValidatorException"
-};
-
-$Object* allocate$CertPathValidatorException$Reason($Class* clazz) {
-	return $of($alloc(CertPathValidatorException$Reason));
-}
-
 $Class* CertPathValidatorException$Reason::load$($String* name, bool initialize) {
-	$loadClass(CertPathValidatorException$Reason, name, initialize, &_CertPathValidatorException$Reason_ClassInfo_, allocate$CertPathValidatorException$Reason);
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.cert.CertPathValidatorException$Reason", "java.security.cert.CertPathValidatorException", "Reason", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.security.cert.CertPathValidatorException$Reason",
+		nullptr,
+		"java.io.Serializable",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.cert.CertPathValidatorException"
+	};
+	$loadClass(CertPathValidatorException$Reason, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertPathValidatorException$Reason);
+	});
 	return class$;
 }
 

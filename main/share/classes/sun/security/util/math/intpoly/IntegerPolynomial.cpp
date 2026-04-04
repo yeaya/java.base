@@ -1,5 +1,4 @@
 #include <sun/security/util/math/intpoly/IntegerPolynomial.h>
-
 #include <java/lang/Math.h>
 #include <java/math/BigInteger.h>
 #include <java/nio/ByteBuffer.h>
@@ -36,82 +35,6 @@ namespace sun {
 		namespace util {
 			namespace math {
 				namespace intpoly {
-
-$FieldInfo _IntegerPolynomial_FieldInfo_[] = {
-	{"TWO", "Ljava/math/BigInteger;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(IntegerPolynomial, TWO)},
-	{"numLimbs", "I", nullptr, $PROTECTED | $FINAL, $field(IntegerPolynomial, numLimbs)},
-	{"modulus", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(IntegerPolynomial, modulus)},
-	{"bitsPerLimb", "I", nullptr, $PROTECTED | $FINAL, $field(IntegerPolynomial, bitsPerLimb)},
-	{"posModLimbs", "[J", nullptr, $PRIVATE | $FINAL, $field(IntegerPolynomial, posModLimbs)},
-	{"maxAdds", "I", nullptr, $PRIVATE | $FINAL, $field(IntegerPolynomial, maxAdds)},
-	{}
-};
-
-$MethodInfo _IntegerPolynomial_MethodInfo_[] = {
-	{"<init>", "(IIILjava/math/BigInteger;)V", nullptr, 0, $method(IntegerPolynomial, init$, void, int32_t, int32_t, int32_t, $BigInteger*)},
-	{"addLimbs", "([J[J[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, addLimbs, void, $longs*, $longs*, $longs*)},
-	{"addLimbsModPowerTwo", "([J[J[B)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, addLimbsModPowerTwo, void, $longs*, $longs*, $bytes*)},
-	{"carry", "([JII)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, carry, void, $longs*, int32_t, int32_t)},
-	{"carry", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, carry, void, $longs*)},
-	{"carryOut", "([JI)J", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, carryOut, int64_t, $longs*, int32_t)},
-	{"carryValue", "(J)J", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, carryValue, int64_t, int64_t)},
-	{"conditionalAssign", "(I[J[J)V", nullptr, $PROTECTED | $STATIC, $staticMethod(IntegerPolynomial, conditionalAssign, void, int32_t, $longs*, $longs*)},
-	{"conditionalSwap", "(I[J[J)V", nullptr, $PROTECTED | $STATIC, $staticMethod(IntegerPolynomial, conditionalSwap, void, int32_t, $longs*, $longs*)},
-	{"decode", "([J[BII)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, decode, void, $longs*, $bytes*, int32_t, int32_t)},
-	{"encode", "(Ljava/nio/ByteBuffer;IB[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, encode, void, $ByteBuffer*, int32_t, int8_t, $longs*)},
-	{"encode", "([BIIB[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, encode, void, $bytes*, int32_t, int32_t, int8_t, $longs*)},
-	{"encodeSmall", "(Ljava/nio/ByteBuffer;IB[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, encodeSmall, void, $ByteBuffer*, int32_t, int8_t, $longs*)},
-	{"evaluate", "([J)Ljava/math/BigInteger;", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, evaluate, $BigInteger*, $longs*)},
-	{"finalCarryReduceLast", "([J)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(IntegerPolynomial, finalCarryReduceLast, void, $longs*)},
-	{"finalReduce", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, finalReduce, void, $longs*)},
-	{"get0", "()Lsun/security/util/math/intpoly/IntegerPolynomial$ImmutableElement;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial, get0, $ImmutableIntegerModuloP*)},
-	{"get1", "()Lsun/security/util/math/intpoly/IntegerPolynomial$ImmutableElement;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial, get1, $ImmutableIntegerModuloP*)},
-	{"getElement", "(Ljava/math/BigInteger;)Lsun/security/util/math/intpoly/IntegerPolynomial$ImmutableElement;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial, getElement, $ImmutableIntegerModuloP*, $BigInteger*)},
-	{"getElement", "([BIIB)Lsun/security/util/math/intpoly/IntegerPolynomial$ImmutableElement;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial, getElement, $ImmutableIntegerModuloP*, $bytes*, int32_t, int32_t, int8_t)},
-	{"getMaxAdds", "()I", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial, getMaxAdds, int32_t)},
-	{"getNumLimbs", "()I", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, getNumLimbs, int32_t)},
-	{"getSize", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial, getSize, $BigInteger*)},
-	{"getSmallValue", "(I)Lsun/security/util/math/SmallValue;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial, getSmallValue, $SmallValue*, int32_t)},
-	{"limbsToByteArray", "([J[B)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, limbsToByteArray, void, $longs*, $bytes*)},
-	{"mult", "([J[J[J)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(IntegerPolynomial, mult, void, $longs*, $longs*, $longs*)},
-	{"multByInt", "([JJ)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, multByInt, void, $longs*, int64_t)},
-	{"postEncodeCarry", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, postEncodeCarry, void, $longs*)},
-	{"reduce", "([J)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(IntegerPolynomial, reduce, void, $longs*)},
-	{"reduceHigh", "([J)V", nullptr, $PRIVATE, $method(IntegerPolynomial, reduceHigh, void, $longs*)},
-	{"reduceIn", "([JJI)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(IntegerPolynomial, reduceIn, void, $longs*, int64_t, int32_t)},
-	{"setLimbsValue", "(Ljava/math/BigInteger;[J)V", nullptr, $PRIVATE, $method(IntegerPolynomial, setLimbsValue, void, $BigInteger*, $longs*)},
-	{"setLimbsValuePositive", "(Ljava/math/BigInteger;[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, setLimbsValuePositive, void, $BigInteger*, $longs*)},
-	{"setPosModLimbs", "()[J", nullptr, $PRIVATE, $method(IntegerPolynomial, setPosModLimbs, $longs*)},
-	{"square", "([J[J)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(IntegerPolynomial, square, void, $longs*, $longs*)},
-	{}
-};
-
-$InnerClassInfo _IntegerPolynomial_InnerClassesInfo_[] = {
-	{"sun.security.util.math.intpoly.IntegerPolynomial$Limb", "sun.security.util.math.intpoly.IntegerPolynomial", "Limb", $STATIC},
-	{"sun.security.util.math.intpoly.IntegerPolynomial$ImmutableElement", "sun.security.util.math.intpoly.IntegerPolynomial", "ImmutableElement", 0},
-	{"sun.security.util.math.intpoly.IntegerPolynomial$MutableElement", "sun.security.util.math.intpoly.IntegerPolynomial", "MutableElement", $PROTECTED},
-	{"sun.security.util.math.intpoly.IntegerPolynomial$Element", "sun.security.util.math.intpoly.IntegerPolynomial", "Element", $PRIVATE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _IntegerPolynomial_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.security.util.math.intpoly.IntegerPolynomial",
-	"java.lang.Object",
-	"sun.security.util.math.IntegerFieldModuloP",
-	_IntegerPolynomial_FieldInfo_,
-	_IntegerPolynomial_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IntegerPolynomial_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.util.math.intpoly.IntegerPolynomial$Limb,sun.security.util.math.intpoly.IntegerPolynomial$ImmutableElement,sun.security.util.math.intpoly.IntegerPolynomial$MutableElement,sun.security.util.math.intpoly.IntegerPolynomial$Element"
-};
-
-$Object* allocate$IntegerPolynomial($Class* clazz) {
-	return $of($alloc(IntegerPolynomial));
-}
 
 $BigInteger* IntegerPolynomial::TWO = nullptr;
 
@@ -161,7 +84,7 @@ $ImmutableIntegerModuloP* IntegerPolynomial::getElement($BigInteger* v) {
 }
 
 $SmallValue* IntegerPolynomial::getSmallValue(int32_t value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t maxMag = $sl(1, this->bitsPerLimb - 1);
 	if ($Math::abs(value) >= maxMag) {
 		$throwNew($IllegalArgumentException, $$str({"max magnitude is "_s, $$str(maxMag)}));
@@ -207,10 +130,10 @@ void IntegerPolynomial::encodeSmall($ByteBuffer* buf, int32_t length, int8_t hig
 	int64_t curLimbValue = 0;
 	int32_t bitPos = 0;
 	for (int32_t i = 0; i < length; ++i) {
-		int64_t curV = (int32_t)($nc(buf)->get() & (uint32_t)255);
+		int64_t curV = $nc(buf)->get() & 0xff;
 		if (bitPos + 8 >= this->bitsPerLimb) {
 			int32_t bitsThisLimb = this->bitsPerLimb - bitPos;
-			curLimbValue += $sl((int64_t)(curV & (uint64_t)(int64_t)($sr(255, 8 - bitsThisLimb))), bitPos);
+			curLimbValue += $sl(curV & ($sr(255, 8 - bitsThisLimb)), bitPos);
 			$nc(result)->set(limbIndex++, curLimbValue);
 			curLimbValue = $sr(curV, bitsThisLimb);
 			bitPos = 8 - bitsThisLimb;
@@ -220,10 +143,10 @@ void IntegerPolynomial::encodeSmall($ByteBuffer* buf, int32_t length, int8_t hig
 		}
 	}
 	if (highByte != 0) {
-		int64_t curV = (int32_t)(highByte & (uint32_t)255);
+		int64_t curV = highByte & 0xff;
 		if (bitPos + 8 >= this->bitsPerLimb) {
 			int32_t bitsThisLimb = this->bitsPerLimb - bitPos;
-			curLimbValue += $sl((int64_t)(curV & (uint64_t)(int64_t)($sr(255, 8 - bitsThisLimb))), bitPos);
+			curLimbValue += $sl(curV & ($sr(255, 8 - bitsThisLimb)), bitPos);
 			$nc(result)->set(limbIndex++, curLimbValue);
 			curLimbValue = $sr(curV, bitsThisLimb);
 		} else {
@@ -233,7 +156,7 @@ void IntegerPolynomial::encodeSmall($ByteBuffer* buf, int32_t length, int8_t hig
 	if (limbIndex < $nc(result)->length) {
 		result->set(limbIndex++, curLimbValue);
 	}
-	$Arrays::fill(result, limbIndex, $nc(result)->length, (int64_t)0);
+	$Arrays::fill(result, limbIndex, result->length, 0);
 }
 
 void IntegerPolynomial::encode($bytes* v, int32_t offset, int32_t length, int8_t highByte, $longs* result) {
@@ -254,11 +177,11 @@ $ImmutableIntegerModuloP* IntegerPolynomial::getElement($bytes* v, int32_t offse
 }
 
 $BigInteger* IntegerPolynomial::evaluate($longs* limbs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BigInteger);
 	$var($BigInteger, result, $BigInteger::ZERO);
 	for (int32_t i = $nc(limbs)->length - 1; i >= 0; --i) {
-		$assign(result, $nc($($nc(result)->shiftLeft(this->bitsPerLimb)))->add($($BigInteger::valueOf(limbs->get(i)))));
+		$assign(result, $($nc(result)->shiftLeft(this->bitsPerLimb))->add($($BigInteger::valueOf(limbs->get(i)))));
 	}
 	return $nc(result)->mod(this->modulus);
 }
@@ -280,7 +203,7 @@ void IntegerPolynomial::carry($longs* limbs) {
 
 int64_t IntegerPolynomial::carryOut($longs* limbs, int32_t index) {
 	int64_t carry = carryValue($nc(limbs)->get(index));
-	(*$nc(limbs))[index] -= ($sl(carry, this->bitsPerLimb));
+	(*limbs)[index] -= ($sl(carry, this->bitsPerLimb));
 	return carry;
 }
 
@@ -290,11 +213,11 @@ void IntegerPolynomial::setLimbsValue($BigInteger* v, $longs* limbs) {
 }
 
 void IntegerPolynomial::setLimbsValuePositive($BigInteger* v$renamed, $longs* limbs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BigInteger, v, v$renamed);
-	$var($BigInteger, mod, $BigInteger::valueOf((int64_t)$sl(1, this->bitsPerLimb)));
+	$var($BigInteger, mod, $BigInteger::valueOf($sl(1, this->bitsPerLimb)));
 	for (int32_t i = 0; i < $nc(limbs)->length; ++i) {
-		limbs->set(i, $nc($($nc(v)->mod(mod)))->longValue());
+		limbs->set(i, $($nc(v)->mod(mod))->longValue());
 		$assign(v, v->shiftRight(this->bitsPerLimb));
 	}
 }
@@ -333,7 +256,7 @@ void IntegerPolynomial::decode($longs* v, $bytes* dst, int32_t offset, int32_t l
 			}
 			int32_t bitsAdded = this->bitsPerLimb - bitPos;
 			int32_t bitsLeft = 8 - bitsAdded;
-			(*dst)[dstIndex] += $sl((int64_t)(curLimbValue & (uint64_t)(int64_t)($sr(255, bitsAdded))), bitsAdded);
+			(*dst)[dstIndex] += $sl(curLimbValue & ($sr(255, bitsAdded)), bitsAdded);
 			curLimbValue >>= bitsLeft;
 			bitPos = bitsLeft;
 		} else {
@@ -354,7 +277,7 @@ void IntegerPolynomial::conditionalAssign(int32_t set, $longs* a, $longs* b) {
 	$init(IntegerPolynomial);
 	int32_t maskValue = 0 - set;
 	for (int32_t i = 0; i < $nc(a)->length; ++i) {
-		int64_t dummyLimbs = (int64_t)(maskValue & (uint64_t)(a->get(i) ^ $nc(b)->get(i)));
+		int64_t dummyLimbs = maskValue & (a->get(i) ^ $nc(b)->get(i));
 		a->set(i, dummyLimbs ^ a->get(i));
 	}
 }
@@ -363,7 +286,7 @@ void IntegerPolynomial::conditionalSwap(int32_t swap, $longs* a, $longs* b) {
 	$init(IntegerPolynomial);
 	int32_t maskValue = 0 - swap;
 	for (int32_t i = 0; i < $nc(a)->length; ++i) {
-		int64_t dummyLimbs = (int64_t)(maskValue & (uint64_t)(a->get(i) ^ $nc(b)->get(i)));
+		int64_t dummyLimbs = maskValue & (a->get(i) ^ $nc(b)->get(i));
 		a->set(i, dummyLimbs ^ a->get(i));
 		b->set(i, dummyLimbs ^ b->get(i));
 	}
@@ -376,7 +299,7 @@ void IntegerPolynomial::limbsToByteArray($longs* limbs, $bytes* result) {
 }
 
 void IntegerPolynomial::addLimbsModPowerTwo($longs* limbs, $longs* other, $bytes* result) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($longs, reducedOther, $cast($longs, $nc(other)->clone()));
 	$var($longs, reducedLimbs, $cast($longs, $nc(limbs)->clone()));
 	finalReduce(reducedOther);
@@ -391,15 +314,85 @@ void IntegerPolynomial::addLimbsModPowerTwo($longs* limbs, $longs* other, $bytes
 	decode(reducedLimbs, result, 0, $nc(result)->length);
 }
 
-void clinit$IntegerPolynomial($Class* class$) {
-	$assignStatic(IntegerPolynomial::TWO, $BigInteger::valueOf((int64_t)2));
+void IntegerPolynomial::clinit$($Class* clazz) {
+	$assignStatic(IntegerPolynomial::TWO, $BigInteger::valueOf(2));
 }
 
 IntegerPolynomial::IntegerPolynomial() {
 }
 
 $Class* IntegerPolynomial::load$($String* name, bool initialize) {
-	$loadClass(IntegerPolynomial, name, initialize, &_IntegerPolynomial_ClassInfo_, clinit$IntegerPolynomial, allocate$IntegerPolynomial);
+	$FieldInfo fieldInfos$$[] = {
+		{"TWO", "Ljava/math/BigInteger;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(IntegerPolynomial, TWO)},
+		{"numLimbs", "I", nullptr, $PROTECTED | $FINAL, $field(IntegerPolynomial, numLimbs)},
+		{"modulus", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(IntegerPolynomial, modulus)},
+		{"bitsPerLimb", "I", nullptr, $PROTECTED | $FINAL, $field(IntegerPolynomial, bitsPerLimb)},
+		{"posModLimbs", "[J", nullptr, $PRIVATE | $FINAL, $field(IntegerPolynomial, posModLimbs)},
+		{"maxAdds", "I", nullptr, $PRIVATE | $FINAL, $field(IntegerPolynomial, maxAdds)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IIILjava/math/BigInteger;)V", nullptr, 0, $method(IntegerPolynomial, init$, void, int32_t, int32_t, int32_t, $BigInteger*)},
+		{"addLimbs", "([J[J[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, addLimbs, void, $longs*, $longs*, $longs*)},
+		{"addLimbsModPowerTwo", "([J[J[B)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, addLimbsModPowerTwo, void, $longs*, $longs*, $bytes*)},
+		{"carry", "([JII)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, carry, void, $longs*, int32_t, int32_t)},
+		{"carry", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, carry, void, $longs*)},
+		{"carryOut", "([JI)J", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, carryOut, int64_t, $longs*, int32_t)},
+		{"carryValue", "(J)J", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, carryValue, int64_t, int64_t)},
+		{"conditionalAssign", "(I[J[J)V", nullptr, $PROTECTED | $STATIC, $staticMethod(IntegerPolynomial, conditionalAssign, void, int32_t, $longs*, $longs*)},
+		{"conditionalSwap", "(I[J[J)V", nullptr, $PROTECTED | $STATIC, $staticMethod(IntegerPolynomial, conditionalSwap, void, int32_t, $longs*, $longs*)},
+		{"decode", "([J[BII)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, decode, void, $longs*, $bytes*, int32_t, int32_t)},
+		{"encode", "(Ljava/nio/ByteBuffer;IB[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, encode, void, $ByteBuffer*, int32_t, int8_t, $longs*)},
+		{"encode", "([BIIB[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, encode, void, $bytes*, int32_t, int32_t, int8_t, $longs*)},
+		{"encodeSmall", "(Ljava/nio/ByteBuffer;IB[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, encodeSmall, void, $ByteBuffer*, int32_t, int8_t, $longs*)},
+		{"evaluate", "([J)Ljava/math/BigInteger;", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, evaluate, $BigInteger*, $longs*)},
+		{"finalCarryReduceLast", "([J)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(IntegerPolynomial, finalCarryReduceLast, void, $longs*)},
+		{"finalReduce", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, finalReduce, void, $longs*)},
+		{"get0", "()Lsun/security/util/math/intpoly/IntegerPolynomial$ImmutableElement;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial, get0, $ImmutableIntegerModuloP*)},
+		{"get1", "()Lsun/security/util/math/intpoly/IntegerPolynomial$ImmutableElement;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial, get1, $ImmutableIntegerModuloP*)},
+		{"getElement", "(Ljava/math/BigInteger;)Lsun/security/util/math/intpoly/IntegerPolynomial$ImmutableElement;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial, getElement, $ImmutableIntegerModuloP*, $BigInteger*)},
+		{"getElement", "([BIIB)Lsun/security/util/math/intpoly/IntegerPolynomial$ImmutableElement;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial, getElement, $ImmutableIntegerModuloP*, $bytes*, int32_t, int32_t, int8_t)},
+		{"getMaxAdds", "()I", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial, getMaxAdds, int32_t)},
+		{"getNumLimbs", "()I", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, getNumLimbs, int32_t)},
+		{"getSize", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial, getSize, $BigInteger*)},
+		{"getSmallValue", "(I)Lsun/security/util/math/SmallValue;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial, getSmallValue, $SmallValue*, int32_t)},
+		{"limbsToByteArray", "([J[B)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, limbsToByteArray, void, $longs*, $bytes*)},
+		{"mult", "([J[J[J)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(IntegerPolynomial, mult, void, $longs*, $longs*, $longs*)},
+		{"multByInt", "([JJ)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, multByInt, void, $longs*, int64_t)},
+		{"postEncodeCarry", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, postEncodeCarry, void, $longs*)},
+		{"reduce", "([J)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(IntegerPolynomial, reduce, void, $longs*)},
+		{"reduceHigh", "([J)V", nullptr, $PRIVATE, $method(IntegerPolynomial, reduceHigh, void, $longs*)},
+		{"reduceIn", "([JJI)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(IntegerPolynomial, reduceIn, void, $longs*, int64_t, int32_t)},
+		{"setLimbsValue", "(Ljava/math/BigInteger;[J)V", nullptr, $PRIVATE, $method(IntegerPolynomial, setLimbsValue, void, $BigInteger*, $longs*)},
+		{"setLimbsValuePositive", "(Ljava/math/BigInteger;[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial, setLimbsValuePositive, void, $BigInteger*, $longs*)},
+		{"setPosModLimbs", "()[J", nullptr, $PRIVATE, $method(IntegerPolynomial, setPosModLimbs, $longs*)},
+		{"square", "([J[J)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(IntegerPolynomial, square, void, $longs*, $longs*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.math.intpoly.IntegerPolynomial$Limb", "sun.security.util.math.intpoly.IntegerPolynomial", "Limb", $STATIC},
+		{"sun.security.util.math.intpoly.IntegerPolynomial$ImmutableElement", "sun.security.util.math.intpoly.IntegerPolynomial", "ImmutableElement", 0},
+		{"sun.security.util.math.intpoly.IntegerPolynomial$MutableElement", "sun.security.util.math.intpoly.IntegerPolynomial", "MutableElement", $PROTECTED},
+		{"sun.security.util.math.intpoly.IntegerPolynomial$Element", "sun.security.util.math.intpoly.IntegerPolynomial", "Element", $PRIVATE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.security.util.math.intpoly.IntegerPolynomial",
+		"java.lang.Object",
+		"sun.security.util.math.IntegerFieldModuloP",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.util.math.intpoly.IntegerPolynomial$Limb,sun.security.util.math.intpoly.IntegerPolynomial$ImmutableElement,sun.security.util.math.intpoly.IntegerPolynomial$MutableElement,sun.security.util.math.intpoly.IntegerPolynomial$Element"
+	};
+	$loadClass(IntegerPolynomial, name, initialize, &classInfo$$, IntegerPolynomial::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(IntegerPolynomial);
+	});
 	return class$;
 }
 

@@ -66,6 +66,7 @@ class $import URLJarFile : public ::java::util::jar::JarFile {
 	$class(URLJarFile, 0, ::java::util::jar::JarFile)
 public:
 	URLJarFile();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::File* file);
 	void init$(::java::io::File* file, ::sun::net::www::protocol::jar::URLJarFile$URLJarFileCloseController* closeController);
 	void init$(::java::io::File* file, ::sun::net::www::protocol::jar::URLJarFile$URLJarFileCloseController* closeController, ::java::lang::Runtime$Version* version);

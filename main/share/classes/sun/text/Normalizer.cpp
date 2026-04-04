@@ -1,5 +1,4 @@
 #include <sun/text/Normalizer.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/text/Normalizer$Form.h>
 #include <jdk/internal/icu/lang/UCharacter.h>
@@ -18,32 +17,6 @@ using $NormalizerBase = ::jdk::internal::icu::text::NormalizerBase;
 
 namespace sun {
 	namespace text {
-
-$FieldInfo _Normalizer_FieldInfo_[] = {
-	{"UNICODE_3_2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Normalizer, UNICODE_3_2)},
-	{}
-};
-
-$MethodInfo _Normalizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Normalizer, init$, void)},
-	{"getCombiningClass", "(I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Normalizer, getCombiningClass, int32_t, int32_t)},
-	{"isNormalized", "(Ljava/lang/CharSequence;Ljava/text/Normalizer$Form;I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Normalizer, isNormalized, bool, $CharSequence*, $Normalizer$Form*, int32_t)},
-	{"normalize", "(Ljava/lang/CharSequence;Ljava/text/Normalizer$Form;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Normalizer, normalize, $String*, $CharSequence*, $Normalizer$Form*, int32_t)},
-	{}
-};
-
-$ClassInfo _Normalizer_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.text.Normalizer",
-	"java.lang.Object",
-	nullptr,
-	_Normalizer_FieldInfo_,
-	_Normalizer_MethodInfo_
-};
-
-$Object* allocate$Normalizer($Class* clazz) {
-	return $of($alloc(Normalizer));
-}
 
 void Normalizer::init$() {
 }
@@ -64,7 +37,28 @@ Normalizer::Normalizer() {
 }
 
 $Class* Normalizer::load$($String* name, bool initialize) {
-	$loadClass(Normalizer, name, initialize, &_Normalizer_ClassInfo_, allocate$Normalizer);
+	$FieldInfo fieldInfos$$[] = {
+		{"UNICODE_3_2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Normalizer, UNICODE_3_2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Normalizer, init$, void)},
+		{"getCombiningClass", "(I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Normalizer, getCombiningClass, int32_t, int32_t)},
+		{"isNormalized", "(Ljava/lang/CharSequence;Ljava/text/Normalizer$Form;I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Normalizer, isNormalized, bool, $CharSequence*, $Normalizer$Form*, int32_t)},
+		{"normalize", "(Ljava/lang/CharSequence;Ljava/text/Normalizer$Form;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Normalizer, normalize, $String*, $CharSequence*, $Normalizer$Form*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.text.Normalizer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Normalizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Normalizer);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/reflect/ConstantPool.h>
-
 #include <java/lang/reflect/Field.h>
 #include <java/lang/reflect/Member.h>
 #include <java/util/Set.h>
@@ -70,97 +69,6 @@ using $Reflection = ::jdk::internal::reflect::Reflection;
 namespace jdk {
 	namespace internal {
 		namespace reflect {
-
-$FieldInfo _ConstantPool_FieldInfo_[] = {
-	{"constantPoolOop", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(ConstantPool, constantPoolOop)},
-	{"values", "Ljava/util/ArrayList;", nullptr, 2, $field(ConstantPool, values)},
-	{"keysToPos", "Ljava/util/HashMap;", nullptr, 2, $field(ConstantPool, keysToPos)},
-	{}
-};
-
-$MethodInfo _ConstantPool_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ConstantPool, init$, void)},
-	{"getClassAt", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(ConstantPool, getClassAt, $Class*, int32_t)},
-	{"getClassAt0", "(Ljava/lang/Object;I)Ljava/lang/Class;", "(Ljava/lang/Object;I)Ljava/lang/Class<*>;", $PRIVATE | $NATIVE, $method(ConstantPool, getClassAt0, $Class*, Object$*, int32_t)},
-	{"getClassAtIfLoaded", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(ConstantPool, getClassAtIfLoaded, $Class*, int32_t)},
-	{"getClassAtIfLoaded0", "(Ljava/lang/Object;I)Ljava/lang/Class;", "(Ljava/lang/Object;I)Ljava/lang/Class<*>;", $PRIVATE | $NATIVE, $method(ConstantPool, getClassAtIfLoaded0, $Class*, Object$*, int32_t)},
-	{"getClassRefIndexAt", "(I)I", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getClassRefIndexAt, int32_t, int32_t)},
-	{"getClassRefIndexAt0", "(Ljava/lang/Object;I)I", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getClassRefIndexAt0, int32_t, Object$*, int32_t)},
-	{"getDoubleAt", "(I)D", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getDoubleAt, double, int32_t)},
-	{"getDoubleAt0", "(Ljava/lang/Object;I)D", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getDoubleAt0, double, Object$*, int32_t)},
-	{"getFieldAt", "(I)Ljava/lang/reflect/Field;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getFieldAt, $Field*, int32_t)},
-	{"getFieldAt0", "(Ljava/lang/Object;I)Ljava/lang/reflect/Field;", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getFieldAt0, $Field*, Object$*, int32_t)},
-	{"getFieldAtIfLoaded", "(I)Ljava/lang/reflect/Field;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getFieldAtIfLoaded, $Field*, int32_t)},
-	{"getFieldAtIfLoaded0", "(Ljava/lang/Object;I)Ljava/lang/reflect/Field;", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getFieldAtIfLoaded0, $Field*, Object$*, int32_t)},
-	{"getFloatAt", "(I)F", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getFloatAt, float, int32_t)},
-	{"getFloatAt0", "(Ljava/lang/Object;I)F", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getFloatAt0, float, Object$*, int32_t)},
-	{"getIntAt", "(I)I", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getIntAt, int32_t, int32_t)},
-	{"getIntAt0", "(Ljava/lang/Object;I)I", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getIntAt0, int32_t, Object$*, int32_t)},
-	{"getLongAt", "(I)J", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getLongAt, int64_t, int32_t)},
-	{"getLongAt0", "(Ljava/lang/Object;I)J", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getLongAt0, int64_t, Object$*, int32_t)},
-	{"getMemberRefInfoAt", "(I)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getMemberRefInfoAt, $StringArray*, int32_t)},
-	{"getMemberRefInfoAt0", "(Ljava/lang/Object;I)[Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getMemberRefInfoAt0, $StringArray*, Object$*, int32_t)},
-	{"getMethodAt", "(I)Ljava/lang/reflect/Member;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getMethodAt, $Member*, int32_t)},
-	{"getMethodAt0", "(Ljava/lang/Object;I)Ljava/lang/reflect/Member;", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getMethodAt0, $Member*, Object$*, int32_t)},
-	{"getMethodAtIfLoaded", "(I)Ljava/lang/reflect/Member;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getMethodAtIfLoaded, $Member*, int32_t)},
-	{"getMethodAtIfLoaded0", "(Ljava/lang/Object;I)Ljava/lang/reflect/Member;", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getMethodAtIfLoaded0, $Member*, Object$*, int32_t)},
-	{"getNameAndTypeRefIndexAt", "(I)I", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getNameAndTypeRefIndexAt, int32_t, int32_t)},
-	{"getNameAndTypeRefIndexAt0", "(Ljava/lang/Object;I)I", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getNameAndTypeRefIndexAt0, int32_t, Object$*, int32_t)},
-	{"getNameAndTypeRefInfoAt", "(I)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getNameAndTypeRefInfoAt, $StringArray*, int32_t)},
-	{"getNameAndTypeRefInfoAt0", "(Ljava/lang/Object;I)[Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getNameAndTypeRefInfoAt0, $StringArray*, Object$*, int32_t)},
-	{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getSize, int32_t)},
-	{"getSize0", "(Ljava/lang/Object;)I", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getSize0, int32_t, Object$*)},
-	{"getStringAt", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getStringAt, $String*, int32_t)},
-	{"getStringAt0", "(Ljava/lang/Object;I)Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getStringAt0, $String*, Object$*, int32_t)},
-	{"getTagAt", "(I)Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getTagAt, $ConstantPool$Tag*, int32_t)},
-	{"getTagAt0", "(Ljava/lang/Object;I)B", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getTagAt0, int8_t, Object$*, int32_t)},
-	{"getUTF8At", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getUTF8At, $String*, int32_t)},
-	{"getUTF8At0", "(Ljava/lang/Object;I)Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getUTF8At0, $String*, Object$*, int32_t)},
-	{}
-};
-
-#define _METHOD_INDEX_getClassAt0 2
-#define _METHOD_INDEX_getClassAtIfLoaded0 4
-#define _METHOD_INDEX_getClassRefIndexAt0 6
-#define _METHOD_INDEX_getDoubleAt0 8
-#define _METHOD_INDEX_getFieldAt0 10
-#define _METHOD_INDEX_getFieldAtIfLoaded0 12
-#define _METHOD_INDEX_getFloatAt0 14
-#define _METHOD_INDEX_getIntAt0 16
-#define _METHOD_INDEX_getLongAt0 18
-#define _METHOD_INDEX_getMemberRefInfoAt0 20
-#define _METHOD_INDEX_getMethodAt0 22
-#define _METHOD_INDEX_getMethodAtIfLoaded0 24
-#define _METHOD_INDEX_getNameAndTypeRefIndexAt0 26
-#define _METHOD_INDEX_getNameAndTypeRefInfoAt0 28
-#define _METHOD_INDEX_getSize0 30
-#define _METHOD_INDEX_getStringAt0 32
-#define _METHOD_INDEX_getTagAt0 34
-#define _METHOD_INDEX_getUTF8At0 36
-
-$InnerClassInfo _ConstantPool_InnerClassesInfo_[] = {
-	{"jdk.internal.reflect.ConstantPool$Tag", "jdk.internal.reflect.ConstantPool", "Tag", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _ConstantPool_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.reflect.ConstantPool",
-	"java.lang.Object",
-	nullptr,
-	_ConstantPool_FieldInfo_,
-	_ConstantPool_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ConstantPool_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.reflect.ConstantPool$Tag"
-};
-
-$Object* allocate$ConstantPool($Class* clazz) {
-	return $of($alloc(ConstantPool));
-}
 
 void ConstantPool::init$() {
 	$set(this, values, $new<ArrayList>());
@@ -322,14 +230,87 @@ int8_t ConstantPool::getTagAt0(Object$* constantPoolOop, int32_t index) {
 	return getTag(index);
 }
 
-void clinit$ConstantPool($Class* class$) {
+void ConstantPool::clinit$($Class* clazz) {
 	{
-		$Reflection::registerFieldsToFilter(ConstantPool::class$, $($Set::of($of("constantPoolOop"_s))));
+		$Reflection::registerFieldsToFilter(ConstantPool::class$, $($Set::of("constantPoolOop"_s)));
 	}
 }
 
 ConstantPool::ConstantPool() {
 }
+
+$Class* ConstantPool::load$($String* name, bool initialize) {
+	$FieldInfo fieldInfos$$[] = {
+		{"constantPoolOop", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(ConstantPool, constantPoolOop)},
+		{"values", "Ljava/util/ArrayList;", nullptr, 2, $field(ConstantPool, values)},
+		{"keysToPos", "Ljava/util/HashMap;", nullptr, 2, $field(ConstantPool, keysToPos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ConstantPool, init$, void)},
+		{"getClassAt", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(ConstantPool, getClassAt, $Class*, int32_t)},
+		{"getClassAt0", "(Ljava/lang/Object;I)Ljava/lang/Class;", "(Ljava/lang/Object;I)Ljava/lang/Class<*>;", $PRIVATE | $NATIVE, $method(ConstantPool, getClassAt0, $Class*, Object$*, int32_t)},
+		{"getClassAtIfLoaded", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(ConstantPool, getClassAtIfLoaded, $Class*, int32_t)},
+		{"getClassAtIfLoaded0", "(Ljava/lang/Object;I)Ljava/lang/Class;", "(Ljava/lang/Object;I)Ljava/lang/Class<*>;", $PRIVATE | $NATIVE, $method(ConstantPool, getClassAtIfLoaded0, $Class*, Object$*, int32_t)},
+		{"getClassRefIndexAt", "(I)I", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getClassRefIndexAt, int32_t, int32_t)},
+		{"getClassRefIndexAt0", "(Ljava/lang/Object;I)I", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getClassRefIndexAt0, int32_t, Object$*, int32_t)},
+		{"getDoubleAt", "(I)D", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getDoubleAt, double, int32_t)},
+		{"getDoubleAt0", "(Ljava/lang/Object;I)D", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getDoubleAt0, double, Object$*, int32_t)},
+		{"getFieldAt", "(I)Ljava/lang/reflect/Field;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getFieldAt, $Field*, int32_t)},
+		{"getFieldAt0", "(Ljava/lang/Object;I)Ljava/lang/reflect/Field;", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getFieldAt0, $Field*, Object$*, int32_t)},
+		{"getFieldAtIfLoaded", "(I)Ljava/lang/reflect/Field;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getFieldAtIfLoaded, $Field*, int32_t)},
+		{"getFieldAtIfLoaded0", "(Ljava/lang/Object;I)Ljava/lang/reflect/Field;", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getFieldAtIfLoaded0, $Field*, Object$*, int32_t)},
+		{"getFloatAt", "(I)F", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getFloatAt, float, int32_t)},
+		{"getFloatAt0", "(Ljava/lang/Object;I)F", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getFloatAt0, float, Object$*, int32_t)},
+		{"getIntAt", "(I)I", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getIntAt, int32_t, int32_t)},
+		{"getIntAt0", "(Ljava/lang/Object;I)I", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getIntAt0, int32_t, Object$*, int32_t)},
+		{"getLongAt", "(I)J", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getLongAt, int64_t, int32_t)},
+		{"getLongAt0", "(Ljava/lang/Object;I)J", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getLongAt0, int64_t, Object$*, int32_t)},
+		{"getMemberRefInfoAt", "(I)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getMemberRefInfoAt, $StringArray*, int32_t)},
+		{"getMemberRefInfoAt0", "(Ljava/lang/Object;I)[Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getMemberRefInfoAt0, $StringArray*, Object$*, int32_t)},
+		{"getMethodAt", "(I)Ljava/lang/reflect/Member;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getMethodAt, $Member*, int32_t)},
+		{"getMethodAt0", "(Ljava/lang/Object;I)Ljava/lang/reflect/Member;", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getMethodAt0, $Member*, Object$*, int32_t)},
+		{"getMethodAtIfLoaded", "(I)Ljava/lang/reflect/Member;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getMethodAtIfLoaded, $Member*, int32_t)},
+		{"getMethodAtIfLoaded0", "(Ljava/lang/Object;I)Ljava/lang/reflect/Member;", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getMethodAtIfLoaded0, $Member*, Object$*, int32_t)},
+		{"getNameAndTypeRefIndexAt", "(I)I", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getNameAndTypeRefIndexAt, int32_t, int32_t)},
+		{"getNameAndTypeRefIndexAt0", "(Ljava/lang/Object;I)I", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getNameAndTypeRefIndexAt0, int32_t, Object$*, int32_t)},
+		{"getNameAndTypeRefInfoAt", "(I)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getNameAndTypeRefInfoAt, $StringArray*, int32_t)},
+		{"getNameAndTypeRefInfoAt0", "(Ljava/lang/Object;I)[Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getNameAndTypeRefInfoAt0, $StringArray*, Object$*, int32_t)},
+		{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getSize, int32_t)},
+		{"getSize0", "(Ljava/lang/Object;)I", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getSize0, int32_t, Object$*)},
+		{"getStringAt", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getStringAt, $String*, int32_t)},
+		{"getStringAt0", "(Ljava/lang/Object;I)Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getStringAt0, $String*, Object$*, int32_t)},
+		{"getTagAt", "(I)Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getTagAt, $ConstantPool$Tag*, int32_t)},
+		{"getTagAt0", "(Ljava/lang/Object;I)B", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getTagAt0, int8_t, Object$*, int32_t)},
+		{"getUTF8At", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getUTF8At, $String*, int32_t)},
+		{"getUTF8At0", "(Ljava/lang/Object;I)Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(ConstantPool, getUTF8At0, $String*, Object$*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.reflect.ConstantPool$Tag", "jdk.internal.reflect.ConstantPool", "Tag", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.reflect.ConstantPool",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.reflect.ConstantPool$Tag"
+	};
+	$loadClass(ConstantPool, name, initialize, &classInfo$$, ConstantPool::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ConstantPool);
+	});
+	return class$;
+}
+
+$Class* ConstantPool::class$ = nullptr;
 
 
 void ConstantPool::putUTF8(int32_t index, $String* v) {
@@ -1007,13 +988,6 @@ void ConstantPool::init() {
 		$nullcheck(value)->init(this);
 	}
 }
-
-$Class* ConstantPool::load$($String* name, bool initialize) {
-	$loadClass(ConstantPool, name, initialize, &_ConstantPool_ClassInfo_, clinit$ConstantPool, allocate$ConstantPool);
-	return class$;
-}
-
-$Class* ConstantPool::class$ = nullptr;
 
 		} // reflect
 	} // internal

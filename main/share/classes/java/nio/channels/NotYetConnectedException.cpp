@@ -1,5 +1,4 @@
 #include <java/nio/channels/NotYetConnectedException.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace nio {
 		namespace channels {
-
-$FieldInfo _NotYetConnectedException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NotYetConnectedException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NotYetConnectedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NotYetConnectedException, init$, void)},
-	{}
-};
-
-$ClassInfo _NotYetConnectedException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.channels.NotYetConnectedException",
-	"java.lang.IllegalStateException",
-	nullptr,
-	_NotYetConnectedException_FieldInfo_,
-	_NotYetConnectedException_MethodInfo_
-};
-
-$Object* allocate$NotYetConnectedException($Class* clazz) {
-	return $of($alloc(NotYetConnectedException));
-}
 
 void NotYetConnectedException::init$() {
 	$IllegalStateException::init$();
@@ -50,7 +26,25 @@ void NotYetConnectedException::throw$() {
 }
 
 $Class* NotYetConnectedException::load$($String* name, bool initialize) {
-	$loadClass(NotYetConnectedException, name, initialize, &_NotYetConnectedException_ClassInfo_, allocate$NotYetConnectedException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NotYetConnectedException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NotYetConnectedException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.channels.NotYetConnectedException",
+		"java.lang.IllegalStateException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NotYetConnectedException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NotYetConnectedException);
+	});
 	return class$;
 }
 

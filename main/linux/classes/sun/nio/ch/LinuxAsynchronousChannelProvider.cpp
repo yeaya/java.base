@@ -1,5 +1,4 @@
 #include <sun/nio/ch/LinuxAsynchronousChannelProvider.h>
-
 #include <java/nio/channels/AsynchronousChannelGroup.h>
 #include <java/nio/channels/AsynchronousServerSocketChannel.h>
 #include <java/nio/channels/AsynchronousSocketChannel.h>
@@ -34,39 +33,10 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _LinuxAsynchronousChannelProvider_FieldInfo_[] = {
-	{"defaultPort", "Lsun/nio/ch/EPollPort;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(LinuxAsynchronousChannelProvider, defaultPort)},
-	{}
-};
-
-$MethodInfo _LinuxAsynchronousChannelProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LinuxAsynchronousChannelProvider, init$, void)},
-	{"defaultEventPort", "()Lsun/nio/ch/EPollPort;", nullptr, $PRIVATE, $method(LinuxAsynchronousChannelProvider, defaultEventPort, $EPollPort*), "java.io.IOException"},
-	{"openAsynchronousChannelGroup", "(ILjava/util/concurrent/ThreadFactory;)Ljava/nio/channels/AsynchronousChannelGroup;", nullptr, $PUBLIC, $virtualMethod(LinuxAsynchronousChannelProvider, openAsynchronousChannelGroup, $AsynchronousChannelGroup*, int32_t, $ThreadFactory*), "java.io.IOException"},
-	{"openAsynchronousChannelGroup", "(Ljava/util/concurrent/ExecutorService;I)Ljava/nio/channels/AsynchronousChannelGroup;", nullptr, $PUBLIC, $virtualMethod(LinuxAsynchronousChannelProvider, openAsynchronousChannelGroup, $AsynchronousChannelGroup*, $ExecutorService*, int32_t), "java.io.IOException"},
-	{"openAsynchronousServerSocketChannel", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousServerSocketChannel;", nullptr, $PUBLIC, $virtualMethod(LinuxAsynchronousChannelProvider, openAsynchronousServerSocketChannel, $AsynchronousServerSocketChannel*, $AsynchronousChannelGroup*), "java.io.IOException"},
-	{"openAsynchronousSocketChannel", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousSocketChannel;", nullptr, $PUBLIC, $virtualMethod(LinuxAsynchronousChannelProvider, openAsynchronousSocketChannel, $AsynchronousSocketChannel*, $AsynchronousChannelGroup*), "java.io.IOException"},
-	{"toPort", "(Ljava/nio/channels/AsynchronousChannelGroup;)Lsun/nio/ch/Port;", nullptr, $PRIVATE, $method(LinuxAsynchronousChannelProvider, toPort, $Port*, $AsynchronousChannelGroup*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _LinuxAsynchronousChannelProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.ch.LinuxAsynchronousChannelProvider",
-	"java.nio.channels.spi.AsynchronousChannelProvider",
-	nullptr,
-	_LinuxAsynchronousChannelProvider_FieldInfo_,
-	_LinuxAsynchronousChannelProvider_MethodInfo_
-};
-
-$Object* allocate$LinuxAsynchronousChannelProvider($Class* clazz) {
-	return $of($alloc(LinuxAsynchronousChannelProvider));
-}
-
 $volatile($EPollPort*) LinuxAsynchronousChannelProvider::defaultPort = nullptr;
 
 $EPollPort* LinuxAsynchronousChannelProvider::defaultEventPort() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (LinuxAsynchronousChannelProvider::defaultPort == nullptr) {
 		$synchronized(LinuxAsynchronousChannelProvider::class$) {
 			if (LinuxAsynchronousChannelProvider::defaultPort == nullptr) {
@@ -82,12 +52,12 @@ void LinuxAsynchronousChannelProvider::init$() {
 }
 
 $AsynchronousChannelGroup* LinuxAsynchronousChannelProvider::openAsynchronousChannelGroup(int32_t nThreads, $ThreadFactory* factory) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $$new($EPollPort, this, $($ThreadPool::create(nThreads, factory)))->start();
 }
 
 $AsynchronousChannelGroup* LinuxAsynchronousChannelProvider::openAsynchronousChannelGroup($ExecutorService* executor, int32_t initialSize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $$new($EPollPort, this, $($ThreadPool::wrap(executor, initialSize)))->start();
 }
 
@@ -114,7 +84,31 @@ LinuxAsynchronousChannelProvider::LinuxAsynchronousChannelProvider() {
 }
 
 $Class* LinuxAsynchronousChannelProvider::load$($String* name, bool initialize) {
-	$loadClass(LinuxAsynchronousChannelProvider, name, initialize, &_LinuxAsynchronousChannelProvider_ClassInfo_, allocate$LinuxAsynchronousChannelProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultPort", "Lsun/nio/ch/EPollPort;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(LinuxAsynchronousChannelProvider, defaultPort)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LinuxAsynchronousChannelProvider, init$, void)},
+		{"defaultEventPort", "()Lsun/nio/ch/EPollPort;", nullptr, $PRIVATE, $method(LinuxAsynchronousChannelProvider, defaultEventPort, $EPollPort*), "java.io.IOException"},
+		{"openAsynchronousChannelGroup", "(ILjava/util/concurrent/ThreadFactory;)Ljava/nio/channels/AsynchronousChannelGroup;", nullptr, $PUBLIC, $virtualMethod(LinuxAsynchronousChannelProvider, openAsynchronousChannelGroup, $AsynchronousChannelGroup*, int32_t, $ThreadFactory*), "java.io.IOException"},
+		{"openAsynchronousChannelGroup", "(Ljava/util/concurrent/ExecutorService;I)Ljava/nio/channels/AsynchronousChannelGroup;", nullptr, $PUBLIC, $virtualMethod(LinuxAsynchronousChannelProvider, openAsynchronousChannelGroup, $AsynchronousChannelGroup*, $ExecutorService*, int32_t), "java.io.IOException"},
+		{"openAsynchronousServerSocketChannel", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousServerSocketChannel;", nullptr, $PUBLIC, $virtualMethod(LinuxAsynchronousChannelProvider, openAsynchronousServerSocketChannel, $AsynchronousServerSocketChannel*, $AsynchronousChannelGroup*), "java.io.IOException"},
+		{"openAsynchronousSocketChannel", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousSocketChannel;", nullptr, $PUBLIC, $virtualMethod(LinuxAsynchronousChannelProvider, openAsynchronousSocketChannel, $AsynchronousSocketChannel*, $AsynchronousChannelGroup*), "java.io.IOException"},
+		{"toPort", "(Ljava/nio/channels/AsynchronousChannelGroup;)Lsun/nio/ch/Port;", nullptr, $PRIVATE, $method(LinuxAsynchronousChannelProvider, toPort, $Port*, $AsynchronousChannelGroup*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.ch.LinuxAsynchronousChannelProvider",
+		"java.nio.channels.spi.AsynchronousChannelProvider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LinuxAsynchronousChannelProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LinuxAsynchronousChannelProvider);
+	});
 	return class$;
 }
 

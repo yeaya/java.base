@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CertStatusExtension$CertStatusRequestType.h>
-
 #include <java/lang/Enum.h>
 #include <sun/security/ssl/CertStatusExtension.h>
 #include <jcpp.h>
@@ -17,50 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _CertStatusExtension$CertStatusRequestType_FieldInfo_[] = {
-	{"OCSP", "Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertStatusExtension$CertStatusRequestType, OCSP)},
-	{"OCSP_MULTI", "Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertStatusExtension$CertStatusRequestType, OCSP_MULTI)},
-	{"$VALUES", "[Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CertStatusExtension$CertStatusRequestType, $VALUES)},
-	{"id", "B", nullptr, $FINAL, $field(CertStatusExtension$CertStatusRequestType, id)},
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(CertStatusExtension$CertStatusRequestType, name$)},
-	{}
-};
-
-$MethodInfo _CertStatusExtension$CertStatusRequestType_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CertStatusExtension$CertStatusRequestType, $values, $CertStatusExtension$CertStatusRequestTypeArray*)},
-	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;)V", "(BLjava/lang/String;)V", $PRIVATE, $method(CertStatusExtension$CertStatusRequestType, init$, void, $String*, int32_t, int8_t, $String*)},
-	{"nameOf", "(B)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(CertStatusExtension$CertStatusRequestType, nameOf, $String*, int8_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertStatusExtension$CertStatusRequestType, valueOf, CertStatusExtension$CertStatusRequestType*, $String*)},
-	{"valueOf", "(B)Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;", nullptr, $STATIC, $staticMethod(CertStatusExtension$CertStatusRequestType, valueOf, CertStatusExtension$CertStatusRequestType*, int8_t)},
-	{"values", "()[Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertStatusExtension$CertStatusRequestType, values, $CertStatusExtension$CertStatusRequestTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _CertStatusExtension$CertStatusRequestType_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertStatusExtension$CertStatusRequestType", "sun.security.ssl.CertStatusExtension", "CertStatusRequestType", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _CertStatusExtension$CertStatusRequestType_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.ssl.CertStatusExtension$CertStatusRequestType",
-	"java.lang.Enum",
-	nullptr,
-	_CertStatusExtension$CertStatusRequestType_FieldInfo_,
-	_CertStatusExtension$CertStatusRequestType_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;>;",
-	nullptr,
-	_CertStatusExtension$CertStatusRequestType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertStatusExtension"
-};
-
-$Object* allocate$CertStatusExtension$CertStatusRequestType($Class* clazz) {
-	return $of($alloc(CertStatusExtension$CertStatusRequestType));
-}
 
 CertStatusExtension$CertStatusRequestType* CertStatusExtension$CertStatusRequestType::OCSP = nullptr;
 CertStatusExtension$CertStatusRequestType* CertStatusExtension$CertStatusRequestType::OCSP_MULTI = nullptr;
@@ -92,17 +47,11 @@ void CertStatusExtension$CertStatusRequestType::init$($String* $enum$name, int32
 
 CertStatusExtension$CertStatusRequestType* CertStatusExtension$CertStatusRequestType::valueOf(int8_t id) {
 	$init(CertStatusExtension$CertStatusRequestType);
-	{
-		$var($CertStatusExtension$CertStatusRequestTypeArray, arr$, CertStatusExtension$CertStatusRequestType::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			CertStatusExtension$CertStatusRequestType* srt = arr$->get(i$);
-			{
-				if ($nc(srt)->id == id) {
-					return srt;
-				}
-			}
+	$var($CertStatusExtension$CertStatusRequestTypeArray, arr$, CertStatusExtension$CertStatusRequestType::values());
+	for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+		CertStatusExtension$CertStatusRequestType* srt = arr$->get(i$);
+		if ($nc(srt)->id == id) {
+			return srt;
 		}
 	}
 	return nullptr;
@@ -110,24 +59,20 @@ CertStatusExtension$CertStatusRequestType* CertStatusExtension$CertStatusRequest
 
 $String* CertStatusExtension$CertStatusRequestType::nameOf(int8_t id) {
 	$init(CertStatusExtension$CertStatusRequestType);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($CertStatusExtension$CertStatusRequestTypeArray, arr$, CertStatusExtension$CertStatusRequestType::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			CertStatusExtension$CertStatusRequestType* srt = arr$->get(i$);
-			{
-				if ($nc(srt)->id == id) {
-					return srt->name$;
-				}
+			if ($nc(srt)->id == id) {
+				return srt->name$;
 			}
 		}
 	}
 	return $str({"UNDEFINED-CERT-STATUS-TYPE("_s, $$str(id), ")"_s});
 }
 
-void clinit$CertStatusExtension$CertStatusRequestType($Class* class$) {
+void CertStatusExtension$CertStatusRequestType::clinit$($Class* clazz) {
 	$assignStatic(CertStatusExtension$CertStatusRequestType::OCSP, $new(CertStatusExtension$CertStatusRequestType, "OCSP"_s, 0, (int8_t)1, "ocsp"_s));
 	$assignStatic(CertStatusExtension$CertStatusRequestType::OCSP_MULTI, $new(CertStatusExtension$CertStatusRequestType, "OCSP_MULTI"_s, 1, (int8_t)2, "ocsp_multi"_s));
 	$assignStatic(CertStatusExtension$CertStatusRequestType::$VALUES, CertStatusExtension$CertStatusRequestType::$values());
@@ -137,7 +82,45 @@ CertStatusExtension$CertStatusRequestType::CertStatusExtension$CertStatusRequest
 }
 
 $Class* CertStatusExtension$CertStatusRequestType::load$($String* name, bool initialize) {
-	$loadClass(CertStatusExtension$CertStatusRequestType, name, initialize, &_CertStatusExtension$CertStatusRequestType_ClassInfo_, clinit$CertStatusExtension$CertStatusRequestType, allocate$CertStatusExtension$CertStatusRequestType);
+	$FieldInfo fieldInfos$$[] = {
+		{"OCSP", "Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertStatusExtension$CertStatusRequestType, OCSP)},
+		{"OCSP_MULTI", "Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertStatusExtension$CertStatusRequestType, OCSP_MULTI)},
+		{"$VALUES", "[Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CertStatusExtension$CertStatusRequestType, $VALUES)},
+		{"id", "B", nullptr, $FINAL, $field(CertStatusExtension$CertStatusRequestType, id)},
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(CertStatusExtension$CertStatusRequestType, name$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CertStatusExtension$CertStatusRequestType, $values, $CertStatusExtension$CertStatusRequestTypeArray*)},
+		{"<init>", "(Ljava/lang/String;IBLjava/lang/String;)V", "(BLjava/lang/String;)V", $PRIVATE, $method(CertStatusExtension$CertStatusRequestType, init$, void, $String*, int32_t, int8_t, $String*)},
+		{"nameOf", "(B)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(CertStatusExtension$CertStatusRequestType, nameOf, $String*, int8_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertStatusExtension$CertStatusRequestType, valueOf, CertStatusExtension$CertStatusRequestType*, $String*)},
+		{"valueOf", "(B)Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;", nullptr, $STATIC, $staticMethod(CertStatusExtension$CertStatusRequestType, valueOf, CertStatusExtension$CertStatusRequestType*, int8_t)},
+		{"values", "()[Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertStatusExtension$CertStatusRequestType, values, $CertStatusExtension$CertStatusRequestTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertStatusExtension$CertStatusRequestType", "sun.security.ssl.CertStatusExtension", "CertStatusRequestType", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.ssl.CertStatusExtension$CertStatusRequestType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertStatusExtension"
+	};
+	$loadClass(CertStatusExtension$CertStatusRequestType, name, initialize, &classInfo$$, CertStatusExtension$CertStatusRequestType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CertStatusExtension$CertStatusRequestType));
+	});
 	return class$;
 }
 

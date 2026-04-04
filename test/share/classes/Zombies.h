@@ -9,6 +9,7 @@ class $export Zombies : public ::java::lang::Object {
 	$class(Zombies, 0, ::java::lang::Object)
 public:
 	Zombies();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $String* os;

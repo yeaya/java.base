@@ -1,5 +1,4 @@
 #include <java/security/UnrecoverableEntryException.h>
-
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _UnrecoverableEntryException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnrecoverableEntryException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _UnrecoverableEntryException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UnrecoverableEntryException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnrecoverableEntryException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _UnrecoverableEntryException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.UnrecoverableEntryException",
-	"java.security.GeneralSecurityException",
-	nullptr,
-	_UnrecoverableEntryException_FieldInfo_,
-	_UnrecoverableEntryException_MethodInfo_
-};
-
-$Object* allocate$UnrecoverableEntryException($Class* clazz) {
-	return $of($alloc(UnrecoverableEntryException));
-}
 
 void UnrecoverableEntryException::init$() {
 	$GeneralSecurityException::init$();
@@ -54,7 +29,26 @@ void UnrecoverableEntryException::throw$() {
 }
 
 $Class* UnrecoverableEntryException::load$($String* name, bool initialize) {
-	$loadClass(UnrecoverableEntryException, name, initialize, &_UnrecoverableEntryException_ClassInfo_, allocate$UnrecoverableEntryException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnrecoverableEntryException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UnrecoverableEntryException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnrecoverableEntryException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.UnrecoverableEntryException",
+		"java.security.GeneralSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnrecoverableEntryException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnrecoverableEntryException);
+	});
 	return class$;
 }
 

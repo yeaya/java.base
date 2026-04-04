@@ -15,6 +15,7 @@ class $export SendDatagramToBadAddress : public ::java::lang::Object {
 	$class(SendDatagramToBadAddress, 0, ::java::lang::Object)
 public:
 	SendDatagramToBadAddress();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool OSsupportsFeature();
 	static void main($StringArray* args);

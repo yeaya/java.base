@@ -30,6 +30,7 @@ public:
 	ByteBufferAsDoubleBufferB();
 	using ::java::nio::DoubleBuffer::get;
 	using ::java::nio::DoubleBuffer::limit;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::ByteBuffer* bb, ::jdk::internal::access::foreign::MemorySegmentProxy* segment);
 	void init$(::java::nio::ByteBuffer* bb, int32_t mark, int32_t pos, int32_t lim, int32_t cap, int64_t addr, ::jdk::internal::access::foreign::MemorySegmentProxy* segment);
 	virtual ::java::nio::DoubleBuffer* asReadOnlyBuffer() override;

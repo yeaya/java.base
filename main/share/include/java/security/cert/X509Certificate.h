@@ -75,7 +75,7 @@ public:
 	using ::java::security::cert::Certificate::verify;
 	virtual $String* toString() override;
 	virtual void verify(::java::security::PublicKey* key, ::java::security::Provider* sigProvider) override;
-	static const int64_t serialVersionUID = (int64_t)0xDD6DBCA837EF9DF8;
+	static const int64_t serialVersionUID = (int64_t)0xdd6dbca837ef9df8;
 	::javax::security::auth::x500::X500Principal* subjectX500Principal = nullptr;
 	::javax::security::auth::x500::X500Principal* issuerX500Principal = nullptr;
 };

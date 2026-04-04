@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/tree/FrameNode.h>
-
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
@@ -39,36 +38,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace tree {
 
-$FieldInfo _FrameNode_FieldInfo_[] = {
-	{"type", "I", nullptr, $PUBLIC, $field(FrameNode, type)},
-	{"local", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $field(FrameNode, local)},
-	{"stack", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $field(FrameNode, stack)},
-	{}
-};
-
-$MethodInfo _FrameNode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(FrameNode, init$, void)},
-	{"<init>", "(II[Ljava/lang/Object;I[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(FrameNode, init$, void, int32_t, int32_t, $ObjectArray*, int32_t, $ObjectArray*)},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $virtualMethod(FrameNode, accept, void, $MethodVisitor*)},
-	{"asArray", "(Ljava/util/List;)[Ljava/lang/Object;", "(Ljava/util/List<Ljava/lang/Object;>;)[Ljava/lang/Object;", $PRIVATE | $STATIC, $staticMethod(FrameNode, asArray, $ObjectArray*, $List*)},
-	{"clone", "(Ljava/util/Map;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", "(Ljava/util/Map<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", $PUBLIC, $virtualMethod(FrameNode, clone, $AbstractInsnNode*, $Map*)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(FrameNode, getType, int32_t)},
-	{}
-};
-
-$ClassInfo _FrameNode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.tree.FrameNode",
-	"jdk.internal.org.objectweb.asm.tree.AbstractInsnNode",
-	nullptr,
-	_FrameNode_FieldInfo_,
-	_FrameNode_MethodInfo_
-};
-
-$Object* allocate$FrameNode($Class* clazz) {
-	return $of($alloc(FrameNode));
-}
-
 void FrameNode::init$() {
 	$AbstractInsnNode::init$(-1);
 }
@@ -78,36 +47,23 @@ void FrameNode::init$(int32_t type, int32_t numLocal, $ObjectArray* local, int32
 	this->type = type;
 	switch (type) {
 	case $Opcodes::F_NEW:
-		{}
 	case $Opcodes::F_FULL:
-		{
-			$set(this, local, $Util::asArrayList(numLocal, local));
-			$set(this, stack, $Util::asArrayList(numStack, stack));
-			break;
-		}
+		$set(this, local, $Util::asArrayList(numLocal, local));
+		$set(this, stack, $Util::asArrayList(numStack, stack));
+		break;
 	case $Opcodes::F_APPEND:
-		{
-			$set(this, local, $Util::asArrayList(numLocal, local));
-			break;
-		}
+		$set(this, local, $Util::asArrayList(numLocal, local));
+		break;
 	case $Opcodes::F_CHOP:
-		{
-			$set(this, local, $Util::asArrayList(numLocal));
-			break;
-		}
+		$set(this, local, $Util::asArrayList(numLocal));
+		break;
 	case $Opcodes::F_SAME:
-		{
-			break;
-		}
+		break;
 	case $Opcodes::F_SAME1:
-		{
-			$set(this, stack, $Util::asArrayList(1, stack));
-			break;
-		}
+		$set(this, stack, $Util::asArrayList(1, stack));
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException);
-		}
+		$throwNew($IllegalArgumentException);
 	}
 }
 
@@ -116,10 +72,9 @@ int32_t FrameNode::getType() {
 }
 
 void FrameNode::accept($MethodVisitor* methodVisitor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (this->type) {
 	case $Opcodes::F_NEW:
-		{}
 	case $Opcodes::F_FULL:
 		{
 			int32_t var$0 = this->type;
@@ -137,57 +92,41 @@ void FrameNode::accept($MethodVisitor* methodVisitor) {
 			break;
 		}
 	case $Opcodes::F_CHOP:
-		{
-			$nc(methodVisitor)->visitFrame(this->type, $nc(this->local)->size(), nullptr, 0, nullptr);
-			break;
-		}
+		$nc(methodVisitor)->visitFrame(this->type, $nc(this->local)->size(), nullptr, 0, nullptr);
+		break;
 	case $Opcodes::F_SAME:
-		{
-			$nc(methodVisitor)->visitFrame(this->type, 0, nullptr, 0, nullptr);
-			break;
-		}
+		$nc(methodVisitor)->visitFrame(this->type, 0, nullptr, 0, nullptr);
+		break;
 	case $Opcodes::F_SAME1:
-		{
-			$nc(methodVisitor)->visitFrame(this->type, 0, nullptr, 1, $(asArray(this->stack)));
-			break;
-		}
+		$nc(methodVisitor)->visitFrame(this->type, 0, nullptr, 1, $(asArray(this->stack)));
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException);
-		}
+		$throwNew($IllegalArgumentException);
 	}
 }
 
 $AbstractInsnNode* FrameNode::clone($Map* clonedLabels) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(FrameNode, clone, $new(FrameNode));
 	clone->type = this->type;
 	if (this->local != nullptr) {
 		$set(clone, local, $new($ArrayList));
-		{
-			int32_t i = 0;
-			int32_t n = $nc(this->local)->size();
-			for (; i < n; ++i) {
-				$var($Object, localElement, $nc(this->local)->get(i));
-				if ($instanceOf($LabelNode, localElement)) {
-					$assign(localElement, $nc(clonedLabels)->get(localElement));
-				}
-				$nc(clone->local)->add(localElement);
+		for (int32_t i = 0, n = this->local->size(); i < n; ++i) {
+			$var($Object, localElement, this->local->get(i));
+			if ($instanceOf($LabelNode, localElement)) {
+				$assign(localElement, $nc(clonedLabels)->get(localElement));
 			}
+			clone->local->add(localElement);
 		}
 	}
 	if (this->stack != nullptr) {
 		$set(clone, stack, $new($ArrayList));
-		{
-			int32_t i = 0;
-			int32_t n = $nc(this->stack)->size();
-			for (; i < n; ++i) {
-				$var($Object, stackElement, $nc(this->stack)->get(i));
-				if ($instanceOf($LabelNode, stackElement)) {
-					$assign(stackElement, $nc(clonedLabels)->get(stackElement));
-				}
-				$nc(clone->stack)->add(stackElement);
+		for (int32_t i = 0, n = this->stack->size(); i < n; ++i) {
+			$var($Object, stackElement, this->stack->get(i));
+			if ($instanceOf($LabelNode, stackElement)) {
+				$assign(stackElement, $nc(clonedLabels)->get(stackElement));
 			}
+			clone->stack->add(stackElement);
 		}
 	}
 	return clone;
@@ -195,18 +134,14 @@ $AbstractInsnNode* FrameNode::clone($Map* clonedLabels) {
 
 $ObjectArray* FrameNode::asArray($List* list) {
 	$init(FrameNode);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, array, $new($ObjectArray, $nc(list)->size()));
-	{
-		int32_t i = 0;
-		int32_t n = array->length;
-		for (; i < n; ++i) {
-			$var($Object, o, list->get(i));
-			if ($instanceOf($LabelNode, o)) {
-				$assign(o, $nc(($cast($LabelNode, o)))->getLabel());
-			}
-			array->set(i, o);
+	for (int32_t i = 0, n = array->length; i < n; ++i) {
+		$var($Object, o, list->get(i));
+		if ($instanceOf($LabelNode, o)) {
+			$assign(o, $cast($LabelNode, o)->getLabel());
 		}
+		array->set(i, o);
 	}
 	return array;
 }
@@ -215,7 +150,32 @@ FrameNode::FrameNode() {
 }
 
 $Class* FrameNode::load$($String* name, bool initialize) {
-	$loadClass(FrameNode, name, initialize, &_FrameNode_ClassInfo_, allocate$FrameNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "I", nullptr, $PUBLIC, $field(FrameNode, type)},
+		{"local", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $field(FrameNode, local)},
+		{"stack", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Object;>;", $PUBLIC, $field(FrameNode, stack)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(FrameNode, init$, void)},
+		{"<init>", "(II[Ljava/lang/Object;I[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(FrameNode, init$, void, int32_t, int32_t, $ObjectArray*, int32_t, $ObjectArray*)},
+		{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $virtualMethod(FrameNode, accept, void, $MethodVisitor*)},
+		{"asArray", "(Ljava/util/List;)[Ljava/lang/Object;", "(Ljava/util/List<Ljava/lang/Object;>;)[Ljava/lang/Object;", $PRIVATE | $STATIC, $staticMethod(FrameNode, asArray, $ObjectArray*, $List*)},
+		{"clone", "(Ljava/util/Map;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", "(Ljava/util/Map<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", $PUBLIC, $virtualMethod(FrameNode, clone, $AbstractInsnNode*, $Map*)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(FrameNode, getType, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.tree.FrameNode",
+		"jdk.internal.org.objectweb.asm.tree.AbstractInsnNode",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FrameNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FrameNode);
+	});
 	return class$;
 }
 

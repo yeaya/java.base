@@ -1,5 +1,4 @@
 #include <sun/security/rsa/RSAPSSSignature.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/Math.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -50,7 +49,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $BigInteger = ::java::math::BigInteger;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $AlgorithmParameters = ::java::security::AlgorithmParameters;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
@@ -83,75 +81,11 @@ namespace sun {
 	namespace security {
 		namespace rsa {
 
-$CompoundAttribute _RSAPSSSignature_MethodAnnotations_engineGetParameter4[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _RSAPSSSignature_MethodAnnotations_engineSetParameter9[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _RSAPSSSignature_FieldInfo_[] = {
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RSAPSSSignature, DEBUG)},
-	{"EIGHT_BYTES_OF_ZEROS", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RSAPSSSignature, EIGHT_BYTES_OF_ZEROS)},
-	{"DIGEST_LENGTHS", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Lsun/security/util/KnownOIDs;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(RSAPSSSignature, DIGEST_LENGTHS)},
-	{"md", "Ljava/security/MessageDigest;", nullptr, $PRIVATE, $field(RSAPSSSignature, md)},
-	{"digestReset", "Z", nullptr, $PRIVATE, $field(RSAPSSSignature, digestReset)},
-	{"privKey", "Ljava/security/interfaces/RSAPrivateKey;", nullptr, $PRIVATE, $field(RSAPSSSignature, privKey)},
-	{"pubKey", "Ljava/security/interfaces/RSAPublicKey;", nullptr, $PRIVATE, $field(RSAPSSSignature, pubKey)},
-	{"sigParams", "Ljava/security/spec/PSSParameterSpec;", nullptr, $PRIVATE, $field(RSAPSSSignature, sigParams)},
-	{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(RSAPSSSignature, random)},
-	{}
-};
-
-$MethodInfo _RSAPSSSignature_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RSAPSSSignature, init$, void)},
-	{"checkKeyLength", "(Ljava/security/interfaces/RSAKey;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(RSAPSSSignature, checkKeyLength, void, $RSAKey*, int32_t, int32_t), "java.security.InvalidKeyException"},
-	{"decodeSignature", "([B[B)Z", nullptr, $PRIVATE, $method(RSAPSSSignature, decodeSignature, bool, $bytes*, $bytes*), "java.io.IOException"},
-	{"encodeSignature", "([B)[B", nullptr, $PRIVATE, $method(RSAPSSSignature, encodeSignature, $bytes*, $bytes*), "java.io.IOException,java.security.DigestException"},
-	{"engineGetParameter", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(RSAPSSSignature, engineGetParameter, $Object*, $String*), "java.security.InvalidParameterException", nullptr, _RSAPSSSignature_MethodAnnotations_engineGetParameter4},
-	{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(RSAPSSSignature, engineGetParameters, $AlgorithmParameters*)},
-	{"engineInitSign", "(Ljava/security/PrivateKey;)V", nullptr, $PROTECTED, $virtualMethod(RSAPSSSignature, engineInitSign, void, $PrivateKey*), "java.security.InvalidKeyException"},
-	{"engineInitSign", "(Ljava/security/PrivateKey;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(RSAPSSSignature, engineInitSign, void, $PrivateKey*, $SecureRandom*), "java.security.InvalidKeyException"},
-	{"engineInitVerify", "(Ljava/security/PublicKey;)V", nullptr, $PROTECTED, $virtualMethod(RSAPSSSignature, engineInitVerify, void, $PublicKey*), "java.security.InvalidKeyException"},
-	{"engineSetParameter", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(RSAPSSSignature, engineSetParameter, void, $String*, Object$*), "java.security.InvalidParameterException", nullptr, _RSAPSSSignature_MethodAnnotations_engineSetParameter9},
-	{"engineSetParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(RSAPSSSignature, engineSetParameter, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"engineSign", "()[B", nullptr, $PROTECTED, $virtualMethod(RSAPSSSignature, engineSign, $bytes*), "java.security.SignatureException"},
-	{"engineUpdate", "(B)V", nullptr, $PROTECTED, $virtualMethod(RSAPSSSignature, engineUpdate, void, int8_t), "java.security.SignatureException"},
-	{"engineUpdate", "([BII)V", nullptr, $PROTECTED, $virtualMethod(RSAPSSSignature, engineUpdate, void, $bytes*, int32_t, int32_t), "java.security.SignatureException"},
-	{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED, $virtualMethod(RSAPSSSignature, engineUpdate, void, $ByteBuffer*)},
-	{"engineVerify", "([B)Z", nullptr, $PROTECTED, $virtualMethod(RSAPSSSignature, engineVerify, bool, $bytes*), "java.security.SignatureException"},
-	{"ensureInit", "()V", nullptr, $PRIVATE, $method(RSAPSSSignature, ensureInit, void), "java.security.SignatureException"},
-	{"getDigestValue", "()[B", nullptr, $PRIVATE, $method(RSAPSSSignature, getDigestValue, $bytes*)},
-	{"getKeyLengthInBits", "(Ljava/security/interfaces/RSAKey;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(RSAPSSSignature, getKeyLengthInBits, int32_t, $RSAKey*)},
-	{"isCompatible", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/spec/PSSParameterSpec;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(RSAPSSSignature, isCompatible, bool, $AlgorithmParameterSpec*, $PSSParameterSpec*)},
-	{"isDigestEqual", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(RSAPSSSignature, isDigestEqual, bool, $String*, $String*)},
-	{"isValid", "(Ljava/security/interfaces/RSAKey;)Ljava/security/interfaces/RSAKey;", nullptr, $PRIVATE, $method(RSAPSSSignature, isValid, $RSAKey*, $RSAKey*), "java.security.InvalidKeyException"},
-	{"resetDigest", "()V", nullptr, $PRIVATE, $method(RSAPSSSignature, resetDigest, void)},
-	{"validateSigParams", "(Ljava/security/spec/AlgorithmParameterSpec;)Ljava/security/spec/PSSParameterSpec;", nullptr, $PRIVATE, $method(RSAPSSSignature, validateSigParams, $PSSParameterSpec*, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{}
-};
-
-$ClassInfo _RSAPSSSignature_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.rsa.RSAPSSSignature",
-	"java.security.SignatureSpi",
-	nullptr,
-	_RSAPSSSignature_FieldInfo_,
-	_RSAPSSSignature_MethodInfo_
-};
-
-$Object* allocate$RSAPSSSignature($Class* clazz) {
-	return $of($alloc(RSAPSSSignature));
-}
-
 $bytes* RSAPSSSignature::EIGHT_BYTES_OF_ZEROS = nullptr;
 $Hashtable* RSAPSSSignature::DIGEST_LENGTHS = nullptr;
 
 bool RSAPSSSignature::isDigestEqual($String* stdAlg, $String* givenAlg$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, givenAlg, givenAlg$renamed);
 	if (stdAlg == nullptr || givenAlg == nullptr) {
 		return false;
@@ -164,7 +98,7 @@ bool RSAPSSSignature::isDigestEqual($String* stdAlg, $String* givenAlg$renamed) 
 	} else {
 		$var($StringBuilder, sb, $new($StringBuilder, givenAlg));
 		if (givenAlg->regionMatches(true, 0, "SHA"_s, 0, 3)) {
-			$assign(givenAlg, $nc(sb->insert(3, "-"_s))->toString());
+			$assign(givenAlg, sb->insert(3, "-"_s)->toString());
 			return stdAlg->equalsIgnoreCase(givenAlg);
 		} else {
 			$throwNew($ProviderException, $$str({"Unsupported digest algorithm "_s, givenAlg}));
@@ -206,7 +140,7 @@ void RSAPSSSignature::engineInitSign($PrivateKey* privateKey, $SecureRandom* ran
 
 bool RSAPSSSignature::isCompatible($AlgorithmParameterSpec* keyParams, $PSSParameterSpec* sigParams) {
 	$init(RSAPSSSignature);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (keyParams == nullptr) {
 		return true;
 	}
@@ -221,39 +155,39 @@ bool RSAPSSSignature::isCompatible($AlgorithmParameterSpec* keyParams, $PSSParam
 	if (var$0 > $nc(sigParams)->getSaltLength()) {
 		return false;
 	}
-	$var($String, var$1, $nc(pssKeyParams)->getDigestAlgorithm());
+	$var($String, var$1, pssKeyParams->getDigestAlgorithm());
 	$var($String, var$2, pssKeyParams->getMGFAlgorithm());
 	$var($AlgorithmParameterSpec, var$3, pssKeyParams->getMGFParameters());
-	int32_t var$4 = $nc(sigParams)->getSaltLength();
+	int32_t var$4 = sigParams->getSaltLength();
 	$var($PSSParameterSpec, keyParams2, $new($PSSParameterSpec, var$1, var$2, var$3, var$4, pssKeyParams->getTrailerField()));
 	$var($PSSParameters, ap, $new($PSSParameters));
 	try {
-		ap->engineInit(static_cast<$AlgorithmParameterSpec*>(keyParams2));
+		ap->engineInit(keyParams2);
 		$var($bytes, encoded, ap->engineGetEncoded());
-		ap->engineInit(static_cast<$AlgorithmParameterSpec*>(sigParams));
+		ap->engineInit(sigParams);
 		$var($bytes, encoded2, ap->engineGetEncoded());
 		return $Arrays::equals(encoded, encoded2);
 	} catch ($Exception& e) {
+		;
 		return false;
 	}
 	$shouldNotReachHere();
 }
 
 $RSAKey* RSAPSSSignature::isValid($RSAKey* rsaKey) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AlgorithmParameterSpec, keyParams, $nc(rsaKey)->getParams());
 	if (!isCompatible($(rsaKey->getParams()), this->sigParams)) {
 		$throwNew($InvalidKeyException, "Key contains incompatible PSS parameter values"_s);
 	}
 	if (this->sigParams != nullptr) {
-		$var($String, digestAlgo, $nc(this->sigParams)->getDigestAlgorithm());
+		$var($String, digestAlgo, this->sigParams->getDigestAlgorithm());
 		$KnownOIDs* ko = $KnownOIDs::findMatch(digestAlgo);
 		if (ko != nullptr) {
-			$var($Integer, hLen, $cast($Integer, $nc(RSAPSSSignature::DIGEST_LENGTHS)->get(ko)));
+			$var($Integer, hLen, $cast($Integer, RSAPSSSignature::DIGEST_LENGTHS->get(ko)));
 			if (hLen != nullptr) {
-				$var($RSAKey, var$0, rsaKey);
-				int32_t var$1 = hLen->intValue();
-				checkKeyLength(var$0, var$1, $nc(this->sigParams)->getSaltLength());
+				int32_t var$0 = hLen->intValue();
+				checkKeyLength(rsaKey, var$0, this->sigParams->getSaltLength());
 			} else {
 				$throwNew($ProviderException, $$str({"Unsupported digest algo: "_s, digestAlgo}));
 			}
@@ -265,7 +199,7 @@ $RSAKey* RSAPSSSignature::isValid($RSAKey* rsaKey) {
 }
 
 $PSSParameterSpec* RSAPSSSignature::validateSigParams($AlgorithmParameterSpec* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (p == nullptr) {
 		$throwNew($InvalidAlgorithmParameterException, "Parameters cannot be null"_s);
 	}
@@ -276,30 +210,29 @@ $PSSParameterSpec* RSAPSSSignature::validateSigParams($AlgorithmParameterSpec* p
 	if (params == this->sigParams) {
 		return params;
 	}
-	$var($RSAKey, key, this->privKey == nullptr ? static_cast<$RSAKey*>(this->pubKey) : static_cast<$RSAKey*>(this->privKey));
+	$var($RSAKey, key, this->privKey == nullptr ? $cast($RSAKey, this->pubKey) : $cast($RSAKey, this->privKey));
 	if (key != nullptr) {
 		if (!isCompatible($(key->getParams()), params)) {
 			$throwNew($InvalidAlgorithmParameterException, "Signature parameters does not match key parameters"_s);
 		}
 	}
-	if (!($nc($($nc(params)->getMGFAlgorithm()))->equalsIgnoreCase("MGF1"_s))) {
+	if (!($$nc($nc(params)->getMGFAlgorithm())->equalsIgnoreCase("MGF1"_s))) {
 		$throwNew($InvalidAlgorithmParameterException, "Only supports MGF1"_s);
 	}
-	if ($nc(params)->getTrailerField() != $PSSParameterSpec::TRAILER_FIELD_BC) {
+	if (params->getTrailerField() != $PSSParameterSpec::TRAILER_FIELD_BC) {
 		$throwNew($InvalidAlgorithmParameterException, "Only supports TrailerFieldBC(1)"_s);
 	}
 	if (key != nullptr) {
-		$var($String, digestAlgo, $nc(params)->getDigestAlgorithm());
+		$var($String, digestAlgo, params->getDigestAlgorithm());
 		$KnownOIDs* ko = $KnownOIDs::findMatch(digestAlgo);
 		if (ko != nullptr) {
-			$var($Integer, hLen, $cast($Integer, $nc(RSAPSSSignature::DIGEST_LENGTHS)->get(ko)));
+			$var($Integer, hLen, $cast($Integer, RSAPSSSignature::DIGEST_LENGTHS->get(ko)));
 			if (hLen != nullptr) {
 				try {
-					$var($RSAKey, var$0, key);
-					int32_t var$1 = hLen->intValue();
-					checkKeyLength(var$0, var$1, params->getSaltLength());
+					int32_t var$0 = hLen->intValue();
+					checkKeyLength(key, var$0, params->getSaltLength());
 				} catch ($InvalidKeyException& e) {
-					$throwNew($InvalidAlgorithmParameterException, static_cast<$Throwable*>(e));
+					$throwNew($InvalidAlgorithmParameterException, e);
 				}
 			} else {
 				$throwNew($InvalidAlgorithmParameterException, $$str({"Unsupported digest algo: "_s, digestAlgo}));
@@ -312,7 +245,7 @@ $PSSParameterSpec* RSAPSSSignature::validateSigParams($AlgorithmParameterSpec* p
 }
 
 void RSAPSSSignature::ensureInit() {
-	$var($RSAKey, key, this->privKey == nullptr ? static_cast<$RSAKey*>(this->pubKey) : static_cast<$RSAKey*>(this->privKey));
+	$var($RSAKey, key, this->privKey == nullptr ? $cast($RSAKey, this->pubKey) : $cast($RSAKey, this->privKey));
 	if (key == nullptr) {
 		$throwNew($SignatureException, "Missing key"_s);
 	}
@@ -323,7 +256,7 @@ void RSAPSSSignature::ensureInit() {
 
 void RSAPSSSignature::checkKeyLength($RSAKey* key, int32_t digestLen, int32_t saltLen) {
 	$init(RSAPSSSignature);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (key != nullptr) {
 		int32_t keyLength = (getKeyLengthInBits(key) + 7) >> 3;
 		int32_t minLength = $Math::addExact($Math::addExact(digestLen, saltLen), 2);
@@ -368,7 +301,7 @@ void RSAPSSSignature::engineUpdate($ByteBuffer* b) {
 }
 
 $bytes* RSAPSSSignature::engineSign() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureInit();
 	$var($bytes, mHash, getDigestValue());
 	try {
@@ -384,40 +317,38 @@ $bytes* RSAPSSSignature::engineSign() {
 }
 
 bool RSAPSSSignature::engineVerify($bytes* sigBytes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureInit();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				if ($nc(sigBytes)->length != $RSACore::getByteLength(static_cast<$RSAKey*>(this->pubKey))) {
-					$throwNew($SignatureException, $$str({"Signature length not correct: got "_s, $$str(sigBytes->length), " but was expecting "_s, $$str($RSACore::getByteLength(static_cast<$RSAKey*>(this->pubKey)))}));
-				}
-				$var($bytes, mHash, getDigestValue());
-				$var($bytes, decrypted, $RSACore::rsa(sigBytes, this->pubKey));
-				var$2 = decodeSignature(mHash, decrypted);
-				return$1 = true;
-				goto $finally;
-			} catch ($BadPaddingException& e) {
-				var$2 = false;
-				return$1 = true;
-				goto $finally;
-			} catch ($IOException& e) {
-				$throwNew($SignatureException, "Signature encoding error"_s, e);
+			if ($nc(sigBytes)->length != $RSACore::getByteLength(this->pubKey)) {
+				$throwNew($SignatureException, $$str({"Signature length not correct: got "_s, $$str(sigBytes->length), " but was expecting "_s, $$str($RSACore::getByteLength(this->pubKey))}));
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			resetDigest();
+			$var($bytes, mHash, getDigestValue());
+			$var($bytes, decrypted, $RSACore::rsa(sigBytes, this->pubKey));
+			var$2 = decodeSignature(mHash, decrypted);
+			return$1 = true;
+			goto $finally;
+		} catch ($BadPaddingException& e) {
+			var$2 = false;
+			return$1 = true;
+			goto $finally;
+		} catch ($IOException& e) {
+			$throwNew($SignatureException, "Signature encoding error"_s, e);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		resetDigest();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -425,17 +356,17 @@ bool RSAPSSSignature::engineVerify($bytes* sigBytes) {
 int32_t RSAPSSSignature::getKeyLengthInBits($RSAKey* k) {
 	$init(RSAPSSSignature);
 	if (k != nullptr) {
-		return $nc($(k->getModulus()))->bitLength();
+		return $$nc(k->getModulus())->bitLength();
 	}
 	return -1;
 }
 
 $bytes* RSAPSSSignature::encodeSignature($bytes* mHash) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AlgorithmParameterSpec, mgfParams, $nc(this->sigParams)->getMGFParameters());
 	$var($String, mgfDigestAlgo, nullptr);
 	if (mgfParams != nullptr) {
-		$assign(mgfDigestAlgo, $nc(($cast($MGF1ParameterSpec, mgfParams)))->getDigestAlgorithm());
+		$assign(mgfDigestAlgo, $cast($MGF1ParameterSpec, mgfParams)->getDigestAlgorithm());
 	} else {
 		$assign(mgfDigestAlgo, $nc(this->md)->getAlgorithm());
 	}
@@ -444,30 +375,30 @@ $bytes* RSAPSSSignature::encodeSignature($bytes* mHash) {
 		int32_t emLen = (emBits + 7) >> 3;
 		int32_t hLen = $nc(this->md)->getDigestLength();
 		int32_t dbLen = emLen - hLen - 1;
-		int32_t sLen = $nc(this->sigParams)->getSaltLength();
+		int32_t sLen = this->sigParams->getSaltLength();
 		$var($bytes, em, $new($bytes, emLen));
 		em->set(dbLen - sLen - 1, (int8_t)1);
 		em->set(em->length - 1, (int8_t)188);
 		if (!this->digestReset) {
 			$throwNew($ProviderException, "Digest should be reset"_s);
 		}
-		$nc(this->md)->update(RSAPSSSignature::EIGHT_BYTES_OF_ZEROS);
+		this->md->update(RSAPSSSignature::EIGHT_BYTES_OF_ZEROS);
 		this->digestReset = false;
-		$nc(this->md)->update(mHash);
+		this->md->update(mHash);
 		if (sLen != 0) {
 			$var($bytes, salt, $new($bytes, sLen));
 			$nc(this->random)->nextBytes(salt);
-			$nc(this->md)->update(salt);
+			this->md->update(salt);
 			$System::arraycopy(salt, 0, em, dbLen - sLen, sLen);
 		}
-		$nc(this->md)->digest(em, dbLen, hLen);
+		this->md->digest(em, dbLen, hLen);
 		this->digestReset = true;
 		$var($MGF1, mgf1, $new($MGF1, mgfDigestAlgo));
 		mgf1->generateAndXor(em, dbLen, hLen, dbLen, em, 0);
 		int32_t numZeroBits = (emLen << 3) - emBits;
 		if (numZeroBits != 0) {
 			int8_t MASK = (int8_t)($usr(255, numZeroBits));
-			em->set(0, (int8_t)((int32_t)(em->get(0) & (uint32_t)(int32_t)MASK)));
+			em->set(0, (int8_t)(em->get(0) & MASK));
 		}
 		return em;
 	} catch ($NoSuchAlgorithmException& e) {
@@ -477,7 +408,7 @@ $bytes* RSAPSSSignature::encodeSignature($bytes* mHash) {
 }
 
 bool RSAPSSSignature::decodeSignature($bytes* mHash, $bytes* em) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t hLen = $nc(mHash)->length;
 	int32_t sLen = $nc(this->sigParams)->getSaltLength();
 	int32_t emBits = getKeyLengthInBits(this->pubKey) - 1;
@@ -495,14 +426,14 @@ bool RSAPSSSignature::decodeSignature($bytes* mHash, $bytes* em) {
 	int32_t numZeroBits = (emLen << 3) - emBits;
 	if (numZeroBits != 0) {
 		int8_t MASK = (int8_t)($sl(255, 8 - numZeroBits));
-		if (((int32_t)(em->get(emOfs) & (uint32_t)(int32_t)MASK)) != 0) {
+		if ((em->get(emOfs) & MASK) != 0) {
 			return false;
 		}
 	}
 	$var($String, mgfDigestAlgo, nullptr);
-	$var($AlgorithmParameterSpec, mgfParams, $nc(this->sigParams)->getMGFParameters());
+	$var($AlgorithmParameterSpec, mgfParams, this->sigParams->getMGFParameters());
 	if (mgfParams != nullptr) {
-		$assign(mgfDigestAlgo, $nc(($cast($MGF1ParameterSpec, mgfParams)))->getDigestAlgorithm());
+		$assign(mgfDigestAlgo, $cast($MGF1ParameterSpec, mgfParams)->getDigestAlgorithm());
 	} else {
 		$assign(mgfDigestAlgo, $nc(this->md)->getAlgorithm());
 	}
@@ -515,7 +446,7 @@ bool RSAPSSSignature::decodeSignature($bytes* mHash, $bytes* em) {
 	}
 	if (numZeroBits != 0) {
 		int8_t MASK = (int8_t)($usr(255, numZeroBits));
-		em->set(emOfs, (int8_t)((int32_t)(em->get(emOfs) & (uint32_t)(int32_t)MASK)));
+		em->set(emOfs, (int8_t)(em->get(emOfs) & MASK));
 	}
 	int32_t i = emOfs;
 	for (; i < emOfs + (dbLen - sLen - 1); ++i) {
@@ -528,11 +459,11 @@ bool RSAPSSSignature::decodeSignature($bytes* mHash, $bytes* em) {
 	}
 	$nc(this->md)->update(RSAPSSSignature::EIGHT_BYTES_OF_ZEROS);
 	this->digestReset = false;
-	$nc(this->md)->update(mHash);
+	this->md->update(mHash);
 	if (sLen > 0) {
-		$nc(this->md)->update(em, emOfs + (dbLen - sLen), sLen);
+		this->md->update(em, emOfs + (dbLen - sLen), sLen);
 	}
-	$var($bytes, digest2, $nc(this->md)->digest());
+	$var($bytes, digest2, this->md->digest());
 	this->digestReset = true;
 	$var($bytes, digestInEM, $Arrays::copyOfRange(em, emOfs + dbLen, emOfs + emLen - 1));
 	return $MessageDigest::isEqual(digest2, digestInEM);
@@ -543,13 +474,13 @@ void RSAPSSSignature::engineSetParameter($String* param, Object$* value) {
 }
 
 void RSAPSSSignature::engineSetParameter($AlgorithmParameterSpec* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, sigParams, validateSigParams(params));
 	if (!this->digestReset) {
 		$throwNew($ProviderException, "Cannot set parameters during operations"_s);
 	}
 	$var($String, newHashAlg, $nc(this->sigParams)->getDigestAlgorithm());
-	if ((this->md == nullptr) || !($nc($($nc(this->md)->getAlgorithm()))->equalsIgnoreCase(newHashAlg))) {
+	if ((this->md == nullptr) || !($$nc(this->md->getAlgorithm())->equalsIgnoreCase(newHashAlg))) {
 		try {
 			$set(this, md, $MessageDigest::getInstance(newHashAlg));
 		} catch ($NoSuchAlgorithmException& nsae) {
@@ -564,12 +495,12 @@ $Object* RSAPSSSignature::engineGetParameter($String* param) {
 }
 
 $AlgorithmParameters* RSAPSSSignature::engineGetParameters() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AlgorithmParameters, ap, nullptr);
 	if (this->sigParams != nullptr) {
 		try {
 			$assign(ap, $AlgorithmParameters::getInstance("RSASSA-PSS"_s));
-			$nc(ap)->init(static_cast<$AlgorithmParameterSpec*>(this->sigParams));
+			$nc(ap)->init(this->sigParams);
 		} catch ($GeneralSecurityException& gse) {
 			$throwNew($ProviderException, $(gse->getMessage()));
 		}
@@ -577,23 +508,23 @@ $AlgorithmParameters* RSAPSSSignature::engineGetParameters() {
 	return ap;
 }
 
-void clinit$RSAPSSSignature($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void RSAPSSSignature::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(RSAPSSSignature::EIGHT_BYTES_OF_ZEROS, $new($bytes, 8));
 	$assignStatic(RSAPSSSignature::DIGEST_LENGTHS, $new($Hashtable));
 	{
 		$init($KnownOIDs);
-		$nc(RSAPSSSignature::DIGEST_LENGTHS)->put($KnownOIDs::SHA_1, $($Integer::valueOf(20)));
-		$nc(RSAPSSSignature::DIGEST_LENGTHS)->put($KnownOIDs::SHA_224, $($Integer::valueOf(28)));
-		$nc(RSAPSSSignature::DIGEST_LENGTHS)->put($KnownOIDs::SHA_256, $($Integer::valueOf(32)));
-		$nc(RSAPSSSignature::DIGEST_LENGTHS)->put($KnownOIDs::SHA_384, $($Integer::valueOf(48)));
-		$nc(RSAPSSSignature::DIGEST_LENGTHS)->put($KnownOIDs::SHA_512, $($Integer::valueOf(64)));
-		$nc(RSAPSSSignature::DIGEST_LENGTHS)->put($KnownOIDs::SHA_512$224, $($Integer::valueOf(28)));
-		$nc(RSAPSSSignature::DIGEST_LENGTHS)->put($KnownOIDs::SHA_512$256, $($Integer::valueOf(32)));
-		$nc(RSAPSSSignature::DIGEST_LENGTHS)->put($KnownOIDs::SHA3_224, $($Integer::valueOf(28)));
-		$nc(RSAPSSSignature::DIGEST_LENGTHS)->put($KnownOIDs::SHA3_256, $($Integer::valueOf(32)));
-		$nc(RSAPSSSignature::DIGEST_LENGTHS)->put($KnownOIDs::SHA3_384, $($Integer::valueOf(48)));
-		$nc(RSAPSSSignature::DIGEST_LENGTHS)->put($KnownOIDs::SHA3_512, $($Integer::valueOf(64)));
+		RSAPSSSignature::DIGEST_LENGTHS->put($KnownOIDs::SHA_1, $($Integer::valueOf(20)));
+		RSAPSSSignature::DIGEST_LENGTHS->put($KnownOIDs::SHA_224, $($Integer::valueOf(28)));
+		RSAPSSSignature::DIGEST_LENGTHS->put($KnownOIDs::SHA_256, $($Integer::valueOf(32)));
+		RSAPSSSignature::DIGEST_LENGTHS->put($KnownOIDs::SHA_384, $($Integer::valueOf(48)));
+		RSAPSSSignature::DIGEST_LENGTHS->put($KnownOIDs::SHA_512, $($Integer::valueOf(64)));
+		RSAPSSSignature::DIGEST_LENGTHS->put($KnownOIDs::SHA_512$224, $($Integer::valueOf(28)));
+		RSAPSSSignature::DIGEST_LENGTHS->put($KnownOIDs::SHA_512$256, $($Integer::valueOf(32)));
+		RSAPSSSignature::DIGEST_LENGTHS->put($KnownOIDs::SHA3_224, $($Integer::valueOf(28)));
+		RSAPSSSignature::DIGEST_LENGTHS->put($KnownOIDs::SHA3_256, $($Integer::valueOf(32)));
+		RSAPSSSignature::DIGEST_LENGTHS->put($KnownOIDs::SHA3_384, $($Integer::valueOf(48)));
+		RSAPSSSignature::DIGEST_LENGTHS->put($KnownOIDs::SHA3_512, $($Integer::valueOf(64)));
 	}
 }
 
@@ -601,7 +532,64 @@ RSAPSSSignature::RSAPSSSignature() {
 }
 
 $Class* RSAPSSSignature::load$($String* name, bool initialize) {
-	$loadClass(RSAPSSSignature, name, initialize, &_RSAPSSSignature_ClassInfo_, clinit$RSAPSSSignature, allocate$RSAPSSSignature);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RSAPSSSignature, DEBUG)},
+		{"EIGHT_BYTES_OF_ZEROS", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RSAPSSSignature, EIGHT_BYTES_OF_ZEROS)},
+		{"DIGEST_LENGTHS", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Lsun/security/util/KnownOIDs;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(RSAPSSSignature, DIGEST_LENGTHS)},
+		{"md", "Ljava/security/MessageDigest;", nullptr, $PRIVATE, $field(RSAPSSSignature, md)},
+		{"digestReset", "Z", nullptr, $PRIVATE, $field(RSAPSSSignature, digestReset)},
+		{"privKey", "Ljava/security/interfaces/RSAPrivateKey;", nullptr, $PRIVATE, $field(RSAPSSSignature, privKey)},
+		{"pubKey", "Ljava/security/interfaces/RSAPublicKey;", nullptr, $PRIVATE, $field(RSAPSSSignature, pubKey)},
+		{"sigParams", "Ljava/security/spec/PSSParameterSpec;", nullptr, $PRIVATE, $field(RSAPSSSignature, sigParams)},
+		{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(RSAPSSSignature, random)},
+		{}
+	};
+	$CompoundAttribute engineGetParametermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute engineSetParametermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RSAPSSSignature, init$, void)},
+		{"checkKeyLength", "(Ljava/security/interfaces/RSAKey;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(RSAPSSSignature, checkKeyLength, void, $RSAKey*, int32_t, int32_t), "java.security.InvalidKeyException"},
+		{"decodeSignature", "([B[B)Z", nullptr, $PRIVATE, $method(RSAPSSSignature, decodeSignature, bool, $bytes*, $bytes*), "java.io.IOException"},
+		{"encodeSignature", "([B)[B", nullptr, $PRIVATE, $method(RSAPSSSignature, encodeSignature, $bytes*, $bytes*), "java.io.IOException,java.security.DigestException"},
+		{"engineGetParameter", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(RSAPSSSignature, engineGetParameter, $Object*, $String*), "java.security.InvalidParameterException", nullptr, engineGetParametermethodAnnotations$$},
+		{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(RSAPSSSignature, engineGetParameters, $AlgorithmParameters*)},
+		{"engineInitSign", "(Ljava/security/PrivateKey;)V", nullptr, $PROTECTED, $virtualMethod(RSAPSSSignature, engineInitSign, void, $PrivateKey*), "java.security.InvalidKeyException"},
+		{"engineInitSign", "(Ljava/security/PrivateKey;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(RSAPSSSignature, engineInitSign, void, $PrivateKey*, $SecureRandom*), "java.security.InvalidKeyException"},
+		{"engineInitVerify", "(Ljava/security/PublicKey;)V", nullptr, $PROTECTED, $virtualMethod(RSAPSSSignature, engineInitVerify, void, $PublicKey*), "java.security.InvalidKeyException"},
+		{"engineSetParameter", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(RSAPSSSignature, engineSetParameter, void, $String*, Object$*), "java.security.InvalidParameterException", nullptr, engineSetParametermethodAnnotations$$},
+		{"engineSetParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(RSAPSSSignature, engineSetParameter, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"engineSign", "()[B", nullptr, $PROTECTED, $virtualMethod(RSAPSSSignature, engineSign, $bytes*), "java.security.SignatureException"},
+		{"engineUpdate", "(B)V", nullptr, $PROTECTED, $virtualMethod(RSAPSSSignature, engineUpdate, void, int8_t), "java.security.SignatureException"},
+		{"engineUpdate", "([BII)V", nullptr, $PROTECTED, $virtualMethod(RSAPSSSignature, engineUpdate, void, $bytes*, int32_t, int32_t), "java.security.SignatureException"},
+		{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED, $virtualMethod(RSAPSSSignature, engineUpdate, void, $ByteBuffer*)},
+		{"engineVerify", "([B)Z", nullptr, $PROTECTED, $virtualMethod(RSAPSSSignature, engineVerify, bool, $bytes*), "java.security.SignatureException"},
+		{"ensureInit", "()V", nullptr, $PRIVATE, $method(RSAPSSSignature, ensureInit, void), "java.security.SignatureException"},
+		{"getDigestValue", "()[B", nullptr, $PRIVATE, $method(RSAPSSSignature, getDigestValue, $bytes*)},
+		{"getKeyLengthInBits", "(Ljava/security/interfaces/RSAKey;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(RSAPSSSignature, getKeyLengthInBits, int32_t, $RSAKey*)},
+		{"isCompatible", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/spec/PSSParameterSpec;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(RSAPSSSignature, isCompatible, bool, $AlgorithmParameterSpec*, $PSSParameterSpec*)},
+		{"isDigestEqual", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(RSAPSSSignature, isDigestEqual, bool, $String*, $String*)},
+		{"isValid", "(Ljava/security/interfaces/RSAKey;)Ljava/security/interfaces/RSAKey;", nullptr, $PRIVATE, $method(RSAPSSSignature, isValid, $RSAKey*, $RSAKey*), "java.security.InvalidKeyException"},
+		{"resetDigest", "()V", nullptr, $PRIVATE, $method(RSAPSSSignature, resetDigest, void)},
+		{"validateSigParams", "(Ljava/security/spec/AlgorithmParameterSpec;)Ljava/security/spec/PSSParameterSpec;", nullptr, $PRIVATE, $method(RSAPSSSignature, validateSigParams, $PSSParameterSpec*, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.rsa.RSAPSSSignature",
+		"java.security.SignatureSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RSAPSSSignature, name, initialize, &classInfo$$, RSAPSSSignature::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RSAPSSSignature);
+	});
 	return class$;
 }
 

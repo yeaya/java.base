@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLSecretDerivation$SecretSchedule.h>
-
 #include <java/lang/Enum.h>
 #include <sun/security/ssl/SSLSecretDerivation.h>
 #include <jcpp.h>
@@ -14,56 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _SSLSecretDerivation$SecretSchedule_FieldInfo_[] = {
-	{"TlsSaltSecret", "Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLSecretDerivation$SecretSchedule, TlsSaltSecret)},
-	{"TlsExtBinderKey", "Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLSecretDerivation$SecretSchedule, TlsExtBinderKey)},
-	{"TlsResBinderKey", "Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLSecretDerivation$SecretSchedule, TlsResBinderKey)},
-	{"TlsClientEarlyTrafficSecret", "Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLSecretDerivation$SecretSchedule, TlsClientEarlyTrafficSecret)},
-	{"TlsEarlyExporterMasterSecret", "Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLSecretDerivation$SecretSchedule, TlsEarlyExporterMasterSecret)},
-	{"TlsClientHandshakeTrafficSecret", "Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLSecretDerivation$SecretSchedule, TlsClientHandshakeTrafficSecret)},
-	{"TlsServerHandshakeTrafficSecret", "Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLSecretDerivation$SecretSchedule, TlsServerHandshakeTrafficSecret)},
-	{"TlsClientAppTrafficSecret", "Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLSecretDerivation$SecretSchedule, TlsClientAppTrafficSecret)},
-	{"TlsServerAppTrafficSecret", "Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLSecretDerivation$SecretSchedule, TlsServerAppTrafficSecret)},
-	{"TlsExporterMasterSecret", "Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLSecretDerivation$SecretSchedule, TlsExporterMasterSecret)},
-	{"TlsResumptionMasterSecret", "Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLSecretDerivation$SecretSchedule, TlsResumptionMasterSecret)},
-	{"$VALUES", "[Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLSecretDerivation$SecretSchedule, $VALUES)},
-	{"label", "[B", nullptr, $PRIVATE | $FINAL, $field(SSLSecretDerivation$SecretSchedule, label)},
-	{}
-};
-
-$MethodInfo _SSLSecretDerivation$SecretSchedule_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLSecretDerivation$SecretSchedule, $values, $SSLSecretDerivation$SecretScheduleArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(SSLSecretDerivation$SecretSchedule, init$, void, $String*, int32_t, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLSecretDerivation$SecretSchedule, valueOf, SSLSecretDerivation$SecretSchedule*, $String*)},
-	{"values", "()[Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLSecretDerivation$SecretSchedule, values, $SSLSecretDerivation$SecretScheduleArray*)},
-	{}
-};
-
-$InnerClassInfo _SSLSecretDerivation$SecretSchedule_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLSecretDerivation$SecretSchedule", "sun.security.ssl.SSLSecretDerivation", "SecretSchedule", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _SSLSecretDerivation$SecretSchedule_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.ssl.SSLSecretDerivation$SecretSchedule",
-	"java.lang.Enum",
-	nullptr,
-	_SSLSecretDerivation$SecretSchedule_FieldInfo_,
-	_SSLSecretDerivation$SecretSchedule_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;>;",
-	nullptr,
-	_SSLSecretDerivation$SecretSchedule_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLSecretDerivation"
-};
-
-$Object* allocate$SSLSecretDerivation$SecretSchedule($Class* clazz) {
-	return $of($alloc(SSLSecretDerivation$SecretSchedule));
-}
 
 SSLSecretDerivation$SecretSchedule* SSLSecretDerivation$SecretSchedule::TlsSaltSecret = nullptr;
 SSLSecretDerivation$SecretSchedule* SSLSecretDerivation$SecretSchedule::TlsExtBinderKey = nullptr;
@@ -110,7 +59,7 @@ void SSLSecretDerivation$SecretSchedule::init$($String* $enum$name, int32_t $enu
 	$set(this, label, $nc(($$str({"tls13 "_s, label})))->getBytes());
 }
 
-void clinit$SSLSecretDerivation$SecretSchedule($Class* class$) {
+void SSLSecretDerivation$SecretSchedule::clinit$($Class* clazz) {
 	$assignStatic(SSLSecretDerivation$SecretSchedule::TlsSaltSecret, $new(SSLSecretDerivation$SecretSchedule, "TlsSaltSecret"_s, 0, "derived"_s));
 	$assignStatic(SSLSecretDerivation$SecretSchedule::TlsExtBinderKey, $new(SSLSecretDerivation$SecretSchedule, "TlsExtBinderKey"_s, 1, "ext binder"_s));
 	$assignStatic(SSLSecretDerivation$SecretSchedule::TlsResBinderKey, $new(SSLSecretDerivation$SecretSchedule, "TlsResBinderKey"_s, 2, "res binder"_s));
@@ -129,7 +78,51 @@ SSLSecretDerivation$SecretSchedule::SSLSecretDerivation$SecretSchedule() {
 }
 
 $Class* SSLSecretDerivation$SecretSchedule::load$($String* name, bool initialize) {
-	$loadClass(SSLSecretDerivation$SecretSchedule, name, initialize, &_SSLSecretDerivation$SecretSchedule_ClassInfo_, clinit$SSLSecretDerivation$SecretSchedule, allocate$SSLSecretDerivation$SecretSchedule);
+	$FieldInfo fieldInfos$$[] = {
+		{"TlsSaltSecret", "Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLSecretDerivation$SecretSchedule, TlsSaltSecret)},
+		{"TlsExtBinderKey", "Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLSecretDerivation$SecretSchedule, TlsExtBinderKey)},
+		{"TlsResBinderKey", "Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLSecretDerivation$SecretSchedule, TlsResBinderKey)},
+		{"TlsClientEarlyTrafficSecret", "Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLSecretDerivation$SecretSchedule, TlsClientEarlyTrafficSecret)},
+		{"TlsEarlyExporterMasterSecret", "Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLSecretDerivation$SecretSchedule, TlsEarlyExporterMasterSecret)},
+		{"TlsClientHandshakeTrafficSecret", "Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLSecretDerivation$SecretSchedule, TlsClientHandshakeTrafficSecret)},
+		{"TlsServerHandshakeTrafficSecret", "Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLSecretDerivation$SecretSchedule, TlsServerHandshakeTrafficSecret)},
+		{"TlsClientAppTrafficSecret", "Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLSecretDerivation$SecretSchedule, TlsClientAppTrafficSecret)},
+		{"TlsServerAppTrafficSecret", "Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLSecretDerivation$SecretSchedule, TlsServerAppTrafficSecret)},
+		{"TlsExporterMasterSecret", "Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLSecretDerivation$SecretSchedule, TlsExporterMasterSecret)},
+		{"TlsResumptionMasterSecret", "Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLSecretDerivation$SecretSchedule, TlsResumptionMasterSecret)},
+		{"$VALUES", "[Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLSecretDerivation$SecretSchedule, $VALUES)},
+		{"label", "[B", nullptr, $PRIVATE | $FINAL, $field(SSLSecretDerivation$SecretSchedule, label)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLSecretDerivation$SecretSchedule, $values, $SSLSecretDerivation$SecretScheduleArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(SSLSecretDerivation$SecretSchedule, init$, void, $String*, int32_t, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLSecretDerivation$SecretSchedule, valueOf, SSLSecretDerivation$SecretSchedule*, $String*)},
+		{"values", "()[Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLSecretDerivation$SecretSchedule, values, $SSLSecretDerivation$SecretScheduleArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLSecretDerivation$SecretSchedule", "sun.security.ssl.SSLSecretDerivation", "SecretSchedule", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.ssl.SSLSecretDerivation$SecretSchedule",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/ssl/SSLSecretDerivation$SecretSchedule;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLSecretDerivation"
+	};
+	$loadClass(SSLSecretDerivation$SecretSchedule, name, initialize, &classInfo$$, SSLSecretDerivation$SecretSchedule::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SSLSecretDerivation$SecretSchedule));
+	});
 	return class$;
 }
 

@@ -1,8 +1,6 @@
 #include <jdk/internal/math/FloatingDecimal.h>
-
 #include <java/lang/Appendable.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/StringIndexOutOfBoundsException.h>
 #include <java/lang/ThreadLocal.h>
@@ -66,7 +64,6 @@
 
 using $Appendable = ::java::lang::Appendable;
 using $AssertionError = ::java::lang::AssertionError;
-using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
@@ -80,7 +77,6 @@ using $NumberFormatException = ::java::lang::NumberFormatException;
 using $StringIndexOutOfBoundsException = ::java::lang::StringIndexOutOfBoundsException;
 using $ThreadLocal = ::java::lang::ThreadLocal;
 using $Matcher = ::java::util::regex::Matcher;
-using $Pattern = ::java::util::regex::Pattern;
 using $DoubleConsts = ::jdk::internal::math::DoubleConsts;
 using $FloatConsts = ::jdk::internal::math::FloatConsts;
 using $FloatingDecimal$1 = ::jdk::internal::math::FloatingDecimal$1;
@@ -95,93 +91,6 @@ using $FloatingDecimal$PreparedASCIIToBinaryBuffer = ::jdk::internal::math::Floa
 namespace jdk {
 	namespace internal {
 		namespace math {
-
-$FieldInfo _FloatingDecimal_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FloatingDecimal, $assertionsDisabled)},
-	{"EXP_SHIFT", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, EXP_SHIFT)},
-	{"FRACT_HOB", "J", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, FRACT_HOB)},
-	{"EXP_ONE", "J", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, EXP_ONE)},
-	{"MAX_SMALL_BIN_EXP", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, MAX_SMALL_BIN_EXP)},
-	{"MIN_SMALL_BIN_EXP", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, MIN_SMALL_BIN_EXP)},
-	{"MAX_DECIMAL_DIGITS", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, MAX_DECIMAL_DIGITS)},
-	{"MAX_DECIMAL_EXPONENT", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, MAX_DECIMAL_EXPONENT)},
-	{"MIN_DECIMAL_EXPONENT", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, MIN_DECIMAL_EXPONENT)},
-	{"BIG_DECIMAL_EXPONENT", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, BIG_DECIMAL_EXPONENT)},
-	{"MAX_NDIGITS", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, MAX_NDIGITS)},
-	{"SINGLE_EXP_SHIFT", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, SINGLE_EXP_SHIFT)},
-	{"SINGLE_FRACT_HOB", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, SINGLE_FRACT_HOB)},
-	{"SINGLE_MAX_DECIMAL_DIGITS", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, SINGLE_MAX_DECIMAL_DIGITS)},
-	{"SINGLE_MAX_DECIMAL_EXPONENT", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, SINGLE_MAX_DECIMAL_EXPONENT)},
-	{"SINGLE_MIN_DECIMAL_EXPONENT", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, SINGLE_MIN_DECIMAL_EXPONENT)},
-	{"SINGLE_MAX_NDIGITS", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, SINGLE_MAX_NDIGITS)},
-	{"INT_DECIMAL_DIGITS", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, INT_DECIMAL_DIGITS)},
-	{"INFINITY_REP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal, INFINITY_REP)},
-	{"INFINITY_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal, INFINITY_LENGTH)},
-	{"NAN_REP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal, NAN_REP)},
-	{"NAN_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal, NAN_LENGTH)},
-	{"B2AC_POSITIVE_INFINITY", "Ljdk/internal/math/FloatingDecimal$BinaryToASCIIConverter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal, B2AC_POSITIVE_INFINITY)},
-	{"B2AC_NEGATIVE_INFINITY", "Ljdk/internal/math/FloatingDecimal$BinaryToASCIIConverter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal, B2AC_NEGATIVE_INFINITY)},
-	{"B2AC_NOT_A_NUMBER", "Ljdk/internal/math/FloatingDecimal$BinaryToASCIIConverter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal, B2AC_NOT_A_NUMBER)},
-	{"B2AC_POSITIVE_ZERO", "Ljdk/internal/math/FloatingDecimal$BinaryToASCIIConverter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal, B2AC_POSITIVE_ZERO)},
-	{"B2AC_NEGATIVE_ZERO", "Ljdk/internal/math/FloatingDecimal$BinaryToASCIIConverter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal, B2AC_NEGATIVE_ZERO)},
-	{"threadLocalBinaryToASCIIBuffer", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljdk/internal/math/FloatingDecimal$BinaryToASCIIBuffer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal, threadLocalBinaryToASCIIBuffer)},
-	{"A2BC_POSITIVE_INFINITY", "Ljdk/internal/math/FloatingDecimal$ASCIIToBinaryConverter;", nullptr, $STATIC | $FINAL, $staticField(FloatingDecimal, A2BC_POSITIVE_INFINITY)},
-	{"A2BC_NEGATIVE_INFINITY", "Ljdk/internal/math/FloatingDecimal$ASCIIToBinaryConverter;", nullptr, $STATIC | $FINAL, $staticField(FloatingDecimal, A2BC_NEGATIVE_INFINITY)},
-	{"A2BC_NOT_A_NUMBER", "Ljdk/internal/math/FloatingDecimal$ASCIIToBinaryConverter;", nullptr, $STATIC | $FINAL, $staticField(FloatingDecimal, A2BC_NOT_A_NUMBER)},
-	{"A2BC_POSITIVE_ZERO", "Ljdk/internal/math/FloatingDecimal$ASCIIToBinaryConverter;", nullptr, $STATIC | $FINAL, $staticField(FloatingDecimal, A2BC_POSITIVE_ZERO)},
-	{"A2BC_NEGATIVE_ZERO", "Ljdk/internal/math/FloatingDecimal$ASCIIToBinaryConverter;", nullptr, $STATIC | $FINAL, $staticField(FloatingDecimal, A2BC_NEGATIVE_ZERO)},
-	{}
-};
-
-$MethodInfo _FloatingDecimal_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FloatingDecimal, init$, void)},
-	{"appendTo", "(DLjava/lang/Appendable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatingDecimal, appendTo, void, double, $Appendable*)},
-	{"appendTo", "(FLjava/lang/Appendable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatingDecimal, appendTo, void, float, $Appendable*)},
-	{"getBinaryToASCIIBuffer", "()Ljdk/internal/math/FloatingDecimal$BinaryToASCIIBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(FloatingDecimal, getBinaryToASCIIBuffer, $FloatingDecimal$BinaryToASCIIBuffer*)},
-	{"getBinaryToASCIIConverter", "(D)Ljdk/internal/math/FloatingDecimal$BinaryToASCIIConverter;", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatingDecimal, getBinaryToASCIIConverter, $FloatingDecimal$BinaryToASCIIConverter*, double)},
-	{"getBinaryToASCIIConverter", "(DZ)Ljdk/internal/math/FloatingDecimal$BinaryToASCIIConverter;", nullptr, $STATIC, $staticMethod(FloatingDecimal, getBinaryToASCIIConverter, $FloatingDecimal$BinaryToASCIIConverter*, double, bool)},
-	{"getBinaryToASCIIConverter", "(F)Ljdk/internal/math/FloatingDecimal$BinaryToASCIIConverter;", nullptr, $PRIVATE | $STATIC, $staticMethod(FloatingDecimal, getBinaryToASCIIConverter, $FloatingDecimal$BinaryToASCIIConverter*, float)},
-	{"getHexDigit", "(Ljava/lang/String;I)I", nullptr, $STATIC, $staticMethod(FloatingDecimal, getHexDigit, int32_t, $String*, int32_t)},
-	{"parseDouble", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatingDecimal, parseDouble, double, $String*), "java.lang.NumberFormatException"},
-	{"parseFloat", "(Ljava/lang/String;)F", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatingDecimal, parseFloat, float, $String*), "java.lang.NumberFormatException"},
-	{"parseHexString", "(Ljava/lang/String;)Ljdk/internal/math/FloatingDecimal$ASCIIToBinaryConverter;", nullptr, $STATIC, $staticMethod(FloatingDecimal, parseHexString, $FloatingDecimal$ASCIIToBinaryConverter*, $String*)},
-	{"readJavaFormatString", "(Ljava/lang/String;)Ljdk/internal/math/FloatingDecimal$ASCIIToBinaryConverter;", nullptr, $STATIC, $staticMethod(FloatingDecimal, readJavaFormatString, $FloatingDecimal$ASCIIToBinaryConverter*, $String*), "java.lang.NumberFormatException"},
-	{"stripLeadingZeros", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(FloatingDecimal, stripLeadingZeros, $String*, $String*)},
-	{"toJavaFormatString", "(D)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatingDecimal, toJavaFormatString, $String*, double)},
-	{"toJavaFormatString", "(F)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatingDecimal, toJavaFormatString, $String*, float)},
-	{}
-};
-
-$InnerClassInfo _FloatingDecimal_InnerClassesInfo_[] = {
-	{"jdk.internal.math.FloatingDecimal$HexFloatPattern", "jdk.internal.math.FloatingDecimal", "HexFloatPattern", $PRIVATE | $STATIC},
-	{"jdk.internal.math.FloatingDecimal$ASCIIToBinaryBuffer", "jdk.internal.math.FloatingDecimal", "ASCIIToBinaryBuffer", $STATIC},
-	{"jdk.internal.math.FloatingDecimal$PreparedASCIIToBinaryBuffer", "jdk.internal.math.FloatingDecimal", "PreparedASCIIToBinaryBuffer", $STATIC},
-	{"jdk.internal.math.FloatingDecimal$ASCIIToBinaryConverter", "jdk.internal.math.FloatingDecimal", "ASCIIToBinaryConverter", $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.math.FloatingDecimal$BinaryToASCIIBuffer", "jdk.internal.math.FloatingDecimal", "BinaryToASCIIBuffer", $STATIC},
-	{"jdk.internal.math.FloatingDecimal$ExceptionalBinaryToASCIIBuffer", "jdk.internal.math.FloatingDecimal", "ExceptionalBinaryToASCIIBuffer", $PRIVATE | $STATIC},
-	{"jdk.internal.math.FloatingDecimal$BinaryToASCIIConverter", "jdk.internal.math.FloatingDecimal", "BinaryToASCIIConverter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.math.FloatingDecimal$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FloatingDecimal_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.math.FloatingDecimal",
-	"java.lang.Object",
-	nullptr,
-	_FloatingDecimal_FieldInfo_,
-	_FloatingDecimal_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FloatingDecimal_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.math.FloatingDecimal$HexFloatPattern,jdk.internal.math.FloatingDecimal$ASCIIToBinaryBuffer,jdk.internal.math.FloatingDecimal$PreparedASCIIToBinaryBuffer,jdk.internal.math.FloatingDecimal$ASCIIToBinaryConverter,jdk.internal.math.FloatingDecimal$BinaryToASCIIBuffer,jdk.internal.math.FloatingDecimal$ExceptionalBinaryToASCIIBuffer,jdk.internal.math.FloatingDecimal$BinaryToASCIIConverter,jdk.internal.math.FloatingDecimal$1"
-};
-
-$Object* allocate$FloatingDecimal($Class* clazz) {
-	return $of($alloc(FloatingDecimal));
-}
 
 bool FloatingDecimal::$assertionsDisabled = false;
 $String* FloatingDecimal::INFINITY_REP = nullptr;
@@ -205,37 +114,37 @@ void FloatingDecimal::init$() {
 
 $String* FloatingDecimal::toJavaFormatString(double d) {
 	$init(FloatingDecimal);
-	return $nc($(getBinaryToASCIIConverter(d)))->toJavaFormatString();
+	return $$nc(getBinaryToASCIIConverter(d))->toJavaFormatString();
 }
 
 $String* FloatingDecimal::toJavaFormatString(float f) {
 	$init(FloatingDecimal);
-	return $nc($(getBinaryToASCIIConverter(f)))->toJavaFormatString();
+	return $$nc(getBinaryToASCIIConverter(f))->toJavaFormatString();
 }
 
 void FloatingDecimal::appendTo(double d, $Appendable* buf) {
 	$init(FloatingDecimal);
-	$nc($(getBinaryToASCIIConverter(d)))->appendTo(buf);
+	$$nc(getBinaryToASCIIConverter(d))->appendTo(buf);
 }
 
 void FloatingDecimal::appendTo(float f, $Appendable* buf) {
 	$init(FloatingDecimal);
-	$nc($(getBinaryToASCIIConverter(f)))->appendTo(buf);
+	$$nc(getBinaryToASCIIConverter(f))->appendTo(buf);
 }
 
 double FloatingDecimal::parseDouble($String* s) {
 	$init(FloatingDecimal);
-	return $nc($(readJavaFormatString(s)))->doubleValue();
+	return $$nc(readJavaFormatString(s))->doubleValue();
 }
 
 float FloatingDecimal::parseFloat($String* s) {
 	$init(FloatingDecimal);
-	return $nc($(readJavaFormatString(s)))->floatValue();
+	return $$nc(readJavaFormatString(s))->floatValue();
 }
 
 $FloatingDecimal$BinaryToASCIIBuffer* FloatingDecimal::getBinaryToASCIIBuffer() {
 	$init(FloatingDecimal);
-	return $cast($FloatingDecimal$BinaryToASCIIBuffer, $nc(FloatingDecimal::threadLocalBinaryToASCIIBuffer)->get());
+	return $cast($FloatingDecimal$BinaryToASCIIBuffer, FloatingDecimal::threadLocalBinaryToASCIIBuffer->get());
 }
 
 $FloatingDecimal$BinaryToASCIIConverter* FloatingDecimal::getBinaryToASCIIConverter(double d) {
@@ -246,11 +155,11 @@ $FloatingDecimal$BinaryToASCIIConverter* FloatingDecimal::getBinaryToASCIIConver
 $FloatingDecimal$BinaryToASCIIConverter* FloatingDecimal::getBinaryToASCIIConverter(double d, bool isCompatibleFormat) {
 	$init(FloatingDecimal);
 	int64_t dBits = $Double::doubleToRawLongBits(d);
-	bool isNegative = ((int64_t)(dBits & (uint64_t)$DoubleConsts::SIGN_BIT_MASK)) != 0;
-	int64_t fractBits = (int64_t)(dBits & (uint64_t)$DoubleConsts::SIGNIF_BIT_MASK);
-	int32_t binExp = (int32_t)($sr((int64_t)(dBits & (uint64_t)$DoubleConsts::EXP_BIT_MASK), FloatingDecimal::EXP_SHIFT));
+	bool isNegative = (dBits & $DoubleConsts::SIGN_BIT_MASK) != 0;
+	int64_t fractBits = dBits & $DoubleConsts::SIGNIF_BIT_MASK;
+	int32_t binExp = (int32_t)($sr(dBits & $DoubleConsts::EXP_BIT_MASK, FloatingDecimal::EXP_SHIFT));
 	if (binExp == (int32_t)($sr($DoubleConsts::EXP_BIT_MASK, FloatingDecimal::EXP_SHIFT))) {
-		if (fractBits == (int64_t)0) {
+		if (fractBits == 0) {
 			return isNegative ? FloatingDecimal::B2AC_NEGATIVE_INFINITY : FloatingDecimal::B2AC_POSITIVE_INFINITY;
 		} else {
 			return FloatingDecimal::B2AC_NOT_A_NUMBER;
@@ -258,7 +167,7 @@ $FloatingDecimal$BinaryToASCIIConverter* FloatingDecimal::getBinaryToASCIIConver
 	}
 	int32_t nSignificantBits = 0;
 	if (binExp == 0) {
-		if (fractBits == (int64_t)0) {
+		if (fractBits == 0) {
 			return isNegative ? FloatingDecimal::B2AC_NEGATIVE_ZERO : FloatingDecimal::B2AC_POSITIVE_ZERO;
 		}
 		int32_t leadingZeros = $Long::numberOfLeadingZeros(fractBits);
@@ -280,11 +189,11 @@ $FloatingDecimal$BinaryToASCIIConverter* FloatingDecimal::getBinaryToASCIIConver
 $FloatingDecimal$BinaryToASCIIConverter* FloatingDecimal::getBinaryToASCIIConverter(float f) {
 	$init(FloatingDecimal);
 	int32_t fBits = $Float::floatToRawIntBits(f);
-	bool isNegative = ((int32_t)(fBits & (uint32_t)$FloatConsts::SIGN_BIT_MASK)) != 0;
-	int32_t fractBits = (int32_t)(fBits & (uint32_t)$FloatConsts::SIGNIF_BIT_MASK);
-	int32_t binExp = $sr((int32_t)(fBits & (uint32_t)$FloatConsts::EXP_BIT_MASK), FloatingDecimal::SINGLE_EXP_SHIFT);
+	bool isNegative = (fBits & $FloatConsts::SIGN_BIT_MASK) != 0;
+	int32_t fractBits = fBits & $FloatConsts::SIGNIF_BIT_MASK;
+	int32_t binExp = $sr(fBits & $FloatConsts::EXP_BIT_MASK, FloatingDecimal::SINGLE_EXP_SHIFT);
 	if (binExp == ($sr($FloatConsts::EXP_BIT_MASK, FloatingDecimal::SINGLE_EXP_SHIFT))) {
-		if (fractBits == (int64_t)0) {
+		if (fractBits == 0) {
 			return isNegative ? FloatingDecimal::B2AC_NEGATIVE_INFINITY : FloatingDecimal::B2AC_POSITIVE_INFINITY;
 		} else {
 			return FloatingDecimal::B2AC_NOT_A_NUMBER;
@@ -313,7 +222,7 @@ $FloatingDecimal$BinaryToASCIIConverter* FloatingDecimal::getBinaryToASCIIConver
 
 $FloatingDecimal$ASCIIToBinaryConverter* FloatingDecimal::readJavaFormatString($String* in$renamed) {
 	$init(FloatingDecimal);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, in, in$renamed);
 	bool isNegative = false;
 	bool signSeen = false;
@@ -330,14 +239,10 @@ $FloatingDecimal$ASCIIToBinaryConverter* FloatingDecimal::readJavaFormatString($
 			int32_t i = 0;
 			switch (in->charAt(i)) {
 			case u'-':
-				{
-					isNegative = true;
-				}
+				isNegative = true;
 			case u'+':
-				{
-					++i;
-					signSeen = true;
-				}
+				++i;
+				signSeen = true;
 			}
 			c = in->charAt(i);
 			if (c == u'N') {
@@ -428,13 +333,9 @@ $FloatingDecimal$ASCIIToBinaryConverter* FloatingDecimal::readJavaFormatString($
 				bool expOverflow = false;
 				switch (in->charAt(++i)) {
 				case u'-':
-					{
-						expSign = -1;
-					}
+					expSign = -1;
 				case u'+':
-					{
-						++i;
-					}
+					++i;
 				}
 				int32_t expAt = i;
 				bool expLoop$break = false;
@@ -468,14 +369,14 @@ $FloatingDecimal$ASCIIToBinaryConverter* FloatingDecimal::readJavaFormatString($
 			}
 			bool var$0 = i < len;
 			if (var$0) {
-				bool var$1 = (i != len - 1);
+				bool var$1 = i != len - 1;
 				if (!var$1) {
 					bool var$4 = in->charAt(i) != u'f';
 					bool var$3 = var$4 && in->charAt(i) != u'F';
 					bool var$2 = var$3 && in->charAt(i) != u'd';
-					var$1 = (var$2 && in->charAt(i) != u'D');
+					var$1 = var$2 && in->charAt(i) != u'D';
 				}
-				var$0 = (var$1);
+				var$0 = var$1;
 			}
 			if (var$0) {
 				parseNumber$break = true;
@@ -495,7 +396,7 @@ $FloatingDecimal$ASCIIToBinaryConverter* FloatingDecimal::readJavaFormatString($
 
 $FloatingDecimal$ASCIIToBinaryConverter* FloatingDecimal::parseHexString($String* s) {
 	$init(FloatingDecimal);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($FloatingDecimal$HexFloatPattern);
 	$var($Matcher, m, $nc($FloatingDecimal$HexFloatPattern::VALUE)->matcher(s));
 	bool validInput = $nc(m)->matches();
@@ -533,14 +434,14 @@ $FloatingDecimal$ASCIIToBinaryConverter* FloatingDecimal::parseHexString($String
 			}
 		}
 		$var($String, group8, m->group(8));
-		bool positiveExponent = (group8 == nullptr) || $nc(group8)->equals("+"_s);
+		bool positiveExponent = (group8 == nullptr) || group8->equals("+"_s);
 		int64_t unsignedRawExponent = 0;
 		try {
 			unsignedRawExponent = $Integer::parseInt($(m->group(9)));
 		} catch ($NumberFormatException& e) {
 			return isNegative ? (positiveExponent ? FloatingDecimal::A2BC_NEGATIVE_INFINITY : FloatingDecimal::A2BC_NEGATIVE_ZERO) : (positiveExponent ? FloatingDecimal::A2BC_POSITIVE_INFINITY : FloatingDecimal::A2BC_POSITIVE_ZERO);
 		}
-		int64_t rawExponent = (positiveExponent ? (int64_t)1 : (int64_t)-1) * unsignedRawExponent;
+		int64_t rawExponent = (positiveExponent ? 1 : -1) * unsignedRawExponent;
 		int64_t exponent = rawExponent + exponentAdjust;
 		bool round = false;
 		bool sticky = false;
@@ -575,35 +476,25 @@ $FloatingDecimal$ASCIIToBinaryConverter* FloatingDecimal::parseHexString($String
 			int64_t currentDigit = getHexDigit(significandString, i);
 			switch (nextShift) {
 			case -1:
-				{
-					significand |= (((int64_t)(currentDigit & (uint64_t)(int64_t)14)) >> 1);
-					round = ((int64_t)(currentDigit & (uint64_t)(int64_t)1)) != (int64_t)0;
-					break;
-				}
+				significand |= ((currentDigit & (int64_t)0x0e) >> 1);
+				round = (currentDigit & (int64_t)1) != 0;
+				break;
 			case -2:
-				{
-					significand |= (((int64_t)(currentDigit & (uint64_t)(int64_t)12)) >> 2);
-					round = ((int64_t)(currentDigit & (uint64_t)(int64_t)2)) != (int64_t)0;
-					sticky = ((int64_t)(currentDigit & (uint64_t)(int64_t)1)) != 0;
-					break;
-				}
+				significand |= ((currentDigit & (int64_t)0x0c) >> 2);
+				round = (currentDigit & (int64_t)2) != 0;
+				sticky = (currentDigit & (int64_t)1) != 0;
+				break;
 			case -3:
-				{
-					significand |= (((int64_t)(currentDigit & (uint64_t)(int64_t)8)) >> 3);
-					round = ((int64_t)(currentDigit & (uint64_t)(int64_t)4)) != (int64_t)0;
-					sticky = ((int64_t)(currentDigit & (uint64_t)(int64_t)3)) != 0;
-					break;
-				}
+				significand |= ((currentDigit & (int64_t)8) >> 3);
+				round = (currentDigit & (int64_t)4) != 0;
+				sticky = (currentDigit & (int64_t)3) != 0;
+				break;
 			case -4:
-				{
-					round = (((int64_t)(currentDigit & (uint64_t)(int64_t)8)) != 0);
-					sticky = ((int64_t)(currentDigit & (uint64_t)(int64_t)7)) != 0;
-					break;
-				}
+				round = ((currentDigit & (int64_t)8) != 0);
+				sticky = (currentDigit & (int64_t)7) != 0;
+				break;
 			default:
-				{
-					$throwNew($AssertionError, $of("Unexpected shift distance remainder."_s));
-				}
+				$throwNew($AssertionError, $of("Unexpected shift distance remainder."_s));
 			}
 			++i;
 			while (i < signifLength && !sticky) {
@@ -618,9 +509,9 @@ $FloatingDecimal$ASCIIToBinaryConverter* FloatingDecimal::parseHexString($String
 				floatBits |= $FloatConsts::EXP_BIT_MASK;
 			} else {
 				int32_t threshShift = $DoubleConsts::SIGNIFICAND_WIDTH - $FloatConsts::SIGNIFICAND_WIDTH - 1;
-				bool floatSticky = ((int64_t)(significand & (uint64_t)(($sl((int64_t)1, threshShift)) - 1))) != 0 || round || sticky;
+				bool floatSticky = (significand & (($sl((int64_t)1, threshShift)) - 1)) != 0 || round || sticky;
 				int32_t iValue = (int32_t)($usr(significand, threshShift));
-				if (((int32_t)(iValue & (uint32_t)3)) != 1 || floatSticky) {
+				if ((iValue & 3) != 1 || floatSticky) {
 					++iValue;
 				}
 				floatBits |= ($sl(((int32_t)exponent) + ($FloatConsts::EXP_BIAS - 1), FloatingDecimal::SINGLE_EXP_SHIFT)) + (iValue >> 1);
@@ -634,9 +525,9 @@ $FloatingDecimal$ASCIIToBinaryConverter* FloatingDecimal::parseHexString($String
 			if (!FloatingDecimal::$assertionsDisabled && !(threshShift < $DoubleConsts::SIGNIFICAND_WIDTH)) {
 				$throwNew($AssertionError);
 			}
-			bool floatSticky = ((int64_t)(significand & (uint64_t)(($sl((int64_t)1, threshShift)) - 1))) != 0 || round || sticky;
+			bool floatSticky = (significand & (($sl((int64_t)1, threshShift)) - 1)) != 0 || round || sticky;
 			int32_t iValue = (int32_t)($usr(significand, threshShift));
-			if (((int32_t)(iValue & (uint32_t)3)) != 1 || floatSticky) {
+			if ((iValue & 3) != 1 || floatSticky) {
 				++iValue;
 			}
 			floatBits |= iValue >> 1;
@@ -646,7 +537,7 @@ $FloatingDecimal$ASCIIToBinaryConverter* FloatingDecimal::parseHexString($String
 			return isNegative ? FloatingDecimal::A2BC_NEGATIVE_INFINITY : FloatingDecimal::A2BC_POSITIVE_INFINITY;
 		} else {
 			if (exponent <= $Double::MAX_EXPONENT && exponent >= $Double::MIN_EXPONENT) {
-				significand = ((int64_t)(($sl(exponent + (int64_t)$DoubleConsts::EXP_BIAS, $DoubleConsts::SIGNIFICAND_WIDTH - 1)) & (uint64_t)$DoubleConsts::EXP_BIT_MASK)) | ((int64_t)($DoubleConsts::SIGNIF_BIT_MASK & (uint64_t)significand));
+				significand = (($sl(exponent + (int64_t)$DoubleConsts::EXP_BIAS, $DoubleConsts::SIGNIFICAND_WIDTH - 1)) & $DoubleConsts::EXP_BIT_MASK) | ($DoubleConsts::SIGNIF_BIT_MASK & significand);
 			} else if (exponent < ($DoubleConsts::MIN_SUB_EXPONENT - 1)) {
 				return isNegative ? FloatingDecimal::A2BC_NEGATIVE_ZERO : FloatingDecimal::A2BC_POSITIVE_ZERO;
 			} else {
@@ -656,15 +547,15 @@ $FloatingDecimal$ASCIIToBinaryConverter* FloatingDecimal::parseHexString($String
 				if (!FloatingDecimal::$assertionsDisabled && !(bitsDiscarded >= 1 && bitsDiscarded <= 53)) {
 					$throwNew($AssertionError);
 				}
-				round = ((int64_t)(significand & (uint64_t)($sl((int64_t)1, bitsDiscarded - 1)))) != (int64_t)0;
+				round = (significand & ($sl((int64_t)1, bitsDiscarded - 1))) != 0;
 				if (bitsDiscarded > 1) {
 					int64_t mask = ~($sl(~(int64_t)0, bitsDiscarded - 1));
-					sticky = sticky || (((int64_t)(significand & (uint64_t)mask)) != (int64_t)0);
+					sticky = sticky || ((significand & mask) != 0);
 				}
 				significand = $sr(significand, bitsDiscarded);
-				significand = ((int64_t)(($sl((int64_t)($Double::MIN_EXPONENT - 1) + (int64_t)$DoubleConsts::EXP_BIAS, $DoubleConsts::SIGNIFICAND_WIDTH - 1)) & (uint64_t)$DoubleConsts::EXP_BIT_MASK)) | ((int64_t)($DoubleConsts::SIGNIF_BIT_MASK & (uint64_t)significand));
+				significand = (($sl((int64_t)($Double::MIN_EXPONENT - 1) + (int64_t)$DoubleConsts::EXP_BIAS, $DoubleConsts::SIGNIFICAND_WIDTH - 1)) & $DoubleConsts::EXP_BIT_MASK) | ($DoubleConsts::SIGNIF_BIT_MASK & significand);
 			}
-			bool leastZero = (((int64_t)(significand & (uint64_t)(int64_t)1)) == (int64_t)0);
+			bool leastZero = ((significand & (int64_t)1) == 0);
 			if ((leastZero && round && sticky) || ((!leastZero) && round)) {
 				++significand;
 			}
@@ -690,29 +581,27 @@ $String* FloatingDecimal::stripLeadingZeros($String* s) {
 
 int32_t FloatingDecimal::getHexDigit($String* s, int32_t position) {
 	$init(FloatingDecimal);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t value = $Character::digit($nc(s)->charAt(position), 16);
 	if (value <= -1 || value >= 16) {
-		$throwNew($AssertionError, $of($$str({"Unexpected failure of digit conversion of "_s, $$str($nc(s)->charAt(position))})));
+		$throwNew($AssertionError, $$of($str({"Unexpected failure of digit conversion of "_s, $$str(s->charAt(position))})));
 	}
 	return value;
 }
 
-void clinit$FloatingDecimal($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void FloatingDecimal::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(FloatingDecimal::INFINITY_REP, "Infinity"_s);
 	$assignStatic(FloatingDecimal::NAN_REP, "NaN"_s);
 	FloatingDecimal::$assertionsDisabled = !FloatingDecimal::class$->desiredAssertionStatus();
-	FloatingDecimal::INFINITY_LENGTH = $nc(FloatingDecimal::INFINITY_REP)->length();
-	FloatingDecimal::NAN_LENGTH = $nc(FloatingDecimal::NAN_REP)->length();
+	FloatingDecimal::INFINITY_LENGTH = FloatingDecimal::INFINITY_REP->length();
+	FloatingDecimal::NAN_LENGTH = FloatingDecimal::NAN_REP->length();
 	$assignStatic(FloatingDecimal::B2AC_POSITIVE_INFINITY, $new($FloatingDecimal$ExceptionalBinaryToASCIIBuffer, FloatingDecimal::INFINITY_REP, false));
 	$assignStatic(FloatingDecimal::B2AC_NEGATIVE_INFINITY, $new($FloatingDecimal$ExceptionalBinaryToASCIIBuffer, $$str({"-"_s, FloatingDecimal::INFINITY_REP}), true));
 	$assignStatic(FloatingDecimal::B2AC_NOT_A_NUMBER, $new($FloatingDecimal$ExceptionalBinaryToASCIIBuffer, FloatingDecimal::NAN_REP, false));
 	$assignStatic(FloatingDecimal::B2AC_POSITIVE_ZERO, $new($FloatingDecimal$BinaryToASCIIBuffer, false, $$new($chars, {u'0'})));
 	$assignStatic(FloatingDecimal::B2AC_NEGATIVE_ZERO, $new($FloatingDecimal$BinaryToASCIIBuffer, true, $$new($chars, {u'0'})));
 	$assignStatic(FloatingDecimal::threadLocalBinaryToASCIIBuffer, $new($FloatingDecimal$1));
-	$init($Double);
-	$init($Float);
 	$assignStatic(FloatingDecimal::A2BC_POSITIVE_INFINITY, $new($FloatingDecimal$PreparedASCIIToBinaryBuffer, $Double::POSITIVE_INFINITY, $Float::POSITIVE_INFINITY));
 	$assignStatic(FloatingDecimal::A2BC_NEGATIVE_INFINITY, $new($FloatingDecimal$PreparedASCIIToBinaryBuffer, $Double::NEGATIVE_INFINITY, $Float::NEGATIVE_INFINITY));
 	$assignStatic(FloatingDecimal::A2BC_NOT_A_NUMBER, $new($FloatingDecimal$PreparedASCIIToBinaryBuffer, $Double::NaN, $Float::NaN));
@@ -724,7 +613,88 @@ FloatingDecimal::FloatingDecimal() {
 }
 
 $Class* FloatingDecimal::load$($String* name, bool initialize) {
-	$loadClass(FloatingDecimal, name, initialize, &_FloatingDecimal_ClassInfo_, clinit$FloatingDecimal, allocate$FloatingDecimal);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FloatingDecimal, $assertionsDisabled)},
+		{"EXP_SHIFT", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, EXP_SHIFT)},
+		{"FRACT_HOB", "J", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, FRACT_HOB)},
+		{"EXP_ONE", "J", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, EXP_ONE)},
+		{"MAX_SMALL_BIN_EXP", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, MAX_SMALL_BIN_EXP)},
+		{"MIN_SMALL_BIN_EXP", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, MIN_SMALL_BIN_EXP)},
+		{"MAX_DECIMAL_DIGITS", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, MAX_DECIMAL_DIGITS)},
+		{"MAX_DECIMAL_EXPONENT", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, MAX_DECIMAL_EXPONENT)},
+		{"MIN_DECIMAL_EXPONENT", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, MIN_DECIMAL_EXPONENT)},
+		{"BIG_DECIMAL_EXPONENT", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, BIG_DECIMAL_EXPONENT)},
+		{"MAX_NDIGITS", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, MAX_NDIGITS)},
+		{"SINGLE_EXP_SHIFT", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, SINGLE_EXP_SHIFT)},
+		{"SINGLE_FRACT_HOB", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, SINGLE_FRACT_HOB)},
+		{"SINGLE_MAX_DECIMAL_DIGITS", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, SINGLE_MAX_DECIMAL_DIGITS)},
+		{"SINGLE_MAX_DECIMAL_EXPONENT", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, SINGLE_MAX_DECIMAL_EXPONENT)},
+		{"SINGLE_MIN_DECIMAL_EXPONENT", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, SINGLE_MIN_DECIMAL_EXPONENT)},
+		{"SINGLE_MAX_NDIGITS", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, SINGLE_MAX_NDIGITS)},
+		{"INT_DECIMAL_DIGITS", "I", nullptr, $STATIC | $FINAL, $constField(FloatingDecimal, INT_DECIMAL_DIGITS)},
+		{"INFINITY_REP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal, INFINITY_REP)},
+		{"INFINITY_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal, INFINITY_LENGTH)},
+		{"NAN_REP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal, NAN_REP)},
+		{"NAN_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal, NAN_LENGTH)},
+		{"B2AC_POSITIVE_INFINITY", "Ljdk/internal/math/FloatingDecimal$BinaryToASCIIConverter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal, B2AC_POSITIVE_INFINITY)},
+		{"B2AC_NEGATIVE_INFINITY", "Ljdk/internal/math/FloatingDecimal$BinaryToASCIIConverter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal, B2AC_NEGATIVE_INFINITY)},
+		{"B2AC_NOT_A_NUMBER", "Ljdk/internal/math/FloatingDecimal$BinaryToASCIIConverter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal, B2AC_NOT_A_NUMBER)},
+		{"B2AC_POSITIVE_ZERO", "Ljdk/internal/math/FloatingDecimal$BinaryToASCIIConverter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal, B2AC_POSITIVE_ZERO)},
+		{"B2AC_NEGATIVE_ZERO", "Ljdk/internal/math/FloatingDecimal$BinaryToASCIIConverter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal, B2AC_NEGATIVE_ZERO)},
+		{"threadLocalBinaryToASCIIBuffer", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljdk/internal/math/FloatingDecimal$BinaryToASCIIBuffer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal, threadLocalBinaryToASCIIBuffer)},
+		{"A2BC_POSITIVE_INFINITY", "Ljdk/internal/math/FloatingDecimal$ASCIIToBinaryConverter;", nullptr, $STATIC | $FINAL, $staticField(FloatingDecimal, A2BC_POSITIVE_INFINITY)},
+		{"A2BC_NEGATIVE_INFINITY", "Ljdk/internal/math/FloatingDecimal$ASCIIToBinaryConverter;", nullptr, $STATIC | $FINAL, $staticField(FloatingDecimal, A2BC_NEGATIVE_INFINITY)},
+		{"A2BC_NOT_A_NUMBER", "Ljdk/internal/math/FloatingDecimal$ASCIIToBinaryConverter;", nullptr, $STATIC | $FINAL, $staticField(FloatingDecimal, A2BC_NOT_A_NUMBER)},
+		{"A2BC_POSITIVE_ZERO", "Ljdk/internal/math/FloatingDecimal$ASCIIToBinaryConverter;", nullptr, $STATIC | $FINAL, $staticField(FloatingDecimal, A2BC_POSITIVE_ZERO)},
+		{"A2BC_NEGATIVE_ZERO", "Ljdk/internal/math/FloatingDecimal$ASCIIToBinaryConverter;", nullptr, $STATIC | $FINAL, $staticField(FloatingDecimal, A2BC_NEGATIVE_ZERO)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FloatingDecimal, init$, void)},
+		{"appendTo", "(DLjava/lang/Appendable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatingDecimal, appendTo, void, double, $Appendable*)},
+		{"appendTo", "(FLjava/lang/Appendable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatingDecimal, appendTo, void, float, $Appendable*)},
+		{"getBinaryToASCIIBuffer", "()Ljdk/internal/math/FloatingDecimal$BinaryToASCIIBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(FloatingDecimal, getBinaryToASCIIBuffer, $FloatingDecimal$BinaryToASCIIBuffer*)},
+		{"getBinaryToASCIIConverter", "(D)Ljdk/internal/math/FloatingDecimal$BinaryToASCIIConverter;", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatingDecimal, getBinaryToASCIIConverter, $FloatingDecimal$BinaryToASCIIConverter*, double)},
+		{"getBinaryToASCIIConverter", "(DZ)Ljdk/internal/math/FloatingDecimal$BinaryToASCIIConverter;", nullptr, $STATIC, $staticMethod(FloatingDecimal, getBinaryToASCIIConverter, $FloatingDecimal$BinaryToASCIIConverter*, double, bool)},
+		{"getBinaryToASCIIConverter", "(F)Ljdk/internal/math/FloatingDecimal$BinaryToASCIIConverter;", nullptr, $PRIVATE | $STATIC, $staticMethod(FloatingDecimal, getBinaryToASCIIConverter, $FloatingDecimal$BinaryToASCIIConverter*, float)},
+		{"getHexDigit", "(Ljava/lang/String;I)I", nullptr, $STATIC, $staticMethod(FloatingDecimal, getHexDigit, int32_t, $String*, int32_t)},
+		{"parseDouble", "(Ljava/lang/String;)D", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatingDecimal, parseDouble, double, $String*), "java.lang.NumberFormatException"},
+		{"parseFloat", "(Ljava/lang/String;)F", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatingDecimal, parseFloat, float, $String*), "java.lang.NumberFormatException"},
+		{"parseHexString", "(Ljava/lang/String;)Ljdk/internal/math/FloatingDecimal$ASCIIToBinaryConverter;", nullptr, $STATIC, $staticMethod(FloatingDecimal, parseHexString, $FloatingDecimal$ASCIIToBinaryConverter*, $String*)},
+		{"readJavaFormatString", "(Ljava/lang/String;)Ljdk/internal/math/FloatingDecimal$ASCIIToBinaryConverter;", nullptr, $STATIC, $staticMethod(FloatingDecimal, readJavaFormatString, $FloatingDecimal$ASCIIToBinaryConverter*, $String*), "java.lang.NumberFormatException"},
+		{"stripLeadingZeros", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(FloatingDecimal, stripLeadingZeros, $String*, $String*)},
+		{"toJavaFormatString", "(D)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatingDecimal, toJavaFormatString, $String*, double)},
+		{"toJavaFormatString", "(F)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatingDecimal, toJavaFormatString, $String*, float)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.math.FloatingDecimal$HexFloatPattern", "jdk.internal.math.FloatingDecimal", "HexFloatPattern", $PRIVATE | $STATIC},
+		{"jdk.internal.math.FloatingDecimal$ASCIIToBinaryBuffer", "jdk.internal.math.FloatingDecimal", "ASCIIToBinaryBuffer", $STATIC},
+		{"jdk.internal.math.FloatingDecimal$PreparedASCIIToBinaryBuffer", "jdk.internal.math.FloatingDecimal", "PreparedASCIIToBinaryBuffer", $STATIC},
+		{"jdk.internal.math.FloatingDecimal$ASCIIToBinaryConverter", "jdk.internal.math.FloatingDecimal", "ASCIIToBinaryConverter", $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.math.FloatingDecimal$BinaryToASCIIBuffer", "jdk.internal.math.FloatingDecimal", "BinaryToASCIIBuffer", $STATIC},
+		{"jdk.internal.math.FloatingDecimal$ExceptionalBinaryToASCIIBuffer", "jdk.internal.math.FloatingDecimal", "ExceptionalBinaryToASCIIBuffer", $PRIVATE | $STATIC},
+		{"jdk.internal.math.FloatingDecimal$BinaryToASCIIConverter", "jdk.internal.math.FloatingDecimal", "BinaryToASCIIConverter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.math.FloatingDecimal$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.math.FloatingDecimal",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.math.FloatingDecimal$HexFloatPattern,jdk.internal.math.FloatingDecimal$ASCIIToBinaryBuffer,jdk.internal.math.FloatingDecimal$PreparedASCIIToBinaryBuffer,jdk.internal.math.FloatingDecimal$ASCIIToBinaryConverter,jdk.internal.math.FloatingDecimal$BinaryToASCIIBuffer,jdk.internal.math.FloatingDecimal$ExceptionalBinaryToASCIIBuffer,jdk.internal.math.FloatingDecimal$BinaryToASCIIConverter,jdk.internal.math.FloatingDecimal$1"
+	};
+	$loadClass(FloatingDecimal, name, initialize, &classInfo$$, FloatingDecimal::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FloatingDecimal);
+	});
 	return class$;
 }
 

@@ -1,8 +1,6 @@
 #include <Unresolved.h>
-
 #include <java/net/DatagramPacket.h>
 #include <java/net/InetSocketAddress.h>
-#include <java/net/SocketAddress.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -11,36 +9,16 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $DatagramPacket = ::java::net::DatagramPacket;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
-using $SocketAddress = ::java::net::SocketAddress;
-
-$MethodInfo _Unresolved_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Unresolved, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Unresolved, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Unresolved_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Unresolved",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Unresolved_MethodInfo_
-};
-
-$Object* allocate$Unresolved($Class* clazz) {
-	return $of($alloc(Unresolved));
-}
 
 void Unresolved::init$() {
 }
 
 void Unresolved::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetSocketAddress, remAddr, $InetSocketAddress::createUnresolved("foo.bar"_s, 161));
 	try {
 		$var($bytes, var$0, "Hellooo!"_s->getBytes());
-		$var($DatagramPacket, packet1, $new($DatagramPacket, var$0, "Hellooo!"_s->length(), static_cast<$SocketAddress*>(remAddr)));
+		$var($DatagramPacket, packet1, $new($DatagramPacket, var$0, "Hellooo!"_s->length(), remAddr));
 	} catch ($IllegalArgumentException& e) {
 		return;
 	}
@@ -51,7 +29,22 @@ Unresolved::Unresolved() {
 }
 
 $Class* Unresolved::load$($String* name, bool initialize) {
-	$loadClass(Unresolved, name, initialize, &_Unresolved_ClassInfo_, allocate$Unresolved);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Unresolved, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Unresolved, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Unresolved",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Unresolved, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Unresolved);
+	});
 	return class$;
 }
 

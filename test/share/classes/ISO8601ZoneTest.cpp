@@ -1,5 +1,4 @@
 #include <ISO8601ZoneTest.h>
-
 #include <java/text/ParseException.h>
 #include <java/text/ParsePosition.h>
 #include <java/text/SimpleDateFormat.h>
@@ -24,39 +23,6 @@ using $Date = ::java::util::Date;
 using $Locale = ::java::util::Locale;
 using $TimeZone = ::java::util::TimeZone;
 
-$FieldInfo _ISO8601ZoneTest_FieldInfo_[] = {
-	{"TIMESTAMP", "Ljava/util/Date;", nullptr, $STATIC | $FINAL, $staticField(ISO8601ZoneTest, TIMESTAMP)},
-	{"formatData", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ISO8601ZoneTest, formatData)},
-	{"zones", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ISO8601ZoneTest, zones)},
-	{"isoZoneFormats", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ISO8601ZoneTest, isoZoneFormats)},
-	{"badData", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ISO8601ZoneTest, badData)},
-	{"badFormats", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(ISO8601ZoneTest, badFormats)},
-	{}
-};
-
-$MethodInfo _ISO8601ZoneTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ISO8601ZoneTest, init$, void)},
-	{"badDataParsing", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $STATIC, $staticMethod(ISO8601ZoneTest, badDataParsing, void, $String*, $String*, int32_t)},
-	{"badFormat", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ISO8601ZoneTest, badFormat, void, $String*)},
-	{"formatTest", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ISO8601ZoneTest, formatTest, void, $String*, $String*), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ISO8601ZoneTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"roundtripTest", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ISO8601ZoneTest, roundtripTest, void, $String*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ISO8601ZoneTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ISO8601ZoneTest",
-	"java.lang.Object",
-	nullptr,
-	_ISO8601ZoneTest_FieldInfo_,
-	_ISO8601ZoneTest_MethodInfo_
-};
-
-$Object* allocate$ISO8601ZoneTest($Class* clazz) {
-	return $of($alloc(ISO8601ZoneTest));
-}
-
 $Date* ISO8601ZoneTest::TIMESTAMP = nullptr;
 $StringArray2* ISO8601ZoneTest::formatData = nullptr;
 $StringArray* ISO8601ZoneTest::zones = nullptr;
@@ -69,77 +35,69 @@ void ISO8601ZoneTest::init$() {
 
 void ISO8601ZoneTest::main($StringArray* args) {
 	$init(ISO8601ZoneTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TimeZone, tz, $TimeZone::getDefault());
 	$var($Locale, loc, $Locale::getDefault());
 	$Locale::setDefault($Locale::US);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			for (int32_t i = 0; i < $nc(ISO8601ZoneTest::formatData)->length; ++i) {
-				$TimeZone::setDefault($($TimeZone::getTimeZone($nc($nc(ISO8601ZoneTest::formatData)->get(i))->get(0))));
-				formatTest($nc(ISO8601ZoneTest::isoZoneFormats)->get($mod(i, $nc(ISO8601ZoneTest::isoZoneFormats)->length)), $nc($nc(ISO8601ZoneTest::formatData)->get(i))->get(1));
-			}
-			{
-				$var($StringArray, arr$, ISO8601ZoneTest::zones);
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$var($String, zone, arr$->get(i$));
+	$var($Throwable, var$0, nullptr);
+	try {
+		for (int32_t i = 0; i < ISO8601ZoneTest::formatData->length; ++i) {
+			$TimeZone::setDefault($($TimeZone::getTimeZone($nc(ISO8601ZoneTest::formatData->get(i))->get(0))));
+			formatTest(ISO8601ZoneTest::isoZoneFormats->get($mod(i, ISO8601ZoneTest::isoZoneFormats->length)), $nc(ISO8601ZoneTest::formatData->get(i))->get(1));
+		}
+		{
+			$var($StringArray, arr$, ISO8601ZoneTest::zones);
+			int32_t len$ = $nc(arr$)->length;
+			int32_t i$ = 0;
+			for (; i$ < len$; ++i$) {
+				$var($String, zone, arr$->get(i$));
+				{
+					$TimeZone::setDefault($($TimeZone::getTimeZone(zone)));
 					{
-						$TimeZone::setDefault($($TimeZone::getTimeZone(zone)));
-						{
-							$var($StringArray, arr$, ISO8601ZoneTest::isoZoneFormats);
-							int32_t len$ = arr$->length;
-							int32_t i$ = 0;
-							for (; i$ < len$; ++i$) {
-								$var($String, fmt, arr$->get(i$));
-								{
-									roundtripTest(fmt);
-									$var($SimpleDateFormat, f, $new($SimpleDateFormat, fmt));
-								}
+						$var($StringArray, arr$, ISO8601ZoneTest::isoZoneFormats);
+						for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+							$var($String, fmt, arr$->get(i$));
+							{
+								roundtripTest(fmt);
+								$var($SimpleDateFormat, f, $new($SimpleDateFormat, fmt));
 							}
 						}
 					}
 				}
 			}
-			{
-				$var($StringArray2, arr$, ISO8601ZoneTest::badData);
-				int32_t len$ = arr$->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$var($StringArray, d, arr$->get(i$));
-					{
-						badDataParsing($nc(d)->get(0), d->get(1), $nc(d->get(2))->length());
-					}
+		}
+		{
+			$var($StringArray2, arr$, ISO8601ZoneTest::badData);
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+				$var($StringArray, d, arr$->get(i$));
+				{
+					badDataParsing($nc(d)->get(0), $nc(d)->get(1), $nc($nc(d)->get(2))->length());
 				}
 			}
-			{
-				$var($StringArray, arr$, ISO8601ZoneTest::badFormats);
-				int32_t len$ = arr$->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$var($String, fmt, arr$->get(i$));
-					{
-						badFormat(fmt);
-					}
+		}
+		{
+			$var($StringArray, arr$, ISO8601ZoneTest::badFormats);
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+				$var($String, fmt, arr$->get(i$));
+				{
+					badFormat(fmt);
 				}
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$TimeZone::setDefault(tz);
-			$Locale::setDefault(loc);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$TimeZone::setDefault(tz);
+		$Locale::setDefault(loc);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void ISO8601ZoneTest::formatTest($String* fmt, $String* expected) {
 	$init(ISO8601ZoneTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, fmt));
 	$var($String, s, sdf->format(ISO8601ZoneTest::TIMESTAMP));
 	if (!$nc(expected)->equals(s)) {
@@ -147,31 +105,47 @@ void ISO8601ZoneTest::formatTest($String* fmt, $String* expected) {
 	}
 	$var($Date, d, sdf->parse(s));
 	int64_t var$0 = $nc(d)->getTime();
-	if (var$0 != $nc(ISO8601ZoneTest::TIMESTAMP)->getTime()) {
-		$var($String, var$1, $$str({"formatTest: parse("_s, s, "), got "_s, $$str(d->getTime()), ", expected "_s}));
-		$throwNew($RuntimeException, $$concat(var$1, $$str($nc(ISO8601ZoneTest::TIMESTAMP)->getTime())));
+	if (var$0 != ISO8601ZoneTest::TIMESTAMP->getTime()) {
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append("formatTest: parse("_s);
+		var$1->append(s);
+		var$1->append("), got "_s);
+		var$1->append(d->getTime());
+		var$1->append(", expected "_s);
+		var$1->append(ISO8601ZoneTest::TIMESTAMP->getTime());
+		$throwNew($RuntimeException, $$str(var$1));
 	}
 	$var($ParsePosition, pos, $new($ParsePosition, 0));
 	$assign(d, sdf->parse($$str({s, "123"_s}), pos));
 	int64_t var$2 = $nc(d)->getTime();
-	if (var$2 != $nc(ISO8601ZoneTest::TIMESTAMP)->getTime()) {
-		$var($String, var$3, $$str({"formatTest: parse("_s, s, "), got "_s, $$str(d->getTime()), ", expected "_s}));
-		$throwNew($RuntimeException, $$concat(var$3, $$str($nc(ISO8601ZoneTest::TIMESTAMP)->getTime())));
+	if (var$2 != ISO8601ZoneTest::TIMESTAMP->getTime()) {
+		$var($StringBuilder, var$3, $new($StringBuilder));
+		var$3->append("formatTest: parse("_s);
+		var$3->append(s);
+		var$3->append("), got "_s);
+		var$3->append(d->getTime());
+		var$3->append(", expected "_s);
+		var$3->append(ISO8601ZoneTest::TIMESTAMP->getTime());
+		$throwNew($RuntimeException, $$str(var$3));
 	}
 	int32_t var$4 = pos->getIndex();
 	if (var$4 != $nc(s)->length()) {
-		$var($String, var$5, $$str({"formatTest: wrong resulting parse position: "_s, $$str(pos->getIndex()), ", expected "_s}));
-		$throwNew($RuntimeException, $$concat(var$5, $$str(s->length())));
+		$var($StringBuilder, var$5, $new($StringBuilder));
+		var$5->append("formatTest: wrong resulting parse position: "_s);
+		var$5->append(pos->getIndex());
+		var$5->append(", expected "_s);
+		var$5->append(s->length());
+		$throwNew($RuntimeException, $$str(var$5));
 	}
 }
 
 void ISO8601ZoneTest::roundtripTest($String* fmt) {
 	$init(ISO8601ZoneTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, fmt));
 	$var($Date, date, $new($Date));
-	int32_t fractionalHour = $nc($(sdf->getTimeZone()))->getOffset(date->getTime());
-	$modAssign(fractionalHour, 0x0036EE80);
+	int32_t fractionalHour = $$nc(sdf->getTimeZone())->getOffset(date->getTime());
+	$modAssign(fractionalHour, 3600000);
 	$var($String, s, sdf->format(date));
 	$var($Date, pd, sdf->parse(s));
 	int64_t var$0 = $nc(pd)->getTime();
@@ -185,7 +159,7 @@ void ISO8601ZoneTest::roundtripTest($String* fmt) {
 
 void ISO8601ZoneTest::badDataParsing($String* fmt, $String* text, int32_t expectedErrorIndex) {
 	$init(ISO8601ZoneTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, fmt));
 	try {
 		sdf->parse(text);
@@ -202,7 +176,7 @@ void ISO8601ZoneTest::badDataParsing($String* fmt, $String* text, int32_t expect
 
 void ISO8601ZoneTest::badFormat($String* fmt) {
 	$init(ISO8601ZoneTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($SimpleDateFormat, sdf, $new($SimpleDateFormat, fmt));
 		$throwNew($RuntimeException, $$str({"Constructor didn\'t throw an exception: fmt="_s, fmt}));
@@ -216,9 +190,9 @@ void ISO8601ZoneTest::badFormat($String* fmt) {
 	}
 }
 
-void clinit$ISO8601ZoneTest($Class* class$) {
-	$useLocalCurrentObjectStackCache();
-	$assignStatic(ISO8601ZoneTest::TIMESTAMP, $new($Date, (int64_t)0x0000012AE5F11FEC));
+void ISO8601ZoneTest::clinit$($Class* clazz) {
+	$useLocalObjectStack();
+	$assignStatic(ISO8601ZoneTest::TIMESTAMP, $new($Date, (int64_t)0x0000012ae5f11fec));
 	$assignStatic(ISO8601ZoneTest::formatData, $new($StringArray2, {
 		$$new($StringArray, {
 			"America/Los_Angeles"_s,
@@ -490,7 +464,35 @@ ISO8601ZoneTest::ISO8601ZoneTest() {
 }
 
 $Class* ISO8601ZoneTest::load$($String* name, bool initialize) {
-	$loadClass(ISO8601ZoneTest, name, initialize, &_ISO8601ZoneTest_ClassInfo_, clinit$ISO8601ZoneTest, allocate$ISO8601ZoneTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"TIMESTAMP", "Ljava/util/Date;", nullptr, $STATIC | $FINAL, $staticField(ISO8601ZoneTest, TIMESTAMP)},
+		{"formatData", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ISO8601ZoneTest, formatData)},
+		{"zones", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ISO8601ZoneTest, zones)},
+		{"isoZoneFormats", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ISO8601ZoneTest, isoZoneFormats)},
+		{"badData", "[[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ISO8601ZoneTest, badData)},
+		{"badFormats", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(ISO8601ZoneTest, badFormats)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ISO8601ZoneTest, init$, void)},
+		{"badDataParsing", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $STATIC, $staticMethod(ISO8601ZoneTest, badDataParsing, void, $String*, $String*, int32_t)},
+		{"badFormat", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ISO8601ZoneTest, badFormat, void, $String*)},
+		{"formatTest", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ISO8601ZoneTest, formatTest, void, $String*, $String*), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ISO8601ZoneTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"roundtripTest", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ISO8601ZoneTest, roundtripTest, void, $String*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ISO8601ZoneTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ISO8601ZoneTest, name, initialize, &classInfo$$, ISO8601ZoneTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ISO8601ZoneTest);
+	});
 	return class$;
 }
 

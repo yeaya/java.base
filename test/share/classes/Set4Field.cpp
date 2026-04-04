@@ -1,37 +1,16 @@
 #include <Set4Field.h>
-
 #include <Test4Set4Field.h>
 #include <jcpp.h>
 
 using $Test4Set4Field = ::Test4Set4Field;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _Set4Field_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Set4Field, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Set4Field, main, void, $StringArray*), "java.lang.Throwable"},
-	{}
-};
-
-$ClassInfo _Set4Field_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Set4Field",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Set4Field_MethodInfo_
-};
-
-$Object* allocate$Set4Field($Class* clazz) {
-	return $of($alloc(Set4Field));
-}
 
 void Set4Field::init$() {
 }
 
 void Set4Field::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool failed = false;
 	$var($Test4Set4Field, t, $new($Test4Set4Field));
 	if (!t->testPrimitive()) {
@@ -83,7 +62,22 @@ Set4Field::Set4Field() {
 }
 
 $Class* Set4Field::load$($String* name, bool initialize) {
-	$loadClass(Set4Field, name, initialize, &_Set4Field_ClassInfo_, allocate$Set4Field);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Set4Field, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Set4Field, main, void, $StringArray*), "java.lang.Throwable"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Set4Field",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Set4Field, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Set4Field);
+	});
 	return class$;
 }
 

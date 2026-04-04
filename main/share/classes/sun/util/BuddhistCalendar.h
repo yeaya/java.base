@@ -46,7 +46,7 @@ public:
 	using ::java::util::GregorianCalendar::set;
 	virtual void set(int32_t field, int32_t value) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x89A84635D845849E;
+	static const int64_t serialVersionUID = (int64_t)0x89a84635d845849e;
 	static const int32_t BUDDHIST_YEAR_OFFSET = 543;
 	int32_t yearOffset = 0;
 };

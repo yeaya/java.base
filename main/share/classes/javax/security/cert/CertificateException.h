@@ -15,10 +15,13 @@ public:
 	CertificateException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0xB01A44F078C454F6;
+	static const int64_t serialVersionUID = (int64_t)0xb01a44f078c454f6;
 	CertificateException(const CertificateException& e);
 	virtual void throw$() override;
-	inline CertificateException* operator ->() {
+	inline CertificateException* operator ->() const {
+		return (CertificateException*)throwing$;
+	}
+	inline operator CertificateException*() const {
 		return (CertificateException*)throwing$;
 	}
 };

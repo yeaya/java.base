@@ -24,6 +24,7 @@ class SSLContextImpl$CustomizedDTLSContext : public ::sun::security::ssl::SSLCon
 	$class(SSLContextImpl$CustomizedDTLSContext, 0, ::sun::security::ssl::SSLContextImpl$AbstractDTLSContext)
 public:
 	SSLContextImpl$CustomizedDTLSContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::List* customizedProtocols(bool client, ::java::util::List* customized);
 	virtual ::java::util::List* getClientDefaultCipherSuites() override;

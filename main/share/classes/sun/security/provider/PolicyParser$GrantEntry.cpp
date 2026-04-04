@@ -1,9 +1,6 @@
 #include <sun/security/provider/PolicyParser$GrantEntry.h>
-
 #include <java/io/PrintWriter.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractSequentialList.h>
 #include <java/util/Collection.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Iterator.h>
@@ -20,9 +17,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractSequentialList = ::java::util::AbstractSequentialList;
-using $Collection = ::java::util::Collection;
 using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
@@ -33,53 +27,6 @@ using $PolicyParser$PrincipalEntry = ::sun::security::provider::PolicyParser$Pri
 namespace sun {
 	namespace security {
 		namespace provider {
-
-$FieldInfo _PolicyParser$GrantEntry_FieldInfo_[] = {
-	{"signedBy", "Ljava/lang/String;", nullptr, $PUBLIC, $field(PolicyParser$GrantEntry, signedBy)},
-	{"codeBase", "Ljava/lang/String;", nullptr, $PUBLIC, $field(PolicyParser$GrantEntry, codeBase)},
-	{"principals", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Lsun/security/provider/PolicyParser$PrincipalEntry;>;", $PUBLIC, $field(PolicyParser$GrantEntry, principals)},
-	{"permissionEntries", "Ljava/util/Vector;", "Ljava/util/Vector<Lsun/security/provider/PolicyParser$PermissionEntry;>;", $PUBLIC, $field(PolicyParser$GrantEntry, permissionEntries)},
-	{}
-};
-
-$MethodInfo _PolicyParser$GrantEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PolicyParser$GrantEntry, init$, void)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PolicyParser$GrantEntry, init$, void, $String*, $String*)},
-	{"add", "(Lsun/security/provider/PolicyParser$PermissionEntry;)V", nullptr, $PUBLIC, $virtualMethod(PolicyParser$GrantEntry, add, void, $PolicyParser$PermissionEntry*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PolicyParser$GrantEntry, clone, $Object*)},
-	{"contains", "(Lsun/security/provider/PolicyParser$PrincipalEntry;)Z", nullptr, $PUBLIC, $virtualMethod(PolicyParser$GrantEntry, contains, bool, $PolicyParser$PrincipalEntry*)},
-	{"contains", "(Lsun/security/provider/PolicyParser$PermissionEntry;)Z", nullptr, $PUBLIC, $virtualMethod(PolicyParser$GrantEntry, contains, bool, $PolicyParser$PermissionEntry*)},
-	{"permissionElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Lsun/security/provider/PolicyParser$PermissionEntry;>;", $PUBLIC, $virtualMethod(PolicyParser$GrantEntry, permissionElements, $Enumeration*)},
-	{"remove", "(Lsun/security/provider/PolicyParser$PrincipalEntry;)Z", nullptr, $PUBLIC, $virtualMethod(PolicyParser$GrantEntry, remove, bool, $PolicyParser$PrincipalEntry*)},
-	{"remove", "(Lsun/security/provider/PolicyParser$PermissionEntry;)Z", nullptr, $PUBLIC, $virtualMethod(PolicyParser$GrantEntry, remove, bool, $PolicyParser$PermissionEntry*)},
-	{"write", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(PolicyParser$GrantEntry, write, void, $PrintWriter*)},
-	{}
-};
-
-$InnerClassInfo _PolicyParser$GrantEntry_InnerClassesInfo_[] = {
-	{"sun.security.provider.PolicyParser$GrantEntry", "sun.security.provider.PolicyParser", "GrantEntry", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _PolicyParser$GrantEntry_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.provider.PolicyParser$GrantEntry",
-	"java.lang.Object",
-	nullptr,
-	_PolicyParser$GrantEntry_FieldInfo_,
-	_PolicyParser$GrantEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PolicyParser$GrantEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.PolicyParser"
-};
-
-$Object* allocate$PolicyParser$GrantEntry($Class* clazz) {
-	return $of($alloc(PolicyParser$GrantEntry));
-}
 
 void PolicyParser$GrantEntry::init$() {
 	$set(this, principals, $new($LinkedList));
@@ -98,7 +45,7 @@ void PolicyParser$GrantEntry::add($PolicyParser$PermissionEntry* pe) {
 }
 
 bool PolicyParser$GrantEntry::remove($PolicyParser$PrincipalEntry* pe) {
-	return $nc(this->principals)->remove($of(pe));
+	return $nc(this->principals)->remove(pe);
 }
 
 bool PolicyParser$GrantEntry::remove($PolicyParser$PermissionEntry* pe) {
@@ -118,7 +65,7 @@ $Enumeration* PolicyParser$GrantEntry::permissionElements() {
 }
 
 void PolicyParser$GrantEntry::write($PrintWriter* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(out)->print("grant"_s);
 	if (this->signedBy != nullptr) {
 		out->print(" signedBy \""_s);
@@ -132,12 +79,12 @@ void PolicyParser$GrantEntry::write($PrintWriter* out) {
 		out->print(" codeBase \""_s);
 		out->print(this->codeBase);
 		out->print(u'\"');
-		if (this->principals != nullptr && $nc(this->principals)->size() > 0) {
+		if (this->principals != nullptr && this->principals->size() > 0) {
 			out->print(",\n"_s);
 		}
 	}
-	if (this->principals != nullptr && $nc(this->principals)->size() > 0) {
-		$var($Iterator, pli, $nc(this->principals)->iterator());
+	if (this->principals != nullptr && this->principals->size() > 0) {
+		$var($Iterator, pli, this->principals->iterator());
 		while ($nc(pli)->hasNext()) {
 			out->print("      "_s);
 			$var($PolicyParser$PrincipalEntry, pe, $cast($PolicyParser$PrincipalEntry, pli->next()));
@@ -161,16 +108,57 @@ $Object* PolicyParser$GrantEntry::clone() {
 	$var(PolicyParser$GrantEntry, ge, $new(PolicyParser$GrantEntry));
 	$set(ge, codeBase, this->codeBase);
 	$set(ge, signedBy, this->signedBy);
-	$set(ge, principals, $new($LinkedList, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(static_cast<$AbstractSequentialList*>(this->principals))))));
-	$set(ge, permissionEntries, $new($Vector, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(this->permissionEntries)))));
-	return $of(ge);
+	$set(ge, principals, $new($LinkedList, $cast($AbstractCollection, this->principals)));
+	$set(ge, permissionEntries, $new($Vector, $cast($AbstractCollection, this->permissionEntries)));
+	return ge;
 }
 
 PolicyParser$GrantEntry::PolicyParser$GrantEntry() {
 }
 
 $Class* PolicyParser$GrantEntry::load$($String* name, bool initialize) {
-	$loadClass(PolicyParser$GrantEntry, name, initialize, &_PolicyParser$GrantEntry_ClassInfo_, allocate$PolicyParser$GrantEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"signedBy", "Ljava/lang/String;", nullptr, $PUBLIC, $field(PolicyParser$GrantEntry, signedBy)},
+		{"codeBase", "Ljava/lang/String;", nullptr, $PUBLIC, $field(PolicyParser$GrantEntry, codeBase)},
+		{"principals", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Lsun/security/provider/PolicyParser$PrincipalEntry;>;", $PUBLIC, $field(PolicyParser$GrantEntry, principals)},
+		{"permissionEntries", "Ljava/util/Vector;", "Ljava/util/Vector<Lsun/security/provider/PolicyParser$PermissionEntry;>;", $PUBLIC, $field(PolicyParser$GrantEntry, permissionEntries)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PolicyParser$GrantEntry, init$, void)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PolicyParser$GrantEntry, init$, void, $String*, $String*)},
+		{"add", "(Lsun/security/provider/PolicyParser$PermissionEntry;)V", nullptr, $PUBLIC, $virtualMethod(PolicyParser$GrantEntry, add, void, $PolicyParser$PermissionEntry*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PolicyParser$GrantEntry, clone, $Object*)},
+		{"contains", "(Lsun/security/provider/PolicyParser$PrincipalEntry;)Z", nullptr, $PUBLIC, $virtualMethod(PolicyParser$GrantEntry, contains, bool, $PolicyParser$PrincipalEntry*)},
+		{"contains", "(Lsun/security/provider/PolicyParser$PermissionEntry;)Z", nullptr, $PUBLIC, $virtualMethod(PolicyParser$GrantEntry, contains, bool, $PolicyParser$PermissionEntry*)},
+		{"permissionElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Lsun/security/provider/PolicyParser$PermissionEntry;>;", $PUBLIC, $virtualMethod(PolicyParser$GrantEntry, permissionElements, $Enumeration*)},
+		{"remove", "(Lsun/security/provider/PolicyParser$PrincipalEntry;)Z", nullptr, $PUBLIC, $virtualMethod(PolicyParser$GrantEntry, remove, bool, $PolicyParser$PrincipalEntry*)},
+		{"remove", "(Lsun/security/provider/PolicyParser$PermissionEntry;)Z", nullptr, $PUBLIC, $virtualMethod(PolicyParser$GrantEntry, remove, bool, $PolicyParser$PermissionEntry*)},
+		{"write", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(PolicyParser$GrantEntry, write, void, $PrintWriter*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.PolicyParser$GrantEntry", "sun.security.provider.PolicyParser", "GrantEntry", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.provider.PolicyParser$GrantEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.PolicyParser"
+	};
+	$loadClass(PolicyParser$GrantEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PolicyParser$GrantEntry);
+	});
 	return class$;
 }
 

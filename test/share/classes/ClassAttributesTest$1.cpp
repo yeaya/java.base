@@ -1,5 +1,4 @@
 #include <ClassAttributesTest$1.h>
-
 #include <ClassAttributesTest.h>
 #include <jcpp.h>
 
@@ -8,42 +7,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _ClassAttributesTest$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ClassAttributesTest$1, init$, void)},
-	{}
-};
-
-$EnclosingMethodInfo _ClassAttributesTest$1_EnclosingMethodInfo_ = {
-	"ClassAttributesTest",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _ClassAttributesTest$1_InnerClassesInfo_[] = {
-	{"ClassAttributesTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ClassAttributesTest$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"ClassAttributesTest$1",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	nullptr,
-	_ClassAttributesTest$1_MethodInfo_,
-	nullptr,
-	&_ClassAttributesTest$1_EnclosingMethodInfo_,
-	_ClassAttributesTest$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"ClassAttributesTest"
-};
-
-$Object* allocate$ClassAttributesTest$1($Class* clazz) {
-	return $of($alloc(ClassAttributesTest$1));
-}
-
 void ClassAttributesTest$1::init$() {
 }
 
@@ -51,7 +14,37 @@ ClassAttributesTest$1::ClassAttributesTest$1() {
 }
 
 $Class* ClassAttributesTest$1::load$($String* name, bool initialize) {
-	$loadClass(ClassAttributesTest$1, name, initialize, &_ClassAttributesTest$1_ClassInfo_, allocate$ClassAttributesTest$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ClassAttributesTest$1, init$, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"ClassAttributesTest",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ClassAttributesTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"ClassAttributesTest$1",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"ClassAttributesTest"
+	};
+	$loadClass(ClassAttributesTest$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassAttributesTest$1);
+	});
 	return class$;
 }
 

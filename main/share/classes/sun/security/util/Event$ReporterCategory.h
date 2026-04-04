@@ -28,6 +28,7 @@ class $export Event$ReporterCategory : public ::java::lang::Enum {
 public:
 	Event$ReporterCategory();
 	static $Array<::sun::security::util::Event$ReporterCategory>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::security::util::Event$ReporterCategory* valueOf($String* name);
 	static $Array<::sun::security::util::Event$ReporterCategory>* values();

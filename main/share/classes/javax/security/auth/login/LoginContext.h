@@ -78,6 +78,7 @@ class $export LoginContext : public ::java::lang::Object {
 	$class(LoginContext, 0, ::java::lang::Object)
 public:
 	LoginContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	void init$($String* name, ::javax::security::auth::Subject* subject);
 	void init$($String* name, ::javax::security::auth::callback::CallbackHandler* callbackHandler);

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/security/Key.h>
 #include <java/security/Provider.h>
@@ -27,7 +26,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Key = ::java::security::Key;
-using $Provider = ::java::security::Provider;
 using $SecureRandom = ::java::security::SecureRandom;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $Cipher = ::javax::crypto::Cipher;
@@ -43,49 +41,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher_FieldInfo_[] = {
-	{"cipher", "Ljavax/crypto/Cipher;", nullptr, $PRIVATE | $FINAL, $field(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher, cipher)},
-	{}
-};
-
-$MethodInfo _SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, 0, $method(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher, init$, void, $Authenticator*, $ProtocolVersion*, $String*, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.GeneralSecurityException"},
-	{"calculateFragmentSize", "(II)I", nullptr, 0, $virtualMethod(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher, calculateFragmentSize, int32_t, int32_t, int32_t)},
-	{"calculatePacketSize", "(II)I", nullptr, 0, $virtualMethod(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher, calculatePacketSize, int32_t, int32_t, int32_t)},
-	{"dispose", "()V", nullptr, 0, $virtualMethod(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher, dispose, void)},
-	{"encrypt", "(BLjava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher, encrypt, int32_t, int8_t, $ByteBuffer*)},
-	{"getExplicitNonceSize", "()I", nullptr, 0, $virtualMethod(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher, getExplicitNonceSize, int32_t)},
-	{"isCBCMode", "()Z", nullptr, 0, $virtualMethod(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher, isCBCMode, bool)},
-	{}
-};
-
-$InnerClassInfo _SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLCipher$T10BlockWriteCipherGenerator", "sun.security.ssl.SSLCipher", "T10BlockWriteCipherGenerator", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher", "sun.security.ssl.SSLCipher$T10BlockWriteCipherGenerator", "BlockWriteCipher", $STATIC | $FINAL},
-	{"sun.security.ssl.SSLCipher$SSLWriteCipher", "sun.security.ssl.SSLCipher", "SSLWriteCipher", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher",
-	"sun.security.ssl.SSLCipher$SSLWriteCipher",
-	nullptr,
-	_SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher_FieldInfo_,
-	_SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLCipher"
-};
-
-$Object* allocate$SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher($Class* clazz) {
-	return $of($alloc(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher));
-}
-
 void SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher::init$($Authenticator* authenticator, $ProtocolVersion* protocolVersion, $String* algorithm, $Key* key, $AlgorithmParameterSpec* params, $SecureRandom* random) {
 	$SSLCipher$SSLWriteCipher::init$(authenticator, protocolVersion);
 	$set(this, cipher, $Cipher::getInstance(algorithm));
@@ -93,7 +48,7 @@ void SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher::init$($Authenticat
 }
 
 int32_t SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher::encrypt(int8_t contentType, $ByteBuffer* bb) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = $nc(bb)->position();
 	$var($Authenticator$MAC, signer, $cast($Authenticator$MAC, this->authenticator));
 	if ($nc($($nc(signer)->macAlg()))->size != 0) {
@@ -106,11 +61,11 @@ int32_t SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher::encrypt(int8_t 
 	bb->position(pos);
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("plaintext"_s)) {
-		$SSLLogger::fine("Padded plaintext before ENCRYPTION"_s, $$new($ObjectArray, {$($of(bb->duplicate()))}));
+		$SSLLogger::fine("Padded plaintext before ENCRYPTION"_s, $$new($ObjectArray, {$(bb->duplicate())}));
 	}
 	$var($ByteBuffer, dup, bb->duplicate());
 	try {
-		if (len != $nc(this->cipher)->update(dup, bb)) {
+		if (len != this->cipher->update(dup, bb)) {
 			$throwNew($RuntimeException, "Unexpected number of plaintext bytes"_s);
 		}
 		int32_t var$0 = bb->position();
@@ -118,7 +73,7 @@ int32_t SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher::encrypt(int8_t 
 			$throwNew($RuntimeException, "Unexpected ByteBuffer position"_s);
 		}
 	} catch ($ShortBufferException& sbe) {
-		$throwNew($RuntimeException, $$str({"Cipher buffering error in JCE provider "_s, $($nc($($nc(this->cipher)->getProvider()))->getName())}), sbe);
+		$throwNew($RuntimeException, $$str({"Cipher buffering error in JCE provider "_s, $($$nc(this->cipher->getProvider())->getName())}), sbe);
 	}
 	return len;
 }
@@ -126,7 +81,7 @@ int32_t SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher::encrypt(int8_t 
 void SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher::dispose() {
 	if (this->cipher != nullptr) {
 		try {
-			$nc(this->cipher)->doFinal();
+			this->cipher->doFinal();
 		} catch ($Exception& e) {
 		}
 	}
@@ -137,7 +92,7 @@ int32_t SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher::getExplicitNonc
 }
 
 int32_t SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher::calculateFragmentSize(int32_t packetLimit, int32_t headerSize) {
-	int32_t macLen = $nc($($nc(($cast($Authenticator$MAC, this->authenticator)))->macAlg()))->size;
+	int32_t macLen = $nc($($nc($cast($Authenticator$MAC, this->authenticator))->macAlg()))->size;
 	int32_t blockSize = $nc(this->cipher)->getBlockSize();
 	int32_t fragLen = packetLimit - headerSize;
 	fragLen -= ($mod(fragLen, blockSize));
@@ -147,7 +102,7 @@ int32_t SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher::calculateFragme
 }
 
 int32_t SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher::calculatePacketSize(int32_t fragmentSize, int32_t headerSize) {
-	int32_t macLen = $nc($($nc(($cast($Authenticator$MAC, this->authenticator)))->macAlg()))->size;
+	int32_t macLen = $nc($($nc($cast($Authenticator$MAC, this->authenticator))->macAlg()))->size;
 	int32_t blockSize = $nc(this->cipher)->getBlockSize();
 	int32_t paddedLen = fragmentSize + macLen + 1;
 	if (($mod(paddedLen, blockSize)) != 0) {
@@ -165,7 +120,44 @@ SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher::SSLCipher$T10BlockWrite
 }
 
 $Class* SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher::load$($String* name, bool initialize) {
-	$loadClass(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher, name, initialize, &_SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher_ClassInfo_, allocate$SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher);
+	$FieldInfo fieldInfos$$[] = {
+		{"cipher", "Ljavax/crypto/Cipher;", nullptr, $PRIVATE | $FINAL, $field(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher, cipher)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, 0, $method(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher, init$, void, $Authenticator*, $ProtocolVersion*, $String*, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.GeneralSecurityException"},
+		{"calculateFragmentSize", "(II)I", nullptr, 0, $virtualMethod(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher, calculateFragmentSize, int32_t, int32_t, int32_t)},
+		{"calculatePacketSize", "(II)I", nullptr, 0, $virtualMethod(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher, calculatePacketSize, int32_t, int32_t, int32_t)},
+		{"dispose", "()V", nullptr, 0, $virtualMethod(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher, dispose, void)},
+		{"encrypt", "(BLjava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher, encrypt, int32_t, int8_t, $ByteBuffer*)},
+		{"getExplicitNonceSize", "()I", nullptr, 0, $virtualMethod(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher, getExplicitNonceSize, int32_t)},
+		{"isCBCMode", "()Z", nullptr, 0, $virtualMethod(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher, isCBCMode, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLCipher$T10BlockWriteCipherGenerator", "sun.security.ssl.SSLCipher", "T10BlockWriteCipherGenerator", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher", "sun.security.ssl.SSLCipher$T10BlockWriteCipherGenerator", "BlockWriteCipher", $STATIC | $FINAL},
+		{"sun.security.ssl.SSLCipher$SSLWriteCipher", "sun.security.ssl.SSLCipher", "SSLWriteCipher", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher",
+		"sun.security.ssl.SSLCipher$SSLWriteCipher",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLCipher"
+	};
+	$loadClass(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLCipher$T10BlockWriteCipherGenerator$BlockWriteCipher);
+	});
 	return class$;
 }
 

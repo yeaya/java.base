@@ -1,5 +1,4 @@
 #include <LocalStringWriter.h>
-
 #include <java/io/Writer.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/StringBuffer.h>
@@ -11,34 +10,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
-
-$FieldInfo _LocalStringWriter_FieldInfo_[] = {
-	{"buf", "Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $field(LocalStringWriter, buf)},
-	{}
-};
-
-$MethodInfo _LocalStringWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocalStringWriter, init$, void)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(LocalStringWriter, close, void)},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(LocalStringWriter, flush, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocalStringWriter, toString, $String*)},
-	{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(LocalStringWriter, write, void, $chars*, int32_t, int32_t)},
-	{"write", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LocalStringWriter, write, void, $String*)},
-	{}
-};
-
-$ClassInfo _LocalStringWriter_ClassInfo_ = {
-	$ACC_SUPER,
-	"LocalStringWriter",
-	"java.io.Writer",
-	nullptr,
-	_LocalStringWriter_FieldInfo_,
-	_LocalStringWriter_MethodInfo_
-};
-
-$Object* allocate$LocalStringWriter($Class* clazz) {
-	return $of($alloc(LocalStringWriter));
-}
 
 void LocalStringWriter::init$() {
 	$Writer::init$();
@@ -73,7 +44,30 @@ LocalStringWriter::LocalStringWriter() {
 }
 
 $Class* LocalStringWriter::load$($String* name, bool initialize) {
-	$loadClass(LocalStringWriter, name, initialize, &_LocalStringWriter_ClassInfo_, allocate$LocalStringWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"buf", "Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $field(LocalStringWriter, buf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocalStringWriter, init$, void)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(LocalStringWriter, close, void)},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(LocalStringWriter, flush, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocalStringWriter, toString, $String*)},
+		{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(LocalStringWriter, write, void, $chars*, int32_t, int32_t)},
+		{"write", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LocalStringWriter, write, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"LocalStringWriter",
+		"java.io.Writer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LocalStringWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LocalStringWriter));
+	});
 	return class$;
 }
 

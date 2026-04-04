@@ -1,5 +1,4 @@
 #include <java/lang/String$CaseInsensitiveComparator.h>
-
 #include <java/lang/StringLatin1.h>
 #include <java/lang/StringUTF16.h>
 #include <java/util/Comparator.h>
@@ -17,49 +16,6 @@ using $Comparator = ::java::util::Comparator;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _String$CaseInsensitiveComparator_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(String$CaseInsensitiveComparator, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _String$CaseInsensitiveComparator_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(String$CaseInsensitiveComparator, init$, void)},
-	{"compare", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(String$CaseInsensitiveComparator, compare, int32_t, $String*, $String*)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(String$CaseInsensitiveComparator, compare, int32_t, Object$*, Object$*)},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(String$CaseInsensitiveComparator, readResolve, $Object*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _String$CaseInsensitiveComparator_InnerClassesInfo_[] = {
-	{"java.lang.String$CaseInsensitiveComparator", "java.lang.String", "CaseInsensitiveComparator", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _String$CaseInsensitiveComparator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.String$CaseInsensitiveComparator",
-	"java.lang.Object",
-	"java.util.Comparator,java.io.Serializable",
-	_String$CaseInsensitiveComparator_FieldInfo_,
-	_String$CaseInsensitiveComparator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Comparator<Ljava/lang/String;>;Ljava/io/Serializable;",
-	nullptr,
-	_String$CaseInsensitiveComparator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.String"
-};
-
-$Object* allocate$String$CaseInsensitiveComparator($Class* clazz) {
-	return $of($alloc(String$CaseInsensitiveComparator));
-}
 
 bool String$CaseInsensitiveComparator::equals(Object$* obj) {
 	 return this->$Comparator::equals(obj);
@@ -85,18 +41,18 @@ void String$CaseInsensitiveComparator::init$() {
 }
 
 int32_t String$CaseInsensitiveComparator::compare($String* s1, $String* s2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, v1, $nc(s1)->value$);
 	$var($bytes, v2, $nc(s2)->value$);
 	int8_t coder = s1->coder();
 	if (coder == s2->coder()) {
-		return coder == (int8_t)0 ? $StringLatin1::compareToCI(v1, v2) : $StringUTF16::compareToCI(v1, v2);
+		return coder == 0 ? $StringLatin1::compareToCI(v1, v2) : $StringUTF16::compareToCI(v1, v2);
 	}
-	return coder == (int8_t)0 ? $StringLatin1::compareToCI_UTF16(v1, v2) : $StringUTF16::compareToCI_Latin1(v1, v2);
+	return coder == 0 ? $StringLatin1::compareToCI_UTF16(v1, v2) : $StringUTF16::compareToCI_Latin1(v1, v2);
 }
 
 $Object* String$CaseInsensitiveComparator::readResolve() {
-	return $of($String::CASE_INSENSITIVE_ORDER);
+	return $String::CASE_INSENSITIVE_ORDER;
 }
 
 int32_t String$CaseInsensitiveComparator::compare(Object$* s1, Object$* s2) {
@@ -107,7 +63,44 @@ String$CaseInsensitiveComparator::String$CaseInsensitiveComparator() {
 }
 
 $Class* String$CaseInsensitiveComparator::load$($String* name, bool initialize) {
-	$loadClass(String$CaseInsensitiveComparator, name, initialize, &_String$CaseInsensitiveComparator_ClassInfo_, allocate$String$CaseInsensitiveComparator);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(String$CaseInsensitiveComparator, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(String$CaseInsensitiveComparator, init$, void)},
+		{"compare", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(String$CaseInsensitiveComparator, compare, int32_t, $String*, $String*)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(String$CaseInsensitiveComparator, compare, int32_t, Object$*, Object$*)},
+		{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(String$CaseInsensitiveComparator, readResolve, $Object*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.String$CaseInsensitiveComparator", "java.lang.String", "CaseInsensitiveComparator", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.String$CaseInsensitiveComparator",
+		"java.lang.Object",
+		"java.util.Comparator,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Comparator<Ljava/lang/String;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.String"
+	};
+	$loadClass(String$CaseInsensitiveComparator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(String$CaseInsensitiveComparator));
+	});
 	return class$;
 }
 

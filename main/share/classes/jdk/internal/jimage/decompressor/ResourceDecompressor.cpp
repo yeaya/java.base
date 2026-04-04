@@ -1,5 +1,4 @@
 #include <jdk/internal/jimage/decompressor/ResourceDecompressor.h>
-
 #include <jdk/internal/jimage/decompressor/ResourceDecompressor$StringsProvider.h>
 #include <jcpp.h>
 
@@ -13,38 +12,33 @@ namespace jdk {
 		namespace jimage {
 			namespace decompressor {
 
-$MethodInfo _ResourceDecompressor_MethodInfo_[] = {
-	{"decompress", "(Ljdk/internal/jimage/decompressor/ResourceDecompressor$StringsProvider;[BIJ)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResourceDecompressor, decompress, $bytes*, $ResourceDecompressor$StringsProvider*, $bytes*, int32_t, int64_t), "java.lang.Exception"},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResourceDecompressor, getName, $String*)},
-	{}
-};
-
-$InnerClassInfo _ResourceDecompressor_InnerClassesInfo_[] = {
-	{"jdk.internal.jimage.decompressor.ResourceDecompressor$StringsProvider", "jdk.internal.jimage.decompressor.ResourceDecompressor", "StringsProvider", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ResourceDecompressor_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.jimage.decompressor.ResourceDecompressor",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ResourceDecompressor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ResourceDecompressor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.jimage.decompressor.ResourceDecompressor$StringsProvider"
-};
-
-$Object* allocate$ResourceDecompressor($Class* clazz) {
-	return $of($alloc(ResourceDecompressor));
-}
-
 $Class* ResourceDecompressor::load$($String* name, bool initialize) {
-	$loadClass(ResourceDecompressor, name, initialize, &_ResourceDecompressor_ClassInfo_, allocate$ResourceDecompressor);
+	$MethodInfo methodInfos$$[] = {
+		{"decompress", "(Ljdk/internal/jimage/decompressor/ResourceDecompressor$StringsProvider;[BIJ)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResourceDecompressor, decompress, $bytes*, $ResourceDecompressor$StringsProvider*, $bytes*, int32_t, int64_t), "java.lang.Exception"},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResourceDecompressor, getName, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.jimage.decompressor.ResourceDecompressor$StringsProvider", "jdk.internal.jimage.decompressor.ResourceDecompressor", "StringsProvider", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.jimage.decompressor.ResourceDecompressor",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.jimage.decompressor.ResourceDecompressor$StringsProvider"
+	};
+	$loadClass(ResourceDecompressor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourceDecompressor);
+	});
 	return class$;
 }
 

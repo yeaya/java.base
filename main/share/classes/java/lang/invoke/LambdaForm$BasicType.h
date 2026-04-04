@@ -56,6 +56,7 @@ class LambdaForm$BasicType : public ::java::lang::Enum {
 public:
 	LambdaForm$BasicType();
 	static $Array<::java::lang::invoke::LambdaForm$BasicType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, char16_t btChar, $Class* btClass, ::sun::invoke::util::Wrapper* wrapper);
 	static ::java::lang::invoke::LambdaForm$BasicType* basicType(int8_t type);
 	static ::java::lang::invoke::LambdaForm$BasicType* basicType(char16_t type);

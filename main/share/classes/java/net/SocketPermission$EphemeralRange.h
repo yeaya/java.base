@@ -12,6 +12,7 @@ class SocketPermission$EphemeralRange : public ::java::lang::Object {
 	$class(SocketPermission$EphemeralRange, 0, ::java::lang::Object)
 public:
 	SocketPermission$EphemeralRange();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t low;
 	static int32_t high;

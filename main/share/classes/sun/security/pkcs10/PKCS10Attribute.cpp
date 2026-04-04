@@ -1,5 +1,4 @@
 #include <sun/security/pkcs10/PKCS10Attribute.h>
-
 #include <java/io/OutputStream.h>
 #include <sun/security/pkcs/PKCS9Attribute.h>
 #include <sun/security/util/DerValue.h>
@@ -17,36 +16,6 @@ using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 namespace sun {
 	namespace security {
 		namespace pkcs10 {
-
-$FieldInfo _PKCS10Attribute_FieldInfo_[] = {
-	{"attributeId", "Lsun/security/util/ObjectIdentifier;", nullptr, $PROTECTED, $field(PKCS10Attribute, attributeId)},
-	{"attributeValue", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(PKCS10Attribute, attributeValue)},
-	{}
-};
-
-$MethodInfo _PKCS10Attribute_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(PKCS10Attribute, init$, void, $DerValue*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/ObjectIdentifier;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(PKCS10Attribute, init$, void, $ObjectIdentifier*, Object$*)},
-	{"<init>", "(Lsun/security/pkcs/PKCS9Attribute;)V", nullptr, $PUBLIC, $method(PKCS10Attribute, init$, void, $PKCS9Attribute*)},
-	{"derEncode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(PKCS10Attribute, derEncode, void, $OutputStream*), "java.io.IOException"},
-	{"getAttributeId", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC, $virtualMethod(PKCS10Attribute, getAttributeId, $ObjectIdentifier*)},
-	{"getAttributeValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PKCS10Attribute, getAttributeValue, $Object*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKCS10Attribute, toString, $String*)},
-	{}
-};
-
-$ClassInfo _PKCS10Attribute_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.pkcs10.PKCS10Attribute",
-	"java.lang.Object",
-	"sun.security.util.DerEncoder",
-	_PKCS10Attribute_FieldInfo_,
-	_PKCS10Attribute_MethodInfo_
-};
-
-$Object* allocate$PKCS10Attribute($Class* clazz) {
-	return $of($alloc(PKCS10Attribute));
-}
 
 void PKCS10Attribute::init$($DerValue* derVal) {
 	$set(this, attributeId, nullptr);
@@ -80,18 +49,43 @@ $ObjectIdentifier* PKCS10Attribute::getAttributeId() {
 }
 
 $Object* PKCS10Attribute::getAttributeValue() {
-	return $of((this->attributeValue));
+	return (this->attributeValue);
 }
 
 $String* PKCS10Attribute::toString() {
-	return ($nc($of(this->attributeValue))->toString());
+	return ($nc(this->attributeValue)->toString());
 }
 
 PKCS10Attribute::PKCS10Attribute() {
 }
 
 $Class* PKCS10Attribute::load$($String* name, bool initialize) {
-	$loadClass(PKCS10Attribute, name, initialize, &_PKCS10Attribute_ClassInfo_, allocate$PKCS10Attribute);
+	$FieldInfo fieldInfos$$[] = {
+		{"attributeId", "Lsun/security/util/ObjectIdentifier;", nullptr, $PROTECTED, $field(PKCS10Attribute, attributeId)},
+		{"attributeValue", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(PKCS10Attribute, attributeValue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(PKCS10Attribute, init$, void, $DerValue*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/util/ObjectIdentifier;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(PKCS10Attribute, init$, void, $ObjectIdentifier*, Object$*)},
+		{"<init>", "(Lsun/security/pkcs/PKCS9Attribute;)V", nullptr, $PUBLIC, $method(PKCS10Attribute, init$, void, $PKCS9Attribute*)},
+		{"derEncode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(PKCS10Attribute, derEncode, void, $OutputStream*), "java.io.IOException"},
+		{"getAttributeId", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC, $virtualMethod(PKCS10Attribute, getAttributeId, $ObjectIdentifier*)},
+		{"getAttributeValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PKCS10Attribute, getAttributeValue, $Object*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKCS10Attribute, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.pkcs10.PKCS10Attribute",
+		"java.lang.Object",
+		"sun.security.util.DerEncoder",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PKCS10Attribute, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PKCS10Attribute);
+	});
 	return class$;
 }
 

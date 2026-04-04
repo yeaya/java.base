@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/util/ASMifiable.h>
-
 #include <java/lang/StringBuffer.h>
 #include <java/util/Map.h>
 #include <jcpp.h>
@@ -16,26 +15,22 @@ namespace jdk {
 				namespace asm$ {
 					namespace util {
 
-$MethodInfo _ASMifiable_MethodInfo_[] = {
-	{"asmify", "(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/util/Map<Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/String;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(ASMifiable, asmify, void, $StringBuffer*, $String*, $Map*)},
-	{}
-};
-
-$ClassInfo _ASMifiable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.org.objectweb.asm.util.ASMifiable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ASMifiable_MethodInfo_
-};
-
-$Object* allocate$ASMifiable($Class* clazz) {
-	return $of($alloc(ASMifiable));
-}
-
 $Class* ASMifiable::load$($String* name, bool initialize) {
-	$loadClass(ASMifiable, name, initialize, &_ASMifiable_ClassInfo_, allocate$ASMifiable);
+	$MethodInfo methodInfos$$[] = {
+		{"asmify", "(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/util/Map<Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/String;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(ASMifiable, asmify, void, $StringBuffer*, $String*, $Map*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.org.objectweb.asm.util.ASMifiable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ASMifiable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ASMifiable);
+	});
 	return class$;
 }
 

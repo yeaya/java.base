@@ -1,5 +1,4 @@
 #include <java/util/concurrent/CompletionException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,32 +9,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 namespace java {
 	namespace util {
 		namespace concurrent {
-
-$FieldInfo _CompletionException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CompletionException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CompletionException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(CompletionException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(CompletionException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CompletionException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CompletionException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _CompletionException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.concurrent.CompletionException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_CompletionException_FieldInfo_,
-	_CompletionException_MethodInfo_
-};
-
-$Object* allocate$CompletionException($Class* clazz) {
-	return $of($alloc(CompletionException));
-}
 
 void CompletionException::init$() {
 	$RuntimeException::init$();
@@ -64,7 +37,28 @@ void CompletionException::throw$() {
 }
 
 $Class* CompletionException::load$($String* name, bool initialize) {
-	$loadClass(CompletionException, name, initialize, &_CompletionException_ClassInfo_, allocate$CompletionException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CompletionException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(CompletionException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(CompletionException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CompletionException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(CompletionException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.concurrent.CompletionException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CompletionException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CompletionException);
+	});
 	return class$;
 }
 

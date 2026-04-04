@@ -57,6 +57,7 @@ class Punycode : public ::java::lang::Object {
 	$class(Punycode, 0, ::java::lang::Object)
 public:
 	Punycode();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t adaptBias(int32_t delta, int32_t length, bool firstTime);
 	static char16_t asciiCaseMap(char16_t b, bool uppercase);

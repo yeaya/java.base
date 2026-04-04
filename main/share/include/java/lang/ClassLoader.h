@@ -81,6 +81,7 @@ class $import ClassLoader : public ::java::lang::Object {
 	$class(ClassLoader, $PRELOAD, ::java::lang::Object)
 public:
 	ClassLoader();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::Void* unused, $String* name, ::java::lang::ClassLoader* parent);
 	void init$($String* name, ::java::lang::ClassLoader* parent);
 	void init$(::java::lang::ClassLoader* parent);

@@ -68,7 +68,7 @@ public:
 	static $Array<::java::math::BigInteger>* parseASN1($bytes* raw);
 	void parseKeyBits();
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xED98C993A742760A;
+	static const int64_t serialVersionUID = (int64_t)0xed98c993a742760a;
 	::java::math::BigInteger* n = nullptr;
 	::java::math::BigInteger* e = nullptr;
 	::java::math::BigInteger* d = nullptr;

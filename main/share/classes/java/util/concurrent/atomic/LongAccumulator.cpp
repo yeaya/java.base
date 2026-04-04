@@ -1,5 +1,4 @@
 #include <java/util/concurrent/atomic/LongAccumulator.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/util/concurrent/atomic/LongAccumulator$SerializationProxy.h>
@@ -26,53 +25,6 @@ namespace java {
 		namespace concurrent {
 			namespace atomic {
 
-$FieldInfo _LongAccumulator_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LongAccumulator, serialVersionUID)},
-	{"function", "Ljava/util/function/LongBinaryOperator;", nullptr, $PRIVATE | $FINAL, $field(LongAccumulator, function)},
-	{"identity", "J", nullptr, $PRIVATE | $FINAL, $field(LongAccumulator, identity)},
-	{}
-};
-
-$MethodInfo _LongAccumulator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/LongBinaryOperator;J)V", nullptr, $PUBLIC, $method(LongAccumulator, init$, void, $LongBinaryOperator*, int64_t)},
-	{"accumulate", "(J)V", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, accumulate, void, int64_t)},
-	{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, doubleValue, double)},
-	{"floatValue", "()F", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, floatValue, float)},
-	{"get", "()J", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, get, int64_t)},
-	{"getThenReset", "()J", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, getThenReset, int64_t)},
-	{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, intValue, int32_t)},
-	{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, longValue, int64_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(LongAccumulator, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, reset, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, toString, $String*)},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(LongAccumulator, writeReplace, $Object*)},
-	{}
-};
-
-$InnerClassInfo _LongAccumulator_InnerClassesInfo_[] = {
-	{"java.util.concurrent.atomic.LongAccumulator$SerializationProxy", "java.util.concurrent.atomic.LongAccumulator", "SerializationProxy", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _LongAccumulator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.concurrent.atomic.LongAccumulator",
-	"java.util.concurrent.atomic.Striped64",
-	nullptr,
-	_LongAccumulator_FieldInfo_,
-	_LongAccumulator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LongAccumulator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.atomic.LongAccumulator$SerializationProxy"
-};
-
-$Object* allocate$LongAccumulator($Class* clazz) {
-	return $of($alloc(LongAccumulator));
-}
-
 void LongAccumulator::init$($LongBinaryOperator* accumulatorFunction, int64_t identity) {
 	$Striped64::init$();
 	$set(this, function, accumulatorFunction);
@@ -80,7 +32,7 @@ void LongAccumulator::init$($LongBinaryOperator* accumulatorFunction, int64_t id
 }
 
 void LongAccumulator::accumulate(int64_t x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Striped64$CellArray, cs, nullptr);
 	int64_t b = 0;
 	int64_t v = 0;
@@ -90,16 +42,16 @@ void LongAccumulator::accumulate(int64_t x) {
 	bool var$0 = ($assign(cs, this->cells)) != nullptr;
 	if (!var$0) {
 		bool var$1 = (r = $nc(this->function)->applyAsLong(b = this->base, x)) != b;
-		var$0 = (var$1 && !casBase(b, r));
+		var$0 = var$1 && !casBase(b, r);
 	}
 	if (var$0) {
 		int32_t index = getProbe();
 		bool uncontended = true;
-		bool var$3 = cs == nullptr || (m = $nc(cs)->length - 1) < 0;
-		bool var$2 = var$3 || ($assign(c, $nc(cs)->get((int32_t)(index & (uint32_t)m)))) == nullptr;
+		bool var$3 = cs == nullptr || (m = cs->length - 1) < 0;
+		bool var$2 = var$3 || ($assign(c, cs->get(index & m))) == nullptr;
 		if (!var$2) {
 			bool var$4 = (r = $nc(this->function)->applyAsLong(v = $nc(c)->value, x)) == v;
-			var$2 = !(uncontended = var$4 || $nc(c)->cas(v, r));
+			var$2 = !(uncontended = var$4 || c->cas(v, r));
 		}
 		if (var$2) {
 			longAccumulate(x, this->function, uncontended, index);
@@ -108,19 +60,15 @@ void LongAccumulator::accumulate(int64_t x) {
 }
 
 int64_t LongAccumulator::get() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Striped64$CellArray, cs, this->cells);
 	int64_t result = this->base;
 	if (cs != nullptr) {
-		{
-			$var($Striped64$CellArray, arr$, cs);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Striped64$Cell, c, arr$->get(i$));
-				if (c != nullptr) {
-					result = $nc(this->function)->applyAsLong(result, c->value);
-				}
+		$var($Striped64$CellArray, arr$, cs);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Striped64$Cell, c, arr$->get(i$));
+			if (c != nullptr) {
+				result = $nc(this->function)->applyAsLong(result, c->value);
 			}
 		}
 	}
@@ -128,41 +76,31 @@ int64_t LongAccumulator::get() {
 }
 
 void LongAccumulator::reset() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Striped64$CellArray, cs, this->cells);
 	this->base = this->identity;
 	if (cs != nullptr) {
-		{
-			$var($Striped64$CellArray, arr$, cs);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Striped64$Cell, c, arr$->get(i$));
-				if (c != nullptr) {
-					c->reset(this->identity);
-				}
+		$var($Striped64$CellArray, arr$, cs);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Striped64$Cell, c, arr$->get(i$));
+			if (c != nullptr) {
+				c->reset(this->identity);
 			}
 		}
 	}
 }
 
 int64_t LongAccumulator::getThenReset() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Striped64$CellArray, cs, this->cells);
 	int64_t result = getAndSetBase(this->identity);
 	if (cs != nullptr) {
-		{
-			$var($Striped64$CellArray, arr$, cs);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Striped64$Cell, c, arr$->get(i$));
-				{
-					if (c != nullptr) {
-						int64_t v = c->getAndSet(this->identity);
-						result = $nc(this->function)->applyAsLong(result, v);
-					}
-				}
+		$var($Striped64$CellArray, arr$, cs);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Striped64$Cell, c, arr$->get(i$));
+			if (c != nullptr) {
+				int64_t v = c->getAndSet(this->identity);
+				result = $nc(this->function)->applyAsLong(result, v);
 			}
 		}
 	}
@@ -190,7 +128,7 @@ double LongAccumulator::doubleValue() {
 }
 
 $Object* LongAccumulator::writeReplace() {
-	return $of($new($LongAccumulator$SerializationProxy, get(), this->function, this->identity));
+	return $new($LongAccumulator$SerializationProxy, get(), this->function, this->identity);
 }
 
 void LongAccumulator::readObject($ObjectInputStream* s) {
@@ -201,7 +139,48 @@ LongAccumulator::LongAccumulator() {
 }
 
 $Class* LongAccumulator::load$($String* name, bool initialize) {
-	$loadClass(LongAccumulator, name, initialize, &_LongAccumulator_ClassInfo_, allocate$LongAccumulator);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LongAccumulator, serialVersionUID)},
+		{"function", "Ljava/util/function/LongBinaryOperator;", nullptr, $PRIVATE | $FINAL, $field(LongAccumulator, function)},
+		{"identity", "J", nullptr, $PRIVATE | $FINAL, $field(LongAccumulator, identity)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/LongBinaryOperator;J)V", nullptr, $PUBLIC, $method(LongAccumulator, init$, void, $LongBinaryOperator*, int64_t)},
+		{"accumulate", "(J)V", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, accumulate, void, int64_t)},
+		{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, doubleValue, double)},
+		{"floatValue", "()F", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, floatValue, float)},
+		{"get", "()J", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, get, int64_t)},
+		{"getThenReset", "()J", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, getThenReset, int64_t)},
+		{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, intValue, int32_t)},
+		{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, longValue, int64_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(LongAccumulator, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, reset, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LongAccumulator, toString, $String*)},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(LongAccumulator, writeReplace, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.atomic.LongAccumulator$SerializationProxy", "java.util.concurrent.atomic.LongAccumulator", "SerializationProxy", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.concurrent.atomic.LongAccumulator",
+		"java.util.concurrent.atomic.Striped64",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.atomic.LongAccumulator$SerializationProxy"
+	};
+	$loadClass(LongAccumulator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LongAccumulator);
+	});
 	return class$;
 }
 

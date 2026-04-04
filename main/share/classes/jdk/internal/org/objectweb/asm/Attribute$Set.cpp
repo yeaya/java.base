@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/Attribute$Set.h>
-
 #include <jdk/internal/org/objectweb/asm/Attribute.h>
 #include <jcpp.h>
 
@@ -17,47 +16,6 @@ namespace jdk {
 		namespace org {
 			namespace objectweb {
 				namespace asm$ {
-
-$FieldInfo _Attribute$Set_FieldInfo_[] = {
-	{"SIZE_INCREMENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Attribute$Set, SIZE_INCREMENT)},
-	{"size", "I", nullptr, $PRIVATE, $field(Attribute$Set, size)},
-	{"data", "[Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, $PRIVATE, $field(Attribute$Set, data)},
-	{}
-};
-
-$MethodInfo _Attribute$Set_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Attribute$Set, init$, void)},
-	{"add", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PRIVATE, $method(Attribute$Set, add, void, $Attribute*)},
-	{"addAttributes", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, 0, $method(Attribute$Set, addAttributes, void, $Attribute*)},
-	{"contains", "(Ljdk/internal/org/objectweb/asm/Attribute;)Z", nullptr, $PRIVATE, $method(Attribute$Set, contains, bool, $Attribute*)},
-	{"toArray", "()[Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, 0, $method(Attribute$Set, toArray, $AttributeArray*)},
-	{}
-};
-
-$InnerClassInfo _Attribute$Set_InnerClassesInfo_[] = {
-	{"jdk.internal.org.objectweb.asm.Attribute$Set", "jdk.internal.org.objectweb.asm.Attribute", "Set", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Attribute$Set_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.Attribute$Set",
-	"java.lang.Object",
-	nullptr,
-	_Attribute$Set_FieldInfo_,
-	_Attribute$Set_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Attribute$Set_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.org.objectweb.asm.Attribute"
-};
-
-$Object* allocate$Attribute$Set($Class* clazz) {
-	return $of($alloc(Attribute$Set));
-}
 
 void Attribute$Set::init$() {
 	$set(this, data, $new($AttributeArray, Attribute$Set::SIZE_INCREMENT));
@@ -90,18 +48,53 @@ bool Attribute$Set::contains($Attribute* attribute) {
 
 void Attribute$Set::add($Attribute* attribute) {
 	if (this->size >= $nc(this->data)->length) {
-		$var($AttributeArray, newData, $new($AttributeArray, $nc(this->data)->length + Attribute$Set::SIZE_INCREMENT));
+		$var($AttributeArray, newData, $new($AttributeArray, this->data->length + Attribute$Set::SIZE_INCREMENT));
 		$System::arraycopy(this->data, 0, newData, 0, this->size);
 		$set(this, data, newData);
 	}
-	$nc(this->data)->set(this->size++, attribute);
+	this->data->set(this->size++, attribute);
 }
 
 Attribute$Set::Attribute$Set() {
 }
 
 $Class* Attribute$Set::load$($String* name, bool initialize) {
-	$loadClass(Attribute$Set, name, initialize, &_Attribute$Set_ClassInfo_, allocate$Attribute$Set);
+	$FieldInfo fieldInfos$$[] = {
+		{"SIZE_INCREMENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Attribute$Set, SIZE_INCREMENT)},
+		{"size", "I", nullptr, $PRIVATE, $field(Attribute$Set, size)},
+		{"data", "[Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, $PRIVATE, $field(Attribute$Set, data)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Attribute$Set, init$, void)},
+		{"add", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PRIVATE, $method(Attribute$Set, add, void, $Attribute*)},
+		{"addAttributes", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, 0, $method(Attribute$Set, addAttributes, void, $Attribute*)},
+		{"contains", "(Ljdk/internal/org/objectweb/asm/Attribute;)Z", nullptr, $PRIVATE, $method(Attribute$Set, contains, bool, $Attribute*)},
+		{"toArray", "()[Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, 0, $method(Attribute$Set, toArray, $AttributeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.org.objectweb.asm.Attribute$Set", "jdk.internal.org.objectweb.asm.Attribute", "Set", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.Attribute$Set",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.org.objectweb.asm.Attribute"
+	};
+	$loadClass(Attribute$Set, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Attribute$Set);
+	});
 	return class$;
 }
 

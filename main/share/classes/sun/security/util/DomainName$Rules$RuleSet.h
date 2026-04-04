@@ -32,6 +32,7 @@ class DomainName$Rules$RuleSet : public ::java::lang::Object {
 	$class(DomainName$Rules$RuleSet, 0, ::java::lang::Object)
 public:
 	DomainName$Rules$RuleSet();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t n);
 	virtual void addRule(int32_t auth, $String* rule);
 	static int32_t labels($String* s, int32_t n);

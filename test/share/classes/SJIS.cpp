@@ -1,5 +1,4 @@
 #include <SJIS.h>
-
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
 #include <java/io/OutputStream.h>
@@ -10,32 +9,10 @@
 using $File = ::java::io::File;
 using $FileOutputStream = ::java::io::FileOutputStream;
 using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-
-$MethodInfo _SJIS_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SJIS, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SJIS, main, void, $StringArray*), "java.lang.Exception"},
-	{"rm", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SJIS, rm, void, $File*)},
-	{"touch", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SJIS, touch, void, $File*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _SJIS_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"SJIS",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SJIS_MethodInfo_
-};
-
-$Object* allocate$SJIS($Class* clazz) {
-	return $of($alloc(SJIS));
-}
 
 void SJIS::init$() {
 }
@@ -52,13 +29,13 @@ void SJIS::touch($File* f) {
 }
 
 void SJIS::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($File);
 	if ($File::separatorChar != u'\\') {
 		return;
 	}
 	$var($String, enc, $System::getProperty("file.encoding"_s));
-	if ((enc == nullptr) || !$nc(enc)->equals("SJIS"_s)) {
+	if ((enc == nullptr) || !enc->equals("SJIS"_s)) {
 		return;
 	}
 	$var($File, f, $new($File, u"ソ"_s));
@@ -67,13 +44,13 @@ void SJIS::main($StringArray* args) {
 	}
 	$nc($System::err)->println($(f->getCanonicalPath()));
 	touch(f);
-	$nc($System::err)->println($(f->getCanonicalPath()));
+	$System::err->println($(f->getCanonicalPath()));
 	rm(f);
 	if (!f->mkdir()) {
 		$throwNew($Exception, $$str({"Can\'t create directory "_s, f}));
 	}
 	$var($File, f2, $new($File, f, u"ソ"_s));
-	$nc($System::err)->println($(f2->getCanonicalPath()));
+	$System::err->println($(f2->getCanonicalPath()));
 	touch(f2);
 	$var($String, cfn, f2->getCanonicalPath());
 	if (!($$new($File, cfn))->exists()) {
@@ -82,10 +59,10 @@ void SJIS::main($StringArray* args) {
 	$var($File, d, $new($File, "."_s));
 	$var($StringArray, fs, d->list());
 	if (fs == nullptr) {
-		$nc($System::err)->println("No files listed"_s);
+		$System::err->println("No files listed"_s);
 	}
 	for (int32_t i = 0; i < $nc(fs)->length; ++i) {
-		$nc($System::err)->println(fs->get(i));
+		$System::err->println(fs->get(i));
 	}
 }
 
@@ -93,7 +70,24 @@ SJIS::SJIS() {
 }
 
 $Class* SJIS::load$($String* name, bool initialize) {
-	$loadClass(SJIS, name, initialize, &_SJIS_ClassInfo_, allocate$SJIS);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SJIS, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SJIS, main, void, $StringArray*), "java.lang.Exception"},
+		{"rm", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SJIS, rm, void, $File*)},
+		{"touch", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SJIS, touch, void, $File*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"SJIS",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SJIS, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SJIS);
+	});
 	return class$;
 }
 

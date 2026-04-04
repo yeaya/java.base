@@ -1,5 +1,4 @@
 #include <java/util/concurrent/ConcurrentLinkedDeque$AbstractItr.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/NoSuchElementException.h>
 #include <java/util/concurrent/ConcurrentLinkedDeque$Node.h>
@@ -19,57 +18,13 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _ConcurrentLinkedDeque$AbstractItr_FieldInfo_[] = {
-	{"this$0", "Ljava/util/concurrent/ConcurrentLinkedDeque;", nullptr, $FINAL | $SYNTHETIC, $field(ConcurrentLinkedDeque$AbstractItr, this$0)},
-	{"nextNode", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", $PRIVATE, $field(ConcurrentLinkedDeque$AbstractItr, nextNode$)},
-	{"nextItem", "Ljava/lang/Object;", "TE;", $PRIVATE, $field(ConcurrentLinkedDeque$AbstractItr, nextItem)},
-	{"lastRet", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", $PRIVATE, $field(ConcurrentLinkedDeque$AbstractItr, lastRet)},
-	{}
-};
-
-$MethodInfo _ConcurrentLinkedDeque$AbstractItr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ConcurrentLinkedDeque;)V", nullptr, 0, $method(ConcurrentLinkedDeque$AbstractItr, init$, void, $ConcurrentLinkedDeque*)},
-	{"advance", "()V", nullptr, $PRIVATE, $method(ConcurrentLinkedDeque$AbstractItr, advance, void)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque$AbstractItr, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque$AbstractItr, next, $Object*)},
-	{"nextNode", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node;)Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;)Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", $ABSTRACT, $virtualMethod(ConcurrentLinkedDeque$AbstractItr, nextNode, $ConcurrentLinkedDeque$Node*, $ConcurrentLinkedDeque$Node*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque$AbstractItr, remove, void)},
-	{"startNode", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", $ABSTRACT, $virtualMethod(ConcurrentLinkedDeque$AbstractItr, startNode, $ConcurrentLinkedDeque$Node*)},
-	{}
-};
-
-$InnerClassInfo _ConcurrentLinkedDeque$AbstractItr_InnerClassesInfo_[] = {
-	{"java.util.concurrent.ConcurrentLinkedDeque$AbstractItr", "java.util.concurrent.ConcurrentLinkedDeque", "AbstractItr", $PRIVATE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ConcurrentLinkedDeque$AbstractItr_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.concurrent.ConcurrentLinkedDeque$AbstractItr",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_ConcurrentLinkedDeque$AbstractItr_FieldInfo_,
-	_ConcurrentLinkedDeque$AbstractItr_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
-	nullptr,
-	_ConcurrentLinkedDeque$AbstractItr_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.ConcurrentLinkedDeque"
-};
-
-$Object* allocate$ConcurrentLinkedDeque$AbstractItr($Class* clazz) {
-	return $of($alloc(ConcurrentLinkedDeque$AbstractItr));
-}
-
 void ConcurrentLinkedDeque$AbstractItr::init$($ConcurrentLinkedDeque* this$0) {
 	$set(this, this$0, this$0);
 	advance();
 }
 
 void ConcurrentLinkedDeque$AbstractItr::advance() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, lastRet, this->nextNode$);
 	$var($ConcurrentLinkedDeque$Node, p, (this->nextNode$ == nullptr) ? startNode() : nextNode(this->nextNode$));
 	for (;; $assign(p, nextNode(p))) {
@@ -97,7 +52,7 @@ $Object* ConcurrentLinkedDeque$AbstractItr::next() {
 		$throwNew($NoSuchElementException);
 	}
 	advance();
-	return $of(item);
+	return item;
 }
 
 void ConcurrentLinkedDeque$AbstractItr::remove() {
@@ -114,7 +69,45 @@ ConcurrentLinkedDeque$AbstractItr::ConcurrentLinkedDeque$AbstractItr() {
 }
 
 $Class* ConcurrentLinkedDeque$AbstractItr::load$($String* name, bool initialize) {
-	$loadClass(ConcurrentLinkedDeque$AbstractItr, name, initialize, &_ConcurrentLinkedDeque$AbstractItr_ClassInfo_, allocate$ConcurrentLinkedDeque$AbstractItr);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/concurrent/ConcurrentLinkedDeque;", nullptr, $FINAL | $SYNTHETIC, $field(ConcurrentLinkedDeque$AbstractItr, this$0)},
+		{"nextNode", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", $PRIVATE, $field(ConcurrentLinkedDeque$AbstractItr, nextNode$)},
+		{"nextItem", "Ljava/lang/Object;", "TE;", $PRIVATE, $field(ConcurrentLinkedDeque$AbstractItr, nextItem)},
+		{"lastRet", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", $PRIVATE, $field(ConcurrentLinkedDeque$AbstractItr, lastRet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/ConcurrentLinkedDeque;)V", nullptr, 0, $method(ConcurrentLinkedDeque$AbstractItr, init$, void, $ConcurrentLinkedDeque*)},
+		{"advance", "()V", nullptr, $PRIVATE, $method(ConcurrentLinkedDeque$AbstractItr, advance, void)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque$AbstractItr, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque$AbstractItr, next, $Object*)},
+		{"nextNode", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node;)Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;)Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", $ABSTRACT, $virtualMethod(ConcurrentLinkedDeque$AbstractItr, nextNode, $ConcurrentLinkedDeque$Node*, $ConcurrentLinkedDeque$Node*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque$AbstractItr, remove, void)},
+		{"startNode", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", $ABSTRACT, $virtualMethod(ConcurrentLinkedDeque$AbstractItr, startNode, $ConcurrentLinkedDeque$Node*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.ConcurrentLinkedDeque$AbstractItr", "java.util.concurrent.ConcurrentLinkedDeque", "AbstractItr", $PRIVATE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.concurrent.ConcurrentLinkedDeque$AbstractItr",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.ConcurrentLinkedDeque"
+	};
+	$loadClass(ConcurrentLinkedDeque$AbstractItr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ConcurrentLinkedDeque$AbstractItr);
+	});
 	return class$;
 }
 

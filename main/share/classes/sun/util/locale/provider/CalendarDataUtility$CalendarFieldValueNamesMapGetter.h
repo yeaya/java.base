@@ -33,6 +33,7 @@ class CalendarDataUtility$CalendarFieldValueNamesMapGetter : public ::sun::util:
 	$class(CalendarDataUtility$CalendarFieldValueNamesMapGetter, 0, ::sun::util::locale::provider::LocaleServiceProviderPool$LocalizedObjectGetter)
 public:
 	CalendarDataUtility$CalendarFieldValueNamesMapGetter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::util::Map* getObject(::java::util::spi::CalendarNameProvider* calendarNameProvider, ::java::util::Locale* locale, $String* requestID, $ObjectArray* params);
 	virtual $Object* getObject(::java::util::spi::LocaleServiceProvider* calendarNameProvider, ::java::util::Locale* locale, $String* requestID, $ObjectArray* params) override;

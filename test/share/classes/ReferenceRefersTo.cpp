@@ -1,5 +1,4 @@
 #include <ReferenceRefersTo.h>
-
 #include <java/lang/ref/PhantomReference.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
@@ -16,27 +15,6 @@ using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $SoftReference = ::java::lang::ref::SoftReference;
 using $WeakReference = ::java::lang::ref::WeakReference;
 
-$MethodInfo _ReferenceRefersTo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ReferenceRefersTo, init$, void)},
-	{"fail", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ReferenceRefersTo, fail, void, $String*), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReferenceRefersTo, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "(Ljava/lang/ref/Reference;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/String;)V", "<T:Ljava/lang/ref/Reference;>(TT;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/String;)V", $PRIVATE | $STATIC | $FINAL, $staticMethod(ReferenceRefersTo, test, void, $Reference*, Object$*, Object$*, $String*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ReferenceRefersTo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ReferenceRefersTo",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ReferenceRefersTo_MethodInfo_
-};
-
-$Object* allocate$ReferenceRefersTo($Class* clazz) {
-	return $of($alloc(ReferenceRefersTo));
-}
-
 void ReferenceRefersTo::init$() {
 }
 
@@ -45,20 +23,20 @@ void ReferenceRefersTo::fail($String* msg) {
 }
 
 void ReferenceRefersTo::test($Reference* ref, Object$* expectedValue, Object$* unexpectedValue, $String* kind) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((expectedValue != nullptr) && $nc(ref)->refersTo(nullptr)) {
 		fail($$str({kind, "refers to null"_s}));
 	}
 	if (!$nc(ref)->refersTo(expectedValue)) {
 		fail($$str({kind, " doesn\'t refer to expected value"_s}));
 	}
-	if ($nc(ref)->refersTo(unexpectedValue)) {
+	if (ref->refersTo(unexpectedValue)) {
 		fail($$str({kind, " refers to unexpected value"_s}));
 	}
 }
 
 void ReferenceRefersTo::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReferenceQueue, queue, $new($ReferenceQueue));
 	$var($Object, obj0, $new($Object));
 	$var($Object, obj1, $new($Object));
@@ -82,7 +60,24 @@ ReferenceRefersTo::ReferenceRefersTo() {
 }
 
 $Class* ReferenceRefersTo::load$($String* name, bool initialize) {
-	$loadClass(ReferenceRefersTo, name, initialize, &_ReferenceRefersTo_ClassInfo_, allocate$ReferenceRefersTo);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ReferenceRefersTo, init$, void)},
+		{"fail", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ReferenceRefersTo, fail, void, $String*), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReferenceRefersTo, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "(Ljava/lang/ref/Reference;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/String;)V", "<T:Ljava/lang/ref/Reference;>(TT;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/String;)V", $PRIVATE | $STATIC | $FINAL, $staticMethod(ReferenceRefersTo, test, void, $Reference*, Object$*, Object$*, $String*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ReferenceRefersTo",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ReferenceRefersTo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReferenceRefersTo);
+	});
 	return class$;
 }
 

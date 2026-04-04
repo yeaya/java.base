@@ -27,6 +27,7 @@ class PublicMethods$Key : public ::java::lang::Object {
 	$class(PublicMethods$Key, $PRELOAD, ::java::lang::Object)
 public:
 	PublicMethods$Key();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::reflect::Method* method);
 	virtual bool equals(Object$* o) override;
 	virtual int32_t hashCode() override;

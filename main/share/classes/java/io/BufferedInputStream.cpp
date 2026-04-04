@@ -1,5 +1,4 @@
 #include <java/io/BufferedInputStream.h>
-
 #include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -27,49 +26,6 @@ using $ArraysSupport = ::jdk::internal::util::ArraysSupport;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _BufferedInputStream_FieldInfo_[] = {
-	{"DEFAULT_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC, $staticField(BufferedInputStream, DEFAULT_BUFFER_SIZE)},
-	{"U", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BufferedInputStream, U)},
-	{"BUF_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BufferedInputStream, BUF_OFFSET)},
-	{"buf", "[B", nullptr, $PROTECTED | $VOLATILE, $field(BufferedInputStream, buf)},
-	{"count", "I", nullptr, $PROTECTED, $field(BufferedInputStream, count)},
-	{"pos", "I", nullptr, $PROTECTED, $field(BufferedInputStream, pos)},
-	{"markpos", "I", nullptr, $PROTECTED, $field(BufferedInputStream, markpos)},
-	{"marklimit", "I", nullptr, $PROTECTED, $field(BufferedInputStream, marklimit)},
-	{}
-};
-
-$MethodInfo _BufferedInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(BufferedInputStream, init$, void, $InputStream*)},
-	{"<init>", "(Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $method(BufferedInputStream, init$, void, $InputStream*, int32_t)},
-	{"available", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BufferedInputStream, available, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(BufferedInputStream, close, void), "java.io.IOException"},
-	{"fill", "()V", nullptr, $PRIVATE, $method(BufferedInputStream, fill, void), "java.io.IOException"},
-	{"getBufIfOpen", "()[B", nullptr, $PRIVATE, $method(BufferedInputStream, getBufIfOpen, $bytes*), "java.io.IOException"},
-	{"getInIfOpen", "()Ljava/io/InputStream;", nullptr, $PRIVATE, $method(BufferedInputStream, getInIfOpen, $InputStream*), "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BufferedInputStream, mark, void, int32_t)},
-	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferedInputStream, markSupported, bool)},
-	{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BufferedInputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BufferedInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"read1", "([BII)I", nullptr, $PRIVATE, $method(BufferedInputStream, read1, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BufferedInputStream, reset, void), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BufferedInputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _BufferedInputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.BufferedInputStream",
-	"java.io.FilterInputStream",
-	nullptr,
-	_BufferedInputStream_FieldInfo_,
-	_BufferedInputStream_MethodInfo_
-};
-
-$Object* allocate$BufferedInputStream($Class* clazz) {
-	return $of($alloc(BufferedInputStream));
-}
 
 int32_t BufferedInputStream::DEFAULT_BUFFER_SIZE = 0;
 $Unsafe* BufferedInputStream::U = nullptr;
@@ -105,7 +61,7 @@ void BufferedInputStream::init$($InputStream* in, int32_t size) {
 }
 
 void BufferedInputStream::fill() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, buffer, getBufIfOpen());
 	if (this->markpos < 0) {
 		this->pos = 0;
@@ -132,7 +88,7 @@ void BufferedInputStream::fill() {
 		}
 	}
 	this->count = this->pos;
-	int32_t n = $nc($(getInIfOpen()))->read(buffer, this->pos, $nc(buffer)->length - this->pos);
+	int32_t n = $$nc(getInIfOpen())->read(buffer, this->pos, $nc(buffer)->length - this->pos);
 	if (n > 0) {
 		this->count = n + this->pos;
 	}
@@ -146,16 +102,16 @@ int32_t BufferedInputStream::read() {
 				return -1;
 			}
 		}
-		return (int32_t)($nc($(getBufIfOpen()))->get(this->pos++) & (uint32_t)255);
+		return $nc($(getBufIfOpen()))->get(this->pos++) & 0xff;
 	}
 }
 
 int32_t BufferedInputStream::read1($bytes* b, int32_t off, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t avail = this->count - this->pos;
 	if (avail <= 0) {
 		if (len >= $nc($(getBufIfOpen()))->length && this->markpos < 0) {
-			return $nc($(getInIfOpen()))->read(b, off, len);
+			return $$nc(getInIfOpen())->read(b, off, len);
 		}
 		fill();
 		avail = this->count - this->pos;
@@ -171,7 +127,7 @@ int32_t BufferedInputStream::read1($bytes* b, int32_t off, int32_t len) {
 
 int32_t BufferedInputStream::read($bytes* b, int32_t off, int32_t len) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		getBufIfOpen();
 		if ((((off | len) | (off + len)) | ($nc(b)->length - (off + len))) < 0) {
 			$throwNew($IndexOutOfBoundsException);
@@ -205,7 +161,7 @@ int64_t BufferedInputStream::skip(int64_t n) {
 		int64_t avail = this->count - this->pos;
 		if (avail <= 0) {
 			if (this->markpos < 0) {
-				return $nc($(getInIfOpen()))->skip(n);
+				return $$nc(getInIfOpen())->skip(n);
 			}
 			fill();
 			avail = this->count - this->pos;
@@ -222,7 +178,7 @@ int64_t BufferedInputStream::skip(int64_t n) {
 int32_t BufferedInputStream::available() {
 	$synchronized(this) {
 		int32_t n = this->count - this->pos;
-		int32_t avail = $nc($(getInIfOpen()))->available();
+		int32_t avail = $$nc(getInIfOpen())->available();
 		return n > ($Integer::MAX_VALUE - avail) ? $Integer::MAX_VALUE : n + avail;
 	}
 }
@@ -249,7 +205,7 @@ bool BufferedInputStream::markSupported() {
 }
 
 void BufferedInputStream::close() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, buffer, nullptr);
 	while (($assign(buffer, this->buf)) != nullptr) {
 		if ($nc(BufferedInputStream::U)->compareAndSetReference(this, BufferedInputStream::BUF_OFFSET, buffer, nullptr)) {
@@ -263,7 +219,7 @@ void BufferedInputStream::close() {
 	}
 }
 
-void clinit$BufferedInputStream($Class* class$) {
+void BufferedInputStream::clinit$($Class* clazz) {
 	BufferedInputStream::DEFAULT_BUFFER_SIZE = 8192;
 	$assignStatic(BufferedInputStream::U, $Unsafe::getUnsafe());
 	BufferedInputStream::BUF_OFFSET = $nc(BufferedInputStream::U)->objectFieldOffset(BufferedInputStream::class$, "buf"_s);
@@ -273,7 +229,45 @@ BufferedInputStream::BufferedInputStream() {
 }
 
 $Class* BufferedInputStream::load$($String* name, bool initialize) {
-	$loadClass(BufferedInputStream, name, initialize, &_BufferedInputStream_ClassInfo_, clinit$BufferedInputStream, allocate$BufferedInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC, $staticField(BufferedInputStream, DEFAULT_BUFFER_SIZE)},
+		{"U", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BufferedInputStream, U)},
+		{"BUF_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BufferedInputStream, BUF_OFFSET)},
+		{"buf", "[B", nullptr, $PROTECTED | $VOLATILE, $field(BufferedInputStream, buf)},
+		{"count", "I", nullptr, $PROTECTED, $field(BufferedInputStream, count)},
+		{"pos", "I", nullptr, $PROTECTED, $field(BufferedInputStream, pos)},
+		{"markpos", "I", nullptr, $PROTECTED, $field(BufferedInputStream, markpos)},
+		{"marklimit", "I", nullptr, $PROTECTED, $field(BufferedInputStream, marklimit)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(BufferedInputStream, init$, void, $InputStream*)},
+		{"<init>", "(Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $method(BufferedInputStream, init$, void, $InputStream*, int32_t)},
+		{"available", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BufferedInputStream, available, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(BufferedInputStream, close, void), "java.io.IOException"},
+		{"fill", "()V", nullptr, $PRIVATE, $method(BufferedInputStream, fill, void), "java.io.IOException"},
+		{"getBufIfOpen", "()[B", nullptr, $PRIVATE, $method(BufferedInputStream, getBufIfOpen, $bytes*), "java.io.IOException"},
+		{"getInIfOpen", "()Ljava/io/InputStream;", nullptr, $PRIVATE, $method(BufferedInputStream, getInIfOpen, $InputStream*), "java.io.IOException"},
+		{"mark", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BufferedInputStream, mark, void, int32_t)},
+		{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferedInputStream, markSupported, bool)},
+		{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BufferedInputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BufferedInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"read1", "([BII)I", nullptr, $PRIVATE, $method(BufferedInputStream, read1, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BufferedInputStream, reset, void), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(BufferedInputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.BufferedInputStream",
+		"java.io.FilterInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BufferedInputStream, name, initialize, &classInfo$$, BufferedInputStream::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BufferedInputStream);
+	});
 	return class$;
 }
 

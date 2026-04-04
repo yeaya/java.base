@@ -1,5 +1,4 @@
 #include <javax/crypto/spec/RC2ParameterSpec.h>
-
 #include <java/util/Arrays.h>
 #include <jcpp.h>
 
@@ -12,36 +11,6 @@ using $Arrays = ::java::util::Arrays;
 namespace javax {
 	namespace crypto {
 		namespace spec {
-
-$FieldInfo _RC2ParameterSpec_FieldInfo_[] = {
-	{"iv", "[B", nullptr, $PRIVATE, $field(RC2ParameterSpec, iv)},
-	{"effectiveKeyBits", "I", nullptr, $PRIVATE, $field(RC2ParameterSpec, effectiveKeyBits)},
-	{}
-};
-
-$MethodInfo _RC2ParameterSpec_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(RC2ParameterSpec, init$, void, int32_t)},
-	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(RC2ParameterSpec, init$, void, int32_t, $bytes*)},
-	{"<init>", "(I[BI)V", nullptr, $PUBLIC, $method(RC2ParameterSpec, init$, void, int32_t, $bytes*, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RC2ParameterSpec, equals, bool, Object$*)},
-	{"getEffectiveKeyBits", "()I", nullptr, $PUBLIC, $virtualMethod(RC2ParameterSpec, getEffectiveKeyBits, int32_t)},
-	{"getIV", "()[B", nullptr, $PUBLIC, $virtualMethod(RC2ParameterSpec, getIV, $bytes*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RC2ParameterSpec, hashCode, int32_t)},
-	{}
-};
-
-$ClassInfo _RC2ParameterSpec_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.crypto.spec.RC2ParameterSpec",
-	"java.lang.Object",
-	"java.security.spec.AlgorithmParameterSpec",
-	_RC2ParameterSpec_FieldInfo_,
-	_RC2ParameterSpec_MethodInfo_
-};
-
-$Object* allocate$RC2ParameterSpec($Class* clazz) {
-	return $of($alloc(RC2ParameterSpec));
-}
 
 void RC2ParameterSpec::init$(int32_t effectiveKeyBits) {
 	$set(this, iv, nullptr);
@@ -71,7 +40,7 @@ int32_t RC2ParameterSpec::getEffectiveKeyBits() {
 }
 
 $bytes* RC2ParameterSpec::getIV() {
-	return (this->iv == nullptr ? ($bytes*)nullptr : $cast($bytes, $nc(this->iv)->clone()));
+	return (this->iv == nullptr ? ($bytes*)nullptr : $cast($bytes, this->iv->clone()));
 }
 
 bool RC2ParameterSpec::equals(Object$* obj) {
@@ -88,8 +57,8 @@ bool RC2ParameterSpec::equals(Object$* obj) {
 int32_t RC2ParameterSpec::hashCode() {
 	int32_t retval = 0;
 	if (this->iv != nullptr) {
-		for (int32_t i = 1; i < $nc(this->iv)->length; ++i) {
-			retval += $nc(this->iv)->get(i) * i;
+		for (int32_t i = 1; i < this->iv->length; ++i) {
+			retval += this->iv->get(i) * i;
 		}
 	}
 	return (retval += this->effectiveKeyBits);
@@ -99,7 +68,32 @@ RC2ParameterSpec::RC2ParameterSpec() {
 }
 
 $Class* RC2ParameterSpec::load$($String* name, bool initialize) {
-	$loadClass(RC2ParameterSpec, name, initialize, &_RC2ParameterSpec_ClassInfo_, allocate$RC2ParameterSpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"iv", "[B", nullptr, $PRIVATE, $field(RC2ParameterSpec, iv)},
+		{"effectiveKeyBits", "I", nullptr, $PRIVATE, $field(RC2ParameterSpec, effectiveKeyBits)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(RC2ParameterSpec, init$, void, int32_t)},
+		{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(RC2ParameterSpec, init$, void, int32_t, $bytes*)},
+		{"<init>", "(I[BI)V", nullptr, $PUBLIC, $method(RC2ParameterSpec, init$, void, int32_t, $bytes*, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RC2ParameterSpec, equals, bool, Object$*)},
+		{"getEffectiveKeyBits", "()I", nullptr, $PUBLIC, $virtualMethod(RC2ParameterSpec, getEffectiveKeyBits, int32_t)},
+		{"getIV", "()[B", nullptr, $PUBLIC, $virtualMethod(RC2ParameterSpec, getIV, $bytes*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RC2ParameterSpec, hashCode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.crypto.spec.RC2ParameterSpec",
+		"java.lang.Object",
+		"java.security.spec.AlgorithmParameterSpec",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RC2ParameterSpec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RC2ParameterSpec);
+	});
 	return class$;
 }
 

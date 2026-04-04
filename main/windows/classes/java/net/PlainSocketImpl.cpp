@@ -1,5 +1,4 @@
 #include <java/net/PlainSocketImpl.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/net/AbstractPlainSocketImpl.h>
@@ -11,7 +10,6 @@
 #include <java/net/SocketImpl.h>
 #include <java/net/SocketOptions.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <jdk/internal/access/JavaIOFileDescriptorAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
 #include <sun/security/action/GetPropertyAction.h>
@@ -31,7 +29,6 @@
 #undef WOULDBLOCK
 
 using $InetSocketAddressArray = $Array<::java::net::InetSocketAddress>;
-using $FileDescriptor = ::java::io::FileDescriptor;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -48,89 +45,12 @@ using $SocketException = ::java::net::SocketException;
 using $SocketImpl = ::java::net::SocketImpl;
 using $SocketOptions = ::java::net::SocketOptions;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $JavaIOFileDescriptorAccess = ::jdk::internal::access::JavaIOFileDescriptorAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 
 namespace java {
 	namespace net {
-
-$FieldInfo _PlainSocketImpl_FieldInfo_[] = {
-	{"fdAccess", "Ljdk/internal/access/JavaIOFileDescriptorAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PlainSocketImpl, fdAccess)},
-	{"preferIPv4Stack", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PlainSocketImpl, preferIPv4Stack)},
-	{"useExclusiveBind", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PlainSocketImpl, useExclusiveBind)},
-	{"isReuseAddress", "Z", nullptr, $PRIVATE, $field(PlainSocketImpl, isReuseAddress)},
-	{"WOULDBLOCK", "I", nullptr, $STATIC | $FINAL, $constField(PlainSocketImpl, WOULDBLOCK)},
-	{}
-};
-
-$MethodInfo _PlainSocketImpl_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, 0, $method(PlainSocketImpl, init$, void, bool)},
-	{"accept0", "(I[Ljava/net/InetSocketAddress;)I", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, accept0, int32_t, int32_t, $InetSocketAddressArray*), "java.io.IOException"},
-	{"available0", "(I)I", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, available0, int32_t, int32_t), "java.io.IOException"},
-	{"bind0", "(ILjava/net/InetAddress;IZ)V", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, bind0, void, int32_t, $InetAddress*, int32_t, bool), "java.io.IOException"},
-	{"checkAndReturnNativeFD", "()I", nullptr, $PRIVATE, $method(PlainSocketImpl, checkAndReturnNativeFD, int32_t), "java.net.SocketException"},
-	{"close0", "(I)V", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, close0, void, int32_t), "java.io.IOException"},
-	{"configureBlocking", "(IZ)V", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, configureBlocking, void, int32_t, bool), "java.io.IOException"},
-	{"connect0", "(ILjava/net/InetAddress;I)I", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, connect0, int32_t, int32_t, $InetAddress*, int32_t), "java.io.IOException"},
-	{"getIntOption", "(II)I", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, getIntOption, int32_t, int32_t, int32_t), "java.net.SocketException"},
-	{"initIDs", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, initIDs, void)},
-	{"listen0", "(II)V", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, listen0, void, int32_t, int32_t), "java.io.IOException"},
-	{"localAddress", "(ILjava/net/InetAddressContainer;)V", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, localAddress, void, int32_t, $InetAddressContainer*), "java.net.SocketException"},
-	{"localPort0", "(I)I", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, localPort0, int32_t, int32_t), "java.io.IOException"},
-	{"sendOOB", "(II)V", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, sendOOB, void, int32_t, int32_t), "java.io.IOException"},
-	{"setIntOption", "(III)V", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, setIntOption, void, int32_t, int32_t, int32_t), "java.net.SocketException"},
-	{"setSoTimeout0", "(II)V", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, setSoTimeout0, void, int32_t, int32_t), "java.net.SocketException"},
-	{"shutdown0", "(II)V", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, shutdown0, void, int32_t, int32_t), "java.io.IOException"},
-	{"socket0", "(Z)I", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, socket0, int32_t, bool), "java.io.IOException"},
-	{"socketAccept", "(Ljava/net/SocketImpl;)V", nullptr, 0, $virtualMethod(PlainSocketImpl, socketAccept, void, $SocketImpl*), "java.io.IOException"},
-	{"socketAvailable", "()I", nullptr, 0, $virtualMethod(PlainSocketImpl, socketAvailable, int32_t), "java.io.IOException"},
-	{"socketBind", "(Ljava/net/InetAddress;I)V", nullptr, 0, $virtualMethod(PlainSocketImpl, socketBind, void, $InetAddress*, int32_t), "java.io.IOException"},
-	{"socketClose0", "(Z)V", nullptr, 0, $virtualMethod(PlainSocketImpl, socketClose0, void, bool), "java.io.IOException"},
-	{"socketConnect", "(Ljava/net/InetAddress;II)V", nullptr, 0, $virtualMethod(PlainSocketImpl, socketConnect, void, $InetAddress*, int32_t, int32_t), "java.io.IOException"},
-	{"socketCreate", "(Z)V", nullptr, 0, $virtualMethod(PlainSocketImpl, socketCreate, void, bool), "java.io.IOException"},
-	{"socketGetOption", "(ILjava/lang/Object;)I", nullptr, 0, $virtualMethod(PlainSocketImpl, socketGetOption, int32_t, int32_t, Object$*), "java.net.SocketException"},
-	{"socketListen", "(I)V", nullptr, 0, $virtualMethod(PlainSocketImpl, socketListen, void, int32_t), "java.io.IOException"},
-	{"socketSendUrgentData", "(I)V", nullptr, 0, $virtualMethod(PlainSocketImpl, socketSendUrgentData, void, int32_t), "java.io.IOException"},
-	{"socketSetOption", "(IZLjava/lang/Object;)V", nullptr, 0, $virtualMethod(PlainSocketImpl, socketSetOption, void, int32_t, bool, Object$*), "java.net.SocketException"},
-	{"socketShutdown", "(I)V", nullptr, 0, $virtualMethod(PlainSocketImpl, socketShutdown, void, int32_t), "java.io.IOException"},
-	{"waitForConnect", "(II)V", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, waitForConnect, void, int32_t, int32_t), "java.io.IOException"},
-	{"waitForNewConnection", "(II)V", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, waitForNewConnection, void, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-#define _METHOD_INDEX_accept0 1
-#define _METHOD_INDEX_available0 2
-#define _METHOD_INDEX_bind0 3
-#define _METHOD_INDEX_close0 5
-#define _METHOD_INDEX_configureBlocking 6
-#define _METHOD_INDEX_connect0 7
-#define _METHOD_INDEX_getIntOption 8
-#define _METHOD_INDEX_initIDs 9
-#define _METHOD_INDEX_listen0 10
-#define _METHOD_INDEX_localAddress 11
-#define _METHOD_INDEX_localPort0 12
-#define _METHOD_INDEX_sendOOB 13
-#define _METHOD_INDEX_setIntOption 14
-#define _METHOD_INDEX_setSoTimeout0 15
-#define _METHOD_INDEX_shutdown0 16
-#define _METHOD_INDEX_socket0 17
-#define _METHOD_INDEX_waitForConnect 29
-#define _METHOD_INDEX_waitForNewConnection 30
-
-$ClassInfo _PlainSocketImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.PlainSocketImpl",
-	"java.net.AbstractPlainSocketImpl",
-	nullptr,
-	_PlainSocketImpl_FieldInfo_,
-	_PlainSocketImpl_MethodInfo_
-};
-
-$Object* allocate$PlainSocketImpl($Class* clazz) {
-	return $of($alloc(PlainSocketImpl));
-}
 
 $JavaIOFileDescriptorAccess* PlainSocketImpl::fdAccess = nullptr;
 bool PlainSocketImpl::preferIPv4Stack = false;
@@ -161,21 +81,19 @@ void PlainSocketImpl::socketConnect($InetAddress* address, int32_t port, int32_t
 		connectResult = connect0(nativefd, address, port);
 	} else {
 		configureBlocking(nativefd, false);
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				connectResult = connect0(nativefd, address, port);
-				if (connectResult == PlainSocketImpl::WOULDBLOCK) {
-					waitForConnect(nativefd, timeout);
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				configureBlocking(nativefd, true);
+		$var($Throwable, var$0, nullptr);
+		try {
+			connectResult = connect0(nativefd, address, port);
+			if (connectResult == PlainSocketImpl::WOULDBLOCK) {
+				waitForConnect(nativefd, timeout);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			configureBlocking(nativefd, true);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	if (this->localport == 0) {
@@ -206,7 +124,7 @@ void PlainSocketImpl::socketListen(int32_t backlog) {
 }
 
 void PlainSocketImpl::socketAccept($SocketImpl* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nativefd = checkAndReturnNativeFD();
 	if (s == nullptr) {
 		$throwNew($NullPointerException, "socket is null"_s);
@@ -217,27 +135,25 @@ void PlainSocketImpl::socketAccept($SocketImpl* s) {
 		newfd = accept0(nativefd, isaa);
 	} else {
 		configureBlocking(nativefd, false);
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				waitForNewConnection(nativefd, this->timeout);
-				newfd = accept0(nativefd, isaa);
-				if (newfd != -1) {
-					configureBlocking(newfd, true);
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				configureBlocking(nativefd, true);
+		$var($Throwable, var$0, nullptr);
+		try {
+			waitForNewConnection(nativefd, this->timeout);
+			newfd = accept0(nativefd, isaa);
+			if (newfd != -1) {
+				configureBlocking(newfd, true);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			configureBlocking(nativefd, true);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	$nc(PlainSocketImpl::fdAccess)->set($nc(s)->fd, newfd);
 	$var($InetSocketAddress, isa, isaa->get(0));
-	$nc(s)->port = $nc(isa)->getPort();
+	s->port = $nc(isa)->getPort();
 	$set(s, address, isa->getAddress());
 	s->localport = this->localport;
 	if (PlainSocketImpl::preferIPv4Stack && !($instanceOf($Inet4Address, s->address))) {
@@ -258,7 +174,7 @@ void PlainSocketImpl::socketClose0(bool useDeferredClose) {
 		return;
 	}
 	int32_t nativefd = $nc(PlainSocketImpl::fdAccess)->get(this->fd);
-	$nc(PlainSocketImpl::fdAccess)->set(this->fd, -1);
+	PlainSocketImpl::fdAccess->set(this->fd, -1);
 	close0(nativefd);
 }
 
@@ -275,7 +191,7 @@ void PlainSocketImpl::socketSetOption(int32_t opt, bool on, Object$* value) {
 	if (opt == $SocketOptions::SO_TIMEOUT) {
 		if (PlainSocketImpl::preferIPv4Stack) {
 			if (!this->isServer) {
-				setSoTimeout0(nativefd, $nc(($cast($Integer, value)))->intValue());
+				setSoTimeout0(nativefd, $nc($cast($Integer, value))->intValue());
 			}
 		}
 		return;
@@ -283,43 +199,29 @@ void PlainSocketImpl::socketSetOption(int32_t opt, bool on, Object$* value) {
 	int32_t optionValue = 0;
 	switch (opt) {
 	case $SocketOptions::SO_REUSEADDR:
-		{
-			if (PlainSocketImpl::useExclusiveBind) {
-				this->isReuseAddress = on;
-				return;
-			}
+		if (PlainSocketImpl::useExclusiveBind) {
+			this->isReuseAddress = on;
+			return;
 		}
 	case $SocketOptions::TCP_NODELAY:
-		{}
 	case $SocketOptions::SO_OOBINLINE:
-		{}
 	case $SocketOptions::SO_KEEPALIVE:
-		{
-			optionValue = on ? 1 : 0;
-			break;
-		}
+		optionValue = on ? 1 : 0;
+		break;
 	case $SocketOptions::SO_SNDBUF:
-		{}
 	case $SocketOptions::SO_RCVBUF:
-		{}
 	case $SocketOptions::IP_TOS:
-		{
-			optionValue = $nc(($cast($Integer, value)))->intValue();
-			break;
-		}
+		optionValue = $nc($cast($Integer, value))->intValue();
+		break;
 	case $SocketOptions::SO_LINGER:
-		{
-			if (on) {
-				optionValue = $nc(($cast($Integer, value)))->intValue();
-			} else {
-				optionValue = -1;
-			}
-			break;
+		if (on) {
+			optionValue = $nc($cast($Integer, value))->intValue();
+		} else {
+			optionValue = -1;
 		}
+		break;
 	default:
-		{
-			$throwNew($SocketException, "Option not supported"_s);
-		}
+		$throwNew($SocketException, "Option not supported"_s);
 	}
 	setIntOption(nativefd, opt, optionValue);
 }
@@ -339,15 +241,10 @@ int32_t PlainSocketImpl::socketGetOption(int32_t opt, Object$* iaContainerObj) {
 	int32_t value = getIntOption(nativefd, opt);
 	switch (opt) {
 	case $SocketOptions::TCP_NODELAY:
-		{}
 	case $SocketOptions::SO_OOBINLINE:
-		{}
 	case $SocketOptions::SO_KEEPALIVE:
-		{}
 	case $SocketOptions::SO_REUSEADDR:
-		{
-			return (value == 0) ? -1 : 1;
-		}
+		return (value == 0) ? -1 : 1;
 	}
 	return value;
 }
@@ -358,7 +255,7 @@ void PlainSocketImpl::socketSendUrgentData(int32_t data) {
 }
 
 int32_t PlainSocketImpl::checkAndReturnNativeFD() {
-	if (this->fd == nullptr || !$nc(this->fd)->valid()) {
+	if (this->fd == nullptr || !this->fd->valid()) {
 		$throwNew($SocketException, "Socket closed"_s);
 	}
 	return $nc(PlainSocketImpl::fdAccess)->get(this->fd);
@@ -366,149 +263,143 @@ int32_t PlainSocketImpl::checkAndReturnNativeFD() {
 
 void PlainSocketImpl::initIDs() {
 	$init(PlainSocketImpl);
-	$prepareNativeStatic(PlainSocketImpl, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 int32_t PlainSocketImpl::socket0(bool stream) {
 	$init(PlainSocketImpl);
-	int32_t $ret = 0;
-	$prepareNativeStatic(PlainSocketImpl, socket0, int32_t, bool stream);
-	$ret = $invokeNativeStatic(stream);
+	$prepareNativeStatic(socket0, int32_t, bool stream);
+	int32_t $ret = $invokeNativeStatic(stream);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void PlainSocketImpl::bind0(int32_t fd, $InetAddress* localAddress, int32_t localport, bool exclBind) {
 	$init(PlainSocketImpl);
-	$prepareNativeStatic(PlainSocketImpl, bind0, void, int32_t fd, $InetAddress* localAddress, int32_t localport, bool exclBind);
+	$prepareNativeStatic(bind0, void, int32_t fd, $InetAddress* localAddress, int32_t localport, bool exclBind);
 	$invokeNativeStatic(fd, localAddress, localport, exclBind);
 	$finishNativeStatic();
 }
 
 int32_t PlainSocketImpl::connect0(int32_t fd, $InetAddress* remote, int32_t remotePort) {
 	$init(PlainSocketImpl);
-	int32_t $ret = 0;
-	$prepareNativeStatic(PlainSocketImpl, connect0, int32_t, int32_t fd, $InetAddress* remote, int32_t remotePort);
-	$ret = $invokeNativeStatic(fd, remote, remotePort);
+	$prepareNativeStatic(connect0, int32_t, int32_t fd, $InetAddress* remote, int32_t remotePort);
+	int32_t $ret = $invokeNativeStatic(fd, remote, remotePort);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void PlainSocketImpl::waitForConnect(int32_t fd, int32_t timeout) {
 	$init(PlainSocketImpl);
-	$prepareNativeStatic(PlainSocketImpl, waitForConnect, void, int32_t fd, int32_t timeout);
+	$prepareNativeStatic(waitForConnect, void, int32_t fd, int32_t timeout);
 	$invokeNativeStatic(fd, timeout);
 	$finishNativeStatic();
 }
 
 int32_t PlainSocketImpl::localPort0(int32_t fd) {
 	$init(PlainSocketImpl);
-	int32_t $ret = 0;
-	$prepareNativeStatic(PlainSocketImpl, localPort0, int32_t, int32_t fd);
-	$ret = $invokeNativeStatic(fd);
+	$prepareNativeStatic(localPort0, int32_t, int32_t fd);
+	int32_t $ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void PlainSocketImpl::localAddress(int32_t fd, $InetAddressContainer* in) {
 	$init(PlainSocketImpl);
-	$prepareNativeStatic(PlainSocketImpl, localAddress, void, int32_t fd, $InetAddressContainer* in);
+	$prepareNativeStatic(localAddress, void, int32_t fd, $InetAddressContainer* in);
 	$invokeNativeStatic(fd, in);
 	$finishNativeStatic();
 }
 
 void PlainSocketImpl::listen0(int32_t fd, int32_t backlog) {
 	$init(PlainSocketImpl);
-	$prepareNativeStatic(PlainSocketImpl, listen0, void, int32_t fd, int32_t backlog);
+	$prepareNativeStatic(listen0, void, int32_t fd, int32_t backlog);
 	$invokeNativeStatic(fd, backlog);
 	$finishNativeStatic();
 }
 
 int32_t PlainSocketImpl::accept0(int32_t fd, $InetSocketAddressArray* isaa) {
 	$init(PlainSocketImpl);
-	int32_t $ret = 0;
-	$prepareNativeStatic(PlainSocketImpl, accept0, int32_t, int32_t fd, $InetSocketAddressArray* isaa);
-	$ret = $invokeNativeStatic(fd, isaa);
+	$prepareNativeStatic(accept0, int32_t, int32_t fd, $InetSocketAddressArray* isaa);
+	int32_t $ret = $invokeNativeStatic(fd, isaa);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void PlainSocketImpl::waitForNewConnection(int32_t fd, int32_t timeout) {
 	$init(PlainSocketImpl);
-	$prepareNativeStatic(PlainSocketImpl, waitForNewConnection, void, int32_t fd, int32_t timeout);
+	$prepareNativeStatic(waitForNewConnection, void, int32_t fd, int32_t timeout);
 	$invokeNativeStatic(fd, timeout);
 	$finishNativeStatic();
 }
 
 int32_t PlainSocketImpl::available0(int32_t fd) {
 	$init(PlainSocketImpl);
-	int32_t $ret = 0;
-	$prepareNativeStatic(PlainSocketImpl, available0, int32_t, int32_t fd);
-	$ret = $invokeNativeStatic(fd);
+	$prepareNativeStatic(available0, int32_t, int32_t fd);
+	int32_t $ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void PlainSocketImpl::close0(int32_t fd) {
 	$init(PlainSocketImpl);
-	$prepareNativeStatic(PlainSocketImpl, close0, void, int32_t fd);
+	$prepareNativeStatic(close0, void, int32_t fd);
 	$invokeNativeStatic(fd);
 	$finishNativeStatic();
 }
 
 void PlainSocketImpl::shutdown0(int32_t fd, int32_t howto) {
 	$init(PlainSocketImpl);
-	$prepareNativeStatic(PlainSocketImpl, shutdown0, void, int32_t fd, int32_t howto);
+	$prepareNativeStatic(shutdown0, void, int32_t fd, int32_t howto);
 	$invokeNativeStatic(fd, howto);
 	$finishNativeStatic();
 }
 
 void PlainSocketImpl::setIntOption(int32_t fd, int32_t cmd, int32_t optionValue) {
 	$init(PlainSocketImpl);
-	$prepareNativeStatic(PlainSocketImpl, setIntOption, void, int32_t fd, int32_t cmd, int32_t optionValue);
+	$prepareNativeStatic(setIntOption, void, int32_t fd, int32_t cmd, int32_t optionValue);
 	$invokeNativeStatic(fd, cmd, optionValue);
 	$finishNativeStatic();
 }
 
 void PlainSocketImpl::setSoTimeout0(int32_t fd, int32_t timeout) {
 	$init(PlainSocketImpl);
-	$prepareNativeStatic(PlainSocketImpl, setSoTimeout0, void, int32_t fd, int32_t timeout);
+	$prepareNativeStatic(setSoTimeout0, void, int32_t fd, int32_t timeout);
 	$invokeNativeStatic(fd, timeout);
 	$finishNativeStatic();
 }
 
 int32_t PlainSocketImpl::getIntOption(int32_t fd, int32_t cmd) {
 	$init(PlainSocketImpl);
-	int32_t $ret = 0;
-	$prepareNativeStatic(PlainSocketImpl, getIntOption, int32_t, int32_t fd, int32_t cmd);
-	$ret = $invokeNativeStatic(fd, cmd);
+	$prepareNativeStatic(getIntOption, int32_t, int32_t fd, int32_t cmd);
+	int32_t $ret = $invokeNativeStatic(fd, cmd);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void PlainSocketImpl::sendOOB(int32_t fd, int32_t data) {
 	$init(PlainSocketImpl);
-	$prepareNativeStatic(PlainSocketImpl, sendOOB, void, int32_t fd, int32_t data);
+	$prepareNativeStatic(sendOOB, void, int32_t fd, int32_t data);
 	$invokeNativeStatic(fd, data);
 	$finishNativeStatic();
 }
 
 void PlainSocketImpl::configureBlocking(int32_t fd, bool blocking) {
 	$init(PlainSocketImpl);
-	$prepareNativeStatic(PlainSocketImpl, configureBlocking, void, int32_t fd, bool blocking);
+	$prepareNativeStatic(configureBlocking, void, int32_t fd, bool blocking);
 	$invokeNativeStatic(fd, blocking);
 	$finishNativeStatic();
 }
 
-void clinit$PlainSocketImpl($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void PlainSocketImpl::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$assignStatic(PlainSocketImpl::fdAccess, $SharedSecrets::getJavaIOFileDescriptorAccess());
-	PlainSocketImpl::preferIPv4Stack = $Boolean::parseBoolean($cast($String, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "java.net.preferIPv4Stack"_s, "false"_s))))));
+	PlainSocketImpl::preferIPv4Stack = $Boolean::parseBoolean($$cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "java.net.preferIPv4Stack"_s, "false"_s))));
 	{
-		$var($String, exclBindProp, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "sun.net.useExclusiveBind"_s, ""_s)))));
+		$var($String, exclBindProp, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "sun.net.useExclusiveBind"_s, ""_s))));
 		bool var$0 = $nc(exclBindProp)->isEmpty();
 		PlainSocketImpl::useExclusiveBind = var$0 || $Boolean::parseBoolean(exclBindProp);
 	}
@@ -521,7 +412,59 @@ PlainSocketImpl::PlainSocketImpl() {
 }
 
 $Class* PlainSocketImpl::load$($String* name, bool initialize) {
-	$loadClass(PlainSocketImpl, name, initialize, &_PlainSocketImpl_ClassInfo_, clinit$PlainSocketImpl, allocate$PlainSocketImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fdAccess", "Ljdk/internal/access/JavaIOFileDescriptorAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PlainSocketImpl, fdAccess)},
+		{"preferIPv4Stack", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PlainSocketImpl, preferIPv4Stack)},
+		{"useExclusiveBind", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PlainSocketImpl, useExclusiveBind)},
+		{"isReuseAddress", "Z", nullptr, $PRIVATE, $field(PlainSocketImpl, isReuseAddress)},
+		{"WOULDBLOCK", "I", nullptr, $STATIC | $FINAL, $constField(PlainSocketImpl, WOULDBLOCK)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, 0, $method(PlainSocketImpl, init$, void, bool)},
+		{"accept0", "(I[Ljava/net/InetSocketAddress;)I", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, accept0, int32_t, int32_t, $InetSocketAddressArray*), "java.io.IOException"},
+		{"available0", "(I)I", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, available0, int32_t, int32_t), "java.io.IOException"},
+		{"bind0", "(ILjava/net/InetAddress;IZ)V", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, bind0, void, int32_t, $InetAddress*, int32_t, bool), "java.io.IOException"},
+		{"checkAndReturnNativeFD", "()I", nullptr, $PRIVATE, $method(PlainSocketImpl, checkAndReturnNativeFD, int32_t), "java.net.SocketException"},
+		{"close0", "(I)V", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, close0, void, int32_t), "java.io.IOException"},
+		{"configureBlocking", "(IZ)V", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, configureBlocking, void, int32_t, bool), "java.io.IOException"},
+		{"connect0", "(ILjava/net/InetAddress;I)I", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, connect0, int32_t, int32_t, $InetAddress*, int32_t), "java.io.IOException"},
+		{"getIntOption", "(II)I", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, getIntOption, int32_t, int32_t, int32_t), "java.net.SocketException"},
+		{"initIDs", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, initIDs, void)},
+		{"listen0", "(II)V", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, listen0, void, int32_t, int32_t), "java.io.IOException"},
+		{"localAddress", "(ILjava/net/InetAddressContainer;)V", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, localAddress, void, int32_t, $InetAddressContainer*), "java.net.SocketException"},
+		{"localPort0", "(I)I", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, localPort0, int32_t, int32_t), "java.io.IOException"},
+		{"sendOOB", "(II)V", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, sendOOB, void, int32_t, int32_t), "java.io.IOException"},
+		{"setIntOption", "(III)V", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, setIntOption, void, int32_t, int32_t, int32_t), "java.net.SocketException"},
+		{"setSoTimeout0", "(II)V", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, setSoTimeout0, void, int32_t, int32_t), "java.net.SocketException"},
+		{"shutdown0", "(II)V", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, shutdown0, void, int32_t, int32_t), "java.io.IOException"},
+		{"socket0", "(Z)I", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, socket0, int32_t, bool), "java.io.IOException"},
+		{"socketAccept", "(Ljava/net/SocketImpl;)V", nullptr, 0, $virtualMethod(PlainSocketImpl, socketAccept, void, $SocketImpl*), "java.io.IOException"},
+		{"socketAvailable", "()I", nullptr, 0, $virtualMethod(PlainSocketImpl, socketAvailable, int32_t), "java.io.IOException"},
+		{"socketBind", "(Ljava/net/InetAddress;I)V", nullptr, 0, $virtualMethod(PlainSocketImpl, socketBind, void, $InetAddress*, int32_t), "java.io.IOException"},
+		{"socketClose0", "(Z)V", nullptr, 0, $virtualMethod(PlainSocketImpl, socketClose0, void, bool), "java.io.IOException"},
+		{"socketConnect", "(Ljava/net/InetAddress;II)V", nullptr, 0, $virtualMethod(PlainSocketImpl, socketConnect, void, $InetAddress*, int32_t, int32_t), "java.io.IOException"},
+		{"socketCreate", "(Z)V", nullptr, 0, $virtualMethod(PlainSocketImpl, socketCreate, void, bool), "java.io.IOException"},
+		{"socketGetOption", "(ILjava/lang/Object;)I", nullptr, 0, $virtualMethod(PlainSocketImpl, socketGetOption, int32_t, int32_t, Object$*), "java.net.SocketException"},
+		{"socketListen", "(I)V", nullptr, 0, $virtualMethod(PlainSocketImpl, socketListen, void, int32_t), "java.io.IOException"},
+		{"socketSendUrgentData", "(I)V", nullptr, 0, $virtualMethod(PlainSocketImpl, socketSendUrgentData, void, int32_t), "java.io.IOException"},
+		{"socketSetOption", "(IZLjava/lang/Object;)V", nullptr, 0, $virtualMethod(PlainSocketImpl, socketSetOption, void, int32_t, bool, Object$*), "java.net.SocketException"},
+		{"socketShutdown", "(I)V", nullptr, 0, $virtualMethod(PlainSocketImpl, socketShutdown, void, int32_t), "java.io.IOException"},
+		{"waitForConnect", "(II)V", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, waitForConnect, void, int32_t, int32_t), "java.io.IOException"},
+		{"waitForNewConnection", "(II)V", nullptr, $STATIC | $NATIVE, $staticMethod(PlainSocketImpl, waitForNewConnection, void, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.PlainSocketImpl",
+		"java.net.AbstractPlainSocketImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PlainSocketImpl, name, initialize, &classInfo$$, PlainSocketImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PlainSocketImpl));
+	});
 	return class$;
 }
 

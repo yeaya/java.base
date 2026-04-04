@@ -1,5 +1,4 @@
 #include <IndexTest.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/net/InetAddress.h>
 #include <java/net/NetworkInterface.h>
@@ -12,7 +11,6 @@
 
 #undef MAX_VALUE
 
-using $PrintStream = ::java::io::PrintStream;
 using $Boolean = ::java::lang::Boolean;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -23,36 +21,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $InetAddress = ::java::net::InetAddress;
 using $NetworkInterface = ::java::net::NetworkInterface;
-using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Collections = ::java::util::Collections;
 using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
-
-$FieldInfo _IndexTest_FieldInfo_[] = {
-	{"isWindows", "Z", nullptr, $STATIC | $FINAL, $staticField(IndexTest, isWindows)},
-	{}
-};
-
-$MethodInfo _IndexTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IndexTest, init$, void)},
-	{"displayInterfaceInformation", "(Ljava/net/NetworkInterface;)V", nullptr, $STATIC, $staticMethod(IndexTest, displayInterfaceInformation, void, $NetworkInterface*), "java.net.SocketException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IndexTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _IndexTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"IndexTest",
-	"java.lang.Object",
-	nullptr,
-	_IndexTest_FieldInfo_,
-	_IndexTest_MethodInfo_
-};
-
-$Object* allocate$IndexTest($Class* clazz) {
-	return $of($alloc(IndexTest));
-}
 
 bool IndexTest::isWindows = false;
 
@@ -61,7 +33,7 @@ void IndexTest::init$() {
 
 void IndexTest::main($StringArray* args) {
 	$init(IndexTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Enumeration, netifs, $NetworkInterface::getNetworkInterfaces());
 	$var($NetworkInterface, nif, nullptr);
 	while ($nc(netifs)->hasMoreElements()) {
@@ -98,37 +70,57 @@ void IndexTest::main($StringArray* args) {
 
 void IndexTest::displayInterfaceInformation($NetworkInterface* netint) {
 	$init(IndexTest);
-	$useLocalCurrentObjectStackCache();
-	$nc($System::out)->printf("Display name: %s%n"_s, $$new($ObjectArray, {$($of($nc(netint)->getDisplayName()))}));
-	$nc($System::out)->printf("Name: %s%n"_s, $$new($ObjectArray, {$($of($nc(netint)->getName()))}));
-	$var($Enumeration, inetAddresses, $nc(netint)->getInetAddresses());
+	$useLocalObjectStack();
+	$nc($System::out)->printf("Display name: %s%n"_s, $$new($ObjectArray, {$($nc(netint)->getDisplayName())}));
+	$System::out->printf("Name: %s%n"_s, $$new($ObjectArray, {$(netint->getName())}));
+	$var($Enumeration, inetAddresses, netint->getInetAddresses());
 	{
-		$var($Iterator, i$, $nc($($Collections::list(inetAddresses)))->iterator());
+		$var($Iterator, i$, $$nc($Collections::list(inetAddresses))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($InetAddress, inetAddress, $cast($InetAddress, i$->next()));
-			$nc($System::out)->printf("InetAddress: %s%n"_s, $$new($ObjectArray, {$of(inetAddress)}));
+			$System::out->printf("InetAddress: %s%n"_s, $$new($ObjectArray, {inetAddress}));
 		}
 	}
-	$nc($System::out)->printf("Up? %s%n"_s, $$new($ObjectArray, {$($of($Boolean::valueOf(netint->isUp())))}));
-	$nc($System::out)->printf("Loopback? %s%n"_s, $$new($ObjectArray, {$($of($Boolean::valueOf(netint->isLoopback())))}));
-	$nc($System::out)->printf("PointToPoint? %s%n"_s, $$new($ObjectArray, {$($of($Boolean::valueOf(netint->isPointToPoint())))}));
-	$nc($System::out)->printf("Supports multicast? %s%n"_s, $$new($ObjectArray, {$($of($Boolean::valueOf(netint->supportsMulticast())))}));
-	$nc($System::out)->printf("Virtual? %s%n"_s, $$new($ObjectArray, {$($of($Boolean::valueOf(netint->isVirtual())))}));
-	$nc($System::out)->printf("Hardware address: %s%n"_s, $$new($ObjectArray, {$($of($Arrays::toString($(netint->getHardwareAddress()))))}));
-	$nc($System::out)->printf("MTU: %s%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(netint->getMTU())))}));
-	$nc($System::out)->printf("Index: %s%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(netint->getIndex())))}));
-	$nc($System::out)->printf("%n"_s, $$new($ObjectArray, 0));
+	$System::out->printf("Up? %s%n"_s, $$new($ObjectArray, {$($Boolean::valueOf(netint->isUp()))}));
+	$System::out->printf("Loopback? %s%n"_s, $$new($ObjectArray, {$($Boolean::valueOf(netint->isLoopback()))}));
+	$System::out->printf("PointToPoint? %s%n"_s, $$new($ObjectArray, {$($Boolean::valueOf(netint->isPointToPoint()))}));
+	$System::out->printf("Supports multicast? %s%n"_s, $$new($ObjectArray, {$($Boolean::valueOf(netint->supportsMulticast()))}));
+	$System::out->printf("Virtual? %s%n"_s, $$new($ObjectArray, {$($Boolean::valueOf(netint->isVirtual()))}));
+	$System::out->printf("Hardware address: %s%n"_s, $$new($ObjectArray, {$($Arrays::toString($(netint->getHardwareAddress())))}));
+	$System::out->printf("MTU: %s%n"_s, $$new($ObjectArray, {$($Integer::valueOf(netint->getMTU()))}));
+	$System::out->printf("Index: %s%n"_s, $$new($ObjectArray, {$($Integer::valueOf(netint->getIndex()))}));
+	$System::out->printf("%n"_s, $$new($ObjectArray, 0));
 }
 
-void clinit$IndexTest($Class* class$) {
-	IndexTest::isWindows = $nc($($System::getProperty("os.name"_s)))->startsWith("Windows"_s);
+void IndexTest::clinit$($Class* clazz) {
+	IndexTest::isWindows = $$nc($System::getProperty("os.name"_s))->startsWith("Windows"_s);
 }
 
 IndexTest::IndexTest() {
 }
 
 $Class* IndexTest::load$($String* name, bool initialize) {
-	$loadClass(IndexTest, name, initialize, &_IndexTest_ClassInfo_, clinit$IndexTest, allocate$IndexTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"isWindows", "Z", nullptr, $STATIC | $FINAL, $staticField(IndexTest, isWindows)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IndexTest, init$, void)},
+		{"displayInterfaceInformation", "(Ljava/net/NetworkInterface;)V", nullptr, $STATIC, $staticMethod(IndexTest, displayInterfaceInformation, void, $NetworkInterface*), "java.net.SocketException"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IndexTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"IndexTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IndexTest, name, initialize, &classInfo$$, IndexTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(IndexTest);
+	});
 	return class$;
 }
 

@@ -23,7 +23,7 @@ public:
 	void init$();
 	$Thread* getExclusiveOwnerThread();
 	void setExclusiveOwnerThread($Thread* thread);
-	static const int64_t serialVersionUID = (int64_t)0x33DFAFB9AD6D6FA9;
+	static const int64_t serialVersionUID = (int64_t)0x33dfafb9ad6d6fa9;
 	$Thread* exclusiveOwnerThread = nullptr;
 };
 

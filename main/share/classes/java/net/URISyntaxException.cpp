@@ -1,5 +1,4 @@
 #include <java/net/URISyntaxException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -11,36 +10,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 
 namespace java {
 	namespace net {
-
-$FieldInfo _URISyntaxException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URISyntaxException, serialVersionUID)},
-	{"input", "Ljava/lang/String;", nullptr, $PRIVATE, $field(URISyntaxException, input)},
-	{"index", "I", nullptr, $PRIVATE, $field(URISyntaxException, index)},
-	{}
-};
-
-$MethodInfo _URISyntaxException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(URISyntaxException, init$, void, $String*, $String*, int32_t)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(URISyntaxException, init$, void, $String*, $String*)},
-	{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(URISyntaxException, getIndex, int32_t)},
-	{"getInput", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URISyntaxException, getInput, $String*)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URISyntaxException, getMessage, $String*)},
-	{"getReason", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URISyntaxException, getReason, $String*)},
-	{}
-};
-
-$ClassInfo _URISyntaxException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.net.URISyntaxException",
-	"java.lang.Exception",
-	nullptr,
-	_URISyntaxException_FieldInfo_,
-	_URISyntaxException_MethodInfo_
-};
-
-$Object* allocate$URISyntaxException($Class* clazz) {
-	return $of($alloc(URISyntaxException));
-}
 
 void URISyntaxException::init$($String* input, $String* reason, int32_t index) {
 	$Exception::init$(reason);
@@ -71,7 +40,7 @@ int32_t URISyntaxException::getIndex() {
 }
 
 $String* URISyntaxException::getMessage() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($(getReason()));
 	if (this->index > -1) {
@@ -94,7 +63,32 @@ void URISyntaxException::throw$() {
 }
 
 $Class* URISyntaxException::load$($String* name, bool initialize) {
-	$loadClass(URISyntaxException, name, initialize, &_URISyntaxException_ClassInfo_, allocate$URISyntaxException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URISyntaxException, serialVersionUID)},
+		{"input", "Ljava/lang/String;", nullptr, $PRIVATE, $field(URISyntaxException, input)},
+		{"index", "I", nullptr, $PRIVATE, $field(URISyntaxException, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(URISyntaxException, init$, void, $String*, $String*, int32_t)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(URISyntaxException, init$, void, $String*, $String*)},
+		{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(URISyntaxException, getIndex, int32_t)},
+		{"getInput", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URISyntaxException, getInput, $String*)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URISyntaxException, getMessage, $String*)},
+		{"getReason", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URISyntaxException, getReason, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.net.URISyntaxException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(URISyntaxException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(URISyntaxException);
+	});
 	return class$;
 }
 

@@ -43,11 +43,12 @@ namespace java {
 	namespace lang {
 
 class $export Integer : public ::java::lang::Number, public ::java::lang::Comparable, public ::java::lang::constant::Constable, public ::java::lang::constant::ConstantDesc {
-	$class(Integer, $PRELOAD, ::java::lang::Number, ::java::lang::Comparable, ::java::lang::constant::Constable, ::java::lang::constant::ConstantDesc)
+	$class(Integer, $PRELOAD | $PREINIT, ::java::lang::Number, ::java::lang::Comparable, ::java::lang::constant::Constable, ::java::lang::constant::ConstantDesc)
 public:
 	Integer();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t value);
 	void init$($String* s);
 	static int32_t bitCount(int32_t i);
@@ -109,7 +110,7 @@ public:
 	static ::java::lang::Integer* valueOf($String* s);
 	static ::java::lang::Integer* valueOf(int32_t i);
 	static const int32_t MIN_VALUE = 0x80000000;
-	static const int32_t MAX_VALUE = 0x7FFFFFFF;
+	static const int32_t MAX_VALUE = 0x7fffffff;
 	static $Class* TYPE;
 	static $chars* digits;
 	static $bytes* DigitTens;
@@ -118,7 +119,7 @@ public:
 	int32_t value = 0;
 	static const int32_t SIZE = 32;
 	static const int32_t BYTES = 4; // SIZE / Byte.SIZE
-	static const int64_t serialVersionUID = (int64_t)0x12E2A0A4F7818738;
+	static const int64_t serialVersionUID = (int64_t)0x12e2a0a4f7818738;
 };
 
 	} // lang

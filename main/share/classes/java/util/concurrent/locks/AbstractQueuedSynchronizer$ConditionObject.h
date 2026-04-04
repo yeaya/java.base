@@ -62,7 +62,7 @@ public:
 	virtual $String* toString() override;
 	void unlinkCancelledWaiters(::java::util::concurrent::locks::AbstractQueuedSynchronizer$ConditionNode* node);
 	::java::util::concurrent::locks::AbstractQueuedSynchronizer* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x104AD505855C6AEB;
+	static const int64_t serialVersionUID = (int64_t)0x104ad505855c6aeb;
 	::java::util::concurrent::locks::AbstractQueuedSynchronizer$ConditionNode* firstWaiter = nullptr;
 	::java::util::concurrent::locks::AbstractQueuedSynchronizer$ConditionNode* lastWaiter = nullptr;
 };

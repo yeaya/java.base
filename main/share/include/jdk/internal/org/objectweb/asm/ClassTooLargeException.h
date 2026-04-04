@@ -18,12 +18,15 @@ public:
 	void init$($String* className, int32_t constantPoolCount);
 	$String* getClassName();
 	int32_t getConstantPoolCount();
-	static const int64_t serialVersionUID = (int64_t)0x023AF9FECF3BF67D;
+	static const int64_t serialVersionUID = (int64_t)0x023af9fecf3bf67d;
 	$String* className = nullptr;
 	int32_t constantPoolCount = 0;
 	ClassTooLargeException(const ClassTooLargeException& e);
 	virtual void throw$() override;
-	inline ClassTooLargeException* operator ->() {
+	inline ClassTooLargeException* operator ->() const {
+		return (ClassTooLargeException*)throwing$;
+	}
+	inline operator ClassTooLargeException*() const {
 		return (ClassTooLargeException*)throwing$;
 	}
 };

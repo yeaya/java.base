@@ -1,5 +1,4 @@
 #include <RacyHandler.h>
-
 #include <RacyHandler$CustomHttpHandler.h>
 #include <java/io/Serializable.h>
 #include <java/lang/InterruptedException.h>
@@ -19,7 +18,6 @@
 #undef NUM_THREADS
 
 using $RacyHandler$CustomHttpHandler = ::RacyHandler$CustomHttpHandler;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -45,33 +43,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$runTest$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RacyHandler$$Lambda$lambda$runTest$1>());
-	}
 	RacyHandler* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo RacyHandler$$Lambda$lambda$runTest$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RacyHandler$$Lambda$lambda$runTest$1, inst$)},
-	{}
-};
-$MethodInfo RacyHandler$$Lambda$lambda$runTest$1::methodInfos[3] = {
-	{"<init>", "(LRacyHandler;)V", nullptr, $PUBLIC, $method(RacyHandler$$Lambda$lambda$runTest$1, init$, void, RacyHandler*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RacyHandler$$Lambda$lambda$runTest$1, run, void)},
-	{}
-};
-$ClassInfo RacyHandler$$Lambda$lambda$runTest$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"RacyHandler$$Lambda$lambda$runTest$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* RacyHandler$$Lambda$lambda$runTest$1::load$($String* name, bool initialize) {
-	$loadClass(RacyHandler$$Lambda$lambda$runTest$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RacyHandler$$Lambda$lambda$runTest$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LRacyHandler;)V", nullptr, $PUBLIC, $method(RacyHandler$$Lambda$lambda$runTest$1, init$, void, RacyHandler*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RacyHandler$$Lambda$lambda$runTest$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"RacyHandler$$Lambda$lambda$runTest$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RacyHandler$$Lambda$lambda$runTest$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RacyHandler$$Lambda$lambda$runTest$1);
+	});
 	return class$;
 }
 $Class* RacyHandler$$Lambda$lambda$runTest$1::class$ = nullptr;
@@ -85,33 +79,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$runTest$2();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RacyHandler$$Lambda$lambda$runTest$2$1>());
-	}
 	RacyHandler* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo RacyHandler$$Lambda$lambda$runTest$2$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RacyHandler$$Lambda$lambda$runTest$2$1, inst$)},
-	{}
-};
-$MethodInfo RacyHandler$$Lambda$lambda$runTest$2$1::methodInfos[3] = {
-	{"<init>", "(LRacyHandler;)V", nullptr, $PUBLIC, $method(RacyHandler$$Lambda$lambda$runTest$2$1, init$, void, RacyHandler*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RacyHandler$$Lambda$lambda$runTest$2$1, run, void)},
-	{}
-};
-$ClassInfo RacyHandler$$Lambda$lambda$runTest$2$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"RacyHandler$$Lambda$lambda$runTest$2$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* RacyHandler$$Lambda$lambda$runTest$2$1::load$($String* name, bool initialize) {
-	$loadClass(RacyHandler$$Lambda$lambda$runTest$2$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RacyHandler$$Lambda$lambda$runTest$2$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LRacyHandler;)V", nullptr, $PUBLIC, $method(RacyHandler$$Lambda$lambda$runTest$2$1, init$, void, RacyHandler*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RacyHandler$$Lambda$lambda$runTest$2$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"RacyHandler$$Lambda$lambda$runTest$2$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RacyHandler$$Lambda$lambda$runTest$2$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RacyHandler$$Lambda$lambda$runTest$2$1);
+	});
 	return class$;
 }
 $Class* RacyHandler$$Lambda$lambda$runTest$2$1::class$ = nullptr;
@@ -125,78 +115,32 @@ public:
 	virtual $URLStreamHandler* createURLStreamHandler($String* proto) override {
 		 return $nc(inst$)->lambda$runTest$0(proto);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RacyHandler$$Lambda$lambda$runTest$0$2>());
-	}
 	RacyHandler* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo RacyHandler$$Lambda$lambda$runTest$0$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RacyHandler$$Lambda$lambda$runTest$0$2, inst$)},
-	{}
-};
-$MethodInfo RacyHandler$$Lambda$lambda$runTest$0$2::methodInfos[3] = {
-	{"<init>", "(LRacyHandler;)V", nullptr, $PUBLIC, $method(RacyHandler$$Lambda$lambda$runTest$0$2, init$, void, RacyHandler*)},
-	{"createURLStreamHandler", "(Ljava/lang/String;)Ljava/net/URLStreamHandler;", nullptr, $PUBLIC, $virtualMethod(RacyHandler$$Lambda$lambda$runTest$0$2, createURLStreamHandler, $URLStreamHandler*, $String*)},
-	{}
-};
-$ClassInfo RacyHandler$$Lambda$lambda$runTest$0$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"RacyHandler$$Lambda$lambda$runTest$0$2",
-	"java.lang.Object",
-	"java.net.URLStreamHandlerFactory",
-	fieldInfos,
-	methodInfos
 };
 $Class* RacyHandler$$Lambda$lambda$runTest$0$2::load$($String* name, bool initialize) {
-	$loadClass(RacyHandler$$Lambda$lambda$runTest$0$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RacyHandler$$Lambda$lambda$runTest$0$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LRacyHandler;)V", nullptr, $PUBLIC, $method(RacyHandler$$Lambda$lambda$runTest$0$2, init$, void, RacyHandler*)},
+		{"createURLStreamHandler", "(Ljava/lang/String;)Ljava/net/URLStreamHandler;", nullptr, $PUBLIC, $virtualMethod(RacyHandler$$Lambda$lambda$runTest$0$2, createURLStreamHandler, $URLStreamHandler*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"RacyHandler$$Lambda$lambda$runTest$0$2",
+		"java.lang.Object",
+		"java.net.URLStreamHandlerFactory",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RacyHandler$$Lambda$lambda$runTest$0$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RacyHandler$$Lambda$lambda$runTest$0$2);
+	});
 	return class$;
 }
 $Class* RacyHandler$$Lambda$lambda$runTest$0$2::class$ = nullptr;
-
-$FieldInfo _RacyHandler_FieldInfo_[] = {
-	{"factorySet", "Z", nullptr, $STATIC | $VOLATILE, $staticField(RacyHandler, factorySet)},
-	{"NUM_THREADS", "I", nullptr, $STATIC, $staticField(RacyHandler, NUM_THREADS)},
-	{"cdl", "Ljava/util/concurrent/CountDownLatch;", nullptr, $STATIC, $staticField(RacyHandler, cdl)},
-	{}
-};
-
-$MethodInfo _RacyHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RacyHandler, init$, void)},
-	{"getURLStreamHandler", "()Ljava/net/URLStreamHandler;", nullptr, $PUBLIC, $virtualMethod(RacyHandler, getURLStreamHandler, $URLStreamHandler*)},
-	{"lambda$runTest$0", "(Ljava/lang/String;)Ljava/net/URLStreamHandler;", nullptr, $PRIVATE | $SYNTHETIC, $method(RacyHandler, lambda$runTest$0, $URLStreamHandler*, $String*)},
-	{"lambda$runTest$1", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(RacyHandler, lambda$runTest$1, void)},
-	{"lambda$runTest$2", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(RacyHandler, lambda$runTest$2, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RacyHandler, main, void, $StringArray*)},
-	{"runTest", "()V", nullptr, $PUBLIC, $virtualMethod(RacyHandler, runTest, void)},
-	{}
-};
-
-$InnerClassInfo _RacyHandler_InnerClassesInfo_[] = {
-	{"RacyHandler$CustomHttpHandler", "RacyHandler", "CustomHttpHandler", 0},
-	{}
-};
-
-$ClassInfo _RacyHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"RacyHandler",
-	"java.lang.Object",
-	nullptr,
-	_RacyHandler_FieldInfo_,
-	_RacyHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RacyHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"RacyHandler$CustomHttpHandler"
-};
-
-$Object* allocate$RacyHandler($Class* clazz) {
-	return $of($alloc(RacyHandler));
-}
 
 $volatile(bool) RacyHandler::factorySet = false;
 int32_t RacyHandler::NUM_THREADS = 0;
@@ -212,11 +156,11 @@ void RacyHandler::main($StringArray* args) {
 }
 
 void RacyHandler::runTest() {
-	$useLocalCurrentObjectStackCache();
-	$$new($Thread, static_cast<$Runnable*>($$new(RacyHandler$$Lambda$lambda$runTest$1, this)))->start();
+	$useLocalObjectStack();
+	$$new($Thread, $$new(RacyHandler$$Lambda$lambda$runTest$1, this))->start();
 	$nc(RacyHandler::cdl)->countDown();
 	for (int32_t i = 0; i < RacyHandler::NUM_THREADS; ++i) {
-		$$new($Thread, static_cast<$Runnable*>($$new(RacyHandler$$Lambda$lambda$runTest$2$1, this)))->start();
+		$$new($Thread, $$new(RacyHandler$$Lambda$lambda$runTest$2$1, this))->start();
 		$nc(RacyHandler::cdl)->countDown();
 	}
 	while (!RacyHandler::factorySet) {
@@ -233,13 +177,13 @@ void RacyHandler::runTest() {
 }
 
 $URLStreamHandler* RacyHandler::getURLStreamHandler() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		$load($URL);
 		$var($Method, method, $URL::class$->getDeclaredMethod("getURLStreamHandler"_s, $$new($ClassArray, {$String::class$})));
 		$nc(method)->setAccessible(true);
-		return $cast($URLStreamHandler, method->invoke(nullptr, $$new($ObjectArray, {$of("http"_s)})));
+		return $cast($URLStreamHandler, method->invoke(nullptr, $$new($ObjectArray, {"http"_s})));
 	} catch ($Exception& e) {
 		return nullptr;
 	}
@@ -259,7 +203,7 @@ void RacyHandler::lambda$runTest$2() {
 void RacyHandler::lambda$runTest$1() {
 	try {
 		$nc(RacyHandler::cdl)->await();
-		$URL::setURLStreamHandlerFactory(static_cast<$URLStreamHandlerFactory*>($$new(RacyHandler$$Lambda$lambda$runTest$0$2, this)));
+		$URL::setURLStreamHandlerFactory($$new(RacyHandler$$Lambda$lambda$runTest$0$2, this));
 		RacyHandler::factorySet = true;
 	} catch ($Exception& ignore) {
 	}
@@ -269,7 +213,7 @@ $URLStreamHandler* RacyHandler::lambda$runTest$0($String* proto) {
 	return $new($RacyHandler$CustomHttpHandler, this);
 }
 
-void clinit$RacyHandler($Class* class$) {
+void RacyHandler::clinit$($Class* clazz) {
 	RacyHandler::factorySet = false;
 	RacyHandler::NUM_THREADS = 2;
 	$assignStatic(RacyHandler::cdl, $new($CountDownLatch, RacyHandler::NUM_THREADS + 1));
@@ -280,17 +224,53 @@ RacyHandler::RacyHandler() {
 
 $Class* RacyHandler::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(RacyHandler$$Lambda$lambda$runTest$1::classInfo$.name)) {
+		if (name->equals("RacyHandler$$Lambda$lambda$runTest$1")) {
 			return RacyHandler$$Lambda$lambda$runTest$1::load$(name, initialize);
 		}
-		if (name->equals(RacyHandler$$Lambda$lambda$runTest$2$1::classInfo$.name)) {
+		if (name->equals("RacyHandler$$Lambda$lambda$runTest$2$1")) {
 			return RacyHandler$$Lambda$lambda$runTest$2$1::load$(name, initialize);
 		}
-		if (name->equals(RacyHandler$$Lambda$lambda$runTest$0$2::classInfo$.name)) {
+		if (name->equals("RacyHandler$$Lambda$lambda$runTest$0$2")) {
 			return RacyHandler$$Lambda$lambda$runTest$0$2::load$(name, initialize);
 		}
 	}
-	$loadClass(RacyHandler, name, initialize, &_RacyHandler_ClassInfo_, clinit$RacyHandler, allocate$RacyHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"factorySet", "Z", nullptr, $STATIC | $VOLATILE, $staticField(RacyHandler, factorySet)},
+		{"NUM_THREADS", "I", nullptr, $STATIC, $staticField(RacyHandler, NUM_THREADS)},
+		{"cdl", "Ljava/util/concurrent/CountDownLatch;", nullptr, $STATIC, $staticField(RacyHandler, cdl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RacyHandler, init$, void)},
+		{"getURLStreamHandler", "()Ljava/net/URLStreamHandler;", nullptr, $PUBLIC, $virtualMethod(RacyHandler, getURLStreamHandler, $URLStreamHandler*)},
+		{"lambda$runTest$0", "(Ljava/lang/String;)Ljava/net/URLStreamHandler;", nullptr, $PRIVATE | $SYNTHETIC, $method(RacyHandler, lambda$runTest$0, $URLStreamHandler*, $String*)},
+		{"lambda$runTest$1", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(RacyHandler, lambda$runTest$1, void)},
+		{"lambda$runTest$2", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(RacyHandler, lambda$runTest$2, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RacyHandler, main, void, $StringArray*)},
+		{"runTest", "()V", nullptr, $PUBLIC, $virtualMethod(RacyHandler, runTest, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"RacyHandler$CustomHttpHandler", "RacyHandler", "CustomHttpHandler", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"RacyHandler",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"RacyHandler$CustomHttpHandler"
+	};
+	$loadClass(RacyHandler, name, initialize, &classInfo$$, RacyHandler::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RacyHandler);
+	});
 	return class$;
 }
 

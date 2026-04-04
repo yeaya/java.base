@@ -1,5 +1,4 @@
 #include <sun/nio/cs/Surrogate$Parser.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/charset/CoderResult.h>
@@ -21,51 +20,6 @@ using $Surrogate = ::sun::nio::cs::Surrogate;
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$FieldInfo _Surrogate$Parser_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Surrogate$Parser, $assertionsDisabled)},
-	{"character", "I", nullptr, $PRIVATE, $field(Surrogate$Parser, character$)},
-	{"error", "Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $field(Surrogate$Parser, error$)},
-	{"isPair", "Z", nullptr, $PRIVATE, $field(Surrogate$Parser, isPair$)},
-	{}
-};
-
-$MethodInfo _Surrogate$Parser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Surrogate$Parser, init$, void)},
-	{"character", "()I", nullptr, $PUBLIC, $virtualMethod(Surrogate$Parser, character, int32_t)},
-	{"error", "()Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC, $virtualMethod(Surrogate$Parser, error, $CoderResult*)},
-	{"increment", "()I", nullptr, $PUBLIC, $virtualMethod(Surrogate$Parser, increment, int32_t)},
-	{"isPair", "()Z", nullptr, $PUBLIC, $virtualMethod(Surrogate$Parser, isPair, bool)},
-	{"parse", "(CLjava/nio/CharBuffer;)I", nullptr, $PUBLIC, $virtualMethod(Surrogate$Parser, parse, int32_t, char16_t, $CharBuffer*)},
-	{"parse", "(C[CII)I", nullptr, $PUBLIC, $virtualMethod(Surrogate$Parser, parse, int32_t, char16_t, $chars*, int32_t, int32_t)},
-	{"unmappableResult", "()Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC, $virtualMethod(Surrogate$Parser, unmappableResult, $CoderResult*)},
-	{}
-};
-
-$InnerClassInfo _Surrogate$Parser_InnerClassesInfo_[] = {
-	{"sun.nio.cs.Surrogate$Parser", "sun.nio.cs.Surrogate", "Parser", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Surrogate$Parser_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.Surrogate$Parser",
-	"java.lang.Object",
-	nullptr,
-	_Surrogate$Parser_FieldInfo_,
-	_Surrogate$Parser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Surrogate$Parser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.Surrogate"
-};
-
-$Object* allocate$Surrogate$Parser($Class* clazz) {
-	return $of($alloc(Surrogate$Parser));
-}
 
 bool Surrogate$Parser::$assertionsDisabled = false;
 
@@ -116,7 +70,7 @@ int32_t Surrogate$Parser::parse(char16_t c, $CharBuffer* in) {
 			$set(this, error$, $CoderResult::UNDERFLOW);
 			return -1;
 		}
-		char16_t d = $nc(in)->get();
+		char16_t d = in->get();
 		if ($Character::isLowSurrogate(d)) {
 			this->character$ = $Character::toCodePoint(c, d);
 			this->isPair$ = true;
@@ -166,7 +120,7 @@ int32_t Surrogate$Parser::parse(char16_t c, $chars* ia, int32_t ip, int32_t il) 
 	return this->character$;
 }
 
-void clinit$Surrogate$Parser($Class* class$) {
+void Surrogate$Parser::clinit$($Class* clazz) {
 	$load($Surrogate);
 	Surrogate$Parser::$assertionsDisabled = !$Surrogate::class$->desiredAssertionStatus();
 }
@@ -175,7 +129,46 @@ Surrogate$Parser::Surrogate$Parser() {
 }
 
 $Class* Surrogate$Parser::load$($String* name, bool initialize) {
-	$loadClass(Surrogate$Parser, name, initialize, &_Surrogate$Parser_ClassInfo_, clinit$Surrogate$Parser, allocate$Surrogate$Parser);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Surrogate$Parser, $assertionsDisabled)},
+		{"character", "I", nullptr, $PRIVATE, $field(Surrogate$Parser, character$)},
+		{"error", "Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $field(Surrogate$Parser, error$)},
+		{"isPair", "Z", nullptr, $PRIVATE, $field(Surrogate$Parser, isPair$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Surrogate$Parser, init$, void)},
+		{"character", "()I", nullptr, $PUBLIC, $virtualMethod(Surrogate$Parser, character, int32_t)},
+		{"error", "()Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC, $virtualMethod(Surrogate$Parser, error, $CoderResult*)},
+		{"increment", "()I", nullptr, $PUBLIC, $virtualMethod(Surrogate$Parser, increment, int32_t)},
+		{"isPair", "()Z", nullptr, $PUBLIC, $virtualMethod(Surrogate$Parser, isPair, bool)},
+		{"parse", "(CLjava/nio/CharBuffer;)I", nullptr, $PUBLIC, $virtualMethod(Surrogate$Parser, parse, int32_t, char16_t, $CharBuffer*)},
+		{"parse", "(C[CII)I", nullptr, $PUBLIC, $virtualMethod(Surrogate$Parser, parse, int32_t, char16_t, $chars*, int32_t, int32_t)},
+		{"unmappableResult", "()Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC, $virtualMethod(Surrogate$Parser, unmappableResult, $CoderResult*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.Surrogate$Parser", "sun.nio.cs.Surrogate", "Parser", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.Surrogate$Parser",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.Surrogate"
+	};
+	$loadClass(Surrogate$Parser, name, initialize, &classInfo$$, Surrogate$Parser::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Surrogate$Parser);
+	});
 	return class$;
 }
 

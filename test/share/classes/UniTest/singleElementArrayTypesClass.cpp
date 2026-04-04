@@ -1,5 +1,4 @@
 #include <UniTest/singleElementArrayTypesClass.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -10,119 +9,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$Attribute singleElementArrayTypesClass_Attribute_var$1[] = {
-	{'B', "1"},
-	{'-'}
-};
-
-$Attribute singleElementArrayTypesClass_Attribute_var$2[] = {
-	{'S', "2"},
-	{'-'}
-};
-
-$Attribute singleElementArrayTypesClass_Attribute_var$3[] = {
-	{'I', "3"},
-	{'-'}
-};
-
-$Attribute singleElementArrayTypesClass_Attribute_var$4[] = {
-	{'J', "4"},
-	{'-'}
-};
-
-$Attribute singleElementArrayTypesClass_Attribute_var$5[] = {
-	{'C', "5"},
-	{'-'}
-};
-
-$Attribute singleElementArrayTypesClass_Attribute_var$6[] = {
-	{'F', "6.0"},
-	{'-'}
-};
-
-$Attribute singleElementArrayTypesClass_Attribute_var$7[] = {
-	{'D', "7.0"},
-	{'-'}
-};
-
-$Attribute singleElementArrayTypesClass_Attribute_var$8[] = {
-	{'Z', "true"},
-	{'-'}
-};
-
-$Attribute singleElementArrayTypesClass_Attribute_var$9[] = {
-	{'s', "custom"},
-	{'-'}
-};
-
-$Attribute singleElementArrayTypesClass_Attribute_var$10[] = {
-	{'c', "Ljava/util/Map;"},
-	{'-'}
-};
-
-$Attribute singleElementArrayTypesClass_Attribute_var$11[] = {
-	{'e', "LUniTest/Stooge; MOE"},
-	{'-'}
-};
-
-$NamedAttribute singleElementArrayTypesClass_Attribute_var$14[] = {
-	{"x", 'I', "1"},
-	{"y", 'I', "2"},
-	{}
-};
-
-$CompoundAttribute singleElementArrayTypesClass_CompoundAttribute_var$13 = {
-"LUniTest/Point;", singleElementArrayTypesClass_Attribute_var$14
-};
-
-$Attribute singleElementArrayTypesClass_Attribute_var$12[] = {
-	{'@', &singleElementArrayTypesClass_CompoundAttribute_var$13},
-	{'-'}
-};
-
-$NamedAttribute singleElementArrayTypesClass_Attribute_var$0[] = {
-	{"b", '[', singleElementArrayTypesClass_Attribute_var$1},
-	{"s", '[', singleElementArrayTypesClass_Attribute_var$2},
-	{"i", '[', singleElementArrayTypesClass_Attribute_var$3},
-	{"l", '[', singleElementArrayTypesClass_Attribute_var$4},
-	{"c", '[', singleElementArrayTypesClass_Attribute_var$5},
-	{"f", '[', singleElementArrayTypesClass_Attribute_var$6},
-	{"d", '[', singleElementArrayTypesClass_Attribute_var$7},
-	{"bool", '[', singleElementArrayTypesClass_Attribute_var$8},
-	{"str", '[', singleElementArrayTypesClass_Attribute_var$9},
-	{"cls", '[', singleElementArrayTypesClass_Attribute_var$10},
-	{"e", '[', singleElementArrayTypesClass_Attribute_var$11},
-	{"a", '[', singleElementArrayTypesClass_Attribute_var$12},
-	{}
-};
-
-$CompoundAttribute _singleElementArrayTypesClass_Annotations_[] = {
-	{"LUniTest/ArrayTypes;", singleElementArrayTypesClass_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _singleElementArrayTypesClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(singleElementArrayTypesClass, init$, void)},
-	{}
-};
-
-$ClassInfo _singleElementArrayTypesClass_ClassInfo_ = {
-	$ACC_SUPER,
-	"UniTest.singleElementArrayTypesClass",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_singleElementArrayTypesClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_singleElementArrayTypesClass_Annotations_
-};
-
-$Object* allocate$singleElementArrayTypesClass($Class* clazz) {
-	return $of($alloc(singleElementArrayTypesClass));
-}
-
 void singleElementArrayTypesClass::init$() {
 }
 
@@ -130,7 +16,100 @@ singleElementArrayTypesClass::singleElementArrayTypesClass() {
 }
 
 $Class* singleElementArrayTypesClass::load$($String* name, bool initialize) {
-	$loadClass(singleElementArrayTypesClass, name, initialize, &_singleElementArrayTypesClass_ClassInfo_, allocate$singleElementArrayTypesClass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(singleElementArrayTypesClass, init$, void)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'B', "1"},
+		{'-'}
+	};
+	$Attribute $attribute$1[] = {
+		{'S', "2"},
+		{'-'}
+	};
+	$Attribute $attribute$2[] = {
+		{'I', "3"},
+		{'-'}
+	};
+	$Attribute $attribute$3[] = {
+		{'J', "4"},
+		{'-'}
+	};
+	$Attribute $attribute$4[] = {
+		{'C', "5"},
+		{'-'}
+	};
+	$Attribute $attribute$5[] = {
+		{'F', "6.0"},
+		{'-'}
+	};
+	$Attribute $attribute$6[] = {
+		{'D', "7.0"},
+		{'-'}
+	};
+	$Attribute $attribute$7[] = {
+		{'Z', "true"},
+		{'-'}
+	};
+	$Attribute $attribute$8[] = {
+		{'s', "custom"},
+		{'-'}
+	};
+	$Attribute $attribute$9[] = {
+		{'c', "Ljava/util/Map;"},
+		{'-'}
+	};
+	$Attribute $attribute$10[] = {
+		{'e', "LUniTest/Stooge; MOE"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute$compoundAttribute$namedAttribute[] = {
+		{"x", 'I', "1"},
+		{"y", 'I', "2"},
+		{}
+	};
+$CompoundAttribute annotations$$$namedAttribute$compoundAttribute = {
+	"LUniTest/Point;", annotations$$$namedAttribute$compoundAttribute$namedAttribute
+};
+	$Attribute $attribute$11[] = {
+		{'@', &annotations$$$namedAttribute$compoundAttribute},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"b", '[', $attribute},
+		{"s", '[', $attribute$1},
+		{"i", '[', $attribute$2},
+		{"l", '[', $attribute$3},
+		{"c", '[', $attribute$4},
+		{"f", '[', $attribute$5},
+		{"d", '[', $attribute$6},
+		{"bool", '[', $attribute$7},
+		{"str", '[', $attribute$8},
+		{"cls", '[', $attribute$9},
+		{"e", '[', $attribute$10},
+		{"a", '[', $attribute$11},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LUniTest/ArrayTypes;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"UniTest.singleElementArrayTypesClass",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(singleElementArrayTypesClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(singleElementArrayTypesClass);
+	});
 	return class$;
 }
 

@@ -19,7 +19,10 @@ public:
 	$String* s = nullptr;
 	UnknownFormatConversionException(const UnknownFormatConversionException& e);
 	virtual void throw$() override;
-	inline UnknownFormatConversionException* operator ->() {
+	inline UnknownFormatConversionException* operator ->() const {
+		return (UnknownFormatConversionException*)throwing$;
+	}
+	inline operator UnknownFormatConversionException*() const {
 		return (UnknownFormatConversionException*)throwing$;
 	}
 };

@@ -24,6 +24,7 @@ class CookieExtension : public ::java::lang::Object {
 	$class(CookieExtension, 0, ::java::lang::Object)
 public:
 	CookieExtension();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::HandshakeProducer* chNetworkProducer;
 	static ::sun::security::ssl::SSLExtension$ExtensionConsumer* chOnLoadConsumer;

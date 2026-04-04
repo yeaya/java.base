@@ -1,5 +1,4 @@
 #include <sun/nio/ch/Port$PollableChannel.h>
-
 #include <sun/nio/ch/Port.h>
 #include <jcpp.h>
 
@@ -11,38 +10,33 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$MethodInfo _Port$PollableChannel_MethodInfo_[] = {
-	{"onEvent", "(IZ)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Port$PollableChannel, onEvent, void, int32_t, bool)},
-	{}
-};
-
-$InnerClassInfo _Port$PollableChannel_InnerClassesInfo_[] = {
-	{"sun.nio.ch.Port$PollableChannel", "sun.nio.ch.Port", "PollableChannel", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Port$PollableChannel_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"sun.nio.ch.Port$PollableChannel",
-	nullptr,
-	"java.io.Closeable",
-	nullptr,
-	_Port$PollableChannel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Port$PollableChannel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.Port"
-};
-
-$Object* allocate$Port$PollableChannel($Class* clazz) {
-	return $of($alloc(Port$PollableChannel));
-}
-
 $Class* Port$PollableChannel::load$($String* name, bool initialize) {
-	$loadClass(Port$PollableChannel, name, initialize, &_Port$PollableChannel_ClassInfo_, allocate$Port$PollableChannel);
+	$MethodInfo methodInfos$$[] = {
+		{"onEvent", "(IZ)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Port$PollableChannel, onEvent, void, int32_t, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.Port$PollableChannel", "sun.nio.ch.Port", "PollableChannel", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"sun.nio.ch.Port$PollableChannel",
+		nullptr,
+		"java.io.Closeable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.Port"
+	};
+	$loadClass(Port$PollableChannel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Port$PollableChannel);
+	});
 	return class$;
 }
 

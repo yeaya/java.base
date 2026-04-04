@@ -39,6 +39,7 @@ class $export LazyLoggers : public ::java::lang::Object {
 	$class(LazyLoggers, 0, ::java::lang::Object)
 public:
 	LazyLoggers();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::System$LoggerFinder* accessLoggerFinder();
 	static ::java::lang::System$Logger* getLazyLogger($String* name, ::java::lang::Module* module);

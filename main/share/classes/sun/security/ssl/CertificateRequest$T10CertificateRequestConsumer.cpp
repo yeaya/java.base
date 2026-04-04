@@ -1,6 +1,4 @@
 #include <sun/security/ssl/CertificateRequest$T10CertificateRequestConsumer.h>
-
-#include <java/net/Socket.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/Principal.h>
 #include <java/security/PrivateKey.h>
@@ -18,7 +16,6 @@
 #include <sun/security/ssl/ClientHandshakeContext.h>
 #include <sun/security/ssl/ConnectionContext.h>
 #include <sun/security/ssl/HandshakeAbsence.h>
-#include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/SSLConsumer.h>
 #include <sun/security/ssl/SSLContextImpl.h>
 #include <sun/security/ssl/SSLEngineImpl.h>
@@ -42,12 +39,8 @@ using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Socket = ::java::net::Socket;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $PrivateKey = ::java::security::PrivateKey;
-using $HashMap = ::java::util::HashMap;
-using $LinkedHashMap = ::java::util::LinkedHashMap;
-using $List = ::java::util::List;
 using $SSLEngine = ::javax::net::ssl::SSLEngine;
 using $SSLSocket = ::javax::net::ssl::SSLSocket;
 using $X509ExtendedKeyManager = ::javax::net::ssl::X509ExtendedKeyManager;
@@ -55,10 +48,7 @@ using $CertificateRequest$T10CertificateRequestMessage = ::sun::security::ssl::C
 using $CertificateStatus = ::sun::security::ssl::CertificateStatus;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeAbsence = ::sun::security::ssl::HandshakeAbsence;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $SSLConsumer = ::sun::security::ssl::SSLConsumer;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLEngineImpl = ::sun::security::ssl::SSLEngineImpl;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
@@ -70,46 +60,15 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _CertificateRequest$T10CertificateRequestConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CertificateRequest$T10CertificateRequestConsumer, init$, void)},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(CertificateRequest$T10CertificateRequestConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _CertificateRequest$T10CertificateRequestConsumer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertificateRequest$T10CertificateRequestConsumer", "sun.security.ssl.CertificateRequest", "T10CertificateRequestConsumer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CertificateRequest$T10CertificateRequestConsumer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CertificateRequest$T10CertificateRequestConsumer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLConsumer",
-	nullptr,
-	_CertificateRequest$T10CertificateRequestConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CertificateRequest$T10CertificateRequestConsumer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertificateRequest"
-};
-
-$Object* allocate$CertificateRequest$T10CertificateRequestConsumer($Class* clazz) {
-	return $of($alloc(CertificateRequest$T10CertificateRequestConsumer));
-}
-
 void CertificateRequest$T10CertificateRequestConsumer::init$() {
 }
 
 void CertificateRequest$T10CertificateRequestConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLHandshake);
 	$nc($nc(chc)->handshakeConsumers)->remove($($Byte::valueOf($SSLHandshake::CERTIFICATE_REQUEST->id)));
-	$var($SSLConsumer, certStatCons, $cast($SSLConsumer, $nc(chc->handshakeConsumers)->remove($($Byte::valueOf($SSLHandshake::CERTIFICATE_STATUS->id)))));
+	$var($SSLConsumer, certStatCons, $cast($SSLConsumer, chc->handshakeConsumers->remove($($Byte::valueOf($SSLHandshake::CERTIFICATE_STATUS->id)))));
 	if (certStatCons != nullptr) {
 		$init($CertificateStatus);
 		$nc($CertificateStatus::handshakeAbsence)->absent(context, nullptr);
@@ -117,17 +76,17 @@ void CertificateRequest$T10CertificateRequestConsumer::consume($ConnectionContex
 	$var($CertificateRequest$T10CertificateRequestMessage, crm, $new($CertificateRequest$T10CertificateRequestMessage, chc, message));
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-		$SSLLogger::fine("Consuming CertificateRequest handshake message"_s, $$new($ObjectArray, {$of(crm)}));
+		$SSLLogger::fine("Consuming CertificateRequest handshake message"_s, $$new($ObjectArray, {crm}));
 	}
 	$nc(chc->handshakeProducers)->put($($Byte::valueOf($SSLHandshake::CERTIFICATE->id)), $SSLHandshake::CERTIFICATE);
 	$var($X509ExtendedKeyManager, km, $nc(chc->sslContext)->getX509KeyManager());
 	$var($String, clientAlias, nullptr);
 	if ($instanceOf($SSLSocketImpl, $nc(chc->conContext)->transport)) {
 		$var($StringArray, var$0, crm->getKeyTypes());
-		$assign(clientAlias, $nc(km)->chooseClientAlias(var$0, $($fcast($PrincipalArray, crm->getAuthorities())), $cast($SSLSocket, $nc(chc->conContext)->transport)));
-	} else if ($instanceOf($SSLEngineImpl, $nc(chc->conContext)->transport)) {
+		$assign(clientAlias, $nc(km)->chooseClientAlias(var$0, $$cast($PrincipalArray, crm->getAuthorities()), $cast($SSLSocket, chc->conContext->transport)));
+	} else if ($instanceOf($SSLEngineImpl, chc->conContext->transport)) {
 		$var($StringArray, var$1, crm->getKeyTypes());
-		$assign(clientAlias, $nc(km)->chooseEngineClientAlias(var$1, $($fcast($PrincipalArray, crm->getAuthorities())), $cast($SSLEngine, $nc(chc->conContext)->transport)));
+		$assign(clientAlias, $nc(km)->chooseEngineClientAlias(var$1, $$cast($PrincipalArray, crm->getAuthorities()), $cast($SSLEngine, chc->conContext->transport)));
 	}
 	if (clientAlias == nullptr) {
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
@@ -143,21 +102,47 @@ void CertificateRequest$T10CertificateRequestConsumer::consume($ConnectionContex
 		return;
 	}
 	$var($X509CertificateArray, clientCerts, km->getCertificateChain(clientAlias));
-	if ((clientCerts == nullptr) || ($nc(clientCerts)->length == 0)) {
+	if ((clientCerts == nullptr) || (clientCerts->length == 0)) {
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 			$SSLLogger::warning("No available client certificate"_s, $$new($ObjectArray, 0));
 		}
 		return;
 	}
 	$nc(chc->handshakePossessions)->add($$new($X509Authentication$X509Possession, clientPrivateKey, clientCerts));
-	$nc(chc->handshakeProducers)->put($($Byte::valueOf($SSLHandshake::CERTIFICATE_VERIFY->id)), $SSLHandshake::CERTIFICATE_VERIFY);
+	chc->handshakeProducers->put($($Byte::valueOf($SSLHandshake::CERTIFICATE_VERIFY->id)), $SSLHandshake::CERTIFICATE_VERIFY);
 }
 
 CertificateRequest$T10CertificateRequestConsumer::CertificateRequest$T10CertificateRequestConsumer() {
 }
 
 $Class* CertificateRequest$T10CertificateRequestConsumer::load$($String* name, bool initialize) {
-	$loadClass(CertificateRequest$T10CertificateRequestConsumer, name, initialize, &_CertificateRequest$T10CertificateRequestConsumer_ClassInfo_, allocate$CertificateRequest$T10CertificateRequestConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CertificateRequest$T10CertificateRequestConsumer, init$, void)},
+		{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(CertificateRequest$T10CertificateRequestConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertificateRequest$T10CertificateRequestConsumer", "sun.security.ssl.CertificateRequest", "T10CertificateRequestConsumer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CertificateRequest$T10CertificateRequestConsumer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLConsumer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertificateRequest"
+	};
+	$loadClass(CertificateRequest$T10CertificateRequestConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateRequest$T10CertificateRequestConsumer);
+	});
 	return class$;
 }
 

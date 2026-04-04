@@ -1,5 +1,4 @@
 #include <java/security/cert/CertPathValidator$1.h>
-
 #include <java/security/Security.h>
 #include <java/security/cert/CertPathValidator.h>
 #include <jcpp.h>
@@ -14,43 +13,6 @@ namespace java {
 	namespace security {
 		namespace cert {
 
-$MethodInfo _CertPathValidator$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CertPathValidator$1, init$, void)},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertPathValidator$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _CertPathValidator$1_EnclosingMethodInfo_ = {
-	"java.security.cert.CertPathValidator",
-	"getDefaultType",
-	"()Ljava/lang/String;"
-};
-
-$InnerClassInfo _CertPathValidator$1_InnerClassesInfo_[] = {
-	{"java.security.cert.CertPathValidator$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CertPathValidator$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.security.cert.CertPathValidator$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_CertPathValidator$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
-	&_CertPathValidator$1_EnclosingMethodInfo_,
-	_CertPathValidator$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.cert.CertPathValidator"
-};
-
-$Object* allocate$CertPathValidator$1($Class* clazz) {
-	return $of($alloc(CertPathValidator$1));
-}
-
 void CertPathValidator$1::init$() {
 }
 
@@ -62,7 +24,38 @@ CertPathValidator$1::CertPathValidator$1() {
 }
 
 $Class* CertPathValidator$1::load$($String* name, bool initialize) {
-	$loadClass(CertPathValidator$1, name, initialize, &_CertPathValidator$1_ClassInfo_, allocate$CertPathValidator$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CertPathValidator$1, init$, void)},
+		{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertPathValidator$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.security.cert.CertPathValidator",
+		"getDefaultType",
+		"()Ljava/lang/String;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.cert.CertPathValidator$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.security.cert.CertPathValidator$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.cert.CertPathValidator"
+	};
+	$loadClass(CertPathValidator$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertPathValidator$1);
+	});
 	return class$;
 }
 

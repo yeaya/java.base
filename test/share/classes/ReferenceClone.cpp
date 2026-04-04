@@ -1,5 +1,4 @@
 #include <ReferenceClone.h>
-
 #include <ReferenceClone$CloneableRef.h>
 #include <ReferenceClone$CloneableReference.h>
 #include <ReferenceClone$PhantomRef.h>
@@ -24,47 +23,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 
-$FieldInfo _ReferenceClone_FieldInfo_[] = {
-	{"QUEUE", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ReferenceClone, QUEUE)},
-	{}
-};
-
-$MethodInfo _ReferenceClone_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ReferenceClone, init$, void)},
-	{"assertCloneNotSupported", "(LReferenceClone$CloneableRef;)V", nullptr, $PRIVATE, $method(ReferenceClone, assertCloneNotSupported, void, $ReferenceClone$CloneableRef*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ReferenceClone, main, void, $StringArray*)},
-	{"test", "()V", nullptr, $PUBLIC, $virtualMethod(ReferenceClone, test, void)},
-	{}
-};
-
-$InnerClassInfo _ReferenceClone_InnerClassesInfo_[] = {
-	{"ReferenceClone$CloneableReference", "ReferenceClone", "CloneableReference", 0},
-	{"ReferenceClone$PhantomRef", "ReferenceClone", "PhantomRef", 0},
-	{"ReferenceClone$WeakRef", "ReferenceClone", "WeakRef", 0},
-	{"ReferenceClone$SoftRef", "ReferenceClone", "SoftRef", 0},
-	{"ReferenceClone$CloneableRef", "ReferenceClone", "CloneableRef", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ReferenceClone_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ReferenceClone",
-	"java.lang.Object",
-	nullptr,
-	_ReferenceClone_FieldInfo_,
-	_ReferenceClone_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ReferenceClone_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"ReferenceClone$CloneableReference,ReferenceClone$PhantomRef,ReferenceClone$WeakRef,ReferenceClone$SoftRef,ReferenceClone$CloneableRef"
-};
-
-$Object* allocate$ReferenceClone($Class* clazz) {
-	return $of($alloc(ReferenceClone));
-}
-
 $ReferenceQueue* ReferenceClone::QUEUE = nullptr;
 
 void ReferenceClone::init$() {
@@ -77,7 +35,7 @@ void ReferenceClone::main($StringArray* args) {
 }
 
 void ReferenceClone::test() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, o, $new($Object));
 	assertCloneNotSupported($$new($ReferenceClone$SoftRef, this, o));
 	assertCloneNotSupported($$new($ReferenceClone$WeakRef, this, o));
@@ -97,7 +55,7 @@ void ReferenceClone::assertCloneNotSupported($ReferenceClone$CloneableRef* ref) 
 	}
 }
 
-void clinit$ReferenceClone($Class* class$) {
+void ReferenceClone::clinit$($Class* clazz) {
 	$assignStatic(ReferenceClone::QUEUE, $new($ReferenceQueue));
 }
 
@@ -105,7 +63,42 @@ ReferenceClone::ReferenceClone() {
 }
 
 $Class* ReferenceClone::load$($String* name, bool initialize) {
-	$loadClass(ReferenceClone, name, initialize, &_ReferenceClone_ClassInfo_, clinit$ReferenceClone, allocate$ReferenceClone);
+	$FieldInfo fieldInfos$$[] = {
+		{"QUEUE", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ReferenceClone, QUEUE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ReferenceClone, init$, void)},
+		{"assertCloneNotSupported", "(LReferenceClone$CloneableRef;)V", nullptr, $PRIVATE, $method(ReferenceClone, assertCloneNotSupported, void, $ReferenceClone$CloneableRef*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ReferenceClone, main, void, $StringArray*)},
+		{"test", "()V", nullptr, $PUBLIC, $virtualMethod(ReferenceClone, test, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ReferenceClone$CloneableReference", "ReferenceClone", "CloneableReference", 0},
+		{"ReferenceClone$PhantomRef", "ReferenceClone", "PhantomRef", 0},
+		{"ReferenceClone$WeakRef", "ReferenceClone", "WeakRef", 0},
+		{"ReferenceClone$SoftRef", "ReferenceClone", "SoftRef", 0},
+		{"ReferenceClone$CloneableRef", "ReferenceClone", "CloneableRef", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ReferenceClone",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"ReferenceClone$CloneableReference,ReferenceClone$PhantomRef,ReferenceClone$WeakRef,ReferenceClone$SoftRef,ReferenceClone$CloneableRef"
+	};
+	$loadClass(ReferenceClone, name, initialize, &classInfo$$, ReferenceClone::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ReferenceClone);
+	});
 	return class$;
 }
 

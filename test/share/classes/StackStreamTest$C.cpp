@@ -1,5 +1,4 @@
 #include <StackStreamTest$C.h>
-
 #include <StackStreamTest$D.h>
 #include <StackStreamTest.h>
 #include <jcpp.h>
@@ -8,37 +7,6 @@ using $StackStreamTest$D = ::StackStreamTest$D;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _StackStreamTest$C_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(StackStreamTest$C, init$, void)},
-	{"c", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(StackStreamTest$C, c, void)},
-	{}
-};
-
-$InnerClassInfo _StackStreamTest$C_InnerClassesInfo_[] = {
-	{"StackStreamTest$C", "StackStreamTest", "C", $STATIC},
-	{}
-};
-
-$ClassInfo _StackStreamTest$C_ClassInfo_ = {
-	$ACC_SUPER,
-	"StackStreamTest$C",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_StackStreamTest$C_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StackStreamTest$C_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"StackStreamTest"
-};
-
-$Object* allocate$StackStreamTest$C($Class* clazz) {
-	return $of($alloc(StackStreamTest$C));
-}
 
 void StackStreamTest$C::init$() {
 }
@@ -51,7 +19,33 @@ StackStreamTest$C::StackStreamTest$C() {
 }
 
 $Class* StackStreamTest$C::load$($String* name, bool initialize) {
-	$loadClass(StackStreamTest$C, name, initialize, &_StackStreamTest$C_ClassInfo_, allocate$StackStreamTest$C);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(StackStreamTest$C, init$, void)},
+		{"c", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(StackStreamTest$C, c, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"StackStreamTest$C", "StackStreamTest", "C", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"StackStreamTest$C",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"StackStreamTest"
+	};
+	$loadClass(StackStreamTest$C, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StackStreamTest$C);
+	});
 	return class$;
 }
 

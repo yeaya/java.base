@@ -28,6 +28,7 @@ class $export OpsAfterClose4PrintWriter : public ::java::lang::Enum {
 public:
 	OpsAfterClose4PrintWriter();
 	static $Array<OpsAfterClose4PrintWriter>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual bool check(::java::io::PrintWriter* w) {return false;}
 	static void main($StringArray* args);

@@ -1,7 +1,5 @@
 #include <sun/nio/fs/LinuxFileStore.h>
-
 #include <java/io/IOException.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/Math.h>
 #include <java/nio/file/FileSystem.h>
 #include <java/nio/file/attribute/DosFileAttributeView.h>
@@ -26,7 +24,6 @@
 #undef PRESENT
 
 using $IOException = ::java::io::IOException;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
@@ -53,35 +50,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _LinuxFileStore_FieldInfo_[] = {
-	{"xattrChecked", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LinuxFileStore, xattrChecked)},
-	{"xattrEnabled", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LinuxFileStore, xattrEnabled)},
-	{}
-};
-
-$MethodInfo _LinuxFileStore_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixPath;)V", nullptr, 0, $method(LinuxFileStore, init$, void, $UnixPath*), "java.io.IOException"},
-	{"<init>", "(Lsun/nio/fs/UnixFileSystem;Lsun/nio/fs/UnixMountEntry;)V", nullptr, 0, $method(LinuxFileStore, init$, void, $UnixFileSystem*, $UnixMountEntry*), "java.io.IOException"},
-	{"findMountEntry", "()Lsun/nio/fs/UnixMountEntry;", nullptr, 0, $virtualMethod(LinuxFileStore, findMountEntry, $UnixMountEntry*), "java.io.IOException"},
-	{"getKernelVersion", "()[I", nullptr, $PRIVATE | $STATIC, $staticMethod(LinuxFileStore, getKernelVersion, $ints*)},
-	{"supportsFileAttributeView", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/nio/file/attribute/FileAttributeView;>;)Z", $PUBLIC, $virtualMethod(LinuxFileStore, supportsFileAttributeView, bool, $Class*)},
-	{"supportsFileAttributeView", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(LinuxFileStore, supportsFileAttributeView, bool, $String*)},
-	{}
-};
-
-$ClassInfo _LinuxFileStore_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.LinuxFileStore",
-	"sun.nio.fs.UnixFileStore",
-	nullptr,
-	_LinuxFileStore_FieldInfo_,
-	_LinuxFileStore_MethodInfo_
-};
-
-$Object* allocate$LinuxFileStore($Class* clazz) {
-	return $of($alloc(LinuxFileStore));
-}
-
 void LinuxFileStore::init$($UnixPath* file) {
 	$UnixFileStore::init$(file);
 }
@@ -91,12 +59,12 @@ void LinuxFileStore::init$($UnixFileSystem* fs, $UnixMountEntry* entry) {
 }
 
 $UnixMountEntry* LinuxFileStore::findMountEntry() {
-	$useLocalCurrentObjectStackCache();
-	$var($LinuxFileSystem, fs, $cast($LinuxFileSystem, $cast($UnixFileSystem, $nc($(file()))->getFileSystem())));
+	$useLocalObjectStack();
+	$var($LinuxFileSystem, fs, $cast($LinuxFileSystem, $cast($UnixFileSystem, $$nc(file())->getFileSystem())));
 	$var($UnixPath, path, nullptr);
 	try {
 		$var($bytes, rp, $UnixNativeDispatcher::realpath($(file())));
-		$assign(path, $new($UnixPath, static_cast<$UnixFileSystem*>(fs), rp));
+		$assign(path, $new($UnixPath, fs, rp));
 	} catch ($UnixException& x) {
 		x->rethrowAsIOException($(file()));
 	}
@@ -111,15 +79,13 @@ $UnixMountEntry* LinuxFileStore::findMountEntry() {
 		}
 		int64_t var$0 = $nc(attrs)->dev();
 		if (var$0 != dev()) {
-			$var($bytes, dir, path->asByteArray());
+			$var($bytes, dir, $nc(path)->asByteArray());
 			{
 				$var($Iterator, i$, $nc(procMountsEntries)->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($UnixMountEntry, entry, $cast($UnixMountEntry, i$->next()));
-					{
-						if ($Arrays::equals(dir, $($nc(entry)->dir()))) {
-							return entry;
-						}
+					if ($Arrays::equals(dir, $($nc(entry)->dir()))) {
+						return entry;
 					}
 				}
 			}
@@ -127,15 +93,13 @@ $UnixMountEntry* LinuxFileStore::findMountEntry() {
 		$assign(path, parent);
 		$assign(parent, parent->getParent());
 	}
-	$var($bytes, dir, path->asByteArray());
+	$var($bytes, dir, $nc(path)->asByteArray());
 	{
 		$var($Iterator, i$, $nc(procMountsEntries)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($UnixMountEntry, entry, $cast($UnixMountEntry, i$->next()));
-			{
-				if ($Arrays::equals(dir, $($nc(entry)->dir()))) {
-					return entry;
-				}
+			if ($Arrays::equals(dir, $($nc(entry)->dir()))) {
+				return entry;
 			}
 		}
 	}
@@ -144,19 +108,19 @@ $UnixMountEntry* LinuxFileStore::findMountEntry() {
 
 $ints* LinuxFileStore::getKernelVersion() {
 	$init(LinuxFileStore);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Pattern, pattern, $Pattern::compile("\\D+"_s));
 	$var($StringArray, matches, $nc(pattern)->split($($System::getProperty("os.version"_s))));
 	$var($ints, majorMinorMicro, $new($ints, 3));
 	int32_t length = $Math::min($nc(matches)->length, majorMinorMicro->length);
 	for (int32_t i = 0; i < length; ++i) {
-		majorMinorMicro->set(i, $nc($($Integer::valueOf($nc(matches)->get(i))))->intValue());
+		majorMinorMicro->set(i, $($Integer::valueOf(matches->get(i)))->intValue());
 	}
 	return majorMinorMicro;
 }
 
 bool LinuxFileStore::supportsFileAttributeView($Class* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($DosFileAttributeView);
 	$load($UserDefinedFileAttributeView);
 	if (type == $DosFileAttributeView::class$ || type == $UserDefinedFileAttributeView::class$) {
@@ -168,30 +132,30 @@ bool LinuxFileStore::supportsFileAttributeView($Class* type) {
 		if (status == $UnixFileStore$FeatureStatus::NOT_PRESENT) {
 			return false;
 		}
-		if ($nc($(entry()))->hasOption("user_xattr"_s)) {
+		if ($$nc(entry())->hasOption("user_xattr"_s)) {
 			return true;
 		}
-		if ($nc($(entry()))->hasOption("nouser_xattr"_s)) {
+		if ($$nc(entry())->hasOption("nouser_xattr"_s)) {
 			return false;
 		}
-		if ($nc($($nc($(entry()))->fstype()))->equals("ext4"_s)) {
+		if ($$nc($$nc(entry())->fstype())->equals("ext4"_s)) {
 			if (!this->xattrChecked) {
 				$var($ints, kernelVersion, getKernelVersion());
-				this->xattrEnabled = $nc(kernelVersion)->get(0) > 2 || ($nc(kernelVersion)->get(0) == 2 && kernelVersion->get(1) > 6) || ($nc(kernelVersion)->get(0) == 2 && kernelVersion->get(1) == 6 && kernelVersion->get(2) >= 39);
+				this->xattrEnabled = $nc(kernelVersion)->get(0) > 2 || (kernelVersion->get(0) == 2 && kernelVersion->get(1) > 6) || (kernelVersion->get(0) == 2 && kernelVersion->get(1) == 6 && kernelVersion->get(2) >= 39);
 				this->xattrChecked = true;
 			}
 			return this->xattrEnabled;
 		}
 		if (!this->xattrChecked) {
-			$var($UnixFileSystem, var$0, $cast($UnixFileSystem, $nc($(file()))->getFileSystem()));
-			$var($UnixPath, dir, $new($UnixPath, var$0, $($nc($(entry()))->dir())));
+			$var($UnixFileSystem, var$0, $cast($UnixFileSystem, $$nc(file())->getFileSystem()));
+			$var($UnixPath, dir, $new($UnixPath, var$0, $($$nc(entry())->dir())));
 			this->xattrEnabled = isExtendedAttributesEnabled(dir);
 			this->xattrChecked = true;
 		}
 		return this->xattrEnabled;
 	}
 	$load($PosixFileAttributeView);
-	if (type == $PosixFileAttributeView::class$ && $nc($($nc($(entry()))->fstype()))->equals("vfat"_s)) {
+	if (type == $PosixFileAttributeView::class$ && $$nc($$nc(entry())->fstype())->equals("vfat"_s)) {
 		return false;
 	}
 	return $UnixFileStore::supportsFileAttributeView(type);
@@ -202,7 +166,7 @@ bool LinuxFileStore::supportsFileAttributeView($String* name) {
 		$load($DosFileAttributeView);
 		return supportsFileAttributeView($DosFileAttributeView::class$);
 	}
-	if ($nc(name)->equals("user"_s)) {
+	if (name->equals("user"_s)) {
 		$load($UserDefinedFileAttributeView);
 		return supportsFileAttributeView($UserDefinedFileAttributeView::class$);
 	}
@@ -213,7 +177,31 @@ LinuxFileStore::LinuxFileStore() {
 }
 
 $Class* LinuxFileStore::load$($String* name, bool initialize) {
-	$loadClass(LinuxFileStore, name, initialize, &_LinuxFileStore_ClassInfo_, allocate$LinuxFileStore);
+	$FieldInfo fieldInfos$$[] = {
+		{"xattrChecked", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LinuxFileStore, xattrChecked)},
+		{"xattrEnabled", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LinuxFileStore, xattrEnabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/fs/UnixPath;)V", nullptr, 0, $method(LinuxFileStore, init$, void, $UnixPath*), "java.io.IOException"},
+		{"<init>", "(Lsun/nio/fs/UnixFileSystem;Lsun/nio/fs/UnixMountEntry;)V", nullptr, 0, $method(LinuxFileStore, init$, void, $UnixFileSystem*, $UnixMountEntry*), "java.io.IOException"},
+		{"findMountEntry", "()Lsun/nio/fs/UnixMountEntry;", nullptr, 0, $virtualMethod(LinuxFileStore, findMountEntry, $UnixMountEntry*), "java.io.IOException"},
+		{"getKernelVersion", "()[I", nullptr, $PRIVATE | $STATIC, $staticMethod(LinuxFileStore, getKernelVersion, $ints*)},
+		{"supportsFileAttributeView", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/nio/file/attribute/FileAttributeView;>;)Z", $PUBLIC, $virtualMethod(LinuxFileStore, supportsFileAttributeView, bool, $Class*)},
+		{"supportsFileAttributeView", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(LinuxFileStore, supportsFileAttributeView, bool, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.LinuxFileStore",
+		"sun.nio.fs.UnixFileStore",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LinuxFileStore, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LinuxFileStore);
+	});
 	return class$;
 }
 

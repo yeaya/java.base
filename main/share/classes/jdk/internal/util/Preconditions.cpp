@@ -1,5 +1,4 @@
 #include <jdk/internal/util/Preconditions.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/Number.h>
 #include <java/util/List.h>
@@ -16,7 +15,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Number = ::java::lang::Number;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $List = ::java::util::List;
 using $BiFunction = ::java::util::function::BiFunction;
@@ -27,119 +25,65 @@ namespace jdk {
 	namespace internal {
 		namespace util {
 
-$CompoundAttribute _Preconditions_MethodAnnotations_checkIndex5[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Preconditions_MethodAnnotations_checkIndex6[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$MethodInfo _Preconditions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Preconditions, init$, void)},
-	{"checkFromIndexSize", "(IIILjava/util/function/BiFunction;)I", "<X:Ljava/lang/RuntimeException;>(IIILjava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;TX;>;)I", $PUBLIC | $STATIC, $staticMethod(Preconditions, checkFromIndexSize, int32_t, int32_t, int32_t, int32_t, $BiFunction*)},
-	{"checkFromIndexSize", "(JJJLjava/util/function/BiFunction;)J", "<X:Ljava/lang/RuntimeException;>(JJJLjava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;TX;>;)J", $PUBLIC | $STATIC, $staticMethod(Preconditions, checkFromIndexSize, int64_t, int64_t, int64_t, int64_t, $BiFunction*)},
-	{"checkFromToIndex", "(IIILjava/util/function/BiFunction;)I", "<X:Ljava/lang/RuntimeException;>(IIILjava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;TX;>;)I", $PUBLIC | $STATIC, $staticMethod(Preconditions, checkFromToIndex, int32_t, int32_t, int32_t, int32_t, $BiFunction*)},
-	{"checkFromToIndex", "(JJJLjava/util/function/BiFunction;)J", "<X:Ljava/lang/RuntimeException;>(JJJLjava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;TX;>;)J", $PUBLIC | $STATIC, $staticMethod(Preconditions, checkFromToIndex, int64_t, int64_t, int64_t, int64_t, $BiFunction*)},
-	{"checkIndex", "(IILjava/util/function/BiFunction;)I", "<X:Ljava/lang/RuntimeException;>(IILjava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;TX;>;)I", $PUBLIC | $STATIC, $staticMethod(Preconditions, checkIndex, int32_t, int32_t, int32_t, $BiFunction*), nullptr, nullptr, _Preconditions_MethodAnnotations_checkIndex5},
-	{"checkIndex", "(JJLjava/util/function/BiFunction;)J", "<X:Ljava/lang/RuntimeException;>(JJLjava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;TX;>;)J", $PUBLIC | $STATIC, $staticMethod(Preconditions, checkIndex, int64_t, int64_t, int64_t, $BiFunction*), nullptr, nullptr, _Preconditions_MethodAnnotations_checkIndex6},
-	{"outOfBounds", "(Ljava/util/function/BiFunction;Ljava/lang/String;[Ljava/lang/Number;)Ljava/lang/RuntimeException;", "(Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;+Ljava/lang/RuntimeException;>;Ljava/lang/String;[Ljava/lang/Number;)Ljava/lang/RuntimeException;", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(Preconditions, outOfBounds, $RuntimeException*, $BiFunction*, $String*, $NumberArray*)},
-	{"outOfBoundsCheckFromIndexSize", "(Ljava/util/function/BiFunction;III)Ljava/lang/RuntimeException;", "(Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;+Ljava/lang/RuntimeException;>;III)Ljava/lang/RuntimeException;", $PRIVATE | $STATIC, $staticMethod(Preconditions, outOfBoundsCheckFromIndexSize, $RuntimeException*, $BiFunction*, int32_t, int32_t, int32_t)},
-	{"outOfBoundsCheckFromIndexSize", "(Ljava/util/function/BiFunction;JJJ)Ljava/lang/RuntimeException;", "(Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;+Ljava/lang/RuntimeException;>;JJJ)Ljava/lang/RuntimeException;", $PRIVATE | $STATIC, $staticMethod(Preconditions, outOfBoundsCheckFromIndexSize, $RuntimeException*, $BiFunction*, int64_t, int64_t, int64_t)},
-	{"outOfBoundsCheckFromToIndex", "(Ljava/util/function/BiFunction;III)Ljava/lang/RuntimeException;", "(Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;+Ljava/lang/RuntimeException;>;III)Ljava/lang/RuntimeException;", $PRIVATE | $STATIC, $staticMethod(Preconditions, outOfBoundsCheckFromToIndex, $RuntimeException*, $BiFunction*, int32_t, int32_t, int32_t)},
-	{"outOfBoundsCheckFromToIndex", "(Ljava/util/function/BiFunction;JJJ)Ljava/lang/RuntimeException;", "(Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;+Ljava/lang/RuntimeException;>;JJJ)Ljava/lang/RuntimeException;", $PRIVATE | $STATIC, $staticMethod(Preconditions, outOfBoundsCheckFromToIndex, $RuntimeException*, $BiFunction*, int64_t, int64_t, int64_t)},
-	{"outOfBoundsCheckIndex", "(Ljava/util/function/BiFunction;II)Ljava/lang/RuntimeException;", "(Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;+Ljava/lang/RuntimeException;>;II)Ljava/lang/RuntimeException;", $PRIVATE | $STATIC, $staticMethod(Preconditions, outOfBoundsCheckIndex, $RuntimeException*, $BiFunction*, int32_t, int32_t)},
-	{"outOfBoundsCheckIndex", "(Ljava/util/function/BiFunction;JJ)Ljava/lang/RuntimeException;", "(Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;+Ljava/lang/RuntimeException;>;JJ)Ljava/lang/RuntimeException;", $PRIVATE | $STATIC, $staticMethod(Preconditions, outOfBoundsCheckIndex, $RuntimeException*, $BiFunction*, int64_t, int64_t)},
-	{"outOfBoundsExceptionFormatter", "(Ljava/util/function/Function;)Ljava/util/function/BiFunction;", "<X:Ljava/lang/RuntimeException;>(Ljava/util/function/Function<Ljava/lang/String;TX;>;)Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;TX;>;", $PUBLIC | $STATIC, $staticMethod(Preconditions, outOfBoundsExceptionFormatter, $BiFunction*, $Function*)},
-	{"outOfBoundsMessage", "(Ljava/lang/String;Ljava/util/List;)Ljava/lang/String;", "(Ljava/lang/String;Ljava/util/List<+Ljava/lang/Number;>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(Preconditions, outOfBoundsMessage, $String*, $String*, $List*)},
-	{}
-};
-
-$InnerClassInfo _Preconditions_InnerClassesInfo_[] = {
-	{"jdk.internal.util.Preconditions$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Preconditions_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.util.Preconditions",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Preconditions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Preconditions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.util.Preconditions$1"
-};
-
-$Object* allocate$Preconditions($Class* clazz) {
-	return $of($alloc(Preconditions));
-}
-
 void Preconditions::init$() {
 }
 
 $RuntimeException* Preconditions::outOfBounds($BiFunction* oobef, $String* checkKind, $NumberArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, largs, $List::of(args));
-	$var($RuntimeException, e, oobef == nullptr ? ($RuntimeException*)nullptr : $cast($RuntimeException, $nc(oobef)->apply(checkKind, largs)));
-	return e == nullptr ? static_cast<$RuntimeException*>($new($IndexOutOfBoundsException, $(outOfBoundsMessage(checkKind, largs)))) : e;
+	$var($RuntimeException, e, oobef == nullptr ? ($RuntimeException*)nullptr : $cast($RuntimeException, oobef->apply(checkKind, largs)));
+	return e == nullptr ? $cast($RuntimeException, $new($IndexOutOfBoundsException, $(outOfBoundsMessage(checkKind, largs)))) : e;
 }
 
 $RuntimeException* Preconditions::outOfBoundsCheckIndex($BiFunction* oobe, int32_t index, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return outOfBounds(oobe, "checkIndex"_s, $$new($NumberArray, {
-		$(static_cast<$Number*>($Integer::valueOf(index))),
-		$(static_cast<$Number*>($Integer::valueOf(length)))
+		$($Integer::valueOf(index)),
+		$($Integer::valueOf(length))
 	}));
 }
 
 $RuntimeException* Preconditions::outOfBoundsCheckFromToIndex($BiFunction* oobe, int32_t fromIndex, int32_t toIndex, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return outOfBounds(oobe, "checkFromToIndex"_s, $$new($NumberArray, {
-		$(static_cast<$Number*>($Integer::valueOf(fromIndex))),
-		$(static_cast<$Number*>($Integer::valueOf(toIndex))),
-		$(static_cast<$Number*>($Integer::valueOf(length)))
+		$($Integer::valueOf(fromIndex)),
+		$($Integer::valueOf(toIndex)),
+		$($Integer::valueOf(length))
 	}));
 }
 
 $RuntimeException* Preconditions::outOfBoundsCheckFromIndexSize($BiFunction* oobe, int32_t fromIndex, int32_t size, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return outOfBounds(oobe, "checkFromIndexSize"_s, $$new($NumberArray, {
-		$(static_cast<$Number*>($Integer::valueOf(fromIndex))),
-		$(static_cast<$Number*>($Integer::valueOf(size))),
-		$(static_cast<$Number*>($Integer::valueOf(length)))
+		$($Integer::valueOf(fromIndex)),
+		$($Integer::valueOf(size)),
+		$($Integer::valueOf(length))
 	}));
 }
 
 $RuntimeException* Preconditions::outOfBoundsCheckIndex($BiFunction* oobe, int64_t index, int64_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return outOfBounds(oobe, "checkIndex"_s, $$new($NumberArray, {
-		$(static_cast<$Number*>($Long::valueOf(index))),
-		$(static_cast<$Number*>($Long::valueOf(length)))
+		$($Long::valueOf(index)),
+		$($Long::valueOf(length))
 	}));
 }
 
 $RuntimeException* Preconditions::outOfBoundsCheckFromToIndex($BiFunction* oobe, int64_t fromIndex, int64_t toIndex, int64_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return outOfBounds(oobe, "checkFromToIndex"_s, $$new($NumberArray, {
-		$(static_cast<$Number*>($Long::valueOf(fromIndex))),
-		$(static_cast<$Number*>($Long::valueOf(toIndex))),
-		$(static_cast<$Number*>($Long::valueOf(length)))
+		$($Long::valueOf(fromIndex)),
+		$($Long::valueOf(toIndex)),
+		$($Long::valueOf(length))
 	}));
 }
 
 $RuntimeException* Preconditions::outOfBoundsCheckFromIndexSize($BiFunction* oobe, int64_t fromIndex, int64_t size, int64_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return outOfBounds(oobe, "checkFromIndexSize"_s, $$new($NumberArray, {
-		$(static_cast<$Number*>($Long::valueOf(fromIndex))),
-		$(static_cast<$Number*>($Long::valueOf(size))),
-		$(static_cast<$Number*>($Long::valueOf(length)))
+		$($Long::valueOf(fromIndex)),
+		$($Long::valueOf(size)),
+		$($Long::valueOf(length))
 	}));
 }
 
@@ -148,115 +92,90 @@ $BiFunction* Preconditions::outOfBoundsExceptionFormatter($Function* f) {
 }
 
 $String* Preconditions::outOfBoundsMessage($String* checkKind, $List* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (checkKind == nullptr && args == nullptr) {
 		return $String::format("Range check failed"_s, $$new($ObjectArray, 0));
 	} else if (checkKind == nullptr) {
-		return $String::format("Range check failed: %s"_s, $$new($ObjectArray, {$of(args)}));
+		return $String::format("Range check failed: %s"_s, $$new($ObjectArray, {args}));
 	} else if (args == nullptr) {
-		return $String::format("Range check failed: %s"_s, $$new($ObjectArray, {$of(checkKind)}));
+		return $String::format("Range check failed: %s"_s, $$new($ObjectArray, {checkKind}));
 	}
 	int32_t argSize = 0;
 	{
 		$var($String, s9280$, checkKind);
 		int32_t tmp9280$ = -1;
 		switch ($nc(s9280$)->hashCode()) {
-		case (int32_t)0xDFE238AA:
-			{
-				if (s9280$->equals("checkIndex"_s)) {
-					tmp9280$ = 0;
-				}
-				break;
+		case (int32_t)0xdfe238aa:
+			if (s9280$->equals("checkIndex"_s)) {
+				tmp9280$ = 0;
 			}
-		case 0x6DEF39E5:
-			{
-				if (s9280$->equals("checkFromToIndex"_s)) {
-					tmp9280$ = 1;
-				}
-				break;
+			break;
+		case 0x6def39e5:
+			if (s9280$->equals("checkFromToIndex"_s)) {
+				tmp9280$ = 1;
 			}
-		case 0x6E348341:
-			{
-				if (s9280$->equals("checkFromIndexSize"_s)) {
-					tmp9280$ = 2;
-				}
-				break;
+			break;
+		case 0x6e348341:
+			if (s9280$->equals("checkFromIndexSize"_s)) {
+				tmp9280$ = 2;
 			}
+			break;
 		}
 		switch (tmp9280$) {
 		case 0:
-			{
-				argSize = 2;
-				break;
-			}
+			argSize = 2;
+			break;
 		case 1:
-			{}
 		case 2:
-			{
-				argSize = 3;
-				break;
-			}
+			argSize = 3;
+			break;
 		default:
-			{}
+			break;
 		}
 	}
 	{
 		$var($String, s9635$, ($nc(args)->size() != argSize) ? ""_s : checkKind);
 		int32_t tmp9635$ = -1;
 		switch ($nc(s9635$)->hashCode()) {
-		case (int32_t)0xDFE238AA:
-			{
-				if (s9635$->equals("checkIndex"_s)) {
-					tmp9635$ = 0;
-				}
-				break;
+		case (int32_t)0xdfe238aa:
+			if (s9635$->equals("checkIndex"_s)) {
+				tmp9635$ = 0;
 			}
-		case 0x6DEF39E5:
-			{
-				if (s9635$->equals("checkFromToIndex"_s)) {
-					tmp9635$ = 1;
-				}
-				break;
+			break;
+		case 0x6def39e5:
+			if (s9635$->equals("checkFromToIndex"_s)) {
+				tmp9635$ = 1;
 			}
-		case 0x6E348341:
-			{
-				if (s9635$->equals("checkFromIndexSize"_s)) {
-					tmp9635$ = 2;
-				}
-				break;
+			break;
+		case 0x6e348341:
+			if (s9635$->equals("checkFromIndexSize"_s)) {
+				tmp9635$ = 2;
 			}
+			break;
 		}
 		switch (tmp9635$) {
 		case 0:
-			{
-				return $String::format("Index %s out of bounds for length %s"_s, $$new($ObjectArray, {
-					$($nc(args)->get(0)),
-					$(args->get(1))
-				}));
-			}
+			return $String::format("Index %s out of bounds for length %s"_s, $$new($ObjectArray, {
+				$(args->get(0)),
+				$(args->get(1))
+			}));
 		case 1:
-			{
-				return $String::format("Range [%s, %s) out of bounds for length %s"_s, $$new($ObjectArray, {
-					$($nc(args)->get(0)),
-					$(args->get(1)),
-					$(args->get(2))
-				}));
-			}
+			return $String::format("Range [%s, %s) out of bounds for length %s"_s, $$new($ObjectArray, {
+				$(args->get(0)),
+				$(args->get(1)),
+				$(args->get(2))
+			}));
 		case 2:
-			{
-				return $String::format("Range [%s, %<s + %s) out of bounds for length %s"_s, $$new($ObjectArray, {
-					$($nc(args)->get(0)),
-					$(args->get(1)),
-					$(args->get(2))
-				}));
-			}
+			return $String::format("Range [%s, %<s + %s) out of bounds for length %s"_s, $$new($ObjectArray, {
+				$(args->get(0)),
+				$(args->get(1)),
+				$(args->get(2))
+			}));
 		default:
-			{
-				return $String::format("Range check failed: %s %s"_s, $$new($ObjectArray, {
-					$of(checkKind),
-					$of(args)
-				}));
-			}
+			return $String::format("Range check failed: %s %s"_s, $$new($ObjectArray, {
+				checkKind,
+				args
+			}));
 		}
 	}
 }
@@ -307,7 +226,54 @@ Preconditions::Preconditions() {
 }
 
 $Class* Preconditions::load$($String* name, bool initialize) {
-	$loadClass(Preconditions, name, initialize, &_Preconditions_ClassInfo_, allocate$Preconditions);
+	$CompoundAttribute checkIndexmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute checkIndexmethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Preconditions, init$, void)},
+		{"checkFromIndexSize", "(IIILjava/util/function/BiFunction;)I", "<X:Ljava/lang/RuntimeException;>(IIILjava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;TX;>;)I", $PUBLIC | $STATIC, $staticMethod(Preconditions, checkFromIndexSize, int32_t, int32_t, int32_t, int32_t, $BiFunction*)},
+		{"checkFromIndexSize", "(JJJLjava/util/function/BiFunction;)J", "<X:Ljava/lang/RuntimeException;>(JJJLjava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;TX;>;)J", $PUBLIC | $STATIC, $staticMethod(Preconditions, checkFromIndexSize, int64_t, int64_t, int64_t, int64_t, $BiFunction*)},
+		{"checkFromToIndex", "(IIILjava/util/function/BiFunction;)I", "<X:Ljava/lang/RuntimeException;>(IIILjava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;TX;>;)I", $PUBLIC | $STATIC, $staticMethod(Preconditions, checkFromToIndex, int32_t, int32_t, int32_t, int32_t, $BiFunction*)},
+		{"checkFromToIndex", "(JJJLjava/util/function/BiFunction;)J", "<X:Ljava/lang/RuntimeException;>(JJJLjava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;TX;>;)J", $PUBLIC | $STATIC, $staticMethod(Preconditions, checkFromToIndex, int64_t, int64_t, int64_t, int64_t, $BiFunction*)},
+		{"checkIndex", "(IILjava/util/function/BiFunction;)I", "<X:Ljava/lang/RuntimeException;>(IILjava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;TX;>;)I", $PUBLIC | $STATIC, $staticMethod(Preconditions, checkIndex, int32_t, int32_t, int32_t, $BiFunction*), nullptr, nullptr, checkIndexmethodAnnotations$$},
+		{"checkIndex", "(JJLjava/util/function/BiFunction;)J", "<X:Ljava/lang/RuntimeException;>(JJLjava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;TX;>;)J", $PUBLIC | $STATIC, $staticMethod(Preconditions, checkIndex, int64_t, int64_t, int64_t, $BiFunction*), nullptr, nullptr, checkIndexmethodAnnotations$$$1},
+		{"outOfBounds", "(Ljava/util/function/BiFunction;Ljava/lang/String;[Ljava/lang/Number;)Ljava/lang/RuntimeException;", "(Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;+Ljava/lang/RuntimeException;>;Ljava/lang/String;[Ljava/lang/Number;)Ljava/lang/RuntimeException;", $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(Preconditions, outOfBounds, $RuntimeException*, $BiFunction*, $String*, $NumberArray*)},
+		{"outOfBoundsCheckFromIndexSize", "(Ljava/util/function/BiFunction;III)Ljava/lang/RuntimeException;", "(Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;+Ljava/lang/RuntimeException;>;III)Ljava/lang/RuntimeException;", $PRIVATE | $STATIC, $staticMethod(Preconditions, outOfBoundsCheckFromIndexSize, $RuntimeException*, $BiFunction*, int32_t, int32_t, int32_t)},
+		{"outOfBoundsCheckFromIndexSize", "(Ljava/util/function/BiFunction;JJJ)Ljava/lang/RuntimeException;", "(Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;+Ljava/lang/RuntimeException;>;JJJ)Ljava/lang/RuntimeException;", $PRIVATE | $STATIC, $staticMethod(Preconditions, outOfBoundsCheckFromIndexSize, $RuntimeException*, $BiFunction*, int64_t, int64_t, int64_t)},
+		{"outOfBoundsCheckFromToIndex", "(Ljava/util/function/BiFunction;III)Ljava/lang/RuntimeException;", "(Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;+Ljava/lang/RuntimeException;>;III)Ljava/lang/RuntimeException;", $PRIVATE | $STATIC, $staticMethod(Preconditions, outOfBoundsCheckFromToIndex, $RuntimeException*, $BiFunction*, int32_t, int32_t, int32_t)},
+		{"outOfBoundsCheckFromToIndex", "(Ljava/util/function/BiFunction;JJJ)Ljava/lang/RuntimeException;", "(Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;+Ljava/lang/RuntimeException;>;JJJ)Ljava/lang/RuntimeException;", $PRIVATE | $STATIC, $staticMethod(Preconditions, outOfBoundsCheckFromToIndex, $RuntimeException*, $BiFunction*, int64_t, int64_t, int64_t)},
+		{"outOfBoundsCheckIndex", "(Ljava/util/function/BiFunction;II)Ljava/lang/RuntimeException;", "(Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;+Ljava/lang/RuntimeException;>;II)Ljava/lang/RuntimeException;", $PRIVATE | $STATIC, $staticMethod(Preconditions, outOfBoundsCheckIndex, $RuntimeException*, $BiFunction*, int32_t, int32_t)},
+		{"outOfBoundsCheckIndex", "(Ljava/util/function/BiFunction;JJ)Ljava/lang/RuntimeException;", "(Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;+Ljava/lang/RuntimeException;>;JJ)Ljava/lang/RuntimeException;", $PRIVATE | $STATIC, $staticMethod(Preconditions, outOfBoundsCheckIndex, $RuntimeException*, $BiFunction*, int64_t, int64_t)},
+		{"outOfBoundsExceptionFormatter", "(Ljava/util/function/Function;)Ljava/util/function/BiFunction;", "<X:Ljava/lang/RuntimeException;>(Ljava/util/function/Function<Ljava/lang/String;TX;>;)Ljava/util/function/BiFunction<Ljava/lang/String;Ljava/util/List<Ljava/lang/Number;>;TX;>;", $PUBLIC | $STATIC, $staticMethod(Preconditions, outOfBoundsExceptionFormatter, $BiFunction*, $Function*)},
+		{"outOfBoundsMessage", "(Ljava/lang/String;Ljava/util/List;)Ljava/lang/String;", "(Ljava/lang/String;Ljava/util/List<+Ljava/lang/Number;>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(Preconditions, outOfBoundsMessage, $String*, $String*, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.util.Preconditions$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.util.Preconditions",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.util.Preconditions$1"
+	};
+	$loadClass(Preconditions, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Preconditions);
+	});
 	return class$;
 }
 

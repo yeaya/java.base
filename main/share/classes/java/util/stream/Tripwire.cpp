@@ -1,5 +1,4 @@
 #include <java/util/stream/Tripwire.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -36,56 +35,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(Tripwire::lambda$static$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Tripwire$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Tripwire$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Tripwire$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Tripwire$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo Tripwire$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.stream.Tripwire$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* Tripwire$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(Tripwire$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Tripwire$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Tripwire$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.stream.Tripwire$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Tripwire$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Tripwire$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* Tripwire$$Lambda$lambda$static$0::class$ = nullptr;
-
-$FieldInfo _Tripwire_FieldInfo_[] = {
-	{"TRIPWIRE_PROPERTY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Tripwire, TRIPWIRE_PROPERTY)},
-	{"ENABLED", "Z", nullptr, $STATIC | $FINAL, $staticField(Tripwire, ENABLED)},
-	{}
-};
-
-$MethodInfo _Tripwire_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Tripwire, init$, void)},
-	{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Tripwire, lambda$static$0, $Boolean*)},
-	{"trip", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;)V", $STATIC, $staticMethod(Tripwire, trip, void, $Class*, $String*)},
-	{}
-};
-
-$ClassInfo _Tripwire_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.Tripwire",
-	"java.lang.Object",
-	nullptr,
-	_Tripwire_FieldInfo_,
-	_Tripwire_MethodInfo_
-};
-
-$Object* allocate$Tripwire($Class* clazz) {
-	return $of($alloc(Tripwire));
-}
 
 $String* Tripwire::TRIPWIRE_PROPERTY = nullptr;
 bool Tripwire::ENABLED = false;
@@ -95,8 +65,8 @@ void Tripwire::init$() {
 
 void Tripwire::trip($Class* trippingClass, $String* msg) {
 	$init(Tripwire);
-	$useLocalCurrentObjectStackCache();
-	$nc($($PlatformLogger::getLogger($($nc(trippingClass)->getName()))))->warning(msg, $$new($ObjectArray, {$($of($nc(trippingClass)->getName()))}));
+	$useLocalObjectStack();
+	$$nc($PlatformLogger::getLogger($($nc(trippingClass)->getName())))->warning(msg, $$new($ObjectArray, {$($nc(trippingClass)->getName())}));
 }
 
 $Boolean* Tripwire::lambda$static$0() {
@@ -104,11 +74,11 @@ $Boolean* Tripwire::lambda$static$0() {
 	return $Boolean::valueOf($Boolean::getBoolean(Tripwire::TRIPWIRE_PROPERTY));
 }
 
-void clinit$Tripwire($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Tripwire::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Tripwire::TRIPWIRE_PROPERTY, "org.openjdk.java.util.stream.tripwire"_s);
 	$beforeCallerSensitive();
-	Tripwire::ENABLED = $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(Tripwire$$Lambda$lambda$static$0)))))))->booleanValue();
+	Tripwire::ENABLED = $$sure($Boolean, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(Tripwire$$Lambda$lambda$static$0))))->booleanValue();
 }
 
 Tripwire::Tripwire() {
@@ -116,11 +86,32 @@ Tripwire::Tripwire() {
 
 $Class* Tripwire::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Tripwire$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("java.util.stream.Tripwire$$Lambda$lambda$static$0")) {
 			return Tripwire$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Tripwire, name, initialize, &_Tripwire_ClassInfo_, clinit$Tripwire, allocate$Tripwire);
+	$FieldInfo fieldInfos$$[] = {
+		{"TRIPWIRE_PROPERTY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Tripwire, TRIPWIRE_PROPERTY)},
+		{"ENABLED", "Z", nullptr, $STATIC | $FINAL, $staticField(Tripwire, ENABLED)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Tripwire, init$, void)},
+		{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Tripwire, lambda$static$0, $Boolean*)},
+		{"trip", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;)V", $STATIC, $staticMethod(Tripwire, trip, void, $Class*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.Tripwire",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Tripwire, name, initialize, &classInfo$$, Tripwire::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Tripwire);
+	});
 	return class$;
 }
 

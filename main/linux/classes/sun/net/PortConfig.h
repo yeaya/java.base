@@ -12,6 +12,7 @@ class $export PortConfig : public ::java::lang::Object {
 	$class(PortConfig, 0, ::java::lang::Object)
 public:
 	PortConfig();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t getLower();
 	static int32_t getLower0();

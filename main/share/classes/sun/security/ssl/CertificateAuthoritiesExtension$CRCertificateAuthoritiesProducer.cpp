@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/security/cert/X509Certificate.h>
 #include <java/util/Iterator.h>
@@ -27,13 +26,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
-using $X509TrustManager = ::javax::net::ssl::X509TrustManager;
 using $CertificateAuthoritiesExtension$CertificateAuthoritiesSpec = ::sun::security::ssl::CertificateAuthoritiesExtension$CertificateAuthoritiesSpec;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $Record = ::sun::security::ssl::Record;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
@@ -43,42 +38,11 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer, init$, void)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer", "sun.security.ssl.CertificateAuthoritiesExtension", "CRCertificateAuthoritiesProducer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeProducer",
-	nullptr,
-	_CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertificateAuthoritiesExtension"
-};
-
-$Object* allocate$CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer($Class* clazz) {
-	return $of($alloc(CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer));
-}
-
 void CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer::init$() {
 }
 
 $bytes* CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(shc)->sslConfig)->isAvailable($SSLExtension::CR_CERTIFICATE_AUTHORITIES)) {
@@ -88,7 +52,7 @@ $bytes* CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer::produc
 		}
 		return nullptr;
 	}
-	$var($X509CertificateArray, caCerts, $nc($($nc($nc(shc)->sslContext)->getX509TrustManager()))->getAcceptedIssuers());
+	$var($X509CertificateArray, caCerts, $$nc($nc(shc->sslContext)->getX509TrustManager())->getAcceptedIssuers());
 	if ($nc(caCerts)->length == 0) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
@@ -119,7 +83,7 @@ $bytes* CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer::produc
 	$var($ByteBuffer, m, $ByteBuffer::wrap(extData));
 	$Record::putInt16(m, vectorLen);
 	{
-		$var($Iterator, i$, $nc(spec->authorities)->iterator());
+		$var($Iterator, i$, spec->authorities->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($bytes, encoded, $cast($bytes, i$->next()));
 			{
@@ -135,7 +99,33 @@ CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer::CertificateAut
 }
 
 $Class* CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer::load$($String* name, bool initialize) {
-	$loadClass(CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer, name, initialize, &_CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer_ClassInfo_, allocate$CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer, init$, void)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer", "sun.security.ssl.CertificateAuthoritiesExtension", "CRCertificateAuthoritiesProducer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeProducer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertificateAuthoritiesExtension"
+	};
+	$loadClass(CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateAuthoritiesExtension$CRCertificateAuthoritiesProducer);
+	});
 	return class$;
 }
 

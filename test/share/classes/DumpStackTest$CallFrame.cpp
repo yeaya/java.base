@@ -1,5 +1,4 @@
 #include <DumpStackTest$CallFrame.h>
-
 #include <DumpStackTest.h>
 #include <jcpp.h>
 
@@ -7,47 +6,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _DumpStackTest$CallFrame_FieldInfo_[] = {
-	{"classname", "Ljava/lang/String;", nullptr, $FINAL, $field(DumpStackTest$CallFrame, classname)},
-	{"methodname", "Ljava/lang/String;", nullptr, $FINAL, $field(DumpStackTest$CallFrame, methodname)},
-	{}
-};
-
-$MethodInfo _DumpStackTest$CallFrame_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;)V", 0, $method(DumpStackTest$CallFrame, init$, void, $Class*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(DumpStackTest$CallFrame, init$, void, $String*, $String*)},
-	{"getClassName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DumpStackTest$CallFrame, getClassName, $String*)},
-	{"getFileName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DumpStackTest$CallFrame, getFileName, $String*)},
-	{"getMethodName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DumpStackTest$CallFrame, getMethodName, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DumpStackTest$CallFrame, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _DumpStackTest$CallFrame_InnerClassesInfo_[] = {
-	{"DumpStackTest$CallFrame", "DumpStackTest", "CallFrame", $STATIC},
-	{}
-};
-
-$ClassInfo _DumpStackTest$CallFrame_ClassInfo_ = {
-	$ACC_SUPER,
-	"DumpStackTest$CallFrame",
-	"java.lang.Object",
-	nullptr,
-	_DumpStackTest$CallFrame_FieldInfo_,
-	_DumpStackTest$CallFrame_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DumpStackTest$CallFrame_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"DumpStackTest"
-};
-
-$Object* allocate$DumpStackTest$CallFrame($Class* clazz) {
-	return $of($alloc(DumpStackTest$CallFrame));
-}
 
 void DumpStackTest$CallFrame::init$($Class* c, $String* methodname) {
 	DumpStackTest$CallFrame::init$($($nc(c)->getName()), methodname);
@@ -78,7 +36,42 @@ DumpStackTest$CallFrame::DumpStackTest$CallFrame() {
 }
 
 $Class* DumpStackTest$CallFrame::load$($String* name, bool initialize) {
-	$loadClass(DumpStackTest$CallFrame, name, initialize, &_DumpStackTest$CallFrame_ClassInfo_, allocate$DumpStackTest$CallFrame);
+	$FieldInfo fieldInfos$$[] = {
+		{"classname", "Ljava/lang/String;", nullptr, $FINAL, $field(DumpStackTest$CallFrame, classname)},
+		{"methodname", "Ljava/lang/String;", nullptr, $FINAL, $field(DumpStackTest$CallFrame, methodname)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;)V", 0, $method(DumpStackTest$CallFrame, init$, void, $Class*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(DumpStackTest$CallFrame, init$, void, $String*, $String*)},
+		{"getClassName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DumpStackTest$CallFrame, getClassName, $String*)},
+		{"getFileName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DumpStackTest$CallFrame, getFileName, $String*)},
+		{"getMethodName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DumpStackTest$CallFrame, getMethodName, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DumpStackTest$CallFrame, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"DumpStackTest$CallFrame", "DumpStackTest", "CallFrame", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"DumpStackTest$CallFrame",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"DumpStackTest"
+	};
+	$loadClass(DumpStackTest$CallFrame, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DumpStackTest$CallFrame);
+	});
 	return class$;
 }
 

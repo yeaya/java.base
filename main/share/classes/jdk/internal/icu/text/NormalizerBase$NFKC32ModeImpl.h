@@ -27,6 +27,7 @@ class $export NormalizerBase$NFKC32ModeImpl : public ::java::lang::Object {
 	$class(NormalizerBase$NFKC32ModeImpl, 0, ::java::lang::Object)
 public:
 	NormalizerBase$NFKC32ModeImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::jdk::internal::icu::text::NormalizerBase$ModeImpl* INSTANCE;
 };

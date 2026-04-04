@@ -1,5 +1,4 @@
 #include <java/util/WeakHashMap$KeySpliterator.h>
-
 #include <java/lang/ref/Reference.h>
 #include <java/util/ConcurrentModificationException.h>
 #include <java/util/Spliterator.h>
@@ -25,47 +24,6 @@ using $Consumer = ::java::util::function::Consumer;
 
 namespace java {
 	namespace util {
-
-$MethodInfo _WeakHashMap$KeySpliterator_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*estimateSize", "()J", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/WeakHashMap;IIII)V", "(Ljava/util/WeakHashMap<TK;TV;>;IIII)V", 0, $method(WeakHashMap$KeySpliterator, init$, void, $WeakHashMap*, int32_t, int32_t, int32_t, int32_t)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$KeySpliterator, characteristics, int32_t)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TK;>;)V", $PUBLIC, $virtualMethod(WeakHashMap$KeySpliterator, forEachRemaining, void, $Consumer*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TK;>;)Z", $PUBLIC, $virtualMethod(WeakHashMap$KeySpliterator, tryAdvance, bool, $Consumer*)},
-	{"trySplit", "()Ljava/util/WeakHashMap$KeySpliterator;", "()Ljava/util/WeakHashMap$KeySpliterator<TK;TV;>;", $PUBLIC, $virtualMethod(WeakHashMap$KeySpliterator, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _WeakHashMap$KeySpliterator_InnerClassesInfo_[] = {
-	{"java.util.WeakHashMap$KeySpliterator", "java.util.WeakHashMap", "KeySpliterator", $STATIC | $FINAL},
-	{"java.util.WeakHashMap$WeakHashMapSpliterator", "java.util.WeakHashMap", "WeakHashMapSpliterator", $STATIC},
-	{}
-};
-
-$ClassInfo _WeakHashMap$KeySpliterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.WeakHashMap$KeySpliterator",
-	"java.util.WeakHashMap$WeakHashMapSpliterator",
-	"java.util.Spliterator",
-	nullptr,
-	_WeakHashMap$KeySpliterator_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/WeakHashMap$WeakHashMapSpliterator<TK;TV;>;Ljava/util/Spliterator<TK;>;",
-	nullptr,
-	_WeakHashMap$KeySpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.WeakHashMap"
-};
-
-$Object* allocate$WeakHashMap$KeySpliterator($Class* clazz) {
-	return $of($alloc(WeakHashMap$KeySpliterator));
-}
 
 int64_t WeakHashMap$KeySpliterator::estimateSize() {
 	 return this->$WeakHashMap$WeakHashMapSpliterator::estimateSize();
@@ -99,11 +57,11 @@ $Spliterator* WeakHashMap$KeySpliterator::trySplit() {
 	int32_t hi = getFence();
 	int32_t lo = this->index;
 	int32_t mid = (int32_t)((uint32_t)(lo + hi) >> 1);
-	return ((lo >= mid) ? (WeakHashMap$KeySpliterator*)nullptr : $new(WeakHashMap$KeySpliterator, this->map, lo, this->index = mid, $usrAssign(this->est, 1), this->expectedModCount));
+	return (lo >= mid) ? (WeakHashMap$KeySpliterator*)nullptr : $new(WeakHashMap$KeySpliterator, this->map, lo, this->index = mid, $usrAssign(this->est, 1), this->expectedModCount);
 }
 
 void WeakHashMap$KeySpliterator::forEachRemaining($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	int32_t hi = 0;
 	int32_t mc = 0;
@@ -124,9 +82,9 @@ void WeakHashMap$KeySpliterator::forEachRemaining($Consumer* action) {
 		$set(this, current, nullptr);
 		do {
 			if (p == nullptr) {
-				$assign(p, $nc(tab)->get(i++));
+				$assign(p, tab->get(i++));
 			} else {
-				$var($Object, x, $nc(p)->get());
+				$var($Object, x, p->get());
 				$assign(p, p->next);
 				if (x != nullptr) {
 					$var($Object, k, $WeakHashMap::unmaskNull(x));
@@ -141,7 +99,7 @@ void WeakHashMap$KeySpliterator::forEachRemaining($Consumer* action) {
 }
 
 bool WeakHashMap$KeySpliterator::tryAdvance($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t hi = 0;
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
@@ -152,12 +110,12 @@ bool WeakHashMap$KeySpliterator::tryAdvance($Consumer* action) {
 			if (this->current == nullptr) {
 				$set(this, current, tab->get(this->index++));
 			} else {
-				$var($Object, x, $nc(this->current)->get());
+				$var($Object, x, this->current->get());
 				$set(this, current, $nc(this->current)->next);
 				if (x != nullptr) {
 					$var($Object, k, $WeakHashMap::unmaskNull(x));
 					$nc(action)->accept(k);
-					if ($nc(this->map)->modCount != this->expectedModCount) {
+					if (this->map->modCount != this->expectedModCount) {
 						$throwNew($ConcurrentModificationException);
 					}
 					return true;
@@ -176,7 +134,43 @@ WeakHashMap$KeySpliterator::WeakHashMap$KeySpliterator() {
 }
 
 $Class* WeakHashMap$KeySpliterator::load$($String* name, bool initialize) {
-	$loadClass(WeakHashMap$KeySpliterator, name, initialize, &_WeakHashMap$KeySpliterator_ClassInfo_, allocate$WeakHashMap$KeySpliterator);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*estimateSize", "()J", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/WeakHashMap;IIII)V", "(Ljava/util/WeakHashMap<TK;TV;>;IIII)V", 0, $method(WeakHashMap$KeySpliterator, init$, void, $WeakHashMap*, int32_t, int32_t, int32_t, int32_t)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$KeySpliterator, characteristics, int32_t)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TK;>;)V", $PUBLIC, $virtualMethod(WeakHashMap$KeySpliterator, forEachRemaining, void, $Consumer*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TK;>;)Z", $PUBLIC, $virtualMethod(WeakHashMap$KeySpliterator, tryAdvance, bool, $Consumer*)},
+		{"trySplit", "()Ljava/util/WeakHashMap$KeySpliterator;", "()Ljava/util/WeakHashMap$KeySpliterator<TK;TV;>;", $PUBLIC, $virtualMethod(WeakHashMap$KeySpliterator, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.WeakHashMap$KeySpliterator", "java.util.WeakHashMap", "KeySpliterator", $STATIC | $FINAL},
+		{"java.util.WeakHashMap$WeakHashMapSpliterator", "java.util.WeakHashMap", "WeakHashMapSpliterator", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.WeakHashMap$KeySpliterator",
+		"java.util.WeakHashMap$WeakHashMapSpliterator",
+		"java.util.Spliterator",
+		nullptr,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/WeakHashMap$WeakHashMapSpliterator<TK;TV;>;Ljava/util/Spliterator<TK;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.WeakHashMap"
+	};
+	$loadClass(WeakHashMap$KeySpliterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WeakHashMap$KeySpliterator));
+	});
 	return class$;
 }
 

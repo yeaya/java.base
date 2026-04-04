@@ -71,6 +71,7 @@ public:
 	virtual bool equals(Object$* other) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($bytes* bitString);
 	void init$($booleans* bitString);
 	void init$(::java::lang::Boolean* critical, Object$* value);

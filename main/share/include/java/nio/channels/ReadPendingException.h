@@ -14,10 +14,13 @@ class $import ReadPendingException : public ::java::lang::IllegalStateException 
 public:
 	ReadPendingException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x1B90CF3056C08951;
+	static const int64_t serialVersionUID = (int64_t)0x1b90cf3056c08951;
 	ReadPendingException(const ReadPendingException& e);
 	virtual void throw$() override;
-	inline ReadPendingException* operator ->() {
+	inline ReadPendingException* operator ->() const {
+		return (ReadPendingException*)throwing$;
+	}
+	inline operator ReadPendingException*() const {
 		return (ReadPendingException*)throwing$;
 	}
 };

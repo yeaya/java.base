@@ -41,6 +41,7 @@ class $export AuthenticationHeader : public ::java::lang::Object {
 	$class(AuthenticationHeader, 0, ::java::lang::Object)
 public:
 	AuthenticationHeader();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* hdrname, ::sun::net::www::MessageHeader* response, ::sun::net::www::protocol::http::HttpCallerInfo* hci, bool dontUseNegotiate);
 	void init$($String* hdrname, ::sun::net::www::MessageHeader* response, ::sun::net::www::protocol::http::HttpCallerInfo* hci, bool dontUseNegotiate, ::java::util::Set* disabledSchemes);
 	virtual ::sun::net::www::protocol::http::HttpCallerInfo* getHttpCallerInfo();

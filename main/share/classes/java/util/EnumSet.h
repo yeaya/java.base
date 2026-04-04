@@ -60,7 +60,7 @@ public:
 	virtual $String* toString() override;
 	void typeCheck(::java::lang::Enum* e);
 	virtual $Object* writeReplace();
-	static const int64_t serialVersionUID = (int64_t)0x0E03216ACD8C29DD;
+	static const int64_t serialVersionUID = (int64_t)0x0e03216acd8c29dd;
 	$Class* elementType = nullptr;
 	$Array<::java::lang::Enum>* universe = nullptr;
 };

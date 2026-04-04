@@ -42,13 +42,16 @@ public:
 	virtual int32_t getIndex();
 	virtual ::java::security::cert::CertPathValidatorException$Reason* getReason();
 	void readObject(::java::io::ObjectInputStream* stream);
-	static const int64_t serialVersionUID = (int64_t)0xD536581C9D044A6D;
+	static const int64_t serialVersionUID = (int64_t)0xd536581c9d044a6d;
 	int32_t index = 0;
 	::java::security::cert::CertPath* certPath = nullptr;
 	::java::security::cert::CertPathValidatorException$Reason* reason = nullptr;
 	CertPathValidatorException(const CertPathValidatorException& e);
 	virtual void throw$() override;
-	inline CertPathValidatorException* operator ->() {
+	inline CertPathValidatorException* operator ->() const {
+		return (CertPathValidatorException*)throwing$;
+	}
+	inline operator CertPathValidatorException*() const {
 		return (CertPathValidatorException*)throwing$;
 	}
 };

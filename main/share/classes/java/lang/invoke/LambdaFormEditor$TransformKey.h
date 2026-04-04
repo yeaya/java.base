@@ -33,6 +33,7 @@ class LambdaFormEditor$TransformKey : public ::java::lang::Object {
 	$class(LambdaFormEditor$TransformKey, 0, ::java::lang::Object)
 public:
 	LambdaFormEditor$TransformKey();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t packedBytes);
 	void init$($bytes* fullBytes);
 	void init$(int64_t packedBytes, $bytes* fullBytes);

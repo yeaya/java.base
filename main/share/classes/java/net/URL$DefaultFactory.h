@@ -21,6 +21,7 @@ class URL$DefaultFactory : public ::java::net::URLStreamHandlerFactory {
 	$class(URL$DefaultFactory, $PRELOAD, ::java::net::URLStreamHandlerFactory)
 public:
 	URL$DefaultFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::net::URLStreamHandler* createURLStreamHandler($String* protocol) override;
 	static $String* PREFIX;

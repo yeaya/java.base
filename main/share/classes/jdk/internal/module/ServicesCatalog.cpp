@@ -1,5 +1,4 @@
 #include <jdk/internal/module/ServicesCatalog.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Module.h>
@@ -7,7 +6,6 @@
 #include <java/lang/module/ModuleDescriptor.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
@@ -32,11 +30,8 @@ using $ModuleDescriptor = ::java::lang::module::ModuleDescriptor;
 using $ModuleDescriptor$Provides = ::java::lang::module::ModuleDescriptor$Provides;
 using $AbstractMap = ::java::util::AbstractMap;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $CopyOnWriteArrayList = ::java::util::concurrent::CopyOnWriteArrayList;
 using $ClassLoaderValue = ::jdk::internal::loader::ClassLoaderValue;
@@ -46,53 +41,10 @@ namespace jdk {
 	namespace internal {
 		namespace module {
 
-$FieldInfo _ServicesCatalog_FieldInfo_[] = {
-	{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljdk/internal/module/ServicesCatalog$ServiceProvider;>;>;", $PRIVATE | $FINAL, $field(ServicesCatalog, map)},
-	{"CLV", "Ljdk/internal/loader/ClassLoaderValue;", "Ljdk/internal/loader/ClassLoaderValue<Ljdk/internal/module/ServicesCatalog;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ServicesCatalog, CLV)},
-	{}
-};
-
-$MethodInfo _ServicesCatalog_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ServicesCatalog, init$, void)},
-	{"addProvider", "(Ljava/lang/Module;Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Module;Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PUBLIC, $method(ServicesCatalog, addProvider, void, $Module*, $Class*, $Class*)},
-	{"addProviders", "(Ljava/lang/String;[Ljdk/internal/module/ServicesCatalog$ServiceProvider;)V", nullptr, $PRIVATE | $TRANSIENT, $method(ServicesCatalog, addProviders, void, $String*, $ServicesCatalog$ServiceProviderArray*)},
-	{"create", "()Ljdk/internal/module/ServicesCatalog;", nullptr, $PUBLIC | $STATIC, $staticMethod(ServicesCatalog, create, ServicesCatalog*)},
-	{"findServices", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljdk/internal/module/ServicesCatalog$ServiceProvider;>;", $PUBLIC, $method(ServicesCatalog, findServices, $List*, $String*)},
-	{"getServicesCatalog", "(Ljava/lang/ClassLoader;)Ljdk/internal/module/ServicesCatalog;", nullptr, $PUBLIC | $STATIC, $staticMethod(ServicesCatalog, getServicesCatalog, ServicesCatalog*, $ClassLoader*)},
-	{"getServicesCatalogOrNull", "(Ljava/lang/ClassLoader;)Ljdk/internal/module/ServicesCatalog;", nullptr, $PUBLIC | $STATIC, $staticMethod(ServicesCatalog, getServicesCatalogOrNull, ServicesCatalog*, $ClassLoader*)},
-	{"putServicesCatalog", "(Ljava/lang/ClassLoader;Ljdk/internal/module/ServicesCatalog;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ServicesCatalog, putServicesCatalog, void, $ClassLoader*, ServicesCatalog*)},
-	{"register", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(ServicesCatalog, register$, void, $Module*)},
-	{}
-};
-
-$InnerClassInfo _ServicesCatalog_InnerClassesInfo_[] = {
-	{"jdk.internal.module.ServicesCatalog$ServiceProvider", "jdk.internal.module.ServicesCatalog", "ServiceProvider", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ServicesCatalog_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.module.ServicesCatalog",
-	"java.lang.Object",
-	nullptr,
-	_ServicesCatalog_FieldInfo_,
-	_ServicesCatalog_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServicesCatalog_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.module.ServicesCatalog$ServiceProvider"
-};
-
-$Object* allocate$ServicesCatalog($Class* clazz) {
-	return $of($alloc(ServicesCatalog));
-}
-
 $ClassLoaderValue* ServicesCatalog::CLV = nullptr;
 
 void ServicesCatalog::init$() {
-	$set(this, map, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap, 32))));
+	$set(this, map, $cast($AbstractMap, $new($ConcurrentHashMap, 32)));
 }
 
 ServicesCatalog* ServicesCatalog::create() {
@@ -101,26 +53,26 @@ ServicesCatalog* ServicesCatalog::create() {
 }
 
 void ServicesCatalog::addProviders($String* service, $ServicesCatalog$ServiceProviderArray* providers) {
-	$useLocalCurrentObjectStackCache();
-	$var($List, list, $cast($List, $nc(this->map)->get(service)));
+	$useLocalObjectStack();
+	$var($List, list, $cast($List, this->map->get(service)));
 	if (list == nullptr) {
 		$assign(list, $new($CopyOnWriteArrayList, providers));
-		$var($List, prev, $cast($List, $nc(this->map)->putIfAbsent(service, list)));
+		$var($List, prev, $cast($List, this->map->putIfAbsent(service, list)));
 		if (prev != nullptr) {
 			prev->addAll(list);
 		}
 	} else if ($nc(providers)->length == 1) {
-		$nc(list)->add(providers->get(0));
+		list->add(providers->get(0));
 	} else {
-		$nc(list)->addAll($($Arrays::asList(providers)));
+		list->addAll($($Arrays::asList(providers)));
 	}
 }
 
 void ServicesCatalog::register$($Module* module) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ModuleDescriptor, descriptor, $nc(module)->getDescriptor());
 	{
-		$var($Iterator, i$, $nc($($nc(descriptor)->provides()))->iterator());
+		$var($Iterator, i$, $$nc($nc(descriptor)->provides())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($ModuleDescriptor$Provides, provides, $cast($ModuleDescriptor$Provides, i$->next()));
 			{
@@ -129,7 +81,7 @@ void ServicesCatalog::register$($Module* module) {
 				int32_t count = $nc(providerNames)->size();
 				$var($ServicesCatalog$ServiceProviderArray, providers, $new($ServicesCatalog$ServiceProviderArray, count));
 				for (int32_t i = 0; i < count; ++i) {
-					providers->set(i, $$new($ServicesCatalog$ServiceProvider, module, $cast($String, $(providerNames->get(i)))));
+					providers->set(i, $$new($ServicesCatalog$ServiceProvider, module, $$cast($String, providerNames->get(i))));
 				}
 				addProviders(service, providers);
 			}
@@ -138,27 +90,27 @@ void ServicesCatalog::register$($Module* module) {
 }
 
 void ServicesCatalog::addProvider($Module* module, $Class* service, $Class* impl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, $nc(service)->getName());
 	addProviders(var$0, $$new($ServicesCatalog$ServiceProviderArray, {$$new($ServicesCatalog$ServiceProvider, module, $($nc(impl)->getName()))}));
 }
 
 $List* ServicesCatalog::findServices($String* service) {
-	return $cast($List, $nc(this->map)->getOrDefault(service, $($List::of())));
+	return $cast($List, this->map->getOrDefault(service, $($List::of())));
 }
 
 ServicesCatalog* ServicesCatalog::getServicesCatalogOrNull($ClassLoader* loader) {
 	$init(ServicesCatalog);
-	return $cast(ServicesCatalog, $nc(ServicesCatalog::CLV)->get(loader));
+	return $cast(ServicesCatalog, ServicesCatalog::CLV->get(loader));
 }
 
 ServicesCatalog* ServicesCatalog::getServicesCatalog($ClassLoader* loader) {
 	$init(ServicesCatalog);
-	$useLocalCurrentObjectStackCache();
-	$var(ServicesCatalog, catalog, $cast(ServicesCatalog, $nc(ServicesCatalog::CLV)->get(loader)));
+	$useLocalObjectStack();
+	$var(ServicesCatalog, catalog, $cast(ServicesCatalog, ServicesCatalog::CLV->get(loader)));
 	if (catalog == nullptr) {
 		$assign(catalog, create());
-		$var(ServicesCatalog, previous, $cast(ServicesCatalog, $nc(ServicesCatalog::CLV)->putIfAbsent(loader, catalog)));
+		$var(ServicesCatalog, previous, $cast(ServicesCatalog, ServicesCatalog::CLV->putIfAbsent(loader, catalog)));
 		if (previous != nullptr) {
 			$assign(catalog, previous);
 		}
@@ -168,13 +120,13 @@ ServicesCatalog* ServicesCatalog::getServicesCatalog($ClassLoader* loader) {
 
 void ServicesCatalog::putServicesCatalog($ClassLoader* loader, ServicesCatalog* catalog) {
 	$init(ServicesCatalog);
-	$var(ServicesCatalog, previous, $cast(ServicesCatalog, $nc(ServicesCatalog::CLV)->putIfAbsent(loader, catalog)));
+	$var(ServicesCatalog, previous, $cast(ServicesCatalog, ServicesCatalog::CLV->putIfAbsent(loader, catalog)));
 	if (previous != nullptr) {
 		$throwNew($InternalError);
 	}
 }
 
-void clinit$ServicesCatalog($Class* class$) {
+void ServicesCatalog::clinit$($Class* clazz) {
 	$assignStatic(ServicesCatalog::CLV, $new($ClassLoaderValue));
 }
 
@@ -182,7 +134,44 @@ ServicesCatalog::ServicesCatalog() {
 }
 
 $Class* ServicesCatalog::load$($String* name, bool initialize) {
-	$loadClass(ServicesCatalog, name, initialize, &_ServicesCatalog_ClassInfo_, clinit$ServicesCatalog, allocate$ServicesCatalog);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljdk/internal/module/ServicesCatalog$ServiceProvider;>;>;", $PRIVATE | $FINAL, $field(ServicesCatalog, map)},
+		{"CLV", "Ljdk/internal/loader/ClassLoaderValue;", "Ljdk/internal/loader/ClassLoaderValue<Ljdk/internal/module/ServicesCatalog;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ServicesCatalog, CLV)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ServicesCatalog, init$, void)},
+		{"addProvider", "(Ljava/lang/Module;Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Module;Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PUBLIC, $method(ServicesCatalog, addProvider, void, $Module*, $Class*, $Class*)},
+		{"addProviders", "(Ljava/lang/String;[Ljdk/internal/module/ServicesCatalog$ServiceProvider;)V", nullptr, $PRIVATE | $TRANSIENT, $method(ServicesCatalog, addProviders, void, $String*, $ServicesCatalog$ServiceProviderArray*)},
+		{"create", "()Ljdk/internal/module/ServicesCatalog;", nullptr, $PUBLIC | $STATIC, $staticMethod(ServicesCatalog, create, ServicesCatalog*)},
+		{"findServices", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljdk/internal/module/ServicesCatalog$ServiceProvider;>;", $PUBLIC, $method(ServicesCatalog, findServices, $List*, $String*)},
+		{"getServicesCatalog", "(Ljava/lang/ClassLoader;)Ljdk/internal/module/ServicesCatalog;", nullptr, $PUBLIC | $STATIC, $staticMethod(ServicesCatalog, getServicesCatalog, ServicesCatalog*, $ClassLoader*)},
+		{"getServicesCatalogOrNull", "(Ljava/lang/ClassLoader;)Ljdk/internal/module/ServicesCatalog;", nullptr, $PUBLIC | $STATIC, $staticMethod(ServicesCatalog, getServicesCatalogOrNull, ServicesCatalog*, $ClassLoader*)},
+		{"putServicesCatalog", "(Ljava/lang/ClassLoader;Ljdk/internal/module/ServicesCatalog;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ServicesCatalog, putServicesCatalog, void, $ClassLoader*, ServicesCatalog*)},
+		{"register", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(ServicesCatalog, register$, void, $Module*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.module.ServicesCatalog$ServiceProvider", "jdk.internal.module.ServicesCatalog", "ServiceProvider", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.module.ServicesCatalog",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.module.ServicesCatalog$ServiceProvider"
+	};
+	$loadClass(ServicesCatalog, name, initialize, &classInfo$$, ServicesCatalog::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ServicesCatalog);
+	});
 	return class$;
 }
 

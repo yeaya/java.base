@@ -1,5 +1,4 @@
 #include <java/security/spec/ECFieldF2m.h>
-
 #include <java/math/BigInteger.h>
 #include <java/util/Arrays.h>
 #include <jcpp.h>
@@ -17,39 +16,6 @@ namespace java {
 	namespace security {
 		namespace spec {
 
-$FieldInfo _ECFieldF2m_FieldInfo_[] = {
-	{"m", "I", nullptr, $PRIVATE, $field(ECFieldF2m, m)},
-	{"ks", "[I", nullptr, $PRIVATE, $field(ECFieldF2m, ks)},
-	{"rp", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(ECFieldF2m, rp)},
-	{}
-};
-
-$MethodInfo _ECFieldF2m_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ECFieldF2m, init$, void, int32_t)},
-	{"<init>", "(ILjava/math/BigInteger;)V", nullptr, $PUBLIC, $method(ECFieldF2m, init$, void, int32_t, $BigInteger*)},
-	{"<init>", "(I[I)V", nullptr, $PUBLIC, $method(ECFieldF2m, init$, void, int32_t, $ints*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ECFieldF2m, equals, bool, Object$*)},
-	{"getFieldSize", "()I", nullptr, $PUBLIC, $virtualMethod(ECFieldF2m, getFieldSize, int32_t)},
-	{"getM", "()I", nullptr, $PUBLIC, $virtualMethod(ECFieldF2m, getM, int32_t)},
-	{"getMidTermsOfReductionPolynomial", "()[I", nullptr, $PUBLIC, $virtualMethod(ECFieldF2m, getMidTermsOfReductionPolynomial, $ints*)},
-	{"getReductionPolynomial", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(ECFieldF2m, getReductionPolynomial, $BigInteger*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ECFieldF2m, hashCode, int32_t)},
-	{}
-};
-
-$ClassInfo _ECFieldF2m_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.spec.ECFieldF2m",
-	"java.lang.Object",
-	"java.security.spec.ECField",
-	_ECFieldF2m_FieldInfo_,
-	_ECFieldF2m_MethodInfo_
-};
-
-$Object* allocate$ECFieldF2m($Class* clazz) {
-	return $of($alloc(ECFieldF2m));
-}
-
 void ECFieldF2m::init$(int32_t m) {
 	if (m <= 0) {
 		$throwNew($IllegalArgumentException, "m is not positive"_s);
@@ -60,49 +26,49 @@ void ECFieldF2m::init$(int32_t m) {
 }
 
 void ECFieldF2m::init$(int32_t m, $BigInteger* rp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->m = m;
 	$set(this, rp, rp);
 	if (m <= 0) {
 		$throwNew($IllegalArgumentException, "m is not positive"_s);
 	}
 	int32_t bitCount = $nc(this->rp)->bitCount();
-	bool var$0 = !$nc(this->rp)->testBit(0);
-	if (var$0 || !$nc(this->rp)->testBit(m) || ((bitCount != 3) && (bitCount != 5))) {
+	bool var$0 = !this->rp->testBit(0);
+	if (var$0 || !this->rp->testBit(m) || ((bitCount != 3) && (bitCount != 5))) {
 		$throwNew($IllegalArgumentException, "rp does not represent a valid reduction polynomial"_s);
 	}
-	$var($BigInteger, temp, $nc($($nc(this->rp)->clearBit(0)))->clearBit(m));
+	$var($BigInteger, temp, $(this->rp->clearBit(0))->clearBit(m));
 	$set(this, ks, $new($ints, bitCount - 2));
-	for (int32_t i = $nc(this->ks)->length - 1; i >= 0; --i) {
-		int32_t index = $nc(temp)->getLowestSetBit();
-		$nc(this->ks)->set(i, index);
+	for (int32_t i = this->ks->length - 1; i >= 0; --i) {
+		int32_t index = temp->getLowestSetBit();
+		this->ks->set(i, index);
 		$assign(temp, temp->clearBit(index));
 	}
 }
 
 void ECFieldF2m::init$(int32_t m, $ints* ks) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->m = m;
 	$set(this, ks, $cast($ints, $nc(ks)->clone()));
 	if (m <= 0) {
 		$throwNew($IllegalArgumentException, "m is not positive"_s);
 	}
-	if (($nc(this->ks)->length != 1) && ($nc(this->ks)->length != 3)) {
+	if ((this->ks->length != 1) && (this->ks->length != 3)) {
 		$throwNew($IllegalArgumentException, "length of ks is neither 1 nor 3"_s);
 	}
-	for (int32_t i = 0; i < $nc(this->ks)->length; ++i) {
-		if (($nc(this->ks)->get(i) < 1) || ($nc(this->ks)->get(i) > m - 1)) {
+	for (int32_t i = 0; i < this->ks->length; ++i) {
+		if ((this->ks->get(i) < 1) || (this->ks->get(i) > m - 1)) {
 			$throwNew($IllegalArgumentException, $$str({"ks["_s, $$str(i), "] is out of range"_s}));
 		}
-		if ((i != 0) && ($nc(this->ks)->get(i) >= $nc(this->ks)->get(i - 1))) {
+		if ((i != 0) && (this->ks->get(i) >= this->ks->get(i - 1))) {
 			$throwNew($IllegalArgumentException, "values in ks are not in descending order"_s);
 		}
 	}
 	$init($BigInteger);
 	$set(this, rp, $BigInteger::ONE);
 	$set(this, rp, $nc(this->rp)->setBit(m));
-	for (int32_t j = 0; j < $nc(this->ks)->length; ++j) {
-		$set(this, rp, $nc(this->rp)->setBit($nc(this->ks)->get(j)));
+	for (int32_t j = 0; j < this->ks->length; ++j) {
+		$set(this, rp, this->rp->setBit(this->ks->get(j)));
 	}
 }
 
@@ -122,7 +88,7 @@ $ints* ECFieldF2m::getMidTermsOfReductionPolynomial() {
 	if (this->ks == nullptr) {
 		return nullptr;
 	} else {
-		return $cast($ints, $nc(this->ks)->clone());
+		return $cast($ints, this->ks->clone());
 	}
 }
 
@@ -143,7 +109,7 @@ bool ECFieldF2m::equals(Object$* obj) {
 
 int32_t ECFieldF2m::hashCode() {
 	int32_t value = this->m << 5;
-	value += (this->rp == nullptr ? 0 : $nc(this->rp)->hashCode());
+	value += (this->rp == nullptr ? 0 : this->rp->hashCode());
 	return value;
 }
 
@@ -151,7 +117,35 @@ ECFieldF2m::ECFieldF2m() {
 }
 
 $Class* ECFieldF2m::load$($String* name, bool initialize) {
-	$loadClass(ECFieldF2m, name, initialize, &_ECFieldF2m_ClassInfo_, allocate$ECFieldF2m);
+	$FieldInfo fieldInfos$$[] = {
+		{"m", "I", nullptr, $PRIVATE, $field(ECFieldF2m, m)},
+		{"ks", "[I", nullptr, $PRIVATE, $field(ECFieldF2m, ks)},
+		{"rp", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(ECFieldF2m, rp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(ECFieldF2m, init$, void, int32_t)},
+		{"<init>", "(ILjava/math/BigInteger;)V", nullptr, $PUBLIC, $method(ECFieldF2m, init$, void, int32_t, $BigInteger*)},
+		{"<init>", "(I[I)V", nullptr, $PUBLIC, $method(ECFieldF2m, init$, void, int32_t, $ints*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ECFieldF2m, equals, bool, Object$*)},
+		{"getFieldSize", "()I", nullptr, $PUBLIC, $virtualMethod(ECFieldF2m, getFieldSize, int32_t)},
+		{"getM", "()I", nullptr, $PUBLIC, $virtualMethod(ECFieldF2m, getM, int32_t)},
+		{"getMidTermsOfReductionPolynomial", "()[I", nullptr, $PUBLIC, $virtualMethod(ECFieldF2m, getMidTermsOfReductionPolynomial, $ints*)},
+		{"getReductionPolynomial", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(ECFieldF2m, getReductionPolynomial, $BigInteger*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ECFieldF2m, hashCode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.spec.ECFieldF2m",
+		"java.lang.Object",
+		"java.security.spec.ECField",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ECFieldF2m, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ECFieldF2m);
+	});
 	return class$;
 }
 

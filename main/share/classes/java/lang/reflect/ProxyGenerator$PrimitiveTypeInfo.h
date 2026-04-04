@@ -19,6 +19,7 @@ class ProxyGenerator$PrimitiveTypeInfo : public ::java::lang::Object {
 	$class(ProxyGenerator$PrimitiveTypeInfo, 0, ::java::lang::Object)
 public:
 	ProxyGenerator$PrimitiveTypeInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Class* primitiveClass, $Class* wrapperClass);
 	static void add($Class* primitiveClass, $Class* wrapperClass);
 	static ::java::lang::reflect::ProxyGenerator$PrimitiveTypeInfo* get($Class* cl);

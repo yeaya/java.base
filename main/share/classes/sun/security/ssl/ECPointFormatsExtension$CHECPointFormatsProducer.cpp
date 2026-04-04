@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ECPointFormatsExtension$CHECPointFormatsProducer.h>
-
 #include <java/util/List.h>
 #include <java/util/Map.h>
 #include <sun/security/ssl/ClientHandshakeContext.h>
@@ -20,12 +19,10 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $ECPointFormatsExtension$ECPointFormatsSpec = ::sun::security::ssl::ECPointFormatsExtension$ECPointFormatsSpec;
 using $NamedGroup$NamedGroupSpec = ::sun::security::ssl::NamedGroup$NamedGroupSpec;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
@@ -34,42 +31,11 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _ECPointFormatsExtension$CHECPointFormatsProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ECPointFormatsExtension$CHECPointFormatsProducer, init$, void)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(ECPointFormatsExtension$CHECPointFormatsProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ECPointFormatsExtension$CHECPointFormatsProducer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ECPointFormatsExtension$CHECPointFormatsProducer", "sun.security.ssl.ECPointFormatsExtension", "CHECPointFormatsProducer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ECPointFormatsExtension$CHECPointFormatsProducer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ECPointFormatsExtension$CHECPointFormatsProducer",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeProducer",
-	nullptr,
-	_ECPointFormatsExtension$CHECPointFormatsProducer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ECPointFormatsExtension$CHECPointFormatsProducer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ECPointFormatsExtension"
-};
-
-$Object* allocate$ECPointFormatsExtension$CHECPointFormatsProducer($Class* clazz) {
-	return $of($alloc(ECPointFormatsExtension$CHECPointFormatsProducer));
-}
-
 void ECPointFormatsExtension$CHECPointFormatsProducer::init$() {
 }
 
 $bytes* ECPointFormatsExtension$CHECPointFormatsProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(chc)->sslConfig)->isAvailable($SSLExtension::CH_EC_POINT_FORMATS)) {
@@ -80,13 +46,13 @@ $bytes* ECPointFormatsExtension$CHECPointFormatsProducer::produce($ConnectionCon
 		return nullptr;
 	}
 	$init($NamedGroup$NamedGroupSpec);
-	if ($NamedGroup$NamedGroupSpec::NAMED_GROUP_ECDHE->isSupported($nc(chc)->activeCipherSuites)) {
+	if ($NamedGroup$NamedGroupSpec::NAMED_GROUP_ECDHE->isSupported(chc->activeCipherSuites)) {
 		$var($bytes, extData, $new($bytes, {
-			(int8_t)1,
-			(int8_t)0
+			1,
+			0
 		}));
 		$init($ECPointFormatsExtension$ECPointFormatsSpec);
-		$nc($nc(chc)->handshakeExtensions)->put($SSLExtension::CH_EC_POINT_FORMATS, $ECPointFormatsExtension$ECPointFormatsSpec::DEFAULT);
+		$nc(chc->handshakeExtensions)->put($SSLExtension::CH_EC_POINT_FORMATS, $ECPointFormatsExtension$ECPointFormatsSpec::DEFAULT);
 		return extData;
 	}
 	$init($SSLLogger);
@@ -100,7 +66,33 @@ ECPointFormatsExtension$CHECPointFormatsProducer::ECPointFormatsExtension$CHECPo
 }
 
 $Class* ECPointFormatsExtension$CHECPointFormatsProducer::load$($String* name, bool initialize) {
-	$loadClass(ECPointFormatsExtension$CHECPointFormatsProducer, name, initialize, &_ECPointFormatsExtension$CHECPointFormatsProducer_ClassInfo_, allocate$ECPointFormatsExtension$CHECPointFormatsProducer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ECPointFormatsExtension$CHECPointFormatsProducer, init$, void)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(ECPointFormatsExtension$CHECPointFormatsProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ECPointFormatsExtension$CHECPointFormatsProducer", "sun.security.ssl.ECPointFormatsExtension", "CHECPointFormatsProducer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ECPointFormatsExtension$CHECPointFormatsProducer",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeProducer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ECPointFormatsExtension"
+	};
+	$loadClass(ECPointFormatsExtension$CHECPointFormatsProducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ECPointFormatsExtension$CHECPointFormatsProducer);
+	});
 	return class$;
 }
 

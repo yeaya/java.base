@@ -20,6 +20,7 @@ class $export ContentEquals : public ::java::lang::Object {
 	$class(ContentEquals, 0, ::java::lang::Object)
 public:
 	ContentEquals();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void testCharSequence();

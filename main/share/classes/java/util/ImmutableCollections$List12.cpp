@@ -1,5 +1,4 @@
 #include <java/util/ImmutableCollections$List12.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/lang/IndexOutOfBoundsException.h>
@@ -28,73 +27,6 @@ using $Objects = ::java::util::Objects;
 
 namespace java {
 	namespace util {
-
-$CompoundAttribute _ImmutableCollections$List12_Annotations_[] = {
-	{"Ljdk/internal/ValueBased;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ImmutableCollections$List12_FieldAnnotations_e0[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ImmutableCollections$List12_FieldAnnotations_e1[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$FieldInfo _ImmutableCollections$List12_FieldInfo_[] = {
-	{"e0", "Ljava/lang/Object;", "TE;", $PRIVATE | $FINAL, $field(ImmutableCollections$List12, e0), _ImmutableCollections$List12_FieldAnnotations_e0},
-	{"e1", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(ImmutableCollections$List12, e1), _ImmutableCollections$List12_FieldAnnotations_e1},
-	{}
-};
-
-$MethodInfo _ImmutableCollections$List12_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/lang/Object;)V", "(TE;)V", 0, $method(ImmutableCollections$List12, init$, void, Object$*)},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TE;TE;)V", 0, $method(ImmutableCollections$List12, init$, void, Object$*, Object$*)},
-	{"get", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(ImmutableCollections$List12, get, $Object*, int32_t)},
-	{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$List12, indexOf, int32_t, Object$*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$List12, isEmpty, bool)},
-	{"lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$List12, lastIndexOf, int32_t, Object$*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ImmutableCollections$List12, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$List12, size, int32_t)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$List12, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(ImmutableCollections$List12, toArray, $ObjectArray*, $ObjectArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(ImmutableCollections$List12, writeReplace, $Object*)},
-	{}
-};
-
-$InnerClassInfo _ImmutableCollections$List12_InnerClassesInfo_[] = {
-	{"java.util.ImmutableCollections$List12", "java.util.ImmutableCollections", "List12", $STATIC | $FINAL},
-	{"java.util.ImmutableCollections$AbstractImmutableList", "java.util.ImmutableCollections", "AbstractImmutableList", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ImmutableCollections$List12_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.ImmutableCollections$List12",
-	"java.util.ImmutableCollections$AbstractImmutableList",
-	"java.io.Serializable",
-	_ImmutableCollections$List12_FieldInfo_,
-	_ImmutableCollections$List12_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/ImmutableCollections$AbstractImmutableList<TE;>;Ljava/io/Serializable;",
-	nullptr,
-	_ImmutableCollections$List12_InnerClassesInfo_,
-	_ImmutableCollections$List12_Annotations_,
-	nullptr,
-	nullptr,
-	"java.util.ImmutableCollections"
-};
-
-$Object* allocate$ImmutableCollections$List12($Class* clazz) {
-	return $of($alloc(ImmutableCollections$List12));
-}
 
 bool ImmutableCollections$List12::equals(Object$* o) {
 	 return this->$ImmutableCollections$AbstractImmutableList::equals(o);
@@ -140,11 +72,11 @@ bool ImmutableCollections$List12::isEmpty() {
 
 $Object* ImmutableCollections$List12::get(int32_t index) {
 	if (index == 0) {
-		return $of(this->e0);
+		return this->e0;
 	} else {
 		$init($ImmutableCollections);
 		if (index == 1 && !$equals(this->e1, $ImmutableCollections::EMPTY)) {
-			return $of(this->e1);
+			return this->e1;
 		}
 	}
 	$throw($(outOfBounds(index)));
@@ -181,15 +113,15 @@ void ImmutableCollections$List12::readObject($ObjectInputStream* in) {
 }
 
 $Object* ImmutableCollections$List12::writeReplace() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ImmutableCollections);
 	if ($equals(this->e1, $ImmutableCollections::EMPTY)) {
-		return $of($new($CollSer, $CollSer::IMM_LIST, $$new($ObjectArray, {this->e0})));
+		return $new($CollSer, $CollSer::IMM_LIST, $$new($ObjectArray, {this->e0}));
 	} else {
-		return $of($new($CollSer, $CollSer::IMM_LIST, $$new($ObjectArray, {
+		return $new($CollSer, $CollSer::IMM_LIST, $$new($ObjectArray, {
 			this->e0,
 			this->e1
-		})));
+		}));
 	}
 }
 
@@ -207,7 +139,7 @@ $ObjectArray* ImmutableCollections$List12::toArray() {
 
 $ObjectArray* ImmutableCollections$List12::toArray($ObjectArray* a) {
 	int32_t size = this->size();
-	$var($ObjectArray, array, $nc(a)->length >= size ? a : $cast($ObjectArray, $1Array::newInstance($nc($of(a))->getClass()->getComponentType(), size)));
+	$var($ObjectArray, array, $nc(a)->length >= size ? a : $cast($ObjectArray, $1Array::newInstance($of(a)->getClass()->getComponentType(), size)));
 	$nc(array)->set(0, this->e0);
 	if (size == 2) {
 		array->set(1, this->e1);
@@ -222,7 +154,65 @@ ImmutableCollections$List12::ImmutableCollections$List12() {
 }
 
 $Class* ImmutableCollections$List12::load$($String* name, bool initialize) {
-	$loadClass(ImmutableCollections$List12, name, initialize, &_ImmutableCollections$List12_ClassInfo_, allocate$ImmutableCollections$List12);
+	$CompoundAttribute e0fieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$CompoundAttribute e1fieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"e0", "Ljava/lang/Object;", "TE;", $PRIVATE | $FINAL, $field(ImmutableCollections$List12, e0), e0fieldAnnotations$$},
+		{"e1", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(ImmutableCollections$List12, e1), e1fieldAnnotations$$},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/lang/Object;)V", "(TE;)V", 0, $method(ImmutableCollections$List12, init$, void, Object$*)},
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TE;TE;)V", 0, $method(ImmutableCollections$List12, init$, void, Object$*, Object$*)},
+		{"get", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(ImmutableCollections$List12, get, $Object*, int32_t)},
+		{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$List12, indexOf, int32_t, Object$*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$List12, isEmpty, bool)},
+		{"lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$List12, lastIndexOf, int32_t, Object$*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ImmutableCollections$List12, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$List12, size, int32_t)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$List12, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(ImmutableCollections$List12, toArray, $ObjectArray*, $ObjectArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(ImmutableCollections$List12, writeReplace, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ImmutableCollections$List12", "java.util.ImmutableCollections", "List12", $STATIC | $FINAL},
+		{"java.util.ImmutableCollections$AbstractImmutableList", "java.util.ImmutableCollections", "AbstractImmutableList", $STATIC | $ABSTRACT},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/ValueBased;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.ImmutableCollections$List12",
+		"java.util.ImmutableCollections$AbstractImmutableList",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/ImmutableCollections$AbstractImmutableList<TE;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"java.util.ImmutableCollections"
+	};
+	$loadClass(ImmutableCollections$List12, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ImmutableCollections$List12));
+	});
 	return class$;
 }
 

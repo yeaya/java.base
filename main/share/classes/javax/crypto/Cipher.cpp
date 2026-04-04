@@ -1,5 +1,4 @@
 #include <javax/crypto/Cipher.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/SecurityException.h>
@@ -12,7 +11,6 @@
 #include <java/security/Key.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/NoSuchProviderException.h>
-#include <java/security/Permission.h>
 #include <java/security/Provider$Service.h>
 #include <java/security/Provider.h>
 #include <java/security/ProviderException.h>
@@ -92,7 +90,6 @@ using $InvalidParameterException = ::java::security::InvalidParameterException;
 using $Key = ::java::security::Key;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $NoSuchProviderException = ::java::security::NoSuchProviderException;
-using $Permission = ::java::security::Permission;
 using $Provider = ::java::security::Provider;
 using $Provider$Service = ::java::security::Provider$Service;
 using $ProviderException = ::java::security::ProviderException;
@@ -133,127 +130,6 @@ using $KnownOIDs = ::sun::security::util::KnownOIDs;
 
 namespace javax {
 	namespace crypto {
-
-$FieldInfo _Cipher_FieldInfo_[] = {
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Cipher, debug)},
-	{"pdebug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Cipher, pdebug)},
-	{"skipDebug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Cipher, skipDebug)},
-	{"ENCRYPT_MODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Cipher, ENCRYPT_MODE)},
-	{"DECRYPT_MODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Cipher, DECRYPT_MODE)},
-	{"WRAP_MODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Cipher, WRAP_MODE)},
-	{"UNWRAP_MODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Cipher, UNWRAP_MODE)},
-	{"PUBLIC_KEY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Cipher, PUBLIC_KEY)},
-	{"PRIVATE_KEY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Cipher, PRIVATE_KEY)},
-	{"SECRET_KEY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Cipher, SECRET_KEY)},
-	{"provider", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(Cipher, provider)},
-	{"spi", "Ljavax/crypto/CipherSpi;", nullptr, $PRIVATE, $field(Cipher, spi)},
-	{"transformation", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Cipher, transformation)},
-	{"cryptoPerm", "Ljavax/crypto/CryptoPermission;", nullptr, $PRIVATE, $field(Cipher, cryptoPerm)},
-	{"exmech", "Ljavax/crypto/ExemptionMechanism;", nullptr, $PRIVATE, $field(Cipher, exmech)},
-	{"initialized", "Z", nullptr, $PRIVATE, $field(Cipher, initialized)},
-	{"opmode", "I", nullptr, $PRIVATE, $field(Cipher, opmode)},
-	{"firstSpi", "Ljavax/crypto/CipherSpi;", nullptr, $PRIVATE, $field(Cipher, firstSpi)},
-	{"firstService", "Ljava/security/Provider$Service;", nullptr, $PRIVATE, $field(Cipher, firstService)},
-	{"serviceIterator", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/security/Provider$Service;>;", $PRIVATE, $field(Cipher, serviceIterator)},
-	{"transforms", "Ljava/util/List;", "Ljava/util/List<Ljavax/crypto/Cipher$Transform;>;", $PRIVATE, $field(Cipher, transforms)},
-	{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(Cipher, lock)},
-	{"ATTR_MODE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Cipher, ATTR_MODE)},
-	{"ATTR_PAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Cipher, ATTR_PAD)},
-	{"S_NO", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Cipher, S_NO)},
-	{"S_MAYBE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Cipher, S_MAYBE)},
-	{"S_YES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Cipher, S_YES)},
-	{"warnCount", "I", nullptr, $PRIVATE | $STATIC, $staticField(Cipher, warnCount)},
-	{"I_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Cipher, I_KEY)},
-	{"I_PARAMSPEC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Cipher, I_PARAMSPEC)},
-	{"I_PARAMS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Cipher, I_PARAMS)},
-	{"I_CERT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Cipher, I_CERT)},
-	{}
-};
-
-$MethodInfo _Cipher_MethodInfo_[] = {
-	{"<init>", "(Ljavax/crypto/CipherSpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Cipher, init$, void, $CipherSpi*, $Provider*, $String*)},
-	{"<init>", "(Ljavax/crypto/CipherSpi;Ljava/lang/String;)V", nullptr, 0, $method(Cipher, init$, void, $CipherSpi*, $String*)},
-	{"<init>", "(Ljavax/crypto/CipherSpi;Ljava/security/Provider$Service;Ljava/util/Iterator;Ljava/lang/String;Ljava/util/List;)V", "(Ljavax/crypto/CipherSpi;Ljava/security/Provider$Service;Ljava/util/Iterator<Ljava/security/Provider$Service;>;Ljava/lang/String;Ljava/util/List<Ljavax/crypto/Cipher$Transform;>;)V", $PRIVATE, $method(Cipher, init$, void, $CipherSpi*, $Provider$Service*, $Iterator*, $String*, $List*)},
-	{"checkCipherState", "()V", nullptr, $PRIVATE, $method(Cipher, checkCipherState, void)},
-	{"checkCryptoPerm", "(Ljavax/crypto/CipherSpi;Ljava/security/Key;)V", nullptr, $PRIVATE, $method(Cipher, checkCryptoPerm, void, $CipherSpi*, $Key*), "java.security.InvalidKeyException"},
-	{"checkCryptoPerm", "(Ljavax/crypto/CipherSpi;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PRIVATE, $method(Cipher, checkCryptoPerm, void, $CipherSpi*, $Key*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"checkCryptoPerm", "(Ljavax/crypto/CipherSpi;Ljava/security/Key;Ljava/security/AlgorithmParameters;)V", nullptr, $PRIVATE, $method(Cipher, checkCryptoPerm, void, $CipherSpi*, $Key*, $AlgorithmParameters*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"checkOpmode", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Cipher, checkOpmode, void, int32_t)},
-	{"chooseFirstProvider", "()V", nullptr, 0, $virtualMethod(Cipher, chooseFirstProvider, void)},
-	{"chooseProvider", "(IILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PRIVATE, $method(Cipher, chooseProvider, void, int32_t, int32_t, $Key*, $AlgorithmParameterSpec*, $AlgorithmParameters*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"doFinal", "()[B", nullptr, $PUBLIC | $FINAL, $method(Cipher, doFinal, $bytes*), "javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{"doFinal", "([BI)I", nullptr, $PUBLIC | $FINAL, $method(Cipher, doFinal, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.ShortBufferException,javax.crypto.BadPaddingException"},
-	{"doFinal", "([B)[B", nullptr, $PUBLIC | $FINAL, $method(Cipher, doFinal, $bytes*, $bytes*), "javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{"doFinal", "([BII)[B", nullptr, $PUBLIC | $FINAL, $method(Cipher, doFinal, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{"doFinal", "([BII[B)I", nullptr, $PUBLIC | $FINAL, $method(Cipher, doFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*), "javax.crypto.ShortBufferException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{"doFinal", "([BII[BI)I", nullptr, $PUBLIC | $FINAL, $method(Cipher, doFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{"doFinal", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $FINAL, $method(Cipher, doFinal, int32_t, $ByteBuffer*, $ByteBuffer*), "javax.crypto.ShortBufferException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Cipher, getAlgorithm, $String*)},
-	{"getAlgorithmParameterSpec", "(Ljava/security/AlgorithmParameters;)Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PRIVATE, $method(Cipher, getAlgorithmParameterSpec, $AlgorithmParameterSpec*, $AlgorithmParameters*), "java.security.spec.InvalidParameterSpecException"},
-	{"getBlockSize", "()I", nullptr, $PUBLIC | $FINAL, $method(Cipher, getBlockSize, int32_t)},
-	{"getConfiguredPermission", "(Ljava/lang/String;)Ljavax/crypto/CryptoPermission;", nullptr, $PRIVATE | $STATIC, $staticMethod(Cipher, getConfiguredPermission, $CryptoPermission*, $String*), "java.lang.NullPointerException,java.security.NoSuchAlgorithmException"},
-	{"getExemptionMechanism", "()Ljavax/crypto/ExemptionMechanism;", nullptr, $PUBLIC | $FINAL, $method(Cipher, getExemptionMechanism, $ExemptionMechanism*)},
-	{"getIV", "()[B", nullptr, $PUBLIC | $FINAL, $method(Cipher, getIV, $bytes*)},
-	{"getInstance", "(Ljava/lang/String;)Ljavax/crypto/Cipher;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Cipher, getInstance, Cipher*, $String*), "java.security.NoSuchAlgorithmException,javax.crypto.NoSuchPaddingException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/crypto/Cipher;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Cipher, getInstance, Cipher*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException,javax.crypto.NoSuchPaddingException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljavax/crypto/Cipher;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Cipher, getInstance, Cipher*, $String*, $Provider*), "java.security.NoSuchAlgorithmException,javax.crypto.NoSuchPaddingException"},
-	{"getMaxAllowedKeyLength", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Cipher, getMaxAllowedKeyLength, int32_t, $String*), "java.security.NoSuchAlgorithmException"},
-	{"getMaxAllowedParameterSpec", "(Ljava/lang/String;)Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Cipher, getMaxAllowedParameterSpec, $AlgorithmParameterSpec*, $String*), "java.security.NoSuchAlgorithmException"},
-	{"getOutputSize", "(I)I", nullptr, $PUBLIC | $FINAL, $method(Cipher, getOutputSize, int32_t, int32_t)},
-	{"getParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PUBLIC | $FINAL, $method(Cipher, getParameters, $AlgorithmParameters*)},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(Cipher, getProvider, $Provider*)},
-	{"getProviderName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Cipher, getProviderName, $String*)},
-	{"getTransform", "(Ljava/security/Provider$Service;Ljava/util/List;)Ljavax/crypto/Cipher$Transform;", "(Ljava/security/Provider$Service;Ljava/util/List<Ljavax/crypto/Cipher$Transform;>;)Ljavax/crypto/Cipher$Transform;", $PRIVATE | $STATIC, $staticMethod(Cipher, getTransform, $Cipher$Transform*, $Provider$Service*, $List*)},
-	{"getTransforms", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljavax/crypto/Cipher$Transform;>;", $PRIVATE | $STATIC, $staticMethod(Cipher, getTransforms, $List*, $String*), "java.security.NoSuchAlgorithmException"},
-	{"implInit", "(Ljavax/crypto/CipherSpi;IILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PRIVATE, $method(Cipher, implInit, void, $CipherSpi*, int32_t, int32_t, $Key*, $AlgorithmParameterSpec*, $AlgorithmParameters*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"init", "(ILjava/security/Key;)V", nullptr, $PUBLIC | $FINAL, $method(Cipher, init, void, int32_t, $Key*), "java.security.InvalidKeyException"},
-	{"init", "(ILjava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $FINAL, $method(Cipher, init, void, int32_t, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
-	{"init", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC | $FINAL, $method(Cipher, init, void, int32_t, $Key*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"init", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $FINAL, $method(Cipher, init, void, int32_t, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"init", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;)V", nullptr, $PUBLIC | $FINAL, $method(Cipher, init, void, int32_t, $Key*, $AlgorithmParameters*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"init", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $FINAL, $method(Cipher, init, void, int32_t, $Key*, $AlgorithmParameters*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"init", "(ILjava/security/cert/Certificate;)V", nullptr, $PUBLIC | $FINAL, $method(Cipher, init, void, int32_t, $Certificate*), "java.security.InvalidKeyException"},
-	{"init", "(ILjava/security/cert/Certificate;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $FINAL, $method(Cipher, init, void, int32_t, $Certificate*, $SecureRandom*), "java.security.InvalidKeyException"},
-	{"initCryptoPermission", "()V", nullptr, $PRIVATE, $method(Cipher, initCryptoPermission, void), "java.security.NoSuchAlgorithmException"},
-	{"passCryptoPermCheck", "(Ljavax/crypto/CipherSpi;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)Z", nullptr, $PRIVATE, $method(Cipher, passCryptoPermCheck, bool, $CipherSpi*, $Key*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Cipher, toString, $String*)},
-	{"tokenizeTransformation", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Cipher, tokenizeTransformation, $StringArray*, $String*), "java.security.NoSuchAlgorithmException"},
-	{"unwrap", "([BLjava/lang/String;I)Ljava/security/Key;", nullptr, $PUBLIC | $FINAL, $method(Cipher, unwrap, $Key*, $bytes*, $String*, int32_t), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
-	{"update", "([B)[B", nullptr, $PUBLIC | $FINAL, $method(Cipher, update, $bytes*, $bytes*)},
-	{"update", "([BII)[B", nullptr, $PUBLIC | $FINAL, $method(Cipher, update, $bytes*, $bytes*, int32_t, int32_t)},
-	{"update", "([BII[B)I", nullptr, $PUBLIC | $FINAL, $method(Cipher, update, int32_t, $bytes*, int32_t, int32_t, $bytes*), "javax.crypto.ShortBufferException"},
-	{"update", "([BII[BI)I", nullptr, $PUBLIC | $FINAL, $method(Cipher, update, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
-	{"update", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $FINAL, $method(Cipher, update, int32_t, $ByteBuffer*, $ByteBuffer*), "javax.crypto.ShortBufferException"},
-	{"updateAAD", "([B)V", nullptr, $PUBLIC | $FINAL, $method(Cipher, updateAAD, void, $bytes*)},
-	{"updateAAD", "([BII)V", nullptr, $PUBLIC | $FINAL, $method(Cipher, updateAAD, void, $bytes*, int32_t, int32_t)},
-	{"updateAAD", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC | $FINAL, $method(Cipher, updateAAD, void, $ByteBuffer*)},
-	{"wrap", "(Ljava/security/Key;)[B", nullptr, $PUBLIC | $FINAL, $method(Cipher, wrap, $bytes*, $Key*), "javax.crypto.IllegalBlockSizeException,java.security.InvalidKeyException"},
-	{}
-};
-
-$InnerClassInfo _Cipher_InnerClassesInfo_[] = {
-	{"javax.crypto.Cipher$Transform", "javax.crypto.Cipher", "Transform", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Cipher_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.crypto.Cipher",
-	"java.lang.Object",
-	nullptr,
-	_Cipher_FieldInfo_,
-	_Cipher_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Cipher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.crypto.Cipher$Transform"
-};
-
-$Object* allocate$Cipher($Class* clazz) {
-	return $of($alloc(Cipher));
-}
 
 $Debug* Cipher::debug = nullptr;
 $Debug* Cipher::pdebug = nullptr;
@@ -300,7 +176,7 @@ void Cipher::init$($CipherSpi* firstSpi, $Provider$Service* firstService, $Itera
 
 $StringArray* Cipher::tokenizeTransformation($String* transformation) {
 	$init(Cipher);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (transformation == nullptr) {
 		$throwNew($NoSuchAlgorithmException, "No transformation given"_s);
 	}
@@ -309,7 +185,7 @@ $StringArray* Cipher::tokenizeTransformation($String* transformation) {
 	$var($StringTokenizer, parser, $new($StringTokenizer, transformation, "/"_s));
 	try {
 		while (parser->hasMoreTokens() && count < 3) {
-			parts->set(count++, $($nc($(parser->nextToken()))->trim()));
+			parts->set(count++, $($$nc(parser->nextToken())->trim()));
 		}
 		if (count == 0 || count == 2) {
 			$throwNew($NoSuchAlgorithmException, $$str({"Invalid transformation format:"_s, transformation}));
@@ -328,7 +204,7 @@ $StringArray* Cipher::tokenizeTransformation($String* transformation) {
 
 $List* Cipher::getTransforms($String* transformation) {
 	$init(Cipher);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, parts, tokenizeTransformation(transformation));
 	$var($String, alg, $nc(parts)->get(0));
 	$var($String, mode, parts->get(1));
@@ -354,17 +230,15 @@ $List* Cipher::getTransforms($String* transformation) {
 
 $Cipher$Transform* Cipher::getTransform($Provider$Service* s, $List* transforms) {
 	$init(Cipher);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
-	$var($String, alg, $nc($($nc(s)->getAlgorithm()))->toUpperCase($Locale::ENGLISH));
+	$var($String, alg, $$nc($nc(s)->getAlgorithm())->toUpperCase($Locale::ENGLISH));
 	{
 		$var($Iterator, i$, $nc(transforms)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Cipher$Transform, tr, $cast($Cipher$Transform, i$->next()));
-			{
-				if (alg->endsWith($nc(tr)->suffix)) {
-					return tr;
-				}
+			if (alg->endsWith($nc(tr)->suffix)) {
+				return tr;
 			}
 		}
 	}
@@ -373,14 +247,14 @@ $Cipher$Transform* Cipher::getTransform($Provider$Service* s, $List* transforms)
 
 Cipher* Cipher::getInstance($String* transformation) {
 	$init(Cipher);
-	$useLocalCurrentObjectStackCache();
-	if ((transformation == nullptr) || $nc(transformation)->isEmpty()) {
+	$useLocalObjectStack();
+	if ((transformation == nullptr) || transformation->isEmpty()) {
 		$throwNew($NoSuchAlgorithmException, "Null or empty transformation"_s);
 	}
 	$var($List, transforms, getTransforms(transformation));
 	$var($List, cipherServices, $new($ArrayList, $nc(transforms)->size()));
 	{
-		$var($Iterator, i$, $nc(transforms)->iterator());
+		$var($Iterator, i$, transforms->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Cipher$Transform, transform, $cast($Cipher$Transform, i$->next()));
 			{
@@ -405,7 +279,7 @@ Cipher* Cipher::getInstance($String* transformation) {
 			continue;
 		}
 		try {
-			$var($CipherSpi, spi, $cast($CipherSpi, $nc(s)->newInstance(nullptr)));
+			$var($CipherSpi, spi, $cast($CipherSpi, s->newInstance(nullptr)));
 			tr->setModePadding(spi);
 			return $new(Cipher, nullptr, s, t, transformation, transforms);
 		} catch ($Exception& e) {
@@ -418,11 +292,11 @@ Cipher* Cipher::getInstance($String* transformation) {
 
 Cipher* Cipher::getInstance($String* transformation, $String* provider) {
 	$init(Cipher);
-	$useLocalCurrentObjectStackCache();
-	if ((transformation == nullptr) || $nc(transformation)->isEmpty()) {
+	$useLocalObjectStack();
+	if ((transformation == nullptr) || transformation->isEmpty()) {
 		$throwNew($NoSuchAlgorithmException, "Null or empty transformation"_s);
 	}
-	if ((provider == nullptr) || ($nc(provider)->isEmpty())) {
+	if ((provider == nullptr) || (provider->isEmpty())) {
 		$throwNew($IllegalArgumentException, "Missing provider"_s);
 	}
 	$var($Provider, p, $Security::getProvider(provider));
@@ -433,13 +307,13 @@ Cipher* Cipher::getInstance($String* transformation, $String* provider) {
 }
 
 $String* Cipher::getProviderName() {
-	return (this->provider == nullptr) ? "(no provider)"_s : $nc(this->provider)->getName();
+	return (this->provider == nullptr) ? "(no provider)"_s : this->provider->getName();
 }
 
 Cipher* Cipher::getInstance($String* transformation, $Provider* provider) {
 	$init(Cipher);
-	$useLocalCurrentObjectStackCache();
-	if ((transformation == nullptr) || $nc(transformation)->isEmpty()) {
+	$useLocalObjectStack();
+	if ((transformation == nullptr) || transformation->isEmpty()) {
 		$throwNew($NoSuchAlgorithmException, "Null or empty transformation"_s);
 	}
 	if (provider == nullptr) {
@@ -466,16 +340,16 @@ Cipher* Cipher::getInstance($String* transformation, $Provider* provider) {
 					}
 					providerChecked = true;
 				}
-				if ($nc(tr)->supportsMode(s) == Cipher::S_NO) {
+				if (tr->supportsMode(s) == Cipher::S_NO) {
 					continue;
 				}
-				if ($nc(tr)->supportsPadding(s) == Cipher::S_NO) {
+				if (tr->supportsPadding(s) == Cipher::S_NO) {
 					$assign(paddingError, tr->pad);
 					continue;
 				}
 				try {
 					$var($CipherSpi, spi, $cast($CipherSpi, $nc(s)->newInstance(nullptr)));
-					$nc(tr)->setModePadding(spi);
+					tr->setModePadding(spi);
 					$var(Cipher, cipher, $new(Cipher, spi, transformation));
 					$set(cipher, provider, s->getProvider());
 					cipher->initCryptoPermission();
@@ -511,7 +385,7 @@ void Cipher::initCryptoPermission() {
 }
 
 void Cipher::chooseFirstProvider() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->spi != nullptr) {
 		return;
 	}
@@ -522,9 +396,9 @@ void Cipher::chooseFirstProvider() {
 		if (Cipher::debug != nullptr) {
 			int32_t w = --Cipher::warnCount;
 			if (w >= 0) {
-				$nc(Cipher::debug)->println("Cipher.init() not first method called, disabling delayed provider selection"_s);
+				Cipher::debug->println("Cipher.init() not first method called, disabling delayed provider selection"_s);
 				if (w == 0) {
-					$nc(Cipher::debug)->println("Further warnings of this type will be suppressed"_s);
+					Cipher::debug->println("Further warnings of this type will be suppressed"_s);
 				}
 				$$new($Exception, "Call trace"_s)->printStackTrace();
 			}
@@ -554,16 +428,16 @@ void Cipher::chooseFirstProvider() {
 			}
 			try {
 				if (thisSpi == nullptr) {
-					$var($Object, obj, $nc(s)->newInstance(nullptr));
+					$var($Object, obj, s->newInstance(nullptr));
 					if ($instanceOf($CipherSpi, obj) == false) {
 						continue;
 					}
 					$assign(thisSpi, $cast($CipherSpi, obj));
 				}
-				$nc(tr)->setModePadding(thisSpi);
+				tr->setModePadding(thisSpi);
 				initCryptoPermission();
 				$set(this, spi, thisSpi);
-				$set(this, provider, $nc(s)->getProvider());
+				$set(this, provider, s->getProvider());
 				$set(this, firstService, nullptr);
 				$set(this, serviceIterator, nullptr);
 				$set(this, transforms, nullptr);
@@ -581,41 +455,31 @@ void Cipher::chooseFirstProvider() {
 }
 
 void Cipher::implInit($CipherSpi* thisSpi, int32_t type, int32_t opmode, $Key* key, $AlgorithmParameterSpec* paramSpec, $AlgorithmParameters* params, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (type) {
 	case Cipher::I_KEY:
-		{
-			checkCryptoPerm(thisSpi, key);
-			$nc(thisSpi)->engineInit(opmode, key, random);
-			break;
-		}
+		checkCryptoPerm(thisSpi, key);
+		$nc(thisSpi)->engineInit(opmode, key, random);
+		break;
 	case Cipher::I_PARAMSPEC:
-		{
-			checkCryptoPerm(thisSpi, key, paramSpec);
-			$nc(thisSpi)->engineInit(opmode, key, paramSpec, random);
-			break;
-		}
+		checkCryptoPerm(thisSpi, key, paramSpec);
+		$nc(thisSpi)->engineInit(opmode, key, paramSpec, random);
+		break;
 	case Cipher::I_PARAMS:
-		{
-			checkCryptoPerm(thisSpi, key, params);
-			$nc(thisSpi)->engineInit(opmode, key, params, random);
-			break;
-		}
+		checkCryptoPerm(thisSpi, key, params);
+		$nc(thisSpi)->engineInit(opmode, key, params, random);
+		break;
 	case Cipher::I_CERT:
-		{
-			checkCryptoPerm(thisSpi, key);
-			$nc(thisSpi)->engineInit(opmode, key, random);
-			break;
-		}
+		checkCryptoPerm(thisSpi, key);
+		$nc(thisSpi)->engineInit(opmode, key, random);
+		break;
 	default:
-		{
-			$throwNew($AssertionError, $of($$str({"Internal Cipher error: "_s, $$str(type)})));
-		}
+		$throwNew($AssertionError, $$of($str({"Internal Cipher error: "_s, $$str(type)})));
 	}
 }
 
 void Cipher::chooseProvider(int32_t initType, int32_t opmode, $Key* key, $AlgorithmParameterSpec* paramSpec, $AlgorithmParameters* params, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->lock) {
 		if (this->spi != nullptr) {
 			implInit(this->spi, initType, opmode, key, paramSpec, params, random);
@@ -637,7 +501,7 @@ void Cipher::chooseProvider(int32_t initType, int32_t opmode, $Key* key, $Algori
 			if ($nc(s)->supportsParameter(key) == false) {
 				continue;
 			}
-			if ($JceSecurity::canUseProvider($($nc(s)->getProvider())) == false) {
+			if ($JceSecurity::canUseProvider($(s->getProvider())) == false) {
 				continue;
 			}
 			$var($Cipher$Transform, tr, getTransform(s, this->transforms));
@@ -649,12 +513,12 @@ void Cipher::chooseProvider(int32_t initType, int32_t opmode, $Key* key, $Algori
 			}
 			try {
 				if (thisSpi == nullptr) {
-					$assign(thisSpi, $cast($CipherSpi, $nc(s)->newInstance(nullptr)));
+					$assign(thisSpi, $cast($CipherSpi, s->newInstance(nullptr)));
 				}
-				$nc(tr)->setModePadding(thisSpi);
+				tr->setModePadding(thisSpi);
 				initCryptoPermission();
 				implInit(thisSpi, initType, opmode, key, paramSpec, params, random);
-				$set(this, provider, $nc(s)->getProvider());
+				$set(this, provider, s->getProvider());
 				$set(this, spi, thisSpi);
 				$set(this, firstService, nullptr);
 				$set(this, serviceIterator, nullptr);
@@ -675,7 +539,7 @@ void Cipher::chooseProvider(int32_t initType, int32_t opmode, $Key* key, $Algori
 		if ($instanceOf($RuntimeException, lastException)) {
 			$throw($cast($RuntimeException, lastException));
 		}
-		$var($String, kName, (key != nullptr) ? $nc($of(key))->getClass()->getName() : "(null)"_s);
+		$var($String, kName, (key != nullptr) ? $of(key)->getClass()->getName() : "(null)"_s);
 		$throwNew($InvalidKeyException, $$str({"No installed provider supports this key: "_s, kName}), lastException);
 	}
 }
@@ -721,7 +585,7 @@ $ExemptionMechanism* Cipher::getExemptionMechanism() {
 }
 
 void Cipher::checkCryptoPerm($CipherSpi* checkSpi, $Key* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($CryptoAllPermission);
 	if ($equals(this->cryptoPerm, $CryptoAllPermission::INSTANCE)) {
 		return;
@@ -765,22 +629,22 @@ void Cipher::checkCryptoPerm($CipherSpi* checkSpi, $Key* key, $AlgorithmParamete
 }
 
 bool Cipher::passCryptoPermCheck($CipherSpi* checkSpi, $Key* key, $AlgorithmParameterSpec* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, em, $nc(this->cryptoPerm)->getExemptionMechanism());
 	int32_t keySize = $nc(checkSpi)->engineGetKeySize(key);
 	$var($String, algComponent, nullptr);
-	int32_t index = $nc(this->transformation)->indexOf((int32_t)u'/');
+	int32_t index = $nc(this->transformation)->indexOf(u'/');
 	if (index != -1) {
-		$assign(algComponent, $nc(this->transformation)->substring(0, index));
+		$assign(algComponent, this->transformation->substring(0, index));
 	} else {
 		$assign(algComponent, this->transformation);
 	}
 	$var($CryptoPermission, checkPerm, $new($CryptoPermission, algComponent, keySize, params, em));
-	if (!$nc(this->cryptoPerm)->implies(checkPerm)) {
+	if (!this->cryptoPerm->implies(checkPerm)) {
 		if (Cipher::debug != nullptr) {
-			$nc(Cipher::debug)->println("Crypto Permission check failed"_s);
-			$nc(Cipher::debug)->println($$str({"granted: "_s, this->cryptoPerm}));
-			$nc(Cipher::debug)->println($$str({"requesting: "_s, checkPerm}));
+			Cipher::debug->println("Crypto Permission check failed"_s);
+			Cipher::debug->println($$str({"granted: "_s, this->cryptoPerm}));
+			Cipher::debug->println($$str({"requesting: "_s, checkPerm}));
 		}
 		return false;
 	}
@@ -790,13 +654,13 @@ bool Cipher::passCryptoPermCheck($CipherSpi* checkSpi, $Key* key, $AlgorithmPara
 	try {
 		if (!$nc(this->exmech)->isCryptoAllowed(key)) {
 			if (Cipher::debug != nullptr) {
-				$nc(Cipher::debug)->println($$str({$($nc(this->exmech)->getName()), " isn\'t enforced"_s}));
+				Cipher::debug->println($$str({$(this->exmech->getName()), " isn\'t enforced"_s}));
 			}
 			return false;
 		}
 	} catch ($ExemptionMechanismException& eme) {
 		if (Cipher::debug != nullptr) {
-			$nc(Cipher::debug)->println($$str({"Cannot determine whether "_s, $($nc(this->exmech)->getName()), " has been enforced"_s}));
+			Cipher::debug->println($$str({"Cannot determine whether "_s, $($nc(this->exmech)->getName()), " has been enforced"_s}));
 			eme->printStackTrace();
 		}
 		return false;
@@ -820,18 +684,18 @@ void Cipher::init(int32_t opmode, $Key* key, $SecureRandom* random) {
 	checkOpmode(opmode);
 	if (this->spi != nullptr) {
 		checkCryptoPerm(this->spi, key);
-		$nc(this->spi)->engineInit(opmode, key, random);
+		this->spi->engineInit(opmode, key, random);
 	} else {
 		try {
 			chooseProvider(Cipher::I_KEY, opmode, key, nullptr, nullptr, random);
 		} catch ($InvalidAlgorithmParameterException& e) {
-			$throwNew($InvalidKeyException, static_cast<$Throwable*>(e));
+			$throwNew($InvalidKeyException, e);
 		}
 	}
 	this->initialized = true;
 	this->opmode = opmode;
 	if (!Cipher::skipDebug && Cipher::pdebug != nullptr) {
-		$nc(Cipher::pdebug)->println($(this->toString()));
+		Cipher::pdebug->println($(this->toString()));
 	}
 }
 
@@ -844,14 +708,14 @@ void Cipher::init(int32_t opmode, $Key* key, $AlgorithmParameterSpec* params, $S
 	checkOpmode(opmode);
 	if (this->spi != nullptr) {
 		checkCryptoPerm(this->spi, key, params);
-		$nc(this->spi)->engineInit(opmode, key, params, random);
+		this->spi->engineInit(opmode, key, params, random);
 	} else {
 		chooseProvider(Cipher::I_PARAMSPEC, opmode, key, params, nullptr, random);
 	}
 	this->initialized = true;
 	this->opmode = opmode;
 	if (!Cipher::skipDebug && Cipher::pdebug != nullptr) {
-		$nc(Cipher::pdebug)->println($(this->toString()));
+		Cipher::pdebug->println($(this->toString()));
 	}
 }
 
@@ -864,14 +728,14 @@ void Cipher::init(int32_t opmode, $Key* key, $AlgorithmParameters* params, $Secu
 	checkOpmode(opmode);
 	if (this->spi != nullptr) {
 		checkCryptoPerm(this->spi, key, params);
-		$nc(this->spi)->engineInit(opmode, key, params, random);
+		this->spi->engineInit(opmode, key, params, random);
 	} else {
 		chooseProvider(Cipher::I_PARAMS, opmode, key, nullptr, params, random);
 	}
 	this->initialized = true;
 	this->opmode = opmode;
 	if (!Cipher::skipDebug && Cipher::pdebug != nullptr) {
-		$nc(Cipher::pdebug)->println($(this->toString()));
+		Cipher::pdebug->println($(this->toString()));
 	}
 }
 
@@ -880,36 +744,36 @@ void Cipher::init(int32_t opmode, $Certificate* certificate) {
 }
 
 void Cipher::init(int32_t opmode, $Certificate* certificate, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->initialized = false;
 	checkOpmode(opmode);
 	if ($instanceOf($X509Certificate, certificate)) {
 		$var($X509Certificate, cert, $cast($X509Certificate, certificate));
-		$var($Set, critSet, $nc(cert)->getCriticalExtensionOIDs());
+		$var($Set, critSet, cert->getCriticalExtensionOIDs());
 		bool var$0 = critSet != nullptr && !critSet->isEmpty();
 		$init($KnownOIDs);
 		if (var$0 && critSet->contains($($KnownOIDs::KeyUsage->value()))) {
 			$var($booleans, keyUsageInfo, cert->getKeyUsage());
-			if ((keyUsageInfo != nullptr) && (((opmode == Cipher::ENCRYPT_MODE) && (keyUsageInfo->length > 3) && (keyUsageInfo->get(3) == false)) || ((opmode == Cipher::WRAP_MODE) && ($nc(keyUsageInfo)->length > 2) && (keyUsageInfo->get(2) == false)))) {
+			if ((keyUsageInfo != nullptr) && (((opmode == Cipher::ENCRYPT_MODE) && (keyUsageInfo->length > 3) && (keyUsageInfo->get(3) == false)) || ((opmode == Cipher::WRAP_MODE) && (keyUsageInfo->length > 2) && (keyUsageInfo->get(2) == false)))) {
 				$throwNew($InvalidKeyException, "Wrong key usage"_s);
 			}
 		}
 	}
-	$var($PublicKey, publicKey, certificate == nullptr ? ($PublicKey*)nullptr : $nc(certificate)->getPublicKey());
+	$var($PublicKey, publicKey, certificate == nullptr ? ($PublicKey*)nullptr : certificate->getPublicKey());
 	if (this->spi != nullptr) {
 		checkCryptoPerm(this->spi, publicKey);
-		$nc(this->spi)->engineInit(opmode, publicKey, random);
+		this->spi->engineInit(opmode, publicKey, random);
 	} else {
 		try {
 			chooseProvider(Cipher::I_CERT, opmode, publicKey, nullptr, nullptr, random);
 		} catch ($InvalidAlgorithmParameterException& e) {
-			$throwNew($InvalidKeyException, static_cast<$Throwable*>(e));
+			$throwNew($InvalidKeyException, e);
 		}
 	}
 	this->initialized = true;
 	this->opmode = opmode;
 	if (!Cipher::skipDebug && Cipher::pdebug != nullptr) {
-		$nc(Cipher::pdebug)->println($(this->toString()));
+		Cipher::pdebug->println($(this->toString()));
 	}
 }
 
@@ -933,12 +797,12 @@ $bytes* Cipher::update($bytes* input) {
 	if ($nc(input)->length == 0) {
 		return nullptr;
 	}
-	return $nc(this->spi)->engineUpdate(input, 0, $nc(input)->length);
+	return $nc(this->spi)->engineUpdate(input, 0, input->length);
 }
 
 $bytes* Cipher::update($bytes* input, int32_t inputOffset, int32_t inputLen) {
 	checkCipherState();
-	if (input == nullptr || inputOffset < 0 || inputLen > ($nc(input)->length - inputOffset) || inputLen < 0) {
+	if (input == nullptr || inputOffset < 0 || inputLen > (input->length - inputOffset) || inputLen < 0) {
 		$throwNew($IllegalArgumentException, "Bad arguments"_s);
 	}
 	chooseFirstProvider();
@@ -950,7 +814,7 @@ $bytes* Cipher::update($bytes* input, int32_t inputOffset, int32_t inputLen) {
 
 int32_t Cipher::update($bytes* input, int32_t inputOffset, int32_t inputLen, $bytes* output) {
 	checkCipherState();
-	if (input == nullptr || inputOffset < 0 || inputLen > ($nc(input)->length - inputOffset) || inputLen < 0) {
+	if (input == nullptr || inputOffset < 0 || inputLen > (input->length - inputOffset) || inputLen < 0) {
 		$throwNew($IllegalArgumentException, "Bad arguments"_s);
 	}
 	chooseFirstProvider();
@@ -962,7 +826,7 @@ int32_t Cipher::update($bytes* input, int32_t inputOffset, int32_t inputLen, $by
 
 int32_t Cipher::update($bytes* input, int32_t inputOffset, int32_t inputLen, $bytes* output, int32_t outputOffset) {
 	checkCipherState();
-	if (input == nullptr || inputOffset < 0 || inputLen > ($nc(input)->length - inputOffset) || inputLen < 0 || outputOffset < 0) {
+	if (input == nullptr || inputOffset < 0 || inputLen > (input->length - inputOffset) || inputLen < 0 || outputOffset < 0) {
 		$throwNew($IllegalArgumentException, "Bad arguments"_s);
 	}
 	chooseFirstProvider();
@@ -1013,7 +877,7 @@ $bytes* Cipher::doFinal($bytes* input) {
 
 $bytes* Cipher::doFinal($bytes* input, int32_t inputOffset, int32_t inputLen) {
 	checkCipherState();
-	if (input == nullptr || inputOffset < 0 || inputLen > ($nc(input)->length - inputOffset) || inputLen < 0) {
+	if (input == nullptr || inputOffset < 0 || inputLen > (input->length - inputOffset) || inputLen < 0) {
 		$throwNew($IllegalArgumentException, "Bad arguments"_s);
 	}
 	chooseFirstProvider();
@@ -1022,7 +886,7 @@ $bytes* Cipher::doFinal($bytes* input, int32_t inputOffset, int32_t inputLen) {
 
 int32_t Cipher::doFinal($bytes* input, int32_t inputOffset, int32_t inputLen, $bytes* output) {
 	checkCipherState();
-	if (input == nullptr || inputOffset < 0 || inputLen > ($nc(input)->length - inputOffset) || inputLen < 0) {
+	if (input == nullptr || inputOffset < 0 || inputLen > (input->length - inputOffset) || inputLen < 0) {
 		$throwNew($IllegalArgumentException, "Bad arguments"_s);
 	}
 	chooseFirstProvider();
@@ -1031,7 +895,7 @@ int32_t Cipher::doFinal($bytes* input, int32_t inputOffset, int32_t inputLen, $b
 
 int32_t Cipher::doFinal($bytes* input, int32_t inputOffset, int32_t inputLen, $bytes* output, int32_t outputOffset) {
 	checkCipherState();
-	if (input == nullptr || inputOffset < 0 || inputLen > ($nc(input)->length - inputOffset) || inputLen < 0 || outputOffset < 0) {
+	if (input == nullptr || inputOffset < 0 || inputLen > (input->length - inputOffset) || inputLen < 0 || outputOffset < 0) {
 		$throwNew($IllegalArgumentException, "Bad arguments"_s);
 	}
 	chooseFirstProvider();
@@ -1083,12 +947,12 @@ $Key* Cipher::unwrap($bytes* wrappedKey, $String* wrappedKeyAlgorithm, int32_t w
 }
 
 $AlgorithmParameterSpec* Cipher::getAlgorithmParameterSpec($AlgorithmParameters* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (params == nullptr) {
 		return nullptr;
 	}
 	$init($Locale);
-	$var($String, alg, $nc($($nc(params)->getAlgorithm()))->toUpperCase($Locale::ENGLISH));
+	$var($String, alg, $$nc($nc(params)->getAlgorithm())->toUpperCase($Locale::ENGLISH));
 	if (alg->equalsIgnoreCase("RC2"_s)) {
 		$load($RC2ParameterSpec);
 		return params->getParameterSpec($RC2ParameterSpec::class$);
@@ -1139,7 +1003,7 @@ void Cipher::updateAAD($bytes* src) {
 
 void Cipher::updateAAD($bytes* src, int32_t offset, int32_t len) {
 	checkCipherState();
-	if ((src == nullptr) || (offset < 0) || (len < 0) || len > ($nc(src)->length - offset)) {
+	if ((src == nullptr) || (offset < 0) || (len < 0) || len > (src->length - offset)) {
 		$throwNew($IllegalArgumentException, "Bad arguments"_s);
 	}
 	chooseFirstProvider();
@@ -1162,45 +1026,33 @@ void Cipher::updateAAD($ByteBuffer* src) {
 }
 
 $String* Cipher::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("Cipher."_s)->append(this->transformation)->append(", mode: "_s);
 	switch (this->opmode) {
 	case 0:
-		{
-			sb->append("not initialized"_s);
-			break;
-		}
+		sb->append("not initialized"_s);
+		break;
 	case Cipher::ENCRYPT_MODE:
-		{
-			sb->append("encryption"_s);
-			break;
-		}
+		sb->append("encryption"_s);
+		break;
 	case Cipher::DECRYPT_MODE:
-		{
-			sb->append("decryption"_s);
-			break;
-		}
+		sb->append("decryption"_s);
+		break;
 	case Cipher::WRAP_MODE:
-		{
-			sb->append("key wrapping"_s);
-			break;
-		}
+		sb->append("key wrapping"_s);
+		break;
 	case Cipher::UNWRAP_MODE:
-		{
-			sb->append("key unwrapping"_s);
-			break;
-		}
+		sb->append("key unwrapping"_s);
+		break;
 	default:
-		{
-			sb->append("error:"_s)->append($($Integer::toString(this->opmode)));
-		}
+		sb->append("error:"_s)->append($($Integer::toString(this->opmode)));
 	}
 	sb->append(", algorithm from: "_s)->append($(getProviderName()));
 	return sb->toString();
 }
 
-void clinit$Cipher($Class* class$) {
+void Cipher::clinit$($Class* clazz) {
 	$assignStatic(Cipher::ATTR_MODE, "SupportedModes"_s);
 	$assignStatic(Cipher::ATTR_PAD, "SupportedPaddings"_s);
 	$assignStatic(Cipher::debug, $Debug::getInstance("jca"_s, "Cipher"_s));
@@ -1214,7 +1066,122 @@ Cipher::Cipher() {
 }
 
 $Class* Cipher::load$($String* name, bool initialize) {
-	$loadClass(Cipher, name, initialize, &_Cipher_ClassInfo_, clinit$Cipher, allocate$Cipher);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Cipher, debug)},
+		{"pdebug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Cipher, pdebug)},
+		{"skipDebug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Cipher, skipDebug)},
+		{"ENCRYPT_MODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Cipher, ENCRYPT_MODE)},
+		{"DECRYPT_MODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Cipher, DECRYPT_MODE)},
+		{"WRAP_MODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Cipher, WRAP_MODE)},
+		{"UNWRAP_MODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Cipher, UNWRAP_MODE)},
+		{"PUBLIC_KEY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Cipher, PUBLIC_KEY)},
+		{"PRIVATE_KEY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Cipher, PRIVATE_KEY)},
+		{"SECRET_KEY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Cipher, SECRET_KEY)},
+		{"provider", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(Cipher, provider)},
+		{"spi", "Ljavax/crypto/CipherSpi;", nullptr, $PRIVATE, $field(Cipher, spi)},
+		{"transformation", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Cipher, transformation)},
+		{"cryptoPerm", "Ljavax/crypto/CryptoPermission;", nullptr, $PRIVATE, $field(Cipher, cryptoPerm)},
+		{"exmech", "Ljavax/crypto/ExemptionMechanism;", nullptr, $PRIVATE, $field(Cipher, exmech)},
+		{"initialized", "Z", nullptr, $PRIVATE, $field(Cipher, initialized)},
+		{"opmode", "I", nullptr, $PRIVATE, $field(Cipher, opmode)},
+		{"firstSpi", "Ljavax/crypto/CipherSpi;", nullptr, $PRIVATE, $field(Cipher, firstSpi)},
+		{"firstService", "Ljava/security/Provider$Service;", nullptr, $PRIVATE, $field(Cipher, firstService)},
+		{"serviceIterator", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/security/Provider$Service;>;", $PRIVATE, $field(Cipher, serviceIterator)},
+		{"transforms", "Ljava/util/List;", "Ljava/util/List<Ljavax/crypto/Cipher$Transform;>;", $PRIVATE, $field(Cipher, transforms)},
+		{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(Cipher, lock)},
+		{"ATTR_MODE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Cipher, ATTR_MODE)},
+		{"ATTR_PAD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Cipher, ATTR_PAD)},
+		{"S_NO", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Cipher, S_NO)},
+		{"S_MAYBE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Cipher, S_MAYBE)},
+		{"S_YES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Cipher, S_YES)},
+		{"warnCount", "I", nullptr, $PRIVATE | $STATIC, $staticField(Cipher, warnCount)},
+		{"I_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Cipher, I_KEY)},
+		{"I_PARAMSPEC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Cipher, I_PARAMSPEC)},
+		{"I_PARAMS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Cipher, I_PARAMS)},
+		{"I_CERT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Cipher, I_CERT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/crypto/CipherSpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Cipher, init$, void, $CipherSpi*, $Provider*, $String*)},
+		{"<init>", "(Ljavax/crypto/CipherSpi;Ljava/lang/String;)V", nullptr, 0, $method(Cipher, init$, void, $CipherSpi*, $String*)},
+		{"<init>", "(Ljavax/crypto/CipherSpi;Ljava/security/Provider$Service;Ljava/util/Iterator;Ljava/lang/String;Ljava/util/List;)V", "(Ljavax/crypto/CipherSpi;Ljava/security/Provider$Service;Ljava/util/Iterator<Ljava/security/Provider$Service;>;Ljava/lang/String;Ljava/util/List<Ljavax/crypto/Cipher$Transform;>;)V", $PRIVATE, $method(Cipher, init$, void, $CipherSpi*, $Provider$Service*, $Iterator*, $String*, $List*)},
+		{"checkCipherState", "()V", nullptr, $PRIVATE, $method(Cipher, checkCipherState, void)},
+		{"checkCryptoPerm", "(Ljavax/crypto/CipherSpi;Ljava/security/Key;)V", nullptr, $PRIVATE, $method(Cipher, checkCryptoPerm, void, $CipherSpi*, $Key*), "java.security.InvalidKeyException"},
+		{"checkCryptoPerm", "(Ljavax/crypto/CipherSpi;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PRIVATE, $method(Cipher, checkCryptoPerm, void, $CipherSpi*, $Key*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"checkCryptoPerm", "(Ljavax/crypto/CipherSpi;Ljava/security/Key;Ljava/security/AlgorithmParameters;)V", nullptr, $PRIVATE, $method(Cipher, checkCryptoPerm, void, $CipherSpi*, $Key*, $AlgorithmParameters*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"checkOpmode", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Cipher, checkOpmode, void, int32_t)},
+		{"chooseFirstProvider", "()V", nullptr, 0, $virtualMethod(Cipher, chooseFirstProvider, void)},
+		{"chooseProvider", "(IILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PRIVATE, $method(Cipher, chooseProvider, void, int32_t, int32_t, $Key*, $AlgorithmParameterSpec*, $AlgorithmParameters*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"doFinal", "()[B", nullptr, $PUBLIC | $FINAL, $method(Cipher, doFinal, $bytes*), "javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+		{"doFinal", "([BI)I", nullptr, $PUBLIC | $FINAL, $method(Cipher, doFinal, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.ShortBufferException,javax.crypto.BadPaddingException"},
+		{"doFinal", "([B)[B", nullptr, $PUBLIC | $FINAL, $method(Cipher, doFinal, $bytes*, $bytes*), "javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+		{"doFinal", "([BII)[B", nullptr, $PUBLIC | $FINAL, $method(Cipher, doFinal, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+		{"doFinal", "([BII[B)I", nullptr, $PUBLIC | $FINAL, $method(Cipher, doFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*), "javax.crypto.ShortBufferException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+		{"doFinal", "([BII[BI)I", nullptr, $PUBLIC | $FINAL, $method(Cipher, doFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+		{"doFinal", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $FINAL, $method(Cipher, doFinal, int32_t, $ByteBuffer*, $ByteBuffer*), "javax.crypto.ShortBufferException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Cipher, getAlgorithm, $String*)},
+		{"getAlgorithmParameterSpec", "(Ljava/security/AlgorithmParameters;)Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PRIVATE, $method(Cipher, getAlgorithmParameterSpec, $AlgorithmParameterSpec*, $AlgorithmParameters*), "java.security.spec.InvalidParameterSpecException"},
+		{"getBlockSize", "()I", nullptr, $PUBLIC | $FINAL, $method(Cipher, getBlockSize, int32_t)},
+		{"getConfiguredPermission", "(Ljava/lang/String;)Ljavax/crypto/CryptoPermission;", nullptr, $PRIVATE | $STATIC, $staticMethod(Cipher, getConfiguredPermission, $CryptoPermission*, $String*), "java.lang.NullPointerException,java.security.NoSuchAlgorithmException"},
+		{"getExemptionMechanism", "()Ljavax/crypto/ExemptionMechanism;", nullptr, $PUBLIC | $FINAL, $method(Cipher, getExemptionMechanism, $ExemptionMechanism*)},
+		{"getIV", "()[B", nullptr, $PUBLIC | $FINAL, $method(Cipher, getIV, $bytes*)},
+		{"getInstance", "(Ljava/lang/String;)Ljavax/crypto/Cipher;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Cipher, getInstance, Cipher*, $String*), "java.security.NoSuchAlgorithmException,javax.crypto.NoSuchPaddingException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/crypto/Cipher;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Cipher, getInstance, Cipher*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException,javax.crypto.NoSuchPaddingException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljavax/crypto/Cipher;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Cipher, getInstance, Cipher*, $String*, $Provider*), "java.security.NoSuchAlgorithmException,javax.crypto.NoSuchPaddingException"},
+		{"getMaxAllowedKeyLength", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Cipher, getMaxAllowedKeyLength, int32_t, $String*), "java.security.NoSuchAlgorithmException"},
+		{"getMaxAllowedParameterSpec", "(Ljava/lang/String;)Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Cipher, getMaxAllowedParameterSpec, $AlgorithmParameterSpec*, $String*), "java.security.NoSuchAlgorithmException"},
+		{"getOutputSize", "(I)I", nullptr, $PUBLIC | $FINAL, $method(Cipher, getOutputSize, int32_t, int32_t)},
+		{"getParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PUBLIC | $FINAL, $method(Cipher, getParameters, $AlgorithmParameters*)},
+		{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(Cipher, getProvider, $Provider*)},
+		{"getProviderName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Cipher, getProviderName, $String*)},
+		{"getTransform", "(Ljava/security/Provider$Service;Ljava/util/List;)Ljavax/crypto/Cipher$Transform;", "(Ljava/security/Provider$Service;Ljava/util/List<Ljavax/crypto/Cipher$Transform;>;)Ljavax/crypto/Cipher$Transform;", $PRIVATE | $STATIC, $staticMethod(Cipher, getTransform, $Cipher$Transform*, $Provider$Service*, $List*)},
+		{"getTransforms", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljavax/crypto/Cipher$Transform;>;", $PRIVATE | $STATIC, $staticMethod(Cipher, getTransforms, $List*, $String*), "java.security.NoSuchAlgorithmException"},
+		{"implInit", "(Ljavax/crypto/CipherSpi;IILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PRIVATE, $method(Cipher, implInit, void, $CipherSpi*, int32_t, int32_t, $Key*, $AlgorithmParameterSpec*, $AlgorithmParameters*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"init", "(ILjava/security/Key;)V", nullptr, $PUBLIC | $FINAL, $method(Cipher, init, void, int32_t, $Key*), "java.security.InvalidKeyException"},
+		{"init", "(ILjava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $FINAL, $method(Cipher, init, void, int32_t, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
+		{"init", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC | $FINAL, $method(Cipher, init, void, int32_t, $Key*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"init", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $FINAL, $method(Cipher, init, void, int32_t, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"init", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;)V", nullptr, $PUBLIC | $FINAL, $method(Cipher, init, void, int32_t, $Key*, $AlgorithmParameters*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"init", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $FINAL, $method(Cipher, init, void, int32_t, $Key*, $AlgorithmParameters*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"init", "(ILjava/security/cert/Certificate;)V", nullptr, $PUBLIC | $FINAL, $method(Cipher, init, void, int32_t, $Certificate*), "java.security.InvalidKeyException"},
+		{"init", "(ILjava/security/cert/Certificate;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $FINAL, $method(Cipher, init, void, int32_t, $Certificate*, $SecureRandom*), "java.security.InvalidKeyException"},
+		{"initCryptoPermission", "()V", nullptr, $PRIVATE, $method(Cipher, initCryptoPermission, void), "java.security.NoSuchAlgorithmException"},
+		{"passCryptoPermCheck", "(Ljavax/crypto/CipherSpi;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)Z", nullptr, $PRIVATE, $method(Cipher, passCryptoPermCheck, bool, $CipherSpi*, $Key*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Cipher, toString, $String*)},
+		{"tokenizeTransformation", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Cipher, tokenizeTransformation, $StringArray*, $String*), "java.security.NoSuchAlgorithmException"},
+		{"unwrap", "([BLjava/lang/String;I)Ljava/security/Key;", nullptr, $PUBLIC | $FINAL, $method(Cipher, unwrap, $Key*, $bytes*, $String*, int32_t), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
+		{"update", "([B)[B", nullptr, $PUBLIC | $FINAL, $method(Cipher, update, $bytes*, $bytes*)},
+		{"update", "([BII)[B", nullptr, $PUBLIC | $FINAL, $method(Cipher, update, $bytes*, $bytes*, int32_t, int32_t)},
+		{"update", "([BII[B)I", nullptr, $PUBLIC | $FINAL, $method(Cipher, update, int32_t, $bytes*, int32_t, int32_t, $bytes*), "javax.crypto.ShortBufferException"},
+		{"update", "([BII[BI)I", nullptr, $PUBLIC | $FINAL, $method(Cipher, update, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
+		{"update", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $FINAL, $method(Cipher, update, int32_t, $ByteBuffer*, $ByteBuffer*), "javax.crypto.ShortBufferException"},
+		{"updateAAD", "([B)V", nullptr, $PUBLIC | $FINAL, $method(Cipher, updateAAD, void, $bytes*)},
+		{"updateAAD", "([BII)V", nullptr, $PUBLIC | $FINAL, $method(Cipher, updateAAD, void, $bytes*, int32_t, int32_t)},
+		{"updateAAD", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC | $FINAL, $method(Cipher, updateAAD, void, $ByteBuffer*)},
+		{"wrap", "(Ljava/security/Key;)[B", nullptr, $PUBLIC | $FINAL, $method(Cipher, wrap, $bytes*, $Key*), "javax.crypto.IllegalBlockSizeException,java.security.InvalidKeyException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.crypto.Cipher$Transform", "javax.crypto.Cipher", "Transform", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.crypto.Cipher",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.crypto.Cipher$Transform"
+	};
+	$loadClass(Cipher, name, initialize, &classInfo$$, Cipher::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Cipher);
+	});
 	return class$;
 }
 

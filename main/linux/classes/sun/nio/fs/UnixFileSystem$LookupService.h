@@ -23,6 +23,7 @@ class UnixFileSystem$LookupService : public ::java::lang::Object {
 	$class(UnixFileSystem$LookupService, 0, ::java::lang::Object)
 public:
 	UnixFileSystem$LookupService();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::nio::file::attribute::UserPrincipalLookupService* instance;
 };

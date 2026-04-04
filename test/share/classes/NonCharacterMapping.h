@@ -20,6 +20,7 @@ class $export NonCharacterMapping : public ::java::lang::Object {
 	$class(NonCharacterMapping, 0, ::java::lang::Object)
 public:
 	NonCharacterMapping();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::java::util::Locale* ENGLISH;

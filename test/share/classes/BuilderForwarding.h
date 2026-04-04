@@ -18,6 +18,7 @@ class $export BuilderForwarding : public ::java::lang::Object {
 	$class(BuilderForwarding, 0, ::java::lang::Object)
 public:
 	BuilderForwarding();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void appendCharSequence();
 	virtual void assertEquals($String* actual, $String* expected);

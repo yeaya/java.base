@@ -1,5 +1,4 @@
 #include <java/nio/HeapLongBufferR.h>
-
 #include <java/nio/Buffer.h>
 #include <java/nio/ByteOrder.h>
 #include <java/nio/HeapLongBuffer.h>
@@ -24,49 +23,9 @@ using $LongBuffer = ::java::nio::LongBuffer;
 using $ReadOnlyBufferException = ::java::nio::ReadOnlyBufferException;
 using $Objects = ::java::util::Objects;
 using $MemorySegmentProxy = ::jdk::internal::access::foreign::MemorySegmentProxy;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace java {
 	namespace nio {
-
-$FieldInfo _HeapLongBufferR_FieldInfo_[] = {
-	{"ARRAY_BASE_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HeapLongBufferR, ARRAY_BASE_OFFSET)},
-	{"ARRAY_INDEX_SCALE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HeapLongBufferR, ARRAY_INDEX_SCALE)},
-	{}
-};
-
-$MethodInfo _HeapLongBufferR_MethodInfo_[] = {
-	{"<init>", "(IILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(HeapLongBufferR, init$, void, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"<init>", "([JIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(HeapLongBufferR, init$, void, $longs*, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"<init>", "([JIIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, $PROTECTED, $method(HeapLongBufferR, init$, void, $longs*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"asReadOnlyBuffer", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapLongBufferR, asReadOnlyBuffer, $LongBuffer*)},
-	{"compact", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapLongBufferR, compact, $LongBuffer*)},
-	{"duplicate", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapLongBufferR, duplicate, $LongBuffer*)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(HeapLongBufferR, isReadOnly, bool)},
-	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(HeapLongBufferR, order, $ByteOrder*)},
-	{"put", "(J)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapLongBufferR, put, $LongBuffer*, int64_t)},
-	{"put", "(IJ)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapLongBufferR, put, $LongBuffer*, int32_t, int64_t)},
-	{"put", "([JII)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapLongBufferR, put, $LongBuffer*, $longs*, int32_t, int32_t)},
-	{"put", "(Ljava/nio/LongBuffer;)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapLongBufferR, put, $LongBuffer*, $LongBuffer*)},
-	{"put", "(ILjava/nio/LongBuffer;II)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapLongBufferR, put, $LongBuffer*, int32_t, $LongBuffer*, int32_t, int32_t)},
-	{"put", "(I[JII)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapLongBufferR, put, $LongBuffer*, int32_t, $longs*, int32_t, int32_t)},
-	{"slice", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapLongBufferR, slice, $LongBuffer*)},
-	{"slice", "(II)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapLongBufferR, slice, $LongBuffer*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _HeapLongBufferR_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.HeapLongBufferR",
-	"java.nio.HeapLongBuffer",
-	nullptr,
-	_HeapLongBufferR_FieldInfo_,
-	_HeapLongBufferR_MethodInfo_
-};
-
-$Object* allocate$HeapLongBufferR($Class* clazz) {
-	return $of($alloc(HeapLongBufferR));
-}
 
 int64_t HeapLongBufferR::ARRAY_BASE_OFFSET = 0;
 int64_t HeapLongBufferR::ARRAY_INDEX_SCALE = 0;
@@ -153,18 +112,51 @@ $ByteOrder* HeapLongBufferR::order() {
 	return $ByteOrder::nativeOrder();
 }
 
-void clinit$HeapLongBufferR($Class* class$) {
+void HeapLongBufferR::clinit$($Class* clazz) {
 	$init($Buffer);
-	$load($longs);
 	HeapLongBufferR::ARRAY_BASE_OFFSET = $nc($Buffer::UNSAFE)->arrayBaseOffset($getClass($longs));
-	HeapLongBufferR::ARRAY_INDEX_SCALE = $nc($Buffer::UNSAFE)->arrayIndexScale($getClass($longs));
+	HeapLongBufferR::ARRAY_INDEX_SCALE = $Buffer::UNSAFE->arrayIndexScale($getClass($longs));
 }
 
 HeapLongBufferR::HeapLongBufferR() {
 }
 
 $Class* HeapLongBufferR::load$($String* name, bool initialize) {
-	$loadClass(HeapLongBufferR, name, initialize, &_HeapLongBufferR_ClassInfo_, clinit$HeapLongBufferR, allocate$HeapLongBufferR);
+	$FieldInfo fieldInfos$$[] = {
+		{"ARRAY_BASE_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HeapLongBufferR, ARRAY_BASE_OFFSET)},
+		{"ARRAY_INDEX_SCALE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HeapLongBufferR, ARRAY_INDEX_SCALE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(HeapLongBufferR, init$, void, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"<init>", "([JIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(HeapLongBufferR, init$, void, $longs*, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"<init>", "([JIIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, $PROTECTED, $method(HeapLongBufferR, init$, void, $longs*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"asReadOnlyBuffer", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapLongBufferR, asReadOnlyBuffer, $LongBuffer*)},
+		{"compact", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapLongBufferR, compact, $LongBuffer*)},
+		{"duplicate", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapLongBufferR, duplicate, $LongBuffer*)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(HeapLongBufferR, isReadOnly, bool)},
+		{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(HeapLongBufferR, order, $ByteOrder*)},
+		{"put", "(J)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapLongBufferR, put, $LongBuffer*, int64_t)},
+		{"put", "(IJ)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapLongBufferR, put, $LongBuffer*, int32_t, int64_t)},
+		{"put", "([JII)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapLongBufferR, put, $LongBuffer*, $longs*, int32_t, int32_t)},
+		{"put", "(Ljava/nio/LongBuffer;)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapLongBufferR, put, $LongBuffer*, $LongBuffer*)},
+		{"put", "(ILjava/nio/LongBuffer;II)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapLongBufferR, put, $LongBuffer*, int32_t, $LongBuffer*, int32_t, int32_t)},
+		{"put", "(I[JII)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapLongBufferR, put, $LongBuffer*, int32_t, $longs*, int32_t, int32_t)},
+		{"slice", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapLongBufferR, slice, $LongBuffer*)},
+		{"slice", "(II)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapLongBufferR, slice, $LongBuffer*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.HeapLongBufferR",
+		"java.nio.HeapLongBuffer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HeapLongBufferR, name, initialize, &classInfo$$, HeapLongBufferR::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HeapLongBufferR));
+	});
 	return class$;
 }
 

@@ -13,6 +13,7 @@ class $export GBK$EncodeHolder : public ::java::lang::Object {
 	$class(GBK$EncodeHolder, 0, ::java::lang::Object)
 public:
 	GBK$EncodeHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $chars* c2b;
 	static $chars* c2bIndex;

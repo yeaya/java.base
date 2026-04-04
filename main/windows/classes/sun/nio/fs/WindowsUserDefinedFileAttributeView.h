@@ -38,6 +38,7 @@ class WindowsUserDefinedFileAttributeView : public ::sun::nio::fs::AbstractUserD
 	$class(WindowsUserDefinedFileAttributeView, 0, ::sun::nio::fs::AbstractUserDefinedFileAttributeView)
 public:
 	WindowsUserDefinedFileAttributeView();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::nio::fs::WindowsPath* file, bool followLinks);
 	virtual void delete$($String* name) override;
 	$String* join($String* file, $String* name);

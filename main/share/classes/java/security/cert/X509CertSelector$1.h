@@ -13,6 +13,7 @@ class X509CertSelector$1 : public ::java::lang::Object {
 	$class(X509CertSelector$1, 0, ::java::lang::Object)
 public:
 	X509CertSelector$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$security$util$KnownOIDs;
 };
 

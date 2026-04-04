@@ -16,6 +16,7 @@ class $export TerminatingThreadLocal : public ::java::lang::ThreadLocal {
 	$class(TerminatingThreadLocal, $PRELOAD, ::java::lang::ThreadLocal)
 public:
 	TerminatingThreadLocal();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void _threadTerminated();
 	static void register$(::jdk::internal::misc::TerminatingThreadLocal* tl);

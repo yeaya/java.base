@@ -1,5 +1,4 @@
 #include <jdk/internal/jimage/decompressor/ZipDecompressorFactory.h>
-
 #include <java/util/Properties.h>
 #include <jdk/internal/jimage/decompressor/ResourceDecompressor.h>
 #include <jdk/internal/jimage/decompressor/ResourceDecompressorFactory.h>
@@ -21,30 +20,6 @@ namespace jdk {
 		namespace jimage {
 			namespace decompressor {
 
-$FieldInfo _ZipDecompressorFactory_FieldInfo_[] = {
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ZipDecompressorFactory, NAME)},
-	{}
-};
-
-$MethodInfo _ZipDecompressorFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ZipDecompressorFactory, init$, void)},
-	{"newDecompressor", "(Ljava/util/Properties;)Ljdk/internal/jimage/decompressor/ResourceDecompressor;", nullptr, $PUBLIC, $virtualMethod(ZipDecompressorFactory, newDecompressor, $ResourceDecompressor*, $Properties*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ZipDecompressorFactory_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.jimage.decompressor.ZipDecompressorFactory",
-	"jdk.internal.jimage.decompressor.ResourceDecompressorFactory",
-	nullptr,
-	_ZipDecompressorFactory_FieldInfo_,
-	_ZipDecompressorFactory_MethodInfo_
-};
-
-$Object* allocate$ZipDecompressorFactory($Class* clazz) {
-	return $of($alloc(ZipDecompressorFactory));
-}
-
 $String* ZipDecompressorFactory::NAME = nullptr;
 
 void ZipDecompressorFactory::init$() {
@@ -58,12 +33,31 @@ $ResourceDecompressor* ZipDecompressorFactory::newDecompressor($Properties* prop
 ZipDecompressorFactory::ZipDecompressorFactory() {
 }
 
-void clinit$ZipDecompressorFactory($Class* class$) {
+void ZipDecompressorFactory::clinit$($Class* clazz) {
 	$assignStatic(ZipDecompressorFactory::NAME, "zip"_s);
 }
 
 $Class* ZipDecompressorFactory::load$($String* name, bool initialize) {
-	$loadClass(ZipDecompressorFactory, name, initialize, &_ZipDecompressorFactory_ClassInfo_, clinit$ZipDecompressorFactory, allocate$ZipDecompressorFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ZipDecompressorFactory, NAME)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ZipDecompressorFactory, init$, void)},
+		{"newDecompressor", "(Ljava/util/Properties;)Ljdk/internal/jimage/decompressor/ResourceDecompressor;", nullptr, $PUBLIC, $virtualMethod(ZipDecompressorFactory, newDecompressor, $ResourceDecompressor*, $Properties*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.jimage.decompressor.ZipDecompressorFactory",
+		"jdk.internal.jimage.decompressor.ResourceDecompressorFactory",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ZipDecompressorFactory, name, initialize, &classInfo$$, ZipDecompressorFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ZipDecompressorFactory);
+	});
 	return class$;
 }
 

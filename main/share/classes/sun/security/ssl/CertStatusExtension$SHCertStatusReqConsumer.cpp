@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CertStatusExtension$SHCertStatusReqConsumer.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/util/HashMap.h>
 #include <java/util/LinkedHashMap.h>
@@ -28,59 +27,23 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $LinkedHashMap = ::java::util::LinkedHashMap;
-using $Map = ::java::util::Map;
 using $Alert = ::sun::security::ssl::Alert;
 using $CertStatusExtension$CertStatusRequestSpec = ::sun::security::ssl::CertStatusExtension$CertStatusRequestSpec;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _CertStatusExtension$SHCertStatusReqConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CertStatusExtension$SHCertStatusReqConsumer, init$, void)},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(CertStatusExtension$SHCertStatusReqConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*, $ByteBuffer*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _CertStatusExtension$SHCertStatusReqConsumer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertStatusExtension$SHCertStatusReqConsumer", "sun.security.ssl.CertStatusExtension", "SHCertStatusReqConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLExtension$ExtensionConsumer", "sun.security.ssl.SSLExtension", "ExtensionConsumer", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CertStatusExtension$SHCertStatusReqConsumer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CertStatusExtension$SHCertStatusReqConsumer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLExtension$ExtensionConsumer",
-	nullptr,
-	_CertStatusExtension$SHCertStatusReqConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CertStatusExtension$SHCertStatusReqConsumer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertStatusExtension"
-};
-
-$Object* allocate$CertStatusExtension$SHCertStatusReqConsumer($Class* clazz) {
-	return $of($alloc(CertStatusExtension$SHCertStatusReqConsumer));
-}
-
 void CertStatusExtension$SHCertStatusReqConsumer::init$() {
 }
 
 void CertStatusExtension$SHCertStatusReqConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message, $ByteBuffer* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLExtension);
 	$var($CertStatusExtension$CertStatusRequestSpec, requestedCsr, $cast($CertStatusExtension$CertStatusRequestSpec, $nc($nc(chc)->handshakeExtensions)->get($SSLExtension::CH_STATUS_REQUEST)));
@@ -93,7 +56,7 @@ void CertStatusExtension$SHCertStatusReqConsumer::consume($ConnectionContext* co
 		$throw($($nc(chc->conContext)->fatal($Alert::UNEXPECTED_MESSAGE, "Invalid status_request extension in ServerHello message: the extension data must be empty"_s)));
 	}
 	$init($CertStatusExtension$CertStatusRequestSpec);
-	$nc(chc->handshakeExtensions)->put($SSLExtension::SH_STATUS_REQUEST, $CertStatusExtension$CertStatusRequestSpec::DEFAULT);
+	chc->handshakeExtensions->put($SSLExtension::SH_STATUS_REQUEST, $CertStatusExtension$CertStatusRequestSpec::DEFAULT);
 	chc->staplingActive = $nc(chc->sslContext)->isStaplingEnabled(true);
 	if (chc->staplingActive) {
 		$init($SSLHandshake);
@@ -105,7 +68,34 @@ CertStatusExtension$SHCertStatusReqConsumer::CertStatusExtension$SHCertStatusReq
 }
 
 $Class* CertStatusExtension$SHCertStatusReqConsumer::load$($String* name, bool initialize) {
-	$loadClass(CertStatusExtension$SHCertStatusReqConsumer, name, initialize, &_CertStatusExtension$SHCertStatusReqConsumer_ClassInfo_, allocate$CertStatusExtension$SHCertStatusReqConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CertStatusExtension$SHCertStatusReqConsumer, init$, void)},
+		{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(CertStatusExtension$SHCertStatusReqConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*, $ByteBuffer*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertStatusExtension$SHCertStatusReqConsumer", "sun.security.ssl.CertStatusExtension", "SHCertStatusReqConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLExtension$ExtensionConsumer", "sun.security.ssl.SSLExtension", "ExtensionConsumer", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CertStatusExtension$SHCertStatusReqConsumer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLExtension$ExtensionConsumer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertStatusExtension"
+	};
+	$loadClass(CertStatusExtension$SHCertStatusReqConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertStatusExtension$SHCertStatusReqConsumer);
+	});
 	return class$;
 }
 

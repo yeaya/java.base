@@ -1,5 +1,4 @@
 #include <sun/nio/cs/Surrogate$Generator.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/charset/CoderResult.h>
@@ -21,45 +20,6 @@ using $Surrogate = ::sun::nio::cs::Surrogate;
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$FieldInfo _Surrogate$Generator_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Surrogate$Generator, $assertionsDisabled)},
-	{"error", "Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $field(Surrogate$Generator, error$)},
-	{}
-};
-
-$MethodInfo _Surrogate$Generator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Surrogate$Generator, init$, void)},
-	{"error", "()Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC, $virtualMethod(Surrogate$Generator, error, $CoderResult*)},
-	{"generate", "(IILjava/nio/CharBuffer;)I", nullptr, $PUBLIC, $virtualMethod(Surrogate$Generator, generate, int32_t, int32_t, int32_t, $CharBuffer*)},
-	{"generate", "(II[CII)I", nullptr, $PUBLIC, $virtualMethod(Surrogate$Generator, generate, int32_t, int32_t, int32_t, $chars*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Surrogate$Generator_InnerClassesInfo_[] = {
-	{"sun.nio.cs.Surrogate$Generator", "sun.nio.cs.Surrogate", "Generator", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Surrogate$Generator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.Surrogate$Generator",
-	"java.lang.Object",
-	nullptr,
-	_Surrogate$Generator_FieldInfo_,
-	_Surrogate$Generator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Surrogate$Generator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.Surrogate"
-};
-
-$Object* allocate$Surrogate$Generator($Class* clazz) {
-	return $of($alloc(Surrogate$Generator));
-}
 
 bool Surrogate$Generator::$assertionsDisabled = false;
 
@@ -87,7 +47,7 @@ int32_t Surrogate$Generator::generate(int32_t uc, int32_t len, $CharBuffer* dst)
 			$set(this, error$, $CoderResult::OVERFLOW);
 			return -1;
 		}
-		$nc(dst)->put(c);
+		dst->put(c);
 		$set(this, error$, nullptr);
 		return 1;
 	} else if ($Character::isValidCodePoint(uc)) {
@@ -96,7 +56,7 @@ int32_t Surrogate$Generator::generate(int32_t uc, int32_t len, $CharBuffer* dst)
 			$set(this, error$, $CoderResult::OVERFLOW);
 			return -1;
 		}
-		$nc(dst)->put($Character::highSurrogate(uc));
+		dst->put($Character::highSurrogate(uc));
 		dst->put($Character::lowSurrogate(uc));
 		$set(this, error$, nullptr);
 		return 2;
@@ -137,7 +97,7 @@ int32_t Surrogate$Generator::generate(int32_t uc, int32_t len, $chars* da, int32
 	}
 }
 
-void clinit$Surrogate$Generator($Class* class$) {
+void Surrogate$Generator::clinit$($Class* clazz) {
 	$load($Surrogate);
 	Surrogate$Generator::$assertionsDisabled = !$Surrogate::class$->desiredAssertionStatus();
 }
@@ -146,7 +106,40 @@ Surrogate$Generator::Surrogate$Generator() {
 }
 
 $Class* Surrogate$Generator::load$($String* name, bool initialize) {
-	$loadClass(Surrogate$Generator, name, initialize, &_Surrogate$Generator_ClassInfo_, clinit$Surrogate$Generator, allocate$Surrogate$Generator);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Surrogate$Generator, $assertionsDisabled)},
+		{"error", "Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $field(Surrogate$Generator, error$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Surrogate$Generator, init$, void)},
+		{"error", "()Ljava/nio/charset/CoderResult;", nullptr, $PUBLIC, $virtualMethod(Surrogate$Generator, error, $CoderResult*)},
+		{"generate", "(IILjava/nio/CharBuffer;)I", nullptr, $PUBLIC, $virtualMethod(Surrogate$Generator, generate, int32_t, int32_t, int32_t, $CharBuffer*)},
+		{"generate", "(II[CII)I", nullptr, $PUBLIC, $virtualMethod(Surrogate$Generator, generate, int32_t, int32_t, int32_t, $chars*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.Surrogate$Generator", "sun.nio.cs.Surrogate", "Generator", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.Surrogate$Generator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.Surrogate"
+	};
+	$loadClass(Surrogate$Generator, name, initialize, &classInfo$$, Surrogate$Generator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Surrogate$Generator);
+	});
 	return class$;
 }
 

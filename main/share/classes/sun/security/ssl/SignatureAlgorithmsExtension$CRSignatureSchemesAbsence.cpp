@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SignatureAlgorithmsExtension$CRSignatureSchemesAbsence.h>
-
 #include <javax/net/ssl/SSLException.h>
 #include <sun/security/ssl/Alert.h>
 #include <sun/security/ssl/ClientHandshakeContext.h>
@@ -18,48 +17,16 @@ using $Alert = ::sun::security::ssl::Alert;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SignatureAlgorithmsExtension$CRSignatureSchemesAbsence_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SignatureAlgorithmsExtension$CRSignatureSchemesAbsence, init$, void)},
-	{"absent", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithmsExtension$CRSignatureSchemesAbsence, absent, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _SignatureAlgorithmsExtension$CRSignatureSchemesAbsence_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SignatureAlgorithmsExtension$CRSignatureSchemesAbsence", "sun.security.ssl.SignatureAlgorithmsExtension", "CRSignatureSchemesAbsence", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SignatureAlgorithmsExtension$CRSignatureSchemesAbsence_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SignatureAlgorithmsExtension$CRSignatureSchemesAbsence",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeAbsence",
-	nullptr,
-	_SignatureAlgorithmsExtension$CRSignatureSchemesAbsence_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SignatureAlgorithmsExtension$CRSignatureSchemesAbsence_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SignatureAlgorithmsExtension"
-};
-
-$Object* allocate$SignatureAlgorithmsExtension$CRSignatureSchemesAbsence($Class* clazz) {
-	return $of($alloc(SignatureAlgorithmsExtension$CRSignatureSchemesAbsence));
-}
-
 void SignatureAlgorithmsExtension$CRSignatureSchemesAbsence::init$() {
 }
 
 void SignatureAlgorithmsExtension$CRSignatureSchemesAbsence::absent($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($Alert);
 	$throw($($nc($nc(chc)->conContext)->fatal($Alert::MISSING_EXTENSION, "No mandatory signature_algorithms extension in the received CertificateRequest handshake message"_s)));
@@ -69,7 +36,33 @@ SignatureAlgorithmsExtension$CRSignatureSchemesAbsence::SignatureAlgorithmsExten
 }
 
 $Class* SignatureAlgorithmsExtension$CRSignatureSchemesAbsence::load$($String* name, bool initialize) {
-	$loadClass(SignatureAlgorithmsExtension$CRSignatureSchemesAbsence, name, initialize, &_SignatureAlgorithmsExtension$CRSignatureSchemesAbsence_ClassInfo_, allocate$SignatureAlgorithmsExtension$CRSignatureSchemesAbsence);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SignatureAlgorithmsExtension$CRSignatureSchemesAbsence, init$, void)},
+		{"absent", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithmsExtension$CRSignatureSchemesAbsence, absent, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SignatureAlgorithmsExtension$CRSignatureSchemesAbsence", "sun.security.ssl.SignatureAlgorithmsExtension", "CRSignatureSchemesAbsence", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SignatureAlgorithmsExtension$CRSignatureSchemesAbsence",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeAbsence",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SignatureAlgorithmsExtension"
+	};
+	$loadClass(SignatureAlgorithmsExtension$CRSignatureSchemesAbsence, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureAlgorithmsExtension$CRSignatureSchemesAbsence);
+	});
 	return class$;
 }
 

@@ -19,7 +19,10 @@ public:
 	$String* flags = nullptr;
 	DuplicateFormatFlagsException(const DuplicateFormatFlagsException& e);
 	virtual void throw$() override;
-	inline DuplicateFormatFlagsException* operator ->() {
+	inline DuplicateFormatFlagsException* operator ->() const {
+		return (DuplicateFormatFlagsException*)throwing$;
+	}
+	inline operator DuplicateFormatFlagsException*() const {
 		return (DuplicateFormatFlagsException*)throwing$;
 	}
 };

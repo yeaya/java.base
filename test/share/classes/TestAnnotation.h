@@ -14,6 +14,7 @@ namespace java {
 class TestAnnotation : public ::java::lang::annotation::Annotation {
 	$interface(TestAnnotation, 0, ::java::lang::annotation::Annotation)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	static void lambda$static$0();
 	static ::java::lang::Runnable* r;
 };

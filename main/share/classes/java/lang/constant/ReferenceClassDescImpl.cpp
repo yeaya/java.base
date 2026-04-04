@@ -1,5 +1,4 @@
 #include <java/lang/constant/ReferenceClassDescImpl.h>
-
 #include <java/lang/constant/ClassDesc.h>
 #include <java/lang/constant/ConstantUtils.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
@@ -20,40 +19,12 @@ namespace java {
 	namespace lang {
 		namespace constant {
 
-$FieldInfo _ReferenceClassDescImpl_FieldInfo_[] = {
-	{"descriptor", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ReferenceClassDescImpl, descriptor)},
-	{}
-};
-
-$MethodInfo _ReferenceClassDescImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(ReferenceClassDescImpl, init$, void, $String*)},
-	{"descriptorString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ReferenceClassDescImpl, descriptorString, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ReferenceClassDescImpl, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ReferenceClassDescImpl, hashCode, int32_t)},
-	{"resolveConstantDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/Class;", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(ReferenceClassDescImpl, resolveConstantDesc, $Object*, $MethodHandles$Lookup*), "java.lang.ReflectiveOperationException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ReferenceClassDescImpl, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ReferenceClassDescImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.constant.ReferenceClassDescImpl",
-	"java.lang.Object",
-	"java.lang.constant.ClassDesc",
-	_ReferenceClassDescImpl_FieldInfo_,
-	_ReferenceClassDescImpl_MethodInfo_
-};
-
-$Object* allocate$ReferenceClassDescImpl($Class* clazz) {
-	return $of($alloc(ReferenceClassDescImpl));
-}
-
 void ReferenceClassDescImpl::init$($String* descriptor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(descriptor);
 	int32_t len = $ConstantUtils::skipOverFieldSignature(descriptor, 0, descriptor->length(), false);
 	if (len == 0 || len == 1 || len != descriptor->length()) {
-		$throwNew($IllegalArgumentException, $($String::format("not a valid reference type descriptor: %s"_s, $$new($ObjectArray, {$of(descriptor)}))));
+		$throwNew($IllegalArgumentException, $($String::format("not a valid reference type descriptor: %s"_s, $$new($ObjectArray, {descriptor}))));
 	}
 	$set(this, descriptor, descriptor);
 }
@@ -63,7 +34,7 @@ $String* ReferenceClassDescImpl::descriptorString() {
 }
 
 $Object* ReferenceClassDescImpl::resolveConstantDesc($MethodHandles$Lookup* lookup) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClassDesc, c, this);
 	int32_t depth = $ConstantUtils::arrayDepth($(descriptorString()));
 	for (int32_t i = 0; i < depth; ++i) {
@@ -81,13 +52,13 @@ $Object* ReferenceClassDescImpl::resolveConstantDesc($MethodHandles$Lookup* look
 }
 
 bool ReferenceClassDescImpl::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, o)) {
 		return true;
 	}
 	bool var$0 = o == nullptr;
 	if (!var$0) {
-		var$0 = $of(this)->getClass() != $nc($of(o))->getClass();
+		var$0 = $of(this)->getClass() != $of(o)->getClass();
 	}
 	if (var$0) {
 		return false;
@@ -101,15 +72,38 @@ int32_t ReferenceClassDescImpl::hashCode() {
 }
 
 $String* ReferenceClassDescImpl::toString() {
-	$useLocalCurrentObjectStackCache();
-	return $String::format("ClassDesc[%s]"_s, $$new($ObjectArray, {$($of(displayName()))}));
+	$useLocalObjectStack();
+	return $String::format("ClassDesc[%s]"_s, $$new($ObjectArray, {$(displayName())}));
 }
 
 ReferenceClassDescImpl::ReferenceClassDescImpl() {
 }
 
 $Class* ReferenceClassDescImpl::load$($String* name, bool initialize) {
-	$loadClass(ReferenceClassDescImpl, name, initialize, &_ReferenceClassDescImpl_ClassInfo_, allocate$ReferenceClassDescImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"descriptor", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ReferenceClassDescImpl, descriptor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(ReferenceClassDescImpl, init$, void, $String*)},
+		{"descriptorString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ReferenceClassDescImpl, descriptorString, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ReferenceClassDescImpl, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ReferenceClassDescImpl, hashCode, int32_t)},
+		{"resolveConstantDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/Class;", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(ReferenceClassDescImpl, resolveConstantDesc, $Object*, $MethodHandles$Lookup*), "java.lang.ReflectiveOperationException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ReferenceClassDescImpl, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.constant.ReferenceClassDescImpl",
+		"java.lang.Object",
+		"java.lang.constant.ClassDesc",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ReferenceClassDescImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ReferenceClassDescImpl));
+	});
 	return class$;
 }
 

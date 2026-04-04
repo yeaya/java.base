@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/AnnotationWriter.h>
-
 #include <jdk/internal/org/objectweb/asm/AnnotationVisitor.h>
 #include <jdk/internal/org/objectweb/asm/ByteVector.h>
 #include <jdk/internal/org/objectweb/asm/Constants.h>
@@ -41,54 +40,12 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 
-$FieldInfo _AnnotationWriter_FieldInfo_[] = {
-	{"symbolTable", "Ljdk/internal/org/objectweb/asm/SymbolTable;", nullptr, $PRIVATE | $FINAL, $field(AnnotationWriter, symbolTable)},
-	{"useNamedValues", "Z", nullptr, $PRIVATE | $FINAL, $field(AnnotationWriter, useNamedValues)},
-	{"annotation", "Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PRIVATE | $FINAL, $field(AnnotationWriter, annotation)},
-	{"numElementValuePairsOffset", "I", nullptr, $PRIVATE | $FINAL, $field(AnnotationWriter, numElementValuePairsOffset)},
-	{"numElementValuePairs", "I", nullptr, $PRIVATE, $field(AnnotationWriter, numElementValuePairs)},
-	{"previousAnnotation", "Ljdk/internal/org/objectweb/asm/AnnotationWriter;", nullptr, $PRIVATE | $FINAL, $field(AnnotationWriter, previousAnnotation)},
-	{"nextAnnotation", "Ljdk/internal/org/objectweb/asm/AnnotationWriter;", nullptr, $PRIVATE, $field(AnnotationWriter, nextAnnotation)},
-	{}
-};
-
-$MethodInfo _AnnotationWriter_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/SymbolTable;ZLjdk/internal/org/objectweb/asm/ByteVector;Ljdk/internal/org/objectweb/asm/AnnotationWriter;)V", nullptr, 0, $method(AnnotationWriter, init$, void, $SymbolTable*, bool, $ByteVector*, AnnotationWriter*)},
-	{"computeAnnotationsSize", "(Ljava/lang/String;)I", nullptr, 0, $method(AnnotationWriter, computeAnnotationsSize, int32_t, $String*)},
-	{"computeAnnotationsSize", "(Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/AnnotationWriter;)I", nullptr, $STATIC, $staticMethod(AnnotationWriter, computeAnnotationsSize, int32_t, AnnotationWriter*, AnnotationWriter*, AnnotationWriter*, AnnotationWriter*)},
-	{"computeParameterAnnotationsSize", "(Ljava/lang/String;[Ljdk/internal/org/objectweb/asm/AnnotationWriter;I)I", nullptr, $STATIC, $staticMethod(AnnotationWriter, computeParameterAnnotationsSize, int32_t, $String*, $AnnotationWriterArray*, int32_t)},
-	{"create", "(Ljdk/internal/org/objectweb/asm/SymbolTable;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/AnnotationWriter;)Ljdk/internal/org/objectweb/asm/AnnotationWriter;", nullptr, $STATIC, $staticMethod(AnnotationWriter, create, AnnotationWriter*, $SymbolTable*, $String*, AnnotationWriter*)},
-	{"create", "(Ljdk/internal/org/objectweb/asm/SymbolTable;ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/AnnotationWriter;)Ljdk/internal/org/objectweb/asm/AnnotationWriter;", nullptr, $STATIC, $staticMethod(AnnotationWriter, create, AnnotationWriter*, $SymbolTable*, int32_t, $TypePath*, $String*, AnnotationWriter*)},
-	{"putAnnotations", "(ILjdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, 0, $method(AnnotationWriter, putAnnotations, void, int32_t, $ByteVector*)},
-	{"putAnnotations", "(Ljdk/internal/org/objectweb/asm/SymbolTable;Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $STATIC, $staticMethod(AnnotationWriter, putAnnotations, void, $SymbolTable*, AnnotationWriter*, AnnotationWriter*, AnnotationWriter*, AnnotationWriter*, $ByteVector*)},
-	{"putParameterAnnotations", "(I[Ljdk/internal/org/objectweb/asm/AnnotationWriter;ILjdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $STATIC, $staticMethod(AnnotationWriter, putParameterAnnotations, void, int32_t, $AnnotationWriterArray*, int32_t, $ByteVector*)},
-	{"visit", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationWriter, visit, void, $String*, Object$*)},
-	{"visitAnnotation", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(AnnotationWriter, visitAnnotation, $AnnotationVisitor*, $String*, $String*)},
-	{"visitArray", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(AnnotationWriter, visitArray, $AnnotationVisitor*, $String*)},
-	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(AnnotationWriter, visitEnd, void)},
-	{"visitEnum", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationWriter, visitEnum, void, $String*, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _AnnotationWriter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.AnnotationWriter",
-	"jdk.internal.org.objectweb.asm.AnnotationVisitor",
-	nullptr,
-	_AnnotationWriter_FieldInfo_,
-	_AnnotationWriter_MethodInfo_
-};
-
-$Object* allocate$AnnotationWriter($Class* clazz) {
-	return $of($alloc(AnnotationWriter));
-}
-
 void AnnotationWriter::init$($SymbolTable* symbolTable, bool useNamedValues, $ByteVector* annotation, AnnotationWriter* previousAnnotation) {
 	$AnnotationVisitor::init$($Opcodes::ASM8);
 	$set(this, symbolTable, symbolTable);
 	this->useNamedValues = useNamedValues;
 	$set(this, annotation, annotation);
-	this->numElementValuePairsOffset = $nc(annotation)->length == 0 ? -1 : $nc(annotation)->length - 2;
+	this->numElementValuePairsOffset = $nc(annotation)->length == 0 ? -1 : annotation->length - 2;
 	$set(this, previousAnnotation, previousAnnotation);
 	if (previousAnnotation != nullptr) {
 		$set(previousAnnotation, nextAnnotation, this);
@@ -97,24 +54,24 @@ void AnnotationWriter::init$($SymbolTable* symbolTable, bool useNamedValues, $By
 
 AnnotationWriter* AnnotationWriter::create($SymbolTable* symbolTable, $String* descriptor, AnnotationWriter* previousAnnotation) {
 	$init(AnnotationWriter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteVector, annotation, $new($ByteVector));
-	$nc($(annotation->putShort($nc(symbolTable)->addConstantUtf8(descriptor))))->putShort(0);
+	$$nc(annotation->putShort($nc(symbolTable)->addConstantUtf8(descriptor)))->putShort(0);
 	return $new(AnnotationWriter, symbolTable, true, annotation, previousAnnotation);
 }
 
 AnnotationWriter* AnnotationWriter::create($SymbolTable* symbolTable, int32_t typeRef, $TypePath* typePath, $String* descriptor, AnnotationWriter* previousAnnotation) {
 	$init(AnnotationWriter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteVector, typeAnnotation, $new($ByteVector));
 	$TypeReference::putTarget(typeRef, typeAnnotation);
 	$TypePath::put(typePath, typeAnnotation);
-	$nc($(typeAnnotation->putShort($nc(symbolTable)->addConstantUtf8(descriptor))))->putShort(0);
+	$$nc(typeAnnotation->putShort($nc(symbolTable)->addConstantUtf8(descriptor)))->putShort(0);
 	return $new(AnnotationWriter, symbolTable, true, typeAnnotation, previousAnnotation);
 }
 
 void AnnotationWriter::visit($String* name, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	++this->numElementValuePairs;
 	if (this->useNamedValues) {
 		$nc(this->annotation)->putShort($nc(this->symbolTable)->addConstantUtf8(name));
@@ -122,125 +79,109 @@ void AnnotationWriter::visit($String* name, Object$* value) {
 	if ($instanceOf($String, value)) {
 		$nc(this->annotation)->put12(u's', $nc(this->symbolTable)->addConstantUtf8($cast($String, value)));
 	} else if ($instanceOf($Byte, value)) {
-		$nc(this->annotation)->put12(u'B', $nc($($nc(this->symbolTable)->addConstantInteger($nc(($cast($Byte, value)))->byteValue())))->index);
+		$nc(this->annotation)->put12(u'B', $nc($($nc(this->symbolTable)->addConstantInteger($cast($Byte, value)->byteValue())))->index);
 	} else if ($instanceOf($Boolean, value)) {
-		int32_t booleanValue = $nc(($cast($Boolean, value)))->booleanValue() ? 1 : 0;
+		int32_t booleanValue = $cast($Boolean, value)->booleanValue() ? 1 : 0;
 		$nc(this->annotation)->put12(u'Z', $nc($($nc(this->symbolTable)->addConstantInteger(booleanValue)))->index);
 	} else if ($instanceOf($Character, value)) {
-		$nc(this->annotation)->put12(u'C', $nc($($nc(this->symbolTable)->addConstantInteger($nc(($cast($Character, value)))->charValue())))->index);
+		$nc(this->annotation)->put12(u'C', $nc($($nc(this->symbolTable)->addConstantInteger($cast($Character, value)->charValue())))->index);
 	} else if ($instanceOf($Short, value)) {
-		$nc(this->annotation)->put12(u'S', $nc($($nc(this->symbolTable)->addConstantInteger($nc(($cast($Short, value)))->shortValue())))->index);
+		$nc(this->annotation)->put12(u'S', $nc($($nc(this->symbolTable)->addConstantInteger($cast($Short, value)->shortValue())))->index);
 	} else if ($instanceOf($Type, value)) {
-		$nc(this->annotation)->put12(u'c', $nc(this->symbolTable)->addConstantUtf8($($nc(($cast($Type, value)))->getDescriptor())));
+		$nc(this->annotation)->put12(u'c', $nc(this->symbolTable)->addConstantUtf8($($cast($Type, value)->getDescriptor())));
 	} else if ($instanceOf($bytes, value)) {
 		$var($bytes, byteArray, $cast($bytes, value));
-		$nc(this->annotation)->put12(u'[', $nc(byteArray)->length);
+		$nc(this->annotation)->put12(u'[', byteArray->length);
 		{
 			$var($bytes, arr$, byteArray);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				int8_t byteValue = arr$->get(i$);
 				{
-					$nc(this->annotation)->put12(u'B', $nc($($nc(this->symbolTable)->addConstantInteger(byteValue)))->index);
+					this->annotation->put12(u'B', $nc($($nc(this->symbolTable)->addConstantInteger(byteValue)))->index);
 				}
 			}
 		}
 	} else if ($instanceOf($booleans, value)) {
 		$var($booleans, booleanArray, $cast($booleans, value));
-		$nc(this->annotation)->put12(u'[', $nc(booleanArray)->length);
+		$nc(this->annotation)->put12(u'[', booleanArray->length);
 		{
 			$var($booleans, arr$, booleanArray);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				bool booleanValue = arr$->get(i$);
 				{
-					$nc(this->annotation)->put12(u'Z', $nc($($nc(this->symbolTable)->addConstantInteger(booleanValue ? 1 : 0)))->index);
+					this->annotation->put12(u'Z', $nc($($nc(this->symbolTable)->addConstantInteger(booleanValue ? 1 : 0)))->index);
 				}
 			}
 		}
 	} else if ($instanceOf($shorts, value)) {
 		$var($shorts, shortArray, $cast($shorts, value));
-		$nc(this->annotation)->put12(u'[', $nc(shortArray)->length);
+		$nc(this->annotation)->put12(u'[', shortArray->length);
 		{
 			$var($shorts, arr$, shortArray);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				int16_t shortValue = arr$->get(i$);
 				{
-					$nc(this->annotation)->put12(u'S', $nc($($nc(this->symbolTable)->addConstantInteger(shortValue)))->index);
+					this->annotation->put12(u'S', $nc($($nc(this->symbolTable)->addConstantInteger(shortValue)))->index);
 				}
 			}
 		}
 	} else if ($instanceOf($chars, value)) {
 		$var($chars, charArray, $cast($chars, value));
-		$nc(this->annotation)->put12(u'[', $nc(charArray)->length);
+		$nc(this->annotation)->put12(u'[', charArray->length);
 		{
 			$var($chars, arr$, charArray);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				char16_t charValue = arr$->get(i$);
 				{
-					$nc(this->annotation)->put12(u'C', $nc($($nc(this->symbolTable)->addConstantInteger(charValue)))->index);
+					this->annotation->put12(u'C', $nc($($nc(this->symbolTable)->addConstantInteger(charValue)))->index);
 				}
 			}
 		}
 	} else if ($instanceOf($ints, value)) {
 		$var($ints, intArray, $cast($ints, value));
-		$nc(this->annotation)->put12(u'[', $nc(intArray)->length);
+		$nc(this->annotation)->put12(u'[', intArray->length);
 		{
 			$var($ints, arr$, intArray);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				int32_t intValue = arr$->get(i$);
 				{
-					$nc(this->annotation)->put12(u'I', $nc($($nc(this->symbolTable)->addConstantInteger(intValue)))->index);
+					this->annotation->put12(u'I', $nc($($nc(this->symbolTable)->addConstantInteger(intValue)))->index);
 				}
 			}
 		}
 	} else if ($instanceOf($longs, value)) {
 		$var($longs, longArray, $cast($longs, value));
-		$nc(this->annotation)->put12(u'[', $nc(longArray)->length);
+		$nc(this->annotation)->put12(u'[', longArray->length);
 		{
 			$var($longs, arr$, longArray);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				int64_t longValue = arr$->get(i$);
 				{
-					$nc(this->annotation)->put12(u'J', $nc($($nc(this->symbolTable)->addConstantLong(longValue)))->index);
+					this->annotation->put12(u'J', $nc($($nc(this->symbolTable)->addConstantLong(longValue)))->index);
 				}
 			}
 		}
 	} else if ($instanceOf($floats, value)) {
 		$var($floats, floatArray, $cast($floats, value));
-		$nc(this->annotation)->put12(u'[', $nc(floatArray)->length);
+		$nc(this->annotation)->put12(u'[', floatArray->length);
 		{
 			$var($floats, arr$, floatArray);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				float floatValue = arr$->get(i$);
 				{
-					$nc(this->annotation)->put12(u'F', $nc($($nc(this->symbolTable)->addConstantFloat(floatValue)))->index);
+					this->annotation->put12(u'F', $nc($($nc(this->symbolTable)->addConstantFloat(floatValue)))->index);
 				}
 			}
 		}
 	} else if ($instanceOf($doubles, value)) {
 		$var($doubles, doubleArray, $cast($doubles, value));
-		$nc(this->annotation)->put12(u'[', $nc(doubleArray)->length);
+		$nc(this->annotation)->put12(u'[', doubleArray->length);
 		{
 			$var($doubles, arr$, doubleArray);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				double doubleValue = arr$->get(i$);
 				{
-					$nc(this->annotation)->put12(u'D', $nc($($nc(this->symbolTable)->addConstantDouble(doubleValue)))->index);
+					this->annotation->put12(u'D', $nc($($nc(this->symbolTable)->addConstantDouble(doubleValue)))->index);
 				}
 			}
 		}
@@ -255,7 +196,7 @@ void AnnotationWriter::visitEnum($String* name, $String* descriptor, $String* va
 	if (this->useNamedValues) {
 		$nc(this->annotation)->putShort($nc(this->symbolTable)->addConstantUtf8(name));
 	}
-	$nc($($nc(this->annotation)->put12(u'e', $nc(this->symbolTable)->addConstantUtf8(descriptor))))->putShort($nc(this->symbolTable)->addConstantUtf8(value));
+	$$nc($nc(this->annotation)->put12(u'e', $nc(this->symbolTable)->addConstantUtf8(descriptor)))->putShort($nc(this->symbolTable)->addConstantUtf8(value));
 }
 
 $AnnotationVisitor* AnnotationWriter::visitAnnotation($String* name, $String* descriptor) {
@@ -263,7 +204,7 @@ $AnnotationVisitor* AnnotationWriter::visitAnnotation($String* name, $String* de
 	if (this->useNamedValues) {
 		$nc(this->annotation)->putShort($nc(this->symbolTable)->addConstantUtf8(name));
 	}
-	$nc($($nc(this->annotation)->put12(u'@', $nc(this->symbolTable)->addConstantUtf8(descriptor))))->putShort(0);
+	$$nc($nc(this->annotation)->put12(u'@', $nc(this->symbolTable)->addConstantUtf8(descriptor)))->putShort(0);
 	return $new(AnnotationWriter, this->symbolTable, true, this->annotation, nullptr);
 }
 
@@ -320,7 +261,7 @@ int32_t AnnotationWriter::computeAnnotationsSize(AnnotationWriter* lastRuntimeVi
 }
 
 void AnnotationWriter::putAnnotations(int32_t attributeNameIndex, $ByteVector* output) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t attributeLength = 2;
 	int32_t numAnnotations = 0;
 	$var(AnnotationWriter, annotationWriter, this);
@@ -364,22 +305,22 @@ void AnnotationWriter::putAnnotations($SymbolTable* symbolTable, AnnotationWrite
 
 int32_t AnnotationWriter::computeParameterAnnotationsSize($String* attributeName, $AnnotationWriterArray* annotationWriters, int32_t annotableParameterCount) {
 	$init(AnnotationWriter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t attributeSize = 7 + 2 * annotableParameterCount;
 	for (int32_t i = 0; i < annotableParameterCount; ++i) {
 		$var(AnnotationWriter, annotationWriter, $nc(annotationWriters)->get(i));
-		attributeSize += annotationWriter == nullptr ? 0 : $nc(annotationWriter)->computeAnnotationsSize(attributeName) - 8;
+		attributeSize += annotationWriter == nullptr ? 0 : annotationWriter->computeAnnotationsSize(attributeName) - 8;
 	}
 	return attributeSize;
 }
 
 void AnnotationWriter::putParameterAnnotations(int32_t attributeNameIndex, $AnnotationWriterArray* annotationWriters, int32_t annotableParameterCount, $ByteVector* output) {
 	$init(AnnotationWriter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t attributeLength = 1 + 2 * annotableParameterCount;
 	for (int32_t i = 0; i < annotableParameterCount; ++i) {
 		$var(AnnotationWriter, annotationWriter, $nc(annotationWriters)->get(i));
-		attributeLength += annotationWriter == nullptr ? 0 : $nc(annotationWriter)->computeAnnotationsSize(nullptr) - 8;
+		attributeLength += annotationWriter == nullptr ? 0 : annotationWriter->computeAnnotationsSize(nullptr) - 8;
 	}
 	$nc(output)->putShort(attributeNameIndex);
 	output->putInt(attributeLength);
@@ -407,7 +348,44 @@ AnnotationWriter::AnnotationWriter() {
 }
 
 $Class* AnnotationWriter::load$($String* name, bool initialize) {
-	$loadClass(AnnotationWriter, name, initialize, &_AnnotationWriter_ClassInfo_, allocate$AnnotationWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"symbolTable", "Ljdk/internal/org/objectweb/asm/SymbolTable;", nullptr, $PRIVATE | $FINAL, $field(AnnotationWriter, symbolTable)},
+		{"useNamedValues", "Z", nullptr, $PRIVATE | $FINAL, $field(AnnotationWriter, useNamedValues)},
+		{"annotation", "Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PRIVATE | $FINAL, $field(AnnotationWriter, annotation)},
+		{"numElementValuePairsOffset", "I", nullptr, $PRIVATE | $FINAL, $field(AnnotationWriter, numElementValuePairsOffset)},
+		{"numElementValuePairs", "I", nullptr, $PRIVATE, $field(AnnotationWriter, numElementValuePairs)},
+		{"previousAnnotation", "Ljdk/internal/org/objectweb/asm/AnnotationWriter;", nullptr, $PRIVATE | $FINAL, $field(AnnotationWriter, previousAnnotation)},
+		{"nextAnnotation", "Ljdk/internal/org/objectweb/asm/AnnotationWriter;", nullptr, $PRIVATE, $field(AnnotationWriter, nextAnnotation)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/SymbolTable;ZLjdk/internal/org/objectweb/asm/ByteVector;Ljdk/internal/org/objectweb/asm/AnnotationWriter;)V", nullptr, 0, $method(AnnotationWriter, init$, void, $SymbolTable*, bool, $ByteVector*, AnnotationWriter*)},
+		{"computeAnnotationsSize", "(Ljava/lang/String;)I", nullptr, 0, $method(AnnotationWriter, computeAnnotationsSize, int32_t, $String*)},
+		{"computeAnnotationsSize", "(Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/AnnotationWriter;)I", nullptr, $STATIC, $staticMethod(AnnotationWriter, computeAnnotationsSize, int32_t, AnnotationWriter*, AnnotationWriter*, AnnotationWriter*, AnnotationWriter*)},
+		{"computeParameterAnnotationsSize", "(Ljava/lang/String;[Ljdk/internal/org/objectweb/asm/AnnotationWriter;I)I", nullptr, $STATIC, $staticMethod(AnnotationWriter, computeParameterAnnotationsSize, int32_t, $String*, $AnnotationWriterArray*, int32_t)},
+		{"create", "(Ljdk/internal/org/objectweb/asm/SymbolTable;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/AnnotationWriter;)Ljdk/internal/org/objectweb/asm/AnnotationWriter;", nullptr, $STATIC, $staticMethod(AnnotationWriter, create, AnnotationWriter*, $SymbolTable*, $String*, AnnotationWriter*)},
+		{"create", "(Ljdk/internal/org/objectweb/asm/SymbolTable;ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/AnnotationWriter;)Ljdk/internal/org/objectweb/asm/AnnotationWriter;", nullptr, $STATIC, $staticMethod(AnnotationWriter, create, AnnotationWriter*, $SymbolTable*, int32_t, $TypePath*, $String*, AnnotationWriter*)},
+		{"putAnnotations", "(ILjdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, 0, $method(AnnotationWriter, putAnnotations, void, int32_t, $ByteVector*)},
+		{"putAnnotations", "(Ljdk/internal/org/objectweb/asm/SymbolTable;Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/AnnotationWriter;Ljdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $STATIC, $staticMethod(AnnotationWriter, putAnnotations, void, $SymbolTable*, AnnotationWriter*, AnnotationWriter*, AnnotationWriter*, AnnotationWriter*, $ByteVector*)},
+		{"putParameterAnnotations", "(I[Ljdk/internal/org/objectweb/asm/AnnotationWriter;ILjdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $STATIC, $staticMethod(AnnotationWriter, putParameterAnnotations, void, int32_t, $AnnotationWriterArray*, int32_t, $ByteVector*)},
+		{"visit", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationWriter, visit, void, $String*, Object$*)},
+		{"visitAnnotation", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(AnnotationWriter, visitAnnotation, $AnnotationVisitor*, $String*, $String*)},
+		{"visitArray", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(AnnotationWriter, visitArray, $AnnotationVisitor*, $String*)},
+		{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(AnnotationWriter, visitEnd, void)},
+		{"visitEnum", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AnnotationWriter, visitEnum, void, $String*, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.AnnotationWriter",
+		"jdk.internal.org.objectweb.asm.AnnotationVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AnnotationWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AnnotationWriter);
+	});
 	return class$;
 }
 

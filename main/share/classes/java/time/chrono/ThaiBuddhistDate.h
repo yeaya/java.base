@@ -92,7 +92,7 @@ public:
 	::java::time::chrono::ThaiBuddhistDate* with(::java::time::LocalDate* newDate);
 	void writeExternal(::java::io::DataOutput* out);
 	$Object* writeReplace();
-	static const int64_t serialVersionUID = (int64_t)0x86F430005CBDCFF9;
+	static const int64_t serialVersionUID = (int64_t)0x86f430005cbdcff9;
 	::java::time::LocalDate* isoDate = nullptr;
 };
 

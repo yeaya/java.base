@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberShortOvrdDefClass.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,38 +8,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$NamedAttribute SingleMemberShortOvrdDefClass_Attribute_var$0[] = {
-	{"value", 'S', "2"},
-	{}
-};
-
-$CompoundAttribute _SingleMemberShortOvrdDefClass_Annotations_[] = {
-	{"LUniTest/SingleMemberShortWithDef;", SingleMemberShortOvrdDefClass_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _SingleMemberShortOvrdDefClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SingleMemberShortOvrdDefClass, init$, void)},
-	{}
-};
-
-$ClassInfo _SingleMemberShortOvrdDefClass_ClassInfo_ = {
-	$ACC_SUPER,
-	"UniTest.SingleMemberShortOvrdDefClass",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SingleMemberShortOvrdDefClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberShortOvrdDefClass_Annotations_
-};
-
-$Object* allocate$SingleMemberShortOvrdDefClass($Class* clazz) {
-	return $of($alloc(SingleMemberShortOvrdDefClass));
-}
-
 void SingleMemberShortOvrdDefClass::init$() {
 }
 
@@ -48,7 +15,33 @@ SingleMemberShortOvrdDefClass::SingleMemberShortOvrdDefClass() {
 }
 
 $Class* SingleMemberShortOvrdDefClass::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberShortOvrdDefClass, name, initialize, &_SingleMemberShortOvrdDefClass_ClassInfo_, allocate$SingleMemberShortOvrdDefClass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SingleMemberShortOvrdDefClass, init$, void)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'S', "2"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LUniTest/SingleMemberShortWithDef;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"UniTest.SingleMemberShortOvrdDefClass",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberShortOvrdDefClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberShortOvrdDefClass);
+	});
 	return class$;
 }
 

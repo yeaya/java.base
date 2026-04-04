@@ -1,5 +1,4 @@
 #include <java/security/Policy$Parameters.h>
-
 #include <java/security/Policy.h>
 #include <jcpp.h>
 
@@ -11,44 +10,38 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 namespace java {
 	namespace security {
 
-$NamedAttribute Policy$Parameters_Attribute_var$0[] = {
-	{"since", 's', "17"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _Policy$Parameters_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", Policy$Parameters_Attribute_var$0},
-	{}
-};
-
-$InnerClassInfo _Policy$Parameters_InnerClassesInfo_[] = {
-	{"java.security.Policy$Parameters", "java.security.Policy", "Parameters", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Policy$Parameters_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.security.Policy$Parameters",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Policy$Parameters_InnerClassesInfo_,
-	_Policy$Parameters_Annotations_,
-	nullptr,
-	nullptr,
-	"java.security.Policy"
-};
-
-$Object* allocate$Policy$Parameters($Class* clazz) {
-	return $of($alloc(Policy$Parameters));
-}
-
 $Class* Policy$Parameters::load$($String* name, bool initialize) {
-	$loadClass(Policy$Parameters, name, initialize, &_Policy$Parameters_ClassInfo_, allocate$Policy$Parameters);
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.Policy$Parameters", "java.security.Policy", "Parameters", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.security.Policy$Parameters",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"java.security.Policy"
+	};
+	$loadClass(Policy$Parameters, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Policy$Parameters);
+	});
 	return class$;
 }
 

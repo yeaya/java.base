@@ -1,5 +1,4 @@
 #include <java/text/AttributedString.h>
-
 #include <java/lang/StringBuffer.h>
 #include <java/text/Annotation.h>
 #include <java/text/AttributedCharacterIterator$Attribute.h>
@@ -7,9 +6,7 @@
 #include <java/text/AttributedString$AttributedStringIterator.h>
 #include <java/text/CharacterIterator.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
 #include <java/util/Map$Entry.h>
@@ -37,9 +34,7 @@ using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacter
 using $AttributedString$AttributedStringIterator = ::java::text::AttributedString$AttributedStringIterator;
 using $CharacterIterator = ::java::text::CharacterIterator;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
@@ -50,73 +45,8 @@ using $Vector = ::java::util::Vector;
 namespace java {
 	namespace text {
 
-$FieldInfo _AttributedString_FieldInfo_[] = {
-	{"text", "Ljava/lang/String;", nullptr, 0, $field(AttributedString, text)},
-	{"INITIAL_CAPACITY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributedString, INITIAL_CAPACITY)},
-	{"runCount", "I", nullptr, 0, $field(AttributedString, runCount)},
-	{"runStarts", "[I", nullptr, 0, $field(AttributedString, runStarts)},
-	{"runAttributes", "[Ljava/util/Vector;", "[Ljava/util/Vector<Ljava/text/AttributedCharacterIterator$Attribute;>;", 0, $field(AttributedString, runAttributes)},
-	{"runAttributeValues", "[Ljava/util/Vector;", "[Ljava/util/Vector<Ljava/lang/Object;>;", 0, $field(AttributedString, runAttributeValues)},
-	{}
-};
-
-$MethodInfo _AttributedString_MethodInfo_[] = {
-	{"<init>", "([Ljava/text/AttributedCharacterIterator;)V", nullptr, 0, $method(AttributedString, init$, void, $AttributedCharacterIteratorArray*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AttributedString, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;)V", $PUBLIC, $method(AttributedString, init$, void, $String*, $Map*)},
-	{"<init>", "(Ljava/text/AttributedCharacterIterator;)V", nullptr, $PUBLIC, $method(AttributedString, init$, void, $AttributedCharacterIterator*)},
-	{"<init>", "(Ljava/text/AttributedCharacterIterator;II)V", nullptr, $PUBLIC, $method(AttributedString, init$, void, $AttributedCharacterIterator*, int32_t, int32_t)},
-	{"<init>", "(Ljava/text/AttributedCharacterIterator;II[Ljava/text/AttributedCharacterIterator$Attribute;)V", nullptr, $PUBLIC, $method(AttributedString, init$, void, $AttributedCharacterIterator*, int32_t, int32_t, $AttributedCharacterIterator$AttributeArray*)},
-	{"addAttribute", "(Ljava/text/AttributedCharacterIterator$Attribute;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AttributedString, addAttribute, void, $AttributedCharacterIterator$Attribute*, Object$*)},
-	{"addAttribute", "(Ljava/text/AttributedCharacterIterator$Attribute;Ljava/lang/Object;II)V", nullptr, $PUBLIC, $virtualMethod(AttributedString, addAttribute, void, $AttributedCharacterIterator$Attribute*, Object$*, int32_t, int32_t)},
-	{"addAttributeImpl", "(Ljava/text/AttributedCharacterIterator$Attribute;Ljava/lang/Object;II)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(AttributedString, addAttributeImpl, void, $AttributedCharacterIterator$Attribute*, Object$*, int32_t, int32_t)},
-	{"addAttributeRunData", "(Ljava/text/AttributedCharacterIterator$Attribute;Ljava/lang/Object;II)V", nullptr, $PRIVATE, $method(AttributedString, addAttributeRunData, void, $AttributedCharacterIterator$Attribute*, Object$*, int32_t, int32_t)},
-	{"addAttributes", "(Ljava/util/Map;II)V", "(Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;II)V", $PUBLIC, $virtualMethod(AttributedString, addAttributes, void, $Map*, int32_t, int32_t)},
-	{"appendContents", "(Ljava/lang/StringBuffer;Ljava/text/CharacterIterator;)V", nullptr, $PRIVATE | $FINAL, $method(AttributedString, appendContents, void, $StringBuffer*, $CharacterIterator*)},
-	{"attributeValuesMatch", "(Ljava/util/Set;II)Z", "(Ljava/util/Set<+Ljava/text/AttributedCharacterIterator$Attribute;>;II)Z", $PRIVATE, $method(AttributedString, attributeValuesMatch, bool, $Set*, int32_t, int32_t)},
-	{"charAt", "(I)C", nullptr, $PRIVATE, $method(AttributedString, charAt, char16_t, int32_t)},
-	{"createRunAttributeDataVectors", "()V", nullptr, $PRIVATE | $FINAL, $method(AttributedString, createRunAttributeDataVectors, void)},
-	{"ensureRunBreak", "(I)I", nullptr, $PRIVATE | $FINAL, $method(AttributedString, ensureRunBreak, int32_t, int32_t)},
-	{"ensureRunBreak", "(IZ)I", nullptr, $PRIVATE | $FINAL, $method(AttributedString, ensureRunBreak, int32_t, int32_t, bool)},
-	{"getAttribute", "(Ljava/text/AttributedCharacterIterator$Attribute;I)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(AttributedString, getAttribute, $Object*, $AttributedCharacterIterator$Attribute*, int32_t)},
-	{"getAttributeCheckRange", "(Ljava/text/AttributedCharacterIterator$Attribute;III)Ljava/lang/Object;", nullptr, $PRIVATE, $method(AttributedString, getAttributeCheckRange, $Object*, $AttributedCharacterIterator$Attribute*, int32_t, int32_t, int32_t)},
-	{"getIterator", "()Ljava/text/AttributedCharacterIterator;", nullptr, $PUBLIC, $virtualMethod(AttributedString, getIterator, $AttributedCharacterIterator*)},
-	{"getIterator", "([Ljava/text/AttributedCharacterIterator$Attribute;)Ljava/text/AttributedCharacterIterator;", nullptr, $PUBLIC, $virtualMethod(AttributedString, getIterator, $AttributedCharacterIterator*, $AttributedCharacterIterator$AttributeArray*)},
-	{"getIterator", "([Ljava/text/AttributedCharacterIterator$Attribute;II)Ljava/text/AttributedCharacterIterator;", nullptr, $PUBLIC, $virtualMethod(AttributedString, getIterator, $AttributedCharacterIterator*, $AttributedCharacterIterator$AttributeArray*, int32_t, int32_t)},
-	{"length", "()I", nullptr, 0, $virtualMethod(AttributedString, length, int32_t)},
-	{"mapsDiffer", "(Ljava/util/Map;Ljava/util/Map;)Z", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/Map<TK;TV;>;Ljava/util/Map<TK;TV;>;)Z", $PRIVATE | $STATIC, $staticMethod(AttributedString, mapsDiffer, bool, $Map*, $Map*)},
-	{"setAttributes", "(Ljava/util/Map;I)V", "(Ljava/util/Map<Ljava/text/AttributedCharacterIterator$Attribute;Ljava/lang/Object;>;I)V", $PRIVATE, $method(AttributedString, setAttributes, void, $Map*, int32_t)},
-	{"valuesMatch", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(AttributedString, valuesMatch, bool, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _AttributedString_InnerClassesInfo_[] = {
-	{"java.text.AttributedString$AttributeMap", "java.text.AttributedString", "AttributeMap", $PRIVATE | $FINAL},
-	{"java.text.AttributedString$AttributedStringIterator", "java.text.AttributedString", "AttributedStringIterator", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _AttributedString_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.text.AttributedString",
-	"java.lang.Object",
-	nullptr,
-	_AttributedString_FieldInfo_,
-	_AttributedString_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AttributedString_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.text.AttributedString$AttributeMap,java.text.AttributedString$AttributedStringIterator"
-};
-
-$Object* allocate$AttributedString($Class* clazz) {
-	return $of($alloc(AttributedString));
-}
-
 void AttributedString::init$($AttributedCharacterIteratorArray* iterators) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (iterators == nullptr) {
 		$throwNew($NullPointerException, "Iterators must not be null"_s);
 	}
@@ -128,7 +58,7 @@ void AttributedString::init$($AttributedCharacterIteratorArray* iterators) {
 			appendContents(buffer, iterators->get(counter));
 		}
 		$set(this, text, buffer->toString());
-		if (!$nc(this->text)->isEmpty()) {
+		if (!this->text->isEmpty()) {
 			int32_t offset = 0;
 			$var($Map, last, nullptr);
 			for (int32_t counter = 0; counter < iterators->length; ++counter) {
@@ -159,7 +89,7 @@ void AttributedString::init$($String* text) {
 }
 
 void AttributedString::init$($String* text, $Map* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (text == nullptr || attributes == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -177,19 +107,18 @@ void AttributedString::init$($String* text, $Map* attributes) {
 		$var($Vector, newRunAttributeValues, $new($Vector, attributeCount));
 		$nc(this->runAttributes)->set(0, newRunAttributes);
 		$nc(this->runAttributeValues)->set(0, newRunAttributeValues);
-		$var($Iterator, iterator, $nc($(attributes->entrySet()))->iterator());
+		$var($Iterator, iterator, $$nc(attributes->entrySet())->iterator());
 		while ($nc(iterator)->hasNext()) {
 			$var($Map$Entry, entry, $cast($Map$Entry, iterator->next()));
-			newRunAttributes->addElement($cast($AttributedCharacterIterator$Attribute, $($nc(entry)->getKey())));
-			newRunAttributeValues->addElement($($nc(entry)->getValue()));
+			newRunAttributes->addElement($$cast($AttributedCharacterIterator$Attribute, $nc(entry)->getKey()));
+			newRunAttributeValues->addElement($(entry->getValue()));
 		}
 	}
 }
 
 void AttributedString::init$($AttributedCharacterIterator* text) {
-	$var($AttributedCharacterIterator, var$0, text);
-	int32_t var$1 = $nc(text)->getBeginIndex();
-	AttributedString::init$(var$0, var$1, text->getEndIndex(), nullptr);
+	int32_t var$0 = $nc(text)->getBeginIndex();
+	AttributedString::init$(text, var$0, text->getEndIndex(), nullptr);
 }
 
 void AttributedString::init$($AttributedCharacterIterator* text, int32_t beginIndex, int32_t endIndex) {
@@ -197,7 +126,7 @@ void AttributedString::init$($AttributedCharacterIterator* text, int32_t beginIn
 }
 
 void AttributedString::init$($AttributedCharacterIterator* text, int32_t beginIndex, int32_t endIndex, $AttributedCharacterIterator$AttributeArray* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (text == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -219,7 +148,7 @@ void AttributedString::init$($AttributedCharacterIterator* text, int32_t beginIn
 	if (attributes == nullptr) {
 		keys->addAll($(text->getAllAttributeKeys()));
 	} else {
-		for (int32_t i = 0; i < $nc(attributes)->length; ++i) {
+		for (int32_t i = 0; i < attributes->length; ++i) {
 			keys->add(attributes->get(i));
 		}
 		keys->retainAll($(text->getAllAttributeKeys()));
@@ -286,7 +215,7 @@ void AttributedString::addAttribute($AttributedCharacterIterator$Attribute* attr
 }
 
 void AttributedString::addAttributes($Map* attributes, int32_t beginIndex, int32_t endIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (attributes == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -304,7 +233,7 @@ void AttributedString::addAttributes($Map* attributes, int32_t beginIndex, int32
 	}
 	int32_t beginRunIndex = ensureRunBreak(beginIndex);
 	int32_t endRunIndex = ensureRunBreak(endIndex);
-	$var($Iterator, iterator, $nc($($nc(attributes)->entrySet()))->iterator());
+	$var($Iterator, iterator, $$nc($nc(attributes)->entrySet())->iterator());
 	while ($nc(iterator)->hasNext()) {
 		$var($Map$Entry, entry, $cast($Map$Entry, iterator->next()));
 		$var($AttributedCharacterIterator$Attribute, var$0, $cast($AttributedCharacterIterator$Attribute, $nc(entry)->getKey()));
@@ -324,7 +253,7 @@ void AttributedString::addAttributeImpl($AttributedCharacterIterator$Attribute* 
 }
 
 void AttributedString::createRunAttributeDataVectors() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, newRunStarts, $new($ints, AttributedString::INITIAL_CAPACITY));
 	$var($VectorArray, newRunAttributes, $new($VectorArray, AttributedString::INITIAL_CAPACITY));
 	$var($VectorArray, newRunAttributeValues, $new($VectorArray, AttributedString::INITIAL_CAPACITY));
@@ -339,7 +268,7 @@ int32_t AttributedString::ensureRunBreak(int32_t offset) {
 }
 
 int32_t AttributedString::ensureRunBreak(int32_t offset, bool copyAttrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (offset == length()) {
 		return this->runCount;
 	}
@@ -354,8 +283,8 @@ int32_t AttributedString::ensureRunBreak(int32_t offset, bool copyAttrs) {
 	if (this->runCount == currentCapacity) {
 		int32_t newCapacity = currentCapacity + (currentCapacity >> 2);
 		$var($ints, newRunStarts, $Arrays::copyOf(this->runStarts, newCapacity));
-		$var($VectorArray, newRunAttributes, $fcast($VectorArray, $Arrays::copyOf(this->runAttributes, newCapacity)));
-		$var($VectorArray, newRunAttributeValues, $fcast($VectorArray, $Arrays::copyOf(this->runAttributeValues, newCapacity)));
+		$var($VectorArray, newRunAttributes, $cast($VectorArray, $Arrays::copyOf(this->runAttributes, newCapacity)));
+		$var($VectorArray, newRunAttributeValues, $cast($VectorArray, $Arrays::copyOf(this->runAttributeValues, newCapacity)));
 		$set(this, runStarts, newRunStarts);
 		$set(this, runAttributes, newRunAttributes);
 		$set(this, runAttributeValues, newRunAttributeValues);
@@ -366,43 +295,43 @@ int32_t AttributedString::ensureRunBreak(int32_t offset, bool copyAttrs) {
 		$var($Vector, oldRunAttributes, $nc(this->runAttributes)->get(runIndex - 1));
 		$var($Vector, oldRunAttributeValues, $nc(this->runAttributeValues)->get(runIndex - 1));
 		if (oldRunAttributes != nullptr) {
-			$assign(newRunAttributes, $new($Vector, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(oldRunAttributes)))));
+			$assign(newRunAttributes, $new($Vector, $cast($AbstractCollection, oldRunAttributes)));
 		}
 		if (oldRunAttributeValues != nullptr) {
-			$assign(newRunAttributeValues, $new($Vector, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(oldRunAttributeValues)))));
+			$assign(newRunAttributeValues, $new($Vector, $cast($AbstractCollection, oldRunAttributeValues)));
 		}
 	}
 	++this->runCount;
 	for (int32_t i = this->runCount - 1; i > runIndex; --i) {
-		$nc(this->runStarts)->set(i, $nc(this->runStarts)->get(i - 1));
+		this->runStarts->set(i, this->runStarts->get(i - 1));
 		$nc(this->runAttributes)->set(i, $nc(this->runAttributes)->get(i - 1));
 		$nc(this->runAttributeValues)->set(i, $nc(this->runAttributeValues)->get(i - 1));
 	}
-	$nc(this->runStarts)->set(runIndex, offset);
+	this->runStarts->set(runIndex, offset);
 	$nc(this->runAttributes)->set(runIndex, newRunAttributes);
 	$nc(this->runAttributeValues)->set(runIndex, newRunAttributeValues);
 	return runIndex;
 }
 
 void AttributedString::addAttributeRunData($AttributedCharacterIterator$Attribute* attribute, Object$* value, int32_t beginRunIndex, int32_t endRunIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = beginRunIndex; i < endRunIndex; ++i) {
 		int32_t keyValueIndex = -1;
 		if ($nc(this->runAttributes)->get(i) == nullptr) {
 			$var($Vector, newRunAttributes, $new($Vector));
 			$var($Vector, newRunAttributeValues, $new($Vector));
-			$nc(this->runAttributes)->set(i, newRunAttributes);
+			this->runAttributes->set(i, newRunAttributes);
 			$nc(this->runAttributeValues)->set(i, newRunAttributeValues);
 		} else {
-			keyValueIndex = $nc($nc(this->runAttributes)->get(i))->indexOf(attribute);
+			keyValueIndex = $nc(this->runAttributes->get(i))->indexOf(attribute);
 		}
 		if (keyValueIndex == -1) {
-			int32_t oldSize = $nc($nc(this->runAttributes)->get(i))->size();
-			$nc($nc(this->runAttributes)->get(i))->addElement(attribute);
+			int32_t oldSize = $nc(this->runAttributes->get(i))->size();
+			$nc(this->runAttributes->get(i))->addElement(attribute);
 			try {
 				$nc($nc(this->runAttributeValues)->get(i))->addElement(value);
 			} catch ($Exception& e) {
-				$nc($nc(this->runAttributes)->get(i))->setSize(oldSize);
+				$nc(this->runAttributes->get(i))->setSize(oldSize);
 				$nc($nc(this->runAttributeValues)->get(i))->setSize(oldSize);
 			}
 		} else {
@@ -433,23 +362,23 @@ char16_t AttributedString::charAt(int32_t index) {
 
 $Object* AttributedString::getAttribute($AttributedCharacterIterator$Attribute* attribute, int32_t runIndex) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($Vector, currentRunAttributes, $nc(this->runAttributes)->get(runIndex));
 		$var($Vector, currentRunAttributeValues, $nc(this->runAttributeValues)->get(runIndex));
 		if (currentRunAttributes == nullptr) {
-			return $of(nullptr);
+			return nullptr;
 		}
 		int32_t attributeIndex = $nc(currentRunAttributes)->indexOf(attribute);
 		if (attributeIndex != -1) {
-			return $of($nc(currentRunAttributeValues)->elementAt(attributeIndex));
+			return $nc(currentRunAttributeValues)->elementAt(attributeIndex);
 		} else {
-			return $of(nullptr);
+			return nullptr;
 		}
 	}
 }
 
 $Object* AttributedString::getAttributeCheckRange($AttributedCharacterIterator$Attribute* attribute, int32_t runIndex, int32_t beginIndex, int32_t endIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, getAttribute(attribute, runIndex));
 	if ($instanceOf($Annotation, value)) {
 		if (beginIndex > 0) {
@@ -457,10 +386,10 @@ $Object* AttributedString::getAttributeCheckRange($AttributedCharacterIterator$A
 			int32_t runStart = $nc(this->runStarts)->get(currIndex);
 			while (runStart >= beginIndex && valuesMatch(value, $(getAttribute(attribute, currIndex - 1)))) {
 				--currIndex;
-				runStart = $nc(this->runStarts)->get(currIndex);
+				runStart = this->runStarts->get(currIndex);
 			}
 			if (runStart < beginIndex) {
-				return $of(nullptr);
+				return nullptr;
 			}
 		}
 		int32_t textLength = length();
@@ -472,15 +401,15 @@ $Object* AttributedString::getAttributeCheckRange($AttributedCharacterIterator$A
 				runLimit = (currIndex < this->runCount - 1) ? $nc(this->runStarts)->get(currIndex + 1) : textLength;
 			}
 			if (runLimit > endIndex) {
-				return $of(nullptr);
+				return nullptr;
 			}
 		}
 	}
-	return $of(value);
+	return value;
 }
 
 bool AttributedString::attributeValuesMatch($Set* attributes, int32_t runIndex1, int32_t runIndex2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Iterator, iterator, $nc(attributes)->iterator());
 	while ($nc(iterator)->hasNext()) {
 		$var($AttributedCharacterIterator$Attribute, key, $cast($AttributedCharacterIterator$Attribute, iterator->next()));
@@ -496,7 +425,7 @@ bool AttributedString::valuesMatch(Object$* value1, Object$* value2) {
 	if (value1 == nullptr) {
 		return value2 == nullptr;
 	} else {
-		return $nc($of(value1))->equals(value2);
+		return $of(value1)->equals(value2);
 	}
 }
 
@@ -510,7 +439,7 @@ void AttributedString::appendContents($StringBuffer* buf, $CharacterIterator* it
 }
 
 void AttributedString::setAttributes($Map* attrs, int32_t offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->runCount == 0) {
 		createRunAttributeDataVectors();
 	}
@@ -519,11 +448,11 @@ void AttributedString::setAttributes($Map* attrs, int32_t offset) {
 	if (attrs != nullptr && (size = attrs->size()) > 0) {
 		$var($Vector, runAttrs, $new($Vector, size));
 		$var($Vector, runValues, $new($Vector, size));
-		$var($Iterator, iterator, $nc($(attrs->entrySet()))->iterator());
+		$var($Iterator, iterator, $$nc(attrs->entrySet())->iterator());
 		while ($nc(iterator)->hasNext()) {
 			$var($Map$Entry, entry, $cast($Map$Entry, iterator->next()));
-			runAttrs->add($cast($AttributedCharacterIterator$Attribute, $($nc(entry)->getKey())));
-			runValues->add($($nc(entry)->getValue()));
+			runAttrs->add($$cast($AttributedCharacterIterator$Attribute, $nc(entry)->getKey()));
+			runValues->add($(entry->getValue()));
 		}
 		$nc(this->runAttributes)->set(index, runAttrs);
 		$nc(this->runAttributeValues)->set(index, runValues);
@@ -541,7 +470,66 @@ AttributedString::AttributedString() {
 }
 
 $Class* AttributedString::load$($String* name, bool initialize) {
-	$loadClass(AttributedString, name, initialize, &_AttributedString_ClassInfo_, allocate$AttributedString);
+	$FieldInfo fieldInfos$$[] = {
+		{"text", "Ljava/lang/String;", nullptr, 0, $field(AttributedString, text)},
+		{"INITIAL_CAPACITY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttributedString, INITIAL_CAPACITY)},
+		{"runCount", "I", nullptr, 0, $field(AttributedString, runCount)},
+		{"runStarts", "[I", nullptr, 0, $field(AttributedString, runStarts)},
+		{"runAttributes", "[Ljava/util/Vector;", "[Ljava/util/Vector<Ljava/text/AttributedCharacterIterator$Attribute;>;", 0, $field(AttributedString, runAttributes)},
+		{"runAttributeValues", "[Ljava/util/Vector;", "[Ljava/util/Vector<Ljava/lang/Object;>;", 0, $field(AttributedString, runAttributeValues)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/text/AttributedCharacterIterator;)V", nullptr, 0, $method(AttributedString, init$, void, $AttributedCharacterIteratorArray*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AttributedString, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;)V", $PUBLIC, $method(AttributedString, init$, void, $String*, $Map*)},
+		{"<init>", "(Ljava/text/AttributedCharacterIterator;)V", nullptr, $PUBLIC, $method(AttributedString, init$, void, $AttributedCharacterIterator*)},
+		{"<init>", "(Ljava/text/AttributedCharacterIterator;II)V", nullptr, $PUBLIC, $method(AttributedString, init$, void, $AttributedCharacterIterator*, int32_t, int32_t)},
+		{"<init>", "(Ljava/text/AttributedCharacterIterator;II[Ljava/text/AttributedCharacterIterator$Attribute;)V", nullptr, $PUBLIC, $method(AttributedString, init$, void, $AttributedCharacterIterator*, int32_t, int32_t, $AttributedCharacterIterator$AttributeArray*)},
+		{"addAttribute", "(Ljava/text/AttributedCharacterIterator$Attribute;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AttributedString, addAttribute, void, $AttributedCharacterIterator$Attribute*, Object$*)},
+		{"addAttribute", "(Ljava/text/AttributedCharacterIterator$Attribute;Ljava/lang/Object;II)V", nullptr, $PUBLIC, $virtualMethod(AttributedString, addAttribute, void, $AttributedCharacterIterator$Attribute*, Object$*, int32_t, int32_t)},
+		{"addAttributeImpl", "(Ljava/text/AttributedCharacterIterator$Attribute;Ljava/lang/Object;II)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(AttributedString, addAttributeImpl, void, $AttributedCharacterIterator$Attribute*, Object$*, int32_t, int32_t)},
+		{"addAttributeRunData", "(Ljava/text/AttributedCharacterIterator$Attribute;Ljava/lang/Object;II)V", nullptr, $PRIVATE, $method(AttributedString, addAttributeRunData, void, $AttributedCharacterIterator$Attribute*, Object$*, int32_t, int32_t)},
+		{"addAttributes", "(Ljava/util/Map;II)V", "(Ljava/util/Map<+Ljava/text/AttributedCharacterIterator$Attribute;*>;II)V", $PUBLIC, $virtualMethod(AttributedString, addAttributes, void, $Map*, int32_t, int32_t)},
+		{"appendContents", "(Ljava/lang/StringBuffer;Ljava/text/CharacterIterator;)V", nullptr, $PRIVATE | $FINAL, $method(AttributedString, appendContents, void, $StringBuffer*, $CharacterIterator*)},
+		{"attributeValuesMatch", "(Ljava/util/Set;II)Z", "(Ljava/util/Set<+Ljava/text/AttributedCharacterIterator$Attribute;>;II)Z", $PRIVATE, $method(AttributedString, attributeValuesMatch, bool, $Set*, int32_t, int32_t)},
+		{"charAt", "(I)C", nullptr, $PRIVATE, $method(AttributedString, charAt, char16_t, int32_t)},
+		{"createRunAttributeDataVectors", "()V", nullptr, $PRIVATE | $FINAL, $method(AttributedString, createRunAttributeDataVectors, void)},
+		{"ensureRunBreak", "(I)I", nullptr, $PRIVATE | $FINAL, $method(AttributedString, ensureRunBreak, int32_t, int32_t)},
+		{"ensureRunBreak", "(IZ)I", nullptr, $PRIVATE | $FINAL, $method(AttributedString, ensureRunBreak, int32_t, int32_t, bool)},
+		{"getAttribute", "(Ljava/text/AttributedCharacterIterator$Attribute;I)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(AttributedString, getAttribute, $Object*, $AttributedCharacterIterator$Attribute*, int32_t)},
+		{"getAttributeCheckRange", "(Ljava/text/AttributedCharacterIterator$Attribute;III)Ljava/lang/Object;", nullptr, $PRIVATE, $method(AttributedString, getAttributeCheckRange, $Object*, $AttributedCharacterIterator$Attribute*, int32_t, int32_t, int32_t)},
+		{"getIterator", "()Ljava/text/AttributedCharacterIterator;", nullptr, $PUBLIC, $virtualMethod(AttributedString, getIterator, $AttributedCharacterIterator*)},
+		{"getIterator", "([Ljava/text/AttributedCharacterIterator$Attribute;)Ljava/text/AttributedCharacterIterator;", nullptr, $PUBLIC, $virtualMethod(AttributedString, getIterator, $AttributedCharacterIterator*, $AttributedCharacterIterator$AttributeArray*)},
+		{"getIterator", "([Ljava/text/AttributedCharacterIterator$Attribute;II)Ljava/text/AttributedCharacterIterator;", nullptr, $PUBLIC, $virtualMethod(AttributedString, getIterator, $AttributedCharacterIterator*, $AttributedCharacterIterator$AttributeArray*, int32_t, int32_t)},
+		{"length", "()I", nullptr, 0, $virtualMethod(AttributedString, length, int32_t)},
+		{"mapsDiffer", "(Ljava/util/Map;Ljava/util/Map;)Z", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/Map<TK;TV;>;Ljava/util/Map<TK;TV;>;)Z", $PRIVATE | $STATIC, $staticMethod(AttributedString, mapsDiffer, bool, $Map*, $Map*)},
+		{"setAttributes", "(Ljava/util/Map;I)V", "(Ljava/util/Map<Ljava/text/AttributedCharacterIterator$Attribute;Ljava/lang/Object;>;I)V", $PRIVATE, $method(AttributedString, setAttributes, void, $Map*, int32_t)},
+		{"valuesMatch", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(AttributedString, valuesMatch, bool, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.text.AttributedString$AttributeMap", "java.text.AttributedString", "AttributeMap", $PRIVATE | $FINAL},
+		{"java.text.AttributedString$AttributedStringIterator", "java.text.AttributedString", "AttributedStringIterator", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.text.AttributedString",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.text.AttributedString$AttributeMap,java.text.AttributedString$AttributedStringIterator"
+	};
+	$loadClass(AttributedString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AttributedString);
+	});
 	return class$;
 }
 

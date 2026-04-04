@@ -1,5 +1,4 @@
 #include <InterruptMapDeadlock$Mapper.h>
-
 #include <InterruptMapDeadlock.h>
 #include <java/io/IOException.h>
 #include <java/nio/MappedByteBuffer.h>
@@ -11,7 +10,6 @@
 #undef READ_ONLY
 
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -20,46 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $FileChannel$MapMode = ::java::nio::channels::FileChannel$MapMode;
 using $Semaphore = ::java::util::concurrent::Semaphore;
-
-$FieldInfo _InterruptMapDeadlock$Mapper_FieldInfo_[] = {
-	{"fc", "Ljava/nio/channels/FileChannel;", nullptr, $FINAL, $field(InterruptMapDeadlock$Mapper, fc)},
-	{"gate", "Ljava/util/concurrent/Semaphore;", nullptr, $FINAL, $field(InterruptMapDeadlock$Mapper, gate)},
-	{"exception", "Ljava/lang/Exception;", nullptr, $VOLATILE, $field(InterruptMapDeadlock$Mapper, exception$)},
-	{}
-};
-
-$MethodInfo _InterruptMapDeadlock$Mapper_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/FileChannel;Ljava/util/concurrent/Semaphore;)V", nullptr, 0, $method(InterruptMapDeadlock$Mapper, init$, void, $FileChannel*, $Semaphore*)},
-	{"exception", "()Ljava/lang/Exception;", nullptr, 0, $virtualMethod(InterruptMapDeadlock$Mapper, exception, $Exception*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(InterruptMapDeadlock$Mapper, run, void)},
-	{"startMapper", "(Ljava/nio/channels/FileChannel;Ljava/util/concurrent/Semaphore;)LInterruptMapDeadlock$Mapper;", nullptr, $STATIC, $staticMethod(InterruptMapDeadlock$Mapper, startMapper, InterruptMapDeadlock$Mapper*, $FileChannel*, $Semaphore*)},
-	{}
-};
-
-$InnerClassInfo _InterruptMapDeadlock$Mapper_InnerClassesInfo_[] = {
-	{"InterruptMapDeadlock$Mapper", "InterruptMapDeadlock", "Mapper", $STATIC},
-	{}
-};
-
-$ClassInfo _InterruptMapDeadlock$Mapper_ClassInfo_ = {
-	$ACC_SUPER,
-	"InterruptMapDeadlock$Mapper",
-	"java.lang.Thread",
-	nullptr,
-	_InterruptMapDeadlock$Mapper_FieldInfo_,
-	_InterruptMapDeadlock$Mapper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InterruptMapDeadlock$Mapper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"InterruptMapDeadlock"
-};
-
-$Object* allocate$InterruptMapDeadlock$Mapper($Class* clazz) {
-	return $of($alloc(InterruptMapDeadlock$Mapper));
-}
 
 void InterruptMapDeadlock$Mapper::init$($FileChannel* fc, $Semaphore* gate) {
 	$Thread::init$();
@@ -74,7 +32,7 @@ void InterruptMapDeadlock$Mapper::run() {
 		$nc(this->fc)->map($FileChannel$MapMode::READ_ONLY, 0, 1);
 		$throwNew($Exception, "Map succeeded"_s);
 	} catch ($IOException& x) {
-		$nc($System::out)->println($$str({$of(x)->getClass(), " (expected)"_s}));
+		$nc($System::out)->println($$str({x->getClass(), " (expected)"_s}));
 	} catch ($Exception& unexpected) {
 		$set(this, exception$, unexpected);
 	}
@@ -96,7 +54,41 @@ InterruptMapDeadlock$Mapper::InterruptMapDeadlock$Mapper() {
 }
 
 $Class* InterruptMapDeadlock$Mapper::load$($String* name, bool initialize) {
-	$loadClass(InterruptMapDeadlock$Mapper, name, initialize, &_InterruptMapDeadlock$Mapper_ClassInfo_, allocate$InterruptMapDeadlock$Mapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"fc", "Ljava/nio/channels/FileChannel;", nullptr, $FINAL, $field(InterruptMapDeadlock$Mapper, fc)},
+		{"gate", "Ljava/util/concurrent/Semaphore;", nullptr, $FINAL, $field(InterruptMapDeadlock$Mapper, gate)},
+		{"exception", "Ljava/lang/Exception;", nullptr, $VOLATILE, $field(InterruptMapDeadlock$Mapper, exception$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/FileChannel;Ljava/util/concurrent/Semaphore;)V", nullptr, 0, $method(InterruptMapDeadlock$Mapper, init$, void, $FileChannel*, $Semaphore*)},
+		{"exception", "()Ljava/lang/Exception;", nullptr, 0, $virtualMethod(InterruptMapDeadlock$Mapper, exception, $Exception*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(InterruptMapDeadlock$Mapper, run, void)},
+		{"startMapper", "(Ljava/nio/channels/FileChannel;Ljava/util/concurrent/Semaphore;)LInterruptMapDeadlock$Mapper;", nullptr, $STATIC, $staticMethod(InterruptMapDeadlock$Mapper, startMapper, InterruptMapDeadlock$Mapper*, $FileChannel*, $Semaphore*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"InterruptMapDeadlock$Mapper", "InterruptMapDeadlock", "Mapper", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"InterruptMapDeadlock$Mapper",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"InterruptMapDeadlock"
+	};
+	$loadClass(InterruptMapDeadlock$Mapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InterruptMapDeadlock$Mapper);
+	});
 	return class$;
 }
 

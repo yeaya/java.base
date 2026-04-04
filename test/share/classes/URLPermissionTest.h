@@ -23,6 +23,7 @@ class $export URLPermissionTest : public ::java::lang::Object {
 	$class(URLPermissionTest, 0, ::java::lang::Object)
 public:
 	URLPermissionTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::URLPermissionTest$ActionImpliesTest* actest($String* arg1, $String* arg2, bool expected);
 	static ::URLPermissionTest$ActionImpliesTest* actest($String* url1, $String* url2, $String* arg1, $String* arg2, bool expected);

@@ -1,5 +1,4 @@
 #include <sun/security/util/LazyCodeSourcePermissionCollection.h>
-
 #include <java/io/File.h>
 #include <java/io/FilePermission.h>
 #include <java/io/IOException.h>
@@ -23,7 +22,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
 using $URL = ::java::net::URL;
-using $URLConnection = ::java::net::URLConnection;
 using $CodeSource = ::java::security::CodeSource;
 using $Permission = ::java::security::Permission;
 using $PermissionCollection = ::java::security::PermissionCollection;
@@ -34,38 +32,6 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$FieldInfo _LazyCodeSourcePermissionCollection_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LazyCodeSourcePermissionCollection, serialVersionUID)},
-	{"perms", "Ljava/security/PermissionCollection;", nullptr, $PRIVATE | $FINAL, $field(LazyCodeSourcePermissionCollection, perms)},
-	{"cs", "Ljava/security/CodeSource;", nullptr, $PRIVATE | $FINAL, $field(LazyCodeSourcePermissionCollection, cs)},
-	{"permissionAdded", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LazyCodeSourcePermissionCollection, permissionAdded)},
-	{}
-};
-
-$MethodInfo _LazyCodeSourcePermissionCollection_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/PermissionCollection;Ljava/security/CodeSource;)V", nullptr, $PUBLIC, $method(LazyCodeSourcePermissionCollection, init$, void, $PermissionCollection*, $CodeSource*)},
-	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(LazyCodeSourcePermissionCollection, add, void, $Permission*)},
-	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(LazyCodeSourcePermissionCollection, elements, $Enumeration*)},
-	{"ensureAdded", "()V", nullptr, $PRIVATE, $method(LazyCodeSourcePermissionCollection, ensureAdded, void)},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(LazyCodeSourcePermissionCollection, implies, bool, $Permission*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LazyCodeSourcePermissionCollection, toString, $String*)},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(LazyCodeSourcePermissionCollection, writeReplace, $Object*)},
-	{}
-};
-
-$ClassInfo _LazyCodeSourcePermissionCollection_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.util.LazyCodeSourcePermissionCollection",
-	"java.security.PermissionCollection",
-	nullptr,
-	_LazyCodeSourcePermissionCollection_FieldInfo_,
-	_LazyCodeSourcePermissionCollection_MethodInfo_
-};
-
-$Object* allocate$LazyCodeSourcePermissionCollection($Class* clazz) {
-	return $of($alloc(LazyCodeSourcePermissionCollection));
-}
-
 void LazyCodeSourcePermissionCollection::init$($PermissionCollection* perms, $CodeSource* cs) {
 	$PermissionCollection::init$();
 	$set(this, perms, perms);
@@ -73,7 +39,7 @@ void LazyCodeSourcePermissionCollection::init$($PermissionCollection* perms, $Co
 }
 
 void LazyCodeSourcePermissionCollection::ensureAdded() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->permissionAdded) {
 		$synchronized(this->perms) {
 			if (this->permissionAdded) {
@@ -82,7 +48,7 @@ void LazyCodeSourcePermissionCollection::ensureAdded() {
 			$var($URL, location, $nc(this->cs)->getLocation());
 			if (location != nullptr) {
 				try {
-					$var($Permission, p, $nc($(location->openConnection()))->getPermission());
+					$var($Permission, p, $$nc(location->openConnection())->getPermission());
 					if (p != nullptr) {
 						if ($instanceOf($FilePermission, p)) {
 							$var($String, path, p->getName());
@@ -93,13 +59,13 @@ void LazyCodeSourcePermissionCollection::ensureAdded() {
 								$assign(p, $new($FilePermission, path, $SecurityConstants::FILE_READ_ACTION));
 							}
 						}
-						$nc(this->perms)->add(p);
+						this->perms->add(p);
 					}
 				} catch ($IOException& ioe) {
 				}
 			}
 			if (isReadOnly()) {
-				$nc(this->perms)->setReadOnly();
+				this->perms->setReadOnly();
 			}
 			this->permissionAdded = true;
 		}
@@ -130,14 +96,41 @@ $String* LazyCodeSourcePermissionCollection::toString() {
 
 $Object* LazyCodeSourcePermissionCollection::writeReplace() {
 	ensureAdded();
-	return $of(this->perms);
+	return this->perms;
 }
 
 LazyCodeSourcePermissionCollection::LazyCodeSourcePermissionCollection() {
 }
 
 $Class* LazyCodeSourcePermissionCollection::load$($String* name, bool initialize) {
-	$loadClass(LazyCodeSourcePermissionCollection, name, initialize, &_LazyCodeSourcePermissionCollection_ClassInfo_, allocate$LazyCodeSourcePermissionCollection);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LazyCodeSourcePermissionCollection, serialVersionUID)},
+		{"perms", "Ljava/security/PermissionCollection;", nullptr, $PRIVATE | $FINAL, $field(LazyCodeSourcePermissionCollection, perms)},
+		{"cs", "Ljava/security/CodeSource;", nullptr, $PRIVATE | $FINAL, $field(LazyCodeSourcePermissionCollection, cs)},
+		{"permissionAdded", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LazyCodeSourcePermissionCollection, permissionAdded)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/PermissionCollection;Ljava/security/CodeSource;)V", nullptr, $PUBLIC, $method(LazyCodeSourcePermissionCollection, init$, void, $PermissionCollection*, $CodeSource*)},
+		{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(LazyCodeSourcePermissionCollection, add, void, $Permission*)},
+		{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(LazyCodeSourcePermissionCollection, elements, $Enumeration*)},
+		{"ensureAdded", "()V", nullptr, $PRIVATE, $method(LazyCodeSourcePermissionCollection, ensureAdded, void)},
+		{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(LazyCodeSourcePermissionCollection, implies, bool, $Permission*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LazyCodeSourcePermissionCollection, toString, $String*)},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(LazyCodeSourcePermissionCollection, writeReplace, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.util.LazyCodeSourcePermissionCollection",
+		"java.security.PermissionCollection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LazyCodeSourcePermissionCollection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LazyCodeSourcePermissionCollection);
+	});
 	return class$;
 }
 

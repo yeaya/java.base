@@ -1,11 +1,9 @@
 #include <StressLoopback$Sink.h>
-
 #include <StressLoopback$Sink$1.h>
 #include <StressLoopback.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/AsynchronousByteChannel.h>
 #include <java/nio/channels/Channel.h>
-#include <java/nio/channels/CompletionHandler.h>
 #include <java/util/Random.h>
 #include <jcpp.h>
 
@@ -18,55 +16,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $AsynchronousByteChannel = ::java::nio::channels::AsynchronousByteChannel;
-using $Channel = ::java::nio::channels::Channel;
-using $CompletionHandler = ::java::nio::channels::CompletionHandler;
-using $Random = ::java::util::Random;
-
-$FieldInfo _StressLoopback$Sink_FieldInfo_[] = {
-	{"channel", "Ljava/nio/channels/AsynchronousByteChannel;", nullptr, $PRIVATE | $FINAL, $field(StressLoopback$Sink, channel)},
-	{"readBuffer", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $FINAL, $field(StressLoopback$Sink, readBuffer)},
-	{"bytesRead", "J", nullptr, $PRIVATE | $VOLATILE, $field(StressLoopback$Sink, bytesRead)},
-	{}
-};
-
-$MethodInfo _StressLoopback$Sink_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/AsynchronousByteChannel;)V", nullptr, 0, $method(StressLoopback$Sink, init$, void, $AsynchronousByteChannel*)},
-	{"finish", "()J", nullptr, 0, $virtualMethod(StressLoopback$Sink, finish, int64_t)},
-	{"start", "()V", nullptr, 0, $virtualMethod(StressLoopback$Sink, start, void)},
-	{}
-};
-
-$InnerClassInfo _StressLoopback$Sink_InnerClassesInfo_[] = {
-	{"StressLoopback$Sink", "StressLoopback", "Sink", $STATIC},
-	{"StressLoopback$Sink$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _StressLoopback$Sink_ClassInfo_ = {
-	$ACC_SUPER,
-	"StressLoopback$Sink",
-	"java.lang.Object",
-	nullptr,
-	_StressLoopback$Sink_FieldInfo_,
-	_StressLoopback$Sink_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StressLoopback$Sink_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"StressLoopback"
-};
-
-$Object* allocate$StressLoopback$Sink($Class* clazz) {
-	return $of($alloc(StressLoopback$Sink));
-}
 
 void StressLoopback$Sink::init$($AsynchronousByteChannel* channel) {
 	$set(this, channel, channel);
 	$init($StressLoopback);
 	int32_t size = 1024 + $nc($StressLoopback::rand)->nextInt(10000);
-	$set(this, readBuffer, ($nc($StressLoopback::rand)->nextBoolean()) ? $ByteBuffer::allocateDirect(size) : $ByteBuffer::allocate(size));
+	$set(this, readBuffer, ($StressLoopback::rand->nextBoolean()) ? $ByteBuffer::allocateDirect(size) : $ByteBuffer::allocate(size));
 }
 
 void StressLoopback$Sink::start() {
@@ -82,7 +37,41 @@ StressLoopback$Sink::StressLoopback$Sink() {
 }
 
 $Class* StressLoopback$Sink::load$($String* name, bool initialize) {
-	$loadClass(StressLoopback$Sink, name, initialize, &_StressLoopback$Sink_ClassInfo_, allocate$StressLoopback$Sink);
+	$FieldInfo fieldInfos$$[] = {
+		{"channel", "Ljava/nio/channels/AsynchronousByteChannel;", nullptr, $PRIVATE | $FINAL, $field(StressLoopback$Sink, channel)},
+		{"readBuffer", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $FINAL, $field(StressLoopback$Sink, readBuffer)},
+		{"bytesRead", "J", nullptr, $PRIVATE | $VOLATILE, $field(StressLoopback$Sink, bytesRead)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/AsynchronousByteChannel;)V", nullptr, 0, $method(StressLoopback$Sink, init$, void, $AsynchronousByteChannel*)},
+		{"finish", "()J", nullptr, 0, $virtualMethod(StressLoopback$Sink, finish, int64_t)},
+		{"start", "()V", nullptr, 0, $virtualMethod(StressLoopback$Sink, start, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"StressLoopback$Sink", "StressLoopback", "Sink", $STATIC},
+		{"StressLoopback$Sink$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"StressLoopback$Sink",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"StressLoopback"
+	};
+	$loadClass(StressLoopback$Sink, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StressLoopback$Sink);
+	});
 	return class$;
 }
 

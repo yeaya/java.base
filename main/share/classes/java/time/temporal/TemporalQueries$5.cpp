@@ -1,5 +1,4 @@
 #include <java/time/temporal/TemporalQueries$5.h>
-
 #include <java/time/ZoneId.h>
 #include <java/time/temporal/TemporalAccessor.h>
 #include <java/time/temporal/TemporalQueries.h>
@@ -21,51 +20,13 @@ namespace java {
 	namespace time {
 		namespace temporal {
 
-$MethodInfo _TemporalQueries$5_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TemporalQueries$5, init$, void)},
-	{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/ZoneId;", nullptr, $PUBLIC, $virtualMethod(TemporalQueries$5, queryFrom, $Object*, $TemporalAccessor*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TemporalQueries$5, toString, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _TemporalQueries$5_EnclosingMethodInfo_ = {
-	"java.time.temporal.TemporalQueries",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _TemporalQueries$5_InnerClassesInfo_[] = {
-	{"java.time.temporal.TemporalQueries$5", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TemporalQueries$5_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.time.temporal.TemporalQueries$5",
-	"java.lang.Object",
-	"java.time.temporal.TemporalQuery",
-	nullptr,
-	_TemporalQueries$5_MethodInfo_,
-	"Ljava/lang/Object;Ljava/time/temporal/TemporalQuery<Ljava/time/ZoneId;>;",
-	&_TemporalQueries$5_EnclosingMethodInfo_,
-	_TemporalQueries$5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.temporal.TemporalQueries"
-};
-
-$Object* allocate$TemporalQueries$5($Class* clazz) {
-	return $of($alloc(TemporalQueries$5));
-}
-
 void TemporalQueries$5::init$() {
 }
 
 $Object* TemporalQueries$5::queryFrom($TemporalAccessor* temporal) {
 	$init($TemporalQueries);
 	$var($ZoneId, zone, $cast($ZoneId, $nc(temporal)->query($TemporalQueries::ZONE_ID)));
-	return $of((zone != nullptr ? zone : $cast($ZoneId, temporal->query($TemporalQueries::OFFSET))));
+	return (zone != nullptr ? zone : $cast($ZoneId, temporal->query($TemporalQueries::OFFSET)));
 }
 
 $String* TemporalQueries$5::toString() {
@@ -76,7 +37,39 @@ TemporalQueries$5::TemporalQueries$5() {
 }
 
 $Class* TemporalQueries$5::load$($String* name, bool initialize) {
-	$loadClass(TemporalQueries$5, name, initialize, &_TemporalQueries$5_ClassInfo_, allocate$TemporalQueries$5);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TemporalQueries$5, init$, void)},
+		{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/ZoneId;", nullptr, $PUBLIC, $virtualMethod(TemporalQueries$5, queryFrom, $Object*, $TemporalAccessor*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TemporalQueries$5, toString, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.time.temporal.TemporalQueries",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.temporal.TemporalQueries$5", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.time.temporal.TemporalQueries$5",
+		"java.lang.Object",
+		"java.time.temporal.TemporalQuery",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/time/temporal/TemporalQuery<Ljava/time/ZoneId;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.temporal.TemporalQueries"
+	};
+	$loadClass(TemporalQueries$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TemporalQueries$5);
+	});
 	return class$;
 }
 

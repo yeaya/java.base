@@ -22,7 +22,10 @@ public:
 	::java::lang::reflect::Method* m = nullptr;
 	TestSynchronization$TestFailedException(const TestSynchronization$TestFailedException& e);
 	virtual void throw$() override;
-	inline TestSynchronization$TestFailedException* operator ->() {
+	inline TestSynchronization$TestFailedException* operator ->() const {
+		return (TestSynchronization$TestFailedException*)throwing$;
+	}
+	inline operator TestSynchronization$TestFailedException*() const {
 		return (TestSynchronization$TestFailedException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <p2/test/Main.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/Module.h>
@@ -14,40 +13,19 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Module = ::java::lang::Module;
 using $ModuleLayer = ::java::lang::ModuleLayer;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Optional = ::java::util::Optional;
 
 namespace p2 {
 	namespace test {
-
-$MethodInfo _Main_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main, init$, void)},
-	{"findClass", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class<*>;", $STATIC, $staticMethod(Main, findClass, $Class*, $Module*, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Main, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Main_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"p2.test.Main",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Main_MethodInfo_
-};
-
-$Object* allocate$Main($Class* clazz) {
-	return $of($alloc(Main));
-}
 
 void Main::init$() {
 }
 
 void Main::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(Main);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ModuleLayer, boot, $ModuleLayer::boot());
-	$var($Module, m1, $cast($Module, $nc($($nc(boot)->findModule("m1"_s)))->get()));
+	$var($Module, m1, $cast($Module, $$nc($nc(boot)->findModule("m1"_s))->get()));
 	$var($Module, m2, Main::class$->getModule());
 	findClass(m1, "p1.A"_s);
 	findClass(m1, "p1.internal.B"_s);
@@ -63,14 +41,14 @@ void Main::main($StringArray* args) {
 }
 
 $Class* Main::findClass($Module* module, $String* cn) {
+	$useLocalObjectStack();
 	$load(Main);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* c = $Class::forName(module, cn);
 	if (c == nullptr) {
 		$throwNew($RuntimeException, $$str({cn, " not found in "_s, module}));
 	}
-	if ($nc(c)->getModule() != module) {
+	if (c->getModule() != module) {
 		$throwNew($RuntimeException, $$str({$(c->getModule()), " != "_s, module}));
 	}
 	return c;
@@ -80,7 +58,23 @@ Main::Main() {
 }
 
 $Class* Main::load$($String* name, bool initialize) {
-	$loadClass(Main, name, initialize, &_Main_ClassInfo_, allocate$Main);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main, init$, void)},
+		{"findClass", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class<*>;", $STATIC, $staticMethod(Main, findClass, $Class*, $Module*, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Main, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"p2.test.Main",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <Nulls.h>
-
 #include <Nulls$1.h>
 #include <Nulls$2.h>
 #include <Nulls$3.h>
@@ -47,41 +46,6 @@ using $EnumSet = ::java::util::EnumSet;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
 
-$MethodInfo _Nulls_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Nulls, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Nulls, main, void, $StringArray*), "java.io.IOException"},
-	{"npeExpected", "()V", nullptr, $STATIC, $staticMethod(Nulls, npeExpected, void)},
-	{}
-};
-
-$InnerClassInfo _Nulls_InnerClassesInfo_[] = {
-	{"Nulls$5", nullptr, nullptr, 0},
-	{"Nulls$4", nullptr, nullptr, 0},
-	{"Nulls$3", nullptr, nullptr, 0},
-	{"Nulls$2", nullptr, nullptr, 0},
-	{"Nulls$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Nulls_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Nulls",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Nulls_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Nulls_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"Nulls$5,Nulls$4,Nulls$3,Nulls$2,Nulls$1"
-};
-
-$Object* allocate$Nulls($Class* clazz) {
-	return $of($alloc(Nulls));
-}
-
 void Nulls::init$() {
 }
 
@@ -90,10 +54,10 @@ void Nulls::npeExpected() {
 }
 
 void Nulls::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$load($FileVisitOption);
-		$var($Set, var$0, static_cast<$Set*>($EnumSet::noneOf($FileVisitOption::class$)));
+		$var($Set, var$0, $EnumSet::noneOf($FileVisitOption::class$));
 		$Files::walkFileTree(nullptr, var$0, $Integer::MAX_VALUE, $$new($Nulls$1));
 		npeExpected();
 	} catch ($NullPointerException& e) {
@@ -107,7 +71,7 @@ void Nulls::main($StringArray* args) {
 	try {
 		$var($Path, var$2, $Paths::get("."_s, $$new($StringArray, 0)));
 		$load($FileVisitOption);
-		$var($Set, var$3, static_cast<$Set*>($EnumSet::noneOf($FileVisitOption::class$)));
+		$var($Set, var$3, $EnumSet::noneOf($FileVisitOption::class$));
 		$Files::walkFileTree(var$2, var$3, -1, $$new($Nulls$3));
 		$throwNew($RuntimeException, "IllegalArgumentExpected expected"_s);
 	} catch ($IllegalArgumentException& e) {
@@ -116,15 +80,14 @@ void Nulls::main($StringArray* args) {
 		$var($Set, opts, $new($HashSet, 1));
 		opts->add(nullptr);
 		$var($Path, var$4, $Paths::get("."_s, $$new($StringArray, 0)));
-		$var($Set, var$5, opts);
-		$Files::walkFileTree(var$4, var$5, $Integer::MAX_VALUE, $$new($Nulls$4));
+		$Files::walkFileTree(var$4, opts, $Integer::MAX_VALUE, $$new($Nulls$4));
 		npeExpected();
 	} catch ($NullPointerException& e) {
 	}
 	try {
-		$var($Path, var$6, $Paths::get("."_s, $$new($StringArray, 0)));
+		$var($Path, var$5, $Paths::get("."_s, $$new($StringArray, 0)));
 		$load($FileVisitOption);
-		$Files::walkFileTree(var$6, $($EnumSet::noneOf($FileVisitOption::class$)), $Integer::MAX_VALUE, nullptr);
+		$Files::walkFileTree(var$5, $($EnumSet::noneOf($FileVisitOption::class$)), $Integer::MAX_VALUE, nullptr);
 		npeExpected();
 	} catch ($NullPointerException& e) {
 	}
@@ -171,7 +134,37 @@ Nulls::Nulls() {
 }
 
 $Class* Nulls::load$($String* name, bool initialize) {
-	$loadClass(Nulls, name, initialize, &_Nulls_ClassInfo_, allocate$Nulls);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Nulls, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Nulls, main, void, $StringArray*), "java.io.IOException"},
+		{"npeExpected", "()V", nullptr, $STATIC, $staticMethod(Nulls, npeExpected, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Nulls$5", nullptr, nullptr, 0},
+		{"Nulls$4", nullptr, nullptr, 0},
+		{"Nulls$3", nullptr, nullptr, 0},
+		{"Nulls$2", nullptr, nullptr, 0},
+		{"Nulls$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Nulls",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"Nulls$5,Nulls$4,Nulls$3,Nulls$2,Nulls$1"
+	};
+	$loadClass(Nulls, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Nulls);
+	});
 	return class$;
 }
 

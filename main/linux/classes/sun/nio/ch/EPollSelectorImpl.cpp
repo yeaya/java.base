@@ -1,5 +1,4 @@
 #include <sun/nio/ch/EPollSelectorImpl.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
@@ -42,9 +41,7 @@ using $ClosedSelectorException = ::java::nio::channels::ClosedSelectorException;
 using $Selector = ::java::nio::channels::Selector;
 using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
 using $ArrayDeque = ::java::util::ArrayDeque;
-using $Deque = ::java::util::Deque;
 using $HashMap = ::java::util::HashMap;
-using $Map = ::java::util::Map;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 using $Consumer = ::java::util::function::Consumer;
 using $EPoll = ::sun::nio::ch::EPoll;
@@ -58,47 +55,6 @@ using $SelectorImpl = ::sun::nio::ch::SelectorImpl;
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _EPollSelectorImpl_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(EPollSelectorImpl, $assertionsDisabled)},
-	{"NUM_EPOLLEVENTS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EPollSelectorImpl, NUM_EPOLLEVENTS)},
-	{"epfd", "I", nullptr, $PRIVATE | $FINAL, $field(EPollSelectorImpl, epfd)},
-	{"pollArrayAddress", "J", nullptr, $PRIVATE | $FINAL, $field(EPollSelectorImpl, pollArrayAddress)},
-	{"eventfd", "Lsun/nio/ch/EventFD;", nullptr, $PRIVATE | $FINAL, $field(EPollSelectorImpl, eventfd)},
-	{"fdToKey", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Lsun/nio/ch/SelectionKeyImpl;>;", $PRIVATE | $FINAL, $field(EPollSelectorImpl, fdToKey)},
-	{"updateLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(EPollSelectorImpl, updateLock)},
-	{"updateKeys", "Ljava/util/Deque;", "Ljava/util/Deque<Lsun/nio/ch/SelectionKeyImpl;>;", $PRIVATE | $FINAL, $field(EPollSelectorImpl, updateKeys)},
-	{"interruptLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(EPollSelectorImpl, interruptLock)},
-	{"interruptTriggered", "Z", nullptr, $PRIVATE, $field(EPollSelectorImpl, interruptTriggered)},
-	{}
-};
-
-$MethodInfo _EPollSelectorImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, 0, $method(EPollSelectorImpl, init$, void, $SelectorProvider*), "java.io.IOException"},
-	{"clearInterrupt", "()V", nullptr, $PRIVATE, $method(EPollSelectorImpl, clearInterrupt, void), "java.io.IOException"},
-	{"doSelect", "(Ljava/util/function/Consumer;J)I", "(Ljava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;J)I", $PROTECTED, $virtualMethod(EPollSelectorImpl, doSelect, int32_t, $Consumer*, int64_t), "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(EPollSelectorImpl, ensureOpen, void)},
-	{"implClose", "()V", nullptr, $PROTECTED, $virtualMethod(EPollSelectorImpl, implClose, void), "java.io.IOException"},
-	{"implDereg", "(Lsun/nio/ch/SelectionKeyImpl;)V", nullptr, $PROTECTED, $virtualMethod(EPollSelectorImpl, implDereg, void, $SelectionKeyImpl*), "java.io.IOException"},
-	{"processEvents", "(ILjava/util/function/Consumer;)I", "(ILjava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;)I", $PRIVATE, $method(EPollSelectorImpl, processEvents, int32_t, int32_t, $Consumer*), "java.io.IOException"},
-	{"processUpdateQueue", "()V", nullptr, $PRIVATE, $method(EPollSelectorImpl, processUpdateQueue, void)},
-	{"setEventOps", "(Lsun/nio/ch/SelectionKeyImpl;)V", nullptr, $PUBLIC, $virtualMethod(EPollSelectorImpl, setEventOps, void, $SelectionKeyImpl*)},
-	{"wakeup", "()Ljava/nio/channels/Selector;", nullptr, $PUBLIC, $virtualMethod(EPollSelectorImpl, wakeup, $Selector*)},
-	{}
-};
-
-$ClassInfo _EPollSelectorImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.EPollSelectorImpl",
-	"sun.nio.ch.SelectorImpl",
-	nullptr,
-	_EPollSelectorImpl_FieldInfo_,
-	_EPollSelectorImpl_MethodInfo_
-};
-
-$Object* allocate$EPollSelectorImpl($Class* clazz) {
-	return $of($alloc(EPollSelectorImpl));
-}
 
 bool EPollSelectorImpl::$assertionsDisabled = false;
 int32_t EPollSelectorImpl::NUM_EPOLLEVENTS = 0;
@@ -138,49 +94,47 @@ int32_t EPollSelectorImpl::doSelect($Consumer* action, int64_t timeout) {
 	int32_t numEntries = 0;
 	processUpdateQueue();
 	processDeregisterQueue();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			begin(blocking);
-			do {
-				int64_t startTime = timedPoll ? $System::nanoTime() : (int64_t)0;
-				numEntries = $EPoll::wait(this->epfd, this->pollArrayAddress, EPollSelectorImpl::NUM_EPOLLEVENTS, to);
-				if (numEntries == $IOStatus::INTERRUPTED && timedPoll) {
-					int64_t adjust = $System::nanoTime() - startTime;
-					$init($TimeUnit);
-					to -= $TimeUnit::MILLISECONDS->convert(adjust, $TimeUnit::NANOSECONDS);
-					if (to <= 0) {
-						numEntries = 0;
-					}
+	$var($Throwable, var$0, nullptr);
+	try {
+		begin(blocking);
+		do {
+			int64_t startTime = timedPoll ? $System::nanoTime() : 0;
+			numEntries = $EPoll::wait(this->epfd, this->pollArrayAddress, EPollSelectorImpl::NUM_EPOLLEVENTS, to);
+			if (numEntries == $IOStatus::INTERRUPTED && timedPoll) {
+				int64_t adjust = $System::nanoTime() - startTime;
+				$init($TimeUnit);
+				to -= $TimeUnit::MILLISECONDS->convert(adjust, $TimeUnit::NANOSECONDS);
+				if (to <= 0) {
+					numEntries = 0;
 				}
-			} while (numEntries == $IOStatus::INTERRUPTED);
-			if (!EPollSelectorImpl::$assertionsDisabled && !$IOStatus::check(numEntries)) {
-				$throwNew($AssertionError);
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			end(blocking);
+		} while (numEntries == $IOStatus::INTERRUPTED);
+		if (!EPollSelectorImpl::$assertionsDisabled && !$IOStatus::check(numEntries)) {
+			$throwNew($AssertionError);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		end(blocking);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	processDeregisterQueue();
 	return processEvents(numEntries, action);
 }
 
 void EPollSelectorImpl::processUpdateQueue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!EPollSelectorImpl::$assertionsDisabled && !$Thread::holdsLock(this)) {
 		$throwNew($AssertionError);
 	}
 	$synchronized(this->updateLock) {
 		$var($SelectionKeyImpl, ski, nullptr);
-		while (($assign(ski, $cast($SelectionKeyImpl, $nc(this->updateKeys)->pollFirst()))) != nullptr) {
+		while (($assign(ski, $cast($SelectionKeyImpl, this->updateKeys->pollFirst()))) != nullptr) {
 			if ($nc(ski)->isValid()) {
 				int32_t fd = ski->getFDVal();
-				$var($SelectionKeyImpl, previous, $cast($SelectionKeyImpl, $nc(this->fdToKey)->putIfAbsent($($Integer::valueOf(fd)), ski)));
+				$var($SelectionKeyImpl, previous, $cast($SelectionKeyImpl, this->fdToKey->putIfAbsent($($Integer::valueOf(fd)), ski)));
 				if (!EPollSelectorImpl::$assertionsDisabled && !((previous == nullptr) || (previous == ski))) {
 					$throwNew($AssertionError);
 				}
@@ -202,7 +156,7 @@ void EPollSelectorImpl::processUpdateQueue() {
 }
 
 int32_t EPollSelectorImpl::processEvents(int32_t numEntries, $Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!EPollSelectorImpl::$assertionsDisabled && !$Thread::holdsLock(this)) {
 		$throwNew($AssertionError);
 	}
@@ -214,7 +168,7 @@ int32_t EPollSelectorImpl::processEvents(int32_t numEntries, $Consumer* action) 
 		if (fd == $nc(this->eventfd)->efd()) {
 			interrupted = true;
 		} else {
-			$var($SelectionKeyImpl, ski, $cast($SelectionKeyImpl, $nc(this->fdToKey)->get($($Integer::valueOf(fd)))));
+			$var($SelectionKeyImpl, ski, $cast($SelectionKeyImpl, this->fdToKey->get($($Integer::valueOf(fd)))));
 			if (ski != nullptr) {
 				int32_t rOps = $EPoll::getEvents(event);
 				numKeysUpdated += processReadyEvents(rOps, ski, action);
@@ -247,7 +201,7 @@ void EPollSelectorImpl::implDereg($SelectionKeyImpl* ski) {
 		$throwNew($AssertionError);
 	}
 	int32_t fd = $nc(ski)->getFDVal();
-	if ($nc(this->fdToKey)->remove($($Integer::valueOf(fd))) != nullptr) {
+	if (this->fdToKey->remove($($Integer::valueOf(fd))) != nullptr) {
 		if (ski->registeredEvents() != 0) {
 			$EPoll::ctl(this->epfd, 2, fd, 0);
 			ski->registeredEvents(0);
@@ -260,7 +214,7 @@ void EPollSelectorImpl::implDereg($SelectionKeyImpl* ski) {
 void EPollSelectorImpl::setEventOps($SelectionKeyImpl* ski) {
 	ensureOpen();
 	$synchronized(this->updateLock) {
-		$nc(this->updateKeys)->addLast(ski);
+		this->updateKeys->addLast(ski);
 	}
 }
 
@@ -270,7 +224,7 @@ $Selector* EPollSelectorImpl::wakeup() {
 			try {
 				$nc(this->eventfd)->set();
 			} catch ($IOException& ioe) {
-				$throwNew($InternalError, static_cast<$Throwable*>(ioe));
+				$throwNew($InternalError, ioe);
 			}
 			this->interruptTriggered = true;
 		}
@@ -285,7 +239,7 @@ void EPollSelectorImpl::clearInterrupt() {
 	}
 }
 
-void clinit$EPollSelectorImpl($Class* class$) {
+void EPollSelectorImpl::clinit$($Class* clazz) {
 	EPollSelectorImpl::$assertionsDisabled = !EPollSelectorImpl::class$->desiredAssertionStatus();
 	EPollSelectorImpl::NUM_EPOLLEVENTS = $Math::min($IOUtil::fdLimit(), 1024);
 }
@@ -294,7 +248,43 @@ EPollSelectorImpl::EPollSelectorImpl() {
 }
 
 $Class* EPollSelectorImpl::load$($String* name, bool initialize) {
-	$loadClass(EPollSelectorImpl, name, initialize, &_EPollSelectorImpl_ClassInfo_, clinit$EPollSelectorImpl, allocate$EPollSelectorImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(EPollSelectorImpl, $assertionsDisabled)},
+		{"NUM_EPOLLEVENTS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EPollSelectorImpl, NUM_EPOLLEVENTS)},
+		{"epfd", "I", nullptr, $PRIVATE | $FINAL, $field(EPollSelectorImpl, epfd)},
+		{"pollArrayAddress", "J", nullptr, $PRIVATE | $FINAL, $field(EPollSelectorImpl, pollArrayAddress)},
+		{"eventfd", "Lsun/nio/ch/EventFD;", nullptr, $PRIVATE | $FINAL, $field(EPollSelectorImpl, eventfd)},
+		{"fdToKey", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Lsun/nio/ch/SelectionKeyImpl;>;", $PRIVATE | $FINAL, $field(EPollSelectorImpl, fdToKey)},
+		{"updateLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(EPollSelectorImpl, updateLock)},
+		{"updateKeys", "Ljava/util/Deque;", "Ljava/util/Deque<Lsun/nio/ch/SelectionKeyImpl;>;", $PRIVATE | $FINAL, $field(EPollSelectorImpl, updateKeys)},
+		{"interruptLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(EPollSelectorImpl, interruptLock)},
+		{"interruptTriggered", "Z", nullptr, $PRIVATE, $field(EPollSelectorImpl, interruptTriggered)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, 0, $method(EPollSelectorImpl, init$, void, $SelectorProvider*), "java.io.IOException"},
+		{"clearInterrupt", "()V", nullptr, $PRIVATE, $method(EPollSelectorImpl, clearInterrupt, void), "java.io.IOException"},
+		{"doSelect", "(Ljava/util/function/Consumer;J)I", "(Ljava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;J)I", $PROTECTED, $virtualMethod(EPollSelectorImpl, doSelect, int32_t, $Consumer*, int64_t), "java.io.IOException"},
+		{"ensureOpen", "()V", nullptr, $PRIVATE, $method(EPollSelectorImpl, ensureOpen, void)},
+		{"implClose", "()V", nullptr, $PROTECTED, $virtualMethod(EPollSelectorImpl, implClose, void), "java.io.IOException"},
+		{"implDereg", "(Lsun/nio/ch/SelectionKeyImpl;)V", nullptr, $PROTECTED, $virtualMethod(EPollSelectorImpl, implDereg, void, $SelectionKeyImpl*), "java.io.IOException"},
+		{"processEvents", "(ILjava/util/function/Consumer;)I", "(ILjava/util/function/Consumer<Ljava/nio/channels/SelectionKey;>;)I", $PRIVATE, $method(EPollSelectorImpl, processEvents, int32_t, int32_t, $Consumer*), "java.io.IOException"},
+		{"processUpdateQueue", "()V", nullptr, $PRIVATE, $method(EPollSelectorImpl, processUpdateQueue, void)},
+		{"setEventOps", "(Lsun/nio/ch/SelectionKeyImpl;)V", nullptr, $PUBLIC, $virtualMethod(EPollSelectorImpl, setEventOps, void, $SelectionKeyImpl*)},
+		{"wakeup", "()Ljava/nio/channels/Selector;", nullptr, $PUBLIC, $virtualMethod(EPollSelectorImpl, wakeup, $Selector*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.EPollSelectorImpl",
+		"sun.nio.ch.SelectorImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EPollSelectorImpl, name, initialize, &classInfo$$, EPollSelectorImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(EPollSelectorImpl);
+	});
 	return class$;
 }
 

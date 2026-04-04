@@ -1,5 +1,4 @@
 #include <java/util/zip/DeflaterOutputStream.h>
-
 #include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
@@ -23,44 +22,6 @@ using $Deflater = ::java::util::zip::Deflater;
 namespace java {
 	namespace util {
 		namespace zip {
-
-$FieldInfo _DeflaterOutputStream_FieldInfo_[] = {
-	{"def", "Ljava/util/zip/Deflater;", nullptr, $PROTECTED, $field(DeflaterOutputStream, def)},
-	{"buf", "[B", nullptr, $PROTECTED, $field(DeflaterOutputStream, buf)},
-	{"closed", "Z", nullptr, $PRIVATE, $field(DeflaterOutputStream, closed)},
-	{"syncFlush", "Z", nullptr, $PRIVATE | $FINAL, $field(DeflaterOutputStream, syncFlush)},
-	{"usesDefaultDeflater", "Z", nullptr, 0, $field(DeflaterOutputStream, usesDefaultDeflater)},
-	{}
-};
-
-$MethodInfo _DeflaterOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;Ljava/util/zip/Deflater;IZ)V", nullptr, $PUBLIC, $method(DeflaterOutputStream, init$, void, $OutputStream*, $Deflater*, int32_t, bool)},
-	{"<init>", "(Ljava/io/OutputStream;Ljava/util/zip/Deflater;I)V", nullptr, $PUBLIC, $method(DeflaterOutputStream, init$, void, $OutputStream*, $Deflater*, int32_t)},
-	{"<init>", "(Ljava/io/OutputStream;Ljava/util/zip/Deflater;Z)V", nullptr, $PUBLIC, $method(DeflaterOutputStream, init$, void, $OutputStream*, $Deflater*, bool)},
-	{"<init>", "(Ljava/io/OutputStream;Ljava/util/zip/Deflater;)V", nullptr, $PUBLIC, $method(DeflaterOutputStream, init$, void, $OutputStream*, $Deflater*)},
-	{"<init>", "(Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC, $method(DeflaterOutputStream, init$, void, $OutputStream*, bool)},
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(DeflaterOutputStream, init$, void, $OutputStream*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(DeflaterOutputStream, close, void), "java.io.IOException"},
-	{"deflate", "()V", nullptr, $PROTECTED, $virtualMethod(DeflaterOutputStream, deflate, void), "java.io.IOException"},
-	{"finish", "()V", nullptr, $PUBLIC, $virtualMethod(DeflaterOutputStream, finish, void), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(DeflaterOutputStream, flush, void), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(DeflaterOutputStream, write, void, int32_t), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(DeflaterOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _DeflaterOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.zip.DeflaterOutputStream",
-	"java.io.FilterOutputStream",
-	nullptr,
-	_DeflaterOutputStream_FieldInfo_,
-	_DeflaterOutputStream_MethodInfo_
-};
-
-$Object* allocate$DeflaterOutputStream($Class* clazz) {
-	return $of($alloc(DeflaterOutputStream));
-}
 
 void DeflaterOutputStream::init$($OutputStream* out, $Deflater* def, int32_t size, bool syncFlush) {
 	$FilterOutputStream::init$(out);
@@ -100,7 +61,7 @@ void DeflaterOutputStream::init$($OutputStream* out) {
 
 void DeflaterOutputStream::write(int32_t b) {
 	$var($bytes, buf, $new($bytes, 1));
-	buf->set(0, (int8_t)((int32_t)(b & (uint32_t)255)));
+	buf->set(0, (int8_t)(b & 0xff));
 	write(buf, 0, 1);
 }
 
@@ -153,7 +114,7 @@ void DeflaterOutputStream::flush() {
 		int32_t len = 0;
 		while ((len = $nc(this->def)->deflate(this->buf, 0, $nc(this->buf)->length, $Deflater::SYNC_FLUSH)) > 0) {
 			$nc(this->out)->write(this->buf, 0, len);
-			if (len < $nc(this->buf)->length) {
+			if (len < this->buf->length) {
 				break;
 			}
 		}
@@ -165,7 +126,40 @@ DeflaterOutputStream::DeflaterOutputStream() {
 }
 
 $Class* DeflaterOutputStream::load$($String* name, bool initialize) {
-	$loadClass(DeflaterOutputStream, name, initialize, &_DeflaterOutputStream_ClassInfo_, allocate$DeflaterOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"def", "Ljava/util/zip/Deflater;", nullptr, $PROTECTED, $field(DeflaterOutputStream, def)},
+		{"buf", "[B", nullptr, $PROTECTED, $field(DeflaterOutputStream, buf)},
+		{"closed", "Z", nullptr, $PRIVATE, $field(DeflaterOutputStream, closed)},
+		{"syncFlush", "Z", nullptr, $PRIVATE | $FINAL, $field(DeflaterOutputStream, syncFlush)},
+		{"usesDefaultDeflater", "Z", nullptr, 0, $field(DeflaterOutputStream, usesDefaultDeflater)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/OutputStream;Ljava/util/zip/Deflater;IZ)V", nullptr, $PUBLIC, $method(DeflaterOutputStream, init$, void, $OutputStream*, $Deflater*, int32_t, bool)},
+		{"<init>", "(Ljava/io/OutputStream;Ljava/util/zip/Deflater;I)V", nullptr, $PUBLIC, $method(DeflaterOutputStream, init$, void, $OutputStream*, $Deflater*, int32_t)},
+		{"<init>", "(Ljava/io/OutputStream;Ljava/util/zip/Deflater;Z)V", nullptr, $PUBLIC, $method(DeflaterOutputStream, init$, void, $OutputStream*, $Deflater*, bool)},
+		{"<init>", "(Ljava/io/OutputStream;Ljava/util/zip/Deflater;)V", nullptr, $PUBLIC, $method(DeflaterOutputStream, init$, void, $OutputStream*, $Deflater*)},
+		{"<init>", "(Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC, $method(DeflaterOutputStream, init$, void, $OutputStream*, bool)},
+		{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(DeflaterOutputStream, init$, void, $OutputStream*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(DeflaterOutputStream, close, void), "java.io.IOException"},
+		{"deflate", "()V", nullptr, $PROTECTED, $virtualMethod(DeflaterOutputStream, deflate, void), "java.io.IOException"},
+		{"finish", "()V", nullptr, $PUBLIC, $virtualMethod(DeflaterOutputStream, finish, void), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(DeflaterOutputStream, flush, void), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(DeflaterOutputStream, write, void, int32_t), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(DeflaterOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.zip.DeflaterOutputStream",
+		"java.io.FilterOutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DeflaterOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DeflaterOutputStream));
+	});
 	return class$;
 }
 

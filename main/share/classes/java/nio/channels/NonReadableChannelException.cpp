@@ -1,5 +1,4 @@
 #include <java/nio/channels/NonReadableChannelException.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace nio {
 		namespace channels {
-
-$FieldInfo _NonReadableChannelException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NonReadableChannelException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NonReadableChannelException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NonReadableChannelException, init$, void)},
-	{}
-};
-
-$ClassInfo _NonReadableChannelException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.channels.NonReadableChannelException",
-	"java.lang.IllegalStateException",
-	nullptr,
-	_NonReadableChannelException_FieldInfo_,
-	_NonReadableChannelException_MethodInfo_
-};
-
-$Object* allocate$NonReadableChannelException($Class* clazz) {
-	return $of($alloc(NonReadableChannelException));
-}
 
 void NonReadableChannelException::init$() {
 	$IllegalStateException::init$();
@@ -50,7 +26,25 @@ void NonReadableChannelException::throw$() {
 }
 
 $Class* NonReadableChannelException::load$($String* name, bool initialize) {
-	$loadClass(NonReadableChannelException, name, initialize, &_NonReadableChannelException_ClassInfo_, allocate$NonReadableChannelException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NonReadableChannelException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NonReadableChannelException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.channels.NonReadableChannelException",
+		"java.lang.IllegalStateException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NonReadableChannelException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NonReadableChannelException);
+	});
 	return class$;
 }
 

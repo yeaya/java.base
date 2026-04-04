@@ -1,5 +1,4 @@
 #include <java/util/ArrayList.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
@@ -62,116 +61,11 @@ using $Spliterator = ::java::util::Spliterator;
 using $Consumer = ::java::util::function::Consumer;
 using $Predicate = ::java::util::function::Predicate;
 using $UnaryOperator = ::java::util::function::UnaryOperator;
-using $JavaObjectInputStreamAccess = ::jdk::internal::access::JavaObjectInputStreamAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $ArraysSupport = ::jdk::internal::util::ArraysSupport;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _ArrayList_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArrayList, serialVersionUID)},
-	{"DEFAULT_CAPACITY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArrayList, DEFAULT_CAPACITY)},
-	{"EMPTY_ELEMENTDATA", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ArrayList, EMPTY_ELEMENTDATA)},
-	{"DEFAULTCAPACITY_EMPTY_ELEMENTDATA", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ArrayList, DEFAULTCAPACITY_EMPTY_ELEMENTDATA)},
-	{"elementData", "[Ljava/lang/Object;", nullptr, $TRANSIENT, $field(ArrayList, elementData$)},
-	{"size", "I", nullptr, $PRIVATE, $field(ArrayList, size$)},
-	{}
-};
-
-$MethodInfo _ArrayList_MethodInfo_[] = {
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ArrayList, init$, void, int32_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ArrayList, init$, void)},
-	{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+TE;>;)V", $PUBLIC, $method(ArrayList, init$, void, $Collection*)},
-	{"add", "(Ljava/lang/Object;[Ljava/lang/Object;I)V", "(TE;[Ljava/lang/Object;I)V", $PRIVATE, $method(ArrayList, add, void, Object$*, $ObjectArray*, int32_t)},
-	{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(ArrayList, add, bool, Object$*)},
-	{"add", "(ILjava/lang/Object;)V", "(ITE;)V", $PUBLIC, $virtualMethod(ArrayList, add, void, int32_t, Object$*)},
-	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(ArrayList, addAll, bool, $Collection*)},
-	{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(ArrayList, addAll, bool, int32_t, $Collection*)},
-	{"batchRemove", "(Ljava/util/Collection;ZII)Z", "(Ljava/util/Collection<*>;ZII)Z", 0, $virtualMethod(ArrayList, batchRemove, bool, $Collection*, bool, int32_t, int32_t)},
-	{"checkForComodification", "(I)V", nullptr, $PRIVATE, $method(ArrayList, checkForComodification, void, int32_t)},
-	{"checkInvariants", "()V", nullptr, 0, $virtualMethod(ArrayList, checkInvariants, void)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayList, clear, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArrayList, clone, $Object*)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ArrayList, contains, bool, Object$*)},
-	{"elementAt", "([Ljava/lang/Object;I)Ljava/lang/Object;", "<E:Ljava/lang/Object;>([Ljava/lang/Object;I)TE;", $STATIC, $staticMethod(ArrayList, elementAt, $Object*, $ObjectArray*, int32_t)},
-	{"elementData", "(I)Ljava/lang/Object;", "(I)TE;", 0, $virtualMethod(ArrayList, elementData, $Object*, int32_t)},
-	{"ensureCapacity", "(I)V", nullptr, $PUBLIC, $virtualMethod(ArrayList, ensureCapacity, void, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ArrayList, equals, bool, Object$*)},
-	{"equalsArrayList", "(Ljava/util/ArrayList;)Z", "(Ljava/util/ArrayList<*>;)Z", $PRIVATE, $method(ArrayList, equalsArrayList, bool, ArrayList*)},
-	{"equalsRange", "(Ljava/util/List;II)Z", "(Ljava/util/List<*>;II)Z", 0, $virtualMethod(ArrayList, equalsRange, bool, $List*, int32_t, int32_t)},
-	{"fastRemove", "([Ljava/lang/Object;I)V", nullptr, $PRIVATE, $method(ArrayList, fastRemove, void, $ObjectArray*, int32_t)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(ArrayList, forEach, void, $Consumer*)},
-	{"get", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(ArrayList, get, $Object*, int32_t)},
-	{"grow", "(I)[Ljava/lang/Object;", nullptr, $PRIVATE, $method(ArrayList, grow, $ObjectArray*, int32_t)},
-	{"grow", "()[Ljava/lang/Object;", nullptr, $PRIVATE, $method(ArrayList, grow, $ObjectArray*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayList, hashCode, int32_t)},
-	{"hashCodeRange", "(II)I", nullptr, 0, $virtualMethod(ArrayList, hashCodeRange, int32_t, int32_t, int32_t)},
-	{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ArrayList, indexOf, int32_t, Object$*)},
-	{"indexOfRange", "(Ljava/lang/Object;II)I", nullptr, 0, $virtualMethod(ArrayList, indexOfRange, int32_t, Object$*, int32_t, int32_t)},
-	{"isClear", "([JI)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ArrayList, isClear, bool, $longs*, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ArrayList, isEmpty, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(ArrayList, iterator, $Iterator*)},
-	{"lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ArrayList, lastIndexOf, int32_t, Object$*)},
-	{"lastIndexOfRange", "(Ljava/lang/Object;II)I", nullptr, 0, $virtualMethod(ArrayList, lastIndexOfRange, int32_t, Object$*, int32_t, int32_t)},
-	{"listIterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(ArrayList, listIterator, $ListIterator*, int32_t)},
-	{"listIterator", "()Ljava/util/ListIterator;", "()Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(ArrayList, listIterator, $ListIterator*)},
-	{"nBits", "(I)[J", nullptr, $PRIVATE | $STATIC, $staticMethod(ArrayList, nBits, $longs*, int32_t)},
-	{"outOfBoundsMsg", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(ArrayList, outOfBoundsMsg, $String*, int32_t)},
-	{"outOfBoundsMsg", "(II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ArrayList, outOfBoundsMsg, $String*, int32_t, int32_t)},
-	{"rangeCheckForAdd", "(I)V", nullptr, $PRIVATE, $method(ArrayList, rangeCheckForAdd, void, int32_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ArrayList, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"remove", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(ArrayList, remove, $Object*, int32_t)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ArrayList, remove, bool, Object$*)},
-	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(ArrayList, removeAll, bool, $Collection*)},
-	{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(ArrayList, removeIf, bool, $Predicate*)},
-	{"removeIf", "(Ljava/util/function/Predicate;II)Z", "(Ljava/util/function/Predicate<-TE;>;II)Z", 0, $virtualMethod(ArrayList, removeIf, bool, $Predicate*, int32_t, int32_t)},
-	{"removeRange", "(II)V", nullptr, $PROTECTED, $virtualMethod(ArrayList, removeRange, void, int32_t, int32_t)},
-	{"replaceAll", "(Ljava/util/function/UnaryOperator;)V", "(Ljava/util/function/UnaryOperator<TE;>;)V", $PUBLIC, $virtualMethod(ArrayList, replaceAll, void, $UnaryOperator*)},
-	{"replaceAllRange", "(Ljava/util/function/UnaryOperator;II)V", "(Ljava/util/function/UnaryOperator<TE;>;II)V", $PRIVATE, $method(ArrayList, replaceAllRange, void, $UnaryOperator*, int32_t, int32_t)},
-	{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(ArrayList, retainAll, bool, $Collection*)},
-	{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITE;)TE;", $PUBLIC, $virtualMethod(ArrayList, set, $Object*, int32_t, Object$*)},
-	{"setBit", "([JI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ArrayList, setBit, void, $longs*, int32_t)},
-	{"shiftTailOverGap", "([Ljava/lang/Object;II)V", nullptr, $PRIVATE, $method(ArrayList, shiftTailOverGap, void, $ObjectArray*, int32_t, int32_t)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayList, size, int32_t)},
-	{"sort", "(Ljava/util/Comparator;)V", "(Ljava/util/Comparator<-TE;>;)V", $PUBLIC, $virtualMethod(ArrayList, sort, void, $Comparator*)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(ArrayList, spliterator, $Spliterator*)},
-	{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(ArrayList, subList, $List*, int32_t, int32_t)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArrayList, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(ArrayList, toArray, $ObjectArray*, $ObjectArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"trimToSize", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayList, trimToSize, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ArrayList, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ArrayList_InnerClassesInfo_[] = {
-	{"java.util.ArrayList$ArrayListSpliterator", "java.util.ArrayList", "ArrayListSpliterator", $FINAL},
-	{"java.util.ArrayList$SubList", "java.util.ArrayList", "SubList", $PRIVATE | $STATIC},
-	{"java.util.ArrayList$ListItr", "java.util.ArrayList", "ListItr", $PRIVATE},
-	{"java.util.ArrayList$Itr", "java.util.ArrayList", "Itr", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ArrayList_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.ArrayList",
-	"java.util.AbstractList",
-	"java.util.RandomAccess,java.lang.Cloneable,java.io.Serializable",
-	_ArrayList_FieldInfo_,
-	_ArrayList_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/AbstractList<TE;>;Ljava/util/List<TE;>;Ljava/util/RandomAccess;Ljava/lang/Cloneable;Ljava/io/Serializable;",
-	nullptr,
-	_ArrayList_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.ArrayList$ArrayListSpliterator,java.util.ArrayList$SubList,java.util.ArrayList$SubList$2,java.util.ArrayList$SubList$1,java.util.ArrayList$ListItr,java.util.ArrayList$Itr"
-};
-
-$Object* allocate$ArrayList($Class* clazz) {
-	return $of($alloc(ArrayList));
-}
 
 $String* ArrayList::toString() {
 	 return this->$AbstractList::toString();
@@ -185,7 +79,7 @@ $ObjectArray* ArrayList::EMPTY_ELEMENTDATA = nullptr;
 $ObjectArray* ArrayList::DEFAULTCAPACITY_EMPTY_ELEMENTDATA = nullptr;
 
 void ArrayList::init$(int32_t initialCapacity) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AbstractList::init$();
 	if (initialCapacity > 0) {
 		$set(this, elementData$, $new($ObjectArray, initialCapacity));
@@ -208,7 +102,6 @@ void ArrayList::init$($Collection* c) {
 		if ($of(c)->getClass() == ArrayList::class$) {
 			$set(this, elementData$, a);
 		} else {
-			$load($ObjectArray);
 			$set(this, elementData$, $Arrays::copyOf(a, this->size$, $getClass($ObjectArray)));
 		}
 	} else {
@@ -270,7 +163,7 @@ int32_t ArrayList::indexOfRange(Object$* o, int32_t start, int32_t end) {
 		}
 	} else {
 		for (int32_t i = start; i < end; ++i) {
-			if ($nc($of(o))->equals($nc(es)->get(i))) {
+			if ($of(o)->equals($nc(es)->get(i))) {
 				return i;
 			}
 		}
@@ -292,7 +185,7 @@ int32_t ArrayList::lastIndexOfRange(Object$* o, int32_t start, int32_t end) {
 		}
 	} else {
 		for (int32_t i = end - 1; i >= start; --i) {
-			if ($nc($of(o))->equals($nc(es)->get(i))) {
+			if ($of(o)->equals($nc(es)->get(i))) {
 				return i;
 			}
 		}
@@ -307,7 +200,7 @@ $Object* ArrayList::clone() {
 		v->modCount = 0;
 		return $of(v);
 	} catch ($CloneNotSupportedException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
@@ -321,31 +214,31 @@ $ObjectArray* ArrayList::toArray($ObjectArray* a) {
 		return $Arrays::copyOf(this->elementData$, this->size$, $of(a)->getClass());
 	}
 	$System::arraycopy(this->elementData$, 0, a, 0, this->size$);
-	if ($nc(a)->length > this->size$) {
+	if (a->length > this->size$) {
 		a->set(this->size$, nullptr);
 	}
 	return a;
 }
 
 $Object* ArrayList::elementData(int32_t index) {
-	return $of($nc(this->elementData$)->get(index));
+	return $nc(this->elementData$)->get(index);
 }
 
 $Object* ArrayList::elementAt($ObjectArray* es, int32_t index) {
 	$init(ArrayList);
-	return $of($nc(es)->get(index));
+	return $nc(es)->get(index);
 }
 
 $Object* ArrayList::get(int32_t index) {
 	$Objects::checkIndex(index, this->size$);
-	return $of(elementData(index));
+	return elementData(index);
 }
 
 $Object* ArrayList::set(int32_t index, Object$* element) {
 	$Objects::checkIndex(index, this->size$);
 	$var($Object, oldValue, elementData(index));
 	$nc(this->elementData$)->set(index, element);
-	return $of(oldValue);
+	return oldValue;
 }
 
 void ArrayList::add(Object$* e, $ObjectArray* elementData$renamed, int32_t s) {
@@ -377,12 +270,12 @@ void ArrayList::add(int32_t index, Object$* element) {
 }
 
 $Object* ArrayList::remove(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::checkIndex(index, this->size$);
 	$var($ObjectArray, es, this->elementData$);
 	$var($Object, oldValue, $nc(es)->get(index));
 	fastRemove(es, index);
-	return $of(oldValue);
+	return oldValue;
 }
 
 bool ArrayList::equals(Object$* o) {
@@ -399,7 +292,7 @@ bool ArrayList::equals(Object$* o) {
 }
 
 bool ArrayList::equalsRange($List* other, int32_t from, int32_t to) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, es, this->elementData$);
 	if (to > $nc(es)->length) {
 		$throwNew($ConcurrentModificationException);
@@ -407,7 +300,7 @@ bool ArrayList::equalsRange($List* other, int32_t from, int32_t to) {
 	$var($Iterator, oit, $nc(other)->iterator());
 	for (; from < to; ++from) {
 		bool var$0 = !$nc(oit)->hasNext();
-		if (var$0 || !$Objects::equals($nc(es)->get(from), $($nc(oit)->next()))) {
+		if (var$0 || !$Objects::equals(es->get(from), $(oit->next()))) {
 			return false;
 		}
 	}
@@ -415,7 +308,7 @@ bool ArrayList::equalsRange($List* other, int32_t from, int32_t to) {
 }
 
 bool ArrayList::equalsArrayList(ArrayList* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t otherModCount = $nc(other)->modCount;
 	int32_t s = this->size$;
 	bool equal = false;
@@ -426,7 +319,7 @@ bool ArrayList::equalsArrayList(ArrayList* other) {
 			$throwNew($ConcurrentModificationException);
 		}
 		for (int32_t i = 0; i < s; ++i) {
-			if (!$Objects::equals($nc(es)->get(i), $nc(otherEs)->get(i))) {
+			if (!$Objects::equals(es->get(i), $nc(otherEs)->get(i))) {
 				equal = false;
 				break;
 			}
@@ -450,15 +343,15 @@ int32_t ArrayList::hashCode() {
 }
 
 int32_t ArrayList::hashCodeRange(int32_t from, int32_t to) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, es, this->elementData$);
 	if (to > $nc(es)->length) {
 		$throwNew($ConcurrentModificationException);
 	}
 	int32_t hashCode = 1;
 	for (int32_t i = from; i < to; ++i) {
-		$var($Object0, e, $nc(es)->get(i));
-		hashCode = 31 * hashCode + (e == nullptr ? 0 : $nc($of(e))->hashCode());
+		$var($Object0, e, es->get(i));
+		hashCode = 31 * hashCode + (e == nullptr ? 0 : e->hashCode());
 	}
 	return hashCode;
 }
@@ -482,7 +375,7 @@ bool ArrayList::remove(Object$* o) {
 				}
 			} else {
 				for (; i < size; ++i) {
-					if ($nc($of(o))->equals($nc(es)->get(i))) {
+					if ($of(o)->equals($nc(es)->get(i))) {
 						found$break = true;
 						break;
 					}
@@ -511,17 +404,13 @@ void ArrayList::fastRemove($ObjectArray* es, int32_t i) {
 void ArrayList::clear() {
 	++this->modCount;
 	$var($ObjectArray, es, this->elementData$);
-	{
-		int32_t to = this->size$;
-		int32_t i = this->size$ = 0;
-		for (; i < to; ++i) {
-			$nc(es)->set(i, nullptr);
-		}
+	for (int32_t to = this->size$, i = this->size$ = 0; i < to; ++i) {
+		$nc(es)->set(i, nullptr);
 	}
 }
 
 bool ArrayList::addAll($Collection* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, a, $nc(c)->toArray());
 	++this->modCount;
 	int32_t numNew = $nc(a)->length;
@@ -539,7 +428,7 @@ bool ArrayList::addAll($Collection* c) {
 }
 
 bool ArrayList::addAll(int32_t index, $Collection* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	rangeCheckForAdd(index);
 	$var($ObjectArray, a, $nc(c)->toArray());
 	++this->modCount;
@@ -571,12 +460,8 @@ void ArrayList::removeRange(int32_t fromIndex, int32_t toIndex) {
 
 void ArrayList::shiftTailOverGap($ObjectArray* es, int32_t lo, int32_t hi) {
 	$System::arraycopy(es, hi, es, lo, this->size$ - hi);
-	{
-		int32_t to = this->size$;
-		int32_t i = (this->size$ -= hi - lo);
-		for (; i < to; ++i) {
-			$nc(es)->set(i, nullptr);
-		}
+	for (int32_t to = this->size$, i = (this->size$ -= hi - lo); i < to; ++i) {
+		$nc(es)->set(i, nullptr);
 	}
 }
 
@@ -587,13 +472,13 @@ void ArrayList::rangeCheckForAdd(int32_t index) {
 }
 
 $String* ArrayList::outOfBoundsMsg(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"Index: "_s, $$str(index), ", Size: "_s, $$str(this->size$)});
 }
 
 $String* ArrayList::outOfBoundsMsg(int32_t fromIndex, int32_t toIndex) {
 	$init(ArrayList);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"From Index: "_s, $$str(fromIndex), " > To Index: "_s, $$str(toIndex)});
 }
 
@@ -606,7 +491,7 @@ bool ArrayList::retainAll($Collection* c) {
 }
 
 bool ArrayList::batchRemove($Collection* c, bool complement, int32_t from, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(c);
 	$var($ObjectArray, es, this->elementData$);
 	int32_t r = 0;
@@ -619,32 +504,28 @@ bool ArrayList::batchRemove($Collection* c, bool complement, int32_t from, int32
 		}
 	}
 	int32_t w = r++;
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				{
-					$var($Object, e, nullptr);
-					for (; r < end; ++r) {
-						if (c->contains($assign(e, $nc(es)->get(r))) == complement) {
-							$nc(es)->set(w++, e);
-						}
-					}
+			$var($Object, e, nullptr);
+			for (; r < end; ++r) {
+				if (c->contains($assign(e, $nc(es)->get(r))) == complement) {
+					es->set(w++, e);
 				}
-			} catch ($Throwable& ex) {
-				$System::arraycopy(es, r, es, w, end - r);
-				w += end - r;
-				$throw(ex);
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			this->modCount += end - w;
-			shiftTailOverGap(es, w, end);
+		} catch ($Throwable& ex) {
+			$System::arraycopy(es, r, es, w, end - r);
+			w += end - r;
+			$throw(ex);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->modCount += end - w;
+		shiftTailOverGap(es, w, end);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return true;
 }
@@ -662,12 +543,11 @@ void ArrayList::writeObject($ObjectOutputStream* s) {
 }
 
 void ArrayList::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultReadObject();
 	s->readInt();
 	if (this->size$ > 0) {
-		$load($ObjectArray);
-		$nc($($SharedSecrets::getJavaObjectInputStreamAccess()))->checkArray(s, $getClass($ObjectArray), this->size$);
+		$$nc($SharedSecrets::getJavaObjectInputStreamAccess())->checkArray(s, $getClass($ObjectArray), this->size$);
 		$var($ObjectArray, elements, $new($ObjectArray, this->size$));
 		for (int32_t i = 0; i < this->size$; ++i) {
 			elements->set(i, $(s->readObject()));
@@ -699,7 +579,7 @@ $List* ArrayList::subList(int32_t fromIndex, int32_t toIndex) {
 }
 
 void ArrayList::forEach($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(action);
 	int32_t expectedModCount = this->modCount;
 	$var($ObjectArray, es, this->elementData$);
@@ -728,7 +608,7 @@ void ArrayList::setBit($longs* bits, int32_t i) {
 
 bool ArrayList::isClear($longs* bits, int32_t i) {
 	$init(ArrayList);
-	return ((int64_t)($nc(bits)->get(i >> 6) & (uint64_t)($sl((int64_t)1, i)))) == 0;
+	return ($nc(bits)->get(i >> 6) & ($sl((int64_t)1, i))) == 0;
 }
 
 bool ArrayList::removeIf($Predicate* filter) {
@@ -736,11 +616,12 @@ bool ArrayList::removeIf($Predicate* filter) {
 }
 
 bool ArrayList::removeIf($Predicate* filter, int32_t i, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(filter);
 	int32_t expectedModCount = this->modCount;
 	$var($ObjectArray, es, this->elementData$);
 	for (; i < end && !filter->test($(elementAt(es, i))); ++i) {
+		;
 	}
 	if (i < end) {
 		int32_t beg = i;
@@ -758,7 +639,7 @@ bool ArrayList::removeIf($Predicate* filter, int32_t i, int32_t end) {
 		int32_t w = beg;
 		for (i = beg; i < end; ++i) {
 			if (isClear(deathRow, i - beg)) {
-				$nc(es)->set(w++, es->get(i));
+				$nc(es)->set(w++, $nc(es)->get(i));
 			}
 		}
 		shiftTailOverGap(es, w, end);
@@ -777,7 +658,7 @@ void ArrayList::replaceAll($UnaryOperator* operator$) {
 }
 
 void ArrayList::replaceAllRange($UnaryOperator* operator$, int32_t i, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(operator$);
 	int32_t expectedModCount = this->modCount;
 	$var($ObjectArray, es, this->elementData$);
@@ -801,7 +682,7 @@ void ArrayList::sort($Comparator* c) {
 void ArrayList::checkInvariants() {
 }
 
-void clinit$ArrayList($Class* class$) {
+void ArrayList::clinit$($Class* clazz) {
 	$assignStatic(ArrayList::EMPTY_ELEMENTDATA, $new($ObjectArray, 0));
 	$assignStatic(ArrayList::DEFAULTCAPACITY_EMPTY_ELEMENTDATA, $new($ObjectArray, 0));
 }
@@ -810,7 +691,105 @@ ArrayList::ArrayList() {
 }
 
 $Class* ArrayList::load$($String* name, bool initialize) {
-	$loadClass(ArrayList, name, initialize, &_ArrayList_ClassInfo_, clinit$ArrayList, allocate$ArrayList);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArrayList, serialVersionUID)},
+		{"DEFAULT_CAPACITY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArrayList, DEFAULT_CAPACITY)},
+		{"EMPTY_ELEMENTDATA", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ArrayList, EMPTY_ELEMENTDATA)},
+		{"DEFAULTCAPACITY_EMPTY_ELEMENTDATA", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ArrayList, DEFAULTCAPACITY_EMPTY_ELEMENTDATA)},
+		{"elementData", "[Ljava/lang/Object;", nullptr, $TRANSIENT, $field(ArrayList, elementData$)},
+		{"size", "I", nullptr, $PRIVATE, $field(ArrayList, size$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(ArrayList, init$, void, int32_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ArrayList, init$, void)},
+		{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+TE;>;)V", $PUBLIC, $method(ArrayList, init$, void, $Collection*)},
+		{"add", "(Ljava/lang/Object;[Ljava/lang/Object;I)V", "(TE;[Ljava/lang/Object;I)V", $PRIVATE, $method(ArrayList, add, void, Object$*, $ObjectArray*, int32_t)},
+		{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(ArrayList, add, bool, Object$*)},
+		{"add", "(ILjava/lang/Object;)V", "(ITE;)V", $PUBLIC, $virtualMethod(ArrayList, add, void, int32_t, Object$*)},
+		{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(ArrayList, addAll, bool, $Collection*)},
+		{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(ArrayList, addAll, bool, int32_t, $Collection*)},
+		{"batchRemove", "(Ljava/util/Collection;ZII)Z", "(Ljava/util/Collection<*>;ZII)Z", 0, $virtualMethod(ArrayList, batchRemove, bool, $Collection*, bool, int32_t, int32_t)},
+		{"checkForComodification", "(I)V", nullptr, $PRIVATE, $method(ArrayList, checkForComodification, void, int32_t)},
+		{"checkInvariants", "()V", nullptr, 0, $virtualMethod(ArrayList, checkInvariants, void)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayList, clear, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArrayList, clone, $Object*)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ArrayList, contains, bool, Object$*)},
+		{"elementAt", "([Ljava/lang/Object;I)Ljava/lang/Object;", "<E:Ljava/lang/Object;>([Ljava/lang/Object;I)TE;", $STATIC, $staticMethod(ArrayList, elementAt, $Object*, $ObjectArray*, int32_t)},
+		{"elementData", "(I)Ljava/lang/Object;", "(I)TE;", 0, $virtualMethod(ArrayList, elementData, $Object*, int32_t)},
+		{"ensureCapacity", "(I)V", nullptr, $PUBLIC, $virtualMethod(ArrayList, ensureCapacity, void, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ArrayList, equals, bool, Object$*)},
+		{"equalsArrayList", "(Ljava/util/ArrayList;)Z", "(Ljava/util/ArrayList<*>;)Z", $PRIVATE, $method(ArrayList, equalsArrayList, bool, ArrayList*)},
+		{"equalsRange", "(Ljava/util/List;II)Z", "(Ljava/util/List<*>;II)Z", 0, $virtualMethod(ArrayList, equalsRange, bool, $List*, int32_t, int32_t)},
+		{"fastRemove", "([Ljava/lang/Object;I)V", nullptr, $PRIVATE, $method(ArrayList, fastRemove, void, $ObjectArray*, int32_t)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(ArrayList, forEach, void, $Consumer*)},
+		{"get", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(ArrayList, get, $Object*, int32_t)},
+		{"grow", "(I)[Ljava/lang/Object;", nullptr, $PRIVATE, $method(ArrayList, grow, $ObjectArray*, int32_t)},
+		{"grow", "()[Ljava/lang/Object;", nullptr, $PRIVATE, $method(ArrayList, grow, $ObjectArray*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayList, hashCode, int32_t)},
+		{"hashCodeRange", "(II)I", nullptr, 0, $virtualMethod(ArrayList, hashCodeRange, int32_t, int32_t, int32_t)},
+		{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ArrayList, indexOf, int32_t, Object$*)},
+		{"indexOfRange", "(Ljava/lang/Object;II)I", nullptr, 0, $virtualMethod(ArrayList, indexOfRange, int32_t, Object$*, int32_t, int32_t)},
+		{"isClear", "([JI)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ArrayList, isClear, bool, $longs*, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ArrayList, isEmpty, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(ArrayList, iterator, $Iterator*)},
+		{"lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ArrayList, lastIndexOf, int32_t, Object$*)},
+		{"lastIndexOfRange", "(Ljava/lang/Object;II)I", nullptr, 0, $virtualMethod(ArrayList, lastIndexOfRange, int32_t, Object$*, int32_t, int32_t)},
+		{"listIterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(ArrayList, listIterator, $ListIterator*, int32_t)},
+		{"listIterator", "()Ljava/util/ListIterator;", "()Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(ArrayList, listIterator, $ListIterator*)},
+		{"nBits", "(I)[J", nullptr, $PRIVATE | $STATIC, $staticMethod(ArrayList, nBits, $longs*, int32_t)},
+		{"outOfBoundsMsg", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(ArrayList, outOfBoundsMsg, $String*, int32_t)},
+		{"outOfBoundsMsg", "(II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ArrayList, outOfBoundsMsg, $String*, int32_t, int32_t)},
+		{"rangeCheckForAdd", "(I)V", nullptr, $PRIVATE, $method(ArrayList, rangeCheckForAdd, void, int32_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ArrayList, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"remove", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(ArrayList, remove, $Object*, int32_t)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ArrayList, remove, bool, Object$*)},
+		{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(ArrayList, removeAll, bool, $Collection*)},
+		{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(ArrayList, removeIf, bool, $Predicate*)},
+		{"removeIf", "(Ljava/util/function/Predicate;II)Z", "(Ljava/util/function/Predicate<-TE;>;II)Z", 0, $virtualMethod(ArrayList, removeIf, bool, $Predicate*, int32_t, int32_t)},
+		{"removeRange", "(II)V", nullptr, $PROTECTED, $virtualMethod(ArrayList, removeRange, void, int32_t, int32_t)},
+		{"replaceAll", "(Ljava/util/function/UnaryOperator;)V", "(Ljava/util/function/UnaryOperator<TE;>;)V", $PUBLIC, $virtualMethod(ArrayList, replaceAll, void, $UnaryOperator*)},
+		{"replaceAllRange", "(Ljava/util/function/UnaryOperator;II)V", "(Ljava/util/function/UnaryOperator<TE;>;II)V", $PRIVATE, $method(ArrayList, replaceAllRange, void, $UnaryOperator*, int32_t, int32_t)},
+		{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(ArrayList, retainAll, bool, $Collection*)},
+		{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITE;)TE;", $PUBLIC, $virtualMethod(ArrayList, set, $Object*, int32_t, Object$*)},
+		{"setBit", "([JI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ArrayList, setBit, void, $longs*, int32_t)},
+		{"shiftTailOverGap", "([Ljava/lang/Object;II)V", nullptr, $PRIVATE, $method(ArrayList, shiftTailOverGap, void, $ObjectArray*, int32_t, int32_t)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayList, size, int32_t)},
+		{"sort", "(Ljava/util/Comparator;)V", "(Ljava/util/Comparator<-TE;>;)V", $PUBLIC, $virtualMethod(ArrayList, sort, void, $Comparator*)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(ArrayList, spliterator, $Spliterator*)},
+		{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(ArrayList, subList, $List*, int32_t, int32_t)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArrayList, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(ArrayList, toArray, $ObjectArray*, $ObjectArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"trimToSize", "()V", nullptr, $PUBLIC, $virtualMethod(ArrayList, trimToSize, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ArrayList, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ArrayList$ArrayListSpliterator", "java.util.ArrayList", "ArrayListSpliterator", $FINAL},
+		{"java.util.ArrayList$SubList", "java.util.ArrayList", "SubList", $PRIVATE | $STATIC},
+		{"java.util.ArrayList$ListItr", "java.util.ArrayList", "ListItr", $PRIVATE},
+		{"java.util.ArrayList$Itr", "java.util.ArrayList", "Itr", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.ArrayList",
+		"java.util.AbstractList",
+		"java.util.RandomAccess,java.lang.Cloneable,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/AbstractList<TE;>;Ljava/util/List<TE;>;Ljava/util/RandomAccess;Ljava/lang/Cloneable;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.ArrayList$ArrayListSpliterator,java.util.ArrayList$SubList,java.util.ArrayList$SubList$2,java.util.ArrayList$SubList$1,java.util.ArrayList$ListItr,java.util.ArrayList$Itr"
+	};
+	$loadClass(ArrayList, name, initialize, &classInfo$$, ArrayList::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ArrayList));
+	});
 	return class$;
 }
 

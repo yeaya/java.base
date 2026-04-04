@@ -51,6 +51,7 @@ class $import KeyAgreement : public ::java::lang::Object {
 	$class(KeyAgreement, 0, ::java::lang::Object)
 public:
 	KeyAgreement();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::crypto::KeyAgreementSpi* keyAgreeSpi, ::java::security::Provider* provider, $String* algorithm);
 	void init$(::java::security::Provider$Service* s, ::java::util::Iterator* t, $String* algorithm);
 	virtual void chooseFirstProvider();

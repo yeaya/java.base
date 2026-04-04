@@ -1,10 +1,8 @@
 #include <DynamicConstantDescTest$Task.h>
-
 #include <DynamicConstantDescTest.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -13,58 +11,21 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 
-$FieldInfo _DynamicConstantDescTest$Task_FieldInfo_[] = {
-	{"className", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DynamicConstantDescTest$Task, className)},
-	{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $FINAL, $field(DynamicConstantDescTest$Task, latch)},
-	{}
-};
-
-$MethodInfo _DynamicConstantDescTest$Task_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/util/concurrent/CountDownLatch;)V", nullptr, $PRIVATE, $method(DynamicConstantDescTest$Task, init$, void, $String*, $CountDownLatch*)},
-	{"call", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(DynamicConstantDescTest$Task, call, $Object*)},
-	{}
-};
-
-$InnerClassInfo _DynamicConstantDescTest$Task_InnerClassesInfo_[] = {
-	{"DynamicConstantDescTest$Task", "DynamicConstantDescTest", "Task", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DynamicConstantDescTest$Task_ClassInfo_ = {
-	$ACC_SUPER,
-	"DynamicConstantDescTest$Task",
-	"java.lang.Object",
-	"java.util.concurrent.Callable",
-	_DynamicConstantDescTest$Task_FieldInfo_,
-	_DynamicConstantDescTest$Task_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljava/lang/Class<*>;>;",
-	nullptr,
-	_DynamicConstantDescTest$Task_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"DynamicConstantDescTest"
-};
-
-$Object* allocate$DynamicConstantDescTest$Task($Class* clazz) {
-	return $of($alloc(DynamicConstantDescTest$Task));
-}
-
 void DynamicConstantDescTest$Task::init$($String* className, $CountDownLatch* latch) {
 	$set(this, className, className);
 	$set(this, latch, latch);
 }
 
 $Object* DynamicConstantDescTest$Task::call() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$nc($System::out)->println($$str({$($($Thread::currentThread())->getName()), " loading "_s, this->className}));
 	try {
 		$nc(this->latch)->countDown();
-		$nc(this->latch)->await();
+		this->latch->await();
 		return $of($Class::forName(this->className));
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 	$shouldNotReachHere();
 }
@@ -73,7 +34,38 @@ DynamicConstantDescTest$Task::DynamicConstantDescTest$Task() {
 }
 
 $Class* DynamicConstantDescTest$Task::load$($String* name, bool initialize) {
-	$loadClass(DynamicConstantDescTest$Task, name, initialize, &_DynamicConstantDescTest$Task_ClassInfo_, allocate$DynamicConstantDescTest$Task);
+	$FieldInfo fieldInfos$$[] = {
+		{"className", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(DynamicConstantDescTest$Task, className)},
+		{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $FINAL, $field(DynamicConstantDescTest$Task, latch)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/util/concurrent/CountDownLatch;)V", nullptr, $PRIVATE, $method(DynamicConstantDescTest$Task, init$, void, $String*, $CountDownLatch*)},
+		{"call", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(DynamicConstantDescTest$Task, call, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"DynamicConstantDescTest$Task", "DynamicConstantDescTest", "Task", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"DynamicConstantDescTest$Task",
+		"java.lang.Object",
+		"java.util.concurrent.Callable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljava/lang/Class<*>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"DynamicConstantDescTest"
+	};
+	$loadClass(DynamicConstantDescTest$Task, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DynamicConstantDescTest$Task);
+	});
 	return class$;
 }
 

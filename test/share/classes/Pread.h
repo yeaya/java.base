@@ -24,6 +24,7 @@ class $export Pread : public ::java::lang::Object {
 	$class(Pread, 0, ::java::lang::Object)
 public:
 	Pread();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void genericTest();
 	static void initTestFile(::java::io::File* blah);

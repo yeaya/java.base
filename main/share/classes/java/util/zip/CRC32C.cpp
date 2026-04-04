@@ -1,5 +1,4 @@
 #include <java/util/zip/CRC32C.h>
-
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
@@ -44,60 +43,6 @@ namespace java {
 	namespace util {
 		namespace zip {
 
-$CompoundAttribute _CRC32C_MethodAnnotations_updateBytes6[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _CRC32C_MethodAnnotations_updateDirectByteBuffer7[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$FieldInfo _CRC32C_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CRC32C, $assertionsDisabled)},
-	{"CRC32C_POLY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CRC32C, CRC32C_POLY)},
-	{"REVERSED_CRC32C_POLY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRC32C, REVERSED_CRC32C_POLY)},
-	{"UNSAFE", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRC32C, UNSAFE)},
-	{"byteTable", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRC32C, byteTable)},
-	{"byteTables", "[[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRC32C, byteTables)},
-	{"byteTable0", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRC32C, byteTable0)},
-	{"byteTable1", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRC32C, byteTable1)},
-	{"byteTable2", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRC32C, byteTable2)},
-	{"byteTable3", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRC32C, byteTable3)},
-	{"byteTable4", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRC32C, byteTable4)},
-	{"byteTable5", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRC32C, byteTable5)},
-	{"byteTable6", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRC32C, byteTable6)},
-	{"byteTable7", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRC32C, byteTable7)},
-	{"crc", "I", nullptr, $PRIVATE, $field(CRC32C, crc)},
-	{}
-};
-
-$MethodInfo _CRC32C_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CRC32C, init$, void)},
-	{"getValue", "()J", nullptr, $PUBLIC, $virtualMethod(CRC32C, getValue, int64_t)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(CRC32C, reset, void)},
-	{"update", "(I)V", nullptr, $PUBLIC, $virtualMethod(CRC32C, update, void, int32_t)},
-	{"update", "([BII)V", nullptr, $PUBLIC, $virtualMethod(CRC32C, update, void, $bytes*, int32_t, int32_t)},
-	{"update", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(CRC32C, update, void, $ByteBuffer*)},
-	{"updateBytes", "(I[BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CRC32C, updateBytes, int32_t, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, _CRC32C_MethodAnnotations_updateBytes6},
-	{"updateDirectByteBuffer", "(IJII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CRC32C, updateDirectByteBuffer, int32_t, int32_t, int64_t, int32_t, int32_t), nullptr, nullptr, _CRC32C_MethodAnnotations_updateDirectByteBuffer7},
-	{}
-};
-
-$ClassInfo _CRC32C_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.util.zip.CRC32C",
-	"java.lang.Object",
-	"java.util.zip.Checksum",
-	_CRC32C_FieldInfo_,
-	_CRC32C_MethodInfo_
-};
-
-$Object* allocate$CRC32C($Class* clazz) {
-	return $of($alloc(CRC32C));
-}
-
 bool CRC32C::$assertionsDisabled = false;
 int32_t CRC32C::REVERSED_CRC32C_POLY = 0;
 $Unsafe* CRC32C::UNSAFE = nullptr;
@@ -117,7 +62,7 @@ void CRC32C::init$() {
 }
 
 void CRC32C::update(int32_t b) {
-	this->crc = ((int32_t)((uint32_t)this->crc >> 8)) ^ $nc(CRC32C::byteTable)->get((int32_t)((this->crc ^ ((int32_t)(b & (uint32_t)255))) & (uint32_t)255));
+	this->crc = ((int32_t)((uint32_t)this->crc >> 8)) ^ $nc(CRC32C::byteTable)->get((this->crc ^ (b & 0xff)) & 0xff);
 }
 
 void CRC32C::update($bytes* b, int32_t off, int32_t len) {
@@ -131,7 +76,7 @@ void CRC32C::update($bytes* b, int32_t off, int32_t len) {
 }
 
 void CRC32C::update($ByteBuffer* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = $nc(buffer)->position();
 	int32_t limit = buffer->limit();
 	if (!CRC32C::$assertionsDisabled && !(pos <= limit)) {
@@ -142,18 +87,16 @@ void CRC32C::update($ByteBuffer* buffer) {
 		return;
 	}
 	if (buffer->isDirect()) {
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				this->crc = updateDirectByteBuffer(this->crc, $nc(($cast($DirectBuffer, buffer)))->address(), pos, limit);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$Reference::reachabilityFence(buffer);
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			this->crc = updateDirectByteBuffer(this->crc, $cast($DirectBuffer, buffer)->address(), pos, limit);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$Reference::reachabilityFence(buffer);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} else if (buffer->hasArray()) {
 		int32_t var$2 = this->crc;
@@ -176,16 +119,16 @@ void CRC32C::reset() {
 }
 
 int64_t CRC32C::getValue() {
-	return (int64_t)((~this->crc) & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+	return (~this->crc) & (int64_t)0xffffffff;
 }
 
 int32_t CRC32C::updateBytes(int32_t crc, $bytes* b, int32_t off, int32_t end) {
 	$init(CRC32C);
 	$init($Unsafe);
 	if (end - off >= 8 && $Unsafe::ARRAY_BYTE_INDEX_SCALE == 1) {
-		int32_t alignLength = (int32_t)((8 - ((int32_t)(($Unsafe::ARRAY_BYTE_BASE_OFFSET + off) & (uint32_t)7))) & (uint32_t)7);
+		int32_t alignLength = (8 - (($Unsafe::ARRAY_BYTE_BASE_OFFSET + off) & 7)) & 7;
 		for (int32_t alignEnd = off + alignLength; off < alignEnd; ++off) {
-			crc = ((int32_t)((uint32_t)crc >> 8)) ^ $nc(CRC32C::byteTable)->get((int32_t)((crc ^ $nc(b)->get(off)) & (uint32_t)255));
+			crc = ((int32_t)((uint32_t)crc >> 8)) ^ $nc(CRC32C::byteTable)->get((crc ^ $nc(b)->get(off)) & 0xff);
 		}
 		$init($ByteOrder);
 		if ($ByteOrder::nativeOrder() == $ByteOrder::BIG_ENDIAN) {
@@ -196,7 +139,7 @@ int32_t CRC32C::updateBytes(int32_t crc, $bytes* b, int32_t off, int32_t end) {
 			int32_t secondHalf = 0;
 			if ($Unsafe::ADDRESS_SIZE == 4) {
 				firstHalf = $nc(CRC32C::UNSAFE)->getInt(b, (int64_t)$Unsafe::ARRAY_BYTE_BASE_OFFSET + off);
-				secondHalf = $nc(CRC32C::UNSAFE)->getInt(b, (int64_t)$Unsafe::ARRAY_BYTE_BASE_OFFSET + off + $Integer::BYTES);
+				secondHalf = CRC32C::UNSAFE->getInt(b, (int64_t)$Unsafe::ARRAY_BYTE_BASE_OFFSET + off + $Integer::BYTES);
 			} else {
 				int64_t value = $nc(CRC32C::UNSAFE)->getLong(b, (int64_t)$Unsafe::ARRAY_BYTE_BASE_OFFSET + off);
 				if ($ByteOrder::nativeOrder() == $ByteOrder::LITTLE_ENDIAN) {
@@ -209,9 +152,9 @@ int32_t CRC32C::updateBytes(int32_t crc, $bytes* b, int32_t off, int32_t end) {
 			}
 			crc ^= firstHalf;
 			if ($ByteOrder::nativeOrder() == $ByteOrder::LITTLE_ENDIAN) {
-				crc = (((((($nc(CRC32C::byteTable7)->get((int32_t)(crc & (uint32_t)255)) ^ $nc(CRC32C::byteTable6)->get((int32_t)(((int32_t)((uint32_t)crc >> 8)) & (uint32_t)255))) ^ $nc(CRC32C::byteTable5)->get((int32_t)(((int32_t)((uint32_t)crc >> 16)) & (uint32_t)255))) ^ $nc(CRC32C::byteTable4)->get((int32_t)((uint32_t)crc >> 24))) ^ $nc(CRC32C::byteTable3)->get((int32_t)(secondHalf & (uint32_t)255))) ^ $nc(CRC32C::byteTable2)->get((int32_t)(((int32_t)((uint32_t)secondHalf >> 8)) & (uint32_t)255))) ^ $nc(CRC32C::byteTable1)->get((int32_t)(((int32_t)((uint32_t)secondHalf >> 16)) & (uint32_t)255))) ^ $nc(CRC32C::byteTable0)->get((int32_t)((uint32_t)secondHalf >> 24));
+				crc = (((((($nc(CRC32C::byteTable7)->get(crc & 0xff) ^ $nc(CRC32C::byteTable6)->get(((int32_t)((uint32_t)crc >> 8)) & 0xff)) ^ $nc(CRC32C::byteTable5)->get(((int32_t)((uint32_t)crc >> 16)) & 0xff)) ^ $nc(CRC32C::byteTable4)->get((int32_t)((uint32_t)crc >> 24))) ^ $nc(CRC32C::byteTable3)->get(secondHalf & 0xff)) ^ $nc(CRC32C::byteTable2)->get(((int32_t)((uint32_t)secondHalf >> 8)) & 0xff)) ^ $nc(CRC32C::byteTable1)->get(((int32_t)((uint32_t)secondHalf >> 16)) & 0xff)) ^ $nc(CRC32C::byteTable0)->get((int32_t)((uint32_t)secondHalf >> 24));
 			} else {
-				crc = (((((($nc(CRC32C::byteTable0)->get((int32_t)(secondHalf & (uint32_t)255)) ^ $nc(CRC32C::byteTable1)->get((int32_t)(((int32_t)((uint32_t)secondHalf >> 8)) & (uint32_t)255))) ^ $nc(CRC32C::byteTable2)->get((int32_t)(((int32_t)((uint32_t)secondHalf >> 16)) & (uint32_t)255))) ^ $nc(CRC32C::byteTable3)->get((int32_t)((uint32_t)secondHalf >> 24))) ^ $nc(CRC32C::byteTable4)->get((int32_t)(crc & (uint32_t)255))) ^ $nc(CRC32C::byteTable5)->get((int32_t)(((int32_t)((uint32_t)crc >> 8)) & (uint32_t)255))) ^ $nc(CRC32C::byteTable6)->get((int32_t)(((int32_t)((uint32_t)crc >> 16)) & (uint32_t)255))) ^ $nc(CRC32C::byteTable7)->get((int32_t)((uint32_t)crc >> 24));
+				crc = (((((($nc(CRC32C::byteTable0)->get(secondHalf & 0xff) ^ $nc(CRC32C::byteTable1)->get(((int32_t)((uint32_t)secondHalf >> 8)) & 0xff)) ^ $nc(CRC32C::byteTable2)->get(((int32_t)((uint32_t)secondHalf >> 16)) & 0xff)) ^ $nc(CRC32C::byteTable3)->get((int32_t)((uint32_t)secondHalf >> 24))) ^ $nc(CRC32C::byteTable4)->get(crc & 0xff)) ^ $nc(CRC32C::byteTable5)->get(((int32_t)((uint32_t)crc >> 8)) & 0xff)) ^ $nc(CRC32C::byteTable6)->get(((int32_t)((uint32_t)crc >> 16)) & 0xff)) ^ $nc(CRC32C::byteTable7)->get((int32_t)((uint32_t)crc >> 24));
 			}
 		}
 		if ($ByteOrder::nativeOrder() == $ByteOrder::BIG_ENDIAN) {
@@ -219,7 +162,7 @@ int32_t CRC32C::updateBytes(int32_t crc, $bytes* b, int32_t off, int32_t end) {
 		}
 	}
 	for (; off < end; ++off) {
-		crc = ((int32_t)((uint32_t)crc >> 8)) ^ $nc(CRC32C::byteTable)->get((int32_t)((crc ^ $nc(b)->get(off)) & (uint32_t)255));
+		crc = ((int32_t)((uint32_t)crc >> 8)) ^ $nc(CRC32C::byteTable)->get((crc ^ $nc(b)->get(off)) & 0xff);
 	}
 	return crc;
 }
@@ -227,9 +170,9 @@ int32_t CRC32C::updateBytes(int32_t crc, $bytes* b, int32_t off, int32_t end) {
 int32_t CRC32C::updateDirectByteBuffer(int32_t crc, int64_t address, int32_t off, int32_t end) {
 	$init(CRC32C);
 	if (end - off >= 8) {
-		int32_t alignLength = (int32_t)((8 - (int32_t)((int64_t)((address + off) & (uint64_t)(int64_t)7))) & (uint32_t)7);
+		int32_t alignLength = (8 - (int32_t)((address + off) & 7)) & 7;
 		for (int32_t alignEnd = off + alignLength; off < alignEnd; ++off) {
-			crc = ((int32_t)((uint32_t)crc >> 8)) ^ $nc(CRC32C::byteTable)->get((int32_t)((crc ^ $nc(CRC32C::UNSAFE)->getByte(address + off)) & (uint32_t)255));
+			crc = ((int32_t)((uint32_t)crc >> 8)) ^ $nc(CRC32C::byteTable)->get((crc ^ $nc(CRC32C::UNSAFE)->getByte(address + off)) & 0xff);
 		}
 		$init($ByteOrder);
 		if ($ByteOrder::nativeOrder() == $ByteOrder::BIG_ENDIAN) {
@@ -237,12 +180,12 @@ int32_t CRC32C::updateDirectByteBuffer(int32_t crc, int64_t address, int32_t off
 		}
 		for (; off <= (end - $Long::BYTES); off += $Long::BYTES) {
 			int32_t firstHalf = $nc(CRC32C::UNSAFE)->getInt(address + off);
-			int32_t secondHalf = $nc(CRC32C::UNSAFE)->getInt(address + off + $Integer::BYTES);
+			int32_t secondHalf = CRC32C::UNSAFE->getInt(address + off + $Integer::BYTES);
 			crc ^= firstHalf;
 			if ($ByteOrder::nativeOrder() == $ByteOrder::LITTLE_ENDIAN) {
-				crc = (((((($nc(CRC32C::byteTable7)->get((int32_t)(crc & (uint32_t)255)) ^ $nc(CRC32C::byteTable6)->get((int32_t)(((int32_t)((uint32_t)crc >> 8)) & (uint32_t)255))) ^ $nc(CRC32C::byteTable5)->get((int32_t)(((int32_t)((uint32_t)crc >> 16)) & (uint32_t)255))) ^ $nc(CRC32C::byteTable4)->get((int32_t)((uint32_t)crc >> 24))) ^ $nc(CRC32C::byteTable3)->get((int32_t)(secondHalf & (uint32_t)255))) ^ $nc(CRC32C::byteTable2)->get((int32_t)(((int32_t)((uint32_t)secondHalf >> 8)) & (uint32_t)255))) ^ $nc(CRC32C::byteTable1)->get((int32_t)(((int32_t)((uint32_t)secondHalf >> 16)) & (uint32_t)255))) ^ $nc(CRC32C::byteTable0)->get((int32_t)((uint32_t)secondHalf >> 24));
+				crc = (((((($nc(CRC32C::byteTable7)->get(crc & 0xff) ^ $nc(CRC32C::byteTable6)->get(((int32_t)((uint32_t)crc >> 8)) & 0xff)) ^ $nc(CRC32C::byteTable5)->get(((int32_t)((uint32_t)crc >> 16)) & 0xff)) ^ $nc(CRC32C::byteTable4)->get((int32_t)((uint32_t)crc >> 24))) ^ $nc(CRC32C::byteTable3)->get(secondHalf & 0xff)) ^ $nc(CRC32C::byteTable2)->get(((int32_t)((uint32_t)secondHalf >> 8)) & 0xff)) ^ $nc(CRC32C::byteTable1)->get(((int32_t)((uint32_t)secondHalf >> 16)) & 0xff)) ^ $nc(CRC32C::byteTable0)->get((int32_t)((uint32_t)secondHalf >> 24));
 			} else {
-				crc = (((((($nc(CRC32C::byteTable0)->get((int32_t)(secondHalf & (uint32_t)255)) ^ $nc(CRC32C::byteTable1)->get((int32_t)(((int32_t)((uint32_t)secondHalf >> 8)) & (uint32_t)255))) ^ $nc(CRC32C::byteTable2)->get((int32_t)(((int32_t)((uint32_t)secondHalf >> 16)) & (uint32_t)255))) ^ $nc(CRC32C::byteTable3)->get((int32_t)((uint32_t)secondHalf >> 24))) ^ $nc(CRC32C::byteTable4)->get((int32_t)(crc & (uint32_t)255))) ^ $nc(CRC32C::byteTable5)->get((int32_t)(((int32_t)((uint32_t)crc >> 8)) & (uint32_t)255))) ^ $nc(CRC32C::byteTable6)->get((int32_t)(((int32_t)((uint32_t)crc >> 16)) & (uint32_t)255))) ^ $nc(CRC32C::byteTable7)->get((int32_t)((uint32_t)crc >> 24));
+				crc = (((((($nc(CRC32C::byteTable0)->get(secondHalf & 0xff) ^ $nc(CRC32C::byteTable1)->get(((int32_t)((uint32_t)secondHalf >> 8)) & 0xff)) ^ $nc(CRC32C::byteTable2)->get(((int32_t)((uint32_t)secondHalf >> 16)) & 0xff)) ^ $nc(CRC32C::byteTable3)->get((int32_t)((uint32_t)secondHalf >> 24))) ^ $nc(CRC32C::byteTable4)->get(crc & 0xff)) ^ $nc(CRC32C::byteTable5)->get(((int32_t)((uint32_t)crc >> 8)) & 0xff)) ^ $nc(CRC32C::byteTable6)->get(((int32_t)((uint32_t)crc >> 16)) & 0xff)) ^ $nc(CRC32C::byteTable7)->get((int32_t)((uint32_t)crc >> 24));
 			}
 		}
 		if ($ByteOrder::nativeOrder() == $ByteOrder::BIG_ENDIAN) {
@@ -250,60 +193,56 @@ int32_t CRC32C::updateDirectByteBuffer(int32_t crc, int64_t address, int32_t off
 		}
 	}
 	for (; off < end; ++off) {
-		crc = ((int32_t)((uint32_t)crc >> 8)) ^ $nc(CRC32C::byteTable)->get((int32_t)((crc ^ $nc(CRC32C::UNSAFE)->getByte(address + off)) & (uint32_t)255));
+		crc = ((int32_t)((uint32_t)crc >> 8)) ^ $nc(CRC32C::byteTable)->get((crc ^ $nc(CRC32C::UNSAFE)->getByte(address + off)) & 0xff);
 	}
 	return crc;
 }
 
-void clinit$CRC32C($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void CRC32C::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	CRC32C::$assertionsDisabled = !CRC32C::class$->desiredAssertionStatus();
 	CRC32C::REVERSED_CRC32C_POLY = $Integer::reverse(CRC32C::CRC32C_POLY);
 	$assignStatic(CRC32C::UNSAFE, $Unsafe::getUnsafe());
 	$assignStatic(CRC32C::byteTables, $new($intArray2, 8, 256));
-	$assignStatic(CRC32C::byteTable0, $nc(CRC32C::byteTables)->get(0));
-	$assignStatic(CRC32C::byteTable1, $nc(CRC32C::byteTables)->get(1));
-	$assignStatic(CRC32C::byteTable2, $nc(CRC32C::byteTables)->get(2));
-	$assignStatic(CRC32C::byteTable3, $nc(CRC32C::byteTables)->get(3));
-	$assignStatic(CRC32C::byteTable4, $nc(CRC32C::byteTables)->get(4));
-	$assignStatic(CRC32C::byteTable5, $nc(CRC32C::byteTables)->get(5));
-	$assignStatic(CRC32C::byteTable6, $nc(CRC32C::byteTables)->get(6));
-	$assignStatic(CRC32C::byteTable7, $nc(CRC32C::byteTables)->get(7));
+	$assignStatic(CRC32C::byteTable0, CRC32C::byteTables->get(0));
+	$assignStatic(CRC32C::byteTable1, CRC32C::byteTables->get(1));
+	$assignStatic(CRC32C::byteTable2, CRC32C::byteTables->get(2));
+	$assignStatic(CRC32C::byteTable3, CRC32C::byteTables->get(3));
+	$assignStatic(CRC32C::byteTable4, CRC32C::byteTables->get(4));
+	$assignStatic(CRC32C::byteTable5, CRC32C::byteTables->get(5));
+	$assignStatic(CRC32C::byteTable6, CRC32C::byteTables->get(6));
+	$assignStatic(CRC32C::byteTable7, CRC32C::byteTables->get(7));
 	{
-		for (int32_t index = 0; index < $nc($nc(CRC32C::byteTables)->get(0))->length; ++index) {
+		for (int32_t index = 0; index < $nc(CRC32C::byteTables->get(0))->length; ++index) {
 			int32_t r = index;
 			for (int32_t i = 0; i < $Byte::SIZE; ++i) {
-				if (((int32_t)(r & (uint32_t)1)) != 0) {
+				if ((r & 1) != 0) {
 					r = ((int32_t)((uint32_t)r >> 1)) ^ CRC32C::REVERSED_CRC32C_POLY;
 				} else {
 					$usrAssign(r, 1);
 				}
 			}
-			$nc($nc(CRC32C::byteTables)->get(0))->set(index, r);
+			$nc(CRC32C::byteTables->get(0))->set(index, r);
 		}
-		for (int32_t index = 0; index < $nc($nc(CRC32C::byteTables)->get(0))->length; ++index) {
-			int32_t r = $nc($nc(CRC32C::byteTables)->get(0))->get(index);
-			for (int32_t k = 1; k < $nc(CRC32C::byteTables)->length; ++k) {
-				r = $nc($nc(CRC32C::byteTables)->get(0))->get((int32_t)(r & (uint32_t)255)) ^ ((int32_t)((uint32_t)r >> 8));
-				$nc($nc(CRC32C::byteTables)->get(k))->set(index, r);
+		for (int32_t index = 0; index < $nc(CRC32C::byteTables->get(0))->length; ++index) {
+			int32_t r = $nc(CRC32C::byteTables->get(0))->get(index);
+			for (int32_t k = 1; k < CRC32C::byteTables->length; ++k) {
+				r = $nc(CRC32C::byteTables->get(0))->get(r & 0xff) ^ ((int32_t)((uint32_t)r >> 8));
+				$nc(CRC32C::byteTables->get(k))->set(index, r);
 			}
 		}
 		$init($ByteOrder);
 		if ($ByteOrder::nativeOrder() == $ByteOrder::LITTLE_ENDIAN) {
-			$assignStatic(CRC32C::byteTable, $nc(CRC32C::byteTables)->get(0));
+			$assignStatic(CRC32C::byteTable, CRC32C::byteTables->get(0));
 		} else {
 			$assignStatic(CRC32C::byteTable, $new($ints, $nc(CRC32C::byteTable0)->length));
-			$System::arraycopy(CRC32C::byteTable0, 0, CRC32C::byteTable, 0, $nc(CRC32C::byteTable0)->length);
+			$System::arraycopy(CRC32C::byteTable0, 0, CRC32C::byteTable, 0, CRC32C::byteTable0->length);
 			{
 				$var($intArray2, arr$, CRC32C::byteTables);
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
+				for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 					$var($ints, table, arr$->get(i$));
-					{
-						for (int32_t index = 0; index < $nc(table)->length; ++index) {
-							table->set(index, $Integer::reverseBytes(table->get(index)));
-						}
+					for (int32_t index = 0; index < $nc(table)->length; ++index) {
+						table->set(index, $Integer::reverseBytes(table->get(index)));
 					}
 				}
 			}
@@ -315,7 +254,54 @@ CRC32C::CRC32C() {
 }
 
 $Class* CRC32C::load$($String* name, bool initialize) {
-	$loadClass(CRC32C, name, initialize, &_CRC32C_ClassInfo_, clinit$CRC32C, allocate$CRC32C);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CRC32C, $assertionsDisabled)},
+		{"CRC32C_POLY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CRC32C, CRC32C_POLY)},
+		{"REVERSED_CRC32C_POLY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRC32C, REVERSED_CRC32C_POLY)},
+		{"UNSAFE", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRC32C, UNSAFE)},
+		{"byteTable", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRC32C, byteTable)},
+		{"byteTables", "[[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRC32C, byteTables)},
+		{"byteTable0", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRC32C, byteTable0)},
+		{"byteTable1", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRC32C, byteTable1)},
+		{"byteTable2", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRC32C, byteTable2)},
+		{"byteTable3", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRC32C, byteTable3)},
+		{"byteTable4", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRC32C, byteTable4)},
+		{"byteTable5", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRC32C, byteTable5)},
+		{"byteTable6", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRC32C, byteTable6)},
+		{"byteTable7", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CRC32C, byteTable7)},
+		{"crc", "I", nullptr, $PRIVATE, $field(CRC32C, crc)},
+		{}
+	};
+	$CompoundAttribute updateBytesmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute updateDirectByteBuffermethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CRC32C, init$, void)},
+		{"getValue", "()J", nullptr, $PUBLIC, $virtualMethod(CRC32C, getValue, int64_t)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(CRC32C, reset, void)},
+		{"update", "(I)V", nullptr, $PUBLIC, $virtualMethod(CRC32C, update, void, int32_t)},
+		{"update", "([BII)V", nullptr, $PUBLIC, $virtualMethod(CRC32C, update, void, $bytes*, int32_t, int32_t)},
+		{"update", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(CRC32C, update, void, $ByteBuffer*)},
+		{"updateBytes", "(I[BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CRC32C, updateBytes, int32_t, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, updateBytesmethodAnnotations$$},
+		{"updateDirectByteBuffer", "(IJII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CRC32C, updateDirectByteBuffer, int32_t, int32_t, int64_t, int32_t, int32_t), nullptr, nullptr, updateDirectByteBuffermethodAnnotations$$},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.util.zip.CRC32C",
+		"java.lang.Object",
+		"java.util.zip.Checksum",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CRC32C, name, initialize, &classInfo$$, CRC32C::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CRC32C);
+	});
 	return class$;
 }
 

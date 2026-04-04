@@ -22,6 +22,7 @@ class DHKeyExchange$DHEPossessionGenerator : public ::sun::security::ssl::SSLPos
 	$class(DHKeyExchange$DHEPossessionGenerator, 0, ::sun::security::ssl::SSLPossessionGenerator)
 public:
 	DHKeyExchange$DHEPossessionGenerator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool exportable);
 	virtual ::sun::security::ssl::SSLPossession* createPossession(::sun::security::ssl::HandshakeContext* context) override;
 	static bool useSmartEphemeralDHKeys;

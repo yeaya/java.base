@@ -1,5 +1,4 @@
 #include <SwapMicroBenchmark$1.h>
-
 #include <SwapMicroBenchmark.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <jcpp.h>
@@ -10,48 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
-
-$FieldInfo _SwapMicroBenchmark$1_FieldInfo_[] = {
-	{"val$drained", "Ljava/util/concurrent/CountDownLatch;", nullptr, $FINAL | $SYNTHETIC, $field(SwapMicroBenchmark$1, val$drained)},
-	{}
-};
-
-$MethodInfo _SwapMicroBenchmark$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CountDownLatch;)V", nullptr, 0, $method(SwapMicroBenchmark$1, init$, void, $CountDownLatch*)},
-	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(SwapMicroBenchmark$1, finalize, void)},
-	{}
-};
-
-$EnclosingMethodInfo _SwapMicroBenchmark$1_EnclosingMethodInfo_ = {
-	"SwapMicroBenchmark",
-	"collectAllGarbage",
-	"()V"
-};
-
-$InnerClassInfo _SwapMicroBenchmark$1_InnerClassesInfo_[] = {
-	{"SwapMicroBenchmark$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SwapMicroBenchmark$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"SwapMicroBenchmark$1",
-	"java.lang.Object",
-	nullptr,
-	_SwapMicroBenchmark$1_FieldInfo_,
-	_SwapMicroBenchmark$1_MethodInfo_,
-	nullptr,
-	&_SwapMicroBenchmark$1_EnclosingMethodInfo_,
-	_SwapMicroBenchmark$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"SwapMicroBenchmark"
-};
-
-$Object* allocate$SwapMicroBenchmark$1($Class* clazz) {
-	return $of($alloc(SwapMicroBenchmark$1));
-}
 
 void SwapMicroBenchmark$1::init$($CountDownLatch* val$drained) {
 	$set(this, val$drained, val$drained);
@@ -65,7 +22,42 @@ SwapMicroBenchmark$1::SwapMicroBenchmark$1() {
 }
 
 $Class* SwapMicroBenchmark$1::load$($String* name, bool initialize) {
-	$loadClass(SwapMicroBenchmark$1, name, initialize, &_SwapMicroBenchmark$1_ClassInfo_, allocate$SwapMicroBenchmark$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$drained", "Ljava/util/concurrent/CountDownLatch;", nullptr, $FINAL | $SYNTHETIC, $field(SwapMicroBenchmark$1, val$drained)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/CountDownLatch;)V", nullptr, 0, $method(SwapMicroBenchmark$1, init$, void, $CountDownLatch*)},
+		{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(SwapMicroBenchmark$1, finalize, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"SwapMicroBenchmark",
+		"collectAllGarbage",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"SwapMicroBenchmark$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"SwapMicroBenchmark$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"SwapMicroBenchmark"
+	};
+	$loadClass(SwapMicroBenchmark$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SwapMicroBenchmark$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/time/temporal/WeekFields$ComputedDayOfField.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/Math.h>
 #include <java/time/DateTimeException.h>
@@ -51,7 +50,6 @@ using $Long = ::java::lang::Long;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DateTimeException = ::java::time::DateTimeException;
-using $DayOfWeek = ::java::time::DayOfWeek;
 using $ChronoLocalDate = ::java::time::chrono::ChronoLocalDate;
 using $Chronology = ::java::time::chrono::Chronology;
 using $ResolverStyle = ::java::time::format::ResolverStyle;
@@ -75,80 +73,6 @@ using $LocaleResources = ::sun::util::locale::provider::LocaleResources;
 namespace java {
 	namespace time {
 		namespace temporal {
-
-$FieldInfo _WeekFields$ComputedDayOfField_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(WeekFields$ComputedDayOfField, name)},
-	{"weekDef", "Ljava/time/temporal/WeekFields;", nullptr, $PRIVATE | $FINAL, $field(WeekFields$ComputedDayOfField, weekDef)},
-	{"baseUnit", "Ljava/time/temporal/TemporalUnit;", nullptr, $PRIVATE | $FINAL, $field(WeekFields$ComputedDayOfField, baseUnit)},
-	{"rangeUnit", "Ljava/time/temporal/TemporalUnit;", nullptr, $PRIVATE | $FINAL, $field(WeekFields$ComputedDayOfField, rangeUnit)},
-	{"range", "Ljava/time/temporal/ValueRange;", nullptr, $PRIVATE | $FINAL, $field(WeekFields$ComputedDayOfField, range$)},
-	{"DAY_OF_WEEK_RANGE", "Ljava/time/temporal/ValueRange;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WeekFields$ComputedDayOfField, DAY_OF_WEEK_RANGE)},
-	{"WEEK_OF_MONTH_RANGE", "Ljava/time/temporal/ValueRange;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WeekFields$ComputedDayOfField, WEEK_OF_MONTH_RANGE)},
-	{"WEEK_OF_YEAR_RANGE", "Ljava/time/temporal/ValueRange;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WeekFields$ComputedDayOfField, WEEK_OF_YEAR_RANGE)},
-	{"WEEK_OF_WEEK_BASED_YEAR_RANGE", "Ljava/time/temporal/ValueRange;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WeekFields$ComputedDayOfField, WEEK_OF_WEEK_BASED_YEAR_RANGE)},
-	{}
-};
-
-$MethodInfo _WeekFields$ComputedDayOfField_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/time/temporal/WeekFields;Ljava/time/temporal/TemporalUnit;Ljava/time/temporal/TemporalUnit;Ljava/time/temporal/ValueRange;)V", nullptr, $PRIVATE, $method(WeekFields$ComputedDayOfField, init$, void, $String*, $WeekFields*, $TemporalUnit*, $TemporalUnit*, $ValueRange*)},
-	{"adjustInto", "(Ljava/time/temporal/Temporal;J)Ljava/time/temporal/Temporal;", "<R::Ljava/time/temporal/Temporal;>(TR;J)TR;", $PUBLIC, $virtualMethod(WeekFields$ComputedDayOfField, adjustInto, $Temporal*, $Temporal*, int64_t)},
-	{"computeWeek", "(II)I", nullptr, $PRIVATE, $method(WeekFields$ComputedDayOfField, computeWeek, int32_t, int32_t, int32_t)},
-	{"getBaseUnit", "()Ljava/time/temporal/TemporalUnit;", nullptr, $PUBLIC, $virtualMethod(WeekFields$ComputedDayOfField, getBaseUnit, $TemporalUnit*)},
-	{"getDisplayName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WeekFields$ComputedDayOfField, getDisplayName, $String*, $Locale*)},
-	{"getFrom", "(Ljava/time/temporal/TemporalAccessor;)J", nullptr, $PUBLIC, $virtualMethod(WeekFields$ComputedDayOfField, getFrom, int64_t, $TemporalAccessor*)},
-	{"getRangeUnit", "()Ljava/time/temporal/TemporalUnit;", nullptr, $PUBLIC, $virtualMethod(WeekFields$ComputedDayOfField, getRangeUnit, $TemporalUnit*)},
-	{"isDateBased", "()Z", nullptr, $PUBLIC, $virtualMethod(WeekFields$ComputedDayOfField, isDateBased, bool)},
-	{"isSupportedBy", "(Ljava/time/temporal/TemporalAccessor;)Z", nullptr, $PUBLIC, $virtualMethod(WeekFields$ComputedDayOfField, isSupportedBy, bool, $TemporalAccessor*)},
-	{"isTimeBased", "()Z", nullptr, $PUBLIC, $virtualMethod(WeekFields$ComputedDayOfField, isTimeBased, bool)},
-	{"localizedDayOfWeek", "(Ljava/time/temporal/TemporalAccessor;)I", nullptr, $PRIVATE, $method(WeekFields$ComputedDayOfField, localizedDayOfWeek, int32_t, $TemporalAccessor*)},
-	{"localizedDayOfWeek", "(I)I", nullptr, $PRIVATE, $method(WeekFields$ComputedDayOfField, localizedDayOfWeek, int32_t, int32_t)},
-	{"localizedWeekBasedYear", "(Ljava/time/temporal/TemporalAccessor;)I", nullptr, $PRIVATE, $method(WeekFields$ComputedDayOfField, localizedWeekBasedYear, int32_t, $TemporalAccessor*)},
-	{"localizedWeekOfMonth", "(Ljava/time/temporal/TemporalAccessor;)J", nullptr, $PRIVATE, $method(WeekFields$ComputedDayOfField, localizedWeekOfMonth, int64_t, $TemporalAccessor*)},
-	{"localizedWeekOfWeekBasedYear", "(Ljava/time/temporal/TemporalAccessor;)I", nullptr, $PRIVATE, $method(WeekFields$ComputedDayOfField, localizedWeekOfWeekBasedYear, int32_t, $TemporalAccessor*)},
-	{"localizedWeekOfYear", "(Ljava/time/temporal/TemporalAccessor;)J", nullptr, $PRIVATE, $method(WeekFields$ComputedDayOfField, localizedWeekOfYear, int64_t, $TemporalAccessor*)},
-	{"ofDayOfWeekField", "(Ljava/time/temporal/WeekFields;)Ljava/time/temporal/WeekFields$ComputedDayOfField;", nullptr, $STATIC, $staticMethod(WeekFields$ComputedDayOfField, ofDayOfWeekField, WeekFields$ComputedDayOfField*, $WeekFields*)},
-	{"ofWeekBasedYear", "(Ljava/time/chrono/Chronology;III)Ljava/time/chrono/ChronoLocalDate;", nullptr, $PRIVATE, $method(WeekFields$ComputedDayOfField, ofWeekBasedYear, $ChronoLocalDate*, $Chronology*, int32_t, int32_t, int32_t)},
-	{"ofWeekBasedYearField", "(Ljava/time/temporal/WeekFields;)Ljava/time/temporal/WeekFields$ComputedDayOfField;", nullptr, $STATIC, $staticMethod(WeekFields$ComputedDayOfField, ofWeekBasedYearField, WeekFields$ComputedDayOfField*, $WeekFields*)},
-	{"ofWeekOfMonthField", "(Ljava/time/temporal/WeekFields;)Ljava/time/temporal/WeekFields$ComputedDayOfField;", nullptr, $STATIC, $staticMethod(WeekFields$ComputedDayOfField, ofWeekOfMonthField, WeekFields$ComputedDayOfField*, $WeekFields*)},
-	{"ofWeekOfWeekBasedYearField", "(Ljava/time/temporal/WeekFields;)Ljava/time/temporal/WeekFields$ComputedDayOfField;", nullptr, $STATIC, $staticMethod(WeekFields$ComputedDayOfField, ofWeekOfWeekBasedYearField, WeekFields$ComputedDayOfField*, $WeekFields*)},
-	{"ofWeekOfYearField", "(Ljava/time/temporal/WeekFields;)Ljava/time/temporal/WeekFields$ComputedDayOfField;", nullptr, $STATIC, $staticMethod(WeekFields$ComputedDayOfField, ofWeekOfYearField, WeekFields$ComputedDayOfField*, $WeekFields*)},
-	{"range", "()Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(WeekFields$ComputedDayOfField, range, $ValueRange*)},
-	{"rangeByWeek", "(Ljava/time/temporal/TemporalAccessor;Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PRIVATE, $method(WeekFields$ComputedDayOfField, rangeByWeek, $ValueRange*, $TemporalAccessor*, $TemporalField*)},
-	{"rangeRefinedBy", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(WeekFields$ComputedDayOfField, rangeRefinedBy, $ValueRange*, $TemporalAccessor*)},
-	{"rangeWeekOfWeekBasedYear", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/temporal/ValueRange;", nullptr, $PRIVATE, $method(WeekFields$ComputedDayOfField, rangeWeekOfWeekBasedYear, $ValueRange*, $TemporalAccessor*)},
-	{"resolve", "(Ljava/util/Map;Ljava/time/temporal/TemporalAccessor;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/temporal/TemporalAccessor;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", $PUBLIC, $virtualMethod(WeekFields$ComputedDayOfField, resolve, $TemporalAccessor*, $Map*, $TemporalAccessor*, $ResolverStyle*)},
-	{"resolveWBY", "(Ljava/util/Map;Ljava/time/chrono/Chronology;ILjava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/chrono/Chronology;ILjava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", $PRIVATE, $method(WeekFields$ComputedDayOfField, resolveWBY, $ChronoLocalDate*, $Map*, $Chronology*, int32_t, $ResolverStyle*)},
-	{"resolveWoM", "(Ljava/util/Map;Ljava/time/chrono/Chronology;IJJILjava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/chrono/Chronology;IJJILjava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", $PRIVATE, $method(WeekFields$ComputedDayOfField, resolveWoM, $ChronoLocalDate*, $Map*, $Chronology*, int32_t, int64_t, int64_t, int32_t, $ResolverStyle*)},
-	{"resolveWoY", "(Ljava/util/Map;Ljava/time/chrono/Chronology;IJILjava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/chrono/Chronology;IJILjava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", $PRIVATE, $method(WeekFields$ComputedDayOfField, resolveWoY, $ChronoLocalDate*, $Map*, $Chronology*, int32_t, int64_t, int32_t, $ResolverStyle*)},
-	{"startOfWeekOffset", "(II)I", nullptr, $PRIVATE, $method(WeekFields$ComputedDayOfField, startOfWeekOffset, int32_t, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WeekFields$ComputedDayOfField, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _WeekFields$ComputedDayOfField_InnerClassesInfo_[] = {
-	{"java.time.temporal.WeekFields$ComputedDayOfField", "java.time.temporal.WeekFields", "ComputedDayOfField", $STATIC},
-	{}
-};
-
-$ClassInfo _WeekFields$ComputedDayOfField_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.time.temporal.WeekFields$ComputedDayOfField",
-	"java.lang.Object",
-	"java.time.temporal.TemporalField",
-	_WeekFields$ComputedDayOfField_FieldInfo_,
-	_WeekFields$ComputedDayOfField_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WeekFields$ComputedDayOfField_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.temporal.WeekFields"
-};
-
-$Object* allocate$WeekFields$ComputedDayOfField($Class* clazz) {
-	return $of($alloc(WeekFields$ComputedDayOfField));
-}
 
 $ValueRange* WeekFields$ComputedDayOfField::DAY_OF_WEEK_RANGE = nullptr;
 $ValueRange* WeekFields$ComputedDayOfField::WEEK_OF_MONTH_RANGE = nullptr;
@@ -190,7 +114,7 @@ WeekFields$ComputedDayOfField* WeekFields$ComputedDayOfField::ofWeekBasedYearFie
 
 $ChronoLocalDate* WeekFields$ComputedDayOfField::ofWeekBasedYear($Chronology* chrono, int32_t yowby, int32_t wowby, int32_t dow) {
 	$var($ChronoLocalDate, date, $nc(chrono)->date(yowby, 1, 1));
-	int32_t ldow = localizedDayOfWeek(static_cast<$TemporalAccessor*>(date));
+	int32_t ldow = localizedDayOfWeek(date);
 	int32_t offset = startOfWeekOffset(1, ldow);
 	int32_t yearLen = $nc(date)->lengthOfYear();
 	int32_t newYearWeek = computeWeek(offset, yearLen + $nc(this->weekDef)->getMinimalDaysInFirstWeek());
@@ -212,37 +136,31 @@ int64_t WeekFields$ComputedDayOfField::getFrom($TemporalAccessor* temporal) {
 	$init($ChronoUnit);
 	if ($equals(this->rangeUnit, $ChronoUnit::WEEKS)) {
 		return localizedDayOfWeek(temporal);
+	} else if ($equals(this->rangeUnit, $ChronoUnit::MONTHS)) {
+		return localizedWeekOfMonth(temporal);
+	} else if ($equals(this->rangeUnit, $ChronoUnit::YEARS)) {
+		return localizedWeekOfYear(temporal);
 	} else {
-		if ($equals(this->rangeUnit, $ChronoUnit::MONTHS)) {
-			return localizedWeekOfMonth(temporal);
+		$init($WeekFields);
+		if (this->rangeUnit == $WeekFields::WEEK_BASED_YEARS) {
+			return localizedWeekOfWeekBasedYear(temporal);
+		} else if ($equals(this->rangeUnit, $ChronoUnit::FOREVER)) {
+			return localizedWeekBasedYear(temporal);
 		} else {
-			if ($equals(this->rangeUnit, $ChronoUnit::YEARS)) {
-				return localizedWeekOfYear(temporal);
-			} else {
-				$init($WeekFields);
-				if (this->rangeUnit == $WeekFields::WEEK_BASED_YEARS) {
-					return localizedWeekOfWeekBasedYear(temporal);
-				} else {
-					if ($equals(this->rangeUnit, $ChronoUnit::FOREVER)) {
-						return localizedWeekBasedYear(temporal);
-					} else {
-						$throwNew($IllegalStateException, $$str({"unreachable, rangeUnit: "_s, this->rangeUnit, ", this: "_s, this}));
-					}
-				}
-			}
+			$throwNew($IllegalStateException, $$str({"unreachable, rangeUnit: "_s, this->rangeUnit, ", this: "_s, this}));
 		}
 	}
 }
 
 int32_t WeekFields$ComputedDayOfField::localizedDayOfWeek($TemporalAccessor* temporal) {
-	int32_t sow = $nc($($nc(this->weekDef)->getFirstDayOfWeek()))->getValue();
+	int32_t sow = $$nc($nc(this->weekDef)->getFirstDayOfWeek())->getValue();
 	$init($ChronoField);
 	int32_t isoDow = $nc(temporal)->get($ChronoField::DAY_OF_WEEK);
 	return $Math::floorMod(isoDow - sow, 7) + 1;
 }
 
 int32_t WeekFields$ComputedDayOfField::localizedDayOfWeek(int32_t isoDow) {
-	int32_t sow = $nc($($nc(this->weekDef)->getFirstDayOfWeek()))->getValue();
+	int32_t sow = $$nc($nc(this->weekDef)->getFirstDayOfWeek())->getValue();
 	return $Math::floorMod(isoDow - sow, 7) + 1;
 }
 
@@ -283,14 +201,14 @@ int32_t WeekFields$ComputedDayOfField::localizedWeekBasedYear($TemporalAccessor*
 }
 
 int32_t WeekFields$ComputedDayOfField::localizedWeekOfWeekBasedYear($TemporalAccessor* temporal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t dow = localizedDayOfWeek(temporal);
 	$init($ChronoField);
 	int32_t doy = $nc(temporal)->get($ChronoField::DAY_OF_YEAR);
 	int32_t offset = startOfWeekOffset(doy, dow);
 	int32_t week = computeWeek(offset, doy);
 	if (week == 0) {
-		$var($ChronoLocalDate, date, $nc($($Chronology::from(temporal)))->date(temporal));
+		$var($ChronoLocalDate, date, $$nc($Chronology::from(temporal))->date(temporal));
 		$init($ChronoUnit);
 		$assign(date, $nc(date)->minus(doy, $ChronoUnit::DAYS));
 		return localizedWeekOfWeekBasedYear(date);
@@ -327,21 +245,21 @@ $Temporal* WeekFields$ComputedDayOfField::adjustInto($Temporal* temporal, int64_
 	$init($ChronoUnit);
 	if ($equals(this->rangeUnit, $ChronoUnit::FOREVER)) {
 		int32_t idow = temporal->get($nc(this->weekDef)->dayOfWeek$);
-		int32_t wowby = temporal->get($nc(this->weekDef)->weekOfWeekBasedYear$);
-		return static_cast<$Temporal*>(ofWeekBasedYear($($Chronology::from(temporal)), (int32_t)newValue, wowby, idow));
+		int32_t wowby = temporal->get(this->weekDef->weekOfWeekBasedYear$);
+		return $cast($Temporal, ofWeekBasedYear($($Chronology::from(temporal)), (int32_t)newValue, wowby, idow));
 	} else {
 		return temporal->plus(newVal - currentVal, this->baseUnit);
 	}
 }
 
 $TemporalAccessor* WeekFields$ComputedDayOfField::resolve($Map* fieldValues, $TemporalAccessor* partialTemporal, $ResolverStyle* resolverStyle) {
-	$useLocalCurrentObjectStackCache();
-	int64_t value = $nc(($cast($Long, $($nc(fieldValues)->get(this)))))->longValue();
+	$useLocalObjectStack();
+	int64_t value = $$sure($Long, $nc(fieldValues)->get(this))->longValue();
 	int32_t newValue = $Math::toIntExact(value);
 	$init($ChronoUnit);
 	if ($equals(this->rangeUnit, $ChronoUnit::WEEKS)) {
 		int32_t checkedValue = $nc(this->range$)->checkValidIntValue(value, this);
-		int32_t startDow = $nc($($nc(this->weekDef)->getFirstDayOfWeek()))->getValue();
+		int32_t startDow = $$nc($nc(this->weekDef)->getFirstDayOfWeek())->getValue();
 		int64_t isoDow = $Math::floorMod((startDow - 1) + (checkedValue - 1), 7) + 1;
 		fieldValues->remove(this);
 		$init($ChronoField);
@@ -352,13 +270,13 @@ $TemporalAccessor* WeekFields$ComputedDayOfField::resolve($Map* fieldValues, $Te
 	if (fieldValues->containsKey($ChronoField::DAY_OF_WEEK) == false) {
 		return nullptr;
 	}
-	int32_t isoDow = $ChronoField::DAY_OF_WEEK->checkValidIntValue($nc(($cast($Long, $(fieldValues->get($ChronoField::DAY_OF_WEEK)))))->longValue());
+	int32_t isoDow = $ChronoField::DAY_OF_WEEK->checkValidIntValue($$sure($Long, fieldValues->get($ChronoField::DAY_OF_WEEK))->longValue());
 	int32_t dow = localizedDayOfWeek(isoDow);
 	$var($Chronology, chrono, $Chronology::from(partialTemporal));
 	if (fieldValues->containsKey($ChronoField::YEAR)) {
-		int32_t year = $ChronoField::YEAR->checkValidIntValue($nc(($cast($Long, $(fieldValues->get($ChronoField::YEAR)))))->longValue());
+		int32_t year = $ChronoField::YEAR->checkValidIntValue($$sure($Long, fieldValues->get($ChronoField::YEAR))->longValue());
 		if ($equals(this->rangeUnit, $ChronoUnit::MONTHS) && fieldValues->containsKey($ChronoField::MONTH_OF_YEAR)) {
-			int64_t month = $nc(($cast($Long, $(fieldValues->get($ChronoField::MONTH_OF_YEAR)))))->longValue();
+			int64_t month = $$sure($Long, fieldValues->get($ChronoField::MONTH_OF_YEAR))->longValue();
 			return resolveWoM(fieldValues, chrono, year, month, newValue, dow, resolverStyle);
 		}
 		if ($equals(this->rangeUnit, $ChronoUnit::YEARS)) {
@@ -366,8 +284,8 @@ $TemporalAccessor* WeekFields$ComputedDayOfField::resolve($Map* fieldValues, $Te
 		}
 	} else {
 		$init($WeekFields);
-		bool var$1 = (this->rangeUnit == $WeekFields::WEEK_BASED_YEARS || $equals(this->rangeUnit, $ChronoUnit::FOREVER)) && fieldValues->containsKey($nc(this->weekDef)->weekBasedYear$);
-		if (var$1 && fieldValues->containsKey($nc(this->weekDef)->weekOfWeekBasedYear$)) {
+		bool var$0 = (this->rangeUnit == $WeekFields::WEEK_BASED_YEARS || $equals(this->rangeUnit, $ChronoUnit::FOREVER)) && fieldValues->containsKey($nc(this->weekDef)->weekBasedYear$);
+		if (var$0 && fieldValues->containsKey(this->weekDef->weekOfWeekBasedYear$)) {
 			return resolveWBY(fieldValues, chrono, dow, resolverStyle);
 		}
 	}
@@ -375,14 +293,14 @@ $TemporalAccessor* WeekFields$ComputedDayOfField::resolve($Map* fieldValues, $Te
 }
 
 $ChronoLocalDate* WeekFields$ComputedDayOfField::resolveWoM($Map* fieldValues, $Chronology* chrono, int32_t year, int64_t month, int64_t wom, int32_t localDow, $ResolverStyle* resolverStyle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ChronoLocalDate, date, nullptr);
 	$init($ResolverStyle);
 	if (resolverStyle == $ResolverStyle::LENIENT) {
 		$init($ChronoUnit);
-		$assign(date, $nc($($nc(chrono)->date(year, 1, 1)))->plus($Math::subtractExact(month, (int64_t)1), $ChronoUnit::MONTHS));
+		$assign(date, $$nc($nc(chrono)->date(year, 1, 1))->plus($Math::subtractExact(month, (int64_t)1), $ChronoUnit::MONTHS));
 		int64_t weeks = $Math::subtractExact(wom, localizedWeekOfMonth(date));
-		int32_t days = localDow - localizedDayOfWeek(static_cast<$TemporalAccessor*>(date));
+		int32_t days = localDow - localizedDayOfWeek(date);
 		$assign(date, $nc(date)->plus($Math::addExact($Math::multiplyExact(weeks, 7), (int64_t)days), $ChronoUnit::DAYS));
 	} else {
 		$init($ChronoField);
@@ -390,10 +308,10 @@ $ChronoLocalDate* WeekFields$ComputedDayOfField::resolveWoM($Map* fieldValues, $
 		$assign(date, $nc(chrono)->date(year, monthValid, 1));
 		int32_t womInt = $nc(this->range$)->checkValidIntValue(wom, this);
 		int32_t weeks = (int32_t)(womInt - localizedWeekOfMonth(date));
-		int32_t days = localDow - localizedDayOfWeek(static_cast<$TemporalAccessor*>(date));
+		int32_t days = localDow - localizedDayOfWeek(date);
 		$init($ChronoUnit);
 		$assign(date, $nc(date)->plus(weeks * 7 + days, $ChronoUnit::DAYS));
-		if (resolverStyle == $ResolverStyle::STRICT && date->getLong($ChronoField::MONTH_OF_YEAR) != month) {
+		if (resolverStyle == $ResolverStyle::STRICT && $nc(date)->getLong($ChronoField::MONTH_OF_YEAR) != month) {
 			$throwNew($DateTimeException, "Strict mode rejected resolved date as it is in a different month"_s);
 		}
 	}
@@ -410,17 +328,17 @@ $ChronoLocalDate* WeekFields$ComputedDayOfField::resolveWoY($Map* fieldValues, $
 	$init($ResolverStyle);
 	if (resolverStyle == $ResolverStyle::LENIENT) {
 		int64_t weeks = $Math::subtractExact(woy, localizedWeekOfYear(date));
-		int32_t days = localDow - localizedDayOfWeek(static_cast<$TemporalAccessor*>(date));
+		int32_t days = localDow - localizedDayOfWeek(date);
 		$init($ChronoUnit);
 		$assign(date, $nc(date)->plus($Math::addExact($Math::multiplyExact(weeks, 7), (int64_t)days), $ChronoUnit::DAYS));
 	} else {
 		int32_t womInt = $nc(this->range$)->checkValidIntValue(woy, this);
 		int32_t weeks = (int32_t)(womInt - localizedWeekOfYear(date));
-		int32_t days = localDow - localizedDayOfWeek(static_cast<$TemporalAccessor*>(date));
+		int32_t days = localDow - localizedDayOfWeek(date);
 		$init($ChronoUnit);
 		$assign(date, $nc(date)->plus(weeks * 7 + days, $ChronoUnit::DAYS));
 		$init($ChronoField);
-		if (resolverStyle == $ResolverStyle::STRICT && date->getLong($ChronoField::YEAR) != year) {
+		if (resolverStyle == $ResolverStyle::STRICT && $nc(date)->getLong($ChronoField::YEAR) != year) {
 			$throwNew($DateTimeException, "Strict mode rejected resolved date as it is in a different year"_s);
 		}
 	}
@@ -432,39 +350,39 @@ $ChronoLocalDate* WeekFields$ComputedDayOfField::resolveWoY($Map* fieldValues, $
 }
 
 $ChronoLocalDate* WeekFields$ComputedDayOfField::resolveWBY($Map* fieldValues, $Chronology* chrono, int32_t localDow, $ResolverStyle* resolverStyle) {
-	$useLocalCurrentObjectStackCache();
-	int32_t yowby = $nc($($nc($nc(this->weekDef)->weekBasedYear$)->range()))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->get($nc(this->weekDef)->weekBasedYear$)))))->longValue(), $nc(this->weekDef)->weekBasedYear$);
+	$useLocalObjectStack();
+	int32_t yowby = $$nc($nc($nc(this->weekDef)->weekBasedYear$)->range())->checkValidIntValue($$sure($Long, $nc(fieldValues)->get($nc(this->weekDef)->weekBasedYear$))->longValue(), $nc(this->weekDef)->weekBasedYear$);
 	$var($ChronoLocalDate, date, nullptr);
 	$init($ResolverStyle);
 	if (resolverStyle == $ResolverStyle::LENIENT) {
 		$assign(date, ofWeekBasedYear(chrono, yowby, 1, localDow));
-		int64_t wowby = $nc(($cast($Long, $($nc(fieldValues)->get($nc(this->weekDef)->weekOfWeekBasedYear$)))))->longValue();
+		int64_t wowby = $$sure($Long, fieldValues->get(this->weekDef->weekOfWeekBasedYear$))->longValue();
 		int64_t weeks = $Math::subtractExact(wowby, (int64_t)1);
 		$init($ChronoUnit);
 		$assign(date, $nc(date)->plus(weeks, $ChronoUnit::WEEKS));
 	} else {
-		int32_t wowby = $nc($($nc($nc(this->weekDef)->weekOfWeekBasedYear$)->range()))->checkValidIntValue($nc(($cast($Long, $($nc(fieldValues)->get($nc(this->weekDef)->weekOfWeekBasedYear$)))))->longValue(), $nc(this->weekDef)->weekOfWeekBasedYear$);
+		int32_t wowby = $$nc($nc(this->weekDef->weekOfWeekBasedYear$)->range())->checkValidIntValue($$sure($Long, fieldValues->get(this->weekDef->weekOfWeekBasedYear$))->longValue(), this->weekDef->weekOfWeekBasedYear$);
 		$assign(date, ofWeekBasedYear(chrono, yowby, wowby, localDow));
 		if (resolverStyle == $ResolverStyle::STRICT && localizedWeekBasedYear(date) != yowby) {
 			$throwNew($DateTimeException, "Strict mode rejected resolved date as it is in a different week-based-year"_s);
 		}
 	}
-	$nc(fieldValues)->remove(this);
-	fieldValues->remove($nc(this->weekDef)->weekBasedYear$);
-	fieldValues->remove($nc(this->weekDef)->weekOfWeekBasedYear$);
+	fieldValues->remove(this);
+	fieldValues->remove(this->weekDef->weekBasedYear$);
+	fieldValues->remove(this->weekDef->weekOfWeekBasedYear$);
 	$init($ChronoField);
 	fieldValues->remove($ChronoField::DAY_OF_WEEK);
 	return date;
 }
 
 $String* WeekFields$ComputedDayOfField::getDisplayName($Locale* locale) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(locale), "locale"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(locale, "locale"_s);
 	$init($ChronoUnit);
 	if ($equals(this->rangeUnit, $ChronoUnit::YEARS)) {
-		$var($LocaleResources, lr, $nc($($LocaleProviderAdapter::getResourceBundleBased()))->getLocaleResources($($CalendarDataUtility::findRegionOverride(locale))));
+		$var($LocaleResources, lr, $$nc($LocaleProviderAdapter::getResourceBundleBased())->getLocaleResources($($CalendarDataUtility::findRegionOverride(locale))));
 		$var($ResourceBundle, rb, $nc(lr)->getJavaTimeFormatData());
-		return $nc(rb)->containsKey("field.week"_s) ? $nc(rb)->getString("field.week"_s) : this->name;
+		return $nc(rb)->containsKey("field.week"_s) ? rb->getString("field.week"_s) : this->name;
 	}
 	return this->name;
 }
@@ -495,22 +413,16 @@ bool WeekFields$ComputedDayOfField::isSupportedBy($TemporalAccessor* temporal) {
 		$init($ChronoUnit);
 		if ($equals(this->rangeUnit, $ChronoUnit::WEEKS)) {
 			return true;
+		} else if ($equals(this->rangeUnit, $ChronoUnit::MONTHS)) {
+			return temporal->isSupported($ChronoField::DAY_OF_MONTH);
+		} else if ($equals(this->rangeUnit, $ChronoUnit::YEARS)) {
+			return temporal->isSupported($ChronoField::DAY_OF_YEAR);
 		} else {
-			if ($equals(this->rangeUnit, $ChronoUnit::MONTHS)) {
-				return temporal->isSupported($ChronoField::DAY_OF_MONTH);
-			} else {
-				if ($equals(this->rangeUnit, $ChronoUnit::YEARS)) {
-					return temporal->isSupported($ChronoField::DAY_OF_YEAR);
-				} else {
-					$init($WeekFields);
-					if (this->rangeUnit == $WeekFields::WEEK_BASED_YEARS) {
-						return temporal->isSupported($ChronoField::DAY_OF_YEAR);
-					} else {
-						if ($equals(this->rangeUnit, $ChronoUnit::FOREVER)) {
-							return temporal->isSupported($ChronoField::YEAR);
-						}
-					}
-				}
+			$init($WeekFields);
+			if (this->rangeUnit == $WeekFields::WEEK_BASED_YEARS) {
+				return temporal->isSupported($ChronoField::DAY_OF_YEAR);
+			} else if ($equals(this->rangeUnit, $ChronoUnit::FOREVER)) {
+				return temporal->isSupported($ChronoField::YEAR);
 			}
 		}
 	}
@@ -521,27 +433,21 @@ $ValueRange* WeekFields$ComputedDayOfField::rangeRefinedBy($TemporalAccessor* te
 	$init($ChronoUnit);
 	if ($equals(this->rangeUnit, $ChronoUnit::WEEKS)) {
 		return this->range$;
+	} else if ($equals(this->rangeUnit, $ChronoUnit::MONTHS)) {
+		$init($ChronoField);
+		return rangeByWeek(temporal, $ChronoField::DAY_OF_MONTH);
+	} else if ($equals(this->rangeUnit, $ChronoUnit::YEARS)) {
+		$init($ChronoField);
+		return rangeByWeek(temporal, $ChronoField::DAY_OF_YEAR);
 	} else {
-		if ($equals(this->rangeUnit, $ChronoUnit::MONTHS)) {
+		$init($WeekFields);
+		if (this->rangeUnit == $WeekFields::WEEK_BASED_YEARS) {
+			return rangeWeekOfWeekBasedYear(temporal);
+		} else if ($equals(this->rangeUnit, $ChronoUnit::FOREVER)) {
 			$init($ChronoField);
-			return rangeByWeek(temporal, $ChronoField::DAY_OF_MONTH);
+			return $ChronoField::YEAR->range();
 		} else {
-			if ($equals(this->rangeUnit, $ChronoUnit::YEARS)) {
-				$init($ChronoField);
-				return rangeByWeek(temporal, $ChronoField::DAY_OF_YEAR);
-			} else {
-				$init($WeekFields);
-				if (this->rangeUnit == $WeekFields::WEEK_BASED_YEARS) {
-					return rangeWeekOfWeekBasedYear(temporal);
-				} else {
-					if ($equals(this->rangeUnit, $ChronoUnit::FOREVER)) {
-						$init($ChronoField);
-						return $ChronoField::YEAR->range();
-					} else {
-						$throwNew($IllegalStateException, $$str({"unreachable, rangeUnit: "_s, this->rangeUnit, ", this: "_s, this}));
-					}
-				}
-			}
+			$throwNew($IllegalStateException, $$str({"unreachable, rangeUnit: "_s, this->rangeUnit, ", this: "_s, this}));
 		}
 	}
 }
@@ -549,23 +455,23 @@ $ValueRange* WeekFields$ComputedDayOfField::rangeRefinedBy($TemporalAccessor* te
 $ValueRange* WeekFields$ComputedDayOfField::rangeByWeek($TemporalAccessor* temporal, $TemporalField* field) {
 	int32_t dow = localizedDayOfWeek(temporal);
 	int32_t offset = startOfWeekOffset($nc(temporal)->get(field), dow);
-	$var($ValueRange, fieldRange, $nc(temporal)->range(field));
-	int64_t var$0 = (int64_t)computeWeek(offset, (int32_t)$nc(fieldRange)->getMinimum());
-	return $ValueRange::of(var$0, computeWeek(offset, (int32_t)$nc(fieldRange)->getMaximum()));
+	$var($ValueRange, fieldRange, temporal->range(field));
+	int64_t var$0 = computeWeek(offset, (int32_t)$nc(fieldRange)->getMinimum());
+	return $ValueRange::of(var$0, computeWeek(offset, (int32_t)fieldRange->getMaximum()));
 }
 
 $ValueRange* WeekFields$ComputedDayOfField::rangeWeekOfWeekBasedYear($TemporalAccessor* temporal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoField);
 	if (!$nc(temporal)->isSupported($ChronoField::DAY_OF_YEAR)) {
 		return WeekFields$ComputedDayOfField::WEEK_OF_YEAR_RANGE;
 	}
 	int32_t dow = localizedDayOfWeek(temporal);
-	int32_t doy = $nc(temporal)->get($ChronoField::DAY_OF_YEAR);
+	int32_t doy = temporal->get($ChronoField::DAY_OF_YEAR);
 	int32_t offset = startOfWeekOffset(doy, dow);
 	int32_t week = computeWeek(offset, doy);
 	if (week == 0) {
-		$var($ChronoLocalDate, date, $nc($($Chronology::from(temporal)))->date(temporal));
+		$var($ChronoLocalDate, date, $$nc($Chronology::from(temporal))->date(temporal));
 		$init($ChronoUnit);
 		$assign(date, $nc(date)->minus(doy + 7, $ChronoUnit::DAYS));
 		return rangeWeekOfWeekBasedYear(date);
@@ -574,7 +480,7 @@ $ValueRange* WeekFields$ComputedDayOfField::rangeWeekOfWeekBasedYear($TemporalAc
 	int32_t yearLen = (int32_t)$nc(dayRange)->getMaximum();
 	int32_t newYearWeek = computeWeek(offset, yearLen + $nc(this->weekDef)->getMinimalDaysInFirstWeek());
 	if (week >= newYearWeek) {
-		$var($ChronoLocalDate, date, $nc($($Chronology::from(temporal)))->date(temporal));
+		$var($ChronoLocalDate, date, $$nc($Chronology::from(temporal))->date(temporal));
 		$init($ChronoUnit);
 		$assign(date, $nc(date)->plus(yearLen - doy + 1 + 7, $ChronoUnit::DAYS));
 		return rangeWeekOfWeekBasedYear(date);
@@ -586,7 +492,7 @@ $String* WeekFields$ComputedDayOfField::toString() {
 	return $str({this->name, "["_s, $($nc(this->weekDef)->toString()), "]"_s});
 }
 
-void clinit$WeekFields$ComputedDayOfField($Class* class$) {
+void WeekFields$ComputedDayOfField::clinit$($Class* clazz) {
 	$assignStatic(WeekFields$ComputedDayOfField::DAY_OF_WEEK_RANGE, $ValueRange::of(1, 7));
 	$assignStatic(WeekFields$ComputedDayOfField::WEEK_OF_MONTH_RANGE, $ValueRange::of(0, 1, 4, 6));
 	$assignStatic(WeekFields$ComputedDayOfField::WEEK_OF_YEAR_RANGE, $ValueRange::of(0, 1, 52, 54));
@@ -597,7 +503,75 @@ WeekFields$ComputedDayOfField::WeekFields$ComputedDayOfField() {
 }
 
 $Class* WeekFields$ComputedDayOfField::load$($String* name, bool initialize) {
-	$loadClass(WeekFields$ComputedDayOfField, name, initialize, &_WeekFields$ComputedDayOfField_ClassInfo_, clinit$WeekFields$ComputedDayOfField, allocate$WeekFields$ComputedDayOfField);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(WeekFields$ComputedDayOfField, name)},
+		{"weekDef", "Ljava/time/temporal/WeekFields;", nullptr, $PRIVATE | $FINAL, $field(WeekFields$ComputedDayOfField, weekDef)},
+		{"baseUnit", "Ljava/time/temporal/TemporalUnit;", nullptr, $PRIVATE | $FINAL, $field(WeekFields$ComputedDayOfField, baseUnit)},
+		{"rangeUnit", "Ljava/time/temporal/TemporalUnit;", nullptr, $PRIVATE | $FINAL, $field(WeekFields$ComputedDayOfField, rangeUnit)},
+		{"range", "Ljava/time/temporal/ValueRange;", nullptr, $PRIVATE | $FINAL, $field(WeekFields$ComputedDayOfField, range$)},
+		{"DAY_OF_WEEK_RANGE", "Ljava/time/temporal/ValueRange;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WeekFields$ComputedDayOfField, DAY_OF_WEEK_RANGE)},
+		{"WEEK_OF_MONTH_RANGE", "Ljava/time/temporal/ValueRange;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WeekFields$ComputedDayOfField, WEEK_OF_MONTH_RANGE)},
+		{"WEEK_OF_YEAR_RANGE", "Ljava/time/temporal/ValueRange;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WeekFields$ComputedDayOfField, WEEK_OF_YEAR_RANGE)},
+		{"WEEK_OF_WEEK_BASED_YEAR_RANGE", "Ljava/time/temporal/ValueRange;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WeekFields$ComputedDayOfField, WEEK_OF_WEEK_BASED_YEAR_RANGE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/time/temporal/WeekFields;Ljava/time/temporal/TemporalUnit;Ljava/time/temporal/TemporalUnit;Ljava/time/temporal/ValueRange;)V", nullptr, $PRIVATE, $method(WeekFields$ComputedDayOfField, init$, void, $String*, $WeekFields*, $TemporalUnit*, $TemporalUnit*, $ValueRange*)},
+		{"adjustInto", "(Ljava/time/temporal/Temporal;J)Ljava/time/temporal/Temporal;", "<R::Ljava/time/temporal/Temporal;>(TR;J)TR;", $PUBLIC, $virtualMethod(WeekFields$ComputedDayOfField, adjustInto, $Temporal*, $Temporal*, int64_t)},
+		{"computeWeek", "(II)I", nullptr, $PRIVATE, $method(WeekFields$ComputedDayOfField, computeWeek, int32_t, int32_t, int32_t)},
+		{"getBaseUnit", "()Ljava/time/temporal/TemporalUnit;", nullptr, $PUBLIC, $virtualMethod(WeekFields$ComputedDayOfField, getBaseUnit, $TemporalUnit*)},
+		{"getDisplayName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WeekFields$ComputedDayOfField, getDisplayName, $String*, $Locale*)},
+		{"getFrom", "(Ljava/time/temporal/TemporalAccessor;)J", nullptr, $PUBLIC, $virtualMethod(WeekFields$ComputedDayOfField, getFrom, int64_t, $TemporalAccessor*)},
+		{"getRangeUnit", "()Ljava/time/temporal/TemporalUnit;", nullptr, $PUBLIC, $virtualMethod(WeekFields$ComputedDayOfField, getRangeUnit, $TemporalUnit*)},
+		{"isDateBased", "()Z", nullptr, $PUBLIC, $virtualMethod(WeekFields$ComputedDayOfField, isDateBased, bool)},
+		{"isSupportedBy", "(Ljava/time/temporal/TemporalAccessor;)Z", nullptr, $PUBLIC, $virtualMethod(WeekFields$ComputedDayOfField, isSupportedBy, bool, $TemporalAccessor*)},
+		{"isTimeBased", "()Z", nullptr, $PUBLIC, $virtualMethod(WeekFields$ComputedDayOfField, isTimeBased, bool)},
+		{"localizedDayOfWeek", "(Ljava/time/temporal/TemporalAccessor;)I", nullptr, $PRIVATE, $method(WeekFields$ComputedDayOfField, localizedDayOfWeek, int32_t, $TemporalAccessor*)},
+		{"localizedDayOfWeek", "(I)I", nullptr, $PRIVATE, $method(WeekFields$ComputedDayOfField, localizedDayOfWeek, int32_t, int32_t)},
+		{"localizedWeekBasedYear", "(Ljava/time/temporal/TemporalAccessor;)I", nullptr, $PRIVATE, $method(WeekFields$ComputedDayOfField, localizedWeekBasedYear, int32_t, $TemporalAccessor*)},
+		{"localizedWeekOfMonth", "(Ljava/time/temporal/TemporalAccessor;)J", nullptr, $PRIVATE, $method(WeekFields$ComputedDayOfField, localizedWeekOfMonth, int64_t, $TemporalAccessor*)},
+		{"localizedWeekOfWeekBasedYear", "(Ljava/time/temporal/TemporalAccessor;)I", nullptr, $PRIVATE, $method(WeekFields$ComputedDayOfField, localizedWeekOfWeekBasedYear, int32_t, $TemporalAccessor*)},
+		{"localizedWeekOfYear", "(Ljava/time/temporal/TemporalAccessor;)J", nullptr, $PRIVATE, $method(WeekFields$ComputedDayOfField, localizedWeekOfYear, int64_t, $TemporalAccessor*)},
+		{"ofDayOfWeekField", "(Ljava/time/temporal/WeekFields;)Ljava/time/temporal/WeekFields$ComputedDayOfField;", nullptr, $STATIC, $staticMethod(WeekFields$ComputedDayOfField, ofDayOfWeekField, WeekFields$ComputedDayOfField*, $WeekFields*)},
+		{"ofWeekBasedYear", "(Ljava/time/chrono/Chronology;III)Ljava/time/chrono/ChronoLocalDate;", nullptr, $PRIVATE, $method(WeekFields$ComputedDayOfField, ofWeekBasedYear, $ChronoLocalDate*, $Chronology*, int32_t, int32_t, int32_t)},
+		{"ofWeekBasedYearField", "(Ljava/time/temporal/WeekFields;)Ljava/time/temporal/WeekFields$ComputedDayOfField;", nullptr, $STATIC, $staticMethod(WeekFields$ComputedDayOfField, ofWeekBasedYearField, WeekFields$ComputedDayOfField*, $WeekFields*)},
+		{"ofWeekOfMonthField", "(Ljava/time/temporal/WeekFields;)Ljava/time/temporal/WeekFields$ComputedDayOfField;", nullptr, $STATIC, $staticMethod(WeekFields$ComputedDayOfField, ofWeekOfMonthField, WeekFields$ComputedDayOfField*, $WeekFields*)},
+		{"ofWeekOfWeekBasedYearField", "(Ljava/time/temporal/WeekFields;)Ljava/time/temporal/WeekFields$ComputedDayOfField;", nullptr, $STATIC, $staticMethod(WeekFields$ComputedDayOfField, ofWeekOfWeekBasedYearField, WeekFields$ComputedDayOfField*, $WeekFields*)},
+		{"ofWeekOfYearField", "(Ljava/time/temporal/WeekFields;)Ljava/time/temporal/WeekFields$ComputedDayOfField;", nullptr, $STATIC, $staticMethod(WeekFields$ComputedDayOfField, ofWeekOfYearField, WeekFields$ComputedDayOfField*, $WeekFields*)},
+		{"range", "()Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(WeekFields$ComputedDayOfField, range, $ValueRange*)},
+		{"rangeByWeek", "(Ljava/time/temporal/TemporalAccessor;Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PRIVATE, $method(WeekFields$ComputedDayOfField, rangeByWeek, $ValueRange*, $TemporalAccessor*, $TemporalField*)},
+		{"rangeRefinedBy", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(WeekFields$ComputedDayOfField, rangeRefinedBy, $ValueRange*, $TemporalAccessor*)},
+		{"rangeWeekOfWeekBasedYear", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/temporal/ValueRange;", nullptr, $PRIVATE, $method(WeekFields$ComputedDayOfField, rangeWeekOfWeekBasedYear, $ValueRange*, $TemporalAccessor*)},
+		{"resolve", "(Ljava/util/Map;Ljava/time/temporal/TemporalAccessor;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/temporal/TemporalAccessor;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", $PUBLIC, $virtualMethod(WeekFields$ComputedDayOfField, resolve, $TemporalAccessor*, $Map*, $TemporalAccessor*, $ResolverStyle*)},
+		{"resolveWBY", "(Ljava/util/Map;Ljava/time/chrono/Chronology;ILjava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/chrono/Chronology;ILjava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", $PRIVATE, $method(WeekFields$ComputedDayOfField, resolveWBY, $ChronoLocalDate*, $Map*, $Chronology*, int32_t, $ResolverStyle*)},
+		{"resolveWoM", "(Ljava/util/Map;Ljava/time/chrono/Chronology;IJJILjava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/chrono/Chronology;IJJILjava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", $PRIVATE, $method(WeekFields$ComputedDayOfField, resolveWoM, $ChronoLocalDate*, $Map*, $Chronology*, int32_t, int64_t, int64_t, int32_t, $ResolverStyle*)},
+		{"resolveWoY", "(Ljava/util/Map;Ljava/time/chrono/Chronology;IJILjava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/chrono/Chronology;IJILjava/time/format/ResolverStyle;)Ljava/time/chrono/ChronoLocalDate;", $PRIVATE, $method(WeekFields$ComputedDayOfField, resolveWoY, $ChronoLocalDate*, $Map*, $Chronology*, int32_t, int64_t, int32_t, $ResolverStyle*)},
+		{"startOfWeekOffset", "(II)I", nullptr, $PRIVATE, $method(WeekFields$ComputedDayOfField, startOfWeekOffset, int32_t, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WeekFields$ComputedDayOfField, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.temporal.WeekFields$ComputedDayOfField", "java.time.temporal.WeekFields", "ComputedDayOfField", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.time.temporal.WeekFields$ComputedDayOfField",
+		"java.lang.Object",
+		"java.time.temporal.TemporalField",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.temporal.WeekFields"
+	};
+	$loadClass(WeekFields$ComputedDayOfField, name, initialize, &classInfo$$, WeekFields$ComputedDayOfField::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WeekFields$ComputedDayOfField);
+	});
 	return class$;
 }
 

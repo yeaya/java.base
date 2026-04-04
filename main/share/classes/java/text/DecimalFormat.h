@@ -89,6 +89,7 @@ class $export DecimalFormat : public ::java::text::NumberFormat {
 public:
 	DecimalFormat();
 	using ::java::text::NumberFormat::format;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* pattern);
 	void init$($String* pattern, ::java::text::DecimalFormatSymbols* symbols);
@@ -229,9 +230,9 @@ public:
 	static $Array<::java::text::FieldPosition>* EmptyFieldPositionArray;
 	static const int32_t DOUBLE_INTEGER_DIGITS = 309;
 	static const int32_t DOUBLE_FRACTION_DIGITS = 340;
-	static const int32_t MAXIMUM_INTEGER_DIGITS = 0x7FFFFFFF; // Integer.MAX_VALUE
-	static const int32_t MAXIMUM_FRACTION_DIGITS = 0x7FFFFFFF; // Integer.MAX_VALUE
-	static const int64_t serialVersionUID = (int64_t)0x0BFF0362D872303A;
+	static const int32_t MAXIMUM_INTEGER_DIGITS = 0x7fffffff; // Integer.MAX_VALUE
+	static const int32_t MAXIMUM_FRACTION_DIGITS = 0x7fffffff; // Integer.MAX_VALUE
+	static const int64_t serialVersionUID = (int64_t)0x0bff0362d872303a;
 };
 
 	} // text

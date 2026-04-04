@@ -33,6 +33,7 @@ class $export AtomicReference : public ::java::io::Serializable {
 	$class(AtomicReference, 0, ::java::io::Serializable)
 public:
 	AtomicReference();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* initialValue);
 	void init$();
 	$Object* accumulateAndGet(Object$* x, ::java::util::function::BinaryOperator* accumulatorFunction);
@@ -59,7 +60,7 @@ public:
 	bool weakCompareAndSetPlain(Object$* expectedValue, Object$* newValue);
 	bool weakCompareAndSetRelease(Object$* expectedValue, Object$* newValue);
 	bool weakCompareAndSetVolatile(Object$* expectedValue, Object$* newValue);
-	static const int64_t serialVersionUID = (int64_t)0xE65771D4557854C6;
+	static const int64_t serialVersionUID = (int64_t)0xe65771d4557854c6;
 	static ::java::lang::invoke::VarHandle* VALUE;
 	$volatile($Object*) value = nullptr;
 };

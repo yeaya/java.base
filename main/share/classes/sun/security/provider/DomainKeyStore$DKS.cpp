@@ -1,5 +1,4 @@
 #include <sun/security/provider/DomainKeyStore$DKS.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/security/Key.h>
@@ -30,55 +29,6 @@ using $DomainKeyStore = ::sun::security::provider::DomainKeyStore;
 namespace sun {
 	namespace security {
 		namespace provider {
-
-$MethodInfo _DomainKeyStore$DKS_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DomainKeyStore$DKS, init$, void)},
-	{"convertAlias", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(DomainKeyStore$DKS, convertAlias, $String*, $String*)},
-	{"engineAliases", "()Ljava/util/Enumeration;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineAliases, $Enumeration*)},
-	{"engineContainsAlias", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineContainsAlias, bool, $String*)},
-	{"engineDeleteEntry", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineDeleteEntry, void, $String*), "java.security.KeyStoreException"},
-	{"engineGetCertificate", "(Ljava/lang/String;)Ljava/security/cert/Certificate;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineGetCertificate, $Certificate*, $String*)},
-	{"engineGetCertificateAlias", "(Ljava/security/cert/Certificate;)Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineGetCertificateAlias, $String*, $Certificate*)},
-	{"engineGetCertificateChain", "(Ljava/lang/String;)[Ljava/security/cert/Certificate;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineGetCertificateChain, $CertificateArray*, $String*)},
-	{"engineGetCreationDate", "(Ljava/lang/String;)Ljava/util/Date;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineGetCreationDate, $Date*, $String*)},
-	{"engineGetKey", "(Ljava/lang/String;[C)Ljava/security/Key;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineGetKey, $Key*, $String*, $chars*), "java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
-	{"engineIsCertificateEntry", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineIsCertificateEntry, bool, $String*)},
-	{"engineIsKeyEntry", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineIsKeyEntry, bool, $String*)},
-	{"engineLoad", "(Ljava/security/KeyStore$LoadStoreParameter;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineLoad, void, $KeyStore$LoadStoreParameter*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
-	{"engineLoad", "(Ljava/io/InputStream;[C)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineLoad, void, $InputStream*, $chars*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
-	{"engineSetCertificateEntry", "(Ljava/lang/String;Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineSetCertificateEntry, void, $String*, $Certificate*), "java.security.KeyStoreException"},
-	{"engineSetKeyEntry", "(Ljava/lang/String;[B[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineSetKeyEntry, void, $String*, $bytes*, $CertificateArray*), "java.security.KeyStoreException"},
-	{"engineSetKeyEntry", "(Ljava/lang/String;Ljava/security/Key;[C[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineSetKeyEntry, void, $String*, $Key*, $chars*, $CertificateArray*), "java.security.KeyStoreException"},
-	{"engineSize", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineSize, int32_t)},
-	{"engineStore", "(Ljava/security/KeyStore$LoadStoreParameter;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineStore, void, $KeyStore$LoadStoreParameter*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
-	{"engineStore", "(Ljava/io/OutputStream;[C)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineStore, void, $OutputStream*, $chars*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
-	{}
-};
-
-$InnerClassInfo _DomainKeyStore$DKS_InnerClassesInfo_[] = {
-	{"sun.security.provider.DomainKeyStore$DKS", "sun.security.provider.DomainKeyStore", "DKS", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DomainKeyStore$DKS_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.provider.DomainKeyStore$DKS",
-	"sun.security.provider.DomainKeyStore",
-	nullptr,
-	nullptr,
-	_DomainKeyStore$DKS_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DomainKeyStore$DKS_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.DomainKeyStore"
-};
-
-$Object* allocate$DomainKeyStore$DKS($Class* clazz) {
-	return $of($alloc(DomainKeyStore$DKS));
-}
 
 void DomainKeyStore$DKS::init$() {
 	$DomainKeyStore::init$();
@@ -165,7 +115,51 @@ DomainKeyStore$DKS::DomainKeyStore$DKS() {
 }
 
 $Class* DomainKeyStore$DKS::load$($String* name, bool initialize) {
-	$loadClass(DomainKeyStore$DKS, name, initialize, &_DomainKeyStore$DKS_ClassInfo_, allocate$DomainKeyStore$DKS);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DomainKeyStore$DKS, init$, void)},
+		{"convertAlias", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(DomainKeyStore$DKS, convertAlias, $String*, $String*)},
+		{"engineAliases", "()Ljava/util/Enumeration;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineAliases, $Enumeration*)},
+		{"engineContainsAlias", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineContainsAlias, bool, $String*)},
+		{"engineDeleteEntry", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineDeleteEntry, void, $String*), "java.security.KeyStoreException"},
+		{"engineGetCertificate", "(Ljava/lang/String;)Ljava/security/cert/Certificate;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineGetCertificate, $Certificate*, $String*)},
+		{"engineGetCertificateAlias", "(Ljava/security/cert/Certificate;)Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineGetCertificateAlias, $String*, $Certificate*)},
+		{"engineGetCertificateChain", "(Ljava/lang/String;)[Ljava/security/cert/Certificate;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineGetCertificateChain, $CertificateArray*, $String*)},
+		{"engineGetCreationDate", "(Ljava/lang/String;)Ljava/util/Date;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineGetCreationDate, $Date*, $String*)},
+		{"engineGetKey", "(Ljava/lang/String;[C)Ljava/security/Key;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineGetKey, $Key*, $String*, $chars*), "java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
+		{"engineIsCertificateEntry", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineIsCertificateEntry, bool, $String*)},
+		{"engineIsKeyEntry", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineIsKeyEntry, bool, $String*)},
+		{"engineLoad", "(Ljava/security/KeyStore$LoadStoreParameter;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineLoad, void, $KeyStore$LoadStoreParameter*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
+		{"engineLoad", "(Ljava/io/InputStream;[C)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineLoad, void, $InputStream*, $chars*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
+		{"engineSetCertificateEntry", "(Ljava/lang/String;Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineSetCertificateEntry, void, $String*, $Certificate*), "java.security.KeyStoreException"},
+		{"engineSetKeyEntry", "(Ljava/lang/String;[B[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineSetKeyEntry, void, $String*, $bytes*, $CertificateArray*), "java.security.KeyStoreException"},
+		{"engineSetKeyEntry", "(Ljava/lang/String;Ljava/security/Key;[C[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineSetKeyEntry, void, $String*, $Key*, $chars*, $CertificateArray*), "java.security.KeyStoreException"},
+		{"engineSize", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineSize, int32_t)},
+		{"engineStore", "(Ljava/security/KeyStore$LoadStoreParameter;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineStore, void, $KeyStore$LoadStoreParameter*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
+		{"engineStore", "(Ljava/io/OutputStream;[C)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DomainKeyStore$DKS, engineStore, void, $OutputStream*, $chars*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.DomainKeyStore$DKS", "sun.security.provider.DomainKeyStore", "DKS", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.provider.DomainKeyStore$DKS",
+		"sun.security.provider.DomainKeyStore",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.DomainKeyStore"
+	};
+	$loadClass(DomainKeyStore$DKS, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DomainKeyStore$DKS);
+	});
 	return class$;
 }
 

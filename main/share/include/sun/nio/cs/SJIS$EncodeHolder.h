@@ -13,6 +13,7 @@ class $import SJIS$EncodeHolder : public ::java::lang::Object {
 	$class(SJIS$EncodeHolder, 0, ::java::lang::Object)
 public:
 	SJIS$EncodeHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $chars* c2b;
 	static $chars* c2bIndex;

@@ -34,6 +34,7 @@ class $export AtomicMarkableReference : public ::java::lang::Object {
 	$class(AtomicMarkableReference, 0, ::java::lang::Object)
 public:
 	AtomicMarkableReference();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* initialRef, bool initialMark);
 	virtual bool attemptMark(Object$* expectedReference, bool newMark);
 	bool casPair(::java::util::concurrent::atomic::AtomicMarkableReference$Pair* cmp, ::java::util::concurrent::atomic::AtomicMarkableReference$Pair* val);

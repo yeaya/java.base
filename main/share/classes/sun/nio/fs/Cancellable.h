@@ -26,6 +26,7 @@ class Cancellable : public ::java::lang::Runnable {
 	$class(Cancellable, 0, ::java::lang::Runnable)
 public:
 	Cancellable();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int64_t addressToPollForCancel();
 	void cancel();

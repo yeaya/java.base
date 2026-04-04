@@ -1,5 +1,4 @@
 #include <java/util/spi/ResourceBundleProvider.h>
-
 #include <java/util/Locale.h>
 #include <java/util/ResourceBundle.h>
 #include <jcpp.h>
@@ -13,26 +12,22 @@ namespace java {
 	namespace util {
 		namespace spi {
 
-$MethodInfo _ResourceBundleProvider_MethodInfo_[] = {
-	{"getBundle", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResourceBundleProvider, getBundle, $ResourceBundle*, $String*, $Locale*)},
-	{}
-};
-
-$ClassInfo _ResourceBundleProvider_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.spi.ResourceBundleProvider",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ResourceBundleProvider_MethodInfo_
-};
-
-$Object* allocate$ResourceBundleProvider($Class* clazz) {
-	return $of($alloc(ResourceBundleProvider));
-}
-
 $Class* ResourceBundleProvider::load$($String* name, bool initialize) {
-	$loadClass(ResourceBundleProvider, name, initialize, &_ResourceBundleProvider_ClassInfo_, allocate$ResourceBundleProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"getBundle", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResourceBundleProvider, getBundle, $ResourceBundle*, $String*, $Locale*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.spi.ResourceBundleProvider",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ResourceBundleProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourceBundleProvider);
+	});
 	return class$;
 }
 

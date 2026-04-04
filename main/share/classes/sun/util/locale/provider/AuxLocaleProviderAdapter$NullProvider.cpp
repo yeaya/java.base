@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/AuxLocaleProviderAdapter$NullProvider.h>
-
 #include <java/util/Locale.h>
 #include <java/util/spi/LocaleServiceProvider.h>
 #include <sun/util/locale/provider/AuxLocaleProviderAdapter.h>
@@ -16,37 +15,6 @@ namespace sun {
 		namespace locale {
 			namespace provider {
 
-$MethodInfo _AuxLocaleProviderAdapter$NullProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(AuxLocaleProviderAdapter$NullProvider, init$, void)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter$NullProvider, getAvailableLocales, $LocaleArray*)},
-	{}
-};
-
-$InnerClassInfo _AuxLocaleProviderAdapter$NullProvider_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.AuxLocaleProviderAdapter$NullProvider", "sun.util.locale.provider.AuxLocaleProviderAdapter", "NullProvider", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AuxLocaleProviderAdapter$NullProvider_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.locale.provider.AuxLocaleProviderAdapter$NullProvider",
-	"java.util.spi.LocaleServiceProvider",
-	nullptr,
-	nullptr,
-	_AuxLocaleProviderAdapter$NullProvider_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AuxLocaleProviderAdapter$NullProvider_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.AuxLocaleProviderAdapter"
-};
-
-$Object* allocate$AuxLocaleProviderAdapter$NullProvider($Class* clazz) {
-	return $of($alloc(AuxLocaleProviderAdapter$NullProvider));
-}
-
 void AuxLocaleProviderAdapter$NullProvider::init$() {
 	$LocaleServiceProvider::init$();
 }
@@ -59,7 +27,33 @@ AuxLocaleProviderAdapter$NullProvider::AuxLocaleProviderAdapter$NullProvider() {
 }
 
 $Class* AuxLocaleProviderAdapter$NullProvider::load$($String* name, bool initialize) {
-	$loadClass(AuxLocaleProviderAdapter$NullProvider, name, initialize, &_AuxLocaleProviderAdapter$NullProvider_ClassInfo_, allocate$AuxLocaleProviderAdapter$NullProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(AuxLocaleProviderAdapter$NullProvider, init$, void)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter$NullProvider, getAvailableLocales, $LocaleArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.AuxLocaleProviderAdapter$NullProvider", "sun.util.locale.provider.AuxLocaleProviderAdapter", "NullProvider", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.locale.provider.AuxLocaleProviderAdapter$NullProvider",
+		"java.util.spi.LocaleServiceProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.AuxLocaleProviderAdapter"
+	};
+	$loadClass(AuxLocaleProviderAdapter$NullProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AuxLocaleProviderAdapter$NullProvider);
+	});
 	return class$;
 }
 

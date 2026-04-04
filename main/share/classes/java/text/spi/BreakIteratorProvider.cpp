@@ -1,5 +1,4 @@
 #include <java/text/spi/BreakIteratorProvider.h>
-
 #include <java/text/BreakIterator.h>
 #include <java/util/Locale.h>
 #include <java/util/spi/LocaleServiceProvider.h>
@@ -15,28 +14,6 @@ namespace java {
 	namespace text {
 		namespace spi {
 
-$MethodInfo _BreakIteratorProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(BreakIteratorProvider, init$, void)},
-	{"getCharacterInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BreakIteratorProvider, getCharacterInstance, $BreakIterator*, $Locale*)},
-	{"getLineInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BreakIteratorProvider, getLineInstance, $BreakIterator*, $Locale*)},
-	{"getSentenceInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BreakIteratorProvider, getSentenceInstance, $BreakIterator*, $Locale*)},
-	{"getWordInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BreakIteratorProvider, getWordInstance, $BreakIterator*, $Locale*)},
-	{}
-};
-
-$ClassInfo _BreakIteratorProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.text.spi.BreakIteratorProvider",
-	"java.util.spi.LocaleServiceProvider",
-	nullptr,
-	nullptr,
-	_BreakIteratorProvider_MethodInfo_
-};
-
-$Object* allocate$BreakIteratorProvider($Class* clazz) {
-	return $of($alloc(BreakIteratorProvider));
-}
-
 void BreakIteratorProvider::init$() {
 	$LocaleServiceProvider::init$();
 }
@@ -45,7 +22,25 @@ BreakIteratorProvider::BreakIteratorProvider() {
 }
 
 $Class* BreakIteratorProvider::load$($String* name, bool initialize) {
-	$loadClass(BreakIteratorProvider, name, initialize, &_BreakIteratorProvider_ClassInfo_, allocate$BreakIteratorProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(BreakIteratorProvider, init$, void)},
+		{"getCharacterInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BreakIteratorProvider, getCharacterInstance, $BreakIterator*, $Locale*)},
+		{"getLineInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BreakIteratorProvider, getLineInstance, $BreakIterator*, $Locale*)},
+		{"getSentenceInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BreakIteratorProvider, getSentenceInstance, $BreakIterator*, $Locale*)},
+		{"getWordInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BreakIteratorProvider, getWordInstance, $BreakIterator*, $Locale*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.text.spi.BreakIteratorProvider",
+		"java.util.spi.LocaleServiceProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BreakIteratorProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BreakIteratorProvider);
+	});
 	return class$;
 }
 

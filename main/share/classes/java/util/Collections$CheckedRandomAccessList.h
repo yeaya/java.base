@@ -30,7 +30,7 @@ public:
 	using ::java::util::Collections$CheckedList::remove;
 	virtual ::java::util::List* subList(int32_t fromIndex, int32_t toIndex) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x16BC0E55A2D7F2F1;
+	static const int64_t serialVersionUID = (int64_t)0x16bc0e55a2d7f2f1;
 };
 
 	} // util

@@ -27,6 +27,7 @@ class GenerateJLIClassesHelper$HolderClassBuilder : public ::java::lang::Object 
 	$class(GenerateJLIClassesHelper$HolderClassBuilder, 0, ::java::lang::Object)
 public:
 	GenerateJLIClassesHelper$HolderClassBuilder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::lang::invoke::GenerateJLIClassesHelper$HolderClassBuilder* addCallSiteType($String* csType);
 	void addDMHMethodType($String* dmh, $String* methodType);

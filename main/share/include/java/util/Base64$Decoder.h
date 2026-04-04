@@ -23,6 +23,7 @@ class $import Base64$Decoder : public ::java::lang::Object {
 	$class(Base64$Decoder, 0, ::java::lang::Object)
 public:
 	Base64$Decoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool isURL, bool isMIME);
 	virtual $bytes* decode($bytes* src);
 	virtual $bytes* decode($String* src);

@@ -19,6 +19,7 @@ class SSLContextImpl$TLS13Context : public ::sun::security::ssl::SSLContextImpl$
 	$class(SSLContextImpl$TLS13Context, 0, ::sun::security::ssl::SSLContextImpl$AbstractTLSContext)
 public:
 	SSLContextImpl$TLS13Context();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::util::List* getClientDefaultCipherSuites() override;
 	virtual ::java::util::List* getClientDefaultProtocolVersions() override;

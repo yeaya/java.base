@@ -1,5 +1,4 @@
 #include <java/util/function/IntConsumer.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -31,71 +30,38 @@ public:
 	virtual void accept(int32_t t) override {
 		$nc(inst$)->lambda$andThen$0(after, t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<IntConsumer$$Lambda$lambda$andThen$0>());
-	}
 	IntConsumer* inst$ = nullptr;
 	IntConsumer* after = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo IntConsumer$$Lambda$lambda$andThen$0::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(IntConsumer$$Lambda$lambda$andThen$0, inst$)},
-	{"after", "Ljava/util/function/IntConsumer;", nullptr, $PUBLIC, $field(IntConsumer$$Lambda$lambda$andThen$0, after)},
-	{}
-};
-$MethodInfo IntConsumer$$Lambda$lambda$andThen$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/IntConsumer;Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $method(IntConsumer$$Lambda$lambda$andThen$0, init$, void, IntConsumer*, IntConsumer*)},
-	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(IntConsumer$$Lambda$lambda$andThen$0, accept, void, int32_t)},
-	{}
-};
-$ClassInfo IntConsumer$$Lambda$lambda$andThen$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.function.IntConsumer$$Lambda$lambda$andThen$0",
-	"java.lang.Object",
-	"java.util.function.IntConsumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* IntConsumer$$Lambda$lambda$andThen$0::load$($String* name, bool initialize) {
-	$loadClass(IntConsumer$$Lambda$lambda$andThen$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(IntConsumer$$Lambda$lambda$andThen$0, inst$)},
+		{"after", "Ljava/util/function/IntConsumer;", nullptr, $PUBLIC, $field(IntConsumer$$Lambda$lambda$andThen$0, after)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/IntConsumer;Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $method(IntConsumer$$Lambda$lambda$andThen$0, init$, void, IntConsumer*, IntConsumer*)},
+		{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(IntConsumer$$Lambda$lambda$andThen$0, accept, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.function.IntConsumer$$Lambda$lambda$andThen$0",
+		"java.lang.Object",
+		"java.util.function.IntConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IntConsumer$$Lambda$lambda$andThen$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntConsumer$$Lambda$lambda$andThen$0);
+	});
 	return class$;
 }
 $Class* IntConsumer$$Lambda$lambda$andThen$0::class$ = nullptr;
 
-$CompoundAttribute _IntConsumer_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _IntConsumer_MethodInfo_[] = {
-	{"accept", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntConsumer, accept, void, int32_t)},
-	{"andThen", "(Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;", nullptr, $PUBLIC, $virtualMethod(IntConsumer, andThen, IntConsumer*, IntConsumer*)},
-	{"lambda$andThen$0", "(Ljava/util/function/IntConsumer;I)V", nullptr, $PRIVATE | $SYNTHETIC, $method(IntConsumer, lambda$andThen$0, void, IntConsumer*, int32_t)},
-	{}
-};
-
-$ClassInfo _IntConsumer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.function.IntConsumer",
-	nullptr,
-	nullptr,
-	nullptr,
-	_IntConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_IntConsumer_Annotations_
-};
-
-$Object* allocate$IntConsumer($Class* clazz) {
-	return $of($alloc(IntConsumer));
-}
-
 IntConsumer* IntConsumer::andThen(IntConsumer* after) {
 	$Objects::requireNonNull(after);
-	return static_cast<IntConsumer*>($new(IntConsumer$$Lambda$lambda$andThen$0, this, after));
+	return $new(IntConsumer$$Lambda$lambda$andThen$0, this, after);
 }
 
 void IntConsumer::lambda$andThen$0(IntConsumer* after, int32_t t) {
@@ -105,11 +71,35 @@ void IntConsumer::lambda$andThen$0(IntConsumer* after, int32_t t) {
 
 $Class* IntConsumer::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(IntConsumer$$Lambda$lambda$andThen$0::classInfo$.name)) {
+		if (name->equals("java.util.function.IntConsumer$$Lambda$lambda$andThen$0")) {
 			return IntConsumer$$Lambda$lambda$andThen$0::load$(name, initialize);
 		}
 	}
-	$loadClass(IntConsumer, name, initialize, &_IntConsumer_ClassInfo_, allocate$IntConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"accept", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IntConsumer, accept, void, int32_t)},
+		{"andThen", "(Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;", nullptr, $PUBLIC, $virtualMethod(IntConsumer, andThen, IntConsumer*, IntConsumer*)},
+		{"lambda$andThen$0", "(Ljava/util/function/IntConsumer;I)V", nullptr, $PRIVATE | $SYNTHETIC, $method(IntConsumer, lambda$andThen$0, void, IntConsumer*, int32_t)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.function.IntConsumer",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(IntConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntConsumer);
+	});
 	return class$;
 }
 

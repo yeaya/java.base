@@ -34,6 +34,7 @@ class $export MeteredStream : public ::java::io::FilterInputStream {
 	$class(MeteredStream, $HAS_FINALIZE, ::java::io::FilterInputStream)
 public:
 	MeteredStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::InputStream* is, ::sun::net::ProgressSource* pi, int64_t expected);
 	virtual int32_t available() override;
 	virtual void close() override;

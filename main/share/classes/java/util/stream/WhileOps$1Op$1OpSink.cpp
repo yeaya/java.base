@@ -1,5 +1,4 @@
 #include <java/util/stream/WhileOps$1Op$1OpSink.h>
-
 #include <java/util/function/Consumer.h>
 #include <java/util/function/Predicate.h>
 #include <java/util/stream/Sink$ChainedReference.h>
@@ -13,7 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Consumer = ::java::util::function::Consumer;
-using $Predicate = ::java::util::function::Predicate;
 using $Sink = ::java::util::stream::Sink;
 using $Sink$ChainedReference = ::java::util::stream::Sink$ChainedReference;
 using $WhileOps$1Op = ::java::util::stream::WhileOps$1Op;
@@ -21,68 +19,6 @@ using $WhileOps$1Op = ::java::util::stream::WhileOps$1Op;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _WhileOps$1Op$1OpSink_FieldInfo_[] = {
-	{"this$0", "Ljava/util/stream/WhileOps$1Op;", nullptr, $FINAL | $SYNTHETIC, $field(WhileOps$1Op$1OpSink, this$0)},
-	{"val$retainAndCountDroppedElements", "Z", nullptr, $FINAL | $SYNTHETIC, $field(WhileOps$1Op$1OpSink, val$retainAndCountDroppedElements)},
-	{"val$sink", "Ljava/util/stream/Sink;", nullptr, $FINAL | $SYNTHETIC, $field(WhileOps$1Op$1OpSink, val$sink)},
-	{"dropCount", "J", nullptr, 0, $field(WhileOps$1Op$1OpSink, dropCount)},
-	{"take", "Z", nullptr, 0, $field(WhileOps$1Op$1OpSink, take)},
-	{}
-};
-
-$MethodInfo _WhileOps$1Op$1OpSink_MethodInfo_[] = {
-	{"*accept", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*accept", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*accept", "(D)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*andThen", "(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*begin", "(J)V", nullptr, $PUBLIC},
-	{"*cancellationRequested", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*end", "()V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/stream/WhileOps$1Op;Ljava/util/stream/Sink;Z)V", "()V", 0, $method(WhileOps$1Op$1OpSink, init$, void, $WhileOps$1Op*, $Sink*, bool)},
-	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(WhileOps$1Op$1OpSink, accept, void, Object$*)},
-	{"getDropCount", "()J", nullptr, $PUBLIC, $virtualMethod(WhileOps$1Op$1OpSink, getDropCount, int64_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$EnclosingMethodInfo _WhileOps$1Op$1OpSink_EnclosingMethodInfo_ = {
-	"java.util.stream.WhileOps$1Op",
-	"opWrapSink",
-	"(Ljava/util/stream/Sink;Z)Ljava/util/stream/WhileOps$DropWhileSink;"
-};
-
-$InnerClassInfo _WhileOps$1Op$1OpSink_InnerClassesInfo_[] = {
-	{"java.util.stream.WhileOps$1Op", nullptr, "Op", 0},
-	{"java.util.stream.WhileOps$1Op$1OpSink", nullptr, "OpSink", 0},
-	{"java.util.stream.Sink$ChainedReference", "java.util.stream.Sink", "ChainedReference", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.util.stream.WhileOps$DropWhileSink", "java.util.stream.WhileOps", "DropWhileSink", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _WhileOps$1Op$1OpSink_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.WhileOps$1Op$1OpSink",
-	"java.util.stream.Sink$ChainedReference",
-	"java.util.stream.WhileOps$DropWhileSink",
-	_WhileOps$1Op$1OpSink_FieldInfo_,
-	_WhileOps$1Op$1OpSink_MethodInfo_,
-	"Ljava/util/stream/Sink$ChainedReference<TT;TT;>;Ljava/util/stream/WhileOps$DropWhileSink<TT;>;",
-	&_WhileOps$1Op$1OpSink_EnclosingMethodInfo_,
-	_WhileOps$1Op$1OpSink_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.WhileOps"
-};
-
-$Object* allocate$WhileOps$1Op$1OpSink($Class* clazz) {
-	return $of($alloc(WhileOps$1Op$1OpSink));
-}
 
 void WhileOps$1Op$1OpSink::begin(int64_t size) {
 	this->$Sink$ChainedReference::begin(size);
@@ -158,7 +94,62 @@ WhileOps$1Op$1OpSink::WhileOps$1Op$1OpSink() {
 }
 
 $Class* WhileOps$1Op$1OpSink::load$($String* name, bool initialize) {
-	$loadClass(WhileOps$1Op$1OpSink, name, initialize, &_WhileOps$1Op$1OpSink_ClassInfo_, allocate$WhileOps$1Op$1OpSink);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/stream/WhileOps$1Op;", nullptr, $FINAL | $SYNTHETIC, $field(WhileOps$1Op$1OpSink, this$0)},
+		{"val$retainAndCountDroppedElements", "Z", nullptr, $FINAL | $SYNTHETIC, $field(WhileOps$1Op$1OpSink, val$retainAndCountDroppedElements)},
+		{"val$sink", "Ljava/util/stream/Sink;", nullptr, $FINAL | $SYNTHETIC, $field(WhileOps$1Op$1OpSink, val$sink)},
+		{"dropCount", "J", nullptr, 0, $field(WhileOps$1Op$1OpSink, dropCount)},
+		{"take", "Z", nullptr, 0, $field(WhileOps$1Op$1OpSink, take)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*accept", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*accept", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*accept", "(D)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*andThen", "(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*begin", "(J)V", nullptr, $PUBLIC},
+		{"*cancellationRequested", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*end", "()V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/stream/WhileOps$1Op;Ljava/util/stream/Sink;Z)V", "()V", 0, $method(WhileOps$1Op$1OpSink, init$, void, $WhileOps$1Op*, $Sink*, bool)},
+		{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(WhileOps$1Op$1OpSink, accept, void, Object$*)},
+		{"getDropCount", "()J", nullptr, $PUBLIC, $virtualMethod(WhileOps$1Op$1OpSink, getDropCount, int64_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.WhileOps$1Op",
+		"opWrapSink",
+		"(Ljava/util/stream/Sink;Z)Ljava/util/stream/WhileOps$DropWhileSink;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.WhileOps$1Op", nullptr, "Op", 0},
+		{"java.util.stream.WhileOps$1Op$1OpSink", nullptr, "OpSink", 0},
+		{"java.util.stream.Sink$ChainedReference", "java.util.stream.Sink", "ChainedReference", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.util.stream.WhileOps$DropWhileSink", "java.util.stream.WhileOps", "DropWhileSink", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.WhileOps$1Op$1OpSink",
+		"java.util.stream.Sink$ChainedReference",
+		"java.util.stream.WhileOps$DropWhileSink",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/Sink$ChainedReference<TT;TT;>;Ljava/util/stream/WhileOps$DropWhileSink<TT;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.WhileOps"
+	};
+	$loadClass(WhileOps$1Op$1OpSink, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WhileOps$1Op$1OpSink));
+	});
 	return class$;
 }
 

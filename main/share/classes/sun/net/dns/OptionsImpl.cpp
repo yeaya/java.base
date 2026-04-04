@@ -1,5 +1,4 @@
 #include <sun/net/dns/OptionsImpl.h>
-
 #include <sun/net/dns/ResolverConfiguration$Options.h>
 #include <jcpp.h>
 
@@ -12,32 +11,6 @@ namespace sun {
 	namespace net {
 		namespace dns {
 
-$MethodInfo _OptionsImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(OptionsImpl, init$, void)},
-	{}
-};
-
-$InnerClassInfo _OptionsImpl_InnerClassesInfo_[] = {
-	{"sun.net.dns.ResolverConfiguration$Options", "sun.net.dns.ResolverConfiguration", "Options", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _OptionsImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.dns.OptionsImpl",
-	"sun.net.dns.ResolverConfiguration$Options",
-	nullptr,
-	nullptr,
-	_OptionsImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_OptionsImpl_InnerClassesInfo_
-};
-
-$Object* allocate$OptionsImpl($Class* clazz) {
-	return $of($alloc(OptionsImpl));
-}
-
 void OptionsImpl::init$() {
 	$ResolverConfiguration$Options::init$();
 }
@@ -46,7 +19,28 @@ OptionsImpl::OptionsImpl() {
 }
 
 $Class* OptionsImpl::load$($String* name, bool initialize) {
-	$loadClass(OptionsImpl, name, initialize, &_OptionsImpl_ClassInfo_, allocate$OptionsImpl);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(OptionsImpl, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.dns.ResolverConfiguration$Options", "sun.net.dns.ResolverConfiguration", "Options", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.dns.OptionsImpl",
+		"sun.net.dns.ResolverConfiguration$Options",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(OptionsImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OptionsImpl);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLSecretDerivation.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/CharSequence.h>
 #include <java/nio/ByteBuffer.h>
@@ -34,7 +33,6 @@ using $SSLHandshakeException = ::javax::net::ssl::SSLHandshakeException;
 using $CipherSuite$HashAlg = ::sun::security::ssl::CipherSuite$HashAlg;
 using $HKDF = ::sun::security::ssl::HKDF;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $HandshakeHash = ::sun::security::ssl::HandshakeHash;
 using $Record = ::sun::security::ssl::Record;
 using $SSLSecretDerivation$SecretSchedule = ::sun::security::ssl::SSLSecretDerivation$SecretSchedule;
 
@@ -42,57 +40,16 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SSLSecretDerivation_FieldInfo_[] = {
-	{"sha256EmptyDigest", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLSecretDerivation, sha256EmptyDigest)},
-	{"sha384EmptyDigest", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLSecretDerivation, sha384EmptyDigest)},
-	{"hashAlg", "Lsun/security/ssl/CipherSuite$HashAlg;", nullptr, $PRIVATE | $FINAL, $field(SSLSecretDerivation, hashAlg)},
-	{"secret", "Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $FINAL, $field(SSLSecretDerivation, secret)},
-	{"transcriptHash", "[B", nullptr, $PRIVATE | $FINAL, $field(SSLSecretDerivation, transcriptHash)},
-	{}
-};
-
-$MethodInfo _SSLSecretDerivation_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)V", nullptr, 0, $method(SSLSecretDerivation, init$, void, $HandshakeContext*, $SecretKey*)},
-	{"createHkdfInfo", "([B[BI)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLSecretDerivation, createHkdfInfo, $bytes*, $bytes*, $bytes*, int32_t)},
-	{"deriveKey", "(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(SSLSecretDerivation, deriveKey, $SecretKey*, $String*, $AlgorithmParameterSpec*), "java.io.IOException"},
-	{"forContext", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLSecretDerivation;", nullptr, 0, $method(SSLSecretDerivation, forContext, SSLSecretDerivation*, $HandshakeContext*)},
-	{}
-};
-
-$InnerClassInfo _SSLSecretDerivation_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLSecretDerivation$SecretSchedule", "sun.security.ssl.SSLSecretDerivation", "SecretSchedule", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _SSLSecretDerivation_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLSecretDerivation",
-	"java.lang.Object",
-	"sun.security.ssl.SSLKeyDerivation",
-	_SSLSecretDerivation_FieldInfo_,
-	_SSLSecretDerivation_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLSecretDerivation_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLSecretDerivation$SecretSchedule"
-};
-
-$Object* allocate$SSLSecretDerivation($Class* clazz) {
-	return $of($alloc(SSLSecretDerivation));
-}
-
 $bytes* SSLSecretDerivation::sha256EmptyDigest = nullptr;
 $bytes* SSLSecretDerivation::sha384EmptyDigest = nullptr;
 
 void SSLSecretDerivation::init$($HandshakeContext* context, $SecretKey* secret) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, secret, secret);
 	$set(this, hashAlg, $nc($nc(context)->negotiatedCipherSuite)->hashAlg);
-	$var($String, hkdfAlg, $str({"HKDF-Expand/Hmac"_s, $($nc(this->hashAlg->name$)->replace(static_cast<$CharSequence*>("-"_s), static_cast<$CharSequence*>(""_s)))}));
+	$var($String, hkdfAlg, $str({"HKDF-Expand/Hmac"_s, $($nc(this->hashAlg->name$)->replace("-"_s, ""_s))}));
 	$nc(context->handshakeHash)->update();
-	$set(this, transcriptHash, $nc(context->handshakeHash)->digest());
+	$set(this, transcriptHash, context->handshakeHash->digest());
 }
 
 SSLSecretDerivation* SSLSecretDerivation::forContext($HandshakeContext* context) {
@@ -100,7 +57,7 @@ SSLSecretDerivation* SSLSecretDerivation::forContext($HandshakeContext* context)
 }
 
 $SecretKey* SSLSecretDerivation::deriveKey($String* algorithm, $AlgorithmParameterSpec* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SSLSecretDerivation$SecretSchedule* ks = $SSLSecretDerivation$SecretSchedule::valueOf(algorithm);
 	try {
 		$var($bytes, expandContext, nullptr);
@@ -108,28 +65,26 @@ $SecretKey* SSLSecretDerivation::deriveKey($String* algorithm, $AlgorithmParamet
 			$init($CipherSuite$HashAlg);
 			if (this->hashAlg == $CipherSuite$HashAlg::H_SHA256) {
 				$assign(expandContext, SSLSecretDerivation::sha256EmptyDigest);
+			} else if (this->hashAlg == $CipherSuite$HashAlg::H_SHA384) {
+				$assign(expandContext, SSLSecretDerivation::sha384EmptyDigest);
 			} else {
-				if (this->hashAlg == $CipherSuite$HashAlg::H_SHA384) {
-					$assign(expandContext, SSLSecretDerivation::sha384EmptyDigest);
-				} else {
-					$throwNew($SSLHandshakeException, $$str({"Unexpected unsupported hash algorithm: "_s, algorithm}));
-				}
+				$throwNew($SSLHandshakeException, $$str({"Unexpected unsupported hash algorithm: "_s, algorithm}));
 			}
 		} else {
 			$assign(expandContext, this->transcriptHash);
 		}
-		$var($bytes, hkdfInfo, createHkdfInfo($nc(ks)->label, expandContext, this->hashAlg->hashLength));
+		$var($bytes, hkdfInfo, createHkdfInfo(ks->label, expandContext, this->hashAlg->hashLength));
 		$var($HKDF, hkdf, $new($HKDF, this->hashAlg->name$));
 		return hkdf->expand(this->secret, hkdfInfo, this->hashAlg->hashLength, algorithm);
 	} catch ($GeneralSecurityException& gse) {
-		$throw($cast($SSLHandshakeException, $($$new($SSLHandshakeException, "Could not generate secret"_s)->initCause(gse))));
+		$throw($$cast($SSLHandshakeException, $$new($SSLHandshakeException, "Could not generate secret"_s)->initCause(gse)));
 	}
 	$shouldNotReachHere();
 }
 
 $bytes* SSLSecretDerivation::createHkdfInfo($bytes* label, $bytes* context, int32_t length) {
 	$init(SSLSecretDerivation);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, info, $new($bytes, 4 + $nc(label)->length + $nc(context)->length));
 	$var($ByteBuffer, m, $ByteBuffer::wrap(info));
 	try {
@@ -142,7 +97,7 @@ $bytes* SSLSecretDerivation::createHkdfInfo($bytes* label, $bytes* context, int3
 	return info;
 }
 
-void clinit$SSLSecretDerivation($Class* class$) {
+void SSLSecretDerivation::clinit$($Class* clazz) {
 	$assignStatic(SSLSecretDerivation::sha256EmptyDigest, $new($bytes, {
 		(int8_t)227,
 		(int8_t)176,
@@ -233,7 +188,42 @@ SSLSecretDerivation::SSLSecretDerivation() {
 }
 
 $Class* SSLSecretDerivation::load$($String* name, bool initialize) {
-	$loadClass(SSLSecretDerivation, name, initialize, &_SSLSecretDerivation_ClassInfo_, clinit$SSLSecretDerivation, allocate$SSLSecretDerivation);
+	$FieldInfo fieldInfos$$[] = {
+		{"sha256EmptyDigest", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLSecretDerivation, sha256EmptyDigest)},
+		{"sha384EmptyDigest", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLSecretDerivation, sha384EmptyDigest)},
+		{"hashAlg", "Lsun/security/ssl/CipherSuite$HashAlg;", nullptr, $PRIVATE | $FINAL, $field(SSLSecretDerivation, hashAlg)},
+		{"secret", "Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $FINAL, $field(SSLSecretDerivation, secret)},
+		{"transcriptHash", "[B", nullptr, $PRIVATE | $FINAL, $field(SSLSecretDerivation, transcriptHash)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)V", nullptr, 0, $method(SSLSecretDerivation, init$, void, $HandshakeContext*, $SecretKey*)},
+		{"createHkdfInfo", "([B[BI)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLSecretDerivation, createHkdfInfo, $bytes*, $bytes*, $bytes*, int32_t)},
+		{"deriveKey", "(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(SSLSecretDerivation, deriveKey, $SecretKey*, $String*, $AlgorithmParameterSpec*), "java.io.IOException"},
+		{"forContext", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLSecretDerivation;", nullptr, 0, $method(SSLSecretDerivation, forContext, SSLSecretDerivation*, $HandshakeContext*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLSecretDerivation$SecretSchedule", "sun.security.ssl.SSLSecretDerivation", "SecretSchedule", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLSecretDerivation",
+		"java.lang.Object",
+		"sun.security.ssl.SSLKeyDerivation",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLSecretDerivation$SecretSchedule"
+	};
+	$loadClass(SSLSecretDerivation, name, initialize, &classInfo$$, SSLSecretDerivation::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLSecretDerivation);
+	});
 	return class$;
 }
 

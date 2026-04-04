@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SessionId.h>
-
 #include <java/security/SecureRandom.h>
 #include <java/util/Arrays.h>
 #include <javax/net/ssl/SSLProtocolException.h>
@@ -21,37 +20,6 @@ using $Utilities = ::sun::security::ssl::Utilities;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _SessionId_FieldInfo_[] = {
-	{"MAX_LENGTH", "I", nullptr, $STATIC | $FINAL, $constField(SessionId, MAX_LENGTH)},
-	{"sessionId", "[B", nullptr, $PRIVATE | $FINAL, $field(SessionId, sessionId)},
-	{}
-};
-
-$MethodInfo _SessionId_MethodInfo_[] = {
-	{"<init>", "(ZLjava/security/SecureRandom;)V", nullptr, 0, $method(SessionId, init$, void, bool, $SecureRandom*)},
-	{"<init>", "([B)V", nullptr, 0, $method(SessionId, init$, void, $bytes*)},
-	{"checkLength", "(I)V", nullptr, 0, $method(SessionId, checkLength, void, int32_t), "javax.net.ssl.SSLProtocolException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SessionId, equals, bool, Object$*)},
-	{"getId", "()[B", nullptr, 0, $method(SessionId, getId, $bytes*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SessionId, hashCode, int32_t)},
-	{"length", "()I", nullptr, 0, $method(SessionId, length, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SessionId, toString, $String*)},
-	{}
-};
-
-$ClassInfo _SessionId_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SessionId",
-	"java.lang.Object",
-	nullptr,
-	_SessionId_FieldInfo_,
-	_SessionId_MethodInfo_
-};
-
-$Object* allocate$SessionId($Class* clazz) {
-	return $of($alloc(SessionId));
-}
 
 void SessionId::init$(bool isRejoinable, $SecureRandom* generator) {
 	if (isRejoinable && (generator != nullptr)) {
@@ -90,15 +58,15 @@ bool SessionId::equals(Object$* obj) {
 	}
 	if ($instanceOf(SessionId, obj)) {
 		$var(SessionId, that, $cast(SessionId, obj));
-		return $Arrays::equals(this->sessionId, $nc(that)->sessionId);
+		return $Arrays::equals(this->sessionId, that->sessionId);
 	}
 	return false;
 }
 
 void SessionId::checkLength(int32_t protocolVersion) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->sessionId)->length > SessionId::MAX_LENGTH) {
-		$throwNew($SSLProtocolException, $$str({"Invalid session ID length ("_s, $$str($nc(this->sessionId)->length), " bytes)"_s}));
+		$throwNew($SSLProtocolException, $$str({"Invalid session ID length ("_s, $$str(this->sessionId->length), " bytes)"_s}));
 	}
 }
 
@@ -106,7 +74,33 @@ SessionId::SessionId() {
 }
 
 $Class* SessionId::load$($String* name, bool initialize) {
-	$loadClass(SessionId, name, initialize, &_SessionId_ClassInfo_, allocate$SessionId);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_LENGTH", "I", nullptr, $STATIC | $FINAL, $constField(SessionId, MAX_LENGTH)},
+		{"sessionId", "[B", nullptr, $PRIVATE | $FINAL, $field(SessionId, sessionId)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZLjava/security/SecureRandom;)V", nullptr, 0, $method(SessionId, init$, void, bool, $SecureRandom*)},
+		{"<init>", "([B)V", nullptr, 0, $method(SessionId, init$, void, $bytes*)},
+		{"checkLength", "(I)V", nullptr, 0, $method(SessionId, checkLength, void, int32_t), "javax.net.ssl.SSLProtocolException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SessionId, equals, bool, Object$*)},
+		{"getId", "()[B", nullptr, 0, $method(SessionId, getId, $bytes*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SessionId, hashCode, int32_t)},
+		{"length", "()I", nullptr, 0, $method(SessionId, length, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SessionId, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SessionId",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SessionId, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SessionId);
+	});
 	return class$;
 }
 

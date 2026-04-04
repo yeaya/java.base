@@ -1,5 +1,4 @@
 #include <TestSynchronization$1.h>
-
 #include <TestSynchronization.h>
 #include <java/lang/NoSuchFieldError.h>
 #include <java/lang/Thread$State.h>
@@ -19,69 +18,33 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NoSuchFieldError = ::java::lang::NoSuchFieldError;
 using $Thread$State = ::java::lang::Thread$State;
 
-$FieldInfo _TestSynchronization$1_FieldInfo_[] = {
-	{"$SwitchMap$java$lang$Thread$State", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TestSynchronization$1, $SwitchMap$java$lang$Thread$State)},
-	{}
-};
-
-$EnclosingMethodInfo _TestSynchronization$1_EnclosingMethodInfo_ = {
-	"TestSynchronization",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _TestSynchronization$1_InnerClassesInfo_[] = {
-	{"TestSynchronization$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _TestSynchronization$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"TestSynchronization$1",
-	"java.lang.Object",
-	nullptr,
-	_TestSynchronization$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_TestSynchronization$1_EnclosingMethodInfo_,
-	_TestSynchronization$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestSynchronization"
-};
-
-$Object* allocate$TestSynchronization$1($Class* clazz) {
-	return $of($alloc(TestSynchronization$1));
-}
-
 $ints* TestSynchronization$1::$SwitchMap$java$lang$Thread$State = nullptr;
 
-void clinit$TestSynchronization$1($Class* class$) {
+void TestSynchronization$1::clinit$($Class* clazz) {
 	$assignStatic(TestSynchronization$1::$SwitchMap$java$lang$Thread$State, $new($ints, $($Thread$State::values())->length));
 	{
 		try {
-			$nc(TestSynchronization$1::$SwitchMap$java$lang$Thread$State)->set($Thread$State::NEW->ordinal(), 1);
+			TestSynchronization$1::$SwitchMap$java$lang$Thread$State->set($Thread$State::NEW->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TestSynchronization$1::$SwitchMap$java$lang$Thread$State)->set($Thread$State::RUNNABLE->ordinal(), 2);
+			TestSynchronization$1::$SwitchMap$java$lang$Thread$State->set($Thread$State::RUNNABLE->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TestSynchronization$1::$SwitchMap$java$lang$Thread$State)->set($Thread$State::WAITING->ordinal(), 3);
+			TestSynchronization$1::$SwitchMap$java$lang$Thread$State->set($Thread$State::WAITING->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TestSynchronization$1::$SwitchMap$java$lang$Thread$State)->set($Thread$State::TIMED_WAITING->ordinal(), 4);
+			TestSynchronization$1::$SwitchMap$java$lang$Thread$State->set($Thread$State::TIMED_WAITING->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TestSynchronization$1::$SwitchMap$java$lang$Thread$State)->set($Thread$State::BLOCKED->ordinal(), 5);
+			TestSynchronization$1::$SwitchMap$java$lang$Thread$State->set($Thread$State::BLOCKED->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TestSynchronization$1::$SwitchMap$java$lang$Thread$State)->set($Thread$State::TERMINATED->ordinal(), 6);
+			TestSynchronization$1::$SwitchMap$java$lang$Thread$State->set($Thread$State::TERMINATED->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -91,7 +54,37 @@ TestSynchronization$1::TestSynchronization$1() {
 }
 
 $Class* TestSynchronization$1::load$($String* name, bool initialize) {
-	$loadClass(TestSynchronization$1, name, initialize, &_TestSynchronization$1_ClassInfo_, clinit$TestSynchronization$1, allocate$TestSynchronization$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$lang$Thread$State", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TestSynchronization$1, $SwitchMap$java$lang$Thread$State)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"TestSynchronization",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestSynchronization$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"TestSynchronization$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestSynchronization"
+	};
+	$loadClass(TestSynchronization$1, name, initialize, &classInfo$$, TestSynchronization$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TestSynchronization$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <MultiThreadStackWalk$WalkThread.h>
-
 #include <MultiThreadStackWalk$Call$WalkType.h>
 #include <MultiThreadStackWalk$Env.h>
 #include <MultiThreadStackWalk$Test.h>
@@ -16,51 +15,17 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AtomicLong = ::java::util::concurrent::atomic::AtomicLong;
 
-$FieldInfo _MultiThreadStackWalk$WalkThread_FieldInfo_[] = {
-	{"walkersCount", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $STATIC | $FINAL, $staticField(MultiThreadStackWalk$WalkThread, walkersCount)},
-	{"failed", "Ljava/lang/Throwable;", nullptr, 0, $field(MultiThreadStackWalk$WalkThread, failed)},
-	{"test", "LMultiThreadStackWalk$Test;", nullptr, $FINAL, $field(MultiThreadStackWalk$WalkThread, test)},
-	{}
-};
-
-$MethodInfo _MultiThreadStackWalk$WalkThread_MethodInfo_[] = {
-	{"<init>", "(LMultiThreadStackWalk$Test;)V", nullptr, $PUBLIC, $method(MultiThreadStackWalk$WalkThread, init$, void, $MultiThreadStackWalk$Test*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MultiThreadStackWalk$WalkThread, run, void)},
-	{}
-};
-
-$InnerClassInfo _MultiThreadStackWalk$WalkThread_InnerClassesInfo_[] = {
-	{"MultiThreadStackWalk$WalkThread", "MultiThreadStackWalk", "WalkThread", $STATIC},
-	{}
-};
-
-$ClassInfo _MultiThreadStackWalk$WalkThread_ClassInfo_ = {
-	$ACC_SUPER,
-	"MultiThreadStackWalk$WalkThread",
-	"java.lang.Thread",
-	nullptr,
-	_MultiThreadStackWalk$WalkThread_FieldInfo_,
-	_MultiThreadStackWalk$WalkThread_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MultiThreadStackWalk$WalkThread_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"MultiThreadStackWalk"
-};
-
-$Object* allocate$MultiThreadStackWalk$WalkThread($Class* clazz) {
-	return $of($alloc(MultiThreadStackWalk$WalkThread));
-}
-
 $AtomicLong* MultiThreadStackWalk$WalkThread::walkersCount = nullptr;
 
 void MultiThreadStackWalk$WalkThread::init$($MultiThreadStackWalk$Test* test) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({"WalkThread["_s, $$str($nc(MultiThreadStackWalk$WalkThread::walkersCount)->incrementAndGet()), ", type="_s}));
-	$var($String, var$0, $$concat(var$1, $($nc(test)->getWalkType())));
-	$Thread::init$($$concat(var$0, "]"_s));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("WalkThread["_s);
+	var$0->append(MultiThreadStackWalk$WalkThread::walkersCount->incrementAndGet());
+	var$0->append(", type="_s);
+	var$0->append($($nc(test)->getWalkType()));
+	var$0->append("]"_s);
+	$Thread::init$($$str(var$0));
 	$set(this, failed, nullptr);
 	$set(this, test, test);
 }
@@ -74,7 +39,7 @@ void MultiThreadStackWalk$WalkThread::run() {
 	}
 }
 
-void clinit$MultiThreadStackWalk$WalkThread($Class* class$) {
+void MultiThreadStackWalk$WalkThread::clinit$($Class* clazz) {
 	$assignStatic(MultiThreadStackWalk$WalkThread::walkersCount, $new($AtomicLong));
 }
 
@@ -82,7 +47,39 @@ MultiThreadStackWalk$WalkThread::MultiThreadStackWalk$WalkThread() {
 }
 
 $Class* MultiThreadStackWalk$WalkThread::load$($String* name, bool initialize) {
-	$loadClass(MultiThreadStackWalk$WalkThread, name, initialize, &_MultiThreadStackWalk$WalkThread_ClassInfo_, clinit$MultiThreadStackWalk$WalkThread, allocate$MultiThreadStackWalk$WalkThread);
+	$FieldInfo fieldInfos$$[] = {
+		{"walkersCount", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $STATIC | $FINAL, $staticField(MultiThreadStackWalk$WalkThread, walkersCount)},
+		{"failed", "Ljava/lang/Throwable;", nullptr, 0, $field(MultiThreadStackWalk$WalkThread, failed)},
+		{"test", "LMultiThreadStackWalk$Test;", nullptr, $FINAL, $field(MultiThreadStackWalk$WalkThread, test)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LMultiThreadStackWalk$Test;)V", nullptr, $PUBLIC, $method(MultiThreadStackWalk$WalkThread, init$, void, $MultiThreadStackWalk$Test*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MultiThreadStackWalk$WalkThread, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"MultiThreadStackWalk$WalkThread", "MultiThreadStackWalk", "WalkThread", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"MultiThreadStackWalk$WalkThread",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"MultiThreadStackWalk"
+	};
+	$loadClass(MultiThreadStackWalk$WalkThread, name, initialize, &classInfo$$, MultiThreadStackWalk$WalkThread::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiThreadStackWalk$WalkThread);
+	});
 	return class$;
 }
 

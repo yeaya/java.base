@@ -29,6 +29,7 @@ class $import AccessController : public ::java::lang::Object {
 	$class(AccessController, $PRELOAD, ::java::lang::Object)
 public:
 	AccessController();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::security::AccessControlContext* checkContext(::java::security::AccessControlContext* context, $Class* caller);
 	static void checkPermission(::java::security::Permission* perm);

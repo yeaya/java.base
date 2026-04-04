@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ECDHClientKeyExchange$ECDHClientKeyExchangeProducer.h>
-
 #include <java/security/PublicKey.h>
 #include <java/security/SecureRandom.h>
 #include <java/security/interfaces/ECPublicKey.h>
@@ -18,7 +17,6 @@
 #include <sun/security/ssl/ConnectionContext.h>
 #include <sun/security/ssl/ECDHClientKeyExchange$ECDHClientKeyExchangeMessage.h>
 #include <sun/security/ssl/ECDHClientKeyExchange.h>
-#include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/HandshakeOutStream.h>
 #include <sun/security/ssl/NamedGroup.h>
 #include <sun/security/ssl/ProtocolVersion.h>
@@ -48,78 +46,39 @@ using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $ECParameterSpec = ::java::security::spec::ECParameterSpec;
 using $NamedParameterSpec = ::java::security::spec::NamedParameterSpec;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $SecretKey = ::javax::crypto::SecretKey;
 using $Alert = ::sun::security::ssl::Alert;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $ECDHClientKeyExchange$ECDHClientKeyExchangeMessage = ::sun::security::ssl::ECDHClientKeyExchange$ECDHClientKeyExchangeMessage;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
 using $NamedGroup = ::sun::security::ssl::NamedGroup;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLCredentials = ::sun::security::ssl::SSLCredentials;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLKeyDerivation = ::sun::security::ssl::SSLKeyDerivation;
 using $SSLKeyExchange = ::sun::security::ssl::SSLKeyExchange;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $SSLPossession = ::sun::security::ssl::SSLPossession;
-using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
 using $SSLTrafficKeyDerivation = ::sun::security::ssl::SSLTrafficKeyDerivation;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 using $X509Authentication$X509Credentials = ::sun::security::ssl::X509Authentication$X509Credentials;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _ECDHClientKeyExchange$ECDHClientKeyExchangeProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ECDHClientKeyExchange$ECDHClientKeyExchangeProducer, init$, void)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(ECDHClientKeyExchange$ECDHClientKeyExchangeProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ECDHClientKeyExchange$ECDHClientKeyExchangeProducer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ECDHClientKeyExchange$ECDHClientKeyExchangeProducer", "sun.security.ssl.ECDHClientKeyExchange", "ECDHClientKeyExchangeProducer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ECDHClientKeyExchange$ECDHClientKeyExchangeProducer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ECDHClientKeyExchange$ECDHClientKeyExchangeProducer",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeProducer",
-	nullptr,
-	_ECDHClientKeyExchange$ECDHClientKeyExchangeProducer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ECDHClientKeyExchange$ECDHClientKeyExchangeProducer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ECDHClientKeyExchange"
-};
-
-$Object* allocate$ECDHClientKeyExchange$ECDHClientKeyExchangeProducer($Class* clazz) {
-	return $of($alloc(ECDHClientKeyExchange$ECDHClientKeyExchangeProducer));
-}
-
 void ECDHClientKeyExchange$ECDHClientKeyExchangeProducer::init$() {
 }
 
 $bytes* ECDHClientKeyExchange$ECDHClientKeyExchangeProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$var($X509Authentication$X509Credentials, x509Credentials, nullptr);
 	{
 		$var($Iterator, i$, $nc($nc(chc)->handshakeCredentials)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($SSLCredentials, credential, $cast($SSLCredentials, i$->next()));
-			{
-				if ($instanceOf($X509Authentication$X509Credentials, credential)) {
-					$assign(x509Credentials, $cast($X509Authentication$X509Credentials, credential));
-					break;
-				}
+			if ($instanceOf($X509Authentication$X509Credentials, credential)) {
+				$assign(x509Credentials, $cast($X509Authentication$X509Credentials, credential));
+				break;
 			}
 		}
 	}
@@ -131,12 +90,12 @@ $bytes* ECDHClientKeyExchange$ECDHClientKeyExchangeProducer::produce($Connection
 	$NamedGroup* namedGroup = nullptr;
 	$var($String, algorithm, $nc(publicKey)->getAlgorithm());
 	if ($nc(algorithm)->equals("EC"_s)) {
-		$var($ECParameterSpec, params, $nc(($cast($ECPublicKey, publicKey)))->getParams());
+		$var($ECParameterSpec, params, $cast($ECPublicKey, publicKey)->getParams());
 		namedGroup = $NamedGroup::valueOf(params);
 	} else if (algorithm->equals("XDH"_s)) {
-		$var($AlgorithmParameterSpec, params, $nc(($cast($XECPublicKey, publicKey)))->getParams());
+		$var($AlgorithmParameterSpec, params, $cast($XECPublicKey, publicKey)->getParams());
 		if ($instanceOf($NamedParameterSpec, params)) {
-			$var($String, name, $nc(($cast($NamedParameterSpec, params)))->getName());
+			$var($String, name, $cast($NamedParameterSpec, params)->getName());
 			namedGroup = $NamedGroup::nameOf(name);
 		}
 	} else {
@@ -149,10 +108,10 @@ $bytes* ECDHClientKeyExchange$ECDHClientKeyExchangeProducer::produce($Connection
 	}
 	$var($SSLPossession, sslPossession, $nc(namedGroup)->createPossession($($nc(chc->sslContext)->getSecureRandom())));
 	$nc(chc->handshakePossessions)->add(sslPossession);
-	$var($ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, cke, $new($ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, static_cast<$HandshakeContext*>(chc), $($nc(sslPossession)->encode())));
+	$var($ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, cke, $new($ECDHClientKeyExchange$ECDHClientKeyExchangeMessage, chc, $($nc(sslPossession)->encode())));
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-		$SSLLogger::fine("Produced ECDH ClientKeyExchange handshake message"_s, $$new($ObjectArray, {$of(cke)}));
+		$SSLLogger::fine("Produced ECDH ClientKeyExchange handshake message"_s, $$new($ObjectArray, {cke}));
 	}
 	cke->write(chc->handshakeOutput);
 	$nc(chc->handshakeOutput)->flush();
@@ -161,7 +120,7 @@ $bytes* ECDHClientKeyExchange$ECDHClientKeyExchangeProducer::produce($Connection
 		$init($Alert);
 		$throw($($nc(chc->conContext)->fatal($Alert::INTERNAL_ERROR, "Not supported key exchange type"_s)));
 	} else {
-		$var($SSLKeyDerivation, masterKD, $nc(ke)->createKeyDerivation(chc));
+		$var($SSLKeyDerivation, masterKD, ke->createKeyDerivation(chc));
 		$var($SecretKey, masterSecret, $nc(masterKD)->deriveKey("MasterSecret"_s, nullptr));
 		$nc(chc->handshakeSession)->setMasterSecret(masterSecret);
 		$SSLTrafficKeyDerivation* kd = $SSLTrafficKeyDerivation::valueOf(chc->negotiatedProtocol);
@@ -169,7 +128,7 @@ $bytes* ECDHClientKeyExchange$ECDHClientKeyExchangeProducer::produce($Connection
 			$init($Alert);
 			$throw($($nc(chc->conContext)->fatal($Alert::INTERNAL_ERROR, $$str({"Not supported key derivation: "_s, chc->negotiatedProtocol}))));
 		} else {
-			$set(chc, handshakeKeyDerivation, $nc(kd)->createKeyDerivation(chc, masterSecret));
+			$set(chc, handshakeKeyDerivation, kd->createKeyDerivation(chc, masterSecret));
 		}
 	}
 	return nullptr;
@@ -179,7 +138,33 @@ ECDHClientKeyExchange$ECDHClientKeyExchangeProducer::ECDHClientKeyExchange$ECDHC
 }
 
 $Class* ECDHClientKeyExchange$ECDHClientKeyExchangeProducer::load$($String* name, bool initialize) {
-	$loadClass(ECDHClientKeyExchange$ECDHClientKeyExchangeProducer, name, initialize, &_ECDHClientKeyExchange$ECDHClientKeyExchangeProducer_ClassInfo_, allocate$ECDHClientKeyExchange$ECDHClientKeyExchangeProducer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ECDHClientKeyExchange$ECDHClientKeyExchangeProducer, init$, void)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(ECDHClientKeyExchange$ECDHClientKeyExchangeProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ECDHClientKeyExchange$ECDHClientKeyExchangeProducer", "sun.security.ssl.ECDHClientKeyExchange", "ECDHClientKeyExchangeProducer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ECDHClientKeyExchange$ECDHClientKeyExchangeProducer",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeProducer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ECDHClientKeyExchange"
+	};
+	$loadClass(ECDHClientKeyExchange$ECDHClientKeyExchangeProducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ECDHClientKeyExchange$ECDHClientKeyExchangeProducer);
+	});
 	return class$;
 }
 

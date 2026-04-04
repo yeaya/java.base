@@ -1,5 +1,4 @@
 #include <java/util/concurrent/locks/AbstractQueuedLongSynchronizer$Node.h>
-
 #include <java/util/concurrent/locks/AbstractQueuedLongSynchronizer.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <jcpp.h>
@@ -14,59 +13,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractQueuedLongSynchronizer = ::java::util::concurrent::locks::AbstractQueuedLongSynchronizer;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace java {
 	namespace util {
 		namespace concurrent {
 			namespace locks {
-
-$FieldInfo _AbstractQueuedLongSynchronizer$Node_FieldInfo_[] = {
-	{"prev", "Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer$Node;", nullptr, $VOLATILE, $field(AbstractQueuedLongSynchronizer$Node, prev)},
-	{"next", "Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer$Node;", nullptr, $VOLATILE, $field(AbstractQueuedLongSynchronizer$Node, next)},
-	{"waiter", "Ljava/lang/Thread;", nullptr, 0, $field(AbstractQueuedLongSynchronizer$Node, waiter)},
-	{"status", "I", nullptr, $VOLATILE, $field(AbstractQueuedLongSynchronizer$Node, status)},
-	{"STATUS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractQueuedLongSynchronizer$Node, STATUS)},
-	{"NEXT", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractQueuedLongSynchronizer$Node, NEXT)},
-	{"PREV", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractQueuedLongSynchronizer$Node, PREV)},
-	{}
-};
-
-$MethodInfo _AbstractQueuedLongSynchronizer$Node_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AbstractQueuedLongSynchronizer$Node, init$, void)},
-	{"casNext", "(Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer$Node;Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer$Node;)Z", nullptr, $FINAL, $method(AbstractQueuedLongSynchronizer$Node, casNext, bool, AbstractQueuedLongSynchronizer$Node*, AbstractQueuedLongSynchronizer$Node*)},
-	{"casPrev", "(Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer$Node;Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer$Node;)Z", nullptr, $FINAL, $method(AbstractQueuedLongSynchronizer$Node, casPrev, bool, AbstractQueuedLongSynchronizer$Node*, AbstractQueuedLongSynchronizer$Node*)},
-	{"clearStatus", "()V", nullptr, $FINAL, $method(AbstractQueuedLongSynchronizer$Node, clearStatus, void)},
-	{"getAndUnsetStatus", "(I)I", nullptr, $FINAL, $method(AbstractQueuedLongSynchronizer$Node, getAndUnsetStatus, int32_t, int32_t)},
-	{"setPrevRelaxed", "(Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer$Node;)V", nullptr, $FINAL, $method(AbstractQueuedLongSynchronizer$Node, setPrevRelaxed, void, AbstractQueuedLongSynchronizer$Node*)},
-	{"setStatusRelaxed", "(I)V", nullptr, $FINAL, $method(AbstractQueuedLongSynchronizer$Node, setStatusRelaxed, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AbstractQueuedLongSynchronizer$Node_InnerClassesInfo_[] = {
-	{"java.util.concurrent.locks.AbstractQueuedLongSynchronizer$Node", "java.util.concurrent.locks.AbstractQueuedLongSynchronizer", "Node", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AbstractQueuedLongSynchronizer$Node_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.concurrent.locks.AbstractQueuedLongSynchronizer$Node",
-	"java.lang.Object",
-	nullptr,
-	_AbstractQueuedLongSynchronizer$Node_FieldInfo_,
-	_AbstractQueuedLongSynchronizer$Node_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractQueuedLongSynchronizer$Node_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.locks.AbstractQueuedLongSynchronizer"
-};
-
-$Object* allocate$AbstractQueuedLongSynchronizer$Node($Class* clazz) {
-	return $of($alloc(AbstractQueuedLongSynchronizer$Node));
-}
 
 int64_t AbstractQueuedLongSynchronizer$Node::STATUS = 0;
 int64_t AbstractQueuedLongSynchronizer$Node::NEXT = 0;
@@ -105,18 +56,59 @@ void AbstractQueuedLongSynchronizer$Node::clearStatus() {
 	$nc($AbstractQueuedLongSynchronizer::U)->putIntOpaque(this, AbstractQueuedLongSynchronizer$Node::STATUS, 0);
 }
 
-void clinit$AbstractQueuedLongSynchronizer$Node($Class* class$) {
+void AbstractQueuedLongSynchronizer$Node::clinit$($Class* clazz) {
 	$init($AbstractQueuedLongSynchronizer);
 	AbstractQueuedLongSynchronizer$Node::STATUS = $nc($AbstractQueuedLongSynchronizer::U)->objectFieldOffset(AbstractQueuedLongSynchronizer$Node::class$, "status"_s);
-	AbstractQueuedLongSynchronizer$Node::NEXT = $nc($AbstractQueuedLongSynchronizer::U)->objectFieldOffset(AbstractQueuedLongSynchronizer$Node::class$, "next"_s);
-	AbstractQueuedLongSynchronizer$Node::PREV = $nc($AbstractQueuedLongSynchronizer::U)->objectFieldOffset(AbstractQueuedLongSynchronizer$Node::class$, "prev"_s);
+	AbstractQueuedLongSynchronizer$Node::NEXT = $AbstractQueuedLongSynchronizer::U->objectFieldOffset(AbstractQueuedLongSynchronizer$Node::class$, "next"_s);
+	AbstractQueuedLongSynchronizer$Node::PREV = $AbstractQueuedLongSynchronizer::U->objectFieldOffset(AbstractQueuedLongSynchronizer$Node::class$, "prev"_s);
 }
 
 AbstractQueuedLongSynchronizer$Node::AbstractQueuedLongSynchronizer$Node() {
 }
 
 $Class* AbstractQueuedLongSynchronizer$Node::load$($String* name, bool initialize) {
-	$loadClass(AbstractQueuedLongSynchronizer$Node, name, initialize, &_AbstractQueuedLongSynchronizer$Node_ClassInfo_, clinit$AbstractQueuedLongSynchronizer$Node, allocate$AbstractQueuedLongSynchronizer$Node);
+	$FieldInfo fieldInfos$$[] = {
+		{"prev", "Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer$Node;", nullptr, $VOLATILE, $field(AbstractQueuedLongSynchronizer$Node, prev)},
+		{"next", "Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer$Node;", nullptr, $VOLATILE, $field(AbstractQueuedLongSynchronizer$Node, next)},
+		{"waiter", "Ljava/lang/Thread;", nullptr, 0, $field(AbstractQueuedLongSynchronizer$Node, waiter)},
+		{"status", "I", nullptr, $VOLATILE, $field(AbstractQueuedLongSynchronizer$Node, status)},
+		{"STATUS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractQueuedLongSynchronizer$Node, STATUS)},
+		{"NEXT", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractQueuedLongSynchronizer$Node, NEXT)},
+		{"PREV", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractQueuedLongSynchronizer$Node, PREV)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AbstractQueuedLongSynchronizer$Node, init$, void)},
+		{"casNext", "(Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer$Node;Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer$Node;)Z", nullptr, $FINAL, $method(AbstractQueuedLongSynchronizer$Node, casNext, bool, AbstractQueuedLongSynchronizer$Node*, AbstractQueuedLongSynchronizer$Node*)},
+		{"casPrev", "(Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer$Node;Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer$Node;)Z", nullptr, $FINAL, $method(AbstractQueuedLongSynchronizer$Node, casPrev, bool, AbstractQueuedLongSynchronizer$Node*, AbstractQueuedLongSynchronizer$Node*)},
+		{"clearStatus", "()V", nullptr, $FINAL, $method(AbstractQueuedLongSynchronizer$Node, clearStatus, void)},
+		{"getAndUnsetStatus", "(I)I", nullptr, $FINAL, $method(AbstractQueuedLongSynchronizer$Node, getAndUnsetStatus, int32_t, int32_t)},
+		{"setPrevRelaxed", "(Ljava/util/concurrent/locks/AbstractQueuedLongSynchronizer$Node;)V", nullptr, $FINAL, $method(AbstractQueuedLongSynchronizer$Node, setPrevRelaxed, void, AbstractQueuedLongSynchronizer$Node*)},
+		{"setStatusRelaxed", "(I)V", nullptr, $FINAL, $method(AbstractQueuedLongSynchronizer$Node, setStatusRelaxed, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.locks.AbstractQueuedLongSynchronizer$Node", "java.util.concurrent.locks.AbstractQueuedLongSynchronizer", "Node", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.concurrent.locks.AbstractQueuedLongSynchronizer$Node",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.locks.AbstractQueuedLongSynchronizer"
+	};
+	$loadClass(AbstractQueuedLongSynchronizer$Node, name, initialize, &classInfo$$, AbstractQueuedLongSynchronizer$Node::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractQueuedLongSynchronizer$Node);
+	});
 	return class$;
 }
 

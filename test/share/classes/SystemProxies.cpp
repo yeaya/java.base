@@ -1,5 +1,4 @@
 #include <SystemProxies.h>
-
 #include <java/net/Proxy.h>
 #include <java/net/ProxySelector.h>
 #include <java/net/URI.h>
@@ -8,7 +7,6 @@
 #include <java/util/List.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -18,32 +16,6 @@ using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-
-$FieldInfo _SystemProxies_FieldInfo_[] = {
-	{"uriAuthority", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SystemProxies, uriAuthority)},
-	{"proxySel", "Ljava/net/ProxySelector;", nullptr, $STATIC | $FINAL, $staticField(SystemProxies, proxySel)},
-	{}
-};
-
-$MethodInfo _SystemProxies_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SystemProxies, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemProxies, main, void, $StringArray*)},
-	{"printProxies", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(SystemProxies, printProxies, void, $String*)},
-	{}
-};
-
-$ClassInfo _SystemProxies_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"SystemProxies",
-	"java.lang.Object",
-	nullptr,
-	_SystemProxies_FieldInfo_,
-	_SystemProxies_MethodInfo_
-};
-
-$Object* allocate$SystemProxies($Class* clazz) {
-	return $of($alloc(SystemProxies));
-}
 
 $StringArray* SystemProxies::uriAuthority = nullptr;
 $ProxySelector* SystemProxies::proxySel = nullptr;
@@ -67,7 +39,7 @@ void SystemProxies::main($StringArray* args) {
 
 void SystemProxies::printProxies($String* proto) {
 	$init(SystemProxies);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println($$str({"Protocol:"_s, proto}));
 	{
 		$var($StringArray, arr$, SystemProxies::uriAuthority);
@@ -79,12 +51,12 @@ void SystemProxies::printProxies($String* proto) {
 				$var($String, uriStr, $str({proto, uri}));
 				try {
 					$var($List, proxies, $nc(SystemProxies::proxySel)->select($$new($URI, uriStr)));
-					$nc($System::out)->println($$str({"\tProxies returned for "_s, uriStr}));
+					$System::out->println($$str({"\tProxies returned for "_s, uriStr}));
 					{
 						$var($Iterator, i$, $nc(proxies)->iterator());
 						for (; $nc(i$)->hasNext();) {
 							$var($Proxy, proxy, $cast($Proxy, i$->next()));
-							$nc($System::out)->println($$str({"\t\t"_s, proxy}));
+							$System::out->println($$str({"\t\t"_s, proxy}));
 						}
 					}
 				} catch ($URISyntaxException& e) {
@@ -95,7 +67,7 @@ void SystemProxies::printProxies($String* proto) {
 	}
 }
 
-void clinit$SystemProxies($Class* class$) {
+void SystemProxies::clinit$($Class* clazz) {
 	$assignStatic(SystemProxies::uriAuthority, $new($StringArray, {
 		"myMachine/"_s,
 		"local"_s,
@@ -113,7 +85,28 @@ SystemProxies::SystemProxies() {
 }
 
 $Class* SystemProxies::load$($String* name, bool initialize) {
-	$loadClass(SystemProxies, name, initialize, &_SystemProxies_ClassInfo_, clinit$SystemProxies, allocate$SystemProxies);
+	$FieldInfo fieldInfos$$[] = {
+		{"uriAuthority", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SystemProxies, uriAuthority)},
+		{"proxySel", "Ljava/net/ProxySelector;", nullptr, $STATIC | $FINAL, $staticField(SystemProxies, proxySel)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SystemProxies, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemProxies, main, void, $StringArray*)},
+		{"printProxies", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(SystemProxies, printProxies, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"SystemProxies",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SystemProxies, name, initialize, &classInfo$$, SystemProxies::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SystemProxies);
+	});
 	return class$;
 }
 

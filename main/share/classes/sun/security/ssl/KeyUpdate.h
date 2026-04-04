@@ -23,6 +23,7 @@ class KeyUpdate : public ::java::lang::Object {
 	$class(KeyUpdate, 0, ::java::lang::Object)
 public:
 	KeyUpdate();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::SSLProducer* kickstartProducer;
 	static ::sun::security::ssl::SSLConsumer* handshakeConsumer;

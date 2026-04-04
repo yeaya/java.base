@@ -1,5 +1,4 @@
 #include <java/lang/TypeNotPresentException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,31 +8,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _TypeNotPresentException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TypeNotPresentException, serialVersionUID)},
-	{"typeName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TypeNotPresentException, typeName$)},
-	{}
-};
-
-$MethodInfo _TypeNotPresentException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(TypeNotPresentException, init$, void, $String*, $Throwable*)},
-	{"typeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeNotPresentException, typeName, $String*)},
-	{}
-};
-
-$ClassInfo _TypeNotPresentException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.TypeNotPresentException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_TypeNotPresentException_FieldInfo_,
-	_TypeNotPresentException_MethodInfo_
-};
-
-$Object* allocate$TypeNotPresentException($Class* clazz) {
-	return $of($alloc(TypeNotPresentException));
-}
 
 void TypeNotPresentException::init$($String* typeName, $Throwable* cause) {
 	$RuntimeException::init$($$str({"Type "_s, typeName, " not present"_s}), cause);
@@ -55,7 +29,27 @@ void TypeNotPresentException::throw$() {
 }
 
 $Class* TypeNotPresentException::load$($String* name, bool initialize) {
-	$loadClass(TypeNotPresentException, name, initialize, &_TypeNotPresentException_ClassInfo_, allocate$TypeNotPresentException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TypeNotPresentException, serialVersionUID)},
+		{"typeName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TypeNotPresentException, typeName$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(TypeNotPresentException, init$, void, $String*, $Throwable*)},
+		{"typeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeNotPresentException, typeName, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.TypeNotPresentException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TypeNotPresentException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeNotPresentException);
+	});
 	return class$;
 }
 

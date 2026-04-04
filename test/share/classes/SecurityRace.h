@@ -31,13 +31,14 @@ class $export SecurityRace : public ::java::lang::Runnable {
 	$class(SecurityRace, 0, ::java::lang::Runnable)
 public:
 	SecurityRace();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* argv);
 	virtual void run() override;
 	static void timeit(int32_t timing_trials, int32_t get_timing_loops, int32_t set_timing_loops);
-	static const int32_t WARMUP_LOOPS = 0x000186A0;
+	static const int32_t WARMUP_LOOPS = 0x000186a0;
 	static const int32_t TIMING_TRIALS = 10;
-	static const int32_t STRESS_MILLISECONDS = 0x000493E0;
+	static const int32_t STRESS_MILLISECONDS = 0x000493e0;
 	static const int32_t SET_TIMING_LOOPS = 10000;
 	static int32_t MAX_MILLISECONDS;
 	static const int32_t GET_TIMING_LOOPS = 0x00989680;

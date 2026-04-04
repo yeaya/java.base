@@ -1,5 +1,4 @@
 #include <jdk/internal/logger/LoggerWrapper.h>
-
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
 #include <java/util/Objects.h>
@@ -29,67 +28,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace jdk {
 	namespace internal {
 		namespace logger {
-
-$FieldInfo _LoggerWrapper_FieldInfo_[] = {
-	{"wrapped", "Ljava/lang/System$Logger;", "TL;", $FINAL, $field(LoggerWrapper, wrapped$)},
-	{"platformProxy", "Lsun/util/logging/PlatformLogger$Bridge;", nullptr, $FINAL, $field(LoggerWrapper, platformProxy$)},
-	{}
-};
-
-$MethodInfo _LoggerWrapper_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/System$Logger;)V", "(TL;)V", $PUBLIC, $method(LoggerWrapper, init$, void, $System$Logger*)},
-	{"<init>", "(Ljava/lang/System$Logger;Ljava/lang/Void;)V", "(TL;Ljava/lang/Void;)V", 0, $method(LoggerWrapper, init$, void, $System$Logger*, $Void*)},
-	{"getLoggerConfiguration", "()Lsun/util/logging/PlatformLogger$ConfigurableBridge$LoggerConfiguration;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, getLoggerConfiguration, $PlatformLogger$ConfigurableBridge$LoggerConfiguration*)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, isEnabled, bool)},
-	{"isLoggable", "(Lsun/util/logging/PlatformLogger$Level;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, isLoggable, bool, $PlatformLogger$Level*)},
-	{"isLoggable", "(Ljava/lang/System$Logger$Level;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, isLoggable, bool, $System$Logger$Level*)},
-	{"log", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/Throwable;Ljava/util/function/Supplier;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, log, void, $PlatformLogger$Level*, $Throwable*, $Supplier*)},
-	{"log", "(Lsun/util/logging/PlatformLogger$Level;Ljava/util/function/Supplier;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, log, void, $PlatformLogger$Level*, $Supplier*)},
-	{"log", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, log, void, $PlatformLogger$Level*, $String*, $ObjectArray*)},
-	{"log", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, log, void, $PlatformLogger$Level*, $String*, $Throwable*)},
-	{"log", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, log, void, $PlatformLogger$Level*, $String*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, log, void, $System$Logger$Level*, $ResourceBundle*, $String*, $ObjectArray*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, log, void, $System$Logger$Level*, $ResourceBundle*, $String*, $Throwable*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, log, void, $System$Logger$Level*, $String*, $ObjectArray*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/function/Supplier;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, log, void, $System$Logger$Level*, $Supplier*, $Throwable*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, log, void, $System$Logger$Level*, $String*, $Throwable*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, log, void, $System$Logger$Level*, Object$*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/function/Supplier;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, log, void, $System$Logger$Level*, $Supplier*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/String;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, log, void, $System$Logger$Level*, $String*)},
-	{"logp", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Ljava/util/function/Supplier;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, logp, void, $PlatformLogger$Level*, $String*, $String*, $Throwable*, $Supplier*)},
-	{"logp", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, logp, void, $PlatformLogger$Level*, $String*, $String*, $String*, $Throwable*)},
-	{"logp", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, logp, void, $PlatformLogger$Level*, $String*, $String*, $String*, $ObjectArray*)},
-	{"logp", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Supplier;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, logp, void, $PlatformLogger$Level*, $String*, $String*, $Supplier*)},
-	{"logp", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, logp, void, $PlatformLogger$Level*, $String*, $String*, $String*)},
-	{"logrb", "(Lsun/util/logging/PlatformLogger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, logrb, void, $PlatformLogger$Level*, $ResourceBundle*, $String*, $ObjectArray*)},
-	{"logrb", "(Lsun/util/logging/PlatformLogger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, logrb, void, $PlatformLogger$Level*, $ResourceBundle*, $String*, $Throwable*)},
-	{"logrb", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, logrb, void, $PlatformLogger$Level*, $String*, $String*, $ResourceBundle*, $String*, $Throwable*)},
-	{"logrb", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, logrb, void, $PlatformLogger$Level*, $String*, $String*, $ResourceBundle*, $String*, $ObjectArray*)},
-	{"platformProxy", "()Lsun/util/logging/PlatformLogger$Bridge;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LoggerWrapper, platformProxy, $PlatformLogger$Bridge*)},
-	{"wrapped", "()Ljava/lang/System$Logger;", "()TL;", $PUBLIC | $FINAL, $virtualMethod(LoggerWrapper, wrapped, $System$Logger*)},
-	{}
-};
-
-$InnerClassInfo _LoggerWrapper_InnerClassesInfo_[] = {
-	{"java.lang.System$Logger", "java.lang.System", "Logger", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _LoggerWrapper_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.logger.LoggerWrapper",
-	"jdk.internal.logger.AbstractLoggerWrapper",
-	nullptr,
-	_LoggerWrapper_FieldInfo_,
-	_LoggerWrapper_MethodInfo_,
-	"<L::Ljava/lang/System$Logger;>Ljdk/internal/logger/AbstractLoggerWrapper<TL;>;",
-	nullptr,
-	_LoggerWrapper_InnerClassesInfo_
-};
-
-$Object* allocate$LoggerWrapper($Class* clazz) {
-	return $of($alloc(LoggerWrapper));
-}
 
 void LoggerWrapper::init$($System$Logger* wrapped) {
 	LoggerWrapper::init$($cast($System$Logger, $Objects::requireNonNull(wrapped)), ($Void*)nullptr);
@@ -217,7 +155,62 @@ LoggerWrapper::LoggerWrapper() {
 }
 
 $Class* LoggerWrapper::load$($String* name, bool initialize) {
-	$loadClass(LoggerWrapper, name, initialize, &_LoggerWrapper_ClassInfo_, allocate$LoggerWrapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"wrapped", "Ljava/lang/System$Logger;", "TL;", $FINAL, $field(LoggerWrapper, wrapped$)},
+		{"platformProxy", "Lsun/util/logging/PlatformLogger$Bridge;", nullptr, $FINAL, $field(LoggerWrapper, platformProxy$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/System$Logger;)V", "(TL;)V", $PUBLIC, $method(LoggerWrapper, init$, void, $System$Logger*)},
+		{"<init>", "(Ljava/lang/System$Logger;Ljava/lang/Void;)V", "(TL;Ljava/lang/Void;)V", 0, $method(LoggerWrapper, init$, void, $System$Logger*, $Void*)},
+		{"getLoggerConfiguration", "()Lsun/util/logging/PlatformLogger$ConfigurableBridge$LoggerConfiguration;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, getLoggerConfiguration, $PlatformLogger$ConfigurableBridge$LoggerConfiguration*)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, isEnabled, bool)},
+		{"isLoggable", "(Lsun/util/logging/PlatformLogger$Level;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, isLoggable, bool, $PlatformLogger$Level*)},
+		{"isLoggable", "(Ljava/lang/System$Logger$Level;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, isLoggable, bool, $System$Logger$Level*)},
+		{"log", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/Throwable;Ljava/util/function/Supplier;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, log, void, $PlatformLogger$Level*, $Throwable*, $Supplier*)},
+		{"log", "(Lsun/util/logging/PlatformLogger$Level;Ljava/util/function/Supplier;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, log, void, $PlatformLogger$Level*, $Supplier*)},
+		{"log", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, log, void, $PlatformLogger$Level*, $String*, $ObjectArray*)},
+		{"log", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, log, void, $PlatformLogger$Level*, $String*, $Throwable*)},
+		{"log", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, log, void, $PlatformLogger$Level*, $String*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, log, void, $System$Logger$Level*, $ResourceBundle*, $String*, $ObjectArray*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, log, void, $System$Logger$Level*, $ResourceBundle*, $String*, $Throwable*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, log, void, $System$Logger$Level*, $String*, $ObjectArray*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/function/Supplier;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, log, void, $System$Logger$Level*, $Supplier*, $Throwable*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, log, void, $System$Logger$Level*, $String*, $Throwable*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, log, void, $System$Logger$Level*, Object$*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/util/function/Supplier;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, log, void, $System$Logger$Level*, $Supplier*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/String;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, log, void, $System$Logger$Level*, $String*)},
+		{"logp", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;Ljava/util/function/Supplier;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, logp, void, $PlatformLogger$Level*, $String*, $String*, $Throwable*, $Supplier*)},
+		{"logp", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, logp, void, $PlatformLogger$Level*, $String*, $String*, $String*, $Throwable*)},
+		{"logp", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, logp, void, $PlatformLogger$Level*, $String*, $String*, $String*, $ObjectArray*)},
+		{"logp", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Supplier;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, logp, void, $PlatformLogger$Level*, $String*, $String*, $Supplier*)},
+		{"logp", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, logp, void, $PlatformLogger$Level*, $String*, $String*, $String*)},
+		{"logrb", "(Lsun/util/logging/PlatformLogger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, logrb, void, $PlatformLogger$Level*, $ResourceBundle*, $String*, $ObjectArray*)},
+		{"logrb", "(Lsun/util/logging/PlatformLogger$Level;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, logrb, void, $PlatformLogger$Level*, $ResourceBundle*, $String*, $Throwable*)},
+		{"logrb", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, logrb, void, $PlatformLogger$Level*, $String*, $String*, $ResourceBundle*, $String*, $Throwable*)},
+		{"logrb", "(Lsun/util/logging/PlatformLogger$Level;Ljava/lang/String;Ljava/lang/String;Ljava/util/ResourceBundle;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LoggerWrapper, logrb, void, $PlatformLogger$Level*, $String*, $String*, $ResourceBundle*, $String*, $ObjectArray*)},
+		{"platformProxy", "()Lsun/util/logging/PlatformLogger$Bridge;", nullptr, $PUBLIC | $FINAL, $virtualMethod(LoggerWrapper, platformProxy, $PlatformLogger$Bridge*)},
+		{"wrapped", "()Ljava/lang/System$Logger;", "()TL;", $PUBLIC | $FINAL, $virtualMethod(LoggerWrapper, wrapped, $System$Logger*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.System$Logger", "java.lang.System", "Logger", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.logger.LoggerWrapper",
+		"jdk.internal.logger.AbstractLoggerWrapper",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<L::Ljava/lang/System$Logger;>Ljdk/internal/logger/AbstractLoggerWrapper<TL;>;",
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(LoggerWrapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LoggerWrapper));
+	});
 	return class$;
 }
 

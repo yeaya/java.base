@@ -37,6 +37,7 @@ public:
 	DirectFloatBufferRU();
 	using ::java::nio::DirectFloatBufferU::get;
 	using ::java::nio::DirectFloatBufferU::limit;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::nio::ch::DirectBuffer* db, int32_t mark, int32_t pos, int32_t lim, int32_t cap, int32_t off, ::jdk::internal::access::foreign::MemorySegmentProxy* segment);
 	virtual ::java::nio::FloatBuffer* asReadOnlyBuffer() override;
 	virtual $Object* base() override;

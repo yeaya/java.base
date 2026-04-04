@@ -1,5 +1,4 @@
 #include <java/util/stream/ReferencePipeline$StatelessOp.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/util/stream/AbstractPipeline.h>
 #include <java/util/stream/BaseStream.h>
@@ -22,43 +21,6 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$FieldInfo _ReferencePipeline$StatelessOp_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ReferencePipeline$StatelessOp, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _ReferencePipeline$StatelessOp_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;I)V", "(Ljava/util/stream/AbstractPipeline<*TE_IN;*>;Ljava/util/stream/StreamShape;I)V", 0, $method(ReferencePipeline$StatelessOp, init$, void, $AbstractPipeline*, $StreamShape*, int32_t)},
-	{"opIsStateful", "()Z", nullptr, $FINAL, $virtualMethod(ReferencePipeline$StatelessOp, opIsStateful, bool)},
-	{"unordered", "()Ljava/util/stream/BaseStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ReferencePipeline$StatelessOp, unordered, $BaseStream*)},
-	{}
-};
-
-$InnerClassInfo _ReferencePipeline$StatelessOp_InnerClassesInfo_[] = {
-	{"java.util.stream.ReferencePipeline$StatelessOp", "java.util.stream.ReferencePipeline", "StatelessOp", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ReferencePipeline$StatelessOp_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.stream.ReferencePipeline$StatelessOp",
-	"java.util.stream.ReferencePipeline",
-	nullptr,
-	_ReferencePipeline$StatelessOp_FieldInfo_,
-	_ReferencePipeline$StatelessOp_MethodInfo_,
-	"<E_IN:Ljava/lang/Object;E_OUT:Ljava/lang/Object;>Ljava/util/stream/ReferencePipeline<TE_IN;TE_OUT;>;",
-	nullptr,
-	_ReferencePipeline$StatelessOp_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.ReferencePipeline"
-};
-
-$Object* allocate$ReferencePipeline$StatelessOp($Class* clazz) {
-	return $of($alloc(ReferencePipeline$StatelessOp));
-}
-
 bool ReferencePipeline$StatelessOp::$assertionsDisabled = false;
 
 void ReferencePipeline$StatelessOp::init$($AbstractPipeline* upstream, $StreamShape* inputShape, int32_t opFlags) {
@@ -76,7 +38,7 @@ $BaseStream* ReferencePipeline$StatelessOp::unordered() {
 	return $ReferencePipeline::unordered();
 }
 
-void clinit$ReferencePipeline$StatelessOp($Class* class$) {
+void ReferencePipeline$StatelessOp::clinit$($Class* clazz) {
 	$load($ReferencePipeline);
 	ReferencePipeline$StatelessOp::$assertionsDisabled = !$ReferencePipeline::class$->desiredAssertionStatus();
 }
@@ -85,7 +47,38 @@ ReferencePipeline$StatelessOp::ReferencePipeline$StatelessOp() {
 }
 
 $Class* ReferencePipeline$StatelessOp::load$($String* name, bool initialize) {
-	$loadClass(ReferencePipeline$StatelessOp, name, initialize, &_ReferencePipeline$StatelessOp_ClassInfo_, clinit$ReferencePipeline$StatelessOp, allocate$ReferencePipeline$StatelessOp);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ReferencePipeline$StatelessOp, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;I)V", "(Ljava/util/stream/AbstractPipeline<*TE_IN;*>;Ljava/util/stream/StreamShape;I)V", 0, $method(ReferencePipeline$StatelessOp, init$, void, $AbstractPipeline*, $StreamShape*, int32_t)},
+		{"opIsStateful", "()Z", nullptr, $FINAL, $virtualMethod(ReferencePipeline$StatelessOp, opIsStateful, bool)},
+		{"unordered", "()Ljava/util/stream/BaseStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ReferencePipeline$StatelessOp, unordered, $BaseStream*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.ReferencePipeline$StatelessOp", "java.util.stream.ReferencePipeline", "StatelessOp", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.stream.ReferencePipeline$StatelessOp",
+		"java.util.stream.ReferencePipeline",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<E_IN:Ljava/lang/Object;E_OUT:Ljava/lang/Object;>Ljava/util/stream/ReferencePipeline<TE_IN;TE_OUT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.ReferencePipeline"
+	};
+	$loadClass(ReferencePipeline$StatelessOp, name, initialize, &classInfo$$, ReferencePipeline$StatelessOp::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ReferencePipeline$StatelessOp));
+	});
 	return class$;
 }
 

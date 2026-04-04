@@ -1,5 +1,4 @@
 #include <java/lang/Process$PipeInputStream.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/io/FileInputStream.h>
 #include <java/lang/Math.h>
@@ -15,37 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
-
-$MethodInfo _Process$PipeInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/FileDescriptor;)V", nullptr, 0, $method(Process$PipeInputStream, init$, void, $FileDescriptor*)},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(Process$PipeInputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Process$PipeInputStream_InnerClassesInfo_[] = {
-	{"java.lang.Process$PipeInputStream", "java.lang.Process", "PipeInputStream", $STATIC},
-	{}
-};
-
-$ClassInfo _Process$PipeInputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.Process$PipeInputStream",
-	"java.io.FileInputStream",
-	nullptr,
-	nullptr,
-	_Process$PipeInputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Process$PipeInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.Process"
-};
-
-$Object* allocate$Process$PipeInputStream($Class* clazz) {
-	return $of($alloc(Process$PipeInputStream));
-}
 
 void Process$PipeInputStream::init$($FileDescriptor* fd) {
 	$FileInputStream::init$(fd);
@@ -73,7 +41,33 @@ Process$PipeInputStream::Process$PipeInputStream() {
 }
 
 $Class* Process$PipeInputStream::load$($String* name, bool initialize) {
-	$loadClass(Process$PipeInputStream, name, initialize, &_Process$PipeInputStream_ClassInfo_, allocate$Process$PipeInputStream);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/FileDescriptor;)V", nullptr, 0, $method(Process$PipeInputStream, init$, void, $FileDescriptor*)},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(Process$PipeInputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Process$PipeInputStream", "java.lang.Process", "PipeInputStream", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.Process$PipeInputStream",
+		"java.io.FileInputStream",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.Process"
+	};
+	$loadClass(Process$PipeInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Process$PipeInputStream);
+	});
 	return class$;
 }
 

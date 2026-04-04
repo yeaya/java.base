@@ -31,6 +31,7 @@ class PskKeyExchangeModesExtension$PskKeyExchangeModesSpec : public ::sun::secur
 	$class(PskKeyExchangeModesExtension$PskKeyExchangeModesSpec, 0, ::sun::security::ssl::SSLExtension$SSLExtensionSpec)
 public:
 	PskKeyExchangeModesExtension$PskKeyExchangeModesSpec();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($bytes* modes);
 	void init$(::sun::security::ssl::HandshakeContext* hc, ::java::nio::ByteBuffer* m);
 	bool contains(::sun::security::ssl::PskKeyExchangeModesExtension$PskKeyExchangeMode* mode);

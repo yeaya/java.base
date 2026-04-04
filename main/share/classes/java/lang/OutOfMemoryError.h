@@ -14,10 +14,13 @@ public:
 	OutOfMemoryError();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x7231BB708888E315;
+	static const int64_t serialVersionUID = (int64_t)0x7231bb708888e315;
 	OutOfMemoryError(const OutOfMemoryError& e);
 	virtual void throw$() override;
-	inline OutOfMemoryError* operator ->() {
+	inline OutOfMemoryError* operator ->() const {
+		return (OutOfMemoryError*)throwing$;
+	}
+	inline operator OutOfMemoryError*() const {
 		return (OutOfMemoryError*)throwing$;
 	}
 };

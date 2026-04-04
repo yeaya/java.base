@@ -46,6 +46,7 @@ class $export UnresolvedPermission : public ::java::security::Permission {
 	$class(UnresolvedPermission, 0, ::java::security::Permission)
 public:
 	UnresolvedPermission();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* type, $String* name, $String* actions, $Array<::java::security::cert::Certificate>* certs);
 	virtual bool equals(Object$* obj) override;
 	virtual $String* getActions() override;
@@ -60,7 +61,7 @@ public:
 	::java::security::Permission* resolve(::java::security::Permission* p, $Array<::java::security::cert::Certificate>* certs);
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* oos);
-	static const int64_t serialVersionUID = (int64_t)0xBD14E8FFD81AF4B2;
+	static const int64_t serialVersionUID = (int64_t)0xbd14e8ffd81af4b2;
 	static ::sun::security::util::Debug* debug;
 	$String* type = nullptr;
 	$String* name = nullptr;

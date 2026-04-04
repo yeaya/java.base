@@ -1,5 +1,4 @@
 #include <java/security/cert/CertPathValidatorSpi.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/security/cert/CertPath.h>
 #include <java/security/cert/CertPathChecker.h>
@@ -19,26 +18,6 @@ namespace java {
 	namespace security {
 		namespace cert {
 
-$MethodInfo _CertPathValidatorSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CertPathValidatorSpi, init$, void)},
-	{"engineGetRevocationChecker", "()Ljava/security/cert/CertPathChecker;", nullptr, $PUBLIC, $virtualMethod(CertPathValidatorSpi, engineGetRevocationChecker, $CertPathChecker*)},
-	{"engineValidate", "(Ljava/security/cert/CertPath;Ljava/security/cert/CertPathParameters;)Ljava/security/cert/CertPathValidatorResult;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CertPathValidatorSpi, engineValidate, $CertPathValidatorResult*, $CertPath*, $CertPathParameters*), "java.security.cert.CertPathValidatorException,java.security.InvalidAlgorithmParameterException"},
-	{}
-};
-
-$ClassInfo _CertPathValidatorSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.security.cert.CertPathValidatorSpi",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_CertPathValidatorSpi_MethodInfo_
-};
-
-$Object* allocate$CertPathValidatorSpi($Class* clazz) {
-	return $of($alloc(CertPathValidatorSpi));
-}
-
 void CertPathValidatorSpi::init$() {
 }
 
@@ -51,7 +30,23 @@ CertPathValidatorSpi::CertPathValidatorSpi() {
 }
 
 $Class* CertPathValidatorSpi::load$($String* name, bool initialize) {
-	$loadClass(CertPathValidatorSpi, name, initialize, &_CertPathValidatorSpi_ClassInfo_, allocate$CertPathValidatorSpi);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CertPathValidatorSpi, init$, void)},
+		{"engineGetRevocationChecker", "()Ljava/security/cert/CertPathChecker;", nullptr, $PUBLIC, $virtualMethod(CertPathValidatorSpi, engineGetRevocationChecker, $CertPathChecker*)},
+		{"engineValidate", "(Ljava/security/cert/CertPath;Ljava/security/cert/CertPathParameters;)Ljava/security/cert/CertPathValidatorResult;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CertPathValidatorSpi, engineValidate, $CertPathValidatorResult*, $CertPath*, $CertPathParameters*), "java.security.cert.CertPathValidatorException,java.security.InvalidAlgorithmParameterException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.security.cert.CertPathValidatorSpi",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CertPathValidatorSpi, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertPathValidatorSpi);
+	});
 	return class$;
 }
 

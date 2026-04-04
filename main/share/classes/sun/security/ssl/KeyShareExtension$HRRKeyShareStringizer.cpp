@@ -1,5 +1,4 @@
 #include <sun/security/ssl/KeyShareExtension$HRRKeyShareStringizer.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/ByteBuffer.h>
 #include <sun/security/ssl/HandshakeContext.h>
@@ -19,37 +18,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _KeyShareExtension$HRRKeyShareStringizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(KeyShareExtension$HRRKeyShareStringizer, init$, void)},
-	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyShareExtension$HRRKeyShareStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _KeyShareExtension$HRRKeyShareStringizer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.KeyShareExtension$HRRKeyShareStringizer", "sun.security.ssl.KeyShareExtension", "HRRKeyShareStringizer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _KeyShareExtension$HRRKeyShareStringizer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.KeyShareExtension$HRRKeyShareStringizer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLStringizer",
-	nullptr,
-	_KeyShareExtension$HRRKeyShareStringizer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeyShareExtension$HRRKeyShareStringizer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.KeyShareExtension"
-};
-
-$Object* allocate$KeyShareExtension$HRRKeyShareStringizer($Class* clazz) {
-	return $of($alloc(KeyShareExtension$HRRKeyShareStringizer));
-}
-
 void KeyShareExtension$HRRKeyShareStringizer::init$() {
 }
 
@@ -66,7 +34,33 @@ KeyShareExtension$HRRKeyShareStringizer::KeyShareExtension$HRRKeyShareStringizer
 }
 
 $Class* KeyShareExtension$HRRKeyShareStringizer::load$($String* name, bool initialize) {
-	$loadClass(KeyShareExtension$HRRKeyShareStringizer, name, initialize, &_KeyShareExtension$HRRKeyShareStringizer_ClassInfo_, allocate$KeyShareExtension$HRRKeyShareStringizer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(KeyShareExtension$HRRKeyShareStringizer, init$, void)},
+		{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyShareExtension$HRRKeyShareStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.KeyShareExtension$HRRKeyShareStringizer", "sun.security.ssl.KeyShareExtension", "HRRKeyShareStringizer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.KeyShareExtension$HRRKeyShareStringizer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLStringizer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.KeyShareExtension"
+	};
+	$loadClass(KeyShareExtension$HRRKeyShareStringizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyShareExtension$HRRKeyShareStringizer);
+	});
 	return class$;
 }
 

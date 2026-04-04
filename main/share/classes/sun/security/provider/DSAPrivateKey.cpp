@@ -1,5 +1,4 @@
 #include <sun/security/provider/DSAPrivateKey.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
 #include <java/math/BigInteger.h>
@@ -33,48 +32,10 @@ using $PKCS8Key = ::sun::security::pkcs::PKCS8Key;
 using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $AlgIdDSA = ::sun::security::x509::AlgIdDSA;
-using $AlgorithmId = ::sun::security::x509::AlgorithmId;
 
 namespace sun {
 	namespace security {
 		namespace provider {
-
-$FieldInfo _DSAPrivateKey_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DSAPrivateKey, serialVersionUID)},
-	{"x", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DSAPrivateKey, x)},
-	{}
-};
-
-$MethodInfo _DSAPrivateKey_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*destroy", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getEncoded", "()[B", nullptr, $PUBLIC},
-	{"*getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DSAPrivateKey, init$, void, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*)},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(DSAPrivateKey, init$, void, $bytes*), "java.security.InvalidKeyException"},
-	{"getParams", "()Ljava/security/interfaces/DSAParams;", nullptr, $PUBLIC, $virtualMethod(DSAPrivateKey, getParams, $DSAParams*)},
-	{"getX", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DSAPrivateKey, getX, $BigInteger*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*isDestroyed", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DSAPrivateKey_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.provider.DSAPrivateKey",
-	"sun.security.pkcs.PKCS8Key",
-	"java.security.interfaces.DSAPrivateKey",
-	_DSAPrivateKey_FieldInfo_,
-	_DSAPrivateKey_MethodInfo_
-};
-
-$Object* allocate$DSAPrivateKey($Class* clazz) {
-	return $of($alloc(DSAPrivateKey));
-}
 
 $String* DSAPrivateKey::getAlgorithm() {
 	 return this->$PKCS8Key::getAlgorithm();
@@ -117,7 +78,7 @@ bool DSAPrivateKey::isDestroyed() {
 }
 
 void DSAPrivateKey::init$($BigInteger* x, $BigInteger* p, $BigInteger* q, $BigInteger* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$PKCS8Key::init$();
 	$set(this, x, x);
 	$set(this, algid, $new($AlgIdDSA, p, q, g));
@@ -133,7 +94,7 @@ void DSAPrivateKey::init$($BigInteger* x, $BigInteger* p, $BigInteger* q, $BigIn
 }
 
 void DSAPrivateKey::init$($bytes* encoded) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$PKCS8Key::init$(encoded);
 	try {
 		$var($DerInputStream, in, $new($DerInputStream, this->key));
@@ -144,7 +105,7 @@ void DSAPrivateKey::init$($bytes* encoded) {
 }
 
 $DSAParams* DSAPrivateKey::getParams() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if ($instanceOf($DSAParams, this->algid)) {
 			return $cast($DSAParams, this->algid);
@@ -172,7 +133,39 @@ DSAPrivateKey::DSAPrivateKey() {
 }
 
 $Class* DSAPrivateKey::load$($String* name, bool initialize) {
-	$loadClass(DSAPrivateKey, name, initialize, &_DSAPrivateKey_ClassInfo_, allocate$DSAPrivateKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DSAPrivateKey, serialVersionUID)},
+		{"x", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DSAPrivateKey, x)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*destroy", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getEncoded", "()[B", nullptr, $PUBLIC},
+		{"*getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DSAPrivateKey, init$, void, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*)},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(DSAPrivateKey, init$, void, $bytes*), "java.security.InvalidKeyException"},
+		{"getParams", "()Ljava/security/interfaces/DSAParams;", nullptr, $PUBLIC, $virtualMethod(DSAPrivateKey, getParams, $DSAParams*)},
+		{"getX", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DSAPrivateKey, getX, $BigInteger*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*isDestroyed", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.provider.DSAPrivateKey",
+		"sun.security.pkcs.PKCS8Key",
+		"java.security.interfaces.DSAPrivateKey",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DSAPrivateKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DSAPrivateKey));
+	});
 	return class$;
 }
 

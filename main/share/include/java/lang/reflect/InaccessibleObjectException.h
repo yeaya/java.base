@@ -15,10 +15,13 @@ public:
 	InaccessibleObjectException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0x39B6F9EAF0A37AE5;
+	static const int64_t serialVersionUID = (int64_t)0x39b6f9eaf0a37ae5;
 	InaccessibleObjectException(const InaccessibleObjectException& e);
 	virtual void throw$() override;
-	inline InaccessibleObjectException* operator ->() {
+	inline InaccessibleObjectException* operator ->() const {
+		return (InaccessibleObjectException*)throwing$;
+	}
+	inline operator InaccessibleObjectException*() const {
 		return (InaccessibleObjectException*)throwing$;
 	}
 };

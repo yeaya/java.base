@@ -25,6 +25,7 @@ class $export TestObjectMethods : public ::java::lang::Object {
 	$class(TestObjectMethods, 0, ::java::lang::Object)
 public:
 	TestObjectMethods();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkTypesForEquality(::java::lang::reflect::AnnotatedType* annotType1, ::java::lang::reflect::AnnotatedType* annotType2, bool expected);
 	static ::java::lang::reflect::AnnotatedWildcardType* extractWildcard($String* methodName);

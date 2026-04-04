@@ -28,6 +28,7 @@ class $export StandardCharsets : public ::java::nio::charset::spi::CharsetProvid
 	$class(StandardCharsets, $PRELOAD, ::java::nio::charset::spi::CharsetProvider)
 public:
 	StandardCharsets();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::java::util::Map* aliasMap();
 	static $StringArray* aliases_Big5();

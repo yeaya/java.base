@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State.h>
-
 #include <java/lang/Enum.h>
 #include <jdk/internal/org/objectweb/asm/util/CheckSignatureAdapter.h>
 #include <jcpp.h>
@@ -27,53 +26,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 					namespace util {
-
-$FieldInfo _CheckSignatureAdapter$State_FieldInfo_[] = {
-	{"EMPTY", "Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckSignatureAdapter$State, EMPTY)},
-	{"FORMAL", "Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckSignatureAdapter$State, FORMAL)},
-	{"BOUND", "Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckSignatureAdapter$State, BOUND)},
-	{"SUPER", "Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckSignatureAdapter$State, SUPER)},
-	{"PARAM", "Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckSignatureAdapter$State, PARAM)},
-	{"RETURN", "Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckSignatureAdapter$State, RETURN)},
-	{"SIMPLE_TYPE", "Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckSignatureAdapter$State, SIMPLE_TYPE)},
-	{"CLASS_TYPE", "Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckSignatureAdapter$State, CLASS_TYPE)},
-	{"END", "Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckSignatureAdapter$State, END)},
-	{"$VALUES", "[Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CheckSignatureAdapter$State, $VALUES)},
-	{}
-};
-
-$MethodInfo _CheckSignatureAdapter$State_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CheckSignatureAdapter$State, $values, $CheckSignatureAdapter$StateArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CheckSignatureAdapter$State, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckSignatureAdapter$State, valueOf, CheckSignatureAdapter$State*, $String*)},
-	{"values", "()[Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckSignatureAdapter$State, values, $CheckSignatureAdapter$StateArray*)},
-	{}
-};
-
-$InnerClassInfo _CheckSignatureAdapter$State_InnerClassesInfo_[] = {
-	{"jdk.internal.org.objectweb.asm.util.CheckSignatureAdapter$State", "jdk.internal.org.objectweb.asm.util.CheckSignatureAdapter", "State", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _CheckSignatureAdapter$State_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"jdk.internal.org.objectweb.asm.util.CheckSignatureAdapter$State",
-	"java.lang.Enum",
-	nullptr,
-	_CheckSignatureAdapter$State_FieldInfo_,
-	_CheckSignatureAdapter$State_MethodInfo_,
-	"Ljava/lang/Enum<Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;>;",
-	nullptr,
-	_CheckSignatureAdapter$State_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.org.objectweb.asm.util.CheckSignatureAdapter"
-};
-
-$Object* allocate$CheckSignatureAdapter$State($Class* clazz) {
-	return $of($alloc(CheckSignatureAdapter$State));
-}
 
 CheckSignatureAdapter$State* CheckSignatureAdapter$State::EMPTY = nullptr;
 CheckSignatureAdapter$State* CheckSignatureAdapter$State::FORMAL = nullptr;
@@ -115,7 +67,7 @@ void CheckSignatureAdapter$State::init$($String* $enum$name, int32_t $enum$ordin
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$CheckSignatureAdapter$State($Class* class$) {
+void CheckSignatureAdapter$State::clinit$($Class* clazz) {
 	$assignStatic(CheckSignatureAdapter$State::EMPTY, $new(CheckSignatureAdapter$State, "EMPTY"_s, 0));
 	$assignStatic(CheckSignatureAdapter$State::FORMAL, $new(CheckSignatureAdapter$State, "FORMAL"_s, 1));
 	$assignStatic(CheckSignatureAdapter$State::BOUND, $new(CheckSignatureAdapter$State, "BOUND"_s, 2));
@@ -132,7 +84,48 @@ CheckSignatureAdapter$State::CheckSignatureAdapter$State() {
 }
 
 $Class* CheckSignatureAdapter$State::load$($String* name, bool initialize) {
-	$loadClass(CheckSignatureAdapter$State, name, initialize, &_CheckSignatureAdapter$State_ClassInfo_, clinit$CheckSignatureAdapter$State, allocate$CheckSignatureAdapter$State);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY", "Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckSignatureAdapter$State, EMPTY)},
+		{"FORMAL", "Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckSignatureAdapter$State, FORMAL)},
+		{"BOUND", "Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckSignatureAdapter$State, BOUND)},
+		{"SUPER", "Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckSignatureAdapter$State, SUPER)},
+		{"PARAM", "Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckSignatureAdapter$State, PARAM)},
+		{"RETURN", "Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckSignatureAdapter$State, RETURN)},
+		{"SIMPLE_TYPE", "Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckSignatureAdapter$State, SIMPLE_TYPE)},
+		{"CLASS_TYPE", "Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckSignatureAdapter$State, CLASS_TYPE)},
+		{"END", "Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckSignatureAdapter$State, END)},
+		{"$VALUES", "[Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CheckSignatureAdapter$State, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CheckSignatureAdapter$State, $values, $CheckSignatureAdapter$StateArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CheckSignatureAdapter$State, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckSignatureAdapter$State, valueOf, CheckSignatureAdapter$State*, $String*)},
+		{"values", "()[Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckSignatureAdapter$State, values, $CheckSignatureAdapter$StateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.org.objectweb.asm.util.CheckSignatureAdapter$State", "jdk.internal.org.objectweb.asm.util.CheckSignatureAdapter", "State", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"jdk.internal.org.objectweb.asm.util.CheckSignatureAdapter$State",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljdk/internal/org/objectweb/asm/util/CheckSignatureAdapter$State;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.org.objectweb.asm.util.CheckSignatureAdapter"
+	};
+	$loadClass(CheckSignatureAdapter$State, name, initialize, &classInfo$$, CheckSignatureAdapter$State::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CheckSignatureAdapter$State));
+	});
 	return class$;
 }
 

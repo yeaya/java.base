@@ -1,6 +1,4 @@
 #include <ParseDouble.h>
-
-#include <java/lang/CharSequence.h>
 #include <java/lang/Math.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/math/BigDecimal.h>
@@ -15,8 +13,6 @@
 #undef POSITIVE_INFINITY
 #undef TWO
 
-using $PrintStream = ::java::io::PrintStream;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -31,43 +27,6 @@ using $BigInteger = ::java::math::BigInteger;
 using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
 
-$FieldInfo _ParseDouble_FieldInfo_[] = {
-	{"HALF", "Ljava/math/BigDecimal;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ParseDouble, HALF)},
-	{"badStrings", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(ParseDouble, badStrings)},
-	{"goodStrings", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(ParseDouble, goodStrings)},
-	{"paddedBadStrings", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(ParseDouble, paddedBadStrings)},
-	{"paddedGoodStrings", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(ParseDouble, paddedGoodStrings)},
-	{}
-};
-
-$MethodInfo _ParseDouble_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ParseDouble, init$, void)},
-	{"check", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, check, void, $String*)},
-	{"check", "(Ljava/lang/String;D)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, check, void, $String*, double)},
-	{"fail", "(Ljava/lang/String;D)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, fail, void, $String*, double)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ParseDouble, main, void, $StringArray*), "java.lang.Exception"},
-	{"rudimentaryTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, rudimentaryTest, void)},
-	{"testParsing", "([Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, testParsing, void, $StringArray*, bool)},
-	{"testPowers", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, testPowers, void)},
-	{"testRegex", "([Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, testRegex, void, $StringArray*, bool)},
-	{"testStrictness", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, testStrictness, void)},
-	{"testSubnormalPowers", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, testSubnormalPowers, void)},
-	{}
-};
-
-$ClassInfo _ParseDouble_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ParseDouble",
-	"java.lang.Object",
-	nullptr,
-	_ParseDouble_FieldInfo_,
-	_ParseDouble_MethodInfo_
-};
-
-$Object* allocate$ParseDouble($Class* clazz) {
-	return $of($alloc(ParseDouble));
-}
-
 $BigDecimal* ParseDouble::HALF = nullptr;
 $StringArray* ParseDouble::badStrings = nullptr;
 $StringArray* ParseDouble::goodStrings = nullptr;
@@ -79,25 +38,22 @@ void ParseDouble::init$() {
 
 void ParseDouble::fail($String* val, double n) {
 	$init(ParseDouble);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$throwNew($RuntimeException, $$str({"Double.parseDouble failed. String:"_s, val, " Result:"_s, $$str(n)}));
 }
 
 void ParseDouble::check($String* val) {
 	$init(ParseDouble);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double n = $Double::parseDouble(val);
 	bool isNegativeN = n < 0 || n == 0 && 1 / n < 0;
 	double na = $Math::abs(n);
 	$var($String, s, $($nc(val)->trim())->toLowerCase());
 	switch (s->charAt(s->length() - 1)) {
 	case u'd':
-		{}
 	case u'f':
-		{
-			$assign(s, s->substring(0, s->length() - 1));
-			break;
-		}
+		$assign(s, s->substring(0, s->length() - 1));
+		break;
 	}
 	bool isNegative = false;
 	if (s->charAt(0) == u'+') {
@@ -127,22 +83,24 @@ void ParseDouble::check($String* val) {
 	$var($BigDecimal, bd, nullptr);
 	if (s->startsWith("0x"_s)) {
 		$assign(s, s->substring(2));
-		int32_t indP = s->indexOf((int32_t)u'p');
+		int32_t indP = s->indexOf(u'p');
 		int64_t exp = $Long::parseLong($(s->substring(indP + 1)));
-		int32_t indD = s->indexOf((int32_t)u'.');
+		int32_t indD = s->indexOf(u'.');
 		$var($String, significand, nullptr);
 		if (indD >= 0) {
-			$var($String, var$0, $(s->substring(0, indD)));
-			$assign(significand, $concat(var$0, $(s->substring(indD + 1, indP))));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append($(s->substring(0, indD)));
+			var$0->append($(s->substring(indD + 1, indP)));
+			$assign(significand, $str(var$0));
 			exp -= 4 * (indP - indD - 1);
 		} else {
 			$assign(significand, s->substring(0, indP));
 		}
 		$assign(bd, $new($BigDecimal, $$new($BigInteger, significand, 16)));
 		if (exp >= 0) {
-			$assign(bd, bd->multiply($($nc($($BigDecimal::valueOf((int64_t)2)))->pow((int32_t)exp))));
+			$assign(bd, bd->multiply($($($BigDecimal::valueOf((int64_t)2))->pow((int32_t)exp))));
 		} else {
-			$assign(bd, bd->divide($($nc($($BigDecimal::valueOf((int64_t)2)))->pow((int32_t)-exp))));
+			$assign(bd, bd->divide($($($BigDecimal::valueOf((int64_t)2))->pow((int32_t)-exp))));
 		}
 	} else {
 		$assign(bd, $new($BigDecimal, s));
@@ -158,7 +116,7 @@ void ParseDouble::check($String* val) {
 	}
 	int32_t cmpL = $nc(bd)->compareTo(l);
 	int32_t cmpU = u != nullptr ? bd->compareTo(u) : -1;
-	if (((int64_t)($Double::doubleToLongBits(n) & (uint64_t)(int64_t)1)) != 0) {
+	if (($Double::doubleToLongBits(n) & 1) != 0) {
 		if (cmpL <= 0 || cmpU >= 0) {
 			fail(val, n);
 		}
@@ -178,8 +136,7 @@ void ParseDouble::check($String* val, double expected) {
 
 void ParseDouble::rudimentaryTest() {
 	$init(ParseDouble);
-	$useLocalCurrentObjectStackCache();
-	$init($Double);
+	$useLocalObjectStack();
 	check($$new($String, $$str({""_s, $$str($Double::MIN_VALUE)})), $Double::MIN_VALUE);
 	check($$new($String, $$str({""_s, $$str($Double::MAX_VALUE)})), $Double::MAX_VALUE);
 	check("10"_s, 10.0);
@@ -192,7 +149,7 @@ void ParseDouble::rudimentaryTest() {
 
 void ParseDouble::testParsing($StringArray* input, bool exceptionalInput) {
 	$init(ParseDouble);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(input)->length; ++i) {
 		double d = 0.0;
 		try {
@@ -212,7 +169,7 @@ void ParseDouble::testParsing($StringArray* input, bool exceptionalInput) {
 
 void ParseDouble::testRegex($StringArray* input, bool exceptionalInput) {
 	$init(ParseDouble);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, Digits, "(\\p{Digit}+)"_s);
 	$var($String, HexDigits, "(\\p{XDigit}+)"_s);
 	$var($String, Exp, $str({"[eE][+-]?"_s, Digits}));
@@ -229,49 +186,48 @@ void ParseDouble::testRegex($StringArray* input, bool exceptionalInput) {
 
 void ParseDouble::testSubnormalPowers() {
 	$init(ParseDouble);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool failed = false;
 	$var($BigDecimal, TWO, $BigDecimal::valueOf((int64_t)2));
-	$init($Double);
 	$var($BigDecimal, ulp_BD, $new($BigDecimal, $Double::MIN_VALUE));
 	for (int32_t i = -1073; i <= -1022; ++i) {
 		double d = $Math::scalb(1.0, i);
 		$var($BigDecimal, d_BD, $new($BigDecimal, d));
 		$var($BigDecimal, lowerBound, d_BD->subtract($(ulp_BD->divide(TWO))));
 		$var($BigDecimal, upperBound, d_BD->add($(ulp_BD->divide(TWO))));
-		double convertedLowerBound = $Double::parseDouble($($nc(lowerBound)->toString()));
-		double convertedUpperBound = $Double::parseDouble($($nc(upperBound)->toString()));
+		double convertedLowerBound = $Double::parseDouble($(lowerBound->toString()));
+		double convertedUpperBound = $Double::parseDouble($(upperBound->toString()));
 		if (convertedLowerBound != d) {
 			failed = true;
 			$nc($System::out)->printf("2^%d lowerBound converts as %a %s%n"_s, $$new($ObjectArray, {
-				$($of($Integer::valueOf(i))),
-				$($of($Double::valueOf(convertedLowerBound))),
-				$of(lowerBound)
+				$($Integer::valueOf(i)),
+				$($Double::valueOf(convertedLowerBound)),
+				lowerBound
 			}));
 		}
 		if (convertedUpperBound != d) {
 			failed = true;
 			$nc($System::out)->printf("2^%d upperBound converts as %a %s%n"_s, $$new($ObjectArray, {
-				$($of($Integer::valueOf(i))),
-				$($of($Double::valueOf(convertedUpperBound))),
-				$of(upperBound)
+				$($Integer::valueOf(i)),
+				$($Double::valueOf(convertedUpperBound)),
+				upperBound
 			}));
 		}
 	}
 	$var($BigDecimal, minValue, $new($BigDecimal, $Double::MIN_VALUE));
-	if ($Double::parseDouble($($nc($(minValue->multiply($$new($BigDecimal, 0.5))))->toString())) != 0.0) {
+	if ($Double::parseDouble($($(minValue->multiply($$new($BigDecimal, 0.5)))->toString())) != 0.0) {
 		failed = true;
 		$nc($System::out)->printf("0.5*MIN_VALUE doesn\'t convert 0%n"_s, $$new($ObjectArray, 0));
 	}
-	if ($Double::parseDouble($($nc($(minValue->multiply($$new($BigDecimal, 0.50000000001))))->toString())) != $Double::MIN_VALUE) {
+	if ($Double::parseDouble($($(minValue->multiply($$new($BigDecimal, 0.50000000001)))->toString())) != $Double::MIN_VALUE) {
 		failed = true;
 		$nc($System::out)->printf("0.50000000001*MIN_VALUE doesn\'t convert to MIN_VALUE%n"_s, $$new($ObjectArray, 0));
 	}
-	if ($Double::parseDouble($($nc($(minValue->multiply($$new($BigDecimal, 1.49999999999))))->toString())) != $Double::MIN_VALUE) {
+	if ($Double::parseDouble($($(minValue->multiply($$new($BigDecimal, 1.49999999999)))->toString())) != $Double::MIN_VALUE) {
 		failed = true;
 		$nc($System::out)->printf("1.49999999999*MIN_VALUE doesn\'t convert to MIN_VALUE%n"_s, $$new($ObjectArray, 0));
 	}
-	if ($Double::parseDouble($($nc($(minValue->multiply($$new($BigDecimal, 1.5))))->toString())) != 2 * $Double::MIN_VALUE) {
+	if ($Double::parseDouble($($(minValue->multiply($$new($BigDecimal, 1.5)))->toString())) != 2 * $Double::MIN_VALUE) {
 		failed = true;
 		$nc($System::out)->printf("1.5*MIN_VALUE doesn\'t convert to 2*MIN_VALUE%n"_s, $$new($ObjectArray, 0));
 	}
@@ -282,22 +238,21 @@ void ParseDouble::testSubnormalPowers() {
 
 void ParseDouble::testPowers() {
 	$init(ParseDouble);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = -1074; i <= +1023; ++i) {
 		double d = $Math::scalb(1.0, i);
 		$var($BigDecimal, d_BD, $new($BigDecimal, d));
 		$var($BigDecimal, lowerBound, d_BD->subtract($($$new($BigDecimal, $Math::ulp($Math::nextUp(-d)))->multiply(ParseDouble::HALF))));
 		$var($BigDecimal, upperBound, d_BD->add($($$new($BigDecimal, $Math::ulp(d))->multiply(ParseDouble::HALF))));
-		check($($nc(lowerBound)->toString()));
-		check($($nc(upperBound)->toString()));
+		check($(lowerBound->toString()));
+		check($(upperBound->toString()));
 	}
-	$init($Double);
-	check($($nc($($$new($BigDecimal, $Double::MAX_VALUE)->add($($$new($BigDecimal, $Math::ulp($Double::MAX_VALUE))->multiply(ParseDouble::HALF)))))->toString()));
+	check($($($$new($BigDecimal, $Double::MAX_VALUE)->add($($$new($BigDecimal, $Math::ulp($Double::MAX_VALUE))->multiply(ParseDouble::HALF))))->toString()));
 }
 
 void ParseDouble::testStrictness() {
 	$init(ParseDouble);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double expected = 6.63123685E-316;
 	bool failed = false;
 	double conversion = 0.0;
@@ -309,8 +264,8 @@ void ParseDouble::testStrictness() {
 		if (conversion != expected) {
 			failed = true;
 			$nc($System::out)->printf("Iteration %d converts as %a%n"_s, $$new($ObjectArray, {
-				$($of($Integer::valueOf(i))),
-				$($of($Double::valueOf(conversion)))
+				$($Integer::valueOf(i)),
+				$($Double::valueOf(conversion))
 			}));
 		}
 	}
@@ -336,8 +291,8 @@ void ParseDouble::main($StringArray* args) {
 	testStrictness();
 }
 
-void clinit$ParseDouble($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ParseDouble::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(ParseDouble::HALF, $BigDecimal::valueOf(0.5));
 	$assignStatic(ParseDouble::badStrings, $new($StringArray, {
 		""_s,
@@ -619,13 +574,13 @@ void clinit$ParseDouble($Class* class$) {
 	}));
 	{
 		$var($String, pad, " \t\n\r\f\u0001\u000b\u001f"_s);
-		$assignStatic(ParseDouble::paddedBadStrings, $new($StringArray, $nc(ParseDouble::badStrings)->length));
-		for (int32_t i = 0; i < $nc(ParseDouble::badStrings)->length; ++i) {
-			$nc(ParseDouble::paddedBadStrings)->set(i, $$str({pad, $nc(ParseDouble::badStrings)->get(i), pad}));
+		$assignStatic(ParseDouble::paddedBadStrings, $new($StringArray, ParseDouble::badStrings->length));
+		for (int32_t i = 0; i < ParseDouble::badStrings->length; ++i) {
+			ParseDouble::paddedBadStrings->set(i, $$str({pad, ParseDouble::badStrings->get(i), pad}));
 		}
-		$assignStatic(ParseDouble::paddedGoodStrings, $new($StringArray, $nc(ParseDouble::goodStrings)->length));
-		for (int32_t i = 0; i < $nc(ParseDouble::goodStrings)->length; ++i) {
-			$nc(ParseDouble::paddedGoodStrings)->set(i, $$str({pad, $nc(ParseDouble::goodStrings)->get(i), pad}));
+		$assignStatic(ParseDouble::paddedGoodStrings, $new($StringArray, ParseDouble::goodStrings->length));
+		for (int32_t i = 0; i < ParseDouble::goodStrings->length; ++i) {
+			ParseDouble::paddedGoodStrings->set(i, $$str({pad, ParseDouble::goodStrings->get(i), pad}));
 		}
 	}
 }
@@ -634,7 +589,39 @@ ParseDouble::ParseDouble() {
 }
 
 $Class* ParseDouble::load$($String* name, bool initialize) {
-	$loadClass(ParseDouble, name, initialize, &_ParseDouble_ClassInfo_, clinit$ParseDouble, allocate$ParseDouble);
+	$FieldInfo fieldInfos$$[] = {
+		{"HALF", "Ljava/math/BigDecimal;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ParseDouble, HALF)},
+		{"badStrings", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(ParseDouble, badStrings)},
+		{"goodStrings", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(ParseDouble, goodStrings)},
+		{"paddedBadStrings", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(ParseDouble, paddedBadStrings)},
+		{"paddedGoodStrings", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(ParseDouble, paddedGoodStrings)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ParseDouble, init$, void)},
+		{"check", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, check, void, $String*)},
+		{"check", "(Ljava/lang/String;D)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, check, void, $String*, double)},
+		{"fail", "(Ljava/lang/String;D)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, fail, void, $String*, double)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ParseDouble, main, void, $StringArray*), "java.lang.Exception"},
+		{"rudimentaryTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, rudimentaryTest, void)},
+		{"testParsing", "([Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, testParsing, void, $StringArray*, bool)},
+		{"testPowers", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, testPowers, void)},
+		{"testRegex", "([Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, testRegex, void, $StringArray*, bool)},
+		{"testStrictness", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, testStrictness, void)},
+		{"testSubnormalPowers", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ParseDouble, testSubnormalPowers, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ParseDouble",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ParseDouble, name, initialize, &classInfo$$, ParseDouble::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ParseDouble);
+	});
 	return class$;
 }
 

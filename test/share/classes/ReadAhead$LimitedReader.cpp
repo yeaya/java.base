@@ -1,5 +1,4 @@
 #include <ReadAhead$LimitedReader.h>
-
 #include <ReadAhead.h>
 #include <java/io/IOException.h>
 #include <java/io/Reader.h>
@@ -11,46 +10,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _ReadAhead$LimitedReader_FieldInfo_[] = {
-	{"input", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ReadAhead$LimitedReader, input)},
-	{"limit", "I", nullptr, $PRIVATE, $field(ReadAhead$LimitedReader, limit)},
-	{"next", "I", nullptr, $PRIVATE, $field(ReadAhead$LimitedReader, next)},
-	{}
-};
-
-$MethodInfo _ReadAhead$LimitedReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ReadAhead$LimitedReader, init$, void, $String*, int32_t)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ReadAhead$LimitedReader, close, void)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ReadAhead$LimitedReader, read, int32_t), "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(ReadAhead$LimitedReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ReadAhead$LimitedReader_InnerClassesInfo_[] = {
-	{"ReadAhead$LimitedReader", "ReadAhead", "LimitedReader", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ReadAhead$LimitedReader_ClassInfo_ = {
-	$ACC_SUPER,
-	"ReadAhead$LimitedReader",
-	"java.io.Reader",
-	nullptr,
-	_ReadAhead$LimitedReader_FieldInfo_,
-	_ReadAhead$LimitedReader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ReadAhead$LimitedReader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"ReadAhead"
-};
-
-$Object* allocate$ReadAhead$LimitedReader($Class* clazz) {
-	return $of($alloc(ReadAhead$LimitedReader));
-}
 
 void ReadAhead$LimitedReader::init$($String* input, int32_t limit) {
 	$Reader::init$();
@@ -86,7 +45,41 @@ ReadAhead$LimitedReader::ReadAhead$LimitedReader() {
 }
 
 $Class* ReadAhead$LimitedReader::load$($String* name, bool initialize) {
-	$loadClass(ReadAhead$LimitedReader, name, initialize, &_ReadAhead$LimitedReader_ClassInfo_, allocate$ReadAhead$LimitedReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"input", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ReadAhead$LimitedReader, input)},
+		{"limit", "I", nullptr, $PRIVATE, $field(ReadAhead$LimitedReader, limit)},
+		{"next", "I", nullptr, $PRIVATE, $field(ReadAhead$LimitedReader, next)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ReadAhead$LimitedReader, init$, void, $String*, int32_t)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ReadAhead$LimitedReader, close, void)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ReadAhead$LimitedReader, read, int32_t), "java.io.IOException"},
+		{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(ReadAhead$LimitedReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ReadAhead$LimitedReader", "ReadAhead", "LimitedReader", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"ReadAhead$LimitedReader",
+		"java.io.Reader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"ReadAhead"
+	};
+	$loadClass(ReadAhead$LimitedReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ReadAhead$LimitedReader));
+	});
 	return class$;
 }
 

@@ -1,10 +1,7 @@
 #include <sun/security/ssl/Utilities.h>
-
 #include <java/lang/Appendable.h>
-#include <java/lang/CharSequence.h>
 #include <java/math/BigInteger.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/HexFormat.h>
 #include <java/util/List.h>
@@ -20,8 +17,6 @@
 #undef HEX_FORMATTER
 #undef SNI_HOST_NAME
 
-using $Appendable = ::java::lang::Appendable;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -29,7 +24,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $BigInteger = ::java::math::BigInteger;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HexFormat = ::java::util::HexFormat;
 using $List = ::java::util::List;
@@ -45,42 +39,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _Utilities_FieldInfo_[] = {
-	{"indent", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Utilities, indent$)},
-	{"lineBreakPatern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Utilities, lineBreakPatern)},
-	{"HEX_FORMATTER", "Ljava/util/HexFormat;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Utilities, HEX_FORMATTER)},
-	{}
-};
-
-$MethodInfo _Utilities_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Utilities, init$, void)},
-	{"addToSNIServerNameList", "(Ljava/util/List;Ljava/lang/String;)Ljava/util/List;", "(Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;Ljava/lang/String;)Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;", $STATIC, $staticMethod(Utilities, addToSNIServerNameList, $List*, $List*, $String*)},
-	{"byte16HexString", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Utilities, byte16HexString, $String*, int32_t)},
-	{"getBooleanProperty", "(Ljava/lang/String;Z)Z", nullptr, $STATIC, $staticMethod(Utilities, getBooleanProperty, bool, $String*, bool)},
-	{"indent", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Utilities, indent, $String*, $String*)},
-	{"indent", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Utilities, indent, $String*, $String*, $String*)},
-	{"rawToSNIHostName", "(Ljava/lang/String;)Ljavax/net/ssl/SNIHostName;", nullptr, $PRIVATE | $STATIC, $staticMethod(Utilities, rawToSNIHostName, $SNIHostName*, $String*)},
-	{"reverseBytes", "([B)V", nullptr, $STATIC, $staticMethod(Utilities, reverseBytes, void, $bytes*)},
-	{"swap", "([BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Utilities, swap, void, $bytes*, int32_t, int32_t)},
-	{"toByteArray", "(Ljava/math/BigInteger;)[B", nullptr, $STATIC, $staticMethod(Utilities, toByteArray, $bytes*, $BigInteger*)},
-	{"toHexString", "([B)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Utilities, toHexString, $String*, $bytes*)},
-	{"toHexString", "(J)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Utilities, toHexString, $String*, int64_t)},
-	{}
-};
-
-$ClassInfo _Utilities_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.Utilities",
-	"java.lang.Object",
-	nullptr,
-	_Utilities_FieldInfo_,
-	_Utilities_MethodInfo_
-};
-
-$Object* allocate$Utilities($Class* clazz) {
-	return $of($alloc(Utilities));
-}
-
 $String* Utilities::indent$ = nullptr;
 $Pattern* Utilities::lineBreakPatern = nullptr;
 $HexFormat* Utilities::HEX_FORMATTER = nullptr;
@@ -90,13 +48,13 @@ void Utilities::init$() {
 
 $List* Utilities::addToSNIServerNameList($List* serverNames, $String* hostname) {
 	$init(Utilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SNIHostName, sniHostName, rawToSNIHostName(hostname));
 	if (sniHostName == nullptr) {
 		return serverNames;
 	}
 	int32_t size = $nc(serverNames)->size();
-	$var($List, sniList, (size != 0) ? static_cast<$List*>($new($ArrayList, static_cast<$Collection*>(serverNames))) : static_cast<$List*>($new($ArrayList, 1)));
+	$var($List, sniList, (size != 0) ? $new($ArrayList, serverNames) : $new($ArrayList, 1));
 	bool reset = false;
 	for (int32_t i = 0; i < size; ++i) {
 		$var($SNIServerName, serverName, $cast($SNIServerName, $nc(sniList)->get(i)));
@@ -118,9 +76,9 @@ $List* Utilities::addToSNIServerNameList($List* serverNames, $String* hostname) 
 
 $SNIHostName* Utilities::rawToSNIHostName($String* hostname) {
 	$init(Utilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SNIHostName, sniHostName, nullptr);
-	bool var$2 = hostname != nullptr && hostname->indexOf((int32_t)u'.') > 0;
+	bool var$2 = hostname != nullptr && hostname->indexOf(u'.') > 0;
 	bool var$1 = var$2 && !hostname->endsWith("."_s);
 	bool var$0 = var$1 && !$IPAddressUtil::isIPv4LiteralAddress(hostname);
 	if (var$0 && !$IPAddressUtil::isIPv6LiteralAddress(hostname)) {
@@ -138,11 +96,11 @@ $SNIHostName* Utilities::rawToSNIHostName($String* hostname) {
 
 bool Utilities::getBooleanProperty($String* propName, bool defaultValue) {
 	$init(Utilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, b, $GetPropertyAction::privilegedGetProperty(propName));
 	if (b == nullptr) {
 		return defaultValue;
-	} else if ($nc(b)->equalsIgnoreCase("false"_s)) {
+	} else if (b->equalsIgnoreCase("false"_s)) {
 		return false;
 	} else if (b->equalsIgnoreCase("true"_s)) {
 		return true;
@@ -158,7 +116,7 @@ $String* Utilities::indent($String* source) {
 
 $String* Utilities::indent($String* source, $String* prefix) {
 	$init(Utilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, builder, $new($StringBuilder));
 	if (source == nullptr) {
 		builder->append("\n"_s)->append(prefix)->append("<blank message>"_s);
@@ -167,9 +125,7 @@ $String* Utilities::indent($String* source, $String* prefix) {
 		bool isFirst = true;
 		{
 			$var($StringArray, arr$, lines);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, line, arr$->get(i$));
 				{
 					if (isFirst) {
@@ -192,7 +148,7 @@ $String* Utilities::byte16HexString(int32_t id) {
 
 $String* Utilities::toHexString($bytes* bytes) {
 	$init(Utilities);
-	if (bytes == nullptr || $nc(bytes)->length == 0) {
+	if (bytes == nullptr || bytes->length == 0) {
 		return ""_s;
 	}
 	return $nc(Utilities::HEX_FORMATTER)->formatHex(bytes);
@@ -208,7 +164,7 @@ $String* Utilities::toHexString(int64_t lv) {
 		} else {
 			builder->append(u' ');
 		}
-		$nc(Utilities::HEX_FORMATTER)->toHexDigits(static_cast<$Appendable*>(builder), (int8_t)lv);
+		$nc(Utilities::HEX_FORMATTER)->toHexDigits(builder, (int8_t)lv);
 		$usrAssign(lv, 8);
 	} while (lv != 0);
 	builder->reverse();
@@ -217,9 +173,9 @@ $String* Utilities::toHexString(int64_t lv) {
 
 $bytes* Utilities::toByteArray($BigInteger* bi) {
 	$init(Utilities);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, b, $nc(bi)->toByteArray());
-	if (($nc(b)->length > 1) && (b->get(0) == 0)) {
+	if ((b->length > 1) && (b->get(0) == 0)) {
 		int32_t n = b->length - 1;
 		$var($bytes, newarray, $new($bytes, n));
 		$System::arraycopy(b, 1, newarray, 0, n);
@@ -246,17 +202,48 @@ void Utilities::swap($bytes* arr, int32_t i, int32_t j) {
 	arr->set(j, tmp);
 }
 
-void clinit$Utilities($Class* class$) {
+void Utilities::clinit$($Class* clazz) {
 	$assignStatic(Utilities::indent$, "  "_s);
 	$assignStatic(Utilities::lineBreakPatern, $Pattern::compile("\\r\\n|\\n|\\r"_s));
-	$assignStatic(Utilities::HEX_FORMATTER, $nc($($HexFormat::of()))->withUpperCase());
+	$assignStatic(Utilities::HEX_FORMATTER, $$nc($HexFormat::of())->withUpperCase());
 }
 
 Utilities::Utilities() {
 }
 
 $Class* Utilities::load$($String* name, bool initialize) {
-	$loadClass(Utilities, name, initialize, &_Utilities_ClassInfo_, clinit$Utilities, allocate$Utilities);
+	$FieldInfo fieldInfos$$[] = {
+		{"indent", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Utilities, indent$)},
+		{"lineBreakPatern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Utilities, lineBreakPatern)},
+		{"HEX_FORMATTER", "Ljava/util/HexFormat;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Utilities, HEX_FORMATTER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Utilities, init$, void)},
+		{"addToSNIServerNameList", "(Ljava/util/List;Ljava/lang/String;)Ljava/util/List;", "(Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;Ljava/lang/String;)Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;", $STATIC, $staticMethod(Utilities, addToSNIServerNameList, $List*, $List*, $String*)},
+		{"byte16HexString", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Utilities, byte16HexString, $String*, int32_t)},
+		{"getBooleanProperty", "(Ljava/lang/String;Z)Z", nullptr, $STATIC, $staticMethod(Utilities, getBooleanProperty, bool, $String*, bool)},
+		{"indent", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Utilities, indent, $String*, $String*)},
+		{"indent", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Utilities, indent, $String*, $String*, $String*)},
+		{"rawToSNIHostName", "(Ljava/lang/String;)Ljavax/net/ssl/SNIHostName;", nullptr, $PRIVATE | $STATIC, $staticMethod(Utilities, rawToSNIHostName, $SNIHostName*, $String*)},
+		{"reverseBytes", "([B)V", nullptr, $STATIC, $staticMethod(Utilities, reverseBytes, void, $bytes*)},
+		{"swap", "([BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Utilities, swap, void, $bytes*, int32_t, int32_t)},
+		{"toByteArray", "(Ljava/math/BigInteger;)[B", nullptr, $STATIC, $staticMethod(Utilities, toByteArray, $bytes*, $BigInteger*)},
+		{"toHexString", "([B)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Utilities, toHexString, $String*, $bytes*)},
+		{"toHexString", "(J)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Utilities, toHexString, $String*, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.Utilities",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Utilities, name, initialize, &classInfo$$, Utilities::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Utilities);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/security/cert/PKIXParameters.h>
-
 #include <java/lang/ClassCastException.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/InternalError.h>
@@ -13,7 +12,6 @@
 #include <java/security/cert/TrustAnchor.h>
 #include <java/security/cert/X509Certificate.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Date.h>
 #include <java/util/Enumeration.h>
@@ -40,7 +38,6 @@ using $PKIXCertPathChecker = ::java::security::cert::PKIXCertPathChecker;
 using $TrustAnchor = ::java::security::cert::TrustAnchor;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Date = ::java::util::Date;
 using $Enumeration = ::java::util::Enumeration;
@@ -52,69 +49,6 @@ using $Set = ::java::util::Set;
 namespace java {
 	namespace security {
 		namespace cert {
-
-$FieldInfo _PKIXParameters_FieldInfo_[] = {
-	{"unmodTrustAnchors", "Ljava/util/Set;", "Ljava/util/Set<Ljava/security/cert/TrustAnchor;>;", $PRIVATE, $field(PKIXParameters, unmodTrustAnchors)},
-	{"date", "Ljava/util/Date;", nullptr, $PRIVATE, $field(PKIXParameters, date)},
-	{"certPathCheckers", "Ljava/util/List;", "Ljava/util/List<Ljava/security/cert/PKIXCertPathChecker;>;", $PRIVATE, $field(PKIXParameters, certPathCheckers)},
-	{"sigProvider", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PKIXParameters, sigProvider)},
-	{"revocationEnabled", "Z", nullptr, $PRIVATE, $field(PKIXParameters, revocationEnabled)},
-	{"unmodInitialPolicies", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $field(PKIXParameters, unmodInitialPolicies)},
-	{"explicitPolicyRequired", "Z", nullptr, $PRIVATE, $field(PKIXParameters, explicitPolicyRequired)},
-	{"policyMappingInhibited", "Z", nullptr, $PRIVATE, $field(PKIXParameters, policyMappingInhibited)},
-	{"anyPolicyInhibited", "Z", nullptr, $PRIVATE, $field(PKIXParameters, anyPolicyInhibited)},
-	{"policyQualifiersRejected", "Z", nullptr, $PRIVATE, $field(PKIXParameters, policyQualifiersRejected)},
-	{"certStores", "Ljava/util/List;", "Ljava/util/List<Ljava/security/cert/CertStore;>;", $PRIVATE, $field(PKIXParameters, certStores)},
-	{"certSelector", "Ljava/security/cert/CertSelector;", nullptr, $PRIVATE, $field(PKIXParameters, certSelector)},
-	{}
-};
-
-$MethodInfo _PKIXParameters_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/security/cert/TrustAnchor;>;)V", $PUBLIC, $method(PKIXParameters, init$, void, $Set*), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Ljava/security/KeyStore;)V", nullptr, $PUBLIC, $method(PKIXParameters, init$, void, $KeyStore*), "java.security.KeyStoreException,java.security.InvalidAlgorithmParameterException"},
-	{"addCertPathChecker", "(Ljava/security/cert/PKIXCertPathChecker;)V", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, addCertPathChecker, void, $PKIXCertPathChecker*)},
-	{"addCertStore", "(Ljava/security/cert/CertStore;)V", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, addCertStore, void, $CertStore*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, clone, $Object*)},
-	{"getCertPathCheckers", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/cert/PKIXCertPathChecker;>;", $PUBLIC, $virtualMethod(PKIXParameters, getCertPathCheckers, $List*)},
-	{"getCertStores", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/cert/CertStore;>;", $PUBLIC, $virtualMethod(PKIXParameters, getCertStores, $List*)},
-	{"getDate", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, getDate, $Date*)},
-	{"getInitialPolicies", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(PKIXParameters, getInitialPolicies, $Set*)},
-	{"getPolicyQualifiersRejected", "()Z", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, getPolicyQualifiersRejected, bool)},
-	{"getSigProvider", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, getSigProvider, $String*)},
-	{"getTargetCertConstraints", "()Ljava/security/cert/CertSelector;", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, getTargetCertConstraints, $CertSelector*)},
-	{"getTrustAnchors", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/cert/TrustAnchor;>;", $PUBLIC, $virtualMethod(PKIXParameters, getTrustAnchors, $Set*)},
-	{"isAnyPolicyInhibited", "()Z", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, isAnyPolicyInhibited, bool)},
-	{"isExplicitPolicyRequired", "()Z", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, isExplicitPolicyRequired, bool)},
-	{"isPolicyMappingInhibited", "()Z", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, isPolicyMappingInhibited, bool)},
-	{"isRevocationEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, isRevocationEnabled, bool)},
-	{"setAnyPolicyInhibited", "(Z)V", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, setAnyPolicyInhibited, void, bool)},
-	{"setCertPathCheckers", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/security/cert/PKIXCertPathChecker;>;)V", $PUBLIC, $virtualMethod(PKIXParameters, setCertPathCheckers, void, $List*)},
-	{"setCertStores", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/security/cert/CertStore;>;)V", $PUBLIC, $virtualMethod(PKIXParameters, setCertStores, void, $List*)},
-	{"setDate", "(Ljava/util/Date;)V", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, setDate, void, $Date*)},
-	{"setExplicitPolicyRequired", "(Z)V", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, setExplicitPolicyRequired, void, bool)},
-	{"setInitialPolicies", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(PKIXParameters, setInitialPolicies, void, $Set*)},
-	{"setPolicyMappingInhibited", "(Z)V", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, setPolicyMappingInhibited, void, bool)},
-	{"setPolicyQualifiersRejected", "(Z)V", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, setPolicyQualifiersRejected, void, bool)},
-	{"setRevocationEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, setRevocationEnabled, void, bool)},
-	{"setSigProvider", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, setSigProvider, void, $String*)},
-	{"setTargetCertConstraints", "(Ljava/security/cert/CertSelector;)V", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, setTargetCertConstraints, void, $CertSelector*)},
-	{"setTrustAnchors", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/security/cert/TrustAnchor;>;)V", $PUBLIC, $virtualMethod(PKIXParameters, setTrustAnchors, void, $Set*), "java.security.InvalidAlgorithmParameterException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, toString, $String*)},
-	{}
-};
-
-$ClassInfo _PKIXParameters_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.cert.PKIXParameters",
-	"java.lang.Object",
-	"java.security.cert.CertPathParameters",
-	_PKIXParameters_FieldInfo_,
-	_PKIXParameters_MethodInfo_
-};
-
-$Object* allocate$PKIXParameters($Class* clazz) {
-	return $of($alloc(PKIXParameters));
-}
 
 void PKIXParameters::init$($Set* trustAnchors) {
 	this->revocationEnabled = true;
@@ -129,7 +63,7 @@ void PKIXParameters::init$($Set* trustAnchors) {
 }
 
 void PKIXParameters::init$($KeyStore* keystore) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->revocationEnabled = true;
 	this->explicitPolicyRequired = false;
 	this->policyMappingInhibited = false;
@@ -160,7 +94,7 @@ $Set* PKIXParameters::getTrustAnchors() {
 }
 
 void PKIXParameters::setTrustAnchors($Set* trustAnchors) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (trustAnchors == nullptr) {
 		$throwNew($NullPointerException, "the trustAnchors parameters must be non-null"_s);
 	}
@@ -168,14 +102,14 @@ void PKIXParameters::setTrustAnchors($Set* trustAnchors) {
 		$throwNew($InvalidAlgorithmParameterException, "the trustAnchors parameter must be non-empty"_s);
 	}
 	{
-		$var($Iterator, i, $nc(trustAnchors)->iterator());
+		$var($Iterator, i, trustAnchors->iterator());
 		for (; $nc(i)->hasNext();) {
 			if (!($instanceOf($TrustAnchor, $(i->next())))) {
 				$throwNew($ClassCastException, "all elements of set must be of type java.security.cert.TrustAnchor"_s);
 			}
 		}
 	}
-	$set(this, unmodTrustAnchors, $Collections::unmodifiableSet($$new($HashSet, static_cast<$Collection*>(trustAnchors))));
+	$set(this, unmodTrustAnchors, $Collections::unmodifiableSet($$new($HashSet, trustAnchors)));
 }
 
 $Set* PKIXParameters::getInitialPolicies() {
@@ -183,7 +117,7 @@ $Set* PKIXParameters::getInitialPolicies() {
 }
 
 void PKIXParameters::setInitialPolicies($Set* initialPolicies) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (initialPolicies != nullptr) {
 		{
 			$var($Iterator, i, initialPolicies->iterator());
@@ -193,26 +127,26 @@ void PKIXParameters::setInitialPolicies($Set* initialPolicies) {
 				}
 			}
 		}
-		$set(this, unmodInitialPolicies, $Collections::unmodifiableSet($$new($HashSet, static_cast<$Collection*>(initialPolicies))));
+		$set(this, unmodInitialPolicies, $Collections::unmodifiableSet($$new($HashSet, initialPolicies)));
 	} else {
 		$set(this, unmodInitialPolicies, $Collections::emptySet());
 	}
 }
 
 void PKIXParameters::setCertStores($List* stores) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (stores == nullptr) {
 		$set(this, certStores, $new($ArrayList));
 	} else {
 		{
-			$var($Iterator, i, $nc(stores)->iterator());
+			$var($Iterator, i, stores->iterator());
 			for (; $nc(i)->hasNext();) {
 				if (!($instanceOf($CertStore, $(i->next())))) {
 					$throwNew($ClassCastException, "all elements of list must be of type java.security.cert.CertStore"_s);
 				}
 			}
 		}
-		$set(this, certStores, $new($ArrayList, static_cast<$Collection*>(stores)));
+		$set(this, certStores, $new($ArrayList, stores));
 	}
 }
 
@@ -223,7 +157,7 @@ void PKIXParameters::addCertStore($CertStore* store) {
 }
 
 $List* PKIXParameters::getCertStores() {
-	return $Collections::unmodifiableList($$new($ArrayList, static_cast<$Collection*>(this->certStores)));
+	return $Collections::unmodifiableList($$new($ArrayList, this->certStores));
 }
 
 void PKIXParameters::setRevocationEnabled(bool val) {
@@ -284,7 +218,7 @@ void PKIXParameters::setDate($Date* date$renamed) {
 }
 
 void PKIXParameters::setCertPathCheckers($List* checkers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (checkers != nullptr) {
 		$var($List, tmpList, $new($ArrayList));
 		{
@@ -292,7 +226,7 @@ void PKIXParameters::setCertPathCheckers($List* checkers) {
 			for (; $nc(i$)->hasNext();) {
 				$var($PKIXCertPathChecker, checker, $cast($PKIXCertPathChecker, i$->next()));
 				{
-					tmpList->add($cast($PKIXCertPathChecker, $($nc(checker)->clone())));
+					tmpList->add($$cast($PKIXCertPathChecker, $nc(checker)->clone()));
 				}
 			}
 		}
@@ -303,14 +237,14 @@ void PKIXParameters::setCertPathCheckers($List* checkers) {
 }
 
 $List* PKIXParameters::getCertPathCheckers() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, tmpList, $new($ArrayList));
 	{
 		$var($Iterator, i$, $nc(this->certPathCheckers)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($PKIXCertPathChecker, ck, $cast($PKIXCertPathChecker, i$->next()));
 			{
-				tmpList->add($cast($PKIXCertPathChecker, $($nc(ck)->clone())));
+				tmpList->add($$cast($PKIXCertPathChecker, $nc(ck)->clone()));
 			}
 		}
 	}
@@ -319,7 +253,7 @@ $List* PKIXParameters::getCertPathCheckers() {
 
 void PKIXParameters::addCertPathChecker($PKIXCertPathChecker* checker) {
 	if (checker != nullptr) {
-		$nc(this->certPathCheckers)->add($cast($PKIXCertPathChecker, $(checker->clone())));
+		$nc(this->certPathCheckers)->add($$cast($PKIXCertPathChecker, checker->clone()));
 	}
 }
 
@@ -333,7 +267,7 @@ void PKIXParameters::setSigProvider($String* sigProvider) {
 
 $CertSelector* PKIXParameters::getTargetCertConstraints() {
 	if (this->certSelector != nullptr) {
-		return $cast($CertSelector, $nc(this->certSelector)->clone());
+		return $cast($CertSelector, this->certSelector->clone());
 	} else {
 		return nullptr;
 	}
@@ -348,25 +282,25 @@ void PKIXParameters::setTargetCertConstraints($CertSelector* selector) {
 }
 
 $Object* PKIXParameters::clone() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var(PKIXParameters, copy, $cast(PKIXParameters, $CertPathParameters::clone()));
 		if (this->certStores != nullptr) {
-			$set($nc(copy), certStores, $new($ArrayList, static_cast<$Collection*>(this->certStores)));
+			$set($nc(copy), certStores, $new($ArrayList, this->certStores));
 		}
 		if (this->certPathCheckers != nullptr) {
-			$set($nc(copy), certPathCheckers, $new($ArrayList, $nc(this->certPathCheckers)->size()));
+			$set($nc(copy), certPathCheckers, $new($ArrayList, this->certPathCheckers->size()));
 			{
-				$var($Iterator, i$, $nc(this->certPathCheckers)->iterator());
+				$var($Iterator, i$, this->certPathCheckers->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($PKIXCertPathChecker, checker, $cast($PKIXCertPathChecker, i$->next()));
 					{
-						$nc(copy->certPathCheckers)->add($cast($PKIXCertPathChecker, $($nc(checker)->clone())));
+						copy->certPathCheckers->add($$cast($PKIXCertPathChecker, $nc(checker)->clone()));
 					}
 				}
 			}
 		}
-		return $of(copy);
+		return copy;
 	} catch ($CloneNotSupportedException& e) {
 		$throwNew($InternalError, $(e->toString()), e);
 	}
@@ -374,32 +308,32 @@ $Object* PKIXParameters::clone() {
 }
 
 $String* PKIXParameters::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("[\n"_s);
 	if (this->unmodTrustAnchors != nullptr) {
-		sb->append($$str({"  Trust Anchors: "_s, $($nc($of(this->unmodTrustAnchors))->toString()), "\n"_s}));
+		sb->append($$str({"  Trust Anchors: "_s, $(this->unmodTrustAnchors->toString()), "\n"_s}));
 	}
 	if (this->unmodInitialPolicies != nullptr) {
-		if ($nc(this->unmodInitialPolicies)->isEmpty()) {
+		if (this->unmodInitialPolicies->isEmpty()) {
 			sb->append("  Initial Policy OIDs: any\n"_s);
 		} else {
-			sb->append($$str({"  Initial Policy OIDs: ["_s, $($nc($of(this->unmodInitialPolicies))->toString()), "]\n"_s}));
+			sb->append($$str({"  Initial Policy OIDs: ["_s, $(this->unmodInitialPolicies->toString()), "]\n"_s}));
 		}
 	}
-	sb->append($$str({"  Validity Date: "_s, $($String::valueOf($of(this->date))), "\n"_s}));
-	sb->append($$str({"  Signature Provider: "_s, $($String::valueOf($of(this->sigProvider))), "\n"_s}));
+	sb->append($$str({"  Validity Date: "_s, $($String::valueOf(this->date)), "\n"_s}));
+	sb->append($$str({"  Signature Provider: "_s, $($String::valueOf(this->sigProvider)), "\n"_s}));
 	sb->append($$str({"  Default Revocation Enabled: "_s, $$str(this->revocationEnabled), "\n"_s}));
 	sb->append($$str({"  Explicit Policy Required: "_s, $$str(this->explicitPolicyRequired), "\n"_s}));
 	sb->append($$str({"  Policy Mapping Inhibited: "_s, $$str(this->policyMappingInhibited), "\n"_s}));
 	sb->append($$str({"  Any Policy Inhibited: "_s, $$str(this->anyPolicyInhibited), "\n"_s}));
 	sb->append($$str({"  Policy Qualifiers Rejected: "_s, $$str(this->policyQualifiersRejected), "\n"_s}));
-	sb->append($$str({"  Target Cert Constraints: "_s, $($String::valueOf($of(this->certSelector))), "\n"_s}));
+	sb->append($$str({"  Target Cert Constraints: "_s, $($String::valueOf(this->certSelector)), "\n"_s}));
 	if (this->certPathCheckers != nullptr) {
-		sb->append($$str({"  Certification Path Checkers: ["_s, $($nc($of(this->certPathCheckers))->toString()), "]\n"_s}));
+		sb->append($$str({"  Certification Path Checkers: ["_s, $(this->certPathCheckers->toString()), "]\n"_s}));
 	}
 	if (this->certStores != nullptr) {
-		sb->append($$str({"  CertStores: ["_s, $($nc($of(this->certStores))->toString()), "]\n"_s}));
+		sb->append($$str({"  CertStores: ["_s, $(this->certStores->toString()), "]\n"_s}));
 	}
 	sb->append("]"_s);
 	return sb->toString();
@@ -409,7 +343,65 @@ PKIXParameters::PKIXParameters() {
 }
 
 $Class* PKIXParameters::load$($String* name, bool initialize) {
-	$loadClass(PKIXParameters, name, initialize, &_PKIXParameters_ClassInfo_, allocate$PKIXParameters);
+	$FieldInfo fieldInfos$$[] = {
+		{"unmodTrustAnchors", "Ljava/util/Set;", "Ljava/util/Set<Ljava/security/cert/TrustAnchor;>;", $PRIVATE, $field(PKIXParameters, unmodTrustAnchors)},
+		{"date", "Ljava/util/Date;", nullptr, $PRIVATE, $field(PKIXParameters, date)},
+		{"certPathCheckers", "Ljava/util/List;", "Ljava/util/List<Ljava/security/cert/PKIXCertPathChecker;>;", $PRIVATE, $field(PKIXParameters, certPathCheckers)},
+		{"sigProvider", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PKIXParameters, sigProvider)},
+		{"revocationEnabled", "Z", nullptr, $PRIVATE, $field(PKIXParameters, revocationEnabled)},
+		{"unmodInitialPolicies", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $field(PKIXParameters, unmodInitialPolicies)},
+		{"explicitPolicyRequired", "Z", nullptr, $PRIVATE, $field(PKIXParameters, explicitPolicyRequired)},
+		{"policyMappingInhibited", "Z", nullptr, $PRIVATE, $field(PKIXParameters, policyMappingInhibited)},
+		{"anyPolicyInhibited", "Z", nullptr, $PRIVATE, $field(PKIXParameters, anyPolicyInhibited)},
+		{"policyQualifiersRejected", "Z", nullptr, $PRIVATE, $field(PKIXParameters, policyQualifiersRejected)},
+		{"certStores", "Ljava/util/List;", "Ljava/util/List<Ljava/security/cert/CertStore;>;", $PRIVATE, $field(PKIXParameters, certStores)},
+		{"certSelector", "Ljava/security/cert/CertSelector;", nullptr, $PRIVATE, $field(PKIXParameters, certSelector)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/security/cert/TrustAnchor;>;)V", $PUBLIC, $method(PKIXParameters, init$, void, $Set*), "java.security.InvalidAlgorithmParameterException"},
+		{"<init>", "(Ljava/security/KeyStore;)V", nullptr, $PUBLIC, $method(PKIXParameters, init$, void, $KeyStore*), "java.security.KeyStoreException,java.security.InvalidAlgorithmParameterException"},
+		{"addCertPathChecker", "(Ljava/security/cert/PKIXCertPathChecker;)V", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, addCertPathChecker, void, $PKIXCertPathChecker*)},
+		{"addCertStore", "(Ljava/security/cert/CertStore;)V", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, addCertStore, void, $CertStore*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, clone, $Object*)},
+		{"getCertPathCheckers", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/cert/PKIXCertPathChecker;>;", $PUBLIC, $virtualMethod(PKIXParameters, getCertPathCheckers, $List*)},
+		{"getCertStores", "()Ljava/util/List;", "()Ljava/util/List<Ljava/security/cert/CertStore;>;", $PUBLIC, $virtualMethod(PKIXParameters, getCertStores, $List*)},
+		{"getDate", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, getDate, $Date*)},
+		{"getInitialPolicies", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(PKIXParameters, getInitialPolicies, $Set*)},
+		{"getPolicyQualifiersRejected", "()Z", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, getPolicyQualifiersRejected, bool)},
+		{"getSigProvider", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, getSigProvider, $String*)},
+		{"getTargetCertConstraints", "()Ljava/security/cert/CertSelector;", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, getTargetCertConstraints, $CertSelector*)},
+		{"getTrustAnchors", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/cert/TrustAnchor;>;", $PUBLIC, $virtualMethod(PKIXParameters, getTrustAnchors, $Set*)},
+		{"isAnyPolicyInhibited", "()Z", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, isAnyPolicyInhibited, bool)},
+		{"isExplicitPolicyRequired", "()Z", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, isExplicitPolicyRequired, bool)},
+		{"isPolicyMappingInhibited", "()Z", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, isPolicyMappingInhibited, bool)},
+		{"isRevocationEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, isRevocationEnabled, bool)},
+		{"setAnyPolicyInhibited", "(Z)V", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, setAnyPolicyInhibited, void, bool)},
+		{"setCertPathCheckers", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/security/cert/PKIXCertPathChecker;>;)V", $PUBLIC, $virtualMethod(PKIXParameters, setCertPathCheckers, void, $List*)},
+		{"setCertStores", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/security/cert/CertStore;>;)V", $PUBLIC, $virtualMethod(PKIXParameters, setCertStores, void, $List*)},
+		{"setDate", "(Ljava/util/Date;)V", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, setDate, void, $Date*)},
+		{"setExplicitPolicyRequired", "(Z)V", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, setExplicitPolicyRequired, void, bool)},
+		{"setInitialPolicies", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(PKIXParameters, setInitialPolicies, void, $Set*)},
+		{"setPolicyMappingInhibited", "(Z)V", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, setPolicyMappingInhibited, void, bool)},
+		{"setPolicyQualifiersRejected", "(Z)V", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, setPolicyQualifiersRejected, void, bool)},
+		{"setRevocationEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, setRevocationEnabled, void, bool)},
+		{"setSigProvider", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, setSigProvider, void, $String*)},
+		{"setTargetCertConstraints", "(Ljava/security/cert/CertSelector;)V", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, setTargetCertConstraints, void, $CertSelector*)},
+		{"setTrustAnchors", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/security/cert/TrustAnchor;>;)V", $PUBLIC, $virtualMethod(PKIXParameters, setTrustAnchors, void, $Set*), "java.security.InvalidAlgorithmParameterException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PKIXParameters, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.cert.PKIXParameters",
+		"java.lang.Object",
+		"java.security.cert.CertPathParameters",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PKIXParameters, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PKIXParameters);
+	});
 	return class$;
 }
 

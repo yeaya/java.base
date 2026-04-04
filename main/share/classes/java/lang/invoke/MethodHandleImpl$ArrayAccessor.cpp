@@ -1,5 +1,4 @@
 #include <java/lang/invoke/MethodHandleImpl$ArrayAccessor.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassValue.h>
 #include <java/lang/Error.h>
@@ -62,81 +61,6 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$FieldInfo _MethodHandleImpl$ArrayAccessor_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MethodHandleImpl$ArrayAccessor, $assertionsDisabled)},
-	{"GETTER_INDEX", "I", nullptr, $STATIC | $FINAL, $constField(MethodHandleImpl$ArrayAccessor, GETTER_INDEX)},
-	{"SETTER_INDEX", "I", nullptr, $STATIC | $FINAL, $constField(MethodHandleImpl$ArrayAccessor, SETTER_INDEX)},
-	{"LENGTH_INDEX", "I", nullptr, $STATIC | $FINAL, $constField(MethodHandleImpl$ArrayAccessor, LENGTH_INDEX)},
-	{"INDEX_LIMIT", "I", nullptr, $STATIC | $FINAL, $constField(MethodHandleImpl$ArrayAccessor, INDEX_LIMIT)},
-	{"TYPED_ACCESSORS", "Ljava/lang/ClassValue;", "Ljava/lang/ClassValue<[Ljava/lang/invoke/MethodHandle;>;", $STATIC | $FINAL, $staticField(MethodHandleImpl$ArrayAccessor, TYPED_ACCESSORS)},
-	{"OBJECT_ARRAY_GETTER", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(MethodHandleImpl$ArrayAccessor, OBJECT_ARRAY_GETTER)},
-	{"OBJECT_ARRAY_SETTER", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(MethodHandleImpl$ArrayAccessor, OBJECT_ARRAY_SETTER)},
-	{"OBJECT_ARRAY_LENGTH", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(MethodHandleImpl$ArrayAccessor, OBJECT_ARRAY_LENGTH)},
-	{}
-};
-
-$MethodInfo _MethodHandleImpl$ArrayAccessor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MethodHandleImpl$ArrayAccessor, init$, void)},
-	{"correctType", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/invoke/MethodType;", $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, correctType, $MethodType*, $Class*, $MethodHandleImpl$ArrayAccess*)},
-	{"getAccessor", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/invoke/MethodHandle;", $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, getAccessor, $MethodHandle*, $Class*, $MethodHandleImpl$ArrayAccess*)},
-	{"getElementB", "([BI)B", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, getElementB, int8_t, $bytes*, int32_t)},
-	{"getElementC", "([CI)C", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, getElementC, char16_t, $chars*, int32_t)},
-	{"getElementD", "([DI)D", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, getElementD, double, $doubles*, int32_t)},
-	{"getElementF", "([FI)F", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, getElementF, float, $floats*, int32_t)},
-	{"getElementI", "([II)I", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, getElementI, int32_t, $ints*, int32_t)},
-	{"getElementJ", "([JI)J", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, getElementJ, int64_t, $longs*, int32_t)},
-	{"getElementL", "([Ljava/lang/Object;I)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, getElementL, $Object*, $ObjectArray*, int32_t)},
-	{"getElementS", "([SI)S", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, getElementS, int16_t, $shorts*, int32_t)},
-	{"getElementZ", "([ZI)Z", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, getElementZ, bool, $booleans*, int32_t)},
-	{"lengthB", "([B)I", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, lengthB, int32_t, $bytes*)},
-	{"lengthC", "([C)I", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, lengthC, int32_t, $chars*)},
-	{"lengthD", "([D)I", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, lengthD, int32_t, $doubles*)},
-	{"lengthF", "([F)I", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, lengthF, int32_t, $floats*)},
-	{"lengthI", "([I)I", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, lengthI, int32_t, $ints*)},
-	{"lengthJ", "([J)I", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, lengthJ, int32_t, $longs*)},
-	{"lengthL", "([Ljava/lang/Object;)I", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, lengthL, int32_t, $ObjectArray*)},
-	{"lengthS", "([S)I", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, lengthS, int32_t, $shorts*)},
-	{"lengthZ", "([Z)I", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, lengthZ, int32_t, $booleans*)},
-	{"name", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/String;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/String;", $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, name, $String*, $Class*, $MethodHandleImpl$ArrayAccess*)},
-	{"setElementB", "([BIB)V", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, setElementB, void, $bytes*, int32_t, int8_t)},
-	{"setElementC", "([CIC)V", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, setElementC, void, $chars*, int32_t, char16_t)},
-	{"setElementD", "([DID)V", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, setElementD, void, $doubles*, int32_t, double)},
-	{"setElementF", "([FIF)V", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, setElementF, void, $floats*, int32_t, float)},
-	{"setElementI", "([III)V", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, setElementI, void, $ints*, int32_t, int32_t)},
-	{"setElementJ", "([JIJ)V", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, setElementJ, void, $longs*, int32_t, int64_t)},
-	{"setElementL", "([Ljava/lang/Object;ILjava/lang/Object;)V", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, setElementL, void, $ObjectArray*, int32_t, Object$*)},
-	{"setElementS", "([SIS)V", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, setElementS, void, $shorts*, int32_t, int16_t)},
-	{"setElementZ", "([ZIZ)V", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, setElementZ, void, $booleans*, int32_t, bool)},
-	{"type", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/invoke/MethodType;", $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, type, $MethodType*, $Class*, $MethodHandleImpl$ArrayAccess*)},
-	{}
-};
-
-$InnerClassInfo _MethodHandleImpl$ArrayAccessor_InnerClassesInfo_[] = {
-	{"java.lang.invoke.MethodHandleImpl$ArrayAccessor", "java.lang.invoke.MethodHandleImpl", "ArrayAccessor", $STATIC | $FINAL},
-	{"java.lang.invoke.MethodHandleImpl$ArrayAccessor$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MethodHandleImpl$ArrayAccessor_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.invoke.MethodHandleImpl$ArrayAccessor",
-	"java.lang.Object",
-	nullptr,
-	_MethodHandleImpl$ArrayAccessor_FieldInfo_,
-	_MethodHandleImpl$ArrayAccessor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MethodHandleImpl$ArrayAccessor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.MethodHandleImpl"
-};
-
-$Object* allocate$MethodHandleImpl$ArrayAccessor($Class* clazz) {
-	return $of($alloc(MethodHandleImpl$ArrayAccessor));
-}
-
 bool MethodHandleImpl$ArrayAccessor::$assertionsDisabled = false;
 $ClassValue* MethodHandleImpl$ArrayAccessor::TYPED_ACCESSORS = nullptr;
 $MethodHandle* MethodHandleImpl$ArrayAccessor::OBJECT_ARRAY_GETTER = nullptr;
@@ -188,7 +112,7 @@ char16_t MethodHandleImpl$ArrayAccessor::getElementC($chars* a, int32_t i) {
 
 $Object* MethodHandleImpl$ArrayAccessor::getElementL($ObjectArray* a, int32_t i) {
 	$init(MethodHandleImpl$ArrayAccessor);
-	return $of($nc(a)->get(i));
+	return $nc(a)->get(i);
 }
 
 void MethodHandleImpl$ArrayAccessor::setElementI($ints* a, int32_t i, int32_t x) {
@@ -283,100 +207,75 @@ int32_t MethodHandleImpl$ArrayAccessor::lengthL($ObjectArray* a) {
 
 $String* MethodHandleImpl$ArrayAccessor::name($Class* arrayClass, $MethodHandleImpl$ArrayAccess* access) {
 	$init(MethodHandleImpl$ArrayAccessor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Class* elemClass = $nc(arrayClass)->getComponentType();
 	if (elemClass == nullptr) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException("not an array"_s, arrayClass)));
 	}
-	$var($String, var$0, $($MethodHandleImpl$ArrayAccess::opName(access)));
-	return $concat(var$0, $$str($Wrapper::basicTypeChar(elemClass)));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($MethodHandleImpl$ArrayAccess::opName(access)));
+	var$0->append($Wrapper::basicTypeChar(elemClass));
+	return $str(var$0);
 }
 
 $MethodType* MethodHandleImpl$ArrayAccessor::type($Class* arrayClass, $MethodHandleImpl$ArrayAccess* access) {
 	$init(MethodHandleImpl$ArrayAccessor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Class* elemClass = $nc(arrayClass)->getComponentType();
 	$Class* arrayArgClass = arrayClass;
 	if (!$nc(elemClass)->isPrimitive()) {
-		$load($ObjectArray);
 		arrayArgClass = $getClass($ObjectArray);
 		elemClass = $Object::class$;
 	}
 	$init($MethodHandleImpl$2);
-
-	$var($MethodType, var$0, nullptr)
+	$var($MethodType, var$0, nullptr);
 	switch ($nc($MethodHandleImpl$2::$SwitchMap$java$lang$invoke$MethodHandleImpl$ArrayAccess)->get($nc((access))->ordinal())) {
 	case 1:
-		{
-			$init($Integer);
-			$assign(var$0, $MethodType::methodType(elemClass, arrayArgClass, $$new($ClassArray, {$Integer::TYPE})));
-			break;
-		}
+		$assign(var$0, $MethodType::methodType(elemClass, arrayArgClass, $$new($ClassArray, {$Integer::TYPE})));
+		break;
 	case 2:
-		{
-			$init($Void);
-			$init($Integer);
-			$assign(var$0, $MethodType::methodType($Void::TYPE, arrayArgClass, $$new($ClassArray, {
-				$Integer::TYPE,
-				elemClass
-			})));
-			break;
-		}
+		$assign(var$0, $MethodType::methodType($Void::TYPE, arrayArgClass, $$new($ClassArray, {
+			$Integer::TYPE,
+			elemClass
+		})));
+		break;
 	case 3:
-		{
-			$init($Integer);
-			$assign(var$0, $MethodType::methodType($Integer::TYPE, arrayArgClass));
-			break;
-		}
+		$assign(var$0, $MethodType::methodType($Integer::TYPE, arrayArgClass));
+		break;
 	default:
-		{
-			$throw($($MethodHandleImpl::unmatchedArrayAccess(access)));
-		}
+		$throw($($MethodHandleImpl::unmatchedArrayAccess(access)));
 	}
 	return var$0;
 }
 
 $MethodType* MethodHandleImpl$ArrayAccessor::correctType($Class* arrayClass, $MethodHandleImpl$ArrayAccess* access) {
 	$init(MethodHandleImpl$ArrayAccessor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Class* elemClass = $nc(arrayClass)->getComponentType();
 	$init($MethodHandleImpl$2);
-
-	$var($MethodType, var$0, nullptr)
+	$var($MethodType, var$0, nullptr);
 	switch ($nc($MethodHandleImpl$2::$SwitchMap$java$lang$invoke$MethodHandleImpl$ArrayAccess)->get($nc((access))->ordinal())) {
 	case 1:
-		{
-			$init($Integer);
-			$assign(var$0, $MethodType::methodType(elemClass, arrayClass, $$new($ClassArray, {$Integer::TYPE})));
-			break;
-		}
+		$assign(var$0, $MethodType::methodType(elemClass, arrayClass, $$new($ClassArray, {$Integer::TYPE})));
+		break;
 	case 2:
-		{
-			$init($Void);
-			$init($Integer);
-			$assign(var$0, $MethodType::methodType($Void::TYPE, arrayClass, $$new($ClassArray, {
-				$Integer::TYPE,
-				elemClass
-			})));
-			break;
-		}
+		$assign(var$0, $MethodType::methodType($Void::TYPE, arrayClass, $$new($ClassArray, {
+			$Integer::TYPE,
+			elemClass
+		})));
+		break;
 	case 3:
-		{
-			$init($Integer);
-			$assign(var$0, $MethodType::methodType($Integer::TYPE, arrayClass));
-			break;
-		}
+		$assign(var$0, $MethodType::methodType($Integer::TYPE, arrayClass));
+		break;
 	default:
-		{
-			$throw($($MethodHandleImpl::unmatchedArrayAccess(access)));
-		}
+		$throw($($MethodHandleImpl::unmatchedArrayAccess(access)));
 	}
 	return var$0;
 }
 
 $MethodHandle* MethodHandleImpl$ArrayAccessor::getAccessor($Class* arrayClass, $MethodHandleImpl$ArrayAccess* access) {
 	$init(MethodHandleImpl$ArrayAccessor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, MethodHandleImpl$ArrayAccessor::name(arrayClass, access));
 	$var($MethodType, type, MethodHandleImpl$ArrayAccessor::type(arrayClass, access));
 	try {
@@ -388,14 +287,13 @@ $MethodHandle* MethodHandleImpl$ArrayAccessor::getAccessor($Class* arrayClass, $
 	$shouldNotReachHere();
 }
 
-void clinit$MethodHandleImpl$ArrayAccessor($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void MethodHandleImpl$ArrayAccessor::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$load($MethodHandleImpl);
 	MethodHandleImpl$ArrayAccessor::$assertionsDisabled = !$MethodHandleImpl::class$->desiredAssertionStatus();
 	$assignStatic(MethodHandleImpl$ArrayAccessor::TYPED_ACCESSORS, $new($MethodHandleImpl$ArrayAccessor$1));
 	{
-		$load($ObjectArray);
-		$var($MethodHandleArray, cache, $cast($MethodHandleArray, $nc(MethodHandleImpl$ArrayAccessor::TYPED_ACCESSORS)->get($getClass($ObjectArray))));
+		$var($MethodHandleArray, cache, $cast($MethodHandleArray, MethodHandleImpl$ArrayAccessor::TYPED_ACCESSORS->get($getClass($ObjectArray))));
 		$init($MethodHandleImpl$ArrayAccess);
 		$init($MethodHandleImpl$Intrinsic);
 		$nc(cache)->set(MethodHandleImpl$ArrayAccessor::GETTER_INDEX, $assignStatic(MethodHandleImpl$ArrayAccessor::OBJECT_ARRAY_GETTER, $MethodHandleImpl::makeIntrinsic($(MethodHandleImpl$ArrayAccessor::getAccessor($getClass($ObjectArray), $MethodHandleImpl$ArrayAccess::GET)), $MethodHandleImpl$Intrinsic::ARRAY_LOAD)));
@@ -417,7 +315,76 @@ MethodHandleImpl$ArrayAccessor::MethodHandleImpl$ArrayAccessor() {
 }
 
 $Class* MethodHandleImpl$ArrayAccessor::load$($String* name, bool initialize) {
-	$loadClass(MethodHandleImpl$ArrayAccessor, name, initialize, &_MethodHandleImpl$ArrayAccessor_ClassInfo_, clinit$MethodHandleImpl$ArrayAccessor, allocate$MethodHandleImpl$ArrayAccessor);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MethodHandleImpl$ArrayAccessor, $assertionsDisabled)},
+		{"GETTER_INDEX", "I", nullptr, $STATIC | $FINAL, $constField(MethodHandleImpl$ArrayAccessor, GETTER_INDEX)},
+		{"SETTER_INDEX", "I", nullptr, $STATIC | $FINAL, $constField(MethodHandleImpl$ArrayAccessor, SETTER_INDEX)},
+		{"LENGTH_INDEX", "I", nullptr, $STATIC | $FINAL, $constField(MethodHandleImpl$ArrayAccessor, LENGTH_INDEX)},
+		{"INDEX_LIMIT", "I", nullptr, $STATIC | $FINAL, $constField(MethodHandleImpl$ArrayAccessor, INDEX_LIMIT)},
+		{"TYPED_ACCESSORS", "Ljava/lang/ClassValue;", "Ljava/lang/ClassValue<[Ljava/lang/invoke/MethodHandle;>;", $STATIC | $FINAL, $staticField(MethodHandleImpl$ArrayAccessor, TYPED_ACCESSORS)},
+		{"OBJECT_ARRAY_GETTER", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(MethodHandleImpl$ArrayAccessor, OBJECT_ARRAY_GETTER)},
+		{"OBJECT_ARRAY_SETTER", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(MethodHandleImpl$ArrayAccessor, OBJECT_ARRAY_SETTER)},
+		{"OBJECT_ARRAY_LENGTH", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(MethodHandleImpl$ArrayAccessor, OBJECT_ARRAY_LENGTH)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MethodHandleImpl$ArrayAccessor, init$, void)},
+		{"correctType", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/invoke/MethodType;", $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, correctType, $MethodType*, $Class*, $MethodHandleImpl$ArrayAccess*)},
+		{"getAccessor", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/invoke/MethodHandle;", $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, getAccessor, $MethodHandle*, $Class*, $MethodHandleImpl$ArrayAccess*)},
+		{"getElementB", "([BI)B", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, getElementB, int8_t, $bytes*, int32_t)},
+		{"getElementC", "([CI)C", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, getElementC, char16_t, $chars*, int32_t)},
+		{"getElementD", "([DI)D", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, getElementD, double, $doubles*, int32_t)},
+		{"getElementF", "([FI)F", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, getElementF, float, $floats*, int32_t)},
+		{"getElementI", "([II)I", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, getElementI, int32_t, $ints*, int32_t)},
+		{"getElementJ", "([JI)J", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, getElementJ, int64_t, $longs*, int32_t)},
+		{"getElementL", "([Ljava/lang/Object;I)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, getElementL, $Object*, $ObjectArray*, int32_t)},
+		{"getElementS", "([SI)S", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, getElementS, int16_t, $shorts*, int32_t)},
+		{"getElementZ", "([ZI)Z", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, getElementZ, bool, $booleans*, int32_t)},
+		{"lengthB", "([B)I", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, lengthB, int32_t, $bytes*)},
+		{"lengthC", "([C)I", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, lengthC, int32_t, $chars*)},
+		{"lengthD", "([D)I", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, lengthD, int32_t, $doubles*)},
+		{"lengthF", "([F)I", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, lengthF, int32_t, $floats*)},
+		{"lengthI", "([I)I", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, lengthI, int32_t, $ints*)},
+		{"lengthJ", "([J)I", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, lengthJ, int32_t, $longs*)},
+		{"lengthL", "([Ljava/lang/Object;)I", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, lengthL, int32_t, $ObjectArray*)},
+		{"lengthS", "([S)I", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, lengthS, int32_t, $shorts*)},
+		{"lengthZ", "([Z)I", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, lengthZ, int32_t, $booleans*)},
+		{"name", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/String;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/String;", $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, name, $String*, $Class*, $MethodHandleImpl$ArrayAccess*)},
+		{"setElementB", "([BIB)V", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, setElementB, void, $bytes*, int32_t, int8_t)},
+		{"setElementC", "([CIC)V", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, setElementC, void, $chars*, int32_t, char16_t)},
+		{"setElementD", "([DID)V", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, setElementD, void, $doubles*, int32_t, double)},
+		{"setElementF", "([FIF)V", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, setElementF, void, $floats*, int32_t, float)},
+		{"setElementI", "([III)V", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, setElementI, void, $ints*, int32_t, int32_t)},
+		{"setElementJ", "([JIJ)V", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, setElementJ, void, $longs*, int32_t, int64_t)},
+		{"setElementL", "([Ljava/lang/Object;ILjava/lang/Object;)V", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, setElementL, void, $ObjectArray*, int32_t, Object$*)},
+		{"setElementS", "([SIS)V", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, setElementS, void, $shorts*, int32_t, int16_t)},
+		{"setElementZ", "([ZIZ)V", nullptr, $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, setElementZ, void, $booleans*, int32_t, bool)},
+		{"type", "(Ljava/lang/Class;Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MethodHandleImpl$ArrayAccess;)Ljava/lang/invoke/MethodType;", $STATIC, $staticMethod(MethodHandleImpl$ArrayAccessor, type, $MethodType*, $Class*, $MethodHandleImpl$ArrayAccess*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.MethodHandleImpl$ArrayAccessor", "java.lang.invoke.MethodHandleImpl", "ArrayAccessor", $STATIC | $FINAL},
+		{"java.lang.invoke.MethodHandleImpl$ArrayAccessor$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.invoke.MethodHandleImpl$ArrayAccessor",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.MethodHandleImpl"
+	};
+	$loadClass(MethodHandleImpl$ArrayAccessor, name, initialize, &classInfo$$, MethodHandleImpl$ArrayAccessor::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodHandleImpl$ArrayAccessor);
+	});
 	return class$;
 }
 

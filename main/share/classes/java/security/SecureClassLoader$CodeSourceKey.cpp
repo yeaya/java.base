@@ -1,5 +1,4 @@
 #include <java/security/SecureClassLoader$CodeSourceKey.h>
-
 #include <java/security/CodeSource.h>
 #include <java/security/SecureClassLoader.h>
 #include <java/util/Objects.h>
@@ -15,54 +14,17 @@ using $Objects = ::java::util::Objects;
 namespace java {
 	namespace security {
 
-$FieldInfo _SecureClassLoader$CodeSourceKey_FieldInfo_[] = {
-	{"cs", "Ljava/security/CodeSource;", nullptr, $PRIVATE | $FINAL, $field(SecureClassLoader$CodeSourceKey, cs)},
-	{}
-};
-
-$MethodInfo _SecureClassLoader$CodeSourceKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/CodeSource;)V", nullptr, 0, $method(SecureClassLoader$CodeSourceKey, init$, void, $CodeSource*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SecureClassLoader$CodeSourceKey, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SecureClassLoader$CodeSourceKey, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _SecureClassLoader$CodeSourceKey_InnerClassesInfo_[] = {
-	{"java.security.SecureClassLoader$CodeSourceKey", "java.security.SecureClassLoader", "CodeSourceKey", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SecureClassLoader$CodeSourceKey_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.security.SecureClassLoader$CodeSourceKey",
-	"java.lang.Object",
-	nullptr,
-	_SecureClassLoader$CodeSourceKey_FieldInfo_,
-	_SecureClassLoader$CodeSourceKey_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SecureClassLoader$CodeSourceKey_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.SecureClassLoader"
-};
-
-$Object* allocate$SecureClassLoader$CodeSourceKey($Class* clazz) {
-	return $of($alloc(SecureClassLoader$CodeSourceKey));
-}
-
 void SecureClassLoader$CodeSourceKey::init$($CodeSource* cs) {
 	$set(this, cs, cs);
 }
 
 int32_t SecureClassLoader$CodeSourceKey::hashCode() {
 	$var($String, locationNoFrag, $nc(this->cs)->getLocationNoFragString());
-	return locationNoFrag != nullptr ? $nc(locationNoFrag)->hashCode() : 0;
+	return locationNoFrag != nullptr ? locationNoFrag->hashCode() : 0;
 }
 
 bool SecureClassLoader$CodeSourceKey::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(obj, this)) {
 		return true;
 	}
@@ -74,7 +36,7 @@ bool SecureClassLoader$CodeSourceKey::equals(Object$* obj) {
 	}
 	bool var$1 = var$2;
 	if (var$1) {
-		$var($Object, var$3, $of($nc(this->cs)->getLocationNoFragString()));
+		$var($Object, var$3, $nc(this->cs)->getLocationNoFragString());
 		var$1 = $Objects::equals(var$3, $($nc($nc(other)->cs)->getLocationNoFragString()));
 	}
 	bool var$0 = var$1;
@@ -85,7 +47,38 @@ SecureClassLoader$CodeSourceKey::SecureClassLoader$CodeSourceKey() {
 }
 
 $Class* SecureClassLoader$CodeSourceKey::load$($String* name, bool initialize) {
-	$loadClass(SecureClassLoader$CodeSourceKey, name, initialize, &_SecureClassLoader$CodeSourceKey_ClassInfo_, allocate$SecureClassLoader$CodeSourceKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"cs", "Ljava/security/CodeSource;", nullptr, $PRIVATE | $FINAL, $field(SecureClassLoader$CodeSourceKey, cs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/CodeSource;)V", nullptr, 0, $method(SecureClassLoader$CodeSourceKey, init$, void, $CodeSource*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SecureClassLoader$CodeSourceKey, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SecureClassLoader$CodeSourceKey, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.SecureClassLoader$CodeSourceKey", "java.security.SecureClassLoader", "CodeSourceKey", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.security.SecureClassLoader$CodeSourceKey",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.SecureClassLoader"
+	};
+	$loadClass(SecureClassLoader$CodeSourceKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SecureClassLoader$CodeSourceKey);
+	});
 	return class$;
 }
 

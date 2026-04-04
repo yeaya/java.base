@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/LocaleNamesProvider.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,19 +8,16 @@ namespace sun {
 		namespace resources {
 			namespace cldr {
 
-$ClassInfo _LocaleNamesProvider_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.util.resources.cldr.LocaleNamesProvider",
-	nullptr,
-	"java.util.spi.ResourceBundleProvider"
-};
-
-$Object* allocate$LocaleNamesProvider($Class* clazz) {
-	return $of($alloc(LocaleNamesProvider));
-}
-
 $Class* LocaleNamesProvider::load$($String* name, bool initialize) {
-	$loadClass(LocaleNamesProvider, name, initialize, &_LocaleNamesProvider_ClassInfo_, allocate$LocaleNamesProvider);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.util.resources.cldr.LocaleNamesProvider",
+		nullptr,
+		"java.util.spi.ResourceBundleProvider"
+	};
+	$loadClass(LocaleNamesProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNamesProvider);
+	});
 	return class$;
 }
 

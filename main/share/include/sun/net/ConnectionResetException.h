@@ -14,10 +14,13 @@ public:
 	ConnectionResetException();
 	void init$($String* msg);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x961179C86629B15C;
+	static const int64_t serialVersionUID = (int64_t)0x961179c86629b15c;
 	ConnectionResetException(const ConnectionResetException& e);
 	virtual void throw$() override;
-	inline ConnectionResetException* operator ->() {
+	inline ConnectionResetException* operator ->() const {
+		return (ConnectionResetException*)throwing$;
+	}
+	inline operator ConnectionResetException*() const {
 		return (ConnectionResetException*)throwing$;
 	}
 };

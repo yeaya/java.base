@@ -41,6 +41,7 @@ public:
 	virtual void finalize() override;
 	virtual void forEach(::java::util::function::Consumer* action) override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::NavigableMap* m);
 	void init$();
 	void init$(::java::util::Comparator* comparator);
@@ -86,7 +87,7 @@ public:
 	void writeObject(::java::io::ObjectOutputStream* s);
 	::java::util::NavigableMap* m = nullptr;
 	static $Object* PRESENT;
-	static const int64_t serialVersionUID = (int64_t)0xDD98509395ED875B;
+	static const int64_t serialVersionUID = (int64_t)0xdd98509395ed875b;
 };
 
 	} // util

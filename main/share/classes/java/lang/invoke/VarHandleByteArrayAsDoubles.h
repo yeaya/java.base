@@ -35,6 +35,7 @@ class VarHandleByteArrayAsDoubles : public ::java::lang::invoke::VarHandleByteAr
 	$class(VarHandleByteArrayAsDoubles, 0, ::java::lang::invoke::VarHandleByteArrayBase)
 public:
 	VarHandleByteArrayAsDoubles();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int64_t convEndian(bool big, double v);
 	static double convEndian(bool big, int64_t rv);

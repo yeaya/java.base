@@ -79,6 +79,7 @@ class $export KnownOIDs : public ::java::lang::Enum {
 public:
 	KnownOIDs();
 	static $Array<::sun::security::util::KnownOIDs>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* oid);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* oid, $String* stdName, $StringArray* aliases);
 	virtual $StringArray* aliases();

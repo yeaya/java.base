@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/impl/Punycode.h>
-
 #include <java/lang/StringBuffer.h>
 #include <java/text/ParseException.h>
 #include <jdk/internal/icu/lang/UCharacter.h>
@@ -38,55 +37,6 @@ namespace jdk {
 	namespace internal {
 		namespace icu {
 			namespace impl {
-
-$FieldInfo _Punycode_FieldInfo_[] = {
-	{"BASE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, BASE)},
-	{"TMIN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, TMIN)},
-	{"TMAX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, TMAX)},
-	{"SKEW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, SKEW)},
-	{"DAMP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, DAMP)},
-	{"INITIAL_BIAS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, INITIAL_BIAS)},
-	{"INITIAL_N", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, INITIAL_N)},
-	{"HYPHEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, HYPHEN)},
-	{"DELIMITER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, DELIMITER)},
-	{"ZERO", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, ZERO)},
-	{"NINE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, NINE)},
-	{"SMALL_A", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, SMALL_A)},
-	{"SMALL_Z", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, SMALL_Z)},
-	{"CAPITAL_A", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, CAPITAL_A)},
-	{"CAPITAL_Z", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, CAPITAL_Z)},
-	{"MAX_CP_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, MAX_CP_COUNT)},
-	{"UINT_MAGIC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, UINT_MAGIC)},
-	{"ULONG_MAGIC", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, ULONG_MAGIC)},
-	{"basicToDigit", "[I", nullptr, $STATIC | $FINAL, $staticField(Punycode, basicToDigit)},
-	{}
-};
-
-$MethodInfo _Punycode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Punycode, init$, void)},
-	{"adaptBias", "(IIZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Punycode, adaptBias, int32_t, int32_t, int32_t, bool)},
-	{"asciiCaseMap", "(CZ)C", nullptr, $PRIVATE | $STATIC, $staticMethod(Punycode, asciiCaseMap, char16_t, char16_t, bool)},
-	{"decode", "(Ljava/lang/StringBuffer;[Z)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Punycode, decode, $StringBuffer*, $StringBuffer*, $booleans*), "java.text.ParseException"},
-	{"digitToBasic", "(IZ)C", nullptr, $PRIVATE | $STATIC, $staticMethod(Punycode, digitToBasic, char16_t, int32_t, bool)},
-	{"encode", "(Ljava/lang/StringBuffer;[Z)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Punycode, encode, $StringBuffer*, $StringBuffer*, $booleans*), "java.text.ParseException"},
-	{"isBasic", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Punycode, isBasic, bool, int32_t)},
-	{"isBasicUpperCase", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Punycode, isBasicUpperCase, bool, int32_t)},
-	{"isSurrogate", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Punycode, isSurrogate, bool, int32_t)},
-	{}
-};
-
-$ClassInfo _Punycode_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.icu.impl.Punycode",
-	"java.lang.Object",
-	nullptr,
-	_Punycode_FieldInfo_,
-	_Punycode_MethodInfo_
-};
-
-$Object* allocate$Punycode($Class* clazz) {
-	return $of($alloc(Punycode));
-}
 
 $ints* Punycode::basicToDigit = nullptr;
 
@@ -135,7 +85,7 @@ char16_t Punycode::digitToBasic(int32_t digit, bool uppercase) {
 
 $StringBuffer* Punycode::encode($StringBuffer* src, $booleans* caseFlags) {
 	$init(Punycode);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, cpBuffer, $new($ints, Punycode::MAX_CP_COUNT));
 	int32_t n = 0;
 	int32_t delta = 0;
@@ -164,7 +114,7 @@ $StringBuffer* Punycode::encode($StringBuffer* src, $booleans* caseFlags) {
 		if (isBasic(c)) {
 			if (destLength < destCapacity) {
 				cpBuffer->set(srcCPCount++, 0);
-				dest->set(destLength, caseFlags != nullptr ? asciiCaseMap(c, $nc(caseFlags)->get(j)) : c);
+				dest->set(destLength, caseFlags != nullptr ? asciiCaseMap(c, caseFlags->get(j)) : c);
 			}
 			++destLength;
 		} else {
@@ -172,8 +122,8 @@ $StringBuffer* Punycode::encode($StringBuffer* src, $booleans* caseFlags) {
 			if (!$UTF16::isSurrogate(c)) {
 				n |= c;
 			} else {
-				bool var$1 = $UTF16::isLeadSurrogate(c) && (j + 1) < srcLength;
-				if (var$1 && $UTF16::isTrailSurrogate(c2 = src->charAt(j + 1))) {
+				bool var$0 = $UTF16::isLeadSurrogate(c) && (j + 1) < srcLength;
+				if (var$0 && $UTF16::isTrailSurrogate(c2 = src->charAt(j + 1))) {
 					++j;
 					n |= $UCharacter::getCodePoint(c, c2);
 				} else {
@@ -194,19 +144,19 @@ $StringBuffer* Punycode::encode($StringBuffer* src, $booleans* caseFlags) {
 	delta = 0;
 	bias = Punycode::INITIAL_BIAS;
 	for (handledCPCount = basicLength; handledCPCount < srcCPCount;) {
-		for (m = 0x7FFFFFFF, j = 0; j < srcCPCount; ++j) {
-			q = (int32_t)(cpBuffer->get(j) & (uint32_t)0x7FFFFFFF);
+		for (m = 0x7fffffff, j = 0; j < srcCPCount; ++j) {
+			q = cpBuffer->get(j) & 0x7fffffff;
 			if (n <= q && q < m) {
 				m = q;
 			}
 		}
-		if (m - n > $div((0x7FFFFFFF - Punycode::MAX_CP_COUNT - delta), (handledCPCount + 1))) {
+		if (m - n > $div((0x7fffffff - Punycode::MAX_CP_COUNT - delta), (handledCPCount + 1))) {
 			$throwNew($RuntimeException, "Internal program error"_s);
 		}
 		delta += (m - n) * (handledCPCount + 1);
 		n = m;
 		for (j = 0; j < srcCPCount; ++j) {
-			q = (int32_t)(cpBuffer->get(j) & (uint32_t)0x7FFFFFFF);
+			q = cpBuffer->get(j) & 0x7fffffff;
 			if (q < n) {
 				++delta;
 			} else if (q == n) {
@@ -251,12 +201,12 @@ bool Punycode::isBasicUpperCase(int32_t ch) {
 
 bool Punycode::isSurrogate(int32_t ch) {
 	$init(Punycode);
-	return (((int32_t)((ch) & (uint32_t)-2048)) == 0x0000D800);
+	return (((ch) & -2048) == 0xd800);
 }
 
 $StringBuffer* Punycode::decode($StringBuffer* src, $booleans* caseFlags) {
 	$init(Punycode);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t srcLength = $nc(src)->length();
 	$var($StringBuffer, result, $new($StringBuffer));
 	int32_t n = 0;
@@ -298,17 +248,17 @@ $StringBuffer* Punycode::decode($StringBuffer* src, $booleans* caseFlags) {
 	n = Punycode::INITIAL_N;
 	i = 0;
 	bias = Punycode::INITIAL_BIAS;
-	firstSupplementaryIndex = 0x3B9ACA00;
+	firstSupplementaryIndex = 1000000000;
 	for (in = basicLength > 0 ? basicLength + 1 : 0; in < srcLength;) {
 		for (oldi = i, w = 1, k = Punycode::BASE;; k += Punycode::BASE) {
 			if (in >= srcLength) {
 				$throwNew($ParseException, "Illegal char found"_s, -1);
 			}
-			digit = $nc(Punycode::basicToDigit)->get((int8_t)src->charAt(in++));
+			digit = Punycode::basicToDigit->get((int8_t)src->charAt(in++));
 			if (digit < 0) {
 				$throwNew($ParseException, "Invalid char found"_s, -1);
 			}
-			if (digit > $div((0x7FFFFFFF - i), w)) {
+			if (digit > $div((0x7fffffff - i), w)) {
 				$throwNew($ParseException, "Illegal char found"_s, -1);
 			}
 			i += digit * w;
@@ -321,19 +271,19 @@ $StringBuffer* Punycode::decode($StringBuffer* src, $booleans* caseFlags) {
 			if (digit < t) {
 				break;
 			}
-			if (w > $div(0x7FFFFFFF, (Punycode::BASE - t))) {
+			if (w > $div(0x7fffffff, (Punycode::BASE - t))) {
 				$throwNew($ParseException, "Illegal char found"_s, -1);
 			}
 			w *= Punycode::BASE - t;
 		}
 		++destCPCount;
 		bias = adaptBias(i - oldi, destCPCount, (oldi == 0));
-		if ($div(i, destCPCount) > (0x7FFFFFFF - n)) {
+		if ($div(i, destCPCount) > (0x7fffffff - n)) {
 			$throwNew($ParseException, "Illegal char found"_s, -1);
 		}
 		n += $div(i, destCPCount);
 		$modAssign(i, destCPCount);
-		if (n > 0x0010FFFF || isSurrogate(n)) {
+		if (n > 0x0010ffff || isSurrogate(n)) {
 			$throwNew($ParseException, "Illegal char found"_s, -1);
 		}
 		cpLength = $UTF16::getCharCount(n);
@@ -376,7 +326,7 @@ $StringBuffer* Punycode::decode($StringBuffer* src, $booleans* caseFlags) {
 	return result;
 }
 
-void clinit$Punycode($Class* class$) {
+void Punycode::clinit$($Class* clazz) {
 	$assignStatic(Punycode::basicToDigit, $new($ints, {
 		-1,
 		-1,
@@ -641,7 +591,51 @@ Punycode::Punycode() {
 }
 
 $Class* Punycode::load$($String* name, bool initialize) {
-	$loadClass(Punycode, name, initialize, &_Punycode_ClassInfo_, clinit$Punycode, allocate$Punycode);
+	$FieldInfo fieldInfos$$[] = {
+		{"BASE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, BASE)},
+		{"TMIN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, TMIN)},
+		{"TMAX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, TMAX)},
+		{"SKEW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, SKEW)},
+		{"DAMP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, DAMP)},
+		{"INITIAL_BIAS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, INITIAL_BIAS)},
+		{"INITIAL_N", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, INITIAL_N)},
+		{"HYPHEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, HYPHEN)},
+		{"DELIMITER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, DELIMITER)},
+		{"ZERO", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, ZERO)},
+		{"NINE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, NINE)},
+		{"SMALL_A", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, SMALL_A)},
+		{"SMALL_Z", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, SMALL_Z)},
+		{"CAPITAL_A", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, CAPITAL_A)},
+		{"CAPITAL_Z", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, CAPITAL_Z)},
+		{"MAX_CP_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, MAX_CP_COUNT)},
+		{"UINT_MAGIC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, UINT_MAGIC)},
+		{"ULONG_MAGIC", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Punycode, ULONG_MAGIC)},
+		{"basicToDigit", "[I", nullptr, $STATIC | $FINAL, $staticField(Punycode, basicToDigit)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Punycode, init$, void)},
+		{"adaptBias", "(IIZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Punycode, adaptBias, int32_t, int32_t, int32_t, bool)},
+		{"asciiCaseMap", "(CZ)C", nullptr, $PRIVATE | $STATIC, $staticMethod(Punycode, asciiCaseMap, char16_t, char16_t, bool)},
+		{"decode", "(Ljava/lang/StringBuffer;[Z)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Punycode, decode, $StringBuffer*, $StringBuffer*, $booleans*), "java.text.ParseException"},
+		{"digitToBasic", "(IZ)C", nullptr, $PRIVATE | $STATIC, $staticMethod(Punycode, digitToBasic, char16_t, int32_t, bool)},
+		{"encode", "(Ljava/lang/StringBuffer;[Z)Ljava/lang/StringBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Punycode, encode, $StringBuffer*, $StringBuffer*, $booleans*), "java.text.ParseException"},
+		{"isBasic", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Punycode, isBasic, bool, int32_t)},
+		{"isBasicUpperCase", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Punycode, isBasicUpperCase, bool, int32_t)},
+		{"isSurrogate", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Punycode, isSurrogate, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.icu.impl.Punycode",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Punycode, name, initialize, &classInfo$$, Punycode::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Punycode);
+	});
 	return class$;
 }
 

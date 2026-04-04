@@ -1,5 +1,4 @@
 #include <java/nio/FloatBuffer.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/Math.h>
@@ -49,89 +48,10 @@ using $HeapFloatBuffer = ::java::nio::HeapFloatBuffer;
 using $ReadOnlyBufferException = ::java::nio::ReadOnlyBufferException;
 using $Objects = ::java::util::Objects;
 using $MemorySegmentProxy = ::jdk::internal::access::foreign::MemorySegmentProxy;
-using $ScopedMemoryAccess = ::jdk::internal::misc::ScopedMemoryAccess;
 using $ScopedMemoryAccess$Scope = ::jdk::internal::misc::ScopedMemoryAccess$Scope;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace java {
 	namespace nio {
-
-$FieldInfo _FloatBuffer_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FloatBuffer, $assertionsDisabled)},
-	{"ARRAY_BASE_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatBuffer, ARRAY_BASE_OFFSET)},
-	{"hb", "[F", nullptr, $FINAL, $field(FloatBuffer, hb)},
-	{"offset", "I", nullptr, $FINAL, $field(FloatBuffer, offset)},
-	{"isReadOnly", "Z", nullptr, 0, $field(FloatBuffer, isReadOnly$)},
-	{}
-};
-
-$MethodInfo _FloatBuffer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"duplicate", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(IIII[FILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(FloatBuffer, init$, void, int32_t, int32_t, int32_t, int32_t, $floats*, int32_t, $MemorySegmentProxy*)},
-	{"<init>", "(IIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(FloatBuffer, init$, void, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"<init>", "([FJILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(FloatBuffer, init$, void, $floats*, int64_t, int32_t, $MemorySegmentProxy*)},
-	{"allocate", "(I)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatBuffer, allocate, FloatBuffer*, int32_t)},
-	{"array", "()[F", nullptr, $PUBLIC | $FINAL, $virtualMethod(FloatBuffer, array, $Object*)},
-	{"arrayOffset", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(FloatBuffer, arrayOffset, int32_t)},
-	{"asReadOnlyBuffer", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FloatBuffer, asReadOnlyBuffer, FloatBuffer*)},
-	{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(FloatBuffer, base, $Object*)},
-	{"clear", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(FloatBuffer, clear, FloatBuffer*)},
-	{"compact", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FloatBuffer, compact, FloatBuffer*)},
-	{"compare", "(FF)I", nullptr, $PRIVATE | $STATIC, $staticMethod(FloatBuffer, compare, int32_t, float, float)},
-	{"compareTo", "(Ljava/nio/FloatBuffer;)I", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, compareTo, int32_t, FloatBuffer*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(FloatBuffer, compareTo, int32_t, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, equals, bool, Object$*)},
-	{"flip", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(FloatBuffer, flip, FloatBuffer*)},
-	{"get", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FloatBuffer, get, float)},
-	{"get", "(I)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FloatBuffer, get, float, int32_t)},
-	{"get", "([FII)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, get, FloatBuffer*, $floats*, int32_t, int32_t)},
-	{"get", "([F)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, get, FloatBuffer*, $floats*)},
-	{"get", "(I[FII)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, get, FloatBuffer*, int32_t, $floats*, int32_t, int32_t)},
-	{"get", "(I[F)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, get, FloatBuffer*, int32_t, $floats*)},
-	{"getArray", "(I[FII)Ljava/nio/FloatBuffer;", nullptr, $PRIVATE, $method(FloatBuffer, getArray, FloatBuffer*, int32_t, $floats*, int32_t, int32_t)},
-	{"hasArray", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(FloatBuffer, hasArray, bool)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, hashCode, int32_t)},
-	{"isDirect", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"limit", "(I)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(FloatBuffer, limit, FloatBuffer*, int32_t)},
-	{"mark", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(FloatBuffer, mark, FloatBuffer*)},
-	{"mismatch", "(Ljava/nio/FloatBuffer;)I", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, mismatch, int32_t, FloatBuffer*)},
-	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FloatBuffer, order, $ByteOrder*)},
-	{"position", "(I)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(FloatBuffer, position, FloatBuffer*, int32_t)},
-	{"put", "(F)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FloatBuffer, put, FloatBuffer*, float)},
-	{"put", "(IF)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FloatBuffer, put, FloatBuffer*, int32_t, float)},
-	{"put", "(Ljava/nio/FloatBuffer;)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, put, FloatBuffer*, FloatBuffer*)},
-	{"put", "(ILjava/nio/FloatBuffer;II)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, put, FloatBuffer*, int32_t, FloatBuffer*, int32_t, int32_t)},
-	{"put", "([FII)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, put, FloatBuffer*, $floats*, int32_t, int32_t)},
-	{"put", "([F)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $FINAL, $method(FloatBuffer, put, FloatBuffer*, $floats*)},
-	{"put", "(I[FII)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, put, FloatBuffer*, int32_t, $floats*, int32_t, int32_t)},
-	{"put", "(I[F)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, put, FloatBuffer*, int32_t, $floats*)},
-	{"putArray", "(I[FII)Ljava/nio/FloatBuffer;", nullptr, $PRIVATE, $method(FloatBuffer, putArray, FloatBuffer*, int32_t, $floats*, int32_t, int32_t)},
-	{"putBuffer", "(ILjava/nio/FloatBuffer;II)V", nullptr, 0, $virtualMethod(FloatBuffer, putBuffer, void, int32_t, FloatBuffer*, int32_t, int32_t)},
-	{"reset", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(FloatBuffer, reset, FloatBuffer*)},
-	{"rewind", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(FloatBuffer, rewind, FloatBuffer*)},
-	{"slice", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $ABSTRACT},
-	{"slice", "(II)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $ABSTRACT},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, toString, $String*)},
-	{"wrap", "([FII)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatBuffer, wrap, FloatBuffer*, $floats*, int32_t, int32_t)},
-	{"wrap", "([F)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatBuffer, wrap, FloatBuffer*, $floats*)},
-	{}
-};
-
-$ClassInfo _FloatBuffer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.nio.FloatBuffer",
-	"java.nio.Buffer",
-	"java.lang.Comparable",
-	_FloatBuffer_FieldInfo_,
-	_FloatBuffer_MethodInfo_,
-	"Ljava/nio/Buffer;Ljava/lang/Comparable<Ljava/nio/FloatBuffer;>;"
-};
-
-$Object* allocate$FloatBuffer($Class* clazz) {
-	return $of($alloc(FloatBuffer));
-}
 
 $Object* FloatBuffer::clone() {
 	 return this->$Buffer::clone();
@@ -161,7 +81,7 @@ void FloatBuffer::init$($floats* hb, int64_t addr, int32_t cap, $MemorySegmentPr
 }
 
 $Object* FloatBuffer::base() {
-	return $of(this->hb);
+	return this->hb;
 }
 
 FloatBuffer* FloatBuffer::allocate(int32_t capacity) {
@@ -214,40 +134,34 @@ FloatBuffer* FloatBuffer::get(int32_t index, $floats* dst) {
 }
 
 FloatBuffer* FloatBuffer::getArray(int32_t index, $floats* dst, int32_t offset, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (((int64_t)length << 2) > $Bits::JNI_COPY_TO_ARRAY_THRESHOLD) {
 		int64_t bufAddr = this->address + ((int64_t)index << 2);
 		int64_t dstOffset = FloatBuffer::ARRAY_BASE_OFFSET + ((int64_t)offset << 2);
 		int64_t len = (int64_t)length << 2;
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				if (order() != $ByteOrder::nativeOrder()) {
-					$init($Buffer);
-					$var($ScopedMemoryAccess$Scope, var$1, scope());
-					$nc($Buffer::SCOPED_MEMORY_ACCESS)->copySwapMemory(var$1, nullptr, $(base()), bufAddr, dst, dstOffset, len, $Float::BYTES);
-				} else {
-					$init($Buffer);
-					$var($ScopedMemoryAccess$Scope, var$2, scope());
-					$nc($Buffer::SCOPED_MEMORY_ACCESS)->copyMemory(var$2, nullptr, $(base()), bufAddr, dst, dstOffset, len);
-				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
-				$Reference::reachabilityFence(this);
+		$var($Throwable, var$0, nullptr);
+		try {
+			if (order() != $ByteOrder::nativeOrder()) {
+				$init($Buffer);
+				$var($ScopedMemoryAccess$Scope, var$1, scope());
+				$nc($Buffer::SCOPED_MEMORY_ACCESS)->copySwapMemory(var$1, nullptr, $(base()), bufAddr, dst, dstOffset, len, $Float::BYTES);
+			} else {
+				$init($Buffer);
+				$var($ScopedMemoryAccess$Scope, var$2, scope());
+				$nc($Buffer::SCOPED_MEMORY_ACCESS)->copyMemory(var$2, nullptr, $(base()), bufAddr, dst, dstOffset, len);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			$Reference::reachabilityFence(this);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} else {
 		int32_t end = offset + length;
-		{
-			int32_t i = offset;
-			int32_t j = index;
-			for (; i < end; ++i, ++j) {
-				$nc(dst)->set(i, get(j));
-			}
+		for (int32_t i = offset, j = index; i < end; ++i, ++j) {
+			$nc(dst)->set(i, get(j));
 		}
 	}
 	return this;
@@ -286,7 +200,7 @@ FloatBuffer* FloatBuffer::put(int32_t index, FloatBuffer* src, int32_t offset, i
 }
 
 void FloatBuffer::putBuffer(int32_t pos, FloatBuffer* src, int32_t srcPos, int32_t n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, srcBase, $nc(src)->base());
 	if (!FloatBuffer::$assertionsDisabled && !(srcBase != nullptr || src->isDirect())) {
 		$throwNew($AssertionError);
@@ -298,27 +212,25 @@ void FloatBuffer::putBuffer(int32_t pos, FloatBuffer* src, int32_t srcPos, int32
 	int64_t srcAddr = src->address + ((int64_t)srcPos << 2);
 	int64_t addr = this->address + ((int64_t)pos << 2);
 	int64_t len = (int64_t)n << 2;
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (this->order() != src->order()) {
-				$init($Buffer);
-				$var($ScopedMemoryAccess$Scope, var$1, src->scope());
-				$nc($Buffer::SCOPED_MEMORY_ACCESS)->copySwapMemory(var$1, $(scope()), srcBase, srcAddr, base, addr, len, $Float::BYTES);
-			} else {
-				$init($Buffer);
-				$var($ScopedMemoryAccess$Scope, var$2, src->scope());
-				$nc($Buffer::SCOPED_MEMORY_ACCESS)->copyMemory(var$2, $(scope()), srcBase, srcAddr, base, addr, len);
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} /*finally*/ {
-			$Reference::reachabilityFence(src);
-			$Reference::reachabilityFence(this);
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (this->order() != src->order()) {
+			$init($Buffer);
+			$var($ScopedMemoryAccess$Scope, var$1, src->scope());
+			$nc($Buffer::SCOPED_MEMORY_ACCESS)->copySwapMemory(var$1, $(scope()), srcBase, srcAddr, base, addr, len, $Float::BYTES);
+		} else {
+			$init($Buffer);
+			$var($ScopedMemoryAccess$Scope, var$2, src->scope());
+			$nc($Buffer::SCOPED_MEMORY_ACCESS)->copyMemory(var$2, $(scope()), srcBase, srcAddr, base, addr, len);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		$Reference::reachabilityFence(src);
+		$Reference::reachabilityFence(this);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -355,44 +267,34 @@ FloatBuffer* FloatBuffer::put(int32_t index, $floats* src) {
 }
 
 FloatBuffer* FloatBuffer::putArray(int32_t index, $floats* src, int32_t offset, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (((int64_t)length << 2) > $Bits::JNI_COPY_FROM_ARRAY_THRESHOLD) {
 		int64_t bufAddr = this->address + ((int64_t)index << 2);
 		int64_t srcOffset = FloatBuffer::ARRAY_BASE_OFFSET + ((int64_t)offset << 2);
 		int64_t len = (int64_t)length << 2;
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				if (order() != $ByteOrder::nativeOrder()) {
-					$init($Buffer);
-					$var($ScopedMemoryAccess$Scope, var$1, scope());
-					$var($Object, var$2, $of(src));
-					int64_t var$3 = srcOffset;
-					$nc($Buffer::SCOPED_MEMORY_ACCESS)->copySwapMemory(nullptr, var$1, var$2, var$3, $(base()), bufAddr, len, $Float::BYTES);
-				} else {
-					$init($Buffer);
-					$var($ScopedMemoryAccess$Scope, var$4, scope());
-					$var($Object, var$5, $of(src));
-					int64_t var$6 = srcOffset;
-					$nc($Buffer::SCOPED_MEMORY_ACCESS)->copyMemory(nullptr, var$4, var$5, var$6, $(base()), bufAddr, len);
-				}
-			} catch ($Throwable& var$7) {
-				$assign(var$0, var$7);
-			} /*finally*/ {
-				$Reference::reachabilityFence(this);
+		$var($Throwable, var$0, nullptr);
+		try {
+			if (order() != $ByteOrder::nativeOrder()) {
+				$init($Buffer);
+				$var($ScopedMemoryAccess$Scope, var$1, scope());
+				$nc($Buffer::SCOPED_MEMORY_ACCESS)->copySwapMemory(nullptr, var$1, src, srcOffset, $(base()), bufAddr, len, $Float::BYTES);
+			} else {
+				$init($Buffer);
+				$var($ScopedMemoryAccess$Scope, var$2, scope());
+				$nc($Buffer::SCOPED_MEMORY_ACCESS)->copyMemory(nullptr, var$2, src, srcOffset, $(base()), bufAddr, len);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			$Reference::reachabilityFence(this);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} else {
 		int32_t end = offset + length;
-		{
-			int32_t i = offset;
-			int32_t j = index;
-			for (; i < end; ++i, ++j) {
-				this->put(j, $nc(src)->get(i));
-			}
+		for (int32_t i = offset, j = index; i < end; ++i, ++j) {
+			this->put(j, $nc(src)->get(i));
 		}
 	}
 	return this;
@@ -409,7 +311,7 @@ $Object* FloatBuffer::array() {
 	if (this->isReadOnly$) {
 		$throwNew($ReadOnlyBufferException);
 	}
-	return $of(this->hb);
+	return this->hb;
 }
 
 int32_t FloatBuffer::arrayOffset() {
@@ -458,7 +360,7 @@ FloatBuffer* FloatBuffer::rewind() {
 }
 
 $String* FloatBuffer::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	sb->append($($of(this)->getClass()->getName()));
 	sb->append("[pos="_s);
@@ -537,10 +439,9 @@ int32_t FloatBuffer::compareTo(Object$* that) {
 	return this->compareTo($cast(FloatBuffer, that));
 }
 
-void clinit$FloatBuffer($Class* class$) {
+void FloatBuffer::clinit$($Class* clazz) {
 	FloatBuffer::$assertionsDisabled = !FloatBuffer::class$->desiredAssertionStatus();
 	$init($Buffer);
-	$load($floats);
 	FloatBuffer::ARRAY_BASE_OFFSET = $nc($Buffer::UNSAFE)->arrayBaseOffset($getClass($floats));
 }
 
@@ -548,7 +449,79 @@ FloatBuffer::FloatBuffer() {
 }
 
 $Class* FloatBuffer::load$($String* name, bool initialize) {
-	$loadClass(FloatBuffer, name, initialize, &_FloatBuffer_ClassInfo_, clinit$FloatBuffer, allocate$FloatBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FloatBuffer, $assertionsDisabled)},
+		{"ARRAY_BASE_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatBuffer, ARRAY_BASE_OFFSET)},
+		{"hb", "[F", nullptr, $FINAL, $field(FloatBuffer, hb)},
+		{"offset", "I", nullptr, $FINAL, $field(FloatBuffer, offset)},
+		{"isReadOnly", "Z", nullptr, 0, $field(FloatBuffer, isReadOnly$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"duplicate", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(IIII[FILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(FloatBuffer, init$, void, int32_t, int32_t, int32_t, int32_t, $floats*, int32_t, $MemorySegmentProxy*)},
+		{"<init>", "(IIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(FloatBuffer, init$, void, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"<init>", "([FJILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(FloatBuffer, init$, void, $floats*, int64_t, int32_t, $MemorySegmentProxy*)},
+		{"allocate", "(I)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatBuffer, allocate, FloatBuffer*, int32_t)},
+		{"array", "()[F", nullptr, $PUBLIC | $FINAL, $virtualMethod(FloatBuffer, array, $Object*)},
+		{"arrayOffset", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(FloatBuffer, arrayOffset, int32_t)},
+		{"asReadOnlyBuffer", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FloatBuffer, asReadOnlyBuffer, FloatBuffer*)},
+		{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(FloatBuffer, base, $Object*)},
+		{"clear", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(FloatBuffer, clear, FloatBuffer*)},
+		{"compact", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FloatBuffer, compact, FloatBuffer*)},
+		{"compare", "(FF)I", nullptr, $PRIVATE | $STATIC, $staticMethod(FloatBuffer, compare, int32_t, float, float)},
+		{"compareTo", "(Ljava/nio/FloatBuffer;)I", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, compareTo, int32_t, FloatBuffer*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(FloatBuffer, compareTo, int32_t, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, equals, bool, Object$*)},
+		{"flip", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(FloatBuffer, flip, FloatBuffer*)},
+		{"get", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FloatBuffer, get, float)},
+		{"get", "(I)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FloatBuffer, get, float, int32_t)},
+		{"get", "([FII)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, get, FloatBuffer*, $floats*, int32_t, int32_t)},
+		{"get", "([F)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, get, FloatBuffer*, $floats*)},
+		{"get", "(I[FII)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, get, FloatBuffer*, int32_t, $floats*, int32_t, int32_t)},
+		{"get", "(I[F)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, get, FloatBuffer*, int32_t, $floats*)},
+		{"getArray", "(I[FII)Ljava/nio/FloatBuffer;", nullptr, $PRIVATE, $method(FloatBuffer, getArray, FloatBuffer*, int32_t, $floats*, int32_t, int32_t)},
+		{"hasArray", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(FloatBuffer, hasArray, bool)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, hashCode, int32_t)},
+		{"isDirect", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"limit", "(I)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(FloatBuffer, limit, FloatBuffer*, int32_t)},
+		{"mark", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(FloatBuffer, mark, FloatBuffer*)},
+		{"mismatch", "(Ljava/nio/FloatBuffer;)I", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, mismatch, int32_t, FloatBuffer*)},
+		{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FloatBuffer, order, $ByteOrder*)},
+		{"position", "(I)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(FloatBuffer, position, FloatBuffer*, int32_t)},
+		{"put", "(F)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FloatBuffer, put, FloatBuffer*, float)},
+		{"put", "(IF)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FloatBuffer, put, FloatBuffer*, int32_t, float)},
+		{"put", "(Ljava/nio/FloatBuffer;)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, put, FloatBuffer*, FloatBuffer*)},
+		{"put", "(ILjava/nio/FloatBuffer;II)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, put, FloatBuffer*, int32_t, FloatBuffer*, int32_t, int32_t)},
+		{"put", "([FII)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, put, FloatBuffer*, $floats*, int32_t, int32_t)},
+		{"put", "([F)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $FINAL, $method(FloatBuffer, put, FloatBuffer*, $floats*)},
+		{"put", "(I[FII)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, put, FloatBuffer*, int32_t, $floats*, int32_t, int32_t)},
+		{"put", "(I[F)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, put, FloatBuffer*, int32_t, $floats*)},
+		{"putArray", "(I[FII)Ljava/nio/FloatBuffer;", nullptr, $PRIVATE, $method(FloatBuffer, putArray, FloatBuffer*, int32_t, $floats*, int32_t, int32_t)},
+		{"putBuffer", "(ILjava/nio/FloatBuffer;II)V", nullptr, 0, $virtualMethod(FloatBuffer, putBuffer, void, int32_t, FloatBuffer*, int32_t, int32_t)},
+		{"reset", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(FloatBuffer, reset, FloatBuffer*)},
+		{"rewind", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $FINAL, $virtualMethod(FloatBuffer, rewind, FloatBuffer*)},
+		{"slice", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $ABSTRACT},
+		{"slice", "(II)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $ABSTRACT},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FloatBuffer, toString, $String*)},
+		{"wrap", "([FII)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatBuffer, wrap, FloatBuffer*, $floats*, int32_t, int32_t)},
+		{"wrap", "([F)Ljava/nio/FloatBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(FloatBuffer, wrap, FloatBuffer*, $floats*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.nio.FloatBuffer",
+		"java.nio.Buffer",
+		"java.lang.Comparable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/nio/Buffer;Ljava/lang/Comparable<Ljava/nio/FloatBuffer;>;"
+	};
+	$loadClass(FloatBuffer, name, initialize, &classInfo$$, FloatBuffer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FloatBuffer));
+	});
 	return class$;
 }
 

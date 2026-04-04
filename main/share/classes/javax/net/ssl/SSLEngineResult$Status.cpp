@@ -1,5 +1,4 @@
 #include <javax/net/ssl/SSLEngineResult$Status.h>
-
 #include <java/lang/Enum.h>
 #include <javax/net/ssl/SSLEngineResult.h>
 #include <jcpp.h>
@@ -19,48 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace net {
 		namespace ssl {
-
-$FieldInfo _SSLEngineResult$Status_FieldInfo_[] = {
-	{"BUFFER_UNDERFLOW", "Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLEngineResult$Status, BUFFER_UNDERFLOW)},
-	{"BUFFER_OVERFLOW", "Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLEngineResult$Status, BUFFER_OVERFLOW)},
-	{"OK", "Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLEngineResult$Status, OK)},
-	{"CLOSED", "Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLEngineResult$Status, CLOSED)},
-	{"$VALUES", "[Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLEngineResult$Status, $VALUES)},
-	{}
-};
-
-$MethodInfo _SSLEngineResult$Status_MethodInfo_[] = {
-	{"$values", "()[Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLEngineResult$Status, $values, $SSLEngineResult$StatusArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(SSLEngineResult$Status, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLEngineResult$Status, valueOf, SSLEngineResult$Status*, $String*)},
-	{"values", "()[Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLEngineResult$Status, values, $SSLEngineResult$StatusArray*)},
-	{}
-};
-
-$InnerClassInfo _SSLEngineResult$Status_InnerClassesInfo_[] = {
-	{"javax.net.ssl.SSLEngineResult$Status", "javax.net.ssl.SSLEngineResult", "Status", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _SSLEngineResult$Status_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"javax.net.ssl.SSLEngineResult$Status",
-	"java.lang.Enum",
-	nullptr,
-	_SSLEngineResult$Status_FieldInfo_,
-	_SSLEngineResult$Status_MethodInfo_,
-	"Ljava/lang/Enum<Ljavax/net/ssl/SSLEngineResult$Status;>;",
-	nullptr,
-	_SSLEngineResult$Status_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.net.ssl.SSLEngineResult"
-};
-
-$Object* allocate$SSLEngineResult$Status($Class* clazz) {
-	return $of($alloc(SSLEngineResult$Status));
-}
 
 SSLEngineResult$Status* SSLEngineResult$Status::BUFFER_UNDERFLOW = nullptr;
 SSLEngineResult$Status* SSLEngineResult$Status::BUFFER_OVERFLOW = nullptr;
@@ -92,7 +49,7 @@ void SSLEngineResult$Status::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$SSLEngineResult$Status($Class* class$) {
+void SSLEngineResult$Status::clinit$($Class* clazz) {
 	$assignStatic(SSLEngineResult$Status::BUFFER_UNDERFLOW, $new(SSLEngineResult$Status, "BUFFER_UNDERFLOW"_s, 0));
 	$assignStatic(SSLEngineResult$Status::BUFFER_OVERFLOW, $new(SSLEngineResult$Status, "BUFFER_OVERFLOW"_s, 1));
 	$assignStatic(SSLEngineResult$Status::OK, $new(SSLEngineResult$Status, "OK"_s, 2));
@@ -104,7 +61,43 @@ SSLEngineResult$Status::SSLEngineResult$Status() {
 }
 
 $Class* SSLEngineResult$Status::load$($String* name, bool initialize) {
-	$loadClass(SSLEngineResult$Status, name, initialize, &_SSLEngineResult$Status_ClassInfo_, clinit$SSLEngineResult$Status, allocate$SSLEngineResult$Status);
+	$FieldInfo fieldInfos$$[] = {
+		{"BUFFER_UNDERFLOW", "Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLEngineResult$Status, BUFFER_UNDERFLOW)},
+		{"BUFFER_OVERFLOW", "Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLEngineResult$Status, BUFFER_OVERFLOW)},
+		{"OK", "Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLEngineResult$Status, OK)},
+		{"CLOSED", "Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLEngineResult$Status, CLOSED)},
+		{"$VALUES", "[Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLEngineResult$Status, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLEngineResult$Status, $values, $SSLEngineResult$StatusArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(SSLEngineResult$Status, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLEngineResult$Status, valueOf, SSLEngineResult$Status*, $String*)},
+		{"values", "()[Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLEngineResult$Status, values, $SSLEngineResult$StatusArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.net.ssl.SSLEngineResult$Status", "javax.net.ssl.SSLEngineResult", "Status", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"javax.net.ssl.SSLEngineResult$Status",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljavax/net/ssl/SSLEngineResult$Status;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.net.ssl.SSLEngineResult"
+	};
+	$loadClass(SSLEngineResult$Status, name, initialize, &classInfo$$, SSLEngineResult$Status::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SSLEngineResult$Status));
+	});
 	return class$;
 }
 

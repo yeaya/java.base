@@ -22,12 +22,15 @@ public:
 	void init$($String* message, $String* className, $String* key, $Throwable* cause);
 	virtual $String* getClassName();
 	virtual $String* getKey();
-	static const int64_t serialVersionUID = (int64_t)0xBC53BDE5FAA282EF;
+	static const int64_t serialVersionUID = (int64_t)0xbc53bde5faa282ef;
 	$String* className = nullptr;
 	$String* key = nullptr;
 	MissingResourceException(const MissingResourceException& e);
 	virtual void throw$() override;
-	inline MissingResourceException* operator ->() {
+	inline MissingResourceException* operator ->() const {
+		return (MissingResourceException*)throwing$;
+	}
+	inline operator MissingResourceException*() const {
 		return (MissingResourceException*)throwing$;
 	}
 };

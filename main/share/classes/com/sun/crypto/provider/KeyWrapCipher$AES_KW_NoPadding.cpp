@@ -1,13 +1,10 @@
 #include <com/sun/crypto/provider/KeyWrapCipher$AES_KW_NoPadding.h>
-
 #include <com/sun/crypto/provider/AESKeyWrap.h>
-#include <com/sun/crypto/provider/FeedbackCipher.h>
 #include <com/sun/crypto/provider/KeyWrapCipher.h>
 #include <com/sun/crypto/provider/Padding.h>
 #include <jcpp.h>
 
 using $AESKeyWrap = ::com::sun::crypto::provider::AESKeyWrap;
-using $FeedbackCipher = ::com::sun::crypto::provider::FeedbackCipher;
 using $KeyWrapCipher = ::com::sun::crypto::provider::KeyWrapCipher;
 using $Padding = ::com::sun::crypto::provider::Padding;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -19,36 +16,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$MethodInfo _KeyWrapCipher$AES_KW_NoPadding_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyWrapCipher$AES_KW_NoPadding, init$, void)},
-	{}
-};
-
-$InnerClassInfo _KeyWrapCipher$AES_KW_NoPadding_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.KeyWrapCipher$AES_KW_NoPadding", "com.sun.crypto.provider.KeyWrapCipher", "AES_KW_NoPadding", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _KeyWrapCipher$AES_KW_NoPadding_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.KeyWrapCipher$AES_KW_NoPadding",
-	"com.sun.crypto.provider.KeyWrapCipher",
-	nullptr,
-	nullptr,
-	_KeyWrapCipher$AES_KW_NoPadding_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeyWrapCipher$AES_KW_NoPadding_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.KeyWrapCipher"
-};
-
-$Object* allocate$KeyWrapCipher$AES_KW_NoPadding($Class* clazz) {
-	return $of($alloc(KeyWrapCipher$AES_KW_NoPadding));
-}
-
 void KeyWrapCipher$AES_KW_NoPadding::init$() {
 	$KeyWrapCipher::init$($$new($AESKeyWrap), nullptr, -1);
 }
@@ -57,7 +24,32 @@ KeyWrapCipher$AES_KW_NoPadding::KeyWrapCipher$AES_KW_NoPadding() {
 }
 
 $Class* KeyWrapCipher$AES_KW_NoPadding::load$($String* name, bool initialize) {
-	$loadClass(KeyWrapCipher$AES_KW_NoPadding, name, initialize, &_KeyWrapCipher$AES_KW_NoPadding_ClassInfo_, allocate$KeyWrapCipher$AES_KW_NoPadding);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(KeyWrapCipher$AES_KW_NoPadding, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.KeyWrapCipher$AES_KW_NoPadding", "com.sun.crypto.provider.KeyWrapCipher", "AES_KW_NoPadding", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.KeyWrapCipher$AES_KW_NoPadding",
+		"com.sun.crypto.provider.KeyWrapCipher",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.KeyWrapCipher"
+	};
+	$loadClass(KeyWrapCipher$AES_KW_NoPadding, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyWrapCipher$AES_KW_NoPadding);
+	});
 	return class$;
 }
 

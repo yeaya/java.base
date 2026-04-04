@@ -40,7 +40,7 @@ public:
 	virtual int32_t size() {return 0;}
 	using ::java::security::Identity::toString;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xDF9013F0E89A7002;
+	static const int64_t serialVersionUID = (int64_t)0xdf9013f0e89a7002;
 	static ::java::security::IdentityScope* scope;
 };
 

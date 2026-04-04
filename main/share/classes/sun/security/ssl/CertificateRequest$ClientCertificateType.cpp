@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CertificateRequest$ClientCertificateType.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/Enum.h>
 #include <java/lang/Iterable.h>
@@ -53,94 +52,32 @@ public:
 	virtual void accept(Object$* key) override {
 		CertificateRequest$ClientCertificateType::lambda$getKeyTypes$0(keyTypes, $cast($String, key));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0>());
-	}
 	$ArrayList* keyTypes = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0::fieldInfos[2] = {
-	{"keyTypes", "Ljava/util/ArrayList;", nullptr, $PUBLIC, $field(CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0, keyTypes)},
-	{}
-};
-$MethodInfo CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/ArrayList;)V", nullptr, $PUBLIC, $method(CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0, init$, void, $ArrayList*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0, accept, void, Object$*)},
-	{}
-};
-$ClassInfo CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.security.ssl.CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0::load$($String* name, bool initialize) {
-	$loadClass(CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"keyTypes", "Ljava/util/ArrayList;", nullptr, $PUBLIC, $field(CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0, keyTypes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/ArrayList;)V", nullptr, $PUBLIC, $method(CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0, init$, void, $ArrayList*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.security.ssl.CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0);
+	});
 	return class$;
 }
 $Class* CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0::class$ = nullptr;
-
-$FieldInfo _CertificateRequest$ClientCertificateType_FieldInfo_[] = {
-	{"RSA_SIGN", "Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertificateRequest$ClientCertificateType, RSA_SIGN)},
-	{"DSS_SIGN", "Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertificateRequest$ClientCertificateType, DSS_SIGN)},
-	{"RSA_FIXED_DH", "Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertificateRequest$ClientCertificateType, RSA_FIXED_DH)},
-	{"DSS_FIXED_DH", "Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertificateRequest$ClientCertificateType, DSS_FIXED_DH)},
-	{"RSA_EPHEMERAL_DH", "Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertificateRequest$ClientCertificateType, RSA_EPHEMERAL_DH)},
-	{"DSS_EPHEMERAL_DH", "Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertificateRequest$ClientCertificateType, DSS_EPHEMERAL_DH)},
-	{"FORTEZZA_DMS", "Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertificateRequest$ClientCertificateType, FORTEZZA_DMS)},
-	{"ECDSA_SIGN", "Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertificateRequest$ClientCertificateType, ECDSA_SIGN)},
-	{"RSA_FIXED_ECDH", "Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertificateRequest$ClientCertificateType, RSA_FIXED_ECDH)},
-	{"ECDSA_FIXED_ECDH", "Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertificateRequest$ClientCertificateType, ECDSA_FIXED_ECDH)},
-	{"$VALUES", "[Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CertificateRequest$ClientCertificateType, $VALUES)},
-	{"CERT_TYPES", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CertificateRequest$ClientCertificateType, CERT_TYPES)},
-	{"id", "B", nullptr, $FINAL, $field(CertificateRequest$ClientCertificateType, id)},
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(CertificateRequest$ClientCertificateType, name$)},
-	{"keyAlgorithm", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $FINAL, $field(CertificateRequest$ClientCertificateType, keyAlgorithm)},
-	{"isAvailable", "Z", nullptr, $FINAL, $field(CertificateRequest$ClientCertificateType, isAvailable)},
-	{}
-};
-
-$MethodInfo _CertificateRequest$ClientCertificateType_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CertificateRequest$ClientCertificateType, $values, $CertificateRequest$ClientCertificateTypeArray*)},
-	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;)V", "(BLjava/lang/String;)V", $PRIVATE, $method(CertificateRequest$ClientCertificateType, init$, void, $String*, int32_t, int8_t, $String*)},
-	{"<init>", "(Ljava/lang/String;IBLjava/lang/String;Ljava/util/List;Z)V", "(BLjava/lang/String;Ljava/util/List<Ljava/lang/String;>;Z)V", $PRIVATE, $method(CertificateRequest$ClientCertificateType, init$, void, $String*, int32_t, int8_t, $String*, $List*, bool)},
-	{"getKeyTypes", "([B)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(CertificateRequest$ClientCertificateType, getKeyTypes, $StringArray*, $bytes*)},
-	{"lambda$getKeyTypes$0", "(Ljava/util/ArrayList;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CertificateRequest$ClientCertificateType, lambda$getKeyTypes$0, void, $ArrayList*, $String*)},
-	{"nameOf", "(B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(CertificateRequest$ClientCertificateType, nameOf, $String*, int8_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertificateRequest$ClientCertificateType, valueOf, CertificateRequest$ClientCertificateType*, $String*)},
-	{"valueOf", "(B)Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PRIVATE | $STATIC, $staticMethod(CertificateRequest$ClientCertificateType, valueOf, CertificateRequest$ClientCertificateType*, int8_t)},
-	{"values", "()[Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertificateRequest$ClientCertificateType, values, $CertificateRequest$ClientCertificateTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _CertificateRequest$ClientCertificateType_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertificateRequest$ClientCertificateType", "sun.security.ssl.CertificateRequest", "ClientCertificateType", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _CertificateRequest$ClientCertificateType_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.ssl.CertificateRequest$ClientCertificateType",
-	"java.lang.Enum",
-	nullptr,
-	_CertificateRequest$ClientCertificateType_FieldInfo_,
-	_CertificateRequest$ClientCertificateType_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/ssl/CertificateRequest$ClientCertificateType;>;",
-	nullptr,
-	_CertificateRequest$ClientCertificateType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertificateRequest"
-};
-
-$Object* allocate$CertificateRequest$ClientCertificateType($Class* clazz) {
-	return $of($alloc(CertificateRequest$ClientCertificateType));
-}
 
 CertificateRequest$ClientCertificateType* CertificateRequest$ClientCertificateType::RSA_SIGN = nullptr;
 CertificateRequest$ClientCertificateType* CertificateRequest$ClientCertificateType::DSS_SIGN = nullptr;
@@ -195,17 +132,13 @@ void CertificateRequest$ClientCertificateType::init$($String* $enum$name, int32_
 
 $String* CertificateRequest$ClientCertificateType::nameOf(int8_t id) {
 	$init(CertificateRequest$ClientCertificateType);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($CertificateRequest$ClientCertificateTypeArray, arr$, CertificateRequest$ClientCertificateType::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			CertificateRequest$ClientCertificateType* cct = arr$->get(i$);
-			{
-				if ($nc(cct)->id == id) {
-					return cct->name$;
-				}
+			if ($nc(cct)->id == id) {
+				return cct->name$;
 			}
 		}
 	}
@@ -214,17 +147,11 @@ $String* CertificateRequest$ClientCertificateType::nameOf(int8_t id) {
 
 CertificateRequest$ClientCertificateType* CertificateRequest$ClientCertificateType::valueOf(int8_t id) {
 	$init(CertificateRequest$ClientCertificateType);
-	{
-		$var($CertificateRequest$ClientCertificateTypeArray, arr$, CertificateRequest$ClientCertificateType::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			CertificateRequest$ClientCertificateType* cct = arr$->get(i$);
-			{
-				if ($nc(cct)->id == id) {
-					return cct;
-				}
-			}
+	$var($CertificateRequest$ClientCertificateTypeArray, arr$, CertificateRequest$ClientCertificateType::values());
+	for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+		CertificateRequest$ClientCertificateType* cct = arr$->get(i$);
+		if ($nc(cct)->id == id) {
+			return cct;
 		}
 	}
 	return nullptr;
@@ -232,23 +159,21 @@ CertificateRequest$ClientCertificateType* CertificateRequest$ClientCertificateTy
 
 $StringArray* CertificateRequest$ClientCertificateType::getKeyTypes($bytes* ids) {
 	$init(CertificateRequest$ClientCertificateType);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, keyTypes, $new($ArrayList, 3));
 	{
 		$var($bytes, arr$, ids);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int8_t id = arr$->get(i$);
 			{
 				CertificateRequest$ClientCertificateType* cct = CertificateRequest$ClientCertificateType::valueOf(id);
-				if ($nc(cct)->isAvailable) {
-					$nc(cct->keyAlgorithm)->forEach(static_cast<$Consumer*>($$new(CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0, keyTypes)));
+				if (cct->isAvailable) {
+					$nc(cct->keyAlgorithm)->forEach($$new(CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0, keyTypes));
 				}
 			}
 		}
 	}
-	return $fcast($StringArray, keyTypes->toArray($$new($StringArray, 0)));
+	return $cast($StringArray, keyTypes->toArray($$new($StringArray, 0)));
 }
 
 void CertificateRequest$ClientCertificateType::lambda$getKeyTypes$0($ArrayList* keyTypes, $String* key) {
@@ -258,20 +183,19 @@ void CertificateRequest$ClientCertificateType::lambda$getKeyTypes$0($ArrayList* 
 	}
 }
 
-void clinit$CertificateRequest$ClientCertificateType($Class* class$) {
-	$useLocalCurrentObjectStackCache();
-	$assignStatic(CertificateRequest$ClientCertificateType::RSA_SIGN, $new(CertificateRequest$ClientCertificateType, "RSA_SIGN"_s, 0, (int8_t)1, "rsa_sign"_s, $($List::of($of("RSA"_s))), true));
-	$assignStatic(CertificateRequest$ClientCertificateType::DSS_SIGN, $new(CertificateRequest$ClientCertificateType, "DSS_SIGN"_s, 1, (int8_t)2, "dss_sign"_s, $($List::of($of("DSA"_s))), true));
+void CertificateRequest$ClientCertificateType::clinit$($Class* clazz) {
+	$useLocalObjectStack();
+	$assignStatic(CertificateRequest$ClientCertificateType::RSA_SIGN, $new(CertificateRequest$ClientCertificateType, "RSA_SIGN"_s, 0, (int8_t)1, "rsa_sign"_s, $($List::of("RSA"_s)), true));
+	$assignStatic(CertificateRequest$ClientCertificateType::DSS_SIGN, $new(CertificateRequest$ClientCertificateType, "DSS_SIGN"_s, 1, (int8_t)2, "dss_sign"_s, $($List::of("DSA"_s)), true));
 	$assignStatic(CertificateRequest$ClientCertificateType::RSA_FIXED_DH, $new(CertificateRequest$ClientCertificateType, "RSA_FIXED_DH"_s, 2, (int8_t)3, "rsa_fixed_dh"_s));
 	$assignStatic(CertificateRequest$ClientCertificateType::DSS_FIXED_DH, $new(CertificateRequest$ClientCertificateType, "DSS_FIXED_DH"_s, 3, (int8_t)4, "dss_fixed_dh"_s));
 	$assignStatic(CertificateRequest$ClientCertificateType::RSA_EPHEMERAL_DH, $new(CertificateRequest$ClientCertificateType, "RSA_EPHEMERAL_DH"_s, 4, (int8_t)5, "rsa_ephemeral_dh"_s));
 	$assignStatic(CertificateRequest$ClientCertificateType::DSS_EPHEMERAL_DH, $new(CertificateRequest$ClientCertificateType, "DSS_EPHEMERAL_DH"_s, 5, (int8_t)6, "dss_ephemeral_dh"_s));
 	$assignStatic(CertificateRequest$ClientCertificateType::FORTEZZA_DMS, $new(CertificateRequest$ClientCertificateType, "FORTEZZA_DMS"_s, 6, (int8_t)20, "fortezza_dms"_s));
 	$var($String, var$0, "ECDSA_SIGN"_s);
-	int8_t var$1 = (int8_t)64;
-	$var($String, var$2, "ecdsa_sign"_s);
-	$var($List, var$3, $List::of("EC"_s, "EdDSA"_s));
-	$assignStatic(CertificateRequest$ClientCertificateType::ECDSA_SIGN, $new(CertificateRequest$ClientCertificateType, var$0, 7, var$1, var$2, var$3, $JsseJce::isEcAvailable()));
+	$var($String, var$1, "ecdsa_sign"_s);
+	$var($List, var$2, $List::of("EC"_s, "EdDSA"_s));
+	$assignStatic(CertificateRequest$ClientCertificateType::ECDSA_SIGN, $new(CertificateRequest$ClientCertificateType, var$0, 7, (int8_t)64, var$1, var$2, $JsseJce::isEcAvailable()));
 	$assignStatic(CertificateRequest$ClientCertificateType::RSA_FIXED_ECDH, $new(CertificateRequest$ClientCertificateType, "RSA_FIXED_ECDH"_s, 8, (int8_t)65, "rsa_fixed_ecdh"_s));
 	$assignStatic(CertificateRequest$ClientCertificateType::ECDSA_FIXED_ECDH, $new(CertificateRequest$ClientCertificateType, "ECDSA_FIXED_ECDH"_s, 9, (int8_t)66, "ecdsa_fixed_ecdh"_s));
 	$assignStatic(CertificateRequest$ClientCertificateType::$VALUES, CertificateRequest$ClientCertificateType::$values());
@@ -290,11 +214,63 @@ CertificateRequest$ClientCertificateType::CertificateRequest$ClientCertificateTy
 
 $Class* CertificateRequest$ClientCertificateType::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0::classInfo$.name)) {
+		if (name->equals("sun.security.ssl.CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0")) {
 			return CertificateRequest$ClientCertificateType$$Lambda$lambda$getKeyTypes$0::load$(name, initialize);
 		}
 	}
-	$loadClass(CertificateRequest$ClientCertificateType, name, initialize, &_CertificateRequest$ClientCertificateType_ClassInfo_, clinit$CertificateRequest$ClientCertificateType, allocate$CertificateRequest$ClientCertificateType);
+	$FieldInfo fieldInfos$$[] = {
+		{"RSA_SIGN", "Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertificateRequest$ClientCertificateType, RSA_SIGN)},
+		{"DSS_SIGN", "Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertificateRequest$ClientCertificateType, DSS_SIGN)},
+		{"RSA_FIXED_DH", "Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertificateRequest$ClientCertificateType, RSA_FIXED_DH)},
+		{"DSS_FIXED_DH", "Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertificateRequest$ClientCertificateType, DSS_FIXED_DH)},
+		{"RSA_EPHEMERAL_DH", "Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertificateRequest$ClientCertificateType, RSA_EPHEMERAL_DH)},
+		{"DSS_EPHEMERAL_DH", "Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertificateRequest$ClientCertificateType, DSS_EPHEMERAL_DH)},
+		{"FORTEZZA_DMS", "Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertificateRequest$ClientCertificateType, FORTEZZA_DMS)},
+		{"ECDSA_SIGN", "Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertificateRequest$ClientCertificateType, ECDSA_SIGN)},
+		{"RSA_FIXED_ECDH", "Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertificateRequest$ClientCertificateType, RSA_FIXED_ECDH)},
+		{"ECDSA_FIXED_ECDH", "Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertificateRequest$ClientCertificateType, ECDSA_FIXED_ECDH)},
+		{"$VALUES", "[Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CertificateRequest$ClientCertificateType, $VALUES)},
+		{"CERT_TYPES", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CertificateRequest$ClientCertificateType, CERT_TYPES)},
+		{"id", "B", nullptr, $FINAL, $field(CertificateRequest$ClientCertificateType, id)},
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(CertificateRequest$ClientCertificateType, name$)},
+		{"keyAlgorithm", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $FINAL, $field(CertificateRequest$ClientCertificateType, keyAlgorithm)},
+		{"isAvailable", "Z", nullptr, $FINAL, $field(CertificateRequest$ClientCertificateType, isAvailable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CertificateRequest$ClientCertificateType, $values, $CertificateRequest$ClientCertificateTypeArray*)},
+		{"<init>", "(Ljava/lang/String;IBLjava/lang/String;)V", "(BLjava/lang/String;)V", $PRIVATE, $method(CertificateRequest$ClientCertificateType, init$, void, $String*, int32_t, int8_t, $String*)},
+		{"<init>", "(Ljava/lang/String;IBLjava/lang/String;Ljava/util/List;Z)V", "(BLjava/lang/String;Ljava/util/List<Ljava/lang/String;>;Z)V", $PRIVATE, $method(CertificateRequest$ClientCertificateType, init$, void, $String*, int32_t, int8_t, $String*, $List*, bool)},
+		{"getKeyTypes", "([B)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(CertificateRequest$ClientCertificateType, getKeyTypes, $StringArray*, $bytes*)},
+		{"lambda$getKeyTypes$0", "(Ljava/util/ArrayList;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CertificateRequest$ClientCertificateType, lambda$getKeyTypes$0, void, $ArrayList*, $String*)},
+		{"nameOf", "(B)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(CertificateRequest$ClientCertificateType, nameOf, $String*, int8_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertificateRequest$ClientCertificateType, valueOf, CertificateRequest$ClientCertificateType*, $String*)},
+		{"valueOf", "(B)Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PRIVATE | $STATIC, $staticMethod(CertificateRequest$ClientCertificateType, valueOf, CertificateRequest$ClientCertificateType*, int8_t)},
+		{"values", "()[Lsun/security/ssl/CertificateRequest$ClientCertificateType;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertificateRequest$ClientCertificateType, values, $CertificateRequest$ClientCertificateTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertificateRequest$ClientCertificateType", "sun.security.ssl.CertificateRequest", "ClientCertificateType", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.ssl.CertificateRequest$ClientCertificateType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/ssl/CertificateRequest$ClientCertificateType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertificateRequest"
+	};
+	$loadClass(CertificateRequest$ClientCertificateType, name, initialize, &classInfo$$, CertificateRequest$ClientCertificateType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CertificateRequest$ClientCertificateType));
+	});
 	return class$;
 }
 

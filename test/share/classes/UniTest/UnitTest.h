@@ -93,6 +93,7 @@ class $export UnitTest : public ::java::lang::Object {
 	$class(UnitTest, 0, ::java::lang::Object)
 public:
 	UnitTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::Iterator* it);
 	void init$(::java::util::Set* s);
 	void init$(::java::util::Map* s);

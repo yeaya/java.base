@@ -26,7 +26,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)292;
 	WrongMethodTypeException(const WrongMethodTypeException& e);
 	virtual void throw$() override;
-	inline WrongMethodTypeException* operator ->() {
+	inline WrongMethodTypeException* operator ->() const {
+		return (WrongMethodTypeException*)throwing$;
+	}
+	inline operator WrongMethodTypeException*() const {
 		return (WrongMethodTypeException*)throwing$;
 	}
 };

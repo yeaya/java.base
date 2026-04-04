@@ -38,6 +38,7 @@ class ClassSpecializer$Factory$1Var : public ::java::lang::Object {
 	$class(ClassSpecializer$Factory$1Var, 0, ::java::lang::Object)
 public:
 	ClassSpecializer$Factory$1Var();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::ClassSpecializer$Factory* this$1, int32_t index, int32_t slotIndex, $String* val$className);
 	void init$(::java::lang::invoke::ClassSpecializer$Factory* this$1, $String* name, $Class* type, ::java::lang::invoke::ClassSpecializer$Factory$1Var* prev, $String* val$className);
 	virtual void emitFieldInsn(int32_t asmop, ::jdk::internal::org::objectweb::asm$::MethodVisitor* mv);

@@ -1,5 +1,4 @@
 #include <jdk/internal/perf/Perf$GetPerfAction.h>
-
 #include <jdk/internal/perf/Perf.h>
 #include <jcpp.h>
 
@@ -12,49 +11,44 @@ namespace jdk {
 	namespace internal {
 		namespace perf {
 
-$MethodInfo _Perf$GetPerfAction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Perf$GetPerfAction, init$, void)},
-	{"run", "()Ljdk/internal/perf/Perf;", nullptr, $PUBLIC, $virtualMethod(Perf$GetPerfAction, run, $Object*)},
-	{}
-};
-
-$InnerClassInfo _Perf$GetPerfAction_InnerClassesInfo_[] = {
-	{"jdk.internal.perf.Perf$GetPerfAction", "jdk.internal.perf.Perf", "GetPerfAction", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Perf$GetPerfAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.perf.Perf$GetPerfAction",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_Perf$GetPerfAction_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljdk/internal/perf/Perf;>;",
-	nullptr,
-	_Perf$GetPerfAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.perf.Perf"
-};
-
-$Object* allocate$Perf$GetPerfAction($Class* clazz) {
-	return $of($alloc(Perf$GetPerfAction));
-}
-
 void Perf$GetPerfAction::init$() {
 }
 
 $Object* Perf$GetPerfAction::run() {
-	return $of($Perf::getPerf());
+	return $Perf::getPerf();
 }
 
 Perf$GetPerfAction::Perf$GetPerfAction() {
 }
 
 $Class* Perf$GetPerfAction::load$($String* name, bool initialize) {
-	$loadClass(Perf$GetPerfAction, name, initialize, &_Perf$GetPerfAction_ClassInfo_, allocate$Perf$GetPerfAction);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Perf$GetPerfAction, init$, void)},
+		{"run", "()Ljdk/internal/perf/Perf;", nullptr, $PUBLIC, $virtualMethod(Perf$GetPerfAction, run, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.perf.Perf$GetPerfAction", "jdk.internal.perf.Perf", "GetPerfAction", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.perf.Perf$GetPerfAction",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljdk/internal/perf/Perf;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.perf.Perf"
+	};
+	$loadClass(Perf$GetPerfAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Perf$GetPerfAction);
+	});
 	return class$;
 }
 

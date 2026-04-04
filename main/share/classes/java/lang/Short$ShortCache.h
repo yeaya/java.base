@@ -18,6 +18,7 @@ class Short$ShortCache : public ::java::lang::Object {
 	$class(Short$ShortCache, 0, ::java::lang::Object)
 public:
 	Short$ShortCache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Array<::java::lang::Short>* cache;
 	static $Array<::java::lang::Short>* archivedCache;

@@ -1,5 +1,4 @@
 #include <sun/launcher/resources/launcher_ko.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -12,131 +11,112 @@ namespace sun {
 	namespace launcher {
 		namespace resources {
 
-$MethodInfo _launcher_ko_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(launcher_ko, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(launcher_ko, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _launcher_ko_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.launcher.resources.launcher_ko",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_launcher_ko_MethodInfo_
-};
-
-$Object* allocate$launcher_ko($Class* clazz) {
-	return $of($alloc(launcher_ko));
-}
-
 void launcher_ko::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* launcher_ko::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("java.launcher.X.macosx.usage"_s),
-			$of(u"\n다음은 Mac OS X에 특정된 옵션입니다.\n    -XstartOnFirstThread\n                      첫번째 (AppKit) 스레드에 main() 메소드를 실행합니다.\n    -Xdock:name=<application name>\n                      고정으로 표시된 기본 애플리케이션 이름을 무효화합니다.\n    -Xdock:icon=<path to icon file>\n                      고정으로 표시된 기본 아이콘을 무효화합니다.\n\n"_s)
+			"java.launcher.X.macosx.usage"_s,
+			u"\n다음은 Mac OS X에 특정된 옵션입니다.\n    -XstartOnFirstThread\n                      첫번째 (AppKit) 스레드에 main() 메소드를 실행합니다.\n    -Xdock:name=<application name>\n                      고정으로 표시된 기본 애플리케이션 이름을 무효화합니다.\n    -Xdock:icon=<path to icon file>\n                      고정으로 표시된 기본 아이콘을 무효화합니다.\n\n"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.X.usage"_s),
-			$of(u"\n    -Xbatch           백그라운드 컴파일을 사용 안함으로 설정합니다.\n    -Xbootclasspath/a:<{0}(으)로 구분된 디렉토리 및 zip/jar 파일>\n                      부트스트랩 클래스 경로 끝에 추가합니다.\n    -Xcheck:jni       JNI 함수에 대한 추가 검사를 수행합니다.\n    -Xcomp            첫번째 호출에서 메소드 컴파일을 강제합니다.\n    -Xdebug           역 호환성을 위해 제공되었습니다.\n    -Xdiag            추가 진단 메시지를 표시합니다.\n    -Xfuture          미래 기본값을 예측하여 가장 엄격한 검사를 사용으로 설정합니다.\n    -Xint             해석된 모드만 실행합니다.\n    -Xinternalversion\n                      -version 옵션보다 상세한 JVM 버전 정보를\n                      표시합니다.\n    -Xloggc:<file>    시간기록과 함께 파일에 GC 상태를 기록합니다.\n    -Xmixed           혼합 모드를 실행합니다(기본값).\n    -Xmn<size>        젊은 세대(Nursery)를 위해 힙의 초기 및 최대\n                      크기(바이트)를 설정합니다.\n    -Xms<size>        초기 Java 힙 크기를 설정합니다.\n    -Xmx<size>        최대 Java 힙 크기를 설정합니다.\n    -Xnoclassgc       클래스의 불필요한 정보 모음을 사용 안함으로 설정합니다.\n    -Xrs              Java/VM에 의한 OS 신호 사용을 줄입니다(설명서 참조).\n    -Xshare:auto      가능한 경우 공유 클래스 데이터를 사용합니다(기본값).\n    -Xshare:off       공유 클래스 데이터 사용을 시도하지 않습니다.\n    -Xshare:on        공유 "
+			"java.launcher.X.usage"_s,
+			u"\n    -Xbatch           백그라운드 컴파일을 사용 안함으로 설정합니다.\n    -Xbootclasspath/a:<{0}(으)로 구분된 디렉토리 및 zip/jar 파일>\n                      부트스트랩 클래스 경로 끝에 추가합니다.\n    -Xcheck:jni       JNI 함수에 대한 추가 검사를 수행합니다.\n    -Xcomp            첫번째 호출에서 메소드 컴파일을 강제합니다.\n    -Xdebug           역 호환성을 위해 제공되었습니다.\n    -Xdiag            추가 진단 메시지를 표시합니다.\n    -Xfuture          미래 기본값을 예측하여 가장 엄격한 검사를 사용으로 설정합니다.\n    -Xint             해석된 모드만 실행합니다.\n    -Xinternalversion\n                      -version 옵션보다 상세한 JVM 버전 정보를\n                      표시합니다.\n    -Xloggc:<file>    시간기록과 함께 파일에 GC 상태를 기록합니다.\n    -Xmixed           혼합 모드를 실행합니다(기본값).\n    -Xmn<size>        젊은 세대(Nursery)를 위해 힙의 초기 및 최대\n                      크기(바이트)를 설정합니다.\n    -Xms<size>        초기 Java 힙 크기를 설정합니다.\n    -Xmx<size>        최대 Java 힙 크기를 설정합니다.\n    -Xnoclassgc       클래스의 불필요한 정보 모음을 사용 안함으로 설정합니다.\n    -Xrs              Java/VM에 의한 OS 신호 사용을 줄입니다(설명서 참조).\n    -Xshare:auto      가능한 경우 공유 클래스 데이터를 사용합니다(기본값).\n    -Xshare:off       공유 클래스 데이터 사용을 시도하지 않습니다.\n    -Xshare:on        공유 "
 				"클래스 데이터를 사용해야 합니다. 그렇지 않을 경우 실패합니다.\n    -XshowSettings    모든 설정을 표시한 후 계속합니다.\n    -XshowSettings:all\n                      모든 설정을 표시한 후 계속합니다.\n    -XshowSettings:locale\n                      모든 로케일 관련 설정을 표시한 후 계속합니다.\n    -XshowSettings:properties\n                      모든 속성 설정을 표시한 후 계속합니다.\n    -XshowSettings:vm 모든 VM 관련 설정을 표시한 후 계속합니다.\n    -Xss<size>        Java 스레드 스택 크기를 설정합니다.\n    -Xverify          바이트코드 검증자의 모드를 설정합니다.\n    --add-reads <module>=<target-module>(,<target-module>)*\n                      모듈 선언에 관계없이 <target-module>을 읽도록\n                      <module>을 업데이트합니다. \n                      <target-module>은 이름이 지정되지 않은 모든 모듈을 읽을 수 있는\n                      ALL-UNNAMED일 수 있습니다.\n    --add-exports <module>/<package>=<target-module>(,<target-module>)*\n\n                      모듈 선언에 관계없이 <package>를 <target-module>로 익스포트하도록\n                      <module>을 업데이트합니다.\n                      <target-module>은 이름이 지정되지 않은 모든 모듈로 익스포트할 수 있는\n                      ALL-UNNAMED일 수 있습니다.\n    --add-opens <module>/<packag"
-				"e>=<target-module>(,<target-module>)*\n                      모듈 선언에 관계없이 <package>를 <target-module>로 열도록\n                      <module>을 업데이트합니다.\n    --illegal-access=<value>\n                      이름이 지정되지 않은 모듈의 코드를 사용하여 이름이 지정된 모듈의 유형 멤버에 대한\n                      액세스 권한을 허용 또는 거부합니다.\n                      <value>는 \"deny\", \"permit\", \"warn\" 또는 \"debug\" 중 하나입니다.\n                      이 옵션은 이후 릴리스에서 제거됩니다.\n    --limit-modules <module name>[,<module name>...]\n                      관찰 가능한 모듈의 공용을 제한합니다.\n    --patch-module <module>=<file>({0}<file>)*\n                      JAR 파일 또는 디렉토리의 클래스와 리소스로 모듈을\n                      무효화하거나 인수화합니다.\n    --disable-@files  추가 인수 파일 확장을 사용 안함으로 설정합니다.\n\n이러한 추가 옵션은 통지 없이 변경될 수 있습니다.\n"_s)
+				"e>=<target-module>(,<target-module>)*\n                      모듈 선언에 관계없이 <package>를 <target-module>로 열도록\n                      <module>을 업데이트합니다.\n    --illegal-access=<value>\n                      이름이 지정되지 않은 모듈의 코드를 사용하여 이름이 지정된 모듈의 유형 멤버에 대한\n                      액세스 권한을 허용 또는 거부합니다.\n                      <value>는 \"deny\", \"permit\", \"warn\" 또는 \"debug\" 중 하나입니다.\n                      이 옵션은 이후 릴리스에서 제거됩니다.\n    --limit-modules <module name>[,<module name>...]\n                      관찰 가능한 모듈의 공용을 제한합니다.\n    --patch-module <module>=<file>({0}<file>)*\n                      JAR 파일 또는 디렉토리의 클래스와 리소스로 모듈을\n                      무효화하거나 인수화합니다.\n    --disable-@files  추가 인수 파일 확장을 사용 안함으로 설정합니다.\n\n이러한 추가 옵션은 통지 없이 변경될 수 있습니다.\n"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.cls.error1"_s),
-			$of(u"오류: 기본 클래스 {0}을(를) 찾거나 로드할 수 없습니다.\n원인: {1}: {2}"_s)
+			"java.launcher.cls.error1"_s,
+			u"오류: 기본 클래스 {0}을(를) 찾거나 로드할 수 없습니다.\n원인: {1}: {2}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.cls.error2"_s),
-			$of(u"오류: {1} 클래스에서 기본 메소드가 {0}이(가) 아닙니다. 다음 형식으로 기본 메소드를 정의하십시오.\n   public static void main(String[] args)"_s)
+			"java.launcher.cls.error2"_s,
+			u"오류: {1} 클래스에서 기본 메소드가 {0}이(가) 아닙니다. 다음 형식으로 기본 메소드를 정의하십시오.\n   public static void main(String[] args)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.cls.error3"_s),
-			$of(u"오류: 기본 메소드는 {0} 클래스에서 void 유형의 값을 반환해야 합니다. \n다음 형식으로 기본 메소드를 정의하십시오.\n   public static void main(String[] args)"_s)
+			"java.launcher.cls.error3"_s,
+			u"오류: 기본 메소드는 {0} 클래스에서 void 유형의 값을 반환해야 합니다. \n다음 형식으로 기본 메소드를 정의하십시오.\n   public static void main(String[] args)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.cls.error4"_s),
-			$of(u"오류: {0} 클래스에서 기본 메소드를 찾을 수 없습니다. 다음 형식으로 기본 메소드를 정의하십시오.\r\n   public static void main(String[] args)\r\n또는 JavaFX 애플리케이션 클래스는 {1}을(를) 확장해야 합니다."_s)
+			"java.launcher.cls.error4"_s,
+			u"오류: {0} 클래스에서 기본 메소드를 찾을 수 없습니다. 다음 형식으로 기본 메소드를 정의하십시오.\r\n   public static void main(String[] args)\r\n또는 JavaFX 애플리케이션 클래스는 {1}을(를) 확장해야 합니다."_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.cls.error5"_s),
-			$of(u"오류: 이 애플리케이션을 실행하는 데 필요한 JavaFX 런타임 구성요소가 누락되었습니다."_s)
+			"java.launcher.cls.error5"_s,
+			u"오류: 이 애플리케이션을 실행하는 데 필요한 JavaFX 런타임 구성요소가 누락되었습니다."_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.cls.error6"_s),
-			$of(u"오류: 기본 클래스 {0}을(를) 로드하는 중 LinkageError가 발생했습니다.\n\t{1}"_s)
+			"java.launcher.cls.error6"_s,
+			u"오류: 기본 클래스 {0}을(를) 로드하는 중 LinkageError가 발생했습니다.\n\t{1}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.cls.error7"_s),
-			$of(u"오류: 기본 클래스 {0}을(를) 초기화할 수 없습니다.\n원인: {1}: {2}"_s)
+			"java.launcher.cls.error7"_s,
+			u"오류: 기본 클래스 {0}을(를) 초기화할 수 없습니다.\n원인: {1}: {2}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.init.error"_s),
-			$of(u"초기화 오류"_s)
+			"java.launcher.init.error"_s,
+			u"초기화 오류"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.jar.error1"_s),
-			$of(u"오류: {0} 파일을 열려고 시도하는 중 예상치 않은 오류가 발생했습니다."_s)
+			"java.launcher.jar.error1"_s,
+			u"오류: {0} 파일을 열려고 시도하는 중 예상치 않은 오류가 발생했습니다."_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.jar.error2"_s),
-			$of(u"{0}에서 Manifest를 찾을 수 없습니다."_s)
+			"java.launcher.jar.error2"_s,
+			u"{0}에서 Manifest를 찾을 수 없습니다."_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.jar.error3"_s),
-			$of(u"{0}에 기본 Manifest 속성이 없습니다."_s)
+			"java.launcher.jar.error3"_s,
+			u"{0}에 기본 Manifest 속성이 없습니다."_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.jar.error4"_s),
-			$of(u"{0}에서 Java 에이전트를 로드하는 중 오류가 발생했습니다."_s)
+			"java.launcher.jar.error4"_s,
+			u"{0}에서 Java 에이전트를 로드하는 중 오류가 발생했습니다."_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.javafx.error1"_s),
-			$of(u"오류: JavaFX launchApplication 메소드에 잘못된 서명이 있습니다.\\n따라서 static으로 선언하고 void 유형의 값을 반환해야 합니다."_s)
+			"java.launcher.javafx.error1"_s,
+			u"오류: JavaFX launchApplication 메소드에 잘못된 서명이 있습니다.\\n따라서 static으로 선언하고 void 유형의 값을 반환해야 합니다."_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.module.error1"_s),
-			$of(u"{0} 모듈에 MainClass 속성이 없습니다. -m <module>/<main-class>를 사용하십시오."_s)
+			"java.launcher.module.error1"_s,
+			u"{0} 모듈에 MainClass 속성이 없습니다. -m <module>/<main-class>를 사용하십시오."_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.module.error2"_s),
-			$of(u"오류: {1} 모듈의 기본 클래스 {0}을(를) 찾거나 로드할 수 없습니다."_s)
+			"java.launcher.module.error2"_s,
+			u"오류: {1} 모듈의 기본 클래스 {0}을(를) 찾거나 로드할 수 없습니다."_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.module.error3"_s),
-			$of(u"오류: {1} 모듈의 기본 클래스 {0}을(를) 로드할 수 없습니다.\n\t{2}"_s)
+			"java.launcher.module.error3"_s,
+			u"오류: {1} 모듈의 기본 클래스 {0}을(를) 로드할 수 없습니다.\n\t{2}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.module.error4"_s),
-			$of(u"{0}을(를) 찾을 수 없습니다."_s)
+			"java.launcher.module.error4"_s,
+			u"{0}을(를) 찾을 수 없습니다."_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.module.error5"_s),
-			$of(u"오류: {1} 모듈의 기본 클래스 {0}을(를) 초기화할 수 없습니다.\n원인: {1}: {2}"_s)
+			"java.launcher.module.error5"_s,
+			u"오류: {1} 모듈의 기본 클래스 {0}을(를) 초기화할 수 없습니다.\n원인: {1}: {2}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.opt.footer"_s),
-			$of(u"    -cp <디렉토리 및 zip/jar 파일의 클래스 검색 경로>\n    -classpath <디렉토리 및 zip/jar 파일의 클래스 검색 경로>\n    --class-path <디렉토리 및 zip/jar 파일의 클래스 검색 경로>\n                  클래스 파일을 검색하기 위한 디렉토리, JAR 아카이브 및 ZIP 아카이브의 {0}(으)로\n                  구분된 목록입니다.\n    -p <모듈 경로>\n    --module-path <모듈 경로>...\n                  디렉토리의 {0}(으)로 구분된 목록입니다. 각 디렉토리는\n                  모듈의 디렉토리입니다.\n    --upgrade-module-path <모듈 경로>...\n                  디렉토리의 {0}(으)로 구분된 목록입니다. 각 디렉토리는\n                  런타임 이미지에서 업그레이드 가능한 모듈을 대체하는\n                  모듈의 디렉토리입니다.\n    --add-modules <모듈 이름>[,<모듈 이름>...]\n                  초기 모듈 이외의 해결할 루트 모듈입니다.\n                  <모듈 이름>은 ALL-DEFAULT, ALL-SYSTEM일 수 있습니다.\n                  ALL-MODULE-PATH.\n    --list-modules\n                  관찰 가능한 모듈을 나열하고 종료합니다.\n    -d <모듈 이름>\n    --describe-module <모듈 이름>\n                  모듈을 설명하고 종료합니다.\n    --dry-run     VM을 생성하고 기본 클래스를 로드하지만 기본 메소드를 실행하지는 않습니다.\n                  --dry-run 옵션은 모듈 시스템 구성과 같은\n                  명령줄 옵션 검증에 유용할 수 있습니다.\n    --validate-modules\n               "
+			"java.launcher.opt.footer"_s,
+			u"    -cp <디렉토리 및 zip/jar 파일의 클래스 검색 경로>\n    -classpath <디렉토리 및 zip/jar 파일의 클래스 검색 경로>\n    --class-path <디렉토리 및 zip/jar 파일의 클래스 검색 경로>\n                  클래스 파일을 검색하기 위한 디렉토리, JAR 아카이브 및 ZIP 아카이브의 {0}(으)로\n                  구분된 목록입니다.\n    -p <모듈 경로>\n    --module-path <모듈 경로>...\n                  디렉토리의 {0}(으)로 구분된 목록입니다. 각 디렉토리는\n                  모듈의 디렉토리입니다.\n    --upgrade-module-path <모듈 경로>...\n                  디렉토리의 {0}(으)로 구분된 목록입니다. 각 디렉토리는\n                  런타임 이미지에서 업그레이드 가능한 모듈을 대체하는\n                  모듈의 디렉토리입니다.\n    --add-modules <모듈 이름>[,<모듈 이름>...]\n                  초기 모듈 이외의 해결할 루트 모듈입니다.\n                  <모듈 이름>은 ALL-DEFAULT, ALL-SYSTEM일 수 있습니다.\n                  ALL-MODULE-PATH.\n    --list-modules\n                  관찰 가능한 모듈을 나열하고 종료합니다.\n    -d <모듈 이름>\n    --describe-module <모듈 이름>\n                  모듈을 설명하고 종료합니다.\n    --dry-run     VM을 생성하고 기본 클래스를 로드하지만 기본 메소드를 실행하지는 않습니다.\n                  --dry-run 옵션은 모듈 시스템 구성과 같은\n                  명령줄 옵션 검증에 유용할 수 있습니다.\n    --validate-modules\n               "
 				"   모든 모듈을 검증하고 종료합니다.\n                  --validate-modules 옵션은 모듈 경로에서 모듈에 대한\n                  충돌 및 기타 오류를 찾는 데 유용할 수 있습니다.\n    -D<이름>=<값>\n                  시스템 속성을 설정합니다.\n    -verbose:[class|module|gc|jni]\n                  상세 정보 출력을 사용으로 설정\n    -version      오류 스트림에 제품 버전을 인쇄하고 종료합니다.\n    --version     출력 스트림에 제품 버전을 인쇄하고 종료합니다.\n    -showversion  오류 스트림에 제품 버전을 인쇄하고 계속합니다.\n    --show-version\n                  출력 스트림에 제품 버전을 인쇄하고 계속합니다.\n    --show-module-resolution\n                  시작 중 모듈 분석 출력을 표시합니다.\n    -? -h -help\n                  오류 스트림에 이 도움말 메시지를 인쇄합니다.\n    --help        출력 스트림에 이 도움말 메시지를 인쇄합니다.\n    -X            오류 스트림에 추가 옵션에 대한 도움말을 인쇄합니다.\n    --help-extra  출력 스트림에 추가 옵션에 대한 도움말을 인쇄합니다.\n    -ea[:<패키지 이름>...|:<클래스 이름>]\n    -enableassertions[:<패키지 이름>...|:<클래스 이름>]\n                  세분성이 지정된 검증을 사용으로 설정합니다.\n    -da[:<패키지 이름>...|:<클래스 이름>]\n    -disableassertions[:<패키지 이름>...|:<클래스 이름>]\n                  세분성이 지정된 검증을 사용 안함으로 설정합니다.\n    -esa | -enablesystemassertions\n                  시스템 검증을 사용으로 "
-				"설정합니다.\n    -dsa | -disablesystemassertions\n                  시스템 검증을 사용 안함으로 설정합니다.\n    -agentlib:<라이브러리 이름>[=<옵션>]\n                  고유 에이전트 라이브러리 <라이브러리 이름>을 로드합니다(예: -agentlib:jdwp).\n                  -agentlib:jdwp=help도 참조하십시오.\n    -agentpath:<경로 이름>[=<옵션>]\n                  전체 경로 이름을 사용하여 고유 에이전트 라이브러리를 로드합니다.\n    -javaagent:<jar 경로>[=<옵션>]\n                  Java 프로그래밍 언어 에이전트를 로드합니다. java.lang.instrument를 참조하십시오.\n    -splash:<이미지 경로>\n                  이미지가 지정된 스플래시 화면을 표시합니다.\n                  HiDPI로 조정된 이미지가 자동으로 지원되고 사용 가능한 경우\n                  사용됩니다. 미조정 이미지 파일 이름(예: image.ext)은\n                  항상 -splash 옵션에 인수로 전달되어야 합니다.\n                  가장 적절히 조정된 이미지가 자동으로\n                  채택됩니다.\n                  자세한 내용은 SplashScreen API 설명서를 참조하십시오.\n    @인수 파일\n                  -disable-@files 옵션이 포함되어 있는 하나 이상의\n    인수 파일\n                  추가 인수 파일 확장을 방지합니다.\nlong 옵션에 대한 인수를 지정하려면 --<이름>=<값> 또는\n--<이름> <값>을 사용할 수 있습니다.\n"_s)
+				"설정합니다.\n    -dsa | -disablesystemassertions\n                  시스템 검증을 사용 안함으로 설정합니다.\n    -agentlib:<라이브러리 이름>[=<옵션>]\n                  고유 에이전트 라이브러리 <라이브러리 이름>을 로드합니다(예: -agentlib:jdwp).\n                  -agentlib:jdwp=help도 참조하십시오.\n    -agentpath:<경로 이름>[=<옵션>]\n                  전체 경로 이름을 사용하여 고유 에이전트 라이브러리를 로드합니다.\n    -javaagent:<jar 경로>[=<옵션>]\n                  Java 프로그래밍 언어 에이전트를 로드합니다. java.lang.instrument를 참조하십시오.\n    -splash:<이미지 경로>\n                  이미지가 지정된 스플래시 화면을 표시합니다.\n                  HiDPI로 조정된 이미지가 자동으로 지원되고 사용 가능한 경우\n                  사용됩니다. 미조정 이미지 파일 이름(예: image.ext)은\n                  항상 -splash 옵션에 인수로 전달되어야 합니다.\n                  가장 적절히 조정된 이미지가 자동으로\n                  채택됩니다.\n                  자세한 내용은 SplashScreen API 설명서를 참조하십시오.\n    @인수 파일\n                  -disable-@files 옵션이 포함되어 있는 하나 이상의\n    인수 파일\n                  추가 인수 파일 확장을 방지합니다.\nlong 옵션에 대한 인수를 지정하려면 --<이름>=<값> 또는\n--<이름> <값>을 사용할 수 있습니다.\n"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.opt.header"_s),
-			$of(u"사용법: {0} [옵션] <기본 클래스> [args...]\n           (클래스 실행)\n   또는  {0} [옵션] -jar <jar 파일> [args...]\n           (jar 파일 실행)\n   또는  {0} [옵션] -m <모듈>[/<기본 클래스>] [args...]\n       {0} [옵션] --module <모듈>[/<기본 클래스>] [args...]\n           (모듈의 기본 클래스 실행)\n\n 기본 클래스, -jar <jar 파일>, -m 또는 --module\n <모듈>/<기본 클래스> 뒤에 나오는 인수는 기본 클래스에 인수로 전달됩니다.\n\n 이 경우 옵션에는 다음이 포함됩니다.\n\n"_s)
+			"java.launcher.opt.header"_s,
+			u"사용법: {0} [옵션] <기본 클래스> [args...]\n           (클래스 실행)\n   또는  {0} [옵션] -jar <jar 파일> [args...]\n           (jar 파일 실행)\n   또는  {0} [옵션] -m <모듈>[/<기본 클래스>] [args...]\n       {0} [옵션] --module <모듈>[/<기본 클래스>] [args...]\n           (모듈의 기본 클래스 실행)\n\n 기본 클래스, -jar <jar 파일>, -m 또는 --module\n <모듈>/<기본 클래스> 뒤에 나오는 인수는 기본 클래스에 인수로 전달됩니다.\n\n 이 경우 옵션에는 다음이 포함됩니다.\n\n"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.opt.hotspot"_s),
-			$of(u"    {0}\t  \"{1}\" VM의 동의어입니다[사용되지 않음].\n"_s)
+			"java.launcher.opt.hotspot"_s,
+			u"    {0}\t  \"{1}\" VM의 동의어입니다[사용되지 않음].\n"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.launcher.opt.vmselect"_s),
-			$of(u"    {0}\t  \"{1}\" VM을 선택합니다.\n"_s)
+			"java.launcher.opt.vmselect"_s,
+			u"    {0}\t  \"{1}\" VM을 선택합니다.\n"_s
 		})
 	});
 }
@@ -145,7 +125,22 @@ launcher_ko::launcher_ko() {
 }
 
 $Class* launcher_ko::load$($String* name, bool initialize) {
-	$loadClass(launcher_ko, name, initialize, &_launcher_ko_ClassInfo_, allocate$launcher_ko);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(launcher_ko, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(launcher_ko, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.launcher.resources.launcher_ko",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(launcher_ko, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(launcher_ko);
+	});
 	return class$;
 }
 

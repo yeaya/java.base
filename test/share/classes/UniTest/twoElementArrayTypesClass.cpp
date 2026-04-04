@@ -1,5 +1,4 @@
 #include <UniTest/twoElementArrayTypesClass.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -10,141 +9,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$Attribute twoElementArrayTypesClass_Attribute_var$1[] = {
-	{'B', "1"},
-	{'B', "2"},
-	{'-'}
-};
-
-$Attribute twoElementArrayTypesClass_Attribute_var$2[] = {
-	{'S', "2"},
-	{'S', "3"},
-	{'-'}
-};
-
-$Attribute twoElementArrayTypesClass_Attribute_var$3[] = {
-	{'I', "3"},
-	{'I', "4"},
-	{'-'}
-};
-
-$Attribute twoElementArrayTypesClass_Attribute_var$4[] = {
-	{'J', "4"},
-	{'J', "5"},
-	{'-'}
-};
-
-$Attribute twoElementArrayTypesClass_Attribute_var$5[] = {
-	{'C', "5"},
-	{'C', "6"},
-	{'-'}
-};
-
-$Attribute twoElementArrayTypesClass_Attribute_var$6[] = {
-	{'F', "6.0"},
-	{'F', "7.0"},
-	{'-'}
-};
-
-$Attribute twoElementArrayTypesClass_Attribute_var$7[] = {
-	{'D', "7.0"},
-	{'D', "8.0"},
-	{'-'}
-};
-
-$Attribute twoElementArrayTypesClass_Attribute_var$8[] = {
-	{'Z', "true"},
-	{'Z', "false"},
-	{'-'}
-};
-
-$Attribute twoElementArrayTypesClass_Attribute_var$9[] = {
-	{'s', "custom"},
-	{'s', "paint"},
-	{'-'}
-};
-
-$Attribute twoElementArrayTypesClass_Attribute_var$10[] = {
-	{'c', "Ljava/util/Map;"},
-	{'c', "Ljava/util/Set;"},
-	{'-'}
-};
-
-$Attribute twoElementArrayTypesClass_Attribute_var$11[] = {
-	{'e', "LUniTest/Stooge; MOE"},
-	{'e', "LUniTest/Stooge; CURLY"},
-	{'-'}
-};
-
-$NamedAttribute twoElementArrayTypesClass_Attribute_var$14[] = {
-	{"x", 'I', "1"},
-	{"y", 'I', "2"},
-	{}
-};
-
-$CompoundAttribute twoElementArrayTypesClass_CompoundAttribute_var$13 = {
-"LUniTest/Point;", twoElementArrayTypesClass_Attribute_var$14
-};
-
-$NamedAttribute twoElementArrayTypesClass_Attribute_var$16[] = {
-	{"x", 'I', "3"},
-	{"y", 'I', "4"},
-	{}
-};
-
-$CompoundAttribute twoElementArrayTypesClass_CompoundAttribute_var$15 = {
-"LUniTest/Point;", twoElementArrayTypesClass_Attribute_var$16
-};
-
-$Attribute twoElementArrayTypesClass_Attribute_var$12[] = {
-	{'@', &twoElementArrayTypesClass_CompoundAttribute_var$13},
-	{'@', &twoElementArrayTypesClass_CompoundAttribute_var$15},
-	{'-'}
-};
-
-$NamedAttribute twoElementArrayTypesClass_Attribute_var$0[] = {
-	{"b", '[', twoElementArrayTypesClass_Attribute_var$1},
-	{"s", '[', twoElementArrayTypesClass_Attribute_var$2},
-	{"i", '[', twoElementArrayTypesClass_Attribute_var$3},
-	{"l", '[', twoElementArrayTypesClass_Attribute_var$4},
-	{"c", '[', twoElementArrayTypesClass_Attribute_var$5},
-	{"f", '[', twoElementArrayTypesClass_Attribute_var$6},
-	{"d", '[', twoElementArrayTypesClass_Attribute_var$7},
-	{"bool", '[', twoElementArrayTypesClass_Attribute_var$8},
-	{"str", '[', twoElementArrayTypesClass_Attribute_var$9},
-	{"cls", '[', twoElementArrayTypesClass_Attribute_var$10},
-	{"e", '[', twoElementArrayTypesClass_Attribute_var$11},
-	{"a", '[', twoElementArrayTypesClass_Attribute_var$12},
-	{}
-};
-
-$CompoundAttribute _twoElementArrayTypesClass_Annotations_[] = {
-	{"LUniTest/ArrayTypes;", twoElementArrayTypesClass_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _twoElementArrayTypesClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(twoElementArrayTypesClass, init$, void)},
-	{}
-};
-
-$ClassInfo _twoElementArrayTypesClass_ClassInfo_ = {
-	$ACC_SUPER,
-	"UniTest.twoElementArrayTypesClass",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_twoElementArrayTypesClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_twoElementArrayTypesClass_Annotations_
-};
-
-$Object* allocate$twoElementArrayTypesClass($Class* clazz) {
-	return $of($alloc(twoElementArrayTypesClass));
-}
-
 void twoElementArrayTypesClass::init$() {
 }
 
@@ -152,7 +16,120 @@ twoElementArrayTypesClass::twoElementArrayTypesClass() {
 }
 
 $Class* twoElementArrayTypesClass::load$($String* name, bool initialize) {
-	$loadClass(twoElementArrayTypesClass, name, initialize, &_twoElementArrayTypesClass_ClassInfo_, allocate$twoElementArrayTypesClass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(twoElementArrayTypesClass, init$, void)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'B', "1"},
+		{'B', "2"},
+		{'-'}
+	};
+	$Attribute $attribute$1[] = {
+		{'S', "2"},
+		{'S', "3"},
+		{'-'}
+	};
+	$Attribute $attribute$2[] = {
+		{'I', "3"},
+		{'I', "4"},
+		{'-'}
+	};
+	$Attribute $attribute$3[] = {
+		{'J', "4"},
+		{'J', "5"},
+		{'-'}
+	};
+	$Attribute $attribute$4[] = {
+		{'C', "5"},
+		{'C', "6"},
+		{'-'}
+	};
+	$Attribute $attribute$5[] = {
+		{'F', "6.0"},
+		{'F', "7.0"},
+		{'-'}
+	};
+	$Attribute $attribute$6[] = {
+		{'D', "7.0"},
+		{'D', "8.0"},
+		{'-'}
+	};
+	$Attribute $attribute$7[] = {
+		{'Z', "true"},
+		{'Z', "false"},
+		{'-'}
+	};
+	$Attribute $attribute$8[] = {
+		{'s', "custom"},
+		{'s', "paint"},
+		{'-'}
+	};
+	$Attribute $attribute$9[] = {
+		{'c', "Ljava/util/Map;"},
+		{'c', "Ljava/util/Set;"},
+		{'-'}
+	};
+	$Attribute $attribute$10[] = {
+		{'e', "LUniTest/Stooge; MOE"},
+		{'e', "LUniTest/Stooge; CURLY"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute$compoundAttribute$namedAttribute[] = {
+		{"x", 'I', "1"},
+		{"y", 'I', "2"},
+		{}
+	};
+$CompoundAttribute annotations$$$namedAttribute$compoundAttribute = {
+	"LUniTest/Point;", annotations$$$namedAttribute$compoundAttribute$namedAttribute
+};
+	$NamedAttribute annotations$$$namedAttribute$compoundAttribute$namedAttribute$compoundAttribute$namedAttribute[] = {
+		{"x", 'I', "3"},
+		{"y", 'I', "4"},
+		{}
+	};
+$CompoundAttribute annotations$$$namedAttribute$compoundAttribute$namedAttribute$compoundAttribute = {
+	"LUniTest/Point;", annotations$$$namedAttribute$compoundAttribute$namedAttribute$compoundAttribute$namedAttribute
+};
+	$Attribute $attribute$11[] = {
+		{'@', &annotations$$$namedAttribute$compoundAttribute},
+		{'@', &annotations$$$namedAttribute$compoundAttribute$namedAttribute$compoundAttribute},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"b", '[', $attribute},
+		{"s", '[', $attribute$1},
+		{"i", '[', $attribute$2},
+		{"l", '[', $attribute$3},
+		{"c", '[', $attribute$4},
+		{"f", '[', $attribute$5},
+		{"d", '[', $attribute$6},
+		{"bool", '[', $attribute$7},
+		{"str", '[', $attribute$8},
+		{"cls", '[', $attribute$9},
+		{"e", '[', $attribute$10},
+		{"a", '[', $attribute$11},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LUniTest/ArrayTypes;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"UniTest.twoElementArrayTypesClass",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(twoElementArrayTypesClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(twoElementArrayTypesClass);
+	});
 	return class$;
 }
 

@@ -1,10 +1,8 @@
 #include <java/time/Duration.h>
-
 #include <java/io/DataInput.h>
 #include <java/io/DataOutput.h>
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
-#include <java/io/Serializable.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/Math.h>
 #include <java/lang/NumberFormatException.h>
@@ -22,7 +20,6 @@
 #include <java/time/temporal/ChronoUnit.h>
 #include <java/time/temporal/Temporal.h>
 #include <java/time/temporal/TemporalAmount.h>
-#include <java/time/temporal/TemporalField.h>
 #include <java/time/temporal/TemporalUnit.h>
 #include <java/time/temporal/UnsupportedTemporalTypeException.h>
 #include <java/util/Iterator.h>
@@ -53,7 +50,6 @@ using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
-using $Serializable = ::java::io::Serializable;
 using $ArithmeticException = ::java::lang::ArithmeticException;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -79,136 +75,15 @@ using $ChronoField = ::java::time::temporal::ChronoField;
 using $ChronoUnit = ::java::time::temporal::ChronoUnit;
 using $Temporal = ::java::time::temporal::Temporal;
 using $TemporalAmount = ::java::time::temporal::TemporalAmount;
-using $TemporalField = ::java::time::temporal::TemporalField;
 using $TemporalUnit = ::java::time::temporal::TemporalUnit;
 using $UnsupportedTemporalTypeException = ::java::time::temporal::UnsupportedTemporalTypeException;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $Matcher = ::java::util::regex::Matcher;
-using $Pattern = ::java::util::regex::Pattern;
 
 namespace java {
 	namespace time {
-
-$CompoundAttribute _Duration_Annotations_[] = {
-	{"Ljdk/internal/ValueBased;", nullptr},
-	{}
-};
-
-$FieldInfo _Duration_FieldInfo_[] = {
-	{"ZERO", "Ljava/time/Duration;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Duration, ZERO)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Duration, serialVersionUID)},
-	{"BI_NANOS_PER_SECOND", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Duration, BI_NANOS_PER_SECOND)},
-	{"seconds", "J", nullptr, $PRIVATE | $FINAL, $field(Duration, seconds)},
-	{"nanos", "I", nullptr, $PRIVATE | $FINAL, $field(Duration, nanos)},
-	{}
-};
-
-$MethodInfo _Duration_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(JI)V", nullptr, $PRIVATE, $method(Duration, init$, void, int64_t, int32_t)},
-	{"abs", "()Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, abs, Duration*)},
-	{"addTo", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(Duration, addTo, $Temporal*, $Temporal*)},
-	{"between", "(Ljava/time/temporal/Temporal;Ljava/time/temporal/Temporal;)Ljava/time/Duration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Duration, between, Duration*, $Temporal*, $Temporal*)},
-	{"charMatch", "(Ljava/lang/CharSequence;IIC)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Duration, charMatch, bool, $CharSequence*, int32_t, int32_t, char16_t)},
-	{"compareTo", "(Ljava/time/Duration;)I", nullptr, $PUBLIC, $method(Duration, compareTo, int32_t, Duration*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Duration, compareTo, int32_t, Object$*)},
-	{"create", "(ZJJJJI)Ljava/time/Duration;", nullptr, $PRIVATE | $STATIC, $staticMethod(Duration, create, Duration*, bool, int64_t, int64_t, int64_t, int64_t, int32_t)},
-	{"create", "(JI)Ljava/time/Duration;", nullptr, $PRIVATE | $STATIC, $staticMethod(Duration, create, Duration*, int64_t, int32_t)},
-	{"create", "(Ljava/math/BigDecimal;)Ljava/time/Duration;", nullptr, $PRIVATE | $STATIC, $staticMethod(Duration, create, Duration*, $BigDecimal*)},
-	{"dividedBy", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, dividedBy, Duration*, int64_t)},
-	{"dividedBy", "(Ljava/time/Duration;)J", nullptr, $PUBLIC, $method(Duration, dividedBy, int64_t, Duration*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Duration, equals, bool, Object$*)},
-	{"from", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/Duration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Duration, from, Duration*, $TemporalAmount*)},
-	{"get", "(Ljava/time/temporal/TemporalUnit;)J", nullptr, $PUBLIC, $virtualMethod(Duration, get, int64_t, $TemporalUnit*)},
-	{"getNano", "()I", nullptr, $PUBLIC, $method(Duration, getNano, int32_t)},
-	{"getSeconds", "()J", nullptr, $PUBLIC, $method(Duration, getSeconds, int64_t)},
-	{"getUnits", "()Ljava/util/List;", "()Ljava/util/List<Ljava/time/temporal/TemporalUnit;>;", $PUBLIC, $virtualMethod(Duration, getUnits, $List*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Duration, hashCode, int32_t)},
-	{"isNegative", "()Z", nullptr, $PUBLIC, $method(Duration, isNegative, bool)},
-	{"isZero", "()Z", nullptr, $PUBLIC, $method(Duration, isZero, bool)},
-	{"minus", "(Ljava/time/Duration;)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, minus, Duration*, Duration*)},
-	{"minus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, minus, Duration*, int64_t, $TemporalUnit*)},
-	{"minusDays", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, minusDays, Duration*, int64_t)},
-	{"minusHours", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, minusHours, Duration*, int64_t)},
-	{"minusMillis", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, minusMillis, Duration*, int64_t)},
-	{"minusMinutes", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, minusMinutes, Duration*, int64_t)},
-	{"minusNanos", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, minusNanos, Duration*, int64_t)},
-	{"minusSeconds", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, minusSeconds, Duration*, int64_t)},
-	{"multipliedBy", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, multipliedBy, Duration*, int64_t)},
-	{"negated", "()Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, negated, Duration*)},
-	{"of", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/Duration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Duration, of, Duration*, int64_t, $TemporalUnit*)},
-	{"ofDays", "(J)Ljava/time/Duration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Duration, ofDays, Duration*, int64_t)},
-	{"ofHours", "(J)Ljava/time/Duration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Duration, ofHours, Duration*, int64_t)},
-	{"ofMillis", "(J)Ljava/time/Duration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Duration, ofMillis, Duration*, int64_t)},
-	{"ofMinutes", "(J)Ljava/time/Duration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Duration, ofMinutes, Duration*, int64_t)},
-	{"ofNanos", "(J)Ljava/time/Duration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Duration, ofNanos, Duration*, int64_t)},
-	{"ofSeconds", "(J)Ljava/time/Duration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Duration, ofSeconds, Duration*, int64_t)},
-	{"ofSeconds", "(JJ)Ljava/time/Duration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Duration, ofSeconds, Duration*, int64_t, int64_t)},
-	{"parse", "(Ljava/lang/CharSequence;)Ljava/time/Duration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Duration, parse, Duration*, $CharSequence*)},
-	{"parseFraction", "(Ljava/lang/CharSequence;III)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Duration, parseFraction, int32_t, $CharSequence*, int32_t, int32_t, int32_t)},
-	{"parseNumber", "(Ljava/lang/CharSequence;IIILjava/lang/String;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(Duration, parseNumber, int64_t, $CharSequence*, int32_t, int32_t, int32_t, $String*)},
-	{"plus", "(Ljava/time/Duration;)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, plus, Duration*, Duration*)},
-	{"plus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, plus, Duration*, int64_t, $TemporalUnit*)},
-	{"plus", "(JJ)Ljava/time/Duration;", nullptr, $PRIVATE, $method(Duration, plus, Duration*, int64_t, int64_t)},
-	{"plusDays", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, plusDays, Duration*, int64_t)},
-	{"plusHours", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, plusHours, Duration*, int64_t)},
-	{"plusMillis", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, plusMillis, Duration*, int64_t)},
-	{"plusMinutes", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, plusMinutes, Duration*, int64_t)},
-	{"plusNanos", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, plusNanos, Duration*, int64_t)},
-	{"plusSeconds", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, plusSeconds, Duration*, int64_t)},
-	{"readExternal", "(Ljava/io/DataInput;)Ljava/time/Duration;", nullptr, $STATIC, $staticMethod(Duration, readExternal, Duration*, $DataInput*), "java.io.IOException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Duration, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
-	{"subtractFrom", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(Duration, subtractFrom, $Temporal*, $Temporal*)},
-	{"toBigDecimalSeconds", "()Ljava/math/BigDecimal;", nullptr, $PRIVATE, $method(Duration, toBigDecimalSeconds, $BigDecimal*)},
-	{"toDays", "()J", nullptr, $PUBLIC, $method(Duration, toDays, int64_t)},
-	{"toDaysPart", "()J", nullptr, $PUBLIC, $method(Duration, toDaysPart, int64_t)},
-	{"toHours", "()J", nullptr, $PUBLIC, $method(Duration, toHours, int64_t)},
-	{"toHoursPart", "()I", nullptr, $PUBLIC, $method(Duration, toHoursPart, int32_t)},
-	{"toMillis", "()J", nullptr, $PUBLIC, $method(Duration, toMillis, int64_t)},
-	{"toMillisPart", "()I", nullptr, $PUBLIC, $method(Duration, toMillisPart, int32_t)},
-	{"toMinutes", "()J", nullptr, $PUBLIC, $method(Duration, toMinutes, int64_t)},
-	{"toMinutesPart", "()I", nullptr, $PUBLIC, $method(Duration, toMinutesPart, int32_t)},
-	{"toNanos", "()J", nullptr, $PUBLIC, $method(Duration, toNanos, int64_t)},
-	{"toNanosPart", "()I", nullptr, $PUBLIC, $method(Duration, toNanosPart, int32_t)},
-	{"toSeconds", "()J", nullptr, $PUBLIC, $method(Duration, toSeconds, int64_t)},
-	{"toSecondsPart", "()I", nullptr, $PUBLIC, $method(Duration, toSecondsPart, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Duration, toString, $String*)},
-	{"truncatedTo", "(Ljava/time/temporal/TemporalUnit;)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, truncatedTo, Duration*, $TemporalUnit*)},
-	{"withNanos", "(I)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, withNanos, Duration*, int32_t)},
-	{"withSeconds", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, withSeconds, Duration*, int64_t)},
-	{"writeExternal", "(Ljava/io/DataOutput;)V", nullptr, 0, $method(Duration, writeExternal, void, $DataOutput*), "java.io.IOException"},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Duration, writeReplace, $Object*)},
-	{}
-};
-
-$InnerClassInfo _Duration_InnerClassesInfo_[] = {
-	{"java.time.Duration$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"java.time.Duration$DurationUnits", "java.time.Duration", "DurationUnits", $PRIVATE | $STATIC},
-	{"java.time.Duration$Lazy", "java.time.Duration", "Lazy", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Duration_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.time.Duration",
-	"java.lang.Object",
-	"java.time.temporal.TemporalAmount,java.lang.Comparable,java.io.Serializable",
-	_Duration_FieldInfo_,
-	_Duration_MethodInfo_,
-	"Ljava/lang/Object;Ljava/time/temporal/TemporalAmount;Ljava/lang/Comparable<Ljava/time/Duration;>;Ljava/io/Serializable;",
-	nullptr,
-	_Duration_InnerClassesInfo_,
-	_Duration_Annotations_,
-	nullptr,
-	"java.time.Duration$1,java.time.Duration$DurationUnits,java.time.Duration$Lazy"
-};
-
-$Object* allocate$Duration($Class* clazz) {
-	return $of($alloc(Duration));
-}
 
 $Object* Duration::clone() {
 	 return this->$TemporalAmount::clone();
@@ -256,7 +131,7 @@ Duration* Duration::ofMillis(int64_t millis) {
 		mos += 1000;
 		--secs;
 	}
-	return create(secs, mos * 0x000F4240);
+	return create(secs, mos * 1000000);
 }
 
 Duration* Duration::ofNanos(int64_t nanos) {
@@ -272,16 +147,16 @@ Duration* Duration::ofNanos(int64_t nanos) {
 
 Duration* Duration::of(int64_t amount, $TemporalUnit* unit) {
 	$init(Duration);
-	return $nc(Duration::ZERO)->plus(amount, unit);
+	return Duration::ZERO->plus(amount, unit);
 }
 
 Duration* Duration::from($TemporalAmount* amount) {
 	$init(Duration);
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(amount), "amount"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(amount, "amount"_s);
 	$var(Duration, duration, Duration::ZERO);
 	{
-		$var($Iterator, i$, $nc($($nc(amount)->getUnits()))->iterator());
+		$var($Iterator, i$, $$nc($nc(amount)->getUnits())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($TemporalUnit, unit, $cast($TemporalUnit, i$->next()));
 			{
@@ -294,17 +169,15 @@ Duration* Duration::from($TemporalAmount* amount) {
 
 Duration* Duration::parse($CharSequence* text) {
 	$init(Duration);
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(text), "text"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(text, "text"_s);
 	$init($Duration$Lazy);
 	$var($Matcher, matcher, $nc($Duration$Lazy::PATTERN)->matcher(text));
 	if ($nc(matcher)->matches()) {
-		$var($CharSequence, var$0, text);
-		int32_t var$1 = matcher->start(3);
-		if (!charMatch(var$0, var$1, matcher->end(3), u'T')) {
-			$var($CharSequence, var$2, text);
-			int32_t var$3 = matcher->start(1);
-			bool negate = charMatch(var$2, var$3, matcher->end(1), u'-');
+		int32_t var$0 = matcher->start(3);
+		if (!charMatch(text, var$0, matcher->end(3), u'T')) {
+			int32_t var$1 = matcher->start(1);
+			bool negate = charMatch(text, var$1, matcher->end(1), u'-');
 			int32_t dayStart = matcher->start(2);
 			int32_t dayEnd = matcher->end(2);
 			int32_t hourStart = matcher->start(4);
@@ -325,7 +198,7 @@ Duration* Duration::parse($CharSequence* text) {
 				try {
 					return create(negate, daysAsSecs, hoursAsSecs, minsAsSecs, seconds, nanos);
 				} catch ($ArithmeticException& ex) {
-					$throw($cast($DateTimeParseException, $($$new($DateTimeParseException, "Text cannot be parsed to a Duration: overflow"_s, text, 0)->initCause(ex))));
+					$throw($$cast($DateTimeParseException, $$new($DateTimeParseException, "Text cannot be parsed to a Duration: overflow"_s, text, 0)->initCause(ex)));
 				}
 			}
 		}
@@ -341,7 +214,7 @@ bool Duration::charMatch($CharSequence* text, int32_t start, int32_t end, char16
 
 int64_t Duration::parseNumber($CharSequence* text, int32_t start, int32_t end, int32_t multiplier, $String* errorText) {
 	$init(Duration);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (start < 0 || end < 0) {
 		return 0;
 	}
@@ -349,16 +222,16 @@ int64_t Duration::parseNumber($CharSequence* text, int32_t start, int32_t end, i
 		int64_t val = $Long::parseLong(text, start, end, 10);
 		return $Math::multiplyExact(val, multiplier);
 	} catch ($NumberFormatException& ex) {
-		$throw($cast($DateTimeParseException, $($$new($DateTimeParseException, $$str({"Text cannot be parsed to a Duration: "_s, errorText}), text, 0)->initCause(ex))));
+		$throw($$cast($DateTimeParseException, $$new($DateTimeParseException, $$str({"Text cannot be parsed to a Duration: "_s, errorText}), text, 0)->initCause(ex)));
 	} catch ($ArithmeticException& ex) {
-		$throw($cast($DateTimeParseException, $($$new($DateTimeParseException, $$str({"Text cannot be parsed to a Duration: "_s, errorText}), text, 0)->initCause(ex))));
+		$throw($$cast($DateTimeParseException, $$new($DateTimeParseException, $$str({"Text cannot be parsed to a Duration: "_s, errorText}), text, 0)->initCause(ex)));
 	}
 	$shouldNotReachHere();
 }
 
 int32_t Duration::parseFraction($CharSequence* text, int32_t start, int32_t end, int32_t negate) {
 	$init(Duration);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (start < 0 || end < 0 || end - start == 0) {
 		return 0;
 	}
@@ -369,9 +242,9 @@ int32_t Duration::parseFraction($CharSequence* text, int32_t start, int32_t end,
 		}
 		return fraction * negate;
 	} catch ($NumberFormatException& ex) {
-		$throw($cast($DateTimeParseException, $($$new($DateTimeParseException, "Text cannot be parsed to a Duration: fraction"_s, text, 0)->initCause(ex))));
+		$throw($$cast($DateTimeParseException, $$new($DateTimeParseException, "Text cannot be parsed to a Duration: fraction"_s, text, 0)->initCause(ex)));
 	} catch ($ArithmeticException& ex) {
-		$throw($cast($DateTimeParseException, $($$new($DateTimeParseException, "Text cannot be parsed to a Duration: fraction"_s, text, 0)->initCause(ex))));
+		$throw($$cast($DateTimeParseException, $$new($DateTimeParseException, "Text cannot be parsed to a Duration: fraction"_s, text, 0)->initCause(ex)));
 	}
 	$shouldNotReachHere();
 }
@@ -380,7 +253,7 @@ Duration* Duration::create(bool negate, int64_t daysAsSecs, int64_t hoursAsSecs,
 	$init(Duration);
 	int64_t seconds = $Math::addExact(daysAsSecs, $Math::addExact(hoursAsSecs, $Math::addExact(minsAsSecs, secs)));
 	if (negate) {
-		return $nc($(ofSeconds(seconds, nanos)))->negated();
+		return $$nc(ofSeconds(seconds, nanos))->negated();
 	}
 	return ofSeconds(seconds, nanos);
 }
@@ -445,12 +318,10 @@ int64_t Duration::get($TemporalUnit* unit) {
 	$init($ChronoUnit);
 	if ($equals(unit, $ChronoUnit::SECONDS)) {
 		return this->seconds;
+	} else if ($equals(unit, $ChronoUnit::NANOS)) {
+		return this->nanos;
 	} else {
-		if ($equals(unit, $ChronoUnit::NANOS)) {
-			return this->nanos;
-		} else {
-			$throwNew($UnsupportedTemporalTypeException, $$str({"Unsupported unit: "_s, unit}));
-		}
+		$throwNew($UnsupportedTemporalTypeException, $$str({"Unsupported unit: "_s, unit}));
 	}
 }
 
@@ -487,12 +358,12 @@ Duration* Duration::withNanos(int32_t nanoOfSecond) {
 
 Duration* Duration::plus(Duration* duration) {
 	int64_t var$0 = $nc(duration)->getSeconds();
-	return plus(var$0, (int64_t)duration->getNano());
+	return plus(var$0, duration->getNano());
 }
 
 Duration* Duration::plus(int64_t amountToAdd, $TemporalUnit* unit) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(unit), "unit"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(unit, "unit"_s);
 	$init($ChronoUnit);
 	if ($equals(unit, $ChronoUnit::DAYS)) {
 		return plus($Math::multiplyExact(amountToAdd, 0x00015180), (int64_t)0);
@@ -514,27 +385,19 @@ Duration* Duration::plus(int64_t amountToAdd, $TemporalUnit* unit) {
 			$init($Duration$1);
 			switch ($nc($Duration$1::$SwitchMap$java$time$temporal$ChronoUnit)->get($nc((chronoUnit))->ordinal())) {
 			case 1:
-				{
-					return plusNanos(amountToAdd);
-				}
+				return plusNanos(amountToAdd);
 			case 2:
-				{
-					return $nc($(plusSeconds(($div(amountToAdd, ((int64_t)1000000 * 1000))) * 1000)))->plusNanos(($mod(amountToAdd, ((int64_t)1000000 * 1000))) * 1000);
-				}
+				return $$nc(plusSeconds(($div(amountToAdd, ((int64_t)1000000 * 1000))) * 1000))->plusNanos(($mod(amountToAdd, ((int64_t)1000000 * 1000))) * 1000);
 			case 3:
-				{
-					return plusMillis(amountToAdd);
-				}
+				return plusMillis(amountToAdd);
 			case 4:
-				{
-					return plusSeconds(amountToAdd);
-				}
+				return plusSeconds(amountToAdd);
 			}
-			return plusSeconds($Math::multiplyExact($nc($($nc(unit)->getDuration()))->seconds, amountToAdd));
+			return plusSeconds($Math::multiplyExact($nc($(unit->getDuration()))->seconds, amountToAdd));
 		}
 	}
-	$var(Duration, duration, $nc($($nc(unit)->getDuration()))->multipliedBy(amountToAdd));
-	return $nc($(plusSeconds($nc(duration)->getSeconds())))->plusNanos($nc(duration)->getNano());
+	$var(Duration, duration, $$nc(unit->getDuration())->multipliedBy(amountToAdd));
+	return $$nc(plusSeconds($nc(duration)->getSeconds()))->plusNanos($nc(duration)->getNano());
 }
 
 Duration* Duration::plusDays(int64_t daysToAdd) {
@@ -554,11 +417,11 @@ Duration* Duration::plusSeconds(int64_t secondsToAdd) {
 }
 
 Duration* Duration::plusMillis(int64_t millisToAdd) {
-	return plus(millisToAdd / 1000, (millisToAdd % 1000) * 0x000F4240);
+	return plus(millisToAdd / 1000, (millisToAdd % 1000) * 1000000);
 }
 
 Duration* Duration::plusNanos(int64_t nanosToAdd) {
-	return plus((int64_t)0, nanosToAdd);
+	return plus(0, nanosToAdd);
 }
 
 Duration* Duration::plus(int64_t secondsToAdd, int64_t nanosToAdd) {
@@ -576,52 +439,52 @@ Duration* Duration::minus(Duration* duration) {
 	int64_t secsToSubtract = $nc(duration)->getSeconds();
 	int32_t nanosToSubtract = duration->getNano();
 	if (secsToSubtract == $Long::MIN_VALUE) {
-		return $nc($(plus($Long::MAX_VALUE, (int64_t)(-nanosToSubtract))))->plus((int64_t)1, (int64_t)0);
+		return $$nc(plus($Long::MAX_VALUE, -nanosToSubtract))->plus(1, (int64_t)0);
 	}
-	return plus(-secsToSubtract, (int64_t)(-nanosToSubtract));
+	return plus(-secsToSubtract, -nanosToSubtract);
 }
 
 Duration* Duration::minus(int64_t amountToSubtract, $TemporalUnit* unit) {
-	return (amountToSubtract == $Long::MIN_VALUE ? $nc($(plus($Long::MAX_VALUE, unit)))->plus((int64_t)1, unit) : plus(-amountToSubtract, unit));
+	return (amountToSubtract == $Long::MIN_VALUE ? $$nc(plus($Long::MAX_VALUE, unit))->plus(1, unit) : plus(-amountToSubtract, unit));
 }
 
 Duration* Duration::minusDays(int64_t daysToSubtract) {
-	return (daysToSubtract == $Long::MIN_VALUE ? $nc($(plusDays($Long::MAX_VALUE)))->plusDays(1) : plusDays(-daysToSubtract));
+	return (daysToSubtract == $Long::MIN_VALUE ? $$nc(plusDays($Long::MAX_VALUE))->plusDays(1) : plusDays(-daysToSubtract));
 }
 
 Duration* Duration::minusHours(int64_t hoursToSubtract) {
-	return (hoursToSubtract == $Long::MIN_VALUE ? $nc($(plusHours($Long::MAX_VALUE)))->plusHours(1) : plusHours(-hoursToSubtract));
+	return (hoursToSubtract == $Long::MIN_VALUE ? $$nc(plusHours($Long::MAX_VALUE))->plusHours(1) : plusHours(-hoursToSubtract));
 }
 
 Duration* Duration::minusMinutes(int64_t minutesToSubtract) {
-	return (minutesToSubtract == $Long::MIN_VALUE ? $nc($(plusMinutes($Long::MAX_VALUE)))->plusMinutes(1) : plusMinutes(-minutesToSubtract));
+	return (minutesToSubtract == $Long::MIN_VALUE ? $$nc(plusMinutes($Long::MAX_VALUE))->plusMinutes(1) : plusMinutes(-minutesToSubtract));
 }
 
 Duration* Duration::minusSeconds(int64_t secondsToSubtract) {
-	return (secondsToSubtract == $Long::MIN_VALUE ? $nc($(plusSeconds($Long::MAX_VALUE)))->plusSeconds(1) : plusSeconds(-secondsToSubtract));
+	return (secondsToSubtract == $Long::MIN_VALUE ? $$nc(plusSeconds($Long::MAX_VALUE))->plusSeconds(1) : plusSeconds(-secondsToSubtract));
 }
 
 Duration* Duration::minusMillis(int64_t millisToSubtract) {
-	return (millisToSubtract == $Long::MIN_VALUE ? $nc($(plusMillis($Long::MAX_VALUE)))->plusMillis(1) : plusMillis(-millisToSubtract));
+	return (millisToSubtract == $Long::MIN_VALUE ? $$nc(plusMillis($Long::MAX_VALUE))->plusMillis(1) : plusMillis(-millisToSubtract));
 }
 
 Duration* Duration::minusNanos(int64_t nanosToSubtract) {
-	return (nanosToSubtract == $Long::MIN_VALUE ? $nc($(plusNanos($Long::MAX_VALUE)))->plusNanos(1) : plusNanos(-nanosToSubtract));
+	return (nanosToSubtract == $Long::MIN_VALUE ? $$nc(plusNanos($Long::MAX_VALUE))->plusNanos(1) : plusNanos(-nanosToSubtract));
 }
 
 Duration* Duration::multipliedBy(int64_t multiplicand) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (multiplicand == 0) {
 		return Duration::ZERO;
 	}
 	if (multiplicand == 1) {
 		return this;
 	}
-	return create($($nc($(toBigDecimalSeconds()))->multiply($($BigDecimal::valueOf(multiplicand)))));
+	return create($($$nc(toBigDecimalSeconds())->multiply($($BigDecimal::valueOf(multiplicand)))));
 }
 
 Duration* Duration::dividedBy(int64_t divisor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (divisor == 0) {
 		$throwNew($ArithmeticException, "Cannot divide by zero"_s);
 	}
@@ -629,31 +492,31 @@ Duration* Duration::dividedBy(int64_t divisor) {
 		return this;
 	}
 	$init($RoundingMode);
-	return create($($nc($(toBigDecimalSeconds()))->divide($($BigDecimal::valueOf(divisor)), $RoundingMode::DOWN)));
+	return create($($$nc(toBigDecimalSeconds())->divide($($BigDecimal::valueOf(divisor)), $RoundingMode::DOWN)));
 }
 
 int64_t Duration::dividedBy(Duration* divisor) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(divisor), "divisor"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(divisor, "divisor"_s);
 	$var($BigDecimal, dividendBigD, toBigDecimalSeconds());
 	$var($BigDecimal, divisorBigD, $nc(divisor)->toBigDecimalSeconds());
-	return $nc($($nc(dividendBigD)->divideToIntegralValue(divisorBigD)))->longValueExact();
+	return $($nc(dividendBigD)->divideToIntegralValue(divisorBigD))->longValueExact();
 }
 
 $BigDecimal* Duration::toBigDecimalSeconds() {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($BigDecimal::valueOf(this->seconds)))->add($($BigDecimal::valueOf(this->nanos, 9)));
+	$useLocalObjectStack();
+	return $($BigDecimal::valueOf(this->seconds))->add($($BigDecimal::valueOf(this->nanos, 9)));
 }
 
 Duration* Duration::create($BigDecimal* seconds) {
 	$init(Duration);
-	$useLocalCurrentObjectStackCache();
-	$var($BigInteger, nanos, $nc($($nc(seconds)->movePointRight(9)))->toBigIntegerExact());
-	$var($BigIntegerArray, divRem, $nc(nanos)->divideAndRemainder(Duration::BI_NANOS_PER_SECOND));
-	if ($nc($nc(divRem)->get(0))->bitLength() > 63) {
+	$useLocalObjectStack();
+	$var($BigInteger, nanos, $($nc(seconds)->movePointRight(9))->toBigIntegerExact());
+	$var($BigIntegerArray, divRem, nanos->divideAndRemainder(Duration::BI_NANOS_PER_SECOND));
+	if ($nc(divRem->get(0))->bitLength() > 63) {
 		$throwNew($ArithmeticException, $$str({"Exceeds capacity of Duration: "_s, nanos}));
 	}
-	int64_t var$0 = $nc($nc(divRem)->get(0))->longValue();
+	int64_t var$0 = $nc(divRem->get(0))->longValue();
 	return ofSeconds(var$0, $nc(divRem->get(1))->intValue());
 }
 
@@ -748,7 +611,7 @@ int32_t Duration::toSecondsPart() {
 }
 
 int32_t Duration::toMillisPart() {
-	return this->nanos / 0x000F4240;
+	return this->nanos / 1000000;
 }
 
 int32_t Duration::toNanosPart() {
@@ -756,20 +619,18 @@ int32_t Duration::toNanosPart() {
 }
 
 Duration* Duration::truncatedTo($TemporalUnit* unit) {
-	$Objects::requireNonNull($of(unit), "unit"_s);
+	$Objects::requireNonNull(unit, "unit"_s);
 	$init($ChronoUnit);
 	if ($equals(unit, $ChronoUnit::SECONDS) && (this->seconds >= 0 || this->nanos == 0)) {
 		return $new(Duration, this->seconds, 0);
-	} else {
-		if ($equals(unit, $ChronoUnit::NANOS)) {
-			return this;
-		}
+	} else if ($equals(unit, $ChronoUnit::NANOS)) {
+		return this;
 	}
 	$var(Duration, unitDur, $nc(unit)->getDuration());
 	if ($nc(unitDur)->getSeconds() > $LocalTime::SECONDS_PER_DAY) {
 		$throwNew($UnsupportedTemporalTypeException, "Unit is too large to be used for truncation"_s);
 	}
-	int64_t dur = $nc(unitDur)->toNanos();
+	int64_t dur = unitDur->toNanos();
 	if (($mod($LocalTime::NANOS_PER_DAY, dur)) != 0) {
 		$throwNew($UnsupportedTemporalTypeException, "Unit must divide into a standard day without remainder"_s);
 	}
@@ -783,7 +644,7 @@ int32_t Duration::compareTo(Duration* otherDuration) {
 	if (cmp != 0) {
 		return cmp;
 	}
-	return this->nanos - $nc(otherDuration)->nanos;
+	return this->nanos - otherDuration->nanos;
 }
 
 bool Duration::equals(Object$* other) {
@@ -796,7 +657,7 @@ bool Duration::equals(Object$* other) {
 		$assign(otherDuration, $cast(Duration, other));
 		var$2 = true;
 	}
-	bool var$1 = (var$2);
+	bool var$1 = var$2;
 	bool var$0 = var$1 && this->seconds == $nc(otherDuration)->seconds;
 	return var$0 && this->nanos == otherDuration->nanos;
 }
@@ -853,7 +714,7 @@ $String* Duration::toString() {
 }
 
 $Object* Duration::writeReplace() {
-	return $of($new($Ser, $Ser::DURATION_TYPE, this));
+	return $new($Ser, $Ser::DURATION_TYPE, this);
 }
 
 void Duration::readObject($ObjectInputStream* s) {
@@ -876,16 +737,128 @@ int32_t Duration::compareTo(Object$* otherDuration) {
 	return this->compareTo($cast(Duration, otherDuration));
 }
 
-void clinit$Duration($Class* class$) {
+void Duration::clinit$($Class* clazz) {
 	$assignStatic(Duration::ZERO, $new(Duration, 0, 0));
-	$assignStatic(Duration::BI_NANOS_PER_SECOND, $BigInteger::valueOf((int64_t)1000000000));
+	$assignStatic(Duration::BI_NANOS_PER_SECOND, $BigInteger::valueOf(1000000000));
 }
 
 Duration::Duration() {
 }
 
 $Class* Duration::load$($String* name, bool initialize) {
-	$loadClass(Duration, name, initialize, &_Duration_ClassInfo_, clinit$Duration, allocate$Duration);
+	$FieldInfo fieldInfos$$[] = {
+		{"ZERO", "Ljava/time/Duration;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Duration, ZERO)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Duration, serialVersionUID)},
+		{"BI_NANOS_PER_SECOND", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Duration, BI_NANOS_PER_SECOND)},
+		{"seconds", "J", nullptr, $PRIVATE | $FINAL, $field(Duration, seconds)},
+		{"nanos", "I", nullptr, $PRIVATE | $FINAL, $field(Duration, nanos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(JI)V", nullptr, $PRIVATE, $method(Duration, init$, void, int64_t, int32_t)},
+		{"abs", "()Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, abs, Duration*)},
+		{"addTo", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(Duration, addTo, $Temporal*, $Temporal*)},
+		{"between", "(Ljava/time/temporal/Temporal;Ljava/time/temporal/Temporal;)Ljava/time/Duration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Duration, between, Duration*, $Temporal*, $Temporal*)},
+		{"charMatch", "(Ljava/lang/CharSequence;IIC)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Duration, charMatch, bool, $CharSequence*, int32_t, int32_t, char16_t)},
+		{"compareTo", "(Ljava/time/Duration;)I", nullptr, $PUBLIC, $method(Duration, compareTo, int32_t, Duration*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Duration, compareTo, int32_t, Object$*)},
+		{"create", "(ZJJJJI)Ljava/time/Duration;", nullptr, $PRIVATE | $STATIC, $staticMethod(Duration, create, Duration*, bool, int64_t, int64_t, int64_t, int64_t, int32_t)},
+		{"create", "(JI)Ljava/time/Duration;", nullptr, $PRIVATE | $STATIC, $staticMethod(Duration, create, Duration*, int64_t, int32_t)},
+		{"create", "(Ljava/math/BigDecimal;)Ljava/time/Duration;", nullptr, $PRIVATE | $STATIC, $staticMethod(Duration, create, Duration*, $BigDecimal*)},
+		{"dividedBy", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, dividedBy, Duration*, int64_t)},
+		{"dividedBy", "(Ljava/time/Duration;)J", nullptr, $PUBLIC, $method(Duration, dividedBy, int64_t, Duration*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Duration, equals, bool, Object$*)},
+		{"from", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/Duration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Duration, from, Duration*, $TemporalAmount*)},
+		{"get", "(Ljava/time/temporal/TemporalUnit;)J", nullptr, $PUBLIC, $virtualMethod(Duration, get, int64_t, $TemporalUnit*)},
+		{"getNano", "()I", nullptr, $PUBLIC, $method(Duration, getNano, int32_t)},
+		{"getSeconds", "()J", nullptr, $PUBLIC, $method(Duration, getSeconds, int64_t)},
+		{"getUnits", "()Ljava/util/List;", "()Ljava/util/List<Ljava/time/temporal/TemporalUnit;>;", $PUBLIC, $virtualMethod(Duration, getUnits, $List*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Duration, hashCode, int32_t)},
+		{"isNegative", "()Z", nullptr, $PUBLIC, $method(Duration, isNegative, bool)},
+		{"isZero", "()Z", nullptr, $PUBLIC, $method(Duration, isZero, bool)},
+		{"minus", "(Ljava/time/Duration;)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, minus, Duration*, Duration*)},
+		{"minus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, minus, Duration*, int64_t, $TemporalUnit*)},
+		{"minusDays", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, minusDays, Duration*, int64_t)},
+		{"minusHours", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, minusHours, Duration*, int64_t)},
+		{"minusMillis", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, minusMillis, Duration*, int64_t)},
+		{"minusMinutes", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, minusMinutes, Duration*, int64_t)},
+		{"minusNanos", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, minusNanos, Duration*, int64_t)},
+		{"minusSeconds", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, minusSeconds, Duration*, int64_t)},
+		{"multipliedBy", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, multipliedBy, Duration*, int64_t)},
+		{"negated", "()Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, negated, Duration*)},
+		{"of", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/Duration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Duration, of, Duration*, int64_t, $TemporalUnit*)},
+		{"ofDays", "(J)Ljava/time/Duration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Duration, ofDays, Duration*, int64_t)},
+		{"ofHours", "(J)Ljava/time/Duration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Duration, ofHours, Duration*, int64_t)},
+		{"ofMillis", "(J)Ljava/time/Duration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Duration, ofMillis, Duration*, int64_t)},
+		{"ofMinutes", "(J)Ljava/time/Duration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Duration, ofMinutes, Duration*, int64_t)},
+		{"ofNanos", "(J)Ljava/time/Duration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Duration, ofNanos, Duration*, int64_t)},
+		{"ofSeconds", "(J)Ljava/time/Duration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Duration, ofSeconds, Duration*, int64_t)},
+		{"ofSeconds", "(JJ)Ljava/time/Duration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Duration, ofSeconds, Duration*, int64_t, int64_t)},
+		{"parse", "(Ljava/lang/CharSequence;)Ljava/time/Duration;", nullptr, $PUBLIC | $STATIC, $staticMethod(Duration, parse, Duration*, $CharSequence*)},
+		{"parseFraction", "(Ljava/lang/CharSequence;III)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Duration, parseFraction, int32_t, $CharSequence*, int32_t, int32_t, int32_t)},
+		{"parseNumber", "(Ljava/lang/CharSequence;IIILjava/lang/String;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(Duration, parseNumber, int64_t, $CharSequence*, int32_t, int32_t, int32_t, $String*)},
+		{"plus", "(Ljava/time/Duration;)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, plus, Duration*, Duration*)},
+		{"plus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, plus, Duration*, int64_t, $TemporalUnit*)},
+		{"plus", "(JJ)Ljava/time/Duration;", nullptr, $PRIVATE, $method(Duration, plus, Duration*, int64_t, int64_t)},
+		{"plusDays", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, plusDays, Duration*, int64_t)},
+		{"plusHours", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, plusHours, Duration*, int64_t)},
+		{"plusMillis", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, plusMillis, Duration*, int64_t)},
+		{"plusMinutes", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, plusMinutes, Duration*, int64_t)},
+		{"plusNanos", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, plusNanos, Duration*, int64_t)},
+		{"plusSeconds", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, plusSeconds, Duration*, int64_t)},
+		{"readExternal", "(Ljava/io/DataInput;)Ljava/time/Duration;", nullptr, $STATIC, $staticMethod(Duration, readExternal, Duration*, $DataInput*), "java.io.IOException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Duration, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
+		{"subtractFrom", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(Duration, subtractFrom, $Temporal*, $Temporal*)},
+		{"toBigDecimalSeconds", "()Ljava/math/BigDecimal;", nullptr, $PRIVATE, $method(Duration, toBigDecimalSeconds, $BigDecimal*)},
+		{"toDays", "()J", nullptr, $PUBLIC, $method(Duration, toDays, int64_t)},
+		{"toDaysPart", "()J", nullptr, $PUBLIC, $method(Duration, toDaysPart, int64_t)},
+		{"toHours", "()J", nullptr, $PUBLIC, $method(Duration, toHours, int64_t)},
+		{"toHoursPart", "()I", nullptr, $PUBLIC, $method(Duration, toHoursPart, int32_t)},
+		{"toMillis", "()J", nullptr, $PUBLIC, $method(Duration, toMillis, int64_t)},
+		{"toMillisPart", "()I", nullptr, $PUBLIC, $method(Duration, toMillisPart, int32_t)},
+		{"toMinutes", "()J", nullptr, $PUBLIC, $method(Duration, toMinutes, int64_t)},
+		{"toMinutesPart", "()I", nullptr, $PUBLIC, $method(Duration, toMinutesPart, int32_t)},
+		{"toNanos", "()J", nullptr, $PUBLIC, $method(Duration, toNanos, int64_t)},
+		{"toNanosPart", "()I", nullptr, $PUBLIC, $method(Duration, toNanosPart, int32_t)},
+		{"toSeconds", "()J", nullptr, $PUBLIC, $method(Duration, toSeconds, int64_t)},
+		{"toSecondsPart", "()I", nullptr, $PUBLIC, $method(Duration, toSecondsPart, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Duration, toString, $String*)},
+		{"truncatedTo", "(Ljava/time/temporal/TemporalUnit;)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, truncatedTo, Duration*, $TemporalUnit*)},
+		{"withNanos", "(I)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, withNanos, Duration*, int32_t)},
+		{"withSeconds", "(J)Ljava/time/Duration;", nullptr, $PUBLIC, $method(Duration, withSeconds, Duration*, int64_t)},
+		{"writeExternal", "(Ljava/io/DataOutput;)V", nullptr, 0, $method(Duration, writeExternal, void, $DataOutput*), "java.io.IOException"},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Duration, writeReplace, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.Duration$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"java.time.Duration$DurationUnits", "java.time.Duration", "DurationUnits", $PRIVATE | $STATIC},
+		{"java.time.Duration$Lazy", "java.time.Duration", "Lazy", $PRIVATE | $STATIC},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/ValueBased;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.time.Duration",
+		"java.lang.Object",
+		"java.time.temporal.TemporalAmount,java.lang.Comparable,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/time/temporal/TemporalAmount;Ljava/lang/Comparable<Ljava/time/Duration;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"java.time.Duration$1,java.time.Duration$DurationUnits,java.time.Duration$Lazy"
+	};
+	$loadClass(Duration, name, initialize, &classInfo$$, Duration::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Duration));
+	});
 	return class$;
 }
 

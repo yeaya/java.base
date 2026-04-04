@@ -23,6 +23,7 @@ class SSLTrafficKeyDerivation$KeySchedule : public ::java::lang::Enum {
 public:
 	SSLTrafficKeyDerivation$KeySchedule();
 	static $Array<::sun::security::ssl::SSLTrafficKeyDerivation$KeySchedule>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* label, bool isIv);
 	virtual $String* getAlgorithm(::sun::security::ssl::CipherSuite* cs, $String* algorithm);
 	virtual int32_t getKeyLength(::sun::security::ssl::CipherSuite* cs);

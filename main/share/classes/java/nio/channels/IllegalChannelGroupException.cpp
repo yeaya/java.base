@@ -1,5 +1,4 @@
 #include <java/nio/channels/IllegalChannelGroupException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,29 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace nio {
 		namespace channels {
-
-$FieldInfo _IllegalChannelGroupException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalChannelGroupException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _IllegalChannelGroupException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalChannelGroupException, init$, void)},
-	{}
-};
-
-$ClassInfo _IllegalChannelGroupException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.channels.IllegalChannelGroupException",
-	"java.lang.IllegalArgumentException",
-	nullptr,
-	_IllegalChannelGroupException_FieldInfo_,
-	_IllegalChannelGroupException_MethodInfo_
-};
-
-$Object* allocate$IllegalChannelGroupException($Class* clazz) {
-	return $of($alloc(IllegalChannelGroupException));
-}
 
 void IllegalChannelGroupException::init$() {
 	$IllegalArgumentException::init$();
@@ -49,7 +25,25 @@ void IllegalChannelGroupException::throw$() {
 }
 
 $Class* IllegalChannelGroupException::load$($String* name, bool initialize) {
-	$loadClass(IllegalChannelGroupException, name, initialize, &_IllegalChannelGroupException_ClassInfo_, allocate$IllegalChannelGroupException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalChannelGroupException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalChannelGroupException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.channels.IllegalChannelGroupException",
+		"java.lang.IllegalArgumentException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IllegalChannelGroupException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IllegalChannelGroupException);
+	});
 	return class$;
 }
 

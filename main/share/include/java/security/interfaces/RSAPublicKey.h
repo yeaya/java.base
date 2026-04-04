@@ -25,7 +25,7 @@ public:
 	virtual ::java::math::BigInteger* getPublicExponent() {return nullptr;}
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x86E1ECEDECEAB676;
+	static const int64_t serialVersionUID = (int64_t)0x86e1ecedeceab676;
 };
 
 		} // interfaces

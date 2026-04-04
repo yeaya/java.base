@@ -1,5 +1,4 @@
 #include <jdk/test/internal/foo/FooException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,24 +9,6 @@ namespace jdk {
 	namespace test {
 		namespace internal {
 			namespace foo {
-
-$MethodInfo _FooException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FooException, init$, void)},
-	{}
-};
-
-$ClassInfo _FooException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.test.internal.foo.FooException",
-	"java.lang.RuntimeException",
-	nullptr,
-	nullptr,
-	_FooException_MethodInfo_
-};
-
-$Object* allocate$FooException($Class* clazz) {
-	return $of($alloc(FooException));
-}
 
 void FooException::init$() {
 	$RuntimeException::init$();
@@ -44,7 +25,21 @@ void FooException::throw$() {
 }
 
 $Class* FooException::load$($String* name, bool initialize) {
-	$loadClass(FooException, name, initialize, &_FooException_ClassInfo_, allocate$FooException);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FooException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.test.internal.foo.FooException",
+		"java.lang.RuntimeException",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FooException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FooException);
+	});
 	return class$;
 }
 

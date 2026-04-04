@@ -1,5 +1,4 @@
 #include <jdk/internal/vm/annotation/DontInline.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -12,47 +11,40 @@ namespace jdk {
 		namespace vm {
 			namespace annotation {
 
-$Attribute DontInline_Attribute_var$1[] = {
-	{'e', "Ljava/lang/annotation/ElementType; METHOD"},
-	{'e', "Ljava/lang/annotation/ElementType; CONSTRUCTOR"},
-	{'-'}
-};
-
-$NamedAttribute DontInline_Attribute_var$0[] = {
-	{"value", '[', DontInline_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute DontInline_Attribute_var$2[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _DontInline_Annotations_[] = {
-	{"Ljava/lang/annotation/Target;", DontInline_Attribute_var$0},
-	{"Ljava/lang/annotation/Retention;", DontInline_Attribute_var$2},
-	{}
-};
-
-$ClassInfo _DontInline_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"jdk.internal.vm.annotation.DontInline",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_DontInline_Annotations_
-};
-
-$Object* allocate$DontInline($Class* clazz) {
-	return $of($alloc(DontInline));
-}
-
 $Class* DontInline::load$($String* name, bool initialize) {
-	$loadClass(DontInline, name, initialize, &_DontInline_ClassInfo_, allocate$DontInline);
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; METHOD"},
+		{'e', "Ljava/lang/annotation/ElementType; CONSTRUCTOR"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"jdk.internal.vm.annotation.DontInline",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(DontInline, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DontInline);
+	});
 	return class$;
 }
 

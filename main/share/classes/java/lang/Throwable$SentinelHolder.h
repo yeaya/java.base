@@ -23,6 +23,7 @@ class Throwable$SentinelHolder : public ::java::lang::Object {
 	$class(Throwable$SentinelHolder, 0, ::java::lang::Object)
 public:
 	Throwable$SentinelHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::StackTraceElement* STACK_TRACE_ELEMENT_SENTINEL;
 	static $Array<::java::lang::StackTraceElement>* STACK_TRACE_SENTINEL;

@@ -1,5 +1,4 @@
 #include <java/nio/channels/ShutdownChannelGroupException.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace nio {
 		namespace channels {
-
-$FieldInfo _ShutdownChannelGroupException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ShutdownChannelGroupException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ShutdownChannelGroupException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ShutdownChannelGroupException, init$, void)},
-	{}
-};
-
-$ClassInfo _ShutdownChannelGroupException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.channels.ShutdownChannelGroupException",
-	"java.lang.IllegalStateException",
-	nullptr,
-	_ShutdownChannelGroupException_FieldInfo_,
-	_ShutdownChannelGroupException_MethodInfo_
-};
-
-$Object* allocate$ShutdownChannelGroupException($Class* clazz) {
-	return $of($alloc(ShutdownChannelGroupException));
-}
 
 void ShutdownChannelGroupException::init$() {
 	$IllegalStateException::init$();
@@ -50,7 +26,25 @@ void ShutdownChannelGroupException::throw$() {
 }
 
 $Class* ShutdownChannelGroupException::load$($String* name, bool initialize) {
-	$loadClass(ShutdownChannelGroupException, name, initialize, &_ShutdownChannelGroupException_ClassInfo_, allocate$ShutdownChannelGroupException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ShutdownChannelGroupException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ShutdownChannelGroupException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.channels.ShutdownChannelGroupException",
+		"java.lang.IllegalStateException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ShutdownChannelGroupException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ShutdownChannelGroupException);
+	});
 	return class$;
 }
 

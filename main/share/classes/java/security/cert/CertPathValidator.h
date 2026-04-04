@@ -33,6 +33,7 @@ class $export CertPathValidator : public ::java::lang::Object {
 	$class(CertPathValidator, 0, ::java::lang::Object)
 public:
 	CertPathValidator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::cert::CertPathValidatorSpi* validatorSpi, ::java::security::Provider* provider, $String* algorithm);
 	$String* getAlgorithm();
 	static $String* getDefaultType();

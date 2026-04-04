@@ -30,7 +30,7 @@ public:
 	virtual void setSelectedIndex(int32_t selection);
 	virtual void setSelectedIndexes($ints* selections);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xC8D39A9743328639;
+	static const int64_t serialVersionUID = (int64_t)0xc8d39a9743328639;
 	$String* prompt = nullptr;
 	$StringArray* choices = nullptr;
 	int32_t defaultChoice = 0;

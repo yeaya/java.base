@@ -71,6 +71,7 @@ class UnixUriUtils : public ::java::lang::Object {
 	$class(UnixUriUtils, 0, ::java::lang::Object)
 public:
 	UnixUriUtils();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t decode(char16_t c);
 	static ::java::nio::file::Path* fromUri(::sun::nio::fs::UnixFileSystem* fs, ::java::net::URI* uri);

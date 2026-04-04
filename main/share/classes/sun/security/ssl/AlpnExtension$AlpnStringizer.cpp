@@ -1,5 +1,4 @@
 #include <sun/security/ssl/AlpnExtension$AlpnStringizer.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/ByteBuffer.h>
 #include <sun/security/ssl/AlpnExtension$AlpnSpec.h>
@@ -19,37 +18,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _AlpnExtension$AlpnStringizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(AlpnExtension$AlpnStringizer, init$, void)},
-	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AlpnExtension$AlpnStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _AlpnExtension$AlpnStringizer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.AlpnExtension$AlpnStringizer", "sun.security.ssl.AlpnExtension", "AlpnStringizer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _AlpnExtension$AlpnStringizer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.AlpnExtension$AlpnStringizer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLStringizer",
-	nullptr,
-	_AlpnExtension$AlpnStringizer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AlpnExtension$AlpnStringizer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.AlpnExtension"
-};
-
-$Object* allocate$AlpnExtension$AlpnStringizer($Class* clazz) {
-	return $of($alloc(AlpnExtension$AlpnStringizer));
-}
-
 void AlpnExtension$AlpnStringizer::init$() {
 }
 
@@ -66,7 +34,33 @@ AlpnExtension$AlpnStringizer::AlpnExtension$AlpnStringizer() {
 }
 
 $Class* AlpnExtension$AlpnStringizer::load$($String* name, bool initialize) {
-	$loadClass(AlpnExtension$AlpnStringizer, name, initialize, &_AlpnExtension$AlpnStringizer_ClassInfo_, allocate$AlpnExtension$AlpnStringizer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(AlpnExtension$AlpnStringizer, init$, void)},
+		{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AlpnExtension$AlpnStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.AlpnExtension$AlpnStringizer", "sun.security.ssl.AlpnExtension", "AlpnStringizer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.AlpnExtension$AlpnStringizer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLStringizer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.AlpnExtension"
+	};
+	$loadClass(AlpnExtension$AlpnStringizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AlpnExtension$AlpnStringizer);
+	});
 	return class$;
 }
 

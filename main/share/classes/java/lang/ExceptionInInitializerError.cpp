@@ -1,5 +1,4 @@
 #include <java/lang/ExceptionInInitializerError.h>
-
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream$PutField.h>
@@ -22,35 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace lang {
 
-$FieldInfo _ExceptionInInitializerError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ExceptionInInitializerError, serialVersionUID)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ExceptionInInitializerError, serialPersistentFields)},
-	{}
-};
-
-$MethodInfo _ExceptionInInitializerError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExceptionInInitializerError, init$, void)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ExceptionInInitializerError, init$, void, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ExceptionInInitializerError, init$, void, $String*)},
-	{"getException", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(ExceptionInInitializerError, getException, $Throwable*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ExceptionInInitializerError, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ExceptionInInitializerError, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ExceptionInInitializerError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.ExceptionInInitializerError",
-	"java.lang.LinkageError",
-	nullptr,
-	_ExceptionInInitializerError_FieldInfo_,
-	_ExceptionInInitializerError_MethodInfo_
-};
-
-$Object* allocate$ExceptionInInitializerError($Class* clazz) {
-	return $of($alloc(ExceptionInInitializerError));
-}
-
 $ObjectStreamFieldArray* ExceptionInInitializerError::serialPersistentFields = nullptr;
 
 void ExceptionInInitializerError::init$() {
@@ -71,22 +41,22 @@ $Throwable* ExceptionInInitializerError::getException() {
 }
 
 void ExceptionInInitializerError::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, fields, $nc(s)->readFields());
-	$var($Throwable, exception, $cast($Throwable, $nc(fields)->get("exception"_s, ($Object*)nullptr)));
+	$var($Throwable, exception, $cast($Throwable, $nc(fields)->get("exception"_s, nullptr)));
 	if (exception != nullptr) {
 		setCause(exception);
 	}
 }
 
 void ExceptionInInitializerError::writeObject($ObjectOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectOutputStream$PutField, fields, $nc(out)->putFields());
-	$nc(fields)->put("exception"_s, $($of($LinkageError::getCause())));
+	$nc(fields)->put("exception"_s, $($LinkageError::getCause()));
 	out->writeFields();
 }
 
-void clinit$ExceptionInInitializerError($Class* class$) {
+void ExceptionInInitializerError::clinit$($Class* clazz) {
 	$assignStatic(ExceptionInInitializerError::serialPersistentFields, $new($ObjectStreamFieldArray, {$$new($ObjectStreamField, "exception"_s, $Throwable::class$)}));
 }
 
@@ -101,7 +71,31 @@ void ExceptionInInitializerError::throw$() {
 }
 
 $Class* ExceptionInInitializerError::load$($String* name, bool initialize) {
-	$loadClass(ExceptionInInitializerError, name, initialize, &_ExceptionInInitializerError_ClassInfo_, clinit$ExceptionInInitializerError, allocate$ExceptionInInitializerError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ExceptionInInitializerError, serialVersionUID)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ExceptionInInitializerError, serialPersistentFields)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExceptionInInitializerError, init$, void)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ExceptionInInitializerError, init$, void, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ExceptionInInitializerError, init$, void, $String*)},
+		{"getException", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(ExceptionInInitializerError, getException, $Throwable*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ExceptionInInitializerError, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ExceptionInInitializerError, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.ExceptionInInitializerError",
+		"java.lang.LinkageError",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ExceptionInInitializerError, name, initialize, &classInfo$$, ExceptionInInitializerError::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ExceptionInInitializerError);
+	});
 	return class$;
 }
 

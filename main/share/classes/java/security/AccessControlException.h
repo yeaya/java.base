@@ -21,11 +21,14 @@ public:
 	void init$($String* s);
 	void init$($String* s, ::java::security::Permission* p);
 	virtual ::java::security::Permission* getPermission();
-	static const int64_t serialVersionUID = (int64_t)0x474EA5094463B577;
+	static const int64_t serialVersionUID = (int64_t)0x474ea5094463b577;
 	::java::security::Permission* perm = nullptr;
 	AccessControlException(const AccessControlException& e);
 	virtual void throw$() override;
-	inline AccessControlException* operator ->() {
+	inline AccessControlException* operator ->() const {
+		return (AccessControlException*)throwing$;
+	}
+	inline operator AccessControlException*() const {
 		return (AccessControlException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLProducer.h>
-
 #include <sun/security/ssl/ConnectionContext.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SSLProducer_MethodInfo_[] = {
-	{"produce", "(Lsun/security/ssl/ConnectionContext;)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLProducer, produce, $bytes*, $ConnectionContext*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _SSLProducer_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"sun.security.ssl.SSLProducer",
-	nullptr,
-	nullptr,
-	nullptr,
-	_SSLProducer_MethodInfo_
-};
-
-$Object* allocate$SSLProducer($Class* clazz) {
-	return $of($alloc(SSLProducer));
-}
-
 $Class* SSLProducer::load$($String* name, bool initialize) {
-	$loadClass(SSLProducer, name, initialize, &_SSLProducer_ClassInfo_, allocate$SSLProducer);
+	$MethodInfo methodInfos$$[] = {
+		{"produce", "(Lsun/security/ssl/ConnectionContext;)[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLProducer, produce, $bytes*, $ConnectionContext*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"sun.security.ssl.SSLProducer",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SSLProducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLProducer);
+	});
 	return class$;
 }
 

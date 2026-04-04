@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/commons/ModuleTargetAttribute.h>
-
 #include <jdk/internal/org/objectweb/asm/Attribute.h>
 #include <jdk/internal/org/objectweb/asm/ByteVector.h>
 #include <jdk/internal/org/objectweb/asm/ClassReader.h>
@@ -22,32 +21,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 					namespace commons {
-
-$FieldInfo _ModuleTargetAttribute_FieldInfo_[] = {
-	{"platform", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ModuleTargetAttribute, platform)},
-	{}
-};
-
-$MethodInfo _ModuleTargetAttribute_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ModuleTargetAttribute, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleTargetAttribute, init$, void)},
-	{"read", "(Ljdk/internal/org/objectweb/asm/ClassReader;II[CI[Ljdk/internal/org/objectweb/asm/Label;)Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, $PROTECTED, $virtualMethod(ModuleTargetAttribute, read, $Attribute*, $ClassReader*, int32_t, int32_t, $chars*, int32_t, $LabelArray*)},
-	{"write", "(Ljdk/internal/org/objectweb/asm/ClassWriter;[BIII)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PROTECTED, $virtualMethod(ModuleTargetAttribute, write, $ByteVector*, $ClassWriter*, $bytes*, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _ModuleTargetAttribute_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.commons.ModuleTargetAttribute",
-	"jdk.internal.org.objectweb.asm.Attribute",
-	nullptr,
-	_ModuleTargetAttribute_FieldInfo_,
-	_ModuleTargetAttribute_MethodInfo_
-};
-
-$Object* allocate$ModuleTargetAttribute($Class* clazz) {
-	return $of($alloc(ModuleTargetAttribute));
-}
 
 void ModuleTargetAttribute::init$($String* platform) {
 	$Attribute::init$("ModuleTarget"_s);
@@ -72,7 +45,28 @@ ModuleTargetAttribute::ModuleTargetAttribute() {
 }
 
 $Class* ModuleTargetAttribute::load$($String* name, bool initialize) {
-	$loadClass(ModuleTargetAttribute, name, initialize, &_ModuleTargetAttribute_ClassInfo_, allocate$ModuleTargetAttribute);
+	$FieldInfo fieldInfos$$[] = {
+		{"platform", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ModuleTargetAttribute, platform)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ModuleTargetAttribute, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleTargetAttribute, init$, void)},
+		{"read", "(Ljdk/internal/org/objectweb/asm/ClassReader;II[CI[Ljdk/internal/org/objectweb/asm/Label;)Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, $PROTECTED, $virtualMethod(ModuleTargetAttribute, read, $Attribute*, $ClassReader*, int32_t, int32_t, $chars*, int32_t, $LabelArray*)},
+		{"write", "(Ljdk/internal/org/objectweb/asm/ClassWriter;[BIII)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PROTECTED, $virtualMethod(ModuleTargetAttribute, write, $ByteVector*, $ClassWriter*, $bytes*, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.commons.ModuleTargetAttribute",
+		"jdk.internal.org.objectweb.asm.Attribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModuleTargetAttribute, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleTargetAttribute);
+	});
 	return class$;
 }
 

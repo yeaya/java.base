@@ -24,6 +24,7 @@ class SystemModuleFinders$SystemImage : public ::java::lang::Object {
 	$class(SystemModuleFinders$SystemImage, 0, ::java::lang::Object)
 public:
 	SystemModuleFinders$SystemImage();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::jdk::internal::jimage::ImageReader* reader();
 	static ::jdk::internal::jimage::ImageReader* READER;

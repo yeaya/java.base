@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/impl/Norm2AllModes$NoopNormalizer2.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/Appendable.h>
 #include <java/lang/CharSequence.h>
@@ -22,44 +21,6 @@ namespace jdk {
 	namespace internal {
 		namespace icu {
 			namespace impl {
-
-$MethodInfo _Norm2AllModes$NoopNormalizer2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Norm2AllModes$NoopNormalizer2, init$, void)},
-	{"append", "(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$NoopNormalizer2, append, $StringBuilder*, $StringBuilder*, $CharSequence*)},
-	{"getDecomposition", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$NoopNormalizer2, getDecomposition, $String*, int32_t)},
-	{"hasBoundaryBefore", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$NoopNormalizer2, hasBoundaryBefore, bool, int32_t)},
-	{"isNormalized", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$NoopNormalizer2, isNormalized, bool, $CharSequence*)},
-	{"normalize", "(Ljava/lang/CharSequence;Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$NoopNormalizer2, normalize, $StringBuilder*, $CharSequence*, $StringBuilder*)},
-	{"normalize", "(Ljava/lang/CharSequence;Ljava/lang/Appendable;)Ljava/lang/Appendable;", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$NoopNormalizer2, normalize, $Appendable*, $CharSequence*, $Appendable*)},
-	{"normalizeSecondAndAppend", "(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$NoopNormalizer2, normalizeSecondAndAppend, $StringBuilder*, $StringBuilder*, $CharSequence*)},
-	{"spanQuickCheckYes", "(Ljava/lang/CharSequence;)I", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$NoopNormalizer2, spanQuickCheckYes, int32_t, $CharSequence*)},
-	{}
-};
-
-$InnerClassInfo _Norm2AllModes$NoopNormalizer2_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.impl.Norm2AllModes$NoopNormalizer2", "jdk.internal.icu.impl.Norm2AllModes", "NoopNormalizer2", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Norm2AllModes$NoopNormalizer2_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.icu.impl.Norm2AllModes$NoopNormalizer2",
-	"jdk.internal.icu.text.Normalizer2",
-	nullptr,
-	nullptr,
-	_Norm2AllModes$NoopNormalizer2_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Norm2AllModes$NoopNormalizer2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.impl.Norm2AllModes"
-};
-
-$Object* allocate$Norm2AllModes$NoopNormalizer2($Class* clazz) {
-	return $of($alloc(Norm2AllModes$NoopNormalizer2));
-}
 
 void Norm2AllModes$NoopNormalizer2::init$() {
 	$Normalizer2::init$();
@@ -123,7 +84,40 @@ Norm2AllModes$NoopNormalizer2::Norm2AllModes$NoopNormalizer2() {
 }
 
 $Class* Norm2AllModes$NoopNormalizer2::load$($String* name, bool initialize) {
-	$loadClass(Norm2AllModes$NoopNormalizer2, name, initialize, &_Norm2AllModes$NoopNormalizer2_ClassInfo_, allocate$Norm2AllModes$NoopNormalizer2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Norm2AllModes$NoopNormalizer2, init$, void)},
+		{"append", "(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$NoopNormalizer2, append, $StringBuilder*, $StringBuilder*, $CharSequence*)},
+		{"getDecomposition", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$NoopNormalizer2, getDecomposition, $String*, int32_t)},
+		{"hasBoundaryBefore", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$NoopNormalizer2, hasBoundaryBefore, bool, int32_t)},
+		{"isNormalized", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$NoopNormalizer2, isNormalized, bool, $CharSequence*)},
+		{"normalize", "(Ljava/lang/CharSequence;Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$NoopNormalizer2, normalize, $StringBuilder*, $CharSequence*, $StringBuilder*)},
+		{"normalize", "(Ljava/lang/CharSequence;Ljava/lang/Appendable;)Ljava/lang/Appendable;", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$NoopNormalizer2, normalize, $Appendable*, $CharSequence*, $Appendable*)},
+		{"normalizeSecondAndAppend", "(Ljava/lang/StringBuilder;Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$NoopNormalizer2, normalizeSecondAndAppend, $StringBuilder*, $StringBuilder*, $CharSequence*)},
+		{"spanQuickCheckYes", "(Ljava/lang/CharSequence;)I", nullptr, $PUBLIC, $virtualMethod(Norm2AllModes$NoopNormalizer2, spanQuickCheckYes, int32_t, $CharSequence*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.impl.Norm2AllModes$NoopNormalizer2", "jdk.internal.icu.impl.Norm2AllModes", "NoopNormalizer2", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.icu.impl.Norm2AllModes$NoopNormalizer2",
+		"jdk.internal.icu.text.Normalizer2",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.impl.Norm2AllModes"
+	};
+	$loadClass(Norm2AllModes$NoopNormalizer2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Norm2AllModes$NoopNormalizer2);
+	});
 	return class$;
 }
 

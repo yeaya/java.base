@@ -18,6 +18,7 @@ class $export WinDirRelative : public ::java::lang::Object {
 	$class(WinDirRelative, 0, ::java::lang::Object)
 public:
 	WinDirRelative();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool isLetter(char16_t c);
 	static void main($StringArray* args);

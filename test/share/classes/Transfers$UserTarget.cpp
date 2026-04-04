@@ -1,5 +1,4 @@
 #include <Transfers$UserTarget.h>
-
 #include <Transfers$Failure.h>
 #include <Transfers$Target.h>
 #include <Transfers$UserTarget$1.h>
@@ -20,46 +19,6 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $WritableByteChannel = ::java::nio::channels::WritableByteChannel;
 using $Random = ::java::util::Random;
 
-$FieldInfo _Transfers$UserTarget_FieldInfo_[] = {
-	{"ch", "Ljava/nio/channels/WritableByteChannel;", nullptr, $PRIVATE, $field(Transfers$UserTarget, ch)},
-	{"dst", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $FINAL, $field(Transfers$UserTarget, dst)},
-	{}
-};
-
-$MethodInfo _Transfers$UserTarget_MethodInfo_[] = {
-	{"<init>", "(IJ)V", nullptr, 0, $method(Transfers$UserTarget, init$, void, int32_t, int64_t)},
-	{"channel", "()Ljava/nio/channels/WritableByteChannel;", nullptr, 0, $virtualMethod(Transfers$UserTarget, channel, $WritableByteChannel*)},
-	{"verify", "()V", nullptr, 0, $virtualMethod(Transfers$UserTarget, verify, void)},
-	{}
-};
-
-$InnerClassInfo _Transfers$UserTarget_InnerClassesInfo_[] = {
-	{"Transfers$UserTarget", "Transfers", "UserTarget", $STATIC},
-	{"Transfers$Target", "Transfers", "Target", $STATIC | $ABSTRACT},
-	{"Transfers$UserTarget$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Transfers$UserTarget_ClassInfo_ = {
-	$ACC_SUPER,
-	"Transfers$UserTarget",
-	"Transfers$Target",
-	nullptr,
-	_Transfers$UserTarget_FieldInfo_,
-	_Transfers$UserTarget_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Transfers$UserTarget_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Transfers"
-};
-
-$Object* allocate$Transfers$UserTarget($Class* clazz) {
-	return $of($alloc(Transfers$UserTarget));
-}
-
 void Transfers$UserTarget::init$(int32_t size, int64_t seed) {
 	$Transfers$Target::init$(size, seed, "UserChannel"_s);
 	$set(this, dst, $ByteBuffer::wrap($$new($bytes, size + 1)));
@@ -71,16 +30,16 @@ $WritableByteChannel* Transfers$UserTarget::channel() {
 }
 
 void Transfers$UserTarget::verify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->dst)->remaining() != 1) {
-		$throwNew($Transfers$Failure, $$str({"Destination has "_s, $$str($nc(this->dst)->remaining()), " bytes remaining (expected 1)"_s}));
+		$throwNew($Transfers$Failure, $$str({"Destination has "_s, $$str(this->dst->remaining()), " bytes remaining (expected 1)"_s}));
 	}
 	$var($bytes, ba, $new($bytes, this->size));
 	$var($Random, r, $new($Random, this->seed));
 	r->nextBytes(ba);
-	$nc(this->dst)->flip();
+	this->dst->flip();
 	$var($ByteBuffer, rbb, $ByteBuffer::wrap(ba, 0, this->size));
-	if (!$nc(this->dst)->equals(rbb)) {
+	if (!this->dst->equals(rbb)) {
 		$throwNew($Transfers$Failure, "Wrong data written"_s);
 	}
 }
@@ -89,7 +48,41 @@ Transfers$UserTarget::Transfers$UserTarget() {
 }
 
 $Class* Transfers$UserTarget::load$($String* name, bool initialize) {
-	$loadClass(Transfers$UserTarget, name, initialize, &_Transfers$UserTarget_ClassInfo_, allocate$Transfers$UserTarget);
+	$FieldInfo fieldInfos$$[] = {
+		{"ch", "Ljava/nio/channels/WritableByteChannel;", nullptr, $PRIVATE, $field(Transfers$UserTarget, ch)},
+		{"dst", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $FINAL, $field(Transfers$UserTarget, dst)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IJ)V", nullptr, 0, $method(Transfers$UserTarget, init$, void, int32_t, int64_t)},
+		{"channel", "()Ljava/nio/channels/WritableByteChannel;", nullptr, 0, $virtualMethod(Transfers$UserTarget, channel, $WritableByteChannel*)},
+		{"verify", "()V", nullptr, 0, $virtualMethod(Transfers$UserTarget, verify, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Transfers$UserTarget", "Transfers", "UserTarget", $STATIC},
+		{"Transfers$Target", "Transfers", "Target", $STATIC | $ABSTRACT},
+		{"Transfers$UserTarget$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Transfers$UserTarget",
+		"Transfers$Target",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Transfers"
+	};
+	$loadClass(Transfers$UserTarget, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Transfers$UserTarget);
+	});
 	return class$;
 }
 

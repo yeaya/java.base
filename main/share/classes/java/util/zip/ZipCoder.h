@@ -42,6 +42,7 @@ class ZipCoder : public ::java::lang::Object {
 	$class(ZipCoder, 0, ::java::lang::Object)
 public:
 	ZipCoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	virtual int32_t checkedHash($bytes* a, int32_t off, int32_t len);
 	virtual ::java::nio::charset::CharsetDecoder* decoder();

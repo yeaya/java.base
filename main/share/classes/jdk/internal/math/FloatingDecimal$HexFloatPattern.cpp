@@ -1,5 +1,4 @@
 #include <jdk/internal/math/FloatingDecimal$HexFloatPattern.h>
-
 #include <java/util/regex/Pattern.h>
 #include <jdk/internal/math/FloatingDecimal.h>
 #include <jcpp.h>
@@ -16,47 +15,12 @@ namespace jdk {
 	namespace internal {
 		namespace math {
 
-$FieldInfo _FloatingDecimal$HexFloatPattern_FieldInfo_[] = {
-	{"VALUE", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal$HexFloatPattern, VALUE)},
-	{}
-};
-
-$MethodInfo _FloatingDecimal$HexFloatPattern_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(FloatingDecimal$HexFloatPattern, init$, void)},
-	{}
-};
-
-$InnerClassInfo _FloatingDecimal$HexFloatPattern_InnerClassesInfo_[] = {
-	{"jdk.internal.math.FloatingDecimal$HexFloatPattern", "jdk.internal.math.FloatingDecimal", "HexFloatPattern", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _FloatingDecimal$HexFloatPattern_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.math.FloatingDecimal$HexFloatPattern",
-	"java.lang.Object",
-	nullptr,
-	_FloatingDecimal$HexFloatPattern_FieldInfo_,
-	_FloatingDecimal$HexFloatPattern_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FloatingDecimal$HexFloatPattern_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.math.FloatingDecimal"
-};
-
-$Object* allocate$FloatingDecimal$HexFloatPattern($Class* clazz) {
-	return $of($alloc(FloatingDecimal$HexFloatPattern));
-}
-
 $Pattern* FloatingDecimal$HexFloatPattern::VALUE = nullptr;
 
 void FloatingDecimal$HexFloatPattern::init$() {
 }
 
-void clinit$FloatingDecimal$HexFloatPattern($Class* class$) {
+void FloatingDecimal$HexFloatPattern::clinit$($Class* clazz) {
 	$assignStatic(FloatingDecimal$HexFloatPattern::VALUE, $Pattern::compile("([-+])?0[xX](((\\p{XDigit}+)\\.?)|((\\p{XDigit}*)\\.(\\p{XDigit}+)))[pP]([-+])?(\\p{Digit}+)[fFdD]?"_s));
 }
 
@@ -64,7 +28,36 @@ FloatingDecimal$HexFloatPattern::FloatingDecimal$HexFloatPattern() {
 }
 
 $Class* FloatingDecimal$HexFloatPattern::load$($String* name, bool initialize) {
-	$loadClass(FloatingDecimal$HexFloatPattern, name, initialize, &_FloatingDecimal$HexFloatPattern_ClassInfo_, clinit$FloatingDecimal$HexFloatPattern, allocate$FloatingDecimal$HexFloatPattern);
+	$FieldInfo fieldInfos$$[] = {
+		{"VALUE", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal$HexFloatPattern, VALUE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(FloatingDecimal$HexFloatPattern, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.math.FloatingDecimal$HexFloatPattern", "jdk.internal.math.FloatingDecimal", "HexFloatPattern", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.math.FloatingDecimal$HexFloatPattern",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.math.FloatingDecimal"
+	};
+	$loadClass(FloatingDecimal$HexFloatPattern, name, initialize, &classInfo$$, FloatingDecimal$HexFloatPattern::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FloatingDecimal$HexFloatPattern);
+	});
 	return class$;
 }
 

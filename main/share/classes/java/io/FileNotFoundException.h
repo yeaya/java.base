@@ -15,10 +15,13 @@ public:
 	void init$();
 	void init$($String* s);
 	void init$($String* path, $String* reason);
-	static const int64_t serialVersionUID = (int64_t)0xF38A2BD6E0216AE4;
+	static const int64_t serialVersionUID = (int64_t)0xf38a2bd6e0216ae4;
 	FileNotFoundException(const FileNotFoundException& e);
 	virtual void throw$() override;
-	inline FileNotFoundException* operator ->() {
+	inline FileNotFoundException* operator ->() const {
+		return (FileNotFoundException*)throwing$;
+	}
+	inline operator FileNotFoundException*() const {
 		return (FileNotFoundException*)throwing$;
 	}
 };

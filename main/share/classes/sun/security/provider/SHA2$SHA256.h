@@ -18,6 +18,7 @@ class SHA2$SHA256 : public ::sun::security::provider::SHA2 {
 public:
 	SHA2$SHA256();
 	using ::sun::security::provider::SHA2::engineUpdate;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* clone() override;
 	static $ints* INITIAL_HASHES;

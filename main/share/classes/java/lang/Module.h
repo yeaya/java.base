@@ -70,6 +70,7 @@ class $export Module : public ::java::lang::reflect::AnnotatedElement {
 	$class(Module, $PRELOAD, ::java::lang::reflect::AnnotatedElement)
 public:
 	Module();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::ModuleLayer* layer, ::java::lang::ClassLoader* loader, ::java::lang::module::ModuleDescriptor* descriptor, ::java::net::URI* uri);
 	void init$(::java::lang::ClassLoader* loader);
 	void init$(::java::lang::ClassLoader* loader, ::java::lang::module::ModuleDescriptor* descriptor);

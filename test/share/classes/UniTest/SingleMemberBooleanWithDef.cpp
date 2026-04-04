@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberBooleanWithDef.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -10,44 +9,38 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$NamedAttribute SingleMemberBooleanWithDef_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _SingleMemberBooleanWithDef_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", SingleMemberBooleanWithDef_Attribute_var$0},
-	{}
-};
-
-$Attribute _SingleMemberBooleanWithDef_DefaultValue_value0 = {
-	'Z', "false"
-};
-
-$MethodInfo _SingleMemberBooleanWithDef_MethodInfo_[] = {
-	{"value", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberBooleanWithDef, value, bool), nullptr, &_SingleMemberBooleanWithDef_DefaultValue_value0},
-	{}
-};
-
-$ClassInfo _SingleMemberBooleanWithDef_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"UniTest.SingleMemberBooleanWithDef",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_SingleMemberBooleanWithDef_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberBooleanWithDef_Annotations_
-};
-
-$Object* allocate$SingleMemberBooleanWithDef($Class* clazz) {
-	return $of($alloc(SingleMemberBooleanWithDef));
-}
-
 $Class* SingleMemberBooleanWithDef::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberBooleanWithDef, name, initialize, &_SingleMemberBooleanWithDef_ClassInfo_, allocate$SingleMemberBooleanWithDef);
+
+	$Attribute valuedefaultValue$$ = {
+		'Z', "false"
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberBooleanWithDef, value, bool), nullptr, &valuedefaultValue$$},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"UniTest.SingleMemberBooleanWithDef",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberBooleanWithDef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberBooleanWithDef);
+	});
 	return class$;
 }
 

@@ -70,6 +70,7 @@ class ClassSpecializer : public ::java::lang::Object {
 	$class(ClassSpecializer, 0, ::java::lang::Object)
 public:
 	ClassSpecializer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Class* topClass, $Class* keyType, $Class* metaType, ::java::lang::invoke::MethodType* baseConstructorType, ::java::lang::invoke::MemberName* sdAccessor, $String* sdFieldName, ::java::util::List* transformMethods);
 	virtual ::java::lang::invoke::MethodType* baseConstructorType();
 	static $String* classBCName($Class* cls);

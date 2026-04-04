@@ -1,5 +1,4 @@
 #include <java/io/StringWriter.h>
-
 #include <java/io/Writer.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/IndexOutOfBoundsException.h>
@@ -17,41 +16,6 @@ using $StringBuffer = ::java::lang::StringBuffer;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _StringWriter_FieldInfo_[] = {
-	{"buf", "Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $field(StringWriter, buf)},
-	{}
-};
-
-$MethodInfo _StringWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StringWriter, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(StringWriter, init$, void, int32_t)},
-	{"append", "(Ljava/lang/CharSequence;)Ljava/io/StringWriter;", nullptr, $PUBLIC, $virtualMethod(StringWriter, append, StringWriter*, $CharSequence*)},
-	{"append", "(Ljava/lang/CharSequence;II)Ljava/io/StringWriter;", nullptr, $PUBLIC, $virtualMethod(StringWriter, append, StringWriter*, $CharSequence*, int32_t, int32_t)},
-	{"append", "(C)Ljava/io/StringWriter;", nullptr, $PUBLIC, $virtualMethod(StringWriter, append, StringWriter*, char16_t)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(StringWriter, close, void), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(StringWriter, flush, void)},
-	{"getBuffer", "()Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(StringWriter, getBuffer, $StringBuffer*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringWriter, toString, $String*)},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(StringWriter, write, void, int32_t)},
-	{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(StringWriter, write, void, $chars*, int32_t, int32_t)},
-	{"write", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StringWriter, write, void, $String*)},
-	{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(StringWriter, write, void, $String*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _StringWriter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.StringWriter",
-	"java.io.Writer",
-	nullptr,
-	_StringWriter_FieldInfo_,
-	_StringWriter_MethodInfo_
-};
-
-$Object* allocate$StringWriter($Class* clazz) {
-	return $of($alloc(StringWriter));
-}
 
 void StringWriter::init$() {
 	$Writer::init$();
@@ -86,16 +50,16 @@ void StringWriter::write($String* str) {
 }
 
 void StringWriter::write($String* str, int32_t off, int32_t len) {
-	$nc(this->buf)->append(static_cast<$CharSequence*>(str), off, off + len);
+	$nc(this->buf)->append(str, off, off + len);
 }
 
 StringWriter* StringWriter::append($CharSequence* csq) {
-	write($($String::valueOf($of(csq))));
+	write($($String::valueOf(csq)));
 	return this;
 }
 
 StringWriter* StringWriter::append($CharSequence* csq$renamed, int32_t start, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CharSequence, csq, csq$renamed);
 	if (csq == nullptr) {
 		$assign(csq, "null"_s);
@@ -104,7 +68,7 @@ StringWriter* StringWriter::append($CharSequence* csq$renamed, int32_t start, in
 }
 
 StringWriter* StringWriter::append(char16_t c) {
-	write((int32_t)c);
+	write(c);
 	return this;
 }
 
@@ -126,7 +90,37 @@ StringWriter::StringWriter() {
 }
 
 $Class* StringWriter::load$($String* name, bool initialize) {
-	$loadClass(StringWriter, name, initialize, &_StringWriter_ClassInfo_, allocate$StringWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"buf", "Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $field(StringWriter, buf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StringWriter, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(StringWriter, init$, void, int32_t)},
+		{"append", "(Ljava/lang/CharSequence;)Ljava/io/StringWriter;", nullptr, $PUBLIC, $virtualMethod(StringWriter, append, StringWriter*, $CharSequence*)},
+		{"append", "(Ljava/lang/CharSequence;II)Ljava/io/StringWriter;", nullptr, $PUBLIC, $virtualMethod(StringWriter, append, StringWriter*, $CharSequence*, int32_t, int32_t)},
+		{"append", "(C)Ljava/io/StringWriter;", nullptr, $PUBLIC, $virtualMethod(StringWriter, append, StringWriter*, char16_t)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(StringWriter, close, void), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(StringWriter, flush, void)},
+		{"getBuffer", "()Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(StringWriter, getBuffer, $StringBuffer*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringWriter, toString, $String*)},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(StringWriter, write, void, int32_t)},
+		{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(StringWriter, write, void, $chars*, int32_t, int32_t)},
+		{"write", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StringWriter, write, void, $String*)},
+		{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(StringWriter, write, void, $String*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.StringWriter",
+		"java.io.Writer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StringWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StringWriter));
+	});
 	return class$;
 }
 

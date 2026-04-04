@@ -19,7 +19,10 @@ public:
 	$String* flags = nullptr;
 	UnknownFormatFlagsException(const UnknownFormatFlagsException& e);
 	virtual void throw$() override;
-	inline UnknownFormatFlagsException* operator ->() {
+	inline UnknownFormatFlagsException* operator ->() const {
+		return (UnknownFormatFlagsException*)throwing$;
+	}
+	inline operator UnknownFormatFlagsException*() const {
 		return (UnknownFormatFlagsException*)throwing$;
 	}
 };

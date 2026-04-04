@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLTrafficKeyDerivation$KeySchedule.h>
-
 #include <java/lang/Enum.h>
 #include <sun/security/ssl/CipherSuite$HashAlg.h>
 #include <sun/security/ssl/CipherSuite.h>
@@ -18,51 +17,6 @@ using $CipherSuite = ::sun::security::ssl::CipherSuite;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _SSLTrafficKeyDerivation$KeySchedule_FieldInfo_[] = {
-	{"TlsKey", "Lsun/security/ssl/SSLTrafficKeyDerivation$KeySchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLTrafficKeyDerivation$KeySchedule, TlsKey)},
-	{"TlsIv", "Lsun/security/ssl/SSLTrafficKeyDerivation$KeySchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLTrafficKeyDerivation$KeySchedule, TlsIv)},
-	{"TlsUpdateNplus1", "Lsun/security/ssl/SSLTrafficKeyDerivation$KeySchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLTrafficKeyDerivation$KeySchedule, TlsUpdateNplus1)},
-	{"$VALUES", "[Lsun/security/ssl/SSLTrafficKeyDerivation$KeySchedule;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLTrafficKeyDerivation$KeySchedule, $VALUES)},
-	{"label", "[B", nullptr, $PRIVATE | $FINAL, $field(SSLTrafficKeyDerivation$KeySchedule, label)},
-	{"isIv", "Z", nullptr, $PRIVATE | $FINAL, $field(SSLTrafficKeyDerivation$KeySchedule, isIv)},
-	{}
-};
-
-$MethodInfo _SSLTrafficKeyDerivation$KeySchedule_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/SSLTrafficKeyDerivation$KeySchedule;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLTrafficKeyDerivation$KeySchedule, $values, $SSLTrafficKeyDerivation$KeyScheduleArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Z)V", "(Ljava/lang/String;Z)V", $PRIVATE, $method(SSLTrafficKeyDerivation$KeySchedule, init$, void, $String*, int32_t, $String*, bool)},
-	{"getAlgorithm", "(Lsun/security/ssl/CipherSuite;Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $method(SSLTrafficKeyDerivation$KeySchedule, getAlgorithm, $String*, $CipherSuite*, $String*)},
-	{"getKeyLength", "(Lsun/security/ssl/CipherSuite;)I", nullptr, 0, $method(SSLTrafficKeyDerivation$KeySchedule, getKeyLength, int32_t, $CipherSuite*)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SSLTrafficKeyDerivation$KeySchedule;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLTrafficKeyDerivation$KeySchedule, valueOf, SSLTrafficKeyDerivation$KeySchedule*, $String*)},
-	{"values", "()[Lsun/security/ssl/SSLTrafficKeyDerivation$KeySchedule;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLTrafficKeyDerivation$KeySchedule, values, $SSLTrafficKeyDerivation$KeyScheduleArray*)},
-	{}
-};
-
-$InnerClassInfo _SSLTrafficKeyDerivation$KeySchedule_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLTrafficKeyDerivation$KeySchedule", "sun.security.ssl.SSLTrafficKeyDerivation", "KeySchedule", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _SSLTrafficKeyDerivation$KeySchedule_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.ssl.SSLTrafficKeyDerivation$KeySchedule",
-	"java.lang.Enum",
-	nullptr,
-	_SSLTrafficKeyDerivation$KeySchedule_FieldInfo_,
-	_SSLTrafficKeyDerivation$KeySchedule_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/ssl/SSLTrafficKeyDerivation$KeySchedule;>;",
-	nullptr,
-	_SSLTrafficKeyDerivation$KeySchedule_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLTrafficKeyDerivation"
-};
-
-$Object* allocate$SSLTrafficKeyDerivation$KeySchedule($Class* clazz) {
-	return $of($alloc(SSLTrafficKeyDerivation$KeySchedule));
-}
 
 SSLTrafficKeyDerivation$KeySchedule* SSLTrafficKeyDerivation$KeySchedule::TlsKey = nullptr;
 SSLTrafficKeyDerivation$KeySchedule* SSLTrafficKeyDerivation$KeySchedule::TlsIv = nullptr;
@@ -98,14 +52,14 @@ int32_t SSLTrafficKeyDerivation$KeySchedule::getKeyLength($CipherSuite* cs) {
 	if (this == SSLTrafficKeyDerivation$KeySchedule::TlsUpdateNplus1) {
 		return $nc(cs)->hashAlg->hashLength;
 	}
-	return this->isIv ? $nc(cs)->bulkCipher->ivSize : cs->bulkCipher->keySize;
+	return this->isIv ? $nc(cs)->bulkCipher->ivSize : $nc(cs)->bulkCipher->keySize;
 }
 
 $String* SSLTrafficKeyDerivation$KeySchedule::getAlgorithm($CipherSuite* cs, $String* algorithm) {
 	return this->isIv ? algorithm : $nc(cs)->bulkCipher->algorithm;
 }
 
-void clinit$SSLTrafficKeyDerivation$KeySchedule($Class* class$) {
+void SSLTrafficKeyDerivation$KeySchedule::clinit$($Class* clazz) {
 	$assignStatic(SSLTrafficKeyDerivation$KeySchedule::TlsKey, $new(SSLTrafficKeyDerivation$KeySchedule, "TlsKey"_s, 0, "key"_s, false));
 	$assignStatic(SSLTrafficKeyDerivation$KeySchedule::TlsIv, $new(SSLTrafficKeyDerivation$KeySchedule, "TlsIv"_s, 1, "iv"_s, true));
 	$assignStatic(SSLTrafficKeyDerivation$KeySchedule::TlsUpdateNplus1, $new(SSLTrafficKeyDerivation$KeySchedule, "TlsUpdateNplus1"_s, 2, "traffic upd"_s, false));
@@ -116,7 +70,46 @@ SSLTrafficKeyDerivation$KeySchedule::SSLTrafficKeyDerivation$KeySchedule() {
 }
 
 $Class* SSLTrafficKeyDerivation$KeySchedule::load$($String* name, bool initialize) {
-	$loadClass(SSLTrafficKeyDerivation$KeySchedule, name, initialize, &_SSLTrafficKeyDerivation$KeySchedule_ClassInfo_, clinit$SSLTrafficKeyDerivation$KeySchedule, allocate$SSLTrafficKeyDerivation$KeySchedule);
+	$FieldInfo fieldInfos$$[] = {
+		{"TlsKey", "Lsun/security/ssl/SSLTrafficKeyDerivation$KeySchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLTrafficKeyDerivation$KeySchedule, TlsKey)},
+		{"TlsIv", "Lsun/security/ssl/SSLTrafficKeyDerivation$KeySchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLTrafficKeyDerivation$KeySchedule, TlsIv)},
+		{"TlsUpdateNplus1", "Lsun/security/ssl/SSLTrafficKeyDerivation$KeySchedule;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLTrafficKeyDerivation$KeySchedule, TlsUpdateNplus1)},
+		{"$VALUES", "[Lsun/security/ssl/SSLTrafficKeyDerivation$KeySchedule;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLTrafficKeyDerivation$KeySchedule, $VALUES)},
+		{"label", "[B", nullptr, $PRIVATE | $FINAL, $field(SSLTrafficKeyDerivation$KeySchedule, label)},
+		{"isIv", "Z", nullptr, $PRIVATE | $FINAL, $field(SSLTrafficKeyDerivation$KeySchedule, isIv)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/ssl/SSLTrafficKeyDerivation$KeySchedule;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLTrafficKeyDerivation$KeySchedule, $values, $SSLTrafficKeyDerivation$KeyScheduleArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Z)V", "(Ljava/lang/String;Z)V", $PRIVATE, $method(SSLTrafficKeyDerivation$KeySchedule, init$, void, $String*, int32_t, $String*, bool)},
+		{"getAlgorithm", "(Lsun/security/ssl/CipherSuite;Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $method(SSLTrafficKeyDerivation$KeySchedule, getAlgorithm, $String*, $CipherSuite*, $String*)},
+		{"getKeyLength", "(Lsun/security/ssl/CipherSuite;)I", nullptr, 0, $method(SSLTrafficKeyDerivation$KeySchedule, getKeyLength, int32_t, $CipherSuite*)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SSLTrafficKeyDerivation$KeySchedule;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLTrafficKeyDerivation$KeySchedule, valueOf, SSLTrafficKeyDerivation$KeySchedule*, $String*)},
+		{"values", "()[Lsun/security/ssl/SSLTrafficKeyDerivation$KeySchedule;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLTrafficKeyDerivation$KeySchedule, values, $SSLTrafficKeyDerivation$KeyScheduleArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLTrafficKeyDerivation$KeySchedule", "sun.security.ssl.SSLTrafficKeyDerivation", "KeySchedule", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.ssl.SSLTrafficKeyDerivation$KeySchedule",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/ssl/SSLTrafficKeyDerivation$KeySchedule;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLTrafficKeyDerivation"
+	};
+	$loadClass(SSLTrafficKeyDerivation$KeySchedule, name, initialize, &classInfo$$, SSLTrafficKeyDerivation$KeySchedule::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SSLTrafficKeyDerivation$KeySchedule));
+	});
 	return class$;
 }
 

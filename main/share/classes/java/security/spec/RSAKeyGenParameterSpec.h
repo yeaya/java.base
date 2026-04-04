@@ -19,6 +19,7 @@ class $export RSAKeyGenParameterSpec : public ::java::security::spec::AlgorithmP
 	$class(RSAKeyGenParameterSpec, 0, ::java::security::spec::AlgorithmParameterSpec)
 public:
 	RSAKeyGenParameterSpec();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t keysize, ::java::math::BigInteger* publicExponent);
 	void init$(int32_t keysize, ::java::math::BigInteger* publicExponent, ::java::security::spec::AlgorithmParameterSpec* keyParams);
 	virtual ::java::security::spec::AlgorithmParameterSpec* getKeyParams();

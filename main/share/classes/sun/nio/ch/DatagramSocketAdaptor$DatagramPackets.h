@@ -32,6 +32,7 @@ class DatagramSocketAdaptor$DatagramPackets : public ::java::lang::Object {
 	$class(DatagramSocketAdaptor$DatagramPackets, 0, ::java::lang::Object)
 public:
 	DatagramSocketAdaptor$DatagramPackets();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t getBufLength(::java::net::DatagramPacket* p);
 	static ::java::lang::invoke::MethodHandles$Lookup* lambda$static$0();

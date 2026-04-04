@@ -1,5 +1,4 @@
 #include <java/nio/file/attribute/UserPrincipalLookupService.h>
-
 #include <java/nio/file/attribute/GroupPrincipal.h>
 #include <java/nio/file/attribute/UserPrincipal.h>
 #include <jcpp.h>
@@ -14,26 +13,6 @@ namespace java {
 		namespace file {
 			namespace attribute {
 
-$MethodInfo _UserPrincipalLookupService_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(UserPrincipalLookupService, init$, void)},
-	{"lookupPrincipalByGroupName", "(Ljava/lang/String;)Ljava/nio/file/attribute/GroupPrincipal;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UserPrincipalLookupService, lookupPrincipalByGroupName, $GroupPrincipal*, $String*), "java.io.IOException"},
-	{"lookupPrincipalByName", "(Ljava/lang/String;)Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UserPrincipalLookupService, lookupPrincipalByName, $UserPrincipal*, $String*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _UserPrincipalLookupService_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.nio.file.attribute.UserPrincipalLookupService",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_UserPrincipalLookupService_MethodInfo_
-};
-
-$Object* allocate$UserPrincipalLookupService($Class* clazz) {
-	return $of($alloc(UserPrincipalLookupService));
-}
-
 void UserPrincipalLookupService::init$() {
 }
 
@@ -41,7 +20,23 @@ UserPrincipalLookupService::UserPrincipalLookupService() {
 }
 
 $Class* UserPrincipalLookupService::load$($String* name, bool initialize) {
-	$loadClass(UserPrincipalLookupService, name, initialize, &_UserPrincipalLookupService_ClassInfo_, allocate$UserPrincipalLookupService);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(UserPrincipalLookupService, init$, void)},
+		{"lookupPrincipalByGroupName", "(Ljava/lang/String;)Ljava/nio/file/attribute/GroupPrincipal;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UserPrincipalLookupService, lookupPrincipalByGroupName, $GroupPrincipal*, $String*), "java.io.IOException"},
+		{"lookupPrincipalByName", "(Ljava/lang/String;)Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(UserPrincipalLookupService, lookupPrincipalByName, $UserPrincipal*, $String*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.nio.file.attribute.UserPrincipalLookupService",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UserPrincipalLookupService, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UserPrincipalLookupService);
+	});
 	return class$;
 }
 

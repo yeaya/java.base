@@ -21,6 +21,7 @@ class CodePointTrie$Type : public ::java::lang::Enum {
 public:
 	CodePointTrie$Type();
 	static $Array<::jdk::internal::icu::util::CodePointTrie$Type>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::jdk::internal::icu::util::CodePointTrie$Type* valueOf($String* name);
 	static $Array<::jdk::internal::icu::util::CodePointTrie$Type>* values();

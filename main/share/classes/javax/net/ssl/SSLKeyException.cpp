@@ -1,5 +1,4 @@
 #include <javax/net/ssl/SSLKeyException.h>
-
 #include <javax/net/ssl/SSLException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $SSLException = ::javax::net::ssl::SSLException;
 namespace javax {
 	namespace net {
 		namespace ssl {
-
-$FieldInfo _SSLKeyException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLKeyException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SSLKeyException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SSLKeyException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _SSLKeyException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.net.ssl.SSLKeyException",
-	"javax.net.ssl.SSLException",
-	nullptr,
-	_SSLKeyException_FieldInfo_,
-	_SSLKeyException_MethodInfo_
-};
-
-$Object* allocate$SSLKeyException($Class* clazz) {
-	return $of($alloc(SSLKeyException));
-}
 
 void SSLKeyException::init$($String* reason) {
 	$SSLException::init$(reason);
@@ -50,7 +26,25 @@ void SSLKeyException::throw$() {
 }
 
 $Class* SSLKeyException::load$($String* name, bool initialize) {
-	$loadClass(SSLKeyException, name, initialize, &_SSLKeyException_ClassInfo_, allocate$SSLKeyException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLKeyException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SSLKeyException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.net.ssl.SSLKeyException",
+		"javax.net.ssl.SSLException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SSLKeyException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLKeyException);
+	});
 	return class$;
 }
 

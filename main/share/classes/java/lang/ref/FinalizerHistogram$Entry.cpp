@@ -1,5 +1,4 @@
 #include <java/lang/ref/FinalizerHistogram$Entry.h>
-
 #include <java/lang/ref/FinalizerHistogram.h>
 #include <jcpp.h>
 
@@ -11,44 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace lang {
 		namespace ref {
-
-$FieldInfo _FinalizerHistogram$Entry_FieldInfo_[] = {
-	{"instanceCount", "I", nullptr, $PRIVATE, $field(FinalizerHistogram$Entry, instanceCount)},
-	{"className", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(FinalizerHistogram$Entry, className)},
-	{}
-};
-
-$MethodInfo _FinalizerHistogram$Entry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(FinalizerHistogram$Entry, init$, void, $String*)},
-	{"getInstanceCount", "()I", nullptr, 0, $method(FinalizerHistogram$Entry, getInstanceCount, int32_t)},
-	{"increment", "()V", nullptr, 0, $method(FinalizerHistogram$Entry, increment, void)},
-	{}
-};
-
-$InnerClassInfo _FinalizerHistogram$Entry_InnerClassesInfo_[] = {
-	{"java.lang.ref.FinalizerHistogram$Entry", "java.lang.ref.FinalizerHistogram", "Entry", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _FinalizerHistogram$Entry_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.ref.FinalizerHistogram$Entry",
-	"java.lang.Object",
-	nullptr,
-	_FinalizerHistogram$Entry_FieldInfo_,
-	_FinalizerHistogram$Entry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FinalizerHistogram$Entry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.ref.FinalizerHistogram"
-};
-
-$Object* allocate$FinalizerHistogram$Entry($Class* clazz) {
-	return $of($alloc(FinalizerHistogram$Entry));
-}
 
 int32_t FinalizerHistogram$Entry::getInstanceCount() {
 	return this->instanceCount;
@@ -66,7 +27,39 @@ FinalizerHistogram$Entry::FinalizerHistogram$Entry() {
 }
 
 $Class* FinalizerHistogram$Entry::load$($String* name, bool initialize) {
-	$loadClass(FinalizerHistogram$Entry, name, initialize, &_FinalizerHistogram$Entry_ClassInfo_, allocate$FinalizerHistogram$Entry);
+	$FieldInfo fieldInfos$$[] = {
+		{"instanceCount", "I", nullptr, $PRIVATE, $field(FinalizerHistogram$Entry, instanceCount)},
+		{"className", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(FinalizerHistogram$Entry, className)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(FinalizerHistogram$Entry, init$, void, $String*)},
+		{"getInstanceCount", "()I", nullptr, 0, $method(FinalizerHistogram$Entry, getInstanceCount, int32_t)},
+		{"increment", "()V", nullptr, 0, $method(FinalizerHistogram$Entry, increment, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ref.FinalizerHistogram$Entry", "java.lang.ref.FinalizerHistogram", "Entry", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.ref.FinalizerHistogram$Entry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.ref.FinalizerHistogram"
+	};
+	$loadClass(FinalizerHistogram$Entry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FinalizerHistogram$Entry);
+	});
 	return class$;
 }
 

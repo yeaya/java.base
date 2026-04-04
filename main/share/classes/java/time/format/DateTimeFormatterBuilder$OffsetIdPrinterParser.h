@@ -36,6 +36,7 @@ class $export DateTimeFormatterBuilder$OffsetIdPrinterParser : public ::java::ti
 	$class(DateTimeFormatterBuilder$OffsetIdPrinterParser, 0, ::java::time::format::DateTimeFormatterBuilder$DateTimePrinterParser)
 public:
 	DateTimeFormatterBuilder$OffsetIdPrinterParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* pattern, $String* noOffsetText);
 	int32_t checkPattern($String* pattern);
 	virtual bool format(::java::time::format::DateTimePrintContext* context, ::java::lang::StringBuilder* buf) override;

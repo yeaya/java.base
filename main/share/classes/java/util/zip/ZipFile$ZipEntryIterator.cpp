@@ -1,5 +1,4 @@
 #include <java/util/zip/ZipFile$ZipEntryIterator.h>
-
 #include <java/util/Enumeration.h>
 #include <java/util/Iterator.h>
 #include <java/util/NoSuchElementException.h>
@@ -17,58 +16,10 @@ using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $ZipFile = ::java::util::zip::ZipFile;
-using $ZipFile$Source = ::java::util::zip::ZipFile$Source;
 
 namespace java {
 	namespace util {
 		namespace zip {
-
-$FieldInfo _ZipFile$ZipEntryIterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/zip/ZipFile;", nullptr, $FINAL | $SYNTHETIC, $field(ZipFile$ZipEntryIterator, this$0)},
-	{"i", "I", nullptr, $PRIVATE, $field(ZipFile$ZipEntryIterator, i)},
-	{"entryCount", "I", nullptr, $PRIVATE | $FINAL, $field(ZipFile$ZipEntryIterator, entryCount)},
-	{}
-};
-
-$MethodInfo _ZipFile$ZipEntryIterator_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/zip/ZipFile;I)V", nullptr, $PUBLIC, $method(ZipFile$ZipEntryIterator, init$, void, $ZipFile*, int32_t)},
-	{"asIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TT;>;", $PUBLIC, $virtualMethod(ZipFile$ZipEntryIterator, asIterator, $Iterator*)},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipFile$ZipEntryIterator, hasMoreElements, bool)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipFile$ZipEntryIterator, hasNext, bool)},
-	{"next", "()Ljava/util/zip/ZipEntry;", "()TT;", $PUBLIC, $virtualMethod(ZipFile$ZipEntryIterator, next, $Object*)},
-	{"nextElement", "()Ljava/util/zip/ZipEntry;", "()TT;", $PUBLIC, $virtualMethod(ZipFile$ZipEntryIterator, nextElement, $Object*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _ZipFile$ZipEntryIterator_InnerClassesInfo_[] = {
-	{"java.util.zip.ZipFile$ZipEntryIterator", "java.util.zip.ZipFile", "ZipEntryIterator", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ZipFile$ZipEntryIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.zip.ZipFile$ZipEntryIterator",
-	"java.lang.Object",
-	"java.util.Enumeration,java.util.Iterator",
-	_ZipFile$ZipEntryIterator_FieldInfo_,
-	_ZipFile$ZipEntryIterator_MethodInfo_,
-	"<T:Ljava/util/zip/ZipEntry;>Ljava/lang/Object;Ljava/util/Enumeration<TT;>;Ljava/util/Iterator<TT;>;",
-	nullptr,
-	_ZipFile$ZipEntryIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.zip.ZipFile"
-};
-
-$Object* allocate$ZipFile$ZipEntryIterator($Class* clazz) {
-	return $of($alloc(ZipFile$ZipEntryIterator));
-}
 
 int32_t ZipFile$ZipEntryIterator::hashCode() {
 	 return this->$Enumeration::hashCode();
@@ -105,7 +56,7 @@ bool ZipFile$ZipEntryIterator::hasNext() {
 }
 
 $Object* ZipFile$ZipEntryIterator::nextElement() {
-	return $of(next());
+	return next();
 }
 
 $Object* ZipFile$ZipEntryIterator::next() {
@@ -126,7 +77,48 @@ ZipFile$ZipEntryIterator::ZipFile$ZipEntryIterator() {
 }
 
 $Class* ZipFile$ZipEntryIterator::load$($String* name, bool initialize) {
-	$loadClass(ZipFile$ZipEntryIterator, name, initialize, &_ZipFile$ZipEntryIterator_ClassInfo_, allocate$ZipFile$ZipEntryIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/zip/ZipFile;", nullptr, $FINAL | $SYNTHETIC, $field(ZipFile$ZipEntryIterator, this$0)},
+		{"i", "I", nullptr, $PRIVATE, $field(ZipFile$ZipEntryIterator, i)},
+		{"entryCount", "I", nullptr, $PRIVATE | $FINAL, $field(ZipFile$ZipEntryIterator, entryCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/zip/ZipFile;I)V", nullptr, $PUBLIC, $method(ZipFile$ZipEntryIterator, init$, void, $ZipFile*, int32_t)},
+		{"asIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TT;>;", $PUBLIC, $virtualMethod(ZipFile$ZipEntryIterator, asIterator, $Iterator*)},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipFile$ZipEntryIterator, hasMoreElements, bool)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipFile$ZipEntryIterator, hasNext, bool)},
+		{"next", "()Ljava/util/zip/ZipEntry;", "()TT;", $PUBLIC, $virtualMethod(ZipFile$ZipEntryIterator, next, $Object*)},
+		{"nextElement", "()Ljava/util/zip/ZipEntry;", "()TT;", $PUBLIC, $virtualMethod(ZipFile$ZipEntryIterator, nextElement, $Object*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.zip.ZipFile$ZipEntryIterator", "java.util.zip.ZipFile", "ZipEntryIterator", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.zip.ZipFile$ZipEntryIterator",
+		"java.lang.Object",
+		"java.util.Enumeration,java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/util/zip/ZipEntry;>Ljava/lang/Object;Ljava/util/Enumeration<TT;>;Ljava/util/Iterator<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.zip.ZipFile"
+	};
+	$loadClass(ZipFile$ZipEntryIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ZipFile$ZipEntryIterator));
+	});
 	return class$;
 }
 

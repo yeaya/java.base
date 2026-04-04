@@ -57,6 +57,7 @@ public:
 	JavaKeyStore();
 	using ::java::security::KeyStoreSpi::engineStore;
 	using ::java::security::KeyStoreSpi::engineLoad;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* convertAlias($String* alias) {return nullptr;}
 	$bytes* convertToBytes($chars* password);
@@ -78,7 +79,7 @@ public:
 	virtual void engineStore(::java::io::OutputStream* stream, $chars* password) override;
 	::java::security::MessageDigest* getPreKeyedHash($chars* password);
 	static ::sun::security::util::Debug* debug;
-	static const int32_t MAGIC = 0xFEEDFEED;
+	static const int32_t MAGIC = 0xfeedfeed;
 	static const int32_t VERSION_1 = 1;
 	static const int32_t VERSION_2 = 2;
 	::java::util::Hashtable* entries = nullptr;

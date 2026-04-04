@@ -22,10 +22,13 @@ public:
 	void init$($String* msg);
 	void init$($String* message, $Throwable* cause);
 	void init$($Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0x0D26D0ADB8D6A627;
+	static const int64_t serialVersionUID = (int64_t)0x0d26d0adb8d6a627;
 	KeyManagementException(const KeyManagementException& e);
 	virtual void throw$() override;
-	inline KeyManagementException* operator ->() {
+	inline KeyManagementException* operator ->() const {
+		return (KeyManagementException*)throwing$;
+	}
+	inline operator KeyManagementException*() const {
 		return (KeyManagementException*)throwing$;
 	}
 };

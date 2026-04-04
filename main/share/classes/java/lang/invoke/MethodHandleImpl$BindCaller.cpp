@@ -1,5 +1,4 @@
 #include <java/lang/invoke/MethodHandleImpl$BindCaller.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassValue.h>
@@ -40,7 +39,6 @@ using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $SecurityException = ::java::lang::SecurityException;
-using $LambdaForm = ::java::lang::invoke::LambdaForm;
 using $MemberName = ::java::lang::invoke::MemberName;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodHandleImpl = ::java::lang::invoke::MethodHandleImpl;
@@ -48,7 +46,6 @@ using $MethodHandleImpl$BindCaller$1 = ::java::lang::invoke::MethodHandleImpl$Bi
 using $MethodHandleImpl$WrappedMember = ::java::lang::invoke::MethodHandleImpl$WrappedMember;
 using $MethodHandleStatics = ::java::lang::invoke::MethodHandleStatics;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
-using $MethodHandles$Lookup$ClassDefiner = ::java::lang::invoke::MethodHandles$Lookup$ClassDefiner;
 using $MethodType = ::java::lang::invoke::MethodType;
 using $ClassWriter = ::jdk::internal::org::objectweb::asm$::ClassWriter;
 using $MethodVisitor = ::jdk::internal::org::objectweb::asm$::MethodVisitor;
@@ -57,59 +54,6 @@ using $Reflection = ::jdk::internal::reflect::Reflection;
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$CompoundAttribute _MethodHandleImpl$BindCaller_MethodAnnotations_checkCallerClass2[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$FieldInfo _MethodHandleImpl$BindCaller_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MethodHandleImpl$BindCaller, $assertionsDisabled)},
-	{"INVOKER_MT", "Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE | $STATIC, $staticField(MethodHandleImpl$BindCaller, INVOKER_MT)},
-	{"CV_makeInjectedInvoker", "Ljava/lang/ClassValue;", "Ljava/lang/ClassValue<Ljava/lang/invoke/MethodHandle;>;", $PRIVATE | $STATIC, $staticField(MethodHandleImpl$BindCaller, CV_makeInjectedInvoker)},
-	{"MH_checkCallerClass", "Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MethodHandleImpl$BindCaller, MH_checkCallerClass)},
-	{"INJECTED_INVOKER_TEMPLATE", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MethodHandleImpl$BindCaller, INJECTED_INVOKER_TEMPLATE)},
-	{}
-};
-
-$MethodInfo _MethodHandleImpl$BindCaller_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MethodHandleImpl$BindCaller, init$, void)},
-	{"bindCaller", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $STATIC, $staticMethod(MethodHandleImpl$BindCaller, bindCaller, $MethodHandle*, $MethodHandle*, $Class*)},
-	{"checkCallerClass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl$BindCaller, checkCallerClass, bool, $Class*), nullptr, nullptr, _MethodHandleImpl$BindCaller_MethodAnnotations_checkCallerClass2},
-	{"checkInjectedInvoker", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl$BindCaller, checkInjectedInvoker, bool, $Class*, $Class*)},
-	{"generateInvokerTemplate", "()[B", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl$BindCaller, generateInvokerTemplate, $bytes*)},
-	{"makeInjectedInvoker", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl$BindCaller, makeInjectedInvoker, $MethodHandle*, $Class*)},
-	{"prepareForInvoker", "(Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl$BindCaller, prepareForInvoker, $MethodHandle*, $MethodHandle*)},
-	{"restoreToType", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl$BindCaller, restoreToType, $MethodHandle*, $MethodHandle*, $MethodHandle*, $Class*)},
-	{}
-};
-
-$InnerClassInfo _MethodHandleImpl$BindCaller_InnerClassesInfo_[] = {
-	{"java.lang.invoke.MethodHandleImpl$BindCaller", "java.lang.invoke.MethodHandleImpl", "BindCaller", $PRIVATE | $STATIC},
-	{"java.lang.invoke.MethodHandleImpl$BindCaller$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MethodHandleImpl$BindCaller_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.MethodHandleImpl$BindCaller",
-	"java.lang.Object",
-	nullptr,
-	_MethodHandleImpl$BindCaller_FieldInfo_,
-	_MethodHandleImpl$BindCaller_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MethodHandleImpl$BindCaller_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.MethodHandleImpl"
-};
-
-$Object* allocate$MethodHandleImpl$BindCaller($Class* clazz) {
-	return $of($alloc(MethodHandleImpl$BindCaller));
-}
 
 bool MethodHandleImpl$BindCaller::$assertionsDisabled = false;
 $MethodType* MethodHandleImpl$BindCaller::INVOKER_MT = nullptr;
@@ -122,12 +66,12 @@ void MethodHandleImpl$BindCaller::init$() {
 
 $MethodHandle* MethodHandleImpl$BindCaller::bindCaller($MethodHandle* mh, $Class* hostClass) {
 	$init(MethodHandleImpl$BindCaller);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = hostClass == nullptr;
 	if (!var$0) {
-		bool var$2 = $nc(hostClass)->isArray();
-		bool var$1 = var$2 || $nc(hostClass)->isPrimitive();
-		var$0 = (var$1 || $nc($($nc(hostClass)->getName()))->startsWith("java.lang.invoke."_s));
+		bool var$2 = hostClass->isArray();
+		bool var$1 = var$2 || hostClass->isPrimitive();
+		var$0 = var$1 || $$nc(hostClass->getName())->startsWith("java.lang.invoke."_s);
 	}
 	if (var$0) {
 		$throwNew($InternalError);
@@ -139,13 +83,13 @@ $MethodHandle* MethodHandleImpl$BindCaller::bindCaller($MethodHandle* mh, $Class
 
 $MethodHandle* MethodHandleImpl$BindCaller::makeInjectedInvoker($Class* targetClass) {
 	$init(MethodHandleImpl$BindCaller);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($String, name, $str({$($nc(targetClass)->getName()), "$$InjectedInvoker"_s}));
 		if (targetClass->isHidden()) {
-			$assign(name, $nc(name)->replace(u'/', u'_'));
+			$assign(name, name->replace(u'/', u'_'));
 		}
-		$Class* invokerClass = $nc($($$new($MethodHandles$Lookup, targetClass)->makeHiddenClassDefiner(name, MethodHandleImpl$BindCaller::INJECTED_INVOKER_TEMPLATE)))->defineClass(true);
+		$Class* invokerClass = $$nc($$new($MethodHandles$Lookup, targetClass)->makeHiddenClassDefiner(name, MethodHandleImpl$BindCaller::INJECTED_INVOKER_TEMPLATE))->defineClass(true);
 		if (!MethodHandleImpl$BindCaller::$assertionsDisabled && !checkInjectedInvoker(targetClass, invokerClass)) {
 			$throwNew($AssertionError);
 		}
@@ -158,24 +102,22 @@ $MethodHandle* MethodHandleImpl$BindCaller::makeInjectedInvoker($Class* targetCl
 
 $MethodHandle* MethodHandleImpl$BindCaller::prepareForInvoker($MethodHandle* mh$renamed) {
 	$init(MethodHandleImpl$BindCaller);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodHandle, mh, mh$renamed);
 	$assign(mh, $nc(mh)->asFixedArity());
-	$var($MethodType, mt, mh->type());
+	$var($MethodType, mt, $nc(mh)->type());
 	int32_t arity = $nc(mt)->parameterCount();
 	$var($MethodHandle, vamh, mh->asType($(mt->generic())));
-	$nc($($nc(vamh)->internalForm()))->compileToBytecode();
-	$load($ObjectArray);
+	$$nc($nc(vamh)->internalForm())->compileToBytecode();
 	$assign(vamh, vamh->asSpreader($getClass($ObjectArray), arity));
-	$nc($(vamh->internalForm()))->compileToBytecode();
+	$$nc($nc(vamh)->internalForm())->compileToBytecode();
 	return vamh;
 }
 
 $MethodHandle* MethodHandleImpl$BindCaller::restoreToType($MethodHandle* vamh, $MethodHandle* original, $Class* hostClass) {
 	$init(MethodHandleImpl$BindCaller);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodType, type, $nc(original)->type());
-	$load($ObjectArray);
 	$var($MethodHandle, mh, $nc(vamh)->asCollector($getClass($ObjectArray), $nc(type)->parameterCount()));
 	$var($MemberName, member, original->internalMemberName());
 	$assign(mh, $nc(mh)->asType(type));
@@ -185,14 +127,14 @@ $MethodHandle* MethodHandleImpl$BindCaller::restoreToType($MethodHandle* vamh, $
 
 bool MethodHandleImpl$BindCaller::checkInjectedInvoker($Class* hostClass, $Class* invokerClass) {
 	$init(MethodHandleImpl$BindCaller);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	bool var$0 = !MethodHandleImpl$BindCaller::$assertionsDisabled;
 	if (var$0) {
 		var$0 = !($nc(hostClass)->getClassLoader() == $nc(invokerClass)->getClassLoader());
 	}
 	if (var$0) {
-		$throwNew($AssertionError, $of($$str({$(hostClass->getName()), " (CL)"_s})));
+		$throwNew($AssertionError, $$of($str({$($nc(hostClass)->getName()), " (CL)"_s})));
 	}
 	try {
 		bool var$1 = !MethodHandleImpl$BindCaller::$assertionsDisabled;
@@ -200,7 +142,7 @@ bool MethodHandleImpl$BindCaller::checkInjectedInvoker($Class* hostClass, $Class
 			var$1 = !($nc(hostClass)->getProtectionDomain() == $nc(invokerClass)->getProtectionDomain());
 		}
 		if (var$1) {
-			$throwNew($AssertionError, $of($$str({$(hostClass->getName()), " (PD)"_s})));
+			$throwNew($AssertionError, $$of($str({$($nc(hostClass)->getName()), " (PD)"_s})));
 		}
 	} catch ($SecurityException& ex) {
 	}
@@ -208,29 +150,33 @@ bool MethodHandleImpl$BindCaller::checkInjectedInvoker($Class* hostClass, $Class
 		$init($MethodHandles$Lookup);
 		$var($MethodHandle, invoker, $nc($MethodHandles$Lookup::IMPL_LOOKUP)->findStatic(invokerClass, "invoke_V"_s, MethodHandleImpl$BindCaller::INVOKER_MT));
 		$var($MethodHandle, vamh, prepareForInvoker(MethodHandleImpl$BindCaller::MH_checkCallerClass));
-		return $booleanValue($nc(invoker)->invoke($$new($ObjectArray, {$of(vamh), $of($$new($ObjectArray, {$of(invokerClass)}))})));
+		return $booleanValue($nc(invoker)->invoke($$new($ObjectArray, {vamh, $$new($ObjectArray, {invokerClass})})));
 	} catch ($Throwable& ex) {
-		$throwNew($InternalError, $cast($Throwable, ex));
+		$throwNew($InternalError, ex);
 	}
 	$shouldNotReachHere();
 }
 
 bool MethodHandleImpl$BindCaller::checkCallerClass($Class* expected) {
 	$init(MethodHandleImpl$BindCaller);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Class* actual = $Reflection::getCallerClass();
 	if (actual != expected) {
-		$var($String, var$0, $$str({"found "_s, $($nc(actual)->getName()), ", expected "_s}));
-		$throwNew($InternalError, $$concat(var$0, $($nc(expected)->getName())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("found "_s);
+		var$0->append($($nc(actual)->getName()));
+		var$0->append(", expected "_s);
+		var$0->append($($nc(expected)->getName()));
+		$throwNew($InternalError, $$str(var$0));
 	}
 	return true;
 }
 
 $bytes* MethodHandleImpl$BindCaller::generateInvokerTemplate() {
 	$init(MethodHandleImpl$BindCaller);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClassWriter, cw, $new($ClassWriter, 0));
-	cw->visit(52, 2 | 32, "InjectedInvoker"_s, nullptr, "java/lang/Object"_s, nullptr);
+	cw->visit(52, 2 | 0x20, "InjectedInvoker"_s, nullptr, "java/lang/Object"_s, nullptr);
 	$var($MethodVisitor, mv, cw->visitMethod(8, "invoke_V"_s, "(Ljava/lang/invoke/MethodHandle;[Ljava/lang/Object;)Ljava/lang/Object;"_s, nullptr, nullptr));
 	$nc(mv)->visitCode();
 	mv->visitVarInsn(25, 0);
@@ -243,13 +189,12 @@ $bytes* MethodHandleImpl$BindCaller::generateInvokerTemplate() {
 	return cw->toByteArray();
 }
 
-void clinit$MethodHandleImpl$BindCaller($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void MethodHandleImpl$BindCaller::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$load($MethodHandleImpl);
 	MethodHandleImpl$BindCaller::$assertionsDisabled = !$MethodHandleImpl::class$->desiredAssertionStatus();
 	$load($MethodHandle);
-	$load($ObjectArray);
 	$assignStatic(MethodHandleImpl$BindCaller::INVOKER_MT, $MethodType::methodType($Object::class$, $MethodHandle::class$, $$new($ClassArray, {$getClass($ObjectArray)})));
 	$assignStatic(MethodHandleImpl$BindCaller::CV_makeInjectedInvoker, $new($MethodHandleImpl$BindCaller$1));
 	{
@@ -259,13 +204,12 @@ void clinit$MethodHandleImpl$BindCaller($Class* class$) {
 		}
 		try {
 			$init($MethodHandles$Lookup);
-			$init($Boolean);
 			$assignStatic(MethodHandleImpl$BindCaller::MH_checkCallerClass, $nc($MethodHandles$Lookup::IMPL_LOOKUP)->findStatic(THIS_CLASS, "checkCallerClass"_s, $($MethodType::methodType($Boolean::TYPE, $Class::class$))));
-			if (!MethodHandleImpl$BindCaller::$assertionsDisabled && !($booleanValue($nc(MethodHandleImpl$BindCaller::MH_checkCallerClass)->invokeExact($$new($ObjectArray, {$of(THIS_CLASS)}))))) {
+			if (!MethodHandleImpl$BindCaller::$assertionsDisabled && !($booleanValue($nc(MethodHandleImpl$BindCaller::MH_checkCallerClass)->invokeExact($$new($ObjectArray, {THIS_CLASS}))))) {
 				$throwNew($AssertionError);
 			}
 		} catch ($Throwable& ex) {
-			$throwNew($InternalError, $cast($Throwable, ex));
+			$throwNew($InternalError, ex);
 		}
 	}
 	$assignStatic(MethodHandleImpl$BindCaller::INJECTED_INVOKER_TEMPLATE, MethodHandleImpl$BindCaller::generateInvokerTemplate());
@@ -275,7 +219,53 @@ MethodHandleImpl$BindCaller::MethodHandleImpl$BindCaller() {
 }
 
 $Class* MethodHandleImpl$BindCaller::load$($String* name, bool initialize) {
-	$loadClass(MethodHandleImpl$BindCaller, name, initialize, &_MethodHandleImpl$BindCaller_ClassInfo_, clinit$MethodHandleImpl$BindCaller, allocate$MethodHandleImpl$BindCaller);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MethodHandleImpl$BindCaller, $assertionsDisabled)},
+		{"INVOKER_MT", "Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE | $STATIC, $staticField(MethodHandleImpl$BindCaller, INVOKER_MT)},
+		{"CV_makeInjectedInvoker", "Ljava/lang/ClassValue;", "Ljava/lang/ClassValue<Ljava/lang/invoke/MethodHandle;>;", $PRIVATE | $STATIC, $staticField(MethodHandleImpl$BindCaller, CV_makeInjectedInvoker)},
+		{"MH_checkCallerClass", "Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MethodHandleImpl$BindCaller, MH_checkCallerClass)},
+		{"INJECTED_INVOKER_TEMPLATE", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MethodHandleImpl$BindCaller, INJECTED_INVOKER_TEMPLATE)},
+		{}
+	};
+	$CompoundAttribute checkCallerClassmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MethodHandleImpl$BindCaller, init$, void)},
+		{"bindCaller", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $STATIC, $staticMethod(MethodHandleImpl$BindCaller, bindCaller, $MethodHandle*, $MethodHandle*, $Class*)},
+		{"checkCallerClass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl$BindCaller, checkCallerClass, bool, $Class*), nullptr, nullptr, checkCallerClassmethodAnnotations$$},
+		{"checkInjectedInvoker", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl$BindCaller, checkInjectedInvoker, bool, $Class*, $Class*)},
+		{"generateInvokerTemplate", "()[B", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl$BindCaller, generateInvokerTemplate, $bytes*)},
+		{"makeInjectedInvoker", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl$BindCaller, makeInjectedInvoker, $MethodHandle*, $Class*)},
+		{"prepareForInvoker", "(Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl$BindCaller, prepareForInvoker, $MethodHandle*, $MethodHandle*)},
+		{"restoreToType", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PRIVATE | $STATIC, $staticMethod(MethodHandleImpl$BindCaller, restoreToType, $MethodHandle*, $MethodHandle*, $MethodHandle*, $Class*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.MethodHandleImpl$BindCaller", "java.lang.invoke.MethodHandleImpl", "BindCaller", $PRIVATE | $STATIC},
+		{"java.lang.invoke.MethodHandleImpl$BindCaller$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.MethodHandleImpl$BindCaller",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.MethodHandleImpl"
+	};
+	$loadClass(MethodHandleImpl$BindCaller, name, initialize, &classInfo$$, MethodHandleImpl$BindCaller::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodHandleImpl$BindCaller);
+	});
 	return class$;
 }
 

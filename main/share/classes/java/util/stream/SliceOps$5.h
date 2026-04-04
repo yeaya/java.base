@@ -13,6 +13,7 @@ class SliceOps$5 : public ::java::lang::Object {
 	$class(SliceOps$5, 0, ::java::lang::Object)
 public:
 	SliceOps$5();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$util$stream$StreamShape;
 };
 

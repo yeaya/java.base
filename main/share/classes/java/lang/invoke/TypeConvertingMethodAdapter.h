@@ -46,6 +46,7 @@ class TypeConvertingMethodAdapter : public ::jdk::internal::org::objectweb::asm$
 	$class(TypeConvertingMethodAdapter, 0, ::jdk::internal::org::objectweb::asm$::MethodVisitor)
 public:
 	TypeConvertingMethodAdapter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::org::objectweb::asm$::MethodVisitor* mv);
 	virtual void box(::sun::invoke::util::Wrapper* w);
 	virtual void boxIfTypePrimitive(::jdk::internal::org::objectweb::asm$::Type* t);

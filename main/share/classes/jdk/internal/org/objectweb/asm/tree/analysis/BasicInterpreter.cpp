@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/tree/analysis/BasicInterpreter.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/util/List.h>
@@ -208,51 +207,6 @@ namespace jdk {
 					namespace tree {
 						namespace analysis {
 
-$FieldInfo _BasicInterpreter_FieldInfo_[] = {
-	{"NULL_TYPE", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicInterpreter, NULL_TYPE)},
-	{}
-};
-
-$MethodInfo _BasicInterpreter_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicInterpreter, init$, void)},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(BasicInterpreter, init$, void, int32_t)},
-	{"binaryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC, $virtualMethod(BasicInterpreter, binaryOperation, $BasicValue*, $AbstractInsnNode*, $BasicValue*, $BasicValue*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
-	{"binaryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)Ljdk/internal/org/objectweb/asm/tree/analysis/Value;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BasicInterpreter, binaryOperation, $1Value*, $AbstractInsnNode*, $1Value*, $1Value*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
-	{"copyOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC, $virtualMethod(BasicInterpreter, copyOperation, $BasicValue*, $AbstractInsnNode*, $BasicValue*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
-	{"copyOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)Ljdk/internal/org/objectweb/asm/tree/analysis/Value;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BasicInterpreter, copyOperation, $1Value*, $AbstractInsnNode*, $1Value*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
-	{"merge", "(Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC, $virtualMethod(BasicInterpreter, merge, $BasicValue*, $BasicValue*, $BasicValue*)},
-	{"merge", "(Ljdk/internal/org/objectweb/asm/tree/analysis/Value;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)Ljdk/internal/org/objectweb/asm/tree/analysis/Value;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BasicInterpreter, merge, $1Value*, $1Value*, $1Value*)},
-	{"naryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljava/util/List;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljava/util/List<+Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;>;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", $PUBLIC, $virtualMethod(BasicInterpreter, naryOperation, $1Value*, $AbstractInsnNode*, $List*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
-	{"newOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC, $virtualMethod(BasicInterpreter, newOperation, $1Value*, $AbstractInsnNode*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
-	{"newValue", "(Ljdk/internal/org/objectweb/asm/Type;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC, $virtualMethod(BasicInterpreter, newValue, $1Value*, $Type*)},
-	{"returnOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)V", nullptr, $PUBLIC, $virtualMethod(BasicInterpreter, returnOperation, void, $AbstractInsnNode*, $BasicValue*, $BasicValue*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
-	{"returnOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BasicInterpreter, returnOperation, void, $AbstractInsnNode*, $1Value*, $1Value*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
-	{"ternaryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC, $virtualMethod(BasicInterpreter, ternaryOperation, $BasicValue*, $AbstractInsnNode*, $BasicValue*, $BasicValue*, $BasicValue*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
-	{"ternaryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)Ljdk/internal/org/objectweb/asm/tree/analysis/Value;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BasicInterpreter, ternaryOperation, $1Value*, $AbstractInsnNode*, $1Value*, $1Value*, $1Value*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unaryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC, $virtualMethod(BasicInterpreter, unaryOperation, $BasicValue*, $AbstractInsnNode*, $BasicValue*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
-	{"unaryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)Ljdk/internal/org/objectweb/asm/tree/analysis/Value;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BasicInterpreter, unaryOperation, $1Value*, $AbstractInsnNode*, $1Value*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
-	{}
-};
-
-$ClassInfo _BasicInterpreter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.tree.analysis.BasicInterpreter",
-	"jdk.internal.org.objectweb.asm.tree.analysis.Interpreter",
-	"jdk.internal.org.objectweb.asm.Opcodes",
-	_BasicInterpreter_FieldInfo_,
-	_BasicInterpreter_MethodInfo_,
-	"Ljdk/internal/org/objectweb/asm/tree/analysis/Interpreter<Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;>;Ljdk/internal/org/objectweb/asm/Opcodes;"
-};
-
-$Object* allocate$BasicInterpreter($Class* clazz) {
-	return $of($alloc(BasicInterpreter));
-}
-
 int32_t BasicInterpreter::hashCode() {
 	 return this->$Interpreter::hashCode();
 }
@@ -293,159 +247,105 @@ $1Value* BasicInterpreter::newValue($Type* type) {
 	}
 	switch ($nc(type)->getSort()) {
 	case $Type::VOID:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	case $Type::BOOLEAN:
-		{}
 	case $Type::CHAR:
-		{}
 	case $Type::BYTE:
-		{}
 	case $Type::SHORT:
-		{}
 	case $Type::INT:
-		{
-			$init($BasicValue);
-			return $BasicValue::INT_VALUE;
-		}
+		$init($BasicValue);
+		return $BasicValue::INT_VALUE;
 	case $Type::FLOAT:
-		{
-			$init($BasicValue);
-			return $BasicValue::FLOAT_VALUE;
-		}
+		$init($BasicValue);
+		return $BasicValue::FLOAT_VALUE;
 	case $Type::LONG:
-		{
-			$init($BasicValue);
-			return $BasicValue::LONG_VALUE;
-		}
+		$init($BasicValue);
+		return $BasicValue::LONG_VALUE;
 	case $Type::DOUBLE:
-		{
-			$init($BasicValue);
-			return $BasicValue::DOUBLE_VALUE;
-		}
+		$init($BasicValue);
+		return $BasicValue::DOUBLE_VALUE;
 	case $Type::ARRAY:
-		{}
 	case $Type::OBJECT:
-		{
-			$init($BasicValue);
-			return $BasicValue::REFERENCE_VALUE;
-		}
+		$init($BasicValue);
+		return $BasicValue::REFERENCE_VALUE;
 	default:
-		{
-			$throwNew($AssertionError);
-		}
+		$throwNew($AssertionError);
 	}
 }
 
 $1Value* BasicInterpreter::newOperation($AbstractInsnNode* insn) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Object, value, nullptr)
-		switch ($nc(insn)->getOpcode()) {
-		case $Opcodes::ACONST_NULL:
-			{
-				return newValue(BasicInterpreter::NULL_TYPE);
+	$useLocalObjectStack();
+	$var($Object, value, nullptr);
+	switch ($nc(insn)->getOpcode()) {
+	case $Opcodes::ACONST_NULL:
+		return newValue(BasicInterpreter::NULL_TYPE);
+	case $Opcodes::ICONST_M1:
+	case $Opcodes::ICONST_0:
+	case $Opcodes::ICONST_1:
+	case $Opcodes::ICONST_2:
+	case $Opcodes::ICONST_3:
+	case $Opcodes::ICONST_4:
+	case $Opcodes::ICONST_5:
+		$init($BasicValue);
+		return $BasicValue::INT_VALUE;
+	case $Opcodes::LCONST_0:
+	case $Opcodes::LCONST_1:
+		$init($BasicValue);
+		return $BasicValue::LONG_VALUE;
+	case $Opcodes::FCONST_0:
+	case $Opcodes::FCONST_1:
+	case $Opcodes::FCONST_2:
+		$init($BasicValue);
+		return $BasicValue::FLOAT_VALUE;
+	case $Opcodes::DCONST_0:
+	case $Opcodes::DCONST_1:
+		$init($BasicValue);
+		return $BasicValue::DOUBLE_VALUE;
+	case $Opcodes::BIPUSH:
+	case $Opcodes::SIPUSH:
+		$init($BasicValue);
+		return $BasicValue::INT_VALUE;
+	case $Opcodes::LDC:
+		$assign(value, $cast($LdcInsnNode, insn)->cst);
+		if ($instanceOf($Integer, value)) {
+			$init($BasicValue);
+			return $BasicValue::INT_VALUE;
+		} else if ($instanceOf($Float, value)) {
+			$init($BasicValue);
+			return $BasicValue::FLOAT_VALUE;
+		} else if ($instanceOf($Long, value)) {
+			$init($BasicValue);
+			return $BasicValue::LONG_VALUE;
+		} else if ($instanceOf($Double, value)) {
+			$init($BasicValue);
+			return $BasicValue::DOUBLE_VALUE;
+		} else if ($instanceOf($String, value)) {
+			return newValue($($Type::getObjectType("java/lang/String"_s)));
+		} else if ($instanceOf($Type, value)) {
+			int32_t sort = $cast($Type, value)->getSort();
+			if (sort == $Type::OBJECT || sort == $Type::ARRAY) {
+				return newValue($($Type::getObjectType("java/lang/Class"_s)));
+			} else if (sort == $Type::METHOD) {
+				return newValue($($Type::getObjectType("java/lang/invoke/MethodType"_s)));
+			} else {
+				$throwNew($AnalyzerException, insn, $$str({"Illegal LDC value "_s, value}));
 			}
-		case $Opcodes::ICONST_M1:
-			{}
-		case $Opcodes::ICONST_0:
-			{}
-		case $Opcodes::ICONST_1:
-			{}
-		case $Opcodes::ICONST_2:
-			{}
-		case $Opcodes::ICONST_3:
-			{}
-		case $Opcodes::ICONST_4:
-			{}
-		case $Opcodes::ICONST_5:
-			{
-				$init($BasicValue);
-				return $BasicValue::INT_VALUE;
-			}
-		case $Opcodes::LCONST_0:
-			{}
-		case $Opcodes::LCONST_1:
-			{
-				$init($BasicValue);
-				return $BasicValue::LONG_VALUE;
-			}
-		case $Opcodes::FCONST_0:
-			{}
-		case $Opcodes::FCONST_1:
-			{}
-		case $Opcodes::FCONST_2:
-			{
-				$init($BasicValue);
-				return $BasicValue::FLOAT_VALUE;
-			}
-		case $Opcodes::DCONST_0:
-			{}
-		case $Opcodes::DCONST_1:
-			{
-				$init($BasicValue);
-				return $BasicValue::DOUBLE_VALUE;
-			}
-		case $Opcodes::BIPUSH:
-			{}
-		case $Opcodes::SIPUSH:
-			{
-				$init($BasicValue);
-				return $BasicValue::INT_VALUE;
-			}
-		case $Opcodes::LDC:
-			{
-				$assign(value, $nc(($cast($LdcInsnNode, insn)))->cst);
-				if ($instanceOf($Integer, value)) {
-					$init($BasicValue);
-					return $BasicValue::INT_VALUE;
-				} else if ($instanceOf($Float, value)) {
-					$init($BasicValue);
-					return $BasicValue::FLOAT_VALUE;
-				} else if ($instanceOf($Long, value)) {
-					$init($BasicValue);
-					return $BasicValue::LONG_VALUE;
-				} else if ($instanceOf($Double, value)) {
-					$init($BasicValue);
-					return $BasicValue::DOUBLE_VALUE;
-				} else if ($instanceOf($String, value)) {
-					return newValue($($Type::getObjectType("java/lang/String"_s)));
-				} else if ($instanceOf($Type, value)) {
-					int32_t sort = $nc(($cast($Type, value)))->getSort();
-					if (sort == $Type::OBJECT || sort == $Type::ARRAY) {
-						return newValue($($Type::getObjectType("java/lang/Class"_s)));
-					} else if (sort == $Type::METHOD) {
-						return newValue($($Type::getObjectType("java/lang/invoke/MethodType"_s)));
-					} else {
-						$throwNew($AnalyzerException, insn, $$str({"Illegal LDC value "_s, value}));
-					}
-				} else if ($instanceOf($Handle, value)) {
-					return newValue($($Type::getObjectType("java/lang/invoke/MethodHandle"_s)));
-				} else if ($instanceOf($ConstantDynamic, value)) {
-					return newValue($($Type::getType($($nc(($cast($ConstantDynamic, value)))->getDescriptor()))));
-				} else {
-					$throwNew($AnalyzerException, insn, $$str({"Illegal LDC value "_s, value}));
-				}
-			}
-		case $Opcodes::JSR:
-			{
-				$init($BasicValue);
-				return $BasicValue::RETURNADDRESS_VALUE;
-			}
-		case $Opcodes::GETSTATIC:
-			{
-				return newValue($($Type::getType($nc(($cast($FieldInsnNode, insn)))->desc)));
-			}
-		case $Opcodes::NEW:
-			{
-				return newValue($($Type::getObjectType($nc(($cast($TypeInsnNode, insn)))->desc)));
-			}
-		default:
-			{
-				$throwNew($AssertionError);
-			}
+		} else if ($instanceOf($Handle, value)) {
+			return newValue($($Type::getObjectType("java/lang/invoke/MethodHandle"_s)));
+		} else if ($instanceOf($ConstantDynamic, value)) {
+			return newValue($($Type::getType($($cast($ConstantDynamic, value)->getDescriptor()))));
+		} else {
+			$throwNew($AnalyzerException, insn, $$str({"Illegal LDC value "_s, value}));
 		}
+	case $Opcodes::JSR:
+		$init($BasicValue);
+		return $BasicValue::RETURNADDRESS_VALUE;
+	case $Opcodes::GETSTATIC:
+		return newValue($($Type::getType($cast($FieldInsnNode, insn)->desc)));
+	case $Opcodes::NEW:
+		return newValue($($Type::getObjectType($cast($TypeInsnNode, insn)->desc)));
+	default:
+		$throwNew($AssertionError);
 	}
 }
 
@@ -454,309 +354,168 @@ $BasicValue* BasicInterpreter::copyOperation($AbstractInsnNode* insn, $BasicValu
 }
 
 $BasicValue* BasicInterpreter::unaryOperation($AbstractInsnNode* insn, $BasicValue* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch ($nc(insn)->getOpcode()) {
 	case $Opcodes::INEG:
-		{}
 	case $Opcodes::IINC:
-		{}
 	case $Opcodes::L2I:
-		{}
 	case $Opcodes::F2I:
-		{}
 	case $Opcodes::D2I:
-		{}
 	case $Opcodes::I2B:
-		{}
 	case $Opcodes::I2C:
-		{}
 	case $Opcodes::I2S:
-		{
-			$init($BasicValue);
-			return $BasicValue::INT_VALUE;
-		}
+		$init($BasicValue);
+		return $BasicValue::INT_VALUE;
 	case $Opcodes::FNEG:
-		{}
 	case $Opcodes::I2F:
-		{}
 	case $Opcodes::L2F:
-		{}
 	case $Opcodes::D2F:
-		{
-			$init($BasicValue);
-			return $BasicValue::FLOAT_VALUE;
-		}
+		$init($BasicValue);
+		return $BasicValue::FLOAT_VALUE;
 	case $Opcodes::LNEG:
-		{}
 	case $Opcodes::I2L:
-		{}
 	case $Opcodes::F2L:
-		{}
 	case $Opcodes::D2L:
-		{
-			$init($BasicValue);
-			return $BasicValue::LONG_VALUE;
-		}
+		$init($BasicValue);
+		return $BasicValue::LONG_VALUE;
 	case $Opcodes::DNEG:
-		{}
 	case $Opcodes::I2D:
-		{}
 	case $Opcodes::L2D:
-		{}
 	case $Opcodes::F2D:
-		{
-			$init($BasicValue);
-			return $BasicValue::DOUBLE_VALUE;
-		}
+		$init($BasicValue);
+		return $BasicValue::DOUBLE_VALUE;
 	case $Opcodes::IFEQ:
-		{}
 	case $Opcodes::IFNE:
-		{}
 	case $Opcodes::IFLT:
-		{}
 	case $Opcodes::IFGE:
-		{}
 	case $Opcodes::IFGT:
-		{}
 	case $Opcodes::IFLE:
-		{}
 	case $Opcodes::TABLESWITCH:
-		{}
 	case $Opcodes::LOOKUPSWITCH:
-		{}
 	case $Opcodes::IRETURN:
-		{}
 	case $Opcodes::LRETURN:
-		{}
 	case $Opcodes::FRETURN:
-		{}
 	case $Opcodes::DRETURN:
-		{}
 	case $Opcodes::ARETURN:
-		{}
 	case $Opcodes::PUTSTATIC:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	case $Opcodes::GETFIELD:
-		{
-			return $cast($BasicValue, newValue($($Type::getType($nc(($cast($FieldInsnNode, insn)))->desc))));
-		}
+		return $cast($BasicValue, newValue($($Type::getType($cast($FieldInsnNode, insn)->desc))));
 	case $Opcodes::NEWARRAY:
-		{
-			switch ($nc(($cast($IntInsnNode, insn)))->operand) {
-			case $Opcodes::T_BOOLEAN:
-				{
-					return $cast($BasicValue, newValue($($Type::getType("[Z"_s))));
-				}
-			case $Opcodes::T_CHAR:
-				{
-					return $cast($BasicValue, newValue($($Type::getType("[C"_s))));
-				}
-			case $Opcodes::T_BYTE:
-				{
-					return $cast($BasicValue, newValue($($Type::getType("[B"_s))));
-				}
-			case $Opcodes::T_SHORT:
-				{
-					return $cast($BasicValue, newValue($($Type::getType("[S"_s))));
-				}
-			case $Opcodes::T_INT:
-				{
-					return $cast($BasicValue, newValue($($Type::getType("[I"_s))));
-				}
-			case $Opcodes::T_FLOAT:
-				{
-					return $cast($BasicValue, newValue($($Type::getType("[F"_s))));
-				}
-			case $Opcodes::T_DOUBLE:
-				{
-					return $cast($BasicValue, newValue($($Type::getType("[D"_s))));
-				}
-			case $Opcodes::T_LONG:
-				{
-					return $cast($BasicValue, newValue($($Type::getType("[J"_s))));
-				}
-			default:
-				{
-					break;
-				}
-			}
-			$throwNew($AnalyzerException, insn, "Invalid array type"_s);
+		switch ($cast($IntInsnNode, insn)->operand) {
+		case $Opcodes::T_BOOLEAN:
+			return $cast($BasicValue, newValue($($Type::getType("[Z"_s))));
+		case $Opcodes::T_CHAR:
+			return $cast($BasicValue, newValue($($Type::getType("[C"_s))));
+		case $Opcodes::T_BYTE:
+			return $cast($BasicValue, newValue($($Type::getType("[B"_s))));
+		case $Opcodes::T_SHORT:
+			return $cast($BasicValue, newValue($($Type::getType("[S"_s))));
+		case $Opcodes::T_INT:
+			return $cast($BasicValue, newValue($($Type::getType("[I"_s))));
+		case $Opcodes::T_FLOAT:
+			return $cast($BasicValue, newValue($($Type::getType("[F"_s))));
+		case $Opcodes::T_DOUBLE:
+			return $cast($BasicValue, newValue($($Type::getType("[D"_s))));
+		case $Opcodes::T_LONG:
+			return $cast($BasicValue, newValue($($Type::getType("[J"_s))));
+		default:
+			break;
 		}
+		$throwNew($AnalyzerException, insn, "Invalid array type"_s);
 	case $Opcodes::ANEWARRAY:
-		{
-			return $cast($BasicValue, newValue($($Type::getType($$str({"["_s, $($Type::getObjectType($nc(($cast($TypeInsnNode, insn)))->desc))})))));
-		}
+		return $cast($BasicValue, newValue($($Type::getType($$str({"["_s, $($Type::getObjectType($cast($TypeInsnNode, insn)->desc))})))));
 	case $Opcodes::ARRAYLENGTH:
-		{
-			$init($BasicValue);
-			return $BasicValue::INT_VALUE;
-		}
+		$init($BasicValue);
+		return $BasicValue::INT_VALUE;
 	case $Opcodes::ATHROW:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	case $Opcodes::CHECKCAST:
-		{
-			return $cast($BasicValue, newValue($($Type::getObjectType($nc(($cast($TypeInsnNode, insn)))->desc))));
-		}
+		return $cast($BasicValue, newValue($($Type::getObjectType($cast($TypeInsnNode, insn)->desc))));
 	case $Opcodes::INSTANCEOF:
-		{
-			$init($BasicValue);
-			return $BasicValue::INT_VALUE;
-		}
+		$init($BasicValue);
+		return $BasicValue::INT_VALUE;
 	case $Opcodes::MONITORENTER:
-		{}
 	case $Opcodes::MONITOREXIT:
-		{}
 	case $Opcodes::IFNULL:
-		{}
 	case $Opcodes::IFNONNULL:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	default:
-		{
-			$throwNew($AssertionError);
-		}
+		$throwNew($AssertionError);
 	}
 }
 
 $BasicValue* BasicInterpreter::binaryOperation($AbstractInsnNode* insn, $BasicValue* value1, $BasicValue* value2) {
 	switch ($nc(insn)->getOpcode()) {
 	case $Opcodes::IALOAD:
-		{}
 	case $Opcodes::BALOAD:
-		{}
 	case $Opcodes::CALOAD:
-		{}
 	case $Opcodes::SALOAD:
-		{}
 	case $Opcodes::IADD:
-		{}
 	case $Opcodes::ISUB:
-		{}
 	case $Opcodes::IMUL:
-		{}
 	case $Opcodes::IDIV:
-		{}
 	case $Opcodes::IREM:
-		{}
 	case $Opcodes::ISHL:
-		{}
 	case $Opcodes::ISHR:
-		{}
 	case $Opcodes::IUSHR:
-		{}
 	case $Opcodes::IAND:
-		{}
 	case $Opcodes::IOR:
-		{}
 	case $Opcodes::IXOR:
-		{
-			$init($BasicValue);
-			return $BasicValue::INT_VALUE;
-		}
+		$init($BasicValue);
+		return $BasicValue::INT_VALUE;
 	case $Opcodes::FALOAD:
-		{}
 	case $Opcodes::FADD:
-		{}
 	case $Opcodes::FSUB:
-		{}
 	case $Opcodes::FMUL:
-		{}
 	case $Opcodes::FDIV:
-		{}
 	case $Opcodes::FREM:
-		{
-			$init($BasicValue);
-			return $BasicValue::FLOAT_VALUE;
-		}
+		$init($BasicValue);
+		return $BasicValue::FLOAT_VALUE;
 	case $Opcodes::LALOAD:
-		{}
 	case $Opcodes::LADD:
-		{}
 	case $Opcodes::LSUB:
-		{}
 	case $Opcodes::LMUL:
-		{}
 	case $Opcodes::LDIV:
-		{}
 	case $Opcodes::LREM:
-		{}
 	case $Opcodes::LSHL:
-		{}
 	case $Opcodes::LSHR:
-		{}
 	case $Opcodes::LUSHR:
-		{}
 	case $Opcodes::LAND:
-		{}
 	case $Opcodes::LOR:
-		{}
 	case $Opcodes::LXOR:
-		{
-			$init($BasicValue);
-			return $BasicValue::LONG_VALUE;
-		}
+		$init($BasicValue);
+		return $BasicValue::LONG_VALUE;
 	case $Opcodes::DALOAD:
-		{}
 	case $Opcodes::DADD:
-		{}
 	case $Opcodes::DSUB:
-		{}
 	case $Opcodes::DMUL:
-		{}
 	case $Opcodes::DDIV:
-		{}
 	case $Opcodes::DREM:
-		{
-			$init($BasicValue);
-			return $BasicValue::DOUBLE_VALUE;
-		}
+		$init($BasicValue);
+		return $BasicValue::DOUBLE_VALUE;
 	case $Opcodes::AALOAD:
-		{
-			$init($BasicValue);
-			return $BasicValue::REFERENCE_VALUE;
-		}
+		$init($BasicValue);
+		return $BasicValue::REFERENCE_VALUE;
 	case $Opcodes::LCMP:
-		{}
 	case $Opcodes::FCMPL:
-		{}
 	case $Opcodes::FCMPG:
-		{}
 	case $Opcodes::DCMPL:
-		{}
 	case $Opcodes::DCMPG:
-		{
-			$init($BasicValue);
-			return $BasicValue::INT_VALUE;
-		}
+		$init($BasicValue);
+		return $BasicValue::INT_VALUE;
 	case $Opcodes::IF_ICMPEQ:
-		{}
 	case $Opcodes::IF_ICMPNE:
-		{}
 	case $Opcodes::IF_ICMPLT:
-		{}
 	case $Opcodes::IF_ICMPGE:
-		{}
 	case $Opcodes::IF_ICMPGT:
-		{}
 	case $Opcodes::IF_ICMPLE:
-		{}
 	case $Opcodes::IF_ACMPEQ:
-		{}
 	case $Opcodes::IF_ACMPNE:
-		{}
 	case $Opcodes::PUTFIELD:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	default:
-		{
-			$throwNew($AssertionError);
-		}
+		$throwNew($AssertionError);
 	}
 }
 
@@ -765,14 +524,14 @@ $BasicValue* BasicInterpreter::ternaryOperation($AbstractInsnNode* insn, $BasicV
 }
 
 $1Value* BasicInterpreter::naryOperation($AbstractInsnNode* insn, $List* values) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t opcode = $nc(insn)->getOpcode();
 	if (opcode == $Opcodes::MULTIANEWARRAY) {
-		return newValue($($Type::getType($nc(($cast($MultiANewArrayInsnNode, insn)))->desc)));
+		return newValue($($Type::getType($cast($MultiANewArrayInsnNode, insn)->desc)));
 	} else if (opcode == $Opcodes::INVOKEDYNAMIC) {
-		return newValue($($Type::getReturnType($nc(($cast($InvokeDynamicInsnNode, insn)))->desc)));
+		return newValue($($Type::getReturnType($cast($InvokeDynamicInsnNode, insn)->desc)));
 	} else {
-		return newValue($($Type::getReturnType($nc(($cast($MethodInsnNode, insn)))->desc)));
+		return newValue($($Type::getReturnType($cast($MethodInsnNode, insn)->desc)));
 	}
 }
 
@@ -781,7 +540,6 @@ void BasicInterpreter::returnOperation($AbstractInsnNode* insn, $BasicValue* val
 
 $BasicValue* BasicInterpreter::merge($BasicValue* value1, $BasicValue* value2) {
 	if (!$nc(value1)->equals(value2)) {
-		$init($BasicValue);
 		return $BasicValue::UNINITIALIZED_VALUE;
 	}
 	return value1;
@@ -811,7 +569,7 @@ $1Value* BasicInterpreter::copyOperation($AbstractInsnNode* insn, $1Value* value
 	return this->copyOperation(insn, $cast($BasicValue, value));
 }
 
-void clinit$BasicInterpreter($Class* class$) {
+void BasicInterpreter::clinit$($Class* clazz) {
 	$assignStatic(BasicInterpreter::NULL_TYPE, $Type::getObjectType("null"_s));
 }
 
@@ -819,7 +577,47 @@ BasicInterpreter::BasicInterpreter() {
 }
 
 $Class* BasicInterpreter::load$($String* name, bool initialize) {
-	$loadClass(BasicInterpreter, name, initialize, &_BasicInterpreter_ClassInfo_, clinit$BasicInterpreter, allocate$BasicInterpreter);
+	$FieldInfo fieldInfos$$[] = {
+		{"NULL_TYPE", "Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicInterpreter, NULL_TYPE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicInterpreter, init$, void)},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(BasicInterpreter, init$, void, int32_t)},
+		{"binaryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC, $virtualMethod(BasicInterpreter, binaryOperation, $BasicValue*, $AbstractInsnNode*, $BasicValue*, $BasicValue*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
+		{"binaryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)Ljdk/internal/org/objectweb/asm/tree/analysis/Value;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BasicInterpreter, binaryOperation, $1Value*, $AbstractInsnNode*, $1Value*, $1Value*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
+		{"copyOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC, $virtualMethod(BasicInterpreter, copyOperation, $BasicValue*, $AbstractInsnNode*, $BasicValue*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
+		{"copyOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)Ljdk/internal/org/objectweb/asm/tree/analysis/Value;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BasicInterpreter, copyOperation, $1Value*, $AbstractInsnNode*, $1Value*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
+		{"merge", "(Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC, $virtualMethod(BasicInterpreter, merge, $BasicValue*, $BasicValue*, $BasicValue*)},
+		{"merge", "(Ljdk/internal/org/objectweb/asm/tree/analysis/Value;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)Ljdk/internal/org/objectweb/asm/tree/analysis/Value;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BasicInterpreter, merge, $1Value*, $1Value*, $1Value*)},
+		{"naryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljava/util/List;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljava/util/List<+Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;>;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", $PUBLIC, $virtualMethod(BasicInterpreter, naryOperation, $1Value*, $AbstractInsnNode*, $List*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
+		{"newOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC, $virtualMethod(BasicInterpreter, newOperation, $1Value*, $AbstractInsnNode*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
+		{"newValue", "(Ljdk/internal/org/objectweb/asm/Type;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC, $virtualMethod(BasicInterpreter, newValue, $1Value*, $Type*)},
+		{"returnOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)V", nullptr, $PUBLIC, $virtualMethod(BasicInterpreter, returnOperation, void, $AbstractInsnNode*, $BasicValue*, $BasicValue*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
+		{"returnOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BasicInterpreter, returnOperation, void, $AbstractInsnNode*, $1Value*, $1Value*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
+		{"ternaryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC, $virtualMethod(BasicInterpreter, ternaryOperation, $BasicValue*, $AbstractInsnNode*, $BasicValue*, $BasicValue*, $BasicValue*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
+		{"ternaryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)Ljdk/internal/org/objectweb/asm/tree/analysis/Value;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BasicInterpreter, ternaryOperation, $1Value*, $AbstractInsnNode*, $1Value*, $1Value*, $1Value*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unaryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;)Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;", nullptr, $PUBLIC, $virtualMethod(BasicInterpreter, unaryOperation, $BasicValue*, $AbstractInsnNode*, $BasicValue*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
+		{"unaryOperation", "(Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;Ljdk/internal/org/objectweb/asm/tree/analysis/Value;)Ljdk/internal/org/objectweb/asm/tree/analysis/Value;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BasicInterpreter, unaryOperation, $1Value*, $AbstractInsnNode*, $1Value*), "jdk.internal.org.objectweb.asm.tree.analysis.AnalyzerException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.tree.analysis.BasicInterpreter",
+		"jdk.internal.org.objectweb.asm.tree.analysis.Interpreter",
+		"jdk.internal.org.objectweb.asm.Opcodes",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljdk/internal/org/objectweb/asm/tree/analysis/Interpreter<Ljdk/internal/org/objectweb/asm/tree/analysis/BasicValue;>;Ljdk/internal/org/objectweb/asm/Opcodes;"
+	};
+	$loadClass(BasicInterpreter, name, initialize, &classInfo$$, BasicInterpreter::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicInterpreter));
+	});
 	return class$;
 }
 

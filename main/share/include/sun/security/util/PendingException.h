@@ -15,10 +15,13 @@ public:
 	PendingException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0xB7CF5C9561CF1960;
+	static const int64_t serialVersionUID = (int64_t)0xb7cf5c9561cf1960;
 	PendingException(const PendingException& e);
 	virtual void throw$() override;
-	inline PendingException* operator ->() {
+	inline PendingException* operator ->() const {
+		return (PendingException*)throwing$;
+	}
+	inline operator PendingException*() const {
 		return (PendingException*)throwing$;
 	}
 };

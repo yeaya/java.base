@@ -1,5 +1,4 @@
 #include <AsyncCloseChannel$TargetClient$1.h>
-
 #include <AsyncCloseChannel$TargetClient.h>
 #include <java/io/IOException.h>
 #include <java/nio/ByteBuffer.h>
@@ -9,7 +8,6 @@
 
 using $AsyncCloseChannel$TargetClient = ::AsyncCloseChannel$TargetClient;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -19,50 +17,6 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ClosedChannelException = ::java::nio::channels::ClosedChannelException;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 
-$FieldInfo _AsyncCloseChannel$TargetClient$1_FieldInfo_[] = {
-	{"this$0", "LAsyncCloseChannel$TargetClient;", nullptr, $FINAL | $SYNTHETIC, $field(AsyncCloseChannel$TargetClient$1, this$0)},
-	{"val$s", "Ljava/nio/channels/SocketChannel;", nullptr, $FINAL | $SYNTHETIC, $field(AsyncCloseChannel$TargetClient$1, val$s)},
-	{}
-};
-
-$MethodInfo _AsyncCloseChannel$TargetClient$1_MethodInfo_[] = {
-	{"<init>", "(LAsyncCloseChannel$TargetClient;Ljava/nio/channels/SocketChannel;)V", nullptr, 0, $method(AsyncCloseChannel$TargetClient$1, init$, void, $AsyncCloseChannel$TargetClient*, $SocketChannel*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AsyncCloseChannel$TargetClient$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _AsyncCloseChannel$TargetClient$1_EnclosingMethodInfo_ = {
-	"AsyncCloseChannel$TargetClient",
-	"run",
-	"()V"
-};
-
-$InnerClassInfo _AsyncCloseChannel$TargetClient$1_InnerClassesInfo_[] = {
-	{"AsyncCloseChannel$TargetClient", "AsyncCloseChannel", "TargetClient", $STATIC},
-	{"AsyncCloseChannel$TargetClient$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AsyncCloseChannel$TargetClient$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"AsyncCloseChannel$TargetClient$1",
-	"java.lang.Thread",
-	nullptr,
-	_AsyncCloseChannel$TargetClient$1_FieldInfo_,
-	_AsyncCloseChannel$TargetClient$1_MethodInfo_,
-	nullptr,
-	&_AsyncCloseChannel$TargetClient$1_EnclosingMethodInfo_,
-	_AsyncCloseChannel$TargetClient$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"AsyncCloseChannel"
-};
-
-$Object* allocate$AsyncCloseChannel$TargetClient$1($Class* clazz) {
-	return $of($alloc(AsyncCloseChannel$TargetClient$1));
-}
-
 void AsyncCloseChannel$TargetClient$1::init$($AsyncCloseChannel$TargetClient* this$0, $SocketChannel* val$s) {
 	$set(this, this$0, this$0);
 	$set(this, val$s, val$s);
@@ -70,7 +24,7 @@ void AsyncCloseChannel$TargetClient$1::init$($AsyncCloseChannel$TargetClient* th
 }
 
 void AsyncCloseChannel$TargetClient$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteBuffer, b, $ByteBuffer::allocate(1));
 	try {
 		for (;;) {
@@ -91,7 +45,44 @@ AsyncCloseChannel$TargetClient$1::AsyncCloseChannel$TargetClient$1() {
 }
 
 $Class* AsyncCloseChannel$TargetClient$1::load$($String* name, bool initialize) {
-	$loadClass(AsyncCloseChannel$TargetClient$1, name, initialize, &_AsyncCloseChannel$TargetClient$1_ClassInfo_, allocate$AsyncCloseChannel$TargetClient$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LAsyncCloseChannel$TargetClient;", nullptr, $FINAL | $SYNTHETIC, $field(AsyncCloseChannel$TargetClient$1, this$0)},
+		{"val$s", "Ljava/nio/channels/SocketChannel;", nullptr, $FINAL | $SYNTHETIC, $field(AsyncCloseChannel$TargetClient$1, val$s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LAsyncCloseChannel$TargetClient;Ljava/nio/channels/SocketChannel;)V", nullptr, 0, $method(AsyncCloseChannel$TargetClient$1, init$, void, $AsyncCloseChannel$TargetClient*, $SocketChannel*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AsyncCloseChannel$TargetClient$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"AsyncCloseChannel$TargetClient",
+		"run",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"AsyncCloseChannel$TargetClient", "AsyncCloseChannel", "TargetClient", $STATIC},
+		{"AsyncCloseChannel$TargetClient$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"AsyncCloseChannel$TargetClient$1",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"AsyncCloseChannel"
+	};
+	$loadClass(AsyncCloseChannel$TargetClient$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AsyncCloseChannel$TargetClient$1);
+	});
 	return class$;
 }
 

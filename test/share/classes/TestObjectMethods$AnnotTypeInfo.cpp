@@ -1,5 +1,4 @@
 #include <TestObjectMethods$AnnotTypeInfo.h>
-
 #include <TestObjectMethods$Relation.h>
 #include <TestObjectMethods.h>
 #include <jcpp.h>
@@ -12,68 +11,59 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
-$NamedAttribute TestObjectMethods$AnnotTypeInfo_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$Attribute TestObjectMethods$AnnotTypeInfo_Attribute_var$2[] = {
-	{'e', "Ljava/lang/annotation/ElementType; METHOD"},
-	{'-'}
-};
-
-$NamedAttribute TestObjectMethods$AnnotTypeInfo_Attribute_var$1[] = {
-	{"value", '[', TestObjectMethods$AnnotTypeInfo_Attribute_var$2},
-	{}
-};
-
-$CompoundAttribute _TestObjectMethods$AnnotTypeInfo_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", TestObjectMethods$AnnotTypeInfo_Attribute_var$0},
-	{"Ljava/lang/annotation/Target;", TestObjectMethods$AnnotTypeInfo_Attribute_var$1},
-	{}
-};
-
-$Attribute _TestObjectMethods$AnnotTypeInfo_DefaultValue_count0 = {
-	'I', "0"
-};
-
-$Attribute _TestObjectMethods$AnnotTypeInfo_DefaultValue_relation1 = {
-	'e', "LTestObjectMethods$Relation; EQUAL"
-};
-
-$MethodInfo _TestObjectMethods$AnnotTypeInfo_MethodInfo_[] = {
-	{"count", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestObjectMethods$AnnotTypeInfo, count, int32_t), nullptr, &_TestObjectMethods$AnnotTypeInfo_DefaultValue_count0},
-	{"relation", "()LTestObjectMethods$Relation;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestObjectMethods$AnnotTypeInfo, relation, $TestObjectMethods$Relation*), nullptr, &_TestObjectMethods$AnnotTypeInfo_DefaultValue_relation1},
-	{}
-};
-
-$InnerClassInfo _TestObjectMethods$AnnotTypeInfo_InnerClassesInfo_[] = {
-	{"TestObjectMethods$AnnotTypeInfo", "TestObjectMethods", "AnnotTypeInfo", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{}
-};
-
-$ClassInfo _TestObjectMethods$AnnotTypeInfo_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"TestObjectMethods$AnnotTypeInfo",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_TestObjectMethods$AnnotTypeInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestObjectMethods$AnnotTypeInfo_InnerClassesInfo_,
-	_TestObjectMethods$AnnotTypeInfo_Annotations_,
-	nullptr,
-	nullptr,
-	"TestObjectMethods"
-};
-
-$Object* allocate$TestObjectMethods$AnnotTypeInfo($Class* clazz) {
-	return $of($alloc(TestObjectMethods$AnnotTypeInfo));
-}
-
 $Class* TestObjectMethods$AnnotTypeInfo::load$($String* name, bool initialize) {
-	$loadClass(TestObjectMethods$AnnotTypeInfo, name, initialize, &_TestObjectMethods$AnnotTypeInfo_ClassInfo_, allocate$TestObjectMethods$AnnotTypeInfo);
+
+	$Attribute countdefaultValue$$ = {
+		'I', "0"
+	};
+
+	$Attribute relationdefaultValue$$ = {
+		'e', "LTestObjectMethods$Relation; EQUAL"
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"count", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestObjectMethods$AnnotTypeInfo, count, int32_t), nullptr, &countdefaultValue$$},
+		{"relation", "()LTestObjectMethods$Relation;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestObjectMethods$AnnotTypeInfo, relation, $TestObjectMethods$Relation*), nullptr, &relationdefaultValue$$},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestObjectMethods$AnnotTypeInfo", "TestObjectMethods", "AnnotTypeInfo", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; METHOD"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"TestObjectMethods$AnnotTypeInfo",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"TestObjectMethods"
+	};
+	$loadClass(TestObjectMethods$AnnotTypeInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestObjectMethods$AnnotTypeInfo);
+	});
 	return class$;
 }
 

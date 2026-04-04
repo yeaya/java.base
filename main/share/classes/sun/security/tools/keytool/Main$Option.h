@@ -113,6 +113,7 @@ class Main$Option : public ::java::lang::Enum {
 public:
 	Main$Option();
 	static $Array<::sun::security::tools::keytool::Main$Option>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* name, $String* arg, $String* description);
 	virtual $String* toString() override;
 	static ::sun::security::tools::keytool::Main$Option* valueOf($String* name);

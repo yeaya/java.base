@@ -83,6 +83,7 @@ class $import FileSystemProvider : public ::java::lang::Object {
 	$class(FileSystemProvider, 0, ::java::lang::Object)
 public:
 	FileSystemProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::Void* ignore);
 	void init$();
 	virtual void checkAccess(::java::nio::file::Path* path, $Array<::java::nio::file::AccessMode>* modes) {}

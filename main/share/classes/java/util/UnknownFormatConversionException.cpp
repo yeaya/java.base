@@ -1,5 +1,4 @@
 #include <java/util/UnknownFormatConversionException.h>
-
 #include <java/util/IllegalFormatException.h>
 #include <jcpp.h>
 
@@ -11,32 +10,6 @@ using $IllegalFormatException = ::java::util::IllegalFormatException;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _UnknownFormatConversionException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnknownFormatConversionException, serialVersionUID)},
-	{"s", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UnknownFormatConversionException, s)},
-	{}
-};
-
-$MethodInfo _UnknownFormatConversionException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnknownFormatConversionException, init$, void, $String*)},
-	{"getConversion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnknownFormatConversionException, getConversion, $String*)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnknownFormatConversionException, getMessage, $String*)},
-	{}
-};
-
-$ClassInfo _UnknownFormatConversionException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.UnknownFormatConversionException",
-	"java.util.IllegalFormatException",
-	nullptr,
-	_UnknownFormatConversionException_FieldInfo_,
-	_UnknownFormatConversionException_MethodInfo_
-};
-
-$Object* allocate$UnknownFormatConversionException($Class* clazz) {
-	return $of($alloc(UnknownFormatConversionException));
-}
 
 void UnknownFormatConversionException::init$($String* s) {
 	$IllegalFormatException::init$();
@@ -51,7 +24,7 @@ $String* UnknownFormatConversionException::getConversion() {
 }
 
 $String* UnknownFormatConversionException::getMessage() {
-	return $String::format("Conversion = \'%s\'"_s, $$new($ObjectArray, {$of(this->s)}));
+	return $String::format("Conversion = \'%s\'"_s, $$new($ObjectArray, {this->s}));
 }
 
 UnknownFormatConversionException::UnknownFormatConversionException() {
@@ -65,7 +38,28 @@ void UnknownFormatConversionException::throw$() {
 }
 
 $Class* UnknownFormatConversionException::load$($String* name, bool initialize) {
-	$loadClass(UnknownFormatConversionException, name, initialize, &_UnknownFormatConversionException_ClassInfo_, allocate$UnknownFormatConversionException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnknownFormatConversionException, serialVersionUID)},
+		{"s", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UnknownFormatConversionException, s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnknownFormatConversionException, init$, void, $String*)},
+		{"getConversion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnknownFormatConversionException, getConversion, $String*)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnknownFormatConversionException, getMessage, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.UnknownFormatConversionException",
+		"java.util.IllegalFormatException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnknownFormatConversionException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnknownFormatConversionException);
+	});
 	return class$;
 }
 

@@ -22,6 +22,7 @@ class FtpClient$TransferType : public ::java::lang::Enum {
 public:
 	FtpClient$TransferType();
 	static $Array<::sun::net::ftp::FtpClient$TransferType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::net::ftp::FtpClient$TransferType* valueOf($String* name);
 	static $Array<::sun::net::ftp::FtpClient$TransferType>* values();

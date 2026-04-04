@@ -1,5 +1,4 @@
 #include <java/nio/ReadOnlyBufferException.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <jcpp.h>
 
@@ -10,29 +9,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 
 namespace java {
 	namespace nio {
-
-$FieldInfo _ReadOnlyBufferException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ReadOnlyBufferException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ReadOnlyBufferException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadOnlyBufferException, init$, void)},
-	{}
-};
-
-$ClassInfo _ReadOnlyBufferException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.ReadOnlyBufferException",
-	"java.lang.UnsupportedOperationException",
-	nullptr,
-	_ReadOnlyBufferException_FieldInfo_,
-	_ReadOnlyBufferException_MethodInfo_
-};
-
-$Object* allocate$ReadOnlyBufferException($Class* clazz) {
-	return $of($alloc(ReadOnlyBufferException));
-}
 
 void ReadOnlyBufferException::init$() {
 	$UnsupportedOperationException::init$();
@@ -49,7 +25,25 @@ void ReadOnlyBufferException::throw$() {
 }
 
 $Class* ReadOnlyBufferException::load$($String* name, bool initialize) {
-	$loadClass(ReadOnlyBufferException, name, initialize, &_ReadOnlyBufferException_ClassInfo_, allocate$ReadOnlyBufferException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ReadOnlyBufferException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ReadOnlyBufferException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.ReadOnlyBufferException",
+		"java.lang.UnsupportedOperationException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ReadOnlyBufferException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReadOnlyBufferException);
+	});
 	return class$;
 }
 

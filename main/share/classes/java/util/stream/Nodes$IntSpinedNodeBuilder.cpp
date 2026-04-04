@@ -1,5 +1,4 @@
 #include <java/util/stream/Nodes$IntSpinedNodeBuilder.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/util/Spliterator$OfInt.h>
 #include <java/util/Spliterator.h>
@@ -26,65 +25,6 @@ using $SpinedBuffer$OfInt = ::java::util::stream::SpinedBuffer$OfInt;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _Nodes$IntSpinedNodeBuilder_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Nodes$IntSpinedNodeBuilder, $assertionsDisabled)},
-	{"building", "Z", nullptr, $PRIVATE, $field(Nodes$IntSpinedNodeBuilder, building)},
-	{}
-};
-
-$MethodInfo _Nodes$IntSpinedNodeBuilder_MethodInfo_[] = {
-	{"*andThen", "(Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*count", "()J", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(Nodes$IntSpinedNodeBuilder, init$, void)},
-	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(Nodes$IntSpinedNodeBuilder, accept, void, int32_t)},
-	{"asPrimitiveArray", "()[I", nullptr, $PUBLIC, $virtualMethod(Nodes$IntSpinedNodeBuilder, asPrimitiveArray, $Object*)},
-	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(Nodes$IntSpinedNodeBuilder, begin, void, int64_t)},
-	{"build", "()Ljava/util/stream/Node$OfInt;", nullptr, $PUBLIC, $virtualMethod(Nodes$IntSpinedNodeBuilder, build, $Node*)},
-	{"copyInto", "([II)V", nullptr, $PUBLIC, $method(Nodes$IntSpinedNodeBuilder, copyInto, void, $ints*, int32_t), "java.lang.IndexOutOfBoundsException"},
-	{"copyInto", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$IntSpinedNodeBuilder, copyInto, void, Object$*, int32_t)},
-	{"end", "()V", nullptr, $PUBLIC, $virtualMethod(Nodes$IntSpinedNodeBuilder, end, void)},
-	{"forEach", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $method(Nodes$IntSpinedNodeBuilder, forEach, void, $IntConsumer*)},
-	{"forEach", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$IntSpinedNodeBuilder, forEach, void, Object$*)},
-	{"*newArray", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"spliterator", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC, $virtualMethod(Nodes$IntSpinedNodeBuilder, spliterator, $Spliterator*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Nodes$IntSpinedNodeBuilder_InnerClassesInfo_[] = {
-	{"java.util.stream.Nodes$IntSpinedNodeBuilder", "java.util.stream.Nodes", "IntSpinedNodeBuilder", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.stream.SpinedBuffer$OfInt", "java.util.stream.SpinedBuffer", "OfInt", $STATIC},
-	{"java.util.stream.Node$OfInt", "java.util.stream.Node", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.stream.Node$Builder", "java.util.stream.Node", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.stream.Node$Builder$OfInt", "java.util.stream.Node$Builder", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Nodes$IntSpinedNodeBuilder_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.Nodes$IntSpinedNodeBuilder",
-	"java.util.stream.SpinedBuffer$OfInt",
-	"java.util.stream.Node$OfInt,java.util.stream.Node$Builder$OfInt",
-	_Nodes$IntSpinedNodeBuilder_FieldInfo_,
-	_Nodes$IntSpinedNodeBuilder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Nodes$IntSpinedNodeBuilder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Nodes"
-};
-
-$Object* allocate$Nodes$IntSpinedNodeBuilder($Class* clazz) {
-	return $of($alloc(Nodes$IntSpinedNodeBuilder));
-}
 
 void Nodes$IntSpinedNodeBuilder::forEach($Consumer* consumer) {
 	this->$SpinedBuffer$OfInt::forEach(consumer);
@@ -140,7 +80,7 @@ void Nodes$IntSpinedNodeBuilder::forEach($IntConsumer* consumer) {
 	if (!Nodes$IntSpinedNodeBuilder::$assertionsDisabled && ! !this->building) {
 		$throwNew($AssertionError, $of("during building"_s));
 	}
-	$SpinedBuffer$OfInt::forEach($of(consumer));
+	$SpinedBuffer$OfInt::forEach(consumer);
 }
 
 void Nodes$IntSpinedNodeBuilder::begin(int64_t size) {
@@ -177,7 +117,7 @@ $Object* Nodes$IntSpinedNodeBuilder::asPrimitiveArray() {
 	if (!Nodes$IntSpinedNodeBuilder::$assertionsDisabled && ! !this->building) {
 		$throwNew($AssertionError, $of("during building"_s));
 	}
-	return $of($cast($ints, $SpinedBuffer$OfInt::asPrimitiveArray()));
+	return $cast($ints, $SpinedBuffer$OfInt::asPrimitiveArray());
 }
 
 $Node* Nodes$IntSpinedNodeBuilder::build() {
@@ -195,7 +135,7 @@ void Nodes$IntSpinedNodeBuilder::copyInto(Object$* array, int32_t offset) {
 	this->copyInto($cast($ints, array), offset);
 }
 
-void clinit$Nodes$IntSpinedNodeBuilder($Class* class$) {
+void Nodes$IntSpinedNodeBuilder::clinit$($Class* clazz) {
 	$load($Nodes);
 	Nodes$IntSpinedNodeBuilder::$assertionsDisabled = !$Nodes::class$->desiredAssertionStatus();
 }
@@ -204,7 +144,60 @@ Nodes$IntSpinedNodeBuilder::Nodes$IntSpinedNodeBuilder() {
 }
 
 $Class* Nodes$IntSpinedNodeBuilder::load$($String* name, bool initialize) {
-	$loadClass(Nodes$IntSpinedNodeBuilder, name, initialize, &_Nodes$IntSpinedNodeBuilder_ClassInfo_, clinit$Nodes$IntSpinedNodeBuilder, allocate$Nodes$IntSpinedNodeBuilder);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Nodes$IntSpinedNodeBuilder, $assertionsDisabled)},
+		{"building", "Z", nullptr, $PRIVATE, $field(Nodes$IntSpinedNodeBuilder, building)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*andThen", "(Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*count", "()J", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(Nodes$IntSpinedNodeBuilder, init$, void)},
+		{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(Nodes$IntSpinedNodeBuilder, accept, void, int32_t)},
+		{"asPrimitiveArray", "()[I", nullptr, $PUBLIC, $virtualMethod(Nodes$IntSpinedNodeBuilder, asPrimitiveArray, $Object*)},
+		{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(Nodes$IntSpinedNodeBuilder, begin, void, int64_t)},
+		{"build", "()Ljava/util/stream/Node$OfInt;", nullptr, $PUBLIC, $virtualMethod(Nodes$IntSpinedNodeBuilder, build, $Node*)},
+		{"copyInto", "([II)V", nullptr, $PUBLIC, $method(Nodes$IntSpinedNodeBuilder, copyInto, void, $ints*, int32_t), "java.lang.IndexOutOfBoundsException"},
+		{"copyInto", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$IntSpinedNodeBuilder, copyInto, void, Object$*, int32_t)},
+		{"end", "()V", nullptr, $PUBLIC, $virtualMethod(Nodes$IntSpinedNodeBuilder, end, void)},
+		{"forEach", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $method(Nodes$IntSpinedNodeBuilder, forEach, void, $IntConsumer*)},
+		{"forEach", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$IntSpinedNodeBuilder, forEach, void, Object$*)},
+		{"*newArray", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"spliterator", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC, $virtualMethod(Nodes$IntSpinedNodeBuilder, spliterator, $Spliterator*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Nodes$IntSpinedNodeBuilder", "java.util.stream.Nodes", "IntSpinedNodeBuilder", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.stream.SpinedBuffer$OfInt", "java.util.stream.SpinedBuffer", "OfInt", $STATIC},
+		{"java.util.stream.Node$OfInt", "java.util.stream.Node", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.stream.Node$Builder", "java.util.stream.Node", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.stream.Node$Builder$OfInt", "java.util.stream.Node$Builder", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.Nodes$IntSpinedNodeBuilder",
+		"java.util.stream.SpinedBuffer$OfInt",
+		"java.util.stream.Node$OfInt,java.util.stream.Node$Builder$OfInt",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Nodes"
+	};
+	$loadClass(Nodes$IntSpinedNodeBuilder, name, initialize, &classInfo$$, Nodes$IntSpinedNodeBuilder::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Nodes$IntSpinedNodeBuilder));
+	});
 	return class$;
 }
 

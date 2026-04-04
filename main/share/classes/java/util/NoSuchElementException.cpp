@@ -1,5 +1,4 @@
 #include <java/util/NoSuchElementException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,32 +8,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _NoSuchElementException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NoSuchElementException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NoSuchElementException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NoSuchElementException, init$, void)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(NoSuchElementException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(NoSuchElementException, init$, void, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchElementException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _NoSuchElementException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.NoSuchElementException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_NoSuchElementException_FieldInfo_,
-	_NoSuchElementException_MethodInfo_
-};
-
-$Object* allocate$NoSuchElementException($Class* clazz) {
-	return $of($alloc(NoSuchElementException));
-}
 
 void NoSuchElementException::init$() {
 	$RuntimeException::init$();
@@ -63,7 +36,28 @@ void NoSuchElementException::throw$() {
 }
 
 $Class* NoSuchElementException::load$($String* name, bool initialize) {
-	$loadClass(NoSuchElementException, name, initialize, &_NoSuchElementException_ClassInfo_, allocate$NoSuchElementException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NoSuchElementException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NoSuchElementException, init$, void)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(NoSuchElementException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(NoSuchElementException, init$, void, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchElementException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.NoSuchElementException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NoSuchElementException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NoSuchElementException);
+	});
 	return class$;
 }
 

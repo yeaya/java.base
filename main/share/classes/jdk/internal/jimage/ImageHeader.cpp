@@ -1,5 +1,4 @@
 #include <jdk/internal/jimage/ImageHeader.h>
-
 #include <java/lang/InternalError.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/IntBuffer.h>
@@ -25,60 +24,6 @@ namespace jdk {
 	namespace internal {
 		namespace jimage {
 
-$FieldInfo _ImageHeader_FieldInfo_[] = {
-	{"MAGIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageHeader, MAGIC)},
-	{"MAJOR_VERSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageHeader, MAJOR_VERSION)},
-	{"MINOR_VERSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageHeader, MINOR_VERSION)},
-	{"HEADER_SLOTS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageHeader, HEADER_SLOTS)},
-	{"magic", "I", nullptr, $PRIVATE | $FINAL, $field(ImageHeader, magic)},
-	{"majorVersion", "I", nullptr, $PRIVATE | $FINAL, $field(ImageHeader, majorVersion)},
-	{"minorVersion", "I", nullptr, $PRIVATE | $FINAL, $field(ImageHeader, minorVersion)},
-	{"flags", "I", nullptr, $PRIVATE | $FINAL, $field(ImageHeader, flags)},
-	{"resourceCount", "I", nullptr, $PRIVATE | $FINAL, $field(ImageHeader, resourceCount)},
-	{"tableLength", "I", nullptr, $PRIVATE | $FINAL, $field(ImageHeader, tableLength)},
-	{"locationsSize", "I", nullptr, $PRIVATE | $FINAL, $field(ImageHeader, locationsSize)},
-	{"stringsSize", "I", nullptr, $PRIVATE | $FINAL, $field(ImageHeader, stringsSize)},
-	{}
-};
-
-$MethodInfo _ImageHeader_MethodInfo_[] = {
-	{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(ImageHeader, init$, void, int32_t, int32_t, int32_t, int32_t)},
-	{"<init>", "(IIIIIIII)V", nullptr, $PUBLIC, $method(ImageHeader, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"getFlags", "()I", nullptr, $PUBLIC, $method(ImageHeader, getFlags, int32_t)},
-	{"getHeaderSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageHeader, getHeaderSize, int32_t)},
-	{"getIndexSize", "()I", nullptr, $PUBLIC, $method(ImageHeader, getIndexSize, int32_t)},
-	{"getLocationsOffset", "()I", nullptr, 0, $method(ImageHeader, getLocationsOffset, int32_t)},
-	{"getLocationsSize", "()I", nullptr, $PUBLIC, $method(ImageHeader, getLocationsSize, int32_t)},
-	{"getMagic", "()I", nullptr, $PUBLIC, $method(ImageHeader, getMagic, int32_t)},
-	{"getMajorVersion", "()I", nullptr, $PUBLIC, $method(ImageHeader, getMajorVersion, int32_t)},
-	{"getMinorVersion", "()I", nullptr, $PUBLIC, $method(ImageHeader, getMinorVersion, int32_t)},
-	{"getOffsetsOffset", "()I", nullptr, 0, $method(ImageHeader, getOffsetsOffset, int32_t)},
-	{"getOffsetsSize", "()I", nullptr, $PUBLIC, $method(ImageHeader, getOffsetsSize, int32_t)},
-	{"getRedirectOffset", "()I", nullptr, 0, $method(ImageHeader, getRedirectOffset, int32_t)},
-	{"getRedirectSize", "()I", nullptr, $PUBLIC, $method(ImageHeader, getRedirectSize, int32_t)},
-	{"getResourceCount", "()I", nullptr, $PUBLIC, $method(ImageHeader, getResourceCount, int32_t)},
-	{"getStringsOffset", "()I", nullptr, 0, $method(ImageHeader, getStringsOffset, int32_t)},
-	{"getStringsSize", "()I", nullptr, $PUBLIC, $method(ImageHeader, getStringsSize, int32_t)},
-	{"getTableLength", "()I", nullptr, $PUBLIC, $method(ImageHeader, getTableLength, int32_t)},
-	{"readFrom", "(Ljava/nio/IntBuffer;)Ljdk/internal/jimage/ImageHeader;", nullptr, $STATIC, $staticMethod(ImageHeader, readFrom, ImageHeader*, $IntBuffer*)},
-	{"writeTo", "(Ljdk/internal/jimage/ImageStream;)V", nullptr, $PUBLIC, $method(ImageHeader, writeTo, void, $ImageStream*)},
-	{"writeTo", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(ImageHeader, writeTo, void, $ByteBuffer*)},
-	{}
-};
-
-$ClassInfo _ImageHeader_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.jimage.ImageHeader",
-	"java.lang.Object",
-	nullptr,
-	_ImageHeader_FieldInfo_,
-	_ImageHeader_MethodInfo_
-};
-
-$Object* allocate$ImageHeader($Class* clazz) {
-	return $of($alloc(ImageHeader));
-}
-
 void ImageHeader::init$(int32_t resourceCount, int32_t tableCount, int32_t locationsSize, int32_t stringsSize) {
 	ImageHeader::init$(ImageHeader::MAGIC, ImageHeader::MAJOR_VERSION, ImageHeader::MINOR_VERSION, 0, resourceCount, tableCount, locationsSize, stringsSize);
 }
@@ -99,7 +44,7 @@ int32_t ImageHeader::getHeaderSize() {
 }
 
 ImageHeader* ImageHeader::readFrom($IntBuffer* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(buffer);
 	if (buffer->capacity() != ImageHeader::HEADER_SLOTS) {
 		$throwNew($InternalError, $$str({"jimage header not the correct size: "_s, $$str(buffer->capacity())}));
@@ -107,7 +52,7 @@ ImageHeader* ImageHeader::readFrom($IntBuffer* buffer) {
 	int32_t magic = buffer->get(0);
 	int32_t version = buffer->get(1);
 	int32_t majorVersion = (int32_t)((uint32_t)version >> 16);
-	int32_t minorVersion = (int32_t)(version & (uint32_t)0x0000FFFF);
+	int32_t minorVersion = version & 0xffff;
 	int32_t flags = buffer->get(2);
 	int32_t resourceCount = buffer->get(3);
 	int32_t tableLength = buffer->get(4);
@@ -204,7 +149,56 @@ ImageHeader::ImageHeader() {
 }
 
 $Class* ImageHeader::load$($String* name, bool initialize) {
-	$loadClass(ImageHeader, name, initialize, &_ImageHeader_ClassInfo_, allocate$ImageHeader);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAGIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageHeader, MAGIC)},
+		{"MAJOR_VERSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageHeader, MAJOR_VERSION)},
+		{"MINOR_VERSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageHeader, MINOR_VERSION)},
+		{"HEADER_SLOTS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImageHeader, HEADER_SLOTS)},
+		{"magic", "I", nullptr, $PRIVATE | $FINAL, $field(ImageHeader, magic)},
+		{"majorVersion", "I", nullptr, $PRIVATE | $FINAL, $field(ImageHeader, majorVersion)},
+		{"minorVersion", "I", nullptr, $PRIVATE | $FINAL, $field(ImageHeader, minorVersion)},
+		{"flags", "I", nullptr, $PRIVATE | $FINAL, $field(ImageHeader, flags)},
+		{"resourceCount", "I", nullptr, $PRIVATE | $FINAL, $field(ImageHeader, resourceCount)},
+		{"tableLength", "I", nullptr, $PRIVATE | $FINAL, $field(ImageHeader, tableLength)},
+		{"locationsSize", "I", nullptr, $PRIVATE | $FINAL, $field(ImageHeader, locationsSize)},
+		{"stringsSize", "I", nullptr, $PRIVATE | $FINAL, $field(ImageHeader, stringsSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(ImageHeader, init$, void, int32_t, int32_t, int32_t, int32_t)},
+		{"<init>", "(IIIIIIII)V", nullptr, $PUBLIC, $method(ImageHeader, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"getFlags", "()I", nullptr, $PUBLIC, $method(ImageHeader, getFlags, int32_t)},
+		{"getHeaderSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageHeader, getHeaderSize, int32_t)},
+		{"getIndexSize", "()I", nullptr, $PUBLIC, $method(ImageHeader, getIndexSize, int32_t)},
+		{"getLocationsOffset", "()I", nullptr, 0, $method(ImageHeader, getLocationsOffset, int32_t)},
+		{"getLocationsSize", "()I", nullptr, $PUBLIC, $method(ImageHeader, getLocationsSize, int32_t)},
+		{"getMagic", "()I", nullptr, $PUBLIC, $method(ImageHeader, getMagic, int32_t)},
+		{"getMajorVersion", "()I", nullptr, $PUBLIC, $method(ImageHeader, getMajorVersion, int32_t)},
+		{"getMinorVersion", "()I", nullptr, $PUBLIC, $method(ImageHeader, getMinorVersion, int32_t)},
+		{"getOffsetsOffset", "()I", nullptr, 0, $method(ImageHeader, getOffsetsOffset, int32_t)},
+		{"getOffsetsSize", "()I", nullptr, $PUBLIC, $method(ImageHeader, getOffsetsSize, int32_t)},
+		{"getRedirectOffset", "()I", nullptr, 0, $method(ImageHeader, getRedirectOffset, int32_t)},
+		{"getRedirectSize", "()I", nullptr, $PUBLIC, $method(ImageHeader, getRedirectSize, int32_t)},
+		{"getResourceCount", "()I", nullptr, $PUBLIC, $method(ImageHeader, getResourceCount, int32_t)},
+		{"getStringsOffset", "()I", nullptr, 0, $method(ImageHeader, getStringsOffset, int32_t)},
+		{"getStringsSize", "()I", nullptr, $PUBLIC, $method(ImageHeader, getStringsSize, int32_t)},
+		{"getTableLength", "()I", nullptr, $PUBLIC, $method(ImageHeader, getTableLength, int32_t)},
+		{"readFrom", "(Ljava/nio/IntBuffer;)Ljdk/internal/jimage/ImageHeader;", nullptr, $STATIC, $staticMethod(ImageHeader, readFrom, ImageHeader*, $IntBuffer*)},
+		{"writeTo", "(Ljdk/internal/jimage/ImageStream;)V", nullptr, $PUBLIC, $method(ImageHeader, writeTo, void, $ImageStream*)},
+		{"writeTo", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(ImageHeader, writeTo, void, $ByteBuffer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.jimage.ImageHeader",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ImageHeader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageHeader);
+	});
 	return class$;
 }
 

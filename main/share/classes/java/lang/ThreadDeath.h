@@ -13,10 +13,13 @@ class $export ThreadDeath : public ::java::lang::Error {
 public:
 	ThreadDeath();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xC2B334F919F8CAF4;
+	static const int64_t serialVersionUID = (int64_t)0xc2b334f919f8caf4;
 	ThreadDeath(const ThreadDeath& e);
 	virtual void throw$() override;
-	inline ThreadDeath* operator ->() {
+	inline ThreadDeath* operator ->() const {
+		return (ThreadDeath*)throwing$;
+	}
+	inline operator ThreadDeath*() const {
 		return (ThreadDeath*)throwing$;
 	}
 };

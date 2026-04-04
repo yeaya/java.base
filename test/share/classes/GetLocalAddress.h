@@ -23,6 +23,7 @@ class $export GetLocalAddress : public ::java::lang::Object {
 	$class(GetLocalAddress, 0, ::java::lang::Object)
 public:
 	GetLocalAddress();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addToMap(::java::net::DatagramSocket* socket);
 	static void bindAndAddToMap(::java::net::DatagramSocket* socket, ::java::net::InetSocketAddress* address);

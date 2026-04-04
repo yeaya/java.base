@@ -1,8 +1,6 @@
 #include <SuppressedExceptions.h>
-
 #include <SuppressedExceptions$NoSuppression.h>
 #include <java/io/ByteArrayInputStream.h>
-#include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalStateException.h>
@@ -11,9 +9,7 @@
 using $SuppressedExceptions$NoSuppression = ::SuppressedExceptions$NoSuppression;
 using $ThrowableArray = $Array<::java::lang::Throwable>;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
-using $InputStream = ::java::io::InputStream;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ArithmeticException = ::java::lang::ArithmeticException;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -24,47 +20,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
-
-$FieldInfo _SuppressedExceptions_FieldInfo_[] = {
-	{"message", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(SuppressedExceptions, message)},
-	{}
-};
-
-$MethodInfo _SuppressedExceptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SuppressedExceptions, init$, void)},
-	{"basicSupressionTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SuppressedExceptions, basicSupressionTest, void)},
-	{"initCausePlumbing", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SuppressedExceptions, initCausePlumbing, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SuppressedExceptions, main, void, $StringArray*), "java.lang.Exception"},
-	{"noModification", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SuppressedExceptions, noModification, void)},
-	{"noSelfSuppression", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SuppressedExceptions, noSelfSuppression, void)},
-	{"selfReference", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SuppressedExceptions, selfReference, void)},
-	{"serializationTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SuppressedExceptions, serializationTest, void), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _SuppressedExceptions_InnerClassesInfo_[] = {
-	{"SuppressedExceptions$NoSuppression", "SuppressedExceptions", "NoSuppression", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SuppressedExceptions_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"SuppressedExceptions",
-	"java.lang.Object",
-	nullptr,
-	_SuppressedExceptions_FieldInfo_,
-	_SuppressedExceptions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SuppressedExceptions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"SuppressedExceptions$NoSuppression"
-};
-
-$Object* allocate$SuppressedExceptions($Class* clazz) {
-	return $of($alloc(SuppressedExceptions));
-}
 
 $String* SuppressedExceptions::message = nullptr;
 
@@ -96,7 +51,7 @@ void SuppressedExceptions::noSelfSuppression() {
 
 void SuppressedExceptions::basicSupressionTest() {
 	$init(SuppressedExceptions);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Throwable, throwable, $new($Throwable));
 	$var($RuntimeException, suppressed, $new($RuntimeException, "A suppressed exception."_s));
 	$var($AssertionError, repressed, $new($AssertionError, $of("A repressed error."_s)));
@@ -107,13 +62,13 @@ void SuppressedExceptions::basicSupressionTest() {
 	throwable->printStackTrace();
 	throwable->addSuppressed(suppressed);
 	$var($ThrowableArray, t1, throwable->getSuppressed());
-	if ($nc(t1)->length != 1 || !$equals($nc(t1)->get(0), suppressed)) {
+	if ($nc(t1)->length != 1 || !$equals(t1->get(0), suppressed)) {
 		$throwNew($RuntimeException, SuppressedExceptions::message);
 	}
 	throwable->printStackTrace();
 	throwable->addSuppressed(repressed);
 	$var($ThrowableArray, t2, throwable->getSuppressed());
-	if ($nc(t2)->length != 2 || !$equals($nc(t2)->get(0), suppressed) || !$equals($nc(t2)->get(1), repressed)) {
+	if ($nc(t2)->length != 2 || !$equals(t2->get(0), suppressed) || !$equals(t2->get(1), repressed)) {
 		$throwNew($RuntimeException, SuppressedExceptions::message);
 	}
 	throwable->printStackTrace();
@@ -121,7 +76,7 @@ void SuppressedExceptions::basicSupressionTest() {
 
 void SuppressedExceptions::serializationTest() {
 	$init(SuppressedExceptions);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, bytes, $new($bytes, {
 		(int8_t)172,
 		(int8_t)237,
@@ -547,63 +502,59 @@ void SuppressedExceptions::serializationTest() {
 	}));
 	{
 		$var($ByteArrayInputStream, bais, $new($ByteArrayInputStream, bytes));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				$var($ObjectInputStream, ois, $new($ObjectInputStream, bais));
+				$var($Throwable, var$1, nullptr);
 				try {
-					$var($ObjectInputStream, ois, $new($ObjectInputStream, bais));
-					{
-						$var($Throwable, var$1, nullptr);
-						try {
-							try {
-								$var($Object, o, ois->readObject());
-								$var($Throwable, throwable, $cast($Throwable, o));
-								$nc($System::err)->println("TESTING SERIALIZED EXCEPTION"_s);
-								$var($ThrowableArray, t0, $nc(throwable)->getSuppressed());
-								if ($nc(t0)->length != 0) {
-									$throwNew($RuntimeException, SuppressedExceptions::message);
-								}
-								throwable->printStackTrace();
-							} catch ($Throwable& t$) {
-								try {
-									ois->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$2) {
-							$assign(var$1, var$2);
-						} /*finally*/ {
-							ois->close();
-						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
-						}
-					}
-				} catch ($Throwable& t$) {
 					try {
-						bais->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
+						$var($Object, o, ois->readObject());
+						$var($Throwable, throwable, $cast($Throwable, o));
+						$nc($System::err)->println("TESTING SERIALIZED EXCEPTION"_s);
+						$var($ThrowableArray, t0, $nc(throwable)->getSuppressed());
+						if ($nc(t0)->length != 0) {
+							$throwNew($RuntimeException, SuppressedExceptions::message);
+						}
+						throwable->printStackTrace();
+					} catch ($Throwable& t$) {
+						try {
+							ois->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
+						$throw(t$);
 					}
-					$throw(t$);
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
+				} /*finally*/ {
+					ois->close();
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
-				bais->close();
+				if (var$1 != nullptr) {
+					$throw(var$1);
+				}
+			} catch ($Throwable& t$) {
+				try {
+					bais->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			bais->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void SuppressedExceptions::selfReference() {
 	$init(SuppressedExceptions);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Throwable, throwable1, $new($RuntimeException));
 	$var($Throwable, throwable2, $new($AssertionError));
 	throwable1->initCause(throwable2);
@@ -616,7 +567,7 @@ void SuppressedExceptions::selfReference() {
 
 void SuppressedExceptions::noModification() {
 	$init(SuppressedExceptions);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Throwable, t, $new($SuppressedExceptions$NoSuppression, false));
 	$var($ThrowableArray, t0, t->getSuppressed());
 	if ($nc(t0)->length != 0) {
@@ -633,17 +584,18 @@ void SuppressedExceptions::noModification() {
 		t->addSuppressed(nullptr);
 		$throwNew($RuntimeException, "NPE not thrown!"_s);
 	} catch ($NullPointerException& e) {
+		;
 	}
 	t->addSuppressed(suppressed);
 	$assign(t0, t->getSuppressed());
-	if ($nc(t0)->length != 1 || $nc(t0)->get(0) != suppressed) {
+	if ($nc(t0)->length != 1 || t0->get(0) != suppressed) {
 		$throwNew($RuntimeException, "Expected suppression did not occur."_s);
 	}
 }
 
 void SuppressedExceptions::initCausePlumbing() {
 	$init(SuppressedExceptions);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Throwable, t1, $new($Throwable));
 	$var($Throwable, t2, $new($Throwable, "message"_s, t1));
 	$var($Throwable, t3, $new($Throwable));
@@ -663,6 +615,7 @@ void SuppressedExceptions::initCausePlumbing() {
 		t2->initCause(nullptr);
 		$throwNew($RuntimeException, "Shouldn\'t reach."_s);
 	} catch ($IllegalStateException& ise) {
+		;
 	}
 	try {
 		t3->initCause(t3);
@@ -674,7 +627,7 @@ void SuppressedExceptions::initCausePlumbing() {
 	}
 }
 
-void clinit$SuppressedExceptions($Class* class$) {
+void SuppressedExceptions::clinit$($Class* clazz) {
 	$assignStatic(SuppressedExceptions::message, "Bad suppressed exception information"_s);
 }
 
@@ -682,7 +635,42 @@ SuppressedExceptions::SuppressedExceptions() {
 }
 
 $Class* SuppressedExceptions::load$($String* name, bool initialize) {
-	$loadClass(SuppressedExceptions, name, initialize, &_SuppressedExceptions_ClassInfo_, clinit$SuppressedExceptions, allocate$SuppressedExceptions);
+	$FieldInfo fieldInfos$$[] = {
+		{"message", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(SuppressedExceptions, message)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SuppressedExceptions, init$, void)},
+		{"basicSupressionTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SuppressedExceptions, basicSupressionTest, void)},
+		{"initCausePlumbing", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SuppressedExceptions, initCausePlumbing, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SuppressedExceptions, main, void, $StringArray*), "java.lang.Exception"},
+		{"noModification", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SuppressedExceptions, noModification, void)},
+		{"noSelfSuppression", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SuppressedExceptions, noSelfSuppression, void)},
+		{"selfReference", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SuppressedExceptions, selfReference, void)},
+		{"serializationTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SuppressedExceptions, serializationTest, void), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"SuppressedExceptions$NoSuppression", "SuppressedExceptions", "NoSuppression", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"SuppressedExceptions",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"SuppressedExceptions$NoSuppression"
+	};
+	$loadClass(SuppressedExceptions, name, initialize, &classInfo$$, SuppressedExceptions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SuppressedExceptions);
+	});
 	return class$;
 }
 

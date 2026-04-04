@@ -1,5 +1,4 @@
 #include <java/lang/invoke/VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle.h>
-
 #include <java/lang/invoke/VarForm.h>
 #include <java/lang/invoke/VarHandle.h>
 #include <java/lang/invoke/VarHandleByteArrayAsDoubles.h>
@@ -16,41 +15,6 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$FieldInfo _VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle_FieldInfo_[] = {
-	{"be", "Z", nullptr, $FINAL, $field(VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle, be)},
-	{}
-};
-
-$MethodInfo _VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/VarForm;ZZ)V", nullptr, 0, $method(VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle, init$, void, $VarForm*, bool, bool)},
-	{}
-};
-
-$InnerClassInfo _VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle_InnerClassesInfo_[] = {
-	{"java.lang.invoke.VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle", "java.lang.invoke.VarHandleByteArrayAsDoubles", "ByteArrayViewVarHandle", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.lang.invoke.VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle",
-	"java.lang.invoke.VarHandle",
-	nullptr,
-	_VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle_FieldInfo_,
-	_VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle_MethodInfo_,
-	nullptr,
-	nullptr,
-	_VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.VarHandleByteArrayAsDoubles"
-};
-
-$Object* allocate$VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle($Class* clazz) {
-	return $of($alloc(VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle));
-}
-
 void VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle::init$($VarForm* form, bool be, bool exact) {
 	$VarHandle::init$(form, exact);
 	this->be = be;
@@ -60,7 +24,36 @@ VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle::VarHandleByteArrayAsDoubles$
 }
 
 $Class* VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle::load$($String* name, bool initialize) {
-	$loadClass(VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle, name, initialize, &_VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle_ClassInfo_, allocate$VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle);
+	$FieldInfo fieldInfos$$[] = {
+		{"be", "Z", nullptr, $FINAL, $field(VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle, be)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/invoke/VarForm;ZZ)V", nullptr, 0, $method(VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle, init$, void, $VarForm*, bool, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle", "java.lang.invoke.VarHandleByteArrayAsDoubles", "ByteArrayViewVarHandle", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.lang.invoke.VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle",
+		"java.lang.invoke.VarHandle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.VarHandleByteArrayAsDoubles"
+	};
+	$loadClass(VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle);
+	});
 	return class$;
 }
 

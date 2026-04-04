@@ -1,5 +1,4 @@
 #include <java/util/stream/Nodes$ConcNode.h>
-
 #include <java/util/Objects.h>
 #include <java/util/Spliterator.h>
 #include <java/util/function/Consumer.h>
@@ -30,47 +29,6 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$MethodInfo _Nodes$ConcNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/Node;Ljava/util/stream/Node;)V", "(Ljava/util/stream/Node<TT;>;Ljava/util/stream/Node<TT;>;)V", 0, $method(Nodes$ConcNode, init$, void, $Node*, $Node*)},
-	{"asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "(Ljava/util/function/IntFunction<[TT;>;)[TT;", $PUBLIC, $virtualMethod(Nodes$ConcNode, asArray, $ObjectArray*, $IntFunction*)},
-	{"copyInto", "([Ljava/lang/Object;I)V", "([TT;I)V", $PUBLIC, $virtualMethod(Nodes$ConcNode, copyInto, void, $ObjectArray*, int32_t)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Nodes$ConcNode, forEach, void, $Consumer*)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC, $virtualMethod(Nodes$ConcNode, spliterator, $Spliterator*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Nodes$ConcNode, toString, $String*)},
-	{"truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node;", "(JJLjava/util/function/IntFunction<[TT;>;)Ljava/util/stream/Node<TT;>;", $PUBLIC, $virtualMethod(Nodes$ConcNode, truncate, $Node*, int64_t, int64_t, $IntFunction*)},
-	{}
-};
-
-$InnerClassInfo _Nodes$ConcNode_InnerClassesInfo_[] = {
-	{"java.util.stream.Nodes$ConcNode", "java.util.stream.Nodes", "ConcNode", $STATIC | $FINAL},
-	{"java.util.stream.Nodes$AbstractConcNode", "java.util.stream.Nodes", "AbstractConcNode", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.stream.Nodes$ConcNode$OfDouble", "java.util.stream.Nodes$ConcNode", "OfDouble", $STATIC | $FINAL},
-	{"java.util.stream.Nodes$ConcNode$OfLong", "java.util.stream.Nodes$ConcNode", "OfLong", $STATIC | $FINAL},
-	{"java.util.stream.Nodes$ConcNode$OfInt", "java.util.stream.Nodes$ConcNode", "OfInt", $STATIC | $FINAL},
-	{"java.util.stream.Nodes$ConcNode$OfPrimitive", "java.util.stream.Nodes$ConcNode", "OfPrimitive", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Nodes$ConcNode_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.Nodes$ConcNode",
-	"java.util.stream.Nodes$AbstractConcNode",
-	nullptr,
-	nullptr,
-	_Nodes$ConcNode_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/util/stream/Nodes$AbstractConcNode<TT;Ljava/util/stream/Node<TT;>;>;Ljava/util/stream/Node<TT;>;",
-	nullptr,
-	_Nodes$ConcNode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Nodes"
-};
-
-$Object* allocate$Nodes$ConcNode($Class* clazz) {
-	return $of($alloc(Nodes$ConcNode));
-}
-
 void Nodes$ConcNode::init$($Node* left, $Node* right) {
 	$Nodes$AbstractConcNode::init$(left, right);
 }
@@ -82,12 +40,12 @@ $Spliterator* Nodes$ConcNode::spliterator() {
 void Nodes$ConcNode::copyInto($ObjectArray* array, int32_t offset) {
 	$Objects::requireNonNull(array);
 	$nc(this->left)->copyInto(array, offset);
-	$nc(this->right)->copyInto(array, offset + (int32_t)$nc(this->left)->count());
+	$nc(this->right)->copyInto(array, offset + (int32_t)this->left->count());
 }
 
 $ObjectArray* Nodes$ConcNode::asArray($IntFunction* generator) {
 	int64_t size = count();
-	if (size >= (int64_t)2147483639) {
+	if (size >= 2147483639) {
 		$throwNew($IllegalArgumentException, "Stream size exceeds max array size"_s);
 	}
 	$var($ObjectArray, array, $cast($ObjectArray, $nc(generator)->apply((int32_t)size)));
@@ -101,7 +59,7 @@ void Nodes$ConcNode::forEach($Consumer* consumer) {
 }
 
 $Node* Nodes$ConcNode::truncate(int64_t from, int64_t to, $IntFunction* generator) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (from == 0 && to == count()) {
 		return this;
 	}
@@ -109,23 +67,23 @@ $Node* Nodes$ConcNode::truncate(int64_t from, int64_t to, $IntFunction* generato
 	if (from >= leftCount) {
 		return $nc(this->right)->truncate(from - leftCount, to - leftCount, generator);
 	} else if (to <= leftCount) {
-		return $nc(this->left)->truncate(from, to, generator);
+		return this->left->truncate(from, to, generator);
 	} else {
 		$var($StreamShape, var$0, getShape());
-		$var($Node, var$1, $nc(this->left)->truncate(from, leftCount, generator));
+		$var($Node, var$1, this->left->truncate(from, leftCount, generator));
 		return $Nodes::conc(var$0, var$1, $($nc(this->right)->truncate(0, to - leftCount, generator)));
 	}
 }
 
 $String* Nodes$ConcNode::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (count() < 32) {
 		return $String::format("ConcNode[%s.%s]"_s, $$new($ObjectArray, {
-			$of(this->left),
-			$of(this->right)
+			this->left,
+			this->right
 		}));
 	} else {
-		return $String::format("ConcNode[size=%d]"_s, $$new($ObjectArray, {$($of($Long::valueOf(count())))}));
+		return $String::format("ConcNode[size=%d]"_s, $$new($ObjectArray, {$($Long::valueOf(count()))}));
 	}
 }
 
@@ -133,7 +91,43 @@ Nodes$ConcNode::Nodes$ConcNode() {
 }
 
 $Class* Nodes$ConcNode::load$($String* name, bool initialize) {
-	$loadClass(Nodes$ConcNode, name, initialize, &_Nodes$ConcNode_ClassInfo_, allocate$Nodes$ConcNode);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/Node;Ljava/util/stream/Node;)V", "(Ljava/util/stream/Node<TT;>;Ljava/util/stream/Node<TT;>;)V", 0, $method(Nodes$ConcNode, init$, void, $Node*, $Node*)},
+		{"asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "(Ljava/util/function/IntFunction<[TT;>;)[TT;", $PUBLIC, $virtualMethod(Nodes$ConcNode, asArray, $ObjectArray*, $IntFunction*)},
+		{"copyInto", "([Ljava/lang/Object;I)V", "([TT;I)V", $PUBLIC, $virtualMethod(Nodes$ConcNode, copyInto, void, $ObjectArray*, int32_t)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Nodes$ConcNode, forEach, void, $Consumer*)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC, $virtualMethod(Nodes$ConcNode, spliterator, $Spliterator*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Nodes$ConcNode, toString, $String*)},
+		{"truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node;", "(JJLjava/util/function/IntFunction<[TT;>;)Ljava/util/stream/Node<TT;>;", $PUBLIC, $virtualMethod(Nodes$ConcNode, truncate, $Node*, int64_t, int64_t, $IntFunction*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Nodes$ConcNode", "java.util.stream.Nodes", "ConcNode", $STATIC | $FINAL},
+		{"java.util.stream.Nodes$AbstractConcNode", "java.util.stream.Nodes", "AbstractConcNode", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.stream.Nodes$ConcNode$OfDouble", "java.util.stream.Nodes$ConcNode", "OfDouble", $STATIC | $FINAL},
+		{"java.util.stream.Nodes$ConcNode$OfLong", "java.util.stream.Nodes$ConcNode", "OfLong", $STATIC | $FINAL},
+		{"java.util.stream.Nodes$ConcNode$OfInt", "java.util.stream.Nodes$ConcNode", "OfInt", $STATIC | $FINAL},
+		{"java.util.stream.Nodes$ConcNode$OfPrimitive", "java.util.stream.Nodes$ConcNode", "OfPrimitive", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.Nodes$ConcNode",
+		"java.util.stream.Nodes$AbstractConcNode",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/util/stream/Nodes$AbstractConcNode<TT;Ljava/util/stream/Node<TT;>;>;Ljava/util/stream/Node<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Nodes"
+	};
+	$loadClass(Nodes$ConcNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Nodes$ConcNode);
+	});
 	return class$;
 }
 

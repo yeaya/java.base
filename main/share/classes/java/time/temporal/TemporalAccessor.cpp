@@ -1,5 +1,4 @@
 #include <java/time/temporal/TemporalAccessor.h>
-
 #include <java/time/DateTimeException.h>
 #include <java/time/temporal/ChronoField.h>
 #include <java/time/temporal/TemporalField.h>
@@ -25,47 +24,25 @@ namespace java {
 	namespace time {
 		namespace temporal {
 
-$MethodInfo _TemporalAccessor_MethodInfo_[] = {
-	{"get", "(Ljava/time/temporal/TemporalField;)I", nullptr, $PUBLIC, $virtualMethod(TemporalAccessor, get, int32_t, $TemporalField*)},
-	{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TemporalAccessor, getLong, int64_t, $TemporalField*)},
-	{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TemporalAccessor, isSupported, bool, $TemporalField*)},
-	{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC, $virtualMethod(TemporalAccessor, query, $Object*, $TemporalQuery*)},
-	{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(TemporalAccessor, range, $ValueRange*, $TemporalField*)},
-	{}
-};
-
-$ClassInfo _TemporalAccessor_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.time.temporal.TemporalAccessor",
-	nullptr,
-	nullptr,
-	nullptr,
-	_TemporalAccessor_MethodInfo_
-};
-
-$Object* allocate$TemporalAccessor($Class* clazz) {
-	return $of($alloc(TemporalAccessor));
-}
-
 $ValueRange* TemporalAccessor::range($TemporalField* field) {
 	if ($instanceOf($ChronoField, field)) {
 		if (isSupported(field)) {
-			return $nc(field)->range();
+			return field->range();
 		}
 		$throwNew($UnsupportedTemporalTypeException, $$str({"Unsupported field: "_s, field}));
 	}
-	$Objects::requireNonNull($of(field), "field"_s);
+	$Objects::requireNonNull(field, "field"_s);
 	return $nc(field)->rangeRefinedBy(this);
 }
 
 int32_t TemporalAccessor::get($TemporalField* field) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ValueRange, range, this->range(field));
 	if ($nc(range)->isIntValue() == false) {
 		$throwNew($UnsupportedTemporalTypeException, $$str({"Invalid field "_s, field, " for get() method, use getLong() instead"_s}));
 	}
 	int64_t value = getLong(field);
-	if ($nc(range)->isValidValue(value) == false) {
+	if (range->isValidValue(value) == false) {
 		$throwNew($DateTimeException, $$str({"Invalid value for "_s, field, " (valid values "_s, range, "): "_s, $$str(value)}));
 	}
 	return (int32_t)value;
@@ -75,13 +52,31 @@ $Object* TemporalAccessor::query($TemporalQuery* query) {
 	bool var$1 = query == $TemporalQueries::zoneId();
 	bool var$0 = var$1 || query == $TemporalQueries::chronology();
 	if (var$0 || query == $TemporalQueries::precision()) {
-		return $of(nullptr);
+		return nullptr;
 	}
-	return $of($nc(query)->queryFrom(this));
+	return $nc(query)->queryFrom(this);
 }
 
 $Class* TemporalAccessor::load$($String* name, bool initialize) {
-	$loadClass(TemporalAccessor, name, initialize, &_TemporalAccessor_ClassInfo_, allocate$TemporalAccessor);
+	$MethodInfo methodInfos$$[] = {
+		{"get", "(Ljava/time/temporal/TemporalField;)I", nullptr, $PUBLIC, $virtualMethod(TemporalAccessor, get, int32_t, $TemporalField*)},
+		{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TemporalAccessor, getLong, int64_t, $TemporalField*)},
+		{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TemporalAccessor, isSupported, bool, $TemporalField*)},
+		{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC, $virtualMethod(TemporalAccessor, query, $Object*, $TemporalQuery*)},
+		{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(TemporalAccessor, range, $ValueRange*, $TemporalField*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.time.temporal.TemporalAccessor",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TemporalAccessor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TemporalAccessor);
+	});
 	return class$;
 }
 

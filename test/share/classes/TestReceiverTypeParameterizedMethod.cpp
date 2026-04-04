@@ -1,5 +1,4 @@
 #include <TestReceiverTypeParameterizedMethod.h>
-
 #include <TestReceiverTypeParameterizedMethod$Inner.h>
 #include <TestReceiverTypeParameterizedMethod$TypeAnnotation.h>
 #include <java/lang/AssertionError.h>
@@ -23,49 +22,6 @@ using $AnnotatedParameterizedType = ::java::lang::reflect::AnnotatedParameterize
 using $AnnotatedType = ::java::lang::reflect::AnnotatedType;
 using $Method = ::java::lang::reflect::Method;
 
-$NamedAttribute TestReceiverTypeParameterizedMethod_Attribute_var$0[] = {
-	{"value", 'I', "0"},
-	{}
-};
-
-$TypeAnnotation _TestReceiverTypeParameterizedMethod_MethodTypeAnnotations_m2[] = {
-	{"LTestReceiverTypeParameterizedMethod$TypeAnnotation;", TestReceiverTypeParameterizedMethod_Attribute_var$0, "METHOD_RECEIVER, location = (TYPE_ARGUMENT(0))"},
-	{}
-};
-
-$MethodInfo _TestReceiverTypeParameterizedMethod_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestReceiverTypeParameterizedMethod, init$, void)},
-	{"doAssert", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(TestReceiverTypeParameterizedMethod, doAssert, void, $Class*), "java.lang.NoSuchMethodException"},
-	{"m", "()V", nullptr, 0, $virtualMethod(TestReceiverTypeParameterizedMethod, m, void), nullptr, nullptr, nullptr, _TestReceiverTypeParameterizedMethod_MethodTypeAnnotations_m2},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestReceiverTypeParameterizedMethod, main, void, $StringArray*), "java.lang.NoSuchMethodException"},
-	{}
-};
-
-$InnerClassInfo _TestReceiverTypeParameterizedMethod_InnerClassesInfo_[] = {
-	{"TestReceiverTypeParameterizedMethod$TypeAnnotation", "TestReceiverTypeParameterizedMethod", "TypeAnnotation", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{"TestReceiverTypeParameterizedMethod$Inner", "TestReceiverTypeParameterizedMethod", "Inner", 0},
-	{}
-};
-
-$ClassInfo _TestReceiverTypeParameterizedMethod_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestReceiverTypeParameterizedMethod",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestReceiverTypeParameterizedMethod_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_TestReceiverTypeParameterizedMethod_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TestReceiverTypeParameterizedMethod$TypeAnnotation,TestReceiverTypeParameterizedMethod$Inner"
-};
-
-$Object* allocate$TestReceiverTypeParameterizedMethod($Class* clazz) {
-	return $of($alloc(TestReceiverTypeParameterizedMethod));
-}
-
 void TestReceiverTypeParameterizedMethod::init$() {
 }
 
@@ -77,8 +33,8 @@ void TestReceiverTypeParameterizedMethod::main($StringArray* args) {
 }
 
 void TestReceiverTypeParameterizedMethod::doAssert($Class* c) {
+	$useLocalObjectStack();
 	$load(TestReceiverTypeParameterizedMethod);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($Method, method, $nc(c)->getDeclaredMethod("m"_s, $$new($ClassArray, 0)));
 	$var($AnnotatedType, receiverType, $nc(method)->getAnnotatedReceiverType());
@@ -87,7 +43,7 @@ void TestReceiverTypeParameterizedMethod::doAssert($Class* c) {
 	do {
 		$var($AnnotatedTypeArray, arguments, $nc(parameterizedType)->getAnnotatedActualTypeArguments());
 		$var($AnnotationArray, annotations, $nc($nc(arguments)->get(0))->getAnnotations());
-		if ($nc(annotations)->length != 1 || !($instanceOf($TestReceiverTypeParameterizedMethod$TypeAnnotation, $nc(annotations)->get(0))) || $nc(($cast($TestReceiverTypeParameterizedMethod$TypeAnnotation, $nc(annotations)->get(0))))->value() != count++) {
+		if ($nc(annotations)->length != 1 || !($instanceOf($TestReceiverTypeParameterizedMethod$TypeAnnotation, annotations->get(0))) || $nc($cast($TestReceiverTypeParameterizedMethod$TypeAnnotation, annotations->get(0)))->value() != count++) {
 			$throwNew($AssertionError);
 		}
 		$assign(parameterizedType, $cast($AnnotatedParameterizedType, parameterizedType->getAnnotatedOwnerType()));
@@ -101,7 +57,43 @@ TestReceiverTypeParameterizedMethod::TestReceiverTypeParameterizedMethod() {
 }
 
 $Class* TestReceiverTypeParameterizedMethod::load$($String* name, bool initialize) {
-	$loadClass(TestReceiverTypeParameterizedMethod, name, initialize, &_TestReceiverTypeParameterizedMethod_ClassInfo_, allocate$TestReceiverTypeParameterizedMethod);
+	$NamedAttribute mmethodTypeAnnotations$$$namedAttribute[] = {
+		{"value", 'I', "0"},
+		{}
+	};
+	$TypeAnnotation mmethodTypeAnnotations$$[] = {
+		{"LTestReceiverTypeParameterizedMethod$TypeAnnotation;", mmethodTypeAnnotations$$$namedAttribute, "METHOD_RECEIVER, location = (TYPE_ARGUMENT(0))"},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestReceiverTypeParameterizedMethod, init$, void)},
+		{"doAssert", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(TestReceiverTypeParameterizedMethod, doAssert, void, $Class*), "java.lang.NoSuchMethodException"},
+		{"m", "()V", nullptr, 0, $virtualMethod(TestReceiverTypeParameterizedMethod, m, void), nullptr, nullptr, nullptr, mmethodTypeAnnotations$$},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestReceiverTypeParameterizedMethod, main, void, $StringArray*), "java.lang.NoSuchMethodException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestReceiverTypeParameterizedMethod$TypeAnnotation", "TestReceiverTypeParameterizedMethod", "TypeAnnotation", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{"TestReceiverTypeParameterizedMethod$Inner", "TestReceiverTypeParameterizedMethod", "Inner", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestReceiverTypeParameterizedMethod",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TestReceiverTypeParameterizedMethod$TypeAnnotation,TestReceiverTypeParameterizedMethod$Inner"
+	};
+	$loadClass(TestReceiverTypeParameterizedMethod, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestReceiverTypeParameterizedMethod);
+	});
 	return class$;
 }
 

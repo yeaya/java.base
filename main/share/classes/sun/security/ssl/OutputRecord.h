@@ -54,6 +54,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::ssl::HandshakeHash* handshakeHash, ::sun::security::ssl::SSLCipher$SSLWriteCipher* writeCipher);
 	static int32_t V3toV2CipherSuite(::java::nio::ByteBuffer* dstBuf, int8_t byte1, int8_t byte2);
 	virtual int32_t calculateFragmentSize(int32_t fragmentLimit);

@@ -15,10 +15,13 @@ public:
 	NotLinkException();
 	void init$($String* file);
 	void init$($String* file, $String* other, $String* reason);
-	static const int64_t serialVersionUID = (int64_t)0xFA9B37CB53A0387B;
+	static const int64_t serialVersionUID = (int64_t)0xfa9b37cb53a0387b;
 	NotLinkException(const NotLinkException& e);
 	virtual void throw$() override;
-	inline NotLinkException* operator ->() {
+	inline NotLinkException* operator ->() const {
+		return (NotLinkException*)throwing$;
+	}
+	inline operator NotLinkException*() const {
 		return (NotLinkException*)throwing$;
 	}
 };

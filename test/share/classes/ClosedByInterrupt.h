@@ -28,6 +28,7 @@ class $export ClosedByInterrupt : public ::java::lang::Object {
 	$class(ClosedByInterrupt, 0, ::java::lang::Object)
 public:
 	ClosedByInterrupt();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void expected(::java::lang::Exception* e);
 	static void expected($String* msg);

@@ -26,6 +26,7 @@ class $import SignStyle : public ::java::lang::Enum {
 public:
 	SignStyle();
 	static $Array<::java::time::format::SignStyle>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual bool parse(bool positive, bool strict, bool fixedWidth);
 	static ::java::time::format::SignStyle* valueOf($String* name);

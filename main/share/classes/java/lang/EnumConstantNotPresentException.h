@@ -15,12 +15,15 @@ public:
 	void init$($Class* enumType, $String* constantName);
 	virtual $String* constantName();
 	virtual $Class* enumType();
-	static const int64_t serialVersionUID = (int64_t)0xAC14BEE1F53B226C;
+	static const int64_t serialVersionUID = (int64_t)0xac14bee1f53b226c;
 	$Class* enumType$ = nullptr;
 	$String* constantName$ = nullptr;
 	EnumConstantNotPresentException(const EnumConstantNotPresentException& e);
 	virtual void throw$() override;
-	inline EnumConstantNotPresentException* operator ->() {
+	inline EnumConstantNotPresentException* operator ->() const {
+		return (EnumConstantNotPresentException*)throwing$;
+	}
+	inline operator EnumConstantNotPresentException*() const {
 		return (EnumConstantNotPresentException*)throwing$;
 	}
 };

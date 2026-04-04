@@ -1,5 +1,4 @@
 #include <java/util/concurrent/ConcurrentSkipListMap$KeySet.h>
-
 #include <java/lang/ClassCastException.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractSet.h>
@@ -38,7 +37,6 @@ using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $Comparator = ::java::util::Comparator;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Map$Entry = ::java::util::Map$Entry;
 using $NavigableSet = ::java::util::NavigableSet;
 using $Set = ::java::util::Set;
@@ -57,82 +55,6 @@ using $Stream = ::java::util::stream::Stream;
 namespace java {
 	namespace util {
 		namespace concurrent {
-
-$FieldInfo _ConcurrentSkipListMap$KeySet_FieldInfo_[] = {
-	{"m", "Ljava/util/concurrent/ConcurrentNavigableMap;", "Ljava/util/concurrent/ConcurrentNavigableMap<TK;TV;>;", $FINAL, $field(ConcurrentSkipListMap$KeySet, m)},
-	{}
-};
-
-$MethodInfo _ConcurrentSkipListMap$KeySet_MethodInfo_[] = {
-	{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/util/concurrent/ConcurrentNavigableMap;)V", "(Ljava/util/concurrent/ConcurrentNavigableMap<TK;TV;>;)V", 0, $method(ConcurrentSkipListMap$KeySet, init$, void, $ConcurrentNavigableMap*)},
-	{"ceiling", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, ceiling, $Object*, Object$*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, clear, void)},
-	{"comparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TK;>;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, comparator, $Comparator*)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, contains, bool, Object$*)},
-	{"descendingIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TK;>;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, descendingIterator, $Iterator*)},
-	{"descendingSet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, descendingSet, $NavigableSet*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, equals, bool, Object$*)},
-	{"first", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, first, $Object*)},
-	{"floor", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, floor, $Object*, Object$*)},
-	{"headSet", "(Ljava/lang/Object;Z)Ljava/util/NavigableSet;", "(TK;Z)Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, headSet, $NavigableSet*, Object$*, bool)},
-	{"headSet", "(Ljava/lang/Object;)Ljava/util/NavigableSet;", "(TK;)Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, headSet, $SortedSet*, Object$*)},
-	{"higher", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, higher, $Object*, Object$*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, isEmpty, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TK;>;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, iterator, $Iterator*)},
-	{"last", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, last, $Object*)},
-	{"lower", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, lower, $Object*, Object$*)},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"pollFirst", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, pollFirst, $Object*)},
-	{"pollLast", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, pollLast, $Object*)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, remove, bool, Object$*)},
-	{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, size, int32_t)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TK;>;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, spliterator, $Spliterator*)},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"subSet", "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;", "(TK;ZTK;Z)Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, subSet, $NavigableSet*, Object$*, bool, Object$*, bool)},
-	{"subSet", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/NavigableSet;", "(TK;TK;)Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, subSet, $SortedSet*, Object$*, Object$*)},
-	{"tailSet", "(Ljava/lang/Object;Z)Ljava/util/NavigableSet;", "(TK;Z)Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, tailSet, $NavigableSet*, Object$*, bool)},
-	{"tailSet", "(Ljava/lang/Object;)Ljava/util/NavigableSet;", "(TK;)Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, tailSet, $SortedSet*, Object$*)},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, toArray, $ObjectArray*, $ObjectArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _ConcurrentSkipListMap$KeySet_InnerClassesInfo_[] = {
-	{"java.util.concurrent.ConcurrentSkipListMap$KeySet", "java.util.concurrent.ConcurrentSkipListMap", "KeySet", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ConcurrentSkipListMap$KeySet_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.ConcurrentSkipListMap$KeySet",
-	"java.util.AbstractSet",
-	"java.util.NavigableSet",
-	_ConcurrentSkipListMap$KeySet_FieldInfo_,
-	_ConcurrentSkipListMap$KeySet_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/AbstractSet<TK;>;Ljava/util/NavigableSet<TK;>;",
-	nullptr,
-	_ConcurrentSkipListMap$KeySet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.ConcurrentSkipListMap"
-};
-
-$Object* allocate$ConcurrentSkipListMap$KeySet($Class* clazz) {
-	return $of($alloc(ConcurrentSkipListMap$KeySet));
-}
 
 int32_t ConcurrentSkipListMap$KeySet::hashCode() {
 	 return this->$AbstractSet::hashCode();
@@ -216,19 +138,19 @@ void ConcurrentSkipListMap$KeySet::clear() {
 }
 
 $Object* ConcurrentSkipListMap$KeySet::lower(Object$* e) {
-	return $of($nc(this->m)->lowerKey(e));
+	return $nc(this->m)->lowerKey(e);
 }
 
 $Object* ConcurrentSkipListMap$KeySet::floor(Object$* e) {
-	return $of($nc(this->m)->floorKey(e));
+	return $nc(this->m)->floorKey(e);
 }
 
 $Object* ConcurrentSkipListMap$KeySet::ceiling(Object$* e) {
-	return $of($nc(this->m)->ceilingKey(e));
+	return $nc(this->m)->ceilingKey(e);
 }
 
 $Object* ConcurrentSkipListMap$KeySet::higher(Object$* e) {
-	return $of($nc(this->m)->higherKey(e));
+	return $nc(this->m)->higherKey(e);
 }
 
 $Comparator* ConcurrentSkipListMap$KeySet::comparator() {
@@ -236,25 +158,25 @@ $Comparator* ConcurrentSkipListMap$KeySet::comparator() {
 }
 
 $Object* ConcurrentSkipListMap$KeySet::first() {
-	return $of($nc(this->m)->firstKey());
+	return $nc(this->m)->firstKey();
 }
 
 $Object* ConcurrentSkipListMap$KeySet::last() {
-	return $of($nc(this->m)->lastKey());
+	return $nc(this->m)->lastKey();
 }
 
 $Object* ConcurrentSkipListMap$KeySet::pollFirst() {
 	$var($Map$Entry, e, $nc(this->m)->pollFirstEntry());
-	return $of((e == nullptr) ? ($Object*)nullptr : $nc(e)->getKey());
+	return (e == nullptr) ? ($Object*)nullptr : e->getKey();
 }
 
 $Object* ConcurrentSkipListMap$KeySet::pollLast() {
 	$var($Map$Entry, e, $nc(this->m)->pollLastEntry());
-	return $of((e == nullptr) ? ($Object*)nullptr : $nc(e)->getKey());
+	return (e == nullptr) ? ($Object*)nullptr : e->getKey();
 }
 
 $Iterator* ConcurrentSkipListMap$KeySet::iterator() {
-	return ($instanceOf($ConcurrentSkipListMap, this->m)) ? static_cast<$Iterator*>($new($ConcurrentSkipListMap$KeyIterator, static_cast<$ConcurrentSkipListMap*>($nc(($cast($ConcurrentSkipListMap, this->m)))))) : static_cast<$Iterator*>($new($ConcurrentSkipListMap$SubMap$SubMapKeyIterator, static_cast<$ConcurrentSkipListMap$SubMap*>($nc(($cast($ConcurrentSkipListMap$SubMap, this->m))))));
+	return ($instanceOf($ConcurrentSkipListMap, this->m)) ? $cast($Iterator, $new($ConcurrentSkipListMap$KeyIterator, $cast($ConcurrentSkipListMap, this->m))) : $cast($Iterator, $new($ConcurrentSkipListMap$SubMap$SubMapKeyIterator, $nc($cast($ConcurrentSkipListMap$SubMap, this->m))));
 }
 
 bool ConcurrentSkipListMap$KeySet::equals(Object$* o) {
@@ -267,7 +189,7 @@ bool ConcurrentSkipListMap$KeySet::equals(Object$* o) {
 	$var($Collection, c, $cast($Collection, o));
 	try {
 		bool var$0 = containsAll(c);
-		return var$0 && $nc(c)->containsAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(this))));
+		return var$0 && $nc(c)->containsAll($cast($AbstractCollection, this));
 	} catch ($ClassCastException& unused) {
 		return false;
 	} catch ($NullPointerException& unused) {
@@ -277,27 +199,27 @@ bool ConcurrentSkipListMap$KeySet::equals(Object$* o) {
 }
 
 $ObjectArray* ConcurrentSkipListMap$KeySet::toArray() {
-	return $nc($($ConcurrentSkipListMap::toList(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(this))))))->toArray();
+	return $$nc($ConcurrentSkipListMap::toList($cast($AbstractCollection, this)))->toArray();
 }
 
 $ObjectArray* ConcurrentSkipListMap$KeySet::toArray($ObjectArray* a) {
-	return $nc($($ConcurrentSkipListMap::toList(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(this))))))->toArray(a);
+	return $$nc($ConcurrentSkipListMap::toList($cast($AbstractCollection, this)))->toArray(a);
 }
 
 $Iterator* ConcurrentSkipListMap$KeySet::descendingIterator() {
-	return $nc($(descendingSet()))->iterator();
+	return $$nc(descendingSet())->iterator();
 }
 
 $NavigableSet* ConcurrentSkipListMap$KeySet::subSet(Object$* fromElement, bool fromInclusive, Object$* toElement, bool toInclusive) {
-	return $new(ConcurrentSkipListMap$KeySet, $($cast($ConcurrentNavigableMap, $nc(this->m)->subMap(fromElement, fromInclusive, toElement, toInclusive))));
+	return $new(ConcurrentSkipListMap$KeySet, $$cast($ConcurrentNavigableMap, $nc(this->m)->subMap(fromElement, fromInclusive, toElement, toInclusive)));
 }
 
 $NavigableSet* ConcurrentSkipListMap$KeySet::headSet(Object$* toElement, bool inclusive) {
-	return $new(ConcurrentSkipListMap$KeySet, $($cast($ConcurrentNavigableMap, $nc(this->m)->headMap(toElement, inclusive))));
+	return $new(ConcurrentSkipListMap$KeySet, $$cast($ConcurrentNavigableMap, $nc(this->m)->headMap(toElement, inclusive)));
 }
 
 $NavigableSet* ConcurrentSkipListMap$KeySet::tailSet(Object$* fromElement, bool inclusive) {
-	return $new(ConcurrentSkipListMap$KeySet, $($cast($ConcurrentNavigableMap, $nc(this->m)->tailMap(fromElement, inclusive))));
+	return $new(ConcurrentSkipListMap$KeySet, $$cast($ConcurrentNavigableMap, $nc(this->m)->tailMap(fromElement, inclusive)));
 }
 
 $SortedSet* ConcurrentSkipListMap$KeySet::subSet(Object$* fromElement, Object$* toElement) {
@@ -313,18 +235,88 @@ $SortedSet* ConcurrentSkipListMap$KeySet::tailSet(Object$* fromElement) {
 }
 
 $NavigableSet* ConcurrentSkipListMap$KeySet::descendingSet() {
-	return $new(ConcurrentSkipListMap$KeySet, $($cast($ConcurrentNavigableMap, $nc(this->m)->descendingMap())));
+	return $new(ConcurrentSkipListMap$KeySet, $$cast($ConcurrentNavigableMap, $nc(this->m)->descendingMap()));
 }
 
 $Spliterator* ConcurrentSkipListMap$KeySet::spliterator() {
-	return ($instanceOf($ConcurrentSkipListMap, this->m)) ? static_cast<$Spliterator*>($nc(($cast($ConcurrentSkipListMap, this->m)))->keySpliterator()) : static_cast<$Spliterator*>($new($ConcurrentSkipListMap$SubMap$SubMapKeyIterator, static_cast<$ConcurrentSkipListMap$SubMap*>($nc(($cast($ConcurrentSkipListMap$SubMap, this->m))))));
+	return ($instanceOf($ConcurrentSkipListMap, this->m)) ? $cast($Spliterator, $cast($ConcurrentSkipListMap, this->m)->keySpliterator()) : $cast($Spliterator, $new($ConcurrentSkipListMap$SubMap$SubMapKeyIterator, $nc($cast($ConcurrentSkipListMap$SubMap, this->m))));
 }
 
 ConcurrentSkipListMap$KeySet::ConcurrentSkipListMap$KeySet() {
 }
 
 $Class* ConcurrentSkipListMap$KeySet::load$($String* name, bool initialize) {
-	$loadClass(ConcurrentSkipListMap$KeySet, name, initialize, &_ConcurrentSkipListMap$KeySet_ClassInfo_, allocate$ConcurrentSkipListMap$KeySet);
+	$FieldInfo fieldInfos$$[] = {
+		{"m", "Ljava/util/concurrent/ConcurrentNavigableMap;", "Ljava/util/concurrent/ConcurrentNavigableMap<TK;TV;>;", $FINAL, $field(ConcurrentSkipListMap$KeySet, m)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/util/concurrent/ConcurrentNavigableMap;)V", "(Ljava/util/concurrent/ConcurrentNavigableMap<TK;TV;>;)V", 0, $method(ConcurrentSkipListMap$KeySet, init$, void, $ConcurrentNavigableMap*)},
+		{"ceiling", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, ceiling, $Object*, Object$*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, clear, void)},
+		{"comparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TK;>;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, comparator, $Comparator*)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, contains, bool, Object$*)},
+		{"descendingIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TK;>;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, descendingIterator, $Iterator*)},
+		{"descendingSet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, descendingSet, $NavigableSet*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, equals, bool, Object$*)},
+		{"first", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, first, $Object*)},
+		{"floor", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, floor, $Object*, Object$*)},
+		{"headSet", "(Ljava/lang/Object;Z)Ljava/util/NavigableSet;", "(TK;Z)Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, headSet, $NavigableSet*, Object$*, bool)},
+		{"headSet", "(Ljava/lang/Object;)Ljava/util/NavigableSet;", "(TK;)Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, headSet, $SortedSet*, Object$*)},
+		{"higher", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, higher, $Object*, Object$*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, isEmpty, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TK;>;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, iterator, $Iterator*)},
+		{"last", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, last, $Object*)},
+		{"lower", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, lower, $Object*, Object$*)},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"pollFirst", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, pollFirst, $Object*)},
+		{"pollLast", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, pollLast, $Object*)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, remove, bool, Object$*)},
+		{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, size, int32_t)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TK;>;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, spliterator, $Spliterator*)},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"subSet", "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;", "(TK;ZTK;Z)Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, subSet, $NavigableSet*, Object$*, bool, Object$*, bool)},
+		{"subSet", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/NavigableSet;", "(TK;TK;)Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, subSet, $SortedSet*, Object$*, Object$*)},
+		{"tailSet", "(Ljava/lang/Object;Z)Ljava/util/NavigableSet;", "(TK;Z)Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, tailSet, $NavigableSet*, Object$*, bool)},
+		{"tailSet", "(Ljava/lang/Object;)Ljava/util/NavigableSet;", "(TK;)Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, tailSet, $SortedSet*, Object$*)},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(ConcurrentSkipListMap$KeySet, toArray, $ObjectArray*, $ObjectArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.ConcurrentSkipListMap$KeySet", "java.util.concurrent.ConcurrentSkipListMap", "KeySet", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.ConcurrentSkipListMap$KeySet",
+		"java.util.AbstractSet",
+		"java.util.NavigableSet",
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/AbstractSet<TK;>;Ljava/util/NavigableSet<TK;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.ConcurrentSkipListMap"
+	};
+	$loadClass(ConcurrentSkipListMap$KeySet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ConcurrentSkipListMap$KeySet));
+	});
 	return class$;
 }
 

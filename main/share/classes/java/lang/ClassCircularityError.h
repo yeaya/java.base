@@ -14,10 +14,13 @@ public:
 	ClassCircularityError();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x0EA1D92582E610A9;
+	static const int64_t serialVersionUID = (int64_t)0x0ea1d92582e610a9;
 	ClassCircularityError(const ClassCircularityError& e);
 	virtual void throw$() override;
-	inline ClassCircularityError* operator ->() {
+	inline ClassCircularityError* operator ->() const {
+		return (ClassCircularityError*)throwing$;
+	}
+	inline operator ClassCircularityError*() const {
 		return (ClassCircularityError*)throwing$;
 	}
 };

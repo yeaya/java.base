@@ -1,5 +1,4 @@
 #include <NewChainedExceptions.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <jcpp.h>
@@ -12,30 +11,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 
-$MethodInfo _NewChainedExceptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NewChainedExceptions, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NewChainedExceptions, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _NewChainedExceptions_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NewChainedExceptions",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_NewChainedExceptions_MethodInfo_
-};
-
-$Object* allocate$NewChainedExceptions($Class* clazz) {
-	return $of($alloc(NewChainedExceptions));
-}
-
 void NewChainedExceptions::init$() {
 }
 
 void NewChainedExceptions::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Throwable, interior, $new($Exception));
 	$var($String, message, "Good heavens!"_s);
 	try {
@@ -50,7 +30,7 @@ void NewChainedExceptions::main($StringArray* args) {
 		$throwNew($IllegalStateException, interior);
 	} catch ($IllegalStateException& e) {
 		bool var$1 = e->getCause() == interior;
-		if (!(var$1 && $nc($(e->getMessage()))->equals($(interior->toString())))) {
+		if (!(var$1 && $$nc(e->getMessage())->equals($(interior->toString())))) {
 			$throwNew($RuntimeException, "2"_s);
 		}
 	}
@@ -66,7 +46,7 @@ void NewChainedExceptions::main($StringArray* args) {
 		$throwNew($IllegalArgumentException, interior);
 	} catch ($IllegalArgumentException& e) {
 		bool var$3 = e->getCause() == interior;
-		if (!(var$3 && $nc($(e->getMessage()))->equals($(interior->toString())))) {
+		if (!(var$3 && $$nc(e->getMessage())->equals($(interior->toString())))) {
 			$throwNew($RuntimeException, "4"_s);
 		}
 	}
@@ -82,7 +62,7 @@ void NewChainedExceptions::main($StringArray* args) {
 		$throwNew($UnsupportedOperationException, interior);
 	} catch ($UnsupportedOperationException& e) {
 		bool var$5 = e->getCause() == interior;
-		if (!(var$5 && $nc($(e->getMessage()))->equals($(interior->toString())))) {
+		if (!(var$5 && $$nc(e->getMessage())->equals($(interior->toString())))) {
 			$throwNew($RuntimeException, "6"_s);
 		}
 	}
@@ -92,7 +72,22 @@ NewChainedExceptions::NewChainedExceptions() {
 }
 
 $Class* NewChainedExceptions::load$($String* name, bool initialize) {
-	$loadClass(NewChainedExceptions, name, initialize, &_NewChainedExceptions_ClassInfo_, allocate$NewChainedExceptions);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NewChainedExceptions, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NewChainedExceptions, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NewChainedExceptions",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NewChainedExceptions, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NewChainedExceptions);
+	});
 	return class$;
 }
 

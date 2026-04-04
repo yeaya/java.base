@@ -45,6 +45,7 @@ public:
 	virtual $bytes* getEncoded() override;
 	virtual $String* getFormat() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::rsa::RSAUtil$KeyType* type, ::java::security::spec::AlgorithmParameterSpec* keyParams, ::java::math::BigInteger* n, ::java::math::BigInteger* e);
 	void init$($bytes* encoded);
 	static void checkExponentRange(::java::math::BigInteger* mod, ::java::math::BigInteger* exp);
@@ -58,7 +59,7 @@ public:
 	virtual void parseKeyBits() override;
 	virtual $String* toString() override;
 	$Object* writeReplace();
-	static const int64_t serialVersionUID = (int64_t)0x24B3FCDAF80BB379;
+	static const int64_t serialVersionUID = (int64_t)0x24b3fcdaf80bb379;
 	static ::java::math::BigInteger* THREE;
 	::java::math::BigInteger* n = nullptr;
 	::java::math::BigInteger* e = nullptr;

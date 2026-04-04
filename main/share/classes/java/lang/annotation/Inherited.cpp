@@ -1,5 +1,4 @@
 #include <java/lang/annotation/Inherited.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -11,47 +10,40 @@ namespace java {
 	namespace lang {
 		namespace annotation {
 
-$NamedAttribute Inherited_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$Attribute Inherited_Attribute_var$2[] = {
-	{'e', "Ljava/lang/annotation/ElementType; ANNOTATION_TYPE"},
-	{'-'}
-};
-
-$NamedAttribute Inherited_Attribute_var$1[] = {
-	{"value", '[', Inherited_Attribute_var$2},
-	{}
-};
-
-$CompoundAttribute _Inherited_Annotations_[] = {
-	{"Ljava/lang/annotation/Documented;", nullptr},
-	{"Ljava/lang/annotation/Retention;", Inherited_Attribute_var$0},
-	{"Ljava/lang/annotation/Target;", Inherited_Attribute_var$1},
-	{}
-};
-
-$ClassInfo _Inherited_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"java.lang.annotation.Inherited",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Inherited_Annotations_
-};
-
-$Object* allocate$Inherited($Class* clazz) {
-	return $of($alloc(Inherited));
-}
-
 $Class* Inherited::load$($String* name, bool initialize) {
-	$loadClass(Inherited, name, initialize, &_Inherited_ClassInfo_, allocate$Inherited);
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; ANNOTATION_TYPE"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Documented;", nullptr},
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"java.lang.annotation.Inherited",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Inherited, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Inherited);
+	});
 	return class$;
 }
 

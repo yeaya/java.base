@@ -1,7 +1,5 @@
 #include <sun/security/ssl/SignatureAlgorithmsExtension$CHSignatureSchemesUpdate.h>
-
 #include <java/security/AlgorithmConstraints.h>
-#include <java/util/Collection.h>
 #include <java/util/HashMap.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
@@ -34,63 +32,26 @@ using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Collection = ::java::util::Collection;
-using $HashMap = ::java::util::HashMap;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $Alert = ::sun::security::ssl::Alert;
 using $ClientAuthType = ::sun::security::ssl::ClientAuthType;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
-using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
 using $SignatureAlgorithmsExtension$SignatureSchemesSpec = ::sun::security::ssl::SignatureAlgorithmsExtension$SignatureSchemesSpec;
 using $SignatureScheme = ::sun::security::ssl::SignatureScheme;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SignatureAlgorithmsExtension$CHSignatureSchemesUpdate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SignatureAlgorithmsExtension$CHSignatureSchemesUpdate, init$, void)},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithmsExtension$CHSignatureSchemesUpdate, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _SignatureAlgorithmsExtension$CHSignatureSchemesUpdate_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesUpdate", "sun.security.ssl.SignatureAlgorithmsExtension", "CHSignatureSchemesUpdate", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SignatureAlgorithmsExtension$CHSignatureSchemesUpdate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesUpdate",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeConsumer",
-	nullptr,
-	_SignatureAlgorithmsExtension$CHSignatureSchemesUpdate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SignatureAlgorithmsExtension$CHSignatureSchemesUpdate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SignatureAlgorithmsExtension"
-};
-
-$Object* allocate$SignatureAlgorithmsExtension$CHSignatureSchemesUpdate($Class* clazz) {
-	return $of($alloc(SignatureAlgorithmsExtension$CHSignatureSchemesUpdate));
-}
-
 void SignatureAlgorithmsExtension$CHSignatureSchemesUpdate::init$() {
 }
 
 void SignatureAlgorithmsExtension$CHSignatureSchemesUpdate::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	$var($SignatureAlgorithmsExtension$SignatureSchemesSpec, spec, $cast($SignatureAlgorithmsExtension$SignatureSchemesSpec, $nc($nc(shc)->handshakeExtensions)->get($SSLExtension::CH_SIGNATURE_ALGORITHMS)));
@@ -98,12 +59,12 @@ void SignatureAlgorithmsExtension$CHSignatureSchemesUpdate::consume($ConnectionC
 		return;
 	}
 	$var($List, sss, $SignatureScheme::getSupportedAlgorithms(shc->sslConfig, shc->algorithmConstraints, shc->negotiatedProtocol, $nc(spec)->signatureSchemes));
-	if (sss == nullptr || $nc(sss)->isEmpty()) {
+	if (sss == nullptr || sss->isEmpty()) {
 		$init($Alert);
 		$throw($($nc(shc->conContext)->fatal($Alert::HANDSHAKE_FAILURE, "No supported signature algorithm"_s)));
 	}
 	$set(shc, peerRequestedSignatureSchemes, sss);
-	$var($SignatureAlgorithmsExtension$SignatureSchemesSpec, certSpec, $cast($SignatureAlgorithmsExtension$SignatureSchemesSpec, $nc(shc->handshakeExtensions)->get($SSLExtension::CH_SIGNATURE_ALGORITHMS_CERT)));
+	$var($SignatureAlgorithmsExtension$SignatureSchemesSpec, certSpec, $cast($SignatureAlgorithmsExtension$SignatureSchemesSpec, shc->handshakeExtensions->get($SSLExtension::CH_SIGNATURE_ALGORITHMS_CERT)));
 	if (certSpec == nullptr) {
 		$set(shc, peerRequestedCertSignSchemes, sss);
 		$nc(shc->handshakeSession)->setPeerSupportedSignatureAlgorithms(sss);
@@ -116,7 +77,7 @@ void SignatureAlgorithmsExtension$CHSignatureSchemesUpdate::consume($ConnectionC
 		}
 		$init($SSLHandshake);
 		$nc(shc->handshakeProducers)->put($($Byte::valueOf($SSLHandshake::CERTIFICATE->id)), $SSLHandshake::CERTIFICATE);
-		$nc(shc->handshakeProducers)->putIfAbsent($($Byte::valueOf($SSLHandshake::CERTIFICATE_VERIFY->id)), $SSLHandshake::CERTIFICATE_VERIFY);
+		shc->handshakeProducers->putIfAbsent($($Byte::valueOf($SSLHandshake::CERTIFICATE_VERIFY->id)), $SSLHandshake::CERTIFICATE_VERIFY);
 	}
 }
 
@@ -124,7 +85,33 @@ SignatureAlgorithmsExtension$CHSignatureSchemesUpdate::SignatureAlgorithmsExtens
 }
 
 $Class* SignatureAlgorithmsExtension$CHSignatureSchemesUpdate::load$($String* name, bool initialize) {
-	$loadClass(SignatureAlgorithmsExtension$CHSignatureSchemesUpdate, name, initialize, &_SignatureAlgorithmsExtension$CHSignatureSchemesUpdate_ClassInfo_, allocate$SignatureAlgorithmsExtension$CHSignatureSchemesUpdate);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SignatureAlgorithmsExtension$CHSignatureSchemesUpdate, init$, void)},
+		{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithmsExtension$CHSignatureSchemesUpdate, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesUpdate", "sun.security.ssl.SignatureAlgorithmsExtension", "CHSignatureSchemesUpdate", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesUpdate",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeConsumer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SignatureAlgorithmsExtension"
+	};
+	$loadClass(SignatureAlgorithmsExtension$CHSignatureSchemesUpdate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureAlgorithmsExtension$CHSignatureSchemesUpdate);
+	});
 	return class$;
 }
 

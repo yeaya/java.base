@@ -26,6 +26,7 @@ class LocaleData$SupplementaryStrategy : public ::sun::util::resources::LocaleDa
 	$class(LocaleData$SupplementaryStrategy, 0, ::sun::util::resources::LocaleData$LocaleDataStrategy)
 public:
 	LocaleData$SupplementaryStrategy();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::util::List* getCandidateLocales($String* baseName, ::java::util::Locale* locale) override;
 	virtual $Class* getResourceBundleProviderType($String* baseName, ::java::util::Locale* locale) override;

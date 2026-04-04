@@ -1,5 +1,4 @@
 #include <jdk/internal/loader/NativeLibraries.h>
-
 #include <java/io/File.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassLoader.h>
@@ -10,7 +9,6 @@
 #include <java/lang/ref/Cleaner$Cleanable.h>
 #include <java/lang/ref/Cleaner.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/ArrayDeque.h>
 #include <java/util/Collection.h>
@@ -45,16 +43,12 @@ using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsatisfiedLinkError = ::java::lang::UnsatisfiedLinkError;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $Cleaner = ::java::lang::ref::Cleaner;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayDeque = ::java::util::ArrayDeque;
-using $Collection = ::java::util::Collection;
 using $Deque = ::java::util::Deque;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
-using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
 using $Set = ::java::util::Set;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
@@ -71,70 +65,6 @@ namespace jdk {
 	namespace internal {
 		namespace loader {
 
-$FieldInfo _NativeLibraries_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NativeLibraries, $assertionsDisabled)},
-	{"libraries", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljdk/internal/loader/NativeLibraries$NativeLibraryImpl;>;", $PRIVATE | $FINAL, $field(NativeLibraries, libraries)},
-	{"loader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $FINAL, $field(NativeLibraries, loader)},
-	{"caller", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(NativeLibraries, caller)},
-	{"searchJavaLibraryPath", "Z", nullptr, $PRIVATE | $FINAL, $field(NativeLibraries, searchJavaLibraryPath)},
-	{"isJNI", "Z", nullptr, $PRIVATE | $FINAL, $field(NativeLibraries, isJNI)},
-	{"loadedLibraryNames", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(NativeLibraries, loadedLibraryNames)},
-	{"nativeLibraryContext", "Ljava/util/Deque;", "Ljava/util/Deque<Ljdk/internal/loader/NativeLibraries$NativeLibraryImpl;>;", $PRIVATE | $STATIC, $staticField(NativeLibraries, nativeLibraryContext)},
-	{}
-};
-
-$MethodInfo _NativeLibraries_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(NativeLibraries, init$, void, $ClassLoader*)},
-	{"<init>", "(Ljava/lang/Class;Z)V", "(Ljava/lang/Class<*>;Z)V", $PRIVATE, $method(NativeLibraries, init$, void, $Class*, bool)},
-	{"find", "(Ljava/lang/String;)J", nullptr, $PUBLIC, $method(NativeLibraries, find, int64_t, $String*)},
-	{"findBuiltinLib", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeLibraries, findBuiltinLib, $String*, $String*)},
-	{"findEntry0", "(Ljdk/internal/loader/NativeLibraries$NativeLibraryImpl;Ljava/lang/String;)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeLibraries, findEntry0, int64_t, $NativeLibraries$NativeLibraryImpl*, $String*)},
-	{"findFromPaths", "([Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)Ljdk/internal/loader/NativeLibrary;", "([Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/String;)Ljdk/internal/loader/NativeLibrary;", $PRIVATE, $method(NativeLibraries, findFromPaths, $NativeLibrary*, $StringArray*, $Class*, $String*)},
-	{"getFromClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(NativeLibraries, getFromClass, $Class*)},
-	{"jniNativeLibraries", "(Ljava/lang/ClassLoader;)Ljdk/internal/loader/NativeLibraries;", nullptr, $PUBLIC | $STATIC, $staticMethod(NativeLibraries, jniNativeLibraries, NativeLibraries*, $ClassLoader*)},
-	{"load", "(Ljdk/internal/loader/NativeLibraries$NativeLibraryImpl;Ljava/lang/String;ZZ)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeLibraries, load, bool, $NativeLibraries$NativeLibraryImpl*, $String*, bool, bool)},
-	{"loadLibrary", "(Ljava/lang/Class;Ljava/io/File;)Ljdk/internal/loader/NativeLibrary;", "(Ljava/lang/Class<*>;Ljava/io/File;)Ljdk/internal/loader/NativeLibrary;", $PUBLIC, $method(NativeLibraries, loadLibrary, $NativeLibrary*, $Class*, $File*)},
-	{"loadLibrary", "(Ljava/lang/Class;Ljava/lang/String;Z)Ljdk/internal/loader/NativeLibrary;", "(Ljava/lang/Class<*>;Ljava/lang/String;Z)Ljdk/internal/loader/NativeLibrary;", $PRIVATE, $method(NativeLibraries, loadLibrary, $NativeLibrary*, $Class*, $String*, bool)},
-	{"loadLibrary", "(Ljava/lang/String;)Ljdk/internal/loader/NativeLibrary;", nullptr, $PUBLIC, $method(NativeLibraries, loadLibrary, $NativeLibrary*, $String*)},
-	{"loadLibrary", "(Ljava/lang/Class;Ljava/lang/String;)Ljdk/internal/loader/NativeLibrary;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljdk/internal/loader/NativeLibrary;", $PUBLIC, $method(NativeLibraries, loadLibrary, $NativeLibrary*, $Class*, $String*)},
-	{"rawNativeLibraries", "(Ljava/lang/Class;Z)Ljdk/internal/loader/NativeLibraries;", "(Ljava/lang/Class<*>;Z)Ljdk/internal/loader/NativeLibraries;", $PUBLIC | $STATIC, $staticMethod(NativeLibraries, rawNativeLibraries, NativeLibraries*, $Class*, bool)},
-	{"unload", "(Ljdk/internal/loader/NativeLibrary;)V", nullptr, $PUBLIC, $method(NativeLibraries, unload, void, $NativeLibrary*)},
-	{"unload", "(Ljava/lang/String;ZZJ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeLibraries, unload, void, $String*, bool, bool, int64_t)},
-	{}
-};
-
-#define _METHOD_INDEX_findBuiltinLib 3
-#define _METHOD_INDEX_findEntry0 4
-#define _METHOD_INDEX_load 8
-#define _METHOD_INDEX_unload 15
-
-$InnerClassInfo _NativeLibraries_InnerClassesInfo_[] = {
-	{"jdk.internal.loader.NativeLibraries$LibraryPaths", "jdk.internal.loader.NativeLibraries", "LibraryPaths", $STATIC},
-	{"jdk.internal.loader.NativeLibraries$Unloader", "jdk.internal.loader.NativeLibraries", "Unloader", $STATIC},
-	{"jdk.internal.loader.NativeLibraries$NativeLibraryImpl", "jdk.internal.loader.NativeLibraries", "NativeLibraryImpl", $STATIC},
-	{"jdk.internal.loader.NativeLibraries$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NativeLibraries_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.loader.NativeLibraries",
-	"java.lang.Object",
-	nullptr,
-	_NativeLibraries_FieldInfo_,
-	_NativeLibraries_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NativeLibraries_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.loader.NativeLibraries$LibraryPaths,jdk.internal.loader.NativeLibraries$Unloader,jdk.internal.loader.NativeLibraries$NativeLibraryImpl,jdk.internal.loader.NativeLibraries$1"
-};
-
-$Object* allocate$NativeLibraries($Class* clazz) {
-	return $of($alloc(NativeLibraries));
-}
-
 bool NativeLibraries::$assertionsDisabled = false;
 $Set* NativeLibraries::loadedLibraryNames = nullptr;
 $Deque* NativeLibraries::nativeLibraryContext = nullptr;
@@ -150,7 +80,7 @@ NativeLibraries* NativeLibraries::rawNativeLibraries($Class* trustedCaller, bool
 }
 
 void NativeLibraries::init$($ClassLoader* loader) {
-	$set(this, libraries, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
+	$set(this, libraries, $cast($AbstractMap, $new($ConcurrentHashMap)));
 	$set(this, loader, loader);
 	$set(this, caller, loader != nullptr ? ($Class*)nullptr : NativeLibraries::class$);
 	this->searchJavaLibraryPath = loader != nullptr ? true : false;
@@ -159,7 +89,7 @@ void NativeLibraries::init$($ClassLoader* loader) {
 
 void NativeLibraries::init$($Class* caller, bool searchJavaLibraryPath) {
 	$beforeCallerSensitive();
-	$set(this, libraries, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
+	$set(this, libraries, $cast($AbstractMap, $new($ConcurrentHashMap)));
 	$Objects::requireNonNull(caller);
 	if (!$VM::isSystemDomainLoader($(caller->getClassLoader()))) {
 		$throwNew($IllegalArgumentException, "must be JDK trusted class"_s);
@@ -171,12 +101,12 @@ void NativeLibraries::init$($Class* caller, bool searchJavaLibraryPath) {
 }
 
 int64_t NativeLibraries::find($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->libraries)->isEmpty()) {
 		return 0;
 	}
 	{
-		$var($Iterator, i$, $nc($($nc(this->libraries)->values()))->iterator());
+		$var($Iterator, i$, $$nc(this->libraries->values())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($NativeLibrary, lib, $cast($NativeLibrary, i$->next()));
 			{
@@ -191,12 +121,12 @@ int64_t NativeLibraries::find($String* name) {
 }
 
 $NativeLibrary* NativeLibraries::loadLibrary($Class* fromClass, $File* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, name, findBuiltinLib($($nc(file)->getName())));
 	bool isBuiltin = (name != nullptr);
 	if (!isBuiltin) {
-		$assign(name, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($NativeLibraries$1, this, file)))));
+		$assign(name, $cast($String, $AccessController::doPrivileged($$new($NativeLibraries$1, this, file))));
 		if (name == nullptr) {
 			return nullptr;
 		}
@@ -205,73 +135,69 @@ $NativeLibrary* NativeLibraries::loadLibrary($Class* fromClass, $File* file) {
 }
 
 $NativeLibrary* NativeLibraries::loadLibrary($Class* fromClass, $String* name, bool isBuiltin) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($ClassLoader, loader, (fromClass == nullptr) ? ($ClassLoader*)nullptr : $nc(fromClass)->getClassLoader());
+	$var($ClassLoader, loader, (fromClass == nullptr) ? ($ClassLoader*)nullptr : fromClass->getClassLoader());
 	if (this->loader != loader) {
-		$throwNew($InternalError, $$str({$(fromClass->getName()), " not allowed to load library"_s}));
+		$throwNew($InternalError, $$str({$($nc(fromClass)->getName()), " not allowed to load library"_s}));
 	}
 	$synchronized(NativeLibraries::loadedLibraryNames) {
 		$var($NativeLibrary, cached, $cast($NativeLibrary, $nc(this->libraries)->get(name)));
 		if (cached != nullptr) {
 			return cached;
 		}
-		if ($nc(NativeLibraries::loadedLibraryNames)->contains(name)) {
+		if (NativeLibraries::loadedLibraryNames->contains(name)) {
 			$throwNew($UnsatisfiedLinkError, $$str({"Native Library "_s, name, " already loaded in another classloader"_s}));
 		}
 		{
 			$var($Iterator, i$, $nc(NativeLibraries::nativeLibraryContext)->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($NativeLibraries$NativeLibraryImpl, lib, $cast($NativeLibraries$NativeLibraryImpl, i$->next()));
-				{
-					if ($nc(name)->equals($($nc(lib)->name()))) {
-						if (loader == $nc($nc(lib)->fromClass)->getClassLoader()) {
-							return lib;
-						} else {
-							$throwNew($UnsatisfiedLinkError, $$str({"Native Library "_s, name, " is being loaded in another classloader"_s}));
-						}
+				if ($nc(name)->equals($($nc(lib)->name()))) {
+					if (loader == $nc(lib->fromClass)->getClassLoader()) {
+						return lib;
+					} else {
+						$throwNew($UnsatisfiedLinkError, $$str({"Native Library "_s, name, " is being loaded in another classloader"_s}));
 					}
 				}
 			}
 		}
 		$var($NativeLibraries$NativeLibraryImpl, lib, $new($NativeLibraries$NativeLibraryImpl, fromClass, name, isBuiltin, this->isJNI));
-		$nc(NativeLibraries::nativeLibraryContext)->push(lib);
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($NativeLibrary, var$2, nullptr);
-			bool return$1 = false;
-			try {
-				if (!lib->open()) {
-					$assign(var$2, nullptr);
-					return$1 = true;
-					goto $finally;
-				}
-				bool var$3 = this->isJNI && !$VM::isSystemDomainLoader(loader);
-				bool autoUnload = var$3 && loader != $ClassLoaders::appClassLoader();
-				if (autoUnload) {
-					$nc($($CleanerFactory::cleaner()))->register$(loader, $(lib->unloader()));
-				}
-			} catch ($Throwable& var$4) {
-				$assign(var$0, var$4);
-			} $finally: {
-				$nc(NativeLibraries::nativeLibraryContext)->pop();
+		NativeLibraries::nativeLibraryContext->push(lib);
+		$var($Throwable, var$0, nullptr);
+		$var($NativeLibrary, var$2, nullptr);
+		bool return$1 = false;
+		try {
+			if (!lib->open()) {
+				$assign(var$2, nullptr);
+				return$1 = true;
+				goto $finally;
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+			bool var$3 = this->isJNI && !$VM::isSystemDomainLoader(loader);
+			bool autoUnload = var$3 && loader != $ClassLoaders::appClassLoader();
+			if (autoUnload) {
+				$$nc($CleanerFactory::cleaner())->register$(loader, $(lib->unloader()));
 			}
-			if (return$1) {
-				return var$2;
-			}
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
+		} $finally: {
+			$nc(NativeLibraries::nativeLibraryContext)->pop();
 		}
-		$nc(NativeLibraries::loadedLibraryNames)->add(name);
-		$nc(this->libraries)->put(name, lib);
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
+		}
+		NativeLibraries::loadedLibraryNames->add(name);
+		this->libraries->put(name, lib);
 		return lib;
 	}
 }
 
 $NativeLibrary* NativeLibraries::loadLibrary($String* name) {
 	$init($File);
-	if (!NativeLibraries::$assertionsDisabled && !($nc(name)->indexOf((int32_t)$File::separatorChar) < 0)) {
+	if (!NativeLibraries::$assertionsDisabled && !($nc(name)->indexOf($File::separatorChar) < 0)) {
 		$throwNew($AssertionError);
 	}
 	if (!NativeLibraries::$assertionsDisabled && !(this->caller != nullptr)) {
@@ -282,7 +208,7 @@ $NativeLibrary* NativeLibraries::loadLibrary($String* name) {
 
 $NativeLibrary* NativeLibraries::loadLibrary($Class* fromClass, $String* name) {
 	$init($File);
-	if (!NativeLibraries::$assertionsDisabled && !($nc(name)->indexOf((int32_t)$File::separatorChar) < 0)) {
+	if (!NativeLibraries::$assertionsDisabled && !($nc(name)->indexOf($File::separatorChar) < 0)) {
 		$throwNew($AssertionError);
 	}
 	$init($NativeLibraries$LibraryPaths);
@@ -294,7 +220,7 @@ $NativeLibrary* NativeLibraries::loadLibrary($Class* fromClass, $String* name) {
 }
 
 void NativeLibraries::unload($NativeLibrary* lib) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->isJNI) {
 		$throwNew($UnsupportedOperationException, "explicit unloading cannot be used with auto unloading"_s);
 	}
@@ -304,30 +230,26 @@ void NativeLibraries::unload($NativeLibrary* lib) {
 		if (!$equals(nl, lib)) {
 			$throwNew($IllegalArgumentException, $$str({$(lib->name()), " not loaded by this NativeLibraries instance"_s}));
 		}
-		$nc($($nc(nl)->unloader()))->run();
+		$$nc($nc(nl)->unloader())->run();
 	}
 }
 
 $NativeLibrary* NativeLibraries::findFromPaths($StringArray* paths, $Class* fromClass, $String* name) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($StringArray, arr$, paths);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($String, path, arr$->get(i$));
-			{
-				$var($File, libfile, $new($File, path, $($System::mapLibraryName(name))));
-				$var($NativeLibrary, nl, loadLibrary(fromClass, libfile));
+	$useLocalObjectStack();
+	$var($StringArray, arr$, paths);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($String, path, arr$->get(i$));
+		{
+			$var($File, libfile, $new($File, path, $($System::mapLibraryName(name))));
+			$var($NativeLibrary, nl, loadLibrary(fromClass, libfile));
+			if (nl != nullptr) {
+				return nl;
+			}
+			$assign(libfile, $ClassLoaderHelper::mapAlternativeName(libfile));
+			if (libfile != nullptr) {
+				$assign(nl, loadLibrary(fromClass, libfile));
 				if (nl != nullptr) {
 					return nl;
-				}
-				$assign(libfile, $ClassLoaderHelper::mapAlternativeName(libfile));
-				if (libfile != nullptr) {
-					$assign(nl, loadLibrary(fromClass, libfile));
-					if (nl != nullptr) {
-						return nl;
-					}
 				}
 			}
 		}
@@ -340,44 +262,41 @@ $Class* NativeLibraries::getFromClass() {
 	if ($nc(NativeLibraries::nativeLibraryContext)->isEmpty()) {
 		return $Object::class$;
 	}
-	return $nc(($cast($NativeLibraries$NativeLibraryImpl, $($nc(NativeLibraries::nativeLibraryContext)->peek()))))->fromClass;
+	return $nc(($$cast($NativeLibraries$NativeLibraryImpl, NativeLibraries::nativeLibraryContext->peek())))->fromClass;
 }
 
 bool NativeLibraries::load($NativeLibraries$NativeLibraryImpl* impl, $String* name, bool isBuiltin, bool isJNI) {
 	$init(NativeLibraries);
-	bool $ret = false;
-	$prepareNativeStatic(NativeLibraries, load, bool, $NativeLibraries$NativeLibraryImpl* impl, $String* name, bool isBuiltin, bool isJNI);
-	$ret = $invokeNativeStatic(impl, name, isBuiltin, isJNI);
+	$prepareNativeStatic(load, bool, $NativeLibraries$NativeLibraryImpl* impl, $String* name, bool isBuiltin, bool isJNI);
+	bool $ret = $invokeNativeStatic(impl, name, isBuiltin, isJNI);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void NativeLibraries::unload($String* name, bool isBuiltin, bool isJNI, int64_t handle) {
 	$init(NativeLibraries);
-	$prepareNativeStatic(NativeLibraries, unload, void, $String* name, bool isBuiltin, bool isJNI, int64_t handle);
+	$prepareNativeStatic(unload, void, $String* name, bool isBuiltin, bool isJNI, int64_t handle);
 	$invokeNativeStatic(name, isBuiltin, isJNI, handle);
 	$finishNativeStatic();
 }
 
 $String* NativeLibraries::findBuiltinLib($String* name) {
 	$init(NativeLibraries);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(NativeLibraries, findBuiltinLib, $String*, $String* name);
-	$assign($ret, $invokeNativeStaticObject(name));
+	$prepareNativeStatic(findBuiltinLib, $String*, $String* name);
+	$var($String, $ret, $invokeNativeStaticObject(name));
 	$finishNativeStatic();
 	return $ret;
 }
 
 int64_t NativeLibraries::findEntry0($NativeLibraries$NativeLibraryImpl* lib, $String* name) {
 	$init(NativeLibraries);
-	int64_t $ret = 0;
-	$prepareNativeStatic(NativeLibraries, findEntry0, int64_t, $NativeLibraries$NativeLibraryImpl* lib, $String* name);
-	$ret = $invokeNativeStatic(lib, name);
+	$prepareNativeStatic(findEntry0, int64_t, $NativeLibraries$NativeLibraryImpl* lib, $String* name);
+	int64_t $ret = $invokeNativeStatic(lib, name);
 	$finishNativeStatic();
 	return $ret;
 }
 
-void clinit$NativeLibraries($Class* class$) {
+void NativeLibraries::clinit$($Class* clazz) {
 	NativeLibraries::$assertionsDisabled = !NativeLibraries::class$->desiredAssertionStatus();
 	$assignStatic(NativeLibraries::loadedLibraryNames, $new($HashSet));
 	$assignStatic(NativeLibraries::nativeLibraryContext, $new($ArrayDeque, 8));
@@ -387,7 +306,60 @@ NativeLibraries::NativeLibraries() {
 }
 
 $Class* NativeLibraries::load$($String* name, bool initialize) {
-	$loadClass(NativeLibraries, name, initialize, &_NativeLibraries_ClassInfo_, clinit$NativeLibraries, allocate$NativeLibraries);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NativeLibraries, $assertionsDisabled)},
+		{"libraries", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljdk/internal/loader/NativeLibraries$NativeLibraryImpl;>;", $PRIVATE | $FINAL, $field(NativeLibraries, libraries)},
+		{"loader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $FINAL, $field(NativeLibraries, loader)},
+		{"caller", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(NativeLibraries, caller)},
+		{"searchJavaLibraryPath", "Z", nullptr, $PRIVATE | $FINAL, $field(NativeLibraries, searchJavaLibraryPath)},
+		{"isJNI", "Z", nullptr, $PRIVATE | $FINAL, $field(NativeLibraries, isJNI)},
+		{"loadedLibraryNames", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(NativeLibraries, loadedLibraryNames)},
+		{"nativeLibraryContext", "Ljava/util/Deque;", "Ljava/util/Deque<Ljdk/internal/loader/NativeLibraries$NativeLibraryImpl;>;", $PRIVATE | $STATIC, $staticField(NativeLibraries, nativeLibraryContext)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(NativeLibraries, init$, void, $ClassLoader*)},
+		{"<init>", "(Ljava/lang/Class;Z)V", "(Ljava/lang/Class<*>;Z)V", $PRIVATE, $method(NativeLibraries, init$, void, $Class*, bool)},
+		{"find", "(Ljava/lang/String;)J", nullptr, $PUBLIC, $method(NativeLibraries, find, int64_t, $String*)},
+		{"findBuiltinLib", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeLibraries, findBuiltinLib, $String*, $String*)},
+		{"findEntry0", "(Ljdk/internal/loader/NativeLibraries$NativeLibraryImpl;Ljava/lang/String;)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeLibraries, findEntry0, int64_t, $NativeLibraries$NativeLibraryImpl*, $String*)},
+		{"findFromPaths", "([Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)Ljdk/internal/loader/NativeLibrary;", "([Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/String;)Ljdk/internal/loader/NativeLibrary;", $PRIVATE, $method(NativeLibraries, findFromPaths, $NativeLibrary*, $StringArray*, $Class*, $String*)},
+		{"getFromClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(NativeLibraries, getFromClass, $Class*)},
+		{"jniNativeLibraries", "(Ljava/lang/ClassLoader;)Ljdk/internal/loader/NativeLibraries;", nullptr, $PUBLIC | $STATIC, $staticMethod(NativeLibraries, jniNativeLibraries, NativeLibraries*, $ClassLoader*)},
+		{"load", "(Ljdk/internal/loader/NativeLibraries$NativeLibraryImpl;Ljava/lang/String;ZZ)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeLibraries, load, bool, $NativeLibraries$NativeLibraryImpl*, $String*, bool, bool)},
+		{"loadLibrary", "(Ljava/lang/Class;Ljava/io/File;)Ljdk/internal/loader/NativeLibrary;", "(Ljava/lang/Class<*>;Ljava/io/File;)Ljdk/internal/loader/NativeLibrary;", $PUBLIC, $method(NativeLibraries, loadLibrary, $NativeLibrary*, $Class*, $File*)},
+		{"loadLibrary", "(Ljava/lang/Class;Ljava/lang/String;Z)Ljdk/internal/loader/NativeLibrary;", "(Ljava/lang/Class<*>;Ljava/lang/String;Z)Ljdk/internal/loader/NativeLibrary;", $PRIVATE, $method(NativeLibraries, loadLibrary, $NativeLibrary*, $Class*, $String*, bool)},
+		{"loadLibrary", "(Ljava/lang/String;)Ljdk/internal/loader/NativeLibrary;", nullptr, $PUBLIC, $method(NativeLibraries, loadLibrary, $NativeLibrary*, $String*)},
+		{"loadLibrary", "(Ljava/lang/Class;Ljava/lang/String;)Ljdk/internal/loader/NativeLibrary;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljdk/internal/loader/NativeLibrary;", $PUBLIC, $method(NativeLibraries, loadLibrary, $NativeLibrary*, $Class*, $String*)},
+		{"rawNativeLibraries", "(Ljava/lang/Class;Z)Ljdk/internal/loader/NativeLibraries;", "(Ljava/lang/Class<*>;Z)Ljdk/internal/loader/NativeLibraries;", $PUBLIC | $STATIC, $staticMethod(NativeLibraries, rawNativeLibraries, NativeLibraries*, $Class*, bool)},
+		{"unload", "(Ljdk/internal/loader/NativeLibrary;)V", nullptr, $PUBLIC, $method(NativeLibraries, unload, void, $NativeLibrary*)},
+		{"unload", "(Ljava/lang/String;ZZJ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeLibraries, unload, void, $String*, bool, bool, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.loader.NativeLibraries$LibraryPaths", "jdk.internal.loader.NativeLibraries", "LibraryPaths", $STATIC},
+		{"jdk.internal.loader.NativeLibraries$Unloader", "jdk.internal.loader.NativeLibraries", "Unloader", $STATIC},
+		{"jdk.internal.loader.NativeLibraries$NativeLibraryImpl", "jdk.internal.loader.NativeLibraries", "NativeLibraryImpl", $STATIC},
+		{"jdk.internal.loader.NativeLibraries$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.loader.NativeLibraries",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.loader.NativeLibraries$LibraryPaths,jdk.internal.loader.NativeLibraries$Unloader,jdk.internal.loader.NativeLibraries$NativeLibraryImpl,jdk.internal.loader.NativeLibraries$1"
+	};
+	$loadClass(NativeLibraries, name, initialize, &classInfo$$, NativeLibraries::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NativeLibraries);
+	});
 	return class$;
 }
 

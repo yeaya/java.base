@@ -14,7 +14,10 @@ public:
 	bool localizedMessageCalled = false;
 	LocalizedMessage$LocalizedException(const LocalizedMessage$LocalizedException& e);
 	virtual void throw$() override;
-	inline LocalizedMessage$LocalizedException* operator ->() {
+	inline LocalizedMessage$LocalizedException* operator ->() const {
+		return (LocalizedMessage$LocalizedException*)throwing$;
+	}
+	inline operator LocalizedMessage$LocalizedException*() const {
 		return (LocalizedMessage$LocalizedException*)throwing$;
 	}
 };

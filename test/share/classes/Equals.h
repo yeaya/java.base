@@ -18,6 +18,7 @@ class $export Equals : public ::java::lang::Object {
 	$class(Equals, 0, ::java::lang::Object)
 public:
 	Equals();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void anchors();
 	static int32_t compareJarURLS($String* urlStr1, $String* urlStr2, $String* entry1, $String* entry2, bool expectEqual);

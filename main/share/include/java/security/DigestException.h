@@ -22,10 +22,13 @@ public:
 	void init$($String* msg);
 	void init$($String* message, $Throwable* cause);
 	void init$($Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0x50C9F235117CBC23;
+	static const int64_t serialVersionUID = (int64_t)0x50c9f235117cbc23;
 	DigestException(const DigestException& e);
 	virtual void throw$() override;
-	inline DigestException* operator ->() {
+	inline DigestException* operator ->() const {
+		return (DigestException*)throwing$;
+	}
+	inline operator DigestException*() const {
 		return (DigestException*)throwing$;
 	}
 };

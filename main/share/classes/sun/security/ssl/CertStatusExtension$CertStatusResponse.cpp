@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CertStatusExtension$CertStatusResponse.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/text/MessageFormat.h>
 #include <java/util/Locale.h>
@@ -28,51 +27,13 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _CertStatusExtension$CertStatusResponse_FieldInfo_[] = {
-	{"statusType", "B", nullptr, $FINAL, $field(CertStatusExtension$CertStatusResponse, statusType)},
-	{"encodedResponse", "[B", nullptr, $FINAL, $field(CertStatusExtension$CertStatusResponse, encodedResponse)},
-	{}
-};
-
-$MethodInfo _CertStatusExtension$CertStatusResponse_MethodInfo_[] = {
-	{"<init>", "(B[B)V", nullptr, $PROTECTED, $method(CertStatusExtension$CertStatusResponse, init$, void, int8_t, $bytes*)},
-	{"toByteArray", "()[B", nullptr, 0, $virtualMethod(CertStatusExtension$CertStatusResponse, toByteArray, $bytes*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertStatusExtension$CertStatusResponse, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _CertStatusExtension$CertStatusResponse_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertStatusExtension$CertStatusResponse", "sun.security.ssl.CertStatusExtension", "CertStatusResponse", $STATIC},
-	{}
-};
-
-$ClassInfo _CertStatusExtension$CertStatusResponse_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.ssl.CertStatusExtension$CertStatusResponse",
-	"java.lang.Object",
-	nullptr,
-	_CertStatusExtension$CertStatusResponse_FieldInfo_,
-	_CertStatusExtension$CertStatusResponse_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CertStatusExtension$CertStatusResponse_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertStatusExtension"
-};
-
-$Object* allocate$CertStatusExtension$CertStatusResponse($Class* clazz) {
-	return $of($alloc(CertStatusExtension$CertStatusResponse));
-}
-
 void CertStatusExtension$CertStatusResponse::init$(int8_t statusType, $bytes* respDer) {
 	this->statusType = statusType;
 	$set(this, encodedResponse, respDer);
 }
 
 $bytes* CertStatusExtension$CertStatusResponse::toByteArray() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, outData, $new($bytes, $nc(this->encodedResponse)->length + 4));
 	$var($ByteBuffer, buf, $ByteBuffer::wrap(outData));
 	$Record::putInt8(buf, this->statusType);
@@ -81,14 +42,14 @@ $bytes* CertStatusExtension$CertStatusResponse::toByteArray() {
 }
 
 $String* CertStatusExtension$CertStatusResponse::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"certificate status response type\": {0}\n\"encoded certificate status\": \'{\'\n{1}\n\'}\'"_s, $Locale::ENGLISH));
 	$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));
 	$var($String, encoded, hexEncoder->encodeBuffer(this->encodedResponse));
 	$var($ObjectArray, messageFields, $new($ObjectArray, {
-		$($of($CertStatusExtension$CertStatusRequestType::nameOf(this->statusType))),
-		$($of($Utilities::indent(encoded)))
+		$($CertStatusExtension$CertStatusRequestType::nameOf(this->statusType)),
+		$($Utilities::indent(encoded))
 	}));
 	return messageFormat->format(messageFields);
 }
@@ -97,7 +58,39 @@ CertStatusExtension$CertStatusResponse::CertStatusExtension$CertStatusResponse()
 }
 
 $Class* CertStatusExtension$CertStatusResponse::load$($String* name, bool initialize) {
-	$loadClass(CertStatusExtension$CertStatusResponse, name, initialize, &_CertStatusExtension$CertStatusResponse_ClassInfo_, allocate$CertStatusExtension$CertStatusResponse);
+	$FieldInfo fieldInfos$$[] = {
+		{"statusType", "B", nullptr, $FINAL, $field(CertStatusExtension$CertStatusResponse, statusType)},
+		{"encodedResponse", "[B", nullptr, $FINAL, $field(CertStatusExtension$CertStatusResponse, encodedResponse)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(B[B)V", nullptr, $PROTECTED, $method(CertStatusExtension$CertStatusResponse, init$, void, int8_t, $bytes*)},
+		{"toByteArray", "()[B", nullptr, 0, $virtualMethod(CertStatusExtension$CertStatusResponse, toByteArray, $bytes*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertStatusExtension$CertStatusResponse, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertStatusExtension$CertStatusResponse", "sun.security.ssl.CertStatusExtension", "CertStatusResponse", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.ssl.CertStatusExtension$CertStatusResponse",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertStatusExtension"
+	};
+	$loadClass(CertStatusExtension$CertStatusResponse, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertStatusExtension$CertStatusResponse);
+	});
 	return class$;
 }
 

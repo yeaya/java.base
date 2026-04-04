@@ -1,5 +1,4 @@
 #include <java/lang/constant/AsTypeMethodHandleDesc.h>
-
 #include <java/lang/constant/ClassDesc.h>
 #include <java/lang/constant/ConstantDesc.h>
 #include <java/lang/constant/ConstantDescs.h>
@@ -21,7 +20,6 @@ using $ConstantDescArray = $Array<::java::lang::constant::ConstantDesc>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ConstantDesc = ::java::lang::constant::ConstantDesc;
 using $ConstantDescs = ::java::lang::constant::ConstantDescs;
 using $DynamicConstantDesc = ::java::lang::constant::DynamicConstantDesc;
 using $MethodHandleDesc = ::java::lang::constant::MethodHandleDesc;
@@ -34,38 +32,6 @@ using $Objects = ::java::util::Objects;
 namespace java {
 	namespace lang {
 		namespace constant {
-
-$FieldInfo _AsTypeMethodHandleDesc_FieldInfo_[] = {
-	{"underlying", "Ljava/lang/constant/MethodHandleDesc;", nullptr, $PRIVATE | $FINAL, $field(AsTypeMethodHandleDesc, underlying)},
-	{"type", "Ljava/lang/constant/MethodTypeDesc;", nullptr, $PRIVATE | $FINAL, $field(AsTypeMethodHandleDesc, type)},
-	{}
-};
-
-$MethodInfo _AsTypeMethodHandleDesc_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/constant/MethodHandleDesc;Ljava/lang/constant/MethodTypeDesc;)V", nullptr, 0, $method(AsTypeMethodHandleDesc, init$, void, $MethodHandleDesc*, $MethodTypeDesc*)},
-	{"invocationType", "()Ljava/lang/constant/MethodTypeDesc;", nullptr, $PUBLIC, $virtualMethod(AsTypeMethodHandleDesc, invocationType, $MethodTypeDesc*)},
-	{"resolveConstantDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(AsTypeMethodHandleDesc, resolveConstantDesc, $Object*, $MethodHandles$Lookup*), "java.lang.ReflectiveOperationException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AsTypeMethodHandleDesc, toString, $String*)},
-	{}
-};
-
-$ClassInfo _AsTypeMethodHandleDesc_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.constant.AsTypeMethodHandleDesc",
-	"java.lang.constant.DynamicConstantDesc",
-	"java.lang.constant.MethodHandleDesc",
-	_AsTypeMethodHandleDesc_FieldInfo_,
-	_AsTypeMethodHandleDesc_MethodInfo_,
-	"Ljava/lang/constant/DynamicConstantDesc<Ljava/lang/invoke/MethodHandle;>;Ljava/lang/constant/MethodHandleDesc;"
-};
-
-$Object* allocate$AsTypeMethodHandleDesc($Class* clazz) {
-	return $of($alloc(AsTypeMethodHandleDesc));
-}
 
 bool AsTypeMethodHandleDesc::equals(Object$* o) {
 	 return this->$DynamicConstantDesc::equals(o);
@@ -86,9 +52,9 @@ void AsTypeMethodHandleDesc::finalize() {
 void AsTypeMethodHandleDesc::init$($MethodHandleDesc* underlying, $MethodTypeDesc* type) {
 	$init($ConstantDescs);
 	$DynamicConstantDesc::init$($ConstantDescs::BSM_INVOKE, $ConstantDescs::DEFAULT_NAME, $ConstantDescs::CD_MethodHandle, $$new($ConstantDescArray, {
-		static_cast<$ConstantDesc*>($ConstantDescs::MHD_METHODHANDLE_ASTYPE),
-		static_cast<$ConstantDesc*>(underlying),
-		static_cast<$ConstantDesc*>(type)
+		$ConstantDescs::MHD_METHODHANDLE_ASTYPE,
+		underlying,
+		type
 	}));
 	$set(this, underlying, $cast($MethodHandleDesc, $Objects::requireNonNull(underlying)));
 	$set(this, type, $cast($MethodTypeDesc, $Objects::requireNonNull(type)));
@@ -99,17 +65,17 @@ $MethodTypeDesc* AsTypeMethodHandleDesc::invocationType() {
 }
 
 $Object* AsTypeMethodHandleDesc::resolveConstantDesc($MethodHandles$Lookup* lookup) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodHandle, handle, $cast($MethodHandle, $nc(this->underlying)->resolveConstantDesc(lookup)));
 	$var($MethodType, methodType, $cast($MethodType, $nc(this->type)->resolveConstantDesc(lookup)));
-	return $of($nc(handle)->asType(methodType));
+	return $nc(handle)->asType(methodType);
 }
 
 $String* AsTypeMethodHandleDesc::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("%s.asType%s"_s, $$new($ObjectArray, {
-		$($of($nc($of(this->underlying))->toString())),
-		$($of($nc(this->type)->displayDescriptor()))
+		$($nc(this->underlying)->toString()),
+		$($nc(this->type)->displayDescriptor())
 	}));
 }
 
@@ -117,7 +83,34 @@ AsTypeMethodHandleDesc::AsTypeMethodHandleDesc() {
 }
 
 $Class* AsTypeMethodHandleDesc::load$($String* name, bool initialize) {
-	$loadClass(AsTypeMethodHandleDesc, name, initialize, &_AsTypeMethodHandleDesc_ClassInfo_, allocate$AsTypeMethodHandleDesc);
+	$FieldInfo fieldInfos$$[] = {
+		{"underlying", "Ljava/lang/constant/MethodHandleDesc;", nullptr, $PRIVATE | $FINAL, $field(AsTypeMethodHandleDesc, underlying)},
+		{"type", "Ljava/lang/constant/MethodTypeDesc;", nullptr, $PRIVATE | $FINAL, $field(AsTypeMethodHandleDesc, type)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/constant/MethodHandleDesc;Ljava/lang/constant/MethodTypeDesc;)V", nullptr, 0, $method(AsTypeMethodHandleDesc, init$, void, $MethodHandleDesc*, $MethodTypeDesc*)},
+		{"invocationType", "()Ljava/lang/constant/MethodTypeDesc;", nullptr, $PUBLIC, $virtualMethod(AsTypeMethodHandleDesc, invocationType, $MethodTypeDesc*)},
+		{"resolveConstantDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(AsTypeMethodHandleDesc, resolveConstantDesc, $Object*, $MethodHandles$Lookup*), "java.lang.ReflectiveOperationException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AsTypeMethodHandleDesc, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.constant.AsTypeMethodHandleDesc",
+		"java.lang.constant.DynamicConstantDesc",
+		"java.lang.constant.MethodHandleDesc",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/constant/DynamicConstantDesc<Ljava/lang/invoke/MethodHandle;>;Ljava/lang/constant/MethodHandleDesc;"
+	};
+	$loadClass(AsTypeMethodHandleDesc, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AsTypeMethodHandleDesc));
+	});
 	return class$;
 }
 

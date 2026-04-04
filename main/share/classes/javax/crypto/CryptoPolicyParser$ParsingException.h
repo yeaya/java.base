@@ -15,10 +15,13 @@ public:
 	void init$($String* msg);
 	void init$(int32_t line, $String* msg);
 	void init$(int32_t line, $String* expect, $String* actual);
-	static const int64_t serialVersionUID = (int64_t)0x63301A0B8E0455D6;
+	static const int64_t serialVersionUID = (int64_t)0x63301a0b8e0455d6;
 	CryptoPolicyParser$ParsingException(const CryptoPolicyParser$ParsingException& e);
 	virtual void throw$() override;
-	inline CryptoPolicyParser$ParsingException* operator ->() {
+	inline CryptoPolicyParser$ParsingException* operator ->() const {
+		return (CryptoPolicyParser$ParsingException*)throwing$;
+	}
+	inline operator CryptoPolicyParser$ParsingException*() const {
 		return (CryptoPolicyParser$ParsingException*)throwing$;
 	}
 };

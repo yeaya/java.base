@@ -33,6 +33,7 @@ class AnnotationInvocationHandler$UnsafeAccessor : public ::java::lang::Object {
 	$class(AnnotationInvocationHandler$UnsafeAccessor, 0, ::java::lang::Object)
 public:
 	AnnotationInvocationHandler$UnsafeAccessor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void setMemberValues(::sun::reflect::annotation::AnnotationInvocationHandler* o, ::java::util::Map* memberValues);
 	static void setType(::sun::reflect::annotation::AnnotationInvocationHandler* o, $Class* type);

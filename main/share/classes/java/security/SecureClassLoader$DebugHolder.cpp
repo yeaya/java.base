@@ -1,5 +1,4 @@
 #include <java/security/SecureClassLoader$DebugHolder.h>
-
 #include <java/security/SecureClassLoader.h>
 #include <sun/security/util/Debug.h>
 #include <jcpp.h>
@@ -13,47 +12,12 @@ using $Debug = ::sun::security::util::Debug;
 namespace java {
 	namespace security {
 
-$FieldInfo _SecureClassLoader$DebugHolder_FieldInfo_[] = {
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SecureClassLoader$DebugHolder, debug)},
-	{}
-};
-
-$MethodInfo _SecureClassLoader$DebugHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SecureClassLoader$DebugHolder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _SecureClassLoader$DebugHolder_InnerClassesInfo_[] = {
-	{"java.security.SecureClassLoader$DebugHolder", "java.security.SecureClassLoader", "DebugHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SecureClassLoader$DebugHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.security.SecureClassLoader$DebugHolder",
-	"java.lang.Object",
-	nullptr,
-	_SecureClassLoader$DebugHolder_FieldInfo_,
-	_SecureClassLoader$DebugHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SecureClassLoader$DebugHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.SecureClassLoader"
-};
-
-$Object* allocate$SecureClassLoader$DebugHolder($Class* clazz) {
-	return $of($alloc(SecureClassLoader$DebugHolder));
-}
-
 $Debug* SecureClassLoader$DebugHolder::debug = nullptr;
 
 void SecureClassLoader$DebugHolder::init$() {
 }
 
-void clinit$SecureClassLoader$DebugHolder($Class* class$) {
+void SecureClassLoader$DebugHolder::clinit$($Class* clazz) {
 	$assignStatic(SecureClassLoader$DebugHolder::debug, $Debug::getInstance("scl"_s));
 }
 
@@ -61,7 +25,36 @@ SecureClassLoader$DebugHolder::SecureClassLoader$DebugHolder() {
 }
 
 $Class* SecureClassLoader$DebugHolder::load$($String* name, bool initialize) {
-	$loadClass(SecureClassLoader$DebugHolder, name, initialize, &_SecureClassLoader$DebugHolder_ClassInfo_, clinit$SecureClassLoader$DebugHolder, allocate$SecureClassLoader$DebugHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SecureClassLoader$DebugHolder, debug)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SecureClassLoader$DebugHolder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.SecureClassLoader$DebugHolder", "java.security.SecureClassLoader", "DebugHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.security.SecureClassLoader$DebugHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.SecureClassLoader"
+	};
+	$loadClass(SecureClassLoader$DebugHolder, name, initialize, &classInfo$$, SecureClassLoader$DebugHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SecureClassLoader$DebugHolder);
+	});
 	return class$;
 }
 

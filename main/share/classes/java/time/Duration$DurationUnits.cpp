@@ -1,5 +1,4 @@
 #include <java/time/Duration$DurationUnits.h>
-
 #include <java/time/Duration.h>
 #include <java/time/temporal/ChronoUnit.h>
 #include <java/util/List.h>
@@ -19,47 +18,12 @@ using $List = ::java::util::List;
 namespace java {
 	namespace time {
 
-$FieldInfo _Duration$DurationUnits_FieldInfo_[] = {
-	{"UNITS", "Ljava/util/List;", "Ljava/util/List<Ljava/time/temporal/TemporalUnit;>;", $STATIC | $FINAL, $staticField(Duration$DurationUnits, UNITS)},
-	{}
-};
-
-$MethodInfo _Duration$DurationUnits_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Duration$DurationUnits, init$, void)},
-	{}
-};
-
-$InnerClassInfo _Duration$DurationUnits_InnerClassesInfo_[] = {
-	{"java.time.Duration$DurationUnits", "java.time.Duration", "DurationUnits", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Duration$DurationUnits_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.time.Duration$DurationUnits",
-	"java.lang.Object",
-	nullptr,
-	_Duration$DurationUnits_FieldInfo_,
-	_Duration$DurationUnits_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Duration$DurationUnits_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.Duration"
-};
-
-$Object* allocate$Duration$DurationUnits($Class* clazz) {
-	return $of($alloc(Duration$DurationUnits));
-}
-
 $List* Duration$DurationUnits::UNITS = nullptr;
 
 void Duration$DurationUnits::init$() {
 }
 
-void clinit$Duration$DurationUnits($Class* class$) {
+void Duration$DurationUnits::clinit$($Class* clazz) {
 	$init($ChronoUnit);
 	$assignStatic(Duration$DurationUnits::UNITS, $List::of($ChronoUnit::SECONDS, $ChronoUnit::NANOS));
 }
@@ -68,7 +32,36 @@ Duration$DurationUnits::Duration$DurationUnits() {
 }
 
 $Class* Duration$DurationUnits::load$($String* name, bool initialize) {
-	$loadClass(Duration$DurationUnits, name, initialize, &_Duration$DurationUnits_ClassInfo_, clinit$Duration$DurationUnits, allocate$Duration$DurationUnits);
+	$FieldInfo fieldInfos$$[] = {
+		{"UNITS", "Ljava/util/List;", "Ljava/util/List<Ljava/time/temporal/TemporalUnit;>;", $STATIC | $FINAL, $staticField(Duration$DurationUnits, UNITS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Duration$DurationUnits, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.Duration$DurationUnits", "java.time.Duration", "DurationUnits", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.time.Duration$DurationUnits",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.Duration"
+	};
+	$loadClass(Duration$DurationUnits, name, initialize, &classInfo$$, Duration$DurationUnits::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Duration$DurationUnits);
+	});
 	return class$;
 }
 

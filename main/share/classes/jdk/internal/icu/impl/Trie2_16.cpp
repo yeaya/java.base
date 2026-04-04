@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/impl/Trie2_16.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Iterator.h>
 #include <jdk/internal/icu/impl/Trie2$UTrie2Header.h>
@@ -28,30 +27,6 @@ namespace jdk {
 		namespace icu {
 			namespace impl {
 
-$MethodInfo _Trie2_16_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Trie2_16, init$, void)},
-	{"createFromSerialized", "(Ljava/nio/ByteBuffer;)Ljdk/internal/icu/impl/Trie2_16;", nullptr, $PUBLIC | $STATIC, $staticMethod(Trie2_16, createFromSerialized, Trie2_16*, $ByteBuffer*), "java.io.IOException"},
-	{"get", "(I)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(Trie2_16, get, int32_t, int32_t)},
-	{"getFromU16SingleLead", "(C)I", nullptr, $PUBLIC, $virtualMethod(Trie2_16, getFromU16SingleLead, int32_t, char16_t)},
-	{"getSerializedLength", "()I", nullptr, $PUBLIC, $method(Trie2_16, getSerializedLength, int32_t)},
-	{"iterator", "(Ljdk/internal/icu/impl/Trie2$ValueMapper;)Ljava/util/Iterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Trie2_16, iterator, $Iterator*, $Trie2$ValueMapper*)},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Trie2_16, iterator, $Iterator*)},
-	{}
-};
-
-$ClassInfo _Trie2_16_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.icu.impl.Trie2_16",
-	"jdk.internal.icu.impl.Trie2",
-	nullptr,
-	nullptr,
-	_Trie2_16_MethodInfo_
-};
-
-$Object* allocate$Trie2_16($Class* clazz) {
-	return $of($alloc(Trie2_16));
-}
-
 void Trie2_16::init$() {
 	$Trie2::init$();
 }
@@ -65,28 +40,28 @@ int32_t Trie2_16::get(int32_t codePoint) {
 	int32_t value = 0;
 	int32_t ix = 0;
 	if (codePoint >= 0) {
-		if (codePoint < 0x0000D800 || (codePoint > 0x0000DBFF && codePoint <= 0x0000FFFF)) {
+		if (codePoint < 0x0000d800 || (codePoint > 0x0000dbff && codePoint <= 0x0000ffff)) {
 			ix = $nc(this->index)->get($sr(codePoint, $Trie2::UTRIE2_SHIFT_2));
-			ix = ($sl(ix, $Trie2::UTRIE2_INDEX_SHIFT)) + ((int32_t)(codePoint & (uint32_t)$Trie2::UTRIE2_DATA_MASK));
-			value = $nc(this->index)->get(ix);
+			ix = ($sl(ix, $Trie2::UTRIE2_INDEX_SHIFT)) + (codePoint & $Trie2::UTRIE2_DATA_MASK);
+			value = this->index->get(ix);
 			return value;
 		}
-		if (codePoint <= 0x0000FFFF) {
-			ix = $nc(this->index)->get($Trie2::UTRIE2_LSCP_INDEX_2_OFFSET + ($sr(codePoint - 0x0000D800, $Trie2::UTRIE2_SHIFT_2)));
-			ix = ($sl(ix, $Trie2::UTRIE2_INDEX_SHIFT)) + ((int32_t)(codePoint & (uint32_t)$Trie2::UTRIE2_DATA_MASK));
-			value = $nc(this->index)->get(ix);
+		if (codePoint <= 0x0000ffff) {
+			ix = $nc(this->index)->get($Trie2::UTRIE2_LSCP_INDEX_2_OFFSET + ($sr(codePoint - 0x0000d800, $Trie2::UTRIE2_SHIFT_2)));
+			ix = ($sl(ix, $Trie2::UTRIE2_INDEX_SHIFT)) + (codePoint & $Trie2::UTRIE2_DATA_MASK);
+			value = this->index->get(ix);
 			return value;
 		}
 		if (codePoint < this->highStart) {
 			ix = ($Trie2::UTRIE2_INDEX_1_OFFSET - $Trie2::UTRIE2_OMITTED_BMP_INDEX_1_LENGTH) + ($sr(codePoint, $Trie2::UTRIE2_SHIFT_1));
 			ix = $nc(this->index)->get(ix);
-			ix += (int32_t)(($sr(codePoint, $Trie2::UTRIE2_SHIFT_2)) & (uint32_t)$Trie2::UTRIE2_INDEX_2_MASK);
-			ix = $nc(this->index)->get(ix);
-			ix = ($sl(ix, $Trie2::UTRIE2_INDEX_SHIFT)) + ((int32_t)(codePoint & (uint32_t)$Trie2::UTRIE2_DATA_MASK));
-			value = $nc(this->index)->get(ix);
+			ix += ($sr(codePoint, $Trie2::UTRIE2_SHIFT_2)) & $Trie2::UTRIE2_INDEX_2_MASK;
+			ix = this->index->get(ix);
+			ix = ($sl(ix, $Trie2::UTRIE2_INDEX_SHIFT)) + (codePoint & $Trie2::UTRIE2_DATA_MASK);
+			value = this->index->get(ix);
 			return value;
 		}
-		if (codePoint <= 0x0010FFFF) {
+		if (codePoint <= 0x0010ffff) {
 			value = $nc(this->index)->get(this->highValueIndex);
 			return value;
 		}
@@ -97,9 +72,9 @@ int32_t Trie2_16::get(int32_t codePoint) {
 int32_t Trie2_16::getFromU16SingleLead(char16_t codeUnit) {
 	int32_t value = 0;
 	int32_t ix = 0;
-	ix = $nc(this->index)->get($sr((int32_t)codeUnit, $Trie2::UTRIE2_SHIFT_2));
-	ix = ($sl(ix, $Trie2::UTRIE2_INDEX_SHIFT)) + ((int32_t)(codeUnit & (uint32_t)$Trie2::UTRIE2_DATA_MASK));
-	value = $nc(this->index)->get(ix);
+	ix = $nc(this->index)->get($sr(codeUnit, $Trie2::UTRIE2_SHIFT_2));
+	ix = ($sl(ix, $Trie2::UTRIE2_INDEX_SHIFT)) + (codeUnit & $Trie2::UTRIE2_DATA_MASK);
+	value = this->index->get(ix);
 	return value;
 }
 
@@ -119,7 +94,27 @@ Trie2_16::Trie2_16() {
 }
 
 $Class* Trie2_16::load$($String* name, bool initialize) {
-	$loadClass(Trie2_16, name, initialize, &_Trie2_16_ClassInfo_, allocate$Trie2_16);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Trie2_16, init$, void)},
+		{"createFromSerialized", "(Ljava/nio/ByteBuffer;)Ljdk/internal/icu/impl/Trie2_16;", nullptr, $PUBLIC | $STATIC, $staticMethod(Trie2_16, createFromSerialized, Trie2_16*, $ByteBuffer*), "java.io.IOException"},
+		{"get", "(I)I", nullptr, $PUBLIC | $FINAL, $virtualMethod(Trie2_16, get, int32_t, int32_t)},
+		{"getFromU16SingleLead", "(C)I", nullptr, $PUBLIC, $virtualMethod(Trie2_16, getFromU16SingleLead, int32_t, char16_t)},
+		{"getSerializedLength", "()I", nullptr, $PUBLIC, $method(Trie2_16, getSerializedLength, int32_t)},
+		{"iterator", "(Ljdk/internal/icu/impl/Trie2$ValueMapper;)Ljava/util/Iterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Trie2_16, iterator, $Iterator*, $Trie2$ValueMapper*)},
+		{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Trie2_16, iterator, $Iterator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.icu.impl.Trie2_16",
+		"jdk.internal.icu.impl.Trie2",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Trie2_16, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Trie2_16);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SessionTicketExtension$SessionTicketStringizer.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/ByteBuffer.h>
 #include <sun/security/ssl/HandshakeContext.h>
@@ -19,37 +18,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SessionTicketExtension$SessionTicketStringizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SessionTicketExtension$SessionTicketStringizer, init$, void)},
-	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SessionTicketExtension$SessionTicketStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _SessionTicketExtension$SessionTicketStringizer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SessionTicketExtension$SessionTicketStringizer", "sun.security.ssl.SessionTicketExtension", "SessionTicketStringizer", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SessionTicketExtension$SessionTicketStringizer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SessionTicketExtension$SessionTicketStringizer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLStringizer",
-	nullptr,
-	_SessionTicketExtension$SessionTicketStringizer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SessionTicketExtension$SessionTicketStringizer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SessionTicketExtension"
-};
-
-$Object* allocate$SessionTicketExtension$SessionTicketStringizer($Class* clazz) {
-	return $of($alloc(SessionTicketExtension$SessionTicketStringizer));
-}
-
 void SessionTicketExtension$SessionTicketStringizer::init$() {
 }
 
@@ -66,7 +34,33 @@ SessionTicketExtension$SessionTicketStringizer::SessionTicketExtension$SessionTi
 }
 
 $Class* SessionTicketExtension$SessionTicketStringizer::load$($String* name, bool initialize) {
-	$loadClass(SessionTicketExtension$SessionTicketStringizer, name, initialize, &_SessionTicketExtension$SessionTicketStringizer_ClassInfo_, allocate$SessionTicketExtension$SessionTicketStringizer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SessionTicketExtension$SessionTicketStringizer, init$, void)},
+		{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SessionTicketExtension$SessionTicketStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SessionTicketExtension$SessionTicketStringizer", "sun.security.ssl.SessionTicketExtension", "SessionTicketStringizer", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SessionTicketExtension$SessionTicketStringizer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLStringizer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SessionTicketExtension"
+	};
+	$loadClass(SessionTicketExtension$SessionTicketStringizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SessionTicketExtension$SessionTicketStringizer);
+	});
 	return class$;
 }
 

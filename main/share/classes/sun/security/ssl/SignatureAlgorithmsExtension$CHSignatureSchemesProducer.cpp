@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SignatureAlgorithmsExtension$CHSignatureSchemesProducer.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/security/AlgorithmConstraints.h>
 #include <java/util/Iterator.h>
@@ -24,12 +23,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $Record = ::sun::security::ssl::Record;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
@@ -40,42 +36,11 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SignatureAlgorithmsExtension$CHSignatureSchemesProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SignatureAlgorithmsExtension$CHSignatureSchemesProducer, init$, void)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithmsExtension$CHSignatureSchemesProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _SignatureAlgorithmsExtension$CHSignatureSchemesProducer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesProducer", "sun.security.ssl.SignatureAlgorithmsExtension", "CHSignatureSchemesProducer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SignatureAlgorithmsExtension$CHSignatureSchemesProducer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesProducer",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeProducer",
-	nullptr,
-	_SignatureAlgorithmsExtension$CHSignatureSchemesProducer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SignatureAlgorithmsExtension$CHSignatureSchemesProducer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SignatureAlgorithmsExtension"
-};
-
-$Object* allocate$SignatureAlgorithmsExtension$CHSignatureSchemesProducer($Class* clazz) {
-	return $of($alloc(SignatureAlgorithmsExtension$CHSignatureSchemesProducer));
-}
-
 void SignatureAlgorithmsExtension$CHSignatureSchemesProducer::init$() {
 }
 
 $bytes* SignatureAlgorithmsExtension$CHSignatureSchemesProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(chc)->sslConfig)->isAvailable($SSLExtension::CH_SIGNATURE_ALGORITHMS)) {
@@ -85,11 +50,11 @@ $bytes* SignatureAlgorithmsExtension$CHSignatureSchemesProducer::produce($Connec
 		}
 		return nullptr;
 	}
-	if ($nc(chc)->localSupportedSignAlgs == nullptr) {
+	if (chc->localSupportedSignAlgs == nullptr) {
 		$set(chc, localSupportedSignAlgs, $SignatureScheme::getSupportedAlgorithms(chc->sslConfig, chc->algorithmConstraints, chc->activeProtocols));
 	}
 	int32_t var$0 = $SignatureScheme::sizeInRecord();
-	int32_t vectorLen = var$0 * $nc($nc(chc)->localSupportedSignAlgs)->size();
+	int32_t vectorLen = var$0 * $nc(chc->localSupportedSignAlgs)->size();
 	$var($bytes, extData, $new($bytes, vectorLen + 2));
 	$var($ByteBuffer, m, $ByteBuffer::wrap(extData));
 	$Record::putInt16(m, vectorLen);
@@ -110,7 +75,33 @@ SignatureAlgorithmsExtension$CHSignatureSchemesProducer::SignatureAlgorithmsExte
 }
 
 $Class* SignatureAlgorithmsExtension$CHSignatureSchemesProducer::load$($String* name, bool initialize) {
-	$loadClass(SignatureAlgorithmsExtension$CHSignatureSchemesProducer, name, initialize, &_SignatureAlgorithmsExtension$CHSignatureSchemesProducer_ClassInfo_, allocate$SignatureAlgorithmsExtension$CHSignatureSchemesProducer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SignatureAlgorithmsExtension$CHSignatureSchemesProducer, init$, void)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(SignatureAlgorithmsExtension$CHSignatureSchemesProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesProducer", "sun.security.ssl.SignatureAlgorithmsExtension", "CHSignatureSchemesProducer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SignatureAlgorithmsExtension$CHSignatureSchemesProducer",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeProducer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SignatureAlgorithmsExtension"
+	};
+	$loadClass(SignatureAlgorithmsExtension$CHSignatureSchemesProducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureAlgorithmsExtension$CHSignatureSchemesProducer);
+	});
 	return class$;
 }
 

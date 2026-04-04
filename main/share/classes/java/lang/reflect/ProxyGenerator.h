@@ -77,6 +77,7 @@ class ProxyGenerator : public ::jdk::internal::org::objectweb::asm$::ClassWriter
 	$class(ProxyGenerator, 0, ::jdk::internal::org::objectweb::asm$::ClassWriter)
 public:
 	ProxyGenerator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::ClassLoader* loader, $String* className, ::java::util::List* interfaces, int32_t accessFlags);
 	void addProxyMethod(::java::lang::reflect::Method* m, $Class* fromClass);
 	void addProxyMethod(::java::lang::reflect::ProxyGenerator$ProxyMethod* pm);

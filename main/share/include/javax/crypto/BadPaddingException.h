@@ -14,10 +14,13 @@ public:
 	BadPaddingException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0xB63D34D56BE10A85;
+	static const int64_t serialVersionUID = (int64_t)0xb63d34d56be10a85;
 	BadPaddingException(const BadPaddingException& e);
 	virtual void throw$() override;
-	inline BadPaddingException* operator ->() {
+	inline BadPaddingException* operator ->() const {
+		return (BadPaddingException*)throwing$;
+	}
+	inline operator BadPaddingException*() const {
 		return (BadPaddingException*)throwing$;
 	}
 };

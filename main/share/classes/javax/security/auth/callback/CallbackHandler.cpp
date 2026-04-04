@@ -1,5 +1,4 @@
 #include <javax/security/auth/callback/CallbackHandler.h>
-
 #include <javax/security/auth/callback/Callback.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace javax {
 		namespace auth {
 			namespace callback {
 
-$MethodInfo _CallbackHandler_MethodInfo_[] = {
-	{"handle", "([Ljavax/security/auth/callback/Callback;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CallbackHandler, handle, void, $CallbackArray*), "java.io.IOException,javax.security.auth.callback.UnsupportedCallbackException"},
-	{}
-};
-
-$ClassInfo _CallbackHandler_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.security.auth.callback.CallbackHandler",
-	nullptr,
-	nullptr,
-	nullptr,
-	_CallbackHandler_MethodInfo_
-};
-
-$Object* allocate$CallbackHandler($Class* clazz) {
-	return $of($alloc(CallbackHandler));
-}
-
 $Class* CallbackHandler::load$($String* name, bool initialize) {
-	$loadClass(CallbackHandler, name, initialize, &_CallbackHandler_ClassInfo_, allocate$CallbackHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"handle", "([Ljavax/security/auth/callback/Callback;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CallbackHandler, handle, void, $CallbackArray*), "java.io.IOException,javax.security.auth.callback.UnsupportedCallbackException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.security.auth.callback.CallbackHandler",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CallbackHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CallbackHandler);
+	});
 	return class$;
 }
 

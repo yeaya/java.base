@@ -75,6 +75,7 @@ class DirectMethodHandle : public ::java::lang::invoke::MethodHandle {
 	$class(DirectMethodHandle, 0, ::java::lang::invoke::MethodHandle)
 public:
 	DirectMethodHandle();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::MethodType* mtype, ::java::lang::invoke::LambdaForm* form, ::java::lang::invoke::MemberName* member, bool crackable);
 	static int32_t afIndex(int8_t formOp, bool isVolatile, int32_t ftypeKind);
 	static $Object* allocateInstance(Object$* mh);

@@ -57,6 +57,7 @@ class $import CertificateIssuerName : public ::sun::security::x509::CertAttrSet 
 	$class(CertificateIssuerName, 0, ::sun::security::x509::CertAttrSet)
 public:
 	CertificateIssuerName();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::x509::X500Name* name);
 	void init$(::sun::security::util::DerInputStream* in);
 	void init$(::java::io::InputStream* in);

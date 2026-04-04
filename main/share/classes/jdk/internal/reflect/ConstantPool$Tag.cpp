@@ -1,5 +1,4 @@
 #include <jdk/internal/reflect/ConstantPool$Tag.h>
-
 #include <java/lang/Enum.h>
 #include <jdk/internal/reflect/ConstantPool.h>
 #include <jcpp.h>
@@ -31,61 +30,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace jdk {
 	namespace internal {
 		namespace reflect {
-
-$FieldInfo _ConstantPool$Tag_FieldInfo_[] = {
-	{"UTF8", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, UTF8)},
-	{"INTEGER", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, INTEGER)},
-	{"FLOAT", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, FLOAT)},
-	{"LONG", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, LONG)},
-	{"DOUBLE", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, DOUBLE)},
-	{"CLASS", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, CLASS)},
-	{"STRING", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, STRING)},
-	{"FIELDREF", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, FIELDREF)},
-	{"METHODREF", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, METHODREF)},
-	{"INTERFACEMETHODREF", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, INTERFACEMETHODREF)},
-	{"NAMEANDTYPE", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, NAMEANDTYPE)},
-	{"METHODHANDLE", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, METHODHANDLE)},
-	{"METHODTYPE", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, METHODTYPE)},
-	{"INVOKEDYNAMIC", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, INVOKEDYNAMIC)},
-	{"INVALID", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, INVALID)},
-	{"$VALUES", "[Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ConstantPool$Tag, $VALUES)},
-	{"tagCode", "I", nullptr, $PRIVATE | $FINAL, $field(ConstantPool$Tag, tagCode)},
-	{}
-};
-
-$MethodInfo _ConstantPool$Tag_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ConstantPool$Tag, $values, $ConstantPool$TagArray*)},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(ConstantPool$Tag, init$, void, $String*, int32_t, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC, $staticMethod(ConstantPool$Tag, valueOf, ConstantPool$Tag*, $String*)},
-	{"valueOf", "(B)Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PRIVATE | $STATIC, $staticMethod(ConstantPool$Tag, valueOf, ConstantPool$Tag*, int8_t)},
-	{"values", "()[Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC, $staticMethod(ConstantPool$Tag, values, $ConstantPool$TagArray*)},
-	{}
-};
-
-$InnerClassInfo _ConstantPool$Tag_InnerClassesInfo_[] = {
-	{"jdk.internal.reflect.ConstantPool$Tag", "jdk.internal.reflect.ConstantPool", "Tag", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _ConstantPool$Tag_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"jdk.internal.reflect.ConstantPool$Tag",
-	"java.lang.Enum",
-	nullptr,
-	_ConstantPool$Tag_FieldInfo_,
-	_ConstantPool$Tag_MethodInfo_,
-	"Ljava/lang/Enum<Ljdk/internal/reflect/ConstantPool$Tag;>;",
-	nullptr,
-	_ConstantPool$Tag_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.reflect.ConstantPool"
-};
-
-$Object* allocate$ConstantPool$Tag($Class* clazz) {
-	return $of($alloc(ConstantPool$Tag));
-}
 
 ConstantPool$Tag* ConstantPool$Tag::UTF8 = nullptr;
 ConstantPool$Tag* ConstantPool$Tag::INTEGER = nullptr;
@@ -142,24 +86,20 @@ void ConstantPool$Tag::init$($String* $enum$name, int32_t $enum$ordinal, int32_t
 
 ConstantPool$Tag* ConstantPool$Tag::valueOf(int8_t v) {
 	$init(ConstantPool$Tag);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($ConstantPool$TagArray, arr$, ConstantPool$Tag::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			ConstantPool$Tag* tag = arr$->get(i$);
-			{
-				if ($nc(tag)->tagCode == v) {
-					return tag;
-				}
+			if ($nc(tag)->tagCode == v) {
+				return tag;
 			}
 		}
 	}
 	$throwNew($IllegalArgumentException, $$str({"Unknown constant pool tag code "_s, $$str(v)}));
 }
 
-void clinit$ConstantPool$Tag($Class* class$) {
+void ConstantPool$Tag::clinit$($Class* clazz) {
 	$assignStatic(ConstantPool$Tag::UTF8, $new(ConstantPool$Tag, "UTF8"_s, 0, 1));
 	$assignStatic(ConstantPool$Tag::INTEGER, $new(ConstantPool$Tag, "INTEGER"_s, 1, 3));
 	$assignStatic(ConstantPool$Tag::FLOAT, $new(ConstantPool$Tag, "FLOAT"_s, 2, 4));
@@ -182,7 +122,56 @@ ConstantPool$Tag::ConstantPool$Tag() {
 }
 
 $Class* ConstantPool$Tag::load$($String* name, bool initialize) {
-	$loadClass(ConstantPool$Tag, name, initialize, &_ConstantPool$Tag_ClassInfo_, clinit$ConstantPool$Tag, allocate$ConstantPool$Tag);
+	$FieldInfo fieldInfos$$[] = {
+		{"UTF8", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, UTF8)},
+		{"INTEGER", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, INTEGER)},
+		{"FLOAT", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, FLOAT)},
+		{"LONG", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, LONG)},
+		{"DOUBLE", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, DOUBLE)},
+		{"CLASS", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, CLASS)},
+		{"STRING", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, STRING)},
+		{"FIELDREF", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, FIELDREF)},
+		{"METHODREF", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, METHODREF)},
+		{"INTERFACEMETHODREF", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, INTERFACEMETHODREF)},
+		{"NAMEANDTYPE", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, NAMEANDTYPE)},
+		{"METHODHANDLE", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, METHODHANDLE)},
+		{"METHODTYPE", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, METHODTYPE)},
+		{"INVOKEDYNAMIC", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, INVOKEDYNAMIC)},
+		{"INVALID", "Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ConstantPool$Tag, INVALID)},
+		{"$VALUES", "[Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ConstantPool$Tag, $VALUES)},
+		{"tagCode", "I", nullptr, $PRIVATE | $FINAL, $field(ConstantPool$Tag, tagCode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ConstantPool$Tag, $values, $ConstantPool$TagArray*)},
+		{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(ConstantPool$Tag, init$, void, $String*, int32_t, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC, $staticMethod(ConstantPool$Tag, valueOf, ConstantPool$Tag*, $String*)},
+		{"valueOf", "(B)Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PRIVATE | $STATIC, $staticMethod(ConstantPool$Tag, valueOf, ConstantPool$Tag*, int8_t)},
+		{"values", "()[Ljdk/internal/reflect/ConstantPool$Tag;", nullptr, $PUBLIC | $STATIC, $staticMethod(ConstantPool$Tag, values, $ConstantPool$TagArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.reflect.ConstantPool$Tag", "jdk.internal.reflect.ConstantPool", "Tag", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"jdk.internal.reflect.ConstantPool$Tag",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljdk/internal/reflect/ConstantPool$Tag;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.reflect.ConstantPool"
+	};
+	$loadClass(ConstantPool$Tag, name, initialize, &classInfo$$, ConstantPool$Tag::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ConstantPool$Tag));
+	});
 	return class$;
 }
 

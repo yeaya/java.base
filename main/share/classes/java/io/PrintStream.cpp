@@ -1,5 +1,4 @@
 #include <java/io/PrintStream.h>
-
 #include <java/io/BufferedWriter.h>
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
@@ -9,7 +8,6 @@
 #include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
 #include <java/io/UnsupportedEncodingException.h>
-#include <java/io/Writer.h>
 #include <java/lang/Appendable.h>
 #include <java/lang/CharSequence.h>
 #include <java/nio/charset/Charset.h>
@@ -31,7 +29,6 @@ using $InterruptedIOException = ::java::io::InterruptedIOException;
 using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
 using $UnsupportedEncodingException = ::java::io::UnsupportedEncodingException;
-using $Writer = ::java::io::Writer;
 using $Appendable = ::java::lang::Appendable;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -47,93 +44,6 @@ using $Locale$Category = ::java::util::Locale$Category;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _PrintStream_FieldInfo_[] = {
-	{"autoFlush", "Z", nullptr, $PRIVATE | $FINAL, $field(PrintStream, autoFlush)},
-	{"trouble", "Z", nullptr, $PRIVATE, $field(PrintStream, trouble)},
-	{"formatter", "Ljava/util/Formatter;", nullptr, $PRIVATE, $field(PrintStream, formatter)},
-	{"textOut", "Ljava/io/BufferedWriter;", nullptr, $PRIVATE, $field(PrintStream, textOut)},
-	{"charOut", "Ljava/io/OutputStreamWriter;", nullptr, $PRIVATE, $field(PrintStream, charOut)},
-	{"closing", "Z", nullptr, $PRIVATE, $field(PrintStream, closing)},
-	{}
-};
-
-$MethodInfo _PrintStream_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(ZLjava/io/OutputStream;)V", nullptr, $PRIVATE, $method(PrintStream, init$, void, bool, $OutputStream*)},
-	{"<init>", "(ZLjava/nio/charset/Charset;Ljava/io/OutputStream;)V", nullptr, $PRIVATE, $method(PrintStream, init$, void, bool, $Charset*, $OutputStream*)},
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(PrintStream, init$, void, $OutputStream*)},
-	{"<init>", "(Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC, $method(PrintStream, init$, void, $OutputStream*, bool)},
-	{"<init>", "(Ljava/io/OutputStream;ZLjava/lang/String;)V", nullptr, $PUBLIC, $method(PrintStream, init$, void, $OutputStream*, bool, $String*), "java.io.UnsupportedEncodingException"},
-	{"<init>", "(Ljava/io/OutputStream;ZLjava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(PrintStream, init$, void, $OutputStream*, bool, $Charset*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PrintStream, init$, void, $String*), "java.io.FileNotFoundException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PrintStream, init$, void, $String*, $String*), "java.io.FileNotFoundException,java.io.UnsupportedEncodingException"},
-	{"<init>", "(Ljava/lang/String;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(PrintStream, init$, void, $String*, $Charset*), "java.io.IOException"},
-	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(PrintStream, init$, void, $File*), "java.io.FileNotFoundException"},
-	{"<init>", "(Ljava/io/File;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PrintStream, init$, void, $File*, $String*), "java.io.FileNotFoundException,java.io.UnsupportedEncodingException"},
-	{"<init>", "(Ljava/io/File;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(PrintStream, init$, void, $File*, $Charset*), "java.io.IOException"},
-	{"append", "(Ljava/lang/CharSequence;)Ljava/io/PrintStream;", nullptr, $PUBLIC, $virtualMethod(PrintStream, append, $Appendable*, $CharSequence*)},
-	{"append", "(Ljava/lang/CharSequence;II)Ljava/io/PrintStream;", nullptr, $PUBLIC, $virtualMethod(PrintStream, append, $Appendable*, $CharSequence*, int32_t, int32_t)},
-	{"append", "(C)Ljava/io/PrintStream;", nullptr, $PUBLIC, $virtualMethod(PrintStream, append, $Appendable*, char16_t)},
-	{"checkError", "()Z", nullptr, $PUBLIC, $virtualMethod(PrintStream, checkError, bool)},
-	{"clearError", "()V", nullptr, $PROTECTED, $virtualMethod(PrintStream, clearError, void)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(PrintStream, close, void)},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(PrintStream, ensureOpen, void), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(PrintStream, flush, void)},
-	{"format", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PrintStream, format, PrintStream*, $String*, $ObjectArray*)},
-	{"format", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PrintStream, format, PrintStream*, $Locale*, $String*, $ObjectArray*)},
-	{"newLine", "()V", nullptr, $PRIVATE, $method(PrintStream, newLine, void)},
-	{"print", "(Z)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, print, void, bool)},
-	{"print", "(C)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, print, void, char16_t)},
-	{"print", "(I)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, print, void, int32_t)},
-	{"print", "(J)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, print, void, int64_t)},
-	{"print", "(F)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, print, void, float)},
-	{"print", "(D)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, print, void, double)},
-	{"print", "([C)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, print, void, $chars*)},
-	{"print", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, print, void, $String*)},
-	{"print", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, print, void, Object$*)},
-	{"printf", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PrintStream, printf, PrintStream*, $String*, $ObjectArray*)},
-	{"printf", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PrintStream, printf, PrintStream*, $Locale*, $String*, $ObjectArray*)},
-	{"println", "()V", nullptr, $PUBLIC, $virtualMethod(PrintStream, println, void)},
-	{"println", "(Z)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, println, void, bool)},
-	{"println", "(C)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, println, void, char16_t)},
-	{"println", "(I)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, println, void, int32_t)},
-	{"println", "(J)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, println, void, int64_t)},
-	{"println", "(F)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, println, void, float)},
-	{"println", "(D)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, println, void, double)},
-	{"println", "([C)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, println, void, $chars*)},
-	{"println", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, println, void, $String*)},
-	{"println", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, println, void, Object$*)},
-	{"requireNonNull", "(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(TT;Ljava/lang/String;)TT;", $PRIVATE | $STATIC, $staticMethod(PrintStream, requireNonNull, $Object*, Object$*, $String*)},
-	{"setError", "()V", nullptr, $PROTECTED, $virtualMethod(PrintStream, setError, void)},
-	{"toCharset", "(Ljava/lang/String;)Ljava/nio/charset/Charset;", nullptr, $PRIVATE | $STATIC, $staticMethod(PrintStream, toCharset, $Charset*, $String*), "java.io.UnsupportedEncodingException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, write, void, int32_t)},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, write, void, $bytes*, int32_t, int32_t)},
-	{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, write, void, $bytes*), "java.io.IOException"},
-	{"write", "([C)V", nullptr, $PRIVATE, $method(PrintStream, write, void, $chars*)},
-	{"write", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(PrintStream, write, void, $String*)},
-	{"writeBytes", "([B)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, writeBytes, void, $bytes*)},
-	{"writeln", "([C)V", nullptr, $PRIVATE, $method(PrintStream, writeln, void, $chars*)},
-	{"writeln", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(PrintStream, writeln, void, $String*)},
-	{}
-};
-
-$ClassInfo _PrintStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.PrintStream",
-	"java.io.FilterOutputStream",
-	"java.lang.Appendable",
-	_PrintStream_FieldInfo_,
-	_PrintStream_MethodInfo_
-};
-
-$Object* allocate$PrintStream($Class* clazz) {
-	return $of($alloc(PrintStream));
-}
 
 int32_t PrintStream::hashCode() {
 	 return this->$FilterOutputStream::hashCode();
@@ -194,14 +104,13 @@ void PrintStream::init$($OutputStream* out) {
 }
 
 void PrintStream::init$($OutputStream* out, bool autoFlush) {
-	PrintStream::init$(autoFlush, $cast($OutputStream, $(requireNonNull(out, "Null output stream"_s))));
+	PrintStream::init$(autoFlush, $$cast($OutputStream, requireNonNull(out, "Null output stream"_s)));
 }
 
 void PrintStream::init$($OutputStream* out, bool autoFlush, $String* encoding) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OutputStream, var$0, $cast($OutputStream, requireNonNull(out, "Null output stream"_s)));
-	bool var$1 = autoFlush;
-	PrintStream::init$(var$0, var$1, $(toCharset(encoding)));
+	PrintStream::init$(var$0, autoFlush, $(toCharset(encoding)));
 }
 
 void PrintStream::init$($OutputStream* out, bool autoFlush, $Charset* charset) {
@@ -209,40 +118,40 @@ void PrintStream::init$($OutputStream* out, bool autoFlush, $Charset* charset) {
 	this->trouble = false;
 	this->closing = false;
 	this->autoFlush = autoFlush;
-	$set(this, charOut, $new($OutputStreamWriter, static_cast<$OutputStream*>(this), charset));
+	$set(this, charOut, $new($OutputStreamWriter, this, charset));
 	$set(this, textOut, $new($BufferedWriter, this->charOut));
 }
 
 void PrintStream::init$($String* fileName) {
-	PrintStream::init$(false, static_cast<$OutputStream*>($$new($FileOutputStream, fileName)));
+	PrintStream::init$(false, $$new($FileOutputStream, fileName));
 }
 
 void PrintStream::init$($String* fileName, $String* csn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Charset, var$0, toCharset(csn));
-	PrintStream::init$(false, var$0, static_cast<$OutputStream*>($$new($FileOutputStream, fileName)));
+	PrintStream::init$(false, var$0, $$new($FileOutputStream, fileName));
 }
 
 void PrintStream::init$($String* fileName, $Charset* charset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Charset, var$0, $cast($Charset, requireNonNull(charset, "charset"_s)));
-	PrintStream::init$(false, var$0, static_cast<$OutputStream*>($$new($FileOutputStream, fileName)));
+	PrintStream::init$(false, var$0, $$new($FileOutputStream, fileName));
 }
 
 void PrintStream::init$($File* file) {
-	PrintStream::init$(false, static_cast<$OutputStream*>($$new($FileOutputStream, file)));
+	PrintStream::init$(false, $$new($FileOutputStream, file));
 }
 
 void PrintStream::init$($File* file, $String* csn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Charset, var$0, toCharset(csn));
-	PrintStream::init$(false, var$0, static_cast<$OutputStream*>($$new($FileOutputStream, file)));
+	PrintStream::init$(false, var$0, $$new($FileOutputStream, file));
 }
 
 void PrintStream::init$($File* file, $Charset* charset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Charset, var$0, $cast($Charset, requireNonNull(charset, "charset"_s)));
-	PrintStream::init$(false, var$0, static_cast<$OutputStream*>($$new($FileOutputStream, file)));
+	PrintStream::init$(false, var$0, $$new($FileOutputStream, file));
 }
 
 void PrintStream::ensureOpen() {
@@ -280,7 +189,7 @@ void PrintStream::close() {
 }
 
 bool PrintStream::checkError() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->out != nullptr) {
 		flush();
 	}
@@ -313,7 +222,7 @@ void PrintStream::write(int32_t b) {
 			ensureOpen();
 			$nc(this->out)->write(b);
 			if ((b == u'\n') && this->autoFlush) {
-				$nc(this->out)->flush();
+				this->out->flush();
 			}
 		}
 	} catch ($InterruptedIOException& x) {
@@ -329,7 +238,7 @@ void PrintStream::write($bytes* buf, int32_t off, int32_t len) {
 			ensureOpen();
 			$nc(this->out)->write(buf, off, len);
 			if (this->autoFlush) {
-				$nc(this->out)->flush();
+				this->out->flush();
 			}
 		}
 	} catch ($InterruptedIOException& x) {
@@ -352,7 +261,7 @@ void PrintStream::write($chars* buf) {
 		$synchronized(this) {
 			ensureOpen();
 			$nc(this->textOut)->write(buf);
-			$nc(this->textOut)->flushBuffer();
+			this->textOut->flushBuffer();
 			$nc(this->charOut)->flushBuffer();
 			if (this->autoFlush) {
 				for (int32_t i = 0; i < $nc(buf)->length; ++i) {
@@ -375,8 +284,8 @@ void PrintStream::writeln($chars* buf) {
 		$synchronized(this) {
 			ensureOpen();
 			$nc(this->textOut)->write(buf);
-			$nc(this->textOut)->newLine();
-			$nc(this->textOut)->flushBuffer();
+			this->textOut->newLine();
+			this->textOut->flushBuffer();
 			$nc(this->charOut)->flushBuffer();
 			if (this->autoFlush) {
 				$nc(this->out)->flush();
@@ -394,9 +303,9 @@ void PrintStream::write($String* s) {
 		$synchronized(this) {
 			ensureOpen();
 			$nc(this->textOut)->write(s);
-			$nc(this->textOut)->flushBuffer();
+			this->textOut->flushBuffer();
 			$nc(this->charOut)->flushBuffer();
-			if (this->autoFlush && ($nc(s)->indexOf((int32_t)u'\n') >= 0)) {
+			if (this->autoFlush && ($nc(s)->indexOf(u'\n') >= 0)) {
 				$nc(this->out)->flush();
 			}
 		}
@@ -412,8 +321,8 @@ void PrintStream::writeln($String* s) {
 		$synchronized(this) {
 			ensureOpen();
 			$nc(this->textOut)->write(s);
-			$nc(this->textOut)->newLine();
-			$nc(this->textOut)->flushBuffer();
+			this->textOut->newLine();
+			this->textOut->flushBuffer();
 			$nc(this->charOut)->flushBuffer();
 			if (this->autoFlush) {
 				$nc(this->out)->flush();
@@ -431,7 +340,7 @@ void PrintStream::newLine() {
 		$synchronized(this) {
 			ensureOpen();
 			$nc(this->textOut)->newLine();
-			$nc(this->textOut)->flushBuffer();
+			this->textOut->flushBuffer();
 			$nc(this->charOut)->flushBuffer();
 			if (this->autoFlush) {
 				$nc(this->out)->flush();
@@ -473,7 +382,7 @@ void PrintStream::print($chars* s) {
 }
 
 void PrintStream::print($String* s) {
-	write($($String::valueOf($of(s))));
+	write($($String::valueOf(s)));
 }
 
 void PrintStream::print(Object$* obj) {
@@ -563,7 +472,7 @@ void PrintStream::println($chars* x) {
 
 void PrintStream::println($String* x) {
 	if ($of(this)->getClass() == PrintStream::class$) {
-		writeln($($String::valueOf($of(x))));
+		writeln($($String::valueOf(x)));
 	} else {
 		$synchronized(this) {
 			print(x);
@@ -573,10 +482,10 @@ void PrintStream::println($String* x) {
 }
 
 void PrintStream::println(Object$* x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, $String::valueOf(x));
 	if ($of(this)->getClass() == PrintStream::class$) {
-		writeln($($String::valueOf($of(s))));
+		writeln($($String::valueOf(s)));
 	} else {
 		$synchronized(this) {
 			print(s);
@@ -594,17 +503,17 @@ PrintStream* PrintStream::printf($Locale* l, $String* format, $ObjectArray* args
 }
 
 PrintStream* PrintStream::format($String* format, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$synchronized(this) {
 			ensureOpen();
-			bool var$0 = (this->formatter == nullptr);
+			bool var$0 = this->formatter == nullptr;
 			if (!var$0) {
 				$init($Locale$Category);
-				var$0 = ($nc(this->formatter)->locale() != $Locale::getDefault($Locale$Category::FORMAT));
+				var$0 = this->formatter->locale() != $Locale::getDefault($Locale$Category::FORMAT);
 			}
 			if (var$0) {
-				$set(this, formatter, $new($Formatter, static_cast<$Appendable*>(this)));
+				$set(this, formatter, $new($Formatter, $cast($Appendable, this)));
 			}
 			$init($Locale$Category);
 			$nc(this->formatter)->format($($Locale::getDefault($Locale$Category::FORMAT)), format, args);
@@ -621,8 +530,8 @@ PrintStream* PrintStream::format($Locale* l, $String* format, $ObjectArray* args
 	try {
 		$synchronized(this) {
 			ensureOpen();
-			if ((this->formatter == nullptr) || ($nc(this->formatter)->locale() != l)) {
-				$set(this, formatter, $new($Formatter, static_cast<$Appendable*>(this), l));
+			if ((this->formatter == nullptr) || (this->formatter->locale() != l)) {
+				$set(this, formatter, $new($Formatter, this, l));
 			}
 			$nc(this->formatter)->format(l, format, args);
 		}
@@ -635,12 +544,12 @@ PrintStream* PrintStream::format($Locale* l, $String* format, $ObjectArray* args
 }
 
 $Appendable* PrintStream::append($CharSequence* csq) {
-	print($($String::valueOf($of(csq))));
+	print($($String::valueOf(csq)));
 	return this;
 }
 
 $Appendable* PrintStream::append($CharSequence* csq$renamed, int32_t start, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CharSequence, csq, csq$renamed);
 	if (csq == nullptr) {
 		$assign(csq, "null"_s);
@@ -657,7 +566,89 @@ PrintStream::PrintStream() {
 }
 
 $Class* PrintStream::load$($String* name, bool initialize) {
-	$loadClass(PrintStream, name, initialize, &_PrintStream_ClassInfo_, allocate$PrintStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"autoFlush", "Z", nullptr, $PRIVATE | $FINAL, $field(PrintStream, autoFlush)},
+		{"trouble", "Z", nullptr, $PRIVATE, $field(PrintStream, trouble)},
+		{"formatter", "Ljava/util/Formatter;", nullptr, $PRIVATE, $field(PrintStream, formatter)},
+		{"textOut", "Ljava/io/BufferedWriter;", nullptr, $PRIVATE, $field(PrintStream, textOut)},
+		{"charOut", "Ljava/io/OutputStreamWriter;", nullptr, $PRIVATE, $field(PrintStream, charOut)},
+		{"closing", "Z", nullptr, $PRIVATE, $field(PrintStream, closing)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(ZLjava/io/OutputStream;)V", nullptr, $PRIVATE, $method(PrintStream, init$, void, bool, $OutputStream*)},
+		{"<init>", "(ZLjava/nio/charset/Charset;Ljava/io/OutputStream;)V", nullptr, $PRIVATE, $method(PrintStream, init$, void, bool, $Charset*, $OutputStream*)},
+		{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(PrintStream, init$, void, $OutputStream*)},
+		{"<init>", "(Ljava/io/OutputStream;Z)V", nullptr, $PUBLIC, $method(PrintStream, init$, void, $OutputStream*, bool)},
+		{"<init>", "(Ljava/io/OutputStream;ZLjava/lang/String;)V", nullptr, $PUBLIC, $method(PrintStream, init$, void, $OutputStream*, bool, $String*), "java.io.UnsupportedEncodingException"},
+		{"<init>", "(Ljava/io/OutputStream;ZLjava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(PrintStream, init$, void, $OutputStream*, bool, $Charset*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PrintStream, init$, void, $String*), "java.io.FileNotFoundException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PrintStream, init$, void, $String*, $String*), "java.io.FileNotFoundException,java.io.UnsupportedEncodingException"},
+		{"<init>", "(Ljava/lang/String;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(PrintStream, init$, void, $String*, $Charset*), "java.io.IOException"},
+		{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(PrintStream, init$, void, $File*), "java.io.FileNotFoundException"},
+		{"<init>", "(Ljava/io/File;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PrintStream, init$, void, $File*, $String*), "java.io.FileNotFoundException,java.io.UnsupportedEncodingException"},
+		{"<init>", "(Ljava/io/File;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(PrintStream, init$, void, $File*, $Charset*), "java.io.IOException"},
+		{"append", "(Ljava/lang/CharSequence;)Ljava/io/PrintStream;", nullptr, $PUBLIC, $virtualMethod(PrintStream, append, $Appendable*, $CharSequence*)},
+		{"append", "(Ljava/lang/CharSequence;II)Ljava/io/PrintStream;", nullptr, $PUBLIC, $virtualMethod(PrintStream, append, $Appendable*, $CharSequence*, int32_t, int32_t)},
+		{"append", "(C)Ljava/io/PrintStream;", nullptr, $PUBLIC, $virtualMethod(PrintStream, append, $Appendable*, char16_t)},
+		{"checkError", "()Z", nullptr, $PUBLIC, $virtualMethod(PrintStream, checkError, bool)},
+		{"clearError", "()V", nullptr, $PROTECTED, $virtualMethod(PrintStream, clearError, void)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(PrintStream, close, void)},
+		{"ensureOpen", "()V", nullptr, $PRIVATE, $method(PrintStream, ensureOpen, void), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(PrintStream, flush, void)},
+		{"format", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PrintStream, format, PrintStream*, $String*, $ObjectArray*)},
+		{"format", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PrintStream, format, PrintStream*, $Locale*, $String*, $ObjectArray*)},
+		{"newLine", "()V", nullptr, $PRIVATE, $method(PrintStream, newLine, void)},
+		{"print", "(Z)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, print, void, bool)},
+		{"print", "(C)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, print, void, char16_t)},
+		{"print", "(I)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, print, void, int32_t)},
+		{"print", "(J)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, print, void, int64_t)},
+		{"print", "(F)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, print, void, float)},
+		{"print", "(D)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, print, void, double)},
+		{"print", "([C)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, print, void, $chars*)},
+		{"print", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, print, void, $String*)},
+		{"print", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, print, void, Object$*)},
+		{"printf", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PrintStream, printf, PrintStream*, $String*, $ObjectArray*)},
+		{"printf", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintStream;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(PrintStream, printf, PrintStream*, $Locale*, $String*, $ObjectArray*)},
+		{"println", "()V", nullptr, $PUBLIC, $virtualMethod(PrintStream, println, void)},
+		{"println", "(Z)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, println, void, bool)},
+		{"println", "(C)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, println, void, char16_t)},
+		{"println", "(I)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, println, void, int32_t)},
+		{"println", "(J)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, println, void, int64_t)},
+		{"println", "(F)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, println, void, float)},
+		{"println", "(D)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, println, void, double)},
+		{"println", "([C)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, println, void, $chars*)},
+		{"println", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, println, void, $String*)},
+		{"println", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, println, void, Object$*)},
+		{"requireNonNull", "(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(TT;Ljava/lang/String;)TT;", $PRIVATE | $STATIC, $staticMethod(PrintStream, requireNonNull, $Object*, Object$*, $String*)},
+		{"setError", "()V", nullptr, $PROTECTED, $virtualMethod(PrintStream, setError, void)},
+		{"toCharset", "(Ljava/lang/String;)Ljava/nio/charset/Charset;", nullptr, $PRIVATE | $STATIC, $staticMethod(PrintStream, toCharset, $Charset*, $String*), "java.io.UnsupportedEncodingException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, write, void, int32_t)},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, write, void, $bytes*, int32_t, int32_t)},
+		{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, write, void, $bytes*), "java.io.IOException"},
+		{"write", "([C)V", nullptr, $PRIVATE, $method(PrintStream, write, void, $chars*)},
+		{"write", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(PrintStream, write, void, $String*)},
+		{"writeBytes", "([B)V", nullptr, $PUBLIC, $virtualMethod(PrintStream, writeBytes, void, $bytes*)},
+		{"writeln", "([C)V", nullptr, $PRIVATE, $method(PrintStream, writeln, void, $chars*)},
+		{"writeln", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(PrintStream, writeln, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.PrintStream",
+		"java.io.FilterOutputStream",
+		"java.lang.Appendable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PrintStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PrintStream));
+	});
 	return class$;
 }
 

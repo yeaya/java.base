@@ -39,6 +39,13 @@ namespace jdk {
 		}
 	}
 }
+namespace java {
+	namespace lang {
+		namespace invoke {
+			class MethodHandle;
+		}
+	}
+}
 
 namespace java {
 	namespace lang {
@@ -202,7 +209,8 @@ public:
 	void virtualCall(MethodCache* methodCache);
 	void invokeDynamic(uint16_t method_index);
 	$ObjectArray* makeArgs(bool isVarArgs, int32_t localIndex, int32_t slots, $ClassArray* parameterTypes);
-
+	Object* invokeBootstrap(ByteCodeClass* clazz, BootstrapMethod* bootstrapMethod, String* methodName, $ObjectArray* args);
+	::java::lang::invoke::MethodHandle* makeMetafactory(ByteCodeClass* clazz, BootstrapMethod* bootstrapMethod, String* methodName, $ClassArray* ptypes, Class* returnType, ::jdk::internal::reflect::ConstantPool* constantPool);
 	void prepareArgs(Object$* instance, $ClassArray* parameterTypes, $Value* argv);
 
 	inline void throwIt($Throwable* it) {

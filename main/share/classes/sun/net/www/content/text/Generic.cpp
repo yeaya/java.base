@@ -1,5 +1,4 @@
 #include <sun/net/www/content/text/Generic.h>
-
 #include <sun/net/www/content/text/plain.h>
 #include <jcpp.h>
 
@@ -13,24 +12,6 @@ namespace sun {
 			namespace content {
 				namespace text {
 
-$MethodInfo _Generic_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Generic, init$, void)},
-	{}
-};
-
-$ClassInfo _Generic_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.www.content.text.Generic",
-	"sun.net.www.content.text.plain",
-	nullptr,
-	nullptr,
-	_Generic_MethodInfo_
-};
-
-$Object* allocate$Generic($Class* clazz) {
-	return $of($alloc(Generic));
-}
-
 void Generic::init$() {
 	$plain::init$();
 }
@@ -39,7 +20,21 @@ Generic::Generic() {
 }
 
 $Class* Generic::load$($String* name, bool initialize) {
-	$loadClass(Generic, name, initialize, &_Generic_ClassInfo_, allocate$Generic);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Generic, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.www.content.text.Generic",
+		"sun.net.www.content.text.plain",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Generic, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Generic);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/nio/ch/WindowsAsynchronousSocketChannelImpl$3.h>
-
 #include <sun/nio/ch/WindowsAsynchronousSocketChannelImpl$WriteTask.h>
 #include <sun/nio/ch/WindowsAsynchronousSocketChannelImpl.h>
 #include <jcpp.h>
@@ -16,49 +15,6 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _WindowsAsynchronousSocketChannelImpl$3_FieldInfo_[] = {
-	{"this$0", "Lsun/nio/ch/WindowsAsynchronousSocketChannelImpl;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsAsynchronousSocketChannelImpl$3, this$0)},
-	{"val$writeTask", "Lsun/nio/ch/WindowsAsynchronousSocketChannelImpl$WriteTask;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsAsynchronousSocketChannelImpl$3, val$writeTask)},
-	{}
-};
-
-$MethodInfo _WindowsAsynchronousSocketChannelImpl$3_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/WindowsAsynchronousSocketChannelImpl;Lsun/nio/ch/WindowsAsynchronousSocketChannelImpl$WriteTask;)V", "()V", 0, $method(WindowsAsynchronousSocketChannelImpl$3, init$, void, $WindowsAsynchronousSocketChannelImpl*, $WindowsAsynchronousSocketChannelImpl$WriteTask*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousSocketChannelImpl$3, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _WindowsAsynchronousSocketChannelImpl$3_EnclosingMethodInfo_ = {
-	"sun.nio.ch.WindowsAsynchronousSocketChannelImpl",
-	"implWrite",
-	"(ZLjava/nio/ByteBuffer;[Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)Ljava/util/concurrent/Future;"
-};
-
-$InnerClassInfo _WindowsAsynchronousSocketChannelImpl$3_InnerClassesInfo_[] = {
-	{"sun.nio.ch.WindowsAsynchronousSocketChannelImpl$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsAsynchronousSocketChannelImpl$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.WindowsAsynchronousSocketChannelImpl$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_WindowsAsynchronousSocketChannelImpl$3_FieldInfo_,
-	_WindowsAsynchronousSocketChannelImpl$3_MethodInfo_,
-	nullptr,
-	&_WindowsAsynchronousSocketChannelImpl$3_EnclosingMethodInfo_,
-	_WindowsAsynchronousSocketChannelImpl$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.WindowsAsynchronousSocketChannelImpl"
-};
-
-$Object* allocate$WindowsAsynchronousSocketChannelImpl$3($Class* clazz) {
-	return $of($alloc(WindowsAsynchronousSocketChannelImpl$3));
-}
-
 void WindowsAsynchronousSocketChannelImpl$3::init$($WindowsAsynchronousSocketChannelImpl* this$0, $WindowsAsynchronousSocketChannelImpl$WriteTask* val$writeTask) {
 	$set(this, this$0, this$0);
 	$set(this, val$writeTask, val$writeTask);
@@ -72,7 +28,43 @@ WindowsAsynchronousSocketChannelImpl$3::WindowsAsynchronousSocketChannelImpl$3()
 }
 
 $Class* WindowsAsynchronousSocketChannelImpl$3::load$($String* name, bool initialize) {
-	$loadClass(WindowsAsynchronousSocketChannelImpl$3, name, initialize, &_WindowsAsynchronousSocketChannelImpl$3_ClassInfo_, allocate$WindowsAsynchronousSocketChannelImpl$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/nio/ch/WindowsAsynchronousSocketChannelImpl;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsAsynchronousSocketChannelImpl$3, this$0)},
+		{"val$writeTask", "Lsun/nio/ch/WindowsAsynchronousSocketChannelImpl$WriteTask;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsAsynchronousSocketChannelImpl$3, val$writeTask)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/ch/WindowsAsynchronousSocketChannelImpl;Lsun/nio/ch/WindowsAsynchronousSocketChannelImpl$WriteTask;)V", "()V", 0, $method(WindowsAsynchronousSocketChannelImpl$3, init$, void, $WindowsAsynchronousSocketChannelImpl*, $WindowsAsynchronousSocketChannelImpl$WriteTask*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousSocketChannelImpl$3, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.nio.ch.WindowsAsynchronousSocketChannelImpl",
+		"implWrite",
+		"(ZLjava/nio/ByteBuffer;[Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)Ljava/util/concurrent/Future;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.WindowsAsynchronousSocketChannelImpl$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.WindowsAsynchronousSocketChannelImpl$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.WindowsAsynchronousSocketChannelImpl"
+	};
+	$loadClass(WindowsAsynchronousSocketChannelImpl$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsAsynchronousSocketChannelImpl$3);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/lang/CharacterDataUndefined.h>
-
 #include <java/lang/CharacterData.h>
 #include <jcpp.h>
 
@@ -14,47 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _CharacterDataUndefined_FieldInfo_[] = {
-	{"instance", "Ljava/lang/CharacterData;", nullptr, $STATIC | $FINAL, $staticField(CharacterDataUndefined, instance)},
-	{}
-};
-
-$MethodInfo _CharacterDataUndefined_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CharacterDataUndefined, init$, void)},
-	{"digit", "(II)I", nullptr, 0, $virtualMethod(CharacterDataUndefined, digit, int32_t, int32_t, int32_t)},
-	{"getDirectionality", "(I)B", nullptr, 0, $virtualMethod(CharacterDataUndefined, getDirectionality, int8_t, int32_t)},
-	{"getNumericValue", "(I)I", nullptr, 0, $virtualMethod(CharacterDataUndefined, getNumericValue, int32_t, int32_t)},
-	{"getProperties", "(I)I", nullptr, 0, $virtualMethod(CharacterDataUndefined, getProperties, int32_t, int32_t)},
-	{"getType", "(I)I", nullptr, 0, $virtualMethod(CharacterDataUndefined, getType, int32_t, int32_t)},
-	{"isDigit", "(I)Z", nullptr, 0, $virtualMethod(CharacterDataUndefined, isDigit, bool, int32_t)},
-	{"isIdentifierIgnorable", "(I)Z", nullptr, 0, $virtualMethod(CharacterDataUndefined, isIdentifierIgnorable, bool, int32_t)},
-	{"isJavaIdentifierPart", "(I)Z", nullptr, 0, $virtualMethod(CharacterDataUndefined, isJavaIdentifierPart, bool, int32_t)},
-	{"isJavaIdentifierStart", "(I)Z", nullptr, 0, $virtualMethod(CharacterDataUndefined, isJavaIdentifierStart, bool, int32_t)},
-	{"isLowerCase", "(I)Z", nullptr, 0, $virtualMethod(CharacterDataUndefined, isLowerCase, bool, int32_t)},
-	{"isMirrored", "(I)Z", nullptr, 0, $virtualMethod(CharacterDataUndefined, isMirrored, bool, int32_t)},
-	{"isUnicodeIdentifierPart", "(I)Z", nullptr, 0, $virtualMethod(CharacterDataUndefined, isUnicodeIdentifierPart, bool, int32_t)},
-	{"isUnicodeIdentifierStart", "(I)Z", nullptr, 0, $virtualMethod(CharacterDataUndefined, isUnicodeIdentifierStart, bool, int32_t)},
-	{"isUpperCase", "(I)Z", nullptr, 0, $virtualMethod(CharacterDataUndefined, isUpperCase, bool, int32_t)},
-	{"isWhitespace", "(I)Z", nullptr, 0, $virtualMethod(CharacterDataUndefined, isWhitespace, bool, int32_t)},
-	{"toLowerCase", "(I)I", nullptr, 0, $virtualMethod(CharacterDataUndefined, toLowerCase, int32_t, int32_t)},
-	{"toTitleCase", "(I)I", nullptr, 0, $virtualMethod(CharacterDataUndefined, toTitleCase, int32_t, int32_t)},
-	{"toUpperCase", "(I)I", nullptr, 0, $virtualMethod(CharacterDataUndefined, toUpperCase, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _CharacterDataUndefined_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.CharacterDataUndefined",
-	"java.lang.CharacterData",
-	nullptr,
-	_CharacterDataUndefined_FieldInfo_,
-	_CharacterDataUndefined_MethodInfo_
-};
-
-$Object* allocate$CharacterDataUndefined($Class* clazz) {
-	return $of($alloc(CharacterDataUndefined));
-}
 
 $CharacterData* CharacterDataUndefined::instance = nullptr;
 
@@ -134,7 +92,7 @@ void CharacterDataUndefined::init$() {
 	$CharacterData::init$();
 }
 
-void clinit$CharacterDataUndefined($Class* class$) {
+void CharacterDataUndefined::clinit$($Class* clazz) {
 	$assignStatic(CharacterDataUndefined::instance, $new(CharacterDataUndefined));
 }
 
@@ -142,7 +100,43 @@ CharacterDataUndefined::CharacterDataUndefined() {
 }
 
 $Class* CharacterDataUndefined::load$($String* name, bool initialize) {
-	$loadClass(CharacterDataUndefined, name, initialize, &_CharacterDataUndefined_ClassInfo_, clinit$CharacterDataUndefined, allocate$CharacterDataUndefined);
+	$FieldInfo fieldInfos$$[] = {
+		{"instance", "Ljava/lang/CharacterData;", nullptr, $STATIC | $FINAL, $staticField(CharacterDataUndefined, instance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CharacterDataUndefined, init$, void)},
+		{"digit", "(II)I", nullptr, 0, $virtualMethod(CharacterDataUndefined, digit, int32_t, int32_t, int32_t)},
+		{"getDirectionality", "(I)B", nullptr, 0, $virtualMethod(CharacterDataUndefined, getDirectionality, int8_t, int32_t)},
+		{"getNumericValue", "(I)I", nullptr, 0, $virtualMethod(CharacterDataUndefined, getNumericValue, int32_t, int32_t)},
+		{"getProperties", "(I)I", nullptr, 0, $virtualMethod(CharacterDataUndefined, getProperties, int32_t, int32_t)},
+		{"getType", "(I)I", nullptr, 0, $virtualMethod(CharacterDataUndefined, getType, int32_t, int32_t)},
+		{"isDigit", "(I)Z", nullptr, 0, $virtualMethod(CharacterDataUndefined, isDigit, bool, int32_t)},
+		{"isIdentifierIgnorable", "(I)Z", nullptr, 0, $virtualMethod(CharacterDataUndefined, isIdentifierIgnorable, bool, int32_t)},
+		{"isJavaIdentifierPart", "(I)Z", nullptr, 0, $virtualMethod(CharacterDataUndefined, isJavaIdentifierPart, bool, int32_t)},
+		{"isJavaIdentifierStart", "(I)Z", nullptr, 0, $virtualMethod(CharacterDataUndefined, isJavaIdentifierStart, bool, int32_t)},
+		{"isLowerCase", "(I)Z", nullptr, 0, $virtualMethod(CharacterDataUndefined, isLowerCase, bool, int32_t)},
+		{"isMirrored", "(I)Z", nullptr, 0, $virtualMethod(CharacterDataUndefined, isMirrored, bool, int32_t)},
+		{"isUnicodeIdentifierPart", "(I)Z", nullptr, 0, $virtualMethod(CharacterDataUndefined, isUnicodeIdentifierPart, bool, int32_t)},
+		{"isUnicodeIdentifierStart", "(I)Z", nullptr, 0, $virtualMethod(CharacterDataUndefined, isUnicodeIdentifierStart, bool, int32_t)},
+		{"isUpperCase", "(I)Z", nullptr, 0, $virtualMethod(CharacterDataUndefined, isUpperCase, bool, int32_t)},
+		{"isWhitespace", "(I)Z", nullptr, 0, $virtualMethod(CharacterDataUndefined, isWhitespace, bool, int32_t)},
+		{"toLowerCase", "(I)I", nullptr, 0, $virtualMethod(CharacterDataUndefined, toLowerCase, int32_t, int32_t)},
+		{"toTitleCase", "(I)I", nullptr, 0, $virtualMethod(CharacterDataUndefined, toTitleCase, int32_t, int32_t)},
+		{"toUpperCase", "(I)I", nullptr, 0, $virtualMethod(CharacterDataUndefined, toUpperCase, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.CharacterDataUndefined",
+		"java.lang.CharacterData",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CharacterDataUndefined, name, initialize, &classInfo$$, CharacterDataUndefined::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CharacterDataUndefined);
+	});
 	return class$;
 }
 

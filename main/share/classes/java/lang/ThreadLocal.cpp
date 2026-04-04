@@ -1,5 +1,4 @@
 #include <java/lang/ThreadLocal.h>
-
 #include <java/lang/ThreadLocal$SuppliedThreadLocal.h>
 #include <java/lang/ThreadLocal$ThreadLocalMap$Entry.h>
 #include <java/lang/ThreadLocal$ThreadLocalMap.h>
@@ -26,55 +25,6 @@ using $TerminatingThreadLocal = ::jdk::internal::misc::TerminatingThreadLocal;
 namespace java {
 	namespace lang {
 
-$FieldInfo _ThreadLocal_FieldInfo_[] = {
-	{"threadLocalHashCode", "I", nullptr, $PRIVATE | $FINAL, $field(ThreadLocal, threadLocalHashCode)},
-	{"nextHashCode", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $STATIC, $staticField(ThreadLocal, nextHashCode$)},
-	{"HASH_INCREMENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ThreadLocal, HASH_INCREMENT)},
-	{}
-};
-
-$MethodInfo _ThreadLocal_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ThreadLocal, init$, void)},
-	{"childValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TT;", 0, $virtualMethod(ThreadLocal, childValue, $Object*, Object$*)},
-	{"createInheritedMap", "(Ljava/lang/ThreadLocal$ThreadLocalMap;)Ljava/lang/ThreadLocal$ThreadLocalMap;", nullptr, $STATIC, $staticMethod(ThreadLocal, createInheritedMap, $ThreadLocal$ThreadLocalMap*, $ThreadLocal$ThreadLocalMap*)},
-	{"createMap", "(Ljava/lang/Thread;Ljava/lang/Object;)V", "(Ljava/lang/Thread;TT;)V", 0, $virtualMethod(ThreadLocal, createMap, void, $Thread*, Object$*)},
-	{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(ThreadLocal, get, $Object*)},
-	{"getMap", "(Ljava/lang/Thread;)Ljava/lang/ThreadLocal$ThreadLocalMap;", nullptr, 0, $virtualMethod(ThreadLocal, getMap, $ThreadLocal$ThreadLocalMap*, $Thread*)},
-	{"initialValue", "()Ljava/lang/Object;", "()TT;", $PROTECTED, $virtualMethod(ThreadLocal, initialValue, $Object*)},
-	{"isPresent", "()Z", nullptr, 0, $virtualMethod(ThreadLocal, isPresent, bool)},
-	{"nextHashCode", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(ThreadLocal, nextHashCode, int32_t)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ThreadLocal, remove, void)},
-	{"set", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(ThreadLocal, set, void, Object$*)},
-	{"setInitialValue", "()Ljava/lang/Object;", "()TT;", $PRIVATE, $method(ThreadLocal, setInitialValue, $Object*)},
-	{"withInitial", "(Ljava/util/function/Supplier;)Ljava/lang/ThreadLocal;", "<S:Ljava/lang/Object;>(Ljava/util/function/Supplier<+TS;>;)Ljava/lang/ThreadLocal<TS;>;", $PUBLIC | $STATIC, $staticMethod(ThreadLocal, withInitial, ThreadLocal*, $Supplier*)},
-	{}
-};
-
-$InnerClassInfo _ThreadLocal_InnerClassesInfo_[] = {
-	{"java.lang.ThreadLocal$ThreadLocalMap", "java.lang.ThreadLocal", "ThreadLocalMap", $STATIC},
-	{"java.lang.ThreadLocal$SuppliedThreadLocal", "java.lang.ThreadLocal", "SuppliedThreadLocal", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ThreadLocal_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.ThreadLocal",
-	"java.lang.Object",
-	nullptr,
-	_ThreadLocal_FieldInfo_,
-	_ThreadLocal_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_ThreadLocal_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.ThreadLocal$ThreadLocalMap,java.lang.ThreadLocal$ThreadLocalMap$Entry,java.lang.ThreadLocal$SuppliedThreadLocal"
-};
-
-$Object* allocate$ThreadLocal($Class* clazz) {
-	return $of($alloc(ThreadLocal));
-}
-
 $AtomicInteger* ThreadLocal::nextHashCode$ = nullptr;
 
 int32_t ThreadLocal::nextHashCode() {
@@ -83,7 +33,7 @@ int32_t ThreadLocal::nextHashCode() {
 }
 
 $Object* ThreadLocal::initialValue() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 ThreadLocal* ThreadLocal::withInitial($Supplier* supplier) {
@@ -96,28 +46,28 @@ void ThreadLocal::init$() {
 }
 
 $Object* ThreadLocal::get() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Thread, t, $Thread::currentThread());
 	$var($ThreadLocal$ThreadLocalMap, map, getMap(t));
 	if (map != nullptr) {
 		$var($ThreadLocal$ThreadLocalMap$Entry, e, map->getEntry(this));
 		if (e != nullptr) {
 			$var($Object, result, e->value);
-			return $of(result);
+			return result;
 		}
 	}
-	return $of(setInitialValue());
+	return setInitialValue();
 }
 
 bool ThreadLocal::isPresent() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Thread, t, $Thread::currentThread());
 	$var($ThreadLocal$ThreadLocalMap, map, getMap(t));
 	return map != nullptr && map->getEntry(this) != nullptr;
 }
 
 $Object* ThreadLocal::setInitialValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, initialValue());
 	$var($Thread, t, $Thread::currentThread());
 	$var($ThreadLocal$ThreadLocalMap, map, getMap(t));
@@ -129,11 +79,11 @@ $Object* ThreadLocal::setInitialValue() {
 	if ($instanceOf($TerminatingThreadLocal, this)) {
 		$TerminatingThreadLocal::register$($cast($TerminatingThreadLocal, this));
 	}
-	return $of(value);
+	return value;
 }
 
 void ThreadLocal::set(Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Thread, t, $Thread::currentThread());
 	$var($ThreadLocal$ThreadLocalMap, map, getMap(t));
 	if (map != nullptr) {
@@ -144,7 +94,7 @@ void ThreadLocal::set(Object$* value) {
 }
 
 void ThreadLocal::remove() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ThreadLocal$ThreadLocalMap, m, getMap($($Thread::currentThread())));
 	if (m != nullptr) {
 		m->remove(this);
@@ -169,7 +119,7 @@ $Object* ThreadLocal::childValue(Object$* parentValue) {
 	$shouldNotReachHere();
 }
 
-void clinit$ThreadLocal($Class* class$) {
+void ThreadLocal::clinit$($Class* clazz) {
 	$assignStatic(ThreadLocal::nextHashCode$, $new($AtomicInteger));
 }
 
@@ -177,7 +127,50 @@ ThreadLocal::ThreadLocal() {
 }
 
 $Class* ThreadLocal::load$($String* name, bool initialize) {
-	$loadClass(ThreadLocal, name, initialize, &_ThreadLocal_ClassInfo_, clinit$ThreadLocal, allocate$ThreadLocal);
+	$FieldInfo fieldInfos$$[] = {
+		{"threadLocalHashCode", "I", nullptr, $PRIVATE | $FINAL, $field(ThreadLocal, threadLocalHashCode)},
+		{"nextHashCode", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $STATIC, $staticField(ThreadLocal, nextHashCode$)},
+		{"HASH_INCREMENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ThreadLocal, HASH_INCREMENT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ThreadLocal, init$, void)},
+		{"childValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TT;", 0, $virtualMethod(ThreadLocal, childValue, $Object*, Object$*)},
+		{"createInheritedMap", "(Ljava/lang/ThreadLocal$ThreadLocalMap;)Ljava/lang/ThreadLocal$ThreadLocalMap;", nullptr, $STATIC, $staticMethod(ThreadLocal, createInheritedMap, $ThreadLocal$ThreadLocalMap*, $ThreadLocal$ThreadLocalMap*)},
+		{"createMap", "(Ljava/lang/Thread;Ljava/lang/Object;)V", "(Ljava/lang/Thread;TT;)V", 0, $virtualMethod(ThreadLocal, createMap, void, $Thread*, Object$*)},
+		{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(ThreadLocal, get, $Object*)},
+		{"getMap", "(Ljava/lang/Thread;)Ljava/lang/ThreadLocal$ThreadLocalMap;", nullptr, 0, $virtualMethod(ThreadLocal, getMap, $ThreadLocal$ThreadLocalMap*, $Thread*)},
+		{"initialValue", "()Ljava/lang/Object;", "()TT;", $PROTECTED, $virtualMethod(ThreadLocal, initialValue, $Object*)},
+		{"isPresent", "()Z", nullptr, 0, $virtualMethod(ThreadLocal, isPresent, bool)},
+		{"nextHashCode", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(ThreadLocal, nextHashCode, int32_t)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ThreadLocal, remove, void)},
+		{"set", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(ThreadLocal, set, void, Object$*)},
+		{"setInitialValue", "()Ljava/lang/Object;", "()TT;", $PRIVATE, $method(ThreadLocal, setInitialValue, $Object*)},
+		{"withInitial", "(Ljava/util/function/Supplier;)Ljava/lang/ThreadLocal;", "<S:Ljava/lang/Object;>(Ljava/util/function/Supplier<+TS;>;)Ljava/lang/ThreadLocal<TS;>;", $PUBLIC | $STATIC, $staticMethod(ThreadLocal, withInitial, ThreadLocal*, $Supplier*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ThreadLocal$ThreadLocalMap", "java.lang.ThreadLocal", "ThreadLocalMap", $STATIC},
+		{"java.lang.ThreadLocal$SuppliedThreadLocal", "java.lang.ThreadLocal", "SuppliedThreadLocal", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.ThreadLocal",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.ThreadLocal$ThreadLocalMap,java.lang.ThreadLocal$ThreadLocalMap$Entry,java.lang.ThreadLocal$SuppliedThreadLocal"
+	};
+	$loadClass(ThreadLocal, name, initialize, &classInfo$$, ThreadLocal::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ThreadLocal);
+	});
 	return class$;
 }
 

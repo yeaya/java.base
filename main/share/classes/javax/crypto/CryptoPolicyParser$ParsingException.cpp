@@ -1,5 +1,4 @@
 #include <javax/crypto/CryptoPolicyParser$ParsingException.h>
-
 #include <java/security/GeneralSecurityException.h>
 #include <javax/crypto/CryptoPolicyParser.h>
 #include <jcpp.h>
@@ -13,54 +12,17 @@ using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 namespace javax {
 	namespace crypto {
 
-$FieldInfo _CryptoPolicyParser$ParsingException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CryptoPolicyParser$ParsingException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CryptoPolicyParser$ParsingException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(CryptoPolicyParser$ParsingException, init$, void, $String*)},
-	{"<init>", "(ILjava/lang/String;)V", nullptr, 0, $method(CryptoPolicyParser$ParsingException, init$, void, int32_t, $String*)},
-	{"<init>", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(CryptoPolicyParser$ParsingException, init$, void, int32_t, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _CryptoPolicyParser$ParsingException_InnerClassesInfo_[] = {
-	{"javax.crypto.CryptoPolicyParser$ParsingException", "javax.crypto.CryptoPolicyParser", "ParsingException", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CryptoPolicyParser$ParsingException_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.crypto.CryptoPolicyParser$ParsingException",
-	"java.security.GeneralSecurityException",
-	nullptr,
-	_CryptoPolicyParser$ParsingException_FieldInfo_,
-	_CryptoPolicyParser$ParsingException_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CryptoPolicyParser$ParsingException_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.crypto.CryptoPolicyParser"
-};
-
-$Object* allocate$CryptoPolicyParser$ParsingException($Class* clazz) {
-	return $of($alloc(CryptoPolicyParser$ParsingException));
-}
-
 void CryptoPolicyParser$ParsingException::init$($String* msg) {
 	$GeneralSecurityException::init$(msg);
 }
 
 void CryptoPolicyParser$ParsingException::init$(int32_t line, $String* msg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$GeneralSecurityException::init$($$str({"line "_s, $$str(line), ": "_s, msg}));
 }
 
 void CryptoPolicyParser$ParsingException::init$(int32_t line, $String* expect, $String* actual) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$GeneralSecurityException::init$($$str({"line "_s, $$str(line), ": expected \'"_s, expect, "\', found \'"_s, actual, "\'"_s}));
 }
 
@@ -75,7 +37,38 @@ void CryptoPolicyParser$ParsingException::throw$() {
 }
 
 $Class* CryptoPolicyParser$ParsingException::load$($String* name, bool initialize) {
-	$loadClass(CryptoPolicyParser$ParsingException, name, initialize, &_CryptoPolicyParser$ParsingException_ClassInfo_, allocate$CryptoPolicyParser$ParsingException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CryptoPolicyParser$ParsingException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(CryptoPolicyParser$ParsingException, init$, void, $String*)},
+		{"<init>", "(ILjava/lang/String;)V", nullptr, 0, $method(CryptoPolicyParser$ParsingException, init$, void, int32_t, $String*)},
+		{"<init>", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(CryptoPolicyParser$ParsingException, init$, void, int32_t, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.crypto.CryptoPolicyParser$ParsingException", "javax.crypto.CryptoPolicyParser", "ParsingException", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.crypto.CryptoPolicyParser$ParsingException",
+		"java.security.GeneralSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.crypto.CryptoPolicyParser"
+	};
+	$loadClass(CryptoPolicyParser$ParsingException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CryptoPolicyParser$ParsingException);
+	});
 	return class$;
 }
 

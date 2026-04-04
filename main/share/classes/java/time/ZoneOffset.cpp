@@ -1,10 +1,8 @@
 #include <java/time/ZoneOffset.h>
-
 #include <java/io/DataInput.h>
 #include <java/io/DataOutput.h>
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
-#include <java/io/Serializable.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/Math.h>
 #include <java/time/DateTimeException.h>
@@ -37,7 +35,6 @@ using $DataInput = ::java::io::DataInput;
 using $DataOutput = ::java::io::DataOutput;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
-using $Serializable = ::java::io::Serializable;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -65,77 +62,6 @@ using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 namespace java {
 	namespace time {
 
-$CompoundAttribute _ZoneOffset_Annotations_[] = {
-	{"Ljdk/internal/ValueBased;", nullptr},
-	{}
-};
-
-$FieldInfo _ZoneOffset_FieldInfo_[] = {
-	{"SECONDS_CACHE", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/lang/Integer;Ljava/time/ZoneOffset;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ZoneOffset, SECONDS_CACHE)},
-	{"ID_CACHE", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/lang/String;Ljava/time/ZoneOffset;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ZoneOffset, ID_CACHE)},
-	{"MAX_SECONDS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneOffset, MAX_SECONDS)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneOffset, serialVersionUID)},
-	{"UTC", "Ljava/time/ZoneOffset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ZoneOffset, UTC)},
-	{"MIN", "Ljava/time/ZoneOffset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ZoneOffset, MIN)},
-	{"MAX", "Ljava/time/ZoneOffset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ZoneOffset, MAX)},
-	{"totalSeconds", "I", nullptr, $PRIVATE | $FINAL, $field(ZoneOffset, totalSeconds$)},
-	{"id", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(ZoneOffset, id)},
-	{}
-};
-
-$MethodInfo _ZoneOffset_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(ZoneOffset, init$, void, int32_t)},
-	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(ZoneOffset, adjustInto, $Temporal*, $Temporal*)},
-	{"buildId", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ZoneOffset, buildId, $String*, int32_t)},
-	{"compareTo", "(Ljava/time/ZoneOffset;)I", nullptr, $PUBLIC, $method(ZoneOffset, compareTo, int32_t, ZoneOffset*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ZoneOffset, compareTo, int32_t, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ZoneOffset, equals, bool, Object$*)},
-	{"from", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/ZoneOffset;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneOffset, from, ZoneOffset*, $TemporalAccessor*)},
-	{"get", "(Ljava/time/temporal/TemporalField;)I", nullptr, $PUBLIC, $virtualMethod(ZoneOffset, get, int32_t, $TemporalField*)},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZoneOffset, getId, $String*)},
-	{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $virtualMethod(ZoneOffset, getLong, int64_t, $TemporalField*)},
-	{"getRules", "()Ljava/time/zone/ZoneRules;", nullptr, $PUBLIC, $virtualMethod(ZoneOffset, getRules, $ZoneRules*)},
-	{"getTotalSeconds", "()I", nullptr, $PUBLIC, $method(ZoneOffset, getTotalSeconds, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ZoneOffset, hashCode, int32_t)},
-	{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC, $virtualMethod(ZoneOffset, isSupported, bool, $TemporalField*)},
-	{"of", "(Ljava/lang/String;)Ljava/time/ZoneOffset;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneOffset, of, ZoneOffset*, $String*)},
-	{"ofHours", "(I)Ljava/time/ZoneOffset;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneOffset, ofHours, ZoneOffset*, int32_t)},
-	{"ofHoursMinutes", "(II)Ljava/time/ZoneOffset;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneOffset, ofHoursMinutes, ZoneOffset*, int32_t, int32_t)},
-	{"ofHoursMinutesSeconds", "(III)Ljava/time/ZoneOffset;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneOffset, ofHoursMinutesSeconds, ZoneOffset*, int32_t, int32_t, int32_t)},
-	{"ofTotalSeconds", "(I)Ljava/time/ZoneOffset;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneOffset, ofTotalSeconds, ZoneOffset*, int32_t)},
-	{"parseNumber", "(Ljava/lang/CharSequence;IZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ZoneOffset, parseNumber, int32_t, $CharSequence*, int32_t, bool)},
-	{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC, $virtualMethod(ZoneOffset, query, $Object*, $TemporalQuery*)},
-	{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(ZoneOffset, range, $ValueRange*, $TemporalField*)},
-	{"readExternal", "(Ljava/io/DataInput;)Ljava/time/ZoneOffset;", nullptr, $STATIC, $staticMethod(ZoneOffset, readExternal, ZoneOffset*, $DataInput*), "java.io.IOException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ZoneOffset, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZoneOffset, toString, $String*)},
-	{"totalSeconds", "(III)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ZoneOffset, totalSeconds, int32_t, int32_t, int32_t, int32_t)},
-	{"validate", "(III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ZoneOffset, validate, void, int32_t, int32_t, int32_t)},
-	{"write", "(Ljava/io/DataOutput;)V", nullptr, 0, $virtualMethod(ZoneOffset, write, void, $DataOutput*), "java.io.IOException"},
-	{"writeExternal", "(Ljava/io/DataOutput;)V", nullptr, 0, $method(ZoneOffset, writeExternal, void, $DataOutput*), "java.io.IOException"},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(ZoneOffset, writeReplace, $Object*)},
-	{}
-};
-
-$ClassInfo _ZoneOffset_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.time.ZoneOffset",
-	"java.time.ZoneId",
-	"java.time.temporal.TemporalAccessor,java.time.temporal.TemporalAdjuster,java.lang.Comparable",
-	_ZoneOffset_FieldInfo_,
-	_ZoneOffset_MethodInfo_,
-	"Ljava/time/ZoneId;Ljava/time/temporal/TemporalAccessor;Ljava/time/temporal/TemporalAdjuster;Ljava/lang/Comparable<Ljava/time/ZoneOffset;>;Ljava/io/Serializable;",
-	nullptr,
-	nullptr,
-	_ZoneOffset_Annotations_
-};
-
-$Object* allocate$ZoneOffset($Class* clazz) {
-	return $of($alloc(ZoneOffset));
-}
-
 $Object* ZoneOffset::clone() {
 	 return this->$ZoneId::clone();
 }
@@ -152,10 +78,10 @@ ZoneOffset* ZoneOffset::MAX = nullptr;
 
 ZoneOffset* ZoneOffset::of($String* offsetId$renamed) {
 	$init(ZoneOffset);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, offsetId, offsetId$renamed);
-	$Objects::requireNonNull($of(offsetId), "offsetId"_s);
-	$var(ZoneOffset, offset, $cast(ZoneOffset, $nc(ZoneOffset::ID_CACHE)->get(offsetId)));
+	$Objects::requireNonNull(offsetId, "offsetId"_s);
+	$var(ZoneOffset, offset, $cast(ZoneOffset, ZoneOffset::ID_CACHE->get(offsetId)));
 	if (offset != nullptr) {
 		return offset;
 	}
@@ -165,48 +91,39 @@ ZoneOffset* ZoneOffset::of($String* offsetId$renamed) {
 	switch ($nc(offsetId)->length()) {
 	case 2:
 		{
-			$var($String, var$0, $$str({$$str(offsetId->charAt(0)), "0"_s}));
-			$assign(offsetId, $concat(var$0, $$str(offsetId->charAt(1))));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append(offsetId->charAt(0));
+			var$0->append("0"_s);
+			var$0->append(offsetId->charAt(1));
+			$assign(offsetId, $str(var$0));
 		}
 	case 3:
-		{
-			hours = parseNumber(offsetId, 1, false);
-			minutes = 0;
-			seconds = 0;
-			break;
-		}
+		hours = parseNumber(offsetId, 1, false);
+		minutes = 0;
+		seconds = 0;
+		break;
 	case 5:
-		{
-			hours = parseNumber(offsetId, 1, false);
-			minutes = parseNumber(offsetId, 3, false);
-			seconds = 0;
-			break;
-		}
+		hours = parseNumber(offsetId, 1, false);
+		minutes = parseNumber(offsetId, 3, false);
+		seconds = 0;
+		break;
 	case 6:
-		{
-			hours = parseNumber(offsetId, 1, false);
-			minutes = parseNumber(offsetId, 4, true);
-			seconds = 0;
-			break;
-		}
+		hours = parseNumber(offsetId, 1, false);
+		minutes = parseNumber(offsetId, 4, true);
+		seconds = 0;
+		break;
 	case 7:
-		{
-			hours = parseNumber(offsetId, 1, false);
-			minutes = parseNumber(offsetId, 3, false);
-			seconds = parseNumber(offsetId, 5, false);
-			break;
-		}
+		hours = parseNumber(offsetId, 1, false);
+		minutes = parseNumber(offsetId, 3, false);
+		seconds = parseNumber(offsetId, 5, false);
+		break;
 	case 9:
-		{
-			hours = parseNumber(offsetId, 1, false);
-			minutes = parseNumber(offsetId, 4, true);
-			seconds = parseNumber(offsetId, 7, true);
-			break;
-		}
+		hours = parseNumber(offsetId, 1, false);
+		minutes = parseNumber(offsetId, 4, true);
+		seconds = parseNumber(offsetId, 7, true);
+		break;
 	default:
-		{
-			$throwNew($DateTimeException, $$str({"Invalid ID for ZoneOffset, invalid format: "_s, offsetId}));
-		}
+		$throwNew($DateTimeException, $$str({"Invalid ID for ZoneOffset, invalid format: "_s, offsetId}));
 	}
 	char16_t first = offsetId->charAt(0);
 	if (first != u'+' && first != u'-') {
@@ -221,7 +138,7 @@ ZoneOffset* ZoneOffset::of($String* offsetId$renamed) {
 
 int32_t ZoneOffset::parseNumber($CharSequence* offsetId, int32_t pos, bool precededByColon) {
 	$init(ZoneOffset);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (precededByColon && $nc(offsetId)->charAt(pos - 1) != u':') {
 		$throwNew($DateTimeException, $$str({"Invalid ID for ZoneOffset, colon not found when expected: "_s, offsetId}));
 	}
@@ -252,19 +169,23 @@ ZoneOffset* ZoneOffset::ofHoursMinutesSeconds(int32_t hours, int32_t minutes, in
 
 ZoneOffset* ZoneOffset::from($TemporalAccessor* temporal) {
 	$init(ZoneOffset);
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(temporal), "temporal"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(temporal, "temporal"_s);
 	$var(ZoneOffset, offset, $cast(ZoneOffset, $nc(temporal)->query($($TemporalQueries::offset()))));
 	if (offset == nullptr) {
-		$var($String, var$0, $$str({"Unable to obtain ZoneOffset from TemporalAccessor: "_s, temporal, " of type "_s}));
-		$throwNew($DateTimeException, $$concat(var$0, $($of(temporal)->getClass()->getName())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Unable to obtain ZoneOffset from TemporalAccessor: "_s);
+		var$0->append(temporal);
+		var$0->append(" of type "_s);
+		var$0->append($($of(temporal)->getClass()->getName()));
+		$throwNew($DateTimeException, $$str(var$0));
 	}
 	return offset;
 }
 
 void ZoneOffset::validate(int32_t hours, int32_t minutes, int32_t seconds) {
 	$init(ZoneOffset);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (hours < -18 || hours > 18) {
 		$throwNew($DateTimeException, $$str({"Zone offset hours not in valid range: value "_s, $$str(hours), " is not in the range -18 to 18"_s}));
 	}
@@ -297,18 +218,18 @@ int32_t ZoneOffset::totalSeconds(int32_t hours, int32_t minutes, int32_t seconds
 
 ZoneOffset* ZoneOffset::ofTotalSeconds(int32_t totalSeconds) {
 	$init(ZoneOffset);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (totalSeconds < -ZoneOffset::MAX_SECONDS || totalSeconds > ZoneOffset::MAX_SECONDS) {
 		$throwNew($DateTimeException, "Zone offset not in valid range: -18:00 to +18:00"_s);
 	}
 	if ($mod(totalSeconds, (15 * 60)) == 0) {
 		$var($Integer, totalSecs, $Integer::valueOf(totalSeconds));
-		$var(ZoneOffset, result, $cast(ZoneOffset, $nc(ZoneOffset::SECONDS_CACHE)->get(totalSecs)));
+		$var(ZoneOffset, result, $cast(ZoneOffset, ZoneOffset::SECONDS_CACHE->get(totalSecs)));
 		if (result == nullptr) {
 			$assign(result, $new(ZoneOffset, totalSeconds));
-			$nc(ZoneOffset::SECONDS_CACHE)->putIfAbsent(totalSecs, result);
-			$assign(result, $cast(ZoneOffset, $nc(ZoneOffset::SECONDS_CACHE)->get(totalSecs)));
-			$nc(ZoneOffset::ID_CACHE)->putIfAbsent($($nc(result)->getId()), result);
+			ZoneOffset::SECONDS_CACHE->putIfAbsent(totalSecs, result);
+			$assign(result, $cast(ZoneOffset, ZoneOffset::SECONDS_CACHE->get(totalSecs)));
+			ZoneOffset::ID_CACHE->putIfAbsent($($nc(result)->getId()), result);
 		}
 		return result;
 	} else {
@@ -365,14 +286,14 @@ $ValueRange* ZoneOffset::range($TemporalField* field) {
 }
 
 int32_t ZoneOffset::get($TemporalField* field) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoField);
 	if ($equals(field, $ChronoField::OFFSET_SECONDS)) {
 		return this->totalSeconds$;
 	} else if ($instanceOf($ChronoField, field)) {
 		$throwNew($UnsupportedTemporalTypeException, $$str({"Unsupported field: "_s, field}));
 	}
-	return $nc($(range(field)))->checkValidIntValue(getLong(field), field);
+	return $$nc(range(field))->checkValidIntValue(getLong(field), field);
 }
 
 int64_t ZoneOffset::getLong($TemporalField* field) {
@@ -388,9 +309,9 @@ int64_t ZoneOffset::getLong($TemporalField* field) {
 $Object* ZoneOffset::query($TemporalQuery* query) {
 	bool var$0 = query == $TemporalQueries::offset();
 	if (var$0 || query == $TemporalQueries::zone()) {
-		return $of($of(this));
+		return $of(this);
 	}
-	return $of($TemporalAccessor::query(query));
+	return $TemporalAccessor::query(query);
 }
 
 $Temporal* ZoneOffset::adjustInto($Temporal* temporal) {
@@ -407,7 +328,7 @@ bool ZoneOffset::equals(Object$* obj) {
 		return true;
 	}
 	if ($instanceOf(ZoneOffset, obj)) {
-		return this->totalSeconds$ == $nc(($cast(ZoneOffset, obj)))->totalSeconds$;
+		return this->totalSeconds$ == $cast(ZoneOffset, obj)->totalSeconds$;
 	}
 	return false;
 }
@@ -421,7 +342,7 @@ $String* ZoneOffset::toString() {
 }
 
 $Object* ZoneOffset::writeReplace() {
-	return $of($new($Ser, $Ser::ZONE_OFFSET_TYPE, this));
+	return $new($Ser, $Ser::ZONE_OFFSET_TYPE, this);
 }
 
 void ZoneOffset::readObject($ObjectInputStream* s) {
@@ -452,7 +373,7 @@ int32_t ZoneOffset::compareTo(Object$* other) {
 	return this->compareTo($cast(ZoneOffset, other));
 }
 
-void clinit$ZoneOffset($Class* class$) {
+void ZoneOffset::clinit$($Class* clazz) {
 	$assignStatic(ZoneOffset::SECONDS_CACHE, $new($ConcurrentHashMap, 16, 0.75f, 4));
 	$assignStatic(ZoneOffset::ID_CACHE, $new($ConcurrentHashMap, 16, 0.75f, 4));
 	$assignStatic(ZoneOffset::UTC, ZoneOffset::ofTotalSeconds(0));
@@ -464,7 +385,72 @@ ZoneOffset::ZoneOffset() {
 }
 
 $Class* ZoneOffset::load$($String* name, bool initialize) {
-	$loadClass(ZoneOffset, name, initialize, &_ZoneOffset_ClassInfo_, clinit$ZoneOffset, allocate$ZoneOffset);
+	$FieldInfo fieldInfos$$[] = {
+		{"SECONDS_CACHE", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/lang/Integer;Ljava/time/ZoneOffset;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ZoneOffset, SECONDS_CACHE)},
+		{"ID_CACHE", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/lang/String;Ljava/time/ZoneOffset;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ZoneOffset, ID_CACHE)},
+		{"MAX_SECONDS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneOffset, MAX_SECONDS)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZoneOffset, serialVersionUID)},
+		{"UTC", "Ljava/time/ZoneOffset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ZoneOffset, UTC)},
+		{"MIN", "Ljava/time/ZoneOffset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ZoneOffset, MIN)},
+		{"MAX", "Ljava/time/ZoneOffset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ZoneOffset, MAX)},
+		{"totalSeconds", "I", nullptr, $PRIVATE | $FINAL, $field(ZoneOffset, totalSeconds$)},
+		{"id", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(ZoneOffset, id)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(I)V", nullptr, $PRIVATE, $method(ZoneOffset, init$, void, int32_t)},
+		{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(ZoneOffset, adjustInto, $Temporal*, $Temporal*)},
+		{"buildId", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ZoneOffset, buildId, $String*, int32_t)},
+		{"compareTo", "(Ljava/time/ZoneOffset;)I", nullptr, $PUBLIC, $method(ZoneOffset, compareTo, int32_t, ZoneOffset*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ZoneOffset, compareTo, int32_t, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ZoneOffset, equals, bool, Object$*)},
+		{"from", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/ZoneOffset;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneOffset, from, ZoneOffset*, $TemporalAccessor*)},
+		{"get", "(Ljava/time/temporal/TemporalField;)I", nullptr, $PUBLIC, $virtualMethod(ZoneOffset, get, int32_t, $TemporalField*)},
+		{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZoneOffset, getId, $String*)},
+		{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $virtualMethod(ZoneOffset, getLong, int64_t, $TemporalField*)},
+		{"getRules", "()Ljava/time/zone/ZoneRules;", nullptr, $PUBLIC, $virtualMethod(ZoneOffset, getRules, $ZoneRules*)},
+		{"getTotalSeconds", "()I", nullptr, $PUBLIC, $method(ZoneOffset, getTotalSeconds, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ZoneOffset, hashCode, int32_t)},
+		{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC, $virtualMethod(ZoneOffset, isSupported, bool, $TemporalField*)},
+		{"of", "(Ljava/lang/String;)Ljava/time/ZoneOffset;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneOffset, of, ZoneOffset*, $String*)},
+		{"ofHours", "(I)Ljava/time/ZoneOffset;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneOffset, ofHours, ZoneOffset*, int32_t)},
+		{"ofHoursMinutes", "(II)Ljava/time/ZoneOffset;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneOffset, ofHoursMinutes, ZoneOffset*, int32_t, int32_t)},
+		{"ofHoursMinutesSeconds", "(III)Ljava/time/ZoneOffset;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneOffset, ofHoursMinutesSeconds, ZoneOffset*, int32_t, int32_t, int32_t)},
+		{"ofTotalSeconds", "(I)Ljava/time/ZoneOffset;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneOffset, ofTotalSeconds, ZoneOffset*, int32_t)},
+		{"parseNumber", "(Ljava/lang/CharSequence;IZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ZoneOffset, parseNumber, int32_t, $CharSequence*, int32_t, bool)},
+		{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC, $virtualMethod(ZoneOffset, query, $Object*, $TemporalQuery*)},
+		{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(ZoneOffset, range, $ValueRange*, $TemporalField*)},
+		{"readExternal", "(Ljava/io/DataInput;)Ljava/time/ZoneOffset;", nullptr, $STATIC, $staticMethod(ZoneOffset, readExternal, ZoneOffset*, $DataInput*), "java.io.IOException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ZoneOffset, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZoneOffset, toString, $String*)},
+		{"totalSeconds", "(III)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ZoneOffset, totalSeconds, int32_t, int32_t, int32_t, int32_t)},
+		{"validate", "(III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ZoneOffset, validate, void, int32_t, int32_t, int32_t)},
+		{"write", "(Ljava/io/DataOutput;)V", nullptr, 0, $virtualMethod(ZoneOffset, write, void, $DataOutput*), "java.io.IOException"},
+		{"writeExternal", "(Ljava/io/DataOutput;)V", nullptr, 0, $method(ZoneOffset, writeExternal, void, $DataOutput*), "java.io.IOException"},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(ZoneOffset, writeReplace, $Object*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/ValueBased;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.time.ZoneOffset",
+		"java.time.ZoneId",
+		"java.time.temporal.TemporalAccessor,java.time.temporal.TemporalAdjuster,java.lang.Comparable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/time/ZoneId;Ljava/time/temporal/TemporalAccessor;Ljava/time/temporal/TemporalAdjuster;Ljava/lang/Comparable<Ljava/time/ZoneOffset;>;Ljava/io/Serializable;",
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(ZoneOffset, name, initialize, &classInfo$$, ZoneOffset::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ZoneOffset));
+	});
 	return class$;
 }
 

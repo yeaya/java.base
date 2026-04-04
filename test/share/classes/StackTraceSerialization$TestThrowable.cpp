@@ -1,41 +1,10 @@
 #include <StackTraceSerialization$TestThrowable.h>
-
 #include <StackTraceSerialization.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _StackTraceSerialization$TestThrowable_MethodInfo_[] = {
-	{"<init>", "(ZZ)V", nullptr, $PUBLIC, $method(StackTraceSerialization$TestThrowable, init$, void, bool, bool)},
-	{}
-};
-
-$InnerClassInfo _StackTraceSerialization$TestThrowable_InnerClassesInfo_[] = {
-	{"StackTraceSerialization$TestThrowable", "StackTraceSerialization", "TestThrowable", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _StackTraceSerialization$TestThrowable_ClassInfo_ = {
-	$ACC_SUPER,
-	"StackTraceSerialization$TestThrowable",
-	"java.lang.Throwable",
-	nullptr,
-	nullptr,
-	_StackTraceSerialization$TestThrowable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StackTraceSerialization$TestThrowable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"StackTraceSerialization"
-};
-
-$Object* allocate$StackTraceSerialization$TestThrowable($Class* clazz) {
-	return $of($alloc(StackTraceSerialization$TestThrowable));
-}
 
 void StackTraceSerialization$TestThrowable::init$(bool enableSuppression, bool writableStackTrace) {
 	$Throwable::init$("the medium"_s, nullptr, enableSuppression, writableStackTrace);
@@ -52,7 +21,32 @@ void StackTraceSerialization$TestThrowable::throw$() {
 }
 
 $Class* StackTraceSerialization$TestThrowable::load$($String* name, bool initialize) {
-	$loadClass(StackTraceSerialization$TestThrowable, name, initialize, &_StackTraceSerialization$TestThrowable_ClassInfo_, allocate$StackTraceSerialization$TestThrowable);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZZ)V", nullptr, $PUBLIC, $method(StackTraceSerialization$TestThrowable, init$, void, bool, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"StackTraceSerialization$TestThrowable", "StackTraceSerialization", "TestThrowable", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"StackTraceSerialization$TestThrowable",
+		"java.lang.Throwable",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"StackTraceSerialization"
+	};
+	$loadClass(StackTraceSerialization$TestThrowable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StackTraceSerialization$TestThrowable);
+	});
 	return class$;
 }
 

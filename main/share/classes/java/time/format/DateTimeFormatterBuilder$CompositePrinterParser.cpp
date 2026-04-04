@@ -1,5 +1,4 @@
 #include <java/time/format/DateTimeFormatterBuilder$CompositePrinterParser.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/time/format/DateTimeFormatterBuilder$DateTimePrinterParser.h>
 #include <java/time/format/DateTimeFormatterBuilder.h>
@@ -23,51 +22,9 @@ namespace java {
 	namespace time {
 		namespace format {
 
-$FieldInfo _DateTimeFormatterBuilder$CompositePrinterParser_FieldInfo_[] = {
-	{"printerParsers", "[Ljava/time/format/DateTimeFormatterBuilder$DateTimePrinterParser;", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$CompositePrinterParser, printerParsers)},
-	{"optional", "Z", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$CompositePrinterParser, optional)},
-	{}
-};
-
-$MethodInfo _DateTimeFormatterBuilder$CompositePrinterParser_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/time/format/DateTimeFormatterBuilder$DateTimePrinterParser;>;Z)V", 0, $method(DateTimeFormatterBuilder$CompositePrinterParser, init$, void, $List*, bool)},
-	{"<init>", "([Ljava/time/format/DateTimeFormatterBuilder$DateTimePrinterParser;Z)V", nullptr, 0, $method(DateTimeFormatterBuilder$CompositePrinterParser, init$, void, $DateTimeFormatterBuilder$DateTimePrinterParserArray*, bool)},
-	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$CompositePrinterParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
-	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$CompositePrinterParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$CompositePrinterParser, toString, $String*)},
-	{"withOptional", "(Z)Ljava/time/format/DateTimeFormatterBuilder$CompositePrinterParser;", nullptr, $PUBLIC, $method(DateTimeFormatterBuilder$CompositePrinterParser, withOptional, DateTimeFormatterBuilder$CompositePrinterParser*, bool)},
-	{}
-};
-
-$InnerClassInfo _DateTimeFormatterBuilder$CompositePrinterParser_InnerClassesInfo_[] = {
-	{"java.time.format.DateTimeFormatterBuilder$CompositePrinterParser", "java.time.format.DateTimeFormatterBuilder", "CompositePrinterParser", $STATIC | $FINAL},
-	{"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser", "java.time.format.DateTimeFormatterBuilder", "DateTimePrinterParser", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DateTimeFormatterBuilder$CompositePrinterParser_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.time.format.DateTimeFormatterBuilder$CompositePrinterParser",
-	"java.lang.Object",
-	"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser",
-	_DateTimeFormatterBuilder$CompositePrinterParser_FieldInfo_,
-	_DateTimeFormatterBuilder$CompositePrinterParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DateTimeFormatterBuilder$CompositePrinterParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.format.DateTimeFormatterBuilder"
-};
-
-$Object* allocate$DateTimeFormatterBuilder$CompositePrinterParser($Class* clazz) {
-	return $of($alloc(DateTimeFormatterBuilder$CompositePrinterParser));
-}
-
 void DateTimeFormatterBuilder$CompositePrinterParser::init$($List* printerParsers, bool optional) {
-	$useLocalCurrentObjectStackCache();
-	DateTimeFormatterBuilder$CompositePrinterParser::init$($fcast($DateTimeFormatterBuilder$DateTimePrinterParserArray, $($nc(printerParsers)->toArray($$new($DateTimeFormatterBuilder$DateTimePrinterParserArray, 0)))), optional);
+	$useLocalObjectStack();
+	DateTimeFormatterBuilder$CompositePrinterParser::init$($$cast($DateTimeFormatterBuilder$DateTimePrinterParserArray, $nc(printerParsers)->toArray($$new($DateTimeFormatterBuilder$DateTimePrinterParserArray, 0))), optional);
 }
 
 void DateTimeFormatterBuilder$CompositePrinterParser::init$($DateTimeFormatterBuilder$DateTimePrinterParserArray* printerParsers, bool optional) {
@@ -83,59 +40,49 @@ DateTimeFormatterBuilder$CompositePrinterParser* DateTimeFormatterBuilder$Compos
 }
 
 bool DateTimeFormatterBuilder$CompositePrinterParser::format($DateTimePrintContext* context, $StringBuilder* buf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = $nc(buf)->length();
 	if (this->optional) {
 		$nc(context)->startOptional();
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			{
-				$var($DateTimeFormatterBuilder$DateTimePrinterParserArray, arr$, this->printerParsers);
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$var($DateTimeFormatterBuilder$DateTimePrinterParser, pp, arr$->get(i$));
-					{
-						if ($nc(pp)->format(context, buf) == false) {
-							buf->setLength(length);
-							var$2 = true;
-							return$1 = true;
-							goto $finally;
-						}
-					}
-				}
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			if (this->optional) {
-				$nc(context)->endOptional();
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		$var($DateTimeFormatterBuilder$DateTimePrinterParserArray, arr$, this->printerParsers);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($DateTimeFormatterBuilder$DateTimePrinterParser, pp, arr$->get(i$));
+			if ($nc(pp)->format(context, buf) == false) {
+				buf->setLength(length);
+				var$2 = true;
+				return$1 = true;
+				goto $finally;
 			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		if (this->optional) {
+			$nc(context)->endOptional();
 		}
-		if (return$1) {
-			return var$2;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	return true;
 }
 
 int32_t DateTimeFormatterBuilder$CompositePrinterParser::parse($DateTimeParseContext* context, $CharSequence* text, int32_t position) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->optional) {
 		$nc(context)->startOptional();
 		int32_t pos = position;
 		{
 			$var($DateTimeFormatterBuilder$DateTimePrinterParserArray, arr$, this->printerParsers);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($DateTimeFormatterBuilder$DateTimePrinterParser, pp, arr$->get(i$));
 				{
 					pos = $nc(pp)->parse(context, text, pos);
@@ -151,9 +98,7 @@ int32_t DateTimeFormatterBuilder$CompositePrinterParser::parse($DateTimeParseCon
 	} else {
 		{
 			$var($DateTimeFormatterBuilder$DateTimePrinterParserArray, arr$, this->printerParsers);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($DateTimeFormatterBuilder$DateTimePrinterParser, pp, arr$->get(i$));
 				{
 					position = $nc(pp)->parse(context, text, position);
@@ -168,18 +113,16 @@ int32_t DateTimeFormatterBuilder$CompositePrinterParser::parse($DateTimeParseCon
 }
 
 $String* DateTimeFormatterBuilder$CompositePrinterParser::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	if (this->printerParsers != nullptr) {
 		buf->append(this->optional ? "["_s : "("_s);
 		{
 			$var($DateTimeFormatterBuilder$DateTimePrinterParserArray, arr$, this->printerParsers);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($DateTimeFormatterBuilder$DateTimePrinterParser, pp, arr$->get(i$));
 				{
-					buf->append($of(pp));
+					buf->append(pp);
 				}
 			}
 		}
@@ -192,7 +135,43 @@ DateTimeFormatterBuilder$CompositePrinterParser::DateTimeFormatterBuilder$Compos
 }
 
 $Class* DateTimeFormatterBuilder$CompositePrinterParser::load$($String* name, bool initialize) {
-	$loadClass(DateTimeFormatterBuilder$CompositePrinterParser, name, initialize, &_DateTimeFormatterBuilder$CompositePrinterParser_ClassInfo_, allocate$DateTimeFormatterBuilder$CompositePrinterParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"printerParsers", "[Ljava/time/format/DateTimeFormatterBuilder$DateTimePrinterParser;", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$CompositePrinterParser, printerParsers)},
+		{"optional", "Z", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$CompositePrinterParser, optional)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/time/format/DateTimeFormatterBuilder$DateTimePrinterParser;>;Z)V", 0, $method(DateTimeFormatterBuilder$CompositePrinterParser, init$, void, $List*, bool)},
+		{"<init>", "([Ljava/time/format/DateTimeFormatterBuilder$DateTimePrinterParser;Z)V", nullptr, 0, $method(DateTimeFormatterBuilder$CompositePrinterParser, init$, void, $DateTimeFormatterBuilder$DateTimePrinterParserArray*, bool)},
+		{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$CompositePrinterParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
+		{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$CompositePrinterParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$CompositePrinterParser, toString, $String*)},
+		{"withOptional", "(Z)Ljava/time/format/DateTimeFormatterBuilder$CompositePrinterParser;", nullptr, $PUBLIC, $method(DateTimeFormatterBuilder$CompositePrinterParser, withOptional, DateTimeFormatterBuilder$CompositePrinterParser*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.format.DateTimeFormatterBuilder$CompositePrinterParser", "java.time.format.DateTimeFormatterBuilder", "CompositePrinterParser", $STATIC | $FINAL},
+		{"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser", "java.time.format.DateTimeFormatterBuilder", "DateTimePrinterParser", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.time.format.DateTimeFormatterBuilder$CompositePrinterParser",
+		"java.lang.Object",
+		"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.format.DateTimeFormatterBuilder"
+	};
+	$loadClass(DateTimeFormatterBuilder$CompositePrinterParser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DateTimeFormatterBuilder$CompositePrinterParser);
+	});
 	return class$;
 }
 

@@ -14,10 +14,13 @@ public:
 	AbstractMethodError();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0xE90A6C134ADDA2A2;
+	static const int64_t serialVersionUID = (int64_t)0xe90a6c134adda2a2;
 	AbstractMethodError(const AbstractMethodError& e);
 	virtual void throw$() override;
-	inline AbstractMethodError* operator ->() {
+	inline AbstractMethodError* operator ->() const {
+		return (AbstractMethodError*)throwing$;
+	}
+	inline operator AbstractMethodError*() const {
 		return (AbstractMethodError*)throwing$;
 	}
 };

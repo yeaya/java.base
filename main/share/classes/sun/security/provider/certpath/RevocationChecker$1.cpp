@@ -1,5 +1,4 @@
 #include <sun/security/provider/certpath/RevocationChecker$1.h>
-
 #include <java/security/Security.h>
 #include <sun/security/provider/certpath/RevocationChecker$RevocationProperties.h>
 #include <sun/security/provider/certpath/RevocationChecker.h>
@@ -18,49 +17,11 @@ namespace sun {
 		namespace provider {
 			namespace certpath {
 
-$MethodInfo _RevocationChecker$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(RevocationChecker$1, init$, void)},
-	{"run", "()Lsun/security/provider/certpath/RevocationChecker$RevocationProperties;", nullptr, $PUBLIC, $virtualMethod(RevocationChecker$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _RevocationChecker$1_EnclosingMethodInfo_ = {
-	"sun.security.provider.certpath.RevocationChecker",
-	"getRevocationProperties",
-	"()Lsun/security/provider/certpath/RevocationChecker$RevocationProperties;"
-};
-
-$InnerClassInfo _RevocationChecker$1_InnerClassesInfo_[] = {
-	{"sun.security.provider.certpath.RevocationChecker$1", nullptr, nullptr, 0},
-	{"sun.security.provider.certpath.RevocationChecker$RevocationProperties", "sun.security.provider.certpath.RevocationChecker", "RevocationProperties", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _RevocationChecker$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.provider.certpath.RevocationChecker$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_RevocationChecker$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Lsun/security/provider/certpath/RevocationChecker$RevocationProperties;>;",
-	&_RevocationChecker$1_EnclosingMethodInfo_,
-	_RevocationChecker$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.certpath.RevocationChecker"
-};
-
-$Object* allocate$RevocationChecker$1($Class* clazz) {
-	return $of($alloc(RevocationChecker$1));
-}
-
 void RevocationChecker$1::init$() {
 }
 
 $Object* RevocationChecker$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RevocationChecker$RevocationProperties, rp, $new($RevocationChecker$RevocationProperties));
 	$var($String, onlyEE, $Security::getProperty("com.sun.security.onlyCheckRevocationOfEECert"_s));
 	rp->onlyEE = onlyEE != nullptr && onlyEE->equalsIgnoreCase("true"_s);
@@ -72,14 +33,46 @@ $Object* RevocationChecker$1::run() {
 	$set(rp, ocspSerial, $Security::getProperty("ocsp.responderCertSerialNumber"_s));
 	rp->crlDPEnabled = $Boolean::getBoolean("com.sun.security.enableCRLDP"_s);
 	rp->ocspNonce = $Boolean::getBoolean("jdk.security.certpath.ocspNonce"_s);
-	return $of(rp);
+	return rp;
 }
 
 RevocationChecker$1::RevocationChecker$1() {
 }
 
 $Class* RevocationChecker$1::load$($String* name, bool initialize) {
-	$loadClass(RevocationChecker$1, name, initialize, &_RevocationChecker$1_ClassInfo_, allocate$RevocationChecker$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(RevocationChecker$1, init$, void)},
+		{"run", "()Lsun/security/provider/certpath/RevocationChecker$RevocationProperties;", nullptr, $PUBLIC, $virtualMethod(RevocationChecker$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.provider.certpath.RevocationChecker",
+		"getRevocationProperties",
+		"()Lsun/security/provider/certpath/RevocationChecker$RevocationProperties;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.certpath.RevocationChecker$1", nullptr, nullptr, 0},
+		{"sun.security.provider.certpath.RevocationChecker$RevocationProperties", "sun.security.provider.certpath.RevocationChecker", "RevocationProperties", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.provider.certpath.RevocationChecker$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Lsun/security/provider/certpath/RevocationChecker$RevocationProperties;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.certpath.RevocationChecker"
+	};
+	$loadClass(RevocationChecker$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RevocationChecker$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/math/FloatingDecimal$BinaryToASCIIBuffer.h>
-
 #include <java/lang/Appendable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
@@ -40,69 +39,6 @@ namespace jdk {
 	namespace internal {
 		namespace math {
 
-$FieldInfo _FloatingDecimal$BinaryToASCIIBuffer_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FloatingDecimal$BinaryToASCIIBuffer, $assertionsDisabled)},
-	{"isNegative", "Z", nullptr, $PRIVATE, $field(FloatingDecimal$BinaryToASCIIBuffer, isNegative$)},
-	{"decExponent", "I", nullptr, $PRIVATE, $field(FloatingDecimal$BinaryToASCIIBuffer, decExponent)},
-	{"firstDigitIndex", "I", nullptr, $PRIVATE, $field(FloatingDecimal$BinaryToASCIIBuffer, firstDigitIndex)},
-	{"nDigits", "I", nullptr, $PRIVATE, $field(FloatingDecimal$BinaryToASCIIBuffer, nDigits)},
-	{"digits", "[C", nullptr, $PRIVATE | $FINAL, $field(FloatingDecimal$BinaryToASCIIBuffer, digits)},
-	{"buffer", "[C", nullptr, $PRIVATE | $FINAL, $field(FloatingDecimal$BinaryToASCIIBuffer, buffer)},
-	{"exactDecimalConversion", "Z", nullptr, $PRIVATE, $field(FloatingDecimal$BinaryToASCIIBuffer, exactDecimalConversion)},
-	{"decimalDigitsRoundedUp", "Z", nullptr, $PRIVATE, $field(FloatingDecimal$BinaryToASCIIBuffer, decimalDigitsRoundedUp)},
-	{"insignificantDigitsNumber", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal$BinaryToASCIIBuffer, insignificantDigitsNumber)},
-	{"N_5_BITS", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal$BinaryToASCIIBuffer, N_5_BITS)},
-	{}
-};
-
-$MethodInfo _FloatingDecimal$BinaryToASCIIBuffer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(FloatingDecimal$BinaryToASCIIBuffer, init$, void)},
-	{"<init>", "(Z[C)V", nullptr, 0, $method(FloatingDecimal$BinaryToASCIIBuffer, init$, void, bool, $chars*)},
-	{"appendTo", "(Ljava/lang/Appendable;)V", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$BinaryToASCIIBuffer, appendTo, void, $Appendable*)},
-	{"decimalDigitsExact", "()Z", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$BinaryToASCIIBuffer, decimalDigitsExact, bool)},
-	{"developLongDigits", "(IJI)V", nullptr, $PRIVATE, $method(FloatingDecimal$BinaryToASCIIBuffer, developLongDigits, void, int32_t, int64_t, int32_t)},
-	{"digitsRoundedUp", "()Z", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$BinaryToASCIIBuffer, digitsRoundedUp, bool)},
-	{"dtoa", "(IJIZ)V", nullptr, $PRIVATE, $method(FloatingDecimal$BinaryToASCIIBuffer, dtoa, void, int32_t, int64_t, int32_t, bool)},
-	{"estimateDecExp", "(JI)I", nullptr, $STATIC, $staticMethod(FloatingDecimal$BinaryToASCIIBuffer, estimateDecExp, int32_t, int64_t, int32_t)},
-	{"getChars", "([C)I", nullptr, $PRIVATE, $method(FloatingDecimal$BinaryToASCIIBuffer, getChars, int32_t, $chars*)},
-	{"getDecimalExponent", "()I", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$BinaryToASCIIBuffer, getDecimalExponent, int32_t)},
-	{"getDigits", "([C)I", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$BinaryToASCIIBuffer, getDigits, int32_t, $chars*)},
-	{"insignificantDigits", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(FloatingDecimal$BinaryToASCIIBuffer, insignificantDigits, int32_t, int32_t)},
-	{"insignificantDigitsForPow2", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(FloatingDecimal$BinaryToASCIIBuffer, insignificantDigitsForPow2, int32_t, int32_t)},
-	{"isExceptional", "()Z", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$BinaryToASCIIBuffer, isExceptional, bool)},
-	{"isNegative", "()Z", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$BinaryToASCIIBuffer, isNegative, bool)},
-	{"roundup", "()V", nullptr, $PRIVATE, $method(FloatingDecimal$BinaryToASCIIBuffer, roundup, void)},
-	{"setSign", "(Z)V", nullptr, $PRIVATE, $method(FloatingDecimal$BinaryToASCIIBuffer, setSign, void, bool)},
-	{"toJavaFormatString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$BinaryToASCIIBuffer, toJavaFormatString, $String*)},
-	{}
-};
-
-$InnerClassInfo _FloatingDecimal$BinaryToASCIIBuffer_InnerClassesInfo_[] = {
-	{"jdk.internal.math.FloatingDecimal$BinaryToASCIIBuffer", "jdk.internal.math.FloatingDecimal", "BinaryToASCIIBuffer", $STATIC},
-	{"jdk.internal.math.FloatingDecimal$BinaryToASCIIConverter", "jdk.internal.math.FloatingDecimal", "BinaryToASCIIConverter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _FloatingDecimal$BinaryToASCIIBuffer_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.math.FloatingDecimal$BinaryToASCIIBuffer",
-	"java.lang.Object",
-	"jdk.internal.math.FloatingDecimal$BinaryToASCIIConverter",
-	_FloatingDecimal$BinaryToASCIIBuffer_FieldInfo_,
-	_FloatingDecimal$BinaryToASCIIBuffer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FloatingDecimal$BinaryToASCIIBuffer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.math.FloatingDecimal"
-};
-
-$Object* allocate$FloatingDecimal$BinaryToASCIIBuffer($Class* clazz) {
-	return $of($alloc(FloatingDecimal$BinaryToASCIIBuffer));
-}
-
 bool FloatingDecimal$BinaryToASCIIBuffer::$assertionsDisabled = false;
 $ints* FloatingDecimal$BinaryToASCIIBuffer::insignificantDigitsNumber = nullptr;
 $ints* FloatingDecimal$BinaryToASCIIBuffer::N_5_BITS = nullptr;
@@ -133,9 +69,9 @@ $String* FloatingDecimal$BinaryToASCIIBuffer::toJavaFormatString() {
 void FloatingDecimal$BinaryToASCIIBuffer::appendTo($Appendable* buf) {
 	int32_t len = getChars(this->buffer);
 	if ($instanceOf($StringBuilder, buf)) {
-		$nc(($cast($StringBuilder, buf)))->append(this->buffer, 0, len);
+		$cast($StringBuilder, buf)->append(this->buffer, 0, len);
 	} else if ($instanceOf($StringBuffer, buf)) {
-		$nc(($cast($StringBuffer, buf)))->append(this->buffer, 0, len);
+		$cast($StringBuffer, buf)->append(this->buffer, 0, len);
 	} else if (!FloatingDecimal$BinaryToASCIIBuffer::$assertionsDisabled) {
 		$throwNew($AssertionError);
 	}
@@ -184,7 +120,7 @@ void FloatingDecimal$BinaryToASCIIBuffer::developLongDigits(int32_t decExponent,
 	int32_t digitno = $nc(this->digits)->length - 1;
 	int32_t c = 0;
 	if (lvalue <= $Integer::MAX_VALUE) {
-		if (!FloatingDecimal$BinaryToASCIIBuffer::$assertionsDisabled && !(lvalue > (int64_t)0)) {
+		if (!FloatingDecimal$BinaryToASCIIBuffer::$assertionsDisabled && !(lvalue > 0)) {
 			$throwNew($AssertionError, lvalue);
 		}
 		int32_t ivalue = (int32_t)lvalue;
@@ -196,12 +132,12 @@ void FloatingDecimal$BinaryToASCIIBuffer::developLongDigits(int32_t decExponent,
 			ivalue /= 10;
 		}
 		while (ivalue != 0) {
-			$nc(this->digits)->set(digitno--, (char16_t)(c + u'0'));
+			this->digits->set(digitno--, (char16_t)(c + u'0'));
 			++decExponent;
 			c = ivalue % 10;
 			ivalue /= 10;
 		}
-		$nc(this->digits)->set(digitno, (char16_t)(c + u'0'));
+		this->digits->set(digitno, (char16_t)(c + u'0'));
 	} else {
 		c = (int32_t)($mod(lvalue, (int64_t)10));
 		lvalue /= 10;
@@ -210,13 +146,13 @@ void FloatingDecimal$BinaryToASCIIBuffer::developLongDigits(int32_t decExponent,
 			c = (int32_t)($mod(lvalue, (int64_t)10));
 			lvalue /= 10;
 		}
-		while (lvalue != (int64_t)0) {
-			$nc(this->digits)->set(digitno--, (char16_t)(c + u'0'));
+		while (lvalue != 0) {
+			this->digits->set(digitno--, (char16_t)(c + u'0'));
 			++decExponent;
 			c = (int32_t)($mod(lvalue, (int64_t)10));
 			lvalue /= 10;
 		}
-		$nc(this->digits)->set(digitno, (char16_t)(c + u'0'));
+		this->digits->set(digitno, (char16_t)(c + u'0'));
 	}
 	this->decExponent = decExponent + 1;
 	this->firstDigitIndex = digitno;
@@ -224,11 +160,11 @@ void FloatingDecimal$BinaryToASCIIBuffer::developLongDigits(int32_t decExponent,
 }
 
 void FloatingDecimal$BinaryToASCIIBuffer::dtoa(int32_t binExp, int64_t fractBits, int32_t nSignificantBits, bool isCompatibleFormat) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!FloatingDecimal$BinaryToASCIIBuffer::$assertionsDisabled && !(fractBits > 0)) {
 		$throwNew($AssertionError);
 	}
-	if (!FloatingDecimal$BinaryToASCIIBuffer::$assertionsDisabled && !(((int64_t)(fractBits & (uint64_t)(int64_t)0x0010000000000000)) != 0)) {
+	if (!FloatingDecimal$BinaryToASCIIBuffer::$assertionsDisabled && !((fractBits & (int64_t)0x0010000000000000) != 0)) {
 		$throwNew($AssertionError);
 	}
 	int32_t tailZeros = $Long::numberOfTrailingZeros(fractBits);
@@ -238,7 +174,7 @@ void FloatingDecimal$BinaryToASCIIBuffer::dtoa(int32_t binExp, int64_t fractBits
 	int32_t nTinyBits = $Math::max(0, nFractBits - binExp - 1);
 	if (binExp <= 62 && binExp >= -21) {
 		$init($FDBigInteger);
-		if ((nTinyBits < $nc($FDBigInteger::LONG_5_POW)->length) && ((nFractBits + $nc(FloatingDecimal$BinaryToASCIIBuffer::N_5_BITS)->get(nTinyBits)) < 64)) {
+		if ((nTinyBits < $nc($FDBigInteger::LONG_5_POW)->length) && ((nFractBits + FloatingDecimal$BinaryToASCIIBuffer::N_5_BITS->get(nTinyBits)) < 64)) {
 			if (nTinyBits == 0) {
 				int32_t insignificant = 0;
 				if (binExp > nSignificantBits) {
@@ -288,14 +224,14 @@ void FloatingDecimal$BinaryToASCIIBuffer::dtoa(int32_t binExp, int64_t fractBits
 	bool high = false;
 	int64_t lowDigitDifference = 0;
 	int32_t q = 0;
-	int32_t Bbits = nFractBits + B2 + ((B5 < $nc(FloatingDecimal$BinaryToASCIIBuffer::N_5_BITS)->length) ? $nc(FloatingDecimal$BinaryToASCIIBuffer::N_5_BITS)->get(B5) : (B5 * 3));
-	int32_t tenSbits = S2 + 1 + (((S5 + 1) < $nc(FloatingDecimal$BinaryToASCIIBuffer::N_5_BITS)->length) ? $nc(FloatingDecimal$BinaryToASCIIBuffer::N_5_BITS)->get(S5 + 1) : ((S5 + 1) * 3));
+	int32_t Bbits = nFractBits + B2 + ((B5 < FloatingDecimal$BinaryToASCIIBuffer::N_5_BITS->length) ? FloatingDecimal$BinaryToASCIIBuffer::N_5_BITS->get(B5) : (B5 * 3));
+	int32_t tenSbits = S2 + 1 + (((S5 + 1) < FloatingDecimal$BinaryToASCIIBuffer::N_5_BITS->length) ? FloatingDecimal$BinaryToASCIIBuffer::N_5_BITS->get(S5 + 1) : ((S5 + 1) * 3));
 	if (Bbits < 64 && tenSbits < 64) {
 		if (Bbits < 32 && tenSbits < 32) {
 			$init($FDBigInteger);
 			int32_t b = $sl((int32_t)fractBits * $nc($FDBigInteger::SMALL_5_POW)->get(B5), B2);
-			int32_t s = $sl($nc($FDBigInteger::SMALL_5_POW)->get(S5), S2);
-			int32_t m = $sl($nc($FDBigInteger::SMALL_5_POW)->get(M5), M2);
+			int32_t s = $sl($FDBigInteger::SMALL_5_POW->get(S5), S2);
+			int32_t m = $sl($FDBigInteger::SMALL_5_POW->get(M5), M2);
 			int32_t tens = s * 10;
 			ndigit = 0;
 			q = $div(b, s);
@@ -321,7 +257,7 @@ void FloatingDecimal$BinaryToASCIIBuffer::dtoa(int32_t binExp, int64_t fractBits
 				if (!FloatingDecimal$BinaryToASCIIBuffer::$assertionsDisabled && !(q < 10)) {
 					$throwNew($AssertionError, q);
 				}
-				if (m > (int64_t)0) {
+				if (m > 0) {
 					low = (b < m);
 					high = (b + m > tens);
 				} else {
@@ -335,8 +271,8 @@ void FloatingDecimal$BinaryToASCIIBuffer::dtoa(int32_t binExp, int64_t fractBits
 		} else {
 			$init($FDBigInteger);
 			int64_t b = $sl(fractBits * $nc($FDBigInteger::LONG_5_POW)->get(B5), B2);
-			int64_t s = $sl($nc($FDBigInteger::LONG_5_POW)->get(S5), S2);
-			int64_t m = $sl($nc($FDBigInteger::LONG_5_POW)->get(M5), M2);
+			int64_t s = $sl($FDBigInteger::LONG_5_POW->get(S5), S2);
+			int64_t m = $sl($FDBigInteger::LONG_5_POW->get(M5), M2);
 			int64_t tens = s * (int64_t)10;
 			ndigit = 0;
 			q = (int32_t)($div(b, s));
@@ -362,7 +298,7 @@ void FloatingDecimal$BinaryToASCIIBuffer::dtoa(int32_t binExp, int64_t fractBits
 				if (!FloatingDecimal$BinaryToASCIIBuffer::$assertionsDisabled && !(q < 10)) {
 					$throwNew($AssertionError, q);
 				}
-				if (m > (int64_t)0) {
+				if (m > 0) {
 					low = (b < m);
 					high = (b + m > tens);
 				} else {
@@ -419,8 +355,8 @@ void FloatingDecimal$BinaryToASCIIBuffer::dtoa(int32_t binExp, int64_t fractBits
 	this->nDigits = ndigit;
 	if (high) {
 		if (low) {
-			if (lowDigitDifference == (int64_t)0) {
-				if (((int32_t)($nc(this->digits)->get(this->firstDigitIndex + this->nDigits - 1) & (uint32_t)1)) != 0) {
+			if (lowDigitDifference == 0) {
+				if (($nc(this->digits)->get(this->firstDigitIndex + this->nDigits - 1) & 1) != 0) {
 					roundup();
 				}
 			} else if (lowDigitDifference > 0) {
@@ -437,32 +373,32 @@ void FloatingDecimal$BinaryToASCIIBuffer::roundup() {
 	int32_t q = $nc(this->digits)->get(i);
 	if (q == u'9') {
 		while (q == u'9' && i > this->firstDigitIndex) {
-			$nc(this->digits)->set(i, u'0');
-			q = $nc(this->digits)->get(--i);
+			this->digits->set(i, u'0');
+			q = this->digits->get(--i);
 		}
 		if (q == u'9') {
 			this->decExponent += 1;
-			$nc(this->digits)->set(this->firstDigitIndex, u'1');
+			this->digits->set(this->firstDigitIndex, u'1');
 			return;
 		}
 	}
-	$nc(this->digits)->set(i, (char16_t)(q + 1));
+	this->digits->set(i, (char16_t)(q + 1));
 	this->decimalDigitsRoundedUp = true;
 }
 
 int32_t FloatingDecimal$BinaryToASCIIBuffer::estimateDecExp(int64_t fractBits, int32_t binExp) {
 	$init(FloatingDecimal$BinaryToASCIIBuffer);
-	double d2 = $Double::longBitsToDouble((int64_t)0x3FF0000000000000 | ((int64_t)(fractBits & (uint64_t)$DoubleConsts::SIGNIF_BIT_MASK)));
+	double d2 = $Double::longBitsToDouble((int64_t)0x3ff0000000000000 | (fractBits & $DoubleConsts::SIGNIF_BIT_MASK));
 	double d = (d2 - 1.5) * 0.289529654 + 0.176091259 + (double)binExp * 0.301029995663981;
 	int64_t dBits = $Double::doubleToRawLongBits(d);
-	int32_t exponent = (int32_t)(((int64_t)(dBits & (uint64_t)$DoubleConsts::EXP_BIT_MASK)) >> 52) - $DoubleConsts::EXP_BIAS;
-	bool isNegative = ((int64_t)(dBits & (uint64_t)$DoubleConsts::SIGN_BIT_MASK)) != 0;
+	int32_t exponent = (int32_t)((dBits & $DoubleConsts::EXP_BIT_MASK) >> 0x34) - $DoubleConsts::EXP_BIAS;
+	bool isNegative = (dBits & $DoubleConsts::SIGN_BIT_MASK) != 0;
 	if (exponent >= 0 && exponent < 52) {
 		int64_t mask = $sr($DoubleConsts::SIGNIF_BIT_MASK, exponent);
-		int32_t r = (int32_t)($sr(((int64_t)(dBits & (uint64_t)$DoubleConsts::SIGNIF_BIT_MASK)) | (int64_t)0x0010000000000000, 52 - exponent));
-		return isNegative ? ((((int64_t)(mask & (uint64_t)dBits)) == (int64_t)0) ? -r : -r - 1) : r;
+		int32_t r = (int32_t)($sr((dBits & $DoubleConsts::SIGNIF_BIT_MASK) | (int64_t)0x0010000000000000, 52 - exponent));
+		return isNegative ? (((mask & dBits) == 0) ? -r : -r - 1) : r;
 	} else if (exponent < 0) {
-		return ((((int64_t)(dBits & (uint64_t)~$DoubleConsts::SIGN_BIT_MASK)) == 0) ? 0 : ((isNegative) ? -1 : 0));
+		return (((dBits & ~$DoubleConsts::SIGN_BIT_MASK) == 0) ? 0 : ((isNegative) ? -1 : 0));
 	} else {
 		return $cast(int32_t, d);
 	}
@@ -471,7 +407,7 @@ int32_t FloatingDecimal$BinaryToASCIIBuffer::estimateDecExp(int64_t fractBits, i
 int32_t FloatingDecimal$BinaryToASCIIBuffer::insignificantDigits(int32_t insignificant) {
 	$init(FloatingDecimal$BinaryToASCIIBuffer);
 	int32_t i = 0;
-	for (i = 0; insignificant >= (int64_t)10; ++i) {
+	for (i = 0; insignificant >= 10; ++i) {
 		insignificant /= 10;
 	}
 	return i;
@@ -479,8 +415,8 @@ int32_t FloatingDecimal$BinaryToASCIIBuffer::insignificantDigits(int32_t insigni
 
 int32_t FloatingDecimal$BinaryToASCIIBuffer::insignificantDigitsForPow2(int32_t p2) {
 	$init(FloatingDecimal$BinaryToASCIIBuffer);
-	if (p2 > 1 && p2 < $nc(FloatingDecimal$BinaryToASCIIBuffer::insignificantDigitsNumber)->length) {
-		return $nc(FloatingDecimal$BinaryToASCIIBuffer::insignificantDigitsNumber)->get(p2);
+	if (p2 > 1 && p2 < FloatingDecimal$BinaryToASCIIBuffer::insignificantDigitsNumber->length) {
+		return FloatingDecimal$BinaryToASCIIBuffer::insignificantDigitsNumber->get(p2);
 	}
 	return 0;
 }
@@ -555,7 +491,7 @@ int32_t FloatingDecimal$BinaryToASCIIBuffer::getChars($chars* result) {
 	return i;
 }
 
-void clinit$FloatingDecimal$BinaryToASCIIBuffer($Class* class$) {
+void FloatingDecimal$BinaryToASCIIBuffer::clinit$($Class* clazz) {
 	$load($FloatingDecimal);
 	FloatingDecimal$BinaryToASCIIBuffer::$assertionsDisabled = !$FloatingDecimal::class$->desiredAssertionStatus();
 	$assignStatic(FloatingDecimal$BinaryToASCIIBuffer::insignificantDigitsNumber, $new($ints, {
@@ -659,7 +595,64 @@ FloatingDecimal$BinaryToASCIIBuffer::FloatingDecimal$BinaryToASCIIBuffer() {
 }
 
 $Class* FloatingDecimal$BinaryToASCIIBuffer::load$($String* name, bool initialize) {
-	$loadClass(FloatingDecimal$BinaryToASCIIBuffer, name, initialize, &_FloatingDecimal$BinaryToASCIIBuffer_ClassInfo_, clinit$FloatingDecimal$BinaryToASCIIBuffer, allocate$FloatingDecimal$BinaryToASCIIBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FloatingDecimal$BinaryToASCIIBuffer, $assertionsDisabled)},
+		{"isNegative", "Z", nullptr, $PRIVATE, $field(FloatingDecimal$BinaryToASCIIBuffer, isNegative$)},
+		{"decExponent", "I", nullptr, $PRIVATE, $field(FloatingDecimal$BinaryToASCIIBuffer, decExponent)},
+		{"firstDigitIndex", "I", nullptr, $PRIVATE, $field(FloatingDecimal$BinaryToASCIIBuffer, firstDigitIndex)},
+		{"nDigits", "I", nullptr, $PRIVATE, $field(FloatingDecimal$BinaryToASCIIBuffer, nDigits)},
+		{"digits", "[C", nullptr, $PRIVATE | $FINAL, $field(FloatingDecimal$BinaryToASCIIBuffer, digits)},
+		{"buffer", "[C", nullptr, $PRIVATE | $FINAL, $field(FloatingDecimal$BinaryToASCIIBuffer, buffer)},
+		{"exactDecimalConversion", "Z", nullptr, $PRIVATE, $field(FloatingDecimal$BinaryToASCIIBuffer, exactDecimalConversion)},
+		{"decimalDigitsRoundedUp", "Z", nullptr, $PRIVATE, $field(FloatingDecimal$BinaryToASCIIBuffer, decimalDigitsRoundedUp)},
+		{"insignificantDigitsNumber", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal$BinaryToASCIIBuffer, insignificantDigitsNumber)},
+		{"N_5_BITS", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal$BinaryToASCIIBuffer, N_5_BITS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(FloatingDecimal$BinaryToASCIIBuffer, init$, void)},
+		{"<init>", "(Z[C)V", nullptr, 0, $method(FloatingDecimal$BinaryToASCIIBuffer, init$, void, bool, $chars*)},
+		{"appendTo", "(Ljava/lang/Appendable;)V", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$BinaryToASCIIBuffer, appendTo, void, $Appendable*)},
+		{"decimalDigitsExact", "()Z", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$BinaryToASCIIBuffer, decimalDigitsExact, bool)},
+		{"developLongDigits", "(IJI)V", nullptr, $PRIVATE, $method(FloatingDecimal$BinaryToASCIIBuffer, developLongDigits, void, int32_t, int64_t, int32_t)},
+		{"digitsRoundedUp", "()Z", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$BinaryToASCIIBuffer, digitsRoundedUp, bool)},
+		{"dtoa", "(IJIZ)V", nullptr, $PRIVATE, $method(FloatingDecimal$BinaryToASCIIBuffer, dtoa, void, int32_t, int64_t, int32_t, bool)},
+		{"estimateDecExp", "(JI)I", nullptr, $STATIC, $staticMethod(FloatingDecimal$BinaryToASCIIBuffer, estimateDecExp, int32_t, int64_t, int32_t)},
+		{"getChars", "([C)I", nullptr, $PRIVATE, $method(FloatingDecimal$BinaryToASCIIBuffer, getChars, int32_t, $chars*)},
+		{"getDecimalExponent", "()I", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$BinaryToASCIIBuffer, getDecimalExponent, int32_t)},
+		{"getDigits", "([C)I", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$BinaryToASCIIBuffer, getDigits, int32_t, $chars*)},
+		{"insignificantDigits", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(FloatingDecimal$BinaryToASCIIBuffer, insignificantDigits, int32_t, int32_t)},
+		{"insignificantDigitsForPow2", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(FloatingDecimal$BinaryToASCIIBuffer, insignificantDigitsForPow2, int32_t, int32_t)},
+		{"isExceptional", "()Z", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$BinaryToASCIIBuffer, isExceptional, bool)},
+		{"isNegative", "()Z", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$BinaryToASCIIBuffer, isNegative, bool)},
+		{"roundup", "()V", nullptr, $PRIVATE, $method(FloatingDecimal$BinaryToASCIIBuffer, roundup, void)},
+		{"setSign", "(Z)V", nullptr, $PRIVATE, $method(FloatingDecimal$BinaryToASCIIBuffer, setSign, void, bool)},
+		{"toJavaFormatString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$BinaryToASCIIBuffer, toJavaFormatString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.math.FloatingDecimal$BinaryToASCIIBuffer", "jdk.internal.math.FloatingDecimal", "BinaryToASCIIBuffer", $STATIC},
+		{"jdk.internal.math.FloatingDecimal$BinaryToASCIIConverter", "jdk.internal.math.FloatingDecimal", "BinaryToASCIIConverter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.math.FloatingDecimal$BinaryToASCIIBuffer",
+		"java.lang.Object",
+		"jdk.internal.math.FloatingDecimal$BinaryToASCIIConverter",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.math.FloatingDecimal"
+	};
+	$loadClass(FloatingDecimal$BinaryToASCIIBuffer, name, initialize, &classInfo$$, FloatingDecimal$BinaryToASCIIBuffer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FloatingDecimal$BinaryToASCIIBuffer);
+	});
 	return class$;
 }
 

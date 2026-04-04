@@ -31,6 +31,7 @@ class $export CLDRCalendarDataProviderImpl : public ::sun::util::locale::provide
 	$class(CLDRCalendarDataProviderImpl, 0, ::sun::util::locale::provider::CalendarDataProviderImpl)
 public:
 	CLDRCalendarDataProviderImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::util::locale::provider::LocaleProviderAdapter$Type* type, ::java::util::Set* langtags);
 	static int32_t findValue($String* key, ::java::util::Locale* locale);
 	virtual int32_t getFirstDayOfWeek(::java::util::Locale* locale) override;

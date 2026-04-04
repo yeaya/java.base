@@ -98,6 +98,7 @@ class $import StringConcatFactory : public ::java::lang::Object {
 	$class(StringConcatFactory, $PRELOAD, ::java::lang::Object)
 public:
 	StringConcatFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::invoke::StringConcatException* argumentMismatch(::java::lang::invoke::MethodType* concatType, int32_t oCount);
 	static ::java::lang::invoke::MethodHandle* booleanStringifier();

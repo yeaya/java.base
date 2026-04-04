@@ -1,5 +1,4 @@
 #include <java/security/spec/RSAPrivateCrtKeySpec.h>
-
 #include <java/math/BigInteger.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <java/security/spec/RSAPrivateKeySpec.h>
@@ -15,41 +14,6 @@ using $RSAPrivateKeySpec = ::java::security::spec::RSAPrivateKeySpec;
 namespace java {
 	namespace security {
 		namespace spec {
-
-$FieldInfo _RSAPrivateCrtKeySpec_FieldInfo_[] = {
-	{"publicExponent", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(RSAPrivateCrtKeySpec, publicExponent)},
-	{"primeP", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(RSAPrivateCrtKeySpec, primeP)},
-	{"primeQ", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(RSAPrivateCrtKeySpec, primeQ)},
-	{"primeExponentP", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(RSAPrivateCrtKeySpec, primeExponentP)},
-	{"primeExponentQ", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(RSAPrivateCrtKeySpec, primeExponentQ)},
-	{"crtCoefficient", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(RSAPrivateCrtKeySpec, crtCoefficient)},
-	{}
-};
-
-$MethodInfo _RSAPrivateCrtKeySpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(RSAPrivateCrtKeySpec, init$, void, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*)},
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $method(RSAPrivateCrtKeySpec, init$, void, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $AlgorithmParameterSpec*)},
-	{"getCrtCoefficient", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateCrtKeySpec, getCrtCoefficient, $BigInteger*)},
-	{"getPrimeExponentP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateCrtKeySpec, getPrimeExponentP, $BigInteger*)},
-	{"getPrimeExponentQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateCrtKeySpec, getPrimeExponentQ, $BigInteger*)},
-	{"getPrimeP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateCrtKeySpec, getPrimeP, $BigInteger*)},
-	{"getPrimeQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateCrtKeySpec, getPrimeQ, $BigInteger*)},
-	{"getPublicExponent", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateCrtKeySpec, getPublicExponent, $BigInteger*)},
-	{}
-};
-
-$ClassInfo _RSAPrivateCrtKeySpec_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.spec.RSAPrivateCrtKeySpec",
-	"java.security.spec.RSAPrivateKeySpec",
-	nullptr,
-	_RSAPrivateCrtKeySpec_FieldInfo_,
-	_RSAPrivateCrtKeySpec_MethodInfo_
-};
-
-$Object* allocate$RSAPrivateCrtKeySpec($Class* clazz) {
-	return $of($alloc(RSAPrivateCrtKeySpec));
-}
 
 void RSAPrivateCrtKeySpec::init$($BigInteger* modulus, $BigInteger* publicExponent, $BigInteger* privateExponent, $BigInteger* primeP, $BigInteger* primeQ, $BigInteger* primeExponentP, $BigInteger* primeExponentQ, $BigInteger* crtCoefficient) {
 	RSAPrivateCrtKeySpec::init$(modulus, publicExponent, privateExponent, primeP, primeQ, primeExponentP, primeExponentQ, crtCoefficient, nullptr);
@@ -93,7 +57,37 @@ RSAPrivateCrtKeySpec::RSAPrivateCrtKeySpec() {
 }
 
 $Class* RSAPrivateCrtKeySpec::load$($String* name, bool initialize) {
-	$loadClass(RSAPrivateCrtKeySpec, name, initialize, &_RSAPrivateCrtKeySpec_ClassInfo_, allocate$RSAPrivateCrtKeySpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"publicExponent", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(RSAPrivateCrtKeySpec, publicExponent)},
+		{"primeP", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(RSAPrivateCrtKeySpec, primeP)},
+		{"primeQ", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(RSAPrivateCrtKeySpec, primeQ)},
+		{"primeExponentP", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(RSAPrivateCrtKeySpec, primeExponentP)},
+		{"primeExponentQ", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(RSAPrivateCrtKeySpec, primeExponentQ)},
+		{"crtCoefficient", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(RSAPrivateCrtKeySpec, crtCoefficient)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(RSAPrivateCrtKeySpec, init$, void, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*)},
+		{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $method(RSAPrivateCrtKeySpec, init$, void, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $AlgorithmParameterSpec*)},
+		{"getCrtCoefficient", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateCrtKeySpec, getCrtCoefficient, $BigInteger*)},
+		{"getPrimeExponentP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateCrtKeySpec, getPrimeExponentP, $BigInteger*)},
+		{"getPrimeExponentQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateCrtKeySpec, getPrimeExponentQ, $BigInteger*)},
+		{"getPrimeP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateCrtKeySpec, getPrimeP, $BigInteger*)},
+		{"getPrimeQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateCrtKeySpec, getPrimeQ, $BigInteger*)},
+		{"getPublicExponent", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateCrtKeySpec, getPublicExponent, $BigInteger*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.spec.RSAPrivateCrtKeySpec",
+		"java.security.spec.RSAPrivateKeySpec",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RSAPrivateCrtKeySpec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RSAPrivateCrtKeySpec);
+	});
 	return class$;
 }
 

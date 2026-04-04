@@ -1,5 +1,4 @@
 #include <sun/security/provider/certpath/AdaptableX509CertSelector.h>
-
 #include <java/io/IOException.h>
 #include <java/math/BigInteger.h>
 #include <java/security/cert/Certificate.h>
@@ -41,40 +40,6 @@ namespace sun {
 		namespace provider {
 			namespace certpath {
 
-$FieldInfo _AdaptableX509CertSelector_FieldInfo_[] = {
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AdaptableX509CertSelector, debug)},
-	{"startDate", "Ljava/util/Date;", nullptr, $PRIVATE, $field(AdaptableX509CertSelector, startDate)},
-	{"endDate", "Ljava/util/Date;", nullptr, $PRIVATE, $field(AdaptableX509CertSelector, endDate)},
-	{"ski", "[B", nullptr, $PRIVATE, $field(AdaptableX509CertSelector, ski)},
-	{"serial", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(AdaptableX509CertSelector, serial)},
-	{}
-};
-
-$MethodInfo _AdaptableX509CertSelector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AdaptableX509CertSelector, init$, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AdaptableX509CertSelector, clone, $Object*)},
-	{"match", "(Ljava/security/cert/Certificate;)Z", nullptr, $PUBLIC, $virtualMethod(AdaptableX509CertSelector, match, bool, $Certificate*)},
-	{"matchSubjectKeyID", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $PRIVATE, $method(AdaptableX509CertSelector, matchSubjectKeyID, bool, $X509Certificate*)},
-	{"setSerialNumber", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $virtualMethod(AdaptableX509CertSelector, setSerialNumber, void, $BigInteger*)},
-	{"setSkiAndSerialNumber", "(Lsun/security/x509/AuthorityKeyIdentifierExtension;)V", nullptr, 0, $virtualMethod(AdaptableX509CertSelector, setSkiAndSerialNumber, void, $AuthorityKeyIdentifierExtension*), "java.io.IOException"},
-	{"setSubjectKeyIdentifier", "([B)V", nullptr, $PUBLIC, $virtualMethod(AdaptableX509CertSelector, setSubjectKeyIdentifier, void, $bytes*)},
-	{"setValidityPeriod", "(Ljava/util/Date;Ljava/util/Date;)V", nullptr, 0, $virtualMethod(AdaptableX509CertSelector, setValidityPeriod, void, $Date*, $Date*)},
-	{}
-};
-
-$ClassInfo _AdaptableX509CertSelector_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.provider.certpath.AdaptableX509CertSelector",
-	"java.security.cert.X509CertSelector",
-	nullptr,
-	_AdaptableX509CertSelector_FieldInfo_,
-	_AdaptableX509CertSelector_MethodInfo_
-};
-
-$Object* allocate$AdaptableX509CertSelector($Class* clazz) {
-	return $of($alloc(AdaptableX509CertSelector));
-}
-
 $Debug* AdaptableX509CertSelector::debug = nullptr;
 
 void AdaptableX509CertSelector::init$() {
@@ -107,14 +72,14 @@ void AdaptableX509CertSelector::setSkiAndSerialNumber($AuthorityKeyIdentifierExt
 }
 
 bool AdaptableX509CertSelector::match($Certificate* cert) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($X509Certificate, xcert, $cast($X509Certificate, cert));
 	if (!matchSubjectKeyID(xcert)) {
 		return false;
 	}
 	int32_t version = $nc(xcert)->getVersion();
 	if (this->serial != nullptr && version > 2) {
-		if (!$nc(this->serial)->equals($(xcert->getSerialNumber()))) {
+		if (!this->serial->equals($(xcert->getSerialNumber()))) {
 			return false;
 		}
 	}
@@ -141,7 +106,7 @@ bool AdaptableX509CertSelector::match($Certificate* cert) {
 }
 
 bool AdaptableX509CertSelector::matchSubjectKeyID($X509Certificate* xcert) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->ski == nullptr) {
 		return true;
 	}
@@ -150,7 +115,7 @@ bool AdaptableX509CertSelector::matchSubjectKeyID($X509Certificate* xcert) {
 		$var($bytes, extVal, $nc(xcert)->getExtensionValue($($KnownOIDs::SubjectKeyID->value())));
 		if (extVal == nullptr) {
 			if (AdaptableX509CertSelector::debug != nullptr && $Debug::isVerbose()) {
-				$nc(AdaptableX509CertSelector::debug)->println($$str({"AdaptableX509CertSelector.match: no subject key ID extension. Subject: "_s, $(xcert->getSubjectX500Principal())}));
+				AdaptableX509CertSelector::debug->println($$str({"AdaptableX509CertSelector.match: no subject key ID extension. Subject: "_s, $(xcert->getSubjectX500Principal())}));
 			}
 			return true;
 		}
@@ -158,14 +123,18 @@ bool AdaptableX509CertSelector::matchSubjectKeyID($X509Certificate* xcert) {
 		$var($bytes, certSubjectKeyID, in->getOctetString());
 		if (certSubjectKeyID == nullptr || !$Arrays::equals(this->ski, certSubjectKeyID)) {
 			if (AdaptableX509CertSelector::debug != nullptr && $Debug::isVerbose()) {
-				$var($String, var$0, $$str({"AdaptableX509CertSelector.match: subject key IDs don\'t match. Expected: "_s, $($Arrays::toString(this->ski)), " Cert\'s: "_s}));
-				$nc(AdaptableX509CertSelector::debug)->println($$concat(var$0, $($Arrays::toString(certSubjectKeyID))));
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append("AdaptableX509CertSelector.match: subject key IDs don\'t match. Expected: "_s);
+				var$0->append($($Arrays::toString(this->ski)));
+				var$0->append(" Cert\'s: "_s);
+				var$0->append($($Arrays::toString(certSubjectKeyID)));
+				AdaptableX509CertSelector::debug->println($$str(var$0));
 			}
 			return false;
 		}
 	} catch ($IOException& ex) {
 		if (AdaptableX509CertSelector::debug != nullptr && $Debug::isVerbose()) {
-			$nc(AdaptableX509CertSelector::debug)->println("AdaptableX509CertSelector.match: exception in subject key ID check"_s);
+			AdaptableX509CertSelector::debug->println("AdaptableX509CertSelector.match: exception in subject key ID check"_s);
 		}
 		return false;
 	}
@@ -175,18 +144,18 @@ bool AdaptableX509CertSelector::matchSubjectKeyID($X509Certificate* xcert) {
 $Object* AdaptableX509CertSelector::clone() {
 	$var(AdaptableX509CertSelector, copy, $cast(AdaptableX509CertSelector, $X509CertSelector::clone()));
 	if (this->startDate != nullptr) {
-		$set($nc(copy), startDate, $cast($Date, $nc(this->startDate)->clone()));
+		$set($nc(copy), startDate, $cast($Date, this->startDate->clone()));
 	}
 	if (this->endDate != nullptr) {
-		$set($nc(copy), endDate, $cast($Date, $nc(this->endDate)->clone()));
+		$set($nc(copy), endDate, $cast($Date, this->endDate->clone()));
 	}
 	if (this->ski != nullptr) {
-		$set($nc(copy), ski, $cast($bytes, $nc(this->ski)->clone()));
+		$set($nc(copy), ski, $cast($bytes, this->ski->clone()));
 	}
-	return $of(copy);
+	return copy;
 }
 
-void clinit$AdaptableX509CertSelector($Class* class$) {
+void AdaptableX509CertSelector::clinit$($Class* clazz) {
 	$assignStatic(AdaptableX509CertSelector::debug, $Debug::getInstance("certpath"_s));
 }
 
@@ -194,7 +163,36 @@ AdaptableX509CertSelector::AdaptableX509CertSelector() {
 }
 
 $Class* AdaptableX509CertSelector::load$($String* name, bool initialize) {
-	$loadClass(AdaptableX509CertSelector, name, initialize, &_AdaptableX509CertSelector_ClassInfo_, clinit$AdaptableX509CertSelector, allocate$AdaptableX509CertSelector);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AdaptableX509CertSelector, debug)},
+		{"startDate", "Ljava/util/Date;", nullptr, $PRIVATE, $field(AdaptableX509CertSelector, startDate)},
+		{"endDate", "Ljava/util/Date;", nullptr, $PRIVATE, $field(AdaptableX509CertSelector, endDate)},
+		{"ski", "[B", nullptr, $PRIVATE, $field(AdaptableX509CertSelector, ski)},
+		{"serial", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(AdaptableX509CertSelector, serial)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AdaptableX509CertSelector, init$, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AdaptableX509CertSelector, clone, $Object*)},
+		{"match", "(Ljava/security/cert/Certificate;)Z", nullptr, $PUBLIC, $virtualMethod(AdaptableX509CertSelector, match, bool, $Certificate*)},
+		{"matchSubjectKeyID", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $PRIVATE, $method(AdaptableX509CertSelector, matchSubjectKeyID, bool, $X509Certificate*)},
+		{"setSerialNumber", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $virtualMethod(AdaptableX509CertSelector, setSerialNumber, void, $BigInteger*)},
+		{"setSkiAndSerialNumber", "(Lsun/security/x509/AuthorityKeyIdentifierExtension;)V", nullptr, 0, $virtualMethod(AdaptableX509CertSelector, setSkiAndSerialNumber, void, $AuthorityKeyIdentifierExtension*), "java.io.IOException"},
+		{"setSubjectKeyIdentifier", "([B)V", nullptr, $PUBLIC, $virtualMethod(AdaptableX509CertSelector, setSubjectKeyIdentifier, void, $bytes*)},
+		{"setValidityPeriod", "(Ljava/util/Date;Ljava/util/Date;)V", nullptr, 0, $virtualMethod(AdaptableX509CertSelector, setValidityPeriod, void, $Date*, $Date*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.provider.certpath.AdaptableX509CertSelector",
+		"java.security.cert.X509CertSelector",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AdaptableX509CertSelector, name, initialize, &classInfo$$, AdaptableX509CertSelector::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AdaptableX509CertSelector);
+	});
 	return class$;
 }
 

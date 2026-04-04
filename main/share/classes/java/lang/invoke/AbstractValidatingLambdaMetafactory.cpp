@@ -1,5 +1,4 @@
 #include <java/lang/invoke/AbstractValidatingLambdaMetafactory.h>
-
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaConversionException.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -22,7 +21,6 @@ using $Void = ::java::lang::Void;
 using $CallSite = ::java::lang::invoke::CallSite;
 using $LambdaConversionException = ::java::lang::invoke::LambdaConversionException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandleInfo = ::java::lang::invoke::MethodHandleInfo;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $MethodType = ::java::lang::invoke::MethodType;
 using $Wrapper = ::sun::invoke::util::Wrapper;
@@ -31,57 +29,13 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$FieldInfo _AbstractValidatingLambdaMetafactory_FieldInfo_[] = {
-	{"caller", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $FINAL, $field(AbstractValidatingLambdaMetafactory, caller)},
-	{"targetClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $FINAL, $field(AbstractValidatingLambdaMetafactory, targetClass)},
-	{"factoryType", "Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $field(AbstractValidatingLambdaMetafactory, factoryType)},
-	{"interfaceClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $FINAL, $field(AbstractValidatingLambdaMetafactory, interfaceClass)},
-	{"interfaceMethodName", "Ljava/lang/String;", nullptr, $FINAL, $field(AbstractValidatingLambdaMetafactory, interfaceMethodName)},
-	{"interfaceMethodType", "Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $field(AbstractValidatingLambdaMetafactory, interfaceMethodType)},
-	{"implementation", "Ljava/lang/invoke/MethodHandle;", nullptr, $FINAL, $field(AbstractValidatingLambdaMetafactory, implementation)},
-	{"implMethodType", "Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $field(AbstractValidatingLambdaMetafactory, implMethodType)},
-	{"implInfo", "Ljava/lang/invoke/MethodHandleInfo;", nullptr, $FINAL, $field(AbstractValidatingLambdaMetafactory, implInfo)},
-	{"implKind", "I", nullptr, $FINAL, $field(AbstractValidatingLambdaMetafactory, implKind)},
-	{"implIsInstanceMethod", "Z", nullptr, $FINAL, $field(AbstractValidatingLambdaMetafactory, implIsInstanceMethod)},
-	{"implClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $FINAL, $field(AbstractValidatingLambdaMetafactory, implClass)},
-	{"dynamicMethodType", "Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $field(AbstractValidatingLambdaMetafactory, dynamicMethodType)},
-	{"isSerializable", "Z", nullptr, $FINAL, $field(AbstractValidatingLambdaMetafactory, isSerializable)},
-	{"altInterfaces", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $FINAL, $field(AbstractValidatingLambdaMetafactory, altInterfaces)},
-	{"altMethods", "[Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $field(AbstractValidatingLambdaMetafactory, altMethods)},
-	{}
-};
-
-$MethodInfo _AbstractValidatingLambdaMetafactory_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/MethodType;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Z[Ljava/lang/Class;[Ljava/lang/invoke/MethodType;)V", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/MethodType;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Z[Ljava/lang/Class<*>;[Ljava/lang/invoke/MethodType;)V", 0, $method(AbstractValidatingLambdaMetafactory, init$, void, $MethodHandles$Lookup*, $MethodType*, $String*, $MethodType*, $MethodHandle*, $MethodType*, bool, $ClassArray*, $MethodTypeArray*), "java.lang.invoke.LambdaConversionException"},
-	{"buildCallSite", "()Ljava/lang/invoke/CallSite;", nullptr, $ABSTRACT, $virtualMethod(AbstractValidatingLambdaMetafactory, buildCallSite, $CallSite*), "java.lang.invoke.LambdaConversionException"},
-	{"checkDescriptor", "(Ljava/lang/invoke/MethodType;)V", nullptr, $PRIVATE, $method(AbstractValidatingLambdaMetafactory, checkDescriptor, void, $MethodType*), "java.lang.invoke.LambdaConversionException"},
-	{"isAdaptableTo", "(Ljava/lang/Class;Ljava/lang/Class;Z)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Z)Z", $PRIVATE, $method(AbstractValidatingLambdaMetafactory, isAdaptableTo, bool, $Class*, $Class*, bool)},
-	{"isAdaptableToAsReturn", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE, $method(AbstractValidatingLambdaMetafactory, isAdaptableToAsReturn, bool, $Class*, $Class*)},
-	{"isAdaptableToAsReturnStrict", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE, $method(AbstractValidatingLambdaMetafactory, isAdaptableToAsReturnStrict, bool, $Class*, $Class*)},
-	{"validateMetafactoryArgs", "()V", nullptr, 0, $virtualMethod(AbstractValidatingLambdaMetafactory, validateMetafactoryArgs, void), "java.lang.invoke.LambdaConversionException"},
-	{}
-};
-
-$ClassInfo _AbstractValidatingLambdaMetafactory_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.lang.invoke.AbstractValidatingLambdaMetafactory",
-	"java.lang.Object",
-	nullptr,
-	_AbstractValidatingLambdaMetafactory_FieldInfo_,
-	_AbstractValidatingLambdaMetafactory_MethodInfo_
-};
-
-$Object* allocate$AbstractValidatingLambdaMetafactory($Class* clazz) {
-	return $of($alloc(AbstractValidatingLambdaMetafactory));
-}
-
 void AbstractValidatingLambdaMetafactory::init$($MethodHandles$Lookup* caller, $MethodType* factoryType, $String* interfaceMethodName, $MethodType* interfaceMethodType, $MethodHandle* implementation, $MethodType* dynamicMethodType, bool isSerializable, $ClassArray* altInterfaces, $MethodTypeArray* altMethods) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(caller)->hasFullPrivilegeAccess()) {
-		$throwNew($LambdaConversionException, $($String::format("Invalid caller: %s"_s, $$new($ObjectArray, {$($of($nc(caller->lookupClass())->getName()))}))));
+		$throwNew($LambdaConversionException, $($String::format("Invalid caller: %s"_s, $$new($ObjectArray, {$($nc(caller->lookupClass())->getName())}))));
 	}
 	$set(this, caller, caller);
-	$set(this, targetClass, $nc(caller)->lookupClass());
+	$set(this, targetClass, caller->lookupClass());
 	$set(this, factoryType, factoryType);
 	$set(this, interfaceClass, $cast($Class, $nc(factoryType)->returnType()));
 	$set(this, interfaceMethodName, interfaceMethodName);
@@ -95,106 +49,88 @@ void AbstractValidatingLambdaMetafactory::init$($MethodHandles$Lookup* caller, $
 	}
 	switch ($nc(this->implInfo)->getReferenceKind()) {
 	case 5:
-		{}
 	case 9:
-		{
-			$set(this, implClass, $cast($Class, $nc(this->implMethodType)->parameterType(0)));
-			this->implKind = $nc(this->implClass)->isInterface() ? 9 : 5;
-			this->implIsInstanceMethod = true;
-			break;
-		}
+		$set(this, implClass, $cast($Class, $nc(this->implMethodType)->parameterType(0)));
+		this->implKind = $nc(this->implClass)->isInterface() ? 9 : 5;
+		this->implIsInstanceMethod = true;
+		break;
 	case 7:
-		{
-			$set(this, implClass, $nc(this->implInfo)->getDeclaringClass());
-			this->implIsInstanceMethod = true;
-			if (this->targetClass == this->implClass) {
-				this->implKind = $nc(this->implClass)->isInterface() ? 9 : 5;
-			} else {
-				this->implKind = 7;
-			}
-			break;
+		$set(this, implClass, this->implInfo->getDeclaringClass());
+		this->implIsInstanceMethod = true;
+		if (this->targetClass == this->implClass) {
+			this->implKind = $nc(this->implClass)->isInterface() ? 9 : 5;
+		} else {
+			this->implKind = 7;
 		}
+		break;
 	case 6:
-		{}
 	case 8:
-		{
-			$set(this, implClass, $nc(this->implInfo)->getDeclaringClass());
-			this->implKind = $nc(this->implInfo)->getReferenceKind();
-			this->implIsInstanceMethod = false;
-			break;
-		}
+		$set(this, implClass, this->implInfo->getDeclaringClass());
+		this->implKind = this->implInfo->getReferenceKind();
+		this->implIsInstanceMethod = false;
+		break;
 	default:
-		{
-			$throwNew($LambdaConversionException, $($String::format("Unsupported MethodHandle kind: %s"_s, $$new($ObjectArray, {$of(this->implInfo)}))));
-		}
+		$throwNew($LambdaConversionException, $($String::format("Unsupported MethodHandle kind: %s"_s, $$new($ObjectArray, {this->implInfo}))));
 	}
 	$set(this, dynamicMethodType, dynamicMethodType);
 	this->isSerializable = isSerializable;
 	$set(this, altInterfaces, altInterfaces);
 	$set(this, altMethods, altMethods);
 	bool var$5 = $nc(interfaceMethodName)->isEmpty();
-	bool var$4 = var$5 || $nc(interfaceMethodName)->indexOf((int32_t)u'.') >= 0;
-	bool var$3 = var$4 || $nc(interfaceMethodName)->indexOf((int32_t)u';') >= 0;
-	bool var$2 = var$3 || $nc(interfaceMethodName)->indexOf((int32_t)u'[') >= 0;
-	bool var$1 = var$2 || $nc(interfaceMethodName)->indexOf((int32_t)u'/') >= 0;
-	bool var$0 = var$1 || $nc(interfaceMethodName)->indexOf((int32_t)u'<') >= 0;
-	if (var$0 || $nc(interfaceMethodName)->indexOf((int32_t)u'>') >= 0) {
-		$throwNew($LambdaConversionException, $($String::format("Method name \'%s\' is not legal"_s, $$new($ObjectArray, {$of(interfaceMethodName)}))));
+	bool var$4 = var$5 || interfaceMethodName->indexOf(u'.') >= 0;
+	bool var$3 = var$4 || interfaceMethodName->indexOf(u';') >= 0;
+	bool var$2 = var$3 || interfaceMethodName->indexOf(u'[') >= 0;
+	bool var$1 = var$2 || interfaceMethodName->indexOf(u'/') >= 0;
+	bool var$0 = var$1 || interfaceMethodName->indexOf(u'<') >= 0;
+	if (var$0 || interfaceMethodName->indexOf(u'>') >= 0) {
+		$throwNew($LambdaConversionException, $($String::format("Method name \'%s\' is not legal"_s, $$new($ObjectArray, {interfaceMethodName}))));
 	}
 	if (!$nc(this->interfaceClass)->isInterface()) {
-		$throwNew($LambdaConversionException, $($String::format("%s is not an interface"_s, $$new($ObjectArray, {$($of($nc(this->interfaceClass)->getName()))}))));
+		$throwNew($LambdaConversionException, $($String::format("%s is not an interface"_s, $$new($ObjectArray, {$(this->interfaceClass->getName())}))));
 	}
 	{
 		$var($ClassArray, arr$, altInterfaces);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$Class* c = arr$->get(i$);
-			{
-				if (!$nc(c)->isInterface()) {
-					$throwNew($LambdaConversionException, $($String::format("%s is not an interface"_s, $$new($ObjectArray, {$($of(c->getName()))}))));
-				}
+			if (!$nc(c)->isInterface()) {
+				$throwNew($LambdaConversionException, $($String::format("%s is not an interface"_s, $$new($ObjectArray, {$(c->getName())}))));
 			}
 		}
 	}
 }
 
 void AbstractValidatingLambdaMetafactory::validateMetafactoryArgs() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t implArity = $nc(this->implMethodType)->parameterCount();
 	int32_t capturedArity = $nc(this->factoryType)->parameterCount();
 	int32_t samArity = $nc(this->interfaceMethodType)->parameterCount();
 	int32_t dynamicArity = $nc(this->dynamicMethodType)->parameterCount();
 	if (implArity != capturedArity + samArity) {
 		$throwNew($LambdaConversionException, $($String::format("Incorrect number of parameters for %s method %s; %d captured parameters, %d functional interface method parameters, %d implementation parameters"_s, $$new($ObjectArray, {
-			this->implIsInstanceMethod ? $of("instance"_s) : $of("static"_s),
-			$of(this->implInfo),
-			$($of($Integer::valueOf(capturedArity))),
-			$($of($Integer::valueOf(samArity))),
-			$($of($Integer::valueOf(implArity)))
+			this->implIsInstanceMethod ? "instance"_s : "static"_s,
+			this->implInfo,
+			$($Integer::valueOf(capturedArity)),
+			$($Integer::valueOf(samArity)),
+			$($Integer::valueOf(implArity))
 		}))));
 	}
 	if (dynamicArity != samArity) {
 		$throwNew($LambdaConversionException, $($String::format("Incorrect number of parameters for %s method %s; %d dynamic parameters, %d functional interface method parameters"_s, $$new($ObjectArray, {
-			this->implIsInstanceMethod ? $of("instance"_s) : $of("static"_s),
-			$of(this->implInfo),
-			$($of($Integer::valueOf(dynamicArity))),
-			$($of($Integer::valueOf(samArity)))
+			this->implIsInstanceMethod ? "instance"_s : "static"_s,
+			this->implInfo,
+			$($Integer::valueOf(dynamicArity)),
+			$($Integer::valueOf(samArity))
 		}))));
 	}
 	{
 		$var($MethodTypeArray, arr$, this->altMethods);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($MethodType, bridgeMT, arr$->get(i$));
-			{
-				if ($nc(bridgeMT)->parameterCount() != samArity) {
-					$throwNew($LambdaConversionException, $($String::format("Incorrect number of parameters for bridge signature %s; incompatible with %s"_s, $$new($ObjectArray, {
-						$of(bridgeMT),
-						$of(this->interfaceMethodType)
-					}))));
-				}
+			if ($nc(bridgeMT)->parameterCount() != samArity) {
+				$throwNew($LambdaConversionException, $($String::format("Incorrect number of parameters for bridge signature %s; incompatible with %s"_s, $$new($ObjectArray, {
+					bridgeMT,
+					this->interfaceMethodType
+				}))));
 			}
 		}
 	}
@@ -205,16 +141,16 @@ void AbstractValidatingLambdaMetafactory::validateMetafactoryArgs() {
 		if (capturedArity == 0) {
 			capturedStart = 0;
 			samStart = 1;
-			receiverClass = $cast($Class, $nc(this->dynamicMethodType)->parameterType(0));
+			receiverClass = $cast($Class, this->dynamicMethodType->parameterType(0));
 		} else {
 			capturedStart = 1;
 			samStart = capturedArity;
-			receiverClass = $cast($Class, $nc(this->factoryType)->parameterType(0));
+			receiverClass = $cast($Class, this->factoryType->parameterType(0));
 		}
 		if (!$nc(this->implClass)->isAssignableFrom(receiverClass)) {
 			$throwNew($LambdaConversionException, $($String::format("Invalid receiver type %s; not a subtype of implementation type %s"_s, $$new($ObjectArray, {
-				$of(receiverClass),
-				$of(this->implClass)
+				receiverClass,
+				this->implClass
 			}))));
 		}
 	} else {
@@ -222,41 +158,39 @@ void AbstractValidatingLambdaMetafactory::validateMetafactoryArgs() {
 		samStart = capturedArity;
 	}
 	for (int32_t i = capturedStart; i < capturedArity; ++i) {
-		$Class* implParamType = $cast($Class, $nc(this->implMethodType)->parameterType(i));
-		$Class* capturedParamType = $cast($Class, $nc(this->factoryType)->parameterType(i));
-		if (!$nc($of(capturedParamType))->equals(implParamType)) {
+		$Class* implParamType = $cast($Class, this->implMethodType->parameterType(i));
+		$Class* capturedParamType = $cast($Class, this->factoryType->parameterType(i));
+		if (!$nc(capturedParamType)->equals(implParamType)) {
 			$throwNew($LambdaConversionException, $($String::format("Type mismatch in captured lambda parameter %d: expecting %s, found %s"_s, $$new($ObjectArray, {
-				$($of($Integer::valueOf(i))),
-				$of(capturedParamType),
-				$of(implParamType)
+				$($Integer::valueOf(i)),
+				capturedParamType,
+				implParamType
 			}))));
 		}
 	}
 	for (int32_t i = samStart; i < implArity; ++i) {
-		$Class* implParamType = $cast($Class, $nc(this->implMethodType)->parameterType(i));
-		$Class* dynamicParamType = $cast($Class, $nc(this->dynamicMethodType)->parameterType(i - capturedArity));
+		$Class* implParamType = $cast($Class, this->implMethodType->parameterType(i));
+		$Class* dynamicParamType = $cast($Class, this->dynamicMethodType->parameterType(i - capturedArity));
 		if (!isAdaptableTo(dynamicParamType, implParamType, true)) {
 			$throwNew($LambdaConversionException, $($String::format("Type mismatch for lambda argument %d: %s is not convertible to %s"_s, $$new($ObjectArray, {
-				$($of($Integer::valueOf(i))),
-				$of(dynamicParamType),
-				$of(implParamType)
+				$($Integer::valueOf(i)),
+				dynamicParamType,
+				implParamType
 			}))));
 		}
 	}
-	$Class* expectedType = $cast($Class, $nc(this->dynamicMethodType)->returnType());
-	$Class* actualReturnType = $cast($Class, $nc(this->implMethodType)->returnType());
+	$Class* expectedType = $cast($Class, this->dynamicMethodType->returnType());
+	$Class* actualReturnType = $cast($Class, this->implMethodType->returnType());
 	if (!isAdaptableToAsReturn(actualReturnType, expectedType)) {
 		$throwNew($LambdaConversionException, $($String::format("Type mismatch for lambda return: %s is not convertible to %s"_s, $$new($ObjectArray, {
-			$of(actualReturnType),
-			$of(expectedType)
+			actualReturnType,
+			expectedType
 		}))));
 	}
 	checkDescriptor(this->interfaceMethodType);
 	{
 		$var($MethodTypeArray, arr$, this->altMethods);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($MethodType, bridgeMT, arr$->get(i$));
 			{
 				checkDescriptor(bridgeMT);
@@ -266,25 +200,25 @@ void AbstractValidatingLambdaMetafactory::validateMetafactoryArgs() {
 }
 
 void AbstractValidatingLambdaMetafactory::checkDescriptor($MethodType* descriptor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->dynamicMethodType)->parameterCount(); ++i) {
-		$Class* dynamicParamType = $cast($Class, $nc(this->dynamicMethodType)->parameterType(i));
+		$Class* dynamicParamType = $cast($Class, this->dynamicMethodType->parameterType(i));
 		$Class* descriptorParamType = $cast($Class, $nc(descriptor)->parameterType(i));
 		if (!$nc(descriptorParamType)->isAssignableFrom(dynamicParamType)) {
 			$var($String, msg, $String::format("Type mismatch for dynamic parameter %d: %s is not a subtype of %s"_s, $$new($ObjectArray, {
-				$($of($Integer::valueOf(i))),
-				$of(dynamicParamType),
-				$of(descriptorParamType)
+				$($Integer::valueOf(i)),
+				dynamicParamType,
+				descriptorParamType
 			})));
 			$throwNew($LambdaConversionException, msg);
 		}
 	}
-	$Class* dynamicReturnType = $cast($Class, $nc(this->dynamicMethodType)->returnType());
+	$Class* dynamicReturnType = $cast($Class, this->dynamicMethodType->returnType());
 	$Class* descriptorReturnType = $cast($Class, $nc(descriptor)->returnType());
 	if (!isAdaptableToAsReturnStrict(dynamicReturnType, descriptorReturnType)) {
 		$var($String, msg, $String::format("Type mismatch for lambda expected return: %s is not convertible to %s"_s, $$new($ObjectArray, {
-			$of(dynamicReturnType),
-			$of(descriptorReturnType)
+			dynamicReturnType,
+			descriptorReturnType
 		})));
 		$throwNew($LambdaConversionException, msg);
 	}
@@ -294,7 +228,7 @@ bool AbstractValidatingLambdaMetafactory::isAdaptableTo($Class* fromType, $Class
 	if ($nc($of(fromType))->equals(toType)) {
 		return true;
 	}
-	if ($nc(fromType)->isPrimitive()) {
+	if (fromType->isPrimitive()) {
 		$Wrapper* wfrom = $Wrapper::forPrimitiveType(fromType);
 		if ($nc(toType)->isPrimitive()) {
 			$Wrapper* wto = $Wrapper::forPrimitiveType(toType);
@@ -317,7 +251,6 @@ bool AbstractValidatingLambdaMetafactory::isAdaptableTo($Class* fromType, $Class
 }
 
 bool AbstractValidatingLambdaMetafactory::isAdaptableToAsReturn($Class* fromType, $Class* toType) {
-	$init($Void);
 	bool var$0 = $nc($of(toType))->equals($Void::TYPE);
 	if (!var$0) {
 		bool var$1 = !$nc($of(fromType))->equals($Void::TYPE);
@@ -327,10 +260,9 @@ bool AbstractValidatingLambdaMetafactory::isAdaptableToAsReturn($Class* fromType
 }
 
 bool AbstractValidatingLambdaMetafactory::isAdaptableToAsReturnStrict($Class* fromType, $Class* toType) {
-	$init($Void);
 	bool var$0 = $nc($of(fromType))->equals($Void::TYPE);
 	if (var$0 || $nc($of(toType))->equals($Void::TYPE)) {
-		return $nc($of(fromType))->equals(toType);
+		return $of(fromType)->equals(toType);
 	} else {
 		return isAdaptableTo(fromType, toType, true);
 	}
@@ -340,7 +272,46 @@ AbstractValidatingLambdaMetafactory::AbstractValidatingLambdaMetafactory() {
 }
 
 $Class* AbstractValidatingLambdaMetafactory::load$($String* name, bool initialize) {
-	$loadClass(AbstractValidatingLambdaMetafactory, name, initialize, &_AbstractValidatingLambdaMetafactory_ClassInfo_, allocate$AbstractValidatingLambdaMetafactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"caller", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $FINAL, $field(AbstractValidatingLambdaMetafactory, caller)},
+		{"targetClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $FINAL, $field(AbstractValidatingLambdaMetafactory, targetClass)},
+		{"factoryType", "Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $field(AbstractValidatingLambdaMetafactory, factoryType)},
+		{"interfaceClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $FINAL, $field(AbstractValidatingLambdaMetafactory, interfaceClass)},
+		{"interfaceMethodName", "Ljava/lang/String;", nullptr, $FINAL, $field(AbstractValidatingLambdaMetafactory, interfaceMethodName)},
+		{"interfaceMethodType", "Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $field(AbstractValidatingLambdaMetafactory, interfaceMethodType)},
+		{"implementation", "Ljava/lang/invoke/MethodHandle;", nullptr, $FINAL, $field(AbstractValidatingLambdaMetafactory, implementation)},
+		{"implMethodType", "Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $field(AbstractValidatingLambdaMetafactory, implMethodType)},
+		{"implInfo", "Ljava/lang/invoke/MethodHandleInfo;", nullptr, $FINAL, $field(AbstractValidatingLambdaMetafactory, implInfo)},
+		{"implKind", "I", nullptr, $FINAL, $field(AbstractValidatingLambdaMetafactory, implKind)},
+		{"implIsInstanceMethod", "Z", nullptr, $FINAL, $field(AbstractValidatingLambdaMetafactory, implIsInstanceMethod)},
+		{"implClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $FINAL, $field(AbstractValidatingLambdaMetafactory, implClass)},
+		{"dynamicMethodType", "Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $field(AbstractValidatingLambdaMetafactory, dynamicMethodType)},
+		{"isSerializable", "Z", nullptr, $FINAL, $field(AbstractValidatingLambdaMetafactory, isSerializable)},
+		{"altInterfaces", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $FINAL, $field(AbstractValidatingLambdaMetafactory, altInterfaces)},
+		{"altMethods", "[Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $field(AbstractValidatingLambdaMetafactory, altMethods)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/MethodType;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Z[Ljava/lang/Class;[Ljava/lang/invoke/MethodType;)V", "(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/invoke/MethodType;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;Z[Ljava/lang/Class<*>;[Ljava/lang/invoke/MethodType;)V", 0, $method(AbstractValidatingLambdaMetafactory, init$, void, $MethodHandles$Lookup*, $MethodType*, $String*, $MethodType*, $MethodHandle*, $MethodType*, bool, $ClassArray*, $MethodTypeArray*), "java.lang.invoke.LambdaConversionException"},
+		{"buildCallSite", "()Ljava/lang/invoke/CallSite;", nullptr, $ABSTRACT, $virtualMethod(AbstractValidatingLambdaMetafactory, buildCallSite, $CallSite*), "java.lang.invoke.LambdaConversionException"},
+		{"checkDescriptor", "(Ljava/lang/invoke/MethodType;)V", nullptr, $PRIVATE, $method(AbstractValidatingLambdaMetafactory, checkDescriptor, void, $MethodType*), "java.lang.invoke.LambdaConversionException"},
+		{"isAdaptableTo", "(Ljava/lang/Class;Ljava/lang/Class;Z)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Z)Z", $PRIVATE, $method(AbstractValidatingLambdaMetafactory, isAdaptableTo, bool, $Class*, $Class*, bool)},
+		{"isAdaptableToAsReturn", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE, $method(AbstractValidatingLambdaMetafactory, isAdaptableToAsReturn, bool, $Class*, $Class*)},
+		{"isAdaptableToAsReturnStrict", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE, $method(AbstractValidatingLambdaMetafactory, isAdaptableToAsReturnStrict, bool, $Class*, $Class*)},
+		{"validateMetafactoryArgs", "()V", nullptr, 0, $virtualMethod(AbstractValidatingLambdaMetafactory, validateMetafactoryArgs, void), "java.lang.invoke.LambdaConversionException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.lang.invoke.AbstractValidatingLambdaMetafactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractValidatingLambdaMetafactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractValidatingLambdaMetafactory);
+	});
 	return class$;
 }
 

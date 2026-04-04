@@ -1,7 +1,5 @@
 #include <Args$1.h>
-
 #include <Args.h>
-#include <java/nio/channels/ByteChannel.h>
 #include <java/nio/channels/FileChannel.h>
 #include <java/nio/channels/ReadableByteChannel.h>
 #include <java/nio/channels/SeekableByteChannel.h>
@@ -12,67 +10,58 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ByteChannel = ::java::nio::channels::ByteChannel;
 using $FileChannel = ::java::nio::channels::FileChannel;
-using $ReadableByteChannel = ::java::nio::channels::ReadableByteChannel;
 using $SeekableByteChannel = ::java::nio::channels::SeekableByteChannel;
-
-$FieldInfo _Args$1_FieldInfo_[] = {
-	{"val$fc", "Ljava/nio/channels/FileChannel;", nullptr, $FINAL | $SYNTHETIC, $field(Args$1, val$fc)},
-	{}
-};
-
-$MethodInfo _Args$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/FileChannel;)V", "()V", 0, $method(Args$1, init$, void, $FileChannel*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Args$1, run, void), "java.lang.Exception"},
-	{}
-};
-
-$EnclosingMethodInfo _Args$1_EnclosingMethodInfo_ = {
-	"Args",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _Args$1_InnerClassesInfo_[] = {
-	{"Args$1", nullptr, nullptr, 0},
-	{"Args$Thunk", "Args", "Thunk", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Args$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"Args$1",
-	"java.lang.Object",
-	"Args$Thunk",
-	_Args$1_FieldInfo_,
-	_Args$1_MethodInfo_,
-	nullptr,
-	&_Args$1_EnclosingMethodInfo_,
-	_Args$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Args"
-};
-
-$Object* allocate$Args$1($Class* clazz) {
-	return $of($alloc(Args$1));
-}
 
 void Args$1::init$($FileChannel* val$fc) {
 	$set(this, val$fc, val$fc);
 }
 
 void Args$1::run() {
-	$nc(this->val$fc)->transferFrom(static_cast<$ReadableByteChannel*>(static_cast<$ByteChannel*>(static_cast<$SeekableByteChannel*>(this->val$fc))), -1, 1);
+	$nc(this->val$fc)->transferFrom($cast($SeekableByteChannel, this->val$fc), -1, 1);
 }
 
 Args$1::Args$1() {
 }
 
 $Class* Args$1::load$($String* name, bool initialize) {
-	$loadClass(Args$1, name, initialize, &_Args$1_ClassInfo_, allocate$Args$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$fc", "Ljava/nio/channels/FileChannel;", nullptr, $FINAL | $SYNTHETIC, $field(Args$1, val$fc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/FileChannel;)V", "()V", 0, $method(Args$1, init$, void, $FileChannel*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Args$1, run, void), "java.lang.Exception"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"Args",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Args$1", nullptr, nullptr, 0},
+		{"Args$Thunk", "Args", "Thunk", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Args$1",
+		"java.lang.Object",
+		"Args$Thunk",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Args"
+	};
+	$loadClass(Args$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Args$1);
+	});
 	return class$;
 }
 

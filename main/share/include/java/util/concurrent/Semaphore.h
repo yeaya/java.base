@@ -47,7 +47,7 @@ public:
 	virtual bool tryAcquire(int64_t timeout, ::java::util::concurrent::TimeUnit* unit);
 	virtual bool tryAcquire(int32_t permits);
 	virtual bool tryAcquire(int32_t permits, int64_t timeout, ::java::util::concurrent::TimeUnit* unit);
-	static const int64_t serialVersionUID = (int64_t)0xD34719C7FE89A6EE;
+	static const int64_t serialVersionUID = (int64_t)0xd34719c7fe89a6ee;
 	::java::util::concurrent::Semaphore$Sync* sync = nullptr;
 };
 

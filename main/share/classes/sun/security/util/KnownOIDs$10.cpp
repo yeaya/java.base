@@ -1,5 +1,4 @@
 #include <sun/security/util/KnownOIDs$10.h>
-
 #include <sun/security/util/KnownOIDs.h>
 #include <jcpp.h>
 
@@ -13,43 +12,6 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$MethodInfo _KnownOIDs$10_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PRIVATE | $TRANSIENT, $method(KnownOIDs$10, init$, void, $String*, int32_t, $String*, $String*, $StringArray*)},
-	{"registerNames", "()Z", nullptr, 0, $virtualMethod(KnownOIDs$10, registerNames, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _KnownOIDs$10_EnclosingMethodInfo_ = {
-	"sun.security.util.KnownOIDs",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _KnownOIDs$10_InnerClassesInfo_[] = {
-	{"sun.security.util.KnownOIDs$10", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _KnownOIDs$10_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.util.KnownOIDs$10",
-	"sun.security.util.KnownOIDs",
-	nullptr,
-	nullptr,
-	_KnownOIDs$10_MethodInfo_,
-	nullptr,
-	&_KnownOIDs$10_EnclosingMethodInfo_,
-	_KnownOIDs$10_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.util.KnownOIDs"
-};
-
-$Object* allocate$KnownOIDs$10($Class* clazz) {
-	return $of($alloc(KnownOIDs$10));
-}
-
 void KnownOIDs$10::init$($String* $enum$name, int32_t $enum$ordinal, $String* oid, $String* stdName, $StringArray* aliases) {
 	$KnownOIDs::init$($enum$name, $enum$ordinal, oid, stdName, aliases);
 }
@@ -62,7 +24,38 @@ KnownOIDs$10::KnownOIDs$10() {
 }
 
 $Class* KnownOIDs$10::load$($String* name, bool initialize) {
-	$loadClass(KnownOIDs$10, name, initialize, &_KnownOIDs$10_ClassInfo_, allocate$KnownOIDs$10);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PRIVATE | $TRANSIENT, $method(KnownOIDs$10, init$, void, $String*, int32_t, $String*, $String*, $StringArray*)},
+		{"registerNames", "()Z", nullptr, 0, $virtualMethod(KnownOIDs$10, registerNames, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.util.KnownOIDs",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.KnownOIDs$10", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.util.KnownOIDs$10",
+		"sun.security.util.KnownOIDs",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.util.KnownOIDs"
+	};
+	$loadClass(KnownOIDs$10, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(KnownOIDs$10));
+	});
 	return class$;
 }
 

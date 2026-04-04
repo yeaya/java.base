@@ -45,6 +45,9 @@
 #include <java/lang/ObjectManagerInternal.h>
 #include <java/lang/module/ModuleDescriptor.h>
 #include <java/lang/invoke/MethodHandleNatives$Constants.h>
+#include <java/util/Set.h>
+#include <java/util/Iterator.h>
+#include <java/util/concurrent/ConcurrentHashMap.h>
 #include <java/security/ProtectionDomain.h>
 #include <jdk/internal/reflect/Reflection.h>
 #include <jdk/internal/reflect/ConstantPool.h>
@@ -91,6 +94,8 @@ using $Field = ::java::lang::reflect::Field;
 using ::java::lang::reflect::Constructor;
 using ::java::lang::IllegalArgumentException;
 using ::java::security::ProtectionDomain;
+using namespace ::java::util;
+using namespace ::java::util::concurrent;
 using ::jdk::internal::reflect::Reflection;
 using ::jdk::internal::reflect::ConstantPool;
 using ::jdk::internal::reflect::MethodAccessorImpl;
@@ -130,7 +135,7 @@ JVM_ENTRY(jobjectArray, JVM_GetProperties(JNIEnv* env))
 	int fixedCount = 2;
 	SystemProperty* p = Arguments::getSystemProperties();
 	int count = Arguments::countList(p);
-	$var($ObjectArray, properties, $new<$ObjectArray>((count + fixedCount) * 2));
+	$var($ObjectArray, properties, $new($ObjectArray, (count + fixedCount) * 2));
 	while (p != NULL) {
 		const char * key = p->getKey();
 		if (strcmp(key, "sun.nio.MaxDirectMemorySize") != 0) {
@@ -303,7 +308,7 @@ JVM_ENTRY(jclass, JVM_FindClassFromClass(JNIEnv* env, const char *name, jboolean
 JVM_END(nullptr)
 
 JVM_ENTRY(jclass, JVM_DefineClass(JNIEnv* env, const char *name, jobject loader, const jbyte *buf, jsize len, jobject pd))
-	$var($bytes, bytes, $new<$bytes>(len));
+	$var($bytes, bytes, $new($bytes, len));
 	bytes->setRegion(0, len, (int8_t*)buf);
 	Class* clazz = Machine::defineClass1((ClassLoader*)loader, $$str(name), bytes, 0, len, (ProtectionDomain*)pd, nullptr);
 	ObjectManager::newLocalRef(clazz);
@@ -312,7 +317,7 @@ JVM_END(nullptr)
 
 JVM_ENTRY(jclass, JVM_LookupDefineClass(JNIEnv* env, jclass lookup, const char *name, const jbyte *buf, jsize len, jobject pd, jboolean initialize, int flags, jobject classData))
 	Class* lookupClass = (Class*)lookup;
-	$var($bytes, bytes, $new<$bytes>(len));
+	$var($bytes, bytes, $new($bytes, len));
 	bytes->setRegion(0, len, (int8_t*)buf);
 	ClassLoader* classLoader = $nullcheck(lookupClass)->getClassLoader();
 	Class* clazz = Machine::defineClass0(classLoader, lookupClass, $$str(name), bytes, 0, len, (ProtectionDomain*)pd, initialize, flags, classData);
@@ -321,7 +326,7 @@ JVM_ENTRY(jclass, JVM_LookupDefineClass(JNIEnv* env, jclass lookup, const char *
 JVM_END(nullptr)
 
 JVM_ENTRY(jclass, JVM_DefineClassWithSource(JNIEnv* env, const char *name, jobject loader, const jbyte *buf, jsize len, jobject pd, const char *source))
-	$var($bytes, bytes, $new<$bytes>(len));
+	$var($bytes, bytes, $new($bytes, len));
 	bytes->setRegion(0, len, (int8_t*)buf);
 	Class* clazz = Machine::defineClass1((ClassLoader*)loader, $$str(name), bytes, 0, len, (ProtectionDomain*)pd, $$str(source));
 	ObjectManager::newLocalRef(clazz);
@@ -469,7 +474,7 @@ JVM_END(0)
 JVM_ENTRY(jobjectArray, JVM_GetDeclaredClasses(JNIEnv* env, jclass cls))
 	Class* clazz = (Class*)cls;
 	if ($nullcheck(clazz)->isPrimitive()) {
-		$var($ObjectArray, classes, $new<$ObjectArray>(0));
+		$var($ObjectArray, classes, $new($ObjectArray, 0));
 		ObjectManager::newLocalRef(classes);
 		return (jobjectArray)classes;
 	}
@@ -553,7 +558,7 @@ JVM_ENTRY(jobjectArray, JVM_GetClassDeclaredFields(JNIEnv* env, jclass cls, jboo
 	Class* clazz = (Class*)cls;
 	$nullcheck(clazz);
 	if (clazz->isPrimitive() || clazz->isArray()) {
-		$var($ObjectArray, fields, $new<$ObjectArray>(0));
+		$var($ObjectArray, fields, $new($ObjectArray, 0));
 		ObjectManager::newLocalRef(fields);
 		return (jobjectArray)fields;
 	}
@@ -579,7 +584,7 @@ JVM_ENTRY(jobjectArray, JVM_GetClassDeclaredMethods(JNIEnv* env, jclass cls, jbo
 	Class* clazz = (Class*)cls;
 	$nullcheck(clazz);
 	if (clazz->isPrimitive() || clazz->isArray()) {
-		$var($ObjectArray, methods, $new<$ObjectArray>(0));
+		$var($ObjectArray, methods, $new($ObjectArray, 0));
 		ObjectManager::newLocalRef(methods);
 		return (jobjectArray)methods;
 	}
@@ -593,7 +598,7 @@ JVM_ENTRY(jobjectArray, JVM_GetClassDeclaredConstructors(JNIEnv* env, jclass cls
 	Class* clazz = (Class*)cls;
 	$nullcheck(clazz);
 	if (clazz->isPrimitive() || clazz->isArray()) {
-		$var($ObjectArray, methods, $new<$ObjectArray>(0));
+		$var($ObjectArray, methods, $new($ObjectArray, 0));
 		ObjectManager::newLocalRef(methods);
 		return (jobjectArray)methods;
 	}
@@ -965,11 +970,15 @@ JVM_ENTRY(jstring, JVM_GetSystemPackage(JNIEnv* env, jstring name))
 JVM_END(nullptr)
 
 JVM_ENTRY(jobjectArray, JVM_GetSystemPackages(JNIEnv* env))
-	$var($Array<Package>, packages, ClassLoaders::bootLoader()->getPackages());
-	$var($StringArray, sa, $new<$StringArray>(packages->length));
-	for (int32_t i = 0; i < packages->length; i++) {
-		Package* package = (Package*)packages->get(i);
-		sa->set(i, package->getName());
+	$var(ConcurrentHashMap, packages, ClassLoaders::bootLoader()->packages$);
+	$var(Set, keyset, packages->keySet());
+	$var($StringArray, sa, $new($StringArray, packages->size()));
+	$var(Iterator, it, keyset->iterator());
+	int32_t index = 0;
+	while (it->hasNext()) {
+		$var(String, packageName, $fcast(String, it->next()));
+		sa->set(index, packageName);
+		index++;
 	}
 	ObjectManager::newLocalRef(sa);
 	return (jobjectArray)sa;
@@ -1139,7 +1148,7 @@ JVM_END(nullptr)
 // Raw monitor
 JVM_ENTRY(void*, JVM_RawMonitorCreate(void))
 	//return new SpinLock();
-	Object0* obj = $new<Object0>();
+	Object0* obj = $new(Object0);
 	ObjectManager::newGlobalRef(obj);
 	return obj;
 JVM_END(nullptr)
@@ -1274,7 +1283,7 @@ JVM_ENTRY(jobjectArray, JVM_GetEnclosingMethodInfo(JNIEnv* env, jclass cls))
 JVM_END(nullptr)
 
 JVM_ENTRY(jobjectArray, JVM_GetVmArguments(JNIEnv* env))
-	$var($ObjectArray, oa, $new<$ObjectArray>(0));
+	$var($ObjectArray, oa, $new($ObjectArray, 0));
 	ObjectManager::newLocalRef(oa);
 	return (jobjectArray)oa;
 JVM_END(nullptr)

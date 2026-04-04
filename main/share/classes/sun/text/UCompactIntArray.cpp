@@ -1,5 +1,4 @@
 #include <sun/text/UCompactIntArray.h>
-
 #include <jcpp.h>
 
 #undef BLOCKCOUNT
@@ -23,51 +22,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace text {
 
-$FieldInfo _UCompactIntArray_FieldInfo_[] = {
-	{"PLANEMASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UCompactIntArray, PLANEMASK)},
-	{"PLANESHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UCompactIntArray, PLANESHIFT)},
-	{"PLANECOUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UCompactIntArray, PLANECOUNT)},
-	{"CODEPOINTMASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UCompactIntArray, CODEPOINTMASK)},
-	{"UNICODECOUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UCompactIntArray, UNICODECOUNT)},
-	{"BLOCKSHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UCompactIntArray, BLOCKSHIFT)},
-	{"BLOCKCOUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UCompactIntArray, BLOCKCOUNT)},
-	{"INDEXSHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UCompactIntArray, INDEXSHIFT)},
-	{"INDEXCOUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UCompactIntArray, INDEXCOUNT)},
-	{"BLOCKMASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UCompactIntArray, BLOCKMASK)},
-	{"defaultValue", "I", nullptr, $PRIVATE, $field(UCompactIntArray, defaultValue)},
-	{"values", "[[I", nullptr, $PRIVATE, $field(UCompactIntArray, values)},
-	{"indices", "[[S", nullptr, $PRIVATE, $field(UCompactIntArray, indices)},
-	{"isCompact", "Z", nullptr, $PRIVATE, $field(UCompactIntArray, isCompact)},
-	{"blockTouched", "[[Z", nullptr, $PRIVATE, $field(UCompactIntArray, blockTouched)},
-	{"planeTouched", "[Z", nullptr, $PRIVATE, $field(UCompactIntArray, planeTouched)},
-	{}
-};
-
-$MethodInfo _UCompactIntArray_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UCompactIntArray, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(UCompactIntArray, init$, void, int32_t)},
-	{"compact", "()V", nullptr, $PUBLIC, $method(UCompactIntArray, compact, void)},
-	{"elementAt", "(I)I", nullptr, $PUBLIC, $method(UCompactIntArray, elementAt, int32_t, int32_t)},
-	{"expand", "()V", nullptr, $PRIVATE, $method(UCompactIntArray, expand, void)},
-	{"getKSize", "()I", nullptr, $PUBLIC, $method(UCompactIntArray, getKSize, int32_t)},
-	{"initPlane", "(I)V", nullptr, $PRIVATE, $method(UCompactIntArray, initPlane, void, int32_t)},
-	{"setElementAt", "(II)V", nullptr, $PUBLIC, $method(UCompactIntArray, setElementAt, void, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _UCompactIntArray_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.text.UCompactIntArray",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_UCompactIntArray_FieldInfo_,
-	_UCompactIntArray_MethodInfo_
-};
-
-$Object* allocate$UCompactIntArray($Class* clazz) {
-	return $of($alloc(UCompactIntArray));
-}
-
 void UCompactIntArray::init$() {
 	$set(this, values, $new($intArray2, 16));
 	$set(this, indices, $new($shortArray2, 16));
@@ -81,19 +35,19 @@ void UCompactIntArray::init$(int32_t defaultValue) {
 }
 
 int32_t UCompactIntArray::elementAt(int32_t index) {
-	int32_t plane = $sr((int32_t)(index & (uint32_t)UCompactIntArray::PLANEMASK), UCompactIntArray::PLANESHIFT);
+	int32_t plane = $sr(index & UCompactIntArray::PLANEMASK, UCompactIntArray::PLANESHIFT);
 	if (!$nc(this->planeTouched)->get(plane)) {
 		return this->defaultValue;
 	}
 	index &= (uint32_t)UCompactIntArray::CODEPOINTMASK;
-	return $nc($nc(this->values)->get(plane))->get(((int32_t)($nc($nc(this->indices)->get(plane))->get($sr(index, UCompactIntArray::BLOCKSHIFT)) & (uint32_t)0x0000FFFF)) + ((int32_t)(index & (uint32_t)UCompactIntArray::BLOCKMASK)));
+	return $nc($nc(this->values)->get(plane))->get(($nc($nc(this->indices)->get(plane))->get($sr(index, UCompactIntArray::BLOCKSHIFT)) & 0xffff) + (index & UCompactIntArray::BLOCKMASK));
 }
 
 void UCompactIntArray::setElementAt(int32_t index, int32_t value) {
 	if (this->isCompact) {
 		expand();
 	}
-	int32_t plane = $sr((int32_t)(index & (uint32_t)UCompactIntArray::PLANEMASK), UCompactIntArray::PLANESHIFT);
+	int32_t plane = $sr(index & UCompactIntArray::PLANEMASK, UCompactIntArray::PLANESHIFT);
 	if (!$nc(this->planeTouched)->get(plane)) {
 		initPlane(plane);
 	}
@@ -103,7 +57,7 @@ void UCompactIntArray::setElementAt(int32_t index, int32_t value) {
 }
 
 void UCompactIntArray::compact() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->isCompact) {
 		return;
 	}
@@ -113,34 +67,34 @@ void UCompactIntArray::compact() {
 		}
 		int32_t limitCompacted = 0;
 		int32_t iBlockStart = 0;
-		int16_t iUntouched = (int16_t)-1;
+		int16_t iUntouched = -1;
 		for (int32_t i = 0; i < $nc($nc(this->indices)->get(plane))->length; ++i, iBlockStart += UCompactIntArray::BLOCKCOUNT) {
-			$nc($nc(this->indices)->get(plane))->set(i, (int16_t)-1);
+			$nc(this->indices->get(plane))->set(i, -1);
 			if (!$nc($nc(this->blockTouched)->get(plane))->get(i) && iUntouched != -1) {
-				$nc($nc(this->indices)->get(plane))->set(i, iUntouched);
+				$nc(this->indices->get(plane))->set(i, iUntouched);
 			} else {
 				int32_t jBlockStart = limitCompacted * UCompactIntArray::BLOCKCOUNT;
 				if (i > limitCompacted) {
 					$System::arraycopy($nc(this->values)->get(plane), iBlockStart, $nc(this->values)->get(plane), jBlockStart, UCompactIntArray::BLOCKCOUNT);
 				}
-				if (!$nc($nc(this->blockTouched)->get(plane))->get(i)) {
+				if (!$nc(this->blockTouched->get(plane))->get(i)) {
 					iUntouched = (int16_t)jBlockStart;
 				}
-				$nc($nc(this->indices)->get(plane))->set(i, (int16_t)jBlockStart);
+				$nc(this->indices->get(plane))->set(i, (int16_t)jBlockStart);
 				++limitCompacted;
 			}
 		}
 		int32_t newSize = limitCompacted * UCompactIntArray::BLOCKCOUNT;
 		$var($ints, result, $new($ints, newSize));
 		$System::arraycopy($nc(this->values)->get(plane), 0, result, 0, newSize);
-		$nc(this->values)->set(plane, result);
+		this->values->set(plane, result);
 		$nc(this->blockTouched)->set(plane, nullptr);
 	}
 	this->isCompact = true;
 }
 
 void UCompactIntArray::expand() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	if (this->isCompact) {
 		$var($ints, tempArray, nullptr);
@@ -151,8 +105,8 @@ void UCompactIntArray::expand() {
 			$nc(this->blockTouched)->set(plane, $$new($booleans, UCompactIntArray::INDEXCOUNT));
 			$assign(tempArray, $new($ints, UCompactIntArray::UNICODECOUNT));
 			for (i = 0; i < UCompactIntArray::UNICODECOUNT; ++i) {
-				tempArray->set(i, $nc($nc(this->values)->get(plane))->get((int32_t)($nc($nc(this->indices)->get(plane))->get($sr(i, UCompactIntArray::BLOCKSHIFT)) & (uint32_t)(0x0000FFFF + ((int32_t)(i & (uint32_t)UCompactIntArray::BLOCKMASK))))));
-				$nc($nc(this->blockTouched)->get(plane))->set($sr(i, UCompactIntArray::BLOCKSHIFT), true);
+				tempArray->set(i, $nc($nc(this->values)->get(plane))->get($nc($nc(this->indices)->get(plane))->get($sr(i, UCompactIntArray::BLOCKSHIFT)) & (0xffff + (i & UCompactIntArray::BLOCKMASK))));
+				$nc(this->blockTouched->get(plane))->set($sr(i, UCompactIntArray::BLOCKSHIFT), true);
 			}
 			for (i = 0; i < UCompactIntArray::INDEXCOUNT; ++i) {
 				$nc($nc(this->indices)->get(plane))->set(i, (int16_t)($sl(i, UCompactIntArray::BLOCKSHIFT)));
@@ -164,20 +118,20 @@ void UCompactIntArray::expand() {
 }
 
 void UCompactIntArray::initPlane(int32_t plane) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->values)->set(plane, $$new($ints, UCompactIntArray::UNICODECOUNT));
 	$nc(this->indices)->set(plane, $$new($shorts, UCompactIntArray::INDEXCOUNT));
 	$nc(this->blockTouched)->set(plane, $$new($booleans, UCompactIntArray::INDEXCOUNT));
 	$nc(this->planeTouched)->set(plane, true);
-	if ($nc(this->planeTouched)->get(0) && plane != 0) {
-		$System::arraycopy($nc(this->indices)->get(0), 0, $nc(this->indices)->get(plane), 0, UCompactIntArray::INDEXCOUNT);
+	if (this->planeTouched->get(0) && plane != 0) {
+		$System::arraycopy(this->indices->get(0), 0, this->indices->get(plane), 0, UCompactIntArray::INDEXCOUNT);
 	} else {
 		for (int32_t i = 0; i < UCompactIntArray::INDEXCOUNT; ++i) {
-			$nc($nc(this->indices)->get(plane))->set(i, (int16_t)($sl(i, UCompactIntArray::BLOCKSHIFT)));
+			$nc(this->indices->get(plane))->set(i, (int16_t)($sl(i, UCompactIntArray::BLOCKSHIFT)));
 		}
 	}
 	for (int32_t i = 0; i < UCompactIntArray::UNICODECOUNT; ++i) {
-		$nc($nc(this->values)->get(plane))->set(i, this->defaultValue);
+		$nc(this->values->get(plane))->set(i, this->defaultValue);
 	}
 }
 
@@ -195,7 +149,47 @@ UCompactIntArray::UCompactIntArray() {
 }
 
 $Class* UCompactIntArray::load$($String* name, bool initialize) {
-	$loadClass(UCompactIntArray, name, initialize, &_UCompactIntArray_ClassInfo_, allocate$UCompactIntArray);
+	$FieldInfo fieldInfos$$[] = {
+		{"PLANEMASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UCompactIntArray, PLANEMASK)},
+		{"PLANESHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UCompactIntArray, PLANESHIFT)},
+		{"PLANECOUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UCompactIntArray, PLANECOUNT)},
+		{"CODEPOINTMASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UCompactIntArray, CODEPOINTMASK)},
+		{"UNICODECOUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UCompactIntArray, UNICODECOUNT)},
+		{"BLOCKSHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UCompactIntArray, BLOCKSHIFT)},
+		{"BLOCKCOUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UCompactIntArray, BLOCKCOUNT)},
+		{"INDEXSHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UCompactIntArray, INDEXSHIFT)},
+		{"INDEXCOUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UCompactIntArray, INDEXCOUNT)},
+		{"BLOCKMASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UCompactIntArray, BLOCKMASK)},
+		{"defaultValue", "I", nullptr, $PRIVATE, $field(UCompactIntArray, defaultValue)},
+		{"values", "[[I", nullptr, $PRIVATE, $field(UCompactIntArray, values)},
+		{"indices", "[[S", nullptr, $PRIVATE, $field(UCompactIntArray, indices)},
+		{"isCompact", "Z", nullptr, $PRIVATE, $field(UCompactIntArray, isCompact)},
+		{"blockTouched", "[[Z", nullptr, $PRIVATE, $field(UCompactIntArray, blockTouched)},
+		{"planeTouched", "[Z", nullptr, $PRIVATE, $field(UCompactIntArray, planeTouched)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UCompactIntArray, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(UCompactIntArray, init$, void, int32_t)},
+		{"compact", "()V", nullptr, $PUBLIC, $method(UCompactIntArray, compact, void)},
+		{"elementAt", "(I)I", nullptr, $PUBLIC, $method(UCompactIntArray, elementAt, int32_t, int32_t)},
+		{"expand", "()V", nullptr, $PRIVATE, $method(UCompactIntArray, expand, void)},
+		{"getKSize", "()I", nullptr, $PUBLIC, $method(UCompactIntArray, getKSize, int32_t)},
+		{"initPlane", "(I)V", nullptr, $PRIVATE, $method(UCompactIntArray, initPlane, void, int32_t)},
+		{"setElementAt", "(II)V", nullptr, $PUBLIC, $method(UCompactIntArray, setElementAt, void, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.text.UCompactIntArray",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UCompactIntArray, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UCompactIntArray);
+	});
 	return class$;
 }
 

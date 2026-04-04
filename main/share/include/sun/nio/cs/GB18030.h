@@ -23,6 +23,7 @@ class $import GB18030 : public ::java::nio::charset::Charset {
 	$class(GB18030, 0, ::java::nio::charset::Charset)
 public:
 	GB18030();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool contains(::java::nio::charset::Charset* cs) override;
 	virtual ::java::nio::charset::CharsetDecoder* newDecoder() override;

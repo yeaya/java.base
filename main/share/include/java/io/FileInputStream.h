@@ -30,6 +30,7 @@ class $import FileInputStream : public ::java::io::InputStream {
 	$class(FileInputStream, $PRELOAD, ::java::io::InputStream)
 public:
 	FileInputStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	void init$(::java::io::File* file);
 	void init$(::java::io::FileDescriptor* fdObj);

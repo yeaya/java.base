@@ -1,5 +1,4 @@
 #include <java/security/cert/URICertStoreParameters.h>
-
 #include <java/lang/InternalError.h>
 #include <java/net/URI.h>
 #include <jcpp.h>
@@ -14,35 +13,6 @@ using $URI = ::java::net::URI;
 namespace java {
 	namespace security {
 		namespace cert {
-
-$FieldInfo _URICertStoreParameters_FieldInfo_[] = {
-	{"uri", "Ljava/net/URI;", nullptr, $PRIVATE | $FINAL, $field(URICertStoreParameters, uri)},
-	{"myhash", "I", nullptr, $PRIVATE, $field(URICertStoreParameters, myhash)},
-	{}
-};
-
-$MethodInfo _URICertStoreParameters_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $method(URICertStoreParameters, init$, void, $URI*)},
-	{"clone", "()Ljava/security/cert/URICertStoreParameters;", nullptr, $PUBLIC, $virtualMethod(URICertStoreParameters, clone, URICertStoreParameters*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(URICertStoreParameters, equals, bool, Object$*)},
-	{"getURI", "()Ljava/net/URI;", nullptr, $PUBLIC, $method(URICertStoreParameters, getURI, $URI*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(URICertStoreParameters, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URICertStoreParameters, toString, $String*)},
-	{}
-};
-
-$ClassInfo _URICertStoreParameters_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.security.cert.URICertStoreParameters",
-	"java.lang.Object",
-	"java.security.cert.CertStoreParameters",
-	_URICertStoreParameters_FieldInfo_,
-	_URICertStoreParameters_MethodInfo_
-};
-
-$Object* allocate$URICertStoreParameters($Class* clazz) {
-	return $of($alloc(URICertStoreParameters));
-}
 
 void URICertStoreParameters::init$($URI* uri) {
 	this->myhash = -1;
@@ -73,7 +43,7 @@ int32_t URICertStoreParameters::hashCode() {
 }
 
 bool URICertStoreParameters::equals(Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(p, this)) {
 		return true;
 	}
@@ -95,7 +65,31 @@ URICertStoreParameters::URICertStoreParameters() {
 }
 
 $Class* URICertStoreParameters::load$($String* name, bool initialize) {
-	$loadClass(URICertStoreParameters, name, initialize, &_URICertStoreParameters_ClassInfo_, allocate$URICertStoreParameters);
+	$FieldInfo fieldInfos$$[] = {
+		{"uri", "Ljava/net/URI;", nullptr, $PRIVATE | $FINAL, $field(URICertStoreParameters, uri)},
+		{"myhash", "I", nullptr, $PRIVATE, $field(URICertStoreParameters, myhash)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $method(URICertStoreParameters, init$, void, $URI*)},
+		{"clone", "()Ljava/security/cert/URICertStoreParameters;", nullptr, $PUBLIC, $virtualMethod(URICertStoreParameters, clone, URICertStoreParameters*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(URICertStoreParameters, equals, bool, Object$*)},
+		{"getURI", "()Ljava/net/URI;", nullptr, $PUBLIC, $method(URICertStoreParameters, getURI, $URI*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(URICertStoreParameters, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URICertStoreParameters, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.security.cert.URICertStoreParameters",
+		"java.lang.Object",
+		"java.security.cert.CertStoreParameters",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(URICertStoreParameters, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(URICertStoreParameters);
+	});
 	return class$;
 }
 

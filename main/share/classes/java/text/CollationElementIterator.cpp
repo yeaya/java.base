@@ -1,5 +1,4 @@
 #include <java/text/CollationElementIterator.h>
-
 #include <java/lang/StringBuffer.h>
 #include <java/text/CharacterIterator.h>
 #include <java/text/Collator.h>
@@ -46,58 +45,6 @@ using $CollatorUtilities = ::sun::text::CollatorUtilities;
 namespace java {
 	namespace text {
 
-$FieldInfo _CollationElementIterator_FieldInfo_[] = {
-	{"NULLORDER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CollationElementIterator, NULLORDER)},
-	{"UNMAPPEDCHARVALUE", "I", nullptr, $STATIC | $FINAL, $constField(CollationElementIterator, UNMAPPEDCHARVALUE)},
-	{"text", "Ljdk/internal/icu/text/NormalizerBase;", nullptr, $PRIVATE, $field(CollationElementIterator, text)},
-	{"buffer", "[I", nullptr, $PRIVATE, $field(CollationElementIterator, buffer)},
-	{"expIndex", "I", nullptr, $PRIVATE, $field(CollationElementIterator, expIndex)},
-	{"key", "Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $field(CollationElementIterator, key)},
-	{"swapOrder", "I", nullptr, $PRIVATE, $field(CollationElementIterator, swapOrder)},
-	{"ordering", "Ljava/text/RBCollationTables;", nullptr, $PRIVATE, $field(CollationElementIterator, ordering)},
-	{"owner", "Ljava/text/RuleBasedCollator;", nullptr, $PRIVATE, $field(CollationElementIterator, owner)},
-	{}
-};
-
-$MethodInfo _CollationElementIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/text/RuleBasedCollator;)V", nullptr, 0, $method(CollationElementIterator, init$, void, $String*, $RuleBasedCollator*)},
-	{"<init>", "(Ljava/text/CharacterIterator;Ljava/text/RuleBasedCollator;)V", nullptr, 0, $method(CollationElementIterator, init$, void, $CharacterIterator*, $RuleBasedCollator*)},
-	{"getMaxExpansion", "(I)I", nullptr, $PUBLIC, $method(CollationElementIterator, getMaxExpansion, int32_t, int32_t)},
-	{"getOffset", "()I", nullptr, $PUBLIC, $method(CollationElementIterator, getOffset, int32_t)},
-	{"isIgnorable", "(I)Z", nullptr, $STATIC | $FINAL, $staticMethod(CollationElementIterator, isIgnorable, bool, int32_t)},
-	{"isLaoBaseConsonant", "(I)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(CollationElementIterator, isLaoBaseConsonant, bool, int32_t)},
-	{"isLaoPreVowel", "(I)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(CollationElementIterator, isLaoPreVowel, bool, int32_t)},
-	{"isThaiBaseConsonant", "(I)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(CollationElementIterator, isThaiBaseConsonant, bool, int32_t)},
-	{"isThaiPreVowel", "(I)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(CollationElementIterator, isThaiPreVowel, bool, int32_t)},
-	{"makeReorderedBuffer", "(II[IZ)[I", nullptr, $PRIVATE, $method(CollationElementIterator, makeReorderedBuffer, $ints*, int32_t, int32_t, $ints*, bool)},
-	{"next", "()I", nullptr, $PUBLIC, $method(CollationElementIterator, next, int32_t)},
-	{"nextContractChar", "(I)I", nullptr, $PRIVATE, $method(CollationElementIterator, nextContractChar, int32_t, int32_t)},
-	{"prevContractChar", "(I)I", nullptr, $PRIVATE, $method(CollationElementIterator, prevContractChar, int32_t, int32_t)},
-	{"previous", "()I", nullptr, $PUBLIC, $method(CollationElementIterator, previous, int32_t)},
-	{"primaryOrder", "(I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CollationElementIterator, primaryOrder, int32_t, int32_t)},
-	{"reset", "()V", nullptr, $PUBLIC, $method(CollationElementIterator, reset, void)},
-	{"secondaryOrder", "(I)S", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CollationElementIterator, secondaryOrder, int16_t, int32_t)},
-	{"setOffset", "(I)V", nullptr, $PUBLIC, $method(CollationElementIterator, setOffset, void, int32_t)},
-	{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CollationElementIterator, setText, void, $String*)},
-	{"setText", "(Ljava/text/CharacterIterator;)V", nullptr, $PUBLIC, $method(CollationElementIterator, setText, void, $CharacterIterator*)},
-	{"strengthOrder", "(I)I", nullptr, $FINAL, $method(CollationElementIterator, strengthOrder, int32_t, int32_t)},
-	{"tertiaryOrder", "(I)S", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CollationElementIterator, tertiaryOrder, int16_t, int32_t)},
-	{}
-};
-
-$ClassInfo _CollationElementIterator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.text.CollationElementIterator",
-	"java.lang.Object",
-	nullptr,
-	_CollationElementIterator_FieldInfo_,
-	_CollationElementIterator_MethodInfo_
-};
-
-$Object* allocate$CollationElementIterator($Class* clazz) {
-	return $of($alloc(CollationElementIterator));
-}
-
 void CollationElementIterator::init$($String* sourceText, $RuleBasedCollator* owner) {
 	$set(this, text, nullptr);
 	$set(this, buffer, nullptr);
@@ -126,9 +73,9 @@ void CollationElementIterator::init$($CharacterIterator* sourceText, $RuleBasedC
 
 void CollationElementIterator::reset() {
 	if (this->text != nullptr) {
-		$nc(this->text)->reset();
+		this->text->reset();
 		$var($NormalizerBase$Mode, mode, $CollatorUtilities::toNormalizerMode($nc(this->owner)->getDecomposition()));
-		$nc(this->text)->setMode(mode);
+		this->text->setMode(mode);
 	}
 	$set(this, buffer, nullptr);
 	this->expIndex = 0;
@@ -136,18 +83,18 @@ void CollationElementIterator::reset() {
 }
 
 int32_t CollationElementIterator::next() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->text == nullptr) {
 		return CollationElementIterator::NULLORDER;
 	}
 	$var($NormalizerBase$Mode, textMode, $nc(this->text)->getMode());
 	$var($NormalizerBase$Mode, ownerMode, $CollatorUtilities::toNormalizerMode($nc(this->owner)->getDecomposition()));
 	if (textMode != ownerMode) {
-		$nc(this->text)->setMode(ownerMode);
+		this->text->setMode(ownerMode);
 	}
 	if (this->buffer != nullptr) {
-		if (this->expIndex < $nc(this->buffer)->length) {
-			return strengthOrder($nc(this->buffer)->get(this->expIndex++));
+		if (this->expIndex < this->buffer->length) {
+			return strengthOrder(this->buffer->get(this->expIndex++));
 		} else {
 			$set(this, buffer, nullptr);
 			this->expIndex = 0;
@@ -162,7 +109,7 @@ int32_t CollationElementIterator::next() {
 		this->swapOrder = 0;
 		return order;
 	}
-	int32_t ch = $nc(this->text)->next();
+	int32_t ch = this->text->next();
 	if (ch == $NormalizerBase::DONE) {
 		return CollationElementIterator::NULLORDER;
 	}
@@ -174,30 +121,30 @@ int32_t CollationElementIterator::next() {
 		value = nextContractChar(ch);
 	}
 	if (value >= $RuleBasedCollator::EXPANDCHARINDEX) {
-		$set(this, buffer, $nc(this->ordering)->getExpandValueList(value));
+		$set(this, buffer, this->ordering->getExpandValueList(value));
 		this->expIndex = 0;
 		value = $nc(this->buffer)->get(this->expIndex++);
 	}
-	if ($nc(this->ordering)->isSEAsianSwapping()) {
+	if (this->ordering->isSEAsianSwapping()) {
 		int32_t consonant = 0;
 		if (isThaiPreVowel(ch)) {
-			consonant = $nc(this->text)->next();
+			consonant = this->text->next();
 			if (isThaiBaseConsonant(consonant)) {
 				$set(this, buffer, makeReorderedBuffer(consonant, value, this->buffer, true));
 				value = $nc(this->buffer)->get(0);
 				this->expIndex = 1;
 			} else if (consonant != $NormalizerBase::DONE) {
-				$nc(this->text)->previous();
+				this->text->previous();
 			}
 		}
 		if (isLaoPreVowel(ch)) {
-			consonant = $nc(this->text)->next();
+			consonant = this->text->next();
 			if (isLaoBaseConsonant(consonant)) {
 				$set(this, buffer, makeReorderedBuffer(consonant, value, this->buffer, true));
 				value = $nc(this->buffer)->get(0);
 				this->expIndex = 1;
 			} else if (consonant != $NormalizerBase::DONE) {
-				$nc(this->text)->previous();
+				this->text->previous();
 			}
 		}
 	}
@@ -205,18 +152,18 @@ int32_t CollationElementIterator::next() {
 }
 
 int32_t CollationElementIterator::previous() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->text == nullptr) {
 		return CollationElementIterator::NULLORDER;
 	}
 	$var($NormalizerBase$Mode, textMode, $nc(this->text)->getMode());
 	$var($NormalizerBase$Mode, ownerMode, $CollatorUtilities::toNormalizerMode($nc(this->owner)->getDecomposition()));
 	if (textMode != ownerMode) {
-		$nc(this->text)->setMode(ownerMode);
+		this->text->setMode(ownerMode);
 	}
 	if (this->buffer != nullptr) {
 		if (this->expIndex > 0) {
-			return strengthOrder($nc(this->buffer)->get(--this->expIndex));
+			return strengthOrder(this->buffer->get(--this->expIndex));
 		} else {
 			$set(this, buffer, nullptr);
 			this->expIndex = 0;
@@ -231,7 +178,7 @@ int32_t CollationElementIterator::previous() {
 		this->swapOrder = 0;
 		return order;
 	}
-	int32_t ch = $nc(this->text)->previous();
+	int32_t ch = this->text->previous();
 	if (ch == $NormalizerBase::DONE) {
 		return CollationElementIterator::NULLORDER;
 	}
@@ -243,30 +190,30 @@ int32_t CollationElementIterator::previous() {
 		value = prevContractChar(ch);
 	}
 	if (value >= $RuleBasedCollator::EXPANDCHARINDEX) {
-		$set(this, buffer, $nc(this->ordering)->getExpandValueList(value));
+		$set(this, buffer, this->ordering->getExpandValueList(value));
 		this->expIndex = $nc(this->buffer)->length;
-		value = $nc(this->buffer)->get(--this->expIndex);
+		value = this->buffer->get(--this->expIndex);
 	}
-	if ($nc(this->ordering)->isSEAsianSwapping()) {
+	if (this->ordering->isSEAsianSwapping()) {
 		int32_t vowel = 0;
 		if (isThaiBaseConsonant(ch)) {
-			vowel = $nc(this->text)->previous();
+			vowel = this->text->previous();
 			if (isThaiPreVowel(vowel)) {
 				$set(this, buffer, makeReorderedBuffer(vowel, value, this->buffer, false));
 				this->expIndex = $nc(this->buffer)->length - 1;
-				value = $nc(this->buffer)->get(this->expIndex);
+				value = this->buffer->get(this->expIndex);
 			} else {
-				$nc(this->text)->next();
+				this->text->next();
 			}
 		}
 		if (isLaoBaseConsonant(ch)) {
-			vowel = $nc(this->text)->previous();
+			vowel = this->text->previous();
 			if (isLaoPreVowel(vowel)) {
 				$set(this, buffer, makeReorderedBuffer(vowel, value, this->buffer, false));
 				this->expIndex = $nc(this->buffer)->length - 1;
-				value = $nc(this->buffer)->get(this->expIndex);
+				value = this->buffer->get(this->expIndex);
 			} else {
-				$nc(this->text)->next();
+				this->text->next();
 			}
 		}
 	}
@@ -279,7 +226,7 @@ int32_t CollationElementIterator::primaryOrder(int32_t order) {
 }
 
 int16_t CollationElementIterator::secondaryOrder(int32_t order) {
-	order = (int32_t)(order & (uint32_t)$RBCollationTables::SECONDARYORDERMASK);
+	order = order & $RBCollationTables::SECONDARYORDERMASK;
 	return ((int16_t)($sr(order, $RBCollationTables::SECONDARYORDERSHIFT)));
 }
 
@@ -299,21 +246,21 @@ int32_t CollationElementIterator::strengthOrder(int32_t order) {
 
 void CollationElementIterator::setOffset(int32_t newOffset) {
 	if (this->text != nullptr) {
-		bool var$0 = newOffset < $nc(this->text)->getBeginIndex();
-		if (var$0 || newOffset >= $nc(this->text)->getEndIndex()) {
-			$nc(this->text)->setIndexOnly(newOffset);
+		bool var$0 = newOffset < this->text->getBeginIndex();
+		if (var$0 || newOffset >= this->text->getEndIndex()) {
+			this->text->setIndexOnly(newOffset);
 		} else {
-			int32_t c = $nc(this->text)->setIndex(newOffset);
+			int32_t c = this->text->setIndex(newOffset);
 			if ($nc(this->ordering)->usedInContractSeq(c)) {
-				while ($nc(this->ordering)->usedInContractSeq(c)) {
-					c = $nc(this->text)->previous();
+				while (this->ordering->usedInContractSeq(c)) {
+					c = this->text->previous();
 				}
-				int32_t last = $nc(this->text)->getIndex();
-				while ($nc(this->text)->getIndex() <= newOffset) {
-					last = $nc(this->text)->getIndex();
+				int32_t last = this->text->getIndex();
+				while (this->text->getIndex() <= newOffset) {
+					last = this->text->getIndex();
 					next();
 				}
-				$nc(this->text)->setIndexOnly(last);
+				this->text->setIndexOnly(last);
 			}
 		}
 	}
@@ -323,7 +270,7 @@ void CollationElementIterator::setOffset(int32_t newOffset) {
 }
 
 int32_t CollationElementIterator::getOffset() {
-	return (this->text != nullptr) ? $nc(this->text)->getIndex() : 0;
+	return (this->text != nullptr) ? this->text->getIndex() : 0;
 }
 
 int32_t CollationElementIterator::getMaxExpansion(int32_t order) {
@@ -338,8 +285,8 @@ void CollationElementIterator::setText($String* source) {
 	if (this->text == nullptr) {
 		$set(this, text, $new($NormalizerBase, source, mode));
 	} else {
-		$nc(this->text)->setMode(mode);
-		$nc(this->text)->setText(source);
+		this->text->setMode(mode);
+		this->text->setText(source);
 	}
 }
 
@@ -351,8 +298,8 @@ void CollationElementIterator::setText($CharacterIterator* source) {
 	if (this->text == nullptr) {
 		$set(this, text, $new($NormalizerBase, source, mode));
 	} else {
-		$nc(this->text)->setMode(mode);
-		$nc(this->text)->setText(source);
+		this->text->setMode(mode);
+		this->text->setText(source);
 	}
 }
 
@@ -373,7 +320,7 @@ bool CollationElementIterator::isLaoBaseConsonant(int32_t ch) {
 }
 
 $ints* CollationElementIterator::makeReorderedBuffer(int32_t colFirst, int32_t lastValue, $ints* lastExpansion$renamed, bool forward) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, lastExpansion, lastExpansion$renamed);
 	$var($ints, result, nullptr);
 	int32_t firstValue = $nc(this->ordering)->getUnicodeOrder(colFirst);
@@ -382,7 +329,7 @@ $ints* CollationElementIterator::makeReorderedBuffer(int32_t colFirst, int32_t l
 	}
 	$var($ints, firstExpansion, nullptr);
 	if (firstValue >= $RuleBasedCollator::EXPANDCHARINDEX) {
-		$assign(firstExpansion, $nc(this->ordering)->getExpandValueList(firstValue));
+		$assign(firstExpansion, this->ordering->getExpandValueList(firstValue));
 	}
 	if (!forward) {
 		int32_t temp1 = firstValue;
@@ -397,8 +344,8 @@ $ints* CollationElementIterator::makeReorderedBuffer(int32_t colFirst, int32_t l
 		result->set(0, firstValue);
 		result->set(1, lastValue);
 	} else {
-		int32_t firstLength = firstExpansion == nullptr ? 1 : $nc(firstExpansion)->length;
-		int32_t lastLength = lastExpansion == nullptr ? 1 : $nc(lastExpansion)->length;
+		int32_t firstLength = firstExpansion == nullptr ? 1 : firstExpansion->length;
+		int32_t lastLength = lastExpansion == nullptr ? 1 : lastExpansion->length;
 		$assign(result, $new($ints, firstLength + lastLength));
 		if (firstExpansion == nullptr) {
 			result->set(0, firstValue);
@@ -419,82 +366,82 @@ bool CollationElementIterator::isIgnorable(int32_t order) {
 }
 
 int32_t CollationElementIterator::nextContractChar(int32_t ch) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, list, $nc(this->ordering)->getContractValues(ch));
 	$var($EntryPair, pair, $cast($EntryPair, $nc(list)->firstElement()));
 	int32_t order = $nc(pair)->value;
 	$assign(pair, $cast($EntryPair, list->lastElement()));
-	int32_t maxLength = $nc(pair->entryName)->length();
+	int32_t maxLength = $nc($nc(pair)->entryName)->length();
 	$var($NormalizerBase, tempText, $cast($NormalizerBase, $nc(this->text)->clone()));
 	$nc(tempText)->previous();
 	$nc(this->key)->setLength(0);
 	int32_t c = tempText->next();
 	while (maxLength > 0 && c != $NormalizerBase::DONE) {
 		if ($Character::isSupplementaryCodePoint(c)) {
-			$nc(this->key)->append($($Character::toChars(c)));
+			this->key->append($($Character::toChars(c)));
 			maxLength -= 2;
 		} else {
-			$nc(this->key)->append((char16_t)c);
+			this->key->append((char16_t)c);
 			--maxLength;
 		}
 		c = tempText->next();
 	}
-	$var($String, fragment, $nc(this->key)->toString());
+	$var($String, fragment, this->key->toString());
 	maxLength = 1;
 	for (int32_t i = list->size() - 1; i > 0; --i) {
 		$assign(pair, $cast($EntryPair, list->elementAt(i)));
 		if (!$nc(pair)->fwd) {
 			continue;
 		}
-		bool var$0 = $nc(fragment)->startsWith($nc(pair)->entryName);
-		if (var$0 && $nc($nc(pair)->entryName)->length() > maxLength) {
-			maxLength = $nc(pair->entryName)->length();
+		bool var$0 = fragment->startsWith(pair->entryName);
+		if (var$0 && pair->entryName->length() > maxLength) {
+			maxLength = pair->entryName->length();
 			order = pair->value;
 		}
 	}
 	while (maxLength > 1) {
-		c = $nc(this->text)->next();
+		c = this->text->next();
 		maxLength -= $Character::charCount(c);
 	}
 	return order;
 }
 
 int32_t CollationElementIterator::prevContractChar(int32_t ch) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, list, $nc(this->ordering)->getContractValues(ch));
 	$var($EntryPair, pair, $cast($EntryPair, $nc(list)->firstElement()));
 	int32_t order = $nc(pair)->value;
 	$assign(pair, $cast($EntryPair, list->lastElement()));
-	int32_t maxLength = $nc(pair->entryName)->length();
+	int32_t maxLength = $nc($nc(pair)->entryName)->length();
 	$var($NormalizerBase, tempText, $cast($NormalizerBase, $nc(this->text)->clone()));
 	$nc(tempText)->next();
 	$nc(this->key)->setLength(0);
 	int32_t c = tempText->previous();
 	while (maxLength > 0 && c != $NormalizerBase::DONE) {
 		if ($Character::isSupplementaryCodePoint(c)) {
-			$nc(this->key)->append($($Character::toChars(c)));
+			this->key->append($($Character::toChars(c)));
 			maxLength -= 2;
 		} else {
-			$nc(this->key)->append((char16_t)c);
+			this->key->append((char16_t)c);
 			--maxLength;
 		}
 		c = tempText->previous();
 	}
-	$var($String, fragment, $nc(this->key)->toString());
+	$var($String, fragment, this->key->toString());
 	maxLength = 1;
 	for (int32_t i = list->size() - 1; i > 0; --i) {
 		$assign(pair, $cast($EntryPair, list->elementAt(i)));
 		if ($nc(pair)->fwd) {
 			continue;
 		}
-		bool var$0 = $nc(fragment)->startsWith($nc(pair)->entryName);
-		if (var$0 && $nc($nc(pair)->entryName)->length() > maxLength) {
-			maxLength = $nc(pair->entryName)->length();
+		bool var$0 = fragment->startsWith(pair->entryName);
+		if (var$0 && pair->entryName->length() > maxLength) {
+			maxLength = pair->entryName->length();
 			order = pair->value;
 		}
 	}
 	while (maxLength > 1) {
-		c = $nc(this->text)->previous();
+		c = this->text->previous();
 		maxLength -= $Character::charCount(c);
 	}
 	return order;
@@ -504,7 +451,54 @@ CollationElementIterator::CollationElementIterator() {
 }
 
 $Class* CollationElementIterator::load$($String* name, bool initialize) {
-	$loadClass(CollationElementIterator, name, initialize, &_CollationElementIterator_ClassInfo_, allocate$CollationElementIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"NULLORDER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CollationElementIterator, NULLORDER)},
+		{"UNMAPPEDCHARVALUE", "I", nullptr, $STATIC | $FINAL, $constField(CollationElementIterator, UNMAPPEDCHARVALUE)},
+		{"text", "Ljdk/internal/icu/text/NormalizerBase;", nullptr, $PRIVATE, $field(CollationElementIterator, text)},
+		{"buffer", "[I", nullptr, $PRIVATE, $field(CollationElementIterator, buffer)},
+		{"expIndex", "I", nullptr, $PRIVATE, $field(CollationElementIterator, expIndex)},
+		{"key", "Ljava/lang/StringBuffer;", nullptr, $PRIVATE, $field(CollationElementIterator, key)},
+		{"swapOrder", "I", nullptr, $PRIVATE, $field(CollationElementIterator, swapOrder)},
+		{"ordering", "Ljava/text/RBCollationTables;", nullptr, $PRIVATE, $field(CollationElementIterator, ordering)},
+		{"owner", "Ljava/text/RuleBasedCollator;", nullptr, $PRIVATE, $field(CollationElementIterator, owner)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/text/RuleBasedCollator;)V", nullptr, 0, $method(CollationElementIterator, init$, void, $String*, $RuleBasedCollator*)},
+		{"<init>", "(Ljava/text/CharacterIterator;Ljava/text/RuleBasedCollator;)V", nullptr, 0, $method(CollationElementIterator, init$, void, $CharacterIterator*, $RuleBasedCollator*)},
+		{"getMaxExpansion", "(I)I", nullptr, $PUBLIC, $method(CollationElementIterator, getMaxExpansion, int32_t, int32_t)},
+		{"getOffset", "()I", nullptr, $PUBLIC, $method(CollationElementIterator, getOffset, int32_t)},
+		{"isIgnorable", "(I)Z", nullptr, $STATIC | $FINAL, $staticMethod(CollationElementIterator, isIgnorable, bool, int32_t)},
+		{"isLaoBaseConsonant", "(I)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(CollationElementIterator, isLaoBaseConsonant, bool, int32_t)},
+		{"isLaoPreVowel", "(I)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(CollationElementIterator, isLaoPreVowel, bool, int32_t)},
+		{"isThaiBaseConsonant", "(I)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(CollationElementIterator, isThaiBaseConsonant, bool, int32_t)},
+		{"isThaiPreVowel", "(I)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(CollationElementIterator, isThaiPreVowel, bool, int32_t)},
+		{"makeReorderedBuffer", "(II[IZ)[I", nullptr, $PRIVATE, $method(CollationElementIterator, makeReorderedBuffer, $ints*, int32_t, int32_t, $ints*, bool)},
+		{"next", "()I", nullptr, $PUBLIC, $method(CollationElementIterator, next, int32_t)},
+		{"nextContractChar", "(I)I", nullptr, $PRIVATE, $method(CollationElementIterator, nextContractChar, int32_t, int32_t)},
+		{"prevContractChar", "(I)I", nullptr, $PRIVATE, $method(CollationElementIterator, prevContractChar, int32_t, int32_t)},
+		{"previous", "()I", nullptr, $PUBLIC, $method(CollationElementIterator, previous, int32_t)},
+		{"primaryOrder", "(I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CollationElementIterator, primaryOrder, int32_t, int32_t)},
+		{"reset", "()V", nullptr, $PUBLIC, $method(CollationElementIterator, reset, void)},
+		{"secondaryOrder", "(I)S", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CollationElementIterator, secondaryOrder, int16_t, int32_t)},
+		{"setOffset", "(I)V", nullptr, $PUBLIC, $method(CollationElementIterator, setOffset, void, int32_t)},
+		{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CollationElementIterator, setText, void, $String*)},
+		{"setText", "(Ljava/text/CharacterIterator;)V", nullptr, $PUBLIC, $method(CollationElementIterator, setText, void, $CharacterIterator*)},
+		{"strengthOrder", "(I)I", nullptr, $FINAL, $method(CollationElementIterator, strengthOrder, int32_t, int32_t)},
+		{"tertiaryOrder", "(I)S", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(CollationElementIterator, tertiaryOrder, int16_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.text.CollationElementIterator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CollationElementIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CollationElementIterator);
+	});
 	return class$;
 }
 

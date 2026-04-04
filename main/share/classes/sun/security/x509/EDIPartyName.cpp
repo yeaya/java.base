@@ -1,5 +1,4 @@
 #include <sun/security/x509/EDIPartyName.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <sun/security/util/DerInputStream.h>
@@ -29,44 +28,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _EDIPartyName_FieldInfo_[] = {
-	{"TAG_ASSIGNER", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EDIPartyName, TAG_ASSIGNER)},
-	{"TAG_PARTYNAME", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EDIPartyName, TAG_PARTYNAME)},
-	{"assigner", "Ljava/lang/String;", nullptr, $PRIVATE, $field(EDIPartyName, assigner)},
-	{"party", "Ljava/lang/String;", nullptr, $PRIVATE, $field(EDIPartyName, party)},
-	{"myhash", "I", nullptr, $PRIVATE, $field(EDIPartyName, myhash)},
-	{}
-};
-
-$MethodInfo _EDIPartyName_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(EDIPartyName, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(EDIPartyName, init$, void, $String*)},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(EDIPartyName, init$, void, $DerValue*), "java.io.IOException"},
-	{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, constrains, int32_t, $GeneralNameInterface*), "java.lang.UnsupportedOperationException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, encode, void, $DerOutputStream*), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, equals, bool, Object$*)},
-	{"getAssignerName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, getAssignerName, $String*)},
-	{"getPartyName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, getPartyName, $String*)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, getType, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, hashCode, int32_t)},
-	{"subtreeDepth", "()I", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, subtreeDepth, int32_t), "java.lang.UnsupportedOperationException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, toString, $String*)},
-	{}
-};
-
-$ClassInfo _EDIPartyName_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.EDIPartyName",
-	"java.lang.Object",
-	"sun.security.x509.GeneralNameInterface",
-	_EDIPartyName_FieldInfo_,
-	_EDIPartyName_MethodInfo_
-};
-
-$Object* allocate$EDIPartyName($Class* clazz) {
-	return $of($alloc(EDIPartyName));
-}
-
 void EDIPartyName::init$($String* assignerName, $String* partyName) {
 	$set(this, assigner, nullptr);
 	$set(this, party, nullptr);
@@ -83,7 +44,7 @@ void EDIPartyName::init$($String* partyName) {
 }
 
 void EDIPartyName::init$($DerValue* derValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, assigner, nullptr);
 	$set(this, party, nullptr);
 	this->myhash = -1;
@@ -103,7 +64,7 @@ void EDIPartyName::init$($DerValue* derValue) {
 			$assign(opt, $nc(opt->data$)->getDerValue());
 			$set(this, assigner, $nc(opt)->getAsString());
 		}
-		bool var$1 = $nc(opt)->isContextSpecific(EDIPartyName::TAG_PARTYNAME);
+		bool var$1 = opt->isContextSpecific(EDIPartyName::TAG_PARTYNAME);
 		if (var$1 && !opt->isConstructed()) {
 			if (this->party != nullptr) {
 				$throwNew($IOException, "Duplicate partyName found in EDIPartyName"_s);
@@ -119,7 +80,7 @@ int32_t EDIPartyName::getType() {
 }
 
 void EDIPartyName::encode($DerOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, tagged, $new($DerOutputStream));
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->assigner != nullptr) {
@@ -144,24 +105,24 @@ $String* EDIPartyName::getPartyName() {
 }
 
 bool EDIPartyName::equals(Object$* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf(EDIPartyName, other))) {
 		return false;
 	}
-	$var($String, otherAssigner, $nc(($cast(EDIPartyName, other)))->assigner);
+	$var($String, otherAssigner, $nc($cast(EDIPartyName, other))->assigner);
 	if (this->assigner == nullptr) {
 		if (otherAssigner != nullptr) {
 			return false;
 		}
-	} else if (!($nc(this->assigner)->equals(otherAssigner))) {
+	} else if (!(this->assigner->equals(otherAssigner))) {
 		return false;
 	}
-	$var($String, otherParty, ($cast(EDIPartyName, other))->party);
+	$var($String, otherParty, $cast(EDIPartyName, other)->party);
 	if (this->party == nullptr) {
 		if (otherParty != nullptr) {
 			return false;
 		}
-	} else if (!($nc(this->party)->equals(otherParty))) {
+	} else if (!(this->party->equals(otherParty))) {
 		return false;
 	}
 	return true;
@@ -169,9 +130,9 @@ bool EDIPartyName::equals(Object$* other) {
 
 int32_t EDIPartyName::hashCode() {
 	if (this->myhash == -1) {
-		this->myhash = 37 + (this->party == nullptr ? 1 : $nc(this->party)->hashCode());
+		this->myhash = 37 + (this->party == nullptr ? 1 : this->party->hashCode());
 		if (this->assigner != nullptr) {
-			this->myhash = 37 * this->myhash + $nc(this->assigner)->hashCode();
+			this->myhash = 37 * this->myhash + this->assigner->hashCode();
 		}
 	}
 	return this->myhash;
@@ -190,7 +151,7 @@ int32_t EDIPartyName::constrains($GeneralNameInterface* inputName) {
 	int32_t constraintType = 0;
 	if (inputName == nullptr) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
-	} else if ($nc(inputName)->getType() != $GeneralNameInterface::NAME_EDI) {
+	} else if (inputName->getType() != $GeneralNameInterface::NAME_EDI) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
 	} else {
 		$throwNew($UnsupportedOperationException, "Narrowing, widening, and matching of names not supported for EDIPartyName"_s);
@@ -207,7 +168,40 @@ EDIPartyName::EDIPartyName() {
 }
 
 $Class* EDIPartyName::load$($String* name, bool initialize) {
-	$loadClass(EDIPartyName, name, initialize, &_EDIPartyName_ClassInfo_, allocate$EDIPartyName);
+	$FieldInfo fieldInfos$$[] = {
+		{"TAG_ASSIGNER", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EDIPartyName, TAG_ASSIGNER)},
+		{"TAG_PARTYNAME", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EDIPartyName, TAG_PARTYNAME)},
+		{"assigner", "Ljava/lang/String;", nullptr, $PRIVATE, $field(EDIPartyName, assigner)},
+		{"party", "Ljava/lang/String;", nullptr, $PRIVATE, $field(EDIPartyName, party)},
+		{"myhash", "I", nullptr, $PRIVATE, $field(EDIPartyName, myhash)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(EDIPartyName, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(EDIPartyName, init$, void, $String*)},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(EDIPartyName, init$, void, $DerValue*), "java.io.IOException"},
+		{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, constrains, int32_t, $GeneralNameInterface*), "java.lang.UnsupportedOperationException"},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, encode, void, $DerOutputStream*), "java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, equals, bool, Object$*)},
+		{"getAssignerName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, getAssignerName, $String*)},
+		{"getPartyName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, getPartyName, $String*)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, getType, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, hashCode, int32_t)},
+		{"subtreeDepth", "()I", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, subtreeDepth, int32_t), "java.lang.UnsupportedOperationException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EDIPartyName, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.EDIPartyName",
+		"java.lang.Object",
+		"sun.security.x509.GeneralNameInterface",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EDIPartyName, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EDIPartyName);
+	});
 	return class$;
 }
 

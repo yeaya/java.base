@@ -1,5 +1,4 @@
 #include <java/lang/System$Logger$Level.h>
-
 #include <java/lang/Enum.h>
 #include <java/lang/System$Logger.h>
 #include <jcpp.h>
@@ -24,55 +23,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _System$Logger$Level_FieldInfo_[] = {
-	{"ALL", "Ljava/lang/System$Logger$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(System$Logger$Level, ALL)},
-	{"TRACE", "Ljava/lang/System$Logger$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(System$Logger$Level, TRACE)},
-	{"DEBUG", "Ljava/lang/System$Logger$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(System$Logger$Level, DEBUG)},
-	{"INFO", "Ljava/lang/System$Logger$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(System$Logger$Level, INFO)},
-	{"WARNING", "Ljava/lang/System$Logger$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(System$Logger$Level, WARNING)},
-	{"ERROR", "Ljava/lang/System$Logger$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(System$Logger$Level, ERROR)},
-	{"OFF", "Ljava/lang/System$Logger$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(System$Logger$Level, OFF)},
-	{"$VALUES", "[Ljava/lang/System$Logger$Level;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(System$Logger$Level, $VALUES)},
-	{"severity", "I", nullptr, $PRIVATE | $FINAL, $field(System$Logger$Level, severity)},
-	{}
-};
-
-$MethodInfo _System$Logger$Level_MethodInfo_[] = {
-	{"$values", "()[Ljava/lang/System$Logger$Level;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(System$Logger$Level, $values, $System$Logger$LevelArray*)},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(System$Logger$Level, init$, void, $String*, int32_t, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(System$Logger$Level, getName, $String*)},
-	{"getSeverity", "()I", nullptr, $PUBLIC | $FINAL, $method(System$Logger$Level, getSeverity, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/System$Logger$Level;", nullptr, $PUBLIC | $STATIC, $staticMethod(System$Logger$Level, valueOf, System$Logger$Level*, $String*)},
-	{"values", "()[Ljava/lang/System$Logger$Level;", nullptr, $PUBLIC | $STATIC, $staticMethod(System$Logger$Level, values, $System$Logger$LevelArray*)},
-	{}
-};
-
-$InnerClassInfo _System$Logger$Level_InnerClassesInfo_[] = {
-	{"java.lang.System$Logger", "java.lang.System", "Logger", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.lang.System$Logger$Level", "java.lang.System$Logger", "Level", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _System$Logger$Level_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.lang.System$Logger$Level",
-	"java.lang.Enum",
-	nullptr,
-	_System$Logger$Level_FieldInfo_,
-	_System$Logger$Level_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/lang/System$Logger$Level;>;",
-	nullptr,
-	_System$Logger$Level_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.System"
-};
-
-$Object* allocate$System$Logger$Level($Class* clazz) {
-	return $of($alloc(System$Logger$Level));
-}
 
 System$Logger$Level* System$Logger$Level::ALL = nullptr;
 System$Logger$Level* System$Logger$Level::TRACE = nullptr;
@@ -119,7 +69,7 @@ int32_t System$Logger$Level::getSeverity() {
 	return this->severity;
 }
 
-void clinit$System$Logger$Level($Class* class$) {
+void System$Logger$Level::clinit$($Class* clazz) {
 	$assignStatic(System$Logger$Level::ALL, $new(System$Logger$Level, "ALL"_s, 0, $Integer::MIN_VALUE));
 	$assignStatic(System$Logger$Level::TRACE, $new(System$Logger$Level, "TRACE"_s, 1, 400));
 	$assignStatic(System$Logger$Level::DEBUG, $new(System$Logger$Level, "DEBUG"_s, 2, 500));
@@ -134,7 +84,50 @@ System$Logger$Level::System$Logger$Level() {
 }
 
 $Class* System$Logger$Level::load$($String* name, bool initialize) {
-	$loadClass(System$Logger$Level, name, initialize, &_System$Logger$Level_ClassInfo_, clinit$System$Logger$Level, allocate$System$Logger$Level);
+	$FieldInfo fieldInfos$$[] = {
+		{"ALL", "Ljava/lang/System$Logger$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(System$Logger$Level, ALL)},
+		{"TRACE", "Ljava/lang/System$Logger$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(System$Logger$Level, TRACE)},
+		{"DEBUG", "Ljava/lang/System$Logger$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(System$Logger$Level, DEBUG)},
+		{"INFO", "Ljava/lang/System$Logger$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(System$Logger$Level, INFO)},
+		{"WARNING", "Ljava/lang/System$Logger$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(System$Logger$Level, WARNING)},
+		{"ERROR", "Ljava/lang/System$Logger$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(System$Logger$Level, ERROR)},
+		{"OFF", "Ljava/lang/System$Logger$Level;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(System$Logger$Level, OFF)},
+		{"$VALUES", "[Ljava/lang/System$Logger$Level;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(System$Logger$Level, $VALUES)},
+		{"severity", "I", nullptr, $PRIVATE | $FINAL, $field(System$Logger$Level, severity)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/lang/System$Logger$Level;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(System$Logger$Level, $values, $System$Logger$LevelArray*)},
+		{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(System$Logger$Level, init$, void, $String*, int32_t, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(System$Logger$Level, getName, $String*)},
+		{"getSeverity", "()I", nullptr, $PUBLIC | $FINAL, $method(System$Logger$Level, getSeverity, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/lang/System$Logger$Level;", nullptr, $PUBLIC | $STATIC, $staticMethod(System$Logger$Level, valueOf, System$Logger$Level*, $String*)},
+		{"values", "()[Ljava/lang/System$Logger$Level;", nullptr, $PUBLIC | $STATIC, $staticMethod(System$Logger$Level, values, $System$Logger$LevelArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.System$Logger", "java.lang.System", "Logger", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.lang.System$Logger$Level", "java.lang.System$Logger", "Level", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.lang.System$Logger$Level",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/lang/System$Logger$Level;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.System"
+	};
+	$loadClass(System$Logger$Level, name, initialize, &classInfo$$, System$Logger$Level::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(System$Logger$Level));
+	});
 	return class$;
 }
 

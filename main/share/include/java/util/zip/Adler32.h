@@ -20,6 +20,7 @@ class $import Adler32 : public ::java::util::zip::Checksum {
 	$class(Adler32, 0, ::java::util::zip::Checksum)
 public:
 	Adler32();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int64_t getValue() override;
 	virtual void reset() override;

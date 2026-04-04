@@ -29,7 +29,7 @@ public:
 	virtual int32_t hashCode() override;
 	$bytes* val$password = nullptr;
 	::javax::crypto::Mac* val$prf = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x6D47D233D2F69363;
+	static const int64_t serialVersionUID = (int64_t)0x6d47d233d2f69363;
 };
 
 			} // provider

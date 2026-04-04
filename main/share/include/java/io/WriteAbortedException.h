@@ -22,11 +22,14 @@ public:
 	void init$($String* s, ::java::lang::Exception* ex);
 	virtual $Throwable* getCause() override;
 	virtual $String* getMessage() override;
-	static const int64_t serialVersionUID = (int64_t)0xD1D6289BB1DF6776;
+	static const int64_t serialVersionUID = (int64_t)0xd1d6289bb1df6776;
 	::java::lang::Exception* detail = nullptr;
 	WriteAbortedException(const WriteAbortedException& e);
 	virtual void throw$() override;
-	inline WriteAbortedException* operator ->() {
+	inline WriteAbortedException* operator ->() const {
+		return (WriteAbortedException*)throwing$;
+	}
+	inline operator WriteAbortedException*() const {
 		return (WriteAbortedException*)throwing$;
 	}
 };

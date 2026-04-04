@@ -1,5 +1,4 @@
 #include <sun/nio/ch/EPollPort.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Runnable.h>
@@ -47,56 +46,6 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _EPollPort_FieldInfo_[] = {
-	{"MAX_EPOLL_EVENTS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EPollPort, MAX_EPOLL_EVENTS)},
-	{"ENOENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EPollPort, ENOENT)},
-	{"epfd", "I", nullptr, $PRIVATE | $FINAL, $field(EPollPort, epfd)},
-	{"address", "J", nullptr, $PRIVATE | $FINAL, $field(EPollPort, address)},
-	{"closed", "Z", nullptr, $PRIVATE, $field(EPollPort, closed)},
-	{"sp", "[I", nullptr, $PRIVATE | $FINAL, $field(EPollPort, sp)},
-	{"wakeupCount", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $FINAL, $field(EPollPort, wakeupCount)},
-	{"queue", "Ljava/util/concurrent/ArrayBlockingQueue;", "Ljava/util/concurrent/ArrayBlockingQueue<Lsun/nio/ch/EPollPort$Event;>;", $PRIVATE | $FINAL, $field(EPollPort, queue)},
-	{"NEED_TO_POLL", "Lsun/nio/ch/EPollPort$Event;", nullptr, $PRIVATE | $FINAL, $field(EPollPort, NEED_TO_POLL)},
-	{"EXECUTE_TASK_OR_SHUTDOWN", "Lsun/nio/ch/EPollPort$Event;", nullptr, $PRIVATE | $FINAL, $field(EPollPort, EXECUTE_TASK_OR_SHUTDOWN)},
-	{}
-};
-
-$MethodInfo _EPollPort_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/spi/AsynchronousChannelProvider;Lsun/nio/ch/ThreadPool;)V", nullptr, 0, $method(EPollPort, init$, void, $AsynchronousChannelProvider*, $ThreadPool*), "java.io.IOException"},
-	{"executeOnHandlerTask", "(Ljava/lang/Runnable;)V", nullptr, 0, $virtualMethod(EPollPort, executeOnHandlerTask, void, $Runnable*)},
-	{"implClose", "()V", nullptr, $PRIVATE, $method(EPollPort, implClose, void)},
-	{"shutdownHandlerTasks", "()V", nullptr, 0, $virtualMethod(EPollPort, shutdownHandlerTasks, void)},
-	{"start", "()Lsun/nio/ch/EPollPort;", nullptr, 0, $method(EPollPort, start, EPollPort*)},
-	{"startPoll", "(II)V", nullptr, 0, $virtualMethod(EPollPort, startPoll, void, int32_t, int32_t)},
-	{"wakeup", "()V", nullptr, $PRIVATE, $method(EPollPort, wakeup, void)},
-	{}
-};
-
-$InnerClassInfo _EPollPort_InnerClassesInfo_[] = {
-	{"sun.nio.ch.EPollPort$EventHandlerTask", "sun.nio.ch.EPollPort", "EventHandlerTask", $PRIVATE},
-	{"sun.nio.ch.EPollPort$Event", "sun.nio.ch.EPollPort", "Event", $STATIC},
-	{}
-};
-
-$ClassInfo _EPollPort_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.nio.ch.EPollPort",
-	"sun.nio.ch.Port",
-	nullptr,
-	_EPollPort_FieldInfo_,
-	_EPollPort_MethodInfo_,
-	nullptr,
-	nullptr,
-	_EPollPort_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.EPollPort$EventHandlerTask,sun.nio.ch.EPollPort$Event"
-};
-
-$Object* allocate$EPollPort($Class* clazz) {
-	return $of($alloc(EPollPort));
-}
-
 void EPollPort::init$($AsynchronousChannelProvider* provider, $ThreadPool* pool) {
 	$Port::init$(provider, pool);
 	$set(this, wakeupCount, $new($AtomicInteger));
@@ -117,7 +66,7 @@ void EPollPort::init$($AsynchronousChannelProvider* provider, $ThreadPool* pool)
 	}
 	$EPoll::ctl(this->epfd, 1, $nc(this->sp)->get(0), 1);
 	$set(this, queue, $new($ArrayBlockingQueue, EPollPort::MAX_EPOLL_EVENTS));
-	$nc(this->queue)->offer(this->NEED_TO_POLL);
+	this->queue->offer(this->NEED_TO_POLL);
 }
 
 EPollPort* EPollPort::start() {
@@ -148,7 +97,7 @@ void EPollPort::implClose() {
 }
 
 void EPollPort::wakeup() {
-	if ($nc(this->wakeupCount)->incrementAndGet() == 1) {
+	if (this->wakeupCount->incrementAndGet() == 1) {
 		try {
 			$IOUtil::write1($nc(this->sp)->get(1), (int8_t)0);
 		} catch ($IOException& x) {
@@ -192,7 +141,51 @@ EPollPort::EPollPort() {
 }
 
 $Class* EPollPort::load$($String* name, bool initialize) {
-	$loadClass(EPollPort, name, initialize, &_EPollPort_ClassInfo_, allocate$EPollPort);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_EPOLL_EVENTS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EPollPort, MAX_EPOLL_EVENTS)},
+		{"ENOENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EPollPort, ENOENT)},
+		{"epfd", "I", nullptr, $PRIVATE | $FINAL, $field(EPollPort, epfd)},
+		{"address", "J", nullptr, $PRIVATE | $FINAL, $field(EPollPort, address)},
+		{"closed", "Z", nullptr, $PRIVATE, $field(EPollPort, closed)},
+		{"sp", "[I", nullptr, $PRIVATE | $FINAL, $field(EPollPort, sp)},
+		{"wakeupCount", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $FINAL, $field(EPollPort, wakeupCount)},
+		{"queue", "Ljava/util/concurrent/ArrayBlockingQueue;", "Ljava/util/concurrent/ArrayBlockingQueue<Lsun/nio/ch/EPollPort$Event;>;", $PRIVATE | $FINAL, $field(EPollPort, queue)},
+		{"NEED_TO_POLL", "Lsun/nio/ch/EPollPort$Event;", nullptr, $PRIVATE | $FINAL, $field(EPollPort, NEED_TO_POLL)},
+		{"EXECUTE_TASK_OR_SHUTDOWN", "Lsun/nio/ch/EPollPort$Event;", nullptr, $PRIVATE | $FINAL, $field(EPollPort, EXECUTE_TASK_OR_SHUTDOWN)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/spi/AsynchronousChannelProvider;Lsun/nio/ch/ThreadPool;)V", nullptr, 0, $method(EPollPort, init$, void, $AsynchronousChannelProvider*, $ThreadPool*), "java.io.IOException"},
+		{"executeOnHandlerTask", "(Ljava/lang/Runnable;)V", nullptr, 0, $virtualMethod(EPollPort, executeOnHandlerTask, void, $Runnable*)},
+		{"implClose", "()V", nullptr, $PRIVATE, $method(EPollPort, implClose, void)},
+		{"shutdownHandlerTasks", "()V", nullptr, 0, $virtualMethod(EPollPort, shutdownHandlerTasks, void)},
+		{"start", "()Lsun/nio/ch/EPollPort;", nullptr, 0, $method(EPollPort, start, EPollPort*)},
+		{"startPoll", "(II)V", nullptr, 0, $virtualMethod(EPollPort, startPoll, void, int32_t, int32_t)},
+		{"wakeup", "()V", nullptr, $PRIVATE, $method(EPollPort, wakeup, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.EPollPort$EventHandlerTask", "sun.nio.ch.EPollPort", "EventHandlerTask", $PRIVATE},
+		{"sun.nio.ch.EPollPort$Event", "sun.nio.ch.EPollPort", "Event", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.nio.ch.EPollPort",
+		"sun.nio.ch.Port",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.EPollPort$EventHandlerTask,sun.nio.ch.EPollPort$Event"
+	};
+	$loadClass(EPollPort, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(EPollPort));
+	});
 	return class$;
 }
 

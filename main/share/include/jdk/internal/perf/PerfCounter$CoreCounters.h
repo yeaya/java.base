@@ -21,6 +21,7 @@ class $import PerfCounter$CoreCounters : public ::java::lang::Object {
 	$class(PerfCounter$CoreCounters, 0, ::java::lang::Object)
 public:
 	PerfCounter$CoreCounters();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::jdk::internal::perf::PerfCounter* pdt;
 	static ::jdk::internal::perf::PerfCounter* lc;

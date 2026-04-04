@@ -1,5 +1,4 @@
 #include <java/net/InetAddress$Addresses.h>
-
 #include <java/net/InetAddress.h>
 #include <jcpp.h>
 
@@ -11,38 +10,33 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace net {
 
-$MethodInfo _InetAddress$Addresses_MethodInfo_[] = {
-	{"get", "()[Ljava/net/InetAddress;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InetAddress$Addresses, get, $InetAddressArray*), "java.net.UnknownHostException"},
-	{}
-};
-
-$InnerClassInfo _InetAddress$Addresses_InnerClassesInfo_[] = {
-	{"java.net.InetAddress$Addresses", "java.net.InetAddress", "Addresses", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _InetAddress$Addresses_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"java.net.InetAddress$Addresses",
-	nullptr,
-	nullptr,
-	nullptr,
-	_InetAddress$Addresses_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InetAddress$Addresses_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.InetAddress"
-};
-
-$Object* allocate$InetAddress$Addresses($Class* clazz) {
-	return $of($alloc(InetAddress$Addresses));
-}
-
 $Class* InetAddress$Addresses::load$($String* name, bool initialize) {
-	$loadClass(InetAddress$Addresses, name, initialize, &_InetAddress$Addresses_ClassInfo_, allocate$InetAddress$Addresses);
+	$MethodInfo methodInfos$$[] = {
+		{"get", "()[Ljava/net/InetAddress;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InetAddress$Addresses, get, $InetAddressArray*), "java.net.UnknownHostException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.InetAddress$Addresses", "java.net.InetAddress", "Addresses", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"java.net.InetAddress$Addresses",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.InetAddress"
+	};
+	$loadClass(InetAddress$Addresses, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InetAddress$Addresses);
+	});
 	return class$;
 }
 

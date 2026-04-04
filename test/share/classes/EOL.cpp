@@ -1,5 +1,4 @@
 #include <EOL.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/Reader.h>
 #include <java/io/StringReader.h>
@@ -8,37 +7,17 @@
 #undef EOL
 
 using $BufferedReader = ::java::io::BufferedReader;
-using $PrintStream = ::java::io::PrintStream;
 using $Reader = ::java::io::Reader;
 using $StringReader = ::java::io::StringReader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
-$MethodInfo _EOL_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(EOL, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EOL, main, void, $StringArray*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _EOL_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"EOL",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_EOL_MethodInfo_
-};
-
-$Object* allocate$EOL($Class* clazz) {
-	return $of($alloc(EOL));
-}
-
 void EOL::init$() {
 }
 
 void EOL::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Reader, sr, $new($StringReader, "one\rtwo\r\nthree\nfour\r"_s));
 	$var($BufferedReader, br, $new($BufferedReader, sr));
 	for (int32_t i = 0;; ++i) {
@@ -57,7 +36,22 @@ EOL::EOL() {
 }
 
 $Class* EOL::load$($String* name, bool initialize) {
-	$loadClass(EOL, name, initialize, &_EOL_ClassInfo_, allocate$EOL);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(EOL, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EOL, main, void, $StringArray*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"EOL",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(EOL, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EOL);
+	});
 	return class$;
 }
 

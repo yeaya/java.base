@@ -16,6 +16,7 @@ class JrtUtils : public ::java::lang::Object {
 	$class(JrtUtils, 0, ::java::lang::Object)
 public:
 	JrtUtils();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool isGlobMeta(char16_t c);
 	static bool isRegexMeta(char16_t c);

@@ -47,6 +47,7 @@ class $export DisabledAlgorithmConstraints : public ::sun::security::util::Abstr
 	$class(DisabledAlgorithmConstraints, 0, ::sun::security::util::AbstractAlgorithmConstraints)
 public:
 	DisabledAlgorithmConstraints();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* propertyName);
 	void init$($String* propertyName, ::sun::security::util::AlgorithmDecomposer* decomposer);
 	static ::sun::security::util::DisabledAlgorithmConstraints* certPathConstraints();

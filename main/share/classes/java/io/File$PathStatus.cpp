@@ -1,5 +1,4 @@
 #include <java/io/File$PathStatus.h>
-
 #include <java/io/File.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -16,46 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _File$PathStatus_FieldInfo_[] = {
-	{"INVALID", "Ljava/io/File$PathStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(File$PathStatus, INVALID)},
-	{"CHECKED", "Ljava/io/File$PathStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(File$PathStatus, CHECKED)},
-	{"$VALUES", "[Ljava/io/File$PathStatus;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(File$PathStatus, $VALUES)},
-	{}
-};
-
-$MethodInfo _File$PathStatus_MethodInfo_[] = {
-	{"$values", "()[Ljava/io/File$PathStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(File$PathStatus, $values, $File$PathStatusArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(File$PathStatus, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/io/File$PathStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(File$PathStatus, valueOf, File$PathStatus*, $String*)},
-	{"values", "()[Ljava/io/File$PathStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(File$PathStatus, values, $File$PathStatusArray*)},
-	{}
-};
-
-$InnerClassInfo _File$PathStatus_InnerClassesInfo_[] = {
-	{"java.io.File$PathStatus", "java.io.File", "PathStatus", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _File$PathStatus_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"java.io.File$PathStatus",
-	"java.lang.Enum",
-	nullptr,
-	_File$PathStatus_FieldInfo_,
-	_File$PathStatus_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/io/File$PathStatus;>;",
-	nullptr,
-	_File$PathStatus_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.io.File"
-};
-
-$Object* allocate$File$PathStatus($Class* clazz) {
-	return $of($alloc(File$PathStatus));
-}
 
 File$PathStatus* File$PathStatus::INVALID = nullptr;
 File$PathStatus* File$PathStatus::CHECKED = nullptr;
@@ -83,7 +42,7 @@ void File$PathStatus::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$File$PathStatus($Class* class$) {
+void File$PathStatus::clinit$($Class* clazz) {
 	$assignStatic(File$PathStatus::INVALID, $new(File$PathStatus, "INVALID"_s, 0));
 	$assignStatic(File$PathStatus::CHECKED, $new(File$PathStatus, "CHECKED"_s, 1));
 	$assignStatic(File$PathStatus::$VALUES, File$PathStatus::$values());
@@ -93,7 +52,41 @@ File$PathStatus::File$PathStatus() {
 }
 
 $Class* File$PathStatus::load$($String* name, bool initialize) {
-	$loadClass(File$PathStatus, name, initialize, &_File$PathStatus_ClassInfo_, clinit$File$PathStatus, allocate$File$PathStatus);
+	$FieldInfo fieldInfos$$[] = {
+		{"INVALID", "Ljava/io/File$PathStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(File$PathStatus, INVALID)},
+		{"CHECKED", "Ljava/io/File$PathStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(File$PathStatus, CHECKED)},
+		{"$VALUES", "[Ljava/io/File$PathStatus;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(File$PathStatus, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/io/File$PathStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(File$PathStatus, $values, $File$PathStatusArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(File$PathStatus, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/io/File$PathStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(File$PathStatus, valueOf, File$PathStatus*, $String*)},
+		{"values", "()[Ljava/io/File$PathStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(File$PathStatus, values, $File$PathStatusArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.File$PathStatus", "java.io.File", "PathStatus", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"java.io.File$PathStatus",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/io/File$PathStatus;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.io.File"
+	};
+	$loadClass(File$PathStatus, name, initialize, &classInfo$$, File$PathStatus::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(File$PathStatus));
+	});
 	return class$;
 }
 

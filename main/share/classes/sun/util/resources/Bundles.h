@@ -61,6 +61,7 @@ class $export Bundles : public ::java::lang::Object {
 	$class(Bundles, 0, ::java::lang::Object)
 public:
 	Bundles();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void cleanupCache();
 	static ::java::util::ResourceBundle* findBundleInCache(::sun::util::resources::Bundles$CacheKey* cacheKey);

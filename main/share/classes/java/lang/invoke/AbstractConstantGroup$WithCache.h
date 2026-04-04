@@ -25,6 +25,7 @@ class AbstractConstantGroup$WithCache : public ::java::lang::invoke::AbstractCon
 	$class(AbstractConstantGroup$WithCache, 0, ::java::lang::invoke::AbstractConstantGroup)
 public:
 	AbstractConstantGroup$WithCache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t size);
 	virtual $Object* fillCache(int32_t i);
 	virtual $Object* get(int32_t i) override;

@@ -30,6 +30,7 @@ class Executors$DefaultThreadFactory : public ::java::util::concurrent::ThreadFa
 	$class(Executors$DefaultThreadFactory, 0, ::java::util::concurrent::ThreadFactory)
 public:
 	Executors$DefaultThreadFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Thread* newThread(::java::lang::Runnable* r) override;
 	static ::java::util::concurrent::atomic::AtomicInteger* poolNumber;

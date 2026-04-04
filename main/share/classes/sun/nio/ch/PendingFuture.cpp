@@ -1,5 +1,4 @@
 #include <sun/nio/ch/PendingFuture.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/SecurityException.h>
 #include <java/nio/channels/AsynchronousChannel.h>
@@ -32,58 +31,6 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _PendingFuture_FieldInfo_[] = {
-	{"channel", "Ljava/nio/channels/AsynchronousChannel;", nullptr, $PRIVATE | $FINAL, $field(PendingFuture, channel$)},
-	{"handler", "Ljava/nio/channels/CompletionHandler;", "Ljava/nio/channels/CompletionHandler<TV;-TA;>;", $PRIVATE | $FINAL, $field(PendingFuture, handler$)},
-	{"attachment", "Ljava/lang/Object;", "TA;", $PRIVATE | $FINAL, $field(PendingFuture, attachment$)},
-	{"haveResult", "Z", nullptr, $PRIVATE | $VOLATILE, $field(PendingFuture, haveResult)},
-	{"result", "Ljava/lang/Object;", "TV;", $PRIVATE | $VOLATILE, $field(PendingFuture, result)},
-	{"exc", "Ljava/lang/Throwable;", nullptr, $PRIVATE | $VOLATILE, $field(PendingFuture, exc)},
-	{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE, $field(PendingFuture, latch)},
-	{"timeoutTask", "Ljava/util/concurrent/Future;", "Ljava/util/concurrent/Future<*>;", $PRIVATE, $field(PendingFuture, timeoutTask)},
-	{"context", "Ljava/lang/Object;", nullptr, $PRIVATE | $VOLATILE, $field(PendingFuture, context)},
-	{}
-};
-
-$MethodInfo _PendingFuture_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/AsynchronousChannel;Ljava/nio/channels/CompletionHandler;Ljava/lang/Object;Ljava/lang/Object;)V", "(Ljava/nio/channels/AsynchronousChannel;Ljava/nio/channels/CompletionHandler<TV;-TA;>;TA;Ljava/lang/Object;)V", 0, $method(PendingFuture, init$, void, $AsynchronousChannel*, $CompletionHandler*, Object$*, Object$*)},
-	{"<init>", "(Ljava/nio/channels/AsynchronousChannel;Ljava/nio/channels/CompletionHandler;Ljava/lang/Object;)V", "(Ljava/nio/channels/AsynchronousChannel;Ljava/nio/channels/CompletionHandler<TV;-TA;>;TA;)V", 0, $method(PendingFuture, init$, void, $AsynchronousChannel*, $CompletionHandler*, Object$*)},
-	{"<init>", "(Ljava/nio/channels/AsynchronousChannel;)V", nullptr, 0, $method(PendingFuture, init$, void, $AsynchronousChannel*)},
-	{"<init>", "(Ljava/nio/channels/AsynchronousChannel;Ljava/lang/Object;)V", nullptr, 0, $method(PendingFuture, init$, void, $AsynchronousChannel*, Object$*)},
-	{"attachment", "()Ljava/lang/Object;", "()TA;", 0, $method(PendingFuture, attachment, $Object*)},
-	{"cancel", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(PendingFuture, cancel, bool, bool)},
-	{"channel", "()Ljava/nio/channels/AsynchronousChannel;", nullptr, 0, $method(PendingFuture, channel, $AsynchronousChannel*)},
-	{"exception", "()Ljava/lang/Throwable;", nullptr, 0, $method(PendingFuture, exception, $Throwable*)},
-	{"get", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(PendingFuture, get, $Object*), "java.util.concurrent.ExecutionException,java.lang.InterruptedException"},
-	{"get", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", "(JLjava/util/concurrent/TimeUnit;)TV;", $PUBLIC, $virtualMethod(PendingFuture, get, $Object*, int64_t, $TimeUnit*), "java.util.concurrent.ExecutionException,java.lang.InterruptedException,java.util.concurrent.TimeoutException"},
-	{"getContext", "()Ljava/lang/Object;", nullptr, 0, $method(PendingFuture, getContext, $Object*)},
-	{"handler", "()Ljava/nio/channels/CompletionHandler;", "()Ljava/nio/channels/CompletionHandler<TV;-TA;>;", 0, $method(PendingFuture, handler, $CompletionHandler*)},
-	{"isCancelled", "()Z", nullptr, $PUBLIC, $virtualMethod(PendingFuture, isCancelled, bool)},
-	{"isDone", "()Z", nullptr, $PUBLIC, $virtualMethod(PendingFuture, isDone, bool)},
-	{"prepareForWait", "()Z", nullptr, $PRIVATE, $method(PendingFuture, prepareForWait, bool)},
-	{"setContext", "(Ljava/lang/Object;)V", nullptr, 0, $method(PendingFuture, setContext, void, Object$*)},
-	{"setFailure", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(PendingFuture, setFailure, void, $Throwable*)},
-	{"setResult", "(Ljava/lang/Object;)V", "(TV;)V", 0, $method(PendingFuture, setResult, void, Object$*)},
-	{"setResult", "(Ljava/lang/Object;Ljava/lang/Throwable;)V", "(TV;Ljava/lang/Throwable;)V", 0, $method(PendingFuture, setResult, void, Object$*, $Throwable*)},
-	{"setTimeoutTask", "(Ljava/util/concurrent/Future;)V", "(Ljava/util/concurrent/Future<*>;)V", 0, $method(PendingFuture, setTimeoutTask, void, $Future*)},
-	{"value", "()Ljava/lang/Object;", "()TV;", 0, $method(PendingFuture, value, $Object*)},
-	{}
-};
-
-$ClassInfo _PendingFuture_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.nio.ch.PendingFuture",
-	"java.lang.Object",
-	"java.util.concurrent.Future",
-	_PendingFuture_FieldInfo_,
-	_PendingFuture_MethodInfo_,
-	"<V:Ljava/lang/Object;A:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/concurrent/Future<TV;>;"
-};
-
-$Object* allocate$PendingFuture($Class* clazz) {
-	return $of($alloc(PendingFuture));
-}
-
 void PendingFuture::init$($AsynchronousChannel* channel, $CompletionHandler* handler, Object$* attachment, Object$* context) {
 	$set(this, channel$, channel);
 	$set(this, handler$, handler);
@@ -114,7 +61,7 @@ $CompletionHandler* PendingFuture::handler() {
 }
 
 $Object* PendingFuture::attachment() {
-	return $of(this->attachment$);
+	return this->attachment$;
 }
 
 void PendingFuture::setContext(Object$* context) {
@@ -122,7 +69,7 @@ void PendingFuture::setContext(Object$* context) {
 }
 
 $Object* PendingFuture::getContext() {
-	return $of(this->context);
+	return this->context;
 }
 
 void PendingFuture::setTimeoutTask($Future* task) {
@@ -156,10 +103,10 @@ void PendingFuture::setResult(Object$* res) {
 		$set(this, result, res);
 		this->haveResult = true;
 		if (this->timeoutTask != nullptr) {
-			$nc(this->timeoutTask)->cancel(false);
+			this->timeoutTask->cancel(false);
 		}
 		if (this->latch != nullptr) {
-			$nc(this->latch)->countDown();
+			this->latch->countDown();
 		}
 	}
 }
@@ -176,10 +123,10 @@ void PendingFuture::setFailure($Throwable* x$renamed) {
 		$set(this, exc, x);
 		this->haveResult = true;
 		if (this->timeoutTask != nullptr) {
-			$nc(this->timeoutTask)->cancel(false);
+			this->timeoutTask->cancel(false);
 		}
 		if (this->latch != nullptr) {
-			$nc(this->latch)->countDown();
+			this->latch->countDown();
 		}
 	}
 }
@@ -205,7 +152,7 @@ $Object* PendingFuture::get() {
 		}
 		$throwNew($ExecutionException, this->exc);
 	}
-	return $of(this->result);
+	return this->result;
 }
 
 $Object* PendingFuture::get(int64_t timeout, $TimeUnit* unit) {
@@ -223,7 +170,7 @@ $Object* PendingFuture::get(int64_t timeout, $TimeUnit* unit) {
 		}
 		$throwNew($ExecutionException, this->exc);
 	}
-	return $of(this->result);
+	return this->result;
 }
 
 $Throwable* PendingFuture::exception() {
@@ -231,7 +178,7 @@ $Throwable* PendingFuture::exception() {
 }
 
 $Object* PendingFuture::value() {
-	return $of(this->result);
+	return this->result;
 }
 
 bool PendingFuture::isCancelled() {
@@ -243,28 +190,28 @@ bool PendingFuture::isDone() {
 }
 
 bool PendingFuture::cancel(bool mayInterruptIfRunning) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this) {
 		if (this->haveResult) {
 			return false;
 		}
 		if ($instanceOf($Cancellable, $(channel()))) {
-			$nc(($cast($Cancellable, $(channel()))))->onCancel(this);
+			$$sure($Cancellable, channel())->onCancel(this);
 		}
 		$set(this, exc, $new($CancellationException));
 		this->haveResult = true;
 		if (this->timeoutTask != nullptr) {
-			$nc(this->timeoutTask)->cancel(false);
+			this->timeoutTask->cancel(false);
 		}
 	}
 	if (mayInterruptIfRunning) {
 		try {
-			$nc($(channel()))->close();
+			$$nc(channel())->close();
 		} catch ($IOException& ignore) {
 		}
 	}
 	if (this->latch != nullptr) {
-		$nc(this->latch)->countDown();
+		this->latch->countDown();
 	}
 	return true;
 }
@@ -273,7 +220,54 @@ PendingFuture::PendingFuture() {
 }
 
 $Class* PendingFuture::load$($String* name, bool initialize) {
-	$loadClass(PendingFuture, name, initialize, &_PendingFuture_ClassInfo_, allocate$PendingFuture);
+	$FieldInfo fieldInfos$$[] = {
+		{"channel", "Ljava/nio/channels/AsynchronousChannel;", nullptr, $PRIVATE | $FINAL, $field(PendingFuture, channel$)},
+		{"handler", "Ljava/nio/channels/CompletionHandler;", "Ljava/nio/channels/CompletionHandler<TV;-TA;>;", $PRIVATE | $FINAL, $field(PendingFuture, handler$)},
+		{"attachment", "Ljava/lang/Object;", "TA;", $PRIVATE | $FINAL, $field(PendingFuture, attachment$)},
+		{"haveResult", "Z", nullptr, $PRIVATE | $VOLATILE, $field(PendingFuture, haveResult)},
+		{"result", "Ljava/lang/Object;", "TV;", $PRIVATE | $VOLATILE, $field(PendingFuture, result)},
+		{"exc", "Ljava/lang/Throwable;", nullptr, $PRIVATE | $VOLATILE, $field(PendingFuture, exc)},
+		{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE, $field(PendingFuture, latch)},
+		{"timeoutTask", "Ljava/util/concurrent/Future;", "Ljava/util/concurrent/Future<*>;", $PRIVATE, $field(PendingFuture, timeoutTask)},
+		{"context", "Ljava/lang/Object;", nullptr, $PRIVATE | $VOLATILE, $field(PendingFuture, context)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/AsynchronousChannel;Ljava/nio/channels/CompletionHandler;Ljava/lang/Object;Ljava/lang/Object;)V", "(Ljava/nio/channels/AsynchronousChannel;Ljava/nio/channels/CompletionHandler<TV;-TA;>;TA;Ljava/lang/Object;)V", 0, $method(PendingFuture, init$, void, $AsynchronousChannel*, $CompletionHandler*, Object$*, Object$*)},
+		{"<init>", "(Ljava/nio/channels/AsynchronousChannel;Ljava/nio/channels/CompletionHandler;Ljava/lang/Object;)V", "(Ljava/nio/channels/AsynchronousChannel;Ljava/nio/channels/CompletionHandler<TV;-TA;>;TA;)V", 0, $method(PendingFuture, init$, void, $AsynchronousChannel*, $CompletionHandler*, Object$*)},
+		{"<init>", "(Ljava/nio/channels/AsynchronousChannel;)V", nullptr, 0, $method(PendingFuture, init$, void, $AsynchronousChannel*)},
+		{"<init>", "(Ljava/nio/channels/AsynchronousChannel;Ljava/lang/Object;)V", nullptr, 0, $method(PendingFuture, init$, void, $AsynchronousChannel*, Object$*)},
+		{"attachment", "()Ljava/lang/Object;", "()TA;", 0, $method(PendingFuture, attachment, $Object*)},
+		{"cancel", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(PendingFuture, cancel, bool, bool)},
+		{"channel", "()Ljava/nio/channels/AsynchronousChannel;", nullptr, 0, $method(PendingFuture, channel, $AsynchronousChannel*)},
+		{"exception", "()Ljava/lang/Throwable;", nullptr, 0, $method(PendingFuture, exception, $Throwable*)},
+		{"get", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(PendingFuture, get, $Object*), "java.util.concurrent.ExecutionException,java.lang.InterruptedException"},
+		{"get", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", "(JLjava/util/concurrent/TimeUnit;)TV;", $PUBLIC, $virtualMethod(PendingFuture, get, $Object*, int64_t, $TimeUnit*), "java.util.concurrent.ExecutionException,java.lang.InterruptedException,java.util.concurrent.TimeoutException"},
+		{"getContext", "()Ljava/lang/Object;", nullptr, 0, $method(PendingFuture, getContext, $Object*)},
+		{"handler", "()Ljava/nio/channels/CompletionHandler;", "()Ljava/nio/channels/CompletionHandler<TV;-TA;>;", 0, $method(PendingFuture, handler, $CompletionHandler*)},
+		{"isCancelled", "()Z", nullptr, $PUBLIC, $virtualMethod(PendingFuture, isCancelled, bool)},
+		{"isDone", "()Z", nullptr, $PUBLIC, $virtualMethod(PendingFuture, isDone, bool)},
+		{"prepareForWait", "()Z", nullptr, $PRIVATE, $method(PendingFuture, prepareForWait, bool)},
+		{"setContext", "(Ljava/lang/Object;)V", nullptr, 0, $method(PendingFuture, setContext, void, Object$*)},
+		{"setFailure", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(PendingFuture, setFailure, void, $Throwable*)},
+		{"setResult", "(Ljava/lang/Object;)V", "(TV;)V", 0, $method(PendingFuture, setResult, void, Object$*)},
+		{"setResult", "(Ljava/lang/Object;Ljava/lang/Throwable;)V", "(TV;Ljava/lang/Throwable;)V", 0, $method(PendingFuture, setResult, void, Object$*, $Throwable*)},
+		{"setTimeoutTask", "(Ljava/util/concurrent/Future;)V", "(Ljava/util/concurrent/Future<*>;)V", 0, $method(PendingFuture, setTimeoutTask, void, $Future*)},
+		{"value", "()Ljava/lang/Object;", "()TV;", 0, $method(PendingFuture, value, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.nio.ch.PendingFuture",
+		"java.lang.Object",
+		"java.util.concurrent.Future",
+		fieldInfos$$,
+		methodInfos$$,
+		"<V:Ljava/lang/Object;A:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/concurrent/Future<TV;>;"
+	};
+	$loadClass(PendingFuture, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PendingFuture);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/nio/channels/spi/AbstractInterruptibleChannel$1.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/channels/spi/AbstractInterruptibleChannel.h>
 #include <jcpp.h>
@@ -16,48 +15,6 @@ namespace java {
 	namespace nio {
 		namespace channels {
 			namespace spi {
-
-$FieldInfo _AbstractInterruptibleChannel$1_FieldInfo_[] = {
-	{"this$0", "Ljava/nio/channels/spi/AbstractInterruptibleChannel;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractInterruptibleChannel$1, this$0)},
-	{}
-};
-
-$MethodInfo _AbstractInterruptibleChannel$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/spi/AbstractInterruptibleChannel;)V", nullptr, 0, $method(AbstractInterruptibleChannel$1, init$, void, $AbstractInterruptibleChannel*)},
-	{"interrupt", "(Ljava/lang/Thread;)V", nullptr, $PUBLIC, $virtualMethod(AbstractInterruptibleChannel$1, interrupt, void, $Thread*)},
-	{}
-};
-
-$EnclosingMethodInfo _AbstractInterruptibleChannel$1_EnclosingMethodInfo_ = {
-	"java.nio.channels.spi.AbstractInterruptibleChannel",
-	"begin",
-	"()V"
-};
-
-$InnerClassInfo _AbstractInterruptibleChannel$1_InnerClassesInfo_[] = {
-	{"java.nio.channels.spi.AbstractInterruptibleChannel$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AbstractInterruptibleChannel$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.channels.spi.AbstractInterruptibleChannel$1",
-	"java.lang.Object",
-	"sun.nio.ch.Interruptible",
-	_AbstractInterruptibleChannel$1_FieldInfo_,
-	_AbstractInterruptibleChannel$1_MethodInfo_,
-	nullptr,
-	&_AbstractInterruptibleChannel$1_EnclosingMethodInfo_,
-	_AbstractInterruptibleChannel$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.nio.channels.spi.AbstractInterruptibleChannel"
-};
-
-$Object* allocate$AbstractInterruptibleChannel$1($Class* clazz) {
-	return $of($alloc(AbstractInterruptibleChannel$1));
-}
 
 void AbstractInterruptibleChannel$1::init$($AbstractInterruptibleChannel* this$0) {
 	$set(this, this$0, this$0);
@@ -81,7 +38,42 @@ AbstractInterruptibleChannel$1::AbstractInterruptibleChannel$1() {
 }
 
 $Class* AbstractInterruptibleChannel$1::load$($String* name, bool initialize) {
-	$loadClass(AbstractInterruptibleChannel$1, name, initialize, &_AbstractInterruptibleChannel$1_ClassInfo_, allocate$AbstractInterruptibleChannel$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/nio/channels/spi/AbstractInterruptibleChannel;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractInterruptibleChannel$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/spi/AbstractInterruptibleChannel;)V", nullptr, 0, $method(AbstractInterruptibleChannel$1, init$, void, $AbstractInterruptibleChannel*)},
+		{"interrupt", "(Ljava/lang/Thread;)V", nullptr, $PUBLIC, $virtualMethod(AbstractInterruptibleChannel$1, interrupt, void, $Thread*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.nio.channels.spi.AbstractInterruptibleChannel",
+		"begin",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.channels.spi.AbstractInterruptibleChannel$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.channels.spi.AbstractInterruptibleChannel$1",
+		"java.lang.Object",
+		"sun.nio.ch.Interruptible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.nio.channels.spi.AbstractInterruptibleChannel"
+	};
+	$loadClass(AbstractInterruptibleChannel$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractInterruptibleChannel$1);
+	});
 	return class$;
 }
 

@@ -33,6 +33,7 @@ class $export BufferedInputStream : public ::java::io::FilterInputStream {
 	$class(BufferedInputStream, $PRELOAD, ::java::io::FilterInputStream)
 public:
 	BufferedInputStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::InputStream* in);
 	void init$(::java::io::InputStream* in, int32_t size);
 	virtual int32_t available() override;

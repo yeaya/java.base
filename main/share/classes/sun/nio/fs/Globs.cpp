@@ -1,5 +1,4 @@
 #include <sun/nio/fs/Globs.h>
-
 #include <java/util/regex/PatternSyntaxException.h>
 #include <jcpp.h>
 
@@ -14,37 +13,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _Globs_FieldInfo_[] = {
-	{"regexMetaChars", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Globs, regexMetaChars)},
-	{"globMetaChars", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Globs, globMetaChars)},
-	{"EOL", "C", nullptr, $PRIVATE | $STATIC, $staticField(Globs, EOL)},
-	{}
-};
-
-$MethodInfo _Globs_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Globs, init$, void)},
-	{"isGlobMeta", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Globs, isGlobMeta, bool, char16_t)},
-	{"isRegexMeta", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Globs, isRegexMeta, bool, char16_t)},
-	{"next", "(Ljava/lang/String;I)C", nullptr, $PRIVATE | $STATIC, $staticMethod(Globs, next, char16_t, $String*, int32_t)},
-	{"toRegexPattern", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Globs, toRegexPattern, $String*, $String*, bool)},
-	{"toUnixRegexPattern", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Globs, toUnixRegexPattern, $String*, $String*)},
-	{"toWindowsRegexPattern", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Globs, toWindowsRegexPattern, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _Globs_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.fs.Globs",
-	"java.lang.Object",
-	nullptr,
-	_Globs_FieldInfo_,
-	_Globs_MethodInfo_
-};
-
-$Object* allocate$Globs($Class* clazz) {
-	return $of($alloc(Globs));
-}
-
 $String* Globs::regexMetaChars = nullptr;
 $String* Globs::globMetaChars = nullptr;
 char16_t Globs::EOL = 0;
@@ -54,12 +22,12 @@ void Globs::init$() {
 
 bool Globs::isRegexMeta(char16_t c) {
 	$init(Globs);
-	return $nc(Globs::regexMetaChars)->indexOf((int32_t)c) != -1;
+	return Globs::regexMetaChars->indexOf(c) != -1;
 }
 
 bool Globs::isGlobMeta(char16_t c) {
 	$init(Globs);
-	return $nc(Globs::globMetaChars)->indexOf((int32_t)c) != -1;
+	return Globs::globMetaChars->indexOf(c) != -1;
 }
 
 char16_t Globs::next($String* glob, int32_t i) {
@@ -96,127 +64,111 @@ $String* Globs::toRegexPattern($String* globPattern, bool isDos) {
 					break;
 				}
 			case u'/':
-				{
-					if (isDos) {
-						regex->append("\\\\"_s);
-					} else {
-						regex->append(c);
-					}
-					break;
+				if (isDos) {
+					regex->append("\\\\"_s);
+				} else {
+					regex->append(c);
 				}
+				break;
 			case u'[':
-				{
-					if (isDos) {
-						regex->append("[[^\\\\]&&["_s);
-					} else {
-						regex->append("[[^/]&&["_s);
-					}
-					if (Globs::next(globPattern, i) == u'^') {
-						regex->append("\\^"_s);
+				if (isDos) {
+					regex->append("[[^\\\\]&&["_s);
+				} else {
+					regex->append("[[^/]&&["_s);
+				}
+				if (Globs::next(globPattern, i) == u'^') {
+					regex->append("\\^"_s);
+					++i;
+				} else {
+					if (Globs::next(globPattern, i) == u'!') {
+						regex->append(u'^');
 						++i;
-					} else {
-						if (Globs::next(globPattern, i) == u'!') {
-							regex->append(u'^');
-							++i;
-						}
-						if (Globs::next(globPattern, i) == u'-') {
-							regex->append(u'-');
-							++i;
-						}
 					}
-					hasRangeStart = false;
-					last = (char16_t)0;
-					while (i < globPattern->length()) {
-						c = globPattern->charAt(i++);
-						if (c == u']') {
-							break;
-						}
-						if (c == u'/' || (isDos && c == u'\\')) {
-							$throwNew($PatternSyntaxException, "Explicit \'name separator\' in class"_s, globPattern, i - 1);
-						}
-						if (c == u'\\' || c == u'[' || c == u'&' && Globs::next(globPattern, i) == u'&') {
-							regex->append(u'\\');
-						}
-						regex->append(c);
-						if (c == u'-') {
-							if (!hasRangeStart) {
-								$throwNew($PatternSyntaxException, "Invalid range"_s, globPattern, i - 1);
-							}
-							if ((c = Globs::next(globPattern, i++)) == Globs::EOL || c == u']') {
-								break;
-							}
-							if (c < last) {
-								$throwNew($PatternSyntaxException, "Invalid range"_s, globPattern, i - 3);
-							}
-							regex->append(c);
-							hasRangeStart = false;
-						} else {
-							hasRangeStart = true;
-							last = c;
-						}
-					}
-					if (c != u']') {
-						$throwNew($PatternSyntaxException, "Missing \']"_s, globPattern, i - 1);
-					}
-					regex->append("]]"_s);
-					break;
-				}
-			case u'{':
-				{
-					if (inGroup) {
-						$throwNew($PatternSyntaxException, "Cannot nest groups"_s, globPattern, i - 1);
-					}
-					regex->append("(?:(?:"_s);
-					inGroup = true;
-					break;
-				}
-			case u'}':
-				{
-					if (inGroup) {
-						regex->append("))"_s);
-						inGroup = false;
-					} else {
-						regex->append(u'}');
-					}
-					break;
-				}
-			case u',':
-				{
-					if (inGroup) {
-						regex->append(")|(?:"_s);
-					} else {
-						regex->append(u',');
-					}
-					break;
-				}
-			case u'*':
-				{
-					if (Globs::next(globPattern, i) == u'*') {
-						regex->append(".*"_s);
+					if (Globs::next(globPattern, i) == u'-') {
+						regex->append(u'-');
 						++i;
-					} else if (isDos) {
-						regex->append("[^\\\\]*"_s);
-					} else {
-						regex->append("[^/]*"_s);
 					}
-					break;
 				}
-			case u'?':
-				{
-					if (isDos) {
-						regex->append("[^\\\\]"_s);
-					} else {
-						regex->append("[^/]"_s);
+				hasRangeStart = false;
+				last = 0;
+				while (i < globPattern->length()) {
+					c = globPattern->charAt(i++);
+					if (c == u']') {
+						break;
 					}
-					break;
-				}
-			default:
-				{
-					if (isRegexMeta(c)) {
+					if (c == u'/' || (isDos && c == u'\\')) {
+						$throwNew($PatternSyntaxException, "Explicit \'name separator\' in class"_s, globPattern, i - 1);
+					}
+					if (c == u'\\' || c == u'[' || c == u'&' && Globs::next(globPattern, i) == u'&') {
 						regex->append(u'\\');
 					}
 					regex->append(c);
+					if (c == u'-') {
+						if (!hasRangeStart) {
+							$throwNew($PatternSyntaxException, "Invalid range"_s, globPattern, i - 1);
+						}
+						if ((c = Globs::next(globPattern, i++)) == Globs::EOL || c == u']') {
+							break;
+						}
+						if (c < last) {
+							$throwNew($PatternSyntaxException, "Invalid range"_s, globPattern, i - 3);
+						}
+						regex->append(c);
+						hasRangeStart = false;
+					} else {
+						hasRangeStart = true;
+						last = c;
+					}
 				}
+				if (c != u']') {
+					$throwNew($PatternSyntaxException, "Missing \']"_s, globPattern, i - 1);
+				}
+				regex->append("]]"_s);
+				break;
+			case u'{':
+				if (inGroup) {
+					$throwNew($PatternSyntaxException, "Cannot nest groups"_s, globPattern, i - 1);
+				}
+				regex->append("(?:(?:"_s);
+				inGroup = true;
+				break;
+			case u'}':
+				if (inGroup) {
+					regex->append("))"_s);
+					inGroup = false;
+				} else {
+					regex->append(u'}');
+				}
+				break;
+			case u',':
+				if (inGroup) {
+					regex->append(")|(?:"_s);
+				} else {
+					regex->append(u',');
+				}
+				break;
+			case u'*':
+				if (Globs::next(globPattern, i) == u'*') {
+					regex->append(".*"_s);
+					++i;
+				} else if (isDos) {
+					regex->append("[^\\\\]*"_s);
+				} else {
+					regex->append("[^/]*"_s);
+				}
+				break;
+			case u'?':
+				if (isDos) {
+					regex->append("[^\\\\]"_s);
+				} else {
+					regex->append("[^/]"_s);
+				}
+				break;
+			default:
+				if (isRegexMeta(c)) {
+					regex->append(u'\\');
+				}
+				regex->append(c);
 			}
 		}
 	}
@@ -236,17 +188,43 @@ $String* Globs::toWindowsRegexPattern($String* globPattern) {
 	return toRegexPattern(globPattern, true);
 }
 
-void clinit$Globs($Class* class$) {
+void Globs::clinit$($Class* clazz) {
 	$assignStatic(Globs::regexMetaChars, ".^$+{[]|()"_s);
 	$assignStatic(Globs::globMetaChars, "\\*?[{"_s);
-	Globs::EOL = (char16_t)0;
+	Globs::EOL = 0;
 }
 
 Globs::Globs() {
 }
 
 $Class* Globs::load$($String* name, bool initialize) {
-	$loadClass(Globs, name, initialize, &_Globs_ClassInfo_, clinit$Globs, allocate$Globs);
+	$FieldInfo fieldInfos$$[] = {
+		{"regexMetaChars", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Globs, regexMetaChars)},
+		{"globMetaChars", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Globs, globMetaChars)},
+		{"EOL", "C", nullptr, $PRIVATE | $STATIC, $staticField(Globs, EOL)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Globs, init$, void)},
+		{"isGlobMeta", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Globs, isGlobMeta, bool, char16_t)},
+		{"isRegexMeta", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Globs, isRegexMeta, bool, char16_t)},
+		{"next", "(Ljava/lang/String;I)C", nullptr, $PRIVATE | $STATIC, $staticMethod(Globs, next, char16_t, $String*, int32_t)},
+		{"toRegexPattern", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Globs, toRegexPattern, $String*, $String*, bool)},
+		{"toUnixRegexPattern", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Globs, toUnixRegexPattern, $String*, $String*)},
+		{"toWindowsRegexPattern", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Globs, toWindowsRegexPattern, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.fs.Globs",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Globs, name, initialize, &classInfo$$, Globs::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Globs);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/nio/fs/UnixFileSystem$1.h>
-
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
 #include <java/util/Collections.h>
@@ -20,54 +19,10 @@ using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $UnixFileSystem = ::sun::nio::fs::UnixFileSystem;
-using $UnixPath = ::sun::nio::fs::UnixPath;
 
 namespace sun {
 	namespace nio {
 		namespace fs {
-
-$FieldInfo _UnixFileSystem$1_FieldInfo_[] = {
-	{"this$0", "Lsun/nio/fs/UnixFileSystem;", nullptr, $FINAL | $SYNTHETIC, $field(UnixFileSystem$1, this$0)},
-	{"val$allowedList", "Ljava/util/List;", nullptr, $FINAL | $SYNTHETIC, $field(UnixFileSystem$1, val$allowedList)},
-	{}
-};
-
-$MethodInfo _UnixFileSystem$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixFileSystem;Ljava/util/List;)V", nullptr, 0, $method(UnixFileSystem$1, init$, void, $UnixFileSystem*, $List*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(UnixFileSystem$1, iterator, $Iterator*)},
-	{}
-};
-
-$EnclosingMethodInfo _UnixFileSystem$1_EnclosingMethodInfo_ = {
-	"sun.nio.fs.UnixFileSystem",
-	"getRootDirectories",
-	"()Ljava/lang/Iterable;"
-};
-
-$InnerClassInfo _UnixFileSystem$1_InnerClassesInfo_[] = {
-	{"sun.nio.fs.UnixFileSystem$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _UnixFileSystem$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.UnixFileSystem$1",
-	"java.lang.Object",
-	"java.lang.Iterable",
-	_UnixFileSystem$1_FieldInfo_,
-	_UnixFileSystem$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Iterable<Ljava/nio/file/Path;>;",
-	&_UnixFileSystem$1_EnclosingMethodInfo_,
-	_UnixFileSystem$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.UnixFileSystem"
-};
-
-$Object* allocate$UnixFileSystem$1($Class* clazz) {
-	return $of($alloc(UnixFileSystem$1));
-}
 
 void UnixFileSystem$1::init$($UnixFileSystem* this$0, $List* val$allowedList) {
 	$set(this, this$0, this$0);
@@ -75,7 +30,7 @@ void UnixFileSystem$1::init$($UnixFileSystem* this$0, $List* val$allowedList) {
 }
 
 $Iterator* UnixFileSystem$1::iterator() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($SecurityManager, sm, $System::getSecurityManager());
 		if (sm != nullptr) {
@@ -93,7 +48,43 @@ UnixFileSystem$1::UnixFileSystem$1() {
 }
 
 $Class* UnixFileSystem$1::load$($String* name, bool initialize) {
-	$loadClass(UnixFileSystem$1, name, initialize, &_UnixFileSystem$1_ClassInfo_, allocate$UnixFileSystem$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/nio/fs/UnixFileSystem;", nullptr, $FINAL | $SYNTHETIC, $field(UnixFileSystem$1, this$0)},
+		{"val$allowedList", "Ljava/util/List;", nullptr, $FINAL | $SYNTHETIC, $field(UnixFileSystem$1, val$allowedList)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/fs/UnixFileSystem;Ljava/util/List;)V", nullptr, 0, $method(UnixFileSystem$1, init$, void, $UnixFileSystem*, $List*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(UnixFileSystem$1, iterator, $Iterator*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.nio.fs.UnixFileSystem",
+		"getRootDirectories",
+		"()Ljava/lang/Iterable;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.UnixFileSystem$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.UnixFileSystem$1",
+		"java.lang.Object",
+		"java.lang.Iterable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Iterable<Ljava/nio/file/Path;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.UnixFileSystem"
+	};
+	$loadClass(UnixFileSystem$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnixFileSystem$1);
+	});
 	return class$;
 }
 

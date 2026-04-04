@@ -49,6 +49,7 @@ class ModulePathValidator : public ::java::lang::Object {
 	$class(ModulePathValidator, 0, ::java::lang::Object)
 public:
 	ModulePathValidator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::PrintStream* out);
 	static bool isJrt(::java::net::URI* uri);
 	static bool lambda$printModule$2(::java::net::URI* uri);

@@ -19,12 +19,32 @@
  */
 
 #include <java/lang/OpensDirective.h>
+#include <jcpp.h>
+#include <string.h>
 
 namespace java {
 	namespace lang {
 
 bool OpensDirective::isEnd() {
 	return package == nullptr;
+}
+
+OpensDirective* OpensDirective::cloneArray(OpensDirective* array) {
+	if (array == nullptr) {
+		return nullptr;
+	}
+	OpensDirective* it = array;
+	int32_t count = 0;
+	for (; true; it++) {
+		if (it->isEnd()) {
+			break;
+		}
+		count++;
+	}
+	count++; // for end null
+	OpensDirective* newArray = $allocRawStatic(OpensDirective, count);
+	memcpy(newArray, array, sizeof(OpensDirective) * count);
+	return newArray;
 }
 
 	} // lang

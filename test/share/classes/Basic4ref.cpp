@@ -1,5 +1,4 @@
 #include <Basic4ref.h>
-
 #include <Basic4ref$1.h>
 #include <Basic4ref$2.h>
 #include <Basic4ref$3.h>
@@ -16,7 +15,6 @@ using $Basic4ref$2 = ::Basic4ref$2;
 using $Basic4ref$3 = ::Basic4ref$3;
 using $Basic4ref$4 = ::Basic4ref$4;
 using $Basic4ref$Sub = ::Basic4ref$Sub;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -26,58 +24,6 @@ using $Runnable = ::java::lang::Runnable;
 using $Reference = ::java::lang::ref::Reference;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $Vector = ::java::util::Vector;
-
-$FieldInfo _Basic4ref_FieldInfo_[] = {
-	{"q", "Ljava/lang/ref/ReferenceQueue;", nullptr, $STATIC, $staticField(Basic4ref, q)},
-	{"q2", "Ljava/lang/ref/ReferenceQueue;", nullptr, $STATIC, $staticField(Basic4ref, q2)},
-	{"rw", "Ljava/lang/ref/Reference;", nullptr, $STATIC, $staticField(Basic4ref, rw)},
-	{"rw2", "Ljava/lang/ref/Reference;", nullptr, $STATIC, $staticField(Basic4ref, rw2)},
-	{"rp", "Ljava/lang/ref/Reference;", nullptr, $STATIC, $staticField(Basic4ref, rp)},
-	{"rp2", "Ljava/lang/ref/Reference;", nullptr, $STATIC, $staticField(Basic4ref, rp2)},
-	{"keep", "Ljava/util/Vector;", nullptr, $STATIC, $staticField(Basic4ref, keep)},
-	{"finalized", "Z", nullptr, $STATIC, $staticField(Basic4ref, finalized)},
-	{"sub", "Ljava/lang/Object;", nullptr, 0, $field(Basic4ref, sub)},
-	{}
-};
-
-$MethodInfo _Basic4ref_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Basic4ref, init$, void)},
-	{"createNoise", "()V", nullptr, $STATIC, $staticMethod(Basic4ref, createNoise, void), "java.lang.InterruptedException"},
-	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(Basic4ref, finalize, void)},
-	{"fork", "(Ljava/lang/Runnable;)V", nullptr, $STATIC, $staticMethod(Basic4ref, fork, void, $Runnable*), "java.lang.InterruptedException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Basic4ref, main, void, $StringArray*), "java.lang.Exception"},
-	{"showReferences", "()V", nullptr, $STATIC, $staticMethod(Basic4ref, showReferences, void), "java.lang.InterruptedException"},
-	{}
-};
-
-$InnerClassInfo _Basic4ref_InnerClassesInfo_[] = {
-	{"Basic4ref$Sub", "Basic4ref", "Sub", $PUBLIC | $STATIC},
-	{"Basic4ref$ClearFinalizerThread", "Basic4ref", "ClearFinalizerThread", $PUBLIC | $STATIC},
-	{"Basic4ref$4", nullptr, nullptr, 0},
-	{"Basic4ref$3", nullptr, nullptr, 0},
-	{"Basic4ref$2", nullptr, nullptr, 0},
-	{"Basic4ref$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Basic4ref_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Basic4ref",
-	"java.lang.Object",
-	nullptr,
-	_Basic4ref_FieldInfo_,
-	_Basic4ref_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Basic4ref_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"Basic4ref$Sub,Basic4ref$ClearFinalizerThread,Basic4ref$4,Basic4ref$3,Basic4ref$2,Basic4ref$1"
-};
-
-$Object* allocate$Basic4ref($Class* clazz) {
-	return $of($alloc(Basic4ref));
-}
 
 $ReferenceQueue* Basic4ref::q = nullptr;
 $ReferenceQueue* Basic4ref::q2 = nullptr;
@@ -116,7 +62,7 @@ void Basic4ref::createNoise() {
 
 void Basic4ref::main($StringArray* args) {
 	$init(Basic4ref);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	fork($$new($Basic4ref$3));
 	showReferences();
 	int32_t ndq = 0;
@@ -131,7 +77,7 @@ void Basic4ref::main($StringArray* args) {
 		$System::runFinalization();
 		showReferences();
 		while (($assign(r, $nc(Basic4ref::q2)->poll())) != nullptr) {
-			$nc($System::err)->println($$str({"Noise "_s, r}));
+			$System::err->println($$str({"Noise "_s, r}));
 		}
 		if (Basic4ref::finalized && !prevFinalized) {
 			fork($$new($Basic4ref$4));
@@ -140,7 +86,7 @@ void Basic4ref::main($StringArray* args) {
 		while (($assign(r, $nc(Basic4ref::q)->poll())) != nullptr) {
 			++ndq;
 			if (r != nullptr) {
-				$nc($System::err)->println($$str({"Dequeued "_s, r}));
+				$System::err->println($$str({"Dequeued "_s, r}));
 				if (ndq == 3) {
 					outer$break = true;
 					break;
@@ -162,7 +108,7 @@ void Basic4ref::main($StringArray* args) {
 	}
 }
 
-void clinit$Basic4ref($Class* class$) {
+void Basic4ref::clinit$($Class* clazz) {
 	$assignStatic(Basic4ref::q, $new($ReferenceQueue));
 	$assignStatic(Basic4ref::q2, $new($ReferenceQueue));
 	$assignStatic(Basic4ref::keep, $new($Vector));
@@ -173,7 +119,53 @@ Basic4ref::Basic4ref() {
 }
 
 $Class* Basic4ref::load$($String* name, bool initialize) {
-	$loadClass(Basic4ref, name, initialize, &_Basic4ref_ClassInfo_, clinit$Basic4ref, allocate$Basic4ref);
+	$FieldInfo fieldInfos$$[] = {
+		{"q", "Ljava/lang/ref/ReferenceQueue;", nullptr, $STATIC, $staticField(Basic4ref, q)},
+		{"q2", "Ljava/lang/ref/ReferenceQueue;", nullptr, $STATIC, $staticField(Basic4ref, q2)},
+		{"rw", "Ljava/lang/ref/Reference;", nullptr, $STATIC, $staticField(Basic4ref, rw)},
+		{"rw2", "Ljava/lang/ref/Reference;", nullptr, $STATIC, $staticField(Basic4ref, rw2)},
+		{"rp", "Ljava/lang/ref/Reference;", nullptr, $STATIC, $staticField(Basic4ref, rp)},
+		{"rp2", "Ljava/lang/ref/Reference;", nullptr, $STATIC, $staticField(Basic4ref, rp2)},
+		{"keep", "Ljava/util/Vector;", nullptr, $STATIC, $staticField(Basic4ref, keep)},
+		{"finalized", "Z", nullptr, $STATIC, $staticField(Basic4ref, finalized)},
+		{"sub", "Ljava/lang/Object;", nullptr, 0, $field(Basic4ref, sub)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Basic4ref, init$, void)},
+		{"createNoise", "()V", nullptr, $STATIC, $staticMethod(Basic4ref, createNoise, void), "java.lang.InterruptedException"},
+		{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(Basic4ref, finalize, void)},
+		{"fork", "(Ljava/lang/Runnable;)V", nullptr, $STATIC, $staticMethod(Basic4ref, fork, void, $Runnable*), "java.lang.InterruptedException"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Basic4ref, main, void, $StringArray*), "java.lang.Exception"},
+		{"showReferences", "()V", nullptr, $STATIC, $staticMethod(Basic4ref, showReferences, void), "java.lang.InterruptedException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Basic4ref$Sub", "Basic4ref", "Sub", $PUBLIC | $STATIC},
+		{"Basic4ref$ClearFinalizerThread", "Basic4ref", "ClearFinalizerThread", $PUBLIC | $STATIC},
+		{"Basic4ref$4", nullptr, nullptr, 0},
+		{"Basic4ref$3", nullptr, nullptr, 0},
+		{"Basic4ref$2", nullptr, nullptr, 0},
+		{"Basic4ref$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Basic4ref",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"Basic4ref$Sub,Basic4ref$ClearFinalizerThread,Basic4ref$4,Basic4ref$3,Basic4ref$2,Basic4ref$1"
+	};
+	$loadClass(Basic4ref, name, initialize, &classInfo$$, Basic4ref::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Basic4ref);
+	});
 	return class$;
 }
 

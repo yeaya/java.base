@@ -82,6 +82,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(Object$* r);
 	virtual ::java::util::concurrent::CompletionStage* acceptEither(::java::util::concurrent::CompletionStage* other, ::java::util::function::Consumer* action) override;

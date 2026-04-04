@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLLogger.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
@@ -17,7 +16,6 @@
 #undef TRACE
 #undef WARNING
 
-using $PrintStream = ::java::io::PrintStream;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -35,54 +33,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SSLLogger_FieldInfo_[] = {
-	{"logger", "Ljava/lang/System$Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLLogger, logger)},
-	{"property", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLLogger, property)},
-	{"isOn", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SSLLogger, isOn$)},
-	{}
-};
-
-$MethodInfo _SSLLogger_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SSLLogger, init$, void)},
-	{"fine", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SSLLogger, fine, void, $String*, $ObjectArray*)},
-	{"finer", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SSLLogger, finer, void, $String*, $ObjectArray*)},
-	{"finest", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SSLLogger, finest, void, $String*, $ObjectArray*)},
-	{"hasOption", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLLogger, hasOption, bool, $String*)},
-	{"help", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLLogger, help, void)},
-	{"info", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SSLLogger, info, void, $String*, $ObjectArray*)},
-	{"isOn", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLLogger, isOn, bool, $String*)},
-	{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(SSLLogger, log, void, $System$Logger$Level*, $String*, $ObjectArray*)},
-	{"severe", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SSLLogger, severe, void, $String*, $ObjectArray*)},
-	{"toString", "([Ljava/lang/Object;)Ljava/lang/String;", nullptr, $STATIC | $TRANSIENT, $staticMethod(SSLLogger, toString, $String*, $ObjectArray*)},
-	{"warning", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SSLLogger, warning, void, $String*, $ObjectArray*)},
-	{}
-};
-
-$InnerClassInfo _SSLLogger_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLLogger$SSLSimpleFormatter", "sun.security.ssl.SSLLogger", "SSLSimpleFormatter", $PRIVATE | $STATIC},
-	{"sun.security.ssl.SSLLogger$SSLConsoleLogger", "sun.security.ssl.SSLLogger", "SSLConsoleLogger", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SSLLogger_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLLogger",
-	"java.lang.Object",
-	nullptr,
-	_SSLLogger_FieldInfo_,
-	_SSLLogger_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLLogger_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLLogger$SSLSimpleFormatter,sun.security.ssl.SSLLogger$SSLConsoleLogger"
-};
-
-$Object* allocate$SSLLogger($Class* clazz) {
-	return $of($alloc(SSLLogger));
-}
-
 $System$Logger* SSLLogger::logger = nullptr;
 $String* SSLLogger::property = nullptr;
 bool SSLLogger::isOn$ = false;
@@ -93,51 +43,47 @@ void SSLLogger::init$() {
 void SSLLogger::help() {
 	$init(SSLLogger);
 	$nc($System::err)->println();
-	$nc($System::err)->println("help           print the help messages"_s);
-	$nc($System::err)->println("expand         expand debugging information"_s);
-	$nc($System::err)->println();
-	$nc($System::err)->println("all            turn on all debugging"_s);
-	$nc($System::err)->println("ssl            turn on ssl debugging"_s);
-	$nc($System::err)->println();
-	$nc($System::err)->println("The following can be used with ssl:"_s);
-	$nc($System::err)->println("\trecord       enable per-record tracing"_s);
-	$nc($System::err)->println("\thandshake    print each handshake message"_s);
-	$nc($System::err)->println("\tkeygen       print key generation data"_s);
-	$nc($System::err)->println("\tsession      print session activity"_s);
-	$nc($System::err)->println("\tdefaultctx   print default SSL initialization"_s);
-	$nc($System::err)->println("\tsslctx       print SSLContext tracing"_s);
-	$nc($System::err)->println("\tsessioncache print session cache tracing"_s);
-	$nc($System::err)->println("\tkeymanager   print key manager tracing"_s);
-	$nc($System::err)->println("\ttrustmanager print trust manager tracing"_s);
-	$nc($System::err)->println("\tpluggability print pluggability tracing"_s);
-	$nc($System::err)->println();
-	$nc($System::err)->println("\thandshake debugging can be widened with:"_s);
-	$nc($System::err)->println("\tdata         hex dump of each handshake message"_s);
-	$nc($System::err)->println("\tverbose      verbose handshake message printing"_s);
-	$nc($System::err)->println();
-	$nc($System::err)->println("\trecord debugging can be widened with:"_s);
-	$nc($System::err)->println("\tplaintext    hex dump of record plaintext"_s);
-	$nc($System::err)->println("\tpacket       print raw SSL/TLS packets"_s);
-	$nc($System::err)->println();
+	$System::err->println("help           print the help messages"_s);
+	$System::err->println("expand         expand debugging information"_s);
+	$System::err->println();
+	$System::err->println("all            turn on all debugging"_s);
+	$System::err->println("ssl            turn on ssl debugging"_s);
+	$System::err->println();
+	$System::err->println("The following can be used with ssl:"_s);
+	$System::err->println("\trecord       enable per-record tracing"_s);
+	$System::err->println("\thandshake    print each handshake message"_s);
+	$System::err->println("\tkeygen       print key generation data"_s);
+	$System::err->println("\tsession      print session activity"_s);
+	$System::err->println("\tdefaultctx   print default SSL initialization"_s);
+	$System::err->println("\tsslctx       print SSLContext tracing"_s);
+	$System::err->println("\tsessioncache print session cache tracing"_s);
+	$System::err->println("\tkeymanager   print key manager tracing"_s);
+	$System::err->println("\ttrustmanager print trust manager tracing"_s);
+	$System::err->println("\tpluggability print pluggability tracing"_s);
+	$System::err->println();
+	$System::err->println("\thandshake debugging can be widened with:"_s);
+	$System::err->println("\tdata         hex dump of each handshake message"_s);
+	$System::err->println("\tverbose      verbose handshake message printing"_s);
+	$System::err->println();
+	$System::err->println("\trecord debugging can be widened with:"_s);
+	$System::err->println("\tplaintext    hex dump of record plaintext"_s);
+	$System::err->println("\tpacket       print raw SSL/TLS packets"_s);
+	$System::err->println();
 	$System::exit(0);
 }
 
 bool SSLLogger::isOn($String* checkPoints) {
 	$init(SSLLogger);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (SSLLogger::property == nullptr) {
 		return false;
-	} else {
-		if ($nc(SSLLogger::property)->isEmpty()) {
-			return true;
-		}
+	} else if (SSLLogger::property->isEmpty()) {
+		return true;
 	}
 	$var($StringArray, options, $nc(checkPoints)->split(","_s));
 	{
 		$var($StringArray, arr$, options);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, option, arr$->get(i$));
 			{
 				$assign(option, $nc(option)->trim());
@@ -158,8 +104,8 @@ bool SSLLogger::hasOption($String* option$renamed) {
 	if ($nc(SSLLogger::property)->contains("all"_s)) {
 		return true;
 	} else {
-		int32_t offset = $nc(SSLLogger::property)->indexOf("ssl"_s);
-		if (offset != -1 && $nc(SSLLogger::property)->indexOf("sslctx"_s, offset) != -1) {
+		int32_t offset = SSLLogger::property->indexOf("ssl"_s);
+		if (offset != -1 && SSLLogger::property->indexOf("sslctx"_s, offset) != -1) {
 			bool var$1 = option->equals("data"_s);
 			bool var$0 = var$1 || option->equals("packet"_s);
 			if (!(var$0 || option->equals("plaintext"_s))) {
@@ -167,7 +113,7 @@ bool SSLLogger::hasOption($String* option$renamed) {
 			}
 		}
 	}
-	return $nc(SSLLogger::property)->contains(option);
+	return SSLLogger::property->contains(option);
 }
 
 void SSLLogger::severe($String* msg, $ObjectArray* params) {
@@ -208,14 +154,14 @@ void SSLLogger::finest($String* msg, $ObjectArray* params) {
 
 void SSLLogger::log($System$Logger$Level* level, $String* msg, $ObjectArray* params) {
 	$init(SSLLogger);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(SSLLogger::logger)->isLoggable(level)) {
-		if (params == nullptr || $nc(params)->length == 0) {
-			$nc(SSLLogger::logger)->log(level, msg);
+		if (params == nullptr || params->length == 0) {
+			SSLLogger::logger->log(level, msg);
 		} else {
 			try {
 				$var($String, formatted, $SSLLogger$SSLSimpleFormatter::formatParameters(params));
-				$nc(SSLLogger::logger)->log(level, msg, $$new($ObjectArray, {$of(formatted)}));
+				SSLLogger::logger->log(level, msg, $$new($ObjectArray, {formatted}));
 			} catch ($Exception& exp) {
 			}
 		}
@@ -232,7 +178,7 @@ $String* SSLLogger::toString($ObjectArray* params) {
 	$shouldNotReachHere();
 }
 
-void clinit$SSLLogger($Class* class$) {
+void SSLLogger::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
 		$var($String, p, $GetPropertyAction::privilegedGetProperty("javax.net.debug"_s));
@@ -243,7 +189,7 @@ void clinit$SSLLogger($Class* class$) {
 			} else {
 				$init($Locale);
 				$assignStatic(SSLLogger::property, p->toLowerCase($Locale::ENGLISH));
-				if ($nc(SSLLogger::property)->equals("help"_s)) {
+				if (SSLLogger::property->equals("help"_s)) {
 					SSLLogger::help();
 				}
 				$assignStatic(SSLLogger::logger, $new($SSLLogger$SSLConsoleLogger, "javax.net.ssl"_s, p));
@@ -261,7 +207,49 @@ SSLLogger::SSLLogger() {
 }
 
 $Class* SSLLogger::load$($String* name, bool initialize) {
-	$loadClass(SSLLogger, name, initialize, &_SSLLogger_ClassInfo_, clinit$SSLLogger, allocate$SSLLogger);
+	$FieldInfo fieldInfos$$[] = {
+		{"logger", "Ljava/lang/System$Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLLogger, logger)},
+		{"property", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLLogger, property)},
+		{"isOn", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SSLLogger, isOn$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SSLLogger, init$, void)},
+		{"fine", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SSLLogger, fine, void, $String*, $ObjectArray*)},
+		{"finer", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SSLLogger, finer, void, $String*, $ObjectArray*)},
+		{"finest", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SSLLogger, finest, void, $String*, $ObjectArray*)},
+		{"hasOption", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLLogger, hasOption, bool, $String*)},
+		{"help", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLLogger, help, void)},
+		{"info", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SSLLogger, info, void, $String*, $ObjectArray*)},
+		{"isOn", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLLogger, isOn, bool, $String*)},
+		{"log", "(Ljava/lang/System$Logger$Level;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(SSLLogger, log, void, $System$Logger$Level*, $String*, $ObjectArray*)},
+		{"severe", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SSLLogger, severe, void, $String*, $ObjectArray*)},
+		{"toString", "([Ljava/lang/Object;)Ljava/lang/String;", nullptr, $STATIC | $TRANSIENT, $staticMethod(SSLLogger, toString, $String*, $ObjectArray*)},
+		{"warning", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(SSLLogger, warning, void, $String*, $ObjectArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLLogger$SSLSimpleFormatter", "sun.security.ssl.SSLLogger", "SSLSimpleFormatter", $PRIVATE | $STATIC},
+		{"sun.security.ssl.SSLLogger$SSLConsoleLogger", "sun.security.ssl.SSLLogger", "SSLConsoleLogger", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLLogger",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLLogger$SSLSimpleFormatter,sun.security.ssl.SSLLogger$SSLConsoleLogger"
+	};
+	$loadClass(SSLLogger, name, initialize, &classInfo$$, SSLLogger::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLLogger);
+	});
 	return class$;
 }
 

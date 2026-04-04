@@ -41,6 +41,7 @@ class $export KeyPairGenerator : public ::java::security::KeyPairGeneratorSpi {
 	$class(KeyPairGenerator, 0, ::java::security::KeyPairGeneratorSpi)
 public:
 	KeyPairGenerator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* algorithm);
 	virtual void disableFailover();
 	::java::security::KeyPair* genKeyPair();

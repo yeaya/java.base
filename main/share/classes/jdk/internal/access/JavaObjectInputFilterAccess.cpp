@@ -1,5 +1,4 @@
 #include <jdk/internal/access/JavaObjectInputFilterAccess.h>
-
 #include <java/io/ObjectInputFilter.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace jdk {
 	namespace internal {
 		namespace access {
 
-$MethodInfo _JavaObjectInputFilterAccess_MethodInfo_[] = {
-	{"createFilter2", "(Ljava/lang/String;)Ljava/io/ObjectInputFilter;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaObjectInputFilterAccess, createFilter2, $ObjectInputFilter*, $String*)},
-	{}
-};
-
-$ClassInfo _JavaObjectInputFilterAccess_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.access.JavaObjectInputFilterAccess",
-	nullptr,
-	nullptr,
-	nullptr,
-	_JavaObjectInputFilterAccess_MethodInfo_
-};
-
-$Object* allocate$JavaObjectInputFilterAccess($Class* clazz) {
-	return $of($alloc(JavaObjectInputFilterAccess));
-}
-
 $Class* JavaObjectInputFilterAccess::load$($String* name, bool initialize) {
-	$loadClass(JavaObjectInputFilterAccess, name, initialize, &_JavaObjectInputFilterAccess_ClassInfo_, allocate$JavaObjectInputFilterAccess);
+	$MethodInfo methodInfos$$[] = {
+		{"createFilter2", "(Ljava/lang/String;)Ljava/io/ObjectInputFilter;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaObjectInputFilterAccess, createFilter2, $ObjectInputFilter*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.access.JavaObjectInputFilterAccess",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavaObjectInputFilterAccess, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavaObjectInputFilterAccess);
+	});
 	return class$;
 }
 

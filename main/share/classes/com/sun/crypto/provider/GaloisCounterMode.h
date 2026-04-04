@@ -70,6 +70,7 @@ class GaloisCounterMode : public ::javax::crypto::CipherSpi {
 	$class(GaloisCounterMode, 0, ::javax::crypto::CipherSpi)
 public:
 	GaloisCounterMode();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t keySize, ::com::sun::crypto::provider::SymmetricCipher* embeddedCipher);
 	void checkDataLength($ints* lengths);
 	virtual void checkInit();
@@ -103,7 +104,7 @@ public:
 	virtual void init(int32_t opmode, ::java::security::Key* key, ::javax::crypto::spec::GCMParameterSpec* spec);
 	static int32_t DEFAULT_IV_LEN;
 	static int32_t DEFAULT_TAG_LEN;
-	static const int32_t MAX_BUF_SIZE = 0x7FFFFFFF; // Integer.MAX_VALUE
+	static const int32_t MAX_BUF_SIZE = 0x7fffffff; // Integer.MAX_VALUE
 	static const int32_t TRIGGERLEN = 0x00010000;
 	static $bytes* EMPTY_BUF;
 	bool initialized = false;

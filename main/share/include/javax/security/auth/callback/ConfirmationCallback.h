@@ -56,7 +56,7 @@ public:
 	virtual int32_t getSelectedIndex();
 	virtual void setSelectedIndex(int32_t selection);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x81C5BCAA11661D28;
+	static const int64_t serialVersionUID = (int64_t)0x81c5bcaa11661d28;
 	static const int32_t UNSPECIFIED_OPTION = (-1);
 	static const int32_t YES_NO_OPTION = 0;
 	static const int32_t YES_NO_CANCEL_OPTION = 1;

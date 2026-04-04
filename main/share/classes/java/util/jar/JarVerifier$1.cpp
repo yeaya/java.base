@@ -1,5 +1,4 @@
 #include <java/util/jar/JarVerifier$1.h>
-
 #include <java/util/Enumeration.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -24,53 +23,6 @@ namespace java {
 	namespace util {
 		namespace jar {
 
-$FieldInfo _JarVerifier$1_FieldInfo_[] = {
-	{"this$0", "Ljava/util/jar/JarVerifier;", nullptr, $FINAL | $SYNTHETIC, $field(JarVerifier$1, this$0)},
-	{"val$enum2", "Ljava/util/Enumeration;", nullptr, $FINAL | $SYNTHETIC, $field(JarVerifier$1, val$enum2)},
-	{"val$signersReq", "Ljava/util/List;", nullptr, $FINAL | $SYNTHETIC, $field(JarVerifier$1, val$signersReq)},
-	{"val$itor", "Ljava/util/Iterator;", nullptr, $FINAL | $SYNTHETIC, $field(JarVerifier$1, val$itor)},
-	{"name", "Ljava/lang/String;", nullptr, 0, $field(JarVerifier$1, name)},
-	{}
-};
-
-$MethodInfo _JarVerifier$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/jar/JarVerifier;Ljava/util/Iterator;Ljava/util/List;Ljava/util/Enumeration;)V", nullptr, 0, $method(JarVerifier$1, init$, void, $JarVerifier*, $Iterator*, $List*, $Enumeration*)},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(JarVerifier$1, hasMoreElements, bool)},
-	{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarVerifier$1, nextElement, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _JarVerifier$1_EnclosingMethodInfo_ = {
-	"java.util.jar.JarVerifier",
-	"entryNames",
-	"(Ljava/util/jar/JarFile;[Ljava/security/CodeSource;)Ljava/util/Enumeration;"
-};
-
-$InnerClassInfo _JarVerifier$1_InnerClassesInfo_[] = {
-	{"java.util.jar.JarVerifier$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JarVerifier$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.jar.JarVerifier$1",
-	"java.lang.Object",
-	"java.util.Enumeration",
-	_JarVerifier$1_FieldInfo_,
-	_JarVerifier$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/lang/String;>;",
-	&_JarVerifier$1_EnclosingMethodInfo_,
-	_JarVerifier$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.jar.JarVerifier"
-};
-
-$Object* allocate$JarVerifier$1($Class* clazz) {
-	return $of($alloc(JarVerifier$1));
-}
-
 void JarVerifier$1::init$($JarVerifier* this$0, $Iterator* val$itor, $List* val$signersReq, $Enumeration* val$enum2) {
 	$set(this, this$0, this$0);
 	$set(this, val$itor, val$itor);
@@ -79,19 +31,19 @@ void JarVerifier$1::init$($JarVerifier* this$0, $Iterator* val$itor, $List* val$
 }
 
 bool JarVerifier$1::hasMoreElements() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->name != nullptr) {
 		return true;
 	}
 	while ($nc(this->val$itor)->hasNext()) {
-		$var($Map$Entry, e, $cast($Map$Entry, $nc(this->val$itor)->next()));
+		$var($Map$Entry, e, $cast($Map$Entry, this->val$itor->next()));
 		if ($nc(this->val$signersReq)->contains($($nc(e)->getValue()))) {
-			$set(this, name, $cast($String, $nc(e)->getKey()));
+			$set(this, name, $cast($String, e->getKey()));
 			return true;
 		}
 	}
 	while ($nc(this->val$enum2)->hasMoreElements()) {
-		$set(this, name, $cast($String, $nc(this->val$enum2)->nextElement()));
+		$set(this, name, $cast($String, this->val$enum2->nextElement()));
 		return true;
 	}
 	return false;
@@ -110,7 +62,47 @@ JarVerifier$1::JarVerifier$1() {
 }
 
 $Class* JarVerifier$1::load$($String* name, bool initialize) {
-	$loadClass(JarVerifier$1, name, initialize, &_JarVerifier$1_ClassInfo_, allocate$JarVerifier$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/jar/JarVerifier;", nullptr, $FINAL | $SYNTHETIC, $field(JarVerifier$1, this$0)},
+		{"val$enum2", "Ljava/util/Enumeration;", nullptr, $FINAL | $SYNTHETIC, $field(JarVerifier$1, val$enum2)},
+		{"val$signersReq", "Ljava/util/List;", nullptr, $FINAL | $SYNTHETIC, $field(JarVerifier$1, val$signersReq)},
+		{"val$itor", "Ljava/util/Iterator;", nullptr, $FINAL | $SYNTHETIC, $field(JarVerifier$1, val$itor)},
+		{"name", "Ljava/lang/String;", nullptr, 0, $field(JarVerifier$1, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/jar/JarVerifier;Ljava/util/Iterator;Ljava/util/List;Ljava/util/Enumeration;)V", nullptr, 0, $method(JarVerifier$1, init$, void, $JarVerifier*, $Iterator*, $List*, $Enumeration*)},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(JarVerifier$1, hasMoreElements, bool)},
+		{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarVerifier$1, nextElement, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.jar.JarVerifier",
+		"entryNames",
+		"(Ljava/util/jar/JarFile;[Ljava/security/CodeSource;)Ljava/util/Enumeration;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.jar.JarVerifier$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.jar.JarVerifier$1",
+		"java.lang.Object",
+		"java.util.Enumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.jar.JarVerifier"
+	};
+	$loadClass(JarVerifier$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JarVerifier$1);
+	});
 	return class$;
 }
 

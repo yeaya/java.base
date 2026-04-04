@@ -1,5 +1,4 @@
 #include <javax/crypto/spec/OAEPParameterSpec.h>
-
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <java/security/spec/MGF1ParameterSpec.h>
 #include <javax/crypto/spec/PSource$PSpecified.h>
@@ -21,38 +20,6 @@ using $PSource$PSpecified = ::javax::crypto::spec::PSource$PSpecified;
 namespace javax {
 	namespace crypto {
 		namespace spec {
-
-$FieldInfo _OAEPParameterSpec_FieldInfo_[] = {
-	{"mdName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OAEPParameterSpec, mdName)},
-	{"mgfName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OAEPParameterSpec, mgfName)},
-	{"mgfSpec", "Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PRIVATE, $field(OAEPParameterSpec, mgfSpec)},
-	{"pSrc", "Ljavax/crypto/spec/PSource;", nullptr, $PRIVATE, $field(OAEPParameterSpec, pSrc)},
-	{"DEFAULT", "Ljavax/crypto/spec/OAEPParameterSpec;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OAEPParameterSpec, DEFAULT)},
-	{}
-};
-
-$MethodInfo _OAEPParameterSpec_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(OAEPParameterSpec, init$, void)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;Ljavax/crypto/spec/PSource;)V", nullptr, $PUBLIC, $method(OAEPParameterSpec, init$, void, $String*, $String*, $AlgorithmParameterSpec*, $PSource*)},
-	{"getDigestAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OAEPParameterSpec, getDigestAlgorithm, $String*)},
-	{"getMGFAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OAEPParameterSpec, getMGFAlgorithm, $String*)},
-	{"getMGFParameters", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC, $virtualMethod(OAEPParameterSpec, getMGFParameters, $AlgorithmParameterSpec*)},
-	{"getPSource", "()Ljavax/crypto/spec/PSource;", nullptr, $PUBLIC, $virtualMethod(OAEPParameterSpec, getPSource, $PSource*)},
-	{}
-};
-
-$ClassInfo _OAEPParameterSpec_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.crypto.spec.OAEPParameterSpec",
-	"java.lang.Object",
-	"java.security.spec.AlgorithmParameterSpec",
-	_OAEPParameterSpec_FieldInfo_,
-	_OAEPParameterSpec_MethodInfo_
-};
-
-$Object* allocate$OAEPParameterSpec($Class* clazz) {
-	return $of($alloc(OAEPParameterSpec));
-}
 
 OAEPParameterSpec* OAEPParameterSpec::DEFAULT = nullptr;
 
@@ -103,7 +70,7 @@ $PSource* OAEPParameterSpec::getPSource() {
 	return this->pSrc;
 }
 
-void clinit$OAEPParameterSpec($Class* class$) {
+void OAEPParameterSpec::clinit$($Class* clazz) {
 	$assignStatic(OAEPParameterSpec::DEFAULT, $new(OAEPParameterSpec));
 }
 
@@ -111,7 +78,34 @@ OAEPParameterSpec::OAEPParameterSpec() {
 }
 
 $Class* OAEPParameterSpec::load$($String* name, bool initialize) {
-	$loadClass(OAEPParameterSpec, name, initialize, &_OAEPParameterSpec_ClassInfo_, clinit$OAEPParameterSpec, allocate$OAEPParameterSpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"mdName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OAEPParameterSpec, mdName)},
+		{"mgfName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(OAEPParameterSpec, mgfName)},
+		{"mgfSpec", "Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PRIVATE, $field(OAEPParameterSpec, mgfSpec)},
+		{"pSrc", "Ljavax/crypto/spec/PSource;", nullptr, $PRIVATE, $field(OAEPParameterSpec, pSrc)},
+		{"DEFAULT", "Ljavax/crypto/spec/OAEPParameterSpec;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OAEPParameterSpec, DEFAULT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(OAEPParameterSpec, init$, void)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;Ljavax/crypto/spec/PSource;)V", nullptr, $PUBLIC, $method(OAEPParameterSpec, init$, void, $String*, $String*, $AlgorithmParameterSpec*, $PSource*)},
+		{"getDigestAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OAEPParameterSpec, getDigestAlgorithm, $String*)},
+		{"getMGFAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OAEPParameterSpec, getMGFAlgorithm, $String*)},
+		{"getMGFParameters", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC, $virtualMethod(OAEPParameterSpec, getMGFParameters, $AlgorithmParameterSpec*)},
+		{"getPSource", "()Ljavax/crypto/spec/PSource;", nullptr, $PUBLIC, $virtualMethod(OAEPParameterSpec, getPSource, $PSource*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.crypto.spec.OAEPParameterSpec",
+		"java.lang.Object",
+		"java.security.spec.AlgorithmParameterSpec",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OAEPParameterSpec, name, initialize, &classInfo$$, OAEPParameterSpec::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(OAEPParameterSpec);
+	});
 	return class$;
 }
 

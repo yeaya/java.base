@@ -1,5 +1,4 @@
 #include <CheckPermission$FileOperation.h>
-
 #include <CheckPermission.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -15,48 +14,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _CheckPermission$FileOperation_FieldInfo_[] = {
-	{"READ", "LCheckPermission$FileOperation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckPermission$FileOperation, READ)},
-	{"WRITE", "LCheckPermission$FileOperation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckPermission$FileOperation, WRITE)},
-	{"DELETE", "LCheckPermission$FileOperation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckPermission$FileOperation, DELETE)},
-	{"EXEC", "LCheckPermission$FileOperation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckPermission$FileOperation, EXEC)},
-	{"$VALUES", "[LCheckPermission$FileOperation;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CheckPermission$FileOperation, $VALUES)},
-	{}
-};
-
-$MethodInfo _CheckPermission$FileOperation_MethodInfo_[] = {
-	{"$values", "()[LCheckPermission$FileOperation;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CheckPermission$FileOperation, $values, $CheckPermission$FileOperationArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CheckPermission$FileOperation, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)LCheckPermission$FileOperation;", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckPermission$FileOperation, valueOf, CheckPermission$FileOperation*, $String*)},
-	{"values", "()[LCheckPermission$FileOperation;", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckPermission$FileOperation, values, $CheckPermission$FileOperationArray*)},
-	{}
-};
-
-$InnerClassInfo _CheckPermission$FileOperation_InnerClassesInfo_[] = {
-	{"CheckPermission$FileOperation", "CheckPermission", "FileOperation", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _CheckPermission$FileOperation_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"CheckPermission$FileOperation",
-	"java.lang.Enum",
-	nullptr,
-	_CheckPermission$FileOperation_FieldInfo_,
-	_CheckPermission$FileOperation_MethodInfo_,
-	"Ljava/lang/Enum<LCheckPermission$FileOperation;>;",
-	nullptr,
-	_CheckPermission$FileOperation_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"CheckPermission"
-};
-
-$Object* allocate$CheckPermission$FileOperation($Class* clazz) {
-	return $of($alloc(CheckPermission$FileOperation));
-}
 
 CheckPermission$FileOperation* CheckPermission$FileOperation::READ = nullptr;
 CheckPermission$FileOperation* CheckPermission$FileOperation::WRITE = nullptr;
@@ -88,7 +45,7 @@ void CheckPermission$FileOperation::init$($String* $enum$name, int32_t $enum$ord
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$CheckPermission$FileOperation($Class* class$) {
+void CheckPermission$FileOperation::clinit$($Class* clazz) {
 	$assignStatic(CheckPermission$FileOperation::READ, $new(CheckPermission$FileOperation, "READ"_s, 0));
 	$assignStatic(CheckPermission$FileOperation::WRITE, $new(CheckPermission$FileOperation, "WRITE"_s, 1));
 	$assignStatic(CheckPermission$FileOperation::DELETE, $new(CheckPermission$FileOperation, "DELETE"_s, 2));
@@ -100,7 +57,43 @@ CheckPermission$FileOperation::CheckPermission$FileOperation() {
 }
 
 $Class* CheckPermission$FileOperation::load$($String* name, bool initialize) {
-	$loadClass(CheckPermission$FileOperation, name, initialize, &_CheckPermission$FileOperation_ClassInfo_, clinit$CheckPermission$FileOperation, allocate$CheckPermission$FileOperation);
+	$FieldInfo fieldInfos$$[] = {
+		{"READ", "LCheckPermission$FileOperation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckPermission$FileOperation, READ)},
+		{"WRITE", "LCheckPermission$FileOperation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckPermission$FileOperation, WRITE)},
+		{"DELETE", "LCheckPermission$FileOperation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckPermission$FileOperation, DELETE)},
+		{"EXEC", "LCheckPermission$FileOperation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckPermission$FileOperation, EXEC)},
+		{"$VALUES", "[LCheckPermission$FileOperation;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CheckPermission$FileOperation, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[LCheckPermission$FileOperation;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CheckPermission$FileOperation, $values, $CheckPermission$FileOperationArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CheckPermission$FileOperation, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)LCheckPermission$FileOperation;", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckPermission$FileOperation, valueOf, CheckPermission$FileOperation*, $String*)},
+		{"values", "()[LCheckPermission$FileOperation;", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckPermission$FileOperation, values, $CheckPermission$FileOperationArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"CheckPermission$FileOperation", "CheckPermission", "FileOperation", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"CheckPermission$FileOperation",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<LCheckPermission$FileOperation;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"CheckPermission"
+	};
+	$loadClass(CheckPermission$FileOperation, name, initialize, &classInfo$$, CheckPermission$FileOperation::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CheckPermission$FileOperation));
+	});
 	return class$;
 }
 

@@ -68,6 +68,7 @@ public:
 	ZoneOffset();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t totalSeconds);
 	virtual ::java::time::temporal::Temporal* adjustInto(::java::time::temporal::Temporal* temporal) override;
 	static $String* buildId(int32_t totalSeconds);
@@ -101,7 +102,7 @@ public:
 	static ::java::util::concurrent::ConcurrentMap* SECONDS_CACHE;
 	static ::java::util::concurrent::ConcurrentMap* ID_CACHE;
 	static const int32_t MAX_SECONDS = 64800; // 18 * 3600
-	static const int64_t serialVersionUID = (int64_t)0x20B8141D7A029C21;
+	static const int64_t serialVersionUID = (int64_t)0x20b8141d7a029c21;
 	static ::java::time::ZoneOffset* UTC;
 	static ::java::time::ZoneOffset* MIN;
 	static ::java::time::ZoneOffset* MAX;

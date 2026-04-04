@@ -38,6 +38,7 @@ class $import CertStore : public ::java::lang::Object {
 	$class(CertStore, 0, ::java::lang::Object)
 public:
 	CertStore();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::cert::CertStoreSpi* storeSpi, ::java::security::Provider* provider, $String* type, ::java::security::cert::CertStoreParameters* params);
 	::java::util::Collection* getCRLs(::java::security::cert::CRLSelector* selector);
 	::java::security::cert::CertStoreParameters* getCertStoreParameters();

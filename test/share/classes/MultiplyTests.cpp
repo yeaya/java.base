@@ -1,5 +1,4 @@
 #include <MultiplyTests.h>
-
 #include <java/math/BigDecimal.h>
 #include <jcpp.h>
 
@@ -11,31 +10,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $BigDecimal = ::java::math::BigDecimal;
 
-$MethodInfo _MultiplyTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MultiplyTests, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiplyTests, main, void, $StringArray*)},
-	{"multiplyTests", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(MultiplyTests, multiplyTests, int32_t)},
-	{}
-};
-
-$ClassInfo _MultiplyTests_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MultiplyTests",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_MultiplyTests_MethodInfo_
-};
-
-$Object* allocate$MultiplyTests($Class* clazz) {
-	return $of($alloc(MultiplyTests));
-}
-
 void MultiplyTests::init$() {
 }
 
 int32_t MultiplyTests::multiplyTests() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	$var($BigDecimalArray, bd1, $new($BigDecimalArray, {
 		$$new($BigDecimal, "123456789"_s),
@@ -66,7 +45,7 @@ int32_t MultiplyTests::multiplyTests() {
 	}));
 	for (int32_t i = 0; i < bd1->length; ++i) {
 		for (int32_t j = 0; j < bd2->length; ++j) {
-			if (!$nc($($nc(bd1->get(i))->multiply(bd2->get(j))))->equals($nc(expectedResults->get(i))->get(j))) {
+			if (!$($nc(bd1->get(i))->multiply(bd2->get(j)))->equals($nc(expectedResults->get(i))->get(j))) {
 				++failures;
 			}
 		}
@@ -75,7 +54,7 @@ int32_t MultiplyTests::multiplyTests() {
 	$var($BigDecimal, xPower, $BigDecimal::valueOf((int64_t)-1));
 	try {
 		for (int32_t i = 0; i < 100; ++i) {
-			$assign(xPower, $nc(xPower)->multiply(x));
+			$assign(xPower, xPower->multiply(x));
 		}
 	} catch ($Exception& ex) {
 		++failures;
@@ -84,7 +63,7 @@ int32_t MultiplyTests::multiplyTests() {
 }
 
 void MultiplyTests::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	failures += multiplyTests();
 	if (failures > 0) {
@@ -96,7 +75,23 @@ MultiplyTests::MultiplyTests() {
 }
 
 $Class* MultiplyTests::load$($String* name, bool initialize) {
-	$loadClass(MultiplyTests, name, initialize, &_MultiplyTests_ClassInfo_, allocate$MultiplyTests);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MultiplyTests, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiplyTests, main, void, $StringArray*)},
+		{"multiplyTests", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(MultiplyTests, multiplyTests, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MultiplyTests",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MultiplyTests, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiplyTests);
+	});
 	return class$;
 }
 

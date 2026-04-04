@@ -1,5 +1,4 @@
 #include <java/io/Console.h>
-
 #include <java/io/Console$1.h>
 #include <java/io/Console$2.h>
 #include <java/io/Console$3.h>
@@ -9,19 +8,14 @@
 #include <java/io/FileOutputStream.h>
 #include <java/io/IOError.h>
 #include <java/io/IOException.h>
-#include <java/io/InputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/io/PrintWriter.h>
 #include <java/io/Reader.h>
 #include <java/io/Writer.h>
-#include <java/lang/Appendable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/Runnable.h>
 #include <java/nio/charset/Charset.h>
 #include <java/util/Arrays.h>
 #include <java/util/Formatter.h>
-#include <jdk/internal/access/JavaIOAccess.h>
 #include <jdk/internal/access/JavaLangAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
 #include <sun/nio/cs/StreamDecoder.h>
@@ -40,12 +34,8 @@ using $FileInputStream = ::java::io::FileInputStream;
 using $FileOutputStream = ::java::io::FileOutputStream;
 using $IOError = ::java::io::IOError;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $PrintWriter = ::java::io::PrintWriter;
 using $Reader = ::java::io::Reader;
-using $Writer = ::java::io::Writer;
-using $Appendable = ::java::lang::Appendable;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -53,12 +43,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $Charset = ::java::nio::charset::Charset;
 using $Arrays = ::java::util::Arrays;
 using $Formatter = ::java::util::Formatter;
-using $JavaIOAccess = ::jdk::internal::access::JavaIOAccess;
-using $JavaLangAccess = ::jdk::internal::access::JavaLangAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $StreamDecoder = ::sun::nio::cs::StreamDecoder;
 using $StreamEncoder = ::sun::nio::cs::StreamEncoder;
@@ -66,74 +53,6 @@ using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _Console_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Console, $assertionsDisabled)},
-	{"readLock", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(Console, readLock)},
-	{"writeLock", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(Console, writeLock)},
-	{"reader", "Ljava/io/Reader;", nullptr, $PRIVATE, $field(Console, reader$)},
-	{"out", "Ljava/io/Writer;", nullptr, $PRIVATE, $field(Console, out)},
-	{"pw", "Ljava/io/PrintWriter;", nullptr, $PRIVATE, $field(Console, pw)},
-	{"formatter", "Ljava/util/Formatter;", nullptr, $PRIVATE, $field(Console, formatter)},
-	{"rcb", "[C", nullptr, $PRIVATE, $field(Console, rcb)},
-	{"restoreEcho", "Z", nullptr, $PRIVATE, $field(Console, restoreEcho)},
-	{"shutdownHookInstalled", "Z", nullptr, $PRIVATE, $field(Console, shutdownHookInstalled)},
-	{"CHARSET", "Ljava/nio/charset/Charset;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Console, CHARSET)},
-	{"cons", "Ljava/io/Console;", nullptr, $PRIVATE | $STATIC, $staticField(Console, cons)},
-	{}
-};
-
-$MethodInfo _Console_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Console, init$, void)},
-	{"charset", "()Ljava/nio/charset/Charset;", nullptr, $PUBLIC, $method(Console, charset, $Charset*)},
-	{"echo", "(Z)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Console, echo, bool, bool), "java.io.IOException"},
-	{"encoding", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Console, encoding, $String*)},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(Console, flush, void)},
-	{"format", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/Console;", nullptr, $PUBLIC | $TRANSIENT, $method(Console, format, Console*, $String*, $ObjectArray*)},
-	{"grow", "()[C", nullptr, $PRIVATE, $method(Console, grow, $chars*)},
-	{"installShutdownHook", "()V", nullptr, $PRIVATE, $method(Console, installShutdownHook, void)},
-	{"istty", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Console, istty, bool)},
-	{"printf", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/Console;", nullptr, $PUBLIC | $TRANSIENT, $method(Console, printf, Console*, $String*, $ObjectArray*)},
-	{"readLine", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT, $method(Console, readLine, $String*, $String*, $ObjectArray*)},
-	{"readLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Console, readLine, $String*)},
-	{"readPassword", "(Ljava/lang/String;[Ljava/lang/Object;)[C", nullptr, $PUBLIC | $TRANSIENT, $method(Console, readPassword, $chars*, $String*, $ObjectArray*)},
-	{"readPassword", "()[C", nullptr, $PUBLIC, $method(Console, readPassword, $chars*)},
-	{"reader", "()Ljava/io/Reader;", nullptr, $PUBLIC, $method(Console, reader, $Reader*)},
-	{"readline", "(Z)[C", nullptr, $PRIVATE, $method(Console, readline, $chars*, bool), "java.io.IOException"},
-	{"writer", "()Ljava/io/PrintWriter;", nullptr, $PUBLIC, $method(Console, writer, $PrintWriter*)},
-	{}
-};
-
-#define _METHOD_INDEX_echo 2
-#define _METHOD_INDEX_encoding 3
-#define _METHOD_INDEX_istty 8
-
-$InnerClassInfo _Console_InnerClassesInfo_[] = {
-	{"java.io.Console$LineReader", "java.io.Console", "LineReader", 0},
-	{"java.io.Console$3", nullptr, nullptr, 0},
-	{"java.io.Console$2", nullptr, nullptr, 0},
-	{"java.io.Console$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Console_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.io.Console",
-	"java.lang.Object",
-	"java.io.Flushable",
-	_Console_FieldInfo_,
-	_Console_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Console_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.io.Console$LineReader,java.io.Console$3,java.io.Console$2,java.io.Console$1"
-};
-
-$Object* allocate$Console($Class* clazz) {
-	return $of($alloc(Console));
-}
 
 bool Console::$assertionsDisabled = false;
 $Charset* Console::CHARSET = nullptr;
@@ -148,7 +67,7 @@ $Reader* Console::reader() {
 }
 
 Console* Console::format($String* fmt, $ObjectArray* args) {
-	$nc($($nc(this->formatter)->format(fmt, args)))->flush();
+	$$nc($nc(this->formatter)->format(fmt, args))->flush();
 	return this;
 }
 
@@ -157,7 +76,7 @@ Console* Console::printf($String* format, $ObjectArray* args) {
 }
 
 $String* Console::readLine($String* fmt, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, line, nullptr);
 	$synchronized(this->writeLock) {
 		$synchronized(this->readLock) {
@@ -182,7 +101,7 @@ $String* Console::readLine() {
 }
 
 $chars* Console::readPassword($String* fmt, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, passwd, nullptr);
 	$synchronized(this->writeLock) {
 		$synchronized(this->readLock) {
@@ -193,38 +112,36 @@ $chars* Console::readPassword($String* fmt, $ObjectArray* args) {
 				$throwNew($IOError, x);
 			}
 			$var($IOError, ioe, nullptr);
-			{
-				$var($Throwable, var$0, nullptr);
+			$var($Throwable, var$0, nullptr);
+			try {
 				try {
-					try {
-						if (!$nc(fmt)->isEmpty()) {
-							$nc(this->pw)->format(fmt, args);
-						}
-						$assign(passwd, readline(true));
-					} catch ($IOException& x) {
+					if (!$nc(fmt)->isEmpty()) {
+						$nc(this->pw)->format(fmt, args);
+					}
+					$assign(passwd, readline(true));
+				} catch ($IOException& x) {
+					$assign(ioe, $new($IOError, x));
+				}
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				try {
+					if (this->restoreEcho) {
+						this->restoreEcho = echo(true);
+					}
+				} catch ($IOException& x) {
+					if (ioe == nullptr) {
 						$assign(ioe, $new($IOError, x));
-					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					try {
-						if (this->restoreEcho) {
-							this->restoreEcho = echo(true);
-						}
-					} catch ($IOException& x) {
-						if (ioe == nullptr) {
-							$assign(ioe, $new($IOError, x));
-						} else {
-							$nc(ioe)->addSuppressed(x);
-						}
-					}
-					if (ioe != nullptr) {
-						$throw(ioe);
+					} else {
+						ioe->addSuppressed(x);
 					}
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
+				if (ioe != nullptr) {
+					$throw(ioe);
 				}
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 			$nc(this->pw)->println();
 		}
@@ -233,12 +150,12 @@ $chars* Console::readPassword($String* fmt, $ObjectArray* args) {
 }
 
 void Console::installShutdownHook() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->shutdownHookInstalled) {
 		return;
 	}
 	try {
-		$nc($($SharedSecrets::getJavaLangAccess()))->registerShutdownHook(0, false, $$new($Console$1, this));
+		$$nc($SharedSecrets::getJavaLangAccess())->registerShutdownHook(0, false, $$new($Console$1, this));
 	} catch ($IllegalStateException& e) {
 	}
 	this->shutdownHookInstalled = true;
@@ -261,18 +178,16 @@ $Charset* Console::charset() {
 
 $String* Console::encoding() {
 	$init(Console);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(Console, encoding, $String*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(encoding, $String*);
+	$var($String, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
 
 bool Console::echo(bool on) {
 	$init(Console);
-	bool $ret = false;
-	$prepareNativeStatic(Console, echo, bool, bool on);
-	$ret = $invokeNativeStatic(on);
+	$prepareNativeStatic(echo, bool, bool on);
+	bool $ret = $invokeNativeStatic(on);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -282,11 +197,11 @@ $chars* Console::readline(bool zeroOut) {
 	if (len < 0) {
 		return nullptr;
 	}
-	if ($nc(this->rcb)->get(len - 1) == u'\r') {
+	if (this->rcb->get(len - 1) == u'\r') {
 		--len;
-	} else if ($nc(this->rcb)->get(len - 1) == u'\n') {
+	} else if (this->rcb->get(len - 1) == u'\n') {
 		--len;
-		if (len > 0 && $nc(this->rcb)->get(len - 1) == u'\r') {
+		if (len > 0 && this->rcb->get(len - 1) == u'\r') {
 			--len;
 		}
 	}
@@ -305,34 +220,33 @@ $chars* Console::grow() {
 		$throwNew($AssertionError);
 	}
 	$var($chars, t, $new($chars, $nc(this->rcb)->length * 2));
-	$System::arraycopy(this->rcb, 0, t, 0, $nc(this->rcb)->length);
+	$System::arraycopy(this->rcb, 0, t, 0, this->rcb->length);
 	$set(this, rcb, t);
 	return this->rcb;
 }
 
 bool Console::istty() {
 	$init(Console);
-	bool $ret = false;
-	$prepareNativeStatic(Console, istty, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(istty, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 void Console::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, readLock, $new($Object));
 	$set(this, writeLock, $new($Object));
 	$init($FileDescriptor);
-	$set(this, out, $StreamEncoder::forOutputStreamWriter(static_cast<$OutputStream*>($$new($FileOutputStream, $FileDescriptor::out)), this->writeLock, Console::CHARSET));
+	$set(this, out, $StreamEncoder::forOutputStreamWriter($$new($FileOutputStream, $FileDescriptor::out), this->writeLock, Console::CHARSET));
 	$set(this, pw, $new($Console$3, this, this->out, true));
-	$set(this, formatter, $new($Formatter, static_cast<$Appendable*>(this->out)));
-	$set(this, reader$, $new($Console$LineReader, this, $($StreamDecoder::forInputStreamReader(static_cast<$InputStream*>($$new($FileInputStream, $FileDescriptor::in)), this->readLock, Console::CHARSET))));
+	$set(this, formatter, $new($Formatter, this->out));
+	$set(this, reader$, $new($Console$LineReader, this, $($StreamDecoder::forInputStreamReader($$new($FileInputStream, $FileDescriptor::in), this->readLock, Console::CHARSET))));
 	$set(this, rcb, $new($chars, 1024));
 }
 
-void clinit$Console($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Console::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	Console::$assertionsDisabled = !Console::class$->desiredAssertionStatus();
 	{
 		$var($String, csname, Console::encoding());
@@ -355,7 +269,65 @@ Console::Console() {
 }
 
 $Class* Console::load$($String* name, bool initialize) {
-	$loadClass(Console, name, initialize, &_Console_ClassInfo_, clinit$Console, allocate$Console);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Console, $assertionsDisabled)},
+		{"readLock", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(Console, readLock)},
+		{"writeLock", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(Console, writeLock)},
+		{"reader", "Ljava/io/Reader;", nullptr, $PRIVATE, $field(Console, reader$)},
+		{"out", "Ljava/io/Writer;", nullptr, $PRIVATE, $field(Console, out)},
+		{"pw", "Ljava/io/PrintWriter;", nullptr, $PRIVATE, $field(Console, pw)},
+		{"formatter", "Ljava/util/Formatter;", nullptr, $PRIVATE, $field(Console, formatter)},
+		{"rcb", "[C", nullptr, $PRIVATE, $field(Console, rcb)},
+		{"restoreEcho", "Z", nullptr, $PRIVATE, $field(Console, restoreEcho)},
+		{"shutdownHookInstalled", "Z", nullptr, $PRIVATE, $field(Console, shutdownHookInstalled)},
+		{"CHARSET", "Ljava/nio/charset/Charset;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Console, CHARSET)},
+		{"cons", "Ljava/io/Console;", nullptr, $PRIVATE | $STATIC, $staticField(Console, cons)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Console, init$, void)},
+		{"charset", "()Ljava/nio/charset/Charset;", nullptr, $PUBLIC, $method(Console, charset, $Charset*)},
+		{"echo", "(Z)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Console, echo, bool, bool), "java.io.IOException"},
+		{"encoding", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Console, encoding, $String*)},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(Console, flush, void)},
+		{"format", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/Console;", nullptr, $PUBLIC | $TRANSIENT, $method(Console, format, Console*, $String*, $ObjectArray*)},
+		{"grow", "()[C", nullptr, $PRIVATE, $method(Console, grow, $chars*)},
+		{"installShutdownHook", "()V", nullptr, $PRIVATE, $method(Console, installShutdownHook, void)},
+		{"istty", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Console, istty, bool)},
+		{"printf", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/Console;", nullptr, $PUBLIC | $TRANSIENT, $method(Console, printf, Console*, $String*, $ObjectArray*)},
+		{"readLine", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $TRANSIENT, $method(Console, readLine, $String*, $String*, $ObjectArray*)},
+		{"readLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Console, readLine, $String*)},
+		{"readPassword", "(Ljava/lang/String;[Ljava/lang/Object;)[C", nullptr, $PUBLIC | $TRANSIENT, $method(Console, readPassword, $chars*, $String*, $ObjectArray*)},
+		{"readPassword", "()[C", nullptr, $PUBLIC, $method(Console, readPassword, $chars*)},
+		{"reader", "()Ljava/io/Reader;", nullptr, $PUBLIC, $method(Console, reader, $Reader*)},
+		{"readline", "(Z)[C", nullptr, $PRIVATE, $method(Console, readline, $chars*, bool), "java.io.IOException"},
+		{"writer", "()Ljava/io/PrintWriter;", nullptr, $PUBLIC, $method(Console, writer, $PrintWriter*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.Console$LineReader", "java.io.Console", "LineReader", 0},
+		{"java.io.Console$3", nullptr, nullptr, 0},
+		{"java.io.Console$2", nullptr, nullptr, 0},
+		{"java.io.Console$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.io.Console",
+		"java.lang.Object",
+		"java.io.Flushable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.io.Console$LineReader,java.io.Console$3,java.io.Console$2,java.io.Console$1"
+	};
+	$loadClass(Console, name, initialize, &classInfo$$, Console::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Console);
+	});
 	return class$;
 }
 

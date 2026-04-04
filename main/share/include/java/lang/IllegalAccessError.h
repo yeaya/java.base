@@ -14,10 +14,13 @@ public:
 	IllegalAccessError();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x8340FF5E7A04039D;
+	static const int64_t serialVersionUID = (int64_t)0x8340ff5e7a04039d;
 	IllegalAccessError(const IllegalAccessError& e);
 	virtual void throw$() override;
-	inline IllegalAccessError* operator ->() {
+	inline IllegalAccessError* operator ->() const {
+		return (IllegalAccessError*)throwing$;
+	}
+	inline operator IllegalAccessError*() const {
 		return (IllegalAccessError*)throwing$;
 	}
 };

@@ -13,6 +13,7 @@ class ValueConversions$1 : public ::java::lang::Object {
 	$class(ValueConversions$1, 0, ::java::lang::Object)
 public:
 	ValueConversions$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$invoke$util$Wrapper;
 };
 

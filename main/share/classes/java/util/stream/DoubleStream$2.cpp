@@ -1,5 +1,4 @@
 #include <java/util/stream/DoubleStream$2.h>
-
 #include <java/util/Objects.h>
 #include <java/util/Spliterators$AbstractDoubleSpliterator.h>
 #include <java/util/function/DoubleConsumer.h>
@@ -22,57 +21,6 @@ using $DoubleUnaryOperator = ::java::util::function::DoubleUnaryOperator;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _DoubleStream$2_FieldInfo_[] = {
-	{"val$hasNext", "Ljava/util/function/DoublePredicate;", nullptr, $FINAL | $SYNTHETIC, $field(DoubleStream$2, val$hasNext)},
-	{"val$seed", "D", nullptr, $FINAL | $SYNTHETIC, $field(DoubleStream$2, val$seed)},
-	{"val$next", "Ljava/util/function/DoubleUnaryOperator;", nullptr, $FINAL | $SYNTHETIC, $field(DoubleStream$2, val$next)},
-	{"prev", "D", nullptr, 0, $field(DoubleStream$2, prev)},
-	{"started", "Z", nullptr, 0, $field(DoubleStream$2, started)},
-	{"finished", "Z", nullptr, 0, $field(DoubleStream$2, finished)},
-	{}
-};
-
-$MethodInfo _DoubleStream$2_MethodInfo_[] = {
-	{"<init>", "(JILjava/util/function/DoubleUnaryOperator;DLjava/util/function/DoublePredicate;)V", nullptr, 0, $method(DoubleStream$2, init$, void, int64_t, int32_t, $DoubleUnaryOperator*, double, $DoublePredicate*)},
-	{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $virtualMethod(DoubleStream$2, forEachRemaining, void, $DoubleConsumer*)},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoubleStream$2, forEachRemaining, void, Object$*)},
-	{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(DoubleStream$2, tryAdvance, bool, $DoubleConsumer*)},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoubleStream$2, tryAdvance, bool, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _DoubleStream$2_EnclosingMethodInfo_ = {
-	"java.util.stream.DoubleStream",
-	"iterate",
-	"(DLjava/util/function/DoublePredicate;Ljava/util/function/DoubleUnaryOperator;)Ljava/util/stream/DoubleStream;"
-};
-
-$InnerClassInfo _DoubleStream$2_InnerClassesInfo_[] = {
-	{"java.util.stream.DoubleStream$2", nullptr, nullptr, 0},
-	{"java.util.Spliterators$AbstractDoubleSpliterator", "java.util.Spliterators", "AbstractDoubleSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DoubleStream$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.DoubleStream$2",
-	"java.util.Spliterators$AbstractDoubleSpliterator",
-	nullptr,
-	_DoubleStream$2_FieldInfo_,
-	_DoubleStream$2_MethodInfo_,
-	nullptr,
-	&_DoubleStream$2_EnclosingMethodInfo_,
-	_DoubleStream$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.DoubleStream"
-};
-
-$Object* allocate$DoubleStream$2($Class* clazz) {
-	return $of($alloc(DoubleStream$2));
-}
 
 void DoubleStream$2::init$(int64_t est, int32_t additionalCharacteristics, $DoubleUnaryOperator* val$next, double val$seed, $DoublePredicate* val$hasNext) {
 	$set(this, val$next, val$next);
@@ -126,7 +74,51 @@ DoubleStream$2::DoubleStream$2() {
 }
 
 $Class* DoubleStream$2::load$($String* name, bool initialize) {
-	$loadClass(DoubleStream$2, name, initialize, &_DoubleStream$2_ClassInfo_, allocate$DoubleStream$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$hasNext", "Ljava/util/function/DoublePredicate;", nullptr, $FINAL | $SYNTHETIC, $field(DoubleStream$2, val$hasNext)},
+		{"val$seed", "D", nullptr, $FINAL | $SYNTHETIC, $field(DoubleStream$2, val$seed)},
+		{"val$next", "Ljava/util/function/DoubleUnaryOperator;", nullptr, $FINAL | $SYNTHETIC, $field(DoubleStream$2, val$next)},
+		{"prev", "D", nullptr, 0, $field(DoubleStream$2, prev)},
+		{"started", "Z", nullptr, 0, $field(DoubleStream$2, started)},
+		{"finished", "Z", nullptr, 0, $field(DoubleStream$2, finished)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JILjava/util/function/DoubleUnaryOperator;DLjava/util/function/DoublePredicate;)V", nullptr, 0, $method(DoubleStream$2, init$, void, int64_t, int32_t, $DoubleUnaryOperator*, double, $DoublePredicate*)},
+		{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $virtualMethod(DoubleStream$2, forEachRemaining, void, $DoubleConsumer*)},
+		{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoubleStream$2, forEachRemaining, void, Object$*)},
+		{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(DoubleStream$2, tryAdvance, bool, $DoubleConsumer*)},
+		{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoubleStream$2, tryAdvance, bool, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.DoubleStream",
+		"iterate",
+		"(DLjava/util/function/DoublePredicate;Ljava/util/function/DoubleUnaryOperator;)Ljava/util/stream/DoubleStream;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.DoubleStream$2", nullptr, nullptr, 0},
+		{"java.util.Spliterators$AbstractDoubleSpliterator", "java.util.Spliterators", "AbstractDoubleSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.DoubleStream$2",
+		"java.util.Spliterators$AbstractDoubleSpliterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.DoubleStream"
+	};
+	$loadClass(DoubleStream$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DoubleStream$2);
+	});
 	return class$;
 }
 

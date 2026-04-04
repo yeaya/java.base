@@ -1,5 +1,4 @@
 #include <Connect4DatagramChannel$Responder.h>
-
 #include <Connect4DatagramChannel.h>
 #include <java/lang/AutoCloseable.h>
 #include <java/net/InetAddress.h>
@@ -18,7 +17,6 @@
 #undef US_ASCII
 
 using $Connect4DatagramChannel = ::Connect4DatagramChannel;
-using $PrintStream = ::java::io::PrintStream;
 using $AutoCloseable = ::java::lang::AutoCloseable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -32,52 +30,7 @@ using $SocketAddress = ::java::net::SocketAddress;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $DatagramChannel = ::java::nio::channels::DatagramChannel;
-using $Charset = ::java::nio::charset::Charset;
-using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
-
-$FieldInfo _Connect4DatagramChannel$Responder_FieldInfo_[] = {
-	{"dc", "Ljava/nio/channels/DatagramChannel;", nullptr, $FINAL, $field(Connect4DatagramChannel$Responder, dc)},
-	{}
-};
-
-$MethodInfo _Connect4DatagramChannel$Responder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(Connect4DatagramChannel$Responder, init$, void), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Connect4DatagramChannel$Responder, close, void), "java.io.IOException"},
-	{"getSocketAddress", "()Ljava/net/SocketAddress;", nullptr, 0, $virtualMethod(Connect4DatagramChannel$Responder, getSocketAddress, $SocketAddress*), "java.io.IOException"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Connect4DatagramChannel$Responder, run, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Connect4DatagramChannel$Responder_InnerClassesInfo_[] = {
-	{"Connect4DatagramChannel$Responder", "Connect4DatagramChannel", "Responder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Connect4DatagramChannel$Responder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Connect4DatagramChannel$Responder",
-	"java.lang.Object",
-	"java.lang.AutoCloseable,java.lang.Runnable",
-	_Connect4DatagramChannel$Responder_FieldInfo_,
-	_Connect4DatagramChannel$Responder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Connect4DatagramChannel$Responder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Connect4DatagramChannel"
-};
-
-$Object* allocate$Connect4DatagramChannel$Responder($Class* clazz) {
-	return $of($alloc(Connect4DatagramChannel$Responder));
-}
 
 int32_t Connect4DatagramChannel$Responder::hashCode() {
 	 return this->$AutoCloseable::hashCode();
@@ -100,9 +53,9 @@ void Connect4DatagramChannel$Responder::finalize() {
 }
 
 void Connect4DatagramChannel$Responder::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetSocketAddress, address, $new($InetSocketAddress, $($InetAddress::getLoopbackAddress()), 0));
-	$set(this, dc, $cast($DatagramChannel, $nc($($DatagramChannel::open()))->bind(address)));
+	$set(this, dc, $cast($DatagramChannel, $$nc($DatagramChannel::open())->bind(address)));
 }
 
 $SocketAddress* Connect4DatagramChannel$Responder::getSocketAddress() {
@@ -110,37 +63,35 @@ $SocketAddress* Connect4DatagramChannel$Responder::getSocketAddress() {
 }
 
 void Connect4DatagramChannel$Responder::run() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$var($ByteBuffer, bb, $ByteBuffer::allocateDirect(100));
-				$init($Connect4DatagramChannel);
-				$nc($Connect4DatagramChannel::log)->println("Responder waiting to receive"_s);
-				$var($SocketAddress, sa, $nc(this->dc)->receive(bb));
-				$nc(bb)->flip();
-				$init($StandardCharsets);
-				$var($CharBuffer, cb, $nc($($nc($StandardCharsets::US_ASCII)->newDecoder()))->decode(bb));
-				$nc($Connect4DatagramChannel::log)->println($$str({"Responder received from Initiator at"_s, sa, ": "_s, cb}));
-				$nc(this->dc)->connect(sa);
-				bb->flip();
-				$nc($Connect4DatagramChannel::log)->println($$str({"Responder attempting to write: "_s, $($nc($of($($nc(this->dc)->getRemoteAddress())))->toString())}));
-				$nc(this->dc)->write(bb);
-			} catch ($Exception& ex) {
-				$init($Connect4DatagramChannel);
-				$nc($Connect4DatagramChannel::log)->println($$str({"Responder threw exception: "_s, ex}));
-				$throwNew($RuntimeException, static_cast<$Throwable*>(ex));
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
+			$var($ByteBuffer, bb, $ByteBuffer::allocateDirect(100));
 			$init($Connect4DatagramChannel);
-			$nc($Connect4DatagramChannel::log)->println("Responder finished"_s);
+			$nc($Connect4DatagramChannel::log)->println("Responder waiting to receive"_s);
+			$var($SocketAddress, sa, $nc(this->dc)->receive(bb));
+			$nc(bb)->flip();
+			$init($StandardCharsets);
+			$var($CharBuffer, cb, $$nc($nc($StandardCharsets::US_ASCII)->newDecoder())->decode(bb));
+			$nc($Connect4DatagramChannel::log)->println($$str({"Responder received from Initiator at"_s, sa, ": "_s, cb}));
+			this->dc->connect(sa);
+			bb->flip();
+			$nc($Connect4DatagramChannel::log)->println($$str({"Responder attempting to write: "_s, $($$nc(this->dc->getRemoteAddress())->toString())}));
+			this->dc->write(bb);
+		} catch ($Exception& ex) {
+			$init($Connect4DatagramChannel);
+			$nc($Connect4DatagramChannel::log)->println($$str({"Responder threw exception: "_s, ex}));
+			$throwNew($RuntimeException, ex);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$init($Connect4DatagramChannel);
+		$nc($Connect4DatagramChannel::log)->println("Responder finished"_s);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -152,7 +103,44 @@ Connect4DatagramChannel$Responder::Connect4DatagramChannel$Responder() {
 }
 
 $Class* Connect4DatagramChannel$Responder::load$($String* name, bool initialize) {
-	$loadClass(Connect4DatagramChannel$Responder, name, initialize, &_Connect4DatagramChannel$Responder_ClassInfo_, allocate$Connect4DatagramChannel$Responder);
+	$FieldInfo fieldInfos$$[] = {
+		{"dc", "Ljava/nio/channels/DatagramChannel;", nullptr, $FINAL, $field(Connect4DatagramChannel$Responder, dc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(Connect4DatagramChannel$Responder, init$, void), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Connect4DatagramChannel$Responder, close, void), "java.io.IOException"},
+		{"getSocketAddress", "()Ljava/net/SocketAddress;", nullptr, 0, $virtualMethod(Connect4DatagramChannel$Responder, getSocketAddress, $SocketAddress*), "java.io.IOException"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Connect4DatagramChannel$Responder, run, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Connect4DatagramChannel$Responder", "Connect4DatagramChannel", "Responder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Connect4DatagramChannel$Responder",
+		"java.lang.Object",
+		"java.lang.AutoCloseable,java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Connect4DatagramChannel"
+	};
+	$loadClass(Connect4DatagramChannel$Responder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Connect4DatagramChannel$Responder));
+	});
 	return class$;
 }
 

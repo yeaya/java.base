@@ -1,5 +1,4 @@
 #include <Basic1.h>
-
 #include <Basic1$Handler.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Runnable.h>
@@ -10,7 +9,6 @@
 #include <java/lang/reflect/Modifier.h>
 #include <java/lang/reflect/Proxy.h>
 #include <java/security/AllPermission.h>
-#include <java/security/Permission.h>
 #include <java/security/ProtectionDomain.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
@@ -18,7 +16,6 @@
 #include <jcpp.h>
 
 using $Basic1$Handler = ::Basic1$Handler;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -33,48 +30,17 @@ using $Method = ::java::lang::reflect::Method;
 using $Modifier = ::java::lang::reflect::Modifier;
 using $Proxy = ::java::lang::reflect::Proxy;
 using $AllPermission = ::java::security::AllPermission;
-using $Permission = ::java::security::Permission;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
 using $Arrays = ::java::util::Arrays;
 using $List = ::java::util::List;
 using $Observer = ::java::util::Observer;
 
-$MethodInfo _Basic1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Basic1, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Basic1, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _Basic1_InnerClassesInfo_[] = {
-	{"Basic1$Handler", "Basic1", "Handler", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Basic1_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Basic1",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Basic1_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Basic1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"Basic1$Handler"
-};
-
-$Object* allocate$Basic1($Class* clazz) {
-	return $of($alloc(Basic1));
-}
-
 void Basic1::init$() {
 }
 
 void Basic1::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(Basic1);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$nc($System::err)->println("\nBasic functional test of dynamic proxy API, part 1\n"_s);
 	try {
@@ -85,9 +51,9 @@ void Basic1::main($StringArray* args) {
 		}));
 		$var($ClassLoader, loader, $ClassLoader::getSystemClassLoader());
 		$Class* proxyClass = $Proxy::getProxyClass(loader, interfaces);
-		$nc($System::err)->println($$str({"+ generated proxy class: "_s, proxyClass}));
+		$System::err->println($$str({"+ generated proxy class: "_s, proxyClass}));
 		int32_t flags = $nc(proxyClass)->getModifiers();
-		$nc($System::err)->println($$str({"+ proxy class\'s modifiers: "_s, $($Modifier::toString(flags))}));
+		$System::err->println($$str({"+ proxy class\'s modifiers: "_s, $($Modifier::toString(flags))}));
 		if (!$Modifier::isPublic(flags)) {
 			$throwNew($RuntimeException, "proxy class in not public"_s);
 		}
@@ -99,20 +65,16 @@ void Basic1::main($StringArray* args) {
 		}
 		{
 			$var($ClassArray, arr$, interfaces);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$Class* intf = arr$->get(i$);
-				{
-					if (!$nc(intf)->isAssignableFrom(proxyClass)) {
-						$throwNew($RuntimeException, $$str({"proxy class not assignable to proxy interface "_s, $(intf->getName())}));
-					}
+				if (!$nc(intf)->isAssignableFrom(proxyClass)) {
+					$throwNew($RuntimeException, $$str({"proxy class not assignable to proxy interface "_s, $(intf->getName())}));
 				}
 			}
 		}
 		$var($List, l1, $Arrays::asList(interfaces));
 		$var($List, l2, $Arrays::asList($(proxyClass->getInterfaces())));
-		$nc($System::err)->println($$str({"+ proxy class\'s interfaces: "_s, l2}));
+		$System::err->println($$str({"+ proxy class\'s interfaces: "_s, l2}));
 		if (!$nc(l1)->equals(l2)) {
 			$throwNew($RuntimeException, $$str({"proxy class interfaces are "_s, l2, " (expected "_s, l1, ")"_s}));
 		}
@@ -123,14 +85,14 @@ void Basic1::main($StringArray* args) {
 			$throwNew($RuntimeException, "Proxy.isProxyClass returned false for proxy class"_s);
 		}
 		$var($ProtectionDomain, pd, proxyClass->getProtectionDomain());
-		$nc($System::err)->println($$str({"+ proxy class\'s protection domain: "_s, pd}));
+		$System::err->println($$str({"+ proxy class\'s protection domain: "_s, pd}));
 		if (!$nc(pd)->implies($$new($AllPermission))) {
 			$throwNew($RuntimeException, "proxy class does not have AllPermission"_s);
 		}
 		$load($InvocationHandler);
 		$var($Constructor, cons, proxyClass->getConstructor($$new($ClassArray, {$InvocationHandler::class$})));
 		try {
-			$nc(cons)->newInstance($$new($ObjectArray, {($Object*)nullptr}));
+			$nc(cons)->newInstance($$new($ObjectArray, {nullptr}));
 			$throwNew($RuntimeException, "Expected NullPointerException thrown"_s);
 		} catch ($InvocationTargetException& e) {
 			$var($Throwable, t, e->getTargetException());
@@ -139,16 +101,16 @@ void Basic1::main($StringArray* args) {
 			}
 		}
 		$var($Basic1$Handler, handler, $new($Basic1$Handler));
-		$var($Object, proxy, $nc(cons)->newInstance($$new($ObjectArray, {$of(handler)})));
+		$var($Object, proxy, $nc(cons)->newInstance($$new($ObjectArray, {handler})));
 		$set(handler, currentProxy, proxy);
 		$var($Method, m, $Runnable::class$->getMethod("run"_s, $$new($ClassArray, 0)));
-		$nc(($cast($Runnable, proxy)))->run();
+		$nc($cast($Runnable, proxy))->run();
 		if (!$nc(handler->lastMethod)->equals(m)) {
 			$throwNew($RuntimeException, $$str({"proxy method invocation failure (lastMethod = "_s, handler->lastMethod, ")"_s}));
 		}
-		$nc($System::err)->println("\nTEST PASSED"_s);
+		$System::err->println("\nTEST PASSED"_s);
 	} catch ($Throwable& e) {
-		$nc($System::err)->println("\nTEST FAILED:"_s);
+		$System::err->println("\nTEST FAILED:"_s);
 		e->printStackTrace();
 		$throwNew($RuntimeException, $$str({"TEST FAILED: "_s, $(e->toString())}));
 	}
@@ -158,7 +120,32 @@ Basic1::Basic1() {
 }
 
 $Class* Basic1::load$($String* name, bool initialize) {
-	$loadClass(Basic1, name, initialize, &_Basic1_ClassInfo_, allocate$Basic1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Basic1, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Basic1, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Basic1$Handler", "Basic1", "Handler", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Basic1",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"Basic1$Handler"
+	};
+	$loadClass(Basic1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Basic1);
+	});
 	return class$;
 }
 

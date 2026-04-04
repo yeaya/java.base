@@ -28,6 +28,7 @@ public:
 	using ::java::net::AbstractPlainDatagramSocketImpl::join;
 	using ::java::net::AbstractPlainDatagramSocketImpl::leave;
 	using ::java::net::AbstractPlainDatagramSocketImpl::getOption;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool exclBind, bool isMulticast);
 	virtual void bind(int32_t lport, ::java::net::InetAddress* laddr) override;
 	virtual void bind0(int32_t lport, ::java::net::InetAddress* laddr) override;

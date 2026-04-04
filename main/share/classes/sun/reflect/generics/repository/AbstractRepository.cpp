@@ -1,5 +1,4 @@
 #include <sun/reflect/generics/repository/AbstractRepository.h>
-
 #include <sun/reflect/generics/factory/GenericsFactory.h>
 #include <sun/reflect/generics/tree/Tree.h>
 #include <sun/reflect/generics/visitor/Reifier.h>
@@ -16,35 +15,6 @@ namespace sun {
 	namespace reflect {
 		namespace generics {
 			namespace repository {
-
-$FieldInfo _AbstractRepository_FieldInfo_[] = {
-	{"factory", "Lsun/reflect/generics/factory/GenericsFactory;", nullptr, $PRIVATE | $FINAL, $field(AbstractRepository, factory)},
-	{"tree", "Lsun/reflect/generics/tree/Tree;", "TT;", $PRIVATE | $FINAL, $field(AbstractRepository, tree)},
-	{}
-};
-
-$MethodInfo _AbstractRepository_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/reflect/generics/factory/GenericsFactory;)V", nullptr, $PROTECTED, $method(AbstractRepository, init$, void, $String*, $GenericsFactory*)},
-	{"getFactory", "()Lsun/reflect/generics/factory/GenericsFactory;", nullptr, $PRIVATE, $method(AbstractRepository, getFactory, $GenericsFactory*)},
-	{"getReifier", "()Lsun/reflect/generics/visitor/Reifier;", nullptr, $PROTECTED, $virtualMethod(AbstractRepository, getReifier, $Reifier*)},
-	{"getTree", "()Lsun/reflect/generics/tree/Tree;", "()TT;", $PROTECTED, $virtualMethod(AbstractRepository, getTree, $Tree*)},
-	{"parse", "(Ljava/lang/String;)Lsun/reflect/generics/tree/Tree;", "(Ljava/lang/String;)TT;", $PROTECTED | $ABSTRACT, $virtualMethod(AbstractRepository, parse, $Tree*, $String*)},
-	{}
-};
-
-$ClassInfo _AbstractRepository_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.reflect.generics.repository.AbstractRepository",
-	"java.lang.Object",
-	nullptr,
-	_AbstractRepository_FieldInfo_,
-	_AbstractRepository_MethodInfo_,
-	"<T::Lsun/reflect/generics/tree/Tree;>Ljava/lang/Object;"
-};
-
-$Object* allocate$AbstractRepository($Class* clazz) {
-	return $of($alloc(AbstractRepository));
-}
 
 $GenericsFactory* AbstractRepository::getFactory() {
 	return this->factory;
@@ -67,7 +37,31 @@ AbstractRepository::AbstractRepository() {
 }
 
 $Class* AbstractRepository::load$($String* name, bool initialize) {
-	$loadClass(AbstractRepository, name, initialize, &_AbstractRepository_ClassInfo_, allocate$AbstractRepository);
+	$FieldInfo fieldInfos$$[] = {
+		{"factory", "Lsun/reflect/generics/factory/GenericsFactory;", nullptr, $PRIVATE | $FINAL, $field(AbstractRepository, factory)},
+		{"tree", "Lsun/reflect/generics/tree/Tree;", "TT;", $PRIVATE | $FINAL, $field(AbstractRepository, tree)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Lsun/reflect/generics/factory/GenericsFactory;)V", nullptr, $PROTECTED, $method(AbstractRepository, init$, void, $String*, $GenericsFactory*)},
+		{"getFactory", "()Lsun/reflect/generics/factory/GenericsFactory;", nullptr, $PRIVATE, $method(AbstractRepository, getFactory, $GenericsFactory*)},
+		{"getReifier", "()Lsun/reflect/generics/visitor/Reifier;", nullptr, $PROTECTED, $virtualMethod(AbstractRepository, getReifier, $Reifier*)},
+		{"getTree", "()Lsun/reflect/generics/tree/Tree;", "()TT;", $PROTECTED, $virtualMethod(AbstractRepository, getTree, $Tree*)},
+		{"parse", "(Ljava/lang/String;)Lsun/reflect/generics/tree/Tree;", "(Ljava/lang/String;)TT;", $PROTECTED | $ABSTRACT, $virtualMethod(AbstractRepository, parse, $Tree*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.reflect.generics.repository.AbstractRepository",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T::Lsun/reflect/generics/tree/Tree;>Ljava/lang/Object;"
+	};
+	$loadClass(AbstractRepository, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractRepository);
+	});
 	return class$;
 }
 

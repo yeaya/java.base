@@ -1,5 +1,4 @@
 #include <VersionProps.h>
-
 #include <java/lang/Runtime$Version.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/lang/reflect/Method.h>
@@ -9,7 +8,6 @@
 
 using $IntegerArray = $Array<::java::lang::Integer>;
 using $ListArray = $Array<::java::util::List>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -22,32 +20,6 @@ using $Method = ::java::lang::reflect::Method;
 using $Arrays = ::java::util::Arrays;
 using $List = ::java::util::List;
 
-$FieldInfo _VersionProps_FieldInfo_[] = {
-	{"validVersions", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(VersionProps, validVersions)},
-	{"validLists", "[Ljava/util/List;", nullptr, $STATIC | $FINAL, $staticField(VersionProps, validLists)},
-	{"invalidVersions", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(VersionProps, invalidVersions)},
-	{}
-};
-
-$MethodInfo _VersionProps_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(VersionProps, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(VersionProps, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _VersionProps_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"VersionProps",
-	"java.lang.Object",
-	nullptr,
-	_VersionProps_FieldInfo_,
-	_VersionProps_MethodInfo_
-};
-
-$Object* allocate$VersionProps($Class* clazz) {
-	return $of($alloc(VersionProps));
-}
-
 $StringArray* VersionProps::validVersions = nullptr;
 $ListArray* VersionProps::validLists = nullptr;
 $StringArray* VersionProps::invalidVersions = nullptr;
@@ -57,44 +29,44 @@ void VersionProps::init$() {
 
 void VersionProps::main($StringArray* args) {
 	$init(VersionProps);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Class* versionProps = $Class::forName("java.lang.VersionProps"_s);
-	$var($Method, parseVersionNumbers, $nc(versionProps)->getDeclaredMethod("parseVersionNumbers"_s, $$new($ClassArray, {$String::class$})));
+	$var($Method, parseVersionNumbers, versionProps->getDeclaredMethod("parseVersionNumbers"_s, $$new($ClassArray, {$String::class$})));
 	$nc(parseVersionNumbers)->setAccessible(true);
-	for (int32_t i = 0; i < $nc(VersionProps::validVersions)->length; ++i) {
-		$var($List, li, $cast($List, parseVersionNumbers->invoke(nullptr, $$new($ObjectArray, {$of($nc(VersionProps::validVersions)->get(i))}))));
-		$nc($System::out)->println($of(li));
-		if (!$nc($nc(VersionProps::validLists)->get(i))->equals(li)) {
-			$throwNew($Exception, $$str({li, " != "_s, $nc(VersionProps::validLists)->get(i)}));
+	for (int32_t i = 0; i < VersionProps::validVersions->length; ++i) {
+		$var($List, li, $cast($List, parseVersionNumbers->invoke(nullptr, $$new($ObjectArray, {VersionProps::validVersions->get(i)}))));
+		$nc($System::out)->println(li);
+		if (!$nc(VersionProps::validLists->get(i))->equals(li)) {
+			$throwNew($Exception, $$str({li, " != "_s, VersionProps::validLists->get(i)}));
 		}
-		$assign(li, $nc($($Runtime$Version::parse($nc(VersionProps::validVersions)->get(i))))->version());
-		if (!$nc($nc(VersionProps::validLists)->get(i))->equals(li)) {
-			$throwNew($Exception, $$str({li, " != "_s, $nc(VersionProps::validLists)->get(i)}));
+		$assign(li, $$nc($Runtime$Version::parse(VersionProps::validVersions->get(i)))->version());
+		if (!$nc(VersionProps::validLists->get(i))->equals(li)) {
+			$throwNew($Exception, $$str({li, " != "_s, VersionProps::validLists->get(i)}));
 		}
 	}
-	for (int32_t i = 0; i < $nc(VersionProps::invalidVersions)->length; ++i) {
+	for (int32_t i = 0; i < VersionProps::invalidVersions->length; ++i) {
 		try {
-			$var($List, li, $cast($List, parseVersionNumbers->invoke(nullptr, $$new($ObjectArray, {$of($nc(VersionProps::invalidVersions)->get(i))}))));
-			$throwNew($Exception, $$str({$nc(VersionProps::invalidVersions)->get(i), " not recognized as invalid by VersionProps.parseVersionNumbers()"_s}));
+			$var($List, li, $cast($List, parseVersionNumbers->invoke(nullptr, $$new($ObjectArray, {VersionProps::invalidVersions->get(i)}))));
+			$throwNew($Exception, $$str({VersionProps::invalidVersions->get(i), " not recognized as invalid by VersionProps.parseVersionNumbers()"_s}));
 		} catch ($InvocationTargetException& ex) {
 			if ($instanceOf($IllegalArgumentException, $(ex->getCause()))) {
-				$nc($System::out)->println($$str({"OK - caught bad version string "_s, $nc(VersionProps::invalidVersions)->get(i)}));
+				$nc($System::out)->println($$str({"OK - caught bad version string "_s, VersionProps::invalidVersions->get(i)}));
 			} else {
 				$throw(ex);
 			}
 		}
 		try {
-			$var($List, li, $nc($($Runtime$Version::parse($nc(VersionProps::invalidVersions)->get(i))))->version());
-			$throwNew($Exception, $$str({$nc(VersionProps::invalidVersions)->get(i), " not recognized as invalid by Runtime.Version.parse()"_s}));
+			$var($List, li, $$nc($Runtime$Version::parse(VersionProps::invalidVersions->get(i)))->version());
+			$throwNew($Exception, $$str({VersionProps::invalidVersions->get(i), " not recognized as invalid by Runtime.Version.parse()"_s}));
 		} catch ($IllegalArgumentException& ex) {
 			continue;
 		}
 	}
 }
 
-void clinit$VersionProps($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void VersionProps::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(VersionProps::validVersions, $new($StringArray, {
 		"1"_s,
 		"1.2"_s,
@@ -150,7 +122,7 @@ void clinit$VersionProps($Class* class$) {
 			$($Integer::valueOf(0)),
 			$($Integer::valueOf(6))
 		}))),
-		$($Arrays::asList($$new($IntegerArray, {$($Integer::valueOf(0x000F4241))}))),
+		$($Arrays::asList($$new($IntegerArray, {$($Integer::valueOf(0x000f4241))}))),
 		$($Arrays::asList($$new($IntegerArray, {
 			$($Integer::valueOf(1)),
 			$($Integer::valueOf(2)),
@@ -190,7 +162,28 @@ VersionProps::VersionProps() {
 }
 
 $Class* VersionProps::load$($String* name, bool initialize) {
-	$loadClass(VersionProps, name, initialize, &_VersionProps_ClassInfo_, clinit$VersionProps, allocate$VersionProps);
+	$FieldInfo fieldInfos$$[] = {
+		{"validVersions", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(VersionProps, validVersions)},
+		{"validLists", "[Ljava/util/List;", nullptr, $STATIC | $FINAL, $staticField(VersionProps, validLists)},
+		{"invalidVersions", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(VersionProps, invalidVersions)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(VersionProps, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(VersionProps, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"VersionProps",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(VersionProps, name, initialize, &classInfo$$, VersionProps::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(VersionProps);
+	});
 	return class$;
 }
 

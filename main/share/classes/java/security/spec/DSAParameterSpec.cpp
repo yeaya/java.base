@@ -1,5 +1,4 @@
 #include <java/security/spec/DSAParameterSpec.h>
-
 #include <java/math/BigInteger.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <jcpp.h>
@@ -13,39 +12,6 @@ using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 namespace java {
 	namespace security {
 		namespace spec {
-
-$FieldInfo _DSAParameterSpec_FieldInfo_[] = {
-	{"p", "Ljava/math/BigInteger;", nullptr, 0, $field(DSAParameterSpec, p)},
-	{"q", "Ljava/math/BigInteger;", nullptr, 0, $field(DSAParameterSpec, q)},
-	{"g", "Ljava/math/BigInteger;", nullptr, 0, $field(DSAParameterSpec, g)},
-	{}
-};
-
-$MethodInfo _DSAParameterSpec_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DSAParameterSpec, init$, void, $BigInteger*, $BigInteger*, $BigInteger*)},
-	{"getG", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DSAParameterSpec, getG, $BigInteger*)},
-	{"getP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DSAParameterSpec, getP, $BigInteger*)},
-	{"getQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DSAParameterSpec, getQ, $BigInteger*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DSAParameterSpec_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.spec.DSAParameterSpec",
-	"java.lang.Object",
-	"java.security.spec.AlgorithmParameterSpec,java.security.interfaces.DSAParams",
-	_DSAParameterSpec_FieldInfo_,
-	_DSAParameterSpec_MethodInfo_
-};
-
-$Object* allocate$DSAParameterSpec($Class* clazz) {
-	return $of($alloc(DSAParameterSpec));
-}
 
 int32_t DSAParameterSpec::hashCode() {
 	 return this->$AlgorithmParameterSpec::hashCode();
@@ -89,7 +55,35 @@ DSAParameterSpec::DSAParameterSpec() {
 }
 
 $Class* DSAParameterSpec::load$($String* name, bool initialize) {
-	$loadClass(DSAParameterSpec, name, initialize, &_DSAParameterSpec_ClassInfo_, allocate$DSAParameterSpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"p", "Ljava/math/BigInteger;", nullptr, 0, $field(DSAParameterSpec, p)},
+		{"q", "Ljava/math/BigInteger;", nullptr, 0, $field(DSAParameterSpec, q)},
+		{"g", "Ljava/math/BigInteger;", nullptr, 0, $field(DSAParameterSpec, g)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DSAParameterSpec, init$, void, $BigInteger*, $BigInteger*, $BigInteger*)},
+		{"getG", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DSAParameterSpec, getG, $BigInteger*)},
+		{"getP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DSAParameterSpec, getP, $BigInteger*)},
+		{"getQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DSAParameterSpec, getQ, $BigInteger*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.spec.DSAParameterSpec",
+		"java.lang.Object",
+		"java.security.spec.AlgorithmParameterSpec,java.security.interfaces.DSAParams",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DSAParameterSpec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DSAParameterSpec));
+	});
 	return class$;
 }
 

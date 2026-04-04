@@ -1,5 +1,4 @@
 #include <java/util/ServiceLoader$LayerLookupIterator.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/ModuleLayer.h>
 #include <java/util/ArrayDeque.h>
@@ -26,7 +25,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ModuleLayer = ::java::lang::ModuleLayer;
 using $ArrayDeque = ::java::util::ArrayDeque;
-using $Deque = ::java::util::Deque;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
@@ -34,58 +32,11 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $ServiceConfigurationError = ::java::util::ServiceConfigurationError;
 using $ServiceLoader = ::java::util::ServiceLoader;
 using $ServiceLoader$Provider = ::java::util::ServiceLoader$Provider;
-using $Set = ::java::util::Set;
-using $JavaLangAccess = ::jdk::internal::access::JavaLangAccess;
 using $ServicesCatalog = ::jdk::internal::module::ServicesCatalog;
 using $ServicesCatalog$ServiceProvider = ::jdk::internal::module::ServicesCatalog$ServiceProvider;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _ServiceLoader$LayerLookupIterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/ServiceLoader;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceLoader$LayerLookupIterator, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ServiceLoader$LayerLookupIterator, $assertionsDisabled)},
-	{"stack", "Ljava/util/Deque;", "Ljava/util/Deque<Ljava/lang/ModuleLayer;>;", 0, $field(ServiceLoader$LayerLookupIterator, stack)},
-	{"visited", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/ModuleLayer;>;", 0, $field(ServiceLoader$LayerLookupIterator, visited)},
-	{"iterator", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljdk/internal/module/ServicesCatalog$ServiceProvider;>;", 0, $field(ServiceLoader$LayerLookupIterator, iterator)},
-	{"nextProvider", "Ljava/util/ServiceLoader$Provider;", "Ljava/util/ServiceLoader$Provider<TT;>;", 0, $field(ServiceLoader$LayerLookupIterator, nextProvider)},
-	{"nextError", "Ljava/util/ServiceConfigurationError;", nullptr, 0, $field(ServiceLoader$LayerLookupIterator, nextError)},
-	{}
-};
-
-$MethodInfo _ServiceLoader$LayerLookupIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ServiceLoader;)V", nullptr, 0, $method(ServiceLoader$LayerLookupIterator, init$, void, $ServiceLoader*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ServiceLoader$LayerLookupIterator, hasNext, bool)},
-	{"next", "()Ljava/util/ServiceLoader$Provider;", "()Ljava/util/ServiceLoader$Provider<TT;>;", $PUBLIC, $virtualMethod(ServiceLoader$LayerLookupIterator, next, $Object*)},
-	{"providers", "(Ljava/lang/ModuleLayer;)Ljava/util/Iterator;", "(Ljava/lang/ModuleLayer;)Ljava/util/Iterator<Ljdk/internal/module/ServicesCatalog$ServiceProvider;>;", $PRIVATE, $method(ServiceLoader$LayerLookupIterator, providers, $Iterator*, $ModuleLayer*)},
-	{}
-};
-
-$InnerClassInfo _ServiceLoader$LayerLookupIterator_InnerClassesInfo_[] = {
-	{"java.util.ServiceLoader$LayerLookupIterator", "java.util.ServiceLoader", "LayerLookupIterator", $PRIVATE | $FINAL},
-	{"java.util.ServiceLoader$Provider", "java.util.ServiceLoader", "Provider", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ServiceLoader$LayerLookupIterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.ServiceLoader$LayerLookupIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_ServiceLoader$LayerLookupIterator_FieldInfo_,
-	_ServiceLoader$LayerLookupIterator_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Iterator<Ljava/util/ServiceLoader$Provider<TT;>;>;",
-	nullptr,
-	_ServiceLoader$LayerLookupIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.ServiceLoader"
-};
-
-$Object* allocate$ServiceLoader$LayerLookupIterator($Class* clazz) {
-	return $of($alloc(ServiceLoader$LayerLookupIterator));
-}
 
 bool ServiceLoader$LayerLookupIterator::$assertionsDisabled = false;
 
@@ -93,30 +44,30 @@ void ServiceLoader$LayerLookupIterator::init$($ServiceLoader* this$0) {
 	$set(this, this$0, this$0);
 	$set(this, stack, $new($ArrayDeque));
 	$set(this, visited, $new($HashSet));
-	$nc(this->visited)->add(this$0->layer);
-	$nc(this->stack)->push(this$0->layer);
+	this->visited->add(this$0->layer);
+	this->stack->push(this$0->layer);
 }
 
 $Iterator* ServiceLoader$LayerLookupIterator::providers($ModuleLayer* layer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ServiceLoader);
 	$var($ServicesCatalog, catalog, $nc($ServiceLoader::LANG_ACCESS)->getServicesCatalog(layer));
-	return $nc($($nc(catalog)->findServices(this->this$0->serviceName)))->iterator();
+	return $$nc($nc(catalog)->findServices(this->this$0->serviceName))->iterator();
 }
 
 bool ServiceLoader$LayerLookupIterator::hasNext() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (this->nextProvider == nullptr && this->nextError == nullptr) {
-		while (this->iterator == nullptr || !$nc(this->iterator)->hasNext()) {
+		while (this->iterator == nullptr || !this->iterator->hasNext()) {
 			if ($nc(this->stack)->isEmpty()) {
 				return false;
 			}
-			$var($ModuleLayer, layer, $cast($ModuleLayer, $nc(this->stack)->pop()));
+			$var($ModuleLayer, layer, $cast($ModuleLayer, this->stack->pop()));
 			$var($List, parents, $nc(layer)->parents());
 			for (int32_t i = $nc(parents)->size() - 1; i >= 0; --i) {
 				$var($ModuleLayer, parent, $cast($ModuleLayer, parents->get(i)));
 				if ($nc(this->visited)->add(parent)) {
-					$nc(this->stack)->push(parent);
+					this->stack->push(parent);
 				}
 			}
 			$set(this, iterator, providers(layer));
@@ -133,14 +84,14 @@ bool ServiceLoader$LayerLookupIterator::hasNext() {
 }
 
 $Object* ServiceLoader$LayerLookupIterator::next() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!hasNext()) {
 		$throwNew($NoSuchElementException);
 	}
 	$var($ServiceLoader$Provider, provider, this->nextProvider);
 	if (provider != nullptr) {
 		$set(this, nextProvider, nullptr);
-		return $of(provider);
+		return provider;
 	} else {
 		$var($ServiceConfigurationError, e, this->nextError);
 		if (!ServiceLoader$LayerLookupIterator::$assertionsDisabled && !(e != nullptr)) {
@@ -151,7 +102,7 @@ $Object* ServiceLoader$LayerLookupIterator::next() {
 	}
 }
 
-void clinit$ServiceLoader$LayerLookupIterator($Class* class$) {
+void ServiceLoader$LayerLookupIterator::clinit$($Class* clazz) {
 	$load($ServiceLoader);
 	ServiceLoader$LayerLookupIterator::$assertionsDisabled = !$ServiceLoader::class$->desiredAssertionStatus();
 }
@@ -160,7 +111,46 @@ ServiceLoader$LayerLookupIterator::ServiceLoader$LayerLookupIterator() {
 }
 
 $Class* ServiceLoader$LayerLookupIterator::load$($String* name, bool initialize) {
-	$loadClass(ServiceLoader$LayerLookupIterator, name, initialize, &_ServiceLoader$LayerLookupIterator_ClassInfo_, clinit$ServiceLoader$LayerLookupIterator, allocate$ServiceLoader$LayerLookupIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/ServiceLoader;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceLoader$LayerLookupIterator, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ServiceLoader$LayerLookupIterator, $assertionsDisabled)},
+		{"stack", "Ljava/util/Deque;", "Ljava/util/Deque<Ljava/lang/ModuleLayer;>;", 0, $field(ServiceLoader$LayerLookupIterator, stack)},
+		{"visited", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/ModuleLayer;>;", 0, $field(ServiceLoader$LayerLookupIterator, visited)},
+		{"iterator", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljdk/internal/module/ServicesCatalog$ServiceProvider;>;", 0, $field(ServiceLoader$LayerLookupIterator, iterator)},
+		{"nextProvider", "Ljava/util/ServiceLoader$Provider;", "Ljava/util/ServiceLoader$Provider<TT;>;", 0, $field(ServiceLoader$LayerLookupIterator, nextProvider)},
+		{"nextError", "Ljava/util/ServiceConfigurationError;", nullptr, 0, $field(ServiceLoader$LayerLookupIterator, nextError)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/ServiceLoader;)V", nullptr, 0, $method(ServiceLoader$LayerLookupIterator, init$, void, $ServiceLoader*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ServiceLoader$LayerLookupIterator, hasNext, bool)},
+		{"next", "()Ljava/util/ServiceLoader$Provider;", "()Ljava/util/ServiceLoader$Provider<TT;>;", $PUBLIC, $virtualMethod(ServiceLoader$LayerLookupIterator, next, $Object*)},
+		{"providers", "(Ljava/lang/ModuleLayer;)Ljava/util/Iterator;", "(Ljava/lang/ModuleLayer;)Ljava/util/Iterator<Ljdk/internal/module/ServicesCatalog$ServiceProvider;>;", $PRIVATE, $method(ServiceLoader$LayerLookupIterator, providers, $Iterator*, $ModuleLayer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ServiceLoader$LayerLookupIterator", "java.util.ServiceLoader", "LayerLookupIterator", $PRIVATE | $FINAL},
+		{"java.util.ServiceLoader$Provider", "java.util.ServiceLoader", "Provider", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.ServiceLoader$LayerLookupIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Iterator<Ljava/util/ServiceLoader$Provider<TT;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.ServiceLoader"
+	};
+	$loadClass(ServiceLoader$LayerLookupIterator, name, initialize, &classInfo$$, ServiceLoader$LayerLookupIterator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ServiceLoader$LayerLookupIterator);
+	});
 	return class$;
 }
 

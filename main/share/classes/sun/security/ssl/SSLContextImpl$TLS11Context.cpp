@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLContextImpl$TLS11Context.h>
-
 #include <java/util/List.h>
 #include <sun/security/ssl/ProtocolVersion.h>
 #include <sun/security/ssl/SSLContextImpl$AbstractTLSContext.h>
@@ -23,45 +22,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SSLContextImpl$TLS11Context_FieldInfo_[] = {
-	{"clientDefaultProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$TLS11Context, clientDefaultProtocols)},
-	{"clientDefaultCipherSuites", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$TLS11Context, clientDefaultCipherSuites)},
-	{}
-};
-
-$MethodInfo _SSLContextImpl$TLS11Context_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SSLContextImpl$TLS11Context, init$, void)},
-	{"getClientDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $virtualMethod(SSLContextImpl$TLS11Context, getClientDefaultCipherSuites, $List*)},
-	{"getClientDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $virtualMethod(SSLContextImpl$TLS11Context, getClientDefaultProtocolVersions, $List*)},
-	{}
-};
-
-$InnerClassInfo _SSLContextImpl$TLS11Context_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLContextImpl$TLS11Context", "sun.security.ssl.SSLContextImpl", "TLS11Context", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLContextImpl$AbstractTLSContext", "sun.security.ssl.SSLContextImpl", "AbstractTLSContext", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SSLContextImpl$TLS11Context_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLContextImpl$TLS11Context",
-	"sun.security.ssl.SSLContextImpl$AbstractTLSContext",
-	nullptr,
-	_SSLContextImpl$TLS11Context_FieldInfo_,
-	_SSLContextImpl$TLS11Context_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLContextImpl$TLS11Context_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLContextImpl"
-};
-
-$Object* allocate$SSLContextImpl$TLS11Context($Class* clazz) {
-	return $of($alloc(SSLContextImpl$TLS11Context));
-}
-
 $List* SSLContextImpl$TLS11Context::clientDefaultProtocols = nullptr;
 $List* SSLContextImpl$TLS11Context::clientDefaultCipherSuites = nullptr;
 
@@ -77,7 +37,7 @@ $List* SSLContextImpl$TLS11Context::getClientDefaultCipherSuites() {
 	return SSLContextImpl$TLS11Context::clientDefaultCipherSuites;
 }
 
-void clinit$SSLContextImpl$TLS11Context($Class* class$) {
+void SSLContextImpl$TLS11Context::clinit$($Class* clazz) {
 	{
 		$init($ProtocolVersion);
 		$assignStatic(SSLContextImpl$TLS11Context::clientDefaultProtocols, $SSLContextImpl::getAvailableProtocols($$new($ProtocolVersionArray, {
@@ -92,7 +52,40 @@ SSLContextImpl$TLS11Context::SSLContextImpl$TLS11Context() {
 }
 
 $Class* SSLContextImpl$TLS11Context::load$($String* name, bool initialize) {
-	$loadClass(SSLContextImpl$TLS11Context, name, initialize, &_SSLContextImpl$TLS11Context_ClassInfo_, clinit$SSLContextImpl$TLS11Context, allocate$SSLContextImpl$TLS11Context);
+	$FieldInfo fieldInfos$$[] = {
+		{"clientDefaultProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$TLS11Context, clientDefaultProtocols)},
+		{"clientDefaultCipherSuites", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$TLS11Context, clientDefaultCipherSuites)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SSLContextImpl$TLS11Context, init$, void)},
+		{"getClientDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $virtualMethod(SSLContextImpl$TLS11Context, getClientDefaultCipherSuites, $List*)},
+		{"getClientDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $virtualMethod(SSLContextImpl$TLS11Context, getClientDefaultProtocolVersions, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLContextImpl$TLS11Context", "sun.security.ssl.SSLContextImpl", "TLS11Context", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLContextImpl$AbstractTLSContext", "sun.security.ssl.SSLContextImpl", "AbstractTLSContext", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLContextImpl$TLS11Context",
+		"sun.security.ssl.SSLContextImpl$AbstractTLSContext",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLContextImpl"
+	};
+	$loadClass(SSLContextImpl$TLS11Context, name, initialize, &classInfo$$, SSLContextImpl$TLS11Context::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLContextImpl$TLS11Context);
+	});
 	return class$;
 }
 

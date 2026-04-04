@@ -1,5 +1,4 @@
 #include <sun/nio/ch/UnixDomainSocketsUtil.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -39,51 +38,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(UnixDomainSocketsUtil::lambda$getTempDir$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0, run, $Object*)},
-	{}
-};
-$ClassInfo UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.nio.ch.UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0::load$($String* name, bool initialize) {
-	$loadClass(UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.nio.ch.UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0);
+	});
 	return class$;
 }
 $Class* UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0::class$ = nullptr;
-
-$MethodInfo _UnixDomainSocketsUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(UnixDomainSocketsUtil, init$, void)},
-	{"getCharset", "()Ljava/nio/charset/Charset;", nullptr, $STATIC, $staticMethod(UnixDomainSocketsUtil, getCharset, $Charset*)},
-	{"getTempDir", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(UnixDomainSocketsUtil, getTempDir, $String*)},
-	{"lambda$getTempDir$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnixDomainSocketsUtil, lambda$getTempDir$0, $String*)},
-	{}
-};
-
-$ClassInfo _UnixDomainSocketsUtil_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.UnixDomainSocketsUtil",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_UnixDomainSocketsUtil_MethodInfo_
-};
-
-$Object* allocate$UnixDomainSocketsUtil($Class* clazz) {
-	return $of($alloc(UnixDomainSocketsUtil));
-}
 
 void UnixDomainSocketsUtil::init$() {
 }
@@ -96,12 +71,12 @@ $Charset* UnixDomainSocketsUtil::getCharset() {
 $String* UnixDomainSocketsUtil::getTempDir() {
 	$load(UnixDomainSocketsUtil);
 	$beforeCallerSensitive();
-	$var($PrivilegedAction, action, static_cast<$PrivilegedAction*>($new(UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0)));
+	$var($PrivilegedAction, action, $new(UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0));
 	return $cast($String, $AccessController::doPrivileged(action));
 }
 
 $String* UnixDomainSocketsUtil::lambda$getTempDir$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, $NetProperties::get("jdk.net.unixdomain.tmpdir"_s));
 	if (s != nullptr) {
 		return s;
@@ -118,11 +93,28 @@ UnixDomainSocketsUtil::UnixDomainSocketsUtil() {
 
 $Class* UnixDomainSocketsUtil::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0::classInfo$.name)) {
+		if (name->equals("sun.nio.ch.UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0")) {
 			return UnixDomainSocketsUtil$$Lambda$lambda$getTempDir$0::load$(name, initialize);
 		}
 	}
-	$loadClass(UnixDomainSocketsUtil, name, initialize, &_UnixDomainSocketsUtil_ClassInfo_, allocate$UnixDomainSocketsUtil);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(UnixDomainSocketsUtil, init$, void)},
+		{"getCharset", "()Ljava/nio/charset/Charset;", nullptr, $STATIC, $staticMethod(UnixDomainSocketsUtil, getCharset, $Charset*)},
+		{"getTempDir", "()Ljava/lang/String;", nullptr, $STATIC, $staticMethod(UnixDomainSocketsUtil, getTempDir, $String*)},
+		{"lambda$getTempDir$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnixDomainSocketsUtil, lambda$getTempDir$0, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.UnixDomainSocketsUtil",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UnixDomainSocketsUtil, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnixDomainSocketsUtil);
+	});
 	return class$;
 }
 

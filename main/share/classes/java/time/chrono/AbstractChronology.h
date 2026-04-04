@@ -61,6 +61,7 @@ class $export AbstractChronology : public ::java::time::chrono::Chronology {
 	$class(AbstractChronology, 0, ::java::time::chrono::Chronology)
 public:
 	AbstractChronology();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addFieldValue(::java::util::Map* fieldValues, ::java::time::temporal::ChronoField* field, int64_t value);
 	virtual int32_t compareTo(::java::time::chrono::Chronology* other) override;

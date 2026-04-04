@@ -1,5 +1,4 @@
 #include <EnclosingConstructorWithSecurityManager$Inner.h>
-
 #include <EnclosingConstructorWithSecurityManager$Inner$1.h>
 #include <EnclosingConstructorWithSecurityManager.h>
 #include <jcpp.h>
@@ -10,54 +9,48 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$FieldInfo _EnclosingConstructorWithSecurityManager$Inner_FieldInfo_[] = {
-	{"theInner", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticField(EnclosingConstructorWithSecurityManager$Inner, theInner)},
-	{}
-};
-
-$MethodInfo _EnclosingConstructorWithSecurityManager$Inner_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(EnclosingConstructorWithSecurityManager$Inner, init$, void)},
-	{}
-};
-
-$InnerClassInfo _EnclosingConstructorWithSecurityManager$Inner_InnerClassesInfo_[] = {
-	{"EnclosingConstructorWithSecurityManager$Inner", "EnclosingConstructorWithSecurityManager", "Inner", $PUBLIC | $STATIC},
-	{"EnclosingConstructorWithSecurityManager$Inner$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _EnclosingConstructorWithSecurityManager$Inner_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"EnclosingConstructorWithSecurityManager$Inner",
-	"java.lang.Object",
-	nullptr,
-	_EnclosingConstructorWithSecurityManager$Inner_FieldInfo_,
-	_EnclosingConstructorWithSecurityManager$Inner_MethodInfo_,
-	nullptr,
-	nullptr,
-	_EnclosingConstructorWithSecurityManager$Inner_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"EnclosingConstructorWithSecurityManager"
-};
-
-$Object* allocate$EnclosingConstructorWithSecurityManager$Inner($Class* clazz) {
-	return $of($alloc(EnclosingConstructorWithSecurityManager$Inner));
-}
-
 $Class* EnclosingConstructorWithSecurityManager$Inner::theInner = nullptr;
 
 void EnclosingConstructorWithSecurityManager$Inner::init$() {
 	$var($Object, o, $new($EnclosingConstructorWithSecurityManager$Inner$1, this));
-	$assignStatic(EnclosingConstructorWithSecurityManager$Inner::theInner, $of(o)->getClass());
+	$assignStatic(EnclosingConstructorWithSecurityManager$Inner::theInner, o->getClass());
 }
 
 EnclosingConstructorWithSecurityManager$Inner::EnclosingConstructorWithSecurityManager$Inner() {
 }
 
 $Class* EnclosingConstructorWithSecurityManager$Inner::load$($String* name, bool initialize) {
-	$loadClass(EnclosingConstructorWithSecurityManager$Inner, name, initialize, &_EnclosingConstructorWithSecurityManager$Inner_ClassInfo_, allocate$EnclosingConstructorWithSecurityManager$Inner);
+	$FieldInfo fieldInfos$$[] = {
+		{"theInner", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticField(EnclosingConstructorWithSecurityManager$Inner, theInner)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(EnclosingConstructorWithSecurityManager$Inner, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"EnclosingConstructorWithSecurityManager$Inner", "EnclosingConstructorWithSecurityManager", "Inner", $PUBLIC | $STATIC},
+		{"EnclosingConstructorWithSecurityManager$Inner$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"EnclosingConstructorWithSecurityManager$Inner",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"EnclosingConstructorWithSecurityManager"
+	};
+	$loadClass(EnclosingConstructorWithSecurityManager$Inner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EnclosingConstructorWithSecurityManager$Inner);
+	});
 	return class$;
 }
 

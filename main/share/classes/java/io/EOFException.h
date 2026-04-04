@@ -14,10 +14,13 @@ public:
 	EOFException();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x5949A7F76B53EC41;
+	static const int64_t serialVersionUID = (int64_t)0x5949a7f76b53ec41;
 	EOFException(const EOFException& e);
 	virtual void throw$() override;
-	inline EOFException* operator ->() {
+	inline EOFException* operator ->() const {
+		return (EOFException*)throwing$;
+	}
+	inline operator EOFException*() const {
 		return (EOFException*)throwing$;
 	}
 };

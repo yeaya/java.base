@@ -1,5 +1,4 @@
 #include <jdk/internal/reflect/ConstructorAccessorImpl.h>
-
 #include <jdk/internal/reflect/MagicAccessorImpl.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $MagicAccessorImpl = ::jdk::internal::reflect::MagicAccessorImpl;
 namespace jdk {
 	namespace internal {
 		namespace reflect {
-
-$MethodInfo _ConstructorAccessorImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(ConstructorAccessorImpl, init$, void)},
-	{"newInstance", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ConstructorAccessorImpl_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"jdk.internal.reflect.ConstructorAccessorImpl",
-	"jdk.internal.reflect.MagicAccessorImpl",
-	"jdk.internal.reflect.ConstructorAccessor",
-	nullptr,
-	_ConstructorAccessorImpl_MethodInfo_
-};
-
-$Object* allocate$ConstructorAccessorImpl($Class* clazz) {
-	return $of($alloc(ConstructorAccessorImpl));
-}
 
 int32_t ConstructorAccessorImpl::hashCode() {
 	 return this->$MagicAccessorImpl::hashCode();
@@ -63,7 +38,27 @@ ConstructorAccessorImpl::ConstructorAccessorImpl() {
 }
 
 $Class* ConstructorAccessorImpl::load$($String* name, bool initialize) {
-	$loadClass(ConstructorAccessorImpl, name, initialize, &_ConstructorAccessorImpl_ClassInfo_, allocate$ConstructorAccessorImpl);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(ConstructorAccessorImpl, init$, void)},
+		{"newInstance", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"jdk.internal.reflect.ConstructorAccessorImpl",
+		"jdk.internal.reflect.MagicAccessorImpl",
+		"jdk.internal.reflect.ConstructorAccessor",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ConstructorAccessorImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ConstructorAccessorImpl));
+	});
 	return class$;
 }
 

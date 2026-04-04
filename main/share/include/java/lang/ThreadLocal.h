@@ -38,6 +38,7 @@ class $import ThreadLocal : public ::java::lang::Object {
 	$class(ThreadLocal, $PRELOAD, ::java::lang::Object)
 public:
 	ThreadLocal();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* childValue(Object$* parentValue);
 	static ::java::lang::ThreadLocal$ThreadLocalMap* createInheritedMap(::java::lang::ThreadLocal$ThreadLocalMap* parentMap);
@@ -53,7 +54,7 @@ public:
 	static ::java::lang::ThreadLocal* withInitial(::java::util::function::Supplier* supplier);
 	int32_t threadLocalHashCode = 0;
 	static ::java::util::concurrent::atomic::AtomicInteger* nextHashCode$;
-	static const int32_t HASH_INCREMENT = 0x61C88647;
+	static const int32_t HASH_INCREMENT = 0x61c88647;
 };
 
 	} // lang

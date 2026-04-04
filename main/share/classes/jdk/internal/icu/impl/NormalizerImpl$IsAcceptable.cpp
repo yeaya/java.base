@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/impl/NormalizerImpl$IsAcceptable.h>
-
 #include <jdk/internal/icu/impl/NormalizerImpl.h>
 #include <jcpp.h>
 
@@ -12,38 +11,6 @@ namespace jdk {
 		namespace icu {
 			namespace impl {
 
-$MethodInfo _NormalizerImpl$IsAcceptable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(NormalizerImpl$IsAcceptable, init$, void)},
-	{"isDataVersionAcceptable", "([B)Z", nullptr, $PUBLIC, $virtualMethod(NormalizerImpl$IsAcceptable, isDataVersionAcceptable, bool, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _NormalizerImpl$IsAcceptable_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.impl.NormalizerImpl$IsAcceptable", "jdk.internal.icu.impl.NormalizerImpl", "IsAcceptable", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.icu.impl.ICUBinary$Authenticate", "jdk.internal.icu.impl.ICUBinary", "Authenticate", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _NormalizerImpl$IsAcceptable_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.icu.impl.NormalizerImpl$IsAcceptable",
-	"java.lang.Object",
-	"jdk.internal.icu.impl.ICUBinary$Authenticate",
-	nullptr,
-	_NormalizerImpl$IsAcceptable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NormalizerImpl$IsAcceptable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.impl.NormalizerImpl"
-};
-
-$Object* allocate$NormalizerImpl$IsAcceptable($Class* clazz) {
-	return $of($alloc(NormalizerImpl$IsAcceptable));
-}
-
 void NormalizerImpl$IsAcceptable::init$() {
 }
 
@@ -55,7 +22,34 @@ NormalizerImpl$IsAcceptable::NormalizerImpl$IsAcceptable() {
 }
 
 $Class* NormalizerImpl$IsAcceptable::load$($String* name, bool initialize) {
-	$loadClass(NormalizerImpl$IsAcceptable, name, initialize, &_NormalizerImpl$IsAcceptable_ClassInfo_, allocate$NormalizerImpl$IsAcceptable);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(NormalizerImpl$IsAcceptable, init$, void)},
+		{"isDataVersionAcceptable", "([B)Z", nullptr, $PUBLIC, $virtualMethod(NormalizerImpl$IsAcceptable, isDataVersionAcceptable, bool, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.impl.NormalizerImpl$IsAcceptable", "jdk.internal.icu.impl.NormalizerImpl", "IsAcceptable", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.icu.impl.ICUBinary$Authenticate", "jdk.internal.icu.impl.ICUBinary", "Authenticate", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.icu.impl.NormalizerImpl$IsAcceptable",
+		"java.lang.Object",
+		"jdk.internal.icu.impl.ICUBinary$Authenticate",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.impl.NormalizerImpl"
+	};
+	$loadClass(NormalizerImpl$IsAcceptable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NormalizerImpl$IsAcceptable);
+	});
 	return class$;
 }
 

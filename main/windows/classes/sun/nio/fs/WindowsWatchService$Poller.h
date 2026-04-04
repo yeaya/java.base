@@ -66,6 +66,7 @@ class WindowsWatchService$Poller : public ::sun::nio::fs::AbstractPoller {
 	$class(WindowsWatchService$Poller, 0, ::sun::nio::fs::AbstractPoller)
 public:
 	WindowsWatchService$Poller();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::nio::fs::WindowsFileSystem* fs, ::sun::nio::fs::WindowsWatchService* watcher, int64_t port);
 	void closeAttachedEvent(int64_t ov);
 	void createAndAttachEvent(int64_t ov);

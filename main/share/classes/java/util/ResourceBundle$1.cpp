@@ -1,5 +1,4 @@
 #include <java/util/ResourceBundle$1.h>
-
 #include <java/lang/Module.h>
 #include <java/util/Locale.h>
 #include <java/util/ResourceBundle$Control.h>
@@ -18,48 +17,6 @@ using $ResourceBundle$ResourceBundleProviderHelper = ::java::util::ResourceBundl
 
 namespace java {
 	namespace util {
-
-$MethodInfo _ResourceBundle$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ResourceBundle$1, init$, void)},
-	{"getBundle", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/Module;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$1, getBundle, $ResourceBundle*, $String*, $Locale*, $Module*)},
-	{"getParent", "(Ljava/util/ResourceBundle;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$1, getParent, $ResourceBundle*, $ResourceBundle*)},
-	{"newResourceBundle", "(Ljava/lang/Class;)Ljava/util/ResourceBundle;", "(Ljava/lang/Class<+Ljava/util/ResourceBundle;>;)Ljava/util/ResourceBundle;", $PUBLIC, $virtualMethod(ResourceBundle$1, newResourceBundle, $ResourceBundle*, $Class*)},
-	{"setLocale", "(Ljava/util/ResourceBundle;Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$1, setLocale, void, $ResourceBundle*, $Locale*)},
-	{"setName", "(Ljava/util/ResourceBundle;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$1, setName, void, $ResourceBundle*, $String*)},
-	{"setParent", "(Ljava/util/ResourceBundle;Ljava/util/ResourceBundle;)V", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$1, setParent, void, $ResourceBundle*, $ResourceBundle*)},
-	{}
-};
-
-$EnclosingMethodInfo _ResourceBundle$1_EnclosingMethodInfo_ = {
-	"java.util.ResourceBundle",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ResourceBundle$1_InnerClassesInfo_[] = {
-	{"java.util.ResourceBundle$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ResourceBundle$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.ResourceBundle$1",
-	"java.lang.Object",
-	"jdk.internal.access.JavaUtilResourceBundleAccess",
-	nullptr,
-	_ResourceBundle$1_MethodInfo_,
-	nullptr,
-	&_ResourceBundle$1_EnclosingMethodInfo_,
-	_ResourceBundle$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.ResourceBundle"
-};
-
-$Object* allocate$ResourceBundle$1($Class* clazz) {
-	return $of($alloc(ResourceBundle$1));
-}
 
 void ResourceBundle$1::init$() {
 }
@@ -92,7 +49,43 @@ ResourceBundle$1::ResourceBundle$1() {
 }
 
 $Class* ResourceBundle$1::load$($String* name, bool initialize) {
-	$loadClass(ResourceBundle$1, name, initialize, &_ResourceBundle$1_ClassInfo_, allocate$ResourceBundle$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ResourceBundle$1, init$, void)},
+		{"getBundle", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/Module;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$1, getBundle, $ResourceBundle*, $String*, $Locale*, $Module*)},
+		{"getParent", "(Ljava/util/ResourceBundle;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$1, getParent, $ResourceBundle*, $ResourceBundle*)},
+		{"newResourceBundle", "(Ljava/lang/Class;)Ljava/util/ResourceBundle;", "(Ljava/lang/Class<+Ljava/util/ResourceBundle;>;)Ljava/util/ResourceBundle;", $PUBLIC, $virtualMethod(ResourceBundle$1, newResourceBundle, $ResourceBundle*, $Class*)},
+		{"setLocale", "(Ljava/util/ResourceBundle;Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$1, setLocale, void, $ResourceBundle*, $Locale*)},
+		{"setName", "(Ljava/util/ResourceBundle;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$1, setName, void, $ResourceBundle*, $String*)},
+		{"setParent", "(Ljava/util/ResourceBundle;Ljava/util/ResourceBundle;)V", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$1, setParent, void, $ResourceBundle*, $ResourceBundle*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.ResourceBundle",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ResourceBundle$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.ResourceBundle$1",
+		"java.lang.Object",
+		"jdk.internal.access.JavaUtilResourceBundleAccess",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.ResourceBundle"
+	};
+	$loadClass(ResourceBundle$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourceBundle$1);
+	});
 	return class$;
 }
 

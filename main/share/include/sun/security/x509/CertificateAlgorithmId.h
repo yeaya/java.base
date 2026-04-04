@@ -46,6 +46,7 @@ class $import CertificateAlgorithmId : public ::sun::security::x509::CertAttrSet
 	$class(CertificateAlgorithmId, 0, ::sun::security::x509::CertAttrSet)
 public:
 	CertificateAlgorithmId();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::x509::AlgorithmId* algId);
 	void init$(::sun::security::util::DerInputStream* in);
 	void init$(::java::io::InputStream* in);

@@ -1,5 +1,4 @@
 #include <sun/security/provider/certpath/Vertex.h>
-
 #include <java/io/IOException.h>
 #include <java/math/BigInteger.h>
 #include <java/security/cert/CertificateException.h>
@@ -19,10 +18,8 @@ using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BigInteger = ::java::math::BigInteger;
 using $CertificateException = ::java::security::cert::CertificateException;
 using $X509Certificate = ::java::security::cert::X509Certificate;
-using $Date = ::java::util::Date;
 using $Debug = ::sun::security::util::Debug;
 using $AuthorityKeyIdentifierExtension = ::sun::security::x509::AuthorityKeyIdentifierExtension;
 using $KeyIdentifier = ::sun::security::x509::KeyIdentifier;
@@ -33,42 +30,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 			namespace certpath {
-
-$FieldInfo _Vertex_FieldInfo_[] = {
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Vertex, debug)},
-	{"cert", "Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE, $field(Vertex, cert)},
-	{"index", "I", nullptr, $PRIVATE, $field(Vertex, index)},
-	{"throwable", "Ljava/lang/Throwable;", nullptr, $PRIVATE, $field(Vertex, throwable)},
-	{}
-};
-
-$MethodInfo _Vertex_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(Vertex, init$, void, $X509Certificate*)},
-	{"certToString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Vertex, certToString, $String*)},
-	{"getCertificate", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(Vertex, getCertificate, $X509Certificate*)},
-	{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Vertex, getIndex, int32_t)},
-	{"getThrowable", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(Vertex, getThrowable, $Throwable*)},
-	{"indexToString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Vertex, indexToString, $String*)},
-	{"moreToString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Vertex, moreToString, $String*)},
-	{"setIndex", "(I)V", nullptr, 0, $virtualMethod(Vertex, setIndex, void, int32_t)},
-	{"setThrowable", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Vertex, setThrowable, void, $Throwable*)},
-	{"throwableToString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Vertex, throwableToString, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Vertex, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Vertex_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.provider.certpath.Vertex",
-	"java.lang.Object",
-	nullptr,
-	_Vertex_FieldInfo_,
-	_Vertex_MethodInfo_
-};
-
-$Object* allocate$Vertex($Class* clazz) {
-	return $of($alloc(Vertex));
-}
 
 $Debug* Vertex::debug = nullptr;
 
@@ -98,37 +59,37 @@ void Vertex::setThrowable($Throwable* throwable) {
 }
 
 $String* Vertex::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $(certToString()));
-	$var($String, var$0, $$concat(var$1, $(throwableToString())));
-	return $concat(var$0, $(indexToString()));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(certToString()));
+	var$0->append($(throwableToString()));
+	var$0->append($(indexToString()));
+	return $str(var$0);
 }
 
 $String* Vertex::certToString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	$var($X509CertImpl, x509Cert, nullptr);
 	try {
 		$assign(x509Cert, $X509CertImpl::toImpl(this->cert));
 	} catch ($CertificateException& ce) {
 		if (Vertex::debug != nullptr) {
-			$nc(Vertex::debug)->println("Vertex.certToString() unexpected exception"_s);
+			Vertex::debug->println("Vertex.certToString() unexpected exception"_s);
 			ce->printStackTrace();
 		}
 		return sb->toString();
 	}
-	sb->append("Issuer:     "_s)->append($($of($nc(x509Cert)->getIssuerX500Principal())))->append("\n"_s);
-	sb->append("Subject:    "_s)->append($($of($nc(x509Cert)->getSubjectX500Principal())))->append("\n"_s);
-	sb->append("SerialNum:  "_s)->append($($nc($($nc(x509Cert)->getSerialNumber()))->toString(16)))->append("\n"_s);
-	sb->append("Expires:    "_s)->append($($nc($($nc(x509Cert)->getNotAfter()))->toString()))->append("\n"_s);
-	$var($booleans, iUID, $nc(x509Cert)->getIssuerUniqueID());
+	sb->append("Issuer:     "_s)->append($($nc(x509Cert)->getIssuerX500Principal()))->append("\n"_s);
+	sb->append("Subject:    "_s)->append($(x509Cert->getSubjectX500Principal()))->append("\n"_s);
+	sb->append("SerialNum:  "_s)->append($($$nc(x509Cert->getSerialNumber())->toString(16)))->append("\n"_s);
+	sb->append("Expires:    "_s)->append($($$nc(x509Cert->getNotAfter())->toString()))->append("\n"_s);
+	$var($booleans, iUID, x509Cert->getIssuerUniqueID());
 	if (iUID != nullptr) {
 		sb->append("IssuerUID:  "_s);
 		{
 			$var($booleans, arr$, iUID);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				bool b = arr$->get(i$);
 				{
 					sb->append(b ? 1 : 0);
@@ -142,9 +103,7 @@ $String* Vertex::certToString() {
 		sb->append("SubjectUID: "_s);
 		{
 			$var($booleans, arr$, sUID);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				bool b = arr$->get(i$);
 				{
 					sb->append(b ? 1 : 0);
@@ -168,7 +127,7 @@ $String* Vertex::certToString() {
 		}
 	} catch ($IOException& e) {
 		if (Vertex::debug != nullptr) {
-			$nc(Vertex::debug)->println("Vertex.certToString() unexpected exception"_s);
+			Vertex::debug->println("Vertex.certToString() unexpected exception"_s);
 			e->printStackTrace();
 		}
 	}
@@ -176,10 +135,10 @@ $String* Vertex::certToString() {
 }
 
 $String* Vertex::throwableToString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder, "Exception:  "_s));
 	if (this->throwable != nullptr) {
-		sb->append($($nc(this->throwable)->toString()));
+		sb->append($(this->throwable->toString()));
 	} else {
 		sb->append("null"_s);
 	}
@@ -198,7 +157,7 @@ $String* Vertex::indexToString() {
 	return $str({"Index:      "_s, $$str(this->index), "\n"_s});
 }
 
-void clinit$Vertex($Class* class$) {
+void Vertex::clinit$($Class* clazz) {
 	$assignStatic(Vertex::debug, $Debug::getInstance("certpath"_s));
 }
 
@@ -206,7 +165,38 @@ Vertex::Vertex() {
 }
 
 $Class* Vertex::load$($String* name, bool initialize) {
-	$loadClass(Vertex, name, initialize, &_Vertex_ClassInfo_, clinit$Vertex, allocate$Vertex);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Vertex, debug)},
+		{"cert", "Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE, $field(Vertex, cert)},
+		{"index", "I", nullptr, $PRIVATE, $field(Vertex, index)},
+		{"throwable", "Ljava/lang/Throwable;", nullptr, $PRIVATE, $field(Vertex, throwable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/cert/X509Certificate;)V", nullptr, 0, $method(Vertex, init$, void, $X509Certificate*)},
+		{"certToString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Vertex, certToString, $String*)},
+		{"getCertificate", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(Vertex, getCertificate, $X509Certificate*)},
+		{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(Vertex, getIndex, int32_t)},
+		{"getThrowable", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(Vertex, getThrowable, $Throwable*)},
+		{"indexToString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Vertex, indexToString, $String*)},
+		{"moreToString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Vertex, moreToString, $String*)},
+		{"setIndex", "(I)V", nullptr, 0, $virtualMethod(Vertex, setIndex, void, int32_t)},
+		{"setThrowable", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Vertex, setThrowable, void, $Throwable*)},
+		{"throwableToString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Vertex, throwableToString, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Vertex, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.provider.certpath.Vertex",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Vertex, name, initialize, &classInfo$$, Vertex::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Vertex);
+	});
 	return class$;
 }
 

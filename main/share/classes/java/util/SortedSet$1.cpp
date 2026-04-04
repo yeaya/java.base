@@ -1,5 +1,4 @@
 #include <java/util/SortedSet$1.h>
-
 #include <java/util/Collection.h>
 #include <java/util/Comparator.h>
 #include <java/util/SortedSet.h>
@@ -19,49 +18,6 @@ using $Spliterators$IteratorSpliterator = ::java::util::Spliterators$IteratorSpl
 namespace java {
 	namespace util {
 
-$FieldInfo _SortedSet$1_FieldInfo_[] = {
-	{"this$0", "Ljava/util/SortedSet;", nullptr, $FINAL | $SYNTHETIC, $field(SortedSet$1, this$0)},
-	{}
-};
-
-$MethodInfo _SortedSet$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/SortedSet;Ljava/util/Collection;I)V", nullptr, 0, $method(SortedSet$1, init$, void, $SortedSet*, $Collection*, int32_t)},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TE;>;", $PUBLIC, $virtualMethod(SortedSet$1, getComparator, $Comparator*)},
-	{}
-};
-
-$EnclosingMethodInfo _SortedSet$1_EnclosingMethodInfo_ = {
-	"java.util.SortedSet",
-	"spliterator",
-	"()Ljava/util/Spliterator;"
-};
-
-$InnerClassInfo _SortedSet$1_InnerClassesInfo_[] = {
-	{"java.util.SortedSet$1", nullptr, nullptr, 0},
-	{"java.util.Spliterators$IteratorSpliterator", "java.util.Spliterators", "IteratorSpliterator", $STATIC},
-	{}
-};
-
-$ClassInfo _SortedSet$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.SortedSet$1",
-	"java.util.Spliterators$IteratorSpliterator",
-	nullptr,
-	_SortedSet$1_FieldInfo_,
-	_SortedSet$1_MethodInfo_,
-	"Ljava/util/Spliterators$IteratorSpliterator<TE;>;",
-	&_SortedSet$1_EnclosingMethodInfo_,
-	_SortedSet$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.SortedSet"
-};
-
-$Object* allocate$SortedSet$1($Class* clazz) {
-	return $of($alloc(SortedSet$1));
-}
-
 void SortedSet$1::init$($SortedSet* this$0, $Collection* collection, int32_t characteristics) {
 	$set(this, this$0, this$0);
 	$Spliterators$IteratorSpliterator::init$(collection, characteristics);
@@ -75,7 +31,43 @@ SortedSet$1::SortedSet$1() {
 }
 
 $Class* SortedSet$1::load$($String* name, bool initialize) {
-	$loadClass(SortedSet$1, name, initialize, &_SortedSet$1_ClassInfo_, allocate$SortedSet$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/SortedSet;", nullptr, $FINAL | $SYNTHETIC, $field(SortedSet$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/SortedSet;Ljava/util/Collection;I)V", nullptr, 0, $method(SortedSet$1, init$, void, $SortedSet*, $Collection*, int32_t)},
+		{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TE;>;", $PUBLIC, $virtualMethod(SortedSet$1, getComparator, $Comparator*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.SortedSet",
+		"spliterator",
+		"()Ljava/util/Spliterator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.SortedSet$1", nullptr, nullptr, 0},
+		{"java.util.Spliterators$IteratorSpliterator", "java.util.Spliterators", "IteratorSpliterator", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.SortedSet$1",
+		"java.util.Spliterators$IteratorSpliterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/Spliterators$IteratorSpliterator<TE;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.SortedSet"
+	};
+	$loadClass(SortedSet$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SortedSet$1);
+	});
 	return class$;
 }
 

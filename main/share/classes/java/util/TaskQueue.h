@@ -18,6 +18,7 @@ class TaskQueue : public ::java::lang::Object {
 	$class(TaskQueue, 0, ::java::lang::Object)
 public:
 	TaskQueue();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void add(::java::util::TimerTask* task);
 	virtual void clear();

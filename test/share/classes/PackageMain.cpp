@@ -1,5 +1,4 @@
 #include <PackageMain.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Deprecated.h>
 #include <java/lang/Error.h>
@@ -7,44 +6,24 @@
 #include <java/lang/annotation/Annotation.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Deprecated = ::java::lang::Deprecated;
 using $Error = ::java::lang::Error;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Package = ::java::lang::Package;
 
-$MethodInfo _PackageMain_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PackageMain, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PackageMain, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _PackageMain_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"PackageMain",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_PackageMain_MethodInfo_
-};
-
-$Object* allocate$PackageMain($Class* clazz) {
-	return $of($alloc(PackageMain));
-}
-
 void PackageMain::init$() {
 }
 
 void PackageMain::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(PackageMain);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* c = $Class::forName("foo.bar.Baz"_s);
 	$nc($System::out)->println($$str({"c="_s, c}));
-	$nc($System::out)->println($$str({"cl="_s, $($nc(c)->getClassLoader())}));
-	$var($Package, p, $nc(c)->getPackage());
-	$nc($System::out)->println($$str({"p="_s, p}));
+	$System::out->println($$str({"cl="_s, $(c->getClassLoader())}));
+	$var($Package, p, c->getPackage());
+	$System::out->println($$str({"p="_s, p}));
 	$load($Deprecated);
 	$var($Deprecated, d, $cast($Deprecated, $nc(p)->getAnnotation($Deprecated::class$)));
 	if (d == nullptr) {
@@ -56,7 +35,22 @@ PackageMain::PackageMain() {
 }
 
 $Class* PackageMain::load$($String* name, bool initialize) {
-	$loadClass(PackageMain, name, initialize, &_PackageMain_ClassInfo_, allocate$PackageMain);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PackageMain, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PackageMain, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"PackageMain",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PackageMain, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PackageMain);
+	});
 	return class$;
 }
 

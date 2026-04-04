@@ -20,6 +20,7 @@ class SecureRandom$StrongPatternHolder : public ::java::lang::Object {
 	$class(SecureRandom$StrongPatternHolder, 0, ::java::lang::Object)
 public:
 	SecureRandom$StrongPatternHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::regex::Pattern* pattern;
 };

@@ -23,10 +23,13 @@ public:
 	void init$($String* msg);
 	void init$($String* message, $Throwable* cause);
 	void init$($Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0x2C4E29E6077D2736;
+	static const int64_t serialVersionUID = (int64_t)0x2c4e29e6077d2736;
 	CertificateException(const CertificateException& e);
 	virtual void throw$() override;
-	inline CertificateException* operator ->() {
+	inline CertificateException* operator ->() const {
+		return (CertificateException*)throwing$;
+	}
+	inline operator CertificateException*() const {
 		return (CertificateException*)throwing$;
 	}
 };

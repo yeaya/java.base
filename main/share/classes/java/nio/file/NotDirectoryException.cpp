@@ -1,5 +1,4 @@
 #include <java/nio/file/NotDirectoryException.h>
-
 #include <java/nio/file/FileSystemException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $FileSystemException = ::java::nio::file::FileSystemException;
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _NotDirectoryException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NotDirectoryException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NotDirectoryException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NotDirectoryException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _NotDirectoryException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.file.NotDirectoryException",
-	"java.nio.file.FileSystemException",
-	nullptr,
-	_NotDirectoryException_FieldInfo_,
-	_NotDirectoryException_MethodInfo_
-};
-
-$Object* allocate$NotDirectoryException($Class* clazz) {
-	return $of($alloc(NotDirectoryException));
-}
 
 void NotDirectoryException::init$($String* file) {
 	$FileSystemException::init$(file);
@@ -50,7 +26,25 @@ void NotDirectoryException::throw$() {
 }
 
 $Class* NotDirectoryException::load$($String* name, bool initialize) {
-	$loadClass(NotDirectoryException, name, initialize, &_NotDirectoryException_ClassInfo_, allocate$NotDirectoryException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NotDirectoryException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NotDirectoryException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.file.NotDirectoryException",
+		"java.nio.file.FileSystemException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NotDirectoryException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NotDirectoryException);
+	});
 	return class$;
 }
 

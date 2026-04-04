@@ -1,5 +1,4 @@
 #include <javax/security/auth/login/CredentialNotFoundException.h>
-
 #include <javax/security/auth/login/CredentialException.h>
 #include <jcpp.h>
 
@@ -12,30 +11,6 @@ namespace javax {
 	namespace security {
 		namespace auth {
 			namespace login {
-
-$FieldInfo _CredentialNotFoundException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CredentialNotFoundException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CredentialNotFoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CredentialNotFoundException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CredentialNotFoundException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _CredentialNotFoundException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.security.auth.login.CredentialNotFoundException",
-	"javax.security.auth.login.CredentialException",
-	nullptr,
-	_CredentialNotFoundException_FieldInfo_,
-	_CredentialNotFoundException_MethodInfo_
-};
-
-$Object* allocate$CredentialNotFoundException($Class* clazz) {
-	return $of($alloc(CredentialNotFoundException));
-}
 
 void CredentialNotFoundException::init$() {
 	$CredentialException::init$();
@@ -56,7 +31,26 @@ void CredentialNotFoundException::throw$() {
 }
 
 $Class* CredentialNotFoundException::load$($String* name, bool initialize) {
-	$loadClass(CredentialNotFoundException, name, initialize, &_CredentialNotFoundException_ClassInfo_, allocate$CredentialNotFoundException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CredentialNotFoundException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CredentialNotFoundException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CredentialNotFoundException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.security.auth.login.CredentialNotFoundException",
+		"javax.security.auth.login.CredentialException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CredentialNotFoundException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CredentialNotFoundException);
+	});
 	return class$;
 }
 

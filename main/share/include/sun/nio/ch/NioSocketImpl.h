@@ -92,6 +92,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool server);
 	virtual void accept(::java::net::SocketImpl* si) override;
 	virtual int32_t available() override;

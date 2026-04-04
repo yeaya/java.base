@@ -1,5 +1,4 @@
 #include <java/util/zip/ZipConstants64.h>
-
 #include <jcpp.h>
 
 #undef EXTID_EXTT
@@ -43,60 +42,6 @@ namespace java {
 	namespace util {
 		namespace zip {
 
-$FieldInfo _ZipConstants64_FieldInfo_[] = {
-	{"ZIP64_ENDSIG", "J", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_ENDSIG)},
-	{"ZIP64_LOCSIG", "J", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_LOCSIG)},
-	{"ZIP64_ENDHDR", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_ENDHDR)},
-	{"ZIP64_LOCHDR", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_LOCHDR)},
-	{"ZIP64_EXTHDR", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_EXTHDR)},
-	{"ZIP64_EXTID", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_EXTID)},
-	{"ZIP64_MAGICCOUNT", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_MAGICCOUNT)},
-	{"ZIP64_MAGICVAL", "J", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_MAGICVAL)},
-	{"ZIP64_ENDLEN", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_ENDLEN)},
-	{"ZIP64_ENDVEM", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_ENDVEM)},
-	{"ZIP64_ENDVER", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_ENDVER)},
-	{"ZIP64_ENDNMD", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_ENDNMD)},
-	{"ZIP64_ENDDSK", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_ENDDSK)},
-	{"ZIP64_ENDTOD", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_ENDTOD)},
-	{"ZIP64_ENDTOT", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_ENDTOT)},
-	{"ZIP64_ENDSIZ", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_ENDSIZ)},
-	{"ZIP64_ENDOFF", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_ENDOFF)},
-	{"ZIP64_ENDEXT", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_ENDEXT)},
-	{"ZIP64_LOCDSK", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_LOCDSK)},
-	{"ZIP64_LOCOFF", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_LOCOFF)},
-	{"ZIP64_LOCTOT", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_LOCTOT)},
-	{"ZIP64_EXTCRC", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_EXTCRC)},
-	{"ZIP64_EXTSIZ", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_EXTSIZ)},
-	{"ZIP64_EXTLEN", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_EXTLEN)},
-	{"USE_UTF8", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, USE_UTF8)},
-	{"EXTID_ZIP64", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, EXTID_ZIP64)},
-	{"EXTID_NTFS", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, EXTID_NTFS)},
-	{"EXTID_UNIX", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, EXTID_UNIX)},
-	{"EXTID_EXTT", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, EXTID_EXTT)},
-	{"EXTT_FLAG_LMT", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, EXTT_FLAG_LMT)},
-	{"EXTT_FLAG_LAT", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, EXTT_FLAG_LAT)},
-	{"EXTT_FLAT_CT", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, EXTT_FLAT_CT)},
-	{}
-};
-
-$MethodInfo _ZipConstants64_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ZipConstants64, init$, void)},
-	{}
-};
-
-$ClassInfo _ZipConstants64_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.zip.ZipConstants64",
-	"java.lang.Object",
-	nullptr,
-	_ZipConstants64_FieldInfo_,
-	_ZipConstants64_MethodInfo_
-};
-
-$Object* allocate$ZipConstants64($Class* clazz) {
-	return $of($alloc(ZipConstants64));
-}
-
 void ZipConstants64::init$() {
 }
 
@@ -104,7 +49,56 @@ ZipConstants64::ZipConstants64() {
 }
 
 $Class* ZipConstants64::load$($String* name, bool initialize) {
-	$loadClass(ZipConstants64, name, initialize, &_ZipConstants64_ClassInfo_, allocate$ZipConstants64);
+	$FieldInfo fieldInfos$$[] = {
+		{"ZIP64_ENDSIG", "J", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_ENDSIG)},
+		{"ZIP64_LOCSIG", "J", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_LOCSIG)},
+		{"ZIP64_ENDHDR", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_ENDHDR)},
+		{"ZIP64_LOCHDR", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_LOCHDR)},
+		{"ZIP64_EXTHDR", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_EXTHDR)},
+		{"ZIP64_EXTID", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_EXTID)},
+		{"ZIP64_MAGICCOUNT", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_MAGICCOUNT)},
+		{"ZIP64_MAGICVAL", "J", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_MAGICVAL)},
+		{"ZIP64_ENDLEN", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_ENDLEN)},
+		{"ZIP64_ENDVEM", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_ENDVEM)},
+		{"ZIP64_ENDVER", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_ENDVER)},
+		{"ZIP64_ENDNMD", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_ENDNMD)},
+		{"ZIP64_ENDDSK", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_ENDDSK)},
+		{"ZIP64_ENDTOD", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_ENDTOD)},
+		{"ZIP64_ENDTOT", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_ENDTOT)},
+		{"ZIP64_ENDSIZ", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_ENDSIZ)},
+		{"ZIP64_ENDOFF", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_ENDOFF)},
+		{"ZIP64_ENDEXT", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_ENDEXT)},
+		{"ZIP64_LOCDSK", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_LOCDSK)},
+		{"ZIP64_LOCOFF", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_LOCOFF)},
+		{"ZIP64_LOCTOT", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_LOCTOT)},
+		{"ZIP64_EXTCRC", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_EXTCRC)},
+		{"ZIP64_EXTSIZ", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_EXTSIZ)},
+		{"ZIP64_EXTLEN", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, ZIP64_EXTLEN)},
+		{"USE_UTF8", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, USE_UTF8)},
+		{"EXTID_ZIP64", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, EXTID_ZIP64)},
+		{"EXTID_NTFS", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, EXTID_NTFS)},
+		{"EXTID_UNIX", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, EXTID_UNIX)},
+		{"EXTID_EXTT", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, EXTID_EXTT)},
+		{"EXTT_FLAG_LMT", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, EXTT_FLAG_LMT)},
+		{"EXTT_FLAG_LAT", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, EXTT_FLAG_LAT)},
+		{"EXTT_FLAT_CT", "I", nullptr, $STATIC | $FINAL, $constField(ZipConstants64, EXTT_FLAT_CT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ZipConstants64, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.zip.ZipConstants64",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ZipConstants64, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ZipConstants64);
+	});
 	return class$;
 }
 

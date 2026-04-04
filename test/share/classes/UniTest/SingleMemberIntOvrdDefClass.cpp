@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberIntOvrdDefClass.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,38 +8,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$NamedAttribute SingleMemberIntOvrdDefClass_Attribute_var$0[] = {
-	{"value", 'I', "3"},
-	{}
-};
-
-$CompoundAttribute _SingleMemberIntOvrdDefClass_Annotations_[] = {
-	{"LUniTest/SingleMemberIntWithDef;", SingleMemberIntOvrdDefClass_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _SingleMemberIntOvrdDefClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SingleMemberIntOvrdDefClass, init$, void)},
-	{}
-};
-
-$ClassInfo _SingleMemberIntOvrdDefClass_ClassInfo_ = {
-	$ACC_SUPER,
-	"UniTest.SingleMemberIntOvrdDefClass",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SingleMemberIntOvrdDefClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberIntOvrdDefClass_Annotations_
-};
-
-$Object* allocate$SingleMemberIntOvrdDefClass($Class* clazz) {
-	return $of($alloc(SingleMemberIntOvrdDefClass));
-}
-
 void SingleMemberIntOvrdDefClass::init$() {
 }
 
@@ -48,7 +15,33 @@ SingleMemberIntOvrdDefClass::SingleMemberIntOvrdDefClass() {
 }
 
 $Class* SingleMemberIntOvrdDefClass::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberIntOvrdDefClass, name, initialize, &_SingleMemberIntOvrdDefClass_ClassInfo_, allocate$SingleMemberIntOvrdDefClass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SingleMemberIntOvrdDefClass, init$, void)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'I', "3"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LUniTest/SingleMemberIntWithDef;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"UniTest.SingleMemberIntOvrdDefClass",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberIntOvrdDefClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberIntOvrdDefClass);
+	});
 	return class$;
 }
 

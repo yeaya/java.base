@@ -1,5 +1,4 @@
 #include <java/util/random/RandomGeneratorFactory.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/Deprecated.h>
 #include <java/lang/IllegalStateException.h>
@@ -55,7 +54,6 @@ using $BigInteger = ::java::math::BigInteger;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
-using $Collection = ::java::util::Collection;
 using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
 using $ServiceLoader$Provider = ::java::util::ServiceLoader$Provider;
@@ -82,35 +80,31 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->getConstructors());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RandomGeneratorFactory$$Lambda$getConstructors>());
+		 return $nc(inst$)->getConstructors();
 	}
 	$Class* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo RandomGeneratorFactory$$Lambda$getConstructors::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RandomGeneratorFactory$$Lambda$getConstructors, inst$)},
-	{}
-};
-$MethodInfo RandomGeneratorFactory$$Lambda$getConstructors::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(RandomGeneratorFactory$$Lambda$getConstructors, init$, void, $Class*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RandomGeneratorFactory$$Lambda$getConstructors, run, $Object*)},
-	{}
-};
-$ClassInfo RandomGeneratorFactory$$Lambda$getConstructors::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.random.RandomGeneratorFactory$$Lambda$getConstructors",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* RandomGeneratorFactory$$Lambda$getConstructors::load$($String* name, bool initialize) {
-	$loadClass(RandomGeneratorFactory$$Lambda$getConstructors, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RandomGeneratorFactory$$Lambda$getConstructors, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(RandomGeneratorFactory$$Lambda$getConstructors, init$, void, $Class*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RandomGeneratorFactory$$Lambda$getConstructors, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.random.RandomGeneratorFactory$$Lambda$getConstructors",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RandomGeneratorFactory$$Lambda$getConstructors, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RandomGeneratorFactory$$Lambda$getConstructors);
+	});
 	return class$;
 }
 $Class* RandomGeneratorFactory$$Lambda$getConstructors::class$ = nullptr;
@@ -123,27 +117,24 @@ public:
 	virtual bool test(Object$* p) override {
 		 return RandomGeneratorFactory::lambda$all$0($cast($ServiceLoader$Provider, p));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RandomGeneratorFactory$$Lambda$lambda$all$0$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo RandomGeneratorFactory$$Lambda$lambda$all$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RandomGeneratorFactory$$Lambda$lambda$all$0$1, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RandomGeneratorFactory$$Lambda$lambda$all$0$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo RandomGeneratorFactory$$Lambda$lambda$all$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.random.RandomGeneratorFactory$$Lambda$lambda$all$0$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* RandomGeneratorFactory$$Lambda$lambda$all$0$1::load$($String* name, bool initialize) {
-	$loadClass(RandomGeneratorFactory$$Lambda$lambda$all$0$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RandomGeneratorFactory$$Lambda$lambda$all$0$1, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RandomGeneratorFactory$$Lambda$lambda$all$0$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.random.RandomGeneratorFactory$$Lambda$lambda$all$0$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RandomGeneratorFactory$$Lambda$lambda$all$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RandomGeneratorFactory$$Lambda$lambda$all$0$1);
+	});
 	return class$;
 }
 $Class* RandomGeneratorFactory$$Lambda$lambda$all$0$1::class$ = nullptr;
@@ -154,100 +145,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* provider) override {
-		 return $of($new(RandomGeneratorFactory, $cast($ServiceLoader$Provider, provider)));
+		 return $new(RandomGeneratorFactory, $cast($ServiceLoader$Provider, provider));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RandomGeneratorFactory$$Lambda$RandomGeneratorFactory$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo RandomGeneratorFactory$$Lambda$RandomGeneratorFactory$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RandomGeneratorFactory$$Lambda$RandomGeneratorFactory$2, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RandomGeneratorFactory$$Lambda$RandomGeneratorFactory$2, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo RandomGeneratorFactory$$Lambda$RandomGeneratorFactory$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.random.RandomGeneratorFactory$$Lambda$RandomGeneratorFactory$2",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* RandomGeneratorFactory$$Lambda$RandomGeneratorFactory$2::load$($String* name, bool initialize) {
-	$loadClass(RandomGeneratorFactory$$Lambda$RandomGeneratorFactory$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RandomGeneratorFactory$$Lambda$RandomGeneratorFactory$2, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RandomGeneratorFactory$$Lambda$RandomGeneratorFactory$2, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.random.RandomGeneratorFactory$$Lambda$RandomGeneratorFactory$2",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RandomGeneratorFactory$$Lambda$RandomGeneratorFactory$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RandomGeneratorFactory$$Lambda$RandomGeneratorFactory$2);
+	});
 	return class$;
 }
 $Class* RandomGeneratorFactory$$Lambda$RandomGeneratorFactory$2::class$ = nullptr;
-
-$FieldInfo _RandomGeneratorFactory_FieldInfo_[] = {
-	{"provider", "Ljava/util/ServiceLoader$Provider;", "Ljava/util/ServiceLoader$Provider<+Ljava/util/random/RandomGenerator;>;", $PRIVATE | $FINAL, $field(RandomGeneratorFactory, provider)},
-	{"properties", "Ljdk/internal/util/random/RandomSupport$RandomGeneratorProperties;", nullptr, $PRIVATE | $VOLATILE, $field(RandomGeneratorFactory, properties)},
-	{"ctor", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<TT;>;", $PRIVATE | $VOLATILE, $field(RandomGeneratorFactory, ctor)},
-	{"ctorLong", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<TT;>;", $PRIVATE, $field(RandomGeneratorFactory, ctorLong)},
-	{"ctorBytes", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<TT;>;", $PRIVATE, $field(RandomGeneratorFactory, ctorBytes)},
-	{}
-};
-
-$MethodInfo _RandomGeneratorFactory_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ServiceLoader$Provider;)V", "(Ljava/util/ServiceLoader$Provider<+Ljava/util/random/RandomGenerator;>;)V", $PRIVATE, $method(RandomGeneratorFactory, init$, void, $ServiceLoader$Provider*)},
-	{"all", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/random/RandomGeneratorFactory<Ljava/util/random/RandomGenerator;>;>;", $PUBLIC | $STATIC, $staticMethod(RandomGeneratorFactory, all, $Stream*)},
-	{"create", "()Ljava/util/random/RandomGenerator;", "()TT;", $PUBLIC, $method(RandomGeneratorFactory, create, $RandomGenerator*)},
-	{"create", "(J)Ljava/util/random/RandomGenerator;", "(J)TT;", $PUBLIC, $method(RandomGeneratorFactory, create, $RandomGenerator*, int64_t)},
-	{"create", "([B)Ljava/util/random/RandomGenerator;", "([B)TT;", $PUBLIC, $method(RandomGeneratorFactory, create, $RandomGenerator*, $bytes*)},
-	{"ensureConstructors", "()V", nullptr, $PRIVATE, $method(RandomGeneratorFactory, ensureConstructors, void)},
-	{"equidistribution", "()I", nullptr, $PUBLIC, $method(RandomGeneratorFactory, equidistribution, int32_t)},
-	{"factoryOf", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/util/random/RandomGeneratorFactory;", "<T::Ljava/util/random/RandomGenerator;>(Ljava/lang/String;Ljava/lang/Class<TT;>;)Ljava/util/random/RandomGeneratorFactory<TT;>;", $STATIC, $staticMethod(RandomGeneratorFactory, factoryOf, RandomGeneratorFactory*, $String*, $Class*), "java.lang.IllegalArgumentException"},
-	{"findProvider", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/util/ServiceLoader$Provider;", "(Ljava/lang/String;Ljava/lang/Class<+Ljava/util/random/RandomGenerator;>;)Ljava/util/ServiceLoader$Provider<+Ljava/util/random/RandomGenerator;>;", $PRIVATE | $STATIC, $staticMethod(RandomGeneratorFactory, findProvider, $ServiceLoader$Provider*, $String*, $Class*), "java.lang.IllegalArgumentException"},
-	{"getConstructors", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<+Ljava/util/random/RandomGenerator;>;)V", $PRIVATE, $method(RandomGeneratorFactory, getConstructors, void, $Class*)},
-	{"getDefault", "()Ljava/util/random/RandomGeneratorFactory;", "()Ljava/util/random/RandomGeneratorFactory<Ljava/util/random/RandomGenerator;>;", $PUBLIC | $STATIC, $staticMethod(RandomGeneratorFactory, getDefault, RandomGeneratorFactory*)},
-	{"getFactoryMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/ServiceLoader$Provider<+Ljava/util/random/RandomGenerator;>;>;", $PRIVATE | $STATIC, $staticMethod(RandomGeneratorFactory, getFactoryMap, $Map*)},
-	{"getProperties", "()Ljdk/internal/util/random/RandomSupport$RandomGeneratorProperties;", nullptr, $PRIVATE, $method(RandomGeneratorFactory, getProperties, $RandomSupport$RandomGeneratorProperties*)},
-	{"group", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(RandomGeneratorFactory, group, $String*)},
-	{"isArbitrarilyJumpable", "()Z", nullptr, $PUBLIC, $method(RandomGeneratorFactory, isArbitrarilyJumpable, bool)},
-	{"isDeprecated", "()Z", nullptr, $PUBLIC, $method(RandomGeneratorFactory, isDeprecated, bool)},
-	{"isHardware", "()Z", nullptr, $PUBLIC, $method(RandomGeneratorFactory, isHardware, bool)},
-	{"isJumpable", "()Z", nullptr, $PUBLIC, $method(RandomGeneratorFactory, isJumpable, bool)},
-	{"isLeapable", "()Z", nullptr, $PUBLIC, $method(RandomGeneratorFactory, isLeapable, bool)},
-	{"isSplittable", "()Z", nullptr, $PUBLIC, $method(RandomGeneratorFactory, isSplittable, bool)},
-	{"isStatistical", "()Z", nullptr, $PUBLIC, $method(RandomGeneratorFactory, isStatistical, bool)},
-	{"isStochastic", "()Z", nullptr, $PUBLIC, $method(RandomGeneratorFactory, isStochastic, bool)},
-	{"isStreamable", "()Z", nullptr, $PUBLIC, $method(RandomGeneratorFactory, isStreamable, bool)},
-	{"isSubclass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/util/random/RandomGenerator;>;)Z", $PRIVATE, $method(RandomGeneratorFactory, isSubclass, bool, $Class*)},
-	{"isSubclass", "(Ljava/lang/Class;Ljava/util/ServiceLoader$Provider;)Z", "(Ljava/lang/Class<+Ljava/util/random/RandomGenerator;>;Ljava/util/ServiceLoader$Provider<+Ljava/util/random/RandomGenerator;>;)Z", $PRIVATE | $STATIC, $staticMethod(RandomGeneratorFactory, isSubclass, bool, $Class*, $ServiceLoader$Provider*)},
-	{"lambda$all$0", "(Ljava/util/ServiceLoader$Provider;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RandomGeneratorFactory, lambda$all$0, bool, $ServiceLoader$Provider*)},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(RandomGeneratorFactory, name, $String*)},
-	{"of", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/util/random/RandomGenerator;", "<T::Ljava/util/random/RandomGenerator;>(Ljava/lang/String;Ljava/lang/Class<TT;>;)TT;", $STATIC, $staticMethod(RandomGeneratorFactory, of, $RandomGenerator*, $String*, $Class*), "java.lang.IllegalArgumentException"},
-	{"of", "(Ljava/lang/String;)Ljava/util/random/RandomGeneratorFactory;", "<T::Ljava/util/random/RandomGenerator;>(Ljava/lang/String;)Ljava/util/random/RandomGeneratorFactory<TT;>;", $PUBLIC | $STATIC, $staticMethod(RandomGeneratorFactory, of, RandomGeneratorFactory*, $String*)},
-	{"period", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $method(RandomGeneratorFactory, period, $BigInteger*)},
-	{"stateBits", "()I", nullptr, $PUBLIC, $method(RandomGeneratorFactory, stateBits, int32_t)},
-	{}
-};
-
-$InnerClassInfo _RandomGeneratorFactory_InnerClassesInfo_[] = {
-	{"java.util.random.RandomGeneratorFactory$FactoryMapHolder", "java.util.random.RandomGeneratorFactory", "FactoryMapHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _RandomGeneratorFactory_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.util.random.RandomGeneratorFactory",
-	"java.lang.Object",
-	nullptr,
-	_RandomGeneratorFactory_FieldInfo_,
-	_RandomGeneratorFactory_MethodInfo_,
-	"<T::Ljava/util/random/RandomGenerator;>Ljava/lang/Object;",
-	nullptr,
-	_RandomGeneratorFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.random.RandomGeneratorFactory$FactoryMapHolder"
-};
-
-$Object* allocate$RandomGeneratorFactory($Class* clazz) {
-	return $of($alloc(RandomGeneratorFactory));
-}
 
 void RandomGeneratorFactory::init$($ServiceLoader$Provider* provider) {
 	$set(this, provider, provider);
@@ -263,8 +183,8 @@ $RandomSupport$RandomGeneratorProperties* RandomGeneratorFactory::getProperties(
 		$synchronized(this->provider) {
 			if (this->properties == nullptr) {
 				$load($RandomSupport$RandomGeneratorProperties);
-				$set(this, properties, $cast($RandomSupport$RandomGeneratorProperties, $nc($nc(this->provider)->type())->getDeclaredAnnotation($RandomSupport$RandomGeneratorProperties::class$)));
-				$Objects::requireNonNull($of(this->properties), $$str({$nc(this->provider)->type(), " missing annotation"_s}));
+				$set(this, properties, $cast($RandomSupport$RandomGeneratorProperties, $nc(this->provider->type())->getDeclaredAnnotation($RandomSupport$RandomGeneratorProperties::class$)));
+				$Objects::requireNonNull(this->properties, $$str({this->provider->type(), " missing annotation"_s}));
 			}
 		}
 	}
@@ -280,7 +200,7 @@ bool RandomGeneratorFactory::isSubclass($Class* category, $ServiceLoader$Provide
 }
 
 $ServiceLoader$Provider* RandomGeneratorFactory::findProvider($String* name, $Class* category) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, fm, getFactoryMap());
 	$var($ServiceLoader$Provider, provider, $cast($ServiceLoader$Provider, $nc(fm)->get(name)));
 	if (provider == nullptr) {
@@ -292,8 +212,8 @@ $ServiceLoader$Provider* RandomGeneratorFactory::findProvider($String* name, $Cl
 }
 
 $RandomGenerator* RandomGeneratorFactory::of($String* name, $Class* category) {
-	$useLocalCurrentObjectStackCache();
-	$var($RandomGenerator, uncheckedRandomGenerator, $cast($RandomGenerator, $nc($(findProvider(name, category)))->get()));
+	$useLocalObjectStack();
+	$var($RandomGenerator, uncheckedRandomGenerator, $cast($RandomGenerator, $$nc(findProvider(name, category))->get()));
 	return uncheckedRandomGenerator;
 }
 
@@ -303,12 +223,12 @@ RandomGeneratorFactory* RandomGeneratorFactory::factoryOf($String* name, $Class*
 }
 
 void RandomGeneratorFactory::getConstructors($Class* randomGeneratorClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (this->ctor == nullptr) {
 		$synchronized(this->provider) {
 			if (this->ctor == nullptr) {
-				$var($PrivilegedExceptionAction, ctorAction, static_cast<$PrivilegedExceptionAction*>($new(RandomGeneratorFactory$$Lambda$getConstructors, static_cast<$Class*>($nc(randomGeneratorClass)))));
+				$var($PrivilegedExceptionAction, ctorAction, $new(RandomGeneratorFactory$$Lambda$getConstructors, $nc(randomGeneratorClass)));
 				try {
 					$var($ConstructorArray, ctors, $cast($ConstructorArray, $AccessController::doPrivileged(ctorAction)));
 					$var($Constructor, tmpCtor, nullptr);
@@ -316,9 +236,7 @@ void RandomGeneratorFactory::getConstructors($Class* randomGeneratorClass) {
 					$var($Constructor, tmpCtorBytes, nullptr);
 					{
 						$var($ConstructorArray, arr$, ctors);
-						int32_t len$ = $nc(arr$)->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
+						for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 							$var($Constructor, ctorGeneric, arr$->get(i$));
 							{
 								$var($Constructor, ctorSpecific, ctorGeneric);
@@ -327,14 +245,10 @@ void RandomGeneratorFactory::getConstructors($Class* randomGeneratorClass) {
 									$assign(tmpCtor, ctorSpecific);
 								} else if (parameterTypes->length == 1) {
 									$Class* argType = parameterTypes->get(0);
-									$init($Long);
 									if (argType == $Long::TYPE) {
 										$assign(tmpCtorLong, ctorSpecific);
-									} else {
-										$load($bytes);
-										if (argType == $getClass($bytes)) {
-											$assign(tmpCtorBytes, ctorSpecific);
-										}
+									} else if (argType == $getClass($bytes)) {
+										$assign(tmpCtorBytes, ctorSpecific);
 									}
 								}
 							}
@@ -370,9 +284,9 @@ RandomGeneratorFactory* RandomGeneratorFactory::getDefault() {
 }
 
 $Stream* RandomGeneratorFactory::all() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, fm, getFactoryMap());
-	return $nc($($nc($($nc($($nc(fm)->values()))->stream()))->filter(static_cast<$Predicate*>($$new(RandomGeneratorFactory$$Lambda$lambda$all$0$1)))))->map(static_cast<$Function*>($$new(RandomGeneratorFactory$$Lambda$RandomGeneratorFactory$2)));
+	return $$nc($$nc($$nc($nc(fm)->values())->stream())->filter($$new(RandomGeneratorFactory$$Lambda$lambda$all$0$1)))->map($$new(RandomGeneratorFactory$$Lambda$RandomGeneratorFactory$2));
 }
 
 $String* RandomGeneratorFactory::name() {
@@ -380,7 +294,7 @@ $String* RandomGeneratorFactory::name() {
 }
 
 $String* RandomGeneratorFactory::group() {
-	return $nc($(getProperties()))->group();
+	return $$nc(getProperties())->group();
 }
 
 int32_t RandomGeneratorFactory::stateBits() {
@@ -391,11 +305,11 @@ int32_t RandomGeneratorFactory::stateBits() {
 }
 
 int32_t RandomGeneratorFactory::equidistribution() {
-	return $nc($(getProperties()))->equidistribution();
+	return $$nc(getProperties())->equidistribution();
 }
 
 $BigInteger* RandomGeneratorFactory::period() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RandomSupport$RandomGeneratorProperties, properties, getProperties());
 	int32_t i = $nc(properties)->i();
 	int32_t j = properties->j();
@@ -405,20 +319,20 @@ $BigInteger* RandomGeneratorFactory::period() {
 		return $BigInteger::ZERO;
 	} else {
 		$init($BigInteger);
-		return $nc($($nc($($nc($BigInteger::ONE)->shiftLeft(i)))->subtract($($BigInteger::valueOf((int64_t)j)))))->shiftLeft(k);
+		return $($($nc($BigInteger::ONE)->shiftLeft(i))->subtract($($BigInteger::valueOf(j))))->shiftLeft(k);
 	}
 }
 
 bool RandomGeneratorFactory::isStatistical() {
-	return !$nc($(getProperties()))->isStochastic();
+	return !$$nc(getProperties())->isStochastic();
 }
 
 bool RandomGeneratorFactory::isStochastic() {
-	return $nc($(getProperties()))->isStochastic();
+	return $$nc(getProperties())->isStochastic();
 }
 
 bool RandomGeneratorFactory::isHardware() {
-	return $nc($(getProperties()))->isHardware();
+	return $$nc(getProperties())->isHardware();
 }
 
 bool RandomGeneratorFactory::isArbitrarilyJumpable() {
@@ -452,7 +366,7 @@ bool RandomGeneratorFactory::isDeprecated() {
 }
 
 $RandomGenerator* RandomGeneratorFactory::create() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		ensureConstructors();
@@ -464,11 +378,11 @@ $RandomGenerator* RandomGeneratorFactory::create() {
 }
 
 $RandomGenerator* RandomGeneratorFactory::create(int64_t seed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		ensureConstructors();
-		return $cast($RandomGenerator, $nc(this->ctorLong)->newInstance($$new($ObjectArray, {$($of($Long::valueOf(seed)))})));
+		return $cast($RandomGenerator, $nc(this->ctorLong)->newInstance($$new($ObjectArray, {$($Long::valueOf(seed))})));
 	} catch ($Exception& ex) {
 		return create();
 	}
@@ -477,10 +391,10 @@ $RandomGenerator* RandomGeneratorFactory::create(int64_t seed) {
 
 $RandomGenerator* RandomGeneratorFactory::create($bytes* seed) {
 	$beforeCallerSensitive();
-	$Objects::requireNonNull($of(seed), "seed must not be null"_s);
+	$Objects::requireNonNull(seed, "seed must not be null"_s);
 	try {
 		ensureConstructors();
-		return $cast($RandomGenerator, $nc(this->ctorBytes)->newInstance($$new($ObjectArray, {$of(seed)})));
+		return $cast($RandomGenerator, $nc(this->ctorBytes)->newInstance($$new($ObjectArray, {seed})));
 	} catch ($Exception& ex) {
 		return create();
 	}
@@ -499,17 +413,79 @@ RandomGeneratorFactory::RandomGeneratorFactory() {
 
 $Class* RandomGeneratorFactory::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(RandomGeneratorFactory$$Lambda$getConstructors::classInfo$.name)) {
+		if (name->equals("java.util.random.RandomGeneratorFactory$$Lambda$getConstructors")) {
 			return RandomGeneratorFactory$$Lambda$getConstructors::load$(name, initialize);
 		}
-		if (name->equals(RandomGeneratorFactory$$Lambda$lambda$all$0$1::classInfo$.name)) {
+		if (name->equals("java.util.random.RandomGeneratorFactory$$Lambda$lambda$all$0$1")) {
 			return RandomGeneratorFactory$$Lambda$lambda$all$0$1::load$(name, initialize);
 		}
-		if (name->equals(RandomGeneratorFactory$$Lambda$RandomGeneratorFactory$2::classInfo$.name)) {
+		if (name->equals("java.util.random.RandomGeneratorFactory$$Lambda$RandomGeneratorFactory$2")) {
 			return RandomGeneratorFactory$$Lambda$RandomGeneratorFactory$2::load$(name, initialize);
 		}
 	}
-	$loadClass(RandomGeneratorFactory, name, initialize, &_RandomGeneratorFactory_ClassInfo_, allocate$RandomGeneratorFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"provider", "Ljava/util/ServiceLoader$Provider;", "Ljava/util/ServiceLoader$Provider<+Ljava/util/random/RandomGenerator;>;", $PRIVATE | $FINAL, $field(RandomGeneratorFactory, provider)},
+		{"properties", "Ljdk/internal/util/random/RandomSupport$RandomGeneratorProperties;", nullptr, $PRIVATE | $VOLATILE, $field(RandomGeneratorFactory, properties)},
+		{"ctor", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<TT;>;", $PRIVATE | $VOLATILE, $field(RandomGeneratorFactory, ctor)},
+		{"ctorLong", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<TT;>;", $PRIVATE, $field(RandomGeneratorFactory, ctorLong)},
+		{"ctorBytes", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<TT;>;", $PRIVATE, $field(RandomGeneratorFactory, ctorBytes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/ServiceLoader$Provider;)V", "(Ljava/util/ServiceLoader$Provider<+Ljava/util/random/RandomGenerator;>;)V", $PRIVATE, $method(RandomGeneratorFactory, init$, void, $ServiceLoader$Provider*)},
+		{"all", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/util/random/RandomGeneratorFactory<Ljava/util/random/RandomGenerator;>;>;", $PUBLIC | $STATIC, $staticMethod(RandomGeneratorFactory, all, $Stream*)},
+		{"create", "()Ljava/util/random/RandomGenerator;", "()TT;", $PUBLIC, $method(RandomGeneratorFactory, create, $RandomGenerator*)},
+		{"create", "(J)Ljava/util/random/RandomGenerator;", "(J)TT;", $PUBLIC, $method(RandomGeneratorFactory, create, $RandomGenerator*, int64_t)},
+		{"create", "([B)Ljava/util/random/RandomGenerator;", "([B)TT;", $PUBLIC, $method(RandomGeneratorFactory, create, $RandomGenerator*, $bytes*)},
+		{"ensureConstructors", "()V", nullptr, $PRIVATE, $method(RandomGeneratorFactory, ensureConstructors, void)},
+		{"equidistribution", "()I", nullptr, $PUBLIC, $method(RandomGeneratorFactory, equidistribution, int32_t)},
+		{"factoryOf", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/util/random/RandomGeneratorFactory;", "<T::Ljava/util/random/RandomGenerator;>(Ljava/lang/String;Ljava/lang/Class<TT;>;)Ljava/util/random/RandomGeneratorFactory<TT;>;", $STATIC, $staticMethod(RandomGeneratorFactory, factoryOf, RandomGeneratorFactory*, $String*, $Class*), "java.lang.IllegalArgumentException"},
+		{"findProvider", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/util/ServiceLoader$Provider;", "(Ljava/lang/String;Ljava/lang/Class<+Ljava/util/random/RandomGenerator;>;)Ljava/util/ServiceLoader$Provider<+Ljava/util/random/RandomGenerator;>;", $PRIVATE | $STATIC, $staticMethod(RandomGeneratorFactory, findProvider, $ServiceLoader$Provider*, $String*, $Class*), "java.lang.IllegalArgumentException"},
+		{"getConstructors", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<+Ljava/util/random/RandomGenerator;>;)V", $PRIVATE, $method(RandomGeneratorFactory, getConstructors, void, $Class*)},
+		{"getDefault", "()Ljava/util/random/RandomGeneratorFactory;", "()Ljava/util/random/RandomGeneratorFactory<Ljava/util/random/RandomGenerator;>;", $PUBLIC | $STATIC, $staticMethod(RandomGeneratorFactory, getDefault, RandomGeneratorFactory*)},
+		{"getFactoryMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/ServiceLoader$Provider<+Ljava/util/random/RandomGenerator;>;>;", $PRIVATE | $STATIC, $staticMethod(RandomGeneratorFactory, getFactoryMap, $Map*)},
+		{"getProperties", "()Ljdk/internal/util/random/RandomSupport$RandomGeneratorProperties;", nullptr, $PRIVATE, $method(RandomGeneratorFactory, getProperties, $RandomSupport$RandomGeneratorProperties*)},
+		{"group", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(RandomGeneratorFactory, group, $String*)},
+		{"isArbitrarilyJumpable", "()Z", nullptr, $PUBLIC, $method(RandomGeneratorFactory, isArbitrarilyJumpable, bool)},
+		{"isDeprecated", "()Z", nullptr, $PUBLIC, $method(RandomGeneratorFactory, isDeprecated, bool)},
+		{"isHardware", "()Z", nullptr, $PUBLIC, $method(RandomGeneratorFactory, isHardware, bool)},
+		{"isJumpable", "()Z", nullptr, $PUBLIC, $method(RandomGeneratorFactory, isJumpable, bool)},
+		{"isLeapable", "()Z", nullptr, $PUBLIC, $method(RandomGeneratorFactory, isLeapable, bool)},
+		{"isSplittable", "()Z", nullptr, $PUBLIC, $method(RandomGeneratorFactory, isSplittable, bool)},
+		{"isStatistical", "()Z", nullptr, $PUBLIC, $method(RandomGeneratorFactory, isStatistical, bool)},
+		{"isStochastic", "()Z", nullptr, $PUBLIC, $method(RandomGeneratorFactory, isStochastic, bool)},
+		{"isStreamable", "()Z", nullptr, $PUBLIC, $method(RandomGeneratorFactory, isStreamable, bool)},
+		{"isSubclass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljava/util/random/RandomGenerator;>;)Z", $PRIVATE, $method(RandomGeneratorFactory, isSubclass, bool, $Class*)},
+		{"isSubclass", "(Ljava/lang/Class;Ljava/util/ServiceLoader$Provider;)Z", "(Ljava/lang/Class<+Ljava/util/random/RandomGenerator;>;Ljava/util/ServiceLoader$Provider<+Ljava/util/random/RandomGenerator;>;)Z", $PRIVATE | $STATIC, $staticMethod(RandomGeneratorFactory, isSubclass, bool, $Class*, $ServiceLoader$Provider*)},
+		{"lambda$all$0", "(Ljava/util/ServiceLoader$Provider;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RandomGeneratorFactory, lambda$all$0, bool, $ServiceLoader$Provider*)},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(RandomGeneratorFactory, name, $String*)},
+		{"of", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/util/random/RandomGenerator;", "<T::Ljava/util/random/RandomGenerator;>(Ljava/lang/String;Ljava/lang/Class<TT;>;)TT;", $STATIC, $staticMethod(RandomGeneratorFactory, of, $RandomGenerator*, $String*, $Class*), "java.lang.IllegalArgumentException"},
+		{"of", "(Ljava/lang/String;)Ljava/util/random/RandomGeneratorFactory;", "<T::Ljava/util/random/RandomGenerator;>(Ljava/lang/String;)Ljava/util/random/RandomGeneratorFactory<TT;>;", $PUBLIC | $STATIC, $staticMethod(RandomGeneratorFactory, of, RandomGeneratorFactory*, $String*)},
+		{"period", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $method(RandomGeneratorFactory, period, $BigInteger*)},
+		{"stateBits", "()I", nullptr, $PUBLIC, $method(RandomGeneratorFactory, stateBits, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.random.RandomGeneratorFactory$FactoryMapHolder", "java.util.random.RandomGeneratorFactory", "FactoryMapHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.util.random.RandomGeneratorFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T::Ljava/util/random/RandomGenerator;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.random.RandomGeneratorFactory$FactoryMapHolder"
+	};
+	$loadClass(RandomGeneratorFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RandomGeneratorFactory);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <LineLengthsSource.h>
-
 #include <java/io/BufferedWriter.h>
 #include <java/io/DataOutputStream.h>
 #include <java/io/IOException.h>
@@ -18,36 +17,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
 
-$FieldInfo _LineLengthsSource_FieldInfo_[] = {
-	{"uo", "Ljava/io/DataOutputStream;", nullptr, 0, $field(LineLengthsSource, uo)},
-	{"to", "Ljava/io/BufferedWriter;", nullptr, 0, $field(LineLengthsSource, to)},
-	{"log", "Ljava/io/PrintWriter;", nullptr, 0, $field(LineLengthsSource, log)},
-	{}
-};
-
-$MethodInfo _LineLengthsSource_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;Ljava/io/BufferedWriter;Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(LineLengthsSource, init$, void, $OutputStream*, $BufferedWriter*, $PrintWriter*), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PRIVATE, $method(LineLengthsSource, flush, void), "java.io.IOException"},
-	{"go", "(I)V", nullptr, $PRIVATE, $method(LineLengthsSource, go, void, int32_t), "java.io.IOException"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LineLengthsSource, run, void)},
-	{"termName", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(LineLengthsSource, termName, $String*, int32_t)},
-	{"termString", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(LineLengthsSource, termString, $String*, int32_t)},
-	{}
-};
-
-$ClassInfo _LineLengthsSource_ClassInfo_ = {
-	$ACC_SUPER,
-	"LineLengthsSource",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_LineLengthsSource_FieldInfo_,
-	_LineLengthsSource_MethodInfo_
-};
-
-$Object* allocate$LineLengthsSource($Class* clazz) {
-	return $of($alloc(LineLengthsSource));
-}
-
 void LineLengthsSource::init$($OutputStream* us, $BufferedWriter* ts, $PrintWriter* log) {
 	$set(this, uo, $new($DataOutputStream, us));
 	$set(this, to, ts);
@@ -55,7 +24,7 @@ void LineLengthsSource::init$($OutputStream* us, $BufferedWriter* ts, $PrintWrit
 }
 
 void LineLengthsSource::flush() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->uo)->flush();
 	$($Thread::currentThread())->yield();
 	$nc(this->to)->flush();
@@ -65,47 +34,31 @@ void LineLengthsSource::flush() {
 $String* LineLengthsSource::termString(int32_t t) {
 	switch (t) {
 	case 0:
-		{
-			return "\n"_s;
-		}
+		return "\n"_s;
 	case 1:
-		{
-			return "\r"_s;
-		}
+		return "\r"_s;
 	case 2:
-		{
-			return "\r\n"_s;
-		}
+		return "\r\n"_s;
 	default:
-		{
-			return ""_s;
-		}
+		return ""_s;
 	}
 }
 
 $String* LineLengthsSource::termName(int32_t t) {
 	switch (t) {
 	case 0:
-		{
-			return "\\n"_s;
-		}
+		return "\\n"_s;
 	case 1:
-		{
-			return "\\r"_s;
-		}
+		return "\\r"_s;
 	case 2:
-		{
-			return "\\r\\n"_s;
-		}
+		return "\\r\\n"_s;
 	default:
-		{
-			return ""_s;
-		}
+		return ""_s;
 	}
 }
 
 void LineLengthsSource::go(int32_t t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t ln = 0; ln < 128; ++ln) {
 		$var($String, ts, termString(t));
 		$var($StringBuffer, s, $new($StringBuffer, ln + $nc(ts)->length()));
@@ -121,7 +74,7 @@ void LineLengthsSource::go(int32_t t) {
 }
 
 void LineLengthsSource::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		go(0);
 		go(1);
@@ -139,7 +92,32 @@ LineLengthsSource::LineLengthsSource() {
 }
 
 $Class* LineLengthsSource::load$($String* name, bool initialize) {
-	$loadClass(LineLengthsSource, name, initialize, &_LineLengthsSource_ClassInfo_, allocate$LineLengthsSource);
+	$FieldInfo fieldInfos$$[] = {
+		{"uo", "Ljava/io/DataOutputStream;", nullptr, 0, $field(LineLengthsSource, uo)},
+		{"to", "Ljava/io/BufferedWriter;", nullptr, 0, $field(LineLengthsSource, to)},
+		{"log", "Ljava/io/PrintWriter;", nullptr, 0, $field(LineLengthsSource, log)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/OutputStream;Ljava/io/BufferedWriter;Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(LineLengthsSource, init$, void, $OutputStream*, $BufferedWriter*, $PrintWriter*), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PRIVATE, $method(LineLengthsSource, flush, void), "java.io.IOException"},
+		{"go", "(I)V", nullptr, $PRIVATE, $method(LineLengthsSource, go, void, int32_t), "java.io.IOException"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LineLengthsSource, run, void)},
+		{"termName", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(LineLengthsSource, termName, $String*, int32_t)},
+		{"termString", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(LineLengthsSource, termString, $String*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"LineLengthsSource",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LineLengthsSource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LineLengthsSource);
+	});
 	return class$;
 }
 

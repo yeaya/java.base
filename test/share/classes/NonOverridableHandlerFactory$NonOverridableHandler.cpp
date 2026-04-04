@@ -1,5 +1,4 @@
 #include <NonOverridableHandlerFactory$NonOverridableHandler.h>
-
 #include <NonOverridableHandlerFactory.h>
 #include <java/net/URL.h>
 #include <java/net/URLConnection.h>
@@ -14,37 +13,6 @@ using $URL = ::java::net::URL;
 using $URLConnection = ::java::net::URLConnection;
 using $URLStreamHandler = ::java::net::URLStreamHandler;
 
-$MethodInfo _NonOverridableHandlerFactory$NonOverridableHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(NonOverridableHandlerFactory$NonOverridableHandler, init$, void)},
-	{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PROTECTED, $virtualMethod(NonOverridableHandlerFactory$NonOverridableHandler, openConnection, $URLConnection*, $URL*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _NonOverridableHandlerFactory$NonOverridableHandler_InnerClassesInfo_[] = {
-	{"NonOverridableHandlerFactory$NonOverridableHandler", "NonOverridableHandlerFactory", "NonOverridableHandler", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _NonOverridableHandlerFactory$NonOverridableHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"NonOverridableHandlerFactory$NonOverridableHandler",
-	"java.net.URLStreamHandler",
-	nullptr,
-	nullptr,
-	_NonOverridableHandlerFactory$NonOverridableHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NonOverridableHandlerFactory$NonOverridableHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"NonOverridableHandlerFactory"
-};
-
-$Object* allocate$NonOverridableHandlerFactory$NonOverridableHandler($Class* clazz) {
-	return $of($alloc(NonOverridableHandlerFactory$NonOverridableHandler));
-}
-
 void NonOverridableHandlerFactory$NonOverridableHandler::init$() {
 	$URLStreamHandler::init$();
 }
@@ -58,7 +26,33 @@ NonOverridableHandlerFactory$NonOverridableHandler::NonOverridableHandlerFactory
 }
 
 $Class* NonOverridableHandlerFactory$NonOverridableHandler::load$($String* name, bool initialize) {
-	$loadClass(NonOverridableHandlerFactory$NonOverridableHandler, name, initialize, &_NonOverridableHandlerFactory$NonOverridableHandler_ClassInfo_, allocate$NonOverridableHandlerFactory$NonOverridableHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(NonOverridableHandlerFactory$NonOverridableHandler, init$, void)},
+		{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PROTECTED, $virtualMethod(NonOverridableHandlerFactory$NonOverridableHandler, openConnection, $URLConnection*, $URL*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"NonOverridableHandlerFactory$NonOverridableHandler", "NonOverridableHandlerFactory", "NonOverridableHandler", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"NonOverridableHandlerFactory$NonOverridableHandler",
+		"java.net.URLStreamHandler",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"NonOverridableHandlerFactory"
+	};
+	$loadClass(NonOverridableHandlerFactory$NonOverridableHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NonOverridableHandlerFactory$NonOverridableHandler);
+	});
 	return class$;
 }
 

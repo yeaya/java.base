@@ -1,9 +1,7 @@
 #include <sun/nio/ch/DatagramChannelImpl$DefaultOptionsHolder.h>
-
 #include <java/net/SocketOption.h>
 #include <java/net/StandardSocketOptions.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/HashSet.h>
 #include <java/util/Set.h>
@@ -27,7 +25,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StandardSocketOptions = ::java::net::StandardSocketOptions;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
@@ -38,42 +35,6 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _DatagramChannelImpl$DefaultOptionsHolder_FieldInfo_[] = {
-	{"defaultOptions", "Ljava/util/Set;", "Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $STATIC | $FINAL, $staticField(DatagramChannelImpl$DefaultOptionsHolder, defaultOptions$)},
-	{}
-};
-
-$MethodInfo _DatagramChannelImpl$DefaultOptionsHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DatagramChannelImpl$DefaultOptionsHolder, init$, void)},
-	{"defaultOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE | $STATIC, $staticMethod(DatagramChannelImpl$DefaultOptionsHolder, defaultOptions, $Set*)},
-	{}
-};
-
-$InnerClassInfo _DatagramChannelImpl$DefaultOptionsHolder_InnerClassesInfo_[] = {
-	{"sun.nio.ch.DatagramChannelImpl$DefaultOptionsHolder", "sun.nio.ch.DatagramChannelImpl", "DefaultOptionsHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DatagramChannelImpl$DefaultOptionsHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.DatagramChannelImpl$DefaultOptionsHolder",
-	"java.lang.Object",
-	nullptr,
-	_DatagramChannelImpl$DefaultOptionsHolder_FieldInfo_,
-	_DatagramChannelImpl$DefaultOptionsHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DatagramChannelImpl$DefaultOptionsHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.DatagramChannelImpl"
-};
-
-$Object* allocate$DatagramChannelImpl$DefaultOptionsHolder($Class* clazz) {
-	return $of($alloc(DatagramChannelImpl$DefaultOptionsHolder));
-}
-
 $Set* DatagramChannelImpl$DefaultOptionsHolder::defaultOptions$ = nullptr;
 
 void DatagramChannelImpl$DefaultOptionsHolder::init$() {
@@ -81,7 +42,7 @@ void DatagramChannelImpl$DefaultOptionsHolder::init$() {
 
 $Set* DatagramChannelImpl$DefaultOptionsHolder::defaultOptions() {
 	$init(DatagramChannelImpl$DefaultOptionsHolder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashSet, set, $new($HashSet));
 	$init($StandardSocketOptions);
 	set->add($StandardSocketOptions::SO_SNDBUF);
@@ -99,7 +60,7 @@ $Set* DatagramChannelImpl$DefaultOptionsHolder::defaultOptions() {
 	return $Collections::unmodifiableSet(set);
 }
 
-void clinit$DatagramChannelImpl$DefaultOptionsHolder($Class* class$) {
+void DatagramChannelImpl$DefaultOptionsHolder::clinit$($Class* clazz) {
 	$assignStatic(DatagramChannelImpl$DefaultOptionsHolder::defaultOptions$, DatagramChannelImpl$DefaultOptionsHolder::defaultOptions());
 }
 
@@ -107,7 +68,37 @@ DatagramChannelImpl$DefaultOptionsHolder::DatagramChannelImpl$DefaultOptionsHold
 }
 
 $Class* DatagramChannelImpl$DefaultOptionsHolder::load$($String* name, bool initialize) {
-	$loadClass(DatagramChannelImpl$DefaultOptionsHolder, name, initialize, &_DatagramChannelImpl$DefaultOptionsHolder_ClassInfo_, clinit$DatagramChannelImpl$DefaultOptionsHolder, allocate$DatagramChannelImpl$DefaultOptionsHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultOptions", "Ljava/util/Set;", "Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $STATIC | $FINAL, $staticField(DatagramChannelImpl$DefaultOptionsHolder, defaultOptions$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DatagramChannelImpl$DefaultOptionsHolder, init$, void)},
+		{"defaultOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE | $STATIC, $staticMethod(DatagramChannelImpl$DefaultOptionsHolder, defaultOptions, $Set*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.DatagramChannelImpl$DefaultOptionsHolder", "sun.nio.ch.DatagramChannelImpl", "DefaultOptionsHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.DatagramChannelImpl$DefaultOptionsHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.DatagramChannelImpl"
+	};
+	$loadClass(DatagramChannelImpl$DefaultOptionsHolder, name, initialize, &classInfo$$, DatagramChannelImpl$DefaultOptionsHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DatagramChannelImpl$DefaultOptionsHolder);
+	});
 	return class$;
 }
 

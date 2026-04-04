@@ -1,5 +1,4 @@
 #include <sun/security/x509/IPAddressName.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/net/InetAddress.h>
@@ -37,51 +36,12 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _IPAddressName_FieldInfo_[] = {
-	{"address", "[B", nullptr, $PRIVATE, $field(IPAddressName, address)},
-	{"isIPv4", "Z", nullptr, $PRIVATE, $field(IPAddressName, isIPv4)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(IPAddressName, name)},
-	{"MASKSIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressName, MASKSIZE)},
-	{}
-};
-
-$MethodInfo _IPAddressName_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(IPAddressName, init$, void, $DerValue*), "java.io.IOException"},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(IPAddressName, init$, void, $bytes*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IPAddressName, init$, void, $String*), "java.io.IOException"},
-	{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC, $virtualMethod(IPAddressName, constrains, int32_t, $GeneralNameInterface*), "java.lang.UnsupportedOperationException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(IPAddressName, encode, void, $DerOutputStream*), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IPAddressName, equals, bool, Object$*)},
-	{"getBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(IPAddressName, getBytes, $bytes*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IPAddressName, getName, $String*), "java.io.IOException"},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(IPAddressName, getType, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(IPAddressName, hashCode, int32_t)},
-	{"parseIPv4", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(IPAddressName, parseIPv4, void, $String*), "java.io.IOException"},
-	{"parseIPv6", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(IPAddressName, parseIPv6, void, $String*), "java.io.IOException"},
-	{"subtreeDepth", "()I", nullptr, $PUBLIC, $virtualMethod(IPAddressName, subtreeDepth, int32_t), "java.lang.UnsupportedOperationException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IPAddressName, toString, $String*)},
-	{}
-};
-
-$ClassInfo _IPAddressName_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.IPAddressName",
-	"java.lang.Object",
-	"sun.security.x509.GeneralNameInterface",
-	_IPAddressName_FieldInfo_,
-	_IPAddressName_MethodInfo_
-};
-
-$Object* allocate$IPAddressName($Class* clazz) {
-	return $of($alloc(IPAddressName));
-}
-
 void IPAddressName::init$($DerValue* derValue) {
 	IPAddressName::init$($($nc(derValue)->getOctetString()));
 }
 
 void IPAddressName::init$($bytes* address) {
-	if ($nc(address)->length == 4 || $nc(address)->length == 8) {
+	if ($nc(address)->length == 4 || address->length == 8) {
 		this->isIPv4 = true;
 	} else if (address->length == 16 || address->length == 32) {
 		this->isIPv4 = false;
@@ -92,17 +52,17 @@ void IPAddressName::init$($bytes* address) {
 }
 
 void IPAddressName::init$($String* name) {
-	$useLocalCurrentObjectStackCache();
-	if (name == nullptr || $nc(name)->isEmpty()) {
+	$useLocalObjectStack();
+	if (name == nullptr || name->isEmpty()) {
 		$throwNew($IOException, "IPAddress cannot be null or empty"_s);
 	}
-	if ($nc(name)->charAt(name->length() - 1) == u'/') {
+	if ($nc(name)->charAt($nc(name)->length() - 1) == u'/') {
 		$throwNew($IOException, $$str({"Invalid IPAddress: "_s, name}));
 	}
-	if ($nc(name)->indexOf((int32_t)u':') >= 0) {
+	if (name->indexOf(u':') >= 0) {
 		parseIPv6(name);
 		this->isIPv4 = false;
-	} else if (name->indexOf((int32_t)u'.') >= 0) {
+	} else if (name->indexOf(u'.') >= 0) {
 		parseIPv4(name);
 		this->isIPv4 = true;
 	} else {
@@ -111,27 +71,27 @@ void IPAddressName::init$($String* name) {
 }
 
 void IPAddressName::parseIPv4($String* name) {
-	$useLocalCurrentObjectStackCache();
-	int32_t slashNdx = $nc(name)->indexOf((int32_t)u'/');
+	$useLocalObjectStack();
+	int32_t slashNdx = $nc(name)->indexOf(u'/');
 	if (slashNdx == -1) {
-		$set(this, address, $nc($($InetAddress::getByName(name)))->getAddress());
+		$set(this, address, $$nc($InetAddress::getByName(name))->getAddress());
 	} else {
 		$set(this, address, $new($bytes, 8));
-		$var($bytes, mask, $nc($($InetAddress::getByName($(name->substring(slashNdx + 1)))))->getAddress());
-		$var($bytes, host, $nc($($InetAddress::getByName($(name->substring(0, slashNdx)))))->getAddress());
+		$var($bytes, mask, $$nc($InetAddress::getByName($(name->substring(slashNdx + 1))))->getAddress());
+		$var($bytes, host, $$nc($InetAddress::getByName($(name->substring(0, slashNdx))))->getAddress());
 		$System::arraycopy(host, 0, this->address, 0, 4);
 		$System::arraycopy(mask, 0, this->address, 4, 4);
 	}
 }
 
 void IPAddressName::parseIPv6($String* name) {
-	$useLocalCurrentObjectStackCache();
-	int32_t slashNdx = $nc(name)->indexOf((int32_t)u'/');
+	$useLocalObjectStack();
+	int32_t slashNdx = $nc(name)->indexOf(u'/');
 	if (slashNdx == -1) {
-		$set(this, address, $nc($($InetAddress::getByName(name)))->getAddress());
+		$set(this, address, $$nc($InetAddress::getByName(name))->getAddress());
 	} else {
 		$set(this, address, $new($bytes, 32));
-		$var($bytes, base, $nc($($InetAddress::getByName($(name->substring(0, slashNdx)))))->getAddress());
+		$var($bytes, base, $$nc($InetAddress::getByName($(name->substring(0, slashNdx))))->getAddress());
 		$System::arraycopy(base, 0, this->address, 0, 16);
 		int32_t prefixLen = $Integer::parseInt($(name->substring(slashNdx + 1)));
 		if (prefixLen < 0 || prefixLen > 128) {
@@ -143,7 +103,7 @@ void IPAddressName::parseIPv6($String* name) {
 		}
 		$var($bytes, maskArray, bitArray->toByteArray());
 		for (int32_t i = 0; i < IPAddressName::MASKSIZE; ++i) {
-			$nc(this->address)->set(IPAddressName::MASKSIZE + i, $nc(maskArray)->get(i));
+			this->address->set(IPAddressName::MASKSIZE + i, $nc(maskArray)->get(i));
 		}
 	}
 }
@@ -157,7 +117,7 @@ void IPAddressName::encode($DerOutputStream* out) {
 }
 
 $String* IPAddressName::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return $str({"IPAddress: "_s, $(getName())});
 	} catch ($IOException& ioe) {
@@ -168,27 +128,27 @@ $String* IPAddressName::toString() {
 }
 
 $String* IPAddressName::getName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->name != nullptr) {
 		return this->name;
 	}
 	if (this->isIPv4) {
 		$var($bytes, host, $new($bytes, 4));
 		$System::arraycopy(this->address, 0, host, 0, 4);
-		$set(this, name, $nc($($InetAddress::getByAddress(host)))->getHostAddress());
+		$set(this, name, $$nc($InetAddress::getByAddress(host))->getHostAddress());
 		if ($nc(this->address)->length == 8) {
 			$var($bytes, mask, $new($bytes, 4));
 			$System::arraycopy(this->address, 4, mask, 0, 4);
-			$set(this, name, $str({this->name, $$str(u'/'), $($nc($($InetAddress::getByAddress(mask)))->getHostAddress())}));
+			$set(this, name, $str({this->name, $$str(u'/'), $($$nc($InetAddress::getByAddress(mask))->getHostAddress())}));
 		}
 	} else {
 		$var($bytes, host, $new($bytes, 16));
 		$System::arraycopy(this->address, 0, host, 0, 16);
-		$set(this, name, $nc($($InetAddress::getByAddress(host)))->getHostAddress());
+		$set(this, name, $$nc($InetAddress::getByAddress(host))->getHostAddress());
 		if ($nc(this->address)->length == 32) {
 			$var($bytes, maskBytes, $new($bytes, 16));
 			for (int32_t i = 16; i < 32; ++i) {
-				maskBytes->set(i - 16, $nc(this->address)->get(i));
+				maskBytes->set(i - 16, this->address->get(i));
 			}
 			$var($BitArray, ba, $new($BitArray, 16 * 8, maskBytes));
 			int32_t i = 0;
@@ -213,7 +173,7 @@ $bytes* IPAddressName::getBytes() {
 }
 
 bool IPAddressName::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -225,17 +185,17 @@ bool IPAddressName::equals(Object$* obj) {
 	if ($nc(other)->length != $nc(this->address)->length) {
 		return false;
 	}
-	if ($nc(this->address)->length == 8 || $nc(this->address)->length == 32) {
-		int32_t maskLen = $nc(this->address)->length / 2;
+	if (this->address->length == 8 || this->address->length == 32) {
+		int32_t maskLen = this->address->length / 2;
 		for (int32_t i = 0; i < maskLen; ++i) {
-			int8_t maskedThis = (int8_t)((int32_t)($nc(this->address)->get(i) & (uint32_t)(int32_t)$nc(this->address)->get(i + maskLen)));
-			int8_t maskedOther = (int8_t)((int32_t)($nc(other)->get(i) & (uint32_t)(int32_t)other->get(i + maskLen)));
+			int8_t maskedThis = (int8_t)(this->address->get(i) & this->address->get(i + maskLen));
+			int8_t maskedOther = (int8_t)(other->get(i) & other->get(i + maskLen));
 			if (maskedThis != maskedOther) {
 				return false;
 			}
 		}
-		for (int32_t i = maskLen; i < $nc(this->address)->length; ++i) {
-			if ($nc(this->address)->get(i) != $nc(other)->get(i)) {
+		for (int32_t i = maskLen; i < this->address->length; ++i) {
+			if (this->address->get(i) != other->get(i)) {
 				return false;
 			}
 		}
@@ -248,19 +208,19 @@ bool IPAddressName::equals(Object$* obj) {
 int32_t IPAddressName::hashCode() {
 	int32_t retval = 0;
 	for (int32_t i = 0; i < $nc(this->address)->length; ++i) {
-		retval += $nc(this->address)->get(i) * i;
+		retval += this->address->get(i) * i;
 	}
 	return retval;
 }
 
 int32_t IPAddressName::constrains($GeneralNameInterface* inputName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t constraintType = 0;
 	if (inputName == nullptr) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
-	} else if ($nc(inputName)->getType() != $GeneralNameInterface::NAME_IP) {
+	} else if (inputName->getType() != $GeneralNameInterface::NAME_IP) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
-	} else if ($nc(($cast(IPAddressName, inputName)))->equals(this)) {
+	} else if ($cast(IPAddressName, inputName)->equals(this)) {
 		constraintType = $GeneralNameInterface::NAME_MATCH;
 	} else {
 		$var(IPAddressName, otherName, $cast(IPAddressName, inputName));
@@ -272,18 +232,18 @@ int32_t IPAddressName::constrains($GeneralNameInterface* inputName) {
 			bool thisSubsetOfOther = true;
 			bool thisEmpty = false;
 			bool otherEmpty = false;
-			int32_t maskOffset = $nc(this->address)->length / 2;
+			int32_t maskOffset = this->address->length / 2;
 			for (int32_t i = 0; i < maskOffset; ++i) {
-				if ((int8_t)((int32_t)($nc(this->address)->get(i) & (uint32_t)(int32_t)$nc(this->address)->get(i + maskOffset))) != $nc(this->address)->get(i)) {
+				if ((int8_t)(this->address->get(i) & this->address->get(i + maskOffset)) != this->address->get(i)) {
 					thisEmpty = true;
 				}
-				if ((int8_t)((int32_t)(otherAddress->get(i) & (uint32_t)(int32_t)otherAddress->get(i + maskOffset))) != otherAddress->get(i)) {
+				if ((int8_t)(otherAddress->get(i) & otherAddress->get(i + maskOffset)) != otherAddress->get(i)) {
 					otherEmpty = true;
 				}
-				if (!(((int8_t)((int32_t)($nc(this->address)->get(i + maskOffset) & (uint32_t)(int32_t)otherAddress->get(i + maskOffset))) == $nc(this->address)->get(i + maskOffset)) && ((int8_t)((int32_t)($nc(this->address)->get(i) & (uint32_t)(int32_t)$nc(this->address)->get(i + maskOffset))) == (int8_t)((int32_t)(otherAddress->get(i) & (uint32_t)(int32_t)$nc(this->address)->get(i + maskOffset)))))) {
+				if (!(((int8_t)(this->address->get(i + maskOffset) & otherAddress->get(i + maskOffset)) == this->address->get(i + maskOffset)) && ((int8_t)(this->address->get(i) & this->address->get(i + maskOffset)) == (int8_t)(otherAddress->get(i) & this->address->get(i + maskOffset))))) {
 					otherSubsetOfThis = false;
 				}
-				if (!(((int8_t)((int32_t)(otherAddress->get(i + maskOffset) & (uint32_t)(int32_t)$nc(this->address)->get(i + maskOffset))) == otherAddress->get(i + maskOffset)) && ((int8_t)((int32_t)(otherAddress->get(i) & (uint32_t)(int32_t)otherAddress->get(i + maskOffset))) == (int8_t)((int32_t)($nc(this->address)->get(i) & (uint32_t)(int32_t)otherAddress->get(i + maskOffset)))))) {
+				if (!(((int8_t)(otherAddress->get(i + maskOffset) & this->address->get(i + maskOffset)) == otherAddress->get(i + maskOffset)) && ((int8_t)(otherAddress->get(i) & otherAddress->get(i + maskOffset)) == (int8_t)(this->address->get(i) & otherAddress->get(i + maskOffset))))) {
 					thisSubsetOfOther = false;
 				}
 			}
@@ -306,7 +266,7 @@ int32_t IPAddressName::constrains($GeneralNameInterface* inputName) {
 			int32_t i = 0;
 			int32_t maskOffset = otherAddress->length / 2;
 			for (; i < maskOffset; ++i) {
-				if (((int32_t)($nc(this->address)->get(i) & (uint32_t)(int32_t)otherAddress->get(i + maskOffset))) != otherAddress->get(i)) {
+				if (($nc(this->address)->get(i) & otherAddress->get(i + maskOffset)) != otherAddress->get(i)) {
 					break;
 				}
 			}
@@ -315,11 +275,11 @@ int32_t IPAddressName::constrains($GeneralNameInterface* inputName) {
 			} else {
 				constraintType = $GeneralNameInterface::NAME_SAME_TYPE;
 			}
-		} else if ($nc(this->address)->length == 8 || $nc(this->address)->length == 32) {
+		} else if ($nc(this->address)->length == 8 || this->address->length == 32) {
 			int32_t i = 0;
-			int32_t maskOffset = $nc(this->address)->length / 2;
+			int32_t maskOffset = this->address->length / 2;
 			for (; i < maskOffset; ++i) {
-				if (((int32_t)(otherAddress->get(i) & (uint32_t)(int32_t)$nc(this->address)->get(i + maskOffset))) != $nc(this->address)->get(i)) {
+				if ((otherAddress->get(i) & this->address->get(i + maskOffset)) != this->address->get(i)) {
 					break;
 				}
 			}
@@ -344,7 +304,41 @@ IPAddressName::IPAddressName() {
 }
 
 $Class* IPAddressName::load$($String* name, bool initialize) {
-	$loadClass(IPAddressName, name, initialize, &_IPAddressName_ClassInfo_, allocate$IPAddressName);
+	$FieldInfo fieldInfos$$[] = {
+		{"address", "[B", nullptr, $PRIVATE, $field(IPAddressName, address)},
+		{"isIPv4", "Z", nullptr, $PRIVATE, $field(IPAddressName, isIPv4)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(IPAddressName, name)},
+		{"MASKSIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressName, MASKSIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(IPAddressName, init$, void, $DerValue*), "java.io.IOException"},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(IPAddressName, init$, void, $bytes*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IPAddressName, init$, void, $String*), "java.io.IOException"},
+		{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC, $virtualMethod(IPAddressName, constrains, int32_t, $GeneralNameInterface*), "java.lang.UnsupportedOperationException"},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(IPAddressName, encode, void, $DerOutputStream*), "java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IPAddressName, equals, bool, Object$*)},
+		{"getBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(IPAddressName, getBytes, $bytes*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IPAddressName, getName, $String*), "java.io.IOException"},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(IPAddressName, getType, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(IPAddressName, hashCode, int32_t)},
+		{"parseIPv4", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(IPAddressName, parseIPv4, void, $String*), "java.io.IOException"},
+		{"parseIPv6", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(IPAddressName, parseIPv6, void, $String*), "java.io.IOException"},
+		{"subtreeDepth", "()I", nullptr, $PUBLIC, $virtualMethod(IPAddressName, subtreeDepth, int32_t), "java.lang.UnsupportedOperationException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IPAddressName, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.IPAddressName",
+		"java.lang.Object",
+		"sun.security.x509.GeneralNameInterface",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IPAddressName, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IPAddressName);
+	});
 	return class$;
 }
 

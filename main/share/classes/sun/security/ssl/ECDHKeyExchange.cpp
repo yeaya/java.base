@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ECDHKeyExchange.h>
-
 #include <sun/security/ssl/ECDHKeyExchange$ECDHEKAGenerator.h>
 #include <sun/security/ssl/ECDHKeyExchange$ECDHEPossessionGenerator.h>
 #include <sun/security/ssl/ECDHKeyExchange$ECDHEXDHKAGenerator.h>
@@ -23,49 +22,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _ECDHKeyExchange_FieldInfo_[] = {
-	{"poGenerator", "Lsun/security/ssl/SSLPossessionGenerator;", nullptr, $STATIC | $FINAL, $staticField(ECDHKeyExchange, poGenerator)},
-	{"ecdhKAGenerator", "Lsun/security/ssl/SSLKeyAgreementGenerator;", nullptr, $STATIC | $FINAL, $staticField(ECDHKeyExchange, ecdhKAGenerator)},
-	{"ecdheKAGenerator", "Lsun/security/ssl/SSLKeyAgreementGenerator;", nullptr, $STATIC | $FINAL, $staticField(ECDHKeyExchange, ecdheKAGenerator)},
-	{"ecdheXdhKAGenerator", "Lsun/security/ssl/SSLKeyAgreementGenerator;", nullptr, $STATIC | $FINAL, $staticField(ECDHKeyExchange, ecdheXdhKAGenerator)},
-	{}
-};
-
-$MethodInfo _ECDHKeyExchange_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ECDHKeyExchange, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ECDHKeyExchange_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ECDHKeyExchange$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"sun.security.ssl.ECDHKeyExchange$ECDHEXDHKAGenerator", "sun.security.ssl.ECDHKeyExchange", "ECDHEXDHKAGenerator", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ECDHKeyExchange$ECDHEKAGenerator", "sun.security.ssl.ECDHKeyExchange", "ECDHEKAGenerator", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ECDHKeyExchange$ECDHKAGenerator", "sun.security.ssl.ECDHKeyExchange", "ECDHKAGenerator", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ECDHKeyExchange$ECDHEPossessionGenerator", "sun.security.ssl.ECDHKeyExchange", "ECDHEPossessionGenerator", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ECDHKeyExchange$ECDHEPossession", "sun.security.ssl.ECDHKeyExchange", "ECDHEPossession", $STATIC | $FINAL},
-	{"sun.security.ssl.ECDHKeyExchange$ECDHECredentials", "sun.security.ssl.ECDHKeyExchange", "ECDHECredentials", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ECDHKeyExchange_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ECDHKeyExchange",
-	"java.lang.Object",
-	nullptr,
-	_ECDHKeyExchange_FieldInfo_,
-	_ECDHKeyExchange_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ECDHKeyExchange_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ECDHKeyExchange$1,sun.security.ssl.ECDHKeyExchange$ECDHEXDHKAGenerator,sun.security.ssl.ECDHKeyExchange$ECDHEKAGenerator,sun.security.ssl.ECDHKeyExchange$ECDHKAGenerator,sun.security.ssl.ECDHKeyExchange$ECDHEPossessionGenerator,sun.security.ssl.ECDHKeyExchange$ECDHEPossession,sun.security.ssl.ECDHKeyExchange$ECDHECredentials"
-};
-
-$Object* allocate$ECDHKeyExchange($Class* clazz) {
-	return $of($alloc(ECDHKeyExchange));
-}
-
 $SSLPossessionGenerator* ECDHKeyExchange::poGenerator = nullptr;
 $SSLKeyAgreementGenerator* ECDHKeyExchange::ecdhKAGenerator = nullptr;
 $SSLKeyAgreementGenerator* ECDHKeyExchange::ecdheKAGenerator = nullptr;
@@ -74,7 +30,7 @@ $SSLKeyAgreementGenerator* ECDHKeyExchange::ecdheXdhKAGenerator = nullptr;
 void ECDHKeyExchange::init$() {
 }
 
-void clinit$ECDHKeyExchange($Class* class$) {
+void ECDHKeyExchange::clinit$($Class* clazz) {
 	$assignStatic(ECDHKeyExchange::poGenerator, $new($ECDHKeyExchange$ECDHEPossessionGenerator));
 	$assignStatic(ECDHKeyExchange::ecdhKAGenerator, $new($ECDHKeyExchange$ECDHKAGenerator));
 	$assignStatic(ECDHKeyExchange::ecdheKAGenerator, $new($ECDHKeyExchange$ECDHEKAGenerator));
@@ -85,7 +41,44 @@ ECDHKeyExchange::ECDHKeyExchange() {
 }
 
 $Class* ECDHKeyExchange::load$($String* name, bool initialize) {
-	$loadClass(ECDHKeyExchange, name, initialize, &_ECDHKeyExchange_ClassInfo_, clinit$ECDHKeyExchange, allocate$ECDHKeyExchange);
+	$FieldInfo fieldInfos$$[] = {
+		{"poGenerator", "Lsun/security/ssl/SSLPossessionGenerator;", nullptr, $STATIC | $FINAL, $staticField(ECDHKeyExchange, poGenerator)},
+		{"ecdhKAGenerator", "Lsun/security/ssl/SSLKeyAgreementGenerator;", nullptr, $STATIC | $FINAL, $staticField(ECDHKeyExchange, ecdhKAGenerator)},
+		{"ecdheKAGenerator", "Lsun/security/ssl/SSLKeyAgreementGenerator;", nullptr, $STATIC | $FINAL, $staticField(ECDHKeyExchange, ecdheKAGenerator)},
+		{"ecdheXdhKAGenerator", "Lsun/security/ssl/SSLKeyAgreementGenerator;", nullptr, $STATIC | $FINAL, $staticField(ECDHKeyExchange, ecdheXdhKAGenerator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ECDHKeyExchange, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ECDHKeyExchange$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"sun.security.ssl.ECDHKeyExchange$ECDHEXDHKAGenerator", "sun.security.ssl.ECDHKeyExchange", "ECDHEXDHKAGenerator", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ECDHKeyExchange$ECDHEKAGenerator", "sun.security.ssl.ECDHKeyExchange", "ECDHEKAGenerator", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ECDHKeyExchange$ECDHKAGenerator", "sun.security.ssl.ECDHKeyExchange", "ECDHKAGenerator", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ECDHKeyExchange$ECDHEPossessionGenerator", "sun.security.ssl.ECDHKeyExchange", "ECDHEPossessionGenerator", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ECDHKeyExchange$ECDHEPossession", "sun.security.ssl.ECDHKeyExchange", "ECDHEPossession", $STATIC | $FINAL},
+		{"sun.security.ssl.ECDHKeyExchange$ECDHECredentials", "sun.security.ssl.ECDHKeyExchange", "ECDHECredentials", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ECDHKeyExchange",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ECDHKeyExchange$1,sun.security.ssl.ECDHKeyExchange$ECDHEXDHKAGenerator,sun.security.ssl.ECDHKeyExchange$ECDHEKAGenerator,sun.security.ssl.ECDHKeyExchange$ECDHKAGenerator,sun.security.ssl.ECDHKeyExchange$ECDHEPossessionGenerator,sun.security.ssl.ECDHKeyExchange$ECDHEPossession,sun.security.ssl.ECDHKeyExchange$ECDHECredentials"
+	};
+	$loadClass(ECDHKeyExchange, name, initialize, &classInfo$$, ECDHKeyExchange::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ECDHKeyExchange);
+	});
 	return class$;
 }
 

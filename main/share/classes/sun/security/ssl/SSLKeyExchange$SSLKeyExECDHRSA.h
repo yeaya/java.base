@@ -24,6 +24,7 @@ class SSLKeyExchange$SSLKeyExECDHRSA : public ::java::lang::Object {
 	$class(SSLKeyExchange$SSLKeyExECDHRSA, 0, ::java::lang::Object)
 public:
 	SSLKeyExchange$SSLKeyExECDHRSA();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::SSLKeyExchange* KE;
 };

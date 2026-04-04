@@ -26,6 +26,7 @@ class $export PolicyParser$PrincipalEntry : public ::java::security::Principal {
 	$class(PolicyParser$PrincipalEntry, 0, ::java::security::Principal)
 public:
 	PolicyParser$PrincipalEntry();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* principalClass, $String* principalName);
 	virtual bool equals(Object$* obj) override;
 	virtual $String* getDisplayClass();

@@ -35,6 +35,7 @@ class $export ManifestDigester : public ::java::lang::Object {
 	$class(ManifestDigester, 0, ::java::lang::Object)
 public:
 	ManifestDigester();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($bytes* bytes);
 	bool findSection(int32_t offset, ::sun::security::util::ManifestDigester$Position* pos);
 	virtual ::sun::security::util::ManifestDigester$Entry* get($String* name);

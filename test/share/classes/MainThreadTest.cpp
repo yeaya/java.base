@@ -1,5 +1,4 @@
 #include <MainThreadTest.h>
-
 #include <java/lang/ThreadGroup.h>
 #include <jcpp.h>
 
@@ -8,30 +7,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ThreadGroup = ::java::lang::ThreadGroup;
 
-$MethodInfo _MainThreadTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MainThreadTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MainThreadTest, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _MainThreadTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MainThreadTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_MainThreadTest_MethodInfo_
-};
-
-$Object* allocate$MainThreadTest($Class* clazz) {
-	return $of($alloc(MainThreadTest));
-}
-
 void MainThreadTest::init$() {
 }
 
 void MainThreadTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ThreadGroup, tg, $($Thread::currentThread())->getThreadGroup());
 	int32_t n = $nc(tg)->activeCount();
 	$var($ThreadArray, ts, $new($ThreadArray, n));
@@ -48,7 +28,22 @@ MainThreadTest::MainThreadTest() {
 }
 
 $Class* MainThreadTest::load$($String* name, bool initialize) {
-	$loadClass(MainThreadTest, name, initialize, &_MainThreadTest_ClassInfo_, allocate$MainThreadTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MainThreadTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MainThreadTest, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MainThreadTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MainThreadTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MainThreadTest);
+	});
 	return class$;
 }
 

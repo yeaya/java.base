@@ -15,6 +15,7 @@ class $export ScatteringRead : public ::java::lang::Object {
 	$class(ScatteringRead, 0, ::java::lang::Object)
 public:
 	ScatteringRead();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void scScatter();

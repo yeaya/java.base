@@ -1,5 +1,4 @@
 #include <sun/security/x509/SerialNumber.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/math/BigInteger.h>
@@ -24,37 +23,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _SerialNumber_FieldInfo_[] = {
-	{"serialNum", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(SerialNumber, serialNum)},
-	{}
-};
-
-$MethodInfo _SerialNumber_MethodInfo_[] = {
-	{"<init>", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(SerialNumber, init$, void, $BigInteger*)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(SerialNumber, init$, void, int32_t)},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(SerialNumber, init$, void, $DerInputStream*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(SerialNumber, init$, void, $DerValue*), "java.io.IOException"},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(SerialNumber, init$, void, $InputStream*), "java.io.IOException"},
-	{"construct", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(SerialNumber, construct, void, $DerValue*), "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(SerialNumber, encode, void, $DerOutputStream*), "java.io.IOException"},
-	{"getNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(SerialNumber, getNumber, $BigInteger*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerialNumber, toString, $String*)},
-	{}
-};
-
-$ClassInfo _SerialNumber_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.SerialNumber",
-	"java.lang.Object",
-	nullptr,
-	_SerialNumber_FieldInfo_,
-	_SerialNumber_MethodInfo_
-};
-
-$Object* allocate$SerialNumber($Class* clazz) {
-	return $of($alloc(SerialNumber));
-}
-
 void SerialNumber::construct($DerValue* derVal) {
 	$set(this, serialNum, $nc(derVal)->getBigInteger());
 	if ($nc(derVal->data$)->available() != 0) {
@@ -67,7 +35,7 @@ void SerialNumber::init$($BigInteger* num) {
 }
 
 void SerialNumber::init$(int32_t num) {
-	$set(this, serialNum, $BigInteger::valueOf((int64_t)num));
+	$set(this, serialNum, $BigInteger::valueOf(num));
 }
 
 void SerialNumber::init$($DerInputStream* in) {
@@ -85,7 +53,7 @@ void SerialNumber::init$($InputStream* in) {
 }
 
 $String* SerialNumber::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"SerialNumber: ["_s, $($Debug::toHexString(this->serialNum)), $$str(u']')});
 }
 
@@ -101,7 +69,33 @@ SerialNumber::SerialNumber() {
 }
 
 $Class* SerialNumber::load$($String* name, bool initialize) {
-	$loadClass(SerialNumber, name, initialize, &_SerialNumber_ClassInfo_, allocate$SerialNumber);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialNum", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(SerialNumber, serialNum)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(SerialNumber, init$, void, $BigInteger*)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(SerialNumber, init$, void, int32_t)},
+		{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(SerialNumber, init$, void, $DerInputStream*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(SerialNumber, init$, void, $DerValue*), "java.io.IOException"},
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(SerialNumber, init$, void, $InputStream*), "java.io.IOException"},
+		{"construct", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(SerialNumber, construct, void, $DerValue*), "java.io.IOException"},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(SerialNumber, encode, void, $DerOutputStream*), "java.io.IOException"},
+		{"getNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(SerialNumber, getNumber, $BigInteger*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerialNumber, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.SerialNumber",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SerialNumber, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SerialNumber);
+	});
 	return class$;
 }
 

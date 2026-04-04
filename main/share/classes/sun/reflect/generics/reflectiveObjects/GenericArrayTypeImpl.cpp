@@ -1,5 +1,4 @@
 #include <sun/reflect/generics/reflectiveObjects/GenericArrayTypeImpl.h>
-
 #include <java/lang/reflect/GenericArrayType.h>
 #include <java/lang/reflect/Type.h>
 #include <java/util/Objects.h>
@@ -17,34 +16,6 @@ namespace sun {
 		namespace generics {
 			namespace reflectiveObjects {
 
-$FieldInfo _GenericArrayTypeImpl_FieldInfo_[] = {
-	{"genericComponentType", "Ljava/lang/reflect/Type;", nullptr, $PRIVATE | $FINAL, $field(GenericArrayTypeImpl, genericComponentType)},
-	{}
-};
-
-$MethodInfo _GenericArrayTypeImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Type;)V", nullptr, $PRIVATE, $method(GenericArrayTypeImpl, init$, void, $Type*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GenericArrayTypeImpl, equals, bool, Object$*)},
-	{"getGenericComponentType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $virtualMethod(GenericArrayTypeImpl, getGenericComponentType, $Type*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GenericArrayTypeImpl, hashCode, int32_t)},
-	{"make", "(Ljava/lang/reflect/Type;)Lsun/reflect/generics/reflectiveObjects/GenericArrayTypeImpl;", nullptr, $PUBLIC | $STATIC, $staticMethod(GenericArrayTypeImpl, make, GenericArrayTypeImpl*, $Type*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GenericArrayTypeImpl, toString, $String*)},
-	{}
-};
-
-$ClassInfo _GenericArrayTypeImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.reflect.generics.reflectiveObjects.GenericArrayTypeImpl",
-	"java.lang.Object",
-	"java.lang.reflect.GenericArrayType",
-	_GenericArrayTypeImpl_FieldInfo_,
-	_GenericArrayTypeImpl_MethodInfo_
-};
-
-$Object* allocate$GenericArrayTypeImpl($Class* clazz) {
-	return $of($alloc(GenericArrayTypeImpl));
-}
-
 void GenericArrayTypeImpl::init$($Type* ct) {
 	$set(this, genericComponentType, ct);
 }
@@ -59,15 +30,15 @@ $Type* GenericArrayTypeImpl::getGenericComponentType() {
 }
 
 $String* GenericArrayTypeImpl::toString() {
-	$useLocalCurrentObjectStackCache();
-	return $str({$($nc($(getGenericComponentType()))->getTypeName()), "[]"_s});
+	$useLocalObjectStack();
+	return $str({$($$nc(getGenericComponentType())->getTypeName()), "[]"_s});
 }
 
 bool GenericArrayTypeImpl::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($GenericArrayType, o)) {
 		$var($GenericArrayType, that, $cast($GenericArrayType, o));
-		return $Objects::equals(this->genericComponentType, $($nc(that)->getGenericComponentType()));
+		return $Objects::equals(this->genericComponentType, $(that->getGenericComponentType()));
 	} else {
 		return false;
 	}
@@ -81,7 +52,30 @@ GenericArrayTypeImpl::GenericArrayTypeImpl() {
 }
 
 $Class* GenericArrayTypeImpl::load$($String* name, bool initialize) {
-	$loadClass(GenericArrayTypeImpl, name, initialize, &_GenericArrayTypeImpl_ClassInfo_, allocate$GenericArrayTypeImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"genericComponentType", "Ljava/lang/reflect/Type;", nullptr, $PRIVATE | $FINAL, $field(GenericArrayTypeImpl, genericComponentType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/reflect/Type;)V", nullptr, $PRIVATE, $method(GenericArrayTypeImpl, init$, void, $Type*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GenericArrayTypeImpl, equals, bool, Object$*)},
+		{"getGenericComponentType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $virtualMethod(GenericArrayTypeImpl, getGenericComponentType, $Type*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GenericArrayTypeImpl, hashCode, int32_t)},
+		{"make", "(Ljava/lang/reflect/Type;)Lsun/reflect/generics/reflectiveObjects/GenericArrayTypeImpl;", nullptr, $PUBLIC | $STATIC, $staticMethod(GenericArrayTypeImpl, make, GenericArrayTypeImpl*, $Type*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GenericArrayTypeImpl, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.reflect.generics.reflectiveObjects.GenericArrayTypeImpl",
+		"java.lang.Object",
+		"java.lang.reflect.GenericArrayType",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GenericArrayTypeImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GenericArrayTypeImpl);
+	});
 	return class$;
 }
 

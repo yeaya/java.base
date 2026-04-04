@@ -1,5 +1,4 @@
 #include <jdk/internal/misc/OSEnvironment.h>
-
 #include <sun/io/Win32ErrorMode.h>
 #include <jcpp.h>
 
@@ -10,25 +9,6 @@ using $Win32ErrorMode = ::sun::io::Win32ErrorMode;
 namespace jdk {
 	namespace internal {
 		namespace misc {
-
-$MethodInfo _OSEnvironment_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(OSEnvironment, init$, void)},
-	{"initialize", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(OSEnvironment, initialize, void)},
-	{}
-};
-
-$ClassInfo _OSEnvironment_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.misc.OSEnvironment",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_OSEnvironment_MethodInfo_
-};
-
-$Object* allocate$OSEnvironment($Class* clazz) {
-	return $of($alloc(OSEnvironment));
-}
 
 void OSEnvironment::init$() {
 }
@@ -41,7 +21,22 @@ OSEnvironment::OSEnvironment() {
 }
 
 $Class* OSEnvironment::load$($String* name, bool initialize) {
-	$loadClass(OSEnvironment, name, initialize, &_OSEnvironment_ClassInfo_, allocate$OSEnvironment);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(OSEnvironment, init$, void)},
+		{"initialize", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(OSEnvironment, initialize, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.misc.OSEnvironment",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(OSEnvironment, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OSEnvironment);
+	});
 	return class$;
 }
 

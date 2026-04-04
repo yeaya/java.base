@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/JavaTimeDateTimePatternImpl.h>
-
 #include <java/util/Locale.h>
 #include <java/util/Set.h>
 #include <sun/text/spi/JavaTimeDateTimePatternProvider.h>
@@ -23,39 +22,6 @@ namespace sun {
 	namespace util {
 		namespace locale {
 			namespace provider {
-
-$FieldInfo _JavaTimeDateTimePatternImpl_FieldInfo_[] = {
-	{"type", "Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PRIVATE | $FINAL, $field(JavaTimeDateTimePatternImpl, type)},
-	{"langtags", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(JavaTimeDateTimePatternImpl, langtags)},
-	{}
-};
-
-$MethodInfo _JavaTimeDateTimePatternImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(JavaTimeDateTimePatternImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
-	{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(JavaTimeDateTimePatternImpl, getAvailableLanguageTags, $Set*)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(JavaTimeDateTimePatternImpl, getAvailableLocales, $LocaleArray*)},
-	{"getJavaTimeDateTimePattern", "(IILjava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavaTimeDateTimePatternImpl, getJavaTimeDateTimePattern, $String*, int32_t, int32_t, $String*, $Locale*)},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(JavaTimeDateTimePatternImpl, isSupportedLocale, bool, $Locale*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _JavaTimeDateTimePatternImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.locale.provider.JavaTimeDateTimePatternImpl",
-	"sun.text.spi.JavaTimeDateTimePatternProvider",
-	"sun.util.locale.provider.AvailableLanguageTags",
-	_JavaTimeDateTimePatternImpl_FieldInfo_,
-	_JavaTimeDateTimePatternImpl_MethodInfo_
-};
-
-$Object* allocate$JavaTimeDateTimePatternImpl($Class* clazz) {
-	return $of($alloc(JavaTimeDateTimePatternImpl));
-}
 
 int32_t JavaTimeDateTimePatternImpl::hashCode() {
 	 return this->$JavaTimeDateTimePatternProvider::hashCode();
@@ -88,12 +54,12 @@ $LocaleArray* JavaTimeDateTimePatternImpl::getAvailableLocales() {
 }
 
 bool JavaTimeDateTimePatternImpl::isSupportedLocale($Locale* locale) {
-	return $nc($($LocaleProviderAdapter::forType(this->type)))->isSupportedProviderLocale(locale, this->langtags);
+	return $$nc($LocaleProviderAdapter::forType(this->type))->isSupportedProviderLocale(locale, this->langtags);
 }
 
 $String* JavaTimeDateTimePatternImpl::getJavaTimeDateTimePattern(int32_t timeStyle, int32_t dateStyle, $String* calType, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
-	$var($LocaleResources, lr, $nc($($LocaleProviderAdapter::getResourceBundleBased()))->getLocaleResources(locale));
+	$useLocalObjectStack();
+	$var($LocaleResources, lr, $$nc($LocaleProviderAdapter::getResourceBundleBased())->getLocaleResources(locale));
 	$var($String, pattern, $nc(lr)->getJavaTimeDateTimePattern(timeStyle, dateStyle, calType));
 	return pattern;
 }
@@ -106,7 +72,35 @@ JavaTimeDateTimePatternImpl::JavaTimeDateTimePatternImpl() {
 }
 
 $Class* JavaTimeDateTimePatternImpl::load$($String* name, bool initialize) {
-	$loadClass(JavaTimeDateTimePatternImpl, name, initialize, &_JavaTimeDateTimePatternImpl_ClassInfo_, allocate$JavaTimeDateTimePatternImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PRIVATE | $FINAL, $field(JavaTimeDateTimePatternImpl, type)},
+		{"langtags", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(JavaTimeDateTimePatternImpl, langtags)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(JavaTimeDateTimePatternImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
+		{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(JavaTimeDateTimePatternImpl, getAvailableLanguageTags, $Set*)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(JavaTimeDateTimePatternImpl, getAvailableLocales, $LocaleArray*)},
+		{"getJavaTimeDateTimePattern", "(IILjava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavaTimeDateTimePatternImpl, getJavaTimeDateTimePattern, $String*, int32_t, int32_t, $String*, $Locale*)},
+		{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(JavaTimeDateTimePatternImpl, isSupportedLocale, bool, $Locale*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.locale.provider.JavaTimeDateTimePatternImpl",
+		"sun.text.spi.JavaTimeDateTimePatternProvider",
+		"sun.util.locale.provider.AvailableLanguageTags",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JavaTimeDateTimePatternImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JavaTimeDateTimePatternImpl));
+	});
 	return class$;
 }
 

@@ -30,6 +30,7 @@ class $export ProgressMonitor : public ::java::lang::Object {
 	$class(ProgressMonitor, 0, ::java::lang::Object)
 public:
 	ProgressMonitor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addProgressListener(::sun::net::ProgressListener* l);
 	static ::sun::net::ProgressMonitor* getDefault();

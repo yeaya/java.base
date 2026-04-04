@@ -86,6 +86,7 @@ class $export Collectors : public ::java::lang::Object {
 	$class(Collectors, $PRELOAD, ::java::lang::Object)
 public:
 	Collectors();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::stream::Collector* averagingDouble(::java::util::function::ToDoubleFunction* mapper);
 	static ::java::util::stream::Collector* averagingInt(::java::util::function::ToIntFunction* mapper);

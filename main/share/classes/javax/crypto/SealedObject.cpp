@@ -1,13 +1,10 @@
 #include <javax/crypto/SealedObject.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/ByteArrayOutputStream.h>
-#include <java/io/InputStream.h>
 #include <java/io/ObjectInput.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutput.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -35,12 +32,10 @@
 
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
-using $InputStream = ::java::io::InputStream;
 using $ObjectInput = ::java::io::ObjectInput;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutput = ::java::io::ObjectOutput;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -50,7 +45,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AlgorithmParameters = ::java::security::AlgorithmParameters;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
 using $Key = ::java::security::Key;
@@ -76,69 +70,30 @@ public:
 	virtual $ObjectInputStream* getExtObjectInputStream(SealedObject* obj, $Cipher* c) override {
 		 return SealedObject::lambda$static$0(obj, c);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SealedObject$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SealedObject$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SealedObject$$Lambda$lambda$static$0, init$, void)},
-	{"getExtObjectInputStream", "(Ljavax/crypto/SealedObject;Ljavax/crypto/Cipher;)Ljava/io/ObjectInputStream;", nullptr, $PUBLIC, $virtualMethod(SealedObject$$Lambda$lambda$static$0, getExtObjectInputStream, $ObjectInputStream*, SealedObject*, $Cipher*)},
-	{}
-};
-$ClassInfo SealedObject$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.crypto.SealedObject$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"jdk.internal.access.JavaxCryptoSealedObjectAccess",
-	nullptr,
-	methodInfos
 };
 $Class* SealedObject$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(SealedObject$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SealedObject$$Lambda$lambda$static$0, init$, void)},
+		{"getExtObjectInputStream", "(Ljavax/crypto/SealedObject;Ljavax/crypto/Cipher;)Ljava/io/ObjectInputStream;", nullptr, $PUBLIC, $virtualMethod(SealedObject$$Lambda$lambda$static$0, getExtObjectInputStream, $ObjectInputStream*, SealedObject*, $Cipher*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.crypto.SealedObject$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"jdk.internal.access.JavaxCryptoSealedObjectAccess",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SealedObject$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SealedObject$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* SealedObject$$Lambda$lambda$static$0::class$ = nullptr;
 
-$FieldInfo _SealedObject_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SealedObject, serialVersionUID)},
-	{"encryptedContent", "[B", nullptr, $PRIVATE, $field(SealedObject, encryptedContent)},
-	{"sealAlg", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SealedObject, sealAlg)},
-	{"paramsAlg", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SealedObject, paramsAlg)},
-	{"encodedParams", "[B", nullptr, $PROTECTED, $field(SealedObject, encodedParams)},
-	{}
-};
-
-$MethodInfo _SealedObject_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Serializable;Ljavax/crypto/Cipher;)V", nullptr, $PUBLIC, $method(SealedObject, init$, void, $Serializable*, $Cipher*), "java.io.IOException,javax.crypto.IllegalBlockSizeException"},
-	{"<init>", "(Ljavax/crypto/SealedObject;)V", nullptr, $PROTECTED, $method(SealedObject, init$, void, SealedObject*)},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(SealedObject, getAlgorithm, $String*)},
-	{"getExtObjectInputStream", "(Ljavax/crypto/Cipher;)Ljava/io/ObjectInputStream;", nullptr, $PRIVATE, $method(SealedObject, getExtObjectInputStream, $ObjectInputStream*, $Cipher*), "javax.crypto.BadPaddingException,javax.crypto.IllegalBlockSizeException,java.io.IOException"},
-	{"getObject", "(Ljava/security/Key;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(SealedObject, getObject, $Object*, $Key*), "java.io.IOException,java.lang.ClassNotFoundException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
-	{"getObject", "(Ljavax/crypto/Cipher;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(SealedObject, getObject, $Object*, $Cipher*), "java.io.IOException,java.lang.ClassNotFoundException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{"getObject", "(Ljava/security/Key;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(SealedObject, getObject, $Object*, $Key*, $String*), "java.io.IOException,java.lang.ClassNotFoundException,java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException,java.security.InvalidKeyException"},
-	{"lambda$static$0", "(Ljavax/crypto/SealedObject;Ljavax/crypto/Cipher;)Ljava/io/ObjectInputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SealedObject, lambda$static$0, $ObjectInputStream*, SealedObject*, $Cipher*), "javax.crypto.BadPaddingException,javax.crypto.IllegalBlockSizeException,java.io.IOException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(SealedObject, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"unseal", "(Ljava/security/Key;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(SealedObject, unseal, $Object*, $Key*, $String*), "java.io.IOException,java.lang.ClassNotFoundException,java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException,java.security.InvalidKeyException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{}
-};
-
-$ClassInfo _SealedObject_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.crypto.SealedObject",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_SealedObject_FieldInfo_,
-	_SealedObject_MethodInfo_
-};
-
-$Object* allocate$SealedObject($Class* clazz) {
-	return $of($alloc(SealedObject));
-}
-
 void SealedObject::init$($Serializable* object, $Cipher* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, encryptedContent, nullptr);
 	$set(this, sealAlg, nullptr);
 	$set(this, paramsAlg, nullptr);
@@ -146,42 +101,38 @@ void SealedObject::init$($Serializable* object, $Cipher* c) {
 	$var($ByteArrayOutputStream, b, $new($ByteArrayOutputStream));
 	$var($ObjectOutput, a, $new($ObjectOutputStream, b));
 	$var($bytes, content, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			a->writeObject(object);
-			a->flush();
-			$assign(content, b->toByteArray());
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			a->close();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		a->writeObject(object);
+		a->flush();
+		$assign(content, b->toByteArray());
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		a->close();
 	}
-	{
-		$var($Throwable, var$2, nullptr);
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	$var($Throwable, var$2, nullptr);
+	try {
 		try {
-			try {
-				$set(this, encryptedContent, $nc(c)->doFinal(content));
-			} catch ($BadPaddingException& ex) {
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$2, var$3);
-		} /*finally*/ {
-			$Arrays::fill(content, (int8_t)0);
+			$set(this, encryptedContent, $nc(c)->doFinal(content));
+		} catch ($BadPaddingException& ex) {
 		}
-		if (var$2 != nullptr) {
-			$throw(var$2);
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$2, var$3);
+	} /*finally*/ {
+		$Arrays::fill(content, (int8_t)0);
+	}
+	if (var$2 != nullptr) {
+		$throw(var$2);
 	}
 	if ($nc(c)->getParameters() != nullptr) {
-		$set(this, encodedParams, $nc($(c->getParameters()))->getEncoded());
-		$set(this, paramsAlg, $nc($(c->getParameters()))->getAlgorithm());
+		$set(this, encodedParams, $$nc(c->getParameters())->getEncoded());
+		$set(this, paramsAlg, $$nc(c->getParameters())->getAlgorithm());
 	}
-	$set(this, sealAlg, $nc(c)->getAlgorithm());
+	$set(this, sealAlg, c->getAlgorithm());
 }
 
 void SealedObject::init$(SealedObject* so) {
@@ -193,7 +144,7 @@ void SealedObject::init$(SealedObject* so) {
 	$set(this, sealAlg, so->sealAlg);
 	$set(this, paramsAlg, so->paramsAlg);
 	if (so->encodedParams != nullptr) {
-		$set(this, encodedParams, $cast($bytes, $nc(so->encodedParams)->clone()));
+		$set(this, encodedParams, $cast($bytes, so->encodedParams->clone()));
 	} else {
 		$set(this, encodedParams, nullptr);
 	}
@@ -204,12 +155,12 @@ $String* SealedObject::getAlgorithm() {
 }
 
 $Object* SealedObject::getObject($Key* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (key == nullptr) {
 		$throwNew($NullPointerException, "key is null"_s);
 	}
 	try {
-		return $of(unseal(key, nullptr));
+		return unseal(key, nullptr);
 	} catch ($NoSuchProviderException& nspe) {
 		$throwNew($NoSuchAlgorithmException, "algorithm not found"_s);
 	} catch ($IllegalBlockSizeException& ibse) {
@@ -221,42 +172,40 @@ $Object* SealedObject::getObject($Key* key) {
 }
 
 $Object* SealedObject::getObject($Cipher* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInput, a, getExtObjectInputStream(c));
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Object, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$var($Object, obj, $nc(a)->readObject());
-			$assign(var$2, obj);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(a)->close();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($Object, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$var($Object, obj, $nc(a)->readObject());
+		$assign(var$2, obj);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(a)->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $Object* SealedObject::getObject($Key* key, $String* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (key == nullptr) {
 		$throwNew($NullPointerException, "key is null"_s);
 	}
-	if (provider == nullptr || $nc(provider)->isEmpty()) {
+	if (provider == nullptr || provider->isEmpty()) {
 		$throwNew($IllegalArgumentException, "missing provider"_s);
 	}
 	try {
-		return $of(unseal(key, provider));
+		return unseal(key, provider);
 	} catch ($IllegalBlockSizeException& ex) {
 		$throwNew($InvalidKeyException, $(ex->getMessage()));
 	} catch ($BadPaddingException& ex) {
@@ -266,7 +215,7 @@ $Object* SealedObject::getObject($Key* key, $String* provider) {
 }
 
 $Object* SealedObject::unseal($Key* key, $String* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AlgorithmParameters, params, nullptr);
 	if (this->encodedParams != nullptr) {
 		try {
@@ -310,26 +259,24 @@ $Object* SealedObject::unseal($Key* key, $String* provider) {
 		$throwNew($RuntimeException, $(iape->getMessage()));
 	}
 	$var($ObjectInput, a, getExtObjectInputStream(c));
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Object, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$var($Object, obj, $nc(a)->readObject());
-			$assign(var$2, obj);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(a)->close();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($Object, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$var($Object, obj, $nc(a)->readObject());
+		$assign(var$2, obj);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(a)->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -337,15 +284,15 @@ $Object* SealedObject::unseal($Key* key, $String* provider) {
 void SealedObject::readObject($ObjectInputStream* s) {
 	$nc(s)->defaultReadObject();
 	if (this->encryptedContent != nullptr) {
-		$set(this, encryptedContent, $cast($bytes, $nc(this->encryptedContent)->clone()));
+		$set(this, encryptedContent, $cast($bytes, this->encryptedContent->clone()));
 	}
 	if (this->encodedParams != nullptr) {
-		$set(this, encodedParams, $cast($bytes, $nc(this->encodedParams)->clone()));
+		$set(this, encodedParams, $cast($bytes, this->encodedParams->clone()));
 	}
 }
 
 $ObjectInputStream* SealedObject::getExtObjectInputStream($Cipher* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, content, $nc(c)->doFinal(this->encryptedContent));
 	$var($ByteArrayInputStream, b, $new($ByteArrayInputStream, content));
 	return $new($extObjectInputStream, b);
@@ -356,9 +303,9 @@ $ObjectInputStream* SealedObject::lambda$static$0(SealedObject* obj, $Cipher* c)
 	return $nc(obj)->getExtObjectInputStream(c);
 }
 
-void clinit$SealedObject($Class* class$) {
+void SealedObject::clinit$($Class* clazz) {
 	{
-		$SharedSecrets::setJavaxCryptoSealedObjectAccess(static_cast<$JavaxCryptoSealedObjectAccess*>($$new(SealedObject$$Lambda$lambda$static$0)));
+		$SharedSecrets::setJavaxCryptoSealedObjectAccess($$new(SealedObject$$Lambda$lambda$static$0));
 	}
 }
 
@@ -367,11 +314,42 @@ SealedObject::SealedObject() {
 
 $Class* SealedObject::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SealedObject$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("javax.crypto.SealedObject$$Lambda$lambda$static$0")) {
 			return SealedObject$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(SealedObject, name, initialize, &_SealedObject_ClassInfo_, clinit$SealedObject, allocate$SealedObject);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SealedObject, serialVersionUID)},
+		{"encryptedContent", "[B", nullptr, $PRIVATE, $field(SealedObject, encryptedContent)},
+		{"sealAlg", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SealedObject, sealAlg)},
+		{"paramsAlg", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SealedObject, paramsAlg)},
+		{"encodedParams", "[B", nullptr, $PROTECTED, $field(SealedObject, encodedParams)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/Serializable;Ljavax/crypto/Cipher;)V", nullptr, $PUBLIC, $method(SealedObject, init$, void, $Serializable*, $Cipher*), "java.io.IOException,javax.crypto.IllegalBlockSizeException"},
+		{"<init>", "(Ljavax/crypto/SealedObject;)V", nullptr, $PROTECTED, $method(SealedObject, init$, void, SealedObject*)},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(SealedObject, getAlgorithm, $String*)},
+		{"getExtObjectInputStream", "(Ljavax/crypto/Cipher;)Ljava/io/ObjectInputStream;", nullptr, $PRIVATE, $method(SealedObject, getExtObjectInputStream, $ObjectInputStream*, $Cipher*), "javax.crypto.BadPaddingException,javax.crypto.IllegalBlockSizeException,java.io.IOException"},
+		{"getObject", "(Ljava/security/Key;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(SealedObject, getObject, $Object*, $Key*), "java.io.IOException,java.lang.ClassNotFoundException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
+		{"getObject", "(Ljavax/crypto/Cipher;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(SealedObject, getObject, $Object*, $Cipher*), "java.io.IOException,java.lang.ClassNotFoundException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+		{"getObject", "(Ljava/security/Key;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(SealedObject, getObject, $Object*, $Key*, $String*), "java.io.IOException,java.lang.ClassNotFoundException,java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException,java.security.InvalidKeyException"},
+		{"lambda$static$0", "(Ljavax/crypto/SealedObject;Ljavax/crypto/Cipher;)Ljava/io/ObjectInputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SealedObject, lambda$static$0, $ObjectInputStream*, SealedObject*, $Cipher*), "javax.crypto.BadPaddingException,javax.crypto.IllegalBlockSizeException,java.io.IOException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(SealedObject, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"unseal", "(Ljava/security/Key;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(SealedObject, unseal, $Object*, $Key*, $String*), "java.io.IOException,java.lang.ClassNotFoundException,java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException,java.security.InvalidKeyException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.crypto.SealedObject",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SealedObject, name, initialize, &classInfo$$, SealedObject::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SealedObject);
+	});
 	return class$;
 }
 

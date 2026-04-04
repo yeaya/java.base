@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/commons/Method.h>
-
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/util/HashMap.h>
@@ -27,44 +26,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace commons {
 
-$FieldInfo _Method_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Method, name)},
-	{"descriptor", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Method, descriptor)},
-	{"PRIMITIVE_TYPE_DESCRIPTORS", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Method, PRIMITIVE_TYPE_DESCRIPTORS)},
-	{}
-};
-
-$MethodInfo _Method_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Method, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Type;[Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $method(Method, init$, void, $String*, $Type*, $TypeArray*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Method, equals, bool, Object$*)},
-	{"getArgumentTypes", "()[Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PUBLIC, $virtualMethod(Method, getArgumentTypes, $TypeArray*)},
-	{"getDescriptor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Method, getDescriptor, $String*)},
-	{"getDescriptorInternal", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Method, getDescriptorInternal, $String*, $String*, bool)},
-	{"getMethod", "(Ljava/lang/reflect/Method;)Ljdk/internal/org/objectweb/asm/commons/Method;", nullptr, $PUBLIC | $STATIC, $staticMethod(Method, getMethod, Method*, $Method*)},
-	{"getMethod", "(Ljava/lang/reflect/Constructor;)Ljdk/internal/org/objectweb/asm/commons/Method;", "(Ljava/lang/reflect/Constructor<*>;)Ljdk/internal/org/objectweb/asm/commons/Method;", $PUBLIC | $STATIC, $staticMethod(Method, getMethod, Method*, $Constructor*)},
-	{"getMethod", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/commons/Method;", nullptr, $PUBLIC | $STATIC, $staticMethod(Method, getMethod, Method*, $String*)},
-	{"getMethod", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/commons/Method;", nullptr, $PUBLIC | $STATIC, $staticMethod(Method, getMethod, Method*, $String*, bool)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Method, getName, $String*)},
-	{"getReturnType", "()Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PUBLIC, $virtualMethod(Method, getReturnType, $Type*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Method, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Method, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Method_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.commons.Method",
-	"java.lang.Object",
-	nullptr,
-	_Method_FieldInfo_,
-	_Method_MethodInfo_
-};
-
-$Object* allocate$Method($Class* clazz) {
-	return $of($alloc(Method));
-}
-
 $Map* Method::PRIMITIVE_TYPE_DESCRIPTORS = nullptr;
 
 void Method::init$($String* name, $String* descriptor) {
@@ -78,7 +39,7 @@ void Method::init$($String* name, $Type* returnType, $TypeArray* argumentTypes) 
 
 Method* Method::getMethod($Method* method) {
 	$init(Method);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, $nc(method)->getName());
 	return $new(Method, var$0, $($Type::getMethodDescriptor(method)));
 }
@@ -95,10 +56,10 @@ Method* Method::getMethod($String* method) {
 
 Method* Method::getMethod($String* method, bool defaultPackage) {
 	$init(Method);
-	$useLocalCurrentObjectStackCache();
-	int32_t spaceIndex = $nc(method)->indexOf((int32_t)u' ');
-	int32_t currentArgumentStartIndex = method->indexOf((int32_t)u'(', spaceIndex) + 1;
-	int32_t endIndex = method->indexOf((int32_t)u')', currentArgumentStartIndex);
+	$useLocalObjectStack();
+	int32_t spaceIndex = $nc(method)->indexOf(u' ');
+	int32_t currentArgumentStartIndex = method->indexOf(u'(', spaceIndex) + 1;
+	int32_t endIndex = method->indexOf(u')', currentArgumentStartIndex);
 	if (spaceIndex == -1 || currentArgumentStartIndex == 0 || endIndex == -1) {
 		$throwNew($IllegalArgumentException);
 	}
@@ -109,7 +70,7 @@ Method* Method::getMethod($String* method, bool defaultPackage) {
 	int32_t currentArgumentEndIndex = 0;
 	do {
 		$var($String, argumentDescriptor, nullptr);
-		currentArgumentEndIndex = method->indexOf((int32_t)u',', currentArgumentStartIndex);
+		currentArgumentEndIndex = method->indexOf(u',', currentArgumentStartIndex);
 		if (currentArgumentEndIndex == -1) {
 			$assign(argumentDescriptor, getDescriptorInternal($($(method->substring(currentArgumentStartIndex, endIndex))->trim()), defaultPackage));
 		} else {
@@ -124,7 +85,7 @@ Method* Method::getMethod($String* method, bool defaultPackage) {
 
 $String* Method::getDescriptorInternal($String* type, bool defaultPackage) {
 	$init(Method);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (""_s->equals(type)) {
 		return type;
 	}
@@ -134,13 +95,13 @@ $String* Method::getDescriptorInternal($String* type, bool defaultPackage) {
 		stringBuilder->append(u'[');
 	}
 	int32_t var$0 = type->length();
-	$var($String, elementType, $nc(type)->substring(0, var$0 - stringBuilder->length() * 2));
+	$var($String, elementType, type->substring(0, var$0 - stringBuilder->length() * 2));
 	$var($String, descriptor, $cast($String, $nc(Method::PRIMITIVE_TYPE_DESCRIPTORS)->get(elementType)));
 	if (descriptor != nullptr) {
 		stringBuilder->append(descriptor);
 	} else {
 		stringBuilder->append(u'L');
-		if (elementType->indexOf((int32_t)u'.') < 0) {
+		if (elementType->indexOf(u'.') < 0) {
 			if (!defaultPackage) {
 				stringBuilder->append("java/lang/"_s);
 			}
@@ -179,7 +140,7 @@ bool Method::equals(Object$* other) {
 	}
 	$var(Method, otherMethod, $cast(Method, other));
 	bool var$0 = $nc(this->name)->equals($nc(otherMethod)->name);
-	return var$0 && $nc(this->descriptor)->equals($nc(otherMethod)->descriptor);
+	return var$0 && $nc(this->descriptor)->equals(otherMethod->descriptor);
 }
 
 int32_t Method::hashCode() {
@@ -187,7 +148,7 @@ int32_t Method::hashCode() {
 	return var$0 ^ $nc(this->descriptor)->hashCode();
 }
 
-void clinit$Method($Class* class$) {
+void Method::clinit$($Class* clazz) {
 	{
 		$var($HashMap, descriptors, $new($HashMap));
 		descriptors->put("void"_s, "V"_s);
@@ -207,7 +168,40 @@ Method::Method() {
 }
 
 $Class* Method::load$($String* name, bool initialize) {
-	$loadClass(Method, name, initialize, &_Method_ClassInfo_, clinit$Method, allocate$Method);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Method, name)},
+		{"descriptor", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Method, descriptor)},
+		{"PRIMITIVE_TYPE_DESCRIPTORS", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Method, PRIMITIVE_TYPE_DESCRIPTORS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Method, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Type;[Ljdk/internal/org/objectweb/asm/Type;)V", nullptr, $PUBLIC, $method(Method, init$, void, $String*, $Type*, $TypeArray*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Method, equals, bool, Object$*)},
+		{"getArgumentTypes", "()[Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PUBLIC, $virtualMethod(Method, getArgumentTypes, $TypeArray*)},
+		{"getDescriptor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Method, getDescriptor, $String*)},
+		{"getDescriptorInternal", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Method, getDescriptorInternal, $String*, $String*, bool)},
+		{"getMethod", "(Ljava/lang/reflect/Method;)Ljdk/internal/org/objectweb/asm/commons/Method;", nullptr, $PUBLIC | $STATIC, $staticMethod(Method, getMethod, Method*, $Method*)},
+		{"getMethod", "(Ljava/lang/reflect/Constructor;)Ljdk/internal/org/objectweb/asm/commons/Method;", "(Ljava/lang/reflect/Constructor<*>;)Ljdk/internal/org/objectweb/asm/commons/Method;", $PUBLIC | $STATIC, $staticMethod(Method, getMethod, Method*, $Constructor*)},
+		{"getMethod", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/commons/Method;", nullptr, $PUBLIC | $STATIC, $staticMethod(Method, getMethod, Method*, $String*)},
+		{"getMethod", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/commons/Method;", nullptr, $PUBLIC | $STATIC, $staticMethod(Method, getMethod, Method*, $String*, bool)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Method, getName, $String*)},
+		{"getReturnType", "()Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PUBLIC, $virtualMethod(Method, getReturnType, $Type*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Method, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Method, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.commons.Method",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Method, name, initialize, &classInfo$$, Method::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Method);
+	});
 	return class$;
 }
 

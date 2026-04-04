@@ -1,10 +1,7 @@
 #include <java/lang/reflect/Field.h>
-
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/reflect/AccessibleObject.h>
-#include <java/lang/reflect/AnnotatedElement.h>
 #include <java/lang/reflect/AnnotatedType.h>
-#include <java/lang/reflect/GenericDeclaration.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/lang/reflect/Type.h>
 #include <java/util/Map.h>
@@ -37,19 +34,15 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Annotation = ::java::lang::annotation::Annotation;
 using $AccessibleObject = ::java::lang::reflect::AccessibleObject;
-using $AnnotatedElement = ::java::lang::reflect::AnnotatedElement;
 using $AnnotatedType = ::java::lang::reflect::AnnotatedType;
-using $GenericDeclaration = ::java::lang::reflect::GenericDeclaration;
 using $Modifier = ::java::lang::reflect::Modifier;
 using $Type = ::java::lang::reflect::Type;
 using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
-using $JavaLangAccess = ::jdk::internal::access::JavaLangAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $ConstantPool = ::jdk::internal::reflect::ConstantPool;
 using $FieldAccessor = ::jdk::internal::reflect::FieldAccessor;
 using $Reflection = ::jdk::internal::reflect::Reflection;
-using $ReflectionFactory = ::jdk::internal::reflect::ReflectionFactory;
 using $AnnotationParser = ::sun::reflect::annotation::AnnotationParser;
 using $AnnotationSupport = ::sun::reflect::annotation::AnnotationSupport;
 using $TypeAnnotation$TypeAnnotationTarget = ::sun::reflect::annotation::TypeAnnotation$TypeAnnotationTarget;
@@ -58,213 +51,10 @@ using $CoreReflectionFactory = ::sun::reflect::generics::factory::CoreReflection
 using $GenericsFactory = ::sun::reflect::generics::factory::GenericsFactory;
 using $FieldRepository = ::sun::reflect::generics::repository::FieldRepository;
 using $ClassScope = ::sun::reflect::generics::scope::ClassScope;
-using $Scope = ::sun::reflect::generics::scope::Scope;
 
 namespace java {
 	namespace lang {
 		namespace reflect {
-
-$CompoundAttribute _Field_MethodAnnotations_get7[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Field_MethodAnnotations_getBoolean11[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Field_MethodAnnotations_getByte12[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Field_MethodAnnotations_getChar13[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Field_MethodAnnotations_getDouble16[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Field_MethodAnnotations_getFloat20[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Field_MethodAnnotations_getInt24[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Field_MethodAnnotations_getLong25[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Field_MethodAnnotations_getShort29[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Field_MethodAnnotations_set36[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Field_MethodAnnotations_setAccessible37[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Field_MethodAnnotations_setBoolean38[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Field_MethodAnnotations_setByte39[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Field_MethodAnnotations_setChar40[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Field_MethodAnnotations_setDouble41[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Field_MethodAnnotations_setFloat43[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Field_MethodAnnotations_setInt44[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Field_MethodAnnotations_setLong45[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Field_MethodAnnotations_setShort46[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$FieldInfo _Field_FieldInfo_[] = {
-	{"clazz", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(Field, clazz)},
-	{"slot", "I", nullptr, $PRIVATE, $field(Field, slot)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Field, name)},
-	{"type", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(Field, type)},
-	{"modifiers", "I", nullptr, $PRIVATE, $field(Field, modifiers)},
-	{"trustedFinal", "Z", nullptr, $PRIVATE, $field(Field, trustedFinal)},
-	{"signature", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(Field, signature)},
-	{"genericInfo", "Lsun/reflect/generics/repository/FieldRepository;", nullptr, $PRIVATE | $TRANSIENT, $field(Field, genericInfo)},
-	{"annotations", "[B", nullptr, $PRIVATE, $field(Field, annotations)},
-	{"fieldAccessor", "Ljdk/internal/reflect/FieldAccessor;", nullptr, $PRIVATE, $field(Field, fieldAccessor)},
-	{"overrideFieldAccessor", "Ljdk/internal/reflect/FieldAccessor;", nullptr, $PRIVATE, $field(Field, overrideFieldAccessor)},
-	{"root", "Ljava/lang/reflect/Field;", nullptr, $PRIVATE, $field(Field, root)},
-	{"declaredAnnotations", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/annotation/Annotation;>;", $PRIVATE | $VOLATILE | $TRANSIENT, $field(Field, declaredAnnotations$)},
-	{"typeAnnotation", "[B", nullptr, 2, $field(Field, typeAnnotation)},
-	{}
-};
-
-$MethodInfo _Field_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;IZILjava/lang/String;[B)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;IZILjava/lang/String;[B)V", 0, $method(Field, init$, void, $Class*, $String*, $Class*, int32_t, bool, int32_t, $String*, $bytes*)},
-	{"acquireFieldAccessor", "(Z)Ljdk/internal/reflect/FieldAccessor;", nullptr, $PRIVATE, $method(Field, acquireFieldAccessor, $FieldAccessor*, bool)},
-	{"checkAccess", "(Ljava/lang/Class;Ljava/lang/Object;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;)V", $PRIVATE, $method(Field, checkAccess, void, $Class*, Object$*), "java.lang.IllegalAccessException"},
-	{"checkCanSetAccessible", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", 0, $virtualMethod(Field, checkCanSetAccessible, void, $Class*)},
-	{"copy", "()Ljava/lang/reflect/Field;", nullptr, 0, $method(Field, copy, Field*)},
-	{"declaredAnnotations", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/annotation/Annotation;>;", $PRIVATE, $method(Field, declaredAnnotations, $Map*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Field, equals, bool, Object$*)},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $method(Field, get, $Object*, Object$*), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, _Field_MethodAnnotations_get7},
-	{"getAnnotatedType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $method(Field, getAnnotatedType, $AnnotatedType*)},
-	{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(Field, getAnnotation, $Annotation*, $Class*)},
-	{"getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(Field, getAnnotationsByType, $AnnotationArray*, $Class*)},
-	{"getBoolean", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $method(Field, getBoolean, bool, Object$*), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, _Field_MethodAnnotations_getBoolean11},
-	{"getByte", "(Ljava/lang/Object;)B", nullptr, $PUBLIC, $method(Field, getByte, int8_t, Object$*), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, _Field_MethodAnnotations_getByte12},
-	{"getChar", "(Ljava/lang/Object;)C", nullptr, $PUBLIC, $method(Field, getChar, char16_t, Object$*), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, _Field_MethodAnnotations_getChar13},
-	{"getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(Field, getDeclaredAnnotations, $AnnotationArray*)},
-	{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(Field, getDeclaringClass, $Class*)},
-	{"getDouble", "(Ljava/lang/Object;)D", nullptr, $PUBLIC, $method(Field, getDouble, double, Object$*), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, _Field_MethodAnnotations_getDouble16},
-	{"getFactory", "()Lsun/reflect/generics/factory/GenericsFactory;", nullptr, $PRIVATE, $method(Field, getFactory, $GenericsFactory*)},
-	{"getFieldAccessor", "(Ljava/lang/Object;)Ljdk/internal/reflect/FieldAccessor;", nullptr, $PRIVATE, $method(Field, getFieldAccessor, $FieldAccessor*, Object$*), "java.lang.IllegalAccessException"},
-	{"getFieldAccessor", "(Z)Ljdk/internal/reflect/FieldAccessor;", nullptr, $PRIVATE, $method(Field, getFieldAccessor, $FieldAccessor*, bool)},
-	{"getFloat", "(Ljava/lang/Object;)F", nullptr, $PUBLIC, $method(Field, getFloat, float, Object$*), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, _Field_MethodAnnotations_getFloat20},
-	{"getGenericInfo", "()Lsun/reflect/generics/repository/FieldRepository;", nullptr, $PRIVATE, $method(Field, getGenericInfo, $FieldRepository*)},
-	{"getGenericSignature", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Field, getGenericSignature, $String*)},
-	{"getGenericType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $method(Field, getGenericType, $Type*)},
-	{"getInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $method(Field, getInt, int32_t, Object$*), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, _Field_MethodAnnotations_getInt24},
-	{"getLong", "(Ljava/lang/Object;)J", nullptr, $PUBLIC, $method(Field, getLong, int64_t, Object$*), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, _Field_MethodAnnotations_getLong25},
-	{"getModifiers", "()I", nullptr, $PUBLIC, $virtualMethod(Field, getModifiers, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Field, getName, $String*)},
-	{"getRoot", "()Ljava/lang/reflect/Field;", nullptr, 0, $virtualMethod(Field, getRoot, Field*)},
-	{"getShort", "(Ljava/lang/Object;)S", nullptr, $PUBLIC, $method(Field, getShort, int16_t, Object$*), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, _Field_MethodAnnotations_getShort29},
-	{"getType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(Field, getType, $Class*)},
-	{"getTypeAnnotationBytes0", "()[B", nullptr, $PRIVATE | $NATIVE, $method(Field, getTypeAnnotationBytes0, $bytes*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Field, hashCode, int32_t)},
-	{"isEnumConstant", "()Z", nullptr, $PUBLIC, $method(Field, isEnumConstant, bool)},
-	{"isSynthetic", "()Z", nullptr, $PUBLIC, $virtualMethod(Field, isSynthetic, bool)},
-	{"isTrustedFinal", "()Z", nullptr, 0, $method(Field, isTrustedFinal, bool)},
-	{"set", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Field, set, void, Object$*, Object$*), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, _Field_MethodAnnotations_set36},
-	{"setAccessible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Field, setAccessible, void, bool), nullptr, nullptr, _Field_MethodAnnotations_setAccessible37},
-	{"setBoolean", "(Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $method(Field, setBoolean, void, Object$*, bool), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, _Field_MethodAnnotations_setBoolean38},
-	{"setByte", "(Ljava/lang/Object;B)V", nullptr, $PUBLIC, $method(Field, setByte, void, Object$*, int8_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, _Field_MethodAnnotations_setByte39},
-	{"setChar", "(Ljava/lang/Object;C)V", nullptr, $PUBLIC, $method(Field, setChar, void, Object$*, char16_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, _Field_MethodAnnotations_setChar40},
-	{"setDouble", "(Ljava/lang/Object;D)V", nullptr, $PUBLIC, $method(Field, setDouble, void, Object$*, double), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, _Field_MethodAnnotations_setDouble41},
-	{"setFieldAccessor", "(Ljdk/internal/reflect/FieldAccessor;Z)V", nullptr, $PRIVATE, $method(Field, setFieldAccessor, void, $FieldAccessor*, bool)},
-	{"setFloat", "(Ljava/lang/Object;F)V", nullptr, $PUBLIC, $method(Field, setFloat, void, Object$*, float), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, _Field_MethodAnnotations_setFloat43},
-	{"setInt", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC, $method(Field, setInt, void, Object$*, int32_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, _Field_MethodAnnotations_setInt44},
-	{"setLong", "(Ljava/lang/Object;J)V", nullptr, $PUBLIC, $method(Field, setLong, void, Object$*, int64_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, _Field_MethodAnnotations_setLong45},
-	{"setShort", "(Ljava/lang/Object;S)V", nullptr, $PUBLIC, $method(Field, setShort, void, Object$*, int16_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, _Field_MethodAnnotations_setShort46},
-	{"toGenericString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Field, toGenericString, $String*)},
-	{"toShortString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Field, toShortString, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Field, toString, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_getTypeAnnotationBytes0 33
-
-$ClassInfo _Field_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.lang.reflect.Field",
-	"java.lang.reflect.AccessibleObject",
-	"java.lang.reflect.Member",
-	_Field_FieldInfo_,
-	_Field_MethodInfo_
-};
-
-$Object* allocate$Field($Class* clazz) {
-	return $of($alloc(Field));
-}
 
 $Object* Field::clone() {
 	 return this->$AccessibleObject::clone();
@@ -284,7 +74,7 @@ $GenericsFactory* Field::getFactory() {
 }
 
 $FieldRepository* Field::getGenericInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->genericInfo == nullptr) {
 		$var($String, var$0, getGenericSignature());
 		$set(this, genericInfo, $FieldRepository::make(var$0, $(getFactory())));
@@ -342,7 +132,7 @@ int32_t Field::getModifiers() {
 }
 
 bool Field::isEnumConstant() {
-	return ((int32_t)(getModifiers() & (uint32_t)$Modifier::ENUM)) != 0;
+	return (getModifiers() & $Modifier::ENUM) != 0;
 }
 
 bool Field::isSynthetic() {
@@ -355,7 +145,7 @@ $Class* Field::getType() {
 
 $Type* Field::getGenericType() {
 	if (getGenericSignature() != nullptr) {
-		return $nc($(getGenericInfo()))->getGenericType();
+		return $$nc(getGenericInfo())->getGenericType();
 	} else {
 		return getType();
 	}
@@ -370,13 +160,13 @@ bool Field::equals(Object$* obj) {
 			var$0 = true;
 		}
 		if (var$0) {
-			bool var$2 = (getDeclaringClass() == $nc(other)->getDeclaringClass());
+			bool var$2 = getDeclaringClass() == $nc(other)->getDeclaringClass();
 			if (var$2) {
-				var$2 = (getName() == other->getName());
+				var$2 = getName() == other->getName();
 			}
 			bool var$1 = var$2;
 			if (var$1) {
-				var$1 = (getType() == other->getType());
+				var$1 = getType() == other->getType();
 			}
 			return var$1;
 		}
@@ -385,38 +175,46 @@ bool Field::equals(Object$* obj) {
 }
 
 int32_t Field::hashCode() {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = $nc($($nc(getDeclaringClass())->getName()))->hashCode();
-	return var$0 ^ $nc($(getName()))->hashCode();
+	$useLocalObjectStack();
+	int32_t var$0 = $$nc($nc(getDeclaringClass())->getName())->hashCode();
+	return var$0 ^ $$nc(getName())->hashCode();
 }
 
 $String* Field::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mod = getModifiers();
-	$var($String, var$4, ((mod == 0) ? ""_s : ($$str({$($Modifier::toString(mod)), " "_s}))));
-	$var($String, var$3, $$concat(var$4, $($nc(getType())->getTypeName())));
-	$var($String, var$2, $$concat(var$3, " "_s));
-	$var($String, var$1, $$concat(var$2, $($nc(getDeclaringClass())->getTypeName())));
-	$var($String, var$0, $$concat(var$1, "."_s));
-	return ($concat(var$0, $(getName())));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append((mod == 0) ? ""_s : ($$str({$($Modifier::toString(mod)), " "_s})));
+	var$0->append($($nc(getType())->getTypeName()));
+	var$0->append(" "_s);
+	var$0->append($($nc(getDeclaringClass())->getTypeName()));
+	var$0->append("."_s);
+	var$0->append($(getName()));
+	return ($str(var$0));
 }
 
 $String* Field::toShortString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({"field "_s, $($nc(getDeclaringClass())->getTypeName()), "."_s}));
-	return $concat(var$0, $(getName()));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("field "_s);
+	var$0->append($($nc(getDeclaringClass())->getTypeName()));
+	var$0->append("."_s);
+	var$0->append($(getName()));
+	return $str(var$0);
 }
 
 $String* Field::toGenericString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mod = getModifiers();
 	$var($Type, fieldType, getGenericType());
-	$var($String, var$4, ((mod == 0) ? ""_s : ($$str({$($Modifier::toString(mod)), " "_s}))));
-	$var($String, var$3, $$concat(var$4, $($nc(fieldType)->getTypeName())));
-	$var($String, var$2, $$concat(var$3, " "_s));
-	$var($String, var$1, $$concat(var$2, $($nc(getDeclaringClass())->getTypeName())));
-	$var($String, var$0, $$concat(var$1, "."_s));
-	return ($concat(var$0, $(getName())));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append((mod == 0) ? ""_s : ($$str({$($Modifier::toString(mod)), " "_s})));
+	var$0->append($($nc(fieldType)->getTypeName()));
+	var$0->append(" "_s);
+	var$0->append($($nc(getDeclaringClass())->getTypeName()));
+	var$0->append("."_s);
+	var$0->append($(getName()));
+	return ($str(var$0));
 }
 
 $Object* Field::get(Object$* obj) {
@@ -424,7 +222,7 @@ $Object* Field::get(Object$* obj) {
 		$Class* caller = $Reflection::getCallerClass();
 		checkAccess(caller, obj);
 	}
-	return $of($nc($(getFieldAccessor(obj)))->get(obj));
+	return $$nc(getFieldAccessor(obj))->get(obj);
 }
 
 bool Field::getBoolean(Object$* obj) {
@@ -432,7 +230,7 @@ bool Field::getBoolean(Object$* obj) {
 		$Class* caller = $Reflection::getCallerClass();
 		checkAccess(caller, obj);
 	}
-	return $nc($(getFieldAccessor(obj)))->getBoolean(obj);
+	return $$nc(getFieldAccessor(obj))->getBoolean(obj);
 }
 
 int8_t Field::getByte(Object$* obj) {
@@ -440,7 +238,7 @@ int8_t Field::getByte(Object$* obj) {
 		$Class* caller = $Reflection::getCallerClass();
 		checkAccess(caller, obj);
 	}
-	return $nc($(getFieldAccessor(obj)))->getByte(obj);
+	return $$nc(getFieldAccessor(obj))->getByte(obj);
 }
 
 char16_t Field::getChar(Object$* obj) {
@@ -448,7 +246,7 @@ char16_t Field::getChar(Object$* obj) {
 		$Class* caller = $Reflection::getCallerClass();
 		checkAccess(caller, obj);
 	}
-	return $nc($(getFieldAccessor(obj)))->getChar(obj);
+	return $$nc(getFieldAccessor(obj))->getChar(obj);
 }
 
 int16_t Field::getShort(Object$* obj) {
@@ -456,7 +254,7 @@ int16_t Field::getShort(Object$* obj) {
 		$Class* caller = $Reflection::getCallerClass();
 		checkAccess(caller, obj);
 	}
-	return $nc($(getFieldAccessor(obj)))->getShort(obj);
+	return $$nc(getFieldAccessor(obj))->getShort(obj);
 }
 
 int32_t Field::getInt(Object$* obj) {
@@ -464,7 +262,7 @@ int32_t Field::getInt(Object$* obj) {
 		$Class* caller = $Reflection::getCallerClass();
 		checkAccess(caller, obj);
 	}
-	return $nc($(getFieldAccessor(obj)))->getInt(obj);
+	return $$nc(getFieldAccessor(obj))->getInt(obj);
 }
 
 int64_t Field::getLong(Object$* obj) {
@@ -472,7 +270,7 @@ int64_t Field::getLong(Object$* obj) {
 		$Class* caller = $Reflection::getCallerClass();
 		checkAccess(caller, obj);
 	}
-	return $nc($(getFieldAccessor(obj)))->getLong(obj);
+	return $$nc(getFieldAccessor(obj))->getLong(obj);
 }
 
 float Field::getFloat(Object$* obj) {
@@ -480,7 +278,7 @@ float Field::getFloat(Object$* obj) {
 		$Class* caller = $Reflection::getCallerClass();
 		checkAccess(caller, obj);
 	}
-	return $nc($(getFieldAccessor(obj)))->getFloat(obj);
+	return $$nc(getFieldAccessor(obj))->getFloat(obj);
 }
 
 double Field::getDouble(Object$* obj) {
@@ -488,7 +286,7 @@ double Field::getDouble(Object$* obj) {
 		$Class* caller = $Reflection::getCallerClass();
 		checkAccess(caller, obj);
 	}
-	return $nc($(getFieldAccessor(obj)))->getDouble(obj);
+	return $$nc(getFieldAccessor(obj))->getDouble(obj);
 }
 
 void Field::set(Object$* obj, Object$* value) {
@@ -496,7 +294,7 @@ void Field::set(Object$* obj, Object$* value) {
 		$Class* caller = $Reflection::getCallerClass();
 		checkAccess(caller, obj);
 	}
-	$nc($(getFieldAccessor(obj)))->set(obj, value);
+	$$nc(getFieldAccessor(obj))->set(obj, value);
 }
 
 void Field::setBoolean(Object$* obj, bool z) {
@@ -504,7 +302,7 @@ void Field::setBoolean(Object$* obj, bool z) {
 		$Class* caller = $Reflection::getCallerClass();
 		checkAccess(caller, obj);
 	}
-	$nc($(getFieldAccessor(obj)))->setBoolean(obj, z);
+	$$nc(getFieldAccessor(obj))->setBoolean(obj, z);
 }
 
 void Field::setByte(Object$* obj, int8_t b) {
@@ -512,7 +310,7 @@ void Field::setByte(Object$* obj, int8_t b) {
 		$Class* caller = $Reflection::getCallerClass();
 		checkAccess(caller, obj);
 	}
-	$nc($(getFieldAccessor(obj)))->setByte(obj, b);
+	$$nc(getFieldAccessor(obj))->setByte(obj, b);
 }
 
 void Field::setChar(Object$* obj, char16_t c) {
@@ -520,7 +318,7 @@ void Field::setChar(Object$* obj, char16_t c) {
 		$Class* caller = $Reflection::getCallerClass();
 		checkAccess(caller, obj);
 	}
-	$nc($(getFieldAccessor(obj)))->setChar(obj, c);
+	$$nc(getFieldAccessor(obj))->setChar(obj, c);
 }
 
 void Field::setShort(Object$* obj, int16_t s) {
@@ -528,7 +326,7 @@ void Field::setShort(Object$* obj, int16_t s) {
 		$Class* caller = $Reflection::getCallerClass();
 		checkAccess(caller, obj);
 	}
-	$nc($(getFieldAccessor(obj)))->setShort(obj, s);
+	$$nc(getFieldAccessor(obj))->setShort(obj, s);
 }
 
 void Field::setInt(Object$* obj, int32_t i) {
@@ -536,7 +334,7 @@ void Field::setInt(Object$* obj, int32_t i) {
 		$Class* caller = $Reflection::getCallerClass();
 		checkAccess(caller, obj);
 	}
-	$nc($(getFieldAccessor(obj)))->setInt(obj, i);
+	$$nc(getFieldAccessor(obj))->setInt(obj, i);
 }
 
 void Field::setLong(Object$* obj, int64_t l) {
@@ -544,7 +342,7 @@ void Field::setLong(Object$* obj, int64_t l) {
 		$Class* caller = $Reflection::getCallerClass();
 		checkAccess(caller, obj);
 	}
-	$nc($(getFieldAccessor(obj)))->setLong(obj, l);
+	$$nc(getFieldAccessor(obj))->setLong(obj, l);
 }
 
 void Field::setFloat(Object$* obj, float f) {
@@ -552,7 +350,7 @@ void Field::setFloat(Object$* obj, float f) {
 		$Class* caller = $Reflection::getCallerClass();
 		checkAccess(caller, obj);
 	}
-	$nc($(getFieldAccessor(obj)))->setFloat(obj, f);
+	$$nc(getFieldAccessor(obj))->setFloat(obj, f);
 }
 
 void Field::setDouble(Object$* obj, double d) {
@@ -560,7 +358,7 @@ void Field::setDouble(Object$* obj, double d) {
 		$Class* caller = $Reflection::getCallerClass();
 		checkAccess(caller, obj);
 	}
-	$nc($(getFieldAccessor(obj)))->setDouble(obj, d);
+	$$nc(getFieldAccessor(obj))->setDouble(obj, d);
 }
 
 void Field::checkAccess($Class* caller, Object$* obj) {
@@ -576,7 +374,7 @@ $FieldAccessor* Field::getFieldAccessor(Object$* obj) {
 $FieldAccessor* Field::acquireFieldAccessor(bool overrideFinalCheck) {
 	$var($FieldAccessor, tmp, nullptr);
 	if (this->root != nullptr) {
-		$assign(tmp, $nc(this->root)->getFieldAccessor(overrideFinalCheck));
+		$assign(tmp, this->root->getFieldAccessor(overrideFinalCheck));
 	}
 	if (tmp != nullptr) {
 		if (overrideFinalCheck) {
@@ -603,7 +401,7 @@ void Field::setFieldAccessor($FieldAccessor* accessor, bool overrideFinalCheck) 
 		$set(this, fieldAccessor, accessor);
 	}
 	if (this->root != nullptr) {
-		$nc(this->root)->setFieldAccessor(accessor, overrideFinalCheck);
+		this->root->setFieldAccessor(accessor, overrideFinalCheck);
 	}
 }
 
@@ -616,9 +414,9 @@ bool Field::isTrustedFinal() {
 }
 
 $Annotation* Field::getAnnotation($Class* annotationClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(annotationClass);
-	return $cast($Annotation, annotationClass->cast($($nc($(declaredAnnotations()))->get(annotationClass))));
+	return $cast($Annotation, annotationClass->cast($($$nc(declaredAnnotations())->get(annotationClass))));
 }
 
 $AnnotationArray* Field::getAnnotationsByType($Class* annotationClass) {
@@ -631,7 +429,7 @@ $AnnotationArray* Field::getDeclaredAnnotations() {
 }
 
 $Map* Field::declaredAnnotations() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, declAnnos, nullptr);
 	if (($assign(declAnnos, this->declaredAnnotations$)) == nullptr) {
 		$synchronized(this) {
@@ -641,7 +439,7 @@ $Map* Field::declaredAnnotations() {
 					$assign(declAnnos, root->declaredAnnotations());
 				} else {
 					$var($bytes, var$0, this->annotations);
-					$var($ConstantPool, var$1, $nc($($SharedSecrets::getJavaLangAccess()))->getConstantPool(getDeclaringClass()));
+					$var($ConstantPool, var$1, $$nc($SharedSecrets::getJavaLangAccess())->getConstantPool(getDeclaringClass()));
 					$assign(declAnnos, $AnnotationParser::parseAnnotations(var$0, var$1, getDeclaringClass()));
 				}
 				$set(this, declaredAnnotations$, declAnnos);
@@ -656,9 +454,9 @@ $bytes* Field::getTypeAnnotationBytes0() {
 }
 
 $AnnotatedType* Field::getAnnotatedType() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, var$0, getTypeAnnotationBytes0());
-	$var($ConstantPool, var$1, $nc($($SharedSecrets::getJavaLangAccess()))->getConstantPool(getDeclaringClass()));
+	$var($ConstantPool, var$1, $$nc($SharedSecrets::getJavaLangAccess())->getConstantPool(getDeclaringClass()));
 	$Class* var$2 = getDeclaringClass();
 	$init($TypeAnnotation$TypeAnnotationTarget);
 	return $TypeAnnotationParser::buildAnnotatedType(var$0, var$1, this, var$2, $(getGenericType()), $TypeAnnotation$TypeAnnotationTarget::FIELD);
@@ -666,6 +464,189 @@ $AnnotatedType* Field::getAnnotatedType() {
 
 Field::Field() {
 }
+
+$Class* Field::load$($String* name, bool initialize) {
+	$FieldInfo fieldInfos$$[] = {
+		{"clazz", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(Field, clazz)},
+		{"slot", "I", nullptr, $PRIVATE, $field(Field, slot)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Field, name)},
+		{"type", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(Field, type)},
+		{"modifiers", "I", nullptr, $PRIVATE, $field(Field, modifiers)},
+		{"trustedFinal", "Z", nullptr, $PRIVATE, $field(Field, trustedFinal)},
+		{"signature", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(Field, signature)},
+		{"genericInfo", "Lsun/reflect/generics/repository/FieldRepository;", nullptr, $PRIVATE | $TRANSIENT, $field(Field, genericInfo)},
+		{"annotations", "[B", nullptr, $PRIVATE, $field(Field, annotations)},
+		{"fieldAccessor", "Ljdk/internal/reflect/FieldAccessor;", nullptr, $PRIVATE, $field(Field, fieldAccessor)},
+		{"overrideFieldAccessor", "Ljdk/internal/reflect/FieldAccessor;", nullptr, $PRIVATE, $field(Field, overrideFieldAccessor)},
+		{"root", "Ljava/lang/reflect/Field;", nullptr, $PRIVATE, $field(Field, root)},
+		{"declaredAnnotations", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/annotation/Annotation;>;", $PRIVATE | $VOLATILE | $TRANSIENT, $field(Field, declaredAnnotations$)},
+		{"typeAnnotation", "[B", nullptr, 2, $field(Field, typeAnnotation)},
+		{}
+	};
+	$CompoundAttribute getmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getBooleanmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getBytemethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getCharmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getDoublemethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getFloatmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getIntmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getLongmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getShortmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setAccessiblemethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute setBooleanmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setBytemethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setCharmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setDoublemethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setFloatmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setIntmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setLongmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setShortmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;IZILjava/lang/String;[B)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;IZILjava/lang/String;[B)V", 0, $method(Field, init$, void, $Class*, $String*, $Class*, int32_t, bool, int32_t, $String*, $bytes*)},
+		{"acquireFieldAccessor", "(Z)Ljdk/internal/reflect/FieldAccessor;", nullptr, $PRIVATE, $method(Field, acquireFieldAccessor, $FieldAccessor*, bool)},
+		{"checkAccess", "(Ljava/lang/Class;Ljava/lang/Object;)V", "(Ljava/lang/Class<*>;Ljava/lang/Object;)V", $PRIVATE, $method(Field, checkAccess, void, $Class*, Object$*), "java.lang.IllegalAccessException"},
+		{"checkCanSetAccessible", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", 0, $virtualMethod(Field, checkCanSetAccessible, void, $Class*)},
+		{"copy", "()Ljava/lang/reflect/Field;", nullptr, 0, $method(Field, copy, Field*)},
+		{"declaredAnnotations", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/annotation/Annotation;>;", $PRIVATE, $method(Field, declaredAnnotations, $Map*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Field, equals, bool, Object$*)},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $method(Field, get, $Object*, Object$*), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, getmethodAnnotations$$},
+		{"getAnnotatedType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $method(Field, getAnnotatedType, $AnnotatedType*)},
+		{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(Field, getAnnotation, $Annotation*, $Class*)},
+		{"getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(Field, getAnnotationsByType, $AnnotationArray*, $Class*)},
+		{"getBoolean", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $method(Field, getBoolean, bool, Object$*), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, getBooleanmethodAnnotations$$},
+		{"getByte", "(Ljava/lang/Object;)B", nullptr, $PUBLIC, $method(Field, getByte, int8_t, Object$*), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, getBytemethodAnnotations$$},
+		{"getChar", "(Ljava/lang/Object;)C", nullptr, $PUBLIC, $method(Field, getChar, char16_t, Object$*), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, getCharmethodAnnotations$$},
+		{"getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(Field, getDeclaredAnnotations, $AnnotationArray*)},
+		{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(Field, getDeclaringClass, $Class*)},
+		{"getDouble", "(Ljava/lang/Object;)D", nullptr, $PUBLIC, $method(Field, getDouble, double, Object$*), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, getDoublemethodAnnotations$$},
+		{"getFactory", "()Lsun/reflect/generics/factory/GenericsFactory;", nullptr, $PRIVATE, $method(Field, getFactory, $GenericsFactory*)},
+		{"getFieldAccessor", "(Ljava/lang/Object;)Ljdk/internal/reflect/FieldAccessor;", nullptr, $PRIVATE, $method(Field, getFieldAccessor, $FieldAccessor*, Object$*), "java.lang.IllegalAccessException"},
+		{"getFieldAccessor", "(Z)Ljdk/internal/reflect/FieldAccessor;", nullptr, $PRIVATE, $method(Field, getFieldAccessor, $FieldAccessor*, bool)},
+		{"getFloat", "(Ljava/lang/Object;)F", nullptr, $PUBLIC, $method(Field, getFloat, float, Object$*), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, getFloatmethodAnnotations$$},
+		{"getGenericInfo", "()Lsun/reflect/generics/repository/FieldRepository;", nullptr, $PRIVATE, $method(Field, getGenericInfo, $FieldRepository*)},
+		{"getGenericSignature", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Field, getGenericSignature, $String*)},
+		{"getGenericType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $method(Field, getGenericType, $Type*)},
+		{"getInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $method(Field, getInt, int32_t, Object$*), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, getIntmethodAnnotations$$},
+		{"getLong", "(Ljava/lang/Object;)J", nullptr, $PUBLIC, $method(Field, getLong, int64_t, Object$*), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, getLongmethodAnnotations$$},
+		{"getModifiers", "()I", nullptr, $PUBLIC, $virtualMethod(Field, getModifiers, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Field, getName, $String*)},
+		{"getRoot", "()Ljava/lang/reflect/Field;", nullptr, 0, $virtualMethod(Field, getRoot, Field*)},
+		{"getShort", "(Ljava/lang/Object;)S", nullptr, $PUBLIC, $method(Field, getShort, int16_t, Object$*), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, getShortmethodAnnotations$$},
+		{"getType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(Field, getType, $Class*)},
+		{"getTypeAnnotationBytes0", "()[B", nullptr, $PRIVATE | $NATIVE, $method(Field, getTypeAnnotationBytes0, $bytes*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Field, hashCode, int32_t)},
+		{"isEnumConstant", "()Z", nullptr, $PUBLIC, $method(Field, isEnumConstant, bool)},
+		{"isSynthetic", "()Z", nullptr, $PUBLIC, $virtualMethod(Field, isSynthetic, bool)},
+		{"isTrustedFinal", "()Z", nullptr, 0, $method(Field, isTrustedFinal, bool)},
+		{"set", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Field, set, void, Object$*, Object$*), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, setmethodAnnotations$$},
+		{"setAccessible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Field, setAccessible, void, bool), nullptr, nullptr, setAccessiblemethodAnnotations$$},
+		{"setBoolean", "(Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $method(Field, setBoolean, void, Object$*, bool), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, setBooleanmethodAnnotations$$},
+		{"setByte", "(Ljava/lang/Object;B)V", nullptr, $PUBLIC, $method(Field, setByte, void, Object$*, int8_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, setBytemethodAnnotations$$},
+		{"setChar", "(Ljava/lang/Object;C)V", nullptr, $PUBLIC, $method(Field, setChar, void, Object$*, char16_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, setCharmethodAnnotations$$},
+		{"setDouble", "(Ljava/lang/Object;D)V", nullptr, $PUBLIC, $method(Field, setDouble, void, Object$*, double), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, setDoublemethodAnnotations$$},
+		{"setFieldAccessor", "(Ljdk/internal/reflect/FieldAccessor;Z)V", nullptr, $PRIVATE, $method(Field, setFieldAccessor, void, $FieldAccessor*, bool)},
+		{"setFloat", "(Ljava/lang/Object;F)V", nullptr, $PUBLIC, $method(Field, setFloat, void, Object$*, float), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, setFloatmethodAnnotations$$},
+		{"setInt", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC, $method(Field, setInt, void, Object$*, int32_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, setIntmethodAnnotations$$},
+		{"setLong", "(Ljava/lang/Object;J)V", nullptr, $PUBLIC, $method(Field, setLong, void, Object$*, int64_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, setLongmethodAnnotations$$},
+		{"setShort", "(Ljava/lang/Object;S)V", nullptr, $PUBLIC, $method(Field, setShort, void, Object$*, int16_t), "java.lang.IllegalArgumentException,java.lang.IllegalAccessException", nullptr, setShortmethodAnnotations$$},
+		{"toGenericString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Field, toGenericString, $String*)},
+		{"toShortString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Field, toShortString, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Field, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.lang.reflect.Field",
+		"java.lang.reflect.AccessibleObject",
+		"java.lang.reflect.Member",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Field, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Field));
+	});
+	return class$;
+}
+
+$Class* Field::class$ = nullptr;
 
 bool Field::isStatic() {
 	return (getModifiers() & Modifier::STATIC) != 0;
@@ -678,13 +659,6 @@ void Field::setOffsetof(int64_t offsetof) {
 int64_t Field::getOffsetof() {
 	return offsetof;
 }
-
-$Class* Field::load$($String* name, bool initialize) {
-	$loadClass(Field, name, initialize, &_Field_ClassInfo_, allocate$Field);
-	return class$;
-}
-
-$Class* Field::class$ = nullptr;
 
 		} // reflect
 	} // lang

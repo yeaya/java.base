@@ -56,6 +56,7 @@ public:
 	using ::sun::nio::ch::SelectorImpl::begin;
 	using ::sun::nio::ch::SelectorImpl::end;
 	using ::sun::nio::ch::SelectorImpl::cancel;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::channels::spi::SelectorProvider* sp);
 	void clearInterrupt();
 	virtual int32_t doSelect(::java::util::function::Consumer* action, int64_t timeout) override;

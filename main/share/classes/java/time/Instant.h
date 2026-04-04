@@ -63,6 +63,7 @@ public:
 	Instant();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t epochSecond, int32_t nanos);
 	virtual ::java::time::temporal::Temporal* adjustInto(::java::time::temporal::Temporal* temporal) override;
 	::java::time::OffsetDateTime* atOffset(::java::time::ZoneOffset* offset);
@@ -113,11 +114,11 @@ public:
 	void writeExternal(::java::io::DataOutput* out);
 	$Object* writeReplace();
 	static ::java::time::Instant* EPOCH;
-	static const int64_t MIN_SECOND = (int64_t)0xFF8FE31014641400;
-	static const int64_t MAX_SECOND = (int64_t)0x00701CD2FA9578FF;
+	static const int64_t MIN_SECOND = (int64_t)0xff8fe31014641400;
+	static const int64_t MAX_SECOND = (int64_t)0x00701cd2fa9578ff;
 	static ::java::time::Instant* MIN;
 	static ::java::time::Instant* MAX;
-	static const int64_t serialVersionUID = (int64_t)0xF6C2E8F0233A231C;
+	static const int64_t serialVersionUID = (int64_t)0xf6c2e8f0233a231c;
 	int64_t seconds = 0;
 	int32_t nanos = 0;
 };

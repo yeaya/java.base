@@ -1,5 +1,4 @@
 #include <java/util/stream/WhileOps$UnorderedWhileSpliterator$OfLong$Taking.h>
-
 #include <java/util/Spliterator$OfLong.h>
 #include <java/util/Spliterator.h>
 #include <java/util/concurrent/atomic/AtomicBoolean.h>
@@ -14,7 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Spliterator = ::java::util::Spliterator;
 using $Spliterator$OfLong = ::java::util::Spliterator$OfLong;
-using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;
 using $LongConsumer = ::java::util::function::LongConsumer;
 using $LongPredicate = ::java::util::function::LongPredicate;
 using $WhileOps$UnorderedWhileSpliterator$OfLong = ::java::util::stream::WhileOps$UnorderedWhileSpliterator$OfLong;
@@ -22,44 +20,6 @@ using $WhileOps$UnorderedWhileSpliterator$OfLong = ::java::util::stream::WhileOp
 namespace java {
 	namespace util {
 		namespace stream {
-
-$MethodInfo _WhileOps$UnorderedWhileSpliterator$OfLong$Taking_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Spliterator$OfLong;ZLjava/util/function/LongPredicate;)V", nullptr, 0, $method(WhileOps$UnorderedWhileSpliterator$OfLong$Taking, init$, void, $Spliterator$OfLong*, bool, $LongPredicate*)},
-	{"<init>", "(Ljava/util/Spliterator$OfLong;Ljava/util/stream/WhileOps$UnorderedWhileSpliterator$OfLong;)V", nullptr, 0, $method(WhileOps$UnorderedWhileSpliterator$OfLong$Taking, init$, void, $Spliterator$OfLong*, $WhileOps$UnorderedWhileSpliterator$OfLong*)},
-	{"makeSpliterator", "(Ljava/util/Spliterator$OfLong;)Ljava/util/Spliterator$OfLong;", nullptr, 0, $method(WhileOps$UnorderedWhileSpliterator$OfLong$Taking, makeSpliterator, $Spliterator$OfLong*, $Spliterator$OfLong*)},
-	{"makeSpliterator", "(Ljava/util/Spliterator;)Ljava/util/Spliterator;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfLong$Taking, makeSpliterator, $Spliterator*, $Spliterator*)},
-	{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfLong$Taking, tryAdvance, bool, $LongConsumer*)},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfLong$Taking, tryAdvance, bool, Object$*)},
-	{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfLong$Taking, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _WhileOps$UnorderedWhileSpliterator$OfLong$Taking_InnerClassesInfo_[] = {
-	{"java.util.stream.WhileOps$UnorderedWhileSpliterator", "java.util.stream.WhileOps", "UnorderedWhileSpliterator", $STATIC | $ABSTRACT},
-	{"java.util.stream.WhileOps$UnorderedWhileSpliterator$OfLong", "java.util.stream.WhileOps$UnorderedWhileSpliterator", "OfLong", $STATIC | $ABSTRACT},
-	{"java.util.stream.WhileOps$UnorderedWhileSpliterator$OfLong$Taking", "java.util.stream.WhileOps$UnorderedWhileSpliterator$OfLong", "Taking", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _WhileOps$UnorderedWhileSpliterator$OfLong$Taking_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.WhileOps$UnorderedWhileSpliterator$OfLong$Taking",
-	"java.util.stream.WhileOps$UnorderedWhileSpliterator$OfLong",
-	nullptr,
-	nullptr,
-	_WhileOps$UnorderedWhileSpliterator$OfLong$Taking_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WhileOps$UnorderedWhileSpliterator$OfLong$Taking_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.WhileOps"
-};
-
-$Object* allocate$WhileOps$UnorderedWhileSpliterator$OfLong$Taking($Class* clazz) {
-	return $of($alloc(WhileOps$UnorderedWhileSpliterator$OfLong$Taking));
-}
 
 void WhileOps$UnorderedWhileSpliterator$OfLong$Taking::init$($Spliterator$OfLong* s, bool noSplitting, $LongPredicate* p) {
 	$WhileOps$UnorderedWhileSpliterator$OfLong::init$(s, noSplitting, p);
@@ -72,7 +32,7 @@ void WhileOps$UnorderedWhileSpliterator$OfLong$Taking::init$($Spliterator$OfLong
 bool WhileOps$UnorderedWhileSpliterator$OfLong$Taking::tryAdvance($LongConsumer* action) {
 	bool test = true;
 	bool var$1 = this->takeOrDrop && checkCancelOnCount();
-	bool var$0 = var$1 && $nc(($cast($Spliterator$OfLong, this->s)))->tryAdvance(static_cast<$LongConsumer*>(this));
+	bool var$0 = var$1 && $nc($cast($Spliterator$OfLong, this->s))->tryAdvance(this);
 	if (var$0 && (test = $nc(this->p)->test(this->t))) {
 		$nc(action)->accept(this->t);
 		return true;
@@ -86,7 +46,7 @@ bool WhileOps$UnorderedWhileSpliterator$OfLong$Taking::tryAdvance($LongConsumer*
 }
 
 $Spliterator* WhileOps$UnorderedWhileSpliterator$OfLong$Taking::trySplit() {
-	return ($nc(this->cancel)->get() ? ($Spliterator$OfLong*)nullptr : $cast($Spliterator$OfLong, $WhileOps$UnorderedWhileSpliterator$OfLong::trySplit()));
+	return $nc(this->cancel)->get() ? ($Spliterator$OfLong*)nullptr : $cast($Spliterator$OfLong, $WhileOps$UnorderedWhileSpliterator$OfLong::trySplit());
 }
 
 $Spliterator$OfLong* WhileOps$UnorderedWhileSpliterator$OfLong$Taking::makeSpliterator($Spliterator$OfLong* s) {
@@ -105,7 +65,40 @@ WhileOps$UnorderedWhileSpliterator$OfLong$Taking::WhileOps$UnorderedWhileSpliter
 }
 
 $Class* WhileOps$UnorderedWhileSpliterator$OfLong$Taking::load$($String* name, bool initialize) {
-	$loadClass(WhileOps$UnorderedWhileSpliterator$OfLong$Taking, name, initialize, &_WhileOps$UnorderedWhileSpliterator$OfLong$Taking_ClassInfo_, allocate$WhileOps$UnorderedWhileSpliterator$OfLong$Taking);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Spliterator$OfLong;ZLjava/util/function/LongPredicate;)V", nullptr, 0, $method(WhileOps$UnorderedWhileSpliterator$OfLong$Taking, init$, void, $Spliterator$OfLong*, bool, $LongPredicate*)},
+		{"<init>", "(Ljava/util/Spliterator$OfLong;Ljava/util/stream/WhileOps$UnorderedWhileSpliterator$OfLong;)V", nullptr, 0, $method(WhileOps$UnorderedWhileSpliterator$OfLong$Taking, init$, void, $Spliterator$OfLong*, $WhileOps$UnorderedWhileSpliterator$OfLong*)},
+		{"makeSpliterator", "(Ljava/util/Spliterator$OfLong;)Ljava/util/Spliterator$OfLong;", nullptr, 0, $method(WhileOps$UnorderedWhileSpliterator$OfLong$Taking, makeSpliterator, $Spliterator$OfLong*, $Spliterator$OfLong*)},
+		{"makeSpliterator", "(Ljava/util/Spliterator;)Ljava/util/Spliterator;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfLong$Taking, makeSpliterator, $Spliterator*, $Spliterator*)},
+		{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfLong$Taking, tryAdvance, bool, $LongConsumer*)},
+		{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfLong$Taking, tryAdvance, bool, Object$*)},
+		{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfLong$Taking, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.WhileOps$UnorderedWhileSpliterator", "java.util.stream.WhileOps", "UnorderedWhileSpliterator", $STATIC | $ABSTRACT},
+		{"java.util.stream.WhileOps$UnorderedWhileSpliterator$OfLong", "java.util.stream.WhileOps$UnorderedWhileSpliterator", "OfLong", $STATIC | $ABSTRACT},
+		{"java.util.stream.WhileOps$UnorderedWhileSpliterator$OfLong$Taking", "java.util.stream.WhileOps$UnorderedWhileSpliterator$OfLong", "Taking", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.WhileOps$UnorderedWhileSpliterator$OfLong$Taking",
+		"java.util.stream.WhileOps$UnorderedWhileSpliterator$OfLong",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.WhileOps"
+	};
+	$loadClass(WhileOps$UnorderedWhileSpliterator$OfLong$Taking, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WhileOps$UnorderedWhileSpliterator$OfLong$Taking));
+	});
 	return class$;
 }
 

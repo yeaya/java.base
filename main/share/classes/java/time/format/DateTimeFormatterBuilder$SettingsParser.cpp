@@ -1,5 +1,4 @@
 #include <java/time/format/DateTimeFormatterBuilder$SettingsParser.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/Enum.h>
 #include <java/lang/IllegalStateException.h>
@@ -27,56 +26,6 @@ using $DateTimePrintContext = ::java::time::format::DateTimePrintContext;
 namespace java {
 	namespace time {
 		namespace format {
-
-$FieldInfo _DateTimeFormatterBuilder$SettingsParser_FieldInfo_[] = {
-	{"SENSITIVE", "Ljava/time/format/DateTimeFormatterBuilder$SettingsParser;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DateTimeFormatterBuilder$SettingsParser, SENSITIVE)},
-	{"INSENSITIVE", "Ljava/time/format/DateTimeFormatterBuilder$SettingsParser;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DateTimeFormatterBuilder$SettingsParser, INSENSITIVE)},
-	{"STRICT", "Ljava/time/format/DateTimeFormatterBuilder$SettingsParser;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DateTimeFormatterBuilder$SettingsParser, STRICT)},
-	{"LENIENT", "Ljava/time/format/DateTimeFormatterBuilder$SettingsParser;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DateTimeFormatterBuilder$SettingsParser, LENIENT)},
-	{"$VALUES", "[Ljava/time/format/DateTimeFormatterBuilder$SettingsParser;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(DateTimeFormatterBuilder$SettingsParser, $VALUES)},
-	{}
-};
-
-$MethodInfo _DateTimeFormatterBuilder$SettingsParser_MethodInfo_[] = {
-	{"$values", "()[Ljava/time/format/DateTimeFormatterBuilder$SettingsParser;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DateTimeFormatterBuilder$SettingsParser, $values, $DateTimeFormatterBuilder$SettingsParserArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DateTimeFormatterBuilder$SettingsParser, init$, void, $String*, int32_t)},
-	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$SettingsParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
-	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$SettingsParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$SettingsParser, toString, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/time/format/DateTimeFormatterBuilder$SettingsParser;", nullptr, $PUBLIC | $STATIC, $staticMethod(DateTimeFormatterBuilder$SettingsParser, valueOf, DateTimeFormatterBuilder$SettingsParser*, $String*)},
-	{"values", "()[Ljava/time/format/DateTimeFormatterBuilder$SettingsParser;", nullptr, $PUBLIC | $STATIC, $staticMethod(DateTimeFormatterBuilder$SettingsParser, values, $DateTimeFormatterBuilder$SettingsParserArray*)},
-	{}
-};
-
-$InnerClassInfo _DateTimeFormatterBuilder$SettingsParser_InnerClassesInfo_[] = {
-	{"java.time.format.DateTimeFormatterBuilder$SettingsParser", "java.time.format.DateTimeFormatterBuilder", "SettingsParser", $STATIC | $FINAL | $ENUM},
-	{"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser", "java.time.format.DateTimeFormatterBuilder", "DateTimePrinterParser", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DateTimeFormatterBuilder$SettingsParser_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"java.time.format.DateTimeFormatterBuilder$SettingsParser",
-	"java.lang.Enum",
-	"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser",
-	_DateTimeFormatterBuilder$SettingsParser_FieldInfo_,
-	_DateTimeFormatterBuilder$SettingsParser_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/time/format/DateTimeFormatterBuilder$SettingsParser;>;Ljava/time/format/DateTimeFormatterBuilder$DateTimePrinterParser;",
-	nullptr,
-	_DateTimeFormatterBuilder$SettingsParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.format.DateTimeFormatterBuilder"
-};
-
-$Object* allocate$DateTimeFormatterBuilder$SettingsParser($Class* clazz) {
-	return $of($alloc(DateTimeFormatterBuilder$SettingsParser));
-}
 
 bool DateTimeFormatterBuilder$SettingsParser::equals(Object$* other) {
 	 return this->$Enum::equals(other);
@@ -131,25 +80,17 @@ bool DateTimeFormatterBuilder$SettingsParser::format($DateTimePrintContext* cont
 int32_t DateTimeFormatterBuilder$SettingsParser::parse($DateTimeParseContext* context, $CharSequence* text, int32_t position) {
 	switch (ordinal()) {
 	case 0:
-		{
-			$nc(context)->setCaseSensitive(true);
-			break;
-		}
+		$nc(context)->setCaseSensitive(true);
+		break;
 	case 1:
-		{
-			$nc(context)->setCaseSensitive(false);
-			break;
-		}
+		$nc(context)->setCaseSensitive(false);
+		break;
 	case 2:
-		{
-			$nc(context)->setStrict(true);
-			break;
-		}
+		$nc(context)->setStrict(true);
+		break;
 	case 3:
-		{
-			$nc(context)->setStrict(false);
-			break;
-		}
+		$nc(context)->setStrict(false);
+		break;
 	}
 	return position;
 }
@@ -157,26 +98,18 @@ int32_t DateTimeFormatterBuilder$SettingsParser::parse($DateTimeParseContext* co
 $String* DateTimeFormatterBuilder$SettingsParser::toString() {
 	switch (ordinal()) {
 	case 0:
-		{
-			return "ParseCaseSensitive(true)"_s;
-		}
+		return "ParseCaseSensitive(true)"_s;
 	case 1:
-		{
-			return "ParseCaseSensitive(false)"_s;
-		}
+		return "ParseCaseSensitive(false)"_s;
 	case 2:
-		{
-			return "ParseStrict(true)"_s;
-		}
+		return "ParseStrict(true)"_s;
 	case 3:
-		{
-			return "ParseStrict(false)"_s;
-		}
+		return "ParseStrict(false)"_s;
 	}
 	$throwNew($IllegalStateException, "Unreachable"_s);
 }
 
-void clinit$DateTimeFormatterBuilder$SettingsParser($Class* class$) {
+void DateTimeFormatterBuilder$SettingsParser::clinit$($Class* clazz) {
 	$assignStatic(DateTimeFormatterBuilder$SettingsParser::SENSITIVE, $new(DateTimeFormatterBuilder$SettingsParser, "SENSITIVE"_s, 0));
 	$assignStatic(DateTimeFormatterBuilder$SettingsParser::INSENSITIVE, $new(DateTimeFormatterBuilder$SettingsParser, "INSENSITIVE"_s, 1));
 	$assignStatic(DateTimeFormatterBuilder$SettingsParser::STRICT, $new(DateTimeFormatterBuilder$SettingsParser, "STRICT"_s, 2));
@@ -188,7 +121,51 @@ DateTimeFormatterBuilder$SettingsParser::DateTimeFormatterBuilder$SettingsParser
 }
 
 $Class* DateTimeFormatterBuilder$SettingsParser::load$($String* name, bool initialize) {
-	$loadClass(DateTimeFormatterBuilder$SettingsParser, name, initialize, &_DateTimeFormatterBuilder$SettingsParser_ClassInfo_, clinit$DateTimeFormatterBuilder$SettingsParser, allocate$DateTimeFormatterBuilder$SettingsParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"SENSITIVE", "Ljava/time/format/DateTimeFormatterBuilder$SettingsParser;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DateTimeFormatterBuilder$SettingsParser, SENSITIVE)},
+		{"INSENSITIVE", "Ljava/time/format/DateTimeFormatterBuilder$SettingsParser;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DateTimeFormatterBuilder$SettingsParser, INSENSITIVE)},
+		{"STRICT", "Ljava/time/format/DateTimeFormatterBuilder$SettingsParser;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DateTimeFormatterBuilder$SettingsParser, STRICT)},
+		{"LENIENT", "Ljava/time/format/DateTimeFormatterBuilder$SettingsParser;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DateTimeFormatterBuilder$SettingsParser, LENIENT)},
+		{"$VALUES", "[Ljava/time/format/DateTimeFormatterBuilder$SettingsParser;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(DateTimeFormatterBuilder$SettingsParser, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/time/format/DateTimeFormatterBuilder$SettingsParser;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DateTimeFormatterBuilder$SettingsParser, $values, $DateTimeFormatterBuilder$SettingsParserArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DateTimeFormatterBuilder$SettingsParser, init$, void, $String*, int32_t)},
+		{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$SettingsParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
+		{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$SettingsParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$SettingsParser, toString, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/time/format/DateTimeFormatterBuilder$SettingsParser;", nullptr, $PUBLIC | $STATIC, $staticMethod(DateTimeFormatterBuilder$SettingsParser, valueOf, DateTimeFormatterBuilder$SettingsParser*, $String*)},
+		{"values", "()[Ljava/time/format/DateTimeFormatterBuilder$SettingsParser;", nullptr, $PUBLIC | $STATIC, $staticMethod(DateTimeFormatterBuilder$SettingsParser, values, $DateTimeFormatterBuilder$SettingsParserArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.format.DateTimeFormatterBuilder$SettingsParser", "java.time.format.DateTimeFormatterBuilder", "SettingsParser", $STATIC | $FINAL | $ENUM},
+		{"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser", "java.time.format.DateTimeFormatterBuilder", "DateTimePrinterParser", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"java.time.format.DateTimeFormatterBuilder$SettingsParser",
+		"java.lang.Enum",
+		"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/time/format/DateTimeFormatterBuilder$SettingsParser;>;Ljava/time/format/DateTimeFormatterBuilder$DateTimePrinterParser;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.format.DateTimeFormatterBuilder"
+	};
+	$loadClass(DateTimeFormatterBuilder$SettingsParser, name, initialize, &classInfo$$, DateTimeFormatterBuilder$SettingsParser::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DateTimeFormatterBuilder$SettingsParser));
+	});
 	return class$;
 }
 

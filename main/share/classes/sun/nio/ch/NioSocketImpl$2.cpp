@@ -1,5 +1,4 @@
 #include <sun/nio/ch/NioSocketImpl$2.h>
-
 #include <java/io/OutputStream.h>
 #include <sun/nio/ch/NioSocketImpl.h>
 #include <jcpp.h>
@@ -15,50 +14,6 @@ using $NioSocketImpl = ::sun::nio::ch::NioSocketImpl;
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _NioSocketImpl$2_FieldInfo_[] = {
-	{"this$0", "Lsun/nio/ch/NioSocketImpl;", nullptr, $FINAL | $SYNTHETIC, $field(NioSocketImpl$2, this$0)},
-	{}
-};
-
-$MethodInfo _NioSocketImpl$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/NioSocketImpl;)V", nullptr, 0, $method(NioSocketImpl$2, init$, void, $NioSocketImpl*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(NioSocketImpl$2, close, void), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(NioSocketImpl$2, write, void, int32_t), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(NioSocketImpl$2, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _NioSocketImpl$2_EnclosingMethodInfo_ = {
-	"sun.nio.ch.NioSocketImpl",
-	"getOutputStream",
-	"()Ljava/io/OutputStream;"
-};
-
-$InnerClassInfo _NioSocketImpl$2_InnerClassesInfo_[] = {
-	{"sun.nio.ch.NioSocketImpl$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NioSocketImpl$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.NioSocketImpl$2",
-	"java.io.OutputStream",
-	nullptr,
-	_NioSocketImpl$2_FieldInfo_,
-	_NioSocketImpl$2_MethodInfo_,
-	nullptr,
-	&_NioSocketImpl$2_EnclosingMethodInfo_,
-	_NioSocketImpl$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.NioSocketImpl"
-};
-
-$Object* allocate$NioSocketImpl$2($Class* clazz) {
-	return $of($alloc(NioSocketImpl$2));
-}
 
 void NioSocketImpl$2::init$($NioSocketImpl* this$0) {
 	$set(this, this$0, this$0);
@@ -82,7 +37,44 @@ NioSocketImpl$2::NioSocketImpl$2() {
 }
 
 $Class* NioSocketImpl$2::load$($String* name, bool initialize) {
-	$loadClass(NioSocketImpl$2, name, initialize, &_NioSocketImpl$2_ClassInfo_, allocate$NioSocketImpl$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/nio/ch/NioSocketImpl;", nullptr, $FINAL | $SYNTHETIC, $field(NioSocketImpl$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/ch/NioSocketImpl;)V", nullptr, 0, $method(NioSocketImpl$2, init$, void, $NioSocketImpl*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(NioSocketImpl$2, close, void), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(NioSocketImpl$2, write, void, int32_t), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(NioSocketImpl$2, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.nio.ch.NioSocketImpl",
+		"getOutputStream",
+		"()Ljava/io/OutputStream;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.NioSocketImpl$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.NioSocketImpl$2",
+		"java.io.OutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.NioSocketImpl"
+	};
+	$loadClass(NioSocketImpl$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NioSocketImpl$2));
+	});
 	return class$;
 }
 

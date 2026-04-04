@@ -1,5 +1,4 @@
 #include <RacyHandler$CustomHttpHandler.h>
-
 #include <RacyHandler.h>
 #include <java/net/URL.h>
 #include <java/net/URLConnection.h>
@@ -15,42 +14,6 @@ using $URL = ::java::net::URL;
 using $URLConnection = ::java::net::URLConnection;
 using $URLStreamHandler = ::java::net::URLStreamHandler;
 
-$FieldInfo _RacyHandler$CustomHttpHandler_FieldInfo_[] = {
-	{"this$0", "LRacyHandler;", nullptr, $FINAL | $SYNTHETIC, $field(RacyHandler$CustomHttpHandler, this$0)},
-	{}
-};
-
-$MethodInfo _RacyHandler$CustomHttpHandler_MethodInfo_[] = {
-	{"<init>", "(LRacyHandler;)V", nullptr, 0, $method(RacyHandler$CustomHttpHandler, init$, void, $RacyHandler*)},
-	{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PROTECTED, $virtualMethod(RacyHandler$CustomHttpHandler, openConnection, $URLConnection*, $URL*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _RacyHandler$CustomHttpHandler_InnerClassesInfo_[] = {
-	{"RacyHandler$CustomHttpHandler", "RacyHandler", "CustomHttpHandler", 0},
-	{}
-};
-
-$ClassInfo _RacyHandler$CustomHttpHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"RacyHandler$CustomHttpHandler",
-	"java.net.URLStreamHandler",
-	nullptr,
-	_RacyHandler$CustomHttpHandler_FieldInfo_,
-	_RacyHandler$CustomHttpHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RacyHandler$CustomHttpHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"RacyHandler"
-};
-
-$Object* allocate$RacyHandler$CustomHttpHandler($Class* clazz) {
-	return $of($alloc(RacyHandler$CustomHttpHandler));
-}
-
 void RacyHandler$CustomHttpHandler::init$($RacyHandler* this$0) {
 	$set(this, this$0, this$0);
 	$URLStreamHandler::init$();
@@ -64,7 +27,37 @@ RacyHandler$CustomHttpHandler::RacyHandler$CustomHttpHandler() {
 }
 
 $Class* RacyHandler$CustomHttpHandler::load$($String* name, bool initialize) {
-	$loadClass(RacyHandler$CustomHttpHandler, name, initialize, &_RacyHandler$CustomHttpHandler_ClassInfo_, allocate$RacyHandler$CustomHttpHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LRacyHandler;", nullptr, $FINAL | $SYNTHETIC, $field(RacyHandler$CustomHttpHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LRacyHandler;)V", nullptr, 0, $method(RacyHandler$CustomHttpHandler, init$, void, $RacyHandler*)},
+		{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PROTECTED, $virtualMethod(RacyHandler$CustomHttpHandler, openConnection, $URLConnection*, $URL*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"RacyHandler$CustomHttpHandler", "RacyHandler", "CustomHttpHandler", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"RacyHandler$CustomHttpHandler",
+		"java.net.URLStreamHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"RacyHandler"
+	};
+	$loadClass(RacyHandler$CustomHttpHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RacyHandler$CustomHttpHandler);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <TestReceiverTypeParameterizedConstructor$Inner$Inner2.h>
-
 #include <TestReceiverTypeParameterizedConstructor$Inner.h>
 #include <jcpp.h>
 
@@ -11,58 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $TypeAnnotation = ::java::lang::TypeAnnotation;
 
-$NamedAttribute TestReceiverTypeParameterizedConstructor$Inner$Inner2_Attribute_var$0[] = {
-	{"value", 'I', "1"},
-	{}
-};
-
-$NamedAttribute TestReceiverTypeParameterizedConstructor$Inner$Inner2_Attribute_var$1[] = {
-	{"value", 'I', "0"},
-	{}
-};
-
-$TypeAnnotation _TestReceiverTypeParameterizedConstructor$Inner$Inner2_MethodTypeAnnotations_init$0[] = {
-	{"LTestReceiverTypeParameterizedConstructor$TypeAnnotation;", TestReceiverTypeParameterizedConstructor$Inner$Inner2_Attribute_var$0, "METHOD_RECEIVER, location = (TYPE_ARGUMENT(0))"},
-	{"LTestReceiverTypeParameterizedConstructor$TypeAnnotation;", TestReceiverTypeParameterizedConstructor$Inner$Inner2_Attribute_var$1, "METHOD_RECEIVER, location = (INNER_TYPE,TYPE_ARGUMENT(0))"},
-	{}
-};
-
-$FieldInfo _TestReceiverTypeParameterizedConstructor$Inner$Inner2_FieldInfo_[] = {
-	{"this$1", "LTestReceiverTypeParameterizedConstructor$Inner;", nullptr, $FINAL | $SYNTHETIC, $field(TestReceiverTypeParameterizedConstructor$Inner$Inner2, this$1)},
-	{}
-};
-
-$MethodInfo _TestReceiverTypeParameterizedConstructor$Inner$Inner2_MethodInfo_[] = {
-	{"<init>", "(LTestReceiverTypeParameterizedConstructor$Inner;)V", nullptr, 0, $method(TestReceiverTypeParameterizedConstructor$Inner$Inner2, init$, void, $TestReceiverTypeParameterizedConstructor$Inner*), nullptr, nullptr, nullptr, _TestReceiverTypeParameterizedConstructor$Inner$Inner2_MethodTypeAnnotations_init$0},
-	{}
-};
-
-$InnerClassInfo _TestReceiverTypeParameterizedConstructor$Inner$Inner2_InnerClassesInfo_[] = {
-	{"TestReceiverTypeParameterizedConstructor$Inner", "TestReceiverTypeParameterizedConstructor", "Inner", 0},
-	{"TestReceiverTypeParameterizedConstructor$Inner$Inner2", "TestReceiverTypeParameterizedConstructor$Inner", "Inner2", 0},
-	{}
-};
-
-$ClassInfo _TestReceiverTypeParameterizedConstructor$Inner$Inner2_ClassInfo_ = {
-	$ACC_SUPER,
-	"TestReceiverTypeParameterizedConstructor$Inner$Inner2",
-	"java.lang.Object",
-	nullptr,
-	_TestReceiverTypeParameterizedConstructor$Inner$Inner2_FieldInfo_,
-	_TestReceiverTypeParameterizedConstructor$Inner$Inner2_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestReceiverTypeParameterizedConstructor$Inner$Inner2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestReceiverTypeParameterizedConstructor"
-};
-
-$Object* allocate$TestReceiverTypeParameterizedConstructor$Inner$Inner2($Class* clazz) {
-	return $of($alloc(TestReceiverTypeParameterizedConstructor$Inner$Inner2));
-}
-
 void TestReceiverTypeParameterizedConstructor$Inner$Inner2::init$($TestReceiverTypeParameterizedConstructor$Inner* this$1) {
 	$set(this, this$1, this$1);
 }
@@ -71,7 +18,50 @@ TestReceiverTypeParameterizedConstructor$Inner$Inner2::TestReceiverTypeParameter
 }
 
 $Class* TestReceiverTypeParameterizedConstructor$Inner$Inner2::load$($String* name, bool initialize) {
-	$loadClass(TestReceiverTypeParameterizedConstructor$Inner$Inner2, name, initialize, &_TestReceiverTypeParameterizedConstructor$Inner$Inner2_ClassInfo_, allocate$TestReceiverTypeParameterizedConstructor$Inner$Inner2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "LTestReceiverTypeParameterizedConstructor$Inner;", nullptr, $FINAL | $SYNTHETIC, $field(TestReceiverTypeParameterizedConstructor$Inner$Inner2, this$1)},
+		{}
+	};
+	$NamedAttribute init$methodTypeAnnotations$$$namedAttribute[] = {
+		{"value", 'I', "1"},
+		{}
+	};
+	$NamedAttribute init$methodTypeAnnotations$$$namedAttribute$1[] = {
+		{"value", 'I', "0"},
+		{}
+	};
+	$TypeAnnotation init$methodTypeAnnotations$$[] = {
+		{"LTestReceiverTypeParameterizedConstructor$TypeAnnotation;", init$methodTypeAnnotations$$$namedAttribute, "METHOD_RECEIVER, location = (TYPE_ARGUMENT(0))"},
+		{"LTestReceiverTypeParameterizedConstructor$TypeAnnotation;", init$methodTypeAnnotations$$$namedAttribute$1, "METHOD_RECEIVER, location = (INNER_TYPE,TYPE_ARGUMENT(0))"},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTestReceiverTypeParameterizedConstructor$Inner;)V", nullptr, 0, $method(TestReceiverTypeParameterizedConstructor$Inner$Inner2, init$, void, $TestReceiverTypeParameterizedConstructor$Inner*), nullptr, nullptr, nullptr, init$methodTypeAnnotations$$},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestReceiverTypeParameterizedConstructor$Inner", "TestReceiverTypeParameterizedConstructor", "Inner", 0},
+		{"TestReceiverTypeParameterizedConstructor$Inner$Inner2", "TestReceiverTypeParameterizedConstructor$Inner", "Inner2", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TestReceiverTypeParameterizedConstructor$Inner$Inner2",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestReceiverTypeParameterizedConstructor"
+	};
+	$loadClass(TestReceiverTypeParameterizedConstructor$Inner$Inner2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestReceiverTypeParameterizedConstructor$Inner$Inner2);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/nio/cs/CESU_8.h>
-
 #include <java/nio/Buffer.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
@@ -16,7 +15,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Buffer = ::java::nio::Buffer;
-using $Charset = ::java::nio::charset::Charset;
 using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $CESU_8$Decoder = ::sun::nio::cs::CESU_8$Decoder;
@@ -27,40 +25,6 @@ using $Unicode = ::sun::nio::cs::Unicode;
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$MethodInfo _CESU_8_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CESU_8, init$, void)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CESU_8, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(CESU_8, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(CESU_8, newEncoder, $CharsetEncoder*)},
-	{"updatePositions", "(Ljava/nio/Buffer;ILjava/nio/Buffer;I)V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(CESU_8, updatePositions, void, $Buffer*, int32_t, $Buffer*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CESU_8_InnerClassesInfo_[] = {
-	{"sun.nio.cs.CESU_8$Encoder", "sun.nio.cs.CESU_8", "Encoder", $PRIVATE | $STATIC},
-	{"sun.nio.cs.CESU_8$Decoder", "sun.nio.cs.CESU_8", "Decoder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _CESU_8_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.CESU_8",
-	"sun.nio.cs.Unicode",
-	nullptr,
-	nullptr,
-	_CESU_8_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CESU_8_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.CESU_8$Encoder,sun.nio.cs.CESU_8$Decoder"
-};
-
-$Object* allocate$CESU_8($Class* clazz) {
-	return $of($alloc(CESU_8));
-}
 
 void CESU_8::init$() {
 	$Unicode::init$("CESU-8"_s, $($StandardCharsets::aliases_CESU_8()));
@@ -80,15 +44,44 @@ $CharsetEncoder* CESU_8::newEncoder() {
 
 void CESU_8::updatePositions($Buffer* src, int32_t sp, $Buffer* dst, int32_t dp) {
 	$init(CESU_8);
-	$nc(src)->position(sp - src->arrayOffset());
-	$nc(dst)->position(dp - dst->arrayOffset());
+	$nc(src)->position(sp - $nc(src)->arrayOffset());
+	$nc(dst)->position(dp - $nc(dst)->arrayOffset());
 }
 
 CESU_8::CESU_8() {
 }
 
 $Class* CESU_8::load$($String* name, bool initialize) {
-	$loadClass(CESU_8, name, initialize, &_CESU_8_ClassInfo_, allocate$CESU_8);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CESU_8, init$, void)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CESU_8, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(CESU_8, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(CESU_8, newEncoder, $CharsetEncoder*)},
+		{"updatePositions", "(Ljava/nio/Buffer;ILjava/nio/Buffer;I)V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(CESU_8, updatePositions, void, $Buffer*, int32_t, $Buffer*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.CESU_8$Encoder", "sun.nio.cs.CESU_8", "Encoder", $PRIVATE | $STATIC},
+		{"sun.nio.cs.CESU_8$Decoder", "sun.nio.cs.CESU_8", "Decoder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.CESU_8",
+		"sun.nio.cs.Unicode",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.CESU_8$Encoder,sun.nio.cs.CESU_8$Decoder"
+	};
+	$loadClass(CESU_8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CESU_8));
+	});
 	return class$;
 }
 

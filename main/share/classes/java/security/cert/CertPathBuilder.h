@@ -32,6 +32,7 @@ class $export CertPathBuilder : public ::java::lang::Object {
 	$class(CertPathBuilder, 0, ::java::lang::Object)
 public:
 	CertPathBuilder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::cert::CertPathBuilderSpi* builderSpi, ::java::security::Provider* provider, $String* algorithm);
 	::java::security::cert::CertPathBuilderResult* build(::java::security::cert::CertPathParameters* params);
 	$String* getAlgorithm();

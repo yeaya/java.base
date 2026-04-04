@@ -1,5 +1,4 @@
 #include <sun/security/provider/certpath/OCSP$RevocationStatus$CertStatus.h>
-
 #include <java/lang/Enum.h>
 #include <sun/security/provider/certpath/OCSP$RevocationStatus.h>
 #include <sun/security/provider/certpath/OCSP.h>
@@ -20,48 +19,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 			namespace certpath {
-
-$FieldInfo _OCSP$RevocationStatus$CertStatus_FieldInfo_[] = {
-	{"GOOD", "Lsun/security/provider/certpath/OCSP$RevocationStatus$CertStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OCSP$RevocationStatus$CertStatus, GOOD)},
-	{"REVOKED", "Lsun/security/provider/certpath/OCSP$RevocationStatus$CertStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OCSP$RevocationStatus$CertStatus, REVOKED)},
-	{"UNKNOWN", "Lsun/security/provider/certpath/OCSP$RevocationStatus$CertStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OCSP$RevocationStatus$CertStatus, UNKNOWN)},
-	{"$VALUES", "[Lsun/security/provider/certpath/OCSP$RevocationStatus$CertStatus;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(OCSP$RevocationStatus$CertStatus, $VALUES)},
-	{}
-};
-
-$MethodInfo _OCSP$RevocationStatus$CertStatus_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/provider/certpath/OCSP$RevocationStatus$CertStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(OCSP$RevocationStatus$CertStatus, $values, $OCSP$RevocationStatus$CertStatusArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(OCSP$RevocationStatus$CertStatus, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/provider/certpath/OCSP$RevocationStatus$CertStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(OCSP$RevocationStatus$CertStatus, valueOf, OCSP$RevocationStatus$CertStatus*, $String*)},
-	{"values", "()[Lsun/security/provider/certpath/OCSP$RevocationStatus$CertStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(OCSP$RevocationStatus$CertStatus, values, $OCSP$RevocationStatus$CertStatusArray*)},
-	{}
-};
-
-$InnerClassInfo _OCSP$RevocationStatus$CertStatus_InnerClassesInfo_[] = {
-	{"sun.security.provider.certpath.OCSP$RevocationStatus", "sun.security.provider.certpath.OCSP", "RevocationStatus", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.security.provider.certpath.OCSP$RevocationStatus$CertStatus", "sun.security.provider.certpath.OCSP$RevocationStatus", "CertStatus", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _OCSP$RevocationStatus$CertStatus_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.provider.certpath.OCSP$RevocationStatus$CertStatus",
-	"java.lang.Enum",
-	nullptr,
-	_OCSP$RevocationStatus$CertStatus_FieldInfo_,
-	_OCSP$RevocationStatus$CertStatus_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/provider/certpath/OCSP$RevocationStatus$CertStatus;>;",
-	nullptr,
-	_OCSP$RevocationStatus$CertStatus_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.certpath.OCSP"
-};
-
-$Object* allocate$OCSP$RevocationStatus$CertStatus($Class* clazz) {
-	return $of($alloc(OCSP$RevocationStatus$CertStatus));
-}
 
 OCSP$RevocationStatus$CertStatus* OCSP$RevocationStatus$CertStatus::GOOD = nullptr;
 OCSP$RevocationStatus$CertStatus* OCSP$RevocationStatus$CertStatus::REVOKED = nullptr;
@@ -91,7 +48,7 @@ void OCSP$RevocationStatus$CertStatus::init$($String* $enum$name, int32_t $enum$
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$OCSP$RevocationStatus$CertStatus($Class* class$) {
+void OCSP$RevocationStatus$CertStatus::clinit$($Class* clazz) {
 	$assignStatic(OCSP$RevocationStatus$CertStatus::GOOD, $new(OCSP$RevocationStatus$CertStatus, "GOOD"_s, 0));
 	$assignStatic(OCSP$RevocationStatus$CertStatus::REVOKED, $new(OCSP$RevocationStatus$CertStatus, "REVOKED"_s, 1));
 	$assignStatic(OCSP$RevocationStatus$CertStatus::UNKNOWN, $new(OCSP$RevocationStatus$CertStatus, "UNKNOWN"_s, 2));
@@ -102,7 +59,43 @@ OCSP$RevocationStatus$CertStatus::OCSP$RevocationStatus$CertStatus() {
 }
 
 $Class* OCSP$RevocationStatus$CertStatus::load$($String* name, bool initialize) {
-	$loadClass(OCSP$RevocationStatus$CertStatus, name, initialize, &_OCSP$RevocationStatus$CertStatus_ClassInfo_, clinit$OCSP$RevocationStatus$CertStatus, allocate$OCSP$RevocationStatus$CertStatus);
+	$FieldInfo fieldInfos$$[] = {
+		{"GOOD", "Lsun/security/provider/certpath/OCSP$RevocationStatus$CertStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OCSP$RevocationStatus$CertStatus, GOOD)},
+		{"REVOKED", "Lsun/security/provider/certpath/OCSP$RevocationStatus$CertStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OCSP$RevocationStatus$CertStatus, REVOKED)},
+		{"UNKNOWN", "Lsun/security/provider/certpath/OCSP$RevocationStatus$CertStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OCSP$RevocationStatus$CertStatus, UNKNOWN)},
+		{"$VALUES", "[Lsun/security/provider/certpath/OCSP$RevocationStatus$CertStatus;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(OCSP$RevocationStatus$CertStatus, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/provider/certpath/OCSP$RevocationStatus$CertStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(OCSP$RevocationStatus$CertStatus, $values, $OCSP$RevocationStatus$CertStatusArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(OCSP$RevocationStatus$CertStatus, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/provider/certpath/OCSP$RevocationStatus$CertStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(OCSP$RevocationStatus$CertStatus, valueOf, OCSP$RevocationStatus$CertStatus*, $String*)},
+		{"values", "()[Lsun/security/provider/certpath/OCSP$RevocationStatus$CertStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(OCSP$RevocationStatus$CertStatus, values, $OCSP$RevocationStatus$CertStatusArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.certpath.OCSP$RevocationStatus", "sun.security.provider.certpath.OCSP", "RevocationStatus", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.security.provider.certpath.OCSP$RevocationStatus$CertStatus", "sun.security.provider.certpath.OCSP$RevocationStatus", "CertStatus", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.provider.certpath.OCSP$RevocationStatus$CertStatus",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/provider/certpath/OCSP$RevocationStatus$CertStatus;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.certpath.OCSP"
+	};
+	$loadClass(OCSP$RevocationStatus$CertStatus, name, initialize, &classInfo$$, OCSP$RevocationStatus$CertStatus::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(OCSP$RevocationStatus$CertStatus));
+	});
 	return class$;
 }
 

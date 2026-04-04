@@ -1,7 +1,4 @@
 #include <java/time/OffsetDateTime.h>
-
-#include <java/io/DataInput.h>
-#include <java/io/DataOutput.h>
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInput.h>
 #include <java/io/ObjectInputStream.h>
@@ -28,7 +25,6 @@
 #include <java/time/ZoneOffset.h>
 #include <java/time/ZonedDateTime.h>
 #include <java/time/chrono/ChronoLocalDate.h>
-#include <java/time/chrono/ChronoLocalDateTime.h>
 #include <java/time/chrono/IsoChronology.h>
 #include <java/time/format/DateTimeFormatter.h>
 #include <java/time/temporal/ChronoField.h>
@@ -62,8 +58,6 @@
 #undef OFFSET_DATE_TIME_TYPE
 #undef OFFSET_SECONDS
 
-using $DataInput = ::java::io::DataInput;
-using $DataOutput = ::java::io::DataOutput;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInput = ::java::io::ObjectInput;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
@@ -91,7 +85,6 @@ using $Ser = ::java::time::Ser;
 using $ZoneId = ::java::time::ZoneId;
 using $ZoneOffset = ::java::time::ZoneOffset;
 using $ZonedDateTime = ::java::time::ZonedDateTime;
-using $ChronoLocalDateTime = ::java::time::chrono::ChronoLocalDateTime;
 using $IsoChronology = ::java::time::chrono::IsoChronology;
 using $DateTimeFormatter = ::java::time::format::DateTimeFormatter;
 using $ChronoField = ::java::time::temporal::ChronoField;
@@ -121,27 +114,24 @@ public:
 	virtual int32_t compare(Object$* datetime1, Object$* datetime2) override {
 		 return OffsetDateTime::compareInstant($cast(OffsetDateTime, datetime1), $cast(OffsetDateTime, datetime2));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<OffsetDateTime$$Lambda$compareInstant>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo OffsetDateTime$$Lambda$compareInstant::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(OffsetDateTime$$Lambda$compareInstant, init$, void)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime$$Lambda$compareInstant, compare, int32_t, Object$*, Object$*)},
-	{}
-};
-$ClassInfo OffsetDateTime$$Lambda$compareInstant::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.time.OffsetDateTime$$Lambda$compareInstant",
-	"java.lang.Object",
-	"java.util.Comparator",
-	nullptr,
-	methodInfos
 };
 $Class* OffsetDateTime$$Lambda$compareInstant::load$($String* name, bool initialize) {
-	$loadClass(OffsetDateTime$$Lambda$compareInstant, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(OffsetDateTime$$Lambda$compareInstant, init$, void)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime$$Lambda$compareInstant, compare, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.time.OffsetDateTime$$Lambda$compareInstant",
+		"java.lang.Object",
+		"java.util.Comparator",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(OffsetDateTime$$Lambda$compareInstant, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OffsetDateTime$$Lambda$compareInstant);
+	});
 	return class$;
 }
 $Class* OffsetDateTime$$Lambda$compareInstant::class$ = nullptr;
@@ -154,162 +144,27 @@ public:
 	virtual $Object* queryFrom($TemporalAccessor* temporal) override {
 		 return $of(OffsetDateTime::from(temporal));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<OffsetDateTime$$Lambda$from$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo OffsetDateTime$$Lambda$from$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(OffsetDateTime$$Lambda$from$1, init$, void)},
-	{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime$$Lambda$from$1, queryFrom, $Object*, $TemporalAccessor*)},
-	{}
-};
-$ClassInfo OffsetDateTime$$Lambda$from$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.time.OffsetDateTime$$Lambda$from$1",
-	"java.lang.Object",
-	"java.time.temporal.TemporalQuery",
-	nullptr,
-	methodInfos
 };
 $Class* OffsetDateTime$$Lambda$from$1::load$($String* name, bool initialize) {
-	$loadClass(OffsetDateTime$$Lambda$from$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(OffsetDateTime$$Lambda$from$1, init$, void)},
+		{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime$$Lambda$from$1, queryFrom, $Object*, $TemporalAccessor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.time.OffsetDateTime$$Lambda$from$1",
+		"java.lang.Object",
+		"java.time.temporal.TemporalQuery",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(OffsetDateTime$$Lambda$from$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OffsetDateTime$$Lambda$from$1);
+	});
 	return class$;
 }
 $Class* OffsetDateTime$$Lambda$from$1::class$ = nullptr;
-
-$CompoundAttribute _OffsetDateTime_Annotations_[] = {
-	{"Ljdk/internal/ValueBased;", nullptr},
-	{}
-};
-
-$FieldInfo _OffsetDateTime_FieldInfo_[] = {
-	{"MIN", "Ljava/time/OffsetDateTime;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OffsetDateTime, MIN)},
-	{"MAX", "Ljava/time/OffsetDateTime;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OffsetDateTime, MAX)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(OffsetDateTime, serialVersionUID)},
-	{"dateTime", "Ljava/time/LocalDateTime;", nullptr, $PRIVATE | $FINAL, $field(OffsetDateTime, dateTime)},
-	{"offset", "Ljava/time/ZoneOffset;", nullptr, $PRIVATE | $FINAL, $field(OffsetDateTime, offset)},
-	{}
-};
-
-$MethodInfo _OffsetDateTime_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/time/LocalDateTime;Ljava/time/ZoneOffset;)V", nullptr, $PRIVATE, $method(OffsetDateTime, init$, void, $LocalDateTime*, $ZoneOffset*)},
-	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, adjustInto, $Temporal*, $Temporal*)},
-	{"atZoneSameInstant", "(Ljava/time/ZoneId;)Ljava/time/ZonedDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, atZoneSameInstant, $ZonedDateTime*, $ZoneId*)},
-	{"atZoneSimilarLocal", "(Ljava/time/ZoneId;)Ljava/time/ZonedDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, atZoneSimilarLocal, $ZonedDateTime*, $ZoneId*)},
-	{"compareInstant", "(Ljava/time/OffsetDateTime;Ljava/time/OffsetDateTime;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(OffsetDateTime, compareInstant, int32_t, OffsetDateTime*, OffsetDateTime*)},
-	{"compareTo", "(Ljava/time/OffsetDateTime;)I", nullptr, $PUBLIC, $method(OffsetDateTime, compareTo, int32_t, OffsetDateTime*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(OffsetDateTime, compareTo, int32_t, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, equals, bool, Object$*)},
-	{"format", "(Ljava/time/format/DateTimeFormatter;)Ljava/lang/String;", nullptr, $PUBLIC, $method(OffsetDateTime, format, $String*, $DateTimeFormatter*)},
-	{"from", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(OffsetDateTime, from, OffsetDateTime*, $TemporalAccessor*)},
-	{"get", "(Ljava/time/temporal/TemporalField;)I", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, get, int32_t, $TemporalField*)},
-	{"getDayOfMonth", "()I", nullptr, $PUBLIC, $method(OffsetDateTime, getDayOfMonth, int32_t)},
-	{"getDayOfWeek", "()Ljava/time/DayOfWeek;", nullptr, $PUBLIC, $method(OffsetDateTime, getDayOfWeek, $DayOfWeek*)},
-	{"getDayOfYear", "()I", nullptr, $PUBLIC, $method(OffsetDateTime, getDayOfYear, int32_t)},
-	{"getHour", "()I", nullptr, $PUBLIC, $method(OffsetDateTime, getHour, int32_t)},
-	{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, getLong, int64_t, $TemporalField*)},
-	{"getMinute", "()I", nullptr, $PUBLIC, $method(OffsetDateTime, getMinute, int32_t)},
-	{"getMonth", "()Ljava/time/Month;", nullptr, $PUBLIC, $method(OffsetDateTime, getMonth, $Month*)},
-	{"getMonthValue", "()I", nullptr, $PUBLIC, $method(OffsetDateTime, getMonthValue, int32_t)},
-	{"getNano", "()I", nullptr, $PUBLIC, $method(OffsetDateTime, getNano, int32_t)},
-	{"getOffset", "()Ljava/time/ZoneOffset;", nullptr, $PUBLIC, $method(OffsetDateTime, getOffset, $ZoneOffset*)},
-	{"getSecond", "()I", nullptr, $PUBLIC, $method(OffsetDateTime, getSecond, int32_t)},
-	{"getYear", "()I", nullptr, $PUBLIC, $method(OffsetDateTime, getYear, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, hashCode, int32_t)},
-	{"isAfter", "(Ljava/time/OffsetDateTime;)Z", nullptr, $PUBLIC, $method(OffsetDateTime, isAfter, bool, OffsetDateTime*)},
-	{"isBefore", "(Ljava/time/OffsetDateTime;)Z", nullptr, $PUBLIC, $method(OffsetDateTime, isBefore, bool, OffsetDateTime*)},
-	{"isEqual", "(Ljava/time/OffsetDateTime;)Z", nullptr, $PUBLIC, $method(OffsetDateTime, isEqual, bool, OffsetDateTime*)},
-	{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, isSupported, bool, $TemporalField*)},
-	{"isSupported", "(Ljava/time/temporal/TemporalUnit;)Z", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, isSupported, bool, $TemporalUnit*)},
-	{"minus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, minus, OffsetDateTime*, $TemporalAmount*)},
-	{"minus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, minus, OffsetDateTime*, int64_t, $TemporalUnit*)},
-	{"minusDays", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, minusDays, OffsetDateTime*, int64_t)},
-	{"minusHours", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, minusHours, OffsetDateTime*, int64_t)},
-	{"minusMinutes", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, minusMinutes, OffsetDateTime*, int64_t)},
-	{"minusMonths", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, minusMonths, OffsetDateTime*, int64_t)},
-	{"minusNanos", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, minusNanos, OffsetDateTime*, int64_t)},
-	{"minusSeconds", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, minusSeconds, OffsetDateTime*, int64_t)},
-	{"minusWeeks", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, minusWeeks, OffsetDateTime*, int64_t)},
-	{"minusYears", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, minusYears, OffsetDateTime*, int64_t)},
-	{"now", "()Ljava/time/OffsetDateTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(OffsetDateTime, now, OffsetDateTime*)},
-	{"now", "(Ljava/time/ZoneId;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(OffsetDateTime, now, OffsetDateTime*, $ZoneId*)},
-	{"now", "(Ljava/time/Clock;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(OffsetDateTime, now, OffsetDateTime*, $Clock*)},
-	{"of", "(Ljava/time/LocalDate;Ljava/time/LocalTime;Ljava/time/ZoneOffset;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(OffsetDateTime, of, OffsetDateTime*, $LocalDate*, $LocalTime*, $ZoneOffset*)},
-	{"of", "(Ljava/time/LocalDateTime;Ljava/time/ZoneOffset;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(OffsetDateTime, of, OffsetDateTime*, $LocalDateTime*, $ZoneOffset*)},
-	{"of", "(IIIIIIILjava/time/ZoneOffset;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(OffsetDateTime, of, OffsetDateTime*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ZoneOffset*)},
-	{"ofInstant", "(Ljava/time/Instant;Ljava/time/ZoneId;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(OffsetDateTime, ofInstant, OffsetDateTime*, $Instant*, $ZoneId*)},
-	{"parse", "(Ljava/lang/CharSequence;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(OffsetDateTime, parse, OffsetDateTime*, $CharSequence*)},
-	{"parse", "(Ljava/lang/CharSequence;Ljava/time/format/DateTimeFormatter;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(OffsetDateTime, parse, OffsetDateTime*, $CharSequence*, $DateTimeFormatter*)},
-	{"plus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, plus, OffsetDateTime*, $TemporalAmount*)},
-	{"plus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, plus, OffsetDateTime*, int64_t, $TemporalUnit*)},
-	{"plusDays", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, plusDays, OffsetDateTime*, int64_t)},
-	{"plusHours", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, plusHours, OffsetDateTime*, int64_t)},
-	{"plusMinutes", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, plusMinutes, OffsetDateTime*, int64_t)},
-	{"plusMonths", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, plusMonths, OffsetDateTime*, int64_t)},
-	{"plusNanos", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, plusNanos, OffsetDateTime*, int64_t)},
-	{"plusSeconds", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, plusSeconds, OffsetDateTime*, int64_t)},
-	{"plusWeeks", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, plusWeeks, OffsetDateTime*, int64_t)},
-	{"plusYears", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, plusYears, OffsetDateTime*, int64_t)},
-	{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC, $virtualMethod(OffsetDateTime, query, $Object*, $TemporalQuery*)},
-	{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, range, $ValueRange*, $TemporalField*)},
-	{"readExternal", "(Ljava/io/ObjectInput;)Ljava/time/OffsetDateTime;", nullptr, $STATIC, $staticMethod(OffsetDateTime, readExternal, OffsetDateTime*, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(OffsetDateTime, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
-	{"timeLineOrder", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<Ljava/time/OffsetDateTime;>;", $PUBLIC | $STATIC, $staticMethod(OffsetDateTime, timeLineOrder, $Comparator*)},
-	{"toEpochSecond", "()J", nullptr, $PUBLIC, $method(OffsetDateTime, toEpochSecond, int64_t)},
-	{"toInstant", "()Ljava/time/Instant;", nullptr, $PUBLIC, $method(OffsetDateTime, toInstant, $Instant*)},
-	{"toLocalDate", "()Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(OffsetDateTime, toLocalDate, $LocalDate*)},
-	{"toLocalDateTime", "()Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, toLocalDateTime, $LocalDateTime*)},
-	{"toLocalTime", "()Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(OffsetDateTime, toLocalTime, $LocalTime*)},
-	{"toOffsetTime", "()Ljava/time/OffsetTime;", nullptr, $PUBLIC, $method(OffsetDateTime, toOffsetTime, $OffsetTime*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, toString, $String*)},
-	{"toZonedDateTime", "()Ljava/time/ZonedDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, toZonedDateTime, $ZonedDateTime*)},
-	{"truncatedTo", "(Ljava/time/temporal/TemporalUnit;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, truncatedTo, OffsetDateTime*, $TemporalUnit*)},
-	{"until", "(Ljava/time/temporal/Temporal;Ljava/time/temporal/TemporalUnit;)J", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, until, int64_t, $Temporal*, $TemporalUnit*)},
-	{"with", "(Ljava/time/LocalDateTime;Ljava/time/ZoneOffset;)Ljava/time/OffsetDateTime;", nullptr, $PRIVATE, $method(OffsetDateTime, with, OffsetDateTime*, $LocalDateTime*, $ZoneOffset*)},
-	{"with", "(Ljava/time/temporal/TemporalAdjuster;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, with, OffsetDateTime*, $TemporalAdjuster*)},
-	{"with", "(Ljava/time/temporal/TemporalField;J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, with, OffsetDateTime*, $TemporalField*, int64_t)},
-	{"withDayOfMonth", "(I)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, withDayOfMonth, OffsetDateTime*, int32_t)},
-	{"withDayOfYear", "(I)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, withDayOfYear, OffsetDateTime*, int32_t)},
-	{"withHour", "(I)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, withHour, OffsetDateTime*, int32_t)},
-	{"withMinute", "(I)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, withMinute, OffsetDateTime*, int32_t)},
-	{"withMonth", "(I)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, withMonth, OffsetDateTime*, int32_t)},
-	{"withNano", "(I)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, withNano, OffsetDateTime*, int32_t)},
-	{"withOffsetSameInstant", "(Ljava/time/ZoneOffset;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, withOffsetSameInstant, OffsetDateTime*, $ZoneOffset*)},
-	{"withOffsetSameLocal", "(Ljava/time/ZoneOffset;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, withOffsetSameLocal, OffsetDateTime*, $ZoneOffset*)},
-	{"withSecond", "(I)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, withSecond, OffsetDateTime*, int32_t)},
-	{"withYear", "(I)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, withYear, OffsetDateTime*, int32_t)},
-	{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, 0, $method(OffsetDateTime, writeExternal, void, $ObjectOutput*), "java.io.IOException"},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(OffsetDateTime, writeReplace, $Object*)},
-	{}
-};
-
-$InnerClassInfo _OffsetDateTime_InnerClassesInfo_[] = {
-	{"java.time.OffsetDateTime$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _OffsetDateTime_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.time.OffsetDateTime",
-	"java.lang.Object",
-	"java.time.temporal.Temporal,java.time.temporal.TemporalAdjuster,java.lang.Comparable,java.io.Serializable",
-	_OffsetDateTime_FieldInfo_,
-	_OffsetDateTime_MethodInfo_,
-	"Ljava/lang/Object;Ljava/time/temporal/Temporal;Ljava/time/temporal/TemporalAdjuster;Ljava/lang/Comparable<Ljava/time/OffsetDateTime;>;Ljava/io/Serializable;",
-	nullptr,
-	_OffsetDateTime_InnerClassesInfo_,
-	_OffsetDateTime_Annotations_,
-	nullptr,
-	"java.time.OffsetDateTime$1"
-};
-
-$Object* allocate$OffsetDateTime($Class* clazz) {
-	return $of($alloc(OffsetDateTime));
-}
 
 $Object* OffsetDateTime::clone() {
 	 return this->$Temporal::clone();
@@ -324,20 +179,20 @@ OffsetDateTime* OffsetDateTime::MAX = nullptr;
 
 $Comparator* OffsetDateTime::timeLineOrder() {
 	$init(OffsetDateTime);
-	return static_cast<$Comparator*>($new(OffsetDateTime$$Lambda$compareInstant));
+	return $new(OffsetDateTime$$Lambda$compareInstant);
 }
 
 int32_t OffsetDateTime::compareInstant(OffsetDateTime* datetime1, OffsetDateTime* datetime2) {
 	$init(OffsetDateTime);
-	$useLocalCurrentObjectStackCache();
-	if ($nc($($nc(datetime1)->getOffset()))->equals($($nc(datetime2)->getOffset()))) {
-		return $nc($(datetime1->toLocalDateTime()))->compareTo($(static_cast<$ChronoLocalDateTime*>($nc(datetime2)->toLocalDateTime())));
+	$useLocalObjectStack();
+	if ($$nc($nc(datetime1)->getOffset())->equals($($nc(datetime2)->getOffset()))) {
+		return $$nc(datetime1->toLocalDateTime())->compareTo($(datetime2->toLocalDateTime()));
 	}
-	int64_t var$0 = $nc(datetime1)->toEpochSecond();
-	int32_t cmp = $Long::compare(var$0, $nc(datetime2)->toEpochSecond());
+	int64_t var$0 = datetime1->toEpochSecond();
+	int32_t cmp = $Long::compare(var$0, datetime2->toEpochSecond());
 	if (cmp == 0) {
-		int32_t var$1 = $nc($($nc(datetime1)->toLocalTime()))->getNano();
-		cmp = var$1 - $nc($($nc(datetime2)->toLocalTime()))->getNano();
+		int32_t var$1 = $$nc(datetime1->toLocalTime())->getNano();
+		cmp = var$1 - $$nc(datetime2->toLocalTime())->getNano();
 	}
 	return cmp;
 }
@@ -354,10 +209,10 @@ OffsetDateTime* OffsetDateTime::now($ZoneId* zone) {
 
 OffsetDateTime* OffsetDateTime::now($Clock* clock) {
 	$init(OffsetDateTime);
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(clock), "clock"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(clock, "clock"_s);
 	$var($Instant, now, $nc(clock)->instant());
-	return ofInstant(now, $($nc($($nc($(clock->getZone()))->getRules()))->getOffset(now)));
+	return ofInstant(now, $($$nc($$nc(clock->getZone())->getRules())->getOffset(now)));
 }
 
 OffsetDateTime* OffsetDateTime::of($LocalDate* date, $LocalTime* time, $ZoneOffset* offset) {
@@ -379,9 +234,9 @@ OffsetDateTime* OffsetDateTime::of(int32_t year, int32_t month, int32_t dayOfMon
 
 OffsetDateTime* OffsetDateTime::ofInstant($Instant* instant, $ZoneId* zone) {
 	$init(OffsetDateTime);
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(instant), "instant"_s);
-	$Objects::requireNonNull($of(zone), "zone"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(instant, "instant"_s);
+	$Objects::requireNonNull(zone, "zone"_s);
 	$var($ZoneRules, rules, $nc(zone)->getRules());
 	$var($ZoneOffset, offset, $nc(rules)->getOffset(instant));
 	int64_t var$0 = $nc(instant)->getEpochSecond();
@@ -391,7 +246,7 @@ OffsetDateTime* OffsetDateTime::ofInstant($Instant* instant, $ZoneId* zone) {
 
 OffsetDateTime* OffsetDateTime::from($TemporalAccessor* temporal) {
 	$init(OffsetDateTime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf(OffsetDateTime, temporal)) {
 		return $cast(OffsetDateTime, temporal);
 	}
@@ -406,8 +261,12 @@ OffsetDateTime* OffsetDateTime::from($TemporalAccessor* temporal) {
 			return OffsetDateTime::ofInstant(instant, offset);
 		}
 	} catch ($DateTimeException& ex) {
-		$var($String, var$0, $$str({"Unable to obtain OffsetDateTime from TemporalAccessor: "_s, temporal, " of type "_s}));
-		$throwNew($DateTimeException, $$concat(var$0, $($nc($of(temporal))->getClass()->getName())), ex);
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Unable to obtain OffsetDateTime from TemporalAccessor: "_s);
+		var$0->append(temporal);
+		var$0->append(" of type "_s);
+		var$0->append($($nc($of(temporal))->getClass()->getName()));
+		$throwNew($DateTimeException, $$str(var$0), ex);
 	}
 	$shouldNotReachHere();
 }
@@ -420,13 +279,13 @@ OffsetDateTime* OffsetDateTime::parse($CharSequence* text) {
 
 OffsetDateTime* OffsetDateTime::parse($CharSequence* text, $DateTimeFormatter* formatter) {
 	$init(OffsetDateTime);
-	$Objects::requireNonNull($of(formatter), "formatter"_s);
-	return $cast(OffsetDateTime, $nc(formatter)->parse(text, static_cast<$TemporalQuery*>($$new(OffsetDateTime$$Lambda$from$1))));
+	$Objects::requireNonNull(formatter, "formatter"_s);
+	return $cast(OffsetDateTime, $nc(formatter)->parse(text, $$new(OffsetDateTime$$Lambda$from$1)));
 }
 
 void OffsetDateTime::init$($LocalDateTime* dateTime, $ZoneOffset* offset) {
-	$set(this, dateTime, $cast($LocalDateTime, $Objects::requireNonNull($of(dateTime), "dateTime"_s)));
-	$set(this, offset, $cast($ZoneOffset, $Objects::requireNonNull($of(offset), "offset"_s)));
+	$set(this, dateTime, $cast($LocalDateTime, $Objects::requireNonNull(dateTime, "dateTime"_s)));
+	$set(this, offset, $cast($ZoneOffset, $Objects::requireNonNull(offset, "offset"_s)));
 }
 
 OffsetDateTime* OffsetDateTime::with($LocalDateTime* dateTime, $ZoneOffset* offset) {
@@ -471,13 +330,9 @@ int32_t OffsetDateTime::get($TemporalField* field) {
 			$init($OffsetDateTime$1);
 			switch ($nc($OffsetDateTime$1::$SwitchMap$java$time$temporal$ChronoField)->get($nc((chronoField))->ordinal())) {
 			case 1:
-				{
-					$throwNew($UnsupportedTemporalTypeException, "Invalid field \'InstantSeconds\' for get() method, use getLong() instead"_s);
-				}
+				$throwNew($UnsupportedTemporalTypeException, "Invalid field \'InstantSeconds\' for get() method, use getLong() instead"_s);
 			case 2:
-				{
-					return $nc($(getOffset()))->getTotalSeconds();
-				}
+				return $$nc(getOffset())->getTotalSeconds();
 			}
 			return $nc(this->dateTime)->get(field);
 		}
@@ -497,13 +352,9 @@ int64_t OffsetDateTime::getLong($TemporalField* field) {
 			$init($OffsetDateTime$1);
 			switch ($nc($OffsetDateTime$1::$SwitchMap$java$time$temporal$ChronoField)->get($nc((chronoField))->ordinal())) {
 			case 1:
-				{
-					return toEpochSecond();
-				}
+				return toEpochSecond();
 			case 2:
-				{
-					return $nc($(getOffset()))->getTotalSeconds();
-				}
+				return $$nc(getOffset())->getTotalSeconds();
 			}
 			return $nc(this->dateTime)->getLong(field);
 		}
@@ -523,7 +374,7 @@ OffsetDateTime* OffsetDateTime::withOffsetSameInstant($ZoneOffset* offset) {
 	if ($nc(offset)->equals(this->offset)) {
 		return this;
 	}
-	int32_t var$0 = $nc(offset)->getTotalSeconds();
+	int32_t var$0 = offset->getTotalSeconds();
 	int32_t difference = var$0 - $nc(this->offset)->getTotalSeconds();
 	$var($LocalDateTime, adjusted, $nc(this->dateTime)->plusSeconds(difference));
 	return $new(OffsetDateTime, adjusted, offset);
@@ -595,7 +446,7 @@ OffsetDateTime* OffsetDateTime::with($TemporalAdjuster* adjuster) {
 }
 
 OffsetDateTime* OffsetDateTime::with($TemporalField* field, int64_t newValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$ChronoField* chronoField = nullptr;
 		bool var$0 = $instanceOf($ChronoField, field);
@@ -607,14 +458,10 @@ OffsetDateTime* OffsetDateTime::with($TemporalField* field, int64_t newValue) {
 			$init($OffsetDateTime$1);
 			switch ($nc($OffsetDateTime$1::$SwitchMap$java$time$temporal$ChronoField)->get($nc((chronoField))->ordinal())) {
 			case 1:
-				{
-					return ofInstant($($Instant::ofEpochSecond(newValue, getNano())), this->offset);
-				}
+				return ofInstant($($Instant::ofEpochSecond(newValue, getNano())), this->offset);
 			case 2:
 				{
-					{
-						return with(this->dateTime, $($ZoneOffset::ofTotalSeconds(chronoField->checkValidIntValue(newValue))));
-					}
+					return with(this->dateTime, $($ZoneOffset::ofTotalSeconds(chronoField->checkValidIntValue(newValue))));
 				}
 			}
 			return with($($nc(this->dateTime)->with(field, newValue)), this->offset);
@@ -707,69 +554,69 @@ OffsetDateTime* OffsetDateTime::minus($TemporalAmount* amountToSubtract) {
 }
 
 OffsetDateTime* OffsetDateTime::minus(int64_t amountToSubtract, $TemporalUnit* unit) {
-	return (amountToSubtract == $Long::MIN_VALUE ? $nc($(plus($Long::MAX_VALUE, unit)))->plus(1, unit) : plus(-amountToSubtract, unit));
+	return (amountToSubtract == $Long::MIN_VALUE ? $$nc(plus($Long::MAX_VALUE, unit))->plus(1, unit) : plus(-amountToSubtract, unit));
 }
 
 OffsetDateTime* OffsetDateTime::minusYears(int64_t years) {
-	return (years == $Long::MIN_VALUE ? $nc($(plusYears($Long::MAX_VALUE)))->plusYears(1) : plusYears(-years));
+	return (years == $Long::MIN_VALUE ? $$nc(plusYears($Long::MAX_VALUE))->plusYears(1) : plusYears(-years));
 }
 
 OffsetDateTime* OffsetDateTime::minusMonths(int64_t months) {
-	return (months == $Long::MIN_VALUE ? $nc($(plusMonths($Long::MAX_VALUE)))->plusMonths(1) : plusMonths(-months));
+	return (months == $Long::MIN_VALUE ? $$nc(plusMonths($Long::MAX_VALUE))->plusMonths(1) : plusMonths(-months));
 }
 
 OffsetDateTime* OffsetDateTime::minusWeeks(int64_t weeks) {
-	return (weeks == $Long::MIN_VALUE ? $nc($(plusWeeks($Long::MAX_VALUE)))->plusWeeks(1) : plusWeeks(-weeks));
+	return (weeks == $Long::MIN_VALUE ? $$nc(plusWeeks($Long::MAX_VALUE))->plusWeeks(1) : plusWeeks(-weeks));
 }
 
 OffsetDateTime* OffsetDateTime::minusDays(int64_t days) {
-	return (days == $Long::MIN_VALUE ? $nc($(plusDays($Long::MAX_VALUE)))->plusDays(1) : plusDays(-days));
+	return (days == $Long::MIN_VALUE ? $$nc(plusDays($Long::MAX_VALUE))->plusDays(1) : plusDays(-days));
 }
 
 OffsetDateTime* OffsetDateTime::minusHours(int64_t hours) {
-	return (hours == $Long::MIN_VALUE ? $nc($(plusHours($Long::MAX_VALUE)))->plusHours(1) : plusHours(-hours));
+	return (hours == $Long::MIN_VALUE ? $$nc(plusHours($Long::MAX_VALUE))->plusHours(1) : plusHours(-hours));
 }
 
 OffsetDateTime* OffsetDateTime::minusMinutes(int64_t minutes) {
-	return (minutes == $Long::MIN_VALUE ? $nc($(plusMinutes($Long::MAX_VALUE)))->plusMinutes(1) : plusMinutes(-minutes));
+	return (minutes == $Long::MIN_VALUE ? $$nc(plusMinutes($Long::MAX_VALUE))->plusMinutes(1) : plusMinutes(-minutes));
 }
 
 OffsetDateTime* OffsetDateTime::minusSeconds(int64_t seconds) {
-	return (seconds == $Long::MIN_VALUE ? $nc($(plusSeconds($Long::MAX_VALUE)))->plusSeconds(1) : plusSeconds(-seconds));
+	return (seconds == $Long::MIN_VALUE ? $$nc(plusSeconds($Long::MAX_VALUE))->plusSeconds(1) : plusSeconds(-seconds));
 }
 
 OffsetDateTime* OffsetDateTime::minusNanos(int64_t nanos) {
-	return (nanos == $Long::MIN_VALUE ? $nc($(plusNanos($Long::MAX_VALUE)))->plusNanos(1) : plusNanos(-nanos));
+	return (nanos == $Long::MIN_VALUE ? $$nc(plusNanos($Long::MAX_VALUE))->plusNanos(1) : plusNanos(-nanos));
 }
 
 $Object* OffsetDateTime::query($TemporalQuery* query) {
 	bool var$0 = query == $TemporalQueries::offset();
 	if (var$0 || query == $TemporalQueries::zone()) {
-		return $of($of(getOffset()));
+		return $of(getOffset());
 	} else if (query == $TemporalQueries::zoneId()) {
-		return $of(nullptr);
+		return nullptr;
 	} else if (query == $TemporalQueries::localDate()) {
-		return $of($of(toLocalDate()));
+		return $of(toLocalDate());
 	} else if (query == $TemporalQueries::localTime()) {
-		return $of($of(toLocalTime()));
+		return $of(toLocalTime());
 	} else if (query == $TemporalQueries::chronology()) {
 		$init($IsoChronology);
-		return $of($of($IsoChronology::INSTANCE));
+		return $of($IsoChronology::INSTANCE);
 	} else if (query == $TemporalQueries::precision()) {
 		$init($ChronoUnit);
-		return $of($of($ChronoUnit::NANOS));
+		return $of($ChronoUnit::NANOS);
 	}
-	return $of($nc(query)->queryFrom(this));
+	return $nc(query)->queryFrom(this);
 }
 
 $Temporal* OffsetDateTime::adjustInto($Temporal* temporal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoField);
-	return $nc($($nc($($nc(temporal)->with($ChronoField::EPOCH_DAY, $nc($(toLocalDate()))->toEpochDay())))->with($ChronoField::NANO_OF_DAY, $nc($(toLocalTime()))->toNanoOfDay())))->with($ChronoField::OFFSET_SECONDS, $nc($(getOffset()))->getTotalSeconds());
+	return $$nc($$nc($nc(temporal)->with($ChronoField::EPOCH_DAY, $$nc(toLocalDate())->toEpochDay()))->with($ChronoField::NANO_OF_DAY, $$nc(toLocalTime())->toNanoOfDay()))->with($ChronoField::OFFSET_SECONDS, $$nc(getOffset())->getTotalSeconds());
 }
 
 int64_t OffsetDateTime::until($Temporal* endExclusive, $TemporalUnit* unit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(OffsetDateTime, end, OffsetDateTime::from(endExclusive));
 	if ($instanceOf($ChronoUnit, unit)) {
 		$var(OffsetDateTime, start, this);
@@ -778,13 +625,13 @@ int64_t OffsetDateTime::until($Temporal* endExclusive, $TemporalUnit* unit) {
 		} catch ($DateTimeException& ex) {
 			$assign(start, withOffsetSameInstant($nc(end)->offset));
 		}
-		return $nc(start->dateTime)->until($nc(end)->dateTime, unit);
+		return $nc($nc(start)->dateTime)->until($nc(end)->dateTime, unit);
 	}
 	return $nc(unit)->between(this, end);
 }
 
 $String* OffsetDateTime::format($DateTimeFormatter* formatter) {
-	$Objects::requireNonNull($of(formatter), "formatter"_s);
+	$Objects::requireNonNull(formatter, "formatter"_s);
 	return $nc(formatter)->format(this);
 }
 
@@ -813,53 +660,53 @@ int64_t OffsetDateTime::toEpochSecond() {
 }
 
 int32_t OffsetDateTime::compareTo(OffsetDateTime* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t cmp = compareInstant(this, other);
 	if (cmp == 0) {
-		cmp = $nc($(toLocalDateTime()))->compareTo($(static_cast<$ChronoLocalDateTime*>($nc(other)->toLocalDateTime())));
+		cmp = $$nc(toLocalDateTime())->compareTo($($nc(other)->toLocalDateTime()));
 	}
 	return cmp;
 }
 
 bool OffsetDateTime::isAfter(OffsetDateTime* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t thisEpochSec = toEpochSecond();
 	int64_t otherEpochSec = $nc(other)->toEpochSecond();
 	bool var$0 = thisEpochSec > otherEpochSec;
 	if (!var$0) {
 		bool var$1 = thisEpochSec == otherEpochSec;
 		if (var$1) {
-			int32_t var$2 = $nc($(toLocalTime()))->getNano();
-			var$1 = var$2 > $nc($(other->toLocalTime()))->getNano();
+			int32_t var$2 = $$nc(toLocalTime())->getNano();
+			var$1 = var$2 > $$nc(other->toLocalTime())->getNano();
 		}
-		var$0 = (var$1);
+		var$0 = var$1;
 	}
 	return var$0;
 }
 
 bool OffsetDateTime::isBefore(OffsetDateTime* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t thisEpochSec = toEpochSecond();
 	int64_t otherEpochSec = $nc(other)->toEpochSecond();
 	bool var$0 = thisEpochSec < otherEpochSec;
 	if (!var$0) {
 		bool var$1 = thisEpochSec == otherEpochSec;
 		if (var$1) {
-			int32_t var$2 = $nc($(toLocalTime()))->getNano();
-			var$1 = var$2 < $nc($(other->toLocalTime()))->getNano();
+			int32_t var$2 = $$nc(toLocalTime())->getNano();
+			var$1 = var$2 < $$nc(other->toLocalTime())->getNano();
 		}
-		var$0 = (var$1);
+		var$0 = var$1;
 	}
 	return var$0;
 }
 
 bool OffsetDateTime::isEqual(OffsetDateTime* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t var$1 = toEpochSecond();
 	bool var$0 = var$1 == $nc(other)->toEpochSecond();
 	if (var$0) {
-		int32_t var$2 = $nc($(toLocalTime()))->getNano();
-		var$0 = var$2 == $nc($(other->toLocalTime()))->getNano();
+		int32_t var$2 = $$nc(toLocalTime())->getNano();
+		var$0 = var$2 == $$nc(other->toLocalTime())->getNano();
 	}
 	return var$0;
 }
@@ -874,9 +721,9 @@ bool OffsetDateTime::equals(Object$* obj) {
 		$assign(other, $cast(OffsetDateTime, obj));
 		var$2 = true;
 	}
-	bool var$1 = (var$2);
+	bool var$1 = var$2;
 	bool var$0 = var$1 && $nc(this->dateTime)->equals($nc(other)->dateTime);
-	return var$0 && $nc(this->offset)->equals($nc(other)->offset);
+	return var$0 && $nc(this->offset)->equals(other->offset);
 }
 
 int32_t OffsetDateTime::hashCode() {
@@ -885,13 +732,15 @@ int32_t OffsetDateTime::hashCode() {
 }
 
 $String* OffsetDateTime::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $($nc(this->dateTime)->toString()));
-	return $concat(var$0, $($nc(this->offset)->toString()));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($nc(this->dateTime)->toString()));
+	var$0->append($($nc(this->offset)->toString()));
+	return $str(var$0);
 }
 
 $Object* OffsetDateTime::writeReplace() {
-	return $of($new($Ser, $Ser::OFFSET_DATE_TIME_TYPE, this));
+	return $new($Ser, $Ser::OFFSET_DATE_TIME_TYPE, this);
 }
 
 void OffsetDateTime::readObject($ObjectInputStream* s) {
@@ -905,7 +754,7 @@ void OffsetDateTime::writeExternal($ObjectOutput* out) {
 
 OffsetDateTime* OffsetDateTime::readExternal($ObjectInput* in) {
 	$init(OffsetDateTime);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LocalDateTime, dateTime, $LocalDateTime::readExternal(in));
 	$var($ZoneOffset, offset, $ZoneOffset::readExternal(in));
 	return OffsetDateTime::of(dateTime, offset);
@@ -915,7 +764,7 @@ int32_t OffsetDateTime::compareTo(Object$* other) {
 	return this->compareTo($cast(OffsetDateTime, other));
 }
 
-void clinit$OffsetDateTime($Class* class$) {
+void OffsetDateTime::clinit$($Class* clazz) {
 	$init($LocalDateTime);
 	$init($ZoneOffset);
 	$assignStatic(OffsetDateTime::MIN, $nc($LocalDateTime::MIN)->atOffset($ZoneOffset::MAX));
@@ -927,14 +776,139 @@ OffsetDateTime::OffsetDateTime() {
 
 $Class* OffsetDateTime::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(OffsetDateTime$$Lambda$compareInstant::classInfo$.name)) {
+		if (name->equals("java.time.OffsetDateTime$$Lambda$compareInstant")) {
 			return OffsetDateTime$$Lambda$compareInstant::load$(name, initialize);
 		}
-		if (name->equals(OffsetDateTime$$Lambda$from$1::classInfo$.name)) {
+		if (name->equals("java.time.OffsetDateTime$$Lambda$from$1")) {
 			return OffsetDateTime$$Lambda$from$1::load$(name, initialize);
 		}
 	}
-	$loadClass(OffsetDateTime, name, initialize, &_OffsetDateTime_ClassInfo_, clinit$OffsetDateTime, allocate$OffsetDateTime);
+	$FieldInfo fieldInfos$$[] = {
+		{"MIN", "Ljava/time/OffsetDateTime;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OffsetDateTime, MIN)},
+		{"MAX", "Ljava/time/OffsetDateTime;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OffsetDateTime, MAX)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(OffsetDateTime, serialVersionUID)},
+		{"dateTime", "Ljava/time/LocalDateTime;", nullptr, $PRIVATE | $FINAL, $field(OffsetDateTime, dateTime)},
+		{"offset", "Ljava/time/ZoneOffset;", nullptr, $PRIVATE | $FINAL, $field(OffsetDateTime, offset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/time/LocalDateTime;Ljava/time/ZoneOffset;)V", nullptr, $PRIVATE, $method(OffsetDateTime, init$, void, $LocalDateTime*, $ZoneOffset*)},
+		{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, adjustInto, $Temporal*, $Temporal*)},
+		{"atZoneSameInstant", "(Ljava/time/ZoneId;)Ljava/time/ZonedDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, atZoneSameInstant, $ZonedDateTime*, $ZoneId*)},
+		{"atZoneSimilarLocal", "(Ljava/time/ZoneId;)Ljava/time/ZonedDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, atZoneSimilarLocal, $ZonedDateTime*, $ZoneId*)},
+		{"compareInstant", "(Ljava/time/OffsetDateTime;Ljava/time/OffsetDateTime;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(OffsetDateTime, compareInstant, int32_t, OffsetDateTime*, OffsetDateTime*)},
+		{"compareTo", "(Ljava/time/OffsetDateTime;)I", nullptr, $PUBLIC, $method(OffsetDateTime, compareTo, int32_t, OffsetDateTime*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(OffsetDateTime, compareTo, int32_t, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, equals, bool, Object$*)},
+		{"format", "(Ljava/time/format/DateTimeFormatter;)Ljava/lang/String;", nullptr, $PUBLIC, $method(OffsetDateTime, format, $String*, $DateTimeFormatter*)},
+		{"from", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(OffsetDateTime, from, OffsetDateTime*, $TemporalAccessor*)},
+		{"get", "(Ljava/time/temporal/TemporalField;)I", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, get, int32_t, $TemporalField*)},
+		{"getDayOfMonth", "()I", nullptr, $PUBLIC, $method(OffsetDateTime, getDayOfMonth, int32_t)},
+		{"getDayOfWeek", "()Ljava/time/DayOfWeek;", nullptr, $PUBLIC, $method(OffsetDateTime, getDayOfWeek, $DayOfWeek*)},
+		{"getDayOfYear", "()I", nullptr, $PUBLIC, $method(OffsetDateTime, getDayOfYear, int32_t)},
+		{"getHour", "()I", nullptr, $PUBLIC, $method(OffsetDateTime, getHour, int32_t)},
+		{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, getLong, int64_t, $TemporalField*)},
+		{"getMinute", "()I", nullptr, $PUBLIC, $method(OffsetDateTime, getMinute, int32_t)},
+		{"getMonth", "()Ljava/time/Month;", nullptr, $PUBLIC, $method(OffsetDateTime, getMonth, $Month*)},
+		{"getMonthValue", "()I", nullptr, $PUBLIC, $method(OffsetDateTime, getMonthValue, int32_t)},
+		{"getNano", "()I", nullptr, $PUBLIC, $method(OffsetDateTime, getNano, int32_t)},
+		{"getOffset", "()Ljava/time/ZoneOffset;", nullptr, $PUBLIC, $method(OffsetDateTime, getOffset, $ZoneOffset*)},
+		{"getSecond", "()I", nullptr, $PUBLIC, $method(OffsetDateTime, getSecond, int32_t)},
+		{"getYear", "()I", nullptr, $PUBLIC, $method(OffsetDateTime, getYear, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, hashCode, int32_t)},
+		{"isAfter", "(Ljava/time/OffsetDateTime;)Z", nullptr, $PUBLIC, $method(OffsetDateTime, isAfter, bool, OffsetDateTime*)},
+		{"isBefore", "(Ljava/time/OffsetDateTime;)Z", nullptr, $PUBLIC, $method(OffsetDateTime, isBefore, bool, OffsetDateTime*)},
+		{"isEqual", "(Ljava/time/OffsetDateTime;)Z", nullptr, $PUBLIC, $method(OffsetDateTime, isEqual, bool, OffsetDateTime*)},
+		{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, isSupported, bool, $TemporalField*)},
+		{"isSupported", "(Ljava/time/temporal/TemporalUnit;)Z", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, isSupported, bool, $TemporalUnit*)},
+		{"minus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, minus, OffsetDateTime*, $TemporalAmount*)},
+		{"minus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, minus, OffsetDateTime*, int64_t, $TemporalUnit*)},
+		{"minusDays", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, minusDays, OffsetDateTime*, int64_t)},
+		{"minusHours", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, minusHours, OffsetDateTime*, int64_t)},
+		{"minusMinutes", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, minusMinutes, OffsetDateTime*, int64_t)},
+		{"minusMonths", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, minusMonths, OffsetDateTime*, int64_t)},
+		{"minusNanos", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, minusNanos, OffsetDateTime*, int64_t)},
+		{"minusSeconds", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, minusSeconds, OffsetDateTime*, int64_t)},
+		{"minusWeeks", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, minusWeeks, OffsetDateTime*, int64_t)},
+		{"minusYears", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, minusYears, OffsetDateTime*, int64_t)},
+		{"now", "()Ljava/time/OffsetDateTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(OffsetDateTime, now, OffsetDateTime*)},
+		{"now", "(Ljava/time/ZoneId;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(OffsetDateTime, now, OffsetDateTime*, $ZoneId*)},
+		{"now", "(Ljava/time/Clock;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(OffsetDateTime, now, OffsetDateTime*, $Clock*)},
+		{"of", "(Ljava/time/LocalDate;Ljava/time/LocalTime;Ljava/time/ZoneOffset;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(OffsetDateTime, of, OffsetDateTime*, $LocalDate*, $LocalTime*, $ZoneOffset*)},
+		{"of", "(Ljava/time/LocalDateTime;Ljava/time/ZoneOffset;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(OffsetDateTime, of, OffsetDateTime*, $LocalDateTime*, $ZoneOffset*)},
+		{"of", "(IIIIIIILjava/time/ZoneOffset;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(OffsetDateTime, of, OffsetDateTime*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ZoneOffset*)},
+		{"ofInstant", "(Ljava/time/Instant;Ljava/time/ZoneId;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(OffsetDateTime, ofInstant, OffsetDateTime*, $Instant*, $ZoneId*)},
+		{"parse", "(Ljava/lang/CharSequence;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(OffsetDateTime, parse, OffsetDateTime*, $CharSequence*)},
+		{"parse", "(Ljava/lang/CharSequence;Ljava/time/format/DateTimeFormatter;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC | $STATIC, $staticMethod(OffsetDateTime, parse, OffsetDateTime*, $CharSequence*, $DateTimeFormatter*)},
+		{"plus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, plus, OffsetDateTime*, $TemporalAmount*)},
+		{"plus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, plus, OffsetDateTime*, int64_t, $TemporalUnit*)},
+		{"plusDays", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, plusDays, OffsetDateTime*, int64_t)},
+		{"plusHours", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, plusHours, OffsetDateTime*, int64_t)},
+		{"plusMinutes", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, plusMinutes, OffsetDateTime*, int64_t)},
+		{"plusMonths", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, plusMonths, OffsetDateTime*, int64_t)},
+		{"plusNanos", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, plusNanos, OffsetDateTime*, int64_t)},
+		{"plusSeconds", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, plusSeconds, OffsetDateTime*, int64_t)},
+		{"plusWeeks", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, plusWeeks, OffsetDateTime*, int64_t)},
+		{"plusYears", "(J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, plusYears, OffsetDateTime*, int64_t)},
+		{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC, $virtualMethod(OffsetDateTime, query, $Object*, $TemporalQuery*)},
+		{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, range, $ValueRange*, $TemporalField*)},
+		{"readExternal", "(Ljava/io/ObjectInput;)Ljava/time/OffsetDateTime;", nullptr, $STATIC, $staticMethod(OffsetDateTime, readExternal, OffsetDateTime*, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(OffsetDateTime, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
+		{"timeLineOrder", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<Ljava/time/OffsetDateTime;>;", $PUBLIC | $STATIC, $staticMethod(OffsetDateTime, timeLineOrder, $Comparator*)},
+		{"toEpochSecond", "()J", nullptr, $PUBLIC, $method(OffsetDateTime, toEpochSecond, int64_t)},
+		{"toInstant", "()Ljava/time/Instant;", nullptr, $PUBLIC, $method(OffsetDateTime, toInstant, $Instant*)},
+		{"toLocalDate", "()Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(OffsetDateTime, toLocalDate, $LocalDate*)},
+		{"toLocalDateTime", "()Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, toLocalDateTime, $LocalDateTime*)},
+		{"toLocalTime", "()Ljava/time/LocalTime;", nullptr, $PUBLIC, $method(OffsetDateTime, toLocalTime, $LocalTime*)},
+		{"toOffsetTime", "()Ljava/time/OffsetTime;", nullptr, $PUBLIC, $method(OffsetDateTime, toOffsetTime, $OffsetTime*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, toString, $String*)},
+		{"toZonedDateTime", "()Ljava/time/ZonedDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, toZonedDateTime, $ZonedDateTime*)},
+		{"truncatedTo", "(Ljava/time/temporal/TemporalUnit;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, truncatedTo, OffsetDateTime*, $TemporalUnit*)},
+		{"until", "(Ljava/time/temporal/Temporal;Ljava/time/temporal/TemporalUnit;)J", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, until, int64_t, $Temporal*, $TemporalUnit*)},
+		{"with", "(Ljava/time/LocalDateTime;Ljava/time/ZoneOffset;)Ljava/time/OffsetDateTime;", nullptr, $PRIVATE, $method(OffsetDateTime, with, OffsetDateTime*, $LocalDateTime*, $ZoneOffset*)},
+		{"with", "(Ljava/time/temporal/TemporalAdjuster;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, with, OffsetDateTime*, $TemporalAdjuster*)},
+		{"with", "(Ljava/time/temporal/TemporalField;J)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $virtualMethod(OffsetDateTime, with, OffsetDateTime*, $TemporalField*, int64_t)},
+		{"withDayOfMonth", "(I)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, withDayOfMonth, OffsetDateTime*, int32_t)},
+		{"withDayOfYear", "(I)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, withDayOfYear, OffsetDateTime*, int32_t)},
+		{"withHour", "(I)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, withHour, OffsetDateTime*, int32_t)},
+		{"withMinute", "(I)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, withMinute, OffsetDateTime*, int32_t)},
+		{"withMonth", "(I)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, withMonth, OffsetDateTime*, int32_t)},
+		{"withNano", "(I)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, withNano, OffsetDateTime*, int32_t)},
+		{"withOffsetSameInstant", "(Ljava/time/ZoneOffset;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, withOffsetSameInstant, OffsetDateTime*, $ZoneOffset*)},
+		{"withOffsetSameLocal", "(Ljava/time/ZoneOffset;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, withOffsetSameLocal, OffsetDateTime*, $ZoneOffset*)},
+		{"withSecond", "(I)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, withSecond, OffsetDateTime*, int32_t)},
+		{"withYear", "(I)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(OffsetDateTime, withYear, OffsetDateTime*, int32_t)},
+		{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, 0, $method(OffsetDateTime, writeExternal, void, $ObjectOutput*), "java.io.IOException"},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(OffsetDateTime, writeReplace, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.OffsetDateTime$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/ValueBased;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.time.OffsetDateTime",
+		"java.lang.Object",
+		"java.time.temporal.Temporal,java.time.temporal.TemporalAdjuster,java.lang.Comparable,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/time/temporal/Temporal;Ljava/time/temporal/TemporalAdjuster;Ljava/lang/Comparable<Ljava/time/OffsetDateTime;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"java.time.OffsetDateTime$1"
+	};
+	$loadClass(OffsetDateTime, name, initialize, &classInfo$$, OffsetDateTime::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(OffsetDateTime));
+	});
 	return class$;
 }
 

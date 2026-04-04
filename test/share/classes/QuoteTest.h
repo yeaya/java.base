@@ -9,6 +9,7 @@ class $export QuoteTest : public ::java::lang::Object {
 	$class(QuoteTest, 0, ::java::lang::Object)
 public:
 	QuoteTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $String* testStr;

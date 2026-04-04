@@ -58,6 +58,7 @@ class CipherSuite$KeyExchange : public ::java::lang::Enum {
 public:
 	CipherSuite$KeyExchange();
 	static $Array<::sun::security::ssl::CipherSuite$KeyExchange>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* name, bool allowed, bool isAnonymous, $Array<::sun::security::ssl::NamedGroup$NamedGroupSpec>* groupTypes);
 	virtual bool isAvailable();
 	virtual $String* toString() override;

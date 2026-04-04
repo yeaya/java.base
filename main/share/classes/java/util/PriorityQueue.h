@@ -96,7 +96,7 @@ public:
 	virtual $ObjectArray* toArray($ObjectArray* a) override;
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0x94DA30B4FB3F82B1;
+	static const int64_t serialVersionUID = (int64_t)0x94da30b4fb3f82b1;
 	static const int32_t DEFAULT_INITIAL_CAPACITY = 11;
 	$ObjectArray* queue = nullptr;
 	int32_t size$ = 0;

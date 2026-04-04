@@ -1,5 +1,4 @@
 #include <sun/security/provider/NativeSeedGenerator.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/InternalError.h>
 #include <sun/security/provider/SeedGenerator.h>
@@ -15,28 +14,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$MethodInfo _NativeSeedGenerator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(NativeSeedGenerator, init$, void, $String*), "java.io.IOException"},
-	{"getSeedBytes", "([B)V", nullptr, 0, $virtualMethod(NativeSeedGenerator, getSeedBytes, void, $bytes*)},
-	{"nativeGenerateSeed", "([B)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSeedGenerator, nativeGenerateSeed, bool, $bytes*)},
-	{}
-};
-
-#define _METHOD_INDEX_nativeGenerateSeed 2
-
-$ClassInfo _NativeSeedGenerator_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.provider.NativeSeedGenerator",
-	"sun.security.provider.SeedGenerator",
-	nullptr,
-	nullptr,
-	_NativeSeedGenerator_MethodInfo_
-};
-
-$Object* allocate$NativeSeedGenerator($Class* clazz) {
-	return $of($alloc(NativeSeedGenerator));
-}
-
 void NativeSeedGenerator::init$($String* seedFile) {
 	$SeedGenerator::init$();
 	if (!nativeGenerateSeed($$new($bytes, 2))) {
@@ -46,9 +23,8 @@ void NativeSeedGenerator::init$($String* seedFile) {
 
 bool NativeSeedGenerator::nativeGenerateSeed($bytes* result) {
 	$init(NativeSeedGenerator);
-	bool $ret = false;
-	$prepareNativeStatic(NativeSeedGenerator, nativeGenerateSeed, bool, $bytes* result);
-	$ret = $invokeNativeStatic(result);
+	$prepareNativeStatic(nativeGenerateSeed, bool, $bytes* result);
+	bool $ret = $invokeNativeStatic(result);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -63,7 +39,23 @@ NativeSeedGenerator::NativeSeedGenerator() {
 }
 
 $Class* NativeSeedGenerator::load$($String* name, bool initialize) {
-	$loadClass(NativeSeedGenerator, name, initialize, &_NativeSeedGenerator_ClassInfo_, allocate$NativeSeedGenerator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(NativeSeedGenerator, init$, void, $String*), "java.io.IOException"},
+		{"getSeedBytes", "([B)V", nullptr, 0, $virtualMethod(NativeSeedGenerator, getSeedBytes, void, $bytes*)},
+		{"nativeGenerateSeed", "([B)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeSeedGenerator, nativeGenerateSeed, bool, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.provider.NativeSeedGenerator",
+		"sun.security.provider.SeedGenerator",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NativeSeedGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NativeSeedGenerator);
+	});
 	return class$;
 }
 

@@ -24,6 +24,7 @@ class UnsafeConstants : public ::java::lang::Object {
 	$class(UnsafeConstants, $PRELOAD, ::java::lang::Object)
 public:
 	UnsafeConstants();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t ADDRESS_SIZE0;
 	static int32_t PAGE_SIZE;

@@ -24,6 +24,7 @@ class CipherType : public ::java::lang::Enum {
 public:
 	CipherType();
 	static $Array<::sun::security::ssl::CipherType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::security::ssl::CipherType* valueOf($String* name);
 	static $Array<::sun::security::ssl::CipherType>* values();

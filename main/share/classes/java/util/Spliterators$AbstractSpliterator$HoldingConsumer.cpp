@@ -1,5 +1,4 @@
 #include <java/util/Spliterators$AbstractSpliterator$HoldingConsumer.h>
-
 #include <java/util/Spliterators$AbstractSpliterator.h>
 #include <jcpp.h>
 
@@ -10,43 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Spliterators$AbstractSpliterator$HoldingConsumer_FieldInfo_[] = {
-	{"value", "Ljava/lang/Object;", nullptr, 0, $field(Spliterators$AbstractSpliterator$HoldingConsumer, value)},
-	{}
-};
-
-$MethodInfo _Spliterators$AbstractSpliterator$HoldingConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Spliterators$AbstractSpliterator$HoldingConsumer, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(Spliterators$AbstractSpliterator$HoldingConsumer, accept, void, Object$*)},
-	{}
-};
-
-$InnerClassInfo _Spliterators$AbstractSpliterator$HoldingConsumer_InnerClassesInfo_[] = {
-	{"java.util.Spliterators$AbstractSpliterator", "java.util.Spliterators", "AbstractSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.util.Spliterators$AbstractSpliterator$HoldingConsumer", "java.util.Spliterators$AbstractSpliterator", "HoldingConsumer", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Spliterators$AbstractSpliterator$HoldingConsumer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.Spliterators$AbstractSpliterator$HoldingConsumer",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	_Spliterators$AbstractSpliterator$HoldingConsumer_FieldInfo_,
-	_Spliterators$AbstractSpliterator$HoldingConsumer_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/function/Consumer<TT;>;",
-	nullptr,
-	_Spliterators$AbstractSpliterator$HoldingConsumer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Spliterators"
-};
-
-$Object* allocate$Spliterators$AbstractSpliterator$HoldingConsumer($Class* clazz) {
-	return $of($alloc(Spliterators$AbstractSpliterator$HoldingConsumer));
-}
 
 void Spliterators$AbstractSpliterator$HoldingConsumer::init$() {
 }
@@ -59,7 +21,38 @@ Spliterators$AbstractSpliterator$HoldingConsumer::Spliterators$AbstractSpliterat
 }
 
 $Class* Spliterators$AbstractSpliterator$HoldingConsumer::load$($String* name, bool initialize) {
-	$loadClass(Spliterators$AbstractSpliterator$HoldingConsumer, name, initialize, &_Spliterators$AbstractSpliterator$HoldingConsumer_ClassInfo_, allocate$Spliterators$AbstractSpliterator$HoldingConsumer);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "Ljava/lang/Object;", nullptr, 0, $field(Spliterators$AbstractSpliterator$HoldingConsumer, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Spliterators$AbstractSpliterator$HoldingConsumer, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(Spliterators$AbstractSpliterator$HoldingConsumer, accept, void, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Spliterators$AbstractSpliterator", "java.util.Spliterators", "AbstractSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.util.Spliterators$AbstractSpliterator$HoldingConsumer", "java.util.Spliterators$AbstractSpliterator", "HoldingConsumer", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.Spliterators$AbstractSpliterator$HoldingConsumer",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/function/Consumer<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Spliterators"
+	};
+	$loadClass(Spliterators$AbstractSpliterator$HoldingConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Spliterators$AbstractSpliterator$HoldingConsumer);
+	});
 	return class$;
 }
 

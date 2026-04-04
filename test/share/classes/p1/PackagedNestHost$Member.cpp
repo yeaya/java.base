@@ -1,5 +1,4 @@
 #include <p1/PackagedNestHost$Member.h>
-
 #include <p1/PackagedNestHost.h>
 #include <jcpp.h>
 
@@ -9,36 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace p1 {
 
-$MethodInfo _PackagedNestHost$Member_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PackagedNestHost$Member, init$, void)},
-	{}
-};
-
-$InnerClassInfo _PackagedNestHost$Member_InnerClassesInfo_[] = {
-	{"p1.PackagedNestHost$Member", "p1.PackagedNestHost", "Member", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _PackagedNestHost$Member_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"p1.PackagedNestHost$Member",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_PackagedNestHost$Member_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PackagedNestHost$Member_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"p1.PackagedNestHost"
-};
-
-$Object* allocate$PackagedNestHost$Member($Class* clazz) {
-	return $of($alloc(PackagedNestHost$Member));
-}
-
 void PackagedNestHost$Member::init$() {
 }
 
@@ -46,7 +15,32 @@ PackagedNestHost$Member::PackagedNestHost$Member() {
 }
 
 $Class* PackagedNestHost$Member::load$($String* name, bool initialize) {
-	$loadClass(PackagedNestHost$Member, name, initialize, &_PackagedNestHost$Member_ClassInfo_, allocate$PackagedNestHost$Member);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PackagedNestHost$Member, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"p1.PackagedNestHost$Member", "p1.PackagedNestHost", "Member", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"p1.PackagedNestHost$Member",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"p1.PackagedNestHost"
+	};
+	$loadClass(PackagedNestHost$Member, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PackagedNestHost$Member);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/WeakHashMap.h>
-
 #include <java/lang/Math.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
@@ -55,91 +54,6 @@ using $BiFunction = ::java::util::function::BiFunction;
 namespace java {
 	namespace util {
 
-$FieldInfo _WeakHashMap_FieldInfo_[] = {
-	{"DEFAULT_INITIAL_CAPACITY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WeakHashMap, DEFAULT_INITIAL_CAPACITY)},
-	{"MAXIMUM_CAPACITY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WeakHashMap, MAXIMUM_CAPACITY)},
-	{"DEFAULT_LOAD_FACTOR", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WeakHashMap, DEFAULT_LOAD_FACTOR)},
-	{"table", "[Ljava/util/WeakHashMap$Entry;", "[Ljava/util/WeakHashMap$Entry<TK;TV;>;", 0, $field(WeakHashMap, table)},
-	{"size", "I", nullptr, $PRIVATE, $field(WeakHashMap, size$)},
-	{"threshold", "I", nullptr, $PRIVATE, $field(WeakHashMap, threshold)},
-	{"loadFactor", "F", nullptr, $PRIVATE | $FINAL, $field(WeakHashMap, loadFactor)},
-	{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(WeakHashMap, queue)},
-	{"modCount", "I", nullptr, 0, $field(WeakHashMap, modCount)},
-	{"NULL_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WeakHashMap, NULL_KEY)},
-	{"entrySet", "Ljava/util/Set;", "Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PRIVATE | $TRANSIENT, $field(WeakHashMap, entrySet$)},
-	{}
-};
-
-$MethodInfo _WeakHashMap_MethodInfo_[] = {
-	{"<init>", "(IF)V", nullptr, $PUBLIC, $method(WeakHashMap, init$, void, int32_t, float)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(WeakHashMap, init$, void, int32_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WeakHashMap, init$, void)},
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<+TK;+TV;>;)V", $PUBLIC, $method(WeakHashMap, init$, void, $Map*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(WeakHashMap, clear, void)},
-	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakHashMap, containsKey, bool, Object$*)},
-	{"containsNullValue", "()Z", nullptr, $PRIVATE, $method(WeakHashMap, containsNullValue, bool)},
-	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakHashMap, containsValue, bool, Object$*)},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(WeakHashMap, entrySet, $Set*)},
-	{"expungeStaleEntries", "()V", nullptr, $PRIVATE, $method(WeakHashMap, expungeStaleEntries, void)},
-	{"forEach", "(Ljava/util/function/BiConsumer;)V", "(Ljava/util/function/BiConsumer<-TK;-TV;>;)V", $PUBLIC, $virtualMethod(WeakHashMap, forEach, void, $BiConsumer*)},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(WeakHashMap, get, $Object*, Object$*)},
-	{"getEntry", "(Ljava/lang/Object;)Ljava/util/WeakHashMap$Entry;", "(Ljava/lang/Object;)Ljava/util/WeakHashMap$Entry<TK;TV;>;", 0, $virtualMethod(WeakHashMap, getEntry, $WeakHashMap$Entry*, Object$*)},
-	{"getTable", "()[Ljava/util/WeakHashMap$Entry;", "()[Ljava/util/WeakHashMap$Entry<TK;TV;>;", $PRIVATE, $method(WeakHashMap, getTable, $WeakHashMap$EntryArray*)},
-	{"hash", "(Ljava/lang/Object;)I", nullptr, $FINAL, $method(WeakHashMap, hash, int32_t, Object$*)},
-	{"indexFor", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(WeakHashMap, indexFor, int32_t, int32_t, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(WeakHashMap, isEmpty, bool)},
-	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<TK;>;", $PUBLIC, $virtualMethod(WeakHashMap, keySet, $Set*)},
-	{"maskNull", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(WeakHashMap, maskNull, $Object*, Object$*)},
-	{"matchesKey", "(Ljava/util/WeakHashMap$Entry;Ljava/lang/Object;)Z", "(Ljava/util/WeakHashMap$Entry<TK;TV;>;Ljava/lang/Object;)Z", $PRIVATE, $method(WeakHashMap, matchesKey, bool, $WeakHashMap$Entry*, Object$*)},
-	{"newTable", "(I)[Ljava/util/WeakHashMap$Entry;", "(I)[Ljava/util/WeakHashMap$Entry<TK;TV;>;", $PRIVATE, $method(WeakHashMap, newTable, $WeakHashMap$EntryArray*, int32_t)},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(WeakHashMap, put, $Object*, Object$*, Object$*)},
-	{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<+TK;+TV;>;)V", $PUBLIC, $virtualMethod(WeakHashMap, putAll, void, $Map*)},
-	{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(WeakHashMap, remove, $Object*, Object$*)},
-	{"removeMapping", "(Ljava/lang/Object;)Z", nullptr, 0, $virtualMethod(WeakHashMap, removeMapping, bool, Object$*)},
-	{"replaceAll", "(Ljava/util/function/BiFunction;)V", "(Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)V", $PUBLIC, $virtualMethod(WeakHashMap, replaceAll, void, $BiFunction*)},
-	{"resize", "(I)V", nullptr, 0, $virtualMethod(WeakHashMap, resize, void, int32_t)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(WeakHashMap, size, int32_t)},
-	{"transfer", "([Ljava/util/WeakHashMap$Entry;[Ljava/util/WeakHashMap$Entry;)V", "([Ljava/util/WeakHashMap$Entry<TK;TV;>;[Ljava/util/WeakHashMap$Entry<TK;TV;>;)V", $PRIVATE, $method(WeakHashMap, transfer, void, $WeakHashMap$EntryArray*, $WeakHashMap$EntryArray*)},
-	{"unmaskNull", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(WeakHashMap, unmaskNull, $Object*, Object$*)},
-	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<TV;>;", $PUBLIC, $virtualMethod(WeakHashMap, values, $Collection*)},
-	{}
-};
-
-$InnerClassInfo _WeakHashMap_InnerClassesInfo_[] = {
-	{"java.util.WeakHashMap$EntrySpliterator", "java.util.WeakHashMap", "EntrySpliterator", $STATIC | $FINAL},
-	{"java.util.WeakHashMap$ValueSpliterator", "java.util.WeakHashMap", "ValueSpliterator", $STATIC | $FINAL},
-	{"java.util.WeakHashMap$KeySpliterator", "java.util.WeakHashMap", "KeySpliterator", $STATIC | $FINAL},
-	{"java.util.WeakHashMap$WeakHashMapSpliterator", "java.util.WeakHashMap", "WeakHashMapSpliterator", $STATIC},
-	{"java.util.WeakHashMap$EntrySet", "java.util.WeakHashMap", "EntrySet", $PRIVATE},
-	{"java.util.WeakHashMap$Values", "java.util.WeakHashMap", "Values", $PRIVATE},
-	{"java.util.WeakHashMap$KeySet", "java.util.WeakHashMap", "KeySet", $PRIVATE},
-	{"java.util.WeakHashMap$EntryIterator", "java.util.WeakHashMap", "EntryIterator", $PRIVATE},
-	{"java.util.WeakHashMap$KeyIterator", "java.util.WeakHashMap", "KeyIterator", $PRIVATE},
-	{"java.util.WeakHashMap$ValueIterator", "java.util.WeakHashMap", "ValueIterator", $PRIVATE},
-	{"java.util.WeakHashMap$HashIterator", "java.util.WeakHashMap", "HashIterator", $PRIVATE | $ABSTRACT},
-	{"java.util.WeakHashMap$Entry", "java.util.WeakHashMap", "Entry", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WeakHashMap_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.WeakHashMap",
-	"java.util.AbstractMap",
-	nullptr,
-	_WeakHashMap_FieldInfo_,
-	_WeakHashMap_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/AbstractMap<TK;TV;>;Ljava/util/Map<TK;TV;>;",
-	nullptr,
-	_WeakHashMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.WeakHashMap$EntrySpliterator,java.util.WeakHashMap$ValueSpliterator,java.util.WeakHashMap$KeySpliterator,java.util.WeakHashMap$WeakHashMapSpliterator,java.util.WeakHashMap$EntrySet,java.util.WeakHashMap$Values,java.util.WeakHashMap$KeySet,java.util.WeakHashMap$EntryIterator,java.util.WeakHashMap$KeyIterator,java.util.WeakHashMap$ValueIterator,java.util.WeakHashMap$HashIterator,java.util.WeakHashMap$Entry"
-};
-
-$Object* allocate$WeakHashMap($Class* clazz) {
-	return $of($alloc(WeakHashMap));
-}
-
 float WeakHashMap::DEFAULT_LOAD_FACTOR = 0.0;
 $Object* WeakHashMap::NULL_KEY = nullptr;
 
@@ -148,7 +62,7 @@ $WeakHashMap$EntryArray* WeakHashMap::newTable(int32_t n) {
 }
 
 void WeakHashMap::init$(int32_t initialCapacity, float loadFactor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AbstractMap::init$();
 	$set(this, queue, $new($ReferenceQueue));
 	if (initialCapacity < 0) {
@@ -184,19 +98,19 @@ void WeakHashMap::init$($Map* m) {
 
 $Object* WeakHashMap::maskNull(Object$* key) {
 	$init(WeakHashMap);
-	return $of((key == nullptr) ? WeakHashMap::NULL_KEY : $of(key));
+	return (key == nullptr) ? WeakHashMap::NULL_KEY : $of(key);
 }
 
 $Object* WeakHashMap::unmaskNull(Object$* key) {
 	$init(WeakHashMap);
-	return $of(($equals(key, WeakHashMap::NULL_KEY)) ? ($Object*)nullptr : $of(key));
+	return ($equals(key, WeakHashMap::NULL_KEY)) ? ($Object*)nullptr : $of(key);
 }
 
 bool WeakHashMap::matchesKey($WeakHashMap$Entry* e, Object$* key) {
 	if ($nc(e)->refersTo(key)) {
 		return true;
 	}
-	$var($Object, k, $nc(e)->get());
+	$var($Object, k, e->get());
 	return k != nullptr && $nc($of(key))->equals(k);
 }
 
@@ -208,34 +122,32 @@ int32_t WeakHashMap::hash(Object$* k) {
 
 int32_t WeakHashMap::indexFor(int32_t h, int32_t length) {
 	$init(WeakHashMap);
-	return (int32_t)(h & (uint32_t)(length - 1));
+	return h & (length - 1);
 }
 
 void WeakHashMap::expungeStaleEntries() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Object, x, nullptr);
-		for (; ($assign(x, $nc(this->queue)->poll())) != nullptr;) {
-			$synchronized(this->queue) {
-				$var($WeakHashMap$Entry, e, $cast($WeakHashMap$Entry, x));
-				int32_t i = indexFor($nc(e)->hash, $nc(this->table)->length);
-				$var($WeakHashMap$Entry, prev, $nc(this->table)->get(i));
-				$var($WeakHashMap$Entry, p, prev);
-				while (p != nullptr) {
-					$var($WeakHashMap$Entry, next, p->next);
-					if (p == e) {
-						if (prev == e) {
-							$nc(this->table)->set(i, next);
-						} else {
-							$set($nc(prev), next, next);
-						}
-						$set($nc(e), value, nullptr);
-						--this->size$;
-						break;
+	$useLocalObjectStack();
+	$var($Object, x, nullptr);
+	for (; ($assign(x, $nc(this->queue)->poll())) != nullptr;) {
+		$synchronized(this->queue) {
+			$var($WeakHashMap$Entry, e, $cast($WeakHashMap$Entry, x));
+			int32_t i = indexFor($nc(e)->hash, $nc(this->table)->length);
+			$var($WeakHashMap$Entry, prev, this->table->get(i));
+			$var($WeakHashMap$Entry, p, prev);
+			while (p != nullptr) {
+				$var($WeakHashMap$Entry, next, p->next);
+				if (p == e) {
+					if (prev == e) {
+						this->table->set(i, next);
+					} else {
+						$set($nc(prev), next, next);
 					}
-					$assign(prev, p);
-					$assign(p, next);
+					$set(e, value, nullptr);
+					--this->size$;
+					break;
 				}
+				$assign(prev, p);
+				$assign(p, next);
 			}
 		}
 	}
@@ -259,19 +171,19 @@ bool WeakHashMap::isEmpty() {
 }
 
 $Object* WeakHashMap::get(Object$* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, k, maskNull(key));
 	int32_t h = hash(k);
 	$var($WeakHashMap$EntryArray, tab, getTable());
 	int32_t index = indexFor(h, $nc(tab)->length);
-	$var($WeakHashMap$Entry, e, $nc(tab)->get(index));
+	$var($WeakHashMap$Entry, e, tab->get(index));
 	while (e != nullptr) {
 		if (e->hash == h && matchesKey(e, k)) {
-			return $of(e->value);
+			return e->value;
 		}
 		$assign(e, e->next);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 bool WeakHashMap::containsKey(Object$* key) {
@@ -279,12 +191,12 @@ bool WeakHashMap::containsKey(Object$* key) {
 }
 
 $WeakHashMap$Entry* WeakHashMap::getEntry(Object$* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, k, maskNull(key));
 	int32_t h = hash(k);
 	$var($WeakHashMap$EntryArray, tab, getTable());
 	int32_t index = indexFor(h, $nc(tab)->length);
-	$var($WeakHashMap$Entry, e, $nc(tab)->get(index));
+	$var($WeakHashMap$Entry, e, tab->get(index));
 	while (e != nullptr && !(e->hash == h && matchesKey(e, k))) {
 		$assign(e, e->next);
 	}
@@ -292,20 +204,20 @@ $WeakHashMap$Entry* WeakHashMap::getEntry(Object$* key) {
 }
 
 $Object* WeakHashMap::put(Object$* key, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, k, maskNull(key));
 	int32_t h = hash(k);
 	$var($WeakHashMap$EntryArray, tab, getTable());
 	int32_t i = indexFor(h, $nc(tab)->length);
 	{
-		$var($WeakHashMap$Entry, e, $nc(tab)->get(i));
-		for (; e != nullptr; $assign(e, $nc(e)->next)) {
+		$var($WeakHashMap$Entry, e, tab->get(i));
+		for (; e != nullptr; $assign(e, e->next)) {
 			if (h == e->hash && matchesKey(e, k)) {
 				$var($Object, oldValue, e->value);
 				if (!$equals(value, oldValue)) {
 					$set(e, value, value);
 				}
-				return $of(oldValue);
+				return oldValue;
 			}
 		}
 	}
@@ -315,11 +227,11 @@ $Object* WeakHashMap::put(Object$* key, Object$* value) {
 	if (++this->size$ >= this->threshold) {
 		resize(tab->length * 2);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 void WeakHashMap::resize(int32_t newCapacity) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WeakHashMap$EntryArray, oldTable, getTable());
 	int32_t oldCapacity = $nc(oldTable)->length;
 	if (oldCapacity == WeakHashMap::MAXIMUM_CAPACITY) {
@@ -339,7 +251,7 @@ void WeakHashMap::resize(int32_t newCapacity) {
 }
 
 void WeakHashMap::transfer($WeakHashMap$EntryArray* src, $WeakHashMap$EntryArray* dest) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t j = 0; j < $nc(src)->length; ++j) {
 		$var($WeakHashMap$Entry, e, src->get(j));
 		src->set(j, nullptr);
@@ -351,7 +263,7 @@ void WeakHashMap::transfer($WeakHashMap$EntryArray* src, $WeakHashMap$EntryArray
 				--this->size$;
 			} else {
 				int32_t i = indexFor(e->hash, $nc(dest)->length);
-				$set(e, next, $nc(dest)->get(i));
+				$set(e, next, dest->get(i));
 				dest->set(i, e);
 			}
 			$assign(e, next);
@@ -360,7 +272,7 @@ void WeakHashMap::transfer($WeakHashMap$EntryArray* src, $WeakHashMap$EntryArray
 }
 
 void WeakHashMap::putAll($Map* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t numKeysToBeAdded = $nc(m)->size();
 	if (numKeysToBeAdded == 0) {
 		return;
@@ -374,12 +286,12 @@ void WeakHashMap::putAll($Map* m) {
 		while (newCapacity < targetCapacity) {
 			newCapacity <<= 1;
 		}
-		if (newCapacity > $nc(this->table)->length) {
+		if (newCapacity > this->table->length) {
 			resize(newCapacity);
 		}
 	}
 	{
-		$var($Iterator, i$, $nc($(m->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(m->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 			$var($Object, var$0, $nc(e)->getKey());
@@ -389,12 +301,12 @@ void WeakHashMap::putAll($Map* m) {
 }
 
 $Object* WeakHashMap::remove(Object$* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, k, maskNull(key));
 	int32_t h = hash(k);
 	$var($WeakHashMap$EntryArray, tab, getTable());
 	int32_t i = indexFor(h, $nc(tab)->length);
-	$var($WeakHashMap$Entry, prev, $nc(tab)->get(i));
+	$var($WeakHashMap$Entry, prev, tab->get(i));
 	$var($WeakHashMap$Entry, e, prev);
 	while (e != nullptr) {
 		$var($WeakHashMap$Entry, next, e->next);
@@ -406,16 +318,16 @@ $Object* WeakHashMap::remove(Object$* key) {
 			} else {
 				$set($nc(prev), next, next);
 			}
-			return $of(e->value);
+			return e->value;
 		}
 		$assign(prev, e);
 		$assign(e, next);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 bool WeakHashMap::removeMapping(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map$Entry, entry, nullptr);
 	bool var$0 = $instanceOf($Map$Entry, o);
 	if (var$0) {
@@ -429,7 +341,7 @@ bool WeakHashMap::removeMapping(Object$* o) {
 	$var($Object, k, maskNull($($nc(entry)->getKey())));
 	int32_t h = hash(k);
 	int32_t i = indexFor(h, $nc(tab)->length);
-	$var($WeakHashMap$Entry, prev, $nc(tab)->get(i));
+	$var($WeakHashMap$Entry, prev, tab->get(i));
 	$var($WeakHashMap$Entry, e, prev);
 	while (e != nullptr) {
 		$var($WeakHashMap$Entry, next, e->next);
@@ -451,27 +363,27 @@ bool WeakHashMap::removeMapping(Object$* o) {
 
 void WeakHashMap::clear() {
 	while ($nc(this->queue)->poll() != nullptr) {
+		;
 	}
 	++this->modCount;
-	$Arrays::fill(this->table, ($Object*)nullptr);
+	$Arrays::fill(this->table, nullptr);
 	this->size$ = 0;
-	while ($nc(this->queue)->poll() != nullptr) {
+	while (this->queue->poll() != nullptr) {
+		;
 	}
 }
 
 bool WeakHashMap::containsValue(Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (value == nullptr) {
 		return containsNullValue();
 	}
 	$var($WeakHashMap$EntryArray, tab, getTable());
 	for (int32_t i = $nc(tab)->length; i-- > 0;) {
-		{
-			$var($WeakHashMap$Entry, e, tab->get(i));
-			for (; e != nullptr; $assign(e, $nc(e)->next)) {
-				if ($nc($of(value))->equals(e->value)) {
-					return true;
-				}
+		$var($WeakHashMap$Entry, e, tab->get(i));
+		for (; e != nullptr; $assign(e, e->next)) {
+			if ($nc($of(value))->equals(e->value)) {
+				return true;
 			}
 		}
 	}
@@ -479,15 +391,13 @@ bool WeakHashMap::containsValue(Object$* value) {
 }
 
 bool WeakHashMap::containsNullValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WeakHashMap$EntryArray, tab, getTable());
 	for (int32_t i = $nc(tab)->length; i-- > 0;) {
-		{
-			$var($WeakHashMap$Entry, e, tab->get(i));
-			for (; e != nullptr; $assign(e, $nc(e)->next)) {
-				if (e->value == nullptr) {
-					return true;
-				}
+		$var($WeakHashMap$Entry, e, tab->get(i));
+		for (; e != nullptr; $assign(e, e->next)) {
+			if (e->value == nullptr) {
+				return true;
 			}
 		}
 	}
@@ -518,26 +428,22 @@ $Set* WeakHashMap::entrySet() {
 }
 
 void WeakHashMap::forEach($BiConsumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(action);
 	int32_t expectedModCount = this->modCount;
 	$var($WeakHashMap$EntryArray, tab, getTable());
 	{
 		$var($WeakHashMap$EntryArray, arr$, tab);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($WeakHashMap$Entry, entry, arr$->get(i$));
-			{
-				while (entry != nullptr) {
-					$var($Object, key, entry->get());
-					if (key != nullptr) {
-						action->accept($(WeakHashMap::unmaskNull(key)), entry->value);
-					}
-					$assign(entry, entry->next);
-					if (expectedModCount != this->modCount) {
-						$throwNew($ConcurrentModificationException);
-					}
+			while (entry != nullptr) {
+				$var($Object, key, entry->get());
+				if (key != nullptr) {
+					action->accept($(WeakHashMap::unmaskNull(key)), entry->value);
+				}
+				$assign(entry, entry->next);
+				if (expectedModCount != this->modCount) {
+					$throwNew($ConcurrentModificationException);
 				}
 			}
 		}
@@ -545,33 +451,30 @@ void WeakHashMap::forEach($BiConsumer* action) {
 }
 
 void WeakHashMap::replaceAll($BiFunction* function) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(function);
 	int32_t expectedModCount = this->modCount;
 	$var($WeakHashMap$EntryArray, tab, getTable());
+	;
 	{
 		$var($WeakHashMap$EntryArray, arr$, tab);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($WeakHashMap$Entry, entry, arr$->get(i$));
-			{
-				while (entry != nullptr) {
-					$var($Object, key, entry->get());
-					if (key != nullptr) {
-						$set(entry, value, function->apply($(WeakHashMap::unmaskNull(key)), entry->value));
-					}
-					$assign(entry, entry->next);
-					if (expectedModCount != this->modCount) {
-						$throwNew($ConcurrentModificationException);
-					}
+			while (entry != nullptr) {
+				$var($Object, key, entry->get());
+				if (key != nullptr) {
+					$set(entry, value, function->apply($(WeakHashMap::unmaskNull(key)), entry->value));
+				}
+				$assign(entry, entry->next);
+				if (expectedModCount != this->modCount) {
+					$throwNew($ConcurrentModificationException);
 				}
 			}
 		}
 	}
 }
 
-void clinit$WeakHashMap($Class* class$) {
+void WeakHashMap::clinit$($Class* clazz) {
 	WeakHashMap::DEFAULT_LOAD_FACTOR = 0.75f;
 	$assignStatic(WeakHashMap::NULL_KEY, $new($Object));
 }
@@ -580,7 +483,86 @@ WeakHashMap::WeakHashMap() {
 }
 
 $Class* WeakHashMap::load$($String* name, bool initialize) {
-	$loadClass(WeakHashMap, name, initialize, &_WeakHashMap_ClassInfo_, clinit$WeakHashMap, allocate$WeakHashMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_INITIAL_CAPACITY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WeakHashMap, DEFAULT_INITIAL_CAPACITY)},
+		{"MAXIMUM_CAPACITY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WeakHashMap, MAXIMUM_CAPACITY)},
+		{"DEFAULT_LOAD_FACTOR", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WeakHashMap, DEFAULT_LOAD_FACTOR)},
+		{"table", "[Ljava/util/WeakHashMap$Entry;", "[Ljava/util/WeakHashMap$Entry<TK;TV;>;", 0, $field(WeakHashMap, table)},
+		{"size", "I", nullptr, $PRIVATE, $field(WeakHashMap, size$)},
+		{"threshold", "I", nullptr, $PRIVATE, $field(WeakHashMap, threshold)},
+		{"loadFactor", "F", nullptr, $PRIVATE | $FINAL, $field(WeakHashMap, loadFactor)},
+		{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(WeakHashMap, queue)},
+		{"modCount", "I", nullptr, 0, $field(WeakHashMap, modCount)},
+		{"NULL_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WeakHashMap, NULL_KEY)},
+		{"entrySet", "Ljava/util/Set;", "Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PRIVATE | $TRANSIENT, $field(WeakHashMap, entrySet$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IF)V", nullptr, $PUBLIC, $method(WeakHashMap, init$, void, int32_t, float)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(WeakHashMap, init$, void, int32_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WeakHashMap, init$, void)},
+		{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<+TK;+TV;>;)V", $PUBLIC, $method(WeakHashMap, init$, void, $Map*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(WeakHashMap, clear, void)},
+		{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakHashMap, containsKey, bool, Object$*)},
+		{"containsNullValue", "()Z", nullptr, $PRIVATE, $method(WeakHashMap, containsNullValue, bool)},
+		{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakHashMap, containsValue, bool, Object$*)},
+		{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(WeakHashMap, entrySet, $Set*)},
+		{"expungeStaleEntries", "()V", nullptr, $PRIVATE, $method(WeakHashMap, expungeStaleEntries, void)},
+		{"forEach", "(Ljava/util/function/BiConsumer;)V", "(Ljava/util/function/BiConsumer<-TK;-TV;>;)V", $PUBLIC, $virtualMethod(WeakHashMap, forEach, void, $BiConsumer*)},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(WeakHashMap, get, $Object*, Object$*)},
+		{"getEntry", "(Ljava/lang/Object;)Ljava/util/WeakHashMap$Entry;", "(Ljava/lang/Object;)Ljava/util/WeakHashMap$Entry<TK;TV;>;", 0, $virtualMethod(WeakHashMap, getEntry, $WeakHashMap$Entry*, Object$*)},
+		{"getTable", "()[Ljava/util/WeakHashMap$Entry;", "()[Ljava/util/WeakHashMap$Entry<TK;TV;>;", $PRIVATE, $method(WeakHashMap, getTable, $WeakHashMap$EntryArray*)},
+		{"hash", "(Ljava/lang/Object;)I", nullptr, $FINAL, $method(WeakHashMap, hash, int32_t, Object$*)},
+		{"indexFor", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(WeakHashMap, indexFor, int32_t, int32_t, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(WeakHashMap, isEmpty, bool)},
+		{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<TK;>;", $PUBLIC, $virtualMethod(WeakHashMap, keySet, $Set*)},
+		{"maskNull", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(WeakHashMap, maskNull, $Object*, Object$*)},
+		{"matchesKey", "(Ljava/util/WeakHashMap$Entry;Ljava/lang/Object;)Z", "(Ljava/util/WeakHashMap$Entry<TK;TV;>;Ljava/lang/Object;)Z", $PRIVATE, $method(WeakHashMap, matchesKey, bool, $WeakHashMap$Entry*, Object$*)},
+		{"newTable", "(I)[Ljava/util/WeakHashMap$Entry;", "(I)[Ljava/util/WeakHashMap$Entry<TK;TV;>;", $PRIVATE, $method(WeakHashMap, newTable, $WeakHashMap$EntryArray*, int32_t)},
+		{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(WeakHashMap, put, $Object*, Object$*, Object$*)},
+		{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<+TK;+TV;>;)V", $PUBLIC, $virtualMethod(WeakHashMap, putAll, void, $Map*)},
+		{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(WeakHashMap, remove, $Object*, Object$*)},
+		{"removeMapping", "(Ljava/lang/Object;)Z", nullptr, 0, $virtualMethod(WeakHashMap, removeMapping, bool, Object$*)},
+		{"replaceAll", "(Ljava/util/function/BiFunction;)V", "(Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)V", $PUBLIC, $virtualMethod(WeakHashMap, replaceAll, void, $BiFunction*)},
+		{"resize", "(I)V", nullptr, 0, $virtualMethod(WeakHashMap, resize, void, int32_t)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(WeakHashMap, size, int32_t)},
+		{"transfer", "([Ljava/util/WeakHashMap$Entry;[Ljava/util/WeakHashMap$Entry;)V", "([Ljava/util/WeakHashMap$Entry<TK;TV;>;[Ljava/util/WeakHashMap$Entry<TK;TV;>;)V", $PRIVATE, $method(WeakHashMap, transfer, void, $WeakHashMap$EntryArray*, $WeakHashMap$EntryArray*)},
+		{"unmaskNull", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(WeakHashMap, unmaskNull, $Object*, Object$*)},
+		{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<TV;>;", $PUBLIC, $virtualMethod(WeakHashMap, values, $Collection*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.WeakHashMap$EntrySpliterator", "java.util.WeakHashMap", "EntrySpliterator", $STATIC | $FINAL},
+		{"java.util.WeakHashMap$ValueSpliterator", "java.util.WeakHashMap", "ValueSpliterator", $STATIC | $FINAL},
+		{"java.util.WeakHashMap$KeySpliterator", "java.util.WeakHashMap", "KeySpliterator", $STATIC | $FINAL},
+		{"java.util.WeakHashMap$WeakHashMapSpliterator", "java.util.WeakHashMap", "WeakHashMapSpliterator", $STATIC},
+		{"java.util.WeakHashMap$EntrySet", "java.util.WeakHashMap", "EntrySet", $PRIVATE},
+		{"java.util.WeakHashMap$Values", "java.util.WeakHashMap", "Values", $PRIVATE},
+		{"java.util.WeakHashMap$KeySet", "java.util.WeakHashMap", "KeySet", $PRIVATE},
+		{"java.util.WeakHashMap$EntryIterator", "java.util.WeakHashMap", "EntryIterator", $PRIVATE},
+		{"java.util.WeakHashMap$KeyIterator", "java.util.WeakHashMap", "KeyIterator", $PRIVATE},
+		{"java.util.WeakHashMap$ValueIterator", "java.util.WeakHashMap", "ValueIterator", $PRIVATE},
+		{"java.util.WeakHashMap$HashIterator", "java.util.WeakHashMap", "HashIterator", $PRIVATE | $ABSTRACT},
+		{"java.util.WeakHashMap$Entry", "java.util.WeakHashMap", "Entry", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.WeakHashMap",
+		"java.util.AbstractMap",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/AbstractMap<TK;TV;>;Ljava/util/Map<TK;TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.WeakHashMap$EntrySpliterator,java.util.WeakHashMap$ValueSpliterator,java.util.WeakHashMap$KeySpliterator,java.util.WeakHashMap$WeakHashMapSpliterator,java.util.WeakHashMap$EntrySet,java.util.WeakHashMap$Values,java.util.WeakHashMap$KeySet,java.util.WeakHashMap$EntryIterator,java.util.WeakHashMap$KeyIterator,java.util.WeakHashMap$ValueIterator,java.util.WeakHashMap$HashIterator,java.util.WeakHashMap$Entry"
+	};
+	$loadClass(WeakHashMap, name, initialize, &classInfo$$, WeakHashMap::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WeakHashMap);
+	});
 	return class$;
 }
 

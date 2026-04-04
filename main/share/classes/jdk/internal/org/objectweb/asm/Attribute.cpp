@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/Attribute.h>
-
 #include <jdk/internal/org/objectweb/asm/ByteVector.h>
 #include <jdk/internal/org/objectweb/asm/ClassReader.h>
 #include <jdk/internal/org/objectweb/asm/ClassWriter.h>
@@ -32,54 +31,6 @@ namespace jdk {
 		namespace org {
 			namespace objectweb {
 				namespace asm$ {
-
-$FieldInfo _Attribute_FieldInfo_[] = {
-	{"type", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(Attribute, type)},
-	{"content", "[B", nullptr, $PRIVATE, $field(Attribute, content)},
-	{"nextAttribute", "Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, 0, $field(Attribute, nextAttribute)},
-	{}
-};
-
-$MethodInfo _Attribute_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Attribute, init$, void, $String*)},
-	{"computeAttributesSize", "(Ljdk/internal/org/objectweb/asm/SymbolTable;)I", nullptr, $FINAL, $method(Attribute, computeAttributesSize, int32_t, $SymbolTable*)},
-	{"computeAttributesSize", "(Ljdk/internal/org/objectweb/asm/SymbolTable;[BIII)I", nullptr, $FINAL, $method(Attribute, computeAttributesSize, int32_t, $SymbolTable*, $bytes*, int32_t, int32_t, int32_t)},
-	{"computeAttributesSize", "(Ljdk/internal/org/objectweb/asm/SymbolTable;II)I", nullptr, $STATIC, $staticMethod(Attribute, computeAttributesSize, int32_t, $SymbolTable*, int32_t, int32_t)},
-	{"getAttributeCount", "()I", nullptr, $FINAL, $method(Attribute, getAttributeCount, int32_t)},
-	{"getLabels", "()[Ljdk/internal/org/objectweb/asm/Label;", nullptr, $PROTECTED, $virtualMethod(Attribute, getLabels, $LabelArray*)},
-	{"isCodeAttribute", "()Z", nullptr, $PUBLIC, $virtualMethod(Attribute, isCodeAttribute, bool)},
-	{"isUnknown", "()Z", nullptr, $PUBLIC, $virtualMethod(Attribute, isUnknown, bool)},
-	{"putAttributes", "(Ljdk/internal/org/objectweb/asm/SymbolTable;Ljdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $FINAL, $method(Attribute, putAttributes, void, $SymbolTable*, $ByteVector*)},
-	{"putAttributes", "(Ljdk/internal/org/objectweb/asm/SymbolTable;[BIIILjdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $FINAL, $method(Attribute, putAttributes, void, $SymbolTable*, $bytes*, int32_t, int32_t, int32_t, $ByteVector*)},
-	{"putAttributes", "(Ljdk/internal/org/objectweb/asm/SymbolTable;IILjdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $STATIC, $staticMethod(Attribute, putAttributes, void, $SymbolTable*, int32_t, int32_t, $ByteVector*)},
-	{"read", "(Ljdk/internal/org/objectweb/asm/ClassReader;II[CI[Ljdk/internal/org/objectweb/asm/Label;)Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, $PROTECTED, $virtualMethod(Attribute, read, Attribute*, $ClassReader*, int32_t, int32_t, $chars*, int32_t, $LabelArray*)},
-	{"write", "(Ljdk/internal/org/objectweb/asm/ClassWriter;[BIII)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PROTECTED, $virtualMethod(Attribute, write, $ByteVector*, $ClassWriter*, $bytes*, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Attribute_InnerClassesInfo_[] = {
-	{"jdk.internal.org.objectweb.asm.Attribute$Set", "jdk.internal.org.objectweb.asm.Attribute", "Set", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Attribute_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.Attribute",
-	"java.lang.Object",
-	nullptr,
-	_Attribute_FieldInfo_,
-	_Attribute_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Attribute_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.org.objectweb.asm.Attribute$Set"
-};
-
-$Object* allocate$Attribute($Class* clazz) {
-	return $of($alloc(Attribute));
-}
 
 void Attribute::init$($String* type) {
 	$set(this, type, type);
@@ -127,7 +78,7 @@ int32_t Attribute::computeAttributesSize($SymbolTable* symbolTable) {
 }
 
 int32_t Attribute::computeAttributesSize($SymbolTable* symbolTable, $bytes* code, int32_t codeLength, int32_t maxStack, int32_t maxLocals) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClassWriter, classWriter, $nc(symbolTable)->classWriter);
 	int32_t size = 0;
 	$var(Attribute, attribute, this);
@@ -141,7 +92,7 @@ int32_t Attribute::computeAttributesSize($SymbolTable* symbolTable, $bytes* code
 
 int32_t Attribute::computeAttributesSize($SymbolTable* symbolTable, int32_t accessFlags, int32_t signatureIndex) {
 	int32_t size = 0;
-	if (((int32_t)(accessFlags & (uint32_t)$Opcodes::ACC_SYNTHETIC)) != 0 && $nc(symbolTable)->getMajorVersion() < $Opcodes::V1_5) {
+	if ((accessFlags & $Opcodes::ACC_SYNTHETIC) != 0 && $nc(symbolTable)->getMajorVersion() < $Opcodes::V1_5) {
 		$init($Constants);
 		symbolTable->addConstantUtf8($Constants::SYNTHETIC);
 		size += 6;
@@ -151,7 +102,7 @@ int32_t Attribute::computeAttributesSize($SymbolTable* symbolTable, int32_t acce
 		$nc(symbolTable)->addConstantUtf8($Constants::SIGNATURE);
 		size += 8;
 	}
-	if (((int32_t)(accessFlags & (uint32_t)$Opcodes::ACC_DEPRECATED)) != 0) {
+	if ((accessFlags & $Opcodes::ACC_DEPRECATED) != 0) {
 		$init($Constants);
 		$nc(symbolTable)->addConstantUtf8($Constants::DEPRECATED);
 		size += 6;
@@ -168,30 +119,30 @@ void Attribute::putAttributes($SymbolTable* symbolTable, $ByteVector* output) {
 }
 
 void Attribute::putAttributes($SymbolTable* symbolTable, $bytes* code, int32_t codeLength, int32_t maxStack, int32_t maxLocals, $ByteVector* output) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClassWriter, classWriter, $nc(symbolTable)->classWriter);
 	$var(Attribute, attribute, this);
 	while (attribute != nullptr) {
 		$var($ByteVector, attributeContent, attribute->write(classWriter, code, codeLength, maxStack, maxLocals));
-		$nc($($nc(output)->putShort(symbolTable->addConstantUtf8(attribute->type))))->putInt($nc(attributeContent)->length);
-		output->putByteArray($nc(attributeContent)->data, 0, attributeContent->length);
+		$$nc($nc(output)->putShort(symbolTable->addConstantUtf8(attribute->type)))->putInt($nc(attributeContent)->length);
+		output->putByteArray(attributeContent->data, 0, attributeContent->length);
 		$assign(attribute, attribute->nextAttribute);
 	}
 }
 
 void Attribute::putAttributes($SymbolTable* symbolTable, int32_t accessFlags, int32_t signatureIndex, $ByteVector* output) {
-	$useLocalCurrentObjectStackCache();
-	if (((int32_t)(accessFlags & (uint32_t)$Opcodes::ACC_SYNTHETIC)) != 0 && $nc(symbolTable)->getMajorVersion() < $Opcodes::V1_5) {
+	$useLocalObjectStack();
+	if ((accessFlags & $Opcodes::ACC_SYNTHETIC) != 0 && $nc(symbolTable)->getMajorVersion() < $Opcodes::V1_5) {
 		$init($Constants);
-		$nc($($nc(output)->putShort(symbolTable->addConstantUtf8($Constants::SYNTHETIC))))->putInt(0);
+		$$nc($nc(output)->putShort(symbolTable->addConstantUtf8($Constants::SYNTHETIC)))->putInt(0);
 	}
 	if (signatureIndex != 0) {
 		$init($Constants);
-		$nc($($nc($($nc(output)->putShort($nc(symbolTable)->addConstantUtf8($Constants::SIGNATURE))))->putInt(2)))->putShort(signatureIndex);
+		$$nc($$nc($nc(output)->putShort($nc(symbolTable)->addConstantUtf8($Constants::SIGNATURE)))->putInt(2))->putShort(signatureIndex);
 	}
-	if (((int32_t)(accessFlags & (uint32_t)$Opcodes::ACC_DEPRECATED)) != 0) {
+	if ((accessFlags & $Opcodes::ACC_DEPRECATED) != 0) {
 		$init($Constants);
-		$nc($($nc(output)->putShort($nc(symbolTable)->addConstantUtf8($Constants::DEPRECATED))))->putInt(0);
+		$$nc($nc(output)->putShort($nc(symbolTable)->addConstantUtf8($Constants::DEPRECATED)))->putInt(0);
 	}
 }
 
@@ -199,7 +150,49 @@ Attribute::Attribute() {
 }
 
 $Class* Attribute::load$($String* name, bool initialize) {
-	$loadClass(Attribute, name, initialize, &_Attribute_ClassInfo_, allocate$Attribute);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(Attribute, type)},
+		{"content", "[B", nullptr, $PRIVATE, $field(Attribute, content)},
+		{"nextAttribute", "Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, 0, $field(Attribute, nextAttribute)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Attribute, init$, void, $String*)},
+		{"computeAttributesSize", "(Ljdk/internal/org/objectweb/asm/SymbolTable;)I", nullptr, $FINAL, $method(Attribute, computeAttributesSize, int32_t, $SymbolTable*)},
+		{"computeAttributesSize", "(Ljdk/internal/org/objectweb/asm/SymbolTable;[BIII)I", nullptr, $FINAL, $method(Attribute, computeAttributesSize, int32_t, $SymbolTable*, $bytes*, int32_t, int32_t, int32_t)},
+		{"computeAttributesSize", "(Ljdk/internal/org/objectweb/asm/SymbolTable;II)I", nullptr, $STATIC, $staticMethod(Attribute, computeAttributesSize, int32_t, $SymbolTable*, int32_t, int32_t)},
+		{"getAttributeCount", "()I", nullptr, $FINAL, $method(Attribute, getAttributeCount, int32_t)},
+		{"getLabels", "()[Ljdk/internal/org/objectweb/asm/Label;", nullptr, $PROTECTED, $virtualMethod(Attribute, getLabels, $LabelArray*)},
+		{"isCodeAttribute", "()Z", nullptr, $PUBLIC, $virtualMethod(Attribute, isCodeAttribute, bool)},
+		{"isUnknown", "()Z", nullptr, $PUBLIC, $virtualMethod(Attribute, isUnknown, bool)},
+		{"putAttributes", "(Ljdk/internal/org/objectweb/asm/SymbolTable;Ljdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $FINAL, $method(Attribute, putAttributes, void, $SymbolTable*, $ByteVector*)},
+		{"putAttributes", "(Ljdk/internal/org/objectweb/asm/SymbolTable;[BIIILjdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $FINAL, $method(Attribute, putAttributes, void, $SymbolTable*, $bytes*, int32_t, int32_t, int32_t, $ByteVector*)},
+		{"putAttributes", "(Ljdk/internal/org/objectweb/asm/SymbolTable;IILjdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, $STATIC, $staticMethod(Attribute, putAttributes, void, $SymbolTable*, int32_t, int32_t, $ByteVector*)},
+		{"read", "(Ljdk/internal/org/objectweb/asm/ClassReader;II[CI[Ljdk/internal/org/objectweb/asm/Label;)Ljdk/internal/org/objectweb/asm/Attribute;", nullptr, $PROTECTED, $virtualMethod(Attribute, read, Attribute*, $ClassReader*, int32_t, int32_t, $chars*, int32_t, $LabelArray*)},
+		{"write", "(Ljdk/internal/org/objectweb/asm/ClassWriter;[BIII)Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PROTECTED, $virtualMethod(Attribute, write, $ByteVector*, $ClassWriter*, $bytes*, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.org.objectweb.asm.Attribute$Set", "jdk.internal.org.objectweb.asm.Attribute", "Set", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.Attribute",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.org.objectweb.asm.Attribute$Set"
+	};
+	$loadClass(Attribute, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Attribute);
+	});
 	return class$;
 }
 

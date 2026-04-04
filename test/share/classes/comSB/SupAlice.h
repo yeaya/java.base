@@ -11,6 +11,7 @@ class $export SupAlice : public ::java::lang::Object {
 	$class(SupAlice, 0, ::java::lang::Object)
 public:
 	SupAlice();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 };
 

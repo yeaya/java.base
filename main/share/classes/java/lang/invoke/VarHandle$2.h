@@ -13,6 +13,7 @@ class VarHandle$2 : public ::java::lang::Object {
 	$class(VarHandle$2, 0, ::java::lang::Object)
 public:
 	VarHandle$2();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$lang$invoke$VarHandle$VarHandleDesc$Kind;
 	static $ints* $SwitchMap$java$lang$invoke$VarHandle$AccessType;
 };

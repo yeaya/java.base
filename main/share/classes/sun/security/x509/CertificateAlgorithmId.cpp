@@ -1,5 +1,4 @@
 #include <sun/security/x509/CertificateAlgorithmId.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -26,49 +25,12 @@ using $Enumeration = ::java::util::Enumeration;
 using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
-using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 using $AlgorithmId = ::sun::security::x509::AlgorithmId;
 using $AttributeNameEnumeration = ::sun::security::x509::AttributeNameEnumeration;
 
 namespace sun {
 	namespace security {
 		namespace x509 {
-
-$FieldInfo _CertificateAlgorithmId_FieldInfo_[] = {
-	{"algId", "Lsun/security/x509/AlgorithmId;", nullptr, $PRIVATE, $field(CertificateAlgorithmId, algId)},
-	{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateAlgorithmId, IDENT)},
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateAlgorithmId, NAME)},
-	{"ALGORITHM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateAlgorithmId, ALGORITHM)},
-	{}
-};
-
-$MethodInfo _CertificateAlgorithmId_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/x509/AlgorithmId;)V", nullptr, $PUBLIC, $method(CertificateAlgorithmId, init$, void, $AlgorithmId*)},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(CertificateAlgorithmId, init$, void, $DerInputStream*), "java.io.IOException"},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(CertificateAlgorithmId, init$, void, $InputStream*), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CertificateAlgorithmId, delete$, void, $String*), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateAlgorithmId, encode, void, $OutputStream*), "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC, $virtualMethod(CertificateAlgorithmId, get, $Object*, $String*), "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CertificateAlgorithmId, getElements, $Enumeration*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateAlgorithmId, getName, $String*)},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CertificateAlgorithmId, set, void, $String*, Object$*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateAlgorithmId, toString, $String*)},
-	{}
-};
-
-$ClassInfo _CertificateAlgorithmId_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.CertificateAlgorithmId",
-	"java.lang.Object",
-	"sun.security.x509.CertAttrSet",
-	_CertificateAlgorithmId_FieldInfo_,
-	_CertificateAlgorithmId_MethodInfo_,
-	"Ljava/lang/Object;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
-};
-
-$Object* allocate$CertificateAlgorithmId($Class* clazz) {
-	return $of($alloc(CertificateAlgorithmId));
-}
 
 $String* CertificateAlgorithmId::IDENT = nullptr;
 $String* CertificateAlgorithmId::NAME = nullptr;
@@ -89,17 +51,20 @@ void CertificateAlgorithmId::init$($InputStream* in) {
 }
 
 $String* CertificateAlgorithmId::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->algId == nullptr) {
 		return ""_s;
 	}
-	$var($String, var$1, $$str({$($nc(this->algId)->toString()), ", OID = "_s}));
-	$var($String, var$0, $$concat(var$1, $($nc(($($nc(this->algId)->getOID())))->toString())));
-	return ($concat(var$0, "\n"_s));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($nc(this->algId)->toString()));
+	var$0->append(", OID = "_s);
+	var$0->append($(($$nc(this->algId->getOID()))->toString()));
+	var$0->append("\n"_s);
+	return ($str(var$0));
 }
 
 void CertificateAlgorithmId::encode($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	$nc(this->algId)->encode(tmp);
 	$nc(out)->write($(tmp->toByteArray()));
@@ -118,7 +83,7 @@ void CertificateAlgorithmId::set($String* name, Object$* obj) {
 
 $Object* CertificateAlgorithmId::get($String* name) {
 	if ($nc(name)->equalsIgnoreCase(CertificateAlgorithmId::ALGORITHM)) {
-		return $of((this->algId));
+		return ($of(this->algId));
 	} else {
 		$throwNew($IOException, "Attribute name not recognized by CertAttrSet:CertificateAlgorithmId."_s);
 	}
@@ -145,14 +110,45 @@ $String* CertificateAlgorithmId::getName() {
 CertificateAlgorithmId::CertificateAlgorithmId() {
 }
 
-void clinit$CertificateAlgorithmId($Class* class$) {
+void CertificateAlgorithmId::clinit$($Class* clazz) {
 	$assignStatic(CertificateAlgorithmId::IDENT, "x509.info.algorithmID"_s);
 	$assignStatic(CertificateAlgorithmId::NAME, "algorithmID"_s);
 	$assignStatic(CertificateAlgorithmId::ALGORITHM, "algorithm"_s);
 }
 
 $Class* CertificateAlgorithmId::load$($String* name, bool initialize) {
-	$loadClass(CertificateAlgorithmId, name, initialize, &_CertificateAlgorithmId_ClassInfo_, clinit$CertificateAlgorithmId, allocate$CertificateAlgorithmId);
+	$FieldInfo fieldInfos$$[] = {
+		{"algId", "Lsun/security/x509/AlgorithmId;", nullptr, $PRIVATE, $field(CertificateAlgorithmId, algId)},
+		{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateAlgorithmId, IDENT)},
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateAlgorithmId, NAME)},
+		{"ALGORITHM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateAlgorithmId, ALGORITHM)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/x509/AlgorithmId;)V", nullptr, $PUBLIC, $method(CertificateAlgorithmId, init$, void, $AlgorithmId*)},
+		{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(CertificateAlgorithmId, init$, void, $DerInputStream*), "java.io.IOException"},
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(CertificateAlgorithmId, init$, void, $InputStream*), "java.io.IOException"},
+		{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CertificateAlgorithmId, delete$, void, $String*), "java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateAlgorithmId, encode, void, $OutputStream*), "java.io.IOException"},
+		{"get", "(Ljava/lang/String;)Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC, $virtualMethod(CertificateAlgorithmId, get, $Object*, $String*), "java.io.IOException"},
+		{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CertificateAlgorithmId, getElements, $Enumeration*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateAlgorithmId, getName, $String*)},
+		{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CertificateAlgorithmId, set, void, $String*, Object$*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateAlgorithmId, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.CertificateAlgorithmId",
+		"java.lang.Object",
+		"sun.security.x509.CertAttrSet",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
+	};
+	$loadClass(CertificateAlgorithmId, name, initialize, &classInfo$$, CertificateAlgorithmId::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateAlgorithmId);
+	});
 	return class$;
 }
 

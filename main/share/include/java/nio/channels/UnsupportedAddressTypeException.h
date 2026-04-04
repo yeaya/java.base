@@ -14,10 +14,13 @@ class $import UnsupportedAddressTypeException : public ::java::lang::IllegalArgu
 public:
 	UnsupportedAddressTypeException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xD6DC9B2BACEA3273;
+	static const int64_t serialVersionUID = (int64_t)0xd6dc9b2bacea3273;
 	UnsupportedAddressTypeException(const UnsupportedAddressTypeException& e);
 	virtual void throw$() override;
-	inline UnsupportedAddressTypeException* operator ->() {
+	inline UnsupportedAddressTypeException* operator ->() const {
+		return (UnsupportedAddressTypeException*)throwing$;
+	}
+	inline operator UnsupportedAddressTypeException*() const {
 		return (UnsupportedAddressTypeException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <InsertMaxValue.h>
-
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/OutOfMemoryError.h>
 #include <java/lang/StringBuffer.h>
@@ -17,30 +16,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $StringIndexOutOfBoundsException = ::java::lang::StringIndexOutOfBoundsException;
 
-$MethodInfo _InsertMaxValue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InsertMaxValue, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InsertMaxValue, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _InsertMaxValue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"InsertMaxValue",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_InsertMaxValue_MethodInfo_
-};
-
-$Object* allocate$InsertMaxValue($Class* clazz) {
-	return $of($alloc(InsertMaxValue));
-}
-
 void InsertMaxValue::init$() {
 }
 
 void InsertMaxValue::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, sb, $new($StringBuffer, ""_s));
 	$var($StringBuffer, sb1, $new($StringBuffer, "Some test StringBuffer"_s));
 	try {
@@ -63,7 +43,22 @@ InsertMaxValue::InsertMaxValue() {
 }
 
 $Class* InsertMaxValue::load$($String* name, bool initialize) {
-	$loadClass(InsertMaxValue, name, initialize, &_InsertMaxValue_ClassInfo_, allocate$InsertMaxValue);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InsertMaxValue, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InsertMaxValue, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"InsertMaxValue",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InsertMaxValue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InsertMaxValue);
+	});
 	return class$;
 }
 

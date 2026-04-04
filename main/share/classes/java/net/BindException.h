@@ -14,10 +14,13 @@ public:
 	BindException();
 	void init$($String* msg);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xAD7F18C073B53339;
+	static const int64_t serialVersionUID = (int64_t)0xad7f18c073b53339;
 	BindException(const BindException& e);
 	virtual void throw$() override;
-	inline BindException* operator ->() {
+	inline BindException* operator ->() const {
+		return (BindException*)throwing$;
+	}
+	inline operator BindException*() const {
 		return (BindException*)throwing$;
 	}
 };

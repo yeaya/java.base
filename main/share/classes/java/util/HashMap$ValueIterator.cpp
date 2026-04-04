@@ -1,5 +1,4 @@
 #include <java/util/HashMap$ValueIterator.h>
-
 #include <java/util/HashMap$HashIterator.h>
 #include <java/util/HashMap$Node.h>
 #include <java/util/HashMap.h>
@@ -14,50 +13,6 @@ using $HashMap$HashIterator = ::java::util::HashMap$HashIterator;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _HashMap$ValueIterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/HashMap;", nullptr, $FINAL | $SYNTHETIC, $field(HashMap$ValueIterator, this$0)},
-	{}
-};
-
-$MethodInfo _HashMap$ValueIterator_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hasNext", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/HashMap;)V", nullptr, 0, $method(HashMap$ValueIterator, init$, void, $HashMap*)},
-	{"next", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $FINAL, $virtualMethod(HashMap$ValueIterator, next, $Object*)},
-	{"*remove", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _HashMap$ValueIterator_InnerClassesInfo_[] = {
-	{"java.util.HashMap$ValueIterator", "java.util.HashMap", "ValueIterator", $FINAL},
-	{"java.util.HashMap$HashIterator", "java.util.HashMap", "HashIterator", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _HashMap$ValueIterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.HashMap$ValueIterator",
-	"java.util.HashMap$HashIterator",
-	"java.util.Iterator",
-	_HashMap$ValueIterator_FieldInfo_,
-	_HashMap$ValueIterator_MethodInfo_,
-	"Ljava/util/HashMap<TK;TV;>.HashIterator;Ljava/util/Iterator<TV;>;",
-	nullptr,
-	_HashMap$ValueIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.HashMap"
-};
-
-$Object* allocate$HashMap$ValueIterator($Class* clazz) {
-	return $of($alloc(HashMap$ValueIterator));
-}
 
 bool HashMap$ValueIterator::hasNext() {
 	 return this->$HashMap$HashIterator::hasNext();
@@ -93,14 +48,52 @@ void HashMap$ValueIterator::init$($HashMap* this$0) {
 }
 
 $Object* HashMap$ValueIterator::next() {
-	return $of($nc($(nextNode()))->value);
+	return $nc($(nextNode()))->value;
 }
 
 HashMap$ValueIterator::HashMap$ValueIterator() {
 }
 
 $Class* HashMap$ValueIterator::load$($String* name, bool initialize) {
-	$loadClass(HashMap$ValueIterator, name, initialize, &_HashMap$ValueIterator_ClassInfo_, allocate$HashMap$ValueIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/HashMap;", nullptr, $FINAL | $SYNTHETIC, $field(HashMap$ValueIterator, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hasNext", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/HashMap;)V", nullptr, 0, $method(HashMap$ValueIterator, init$, void, $HashMap*)},
+		{"next", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $FINAL, $virtualMethod(HashMap$ValueIterator, next, $Object*)},
+		{"*remove", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.HashMap$ValueIterator", "java.util.HashMap", "ValueIterator", $FINAL},
+		{"java.util.HashMap$HashIterator", "java.util.HashMap", "HashIterator", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.HashMap$ValueIterator",
+		"java.util.HashMap$HashIterator",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/HashMap<TK;TV;>.HashIterator;Ljava/util/Iterator<TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.HashMap"
+	};
+	$loadClass(HashMap$ValueIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HashMap$ValueIterator));
+	});
 	return class$;
 }
 

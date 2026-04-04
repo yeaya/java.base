@@ -1,5 +1,4 @@
 #include <java/lang/invoke/DirectMethodHandle$Interface.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/IncompatibleClassChangeError.h>
 #include <java/lang/invoke/DirectMethodHandle.h>
@@ -25,52 +24,12 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$FieldInfo _DirectMethodHandle$Interface_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectMethodHandle$Interface, $assertionsDisabled)},
-	{"refc", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(DirectMethodHandle$Interface, refc)},
-	{}
-};
-
-$MethodInfo _DirectMethodHandle$Interface_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MemberName;ZLjava/lang/Class;)V", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MemberName;ZLjava/lang/Class<*>;)V", $PRIVATE, $method(DirectMethodHandle$Interface, init$, void, $MethodType*, $LambdaForm*, $MemberName*, bool, $Class*)},
-	{"checkReceiver", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectMethodHandle$Interface, checkReceiver, $Object*, Object$*)},
-	{"copyWith", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(DirectMethodHandle$Interface, copyWith, $MethodHandle*, $MethodType*, $LambdaForm*)},
-	{"internalProperties", "()Ljava/lang/Object;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(DirectMethodHandle$Interface, internalProperties, $Object*)},
-	{"viewAsType", "(Ljava/lang/invoke/MethodType;Z)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(DirectMethodHandle$Interface, viewAsType, $MethodHandle*, $MethodType*, bool)},
-	{}
-};
-
-$InnerClassInfo _DirectMethodHandle$Interface_InnerClassesInfo_[] = {
-	{"java.lang.invoke.DirectMethodHandle$Interface", "java.lang.invoke.DirectMethodHandle", "Interface", $STATIC},
-	{}
-};
-
-$ClassInfo _DirectMethodHandle$Interface_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.DirectMethodHandle$Interface",
-	"java.lang.invoke.DirectMethodHandle",
-	nullptr,
-	_DirectMethodHandle$Interface_FieldInfo_,
-	_DirectMethodHandle$Interface_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DirectMethodHandle$Interface_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.DirectMethodHandle"
-};
-
-$Object* allocate$DirectMethodHandle$Interface($Class* clazz) {
-	return $of($alloc(DirectMethodHandle$Interface));
-}
-
 bool DirectMethodHandle$Interface::$assertionsDisabled = false;
 
 void DirectMethodHandle$Interface::init$($MethodType* mtype, $LambdaForm* form, $MemberName* member, bool crackable, $Class* refc) {
 	$DirectMethodHandle::init$(mtype, form, member, crackable);
 	if (!DirectMethodHandle$Interface::$assertionsDisabled && !($nc(refc)->isInterface())) {
-		$throwNew($AssertionError, $of(refc));
+		$throwNew($AssertionError, refc);
 	}
 	$set(this, refc, refc);
 }
@@ -87,11 +46,11 @@ $MethodHandle* DirectMethodHandle$Interface::viewAsType($MethodType* newType, bo
 }
 
 $Object* DirectMethodHandle$Interface::checkReceiver(Object$* recv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(this->refc)->isInstance(recv)) {
 		$var($String, msg, $String::format("Receiver class %s does not implement the requested interface %s"_s, $$new($ObjectArray, {
-			$($of($nc($of(recv))->getClass()->getName())),
-			$($of($nc(this->refc)->getName()))
+			$($nc($of(recv))->getClass()->getName()),
+			$(this->refc->getName())
 		})));
 		$throwNew($IncompatibleClassChangeError, msg);
 	}
@@ -99,10 +58,10 @@ $Object* DirectMethodHandle$Interface::checkReceiver(Object$* recv) {
 }
 
 $Object* DirectMethodHandle$Interface::internalProperties() {
-	return $of($DirectMethodHandle::internalProperties());
+	return $DirectMethodHandle::internalProperties();
 }
 
-void clinit$DirectMethodHandle$Interface($Class* class$) {
+void DirectMethodHandle$Interface::clinit$($Class* clazz) {
 	$load($DirectMethodHandle);
 	DirectMethodHandle$Interface::$assertionsDisabled = !$DirectMethodHandle::class$->desiredAssertionStatus();
 }
@@ -111,7 +70,41 @@ DirectMethodHandle$Interface::DirectMethodHandle$Interface() {
 }
 
 $Class* DirectMethodHandle$Interface::load$($String* name, bool initialize) {
-	$loadClass(DirectMethodHandle$Interface, name, initialize, &_DirectMethodHandle$Interface_ClassInfo_, clinit$DirectMethodHandle$Interface, allocate$DirectMethodHandle$Interface);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectMethodHandle$Interface, $assertionsDisabled)},
+		{"refc", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(DirectMethodHandle$Interface, refc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MemberName;ZLjava/lang/Class;)V", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MemberName;ZLjava/lang/Class<*>;)V", $PRIVATE, $method(DirectMethodHandle$Interface, init$, void, $MethodType*, $LambdaForm*, $MemberName*, bool, $Class*)},
+		{"checkReceiver", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectMethodHandle$Interface, checkReceiver, $Object*, Object$*)},
+		{"copyWith", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(DirectMethodHandle$Interface, copyWith, $MethodHandle*, $MethodType*, $LambdaForm*)},
+		{"internalProperties", "()Ljava/lang/Object;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(DirectMethodHandle$Interface, internalProperties, $Object*)},
+		{"viewAsType", "(Ljava/lang/invoke/MethodType;Z)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(DirectMethodHandle$Interface, viewAsType, $MethodHandle*, $MethodType*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.DirectMethodHandle$Interface", "java.lang.invoke.DirectMethodHandle", "Interface", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.DirectMethodHandle$Interface",
+		"java.lang.invoke.DirectMethodHandle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.DirectMethodHandle"
+	};
+	$loadClass(DirectMethodHandle$Interface, name, initialize, &classInfo$$, DirectMethodHandle$Interface::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DirectMethodHandle$Interface);
+	});
 	return class$;
 }
 

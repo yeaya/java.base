@@ -1,5 +1,4 @@
 #include <javax/net/ssl/SSLSocketFactory$DefaultFactoryHolder.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/reflect/Constructor.h>
@@ -9,7 +8,6 @@
 
 #undef DEBUG
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
@@ -17,49 +15,12 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Constructor = ::java::lang::reflect::Constructor;
 using $DefaultSSLSocketFactory = ::javax::net::ssl::DefaultSSLSocketFactory;
 using $SSLSocketFactory = ::javax::net::ssl::SSLSocketFactory;
 
 namespace javax {
 	namespace net {
 		namespace ssl {
-
-$FieldInfo _SSLSocketFactory$DefaultFactoryHolder_FieldInfo_[] = {
-	{"defaultFactory", "Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLSocketFactory$DefaultFactoryHolder, defaultFactory)},
-	{}
-};
-
-$MethodInfo _SSLSocketFactory$DefaultFactoryHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLSocketFactory$DefaultFactoryHolder, init$, void)},
-	{"log", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLSocketFactory$DefaultFactoryHolder, log, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _SSLSocketFactory$DefaultFactoryHolder_InnerClassesInfo_[] = {
-	{"javax.net.ssl.SSLSocketFactory$DefaultFactoryHolder", "javax.net.ssl.SSLSocketFactory", "DefaultFactoryHolder", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SSLSocketFactory$DefaultFactoryHolder_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.net.ssl.SSLSocketFactory$DefaultFactoryHolder",
-	"java.lang.Object",
-	nullptr,
-	_SSLSocketFactory$DefaultFactoryHolder_FieldInfo_,
-	_SSLSocketFactory$DefaultFactoryHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLSocketFactory$DefaultFactoryHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.net.ssl.SSLSocketFactory"
-};
-
-$Object* allocate$SSLSocketFactory$DefaultFactoryHolder($Class* clazz) {
-	return $of($alloc(SSLSocketFactory$DefaultFactoryHolder));
-}
 
 $SSLSocketFactory* SSLSocketFactory$DefaultFactoryHolder::defaultFactory = nullptr;
 
@@ -74,8 +35,8 @@ void SSLSocketFactory$DefaultFactoryHolder::log($String* msg) {
 	}
 }
 
-void clinit$SSLSocketFactory$DefaultFactoryHolder($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void SSLSocketFactory$DefaultFactoryHolder::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	{
 		$var($SSLSocketFactory, mediator, nullptr);
@@ -93,7 +54,7 @@ void clinit$SSLSocketFactory$DefaultFactoryHolder($Class* class$) {
 					}
 				}
 				SSLSocketFactory$DefaultFactoryHolder::log($$str({"class "_s, clsName, " is loaded"_s}));
-				$assign(mediator, $cast($SSLSocketFactory, $nc($($nc(cls)->getDeclaredConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0))));
+				$assign(mediator, $cast($SSLSocketFactory, $$nc($nc(cls)->getDeclaredConstructor($$new($ClassArray, 0)))->newInstance($$new($ObjectArray, 0))));
 				SSLSocketFactory$DefaultFactoryHolder::log($$str({"instantiated an instance of class "_s, clsName}));
 			} catch ($Exception& e) {
 				SSLSocketFactory$DefaultFactoryHolder::log($$str({"SSLSocketFactory instantiation failed: "_s, e}));
@@ -108,7 +69,37 @@ SSLSocketFactory$DefaultFactoryHolder::SSLSocketFactory$DefaultFactoryHolder() {
 }
 
 $Class* SSLSocketFactory$DefaultFactoryHolder::load$($String* name, bool initialize) {
-	$loadClass(SSLSocketFactory$DefaultFactoryHolder, name, initialize, &_SSLSocketFactory$DefaultFactoryHolder_ClassInfo_, clinit$SSLSocketFactory$DefaultFactoryHolder, allocate$SSLSocketFactory$DefaultFactoryHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultFactory", "Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLSocketFactory$DefaultFactoryHolder, defaultFactory)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SSLSocketFactory$DefaultFactoryHolder, init$, void)},
+		{"log", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLSocketFactory$DefaultFactoryHolder, log, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.net.ssl.SSLSocketFactory$DefaultFactoryHolder", "javax.net.ssl.SSLSocketFactory", "DefaultFactoryHolder", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.net.ssl.SSLSocketFactory$DefaultFactoryHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.net.ssl.SSLSocketFactory"
+	};
+	$loadClass(SSLSocketFactory$DefaultFactoryHolder, name, initialize, &classInfo$$, SSLSocketFactory$DefaultFactoryHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLSocketFactory$DefaultFactoryHolder);
+	});
 	return class$;
 }
 

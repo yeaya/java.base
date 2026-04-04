@@ -1,5 +1,4 @@
 #include <java/util/concurrent/atomic/LongAccumulator$SerializationProxy.h>
-
 #include <java/util/concurrent/atomic/LongAccumulator.h>
 #include <java/util/function/LongBinaryOperator.h>
 #include <jcpp.h>
@@ -16,45 +15,6 @@ namespace java {
 		namespace concurrent {
 			namespace atomic {
 
-$FieldInfo _LongAccumulator$SerializationProxy_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LongAccumulator$SerializationProxy, serialVersionUID)},
-	{"value", "J", nullptr, $PRIVATE | $FINAL, $field(LongAccumulator$SerializationProxy, value)},
-	{"function", "Ljava/util/function/LongBinaryOperator;", nullptr, $PRIVATE | $FINAL, $field(LongAccumulator$SerializationProxy, function)},
-	{"identity", "J", nullptr, $PRIVATE | $FINAL, $field(LongAccumulator$SerializationProxy, identity)},
-	{}
-};
-
-$MethodInfo _LongAccumulator$SerializationProxy_MethodInfo_[] = {
-	{"<init>", "(JLjava/util/function/LongBinaryOperator;J)V", nullptr, 0, $method(LongAccumulator$SerializationProxy, init$, void, int64_t, $LongBinaryOperator*, int64_t)},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(LongAccumulator$SerializationProxy, readResolve, $Object*)},
-	{}
-};
-
-$InnerClassInfo _LongAccumulator$SerializationProxy_InnerClassesInfo_[] = {
-	{"java.util.concurrent.atomic.LongAccumulator$SerializationProxy", "java.util.concurrent.atomic.LongAccumulator", "SerializationProxy", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _LongAccumulator$SerializationProxy_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.concurrent.atomic.LongAccumulator$SerializationProxy",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_LongAccumulator$SerializationProxy_FieldInfo_,
-	_LongAccumulator$SerializationProxy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LongAccumulator$SerializationProxy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.atomic.LongAccumulator"
-};
-
-$Object* allocate$LongAccumulator$SerializationProxy($Class* clazz) {
-	return $of($alloc(LongAccumulator$SerializationProxy));
-}
-
 void LongAccumulator$SerializationProxy::init$(int64_t value, $LongBinaryOperator* function, int64_t identity) {
 	this->value = value;
 	$set(this, function, function);
@@ -64,14 +24,47 @@ void LongAccumulator$SerializationProxy::init$(int64_t value, $LongBinaryOperato
 $Object* LongAccumulator$SerializationProxy::readResolve() {
 	$var($LongAccumulator, a, $new($LongAccumulator, this->function, this->identity));
 	a->base = this->value;
-	return $of(a);
+	return a;
 }
 
 LongAccumulator$SerializationProxy::LongAccumulator$SerializationProxy() {
 }
 
 $Class* LongAccumulator$SerializationProxy::load$($String* name, bool initialize) {
-	$loadClass(LongAccumulator$SerializationProxy, name, initialize, &_LongAccumulator$SerializationProxy_ClassInfo_, allocate$LongAccumulator$SerializationProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LongAccumulator$SerializationProxy, serialVersionUID)},
+		{"value", "J", nullptr, $PRIVATE | $FINAL, $field(LongAccumulator$SerializationProxy, value)},
+		{"function", "Ljava/util/function/LongBinaryOperator;", nullptr, $PRIVATE | $FINAL, $field(LongAccumulator$SerializationProxy, function)},
+		{"identity", "J", nullptr, $PRIVATE | $FINAL, $field(LongAccumulator$SerializationProxy, identity)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JLjava/util/function/LongBinaryOperator;J)V", nullptr, 0, $method(LongAccumulator$SerializationProxy, init$, void, int64_t, $LongBinaryOperator*, int64_t)},
+		{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(LongAccumulator$SerializationProxy, readResolve, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.atomic.LongAccumulator$SerializationProxy", "java.util.concurrent.atomic.LongAccumulator", "SerializationProxy", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.concurrent.atomic.LongAccumulator$SerializationProxy",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.atomic.LongAccumulator"
+	};
+	$loadClass(LongAccumulator$SerializationProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LongAccumulator$SerializationProxy);
+	});
 	return class$;
 }
 

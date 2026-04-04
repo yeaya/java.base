@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/PBES2Parameters.h>
-
 #include <java/io/IOException.h>
 #include <java/security/AlgorithmParametersSpi.h>
 #include <java/security/NoSuchAlgorithmException.h>
@@ -28,7 +27,6 @@ using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $InvalidParameterSpecException = ::java::security::spec::InvalidParameterSpecException;
 using $IvParameterSpec = ::javax::crypto::spec::IvParameterSpec;
 using $PBEParameterSpec = ::javax::crypto::spec::PBEParameterSpec;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $KnownOIDs = ::sun::security::util::KnownOIDs;
@@ -38,71 +36,6 @@ namespace com {
 	namespace sun {
 		namespace crypto {
 			namespace provider {
-
-$FieldInfo _PBES2Parameters_FieldInfo_[] = {
-	{"pkcs5PBKDF2_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE | $STATIC, $staticField(PBES2Parameters, pkcs5PBKDF2_OID)},
-	{"pkcs5PBES2_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE | $STATIC, $staticField(PBES2Parameters, pkcs5PBES2_OID)},
-	{"aes128CBC_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE | $STATIC, $staticField(PBES2Parameters, aes128CBC_OID)},
-	{"aes192CBC_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE | $STATIC, $staticField(PBES2Parameters, aes192CBC_OID)},
-	{"aes256CBC_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE | $STATIC, $staticField(PBES2Parameters, aes256CBC_OID)},
-	{"pbes2AlgorithmName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PBES2Parameters, pbes2AlgorithmName)},
-	{"salt", "[B", nullptr, $PRIVATE, $field(PBES2Parameters, salt)},
-	{"iCount", "I", nullptr, $PRIVATE, $field(PBES2Parameters, iCount)},
-	{"cipherParam", "Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PRIVATE, $field(PBES2Parameters, cipherParam)},
-	{"kdfAlgo_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE, $field(PBES2Parameters, kdfAlgo_OID)},
-	{"cipherAlgo_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE, $field(PBES2Parameters, cipherAlgo_OID)},
-	{"keysize", "I", nullptr, $PRIVATE, $field(PBES2Parameters, keysize)},
-	{}
-};
-
-$MethodInfo _PBES2Parameters_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(PBES2Parameters, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(PBES2Parameters, init$, void, $String*), "java.security.NoSuchAlgorithmException"},
-	{"engineGetEncoded", "()[B", nullptr, $PROTECTED, $virtualMethod(PBES2Parameters, engineGetEncoded, $bytes*), "java.io.IOException"},
-	{"engineGetEncoded", "(Ljava/lang/String;)[B", nullptr, $PROTECTED, $virtualMethod(PBES2Parameters, engineGetEncoded, $bytes*, $String*), "java.io.IOException"},
-	{"engineGetParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", $PROTECTED, $virtualMethod(PBES2Parameters, engineGetParameterSpec, $AlgorithmParameterSpec*, $Class*), "java.security.spec.InvalidParameterSpecException"},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(PBES2Parameters, engineInit, void, $AlgorithmParameterSpec*), "java.security.spec.InvalidParameterSpecException"},
-	{"engineInit", "([B)V", nullptr, $PROTECTED, $virtualMethod(PBES2Parameters, engineInit, void, $bytes*), "java.io.IOException"},
-	{"engineInit", "([BLjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(PBES2Parameters, engineInit, void, $bytes*, $String*), "java.io.IOException"},
-	{"engineToString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(PBES2Parameters, engineToString, $String*)},
-	{"parseES", "(Lsun/security/util/DerValue;)Ljava/lang/String;", nullptr, $PRIVATE, $method(PBES2Parameters, parseES, $String*, $DerValue*), "java.io.IOException"},
-	{"parseKDF", "(Lsun/security/util/DerValue;)Ljava/lang/String;", nullptr, $PRIVATE, $method(PBES2Parameters, parseKDF, $String*, $DerValue*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _PBES2Parameters_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.PBES2Parameters$HmacSHA512AndAES_256", "com.sun.crypto.provider.PBES2Parameters", "HmacSHA512AndAES_256", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.PBES2Parameters$HmacSHA384AndAES_256", "com.sun.crypto.provider.PBES2Parameters", "HmacSHA384AndAES_256", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.PBES2Parameters$HmacSHA256AndAES_256", "com.sun.crypto.provider.PBES2Parameters", "HmacSHA256AndAES_256", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.PBES2Parameters$HmacSHA224AndAES_256", "com.sun.crypto.provider.PBES2Parameters", "HmacSHA224AndAES_256", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.PBES2Parameters$HmacSHA1AndAES_256", "com.sun.crypto.provider.PBES2Parameters", "HmacSHA1AndAES_256", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.PBES2Parameters$HmacSHA512AndAES_128", "com.sun.crypto.provider.PBES2Parameters", "HmacSHA512AndAES_128", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.PBES2Parameters$HmacSHA384AndAES_128", "com.sun.crypto.provider.PBES2Parameters", "HmacSHA384AndAES_128", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.PBES2Parameters$HmacSHA256AndAES_128", "com.sun.crypto.provider.PBES2Parameters", "HmacSHA256AndAES_128", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.PBES2Parameters$HmacSHA224AndAES_128", "com.sun.crypto.provider.PBES2Parameters", "HmacSHA224AndAES_128", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.PBES2Parameters$HmacSHA1AndAES_128", "com.sun.crypto.provider.PBES2Parameters", "HmacSHA1AndAES_128", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.PBES2Parameters$General", "com.sun.crypto.provider.PBES2Parameters", "General", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PBES2Parameters_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.crypto.provider.PBES2Parameters",
-	"java.security.AlgorithmParametersSpi",
-	nullptr,
-	_PBES2Parameters_FieldInfo_,
-	_PBES2Parameters_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PBES2Parameters_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.PBES2Parameters$HmacSHA512AndAES_256,com.sun.crypto.provider.PBES2Parameters$HmacSHA384AndAES_256,com.sun.crypto.provider.PBES2Parameters$HmacSHA256AndAES_256,com.sun.crypto.provider.PBES2Parameters$HmacSHA224AndAES_256,com.sun.crypto.provider.PBES2Parameters$HmacSHA1AndAES_256,com.sun.crypto.provider.PBES2Parameters$HmacSHA512AndAES_128,com.sun.crypto.provider.PBES2Parameters$HmacSHA384AndAES_128,com.sun.crypto.provider.PBES2Parameters$HmacSHA256AndAES_128,com.sun.crypto.provider.PBES2Parameters$HmacSHA224AndAES_128,com.sun.crypto.provider.PBES2Parameters$HmacSHA1AndAES_128,com.sun.crypto.provider.PBES2Parameters$General"
-};
-
-$Object* allocate$PBES2Parameters($Class* clazz) {
-	return $of($alloc(PBES2Parameters));
-}
 
 $ObjectIdentifier* PBES2Parameters::pkcs5PBKDF2_OID = nullptr;
 $ObjectIdentifier* PBES2Parameters::pkcs5PBES2_OID = nullptr;
@@ -123,7 +56,7 @@ void PBES2Parameters::init$() {
 }
 
 void PBES2Parameters::init$($String* pbes2AlgorithmName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AlgorithmParametersSpi::init$();
 	$set(this, pbes2AlgorithmName, nullptr);
 	$set(this, salt, nullptr);
@@ -142,9 +75,9 @@ void PBES2Parameters::init$($String* pbes2AlgorithmName) {
 		$assign(kdfAlgo, pbes2AlgorithmName->substring(7, and$));
 		$assign(cipherAlgo, pbes2AlgorithmName->substring(and$ + 3));
 		int32_t underscore = 0;
-		if ((underscore = cipherAlgo->indexOf((int32_t)u'_')) > 0) {
+		if ((underscore = cipherAlgo->indexOf(u'_')) > 0) {
 			int32_t slash = 0;
-			if ((slash = cipherAlgo->indexOf((int32_t)u'/', underscore + 1)) > 0) {
+			if ((slash = cipherAlgo->indexOf(u'/', underscore + 1)) > 0) {
 				this->keysize = $Integer::parseInt($(cipherAlgo->substring(underscore + 1, slash)));
 			} else {
 				this->keysize = $Integer::parseInt($(cipherAlgo->substring(underscore + 1)));
@@ -158,79 +91,55 @@ void PBES2Parameters::init$($String* pbes2AlgorithmName) {
 		$var($String, s5894$, kdfAlgo);
 		int32_t tmp5894$ = -1;
 		switch ($nc(s5894$)->hashCode()) {
-		case 0x687BD5AC:
-			{
-				if (s5894$->equals("HmacSHA1"_s)) {
-					tmp5894$ = 0;
-				}
-				break;
+		case 0x687bd5ac:
+			if (s5894$->equals("HmacSHA1"_s)) {
+				tmp5894$ = 0;
 			}
-		case 0x38DD24AF:
-			{
-				if (s5894$->equals("HmacSHA224"_s)) {
-					tmp5894$ = 1;
-				}
-				break;
+			break;
+		case 0x38dd24af:
+			if (s5894$->equals("HmacSHA224"_s)) {
+				tmp5894$ = 1;
 			}
-		case 0x38DD250E:
-			{
-				if (s5894$->equals("HmacSHA256"_s)) {
-					tmp5894$ = 2;
-				}
-				break;
+			break;
+		case 0x38dd250e:
+			if (s5894$->equals("HmacSHA256"_s)) {
+				tmp5894$ = 2;
 			}
-		case 0x38DD292A:
-			{
-				if (s5894$->equals("HmacSHA384"_s)) {
-					tmp5894$ = 3;
-				}
-				break;
+			break;
+		case 0x38dd292a:
+			if (s5894$->equals("HmacSHA384"_s)) {
+				tmp5894$ = 3;
 			}
-		case 0x38DD2FD1:
-			{
-				if (s5894$->equals("HmacSHA512"_s)) {
-					tmp5894$ = 4;
-				}
-				break;
+			break;
+		case 0x38dd2fd1:
+			if (s5894$->equals("HmacSHA512"_s)) {
+				tmp5894$ = 4;
 			}
+			break;
 		}
 		switch (tmp5894$) {
 		case 0:
-			{}
 		case 1:
-			{}
 		case 2:
-			{}
 		case 3:
-			{}
 		case 4:
-			{
-				$set(this, kdfAlgo_OID, $ObjectIdentifier::of($($KnownOIDs::findMatch(kdfAlgo))));
-				break;
-			}
+			$set(this, kdfAlgo_OID, $ObjectIdentifier::of($($KnownOIDs::findMatch(kdfAlgo))));
+			break;
 		default:
-			{
-				$throwNew($NoSuchAlgorithmException, $$str({"No crypto implementation for "_s, kdfAlgo}));
-			}
+			$throwNew($NoSuchAlgorithmException, $$str({"No crypto implementation for "_s, kdfAlgo}));
 		}
 	}
 	if ($nc(cipherAlgo)->equals("AES"_s)) {
 		this->keysize = this->keysize;
 		switch (this->keysize) {
 		case 128:
-			{
-				$set(this, cipherAlgo_OID, PBES2Parameters::aes128CBC_OID);
-				break;
-			}
+			$set(this, cipherAlgo_OID, PBES2Parameters::aes128CBC_OID);
+			break;
 		case 256:
-			{
-				$set(this, cipherAlgo_OID, PBES2Parameters::aes256CBC_OID);
-				break;
-			}
+			$set(this, cipherAlgo_OID, PBES2Parameters::aes256CBC_OID);
+			break;
 		default:
-			{
-				$throwNew($NoSuchAlgorithmException, $$str({"No Cipher implementation for "_s, $$str(this->keysize), "-bit "_s, cipherAlgo}));
-			}
+			$throwNew($NoSuchAlgorithmException, $$str({"No Cipher implementation for "_s, $$str(this->keysize), "-bit "_s, cipherAlgo}));
 		}
 	} else {
 		$throwNew($NoSuchAlgorithmException, $$str({"No Cipher implementation for "_s, cipherAlgo}));
@@ -241,13 +150,13 @@ void PBES2Parameters::engineInit($AlgorithmParameterSpec* paramSpec) {
 	if (!($instanceOf($PBEParameterSpec, paramSpec))) {
 		$throwNew($InvalidParameterSpecException, "Inappropriate parameter specification"_s);
 	}
-	$set(this, salt, $cast($bytes, $nc($($nc(($cast($PBEParameterSpec, paramSpec)))->getSalt()))->clone()));
-	this->iCount = ($cast($PBEParameterSpec, paramSpec))->getIterationCount();
-	$set(this, cipherParam, ($cast($PBEParameterSpec, paramSpec))->getParameterSpec());
+	$set(this, salt, $cast($bytes, $$nc($nc($cast($PBEParameterSpec, paramSpec))->getSalt())->clone()));
+	this->iCount = $cast($PBEParameterSpec, paramSpec)->getIterationCount();
+	$set(this, cipherParam, $cast($PBEParameterSpec, paramSpec)->getParameterSpec());
 }
 
 void PBES2Parameters::engineInit($bytes* encoded) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, kdfAlgo, nullptr);
 	$var($String, cipherAlgo, nullptr);
 	$var($DerValue, pBES2_params, $new($DerValue, encoded));
@@ -256,39 +165,39 @@ void PBES2Parameters::engineInit($bytes* encoded) {
 	}
 	$var($DerValue, kdf, $nc(pBES2_params->data$)->getDerValue());
 	if ($nc(kdf)->getTag() == $DerValue::tag_ObjectId) {
-		$assign(pBES2_params, $nc(pBES2_params->data$)->getDerValue());
-		$assign(kdf, $nc($nc(pBES2_params)->data$)->getDerValue());
+		$assign(pBES2_params, pBES2_params->data$->getDerValue());
+		$assign(kdf, $nc(pBES2_params)->data$->getDerValue());
 	}
 	$assign(kdfAlgo, parseKDF(kdf));
 	if (pBES2_params->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "PBE parameter parsing error: not an ASN.1 SEQUENCE tag"_s);
 	}
-	$assign(cipherAlgo, parseES($($nc(pBES2_params->data$)->getDerValue())));
+	$assign(cipherAlgo, parseES($(pBES2_params->data$->getDerValue())));
 	$set(this, pbes2AlgorithmName, $$new($StringBuilder)->append("PBEWith"_s)->append(kdfAlgo)->append("And"_s)->append(cipherAlgo)->toString());
 }
 
 $String* PBES2Parameters::parseKDF($DerValue* keyDerivationFunc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(PBES2Parameters::pkcs5PBKDF2_OID)->equals($($nc($nc(keyDerivationFunc)->data$)->getOID()))) {
 		$throwNew($IOException, "PBE parameter parsing error: expecting the object identifier for PBKDF2"_s);
 	}
-	if ($nc(keyDerivationFunc)->tag != $DerValue::tag_Sequence) {
+	if (keyDerivationFunc->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "PBE parameter parsing error: not an ASN.1 SEQUENCE tag"_s);
 	}
-	$var($DerValue, pBKDF2_params, $nc($nc(keyDerivationFunc)->data$)->getDerValue());
+	$var($DerValue, pBKDF2_params, keyDerivationFunc->data$->getDerValue());
 	if ($nc(pBKDF2_params)->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "PBE parameter parsing error: not an ASN.1 SEQUENCE tag"_s);
 	}
-	$var($DerValue, specified, $nc($nc(pBKDF2_params)->data$)->getDerValue());
+	$var($DerValue, specified, $nc(pBKDF2_params->data$)->getDerValue());
 	if ($nc(specified)->tag == $DerValue::tag_OctetString) {
 		$set(this, salt, specified->getOctetString());
 	} else {
 		$throwNew($IOException, "PBE parameter parsing error: not an ASN.1 OCTET STRING tag"_s);
 	}
-	this->iCount = $nc(pBKDF2_params->data$)->getInteger();
+	this->iCount = pBKDF2_params->data$->getInteger();
 	$var($DerValue, prf, nullptr);
-	if ($nc(pBKDF2_params->data$)->available() > 0) {
-		$var($DerValue, keyLength, $nc(pBKDF2_params->data$)->getDerValue());
+	if (pBKDF2_params->data$->available() > 0) {
+		$var($DerValue, keyLength, pBKDF2_params->data$->getDerValue());
 		if ($nc(keyLength)->tag == $DerValue::tag_Integer) {
 			this->keysize = keyLength->getInteger() * 8;
 		} else {
@@ -297,8 +206,8 @@ $String* PBES2Parameters::parseKDF($DerValue* keyDerivationFunc) {
 	}
 	$var($String, kdfAlgo, "HmacSHA1"_s);
 	if (prf == nullptr) {
-		if ($nc(pBKDF2_params->data$)->available() > 0) {
-			$assign(prf, $nc(pBKDF2_params->data$)->getDerValue());
+		if (pBKDF2_params->data$->available() > 0) {
+			$assign(prf, pBKDF2_params->data$->getDerValue());
 		}
 	}
 	if (prf != nullptr) {
@@ -306,18 +215,18 @@ $String* PBES2Parameters::parseKDF($DerValue* keyDerivationFunc) {
 		$KnownOIDs* o = $KnownOIDs::findMatch($($nc(this->kdfAlgo_OID)->toString()));
 		bool var$0 = o == nullptr;
 		if (!var$0) {
-			bool var$4 = !$nc($($nc(o)->stdName()))->equals("HmacSHA1"_s);
-			bool var$3 = var$4 && !$nc($(o->stdName()))->equals("HmacSHA224"_s);
-			bool var$2 = var$3 && !$nc($(o->stdName()))->equals("HmacSHA256"_s);
-			bool var$1 = var$2 && !$nc($(o->stdName()))->equals("HmacSHA384"_s);
-			var$0 = (var$1 && !$nc($(o->stdName()))->equals("HmacSHA512"_s));
+			bool var$4 = !$$nc(o->stdName())->equals("HmacSHA1"_s);
+			bool var$3 = var$4 && !$$nc(o->stdName())->equals("HmacSHA224"_s);
+			bool var$2 = var$3 && !$$nc(o->stdName())->equals("HmacSHA256"_s);
+			bool var$1 = var$2 && !$$nc(o->stdName())->equals("HmacSHA384"_s);
+			var$0 = var$1 && !$$nc(o->stdName())->equals("HmacSHA512"_s);
 		}
 		if (var$0) {
 			$throwNew($IOException, "PBE parameter parsing error: expecting the object identifier for a HmacSHA key derivation function"_s);
 		}
 		$assign(kdfAlgo, $nc(o)->stdName());
-		if ($nc(prf->data$)->available() != 0) {
-			$var($DerValue, parameter, $nc(prf->data$)->getDerValue());
+		if (prf->data$->available() != 0) {
+			$var($DerValue, parameter, prf->data$->getDerValue());
 			if ($nc(parameter)->tag != $DerValue::tag_Null) {
 				$throwNew($IOException, "PBE parameter parsing error: not an ASN.1 NULL tag"_s);
 			}
@@ -327,16 +236,16 @@ $String* PBES2Parameters::parseKDF($DerValue* keyDerivationFunc) {
 }
 
 $String* PBES2Parameters::parseES($DerValue* encryptionScheme) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, cipherAlgo, nullptr);
 	$set(this, cipherAlgo_OID, $nc($nc(encryptionScheme)->data$)->getOID());
 	if ($nc(PBES2Parameters::aes128CBC_OID)->equals(this->cipherAlgo_OID)) {
 		$assign(cipherAlgo, "AES_128"_s);
-		$set(this, cipherParam, $new($IvParameterSpec, $($nc(encryptionScheme->data$)->getOctetString())));
+		$set(this, cipherParam, $new($IvParameterSpec, $(encryptionScheme->data$->getOctetString())));
 		this->keysize = 128;
 	} else if ($nc(PBES2Parameters::aes256CBC_OID)->equals(this->cipherAlgo_OID)) {
 		$assign(cipherAlgo, "AES_256"_s);
-		$set(this, cipherParam, $new($IvParameterSpec, $($nc(encryptionScheme->data$)->getOctetString())));
+		$set(this, cipherParam, $new($IvParameterSpec, $(encryptionScheme->data$->getOctetString())));
 		this->keysize = 256;
 	} else {
 		$throwNew($IOException, "PBE parameter parsing error: expecting the object identifier for AES cipher"_s);
@@ -358,7 +267,7 @@ $AlgorithmParameterSpec* PBES2Parameters::engineGetParameterSpec($Class* paramSp
 }
 
 $bytes* PBES2Parameters::engineGetEncoded() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, out, $new($DerOutputStream));
 	$var($DerOutputStream, pBES2_params, $new($DerOutputStream));
 	$var($DerOutputStream, keyDerivationFunc, $new($DerOutputStream));
@@ -378,7 +287,7 @@ $bytes* PBES2Parameters::engineGetEncoded() {
 	$var($DerOutputStream, encryptionScheme, $new($DerOutputStream));
 	encryptionScheme->putOID(this->cipherAlgo_OID);
 	if (this->cipherParam != nullptr && $instanceOf($IvParameterSpec, this->cipherParam)) {
-		encryptionScheme->putOctetString($($nc(($cast($IvParameterSpec, this->cipherParam)))->getIV()));
+		encryptionScheme->putOctetString($($cast($IvParameterSpec, this->cipherParam)->getIV()));
 	} else {
 		$throwNew($IOException, "Wrong parameter type: IV expected"_s);
 	}
@@ -395,7 +304,7 @@ $String* PBES2Parameters::engineToString() {
 	return this->pbes2AlgorithmName;
 }
 
-void clinit$PBES2Parameters($Class* class$) {
+void PBES2Parameters::clinit$($Class* clazz) {
 	$init($KnownOIDs);
 	$assignStatic(PBES2Parameters::pkcs5PBKDF2_OID, $ObjectIdentifier::of($KnownOIDs::PBKDF2WithHmacSHA1));
 	$assignStatic(PBES2Parameters::pkcs5PBES2_OID, $ObjectIdentifier::of($KnownOIDs::PBES2));
@@ -408,7 +317,66 @@ PBES2Parameters::PBES2Parameters() {
 }
 
 $Class* PBES2Parameters::load$($String* name, bool initialize) {
-	$loadClass(PBES2Parameters, name, initialize, &_PBES2Parameters_ClassInfo_, clinit$PBES2Parameters, allocate$PBES2Parameters);
+	$FieldInfo fieldInfos$$[] = {
+		{"pkcs5PBKDF2_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE | $STATIC, $staticField(PBES2Parameters, pkcs5PBKDF2_OID)},
+		{"pkcs5PBES2_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE | $STATIC, $staticField(PBES2Parameters, pkcs5PBES2_OID)},
+		{"aes128CBC_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE | $STATIC, $staticField(PBES2Parameters, aes128CBC_OID)},
+		{"aes192CBC_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE | $STATIC, $staticField(PBES2Parameters, aes192CBC_OID)},
+		{"aes256CBC_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE | $STATIC, $staticField(PBES2Parameters, aes256CBC_OID)},
+		{"pbes2AlgorithmName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PBES2Parameters, pbes2AlgorithmName)},
+		{"salt", "[B", nullptr, $PRIVATE, $field(PBES2Parameters, salt)},
+		{"iCount", "I", nullptr, $PRIVATE, $field(PBES2Parameters, iCount)},
+		{"cipherParam", "Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PRIVATE, $field(PBES2Parameters, cipherParam)},
+		{"kdfAlgo_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE, $field(PBES2Parameters, kdfAlgo_OID)},
+		{"cipherAlgo_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE, $field(PBES2Parameters, cipherAlgo_OID)},
+		{"keysize", "I", nullptr, $PRIVATE, $field(PBES2Parameters, keysize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(PBES2Parameters, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(PBES2Parameters, init$, void, $String*), "java.security.NoSuchAlgorithmException"},
+		{"engineGetEncoded", "()[B", nullptr, $PROTECTED, $virtualMethod(PBES2Parameters, engineGetEncoded, $bytes*), "java.io.IOException"},
+		{"engineGetEncoded", "(Ljava/lang/String;)[B", nullptr, $PROTECTED, $virtualMethod(PBES2Parameters, engineGetEncoded, $bytes*, $String*), "java.io.IOException"},
+		{"engineGetParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", $PROTECTED, $virtualMethod(PBES2Parameters, engineGetParameterSpec, $AlgorithmParameterSpec*, $Class*), "java.security.spec.InvalidParameterSpecException"},
+		{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(PBES2Parameters, engineInit, void, $AlgorithmParameterSpec*), "java.security.spec.InvalidParameterSpecException"},
+		{"engineInit", "([B)V", nullptr, $PROTECTED, $virtualMethod(PBES2Parameters, engineInit, void, $bytes*), "java.io.IOException"},
+		{"engineInit", "([BLjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(PBES2Parameters, engineInit, void, $bytes*, $String*), "java.io.IOException"},
+		{"engineToString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(PBES2Parameters, engineToString, $String*)},
+		{"parseES", "(Lsun/security/util/DerValue;)Ljava/lang/String;", nullptr, $PRIVATE, $method(PBES2Parameters, parseES, $String*, $DerValue*), "java.io.IOException"},
+		{"parseKDF", "(Lsun/security/util/DerValue;)Ljava/lang/String;", nullptr, $PRIVATE, $method(PBES2Parameters, parseKDF, $String*, $DerValue*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.PBES2Parameters$HmacSHA512AndAES_256", "com.sun.crypto.provider.PBES2Parameters", "HmacSHA512AndAES_256", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.PBES2Parameters$HmacSHA384AndAES_256", "com.sun.crypto.provider.PBES2Parameters", "HmacSHA384AndAES_256", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.PBES2Parameters$HmacSHA256AndAES_256", "com.sun.crypto.provider.PBES2Parameters", "HmacSHA256AndAES_256", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.PBES2Parameters$HmacSHA224AndAES_256", "com.sun.crypto.provider.PBES2Parameters", "HmacSHA224AndAES_256", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.PBES2Parameters$HmacSHA1AndAES_256", "com.sun.crypto.provider.PBES2Parameters", "HmacSHA1AndAES_256", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.PBES2Parameters$HmacSHA512AndAES_128", "com.sun.crypto.provider.PBES2Parameters", "HmacSHA512AndAES_128", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.PBES2Parameters$HmacSHA384AndAES_128", "com.sun.crypto.provider.PBES2Parameters", "HmacSHA384AndAES_128", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.PBES2Parameters$HmacSHA256AndAES_128", "com.sun.crypto.provider.PBES2Parameters", "HmacSHA256AndAES_128", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.PBES2Parameters$HmacSHA224AndAES_128", "com.sun.crypto.provider.PBES2Parameters", "HmacSHA224AndAES_128", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.PBES2Parameters$HmacSHA1AndAES_128", "com.sun.crypto.provider.PBES2Parameters", "HmacSHA1AndAES_128", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.PBES2Parameters$General", "com.sun.crypto.provider.PBES2Parameters", "General", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.crypto.provider.PBES2Parameters",
+		"java.security.AlgorithmParametersSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.PBES2Parameters$HmacSHA512AndAES_256,com.sun.crypto.provider.PBES2Parameters$HmacSHA384AndAES_256,com.sun.crypto.provider.PBES2Parameters$HmacSHA256AndAES_256,com.sun.crypto.provider.PBES2Parameters$HmacSHA224AndAES_256,com.sun.crypto.provider.PBES2Parameters$HmacSHA1AndAES_256,com.sun.crypto.provider.PBES2Parameters$HmacSHA512AndAES_128,com.sun.crypto.provider.PBES2Parameters$HmacSHA384AndAES_128,com.sun.crypto.provider.PBES2Parameters$HmacSHA256AndAES_128,com.sun.crypto.provider.PBES2Parameters$HmacSHA224AndAES_128,com.sun.crypto.provider.PBES2Parameters$HmacSHA1AndAES_128,com.sun.crypto.provider.PBES2Parameters$General"
+	};
+	$loadClass(PBES2Parameters, name, initialize, &classInfo$$, PBES2Parameters::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PBES2Parameters);
+	});
 	return class$;
 }
 

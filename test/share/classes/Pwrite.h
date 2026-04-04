@@ -20,6 +20,7 @@ class $export Pwrite : public ::java::lang::Object {
 	$class(Pwrite, 0, ::java::lang::Object)
 public:
 	Pwrite();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void genericTest();
 	static void initTestFile(::java::io::File* blah);

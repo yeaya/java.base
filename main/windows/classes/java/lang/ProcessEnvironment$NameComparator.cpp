@@ -1,5 +1,4 @@
 #include <java/lang/ProcessEnvironment$NameComparator.h>
-
 #include <java/lang/Math.h>
 #include <java/lang/ProcessEnvironment.h>
 #include <jcpp.h>
@@ -12,38 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
-
-$MethodInfo _ProcessEnvironment$NameComparator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ProcessEnvironment$NameComparator, init$, void)},
-	{"compare", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $method(ProcessEnvironment$NameComparator, compare, int32_t, $String*, $String*)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ProcessEnvironment$NameComparator, compare, int32_t, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _ProcessEnvironment$NameComparator_InnerClassesInfo_[] = {
-	{"java.lang.ProcessEnvironment$NameComparator", "java.lang.ProcessEnvironment", "NameComparator", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ProcessEnvironment$NameComparator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.ProcessEnvironment$NameComparator",
-	"java.lang.Object",
-	"java.util.Comparator",
-	nullptr,
-	_ProcessEnvironment$NameComparator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Comparator<Ljava/lang/String;>;",
-	nullptr,
-	_ProcessEnvironment$NameComparator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.ProcessEnvironment"
-};
-
-$Object* allocate$ProcessEnvironment$NameComparator($Class* clazz) {
-	return $of($alloc(ProcessEnvironment$NameComparator));
-}
 
 void ProcessEnvironment$NameComparator::init$() {
 }
@@ -74,7 +41,34 @@ ProcessEnvironment$NameComparator::ProcessEnvironment$NameComparator() {
 }
 
 $Class* ProcessEnvironment$NameComparator::load$($String* name, bool initialize) {
-	$loadClass(ProcessEnvironment$NameComparator, name, initialize, &_ProcessEnvironment$NameComparator_ClassInfo_, allocate$ProcessEnvironment$NameComparator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ProcessEnvironment$NameComparator, init$, void)},
+		{"compare", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PUBLIC, $method(ProcessEnvironment$NameComparator, compare, int32_t, $String*, $String*)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ProcessEnvironment$NameComparator, compare, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ProcessEnvironment$NameComparator", "java.lang.ProcessEnvironment", "NameComparator", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.ProcessEnvironment$NameComparator",
+		"java.lang.Object",
+		"java.util.Comparator",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Comparator<Ljava/lang/String;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.ProcessEnvironment"
+	};
+	$loadClass(ProcessEnvironment$NameComparator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProcessEnvironment$NameComparator);
+	});
 	return class$;
 }
 

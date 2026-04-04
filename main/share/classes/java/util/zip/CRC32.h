@@ -23,6 +23,7 @@ class $export CRC32 : public ::java::util::zip::Checksum {
 	$class(CRC32, 0, ::java::util::zip::Checksum)
 public:
 	CRC32();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int64_t getValue() override;
 	virtual void reset() override;

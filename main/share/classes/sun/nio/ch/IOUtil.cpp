@@ -1,10 +1,8 @@
 #include <sun/nio/ch/IOUtil.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/Runnable.h>
-#include <java/nio/Buffer.h>
 #include <java/nio/ByteBuffer.h>
 #include <jdk/internal/access/JavaNioAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
@@ -33,12 +31,10 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $JavaNioAccess = ::jdk::internal::access::JavaNioAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $BootLoader = ::jdk::internal::loader::BootLoader;
-using $ScopedMemoryAccess$Scope = ::jdk::internal::misc::ScopedMemoryAccess$Scope;
 using $ScopedMemoryAccess$Scope$Handle = ::jdk::internal::misc::ScopedMemoryAccess$Scope$Handle;
 using $DirectBuffer = ::sun::nio::ch::DirectBuffer;
 using $IOUtil$LinkedRunnable = ::sun::nio::ch::IOUtil$LinkedRunnable;
@@ -50,93 +46,6 @@ using $Util = ::sun::nio::ch::Util;
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _IOUtil_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(IOUtil, $assertionsDisabled)},
-	{"IOV_MAX", "I", nullptr, $STATIC | $FINAL, $staticField(IOUtil, IOV_MAX)},
-	{"NIO_ACCESS", "Ljdk/internal/access/JavaNioAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IOUtil, NIO_ACCESS)},
-	{}
-};
-
-$MethodInfo _IOUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(IOUtil, init$, void)},
-	{"acquireScope", "(Ljava/nio/ByteBuffer;Z)Ljdk/internal/misc/ScopedMemoryAccess$Scope$Handle;", nullptr, $STATIC, $staticMethod(IOUtil, acquireScope, $ScopedMemoryAccess$Scope$Handle*, $ByteBuffer*, bool)},
-	{"acquireScopes", "([Ljava/nio/ByteBuffer;)Ljava/lang/Runnable;", nullptr, $STATIC, $staticMethod(IOUtil, acquireScopes, $Runnable*, $ByteBufferArray*)},
-	{"acquireScopes", "(Ljava/nio/ByteBuffer;[Ljava/nio/ByteBuffer;)Ljava/lang/Runnable;", nullptr, $STATIC, $staticMethod(IOUtil, acquireScopes, $Runnable*, $ByteBuffer*, $ByteBufferArray*)},
-	{"bufferAddress", "(Ljava/nio/ByteBuffer;)J", nullptr, $STATIC, $staticMethod(IOUtil, bufferAddress, int64_t, $ByteBuffer*)},
-	{"configureBlocking", "(Ljava/io/FileDescriptor;Z)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(IOUtil, configureBlocking, void, $FileDescriptor*, bool), "java.io.IOException"},
-	{"drain", "(I)Z", nullptr, $STATIC | $NATIVE, $staticMethod(IOUtil, drain, bool, int32_t), "java.io.IOException"},
-	{"drain1", "(I)I", nullptr, $STATIC | $NATIVE, $staticMethod(IOUtil, drain1, int32_t, int32_t), "java.io.IOException"},
-	{"fdLimit", "()I", nullptr, $STATIC | $NATIVE, $staticMethod(IOUtil, fdLimit, int32_t)},
-	{"fdVal", "(Ljava/io/FileDescriptor;)I", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(IOUtil, fdVal, int32_t, $FileDescriptor*)},
-	{"initIDs", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(IOUtil, initIDs, void)},
-	{"iovMax", "()I", nullptr, $STATIC | $NATIVE, $staticMethod(IOUtil, iovMax, int32_t)},
-	{"load", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(IOUtil, load, void)},
-	{"makePipe", "(Z)J", nullptr, $STATIC | $NATIVE, $staticMethod(IOUtil, makePipe, int64_t, bool), "java.io.IOException"},
-	{"newFD", "(I)Ljava/io/FileDescriptor;", nullptr, $PUBLIC | $STATIC, $staticMethod(IOUtil, newFD, $FileDescriptor*, int32_t)},
-	{"randomBytes", "([B)Z", nullptr, $STATIC | $NATIVE, $staticMethod(IOUtil, randomBytes, bool, $bytes*)},
-	{"read", "(Ljava/io/FileDescriptor;Ljava/nio/ByteBuffer;JLsun/nio/ch/NativeDispatcher;)I", nullptr, $STATIC, $staticMethod(IOUtil, read, int32_t, $FileDescriptor*, $ByteBuffer*, int64_t, $NativeDispatcher*), "java.io.IOException"},
-	{"read", "(Ljava/io/FileDescriptor;Ljava/nio/ByteBuffer;JZLsun/nio/ch/NativeDispatcher;)I", nullptr, $STATIC, $staticMethod(IOUtil, read, int32_t, $FileDescriptor*, $ByteBuffer*, int64_t, bool, $NativeDispatcher*), "java.io.IOException"},
-	{"read", "(Ljava/io/FileDescriptor;Ljava/nio/ByteBuffer;JZILsun/nio/ch/NativeDispatcher;)I", nullptr, $STATIC, $staticMethod(IOUtil, read, int32_t, $FileDescriptor*, $ByteBuffer*, int64_t, bool, int32_t, $NativeDispatcher*), "java.io.IOException"},
-	{"read", "(Ljava/io/FileDescriptor;Ljava/nio/ByteBuffer;JZZILsun/nio/ch/NativeDispatcher;)I", nullptr, $STATIC, $staticMethod(IOUtil, read, int32_t, $FileDescriptor*, $ByteBuffer*, int64_t, bool, bool, int32_t, $NativeDispatcher*), "java.io.IOException"},
-	{"read", "(Ljava/io/FileDescriptor;[Ljava/nio/ByteBuffer;Lsun/nio/ch/NativeDispatcher;)J", nullptr, $STATIC, $staticMethod(IOUtil, read, int64_t, $FileDescriptor*, $ByteBufferArray*, $NativeDispatcher*), "java.io.IOException"},
-	{"read", "(Ljava/io/FileDescriptor;[Ljava/nio/ByteBuffer;ZLsun/nio/ch/NativeDispatcher;)J", nullptr, $STATIC, $staticMethod(IOUtil, read, int64_t, $FileDescriptor*, $ByteBufferArray*, bool, $NativeDispatcher*), "java.io.IOException"},
-	{"read", "(Ljava/io/FileDescriptor;[Ljava/nio/ByteBuffer;IILsun/nio/ch/NativeDispatcher;)J", nullptr, $STATIC, $staticMethod(IOUtil, read, int64_t, $FileDescriptor*, $ByteBufferArray*, int32_t, int32_t, $NativeDispatcher*), "java.io.IOException"},
-	{"read", "(Ljava/io/FileDescriptor;[Ljava/nio/ByteBuffer;IIZILsun/nio/ch/NativeDispatcher;)J", nullptr, $STATIC, $staticMethod(IOUtil, read, int64_t, $FileDescriptor*, $ByteBufferArray*, int32_t, int32_t, bool, int32_t, $NativeDispatcher*), "java.io.IOException"},
-	{"read", "(Ljava/io/FileDescriptor;[Ljava/nio/ByteBuffer;IIZZILsun/nio/ch/NativeDispatcher;)J", nullptr, $STATIC, $staticMethod(IOUtil, read, int64_t, $FileDescriptor*, $ByteBufferArray*, int32_t, int32_t, bool, bool, int32_t, $NativeDispatcher*), "java.io.IOException"},
-	{"readIntoNativeBuffer", "(Ljava/io/FileDescriptor;Ljava/nio/ByteBuffer;JZZILsun/nio/ch/NativeDispatcher;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(IOUtil, readIntoNativeBuffer, int32_t, $FileDescriptor*, $ByteBuffer*, int64_t, bool, bool, int32_t, $NativeDispatcher*), "java.io.IOException"},
-	{"releaseScope", "(Ljdk/internal/misc/ScopedMemoryAccess$Scope$Handle;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IOUtil, releaseScope, void, $ScopedMemoryAccess$Scope$Handle*)},
-	{"releaseScopes", "(Ljava/lang/Runnable;)V", nullptr, $STATIC, $staticMethod(IOUtil, releaseScopes, void, $Runnable*)},
-	{"setfdVal", "(Ljava/io/FileDescriptor;I)V", nullptr, $STATIC | $NATIVE, $staticMethod(IOUtil, setfdVal, void, $FileDescriptor*, int32_t)},
-	{"write", "(Ljava/io/FileDescriptor;Ljava/nio/ByteBuffer;JLsun/nio/ch/NativeDispatcher;)I", nullptr, $STATIC, $staticMethod(IOUtil, write, int32_t, $FileDescriptor*, $ByteBuffer*, int64_t, $NativeDispatcher*), "java.io.IOException"},
-	{"write", "(Ljava/io/FileDescriptor;Ljava/nio/ByteBuffer;JZLsun/nio/ch/NativeDispatcher;)I", nullptr, $STATIC, $staticMethod(IOUtil, write, int32_t, $FileDescriptor*, $ByteBuffer*, int64_t, bool, $NativeDispatcher*), "java.io.IOException"},
-	{"write", "(Ljava/io/FileDescriptor;Ljava/nio/ByteBuffer;JZILsun/nio/ch/NativeDispatcher;)I", nullptr, $STATIC, $staticMethod(IOUtil, write, int32_t, $FileDescriptor*, $ByteBuffer*, int64_t, bool, int32_t, $NativeDispatcher*), "java.io.IOException"},
-	{"write", "(Ljava/io/FileDescriptor;Ljava/nio/ByteBuffer;JZZILsun/nio/ch/NativeDispatcher;)I", nullptr, $STATIC, $staticMethod(IOUtil, write, int32_t, $FileDescriptor*, $ByteBuffer*, int64_t, bool, bool, int32_t, $NativeDispatcher*), "java.io.IOException"},
-	{"write", "(Ljava/io/FileDescriptor;[Ljava/nio/ByteBuffer;ZLsun/nio/ch/NativeDispatcher;)J", nullptr, $STATIC, $staticMethod(IOUtil, write, int64_t, $FileDescriptor*, $ByteBufferArray*, bool, $NativeDispatcher*), "java.io.IOException"},
-	{"write", "(Ljava/io/FileDescriptor;[Ljava/nio/ByteBuffer;IILsun/nio/ch/NativeDispatcher;)J", nullptr, $STATIC, $staticMethod(IOUtil, write, int64_t, $FileDescriptor*, $ByteBufferArray*, int32_t, int32_t, $NativeDispatcher*), "java.io.IOException"},
-	{"write", "(Ljava/io/FileDescriptor;[Ljava/nio/ByteBuffer;IIZILsun/nio/ch/NativeDispatcher;)J", nullptr, $STATIC, $staticMethod(IOUtil, write, int64_t, $FileDescriptor*, $ByteBufferArray*, int32_t, int32_t, bool, int32_t, $NativeDispatcher*), "java.io.IOException"},
-	{"write", "(Ljava/io/FileDescriptor;[Ljava/nio/ByteBuffer;IIZZILsun/nio/ch/NativeDispatcher;)J", nullptr, $STATIC, $staticMethod(IOUtil, write, int64_t, $FileDescriptor*, $ByteBufferArray*, int32_t, int32_t, bool, bool, int32_t, $NativeDispatcher*), "java.io.IOException"},
-	{"write1", "(IB)I", nullptr, $STATIC | $NATIVE, $staticMethod(IOUtil, write1, int32_t, int32_t, int8_t), "java.io.IOException"},
-	{"writeFromNativeBuffer", "(Ljava/io/FileDescriptor;Ljava/nio/ByteBuffer;JZZILsun/nio/ch/NativeDispatcher;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(IOUtil, writeFromNativeBuffer, int32_t, $FileDescriptor*, $ByteBuffer*, int64_t, bool, bool, int32_t, $NativeDispatcher*), "java.io.IOException"},
-	{}
-};
-
-#define _METHOD_INDEX_configureBlocking 5
-#define _METHOD_INDEX_drain 6
-#define _METHOD_INDEX_drain1 7
-#define _METHOD_INDEX_fdLimit 8
-#define _METHOD_INDEX_fdVal 9
-#define _METHOD_INDEX_initIDs 10
-#define _METHOD_INDEX_iovMax 11
-#define _METHOD_INDEX_makePipe 13
-#define _METHOD_INDEX_randomBytes 15
-#define _METHOD_INDEX_setfdVal 28
-#define _METHOD_INDEX_write1 37
-
-$InnerClassInfo _IOUtil_InnerClassesInfo_[] = {
-	{"sun.nio.ch.IOUtil$Releaser", "sun.nio.ch.IOUtil", "Releaser", $STATIC | $FINAL},
-	{"sun.nio.ch.IOUtil$LinkedRunnable", "sun.nio.ch.IOUtil", "LinkedRunnable", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _IOUtil_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.ch.IOUtil",
-	"java.lang.Object",
-	nullptr,
-	_IOUtil_FieldInfo_,
-	_IOUtil_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IOUtil_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.IOUtil$Releaser,sun.nio.ch.IOUtil$LinkedRunnable"
-};
-
-$Object* allocate$IOUtil($Class* clazz) {
-	return $of($alloc(IOUtil));
-}
 
 bool IOUtil::$assertionsDisabled = false;
 int32_t IOUtil::IOV_MAX = 0;
@@ -162,7 +71,7 @@ int32_t IOUtil::write($FileDescriptor* fd, $ByteBuffer* src, int64_t position, b
 
 int32_t IOUtil::write($FileDescriptor* fd, $ByteBuffer* src, int64_t position, bool directIO, bool async, int32_t alignment, $NativeDispatcher* nd) {
 	$init(IOUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($DirectBuffer, src)) {
 		return writeFromNativeBuffer(fd, src, position, directIO, async, alignment, nd);
 	}
@@ -179,39 +88,37 @@ int32_t IOUtil::write($FileDescriptor* fd, $ByteBuffer* src, int64_t position, b
 	} else {
 		$assign(bb, $Util::getTemporaryDirectBuffer(rem));
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			$nc(bb)->put(src);
-			bb->flip();
-			src->position(pos);
-			int32_t n = writeFromNativeBuffer(fd, bb, position, directIO, async, alignment, nd);
-			if (n > 0) {
-				src->position(pos + n);
-			}
-			var$2 = n;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$Util::offerFirstTemporaryDirectBuffer(bb);
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		$nc(bb)->put(src);
+		bb->flip();
+		src->position(pos);
+		int32_t n = writeFromNativeBuffer(fd, bb, position, directIO, async, alignment, nd);
+		if (n > 0) {
+			src->position(pos + n);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		var$2 = n;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$Util::offerFirstTemporaryDirectBuffer(bb);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 int32_t IOUtil::writeFromNativeBuffer($FileDescriptor* fd, $ByteBuffer* bb, int64_t position, bool directIO, bool async, int32_t alignment, $NativeDispatcher* nd) {
 	$init(IOUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = $nc(bb)->position();
 	int32_t lim = bb->limit();
 	if (!IOUtil::$assertionsDisabled && !(pos <= lim)) {
@@ -227,22 +134,20 @@ int32_t IOUtil::writeFromNativeBuffer($FileDescriptor* fd, $ByteBuffer* bb, int6
 		return 0;
 	}
 	$var($ScopedMemoryAccess$Scope$Handle, handle, acquireScope(bb, async));
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (position != -1) {
-				written = $nc(nd)->pwrite(fd, bufferAddress(bb) + pos, rem, position);
-			} else {
-				written = $nc(nd)->write(fd, bufferAddress(bb) + pos, rem);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			releaseScope(handle);
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (position != -1) {
+			written = $nc(nd)->pwrite(fd, bufferAddress(bb) + pos, rem, position);
+		} else {
+			written = $nc(nd)->write(fd, bufferAddress(bb) + pos, rem);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		releaseScope(handle);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	if (written > 0) {
 		bb->position(pos + written);
@@ -267,101 +172,99 @@ int64_t IOUtil::write($FileDescriptor* fd, $ByteBufferArray* bufs, int32_t offse
 
 int64_t IOUtil::write($FileDescriptor* fd, $ByteBufferArray* bufs, int32_t offset, int32_t length, bool directIO, bool async, int32_t alignment, $NativeDispatcher* nd) {
 	$init(IOUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IOVecWrapper, vec, $IOVecWrapper::get(length));
 	bool completed = false;
 	int32_t iov_len = 0;
 	$var($Runnable, handleReleasers, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		int64_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			int32_t count = offset + length;
-			int32_t i = offset;
-			while (i < count && iov_len < IOUtil::IOV_MAX) {
-				$var($ByteBuffer, buf, $nc(bufs)->get(i));
-				$var($ScopedMemoryAccess$Scope$Handle, h, acquireScope(buf, async));
-				if (h != nullptr) {
-					$assign(handleReleasers, $IOUtil$LinkedRunnable::of($($IOUtil$Releaser::of(h)), handleReleasers));
-				}
-				int32_t pos = $nc(buf)->position();
-				int32_t lim = buf->limit();
-				if (!IOUtil::$assertionsDisabled && !(pos <= lim)) {
-					$throwNew($AssertionError);
-				}
-				int32_t rem = (pos <= lim ? lim - pos : 0);
-				if (directIO) {
-					$Util::checkRemainingBufferSizeAligned(rem, alignment);
-				}
-				if (rem > 0) {
-					$nc(vec)->setBuffer(iov_len, buf, pos, rem);
-					if (!($instanceOf($DirectBuffer, buf))) {
-						$var($ByteBuffer, shadow, nullptr);
-						if (directIO) {
-							$assign(shadow, $Util::getTemporaryAlignedDirectBuffer(rem, alignment));
-						} else {
-							$assign(shadow, $Util::getTemporaryDirectBuffer(rem));
-						}
-						$nc(shadow)->put(buf);
-						shadow->flip();
-						vec->setShadow(iov_len, shadow);
-						buf->position(pos);
-						$assign(buf, shadow);
-						pos = shadow->position();
+	$var($Throwable, var$0, nullptr);
+	int64_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		int32_t count = offset + length;
+		int32_t i = offset;
+		while (i < count && iov_len < IOUtil::IOV_MAX) {
+			$var($ByteBuffer, buf, $nc(bufs)->get(i));
+			$var($ScopedMemoryAccess$Scope$Handle, h, acquireScope(buf, async));
+			if (h != nullptr) {
+				$assign(handleReleasers, $IOUtil$LinkedRunnable::of($($IOUtil$Releaser::of(h)), handleReleasers));
+			}
+			int32_t pos = $nc(buf)->position();
+			int32_t lim = buf->limit();
+			if (!IOUtil::$assertionsDisabled && !(pos <= lim)) {
+				$throwNew($AssertionError);
+			}
+			int32_t rem = (pos <= lim ? lim - pos : 0);
+			if (directIO) {
+				$Util::checkRemainingBufferSizeAligned(rem, alignment);
+			}
+			if (rem > 0) {
+				$nc(vec)->setBuffer(iov_len, buf, pos, rem);
+				if (!($instanceOf($DirectBuffer, buf))) {
+					$var($ByteBuffer, shadow, nullptr);
+					if (directIO) {
+						$assign(shadow, $Util::getTemporaryAlignedDirectBuffer(rem, alignment));
+					} else {
+						$assign(shadow, $Util::getTemporaryDirectBuffer(rem));
 					}
-					vec->putBase(iov_len, bufferAddress(buf) + pos);
-					vec->putLen(iov_len, rem);
-					++iov_len;
+					$nc(shadow)->put(buf);
+					shadow->flip();
+					vec->setShadow(iov_len, shadow);
+					buf->position(pos);
+					$assign(buf, shadow);
+					pos = shadow->position();
 				}
-				++i;
+				vec->putBase(iov_len, bufferAddress(buf) + pos);
+				vec->putLen(iov_len, rem);
+				++iov_len;
 			}
-			if (iov_len == 0) {
-				var$2 = 0;
-				return$1 = true;
-				goto $finally;
+			++i;
+		}
+		if (iov_len == 0) {
+			var$2 = 0;
+			return$1 = true;
+			goto $finally;
+		}
+		int64_t bytesWritten = $nc(nd)->writev(fd, $nc(vec)->address, iov_len);
+		int64_t left = bytesWritten;
+		for (int32_t j = 0; j < iov_len; ++j) {
+			if (left > 0) {
+				$var($ByteBuffer, buf, vec->getBuffer(j));
+				int32_t pos = vec->getPosition(j);
+				int32_t rem = vec->getRemaining(j);
+				int32_t n = (left > rem) ? rem : (int32_t)left;
+				$nc(buf)->position(pos + n);
+				left -= n;
 			}
-			int64_t bytesWritten = $nc(nd)->writev(fd, $nc(vec)->address, iov_len);
-			int64_t left = bytesWritten;
+			$var($ByteBuffer, shadow, vec->getShadow(j));
+			if (shadow != nullptr) {
+				$Util::offerLastTemporaryDirectBuffer(shadow);
+			}
+			vec->clearRefs(j);
+		}
+		completed = true;
+		var$2 = bytesWritten;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		releaseScopes(handleReleasers);
+		if (!completed) {
 			for (int32_t j = 0; j < iov_len; ++j) {
-				if (left > 0) {
-					$var($ByteBuffer, buf, $nc(vec)->getBuffer(j));
-					int32_t pos = vec->getPosition(j);
-					int32_t rem = vec->getRemaining(j);
-					int32_t n = (left > rem) ? rem : (int32_t)left;
-					$nc(buf)->position(pos + n);
-					left -= n;
-				}
 				$var($ByteBuffer, shadow, $nc(vec)->getShadow(j));
 				if (shadow != nullptr) {
 					$Util::offerLastTemporaryDirectBuffer(shadow);
 				}
 				vec->clearRefs(j);
 			}
-			completed = true;
-			var$2 = bytesWritten;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			releaseScopes(handleReleasers);
-			if (!completed) {
-				for (int32_t j = 0; j < iov_len; ++j) {
-					$var($ByteBuffer, shadow, $nc(vec)->getShadow(j));
-					if (shadow != nullptr) {
-						$Util::offerLastTemporaryDirectBuffer(shadow);
-					}
-					vec->clearRefs(j);
-				}
-			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -383,7 +286,7 @@ int32_t IOUtil::read($FileDescriptor* fd, $ByteBuffer* dst, int64_t position, bo
 
 int32_t IOUtil::read($FileDescriptor* fd, $ByteBuffer* dst, int64_t position, bool directIO, bool async, int32_t alignment, $NativeDispatcher* nd) {
 	$init(IOUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(dst)->isReadOnly()) {
 		$throwNew($IllegalArgumentException, "Read-only buffer"_s);
 	}
@@ -391,44 +294,42 @@ int32_t IOUtil::read($FileDescriptor* fd, $ByteBuffer* dst, int64_t position, bo
 		return readIntoNativeBuffer(fd, dst, position, directIO, async, alignment, nd);
 	}
 	$var($ByteBuffer, bb, nullptr);
-	int32_t rem = $nc(dst)->remaining();
+	int32_t rem = dst->remaining();
 	if (directIO) {
 		$Util::checkRemainingBufferSizeAligned(rem, alignment);
 		$assign(bb, $Util::getTemporaryAlignedDirectBuffer(rem, alignment));
 	} else {
 		$assign(bb, $Util::getTemporaryDirectBuffer(rem));
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			int32_t n = readIntoNativeBuffer(fd, bb, position, directIO, async, alignment, nd);
-			$nc(bb)->flip();
-			if (n > 0) {
-				dst->put(bb);
-			}
-			var$2 = n;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$Util::offerFirstTemporaryDirectBuffer(bb);
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		int32_t n = readIntoNativeBuffer(fd, bb, position, directIO, async, alignment, nd);
+		$nc(bb)->flip();
+		if (n > 0) {
+			dst->put(bb);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		var$2 = n;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$Util::offerFirstTemporaryDirectBuffer(bb);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 int32_t IOUtil::readIntoNativeBuffer($FileDescriptor* fd, $ByteBuffer* bb, int64_t position, bool directIO, bool async, int32_t alignment, $NativeDispatcher* nd) {
 	$init(IOUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = $nc(bb)->position();
 	int32_t lim = bb->limit();
 	if (!IOUtil::$assertionsDisabled && !(pos <= lim)) {
@@ -444,22 +345,20 @@ int32_t IOUtil::readIntoNativeBuffer($FileDescriptor* fd, $ByteBuffer* bb, int64
 	}
 	int32_t n = 0;
 	$var($ScopedMemoryAccess$Scope$Handle, handle, acquireScope(bb, async));
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (position != -1) {
-				n = $nc(nd)->pread(fd, bufferAddress(bb) + pos, rem, position);
-			} else {
-				n = $nc(nd)->read(fd, bufferAddress(bb) + pos, rem);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			releaseScope(handle);
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (position != -1) {
+			n = $nc(nd)->pread(fd, bufferAddress(bb) + pos, rem, position);
+		} else {
+			n = $nc(nd)->read(fd, bufferAddress(bb) + pos, rem);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		releaseScope(handle);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	if (n > 0) {
 		bb->position(pos + n);
@@ -489,106 +388,104 @@ int64_t IOUtil::read($FileDescriptor* fd, $ByteBufferArray* bufs, int32_t offset
 
 int64_t IOUtil::read($FileDescriptor* fd, $ByteBufferArray* bufs, int32_t offset, int32_t length, bool directIO, bool async, int32_t alignment, $NativeDispatcher* nd) {
 	$init(IOUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IOVecWrapper, vec, $IOVecWrapper::get(length));
 	bool completed = false;
 	int32_t iov_len = 0;
 	$var($Runnable, handleReleasers, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		int64_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			int32_t count = offset + length;
-			int32_t i = offset;
-			while (i < count && iov_len < IOUtil::IOV_MAX) {
-				$var($ByteBuffer, buf, $nc(bufs)->get(i));
-				if ($nc(buf)->isReadOnly()) {
-					$throwNew($IllegalArgumentException, "Read-only buffer"_s);
-				}
-				$var($ScopedMemoryAccess$Scope$Handle, h, acquireScope(buf, async));
-				if (h != nullptr) {
-					$assign(handleReleasers, $IOUtil$LinkedRunnable::of($($IOUtil$Releaser::of(h)), handleReleasers));
-				}
-				int32_t pos = $nc(buf)->position();
-				int32_t lim = buf->limit();
-				if (!IOUtil::$assertionsDisabled && !(pos <= lim)) {
-					$throwNew($AssertionError);
-				}
-				int32_t rem = (pos <= lim ? lim - pos : 0);
-				if (directIO) {
-					$Util::checkRemainingBufferSizeAligned(rem, alignment);
-				}
-				if (rem > 0) {
-					$nc(vec)->setBuffer(iov_len, buf, pos, rem);
-					if (!($instanceOf($DirectBuffer, buf))) {
-						$var($ByteBuffer, shadow, nullptr);
-						if (directIO) {
-							$assign(shadow, $Util::getTemporaryAlignedDirectBuffer(rem, alignment));
-						} else {
-							$assign(shadow, $Util::getTemporaryDirectBuffer(rem));
-						}
-						vec->setShadow(iov_len, shadow);
-						$assign(buf, shadow);
-						pos = $nc(shadow)->position();
+	$var($Throwable, var$0, nullptr);
+	int64_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		int32_t count = offset + length;
+		int32_t i = offset;
+		while (i < count && iov_len < IOUtil::IOV_MAX) {
+			$var($ByteBuffer, buf, $nc(bufs)->get(i));
+			if ($nc(buf)->isReadOnly()) {
+				$throwNew($IllegalArgumentException, "Read-only buffer"_s);
+			}
+			$var($ScopedMemoryAccess$Scope$Handle, h, acquireScope(buf, async));
+			if (h != nullptr) {
+				$assign(handleReleasers, $IOUtil$LinkedRunnable::of($($IOUtil$Releaser::of(h)), handleReleasers));
+			}
+			int32_t pos = buf->position();
+			int32_t lim = buf->limit();
+			if (!IOUtil::$assertionsDisabled && !(pos <= lim)) {
+				$throwNew($AssertionError);
+			}
+			int32_t rem = (pos <= lim ? lim - pos : 0);
+			if (directIO) {
+				$Util::checkRemainingBufferSizeAligned(rem, alignment);
+			}
+			if (rem > 0) {
+				$nc(vec)->setBuffer(iov_len, buf, pos, rem);
+				if (!($instanceOf($DirectBuffer, buf))) {
+					$var($ByteBuffer, shadow, nullptr);
+					if (directIO) {
+						$assign(shadow, $Util::getTemporaryAlignedDirectBuffer(rem, alignment));
+					} else {
+						$assign(shadow, $Util::getTemporaryDirectBuffer(rem));
 					}
-					vec->putBase(iov_len, bufferAddress(buf) + pos);
-					vec->putLen(iov_len, rem);
-					++iov_len;
+					vec->setShadow(iov_len, shadow);
+					$assign(buf, shadow);
+					pos = $nc(shadow)->position();
 				}
-				++i;
+				vec->putBase(iov_len, bufferAddress(buf) + pos);
+				vec->putLen(iov_len, rem);
+				++iov_len;
 			}
-			if (iov_len == 0) {
-				var$2 = 0;
-				return$1 = true;
-				goto $finally;
+			++i;
+		}
+		if (iov_len == 0) {
+			var$2 = 0;
+			return$1 = true;
+			goto $finally;
+		}
+		int64_t bytesRead = $nc(nd)->readv(fd, $nc(vec)->address, iov_len);
+		int64_t left = bytesRead;
+		for (int32_t j = 0; j < iov_len; ++j) {
+			$var($ByteBuffer, shadow, vec->getShadow(j));
+			if (left > 0) {
+				$var($ByteBuffer, buf, vec->getBuffer(j));
+				int32_t rem = vec->getRemaining(j);
+				int32_t n = (left > rem) ? rem : (int32_t)left;
+				if (shadow == nullptr) {
+					int32_t pos = vec->getPosition(j);
+					$nc(buf)->position(pos + n);
+				} else {
+					shadow->limit(shadow->position() + n);
+					$nc(buf)->put(shadow);
+				}
+				left -= n;
 			}
-			int64_t bytesRead = $nc(nd)->readv(fd, $nc(vec)->address, iov_len);
-			int64_t left = bytesRead;
+			if (shadow != nullptr) {
+				$Util::offerLastTemporaryDirectBuffer(shadow);
+			}
+			vec->clearRefs(j);
+		}
+		completed = true;
+		var$2 = bytesRead;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		releaseScopes(handleReleasers);
+		if (!completed) {
 			for (int32_t j = 0; j < iov_len; ++j) {
 				$var($ByteBuffer, shadow, $nc(vec)->getShadow(j));
-				if (left > 0) {
-					$var($ByteBuffer, buf, vec->getBuffer(j));
-					int32_t rem = vec->getRemaining(j);
-					int32_t n = (left > rem) ? rem : (int32_t)left;
-					if (shadow == nullptr) {
-						int32_t pos = vec->getPosition(j);
-						$nc(buf)->position(pos + n);
-					} else {
-						$nc(shadow)->limit(shadow->position() + n);
-						$nc(buf)->put(shadow);
-					}
-					left -= n;
-				}
 				if (shadow != nullptr) {
 					$Util::offerLastTemporaryDirectBuffer(shadow);
 				}
 				vec->clearRefs(j);
 			}
-			completed = true;
-			var$2 = bytesRead;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			releaseScopes(handleReleasers);
-			if (!completed) {
-				for (int32_t j = 0; j < iov_len; ++j) {
-					$var($ByteBuffer, shadow, $nc(vec)->getShadow(j));
-					if (shadow != nullptr) {
-						$Util::offerLastTemporaryDirectBuffer(shadow);
-					}
-					vec->clearRefs(j);
-				}
-			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -604,9 +501,9 @@ void IOUtil::releaseScope($ScopedMemoryAccess$Scope$Handle* handle) {
 		return;
 	}
 	try {
-		$nc($($nc(handle)->scope()))->release(handle);
+		$$nc($nc(handle)->scope())->release(handle);
 	} catch ($Exception& e) {
-		$throwNew($IllegalStateException, static_cast<$Throwable*>(e));
+		$throwNew($IllegalStateException, e);
 	}
 }
 
@@ -617,7 +514,7 @@ $Runnable* IOUtil::acquireScopes($ByteBufferArray* buffers) {
 
 $Runnable* IOUtil::acquireScopes($ByteBuffer* buf, $ByteBufferArray* buffers) {
 	$init(IOUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (buffers == nullptr) {
 		if (!IOUtil::$assertionsDisabled && !(buf != nullptr)) {
 			$throwNew($AssertionError);
@@ -630,9 +527,7 @@ $Runnable* IOUtil::acquireScopes($ByteBuffer* buf, $ByteBufferArray* buffers) {
 		$var($Runnable, handleReleasers, nullptr);
 		{
 			$var($ByteBufferArray, arr$, buffers);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($ByteBuffer, b, arr$->get(i$));
 				{
 					$var($ScopedMemoryAccess$Scope$Handle, h, IOUtil::acquireScope(b, true));
@@ -667,93 +562,85 @@ $FileDescriptor* IOUtil::newFD(int32_t i) {
 
 bool IOUtil::randomBytes($bytes* someBytes) {
 	$init(IOUtil);
-	bool $ret = false;
-	$prepareNativeStatic(IOUtil, randomBytes, bool, $bytes* someBytes);
-	$ret = $invokeNativeStatic(someBytes);
+	$prepareNativeStatic(randomBytes, bool, $bytes* someBytes);
+	bool $ret = $invokeNativeStatic(someBytes);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int64_t IOUtil::makePipe(bool blocking) {
 	$init(IOUtil);
-	int64_t $ret = 0;
-	$prepareNativeStatic(IOUtil, makePipe, int64_t, bool blocking);
-	$ret = $invokeNativeStatic(blocking);
+	$prepareNativeStatic(makePipe, int64_t, bool blocking);
+	int64_t $ret = $invokeNativeStatic(blocking);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t IOUtil::write1(int32_t fd, int8_t b) {
 	$init(IOUtil);
-	int32_t $ret = 0;
-	$prepareNativeStatic(IOUtil, write1, int32_t, int32_t fd, int8_t b);
-	$ret = $invokeNativeStatic(fd, b);
+	$prepareNativeStatic(write1, int32_t, int32_t fd, int8_t b);
+	int32_t $ret = $invokeNativeStatic(fd, b);
 	$finishNativeStatic();
 	return $ret;
 }
 
 bool IOUtil::drain(int32_t fd) {
 	$init(IOUtil);
-	bool $ret = false;
-	$prepareNativeStatic(IOUtil, drain, bool, int32_t fd);
-	$ret = $invokeNativeStatic(fd);
+	$prepareNativeStatic(drain, bool, int32_t fd);
+	bool $ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t IOUtil::drain1(int32_t fd) {
 	$init(IOUtil);
-	int32_t $ret = 0;
-	$prepareNativeStatic(IOUtil, drain1, int32_t, int32_t fd);
-	$ret = $invokeNativeStatic(fd);
+	$prepareNativeStatic(drain1, int32_t, int32_t fd);
+	int32_t $ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void IOUtil::configureBlocking($FileDescriptor* fd, bool blocking) {
 	$init(IOUtil);
-	$prepareNativeStatic(IOUtil, configureBlocking, void, $FileDescriptor* fd, bool blocking);
+	$prepareNativeStatic(configureBlocking, void, $FileDescriptor* fd, bool blocking);
 	$invokeNativeStatic(fd, blocking);
 	$finishNativeStatic();
 }
 
 int32_t IOUtil::fdVal($FileDescriptor* fd) {
 	$init(IOUtil);
-	int32_t $ret = 0;
-	$prepareNativeStatic(IOUtil, fdVal, int32_t, $FileDescriptor* fd);
-	$ret = $invokeNativeStatic(fd);
+	$prepareNativeStatic(fdVal, int32_t, $FileDescriptor* fd);
+	int32_t $ret = $invokeNativeStatic(fd);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void IOUtil::setfdVal($FileDescriptor* fd, int32_t value) {
 	$init(IOUtil);
-	$prepareNativeStatic(IOUtil, setfdVal, void, $FileDescriptor* fd, int32_t value);
+	$prepareNativeStatic(setfdVal, void, $FileDescriptor* fd, int32_t value);
 	$invokeNativeStatic(fd, value);
 	$finishNativeStatic();
 }
 
 int32_t IOUtil::fdLimit() {
 	$init(IOUtil);
-	int32_t $ret = 0;
-	$prepareNativeStatic(IOUtil, fdLimit, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(fdLimit, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t IOUtil::iovMax() {
 	$init(IOUtil);
-	int32_t $ret = 0;
-	$prepareNativeStatic(IOUtil, iovMax, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(iovMax, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 void IOUtil::initIDs() {
 	$init(IOUtil);
-	$prepareNativeStatic(IOUtil, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -762,7 +649,7 @@ void IOUtil::load() {
 	$init(IOUtil);
 }
 
-void clinit$IOUtil($Class* class$) {
+void IOUtil::clinit$($Class* clazz) {
 	IOUtil::$assertionsDisabled = !IOUtil::class$->desiredAssertionStatus();
 	$assignStatic(IOUtil::NIO_ACCESS, $SharedSecrets::getJavaNioAccess());
 	{
@@ -777,7 +664,76 @@ IOUtil::IOUtil() {
 }
 
 $Class* IOUtil::load$($String* name, bool initialize) {
-	$loadClass(IOUtil, name, initialize, &_IOUtil_ClassInfo_, clinit$IOUtil, allocate$IOUtil);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(IOUtil, $assertionsDisabled)},
+		{"IOV_MAX", "I", nullptr, $STATIC | $FINAL, $staticField(IOUtil, IOV_MAX)},
+		{"NIO_ACCESS", "Ljdk/internal/access/JavaNioAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IOUtil, NIO_ACCESS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(IOUtil, init$, void)},
+		{"acquireScope", "(Ljava/nio/ByteBuffer;Z)Ljdk/internal/misc/ScopedMemoryAccess$Scope$Handle;", nullptr, $STATIC, $staticMethod(IOUtil, acquireScope, $ScopedMemoryAccess$Scope$Handle*, $ByteBuffer*, bool)},
+		{"acquireScopes", "([Ljava/nio/ByteBuffer;)Ljava/lang/Runnable;", nullptr, $STATIC, $staticMethod(IOUtil, acquireScopes, $Runnable*, $ByteBufferArray*)},
+		{"acquireScopes", "(Ljava/nio/ByteBuffer;[Ljava/nio/ByteBuffer;)Ljava/lang/Runnable;", nullptr, $STATIC, $staticMethod(IOUtil, acquireScopes, $Runnable*, $ByteBuffer*, $ByteBufferArray*)},
+		{"bufferAddress", "(Ljava/nio/ByteBuffer;)J", nullptr, $STATIC, $staticMethod(IOUtil, bufferAddress, int64_t, $ByteBuffer*)},
+		{"configureBlocking", "(Ljava/io/FileDescriptor;Z)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(IOUtil, configureBlocking, void, $FileDescriptor*, bool), "java.io.IOException"},
+		{"drain", "(I)Z", nullptr, $STATIC | $NATIVE, $staticMethod(IOUtil, drain, bool, int32_t), "java.io.IOException"},
+		{"drain1", "(I)I", nullptr, $STATIC | $NATIVE, $staticMethod(IOUtil, drain1, int32_t, int32_t), "java.io.IOException"},
+		{"fdLimit", "()I", nullptr, $STATIC | $NATIVE, $staticMethod(IOUtil, fdLimit, int32_t)},
+		{"fdVal", "(Ljava/io/FileDescriptor;)I", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(IOUtil, fdVal, int32_t, $FileDescriptor*)},
+		{"initIDs", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(IOUtil, initIDs, void)},
+		{"iovMax", "()I", nullptr, $STATIC | $NATIVE, $staticMethod(IOUtil, iovMax, int32_t)},
+		{"load", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(IOUtil, load, void)},
+		{"makePipe", "(Z)J", nullptr, $STATIC | $NATIVE, $staticMethod(IOUtil, makePipe, int64_t, bool), "java.io.IOException"},
+		{"newFD", "(I)Ljava/io/FileDescriptor;", nullptr, $PUBLIC | $STATIC, $staticMethod(IOUtil, newFD, $FileDescriptor*, int32_t)},
+		{"randomBytes", "([B)Z", nullptr, $STATIC | $NATIVE, $staticMethod(IOUtil, randomBytes, bool, $bytes*)},
+		{"read", "(Ljava/io/FileDescriptor;Ljava/nio/ByteBuffer;JLsun/nio/ch/NativeDispatcher;)I", nullptr, $STATIC, $staticMethod(IOUtil, read, int32_t, $FileDescriptor*, $ByteBuffer*, int64_t, $NativeDispatcher*), "java.io.IOException"},
+		{"read", "(Ljava/io/FileDescriptor;Ljava/nio/ByteBuffer;JZLsun/nio/ch/NativeDispatcher;)I", nullptr, $STATIC, $staticMethod(IOUtil, read, int32_t, $FileDescriptor*, $ByteBuffer*, int64_t, bool, $NativeDispatcher*), "java.io.IOException"},
+		{"read", "(Ljava/io/FileDescriptor;Ljava/nio/ByteBuffer;JZILsun/nio/ch/NativeDispatcher;)I", nullptr, $STATIC, $staticMethod(IOUtil, read, int32_t, $FileDescriptor*, $ByteBuffer*, int64_t, bool, int32_t, $NativeDispatcher*), "java.io.IOException"},
+		{"read", "(Ljava/io/FileDescriptor;Ljava/nio/ByteBuffer;JZZILsun/nio/ch/NativeDispatcher;)I", nullptr, $STATIC, $staticMethod(IOUtil, read, int32_t, $FileDescriptor*, $ByteBuffer*, int64_t, bool, bool, int32_t, $NativeDispatcher*), "java.io.IOException"},
+		{"read", "(Ljava/io/FileDescriptor;[Ljava/nio/ByteBuffer;Lsun/nio/ch/NativeDispatcher;)J", nullptr, $STATIC, $staticMethod(IOUtil, read, int64_t, $FileDescriptor*, $ByteBufferArray*, $NativeDispatcher*), "java.io.IOException"},
+		{"read", "(Ljava/io/FileDescriptor;[Ljava/nio/ByteBuffer;ZLsun/nio/ch/NativeDispatcher;)J", nullptr, $STATIC, $staticMethod(IOUtil, read, int64_t, $FileDescriptor*, $ByteBufferArray*, bool, $NativeDispatcher*), "java.io.IOException"},
+		{"read", "(Ljava/io/FileDescriptor;[Ljava/nio/ByteBuffer;IILsun/nio/ch/NativeDispatcher;)J", nullptr, $STATIC, $staticMethod(IOUtil, read, int64_t, $FileDescriptor*, $ByteBufferArray*, int32_t, int32_t, $NativeDispatcher*), "java.io.IOException"},
+		{"read", "(Ljava/io/FileDescriptor;[Ljava/nio/ByteBuffer;IIZILsun/nio/ch/NativeDispatcher;)J", nullptr, $STATIC, $staticMethod(IOUtil, read, int64_t, $FileDescriptor*, $ByteBufferArray*, int32_t, int32_t, bool, int32_t, $NativeDispatcher*), "java.io.IOException"},
+		{"read", "(Ljava/io/FileDescriptor;[Ljava/nio/ByteBuffer;IIZZILsun/nio/ch/NativeDispatcher;)J", nullptr, $STATIC, $staticMethod(IOUtil, read, int64_t, $FileDescriptor*, $ByteBufferArray*, int32_t, int32_t, bool, bool, int32_t, $NativeDispatcher*), "java.io.IOException"},
+		{"readIntoNativeBuffer", "(Ljava/io/FileDescriptor;Ljava/nio/ByteBuffer;JZZILsun/nio/ch/NativeDispatcher;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(IOUtil, readIntoNativeBuffer, int32_t, $FileDescriptor*, $ByteBuffer*, int64_t, bool, bool, int32_t, $NativeDispatcher*), "java.io.IOException"},
+		{"releaseScope", "(Ljdk/internal/misc/ScopedMemoryAccess$Scope$Handle;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IOUtil, releaseScope, void, $ScopedMemoryAccess$Scope$Handle*)},
+		{"releaseScopes", "(Ljava/lang/Runnable;)V", nullptr, $STATIC, $staticMethod(IOUtil, releaseScopes, void, $Runnable*)},
+		{"setfdVal", "(Ljava/io/FileDescriptor;I)V", nullptr, $STATIC | $NATIVE, $staticMethod(IOUtil, setfdVal, void, $FileDescriptor*, int32_t)},
+		{"write", "(Ljava/io/FileDescriptor;Ljava/nio/ByteBuffer;JLsun/nio/ch/NativeDispatcher;)I", nullptr, $STATIC, $staticMethod(IOUtil, write, int32_t, $FileDescriptor*, $ByteBuffer*, int64_t, $NativeDispatcher*), "java.io.IOException"},
+		{"write", "(Ljava/io/FileDescriptor;Ljava/nio/ByteBuffer;JZLsun/nio/ch/NativeDispatcher;)I", nullptr, $STATIC, $staticMethod(IOUtil, write, int32_t, $FileDescriptor*, $ByteBuffer*, int64_t, bool, $NativeDispatcher*), "java.io.IOException"},
+		{"write", "(Ljava/io/FileDescriptor;Ljava/nio/ByteBuffer;JZILsun/nio/ch/NativeDispatcher;)I", nullptr, $STATIC, $staticMethod(IOUtil, write, int32_t, $FileDescriptor*, $ByteBuffer*, int64_t, bool, int32_t, $NativeDispatcher*), "java.io.IOException"},
+		{"write", "(Ljava/io/FileDescriptor;Ljava/nio/ByteBuffer;JZZILsun/nio/ch/NativeDispatcher;)I", nullptr, $STATIC, $staticMethod(IOUtil, write, int32_t, $FileDescriptor*, $ByteBuffer*, int64_t, bool, bool, int32_t, $NativeDispatcher*), "java.io.IOException"},
+		{"write", "(Ljava/io/FileDescriptor;[Ljava/nio/ByteBuffer;ZLsun/nio/ch/NativeDispatcher;)J", nullptr, $STATIC, $staticMethod(IOUtil, write, int64_t, $FileDescriptor*, $ByteBufferArray*, bool, $NativeDispatcher*), "java.io.IOException"},
+		{"write", "(Ljava/io/FileDescriptor;[Ljava/nio/ByteBuffer;IILsun/nio/ch/NativeDispatcher;)J", nullptr, $STATIC, $staticMethod(IOUtil, write, int64_t, $FileDescriptor*, $ByteBufferArray*, int32_t, int32_t, $NativeDispatcher*), "java.io.IOException"},
+		{"write", "(Ljava/io/FileDescriptor;[Ljava/nio/ByteBuffer;IIZILsun/nio/ch/NativeDispatcher;)J", nullptr, $STATIC, $staticMethod(IOUtil, write, int64_t, $FileDescriptor*, $ByteBufferArray*, int32_t, int32_t, bool, int32_t, $NativeDispatcher*), "java.io.IOException"},
+		{"write", "(Ljava/io/FileDescriptor;[Ljava/nio/ByteBuffer;IIZZILsun/nio/ch/NativeDispatcher;)J", nullptr, $STATIC, $staticMethod(IOUtil, write, int64_t, $FileDescriptor*, $ByteBufferArray*, int32_t, int32_t, bool, bool, int32_t, $NativeDispatcher*), "java.io.IOException"},
+		{"write1", "(IB)I", nullptr, $STATIC | $NATIVE, $staticMethod(IOUtil, write1, int32_t, int32_t, int8_t), "java.io.IOException"},
+		{"writeFromNativeBuffer", "(Ljava/io/FileDescriptor;Ljava/nio/ByteBuffer;JZZILsun/nio/ch/NativeDispatcher;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(IOUtil, writeFromNativeBuffer, int32_t, $FileDescriptor*, $ByteBuffer*, int64_t, bool, bool, int32_t, $NativeDispatcher*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.IOUtil$Releaser", "sun.nio.ch.IOUtil", "Releaser", $STATIC | $FINAL},
+		{"sun.nio.ch.IOUtil$LinkedRunnable", "sun.nio.ch.IOUtil", "LinkedRunnable", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.ch.IOUtil",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.IOUtil$Releaser,sun.nio.ch.IOUtil$LinkedRunnable"
+	};
+	$loadClass(IOUtil, name, initialize, &classInfo$$, IOUtil::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(IOUtil);
+	});
 	return class$;
 }
 

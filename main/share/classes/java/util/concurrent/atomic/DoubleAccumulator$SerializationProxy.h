@@ -24,7 +24,7 @@ public:
 	DoubleAccumulator$SerializationProxy();
 	void init$(double value, ::java::util::function::DoubleBinaryOperator* function, int64_t identity);
 	$Object* readResolve();
-	static const int64_t serialVersionUID = (int64_t)0x6499DE12A37D0A3D;
+	static const int64_t serialVersionUID = (int64_t)0x6499de12a37d0a3d;
 	double value = 0.0;
 	::java::util::function::DoubleBinaryOperator* function = nullptr;
 	int64_t identity = 0;

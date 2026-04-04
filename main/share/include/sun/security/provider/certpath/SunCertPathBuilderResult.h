@@ -45,6 +45,7 @@ class $import SunCertPathBuilderResult : public ::java::security::cert::PKIXCert
 	$class(SunCertPathBuilderResult, 0, ::java::security::cert::PKIXCertPathBuilderResult)
 public:
 	SunCertPathBuilderResult();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::cert::CertPath* certPath, ::java::security::cert::TrustAnchor* trustAnchor, ::java::security::cert::PolicyNode* policyTree, ::java::security::PublicKey* subjectPublicKey, ::sun::security::provider::certpath::AdjacencyList* adjList);
 	virtual ::sun::security::provider::certpath::AdjacencyList* getAdjacencyList();
 	static ::sun::security::util::Debug* debug;

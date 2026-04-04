@@ -1,5 +1,4 @@
 #include <jdk/internal/module/ModuleInfo$CountingDataInput.h>
-
 #include <java/io/DataInput.h>
 #include <java/io/DataInputStream.h>
 #include <jdk/internal/module/ModuleInfo.h>
@@ -17,58 +16,6 @@ namespace jdk {
 	namespace internal {
 		namespace module {
 
-$FieldInfo _ModuleInfo$CountingDataInput_FieldInfo_[] = {
-	{"delegate", "Ljava/io/DataInput;", nullptr, $PRIVATE | $FINAL, $field(ModuleInfo$CountingDataInput, delegate)},
-	{"count", "J", nullptr, $PRIVATE, $field(ModuleInfo$CountingDataInput, count$)},
-	{}
-};
-
-$MethodInfo _ModuleInfo$CountingDataInput_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(ModuleInfo$CountingDataInput, init$, void, $DataInput*)},
-	{"count", "()J", nullptr, 0, $virtualMethod(ModuleInfo$CountingDataInput, count, int64_t)},
-	{"readBoolean", "()Z", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readBoolean, bool), "java.io.IOException"},
-	{"readByte", "()B", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readByte, int8_t), "java.io.IOException"},
-	{"readChar", "()C", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readChar, char16_t), "java.io.IOException"},
-	{"readDouble", "()D", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readDouble, double), "java.io.IOException"},
-	{"readFloat", "()F", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readFloat, float), "java.io.IOException"},
-	{"readFully", "([B)V", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readFully, void, $bytes*), "java.io.IOException"},
-	{"readFully", "([BII)V", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readFully, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"readInt", "()I", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readInt, int32_t), "java.io.IOException"},
-	{"readLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readLine, $String*)},
-	{"readLong", "()J", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readLong, int64_t), "java.io.IOException"},
-	{"readShort", "()S", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readShort, int16_t), "java.io.IOException"},
-	{"readUTF", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readUTF, $String*), "java.io.IOException"},
-	{"readUnsignedByte", "()I", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readUnsignedByte, int32_t), "java.io.IOException"},
-	{"readUnsignedShort", "()I", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readUnsignedShort, int32_t), "java.io.IOException"},
-	{"skipBytes", "(I)I", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, skipBytes, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ModuleInfo$CountingDataInput_InnerClassesInfo_[] = {
-	{"jdk.internal.module.ModuleInfo$CountingDataInput", "jdk.internal.module.ModuleInfo", "CountingDataInput", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ModuleInfo$CountingDataInput_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.module.ModuleInfo$CountingDataInput",
-	"java.lang.Object",
-	"java.io.DataInput",
-	_ModuleInfo$CountingDataInput_FieldInfo_,
-	_ModuleInfo$CountingDataInput_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ModuleInfo$CountingDataInput_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.module.ModuleInfo"
-};
-
-$Object* allocate$ModuleInfo$CountingDataInput($Class* clazz) {
-	return $of($alloc(ModuleInfo$CountingDataInput));
-}
-
 void ModuleInfo$CountingDataInput::init$($DataInput* delegate) {
 	$set(this, delegate, delegate);
 }
@@ -79,7 +26,7 @@ int64_t ModuleInfo$CountingDataInput::count() {
 
 void ModuleInfo$CountingDataInput::readFully($bytes* b) {
 	$nc(this->delegate)->readFully(b, 0, $nc(b)->length);
-	this->count$ += $nc(b)->length;
+	this->count$ += b->length;
 }
 
 void ModuleInfo$CountingDataInput::readFully($bytes* b, int32_t off, int32_t len) {
@@ -166,7 +113,53 @@ ModuleInfo$CountingDataInput::ModuleInfo$CountingDataInput() {
 }
 
 $Class* ModuleInfo$CountingDataInput::load$($String* name, bool initialize) {
-	$loadClass(ModuleInfo$CountingDataInput, name, initialize, &_ModuleInfo$CountingDataInput_ClassInfo_, allocate$ModuleInfo$CountingDataInput);
+	$FieldInfo fieldInfos$$[] = {
+		{"delegate", "Ljava/io/DataInput;", nullptr, $PRIVATE | $FINAL, $field(ModuleInfo$CountingDataInput, delegate)},
+		{"count", "J", nullptr, $PRIVATE, $field(ModuleInfo$CountingDataInput, count$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(ModuleInfo$CountingDataInput, init$, void, $DataInput*)},
+		{"count", "()J", nullptr, 0, $virtualMethod(ModuleInfo$CountingDataInput, count, int64_t)},
+		{"readBoolean", "()Z", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readBoolean, bool), "java.io.IOException"},
+		{"readByte", "()B", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readByte, int8_t), "java.io.IOException"},
+		{"readChar", "()C", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readChar, char16_t), "java.io.IOException"},
+		{"readDouble", "()D", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readDouble, double), "java.io.IOException"},
+		{"readFloat", "()F", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readFloat, float), "java.io.IOException"},
+		{"readFully", "([B)V", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readFully, void, $bytes*), "java.io.IOException"},
+		{"readFully", "([BII)V", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readFully, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"readInt", "()I", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readInt, int32_t), "java.io.IOException"},
+		{"readLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readLine, $String*)},
+		{"readLong", "()J", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readLong, int64_t), "java.io.IOException"},
+		{"readShort", "()S", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readShort, int16_t), "java.io.IOException"},
+		{"readUTF", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readUTF, $String*), "java.io.IOException"},
+		{"readUnsignedByte", "()I", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readUnsignedByte, int32_t), "java.io.IOException"},
+		{"readUnsignedShort", "()I", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, readUnsignedShort, int32_t), "java.io.IOException"},
+		{"skipBytes", "(I)I", nullptr, $PUBLIC, $virtualMethod(ModuleInfo$CountingDataInput, skipBytes, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.module.ModuleInfo$CountingDataInput", "jdk.internal.module.ModuleInfo", "CountingDataInput", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.module.ModuleInfo$CountingDataInput",
+		"java.lang.Object",
+		"java.io.DataInput",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.module.ModuleInfo"
+	};
+	$loadClass(ModuleInfo$CountingDataInput, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleInfo$CountingDataInput);
+	});
 	return class$;
 }
 

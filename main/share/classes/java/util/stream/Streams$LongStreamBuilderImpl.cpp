@@ -1,5 +1,4 @@
 #include <java/util/stream/Streams$LongStreamBuilderImpl.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/Comparator.h>
 #include <java/util/Objects.h>
@@ -33,65 +32,6 @@ using $Streams$AbstractStreamBuilderImpl = ::java::util::stream::Streams$Abstrac
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _Streams$LongStreamBuilderImpl_FieldInfo_[] = {
-	{"first", "J", nullptr, 0, $field(Streams$LongStreamBuilderImpl, first)},
-	{"buffer", "Ljava/util/stream/SpinedBuffer$OfLong;", nullptr, 0, $field(Streams$LongStreamBuilderImpl, buffer)},
-	{}
-};
-
-$MethodInfo _Streams$LongStreamBuilderImpl_MethodInfo_[] = {
-	{"*characteristics", "()I", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*estimateSize", "()J", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getComparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(Streams$LongStreamBuilderImpl, init$, void)},
-	{"<init>", "(J)V", nullptr, 0, $method(Streams$LongStreamBuilderImpl, init$, void, int64_t)},
-	{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(Streams$LongStreamBuilderImpl, accept, void, int64_t)},
-	{"build", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(Streams$LongStreamBuilderImpl, build, $LongStream*)},
-	{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC, $method(Streams$LongStreamBuilderImpl, forEachRemaining, void, $LongConsumer*)},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(Streams$LongStreamBuilderImpl, forEachRemaining, void, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC, $method(Streams$LongStreamBuilderImpl, tryAdvance, bool, $LongConsumer*)},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(Streams$LongStreamBuilderImpl, tryAdvance, bool, Object$*)},
-	{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Streams$LongStreamBuilderImpl, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _Streams$LongStreamBuilderImpl_InnerClassesInfo_[] = {
-	{"java.util.stream.Streams$LongStreamBuilderImpl", "java.util.stream.Streams", "LongStreamBuilderImpl", $STATIC | $FINAL},
-	{"java.util.stream.Streams$AbstractStreamBuilderImpl", "java.util.stream.Streams", "AbstractStreamBuilderImpl", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.stream.LongStream$Builder", "java.util.stream.LongStream", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.Spliterator$OfLong", "java.util.Spliterator", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Streams$LongStreamBuilderImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.Streams$LongStreamBuilderImpl",
-	"java.util.stream.Streams$AbstractStreamBuilderImpl",
-	"java.util.stream.LongStream$Builder,java.util.Spliterator$OfLong",
-	_Streams$LongStreamBuilderImpl_FieldInfo_,
-	_Streams$LongStreamBuilderImpl_MethodInfo_,
-	"Ljava/util/stream/Streams$AbstractStreamBuilderImpl<Ljava/lang/Long;Ljava/util/Spliterator$OfLong;>;Ljava/util/stream/LongStream$Builder;Ljava/util/Spliterator$OfLong;",
-	nullptr,
-	_Streams$LongStreamBuilderImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Streams"
-};
-
-$Object* allocate$Streams$LongStreamBuilderImpl($Class* clazz) {
-	return $of($alloc(Streams$LongStreamBuilderImpl));
-}
 
 int64_t Streams$LongStreamBuilderImpl::estimateSize() {
 	 return this->$Streams$AbstractStreamBuilderImpl::estimateSize();
@@ -230,7 +170,7 @@ void Streams$LongStreamBuilderImpl::accept(int64_t t) {
 	} else if (this->count > 0) {
 		if (this->buffer == nullptr) {
 			$set(this, buffer, $new($SpinedBuffer$OfLong));
-			$nc(this->buffer)->accept(this->first);
+			this->buffer->accept(this->first);
 			++this->count;
 		}
 		$nc(this->buffer)->accept(t);
@@ -243,7 +183,7 @@ $LongStream* Streams$LongStreamBuilderImpl::build() {
 	int32_t c = this->count;
 	if (c >= 0) {
 		this->count = -this->count - 1;
-		return (c < 2) ? $StreamSupport::longStream($as($Spliterator$OfLong, this), false) : $StreamSupport::longStream($($cast($Spliterator$OfLong, $nc(this->buffer)->spliterator())), false);
+		return (c < 2) ? $StreamSupport::longStream($as($Spliterator$OfLong, this), false) : $StreamSupport::longStream($$cast($Spliterator$OfLong, $nc(this->buffer)->spliterator()), false);
 	}
 	$throwNew($IllegalStateException);
 }
@@ -283,7 +223,60 @@ Streams$LongStreamBuilderImpl::Streams$LongStreamBuilderImpl() {
 }
 
 $Class* Streams$LongStreamBuilderImpl::load$($String* name, bool initialize) {
-	$loadClass(Streams$LongStreamBuilderImpl, name, initialize, &_Streams$LongStreamBuilderImpl_ClassInfo_, allocate$Streams$LongStreamBuilderImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"first", "J", nullptr, 0, $field(Streams$LongStreamBuilderImpl, first)},
+		{"buffer", "Ljava/util/stream/SpinedBuffer$OfLong;", nullptr, 0, $field(Streams$LongStreamBuilderImpl, buffer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*characteristics", "()I", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*estimateSize", "()J", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getComparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(Streams$LongStreamBuilderImpl, init$, void)},
+		{"<init>", "(J)V", nullptr, 0, $method(Streams$LongStreamBuilderImpl, init$, void, int64_t)},
+		{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(Streams$LongStreamBuilderImpl, accept, void, int64_t)},
+		{"build", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(Streams$LongStreamBuilderImpl, build, $LongStream*)},
+		{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC, $method(Streams$LongStreamBuilderImpl, forEachRemaining, void, $LongConsumer*)},
+		{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(Streams$LongStreamBuilderImpl, forEachRemaining, void, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"tryAdvance", "(Ljava/util/function/LongConsumer;)Z", nullptr, $PUBLIC, $method(Streams$LongStreamBuilderImpl, tryAdvance, bool, $LongConsumer*)},
+		{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $method(Streams$LongStreamBuilderImpl, tryAdvance, bool, Object$*)},
+		{"trySplit", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Streams$LongStreamBuilderImpl, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Streams$LongStreamBuilderImpl", "java.util.stream.Streams", "LongStreamBuilderImpl", $STATIC | $FINAL},
+		{"java.util.stream.Streams$AbstractStreamBuilderImpl", "java.util.stream.Streams", "AbstractStreamBuilderImpl", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.stream.LongStream$Builder", "java.util.stream.LongStream", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.Spliterator$OfLong", "java.util.Spliterator", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.Streams$LongStreamBuilderImpl",
+		"java.util.stream.Streams$AbstractStreamBuilderImpl",
+		"java.util.stream.LongStream$Builder,java.util.Spliterator$OfLong",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/Streams$AbstractStreamBuilderImpl<Ljava/lang/Long;Ljava/util/Spliterator$OfLong;>;Ljava/util/stream/LongStream$Builder;Ljava/util/Spliterator$OfLong;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Streams"
+	};
+	$loadClass(Streams$LongStreamBuilderImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Streams$LongStreamBuilderImpl));
+	});
 	return class$;
 }
 

@@ -28,6 +28,7 @@ class $export ForkJoinWorkerThread$InnocuousForkJoinWorkerThread : public ::java
 	$class(ForkJoinWorkerThread$InnocuousForkJoinWorkerThread, 0, ::java::util::concurrent::ForkJoinWorkerThread)
 public:
 	ForkJoinWorkerThread$InnocuousForkJoinWorkerThread();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::concurrent::ForkJoinPool* pool);
 	virtual void setContextClassLoader(::java::lang::ClassLoader* cl) override;
 	virtual void setUncaughtExceptionHandler(::java::lang::Thread$UncaughtExceptionHandler* x) override;

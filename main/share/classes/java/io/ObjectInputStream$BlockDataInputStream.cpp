@@ -1,5 +1,4 @@
 #include <java/io/ObjectInputStream$BlockDataInputStream.h>
-
 #include <java/io/Bits.h>
 #include <java/io/DataInputStream.h>
 #include <java/io/EOFException.h>
@@ -40,101 +39,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _ObjectInputStream$BlockDataInputStream_FieldInfo_[] = {
-	{"this$0", "Ljava/io/ObjectInputStream;", nullptr, $FINAL | $SYNTHETIC, $field(ObjectInputStream$BlockDataInputStream, this$0)},
-	{"MAX_BLOCK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectInputStream$BlockDataInputStream, MAX_BLOCK_SIZE)},
-	{"MAX_HEADER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectInputStream$BlockDataInputStream, MAX_HEADER_SIZE)},
-	{"CHAR_BUF_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectInputStream$BlockDataInputStream, CHAR_BUF_SIZE)},
-	{"HEADER_BLOCKED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectInputStream$BlockDataInputStream, HEADER_BLOCKED)},
-	{"buf", "[B", nullptr, $PRIVATE | $FINAL, $field(ObjectInputStream$BlockDataInputStream, buf)},
-	{"hbuf", "[B", nullptr, $PRIVATE | $FINAL, $field(ObjectInputStream$BlockDataInputStream, hbuf)},
-	{"cbuf", "[C", nullptr, $PRIVATE | $FINAL, $field(ObjectInputStream$BlockDataInputStream, cbuf)},
-	{"blkmode", "Z", nullptr, $PRIVATE, $field(ObjectInputStream$BlockDataInputStream, blkmode)},
-	{"pos", "I", nullptr, $PRIVATE, $field(ObjectInputStream$BlockDataInputStream, pos)},
-	{"end", "I", nullptr, $PRIVATE, $field(ObjectInputStream$BlockDataInputStream, end)},
-	{"unread", "I", nullptr, $PRIVATE, $field(ObjectInputStream$BlockDataInputStream, unread)},
-	{"in", "Ljava/io/ObjectInputStream$PeekInputStream;", nullptr, $PRIVATE | $FINAL, $field(ObjectInputStream$BlockDataInputStream, in)},
-	{"din", "Ljava/io/DataInputStream;", nullptr, $PRIVATE | $FINAL, $field(ObjectInputStream$BlockDataInputStream, din)},
-	{}
-};
-
-$MethodInfo _ObjectInputStream$BlockDataInputStream_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/io/ObjectInputStream;Ljava/io/InputStream;)V", nullptr, 0, $method(ObjectInputStream$BlockDataInputStream, init$, void, $ObjectInputStream*, $InputStream*)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, available, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, close, void), "java.io.IOException"},
-	{"currentBlockRemaining", "()I", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, currentBlockRemaining, int32_t)},
-	{"getBlockDataMode", "()Z", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, getBlockDataMode, bool)},
-	{"getBytesRead", "()J", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, getBytesRead, int64_t)},
-	{"peek", "()I", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, peek, int32_t), "java.io.IOException"},
-	{"peekByte", "()B", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, peekByte, int8_t), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"read", "([BIIZ)I", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, read, int32_t, $bytes*, int32_t, int32_t, bool), "java.io.IOException"},
-	{"readBlockHeader", "(Z)I", nullptr, $PRIVATE, $method(ObjectInputStream$BlockDataInputStream, readBlockHeader, int32_t, bool), "java.io.IOException"},
-	{"readBoolean", "()Z", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readBoolean, bool), "java.io.IOException"},
-	{"readBooleans", "([ZII)V", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, readBooleans, void, $booleans*, int32_t, int32_t), "java.io.IOException"},
-	{"readByte", "()B", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readByte, int8_t), "java.io.IOException"},
-	{"readChar", "()C", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readChar, char16_t), "java.io.IOException"},
-	{"readChars", "([CII)V", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, readChars, void, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"readDouble", "()D", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readDouble, double), "java.io.IOException"},
-	{"readDoubles", "([DII)V", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, readDoubles, void, $doubles*, int32_t, int32_t), "java.io.IOException"},
-	{"readFloat", "()F", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readFloat, float), "java.io.IOException"},
-	{"readFloats", "([FII)V", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, readFloats, void, $floats*, int32_t, int32_t), "java.io.IOException"},
-	{"readFully", "([B)V", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readFully, void, $bytes*), "java.io.IOException"},
-	{"readFully", "([BII)V", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readFully, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"readFully", "([BIIZ)V", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readFully, void, $bytes*, int32_t, int32_t, bool), "java.io.IOException"},
-	{"readInt", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readInt, int32_t), "java.io.IOException"},
-	{"readInts", "([III)V", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, readInts, void, $ints*, int32_t, int32_t), "java.io.IOException"},
-	{"readLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readLine, $String*), "java.io.IOException"},
-	{"readLong", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readLong, int64_t), "java.io.IOException"},
-	{"readLongUTF", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, readLongUTF, $String*), "java.io.IOException"},
-	{"readLongs", "([JII)V", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, readLongs, void, $longs*, int32_t, int32_t), "java.io.IOException"},
-	{"readShort", "()S", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readShort, int16_t), "java.io.IOException"},
-	{"readShorts", "([SII)V", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, readShorts, void, $shorts*, int32_t, int32_t), "java.io.IOException"},
-	{"readUTF", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readUTF, $String*), "java.io.IOException"},
-	{"readUTFBody", "(J)Ljava/lang/String;", nullptr, $PRIVATE, $method(ObjectInputStream$BlockDataInputStream, readUTFBody, $String*, int64_t), "java.io.IOException"},
-	{"readUTFChar", "(Ljava/lang/StringBuilder;J)I", nullptr, $PRIVATE, $method(ObjectInputStream$BlockDataInputStream, readUTFChar, int32_t, $StringBuilder*, int64_t), "java.io.IOException"},
-	{"readUTFSpan", "(Ljava/lang/StringBuilder;J)J", nullptr, $PRIVATE, $method(ObjectInputStream$BlockDataInputStream, readUTFSpan, int64_t, $StringBuilder*, int64_t), "java.io.IOException"},
-	{"readUnsignedByte", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readUnsignedByte, int32_t), "java.io.IOException"},
-	{"readUnsignedShort", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readUnsignedShort, int32_t), "java.io.IOException"},
-	{"refill", "()V", nullptr, $PRIVATE, $method(ObjectInputStream$BlockDataInputStream, refill, void), "java.io.IOException"},
-	{"setBlockDataMode", "(Z)Z", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, setBlockDataMode, bool, bool), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{"skipBlockData", "()V", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, skipBlockData, void), "java.io.IOException"},
-	{"skipBytes", "(I)I", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, skipBytes, int32_t, int32_t), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _ObjectInputStream$BlockDataInputStream_InnerClassesInfo_[] = {
-	{"java.io.ObjectInputStream$BlockDataInputStream", "java.io.ObjectInputStream", "BlockDataInputStream", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ObjectInputStream$BlockDataInputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.io.ObjectInputStream$BlockDataInputStream",
-	"java.io.InputStream",
-	"java.io.DataInput",
-	_ObjectInputStream$BlockDataInputStream_FieldInfo_,
-	_ObjectInputStream$BlockDataInputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ObjectInputStream$BlockDataInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.io.ObjectInputStream"
-};
-
-$Object* allocate$ObjectInputStream$BlockDataInputStream($Class* clazz) {
-	return $of($alloc(ObjectInputStream$BlockDataInputStream));
-}
 
 int32_t ObjectInputStream$BlockDataInputStream::hashCode() {
 	 return this->$InputStream::hashCode();
@@ -199,7 +103,7 @@ void ObjectInputStream$BlockDataInputStream::skipBlockData() {
 }
 
 int32_t ObjectInputStream$BlockDataInputStream::readBlockHeader(bool canBlock) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$0->defaultDataEnd) {
 		return -1;
 	}
@@ -214,38 +118,30 @@ int32_t ObjectInputStream$BlockDataInputStream::readBlockHeader(bool canBlock) {
 				int32_t len = 0;
 				switch (tc) {
 				case 119:
-					{
-						if (avail < 2) {
-							return ObjectInputStream$BlockDataInputStream::HEADER_BLOCKED;
-						}
-						$nc(this->in)->readFully(this->hbuf, 0, 2);
-						return (int32_t)($nc(this->hbuf)->get(1) & (uint32_t)255);
+					if (avail < 2) {
+						return ObjectInputStream$BlockDataInputStream::HEADER_BLOCKED;
 					}
+					this->in->readFully(this->hbuf, 0, 2);
+					return this->hbuf->get(1) & 0xff;
 				case 122:
-					{
-						if (avail < 5) {
-							return ObjectInputStream$BlockDataInputStream::HEADER_BLOCKED;
-						}
-						$nc(this->in)->readFully(this->hbuf, 0, 5);
-						len = $Bits::getInt(this->hbuf, 1);
-						if (len < 0) {
-							$throwNew($StreamCorruptedException, $$str({"illegal block data header length: "_s, $$str(len)}));
-						}
-						return len;
+					if (avail < 5) {
+						return ObjectInputStream$BlockDataInputStream::HEADER_BLOCKED;
 					}
+					this->in->readFully(this->hbuf, 0, 5);
+					len = $Bits::getInt(this->hbuf, 1);
+					if (len < 0) {
+						$throwNew($StreamCorruptedException, $$str({"illegal block data header length: "_s, $$str(len)}));
+					}
+					return len;
 				case 121:
-					{
-						$nc(this->in)->read();
-						this->this$0->handleReset();
-						break;
-					}
+					this->in->read();
+					this->this$0->handleReset();
+					break;
 				default:
-					{
-						if (tc >= 0 && (tc < (int8_t)112 || tc > (int8_t)126)) {
-							$throwNew($StreamCorruptedException, $($String::format("invalid type code: %02X"_s, $$new($ObjectArray, {$($of($Integer::valueOf(tc)))}))));
-						}
-						return -1;
+					if (tc >= 0 && (tc < 112 || tc > 126)) {
+						$throwNew($StreamCorruptedException, $($String::format("invalid type code: %02X"_s, $$new($ObjectArray, {$($Integer::valueOf(tc))}))));
 					}
+					return -1;
 				}
 			}
 		}
@@ -299,7 +195,7 @@ int32_t ObjectInputStream$BlockDataInputStream::peek() {
 		if (this->pos == this->end) {
 			refill();
 		}
-		return (this->end >= 0) ? ((int32_t)($nc(this->buf)->get(this->pos) & (uint32_t)255)) : -1;
+		return (this->end >= 0) ? (this->buf->get(this->pos) & 0xff) : -1;
 	} else {
 		return $nc(this->in)->peek();
 	}
@@ -318,7 +214,7 @@ int32_t ObjectInputStream$BlockDataInputStream::read() {
 		if (this->pos == this->end) {
 			refill();
 		}
-		return (this->end >= 0) ? ((int32_t)($nc(this->buf)->get(this->pos++) & (uint32_t)255)) : -1;
+		return (this->end >= 0) ? (this->buf->get(this->pos++) & 0xff) : -1;
 	} else {
 		return $nc(this->in)->read();
 	}
@@ -357,25 +253,20 @@ int32_t ObjectInputStream$BlockDataInputStream::available() {
 		if ((this->pos == this->end) && (this->unread == 0)) {
 			int32_t n = 0;
 			while ((n = readBlockHeader(false)) == 0) {
+				;
 			}
 			switch (n) {
 			case ObjectInputStream$BlockDataInputStream::HEADER_BLOCKED:
-				{
-					break;
-				}
+				break;
 			case -1:
-				{
-					this->pos = 0;
-					this->end = -1;
-					break;
-				}
+				this->pos = 0;
+				this->end = -1;
+				break;
 			default:
-				{
-					this->pos = 0;
-					this->end = 0;
-					this->unread = n;
-					break;
-				}
+				this->pos = 0;
+				this->end = 0;
+				this->unread = n;
+				break;
 			}
 		}
 		int32_t unreadAvail = (this->unread > 0) ? $Math::min($nc(this->in)->available(), this->unread) : 0;
@@ -439,7 +330,7 @@ void ObjectInputStream$BlockDataInputStream::readFully($bytes* b, int32_t off, i
 }
 
 int32_t ObjectInputStream$BlockDataInputStream::skipBytes(int32_t n) {
-	return $nc(this->din)->skipBytes(n);
+	return this->din->skipBytes(n);
 }
 
 bool ObjectInputStream$BlockDataInputStream::readBoolean() {
@@ -471,7 +362,7 @@ char16_t ObjectInputStream$BlockDataInputStream::readChar() {
 		this->pos = 0;
 		$nc(this->in)->readFully(this->buf, 0, 2);
 	} else if (this->end - this->pos < 2) {
-		return $nc(this->din)->readChar();
+		return this->din->readChar();
 	}
 	char16_t v = $Bits::getChar(this->buf, this->pos);
 	this->pos += 2;
@@ -483,7 +374,7 @@ int16_t ObjectInputStream$BlockDataInputStream::readShort() {
 		this->pos = 0;
 		$nc(this->in)->readFully(this->buf, 0, 2);
 	} else if (this->end - this->pos < 2) {
-		return $nc(this->din)->readShort();
+		return this->din->readShort();
 	}
 	int16_t v = $Bits::getShort(this->buf, this->pos);
 	this->pos += 2;
@@ -495,9 +386,9 @@ int32_t ObjectInputStream$BlockDataInputStream::readUnsignedShort() {
 		this->pos = 0;
 		$nc(this->in)->readFully(this->buf, 0, 2);
 	} else if (this->end - this->pos < 2) {
-		return $nc(this->din)->readUnsignedShort();
+		return this->din->readUnsignedShort();
 	}
-	int32_t v = (int32_t)($Bits::getShort(this->buf, this->pos) & (uint32_t)0x0000FFFF);
+	int32_t v = $Bits::getShort(this->buf, this->pos) & 0xffff;
 	this->pos += 2;
 	return v;
 }
@@ -507,7 +398,7 @@ int32_t ObjectInputStream$BlockDataInputStream::readInt() {
 		this->pos = 0;
 		$nc(this->in)->readFully(this->buf, 0, 4);
 	} else if (this->end - this->pos < 4) {
-		return $nc(this->din)->readInt();
+		return this->din->readInt();
 	}
 	int32_t v = $Bits::getInt(this->buf, this->pos);
 	this->pos += 4;
@@ -519,7 +410,7 @@ float ObjectInputStream$BlockDataInputStream::readFloat() {
 		this->pos = 0;
 		$nc(this->in)->readFully(this->buf, 0, 4);
 	} else if (this->end - this->pos < 4) {
-		return $nc(this->din)->readFloat();
+		return this->din->readFloat();
 	}
 	float v = $Bits::getFloat(this->buf, this->pos);
 	this->pos += 4;
@@ -531,7 +422,7 @@ int64_t ObjectInputStream$BlockDataInputStream::readLong() {
 		this->pos = 0;
 		$nc(this->in)->readFully(this->buf, 0, 8);
 	} else if (this->end - this->pos < 8) {
-		return $nc(this->din)->readLong();
+		return this->din->readLong();
 	}
 	int64_t v = $Bits::getLong(this->buf, this->pos);
 	this->pos += 8;
@@ -543,7 +434,7 @@ double ObjectInputStream$BlockDataInputStream::readDouble() {
 		this->pos = 0;
 		$nc(this->in)->readFully(this->buf, 0, 8);
 	} else if (this->end - this->pos < 8) {
-		return $nc(this->din)->readDouble();
+		return this->din->readDouble();
 	}
 	double v = $Bits::getDouble(this->buf, this->pos);
 	this->pos += 8;
@@ -555,7 +446,7 @@ $String* ObjectInputStream$BlockDataInputStream::readUTF() {
 }
 
 $String* ObjectInputStream$BlockDataInputStream::readLine() {
-	return $nc(this->din)->readLine();
+	return this->din->readLine();
 }
 
 void ObjectInputStream$BlockDataInputStream::readBooleans($booleans* v, int32_t off, int32_t len) {
@@ -568,7 +459,7 @@ void ObjectInputStream$BlockDataInputStream::readBooleans($booleans* v, int32_t 
 			stop = off + span;
 			this->pos = 0;
 		} else if (this->end - this->pos < 1) {
-			$nc(v)->set(off++, $nc(this->din)->readBoolean());
+			$nc(v)->set(off++, this->din->readBoolean());
 			continue;
 		} else {
 			stop = $Math::min(endoff, off + this->end - this->pos);
@@ -589,7 +480,7 @@ void ObjectInputStream$BlockDataInputStream::readChars($chars* v, int32_t off, i
 			stop = off + span;
 			this->pos = 0;
 		} else if (this->end - this->pos < 2) {
-			$nc(v)->set(off++, $nc(this->din)->readChar());
+			$nc(v)->set(off++, this->din->readChar());
 			continue;
 		} else {
 			stop = $Math::min(endoff, off + ((this->end - this->pos) >> 1));
@@ -611,7 +502,7 @@ void ObjectInputStream$BlockDataInputStream::readShorts($shorts* v, int32_t off,
 			stop = off + span;
 			this->pos = 0;
 		} else if (this->end - this->pos < 2) {
-			$nc(v)->set(off++, $nc(this->din)->readShort());
+			$nc(v)->set(off++, this->din->readShort());
 			continue;
 		} else {
 			stop = $Math::min(endoff, off + ((this->end - this->pos) >> 1));
@@ -633,7 +524,7 @@ void ObjectInputStream$BlockDataInputStream::readInts($ints* v, int32_t off, int
 			stop = off + span;
 			this->pos = 0;
 		} else if (this->end - this->pos < 4) {
-			$nc(v)->set(off++, $nc(this->din)->readInt());
+			$nc(v)->set(off++, this->din->readInt());
 			continue;
 		} else {
 			stop = $Math::min(endoff, off + ((this->end - this->pos) >> 2));
@@ -655,7 +546,7 @@ void ObjectInputStream$BlockDataInputStream::readFloats($floats* v, int32_t off,
 			stop = off + span;
 			this->pos = 0;
 		} else if (this->end - this->pos < 4) {
-			$nc(v)->set(off++, $nc(this->din)->readFloat());
+			$nc(v)->set(off++, this->din->readFloat());
 			continue;
 		} else {
 			stop = $Math::min(endoff, ((this->end - this->pos) >> 2));
@@ -677,7 +568,7 @@ void ObjectInputStream$BlockDataInputStream::readLongs($longs* v, int32_t off, i
 			stop = off + span;
 			this->pos = 0;
 		} else if (this->end - this->pos < 8) {
-			$nc(v)->set(off++, $nc(this->din)->readLong());
+			$nc(v)->set(off++, this->din->readLong());
 			continue;
 		} else {
 			stop = $Math::min(endoff, off + ((this->end - this->pos) >> 3));
@@ -699,7 +590,7 @@ void ObjectInputStream$BlockDataInputStream::readDoubles($doubles* v, int32_t of
 			stop = off + span;
 			this->pos = 0;
 		} else if (this->end - this->pos < 8) {
-			$nc(v)->set(off++, $nc(this->din)->readDouble());
+			$nc(v)->set(off++, this->din->readDouble());
 			continue;
 		} else {
 			stop = $Math::min(endoff - off, ((this->end - this->pos) >> 3));
@@ -718,7 +609,7 @@ $String* ObjectInputStream$BlockDataInputStream::readLongUTF() {
 $String* ObjectInputStream$BlockDataInputStream::readUTFBody(int64_t utflen) {
 	$var($StringBuilder, sbuf, nullptr);
 	if (utflen > 0 && utflen < $Integer::MAX_VALUE) {
-		int32_t initialCapacity = $Math::min((int32_t)utflen, 0x0000FFFF);
+		int32_t initialCapacity = $Math::min((int32_t)utflen, 0x0000ffff);
 		$assign(sbuf, $new($StringBuilder, initialCapacity));
 	} else {
 		$assign(sbuf, $new($StringBuilder));
@@ -750,81 +641,63 @@ int64_t ObjectInputStream$BlockDataInputStream::readUTFSpan($StringBuilder* sbuf
 	int32_t avail = $Math::min(this->end - this->pos, ObjectInputStream$BlockDataInputStream::CHAR_BUF_SIZE);
 	int32_t stop = this->pos + ((utflen > avail) ? avail - 2 : (int32_t)utflen);
 	bool outOfBounds = false;
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				while (this->pos < stop) {
-					int32_t b1 = 0;
-					int32_t b2 = 0;
-					int32_t b3 = 0;
-					b1 = (int32_t)($nc(this->buf)->get(this->pos++) & (uint32_t)255);
-					switch (b1 >> 4) {
-					case 0:
-						{}
-					case 1:
-						{}
-					case 2:
-						{}
-					case 3:
-						{}
-					case 4:
-						{}
-					case 5:
-						{}
-					case 6:
-						{}
-					case 7:
-						{
-							$nc(this->cbuf)->set(cpos++, (char16_t)b1);
-							break;
-						}
-					case 12:
-						{}
-					case 13:
-						{
-							{
-								b2 = $nc(this->buf)->get(this->pos++);
-								if (((int32_t)(b2 & (uint32_t)192)) != 128) {
-									$throwNew($UTFDataFormatException);
-								}
-								$nc(this->cbuf)->set(cpos++, (char16_t)((((int32_t)(b1 & (uint32_t)31)) << 6) | (((int32_t)(b2 & (uint32_t)63)) << 0)));
-							}
-							break;
-						}
-					case 14:
-						{
-							{
-								b3 = $nc(this->buf)->get(this->pos + 1);
-								b2 = $nc(this->buf)->get(this->pos + 0);
-								this->pos += 2;
-								if (((int32_t)(b2 & (uint32_t)192)) != 128 || ((int32_t)(b3 & (uint32_t)192)) != 128) {
-									$throwNew($UTFDataFormatException);
-								}
-								$nc(this->cbuf)->set(cpos++, (char16_t)(((((int32_t)(b1 & (uint32_t)15)) << 12) | (((int32_t)(b2 & (uint32_t)63)) << 6)) | (((int32_t)(b3 & (uint32_t)63)) << 0)));
-							}
-							break;
-						}
-					default:
-						{
+			while (this->pos < stop) {
+				int32_t b1 = 0;
+				int32_t b2 = 0;
+				int32_t b3 = 0;
+				b1 = this->buf->get(this->pos++) & 0xff;
+				switch (b1 >> 4) {
+				case 0:
+				case 1:
+				case 2:
+				case 3:
+				case 4:
+				case 5:
+				case 6:
+				case 7:
+					this->cbuf->set(cpos++, (char16_t)b1);
+					break;
+				case 12:
+				case 13:
+					{
+						b2 = this->buf->get(this->pos++);
+						if ((b2 & 0xc0) != 0x80) {
 							$throwNew($UTFDataFormatException);
 						}
+						this->cbuf->set(cpos++, (char16_t)(((b1 & 0x1f) << 6) | ((b2 & 0x3f) << 0)));
 					}
+					break;
+				case 14:
+					{
+						b3 = this->buf->get(this->pos + 1);
+						b2 = this->buf->get(this->pos + 0);
+						this->pos += 2;
+						if ((b2 & 0xc0) != 0x80 || (b3 & 0xc0) != 0x80) {
+							$throwNew($UTFDataFormatException);
+						}
+						this->cbuf->set(cpos++, (char16_t)((((b1 & 0x0f) << 12) | ((b2 & 0x3f) << 6)) | ((b3 & 0x3f) << 0)));
+					}
+					break;
+				default:
+					$throwNew($UTFDataFormatException);
 				}
-			} catch ($ArrayIndexOutOfBoundsException& ex) {
-				outOfBounds = true;
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (outOfBounds || (this->pos - start) > utflen) {
-				this->pos = start + (int32_t)utflen;
-				$throwNew($UTFDataFormatException);
-			}
+		} catch ($ArrayIndexOutOfBoundsException& ex) {
+			outOfBounds = true;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (outOfBounds || (this->pos - start) > utflen) {
+			this->pos = start + (int32_t)utflen;
+			$throwNew($UTFDataFormatException);
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	$nc(sbuf)->append(this->cbuf, 0, cpos);
 	return this->pos - start;
@@ -834,67 +707,51 @@ int32_t ObjectInputStream$BlockDataInputStream::readUTFChar($StringBuilder* sbuf
 	int32_t b1 = 0;
 	int32_t b2 = 0;
 	int32_t b3 = 0;
-	b1 = (int32_t)(readByte() & (uint32_t)255);
+	b1 = readByte() & 0xff;
 	switch (b1 >> 4) {
 	case 0:
-		{}
 	case 1:
-		{}
 	case 2:
-		{}
 	case 3:
-		{}
 	case 4:
-		{}
 	case 5:
-		{}
 	case 6:
-		{}
 	case 7:
 		{
-			{
-				$nc(sbuf)->append((char16_t)b1);
-				return 1;
-			}
+			$nc(sbuf)->append((char16_t)b1);
+			return 1;
 		}
 	case 12:
-		{}
 	case 13:
 		{
-			{
-				if (utflen < 2) {
-					$throwNew($UTFDataFormatException);
-				}
-				b2 = readByte();
-				if (((int32_t)(b2 & (uint32_t)192)) != 128) {
-					$throwNew($UTFDataFormatException);
-				}
-				$nc(sbuf)->append((char16_t)((((int32_t)(b1 & (uint32_t)31)) << 6) | (((int32_t)(b2 & (uint32_t)63)) << 0)));
-				return 2;
+			if (utflen < 2) {
+				$throwNew($UTFDataFormatException);
 			}
+			b2 = readByte();
+			if ((b2 & 0xc0) != 0x80) {
+				$throwNew($UTFDataFormatException);
+			}
+			$nc(sbuf)->append((char16_t)(((b1 & 0x1f) << 6) | ((b2 & 0x3f) << 0)));
+			return 2;
 		}
 	case 14:
 		{
-			{
-				if (utflen < 3) {
-					if (utflen == 2) {
-						readByte();
-					}
-					$throwNew($UTFDataFormatException);
+			if (utflen < 3) {
+				if (utflen == 2) {
+					readByte();
 				}
-				b2 = readByte();
-				b3 = readByte();
-				if (((int32_t)(b2 & (uint32_t)192)) != 128 || ((int32_t)(b3 & (uint32_t)192)) != 128) {
-					$throwNew($UTFDataFormatException);
-				}
-				$nc(sbuf)->append((char16_t)(((((int32_t)(b1 & (uint32_t)15)) << 12) | (((int32_t)(b2 & (uint32_t)63)) << 6)) | (((int32_t)(b3 & (uint32_t)63)) << 0)));
-				return 3;
+				$throwNew($UTFDataFormatException);
 			}
+			b2 = readByte();
+			b3 = readByte();
+			if ((b2 & 0xc0) != 0x80 || (b3 & 0xc0) != 0x80) {
+				$throwNew($UTFDataFormatException);
+			}
+			$nc(sbuf)->append((char16_t)((((b1 & 0x0f) << 12) | ((b2 & 0x3f) << 6)) | ((b3 & 0x3f) << 0)));
+			return 3;
 		}
 	default:
-		{
-			$throwNew($UTFDataFormatException);
-		}
+		$throwNew($UTFDataFormatException);
 	}
 }
 
@@ -906,7 +763,96 @@ ObjectInputStream$BlockDataInputStream::ObjectInputStream$BlockDataInputStream()
 }
 
 $Class* ObjectInputStream$BlockDataInputStream::load$($String* name, bool initialize) {
-	$loadClass(ObjectInputStream$BlockDataInputStream, name, initialize, &_ObjectInputStream$BlockDataInputStream_ClassInfo_, allocate$ObjectInputStream$BlockDataInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/io/ObjectInputStream;", nullptr, $FINAL | $SYNTHETIC, $field(ObjectInputStream$BlockDataInputStream, this$0)},
+		{"MAX_BLOCK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectInputStream$BlockDataInputStream, MAX_BLOCK_SIZE)},
+		{"MAX_HEADER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectInputStream$BlockDataInputStream, MAX_HEADER_SIZE)},
+		{"CHAR_BUF_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectInputStream$BlockDataInputStream, CHAR_BUF_SIZE)},
+		{"HEADER_BLOCKED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectInputStream$BlockDataInputStream, HEADER_BLOCKED)},
+		{"buf", "[B", nullptr, $PRIVATE | $FINAL, $field(ObjectInputStream$BlockDataInputStream, buf)},
+		{"hbuf", "[B", nullptr, $PRIVATE | $FINAL, $field(ObjectInputStream$BlockDataInputStream, hbuf)},
+		{"cbuf", "[C", nullptr, $PRIVATE | $FINAL, $field(ObjectInputStream$BlockDataInputStream, cbuf)},
+		{"blkmode", "Z", nullptr, $PRIVATE, $field(ObjectInputStream$BlockDataInputStream, blkmode)},
+		{"pos", "I", nullptr, $PRIVATE, $field(ObjectInputStream$BlockDataInputStream, pos)},
+		{"end", "I", nullptr, $PRIVATE, $field(ObjectInputStream$BlockDataInputStream, end)},
+		{"unread", "I", nullptr, $PRIVATE, $field(ObjectInputStream$BlockDataInputStream, unread)},
+		{"in", "Ljava/io/ObjectInputStream$PeekInputStream;", nullptr, $PRIVATE | $FINAL, $field(ObjectInputStream$BlockDataInputStream, in)},
+		{"din", "Ljava/io/DataInputStream;", nullptr, $PRIVATE | $FINAL, $field(ObjectInputStream$BlockDataInputStream, din)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/io/ObjectInputStream;Ljava/io/InputStream;)V", nullptr, 0, $method(ObjectInputStream$BlockDataInputStream, init$, void, $ObjectInputStream*, $InputStream*)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, available, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, close, void), "java.io.IOException"},
+		{"currentBlockRemaining", "()I", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, currentBlockRemaining, int32_t)},
+		{"getBlockDataMode", "()Z", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, getBlockDataMode, bool)},
+		{"getBytesRead", "()J", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, getBytesRead, int64_t)},
+		{"peek", "()I", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, peek, int32_t), "java.io.IOException"},
+		{"peekByte", "()B", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, peekByte, int8_t), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"read", "([BIIZ)I", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, read, int32_t, $bytes*, int32_t, int32_t, bool), "java.io.IOException"},
+		{"readBlockHeader", "(Z)I", nullptr, $PRIVATE, $method(ObjectInputStream$BlockDataInputStream, readBlockHeader, int32_t, bool), "java.io.IOException"},
+		{"readBoolean", "()Z", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readBoolean, bool), "java.io.IOException"},
+		{"readBooleans", "([ZII)V", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, readBooleans, void, $booleans*, int32_t, int32_t), "java.io.IOException"},
+		{"readByte", "()B", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readByte, int8_t), "java.io.IOException"},
+		{"readChar", "()C", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readChar, char16_t), "java.io.IOException"},
+		{"readChars", "([CII)V", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, readChars, void, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"readDouble", "()D", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readDouble, double), "java.io.IOException"},
+		{"readDoubles", "([DII)V", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, readDoubles, void, $doubles*, int32_t, int32_t), "java.io.IOException"},
+		{"readFloat", "()F", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readFloat, float), "java.io.IOException"},
+		{"readFloats", "([FII)V", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, readFloats, void, $floats*, int32_t, int32_t), "java.io.IOException"},
+		{"readFully", "([B)V", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readFully, void, $bytes*), "java.io.IOException"},
+		{"readFully", "([BII)V", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readFully, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"readFully", "([BIIZ)V", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readFully, void, $bytes*, int32_t, int32_t, bool), "java.io.IOException"},
+		{"readInt", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readInt, int32_t), "java.io.IOException"},
+		{"readInts", "([III)V", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, readInts, void, $ints*, int32_t, int32_t), "java.io.IOException"},
+		{"readLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readLine, $String*), "java.io.IOException"},
+		{"readLong", "()J", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readLong, int64_t), "java.io.IOException"},
+		{"readLongUTF", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, readLongUTF, $String*), "java.io.IOException"},
+		{"readLongs", "([JII)V", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, readLongs, void, $longs*, int32_t, int32_t), "java.io.IOException"},
+		{"readShort", "()S", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readShort, int16_t), "java.io.IOException"},
+		{"readShorts", "([SII)V", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, readShorts, void, $shorts*, int32_t, int32_t), "java.io.IOException"},
+		{"readUTF", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readUTF, $String*), "java.io.IOException"},
+		{"readUTFBody", "(J)Ljava/lang/String;", nullptr, $PRIVATE, $method(ObjectInputStream$BlockDataInputStream, readUTFBody, $String*, int64_t), "java.io.IOException"},
+		{"readUTFChar", "(Ljava/lang/StringBuilder;J)I", nullptr, $PRIVATE, $method(ObjectInputStream$BlockDataInputStream, readUTFChar, int32_t, $StringBuilder*, int64_t), "java.io.IOException"},
+		{"readUTFSpan", "(Ljava/lang/StringBuilder;J)J", nullptr, $PRIVATE, $method(ObjectInputStream$BlockDataInputStream, readUTFSpan, int64_t, $StringBuilder*, int64_t), "java.io.IOException"},
+		{"readUnsignedByte", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readUnsignedByte, int32_t), "java.io.IOException"},
+		{"readUnsignedShort", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, readUnsignedShort, int32_t), "java.io.IOException"},
+		{"refill", "()V", nullptr, $PRIVATE, $method(ObjectInputStream$BlockDataInputStream, refill, void), "java.io.IOException"},
+		{"setBlockDataMode", "(Z)Z", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, setBlockDataMode, bool, bool), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{"skipBlockData", "()V", nullptr, 0, $virtualMethod(ObjectInputStream$BlockDataInputStream, skipBlockData, void), "java.io.IOException"},
+		{"skipBytes", "(I)I", nullptr, $PUBLIC, $virtualMethod(ObjectInputStream$BlockDataInputStream, skipBytes, int32_t, int32_t), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.ObjectInputStream$BlockDataInputStream", "java.io.ObjectInputStream", "BlockDataInputStream", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.io.ObjectInputStream$BlockDataInputStream",
+		"java.io.InputStream",
+		"java.io.DataInput",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.io.ObjectInputStream"
+	};
+	$loadClass(ObjectInputStream$BlockDataInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ObjectInputStream$BlockDataInputStream));
+	});
 	return class$;
 }
 

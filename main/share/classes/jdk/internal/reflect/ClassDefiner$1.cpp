@@ -1,5 +1,4 @@
 #include <jdk/internal/reflect/ClassDefiner$1.h>
-
 #include <java/lang/ClassLoader.h>
 #include <jdk/internal/reflect/ClassDefiner.h>
 #include <jdk/internal/reflect/DelegatingClassLoader.h>
@@ -17,61 +16,54 @@ namespace jdk {
 	namespace internal {
 		namespace reflect {
 
-$FieldInfo _ClassDefiner$1_FieldInfo_[] = {
-	{"val$parentClassLoader", "Ljava/lang/ClassLoader;", nullptr, $FINAL | $SYNTHETIC, $field(ClassDefiner$1, val$parentClassLoader)},
-	{}
-};
-
-$MethodInfo _ClassDefiner$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;)V", "()V", 0, $method(ClassDefiner$1, init$, void, $ClassLoader*)},
-	{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(ClassDefiner$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _ClassDefiner$1_EnclosingMethodInfo_ = {
-	"jdk.internal.reflect.ClassDefiner",
-	"defineClass",
-	"(Ljava/lang/String;[BIILjava/lang/ClassLoader;)Ljava/lang/Class;"
-};
-
-$InnerClassInfo _ClassDefiner$1_InnerClassesInfo_[] = {
-	{"jdk.internal.reflect.ClassDefiner$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ClassDefiner$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.reflect.ClassDefiner$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_ClassDefiner$1_FieldInfo_,
-	_ClassDefiner$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/ClassLoader;>;",
-	&_ClassDefiner$1_EnclosingMethodInfo_,
-	_ClassDefiner$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.reflect.ClassDefiner"
-};
-
-$Object* allocate$ClassDefiner$1($Class* clazz) {
-	return $of($alloc(ClassDefiner$1));
-}
-
 void ClassDefiner$1::init$($ClassLoader* val$parentClassLoader) {
 	$set(this, val$parentClassLoader, val$parentClassLoader);
 }
 
 $Object* ClassDefiner$1::run() {
-	return $of($new($DelegatingClassLoader, this->val$parentClassLoader));
+	return $new($DelegatingClassLoader, this->val$parentClassLoader);
 }
 
 ClassDefiner$1::ClassDefiner$1() {
 }
 
 $Class* ClassDefiner$1::load$($String* name, bool initialize) {
-	$loadClass(ClassDefiner$1, name, initialize, &_ClassDefiner$1_ClassInfo_, allocate$ClassDefiner$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$parentClassLoader", "Ljava/lang/ClassLoader;", nullptr, $FINAL | $SYNTHETIC, $field(ClassDefiner$1, val$parentClassLoader)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/ClassLoader;)V", "()V", 0, $method(ClassDefiner$1, init$, void, $ClassLoader*)},
+		{"run", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(ClassDefiner$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.reflect.ClassDefiner",
+		"defineClass",
+		"(Ljava/lang/String;[BIILjava/lang/ClassLoader;)Ljava/lang/Class;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.reflect.ClassDefiner$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.reflect.ClassDefiner$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/ClassLoader;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.reflect.ClassDefiner"
+	};
+	$loadClass(ClassDefiner$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassDefiner$1);
+	});
 	return class$;
 }
 

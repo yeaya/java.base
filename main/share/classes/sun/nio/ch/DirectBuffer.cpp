@@ -1,5 +1,4 @@
 #include <sun/nio/ch/DirectBuffer.h>
-
 #include <jdk/internal/ref/Cleaner.h>
 #include <jcpp.h>
 
@@ -11,28 +10,24 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$MethodInfo _DirectBuffer_MethodInfo_[] = {
-	{"address", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DirectBuffer, address, int64_t)},
-	{"attachment", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DirectBuffer, attachment, $Object*)},
-	{"cleaner", "()Ljdk/internal/ref/Cleaner;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DirectBuffer, cleaner, $Cleaner*)},
-	{}
-};
-
-$ClassInfo _DirectBuffer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.nio.ch.DirectBuffer",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DirectBuffer_MethodInfo_
-};
-
-$Object* allocate$DirectBuffer($Class* clazz) {
-	return $of($alloc(DirectBuffer));
-}
-
 $Class* DirectBuffer::load$($String* name, bool initialize) {
-	$loadClass(DirectBuffer, name, initialize, &_DirectBuffer_ClassInfo_, allocate$DirectBuffer);
+	$MethodInfo methodInfos$$[] = {
+		{"address", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DirectBuffer, address, int64_t)},
+		{"attachment", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DirectBuffer, attachment, $Object*)},
+		{"cleaner", "()Ljdk/internal/ref/Cleaner;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DirectBuffer, cleaner, $Cleaner*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.nio.ch.DirectBuffer",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DirectBuffer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DirectBuffer);
+	});
 	return class$;
 }
 

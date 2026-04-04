@@ -21,6 +21,7 @@ class $export ChainedExceptions : public ::java::lang::Object {
 	$class(ChainedExceptions, 0, ::java::lang::Object)
 public:
 	ChainedExceptions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void a();
 	static void b();

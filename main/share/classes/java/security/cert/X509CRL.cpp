@@ -1,5 +1,4 @@
 #include <java/security/cert/X509CRL.h>
-
 #include <java/math/BigInteger.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/Principal.h>
@@ -51,61 +50,6 @@ namespace java {
 	namespace security {
 		namespace cert {
 
-$NamedAttribute X509CRL_Attribute_var$0[] = {
-	{"since", 's', "16"},
-	{}
-};
-
-$CompoundAttribute _X509CRL_MethodAnnotations_getIssuerDN3[] = {
-	{"Ljava/lang/Deprecated;", X509CRL_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _X509CRL_FieldInfo_[] = {
-	{"issuerPrincipal", "Ljavax/security/auth/x500/X500Principal;", nullptr, $PRIVATE | $TRANSIENT, $field(X509CRL, issuerPrincipal)},
-	{}
-};
-
-$MethodInfo _X509CRL_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(X509CRL, init$, void)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(X509CRL, equals, bool, Object$*)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getEncoded, $bytes*), "java.security.cert.CRLException"},
-	{"getIssuerDN", "()Ljava/security/Principal;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(X509CRL, getIssuerDN, $Principal*), nullptr, nullptr, _X509CRL_MethodAnnotations_getIssuerDN3},
-	{"getIssuerX500Principal", "()Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC, $virtualMethod(X509CRL, getIssuerX500Principal, $X500Principal*)},
-	{"getNextUpdate", "()Ljava/util/Date;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getNextUpdate, $Date*)},
-	{"getRevokedCertificate", "(Ljava/math/BigInteger;)Ljava/security/cert/X509CRLEntry;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getRevokedCertificate, $X509CRLEntry*, $BigInteger*)},
-	{"getRevokedCertificate", "(Ljava/security/cert/X509Certificate;)Ljava/security/cert/X509CRLEntry;", nullptr, $PUBLIC, $virtualMethod(X509CRL, getRevokedCertificate, $X509CRLEntry*, $X509Certificate*)},
-	{"getRevokedCertificates", "()Ljava/util/Set;", "()Ljava/util/Set<+Ljava/security/cert/X509CRLEntry;>;", $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getRevokedCertificates, $Set*)},
-	{"getSigAlgName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getSigAlgName, $String*)},
-	{"getSigAlgOID", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getSigAlgOID, $String*)},
-	{"getSigAlgParams", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getSigAlgParams, $bytes*)},
-	{"getSignature", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getSignature, $bytes*)},
-	{"getTBSCertList", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getTBSCertList, $bytes*), "java.security.cert.CRLException"},
-	{"getThisUpdate", "()Ljava/util/Date;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getThisUpdate, $Date*)},
-	{"getVersion", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getVersion, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(X509CRL, hashCode, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"verify", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, verify, void, $PublicKey*), "java.security.cert.CRLException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.NoSuchProviderException,java.security.SignatureException"},
-	{"verify", "(Ljava/security/PublicKey;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, verify, void, $PublicKey*, $String*), "java.security.cert.CRLException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.NoSuchProviderException,java.security.SignatureException"},
-	{"verify", "(Ljava/security/PublicKey;Ljava/security/Provider;)V", nullptr, $PUBLIC, $virtualMethod(X509CRL, verify, void, $PublicKey*, $Provider*), "java.security.cert.CRLException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.SignatureException"},
-	{}
-};
-
-$ClassInfo _X509CRL_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.security.cert.X509CRL",
-	"java.security.cert.CRL",
-	"java.security.cert.X509Extension",
-	_X509CRL_FieldInfo_,
-	_X509CRL_MethodInfo_
-};
-
-$Object* allocate$X509CRL($Class* clazz) {
-	return $of($alloc(X509CRL));
-}
-
 $String* X509CRL::toString() {
 	 return this->$CRL::toString();
 }
@@ -123,7 +67,7 @@ void X509CRL::init$() {
 }
 
 bool X509CRL::equals(Object$* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, other)) {
 		return true;
 	}
@@ -155,7 +99,7 @@ int32_t X509CRL::hashCode() {
 }
 
 void X509CRL::verify($PublicKey* key, $Provider* sigProvider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, sigAlgName, getSigAlgName());
 	$var($Signature, sig, (sigProvider == nullptr) ? $Signature::getInstance(sigAlgName) : $Signature::getInstance(sigAlgName, sigProvider));
 	try {
@@ -165,7 +109,7 @@ void X509CRL::verify($PublicKey* key, $Provider* sigProvider) {
 		$var($String, var$0, e->getMessage());
 		$throwNew($CRLException, var$0, $(e->getCause()));
 	} catch ($InvalidAlgorithmParameterException& e) {
-		$throwNew($CRLException, static_cast<$Throwable*>(e));
+		$throwNew($CRLException, e);
 	}
 	$var($bytes, tbsCRL, getTBSCertList());
 	$nc(sig)->update(tbsCRL, 0, $nc(tbsCRL)->length);
@@ -182,7 +126,7 @@ $X500Principal* X509CRL::getIssuerX500Principal() {
 }
 
 $X509CRLEntry* X509CRL::getRevokedCertificate($X509Certificate* certificate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($X500Principal, certIssuer, $nc(certificate)->getIssuerX500Principal());
 	$var($X500Principal, crlIssuer, getIssuerX500Principal());
 	if ($nc(certIssuer)->equals(crlIssuer) == false) {
@@ -195,7 +139,55 @@ X509CRL::X509CRL() {
 }
 
 $Class* X509CRL::load$($String* name, bool initialize) {
-	$loadClass(X509CRL, name, initialize, &_X509CRL_ClassInfo_, allocate$X509CRL);
+	$FieldInfo fieldInfos$$[] = {
+		{"issuerPrincipal", "Ljavax/security/auth/x500/X500Principal;", nullptr, $PRIVATE | $TRANSIENT, $field(X509CRL, issuerPrincipal)},
+		{}
+	};
+	$NamedAttribute getIssuerDNmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "16"},
+		{}
+	};
+	$CompoundAttribute getIssuerDNmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", getIssuerDNmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(X509CRL, init$, void)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(X509CRL, equals, bool, Object$*)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getEncoded, $bytes*), "java.security.cert.CRLException"},
+		{"getIssuerDN", "()Ljava/security/Principal;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(X509CRL, getIssuerDN, $Principal*), nullptr, nullptr, getIssuerDNmethodAnnotations$$},
+		{"getIssuerX500Principal", "()Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC, $virtualMethod(X509CRL, getIssuerX500Principal, $X500Principal*)},
+		{"getNextUpdate", "()Ljava/util/Date;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getNextUpdate, $Date*)},
+		{"getRevokedCertificate", "(Ljava/math/BigInteger;)Ljava/security/cert/X509CRLEntry;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getRevokedCertificate, $X509CRLEntry*, $BigInteger*)},
+		{"getRevokedCertificate", "(Ljava/security/cert/X509Certificate;)Ljava/security/cert/X509CRLEntry;", nullptr, $PUBLIC, $virtualMethod(X509CRL, getRevokedCertificate, $X509CRLEntry*, $X509Certificate*)},
+		{"getRevokedCertificates", "()Ljava/util/Set;", "()Ljava/util/Set<+Ljava/security/cert/X509CRLEntry;>;", $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getRevokedCertificates, $Set*)},
+		{"getSigAlgName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getSigAlgName, $String*)},
+		{"getSigAlgOID", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getSigAlgOID, $String*)},
+		{"getSigAlgParams", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getSigAlgParams, $bytes*)},
+		{"getSignature", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getSignature, $bytes*)},
+		{"getTBSCertList", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getTBSCertList, $bytes*), "java.security.cert.CRLException"},
+		{"getThisUpdate", "()Ljava/util/Date;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getThisUpdate, $Date*)},
+		{"getVersion", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, getVersion, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(X509CRL, hashCode, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{"verify", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, verify, void, $PublicKey*), "java.security.cert.CRLException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.NoSuchProviderException,java.security.SignatureException"},
+		{"verify", "(Ljava/security/PublicKey;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(X509CRL, verify, void, $PublicKey*, $String*), "java.security.cert.CRLException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.NoSuchProviderException,java.security.SignatureException"},
+		{"verify", "(Ljava/security/PublicKey;Ljava/security/Provider;)V", nullptr, $PUBLIC, $virtualMethod(X509CRL, verify, void, $PublicKey*, $Provider*), "java.security.cert.CRLException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException,java.security.SignatureException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.security.cert.X509CRL",
+		"java.security.cert.CRL",
+		"java.security.cert.X509Extension",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(X509CRL, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(X509CRL));
+	});
 	return class$;
 }
 

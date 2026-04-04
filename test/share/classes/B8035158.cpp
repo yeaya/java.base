@@ -1,5 +1,4 @@
 #include <B8035158.h>
-
 #include <B8035158$TestCase.h>
 #include <java/util/Collection.h>
 #include <java/util/HashMap.h>
@@ -26,67 +25,29 @@ using $LinkedList = ::java::util::LinkedList;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Properties = ::java::util::Properties;
-using $Set = ::java::util::Set;
 using $Callable = ::java::util::concurrent::Callable;
-
-$MethodInfo _B8035158_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(B8035158, init$, void)},
-	{"backupAndSetProperties", "(Ljava/util/Map;Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE | $STATIC, $staticMethod(B8035158, backupAndSetProperties, void, $Map*, $Map*)},
-	{"emptyNonProxiesHosts", "()Ljava/util/Collection;", "()Ljava/util/Collection<LB8035158$TestCase;>;", $PRIVATE | $STATIC, $staticMethod(B8035158, emptyNonProxiesHosts, $Collection*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B8035158, main, void, $StringArray*)},
-	{"misc", "()Ljava/util/Collection;", "()Ljava/util/Collection<LB8035158$TestCase;>;", $PRIVATE | $STATIC, $staticMethod(B8035158, misc, $Collection*)},
-	{"nonEmptyNonProxiesHosts", "()Ljava/util/Collection;", "()Ljava/util/Collection<LB8035158$TestCase;>;", $PRIVATE | $STATIC, $staticMethod(B8035158, nonEmptyNonProxiesHosts, $Collection*)},
-	{"restoreProperties", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE | $STATIC, $staticMethod(B8035158, restoreProperties, void, $Map*)},
-	{"withSystemPropertiesSet", "(Ljava/util/Map;Ljava/util/concurrent/Callable;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/concurrent/Callable<+TT;>;)TT;", $PRIVATE | $STATIC, $staticMethod(B8035158, withSystemPropertiesSet, $Object*, $Map*, $Callable*)},
-	{}
-};
-
-$InnerClassInfo _B8035158_InnerClassesInfo_[] = {
-	{"B8035158$TestCase", "B8035158", "TestCase", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _B8035158_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"B8035158",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_B8035158_MethodInfo_,
-	nullptr,
-	nullptr,
-	_B8035158_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"B8035158$TestCase,B8035158$TestCase$1"
-};
-
-$Object* allocate$B8035158($Class* clazz) {
-	return $of($alloc(B8035158));
-}
 
 void B8035158::init$() {
 }
 
 void B8035158::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
-		$var($Iterator, i$, $nc($(emptyNonProxiesHosts()))->iterator());
+		$var($Iterator, i$, $$nc(emptyNonProxiesHosts())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($B8035158$TestCase, t, $cast($B8035158$TestCase, i$->next()));
 			$nc(t)->run();
 		}
 	}
 	{
-		$var($Iterator, i$, $nc($(nonEmptyNonProxiesHosts()))->iterator());
+		$var($Iterator, i$, $$nc(nonEmptyNonProxiesHosts())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($B8035158$TestCase, t, $cast($B8035158$TestCase, i$->next()));
 			$nc(t)->run();
 		}
 	}
 	{
-		$var($Iterator, i$, $nc($(misc()))->iterator());
+		$var($Iterator, i$, $$nc(misc())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($B8035158$TestCase, t, $cast($B8035158$TestCase, i$->next()));
 			$nc(t)->run();
@@ -95,7 +56,7 @@ void B8035158::main($StringArray* args) {
 }
 
 $Collection* B8035158::emptyNonProxiesHosts() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, tests, $new($LinkedList));
 	$var($StringArray, loopbacks, $new($StringArray, {
 		"localhost"_s,
@@ -116,9 +77,7 @@ $Collection* B8035158::emptyNonProxiesHosts() {
 	properties->put("http.nonProxyHosts"_s, ""_s);
 	{
 		$var($StringArray, arr$, loopbacks);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, s, arr$->get(i$));
 			{
 				tests->add($$new($B8035158$TestCase, properties, $$str({"http://"_s, s}), true));
@@ -129,7 +88,7 @@ $Collection* B8035158::emptyNonProxiesHosts() {
 }
 
 $Collection* B8035158::nonEmptyNonProxiesHosts() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, tests, $new($LinkedList));
 	$var($StringArray, nonProxyHosts, $new($StringArray, {
 		"google.com"_s,
@@ -167,18 +126,14 @@ $Collection* B8035158::nonEmptyNonProxiesHosts() {
 		for (; i$ < len$; ++i$) {
 			$var($String, h, arr$->get(i$));
 			{
-				{
-					$var($StringArray, arr$, loopbacks);
-					int32_t len$ = arr$->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
-						$var($String, s, arr$->get(i$));
-						{
-							$var($Map, properties, $new($HashMap));
-							properties->put("http.proxyHost"_s, "http://proxy.example.com"_s);
-							properties->put("http.nonProxyHosts"_s, h);
-							tests->add($$new($B8035158$TestCase, properties, $$str({"http://"_s, s}), false));
-						}
+				$var($StringArray, arr$, loopbacks);
+				for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+					$var($String, s, arr$->get(i$));
+					{
+						$var($Map, properties, $new($HashMap));
+						properties->put("http.proxyHost"_s, "http://proxy.example.com"_s);
+						properties->put("http.nonProxyHosts"_s, h);
+						tests->add($$new($B8035158$TestCase, properties, $$str({"http://"_s, s}), false));
 					}
 				}
 			}
@@ -188,7 +143,7 @@ $Collection* B8035158::nonEmptyNonProxiesHosts() {
 }
 
 $Collection* B8035158::misc() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, t, $new($LinkedList));
 	t->add($$new($B8035158$TestCase, "oracle.com"_s, "http://137.254.16.101"_s, true));
 	t->add($$new($B8035158$TestCase, "google.com"_s, "http://74.125.200.101"_s, true));
@@ -249,65 +204,59 @@ $Collection* B8035158::misc() {
 }
 
 $Object* B8035158::withSystemPropertiesSet($Map* localProperties, $Callable* code) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, backup, $new($HashMap));
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Object, var$2, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	$var($Object, var$2, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				backupAndSetProperties(localProperties, backup);
-				$assign(var$2, $nc(code)->call());
-				return$1 = true;
-				goto $finally;
-			} catch ($Exception& e) {
-				$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			restoreProperties(backup);
+			backupAndSetProperties(localProperties, backup);
+			$assign(var$2, $nc(code)->call());
+			return$1 = true;
+			goto $finally;
+		} catch ($Exception& e) {
+			$throwNew($RuntimeException, e);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		restoreProperties(backup);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void B8035158::backupAndSetProperties($Map* localProperties, $Map* oldProperties) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($nc(localProperties)->entrySet()))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
-			{
-				$var($String, var$0, $cast($String, $nc(e)->getKey()));
-				$var($String, oldValue, $System::setProperty(var$0, $cast($String, $(e->getValue()))));
-				$nc(oldProperties)->put($cast($String, $($nc(e)->getKey())), oldValue);
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$nc($nc(localProperties)->entrySet())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
+		{
+			$var($String, var$0, $cast($String, $nc(e)->getKey()));
+			$var($String, oldValue, $System::setProperty(var$0, $$cast($String, e->getValue())));
+			$nc(oldProperties)->put($$cast($String, e->getKey()), oldValue);
 		}
 	}
 }
 
 void B8035158::restoreProperties($Map* oldProperties) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($nc(oldProperties)->entrySet()))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
-			{
-				$var($String, oldValue, $cast($String, $nc(e)->getValue()));
-				$var($String, key, $cast($String, e->getKey()));
-				if (oldValue == nullptr) {
-					$nc($($System::getProperties()))->remove(key);
-				} else {
-					$System::setProperty(key, oldValue);
-				}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$nc($nc(oldProperties)->entrySet())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
+		{
+			$var($String, oldValue, $cast($String, $nc(e)->getValue()));
+			$var($String, key, $cast($String, e->getKey()));
+			if (oldValue == nullptr) {
+				$$nc($System::getProperties())->remove(key);
+			} else {
+				$System::setProperty(key, oldValue);
 			}
 		}
 	}
@@ -317,7 +266,38 @@ B8035158::B8035158() {
 }
 
 $Class* B8035158::load$($String* name, bool initialize) {
-	$loadClass(B8035158, name, initialize, &_B8035158_ClassInfo_, allocate$B8035158);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(B8035158, init$, void)},
+		{"backupAndSetProperties", "(Ljava/util/Map;Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE | $STATIC, $staticMethod(B8035158, backupAndSetProperties, void, $Map*, $Map*)},
+		{"emptyNonProxiesHosts", "()Ljava/util/Collection;", "()Ljava/util/Collection<LB8035158$TestCase;>;", $PRIVATE | $STATIC, $staticMethod(B8035158, emptyNonProxiesHosts, $Collection*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B8035158, main, void, $StringArray*)},
+		{"misc", "()Ljava/util/Collection;", "()Ljava/util/Collection<LB8035158$TestCase;>;", $PRIVATE | $STATIC, $staticMethod(B8035158, misc, $Collection*)},
+		{"nonEmptyNonProxiesHosts", "()Ljava/util/Collection;", "()Ljava/util/Collection<LB8035158$TestCase;>;", $PRIVATE | $STATIC, $staticMethod(B8035158, nonEmptyNonProxiesHosts, $Collection*)},
+		{"restoreProperties", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE | $STATIC, $staticMethod(B8035158, restoreProperties, void, $Map*)},
+		{"withSystemPropertiesSet", "(Ljava/util/Map;Ljava/util/concurrent/Callable;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/concurrent/Callable<+TT;>;)TT;", $PRIVATE | $STATIC, $staticMethod(B8035158, withSystemPropertiesSet, $Object*, $Map*, $Callable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"B8035158$TestCase", "B8035158", "TestCase", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"B8035158",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"B8035158$TestCase,B8035158$TestCase$1"
+	};
+	$loadClass(B8035158, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(B8035158);
+	});
 	return class$;
 }
 

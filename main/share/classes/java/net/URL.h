@@ -50,6 +50,7 @@ class $export URL : public ::java::io::Serializable {
 	$class(URL, $PRELOAD, ::java::io::Serializable)
 public:
 	URL();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* protocol, $String* host, int32_t port, $String* file);
 	void init$($String* protocol, $String* host, $String* file);
 	void init$($String* protocol, $String* host, int32_t port, $String* file, ::java::net::URLStreamHandler* handler);
@@ -99,7 +100,7 @@ public:
 	::java::net::URI* toURI();
 	void writeObject(::java::io::ObjectOutputStream* s);
 	static $String* BUILTIN_HANDLERS_PREFIX;
-	static const int64_t serialVersionUID = (int64_t)0x962537361AFCE472;
+	static const int64_t serialVersionUID = (int64_t)0x962537361afce472;
 	static $String* protocolPathProp;
 	$String* protocol = nullptr;
 	$String* host = nullptr;

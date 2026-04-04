@@ -1,5 +1,4 @@
 #include <jdk/internal/platform/CgroupInfo.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,44 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace jdk {
 	namespace internal {
 		namespace platform {
-
-$FieldInfo _CgroupInfo_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(CgroupInfo, name)},
-	{"hierarchyId", "I", nullptr, $PRIVATE | $FINAL, $field(CgroupInfo, hierarchyId)},
-	{"enabled", "Z", nullptr, $PRIVATE | $FINAL, $field(CgroupInfo, enabled)},
-	{"mountPoint", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CgroupInfo, mountPoint)},
-	{"mountRoot", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CgroupInfo, mountRoot)},
-	{"cgroupPath", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CgroupInfo, cgroupPath)},
-	{}
-};
-
-$MethodInfo _CgroupInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;IZ)V", nullptr, $PRIVATE, $method(CgroupInfo, init$, void, $String*, int32_t, bool)},
-	{"fromCgroupsLine", "(Ljava/lang/String;)Ljdk/internal/platform/CgroupInfo;", nullptr, $STATIC, $staticMethod(CgroupInfo, fromCgroupsLine, CgroupInfo*, $String*)},
-	{"getCgroupPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, getCgroupPath, $String*)},
-	{"getHierarchyId", "()I", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, getHierarchyId, int32_t)},
-	{"getMountPoint", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, getMountPoint, $String*)},
-	{"getMountRoot", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, getMountRoot, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, getName, $String*)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, isEnabled, bool)},
-	{"setCgroupPath", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, setCgroupPath, void, $String*)},
-	{"setMountPoint", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, setMountPoint, void, $String*)},
-	{"setMountRoot", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, setMountRoot, void, $String*)},
-	{}
-};
-
-$ClassInfo _CgroupInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.platform.CgroupInfo",
-	"java.lang.Object",
-	nullptr,
-	_CgroupInfo_FieldInfo_,
-	_CgroupInfo_MethodInfo_
-};
-
-$Object* allocate$CgroupInfo($Class* clazz) {
-	return $of($alloc(CgroupInfo));
-}
 
 void CgroupInfo::init$($String* name, int32_t hierarchyId, bool enabled) {
 	$set(this, name, name);
@@ -92,7 +53,7 @@ void CgroupInfo::setCgroupPath($String* cgroupPath) {
 }
 
 CgroupInfo* CgroupInfo::fromCgroupsLine($String* line) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, tokens, $nc(line)->split("\\s+"_s));
 	if (tokens->length != 4) {
 		return nullptr;
@@ -106,7 +67,40 @@ CgroupInfo::CgroupInfo() {
 }
 
 $Class* CgroupInfo::load$($String* name, bool initialize) {
-	$loadClass(CgroupInfo, name, initialize, &_CgroupInfo_ClassInfo_, allocate$CgroupInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(CgroupInfo, name)},
+		{"hierarchyId", "I", nullptr, $PRIVATE | $FINAL, $field(CgroupInfo, hierarchyId)},
+		{"enabled", "Z", nullptr, $PRIVATE | $FINAL, $field(CgroupInfo, enabled)},
+		{"mountPoint", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CgroupInfo, mountPoint)},
+		{"mountRoot", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CgroupInfo, mountRoot)},
+		{"cgroupPath", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CgroupInfo, cgroupPath)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;IZ)V", nullptr, $PRIVATE, $method(CgroupInfo, init$, void, $String*, int32_t, bool)},
+		{"fromCgroupsLine", "(Ljava/lang/String;)Ljdk/internal/platform/CgroupInfo;", nullptr, $STATIC, $staticMethod(CgroupInfo, fromCgroupsLine, CgroupInfo*, $String*)},
+		{"getCgroupPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, getCgroupPath, $String*)},
+		{"getHierarchyId", "()I", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, getHierarchyId, int32_t)},
+		{"getMountPoint", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, getMountPoint, $String*)},
+		{"getMountRoot", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, getMountRoot, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, getName, $String*)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, isEnabled, bool)},
+		{"setCgroupPath", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, setCgroupPath, void, $String*)},
+		{"setMountPoint", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, setMountPoint, void, $String*)},
+		{"setMountRoot", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CgroupInfo, setMountRoot, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.platform.CgroupInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CgroupInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CgroupInfo);
+	});
 	return class$;
 }
 

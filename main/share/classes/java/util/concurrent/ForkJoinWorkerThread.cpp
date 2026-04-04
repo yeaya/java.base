@@ -1,5 +1,4 @@
 #include <java/util/concurrent/ForkJoinWorkerThread.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/Thread$UncaughtExceptionHandler.h>
@@ -23,50 +22,8 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _ForkJoinWorkerThread_FieldInfo_[] = {
-	{"pool", "Ljava/util/concurrent/ForkJoinPool;", nullptr, $FINAL, $field(ForkJoinWorkerThread, pool)},
-	{"workQueue", "Ljava/util/concurrent/ForkJoinPool$WorkQueue;", nullptr, $FINAL, $field(ForkJoinWorkerThread, workQueue)},
-	{}
-};
-
-$MethodInfo _ForkJoinWorkerThread_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/util/concurrent/ForkJoinPool;ZZ)V", nullptr, 0, $method(ForkJoinWorkerThread, init$, void, $ThreadGroup*, $ForkJoinPool*, bool, bool)},
-	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/util/concurrent/ForkJoinPool;)V", nullptr, 0, $method(ForkJoinWorkerThread, init$, void, $ThreadGroup*, $ForkJoinPool*)},
-	{"<init>", "(Ljava/util/concurrent/ForkJoinPool;)V", nullptr, $PROTECTED, $method(ForkJoinWorkerThread, init$, void, $ForkJoinPool*)},
-	{"getPool", "()Ljava/util/concurrent/ForkJoinPool;", nullptr, $PUBLIC, $virtualMethod(ForkJoinWorkerThread, getPool, $ForkJoinPool*)},
-	{"getPoolIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ForkJoinWorkerThread, getPoolIndex, int32_t)},
-	{"onStart", "()V", nullptr, $PROTECTED, $virtualMethod(ForkJoinWorkerThread, onStart, void)},
-	{"onTermination", "(Ljava/lang/Throwable;)V", nullptr, $PROTECTED, $virtualMethod(ForkJoinWorkerThread, onTermination, void, $Throwable*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ForkJoinWorkerThread, run, void)},
-	{}
-};
-
-$InnerClassInfo _ForkJoinWorkerThread_InnerClassesInfo_[] = {
-	{"java.util.concurrent.ForkJoinWorkerThread$InnocuousForkJoinWorkerThread", "java.util.concurrent.ForkJoinWorkerThread", "InnocuousForkJoinWorkerThread", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ForkJoinWorkerThread_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.concurrent.ForkJoinWorkerThread",
-	"java.lang.Thread",
-	nullptr,
-	_ForkJoinWorkerThread_FieldInfo_,
-	_ForkJoinWorkerThread_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ForkJoinWorkerThread_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.ForkJoinWorkerThread$InnocuousForkJoinWorkerThread,java.util.concurrent.ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1"
-};
-
-$Object* allocate$ForkJoinWorkerThread($Class* clazz) {
-	return $of($alloc(ForkJoinWorkerThread));
-}
-
 void ForkJoinWorkerThread::init$($ThreadGroup* group, $ForkJoinPool* pool, bool useSystemClassLoader, bool isInnocuous) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Thread::init$(group, nullptr, $($nc(pool)->nextWorkerThreadName()), 0);
 	$var($Thread$UncaughtExceptionHandler, handler, $nc(($set(this, pool, pool)))->ueh);
@@ -103,47 +60,43 @@ void ForkJoinWorkerThread::onTermination($Throwable* exception) {
 }
 
 void ForkJoinWorkerThread::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Throwable, exception, nullptr);
 	$var($ForkJoinPool, p, this->pool);
 	$var($ForkJoinPool$WorkQueue, w, this->workQueue);
 	if (p != nullptr && w != nullptr) {
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
+			try {
+				p->registerWorker(w);
+				onStart();
+				p->runWorker(w);
+			} catch ($Throwable& ex) {
+				$assign(exception, ex);
+			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$var($Throwable, var$2, nullptr);
 			try {
 				try {
-					p->registerWorker(w);
-					onStart();
-					p->runWorker(w);
+					onTermination(exception);
 				} catch ($Throwable& ex) {
-					$assign(exception, ex);
+					if (exception == nullptr) {
+						$assign(exception, ex);
+					}
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
+			} catch ($Throwable& var$3) {
+				$assign(var$2, var$3);
 			} /*finally*/ {
-				{
-					$var($Throwable, var$2, nullptr);
-					try {
-						try {
-							onTermination(exception);
-						} catch ($Throwable& ex) {
-							if (exception == nullptr) {
-								$assign(exception, ex);
-							}
-						}
-					} catch ($Throwable& var$3) {
-						$assign(var$2, var$3);
-					} /*finally*/ {
-						p->deregisterWorker(this, exception);
-					}
-					if (var$2 != nullptr) {
-						$throw(var$2);
-					}
-				}
+				p->deregisterWorker(this, exception);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+			if (var$2 != nullptr) {
+				$throw(var$2);
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -152,7 +105,43 @@ ForkJoinWorkerThread::ForkJoinWorkerThread() {
 }
 
 $Class* ForkJoinWorkerThread::load$($String* name, bool initialize) {
-	$loadClass(ForkJoinWorkerThread, name, initialize, &_ForkJoinWorkerThread_ClassInfo_, allocate$ForkJoinWorkerThread);
+	$FieldInfo fieldInfos$$[] = {
+		{"pool", "Ljava/util/concurrent/ForkJoinPool;", nullptr, $FINAL, $field(ForkJoinWorkerThread, pool)},
+		{"workQueue", "Ljava/util/concurrent/ForkJoinPool$WorkQueue;", nullptr, $FINAL, $field(ForkJoinWorkerThread, workQueue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/ThreadGroup;Ljava/util/concurrent/ForkJoinPool;ZZ)V", nullptr, 0, $method(ForkJoinWorkerThread, init$, void, $ThreadGroup*, $ForkJoinPool*, bool, bool)},
+		{"<init>", "(Ljava/lang/ThreadGroup;Ljava/util/concurrent/ForkJoinPool;)V", nullptr, 0, $method(ForkJoinWorkerThread, init$, void, $ThreadGroup*, $ForkJoinPool*)},
+		{"<init>", "(Ljava/util/concurrent/ForkJoinPool;)V", nullptr, $PROTECTED, $method(ForkJoinWorkerThread, init$, void, $ForkJoinPool*)},
+		{"getPool", "()Ljava/util/concurrent/ForkJoinPool;", nullptr, $PUBLIC, $virtualMethod(ForkJoinWorkerThread, getPool, $ForkJoinPool*)},
+		{"getPoolIndex", "()I", nullptr, $PUBLIC, $virtualMethod(ForkJoinWorkerThread, getPoolIndex, int32_t)},
+		{"onStart", "()V", nullptr, $PROTECTED, $virtualMethod(ForkJoinWorkerThread, onStart, void)},
+		{"onTermination", "(Ljava/lang/Throwable;)V", nullptr, $PROTECTED, $virtualMethod(ForkJoinWorkerThread, onTermination, void, $Throwable*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ForkJoinWorkerThread, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.ForkJoinWorkerThread$InnocuousForkJoinWorkerThread", "java.util.concurrent.ForkJoinWorkerThread", "InnocuousForkJoinWorkerThread", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.concurrent.ForkJoinWorkerThread",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.ForkJoinWorkerThread$InnocuousForkJoinWorkerThread,java.util.concurrent.ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1"
+	};
+	$loadClass(ForkJoinWorkerThread, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ForkJoinWorkerThread);
+	});
 	return class$;
 }
 

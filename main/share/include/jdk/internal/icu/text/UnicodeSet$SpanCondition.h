@@ -23,6 +23,7 @@ class $import UnicodeSet$SpanCondition : public ::java::lang::Enum {
 public:
 	UnicodeSet$SpanCondition();
 	static $Array<::jdk::internal::icu::text::UnicodeSet$SpanCondition>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::jdk::internal::icu::text::UnicodeSet$SpanCondition* valueOf($String* name);
 	static $Array<::jdk::internal::icu::text::UnicodeSet$SpanCondition>* values();

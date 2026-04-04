@@ -45,7 +45,7 @@ public:
 	bool isTerminal();
 	static ::jdk::internal::jimage::decompressor::CompressedResourceHeader* readFromResource(::java::nio::ByteOrder* order, $bytes* resource);
 	static const int32_t SIZE = 29;
-	static const int32_t MAGIC = 0xCAFEFAFA;
+	static const int32_t MAGIC = 0xcafefafa;
 	int64_t uncompressedSize = 0;
 	int64_t compressedSize = 0;
 	int32_t decompressorNameOffset = 0;

@@ -1,5 +1,4 @@
 #include <javax/net/ssl/DefaultSSLServerSocketFactory.h>
-
 #include <java/net/InetAddress.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/SocketException.h>
@@ -19,44 +18,14 @@ namespace javax {
 	namespace net {
 		namespace ssl {
 
-$FieldInfo _DefaultSSLServerSocketFactory_FieldInfo_[] = {
-	{"reason", "Ljava/lang/Exception;", nullptr, $PRIVATE | $FINAL, $field(DefaultSSLServerSocketFactory, reason)},
-	{}
-};
-
-$MethodInfo _DefaultSSLServerSocketFactory_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, 0, $method(DefaultSSLServerSocketFactory, init$, void, $Exception*)},
-	{"createServerSocket", "()Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(DefaultSSLServerSocketFactory, createServerSocket, $ServerSocket*), "java.io.IOException"},
-	{"createServerSocket", "(I)Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(DefaultSSLServerSocketFactory, createServerSocket, $ServerSocket*, int32_t), "java.io.IOException"},
-	{"createServerSocket", "(II)Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(DefaultSSLServerSocketFactory, createServerSocket, $ServerSocket*, int32_t, int32_t), "java.io.IOException"},
-	{"createServerSocket", "(IILjava/net/InetAddress;)Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(DefaultSSLServerSocketFactory, createServerSocket, $ServerSocket*, int32_t, int32_t, $InetAddress*), "java.io.IOException"},
-	{"getDefaultCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultSSLServerSocketFactory, getDefaultCipherSuites, $StringArray*)},
-	{"getSupportedCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultSSLServerSocketFactory, getSupportedCipherSuites, $StringArray*)},
-	{"throwException", "()Ljava/net/ServerSocket;", nullptr, $PRIVATE, $method(DefaultSSLServerSocketFactory, throwException, $ServerSocket*), "java.net.SocketException"},
-	{}
-};
-
-$ClassInfo _DefaultSSLServerSocketFactory_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.net.ssl.DefaultSSLServerSocketFactory",
-	"javax.net.ssl.SSLServerSocketFactory",
-	nullptr,
-	_DefaultSSLServerSocketFactory_FieldInfo_,
-	_DefaultSSLServerSocketFactory_MethodInfo_
-};
-
-$Object* allocate$DefaultSSLServerSocketFactory($Class* clazz) {
-	return $of($alloc(DefaultSSLServerSocketFactory));
-}
-
 void DefaultSSLServerSocketFactory::init$($Exception* reason) {
 	$SSLServerSocketFactory::init$();
 	$set(this, reason, reason);
 }
 
 $ServerSocket* DefaultSSLServerSocketFactory::throwException() {
-	$useLocalCurrentObjectStackCache();
-	$throw($cast($SocketException, $($$new($SocketException, $($nc(this->reason)->toString()))->initCause(this->reason))));
+	$useLocalObjectStack();
+	$throw($$cast($SocketException, $$new($SocketException, $($nc(this->reason)->toString()))->initCause(this->reason)));
 	$shouldNotReachHere();
 }
 
@@ -88,7 +57,32 @@ DefaultSSLServerSocketFactory::DefaultSSLServerSocketFactory() {
 }
 
 $Class* DefaultSSLServerSocketFactory::load$($String* name, bool initialize) {
-	$loadClass(DefaultSSLServerSocketFactory, name, initialize, &_DefaultSSLServerSocketFactory_ClassInfo_, allocate$DefaultSSLServerSocketFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"reason", "Ljava/lang/Exception;", nullptr, $PRIVATE | $FINAL, $field(DefaultSSLServerSocketFactory, reason)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Exception;)V", nullptr, 0, $method(DefaultSSLServerSocketFactory, init$, void, $Exception*)},
+		{"createServerSocket", "()Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(DefaultSSLServerSocketFactory, createServerSocket, $ServerSocket*), "java.io.IOException"},
+		{"createServerSocket", "(I)Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(DefaultSSLServerSocketFactory, createServerSocket, $ServerSocket*, int32_t), "java.io.IOException"},
+		{"createServerSocket", "(II)Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(DefaultSSLServerSocketFactory, createServerSocket, $ServerSocket*, int32_t, int32_t), "java.io.IOException"},
+		{"createServerSocket", "(IILjava/net/InetAddress;)Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(DefaultSSLServerSocketFactory, createServerSocket, $ServerSocket*, int32_t, int32_t, $InetAddress*), "java.io.IOException"},
+		{"getDefaultCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultSSLServerSocketFactory, getDefaultCipherSuites, $StringArray*)},
+		{"getSupportedCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultSSLServerSocketFactory, getSupportedCipherSuites, $StringArray*)},
+		{"throwException", "()Ljava/net/ServerSocket;", nullptr, $PRIVATE, $method(DefaultSSLServerSocketFactory, throwException, $ServerSocket*), "java.net.SocketException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.net.ssl.DefaultSSLServerSocketFactory",
+		"javax.net.ssl.SSLServerSocketFactory",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DefaultSSLServerSocketFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultSSLServerSocketFactory);
+	});
 	return class$;
 }
 

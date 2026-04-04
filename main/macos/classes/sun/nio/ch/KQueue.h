@@ -42,6 +42,7 @@ class KQueue : public ::java::lang::Object {
 	$class(KQueue, 0, ::java::lang::Object)
 public:
 	KQueue();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int64_t allocatePollArray(int32_t count);
 	static int32_t create();

@@ -1,5 +1,4 @@
 #include <Args.h>
-
 #include <Args$1.h>
 #include <Args$2.h>
 #include <Args$3.h>
@@ -22,7 +21,6 @@ using $Args$6 = ::Args$6;
 using $Args$7 = ::Args$7;
 using $Args$Thunk = ::Args$Thunk;
 using $File = ::java::io::File;
-using $PrintStream = ::java::io::PrintStream;
 using $RandomAccessFile = ::java::io::RandomAccessFile;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -30,45 +28,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $FileChannel = ::java::nio::channels::FileChannel;
-
-$MethodInfo _Args_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Args, init$, void)},
-	{"fail", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Args, fail, void, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Args, main, void, $StringArray*), "java.lang.Exception"},
-	{"tryCatch", "(Ljava/lang/Class;LArgs$Thunk;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Args, tryCatch, void, $Class*, $Args$Thunk*)},
-	{}
-};
-
-$InnerClassInfo _Args_InnerClassesInfo_[] = {
-	{"Args$Thunk", "Args", "Thunk", $STATIC | $INTERFACE | $ABSTRACT},
-	{"Args$7", nullptr, nullptr, 0},
-	{"Args$6", nullptr, nullptr, 0},
-	{"Args$5", nullptr, nullptr, 0},
-	{"Args$4", nullptr, nullptr, 0},
-	{"Args$3", nullptr, nullptr, 0},
-	{"Args$2", nullptr, nullptr, 0},
-	{"Args$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Args_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Args",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Args_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Args_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"Args$Thunk,Args$7,Args$6,Args$5,Args$4,Args$3,Args$2,Args$1"
-};
-
-$Object* allocate$Args($Class* clazz) {
-	return $of($alloc(Args));
-}
 
 void Args::init$() {
 }
@@ -78,12 +37,12 @@ void Args::fail($String* s) {
 }
 
 void Args::tryCatch($Class* ex, $Args$Thunk* thunk) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool caught = false;
 	try {
 		$nc(thunk)->run();
 	} catch ($Throwable& x) {
-		if ($nc(ex)->isAssignableFrom($of(x)->getClass())) {
+		if ($nc(ex)->isAssignableFrom(x->getClass())) {
 			caught = true;
 			$nc($System::err)->println($$str({"Thrown as expected: "_s, x}));
 		}
@@ -94,7 +53,7 @@ void Args::tryCatch($Class* ex, $Args$Thunk* thunk) {
 }
 
 void Args::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, f, $File::createTempFile("foo"_s, nullptr));
 	$nc(f)->deleteOnExit();
 	$var($FileChannel, fc, $$new($RandomAccessFile, f, "rw"_s)->getChannel());
@@ -114,7 +73,41 @@ Args::Args() {
 }
 
 $Class* Args::load$($String* name, bool initialize) {
-	$loadClass(Args, name, initialize, &_Args_ClassInfo_, allocate$Args);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Args, init$, void)},
+		{"fail", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Args, fail, void, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Args, main, void, $StringArray*), "java.lang.Exception"},
+		{"tryCatch", "(Ljava/lang/Class;LArgs$Thunk;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Args, tryCatch, void, $Class*, $Args$Thunk*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Args$Thunk", "Args", "Thunk", $STATIC | $INTERFACE | $ABSTRACT},
+		{"Args$7", nullptr, nullptr, 0},
+		{"Args$6", nullptr, nullptr, 0},
+		{"Args$5", nullptr, nullptr, 0},
+		{"Args$4", nullptr, nullptr, 0},
+		{"Args$3", nullptr, nullptr, 0},
+		{"Args$2", nullptr, nullptr, 0},
+		{"Args$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Args",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"Args$Thunk,Args$7,Args$6,Args$5,Args$4,Args$3,Args$2,Args$1"
+	};
+	$loadClass(Args, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Args);
+	});
 	return class$;
 }
 

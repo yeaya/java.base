@@ -66,7 +66,7 @@ public:
 	static const int32_t MINUTE_IN_MILLIS = 60000; // SECOND_IN_MILLIS * 60
 	static const int32_t HOUR_IN_MILLIS = 3600000; // MINUTE_IN_MILLIS * 60
 	static const int32_t DAY_IN_MILLIS = 86400000; // HOUR_IN_MILLIS * 24
-	static const int32_t EPOCH_OFFSET = 0x000AF93B;
+	static const int32_t EPOCH_OFFSET = 0x000af93b;
 	$Array<::sun::util::calendar::Era>* eras = nullptr;
 };
 

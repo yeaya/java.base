@@ -1,5 +1,4 @@
 #include <java/util/Locale$LanguageRange.h>
-
 #include <java/util/List.h>
 #include <java/util/Locale.h>
 #include <java/util/Map.h>
@@ -25,55 +24,6 @@ using $LocaleMatcher = ::sun::util::locale::LocaleMatcher;
 namespace java {
 	namespace util {
 
-$FieldInfo _Locale$LanguageRange_FieldInfo_[] = {
-	{"MAX_WEIGHT", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale$LanguageRange, MAX_WEIGHT)},
-	{"MIN_WEIGHT", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale$LanguageRange, MIN_WEIGHT)},
-	{"range", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Locale$LanguageRange, range)},
-	{"weight", "D", nullptr, $PRIVATE | $FINAL, $field(Locale$LanguageRange, weight)},
-	{"hash", "I", nullptr, $PRIVATE | $VOLATILE, $field(Locale$LanguageRange, hash)},
-	{}
-};
-
-$MethodInfo _Locale$LanguageRange_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Locale$LanguageRange, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;D)V", nullptr, $PUBLIC, $method(Locale$LanguageRange, init$, void, $String*, double)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Locale$LanguageRange, equals, bool, Object$*)},
-	{"getRange", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale$LanguageRange, getRange, $String*)},
-	{"getWeight", "()D", nullptr, $PUBLIC, $method(Locale$LanguageRange, getWeight, double)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Locale$LanguageRange, hashCode, int32_t)},
-	{"isSubtagIllFormed", "(Ljava/lang/String;Z)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Locale$LanguageRange, isSubtagIllFormed, bool, $String*, bool)},
-	{"mapEquivalents", "(Ljava/util/List;Ljava/util/Map;)Ljava/util/List;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)Ljava/util/List<Ljava/util/Locale$LanguageRange;>;", $PUBLIC | $STATIC, $staticMethod(Locale$LanguageRange, mapEquivalents, $List*, $List*, $Map*)},
-	{"parse", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/util/Locale$LanguageRange;>;", $PUBLIC | $STATIC, $staticMethod(Locale$LanguageRange, parse, $List*, $String*)},
-	{"parse", "(Ljava/lang/String;Ljava/util/Map;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)Ljava/util/List<Ljava/util/Locale$LanguageRange;>;", $PUBLIC | $STATIC, $staticMethod(Locale$LanguageRange, parse, $List*, $String*, $Map*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Locale$LanguageRange, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Locale$LanguageRange_InnerClassesInfo_[] = {
-	{"java.util.Locale$LanguageRange", "java.util.Locale", "LanguageRange", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Locale$LanguageRange_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.util.Locale$LanguageRange",
-	"java.lang.Object",
-	nullptr,
-	_Locale$LanguageRange_FieldInfo_,
-	_Locale$LanguageRange_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Locale$LanguageRange_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Locale"
-};
-
-$Object* allocate$Locale$LanguageRange($Class* clazz) {
-	return $of($alloc(Locale$LanguageRange));
-}
-
 double Locale$LanguageRange::MAX_WEIGHT = 0.0;
 double Locale$LanguageRange::MIN_WEIGHT = 0.0;
 
@@ -82,7 +32,7 @@ void Locale$LanguageRange::init$($String* range) {
 }
 
 void Locale$LanguageRange::init$($String* range$renamed, double weight) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, range, range$renamed);
 	if (range == nullptr) {
 		$throwNew($NullPointerException);
@@ -114,40 +64,28 @@ void Locale$LanguageRange::init$($String* range$renamed, double weight) {
 
 bool Locale$LanguageRange::isSubtagIllFormed($String* subtag, bool isFirstSubtag) {
 	$init(Locale$LanguageRange);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(subtag)->isEmpty();
-	if (var$0 || $nc(subtag)->length() > 8) {
+	if (var$0 || subtag->length() > 8) {
 		return true;
 	} else if (subtag->equals("*"_s)) {
 		return false;
 	}
-	$var($chars, charArray, $nc(subtag)->toCharArray());
+	$var($chars, charArray, subtag->toCharArray());
 	if (isFirstSubtag) {
-		{
-			$var($chars, arr$, charArray);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				char16_t c = arr$->get(i$);
-				{
-					if (c < u'a' || c > u'z') {
-						return true;
-					}
-				}
+		$var($chars, arr$, charArray);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			char16_t c = arr$->get(i$);
+			if (c < u'a' || c > u'z') {
+				return true;
 			}
 		}
 	} else {
-		{
-			$var($chars, arr$, charArray);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				char16_t c = arr$->get(i$);
-				{
-					if (c < u'0' || (c > u'9' && c < u'a') || c > u'z') {
-						return true;
-					}
-				}
+		$var($chars, arr$, charArray);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			char16_t c = arr$->get(i$);
+			if (c < u'0' || (c > u'9' && c < u'a') || c > u'z') {
+				return true;
 			}
 		}
 	}
@@ -203,7 +141,7 @@ bool Locale$LanguageRange::equals(Object$* obj) {
 	}
 	bool var$1 = var$2;
 	bool var$0 = var$1 && $nc(this->range)->equals($nc(other)->range);
-	return var$0 && this->weight == $nc(other)->weight;
+	return var$0 && this->weight == other->weight;
 }
 
 $String* Locale$LanguageRange::toString() {
@@ -213,13 +151,56 @@ $String* Locale$LanguageRange::toString() {
 Locale$LanguageRange::Locale$LanguageRange() {
 }
 
-void clinit$Locale$LanguageRange($Class* class$) {
+void Locale$LanguageRange::clinit$($Class* clazz) {
 	Locale$LanguageRange::MAX_WEIGHT = 1.0;
 	Locale$LanguageRange::MIN_WEIGHT = 0.0;
 }
 
 $Class* Locale$LanguageRange::load$($String* name, bool initialize) {
-	$loadClass(Locale$LanguageRange, name, initialize, &_Locale$LanguageRange_ClassInfo_, clinit$Locale$LanguageRange, allocate$Locale$LanguageRange);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_WEIGHT", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale$LanguageRange, MAX_WEIGHT)},
+		{"MIN_WEIGHT", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale$LanguageRange, MIN_WEIGHT)},
+		{"range", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Locale$LanguageRange, range)},
+		{"weight", "D", nullptr, $PRIVATE | $FINAL, $field(Locale$LanguageRange, weight)},
+		{"hash", "I", nullptr, $PRIVATE | $VOLATILE, $field(Locale$LanguageRange, hash)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Locale$LanguageRange, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;D)V", nullptr, $PUBLIC, $method(Locale$LanguageRange, init$, void, $String*, double)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Locale$LanguageRange, equals, bool, Object$*)},
+		{"getRange", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale$LanguageRange, getRange, $String*)},
+		{"getWeight", "()D", nullptr, $PUBLIC, $method(Locale$LanguageRange, getWeight, double)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Locale$LanguageRange, hashCode, int32_t)},
+		{"isSubtagIllFormed", "(Ljava/lang/String;Z)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Locale$LanguageRange, isSubtagIllFormed, bool, $String*, bool)},
+		{"mapEquivalents", "(Ljava/util/List;Ljava/util/Map;)Ljava/util/List;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)Ljava/util/List<Ljava/util/Locale$LanguageRange;>;", $PUBLIC | $STATIC, $staticMethod(Locale$LanguageRange, mapEquivalents, $List*, $List*, $Map*)},
+		{"parse", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/util/Locale$LanguageRange;>;", $PUBLIC | $STATIC, $staticMethod(Locale$LanguageRange, parse, $List*, $String*)},
+		{"parse", "(Ljava/lang/String;Ljava/util/Map;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;)Ljava/util/List<Ljava/util/Locale$LanguageRange;>;", $PUBLIC | $STATIC, $staticMethod(Locale$LanguageRange, parse, $List*, $String*, $Map*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Locale$LanguageRange, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Locale$LanguageRange", "java.util.Locale", "LanguageRange", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.util.Locale$LanguageRange",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Locale"
+	};
+	$loadClass(Locale$LanguageRange, name, initialize, &classInfo$$, Locale$LanguageRange::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Locale$LanguageRange);
+	});
 	return class$;
 }
 

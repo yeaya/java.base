@@ -1,5 +1,4 @@
 #include <java/security/DrbgParameters.h>
-
 #include <java/security/DrbgParameters$Capability.h>
 #include <java/security/DrbgParameters$Instantiation.h>
 #include <java/security/DrbgParameters$NextBytes.h>
@@ -18,41 +17,6 @@ using $Objects = ::java::util::Objects;
 
 namespace java {
 	namespace security {
-
-$MethodInfo _DrbgParameters_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DrbgParameters, init$, void)},
-	{"instantiation", "(ILjava/security/DrbgParameters$Capability;[B)Ljava/security/DrbgParameters$Instantiation;", nullptr, $PUBLIC | $STATIC, $staticMethod(DrbgParameters, instantiation, $DrbgParameters$Instantiation*, int32_t, $DrbgParameters$Capability*, $bytes*)},
-	{"nextBytes", "(IZ[B)Ljava/security/DrbgParameters$NextBytes;", nullptr, $PUBLIC | $STATIC, $staticMethod(DrbgParameters, nextBytes, $DrbgParameters$NextBytes*, int32_t, bool, $bytes*)},
-	{"reseed", "(Z[B)Ljava/security/DrbgParameters$Reseed;", nullptr, $PUBLIC | $STATIC, $staticMethod(DrbgParameters, reseed, $DrbgParameters$Reseed*, bool, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _DrbgParameters_InnerClassesInfo_[] = {
-	{"java.security.DrbgParameters$Reseed", "java.security.DrbgParameters", "Reseed", $PUBLIC | $STATIC | $FINAL},
-	{"java.security.DrbgParameters$NextBytes", "java.security.DrbgParameters", "NextBytes", $PUBLIC | $STATIC | $FINAL},
-	{"java.security.DrbgParameters$Instantiation", "java.security.DrbgParameters", "Instantiation", $PUBLIC | $STATIC | $FINAL},
-	{"java.security.DrbgParameters$Capability", "java.security.DrbgParameters", "Capability", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _DrbgParameters_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.DrbgParameters",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_DrbgParameters_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DrbgParameters_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.security.DrbgParameters$Reseed,java.security.DrbgParameters$NextBytes,java.security.DrbgParameters$Instantiation,java.security.DrbgParameters$Capability"
-};
-
-$Object* allocate$DrbgParameters($Class* clazz) {
-	return $of($alloc(DrbgParameters));
-}
 
 void DrbgParameters::init$() {
 }
@@ -73,7 +37,37 @@ DrbgParameters::DrbgParameters() {
 }
 
 $Class* DrbgParameters::load$($String* name, bool initialize) {
-	$loadClass(DrbgParameters, name, initialize, &_DrbgParameters_ClassInfo_, allocate$DrbgParameters);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DrbgParameters, init$, void)},
+		{"instantiation", "(ILjava/security/DrbgParameters$Capability;[B)Ljava/security/DrbgParameters$Instantiation;", nullptr, $PUBLIC | $STATIC, $staticMethod(DrbgParameters, instantiation, $DrbgParameters$Instantiation*, int32_t, $DrbgParameters$Capability*, $bytes*)},
+		{"nextBytes", "(IZ[B)Ljava/security/DrbgParameters$NextBytes;", nullptr, $PUBLIC | $STATIC, $staticMethod(DrbgParameters, nextBytes, $DrbgParameters$NextBytes*, int32_t, bool, $bytes*)},
+		{"reseed", "(Z[B)Ljava/security/DrbgParameters$Reseed;", nullptr, $PUBLIC | $STATIC, $staticMethod(DrbgParameters, reseed, $DrbgParameters$Reseed*, bool, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.DrbgParameters$Reseed", "java.security.DrbgParameters", "Reseed", $PUBLIC | $STATIC | $FINAL},
+		{"java.security.DrbgParameters$NextBytes", "java.security.DrbgParameters", "NextBytes", $PUBLIC | $STATIC | $FINAL},
+		{"java.security.DrbgParameters$Instantiation", "java.security.DrbgParameters", "Instantiation", $PUBLIC | $STATIC | $FINAL},
+		{"java.security.DrbgParameters$Capability", "java.security.DrbgParameters", "Capability", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.DrbgParameters",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.security.DrbgParameters$Reseed,java.security.DrbgParameters$NextBytes,java.security.DrbgParameters$Instantiation,java.security.DrbgParameters$Capability"
+	};
+	$loadClass(DrbgParameters, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DrbgParameters);
+	});
 	return class$;
 }
 

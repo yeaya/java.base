@@ -18,6 +18,7 @@ class RC2Crypt : public ::com::sun::crypto::provider::SymmetricCipher {
 	$class(RC2Crypt, 0, ::com::sun::crypto::provider::SymmetricCipher)
 public:
 	RC2Crypt();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkKey($String* algorithm, int32_t keyLength);
 	virtual void decryptBlock($bytes* in, int32_t inOfs, $bytes* out, int32_t outOfs) override;

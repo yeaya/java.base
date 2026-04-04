@@ -1,5 +1,4 @@
 #include <sun/security/util/LegacyAlgorithmConstraints.h>
-
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/Key.h>
 #include <java/util/List.h>
@@ -24,33 +23,6 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$FieldInfo _LegacyAlgorithmConstraints_FieldInfo_[] = {
-	{"PROPERTY_TLS_LEGACY_ALGS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LegacyAlgorithmConstraints, PROPERTY_TLS_LEGACY_ALGS)},
-	{"legacyAlgorithms", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(LegacyAlgorithmConstraints, legacyAlgorithms)},
-	{}
-};
-
-$MethodInfo _LegacyAlgorithmConstraints_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/security/util/AlgorithmDecomposer;)V", nullptr, $PUBLIC, $method(LegacyAlgorithmConstraints, init$, void, $String*, $AlgorithmDecomposer*)},
-	{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", $PUBLIC | $FINAL, $virtualMethod(LegacyAlgorithmConstraints, permits, bool, $Set*, $String*, $AlgorithmParameters*)},
-	{"permits", "(Ljava/util/Set;Ljava/security/Key;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/security/Key;)Z", $PUBLIC | $FINAL, $virtualMethod(LegacyAlgorithmConstraints, permits, bool, $Set*, $Key*)},
-	{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", $PUBLIC | $FINAL, $virtualMethod(LegacyAlgorithmConstraints, permits, bool, $Set*, $String*, $Key*, $AlgorithmParameters*)},
-	{}
-};
-
-$ClassInfo _LegacyAlgorithmConstraints_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.LegacyAlgorithmConstraints",
-	"sun.security.util.AbstractAlgorithmConstraints",
-	nullptr,
-	_LegacyAlgorithmConstraints_FieldInfo_,
-	_LegacyAlgorithmConstraints_MethodInfo_
-};
-
-$Object* allocate$LegacyAlgorithmConstraints($Class* clazz) {
-	return $of($alloc(LegacyAlgorithmConstraints));
-}
-
 $String* LegacyAlgorithmConstraints::PROPERTY_TLS_LEGACY_ALGS = nullptr;
 
 void LegacyAlgorithmConstraints::init$($String* propertyName, $AlgorithmDecomposer* decomposer) {
@@ -59,21 +31,21 @@ void LegacyAlgorithmConstraints::init$($String* propertyName, $AlgorithmDecompos
 }
 
 bool LegacyAlgorithmConstraints::permits($Set* primitives, $String* algorithm, $AlgorithmParameters* parameters) {
-	if (primitives == nullptr || $nc(primitives)->isEmpty()) {
+	if (primitives == nullptr || primitives->isEmpty()) {
 		$throwNew($IllegalArgumentException, "The primitives cannot be null or empty."_s);
 	}
 	return checkAlgorithm(this->legacyAlgorithms, algorithm, this->decomposer);
 }
 
 bool LegacyAlgorithmConstraints::permits($Set* primitives, $Key* key) {
-	if (primitives == nullptr || $nc(primitives)->isEmpty()) {
+	if (primitives == nullptr || primitives->isEmpty()) {
 		$throwNew($IllegalArgumentException, "The primitives cannot be null or empty."_s);
 	}
 	return true;
 }
 
 bool LegacyAlgorithmConstraints::permits($Set* primitives, $String* algorithm, $Key* key, $AlgorithmParameters* parameters) {
-	if (primitives == nullptr || $nc(primitives)->isEmpty()) {
+	if (primitives == nullptr || primitives->isEmpty()) {
 		$throwNew($IllegalArgumentException, "The primitives cannot be null or empty."_s);
 	}
 	return checkAlgorithm(this->legacyAlgorithms, algorithm, this->decomposer);
@@ -82,12 +54,34 @@ bool LegacyAlgorithmConstraints::permits($Set* primitives, $String* algorithm, $
 LegacyAlgorithmConstraints::LegacyAlgorithmConstraints() {
 }
 
-void clinit$LegacyAlgorithmConstraints($Class* class$) {
+void LegacyAlgorithmConstraints::clinit$($Class* clazz) {
 	$assignStatic(LegacyAlgorithmConstraints::PROPERTY_TLS_LEGACY_ALGS, "jdk.tls.legacyAlgorithms"_s);
 }
 
 $Class* LegacyAlgorithmConstraints::load$($String* name, bool initialize) {
-	$loadClass(LegacyAlgorithmConstraints, name, initialize, &_LegacyAlgorithmConstraints_ClassInfo_, clinit$LegacyAlgorithmConstraints, allocate$LegacyAlgorithmConstraints);
+	$FieldInfo fieldInfos$$[] = {
+		{"PROPERTY_TLS_LEGACY_ALGS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LegacyAlgorithmConstraints, PROPERTY_TLS_LEGACY_ALGS)},
+		{"legacyAlgorithms", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(LegacyAlgorithmConstraints, legacyAlgorithms)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Lsun/security/util/AlgorithmDecomposer;)V", nullptr, $PUBLIC, $method(LegacyAlgorithmConstraints, init$, void, $String*, $AlgorithmDecomposer*)},
+		{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/AlgorithmParameters;)Z", $PUBLIC | $FINAL, $virtualMethod(LegacyAlgorithmConstraints, permits, bool, $Set*, $String*, $AlgorithmParameters*)},
+		{"permits", "(Ljava/util/Set;Ljava/security/Key;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/security/Key;)Z", $PUBLIC | $FINAL, $virtualMethod(LegacyAlgorithmConstraints, permits, bool, $Set*, $Key*)},
+		{"permits", "(Ljava/util/Set;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", "(Ljava/util/Set<Ljava/security/CryptoPrimitive;>;Ljava/lang/String;Ljava/security/Key;Ljava/security/AlgorithmParameters;)Z", $PUBLIC | $FINAL, $virtualMethod(LegacyAlgorithmConstraints, permits, bool, $Set*, $String*, $Key*, $AlgorithmParameters*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.LegacyAlgorithmConstraints",
+		"sun.security.util.AbstractAlgorithmConstraints",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LegacyAlgorithmConstraints, name, initialize, &classInfo$$, LegacyAlgorithmConstraints::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LegacyAlgorithmConstraints);
+	});
 	return class$;
 }
 

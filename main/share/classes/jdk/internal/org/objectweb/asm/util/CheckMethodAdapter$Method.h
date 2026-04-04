@@ -33,6 +33,7 @@ class CheckMethodAdapter$Method : public ::java::lang::Enum {
 public:
 	CheckMethodAdapter$Method();
 	static $Array<::jdk::internal::org::objectweb::asm$::util::CheckMethodAdapter$Method>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::jdk::internal::org::objectweb::asm$::util::CheckMethodAdapter$Method* valueOf($String* name);
 	static $Array<::jdk::internal::org::objectweb::asm$::util::CheckMethodAdapter$Method>* values();

@@ -1,5 +1,4 @@
 #include <java/util/concurrent/CompletableFuture$Delayer$DaemonThreadFactory.h>
-
 #include <java/lang/Runnable.h>
 #include <java/util/concurrent/CompletableFuture$Delayer.h>
 #include <jcpp.h>
@@ -12,38 +11,6 @@ using $Runnable = ::java::lang::Runnable;
 namespace java {
 	namespace util {
 		namespace concurrent {
-
-$MethodInfo _CompletableFuture$Delayer$DaemonThreadFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CompletableFuture$Delayer$DaemonThreadFactory, init$, void)},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(CompletableFuture$Delayer$DaemonThreadFactory, newThread, $Thread*, $Runnable*)},
-	{}
-};
-
-$InnerClassInfo _CompletableFuture$Delayer$DaemonThreadFactory_InnerClassesInfo_[] = {
-	{"java.util.concurrent.CompletableFuture$Delayer", "java.util.concurrent.CompletableFuture", "Delayer", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$Delayer$DaemonThreadFactory", "java.util.concurrent.CompletableFuture$Delayer", "DaemonThreadFactory", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CompletableFuture$Delayer$DaemonThreadFactory_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.CompletableFuture$Delayer$DaemonThreadFactory",
-	"java.lang.Object",
-	"java.util.concurrent.ThreadFactory",
-	nullptr,
-	_CompletableFuture$Delayer$DaemonThreadFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CompletableFuture$Delayer$DaemonThreadFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.CompletableFuture"
-};
-
-$Object* allocate$CompletableFuture$Delayer$DaemonThreadFactory($Class* clazz) {
-	return $of($alloc(CompletableFuture$Delayer$DaemonThreadFactory));
-}
 
 void CompletableFuture$Delayer$DaemonThreadFactory::init$() {
 }
@@ -59,7 +26,34 @@ CompletableFuture$Delayer$DaemonThreadFactory::CompletableFuture$Delayer$DaemonT
 }
 
 $Class* CompletableFuture$Delayer$DaemonThreadFactory::load$($String* name, bool initialize) {
-	$loadClass(CompletableFuture$Delayer$DaemonThreadFactory, name, initialize, &_CompletableFuture$Delayer$DaemonThreadFactory_ClassInfo_, allocate$CompletableFuture$Delayer$DaemonThreadFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CompletableFuture$Delayer$DaemonThreadFactory, init$, void)},
+		{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(CompletableFuture$Delayer$DaemonThreadFactory, newThread, $Thread*, $Runnable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.CompletableFuture$Delayer", "java.util.concurrent.CompletableFuture", "Delayer", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$Delayer$DaemonThreadFactory", "java.util.concurrent.CompletableFuture$Delayer", "DaemonThreadFactory", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.CompletableFuture$Delayer$DaemonThreadFactory",
+		"java.lang.Object",
+		"java.util.concurrent.ThreadFactory",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.CompletableFuture"
+	};
+	$loadClass(CompletableFuture$Delayer$DaemonThreadFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CompletableFuture$Delayer$DaemonThreadFactory);
+	});
 	return class$;
 }
 

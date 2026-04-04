@@ -16,6 +16,7 @@ class DirectMethodHandle$EnsureInitialized : public ::java::lang::ClassValue {
 	$class(DirectMethodHandle$EnsureInitialized, 0, ::java::lang::ClassValue)
 public:
 	DirectMethodHandle$EnsureInitialized();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* computeValue($Class* type) override;
 	static ::java::lang::invoke::DirectMethodHandle$EnsureInitialized* INSTANCE;

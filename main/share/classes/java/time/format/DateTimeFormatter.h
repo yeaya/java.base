@@ -101,6 +101,7 @@ class $export DateTimeFormatter : public ::java::lang::Object {
 	$class(DateTimeFormatter, 0, ::java::lang::Object)
 public:
 	DateTimeFormatter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::time::format::DateTimeFormatterBuilder$CompositePrinterParser* printerParser, ::java::util::Locale* locale, ::java::time::format::DecimalStyle* decimalStyle, ::java::time::format::ResolverStyle* resolverStyle, ::java::util::Set* resolverFields, ::java::time::chrono::Chronology* chrono, ::java::time::ZoneId* zone);
 	::java::time::format::DateTimeParseException* createError(::java::lang::CharSequence* text, ::java::lang::RuntimeException* ex);
 	$String* format(::java::time::temporal::TemporalAccessor* temporal);

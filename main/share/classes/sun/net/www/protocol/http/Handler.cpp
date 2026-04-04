@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/http/Handler.h>
-
 #include <java/net/Proxy.h>
 #include <java/net/URL.h>
 #include <java/net/URLConnection.h>
@@ -21,34 +20,6 @@ namespace sun {
 		namespace www {
 			namespace protocol {
 				namespace http {
-
-$FieldInfo _Handler_FieldInfo_[] = {
-	{"proxy", "Ljava/lang/String;", nullptr, $PROTECTED, $field(Handler, proxy)},
-	{"proxyPort", "I", nullptr, $PROTECTED, $field(Handler, proxyPort)},
-	{}
-};
-
-$MethodInfo _Handler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Handler, init$, void)},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(Handler, init$, void, $String*, int32_t)},
-	{"getDefaultPort", "()I", nullptr, $PROTECTED, $virtualMethod(Handler, getDefaultPort, int32_t)},
-	{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PROTECTED, $virtualMethod(Handler, openConnection, $URLConnection*, $URL*), "java.io.IOException"},
-	{"openConnection", "(Ljava/net/URL;Ljava/net/Proxy;)Ljava/net/URLConnection;", nullptr, $PROTECTED, $virtualMethod(Handler, openConnection, $URLConnection*, $URL*, $Proxy*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _Handler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.www.protocol.http.Handler",
-	"java.net.URLStreamHandler",
-	nullptr,
-	_Handler_FieldInfo_,
-	_Handler_MethodInfo_
-};
-
-$Object* allocate$Handler($Class* clazz) {
-	return $of($alloc(Handler));
-}
 
 int32_t Handler::getDefaultPort() {
 	return 80;
@@ -78,7 +49,30 @@ Handler::Handler() {
 }
 
 $Class* Handler::load$($String* name, bool initialize) {
-	$loadClass(Handler, name, initialize, &_Handler_ClassInfo_, allocate$Handler);
+	$FieldInfo fieldInfos$$[] = {
+		{"proxy", "Ljava/lang/String;", nullptr, $PROTECTED, $field(Handler, proxy)},
+		{"proxyPort", "I", nullptr, $PROTECTED, $field(Handler, proxyPort)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Handler, init$, void)},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(Handler, init$, void, $String*, int32_t)},
+		{"getDefaultPort", "()I", nullptr, $PROTECTED, $virtualMethod(Handler, getDefaultPort, int32_t)},
+		{"openConnection", "(Ljava/net/URL;)Ljava/net/URLConnection;", nullptr, $PROTECTED, $virtualMethod(Handler, openConnection, $URLConnection*, $URL*), "java.io.IOException"},
+		{"openConnection", "(Ljava/net/URL;Ljava/net/Proxy;)Ljava/net/URLConnection;", nullptr, $PROTECTED, $virtualMethod(Handler, openConnection, $URLConnection*, $URL*, $Proxy*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.www.protocol.http.Handler",
+		"java.net.URLStreamHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Handler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Handler);
+	});
 	return class$;
 }
 

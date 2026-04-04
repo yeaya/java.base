@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberStringArrTwoClass.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -10,44 +9,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$Attribute SingleMemberStringArrTwoClass_Attribute_var$1[] = {
-	{'s', "custom"},
-	{'s', "paint"},
-	{'-'}
-};
-
-$NamedAttribute SingleMemberStringArrTwoClass_Attribute_var$0[] = {
-	{"value", '[', SingleMemberStringArrTwoClass_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _SingleMemberStringArrTwoClass_Annotations_[] = {
-	{"LUniTest/SingleMemberStringArray;", SingleMemberStringArrTwoClass_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _SingleMemberStringArrTwoClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SingleMemberStringArrTwoClass, init$, void)},
-	{}
-};
-
-$ClassInfo _SingleMemberStringArrTwoClass_ClassInfo_ = {
-	$ACC_SUPER,
-	"UniTest.SingleMemberStringArrTwoClass",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SingleMemberStringArrTwoClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberStringArrTwoClass_Annotations_
-};
-
-$Object* allocate$SingleMemberStringArrTwoClass($Class* clazz) {
-	return $of($alloc(SingleMemberStringArrTwoClass));
-}
-
 void SingleMemberStringArrTwoClass::init$() {
 }
 
@@ -55,7 +16,38 @@ SingleMemberStringArrTwoClass::SingleMemberStringArrTwoClass() {
 }
 
 $Class* SingleMemberStringArrTwoClass::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberStringArrTwoClass, name, initialize, &_SingleMemberStringArrTwoClass_ClassInfo_, allocate$SingleMemberStringArrTwoClass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SingleMemberStringArrTwoClass, init$, void)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "custom"},
+		{'s', "paint"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LUniTest/SingleMemberStringArray;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"UniTest.SingleMemberStringArrTwoClass",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberStringArrTwoClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberStringArrTwoClass);
+	});
 	return class$;
 }
 

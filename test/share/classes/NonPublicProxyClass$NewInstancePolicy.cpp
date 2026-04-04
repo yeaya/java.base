@@ -1,5 +1,4 @@
 #include <NonPublicProxyClass$NewInstancePolicy.h>
-
 #include <NonPublicProxyClass.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/reflect/ReflectPermission.h>
@@ -31,56 +30,16 @@ using $ProtectionDomain = ::java::security::ProtectionDomain;
 using $SecurityPermission = ::java::security::SecurityPermission;
 using $Enumeration = ::java::util::Enumeration;
 
-$FieldInfo _NonPublicProxyClass$NewInstancePolicy_FieldInfo_[] = {
-	{"permissions", "Ljava/security/PermissionCollection;", nullptr, $FINAL, $field(NonPublicProxyClass$NewInstancePolicy, permissions)},
-	{"grant", "Z", nullptr, $FINAL, $field(NonPublicProxyClass$NewInstancePolicy, grant)},
-	{}
-};
-
-$MethodInfo _NonPublicProxyClass$NewInstancePolicy_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, 0, $method(NonPublicProxyClass$NewInstancePolicy, init$, void, bool)},
-	{"getPermissions", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(NonPublicProxyClass$NewInstancePolicy, getPermissions, $PermissionCollection*, $ProtectionDomain*)},
-	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(NonPublicProxyClass$NewInstancePolicy, getPermissions, $PermissionCollection*, $CodeSource*)},
-	{"implies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(NonPublicProxyClass$NewInstancePolicy, implies, bool, $ProtectionDomain*, $Permission*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NonPublicProxyClass$NewInstancePolicy, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _NonPublicProxyClass$NewInstancePolicy_InnerClassesInfo_[] = {
-	{"NonPublicProxyClass$NewInstancePolicy", "NonPublicProxyClass", "NewInstancePolicy", $STATIC},
-	{}
-};
-
-$ClassInfo _NonPublicProxyClass$NewInstancePolicy_ClassInfo_ = {
-	$ACC_SUPER,
-	"NonPublicProxyClass$NewInstancePolicy",
-	"java.security.Policy",
-	nullptr,
-	_NonPublicProxyClass$NewInstancePolicy_FieldInfo_,
-	_NonPublicProxyClass$NewInstancePolicy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NonPublicProxyClass$NewInstancePolicy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"NonPublicProxyClass"
-};
-
-$Object* allocate$NonPublicProxyClass$NewInstancePolicy($Class* clazz) {
-	return $of($alloc(NonPublicProxyClass$NewInstancePolicy));
-}
-
 void NonPublicProxyClass$NewInstancePolicy::init$(bool grant) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Policy::init$();
 	$set(this, permissions, $new($Permissions));
 	this->grant = grant;
-	$nc(this->permissions)->add($$new($SecurityPermission, "getPolicy"_s));
+	this->permissions->add($$new($SecurityPermission, "getPolicy"_s));
 	if (grant) {
-		$nc(this->permissions)->add($$new($RuntimePermission, "getClassLoader"_s));
-		$nc(this->permissions)->add($$new($ReflectPermission, $$str({"newProxyInPackage."_s, "p"_s})));
-		$nc(this->permissions)->add($$new($ReflectPermission, $$str({"newProxyInPackage."_s, "java.util.zip"_s})));
+		this->permissions->add($$new($RuntimePermission, "getClassLoader"_s));
+		this->permissions->add($$new($ReflectPermission, $$str({"newProxyInPackage."_s, "p"_s})));
+		this->permissions->add($$new($ReflectPermission, $$str({"newProxyInPackage."_s, "java.util.zip"_s})));
 	}
 }
 
@@ -93,17 +52,17 @@ $PermissionCollection* NonPublicProxyClass$NewInstancePolicy::getPermissions($Co
 }
 
 bool NonPublicProxyClass$NewInstancePolicy::implies($ProtectionDomain* domain, $Permission* perm) {
-	bool var$0 = $nc(this->permissions)->implies(perm);
+	bool var$0 = this->permissions->implies(perm);
 	$init($NonPublicProxyClass);
 	return var$0 || $nc($NonPublicProxyClass::DEFAULT_POLICY)->implies(domain, perm);
 }
 
 $String* NonPublicProxyClass$NewInstancePolicy::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder, "policy: "_s));
-	$var($Enumeration, perms, $nc(this->permissions)->elements());
+	$var($Enumeration, perms, this->permissions->elements());
 	while ($nc(perms)->hasMoreElements()) {
-		sb->append("\n"_s)->append($($nc(($cast($Permission, $(perms->nextElement()))))->toString()));
+		sb->append("\n"_s)->append($($$sure($Permission, perms->nextElement())->toString()));
 	}
 	return sb->toString();
 }
@@ -112,7 +71,41 @@ NonPublicProxyClass$NewInstancePolicy::NonPublicProxyClass$NewInstancePolicy() {
 }
 
 $Class* NonPublicProxyClass$NewInstancePolicy::load$($String* name, bool initialize) {
-	$loadClass(NonPublicProxyClass$NewInstancePolicy, name, initialize, &_NonPublicProxyClass$NewInstancePolicy_ClassInfo_, allocate$NonPublicProxyClass$NewInstancePolicy);
+	$FieldInfo fieldInfos$$[] = {
+		{"permissions", "Ljava/security/PermissionCollection;", nullptr, $FINAL, $field(NonPublicProxyClass$NewInstancePolicy, permissions)},
+		{"grant", "Z", nullptr, $FINAL, $field(NonPublicProxyClass$NewInstancePolicy, grant)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, 0, $method(NonPublicProxyClass$NewInstancePolicy, init$, void, bool)},
+		{"getPermissions", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(NonPublicProxyClass$NewInstancePolicy, getPermissions, $PermissionCollection*, $ProtectionDomain*)},
+		{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(NonPublicProxyClass$NewInstancePolicy, getPermissions, $PermissionCollection*, $CodeSource*)},
+		{"implies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(NonPublicProxyClass$NewInstancePolicy, implies, bool, $ProtectionDomain*, $Permission*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NonPublicProxyClass$NewInstancePolicy, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"NonPublicProxyClass$NewInstancePolicy", "NonPublicProxyClass", "NewInstancePolicy", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"NonPublicProxyClass$NewInstancePolicy",
+		"java.security.Policy",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"NonPublicProxyClass"
+	};
+	$loadClass(NonPublicProxyClass$NewInstancePolicy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NonPublicProxyClass$NewInstancePolicy);
+	});
 	return class$;
 }
 

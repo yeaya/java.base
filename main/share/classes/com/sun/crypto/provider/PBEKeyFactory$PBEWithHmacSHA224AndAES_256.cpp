@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/PBEKeyFactory$PBEWithHmacSHA224AndAES_256.h>
-
 #include <com/sun/crypto/provider/PBEKeyFactory.h>
 #include <jcpp.h>
 
@@ -13,36 +12,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$MethodInfo _PBEKeyFactory$PBEWithHmacSHA224AndAES_256_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PBEKeyFactory$PBEWithHmacSHA224AndAES_256, init$, void)},
-	{}
-};
-
-$InnerClassInfo _PBEKeyFactory$PBEWithHmacSHA224AndAES_256_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA224AndAES_256", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithHmacSHA224AndAES_256", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PBEKeyFactory$PBEWithHmacSHA224AndAES_256_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA224AndAES_256",
-	"com.sun.crypto.provider.PBEKeyFactory",
-	nullptr,
-	nullptr,
-	_PBEKeyFactory$PBEWithHmacSHA224AndAES_256_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PBEKeyFactory$PBEWithHmacSHA224AndAES_256_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.PBEKeyFactory"
-};
-
-$Object* allocate$PBEKeyFactory$PBEWithHmacSHA224AndAES_256($Class* clazz) {
-	return $of($alloc(PBEKeyFactory$PBEWithHmacSHA224AndAES_256));
-}
-
 void PBEKeyFactory$PBEWithHmacSHA224AndAES_256::init$() {
 	$PBEKeyFactory::init$("PBEWithHmacSHA224AndAES_256"_s);
 }
@@ -51,7 +20,32 @@ PBEKeyFactory$PBEWithHmacSHA224AndAES_256::PBEKeyFactory$PBEWithHmacSHA224AndAES
 }
 
 $Class* PBEKeyFactory$PBEWithHmacSHA224AndAES_256::load$($String* name, bool initialize) {
-	$loadClass(PBEKeyFactory$PBEWithHmacSHA224AndAES_256, name, initialize, &_PBEKeyFactory$PBEWithHmacSHA224AndAES_256_ClassInfo_, allocate$PBEKeyFactory$PBEWithHmacSHA224AndAES_256);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PBEKeyFactory$PBEWithHmacSHA224AndAES_256, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA224AndAES_256", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithHmacSHA224AndAES_256", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA224AndAES_256",
+		"com.sun.crypto.provider.PBEKeyFactory",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.PBEKeyFactory"
+	};
+	$loadClass(PBEKeyFactory$PBEWithHmacSHA224AndAES_256, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PBEKeyFactory$PBEWithHmacSHA224AndAES_256);
+	});
 	return class$;
 }
 

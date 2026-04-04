@@ -52,6 +52,7 @@ class $export URLConnection : public ::java::lang::Object {
 	$class(URLConnection, 0, ::java::lang::Object)
 public:
 	URLConnection();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::URL* url);
 	virtual void addRequestProperty($String* key, $String* value);
 	void checkConnected();

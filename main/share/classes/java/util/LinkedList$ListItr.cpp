@@ -1,5 +1,4 @@
 #include <java/util/LinkedList$ListItr.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ConcurrentModificationException.h>
@@ -25,56 +24,6 @@ using $Consumer = ::java::util::function::Consumer;
 namespace java {
 	namespace util {
 
-$FieldInfo _LinkedList$ListItr_FieldInfo_[] = {
-	{"this$0", "Ljava/util/LinkedList;", nullptr, $FINAL | $SYNTHETIC, $field(LinkedList$ListItr, this$0)},
-	{"lastReturned", "Ljava/util/LinkedList$Node;", "Ljava/util/LinkedList$Node<TE;>;", $PRIVATE, $field(LinkedList$ListItr, lastReturned)},
-	{"next", "Ljava/util/LinkedList$Node;", "Ljava/util/LinkedList$Node<TE;>;", $PRIVATE, $field(LinkedList$ListItr, next$)},
-	{"nextIndex", "I", nullptr, $PRIVATE, $field(LinkedList$ListItr, nextIndex$)},
-	{"expectedModCount", "I", nullptr, $PRIVATE, $field(LinkedList$ListItr, expectedModCount)},
-	{}
-};
-
-$MethodInfo _LinkedList$ListItr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/LinkedList;I)V", nullptr, 0, $method(LinkedList$ListItr, init$, void, $LinkedList*, int32_t)},
-	{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(LinkedList$ListItr, add, void, Object$*)},
-	{"checkForComodification", "()V", nullptr, $FINAL, $method(LinkedList$ListItr, checkForComodification, void)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(LinkedList$ListItr, forEachRemaining, void, $Consumer*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(LinkedList$ListItr, hasNext, bool)},
-	{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(LinkedList$ListItr, hasPrevious, bool)},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedList$ListItr, next, $Object*)},
-	{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(LinkedList$ListItr, nextIndex, int32_t)},
-	{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedList$ListItr, previous, $Object*)},
-	{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(LinkedList$ListItr, previousIndex, int32_t)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(LinkedList$ListItr, remove, void)},
-	{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(LinkedList$ListItr, set, void, Object$*)},
-	{}
-};
-
-$InnerClassInfo _LinkedList$ListItr_InnerClassesInfo_[] = {
-	{"java.util.LinkedList$ListItr", "java.util.LinkedList", "ListItr", $PRIVATE},
-	{}
-};
-
-$ClassInfo _LinkedList$ListItr_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.LinkedList$ListItr",
-	"java.lang.Object",
-	"java.util.ListIterator",
-	_LinkedList$ListItr_FieldInfo_,
-	_LinkedList$ListItr_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/ListIterator<TE;>;",
-	nullptr,
-	_LinkedList$ListItr_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.LinkedList"
-};
-
-$Object* allocate$LinkedList$ListItr($Class* clazz) {
-	return $of($alloc(LinkedList$ListItr));
-}
-
 void LinkedList$ListItr::init$($LinkedList* this$0, int32_t index) {
 	$set(this, this$0, this$0);
 	this->expectedModCount = this->this$0->modCount;
@@ -94,7 +43,7 @@ $Object* LinkedList$ListItr::next() {
 	$set(this, lastReturned, this->next$);
 	$set(this, next$, $nc(this->next$)->next);
 	++this->nextIndex$;
-	return $of($nc(this->lastReturned)->item);
+	return $nc(this->lastReturned)->item;
 }
 
 bool LinkedList$ListItr::hasPrevious() {
@@ -106,9 +55,9 @@ $Object* LinkedList$ListItr::previous() {
 	if (!hasPrevious()) {
 		$throwNew($NoSuchElementException);
 	}
-	$set(this, lastReturned, ($set(this, next$, (this->next$ == nullptr) ? this->this$0->last : $nc(this->next$)->prev)));
+	$set(this, lastReturned, $set(this, next$, (this->next$ == nullptr) ? this->this$0->last : this->next$->prev));
 	--this->nextIndex$;
-	return $of($nc(this->lastReturned)->item);
+	return $nc(this->lastReturned)->item;
 }
 
 int32_t LinkedList$ListItr::nextIndex() {
@@ -176,7 +125,51 @@ LinkedList$ListItr::LinkedList$ListItr() {
 }
 
 $Class* LinkedList$ListItr::load$($String* name, bool initialize) {
-	$loadClass(LinkedList$ListItr, name, initialize, &_LinkedList$ListItr_ClassInfo_, allocate$LinkedList$ListItr);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/LinkedList;", nullptr, $FINAL | $SYNTHETIC, $field(LinkedList$ListItr, this$0)},
+		{"lastReturned", "Ljava/util/LinkedList$Node;", "Ljava/util/LinkedList$Node<TE;>;", $PRIVATE, $field(LinkedList$ListItr, lastReturned)},
+		{"next", "Ljava/util/LinkedList$Node;", "Ljava/util/LinkedList$Node<TE;>;", $PRIVATE, $field(LinkedList$ListItr, next$)},
+		{"nextIndex", "I", nullptr, $PRIVATE, $field(LinkedList$ListItr, nextIndex$)},
+		{"expectedModCount", "I", nullptr, $PRIVATE, $field(LinkedList$ListItr, expectedModCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/LinkedList;I)V", nullptr, 0, $method(LinkedList$ListItr, init$, void, $LinkedList*, int32_t)},
+		{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(LinkedList$ListItr, add, void, Object$*)},
+		{"checkForComodification", "()V", nullptr, $FINAL, $method(LinkedList$ListItr, checkForComodification, void)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(LinkedList$ListItr, forEachRemaining, void, $Consumer*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(LinkedList$ListItr, hasNext, bool)},
+		{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(LinkedList$ListItr, hasPrevious, bool)},
+		{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedList$ListItr, next, $Object*)},
+		{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(LinkedList$ListItr, nextIndex, int32_t)},
+		{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(LinkedList$ListItr, previous, $Object*)},
+		{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(LinkedList$ListItr, previousIndex, int32_t)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(LinkedList$ListItr, remove, void)},
+		{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(LinkedList$ListItr, set, void, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.LinkedList$ListItr", "java.util.LinkedList", "ListItr", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.LinkedList$ListItr",
+		"java.lang.Object",
+		"java.util.ListIterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/ListIterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.LinkedList"
+	};
+	$loadClass(LinkedList$ListItr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LinkedList$ListItr);
+	});
 	return class$;
 }
 

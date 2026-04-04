@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/DESedeCrypt.h>
-
 #include <com/sun/crypto/provider/DESConstants.h>
 #include <com/sun/crypto/provider/DESCrypt.h>
 #include <java/security/InvalidKeyException.h>
@@ -18,37 +17,6 @@ namespace com {
 	namespace sun {
 		namespace crypto {
 			namespace provider {
-
-$FieldInfo _DESedeCrypt_FieldInfo_[] = {
-	{"key1", "[B", nullptr, $PRIVATE, $field(DESedeCrypt, key1)},
-	{"key2", "[B", nullptr, $PRIVATE, $field(DESedeCrypt, key2)},
-	{"key3", "[B", nullptr, $PRIVATE, $field(DESedeCrypt, key3)},
-	{"buf1", "[B", nullptr, $PRIVATE, $field(DESedeCrypt, buf1)},
-	{"buf2", "[B", nullptr, $PRIVATE, $field(DESedeCrypt, buf2)},
-	{}
-};
-
-$MethodInfo _DESedeCrypt_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DESedeCrypt, init$, void)},
-	{"decryptBlock", "([BI[BI)V", nullptr, 0, $virtualMethod(DESedeCrypt, decryptBlock, void, $bytes*, int32_t, $bytes*, int32_t)},
-	{"encryptBlock", "([BI[BI)V", nullptr, 0, $virtualMethod(DESedeCrypt, encryptBlock, void, $bytes*, int32_t, $bytes*, int32_t)},
-	{"init", "(ZLjava/lang/String;[B)V", nullptr, 0, $virtualMethod(DESedeCrypt, init, void, bool, $String*, $bytes*), "java.security.InvalidKeyException"},
-	{"keyEquals", "([BI[BII)Z", nullptr, $PRIVATE, $method(DESedeCrypt, keyEquals, bool, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _DESedeCrypt_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.DESedeCrypt",
-	"com.sun.crypto.provider.DESCrypt",
-	nullptr,
-	_DESedeCrypt_FieldInfo_,
-	_DESedeCrypt_MethodInfo_
-};
-
-$Object* allocate$DESedeCrypt($Class* clazz) {
-	return $of($alloc(DESedeCrypt));
-}
 
 void DESedeCrypt::init$() {
 	$DESCrypt::init$();
@@ -123,7 +91,33 @@ DESedeCrypt::DESedeCrypt() {
 }
 
 $Class* DESedeCrypt::load$($String* name, bool initialize) {
-	$loadClass(DESedeCrypt, name, initialize, &_DESedeCrypt_ClassInfo_, allocate$DESedeCrypt);
+	$FieldInfo fieldInfos$$[] = {
+		{"key1", "[B", nullptr, $PRIVATE, $field(DESedeCrypt, key1)},
+		{"key2", "[B", nullptr, $PRIVATE, $field(DESedeCrypt, key2)},
+		{"key3", "[B", nullptr, $PRIVATE, $field(DESedeCrypt, key3)},
+		{"buf1", "[B", nullptr, $PRIVATE, $field(DESedeCrypt, buf1)},
+		{"buf2", "[B", nullptr, $PRIVATE, $field(DESedeCrypt, buf2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DESedeCrypt, init$, void)},
+		{"decryptBlock", "([BI[BI)V", nullptr, 0, $virtualMethod(DESedeCrypt, decryptBlock, void, $bytes*, int32_t, $bytes*, int32_t)},
+		{"encryptBlock", "([BI[BI)V", nullptr, 0, $virtualMethod(DESedeCrypt, encryptBlock, void, $bytes*, int32_t, $bytes*, int32_t)},
+		{"init", "(ZLjava/lang/String;[B)V", nullptr, 0, $virtualMethod(DESedeCrypt, init, void, bool, $String*, $bytes*), "java.security.InvalidKeyException"},
+		{"keyEquals", "([BI[BII)Z", nullptr, $PRIVATE, $method(DESedeCrypt, keyEquals, bool, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.DESedeCrypt",
+		"com.sun.crypto.provider.DESCrypt",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DESedeCrypt, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DESedeCrypt));
+	});
 	return class$;
 }
 

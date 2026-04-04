@@ -14,10 +14,13 @@ class $import NoConnectionPendingException : public ::java::lang::IllegalStateEx
 public:
 	NoConnectionPendingException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x8CDCB18F8040AB69;
+	static const int64_t serialVersionUID = (int64_t)0x8cdcb18f8040ab69;
 	NoConnectionPendingException(const NoConnectionPendingException& e);
 	virtual void throw$() override;
-	inline NoConnectionPendingException* operator ->() {
+	inline NoConnectionPendingException* operator ->() const {
+		return (NoConnectionPendingException*)throwing$;
+	}
+	inline operator NoConnectionPendingException*() const {
 		return (NoConnectionPendingException*)throwing$;
 	}
 };

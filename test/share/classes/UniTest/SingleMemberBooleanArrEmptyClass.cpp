@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberBooleanArrEmptyClass.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -10,42 +9,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$Attribute SingleMemberBooleanArrEmptyClass_Attribute_var$1[] = {
-	{'-'}
-};
-
-$NamedAttribute SingleMemberBooleanArrEmptyClass_Attribute_var$0[] = {
-	{"value", '[', SingleMemberBooleanArrEmptyClass_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _SingleMemberBooleanArrEmptyClass_Annotations_[] = {
-	{"LUniTest/SingleMemberBooleanArray;", SingleMemberBooleanArrEmptyClass_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _SingleMemberBooleanArrEmptyClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SingleMemberBooleanArrEmptyClass, init$, void)},
-	{}
-};
-
-$ClassInfo _SingleMemberBooleanArrEmptyClass_ClassInfo_ = {
-	$ACC_SUPER,
-	"UniTest.SingleMemberBooleanArrEmptyClass",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SingleMemberBooleanArrEmptyClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberBooleanArrEmptyClass_Annotations_
-};
-
-$Object* allocate$SingleMemberBooleanArrEmptyClass($Class* clazz) {
-	return $of($alloc(SingleMemberBooleanArrEmptyClass));
-}
-
 void SingleMemberBooleanArrEmptyClass::init$() {
 }
 
@@ -53,7 +16,36 @@ SingleMemberBooleanArrEmptyClass::SingleMemberBooleanArrEmptyClass() {
 }
 
 $Class* SingleMemberBooleanArrEmptyClass::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberBooleanArrEmptyClass, name, initialize, &_SingleMemberBooleanArrEmptyClass_ClassInfo_, allocate$SingleMemberBooleanArrEmptyClass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SingleMemberBooleanArrEmptyClass, init$, void)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LUniTest/SingleMemberBooleanArray;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"UniTest.SingleMemberBooleanArrEmptyClass",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberBooleanArrEmptyClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberBooleanArrEmptyClass);
+	});
 	return class$;
 }
 

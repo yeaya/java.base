@@ -1,5 +1,4 @@
 #include <java/lang/invoke/StringConcatException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$FieldInfo _StringConcatException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringConcatException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _StringConcatException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringConcatException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(StringConcatException, init$, void, $String*, $Throwable*)},
-	{}
-};
-
-$ClassInfo _StringConcatException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.invoke.StringConcatException",
-	"java.lang.Exception",
-	nullptr,
-	_StringConcatException_FieldInfo_,
-	_StringConcatException_MethodInfo_
-};
-
-$Object* allocate$StringConcatException($Class* clazz) {
-	return $of($alloc(StringConcatException));
-}
 
 void StringConcatException::init$($String* msg) {
 	$Exception::init$(msg);
@@ -54,7 +29,26 @@ void StringConcatException::throw$() {
 }
 
 $Class* StringConcatException::load$($String* name, bool initialize) {
-	$loadClass(StringConcatException, name, initialize, &_StringConcatException_ClassInfo_, allocate$StringConcatException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringConcatException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StringConcatException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(StringConcatException, init$, void, $String*, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.invoke.StringConcatException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StringConcatException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringConcatException);
+	});
 	return class$;
 }
 

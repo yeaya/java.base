@@ -1,5 +1,4 @@
 #include <java/lang/StringUTF16$LinesSpliterator.h>
-
 #include <java/lang/StringUTF16.h>
 #include <java/util/Spliterator.h>
 #include <java/util/function/Consumer.h>
@@ -20,52 +19,6 @@ using $Consumer = ::java::util::function::Consumer;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _StringUTF16$LinesSpliterator_FieldInfo_[] = {
-	{"value", "[B", nullptr, $PRIVATE, $field(StringUTF16$LinesSpliterator, value)},
-	{"index", "I", nullptr, $PRIVATE, $field(StringUTF16$LinesSpliterator, index)},
-	{"fence", "I", nullptr, $PRIVATE | $FINAL, $field(StringUTF16$LinesSpliterator, fence)},
-	{}
-};
-
-$MethodInfo _StringUTF16$LinesSpliterator_MethodInfo_[] = {
-	{"<init>", "([BII)V", nullptr, $PRIVATE, $method(StringUTF16$LinesSpliterator, init$, void, $bytes*, int32_t, int32_t)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(StringUTF16$LinesSpliterator, characteristics, int32_t)},
-	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(StringUTF16$LinesSpliterator, estimateSize, int64_t)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(StringUTF16$LinesSpliterator, forEachRemaining, void, $Consumer*)},
-	{"indexOfLineSeparator", "(I)I", nullptr, $PRIVATE, $method(StringUTF16$LinesSpliterator, indexOfLineSeparator, int32_t, int32_t)},
-	{"next", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(StringUTF16$LinesSpliterator, next, $String*)},
-	{"skipLineSeparator", "(I)I", nullptr, $PRIVATE, $method(StringUTF16$LinesSpliterator, skipLineSeparator, int32_t, int32_t)},
-	{"spliterator", "([B)Ljava/lang/StringUTF16$LinesSpliterator;", nullptr, $STATIC, $staticMethod(StringUTF16$LinesSpliterator, spliterator, StringUTF16$LinesSpliterator*, $bytes*)},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(StringUTF16$LinesSpliterator, tryAdvance, bool, $Consumer*)},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(StringUTF16$LinesSpliterator, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _StringUTF16$LinesSpliterator_InnerClassesInfo_[] = {
-	{"java.lang.StringUTF16$LinesSpliterator", "java.lang.StringUTF16", "LinesSpliterator", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _StringUTF16$LinesSpliterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.StringUTF16$LinesSpliterator",
-	"java.lang.Object",
-	"java.util.Spliterator",
-	_StringUTF16$LinesSpliterator_FieldInfo_,
-	_StringUTF16$LinesSpliterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Spliterator<Ljava/lang/String;>;",
-	nullptr,
-	_StringUTF16$LinesSpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.StringUTF16"
-};
-
-$Object* allocate$StringUTF16$LinesSpliterator($Class* clazz) {
-	return $of($alloc(StringUTF16$LinesSpliterator));
-}
 
 void StringUTF16$LinesSpliterator::init$($bytes* value, int32_t start, int32_t length) {
 	$set(this, value, value);
@@ -115,7 +68,7 @@ bool StringUTF16$LinesSpliterator::tryAdvance($Consumer* action) {
 }
 
 void StringUTF16$LinesSpliterator::forEachRemaining($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (action == nullptr) {
 		$throwNew($NullPointerException, "forEachRemaining action missing"_s);
 	}
@@ -152,7 +105,47 @@ StringUTF16$LinesSpliterator::StringUTF16$LinesSpliterator() {
 }
 
 $Class* StringUTF16$LinesSpliterator::load$($String* name, bool initialize) {
-	$loadClass(StringUTF16$LinesSpliterator, name, initialize, &_StringUTF16$LinesSpliterator_ClassInfo_, allocate$StringUTF16$LinesSpliterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "[B", nullptr, $PRIVATE, $field(StringUTF16$LinesSpliterator, value)},
+		{"index", "I", nullptr, $PRIVATE, $field(StringUTF16$LinesSpliterator, index)},
+		{"fence", "I", nullptr, $PRIVATE | $FINAL, $field(StringUTF16$LinesSpliterator, fence)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([BII)V", nullptr, $PRIVATE, $method(StringUTF16$LinesSpliterator, init$, void, $bytes*, int32_t, int32_t)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(StringUTF16$LinesSpliterator, characteristics, int32_t)},
+		{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(StringUTF16$LinesSpliterator, estimateSize, int64_t)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(StringUTF16$LinesSpliterator, forEachRemaining, void, $Consumer*)},
+		{"indexOfLineSeparator", "(I)I", nullptr, $PRIVATE, $method(StringUTF16$LinesSpliterator, indexOfLineSeparator, int32_t, int32_t)},
+		{"next", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(StringUTF16$LinesSpliterator, next, $String*)},
+		{"skipLineSeparator", "(I)I", nullptr, $PRIVATE, $method(StringUTF16$LinesSpliterator, skipLineSeparator, int32_t, int32_t)},
+		{"spliterator", "([B)Ljava/lang/StringUTF16$LinesSpliterator;", nullptr, $STATIC, $staticMethod(StringUTF16$LinesSpliterator, spliterator, StringUTF16$LinesSpliterator*, $bytes*)},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(StringUTF16$LinesSpliterator, tryAdvance, bool, $Consumer*)},
+		{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(StringUTF16$LinesSpliterator, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.StringUTF16$LinesSpliterator", "java.lang.StringUTF16", "LinesSpliterator", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.StringUTF16$LinesSpliterator",
+		"java.lang.Object",
+		"java.util.Spliterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Spliterator<Ljava/lang/String;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.StringUTF16"
+	};
+	$loadClass(StringUTF16$LinesSpliterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringUTF16$LinesSpliterator);
+	});
 	return class$;
 }
 

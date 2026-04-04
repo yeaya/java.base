@@ -1,5 +1,4 @@
 #include <StackOverflowTest.h>
-
 #include <java/lang/StackOverflowError.h>
 #include <java/nio/channels/Selector.h>
 #include <jcpp.h>
@@ -9,58 +8,36 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $StackOverflowError = ::java::lang::StackOverflowError;
 using $Selector = ::java::nio::channels::Selector;
 
-$MethodInfo _StackOverflowTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StackOverflowTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StackOverflowTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"recursiveSelect", "(Ljava/nio/channels/Selector;)V", nullptr, $STATIC, $staticMethod(StackOverflowTest, recursiveSelect, void, $Selector*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _StackOverflowTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"StackOverflowTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_StackOverflowTest_MethodInfo_
-};
-
-$Object* allocate$StackOverflowTest($Class* clazz) {
-	return $of($alloc(StackOverflowTest));
-}
-
 void StackOverflowTest::init$() {
 }
 
 void StackOverflowTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Selector, sel, $Selector::open());
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					recursiveSelect(sel);
-				} catch ($Throwable& t$) {
-					if (sel != nullptr) {
-						try {
-							sel->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
+				recursiveSelect(sel);
+			} catch ($Throwable& t$) {
 				if (sel != nullptr) {
-					sel->close();
+					try {
+						sel->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			if (sel != nullptr) {
+				sel->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} catch ($StackOverflowError& e) {
 	}
@@ -75,7 +52,23 @@ StackOverflowTest::StackOverflowTest() {
 }
 
 $Class* StackOverflowTest::load$($String* name, bool initialize) {
-	$loadClass(StackOverflowTest, name, initialize, &_StackOverflowTest_ClassInfo_, allocate$StackOverflowTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StackOverflowTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StackOverflowTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"recursiveSelect", "(Ljava/nio/channels/Selector;)V", nullptr, $STATIC, $staticMethod(StackOverflowTest, recursiveSelect, void, $Selector*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"StackOverflowTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StackOverflowTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StackOverflowTest);
+	});
 	return class$;
 }
 

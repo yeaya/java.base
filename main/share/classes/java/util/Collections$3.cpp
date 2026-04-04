@@ -1,5 +1,4 @@
 #include <java/util/Collections$3.h>
-
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
@@ -11,54 +10,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Collection = ::java::util::Collection;
-using $Iterator = ::java::util::Iterator;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Collections$3_FieldInfo_[] = {
-	{"val$c", "Ljava/util/Collection;", nullptr, $FINAL | $SYNTHETIC, $field(Collections$3, val$c)},
-	{"i", "Ljava/util/Iterator;", "Ljava/util/Iterator<TT;>;", $PRIVATE | $FINAL, $field(Collections$3, i)},
-	{}
-};
-
-$MethodInfo _Collections$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Collection;)V", "()V", 0, $method(Collections$3, init$, void, $Collection*)},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$3, hasMoreElements, bool)},
-	{"nextElement", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(Collections$3, nextElement, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Collections$3_EnclosingMethodInfo_ = {
-	"java.util.Collections",
-	"enumeration",
-	"(Ljava/util/Collection;)Ljava/util/Enumeration;"
-};
-
-$InnerClassInfo _Collections$3_InnerClassesInfo_[] = {
-	{"java.util.Collections$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Collections$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$3",
-	"java.lang.Object",
-	"java.util.Enumeration",
-	_Collections$3_FieldInfo_,
-	_Collections$3_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Enumeration<TT;>;",
-	&_Collections$3_EnclosingMethodInfo_,
-	_Collections$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$3($Class* clazz) {
-	return $of($alloc(Collections$3));
-}
 
 void Collections$3::init$($Collection* val$c) {
 	$set(this, val$c, val$c);
@@ -70,14 +24,51 @@ bool Collections$3::hasMoreElements() {
 }
 
 $Object* Collections$3::nextElement() {
-	return $of($nc(this->i)->next());
+	return $nc(this->i)->next();
 }
 
 Collections$3::Collections$3() {
 }
 
 $Class* Collections$3::load$($String* name, bool initialize) {
-	$loadClass(Collections$3, name, initialize, &_Collections$3_ClassInfo_, allocate$Collections$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$c", "Ljava/util/Collection;", nullptr, $FINAL | $SYNTHETIC, $field(Collections$3, val$c)},
+		{"i", "Ljava/util/Iterator;", "Ljava/util/Iterator<TT;>;", $PRIVATE | $FINAL, $field(Collections$3, i)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collection;)V", "()V", 0, $method(Collections$3, init$, void, $Collection*)},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$3, hasMoreElements, bool)},
+		{"nextElement", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(Collections$3, nextElement, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.Collections",
+		"enumeration",
+		"(Ljava/util/Collection;)Ljava/util/Enumeration;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$3",
+		"java.lang.Object",
+		"java.util.Enumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Enumeration<TT;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Collections$3);
+	});
 	return class$;
 }
 

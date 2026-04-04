@@ -1,8 +1,6 @@
 #include <jdk/internal/ref/CleanerImpl.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/ref/Cleaner$Cleanable.h>
 #include <java/lang/ref/Cleaner.h>
 #include <java/lang/ref/Reference.h>
@@ -22,7 +20,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $Cleaner = ::java::lang::ref::Cleaner;
 using $Cleaner$Cleanable = ::java::lang::ref::Cleaner$Cleanable;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
@@ -32,53 +29,10 @@ using $InnocuousThread = ::jdk::internal::misc::InnocuousThread;
 using $CleanerImpl$CleanerCleanable = ::jdk::internal::ref::CleanerImpl$CleanerCleanable;
 using $CleanerImpl$InnocuousThreadFactory = ::jdk::internal::ref::CleanerImpl$InnocuousThreadFactory;
 using $CleanerImpl$PhantomCleanableRef = ::jdk::internal::ref::CleanerImpl$PhantomCleanableRef;
-using $PhantomCleanable = ::jdk::internal::ref::PhantomCleanable;
 
 namespace jdk {
 	namespace internal {
 		namespace ref {
-
-$FieldInfo _CleanerImpl_FieldInfo_[] = {
-	{"cleanerImplAccess", "Ljava/util/function/Function;", "Ljava/util/function/Function<Ljava/lang/ref/Cleaner;Ljdk/internal/ref/CleanerImpl;>;", $PRIVATE | $STATIC, $staticField(CleanerImpl, cleanerImplAccess)},
-	{"phantomCleanableList", "Ljdk/internal/ref/PhantomCleanable;", "Ljdk/internal/ref/PhantomCleanable<*>;", $FINAL, $field(CleanerImpl, phantomCleanableList)},
-	{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $FINAL, $field(CleanerImpl, queue)},
-	{}
-};
-
-$MethodInfo _CleanerImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CleanerImpl, init$, void)},
-	{"getCleanerImpl", "(Ljava/lang/ref/Cleaner;)Ljdk/internal/ref/CleanerImpl;", nullptr, $STATIC, $staticMethod(CleanerImpl, getCleanerImpl, CleanerImpl*, $Cleaner*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CleanerImpl, run, void)},
-	{"setCleanerImplAccess", "(Ljava/util/function/Function;)V", "(Ljava/util/function/Function<Ljava/lang/ref/Cleaner;Ljdk/internal/ref/CleanerImpl;>;)V", $PUBLIC | $STATIC, $staticMethod(CleanerImpl, setCleanerImplAccess, void, $Function*)},
-	{"start", "(Ljava/lang/ref/Cleaner;Ljava/util/concurrent/ThreadFactory;)V", nullptr, $PUBLIC, $method(CleanerImpl, start, void, $Cleaner*, $ThreadFactory*)},
-	{}
-};
-
-$InnerClassInfo _CleanerImpl_InnerClassesInfo_[] = {
-	{"jdk.internal.ref.CleanerImpl$CleanerCleanable", "jdk.internal.ref.CleanerImpl", "CleanerCleanable", $STATIC | $FINAL},
-	{"jdk.internal.ref.CleanerImpl$InnocuousThreadFactory", "jdk.internal.ref.CleanerImpl", "InnocuousThreadFactory", $STATIC | $FINAL},
-	{"jdk.internal.ref.CleanerImpl$PhantomCleanableRef", "jdk.internal.ref.CleanerImpl", "PhantomCleanableRef", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CleanerImpl_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.ref.CleanerImpl",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_CleanerImpl_FieldInfo_,
-	_CleanerImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CleanerImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.ref.CleanerImpl$CleanerCleanable,jdk.internal.ref.CleanerImpl$InnocuousThreadFactory,jdk.internal.ref.CleanerImpl$PhantomCleanableRef"
-};
-
-$Object* allocate$CleanerImpl($Class* clazz) {
-	return $of($alloc(CleanerImpl));
-}
 
 $Function* CleanerImpl::cleanerImplAccess = nullptr;
 
@@ -102,7 +56,7 @@ void CleanerImpl::init$() {
 }
 
 void CleanerImpl::start($Cleaner* cleaner, $ThreadFactory* threadFactory$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ThreadFactory, threadFactory, threadFactory$renamed);
 	if (getCleanerImpl(cleaner) != this) {
 		$throwNew($AssertionError, $of("wrong cleaner"_s));
@@ -117,15 +71,15 @@ void CleanerImpl::start($Cleaner* cleaner, $ThreadFactory* threadFactory$renamed
 }
 
 void CleanerImpl::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Thread, t, $Thread::currentThread());
 	$var($InnocuousThread, mlThread, ($instanceOf($InnocuousThread, t)) ? $cast($InnocuousThread, t) : ($InnocuousThread*)nullptr);
-	while (!$nc(this->phantomCleanableList)->isListEmpty()) {
+	while (!this->phantomCleanableList->isListEmpty()) {
 		if (mlThread != nullptr) {
 			mlThread->eraseThreadLocals();
 		}
 		try {
-			$var($Cleaner$Cleanable, ref, $cast($Cleaner$Cleanable, $nc(this->queue)->remove(60 * (int64_t)1000)));
+			$var($Cleaner$Cleanable, ref, $cast($Cleaner$Cleanable, this->queue->remove(60 * (int64_t)1000)));
 			if (ref != nullptr) {
 				ref->clean();
 			}
@@ -134,7 +88,7 @@ void CleanerImpl::run() {
 	}
 }
 
-void clinit$CleanerImpl($Class* class$) {
+void CleanerImpl::clinit$($Class* clazz) {
 	$assignStatic(CleanerImpl::cleanerImplAccess, nullptr);
 }
 
@@ -142,7 +96,43 @@ CleanerImpl::CleanerImpl() {
 }
 
 $Class* CleanerImpl::load$($String* name, bool initialize) {
-	$loadClass(CleanerImpl, name, initialize, &_CleanerImpl_ClassInfo_, clinit$CleanerImpl, allocate$CleanerImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"cleanerImplAccess", "Ljava/util/function/Function;", "Ljava/util/function/Function<Ljava/lang/ref/Cleaner;Ljdk/internal/ref/CleanerImpl;>;", $PRIVATE | $STATIC, $staticField(CleanerImpl, cleanerImplAccess)},
+		{"phantomCleanableList", "Ljdk/internal/ref/PhantomCleanable;", "Ljdk/internal/ref/PhantomCleanable<*>;", $FINAL, $field(CleanerImpl, phantomCleanableList)},
+		{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $FINAL, $field(CleanerImpl, queue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CleanerImpl, init$, void)},
+		{"getCleanerImpl", "(Ljava/lang/ref/Cleaner;)Ljdk/internal/ref/CleanerImpl;", nullptr, $STATIC, $staticMethod(CleanerImpl, getCleanerImpl, CleanerImpl*, $Cleaner*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CleanerImpl, run, void)},
+		{"setCleanerImplAccess", "(Ljava/util/function/Function;)V", "(Ljava/util/function/Function<Ljava/lang/ref/Cleaner;Ljdk/internal/ref/CleanerImpl;>;)V", $PUBLIC | $STATIC, $staticMethod(CleanerImpl, setCleanerImplAccess, void, $Function*)},
+		{"start", "(Ljava/lang/ref/Cleaner;Ljava/util/concurrent/ThreadFactory;)V", nullptr, $PUBLIC, $method(CleanerImpl, start, void, $Cleaner*, $ThreadFactory*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.ref.CleanerImpl$CleanerCleanable", "jdk.internal.ref.CleanerImpl", "CleanerCleanable", $STATIC | $FINAL},
+		{"jdk.internal.ref.CleanerImpl$InnocuousThreadFactory", "jdk.internal.ref.CleanerImpl", "InnocuousThreadFactory", $STATIC | $FINAL},
+		{"jdk.internal.ref.CleanerImpl$PhantomCleanableRef", "jdk.internal.ref.CleanerImpl", "PhantomCleanableRef", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.ref.CleanerImpl",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.ref.CleanerImpl$CleanerCleanable,jdk.internal.ref.CleanerImpl$InnocuousThreadFactory,jdk.internal.ref.CleanerImpl$PhantomCleanableRef"
+	};
+	$loadClass(CleanerImpl, name, initialize, &classInfo$$, CleanerImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CleanerImpl);
+	});
 	return class$;
 }
 

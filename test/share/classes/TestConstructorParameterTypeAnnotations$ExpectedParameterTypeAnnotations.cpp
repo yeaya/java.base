@@ -1,5 +1,4 @@
 #include <TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations.h>
-
 #include <TestConstructorParameterTypeAnnotations.h>
 #include <jcpp.h>
 
@@ -10,59 +9,50 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
-$Attribute TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations_Attribute_var$1[] = {
-	{'e', "Ljava/lang/annotation/ElementType; TYPE"},
-	{'-'}
-};
-
-$NamedAttribute TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations_Attribute_var$0[] = {
-	{"value", '[', TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations_Attribute_var$2[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations_Annotations_[] = {
-	{"Ljava/lang/annotation/Target;", TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations_Attribute_var$0},
-	{"Ljava/lang/annotation/Retention;", TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations_Attribute_var$2},
-	{}
-};
-
-$MethodInfo _TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations_MethodInfo_[] = {
-	{"value", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations, value, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations_InnerClassesInfo_[] = {
-	{"TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations", "TestConstructorParameterTypeAnnotations", "ExpectedParameterTypeAnnotations", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{}
-};
-
-$ClassInfo _TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations_InnerClassesInfo_,
-	_TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations_Annotations_,
-	nullptr,
-	nullptr,
-	"TestConstructorParameterTypeAnnotations"
-};
-
-$Object* allocate$TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations($Class* clazz) {
-	return $of($alloc(TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations));
-}
-
 $Class* TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations::load$($String* name, bool initialize) {
-	$loadClass(TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations, name, initialize, &_TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations_ClassInfo_, allocate$TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations);
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations, value, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations", "TestConstructorParameterTypeAnnotations", "ExpectedParameterTypeAnnotations", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; TYPE"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"TestConstructorParameterTypeAnnotations"
+	};
+	$loadClass(TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations);
+	});
 	return class$;
 }
 

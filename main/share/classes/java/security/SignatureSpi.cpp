@@ -1,5 +1,4 @@
 #include <java/security/SignatureSpi.h>
-
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
 #include <java/lang/Math.h>
@@ -38,56 +37,6 @@ using $JCAUtil = ::sun::security::jca::JCAUtil;
 namespace java {
 	namespace security {
 
-$CompoundAttribute _SignatureSpi_MethodAnnotations_engineGetParameter2[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _SignatureSpi_MethodAnnotations_engineSetParameter9[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _SignatureSpi_FieldInfo_[] = {
-	{"appRandom", "Ljava/security/SecureRandom;", nullptr, $PROTECTED, $field(SignatureSpi, appRandom)},
-	{}
-};
-
-$MethodInfo _SignatureSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureSpi, init$, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SignatureSpi, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"engineGetParameter", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT | $DEPRECATED, $virtualMethod(SignatureSpi, engineGetParameter, $Object*, $String*), "java.security.InvalidParameterException", nullptr, _SignatureSpi_MethodAnnotations_engineGetParameter2},
-	{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(SignatureSpi, engineGetParameters, $AlgorithmParameters*)},
-	{"engineInitSign", "(Ljava/security/PrivateKey;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SignatureSpi, engineInitSign, void, $PrivateKey*), "java.security.InvalidKeyException"},
-	{"engineInitSign", "(Ljava/security/PrivateKey;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(SignatureSpi, engineInitSign, void, $PrivateKey*, $SecureRandom*), "java.security.InvalidKeyException"},
-	{"engineInitSign", "(Ljava/security/PrivateKey;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, 0, $virtualMethod(SignatureSpi, engineInitSign, void, $PrivateKey*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"engineInitVerify", "(Ljava/security/PublicKey;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SignatureSpi, engineInitVerify, void, $PublicKey*), "java.security.InvalidKeyException"},
-	{"engineInitVerify", "(Ljava/security/PublicKey;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $virtualMethod(SignatureSpi, engineInitVerify, void, $PublicKey*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"engineSetParameter", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PROTECTED | $ABSTRACT | $DEPRECATED, $virtualMethod(SignatureSpi, engineSetParameter, void, $String*, Object$*), "java.security.InvalidParameterException", nullptr, _SignatureSpi_MethodAnnotations_engineSetParameter9},
-	{"engineSetParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(SignatureSpi, engineSetParameter, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"engineSign", "()[B", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SignatureSpi, engineSign, $bytes*), "java.security.SignatureException"},
-	{"engineSign", "([BII)I", nullptr, $PROTECTED, $virtualMethod(SignatureSpi, engineSign, int32_t, $bytes*, int32_t, int32_t), "java.security.SignatureException"},
-	{"engineUpdate", "(B)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SignatureSpi, engineUpdate, void, int8_t), "java.security.SignatureException"},
-	{"engineUpdate", "([BII)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SignatureSpi, engineUpdate, void, $bytes*, int32_t, int32_t), "java.security.SignatureException"},
-	{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED, $virtualMethod(SignatureSpi, engineUpdate, void, $ByteBuffer*)},
-	{"engineVerify", "([B)Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SignatureSpi, engineVerify, bool, $bytes*), "java.security.SignatureException"},
-	{"engineVerify", "([BII)Z", nullptr, $PROTECTED, $virtualMethod(SignatureSpi, engineVerify, bool, $bytes*, int32_t, int32_t), "java.security.SignatureException"},
-	{}
-};
-
-$ClassInfo _SignatureSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.security.SignatureSpi",
-	"java.lang.Object",
-	nullptr,
-	_SignatureSpi_FieldInfo_,
-	_SignatureSpi_MethodInfo_
-};
-
-$Object* allocate$SignatureSpi($Class* clazz) {
-	return $of($alloc(SignatureSpi));
-}
-
 void SignatureSpi::init$() {
 	$set(this, appRandom, nullptr);
 }
@@ -97,7 +46,7 @@ void SignatureSpi::engineInitVerify($PublicKey* publicKey, $AlgorithmParameterSp
 		try {
 			engineSetParameter(params);
 		} catch ($UnsupportedOperationException& usoe) {
-			$throwNew($InvalidAlgorithmParameterException, static_cast<$Throwable*>(usoe));
+			$throwNew($InvalidAlgorithmParameterException, usoe);
 		}
 	}
 	engineInitVerify(publicKey);
@@ -113,19 +62,19 @@ void SignatureSpi::engineInitSign($PrivateKey* privateKey, $AlgorithmParameterSp
 		try {
 			engineSetParameter(params);
 		} catch ($UnsupportedOperationException& usoe) {
-			$throwNew($InvalidAlgorithmParameterException, static_cast<$Throwable*>(usoe));
+			$throwNew($InvalidAlgorithmParameterException, usoe);
 		}
 	}
 	engineInitSign(privateKey, random);
 }
 
 void SignatureSpi::engineUpdate($ByteBuffer* input) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(input)->hasRemaining() == false) {
 		return;
 	}
 	try {
-		if ($nc(input)->hasArray()) {
+		if (input->hasArray()) {
 			$var($bytes, b, $cast($bytes, input->array()));
 			int32_t ofs = input->arrayOffset();
 			int32_t pos = input->position();
@@ -152,11 +101,11 @@ int32_t SignatureSpi::engineSign($bytes* outbuf, int32_t offset, int32_t len) {
 	if (len < $nc(sig)->length) {
 		$throwNew($SignatureException, "partial signatures not returned"_s);
 	}
-	if ($nc(outbuf)->length - offset < $nc(sig)->length) {
+	if ($nc(outbuf)->length - offset < sig->length) {
 		$throwNew($SignatureException, "insufficient space in the output buffer to store the signature"_s);
 	}
-	$System::arraycopy(sig, 0, outbuf, offset, $nc(sig)->length);
-	return $nc(sig)->length;
+	$System::arraycopy(sig, 0, outbuf, offset, sig->length);
+	return sig->length;
 }
 
 bool SignatureSpi::engineVerify($bytes* sigBytes, int32_t offset, int32_t length) {
@@ -176,7 +125,7 @@ $AlgorithmParameters* SignatureSpi::engineGetParameters() {
 
 $Object* SignatureSpi::clone() {
 	if ($instanceOf($Cloneable, this)) {
-		return $of($Object::clone());
+		return $Object::clone();
 	} else {
 		$throwNew($CloneNotSupportedException);
 	}
@@ -186,7 +135,50 @@ SignatureSpi::SignatureSpi() {
 }
 
 $Class* SignatureSpi::load$($String* name, bool initialize) {
-	$loadClass(SignatureSpi, name, initialize, &_SignatureSpi_ClassInfo_, allocate$SignatureSpi);
+	$FieldInfo fieldInfos$$[] = {
+		{"appRandom", "Ljava/security/SecureRandom;", nullptr, $PROTECTED, $field(SignatureSpi, appRandom)},
+		{}
+	};
+	$CompoundAttribute engineGetParametermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute engineSetParametermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureSpi, init$, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SignatureSpi, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"engineGetParameter", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT | $DEPRECATED, $virtualMethod(SignatureSpi, engineGetParameter, $Object*, $String*), "java.security.InvalidParameterException", nullptr, engineGetParametermethodAnnotations$$},
+		{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(SignatureSpi, engineGetParameters, $AlgorithmParameters*)},
+		{"engineInitSign", "(Ljava/security/PrivateKey;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SignatureSpi, engineInitSign, void, $PrivateKey*), "java.security.InvalidKeyException"},
+		{"engineInitSign", "(Ljava/security/PrivateKey;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(SignatureSpi, engineInitSign, void, $PrivateKey*, $SecureRandom*), "java.security.InvalidKeyException"},
+		{"engineInitSign", "(Ljava/security/PrivateKey;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, 0, $virtualMethod(SignatureSpi, engineInitSign, void, $PrivateKey*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"engineInitVerify", "(Ljava/security/PublicKey;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SignatureSpi, engineInitVerify, void, $PublicKey*), "java.security.InvalidKeyException"},
+		{"engineInitVerify", "(Ljava/security/PublicKey;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $virtualMethod(SignatureSpi, engineInitVerify, void, $PublicKey*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"engineSetParameter", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PROTECTED | $ABSTRACT | $DEPRECATED, $virtualMethod(SignatureSpi, engineSetParameter, void, $String*, Object$*), "java.security.InvalidParameterException", nullptr, engineSetParametermethodAnnotations$$},
+		{"engineSetParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(SignatureSpi, engineSetParameter, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"engineSign", "()[B", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SignatureSpi, engineSign, $bytes*), "java.security.SignatureException"},
+		{"engineSign", "([BII)I", nullptr, $PROTECTED, $virtualMethod(SignatureSpi, engineSign, int32_t, $bytes*, int32_t, int32_t), "java.security.SignatureException"},
+		{"engineUpdate", "(B)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SignatureSpi, engineUpdate, void, int8_t), "java.security.SignatureException"},
+		{"engineUpdate", "([BII)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SignatureSpi, engineUpdate, void, $bytes*, int32_t, int32_t), "java.security.SignatureException"},
+		{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED, $virtualMethod(SignatureSpi, engineUpdate, void, $ByteBuffer*)},
+		{"engineVerify", "([B)Z", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SignatureSpi, engineVerify, bool, $bytes*), "java.security.SignatureException"},
+		{"engineVerify", "([BII)Z", nullptr, $PROTECTED, $virtualMethod(SignatureSpi, engineVerify, bool, $bytes*, int32_t, int32_t), "java.security.SignatureException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.security.SignatureSpi",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SignatureSpi, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureSpi);
+	});
 	return class$;
 }
 

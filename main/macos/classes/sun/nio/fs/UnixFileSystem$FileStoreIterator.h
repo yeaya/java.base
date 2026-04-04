@@ -28,6 +28,7 @@ class UnixFileSystem$FileStoreIterator : public ::java::util::Iterator {
 	$class(UnixFileSystem$FileStoreIterator, 0, ::java::util::Iterator)
 public:
 	UnixFileSystem$FileStoreIterator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::nio::fs::UnixFileSystem* this$0);
 	virtual bool hasNext() override;
 	virtual $Object* next() override;

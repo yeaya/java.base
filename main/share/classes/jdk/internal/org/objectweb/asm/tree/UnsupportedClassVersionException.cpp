@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/tree/UnsupportedClassVersionException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -13,29 +12,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 					namespace tree {
-
-$FieldInfo _UnsupportedClassVersionException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnsupportedClassVersionException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _UnsupportedClassVersionException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UnsupportedClassVersionException, init$, void)},
-	{}
-};
-
-$ClassInfo _UnsupportedClassVersionException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.tree.UnsupportedClassVersionException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_UnsupportedClassVersionException_FieldInfo_,
-	_UnsupportedClassVersionException_MethodInfo_
-};
-
-$Object* allocate$UnsupportedClassVersionException($Class* clazz) {
-	return $of($alloc(UnsupportedClassVersionException));
-}
 
 void UnsupportedClassVersionException::init$() {
 	$RuntimeException::init$();
@@ -52,7 +28,25 @@ void UnsupportedClassVersionException::throw$() {
 }
 
 $Class* UnsupportedClassVersionException::load$($String* name, bool initialize) {
-	$loadClass(UnsupportedClassVersionException, name, initialize, &_UnsupportedClassVersionException_ClassInfo_, allocate$UnsupportedClassVersionException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnsupportedClassVersionException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UnsupportedClassVersionException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.tree.UnsupportedClassVersionException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnsupportedClassVersionException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnsupportedClassVersionException);
+	});
 	return class$;
 }
 

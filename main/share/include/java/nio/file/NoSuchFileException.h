@@ -15,10 +15,13 @@ public:
 	NoSuchFileException();
 	void init$($String* file);
 	void init$($String* file, $String* other, $String* reason);
-	static const int64_t serialVersionUID = (int64_t)0xECB4B0FEF4CD7A85;
+	static const int64_t serialVersionUID = (int64_t)0xecb4b0fef4cd7a85;
 	NoSuchFileException(const NoSuchFileException& e);
 	virtual void throw$() override;
-	inline NoSuchFileException* operator ->() {
+	inline NoSuchFileException* operator ->() const {
+		return (NoSuchFileException*)throwing$;
+	}
+	inline operator NoSuchFileException*() const {
 		return (NoSuchFileException*)throwing$;
 	}
 };

@@ -39,6 +39,7 @@ class UnixFileStore : public ::java::nio::file::FileStore {
 	$class(UnixFileStore, 0, ::java::nio::file::FileStore)
 public:
 	UnixFileStore();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::nio::fs::UnixPath* file);
 	void init$(::sun::nio::fs::UnixFileSystem* fs, ::sun::nio::fs::UnixMountEntry* entry);
 	virtual ::sun::nio::fs::UnixFileStore$FeatureStatus* checkIfFeaturePresent($String* feature);

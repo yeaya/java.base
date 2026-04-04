@@ -346,6 +346,7 @@ jcpp_add_main_app(jdk.internal.org.objectweb.asm.util.ASMifier-app "jdk.internal
 jcpp_add_main_app(jdk.internal.org.objectweb.asm.util.CheckClassAdapter-app "jdk.internal.org.objectweb.asm.util.CheckClassAdapter-app" "share/jdk.internal.org.objectweb.asm.util.CheckClassAdapter.cpp")
 jcpp_add_main_app(jdk.internal.org.objectweb.asm.util.Textifier-app "jdk.internal.org.objectweb.asm.util.Textifier-app" "share/jdk.internal.org.objectweb.asm.util.Textifier.cpp")
 jcpp_add_main_app(sun.launcher.LauncherHelper.FXHelper-app "sun.launcher.LauncherHelper.FXHelper-app" "share/sun.launcher.LauncherHelper$FXHelper.cpp")
+jcpp_add_main_app(sun.security.provider.PolicyParser-app "sun.security.provider.PolicyParser-app" "share/sun.security.provider.PolicyParser.cpp")
 jcpp_add_main_app(sun.security.tools.keytool.Main-app "sun.security.tools.keytool.Main-app" "share/sun.security.tools.keytool.Main.cpp")
 
 install(

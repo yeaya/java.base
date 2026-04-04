@@ -1,5 +1,4 @@
 #include <java/util/zip/Inflater.h>
-
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
@@ -35,96 +34,6 @@ using $DirectBuffer = ::sun::nio::ch::DirectBuffer;
 namespace java {
 	namespace util {
 		namespace zip {
-
-$FieldInfo _Inflater_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Inflater, $assertionsDisabled)},
-	{"zsRef", "Ljava/util/zip/Inflater$InflaterZStreamRef;", nullptr, $PRIVATE | $FINAL, $field(Inflater, zsRef)},
-	{"input", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(Inflater, input)},
-	{"inputArray", "[B", nullptr, $PRIVATE, $field(Inflater, inputArray)},
-	{"inputPos", "I", nullptr, $PRIVATE, $field(Inflater, inputPos)},
-	{"inputLim", "I", nullptr, $PRIVATE, $field(Inflater, inputLim)},
-	{"finished", "Z", nullptr, $PRIVATE, $field(Inflater, finished$)},
-	{"needDict", "Z", nullptr, $PRIVATE, $field(Inflater, needDict)},
-	{"bytesRead", "J", nullptr, $PRIVATE, $field(Inflater, bytesRead)},
-	{"bytesWritten", "J", nullptr, $PRIVATE, $field(Inflater, bytesWritten)},
-	{"inputConsumed", "I", nullptr, $PRIVATE, $field(Inflater, inputConsumed)},
-	{"outputConsumed", "I", nullptr, $PRIVATE, $field(Inflater, outputConsumed)},
-	{}
-};
-
-$MethodInfo _Inflater_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(Inflater, init$, void, bool)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Inflater, init$, void)},
-	{"end", "()V", nullptr, $PUBLIC, $virtualMethod(Inflater, end, void)},
-	{"end", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Inflater, end, void, int64_t)},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(Inflater, ensureOpen, void)},
-	{"finished", "()Z", nullptr, $PUBLIC, $virtualMethod(Inflater, finished, bool)},
-	{"getAdler", "()I", nullptr, $PUBLIC, $virtualMethod(Inflater, getAdler, int32_t)},
-	{"getAdler", "(J)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Inflater, getAdler, int32_t, int64_t)},
-	{"getBytesRead", "()J", nullptr, $PUBLIC, $virtualMethod(Inflater, getBytesRead, int64_t)},
-	{"getBytesWritten", "()J", nullptr, $PUBLIC, $virtualMethod(Inflater, getBytesWritten, int64_t)},
-	{"getRemaining", "()I", nullptr, $PUBLIC, $virtualMethod(Inflater, getRemaining, int32_t)},
-	{"getTotalIn", "()I", nullptr, $PUBLIC, $virtualMethod(Inflater, getTotalIn, int32_t)},
-	{"getTotalOut", "()I", nullptr, $PUBLIC, $virtualMethod(Inflater, getTotalOut, int32_t)},
-	{"inflate", "([BII)I", nullptr, $PUBLIC, $virtualMethod(Inflater, inflate, int32_t, $bytes*, int32_t, int32_t), "java.util.zip.DataFormatException"},
-	{"inflate", "([B)I", nullptr, $PUBLIC, $virtualMethod(Inflater, inflate, int32_t, $bytes*), "java.util.zip.DataFormatException"},
-	{"inflate", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(Inflater, inflate, int32_t, $ByteBuffer*), "java.util.zip.DataFormatException"},
-	{"inflateBufferBuffer", "(JJIJI)J", nullptr, $PRIVATE | $NATIVE, $method(Inflater, inflateBufferBuffer, int64_t, int64_t, int64_t, int32_t, int64_t, int32_t), "java.util.zip.DataFormatException"},
-	{"inflateBufferBytes", "(JJI[BII)J", nullptr, $PRIVATE | $NATIVE, $method(Inflater, inflateBufferBytes, int64_t, int64_t, int64_t, int32_t, $bytes*, int32_t, int32_t), "java.util.zip.DataFormatException"},
-	{"inflateBytesBuffer", "(J[BIIJI)J", nullptr, $PRIVATE | $NATIVE, $method(Inflater, inflateBytesBuffer, int64_t, int64_t, $bytes*, int32_t, int32_t, int64_t, int32_t), "java.util.zip.DataFormatException"},
-	{"inflateBytesBytes", "(J[BII[BII)J", nullptr, $PRIVATE | $NATIVE, $method(Inflater, inflateBytesBytes, int64_t, int64_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t), "java.util.zip.DataFormatException"},
-	{"init", "(Z)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Inflater, init, int64_t, bool)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Inflater, initIDs, void)},
-	{"needsDictionary", "()Z", nullptr, $PUBLIC, $virtualMethod(Inflater, needsDictionary, bool)},
-	{"needsInput", "()Z", nullptr, $PUBLIC, $virtualMethod(Inflater, needsInput, bool)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(Inflater, reset, void)},
-	{"reset", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Inflater, reset, void, int64_t)},
-	{"setDictionary", "([BII)V", nullptr, $PUBLIC, $virtualMethod(Inflater, setDictionary, void, $bytes*, int32_t, int32_t)},
-	{"setDictionary", "([B)V", nullptr, $PUBLIC, $virtualMethod(Inflater, setDictionary, void, $bytes*)},
-	{"setDictionary", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(Inflater, setDictionary, void, $ByteBuffer*)},
-	{"setDictionary", "(J[BII)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Inflater, setDictionary, void, int64_t, $bytes*, int32_t, int32_t)},
-	{"setDictionaryBuffer", "(JJI)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Inflater, setDictionaryBuffer, void, int64_t, int64_t, int32_t)},
-	{"setInput", "([BII)V", nullptr, $PUBLIC, $virtualMethod(Inflater, setInput, void, $bytes*, int32_t, int32_t)},
-	{"setInput", "([B)V", nullptr, $PUBLIC, $virtualMethod(Inflater, setInput, void, $bytes*)},
-	{"setInput", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(Inflater, setInput, void, $ByteBuffer*)},
-	{}
-};
-
-#define _METHOD_INDEX_end 3
-#define _METHOD_INDEX_getAdler 7
-#define _METHOD_INDEX_inflateBufferBuffer 16
-#define _METHOD_INDEX_inflateBufferBytes 17
-#define _METHOD_INDEX_inflateBytesBuffer 18
-#define _METHOD_INDEX_inflateBytesBytes 19
-#define _METHOD_INDEX_init 20
-#define _METHOD_INDEX_initIDs 21
-#define _METHOD_INDEX_reset 25
-#define _METHOD_INDEX_setDictionary 29
-#define _METHOD_INDEX_setDictionaryBuffer 30
-
-$InnerClassInfo _Inflater_InnerClassesInfo_[] = {
-	{"java.util.zip.Inflater$InflaterZStreamRef", "java.util.zip.Inflater", "InflaterZStreamRef", $STATIC},
-	{}
-};
-
-$ClassInfo _Inflater_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.zip.Inflater",
-	"java.lang.Object",
-	nullptr,
-	_Inflater_FieldInfo_,
-	_Inflater_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Inflater_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.zip.Inflater$InflaterZStreamRef"
-};
-
-$Object* allocate$Inflater($Class* clazz) {
-	return $of($alloc(Inflater));
-}
 
 bool Inflater::$assertionsDisabled = false;
 
@@ -168,7 +77,7 @@ void Inflater::setDictionary($bytes* dictionary, int32_t off, int32_t len) {
 	}
 	$synchronized(this->zsRef) {
 		ensureOpen();
-		setDictionary($nc(this->zsRef)->address(), dictionary, off, len);
+		setDictionary(this->zsRef->address(), dictionary, off, len);
 		this->needDict = false;
 	}
 }
@@ -178,30 +87,28 @@ void Inflater::setDictionary($bytes* dictionary) {
 }
 
 void Inflater::setDictionary($ByteBuffer* dictionary) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->zsRef) {
 		int32_t position = $nc(dictionary)->position();
 		int32_t remaining = $Math::max(dictionary->limit() - position, 0);
 		ensureOpen();
 		if (dictionary->isDirect()) {
-			int64_t address = $nc(($cast($DirectBuffer, dictionary)))->address();
-			{
-				$var($Throwable, var$0, nullptr);
-				try {
-					setDictionaryBuffer($nc(this->zsRef)->address(), address + position, remaining);
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					$Reference::reachabilityFence(dictionary);
-				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			int64_t address = $cast($DirectBuffer, dictionary)->address();
+			$var($Throwable, var$0, nullptr);
+			try {
+				setDictionaryBuffer(this->zsRef->address(), address + position, remaining);
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				$Reference::reachabilityFence(dictionary);
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		} else {
 			$var($bytes, array, $ZipUtils::getBufferArray(dictionary));
 			int32_t offset = $ZipUtils::getBufferOffset(dictionary);
-			setDictionary($nc(this->zsRef)->address(), array, offset + position, remaining);
+			setDictionary(this->zsRef->address(), array, offset + position, remaining);
 		}
 		dictionary->position(position + remaining);
 		this->needDict = false;
@@ -211,14 +118,14 @@ void Inflater::setDictionary($ByteBuffer* dictionary) {
 int32_t Inflater::getRemaining() {
 	$synchronized(this->zsRef) {
 		$var($ByteBuffer, input, this->input);
-		return input == nullptr ? this->inputLim - this->inputPos : $nc(input)->remaining();
+		return input == nullptr ? this->inputLim - this->inputPos : input->remaining();
 	}
 }
 
 bool Inflater::needsInput() {
 	$synchronized(this->zsRef) {
 		$var($ByteBuffer, input, this->input);
-		return input == nullptr ? this->inputLim == this->inputPos : !$nc(input)->hasRemaining();
+		return input == nullptr ? this->inputLim == this->inputPos : !input->hasRemaining();
 	}
 }
 
@@ -235,7 +142,7 @@ bool Inflater::finished() {
 }
 
 int32_t Inflater::inflate($bytes* output, int32_t off, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (off < 0 || len < 0 || off > $nc(output)->length - len) {
 		$throwNew($ArrayIndexOutOfBoundsException);
 	}
@@ -248,34 +155,32 @@ int32_t Inflater::inflate($bytes* output, int32_t off, int32_t len) {
 			if (input == nullptr) {
 				inputPos = this->inputPos;
 				try {
-					result = inflateBytesBytes($nc(this->zsRef)->address(), this->inputArray, inputPos, this->inputLim - inputPos, output, off, len);
+					result = inflateBytesBytes(this->zsRef->address(), this->inputArray, inputPos, this->inputLim - inputPos, output, off, len);
 				} catch ($DataFormatException& e) {
 					this->inputPos = inputPos + this->inputConsumed;
 					$throw(e);
 				}
 			} else {
-				inputPos = $nc(input)->position();
+				inputPos = input->position();
 				try {
 					int32_t inputRem = $Math::max(input->limit() - inputPos, 0);
 					if (input->isDirect()) {
-						{
-							$var($Throwable, var$0, nullptr);
-							try {
-								int64_t inputAddress = $nc(($cast($DirectBuffer, input)))->address();
-								result = inflateBufferBytes($nc(this->zsRef)->address(), inputAddress + inputPos, inputRem, output, off, len);
-							} catch ($Throwable& var$1) {
-								$assign(var$0, var$1);
-							} /*finally*/ {
-								$Reference::reachabilityFence(input);
-							}
-							if (var$0 != nullptr) {
-								$throw(var$0);
-							}
+						$var($Throwable, var$0, nullptr);
+						try {
+							int64_t inputAddress = $cast($DirectBuffer, input)->address();
+							result = inflateBufferBytes(this->zsRef->address(), inputAddress + inputPos, inputRem, output, off, len);
+						} catch ($Throwable& var$1) {
+							$assign(var$0, var$1);
+						} /*finally*/ {
+							$Reference::reachabilityFence(input);
+						}
+						if (var$0 != nullptr) {
+							$throw(var$0);
 						}
 					} else {
 						$var($bytes, inputArray, $ZipUtils::getBufferArray(input));
 						int32_t inputOffset = $ZipUtils::getBufferOffset(input);
-						result = inflateBytesBytes($nc(this->zsRef)->address(), inputArray, inputOffset + inputPos, inputRem, output, off, len);
+						result = inflateBytesBytes(this->zsRef->address(), inputArray, inputOffset + inputPos, inputRem, output, off, len);
 					}
 				} catch ($DataFormatException& e) {
 					input->position(inputPos + this->inputConsumed);
@@ -290,12 +195,12 @@ int32_t Inflater::inflate($bytes* output, int32_t off, int32_t len) {
 			this->outputConsumed = 0;
 			$throw(e);
 		}
-		int32_t read = (int32_t)((int64_t)(result & (uint64_t)(int64_t)2147483647));
-		int32_t written = (int32_t)((int64_t)((int64_t)((uint64_t)result >> 31) & (uint64_t)(int64_t)2147483647));
-		if (((int64_t)((int64_t)((uint64_t)result >> 62) & (uint64_t)(int64_t)1)) != 0) {
+		int32_t read = (int32_t)(result & (int64_t)0x7fffffff);
+		int32_t written = (int32_t)((int64_t)((uint64_t)result >> 31) & (int64_t)0x7fffffff);
+		if (((int64_t)((uint64_t)result >> 62) & 1) != 0) {
 			this->finished$ = true;
 		}
-		if (((int64_t)((int64_t)((uint64_t)result >> 63) & (uint64_t)(int64_t)1)) != 0) {
+		if (((int64_t)((uint64_t)result >> 63) & 1) != 0) {
 			this->needDict = true;
 		}
 		if (input != nullptr) {
@@ -314,7 +219,7 @@ int32_t Inflater::inflate($bytes* output) {
 }
 
 int32_t Inflater::inflate($ByteBuffer* output) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(output)->isReadOnly()) {
 		$throwNew($ReadOnlyBufferException);
 	}
@@ -323,96 +228,88 @@ int32_t Inflater::inflate($ByteBuffer* output) {
 		$var($ByteBuffer, input, this->input);
 		int64_t result = 0;
 		int32_t inputPos = 0;
-		int32_t outputPos = $nc(output)->position();
+		int32_t outputPos = output->position();
 		int32_t outputRem = $Math::max(output->limit() - outputPos, 0);
 		try {
 			if (input == nullptr) {
 				inputPos = this->inputPos;
 				try {
 					if (output->isDirect()) {
-						int64_t outputAddress = $nc(($cast($DirectBuffer, output)))->address();
-						{
-							$var($Throwable, var$0, nullptr);
-							try {
-								result = inflateBytesBuffer($nc(this->zsRef)->address(), this->inputArray, inputPos, this->inputLim - inputPos, outputAddress + outputPos, outputRem);
-							} catch ($Throwable& var$1) {
-								$assign(var$0, var$1);
-							} /*finally*/ {
-								$Reference::reachabilityFence(output);
-							}
-							if (var$0 != nullptr) {
-								$throw(var$0);
-							}
+						int64_t outputAddress = $cast($DirectBuffer, output)->address();
+						$var($Throwable, var$0, nullptr);
+						try {
+							result = inflateBytesBuffer(this->zsRef->address(), this->inputArray, inputPos, this->inputLim - inputPos, outputAddress + outputPos, outputRem);
+						} catch ($Throwable& var$1) {
+							$assign(var$0, var$1);
+						} /*finally*/ {
+							$Reference::reachabilityFence(output);
+						}
+						if (var$0 != nullptr) {
+							$throw(var$0);
 						}
 					} else {
 						$var($bytes, outputArray, $ZipUtils::getBufferArray(output));
 						int32_t outputOffset = $ZipUtils::getBufferOffset(output);
-						result = inflateBytesBytes($nc(this->zsRef)->address(), this->inputArray, inputPos, this->inputLim - inputPos, outputArray, outputOffset + outputPos, outputRem);
+						result = inflateBytesBytes(this->zsRef->address(), this->inputArray, inputPos, this->inputLim - inputPos, outputArray, outputOffset + outputPos, outputRem);
 					}
 				} catch ($DataFormatException& e) {
 					this->inputPos = inputPos + this->inputConsumed;
 					$throw(e);
 				}
 			} else {
-				inputPos = $nc(input)->position();
+				inputPos = input->position();
 				int32_t inputRem = $Math::max(input->limit() - inputPos, 0);
 				try {
 					if (input->isDirect()) {
-						int64_t inputAddress = $nc(($cast($DirectBuffer, input)))->address();
-						{
-							$var($Throwable, var$2, nullptr);
-							try {
-								if (output->isDirect()) {
-									int64_t outputAddress = $nc(($cast($DirectBuffer, output)))->address();
-									{
-										$var($Throwable, var$3, nullptr);
-										try {
-											result = inflateBufferBuffer($nc(this->zsRef)->address(), inputAddress + inputPos, inputRem, outputAddress + outputPos, outputRem);
-										} catch ($Throwable& var$4) {
-											$assign(var$3, var$4);
-										} /*finally*/ {
-											$Reference::reachabilityFence(output);
-										}
-										if (var$3 != nullptr) {
-											$throw(var$3);
-										}
-									}
-								} else {
-									$var($bytes, outputArray, $ZipUtils::getBufferArray(output));
-									int32_t outputOffset = $ZipUtils::getBufferOffset(output);
-									result = inflateBufferBytes($nc(this->zsRef)->address(), inputAddress + inputPos, inputRem, outputArray, outputOffset + outputPos, outputRem);
+						int64_t inputAddress = $cast($DirectBuffer, input)->address();
+						$var($Throwable, var$2, nullptr);
+						try {
+							if (output->isDirect()) {
+								int64_t outputAddress = $cast($DirectBuffer, output)->address();
+								$var($Throwable, var$3, nullptr);
+								try {
+									result = inflateBufferBuffer(this->zsRef->address(), inputAddress + inputPos, inputRem, outputAddress + outputPos, outputRem);
+								} catch ($Throwable& var$4) {
+									$assign(var$3, var$4);
+								} /*finally*/ {
+									$Reference::reachabilityFence(output);
 								}
-							} catch ($Throwable& var$5) {
-								$assign(var$2, var$5);
-							} /*finally*/ {
-								$Reference::reachabilityFence(input);
+								if (var$3 != nullptr) {
+									$throw(var$3);
+								}
+							} else {
+								$var($bytes, outputArray, $ZipUtils::getBufferArray(output));
+								int32_t outputOffset = $ZipUtils::getBufferOffset(output);
+								result = inflateBufferBytes(this->zsRef->address(), inputAddress + inputPos, inputRem, outputArray, outputOffset + outputPos, outputRem);
 							}
-							if (var$2 != nullptr) {
-								$throw(var$2);
-							}
+						} catch ($Throwable& var$5) {
+							$assign(var$2, var$5);
+						} /*finally*/ {
+							$Reference::reachabilityFence(input);
+						}
+						if (var$2 != nullptr) {
+							$throw(var$2);
 						}
 					} else {
 						$var($bytes, inputArray, $ZipUtils::getBufferArray(input));
 						int32_t inputOffset = $ZipUtils::getBufferOffset(input);
 						if (output->isDirect()) {
-							int64_t outputAddress = $nc(($cast($DirectBuffer, output)))->address();
-							{
-								$var($Throwable, var$6, nullptr);
-								try {
-									result = inflateBytesBuffer($nc(this->zsRef)->address(), inputArray, inputOffset + inputPos, inputRem, outputAddress + outputPos, outputRem);
-								} catch ($Throwable& var$7) {
-									$assign(var$6, var$7);
-								} /*finally*/ {
-									$Reference::reachabilityFence(output);
-								}
-								if (var$6 != nullptr) {
-									$throw(var$6);
-								}
+							int64_t outputAddress = $cast($DirectBuffer, output)->address();
+							$var($Throwable, var$6, nullptr);
+							try {
+								result = inflateBytesBuffer(this->zsRef->address(), inputArray, inputOffset + inputPos, inputRem, outputAddress + outputPos, outputRem);
+							} catch ($Throwable& var$7) {
+								$assign(var$6, var$7);
+							} /*finally*/ {
+								$Reference::reachabilityFence(output);
+							}
+							if (var$6 != nullptr) {
+								$throw(var$6);
 							}
 						} else {
 							$var($bytes, outputArray, $ZipUtils::getBufferArray(output));
 							int32_t outputOffset = $ZipUtils::getBufferOffset(output);
-							result = inflateBytesBytes($nc(this->zsRef)->address(), inputArray, inputOffset + inputPos, inputRem, outputArray, outputOffset + outputPos, outputRem);
+							result = inflateBytesBytes(this->zsRef->address(), inputArray, inputOffset + inputPos, inputRem, outputArray, outputOffset + outputPos, outputRem);
 						}
 					}
 				} catch ($DataFormatException& e) {
@@ -429,12 +326,12 @@ int32_t Inflater::inflate($ByteBuffer* output) {
 			this->outputConsumed = 0;
 			$throw(e);
 		}
-		int32_t read = (int32_t)((int64_t)(result & (uint64_t)(int64_t)2147483647));
-		int32_t written = (int32_t)((int64_t)((int64_t)((uint64_t)result >> 31) & (uint64_t)(int64_t)2147483647));
-		if (((int64_t)((int64_t)((uint64_t)result >> 62) & (uint64_t)(int64_t)1)) != 0) {
+		int32_t read = (int32_t)(result & (int64_t)0x7fffffff);
+		int32_t written = (int32_t)((int64_t)((uint64_t)result >> 31) & (int64_t)0x7fffffff);
+		if (((int64_t)((uint64_t)result >> 62) & 1) != 0) {
 			this->finished$ = true;
 		}
-		if (((int64_t)((int64_t)((uint64_t)result >> 63) & (uint64_t)(int64_t)1)) != 0) {
+		if (((int64_t)((uint64_t)result >> 63) & 1) != 0) {
 			this->needDict = true;
 		}
 		if (input != nullptr) {
@@ -452,7 +349,7 @@ int32_t Inflater::inflate($ByteBuffer* output) {
 int32_t Inflater::getAdler() {
 	$synchronized(this->zsRef) {
 		ensureOpen();
-		return getAdler($nc(this->zsRef)->address());
+		return getAdler(this->zsRef->address());
 	}
 }
 
@@ -481,7 +378,7 @@ int64_t Inflater::getBytesWritten() {
 void Inflater::reset() {
 	$synchronized(this->zsRef) {
 		ensureOpen();
-		reset($nc(this->zsRef)->address());
+		reset(this->zsRef->address());
 		$init($ZipUtils);
 		$set(this, input, $ZipUtils::defaultBuf);
 		$set(this, inputArray, nullptr);
@@ -493,7 +390,7 @@ void Inflater::reset() {
 
 void Inflater::end() {
 	$synchronized(this->zsRef) {
-		$nc(this->zsRef)->clean();
+		this->zsRef->clean();
 		$init($ZipUtils);
 		$set(this, input, $ZipUtils::defaultBuf);
 		$set(this, inputArray, nullptr);
@@ -552,7 +449,7 @@ void Inflater::end(int64_t addr) {
 	_Java_java_util_zip_Inflater_end(addr);
 }
 
-void clinit$Inflater($Class* class$) {
+void Inflater::clinit$($Class* clazz) {
 	Inflater::$assertionsDisabled = !Inflater::class$->desiredAssertionStatus();
 	{
 		$ZipUtils::loadLibrary();
@@ -564,7 +461,79 @@ Inflater::Inflater() {
 }
 
 $Class* Inflater::load$($String* name, bool initialize) {
-	$loadClass(Inflater, name, initialize, &_Inflater_ClassInfo_, clinit$Inflater, allocate$Inflater);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Inflater, $assertionsDisabled)},
+		{"zsRef", "Ljava/util/zip/Inflater$InflaterZStreamRef;", nullptr, $PRIVATE | $FINAL, $field(Inflater, zsRef)},
+		{"input", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(Inflater, input)},
+		{"inputArray", "[B", nullptr, $PRIVATE, $field(Inflater, inputArray)},
+		{"inputPos", "I", nullptr, $PRIVATE, $field(Inflater, inputPos)},
+		{"inputLim", "I", nullptr, $PRIVATE, $field(Inflater, inputLim)},
+		{"finished", "Z", nullptr, $PRIVATE, $field(Inflater, finished$)},
+		{"needDict", "Z", nullptr, $PRIVATE, $field(Inflater, needDict)},
+		{"bytesRead", "J", nullptr, $PRIVATE, $field(Inflater, bytesRead)},
+		{"bytesWritten", "J", nullptr, $PRIVATE, $field(Inflater, bytesWritten)},
+		{"inputConsumed", "I", nullptr, $PRIVATE, $field(Inflater, inputConsumed)},
+		{"outputConsumed", "I", nullptr, $PRIVATE, $field(Inflater, outputConsumed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(Inflater, init$, void, bool)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Inflater, init$, void)},
+		{"end", "()V", nullptr, $PUBLIC, $virtualMethod(Inflater, end, void)},
+		{"end", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Inflater, end, void, int64_t)},
+		{"ensureOpen", "()V", nullptr, $PRIVATE, $method(Inflater, ensureOpen, void)},
+		{"finished", "()Z", nullptr, $PUBLIC, $virtualMethod(Inflater, finished, bool)},
+		{"getAdler", "()I", nullptr, $PUBLIC, $virtualMethod(Inflater, getAdler, int32_t)},
+		{"getAdler", "(J)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Inflater, getAdler, int32_t, int64_t)},
+		{"getBytesRead", "()J", nullptr, $PUBLIC, $virtualMethod(Inflater, getBytesRead, int64_t)},
+		{"getBytesWritten", "()J", nullptr, $PUBLIC, $virtualMethod(Inflater, getBytesWritten, int64_t)},
+		{"getRemaining", "()I", nullptr, $PUBLIC, $virtualMethod(Inflater, getRemaining, int32_t)},
+		{"getTotalIn", "()I", nullptr, $PUBLIC, $virtualMethod(Inflater, getTotalIn, int32_t)},
+		{"getTotalOut", "()I", nullptr, $PUBLIC, $virtualMethod(Inflater, getTotalOut, int32_t)},
+		{"inflate", "([BII)I", nullptr, $PUBLIC, $virtualMethod(Inflater, inflate, int32_t, $bytes*, int32_t, int32_t), "java.util.zip.DataFormatException"},
+		{"inflate", "([B)I", nullptr, $PUBLIC, $virtualMethod(Inflater, inflate, int32_t, $bytes*), "java.util.zip.DataFormatException"},
+		{"inflate", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(Inflater, inflate, int32_t, $ByteBuffer*), "java.util.zip.DataFormatException"},
+		{"inflateBufferBuffer", "(JJIJI)J", nullptr, $PRIVATE | $NATIVE, $method(Inflater, inflateBufferBuffer, int64_t, int64_t, int64_t, int32_t, int64_t, int32_t), "java.util.zip.DataFormatException"},
+		{"inflateBufferBytes", "(JJI[BII)J", nullptr, $PRIVATE | $NATIVE, $method(Inflater, inflateBufferBytes, int64_t, int64_t, int64_t, int32_t, $bytes*, int32_t, int32_t), "java.util.zip.DataFormatException"},
+		{"inflateBytesBuffer", "(J[BIIJI)J", nullptr, $PRIVATE | $NATIVE, $method(Inflater, inflateBytesBuffer, int64_t, int64_t, $bytes*, int32_t, int32_t, int64_t, int32_t), "java.util.zip.DataFormatException"},
+		{"inflateBytesBytes", "(J[BII[BII)J", nullptr, $PRIVATE | $NATIVE, $method(Inflater, inflateBytesBytes, int64_t, int64_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t), "java.util.zip.DataFormatException"},
+		{"init", "(Z)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Inflater, init, int64_t, bool)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Inflater, initIDs, void)},
+		{"needsDictionary", "()Z", nullptr, $PUBLIC, $virtualMethod(Inflater, needsDictionary, bool)},
+		{"needsInput", "()Z", nullptr, $PUBLIC, $virtualMethod(Inflater, needsInput, bool)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(Inflater, reset, void)},
+		{"reset", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Inflater, reset, void, int64_t)},
+		{"setDictionary", "([BII)V", nullptr, $PUBLIC, $virtualMethod(Inflater, setDictionary, void, $bytes*, int32_t, int32_t)},
+		{"setDictionary", "([B)V", nullptr, $PUBLIC, $virtualMethod(Inflater, setDictionary, void, $bytes*)},
+		{"setDictionary", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(Inflater, setDictionary, void, $ByteBuffer*)},
+		{"setDictionary", "(J[BII)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Inflater, setDictionary, void, int64_t, $bytes*, int32_t, int32_t)},
+		{"setDictionaryBuffer", "(JJI)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Inflater, setDictionaryBuffer, void, int64_t, int64_t, int32_t)},
+		{"setInput", "([BII)V", nullptr, $PUBLIC, $virtualMethod(Inflater, setInput, void, $bytes*, int32_t, int32_t)},
+		{"setInput", "([B)V", nullptr, $PUBLIC, $virtualMethod(Inflater, setInput, void, $bytes*)},
+		{"setInput", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(Inflater, setInput, void, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.zip.Inflater$InflaterZStreamRef", "java.util.zip.Inflater", "InflaterZStreamRef", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.zip.Inflater",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.zip.Inflater$InflaterZStreamRef"
+	};
+	$loadClass(Inflater, name, initialize, &classInfo$$, Inflater::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Inflater);
+	});
 	return class$;
 }
 

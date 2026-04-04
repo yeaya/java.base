@@ -34,11 +34,12 @@ namespace java {
 	namespace lang {
 
 class StringUTF16 : public ::java::lang::Object {
-	$class(StringUTF16, 0, ::java::lang::Object)
+	$class(StringUTF16, $PREINIT, ::java::lang::Object)
 public:
 	StringUTF16();
 	using ::java::lang::Object::hashCode;
 	using ::java::lang::Object::equals;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static char16_t charAt($bytes* value, int32_t index);
 	static void checkBoundsBeginEnd(int32_t begin, int32_t end, $bytes* val);
@@ -131,7 +132,7 @@ public:
 	static bool $assertionsDisabled;
 	static int32_t HI_BYTE_SHIFT;
 	static int32_t LO_BYTE_SHIFT;
-	static const int32_t MAX_LENGTH = 0x3FFFFFFF; // Integer.MAX_VALUE >> 1
+	static const int32_t MAX_LENGTH = 0x3fffffff; // Integer.MAX_VALUE >> 1
 };
 
 	} // lang

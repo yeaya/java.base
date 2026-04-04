@@ -1,5 +1,4 @@
 #include <java/lang/Character$CharacterCache.h>
-
 #include <jdk/internal/misc/CDS.h>
 #include <jcpp.h>
 
@@ -14,54 +13,18 @@ using $CDS = ::jdk::internal::misc::CDS;
 namespace java {
 	namespace lang {
 
-$FieldInfo _Character$CharacterCache_FieldInfo_[] = {
-	{"cache", "[Ljava/lang/Character;", nullptr, $STATIC | $FINAL, $staticField(Character$CharacterCache, cache)},
-	{"archivedCache", "[Ljava/lang/Character;", nullptr, $STATIC, $staticField(Character$CharacterCache, archivedCache)},
-	{}
-};
-
-$MethodInfo _Character$CharacterCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Character$CharacterCache, init$, void)},
-	{}
-};
-
-$InnerClassInfo _Character$CharacterCache_InnerClassesInfo_[] = {
-	{"java.lang.Character$CharacterCache", "java.lang.Character", "CharacterCache", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Character$CharacterCache_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.Character$CharacterCache",
-	"java.lang.Object",
-	nullptr,
-	_Character$CharacterCache_FieldInfo_,
-	_Character$CharacterCache_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Character$CharacterCache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.Character"
-};
-
-$Object* allocate$Character$CharacterCache($Class* clazz) {
-	return $of($alloc(Character$CharacterCache));
-}
-
 $CharacterArray* Character$CharacterCache::cache = nullptr;
 $CharacterArray* Character$CharacterCache::archivedCache = nullptr;
 
 void Character$CharacterCache::init$() {
 }
 
-void clinit$Character$CharacterCache($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Character$CharacterCache::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		int32_t size = 127 + 1;
 		$CDS::initializeFromArchive(Character$CharacterCache::class$);
-		if (Character$CharacterCache::archivedCache == nullptr || $nc(Character$CharacterCache::archivedCache)->length != size) {
+		if (Character$CharacterCache::archivedCache == nullptr || Character$CharacterCache::archivedCache->length != size) {
 			$var($CharacterArray, c, $new($CharacterArray, size));
 			for (int32_t i = 0; i < size; ++i) {
 				c->set(i, $$new($Character, (char16_t)i));
@@ -76,7 +39,37 @@ Character$CharacterCache::Character$CharacterCache() {
 }
 
 $Class* Character$CharacterCache::load$($String* name, bool initialize) {
-	$loadClass(Character$CharacterCache, name, initialize, &_Character$CharacterCache_ClassInfo_, clinit$Character$CharacterCache, allocate$Character$CharacterCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"cache", "[Ljava/lang/Character;", nullptr, $STATIC | $FINAL, $staticField(Character$CharacterCache, cache)},
+		{"archivedCache", "[Ljava/lang/Character;", nullptr, $STATIC, $staticField(Character$CharacterCache, archivedCache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Character$CharacterCache, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Character$CharacterCache", "java.lang.Character", "CharacterCache", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.Character$CharacterCache",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.Character"
+	};
+	$loadClass(Character$CharacterCache, name, initialize, &classInfo$$, Character$CharacterCache::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Character$CharacterCache);
+	});
 	return class$;
 }
 

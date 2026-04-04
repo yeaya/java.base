@@ -1,5 +1,4 @@
 #include <java/net/InetSocketAddress.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
@@ -39,69 +38,14 @@ using $Unsafe = ::jdk::internal::misc::Unsafe;
 namespace java {
 	namespace net {
 
-$FieldInfo _InetSocketAddress_FieldInfo_[] = {
-	{"holder", "Ljava/net/InetSocketAddress$InetSocketAddressHolder;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(InetSocketAddress, holder)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InetSocketAddress, serialVersionUID)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InetSocketAddress, serialPersistentFields)},
-	{"UNSAFE", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InetSocketAddress, UNSAFE)},
-	{"FIELDS_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InetSocketAddress, FIELDS_OFFSET)},
-	{}
-};
-
-$MethodInfo _InetSocketAddress_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(InetSocketAddress, init$, void, int32_t)},
-	{"<init>", "(Ljava/net/InetAddress;I)V", nullptr, $PUBLIC, $method(InetSocketAddress, init$, void, $InetAddress*, int32_t)},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(InetSocketAddress, init$, void, $String*, int32_t)},
-	{"<init>", "(ILjava/lang/String;)V", nullptr, $PRIVATE, $method(InetSocketAddress, init$, void, int32_t, $String*)},
-	{"checkHost", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(InetSocketAddress, checkHost, $String*, $String*)},
-	{"checkPort", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(InetSocketAddress, checkPort, int32_t, int32_t)},
-	{"createUnresolved", "(Ljava/lang/String;I)Ljava/net/InetSocketAddress;", nullptr, $PUBLIC | $STATIC, $staticMethod(InetSocketAddress, createUnresolved, InetSocketAddress*, $String*, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(InetSocketAddress, equals, bool, Object$*)},
-	{"getAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC | $FINAL, $method(InetSocketAddress, getAddress, $InetAddress*)},
-	{"getHostName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(InetSocketAddress, getHostName, $String*)},
-	{"getHostString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(InetSocketAddress, getHostString, $String*)},
-	{"getPort", "()I", nullptr, $PUBLIC | $FINAL, $method(InetSocketAddress, getPort, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(InetSocketAddress, hashCode, int32_t)},
-	{"isUnresolved", "()Z", nullptr, $PUBLIC | $FINAL, $method(InetSocketAddress, isUnresolved, bool)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(InetSocketAddress, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"readObjectNoData", "()V", nullptr, $PRIVATE, $method(InetSocketAddress, readObjectNoData, void), "java.io.ObjectStreamException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InetSocketAddress, toString, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(InetSocketAddress, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _InetSocketAddress_InnerClassesInfo_[] = {
-	{"java.net.InetSocketAddress$InetSocketAddressHolder", "java.net.InetSocketAddress", "InetSocketAddressHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _InetSocketAddress_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.net.InetSocketAddress",
-	"java.net.SocketAddress",
-	nullptr,
-	_InetSocketAddress_FieldInfo_,
-	_InetSocketAddress_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InetSocketAddress_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.net.InetSocketAddress$InetSocketAddressHolder"
-};
-
-$Object* allocate$InetSocketAddress($Class* clazz) {
-	return $of($alloc(InetSocketAddress));
-}
-
 $ObjectStreamFieldArray* InetSocketAddress::serialPersistentFields = nullptr;
 $Unsafe* InetSocketAddress::UNSAFE = nullptr;
 int64_t InetSocketAddress::FIELDS_OFFSET = 0;
 
 int32_t InetSocketAddress::checkPort(int32_t port) {
 	$init(InetSocketAddress);
-	$useLocalCurrentObjectStackCache();
-	if (port < 0 || port > 0x0000FFFF) {
+	$useLocalObjectStack();
+	if (port < 0 || port > 0x0000ffff) {
 		$throwNew($IllegalArgumentException, $$str({"port out of range:"_s, $$str(port)}));
 	}
 	return port;
@@ -126,7 +70,7 @@ void InetSocketAddress::init$($InetAddress* addr, int32_t port) {
 }
 
 void InetSocketAddress::init$($String* hostname, int32_t port) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SocketAddress::init$();
 	checkHost(hostname);
 	$var($InetAddress, addr, nullptr);
@@ -152,17 +96,17 @@ InetSocketAddress* InetSocketAddress::createUnresolved($String* host, int32_t po
 
 void InetSocketAddress::writeObject($ObjectOutputStream* out) {
 	$var($ObjectOutputStream$PutField, pfields, $nc(out)->putFields());
-	$nc(pfields)->put("hostname"_s, $of($nc(this->holder)->hostname));
-	pfields->put("addr"_s, $of($nc(this->holder)->addr));
-	pfields->put("port"_s, $nc(this->holder)->port);
+	$nc(pfields)->put("hostname"_s, $nc(this->holder)->hostname);
+	pfields->put("addr"_s, this->holder->addr);
+	pfields->put("port"_s, this->holder->port);
 	out->writeFields();
 }
 
 void InetSocketAddress::readObject($ObjectInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, oisFields, $nc(in)->readFields());
-	$var($String, oisHostname, $cast($String, $nc(oisFields)->get("hostname"_s, ($Object*)nullptr)));
-	$var($InetAddress, oisAddr, $cast($InetAddress, oisFields->get("addr"_s, ($Object*)nullptr)));
+	$var($String, oisHostname, $cast($String, $nc(oisFields)->get("hostname"_s, nullptr)));
+	$var($InetAddress, oisAddr, $cast($InetAddress, oisFields->get("addr"_s, nullptr)));
 	int32_t oisPort = oisFields->get("port"_s, -1);
 	checkPort(oisPort);
 	if (oisHostname == nullptr && oisAddr == nullptr) {
@@ -219,10 +163,9 @@ int32_t InetSocketAddress::hashCode() {
 	return $nc(this->holder)->hashCode();
 }
 
-void clinit$InetSocketAddress($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void InetSocketAddress::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$load($InetAddress);
-	$init($Integer);
 	$assignStatic(InetSocketAddress::serialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "hostname"_s, $String::class$),
 		$$new($ObjectStreamField, "addr"_s, $InetAddress::class$),
@@ -236,7 +179,56 @@ InetSocketAddress::InetSocketAddress() {
 }
 
 $Class* InetSocketAddress::load$($String* name, bool initialize) {
-	$loadClass(InetSocketAddress, name, initialize, &_InetSocketAddress_ClassInfo_, clinit$InetSocketAddress, allocate$InetSocketAddress);
+	$FieldInfo fieldInfos$$[] = {
+		{"holder", "Ljava/net/InetSocketAddress$InetSocketAddressHolder;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(InetSocketAddress, holder)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InetSocketAddress, serialVersionUID)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InetSocketAddress, serialPersistentFields)},
+		{"UNSAFE", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InetSocketAddress, UNSAFE)},
+		{"FIELDS_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InetSocketAddress, FIELDS_OFFSET)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(InetSocketAddress, init$, void, int32_t)},
+		{"<init>", "(Ljava/net/InetAddress;I)V", nullptr, $PUBLIC, $method(InetSocketAddress, init$, void, $InetAddress*, int32_t)},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(InetSocketAddress, init$, void, $String*, int32_t)},
+		{"<init>", "(ILjava/lang/String;)V", nullptr, $PRIVATE, $method(InetSocketAddress, init$, void, int32_t, $String*)},
+		{"checkHost", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(InetSocketAddress, checkHost, $String*, $String*)},
+		{"checkPort", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(InetSocketAddress, checkPort, int32_t, int32_t)},
+		{"createUnresolved", "(Ljava/lang/String;I)Ljava/net/InetSocketAddress;", nullptr, $PUBLIC | $STATIC, $staticMethod(InetSocketAddress, createUnresolved, InetSocketAddress*, $String*, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(InetSocketAddress, equals, bool, Object$*)},
+		{"getAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC | $FINAL, $method(InetSocketAddress, getAddress, $InetAddress*)},
+		{"getHostName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(InetSocketAddress, getHostName, $String*)},
+		{"getHostString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(InetSocketAddress, getHostString, $String*)},
+		{"getPort", "()I", nullptr, $PUBLIC | $FINAL, $method(InetSocketAddress, getPort, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(InetSocketAddress, hashCode, int32_t)},
+		{"isUnresolved", "()Z", nullptr, $PUBLIC | $FINAL, $method(InetSocketAddress, isUnresolved, bool)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(InetSocketAddress, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"readObjectNoData", "()V", nullptr, $PRIVATE, $method(InetSocketAddress, readObjectNoData, void), "java.io.ObjectStreamException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InetSocketAddress, toString, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(InetSocketAddress, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.InetSocketAddress$InetSocketAddressHolder", "java.net.InetSocketAddress", "InetSocketAddressHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.net.InetSocketAddress",
+		"java.net.SocketAddress",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.net.InetSocketAddress$InetSocketAddressHolder"
+	};
+	$loadClass(InetSocketAddress, name, initialize, &classInfo$$, InetSocketAddress::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(InetSocketAddress);
+	});
 	return class$;
 }
 

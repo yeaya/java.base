@@ -1,5 +1,4 @@
 #include <java/util/stream/ReduceOps$Box.h>
-
 #include <java/util/stream/ReduceOps.h>
 #include <jcpp.h>
 
@@ -12,54 +11,48 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$FieldInfo _ReduceOps$Box_FieldInfo_[] = {
-	{"state", "Ljava/lang/Object;", "TU;", 0, $field(ReduceOps$Box, state)},
-	{}
-};
-
-$MethodInfo _ReduceOps$Box_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ReduceOps$Box, init$, void)},
-	{"get", "()Ljava/lang/Object;", "()TU;", $PUBLIC, $virtualMethod(ReduceOps$Box, get, $Object*)},
-	{}
-};
-
-$InnerClassInfo _ReduceOps$Box_InnerClassesInfo_[] = {
-	{"java.util.stream.ReduceOps$Box", "java.util.stream.ReduceOps", "Box", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ReduceOps$Box_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.stream.ReduceOps$Box",
-	"java.lang.Object",
-	nullptr,
-	_ReduceOps$Box_FieldInfo_,
-	_ReduceOps$Box_MethodInfo_,
-	"<U:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_ReduceOps$Box_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.ReduceOps"
-};
-
-$Object* allocate$ReduceOps$Box($Class* clazz) {
-	return $of($alloc(ReduceOps$Box));
-}
-
 void ReduceOps$Box::init$() {
 }
 
 $Object* ReduceOps$Box::get() {
-	return $of(this->state);
+	return this->state;
 }
 
 ReduceOps$Box::ReduceOps$Box() {
 }
 
 $Class* ReduceOps$Box::load$($String* name, bool initialize) {
-	$loadClass(ReduceOps$Box, name, initialize, &_ReduceOps$Box_ClassInfo_, allocate$ReduceOps$Box);
+	$FieldInfo fieldInfos$$[] = {
+		{"state", "Ljava/lang/Object;", "TU;", 0, $field(ReduceOps$Box, state)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ReduceOps$Box, init$, void)},
+		{"get", "()Ljava/lang/Object;", "()TU;", $PUBLIC, $virtualMethod(ReduceOps$Box, get, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.ReduceOps$Box", "java.util.stream.ReduceOps", "Box", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.stream.ReduceOps$Box",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<U:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.ReduceOps"
+	};
+	$loadClass(ReduceOps$Box, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReduceOps$Box);
+	});
 	return class$;
 }
 

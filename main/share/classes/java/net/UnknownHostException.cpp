@@ -1,5 +1,4 @@
 #include <java/net/UnknownHostException.h>
-
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace net {
-
-$FieldInfo _UnknownHostException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnknownHostException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _UnknownHostException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnknownHostException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UnknownHostException, init$, void)},
-	{}
-};
-
-$ClassInfo _UnknownHostException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.net.UnknownHostException",
-	"java.io.IOException",
-	nullptr,
-	_UnknownHostException_FieldInfo_,
-	_UnknownHostException_MethodInfo_
-};
-
-$Object* allocate$UnknownHostException($Class* clazz) {
-	return $of($alloc(UnknownHostException));
-}
 
 void UnknownHostException::init$($String* message) {
 	$IOException::init$(message);
@@ -54,7 +29,26 @@ void UnknownHostException::throw$() {
 }
 
 $Class* UnknownHostException::load$($String* name, bool initialize) {
-	$loadClass(UnknownHostException, name, initialize, &_UnknownHostException_ClassInfo_, allocate$UnknownHostException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnknownHostException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UnknownHostException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UnknownHostException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.net.UnknownHostException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnknownHostException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnknownHostException);
+	});
 	return class$;
 }
 

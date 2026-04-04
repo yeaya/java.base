@@ -1,5 +1,4 @@
 #include <custom/CustomZoneRulesProvider.h>
-
 #include <java/time/ZoneId.h>
 #include <java/time/zone/ZoneRules.h>
 #include <java/time/zone/ZoneRulesProvider.h>
@@ -19,41 +18,20 @@ using $TreeMap = ::java::util::TreeMap;
 
 namespace custom {
 
-$MethodInfo _CustomZoneRulesProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CustomZoneRulesProvider, init$, void)},
-	{"provideRules", "(Ljava/lang/String;Z)Ljava/time/zone/ZoneRules;", nullptr, $PROTECTED, $virtualMethod(CustomZoneRulesProvider, provideRules, $ZoneRules*, $String*, bool)},
-	{"provideVersions", "(Ljava/lang/String;)Ljava/util/NavigableMap;", "(Ljava/lang/String;)Ljava/util/NavigableMap<Ljava/lang/String;Ljava/time/zone/ZoneRules;>;", $PROTECTED, $virtualMethod(CustomZoneRulesProvider, provideVersions, $NavigableMap*, $String*)},
-	{"provideZoneIds", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED, $virtualMethod(CustomZoneRulesProvider, provideZoneIds, $Set*)},
-	{}
-};
-
-$ClassInfo _CustomZoneRulesProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"custom.CustomZoneRulesProvider",
-	"java.time.zone.ZoneRulesProvider",
-	nullptr,
-	nullptr,
-	_CustomZoneRulesProvider_MethodInfo_
-};
-
-$Object* allocate$CustomZoneRulesProvider($Class* clazz) {
-	return $of($alloc(CustomZoneRulesProvider));
-}
-
 void CustomZoneRulesProvider::init$() {
 	$ZoneRulesProvider::init$();
 }
 
 $Set* CustomZoneRulesProvider::provideZoneIds() {
-	return $Set::of($of("Custom/Timezone"_s));
+	return $Set::of("Custom/Timezone"_s);
 }
 
 $ZoneRules* CustomZoneRulesProvider::provideRules($String* zoneId, bool forCaching) {
-	return $nc($($ZoneId::of("UTC"_s)))->getRules();
+	return $$nc($ZoneId::of("UTC"_s))->getRules();
 }
 
 $NavigableMap* CustomZoneRulesProvider::provideVersions($String* zoneId) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreeMap, map, $new($TreeMap));
 	map->put("bogusVersion"_s, $(getRules(zoneId, false)));
 	return map;
@@ -63,7 +41,24 @@ CustomZoneRulesProvider::CustomZoneRulesProvider() {
 }
 
 $Class* CustomZoneRulesProvider::load$($String* name, bool initialize) {
-	$loadClass(CustomZoneRulesProvider, name, initialize, &_CustomZoneRulesProvider_ClassInfo_, allocate$CustomZoneRulesProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CustomZoneRulesProvider, init$, void)},
+		{"provideRules", "(Ljava/lang/String;Z)Ljava/time/zone/ZoneRules;", nullptr, $PROTECTED, $virtualMethod(CustomZoneRulesProvider, provideRules, $ZoneRules*, $String*, bool)},
+		{"provideVersions", "(Ljava/lang/String;)Ljava/util/NavigableMap;", "(Ljava/lang/String;)Ljava/util/NavigableMap<Ljava/lang/String;Ljava/time/zone/ZoneRules;>;", $PROTECTED, $virtualMethod(CustomZoneRulesProvider, provideVersions, $NavigableMap*, $String*)},
+		{"provideZoneIds", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED, $virtualMethod(CustomZoneRulesProvider, provideZoneIds, $Set*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"custom.CustomZoneRulesProvider",
+		"java.time.zone.ZoneRulesProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CustomZoneRulesProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CustomZoneRulesProvider);
+	});
 	return class$;
 }
 

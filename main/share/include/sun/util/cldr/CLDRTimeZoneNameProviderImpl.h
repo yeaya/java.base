@@ -47,6 +47,7 @@ class $import CLDRTimeZoneNameProviderImpl : public ::sun::util::locale::provide
 	$class(CLDRTimeZoneNameProviderImpl, 0, ::sun::util::locale::provider::TimeZoneNameProviderImpl)
 public:
 	CLDRTimeZoneNameProviderImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::util::locale::provider::LocaleProviderAdapter$Type* type, ::java::util::Set* langtags);
 	void deriveFallbackName($StringArray* names, int32_t index, ::java::util::Locale* locale, bool noDST);
 	void deriveFallbackNames($StringArray* names, ::java::util::Locale* locale);

@@ -1,5 +1,4 @@
 #include <java/util/stream/StreamSpliterators$ArrayBuffer$OfDouble.h>
-
 #include <java/util/function/DoubleConsumer.h>
 #include <java/util/stream/StreamSpliterators$ArrayBuffer$OfPrimitive.h>
 #include <java/util/stream/StreamSpliterators$ArrayBuffer.h>
@@ -15,51 +14,6 @@ using $StreamSpliterators$ArrayBuffer$OfPrimitive = ::java::util::stream::Stream
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _StreamSpliterators$ArrayBuffer$OfDouble_FieldInfo_[] = {
-	{"array", "[D", nullptr, $FINAL, $field(StreamSpliterators$ArrayBuffer$OfDouble, array)},
-	{}
-};
-
-$MethodInfo _StreamSpliterators$ArrayBuffer$OfDouble_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(I)V", nullptr, 0, $method(StreamSpliterators$ArrayBuffer$OfDouble, init$, void, int32_t)},
-	{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$ArrayBuffer$OfDouble, accept, void, double)},
-	{"forEach", "(Ljava/util/function/DoubleConsumer;J)V", nullptr, 0, $method(StreamSpliterators$ArrayBuffer$OfDouble, forEach, void, $DoubleConsumer*, int64_t)},
-	{"forEach", "(Ljava/lang/Object;J)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(StreamSpliterators$ArrayBuffer$OfDouble, forEach, void, Object$*, int64_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _StreamSpliterators$ArrayBuffer$OfDouble_InnerClassesInfo_[] = {
-	{"java.util.stream.StreamSpliterators$ArrayBuffer", "java.util.stream.StreamSpliterators", "ArrayBuffer", $STATIC | $ABSTRACT},
-	{"java.util.stream.StreamSpliterators$ArrayBuffer$OfDouble", "java.util.stream.StreamSpliterators$ArrayBuffer", "OfDouble", $STATIC | $FINAL},
-	{"java.util.stream.StreamSpliterators$ArrayBuffer$OfPrimitive", "java.util.stream.StreamSpliterators$ArrayBuffer", "OfPrimitive", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StreamSpliterators$ArrayBuffer$OfDouble_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.StreamSpliterators$ArrayBuffer$OfDouble",
-	"java.util.stream.StreamSpliterators$ArrayBuffer$OfPrimitive",
-	"java.util.function.DoubleConsumer",
-	_StreamSpliterators$ArrayBuffer$OfDouble_FieldInfo_,
-	_StreamSpliterators$ArrayBuffer$OfDouble_MethodInfo_,
-	"Ljava/util/stream/StreamSpliterators$ArrayBuffer$OfPrimitive<Ljava/util/function/DoubleConsumer;>;Ljava/util/function/DoubleConsumer;",
-	nullptr,
-	_StreamSpliterators$ArrayBuffer$OfDouble_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.StreamSpliterators"
-};
-
-$Object* allocate$StreamSpliterators$ArrayBuffer$OfDouble($Class* clazz) {
-	return $of($alloc(StreamSpliterators$ArrayBuffer$OfDouble));
-}
 
 int32_t StreamSpliterators$ArrayBuffer$OfDouble::hashCode() {
 	 return this->$StreamSpliterators$ArrayBuffer$OfPrimitive::hashCode();
@@ -104,7 +58,46 @@ StreamSpliterators$ArrayBuffer$OfDouble::StreamSpliterators$ArrayBuffer$OfDouble
 }
 
 $Class* StreamSpliterators$ArrayBuffer$OfDouble::load$($String* name, bool initialize) {
-	$loadClass(StreamSpliterators$ArrayBuffer$OfDouble, name, initialize, &_StreamSpliterators$ArrayBuffer$OfDouble_ClassInfo_, allocate$StreamSpliterators$ArrayBuffer$OfDouble);
+	$FieldInfo fieldInfos$$[] = {
+		{"array", "[D", nullptr, $FINAL, $field(StreamSpliterators$ArrayBuffer$OfDouble, array)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(I)V", nullptr, 0, $method(StreamSpliterators$ArrayBuffer$OfDouble, init$, void, int32_t)},
+		{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$ArrayBuffer$OfDouble, accept, void, double)},
+		{"forEach", "(Ljava/util/function/DoubleConsumer;J)V", nullptr, 0, $method(StreamSpliterators$ArrayBuffer$OfDouble, forEach, void, $DoubleConsumer*, int64_t)},
+		{"forEach", "(Ljava/lang/Object;J)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(StreamSpliterators$ArrayBuffer$OfDouble, forEach, void, Object$*, int64_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.StreamSpliterators$ArrayBuffer", "java.util.stream.StreamSpliterators", "ArrayBuffer", $STATIC | $ABSTRACT},
+		{"java.util.stream.StreamSpliterators$ArrayBuffer$OfDouble", "java.util.stream.StreamSpliterators$ArrayBuffer", "OfDouble", $STATIC | $FINAL},
+		{"java.util.stream.StreamSpliterators$ArrayBuffer$OfPrimitive", "java.util.stream.StreamSpliterators$ArrayBuffer", "OfPrimitive", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.StreamSpliterators$ArrayBuffer$OfDouble",
+		"java.util.stream.StreamSpliterators$ArrayBuffer$OfPrimitive",
+		"java.util.function.DoubleConsumer",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/StreamSpliterators$ArrayBuffer$OfPrimitive<Ljava/util/function/DoubleConsumer;>;Ljava/util/function/DoubleConsumer;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.StreamSpliterators"
+	};
+	$loadClass(StreamSpliterators$ArrayBuffer$OfDouble, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StreamSpliterators$ArrayBuffer$OfDouble));
+	});
 	return class$;
 }
 

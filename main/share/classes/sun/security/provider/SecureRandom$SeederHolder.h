@@ -21,6 +21,7 @@ class SecureRandom$SeederHolder : public ::java::lang::Object {
 	$class(SecureRandom$SeederHolder, 0, ::java::lang::Object)
 public:
 	SecureRandom$SeederHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::provider::SecureRandom* seeder;
 };

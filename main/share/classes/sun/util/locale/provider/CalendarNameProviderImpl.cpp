@@ -1,8 +1,6 @@
 #include <sun/util/locale/provider/CalendarNameProviderImpl.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/util/AbstractMap.h>
-#include <java/util/Comparator.h>
 #include <java/util/Locale.h>
 #include <java/util/Map.h>
 #include <java/util/Set.h>
@@ -31,7 +29,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractMap = ::java::util::AbstractMap;
-using $Comparator = ::java::util::Comparator;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
@@ -48,61 +45,6 @@ namespace sun {
 	namespace util {
 		namespace locale {
 			namespace provider {
-
-$FieldInfo _CalendarNameProviderImpl_FieldInfo_[] = {
-	{"type", "Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PROTECTED | $FINAL, $field(CalendarNameProviderImpl, type)},
-	{"langtags", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED | $FINAL, $field(CalendarNameProviderImpl, langtags)},
-	{"REST_OF_STYLES", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CalendarNameProviderImpl, REST_OF_STYLES)},
-	{}
-};
-
-$MethodInfo _CalendarNameProviderImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(CalendarNameProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
-	{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CalendarNameProviderImpl, getAvailableLanguageTags, $Set*)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(CalendarNameProviderImpl, getAvailableLocales, $LocaleArray*)},
-	{"getBaseStyle", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CalendarNameProviderImpl, getBaseStyle, int32_t, int32_t)},
-	{"getDisplayName", "(Ljava/lang/String;IIILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CalendarNameProviderImpl, getDisplayName, $String*, $String*, int32_t, int32_t, int32_t, $Locale*)},
-	{"getDisplayNameImpl", "(Ljava/lang/String;IIILjava/util/Locale;Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CalendarNameProviderImpl, getDisplayNameImpl, $String*, $String*, int32_t, int32_t, int32_t, $Locale*, bool)},
-	{"getDisplayNames", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map;", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(CalendarNameProviderImpl, getDisplayNames, $Map*, $String*, int32_t, int32_t, $Locale*)},
-	{"getDisplayNamesImpl", "(Ljava/lang/String;IILjava/util/Locale;Z)Ljava/util/Map;", "(Ljava/lang/String;IILjava/util/Locale;Z)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE, $method(CalendarNameProviderImpl, getDisplayNamesImpl, $Map*, $String*, int32_t, int32_t, $Locale*, bool)},
-	{"getJavaTimeDisplayName", "(Ljava/lang/String;IIILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CalendarNameProviderImpl, getJavaTimeDisplayName, $String*, $String*, int32_t, int32_t, int32_t, $Locale*)},
-	{"getJavaTimeDisplayNames", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map;", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(CalendarNameProviderImpl, getJavaTimeDisplayNames, $Map*, $String*, int32_t, int32_t, $Locale*)},
-	{"getResourceKey", "(Ljava/lang/String;IIZ)Ljava/lang/String;", nullptr, $PRIVATE, $method(CalendarNameProviderImpl, getResourceKey, $String*, $String*, int32_t, int32_t, bool)},
-	{"getResourceKeyFor", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/lang/String;IIZ)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(CalendarNameProviderImpl, getResourceKeyFor, $String*, $LocaleProviderAdapter$Type*, $String*, int32_t, int32_t, bool)},
-	{"hasDuplicates", "([Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(CalendarNameProviderImpl, hasDuplicates, bool, $StringArray*)},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(CalendarNameProviderImpl, isSupportedLocale, bool, $Locale*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toStyleName", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(CalendarNameProviderImpl, toStyleName, $String*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CalendarNameProviderImpl_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.CalendarNameProviderImpl$LengthBasedComparator", "sun.util.locale.provider.CalendarNameProviderImpl", "LengthBasedComparator", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _CalendarNameProviderImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.locale.provider.CalendarNameProviderImpl",
-	"java.util.spi.CalendarNameProvider",
-	"sun.util.locale.provider.AvailableLanguageTags",
-	_CalendarNameProviderImpl_FieldInfo_,
-	_CalendarNameProviderImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CalendarNameProviderImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.CalendarNameProviderImpl$LengthBasedComparator"
-};
-
-$Object* allocate$CalendarNameProviderImpl($Class* clazz) {
-	return $of($alloc(CalendarNameProviderImpl));
-}
 
 int32_t CalendarNameProviderImpl::hashCode() {
 	 return this->$CalendarNameProvider::hashCode();
@@ -141,15 +83,15 @@ $String* CalendarNameProviderImpl::getJavaTimeDisplayName($String* calendarType,
 }
 
 $String* CalendarNameProviderImpl::getDisplayNameImpl($String* calendarType, int32_t field, int32_t value, int32_t style, $Locale* locale, bool javatime) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, nullptr);
 	$var($String, key, getResourceKey(calendarType, field, style, javatime));
 	if (key != nullptr) {
-		$var($LocaleResources, lr, $nc($($LocaleProviderAdapter::forType(this->type)))->getLocaleResources(locale));
-		$var($StringArray, strings, javatime ? $nc(lr)->getJavaTimeNames(key) : lr->getCalendarNames(key));
+		$var($LocaleResources, lr, $$nc($LocaleProviderAdapter::forType(this->type))->getLocaleResources(locale));
+		$var($StringArray, strings, javatime ? $nc(lr)->getJavaTimeNames(key) : $nc(lr)->getCalendarNames(key));
 		if (strings == nullptr && key->contains("standalone."_s)) {
 			$assign(key, key->replaceFirst("standalone."_s, ""_s));
-			$assign(strings, javatime ? lr->getJavaTimeNames(key) : lr->getCalendarNames(key));
+			$assign(strings, javatime ? $nc(lr)->getJavaTimeNames(key) : $nc(lr)->getCalendarNames(key));
 		}
 		if (strings != nullptr && strings->length > 0) {
 			if (field == 7 || field == 1) {
@@ -159,20 +101,20 @@ $String* CalendarNameProviderImpl::getDisplayNameImpl($String* calendarType, int
 				return nullptr;
 			} else if (value >= strings->length) {
 				if (field == 0 && "japanese"_s->equals(calendarType)) {
-					$var($EraArray, jeras, $nc($($CalendarSystem::forName("japanese"_s)))->getEras());
+					$var($EraArray, jeras, $$nc($CalendarSystem::forName("japanese"_s))->getEras());
 					if (value <= $nc(jeras)->length) {
 						$init($LocaleProviderAdapter$Type);
 						if (this->type == $LocaleProviderAdapter$Type::CLDR) {
-							$assign(lr, $nc($($LocaleProviderAdapter::forJRE()))->getLocaleResources(locale));
+							$assign(lr, $$nc($LocaleProviderAdapter::forJRE())->getLocaleResources(locale));
 							$assign(key, getResourceKeyFor($LocaleProviderAdapter$Type::JRE, calendarType, field, style, javatime));
-							$assign(strings, javatime ? $nc(lr)->getJavaTimeNames(key) : lr->getCalendarNames(key));
+							$assign(strings, javatime ? $nc(lr)->getJavaTimeNames(key) : $nc(lr)->getCalendarNames(key));
 						}
 						if (strings == nullptr || value >= strings->length) {
 							$var($Era, supEra, jeras->get(value - 1));
 							if (javatime) {
-								return getBaseStyle(style) == 4 ? $nc(supEra)->getAbbreviation() : supEra->getName();
+								return getBaseStyle(style) == 4 ? $nc(supEra)->getAbbreviation() : $nc(supEra)->getName();
 							} else {
-								return ((int32_t)(style & (uint32_t)2)) != 0 ? $nc(supEra)->getName() : supEra->getAbbreviation();
+								return (style & 2) != 0 ? $nc(supEra)->getName() : $nc(supEra)->getAbbreviation();
 							}
 						}
 					} else {
@@ -182,7 +124,7 @@ $String* CalendarNameProviderImpl::getDisplayNameImpl($String* calendarType, int
 					return nullptr;
 				}
 			}
-			$assign(name, strings->get(value));
+			$assign(name, $nc(strings)->get(value));
 			if ($nc(name)->isEmpty() && (style == 0x00008001 || style == 0x00008002 || style == 0x00008004)) {
 				$assign(name, getDisplayName(calendarType, field, value, getBaseStyle(style), locale));
 			}
@@ -192,15 +134,13 @@ $String* CalendarNameProviderImpl::getDisplayNameImpl($String* calendarType, int
 }
 
 $Map* CalendarNameProviderImpl::getDisplayNames($String* calendarType, int32_t field, int32_t style, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, names, nullptr);
 	if (style == 0) {
 		$assign(names, getDisplayNamesImpl(calendarType, field, 1, locale, false));
 		{
 			$var($ints, arr$, CalendarNameProviderImpl::REST_OF_STYLES);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				int32_t st = arr$->get(i$);
 				{
 					$nc(names)->putAll($(getDisplayNamesImpl(calendarType, field, st, locale, false)));
@@ -220,16 +160,16 @@ $Map* CalendarNameProviderImpl::getJavaTimeDisplayNames($String* calendarType, i
 }
 
 $Map* CalendarNameProviderImpl::getDisplayNamesImpl($String* calendarType, int32_t field, int32_t style, $Locale* locale, bool javatime) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, key, getResourceKey(calendarType, field, style, javatime));
 	$init($CalendarNameProviderImpl$LengthBasedComparator);
-	$var($Map, map, static_cast<$Map*>(static_cast<$AbstractMap*>($new($TreeMap, static_cast<$Comparator*>($CalendarNameProviderImpl$LengthBasedComparator::INSTANCE)))));
+	$var($Map, map, $cast($AbstractMap, $new($TreeMap, $CalendarNameProviderImpl$LengthBasedComparator::INSTANCE)));
 	if (key != nullptr) {
-		$var($LocaleResources, lr, $nc($($LocaleProviderAdapter::forType(this->type)))->getLocaleResources(locale));
-		$var($StringArray, strings, javatime ? $nc(lr)->getJavaTimeNames(key) : lr->getCalendarNames(key));
+		$var($LocaleResources, lr, $$nc($LocaleProviderAdapter::forType(this->type))->getLocaleResources(locale));
+		$var($StringArray, strings, javatime ? $nc(lr)->getJavaTimeNames(key) : $nc(lr)->getCalendarNames(key));
 		if (strings == nullptr && key->contains("standalone."_s)) {
 			$assign(key, key->replaceFirst("standalone."_s, ""_s));
-			$assign(strings, javatime ? lr->getJavaTimeNames(key) : lr->getCalendarNames(key));
+			$assign(strings, javatime ? $nc(lr)->getJavaTimeNames(key) : $nc(lr)->getCalendarNames(key));
 		}
 		if (strings != nullptr) {
 			if (!hasDuplicates(strings) || field == 9) {
@@ -259,7 +199,7 @@ $Map* CalendarNameProviderImpl::getDisplayNamesImpl($String* calendarType, int32
 
 int32_t CalendarNameProviderImpl::getBaseStyle(int32_t style) {
 	$init(CalendarNameProviderImpl);
-	return (int32_t)(style & (uint32_t)~(0x00008001 - 1));
+	return style & ~(0x00008001 - 1);
 }
 
 $LocaleArray* CalendarNameProviderImpl::getAvailableLocales() {
@@ -267,7 +207,7 @@ $LocaleArray* CalendarNameProviderImpl::getAvailableLocales() {
 }
 
 bool CalendarNameProviderImpl::isSupportedLocale($Locale* locale$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, locale, locale$renamed);
 	$init($Locale);
 	if ($nc($Locale::ROOT)->equals(locale)) {
@@ -279,71 +219,51 @@ bool CalendarNameProviderImpl::isSupportedLocale($Locale* locale$renamed) {
 		$assign(locale, locale->stripExtensions());
 	}
 	if (calendarType != nullptr) {
-		{
-			$var($String, s11094$, calendarType);
-			int32_t tmp11094$ = -1;
-			switch (s11094$->hashCode()) {
-			case (int32_t)0xA1C2EDB5:
-				{
-					if (s11094$->equals("buddhist"_s)) {
-						tmp11094$ = 0;
-					}
-					break;
-				}
-			case (int32_t)0xD3223FB1:
-				{
-					if (s11094$->equals("japanese"_s)) {
-						tmp11094$ = 1;
-					}
-					break;
-				}
-			case 0x10EA1509:
-				{
-					if (s11094$->equals("gregory"_s)) {
-						tmp11094$ = 2;
-					}
-					break;
-				}
-			case 0x7CCB45C8:
-				{
-					if (s11094$->equals("islamic"_s)) {
-						tmp11094$ = 3;
-					}
-					break;
-				}
-			case 0x0001B9C6:
-				{
-					if (s11094$->equals("roc"_s)) {
-						tmp11094$ = 4;
-					}
-					break;
-				}
+		$var($String, s11094$, calendarType);
+		int32_t tmp11094$ = -1;
+		switch (s11094$->hashCode()) {
+		case (int32_t)0xa1c2edb5:
+			if (s11094$->equals("buddhist"_s)) {
+				tmp11094$ = 0;
 			}
-			switch (tmp11094$) {
-			case 0:
-				{}
-			case 1:
-				{}
-			case 2:
-				{}
-			case 3:
-				{}
-			case 4:
-				{
-					break;
-				}
-			default:
-				{
-					return false;
-				}
+			break;
+		case (int32_t)0xd3223fb1:
+			if (s11094$->equals("japanese"_s)) {
+				tmp11094$ = 1;
 			}
+			break;
+		case 0x10ea1509:
+			if (s11094$->equals("gregory"_s)) {
+				tmp11094$ = 2;
+			}
+			break;
+		case 0x7ccb45c8:
+			if (s11094$->equals("islamic"_s)) {
+				tmp11094$ = 3;
+			}
+			break;
+		case 0x0001b9c6:
+			if (s11094$->equals("roc"_s)) {
+				tmp11094$ = 4;
+			}
+			break;
+		}
+		switch (tmp11094$) {
+		case 0:
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+			break;
+		default:
+			return false;
 		}
 	}
 	if ($nc(this->langtags)->contains($($nc(locale)->toLanguageTag()))) {
 		return true;
 	}
-	$var($String, oldname, $nc($($nc(locale)->toString()))->replace(u'_', u'-'));
-	return $nc(this->langtags)->contains(oldname);
+	$var($String, oldname, $$nc(locale->toString())->replace(u'_', u'-'));
+	return this->langtags->contains(oldname);
 }
 
 $Set* CalendarNameProviderImpl::getAvailableLanguageTags() {
@@ -351,7 +271,7 @@ $Set* CalendarNameProviderImpl::getAvailableLanguageTags() {
 }
 
 bool CalendarNameProviderImpl::hasDuplicates($StringArray* strings) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = $nc(strings)->length;
 	for (int32_t i = 0; i < len - 1; ++i) {
 		$var($String, a, strings->get(i));
@@ -372,7 +292,7 @@ $String* CalendarNameProviderImpl::getResourceKey($String* type, int32_t field, 
 
 $String* CalendarNameProviderImpl::getResourceKeyFor($LocaleProviderAdapter$Type* adapterType, $String* type$renamed, int32_t field, int32_t style, bool javatime) {
 	$init(CalendarNameProviderImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, type, type$renamed);
 	int32_t baseStyle = getBaseStyle(style);
 	bool isStandalone = (style != baseStyle);
@@ -386,64 +306,54 @@ $String* CalendarNameProviderImpl::getResourceKeyFor($LocaleProviderAdapter$Type
 	}
 	switch (field) {
 	case 0:
-		{
-			if (type != nullptr) {
-				key->append(type)->append(u'.');
-			}
-			if (isNarrow) {
-				key->append("narrow."_s);
-			} else {
-				$init($LocaleProviderAdapter$Type);
-				if (adapterType == $LocaleProviderAdapter$Type::JRE) {
-					if (javatime) {
-						if (baseStyle == 2) {
-							key->append("long."_s);
-						}
+		if (type != nullptr) {
+			key->append(type)->append(u'.');
+		}
+		if (isNarrow) {
+			key->append("narrow."_s);
+		} else {
+			$init($LocaleProviderAdapter$Type);
+			if (adapterType == $LocaleProviderAdapter$Type::JRE) {
+				if (javatime) {
+					if (baseStyle == 2) {
+						key->append("long."_s);
 					}
-					if (baseStyle == 1) {
-						key->append("short."_s);
-					}
-				} else if (baseStyle == 2) {
-					key->append("long."_s);
 				}
+				if (baseStyle == 1) {
+					key->append("short."_s);
+				}
+			} else if (baseStyle == 2) {
+				key->append("long."_s);
 			}
-			key->append("Eras"_s);
-			break;
 		}
+		key->append("Eras"_s);
+		break;
 	case 1:
-		{
-			if (!isNarrow) {
-				key->append(type)->append(".FirstYear"_s);
-			}
-			break;
+		if (!isNarrow) {
+			key->append(type)->append(".FirstYear"_s);
 		}
+		break;
 	case 2:
-		{
-			if ("islamic"_s->equals(type)) {
-				key->append(type)->append(u'.');
-			}
-			if (isStandalone) {
-				key->append("standalone."_s);
-			}
-			key->append("Month"_s)->append($(toStyleName(baseStyle)));
-			break;
+		if ("islamic"_s->equals(type)) {
+			key->append(type)->append(u'.');
 		}
+		if (isStandalone) {
+			key->append("standalone."_s);
+		}
+		key->append("Month"_s)->append($(toStyleName(baseStyle)));
+		break;
 	case 7:
-		{
-			if (isStandalone) {
-				key->append("standalone."_s);
-			}
-			key->append("Day"_s)->append($(toStyleName(baseStyle)));
-			break;
+		if (isStandalone) {
+			key->append("standalone."_s);
 		}
+		key->append("Day"_s)->append($(toStyleName(baseStyle)));
+		break;
 	case 9:
-		{
-			if (isNarrow) {
-				key->append("narrow."_s);
-			}
-			key->append("AmPmMarkers"_s);
-			break;
+		if (isNarrow) {
+			key->append("narrow."_s);
 		}
+		key->append("AmPmMarkers"_s);
+		break;
 	}
 	return key->length() > 0 ? key->toString() : ($String*)nullptr;
 }
@@ -452,23 +362,19 @@ $String* CalendarNameProviderImpl::toStyleName(int32_t baseStyle) {
 	$init(CalendarNameProviderImpl);
 	switch (baseStyle) {
 	case 1:
-		{
-			return "Abbreviations"_s;
-		}
+		return "Abbreviations"_s;
 	case 4:
-		{
-			return "Narrows"_s;
-		}
+		return "Narrows"_s;
 	}
 	return "Names"_s;
 }
 
-void clinit$CalendarNameProviderImpl($Class* class$) {
+void CalendarNameProviderImpl::clinit$($Class* clazz) {
 	$assignStatic(CalendarNameProviderImpl::REST_OF_STYLES, $new($ints, {
 		0x00008001,
-		2,
+		0x00000002,
 		0x00008002,
-		4,
+		0x00000004,
 		0x00008004
 	}));
 }
@@ -477,7 +383,56 @@ CalendarNameProviderImpl::CalendarNameProviderImpl() {
 }
 
 $Class* CalendarNameProviderImpl::load$($String* name, bool initialize) {
-	$loadClass(CalendarNameProviderImpl, name, initialize, &_CalendarNameProviderImpl_ClassInfo_, clinit$CalendarNameProviderImpl, allocate$CalendarNameProviderImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PROTECTED | $FINAL, $field(CalendarNameProviderImpl, type)},
+		{"langtags", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED | $FINAL, $field(CalendarNameProviderImpl, langtags)},
+		{"REST_OF_STYLES", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CalendarNameProviderImpl, REST_OF_STYLES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(CalendarNameProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
+		{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CalendarNameProviderImpl, getAvailableLanguageTags, $Set*)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(CalendarNameProviderImpl, getAvailableLocales, $LocaleArray*)},
+		{"getBaseStyle", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(CalendarNameProviderImpl, getBaseStyle, int32_t, int32_t)},
+		{"getDisplayName", "(Ljava/lang/String;IIILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CalendarNameProviderImpl, getDisplayName, $String*, $String*, int32_t, int32_t, int32_t, $Locale*)},
+		{"getDisplayNameImpl", "(Ljava/lang/String;IIILjava/util/Locale;Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CalendarNameProviderImpl, getDisplayNameImpl, $String*, $String*, int32_t, int32_t, int32_t, $Locale*, bool)},
+		{"getDisplayNames", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map;", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(CalendarNameProviderImpl, getDisplayNames, $Map*, $String*, int32_t, int32_t, $Locale*)},
+		{"getDisplayNamesImpl", "(Ljava/lang/String;IILjava/util/Locale;Z)Ljava/util/Map;", "(Ljava/lang/String;IILjava/util/Locale;Z)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE, $method(CalendarNameProviderImpl, getDisplayNamesImpl, $Map*, $String*, int32_t, int32_t, $Locale*, bool)},
+		{"getJavaTimeDisplayName", "(Ljava/lang/String;IIILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CalendarNameProviderImpl, getJavaTimeDisplayName, $String*, $String*, int32_t, int32_t, int32_t, $Locale*)},
+		{"getJavaTimeDisplayNames", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map;", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(CalendarNameProviderImpl, getJavaTimeDisplayNames, $Map*, $String*, int32_t, int32_t, $Locale*)},
+		{"getResourceKey", "(Ljava/lang/String;IIZ)Ljava/lang/String;", nullptr, $PRIVATE, $method(CalendarNameProviderImpl, getResourceKey, $String*, $String*, int32_t, int32_t, bool)},
+		{"getResourceKeyFor", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/lang/String;IIZ)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(CalendarNameProviderImpl, getResourceKeyFor, $String*, $LocaleProviderAdapter$Type*, $String*, int32_t, int32_t, bool)},
+		{"hasDuplicates", "([Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(CalendarNameProviderImpl, hasDuplicates, bool, $StringArray*)},
+		{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(CalendarNameProviderImpl, isSupportedLocale, bool, $Locale*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"toStyleName", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(CalendarNameProviderImpl, toStyleName, $String*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.CalendarNameProviderImpl$LengthBasedComparator", "sun.util.locale.provider.CalendarNameProviderImpl", "LengthBasedComparator", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.locale.provider.CalendarNameProviderImpl",
+		"java.util.spi.CalendarNameProvider",
+		"sun.util.locale.provider.AvailableLanguageTags",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.CalendarNameProviderImpl$LengthBasedComparator"
+	};
+	$loadClass(CalendarNameProviderImpl, name, initialize, &classInfo$$, CalendarNameProviderImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CalendarNameProviderImpl));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/nio/fs/MimeTypesFileTypeDetector$1.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/file/Files.h>
@@ -24,57 +23,15 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _MimeTypesFileTypeDetector$1_FieldInfo_[] = {
-	{"this$0", "Lsun/nio/fs/MimeTypesFileTypeDetector;", nullptr, $FINAL | $SYNTHETIC, $field(MimeTypesFileTypeDetector$1, this$0)},
-	{}
-};
-
-$MethodInfo _MimeTypesFileTypeDetector$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/MimeTypesFileTypeDetector;)V", nullptr, 0, $method(MimeTypesFileTypeDetector$1, init$, void, $MimeTypesFileTypeDetector*)},
-	{"run", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(MimeTypesFileTypeDetector$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _MimeTypesFileTypeDetector$1_EnclosingMethodInfo_ = {
-	"sun.nio.fs.MimeTypesFileTypeDetector",
-	"loadMimeTypes",
-	"()V"
-};
-
-$InnerClassInfo _MimeTypesFileTypeDetector$1_InnerClassesInfo_[] = {
-	{"sun.nio.fs.MimeTypesFileTypeDetector$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MimeTypesFileTypeDetector$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.MimeTypesFileTypeDetector$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_MimeTypesFileTypeDetector$1_FieldInfo_,
-	_MimeTypesFileTypeDetector$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/util/List<Ljava/lang/String;>;>;",
-	&_MimeTypesFileTypeDetector$1_EnclosingMethodInfo_,
-	_MimeTypesFileTypeDetector$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.MimeTypesFileTypeDetector"
-};
-
-$Object* allocate$MimeTypesFileTypeDetector$1($Class* clazz) {
-	return $of($alloc(MimeTypesFileTypeDetector$1));
-}
-
 void MimeTypesFileTypeDetector$1::init$($MimeTypesFileTypeDetector* this$0) {
 	$set(this, this$0, this$0);
 }
 
 $Object* MimeTypesFileTypeDetector$1::run() {
 	try {
-		return $of($Files::readAllLines(this->this$0->mimeTypesFile, $($Charset::defaultCharset())));
+		return $Files::readAllLines(this->this$0->mimeTypesFile, $($Charset::defaultCharset()));
 	} catch ($IOException& ignore) {
-		return $of($Collections::emptyList());
+		return $Collections::emptyList();
 	}
 	$shouldNotReachHere();
 }
@@ -83,7 +40,42 @@ MimeTypesFileTypeDetector$1::MimeTypesFileTypeDetector$1() {
 }
 
 $Class* MimeTypesFileTypeDetector$1::load$($String* name, bool initialize) {
-	$loadClass(MimeTypesFileTypeDetector$1, name, initialize, &_MimeTypesFileTypeDetector$1_ClassInfo_, allocate$MimeTypesFileTypeDetector$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/nio/fs/MimeTypesFileTypeDetector;", nullptr, $FINAL | $SYNTHETIC, $field(MimeTypesFileTypeDetector$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/fs/MimeTypesFileTypeDetector;)V", nullptr, 0, $method(MimeTypesFileTypeDetector$1, init$, void, $MimeTypesFileTypeDetector*)},
+		{"run", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(MimeTypesFileTypeDetector$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.nio.fs.MimeTypesFileTypeDetector",
+		"loadMimeTypes",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.MimeTypesFileTypeDetector$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.MimeTypesFileTypeDetector$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/util/List<Ljava/lang/String;>;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.MimeTypesFileTypeDetector"
+	};
+	$loadClass(MimeTypesFileTypeDetector$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MimeTypesFileTypeDetector$1);
+	});
 	return class$;
 }
 

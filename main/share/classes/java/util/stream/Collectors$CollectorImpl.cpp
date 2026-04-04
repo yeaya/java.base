@@ -1,5 +1,4 @@
 #include <java/util/stream/Collectors$CollectorImpl.h>
-
 #include <java/util/Set.h>
 #include <java/util/function/BiConsumer.h>
 #include <java/util/function/BinaryOperator.h>
@@ -22,51 +21,6 @@ using $Collectors = ::java::util::stream::Collectors;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _Collectors$CollectorImpl_FieldInfo_[] = {
-	{"supplier", "Ljava/util/function/Supplier;", "Ljava/util/function/Supplier<TA;>;", $PRIVATE | $FINAL, $field(Collectors$CollectorImpl, supplier$)},
-	{"accumulator", "Ljava/util/function/BiConsumer;", "Ljava/util/function/BiConsumer<TA;TT;>;", $PRIVATE | $FINAL, $field(Collectors$CollectorImpl, accumulator$)},
-	{"combiner", "Ljava/util/function/BinaryOperator;", "Ljava/util/function/BinaryOperator<TA;>;", $PRIVATE | $FINAL, $field(Collectors$CollectorImpl, combiner$)},
-	{"finisher", "Ljava/util/function/Function;", "Ljava/util/function/Function<TA;TR;>;", $PRIVATE | $FINAL, $field(Collectors$CollectorImpl, finisher$)},
-	{"characteristics", "Ljava/util/Set;", "Ljava/util/Set<Ljava/util/stream/Collector$Characteristics;>;", $PRIVATE | $FINAL, $field(Collectors$CollectorImpl, characteristics$)},
-	{}
-};
-
-$MethodInfo _Collectors$CollectorImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/function/Function;Ljava/util/Set;)V", "(Ljava/util/function/Supplier<TA;>;Ljava/util/function/BiConsumer<TA;TT;>;Ljava/util/function/BinaryOperator<TA;>;Ljava/util/function/Function<TA;TR;>;Ljava/util/Set<Ljava/util/stream/Collector$Characteristics;>;)V", 0, $method(Collectors$CollectorImpl, init$, void, $Supplier*, $BiConsumer*, $BinaryOperator*, $Function*, $Set*)},
-	{"<init>", "(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/Set;)V", "(Ljava/util/function/Supplier<TA;>;Ljava/util/function/BiConsumer<TA;TT;>;Ljava/util/function/BinaryOperator<TA;>;Ljava/util/Set<Ljava/util/stream/Collector$Characteristics;>;)V", 0, $method(Collectors$CollectorImpl, init$, void, $Supplier*, $BiConsumer*, $BinaryOperator*, $Set*)},
-	{"accumulator", "()Ljava/util/function/BiConsumer;", "()Ljava/util/function/BiConsumer<TA;TT;>;", $PUBLIC, $virtualMethod(Collectors$CollectorImpl, accumulator, $BiConsumer*)},
-	{"characteristics", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/stream/Collector$Characteristics;>;", $PUBLIC, $virtualMethod(Collectors$CollectorImpl, characteristics, $Set*)},
-	{"combiner", "()Ljava/util/function/BinaryOperator;", "()Ljava/util/function/BinaryOperator<TA;>;", $PUBLIC, $virtualMethod(Collectors$CollectorImpl, combiner, $BinaryOperator*)},
-	{"finisher", "()Ljava/util/function/Function;", "()Ljava/util/function/Function<TA;TR;>;", $PUBLIC, $virtualMethod(Collectors$CollectorImpl, finisher, $Function*)},
-	{"supplier", "()Ljava/util/function/Supplier;", "()Ljava/util/function/Supplier<TA;>;", $PUBLIC, $virtualMethod(Collectors$CollectorImpl, supplier, $Supplier*)},
-	{}
-};
-
-$InnerClassInfo _Collectors$CollectorImpl_InnerClassesInfo_[] = {
-	{"java.util.stream.Collectors$CollectorImpl", "java.util.stream.Collectors", "CollectorImpl", $STATIC},
-	{}
-};
-
-$ClassInfo _Collectors$CollectorImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.Collectors$CollectorImpl",
-	"java.lang.Object",
-	"java.util.stream.Collector",
-	_Collectors$CollectorImpl_FieldInfo_,
-	_Collectors$CollectorImpl_MethodInfo_,
-	"<T:Ljava/lang/Object;A:Ljava/lang/Object;R:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/stream/Collector<TT;TA;TR;>;",
-	nullptr,
-	_Collectors$CollectorImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Collectors"
-};
-
-$Object* allocate$Collectors$CollectorImpl($Class* clazz) {
-	return $of($alloc(Collectors$CollectorImpl));
-}
 
 void Collectors$CollectorImpl::init$($Supplier* supplier, $BiConsumer* accumulator, $BinaryOperator* combiner, $Function* finisher, $Set* characteristics) {
 	$set(this, supplier$, supplier);
@@ -104,7 +58,46 @@ Collectors$CollectorImpl::Collectors$CollectorImpl() {
 }
 
 $Class* Collectors$CollectorImpl::load$($String* name, bool initialize) {
-	$loadClass(Collectors$CollectorImpl, name, initialize, &_Collectors$CollectorImpl_ClassInfo_, allocate$Collectors$CollectorImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"supplier", "Ljava/util/function/Supplier;", "Ljava/util/function/Supplier<TA;>;", $PRIVATE | $FINAL, $field(Collectors$CollectorImpl, supplier$)},
+		{"accumulator", "Ljava/util/function/BiConsumer;", "Ljava/util/function/BiConsumer<TA;TT;>;", $PRIVATE | $FINAL, $field(Collectors$CollectorImpl, accumulator$)},
+		{"combiner", "Ljava/util/function/BinaryOperator;", "Ljava/util/function/BinaryOperator<TA;>;", $PRIVATE | $FINAL, $field(Collectors$CollectorImpl, combiner$)},
+		{"finisher", "Ljava/util/function/Function;", "Ljava/util/function/Function<TA;TR;>;", $PRIVATE | $FINAL, $field(Collectors$CollectorImpl, finisher$)},
+		{"characteristics", "Ljava/util/Set;", "Ljava/util/Set<Ljava/util/stream/Collector$Characteristics;>;", $PRIVATE | $FINAL, $field(Collectors$CollectorImpl, characteristics$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/function/Function;Ljava/util/Set;)V", "(Ljava/util/function/Supplier<TA;>;Ljava/util/function/BiConsumer<TA;TT;>;Ljava/util/function/BinaryOperator<TA;>;Ljava/util/function/Function<TA;TR;>;Ljava/util/Set<Ljava/util/stream/Collector$Characteristics;>;)V", 0, $method(Collectors$CollectorImpl, init$, void, $Supplier*, $BiConsumer*, $BinaryOperator*, $Function*, $Set*)},
+		{"<init>", "(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/Set;)V", "(Ljava/util/function/Supplier<TA;>;Ljava/util/function/BiConsumer<TA;TT;>;Ljava/util/function/BinaryOperator<TA;>;Ljava/util/Set<Ljava/util/stream/Collector$Characteristics;>;)V", 0, $method(Collectors$CollectorImpl, init$, void, $Supplier*, $BiConsumer*, $BinaryOperator*, $Set*)},
+		{"accumulator", "()Ljava/util/function/BiConsumer;", "()Ljava/util/function/BiConsumer<TA;TT;>;", $PUBLIC, $virtualMethod(Collectors$CollectorImpl, accumulator, $BiConsumer*)},
+		{"characteristics", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/stream/Collector$Characteristics;>;", $PUBLIC, $virtualMethod(Collectors$CollectorImpl, characteristics, $Set*)},
+		{"combiner", "()Ljava/util/function/BinaryOperator;", "()Ljava/util/function/BinaryOperator<TA;>;", $PUBLIC, $virtualMethod(Collectors$CollectorImpl, combiner, $BinaryOperator*)},
+		{"finisher", "()Ljava/util/function/Function;", "()Ljava/util/function/Function<TA;TR;>;", $PUBLIC, $virtualMethod(Collectors$CollectorImpl, finisher, $Function*)},
+		{"supplier", "()Ljava/util/function/Supplier;", "()Ljava/util/function/Supplier<TA;>;", $PUBLIC, $virtualMethod(Collectors$CollectorImpl, supplier, $Supplier*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Collectors$CollectorImpl", "java.util.stream.Collectors", "CollectorImpl", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.Collectors$CollectorImpl",
+		"java.lang.Object",
+		"java.util.stream.Collector",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;A:Ljava/lang/Object;R:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/stream/Collector<TT;TA;TR;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Collectors"
+	};
+	$loadClass(Collectors$CollectorImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Collectors$CollectorImpl);
+	});
 	return class$;
 }
 

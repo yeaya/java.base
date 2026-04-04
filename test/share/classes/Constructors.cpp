@@ -1,45 +1,14 @@
 #include <Constructors.h>
-
 #include <java/io/PipedReader.h>
 #include <java/io/PipedWriter.h>
 #include <jcpp.h>
 
 using $PipedReader = ::java::io::PipedReader;
 using $PipedWriter = ::java::io::PipedWriter;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _Constructors_FieldInfo_[] = {
-	{"out", "Ljava/io/PipedWriter;", nullptr, $STATIC, $staticField(Constructors, out)},
-	{"in", "Ljava/io/PipedReader;", nullptr, $STATIC, $staticField(Constructors, in)},
-	{"totalToWrite", "I", nullptr, $STATIC, $staticField(Constructors, totalToWrite)},
-	{"pipeSize", "I", nullptr, $STATIC, $staticField(Constructors, pipeSize)},
-	{}
-};
-
-$MethodInfo _Constructors_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Constructors, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Constructors, main, void, $StringArray*), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Constructors, run, void)},
-	{"testPipe", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Constructors, testPipe, void), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Constructors_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Constructors",
-	"java.lang.Thread",
-	nullptr,
-	_Constructors_FieldInfo_,
-	_Constructors_MethodInfo_
-};
-
-$Object* allocate$Constructors($Class* clazz) {
-	return $of($alloc(Constructors));
-}
 
 $PipedWriter* Constructors::out = nullptr;
 $PipedReader* Constructors::in = nullptr;
@@ -51,31 +20,29 @@ void Constructors::init$() {
 }
 
 void Constructors::run() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				for (int32_t times = ($div(Constructors::totalToWrite, Constructors::pipeSize)); times > 0; --times) {
-					$nc($System::out)->println("Reader reading..."_s);
-					int32_t read = $nc(Constructors::in)->read($$new($chars, Constructors::pipeSize));
-					$nc($System::out)->println($$str({"read: "_s, $$str(read)}));
-					if (read < Constructors::pipeSize) {
-						$throwNew($Exception, $$str({"Pipe Size is not set to:"_s, $$str(Constructors::pipeSize)}));
-					}
+			for (int32_t times = ($div(Constructors::totalToWrite, Constructors::pipeSize)); times > 0; --times) {
+				$nc($System::out)->println("Reader reading..."_s);
+				int32_t read = $nc(Constructors::in)->read($$new($chars, Constructors::pipeSize));
+				$System::out->println($$str({"read: "_s, $$str(read)}));
+				if (read < Constructors::pipeSize) {
+					$throwNew($Exception, $$str({"Pipe Size is not set to:"_s, $$str(Constructors::pipeSize)}));
 				}
-			} catch ($Throwable& e) {
-				$nc($System::out)->println("Reader exception:"_s);
-				e->printStackTrace();
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc($System::out)->println("Reader done."_s);
+		} catch ($Throwable& e) {
+			$nc($System::out)->println("Reader exception:"_s);
+			e->printStackTrace();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc($System::out)->println("Reader done."_s);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -91,35 +58,33 @@ void Constructors::main($StringArray* args) {
 
 void Constructors::testPipe() {
 	$init(Constructors);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(Constructors, reader, $new(Constructors));
 	reader->start();
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$nc($System::out)->println("Writer started."_s);
-				$nc(Constructors::out)->write($$new($chars, Constructors::totalToWrite));
-			} catch ($Throwable& e) {
-				$nc($System::out)->println("Writer exception:"_s);
-				e->printStackTrace();
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(Constructors::out)->close();
-			$nc($System::out)->println("Waiting for reader..."_s);
-			reader->join();
-			$nc(Constructors::in)->close();
-			$nc($System::out)->println("Done."_s);
+			$nc($System::out)->println("Writer started."_s);
+			$nc(Constructors::out)->write($$new($chars, Constructors::totalToWrite));
+		} catch ($Throwable& e) {
+			$nc($System::out)->println("Writer exception:"_s);
+			e->printStackTrace();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(Constructors::out)->close();
+		$nc($System::out)->println("Waiting for reader..."_s);
+		reader->join();
+		$nc(Constructors::in)->close();
+		$System::out->println("Done."_s);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
-void clinit$Constructors($Class* class$) {
+void Constructors::clinit$($Class* clazz) {
 	Constructors::totalToWrite = (8 * 1024);
 	Constructors::pipeSize = Constructors::totalToWrite;
 }
@@ -128,7 +93,31 @@ Constructors::Constructors() {
 }
 
 $Class* Constructors::load$($String* name, bool initialize) {
-	$loadClass(Constructors, name, initialize, &_Constructors_ClassInfo_, clinit$Constructors, allocate$Constructors);
+	$FieldInfo fieldInfos$$[] = {
+		{"out", "Ljava/io/PipedWriter;", nullptr, $STATIC, $staticField(Constructors, out)},
+		{"in", "Ljava/io/PipedReader;", nullptr, $STATIC, $staticField(Constructors, in)},
+		{"totalToWrite", "I", nullptr, $STATIC, $staticField(Constructors, totalToWrite)},
+		{"pipeSize", "I", nullptr, $STATIC, $staticField(Constructors, pipeSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Constructors, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Constructors, main, void, $StringArray*), "java.lang.Exception"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Constructors, run, void)},
+		{"testPipe", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Constructors, testPipe, void), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Constructors",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Constructors, name, initialize, &classInfo$$, Constructors::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Constructors);
+	});
 	return class$;
 }
 

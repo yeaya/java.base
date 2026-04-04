@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/util/TraceRecordComponentVisitor.h>
-
 #include <jdk/internal/org/objectweb/asm/AnnotationVisitor.h>
 #include <jdk/internal/org/objectweb/asm/Attribute.h>
 #include <jdk/internal/org/objectweb/asm/Opcodes.h>
@@ -29,34 +28,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace util {
 
-$FieldInfo _TraceRecordComponentVisitor_FieldInfo_[] = {
-	{"printer", "Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC | $FINAL, $field(TraceRecordComponentVisitor, printer)},
-	{}
-};
-
-$MethodInfo _TraceRecordComponentVisitor_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/util/Printer;)V", nullptr, $PUBLIC, $method(TraceRecordComponentVisitor, init$, void, $Printer*)},
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/RecordComponentVisitor;Ljdk/internal/org/objectweb/asm/util/Printer;)V", nullptr, $PUBLIC, $method(TraceRecordComponentVisitor, init$, void, $RecordComponentVisitor*, $Printer*)},
-	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceRecordComponentVisitor, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
-	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(TraceRecordComponentVisitor, visitAttribute, void, $Attribute*)},
-	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(TraceRecordComponentVisitor, visitEnd, void)},
-	{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceRecordComponentVisitor, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
-	{}
-};
-
-$ClassInfo _TraceRecordComponentVisitor_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.util.TraceRecordComponentVisitor",
-	"jdk.internal.org.objectweb.asm.RecordComponentVisitor",
-	nullptr,
-	_TraceRecordComponentVisitor_FieldInfo_,
-	_TraceRecordComponentVisitor_MethodInfo_
-};
-
-$Object* allocate$TraceRecordComponentVisitor($Class* clazz) {
-	return $of($alloc(TraceRecordComponentVisitor));
-}
-
 void TraceRecordComponentVisitor::init$($Printer* printer) {
 	TraceRecordComponentVisitor::init$(nullptr, printer);
 }
@@ -67,13 +38,13 @@ void TraceRecordComponentVisitor::init$($RecordComponentVisitor* recordComponent
 }
 
 $AnnotationVisitor* TraceRecordComponentVisitor::visitAnnotation($String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Printer, annotationPrinter, $nc(this->printer)->visitRecordComponentAnnotation(descriptor, visible));
 	return $new($TraceAnnotationVisitor, $($RecordComponentVisitor::visitAnnotation(descriptor, visible)), annotationPrinter);
 }
 
 $AnnotationVisitor* TraceRecordComponentVisitor::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Printer, annotationPrinter, $nc(this->printer)->visitRecordComponentTypeAnnotation(typeRef, typePath, descriptor, visible));
 	return $new($TraceAnnotationVisitor, $($RecordComponentVisitor::visitTypeAnnotation(typeRef, typePath, descriptor, visible)), annotationPrinter);
 }
@@ -92,7 +63,30 @@ TraceRecordComponentVisitor::TraceRecordComponentVisitor() {
 }
 
 $Class* TraceRecordComponentVisitor::load$($String* name, bool initialize) {
-	$loadClass(TraceRecordComponentVisitor, name, initialize, &_TraceRecordComponentVisitor_ClassInfo_, allocate$TraceRecordComponentVisitor);
+	$FieldInfo fieldInfos$$[] = {
+		{"printer", "Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC | $FINAL, $field(TraceRecordComponentVisitor, printer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/util/Printer;)V", nullptr, $PUBLIC, $method(TraceRecordComponentVisitor, init$, void, $Printer*)},
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/RecordComponentVisitor;Ljdk/internal/org/objectweb/asm/util/Printer;)V", nullptr, $PUBLIC, $method(TraceRecordComponentVisitor, init$, void, $RecordComponentVisitor*, $Printer*)},
+		{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceRecordComponentVisitor, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
+		{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(TraceRecordComponentVisitor, visitAttribute, void, $Attribute*)},
+		{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(TraceRecordComponentVisitor, visitEnd, void)},
+		{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceRecordComponentVisitor, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.util.TraceRecordComponentVisitor",
+		"jdk.internal.org.objectweb.asm.RecordComponentVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TraceRecordComponentVisitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TraceRecordComponentVisitor);
+	});
 	return class$;
 }
 

@@ -35,6 +35,7 @@ class $import ConcurrentHashMap$TreeBin : public ::java::util::concurrent::Concu
 	$class(ConcurrentHashMap$TreeBin, 0, ::java::util::concurrent::ConcurrentHashMap$Node)
 public:
 	ConcurrentHashMap$TreeBin();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::concurrent::ConcurrentHashMap$TreeNode* b);
 	static ::java::util::concurrent::ConcurrentHashMap$TreeNode* balanceDeletion(::java::util::concurrent::ConcurrentHashMap$TreeNode* root, ::java::util::concurrent::ConcurrentHashMap$TreeNode* x);
 	static ::java::util::concurrent::ConcurrentHashMap$TreeNode* balanceInsertion(::java::util::concurrent::ConcurrentHashMap$TreeNode* root, ::java::util::concurrent::ConcurrentHashMap$TreeNode* x);

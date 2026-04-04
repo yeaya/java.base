@@ -26,6 +26,7 @@ class $import PerfCounter : public ::java::lang::Object {
 	$class(PerfCounter, 0, ::java::lang::Object)
 public:
 	PerfCounter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, int32_t type);
 	virtual void add(int64_t value);
 	virtual void addElapsedTimeFrom(int64_t startTime);

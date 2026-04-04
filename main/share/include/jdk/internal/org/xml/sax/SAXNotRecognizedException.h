@@ -17,10 +17,13 @@ public:
 	SAXNotRecognizedException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0x4B808FF241A211DD;
+	static const int64_t serialVersionUID = (int64_t)0x4b808ff241a211dd;
 	SAXNotRecognizedException(const SAXNotRecognizedException& e);
 	virtual void throw$() override;
-	inline SAXNotRecognizedException* operator ->() {
+	inline SAXNotRecognizedException* operator ->() const {
+		return (SAXNotRecognizedException*)throwing$;
+	}
+	inline operator SAXNotRecognizedException*() const {
 		return (SAXNotRecognizedException*)throwing$;
 	}
 };

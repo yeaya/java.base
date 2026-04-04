@@ -1,5 +1,4 @@
 #include <jdk/internal/module/SystemModules.h>
-
 #include <java/lang/module/ModuleDescriptor.h>
 #include <java/util/Map.h>
 #include <jdk/internal/module/ModuleHashes.h>
@@ -19,32 +18,28 @@ namespace jdk {
 	namespace internal {
 		namespace module {
 
-$MethodInfo _SystemModules_MethodInfo_[] = {
-	{"hasIncubatorModules", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SystemModules, hasIncubatorModules, bool)},
-	{"hasSplitPackages", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SystemModules, hasSplitPackages, bool)},
-	{"moduleDescriptors", "()[Ljava/lang/module/ModuleDescriptor;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SystemModules, moduleDescriptors, $ModuleDescriptorArray*)},
-	{"moduleHashes", "()[Ljdk/internal/module/ModuleHashes;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SystemModules, moduleHashes, $ModuleHashesArray*)},
-	{"moduleReads", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SystemModules, moduleReads, $Map*)},
-	{"moduleResolutions", "()[Ljdk/internal/module/ModuleResolution;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SystemModules, moduleResolutions, $ModuleResolutionArray*)},
-	{"moduleTargets", "()[Ljdk/internal/module/ModuleTarget;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SystemModules, moduleTargets, $ModuleTargetArray*)},
-	{}
-};
-
-$ClassInfo _SystemModules_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"jdk.internal.module.SystemModules",
-	nullptr,
-	nullptr,
-	nullptr,
-	_SystemModules_MethodInfo_
-};
-
-$Object* allocate$SystemModules($Class* clazz) {
-	return $of($alloc(SystemModules));
-}
-
 $Class* SystemModules::load$($String* name, bool initialize) {
-	$loadClass(SystemModules, name, initialize, &_SystemModules_ClassInfo_, allocate$SystemModules);
+	$MethodInfo methodInfos$$[] = {
+		{"hasIncubatorModules", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SystemModules, hasIncubatorModules, bool)},
+		{"hasSplitPackages", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SystemModules, hasSplitPackages, bool)},
+		{"moduleDescriptors", "()[Ljava/lang/module/ModuleDescriptor;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SystemModules, moduleDescriptors, $ModuleDescriptorArray*)},
+		{"moduleHashes", "()[Ljdk/internal/module/ModuleHashes;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SystemModules, moduleHashes, $ModuleHashesArray*)},
+		{"moduleReads", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SystemModules, moduleReads, $Map*)},
+		{"moduleResolutions", "()[Ljdk/internal/module/ModuleResolution;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SystemModules, moduleResolutions, $ModuleResolutionArray*)},
+		{"moduleTargets", "()[Ljdk/internal/module/ModuleTarget;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SystemModules, moduleTargets, $ModuleTargetArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"jdk.internal.module.SystemModules",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SystemModules, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SystemModules);
+	});
 	return class$;
 }
 

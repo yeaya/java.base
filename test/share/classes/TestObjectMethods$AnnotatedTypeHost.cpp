@@ -1,5 +1,4 @@
 #include <TestObjectMethods$AnnotatedTypeHost.h>
-
 #include <TestObjectMethods.h>
 #include <java/lang/Number.h>
 #include <java/util/List.h>
@@ -16,414 +15,6 @@ using $Number = ::java::lang::Number;
 using $TypeAnnotation = ::java::lang::TypeAnnotation;
 using $List = ::java::util::List;
 using $Set = ::java::util::Set;
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$0[] = {
-	{"count", 'I', "1"},
-	{"relation", 'e', "LTestObjectMethods$Relation; POSTFIX"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$1[] = {
-	{"value", 'I', "1"},
-	{}
-};
-
-$CompoundAttribute _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_foo1[] = {
-	{"LTestObjectMethods$AnnotTypeInfo;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$0},
-	{}
-};
-
-$TypeAnnotation _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_foo1[] = {
-	{"LTestObjectMethods$AnnotType;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$1, "METHOD_RETURN"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$2[] = {
-	{"count", 'I', "1"},
-	{"relation", 'e', "LTestObjectMethods$Relation; POSTFIX"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$3[] = {
-	{"value", 'I', "9"},
-	{}
-};
-
-$CompoundAttribute _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooE2[] = {
-	{"LTestObjectMethods$AnnotTypeInfo;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$2},
-	{}
-};
-
-$TypeAnnotation _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooE2[] = {
-	{"LTestObjectMethods$AnnotType;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$3, "METHOD_RETURN"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$4[] = {
-	{"count", 'I', "1"},
-	{"relation", 'e', "LTestObjectMethods$Relation; POSTFIX"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$5[] = {
-	{"value", 'I', "10"},
-	{}
-};
-
-$CompoundAttribute _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooF3[] = {
-	{"LTestObjectMethods$AnnotTypeInfo;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$4},
-	{}
-};
-
-$TypeAnnotation _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooF3[] = {
-	{"LTestObjectMethods$AnnotType;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$5, "METHOD_RETURN"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$6[] = {
-	{"count", 'I', "1"},
-	{"relation", 'e', "LTestObjectMethods$Relation; POSTFIX"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$7[] = {
-	{"value", 'I', "11"},
-	{}
-};
-
-$CompoundAttribute _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooG4[] = {
-	{"LTestObjectMethods$AnnotTypeInfo;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$6},
-	{}
-};
-
-$TypeAnnotation _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooG4[] = {
-	{"LTestObjectMethods$AnnotType;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$7, "METHOD_RETURN"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$8[] = {
-	{"count", 'I', "1"},
-	{"relation", 'e', "LTestObjectMethods$Relation; ARRAY"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$9[] = {
-	{"value", 'I', "3"},
-	{}
-};
-
-$CompoundAttribute _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooIntArray5[] = {
-	{"LTestObjectMethods$AnnotTypeInfo;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$8},
-	{}
-};
-
-$TypeAnnotation _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooIntArray5[] = {
-	{"LTestObjectMethods$AnnotType;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$9, "METHOD_RETURN"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$10[] = {
-	{"count", 'I', "1"},
-	{"relation", 'e', "LTestObjectMethods$Relation; POSTFIX"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$11[] = {
-	{"value", 'I', "12"},
-	{}
-};
-
-$CompoundAttribute _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooNumberSet6[] = {
-	{"LTestObjectMethods$AnnotTypeInfo;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$10},
-	{}
-};
-
-$TypeAnnotation _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooNumberSet6[] = {
-	{"LTestObjectMethods$AnnotType;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$11, "METHOD_RETURN"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$12[] = {
-	{"count", 'I', "2"},
-	{"relation", 'e', "LTestObjectMethods$Relation; STRIPPED"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$13[] = {
-	{"value", 'I', "14"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$14[] = {
-	{"value", 'I', "13"},
-	{}
-};
-
-$CompoundAttribute _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooNumberSet27[] = {
-	{"LTestObjectMethods$AnnotTypeInfo;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$12},
-	{}
-};
-
-$TypeAnnotation _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooNumberSet27[] = {
-	{"LTestObjectMethods$AnnotType;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$13, "METHOD_RETURN, location = (TYPE_ARGUMENT(0))"},
-	{"LTestObjectMethods$AnnotType;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$14, "METHOD_RETURN"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$15[] = {
-	{"count", 'I', "2"},
-	{"relation", 'e', "LTestObjectMethods$Relation; STRIPPED"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$16[] = {
-	{"value", 'I', "16"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$17[] = {
-	{"value", 'I', "15"},
-	{}
-};
-
-$CompoundAttribute _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooNumberSet38[] = {
-	{"LTestObjectMethods$AnnotTypeInfo;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$15},
-	{}
-};
-
-$TypeAnnotation _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooNumberSet38[] = {
-	{"LTestObjectMethods$AnnotType;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$16, "METHOD_RETURN, location = (TYPE_ARGUMENT(0),WILDCARD)"},
-	{"LTestObjectMethods$AnnotType;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$17, "METHOD_RETURN"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$18[] = {
-	{"count", 'I', "2"},
-	{"relation", 'e', "LTestObjectMethods$Relation; OTHER"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$19[] = {
-	{"value", 'I', "19"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$20[] = {
-	{"value", 'I', "18"},
-	{}
-};
-
-$CompoundAttribute _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooObjectList9[] = {
-	{"LTestObjectMethods$AnnotTypeInfo;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$18},
-	{}
-};
-
-$TypeAnnotation _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooObjectList9[] = {
-	{"LTestObjectMethods$AnnotType;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$19, "METHOD_RETURN, location = (TYPE_ARGUMENT(0),WILDCARD)"},
-	{"LTestObjectMethods$AnnotType;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$20, "METHOD_RETURN"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$21[] = {
-	{"count", 'I', "2"},
-	{"relation", 'e', "LTestObjectMethods$Relation; STRIPPED"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$22[] = {
-	{"value", 'I', "17"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$23[] = {
-	{"value", 'I', "16"},
-	{}
-};
-
-$CompoundAttribute _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooObjectSet10[] = {
-	{"LTestObjectMethods$AnnotTypeInfo;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$21},
-	{}
-};
-
-$TypeAnnotation _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooObjectSet10[] = {
-	{"LTestObjectMethods$AnnotType;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$22, "METHOD_RETURN, location = (TYPE_ARGUMENT(0))"},
-	{"LTestObjectMethods$AnnotType;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$23, "METHOD_RETURN"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$24[] = {
-	{"count", 'I', "2"},
-	{"relation", 'e', "LTestObjectMethods$Relation; STRIPPED"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$25[] = {
-	{"value", 'I', "8"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$26[] = {
-	{"value", 'I', "7"},
-	{}
-};
-
-$CompoundAttribute _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooSetNumber11[] = {
-	{"LTestObjectMethods$AnnotTypeInfo;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$24},
-	{}
-};
-
-$TypeAnnotation _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooSetNumber11[] = {
-	{"LTestObjectMethods$AnnotType;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$25, "METHOD_RETURN, location = (TYPE_ARGUMENT(0))"},
-	{"LTestObjectMethods$AnnotType;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$26, "METHOD_RETURN"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$27[] = {
-	{"count", 'I', "1"},
-	{"relation", 'e', "LTestObjectMethods$Relation; POSTFIX"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$28[] = {
-	{"value", 'I', "6"},
-	{}
-};
-
-$CompoundAttribute _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooSetString12[] = {
-	{"LTestObjectMethods$AnnotTypeInfo;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$27},
-	{}
-};
-
-$TypeAnnotation _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooSetString12[] = {
-	{"LTestObjectMethods$AnnotType;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$28, "METHOD_RETURN"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$29[] = {
-	{"count", 'I', "1"},
-	{"relation", 'e', "LTestObjectMethods$Relation; POSTFIX"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$30[] = {
-	{"value", 'I', "2"},
-	{}
-};
-
-$CompoundAttribute _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooString13[] = {
-	{"LTestObjectMethods$AnnotTypeInfo;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$29},
-	{}
-};
-
-$TypeAnnotation _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooString13[] = {
-	{"LTestObjectMethods$AnnotType;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$30, "METHOD_RETURN"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$31[] = {
-	{"count", 'I', "1"},
-	{"relation", 'e', "LTestObjectMethods$Relation; ARRAY"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$32[] = {
-	{"value", 'I', "4"},
-	{}
-};
-
-$CompoundAttribute _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooStringArray14[] = {
-	{"LTestObjectMethods$AnnotTypeInfo;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$31},
-	{}
-};
-
-$TypeAnnotation _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooStringArray14[] = {
-	{"LTestObjectMethods$AnnotType;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$32, "METHOD_RETURN"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$33[] = {
-	{"count", 'I', "3"},
-	{"relation", 'e', "LTestObjectMethods$Relation; ARRAY"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$34[] = {
-	{"value", 'I', "0"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$35[] = {
-	{"value", 'I', "1"},
-	{}
-};
-
-$NamedAttribute TestObjectMethods$AnnotatedTypeHost_Attribute_var$36[] = {
-	{"value", 'I', "5"},
-	{}
-};
-
-$CompoundAttribute _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooStringArrayArray15[] = {
-	{"LTestObjectMethods$AnnotTypeInfo;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$33},
-	{}
-};
-
-$TypeAnnotation _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooStringArrayArray15[] = {
-	{"LTestObjectMethods$AnnotType;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$34, "METHOD_RETURN"},
-	{"LTestObjectMethods$AnnotType;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$35, "METHOD_RETURN, location = (ARRAY)"},
-	{"LTestObjectMethods$AnnotType;", TestObjectMethods$AnnotatedTypeHost_Attribute_var$36, "METHOD_RETURN, location = (ARRAY,ARRAY)"},
-	{}
-};
-
-$CompoundAttribute _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooVoid16[] = {
-	{"LTestObjectMethods$AnnotTypeInfo;", nullptr},
-	{}
-};
-
-$MethodInfo _TestObjectMethods$AnnotatedTypeHost_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TestObjectMethods$AnnotatedTypeHost, init$, void)},
-	{"foo", "()I", nullptr, $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, foo, int32_t), nullptr, nullptr, _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_foo1, _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_foo1},
-	{"fooE", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooE, $Object*), nullptr, nullptr, _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooE2, _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooE2},
-	{"fooF", "()Ljava/lang/Number;", "()TF;", $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooF, $Number*), nullptr, nullptr, _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooF3, _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooF3},
-	{"fooG", "()Ljava/lang/Object;", "<G:Ljava/lang/Object;>()TG;", $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooG, $Object*), nullptr, nullptr, _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooG4, _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooG4},
-	{"fooIntArray", "()[I", nullptr, $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooIntArray, $ints*), nullptr, nullptr, _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooIntArray5, _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooIntArray5},
-	{"fooNumberSet", "()Ljava/util/Set;", "()Ljava/util/Set<+Ljava/lang/Number;>;", $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooNumberSet, $Set*), nullptr, nullptr, _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooNumberSet6, _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooNumberSet6},
-	{"fooNumberSet2", "()Ljava/util/Set;", "()Ljava/util/Set<+Ljava/lang/Number;>;", $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooNumberSet2, $Set*), nullptr, nullptr, _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooNumberSet27, _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooNumberSet27},
-	{"fooNumberSet3", "()Ljava/util/Set;", "()Ljava/util/Set<+Ljava/lang/Long;>;", $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooNumberSet3, $Set*), nullptr, nullptr, _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooNumberSet38, _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooNumberSet38},
-	{"fooObjectList", "()Ljava/util/List;", "()Ljava/util/List<+Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooObjectList, $List*), nullptr, nullptr, _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooObjectList9, _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooObjectList9},
-	{"fooObjectSet", "()Ljava/util/Set;", "()Ljava/util/Set<*>;", $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooObjectSet, $Set*), nullptr, nullptr, _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooObjectSet10, _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooObjectSet10},
-	{"fooSetNumber", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Number;>;", $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooSetNumber, $Set*), nullptr, nullptr, _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooSetNumber11, _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooSetNumber11},
-	{"fooSetString", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooSetString, $Set*), nullptr, nullptr, _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooSetString12, _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooSetString12},
-	{"fooString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooString, $String*), nullptr, nullptr, _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooString13, _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooString13},
-	{"fooStringArray", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooStringArray, $StringArray*), nullptr, nullptr, _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooStringArray14, _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooStringArray14},
-	{"fooStringArrayArray", "()[[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooStringArrayArray, $StringArray2*), nullptr, nullptr, _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooStringArrayArray15, _TestObjectMethods$AnnotatedTypeHost_MethodTypeAnnotations_fooStringArrayArray15},
-	{"fooVoid", "()V", nullptr, $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooVoid, void), nullptr, nullptr, _TestObjectMethods$AnnotatedTypeHost_MethodAnnotations_fooVoid16},
-	{}
-};
-
-$InnerClassInfo _TestObjectMethods$AnnotatedTypeHost_InnerClassesInfo_[] = {
-	{"TestObjectMethods$AnnotatedTypeHost", "TestObjectMethods", "AnnotatedTypeHost", $STATIC},
-	{}
-};
-
-$ClassInfo _TestObjectMethods$AnnotatedTypeHost_ClassInfo_ = {
-	$ACC_SUPER,
-	"TestObjectMethods$AnnotatedTypeHost",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestObjectMethods$AnnotatedTypeHost_MethodInfo_,
-	"<E:Ljava/lang/Object;F:Ljava/lang/Number;>Ljava/lang/Object;",
-	nullptr,
-	_TestObjectMethods$AnnotatedTypeHost_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestObjectMethods"
-};
-
-$Object* allocate$TestObjectMethods$AnnotatedTypeHost($Class* clazz) {
-	return $of($alloc(TestObjectMethods$AnnotatedTypeHost));
-}
 
 void TestObjectMethods$AnnotatedTypeHost::init$() {
 }
@@ -461,7 +52,7 @@ $Set* TestObjectMethods$AnnotatedTypeHost::fooSetNumber() {
 }
 
 $Object* TestObjectMethods$AnnotatedTypeHost::fooE() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Number* TestObjectMethods$AnnotatedTypeHost::fooF() {
@@ -469,7 +60,7 @@ $Number* TestObjectMethods$AnnotatedTypeHost::fooF() {
 }
 
 $Object* TestObjectMethods$AnnotatedTypeHost::fooG() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Set* TestObjectMethods$AnnotatedTypeHost::fooNumberSet() {
@@ -496,7 +87,342 @@ TestObjectMethods$AnnotatedTypeHost::TestObjectMethods$AnnotatedTypeHost() {
 }
 
 $Class* TestObjectMethods$AnnotatedTypeHost::load$($String* name, bool initialize) {
-	$loadClass(TestObjectMethods$AnnotatedTypeHost, name, initialize, &_TestObjectMethods$AnnotatedTypeHost_ClassInfo_, allocate$TestObjectMethods$AnnotatedTypeHost);
+	$NamedAttribute foomethodAnnotations$$$namedAttribute[] = {
+		{"count", 'I', "1"},
+		{"relation", 'e', "LTestObjectMethods$Relation; POSTFIX"},
+		{}
+	};
+	$NamedAttribute foomethodTypeAnnotations$$$namedAttribute[] = {
+		{"value", 'I', "1"},
+		{}
+	};
+	$CompoundAttribute foomethodAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotTypeInfo;", foomethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$TypeAnnotation foomethodTypeAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotType;", foomethodTypeAnnotations$$$namedAttribute, "METHOD_RETURN"},
+		{}
+	};
+	$NamedAttribute fooEmethodAnnotations$$$namedAttribute[] = {
+		{"count", 'I', "1"},
+		{"relation", 'e', "LTestObjectMethods$Relation; POSTFIX"},
+		{}
+	};
+	$NamedAttribute fooEmethodTypeAnnotations$$$namedAttribute[] = {
+		{"value", 'I', "9"},
+		{}
+	};
+	$CompoundAttribute fooEmethodAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotTypeInfo;", fooEmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$TypeAnnotation fooEmethodTypeAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotType;", fooEmethodTypeAnnotations$$$namedAttribute, "METHOD_RETURN"},
+		{}
+	};
+	$NamedAttribute fooFmethodAnnotations$$$namedAttribute[] = {
+		{"count", 'I', "1"},
+		{"relation", 'e', "LTestObjectMethods$Relation; POSTFIX"},
+		{}
+	};
+	$NamedAttribute fooFmethodTypeAnnotations$$$namedAttribute[] = {
+		{"value", 'I', "10"},
+		{}
+	};
+	$CompoundAttribute fooFmethodAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotTypeInfo;", fooFmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$TypeAnnotation fooFmethodTypeAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotType;", fooFmethodTypeAnnotations$$$namedAttribute, "METHOD_RETURN"},
+		{}
+	};
+	$NamedAttribute fooGmethodAnnotations$$$namedAttribute[] = {
+		{"count", 'I', "1"},
+		{"relation", 'e', "LTestObjectMethods$Relation; POSTFIX"},
+		{}
+	};
+	$NamedAttribute fooGmethodTypeAnnotations$$$namedAttribute[] = {
+		{"value", 'I', "11"},
+		{}
+	};
+	$CompoundAttribute fooGmethodAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotTypeInfo;", fooGmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$TypeAnnotation fooGmethodTypeAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotType;", fooGmethodTypeAnnotations$$$namedAttribute, "METHOD_RETURN"},
+		{}
+	};
+	$NamedAttribute fooIntArraymethodAnnotations$$$namedAttribute[] = {
+		{"count", 'I', "1"},
+		{"relation", 'e', "LTestObjectMethods$Relation; ARRAY"},
+		{}
+	};
+	$NamedAttribute fooIntArraymethodTypeAnnotations$$$namedAttribute[] = {
+		{"value", 'I', "3"},
+		{}
+	};
+	$CompoundAttribute fooIntArraymethodAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotTypeInfo;", fooIntArraymethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$TypeAnnotation fooIntArraymethodTypeAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotType;", fooIntArraymethodTypeAnnotations$$$namedAttribute, "METHOD_RETURN"},
+		{}
+	};
+	$NamedAttribute fooNumberSetmethodAnnotations$$$namedAttribute[] = {
+		{"count", 'I', "1"},
+		{"relation", 'e', "LTestObjectMethods$Relation; POSTFIX"},
+		{}
+	};
+	$NamedAttribute fooNumberSetmethodTypeAnnotations$$$namedAttribute[] = {
+		{"value", 'I', "12"},
+		{}
+	};
+	$CompoundAttribute fooNumberSetmethodAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotTypeInfo;", fooNumberSetmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$TypeAnnotation fooNumberSetmethodTypeAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotType;", fooNumberSetmethodTypeAnnotations$$$namedAttribute, "METHOD_RETURN"},
+		{}
+	};
+	$NamedAttribute fooNumberSet2methodAnnotations$$$namedAttribute[] = {
+		{"count", 'I', "2"},
+		{"relation", 'e', "LTestObjectMethods$Relation; STRIPPED"},
+		{}
+	};
+	$NamedAttribute fooNumberSet2methodTypeAnnotations$$$namedAttribute[] = {
+		{"value", 'I', "14"},
+		{}
+	};
+	$NamedAttribute fooNumberSet2methodTypeAnnotations$$$namedAttribute$1[] = {
+		{"value", 'I', "13"},
+		{}
+	};
+	$CompoundAttribute fooNumberSet2methodAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotTypeInfo;", fooNumberSet2methodAnnotations$$$namedAttribute},
+		{}
+	};
+	$TypeAnnotation fooNumberSet2methodTypeAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotType;", fooNumberSet2methodTypeAnnotations$$$namedAttribute, "METHOD_RETURN, location = (TYPE_ARGUMENT(0))"},
+		{"LTestObjectMethods$AnnotType;", fooNumberSet2methodTypeAnnotations$$$namedAttribute$1, "METHOD_RETURN"},
+		{}
+	};
+	$NamedAttribute fooNumberSet3methodAnnotations$$$namedAttribute[] = {
+		{"count", 'I', "2"},
+		{"relation", 'e', "LTestObjectMethods$Relation; STRIPPED"},
+		{}
+	};
+	$NamedAttribute fooNumberSet3methodTypeAnnotations$$$namedAttribute[] = {
+		{"value", 'I', "16"},
+		{}
+	};
+	$NamedAttribute fooNumberSet3methodTypeAnnotations$$$namedAttribute$1[] = {
+		{"value", 'I', "15"},
+		{}
+	};
+	$CompoundAttribute fooNumberSet3methodAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotTypeInfo;", fooNumberSet3methodAnnotations$$$namedAttribute},
+		{}
+	};
+	$TypeAnnotation fooNumberSet3methodTypeAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotType;", fooNumberSet3methodTypeAnnotations$$$namedAttribute, "METHOD_RETURN, location = (TYPE_ARGUMENT(0),WILDCARD)"},
+		{"LTestObjectMethods$AnnotType;", fooNumberSet3methodTypeAnnotations$$$namedAttribute$1, "METHOD_RETURN"},
+		{}
+	};
+	$NamedAttribute fooObjectListmethodAnnotations$$$namedAttribute[] = {
+		{"count", 'I', "2"},
+		{"relation", 'e', "LTestObjectMethods$Relation; OTHER"},
+		{}
+	};
+	$NamedAttribute fooObjectListmethodTypeAnnotations$$$namedAttribute[] = {
+		{"value", 'I', "19"},
+		{}
+	};
+	$NamedAttribute fooObjectListmethodTypeAnnotations$$$namedAttribute$1[] = {
+		{"value", 'I', "18"},
+		{}
+	};
+	$CompoundAttribute fooObjectListmethodAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotTypeInfo;", fooObjectListmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$TypeAnnotation fooObjectListmethodTypeAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotType;", fooObjectListmethodTypeAnnotations$$$namedAttribute, "METHOD_RETURN, location = (TYPE_ARGUMENT(0),WILDCARD)"},
+		{"LTestObjectMethods$AnnotType;", fooObjectListmethodTypeAnnotations$$$namedAttribute$1, "METHOD_RETURN"},
+		{}
+	};
+	$NamedAttribute fooObjectSetmethodAnnotations$$$namedAttribute[] = {
+		{"count", 'I', "2"},
+		{"relation", 'e', "LTestObjectMethods$Relation; STRIPPED"},
+		{}
+	};
+	$NamedAttribute fooObjectSetmethodTypeAnnotations$$$namedAttribute[] = {
+		{"value", 'I', "17"},
+		{}
+	};
+	$NamedAttribute fooObjectSetmethodTypeAnnotations$$$namedAttribute$1[] = {
+		{"value", 'I', "16"},
+		{}
+	};
+	$CompoundAttribute fooObjectSetmethodAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotTypeInfo;", fooObjectSetmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$TypeAnnotation fooObjectSetmethodTypeAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotType;", fooObjectSetmethodTypeAnnotations$$$namedAttribute, "METHOD_RETURN, location = (TYPE_ARGUMENT(0))"},
+		{"LTestObjectMethods$AnnotType;", fooObjectSetmethodTypeAnnotations$$$namedAttribute$1, "METHOD_RETURN"},
+		{}
+	};
+	$NamedAttribute fooSetNumbermethodAnnotations$$$namedAttribute[] = {
+		{"count", 'I', "2"},
+		{"relation", 'e', "LTestObjectMethods$Relation; STRIPPED"},
+		{}
+	};
+	$NamedAttribute fooSetNumbermethodTypeAnnotations$$$namedAttribute[] = {
+		{"value", 'I', "8"},
+		{}
+	};
+	$NamedAttribute fooSetNumbermethodTypeAnnotations$$$namedAttribute$1[] = {
+		{"value", 'I', "7"},
+		{}
+	};
+	$CompoundAttribute fooSetNumbermethodAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotTypeInfo;", fooSetNumbermethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$TypeAnnotation fooSetNumbermethodTypeAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotType;", fooSetNumbermethodTypeAnnotations$$$namedAttribute, "METHOD_RETURN, location = (TYPE_ARGUMENT(0))"},
+		{"LTestObjectMethods$AnnotType;", fooSetNumbermethodTypeAnnotations$$$namedAttribute$1, "METHOD_RETURN"},
+		{}
+	};
+	$NamedAttribute fooSetStringmethodAnnotations$$$namedAttribute[] = {
+		{"count", 'I', "1"},
+		{"relation", 'e', "LTestObjectMethods$Relation; POSTFIX"},
+		{}
+	};
+	$NamedAttribute fooSetStringmethodTypeAnnotations$$$namedAttribute[] = {
+		{"value", 'I', "6"},
+		{}
+	};
+	$CompoundAttribute fooSetStringmethodAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotTypeInfo;", fooSetStringmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$TypeAnnotation fooSetStringmethodTypeAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotType;", fooSetStringmethodTypeAnnotations$$$namedAttribute, "METHOD_RETURN"},
+		{}
+	};
+	$NamedAttribute fooStringmethodAnnotations$$$namedAttribute[] = {
+		{"count", 'I', "1"},
+		{"relation", 'e', "LTestObjectMethods$Relation; POSTFIX"},
+		{}
+	};
+	$NamedAttribute fooStringmethodTypeAnnotations$$$namedAttribute[] = {
+		{"value", 'I', "2"},
+		{}
+	};
+	$CompoundAttribute fooStringmethodAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotTypeInfo;", fooStringmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$TypeAnnotation fooStringmethodTypeAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotType;", fooStringmethodTypeAnnotations$$$namedAttribute, "METHOD_RETURN"},
+		{}
+	};
+	$NamedAttribute fooStringArraymethodAnnotations$$$namedAttribute[] = {
+		{"count", 'I', "1"},
+		{"relation", 'e', "LTestObjectMethods$Relation; ARRAY"},
+		{}
+	};
+	$NamedAttribute fooStringArraymethodTypeAnnotations$$$namedAttribute[] = {
+		{"value", 'I', "4"},
+		{}
+	};
+	$CompoundAttribute fooStringArraymethodAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotTypeInfo;", fooStringArraymethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$TypeAnnotation fooStringArraymethodTypeAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotType;", fooStringArraymethodTypeAnnotations$$$namedAttribute, "METHOD_RETURN"},
+		{}
+	};
+	$NamedAttribute fooStringArrayArraymethodAnnotations$$$namedAttribute[] = {
+		{"count", 'I', "3"},
+		{"relation", 'e', "LTestObjectMethods$Relation; ARRAY"},
+		{}
+	};
+	$NamedAttribute fooStringArrayArraymethodTypeAnnotations$$$namedAttribute[] = {
+		{"value", 'I', "0"},
+		{}
+	};
+	$NamedAttribute fooStringArrayArraymethodTypeAnnotations$$$namedAttribute$1[] = {
+		{"value", 'I', "1"},
+		{}
+	};
+	$NamedAttribute fooStringArrayArraymethodTypeAnnotations$$$namedAttribute$2[] = {
+		{"value", 'I', "5"},
+		{}
+	};
+	$CompoundAttribute fooStringArrayArraymethodAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotTypeInfo;", fooStringArrayArraymethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$TypeAnnotation fooStringArrayArraymethodTypeAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotType;", fooStringArrayArraymethodTypeAnnotations$$$namedAttribute, "METHOD_RETURN"},
+		{"LTestObjectMethods$AnnotType;", fooStringArrayArraymethodTypeAnnotations$$$namedAttribute$1, "METHOD_RETURN, location = (ARRAY)"},
+		{"LTestObjectMethods$AnnotType;", fooStringArrayArraymethodTypeAnnotations$$$namedAttribute$2, "METHOD_RETURN, location = (ARRAY,ARRAY)"},
+		{}
+	};
+	$CompoundAttribute fooVoidmethodAnnotations$$[] = {
+		{"LTestObjectMethods$AnnotTypeInfo;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TestObjectMethods$AnnotatedTypeHost, init$, void)},
+		{"foo", "()I", nullptr, $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, foo, int32_t), nullptr, nullptr, foomethodAnnotations$$, foomethodTypeAnnotations$$},
+		{"fooE", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooE, $Object*), nullptr, nullptr, fooEmethodAnnotations$$, fooEmethodTypeAnnotations$$},
+		{"fooF", "()Ljava/lang/Number;", "()TF;", $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooF, $Number*), nullptr, nullptr, fooFmethodAnnotations$$, fooFmethodTypeAnnotations$$},
+		{"fooG", "()Ljava/lang/Object;", "<G:Ljava/lang/Object;>()TG;", $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooG, $Object*), nullptr, nullptr, fooGmethodAnnotations$$, fooGmethodTypeAnnotations$$},
+		{"fooIntArray", "()[I", nullptr, $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooIntArray, $ints*), nullptr, nullptr, fooIntArraymethodAnnotations$$, fooIntArraymethodTypeAnnotations$$},
+		{"fooNumberSet", "()Ljava/util/Set;", "()Ljava/util/Set<+Ljava/lang/Number;>;", $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooNumberSet, $Set*), nullptr, nullptr, fooNumberSetmethodAnnotations$$, fooNumberSetmethodTypeAnnotations$$},
+		{"fooNumberSet2", "()Ljava/util/Set;", "()Ljava/util/Set<+Ljava/lang/Number;>;", $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooNumberSet2, $Set*), nullptr, nullptr, fooNumberSet2methodAnnotations$$, fooNumberSet2methodTypeAnnotations$$},
+		{"fooNumberSet3", "()Ljava/util/Set;", "()Ljava/util/Set<+Ljava/lang/Long;>;", $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooNumberSet3, $Set*), nullptr, nullptr, fooNumberSet3methodAnnotations$$, fooNumberSet3methodTypeAnnotations$$},
+		{"fooObjectList", "()Ljava/util/List;", "()Ljava/util/List<+Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooObjectList, $List*), nullptr, nullptr, fooObjectListmethodAnnotations$$, fooObjectListmethodTypeAnnotations$$},
+		{"fooObjectSet", "()Ljava/util/Set;", "()Ljava/util/Set<*>;", $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooObjectSet, $Set*), nullptr, nullptr, fooObjectSetmethodAnnotations$$, fooObjectSetmethodTypeAnnotations$$},
+		{"fooSetNumber", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Number;>;", $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooSetNumber, $Set*), nullptr, nullptr, fooSetNumbermethodAnnotations$$, fooSetNumbermethodTypeAnnotations$$},
+		{"fooSetString", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooSetString, $Set*), nullptr, nullptr, fooSetStringmethodAnnotations$$, fooSetStringmethodTypeAnnotations$$},
+		{"fooString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooString, $String*), nullptr, nullptr, fooStringmethodAnnotations$$, fooStringmethodTypeAnnotations$$},
+		{"fooStringArray", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooStringArray, $StringArray*), nullptr, nullptr, fooStringArraymethodAnnotations$$, fooStringArraymethodTypeAnnotations$$},
+		{"fooStringArrayArray", "()[[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooStringArrayArray, $StringArray2*), nullptr, nullptr, fooStringArrayArraymethodAnnotations$$, fooStringArrayArraymethodTypeAnnotations$$},
+		{"fooVoid", "()V", nullptr, $PUBLIC, $virtualMethod(TestObjectMethods$AnnotatedTypeHost, fooVoid, void), nullptr, nullptr, fooVoidmethodAnnotations$$},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestObjectMethods$AnnotatedTypeHost", "TestObjectMethods", "AnnotatedTypeHost", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TestObjectMethods$AnnotatedTypeHost",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;F:Ljava/lang/Number;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestObjectMethods"
+	};
+	$loadClass(TestObjectMethods$AnnotatedTypeHost, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestObjectMethods$AnnotatedTypeHost);
+	});
 	return class$;
 }
 

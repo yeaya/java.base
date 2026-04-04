@@ -1,5 +1,4 @@
 #include <TestC1/TestC1.h>
-
 #include <TestC1/C1.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassLoader.h>
@@ -14,10 +13,8 @@
 using $C1 = ::TestC1::C1;
 using $TypeArray = $Array<::java::lang::reflect::Type>;
 using $TypeVariableArray = $Array<::java::lang::reflect::TypeVariable>;
-using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ClassLoader = ::java::lang::ClassLoader;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Constructor = ::java::lang::reflect::Constructor;
@@ -28,37 +25,6 @@ using $Type = ::java::lang::reflect::Type;
 using $TypeVariable = ::java::lang::reflect::TypeVariable;
 
 namespace TestC1 {
-
-$FieldInfo _TestC1_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TestC1, $assertionsDisabled)},
-	{"cls", "Ljava/lang/Class;", "Ljava/lang/Class<LTestC1/C1;>;", $STATIC, $staticField(TestC1, cls)},
-	{}
-};
-
-$MethodInfo _TestC1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestC1, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestC1, main, void, $StringArray*), "java.lang.Throwable"},
-	{"testConstructor", "()V", nullptr, $STATIC, $staticMethod(TestC1, testConstructor, void), "java.lang.NoSuchMethodException"},
-	{"testFields", "()V", nullptr, $STATIC, $staticMethod(TestC1, testFields, void), "java.lang.NoSuchFieldException"},
-	{"testMethods", "()V", nullptr, $STATIC, $staticMethod(TestC1, testMethods, void), "java.lang.NoSuchMethodException"},
-	{"testSuperInterfaces", "()V", nullptr, $STATIC, $staticMethod(TestC1, testSuperInterfaces, void)},
-	{"testSuperclass", "()V", nullptr, $STATIC, $staticMethod(TestC1, testSuperclass, void)},
-	{"testTypeParameters", "()V", nullptr, $STATIC, $staticMethod(TestC1, testTypeParameters, void)},
-	{}
-};
-
-$ClassInfo _TestC1_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestC1.TestC1",
-	"java.lang.Object",
-	nullptr,
-	_TestC1_FieldInfo_,
-	_TestC1_MethodInfo_
-};
-
-$Object* allocate$TestC1($Class* clazz) {
-	return $of($alloc(TestC1));
-}
 
 bool TestC1::$assertionsDisabled = false;
 $Class* TestC1::cls = nullptr;
@@ -96,7 +62,7 @@ void TestC1::testSuperInterfaces() {
 
 void TestC1::testTypeParameters() {
 	$init(TestC1);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println("testing type parameters"_s);
 	$var($TypeVariableArray, tvs, $nc(TestC1::cls)->getTypeParameters());
 	if (!TestC1::$assertionsDisabled && !($nc(tvs)->length == 1)) {
@@ -114,7 +80,7 @@ void TestC1::testTypeParameters() {
 
 void TestC1::testMethods() {
 	$init(TestC1);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$nc($System::out)->println("testing methods"_s);
 	$var($ClassArray, params1, $new($ClassArray, 3));
@@ -124,8 +90,8 @@ void TestC1::testMethods() {
 	$var($ClassArray, params3, $new($ClassArray, 1));
 	params3->set(0, $Object::class$);
 	$var($Method, mc1t, $nc(TestC1::cls)->getMethod("mc1t"_s, params1));
-	$var($Method, mc1, $nc(TestC1::cls)->getMethod("mc1"_s, $$new($ClassArray, 0)));
-	$var($Method, mt, $nc(TestC1::cls)->getMethod("mt"_s, params3));
+	$var($Method, mc1, TestC1::cls->getMethod("mc1"_s, $$new($ClassArray, 0)));
+	$var($Method, mt, TestC1::cls->getMethod("mt"_s, params3));
 	$var($Type, rt_mc1t, $nc(mc1t)->getGenericReturnType());
 	$var($Type, rt_mc1, $nc(mc1)->getGenericReturnType());
 	$var($Type, rt_mt, $nc(mt)->getGenericReturnType());
@@ -141,8 +107,8 @@ void TestC1::testMethods() {
 		$throwNew($AssertionError, $of("Generic type of the 1st parameter of mc1t(T) is a type variable"_s));
 	}
 	$var($TypeVariable, tv, $cast($TypeVariable, p1_mc1t));
-	if (!TestC1::$assertionsDisabled && !$nc($($nc(tv)->getName()))->equals("T"_s)) {
-		$throwNew($AssertionError, $of($$str({"Name of 1st type parameter of mc1t is T, not "_s, $(tv->getName())})));
+	if (!TestC1::$assertionsDisabled && !$$nc($nc(tv)->getName())->equals("T"_s)) {
+		$throwNew($AssertionError, $$of($str({"Name of 1st type parameter of mc1t is T, not "_s, $(tv->getName())})));
 	}
 	$var($TypeArray, bs, $nc(tv)->getBounds());
 	if (!TestC1::$assertionsDisabled && !($nc(bs)->length == 1)) {
@@ -171,10 +137,10 @@ void TestC1::testMethods() {
 		$throwNew($AssertionError, $of("The actual type arg of C1<T> is a type variable (mc1t)"_s));
 	}
 	$assign(tv, $cast($TypeVariable, ta));
-	if (!TestC1::$assertionsDisabled && !$nc($(tv->getName()))->equals("T"_s)) {
-		$throwNew($AssertionError, $of($$str({"mc1t: Name of the type arg of C1<T> is T, not "_s, $(tv->getName())})));
+	if (!TestC1::$assertionsDisabled && !$$nc($nc(tv)->getName())->equals("T"_s)) {
+		$throwNew($AssertionError, $$of($str({"mc1t: Name of the type arg of C1<T> is T, not "_s, $(tv->getName())})));
 	}
-	$assign(bs, tv->getBounds());
+	$assign(bs, $nc(tv)->getBounds());
 	if (!TestC1::$assertionsDisabled && !($nc(bs)->length == 1)) {
 		$throwNew($AssertionError, $of("mc1t: The type argument of C1<T>  should have one bound"_s));
 	}
@@ -198,10 +164,10 @@ void TestC1::testMethods() {
 		$throwNew($AssertionError, $of("The generic type of the parameter of mt(T) is a type variable"_s));
 	}
 	$assign(tv, $cast($TypeVariable, p_mt));
-	if (!TestC1::$assertionsDisabled && !$nc($(tv->getName()))->equals("T"_s)) {
-		$throwNew($AssertionError, $of($$str({"The name of the type parameter of mt is T, not "_s, $(tv->getName())})));
+	if (!TestC1::$assertionsDisabled && !$$nc($nc(tv)->getName())->equals("T"_s)) {
+		$throwNew($AssertionError, $$of($str({"The name of the type parameter of mt is T, not "_s, $(tv->getName())})));
 	}
-	$assign(bs, tv->getBounds());
+	$assign(bs, $nc(tv)->getBounds());
 	if (!TestC1::$assertionsDisabled && !($nc(bs)->length == 1)) {
 		$throwNew($AssertionError, $of("T should have one bound"_s));
 	}
@@ -236,19 +202,19 @@ void TestC1::testMethods() {
 
 void TestC1::testFields() {
 	$init(TestC1);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$nc($System::out)->println("testing fields"_s);
 	$var($Field, ft, $nc(TestC1::cls)->getField("ft"_s));
-	$var($Field, fc1t, $nc(TestC1::cls)->getField("fc1t"_s));
-	$var($Field, fc1, $nc(TestC1::cls)->getField("fc1"_s));
+	$var($Field, fc1t, TestC1::cls->getField("fc1t"_s));
+	$var($Field, fc1, TestC1::cls->getField("fc1"_s));
 	$var($Type, gt_ft, $nc(ft)->getGenericType());
 	if (!TestC1::$assertionsDisabled && !$instanceOf($TypeVariable, gt_ft)) {
 		$throwNew($AssertionError, $of("The generic type of C1.ft is a type variable"_s));
 	}
 	$var($TypeVariable, tv, $cast($TypeVariable, gt_ft));
-	if (!TestC1::$assertionsDisabled && !$nc($($nc(tv)->getName()))->equals("T"_s)) {
-		$throwNew($AssertionError, $of($$str({"The name of the type of ft is T, not "_s, $(tv->getName())})));
+	if (!TestC1::$assertionsDisabled && !$$nc($nc(tv)->getName())->equals("T"_s)) {
+		$throwNew($AssertionError, $$of($str({"The name of the type of ft is T, not "_s, $(tv->getName())})));
 	}
 	$var($TypeArray, bs, $nc(tv)->getBounds());
 	if (!TestC1::$assertionsDisabled && !($nc(bs)->length == 1)) {
@@ -277,10 +243,10 @@ void TestC1::testFields() {
 		$throwNew($AssertionError, $of("The actual type arg of C1<T> is a type variable"_s));
 	}
 	$assign(tv, $cast($TypeVariable, ta));
-	if (!TestC1::$assertionsDisabled && !$nc($(tv->getName()))->equals("T"_s)) {
-		$throwNew($AssertionError, $of($$str({"The name of the type arg of C1<T> is T, not "_s, $(tv->getName())})));
+	if (!TestC1::$assertionsDisabled && !$$nc($nc(tv)->getName())->equals("T"_s)) {
+		$throwNew($AssertionError, $$of($str({"The name of the type arg of C1<T> is T, not "_s, $(tv->getName())})));
 	}
-	$assign(bs, tv->getBounds());
+	$assign(bs, $nc(tv)->getBounds());
 	if (!TestC1::$assertionsDisabled && !($nc(bs)->length == 1)) {
 		$throwNew($AssertionError, $of("The type argument of C1<T>  should have one bound"_s));
 	}
@@ -295,7 +261,7 @@ void TestC1::testFields() {
 
 void TestC1::testConstructor() {
 	$init(TestC1);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$nc($System::out)->println("testing constructors"_s);
 	$var($ClassArray, params, $new($ClassArray, 1));
@@ -310,8 +276,8 @@ void TestC1::testConstructor() {
 		$throwNew($AssertionError, $of("The generic type of the parameter of C1(T) is a type variable"_s));
 	}
 	$var($TypeVariable, tv, $cast($TypeVariable, pt));
-	if (!TestC1::$assertionsDisabled && !$nc($($nc(tv)->getName()))->equals("T"_s)) {
-		$throwNew($AssertionError, $of($$str({"The name of the type parameter of C is T, not "_s, $(tv->getName())})));
+	if (!TestC1::$assertionsDisabled && !$$nc($nc(tv)->getName())->equals("T"_s)) {
+		$throwNew($AssertionError, $$of($str({"The name of the type parameter of C is T, not "_s, $(tv->getName())})));
 	}
 	$var($TypeArray, bs, $nc(tv)->getBounds());
 	if (!TestC1::$assertionsDisabled && !($nc(bs)->length == 1)) {
@@ -330,13 +296,13 @@ void TestC1::testConstructor() {
 	}
 }
 
-void clinit$TestC1($Class* class$) {
+void TestC1::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	TestC1::$assertionsDisabled = !TestC1::class$->desiredAssertionStatus();
 	$load($C1);
 	$assignStatic(TestC1::cls, $C1::class$);
 	{
-		$nc($(TestC1::class$->getClassLoader()))->setDefaultAssertionStatus(true);
+		$$nc(TestC1::class$->getClassLoader())->setDefaultAssertionStatus(true);
 	}
 }
 
@@ -344,7 +310,33 @@ TestC1::TestC1() {
 }
 
 $Class* TestC1::load$($String* name, bool initialize) {
-	$loadClass(TestC1, name, initialize, &_TestC1_ClassInfo_, clinit$TestC1, allocate$TestC1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TestC1, $assertionsDisabled)},
+		{"cls", "Ljava/lang/Class;", "Ljava/lang/Class<LTestC1/C1;>;", $STATIC, $staticField(TestC1, cls)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestC1, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestC1, main, void, $StringArray*), "java.lang.Throwable"},
+		{"testConstructor", "()V", nullptr, $STATIC, $staticMethod(TestC1, testConstructor, void), "java.lang.NoSuchMethodException"},
+		{"testFields", "()V", nullptr, $STATIC, $staticMethod(TestC1, testFields, void), "java.lang.NoSuchFieldException"},
+		{"testMethods", "()V", nullptr, $STATIC, $staticMethod(TestC1, testMethods, void), "java.lang.NoSuchMethodException"},
+		{"testSuperInterfaces", "()V", nullptr, $STATIC, $staticMethod(TestC1, testSuperInterfaces, void)},
+		{"testSuperclass", "()V", nullptr, $STATIC, $staticMethod(TestC1, testSuperclass, void)},
+		{"testTypeParameters", "()V", nullptr, $STATIC, $staticMethod(TestC1, testTypeParameters, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestC1.TestC1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestC1, name, initialize, &classInfo$$, TestC1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TestC1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/util/calendar/BaseCalendar.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/util/TimeZone.h>
 #include <sun/util/calendar/AbstractCalendar.h>
@@ -50,82 +49,6 @@ namespace sun {
 	namespace util {
 		namespace calendar {
 
-$FieldInfo _BaseCalendar_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(BaseCalendar, $assertionsDisabled)},
-	{"JANUARY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, JANUARY)},
-	{"FEBRUARY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, FEBRUARY)},
-	{"MARCH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, MARCH)},
-	{"APRIL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, APRIL)},
-	{"MAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, MAY)},
-	{"JUNE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, JUNE)},
-	{"JULY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, JULY)},
-	{"AUGUST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, AUGUST)},
-	{"SEPTEMBER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, SEPTEMBER)},
-	{"OCTOBER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, OCTOBER)},
-	{"NOVEMBER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, NOVEMBER)},
-	{"DECEMBER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, DECEMBER)},
-	{"SUNDAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, SUNDAY)},
-	{"MONDAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, MONDAY)},
-	{"TUESDAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, TUESDAY)},
-	{"WEDNESDAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, WEDNESDAY)},
-	{"THURSDAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, THURSDAY)},
-	{"FRIDAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, FRIDAY)},
-	{"SATURDAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, SATURDAY)},
-	{"BASE_YEAR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BaseCalendar, BASE_YEAR)},
-	{"FIXED_DATES", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BaseCalendar, FIXED_DATES)},
-	{"DAYS_IN_MONTH", "[I", nullptr, $STATIC | $FINAL, $staticField(BaseCalendar, DAYS_IN_MONTH)},
-	{"ACCUMULATED_DAYS_IN_MONTH", "[I", nullptr, $STATIC | $FINAL, $staticField(BaseCalendar, ACCUMULATED_DAYS_IN_MONTH)},
-	{"ACCUMULATED_DAYS_IN_MONTH_LEAP", "[I", nullptr, $STATIC | $FINAL, $staticField(BaseCalendar, ACCUMULATED_DAYS_IN_MONTH_LEAP)},
-	{}
-};
-
-$MethodInfo _BaseCalendar_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BaseCalendar, init$, void)},
-	{"getCalendarDateFromFixedDate", "(Lsun/util/calendar/CalendarDate;J)V", nullptr, $PUBLIC, $virtualMethod(BaseCalendar, getCalendarDateFromFixedDate, void, $CalendarDate*, int64_t)},
-	{"getDayOfWeek", "(Lsun/util/calendar/CalendarDate;)I", nullptr, $PUBLIC, $virtualMethod(BaseCalendar, getDayOfWeek, int32_t, $CalendarDate*)},
-	{"getDayOfWeekFromFixedDate", "(J)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(BaseCalendar, getDayOfWeekFromFixedDate, int32_t, int64_t)},
-	{"getDayOfYear", "(Lsun/util/calendar/CalendarDate;)J", nullptr, $PUBLIC, $virtualMethod(BaseCalendar, getDayOfYear, int64_t, $CalendarDate*)},
-	{"getDayOfYear", "(III)J", nullptr, $FINAL, $method(BaseCalendar, getDayOfYear, int64_t, int32_t, int32_t, int32_t)},
-	{"getFixedDate", "(Lsun/util/calendar/CalendarDate;)J", nullptr, $PUBLIC, $virtualMethod(BaseCalendar, getFixedDate, int64_t, $CalendarDate*)},
-	{"getFixedDate", "(IIILsun/util/calendar/BaseCalendar$Date;)J", nullptr, $PUBLIC, $virtualMethod(BaseCalendar, getFixedDate, int64_t, int32_t, int32_t, int32_t, $BaseCalendar$Date*)},
-	{"getGregorianYearFromFixedDate", "(J)I", nullptr, $FINAL, $method(BaseCalendar, getGregorianYearFromFixedDate, int32_t, int64_t)},
-	{"getMonthLength", "(Lsun/util/calendar/CalendarDate;)I", nullptr, $PUBLIC, $virtualMethod(BaseCalendar, getMonthLength, int32_t, $CalendarDate*)},
-	{"getMonthLength", "(II)I", nullptr, $PRIVATE, $method(BaseCalendar, getMonthLength, int32_t, int32_t, int32_t)},
-	{"getYearFromFixedDate", "(J)I", nullptr, $PUBLIC, $virtualMethod(BaseCalendar, getYearFromFixedDate, int32_t, int64_t)},
-	{"getYearLength", "(Lsun/util/calendar/CalendarDate;)I", nullptr, $PUBLIC, $virtualMethod(BaseCalendar, getYearLength, int32_t, $CalendarDate*)},
-	{"getYearLengthInMonths", "(Lsun/util/calendar/CalendarDate;)I", nullptr, $PUBLIC, $virtualMethod(BaseCalendar, getYearLengthInMonths, int32_t, $CalendarDate*)},
-	{"isLeapYear", "(Lsun/util/calendar/CalendarDate;)Z", nullptr, $PROTECTED, $virtualMethod(BaseCalendar, isLeapYear, bool, $CalendarDate*)},
-	{"isLeapYear", "(I)Z", nullptr, 0, $virtualMethod(BaseCalendar, isLeapYear, bool, int32_t)},
-	{"normalize", "(Lsun/util/calendar/CalendarDate;)Z", nullptr, $PUBLIC, $virtualMethod(BaseCalendar, normalize, bool, $CalendarDate*)},
-	{"normalizeMonth", "(Lsun/util/calendar/CalendarDate;)V", nullptr, 0, $virtualMethod(BaseCalendar, normalizeMonth, void, $CalendarDate*)},
-	{"validate", "(Lsun/util/calendar/CalendarDate;)Z", nullptr, $PUBLIC, $virtualMethod(BaseCalendar, validate, bool, $CalendarDate*)},
-	{}
-};
-
-$InnerClassInfo _BaseCalendar_InnerClassesInfo_[] = {
-	{"sun.util.calendar.BaseCalendar$Date", "sun.util.calendar.BaseCalendar", "Date", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _BaseCalendar_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.util.calendar.BaseCalendar",
-	"sun.util.calendar.AbstractCalendar",
-	nullptr,
-	_BaseCalendar_FieldInfo_,
-	_BaseCalendar_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BaseCalendar_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.util.calendar.BaseCalendar$Date"
-};
-
-$Object* allocate$BaseCalendar($Class* clazz) {
-	return $of($alloc(BaseCalendar));
-}
-
 bool BaseCalendar::$assertionsDisabled = false;
 $ints* BaseCalendar::FIXED_DATES = nullptr;
 $ints* BaseCalendar::DAYS_IN_MONTH = nullptr;
@@ -141,7 +64,7 @@ bool BaseCalendar::validate($CalendarDate* date) {
 	if ($nc(bdate)->isNormalized()) {
 		return true;
 	}
-	int32_t month = $nc(bdate)->getMonth();
+	int32_t month = bdate->getMonth();
 	if (month < BaseCalendar::JANUARY || month > BaseCalendar::DECEMBER) {
 		return false;
 	}
@@ -161,12 +84,12 @@ bool BaseCalendar::validate($CalendarDate* date) {
 }
 
 bool BaseCalendar::normalize($CalendarDate* date) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(date)->isNormalized()) {
 		return true;
 	}
 	$var($BaseCalendar$Date, bdate, $cast($BaseCalendar$Date, date));
-	$var($TimeZone, zi, $nc(bdate)->getZone());
+	$var($TimeZone, zi, bdate->getZone());
 	if (zi != nullptr) {
 		getTime(date);
 		return true;
@@ -203,7 +126,7 @@ bool BaseCalendar::normalize($CalendarDate* date) {
 	} else {
 		bdate->setDayOfWeek(getDayOfWeek(bdate));
 	}
-	$nc(date)->setLeapYear(isLeapYear(bdate->getNormalizedYear()));
+	date->setLeapYear(isLeapYear(bdate->getNormalizedYear()));
 	date->setZoneOffset(0);
 	date->setDaylightSaving(0);
 	bdate->setNormalized(true);
@@ -229,7 +152,7 @@ void BaseCalendar::normalizeMonth($CalendarDate* date) {
 }
 
 int32_t BaseCalendar::getYearLength($CalendarDate* date) {
-	return isLeapYear($nc(($cast($BaseCalendar$Date, date)))->getNormalizedYear()) ? 366 : 365;
+	return isLeapYear($nc($cast($BaseCalendar$Date, date))->getNormalizedYear()) ? 366 : 365;
 }
 
 int32_t BaseCalendar::getYearLengthInMonths($CalendarDate* date) {
@@ -237,7 +160,7 @@ int32_t BaseCalendar::getYearLengthInMonths($CalendarDate* date) {
 }
 
 int32_t BaseCalendar::getMonthLength($CalendarDate* date) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BaseCalendar$Date, gdate, $cast($BaseCalendar$Date, date));
 	int32_t month = $nc(gdate)->getMonth();
 	if (month < BaseCalendar::JANUARY || month > BaseCalendar::DECEMBER) {
@@ -247,7 +170,7 @@ int32_t BaseCalendar::getMonthLength($CalendarDate* date) {
 }
 
 int32_t BaseCalendar::getMonthLength(int32_t year, int32_t month) {
-	int32_t days = $nc(BaseCalendar::DAYS_IN_MONTH)->get(month);
+	int32_t days = BaseCalendar::DAYS_IN_MONTH->get(month);
 	if (month == BaseCalendar::FEBRUARY && isLeapYear(year)) {
 		++days;
 	}
@@ -255,21 +178,21 @@ int32_t BaseCalendar::getMonthLength(int32_t year, int32_t month) {
 }
 
 int64_t BaseCalendar::getDayOfYear($CalendarDate* date) {
-	int32_t var$0 = $nc(($cast($BaseCalendar$Date, date)))->getNormalizedYear();
-	int32_t var$1 = $nc(date)->getMonth();
+	int32_t var$0 = $nc($cast($BaseCalendar$Date, date))->getNormalizedYear();
+	int32_t var$1 = date->getMonth();
 	return getDayOfYear(var$0, var$1, date->getDayOfMonth());
 }
 
 int64_t BaseCalendar::getDayOfYear(int32_t year, int32_t month, int32_t dayOfMonth) {
-	return (int64_t)dayOfMonth + (isLeapYear(year) ? $nc(BaseCalendar::ACCUMULATED_DAYS_IN_MONTH_LEAP)->get(month) : $nc(BaseCalendar::ACCUMULATED_DAYS_IN_MONTH)->get(month));
+	return (int64_t)dayOfMonth + (isLeapYear(year) ? BaseCalendar::ACCUMULATED_DAYS_IN_MONTH_LEAP->get(month) : BaseCalendar::ACCUMULATED_DAYS_IN_MONTH->get(month));
 }
 
 int64_t BaseCalendar::getFixedDate($CalendarDate* date) {
 	if (!$nc(date)->isNormalized()) {
 		normalizeMonth(date);
 	}
-	int32_t var$0 = $nc(($cast($BaseCalendar$Date, date)))->getNormalizedYear();
-	int32_t var$1 = $nc(date)->getMonth();
+	int32_t var$0 = $cast($BaseCalendar$Date, date)->getNormalizedYear();
+	int32_t var$1 = date->getMonth();
 	return getFixedDate(var$0, var$1, date->getDayOfMonth(), $cast($BaseCalendar$Date, date));
 }
 
@@ -283,8 +206,8 @@ int64_t BaseCalendar::getFixedDate(int32_t year, int32_t month, int32_t dayOfMon
 		return var$0 + getDayOfYear(year, month, dayOfMonth) - 1;
 	}
 	int32_t n = year - BaseCalendar::BASE_YEAR;
-	if (n >= 0 && n < $nc(BaseCalendar::FIXED_DATES)->length) {
-		int64_t jan1 = $nc(BaseCalendar::FIXED_DATES)->get(n);
+	if (n >= 0 && n < BaseCalendar::FIXED_DATES->length) {
+		int64_t jan1 = BaseCalendar::FIXED_DATES->get(n);
 		if (cache != nullptr) {
 			cache->setCache(year, jan1, isLeapYear(year) ? 366 : 365);
 		}
@@ -310,7 +233,7 @@ int64_t BaseCalendar::getFixedDate(int32_t year, int32_t month, int32_t dayOfMon
 }
 
 void BaseCalendar::getCalendarDateFromFixedDate($CalendarDate* date, int64_t fixedDate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BaseCalendar$Date, gdate, $cast($BaseCalendar$Date, date));
 	int32_t year = 0;
 	int64_t jan1 = 0;
@@ -339,16 +262,16 @@ void BaseCalendar::getCalendarDateFromFixedDate($CalendarDate* date, int64_t fix
 	} else {
 		month = $CalendarUtils::floorDivide(month, 367);
 	}
-	int64_t month1 = jan1 + $nc(BaseCalendar::ACCUMULATED_DAYS_IN_MONTH)->get(month);
+	int64_t month1 = jan1 + BaseCalendar::ACCUMULATED_DAYS_IN_MONTH->get(month);
 	if (isLeap && month >= BaseCalendar::MARCH) {
 		++month1;
 	}
 	int32_t dayOfMonth = (int32_t)(fixedDate - month1) + 1;
 	int32_t dayOfWeek = getDayOfWeekFromFixedDate(fixedDate);
 	if (!BaseCalendar::$assertionsDisabled && !(dayOfWeek > 0)) {
-		$throwNew($AssertionError, $of($$str({"negative day of week "_s, $$str(dayOfWeek)})));
+		$throwNew($AssertionError, $$of($str({"negative day of week "_s, $$str(dayOfWeek)})));
 	}
-	$nc(gdate)->setNormalizedYear(year);
+	gdate->setNormalizedYear(year);
 	gdate->setMonth(month);
 	gdate->setDayOfMonth(dayOfMonth);
 	gdate->setDayOfWeek(dayOfWeek);
@@ -386,10 +309,10 @@ int32_t BaseCalendar::getGregorianYearFromFixedDate(int64_t fixedDate) {
 	int32_t year = 0;
 	if (fixedDate > 0) {
 		d0 = fixedDate - 1;
-		n400 = (int32_t)(d0 / 0x00023AB1);
-		d1 = (int32_t)(d0 % 0x00023AB1);
-		n100 = d1 / 0x00008EAC;
-		d2 = d1 % 0x00008EAC;
+		n400 = (int32_t)(d0 / 0x00023ab1);
+		d1 = (int32_t)(d0 % 0x00023ab1);
+		n100 = d1 / 0x00008eac;
+		d2 = d1 % 0x00008eac;
 		n4 = d2 / 1461;
 		d3 = d2 % 1461;
 		n1 = d3 / 365;
@@ -398,8 +321,8 @@ int32_t BaseCalendar::getGregorianYearFromFixedDate(int64_t fixedDate) {
 		d0 = fixedDate - 1;
 		n400 = (int32_t)$CalendarUtils::floorDivide(d0, (int64_t)146097);
 		d1 = (int32_t)$CalendarUtils::mod(d0, (int64_t)146097);
-		n100 = $CalendarUtils::floorDivide(d1, 0x00008EAC);
-		d2 = $CalendarUtils::mod(d1, 0x00008EAC);
+		n100 = $CalendarUtils::floorDivide(d1, 0x00008eac);
+		d2 = $CalendarUtils::mod(d1, 0x00008eac);
 		n4 = $CalendarUtils::floorDivide(d2, 1461);
 		d3 = $CalendarUtils::mod(d2, 1461);
 		n1 = $CalendarUtils::floorDivide(d3, 365);
@@ -413,86 +336,86 @@ int32_t BaseCalendar::getGregorianYearFromFixedDate(int64_t fixedDate) {
 }
 
 bool BaseCalendar::isLeapYear($CalendarDate* date) {
-	return isLeapYear($nc(($cast($BaseCalendar$Date, date)))->getNormalizedYear());
+	return isLeapYear($nc($cast($BaseCalendar$Date, date))->getNormalizedYear());
 }
 
 bool BaseCalendar::isLeapYear(int32_t normalizedYear) {
 	return $CalendarUtils::isGregorianLeapYear(normalizedYear);
 }
 
-void clinit$BaseCalendar($Class* class$) {
+void BaseCalendar::clinit$($Class* clazz) {
 	BaseCalendar::$assertionsDisabled = !BaseCalendar::class$->desiredAssertionStatus();
 	$assignStatic(BaseCalendar::FIXED_DATES, $new($ints, {
-		0x000AF93B,
-		0x000AFAA8,
-		0x000AFC15,
-		0x000AFD83,
-		0x000AFEF0,
-		0x000B005D,
-		0x000B01CA,
-		0x000B0338,
-		0x000B04A5,
-		0x000B0612,
-		0x000B077F,
-		0x000B08ED,
-		0x000B0A5A,
-		0x000B0BC7,
-		0x000B0D34,
-		0x000B0EA2,
-		0x000B100F,
-		0x000B117C,
-		0x000B12E9,
-		0x000B1457,
-		0x000B15C4,
-		0x000B1731,
-		0x000B189E,
-		0x000B1A0C,
-		0x000B1B79,
-		0x000B1CE6,
-		0x000B1E53,
-		0x000B1FC1,
-		0x000B212E,
-		0x000B229B,
-		0x000B2408,
-		0x000B2576,
-		0x000B26E3,
-		0x000B2850,
-		0x000B29BD,
-		0x000B2B2B,
-		0x000B2C98,
-		0x000B2E05,
-		0x000B2F72,
-		0x000B30E0,
-		0x000B324D,
-		0x000B33BA,
-		0x000B3527,
-		0x000B3695,
-		0x000B3802,
-		0x000B396F,
-		0x000B3ADC,
-		0x000B3C4A,
-		0x000B3DB7,
-		0x000B3F24,
-		0x000B4091,
-		0x000B41FF,
-		0x000B436C,
-		0x000B44D9,
-		0x000B4646,
-		0x000B47B4,
-		0x000B4921,
-		0x000B4A8E,
-		0x000B4BFB,
-		0x000B4D69,
-		0x000B4ED6,
-		0x000B5043,
-		0x000B51B0,
-		0x000B531E,
-		0x000B548B,
-		0x000B55F8,
-		0x000B5765,
-		0x000B58D3,
-		0x000B5A40,
-		0x000B5BAD
+		0x000af93b,
+		0x000afaa8,
+		0x000afc15,
+		0x000afd83,
+		0x000afef0,
+		0x000b005d,
+		0x000b01ca,
+		0x000b0338,
+		0x000b04a5,
+		0x000b0612,
+		0x000b077f,
+		0x000b08ed,
+		0x000b0a5a,
+		0x000b0bc7,
+		0x000b0d34,
+		0x000b0ea2,
+		0x000b100f,
+		0x000b117c,
+		0x000b12e9,
+		0x000b1457,
+		0x000b15c4,
+		0x000b1731,
+		0x000b189e,
+		0x000b1a0c,
+		0x000b1b79,
+		0x000b1ce6,
+		0x000b1e53,
+		0x000b1fc1,
+		0x000b212e,
+		0x000b229b,
+		0x000b2408,
+		0x000b2576,
+		0x000b26e3,
+		0x000b2850,
+		0x000b29bd,
+		0x000b2b2b,
+		0x000b2c98,
+		0x000b2e05,
+		0x000b2f72,
+		0x000b30e0,
+		0x000b324d,
+		0x000b33ba,
+		0x000b3527,
+		0x000b3695,
+		0x000b3802,
+		0x000b396f,
+		0x000b3adc,
+		0x000b3c4a,
+		0x000b3db7,
+		0x000b3f24,
+		0x000b4091,
+		0x000b41ff,
+		0x000b436c,
+		0x000b44d9,
+		0x000b4646,
+		0x000b47b4,
+		0x000b4921,
+		0x000b4a8e,
+		0x000b4bfb,
+		0x000b4d69,
+		0x000b4ed6,
+		0x000b5043,
+		0x000b51b0,
+		0x000b531e,
+		0x000b548b,
+		0x000b55f8,
+		0x000b5765,
+		0x000b58d3,
+		0x000b5a40,
+		0x000b5bad
 	}));
 	$assignStatic(BaseCalendar::DAYS_IN_MONTH, $new($ints, {
 		31,
@@ -545,7 +468,77 @@ BaseCalendar::BaseCalendar() {
 }
 
 $Class* BaseCalendar::load$($String* name, bool initialize) {
-	$loadClass(BaseCalendar, name, initialize, &_BaseCalendar_ClassInfo_, clinit$BaseCalendar, allocate$BaseCalendar);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(BaseCalendar, $assertionsDisabled)},
+		{"JANUARY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, JANUARY)},
+		{"FEBRUARY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, FEBRUARY)},
+		{"MARCH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, MARCH)},
+		{"APRIL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, APRIL)},
+		{"MAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, MAY)},
+		{"JUNE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, JUNE)},
+		{"JULY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, JULY)},
+		{"AUGUST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, AUGUST)},
+		{"SEPTEMBER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, SEPTEMBER)},
+		{"OCTOBER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, OCTOBER)},
+		{"NOVEMBER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, NOVEMBER)},
+		{"DECEMBER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, DECEMBER)},
+		{"SUNDAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, SUNDAY)},
+		{"MONDAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, MONDAY)},
+		{"TUESDAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, TUESDAY)},
+		{"WEDNESDAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, WEDNESDAY)},
+		{"THURSDAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, THURSDAY)},
+		{"FRIDAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, FRIDAY)},
+		{"SATURDAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BaseCalendar, SATURDAY)},
+		{"BASE_YEAR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BaseCalendar, BASE_YEAR)},
+		{"FIXED_DATES", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BaseCalendar, FIXED_DATES)},
+		{"DAYS_IN_MONTH", "[I", nullptr, $STATIC | $FINAL, $staticField(BaseCalendar, DAYS_IN_MONTH)},
+		{"ACCUMULATED_DAYS_IN_MONTH", "[I", nullptr, $STATIC | $FINAL, $staticField(BaseCalendar, ACCUMULATED_DAYS_IN_MONTH)},
+		{"ACCUMULATED_DAYS_IN_MONTH_LEAP", "[I", nullptr, $STATIC | $FINAL, $staticField(BaseCalendar, ACCUMULATED_DAYS_IN_MONTH_LEAP)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BaseCalendar, init$, void)},
+		{"getCalendarDateFromFixedDate", "(Lsun/util/calendar/CalendarDate;J)V", nullptr, $PUBLIC, $virtualMethod(BaseCalendar, getCalendarDateFromFixedDate, void, $CalendarDate*, int64_t)},
+		{"getDayOfWeek", "(Lsun/util/calendar/CalendarDate;)I", nullptr, $PUBLIC, $virtualMethod(BaseCalendar, getDayOfWeek, int32_t, $CalendarDate*)},
+		{"getDayOfWeekFromFixedDate", "(J)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(BaseCalendar, getDayOfWeekFromFixedDate, int32_t, int64_t)},
+		{"getDayOfYear", "(Lsun/util/calendar/CalendarDate;)J", nullptr, $PUBLIC, $virtualMethod(BaseCalendar, getDayOfYear, int64_t, $CalendarDate*)},
+		{"getDayOfYear", "(III)J", nullptr, $FINAL, $method(BaseCalendar, getDayOfYear, int64_t, int32_t, int32_t, int32_t)},
+		{"getFixedDate", "(Lsun/util/calendar/CalendarDate;)J", nullptr, $PUBLIC, $virtualMethod(BaseCalendar, getFixedDate, int64_t, $CalendarDate*)},
+		{"getFixedDate", "(IIILsun/util/calendar/BaseCalendar$Date;)J", nullptr, $PUBLIC, $virtualMethod(BaseCalendar, getFixedDate, int64_t, int32_t, int32_t, int32_t, $BaseCalendar$Date*)},
+		{"getGregorianYearFromFixedDate", "(J)I", nullptr, $FINAL, $method(BaseCalendar, getGregorianYearFromFixedDate, int32_t, int64_t)},
+		{"getMonthLength", "(Lsun/util/calendar/CalendarDate;)I", nullptr, $PUBLIC, $virtualMethod(BaseCalendar, getMonthLength, int32_t, $CalendarDate*)},
+		{"getMonthLength", "(II)I", nullptr, $PRIVATE, $method(BaseCalendar, getMonthLength, int32_t, int32_t, int32_t)},
+		{"getYearFromFixedDate", "(J)I", nullptr, $PUBLIC, $virtualMethod(BaseCalendar, getYearFromFixedDate, int32_t, int64_t)},
+		{"getYearLength", "(Lsun/util/calendar/CalendarDate;)I", nullptr, $PUBLIC, $virtualMethod(BaseCalendar, getYearLength, int32_t, $CalendarDate*)},
+		{"getYearLengthInMonths", "(Lsun/util/calendar/CalendarDate;)I", nullptr, $PUBLIC, $virtualMethod(BaseCalendar, getYearLengthInMonths, int32_t, $CalendarDate*)},
+		{"isLeapYear", "(Lsun/util/calendar/CalendarDate;)Z", nullptr, $PROTECTED, $virtualMethod(BaseCalendar, isLeapYear, bool, $CalendarDate*)},
+		{"isLeapYear", "(I)Z", nullptr, 0, $virtualMethod(BaseCalendar, isLeapYear, bool, int32_t)},
+		{"normalize", "(Lsun/util/calendar/CalendarDate;)Z", nullptr, $PUBLIC, $virtualMethod(BaseCalendar, normalize, bool, $CalendarDate*)},
+		{"normalizeMonth", "(Lsun/util/calendar/CalendarDate;)V", nullptr, 0, $virtualMethod(BaseCalendar, normalizeMonth, void, $CalendarDate*)},
+		{"validate", "(Lsun/util/calendar/CalendarDate;)Z", nullptr, $PUBLIC, $virtualMethod(BaseCalendar, validate, bool, $CalendarDate*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.calendar.BaseCalendar$Date", "sun.util.calendar.BaseCalendar", "Date", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.util.calendar.BaseCalendar",
+		"sun.util.calendar.AbstractCalendar",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.util.calendar.BaseCalendar$Date"
+	};
+	$loadClass(BaseCalendar, name, initialize, &classInfo$$, BaseCalendar::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BaseCalendar);
+	});
 	return class$;
 }
 

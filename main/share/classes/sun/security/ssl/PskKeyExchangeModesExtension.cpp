@@ -1,5 +1,4 @@
 #include <sun/security/ssl/PskKeyExchangeModesExtension.h>
-
 #include <sun/security/ssl/HandshakeAbsence.h>
 #include <sun/security/ssl/HandshakeProducer.h>
 #include <sun/security/ssl/PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer.h>
@@ -29,50 +28,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _PskKeyExchangeModesExtension_FieldInfo_[] = {
-	{"chNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(PskKeyExchangeModesExtension, chNetworkProducer)},
-	{"chOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(PskKeyExchangeModesExtension, chOnLoadConsumer)},
-	{"chOnLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(PskKeyExchangeModesExtension, chOnLoadAbsence)},
-	{"chOnTradeAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(PskKeyExchangeModesExtension, chOnTradeAbsence)},
-	{"pkemStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(PskKeyExchangeModesExtension, pkemStringizer)},
-	{}
-};
-
-$MethodInfo _PskKeyExchangeModesExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(PskKeyExchangeModesExtension, init$, void)},
-	{}
-};
-
-$InnerClassInfo _PskKeyExchangeModesExtension_InnerClassesInfo_[] = {
-	{"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence", "sun.security.ssl.PskKeyExchangeModesExtension", "PskKeyExchangeModesOnTradeAbsence", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence", "sun.security.ssl.PskKeyExchangeModesExtension", "PskKeyExchangeModesOnLoadAbsence", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesProducer", "sun.security.ssl.PskKeyExchangeModesExtension", "PskKeyExchangeModesProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer", "sun.security.ssl.PskKeyExchangeModesExtension", "PskKeyExchangeModesConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer", "sun.security.ssl.PskKeyExchangeModesExtension", "PskKeyExchangeModesStringizer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesSpec", "sun.security.ssl.PskKeyExchangeModesExtension", "PskKeyExchangeModesSpec", $STATIC | $FINAL},
-	{"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeMode", "sun.security.ssl.PskKeyExchangeModesExtension", "PskKeyExchangeMode", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _PskKeyExchangeModesExtension_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.PskKeyExchangeModesExtension",
-	"java.lang.Object",
-	nullptr,
-	_PskKeyExchangeModesExtension_FieldInfo_,
-	_PskKeyExchangeModesExtension_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PskKeyExchangeModesExtension_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence,sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence,sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesProducer,sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer,sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer,sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesSpec,sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeMode"
-};
-
-$Object* allocate$PskKeyExchangeModesExtension($Class* clazz) {
-	return $of($alloc(PskKeyExchangeModesExtension));
-}
-
 $HandshakeProducer* PskKeyExchangeModesExtension::chNetworkProducer = nullptr;
 $SSLExtension$ExtensionConsumer* PskKeyExchangeModesExtension::chOnLoadConsumer = nullptr;
 $HandshakeAbsence* PskKeyExchangeModesExtension::chOnLoadAbsence = nullptr;
@@ -82,7 +37,7 @@ $SSLStringizer* PskKeyExchangeModesExtension::pkemStringizer = nullptr;
 void PskKeyExchangeModesExtension::init$() {
 }
 
-void clinit$PskKeyExchangeModesExtension($Class* class$) {
+void PskKeyExchangeModesExtension::clinit$($Class* clazz) {
 	$assignStatic(PskKeyExchangeModesExtension::chNetworkProducer, $new($PskKeyExchangeModesExtension$PskKeyExchangeModesProducer));
 	$assignStatic(PskKeyExchangeModesExtension::chOnLoadConsumer, $new($PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer));
 	$assignStatic(PskKeyExchangeModesExtension::chOnLoadAbsence, $new($PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence));
@@ -94,7 +49,45 @@ PskKeyExchangeModesExtension::PskKeyExchangeModesExtension() {
 }
 
 $Class* PskKeyExchangeModesExtension::load$($String* name, bool initialize) {
-	$loadClass(PskKeyExchangeModesExtension, name, initialize, &_PskKeyExchangeModesExtension_ClassInfo_, clinit$PskKeyExchangeModesExtension, allocate$PskKeyExchangeModesExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"chNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(PskKeyExchangeModesExtension, chNetworkProducer)},
+		{"chOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(PskKeyExchangeModesExtension, chOnLoadConsumer)},
+		{"chOnLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(PskKeyExchangeModesExtension, chOnLoadAbsence)},
+		{"chOnTradeAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(PskKeyExchangeModesExtension, chOnTradeAbsence)},
+		{"pkemStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(PskKeyExchangeModesExtension, pkemStringizer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(PskKeyExchangeModesExtension, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence", "sun.security.ssl.PskKeyExchangeModesExtension", "PskKeyExchangeModesOnTradeAbsence", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence", "sun.security.ssl.PskKeyExchangeModesExtension", "PskKeyExchangeModesOnLoadAbsence", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesProducer", "sun.security.ssl.PskKeyExchangeModesExtension", "PskKeyExchangeModesProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer", "sun.security.ssl.PskKeyExchangeModesExtension", "PskKeyExchangeModesConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer", "sun.security.ssl.PskKeyExchangeModesExtension", "PskKeyExchangeModesStringizer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesSpec", "sun.security.ssl.PskKeyExchangeModesExtension", "PskKeyExchangeModesSpec", $STATIC | $FINAL},
+		{"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeMode", "sun.security.ssl.PskKeyExchangeModesExtension", "PskKeyExchangeMode", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.PskKeyExchangeModesExtension",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesOnTradeAbsence,sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesOnLoadAbsence,sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesProducer,sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer,sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesStringizer,sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesSpec,sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeMode"
+	};
+	$loadClass(PskKeyExchangeModesExtension, name, initialize, &classInfo$$, PskKeyExchangeModesExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PskKeyExchangeModesExtension);
+	});
 	return class$;
 }
 

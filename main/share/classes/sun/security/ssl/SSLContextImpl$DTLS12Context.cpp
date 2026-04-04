@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLContextImpl$DTLS12Context.h>
-
 #include <java/util/List.h>
 #include <sun/security/ssl/ProtocolVersion.h>
 #include <sun/security/ssl/SSLContextImpl$AbstractDTLSContext.h>
@@ -23,45 +22,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SSLContextImpl$DTLS12Context_FieldInfo_[] = {
-	{"clientDefaultProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$DTLS12Context, clientDefaultProtocols)},
-	{"clientDefaultCipherSuites", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$DTLS12Context, clientDefaultCipherSuites)},
-	{}
-};
-
-$MethodInfo _SSLContextImpl$DTLS12Context_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SSLContextImpl$DTLS12Context, init$, void)},
-	{"getClientDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $virtualMethod(SSLContextImpl$DTLS12Context, getClientDefaultCipherSuites, $List*)},
-	{"getClientDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $virtualMethod(SSLContextImpl$DTLS12Context, getClientDefaultProtocolVersions, $List*)},
-	{}
-};
-
-$InnerClassInfo _SSLContextImpl$DTLS12Context_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLContextImpl$DTLS12Context", "sun.security.ssl.SSLContextImpl", "DTLS12Context", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLContextImpl$AbstractDTLSContext", "sun.security.ssl.SSLContextImpl", "AbstractDTLSContext", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SSLContextImpl$DTLS12Context_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLContextImpl$DTLS12Context",
-	"sun.security.ssl.SSLContextImpl$AbstractDTLSContext",
-	nullptr,
-	_SSLContextImpl$DTLS12Context_FieldInfo_,
-	_SSLContextImpl$DTLS12Context_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLContextImpl$DTLS12Context_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLContextImpl"
-};
-
-$Object* allocate$SSLContextImpl$DTLS12Context($Class* clazz) {
-	return $of($alloc(SSLContextImpl$DTLS12Context));
-}
-
 $List* SSLContextImpl$DTLS12Context::clientDefaultProtocols = nullptr;
 $List* SSLContextImpl$DTLS12Context::clientDefaultCipherSuites = nullptr;
 
@@ -77,7 +37,7 @@ $List* SSLContextImpl$DTLS12Context::getClientDefaultCipherSuites() {
 	return SSLContextImpl$DTLS12Context::clientDefaultCipherSuites;
 }
 
-void clinit$SSLContextImpl$DTLS12Context($Class* class$) {
+void SSLContextImpl$DTLS12Context::clinit$($Class* clazz) {
 	{
 		$init($ProtocolVersion);
 		$assignStatic(SSLContextImpl$DTLS12Context::clientDefaultProtocols, $SSLContextImpl::getAvailableProtocols($$new($ProtocolVersionArray, {
@@ -92,7 +52,40 @@ SSLContextImpl$DTLS12Context::SSLContextImpl$DTLS12Context() {
 }
 
 $Class* SSLContextImpl$DTLS12Context::load$($String* name, bool initialize) {
-	$loadClass(SSLContextImpl$DTLS12Context, name, initialize, &_SSLContextImpl$DTLS12Context_ClassInfo_, clinit$SSLContextImpl$DTLS12Context, allocate$SSLContextImpl$DTLS12Context);
+	$FieldInfo fieldInfos$$[] = {
+		{"clientDefaultProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$DTLS12Context, clientDefaultProtocols)},
+		{"clientDefaultCipherSuites", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$DTLS12Context, clientDefaultCipherSuites)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SSLContextImpl$DTLS12Context, init$, void)},
+		{"getClientDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $virtualMethod(SSLContextImpl$DTLS12Context, getClientDefaultCipherSuites, $List*)},
+		{"getClientDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $virtualMethod(SSLContextImpl$DTLS12Context, getClientDefaultProtocolVersions, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLContextImpl$DTLS12Context", "sun.security.ssl.SSLContextImpl", "DTLS12Context", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLContextImpl$AbstractDTLSContext", "sun.security.ssl.SSLContextImpl", "AbstractDTLSContext", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLContextImpl$DTLS12Context",
+		"sun.security.ssl.SSLContextImpl$AbstractDTLSContext",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLContextImpl"
+	};
+	$loadClass(SSLContextImpl$DTLS12Context, name, initialize, &classInfo$$, SSLContextImpl$DTLS12Context::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLContextImpl$DTLS12Context);
+	});
 	return class$;
 }
 

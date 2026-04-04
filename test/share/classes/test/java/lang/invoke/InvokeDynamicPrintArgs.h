@@ -34,6 +34,7 @@ class $export InvokeDynamicPrintArgs : public ::java::lang::Object {
 	$class(InvokeDynamicPrintArgs, 0, ::java::lang::Object)
 public:
 	InvokeDynamicPrintArgs();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::invoke::MethodHandle* INDY_bar();
 	static ::java::lang::invoke::MethodHandle* INDY_bar2();

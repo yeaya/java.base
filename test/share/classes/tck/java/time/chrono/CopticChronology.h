@@ -56,6 +56,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::time::chrono::ChronoLocalDate* date(int32_t prolepticYear, int32_t month, int32_t dayOfMonth) override;
 	virtual ::java::time::chrono::ChronoLocalDate* date(::java::time::temporal::TemporalAccessor* dateTime) override;
@@ -71,7 +72,7 @@ public:
 	$Object* readResolve();
 	virtual $String* toString() override;
 	static ::tck::java::time::chrono::CopticChronology* INSTANCE;
-	static const int64_t serialVersionUID = (int64_t)0x652F907A9110267D;
+	static const int64_t serialVersionUID = (int64_t)0x652f907a9110267d;
 	static ::java::time::temporal::ValueRange* MOY_RANGE;
 	static ::java::time::temporal::ValueRange* DOM_RANGE;
 	static ::java::time::temporal::ValueRange* DOM_RANGE_NONLEAP;

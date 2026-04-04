@@ -9,6 +9,7 @@ class $export OpenStream : public ::java::lang::Object {
 	$class(OpenStream, 0, ::java::lang::Object)
 public:
 	OpenStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkThrows($String* url);
 	static void main($StringArray* args);

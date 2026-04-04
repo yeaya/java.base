@@ -19,6 +19,7 @@ class LinuxFileSystem$SupportedFileFileAttributeViewsHolder : public ::java::lan
 	$class(LinuxFileSystem$SupportedFileFileAttributeViewsHolder, 0, ::java::lang::Object)
 public:
 	LinuxFileSystem$SupportedFileFileAttributeViewsHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Set* supportedFileAttributeViews();
 	static ::java::util::Set* supportedFileAttributeViews$;

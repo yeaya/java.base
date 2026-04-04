@@ -31,6 +31,7 @@ class SliceOps : public ::java::lang::Object {
 	$class(SliceOps, 0, ::java::lang::Object)
 public:
 	SliceOps();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int64_t calcSize(int64_t size, int64_t skip, int64_t limit);
 	static int64_t calcSliceFence(int64_t skip, int64_t limit);

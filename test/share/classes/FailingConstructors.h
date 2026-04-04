@@ -25,6 +25,7 @@ class $export FailingConstructors : public ::java::lang::Object {
 	$class(FailingConstructors, 0, ::java::lang::Object)
 public:
 	FailingConstructors();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void check(bool exists, ::java::io::File* file);
 	static void fail();

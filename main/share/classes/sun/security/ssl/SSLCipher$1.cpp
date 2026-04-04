@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLCipher$1.h>
-
 #include <java/security/Security.h>
 #include <sun/security/ssl/SSLCipher.h>
 #include <jcpp.h>
@@ -14,43 +13,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SSLCipher$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SSLCipher$1, init$, void)},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLCipher$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _SSLCipher$1_EnclosingMethodInfo_ = {
-	"sun.security.ssl.SSLCipher",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _SSLCipher$1_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLCipher$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SSLCipher$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.ssl.SSLCipher$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_SSLCipher$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
-	&_SSLCipher$1_EnclosingMethodInfo_,
-	_SSLCipher$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLCipher"
-};
-
-$Object* allocate$SSLCipher$1($Class* clazz) {
-	return $of($alloc(SSLCipher$1));
-}
-
 void SSLCipher$1::init$() {
 }
 
@@ -62,7 +24,38 @@ SSLCipher$1::SSLCipher$1() {
 }
 
 $Class* SSLCipher$1::load$($String* name, bool initialize) {
-	$loadClass(SSLCipher$1, name, initialize, &_SSLCipher$1_ClassInfo_, allocate$SSLCipher$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SSLCipher$1, init$, void)},
+		{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLCipher$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.ssl.SSLCipher",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLCipher$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.ssl.SSLCipher$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLCipher"
+	};
+	$loadClass(SSLCipher$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLCipher$1);
+	});
 	return class$;
 }
 

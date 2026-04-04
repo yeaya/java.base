@@ -1,5 +1,4 @@
 #include <sun/nio/cs/GBK.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -27,45 +26,6 @@ using $StandardCharsets = ::sun::nio::cs::StandardCharsets;
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$MethodInfo _GBK_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GBK, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(GBK, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GBK, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(GBK, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(GBK, newEncoder, $CharsetEncoder*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{}
-};
-
-$InnerClassInfo _GBK_InnerClassesInfo_[] = {
-	{"sun.nio.cs.GBK$EncodeHolder", "sun.nio.cs.GBK", "EncodeHolder", $STATIC},
-	{"sun.nio.cs.GBK$DecodeHolder", "sun.nio.cs.GBK", "DecodeHolder", $STATIC},
-	{}
-};
-
-$ClassInfo _GBK_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.GBK",
-	"java.nio.charset.Charset",
-	"sun.nio.cs.HistoricallyNamedCharset",
-	nullptr,
-	_GBK_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GBK_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.GBK$EncodeHolder,sun.nio.cs.GBK$DecodeHolder"
-};
-
-$Object* allocate$GBK($Class* clazz) {
-	return $of($alloc(GBK));
-}
 
 int32_t GBK::hashCode() {
 	 return this->$Charset::hashCode();
@@ -96,7 +56,7 @@ $String* GBK::historicalName() {
 }
 
 bool GBK::contains($Charset* cs) {
-	return (($nc($($nc(cs)->name()))->equals("US-ASCII"_s)) || ($instanceOf(GBK, cs)));
+	return (($$nc($nc(cs)->name())->equals("US-ASCII"_s)) || ($instanceOf(GBK, cs)));
 }
 
 $CharsetDecoder* GBK::newDecoder() {
@@ -113,7 +73,41 @@ GBK::GBK() {
 }
 
 $Class* GBK::load$($String* name, bool initialize) {
-	$loadClass(GBK, name, initialize, &_GBK_ClassInfo_, allocate$GBK);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GBK, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(GBK, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GBK, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(GBK, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(GBK, newEncoder, $CharsetEncoder*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.GBK$EncodeHolder", "sun.nio.cs.GBK", "EncodeHolder", $STATIC},
+		{"sun.nio.cs.GBK$DecodeHolder", "sun.nio.cs.GBK", "DecodeHolder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.GBK",
+		"java.nio.charset.Charset",
+		"sun.nio.cs.HistoricallyNamedCharset",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.GBK$EncodeHolder,sun.nio.cs.GBK$DecodeHolder"
+	};
+	$loadClass(GBK, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GBK));
+	});
 	return class$;
 }
 

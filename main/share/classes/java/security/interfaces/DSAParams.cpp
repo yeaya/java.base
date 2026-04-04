@@ -1,5 +1,4 @@
 #include <java/security/interfaces/DSAParams.h>
-
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
@@ -11,28 +10,24 @@ namespace java {
 	namespace security {
 		namespace interfaces {
 
-$MethodInfo _DSAParams_MethodInfo_[] = {
-	{"getG", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DSAParams, getG, $BigInteger*)},
-	{"getP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DSAParams, getP, $BigInteger*)},
-	{"getQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DSAParams, getQ, $BigInteger*)},
-	{}
-};
-
-$ClassInfo _DSAParams_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.security.interfaces.DSAParams",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DSAParams_MethodInfo_
-};
-
-$Object* allocate$DSAParams($Class* clazz) {
-	return $of($alloc(DSAParams));
-}
-
 $Class* DSAParams::load$($String* name, bool initialize) {
-	$loadClass(DSAParams, name, initialize, &_DSAParams_ClassInfo_, allocate$DSAParams);
+	$MethodInfo methodInfos$$[] = {
+		{"getG", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DSAParams, getG, $BigInteger*)},
+		{"getP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DSAParams, getP, $BigInteger*)},
+		{"getQ", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DSAParams, getQ, $BigInteger*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.security.interfaces.DSAParams",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DSAParams, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DSAParams);
+	});
 	return class$;
 }
 

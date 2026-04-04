@@ -22,6 +22,7 @@ class $export JCAUtil : public ::java::lang::Object {
 	$class(JCAUtil, 0, ::java::lang::Object)
 public:
 	JCAUtil();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void clearDefSecureRandom();
 	static ::java::security::SecureRandom* getDefSecureRandom();

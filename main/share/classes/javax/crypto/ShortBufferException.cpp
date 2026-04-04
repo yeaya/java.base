@@ -1,5 +1,4 @@
 #include <javax/crypto/ShortBufferException.h>
-
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 
 namespace javax {
 	namespace crypto {
-
-$FieldInfo _ShortBufferException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ShortBufferException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ShortBufferException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ShortBufferException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ShortBufferException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _ShortBufferException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.crypto.ShortBufferException",
-	"java.security.GeneralSecurityException",
-	nullptr,
-	_ShortBufferException_FieldInfo_,
-	_ShortBufferException_MethodInfo_
-};
-
-$Object* allocate$ShortBufferException($Class* clazz) {
-	return $of($alloc(ShortBufferException));
-}
 
 void ShortBufferException::init$() {
 	$GeneralSecurityException::init$();
@@ -54,7 +29,26 @@ void ShortBufferException::throw$() {
 }
 
 $Class* ShortBufferException::load$($String* name, bool initialize) {
-	$loadClass(ShortBufferException, name, initialize, &_ShortBufferException_ClassInfo_, allocate$ShortBufferException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ShortBufferException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ShortBufferException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ShortBufferException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.crypto.ShortBufferException",
+		"java.security.GeneralSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ShortBufferException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ShortBufferException);
+	});
 	return class$;
 }
 

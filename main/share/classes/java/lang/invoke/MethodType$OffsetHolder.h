@@ -13,6 +13,7 @@ class MethodType$OffsetHolder : public ::java::lang::Object {
 	$class(MethodType$OffsetHolder, 0, ::java::lang::Object)
 public:
 	MethodType$OffsetHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int64_t rtypeOffset;
 	static int64_t ptypesOffset;

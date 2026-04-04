@@ -21,6 +21,7 @@ class Calendar$CalendarAccessControlContext : public ::java::lang::Object {
 	$class(Calendar$CalendarAccessControlContext, 0, ::java::lang::Object)
 public:
 	Calendar$CalendarAccessControlContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::security::AccessControlContext* INSTANCE;
 };

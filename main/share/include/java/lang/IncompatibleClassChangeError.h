@@ -14,10 +14,13 @@ public:
 	IncompatibleClassChangeError();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0xBBCA7FD1F19FC839;
+	static const int64_t serialVersionUID = (int64_t)0xbbca7fd1f19fc839;
 	IncompatibleClassChangeError(const IncompatibleClassChangeError& e);
 	virtual void throw$() override;
-	inline IncompatibleClassChangeError* operator ->() {
+	inline IncompatibleClassChangeError* operator ->() const {
+		return (IncompatibleClassChangeError*)throwing$;
+	}
+	inline operator IncompatibleClassChangeError*() const {
 		return (IncompatibleClassChangeError*)throwing$;
 	}
 };

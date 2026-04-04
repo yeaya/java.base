@@ -13,6 +13,7 @@ class Nodes$1 : public ::java::lang::Object {
 	$class(Nodes$1, 0, ::java::lang::Object)
 public:
 	Nodes$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$util$stream$StreamShape;
 };
 

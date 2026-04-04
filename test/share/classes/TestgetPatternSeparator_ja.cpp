@@ -1,5 +1,4 @@
 #include <TestgetPatternSeparator_ja.h>
-
 #include <java/text/DecimalFormat.h>
 #include <java/text/DecimalFormatSymbols.h>
 #include <java/text/NumberFormat.h>
@@ -16,30 +15,11 @@ using $DecimalFormatSymbols = ::java::text::DecimalFormatSymbols;
 using $NumberFormat = ::java::text::NumberFormat;
 using $Locale = ::java::util::Locale;
 
-$MethodInfo _TestgetPatternSeparator_ja_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestgetPatternSeparator_ja, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestgetPatternSeparator_ja, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _TestgetPatternSeparator_ja_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestgetPatternSeparator_ja",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestgetPatternSeparator_ja_MethodInfo_
-};
-
-$Object* allocate$TestgetPatternSeparator_ja($Class* clazz) {
-	return $of($alloc(TestgetPatternSeparator_ja));
-}
-
 void TestgetPatternSeparator_ja::init$() {
 }
 
 void TestgetPatternSeparator_ja::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($DecimalFormat, df, $cast($DecimalFormat, $NumberFormat::getInstance($Locale::JAPAN)));
 	$var($DecimalFormatSymbols, dfs, $nc(df)->getDecimalFormatSymbols());
@@ -52,7 +32,22 @@ TestgetPatternSeparator_ja::TestgetPatternSeparator_ja() {
 }
 
 $Class* TestgetPatternSeparator_ja::load$($String* name, bool initialize) {
-	$loadClass(TestgetPatternSeparator_ja, name, initialize, &_TestgetPatternSeparator_ja_ClassInfo_, allocate$TestgetPatternSeparator_ja);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestgetPatternSeparator_ja, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestgetPatternSeparator_ja, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestgetPatternSeparator_ja",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestgetPatternSeparator_ja, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestgetPatternSeparator_ja);
+	});
 	return class$;
 }
 

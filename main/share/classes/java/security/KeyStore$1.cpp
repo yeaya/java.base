@@ -1,5 +1,4 @@
 #include <java/security/KeyStore$1.h>
-
 #include <java/security/KeyStore.h>
 #include <java/security/Security.h>
 #include <jcpp.h>
@@ -13,43 +12,6 @@ using $Security = ::java::security::Security;
 namespace java {
 	namespace security {
 
-$MethodInfo _KeyStore$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(KeyStore$1, init$, void)},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyStore$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _KeyStore$1_EnclosingMethodInfo_ = {
-	"java.security.KeyStore",
-	"getDefaultType",
-	"()Ljava/lang/String;"
-};
-
-$InnerClassInfo _KeyStore$1_InnerClassesInfo_[] = {
-	{"java.security.KeyStore$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _KeyStore$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.security.KeyStore$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_KeyStore$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
-	&_KeyStore$1_EnclosingMethodInfo_,
-	_KeyStore$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.KeyStore"
-};
-
-$Object* allocate$KeyStore$1($Class* clazz) {
-	return $of($alloc(KeyStore$1));
-}
-
 void KeyStore$1::init$() {
 }
 
@@ -61,7 +23,38 @@ KeyStore$1::KeyStore$1() {
 }
 
 $Class* KeyStore$1::load$($String* name, bool initialize) {
-	$loadClass(KeyStore$1, name, initialize, &_KeyStore$1_ClassInfo_, allocate$KeyStore$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(KeyStore$1, init$, void)},
+		{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyStore$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.security.KeyStore",
+		"getDefaultType",
+		"()Ljava/lang/String;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.KeyStore$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.security.KeyStore$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.KeyStore"
+	};
+	$loadClass(KeyStore$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyStore$1);
+	});
 	return class$;
 }
 

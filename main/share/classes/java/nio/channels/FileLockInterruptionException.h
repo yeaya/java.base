@@ -14,10 +14,13 @@ class $export FileLockInterruptionException : public ::java::io::IOException {
 public:
 	FileLockInterruptionException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x6296C3B4D4B27ADF;
+	static const int64_t serialVersionUID = (int64_t)0x6296c3b4d4b27adf;
 	FileLockInterruptionException(const FileLockInterruptionException& e);
 	virtual void throw$() override;
-	inline FileLockInterruptionException* operator ->() {
+	inline FileLockInterruptionException* operator ->() const {
+		return (FileLockInterruptionException*)throwing$;
+	}
+	inline operator FileLockInterruptionException*() const {
 		return (FileLockInterruptionException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <GetAnnotatedNestedSuperclass.h>
-
 #include <GetAnnotatedNestedSuperclass$Y.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/annotation/Annotation.h>
@@ -19,71 +18,34 @@ using $AnnotatedType = ::java::lang::reflect::AnnotatedType;
 using $Arrays = ::java::util::Arrays;
 using $Objects = ::java::util::Objects;
 
-$MethodInfo _GetAnnotatedNestedSuperclass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GetAnnotatedNestedSuperclass, init$, void)},
-	{"assertEquals", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GetAnnotatedNestedSuperclass, assertEquals, void, Object$*, Object$*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetAnnotatedNestedSuperclass, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _GetAnnotatedNestedSuperclass_InnerClassesInfo_[] = {
-	{"GetAnnotatedNestedSuperclass$Y", "GetAnnotatedNestedSuperclass", "Y", $STATIC},
-	{"GetAnnotatedNestedSuperclass$X", "GetAnnotatedNestedSuperclass", "X", $STATIC},
-	{"GetAnnotatedNestedSuperclass$E", "GetAnnotatedNestedSuperclass", "E", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{"GetAnnotatedNestedSuperclass$D", "GetAnnotatedNestedSuperclass", "D", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{"GetAnnotatedNestedSuperclass$C", "GetAnnotatedNestedSuperclass", "C", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{"GetAnnotatedNestedSuperclass$B", "GetAnnotatedNestedSuperclass", "B", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{"GetAnnotatedNestedSuperclass$A", "GetAnnotatedNestedSuperclass", "A", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{}
-};
-
-$ClassInfo _GetAnnotatedNestedSuperclass_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"GetAnnotatedNestedSuperclass",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_GetAnnotatedNestedSuperclass_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GetAnnotatedNestedSuperclass_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"GetAnnotatedNestedSuperclass$Y,GetAnnotatedNestedSuperclass$X,GetAnnotatedNestedSuperclass$E,GetAnnotatedNestedSuperclass$D,GetAnnotatedNestedSuperclass$C,GetAnnotatedNestedSuperclass$B,GetAnnotatedNestedSuperclass$A"
-};
-
-$Object* allocate$GetAnnotatedNestedSuperclass($Class* clazz) {
-	return $of($alloc(GetAnnotatedNestedSuperclass));
-}
-
 void GetAnnotatedNestedSuperclass::init$() {
 }
 
 void GetAnnotatedNestedSuperclass::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($GetAnnotatedNestedSuperclass$Y);
 	$var($AnnotatedType, x, $GetAnnotatedNestedSuperclass$Y::class$->getAnnotatedSuperclass());
 	assertEquals($($Arrays::toString($($nc(x)->getAnnotations()))), "[@GetAnnotatedNestedSuperclass$A()]"_s);
 	$var($AnnotatedParameterizedType, xpt, $cast($AnnotatedParameterizedType, x));
 	{
-		$var($AnnotatedType, arg, $nc($($nc(xpt)->getAnnotatedActualTypeArguments()))->get(0));
+		$var($AnnotatedType, arg, $nc($(xpt->getAnnotatedActualTypeArguments()))->get(0));
 		assertEquals($($Arrays::toString($($nc(arg)->getAnnotations()))), "[@GetAnnotatedNestedSuperclass$B()]"_s);
 	}
 	{
-		$var($AnnotatedType, arg, $nc($($nc(xpt)->getAnnotatedActualTypeArguments()))->get(1));
+		$var($AnnotatedType, arg, $nc($(xpt->getAnnotatedActualTypeArguments()))->get(1));
 		assertEquals($($Arrays::toString($($nc(arg)->getAnnotations()))), "[@GetAnnotatedNestedSuperclass$C()]"_s);
 	}
 	{
-		$var($AnnotatedType, arg, $nc($($nc(xpt)->getAnnotatedActualTypeArguments()))->get(2));
+		$var($AnnotatedType, arg, $nc($(xpt->getAnnotatedActualTypeArguments()))->get(2));
 		assertEquals($($Arrays::toString($($nc(arg)->getAnnotations()))), "[@GetAnnotatedNestedSuperclass$D()]"_s);
-		$var($AnnotatedType, nestedArg, $nc($($nc(($cast($AnnotatedParameterizedType, arg)))->getAnnotatedActualTypeArguments()))->get(0));
+		$var($AnnotatedType, nestedArg, $nc($($cast($AnnotatedParameterizedType, arg)->getAnnotatedActualTypeArguments()))->get(0));
 		assertEquals($($Arrays::toString($($nc(nestedArg)->getAnnotations()))), "[@GetAnnotatedNestedSuperclass$E()]"_s);
 	}
 }
 
 void GetAnnotatedNestedSuperclass::assertEquals(Object$* expected, Object$* actual) {
 	if (!$Objects::equals(expected, actual)) {
-		$throwNew($AssertionError, $of($$str({"expected: "_s, expected, "; actual="_s, actual})));
+		$throwNew($AssertionError, $$of($str({"expected: "_s, expected, "; actual="_s, actual})));
 	}
 }
 
@@ -91,7 +53,39 @@ GetAnnotatedNestedSuperclass::GetAnnotatedNestedSuperclass() {
 }
 
 $Class* GetAnnotatedNestedSuperclass::load$($String* name, bool initialize) {
-	$loadClass(GetAnnotatedNestedSuperclass, name, initialize, &_GetAnnotatedNestedSuperclass_ClassInfo_, allocate$GetAnnotatedNestedSuperclass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GetAnnotatedNestedSuperclass, init$, void)},
+		{"assertEquals", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GetAnnotatedNestedSuperclass, assertEquals, void, Object$*, Object$*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetAnnotatedNestedSuperclass, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"GetAnnotatedNestedSuperclass$Y", "GetAnnotatedNestedSuperclass", "Y", $STATIC},
+		{"GetAnnotatedNestedSuperclass$X", "GetAnnotatedNestedSuperclass", "X", $STATIC},
+		{"GetAnnotatedNestedSuperclass$E", "GetAnnotatedNestedSuperclass", "E", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{"GetAnnotatedNestedSuperclass$D", "GetAnnotatedNestedSuperclass", "D", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{"GetAnnotatedNestedSuperclass$C", "GetAnnotatedNestedSuperclass", "C", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{"GetAnnotatedNestedSuperclass$B", "GetAnnotatedNestedSuperclass", "B", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{"GetAnnotatedNestedSuperclass$A", "GetAnnotatedNestedSuperclass", "A", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"GetAnnotatedNestedSuperclass",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"GetAnnotatedNestedSuperclass$Y,GetAnnotatedNestedSuperclass$X,GetAnnotatedNestedSuperclass$E,GetAnnotatedNestedSuperclass$D,GetAnnotatedNestedSuperclass$C,GetAnnotatedNestedSuperclass$B,GetAnnotatedNestedSuperclass$A"
+	};
+	$loadClass(GetAnnotatedNestedSuperclass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GetAnnotatedNestedSuperclass);
+	});
 	return class$;
 }
 

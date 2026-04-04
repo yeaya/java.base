@@ -20,9 +20,10 @@ class $export Bug6335238 : public ::java::lang::Object {
 	$class(Bug6335238, 0, ::java::lang::Object)
 public:
 	Bug6335238();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
-	static const int64_t UTC_LONG = (int64_t)0x000000E2E6C7C260;
+	static const int64_t UTC_LONG = (int64_t)0x000000e2e6c7c260;
 	static $String* TIME_STRING;
 	static ::java::text::SimpleDateFormat* masterSdf;
 	static int32_t duration;

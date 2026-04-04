@@ -16,6 +16,7 @@ class CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS : public ::java::lang::Object {
 	$class(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS, 0, ::java::lang::Object)
 public:
 	CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $StringArray* lambda$static$0(int32_t x$0);
 	static $StringArray* INSTANCE;

@@ -29,6 +29,7 @@ class ExtendedMasterSecretExtension$ExtendedMasterSecretSpec : public ::sun::sec
 	$class(ExtendedMasterSecretExtension$ExtendedMasterSecretSpec, 0, ::sun::security::ssl::SSLExtension$SSLExtensionSpec)
 public:
 	ExtendedMasterSecretExtension$ExtendedMasterSecretSpec();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::sun::security::ssl::HandshakeContext* hc, ::java::nio::ByteBuffer* m);
 	virtual $String* toString() override;

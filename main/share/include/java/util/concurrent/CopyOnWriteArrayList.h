@@ -114,7 +114,7 @@ public:
 	virtual $ObjectArray* toArray($ObjectArray* a) override;
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0x785D9FD546AB90C3;
+	static const int64_t serialVersionUID = (int64_t)0x785d9fd546ab90c3;
 	$Object* lock = nullptr;
 	$volatile($ObjectArray*) array = nullptr;
 };

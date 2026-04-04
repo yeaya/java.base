@@ -16,6 +16,7 @@ class $export ZeroScalingTests : public ::java::lang::Object {
 	$class(ZeroScalingTests, 0, ::java::lang::Object)
 public:
 	ZeroScalingTests();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t addTests();
 	static int32_t divideTests();

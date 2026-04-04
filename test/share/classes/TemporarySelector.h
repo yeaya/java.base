@@ -9,6 +9,7 @@ class $export TemporarySelector : public ::java::lang::Object {
 	$class(TemporarySelector, 0, ::java::lang::Object)
 public:
 	TemporarySelector();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $volatile(bool) done;

@@ -1,5 +1,4 @@
 #include <java/util/concurrent/ExecutionException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,32 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace util {
 		namespace concurrent {
-
-$FieldInfo _ExecutionException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ExecutionException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ExecutionException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(ExecutionException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(ExecutionException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ExecutionException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ExecutionException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _ExecutionException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.concurrent.ExecutionException",
-	"java.lang.Exception",
-	nullptr,
-	_ExecutionException_FieldInfo_,
-	_ExecutionException_MethodInfo_
-};
-
-$Object* allocate$ExecutionException($Class* clazz) {
-	return $of($alloc(ExecutionException));
-}
 
 void ExecutionException::init$() {
 	$Exception::init$();
@@ -64,7 +37,28 @@ void ExecutionException::throw$() {
 }
 
 $Class* ExecutionException::load$($String* name, bool initialize) {
-	$loadClass(ExecutionException, name, initialize, &_ExecutionException_ClassInfo_, allocate$ExecutionException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ExecutionException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(ExecutionException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(ExecutionException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ExecutionException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ExecutionException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.concurrent.ExecutionException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ExecutionException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExecutionException);
+	});
 	return class$;
 }
 

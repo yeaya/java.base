@@ -1,7 +1,5 @@
 #include <sun/nio/cs/CESU_8$Encoder.h>
-
 #include <java/lang/Math.h>
-#include <java/nio/Buffer.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/charset/Charset.h>
@@ -23,7 +21,6 @@ using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $Charset = ::java::nio::charset::Charset;
@@ -36,57 +33,6 @@ using $Surrogate$Parser = ::sun::nio::cs::Surrogate$Parser;
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$FieldInfo _CESU_8$Encoder_FieldInfo_[] = {
-	{"sgp", "Lsun/nio/cs/Surrogate$Parser;", nullptr, $PRIVATE, $field(CESU_8$Encoder, sgp)},
-	{"c2", "[C", nullptr, $PRIVATE, $field(CESU_8$Encoder, c2)},
-	{}
-};
-
-$MethodInfo _CESU_8$Encoder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(CESU_8$Encoder, init$, void, $Charset*)},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(CESU_8$Encoder, canEncode, bool, char16_t)},
-	{"encode", "([CII[B)I", nullptr, $PUBLIC, $virtualMethod(CESU_8$Encoder, encode, int32_t, $chars*, int32_t, int32_t, $bytes*)},
-	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(CESU_8$Encoder, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(CESU_8$Encoder, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CESU_8$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC, $virtualMethod(CESU_8$Encoder, isLegalReplacement, bool, $bytes*)},
-	{"overflow", "(Ljava/nio/CharBuffer;ILjava/nio/ByteBuffer;I)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC, $staticMethod(CESU_8$Encoder, overflow, $CoderResult*, $CharBuffer*, int32_t, $ByteBuffer*, int32_t)},
-	{"overflow", "(Ljava/nio/CharBuffer;I)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC, $staticMethod(CESU_8$Encoder, overflow, $CoderResult*, $CharBuffer*, int32_t)},
-	{"to3Bytes", "([BIC)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CESU_8$Encoder, to3Bytes, void, $bytes*, int32_t, char16_t)},
-	{"to3Bytes", "(Ljava/nio/ByteBuffer;C)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CESU_8$Encoder, to3Bytes, void, $ByteBuffer*, char16_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _CESU_8$Encoder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.CESU_8$Encoder", "sun.nio.cs.CESU_8", "Encoder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _CESU_8$Encoder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.CESU_8$Encoder",
-	"java.nio.charset.CharsetEncoder",
-	"sun.nio.cs.ArrayEncoder",
-	_CESU_8$Encoder_FieldInfo_,
-	_CESU_8$Encoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CESU_8$Encoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.CESU_8"
-};
-
-$Object* allocate$CESU_8$Encoder($Class* clazz) {
-	return $of($alloc(CESU_8$Encoder));
-}
 
 int32_t CESU_8$Encoder::hashCode() {
 	 return this->$CharsetEncoder::hashCode();
@@ -136,20 +82,20 @@ $CoderResult* CESU_8$Encoder::overflow($CharBuffer* src, int32_t mark) {
 
 void CESU_8$Encoder::to3Bytes($bytes* da, int32_t dp, char16_t c) {
 	$init(CESU_8$Encoder);
-	$nc(da)->set(dp, (int8_t)(224 | (c >> 12)));
-	da->set(dp + 1, (int8_t)(128 | ((int32_t)((c >> 6) & (uint32_t)63))));
-	da->set(dp + 2, (int8_t)(128 | ((int32_t)(c & (uint32_t)63))));
+	$nc(da)->set(dp, (int8_t)(0xe0 | (c >> 12)));
+	da->set(dp + 1, (int8_t)(0x80 | ((c >> 6) & 0x3f)));
+	da->set(dp + 2, (int8_t)(0x80 | (c & 0x3f)));
 }
 
 void CESU_8$Encoder::to3Bytes($ByteBuffer* dst, char16_t c) {
 	$init(CESU_8$Encoder);
-	$nc(dst)->put((int8_t)(224 | (c >> 12)));
-	dst->put((int8_t)(128 | ((int32_t)((c >> 6) & (uint32_t)63))));
-	dst->put((int8_t)(128 | ((int32_t)(c & (uint32_t)63))));
+	$nc(dst)->put((int8_t)(0xe0 | (c >> 12)));
+	dst->put((int8_t)(0x80 | ((c >> 6) & 0x3f)));
+	dst->put((int8_t)(0x80 | (c & 0x3f)));
 }
 
 $CoderResult* CESU_8$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, sa, $cast($chars, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -175,8 +121,8 @@ $CoderResult* CESU_8$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst
 			if (dl - dp < 2) {
 				return overflow(src, sp, dst, dp);
 			}
-			$nc(da)->set(dp++, (int8_t)(192 | (c >> 6)));
-			da->set(dp++, (int8_t)(128 | ((int32_t)(c & (uint32_t)63))));
+			$nc(da)->set(dp++, (int8_t)(0xc0 | (c >> 6)));
+			da->set(dp++, (int8_t)(0x80 | (c & 0x3f)));
 		} else if ($Character::isSurrogate(c)) {
 			if (this->sgp == nullptr) {
 				$set(this, sgp, $new($Surrogate$Parser));
@@ -184,7 +130,7 @@ $CoderResult* CESU_8$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst
 			int32_t uc = $nc(this->sgp)->parse(c, sa, sp, sl);
 			if (uc < 0) {
 				$CESU_8::updatePositions(src, sp, dst, dp);
-				return $nc(this->sgp)->error();
+				return this->sgp->error();
 			}
 			if (dl - dp < 6) {
 				return overflow(src, sp, dst, dp);
@@ -216,13 +162,13 @@ $CoderResult* CESU_8$Encoder::encodeBufferLoop($CharBuffer* src, $ByteBuffer* ds
 			if (!$nc(dst)->hasRemaining()) {
 				return overflow(src, mark);
 			}
-			$nc(dst)->put((int8_t)c);
+			dst->put((int8_t)c);
 		} else if (c < 2048) {
 			if ($nc(dst)->remaining() < 2) {
 				return overflow(src, mark);
 			}
-			$nc(dst)->put((int8_t)(192 | (c >> 6)));
-			dst->put((int8_t)(128 | ((int32_t)(c & (uint32_t)63))));
+			dst->put((int8_t)(0xc0 | (c >> 6)));
+			dst->put((int8_t)(0x80 | (c & 0x3f)));
 		} else if ($Character::isSurrogate(c)) {
 			if (this->sgp == nullptr) {
 				$set(this, sgp, $new($Surrogate$Parser));
@@ -261,20 +207,20 @@ $CoderResult* CESU_8$Encoder::encodeLoop($CharBuffer* src, $ByteBuffer* dst) {
 }
 
 int32_t CESU_8$Encoder::encode($chars* sa, int32_t sp, int32_t len, $bytes* da) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t sl = sp + len;
 	int32_t dp = 0;
 	int32_t dlASCII = dp + $Math::min(len, $nc(da)->length);
 	while (dp < dlASCII && $nc(sa)->get(sp) < (char16_t)0x80) {
-		$nc(da)->set(dp++, (int8_t)sa->get(sp++));
+		da->set(dp++, (int8_t)sa->get(sp++));
 	}
 	while (sp < sl) {
 		char16_t c = $nc(sa)->get(sp++);
 		if (c < 128) {
-			$nc(da)->set(dp++, (int8_t)c);
+			da->set(dp++, (int8_t)c);
 		} else if (c < 2048) {
-			$nc(da)->set(dp++, (int8_t)(192 | (c >> 6)));
-			da->set(dp++, (int8_t)(128 | ((int32_t)(c & (uint32_t)63))));
+			da->set(dp++, (int8_t)(0xc0 | (c >> 6)));
+			da->set(dp++, (int8_t)(0x80 | (c & 0x3f)));
 		} else if ($Character::isSurrogate(c)) {
 			if (this->sgp == nullptr) {
 				$set(this, sgp, $new($Surrogate$Parser));
@@ -285,7 +231,7 @@ int32_t CESU_8$Encoder::encode($chars* sa, int32_t sp, int32_t len, $bytes* da) 
 				if (malformedInputAction() != $CodingErrorAction::REPLACE) {
 					return -1;
 				}
-				$nc(da)->set(dp++, $nc($(replacement()))->get(0));
+				da->set(dp++, $nc($(replacement()))->get(0));
 			} else {
 				to3Bytes(da, dp, $Character::highSurrogate(uc));
 				dp += 3;
@@ -305,7 +251,52 @@ CESU_8$Encoder::CESU_8$Encoder() {
 }
 
 $Class* CESU_8$Encoder::load$($String* name, bool initialize) {
-	$loadClass(CESU_8$Encoder, name, initialize, &_CESU_8$Encoder_ClassInfo_, allocate$CESU_8$Encoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"sgp", "Lsun/nio/cs/Surrogate$Parser;", nullptr, $PRIVATE, $field(CESU_8$Encoder, sgp)},
+		{"c2", "[C", nullptr, $PRIVATE, $field(CESU_8$Encoder, c2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(CESU_8$Encoder, init$, void, $Charset*)},
+		{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(CESU_8$Encoder, canEncode, bool, char16_t)},
+		{"encode", "([CII[B)I", nullptr, $PUBLIC, $virtualMethod(CESU_8$Encoder, encode, int32_t, $chars*, int32_t, int32_t, $bytes*)},
+		{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(CESU_8$Encoder, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(CESU_8$Encoder, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CESU_8$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC, $virtualMethod(CESU_8$Encoder, isLegalReplacement, bool, $bytes*)},
+		{"overflow", "(Ljava/nio/CharBuffer;ILjava/nio/ByteBuffer;I)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC, $staticMethod(CESU_8$Encoder, overflow, $CoderResult*, $CharBuffer*, int32_t, $ByteBuffer*, int32_t)},
+		{"overflow", "(Ljava/nio/CharBuffer;I)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE | $STATIC, $staticMethod(CESU_8$Encoder, overflow, $CoderResult*, $CharBuffer*, int32_t)},
+		{"to3Bytes", "([BIC)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CESU_8$Encoder, to3Bytes, void, $bytes*, int32_t, char16_t)},
+		{"to3Bytes", "(Ljava/nio/ByteBuffer;C)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CESU_8$Encoder, to3Bytes, void, $ByteBuffer*, char16_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.CESU_8$Encoder", "sun.nio.cs.CESU_8", "Encoder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.CESU_8$Encoder",
+		"java.nio.charset.CharsetEncoder",
+		"sun.nio.cs.ArrayEncoder",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.CESU_8"
+	};
+	$loadClass(CESU_8$Encoder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CESU_8$Encoder));
+	});
 	return class$;
 }
 

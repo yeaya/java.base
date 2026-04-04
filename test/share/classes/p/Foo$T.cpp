@@ -1,5 +1,4 @@
 #include <p/Foo$T.h>
-
 #include <java/lang/Enum.h>
 #include <p/Foo.h>
 #include <jcpp.h>
@@ -14,45 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace p {
-
-$FieldInfo _Foo$T_FieldInfo_[] = {
-	{"ONE", "Lp/Foo$T;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Foo$T, ONE)},
-	{"$VALUES", "[Lp/Foo$T;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Foo$T, $VALUES)},
-	{}
-};
-
-$MethodInfo _Foo$T_MethodInfo_[] = {
-	{"$values", "()[Lp/Foo$T;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Foo$T, $values, $Foo$TArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Foo$T, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lp/Foo$T;", nullptr, $PUBLIC | $STATIC, $staticMethod(Foo$T, valueOf, Foo$T*, $String*)},
-	{"values", "()[Lp/Foo$T;", nullptr, $PUBLIC | $STATIC, $staticMethod(Foo$T, values, $Foo$TArray*)},
-	{}
-};
-
-$InnerClassInfo _Foo$T_InnerClassesInfo_[] = {
-	{"p.Foo$T", "p.Foo", "T", $PROTECTED | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Foo$T_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"p.Foo$T",
-	"java.lang.Enum",
-	nullptr,
-	_Foo$T_FieldInfo_,
-	_Foo$T_MethodInfo_,
-	"Ljava/lang/Enum<Lp/Foo$T;>;",
-	nullptr,
-	_Foo$T_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"p.Foo"
-};
-
-$Object* allocate$Foo$T($Class* clazz) {
-	return $of($alloc(Foo$T));
-}
 
 Foo$T* Foo$T::ONE = nullptr;
 $Foo$TArray* Foo$T::$VALUES = nullptr;
@@ -76,7 +36,7 @@ void Foo$T::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Foo$T($Class* class$) {
+void Foo$T::clinit$($Class* clazz) {
 	$assignStatic(Foo$T::ONE, $new(Foo$T, "ONE"_s, 0));
 	$assignStatic(Foo$T::$VALUES, Foo$T::$values());
 }
@@ -85,7 +45,40 @@ Foo$T::Foo$T() {
 }
 
 $Class* Foo$T::load$($String* name, bool initialize) {
-	$loadClass(Foo$T, name, initialize, &_Foo$T_ClassInfo_, clinit$Foo$T, allocate$Foo$T);
+	$FieldInfo fieldInfos$$[] = {
+		{"ONE", "Lp/Foo$T;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Foo$T, ONE)},
+		{"$VALUES", "[Lp/Foo$T;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Foo$T, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lp/Foo$T;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Foo$T, $values, $Foo$TArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Foo$T, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lp/Foo$T;", nullptr, $PUBLIC | $STATIC, $staticMethod(Foo$T, valueOf, Foo$T*, $String*)},
+		{"values", "()[Lp/Foo$T;", nullptr, $PUBLIC | $STATIC, $staticMethod(Foo$T, values, $Foo$TArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"p.Foo$T", "p.Foo", "T", $PROTECTED | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"p.Foo$T",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lp/Foo$T;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"p.Foo"
+	};
+	$loadClass(Foo$T, name, initialize, &classInfo$$, Foo$T::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Foo$T));
+	});
 	return class$;
 }
 

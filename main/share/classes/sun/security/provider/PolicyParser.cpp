@@ -1,5 +1,4 @@
 #include <sun/security/provider/PolicyParser.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/BufferedWriter.h>
 #include <java/io/File.h>
@@ -83,85 +82,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$FieldInfo _PolicyParser_FieldInfo_[] = {
-	{"grantEntries", "Ljava/util/Vector;", "Ljava/util/Vector<Lsun/security/provider/PolicyParser$GrantEntry;>;", $PRIVATE, $field(PolicyParser, grantEntries)},
-	{"domainEntries", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lsun/security/provider/PolicyParser$DomainEntry;>;", $PRIVATE, $field(PolicyParser, domainEntries)},
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PolicyParser, debug)},
-	{"st", "Ljava/io/StreamTokenizer;", nullptr, $PRIVATE, $field(PolicyParser, st)},
-	{"lookahead", "I", nullptr, $PRIVATE, $field(PolicyParser, lookahead)},
-	{"expandProp", "Z", nullptr, $PRIVATE, $field(PolicyParser, expandProp)},
-	{"keyStoreUrlString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PolicyParser, keyStoreUrlString)},
-	{"keyStoreType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PolicyParser, keyStoreType)},
-	{"keyStoreProvider", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PolicyParser, keyStoreProvider)},
-	{"storePassURL", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PolicyParser, storePassURL)},
-	{}
-};
-
-$MethodInfo _PolicyParser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PolicyParser, init$, void)},
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(PolicyParser, init$, void, bool)},
-	{"add", "(Lsun/security/provider/PolicyParser$GrantEntry;)V", nullptr, $PUBLIC, $virtualMethod(PolicyParser, add, void, $PolicyParser$GrantEntry*)},
-	{"expand", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(PolicyParser, expand, $String*, $String*), "sun.security.util.PropertyExpander$ExpandException"},
-	{"expand", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE, $method(PolicyParser, expand, $String*, $String*, bool), "sun.security.util.PropertyExpander$ExpandException"},
-	{"getDomainEntries", "()Ljava/util/Collection;", "()Ljava/util/Collection<Lsun/security/provider/PolicyParser$DomainEntry;>;", $PUBLIC, $virtualMethod(PolicyParser, getDomainEntries, $Collection*)},
-	{"getKeyStoreProvider", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyParser, getKeyStoreProvider, $String*)},
-	{"getKeyStoreType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyParser, getKeyStoreType, $String*)},
-	{"getKeyStoreUrl", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyParser, getKeyStoreUrl, $String*)},
-	{"getStorePassURL", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyParser, getStorePassURL, $String*)},
-	{"grantElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Lsun/security/provider/PolicyParser$GrantEntry;>;", $PUBLIC, $virtualMethod(PolicyParser, grantElements, $Enumeration*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PolicyParser, main, void, $StringArray*), "java.lang.Exception"},
-	{"match", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(PolicyParser, match, $String*, $String*), "sun.security.provider.PolicyParser$ParsingException,java.io.IOException"},
-	{"parseDomainEntry", "()Lsun/security/provider/PolicyParser$DomainEntry;", nullptr, $PRIVATE, $method(PolicyParser, parseDomainEntry, $PolicyParser$DomainEntry*), "sun.security.provider.PolicyParser$ParsingException,java.io.IOException"},
-	{"parseGrantEntry", "()Lsun/security/provider/PolicyParser$GrantEntry;", nullptr, $PRIVATE, $method(PolicyParser, parseGrantEntry, $PolicyParser$GrantEntry*), "sun.security.provider.PolicyParser$ParsingException,java.io.IOException"},
-	{"parseKeyStoreEntry", "()V", nullptr, $PRIVATE, $method(PolicyParser, parseKeyStoreEntry, void), "sun.security.provider.PolicyParser$ParsingException,java.io.IOException"},
-	{"parsePermissionEntry", "()Lsun/security/provider/PolicyParser$PermissionEntry;", nullptr, $PRIVATE, $method(PolicyParser, parsePermissionEntry, $PolicyParser$PermissionEntry*), "sun.security.provider.PolicyParser$ParsingException,java.io.IOException,sun.security.util.PropertyExpander$ExpandException"},
-	{"parseProperties", "(Ljava/lang/String;)Ljava/util/Map;", "(Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $method(PolicyParser, parseProperties, $Map*, $String*), "sun.security.provider.PolicyParser$ParsingException,java.io.IOException"},
-	{"parseStorePassURL", "()V", nullptr, $PRIVATE, $method(PolicyParser, parseStorePassURL, void), "sun.security.provider.PolicyParser$ParsingException,java.io.IOException"},
-	{"peek", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(PolicyParser, peek, bool, $String*)},
-	{"peekAndMatch", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(PolicyParser, peekAndMatch, bool, $String*), "sun.security.provider.PolicyParser$ParsingException,java.io.IOException"},
-	{"read", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(PolicyParser, read, void, $Reader*), "sun.security.provider.PolicyParser$ParsingException,java.io.IOException"},
-	{"remove", "(Lsun/security/provider/PolicyParser$GrantEntry;)Z", nullptr, $PUBLIC, $virtualMethod(PolicyParser, remove, bool, $PolicyParser$GrantEntry*)},
-	{"replace", "(Lsun/security/provider/PolicyParser$GrantEntry;Lsun/security/provider/PolicyParser$GrantEntry;)V", nullptr, $PUBLIC, $virtualMethod(PolicyParser, replace, void, $PolicyParser$GrantEntry*, $PolicyParser$GrantEntry*)},
-	{"setKeyStoreProvider", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PolicyParser, setKeyStoreProvider, void, $String*)},
-	{"setKeyStoreType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PolicyParser, setKeyStoreType, void, $String*)},
-	{"setKeyStoreUrl", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PolicyParser, setKeyStoreUrl, void, $String*)},
-	{"setStorePassURL", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PolicyParser, setStorePassURL, void, $String*)},
-	{"skipEntry", "()V", nullptr, $PRIVATE, $method(PolicyParser, skipEntry, void), "sun.security.provider.PolicyParser$ParsingException,java.io.IOException"},
-	{"write", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $virtualMethod(PolicyParser, write, void, $Writer*)},
-	{"writeKeyStoreEntry", "(Ljava/io/PrintWriter;)V", nullptr, $PRIVATE, $method(PolicyParser, writeKeyStoreEntry, void, $PrintWriter*)},
-	{"writeStorePassURL", "(Ljava/io/PrintWriter;)V", nullptr, $PRIVATE, $method(PolicyParser, writeStorePassURL, void, $PrintWriter*)},
-	{}
-};
-
-$InnerClassInfo _PolicyParser_InnerClassesInfo_[] = {
-	{"sun.security.provider.PolicyParser$ParsingException", "sun.security.provider.PolicyParser", "ParsingException", $PUBLIC | $STATIC},
-	{"sun.security.provider.PolicyParser$KeyStoreEntry", "sun.security.provider.PolicyParser", "KeyStoreEntry", $STATIC},
-	{"sun.security.provider.PolicyParser$DomainEntry", "sun.security.provider.PolicyParser", "DomainEntry", $STATIC},
-	{"sun.security.provider.PolicyParser$PermissionEntry", "sun.security.provider.PolicyParser", "PermissionEntry", $PUBLIC | $STATIC},
-	{"sun.security.provider.PolicyParser$PrincipalEntry", "sun.security.provider.PolicyParser", "PrincipalEntry", $PUBLIC | $STATIC},
-	{"sun.security.provider.PolicyParser$GrantEntry", "sun.security.provider.PolicyParser", "GrantEntry", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _PolicyParser_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.provider.PolicyParser",
-	"java.lang.Object",
-	nullptr,
-	_PolicyParser_FieldInfo_,
-	_PolicyParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PolicyParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.provider.PolicyParser$ParsingException,sun.security.provider.PolicyParser$KeyStoreEntry,sun.security.provider.PolicyParser$DomainEntry,sun.security.provider.PolicyParser$PermissionEntry,sun.security.provider.PolicyParser$PrincipalEntry,sun.security.provider.PolicyParser$GrantEntry"
-};
-
-$Object* allocate$PolicyParser($Class* clazz) {
-	return $of($alloc(PolicyParser));
-}
-
 $Debug* PolicyParser::debug = nullptr;
 
 $String* PolicyParser::expand($String* value) {
@@ -191,29 +111,29 @@ void PolicyParser::init$(bool expandProp) {
 }
 
 void PolicyParser::read($Reader* policy$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Reader, policy, policy$renamed);
 	if (!($instanceOf($BufferedReader, policy))) {
 		$assign(policy, $new($BufferedReader, policy));
 	}
 	$set(this, st, $new($StreamTokenizer, policy));
-	$nc(this->st)->resetSyntax();
-	$nc(this->st)->wordChars(u'a', u'z');
-	$nc(this->st)->wordChars(u'A', u'Z');
-	$nc(this->st)->wordChars(u'.', u'.');
-	$nc(this->st)->wordChars(u'0', u'9');
-	$nc(this->st)->wordChars(u'_', u'_');
-	$nc(this->st)->wordChars(u'$', u'$');
-	$nc(this->st)->wordChars(128 + 32, 255);
-	$nc(this->st)->whitespaceChars(0, u' ');
-	$nc(this->st)->commentChar(u'/');
-	$nc(this->st)->quoteChar(u'\'');
-	$nc(this->st)->quoteChar(u'\"');
-	$nc(this->st)->lowerCaseMode(false);
-	$nc(this->st)->ordinaryChar(u'/');
-	$nc(this->st)->slashSlashComments(true);
-	$nc(this->st)->slashStarComments(true);
-	this->lookahead = $nc(this->st)->nextToken();
+	this->st->resetSyntax();
+	this->st->wordChars(u'a', u'z');
+	this->st->wordChars(u'A', u'Z');
+	this->st->wordChars(u'.', u'.');
+	this->st->wordChars(u'0', u'9');
+	this->st->wordChars(u'_', u'_');
+	this->st->wordChars(u'$', u'$');
+	this->st->wordChars(128 + 32, 255);
+	this->st->whitespaceChars(0, u' ');
+	this->st->commentChar(u'/');
+	this->st->quoteChar(u'\'');
+	this->st->quoteChar(u'\"');
+	this->st->lowerCaseMode(false);
+	this->st->ordinaryChar(u'/');
+	this->st->slashSlashComments(true);
+	this->st->slashStarComments(true);
+	this->lookahead = this->st->nextToken();
 	$var($PolicyParser$GrantEntry, ge, nullptr);
 	while (this->lookahead != $StreamTokenizer::TT_EOF) {
 		if (peek("grant"_s)) {
@@ -227,16 +147,16 @@ void PolicyParser::read($Reader* policy$renamed) {
 			parseStorePassURL();
 		} else if (ge == nullptr && this->keyStoreUrlString == nullptr && this->storePassURL == nullptr && peek("domain"_s)) {
 			if (this->domainEntries == nullptr) {
-				$set(this, domainEntries, static_cast<$Map*>(static_cast<$AbstractMap*>($new($TreeMap))));
+				$set(this, domainEntries, $cast($AbstractMap, $new($TreeMap)));
 			}
 			$var($PolicyParser$DomainEntry, de, parseDomainEntry());
 			if (de != nullptr) {
 				$var($String, domainName, de->getName());
 				if (!$nc(this->domainEntries)->containsKey(domainName)) {
-					$nc(this->domainEntries)->put(domainName, de);
+					this->domainEntries->put(domainName, de);
 				} else {
 					$var($LocalizedMessage, localizedMsg, $new($LocalizedMessage, "duplicate.keystore.domain.name"_s));
-					$var($ObjectArray, source, $new($ObjectArray, {$of(domainName)}));
+					$var($ObjectArray, source, $new($ObjectArray, {domainName}));
 					$var($String, msg, $str({"duplicate keystore domain name: "_s, domainName}));
 					$throwNew($PolicyParser$ParsingException, msg, localizedMsg, source);
 				}
@@ -263,15 +183,15 @@ bool PolicyParser::remove($PolicyParser$GrantEntry* ge) {
 }
 
 $String* PolicyParser::getKeyStoreUrl() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		if (this->keyStoreUrlString != nullptr && $nc(this->keyStoreUrlString)->length() != 0) {
+		if (this->keyStoreUrlString != nullptr && this->keyStoreUrlString->length() != 0) {
 			$init($File);
-			return $nc($(expand(this->keyStoreUrlString, true)))->replace($File::separatorChar, u'/');
+			return $$nc(expand(this->keyStoreUrlString, true))->replace($File::separatorChar, u'/');
 		}
 	} catch ($PropertyExpander$ExpandException& peee) {
 		if (PolicyParser::debug != nullptr) {
-			$nc(PolicyParser::debug)->println($(peee->toString()));
+			PolicyParser::debug->println($(peee->toString()));
 		}
 		return nullptr;
 	}
@@ -299,15 +219,15 @@ void PolicyParser::setKeyStoreProvider($String* provider) {
 }
 
 $String* PolicyParser::getStorePassURL() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		if (this->storePassURL != nullptr && $nc(this->storePassURL)->length() != 0) {
+		if (this->storePassURL != nullptr && this->storePassURL->length() != 0) {
 			$init($File);
-			return $nc($(expand(this->storePassURL, true)))->replace($File::separatorChar, u'/');
+			return $$nc(expand(this->storePassURL, true))->replace($File::separatorChar, u'/');
 		}
 	} catch ($PropertyExpander$ExpandException& peee) {
 		if (PolicyParser::debug != nullptr) {
-			$nc(PolicyParser::debug)->println($(peee->toString()));
+			PolicyParser::debug->println($(peee->toString()));
 		}
 		return nullptr;
 	}
@@ -327,8 +247,8 @@ $Collection* PolicyParser::getDomainEntries() {
 }
 
 void PolicyParser::write($Writer* policy) {
-	$useLocalCurrentObjectStackCache();
-	$var($PrintWriter, out, $new($PrintWriter, static_cast<$Writer*>($$new($BufferedWriter, policy))));
+	$useLocalObjectStack();
+	$var($PrintWriter, out, $new($PrintWriter, $$new($BufferedWriter, policy)));
 	$var($Enumeration, enum_, grantElements());
 	out->println($$str({"/* AUTOMATICALLY GENERATED ON "_s, ($$new($Date)), "*/"_s}));
 	out->println("/* DO NOT EDIT */"_s);
@@ -348,7 +268,7 @@ void PolicyParser::write($Writer* policy) {
 }
 
 void PolicyParser::parseKeyStoreEntry() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	match("keystore"_s);
 	$set(this, keyStoreUrlString, match("quoted string"_s));
 	if (!peek(","_s)) {
@@ -379,14 +299,14 @@ void PolicyParser::parseStorePassURL() {
 }
 
 void PolicyParser::writeKeyStoreEntry($PrintWriter* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(out)->print("keystore \""_s);
 	out->print(this->keyStoreUrlString);
 	out->print(u'\"');
-	if (this->keyStoreType != nullptr && !$nc(this->keyStoreType)->isEmpty()) {
+	if (this->keyStoreType != nullptr && !this->keyStoreType->isEmpty()) {
 		out->print($$str({", \""_s, this->keyStoreType, "\""_s}));
 	}
-	if (this->keyStoreProvider != nullptr && !$nc(this->keyStoreProvider)->isEmpty()) {
+	if (this->keyStoreProvider != nullptr && !this->keyStoreProvider->isEmpty()) {
 		out->print($$str({", \""_s, this->keyStoreProvider, "\""_s}));
 	}
 	out->println(";"_s);
@@ -402,7 +322,7 @@ void PolicyParser::writeStorePassURL($PrintWriter* out) {
 }
 
 $PolicyParser$GrantEntry* PolicyParser::parseGrantEntry() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PolicyParser$GrantEntry, e, $new($PolicyParser$GrantEntry));
 	$var($LinkedList, principals, nullptr);
 	bool ignoreEntry = false;
@@ -425,7 +345,7 @@ $PolicyParser$GrantEntry* PolicyParser::parseGrantEntry() {
 			int32_t actr = 0;
 			int32_t cctr = 0;
 			while (aliases->hasMoreTokens()) {
-				$var($String, alias, $nc($(aliases->nextToken()))->trim());
+				$var($String, alias, $$nc(aliases->nextToken())->trim());
 				if (alias->equals(","_s)) {
 					++cctr;
 				} else if (!alias->isEmpty()) {
@@ -466,7 +386,7 @@ $PolicyParser$GrantEntry* PolicyParser::parseGrantEntry() {
 				bool var$3 = $nc(principalClass)->equals($PolicyParser$PrincipalEntry::WILDCARD_CLASS);
 				if (var$3 && !$nc(principalName)->equals($PolicyParser$PrincipalEntry::WILDCARD_NAME)) {
 					if (PolicyParser::debug != nullptr) {
-						$nc(PolicyParser::debug)->println("disallowing principal that has WILDCARD class but no WILDCARD name"_s);
+						PolicyParser::debug->println("disallowing principal that has WILDCARD class but no WILDCARD name"_s);
 					}
 					int32_t var$4 = $nc(this->st)->lineno();
 					$throwNew($PolicyParser$ParsingException, var$4, $($LocalizedMessage::getNonlocalized("can.not.specify.Principal.with.a.wildcard.class.without.a.wildcard.name"_s, $$new($ObjectArray, 0))));
@@ -483,7 +403,7 @@ $PolicyParser$GrantEntry* PolicyParser::parseGrantEntry() {
 				$nc(principals)->add($$new($PolicyParser$PrincipalEntry, principalClass, principalName));
 			} catch ($PropertyExpander$ExpandException& peee) {
 				if (PolicyParser::debug != nullptr) {
-					$nc(PolicyParser::debug)->println($$str({"principal name expansion failed: "_s, principalName}));
+					PolicyParser::debug->println($$str({"principal name expansion failed: "_s, principalName}));
 				}
 				ignoreEntry = true;
 			}
@@ -504,7 +424,7 @@ $PolicyParser$GrantEntry* PolicyParser::parseGrantEntry() {
 				e->add(pe);
 			} catch ($PropertyExpander$ExpandException& peee) {
 				if (PolicyParser::debug != nullptr) {
-					$nc(PolicyParser::debug)->println($(peee->toString()));
+					PolicyParser::debug->println($(peee->toString()));
 				}
 				skipEntry();
 			}
@@ -521,11 +441,11 @@ $PolicyParser$GrantEntry* PolicyParser::parseGrantEntry() {
 		}
 		if (e->codeBase != nullptr) {
 			$init($File);
-			$set(e, codeBase, $nc($(expand(e->codeBase, true)))->replace($File::separatorChar, u'/'));
+			$set(e, codeBase, $$nc(expand(e->codeBase, true))->replace($File::separatorChar, u'/'));
 		}
 	} catch ($PropertyExpander$ExpandException& peee) {
 		if (PolicyParser::debug != nullptr) {
-			$nc(PolicyParser::debug)->println($(peee->toString()));
+			PolicyParser::debug->println($(peee->toString()));
 		}
 		return nullptr;
 	}
@@ -533,7 +453,7 @@ $PolicyParser$GrantEntry* PolicyParser::parseGrantEntry() {
 }
 
 $PolicyParser$PermissionEntry* PolicyParser::parsePermissionEntry() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PolicyParser$PermissionEntry, e, $new($PolicyParser$PermissionEntry));
 	match("Permission"_s);
 	$set(e, permission, match("permission type"_s));
@@ -558,7 +478,7 @@ $PolicyParser$PermissionEntry* PolicyParser::parsePermissionEntry() {
 }
 
 $PolicyParser$DomainEntry* PolicyParser::parseDomainEntry() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool ignoreEntry = false;
 	$var($PolicyParser$DomainEntry, domainEntry, nullptr);
 	$var($String, name, nullptr);
@@ -584,7 +504,7 @@ $PolicyParser$DomainEntry* PolicyParser::parseDomainEntry() {
 }
 
 $Map* PolicyParser::parseProperties($String* terminator) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, properties, $new($HashMap));
 	$var($String, key, nullptr);
 	$var($String, value, nullptr);
@@ -615,179 +535,147 @@ bool PolicyParser::peek($String* expect) {
 	bool found = false;
 	switch (this->lookahead) {
 	case $StreamTokenizer::TT_WORD:
-		{
-			if ($nc(expect)->equalsIgnoreCase($nc(this->st)->sval)) {
-				found = true;
-			}
-			break;
+		if ($nc(expect)->equalsIgnoreCase($nc(this->st)->sval)) {
+			found = true;
 		}
+		break;
 	case u',':
-		{
-			if ($nc(expect)->equalsIgnoreCase(","_s)) {
-				found = true;
-			}
-			break;
+		if ($nc(expect)->equalsIgnoreCase(","_s)) {
+			found = true;
 		}
+		break;
 	case u'{':
-		{
-			if ($nc(expect)->equalsIgnoreCase("{"_s)) {
-				found = true;
-			}
-			break;
+		if ($nc(expect)->equalsIgnoreCase("{"_s)) {
+			found = true;
 		}
+		break;
 	case u'}':
-		{
-			if ($nc(expect)->equalsIgnoreCase("}"_s)) {
-				found = true;
-			}
-			break;
+		if ($nc(expect)->equalsIgnoreCase("}"_s)) {
+			found = true;
 		}
+		break;
 	case u'\"':
-		{
-			if ($nc(expect)->equalsIgnoreCase("\""_s)) {
-				found = true;
-			}
-			break;
+		if ($nc(expect)->equalsIgnoreCase("\""_s)) {
+			found = true;
 		}
+		break;
 	case u'*':
-		{
-			if ($nc(expect)->equalsIgnoreCase("*"_s)) {
-				found = true;
-			}
-			break;
+		if ($nc(expect)->equalsIgnoreCase("*"_s)) {
+			found = true;
 		}
+		break;
 	case u';':
-		{
-			if ($nc(expect)->equalsIgnoreCase(";"_s)) {
-				found = true;
-			}
-			break;
+		if ($nc(expect)->equalsIgnoreCase(";"_s)) {
+			found = true;
 		}
+		break;
 	default:
-		{}
+		break;
 	}
 	return found;
 }
 
 $String* PolicyParser::match($String* expect) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, value, nullptr);
 	{
-		$var($LocalizedMessage, localizedMsg, nullptr)
-		$var($ObjectArray, source, nullptr)
-		$var($String, msg, nullptr)
+		$var($LocalizedMessage, localizedMsg, nullptr);
+		$var($ObjectArray, source, nullptr);
+		$var($String, msg, nullptr);
 		switch (this->lookahead) {
 		case $StreamTokenizer::TT_NUMBER:
 			{
 				int32_t var$0 = $nc(this->st)->lineno();
-				$var($String, var$1, expect);
-				$var($String, var$2, $($LocalizedMessage::getNonlocalized("number."_s, $$new($ObjectArray, 0))));
-				$throwNew($PolicyParser$ParsingException, var$0, var$1, $$concat(var$2, $($String::valueOf($nc(this->st)->nval))));
+				$var($StringBuilder, var$1, $new($StringBuilder));
+				var$1->append($($LocalizedMessage::getNonlocalized("number."_s, $$new($ObjectArray, 0))));
+				var$1->append($($String::valueOf(this->st->nval)));
+				$throwNew($PolicyParser$ParsingException, var$0, expect, $$str(var$1));
 			}
 		case $StreamTokenizer::TT_EOF:
-			{
-				$assign(localizedMsg, $new($LocalizedMessage, "expected.expect.read.end.of.file."_s));
-				$assign(source, $new($ObjectArray, {$of(expect)}));
-				$assign(msg, $str({"expected ["_s, expect, "], read [end of file]"_s}));
-				$throwNew($PolicyParser$ParsingException, msg, localizedMsg, source);
-			}
+			$assign(localizedMsg, $new($LocalizedMessage, "expected.expect.read.end.of.file."_s));
+			$assign(source, $new($ObjectArray, {expect}));
+			$assign(msg, $str({"expected ["_s, expect, "], read [end of file]"_s}));
+			$throwNew($PolicyParser$ParsingException, msg, localizedMsg, source);
 		case $StreamTokenizer::TT_WORD:
-			{
-				if ($nc(expect)->equalsIgnoreCase($nc(this->st)->sval)) {
-					this->lookahead = $nc(this->st)->nextToken();
-				} else if (expect->equalsIgnoreCase("permission type"_s)) {
-					$assign(value, $nc(this->st)->sval);
-					this->lookahead = $nc(this->st)->nextToken();
-				} else if (expect->equalsIgnoreCase("principal type"_s)) {
-					$assign(value, $nc(this->st)->sval);
-					this->lookahead = $nc(this->st)->nextToken();
+			if ($nc(expect)->equalsIgnoreCase($nc(this->st)->sval)) {
+				this->lookahead = this->st->nextToken();
+			} else if (expect->equalsIgnoreCase("permission type"_s)) {
+				$assign(value, this->st->sval);
+				this->lookahead = this->st->nextToken();
+			} else if (expect->equalsIgnoreCase("principal type"_s)) {
+				$assign(value, this->st->sval);
+				this->lookahead = this->st->nextToken();
+			} else {
+				bool var$3 = expect->equalsIgnoreCase("domain name"_s);
+				bool var$2 = var$3 || expect->equalsIgnoreCase("keystore name"_s);
+				if (var$2 || expect->equalsIgnoreCase("property name"_s)) {
+					$assign(value, this->st->sval);
+					this->lookahead = this->st->nextToken();
 				} else {
-					bool var$6 = expect->equalsIgnoreCase("domain name"_s);
-					bool var$5 = var$6 || expect->equalsIgnoreCase("keystore name"_s);
-					if (var$5 || expect->equalsIgnoreCase("property name"_s)) {
-						$assign(value, $nc(this->st)->sval);
-						this->lookahead = $nc(this->st)->nextToken();
-					} else {
-						$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, $nc(this->st)->sval);
-					}
+					$throwNew($PolicyParser$ParsingException, this->st->lineno(), expect, this->st->sval);
 				}
-				break;
 			}
+			break;
 		case u'\"':
-			{
-				if ($nc(expect)->equalsIgnoreCase("quoted string"_s)) {
-					$assign(value, $nc(this->st)->sval);
-					this->lookahead = $nc(this->st)->nextToken();
-				} else if (expect->equalsIgnoreCase("permission type"_s)) {
-					$assign(value, $nc(this->st)->sval);
-					this->lookahead = $nc(this->st)->nextToken();
-				} else if (expect->equalsIgnoreCase("principal type"_s)) {
-					$assign(value, $nc(this->st)->sval);
-					this->lookahead = $nc(this->st)->nextToken();
-				} else {
-					$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, $nc(this->st)->sval);
-				}
-				break;
+			if ($nc(expect)->equalsIgnoreCase("quoted string"_s)) {
+				$assign(value, $nc(this->st)->sval);
+				this->lookahead = this->st->nextToken();
+			} else if (expect->equalsIgnoreCase("permission type"_s)) {
+				$assign(value, $nc(this->st)->sval);
+				this->lookahead = this->st->nextToken();
+			} else if (expect->equalsIgnoreCase("principal type"_s)) {
+				$assign(value, $nc(this->st)->sval);
+				this->lookahead = this->st->nextToken();
+			} else {
+				$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, $nc(this->st)->sval);
 			}
+			break;
 		case u',':
-			{
-				if ($nc(expect)->equalsIgnoreCase(","_s)) {
-					this->lookahead = $nc(this->st)->nextToken();
-				} else {
-					$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, ","_s);
-				}
-				break;
+			if ($nc(expect)->equalsIgnoreCase(","_s)) {
+				this->lookahead = $nc(this->st)->nextToken();
+			} else {
+				$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, ","_s);
 			}
+			break;
 		case u'{':
-			{
-				if ($nc(expect)->equalsIgnoreCase("{"_s)) {
-					this->lookahead = $nc(this->st)->nextToken();
-				} else {
-					$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, "{"_s);
-				}
-				break;
+			if ($nc(expect)->equalsIgnoreCase("{"_s)) {
+				this->lookahead = $nc(this->st)->nextToken();
+			} else {
+				$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, "{"_s);
 			}
+			break;
 		case u'}':
-			{
-				if ($nc(expect)->equalsIgnoreCase("}"_s)) {
-					this->lookahead = $nc(this->st)->nextToken();
-				} else {
-					$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, "}"_s);
-				}
-				break;
+			if ($nc(expect)->equalsIgnoreCase("}"_s)) {
+				this->lookahead = $nc(this->st)->nextToken();
+			} else {
+				$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, "}"_s);
 			}
+			break;
 		case u';':
-			{
-				if ($nc(expect)->equalsIgnoreCase(";"_s)) {
-					this->lookahead = $nc(this->st)->nextToken();
-				} else {
-					$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, ";"_s);
-				}
-				break;
+			if ($nc(expect)->equalsIgnoreCase(";"_s)) {
+				this->lookahead = $nc(this->st)->nextToken();
+			} else {
+				$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, ";"_s);
 			}
+			break;
 		case u'*':
-			{
-				if ($nc(expect)->equalsIgnoreCase("*"_s)) {
-					this->lookahead = $nc(this->st)->nextToken();
-				} else {
-					$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, "*"_s);
-				}
-				break;
+			if ($nc(expect)->equalsIgnoreCase("*"_s)) {
+				this->lookahead = $nc(this->st)->nextToken();
+			} else {
+				$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, "*"_s);
 			}
+			break;
 		case u'=':
-			{
-				if ($nc(expect)->equalsIgnoreCase("="_s)) {
-					this->lookahead = $nc(this->st)->nextToken();
-				} else {
-					$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, "="_s);
-				}
-				break;
+			if ($nc(expect)->equalsIgnoreCase("="_s)) {
+				this->lookahead = $nc(this->st)->nextToken();
+			} else {
+				$throwNew($PolicyParser$ParsingException, $nc(this->st)->lineno(), expect, "="_s);
 			}
+			break;
 		default:
 			{
-				int32_t var$7 = $nc(this->st)->lineno();
-				$var($String, var$8, expect);
-				$throwNew($PolicyParser$ParsingException, var$7, var$8, $($String::valueOf((char16_t)this->lookahead)));
+				int32_t var$4 = $nc(this->st)->lineno();
+				$throwNew($PolicyParser$ParsingException, var$4, expect, $($String::valueOf((char16_t)this->lookahead)));
 			}
 		}
 	}
@@ -795,83 +683,77 @@ $String* PolicyParser::match($String* expect) {
 }
 
 void PolicyParser::skipEntry() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (this->lookahead != u';') {
 		switch (this->lookahead) {
 		case $StreamTokenizer::TT_NUMBER:
 			{
 				int32_t var$0 = $nc(this->st)->lineno();
 				$var($String, var$1, ";"_s);
-				$var($String, var$2, $($LocalizedMessage::getNonlocalized("number."_s, $$new($ObjectArray, 0))));
-				$throwNew($PolicyParser$ParsingException, var$0, var$1, $$concat(var$2, $($String::valueOf($nc(this->st)->nval))));
+				$var($StringBuilder, var$2, $new($StringBuilder));
+				var$2->append($($LocalizedMessage::getNonlocalized("number."_s, $$new($ObjectArray, 0))));
+				var$2->append($($String::valueOf(this->st->nval)));
+				$throwNew($PolicyParser$ParsingException, var$0, var$1, $$str(var$2));
 			}
 		case $StreamTokenizer::TT_EOF:
-			{
-				$throwNew($PolicyParser$ParsingException, $($LocalizedMessage::getNonlocalized("expected.read.end.of.file."_s, $$new($ObjectArray, 0))));
-			}
+			$throwNew($PolicyParser$ParsingException, $($LocalizedMessage::getNonlocalized("expected.read.end.of.file."_s, $$new($ObjectArray, 0))));
 		default:
-			{
-				this->lookahead = $nc(this->st)->nextToken();
-			}
+			this->lookahead = $nc(this->st)->nextToken();
 		}
 	}
 }
 
 void PolicyParser::main($StringArray* arg) {
 	$init(PolicyParser);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($FileReader, fr, $new($FileReader, $nc(arg)->get(0)));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				$var($FileWriter, fw, $new($FileWriter, arg->get(1)));
+				$var($Throwable, var$1, nullptr);
 				try {
-					$var($FileWriter, fw, $new($FileWriter, $nc(arg)->get(1)));
-					{
-						$var($Throwable, var$1, nullptr);
-						try {
-							try {
-								$var(PolicyParser, pp, $new(PolicyParser, true));
-								pp->read(fr);
-								pp->write(fw);
-							} catch ($Throwable& t$) {
-								try {
-									fw->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$2) {
-							$assign(var$1, var$2);
-						} /*finally*/ {
-							fw->close();
-						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
-						}
-					}
-				} catch ($Throwable& t$) {
 					try {
-						fr->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
+						$var(PolicyParser, pp, $new(PolicyParser, true));
+						pp->read(fr);
+						pp->write(fw);
+					} catch ($Throwable& t$) {
+						try {
+							fw->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
+						$throw(t$);
 					}
-					$throw(t$);
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
+				} /*finally*/ {
+					fw->close();
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
-				fr->close();
+				if (var$1 != nullptr) {
+					$throw(var$1);
+				}
+			} catch ($Throwable& t$) {
+				try {
+					fr->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			fr->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
-void clinit$PolicyParser($Class* class$) {
+void PolicyParser::clinit$($Class* clazz) {
 	$assignStatic(PolicyParser::debug, $Debug::getInstance("parser"_s, "\t[Policy Parser]"_s));
 }
 
@@ -879,7 +761,80 @@ PolicyParser::PolicyParser() {
 }
 
 $Class* PolicyParser::load$($String* name, bool initialize) {
-	$loadClass(PolicyParser, name, initialize, &_PolicyParser_ClassInfo_, clinit$PolicyParser, allocate$PolicyParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"grantEntries", "Ljava/util/Vector;", "Ljava/util/Vector<Lsun/security/provider/PolicyParser$GrantEntry;>;", $PRIVATE, $field(PolicyParser, grantEntries)},
+		{"domainEntries", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lsun/security/provider/PolicyParser$DomainEntry;>;", $PRIVATE, $field(PolicyParser, domainEntries)},
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PolicyParser, debug)},
+		{"st", "Ljava/io/StreamTokenizer;", nullptr, $PRIVATE, $field(PolicyParser, st)},
+		{"lookahead", "I", nullptr, $PRIVATE, $field(PolicyParser, lookahead)},
+		{"expandProp", "Z", nullptr, $PRIVATE, $field(PolicyParser, expandProp)},
+		{"keyStoreUrlString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PolicyParser, keyStoreUrlString)},
+		{"keyStoreType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PolicyParser, keyStoreType)},
+		{"keyStoreProvider", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PolicyParser, keyStoreProvider)},
+		{"storePassURL", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PolicyParser, storePassURL)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PolicyParser, init$, void)},
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(PolicyParser, init$, void, bool)},
+		{"add", "(Lsun/security/provider/PolicyParser$GrantEntry;)V", nullptr, $PUBLIC, $virtualMethod(PolicyParser, add, void, $PolicyParser$GrantEntry*)},
+		{"expand", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(PolicyParser, expand, $String*, $String*), "sun.security.util.PropertyExpander$ExpandException"},
+		{"expand", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE, $method(PolicyParser, expand, $String*, $String*, bool), "sun.security.util.PropertyExpander$ExpandException"},
+		{"getDomainEntries", "()Ljava/util/Collection;", "()Ljava/util/Collection<Lsun/security/provider/PolicyParser$DomainEntry;>;", $PUBLIC, $virtualMethod(PolicyParser, getDomainEntries, $Collection*)},
+		{"getKeyStoreProvider", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyParser, getKeyStoreProvider, $String*)},
+		{"getKeyStoreType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyParser, getKeyStoreType, $String*)},
+		{"getKeyStoreUrl", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyParser, getKeyStoreUrl, $String*)},
+		{"getStorePassURL", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyParser, getStorePassURL, $String*)},
+		{"grantElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Lsun/security/provider/PolicyParser$GrantEntry;>;", $PUBLIC, $virtualMethod(PolicyParser, grantElements, $Enumeration*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PolicyParser, main, void, $StringArray*), "java.lang.Exception"},
+		{"match", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(PolicyParser, match, $String*, $String*), "sun.security.provider.PolicyParser$ParsingException,java.io.IOException"},
+		{"parseDomainEntry", "()Lsun/security/provider/PolicyParser$DomainEntry;", nullptr, $PRIVATE, $method(PolicyParser, parseDomainEntry, $PolicyParser$DomainEntry*), "sun.security.provider.PolicyParser$ParsingException,java.io.IOException"},
+		{"parseGrantEntry", "()Lsun/security/provider/PolicyParser$GrantEntry;", nullptr, $PRIVATE, $method(PolicyParser, parseGrantEntry, $PolicyParser$GrantEntry*), "sun.security.provider.PolicyParser$ParsingException,java.io.IOException"},
+		{"parseKeyStoreEntry", "()V", nullptr, $PRIVATE, $method(PolicyParser, parseKeyStoreEntry, void), "sun.security.provider.PolicyParser$ParsingException,java.io.IOException"},
+		{"parsePermissionEntry", "()Lsun/security/provider/PolicyParser$PermissionEntry;", nullptr, $PRIVATE, $method(PolicyParser, parsePermissionEntry, $PolicyParser$PermissionEntry*), "sun.security.provider.PolicyParser$ParsingException,java.io.IOException,sun.security.util.PropertyExpander$ExpandException"},
+		{"parseProperties", "(Ljava/lang/String;)Ljava/util/Map;", "(Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $method(PolicyParser, parseProperties, $Map*, $String*), "sun.security.provider.PolicyParser$ParsingException,java.io.IOException"},
+		{"parseStorePassURL", "()V", nullptr, $PRIVATE, $method(PolicyParser, parseStorePassURL, void), "sun.security.provider.PolicyParser$ParsingException,java.io.IOException"},
+		{"peek", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(PolicyParser, peek, bool, $String*)},
+		{"peekAndMatch", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(PolicyParser, peekAndMatch, bool, $String*), "sun.security.provider.PolicyParser$ParsingException,java.io.IOException"},
+		{"read", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $virtualMethod(PolicyParser, read, void, $Reader*), "sun.security.provider.PolicyParser$ParsingException,java.io.IOException"},
+		{"remove", "(Lsun/security/provider/PolicyParser$GrantEntry;)Z", nullptr, $PUBLIC, $virtualMethod(PolicyParser, remove, bool, $PolicyParser$GrantEntry*)},
+		{"replace", "(Lsun/security/provider/PolicyParser$GrantEntry;Lsun/security/provider/PolicyParser$GrantEntry;)V", nullptr, $PUBLIC, $virtualMethod(PolicyParser, replace, void, $PolicyParser$GrantEntry*, $PolicyParser$GrantEntry*)},
+		{"setKeyStoreProvider", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PolicyParser, setKeyStoreProvider, void, $String*)},
+		{"setKeyStoreType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PolicyParser, setKeyStoreType, void, $String*)},
+		{"setKeyStoreUrl", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PolicyParser, setKeyStoreUrl, void, $String*)},
+		{"setStorePassURL", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PolicyParser, setStorePassURL, void, $String*)},
+		{"skipEntry", "()V", nullptr, $PRIVATE, $method(PolicyParser, skipEntry, void), "sun.security.provider.PolicyParser$ParsingException,java.io.IOException"},
+		{"write", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $virtualMethod(PolicyParser, write, void, $Writer*)},
+		{"writeKeyStoreEntry", "(Ljava/io/PrintWriter;)V", nullptr, $PRIVATE, $method(PolicyParser, writeKeyStoreEntry, void, $PrintWriter*)},
+		{"writeStorePassURL", "(Ljava/io/PrintWriter;)V", nullptr, $PRIVATE, $method(PolicyParser, writeStorePassURL, void, $PrintWriter*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.PolicyParser$ParsingException", "sun.security.provider.PolicyParser", "ParsingException", $PUBLIC | $STATIC},
+		{"sun.security.provider.PolicyParser$KeyStoreEntry", "sun.security.provider.PolicyParser", "KeyStoreEntry", $STATIC},
+		{"sun.security.provider.PolicyParser$DomainEntry", "sun.security.provider.PolicyParser", "DomainEntry", $STATIC},
+		{"sun.security.provider.PolicyParser$PermissionEntry", "sun.security.provider.PolicyParser", "PermissionEntry", $PUBLIC | $STATIC},
+		{"sun.security.provider.PolicyParser$PrincipalEntry", "sun.security.provider.PolicyParser", "PrincipalEntry", $PUBLIC | $STATIC},
+		{"sun.security.provider.PolicyParser$GrantEntry", "sun.security.provider.PolicyParser", "GrantEntry", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.provider.PolicyParser",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.provider.PolicyParser$ParsingException,sun.security.provider.PolicyParser$KeyStoreEntry,sun.security.provider.PolicyParser$DomainEntry,sun.security.provider.PolicyParser$PermissionEntry,sun.security.provider.PolicyParser$PrincipalEntry,sun.security.provider.PolicyParser$GrantEntry"
+	};
+	$loadClass(PolicyParser, name, initialize, &classInfo$$, PolicyParser::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PolicyParser);
+	});
 	return class$;
 }
 

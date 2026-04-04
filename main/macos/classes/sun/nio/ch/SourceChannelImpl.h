@@ -66,6 +66,7 @@ public:
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
 	virtual bool isOpen() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::channels::spi::SelectorProvider* sp, ::java::io::FileDescriptor* fd);
 	void beginRead(bool blocking);
 	void endRead(bool blocking, bool completed);

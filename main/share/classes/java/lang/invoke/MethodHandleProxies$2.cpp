@@ -1,5 +1,4 @@
 #include <java/lang/invoke/MethodHandleProxies$2.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/invoke/MethodHandleProxies.h>
 #include <java/lang/reflect/InvocationHandler.h>
@@ -21,50 +20,6 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$FieldInfo _MethodHandleProxies$2_FieldInfo_[] = {
-	{"val$ih", "Ljava/lang/reflect/InvocationHandler;", nullptr, $FINAL | $SYNTHETIC, $field(MethodHandleProxies$2, val$ih)},
-	{"val$intfc", "Ljava/lang/Class;", nullptr, $FINAL | $SYNTHETIC, $field(MethodHandleProxies$2, val$intfc)},
-	{"val$loader", "Ljava/lang/ClassLoader;", nullptr, $FINAL | $SYNTHETIC, $field(MethodHandleProxies$2, val$loader)},
-	{}
-};
-
-$MethodInfo _MethodHandleProxies$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)V", nullptr, 0, $method(MethodHandleProxies$2, init$, void, $ClassLoader*, $Class*, $InvocationHandler*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MethodHandleProxies$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _MethodHandleProxies$2_EnclosingMethodInfo_ = {
-	"java.lang.invoke.MethodHandleProxies",
-	"asInterfaceInstance",
-	"(Ljava/lang/Class;Ljava/lang/invoke/MethodHandle;)Ljava/lang/Object;"
-};
-
-$InnerClassInfo _MethodHandleProxies$2_InnerClassesInfo_[] = {
-	{"java.lang.invoke.MethodHandleProxies$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MethodHandleProxies$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.MethodHandleProxies$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_MethodHandleProxies$2_FieldInfo_,
-	_MethodHandleProxies$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
-	&_MethodHandleProxies$2_EnclosingMethodInfo_,
-	_MethodHandleProxies$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.MethodHandleProxies"
-};
-
-$Object* allocate$MethodHandleProxies$2($Class* clazz) {
-	return $of($alloc(MethodHandleProxies$2));
-}
-
 void MethodHandleProxies$2::init$($ClassLoader* val$loader, $Class* val$intfc, $InvocationHandler* val$ih) {
 	$set(this, val$loader, val$loader);
 	$set(this, val$intfc, val$intfc);
@@ -74,17 +29,54 @@ void MethodHandleProxies$2::init$($ClassLoader* val$loader, $Class* val$intfc, $
 $Object* MethodHandleProxies$2::run() {
 	$beforeCallerSensitive();
 	$load($WrapperInstance);
-	return $of($Proxy::newProxyInstance(this->val$loader, $$new($ClassArray, {
+	return $Proxy::newProxyInstance(this->val$loader, $$new($ClassArray, {
 		this->val$intfc,
 		$WrapperInstance::class$
-	}), this->val$ih));
+	}), this->val$ih);
 }
 
 MethodHandleProxies$2::MethodHandleProxies$2() {
 }
 
 $Class* MethodHandleProxies$2::load$($String* name, bool initialize) {
-	$loadClass(MethodHandleProxies$2, name, initialize, &_MethodHandleProxies$2_ClassInfo_, allocate$MethodHandleProxies$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$ih", "Ljava/lang/reflect/InvocationHandler;", nullptr, $FINAL | $SYNTHETIC, $field(MethodHandleProxies$2, val$ih)},
+		{"val$intfc", "Ljava/lang/Class;", nullptr, $FINAL | $SYNTHETIC, $field(MethodHandleProxies$2, val$intfc)},
+		{"val$loader", "Ljava/lang/ClassLoader;", nullptr, $FINAL | $SYNTHETIC, $field(MethodHandleProxies$2, val$loader)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/ClassLoader;Ljava/lang/Class;Ljava/lang/reflect/InvocationHandler;)V", nullptr, 0, $method(MethodHandleProxies$2, init$, void, $ClassLoader*, $Class*, $InvocationHandler*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MethodHandleProxies$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.invoke.MethodHandleProxies",
+		"asInterfaceInstance",
+		"(Ljava/lang/Class;Ljava/lang/invoke/MethodHandle;)Ljava/lang/Object;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.MethodHandleProxies$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.MethodHandleProxies$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.MethodHandleProxies"
+	};
+	$loadClass(MethodHandleProxies$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodHandleProxies$2);
+	});
 	return class$;
 }
 

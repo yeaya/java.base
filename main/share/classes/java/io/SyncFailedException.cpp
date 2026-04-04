@@ -1,5 +1,4 @@
 #include <java/io/SyncFailedException.h>
-
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
@@ -10,29 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _SyncFailedException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SyncFailedException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SyncFailedException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SyncFailedException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _SyncFailedException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.SyncFailedException",
-	"java.io.IOException",
-	nullptr,
-	_SyncFailedException_FieldInfo_,
-	_SyncFailedException_MethodInfo_
-};
-
-$Object* allocate$SyncFailedException($Class* clazz) {
-	return $of($alloc(SyncFailedException));
-}
 
 void SyncFailedException::init$($String* desc) {
 	$IOException::init$(desc);
@@ -49,7 +25,25 @@ void SyncFailedException::throw$() {
 }
 
 $Class* SyncFailedException::load$($String* name, bool initialize) {
-	$loadClass(SyncFailedException, name, initialize, &_SyncFailedException_ClassInfo_, allocate$SyncFailedException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SyncFailedException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SyncFailedException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.SyncFailedException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SyncFailedException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SyncFailedException);
+	});
 	return class$;
 }
 

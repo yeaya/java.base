@@ -1,5 +1,4 @@
 #include <sun/security/util/AuthResources.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -13,30 +12,6 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$FieldInfo _AuthResources_FieldInfo_[] = {
-	{"contents", "[[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AuthResources, contents)},
-	{}
-};
-
-$MethodInfo _AuthResources_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AuthResources, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AuthResources, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _AuthResources_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.AuthResources",
-	"java.util.ListResourceBundle",
-	nullptr,
-	_AuthResources_FieldInfo_,
-	_AuthResources_MethodInfo_
-};
-
-$Object* allocate$AuthResources($Class* clazz) {
-	return $of($alloc(AuthResources));
-}
-
 $ObjectArray2* AuthResources::contents = nullptr;
 
 void AuthResources::init$() {
@@ -47,132 +22,132 @@ $ObjectArray2* AuthResources::getContents() {
 	return AuthResources::contents;
 }
 
-void clinit$AuthResources($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void AuthResources::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(AuthResources::contents, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("invalid.null.input.value"_s),
-			$of("invalid null input: {0}"_s)
+			"invalid.null.input.value"_s,
+			"invalid null input: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NTDomainPrincipal.name"_s),
-			$of("NTDomainPrincipal: {0}"_s)
+			"NTDomainPrincipal.name"_s,
+			"NTDomainPrincipal: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NTNumericCredential.name"_s),
-			$of("NTNumericCredential: {0}"_s)
+			"NTNumericCredential.name"_s,
+			"NTNumericCredential: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Invalid.NTSid.value"_s),
-			$of("Invalid NTSid value"_s)
+			"Invalid.NTSid.value"_s,
+			"Invalid NTSid value"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NTSid.name"_s),
-			$of("NTSid: {0}"_s)
+			"NTSid.name"_s,
+			"NTSid: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NTSidDomainPrincipal.name"_s),
-			$of("NTSidDomainPrincipal: {0}"_s)
+			"NTSidDomainPrincipal.name"_s,
+			"NTSidDomainPrincipal: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NTSidGroupPrincipal.name"_s),
-			$of("NTSidGroupPrincipal: {0}"_s)
+			"NTSidGroupPrincipal.name"_s,
+			"NTSidGroupPrincipal: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NTSidPrimaryGroupPrincipal.name"_s),
-			$of("NTSidPrimaryGroupPrincipal: {0}"_s)
+			"NTSidPrimaryGroupPrincipal.name"_s,
+			"NTSidPrimaryGroupPrincipal: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NTSidUserPrincipal.name"_s),
-			$of("NTSidUserPrincipal: {0}"_s)
+			"NTSidUserPrincipal.name"_s,
+			"NTSidUserPrincipal: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NTUserPrincipal.name"_s),
-			$of("NTUserPrincipal: {0}"_s)
+			"NTUserPrincipal.name"_s,
+			"NTUserPrincipal: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UnixNumericGroupPrincipal.Primary.Group.name"_s),
-			$of("UnixNumericGroupPrincipal [Primary Group]: {0}"_s)
+			"UnixNumericGroupPrincipal.Primary.Group.name"_s,
+			"UnixNumericGroupPrincipal [Primary Group]: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UnixNumericGroupPrincipal.Supplementary.Group.name"_s),
-			$of("UnixNumericGroupPrincipal [Supplementary Group]: {0}"_s)
+			"UnixNumericGroupPrincipal.Supplementary.Group.name"_s,
+			"UnixNumericGroupPrincipal [Supplementary Group]: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UnixNumericUserPrincipal.name"_s),
-			$of("UnixNumericUserPrincipal: {0}"_s)
+			"UnixNumericUserPrincipal.name"_s,
+			"UnixNumericUserPrincipal: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UnixPrincipal.name"_s),
-			$of("UnixPrincipal: {0}"_s)
+			"UnixPrincipal.name"_s,
+			"UnixPrincipal: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Unable.to.properly.expand.config"_s),
-			$of("Unable to properly expand {0}"_s)
+			"Unable.to.properly.expand.config"_s,
+			"Unable to properly expand {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("extra.config.No.such.file.or.directory."_s),
-			$of("{0} (No such file or directory)"_s)
+			"extra.config.No.such.file.or.directory."_s,
+			"{0} (No such file or directory)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Configuration.Error.No.such.file.or.directory"_s),
-			$of("Configuration Error:\n\tNo such file or directory"_s)
+			"Configuration.Error.No.such.file.or.directory"_s,
+			"Configuration Error:\n\tNo such file or directory"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Configuration.Error.Invalid.control.flag.flag"_s),
-			$of("Configuration Error:\n\tInvalid control flag, {0}"_s)
+			"Configuration.Error.Invalid.control.flag.flag"_s,
+			"Configuration Error:\n\tInvalid control flag, {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Configuration.Error.Can.not.specify.multiple.entries.for.appName"_s),
-			$of("Configuration Error:\n\tCan not specify multiple entries for {0}"_s)
+			"Configuration.Error.Can.not.specify.multiple.entries.for.appName"_s,
+			"Configuration Error:\n\tCan not specify multiple entries for {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Configuration.Error.expected.expect.read.end.of.file."_s),
-			$of("Configuration Error:\n\texpected [{0}], read [end of file]"_s)
+			"Configuration.Error.expected.expect.read.end.of.file."_s,
+			"Configuration Error:\n\texpected [{0}], read [end of file]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Configuration.Error.Line.line.expected.expect.found.value."_s),
-			$of("Configuration Error:\n\tLine {0}: expected [{1}], found [{2}]"_s)
+			"Configuration.Error.Line.line.expected.expect.found.value."_s,
+			"Configuration Error:\n\tLine {0}: expected [{1}], found [{2}]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Configuration.Error.Line.line.expected.expect."_s),
-			$of("Configuration Error:\n\tLine {0}: expected [{1}]"_s)
+			"Configuration.Error.Line.line.expected.expect."_s,
+			"Configuration Error:\n\tLine {0}: expected [{1}]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Configuration.Error.Line.line.system.property.value.expanded.to.empty.value"_s),
-			$of("Configuration Error:\n\tLine {0}: system property [{1}] expanded to empty value"_s)
+			"Configuration.Error.Line.line.system.property.value.expanded.to.empty.value"_s,
+			"Configuration Error:\n\tLine {0}: system property [{1}] expanded to empty value"_s
 		}),
 		$$new($ObjectArray, {
-			$of("username."_s),
-			$of("username: "_s)
+			"username."_s,
+			"username: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("password."_s),
-			$of("password: "_s)
+			"password."_s,
+			"password: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Please.enter.keystore.information"_s),
-			$of("Please enter keystore information"_s)
+			"Please.enter.keystore.information"_s,
+			"Please enter keystore information"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Keystore.alias."_s),
-			$of("Keystore alias: "_s)
+			"Keystore.alias."_s,
+			"Keystore alias: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Keystore.password."_s),
-			$of("Keystore password: "_s)
+			"Keystore.password."_s,
+			"Keystore password: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Private.key.password.optional."_s),
-			$of("Private key password (optional): "_s)
+			"Private.key.password.optional."_s,
+			"Private key password (optional): "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kerberos.username.defUsername."_s),
-			$of("Kerberos username [{0}]: "_s)
+			"Kerberos.username.defUsername."_s,
+			"Kerberos username [{0}]: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kerberos.password.for.username."_s),
-			$of("Kerberos password for {0}: "_s)
+			"Kerberos.password.for.username."_s,
+			"Kerberos password for {0}: "_s
 		})
 	}));
 }
@@ -181,7 +156,26 @@ AuthResources::AuthResources() {
 }
 
 $Class* AuthResources::load$($String* name, bool initialize) {
-	$loadClass(AuthResources, name, initialize, &_AuthResources_ClassInfo_, clinit$AuthResources, allocate$AuthResources);
+	$FieldInfo fieldInfos$$[] = {
+		{"contents", "[[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AuthResources, contents)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AuthResources, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AuthResources, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.AuthResources",
+		"java.util.ListResourceBundle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AuthResources, name, initialize, &classInfo$$, AuthResources::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AuthResources);
+	});
 	return class$;
 }
 

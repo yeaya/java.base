@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/http/HttpURLConnection$7.h>
-
 #include <java/net/ProxySelector.h>
 #include <sun/net/www/protocol/http/HttpURLConnection.h>
 #include <jcpp.h>
@@ -18,61 +17,54 @@ namespace sun {
 			namespace protocol {
 				namespace http {
 
-$FieldInfo _HttpURLConnection$7_FieldInfo_[] = {
-	{"this$0", "Lsun/net/www/protocol/http/HttpURLConnection;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$7, this$0)},
-	{}
-};
-
-$MethodInfo _HttpURLConnection$7_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/protocol/http/HttpURLConnection;)V", nullptr, 0, $method(HttpURLConnection$7, init$, void, $HttpURLConnection*)},
-	{"run", "()Ljava/net/ProxySelector;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$7, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _HttpURLConnection$7_EnclosingMethodInfo_ = {
-	"sun.net.www.protocol.http.HttpURLConnection",
-	"plainConnect0",
-	"()V"
-};
-
-$InnerClassInfo _HttpURLConnection$7_InnerClassesInfo_[] = {
-	{"sun.net.www.protocol.http.HttpURLConnection$7", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HttpURLConnection$7_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.www.protocol.http.HttpURLConnection$7",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_HttpURLConnection$7_FieldInfo_,
-	_HttpURLConnection$7_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/net/ProxySelector;>;",
-	&_HttpURLConnection$7_EnclosingMethodInfo_,
-	_HttpURLConnection$7_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.www.protocol.http.HttpURLConnection"
-};
-
-$Object* allocate$HttpURLConnection$7($Class* clazz) {
-	return $of($alloc(HttpURLConnection$7));
-}
-
 void HttpURLConnection$7::init$($HttpURLConnection* this$0) {
 	$set(this, this$0, this$0);
 }
 
 $Object* HttpURLConnection$7::run() {
-	return $of($ProxySelector::getDefault());
+	return $ProxySelector::getDefault();
 }
 
 HttpURLConnection$7::HttpURLConnection$7() {
 }
 
 $Class* HttpURLConnection$7::load$($String* name, bool initialize) {
-	$loadClass(HttpURLConnection$7, name, initialize, &_HttpURLConnection$7_ClassInfo_, allocate$HttpURLConnection$7);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/net/www/protocol/http/HttpURLConnection;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$7, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/www/protocol/http/HttpURLConnection;)V", nullptr, 0, $method(HttpURLConnection$7, init$, void, $HttpURLConnection*)},
+		{"run", "()Ljava/net/ProxySelector;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$7, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.net.www.protocol.http.HttpURLConnection",
+		"plainConnect0",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.www.protocol.http.HttpURLConnection$7", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.www.protocol.http.HttpURLConnection$7",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/net/ProxySelector;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.www.protocol.http.HttpURLConnection"
+	};
+	$loadClass(HttpURLConnection$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpURLConnection$7);
+	});
 	return class$;
 }
 

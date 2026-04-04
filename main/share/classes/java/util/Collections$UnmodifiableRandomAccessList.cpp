@@ -1,5 +1,4 @@
 #include <java/util/Collections$UnmodifiableRandomAccessList.h>
-
 #include <java/util/Collections$UnmodifiableList.h>
 #include <java/util/Collections.h>
 #include <java/util/List.h>
@@ -14,49 +13,6 @@ using $List = ::java::util::List;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Collections$UnmodifiableRandomAccessList_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$UnmodifiableRandomAccessList, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Collections$UnmodifiableRandomAccessList_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<+TE;>;)V", 0, $method(Collections$UnmodifiableRandomAccessList, init$, void, $List*)},
-	{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableRandomAccessList, subList, $List*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Collections$UnmodifiableRandomAccessList, writeReplace, $Object*)},
-	{}
-};
-
-$InnerClassInfo _Collections$UnmodifiableRandomAccessList_InnerClassesInfo_[] = {
-	{"java.util.Collections$UnmodifiableRandomAccessList", "java.util.Collections", "UnmodifiableRandomAccessList", $STATIC},
-	{"java.util.Collections$UnmodifiableList", "java.util.Collections", "UnmodifiableList", $STATIC},
-	{}
-};
-
-$ClassInfo _Collections$UnmodifiableRandomAccessList_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$UnmodifiableRandomAccessList",
-	"java.util.Collections$UnmodifiableList",
-	"java.util.RandomAccess",
-	_Collections$UnmodifiableRandomAccessList_FieldInfo_,
-	_Collections$UnmodifiableRandomAccessList_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/Collections$UnmodifiableList<TE;>;Ljava/util/RandomAccess;",
-	nullptr,
-	_Collections$UnmodifiableRandomAccessList_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$UnmodifiableRandomAccessList($Class* clazz) {
-	return $of($alloc(Collections$UnmodifiableRandomAccessList));
-}
 
 bool Collections$UnmodifiableRandomAccessList::equals(Object$* o) {
 	 return this->$Collections$UnmodifiableList::equals(o);
@@ -94,7 +50,44 @@ Collections$UnmodifiableRandomAccessList::Collections$UnmodifiableRandomAccessLi
 }
 
 $Class* Collections$UnmodifiableRandomAccessList::load$($String* name, bool initialize) {
-	$loadClass(Collections$UnmodifiableRandomAccessList, name, initialize, &_Collections$UnmodifiableRandomAccessList_ClassInfo_, allocate$Collections$UnmodifiableRandomAccessList);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$UnmodifiableRandomAccessList, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<+TE;>;)V", 0, $method(Collections$UnmodifiableRandomAccessList, init$, void, $List*)},
+		{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableRandomAccessList, subList, $List*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Collections$UnmodifiableRandomAccessList, writeReplace, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$UnmodifiableRandomAccessList", "java.util.Collections", "UnmodifiableRandomAccessList", $STATIC},
+		{"java.util.Collections$UnmodifiableList", "java.util.Collections", "UnmodifiableList", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$UnmodifiableRandomAccessList",
+		"java.util.Collections$UnmodifiableList",
+		"java.util.RandomAccess",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/Collections$UnmodifiableList<TE;>;Ljava/util/RandomAccess;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$UnmodifiableRandomAccessList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Collections$UnmodifiableRandomAccessList));
+	});
 	return class$;
 }
 

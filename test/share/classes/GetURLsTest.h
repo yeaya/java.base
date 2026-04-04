@@ -18,6 +18,7 @@ class $export GetURLsTest : public ::java::lang::Object {
 	$class(GetURLsTest, 0, ::java::lang::Object)
 public:
 	GetURLsTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void p($String* s, $Array<::java::net::URL>* urls);

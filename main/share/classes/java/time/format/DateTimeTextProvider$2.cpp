@@ -1,5 +1,4 @@
 #include <java/time/format/DateTimeTextProvider$2.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/time/format/DateTimeTextProvider.h>
 #include <java/time/temporal/ChronoField.h>
@@ -21,61 +20,25 @@ namespace java {
 	namespace time {
 		namespace format {
 
-$FieldInfo _DateTimeTextProvider$2_FieldInfo_[] = {
-	{"$SwitchMap$java$time$temporal$ChronoField", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DateTimeTextProvider$2, $SwitchMap$java$time$temporal$ChronoField)},
-	{}
-};
-
-$EnclosingMethodInfo _DateTimeTextProvider$2_EnclosingMethodInfo_ = {
-	"java.time.format.DateTimeTextProvider",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _DateTimeTextProvider$2_InnerClassesInfo_[] = {
-	{"java.time.format.DateTimeTextProvider$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _DateTimeTextProvider$2_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"java.time.format.DateTimeTextProvider$2",
-	"java.lang.Object",
-	nullptr,
-	_DateTimeTextProvider$2_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_DateTimeTextProvider$2_EnclosingMethodInfo_,
-	_DateTimeTextProvider$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.format.DateTimeTextProvider"
-};
-
-$Object* allocate$DateTimeTextProvider$2($Class* clazz) {
-	return $of($alloc(DateTimeTextProvider$2));
-}
-
 $ints* DateTimeTextProvider$2::$SwitchMap$java$time$temporal$ChronoField = nullptr;
 
-void clinit$DateTimeTextProvider$2($Class* class$) {
+void DateTimeTextProvider$2::clinit$($Class* clazz) {
 	$assignStatic(DateTimeTextProvider$2::$SwitchMap$java$time$temporal$ChronoField, $new($ints, $($ChronoField::values())->length));
 	{
 		try {
-			$nc(DateTimeTextProvider$2::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::ERA->ordinal(), 1);
+			DateTimeTextProvider$2::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::ERA->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DateTimeTextProvider$2::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::MONTH_OF_YEAR->ordinal(), 2);
+			DateTimeTextProvider$2::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::MONTH_OF_YEAR->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DateTimeTextProvider$2::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::DAY_OF_WEEK->ordinal(), 3);
+			DateTimeTextProvider$2::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::DAY_OF_WEEK->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DateTimeTextProvider$2::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::AMPM_OF_DAY->ordinal(), 4);
+			DateTimeTextProvider$2::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::AMPM_OF_DAY->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -85,7 +48,37 @@ DateTimeTextProvider$2::DateTimeTextProvider$2() {
 }
 
 $Class* DateTimeTextProvider$2::load$($String* name, bool initialize) {
-	$loadClass(DateTimeTextProvider$2, name, initialize, &_DateTimeTextProvider$2_ClassInfo_, clinit$DateTimeTextProvider$2, allocate$DateTimeTextProvider$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$time$temporal$ChronoField", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DateTimeTextProvider$2, $SwitchMap$java$time$temporal$ChronoField)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.time.format.DateTimeTextProvider",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.format.DateTimeTextProvider$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"java.time.format.DateTimeTextProvider$2",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.format.DateTimeTextProvider"
+	};
+	$loadClass(DateTimeTextProvider$2, name, initialize, &classInfo$$, DateTimeTextProvider$2::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DateTimeTextProvider$2);
+	});
 	return class$;
 }
 

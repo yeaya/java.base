@@ -21,10 +21,11 @@ class $export ITLRemoveTest : public ::java::lang::Object {
 	$class(ITLRemoveTest, 0, ::java::lang::Object)
 public:
 	ITLRemoveTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static const int32_t INITIAL_VALUE = 0x80000000; // Integer.MIN_VALUE
-	static const int32_t REMOVE_SET_VALUE = 0x7FFFFFFF; // Integer.MAX_VALUE
+	static const int32_t REMOVE_SET_VALUE = 0x7fffffff; // Integer.MAX_VALUE
 	static ::java::lang::InheritableThreadLocal* n;
 	static int32_t threadCount;
 	static $ints* x;

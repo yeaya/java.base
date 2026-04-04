@@ -1,5 +1,4 @@
 #include <java/time/zone/ZoneOffsetTransitionRule$TimeDefinition.h>
-
 #include <java/lang/Enum.h>
 #include <java/time/LocalDateTime.h>
 #include <java/time/ZoneOffset.h>
@@ -24,48 +23,6 @@ using $ZoneOffsetTransitionRule$1 = ::java::time::zone::ZoneOffsetTransitionRule
 namespace java {
 	namespace time {
 		namespace zone {
-
-$FieldInfo _ZoneOffsetTransitionRule$TimeDefinition_FieldInfo_[] = {
-	{"UTC", "Ljava/time/zone/ZoneOffsetTransitionRule$TimeDefinition;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZoneOffsetTransitionRule$TimeDefinition, UTC)},
-	{"WALL", "Ljava/time/zone/ZoneOffsetTransitionRule$TimeDefinition;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZoneOffsetTransitionRule$TimeDefinition, WALL)},
-	{"STANDARD", "Ljava/time/zone/ZoneOffsetTransitionRule$TimeDefinition;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZoneOffsetTransitionRule$TimeDefinition, STANDARD)},
-	{"$VALUES", "[Ljava/time/zone/ZoneOffsetTransitionRule$TimeDefinition;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ZoneOffsetTransitionRule$TimeDefinition, $VALUES)},
-	{}
-};
-
-$MethodInfo _ZoneOffsetTransitionRule$TimeDefinition_MethodInfo_[] = {
-	{"$values", "()[Ljava/time/zone/ZoneOffsetTransitionRule$TimeDefinition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ZoneOffsetTransitionRule$TimeDefinition, $values, $ZoneOffsetTransitionRule$TimeDefinitionArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ZoneOffsetTransitionRule$TimeDefinition, init$, void, $String*, int32_t)},
-	{"createDateTime", "(Ljava/time/LocalDateTime;Ljava/time/ZoneOffset;Ljava/time/ZoneOffset;)Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $method(ZoneOffsetTransitionRule$TimeDefinition, createDateTime, $LocalDateTime*, $LocalDateTime*, $ZoneOffset*, $ZoneOffset*)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/time/zone/ZoneOffsetTransitionRule$TimeDefinition;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneOffsetTransitionRule$TimeDefinition, valueOf, ZoneOffsetTransitionRule$TimeDefinition*, $String*)},
-	{"values", "()[Ljava/time/zone/ZoneOffsetTransitionRule$TimeDefinition;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneOffsetTransitionRule$TimeDefinition, values, $ZoneOffsetTransitionRule$TimeDefinitionArray*)},
-	{}
-};
-
-$InnerClassInfo _ZoneOffsetTransitionRule$TimeDefinition_InnerClassesInfo_[] = {
-	{"java.time.zone.ZoneOffsetTransitionRule$TimeDefinition", "java.time.zone.ZoneOffsetTransitionRule", "TimeDefinition", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _ZoneOffsetTransitionRule$TimeDefinition_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.time.zone.ZoneOffsetTransitionRule$TimeDefinition",
-	"java.lang.Enum",
-	nullptr,
-	_ZoneOffsetTransitionRule$TimeDefinition_FieldInfo_,
-	_ZoneOffsetTransitionRule$TimeDefinition_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/time/zone/ZoneOffsetTransitionRule$TimeDefinition;>;",
-	nullptr,
-	_ZoneOffsetTransitionRule$TimeDefinition_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.zone.ZoneOffsetTransitionRule"
-};
-
-$Object* allocate$ZoneOffsetTransitionRule$TimeDefinition($Class* clazz) {
-	return $of($alloc(ZoneOffsetTransitionRule$TimeDefinition));
-}
 
 ZoneOffsetTransitionRule$TimeDefinition* ZoneOffsetTransitionRule$TimeDefinition::UTC = nullptr;
 ZoneOffsetTransitionRule$TimeDefinition* ZoneOffsetTransitionRule$TimeDefinition::WALL = nullptr;
@@ -100,28 +57,22 @@ $LocalDateTime* ZoneOffsetTransitionRule$TimeDefinition::createDateTime($LocalDa
 	switch ($nc($ZoneOffsetTransitionRule$1::$SwitchMap$java$time$zone$ZoneOffsetTransitionRule$TimeDefinition)->get((this)->ordinal())) {
 	case 1:
 		{
-			{
-				int32_t var$0 = $nc(wallOffset)->getTotalSeconds();
-				int32_t difference = var$0 - $nc($ZoneOffset::UTC)->getTotalSeconds();
-				return $nc(dateTime)->plusSeconds(difference);
-			}
+			int32_t var$0 = $nc(wallOffset)->getTotalSeconds();
+			int32_t difference = var$0 - $nc($ZoneOffset::UTC)->getTotalSeconds();
+			return $nc(dateTime)->plusSeconds(difference);
 		}
 	case 2:
 		{
-			{
-				int32_t var$1 = $nc(wallOffset)->getTotalSeconds();
-				int32_t difference = var$1 - $nc(standardOffset)->getTotalSeconds();
-				return $nc(dateTime)->plusSeconds(difference);
-			}
+			int32_t var$1 = $nc(wallOffset)->getTotalSeconds();
+			int32_t difference = var$1 - $nc(standardOffset)->getTotalSeconds();
+			return $nc(dateTime)->plusSeconds(difference);
 		}
 	default:
-		{
-			return dateTime;
-		}
+		return dateTime;
 	}
 }
 
-void clinit$ZoneOffsetTransitionRule$TimeDefinition($Class* class$) {
+void ZoneOffsetTransitionRule$TimeDefinition::clinit$($Class* clazz) {
 	$assignStatic(ZoneOffsetTransitionRule$TimeDefinition::UTC, $new(ZoneOffsetTransitionRule$TimeDefinition, "UTC"_s, 0));
 	$assignStatic(ZoneOffsetTransitionRule$TimeDefinition::WALL, $new(ZoneOffsetTransitionRule$TimeDefinition, "WALL"_s, 1));
 	$assignStatic(ZoneOffsetTransitionRule$TimeDefinition::STANDARD, $new(ZoneOffsetTransitionRule$TimeDefinition, "STANDARD"_s, 2));
@@ -132,7 +83,43 @@ ZoneOffsetTransitionRule$TimeDefinition::ZoneOffsetTransitionRule$TimeDefinition
 }
 
 $Class* ZoneOffsetTransitionRule$TimeDefinition::load$($String* name, bool initialize) {
-	$loadClass(ZoneOffsetTransitionRule$TimeDefinition, name, initialize, &_ZoneOffsetTransitionRule$TimeDefinition_ClassInfo_, clinit$ZoneOffsetTransitionRule$TimeDefinition, allocate$ZoneOffsetTransitionRule$TimeDefinition);
+	$FieldInfo fieldInfos$$[] = {
+		{"UTC", "Ljava/time/zone/ZoneOffsetTransitionRule$TimeDefinition;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZoneOffsetTransitionRule$TimeDefinition, UTC)},
+		{"WALL", "Ljava/time/zone/ZoneOffsetTransitionRule$TimeDefinition;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZoneOffsetTransitionRule$TimeDefinition, WALL)},
+		{"STANDARD", "Ljava/time/zone/ZoneOffsetTransitionRule$TimeDefinition;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZoneOffsetTransitionRule$TimeDefinition, STANDARD)},
+		{"$VALUES", "[Ljava/time/zone/ZoneOffsetTransitionRule$TimeDefinition;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ZoneOffsetTransitionRule$TimeDefinition, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/time/zone/ZoneOffsetTransitionRule$TimeDefinition;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ZoneOffsetTransitionRule$TimeDefinition, $values, $ZoneOffsetTransitionRule$TimeDefinitionArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ZoneOffsetTransitionRule$TimeDefinition, init$, void, $String*, int32_t)},
+		{"createDateTime", "(Ljava/time/LocalDateTime;Ljava/time/ZoneOffset;Ljava/time/ZoneOffset;)Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $method(ZoneOffsetTransitionRule$TimeDefinition, createDateTime, $LocalDateTime*, $LocalDateTime*, $ZoneOffset*, $ZoneOffset*)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/time/zone/ZoneOffsetTransitionRule$TimeDefinition;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneOffsetTransitionRule$TimeDefinition, valueOf, ZoneOffsetTransitionRule$TimeDefinition*, $String*)},
+		{"values", "()[Ljava/time/zone/ZoneOffsetTransitionRule$TimeDefinition;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZoneOffsetTransitionRule$TimeDefinition, values, $ZoneOffsetTransitionRule$TimeDefinitionArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.zone.ZoneOffsetTransitionRule$TimeDefinition", "java.time.zone.ZoneOffsetTransitionRule", "TimeDefinition", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.time.zone.ZoneOffsetTransitionRule$TimeDefinition",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/time/zone/ZoneOffsetTransitionRule$TimeDefinition;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.zone.ZoneOffsetTransitionRule"
+	};
+	$loadClass(ZoneOffsetTransitionRule$TimeDefinition, name, initialize, &classInfo$$, ZoneOffsetTransitionRule$TimeDefinition::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ZoneOffsetTransitionRule$TimeDefinition));
+	});
 	return class$;
 }
 

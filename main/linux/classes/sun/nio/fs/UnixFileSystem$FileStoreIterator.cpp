@@ -1,5 +1,4 @@
 #include <sun/nio/fs/UnixFileSystem$FileStoreIterator.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Iterable.h>
@@ -19,13 +18,11 @@ using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $FileStore = ::java::nio::file::FileStore;
-using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $UnixFileSystem = ::sun::nio::fs::UnixFileSystem;
 using $UnixMountEntry = ::sun::nio::fs::UnixMountEntry;
@@ -35,57 +32,15 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _UnixFileSystem$FileStoreIterator_FieldInfo_[] = {
-	{"this$0", "Lsun/nio/fs/UnixFileSystem;", nullptr, $FINAL | $SYNTHETIC, $field(UnixFileSystem$FileStoreIterator, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(UnixFileSystem$FileStoreIterator, $assertionsDisabled)},
-	{"entries", "Ljava/util/Iterator;", "Ljava/util/Iterator<Lsun/nio/fs/UnixMountEntry;>;", $PRIVATE | $FINAL, $field(UnixFileSystem$FileStoreIterator, entries)},
-	{"next", "Ljava/nio/file/FileStore;", nullptr, $PRIVATE, $field(UnixFileSystem$FileStoreIterator, next$)},
-	{}
-};
-
-$MethodInfo _UnixFileSystem$FileStoreIterator_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixFileSystem;)V", nullptr, 0, $method(UnixFileSystem$FileStoreIterator, init$, void, $UnixFileSystem*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UnixFileSystem$FileStoreIterator, hasNext, bool)},
-	{"next", "()Ljava/nio/file/FileStore;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UnixFileSystem$FileStoreIterator, next, $Object*)},
-	{"readNext", "()Ljava/nio/file/FileStore;", nullptr, $PRIVATE, $method(UnixFileSystem$FileStoreIterator, readNext, $FileStore*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem$FileStoreIterator, remove, void)},
-	{}
-};
-
-$InnerClassInfo _UnixFileSystem$FileStoreIterator_InnerClassesInfo_[] = {
-	{"sun.nio.fs.UnixFileSystem$FileStoreIterator", "sun.nio.fs.UnixFileSystem", "FileStoreIterator", $PRIVATE},
-	{}
-};
-
-$ClassInfo _UnixFileSystem$FileStoreIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.UnixFileSystem$FileStoreIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_UnixFileSystem$FileStoreIterator_FieldInfo_,
-	_UnixFileSystem$FileStoreIterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/nio/file/FileStore;>;",
-	nullptr,
-	_UnixFileSystem$FileStoreIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.UnixFileSystem"
-};
-
-$Object* allocate$UnixFileSystem$FileStoreIterator($Class* clazz) {
-	return $of($alloc(UnixFileSystem$FileStoreIterator));
-}
-
 bool UnixFileSystem$FileStoreIterator::$assertionsDisabled = false;
 
 void UnixFileSystem$FileStoreIterator::init$($UnixFileSystem* this$0) {
 	$set(this, this$0, this$0);
-	$set(this, entries, $nc($(this$0->getMountEntries()))->iterator());
+	$set(this, entries, $$nc(this$0->getMountEntries())->iterator());
 }
 
 $FileStore* UnixFileSystem$FileStoreIterator::readNext() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!UnixFileSystem$FileStoreIterator::$assertionsDisabled && !$Thread::holdsLock(this)) {
 		$throwNew($AssertionError);
 	}
@@ -93,14 +48,14 @@ $FileStore* UnixFileSystem$FileStoreIterator::readNext() {
 		if (!$nc(this->entries)->hasNext()) {
 			return nullptr;
 		}
-		$var($UnixMountEntry, entry, $cast($UnixMountEntry, $nc(this->entries)->next()));
+		$var($UnixMountEntry, entry, $cast($UnixMountEntry, this->entries->next()));
 		if ($nc(entry)->isIgnored()) {
 			continue;
 		}
 		$var($SecurityManager, sm, $System::getSecurityManager());
 		if (sm != nullptr) {
 			try {
-				sm->checkRead($($Util::toString($($nc(entry)->dir()))));
+				sm->checkRead($($Util::toString($(entry->dir()))));
 			} catch ($SecurityException& x) {
 				continue;
 			}
@@ -133,7 +88,7 @@ $Object* UnixFileSystem$FileStoreIterator::next() {
 		} else {
 			$var($FileStore, result, this->next$);
 			$set(this, next$, nullptr);
-			return $of(result);
+			return result;
 		}
 	}
 }
@@ -142,7 +97,7 @@ void UnixFileSystem$FileStoreIterator::remove() {
 	$throwNew($UnsupportedOperationException);
 }
 
-void clinit$UnixFileSystem$FileStoreIterator($Class* class$) {
+void UnixFileSystem$FileStoreIterator::clinit$($Class* clazz) {
 	$load($UnixFileSystem);
 	UnixFileSystem$FileStoreIterator::$assertionsDisabled = !$UnixFileSystem::class$->desiredAssertionStatus();
 }
@@ -151,7 +106,43 @@ UnixFileSystem$FileStoreIterator::UnixFileSystem$FileStoreIterator() {
 }
 
 $Class* UnixFileSystem$FileStoreIterator::load$($String* name, bool initialize) {
-	$loadClass(UnixFileSystem$FileStoreIterator, name, initialize, &_UnixFileSystem$FileStoreIterator_ClassInfo_, clinit$UnixFileSystem$FileStoreIterator, allocate$UnixFileSystem$FileStoreIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/nio/fs/UnixFileSystem;", nullptr, $FINAL | $SYNTHETIC, $field(UnixFileSystem$FileStoreIterator, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(UnixFileSystem$FileStoreIterator, $assertionsDisabled)},
+		{"entries", "Ljava/util/Iterator;", "Ljava/util/Iterator<Lsun/nio/fs/UnixMountEntry;>;", $PRIVATE | $FINAL, $field(UnixFileSystem$FileStoreIterator, entries)},
+		{"next", "Ljava/nio/file/FileStore;", nullptr, $PRIVATE, $field(UnixFileSystem$FileStoreIterator, next$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/fs/UnixFileSystem;)V", nullptr, 0, $method(UnixFileSystem$FileStoreIterator, init$, void, $UnixFileSystem*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UnixFileSystem$FileStoreIterator, hasNext, bool)},
+		{"next", "()Ljava/nio/file/FileStore;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UnixFileSystem$FileStoreIterator, next, $Object*)},
+		{"readNext", "()Ljava/nio/file/FileStore;", nullptr, $PRIVATE, $method(UnixFileSystem$FileStoreIterator, readNext, $FileStore*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(UnixFileSystem$FileStoreIterator, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.UnixFileSystem$FileStoreIterator", "sun.nio.fs.UnixFileSystem", "FileStoreIterator", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.UnixFileSystem$FileStoreIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/nio/file/FileStore;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.UnixFileSystem"
+	};
+	$loadClass(UnixFileSystem$FileStoreIterator, name, initialize, &classInfo$$, UnixFileSystem$FileStoreIterator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(UnixFileSystem$FileStoreIterator);
+	});
 	return class$;
 }
 

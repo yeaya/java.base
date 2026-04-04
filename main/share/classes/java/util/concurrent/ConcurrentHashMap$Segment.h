@@ -14,7 +14,7 @@ class $export ConcurrentHashMap$Segment : public ::java::util::concurrent::locks
 public:
 	ConcurrentHashMap$Segment();
 	void init$(float lf);
-	static const int64_t serialVersionUID = (int64_t)0x1F364C905893293D;
+	static const int64_t serialVersionUID = (int64_t)0x1f364c905893293d;
 	float loadFactor = 0.0;
 };
 

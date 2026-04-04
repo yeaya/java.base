@@ -1,9 +1,7 @@
 #include <sun/security/ssl/SessionTicketExtension$T12CHSessionTicketConsumer.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <javax/net/ssl/SSLSessionContext.h>
 #include <sun/security/ssl/ConnectionContext.h>
-#include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/SSLConfiguration.h>
 #include <sun/security/ssl/SSLContextImpl.h>
 #include <sun/security/ssl/SSLExtension.h>
@@ -23,9 +21,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
@@ -38,52 +33,20 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SessionTicketExtension$T12CHSessionTicketConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SessionTicketExtension$T12CHSessionTicketConsumer, init$, void)},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SessionTicketExtension$T12CHSessionTicketConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*, $ByteBuffer*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _SessionTicketExtension$T12CHSessionTicketConsumer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SessionTicketExtension$T12CHSessionTicketConsumer", "sun.security.ssl.SessionTicketExtension", "T12CHSessionTicketConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLExtension$ExtensionConsumer", "sun.security.ssl.SSLExtension", "ExtensionConsumer", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SessionTicketExtension$T12CHSessionTicketConsumer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SessionTicketExtension$T12CHSessionTicketConsumer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLExtension$ExtensionConsumer",
-	nullptr,
-	_SessionTicketExtension$T12CHSessionTicketConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SessionTicketExtension$T12CHSessionTicketConsumer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SessionTicketExtension"
-};
-
-$Object* allocate$SessionTicketExtension$T12CHSessionTicketConsumer($Class* clazz) {
-	return $of($alloc(SessionTicketExtension$T12CHSessionTicketConsumer));
-}
-
 void SessionTicketExtension$T12CHSessionTicketConsumer::init$() {
 }
 
 void SessionTicketExtension$T12CHSessionTicketConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message, $ByteBuffer* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(shc)->sslConfig)->isAvailable($SSLExtension::CH_SESSION_TICKET)) {
 		return;
 	}
-	if ($nc(shc)->statelessResumption) {
+	if (shc->statelessResumption) {
 		return;
 	}
-	$var($SSLSessionContextImpl, cache, $cast($SSLSessionContextImpl, $nc($nc(shc)->sslContext)->engineGetServerSessionContext()));
+	$var($SSLSessionContextImpl, cache, $cast($SSLSessionContextImpl, $nc(shc->sslContext)->engineGetServerSessionContext()));
 	if (!$nc(cache)->statelessEnabled()) {
 		return;
 	}
@@ -95,10 +58,10 @@ void SessionTicketExtension$T12CHSessionTicketConsumer::consume($ConnectionConte
 		}
 		return;
 	}
-	$var($SessionTicketExtension$SessionTicketSpec, spec, $new($SessionTicketExtension$SessionTicketSpec, static_cast<$HandshakeContext*>(shc), buffer));
+	$var($SessionTicketExtension$SessionTicketSpec, spec, $new($SessionTicketExtension$SessionTicketSpec, shc, buffer));
 	$var($ByteBuffer, b, spec->decrypt(shc));
 	if (b != nullptr) {
-		$set(shc, resumingSession, $new($SSLSessionImpl, static_cast<$HandshakeContext*>(shc), b));
+		$set(shc, resumingSession, $new($SSLSessionImpl, shc, b));
 		shc->isResumption = true;
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
@@ -116,7 +79,34 @@ SessionTicketExtension$T12CHSessionTicketConsumer::SessionTicketExtension$T12CHS
 }
 
 $Class* SessionTicketExtension$T12CHSessionTicketConsumer::load$($String* name, bool initialize) {
-	$loadClass(SessionTicketExtension$T12CHSessionTicketConsumer, name, initialize, &_SessionTicketExtension$T12CHSessionTicketConsumer_ClassInfo_, allocate$SessionTicketExtension$T12CHSessionTicketConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SessionTicketExtension$T12CHSessionTicketConsumer, init$, void)},
+		{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SessionTicketExtension$T12CHSessionTicketConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*, $ByteBuffer*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SessionTicketExtension$T12CHSessionTicketConsumer", "sun.security.ssl.SessionTicketExtension", "T12CHSessionTicketConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLExtension$ExtensionConsumer", "sun.security.ssl.SSLExtension", "ExtensionConsumer", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SessionTicketExtension$T12CHSessionTicketConsumer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLExtension$ExtensionConsumer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SessionTicketExtension"
+	};
+	$loadClass(SessionTicketExtension$T12CHSessionTicketConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SessionTicketExtension$T12CHSessionTicketConsumer);
+	});
 	return class$;
 }
 

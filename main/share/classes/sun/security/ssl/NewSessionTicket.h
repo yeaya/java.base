@@ -32,9 +32,10 @@ class NewSessionTicket : public ::java::lang::Object {
 	$class(NewSessionTicket, 0, ::java::lang::Object)
 public:
 	NewSessionTicket();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::crypto::SecretKey* derivePreSharedKey(::sun::security::ssl::CipherSuite$HashAlg* hashAlg, ::javax::crypto::SecretKey* resumptionMasterSecret, $bytes* nonce);
-	static const int32_t MAX_TICKET_LIFETIME = 0x00093A80;
+	static const int32_t MAX_TICKET_LIFETIME = 0x00093a80;
 	static ::sun::security::ssl::SSLConsumer* handshakeConsumer;
 	static ::sun::security::ssl::SSLConsumer* handshake12Consumer;
 	static ::sun::security::ssl::SSLProducer* t13PosthandshakeProducer;

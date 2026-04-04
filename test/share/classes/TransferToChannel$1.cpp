@@ -1,5 +1,4 @@
 #include <TransferToChannel$1.h>
-
 #include <TransferToChannel.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Random.h>
@@ -13,51 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Random = ::java::util::Random;
-
-$FieldInfo _TransferToChannel$1_FieldInfo_[] = {
-	{"rand", "Ljava/util/Random;", nullptr, 0, $field(TransferToChannel$1, rand)},
-	{}
-};
-
-$MethodInfo _TransferToChannel$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TransferToChannel$1, init$, void)},
-	{"checkData", "([BI)V", nullptr, 0, $virtualMethod(TransferToChannel$1, checkData, void, $bytes*, int32_t)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(TransferToChannel$1, close, void), "java.io.IOException"},
-	{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(TransferToChannel$1, isOpen, bool)},
-	{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(TransferToChannel$1, write, int32_t, $ByteBuffer*), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _TransferToChannel$1_EnclosingMethodInfo_ = {
-	"TransferToChannel",
-	"transferFileToUserChannel",
-	"()V"
-};
-
-$InnerClassInfo _TransferToChannel$1_InnerClassesInfo_[] = {
-	{"TransferToChannel$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TransferToChannel$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"TransferToChannel$1",
-	"java.lang.Object",
-	"java.nio.channels.WritableByteChannel",
-	_TransferToChannel$1_FieldInfo_,
-	_TransferToChannel$1_MethodInfo_,
-	nullptr,
-	&_TransferToChannel$1_EnclosingMethodInfo_,
-	_TransferToChannel$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TransferToChannel"
-};
-
-$Object* allocate$TransferToChannel$1($Class* clazz) {
-	return $of($alloc(TransferToChannel$1));
-}
 
 void TransferToChannel$1::init$() {
 	$set(this, rand, $new($Random, 0));
@@ -92,7 +46,45 @@ TransferToChannel$1::TransferToChannel$1() {
 }
 
 $Class* TransferToChannel$1::load$($String* name, bool initialize) {
-	$loadClass(TransferToChannel$1, name, initialize, &_TransferToChannel$1_ClassInfo_, allocate$TransferToChannel$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"rand", "Ljava/util/Random;", nullptr, 0, $field(TransferToChannel$1, rand)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TransferToChannel$1, init$, void)},
+		{"checkData", "([BI)V", nullptr, 0, $virtualMethod(TransferToChannel$1, checkData, void, $bytes*, int32_t)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(TransferToChannel$1, close, void), "java.io.IOException"},
+		{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(TransferToChannel$1, isOpen, bool)},
+		{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(TransferToChannel$1, write, int32_t, $ByteBuffer*), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"TransferToChannel",
+		"transferFileToUserChannel",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TransferToChannel$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TransferToChannel$1",
+		"java.lang.Object",
+		"java.nio.channels.WritableByteChannel",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TransferToChannel"
+	};
+	$loadClass(TransferToChannel$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransferToChannel$1);
+	});
 	return class$;
 }
 

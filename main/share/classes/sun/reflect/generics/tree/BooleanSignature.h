@@ -24,6 +24,7 @@ class $export BooleanSignature : public ::sun::reflect::generics::tree::BaseType
 	$class(BooleanSignature, 0, ::sun::reflect::generics::tree::BaseType)
 public:
 	BooleanSignature();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void accept(::sun::reflect::generics::visitor::TypeTreeVisitor* v) override;
 	static ::sun::reflect::generics::tree::BooleanSignature* make();

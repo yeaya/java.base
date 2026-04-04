@@ -1,5 +1,4 @@
 #include <sun/security/util/math/intpoly/IntegerPolynomial25519.h>
-
 #include <java/math/BigInteger.h>
 #include <sun/security/util/math/intpoly/IntegerPolynomial.h>
 #include <jcpp.h>
@@ -23,42 +22,6 @@ namespace sun {
 			namespace math {
 				namespace intpoly {
 
-$FieldInfo _IntegerPolynomial25519_FieldInfo_[] = {
-	{"BITS_PER_LIMB", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerPolynomial25519, BITS_PER_LIMB)},
-	{"NUM_LIMBS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerPolynomial25519, NUM_LIMBS)},
-	{"MAX_ADDS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerPolynomial25519, MAX_ADDS)},
-	{"MODULUS", "Ljava/math/BigInteger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IntegerPolynomial25519, MODULUS)},
-	{"CARRY_ADD", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerPolynomial25519, CARRY_ADD)},
-	{"LIMB_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerPolynomial25519, LIMB_MASK)},
-	{}
-};
-
-$MethodInfo _IntegerPolynomial25519_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IntegerPolynomial25519, init$, void)},
-	{"carryReduce", "([JJJJJJJJJJJJJJJJJJJJ)V", nullptr, $PRIVATE, $method(IntegerPolynomial25519, carryReduce, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
-	{"carryReduce", "([JJJJJJJJJJJ)V", nullptr, $PRIVATE, $method(IntegerPolynomial25519, carryReduce, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
-	{"evaluateModulus", "()Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(IntegerPolynomial25519, evaluateModulus, $BigInteger*)},
-	{"finalCarryReduceLast", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial25519, finalCarryReduceLast, void, $longs*)},
-	{"mult", "([J[J[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial25519, mult, void, $longs*, $longs*, $longs*)},
-	{"reduce", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial25519, reduce, void, $longs*)},
-	{"reduceIn", "([JJI)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial25519, reduceIn, void, $longs*, int64_t, int32_t)},
-	{"square", "([J[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial25519, square, void, $longs*, $longs*)},
-	{}
-};
-
-$ClassInfo _IntegerPolynomial25519_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.math.intpoly.IntegerPolynomial25519",
-	"sun.security.util.math.intpoly.IntegerPolynomial",
-	nullptr,
-	_IntegerPolynomial25519_FieldInfo_,
-	_IntegerPolynomial25519_MethodInfo_
-};
-
-$Object* allocate$IntegerPolynomial25519($Class* clazz) {
-	return $of($alloc(IntegerPolynomial25519));
-}
-
 $BigInteger* IntegerPolynomial25519::MODULUS = nullptr;
 
 void IntegerPolynomial25519::init$() {
@@ -67,15 +30,15 @@ void IntegerPolynomial25519::init$() {
 
 $BigInteger* IntegerPolynomial25519::evaluateModulus() {
 	$init(IntegerPolynomial25519);
-	$useLocalCurrentObjectStackCache();
-	$var($BigInteger, result, $nc($($BigInteger::valueOf((int64_t)2)))->pow(255));
-	$assign(result, $nc(result)->subtract($($BigInteger::valueOf((int64_t)19))));
+	$useLocalObjectStack();
+	$var($BigInteger, result, $($BigInteger::valueOf(2))->pow(255));
+	$assign(result, result->subtract($($BigInteger::valueOf(19))));
 	return result;
 }
 
 void IntegerPolynomial25519::reduceIn($longs* limbs, int64_t v, int32_t i) {
 	int64_t t0 = 19 * v;
-	(*$nc(limbs))[i - 10] += (int64_t)((t0 << 5) & (uint64_t)(int64_t)IntegerPolynomial25519::LIMB_MASK);
+	(*$nc(limbs))[i - 10] += (t0 << 5) & IntegerPolynomial25519::LIMB_MASK;
 	(*limbs)[i - 9] += t0 >> 21;
 }
 
@@ -89,10 +52,10 @@ void IntegerPolynomial25519::finalCarryReduceLast($longs* limbs) {
 void IntegerPolynomial25519::carryReduce($longs* r, int64_t c0, int64_t c1, int64_t c2, int64_t c3, int64_t c4, int64_t c5, int64_t c6, int64_t c7, int64_t c8, int64_t c9, int64_t c10, int64_t c11, int64_t c12, int64_t c13, int64_t c14, int64_t c15, int64_t c16, int64_t c17, int64_t c18) {
 	int64_t c19 = 0;
 	int64_t t0 = 19 * c17;
-	c7 += (int64_t)((t0 << 5) & (uint64_t)(int64_t)IntegerPolynomial25519::LIMB_MASK);
+	c7 += (t0 << 5) & IntegerPolynomial25519::LIMB_MASK;
 	c8 += t0 >> 21;
 	t0 = 19 * c18;
-	c8 += (int64_t)((t0 << 5) & (uint64_t)(int64_t)IntegerPolynomial25519::LIMB_MASK);
+	c8 += (t0 << 5) & IntegerPolynomial25519::LIMB_MASK;
 	c9 += t0 >> 21;
 	t0 = (c8 + IntegerPolynomial25519::CARRY_ADD) >> 26;
 	c8 -= (t0 << 26);
@@ -101,25 +64,25 @@ void IntegerPolynomial25519::carryReduce($longs* r, int64_t c0, int64_t c1, int6
 	c9 -= (t0 << 26);
 	c10 += t0;
 	t0 = 19 * c10;
-	c0 += (int64_t)((t0 << 5) & (uint64_t)(int64_t)IntegerPolynomial25519::LIMB_MASK);
+	c0 += (t0 << 5) & IntegerPolynomial25519::LIMB_MASK;
 	c1 += t0 >> 21;
 	t0 = 19 * c11;
-	c1 += (int64_t)((t0 << 5) & (uint64_t)(int64_t)IntegerPolynomial25519::LIMB_MASK);
+	c1 += (t0 << 5) & IntegerPolynomial25519::LIMB_MASK;
 	c2 += t0 >> 21;
 	t0 = 19 * c12;
-	c2 += (int64_t)((t0 << 5) & (uint64_t)(int64_t)IntegerPolynomial25519::LIMB_MASK);
+	c2 += (t0 << 5) & IntegerPolynomial25519::LIMB_MASK;
 	c3 += t0 >> 21;
 	t0 = 19 * c13;
-	c3 += (int64_t)((t0 << 5) & (uint64_t)(int64_t)IntegerPolynomial25519::LIMB_MASK);
+	c3 += (t0 << 5) & IntegerPolynomial25519::LIMB_MASK;
 	c4 += t0 >> 21;
 	t0 = 19 * c14;
-	c4 += (int64_t)((t0 << 5) & (uint64_t)(int64_t)IntegerPolynomial25519::LIMB_MASK);
+	c4 += (t0 << 5) & IntegerPolynomial25519::LIMB_MASK;
 	c5 += t0 >> 21;
 	t0 = 19 * c15;
-	c5 += (int64_t)((t0 << 5) & (uint64_t)(int64_t)IntegerPolynomial25519::LIMB_MASK);
+	c5 += (t0 << 5) & IntegerPolynomial25519::LIMB_MASK;
 	c6 += t0 >> 21;
 	t0 = 19 * c16;
-	c6 += (int64_t)((t0 << 5) & (uint64_t)(int64_t)IntegerPolynomial25519::LIMB_MASK);
+	c6 += (t0 << 5) & IntegerPolynomial25519::LIMB_MASK;
 	c7 += t0 >> 21;
 	t0 = (c0 + IntegerPolynomial25519::CARRY_ADD) >> 26;
 	c0 -= (t0 << 26);
@@ -169,7 +132,7 @@ void IntegerPolynomial25519::carryReduce($longs* r, int64_t c0, int64_t c1, int6
 	c9 -= (t0 << 26);
 	c10 += t0;
 	t0 = 19 * c10;
-	c0 += (int64_t)((t0 << 5) & (uint64_t)(int64_t)IntegerPolynomial25519::LIMB_MASK);
+	c0 += (t0 << 5) & IntegerPolynomial25519::LIMB_MASK;
 	c1 += t0 >> 21;
 	t0 = (c0 + IntegerPolynomial25519::CARRY_ADD) >> 26;
 	c0 -= (t0 << 26);
@@ -234,11 +197,11 @@ void IntegerPolynomial25519::mult($longs* a, $longs* b, $longs* r) {
 }
 
 void IntegerPolynomial25519::reduce($longs* a) {
-	carryReduce(a, $nc(a)->get(0), a->get(1), a->get(2), a->get(3), a->get(4), a->get(5), a->get(6), a->get(7), a->get(8), a->get(9));
+	carryReduce(a, $nc(a)->get(0), $nc(a)->get(1), $nc(a)->get(2), $nc(a)->get(3), $nc(a)->get(4), $nc(a)->get(5), $nc(a)->get(6), $nc(a)->get(7), $nc(a)->get(8), $nc(a)->get(9));
 }
 
 void IntegerPolynomial25519::square($longs* a, $longs* r) {
-	int64_t c0 = ($nc(a)->get(0) * a->get(0));
+	int64_t c0 = ($nc(a)->get(0) * $nc(a)->get(0));
 	int64_t c1 = 2 * (a->get(0) * a->get(1));
 	int64_t c2 = 2 * (a->get(0) * a->get(2)) + (a->get(1) * a->get(1));
 	int64_t c3 = 2 * ((a->get(0) * a->get(3)) + (a->get(1) * a->get(2)));
@@ -260,7 +223,7 @@ void IntegerPolynomial25519::square($longs* a, $longs* r) {
 	carryReduce(r, c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18);
 }
 
-void clinit$IntegerPolynomial25519($Class* class$) {
+void IntegerPolynomial25519::clinit$($Class* clazz) {
 	$assignStatic(IntegerPolynomial25519::MODULUS, IntegerPolynomial25519::evaluateModulus());
 }
 
@@ -268,7 +231,38 @@ IntegerPolynomial25519::IntegerPolynomial25519() {
 }
 
 $Class* IntegerPolynomial25519::load$($String* name, bool initialize) {
-	$loadClass(IntegerPolynomial25519, name, initialize, &_IntegerPolynomial25519_ClassInfo_, clinit$IntegerPolynomial25519, allocate$IntegerPolynomial25519);
+	$FieldInfo fieldInfos$$[] = {
+		{"BITS_PER_LIMB", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerPolynomial25519, BITS_PER_LIMB)},
+		{"NUM_LIMBS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerPolynomial25519, NUM_LIMBS)},
+		{"MAX_ADDS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerPolynomial25519, MAX_ADDS)},
+		{"MODULUS", "Ljava/math/BigInteger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IntegerPolynomial25519, MODULUS)},
+		{"CARRY_ADD", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerPolynomial25519, CARRY_ADD)},
+		{"LIMB_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntegerPolynomial25519, LIMB_MASK)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IntegerPolynomial25519, init$, void)},
+		{"carryReduce", "([JJJJJJJJJJJJJJJJJJJJ)V", nullptr, $PRIVATE, $method(IntegerPolynomial25519, carryReduce, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+		{"carryReduce", "([JJJJJJJJJJJ)V", nullptr, $PRIVATE, $method(IntegerPolynomial25519, carryReduce, void, $longs*, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t, int64_t)},
+		{"evaluateModulus", "()Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(IntegerPolynomial25519, evaluateModulus, $BigInteger*)},
+		{"finalCarryReduceLast", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial25519, finalCarryReduceLast, void, $longs*)},
+		{"mult", "([J[J[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial25519, mult, void, $longs*, $longs*, $longs*)},
+		{"reduce", "([J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial25519, reduce, void, $longs*)},
+		{"reduceIn", "([JJI)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial25519, reduceIn, void, $longs*, int64_t, int32_t)},
+		{"square", "([J[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial25519, square, void, $longs*, $longs*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.math.intpoly.IntegerPolynomial25519",
+		"sun.security.util.math.intpoly.IntegerPolynomial",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IntegerPolynomial25519, name, initialize, &classInfo$$, IntegerPolynomial25519::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(IntegerPolynomial25519);
+	});
 	return class$;
 }
 

@@ -23,6 +23,7 @@ class LambdaFormEditor$Transform : public ::java::lang::ref::SoftReference {
 	$class(LambdaFormEditor$Transform, 0, ::java::lang::ref::SoftReference)
 public:
 	LambdaFormEditor$Transform();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t packedBytes, $bytes* fullBytes, ::java::lang::invoke::LambdaForm* result);
 	virtual bool equals(Object$* obj) override;
 	bool equals(::java::lang::invoke::LambdaFormEditor$TransformKey* that);

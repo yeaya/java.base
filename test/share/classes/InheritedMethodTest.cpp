@@ -1,5 +1,4 @@
 #include <InheritedMethodTest.h>
-
 #include <InheritedMethodTest$C.h>
 #include <InheritedMethodTest$D.h>
 #include <InheritedMethodTest$I.h>
@@ -34,49 +33,6 @@ using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $MethodType = ::java::lang::invoke::MethodType;
 
-$FieldInfo _InheritedMethodTest_FieldInfo_[] = {
-	{"lookup", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InheritedMethodTest, lookup)},
-	{}
-};
-
-$MethodInfo _InheritedMethodTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InheritedMethodTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(InheritedMethodTest, main, void, $StringArray*), "java.lang.Throwable"},
-	{"mt", "(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(InheritedMethodTest, mt, $MethodType*, $Class*, $ClassArray*)},
-	{"test", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(InheritedMethodTest, test, void, $MethodHandle*, $String*), "java.lang.Throwable"},
-	{"testAltMetafactory", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(InheritedMethodTest, testAltMetafactory, void, $MethodHandle*, $String*), "java.lang.Throwable"},
-	{"testMetafactory", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(InheritedMethodTest, testMetafactory, void, $MethodHandle*, $String*), "java.lang.Throwable"},
-	{}
-};
-
-$InnerClassInfo _InheritedMethodTest_InnerClassesInfo_[] = {
-	{"InheritedMethodTest$D", "InheritedMethodTest", "D", $PUBLIC | $STATIC},
-	{"InheritedMethodTest$C", "InheritedMethodTest", "C", $PUBLIC | $STATIC | $ABSTRACT},
-	{"InheritedMethodTest$J", "InheritedMethodTest", "J", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"InheritedMethodTest$I", "InheritedMethodTest", "I", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"InheritedMethodTest$StringFactory", "InheritedMethodTest", "StringFactory", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _InheritedMethodTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"InheritedMethodTest",
-	"java.lang.Object",
-	nullptr,
-	_InheritedMethodTest_FieldInfo_,
-	_InheritedMethodTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InheritedMethodTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"InheritedMethodTest$D,InheritedMethodTest$C,InheritedMethodTest$J,InheritedMethodTest$I,InheritedMethodTest$StringFactory"
-};
-
-$Object* allocate$InheritedMethodTest($Class* clazz) {
-	return $of($alloc(InheritedMethodTest));
-}
-
 $MethodHandles$Lookup* InheritedMethodTest::lookup = nullptr;
 
 void InheritedMethodTest::init$() {
@@ -89,16 +45,16 @@ $MethodType* InheritedMethodTest::mt($Class* ret, $ClassArray* params) {
 
 void InheritedMethodTest::main($StringArray* args) {
 	$init(InheritedMethodTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($InheritedMethodTest$C);
 	test($($nc(InheritedMethodTest::lookup)->findVirtual($InheritedMethodTest$C::class$, "toString"_s, $(mt($String::class$, $$new($ClassArray, 0))))), "a"_s);
-	test($($nc(InheritedMethodTest::lookup)->findVirtual($InheritedMethodTest$C::class$, "iString"_s, $(mt($String::class$, $$new($ClassArray, 0))))), "b"_s);
+	test($(InheritedMethodTest::lookup->findVirtual($InheritedMethodTest$C::class$, "iString"_s, $(mt($String::class$, $$new($ClassArray, 0))))), "b"_s);
 	$load($InheritedMethodTest$J);
-	test($($nc(InheritedMethodTest::lookup)->findVirtual($InheritedMethodTest$J::class$, "toString"_s, $(mt($String::class$, $$new($ClassArray, 0))))), "a"_s);
-	test($($nc(InheritedMethodTest::lookup)->findVirtual($InheritedMethodTest$J::class$, "iString"_s, $(mt($String::class$, $$new($ClassArray, 0))))), "b"_s);
+	test($(InheritedMethodTest::lookup->findVirtual($InheritedMethodTest$J::class$, "toString"_s, $(mt($String::class$, $$new($ClassArray, 0))))), "a"_s);
+	test($(InheritedMethodTest::lookup->findVirtual($InheritedMethodTest$J::class$, "iString"_s, $(mt($String::class$, $$new($ClassArray, 0))))), "b"_s);
 	$load($InheritedMethodTest$I);
-	test($($nc(InheritedMethodTest::lookup)->findVirtual($InheritedMethodTest$I::class$, "toString"_s, $(mt($String::class$, $$new($ClassArray, 0))))), "a"_s);
-	test($($nc(InheritedMethodTest::lookup)->findVirtual($InheritedMethodTest$I::class$, "iString"_s, $(mt($String::class$, $$new($ClassArray, 0))))), "b"_s);
+	test($(InheritedMethodTest::lookup->findVirtual($InheritedMethodTest$I::class$, "toString"_s, $(mt($String::class$, $$new($ClassArray, 0))))), "a"_s);
+	test($(InheritedMethodTest::lookup->findVirtual($InheritedMethodTest$I::class$, "iString"_s, $(mt($String::class$, $$new($ClassArray, 0))))), "b"_s);
 }
 
 void InheritedMethodTest::test($MethodHandle* implMethod, $String* expected) {
@@ -109,44 +65,43 @@ void InheritedMethodTest::test($MethodHandle* implMethod, $String* expected) {
 
 void InheritedMethodTest::testMetafactory($MethodHandle* implMethod, $String* expected) {
 	$init(InheritedMethodTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodHandles$Lookup, var$0, InheritedMethodTest::lookup);
 	$var($String, var$1, "get"_s);
 	$load($InheritedMethodTest$StringFactory);
 	$load($InheritedMethodTest$D);
 	$var($MethodType, var$2, mt($InheritedMethodTest$StringFactory::class$, $$new($ClassArray, {$InheritedMethodTest$D::class$})));
 	$var($MethodType, var$3, mt($String::class$, $$new($ClassArray, 0)));
-	$var($MethodHandle, var$4, implMethod);
-	$var($CallSite, cs, $LambdaMetafactory::metafactory(var$0, var$1, var$2, var$3, var$4, $(mt($String::class$, $$new($ClassArray, 0)))));
-	$var($InheritedMethodTest$StringFactory, factory, $cast($InheritedMethodTest$StringFactory, $nc($($nc(cs)->dynamicInvoker()))->invokeExact($$new($ObjectArray, {$of($$new($InheritedMethodTest$D))}))));
+	$var($CallSite, cs, $LambdaMetafactory::metafactory(var$0, var$1, var$2, var$3, implMethod, $(mt($String::class$, $$new($ClassArray, 0)))));
+	$var($InheritedMethodTest$StringFactory, factory, $cast($InheritedMethodTest$StringFactory, $$nc($nc(cs)->dynamicInvoker())->invokeExact($$new($ObjectArray, {$$new($InheritedMethodTest$D)}))));
 	$var($String, actual, $nc(factory)->get());
 	if (!$nc(expected)->equals(actual)) {
-		$throwNew($AssertionError, $of($$str({"Unexpected result: "_s, actual})));
+		$throwNew($AssertionError, $$of($str({"Unexpected result: "_s, actual})));
 	}
 }
 
 void InheritedMethodTest::testAltMetafactory($MethodHandle* implMethod, $String* expected) {
 	$init(InheritedMethodTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodHandles$Lookup, var$0, InheritedMethodTest::lookup);
 	$var($String, var$1, "get"_s);
 	$load($InheritedMethodTest$StringFactory);
 	$load($InheritedMethodTest$D);
 	$var($MethodType, var$2, mt($InheritedMethodTest$StringFactory::class$, $$new($ClassArray, {$InheritedMethodTest$D::class$})));
 	$var($CallSite, cs, $LambdaMetafactory::altMetafactory(var$0, var$1, var$2, $$new($ObjectArray, {
-		$($of(mt($String::class$, $$new($ClassArray, 0)))),
-		$of(implMethod),
-		$($of(mt($String::class$, $$new($ClassArray, 0)))),
-		$($of($Integer::valueOf($LambdaMetafactory::FLAG_SERIALIZABLE)))
+		$(mt($String::class$, $$new($ClassArray, 0))),
+		implMethod,
+		$(mt($String::class$, $$new($ClassArray, 0))),
+		$($Integer::valueOf($LambdaMetafactory::FLAG_SERIALIZABLE))
 	})));
-	$var($InheritedMethodTest$StringFactory, factory, $cast($InheritedMethodTest$StringFactory, $nc($($nc(cs)->dynamicInvoker()))->invokeExact($$new($ObjectArray, {$of($$new($InheritedMethodTest$D))}))));
+	$var($InheritedMethodTest$StringFactory, factory, $cast($InheritedMethodTest$StringFactory, $$nc($nc(cs)->dynamicInvoker())->invokeExact($$new($ObjectArray, {$$new($InheritedMethodTest$D)}))));
 	$var($String, actual, $nc(factory)->get());
 	if (!$nc(expected)->equals(actual)) {
-		$throwNew($AssertionError, $of($$str({"Unexpected result: "_s, actual})));
+		$throwNew($AssertionError, $$of($str({"Unexpected result: "_s, actual})));
 	}
 }
 
-void clinit$InheritedMethodTest($Class* class$) {
+void InheritedMethodTest::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	$assignStatic(InheritedMethodTest::lookup, $MethodHandles::lookup());
 }
@@ -155,7 +110,44 @@ InheritedMethodTest::InheritedMethodTest() {
 }
 
 $Class* InheritedMethodTest::load$($String* name, bool initialize) {
-	$loadClass(InheritedMethodTest, name, initialize, &_InheritedMethodTest_ClassInfo_, clinit$InheritedMethodTest, allocate$InheritedMethodTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"lookup", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InheritedMethodTest, lookup)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InheritedMethodTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(InheritedMethodTest, main, void, $StringArray*), "java.lang.Throwable"},
+		{"mt", "(Ljava/lang/Class;[Ljava/lang/Class;)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodType;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(InheritedMethodTest, mt, $MethodType*, $Class*, $ClassArray*)},
+		{"test", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(InheritedMethodTest, test, void, $MethodHandle*, $String*), "java.lang.Throwable"},
+		{"testAltMetafactory", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(InheritedMethodTest, testAltMetafactory, void, $MethodHandle*, $String*), "java.lang.Throwable"},
+		{"testMetafactory", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(InheritedMethodTest, testMetafactory, void, $MethodHandle*, $String*), "java.lang.Throwable"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"InheritedMethodTest$D", "InheritedMethodTest", "D", $PUBLIC | $STATIC},
+		{"InheritedMethodTest$C", "InheritedMethodTest", "C", $PUBLIC | $STATIC | $ABSTRACT},
+		{"InheritedMethodTest$J", "InheritedMethodTest", "J", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"InheritedMethodTest$I", "InheritedMethodTest", "I", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"InheritedMethodTest$StringFactory", "InheritedMethodTest", "StringFactory", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"InheritedMethodTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"InheritedMethodTest$D,InheritedMethodTest$C,InheritedMethodTest$J,InheritedMethodTest$I,InheritedMethodTest$StringFactory"
+	};
+	$loadClass(InheritedMethodTest, name, initialize, &classInfo$$, InheritedMethodTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(InheritedMethodTest);
+	});
 	return class$;
 }
 

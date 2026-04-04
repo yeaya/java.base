@@ -35,6 +35,7 @@ class $import Spliterators : public ::java::lang::Object {
 	$class(Spliterators, 0, ::java::lang::Object)
 public:
 	Spliterators();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkFromToBounds(int32_t arrayLength, int32_t origin, int32_t fence);
 	static ::java::util::Spliterator$OfDouble* emptyDoubleSpliterator();

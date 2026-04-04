@@ -54,7 +54,7 @@ public:
 	void readObject(::java::io::ObjectInputStream* ois);
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* oos);
-	static const int64_t serialVersionUID = (int64_t)0x4513C7E9C252587F;
+	static const int64_t serialVersionUID = (int64_t)0x4513c7e9c252587f;
 	::java::net::URL* location = nullptr;
 	$Array<::java::security::CodeSigner>* signers = nullptr;
 	$Array<::java::security::cert::Certificate>* certs = nullptr;

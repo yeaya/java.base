@@ -1,5 +1,4 @@
 #include <java/io/InvalidObjectException.h>
-
 #include <java/io/ObjectStreamException.h>
 #include <jcpp.h>
 
@@ -10,29 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _InvalidObjectException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidObjectException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InvalidObjectException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidObjectException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _InvalidObjectException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.InvalidObjectException",
-	"java.io.ObjectStreamException",
-	nullptr,
-	_InvalidObjectException_FieldInfo_,
-	_InvalidObjectException_MethodInfo_
-};
-
-$Object* allocate$InvalidObjectException($Class* clazz) {
-	return $of($alloc(InvalidObjectException));
-}
 
 void InvalidObjectException::init$($String* reason) {
 	$ObjectStreamException::init$(reason);
@@ -49,7 +25,25 @@ void InvalidObjectException::throw$() {
 }
 
 $Class* InvalidObjectException::load$($String* name, bool initialize) {
-	$loadClass(InvalidObjectException, name, initialize, &_InvalidObjectException_ClassInfo_, allocate$InvalidObjectException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidObjectException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidObjectException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.InvalidObjectException",
+		"java.io.ObjectStreamException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvalidObjectException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidObjectException);
+	});
 	return class$;
 }
 

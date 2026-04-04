@@ -1,5 +1,4 @@
 #include <java/text/Annotation.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,37 +8,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace text {
 
-$FieldInfo _Annotation_FieldInfo_[] = {
-	{"value", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(Annotation, value)},
-	{}
-};
-
-$MethodInfo _Annotation_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Annotation, init$, void, Object$*)},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Annotation, getValue, $Object*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Annotation, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Annotation_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.text.Annotation",
-	"java.lang.Object",
-	nullptr,
-	_Annotation_FieldInfo_,
-	_Annotation_MethodInfo_
-};
-
-$Object* allocate$Annotation($Class* clazz) {
-	return $of($alloc(Annotation));
-}
-
 void Annotation::init$(Object$* value) {
 	$set(this, value, value);
 }
 
 $Object* Annotation::getValue() {
-	return $of(this->value);
+	return this->value;
 }
 
 $String* Annotation::toString() {
@@ -50,7 +24,27 @@ Annotation::Annotation() {
 }
 
 $Class* Annotation::load$($String* name, bool initialize) {
-	$loadClass(Annotation, name, initialize, &_Annotation_ClassInfo_, allocate$Annotation);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(Annotation, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Annotation, init$, void, Object$*)},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Annotation, getValue, $Object*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Annotation, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.text.Annotation",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Annotation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Annotation);
+	});
 	return class$;
 }
 

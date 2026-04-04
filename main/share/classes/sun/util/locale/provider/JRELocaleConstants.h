@@ -29,6 +29,7 @@ class $export JRELocaleConstants : public ::java::lang::Object {
 	$class(JRELocaleConstants, 0, ::java::lang::Object)
 public:
 	JRELocaleConstants();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Locale* JA_JP_JP;
 	static ::java::util::Locale* NO_NO_NY;

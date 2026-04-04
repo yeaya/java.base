@@ -1,5 +1,4 @@
 #include <java/nio/channels/ConnectionPendingException.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace nio {
 		namespace channels {
-
-$FieldInfo _ConnectionPendingException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ConnectionPendingException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ConnectionPendingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ConnectionPendingException, init$, void)},
-	{}
-};
-
-$ClassInfo _ConnectionPendingException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.channels.ConnectionPendingException",
-	"java.lang.IllegalStateException",
-	nullptr,
-	_ConnectionPendingException_FieldInfo_,
-	_ConnectionPendingException_MethodInfo_
-};
-
-$Object* allocate$ConnectionPendingException($Class* clazz) {
-	return $of($alloc(ConnectionPendingException));
-}
 
 void ConnectionPendingException::init$() {
 	$IllegalStateException::init$();
@@ -50,7 +26,25 @@ void ConnectionPendingException::throw$() {
 }
 
 $Class* ConnectionPendingException::load$($String* name, bool initialize) {
-	$loadClass(ConnectionPendingException, name, initialize, &_ConnectionPendingException_ClassInfo_, allocate$ConnectionPendingException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ConnectionPendingException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ConnectionPendingException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.channels.ConnectionPendingException",
+		"java.lang.IllegalStateException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ConnectionPendingException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ConnectionPendingException);
+	});
 	return class$;
 }
 

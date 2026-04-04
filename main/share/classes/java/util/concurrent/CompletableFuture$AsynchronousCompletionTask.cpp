@@ -1,5 +1,4 @@
 #include <java/util/concurrent/CompletableFuture$AsynchronousCompletionTask.h>
-
 #include <java/util/concurrent/CompletableFuture.h>
 #include <jcpp.h>
 
@@ -10,33 +9,29 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$InnerClassInfo _CompletableFuture$AsynchronousCompletionTask_InnerClassesInfo_[] = {
-	{"java.util.concurrent.CompletableFuture$AsynchronousCompletionTask", "java.util.concurrent.CompletableFuture", "AsynchronousCompletionTask", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CompletableFuture$AsynchronousCompletionTask_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.concurrent.CompletableFuture$AsynchronousCompletionTask",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_CompletableFuture$AsynchronousCompletionTask_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.CompletableFuture"
-};
-
-$Object* allocate$CompletableFuture$AsynchronousCompletionTask($Class* clazz) {
-	return $of($alloc(CompletableFuture$AsynchronousCompletionTask));
-}
-
 $Class* CompletableFuture$AsynchronousCompletionTask::load$($String* name, bool initialize) {
-	$loadClass(CompletableFuture$AsynchronousCompletionTask, name, initialize, &_CompletableFuture$AsynchronousCompletionTask_ClassInfo_, allocate$CompletableFuture$AsynchronousCompletionTask);
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.CompletableFuture$AsynchronousCompletionTask", "java.util.concurrent.CompletableFuture", "AsynchronousCompletionTask", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.concurrent.CompletableFuture$AsynchronousCompletionTask",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.CompletableFuture"
+	};
+	$loadClass(CompletableFuture$AsynchronousCompletionTask, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CompletableFuture$AsynchronousCompletionTask);
+	});
 	return class$;
 }
 

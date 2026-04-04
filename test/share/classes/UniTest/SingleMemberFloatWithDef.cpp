@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberFloatWithDef.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -10,44 +9,38 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$NamedAttribute SingleMemberFloatWithDef_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _SingleMemberFloatWithDef_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", SingleMemberFloatWithDef_Attribute_var$0},
-	{}
-};
-
-$Attribute _SingleMemberFloatWithDef_DefaultValue_value0 = {
-	'F', "16.0"
-};
-
-$MethodInfo _SingleMemberFloatWithDef_MethodInfo_[] = {
-	{"value", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberFloatWithDef, value, float), nullptr, &_SingleMemberFloatWithDef_DefaultValue_value0},
-	{}
-};
-
-$ClassInfo _SingleMemberFloatWithDef_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"UniTest.SingleMemberFloatWithDef",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_SingleMemberFloatWithDef_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberFloatWithDef_Annotations_
-};
-
-$Object* allocate$SingleMemberFloatWithDef($Class* clazz) {
-	return $of($alloc(SingleMemberFloatWithDef));
-}
-
 $Class* SingleMemberFloatWithDef::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberFloatWithDef, name, initialize, &_SingleMemberFloatWithDef_ClassInfo_, allocate$SingleMemberFloatWithDef);
+
+	$Attribute valuedefaultValue$$ = {
+		'F', "16.0"
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberFloatWithDef, value, float), nullptr, &valuedefaultValue$$},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"UniTest.SingleMemberFloatWithDef",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberFloatWithDef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberFloatWithDef);
+	});
 	return class$;
 }
 

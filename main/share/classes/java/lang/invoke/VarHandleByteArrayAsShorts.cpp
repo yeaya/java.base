@@ -1,5 +1,4 @@
 #include <java/lang/invoke/VarHandleByteArrayAsShorts.h>
-
 #include <java/lang/invoke/VarHandleByteArrayBase.h>
 #include <jdk/internal/access/JavaNioAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
@@ -26,50 +25,6 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$CompoundAttribute _VarHandleByteArrayAsShorts_MethodAnnotations_convEndian1[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$FieldInfo _VarHandleByteArrayAsShorts_FieldInfo_[] = {
-	{"NIO_ACCESS", "Ljdk/internal/access/JavaNioAccess;", nullptr, $STATIC | $FINAL, $staticField(VarHandleByteArrayAsShorts, NIO_ACCESS)},
-	{"ALIGN", "I", nullptr, $STATIC | $FINAL, $constField(VarHandleByteArrayAsShorts, ALIGN)},
-	{"SCOPED_MEMORY_ACCESS", "Ljdk/internal/misc/ScopedMemoryAccess;", nullptr, $STATIC | $FINAL, $staticField(VarHandleByteArrayAsShorts, SCOPED_MEMORY_ACCESS)},
-	{}
-};
-
-$MethodInfo _VarHandleByteArrayAsShorts_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(VarHandleByteArrayAsShorts, init$, void)},
-	{"convEndian", "(ZS)S", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsShorts, convEndian, int16_t, bool, int16_t), nullptr, nullptr, _VarHandleByteArrayAsShorts_MethodAnnotations_convEndian1},
-	{}
-};
-
-$InnerClassInfo _VarHandleByteArrayAsShorts_InnerClassesInfo_[] = {
-	{"java.lang.invoke.VarHandleByteArrayAsShorts$ByteBufferHandle", "java.lang.invoke.VarHandleByteArrayAsShorts", "ByteBufferHandle", $STATIC | $FINAL},
-	{"java.lang.invoke.VarHandleByteArrayAsShorts$ArrayHandle", "java.lang.invoke.VarHandleByteArrayAsShorts", "ArrayHandle", $STATIC | $FINAL},
-	{"java.lang.invoke.VarHandleByteArrayAsShorts$ByteArrayViewVarHandle", "java.lang.invoke.VarHandleByteArrayAsShorts", "ByteArrayViewVarHandle", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _VarHandleByteArrayAsShorts_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.invoke.VarHandleByteArrayAsShorts",
-	"java.lang.invoke.VarHandleByteArrayBase",
-	nullptr,
-	_VarHandleByteArrayAsShorts_FieldInfo_,
-	_VarHandleByteArrayAsShorts_MethodInfo_,
-	nullptr,
-	nullptr,
-	_VarHandleByteArrayAsShorts_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.VarHandleByteArrayAsShorts$ByteBufferHandle,java.lang.invoke.VarHandleByteArrayAsShorts$ArrayHandle,java.lang.invoke.VarHandleByteArrayAsShorts$ByteArrayViewVarHandle"
-};
-
-$Object* allocate$VarHandleByteArrayAsShorts($Class* clazz) {
-	return $of($alloc(VarHandleByteArrayAsShorts));
-}
-
 $JavaNioAccess* VarHandleByteArrayAsShorts::NIO_ACCESS = nullptr;
 $ScopedMemoryAccess* VarHandleByteArrayAsShorts::SCOPED_MEMORY_ACCESS = nullptr;
 
@@ -83,7 +38,7 @@ int16_t VarHandleByteArrayAsShorts::convEndian(bool big, int16_t n) {
 	return big == $VarHandleByteArrayBase::BE ? n : $Short::reverseBytes(n);
 }
 
-void clinit$VarHandleByteArrayAsShorts($Class* class$) {
+void VarHandleByteArrayAsShorts::clinit$($Class* clazz) {
 	$assignStatic(VarHandleByteArrayAsShorts::NIO_ACCESS, $SharedSecrets::getJavaNioAccess());
 	$assignStatic(VarHandleByteArrayAsShorts::SCOPED_MEMORY_ACCESS, $ScopedMemoryAccess::getScopedMemoryAccess());
 }
@@ -92,7 +47,44 @@ VarHandleByteArrayAsShorts::VarHandleByteArrayAsShorts() {
 }
 
 $Class* VarHandleByteArrayAsShorts::load$($String* name, bool initialize) {
-	$loadClass(VarHandleByteArrayAsShorts, name, initialize, &_VarHandleByteArrayAsShorts_ClassInfo_, clinit$VarHandleByteArrayAsShorts, allocate$VarHandleByteArrayAsShorts);
+	$FieldInfo fieldInfos$$[] = {
+		{"NIO_ACCESS", "Ljdk/internal/access/JavaNioAccess;", nullptr, $STATIC | $FINAL, $staticField(VarHandleByteArrayAsShorts, NIO_ACCESS)},
+		{"ALIGN", "I", nullptr, $STATIC | $FINAL, $constField(VarHandleByteArrayAsShorts, ALIGN)},
+		{"SCOPED_MEMORY_ACCESS", "Ljdk/internal/misc/ScopedMemoryAccess;", nullptr, $STATIC | $FINAL, $staticField(VarHandleByteArrayAsShorts, SCOPED_MEMORY_ACCESS)},
+		{}
+	};
+	$CompoundAttribute convEndianmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(VarHandleByteArrayAsShorts, init$, void)},
+		{"convEndian", "(ZS)S", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsShorts, convEndian, int16_t, bool, int16_t), nullptr, nullptr, convEndianmethodAnnotations$$},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.VarHandleByteArrayAsShorts$ByteBufferHandle", "java.lang.invoke.VarHandleByteArrayAsShorts", "ByteBufferHandle", $STATIC | $FINAL},
+		{"java.lang.invoke.VarHandleByteArrayAsShorts$ArrayHandle", "java.lang.invoke.VarHandleByteArrayAsShorts", "ArrayHandle", $STATIC | $FINAL},
+		{"java.lang.invoke.VarHandleByteArrayAsShorts$ByteArrayViewVarHandle", "java.lang.invoke.VarHandleByteArrayAsShorts", "ByteArrayViewVarHandle", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.invoke.VarHandleByteArrayAsShorts",
+		"java.lang.invoke.VarHandleByteArrayBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.VarHandleByteArrayAsShorts$ByteBufferHandle,java.lang.invoke.VarHandleByteArrayAsShorts$ArrayHandle,java.lang.invoke.VarHandleByteArrayAsShorts$ByteArrayViewVarHandle"
+	};
+	$loadClass(VarHandleByteArrayAsShorts, name, initialize, &classInfo$$, VarHandleByteArrayAsShorts::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(VarHandleByteArrayAsShorts);
+	});
 	return class$;
 }
 

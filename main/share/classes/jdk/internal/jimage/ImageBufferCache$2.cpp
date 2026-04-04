@@ -1,5 +1,4 @@
 #include <jdk/internal/jimage/ImageBufferCache$2.h>
-
 #include <java/util/Map$Entry.h>
 #include <jdk/internal/jimage/ImageBufferCache.h>
 #include <jcpp.h>
@@ -15,45 +14,6 @@ using $ImageBufferCache = ::jdk::internal::jimage::ImageBufferCache;
 namespace jdk {
 	namespace internal {
 		namespace jimage {
-
-$MethodInfo _ImageBufferCache$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ImageBufferCache$2, init$, void)},
-	{"compare", "(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I", "(Ljava/util/Map$Entry<Ljava/lang/ref/WeakReference<Ljava/nio/ByteBuffer;>;Ljava/lang/Integer;>;Ljava/util/Map$Entry<Ljava/lang/ref/WeakReference<Ljava/nio/ByteBuffer;>;Ljava/lang/Integer;>;)I", $PUBLIC, $virtualMethod(ImageBufferCache$2, compare, int32_t, $Map$Entry*, $Map$Entry*)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ImageBufferCache$2, compare, int32_t, Object$*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _ImageBufferCache$2_EnclosingMethodInfo_ = {
-	"jdk.internal.jimage.ImageBufferCache",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ImageBufferCache$2_InnerClassesInfo_[] = {
-	{"jdk.internal.jimage.ImageBufferCache$2", nullptr, nullptr, 0},
-	{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ImageBufferCache$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.jimage.ImageBufferCache$2",
-	"java.lang.Object",
-	"java.util.Comparator",
-	nullptr,
-	_ImageBufferCache$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Comparator<Ljava/util/Map$Entry<Ljava/lang/ref/WeakReference<Ljava/nio/ByteBuffer;>;Ljava/lang/Integer;>;>;",
-	&_ImageBufferCache$2_EnclosingMethodInfo_,
-	_ImageBufferCache$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.jimage.ImageBufferCache"
-};
-
-$Object* allocate$ImageBufferCache$2($Class* clazz) {
-	return $of($alloc(ImageBufferCache$2));
-}
 
 void ImageBufferCache$2::init$() {
 }
@@ -71,7 +31,40 @@ ImageBufferCache$2::ImageBufferCache$2() {
 }
 
 $Class* ImageBufferCache$2::load$($String* name, bool initialize) {
-	$loadClass(ImageBufferCache$2, name, initialize, &_ImageBufferCache$2_ClassInfo_, allocate$ImageBufferCache$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ImageBufferCache$2, init$, void)},
+		{"compare", "(Ljava/util/Map$Entry;Ljava/util/Map$Entry;)I", "(Ljava/util/Map$Entry<Ljava/lang/ref/WeakReference<Ljava/nio/ByteBuffer;>;Ljava/lang/Integer;>;Ljava/util/Map$Entry<Ljava/lang/ref/WeakReference<Ljava/nio/ByteBuffer;>;Ljava/lang/Integer;>;)I", $PUBLIC, $virtualMethod(ImageBufferCache$2, compare, int32_t, $Map$Entry*, $Map$Entry*)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ImageBufferCache$2, compare, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.jimage.ImageBufferCache",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.jimage.ImageBufferCache$2", nullptr, nullptr, 0},
+		{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.jimage.ImageBufferCache$2",
+		"java.lang.Object",
+		"java.util.Comparator",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Comparator<Ljava/util/Map$Entry<Ljava/lang/ref/WeakReference<Ljava/nio/ByteBuffer;>;Ljava/lang/Integer;>;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.jimage.ImageBufferCache"
+	};
+	$loadClass(ImageBufferCache$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageBufferCache$2);
+	});
 	return class$;
 }
 

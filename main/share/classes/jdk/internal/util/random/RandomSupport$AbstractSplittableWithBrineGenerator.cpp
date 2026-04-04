@@ -1,5 +1,4 @@
 #include <jdk/internal/util/random/RandomSupport$AbstractSplittableWithBrineGenerator.h>
-
 #include <java/lang/Math.h>
 #include <java/util/Spliterator.h>
 #include <java/util/random/RandomGenerator$SplittableGenerator.h>
@@ -26,47 +25,6 @@ namespace jdk {
 		namespace util {
 			namespace random {
 
-$FieldInfo _RandomSupport$AbstractSplittableWithBrineGenerator_FieldInfo_[] = {
-	{"SALT_SHIFT", "I", nullptr, $STATIC | $FINAL, $constField(RandomSupport$AbstractSplittableWithBrineGenerator, SALT_SHIFT)},
-	{}
-};
-
-$MethodInfo _RandomSupport$AbstractSplittableWithBrineGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(RandomSupport$AbstractSplittableWithBrineGenerator, init$, void)},
-	{"makeSplitsSpliterator", "(JJLjava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/Spliterator;", "(JJLjava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/Spliterator<Ljava/util/random/RandomGenerator$SplittableGenerator;>;", 0, $virtualMethod(RandomSupport$AbstractSplittableWithBrineGenerator, makeSplitsSpliterator, $Spliterator*, int64_t, int64_t, $RandomGenerator$SplittableGenerator*)},
-	{"split", "(J)Ljava/util/random/RandomGenerator$SplittableGenerator;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSplittableWithBrineGenerator, split, $RandomGenerator$SplittableGenerator*, int64_t)},
-	{"split", "(Ljava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/random/RandomGenerator$SplittableGenerator;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSplittableWithBrineGenerator, split, $RandomGenerator$SplittableGenerator*, $RandomGenerator$SplittableGenerator*)},
-	{"split", "(Ljava/util/random/RandomGenerator$SplittableGenerator;J)Ljava/util/random/RandomGenerator$SplittableGenerator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$AbstractSplittableWithBrineGenerator, split, $RandomGenerator$SplittableGenerator*, $RandomGenerator$SplittableGenerator*, int64_t)},
-	{}
-};
-
-$InnerClassInfo _RandomSupport$AbstractSplittableWithBrineGenerator_InnerClassesInfo_[] = {
-	{"jdk.internal.util.random.RandomSupport$AbstractSplittableWithBrineGenerator", "jdk.internal.util.random.RandomSupport", "AbstractSplittableWithBrineGenerator", $PUBLIC | $STATIC | $ABSTRACT},
-	{"jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator", "jdk.internal.util.random.RandomSupport", "AbstractSplittableGenerator", $PUBLIC | $STATIC | $ABSTRACT},
-	{"jdk.internal.util.random.RandomSupport$AbstractSplittableWithBrineGenerator$RandomSplitsSpliteratorWithSalt", "jdk.internal.util.random.RandomSupport$AbstractSplittableWithBrineGenerator", "RandomSplitsSpliteratorWithSalt", $STATIC},
-	{}
-};
-
-$ClassInfo _RandomSupport$AbstractSplittableWithBrineGenerator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"jdk.internal.util.random.RandomSupport$AbstractSplittableWithBrineGenerator",
-	"jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator",
-	nullptr,
-	_RandomSupport$AbstractSplittableWithBrineGenerator_FieldInfo_,
-	_RandomSupport$AbstractSplittableWithBrineGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RandomSupport$AbstractSplittableWithBrineGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.util.random.RandomSupport"
-};
-
-$Object* allocate$RandomSupport$AbstractSplittableWithBrineGenerator($Class* clazz) {
-	return $of($alloc(RandomSupport$AbstractSplittableWithBrineGenerator));
-}
-
 void RandomSupport$AbstractSplittableWithBrineGenerator::init$() {
 	$RandomSupport$AbstractSplittableGenerator::init$();
 }
@@ -75,7 +33,7 @@ $Spliterator* RandomSupport$AbstractSplittableWithBrineGenerator::makeSplitsSpli
 	int64_t bits = nextLong();
 	int64_t multiplier = ($sl((int64_t)1, RandomSupport$AbstractSplittableWithBrineGenerator::SALT_SHIFT)) - 1;
 	int64_t salt = $sl(multiplier, 64 - RandomSupport$AbstractSplittableWithBrineGenerator::SALT_SHIFT);
-	while (((int64_t)(salt & (uint64_t)multiplier)) != 0) {
+	while ((salt & multiplier) != 0) {
 		int64_t digit = $Math::multiplyHigh(bits, multiplier);
 		salt = ($usr(salt, RandomSupport$AbstractSplittableWithBrineGenerator::SALT_SHIFT)) | ($sl(digit, 64 - RandomSupport$AbstractSplittableWithBrineGenerator::SALT_SHIFT));
 		bits *= multiplier;
@@ -95,7 +53,42 @@ RandomSupport$AbstractSplittableWithBrineGenerator::RandomSupport$AbstractSplitt
 }
 
 $Class* RandomSupport$AbstractSplittableWithBrineGenerator::load$($String* name, bool initialize) {
-	$loadClass(RandomSupport$AbstractSplittableWithBrineGenerator, name, initialize, &_RandomSupport$AbstractSplittableWithBrineGenerator_ClassInfo_, allocate$RandomSupport$AbstractSplittableWithBrineGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"SALT_SHIFT", "I", nullptr, $STATIC | $FINAL, $constField(RandomSupport$AbstractSplittableWithBrineGenerator, SALT_SHIFT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(RandomSupport$AbstractSplittableWithBrineGenerator, init$, void)},
+		{"makeSplitsSpliterator", "(JJLjava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/Spliterator;", "(JJLjava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/Spliterator<Ljava/util/random/RandomGenerator$SplittableGenerator;>;", 0, $virtualMethod(RandomSupport$AbstractSplittableWithBrineGenerator, makeSplitsSpliterator, $Spliterator*, int64_t, int64_t, $RandomGenerator$SplittableGenerator*)},
+		{"split", "(J)Ljava/util/random/RandomGenerator$SplittableGenerator;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSplittableWithBrineGenerator, split, $RandomGenerator$SplittableGenerator*, int64_t)},
+		{"split", "(Ljava/util/random/RandomGenerator$SplittableGenerator;)Ljava/util/random/RandomGenerator$SplittableGenerator;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSplittableWithBrineGenerator, split, $RandomGenerator$SplittableGenerator*, $RandomGenerator$SplittableGenerator*)},
+		{"split", "(Ljava/util/random/RandomGenerator$SplittableGenerator;J)Ljava/util/random/RandomGenerator$SplittableGenerator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RandomSupport$AbstractSplittableWithBrineGenerator, split, $RandomGenerator$SplittableGenerator*, $RandomGenerator$SplittableGenerator*, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.util.random.RandomSupport$AbstractSplittableWithBrineGenerator", "jdk.internal.util.random.RandomSupport", "AbstractSplittableWithBrineGenerator", $PUBLIC | $STATIC | $ABSTRACT},
+		{"jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator", "jdk.internal.util.random.RandomSupport", "AbstractSplittableGenerator", $PUBLIC | $STATIC | $ABSTRACT},
+		{"jdk.internal.util.random.RandomSupport$AbstractSplittableWithBrineGenerator$RandomSplitsSpliteratorWithSalt", "jdk.internal.util.random.RandomSupport$AbstractSplittableWithBrineGenerator", "RandomSplitsSpliteratorWithSalt", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"jdk.internal.util.random.RandomSupport$AbstractSplittableWithBrineGenerator",
+		"jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.util.random.RandomSupport"
+	};
+	$loadClass(RandomSupport$AbstractSplittableWithBrineGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RandomSupport$AbstractSplittableWithBrineGenerator));
+	});
 	return class$;
 }
 

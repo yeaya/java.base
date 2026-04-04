@@ -16,6 +16,7 @@ class CustomColors : public ::java::lang::Enum {
 public:
 	CustomColors();
 	static $Array<CustomColors>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t arg);
 	void init$($String* $enum$name, int32_t $enum$ordinal, double arg);
 	static ::CustomColors* valueOf($String* name);

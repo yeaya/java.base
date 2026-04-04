@@ -1,5 +1,4 @@
 #include <sun/nio/ch/UnixAsynchronousSocketChannelImpl$OpType.h>
-
 #include <java/lang/Enum.h>
 #include <sun/nio/ch/UnixAsynchronousSocketChannelImpl.h>
 #include <jcpp.h>
@@ -18,47 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _UnixAsynchronousSocketChannelImpl$OpType_FieldInfo_[] = {
-	{"CONNECT", "Lsun/nio/ch/UnixAsynchronousSocketChannelImpl$OpType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnixAsynchronousSocketChannelImpl$OpType, CONNECT)},
-	{"READ", "Lsun/nio/ch/UnixAsynchronousSocketChannelImpl$OpType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnixAsynchronousSocketChannelImpl$OpType, READ)},
-	{"WRITE", "Lsun/nio/ch/UnixAsynchronousSocketChannelImpl$OpType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnixAsynchronousSocketChannelImpl$OpType, WRITE)},
-	{"$VALUES", "[Lsun/nio/ch/UnixAsynchronousSocketChannelImpl$OpType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(UnixAsynchronousSocketChannelImpl$OpType, $VALUES)},
-	{}
-};
-
-$MethodInfo _UnixAsynchronousSocketChannelImpl$OpType_MethodInfo_[] = {
-	{"$values", "()[Lsun/nio/ch/UnixAsynchronousSocketChannelImpl$OpType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnixAsynchronousSocketChannelImpl$OpType, $values, $UnixAsynchronousSocketChannelImpl$OpTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(UnixAsynchronousSocketChannelImpl$OpType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/nio/ch/UnixAsynchronousSocketChannelImpl$OpType;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnixAsynchronousSocketChannelImpl$OpType, valueOf, UnixAsynchronousSocketChannelImpl$OpType*, $String*)},
-	{"values", "()[Lsun/nio/ch/UnixAsynchronousSocketChannelImpl$OpType;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnixAsynchronousSocketChannelImpl$OpType, values, $UnixAsynchronousSocketChannelImpl$OpTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _UnixAsynchronousSocketChannelImpl$OpType_InnerClassesInfo_[] = {
-	{"sun.nio.ch.UnixAsynchronousSocketChannelImpl$OpType", "sun.nio.ch.UnixAsynchronousSocketChannelImpl", "OpType", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _UnixAsynchronousSocketChannelImpl$OpType_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.nio.ch.UnixAsynchronousSocketChannelImpl$OpType",
-	"java.lang.Enum",
-	nullptr,
-	_UnixAsynchronousSocketChannelImpl$OpType_FieldInfo_,
-	_UnixAsynchronousSocketChannelImpl$OpType_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/nio/ch/UnixAsynchronousSocketChannelImpl$OpType;>;",
-	nullptr,
-	_UnixAsynchronousSocketChannelImpl$OpType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.UnixAsynchronousSocketChannelImpl"
-};
-
-$Object* allocate$UnixAsynchronousSocketChannelImpl$OpType($Class* clazz) {
-	return $of($alloc(UnixAsynchronousSocketChannelImpl$OpType));
-}
 
 UnixAsynchronousSocketChannelImpl$OpType* UnixAsynchronousSocketChannelImpl$OpType::CONNECT = nullptr;
 UnixAsynchronousSocketChannelImpl$OpType* UnixAsynchronousSocketChannelImpl$OpType::READ = nullptr;
@@ -88,7 +46,7 @@ void UnixAsynchronousSocketChannelImpl$OpType::init$($String* $enum$name, int32_
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$UnixAsynchronousSocketChannelImpl$OpType($Class* class$) {
+void UnixAsynchronousSocketChannelImpl$OpType::clinit$($Class* clazz) {
 	$assignStatic(UnixAsynchronousSocketChannelImpl$OpType::CONNECT, $new(UnixAsynchronousSocketChannelImpl$OpType, "CONNECT"_s, 0));
 	$assignStatic(UnixAsynchronousSocketChannelImpl$OpType::READ, $new(UnixAsynchronousSocketChannelImpl$OpType, "READ"_s, 1));
 	$assignStatic(UnixAsynchronousSocketChannelImpl$OpType::WRITE, $new(UnixAsynchronousSocketChannelImpl$OpType, "WRITE"_s, 2));
@@ -99,7 +57,42 @@ UnixAsynchronousSocketChannelImpl$OpType::UnixAsynchronousSocketChannelImpl$OpTy
 }
 
 $Class* UnixAsynchronousSocketChannelImpl$OpType::load$($String* name, bool initialize) {
-	$loadClass(UnixAsynchronousSocketChannelImpl$OpType, name, initialize, &_UnixAsynchronousSocketChannelImpl$OpType_ClassInfo_, clinit$UnixAsynchronousSocketChannelImpl$OpType, allocate$UnixAsynchronousSocketChannelImpl$OpType);
+	$FieldInfo fieldInfos$$[] = {
+		{"CONNECT", "Lsun/nio/ch/UnixAsynchronousSocketChannelImpl$OpType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnixAsynchronousSocketChannelImpl$OpType, CONNECT)},
+		{"READ", "Lsun/nio/ch/UnixAsynchronousSocketChannelImpl$OpType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnixAsynchronousSocketChannelImpl$OpType, READ)},
+		{"WRITE", "Lsun/nio/ch/UnixAsynchronousSocketChannelImpl$OpType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnixAsynchronousSocketChannelImpl$OpType, WRITE)},
+		{"$VALUES", "[Lsun/nio/ch/UnixAsynchronousSocketChannelImpl$OpType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(UnixAsynchronousSocketChannelImpl$OpType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/nio/ch/UnixAsynchronousSocketChannelImpl$OpType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnixAsynchronousSocketChannelImpl$OpType, $values, $UnixAsynchronousSocketChannelImpl$OpTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(UnixAsynchronousSocketChannelImpl$OpType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/nio/ch/UnixAsynchronousSocketChannelImpl$OpType;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnixAsynchronousSocketChannelImpl$OpType, valueOf, UnixAsynchronousSocketChannelImpl$OpType*, $String*)},
+		{"values", "()[Lsun/nio/ch/UnixAsynchronousSocketChannelImpl$OpType;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnixAsynchronousSocketChannelImpl$OpType, values, $UnixAsynchronousSocketChannelImpl$OpTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.UnixAsynchronousSocketChannelImpl$OpType", "sun.nio.ch.UnixAsynchronousSocketChannelImpl", "OpType", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.nio.ch.UnixAsynchronousSocketChannelImpl$OpType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/nio/ch/UnixAsynchronousSocketChannelImpl$OpType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.UnixAsynchronousSocketChannelImpl"
+	};
+	$loadClass(UnixAsynchronousSocketChannelImpl$OpType, name, initialize, &classInfo$$, UnixAsynchronousSocketChannelImpl$OpType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UnixAsynchronousSocketChannelImpl$OpType));
+	});
 	return class$;
 }
 

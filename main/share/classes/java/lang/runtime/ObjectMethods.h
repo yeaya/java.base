@@ -61,6 +61,7 @@ class $export ObjectMethods : public ::java::lang::Object {
 	$class(ObjectMethods, 0, ::java::lang::Object)
 public:
 	ObjectMethods();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Object* bootstrap(::java::lang::invoke::MethodHandles$Lookup* lookup, $String* methodName, ::java::lang::invoke::TypeDescriptor* type, $Class* recordClass, $String* names, $Array<::java::lang::invoke::MethodHandle>* getters);
 	static bool eq(Object$* a, Object$* b);

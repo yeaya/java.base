@@ -14,6 +14,7 @@ class $export MultiThreadStackWalk$Call$WalkType : public ::java::lang::Enum {
 public:
 	MultiThreadStackWalk$Call$WalkType();
 	static $Array<MultiThreadStackWalk$Call$WalkType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::MultiThreadStackWalk$Call$WalkType* valueOf($String* name);
 	static $Array<MultiThreadStackWalk$Call$WalkType>* values();

@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/util/CodePointTrie$Small.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/nio/ByteBuffer.h>
 #include <jdk/internal/icu/util/CodePointMap$StringIterator.h>
@@ -30,46 +29,6 @@ namespace jdk {
 		namespace icu {
 			namespace util {
 
-$CompoundAttribute _CodePointTrie$Small_MethodAnnotations_cpIndex1[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$MethodInfo _CodePointTrie$Small_MethodInfo_[] = {
-	{"<init>", "([CLjdk/internal/icu/util/CodePointTrie$Data;III)V", nullptr, $PRIVATE, $method(CodePointTrie$Small, init$, void, $chars*, $CodePointTrie$Data*, int32_t, int32_t, int32_t)},
-	{"cpIndex", "(I)I", nullptr, $PROTECTED | $FINAL | $DEPRECATED, $virtualMethod(CodePointTrie$Small, cpIndex, int32_t, int32_t), nullptr, nullptr, _CodePointTrie$Small_MethodAnnotations_cpIndex1},
-	{"fromBinary", "(Ljdk/internal/icu/util/CodePointTrie$ValueWidth;Ljava/nio/ByteBuffer;)Ljdk/internal/icu/util/CodePointTrie$Small;", nullptr, $PUBLIC | $STATIC, $staticMethod(CodePointTrie$Small, fromBinary, CodePointTrie$Small*, $CodePointTrie$ValueWidth*, $ByteBuffer*)},
-	{"getType", "()Ljdk/internal/icu/util/CodePointTrie$Type;", nullptr, $PUBLIC | $FINAL, $virtualMethod(CodePointTrie$Small, getType, $CodePointTrie$Type*)},
-	{"stringIterator", "(Ljava/lang/CharSequence;I)Ljdk/internal/icu/util/CodePointMap$StringIterator;", nullptr, $PUBLIC | $FINAL, $virtualMethod(CodePointTrie$Small, stringIterator, $CodePointMap$StringIterator*, $CharSequence*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CodePointTrie$Small_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.util.CodePointTrie$Small", "jdk.internal.icu.util.CodePointTrie", "Small", $PUBLIC | $STATIC | $ABSTRACT},
-	{"jdk.internal.icu.util.CodePointTrie$Small$SmallStringIterator", "jdk.internal.icu.util.CodePointTrie$Small", "SmallStringIterator", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _CodePointTrie$Small_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"jdk.internal.icu.util.CodePointTrie$Small",
-	"jdk.internal.icu.util.CodePointTrie",
-	nullptr,
-	nullptr,
-	_CodePointTrie$Small_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CodePointTrie$Small_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.util.CodePointTrie"
-};
-
-$Object* allocate$CodePointTrie$Small($Class* clazz) {
-	return $of($alloc(CodePointTrie$Small));
-}
-
 void CodePointTrie$Small::init$($chars* index, $CodePointTrie$Data* data, int32_t highStart, int32_t index3NullOffset, int32_t dataNullOffset) {
 	$CodePointTrie::init$(index, data, highStart, index3NullOffset, dataNullOffset);
 }
@@ -89,7 +48,7 @@ int32_t CodePointTrie$Small::cpIndex(int32_t c) {
 	if (c >= 0) {
 		if (c <= 4095) {
 			return fastIndex(c);
-		} else if (c <= 0x0010FFFF) {
+		} else if (c <= 0x0010ffff) {
 			$init($CodePointTrie$Type);
 			return smallIndex($CodePointTrie$Type::SMALL, c);
 		}
@@ -105,7 +64,41 @@ CodePointTrie$Small::CodePointTrie$Small() {
 }
 
 $Class* CodePointTrie$Small::load$($String* name, bool initialize) {
-	$loadClass(CodePointTrie$Small, name, initialize, &_CodePointTrie$Small_ClassInfo_, allocate$CodePointTrie$Small);
+	$CompoundAttribute cpIndexmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([CLjdk/internal/icu/util/CodePointTrie$Data;III)V", nullptr, $PRIVATE, $method(CodePointTrie$Small, init$, void, $chars*, $CodePointTrie$Data*, int32_t, int32_t, int32_t)},
+		{"cpIndex", "(I)I", nullptr, $PROTECTED | $FINAL | $DEPRECATED, $virtualMethod(CodePointTrie$Small, cpIndex, int32_t, int32_t), nullptr, nullptr, cpIndexmethodAnnotations$$},
+		{"fromBinary", "(Ljdk/internal/icu/util/CodePointTrie$ValueWidth;Ljava/nio/ByteBuffer;)Ljdk/internal/icu/util/CodePointTrie$Small;", nullptr, $PUBLIC | $STATIC, $staticMethod(CodePointTrie$Small, fromBinary, CodePointTrie$Small*, $CodePointTrie$ValueWidth*, $ByteBuffer*)},
+		{"getType", "()Ljdk/internal/icu/util/CodePointTrie$Type;", nullptr, $PUBLIC | $FINAL, $virtualMethod(CodePointTrie$Small, getType, $CodePointTrie$Type*)},
+		{"stringIterator", "(Ljava/lang/CharSequence;I)Ljdk/internal/icu/util/CodePointMap$StringIterator;", nullptr, $PUBLIC | $FINAL, $virtualMethod(CodePointTrie$Small, stringIterator, $CodePointMap$StringIterator*, $CharSequence*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.util.CodePointTrie$Small", "jdk.internal.icu.util.CodePointTrie", "Small", $PUBLIC | $STATIC | $ABSTRACT},
+		{"jdk.internal.icu.util.CodePointTrie$Small$SmallStringIterator", "jdk.internal.icu.util.CodePointTrie$Small", "SmallStringIterator", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"jdk.internal.icu.util.CodePointTrie$Small",
+		"jdk.internal.icu.util.CodePointTrie",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.util.CodePointTrie"
+	};
+	$loadClass(CodePointTrie$Small, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CodePointTrie$Small);
+	});
 	return class$;
 }
 

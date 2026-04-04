@@ -1,5 +1,4 @@
 #include <WithoutParameters$ExpectedParameterInfo.h>
-
 #include <WithoutParameters$ParameterizedInfo.h>
 #include <WithoutParameters.h>
 #include <jcpp.h>
@@ -12,87 +11,76 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
-$NamedAttribute WithoutParameters$ExpectedParameterInfo_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$Attribute WithoutParameters$ExpectedParameterInfo_Attribute_var$2[] = {
-	{'e', "Ljava/lang/annotation/ElementType; METHOD"},
-	{'e', "Ljava/lang/annotation/ElementType; CONSTRUCTOR"},
-	{'-'}
-};
-
-$NamedAttribute WithoutParameters$ExpectedParameterInfo_Attribute_var$1[] = {
-	{"value", '[', WithoutParameters$ExpectedParameterInfo_Attribute_var$2},
-	{}
-};
-
-$CompoundAttribute _WithoutParameters$ExpectedParameterInfo_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", WithoutParameters$ExpectedParameterInfo_Attribute_var$0},
-	{"Ljava/lang/annotation/Target;", WithoutParameters$ExpectedParameterInfo_Attribute_var$1},
-	{}
-};
-
-$Attribute _WithoutParameters$ExpectedParameterInfo_DefaultValue_isVarArgs0 = {
-	'Z', "false"
-};
-
-$Attribute _WithoutParameters$ExpectedParameterInfo_DefaultValue_parameterCount1 = {
-	'I', "0"
-};
-
-$Attribute WithoutParameters$ExpectedParameterInfo_Attribute_var$3[] = {
-	{'-'}
-};
-
-$Attribute _WithoutParameters$ExpectedParameterInfo_DefaultValue_parameterTypes2 = {
-	'[', WithoutParameters$ExpectedParameterInfo_Attribute_var$3
-};
-
-$Attribute WithoutParameters$ExpectedParameterInfo_Attribute_var$4[] = {
-	{'-'}
-};
-
-$Attribute _WithoutParameters$ExpectedParameterInfo_DefaultValue_parameterizedTypes3 = {
-	'[', WithoutParameters$ExpectedParameterInfo_Attribute_var$4
-};
-
-$MethodInfo _WithoutParameters$ExpectedParameterInfo_MethodInfo_[] = {
-	{"isVarArgs", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WithoutParameters$ExpectedParameterInfo, isVarArgs, bool), nullptr, &_WithoutParameters$ExpectedParameterInfo_DefaultValue_isVarArgs0},
-	{"parameterCount", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WithoutParameters$ExpectedParameterInfo, parameterCount, int32_t), nullptr, &_WithoutParameters$ExpectedParameterInfo_DefaultValue_parameterCount1},
-	{"parameterTypes", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(WithoutParameters$ExpectedParameterInfo, parameterTypes, $ClassArray*), nullptr, &_WithoutParameters$ExpectedParameterInfo_DefaultValue_parameterTypes2},
-	{"parameterizedTypes", "()[LWithoutParameters$ParameterizedInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WithoutParameters$ExpectedParameterInfo, parameterizedTypes, $WithoutParameters$ParameterizedInfoArray*), nullptr, &_WithoutParameters$ExpectedParameterInfo_DefaultValue_parameterizedTypes3},
-	{}
-};
-
-$InnerClassInfo _WithoutParameters$ExpectedParameterInfo_InnerClassesInfo_[] = {
-	{"WithoutParameters$ExpectedParameterInfo", "WithoutParameters", "ExpectedParameterInfo", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{}
-};
-
-$ClassInfo _WithoutParameters$ExpectedParameterInfo_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"WithoutParameters$ExpectedParameterInfo",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_WithoutParameters$ExpectedParameterInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WithoutParameters$ExpectedParameterInfo_InnerClassesInfo_,
-	_WithoutParameters$ExpectedParameterInfo_Annotations_,
-	nullptr,
-	nullptr,
-	"WithoutParameters"
-};
-
-$Object* allocate$WithoutParameters$ExpectedParameterInfo($Class* clazz) {
-	return $of($alloc(WithoutParameters$ExpectedParameterInfo));
-}
-
 $Class* WithoutParameters$ExpectedParameterInfo::load$($String* name, bool initialize) {
-	$loadClass(WithoutParameters$ExpectedParameterInfo, name, initialize, &_WithoutParameters$ExpectedParameterInfo_ClassInfo_, allocate$WithoutParameters$ExpectedParameterInfo);
+
+	$Attribute isVarArgsdefaultValue$$ = {
+		'Z', "false"
+	};
+
+	$Attribute parameterCountdefaultValue$$ = {
+		'I', "0"
+	};
+	$Attribute $attribute[] = {
+		{'-'}
+	};
+
+	$Attribute parameterTypesdefaultValue$$ = {
+		'[', $attribute
+	};
+	$Attribute $attribute$1[] = {
+		{'-'}
+	};
+
+	$Attribute parameterizedTypesdefaultValue$$ = {
+		'[', $attribute$1
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"isVarArgs", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WithoutParameters$ExpectedParameterInfo, isVarArgs, bool), nullptr, &isVarArgsdefaultValue$$},
+		{"parameterCount", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WithoutParameters$ExpectedParameterInfo, parameterCount, int32_t), nullptr, &parameterCountdefaultValue$$},
+		{"parameterTypes", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC | $ABSTRACT, $virtualMethod(WithoutParameters$ExpectedParameterInfo, parameterTypes, $ClassArray*), nullptr, &parameterTypesdefaultValue$$},
+		{"parameterizedTypes", "()[LWithoutParameters$ParameterizedInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WithoutParameters$ExpectedParameterInfo, parameterizedTypes, $WithoutParameters$ParameterizedInfoArray*), nullptr, &parameterizedTypesdefaultValue$$},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"WithoutParameters$ExpectedParameterInfo", "WithoutParameters", "ExpectedParameterInfo", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$Attribute $attribute$2[] = {
+		{'e', "Ljava/lang/annotation/ElementType; METHOD"},
+		{'e', "Ljava/lang/annotation/ElementType; CONSTRUCTOR"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", '[', $attribute$2},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"WithoutParameters$ExpectedParameterInfo",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"WithoutParameters"
+	};
+	$loadClass(WithoutParameters$ExpectedParameterInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WithoutParameters$ExpectedParameterInfo);
+	});
 	return class$;
 }
 

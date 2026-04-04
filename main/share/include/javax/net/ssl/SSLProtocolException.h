@@ -14,10 +14,13 @@ class $import SSLProtocolException : public ::javax::net::ssl::SSLException {
 public:
 	SSLProtocolException();
 	void init$($String* reason);
-	static const int64_t serialVersionUID = (int64_t)0x4B90C3A533ED3AD0;
+	static const int64_t serialVersionUID = (int64_t)0x4b90c3a533ed3ad0;
 	SSLProtocolException(const SSLProtocolException& e);
 	virtual void throw$() override;
-	inline SSLProtocolException* operator ->() {
+	inline SSLProtocolException* operator ->() const {
+		return (SSLProtocolException*)throwing$;
+	}
+	inline operator SSLProtocolException*() const {
 		return (SSLProtocolException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <AtomicAttachTest$1.h>
-
 #include <AtomicAttachTest.h>
 #include <java/nio/channels/SelectionKey.h>
 #include <java/util/concurrent/atomic/AtomicBoolean.h>
@@ -14,49 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
-
-$FieldInfo _AtomicAttachTest$1_FieldInfo_[] = {
-	{"val$errorCount", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $FINAL | $SYNTHETIC, $field(AtomicAttachTest$1, val$errorCount)},
-	{"val$key", "Ljava/nio/channels/SelectionKey;", nullptr, $FINAL | $SYNTHETIC, $field(AtomicAttachTest$1, val$key)},
-	{}
-};
-
-$MethodInfo _AtomicAttachTest$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/SelectionKey;Ljava/util/concurrent/atomic/AtomicInteger;)V", nullptr, 0, $method(AtomicAttachTest$1, init$, void, $SelectionKey*, $AtomicInteger*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AtomicAttachTest$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _AtomicAttachTest$1_EnclosingMethodInfo_ = {
-	"AtomicAttachTest",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _AtomicAttachTest$1_InnerClassesInfo_[] = {
-	{"AtomicAttachTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AtomicAttachTest$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"AtomicAttachTest$1",
-	"java.lang.Thread",
-	nullptr,
-	_AtomicAttachTest$1_FieldInfo_,
-	_AtomicAttachTest$1_MethodInfo_,
-	nullptr,
-	&_AtomicAttachTest$1_EnclosingMethodInfo_,
-	_AtomicAttachTest$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"AtomicAttachTest"
-};
-
-$Object* allocate$AtomicAttachTest$1($Class* clazz) {
-	return $of($alloc(AtomicAttachTest$1));
-}
 
 void AtomicAttachTest$1::init$($SelectionKey* val$key, $AtomicInteger* val$errorCount) {
 	$set(this, val$key, val$key);
@@ -73,7 +29,7 @@ void AtomicAttachTest$1::run() {
 	for (int32_t i = 0; i < (100 * 1000); ++i) {
 		$assign(att, $cast($AtomicBoolean, $nc(this->val$key)->attach(att)));
 		bool var$0 = !$nc(att)->compareAndSet(false, true);
-		if (var$0 || !$nc(att)->compareAndSet(true, false)) {
+		if (var$0 || !att->compareAndSet(true, false)) {
 			$nc(this->val$errorCount)->incrementAndGet();
 		}
 	}
@@ -83,7 +39,43 @@ AtomicAttachTest$1::AtomicAttachTest$1() {
 }
 
 $Class* AtomicAttachTest$1::load$($String* name, bool initialize) {
-	$loadClass(AtomicAttachTest$1, name, initialize, &_AtomicAttachTest$1_ClassInfo_, allocate$AtomicAttachTest$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$errorCount", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $FINAL | $SYNTHETIC, $field(AtomicAttachTest$1, val$errorCount)},
+		{"val$key", "Ljava/nio/channels/SelectionKey;", nullptr, $FINAL | $SYNTHETIC, $field(AtomicAttachTest$1, val$key)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/SelectionKey;Ljava/util/concurrent/atomic/AtomicInteger;)V", nullptr, 0, $method(AtomicAttachTest$1, init$, void, $SelectionKey*, $AtomicInteger*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AtomicAttachTest$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"AtomicAttachTest",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"AtomicAttachTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"AtomicAttachTest$1",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"AtomicAttachTest"
+	};
+	$loadClass(AtomicAttachTest$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AtomicAttachTest$1);
+	});
 	return class$;
 }
 

@@ -24,12 +24,15 @@ public:
 	void init$(::java::lang::reflect::Method* element, $String* foundType);
 	virtual ::java::lang::reflect::Method* element();
 	virtual $String* foundType();
-	static const int64_t serialVersionUID = (int64_t)0x70C5160EDDBF1A8F;
+	static const int64_t serialVersionUID = (int64_t)0x70c5160eddbf1a8f;
 	::java::lang::reflect::Method* element$ = nullptr;
 	$String* foundType$ = nullptr;
 	AnnotationTypeMismatchException(const AnnotationTypeMismatchException& e);
 	virtual void throw$() override;
-	inline AnnotationTypeMismatchException* operator ->() {
+	inline AnnotationTypeMismatchException* operator ->() const {
+		return (AnnotationTypeMismatchException*)throwing$;
+	}
+	inline operator AnnotationTypeMismatchException*() const {
 		return (AnnotationTypeMismatchException*)throwing$;
 	}
 };

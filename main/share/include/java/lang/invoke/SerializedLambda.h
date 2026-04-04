@@ -28,7 +28,7 @@ public:
 	$String* getInstantiatedMethodType();
 	$Object* readResolve();
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x6F61D0942C293685;
+	static const int64_t serialVersionUID = (int64_t)0x6f61d0942c293685;
 	$Class* capturingClass = nullptr;
 	$String* functionalInterfaceClass = nullptr;
 	$String* functionalInterfaceMethodName = nullptr;

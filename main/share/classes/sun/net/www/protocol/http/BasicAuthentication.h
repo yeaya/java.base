@@ -40,6 +40,7 @@ class BasicAuthentication : public ::sun::net::www::protocol::http::Authenticati
 	$class(BasicAuthentication, 0, ::sun::net::www::protocol::http::AuthenticationInfo)
 public:
 	BasicAuthentication();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool isProxy, $String* host, int32_t port, $String* realm, ::java::net::PasswordAuthentication* pw, bool isUTF8, $String* authenticatorKey);
 	void init$(bool isProxy, $String* host, int32_t port, $String* realm, $String* auth, $String* authenticatorKey);
 	void init$(bool isProxy, ::java::net::URL* url, $String* realm, ::java::net::PasswordAuthentication* pw, bool isUTF8, $String* authenticatorKey);

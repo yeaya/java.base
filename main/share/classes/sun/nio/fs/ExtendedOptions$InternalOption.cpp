@@ -1,5 +1,4 @@
 #include <sun/nio/fs/ExtendedOptions$InternalOption.h>
-
 #include <java/nio/file/CopyOption.h>
 #include <java/nio/file/OpenOption.h>
 #include <java/nio/file/WatchEvent$Modifier.h>
@@ -14,50 +13,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $CopyOption = ::java::nio::file::CopyOption;
 using $OpenOption = ::java::nio::file::OpenOption;
 using $WatchEvent$Modifier = ::java::nio::file::WatchEvent$Modifier;
-using $Map = ::java::util::Map;
 using $ExtendedOptions = ::sun::nio::fs::ExtendedOptions;
 using $ExtendedOptions$Wrapper = ::sun::nio::fs::ExtendedOptions$Wrapper;
 
 namespace sun {
 	namespace nio {
 		namespace fs {
-
-$MethodInfo _ExtendedOptions$InternalOption_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ExtendedOptions$InternalOption, init$, void)},
-	{"matches", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $method(ExtendedOptions$InternalOption, matches, bool, Object$*)},
-	{"parameter", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $method(ExtendedOptions$InternalOption, parameter, $Object*)},
-	{"register", "(Ljava/nio/file/OpenOption;)V", nullptr, $PUBLIC, $method(ExtendedOptions$InternalOption, register$, void, $OpenOption*)},
-	{"register", "(Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC, $method(ExtendedOptions$InternalOption, register$, void, $CopyOption*)},
-	{"register", "(Ljava/nio/file/WatchEvent$Modifier;)V", nullptr, $PUBLIC, $method(ExtendedOptions$InternalOption, register$, void, $WatchEvent$Modifier*)},
-	{"register", "(Ljava/nio/file/WatchEvent$Modifier;Ljava/lang/Object;)V", "(Ljava/nio/file/WatchEvent$Modifier;TT;)V", $PUBLIC, $method(ExtendedOptions$InternalOption, register$, void, $WatchEvent$Modifier*, Object$*)},
-	{"registerInternal", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(Ljava/lang/Object;TT;)V", $PRIVATE, $method(ExtendedOptions$InternalOption, registerInternal, void, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _ExtendedOptions$InternalOption_InnerClassesInfo_[] = {
-	{"sun.nio.fs.ExtendedOptions$InternalOption", "sun.nio.fs.ExtendedOptions", "InternalOption", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ExtendedOptions$InternalOption_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.nio.fs.ExtendedOptions$InternalOption",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ExtendedOptions$InternalOption_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_ExtendedOptions$InternalOption_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.ExtendedOptions"
-};
-
-$Object* allocate$ExtendedOptions$InternalOption($Class* clazz) {
-	return $of($alloc(ExtendedOptions$InternalOption));
-}
 
 void ExtendedOptions$InternalOption::init$() {
 }
@@ -90,7 +51,7 @@ bool ExtendedOptions$InternalOption::matches(Object$* option) {
 	if (wrapper == nullptr) {
 		return false;
 	} else {
-		return $equals(option, $nc(wrapper)->option);
+		return $equals(option, wrapper->option);
 	}
 }
 
@@ -98,9 +59,9 @@ $Object* ExtendedOptions$InternalOption::parameter() {
 	$init($ExtendedOptions);
 	$var($ExtendedOptions$Wrapper, wrapper, $cast($ExtendedOptions$Wrapper, $nc($ExtendedOptions::internalToExternal)->get(this)));
 	if (wrapper == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	} else {
-		return $of($nc(wrapper)->parameter());
+		return wrapper->parameter();
 	}
 }
 
@@ -108,7 +69,39 @@ ExtendedOptions$InternalOption::ExtendedOptions$InternalOption() {
 }
 
 $Class* ExtendedOptions$InternalOption::load$($String* name, bool initialize) {
-	$loadClass(ExtendedOptions$InternalOption, name, initialize, &_ExtendedOptions$InternalOption_ClassInfo_, allocate$ExtendedOptions$InternalOption);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ExtendedOptions$InternalOption, init$, void)},
+		{"matches", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $method(ExtendedOptions$InternalOption, matches, bool, Object$*)},
+		{"parameter", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $method(ExtendedOptions$InternalOption, parameter, $Object*)},
+		{"register", "(Ljava/nio/file/OpenOption;)V", nullptr, $PUBLIC, $method(ExtendedOptions$InternalOption, register$, void, $OpenOption*)},
+		{"register", "(Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC, $method(ExtendedOptions$InternalOption, register$, void, $CopyOption*)},
+		{"register", "(Ljava/nio/file/WatchEvent$Modifier;)V", nullptr, $PUBLIC, $method(ExtendedOptions$InternalOption, register$, void, $WatchEvent$Modifier*)},
+		{"register", "(Ljava/nio/file/WatchEvent$Modifier;Ljava/lang/Object;)V", "(Ljava/nio/file/WatchEvent$Modifier;TT;)V", $PUBLIC, $method(ExtendedOptions$InternalOption, register$, void, $WatchEvent$Modifier*, Object$*)},
+		{"registerInternal", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(Ljava/lang/Object;TT;)V", $PRIVATE, $method(ExtendedOptions$InternalOption, registerInternal, void, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.ExtendedOptions$InternalOption", "sun.nio.fs.ExtendedOptions", "InternalOption", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.nio.fs.ExtendedOptions$InternalOption",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.ExtendedOptions"
+	};
+	$loadClass(ExtendedOptions$InternalOption, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExtendedOptions$InternalOption);
+	});
 	return class$;
 }
 

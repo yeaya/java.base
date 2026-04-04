@@ -1,5 +1,4 @@
 #include <java/io/PushbackReader.h>
-
 #include <java/io/FilterReader.h>
 #include <java/io/IOException.h>
 #include <java/io/Reader.h>
@@ -21,43 +20,6 @@ using $Objects = ::java::util::Objects;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _PushbackReader_FieldInfo_[] = {
-	{"buf", "[C", nullptr, $PRIVATE, $field(PushbackReader, buf)},
-	{"pos", "I", nullptr, $PRIVATE, $field(PushbackReader, pos)},
-	{}
-};
-
-$MethodInfo _PushbackReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Reader;I)V", nullptr, $PUBLIC, $method(PushbackReader, init$, void, $Reader*, int32_t)},
-	{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(PushbackReader, init$, void, $Reader*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(PushbackReader, close, void), "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(PushbackReader, ensureOpen, void), "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(PushbackReader, mark, void, int32_t), "java.io.IOException"},
-	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(PushbackReader, markSupported, bool)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(PushbackReader, read, int32_t), "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(PushbackReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(PushbackReader, ready, bool), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(PushbackReader, reset, void), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(PushbackReader, skip, int64_t, int64_t), "java.io.IOException"},
-	{"unread", "(I)V", nullptr, $PUBLIC, $virtualMethod(PushbackReader, unread, void, int32_t), "java.io.IOException"},
-	{"unread", "([CII)V", nullptr, $PUBLIC, $virtualMethod(PushbackReader, unread, void, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"unread", "([C)V", nullptr, $PUBLIC, $virtualMethod(PushbackReader, unread, void, $chars*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _PushbackReader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.PushbackReader",
-	"java.io.FilterReader",
-	nullptr,
-	_PushbackReader_FieldInfo_,
-	_PushbackReader_MethodInfo_
-};
-
-$Object* allocate$PushbackReader($Class* clazz) {
-	return $of($alloc(PushbackReader));
-}
 
 void PushbackReader::init$($Reader* in, int32_t size) {
 	$FilterReader::init$(in);
@@ -82,7 +44,7 @@ int32_t PushbackReader::read() {
 	$synchronized(this->lock) {
 		ensureOpen();
 		if (this->pos < $nc(this->buf)->length) {
-			return $nc(this->buf)->get(this->pos++);
+			return this->buf->get(this->pos++);
 		} else {
 			return $FilterReader::read();
 		}
@@ -174,7 +136,7 @@ void PushbackReader::close() {
 }
 
 int64_t PushbackReader::skip(int64_t n) {
-	if (n < (int64_t)0) {
+	if (n < 0) {
 		$throwNew($IllegalArgumentException, "skip value is negative"_s);
 	}
 	$synchronized(this->lock) {
@@ -185,7 +147,7 @@ int64_t PushbackReader::skip(int64_t n) {
 				this->pos += n;
 				return n;
 			} else {
-				this->pos = $nc(this->buf)->length;
+				this->pos = this->buf->length;
 				n -= avail;
 			}
 		}
@@ -197,7 +159,39 @@ PushbackReader::PushbackReader() {
 }
 
 $Class* PushbackReader::load$($String* name, bool initialize) {
-	$loadClass(PushbackReader, name, initialize, &_PushbackReader_ClassInfo_, allocate$PushbackReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"buf", "[C", nullptr, $PRIVATE, $field(PushbackReader, buf)},
+		{"pos", "I", nullptr, $PRIVATE, $field(PushbackReader, pos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/Reader;I)V", nullptr, $PUBLIC, $method(PushbackReader, init$, void, $Reader*, int32_t)},
+		{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(PushbackReader, init$, void, $Reader*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(PushbackReader, close, void), "java.io.IOException"},
+		{"ensureOpen", "()V", nullptr, $PRIVATE, $method(PushbackReader, ensureOpen, void), "java.io.IOException"},
+		{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(PushbackReader, mark, void, int32_t), "java.io.IOException"},
+		{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(PushbackReader, markSupported, bool)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(PushbackReader, read, int32_t), "java.io.IOException"},
+		{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(PushbackReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(PushbackReader, ready, bool), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(PushbackReader, reset, void), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(PushbackReader, skip, int64_t, int64_t), "java.io.IOException"},
+		{"unread", "(I)V", nullptr, $PUBLIC, $virtualMethod(PushbackReader, unread, void, int32_t), "java.io.IOException"},
+		{"unread", "([CII)V", nullptr, $PUBLIC, $virtualMethod(PushbackReader, unread, void, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"unread", "([C)V", nullptr, $PUBLIC, $virtualMethod(PushbackReader, unread, void, $chars*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.PushbackReader",
+		"java.io.FilterReader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PushbackReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PushbackReader));
+	});
 	return class$;
 }
 

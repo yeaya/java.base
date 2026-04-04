@@ -1,5 +1,4 @@
 #include <java/nio/channels/spi/SelectorProvider$Holder.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
@@ -38,7 +37,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $SecurityException = ::java::lang::SecurityException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $Constructor = ::java::lang::reflect::Constructor;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
 using $AccessController = ::java::security::AccessController;
@@ -59,71 +57,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(SelectorProvider$Holder::lambda$provider$0());
+		 return SelectorProvider$Holder::lambda$provider$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SelectorProvider$Holder$$Lambda$lambda$provider$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SelectorProvider$Holder$$Lambda$lambda$provider$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SelectorProvider$Holder$$Lambda$lambda$provider$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SelectorProvider$Holder$$Lambda$lambda$provider$0, run, $Object*)},
-	{}
-};
-$ClassInfo SelectorProvider$Holder$$Lambda$lambda$provider$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.nio.channels.spi.SelectorProvider$Holder$$Lambda$lambda$provider$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* SelectorProvider$Holder$$Lambda$lambda$provider$0::load$($String* name, bool initialize) {
-	$loadClass(SelectorProvider$Holder$$Lambda$lambda$provider$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SelectorProvider$Holder$$Lambda$lambda$provider$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SelectorProvider$Holder$$Lambda$lambda$provider$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.nio.channels.spi.SelectorProvider$Holder$$Lambda$lambda$provider$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SelectorProvider$Holder$$Lambda$lambda$provider$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SelectorProvider$Holder$$Lambda$lambda$provider$0);
+	});
 	return class$;
 }
 $Class* SelectorProvider$Holder$$Lambda$lambda$provider$0::class$ = nullptr;
-
-$FieldInfo _SelectorProvider$Holder_FieldInfo_[] = {
-	{"INSTANCE", "Ljava/nio/channels/spi/SelectorProvider;", nullptr, $STATIC | $FINAL, $staticField(SelectorProvider$Holder, INSTANCE)},
-	{}
-};
-
-$MethodInfo _SelectorProvider$Holder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SelectorProvider$Holder, init$, void)},
-	{"lambda$provider$0", "()Ljava/nio/channels/spi/SelectorProvider;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SelectorProvider$Holder, lambda$provider$0, $SelectorProvider*)},
-	{"loadProviderAsService", "()Ljava/nio/channels/spi/SelectorProvider;", nullptr, $PRIVATE | $STATIC, $staticMethod(SelectorProvider$Holder, loadProviderAsService, $SelectorProvider*)},
-	{"loadProviderFromProperty", "()Ljava/nio/channels/spi/SelectorProvider;", nullptr, $PRIVATE | $STATIC, $staticMethod(SelectorProvider$Holder, loadProviderFromProperty, $SelectorProvider*)},
-	{"provider", "()Ljava/nio/channels/spi/SelectorProvider;", nullptr, $STATIC, $staticMethod(SelectorProvider$Holder, provider, $SelectorProvider*)},
-	{}
-};
-
-$InnerClassInfo _SelectorProvider$Holder_InnerClassesInfo_[] = {
-	{"java.nio.channels.spi.SelectorProvider$Holder", "java.nio.channels.spi.SelectorProvider", "Holder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SelectorProvider$Holder_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.channels.spi.SelectorProvider$Holder",
-	"java.lang.Object",
-	nullptr,
-	_SelectorProvider$Holder_FieldInfo_,
-	_SelectorProvider$Holder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SelectorProvider$Holder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.nio.channels.spi.SelectorProvider"
-};
-
-$Object* allocate$SelectorProvider$Holder($Class* clazz) {
-	return $of($alloc(SelectorProvider$Holder));
-}
 
 $SelectorProvider* SelectorProvider$Holder::INSTANCE = nullptr;
 
@@ -133,13 +89,13 @@ void SelectorProvider$Holder::init$() {
 $SelectorProvider* SelectorProvider$Holder::provider() {
 	$init(SelectorProvider$Holder);
 	$beforeCallerSensitive();
-	$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(SelectorProvider$Holder$$Lambda$lambda$provider$0)));
+	$var($PrivilegedAction, pa, $new(SelectorProvider$Holder$$Lambda$lambda$provider$0));
 	return $cast($SelectorProvider, $AccessController::doPrivileged(pa));
 }
 
 $SelectorProvider* SelectorProvider$Holder::loadProviderFromProperty() {
 	$init(SelectorProvider$Holder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, cn, $System::getProperty("java.nio.channels.spi.SelectorProvider"_s));
 	if (cn == nullptr) {
@@ -147,7 +103,7 @@ $SelectorProvider* SelectorProvider$Holder::loadProviderFromProperty() {
 	}
 	try {
 		$Class* clazz = $Class::forName(cn, true, $($ClassLoader::getSystemClassLoader()));
-		return $cast($SelectorProvider, $nc($($nc(clazz)->getConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0)));
+		return $cast($SelectorProvider, $$nc(clazz->getConstructor($$new($ClassArray, 0)))->newInstance($$new($ObjectArray, 0)));
 	} catch ($ClassNotFoundException& x) {
 		$throwNew($ServiceConfigurationError, nullptr, x);
 	} catch ($NoSuchMethodException& x) {
@@ -166,14 +122,14 @@ $SelectorProvider* SelectorProvider$Holder::loadProviderFromProperty() {
 
 $SelectorProvider* SelectorProvider$Holder::loadProviderAsService() {
 	$init(SelectorProvider$Holder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$load($SelectorProvider);
 	$var($ServiceLoader, sl, $ServiceLoader::load($SelectorProvider::class$, $($ClassLoader::getSystemClassLoader())));
 	$var($Iterator, i, $nc(sl)->iterator());
 	for (;;) {
 		try {
-			return $nc(i)->hasNext() ? $cast($SelectorProvider, $nc(i)->next()) : ($SelectorProvider*)nullptr;
+			return $nc(i)->hasNext() ? $cast($SelectorProvider, i->next()) : ($SelectorProvider*)nullptr;
 		} catch ($ServiceConfigurationError& sce) {
 			if ($instanceOf($SecurityException, $(sce->getCause()))) {
 				continue;
@@ -196,7 +152,7 @@ $SelectorProvider* SelectorProvider$Holder::lambda$provider$0() {
 	return $DefaultSelectorProvider::get();
 }
 
-void clinit$SelectorProvider$Holder($Class* class$) {
+void SelectorProvider$Holder::clinit$($Class* clazz) {
 	$assignStatic(SelectorProvider$Holder::INSTANCE, SelectorProvider$Holder::provider());
 }
 
@@ -205,11 +161,44 @@ SelectorProvider$Holder::SelectorProvider$Holder() {
 
 $Class* SelectorProvider$Holder::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SelectorProvider$Holder$$Lambda$lambda$provider$0::classInfo$.name)) {
+		if (name->equals("java.nio.channels.spi.SelectorProvider$Holder$$Lambda$lambda$provider$0")) {
 			return SelectorProvider$Holder$$Lambda$lambda$provider$0::load$(name, initialize);
 		}
 	}
-	$loadClass(SelectorProvider$Holder, name, initialize, &_SelectorProvider$Holder_ClassInfo_, clinit$SelectorProvider$Holder, allocate$SelectorProvider$Holder);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Ljava/nio/channels/spi/SelectorProvider;", nullptr, $STATIC | $FINAL, $staticField(SelectorProvider$Holder, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SelectorProvider$Holder, init$, void)},
+		{"lambda$provider$0", "()Ljava/nio/channels/spi/SelectorProvider;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SelectorProvider$Holder, lambda$provider$0, $SelectorProvider*)},
+		{"loadProviderAsService", "()Ljava/nio/channels/spi/SelectorProvider;", nullptr, $PRIVATE | $STATIC, $staticMethod(SelectorProvider$Holder, loadProviderAsService, $SelectorProvider*)},
+		{"loadProviderFromProperty", "()Ljava/nio/channels/spi/SelectorProvider;", nullptr, $PRIVATE | $STATIC, $staticMethod(SelectorProvider$Holder, loadProviderFromProperty, $SelectorProvider*)},
+		{"provider", "()Ljava/nio/channels/spi/SelectorProvider;", nullptr, $STATIC, $staticMethod(SelectorProvider$Holder, provider, $SelectorProvider*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.channels.spi.SelectorProvider$Holder", "java.nio.channels.spi.SelectorProvider", "Holder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.channels.spi.SelectorProvider$Holder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.nio.channels.spi.SelectorProvider"
+	};
+	$loadClass(SelectorProvider$Holder, name, initialize, &classInfo$$, SelectorProvider$Holder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SelectorProvider$Holder);
+	});
 	return class$;
 }
 

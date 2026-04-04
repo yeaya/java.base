@@ -1,5 +1,4 @@
 #include <WaitFor.h>
-
 #include <MyProcess.h>
 #include <java/lang/Process.h>
 #include <java/lang/ProcessBuilder.h>
@@ -16,30 +15,11 @@ using $ProcessBuilder = ::java::lang::ProcessBuilder;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 
-$MethodInfo _WaitFor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WaitFor, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WaitFor, main, void, $StringArray*), "java.lang.Throwable"},
-	{}
-};
-
-$ClassInfo _WaitFor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"WaitFor",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_WaitFor_MethodInfo_
-};
-
-$Object* allocate$WaitFor($Class* clazz) {
-	return $of($alloc(WaitFor));
-}
-
 void WaitFor::init$() {
 }
 
 void WaitFor::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failCnt = 0;
 	for (int32_t i = 0; i < 30; ++i) {
 		$var($Process, proc, $new($MyProcess, $($$new($ProcessBuilder, $$new($StringArray, {"true"_s}))->start())));
@@ -58,7 +38,22 @@ WaitFor::WaitFor() {
 }
 
 $Class* WaitFor::load$($String* name, bool initialize) {
-	$loadClass(WaitFor, name, initialize, &_WaitFor_ClassInfo_, allocate$WaitFor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WaitFor, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WaitFor, main, void, $StringArray*), "java.lang.Throwable"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"WaitFor",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WaitFor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WaitFor);
+	});
 	return class$;
 }
 

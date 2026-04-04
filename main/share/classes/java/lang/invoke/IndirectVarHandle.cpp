@@ -1,5 +1,4 @@
 #include <java/lang/invoke/IndirectVarHandle.h>
-
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/invoke/VarForm.h>
@@ -29,55 +28,6 @@ using $BiFunction = ::java::util::function::BiFunction;
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$CompoundAttribute _IndirectVarHandle_FieldAnnotations_handleMap[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _IndirectVarHandle_MethodAnnotations_getMethodHandle5[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$FieldInfo _IndirectVarHandle_FieldInfo_[] = {
-	{"handleMap", "[Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $FINAL, $field(IndirectVarHandle, handleMap), _IndirectVarHandle_FieldAnnotations_handleMap},
-	{"directTarget", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $FINAL, $field(IndirectVarHandle, directTarget)},
-	{"target", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $FINAL, $field(IndirectVarHandle, target$)},
-	{"handleFactory", "Ljava/util/function/BiFunction;", "Ljava/util/function/BiFunction<Ljava/lang/invoke/VarHandle$AccessMode;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;>;", $PRIVATE | $FINAL, $field(IndirectVarHandle, handleFactory)},
-	{"value", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(IndirectVarHandle, value)},
-	{"coordinates", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(IndirectVarHandle, coordinates)},
-	{}
-};
-
-$MethodInfo _IndirectVarHandle_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Class;[Ljava/lang/Class;Ljava/util/function/BiFunction;)V", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;Ljava/util/function/BiFunction<Ljava/lang/invoke/VarHandle$AccessMode;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;>;)V", 0, $method(IndirectVarHandle, init$, void, $VarHandle*, $Class*, $ClassArray*, $BiFunction*)},
-	{"<init>", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Class;[Ljava/lang/Class;Ljava/util/function/BiFunction;Ljava/lang/invoke/VarForm;Z)V", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;Ljava/util/function/BiFunction<Ljava/lang/invoke/VarHandle$AccessMode;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;>;Ljava/lang/invoke/VarForm;Z)V", $PRIVATE, $method(IndirectVarHandle, init$, void, $VarHandle*, $Class*, $ClassArray*, $BiFunction*, $VarForm*, bool)},
-	{"accessModeTypeUncached", "(Ljava/lang/invoke/VarHandle$AccessType;)Ljava/lang/invoke/MethodType;", nullptr, 0, $virtualMethod(IndirectVarHandle, accessModeTypeUncached, $MethodType*, $VarHandle$AccessType*)},
-	{"asDirect", "()Ljava/lang/invoke/VarHandle;", nullptr, 0, $virtualMethod(IndirectVarHandle, asDirect, $VarHandle*)},
-	{"coordinateTypes", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Class<*>;>;", $PUBLIC, $virtualMethod(IndirectVarHandle, coordinateTypes, $List*)},
-	{"getMethodHandle", "(I)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(IndirectVarHandle, getMethodHandle, $MethodHandle*, int32_t), nullptr, nullptr, _IndirectVarHandle_MethodAnnotations_getMethodHandle5},
-	{"isDirect", "()Z", nullptr, 0, $virtualMethod(IndirectVarHandle, isDirect, bool)},
-	{"target", "()Ljava/lang/invoke/VarHandle;", nullptr, 0, $virtualMethod(IndirectVarHandle, target, $VarHandle*)},
-	{"toMethodHandle", "(Ljava/lang/invoke/VarHandle$AccessMode;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(IndirectVarHandle, toMethodHandle, $MethodHandle*, $VarHandle$AccessMode*)},
-	{"varType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(IndirectVarHandle, varType, $Class*)},
-	{"withInvokeBehavior", "()Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC, $virtualMethod(IndirectVarHandle, withInvokeBehavior, $VarHandle*)},
-	{"withInvokeExactBehavior", "()Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC, $virtualMethod(IndirectVarHandle, withInvokeExactBehavior, $VarHandle*)},
-	{}
-};
-
-$ClassInfo _IndirectVarHandle_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.IndirectVarHandle",
-	"java.lang.invoke.VarHandle",
-	nullptr,
-	_IndirectVarHandle_FieldInfo_,
-	_IndirectVarHandle_MethodInfo_
-};
-
-$Object* allocate$IndirectVarHandle($Class* clazz) {
-	return $of($alloc(IndirectVarHandle));
-}
 
 void IndirectVarHandle::init$($VarHandle* target, $Class* value, $ClassArray* coordinates, $BiFunction* handleFactory) {
 	IndirectVarHandle::init$(target, value, coordinates, handleFactory, $$new($VarForm, value, coordinates), false);
@@ -119,32 +69,74 @@ $VarHandle* IndirectVarHandle::target() {
 }
 
 $VarHandle* IndirectVarHandle::withInvokeExactBehavior() {
-	return hasInvokeExactBehavior() ? static_cast<$VarHandle*>(this) : static_cast<$VarHandle*>($new(IndirectVarHandle, this->target$, this->value, this->coordinates, this->handleFactory, this->vform, true));
+	return hasInvokeExactBehavior() ? this : $new(IndirectVarHandle, this->target$, this->value, this->coordinates, this->handleFactory, this->vform, true);
 }
 
 $VarHandle* IndirectVarHandle::withInvokeBehavior() {
-	return !hasInvokeExactBehavior() ? static_cast<$VarHandle*>(this) : static_cast<$VarHandle*>($new(IndirectVarHandle, this->target$, this->value, this->coordinates, this->handleFactory, this->vform, false));
+	return !hasInvokeExactBehavior() ? this : $new(IndirectVarHandle, this->target$, this->value, this->coordinates, this->handleFactory, this->vform, false);
 }
 
 $MethodHandle* IndirectVarHandle::getMethodHandle(int32_t mode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodHandle, handle, $nc(this->handleMap)->get(mode));
 	if (handle == nullptr) {
 		$var($MethodHandle, targetHandle, $nc(this->target$)->getMethodHandle(mode));
-		$assign(handle, ($nc(this->handleMap)->set(mode, $cast($MethodHandle, $($nc(this->handleFactory)->apply($($VarHandle$AccessMode::values())->get(mode), targetHandle))))));
+		$assign(handle, this->handleMap->set(mode, $$cast($MethodHandle, $nc(this->handleFactory)->apply($($VarHandle$AccessMode::values())->get(mode), targetHandle))));
 	}
 	return handle;
 }
 
 $MethodHandle* IndirectVarHandle::toMethodHandle($VarHandle$AccessMode* accessMode) {
-	return $nc($(getMethodHandle($nc(accessMode)->ordinal())))->bindTo(this->directTarget);
+	return $$nc(getMethodHandle($nc(accessMode)->ordinal()))->bindTo(this->directTarget);
 }
 
 IndirectVarHandle::IndirectVarHandle() {
 }
 
 $Class* IndirectVarHandle::load$($String* name, bool initialize) {
-	$loadClass(IndirectVarHandle, name, initialize, &_IndirectVarHandle_ClassInfo_, allocate$IndirectVarHandle);
+	$CompoundAttribute handleMapfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"handleMap", "[Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $FINAL, $field(IndirectVarHandle, handleMap), handleMapfieldAnnotations$$},
+		{"directTarget", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $FINAL, $field(IndirectVarHandle, directTarget)},
+		{"target", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $FINAL, $field(IndirectVarHandle, target$)},
+		{"handleFactory", "Ljava/util/function/BiFunction;", "Ljava/util/function/BiFunction<Ljava/lang/invoke/VarHandle$AccessMode;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;>;", $PRIVATE | $FINAL, $field(IndirectVarHandle, handleFactory)},
+		{"value", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(IndirectVarHandle, value)},
+		{"coordinates", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(IndirectVarHandle, coordinates)},
+		{}
+	};
+	$CompoundAttribute getMethodHandlemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Class;[Ljava/lang/Class;Ljava/util/function/BiFunction;)V", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;Ljava/util/function/BiFunction<Ljava/lang/invoke/VarHandle$AccessMode;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;>;)V", 0, $method(IndirectVarHandle, init$, void, $VarHandle*, $Class*, $ClassArray*, $BiFunction*)},
+		{"<init>", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Class;[Ljava/lang/Class;Ljava/util/function/BiFunction;Ljava/lang/invoke/VarForm;Z)V", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;Ljava/util/function/BiFunction<Ljava/lang/invoke/VarHandle$AccessMode;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;>;Ljava/lang/invoke/VarForm;Z)V", $PRIVATE, $method(IndirectVarHandle, init$, void, $VarHandle*, $Class*, $ClassArray*, $BiFunction*, $VarForm*, bool)},
+		{"accessModeTypeUncached", "(Ljava/lang/invoke/VarHandle$AccessType;)Ljava/lang/invoke/MethodType;", nullptr, 0, $virtualMethod(IndirectVarHandle, accessModeTypeUncached, $MethodType*, $VarHandle$AccessType*)},
+		{"asDirect", "()Ljava/lang/invoke/VarHandle;", nullptr, 0, $virtualMethod(IndirectVarHandle, asDirect, $VarHandle*)},
+		{"coordinateTypes", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Class<*>;>;", $PUBLIC, $virtualMethod(IndirectVarHandle, coordinateTypes, $List*)},
+		{"getMethodHandle", "(I)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(IndirectVarHandle, getMethodHandle, $MethodHandle*, int32_t), nullptr, nullptr, getMethodHandlemethodAnnotations$$},
+		{"isDirect", "()Z", nullptr, 0, $virtualMethod(IndirectVarHandle, isDirect, bool)},
+		{"target", "()Ljava/lang/invoke/VarHandle;", nullptr, 0, $virtualMethod(IndirectVarHandle, target, $VarHandle*)},
+		{"toMethodHandle", "(Ljava/lang/invoke/VarHandle$AccessMode;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(IndirectVarHandle, toMethodHandle, $MethodHandle*, $VarHandle$AccessMode*)},
+		{"varType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(IndirectVarHandle, varType, $Class*)},
+		{"withInvokeBehavior", "()Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC, $virtualMethod(IndirectVarHandle, withInvokeBehavior, $VarHandle*)},
+		{"withInvokeExactBehavior", "()Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC, $virtualMethod(IndirectVarHandle, withInvokeExactBehavior, $VarHandle*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.IndirectVarHandle",
+		"java.lang.invoke.VarHandle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IndirectVarHandle, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IndirectVarHandle);
+	});
 	return class$;
 }
 

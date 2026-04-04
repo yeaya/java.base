@@ -65,7 +65,7 @@ public:
 	void typeCheck(Object$* key, Object$* value);
 	::java::util::function::BiFunction* typeCheck(::java::util::function::BiFunction* func);
 	virtual ::java::util::Collection* values() override;
-	static const int64_t serialVersionUID = (int64_t)0x4FB2BCDF0D186368;
+	static const int64_t serialVersionUID = (int64_t)0x4fb2bcdf0d186368;
 	::java::util::Map* m = nullptr;
 	$Class* keyType = nullptr;
 	$Class* valueType = nullptr;

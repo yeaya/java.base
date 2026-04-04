@@ -15,6 +15,7 @@ class HttpURLConnection$13 : public ::java::lang::Object {
 	$class(HttpURLConnection$13, 0, ::java::lang::Object)
 public:
 	HttpURLConnection$13();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$net$www$protocol$http$AuthScheme;
 };
 

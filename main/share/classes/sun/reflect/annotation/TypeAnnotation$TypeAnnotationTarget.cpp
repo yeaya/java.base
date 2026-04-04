@@ -1,5 +1,4 @@
 #include <sun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget.h>
-
 #include <java/lang/Enum.h>
 #include <sun/reflect/annotation/TypeAnnotation.h>
 #include <jcpp.h>
@@ -27,56 +26,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace reflect {
 		namespace annotation {
-
-$FieldInfo _TypeAnnotation$TypeAnnotationTarget_FieldInfo_[] = {
-	{"CLASS_TYPE_PARAMETER", "Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotation$TypeAnnotationTarget, CLASS_TYPE_PARAMETER)},
-	{"METHOD_TYPE_PARAMETER", "Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotation$TypeAnnotationTarget, METHOD_TYPE_PARAMETER)},
-	{"CLASS_EXTENDS", "Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotation$TypeAnnotationTarget, CLASS_EXTENDS)},
-	{"CLASS_IMPLEMENTS", "Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotation$TypeAnnotationTarget, CLASS_IMPLEMENTS)},
-	{"CLASS_TYPE_PARAMETER_BOUND", "Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotation$TypeAnnotationTarget, CLASS_TYPE_PARAMETER_BOUND)},
-	{"METHOD_TYPE_PARAMETER_BOUND", "Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotation$TypeAnnotationTarget, METHOD_TYPE_PARAMETER_BOUND)},
-	{"FIELD", "Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotation$TypeAnnotationTarget, FIELD)},
-	{"METHOD_RETURN", "Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotation$TypeAnnotationTarget, METHOD_RETURN)},
-	{"METHOD_RECEIVER", "Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotation$TypeAnnotationTarget, METHOD_RECEIVER)},
-	{"METHOD_FORMAL_PARAMETER", "Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotation$TypeAnnotationTarget, METHOD_FORMAL_PARAMETER)},
-	{"THROWS", "Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotation$TypeAnnotationTarget, THROWS)},
-	{"RECORD_COMPONENT", "Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotation$TypeAnnotationTarget, RECORD_COMPONENT)},
-	{"$VALUES", "[Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TypeAnnotation$TypeAnnotationTarget, $VALUES)},
-	{}
-};
-
-$MethodInfo _TypeAnnotation$TypeAnnotationTarget_MethodInfo_[] = {
-	{"$values", "()[Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TypeAnnotation$TypeAnnotationTarget, $values, $TypeAnnotation$TypeAnnotationTargetArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TypeAnnotation$TypeAnnotationTarget, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotation$TypeAnnotationTarget, valueOf, TypeAnnotation$TypeAnnotationTarget*, $String*)},
-	{"values", "()[Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotation$TypeAnnotationTarget, values, $TypeAnnotation$TypeAnnotationTargetArray*)},
-	{}
-};
-
-$InnerClassInfo _TypeAnnotation$TypeAnnotationTarget_InnerClassesInfo_[] = {
-	{"sun.reflect.annotation.TypeAnnotation$TypeAnnotationTarget", "sun.reflect.annotation.TypeAnnotation", "TypeAnnotationTarget", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _TypeAnnotation$TypeAnnotationTarget_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"sun.reflect.annotation.TypeAnnotation$TypeAnnotationTarget",
-	"java.lang.Enum",
-	nullptr,
-	_TypeAnnotation$TypeAnnotationTarget_FieldInfo_,
-	_TypeAnnotation$TypeAnnotationTarget_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;>;",
-	nullptr,
-	_TypeAnnotation$TypeAnnotationTarget_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.reflect.annotation.TypeAnnotation"
-};
-
-$Object* allocate$TypeAnnotation$TypeAnnotationTarget($Class* clazz) {
-	return $of($alloc(TypeAnnotation$TypeAnnotationTarget));
-}
 
 TypeAnnotation$TypeAnnotationTarget* TypeAnnotation$TypeAnnotationTarget::CLASS_TYPE_PARAMETER = nullptr;
 TypeAnnotation$TypeAnnotationTarget* TypeAnnotation$TypeAnnotationTarget::METHOD_TYPE_PARAMETER = nullptr;
@@ -124,7 +73,7 @@ void TypeAnnotation$TypeAnnotationTarget::init$($String* $enum$name, int32_t $en
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$TypeAnnotation$TypeAnnotationTarget($Class* class$) {
+void TypeAnnotation$TypeAnnotationTarget::clinit$($Class* clazz) {
 	$assignStatic(TypeAnnotation$TypeAnnotationTarget::CLASS_TYPE_PARAMETER, $new(TypeAnnotation$TypeAnnotationTarget, "CLASS_TYPE_PARAMETER"_s, 0));
 	$assignStatic(TypeAnnotation$TypeAnnotationTarget::METHOD_TYPE_PARAMETER, $new(TypeAnnotation$TypeAnnotationTarget, "METHOD_TYPE_PARAMETER"_s, 1));
 	$assignStatic(TypeAnnotation$TypeAnnotationTarget::CLASS_EXTENDS, $new(TypeAnnotation$TypeAnnotationTarget, "CLASS_EXTENDS"_s, 2));
@@ -144,7 +93,51 @@ TypeAnnotation$TypeAnnotationTarget::TypeAnnotation$TypeAnnotationTarget() {
 }
 
 $Class* TypeAnnotation$TypeAnnotationTarget::load$($String* name, bool initialize) {
-	$loadClass(TypeAnnotation$TypeAnnotationTarget, name, initialize, &_TypeAnnotation$TypeAnnotationTarget_ClassInfo_, clinit$TypeAnnotation$TypeAnnotationTarget, allocate$TypeAnnotation$TypeAnnotationTarget);
+	$FieldInfo fieldInfos$$[] = {
+		{"CLASS_TYPE_PARAMETER", "Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotation$TypeAnnotationTarget, CLASS_TYPE_PARAMETER)},
+		{"METHOD_TYPE_PARAMETER", "Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotation$TypeAnnotationTarget, METHOD_TYPE_PARAMETER)},
+		{"CLASS_EXTENDS", "Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotation$TypeAnnotationTarget, CLASS_EXTENDS)},
+		{"CLASS_IMPLEMENTS", "Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotation$TypeAnnotationTarget, CLASS_IMPLEMENTS)},
+		{"CLASS_TYPE_PARAMETER_BOUND", "Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotation$TypeAnnotationTarget, CLASS_TYPE_PARAMETER_BOUND)},
+		{"METHOD_TYPE_PARAMETER_BOUND", "Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotation$TypeAnnotationTarget, METHOD_TYPE_PARAMETER_BOUND)},
+		{"FIELD", "Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotation$TypeAnnotationTarget, FIELD)},
+		{"METHOD_RETURN", "Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotation$TypeAnnotationTarget, METHOD_RETURN)},
+		{"METHOD_RECEIVER", "Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotation$TypeAnnotationTarget, METHOD_RECEIVER)},
+		{"METHOD_FORMAL_PARAMETER", "Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotation$TypeAnnotationTarget, METHOD_FORMAL_PARAMETER)},
+		{"THROWS", "Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotation$TypeAnnotationTarget, THROWS)},
+		{"RECORD_COMPONENT", "Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeAnnotation$TypeAnnotationTarget, RECORD_COMPONENT)},
+		{"$VALUES", "[Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TypeAnnotation$TypeAnnotationTarget, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TypeAnnotation$TypeAnnotationTarget, $values, $TypeAnnotation$TypeAnnotationTargetArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TypeAnnotation$TypeAnnotationTarget, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotation$TypeAnnotationTarget, valueOf, TypeAnnotation$TypeAnnotationTarget*, $String*)},
+		{"values", "()[Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeAnnotation$TypeAnnotationTarget, values, $TypeAnnotation$TypeAnnotationTargetArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.reflect.annotation.TypeAnnotation$TypeAnnotationTarget", "sun.reflect.annotation.TypeAnnotation", "TypeAnnotationTarget", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"sun.reflect.annotation.TypeAnnotation$TypeAnnotationTarget",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/reflect/annotation/TypeAnnotation$TypeAnnotationTarget;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.reflect.annotation.TypeAnnotation"
+	};
+	$loadClass(TypeAnnotation$TypeAnnotationTarget, name, initialize, &classInfo$$, TypeAnnotation$TypeAnnotationTarget::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TypeAnnotation$TypeAnnotationTarget));
+	});
 	return class$;
 }
 

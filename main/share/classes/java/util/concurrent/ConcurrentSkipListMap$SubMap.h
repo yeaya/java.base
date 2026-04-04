@@ -108,7 +108,7 @@ public:
 	bool tooHigh(Object$* key, ::java::util::Comparator* cmp);
 	bool tooLow(Object$* key, ::java::util::Comparator* cmp);
 	virtual ::java::util::Collection* values() override;
-	static const int64_t serialVersionUID = (int64_t)0x95E01E7CCDF346A7;
+	static const int64_t serialVersionUID = (int64_t)0x95e01e7ccdf346a7;
 	::java::util::concurrent::ConcurrentSkipListMap* m = nullptr;
 	$Object* lo = nullptr;
 	$Object* hi = nullptr;

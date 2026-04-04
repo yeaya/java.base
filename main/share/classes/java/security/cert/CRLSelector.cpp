@@ -1,5 +1,4 @@
 #include <java/security/cert/CRLSelector.h>
-
 #include <java/lang/Cloneable.h>
 #include <java/security/cert/CRL.h>
 #include <jcpp.h>
@@ -13,31 +12,27 @@ namespace java {
 	namespace security {
 		namespace cert {
 
-$MethodInfo _CRLSelector_MethodInfo_[] = {
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"match", "(Ljava/security/cert/CRL;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CRLSelector, match, bool, $CRL*)},
-	{}
-};
-
-$ClassInfo _CRLSelector_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.security.cert.CRLSelector",
-	nullptr,
-	"java.lang.Cloneable",
-	nullptr,
-	_CRLSelector_MethodInfo_
-};
-
-$Object* allocate$CRLSelector($Class* clazz) {
-	return $of($alloc(CRLSelector));
-}
-
 $Object* CRLSelector::clone() {
 	 return this->$Cloneable::clone();
 }
 
 $Class* CRLSelector::load$($String* name, bool initialize) {
-	$loadClass(CRLSelector, name, initialize, &_CRLSelector_ClassInfo_, allocate$CRLSelector);
+	$MethodInfo methodInfos$$[] = {
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"match", "(Ljava/security/cert/CRL;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CRLSelector, match, bool, $CRL*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.security.cert.CRLSelector",
+		nullptr,
+		"java.lang.Cloneable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CRLSelector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CRLSelector);
+	});
 	return class$;
 }
 

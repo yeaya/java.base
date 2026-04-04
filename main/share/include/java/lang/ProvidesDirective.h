@@ -32,6 +32,7 @@ public:
 	const char* impls = nullptr;
 
 	bool isEnd();
+	static ProvidesDirective* cloneArray(ProvidesDirective* array);
 };
 
     } // lang

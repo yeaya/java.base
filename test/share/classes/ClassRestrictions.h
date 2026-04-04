@@ -9,6 +9,7 @@ class $export ClassRestrictions : public ::java::lang::Object {
 	$class(ClassRestrictions, 0, ::java::lang::Object)
 public:
 	ClassRestrictions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $String* nonPublicIntrfaceName;

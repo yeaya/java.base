@@ -9,6 +9,7 @@ class $export B4148751 : public ::java::lang::Object {
 	$class(B4148751, 0, ::java::lang::Object)
 public:
 	B4148751();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $String* scheme;

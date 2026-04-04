@@ -1,5 +1,4 @@
 #include <jdk/internal/invoke/NativeEntryPoint.h>
-
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/Objects.h>
 #include <jdk/internal/invoke/ABIDescriptorProxy.h>
@@ -14,47 +13,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodType = ::java::lang::invoke::MethodType;
 using $Objects = ::java::util::Objects;
 using $ABIDescriptorProxy = ::jdk::internal::invoke::ABIDescriptorProxy;
-using $VMStorageProxy = ::jdk::internal::invoke::VMStorageProxy;
 
 namespace jdk {
 	namespace internal {
 		namespace invoke {
-
-$FieldInfo _NativeEntryPoint_FieldInfo_[] = {
-	{"shadowSpace", "I", nullptr, $PRIVATE | $FINAL, $field(NativeEntryPoint, shadowSpace)},
-	{"argMoves", "[J", nullptr, $PRIVATE | $FINAL, $field(NativeEntryPoint, argMoves)},
-	{"returnMoves", "[J", nullptr, $PRIVATE | $FINAL, $field(NativeEntryPoint, returnMoves)},
-	{"needTransition", "Z", nullptr, $PRIVATE | $FINAL, $field(NativeEntryPoint, needTransition)},
-	{"methodType", "Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE | $FINAL, $field(NativeEntryPoint, methodType)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(NativeEntryPoint, name)},
-	{}
-};
-
-$MethodInfo _NativeEntryPoint_MethodInfo_[] = {
-	{"<init>", "(I[J[JZLjava/lang/invoke/MethodType;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(NativeEntryPoint, init$, void, int32_t, $longs*, $longs*, bool, $MethodType*, $String*)},
-	{"encodeVMStorages", "([Ljdk/internal/invoke/VMStorageProxy;)[J", nullptr, $PRIVATE | $STATIC, $staticMethod(NativeEntryPoint, encodeVMStorages, $longs*, $VMStorageProxyArray*)},
-	{"make", "(Ljava/lang/String;Ljdk/internal/invoke/ABIDescriptorProxy;[Ljdk/internal/invoke/VMStorageProxy;[Ljdk/internal/invoke/VMStorageProxy;ZLjava/lang/invoke/MethodType;)Ljdk/internal/invoke/NativeEntryPoint;", nullptr, $PUBLIC | $STATIC, $staticMethod(NativeEntryPoint, make, NativeEntryPoint*, $String*, $ABIDescriptorProxy*, $VMStorageProxyArray*, $VMStorageProxyArray*, bool, $MethodType*)},
-	{"registerNatives", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeEntryPoint, registerNatives, void)},
-	{"type", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $virtualMethod(NativeEntryPoint, type, $MethodType*)},
-	{"vmStorageToVMReg", "(II)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeEntryPoint, vmStorageToVMReg, int64_t, int32_t, int32_t)},
-	{}
-};
-
-#define _METHOD_INDEX_registerNatives 3
-#define _METHOD_INDEX_vmStorageToVMReg 5
-
-$ClassInfo _NativeEntryPoint_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.invoke.NativeEntryPoint",
-	"java.lang.Object",
-	nullptr,
-	_NativeEntryPoint_FieldInfo_,
-	_NativeEntryPoint_MethodInfo_
-};
-
-$Object* allocate$NativeEntryPoint($Class* clazz) {
-	return $of($alloc(NativeEntryPoint));
-}
 
 void NativeEntryPoint::init$(int32_t shadowSpace, $longs* argMoves, $longs* returnMoves, bool needTransition, $MethodType* methodType, $String* name) {
 	this->shadowSpace = shadowSpace;
@@ -67,7 +29,7 @@ void NativeEntryPoint::init$(int32_t shadowSpace, $longs* argMoves, $longs* retu
 
 NativeEntryPoint* NativeEntryPoint::make($String* name, $ABIDescriptorProxy* abi, $VMStorageProxyArray* argMoves, $VMStorageProxyArray* returnMoves, bool needTransition, $MethodType* methodType) {
 	$init(NativeEntryPoint);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(returnMoves)->length > 1) {
 		$throwNew($IllegalArgumentException, "Multiple register return not supported"_s);
 	}
@@ -88,9 +50,8 @@ $longs* NativeEntryPoint::encodeVMStorages($VMStorageProxyArray* moves) {
 
 int64_t NativeEntryPoint::vmStorageToVMReg(int32_t type, int32_t index) {
 	$init(NativeEntryPoint);
-	int64_t $ret = 0;
-	$prepareNativeStatic(NativeEntryPoint, vmStorageToVMReg, int64_t, int32_t type, int32_t index);
-	$ret = $invokeNativeStatic(type, index);
+	$prepareNativeStatic(vmStorageToVMReg, int64_t, int32_t type, int32_t index);
+	int64_t $ret = $invokeNativeStatic(type, index);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -101,12 +62,12 @@ $MethodType* NativeEntryPoint::type() {
 
 void NativeEntryPoint::registerNatives() {
 	$init(NativeEntryPoint);
-	$prepareNativeStatic(NativeEntryPoint, registerNatives, void);
+	$prepareNativeStatic(registerNatives, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
-void clinit$NativeEntryPoint($Class* class$) {
+void NativeEntryPoint::clinit$($Class* clazz) {
 	{
 		NativeEntryPoint::registerNatives();
 	}
@@ -116,7 +77,35 @@ NativeEntryPoint::NativeEntryPoint() {
 }
 
 $Class* NativeEntryPoint::load$($String* name, bool initialize) {
-	$loadClass(NativeEntryPoint, name, initialize, &_NativeEntryPoint_ClassInfo_, clinit$NativeEntryPoint, allocate$NativeEntryPoint);
+	$FieldInfo fieldInfos$$[] = {
+		{"shadowSpace", "I", nullptr, $PRIVATE | $FINAL, $field(NativeEntryPoint, shadowSpace)},
+		{"argMoves", "[J", nullptr, $PRIVATE | $FINAL, $field(NativeEntryPoint, argMoves)},
+		{"returnMoves", "[J", nullptr, $PRIVATE | $FINAL, $field(NativeEntryPoint, returnMoves)},
+		{"needTransition", "Z", nullptr, $PRIVATE | $FINAL, $field(NativeEntryPoint, needTransition)},
+		{"methodType", "Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE | $FINAL, $field(NativeEntryPoint, methodType)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(NativeEntryPoint, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I[J[JZLjava/lang/invoke/MethodType;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(NativeEntryPoint, init$, void, int32_t, $longs*, $longs*, bool, $MethodType*, $String*)},
+		{"encodeVMStorages", "([Ljdk/internal/invoke/VMStorageProxy;)[J", nullptr, $PRIVATE | $STATIC, $staticMethod(NativeEntryPoint, encodeVMStorages, $longs*, $VMStorageProxyArray*)},
+		{"make", "(Ljava/lang/String;Ljdk/internal/invoke/ABIDescriptorProxy;[Ljdk/internal/invoke/VMStorageProxy;[Ljdk/internal/invoke/VMStorageProxy;ZLjava/lang/invoke/MethodType;)Ljdk/internal/invoke/NativeEntryPoint;", nullptr, $PUBLIC | $STATIC, $staticMethod(NativeEntryPoint, make, NativeEntryPoint*, $String*, $ABIDescriptorProxy*, $VMStorageProxyArray*, $VMStorageProxyArray*, bool, $MethodType*)},
+		{"registerNatives", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeEntryPoint, registerNatives, void)},
+		{"type", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $virtualMethod(NativeEntryPoint, type, $MethodType*)},
+		{"vmStorageToVMReg", "(II)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(NativeEntryPoint, vmStorageToVMReg, int64_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.invoke.NativeEntryPoint",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NativeEntryPoint, name, initialize, &classInfo$$, NativeEntryPoint::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NativeEntryPoint);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/nio/fs/UnixPath.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
 #include <java/lang/SecurityManager.h>
@@ -68,77 +67,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _UnixPath_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(UnixPath, $assertionsDisabled)},
-	{"JLA", "Ljdk/internal/access/JavaLangAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixPath, JLA)},
-	{"fs", "Lsun/nio/fs/UnixFileSystem;", nullptr, $PRIVATE | $FINAL, $field(UnixPath, fs)},
-	{"path", "[B", nullptr, $PRIVATE | $FINAL, $field(UnixPath, path)},
-	{"stringValue", "Ljava/lang/String;", nullptr, $PRIVATE | $VOLATILE, $field(UnixPath, stringValue)},
-	{"hash", "I", nullptr, $PRIVATE, $field(UnixPath, hash)},
-	{"offsets", "[I", nullptr, $PRIVATE | $VOLATILE, $field(UnixPath, offsets)},
-	{}
-};
-
-$MethodInfo _UnixPath_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixFileSystem;[B)V", nullptr, 0, $method(UnixPath, init$, void, $UnixFileSystem*, $bytes*)},
-	{"<init>", "(Lsun/nio/fs/UnixFileSystem;Ljava/lang/String;)V", nullptr, 0, $method(UnixPath, init$, void, $UnixFileSystem*, $String*)},
-	{"asByteArray", "()[B", nullptr, 0, $virtualMethod(UnixPath, asByteArray, $bytes*)},
-	{"checkDelete", "()V", nullptr, 0, $virtualMethod(UnixPath, checkDelete, void)},
-	{"checkNotNul", "(Ljava/lang/String;C)V", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixPath, checkNotNul, void, $String*, char16_t)},
-	{"checkRead", "()V", nullptr, 0, $virtualMethod(UnixPath, checkRead, void)},
-	{"checkWrite", "()V", nullptr, 0, $virtualMethod(UnixPath, checkWrite, void)},
-	{"compareTo", "(Ljava/nio/file/Path;)I", nullptr, $PUBLIC, $virtualMethod(UnixPath, compareTo, int32_t, $Path*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(UnixPath, compareTo, int32_t, Object$*)},
-	{"emptyPath", "()Lsun/nio/fs/UnixPath;", nullptr, $PRIVATE, $method(UnixPath, emptyPath, UnixPath*)},
-	{"encode", "(Lsun/nio/fs/UnixFileSystem;Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixPath, encode, $bytes*, $UnixFileSystem*, $String*)},
-	{"endsWith", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(UnixPath, endsWith, bool, $Path*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UnixPath, equals, bool, Object$*)},
-	{"getByteArrayForSysCalls", "()[B", nullptr, 0, $virtualMethod(UnixPath, getByteArrayForSysCalls, $bytes*)},
-	{"getFileName", "()Lsun/nio/fs/UnixPath;", nullptr, $PUBLIC, $virtualMethod(UnixPath, getFileName, UnixPath*)},
-	{"getFileSystem", "()Lsun/nio/fs/UnixFileSystem;", nullptr, $PUBLIC, $virtualMethod(UnixPath, getFileSystem, $FileSystem*)},
-	{"getName", "(I)Lsun/nio/fs/UnixPath;", nullptr, $PUBLIC, $virtualMethod(UnixPath, getName, UnixPath*, int32_t)},
-	{"getNameCount", "()I", nullptr, $PUBLIC, $virtualMethod(UnixPath, getNameCount, int32_t)},
-	{"getParent", "()Lsun/nio/fs/UnixPath;", nullptr, $PUBLIC, $virtualMethod(UnixPath, getParent, UnixPath*)},
-	{"getPathForExceptionMessage", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(UnixPath, getPathForExceptionMessage, $String*)},
-	{"getPathForPermissionCheck", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(UnixPath, getPathForPermissionCheck, $String*)},
-	{"getRoot", "()Lsun/nio/fs/UnixPath;", nullptr, $PUBLIC, $virtualMethod(UnixPath, getRoot, UnixPath*)},
-	{"hasDotOrDotDot", "()Z", nullptr, $PRIVATE, $method(UnixPath, hasDotOrDotDot, bool)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(UnixPath, hashCode, int32_t)},
-	{"initOffsets", "()V", nullptr, $PRIVATE, $method(UnixPath, initOffsets, void)},
-	{"isAbsolute", "()Z", nullptr, $PUBLIC, $virtualMethod(UnixPath, isAbsolute, bool)},
-	{"isEmpty", "()Z", nullptr, 0, $virtualMethod(UnixPath, isEmpty, bool)},
-	{"normalize", "(Ljava/lang/String;II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixPath, normalize, $String*, $String*, int32_t, int32_t)},
-	{"normalize", "()Lsun/nio/fs/UnixPath;", nullptr, $PUBLIC, $virtualMethod(UnixPath, normalize, UnixPath*)},
-	{"normalizeAndCheck", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(UnixPath, normalizeAndCheck, $String*, $String*)},
-	{"openForAttributeAccess", "(Z)I", nullptr, 0, $virtualMethod(UnixPath, openForAttributeAccess, int32_t, bool), "sun.nio.fs.UnixException"},
-	{"register", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $PUBLIC | $TRANSIENT, $virtualMethod(UnixPath, register$, $WatchKey*, $WatchService*, $WatchEvent$KindArray*, $WatchEvent$ModifierArray*), "java.io.IOException"},
-	{"relativize", "(Ljava/nio/file/Path;)Lsun/nio/fs/UnixPath;", nullptr, $PUBLIC, $virtualMethod(UnixPath, relativize, UnixPath*, $Path*)},
-	{"resolve", "([B[B)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixPath, resolve, $bytes*, $bytes*, $bytes*)},
-	{"resolve", "(Ljava/nio/file/Path;)Lsun/nio/fs/UnixPath;", nullptr, $PUBLIC, $virtualMethod(UnixPath, resolve, UnixPath*, $Path*)},
-	{"resolve", "([B)Lsun/nio/fs/UnixPath;", nullptr, 0, $virtualMethod(UnixPath, resolve, UnixPath*, $bytes*)},
-	{"startsWith", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(UnixPath, startsWith, bool, $Path*)},
-	{"subpath", "(II)Lsun/nio/fs/UnixPath;", nullptr, $PUBLIC, $virtualMethod(UnixPath, subpath, UnixPath*, int32_t, int32_t)},
-	{"toAbsolutePath", "()Lsun/nio/fs/UnixPath;", nullptr, $PUBLIC, $virtualMethod(UnixPath, toAbsolutePath, UnixPath*)},
-	{"toRealPath", "([Ljava/nio/file/LinkOption;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(UnixPath, toRealPath, $Path*, $LinkOptionArray*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixPath, toString, $String*)},
-	{"toUnixPath", "(Ljava/nio/file/Path;)Lsun/nio/fs/UnixPath;", nullptr, $STATIC, $staticMethod(UnixPath, toUnixPath, UnixPath*, $Path*)},
-	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(UnixPath, toUri, $URI*)},
-	{}
-};
-
-$ClassInfo _UnixPath_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.UnixPath",
-	"java.lang.Object",
-	"java.nio.file.Path",
-	_UnixPath_FieldInfo_,
-	_UnixPath_MethodInfo_
-};
-
-$Object* allocate$UnixPath($Class* clazz) {
-	return $of($alloc(UnixPath));
-}
-
 bool UnixPath::$assertionsDisabled = false;
 $JavaLangAccess* UnixPath::JLA = nullptr;
 
@@ -148,14 +76,14 @@ void UnixPath::init$($UnixFileSystem* fs, $bytes* path) {
 }
 
 void UnixPath::init$($UnixFileSystem* fs, $String* input) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	UnixPath::init$(fs, $(encode(fs, $(normalizeAndCheck(input)))));
 }
 
 $String* UnixPath::normalizeAndCheck($String* input) {
 	$init(UnixPath);
 	int32_t n = $nc(input)->length();
-	char16_t prevChar = (char16_t)0;
+	char16_t prevChar = 0;
 	for (int32_t i = 0; i < n; ++i) {
 		char16_t c = input->charAt(i);
 		if ((c == u'/') && (prevChar == u'/')) {
@@ -179,7 +107,7 @@ void UnixPath::checkNotNul($String* input, char16_t c) {
 
 $String* UnixPath::normalize($String* input, int32_t len, int32_t off) {
 	$init(UnixPath);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (len == 0) {
 		return input;
 	}
@@ -192,11 +120,11 @@ $String* UnixPath::normalize($String* input, int32_t len, int32_t off) {
 	}
 	$var($StringBuilder, sb, $new($StringBuilder, $nc(input)->length()));
 	if (off > 0) {
-		sb->append($($nc(input)->substring(0, off)));
+		sb->append($(input->substring(0, off)));
 	}
-	char16_t prevChar = (char16_t)0;
+	char16_t prevChar = 0;
 	for (int32_t i = off; i < n; ++i) {
-		char16_t c = $nc(input)->charAt(i);
+		char16_t c = input->charAt(i);
 		if ((c == u'/') && (prevChar == u'/')) {
 			continue;
 		}
@@ -209,7 +137,7 @@ $String* UnixPath::normalize($String* input, int32_t len, int32_t off) {
 
 $bytes* UnixPath::encode($UnixFileSystem* fs, $String* input$renamed) {
 	$init(UnixPath);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, input, input$renamed);
 	$assign(input, $nc(fs)->normalizeNativePath(input));
 	try {
@@ -225,9 +153,9 @@ $bytes* UnixPath::asByteArray() {
 }
 
 $bytes* UnixPath::getByteArrayForSysCalls() {
-	$useLocalCurrentObjectStackCache();
-	if ($nc($($cast($UnixFileSystem, getFileSystem())))->needToResolveAgainstDefaultDirectory()) {
-		return resolve($($nc($($cast($UnixFileSystem, getFileSystem())))->defaultDirectory()), this->path);
+	$useLocalObjectStack();
+	if ($$sure($UnixFileSystem, getFileSystem())->needToResolveAgainstDefaultDirectory()) {
+		return resolve($($$sure($UnixFileSystem, getFileSystem())->defaultDirectory()), this->path);
 	} else if (!isEmpty()) {
 		return this->path;
 	} else {
@@ -241,8 +169,8 @@ $String* UnixPath::getPathForExceptionMessage() {
 }
 
 $String* UnixPath::getPathForPermissionCheck() {
-	$useLocalCurrentObjectStackCache();
-	if ($nc($($cast($UnixFileSystem, getFileSystem())))->needToResolveAgainstDefaultDirectory()) {
+	$useLocalObjectStack();
+	if ($$sure($UnixFileSystem, getFileSystem())->needToResolveAgainstDefaultDirectory()) {
 		return $Util::toString($(getByteArrayForSysCalls()));
 	} else {
 		return toString();
@@ -270,10 +198,10 @@ void UnixPath::initOffsets() {
 			count = 1;
 		} else {
 			while (index < $nc(this->path)->length) {
-				int8_t c = $nc(this->path)->get(index++);
+				int8_t c = this->path->get(index++);
 				if (c != u'/') {
 					++count;
-					while (index < $nc(this->path)->length && $nc(this->path)->get(index) != u'/') {
+					while (index < this->path->length && this->path->get(index) != u'/') {
 						++index;
 					}
 				}
@@ -283,12 +211,12 @@ void UnixPath::initOffsets() {
 		count = 0;
 		index = 0;
 		while (index < $nc(this->path)->length) {
-			int8_t c = $nc(this->path)->get(index);
+			int8_t c = this->path->get(index);
 			if (c == u'/') {
 				++index;
 			} else {
 				result->set(count++, index++);
-				while (index < $nc(this->path)->length && $nc(this->path)->get(index) != u'/') {
+				while (index < this->path->length && this->path->get(index) != u'/') {
 					++index;
 				}
 			}
@@ -306,19 +234,19 @@ bool UnixPath::isEmpty() {
 }
 
 UnixPath* UnixPath::emptyPath() {
-	$useLocalCurrentObjectStackCache();
-	return $new(UnixPath, $($cast($UnixFileSystem, getFileSystem())), $$new($bytes, 0));
+	$useLocalObjectStack();
+	return $new(UnixPath, $$cast($UnixFileSystem, getFileSystem()), $$new($bytes, 0));
 }
 
 bool UnixPath::hasDotOrDotDot() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = getNameCount();
 	for (int32_t i = 0; i < n; ++i) {
 		$var($bytes, bytes, $nc($(getName(i)))->path);
 		if ($nc(bytes)->length == 1 && bytes->get(0) == u'.') {
 			return true;
 		}
-		if (($nc(bytes)->length == 2 && bytes->get(0) == u'.') && bytes->get(1) == u'.') {
+		if ((bytes->length == 2 && bytes->get(0) == u'.') && bytes->get(1) == u'.') {
 			return true;
 		}
 	}
@@ -330,32 +258,32 @@ $FileSystem* UnixPath::getFileSystem() {
 }
 
 UnixPath* UnixPath::getRoot() {
-	if ($nc(this->path)->length > 0 && $nc(this->path)->get(0) == u'/') {
-		return $nc($($cast($UnixFileSystem, getFileSystem())))->rootDirectory();
+	if ($nc(this->path)->length > 0 && this->path->get(0) == u'/') {
+		return $$sure($UnixFileSystem, getFileSystem())->rootDirectory();
 	} else {
 		return nullptr;
 	}
 }
 
 UnixPath* UnixPath::getFileName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	initOffsets();
 	int32_t count = $nc(this->offsets)->length;
 	if (count == 0) {
 		return nullptr;
 	}
-	if (count == 1 && $nc(this->path)->length > 0 && $nc(this->path)->get(0) != u'/') {
+	if (count == 1 && $nc(this->path)->length > 0 && this->path->get(0) != u'/') {
 		return this;
 	}
 	int32_t lastOffset = $nc(this->offsets)->get(count - 1);
 	int32_t len = $nc(this->path)->length - lastOffset;
 	$var($bytes, result, $new($bytes, len));
 	$System::arraycopy(this->path, lastOffset, result, 0, len);
-	return $new(UnixPath, $($cast($UnixFileSystem, getFileSystem())), result);
+	return $new(UnixPath, $$cast($UnixFileSystem, getFileSystem()), result);
 }
 
 UnixPath* UnixPath::getParent() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	initOffsets();
 	int32_t count = $nc(this->offsets)->length;
 	if (count == 0) {
@@ -367,7 +295,7 @@ UnixPath* UnixPath::getParent() {
 	}
 	$var($bytes, result, $new($bytes, len));
 	$System::arraycopy(this->path, 0, result, 0, len);
-	return $new(UnixPath, $($cast($UnixFileSystem, getFileSystem())), result);
+	return $new(UnixPath, $$cast($UnixFileSystem, getFileSystem()), result);
 }
 
 int32_t UnixPath::getNameCount() {
@@ -376,7 +304,7 @@ int32_t UnixPath::getNameCount() {
 }
 
 UnixPath* UnixPath::getName(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	initOffsets();
 	if (index < 0) {
 		$throwNew($IllegalArgumentException);
@@ -393,11 +321,11 @@ UnixPath* UnixPath::getName(int32_t index) {
 	}
 	$var($bytes, result, $new($bytes, len));
 	$System::arraycopy(this->path, begin, result, 0, len);
-	return $new(UnixPath, $($cast($UnixFileSystem, getFileSystem())), result);
+	return $new(UnixPath, $$cast($UnixFileSystem, getFileSystem()), result);
 }
 
 UnixPath* UnixPath::subpath(int32_t beginIndex, int32_t endIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	initOffsets();
 	if (beginIndex < 0) {
 		$throwNew($IllegalArgumentException);
@@ -420,11 +348,11 @@ UnixPath* UnixPath::subpath(int32_t beginIndex, int32_t endIndex) {
 	}
 	$var($bytes, result, $new($bytes, len));
 	$System::arraycopy(this->path, begin, result, 0, len);
-	return $new(UnixPath, $($cast($UnixFileSystem, getFileSystem())), result);
+	return $new(UnixPath, $$cast($UnixFileSystem, getFileSystem()), result);
 }
 
 bool UnixPath::isAbsolute() {
-	return ($nc(this->path)->length > 0 && $nc(this->path)->get(0) == u'/');
+	return ($nc(this->path)->length > 0 && this->path->get(0) == u'/');
 }
 
 $bytes* UnixPath::resolve($bytes* base, $bytes* child) {
@@ -452,28 +380,28 @@ $bytes* UnixPath::resolve($bytes* base, $bytes* child) {
 }
 
 UnixPath* UnixPath::resolve($Path* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, other, $nc($(toUnixPath(obj)))->path);
 	if ($nc(other)->length > 0 && other->get(0) == u'/') {
-		return ($cast(UnixPath, obj));
+		return $cast(UnixPath, obj);
 	}
 	$var($bytes, result, resolve(this->path, other));
-	return $new(UnixPath, $($cast($UnixFileSystem, getFileSystem())), result);
+	return $new(UnixPath, $$cast($UnixFileSystem, getFileSystem()), result);
 }
 
 UnixPath* UnixPath::resolve($bytes* other) {
-	$useLocalCurrentObjectStackCache();
-	return resolve(static_cast<$Path*>($$new(UnixPath, $($cast($UnixFileSystem, getFileSystem())), other)));
+	$useLocalObjectStack();
+	return resolve($$new(UnixPath, $$cast($UnixFileSystem, getFileSystem()), other));
 }
 
 UnixPath* UnixPath::relativize($Path* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(UnixPath, child, toUnixPath(obj));
 	if ($nc(child)->equals(this)) {
 		return emptyPath();
 	}
 	bool var$0 = this->isAbsolute();
-	if (var$0 != $nc(child)->isAbsolute()) {
+	if (var$0 != child->isAbsolute()) {
 		$throwNew($IllegalArgumentException, "\'other\' is different type of Path"_s);
 	}
 	if (this->isEmpty()) {
@@ -481,16 +409,16 @@ UnixPath* UnixPath::relativize($Path* obj) {
 	}
 	$var(UnixPath, base, this);
 	bool var$1 = base->hasDotOrDotDot();
-	if (var$1 || $nc(child)->hasDotOrDotDot()) {
+	if (var$1 || child->hasDotOrDotDot()) {
 		$assign(base, base->normalize());
 		$assign(child, child->normalize());
 	}
-	int32_t baseCount = base->getNameCount();
+	int32_t baseCount = $nc(base)->getNameCount();
 	int32_t childCount = $nc(child)->getNameCount();
 	int32_t n = $Math::min(baseCount, childCount);
 	int32_t i = 0;
 	while (i < n) {
-		if (!$nc($(base->getName(i)))->equals($(child->getName(i)))) {
+		if (!$$nc(base->getName(i))->equals($(child->getName(i)))) {
 			break;
 		}
 		++i;
@@ -511,10 +439,10 @@ UnixPath* UnixPath::relativize($Path* obj) {
 	if ($nc(baseRemaining)->hasDotOrDotDot()) {
 		$throwNew($IllegalArgumentException, $$str({"Unable to compute relative  path from "_s, this, " to "_s, obj}));
 	}
-	if ($nc(baseRemaining)->isEmpty()) {
+	if (baseRemaining->isEmpty()) {
 		return childRemaining;
 	}
-	int32_t dotdots = $nc(baseRemaining)->getNameCount();
+	int32_t dotdots = baseRemaining->getNameCount();
 	if (dotdots == 0) {
 		return childRemaining;
 	}
@@ -539,12 +467,12 @@ UnixPath* UnixPath::relativize($Path* obj) {
 		}
 		--dotdots;
 	}
-	$System::arraycopy(childRemaining->path, 0, result, pos, $nc(childRemaining->path)->length);
-	return $new(UnixPath, $($cast($UnixFileSystem, getFileSystem())), result);
+	$System::arraycopy(childRemaining->path, 0, result, pos, childRemaining->path->length);
+	return $new(UnixPath, $$cast($UnixFileSystem, getFileSystem()), result);
 }
 
 UnixPath* UnixPath::normalize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = getNameCount();
 	if (count == 0 || isEmpty()) {
 		return this;
@@ -567,7 +495,7 @@ UnixPath* UnixPath::normalize() {
 			if (len == 1) {
 				ignore->set(i, true);
 				--remaining;
-			} else if ($nc(this->path)->get(begin + 1) == u'.') {
+			} else if (this->path->get(begin + 1) == u'.') {
 				hasDotDot = true;
 			}
 		}
@@ -586,7 +514,7 @@ UnixPath* UnixPath::normalize() {
 					continue;
 				}
 				int32_t begin = $nc(this->offsets)->get(i);
-				if ($nc(this->path)->get(begin) != u'.' || $nc(this->path)->get(begin + 1) != u'.') {
+				if ($nc(this->path)->get(begin) != u'.' || this->path->get(begin + 1) != u'.') {
 					prevName = i;
 					continue;
 				}
@@ -615,7 +543,7 @@ UnixPath* UnixPath::normalize() {
 		return this;
 	}
 	if (remaining == 0) {
-		return isAbsolute ? $nc($($cast($UnixFileSystem, getFileSystem())))->rootDirectory() : emptyPath();
+		return isAbsolute ? $$sure($UnixFileSystem, getFileSystem())->rootDirectory() : emptyPath();
 	}
 	int32_t len = remaining - 1;
 	if (isAbsolute) {
@@ -640,44 +568,44 @@ UnixPath* UnixPath::normalize() {
 			}
 		}
 	}
-	return $new(UnixPath, $($cast($UnixFileSystem, getFileSystem())), result);
+	return $new(UnixPath, $$cast($UnixFileSystem, getFileSystem()), result);
 }
 
 bool UnixPath::startsWith($Path* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf(UnixPath, $Objects::requireNonNull(other)))) {
 		return false;
 	}
 	$var(UnixPath, that, $cast(UnixPath, other));
-	if ($nc($nc(that)->path)->length > $nc(this->path)->length) {
+	if ($nc(that->path)->length > $nc(this->path)->length) {
 		return false;
 	}
 	int32_t thisOffsetCount = getNameCount();
-	int32_t thatOffsetCount = $nc(that)->getNameCount();
+	int32_t thatOffsetCount = that->getNameCount();
 	if (thatOffsetCount == 0 && this->isAbsolute()) {
 		return that->isEmpty() ? false : true;
 	}
 	if (thatOffsetCount > thisOffsetCount) {
 		return false;
 	}
-	if ((thatOffsetCount == thisOffsetCount) && ($nc(this->path)->length != $nc(that->path)->length)) {
+	if ((thatOffsetCount == thisOffsetCount) && (this->path->length != that->path->length)) {
 		return false;
 	}
 	for (int32_t i = 0; i < thatOffsetCount; ++i) {
 		$var($Integer, o1, $Integer::valueOf($nc(this->offsets)->get(i)));
 		$var($Integer, o2, $Integer::valueOf($nc(that->offsets)->get(i)));
-		if (!$nc(o1)->equals(o2)) {
+		if (!o1->equals(o2)) {
 			return false;
 		}
 	}
 	int32_t i = 0;
-	while (i < $nc(that->path)->length) {
-		if ($nc(this->path)->get(i) != $nc(that->path)->get(i)) {
+	while (i < that->path->length) {
+		if ($nc(this->path)->get(i) != that->path->get(i)) {
 			return false;
 		}
 		++i;
 	}
-	if (i < $nc(this->path)->length && $nc(this->path)->get(i) != u'/') {
+	if (i < this->path->length && $nc(this->path)->get(i) != u'/') {
 		return false;
 	}
 	return true;
@@ -689,7 +617,7 @@ bool UnixPath::endsWith($Path* other) {
 	}
 	$var(UnixPath, that, $cast(UnixPath, other));
 	int32_t thisLen = $nc(this->path)->length;
-	int32_t thatLen = $nc($nc(that)->path)->length;
+	int32_t thatLen = $nc(that->path)->length;
 	if (thatLen > thisLen) {
 		return false;
 	}
@@ -725,7 +653,7 @@ bool UnixPath::endsWith($Path* other) {
 		return false;
 	}
 	while (thatPos < thatLen) {
-		if ($nc(this->path)->get(thisPos++) != $nc(that->path)->get(thatPos++)) {
+		if ($nc(this->path)->get(thisPos++) != that->path->get(thatPos++)) {
 			return false;
 		}
 	}
@@ -733,16 +661,16 @@ bool UnixPath::endsWith($Path* other) {
 }
 
 int32_t UnixPath::compareTo($Path* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len1 = $nc(this->path)->length;
-	int32_t len2 = $nc($nc(($cast(UnixPath, other)))->path)->length;
+	int32_t len2 = $nc($nc($cast(UnixPath, other))->path)->length;
 	int32_t n = $Math::min(len1, len2);
 	$var($bytes, v1, this->path);
-	$var($bytes, v2, ($cast(UnixPath, other))->path);
+	$var($bytes, v2, $cast(UnixPath, other)->path);
 	int32_t k = 0;
 	while (k < n) {
-		int32_t c1 = (int32_t)($nc(v1)->get(k) & (uint32_t)255);
-		int32_t c2 = (int32_t)($nc(v2)->get(k) & (uint32_t)255);
+		int32_t c1 = $nc(v1)->get(k) & 0xff;
+		int32_t c2 = $nc(v2)->get(k) & 0xff;
 		if (c1 != c2) {
 			return c1 - c2;
 		}
@@ -760,7 +688,7 @@ bool UnixPath::equals(Object$* ob) {
 			var$0 = true;
 		}
 		if (var$0) {
-			return compareTo(static_cast<$Path*>(path)) == 0;
+			return compareTo(path) == 0;
 		}
 	}
 	return false;
@@ -770,7 +698,7 @@ int32_t UnixPath::hashCode() {
 	int32_t h = this->hash;
 	if (h == 0) {
 		for (int32_t i = 0; i < $nc(this->path)->length; ++i) {
-			h = 31 * h + ((int32_t)($nc(this->path)->get(i) & (uint32_t)255));
+			h = 31 * h + (this->path->get(i) & 0xff);
 		}
 		this->hash = h;
 	}
@@ -797,7 +725,7 @@ int32_t UnixPath::openForAttributeAccess(bool followLinks) {
 }
 
 void UnixPath::checkRead() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkRead($(getPathForPermissionCheck()));
@@ -805,7 +733,7 @@ void UnixPath::checkRead() {
 }
 
 void UnixPath::checkWrite() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkWrite($(getPathForPermissionCheck()));
@@ -813,7 +741,7 @@ void UnixPath::checkWrite() {
 }
 
 void UnixPath::checkDelete() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkDelete($(getPathForPermissionCheck()));
@@ -821,7 +749,7 @@ void UnixPath::checkDelete() {
 }
 
 UnixPath* UnixPath::toAbsolutePath() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isAbsolute()) {
 		return this;
 	}
@@ -830,17 +758,17 @@ UnixPath* UnixPath::toAbsolutePath() {
 		sm->checkPropertyAccess("user.dir"_s);
 	}
 	$var($UnixFileSystem, var$0, $cast($UnixFileSystem, getFileSystem()));
-	return $new(UnixPath, var$0, $(resolve($($nc($($cast($UnixFileSystem, getFileSystem())))->defaultDirectory()), this->path)));
+	return $new(UnixPath, var$0, $(resolve($($$sure($UnixFileSystem, getFileSystem())->defaultDirectory()), this->path)));
 }
 
 $Path* UnixPath::toRealPath($LinkOptionArray* options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkRead();
 	$var(UnixPath, absolute, toAbsolutePath());
 	if ($Util::followLinks(options)) {
 		try {
 			$var($bytes, rp, $UnixNativeDispatcher::realpath(absolute));
-			return $new(UnixPath, $($cast($UnixFileSystem, getFileSystem())), rp);
+			return $new(UnixPath, $$cast($UnixFileSystem, getFileSystem()), rp);
 		} catch ($UnixException& x) {
 			x->rethrowAsIOException(this);
 		}
@@ -848,11 +776,11 @@ $Path* UnixPath::toRealPath($LinkOptionArray* options) {
 	$var(UnixPath, result, $nc(this->fs)->rootDirectory());
 	for (int32_t i = 0; i < $nc(absolute)->getNameCount(); ++i) {
 		$var(UnixPath, element, absolute->getName(i));
-		bool var$0 = ($nc($($nc(element)->asByteArray()))->length == 1);
+		bool var$0 = $nc($($nc(element)->asByteArray()))->length == 1;
 		if (var$0 && ($nc($(element->asByteArray()))->get(0) == u'.')) {
 			continue;
 		}
-		bool var$2 = ($nc($($nc(element)->asByteArray()))->length == 2);
+		bool var$2 = $nc($(element->asByteArray()))->length == 2;
 		bool var$1 = var$2 && ($nc($(element->asByteArray()))->get(0) == u'.');
 		if (var$1 && ($nc($(element->asByteArray()))->get(1) == u'.')) {
 			$var($UnixFileAttributes, attrs, nullptr);
@@ -864,12 +792,12 @@ $Path* UnixPath::toRealPath($LinkOptionArray* options) {
 			if (!$nc(attrs)->isSymbolicLink()) {
 				$assign(result, $nc(result)->getParent());
 				if (result == nullptr) {
-					$assign(result, $nc(this->fs)->rootDirectory());
+					$assign(result, this->fs->rootDirectory());
 				}
 				continue;
 			}
 		}
-		$assign(result, $nc(result)->resolve(static_cast<$Path*>(element)));
+		$assign(result, $nc(result)->resolve(element));
 	}
 	try {
 		$UnixFileAttributes::get(result, false);
@@ -891,14 +819,14 @@ $WatchKey* UnixPath::register$($WatchService* watcher, $WatchEvent$KindArray* ev
 		$throwNew($ProviderMismatchException);
 	}
 	checkRead();
-	return $nc(($cast($AbstractWatchService, watcher)))->register$(this, events, modifiers);
+	return $nc($cast($AbstractWatchService, watcher))->register$(this, events, modifiers);
 }
 
 int32_t UnixPath::compareTo(Object$* other) {
 	return this->compareTo($cast($Path, other));
 }
 
-void clinit$UnixPath($Class* class$) {
+void UnixPath::clinit$($Class* clazz) {
 	UnixPath::$assertionsDisabled = !UnixPath::class$->desiredAssertionStatus();
 	$assignStatic(UnixPath::JLA, $SharedSecrets::getJavaLangAccess());
 }
@@ -907,7 +835,73 @@ UnixPath::UnixPath() {
 }
 
 $Class* UnixPath::load$($String* name, bool initialize) {
-	$loadClass(UnixPath, name, initialize, &_UnixPath_ClassInfo_, clinit$UnixPath, allocate$UnixPath);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(UnixPath, $assertionsDisabled)},
+		{"JLA", "Ljdk/internal/access/JavaLangAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnixPath, JLA)},
+		{"fs", "Lsun/nio/fs/UnixFileSystem;", nullptr, $PRIVATE | $FINAL, $field(UnixPath, fs)},
+		{"path", "[B", nullptr, $PRIVATE | $FINAL, $field(UnixPath, path)},
+		{"stringValue", "Ljava/lang/String;", nullptr, $PRIVATE | $VOLATILE, $field(UnixPath, stringValue)},
+		{"hash", "I", nullptr, $PRIVATE, $field(UnixPath, hash)},
+		{"offsets", "[I", nullptr, $PRIVATE | $VOLATILE, $field(UnixPath, offsets)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/fs/UnixFileSystem;[B)V", nullptr, 0, $method(UnixPath, init$, void, $UnixFileSystem*, $bytes*)},
+		{"<init>", "(Lsun/nio/fs/UnixFileSystem;Ljava/lang/String;)V", nullptr, 0, $method(UnixPath, init$, void, $UnixFileSystem*, $String*)},
+		{"asByteArray", "()[B", nullptr, 0, $virtualMethod(UnixPath, asByteArray, $bytes*)},
+		{"checkDelete", "()V", nullptr, 0, $virtualMethod(UnixPath, checkDelete, void)},
+		{"checkNotNul", "(Ljava/lang/String;C)V", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixPath, checkNotNul, void, $String*, char16_t)},
+		{"checkRead", "()V", nullptr, 0, $virtualMethod(UnixPath, checkRead, void)},
+		{"checkWrite", "()V", nullptr, 0, $virtualMethod(UnixPath, checkWrite, void)},
+		{"compareTo", "(Ljava/nio/file/Path;)I", nullptr, $PUBLIC, $virtualMethod(UnixPath, compareTo, int32_t, $Path*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(UnixPath, compareTo, int32_t, Object$*)},
+		{"emptyPath", "()Lsun/nio/fs/UnixPath;", nullptr, $PRIVATE, $method(UnixPath, emptyPath, UnixPath*)},
+		{"encode", "(Lsun/nio/fs/UnixFileSystem;Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixPath, encode, $bytes*, $UnixFileSystem*, $String*)},
+		{"endsWith", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(UnixPath, endsWith, bool, $Path*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UnixPath, equals, bool, Object$*)},
+		{"getByteArrayForSysCalls", "()[B", nullptr, 0, $virtualMethod(UnixPath, getByteArrayForSysCalls, $bytes*)},
+		{"getFileName", "()Lsun/nio/fs/UnixPath;", nullptr, $PUBLIC, $virtualMethod(UnixPath, getFileName, UnixPath*)},
+		{"getFileSystem", "()Lsun/nio/fs/UnixFileSystem;", nullptr, $PUBLIC, $virtualMethod(UnixPath, getFileSystem, $FileSystem*)},
+		{"getName", "(I)Lsun/nio/fs/UnixPath;", nullptr, $PUBLIC, $virtualMethod(UnixPath, getName, UnixPath*, int32_t)},
+		{"getNameCount", "()I", nullptr, $PUBLIC, $virtualMethod(UnixPath, getNameCount, int32_t)},
+		{"getParent", "()Lsun/nio/fs/UnixPath;", nullptr, $PUBLIC, $virtualMethod(UnixPath, getParent, UnixPath*)},
+		{"getPathForExceptionMessage", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(UnixPath, getPathForExceptionMessage, $String*)},
+		{"getPathForPermissionCheck", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(UnixPath, getPathForPermissionCheck, $String*)},
+		{"getRoot", "()Lsun/nio/fs/UnixPath;", nullptr, $PUBLIC, $virtualMethod(UnixPath, getRoot, UnixPath*)},
+		{"hasDotOrDotDot", "()Z", nullptr, $PRIVATE, $method(UnixPath, hasDotOrDotDot, bool)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(UnixPath, hashCode, int32_t)},
+		{"initOffsets", "()V", nullptr, $PRIVATE, $method(UnixPath, initOffsets, void)},
+		{"isAbsolute", "()Z", nullptr, $PUBLIC, $virtualMethod(UnixPath, isAbsolute, bool)},
+		{"isEmpty", "()Z", nullptr, 0, $virtualMethod(UnixPath, isEmpty, bool)},
+		{"normalize", "(Ljava/lang/String;II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixPath, normalize, $String*, $String*, int32_t, int32_t)},
+		{"normalize", "()Lsun/nio/fs/UnixPath;", nullptr, $PUBLIC, $virtualMethod(UnixPath, normalize, UnixPath*)},
+		{"normalizeAndCheck", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(UnixPath, normalizeAndCheck, $String*, $String*)},
+		{"openForAttributeAccess", "(Z)I", nullptr, 0, $virtualMethod(UnixPath, openForAttributeAccess, int32_t, bool), "sun.nio.fs.UnixException"},
+		{"register", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $PUBLIC | $TRANSIENT, $virtualMethod(UnixPath, register$, $WatchKey*, $WatchService*, $WatchEvent$KindArray*, $WatchEvent$ModifierArray*), "java.io.IOException"},
+		{"relativize", "(Ljava/nio/file/Path;)Lsun/nio/fs/UnixPath;", nullptr, $PUBLIC, $virtualMethod(UnixPath, relativize, UnixPath*, $Path*)},
+		{"resolve", "([B[B)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(UnixPath, resolve, $bytes*, $bytes*, $bytes*)},
+		{"resolve", "(Ljava/nio/file/Path;)Lsun/nio/fs/UnixPath;", nullptr, $PUBLIC, $virtualMethod(UnixPath, resolve, UnixPath*, $Path*)},
+		{"resolve", "([B)Lsun/nio/fs/UnixPath;", nullptr, 0, $virtualMethod(UnixPath, resolve, UnixPath*, $bytes*)},
+		{"startsWith", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(UnixPath, startsWith, bool, $Path*)},
+		{"subpath", "(II)Lsun/nio/fs/UnixPath;", nullptr, $PUBLIC, $virtualMethod(UnixPath, subpath, UnixPath*, int32_t, int32_t)},
+		{"toAbsolutePath", "()Lsun/nio/fs/UnixPath;", nullptr, $PUBLIC, $virtualMethod(UnixPath, toAbsolutePath, UnixPath*)},
+		{"toRealPath", "([Ljava/nio/file/LinkOption;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(UnixPath, toRealPath, $Path*, $LinkOptionArray*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixPath, toString, $String*)},
+		{"toUnixPath", "(Ljava/nio/file/Path;)Lsun/nio/fs/UnixPath;", nullptr, $STATIC, $staticMethod(UnixPath, toUnixPath, UnixPath*, $Path*)},
+		{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(UnixPath, toUri, $URI*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.UnixPath",
+		"java.lang.Object",
+		"java.nio.file.Path",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnixPath, name, initialize, &classInfo$$, UnixPath::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UnixPath));
+	});
 	return class$;
 }
 

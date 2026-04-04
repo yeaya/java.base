@@ -1,5 +1,4 @@
 #include <Foo4OrderUnitTest.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -7,46 +6,39 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
-$NamedAttribute Foo4OrderUnitTest_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$NamedAttribute Foo4OrderUnitTest_Attribute_var$1[] = {
-	{"value", 'c', "LFooContainer;"},
-	{}
-};
-
-$CompoundAttribute _Foo4OrderUnitTest_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", Foo4OrderUnitTest_Attribute_var$0},
-	{"Ljava/lang/annotation/Repeatable;", Foo4OrderUnitTest_Attribute_var$1},
-	{}
-};
-
-$MethodInfo _Foo4OrderUnitTest_MethodInfo_[] = {
-	{"isDirect", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Foo4OrderUnitTest, isDirect, bool)},
-	{}
-};
-
-$ClassInfo _Foo4OrderUnitTest_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"Foo4OrderUnitTest",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_Foo4OrderUnitTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Foo4OrderUnitTest_Annotations_
-};
-
-$Object* allocate$Foo4OrderUnitTest($Class* clazz) {
-	return $of($alloc(Foo4OrderUnitTest));
-}
-
 $Class* Foo4OrderUnitTest::load$($String* name, bool initialize) {
-	$loadClass(Foo4OrderUnitTest, name, initialize, &_Foo4OrderUnitTest_ClassInfo_, allocate$Foo4OrderUnitTest);
+	$MethodInfo methodInfos$$[] = {
+		{"isDirect", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Foo4OrderUnitTest, isDirect, bool)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'c', "LFooContainer;"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Repeatable;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"Foo4OrderUnitTest",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Foo4OrderUnitTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Foo4OrderUnitTest);
+	});
 	return class$;
 }
 

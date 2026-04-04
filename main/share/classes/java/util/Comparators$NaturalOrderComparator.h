@@ -29,6 +29,7 @@ public:
 	virtual bool equals(Object$* other) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual int32_t compare(::java::lang::Comparable* c1, ::java::lang::Comparable* c2);
 	virtual int32_t compare(Object$* c1, Object$* c2) override;

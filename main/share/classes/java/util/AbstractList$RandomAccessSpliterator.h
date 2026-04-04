@@ -26,6 +26,7 @@ class $export AbstractList$RandomAccessSpliterator : public ::java::util::Splite
 	$class(AbstractList$RandomAccessSpliterator, 0, ::java::util::Spliterator)
 public:
 	AbstractList$RandomAccessSpliterator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::List* list);
 	void init$(::java::util::AbstractList$RandomAccessSpliterator* parent, int32_t origin, int32_t fence);
 	virtual int32_t characteristics() override;

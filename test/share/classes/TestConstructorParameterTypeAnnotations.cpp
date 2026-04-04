@@ -1,5 +1,4 @@
 #include <TestConstructorParameterTypeAnnotations.h>
-
 #include <TestConstructorParameterTypeAnnotations$ExpectedGetParameterAnnotations.h>
 #include <TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations.h>
 #include <TestConstructorParameterTypeAnnotations$MarkerTypeAnnotation.h>
@@ -31,7 +30,6 @@ using $TestConstructorParameterTypeAnnotations$StaticNestedClass1 = ::TestConstr
 using $TestConstructorParameterTypeAnnotations$StaticNestedClass2 = ::TestConstructorParameterTypeAnnotations$StaticNestedClass2;
 using $AnnotatedTypeArray = $Array<::java::lang::reflect::AnnotatedType>;
 using $ConstructorArray = $Array<::java::lang::reflect::Constructor>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -41,56 +39,12 @@ using $Constructor = ::java::lang::reflect::Constructor;
 using $Arrays = ::java::util::Arrays;
 using $Objects = ::java::util::Objects;
 
-$MethodInfo _TestConstructorParameterTypeAnnotations_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestConstructorParameterTypeAnnotations, init$, void)},
-	{"checkGetAnnotatedParametersGetAnnotation", "(Ljava/lang/Class;Ljava/lang/reflect/Constructor;)I", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Constructor<*>;)I", $PRIVATE | $STATIC, $staticMethod(TestConstructorParameterTypeAnnotations, checkGetAnnotatedParametersGetAnnotation, int32_t, $Class*, $Constructor*)},
-	{"checkGetParameterAnnotations", "(Ljava/lang/Class;Ljava/lang/reflect/Constructor;)I", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Constructor<*>;)I", $PRIVATE | $STATIC, $staticMethod(TestConstructorParameterTypeAnnotations, checkGetParameterAnnotations, int32_t, $Class*, $Constructor*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(TestConstructorParameterTypeAnnotations, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _TestConstructorParameterTypeAnnotations_InnerClassesInfo_[] = {
-	{"TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations", "TestConstructorParameterTypeAnnotations", "ExpectedParameterTypeAnnotations", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{"TestConstructorParameterTypeAnnotations$ExpectedGetParameterAnnotations", "TestConstructorParameterTypeAnnotations", "ExpectedGetParameterAnnotations", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{"TestConstructorParameterTypeAnnotations$MarkerTypeAnnotation", "TestConstructorParameterTypeAnnotations", "MarkerTypeAnnotation", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{"TestConstructorParameterTypeAnnotations$StaticNestedClass4", "TestConstructorParameterTypeAnnotations", "StaticNestedClass4", $PUBLIC | $STATIC},
-	{"TestConstructorParameterTypeAnnotations$StaticNestedClass3", "TestConstructorParameterTypeAnnotations", "StaticNestedClass3", $PUBLIC | $STATIC},
-	{"TestConstructorParameterTypeAnnotations$StaticNestedClass2", "TestConstructorParameterTypeAnnotations", "StaticNestedClass2", $PUBLIC | $STATIC},
-	{"TestConstructorParameterTypeAnnotations$StaticNestedClass1", "TestConstructorParameterTypeAnnotations", "StaticNestedClass1", $PUBLIC | $STATIC},
-	{"TestConstructorParameterTypeAnnotations$StaticNestedClass0", "TestConstructorParameterTypeAnnotations", "StaticNestedClass0", $PUBLIC | $STATIC},
-	{"TestConstructorParameterTypeAnnotations$NestedClass4", "TestConstructorParameterTypeAnnotations", "NestedClass4", $PUBLIC},
-	{"TestConstructorParameterTypeAnnotations$NestedClass3", "TestConstructorParameterTypeAnnotations", "NestedClass3", $PUBLIC},
-	{"TestConstructorParameterTypeAnnotations$NestedClass2", "TestConstructorParameterTypeAnnotations", "NestedClass2", $PUBLIC},
-	{"TestConstructorParameterTypeAnnotations$NestedClass1", "TestConstructorParameterTypeAnnotations", "NestedClass1", $PUBLIC},
-	{"TestConstructorParameterTypeAnnotations$NestedClass0", "TestConstructorParameterTypeAnnotations", "NestedClass0", $PUBLIC},
-	{}
-};
-
-$ClassInfo _TestConstructorParameterTypeAnnotations_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestConstructorParameterTypeAnnotations",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestConstructorParameterTypeAnnotations_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestConstructorParameterTypeAnnotations_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations,TestConstructorParameterTypeAnnotations$ExpectedGetParameterAnnotations,TestConstructorParameterTypeAnnotations$MarkerTypeAnnotation,TestConstructorParameterTypeAnnotations$StaticNestedClass4,TestConstructorParameterTypeAnnotations$StaticNestedClass3,TestConstructorParameterTypeAnnotations$StaticNestedClass2,TestConstructorParameterTypeAnnotations$StaticNestedClass1,TestConstructorParameterTypeAnnotations$StaticNestedClass0,TestConstructorParameterTypeAnnotations$NestedClass4,TestConstructorParameterTypeAnnotations$NestedClass3,TestConstructorParameterTypeAnnotations$NestedClass2,TestConstructorParameterTypeAnnotations$NestedClass1,TestConstructorParameterTypeAnnotations$NestedClass0"
-};
-
-$Object* allocate$TestConstructorParameterTypeAnnotations($Class* clazz) {
-	return $of($alloc(TestConstructorParameterTypeAnnotations));
-}
-
 void TestConstructorParameterTypeAnnotations::init$() {
 }
 
 void TestConstructorParameterTypeAnnotations::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(TestConstructorParameterTypeAnnotations);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	int32_t errors = 0;
 	$load($TestConstructorParameterTypeAnnotations$NestedClass0);
@@ -118,17 +72,13 @@ void TestConstructorParameterTypeAnnotations::main($StringArray* args) {
 		for (; i$ < len$; ++i$) {
 			$Class* clazz = arr$->get(i$);
 			{
-				{
-					$var($ConstructorArray, arr$, $nc(clazz)->getConstructors());
-					int32_t len$ = arr$->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
-						$var($Constructor, ctor, arr$->get(i$));
-						{
-							$nc($System::out)->println($of(ctor));
-							errors += checkGetParameterAnnotations(clazz, ctor);
-							errors += checkGetAnnotatedParametersGetAnnotation(clazz, ctor);
-						}
+				$var($ConstructorArray, arr$, $nc(clazz)->getConstructors());
+				for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+					$var($Constructor, ctor, arr$->get(i$));
+					{
+						$nc($System::out)->println(ctor);
+						errors += checkGetParameterAnnotations(clazz, ctor);
+						errors += checkGetAnnotatedParametersGetAnnotation(clazz, ctor);
 					}
 				}
 			}
@@ -141,10 +91,10 @@ void TestConstructorParameterTypeAnnotations::main($StringArray* args) {
 }
 
 int32_t TestConstructorParameterTypeAnnotations::checkGetParameterAnnotations($Class* clazz, $Constructor* ctor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, annotationString, $Arrays::deepToString($($nc(ctor)->getParameterAnnotations())));
 	$load($TestConstructorParameterTypeAnnotations$ExpectedGetParameterAnnotations);
-	$var($String, expectedString, $nc(($cast($TestConstructorParameterTypeAnnotations$ExpectedGetParameterAnnotations, $($nc(clazz)->getAnnotation($TestConstructorParameterTypeAnnotations$ExpectedGetParameterAnnotations::class$)))))->value());
+	$var($String, expectedString, $$sure($TestConstructorParameterTypeAnnotations$ExpectedGetParameterAnnotations, $nc(clazz)->getAnnotation($TestConstructorParameterTypeAnnotations$ExpectedGetParameterAnnotations::class$))->value());
 	if (!$Objects::equals(annotationString, expectedString)) {
 		$nc($System::err)->println($$str({"Annotation mismatch on "_s, ctor, "\n\tExpected:"_s, expectedString, "\n\tActual:  "_s, annotationString}));
 		return 1;
@@ -153,16 +103,14 @@ int32_t TestConstructorParameterTypeAnnotations::checkGetParameterAnnotations($C
 }
 
 int32_t TestConstructorParameterTypeAnnotations::checkGetAnnotatedParametersGetAnnotation($Class* clazz, $Constructor* ctor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t errors = 0;
 	int32_t i = 0;
 	$load($TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations);
 	$var($TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations, epa, $cast($TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations, $nc(clazz)->getAnnotation($TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations::class$)));
 	{
 		$var($AnnotatedTypeArray, arr$, $nc(ctor)->getAnnotatedParameterTypes());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($AnnotatedType, param, arr$->get(i$));
 			{
 				$load($TestConstructorParameterTypeAnnotations$MarkerTypeAnnotation);
@@ -183,7 +131,46 @@ TestConstructorParameterTypeAnnotations::TestConstructorParameterTypeAnnotations
 }
 
 $Class* TestConstructorParameterTypeAnnotations::load$($String* name, bool initialize) {
-	$loadClass(TestConstructorParameterTypeAnnotations, name, initialize, &_TestConstructorParameterTypeAnnotations_ClassInfo_, allocate$TestConstructorParameterTypeAnnotations);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestConstructorParameterTypeAnnotations, init$, void)},
+		{"checkGetAnnotatedParametersGetAnnotation", "(Ljava/lang/Class;Ljava/lang/reflect/Constructor;)I", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Constructor<*>;)I", $PRIVATE | $STATIC, $staticMethod(TestConstructorParameterTypeAnnotations, checkGetAnnotatedParametersGetAnnotation, int32_t, $Class*, $Constructor*)},
+		{"checkGetParameterAnnotations", "(Ljava/lang/Class;Ljava/lang/reflect/Constructor;)I", "(Ljava/lang/Class<*>;Ljava/lang/reflect/Constructor<*>;)I", $PRIVATE | $STATIC, $staticMethod(TestConstructorParameterTypeAnnotations, checkGetParameterAnnotations, int32_t, $Class*, $Constructor*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(TestConstructorParameterTypeAnnotations, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations", "TestConstructorParameterTypeAnnotations", "ExpectedParameterTypeAnnotations", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{"TestConstructorParameterTypeAnnotations$ExpectedGetParameterAnnotations", "TestConstructorParameterTypeAnnotations", "ExpectedGetParameterAnnotations", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{"TestConstructorParameterTypeAnnotations$MarkerTypeAnnotation", "TestConstructorParameterTypeAnnotations", "MarkerTypeAnnotation", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{"TestConstructorParameterTypeAnnotations$StaticNestedClass4", "TestConstructorParameterTypeAnnotations", "StaticNestedClass4", $PUBLIC | $STATIC},
+		{"TestConstructorParameterTypeAnnotations$StaticNestedClass3", "TestConstructorParameterTypeAnnotations", "StaticNestedClass3", $PUBLIC | $STATIC},
+		{"TestConstructorParameterTypeAnnotations$StaticNestedClass2", "TestConstructorParameterTypeAnnotations", "StaticNestedClass2", $PUBLIC | $STATIC},
+		{"TestConstructorParameterTypeAnnotations$StaticNestedClass1", "TestConstructorParameterTypeAnnotations", "StaticNestedClass1", $PUBLIC | $STATIC},
+		{"TestConstructorParameterTypeAnnotations$StaticNestedClass0", "TestConstructorParameterTypeAnnotations", "StaticNestedClass0", $PUBLIC | $STATIC},
+		{"TestConstructorParameterTypeAnnotations$NestedClass4", "TestConstructorParameterTypeAnnotations", "NestedClass4", $PUBLIC},
+		{"TestConstructorParameterTypeAnnotations$NestedClass3", "TestConstructorParameterTypeAnnotations", "NestedClass3", $PUBLIC},
+		{"TestConstructorParameterTypeAnnotations$NestedClass2", "TestConstructorParameterTypeAnnotations", "NestedClass2", $PUBLIC},
+		{"TestConstructorParameterTypeAnnotations$NestedClass1", "TestConstructorParameterTypeAnnotations", "NestedClass1", $PUBLIC},
+		{"TestConstructorParameterTypeAnnotations$NestedClass0", "TestConstructorParameterTypeAnnotations", "NestedClass0", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestConstructorParameterTypeAnnotations",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations,TestConstructorParameterTypeAnnotations$ExpectedGetParameterAnnotations,TestConstructorParameterTypeAnnotations$MarkerTypeAnnotation,TestConstructorParameterTypeAnnotations$StaticNestedClass4,TestConstructorParameterTypeAnnotations$StaticNestedClass3,TestConstructorParameterTypeAnnotations$StaticNestedClass2,TestConstructorParameterTypeAnnotations$StaticNestedClass1,TestConstructorParameterTypeAnnotations$StaticNestedClass0,TestConstructorParameterTypeAnnotations$NestedClass4,TestConstructorParameterTypeAnnotations$NestedClass3,TestConstructorParameterTypeAnnotations$NestedClass2,TestConstructorParameterTypeAnnotations$NestedClass1,TestConstructorParameterTypeAnnotations$NestedClass0"
+	};
+	$loadClass(TestConstructorParameterTypeAnnotations, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestConstructorParameterTypeAnnotations);
+	});
 	return class$;
 }
 

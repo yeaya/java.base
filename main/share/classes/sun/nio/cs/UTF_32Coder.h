@@ -25,8 +25,8 @@ class UTF_32Coder : public ::java::lang::Object {
 public:
 	UTF_32Coder();
 	void init$();
-	static const int32_t BOM_BIG = 0x0000FEFF;
-	static const int32_t BOM_LITTLE = 0xFFFE0000;
+	static const int32_t BOM_BIG = 0x0000feff;
+	static const int32_t BOM_LITTLE = 0xfffe0000;
 	static const int32_t NONE = 0;
 	static const int32_t BIG = 1;
 	static const int32_t LITTLE = 2;

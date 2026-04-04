@@ -1,5 +1,4 @@
 #include <jdk/internal/logger/BootstrapLogger$DetectBackend$1.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/System$LoggerFinder.h>
 #include <java/util/Iterator.h>
@@ -29,59 +28,20 @@ namespace jdk {
 	namespace internal {
 		namespace logger {
 
-$MethodInfo _BootstrapLogger$DetectBackend$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(BootstrapLogger$DetectBackend$1, init$, void)},
-	{"run", "()Ljdk/internal/logger/BootstrapLogger$LoggingBackend;", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger$DetectBackend$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _BootstrapLogger$DetectBackend$1_EnclosingMethodInfo_ = {
-	"jdk.internal.logger.BootstrapLogger$DetectBackend",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _BootstrapLogger$DetectBackend$1_InnerClassesInfo_[] = {
-	{"jdk.internal.logger.BootstrapLogger$DetectBackend", "jdk.internal.logger.BootstrapLogger", "DetectBackend", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.logger.BootstrapLogger$DetectBackend$1", nullptr, nullptr, 0},
-	{"jdk.internal.logger.BootstrapLogger$LoggingBackend", "jdk.internal.logger.BootstrapLogger", "LoggingBackend", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _BootstrapLogger$DetectBackend$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.logger.BootstrapLogger$DetectBackend$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_BootstrapLogger$DetectBackend$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljdk/internal/logger/BootstrapLogger$LoggingBackend;>;",
-	&_BootstrapLogger$DetectBackend$1_EnclosingMethodInfo_,
-	_BootstrapLogger$DetectBackend$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.logger.BootstrapLogger"
-};
-
-$Object* allocate$BootstrapLogger$DetectBackend$1($Class* clazz) {
-	return $of($alloc(BootstrapLogger$DetectBackend$1));
-}
-
 void BootstrapLogger$DetectBackend$1::init$() {
 }
 
 $Object* BootstrapLogger$DetectBackend$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$load($System$LoggerFinder);
-	$var($Iterator, iterator, $nc($($ServiceLoader::load($System$LoggerFinder::class$, $($ClassLoader::getSystemClassLoader()))))->iterator());
+	$var($Iterator, iterator, $$nc($ServiceLoader::load($System$LoggerFinder::class$, $($ClassLoader::getSystemClassLoader())))->iterator());
 	if ($nc(iterator)->hasNext()) {
 		$init($BootstrapLogger$LoggingBackend);
 		return $of($BootstrapLogger$LoggingBackend::CUSTOM);
 	}
 	$load($DefaultLoggerFinder);
-	$var($Iterator, iterator2, $nc($($ServiceLoader::loadInstalled($DefaultLoggerFinder::class$)))->iterator());
+	$var($Iterator, iterator2, $$nc($ServiceLoader::loadInstalled($DefaultLoggerFinder::class$))->iterator());
 	if ($nc(iterator2)->hasNext()) {
 		$var($String, cname, $System::getProperty("java.util.logging.config.class"_s));
 		$var($String, fname, $System::getProperty("java.util.logging.config.file"_s));
@@ -97,7 +57,40 @@ BootstrapLogger$DetectBackend$1::BootstrapLogger$DetectBackend$1() {
 }
 
 $Class* BootstrapLogger$DetectBackend$1::load$($String* name, bool initialize) {
-	$loadClass(BootstrapLogger$DetectBackend$1, name, initialize, &_BootstrapLogger$DetectBackend$1_ClassInfo_, allocate$BootstrapLogger$DetectBackend$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(BootstrapLogger$DetectBackend$1, init$, void)},
+		{"run", "()Ljdk/internal/logger/BootstrapLogger$LoggingBackend;", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger$DetectBackend$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.logger.BootstrapLogger$DetectBackend",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.logger.BootstrapLogger$DetectBackend", "jdk.internal.logger.BootstrapLogger", "DetectBackend", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.logger.BootstrapLogger$DetectBackend$1", nullptr, nullptr, 0},
+		{"jdk.internal.logger.BootstrapLogger$LoggingBackend", "jdk.internal.logger.BootstrapLogger", "LoggingBackend", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.logger.BootstrapLogger$DetectBackend$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljdk/internal/logger/BootstrapLogger$LoggingBackend;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.logger.BootstrapLogger"
+	};
+	$loadClass(BootstrapLogger$DetectBackend$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BootstrapLogger$DetectBackend$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/x509/AccessDescription.h>
-
 #include <sun/security/util/DerInputStream.h>
 #include <sun/security/util/DerOutputStream.h>
 #include <sun/security/util/DerValue.h>
@@ -24,42 +23,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _AccessDescription_FieldInfo_[] = {
-	{"myhash", "I", nullptr, $PRIVATE, $field(AccessDescription, myhash)},
-	{"accessMethod", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE, $field(AccessDescription, accessMethod)},
-	{"accessLocation", "Lsun/security/x509/GeneralName;", nullptr, $PRIVATE, $field(AccessDescription, accessLocation)},
-	{"Ad_OCSP_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessDescription, Ad_OCSP_Id)},
-	{"Ad_CAISSUERS_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessDescription, Ad_CAISSUERS_Id)},
-	{"Ad_TIMESTAMPING_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessDescription, Ad_TIMESTAMPING_Id)},
-	{"Ad_CAREPOSITORY_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessDescription, Ad_CAREPOSITORY_Id)},
-	{}
-};
-
-$MethodInfo _AccessDescription_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/ObjectIdentifier;Lsun/security/x509/GeneralName;)V", nullptr, $PUBLIC, $method(AccessDescription, init$, void, $ObjectIdentifier*, $GeneralName*)},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(AccessDescription, init$, void, $DerValue*), "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $method(AccessDescription, encode, void, $DerOutputStream*), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AccessDescription, equals, bool, Object$*)},
-	{"getAccessLocation", "()Lsun/security/x509/GeneralName;", nullptr, $PUBLIC, $method(AccessDescription, getAccessLocation, $GeneralName*)},
-	{"getAccessMethod", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC, $method(AccessDescription, getAccessMethod, $ObjectIdentifier*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AccessDescription, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessDescription, toString, $String*)},
-	{}
-};
-
-$ClassInfo _AccessDescription_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.x509.AccessDescription",
-	"java.lang.Object",
-	nullptr,
-	_AccessDescription_FieldInfo_,
-	_AccessDescription_MethodInfo_
-};
-
-$Object* allocate$AccessDescription($Class* clazz) {
-	return $of($alloc(AccessDescription));
-}
-
 $ObjectIdentifier* AccessDescription::Ad_OCSP_Id = nullptr;
 $ObjectIdentifier* AccessDescription::Ad_CAISSUERS_Id = nullptr;
 $ObjectIdentifier* AccessDescription::Ad_TIMESTAMPING_Id = nullptr;
@@ -72,7 +35,7 @@ void AccessDescription::init$($ObjectIdentifier* accessMethod, $GeneralName* acc
 }
 
 void AccessDescription::init$($DerValue* derValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->myhash = -1;
 	$var($DerInputStream, derIn, $nc(derValue)->getData());
 	$set(this, accessMethod, $nc(derIn)->getOID());
@@ -103,7 +66,7 @@ int32_t AccessDescription::hashCode() {
 }
 
 bool AccessDescription::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (obj == nullptr || (!($instanceOf(AccessDescription, obj)))) {
 		return false;
 	}
@@ -112,27 +75,27 @@ bool AccessDescription::equals(Object$* obj) {
 		return true;
 	}
 	bool var$0 = $nc(this->accessMethod)->equals($($nc(that)->getAccessMethod()));
-	return (var$0 && $nc(this->accessLocation)->equals($($nc(that)->getAccessLocation())));
+	return (var$0 && $nc(this->accessLocation)->equals($(that->getAccessLocation())));
 }
 
 $String* AccessDescription::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, method, nullptr);
 	if ($nc(this->accessMethod)->equals(AccessDescription::Ad_CAISSUERS_Id)) {
 		$assign(method, "caIssuers"_s);
-	} else if ($nc(this->accessMethod)->equals(AccessDescription::Ad_CAREPOSITORY_Id)) {
+	} else if (this->accessMethod->equals(AccessDescription::Ad_CAREPOSITORY_Id)) {
 		$assign(method, "caRepository"_s);
-	} else if ($nc(this->accessMethod)->equals(AccessDescription::Ad_TIMESTAMPING_Id)) {
+	} else if (this->accessMethod->equals(AccessDescription::Ad_TIMESTAMPING_Id)) {
 		$assign(method, "timeStamping"_s);
-	} else if ($nc(this->accessMethod)->equals(AccessDescription::Ad_OCSP_Id)) {
+	} else if (this->accessMethod->equals(AccessDescription::Ad_OCSP_Id)) {
 		$assign(method, "ocsp"_s);
 	} else {
-		$assign(method, $nc(this->accessMethod)->toString());
+		$assign(method, this->accessMethod->toString());
 	}
 	return ($str({"\n   accessMethod: "_s, method, "\n   accessLocation: "_s, $($nc(this->accessLocation)->toString()), "\n"_s}));
 }
 
-void clinit$AccessDescription($Class* class$) {
+void AccessDescription::clinit$($Class* clazz) {
 	$init($KnownOIDs);
 	$assignStatic(AccessDescription::Ad_OCSP_Id, $ObjectIdentifier::of($KnownOIDs::OCSP));
 	$assignStatic(AccessDescription::Ad_CAISSUERS_Id, $ObjectIdentifier::of($KnownOIDs::caIssuers));
@@ -144,7 +107,38 @@ AccessDescription::AccessDescription() {
 }
 
 $Class* AccessDescription::load$($String* name, bool initialize) {
-	$loadClass(AccessDescription, name, initialize, &_AccessDescription_ClassInfo_, clinit$AccessDescription, allocate$AccessDescription);
+	$FieldInfo fieldInfos$$[] = {
+		{"myhash", "I", nullptr, $PRIVATE, $field(AccessDescription, myhash)},
+		{"accessMethod", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE, $field(AccessDescription, accessMethod)},
+		{"accessLocation", "Lsun/security/x509/GeneralName;", nullptr, $PRIVATE, $field(AccessDescription, accessLocation)},
+		{"Ad_OCSP_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessDescription, Ad_OCSP_Id)},
+		{"Ad_CAISSUERS_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessDescription, Ad_CAISSUERS_Id)},
+		{"Ad_TIMESTAMPING_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessDescription, Ad_TIMESTAMPING_Id)},
+		{"Ad_CAREPOSITORY_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessDescription, Ad_CAREPOSITORY_Id)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/util/ObjectIdentifier;Lsun/security/x509/GeneralName;)V", nullptr, $PUBLIC, $method(AccessDescription, init$, void, $ObjectIdentifier*, $GeneralName*)},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(AccessDescription, init$, void, $DerValue*), "java.io.IOException"},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $method(AccessDescription, encode, void, $DerOutputStream*), "java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AccessDescription, equals, bool, Object$*)},
+		{"getAccessLocation", "()Lsun/security/x509/GeneralName;", nullptr, $PUBLIC, $method(AccessDescription, getAccessLocation, $GeneralName*)},
+		{"getAccessMethod", "()Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC, $method(AccessDescription, getAccessMethod, $ObjectIdentifier*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AccessDescription, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessDescription, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.x509.AccessDescription",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AccessDescription, name, initialize, &classInfo$$, AccessDescription::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AccessDescription);
+	});
 	return class$;
 }
 

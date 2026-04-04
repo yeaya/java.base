@@ -50,6 +50,7 @@ class $export ClassFileConstants : public ::java::lang::Object {
 	$class(ClassFileConstants, 0, ::java::lang::Object)
 public:
 	ClassFileConstants();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* MODULE;
 	static $String* SOURCE_FILE;

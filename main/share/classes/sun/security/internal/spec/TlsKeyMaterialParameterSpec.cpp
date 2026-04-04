@@ -1,5 +1,4 @@
 #include <sun/security/internal/spec/TlsKeyMaterialParameterSpec.h>
-
 #include <javax/crypto/SecretKey.h>
 #include <sun/security/internal/spec/TlsMasterSecretParameterSpec.h>
 #include <jcpp.h>
@@ -18,66 +17,8 @@ namespace sun {
 		namespace internal {
 			namespace spec {
 
-$CompoundAttribute _TlsKeyMaterialParameterSpec_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _TlsKeyMaterialParameterSpec_FieldInfo_[] = {
-	{"masterSecret", "Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialParameterSpec, masterSecret)},
-	{"majorVersion", "I", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialParameterSpec, majorVersion)},
-	{"minorVersion", "I", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialParameterSpec, minorVersion)},
-	{"clientRandom", "[B", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialParameterSpec, clientRandom)},
-	{"serverRandom", "[B", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialParameterSpec, serverRandom)},
-	{"cipherAlgorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialParameterSpec, cipherAlgorithm)},
-	{"cipherKeyLength", "I", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialParameterSpec, cipherKeyLength)},
-	{"ivLength", "I", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialParameterSpec, ivLength)},
-	{"macKeyLength", "I", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialParameterSpec, macKeyLength)},
-	{"expandedCipherKeyLength", "I", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialParameterSpec, expandedCipherKeyLength)},
-	{"prfHashAlg", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialParameterSpec, prfHashAlg)},
-	{"prfHashLength", "I", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialParameterSpec, prfHashLength)},
-	{"prfBlockSize", "I", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialParameterSpec, prfBlockSize)},
-	{}
-};
-
-$MethodInfo _TlsKeyMaterialParameterSpec_MethodInfo_[] = {
-	{"<init>", "(Ljavax/crypto/SecretKey;II[B[BLjava/lang/String;IIIILjava/lang/String;II)V", nullptr, $PUBLIC, $method(TlsKeyMaterialParameterSpec, init$, void, $SecretKey*, int32_t, int32_t, $bytes*, $bytes*, $String*, int32_t, int32_t, int32_t, int32_t, $String*, int32_t, int32_t)},
-	{"checkSign", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TlsKeyMaterialParameterSpec, checkSign, int32_t, int32_t)},
-	{"getCipherAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getCipherAlgorithm, $String*)},
-	{"getCipherKeyLength", "()I", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getCipherKeyLength, int32_t)},
-	{"getClientRandom", "()[B", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getClientRandom, $bytes*)},
-	{"getExpandedCipherKeyLength", "()I", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getExpandedCipherKeyLength, int32_t)},
-	{"getIvLength", "()I", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getIvLength, int32_t)},
-	{"getMacKeyLength", "()I", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getMacKeyLength, int32_t)},
-	{"getMajorVersion", "()I", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getMajorVersion, int32_t)},
-	{"getMasterSecret", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getMasterSecret, $SecretKey*)},
-	{"getMinorVersion", "()I", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getMinorVersion, int32_t)},
-	{"getPRFBlockSize", "()I", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getPRFBlockSize, int32_t)},
-	{"getPRFHashAlg", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getPRFHashAlg, $String*)},
-	{"getPRFHashLength", "()I", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getPRFHashLength, int32_t)},
-	{"getServerRandom", "()[B", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getServerRandom, $bytes*)},
-	{}
-};
-
-$ClassInfo _TlsKeyMaterialParameterSpec_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.internal.spec.TlsKeyMaterialParameterSpec",
-	"java.lang.Object",
-	"java.security.spec.AlgorithmParameterSpec",
-	_TlsKeyMaterialParameterSpec_FieldInfo_,
-	_TlsKeyMaterialParameterSpec_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_TlsKeyMaterialParameterSpec_Annotations_
-};
-
-$Object* allocate$TlsKeyMaterialParameterSpec($Class* clazz) {
-	return $of($alloc(TlsKeyMaterialParameterSpec));
-}
-
 void TlsKeyMaterialParameterSpec::init$($SecretKey* masterSecret, int32_t majorVersion, int32_t minorVersion, $bytes* clientRandom, $bytes* serverRandom, $String* cipherAlgorithm, int32_t cipherKeyLength, int32_t expandedCipherKeyLength, int32_t ivLength, int32_t macKeyLength, $String* prfHashAlg, int32_t prfHashLength, int32_t prfBlockSize) {
-	if ($nc($($nc(masterSecret)->getAlgorithm()))->equals("TlsMasterSecret"_s) == false) {
+	if ($$nc($nc(masterSecret)->getAlgorithm())->equals("TlsMasterSecret"_s) == false) {
 		$throwNew($IllegalArgumentException, "Not a TLS master secret"_s);
 	}
 	if (cipherAlgorithm == nullptr) {
@@ -165,7 +106,59 @@ TlsKeyMaterialParameterSpec::TlsKeyMaterialParameterSpec() {
 }
 
 $Class* TlsKeyMaterialParameterSpec::load$($String* name, bool initialize) {
-	$loadClass(TlsKeyMaterialParameterSpec, name, initialize, &_TlsKeyMaterialParameterSpec_ClassInfo_, allocate$TlsKeyMaterialParameterSpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"masterSecret", "Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialParameterSpec, masterSecret)},
+		{"majorVersion", "I", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialParameterSpec, majorVersion)},
+		{"minorVersion", "I", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialParameterSpec, minorVersion)},
+		{"clientRandom", "[B", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialParameterSpec, clientRandom)},
+		{"serverRandom", "[B", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialParameterSpec, serverRandom)},
+		{"cipherAlgorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialParameterSpec, cipherAlgorithm)},
+		{"cipherKeyLength", "I", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialParameterSpec, cipherKeyLength)},
+		{"ivLength", "I", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialParameterSpec, ivLength)},
+		{"macKeyLength", "I", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialParameterSpec, macKeyLength)},
+		{"expandedCipherKeyLength", "I", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialParameterSpec, expandedCipherKeyLength)},
+		{"prfHashAlg", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialParameterSpec, prfHashAlg)},
+		{"prfHashLength", "I", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialParameterSpec, prfHashLength)},
+		{"prfBlockSize", "I", nullptr, $PRIVATE | $FINAL, $field(TlsKeyMaterialParameterSpec, prfBlockSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/crypto/SecretKey;II[B[BLjava/lang/String;IIIILjava/lang/String;II)V", nullptr, $PUBLIC, $method(TlsKeyMaterialParameterSpec, init$, void, $SecretKey*, int32_t, int32_t, $bytes*, $bytes*, $String*, int32_t, int32_t, int32_t, int32_t, $String*, int32_t, int32_t)},
+		{"checkSign", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TlsKeyMaterialParameterSpec, checkSign, int32_t, int32_t)},
+		{"getCipherAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getCipherAlgorithm, $String*)},
+		{"getCipherKeyLength", "()I", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getCipherKeyLength, int32_t)},
+		{"getClientRandom", "()[B", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getClientRandom, $bytes*)},
+		{"getExpandedCipherKeyLength", "()I", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getExpandedCipherKeyLength, int32_t)},
+		{"getIvLength", "()I", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getIvLength, int32_t)},
+		{"getMacKeyLength", "()I", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getMacKeyLength, int32_t)},
+		{"getMajorVersion", "()I", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getMajorVersion, int32_t)},
+		{"getMasterSecret", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getMasterSecret, $SecretKey*)},
+		{"getMinorVersion", "()I", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getMinorVersion, int32_t)},
+		{"getPRFBlockSize", "()I", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getPRFBlockSize, int32_t)},
+		{"getPRFHashAlg", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getPRFHashAlg, $String*)},
+		{"getPRFHashLength", "()I", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getPRFHashLength, int32_t)},
+		{"getServerRandom", "()[B", nullptr, $PUBLIC, $virtualMethod(TlsKeyMaterialParameterSpec, getServerRandom, $bytes*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.internal.spec.TlsKeyMaterialParameterSpec",
+		"java.lang.Object",
+		"java.security.spec.AlgorithmParameterSpec",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(TlsKeyMaterialParameterSpec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TlsKeyMaterialParameterSpec);
+	});
 	return class$;
 }
 

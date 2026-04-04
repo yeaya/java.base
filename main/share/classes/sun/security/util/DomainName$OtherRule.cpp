@@ -1,5 +1,4 @@
 #include <sun/security/util/DomainName$OtherRule.h>
-
 #include <java/util/List.h>
 #include <sun/security/util/DomainName$Rule$Type.h>
 #include <sun/security/util/DomainName$Rule.h>
@@ -22,42 +21,6 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$FieldInfo _DomainName$OtherRule_FieldInfo_[] = {
-	{"labels", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(DomainName$OtherRule, labels)},
-	{}
-};
-
-$MethodInfo _DomainName$OtherRule_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/security/util/RegisteredDomain$Type;Ljava/util/List;)V", "(Ljava/lang/String;Lsun/security/util/RegisteredDomain$Type;Ljava/util/List<Ljava/lang/String;>;)V", 0, $method(DomainName$OtherRule, init$, void, $String*, $RegisteredDomain$Type*, $List*)},
-	{}
-};
-
-$InnerClassInfo _DomainName$OtherRule_InnerClassesInfo_[] = {
-	{"sun.security.util.DomainName$OtherRule", "sun.security.util.DomainName", "OtherRule", $PRIVATE | $STATIC},
-	{"sun.security.util.DomainName$Rule", "sun.security.util.DomainName", "Rule", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DomainName$OtherRule_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.util.DomainName$OtherRule",
-	"sun.security.util.DomainName$Rule",
-	nullptr,
-	_DomainName$OtherRule_FieldInfo_,
-	_DomainName$OtherRule_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DomainName$OtherRule_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.util.DomainName"
-};
-
-$Object* allocate$DomainName$OtherRule($Class* clazz) {
-	return $of($alloc(DomainName$OtherRule));
-}
-
 void DomainName$OtherRule::init$($String* domain, $RegisteredDomain$Type* auth, $List* labels) {
 	$init($DomainName$Rule$Type);
 	$DomainName$Rule::init$(domain, $DomainName$Rule$Type::OTHER, auth);
@@ -68,7 +31,37 @@ DomainName$OtherRule::DomainName$OtherRule() {
 }
 
 $Class* DomainName$OtherRule::load$($String* name, bool initialize) {
-	$loadClass(DomainName$OtherRule, name, initialize, &_DomainName$OtherRule_ClassInfo_, allocate$DomainName$OtherRule);
+	$FieldInfo fieldInfos$$[] = {
+		{"labels", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(DomainName$OtherRule, labels)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Lsun/security/util/RegisteredDomain$Type;Ljava/util/List;)V", "(Ljava/lang/String;Lsun/security/util/RegisteredDomain$Type;Ljava/util/List<Ljava/lang/String;>;)V", 0, $method(DomainName$OtherRule, init$, void, $String*, $RegisteredDomain$Type*, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.DomainName$OtherRule", "sun.security.util.DomainName", "OtherRule", $PRIVATE | $STATIC},
+		{"sun.security.util.DomainName$Rule", "sun.security.util.DomainName", "Rule", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.util.DomainName$OtherRule",
+		"sun.security.util.DomainName$Rule",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.util.DomainName"
+	};
+	$loadClass(DomainName$OtherRule, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DomainName$OtherRule);
+	});
 	return class$;
 }
 

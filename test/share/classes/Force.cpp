@@ -1,5 +1,4 @@
 #include <Force.h>
-
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/FileOutputStream.h>
@@ -15,27 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $FileChannel = ::java::nio::channels::FileChannel;
 
-$MethodInfo _Force_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Force, init$, void)},
-	{"forceReadableOnly", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Force, forceReadableOnly, void), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Force, main, void, $StringArray*), "java.lang.Exception"},
-	{"writeAfterForce", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Force, writeAfterForce, void), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Force_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Force",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Force_MethodInfo_
-};
-
-$Object* allocate$Force($Class* clazz) {
-	return $of($alloc(Force));
-}
-
 void Force::init$() {
 }
 
@@ -45,7 +23,7 @@ void Force::main($StringArray* args) {
 }
 
 void Force::writeAfterForce() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, srcData, $new($bytes, 20));
 	$var($File, blah, $File::createTempFile("blah"_s, nullptr));
 	$nc(blah)->deleteOnExit();
@@ -58,7 +36,7 @@ void Force::writeAfterForce() {
 }
 
 void Force::forceReadableOnly() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, f, $File::createTempFile("blah"_s, nullptr));
 	$nc(f)->deleteOnExit();
 	$var($FileInputStream, fis, $new($FileInputStream, f));
@@ -72,7 +50,24 @@ Force::Force() {
 }
 
 $Class* Force::load$($String* name, bool initialize) {
-	$loadClass(Force, name, initialize, &_Force_ClassInfo_, allocate$Force);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Force, init$, void)},
+		{"forceReadableOnly", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Force, forceReadableOnly, void), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Force, main, void, $StringArray*), "java.lang.Exception"},
+		{"writeAfterForce", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Force, writeAfterForce, void), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Force",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Force, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Force);
+	});
 	return class$;
 }
 

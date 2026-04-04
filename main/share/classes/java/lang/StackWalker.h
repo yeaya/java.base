@@ -45,6 +45,7 @@ class $export StackWalker : public ::java::lang::Object {
 	$class(StackWalker, 0, ::java::lang::Object)
 public:
 	StackWalker();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::EnumSet* options);
 	void init$(::java::util::EnumSet* options, int32_t estimateDepth);
 	void init$(::java::util::EnumSet* options, int32_t estimateDepth, ::java::lang::StackWalker$ExtendedOption* extendedOption);

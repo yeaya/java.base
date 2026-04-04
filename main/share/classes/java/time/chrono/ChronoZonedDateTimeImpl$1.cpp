@@ -1,5 +1,4 @@
 #include <java/time/chrono/ChronoZonedDateTimeImpl$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/time/chrono/ChronoZonedDateTimeImpl.h>
 #include <java/time/temporal/ChronoField.h>
@@ -19,53 +18,17 @@ namespace java {
 	namespace time {
 		namespace chrono {
 
-$FieldInfo _ChronoZonedDateTimeImpl$1_FieldInfo_[] = {
-	{"$SwitchMap$java$time$temporal$ChronoField", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ChronoZonedDateTimeImpl$1, $SwitchMap$java$time$temporal$ChronoField)},
-	{}
-};
-
-$EnclosingMethodInfo _ChronoZonedDateTimeImpl$1_EnclosingMethodInfo_ = {
-	"java.time.chrono.ChronoZonedDateTimeImpl",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ChronoZonedDateTimeImpl$1_InnerClassesInfo_[] = {
-	{"java.time.chrono.ChronoZonedDateTimeImpl$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _ChronoZonedDateTimeImpl$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"java.time.chrono.ChronoZonedDateTimeImpl$1",
-	"java.lang.Object",
-	nullptr,
-	_ChronoZonedDateTimeImpl$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_ChronoZonedDateTimeImpl$1_EnclosingMethodInfo_,
-	_ChronoZonedDateTimeImpl$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.chrono.ChronoZonedDateTimeImpl"
-};
-
-$Object* allocate$ChronoZonedDateTimeImpl$1($Class* clazz) {
-	return $of($alloc(ChronoZonedDateTimeImpl$1));
-}
-
 $ints* ChronoZonedDateTimeImpl$1::$SwitchMap$java$time$temporal$ChronoField = nullptr;
 
-void clinit$ChronoZonedDateTimeImpl$1($Class* class$) {
+void ChronoZonedDateTimeImpl$1::clinit$($Class* clazz) {
 	$assignStatic(ChronoZonedDateTimeImpl$1::$SwitchMap$java$time$temporal$ChronoField, $new($ints, $($ChronoField::values())->length));
 	{
 		try {
-			$nc(ChronoZonedDateTimeImpl$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::INSTANT_SECONDS->ordinal(), 1);
+			ChronoZonedDateTimeImpl$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::INSTANT_SECONDS->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ChronoZonedDateTimeImpl$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::OFFSET_SECONDS->ordinal(), 2);
+			ChronoZonedDateTimeImpl$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::OFFSET_SECONDS->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -75,7 +38,37 @@ ChronoZonedDateTimeImpl$1::ChronoZonedDateTimeImpl$1() {
 }
 
 $Class* ChronoZonedDateTimeImpl$1::load$($String* name, bool initialize) {
-	$loadClass(ChronoZonedDateTimeImpl$1, name, initialize, &_ChronoZonedDateTimeImpl$1_ClassInfo_, clinit$ChronoZonedDateTimeImpl$1, allocate$ChronoZonedDateTimeImpl$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$time$temporal$ChronoField", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ChronoZonedDateTimeImpl$1, $SwitchMap$java$time$temporal$ChronoField)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.time.chrono.ChronoZonedDateTimeImpl",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.chrono.ChronoZonedDateTimeImpl$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"java.time.chrono.ChronoZonedDateTimeImpl$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.chrono.ChronoZonedDateTimeImpl"
+	};
+	$loadClass(ChronoZonedDateTimeImpl$1, name, initialize, &classInfo$$, ChronoZonedDateTimeImpl$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ChronoZonedDateTimeImpl$1);
+	});
 	return class$;
 }
 

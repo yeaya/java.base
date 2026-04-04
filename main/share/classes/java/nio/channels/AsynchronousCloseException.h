@@ -14,10 +14,13 @@ class $export AsynchronousCloseException : public ::java::nio::channels::ClosedC
 public:
 	AsynchronousCloseException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x5FA2622A0467666E;
+	static const int64_t serialVersionUID = (int64_t)0x5fa2622a0467666e;
 	AsynchronousCloseException(const AsynchronousCloseException& e);
 	virtual void throw$() override;
-	inline AsynchronousCloseException* operator ->() {
+	inline AsynchronousCloseException* operator ->() const {
+		return (AsynchronousCloseException*)throwing$;
+	}
+	inline operator AsynchronousCloseException*() const {
 		return (AsynchronousCloseException*)throwing$;
 	}
 };

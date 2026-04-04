@@ -1,5 +1,4 @@
 #include <sun/security/provider/DSA.h>
-
 #include <java/io/IOException.h>
 #include <java/math/BigInteger.h>
 #include <java/nio/ByteBuffer.h>
@@ -18,7 +17,6 @@
 #include <java/security/interfaces/DSAPublicKey.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <java/util/Arrays.h>
-#include <java/util/Random.h>
 #include <sun/security/jca/JCAUtil.h>
 #include <sun/security/util/Debug.h>
 #include <sun/security/util/DerInputStream.h>
@@ -56,7 +54,6 @@ using $DSAPrivateKey = ::java::security::interfaces::DSAPrivateKey;
 using $DSAPublicKey = ::java::security::interfaces::DSAPublicKey;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $Arrays = ::java::util::Arrays;
-using $Random = ::java::util::Random;
 using $JCAUtil = ::sun::security::jca::JCAUtil;
 using $Debug = ::sun::security::util::Debug;
 using $DerInputStream = ::sun::security::util::DerInputStream;
@@ -66,102 +63,6 @@ using $DerValue = ::sun::security::util::DerValue;
 namespace sun {
 	namespace security {
 		namespace provider {
-
-$CompoundAttribute _DSA_MethodAnnotations_engineGetParameter3[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DSA_MethodAnnotations_engineSetParameter7[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _DSA_FieldInfo_[] = {
-	{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DSA, debug)},
-	{"BLINDING_BITS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DSA, BLINDING_BITS)},
-	{"BLINDING_CONSTANT", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DSA, BLINDING_CONSTANT)},
-	{"params", "Ljava/security/interfaces/DSAParams;", nullptr, $PRIVATE, $field(DSA, params)},
-	{"presetP", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DSA, presetP)},
-	{"presetQ", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DSA, presetQ)},
-	{"presetG", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DSA, presetG)},
-	{"presetY", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DSA, presetY)},
-	{"presetX", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DSA, presetX)},
-	{"signingRandom", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(DSA, signingRandom)},
-	{"md", "Ljava/security/MessageDigest;", nullptr, $PRIVATE | $FINAL, $field(DSA, md)},
-	{"p1363Format", "Z", nullptr, $PRIVATE | $FINAL, $field(DSA, p1363Format)},
-	{}
-};
-
-$MethodInfo _DSA_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/MessageDigest;)V", nullptr, 0, $method(DSA, init$, void, $MessageDigest*)},
-	{"<init>", "(Ljava/security/MessageDigest;Z)V", nullptr, 0, $method(DSA, init$, void, $MessageDigest*, bool)},
-	{"checkKey", "(Ljava/security/interfaces/DSAParams;ILjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DSA, checkKey, void, $DSAParams*, int32_t, $String*), "java.security.InvalidKeyException"},
-	{"engineGetParameter", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(DSA, engineGetParameter, $Object*, $String*), nullptr, nullptr, _DSA_MethodAnnotations_engineGetParameter3},
-	{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(DSA, engineGetParameters, $AlgorithmParameters*)},
-	{"engineInitSign", "(Ljava/security/PrivateKey;)V", nullptr, $PROTECTED, $virtualMethod(DSA, engineInitSign, void, $PrivateKey*), "java.security.InvalidKeyException"},
-	{"engineInitVerify", "(Ljava/security/PublicKey;)V", nullptr, $PROTECTED, $virtualMethod(DSA, engineInitVerify, void, $PublicKey*), "java.security.InvalidKeyException"},
-	{"engineSetParameter", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(DSA, engineSetParameter, void, $String*, Object$*), nullptr, nullptr, _DSA_MethodAnnotations_engineSetParameter7},
-	{"engineSetParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(DSA, engineSetParameter, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"engineSign", "()[B", nullptr, $PROTECTED, $virtualMethod(DSA, engineSign, $bytes*), "java.security.SignatureException"},
-	{"engineUpdate", "(B)V", nullptr, $PROTECTED, $virtualMethod(DSA, engineUpdate, void, int8_t)},
-	{"engineUpdate", "([BII)V", nullptr, $PROTECTED, $virtualMethod(DSA, engineUpdate, void, $bytes*, int32_t, int32_t)},
-	{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED, $virtualMethod(DSA, engineUpdate, void, $ByteBuffer*)},
-	{"engineVerify", "([B)Z", nullptr, $PROTECTED, $virtualMethod(DSA, engineVerify, bool, $bytes*), "java.security.SignatureException"},
-	{"engineVerify", "([BII)Z", nullptr, $PROTECTED, $virtualMethod(DSA, engineVerify, bool, $bytes*, int32_t, int32_t), "java.security.SignatureException"},
-	{"generateK", "(Ljava/math/BigInteger;)Ljava/math/BigInteger;", nullptr, $PROTECTED, $virtualMethod(DSA, generateK, $BigInteger*, $BigInteger*)},
-	{"generateR", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;", nullptr, $PRIVATE, $method(DSA, generateR, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*)},
-	{"generateS", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;", nullptr, $PRIVATE, $method(DSA, generateS, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*), "java.security.SignatureException"},
-	{"generateV", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;", nullptr, $PRIVATE, $method(DSA, generateV, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*), "java.security.SignatureException"},
-	{"generateW", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;", nullptr, $PRIVATE, $method(DSA, generateW, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*)},
-	{"getSigningRandom", "()Ljava/security/SecureRandom;", nullptr, $PROTECTED, $virtualMethod(DSA, getSigningRandom, $SecureRandom*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DSA, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _DSA_InnerClassesInfo_[] = {
-	{"sun.security.provider.DSA$RawDSAinP1363Format", "sun.security.provider.DSA", "RawDSAinP1363Format", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.DSA$RawDSA", "sun.security.provider.DSA", "RawDSA", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.DSA$Raw", "sun.security.provider.DSA", "Raw", $STATIC},
-	{"sun.security.provider.DSA$SHA1withDSAinP1363Format", "sun.security.provider.DSA", "SHA1withDSAinP1363Format", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.DSA$SHA1withDSA", "sun.security.provider.DSA", "SHA1withDSA", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.DSA$SHA512withDSAinP1363Format", "sun.security.provider.DSA", "SHA512withDSAinP1363Format", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.DSA$SHA512withDSA", "sun.security.provider.DSA", "SHA512withDSA", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.DSA$SHA384withDSAinP1363Format", "sun.security.provider.DSA", "SHA384withDSAinP1363Format", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.DSA$SHA384withDSA", "sun.security.provider.DSA", "SHA384withDSA", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.DSA$SHA256withDSAinP1363Format", "sun.security.provider.DSA", "SHA256withDSAinP1363Format", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.DSA$SHA256withDSA", "sun.security.provider.DSA", "SHA256withDSA", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.DSA$SHA224withDSAinP1363Format", "sun.security.provider.DSA", "SHA224withDSAinP1363Format", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.DSA$SHA224withDSA", "sun.security.provider.DSA", "SHA224withDSA", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.DSA$SHA3_512withDSAinP1363Format", "sun.security.provider.DSA", "SHA3_512withDSAinP1363Format", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.DSA$SHA3_512withDSA", "sun.security.provider.DSA", "SHA3_512withDSA", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.DSA$SHA3_384withDSAinP1363Format", "sun.security.provider.DSA", "SHA3_384withDSAinP1363Format", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.DSA$SHA3_384withDSA", "sun.security.provider.DSA", "SHA3_384withDSA", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.DSA$SHA3_256withDSAinP1363Format", "sun.security.provider.DSA", "SHA3_256withDSAinP1363Format", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.DSA$SHA3_256withDSA", "sun.security.provider.DSA", "SHA3_256withDSA", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.DSA$SHA3_224withDSAinP1363Format", "sun.security.provider.DSA", "SHA3_224withDSAinP1363Format", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.DSA$SHA3_224withDSA", "sun.security.provider.DSA", "SHA3_224withDSA", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DSA_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.security.provider.DSA",
-	"java.security.SignatureSpi",
-	nullptr,
-	_DSA_FieldInfo_,
-	_DSA_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DSA_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.provider.DSA$RawDSAinP1363Format,sun.security.provider.DSA$RawDSA,sun.security.provider.DSA$Raw,sun.security.provider.DSA$Raw$NullDigest20,sun.security.provider.DSA$SHA1withDSAinP1363Format,sun.security.provider.DSA$SHA1withDSA,sun.security.provider.DSA$SHA512withDSAinP1363Format,sun.security.provider.DSA$SHA512withDSA,sun.security.provider.DSA$SHA384withDSAinP1363Format,sun.security.provider.DSA$SHA384withDSA,sun.security.provider.DSA$SHA256withDSAinP1363Format,sun.security.provider.DSA$SHA256withDSA,sun.security.provider.DSA$SHA224withDSAinP1363Format,sun.security.provider.DSA$SHA224withDSA,sun.security.provider.DSA$SHA3_512withDSAinP1363Format,sun.security.provider.DSA$SHA3_512withDSA,sun.security.provider.DSA$SHA3_384withDSAinP1363Format,sun.security.provider.DSA$SHA3_384withDSA,sun.security.provider.DSA$SHA3_256withDSAinP1363Format,sun.security.provider.DSA$SHA3_256withDSA,sun.security.provider.DSA$SHA3_224withDSAinP1363Format,sun.security.provider.DSA$SHA3_224withDSA"
-};
-
-$Object* allocate$DSA($Class* clazz) {
-	return $of($alloc(DSA));
-}
 
 $BigInteger* DSA::BLINDING_CONSTANT = nullptr;
 
@@ -177,15 +78,15 @@ void DSA::init$($MessageDigest* md, bool p1363Format) {
 
 void DSA::checkKey($DSAParams* params, int32_t digestLen, $String* mdAlgo) {
 	$init(DSA);
-	$useLocalCurrentObjectStackCache();
-	int32_t valueN = $nc($($nc(params)->getQ()))->bitLength();
+	$useLocalObjectStack();
+	int32_t valueN = $$nc($nc(params)->getQ())->bitLength();
 	if (valueN > digestLen) {
 		$throwNew($InvalidKeyException, $$str({"The security strength of "_s, mdAlgo, " digest algorithm is not sufficient for this key size"_s}));
 	}
 }
 
 void DSA::engineInitSign($PrivateKey* privateKey) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($DSAPrivateKey, privateKey))) {
 		$throwNew($InvalidKeyException, $$str({"not a DSA private key: "_s, privateKey}));
 	}
@@ -195,9 +96,8 @@ void DSA::engineInitSign($PrivateKey* privateKey) {
 		$throwNew($InvalidKeyException, "DSA private key lacks parameters"_s);
 	}
 	if (!"NullDigest20"_s->equals($($nc(this->md)->getAlgorithm()))) {
-		$var($DSAParams, var$0, params);
-		int32_t var$1 = $nc(this->md)->getDigestLength() * 8;
-		checkKey(var$0, var$1, $($nc(this->md)->getAlgorithm()));
+		int32_t var$0 = this->md->getDigestLength() * 8;
+		checkKey(params, var$0, $(this->md->getAlgorithm()));
 	}
 	$set(this, params, params);
 	$set(this, presetX, priv->getX());
@@ -209,7 +109,7 @@ void DSA::engineInitSign($PrivateKey* privateKey) {
 }
 
 void DSA::engineInitVerify($PublicKey* publicKey) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($DSAPublicKey, publicKey))) {
 		$throwNew($InvalidKeyException, $$str({"not a DSA public key: "_s, publicKey}));
 	}
@@ -240,7 +140,7 @@ void DSA::engineUpdate($ByteBuffer* b) {
 }
 
 $bytes* DSA::engineSign() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BigInteger, k, generateK(this->presetQ));
 	$var($BigInteger, r, generateR(this->presetP, this->presetQ, this->presetG, k));
 	$var($BigInteger, s, generateS(this->presetX, this->presetQ, r, k));
@@ -249,13 +149,15 @@ $bytes* DSA::engineSign() {
 		$var($bytes, sBytes, $nc(s)->toByteArray());
 		int32_t size = $nc(this->presetQ)->bitLength() / 8;
 		$var($bytes, outseq, $new($bytes, size * 2));
-		int32_t rLength = $nc(rBytes)->length;
-		int32_t sLength = $nc(sBytes)->length;
+		int32_t rLength = rBytes->length;
+		int32_t sLength = sBytes->length;
 		int32_t i = 0;
 		for (i = rLength; i > 0 && rBytes->get(rLength - i) == 0; --i) {
+			;
 		}
 		int32_t j = 0;
 		for (j = sLength; j > 0 && sBytes->get(sLength - j) == 0; --j) {
+			;
 		}
 		$System::arraycopy(rBytes, rLength - i, outseq, size - i, i);
 		$System::arraycopy(sBytes, sLength - j, outseq, size * 2 - j, j);
@@ -279,11 +181,11 @@ bool DSA::engineVerify($bytes* signature) {
 }
 
 bool DSA::engineVerify($bytes* signature, int32_t offset, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BigInteger, r, nullptr);
 	$var($BigInteger, s, nullptr);
 	if (this->p1363Format) {
-		if (((int32_t)(length & (uint32_t)1)) == 1) {
+		if ((length & 1) == 1) {
 			$throwNew($SignatureException, "invalid signature format"_s);
 		}
 		int32_t mid = length / 2;
@@ -296,7 +198,7 @@ bool DSA::engineVerify($bytes* signature, int32_t offset, int32_t length) {
 			if (($nc(values)->length != 2) || (in->available() != 0)) {
 				$throwNew($IOException, "Invalid encoding for signature"_s);
 			}
-			$assign(r, $nc($nc(values)->get(0))->getBigInteger());
+			$assign(r, $nc(values->get(0))->getBigInteger());
 			$assign(s, $nc(values->get(1))->getBigInteger());
 		} catch ($IOException& e) {
 			$throwNew($SignatureException, "Invalid encoding for signature"_s, e);
@@ -308,8 +210,8 @@ bool DSA::engineVerify($bytes* signature, int32_t offset, int32_t length) {
 	if ($nc(s)->signum() < 0) {
 		$assign(s, $new($BigInteger, 1, $(s->toByteArray())));
 	}
-	bool var$0 = ($nc(r)->compareTo(this->presetQ) == -1);
-	if (var$0 && ($nc(s)->compareTo(this->presetQ) == -1)) {
+	bool var$0 = r->compareTo(this->presetQ) == -1;
+	if (var$0 && (s->compareTo(this->presetQ) == -1)) {
 		$var($BigInteger, w, generateW(this->presetP, this->presetQ, this->presetG, s));
 		$var($BigInteger, v, generateV(this->presetY, this->presetP, this->presetQ, this->presetG, w, r));
 		return $nc(v)->equals(r);
@@ -329,7 +231,7 @@ void DSA::engineSetParameter($AlgorithmParameterSpec* params) {
 }
 
 $Object* DSA::engineGetParameter($String* key) {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $AlgorithmParameters* DSA::engineGetParameters() {
@@ -337,18 +239,18 @@ $AlgorithmParameters* DSA::engineGetParameters() {
 }
 
 $BigInteger* DSA::generateR($BigInteger* p, $BigInteger* q, $BigInteger* g, $BigInteger* k$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BigInteger, k, k$renamed);
 	$var($SecureRandom, random, getSigningRandom());
-	$var($BigInteger, blindingValue, $new($BigInteger, DSA::BLINDING_BITS, static_cast<$Random*>(random)));
+	$var($BigInteger, blindingValue, $new($BigInteger, DSA::BLINDING_BITS, random));
 	$assign(blindingValue, blindingValue->add(DSA::BLINDING_CONSTANT));
 	$assign(k, $nc(k)->add($($nc(q)->multiply(blindingValue))));
 	$var($BigInteger, temp, $nc(g)->modPow(k, p));
-	return $nc(temp)->mod(q);
+	return temp->mod(q);
 }
 
 $BigInteger* DSA::generateS($BigInteger* x, $BigInteger* q, $BigInteger* r, $BigInteger* k) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, s2, nullptr);
 	try {
 		$assign(s2, $nc(this->md)->digest());
@@ -361,7 +263,7 @@ $BigInteger* DSA::generateS($BigInteger* x, $BigInteger* q, $BigInteger* r, $Big
 	}
 	$var($BigInteger, z, $new($BigInteger, 1, s2));
 	$var($BigInteger, k1, $nc(k)->modInverse(q));
-	return $nc($($nc($($nc($($nc(x)->multiply(r)))->add(z)))->multiply(k1)))->mod(q);
+	return $($($($nc(x)->multiply(r))->add(z))->multiply(k1))->mod(q);
 }
 
 $BigInteger* DSA::generateW($BigInteger* p, $BigInteger* q, $BigInteger* g, $BigInteger* s) {
@@ -369,7 +271,7 @@ $BigInteger* DSA::generateW($BigInteger* p, $BigInteger* q, $BigInteger* g, $Big
 }
 
 $BigInteger* DSA::generateV($BigInteger* y, $BigInteger* p, $BigInteger* q, $BigInteger* g, $BigInteger* w, $BigInteger* r) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, s2, nullptr);
 	try {
 		$assign(s2, $nc(this->md)->digest());
@@ -381,21 +283,21 @@ $BigInteger* DSA::generateV($BigInteger* y, $BigInteger* p, $BigInteger* q, $Big
 		$assign(s2, $Arrays::copyOfRange(s2, 0, nBytes));
 	}
 	$var($BigInteger, z, $new($BigInteger, 1, s2));
-	$var($BigInteger, u1, $nc($(z->multiply(w)))->mod(q));
-	$var($BigInteger, u2, $nc(($($nc(r)->multiply(w))))->mod(q));
+	$var($BigInteger, u1, $(z->multiply(w))->mod(q));
+	$var($BigInteger, u2, ($($nc(r)->multiply(w)))->mod(q));
 	$var($BigInteger, t1, $nc(g)->modPow(u1, p));
 	$var($BigInteger, t2, $nc(y)->modPow(u2, p));
-	$var($BigInteger, t3, $nc(t1)->multiply(t2));
-	$var($BigInteger, t5, $nc(t3)->mod(p));
-	return $nc(t5)->mod(q);
+	$var($BigInteger, t3, t1->multiply(t2));
+	$var($BigInteger, t5, t3->mod(p));
+	return t5->mod(q);
 }
 
 $BigInteger* DSA::generateK($BigInteger* q) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecureRandom, random, getSigningRandom());
 	$var($bytes, kValue, $new($bytes, ($nc(q)->bitLength() + 7) / 8 + 8));
 	$nc(random)->nextBytes(kValue);
-	return $nc($($$new($BigInteger, 1, kValue)->mod($(q->subtract($BigInteger::ONE)))))->add($BigInteger::ONE);
+	return $($$new($BigInteger, 1, kValue)->mod($(q->subtract($BigInteger::ONE))))->add($BigInteger::ONE);
 }
 
 $SecureRandom* DSA::getSigningRandom() {
@@ -410,7 +312,7 @@ $SecureRandom* DSA::getSigningRandom() {
 }
 
 $String* DSA::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, printable, "DSA Signature"_s);
 	if (this->presetP != nullptr && this->presetQ != nullptr && this->presetG != nullptr) {
 		$plusAssign(printable, $$str({"\n\tp: "_s, $($Debug::toHexString(this->presetP))}));
@@ -428,15 +330,103 @@ $String* DSA::toString() {
 	return printable;
 }
 
-void clinit$DSA($Class* class$) {
-	$assignStatic(DSA::BLINDING_CONSTANT, $BigInteger::valueOf((int64_t)$sl(1, DSA::BLINDING_BITS)));
+void DSA::clinit$($Class* clazz) {
+	$assignStatic(DSA::BLINDING_CONSTANT, $BigInteger::valueOf($sl(1, DSA::BLINDING_BITS)));
 }
 
 DSA::DSA() {
 }
 
 $Class* DSA::load$($String* name, bool initialize) {
-	$loadClass(DSA, name, initialize, &_DSA_ClassInfo_, clinit$DSA, allocate$DSA);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DSA, debug)},
+		{"BLINDING_BITS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DSA, BLINDING_BITS)},
+		{"BLINDING_CONSTANT", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DSA, BLINDING_CONSTANT)},
+		{"params", "Ljava/security/interfaces/DSAParams;", nullptr, $PRIVATE, $field(DSA, params)},
+		{"presetP", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DSA, presetP)},
+		{"presetQ", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DSA, presetQ)},
+		{"presetG", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DSA, presetG)},
+		{"presetY", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DSA, presetY)},
+		{"presetX", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DSA, presetX)},
+		{"signingRandom", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(DSA, signingRandom)},
+		{"md", "Ljava/security/MessageDigest;", nullptr, $PRIVATE | $FINAL, $field(DSA, md)},
+		{"p1363Format", "Z", nullptr, $PRIVATE | $FINAL, $field(DSA, p1363Format)},
+		{}
+	};
+	$CompoundAttribute engineGetParametermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute engineSetParametermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/MessageDigest;)V", nullptr, 0, $method(DSA, init$, void, $MessageDigest*)},
+		{"<init>", "(Ljava/security/MessageDigest;Z)V", nullptr, 0, $method(DSA, init$, void, $MessageDigest*, bool)},
+		{"checkKey", "(Ljava/security/interfaces/DSAParams;ILjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DSA, checkKey, void, $DSAParams*, int32_t, $String*), "java.security.InvalidKeyException"},
+		{"engineGetParameter", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(DSA, engineGetParameter, $Object*, $String*), nullptr, nullptr, engineGetParametermethodAnnotations$$},
+		{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(DSA, engineGetParameters, $AlgorithmParameters*)},
+		{"engineInitSign", "(Ljava/security/PrivateKey;)V", nullptr, $PROTECTED, $virtualMethod(DSA, engineInitSign, void, $PrivateKey*), "java.security.InvalidKeyException"},
+		{"engineInitVerify", "(Ljava/security/PublicKey;)V", nullptr, $PROTECTED, $virtualMethod(DSA, engineInitVerify, void, $PublicKey*), "java.security.InvalidKeyException"},
+		{"engineSetParameter", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(DSA, engineSetParameter, void, $String*, Object$*), nullptr, nullptr, engineSetParametermethodAnnotations$$},
+		{"engineSetParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(DSA, engineSetParameter, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"engineSign", "()[B", nullptr, $PROTECTED, $virtualMethod(DSA, engineSign, $bytes*), "java.security.SignatureException"},
+		{"engineUpdate", "(B)V", nullptr, $PROTECTED, $virtualMethod(DSA, engineUpdate, void, int8_t)},
+		{"engineUpdate", "([BII)V", nullptr, $PROTECTED, $virtualMethod(DSA, engineUpdate, void, $bytes*, int32_t, int32_t)},
+		{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED, $virtualMethod(DSA, engineUpdate, void, $ByteBuffer*)},
+		{"engineVerify", "([B)Z", nullptr, $PROTECTED, $virtualMethod(DSA, engineVerify, bool, $bytes*), "java.security.SignatureException"},
+		{"engineVerify", "([BII)Z", nullptr, $PROTECTED, $virtualMethod(DSA, engineVerify, bool, $bytes*, int32_t, int32_t), "java.security.SignatureException"},
+		{"generateK", "(Ljava/math/BigInteger;)Ljava/math/BigInteger;", nullptr, $PROTECTED, $virtualMethod(DSA, generateK, $BigInteger*, $BigInteger*)},
+		{"generateR", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;", nullptr, $PRIVATE, $method(DSA, generateR, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*)},
+		{"generateS", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;", nullptr, $PRIVATE, $method(DSA, generateS, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*), "java.security.SignatureException"},
+		{"generateV", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;", nullptr, $PRIVATE, $method(DSA, generateV, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*), "java.security.SignatureException"},
+		{"generateW", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)Ljava/math/BigInteger;", nullptr, $PRIVATE, $method(DSA, generateW, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*)},
+		{"getSigningRandom", "()Ljava/security/SecureRandom;", nullptr, $PROTECTED, $virtualMethod(DSA, getSigningRandom, $SecureRandom*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DSA, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.DSA$RawDSAinP1363Format", "sun.security.provider.DSA", "RawDSAinP1363Format", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.DSA$RawDSA", "sun.security.provider.DSA", "RawDSA", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.DSA$Raw", "sun.security.provider.DSA", "Raw", $STATIC},
+		{"sun.security.provider.DSA$SHA1withDSAinP1363Format", "sun.security.provider.DSA", "SHA1withDSAinP1363Format", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.DSA$SHA1withDSA", "sun.security.provider.DSA", "SHA1withDSA", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.DSA$SHA512withDSAinP1363Format", "sun.security.provider.DSA", "SHA512withDSAinP1363Format", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.DSA$SHA512withDSA", "sun.security.provider.DSA", "SHA512withDSA", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.DSA$SHA384withDSAinP1363Format", "sun.security.provider.DSA", "SHA384withDSAinP1363Format", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.DSA$SHA384withDSA", "sun.security.provider.DSA", "SHA384withDSA", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.DSA$SHA256withDSAinP1363Format", "sun.security.provider.DSA", "SHA256withDSAinP1363Format", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.DSA$SHA256withDSA", "sun.security.provider.DSA", "SHA256withDSA", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.DSA$SHA224withDSAinP1363Format", "sun.security.provider.DSA", "SHA224withDSAinP1363Format", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.DSA$SHA224withDSA", "sun.security.provider.DSA", "SHA224withDSA", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.DSA$SHA3_512withDSAinP1363Format", "sun.security.provider.DSA", "SHA3_512withDSAinP1363Format", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.DSA$SHA3_512withDSA", "sun.security.provider.DSA", "SHA3_512withDSA", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.DSA$SHA3_384withDSAinP1363Format", "sun.security.provider.DSA", "SHA3_384withDSAinP1363Format", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.DSA$SHA3_384withDSA", "sun.security.provider.DSA", "SHA3_384withDSA", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.DSA$SHA3_256withDSAinP1363Format", "sun.security.provider.DSA", "SHA3_256withDSAinP1363Format", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.DSA$SHA3_256withDSA", "sun.security.provider.DSA", "SHA3_256withDSA", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.DSA$SHA3_224withDSAinP1363Format", "sun.security.provider.DSA", "SHA3_224withDSAinP1363Format", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.DSA$SHA3_224withDSA", "sun.security.provider.DSA", "SHA3_224withDSA", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.security.provider.DSA",
+		"java.security.SignatureSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.provider.DSA$RawDSAinP1363Format,sun.security.provider.DSA$RawDSA,sun.security.provider.DSA$Raw,sun.security.provider.DSA$Raw$NullDigest20,sun.security.provider.DSA$SHA1withDSAinP1363Format,sun.security.provider.DSA$SHA1withDSA,sun.security.provider.DSA$SHA512withDSAinP1363Format,sun.security.provider.DSA$SHA512withDSA,sun.security.provider.DSA$SHA384withDSAinP1363Format,sun.security.provider.DSA$SHA384withDSA,sun.security.provider.DSA$SHA256withDSAinP1363Format,sun.security.provider.DSA$SHA256withDSA,sun.security.provider.DSA$SHA224withDSAinP1363Format,sun.security.provider.DSA$SHA224withDSA,sun.security.provider.DSA$SHA3_512withDSAinP1363Format,sun.security.provider.DSA$SHA3_512withDSA,sun.security.provider.DSA$SHA3_384withDSAinP1363Format,sun.security.provider.DSA$SHA3_384withDSA,sun.security.provider.DSA$SHA3_256withDSAinP1363Format,sun.security.provider.DSA$SHA3_256withDSA,sun.security.provider.DSA$SHA3_224withDSAinP1363Format,sun.security.provider.DSA$SHA3_224withDSA"
+	};
+	$loadClass(DSA, name, initialize, &classInfo$$, DSA::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DSA);
+	});
 	return class$;
 }
 

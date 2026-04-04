@@ -1,5 +1,4 @@
 #include <java/util/zip/ZipOutputStream$XEntry.h>
-
 #include <java/util/zip/ZipEntry.h>
 #include <java/util/zip/ZipOutputStream.h>
 #include <jcpp.h>
@@ -14,42 +13,6 @@ namespace java {
 	namespace util {
 		namespace zip {
 
-$FieldInfo _ZipOutputStream$XEntry_FieldInfo_[] = {
-	{"entry", "Ljava/util/zip/ZipEntry;", nullptr, $FINAL, $field(ZipOutputStream$XEntry, entry)},
-	{"offset", "J", nullptr, $FINAL, $field(ZipOutputStream$XEntry, offset)},
-	{}
-};
-
-$MethodInfo _ZipOutputStream$XEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/zip/ZipEntry;J)V", nullptr, $PUBLIC, $method(ZipOutputStream$XEntry, init$, void, $ZipEntry*, int64_t)},
-	{}
-};
-
-$InnerClassInfo _ZipOutputStream$XEntry_InnerClassesInfo_[] = {
-	{"java.util.zip.ZipOutputStream$XEntry", "java.util.zip.ZipOutputStream", "XEntry", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ZipOutputStream$XEntry_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.zip.ZipOutputStream$XEntry",
-	"java.lang.Object",
-	nullptr,
-	_ZipOutputStream$XEntry_FieldInfo_,
-	_ZipOutputStream$XEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ZipOutputStream$XEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.zip.ZipOutputStream"
-};
-
-$Object* allocate$ZipOutputStream$XEntry($Class* clazz) {
-	return $of($alloc(ZipOutputStream$XEntry));
-}
-
 void ZipOutputStream$XEntry::init$($ZipEntry* entry, int64_t offset) {
 	$set(this, entry, entry);
 	this->offset = offset;
@@ -59,7 +22,37 @@ ZipOutputStream$XEntry::ZipOutputStream$XEntry() {
 }
 
 $Class* ZipOutputStream$XEntry::load$($String* name, bool initialize) {
-	$loadClass(ZipOutputStream$XEntry, name, initialize, &_ZipOutputStream$XEntry_ClassInfo_, allocate$ZipOutputStream$XEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"entry", "Ljava/util/zip/ZipEntry;", nullptr, $FINAL, $field(ZipOutputStream$XEntry, entry)},
+		{"offset", "J", nullptr, $FINAL, $field(ZipOutputStream$XEntry, offset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/zip/ZipEntry;J)V", nullptr, $PUBLIC, $method(ZipOutputStream$XEntry, init$, void, $ZipEntry*, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.zip.ZipOutputStream$XEntry", "java.util.zip.ZipOutputStream", "XEntry", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.zip.ZipOutputStream$XEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.zip.ZipOutputStream"
+	};
+	$loadClass(ZipOutputStream$XEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ZipOutputStream$XEntry);
+	});
 	return class$;
 }
 

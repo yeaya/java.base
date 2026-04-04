@@ -15,6 +15,7 @@ class $export ImplicitStringConcatShapes : public ::java::lang::Object {
 	$class(ImplicitStringConcatShapes, 0, ::java::lang::Object)
 public:
 	ImplicitStringConcatShapes();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	virtual void run();
@@ -43,8 +44,8 @@ public:
 	static const char16_t sf_c = ((char16_t)67);
 	static const int16_t sf_s = 5500;
 	static const int16_t sf_sM = (-8400);
-	static const int32_t sf_i = 0x047868C0;
-	static const int32_t sf_iM = 0xFFE17B80;
+	static const int32_t sf_i = 0x047868c0;
+	static const int32_t sf_iM = 0xffe17b80;
 	static ::java::lang::Integer* sf_I;
 	static ::java::lang::Integer* sf_IN;
 	static float sf_f;
@@ -94,7 +95,7 @@ public:
 	static const int16_t f_s = 8000;
 	static const int16_t f_sM = (-9900);
 	static const int32_t f_i = 0x03750280;
-	static const int32_t f_iM = 0xFCB8C440;
+	static const int32_t f_iM = 0xfcb8c440;
 	::java::lang::Integer* f_I = nullptr;
 	::java::lang::Integer* f_IN = nullptr;
 	float f_f = 0.0;

@@ -1,5 +1,4 @@
 #include <OpsAfterClose4RandomAccessFile.h>
-
 #include <OpsAfterClose4RandomAccessFile$1.h>
 #include <OpsAfterClose4RandomAccessFile$10.h>
 #include <OpsAfterClose4RandomAccessFile$11.h>
@@ -44,7 +43,6 @@ using $OpsAfterClose4RandomAccessFile$8 = ::OpsAfterClose4RandomAccessFile$8;
 using $OpsAfterClose4RandomAccessFile$9 = ::OpsAfterClose4RandomAccessFile$9;
 using $OpsAfterClose4RandomAccessFileArray = $Array<OpsAfterClose4RandomAccessFile>;
 using $File = ::java::io::File;
-using $PrintStream = ::java::io::PrintStream;
 using $RandomAccessFile = ::java::io::RandomAccessFile;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
@@ -52,69 +50,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _OpsAfterClose4RandomAccessFile_FieldInfo_[] = {
-	{"READ", "LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4RandomAccessFile, READ)},
-	{"READ_BUF", "LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4RandomAccessFile, READ_BUF)},
-	{"GET_CHANNEL", "LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4RandomAccessFile, GET_CHANNEL)},
-	{"GET_FD", "LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4RandomAccessFile, GET_FD)},
-	{"GET_FILE_PTR", "LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4RandomAccessFile, GET_FILE_PTR)},
-	{"GET_LENGTH", "LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4RandomAccessFile, GET_LENGTH)},
-	{"SEEK", "LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4RandomAccessFile, SEEK)},
-	{"SET_LENGTH", "LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4RandomAccessFile, SET_LENGTH)},
-	{"SKIP_BYTES", "LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4RandomAccessFile, SKIP_BYTES)},
-	{"WRITE", "LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4RandomAccessFile, WRITE)},
-	{"WRITE_BUF", "LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4RandomAccessFile, WRITE_BUF)},
-	{"CLOSE", "LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4RandomAccessFile, CLOSE)},
-	{"$VALUES", "[LOpsAfterClose4RandomAccessFile;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(OpsAfterClose4RandomAccessFile, $VALUES)},
-	{}
-};
-
-$MethodInfo _OpsAfterClose4RandomAccessFile_MethodInfo_[] = {
-	{"$values", "()[LOpsAfterClose4RandomAccessFile;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(OpsAfterClose4RandomAccessFile, $values, $OpsAfterClose4RandomAccessFileArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(OpsAfterClose4RandomAccessFile, init$, void, $String*, int32_t)},
-	{"check", "(Ljava/io/RandomAccessFile;)Z", nullptr, $ABSTRACT, $virtualMethod(OpsAfterClose4RandomAccessFile, check, bool, $RandomAccessFile*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose4RandomAccessFile, main, void, $StringArray*), "java.lang.Exception"},
-	{"testRandomAccessFile", "(Ljava/io/RandomAccessFile;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(OpsAfterClose4RandomAccessFile, testRandomAccessFile, bool, $RandomAccessFile*), "java.lang.Exception"},
-	{"valueOf", "(Ljava/lang/String;)LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose4RandomAccessFile, valueOf, OpsAfterClose4RandomAccessFile*, $String*)},
-	{"values", "()[LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose4RandomAccessFile, values, $OpsAfterClose4RandomAccessFileArray*)},
-	{}
-};
-
-$InnerClassInfo _OpsAfterClose4RandomAccessFile_InnerClassesInfo_[] = {
-	{"OpsAfterClose4RandomAccessFile$12", nullptr, nullptr, $FINAL | $ENUM},
-	{"OpsAfterClose4RandomAccessFile$11", nullptr, nullptr, $FINAL | $ENUM},
-	{"OpsAfterClose4RandomAccessFile$10", nullptr, nullptr, $FINAL | $ENUM},
-	{"OpsAfterClose4RandomAccessFile$9", nullptr, nullptr, $FINAL | $ENUM},
-	{"OpsAfterClose4RandomAccessFile$8", nullptr, nullptr, $FINAL | $ENUM},
-	{"OpsAfterClose4RandomAccessFile$7", nullptr, nullptr, $FINAL | $ENUM},
-	{"OpsAfterClose4RandomAccessFile$6", nullptr, nullptr, $FINAL | $ENUM},
-	{"OpsAfterClose4RandomAccessFile$5", nullptr, nullptr, $FINAL | $ENUM},
-	{"OpsAfterClose4RandomAccessFile$4", nullptr, nullptr, $FINAL | $ENUM},
-	{"OpsAfterClose4RandomAccessFile$3", nullptr, nullptr, $FINAL | $ENUM},
-	{"OpsAfterClose4RandomAccessFile$2", nullptr, nullptr, $FINAL | $ENUM},
-	{"OpsAfterClose4RandomAccessFile$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _OpsAfterClose4RandomAccessFile_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT | $ENUM,
-	"OpsAfterClose4RandomAccessFile",
-	"java.lang.Enum",
-	nullptr,
-	_OpsAfterClose4RandomAccessFile_FieldInfo_,
-	_OpsAfterClose4RandomAccessFile_MethodInfo_,
-	"Ljava/lang/Enum<LOpsAfterClose4RandomAccessFile;>;",
-	nullptr,
-	_OpsAfterClose4RandomAccessFile_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"OpsAfterClose4RandomAccessFile$12,OpsAfterClose4RandomAccessFile$11,OpsAfterClose4RandomAccessFile$10,OpsAfterClose4RandomAccessFile$9,OpsAfterClose4RandomAccessFile$8,OpsAfterClose4RandomAccessFile$7,OpsAfterClose4RandomAccessFile$6,OpsAfterClose4RandomAccessFile$5,OpsAfterClose4RandomAccessFile$4,OpsAfterClose4RandomAccessFile$3,OpsAfterClose4RandomAccessFile$2,OpsAfterClose4RandomAccessFile$1"
-};
-
-$Object* allocate$OpsAfterClose4RandomAccessFile($Class* clazz) {
-	return $of($alloc(OpsAfterClose4RandomAccessFile));
-}
 
 OpsAfterClose4RandomAccessFile* OpsAfterClose4RandomAccessFile::READ = nullptr;
 OpsAfterClose4RandomAccessFile* OpsAfterClose4RandomAccessFile::READ_BUF = nullptr;
@@ -164,7 +99,7 @@ void OpsAfterClose4RandomAccessFile::init$($String* $enum$name, int32_t $enum$or
 
 void OpsAfterClose4RandomAccessFile::main($StringArray* args) {
 	$init(OpsAfterClose4RandomAccessFile);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool failed = false;
 	$var($File, f, $new($File, $($System::getProperty("test.dir"_s, "."_s)), "raf.txt"_s));
 	f->createNewFile();
@@ -177,33 +112,31 @@ void OpsAfterClose4RandomAccessFile::main($StringArray* args) {
 
 bool OpsAfterClose4RandomAccessFile::testRandomAccessFile($RandomAccessFile* r) {
 	$init(OpsAfterClose4RandomAccessFile);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(r)->close();
 	bool failed = false;
 	bool result = false;
 	$nc($System::out)->println($$str({"Testing File:"_s, r}));
 	{
 		$var($OpsAfterClose4RandomAccessFileArray, arr$, OpsAfterClose4RandomAccessFile::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			OpsAfterClose4RandomAccessFile* op = arr$->get(i$);
 			{
 				result = $nc(op)->check(r);
 				if (!result) {
 					failed = true;
 				}
-				$nc($System::out)->println($$str({op, ":"_s, $$str(result)}));
+				$System::out->println($$str({op, ":"_s, $$str(result)}));
 			}
 		}
 	}
 	if (failed) {
-		$nc($System::out)->println($$str({"Test failed for the failed operation{s} above for the RandomAccessFile:"_s, r}));
+		$System::out->println($$str({"Test failed for the failed operation{s} above for the RandomAccessFile:"_s, r}));
 	}
 	return failed;
 }
 
-void clinit$OpsAfterClose4RandomAccessFile($Class* class$) {
+void OpsAfterClose4RandomAccessFile::clinit$($Class* clazz) {
 	$assignStatic(OpsAfterClose4RandomAccessFile::READ, $new($OpsAfterClose4RandomAccessFile$1, "READ"_s, 0));
 	$assignStatic(OpsAfterClose4RandomAccessFile::READ_BUF, $new($OpsAfterClose4RandomAccessFile$2, "READ_BUF"_s, 1));
 	$assignStatic(OpsAfterClose4RandomAccessFile::GET_CHANNEL, $new($OpsAfterClose4RandomAccessFile$3, "GET_CHANNEL"_s, 2));
@@ -223,7 +156,64 @@ OpsAfterClose4RandomAccessFile::OpsAfterClose4RandomAccessFile() {
 }
 
 $Class* OpsAfterClose4RandomAccessFile::load$($String* name, bool initialize) {
-	$loadClass(OpsAfterClose4RandomAccessFile, name, initialize, &_OpsAfterClose4RandomAccessFile_ClassInfo_, clinit$OpsAfterClose4RandomAccessFile, allocate$OpsAfterClose4RandomAccessFile);
+	$FieldInfo fieldInfos$$[] = {
+		{"READ", "LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4RandomAccessFile, READ)},
+		{"READ_BUF", "LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4RandomAccessFile, READ_BUF)},
+		{"GET_CHANNEL", "LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4RandomAccessFile, GET_CHANNEL)},
+		{"GET_FD", "LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4RandomAccessFile, GET_FD)},
+		{"GET_FILE_PTR", "LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4RandomAccessFile, GET_FILE_PTR)},
+		{"GET_LENGTH", "LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4RandomAccessFile, GET_LENGTH)},
+		{"SEEK", "LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4RandomAccessFile, SEEK)},
+		{"SET_LENGTH", "LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4RandomAccessFile, SET_LENGTH)},
+		{"SKIP_BYTES", "LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4RandomAccessFile, SKIP_BYTES)},
+		{"WRITE", "LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4RandomAccessFile, WRITE)},
+		{"WRITE_BUF", "LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4RandomAccessFile, WRITE_BUF)},
+		{"CLOSE", "LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OpsAfterClose4RandomAccessFile, CLOSE)},
+		{"$VALUES", "[LOpsAfterClose4RandomAccessFile;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(OpsAfterClose4RandomAccessFile, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[LOpsAfterClose4RandomAccessFile;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(OpsAfterClose4RandomAccessFile, $values, $OpsAfterClose4RandomAccessFileArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(OpsAfterClose4RandomAccessFile, init$, void, $String*, int32_t)},
+		{"check", "(Ljava/io/RandomAccessFile;)Z", nullptr, $ABSTRACT, $virtualMethod(OpsAfterClose4RandomAccessFile, check, bool, $RandomAccessFile*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose4RandomAccessFile, main, void, $StringArray*), "java.lang.Exception"},
+		{"testRandomAccessFile", "(Ljava/io/RandomAccessFile;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(OpsAfterClose4RandomAccessFile, testRandomAccessFile, bool, $RandomAccessFile*), "java.lang.Exception"},
+		{"valueOf", "(Ljava/lang/String;)LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose4RandomAccessFile, valueOf, OpsAfterClose4RandomAccessFile*, $String*)},
+		{"values", "()[LOpsAfterClose4RandomAccessFile;", nullptr, $PUBLIC | $STATIC, $staticMethod(OpsAfterClose4RandomAccessFile, values, $OpsAfterClose4RandomAccessFileArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"OpsAfterClose4RandomAccessFile$12", nullptr, nullptr, $FINAL | $ENUM},
+		{"OpsAfterClose4RandomAccessFile$11", nullptr, nullptr, $FINAL | $ENUM},
+		{"OpsAfterClose4RandomAccessFile$10", nullptr, nullptr, $FINAL | $ENUM},
+		{"OpsAfterClose4RandomAccessFile$9", nullptr, nullptr, $FINAL | $ENUM},
+		{"OpsAfterClose4RandomAccessFile$8", nullptr, nullptr, $FINAL | $ENUM},
+		{"OpsAfterClose4RandomAccessFile$7", nullptr, nullptr, $FINAL | $ENUM},
+		{"OpsAfterClose4RandomAccessFile$6", nullptr, nullptr, $FINAL | $ENUM},
+		{"OpsAfterClose4RandomAccessFile$5", nullptr, nullptr, $FINAL | $ENUM},
+		{"OpsAfterClose4RandomAccessFile$4", nullptr, nullptr, $FINAL | $ENUM},
+		{"OpsAfterClose4RandomAccessFile$3", nullptr, nullptr, $FINAL | $ENUM},
+		{"OpsAfterClose4RandomAccessFile$2", nullptr, nullptr, $FINAL | $ENUM},
+		{"OpsAfterClose4RandomAccessFile$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT | $ENUM,
+		"OpsAfterClose4RandomAccessFile",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<LOpsAfterClose4RandomAccessFile;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"OpsAfterClose4RandomAccessFile$12,OpsAfterClose4RandomAccessFile$11,OpsAfterClose4RandomAccessFile$10,OpsAfterClose4RandomAccessFile$9,OpsAfterClose4RandomAccessFile$8,OpsAfterClose4RandomAccessFile$7,OpsAfterClose4RandomAccessFile$6,OpsAfterClose4RandomAccessFile$5,OpsAfterClose4RandomAccessFile$4,OpsAfterClose4RandomAccessFile$3,OpsAfterClose4RandomAccessFile$2,OpsAfterClose4RandomAccessFile$1"
+	};
+	$loadClass(OpsAfterClose4RandomAccessFile, name, initialize, &classInfo$$, OpsAfterClose4RandomAccessFile::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(OpsAfterClose4RandomAccessFile));
+	});
 	return class$;
 }
 

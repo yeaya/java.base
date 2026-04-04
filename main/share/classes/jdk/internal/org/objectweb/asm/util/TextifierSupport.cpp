@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/util/TextifierSupport.h>
-
 #include <java/util/Map.h>
 #include <jcpp.h>
 
@@ -14,26 +13,22 @@ namespace jdk {
 				namespace asm$ {
 					namespace util {
 
-$MethodInfo _TextifierSupport_MethodInfo_[] = {
-	{"textify", "(Ljava/lang/StringBuilder;Ljava/util/Map;)V", "(Ljava/lang/StringBuilder;Ljava/util/Map<Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/String;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(TextifierSupport, textify, void, $StringBuilder*, $Map*)},
-	{}
-};
-
-$ClassInfo _TextifierSupport_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.org.objectweb.asm.util.TextifierSupport",
-	nullptr,
-	nullptr,
-	nullptr,
-	_TextifierSupport_MethodInfo_
-};
-
-$Object* allocate$TextifierSupport($Class* clazz) {
-	return $of($alloc(TextifierSupport));
-}
-
 $Class* TextifierSupport::load$($String* name, bool initialize) {
-	$loadClass(TextifierSupport, name, initialize, &_TextifierSupport_ClassInfo_, allocate$TextifierSupport);
+	$MethodInfo methodInfos$$[] = {
+		{"textify", "(Ljava/lang/StringBuilder;Ljava/util/Map;)V", "(Ljava/lang/StringBuilder;Ljava/util/Map<Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/String;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(TextifierSupport, textify, void, $StringBuilder*, $Map*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.org.objectweb.asm.util.TextifierSupport",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TextifierSupport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TextifierSupport);
+	});
 	return class$;
 }
 

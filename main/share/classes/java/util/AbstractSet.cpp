@@ -1,5 +1,4 @@
 #include <java/util/AbstractSet.h>
-
 #include <java/lang/ClassCastException.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/Collection.h>
@@ -30,49 +29,6 @@ using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace util {
-
-$MethodInfo _AbstractSet_MethodInfo_[] = {
-	{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractSet, init$, void)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractSet, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractSet, hashCode, int32_t)},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(AbstractSet, removeAll, bool, $Collection*)},
-	{"*size", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AbstractSet_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.util.AbstractSet",
-	"java.util.AbstractCollection",
-	"java.util.Set",
-	nullptr,
-	_AbstractSet_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/AbstractCollection<TE;>;Ljava/util/Set<TE;>;"
-};
-
-$Object* allocate$AbstractSet($Class* clazz) {
-	return $of($alloc(AbstractSet));
-}
 
 bool AbstractSet::isEmpty() {
 	 return this->$AbstractCollection::isEmpty();
@@ -177,39 +133,35 @@ bool AbstractSet::equals(Object$* o) {
 }
 
 int32_t AbstractSet::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t h = 0;
 	$var($Iterator, i, iterator());
 	while ($nc(i)->hasNext()) {
 		$var($Object, obj, i->next());
 		if (obj != nullptr) {
-			h += $of(obj)->hashCode();
+			h += obj->hashCode();
 		}
 	}
 	return h;
 }
 
 bool AbstractSet::removeAll($Collection* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(c);
 	bool modified = false;
 	int32_t var$0 = size();
 	if (var$0 > c->size()) {
-		{
-			$var($Iterator, i$, c->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Object, e, i$->next());
-				modified |= remove(e);
-			}
+		$var($Iterator, i$, c->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Object, e, i$->next());
+			modified |= remove(e);
 		}
 	} else {
-		{
-			$var($Iterator, i, iterator());
-			for (; $nc(i)->hasNext();) {
-				if (c->contains($(i->next()))) {
-					i->remove();
-					modified = true;
-				}
+		$var($Iterator, i, iterator());
+		for (; $nc(i)->hasNext();) {
+			if (c->contains($(i->next()))) {
+				i->remove();
+				modified = true;
 			}
 		}
 	}
@@ -220,7 +172,46 @@ AbstractSet::AbstractSet() {
 }
 
 $Class* AbstractSet::load$($String* name, bool initialize) {
-	$loadClass(AbstractSet, name, initialize, &_AbstractSet_ClassInfo_, allocate$AbstractSet);
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractSet, init$, void)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractSet, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractSet, hashCode, int32_t)},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(AbstractSet, removeAll, bool, $Collection*)},
+		{"*size", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.util.AbstractSet",
+		"java.util.AbstractCollection",
+		"java.util.Set",
+		nullptr,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/AbstractCollection<TE;>;Ljava/util/Set<TE;>;"
+	};
+	$loadClass(AbstractSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractSet));
+	});
 	return class$;
 }
 

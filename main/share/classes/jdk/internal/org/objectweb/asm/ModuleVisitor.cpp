@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/ModuleVisitor.h>
-
 #include <jdk/internal/org/objectweb/asm/Constants.h>
 #include <jdk/internal/org/objectweb/asm/Opcodes.h>
 #include <jcpp.h>
@@ -24,45 +23,12 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 
-$FieldInfo _ModuleVisitor_FieldInfo_[] = {
-	{"api", "I", nullptr, $PROTECTED | $FINAL, $field(ModuleVisitor, api)},
-	{"mv", "Ljdk/internal/org/objectweb/asm/ModuleVisitor;", nullptr, $PROTECTED, $field(ModuleVisitor, mv)},
-	{}
-};
-
-$MethodInfo _ModuleVisitor_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ModuleVisitor, init$, void, int32_t)},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC, $method(ModuleVisitor, init$, void, int32_t, ModuleVisitor*)},
-	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(ModuleVisitor, visitEnd, void)},
-	{"visitExport", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleVisitor, visitExport, void, $String*, int32_t, $StringArray*)},
-	{"visitMainClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleVisitor, visitMainClass, void, $String*)},
-	{"visitOpen", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleVisitor, visitOpen, void, $String*, int32_t, $StringArray*)},
-	{"visitPackage", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleVisitor, visitPackage, void, $String*)},
-	{"visitProvide", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleVisitor, visitProvide, void, $String*, $StringArray*)},
-	{"visitRequire", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleVisitor, visitRequire, void, $String*, int32_t, $String*)},
-	{"visitUse", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleVisitor, visitUse, void, $String*)},
-	{}
-};
-
-$ClassInfo _ModuleVisitor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"jdk.internal.org.objectweb.asm.ModuleVisitor",
-	"java.lang.Object",
-	nullptr,
-	_ModuleVisitor_FieldInfo_,
-	_ModuleVisitor_MethodInfo_
-};
-
-$Object* allocate$ModuleVisitor($Class* clazz) {
-	return $of($alloc(ModuleVisitor));
-}
-
 void ModuleVisitor::init$(int32_t api) {
 	ModuleVisitor::init$(api, nullptr);
 }
 
 void ModuleVisitor::init$(int32_t api, ModuleVisitor* moduleVisitor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (api != $Opcodes::ASM8 && api != $Opcodes::ASM7 && api != $Opcodes::ASM6 && api != $Opcodes::ASM5 && api != $Opcodes::ASM4 && api != $Opcodes::ASM9_EXPERIMENTAL) {
 		$throwNew($IllegalArgumentException, $$str({"Unsupported api "_s, $$str(api)}));
 	}
@@ -75,49 +41,49 @@ void ModuleVisitor::init$(int32_t api, ModuleVisitor* moduleVisitor) {
 
 void ModuleVisitor::visitMainClass($String* mainClass) {
 	if (this->mv != nullptr) {
-		$nc(this->mv)->visitMainClass(mainClass);
+		this->mv->visitMainClass(mainClass);
 	}
 }
 
 void ModuleVisitor::visitPackage($String* packaze) {
 	if (this->mv != nullptr) {
-		$nc(this->mv)->visitPackage(packaze);
+		this->mv->visitPackage(packaze);
 	}
 }
 
 void ModuleVisitor::visitRequire($String* module, int32_t access, $String* version) {
 	if (this->mv != nullptr) {
-		$nc(this->mv)->visitRequire(module, access, version);
+		this->mv->visitRequire(module, access, version);
 	}
 }
 
 void ModuleVisitor::visitExport($String* packaze, int32_t access, $StringArray* modules) {
 	if (this->mv != nullptr) {
-		$nc(this->mv)->visitExport(packaze, access, modules);
+		this->mv->visitExport(packaze, access, modules);
 	}
 }
 
 void ModuleVisitor::visitOpen($String* packaze, int32_t access, $StringArray* modules) {
 	if (this->mv != nullptr) {
-		$nc(this->mv)->visitOpen(packaze, access, modules);
+		this->mv->visitOpen(packaze, access, modules);
 	}
 }
 
 void ModuleVisitor::visitUse($String* service) {
 	if (this->mv != nullptr) {
-		$nc(this->mv)->visitUse(service);
+		this->mv->visitUse(service);
 	}
 }
 
 void ModuleVisitor::visitProvide($String* service, $StringArray* providers) {
 	if (this->mv != nullptr) {
-		$nc(this->mv)->visitProvide(service, providers);
+		this->mv->visitProvide(service, providers);
 	}
 }
 
 void ModuleVisitor::visitEnd() {
 	if (this->mv != nullptr) {
-		$nc(this->mv)->visitEnd();
+		this->mv->visitEnd();
 	}
 }
 
@@ -125,7 +91,35 @@ ModuleVisitor::ModuleVisitor() {
 }
 
 $Class* ModuleVisitor::load$($String* name, bool initialize) {
-	$loadClass(ModuleVisitor, name, initialize, &_ModuleVisitor_ClassInfo_, allocate$ModuleVisitor);
+	$FieldInfo fieldInfos$$[] = {
+		{"api", "I", nullptr, $PROTECTED | $FINAL, $field(ModuleVisitor, api)},
+		{"mv", "Ljdk/internal/org/objectweb/asm/ModuleVisitor;", nullptr, $PROTECTED, $field(ModuleVisitor, mv)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(ModuleVisitor, init$, void, int32_t)},
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/ModuleVisitor;)V", nullptr, $PUBLIC, $method(ModuleVisitor, init$, void, int32_t, ModuleVisitor*)},
+		{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(ModuleVisitor, visitEnd, void)},
+		{"visitExport", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleVisitor, visitExport, void, $String*, int32_t, $StringArray*)},
+		{"visitMainClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleVisitor, visitMainClass, void, $String*)},
+		{"visitOpen", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleVisitor, visitOpen, void, $String*, int32_t, $StringArray*)},
+		{"visitPackage", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleVisitor, visitPackage, void, $String*)},
+		{"visitProvide", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleVisitor, visitProvide, void, $String*, $StringArray*)},
+		{"visitRequire", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleVisitor, visitRequire, void, $String*, int32_t, $String*)},
+		{"visitUse", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleVisitor, visitUse, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"jdk.internal.org.objectweb.asm.ModuleVisitor",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModuleVisitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleVisitor);
+	});
 	return class$;
 }
 

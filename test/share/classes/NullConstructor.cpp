@@ -1,5 +1,4 @@
 #include <NullConstructor.h>
-
 #include <NullConstructor$1.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/SocketImpl.h>
@@ -13,36 +12,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ServerSocket = ::java::net::ServerSocket;
 using $SocketImpl = ::java::net::SocketImpl;
-
-$MethodInfo _NullConstructor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NullConstructor, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullConstructor, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _NullConstructor_InnerClassesInfo_[] = {
-	{"NullConstructor$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NullConstructor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NullConstructor",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_NullConstructor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NullConstructor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"NullConstructor$1"
-};
-
-$Object* allocate$NullConstructor($Class* clazz) {
-	return $of($alloc(NullConstructor));
-}
 
 void NullConstructor::init$() {
 }
@@ -59,7 +28,32 @@ NullConstructor::NullConstructor() {
 }
 
 $Class* NullConstructor::load$($String* name, bool initialize) {
-	$loadClass(NullConstructor, name, initialize, &_NullConstructor_ClassInfo_, allocate$NullConstructor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NullConstructor, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullConstructor, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"NullConstructor$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NullConstructor",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"NullConstructor$1"
+	};
+	$loadClass(NullConstructor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NullConstructor);
+	});
 	return class$;
 }
 

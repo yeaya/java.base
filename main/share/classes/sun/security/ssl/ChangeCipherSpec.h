@@ -22,6 +22,7 @@ class ChangeCipherSpec : public ::java::lang::Object {
 	$class(ChangeCipherSpec, 0, ::java::lang::Object)
 public:
 	ChangeCipherSpec();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::SSLConsumer* t10Consumer;
 	static ::sun::security::ssl::HandshakeProducer* t10Producer;

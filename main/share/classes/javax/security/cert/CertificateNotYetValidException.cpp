@@ -1,5 +1,4 @@
 #include <javax/security/cert/CertificateNotYetValidException.h>
-
 #include <javax/security/cert/CertificateException.h>
 #include <jcpp.h>
 
@@ -13,45 +12,6 @@ using $CertificateException = ::javax::security::cert::CertificateException;
 namespace javax {
 	namespace security {
 		namespace cert {
-
-$NamedAttribute CertificateNotYetValidException_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _CertificateNotYetValidException_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", CertificateNotYetValidException_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _CertificateNotYetValidException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CertificateNotYetValidException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _CertificateNotYetValidException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CertificateNotYetValidException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertificateNotYetValidException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _CertificateNotYetValidException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.security.cert.CertificateNotYetValidException",
-	"javax.security.cert.CertificateException",
-	nullptr,
-	_CertificateNotYetValidException_FieldInfo_,
-	_CertificateNotYetValidException_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_CertificateNotYetValidException_Annotations_
-};
-
-$Object* allocate$CertificateNotYetValidException($Class* clazz) {
-	return $of($alloc(CertificateNotYetValidException));
-}
 
 void CertificateNotYetValidException::init$() {
 	$CertificateException::init$();
@@ -72,7 +32,39 @@ void CertificateNotYetValidException::throw$() {
 }
 
 $Class* CertificateNotYetValidException::load$($String* name, bool initialize) {
-	$loadClass(CertificateNotYetValidException, name, initialize, &_CertificateNotYetValidException_ClassInfo_, allocate$CertificateNotYetValidException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CertificateNotYetValidException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CertificateNotYetValidException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CertificateNotYetValidException, init$, void, $String*)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.security.cert.CertificateNotYetValidException",
+		"javax.security.cert.CertificateException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(CertificateNotYetValidException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateNotYetValidException);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/lang/InheritableThreadLocal.h>
-
 #include <java/lang/ThreadLocal$ThreadLocalMap.h>
 #include <java/lang/ThreadLocal.h>
 #include <jcpp.h>
@@ -11,28 +10,6 @@ using $ThreadLocal$ThreadLocalMap = ::java::lang::ThreadLocal$ThreadLocalMap;
 
 namespace java {
 	namespace lang {
-
-$MethodInfo _InheritableThreadLocal_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InheritableThreadLocal, init$, void)},
-	{"childValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TT;", $PROTECTED, $virtualMethod(InheritableThreadLocal, childValue, $Object*, Object$*)},
-	{"createMap", "(Ljava/lang/Thread;Ljava/lang/Object;)V", "(Ljava/lang/Thread;TT;)V", 0, $virtualMethod(InheritableThreadLocal, createMap, void, $Thread*, Object$*)},
-	{"getMap", "(Ljava/lang/Thread;)Ljava/lang/ThreadLocal$ThreadLocalMap;", nullptr, 0, $virtualMethod(InheritableThreadLocal, getMap, $ThreadLocal$ThreadLocalMap*, $Thread*)},
-	{}
-};
-
-$ClassInfo _InheritableThreadLocal_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.InheritableThreadLocal",
-	"java.lang.ThreadLocal",
-	nullptr,
-	nullptr,
-	_InheritableThreadLocal_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/ThreadLocal<TT;>;"
-};
-
-$Object* allocate$InheritableThreadLocal($Class* clazz) {
-	return $of($alloc(InheritableThreadLocal));
-}
 
 void InheritableThreadLocal::init$() {
 	$ThreadLocal::init$();
@@ -54,7 +31,25 @@ InheritableThreadLocal::InheritableThreadLocal() {
 }
 
 $Class* InheritableThreadLocal::load$($String* name, bool initialize) {
-	$loadClass(InheritableThreadLocal, name, initialize, &_InheritableThreadLocal_ClassInfo_, allocate$InheritableThreadLocal);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InheritableThreadLocal, init$, void)},
+		{"childValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TT;", $PROTECTED, $virtualMethod(InheritableThreadLocal, childValue, $Object*, Object$*)},
+		{"createMap", "(Ljava/lang/Thread;Ljava/lang/Object;)V", "(Ljava/lang/Thread;TT;)V", 0, $virtualMethod(InheritableThreadLocal, createMap, void, $Thread*, Object$*)},
+		{"getMap", "(Ljava/lang/Thread;)Ljava/lang/ThreadLocal$ThreadLocalMap;", nullptr, 0, $virtualMethod(InheritableThreadLocal, getMap, $ThreadLocal$ThreadLocalMap*, $Thread*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.InheritableThreadLocal",
+		"java.lang.ThreadLocal",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/ThreadLocal<TT;>;"
+	};
+	$loadClass(InheritableThreadLocal, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InheritableThreadLocal);
+	});
 	return class$;
 }
 

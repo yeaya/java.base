@@ -1,5 +1,4 @@
 #include <java/util/stream/WhileOps$UnorderedWhileSpliterator$OfInt.h>
-
 #include <java/util/Comparator.h>
 #include <java/util/Spliterator$OfInt.h>
 #include <java/util/Spliterator.h>
@@ -26,65 +25,6 @@ using $WhileOps$UnorderedWhileSpliterator = ::java::util::stream::WhileOps$Unord
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _WhileOps$UnorderedWhileSpliterator$OfInt_FieldInfo_[] = {
-	{"p", "Ljava/util/function/IntPredicate;", nullptr, $FINAL, $field(WhileOps$UnorderedWhileSpliterator$OfInt, p)},
-	{"t", "I", nullptr, 0, $field(WhileOps$UnorderedWhileSpliterator$OfInt, t)},
-	{}
-};
-
-$MethodInfo _WhileOps$UnorderedWhileSpliterator$OfInt_MethodInfo_[] = {
-	{"*characteristics", "()I", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*estimateSize", "()J", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getComparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC},
-	{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC},
-	{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/Spliterator$OfInt;ZLjava/util/function/IntPredicate;)V", nullptr, 0, $method(WhileOps$UnorderedWhileSpliterator$OfInt, init$, void, $Spliterator$OfInt*, bool, $IntPredicate*)},
-	{"<init>", "(Ljava/util/Spliterator$OfInt;Ljava/util/stream/WhileOps$UnorderedWhileSpliterator$OfInt;)V", nullptr, 0, $method(WhileOps$UnorderedWhileSpliterator$OfInt, init$, void, $Spliterator$OfInt*, WhileOps$UnorderedWhileSpliterator$OfInt*)},
-	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfInt, accept, void, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $SYNTHETIC},
-	{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfInt, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _WhileOps$UnorderedWhileSpliterator$OfInt_InnerClassesInfo_[] = {
-	{"java.util.stream.WhileOps$UnorderedWhileSpliterator", "java.util.stream.WhileOps", "UnorderedWhileSpliterator", $STATIC | $ABSTRACT},
-	{"java.util.stream.WhileOps$UnorderedWhileSpliterator$OfInt", "java.util.stream.WhileOps$UnorderedWhileSpliterator", "OfInt", $STATIC | $ABSTRACT},
-	{"java.util.Spliterator$OfInt", "java.util.Spliterator", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.stream.WhileOps$UnorderedWhileSpliterator$OfInt$Dropping", "java.util.stream.WhileOps$UnorderedWhileSpliterator$OfInt", "Dropping", $STATIC | $FINAL},
-	{"java.util.stream.WhileOps$UnorderedWhileSpliterator$OfInt$Taking", "java.util.stream.WhileOps$UnorderedWhileSpliterator$OfInt", "Taking", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _WhileOps$UnorderedWhileSpliterator$OfInt_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.stream.WhileOps$UnorderedWhileSpliterator$OfInt",
-	"java.util.stream.WhileOps$UnorderedWhileSpliterator",
-	"java.util.function.IntConsumer,java.util.Spliterator$OfInt",
-	_WhileOps$UnorderedWhileSpliterator$OfInt_FieldInfo_,
-	_WhileOps$UnorderedWhileSpliterator$OfInt_MethodInfo_,
-	"Ljava/util/stream/WhileOps$UnorderedWhileSpliterator<Ljava/lang/Integer;Ljava/util/Spliterator$OfInt;>;Ljava/util/function/IntConsumer;Ljava/util/Spliterator$OfInt;",
-	nullptr,
-	_WhileOps$UnorderedWhileSpliterator$OfInt_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.WhileOps"
-};
-
-$Object* allocate$WhileOps$UnorderedWhileSpliterator$OfInt($Class* clazz) {
-	return $of($alloc(WhileOps$UnorderedWhileSpliterator$OfInt));
-}
 
 int64_t WhileOps$UnorderedWhileSpliterator$OfInt::estimateSize() {
 	 return this->$WhileOps$UnorderedWhileSpliterator::estimateSize();
@@ -219,17 +159,17 @@ void WhileOps$UnorderedWhileSpliterator$OfInt::MemberClass0$::finalize() {
 }
 
 void WhileOps$UnorderedWhileSpliterator$OfInt::init$($Spliterator$OfInt* s, bool noSplitting, $IntPredicate* p) {
-	$WhileOps$UnorderedWhileSpliterator::init$(static_cast<$Spliterator*>(s), noSplitting);
+	$WhileOps$UnorderedWhileSpliterator::init$(s, noSplitting);
 	$set(this, p, p);
 }
 
 void WhileOps$UnorderedWhileSpliterator$OfInt::init$($Spliterator$OfInt* s, WhileOps$UnorderedWhileSpliterator$OfInt* parent) {
-	$WhileOps$UnorderedWhileSpliterator::init$(static_cast<$Spliterator*>(s), static_cast<$WhileOps$UnorderedWhileSpliterator*>(parent));
+	$WhileOps$UnorderedWhileSpliterator::init$(s, parent);
 	$set(this, p, $nc(parent)->p);
 }
 
 void WhileOps$UnorderedWhileSpliterator$OfInt::accept(int32_t t) {
-	this->count = (int32_t)((this->count + 1) & (uint32_t)$WhileOps$UnorderedWhileSpliterator::CANCEL_CHECK_COUNT);
+	this->count = (this->count + 1) & $WhileOps$UnorderedWhileSpliterator::CANCEL_CHECK_COUNT;
 	this->t = t;
 }
 
@@ -241,7 +181,60 @@ WhileOps$UnorderedWhileSpliterator$OfInt::WhileOps$UnorderedWhileSpliterator$OfI
 }
 
 $Class* WhileOps$UnorderedWhileSpliterator$OfInt::load$($String* name, bool initialize) {
-	$loadClass(WhileOps$UnorderedWhileSpliterator$OfInt, name, initialize, &_WhileOps$UnorderedWhileSpliterator$OfInt_ClassInfo_, allocate$WhileOps$UnorderedWhileSpliterator$OfInt);
+	$FieldInfo fieldInfos$$[] = {
+		{"p", "Ljava/util/function/IntPredicate;", nullptr, $FINAL, $field(WhileOps$UnorderedWhileSpliterator$OfInt, p)},
+		{"t", "I", nullptr, 0, $field(WhileOps$UnorderedWhileSpliterator$OfInt, t)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*characteristics", "()I", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*estimateSize", "()J", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getComparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC},
+		{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC},
+		{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/Spliterator$OfInt;ZLjava/util/function/IntPredicate;)V", nullptr, 0, $method(WhileOps$UnorderedWhileSpliterator$OfInt, init$, void, $Spliterator$OfInt*, bool, $IntPredicate*)},
+		{"<init>", "(Ljava/util/Spliterator$OfInt;Ljava/util/stream/WhileOps$UnorderedWhileSpliterator$OfInt;)V", nullptr, 0, $method(WhileOps$UnorderedWhileSpliterator$OfInt, init$, void, $Spliterator$OfInt*, WhileOps$UnorderedWhileSpliterator$OfInt*)},
+		{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfInt, accept, void, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $SYNTHETIC},
+		{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WhileOps$UnorderedWhileSpliterator$OfInt, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.WhileOps$UnorderedWhileSpliterator", "java.util.stream.WhileOps", "UnorderedWhileSpliterator", $STATIC | $ABSTRACT},
+		{"java.util.stream.WhileOps$UnorderedWhileSpliterator$OfInt", "java.util.stream.WhileOps$UnorderedWhileSpliterator", "OfInt", $STATIC | $ABSTRACT},
+		{"java.util.Spliterator$OfInt", "java.util.Spliterator", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.stream.WhileOps$UnorderedWhileSpliterator$OfInt$Dropping", "java.util.stream.WhileOps$UnorderedWhileSpliterator$OfInt", "Dropping", $STATIC | $FINAL},
+		{"java.util.stream.WhileOps$UnorderedWhileSpliterator$OfInt$Taking", "java.util.stream.WhileOps$UnorderedWhileSpliterator$OfInt", "Taking", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.stream.WhileOps$UnorderedWhileSpliterator$OfInt",
+		"java.util.stream.WhileOps$UnorderedWhileSpliterator",
+		"java.util.function.IntConsumer,java.util.Spliterator$OfInt",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/WhileOps$UnorderedWhileSpliterator<Ljava/lang/Integer;Ljava/util/Spliterator$OfInt;>;Ljava/util/function/IntConsumer;Ljava/util/Spliterator$OfInt;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.WhileOps"
+	};
+	$loadClass(WhileOps$UnorderedWhileSpliterator$OfInt, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WhileOps$UnorderedWhileSpliterator$OfInt));
+	});
 	return class$;
 }
 

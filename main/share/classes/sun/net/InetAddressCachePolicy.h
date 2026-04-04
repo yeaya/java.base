@@ -19,6 +19,7 @@ class $export InetAddressCachePolicy : public ::java::lang::Object {
 	$class(InetAddressCachePolicy, 0, ::java::lang::Object)
 public:
 	InetAddressCachePolicy();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkValue(int32_t newPolicy, int32_t oldPolicy);
 	static int32_t get();

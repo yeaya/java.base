@@ -1,5 +1,4 @@
 #include <sun/security/timestamp/TSResponse.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <sun/security/pkcs/ContentInfo.h>
@@ -34,82 +33,15 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ContentInfo = ::sun::security::pkcs::ContentInfo;
 using $PKCS7 = ::sun::security::pkcs::PKCS7;
 using $TSResponse$TimestampException = ::sun::security::timestamp::TSResponse$TimestampException;
 using $TimestampToken = ::sun::security::timestamp::TimestampToken;
-using $BitArray = ::sun::security::util::BitArray;
 using $Debug = ::sun::security::util::Debug;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerValue = ::sun::security::util::DerValue;
 
 namespace sun {
 	namespace security {
 		namespace timestamp {
-
-$FieldInfo _TSResponse_FieldInfo_[] = {
-	{"GRANTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, GRANTED)},
-	{"GRANTED_WITH_MODS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, GRANTED_WITH_MODS)},
-	{"REJECTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, REJECTION)},
-	{"WAITING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, WAITING)},
-	{"REVOCATION_WARNING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, REVOCATION_WARNING)},
-	{"REVOCATION_NOTIFICATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, REVOCATION_NOTIFICATION)},
-	{"BAD_ALG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, BAD_ALG)},
-	{"BAD_REQUEST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, BAD_REQUEST)},
-	{"BAD_DATA_FORMAT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, BAD_DATA_FORMAT)},
-	{"TIME_NOT_AVAILABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, TIME_NOT_AVAILABLE)},
-	{"UNACCEPTED_POLICY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, UNACCEPTED_POLICY)},
-	{"UNACCEPTED_EXTENSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, UNACCEPTED_EXTENSION)},
-	{"ADD_INFO_NOT_AVAILABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, ADD_INFO_NOT_AVAILABLE)},
-	{"SYSTEM_FAILURE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, SYSTEM_FAILURE)},
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TSResponse, debug)},
-	{"status", "I", nullptr, $PRIVATE, $field(TSResponse, status)},
-	{"statusString", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(TSResponse, statusString)},
-	{"failureInfo", "[Z", nullptr, $PRIVATE, $field(TSResponse, failureInfo)},
-	{"encodedTsToken", "[B", nullptr, $PRIVATE, $field(TSResponse, encodedTsToken)},
-	{"tsToken", "Lsun/security/pkcs/PKCS7;", nullptr, $PRIVATE, $field(TSResponse, tsToken)},
-	{"tstInfo", "Lsun/security/timestamp/TimestampToken;", nullptr, $PRIVATE, $field(TSResponse, tstInfo)},
-	{}
-};
-
-$MethodInfo _TSResponse_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, 0, $method(TSResponse, init$, void, $bytes*), "java.io.IOException"},
-	{"getEncodedToken", "()[B", nullptr, $PUBLIC, $virtualMethod(TSResponse, getEncodedToken, $bytes*)},
-	{"getFailureCodeAsText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TSResponse, getFailureCodeAsText, $String*)},
-	{"getFailureInfo", "()[Z", nullptr, $PUBLIC, $virtualMethod(TSResponse, getFailureInfo, $booleans*)},
-	{"getStatusCode", "()I", nullptr, $PUBLIC, $virtualMethod(TSResponse, getStatusCode, int32_t)},
-	{"getStatusCodeAsText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TSResponse, getStatusCodeAsText, $String*)},
-	{"getStatusMessages", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TSResponse, getStatusMessages, $StringArray*)},
-	{"getTimestampToken", "()Lsun/security/timestamp/TimestampToken;", nullptr, $PUBLIC, $virtualMethod(TSResponse, getTimestampToken, $TimestampToken*)},
-	{"getToken", "()Lsun/security/pkcs/PKCS7;", nullptr, $PUBLIC, $virtualMethod(TSResponse, getToken, $PKCS7*)},
-	{"isSet", "(I)Z", nullptr, $PRIVATE, $method(TSResponse, isSet, bool, int32_t)},
-	{"parse", "([B)V", nullptr, $PRIVATE, $method(TSResponse, parse, void, $bytes*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _TSResponse_InnerClassesInfo_[] = {
-	{"sun.security.timestamp.TSResponse$TimestampException", "sun.security.timestamp.TSResponse", "TimestampException", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _TSResponse_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.timestamp.TSResponse",
-	"java.lang.Object",
-	nullptr,
-	_TSResponse_FieldInfo_,
-	_TSResponse_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TSResponse_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.timestamp.TSResponse$TimestampException"
-};
-
-$Object* allocate$TSResponse($Class* clazz) {
-	return $of($alloc(TSResponse));
-}
 
 $Debug* TSResponse::debug = nullptr;
 
@@ -136,33 +68,19 @@ $booleans* TSResponse::getFailureInfo() {
 $String* TSResponse::getStatusCodeAsText() {
 	switch (this->status) {
 	case TSResponse::GRANTED:
-		{
-			return "the timestamp request was granted."_s;
-		}
+		return "the timestamp request was granted."_s;
 	case TSResponse::GRANTED_WITH_MODS:
-		{
-			return "the timestamp request was granted with some modifications."_s;
-		}
+		return "the timestamp request was granted with some modifications."_s;
 	case TSResponse::REJECTION:
-		{
-			return "the timestamp request was rejected."_s;
-		}
+		return "the timestamp request was rejected."_s;
 	case TSResponse::WAITING:
-		{
-			return "the timestamp request has not yet been processed."_s;
-		}
+		return "the timestamp request has not yet been processed."_s;
 	case TSResponse::REVOCATION_WARNING:
-		{
-			return "warning: a certificate revocation is imminent."_s;
-		}
+		return "warning: a certificate revocation is imminent."_s;
 	case TSResponse::REVOCATION_NOTIFICATION:
-		{
-			return "notification: a certificate revocation has occurred."_s;
-		}
+		return "notification: a certificate revocation has occurred."_s;
 	default:
-		{
-			return ($str({"unknown status code "_s, $$str(this->status), "."_s}));
-		}
+		return ($str({"unknown status code "_s, $$str(this->status), "."_s}));
 	}
 }
 
@@ -217,7 +135,7 @@ $bytes* TSResponse::getEncodedToken() {
 }
 
 void TSResponse::parse($bytes* tsReply) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerValue, derValue, $new($DerValue, tsReply));
 	if (derValue->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "Bad encoding for timestamp response"_s);
@@ -225,29 +143,29 @@ void TSResponse::parse($bytes* tsReply) {
 	$var($DerValue, statusInfo, $nc(derValue->data$)->getDerValue());
 	this->status = $nc($nc(statusInfo)->data$)->getInteger();
 	if (TSResponse::debug != nullptr) {
-		$nc(TSResponse::debug)->println($$str({"timestamp response: status="_s, $$str(this->status)}));
+		TSResponse::debug->println($$str({"timestamp response: status="_s, $$str(this->status)}));
 	}
-	if ($nc(statusInfo->data$)->available() > 0) {
-		int8_t tag = (int8_t)$nc(statusInfo->data$)->peekByte();
+	if (statusInfo->data$->available() > 0) {
+		int8_t tag = (int8_t)statusInfo->data$->peekByte();
 		if (tag == $DerValue::tag_SequenceOf) {
-			$var($DerValueArray, strings, $nc(statusInfo->data$)->getSequence(1));
+			$var($DerValueArray, strings, statusInfo->data$->getSequence(1));
 			$set(this, statusString, $new($StringArray, $nc(strings)->length));
 			for (int32_t i = 0; i < strings->length; ++i) {
-				$nc(this->statusString)->set(i, $($nc(strings->get(i))->getUTF8String()));
+				this->statusString->set(i, $($nc(strings->get(i))->getUTF8String()));
 				if (TSResponse::debug != nullptr) {
-					$nc(TSResponse::debug)->println($$str({"timestamp response: statusString="_s, $nc(this->statusString)->get(i)}));
+					TSResponse::debug->println($$str({"timestamp response: statusString="_s, this->statusString->get(i)}));
 				}
 			}
 		}
 	}
-	if ($nc(statusInfo->data$)->available() > 0) {
-		$set(this, failureInfo, $nc($($nc(statusInfo->data$)->getUnalignedBitString()))->toBooleanArray());
+	if (statusInfo->data$->available() > 0) {
+		$set(this, failureInfo, $$nc(statusInfo->data$->getUnalignedBitString())->toBooleanArray());
 	}
-	if ($nc(derValue->data$)->available() > 0) {
-		$var($DerValue, timestampToken, $nc(derValue->data$)->getDerValue());
+	if (derValue->data$->available() > 0) {
+		$var($DerValue, timestampToken, derValue->data$->getDerValue());
 		$set(this, encodedTsToken, $nc(timestampToken)->toByteArray());
 		$set(this, tsToken, $new($PKCS7, this->encodedTsToken));
-		$set(this, tstInfo, $new($TimestampToken, $($nc($($nc(this->tsToken)->getContentInfo()))->getData())));
+		$set(this, tstInfo, $new($TimestampToken, $($$nc(this->tsToken->getContentInfo())->getData())));
 	}
 	if (this->status == 0 || this->status == 1) {
 		if (this->tsToken == nullptr) {
@@ -258,7 +176,7 @@ void TSResponse::parse($bytes* tsReply) {
 	}
 }
 
-void clinit$TSResponse($Class* class$) {
+void TSResponse::clinit$($Class* clazz) {
 	$assignStatic(TSResponse::debug, $Debug::getInstance("ts"_s));
 }
 
@@ -266,7 +184,65 @@ TSResponse::TSResponse() {
 }
 
 $Class* TSResponse::load$($String* name, bool initialize) {
-	$loadClass(TSResponse, name, initialize, &_TSResponse_ClassInfo_, clinit$TSResponse, allocate$TSResponse);
+	$FieldInfo fieldInfos$$[] = {
+		{"GRANTED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, GRANTED)},
+		{"GRANTED_WITH_MODS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, GRANTED_WITH_MODS)},
+		{"REJECTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, REJECTION)},
+		{"WAITING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, WAITING)},
+		{"REVOCATION_WARNING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, REVOCATION_WARNING)},
+		{"REVOCATION_NOTIFICATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, REVOCATION_NOTIFICATION)},
+		{"BAD_ALG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, BAD_ALG)},
+		{"BAD_REQUEST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, BAD_REQUEST)},
+		{"BAD_DATA_FORMAT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, BAD_DATA_FORMAT)},
+		{"TIME_NOT_AVAILABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, TIME_NOT_AVAILABLE)},
+		{"UNACCEPTED_POLICY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, UNACCEPTED_POLICY)},
+		{"UNACCEPTED_EXTENSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, UNACCEPTED_EXTENSION)},
+		{"ADD_INFO_NOT_AVAILABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, ADD_INFO_NOT_AVAILABLE)},
+		{"SYSTEM_FAILURE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TSResponse, SYSTEM_FAILURE)},
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TSResponse, debug)},
+		{"status", "I", nullptr, $PRIVATE, $field(TSResponse, status)},
+		{"statusString", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(TSResponse, statusString)},
+		{"failureInfo", "[Z", nullptr, $PRIVATE, $field(TSResponse, failureInfo)},
+		{"encodedTsToken", "[B", nullptr, $PRIVATE, $field(TSResponse, encodedTsToken)},
+		{"tsToken", "Lsun/security/pkcs/PKCS7;", nullptr, $PRIVATE, $field(TSResponse, tsToken)},
+		{"tstInfo", "Lsun/security/timestamp/TimestampToken;", nullptr, $PRIVATE, $field(TSResponse, tstInfo)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([B)V", nullptr, 0, $method(TSResponse, init$, void, $bytes*), "java.io.IOException"},
+		{"getEncodedToken", "()[B", nullptr, $PUBLIC, $virtualMethod(TSResponse, getEncodedToken, $bytes*)},
+		{"getFailureCodeAsText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TSResponse, getFailureCodeAsText, $String*)},
+		{"getFailureInfo", "()[Z", nullptr, $PUBLIC, $virtualMethod(TSResponse, getFailureInfo, $booleans*)},
+		{"getStatusCode", "()I", nullptr, $PUBLIC, $virtualMethod(TSResponse, getStatusCode, int32_t)},
+		{"getStatusCodeAsText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TSResponse, getStatusCodeAsText, $String*)},
+		{"getStatusMessages", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TSResponse, getStatusMessages, $StringArray*)},
+		{"getTimestampToken", "()Lsun/security/timestamp/TimestampToken;", nullptr, $PUBLIC, $virtualMethod(TSResponse, getTimestampToken, $TimestampToken*)},
+		{"getToken", "()Lsun/security/pkcs/PKCS7;", nullptr, $PUBLIC, $virtualMethod(TSResponse, getToken, $PKCS7*)},
+		{"isSet", "(I)Z", nullptr, $PRIVATE, $method(TSResponse, isSet, bool, int32_t)},
+		{"parse", "([B)V", nullptr, $PRIVATE, $method(TSResponse, parse, void, $bytes*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.timestamp.TSResponse$TimestampException", "sun.security.timestamp.TSResponse", "TimestampException", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.timestamp.TSResponse",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.timestamp.TSResponse$TimestampException"
+	};
+	$loadClass(TSResponse, name, initialize, &classInfo$$, TSResponse::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TSResponse);
+	});
 	return class$;
 }
 

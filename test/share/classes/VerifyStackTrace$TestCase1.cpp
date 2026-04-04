@@ -1,5 +1,4 @@
 #include <VerifyStackTrace$TestCase1.h>
-
 #include <VerifyStackTrace.h>
 #include <java/lang/StackWalker$Option.h>
 #include <java/lang/StackWalker.h>
@@ -13,47 +12,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StackWalker = ::java::lang::StackWalker;
 using $StackWalker$Option = ::java::lang::StackWalker$Option;
-
-$FieldInfo _VerifyStackTrace$TestCase1_FieldInfo_[] = {
-	{"walker", "Ljava/lang/StackWalker;", nullptr, $PRIVATE | $FINAL, $field(VerifyStackTrace$TestCase1, walker$)},
-	{"description", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(VerifyStackTrace$TestCase1, description$)},
-	{"expected", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(VerifyStackTrace$TestCase1, expected$)},
-	{}
-};
-
-$MethodInfo _VerifyStackTrace$TestCase1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(VerifyStackTrace$TestCase1, init$, void)},
-	{"description", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(VerifyStackTrace$TestCase1, description, $String*)},
-	{"expected", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(VerifyStackTrace$TestCase1, expected, $String*)},
-	{"walker", "()Ljava/lang/StackWalker;", nullptr, $PUBLIC, $virtualMethod(VerifyStackTrace$TestCase1, walker, $StackWalker*)},
-	{}
-};
-
-$InnerClassInfo _VerifyStackTrace$TestCase1_InnerClassesInfo_[] = {
-	{"VerifyStackTrace$TestCase1", "VerifyStackTrace", "TestCase1", $STATIC | $FINAL},
-	{"VerifyStackTrace$TestCase", "VerifyStackTrace", "TestCase", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _VerifyStackTrace$TestCase1_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"VerifyStackTrace$TestCase1",
-	"java.lang.Object",
-	"VerifyStackTrace$TestCase",
-	_VerifyStackTrace$TestCase1_FieldInfo_,
-	_VerifyStackTrace$TestCase1_MethodInfo_,
-	nullptr,
-	nullptr,
-	_VerifyStackTrace$TestCase1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"VerifyStackTrace"
-};
-
-$Object* allocate$VerifyStackTrace$TestCase1($Class* clazz) {
-	return $of($alloc(VerifyStackTrace$TestCase1));
-}
 
 void VerifyStackTrace$TestCase1::init$() {
 	$init($StackWalker$Option);
@@ -78,7 +36,42 @@ VerifyStackTrace$TestCase1::VerifyStackTrace$TestCase1() {
 }
 
 $Class* VerifyStackTrace$TestCase1::load$($String* name, bool initialize) {
-	$loadClass(VerifyStackTrace$TestCase1, name, initialize, &_VerifyStackTrace$TestCase1_ClassInfo_, allocate$VerifyStackTrace$TestCase1);
+	$FieldInfo fieldInfos$$[] = {
+		{"walker", "Ljava/lang/StackWalker;", nullptr, $PRIVATE | $FINAL, $field(VerifyStackTrace$TestCase1, walker$)},
+		{"description", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(VerifyStackTrace$TestCase1, description$)},
+		{"expected", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(VerifyStackTrace$TestCase1, expected$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(VerifyStackTrace$TestCase1, init$, void)},
+		{"description", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(VerifyStackTrace$TestCase1, description, $String*)},
+		{"expected", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(VerifyStackTrace$TestCase1, expected, $String*)},
+		{"walker", "()Ljava/lang/StackWalker;", nullptr, $PUBLIC, $virtualMethod(VerifyStackTrace$TestCase1, walker, $StackWalker*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"VerifyStackTrace$TestCase1", "VerifyStackTrace", "TestCase1", $STATIC | $FINAL},
+		{"VerifyStackTrace$TestCase", "VerifyStackTrace", "TestCase", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"VerifyStackTrace$TestCase1",
+		"java.lang.Object",
+		"VerifyStackTrace$TestCase",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"VerifyStackTrace"
+	};
+	$loadClass(VerifyStackTrace$TestCase1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VerifyStackTrace$TestCase1);
+	});
 	return class$;
 }
 

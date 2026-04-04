@@ -1,5 +1,4 @@
 #include <java/util/ArraysParallelSortHelpers$FJObject$Sorter.h>
-
 #include <java/util/ArraysParallelSortHelpers$EmptyCompleter.h>
 #include <java/util/ArraysParallelSortHelpers$FJObject$Merger.h>
 #include <java/util/ArraysParallelSortHelpers$FJObject.h>
@@ -24,50 +23,6 @@ using $CountedCompleter = ::java::util::concurrent::CountedCompleter;
 namespace java {
 	namespace util {
 
-$FieldInfo _ArraysParallelSortHelpers$FJObject$Sorter_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ArraysParallelSortHelpers$FJObject$Sorter, serialVersionUID)},
-	{"a", "[Ljava/lang/Object;", "[TT;", $FINAL, $field(ArraysParallelSortHelpers$FJObject$Sorter, a)},
-	{"w", "[Ljava/lang/Object;", "[TT;", $FINAL, $field(ArraysParallelSortHelpers$FJObject$Sorter, w)},
-	{"base", "I", nullptr, $FINAL, $field(ArraysParallelSortHelpers$FJObject$Sorter, base)},
-	{"size", "I", nullptr, $FINAL, $field(ArraysParallelSortHelpers$FJObject$Sorter, size)},
-	{"wbase", "I", nullptr, $FINAL, $field(ArraysParallelSortHelpers$FJObject$Sorter, wbase)},
-	{"gran", "I", nullptr, $FINAL, $field(ArraysParallelSortHelpers$FJObject$Sorter, gran)},
-	{"comparator", "Ljava/util/Comparator;", "Ljava/util/Comparator<-TT;>;", 0, $field(ArraysParallelSortHelpers$FJObject$Sorter, comparator)},
-	{}
-};
-
-$MethodInfo _ArraysParallelSortHelpers$FJObject$Sorter_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CountedCompleter;[Ljava/lang/Object;[Ljava/lang/Object;IIIILjava/util/Comparator;)V", "(Ljava/util/concurrent/CountedCompleter<*>;[TT;[TT;IIIILjava/util/Comparator<-TT;>;)V", 0, $method(ArraysParallelSortHelpers$FJObject$Sorter, init$, void, $CountedCompleter*, $ObjectArray*, $ObjectArray*, int32_t, int32_t, int32_t, int32_t, $Comparator*)},
-	{"compute", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ArraysParallelSortHelpers$FJObject$Sorter, compute, void)},
-	{}
-};
-
-$InnerClassInfo _ArraysParallelSortHelpers$FJObject$Sorter_InnerClassesInfo_[] = {
-	{"java.util.ArraysParallelSortHelpers$FJObject", "java.util.ArraysParallelSortHelpers", "FJObject", $STATIC | $FINAL},
-	{"java.util.ArraysParallelSortHelpers$FJObject$Sorter", "java.util.ArraysParallelSortHelpers$FJObject", "Sorter", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ArraysParallelSortHelpers$FJObject$Sorter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.ArraysParallelSortHelpers$FJObject$Sorter",
-	"java.util.concurrent.CountedCompleter",
-	nullptr,
-	_ArraysParallelSortHelpers$FJObject$Sorter_FieldInfo_,
-	_ArraysParallelSortHelpers$FJObject$Sorter_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/util/concurrent/CountedCompleter<Ljava/lang/Void;>;",
-	nullptr,
-	_ArraysParallelSortHelpers$FJObject$Sorter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.ArraysParallelSortHelpers"
-};
-
-$Object* allocate$ArraysParallelSortHelpers$FJObject$Sorter($Class* clazz) {
-	return $of($alloc(ArraysParallelSortHelpers$FJObject$Sorter));
-}
-
 void ArraysParallelSortHelpers$FJObject$Sorter::init$($CountedCompleter* par, $ObjectArray* a, $ObjectArray* w, int32_t base, int32_t size, int32_t wbase, int32_t gran, $Comparator* comparator) {
 	$CountedCompleter::init$(par);
 	$set(this, a, a);
@@ -80,7 +35,7 @@ void ArraysParallelSortHelpers$FJObject$Sorter::init$($CountedCompleter* par, $O
 }
 
 void ArraysParallelSortHelpers$FJObject$Sorter::compute() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CountedCompleter, s, this);
 	$var($Comparator, c, this->comparator);
 	$var($ObjectArray, a, this->a);
@@ -110,7 +65,45 @@ ArraysParallelSortHelpers$FJObject$Sorter::ArraysParallelSortHelpers$FJObject$So
 }
 
 $Class* ArraysParallelSortHelpers$FJObject$Sorter::load$($String* name, bool initialize) {
-	$loadClass(ArraysParallelSortHelpers$FJObject$Sorter, name, initialize, &_ArraysParallelSortHelpers$FJObject$Sorter_ClassInfo_, allocate$ArraysParallelSortHelpers$FJObject$Sorter);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ArraysParallelSortHelpers$FJObject$Sorter, serialVersionUID)},
+		{"a", "[Ljava/lang/Object;", "[TT;", $FINAL, $field(ArraysParallelSortHelpers$FJObject$Sorter, a)},
+		{"w", "[Ljava/lang/Object;", "[TT;", $FINAL, $field(ArraysParallelSortHelpers$FJObject$Sorter, w)},
+		{"base", "I", nullptr, $FINAL, $field(ArraysParallelSortHelpers$FJObject$Sorter, base)},
+		{"size", "I", nullptr, $FINAL, $field(ArraysParallelSortHelpers$FJObject$Sorter, size)},
+		{"wbase", "I", nullptr, $FINAL, $field(ArraysParallelSortHelpers$FJObject$Sorter, wbase)},
+		{"gran", "I", nullptr, $FINAL, $field(ArraysParallelSortHelpers$FJObject$Sorter, gran)},
+		{"comparator", "Ljava/util/Comparator;", "Ljava/util/Comparator<-TT;>;", 0, $field(ArraysParallelSortHelpers$FJObject$Sorter, comparator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/CountedCompleter;[Ljava/lang/Object;[Ljava/lang/Object;IIIILjava/util/Comparator;)V", "(Ljava/util/concurrent/CountedCompleter<*>;[TT;[TT;IIIILjava/util/Comparator<-TT;>;)V", 0, $method(ArraysParallelSortHelpers$FJObject$Sorter, init$, void, $CountedCompleter*, $ObjectArray*, $ObjectArray*, int32_t, int32_t, int32_t, int32_t, $Comparator*)},
+		{"compute", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ArraysParallelSortHelpers$FJObject$Sorter, compute, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ArraysParallelSortHelpers$FJObject", "java.util.ArraysParallelSortHelpers", "FJObject", $STATIC | $FINAL},
+		{"java.util.ArraysParallelSortHelpers$FJObject$Sorter", "java.util.ArraysParallelSortHelpers$FJObject", "Sorter", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.ArraysParallelSortHelpers$FJObject$Sorter",
+		"java.util.concurrent.CountedCompleter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/util/concurrent/CountedCompleter<Ljava/lang/Void;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.ArraysParallelSortHelpers"
+	};
+	$loadClass(ArraysParallelSortHelpers$FJObject$Sorter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ArraysParallelSortHelpers$FJObject$Sorter));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/ArrayPrefixHelpers$IntCumulateTask.h>
-
 #include <java/util/ArrayPrefixHelpers.h>
 #include <java/util/concurrent/CountedCompleter.h>
 #include <java/util/concurrent/ForkJoinPool.h>
@@ -18,54 +17,6 @@ using $IntBinaryOperator = ::java::util::function::IntBinaryOperator;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _ArrayPrefixHelpers$IntCumulateTask_FieldInfo_[] = {
-	{"array", "[I", nullptr, $FINAL, $field(ArrayPrefixHelpers$IntCumulateTask, array)},
-	{"function", "Ljava/util/function/IntBinaryOperator;", nullptr, $FINAL, $field(ArrayPrefixHelpers$IntCumulateTask, function)},
-	{"left", "Ljava/util/ArrayPrefixHelpers$IntCumulateTask;", nullptr, 0, $field(ArrayPrefixHelpers$IntCumulateTask, left)},
-	{"right", "Ljava/util/ArrayPrefixHelpers$IntCumulateTask;", nullptr, 0, $field(ArrayPrefixHelpers$IntCumulateTask, right)},
-	{"in", "I", nullptr, 0, $field(ArrayPrefixHelpers$IntCumulateTask, in)},
-	{"out", "I", nullptr, 0, $field(ArrayPrefixHelpers$IntCumulateTask, out)},
-	{"lo", "I", nullptr, $FINAL, $field(ArrayPrefixHelpers$IntCumulateTask, lo)},
-	{"hi", "I", nullptr, $FINAL, $field(ArrayPrefixHelpers$IntCumulateTask, hi)},
-	{"origin", "I", nullptr, $FINAL, $field(ArrayPrefixHelpers$IntCumulateTask, origin)},
-	{"fence", "I", nullptr, $FINAL, $field(ArrayPrefixHelpers$IntCumulateTask, fence)},
-	{"threshold", "I", nullptr, $FINAL, $field(ArrayPrefixHelpers$IntCumulateTask, threshold)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArrayPrefixHelpers$IntCumulateTask, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ArrayPrefixHelpers$IntCumulateTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/ArrayPrefixHelpers$IntCumulateTask;Ljava/util/function/IntBinaryOperator;[III)V", nullptr, $PUBLIC, $method(ArrayPrefixHelpers$IntCumulateTask, init$, void, ArrayPrefixHelpers$IntCumulateTask*, $IntBinaryOperator*, $ints*, int32_t, int32_t)},
-	{"<init>", "(Ljava/util/ArrayPrefixHelpers$IntCumulateTask;Ljava/util/function/IntBinaryOperator;[IIIIII)V", nullptr, 0, $method(ArrayPrefixHelpers$IntCumulateTask, init$, void, ArrayPrefixHelpers$IntCumulateTask*, $IntBinaryOperator*, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"compute", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ArrayPrefixHelpers$IntCumulateTask, compute, void)},
-	{}
-};
-
-$InnerClassInfo _ArrayPrefixHelpers$IntCumulateTask_InnerClassesInfo_[] = {
-	{"java.util.ArrayPrefixHelpers$IntCumulateTask", "java.util.ArrayPrefixHelpers", "IntCumulateTask", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ArrayPrefixHelpers$IntCumulateTask_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.ArrayPrefixHelpers$IntCumulateTask",
-	"java.util.concurrent.CountedCompleter",
-	nullptr,
-	_ArrayPrefixHelpers$IntCumulateTask_FieldInfo_,
-	_ArrayPrefixHelpers$IntCumulateTask_MethodInfo_,
-	"Ljava/util/concurrent/CountedCompleter<Ljava/lang/Void;>;",
-	nullptr,
-	_ArrayPrefixHelpers$IntCumulateTask_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.ArrayPrefixHelpers"
-};
-
-$Object* allocate$ArrayPrefixHelpers$IntCumulateTask($Class* clazz) {
-	return $of($alloc(ArrayPrefixHelpers$IntCumulateTask));
-}
 
 void ArrayPrefixHelpers$IntCumulateTask::init$(ArrayPrefixHelpers$IntCumulateTask* parent, $IntBinaryOperator* function, $ints* array, int32_t lo, int32_t hi) {
 	$CountedCompleter::init$(parent);
@@ -89,7 +40,7 @@ void ArrayPrefixHelpers$IntCumulateTask::init$(ArrayPrefixHelpers$IntCumulateTas
 }
 
 void ArrayPrefixHelpers$IntCumulateTask::compute() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IntBinaryOperator, fn, nullptr);
 	$var($ints, a, nullptr);
 	if (($assign(fn, this->function)) == nullptr || ($assign(a, this->array)) == nullptr) {
@@ -109,17 +60,17 @@ void ArrayPrefixHelpers$IntCumulateTask::compute() {
 			$var(ArrayPrefixHelpers$IntCumulateTask, f, nullptr);
 			if (lt == nullptr) {
 				int32_t mid = (int32_t)((uint32_t)(l + h) >> 1);
-				$assign(f, ($assign(rt, ($set(t, right, $new(ArrayPrefixHelpers$IntCumulateTask, t, fn, a, org, fnc, th, mid, h))))));
-				$assign(t, ($assign(lt, ($set(t, left, $new(ArrayPrefixHelpers$IntCumulateTask, t, fn, a, org, fnc, th, l, mid))))));
+				$assign(f, $assign(rt, $set(t, right, $new(ArrayPrefixHelpers$IntCumulateTask, t, fn, a, org, fnc, th, mid, h))));
+				$assign(t, $assign(lt, $set(t, left, $new(ArrayPrefixHelpers$IntCumulateTask, t, fn, a, org, fnc, th, l, mid))));
 			} else {
 				int32_t pin = t->in;
-				$nc(lt)->in = pin;
-				$assign(f, ($assign(t, nullptr)));
+				lt->in = pin;
+				$assign(f, $assign(t, nullptr));
 				if (rt != nullptr) {
 					int32_t lout = lt->out;
 					rt->in = (l == org ? lout : $nc(fn)->applyAsInt(pin, lout));
 					for (int32_t c = 0;;) {
-						if (((int32_t)((c = rt->getPendingCount()) & (uint32_t)1)) != 0) {
+						if (((c = rt->getPendingCount()) & 1) != 0) {
 							break;
 						}
 						if (rt->compareAndSetPendingCount(c, c | 1)) {
@@ -129,7 +80,7 @@ void ArrayPrefixHelpers$IntCumulateTask::compute() {
 					}
 				}
 				for (int32_t c = 0;;) {
-					if (((int32_t)((c = lt->getPendingCount()) & (uint32_t)1)) != 0) {
+					if (((c = lt->getPendingCount()) & 1) != 0) {
 						break;
 					}
 					if (lt->compareAndSetPendingCount(c, c | 1)) {
@@ -150,11 +101,11 @@ void ArrayPrefixHelpers$IntCumulateTask::compute() {
 		} else {
 			int32_t state = 0;
 			for (int32_t b = 0;;) {
-				if (((int32_t)((b = t->getPendingCount()) & (uint32_t)4)) != 0) {
+				if (((b = $nc(t)->getPendingCount()) & 4) != 0) {
 					outer$break = true;
 					break;
 				}
-				state = (((int32_t)(b & (uint32_t)1)) != 0 ? 4 : (l > org) ? 2 : (2 | 4));
+				state = ((b & 1) != 0 ? 4 : (l > org) ? 2 : (2 | 4));
 				if (t->compareAndSetPendingCount(b, b | state)) {
 					break;
 				}
@@ -169,7 +120,7 @@ void ArrayPrefixHelpers$IntCumulateTask::compute() {
 					sum = a->get(org);
 					first = org + 1;
 				} else {
-					sum = t->in;
+					sum = $nc(t)->in;
 					first = l;
 				}
 				for (int32_t i = first; i < h; ++i) {
@@ -181,31 +132,31 @@ void ArrayPrefixHelpers$IntCumulateTask::compute() {
 					sum = $nc(fn)->applyAsInt(sum, a->get(i));
 				}
 			} else {
-				sum = t->in;
+				sum = $nc(t)->in;
 			}
-			t->out = sum;
+			$nc(t)->out = sum;
 			{
 				$var(ArrayPrefixHelpers$IntCumulateTask, par, nullptr);
 				for (;;) {
-					if (($assign(par, $cast(ArrayPrefixHelpers$IntCumulateTask, t->getCompleter()))) == nullptr) {
-						if (((int32_t)(state & (uint32_t)4)) != 0) {
+					if (($assign(par, $cast(ArrayPrefixHelpers$IntCumulateTask, $nc(t)->getCompleter()))) == nullptr) {
+						if ((state & 4) != 0) {
 							t->quietlyComplete();
 						}
 						outer$break = true;
 						break;
 					}
 					int32_t b = $nc(par)->getPendingCount();
-					if (((int32_t)(((int32_t)(b & (uint32_t)state)) & (uint32_t)4)) != 0) {
+					if (((b & state) & 4) != 0) {
 						$assign(t, par);
-					} else if (((int32_t)(((int32_t)(b & (uint32_t)state)) & (uint32_t)2)) != 0) {
+					} else if (((b & state) & 2) != 0) {
 						int32_t nextState = 0;
 						$var(ArrayPrefixHelpers$IntCumulateTask, lt, nullptr);
 						$var(ArrayPrefixHelpers$IntCumulateTask, rt, nullptr);
 						if (($assign(lt, par->left)) != nullptr && ($assign(rt, par->right)) != nullptr) {
 							int32_t lout = $nc(lt)->out;
-							par->out = ($nc(rt)->hi == fnc ? lout : $nc(fn)->applyAsInt(lout, $nc(rt)->out));
+							par->out = ($nc(rt)->hi == fnc ? lout : $nc(fn)->applyAsInt(lout, rt->out));
 						}
-						int32_t refork = ((((int32_t)(b & (uint32_t)1)) == 0 && par->lo == org) ? 1 : 0);
+						int32_t refork = (((b & 1) == 0 && par->lo == org) ? 1 : 0);
 						bool var$0 = (nextState = (b | state) | refork) == b;
 						if (var$0 || par->compareAndSetPendingCount(b, nextState)) {
 							state = 2;
@@ -231,7 +182,49 @@ ArrayPrefixHelpers$IntCumulateTask::ArrayPrefixHelpers$IntCumulateTask() {
 }
 
 $Class* ArrayPrefixHelpers$IntCumulateTask::load$($String* name, bool initialize) {
-	$loadClass(ArrayPrefixHelpers$IntCumulateTask, name, initialize, &_ArrayPrefixHelpers$IntCumulateTask_ClassInfo_, allocate$ArrayPrefixHelpers$IntCumulateTask);
+	$FieldInfo fieldInfos$$[] = {
+		{"array", "[I", nullptr, $FINAL, $field(ArrayPrefixHelpers$IntCumulateTask, array)},
+		{"function", "Ljava/util/function/IntBinaryOperator;", nullptr, $FINAL, $field(ArrayPrefixHelpers$IntCumulateTask, function)},
+		{"left", "Ljava/util/ArrayPrefixHelpers$IntCumulateTask;", nullptr, 0, $field(ArrayPrefixHelpers$IntCumulateTask, left)},
+		{"right", "Ljava/util/ArrayPrefixHelpers$IntCumulateTask;", nullptr, 0, $field(ArrayPrefixHelpers$IntCumulateTask, right)},
+		{"in", "I", nullptr, 0, $field(ArrayPrefixHelpers$IntCumulateTask, in)},
+		{"out", "I", nullptr, 0, $field(ArrayPrefixHelpers$IntCumulateTask, out)},
+		{"lo", "I", nullptr, $FINAL, $field(ArrayPrefixHelpers$IntCumulateTask, lo)},
+		{"hi", "I", nullptr, $FINAL, $field(ArrayPrefixHelpers$IntCumulateTask, hi)},
+		{"origin", "I", nullptr, $FINAL, $field(ArrayPrefixHelpers$IntCumulateTask, origin)},
+		{"fence", "I", nullptr, $FINAL, $field(ArrayPrefixHelpers$IntCumulateTask, fence)},
+		{"threshold", "I", nullptr, $FINAL, $field(ArrayPrefixHelpers$IntCumulateTask, threshold)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArrayPrefixHelpers$IntCumulateTask, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/ArrayPrefixHelpers$IntCumulateTask;Ljava/util/function/IntBinaryOperator;[III)V", nullptr, $PUBLIC, $method(ArrayPrefixHelpers$IntCumulateTask, init$, void, ArrayPrefixHelpers$IntCumulateTask*, $IntBinaryOperator*, $ints*, int32_t, int32_t)},
+		{"<init>", "(Ljava/util/ArrayPrefixHelpers$IntCumulateTask;Ljava/util/function/IntBinaryOperator;[IIIIII)V", nullptr, 0, $method(ArrayPrefixHelpers$IntCumulateTask, init$, void, ArrayPrefixHelpers$IntCumulateTask*, $IntBinaryOperator*, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"compute", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ArrayPrefixHelpers$IntCumulateTask, compute, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ArrayPrefixHelpers$IntCumulateTask", "java.util.ArrayPrefixHelpers", "IntCumulateTask", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.ArrayPrefixHelpers$IntCumulateTask",
+		"java.util.concurrent.CountedCompleter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/concurrent/CountedCompleter<Ljava/lang/Void;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.ArrayPrefixHelpers"
+	};
+	$loadClass(ArrayPrefixHelpers$IntCumulateTask, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ArrayPrefixHelpers$IntCumulateTask));
+	});
 	return class$;
 }
 

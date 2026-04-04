@@ -1,5 +1,4 @@
 #include <jdk/internal/jimage/BasicImageReader$1.h>
-
 #include <jdk/internal/jimage/BasicImageReader.h>
 #include <jcpp.h>
 
@@ -13,50 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace jdk {
 	namespace internal {
 		namespace jimage {
-
-$FieldInfo _BasicImageReader$1_FieldInfo_[] = {
-	{"val$def", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(BasicImageReader$1, val$def)},
-	{"val$key", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(BasicImageReader$1, val$key)},
-	{"val$value", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(BasicImageReader$1, val$value)},
-	{}
-};
-
-$MethodInfo _BasicImageReader$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "()V", 0, $method(BasicImageReader$1, init$, void, $String*, $String*, $String*)},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(BasicImageReader$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _BasicImageReader$1_EnclosingMethodInfo_ = {
-	"jdk.internal.jimage.BasicImageReader",
-	"isSystemProperty",
-	"(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z"
-};
-
-$InnerClassInfo _BasicImageReader$1_InnerClassesInfo_[] = {
-	{"jdk.internal.jimage.BasicImageReader$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BasicImageReader$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.jimage.BasicImageReader$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_BasicImageReader$1_FieldInfo_,
-	_BasicImageReader$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
-	&_BasicImageReader$1_EnclosingMethodInfo_,
-	_BasicImageReader$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.jimage.BasicImageReader"
-};
-
-$Object* allocate$BasicImageReader$1($Class* clazz) {
-	return $of($alloc(BasicImageReader$1));
-}
 
 void BasicImageReader$1::init$($String* val$value, $String* val$key, $String* val$def) {
 	$set(this, val$value, val$value);
@@ -72,7 +27,44 @@ BasicImageReader$1::BasicImageReader$1() {
 }
 
 $Class* BasicImageReader$1::load$($String* name, bool initialize) {
-	$loadClass(BasicImageReader$1, name, initialize, &_BasicImageReader$1_ClassInfo_, allocate$BasicImageReader$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$def", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(BasicImageReader$1, val$def)},
+		{"val$key", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(BasicImageReader$1, val$key)},
+		{"val$value", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(BasicImageReader$1, val$value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "()V", 0, $method(BasicImageReader$1, init$, void, $String*, $String*, $String*)},
+		{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(BasicImageReader$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.jimage.BasicImageReader",
+		"isSystemProperty",
+		"(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.jimage.BasicImageReader$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.jimage.BasicImageReader$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.jimage.BasicImageReader"
+	};
+	$loadClass(BasicImageReader$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicImageReader$1);
+	});
 	return class$;
 }
 

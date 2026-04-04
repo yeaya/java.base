@@ -1186,6 +1186,38 @@ int32_t getCategory(String* type) {
 	return 1;
 }
 
+/*
+
+JDK Version	Class File Version
+Java 1.0	45.0
+Java 1.1	45.3
+Java 1.2	46.0
+Java 1.3	47.0
+Java 1.4	48.0
+Java 5	49.0
+Java 6	50.0
+Java 7	51.0
+Java 8	52.0
+Java 9	53.0
+Java 10	54.0
+Java 11	55.0
+Java 12	56.0
+Java 13	57.0
+Java 14	58.0
+Java 15	59.0
+Java 16	60.0
+Java 17	61.0
+Java 18	62.0
+Java 19	63.0
+Java 20	64.0
+Java 21	65.0
+Java 22	66.0
+Java 23	67.0
+Java 24	68.0
+Java 25	69.0
+Java 26	70.0
+Java 27	71.0
+*/
 void ByteCodeClassData::parse(ByteCodeClass* clazz, $bytes* b, ClassInfo* classInfo) {
 	$var(ByteArrayInputStream, bais, $new(ByteArrayInputStream, b));
 	$var(DataInputStream, is, $new(DataInputStream, bais));
@@ -1197,7 +1229,7 @@ void ByteCodeClassData::parse(ByteCodeClass* clazz, $bytes* b, ClassInfo* classI
 	uint16_t minor_version = is->readShort();
 	uint16_t major_version = is->readShort();
 
-	if (major_version < 45 || major_version > 60) {
+	if (major_version < 45 || major_version > 61) { // 45(1.0) 61(17)
 		$throwNew(RuntimeException, $$concat("invalid major version: ", $$str(major_version)));
 	}
 	if (major_version >= 56 && minor_version != 0 && minor_version != 65535) {

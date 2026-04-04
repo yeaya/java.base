@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SessionTicketExtension$T12SHSessionTicketProducer.h>
-
 #include <javax/net/ssl/SSLSessionContext.h>
 #include <sun/security/ssl/ConnectionContext.h>
 #include <sun/security/ssl/SSLContextImpl.h>
@@ -14,7 +13,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLSessionContextImpl = ::sun::security::ssl::SSLSessionContextImpl;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
@@ -23,43 +21,6 @@ using $SupportedGroupsExtension$SupportedGroups = ::sun::security::ssl::Supporte
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$MethodInfo _SessionTicketExtension$T12SHSessionTicketProducer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(SessionTicketExtension$T12SHSessionTicketProducer, init$, void)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(SessionTicketExtension$T12SHSessionTicketProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SessionTicketExtension$T12SHSessionTicketProducer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SessionTicketExtension$T12SHSessionTicketProducer", "sun.security.ssl.SessionTicketExtension", "T12SHSessionTicketProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SupportedGroupsExtension$SupportedGroups", "sun.security.ssl.SupportedGroupsExtension", "SupportedGroups", $STATIC},
-	{}
-};
-
-$ClassInfo _SessionTicketExtension$T12SHSessionTicketProducer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SessionTicketExtension$T12SHSessionTicketProducer",
-	"sun.security.ssl.SupportedGroupsExtension$SupportedGroups",
-	"sun.security.ssl.HandshakeProducer",
-	nullptr,
-	_SessionTicketExtension$T12SHSessionTicketProducer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SessionTicketExtension$T12SHSessionTicketProducer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SessionTicketExtension"
-};
-
-$Object* allocate$SessionTicketExtension$T12SHSessionTicketProducer($Class* clazz) {
-	return $of($alloc(SessionTicketExtension$T12SHSessionTicketProducer));
-}
 
 int32_t SessionTicketExtension$T12SHSessionTicketProducer::hashCode() {
 	 return this->$SupportedGroupsExtension$SupportedGroups::hashCode();
@@ -86,12 +47,12 @@ void SessionTicketExtension$T12SHSessionTicketProducer::init$() {
 }
 
 $bytes* SessionTicketExtension$T12SHSessionTicketProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	if (!$nc(shc)->statelessResumption) {
 		return nullptr;
 	}
-	$var($SSLSessionContextImpl, cache, $cast($SSLSessionContextImpl, $nc($nc(shc)->sslContext)->engineGetServerSessionContext()));
+	$var($SSLSessionContextImpl, cache, $cast($SSLSessionContextImpl, $nc(shc->sslContext)->engineGetServerSessionContext()));
 	if ($nc(cache)->statelessEnabled()) {
 		return $new($bytes, 0);
 	}
@@ -103,7 +64,39 @@ SessionTicketExtension$T12SHSessionTicketProducer::SessionTicketExtension$T12SHS
 }
 
 $Class* SessionTicketExtension$T12SHSessionTicketProducer::load$($String* name, bool initialize) {
-	$loadClass(SessionTicketExtension$T12SHSessionTicketProducer, name, initialize, &_SessionTicketExtension$T12SHSessionTicketProducer_ClassInfo_, allocate$SessionTicketExtension$T12SHSessionTicketProducer);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(SessionTicketExtension$T12SHSessionTicketProducer, init$, void)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(SessionTicketExtension$T12SHSessionTicketProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SessionTicketExtension$T12SHSessionTicketProducer", "sun.security.ssl.SessionTicketExtension", "T12SHSessionTicketProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SupportedGroupsExtension$SupportedGroups", "sun.security.ssl.SupportedGroupsExtension", "SupportedGroups", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SessionTicketExtension$T12SHSessionTicketProducer",
+		"sun.security.ssl.SupportedGroupsExtension$SupportedGroups",
+		"sun.security.ssl.HandshakeProducer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SessionTicketExtension"
+	};
+	$loadClass(SessionTicketExtension$T12SHSessionTicketProducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SessionTicketExtension$T12SHSessionTicketProducer));
+	});
 	return class$;
 }
 

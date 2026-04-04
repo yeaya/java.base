@@ -1,5 +1,4 @@
 #include <FailingFlushAndClose$FailingFlushOutputStream.h>
-
 #include <FailingFlushAndClose.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
@@ -12,44 +11,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _FailingFlushAndClose$FailingFlushOutputStream_FieldInfo_[] = {
-	{"closed", "Z", nullptr, 0, $field(FailingFlushAndClose$FailingFlushOutputStream, closed)},
-	{}
-};
-
-$MethodInfo _FailingFlushAndClose$FailingFlushOutputStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(FailingFlushAndClose$FailingFlushOutputStream, init$, void)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FailingFlushAndClose$FailingFlushOutputStream, close, void), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(FailingFlushAndClose$FailingFlushOutputStream, flush, void), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(FailingFlushAndClose$FailingFlushOutputStream, write, void, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _FailingFlushAndClose$FailingFlushOutputStream_InnerClassesInfo_[] = {
-	{"FailingFlushAndClose$FailingFlushOutputStream", "FailingFlushAndClose", "FailingFlushOutputStream", $STATIC},
-	{}
-};
-
-$ClassInfo _FailingFlushAndClose$FailingFlushOutputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"FailingFlushAndClose$FailingFlushOutputStream",
-	"java.io.OutputStream",
-	nullptr,
-	_FailingFlushAndClose$FailingFlushOutputStream_FieldInfo_,
-	_FailingFlushAndClose$FailingFlushOutputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FailingFlushAndClose$FailingFlushOutputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"FailingFlushAndClose"
-};
-
-$Object* allocate$FailingFlushAndClose$FailingFlushOutputStream($Class* clazz) {
-	return $of($alloc(FailingFlushAndClose$FailingFlushOutputStream));
-}
 
 void FailingFlushAndClose$FailingFlushOutputStream::init$() {
 	$OutputStream::init$();
@@ -77,7 +38,39 @@ FailingFlushAndClose$FailingFlushOutputStream::FailingFlushAndClose$FailingFlush
 }
 
 $Class* FailingFlushAndClose$FailingFlushOutputStream::load$($String* name, bool initialize) {
-	$loadClass(FailingFlushAndClose$FailingFlushOutputStream, name, initialize, &_FailingFlushAndClose$FailingFlushOutputStream_ClassInfo_, allocate$FailingFlushAndClose$FailingFlushOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"closed", "Z", nullptr, 0, $field(FailingFlushAndClose$FailingFlushOutputStream, closed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(FailingFlushAndClose$FailingFlushOutputStream, init$, void)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FailingFlushAndClose$FailingFlushOutputStream, close, void), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(FailingFlushAndClose$FailingFlushOutputStream, flush, void), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(FailingFlushAndClose$FailingFlushOutputStream, write, void, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"FailingFlushAndClose$FailingFlushOutputStream", "FailingFlushAndClose", "FailingFlushOutputStream", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"FailingFlushAndClose$FailingFlushOutputStream",
+		"java.io.OutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"FailingFlushAndClose"
+	};
+	$loadClass(FailingFlushAndClose$FailingFlushOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FailingFlushAndClose$FailingFlushOutputStream));
+	});
 	return class$;
 }
 

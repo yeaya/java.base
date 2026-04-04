@@ -39,6 +39,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::nio::ch::WindowsAsynchronousSocketChannelImpl* this$0, $Array<::java::nio::ByteBuffer>* bufs, bool scatteringRead, ::sun::nio::ch::PendingFuture* result);
 	virtual void completed(int32_t bytesTransferred, bool canInvokeDirect) override;
 	virtual void failed(int32_t error, ::java::io::IOException* x) override;

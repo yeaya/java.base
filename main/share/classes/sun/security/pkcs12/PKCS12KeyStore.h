@@ -126,6 +126,7 @@ public:
 	PKCS12KeyStore();
 	using ::java::security::KeyStoreSpi::engineStore;
 	using ::java::security::KeyStoreSpi::engineLoad;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	$bytes* calculateMac($chars* passwd, $bytes* data);
 	static void checkX509Certs($Array<::java::security::cert::Certificate>* certs);
@@ -191,11 +192,11 @@ public:
 	static $String* LEGACY_CERT_PBE_ALGORITHM;
 	static $String* LEGACY_KEY_PBE_ALGORITHM;
 	static $String* LEGACY_MAC_ALGORITHM;
-	static const int32_t LEGACY_PBE_ITERATION_COUNT = 0x0000C350;
-	static const int32_t LEGACY_MAC_ITERATION_COUNT = 0x000186A0;
+	static const int32_t LEGACY_PBE_ITERATION_COUNT = 0x0000c350;
+	static const int32_t LEGACY_MAC_ITERATION_COUNT = 0x000186a0;
 	static $String* USE_LEGACY_PROP;
 	static const int32_t VERSION_3 = 3;
-	static const int32_t MAX_ITERATION_COUNT = 0x004C4B40;
+	static const int32_t MAX_ITERATION_COUNT = 0x004c4b40;
 	static const int32_t SALT_LEN = 20;
 	static $Array<::sun::security::util::KnownOIDs>* CORE_ATTRIBUTES;
 	static ::sun::security::util::Debug* debug;

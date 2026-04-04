@@ -32,6 +32,7 @@ class $export URLConnection : public ::java::net::URLConnection {
 	$class(URLConnection, 0, ::java::net::URLConnection)
 public:
 	URLConnection();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::URL* u);
 	virtual void addRequestProperty($String* key, $String* value) override;
 	virtual bool canCache();

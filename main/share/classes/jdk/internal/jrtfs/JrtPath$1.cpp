@@ -1,5 +1,4 @@
 #include <jdk/internal/jrtfs/JrtPath$1.h>
-
 #include <java/nio/file/Path.h>
 #include <java/nio/file/ReadOnlyFileSystemException.h>
 #include <java/util/NoSuchElementException.h>
@@ -19,51 +18,6 @@ using $JrtPath = ::jdk::internal::jrtfs::JrtPath;
 namespace jdk {
 	namespace internal {
 		namespace jrtfs {
-
-$FieldInfo _JrtPath$1_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/jrtfs/JrtPath;", nullptr, $FINAL | $SYNTHETIC, $field(JrtPath$1, this$0)},
-	{"i", "I", nullptr, $PRIVATE, $field(JrtPath$1, i)},
-	{}
-};
-
-$MethodInfo _JrtPath$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/jrtfs/JrtPath;)V", nullptr, 0, $method(JrtPath$1, init$, void, $JrtPath*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(JrtPath$1, hasNext, bool)},
-	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(JrtPath$1, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(JrtPath$1, remove, void)},
-	{}
-};
-
-$EnclosingMethodInfo _JrtPath$1_EnclosingMethodInfo_ = {
-	"jdk.internal.jrtfs.JrtPath",
-	"iterator",
-	"()Ljava/util/Iterator;"
-};
-
-$InnerClassInfo _JrtPath$1_InnerClassesInfo_[] = {
-	{"jdk.internal.jrtfs.JrtPath$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JrtPath$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.jrtfs.JrtPath$1",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_JrtPath$1_FieldInfo_,
-	_JrtPath$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/nio/file/Path;>;",
-	&_JrtPath$1_EnclosingMethodInfo_,
-	_JrtPath$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.jrtfs.JrtPath"
-};
-
-$Object* allocate$JrtPath$1($Class* clazz) {
-	return $of($alloc(JrtPath$1));
-}
 
 void JrtPath$1::init$($JrtPath* this$0) {
 	$set(this, this$0, this$0);
@@ -92,7 +46,45 @@ JrtPath$1::JrtPath$1() {
 }
 
 $Class* JrtPath$1::load$($String* name, bool initialize) {
-	$loadClass(JrtPath$1, name, initialize, &_JrtPath$1_ClassInfo_, allocate$JrtPath$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/jrtfs/JrtPath;", nullptr, $FINAL | $SYNTHETIC, $field(JrtPath$1, this$0)},
+		{"i", "I", nullptr, $PRIVATE, $field(JrtPath$1, i)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/jrtfs/JrtPath;)V", nullptr, 0, $method(JrtPath$1, init$, void, $JrtPath*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(JrtPath$1, hasNext, bool)},
+		{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(JrtPath$1, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(JrtPath$1, remove, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.jrtfs.JrtPath",
+		"iterator",
+		"()Ljava/util/Iterator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.jrtfs.JrtPath$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.jrtfs.JrtPath$1",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/nio/file/Path;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.jrtfs.JrtPath"
+	};
+	$loadClass(JrtPath$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JrtPath$1);
+	});
 	return class$;
 }
 

@@ -45,6 +45,7 @@ public:
 	virtual bool isEmpty() override;
 	virtual ::java::util::Set* keySet() override;
 	virtual $Object* lastKey() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::NavigableMap* m);
 	virtual ::java::util::Map$Entry* ceilingEntry(Object$* key) override;
 	virtual $Object* ceilingKey(Object$* key) override;
@@ -78,7 +79,7 @@ public:
 	virtual ::java::util::NavigableMap* tailMap(Object$* fromKey, bool inclusive) override;
 	virtual $String* toString() override;
 	virtual ::java::util::Collection* values() override;
-	static const int64_t serialVersionUID = (int64_t)0xBC943925819D6A1B;
+	static const int64_t serialVersionUID = (int64_t)0xbc943925819d6a1b;
 	static ::java::util::Collections$UnmodifiableNavigableMap$EmptyNavigableMap* EMPTY_NAVIGABLE_MAP;
 	::java::util::NavigableMap* nm = nullptr;
 };

@@ -1,5 +1,4 @@
 #include <ClosedByInterrupt$ReaderWriter.h>
-
 #include <ClosedByInterrupt.h>
 #include <java/lang/InterruptedException.h>
 #include <java/nio/ByteBuffer.h>
@@ -20,45 +19,6 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ClosedByInterruptException = ::java::nio::channels::ClosedByInterruptException;
 using $ClosedChannelException = ::java::nio::channels::ClosedChannelException;
 using $FileChannel = ::java::nio::channels::FileChannel;
-using $Random = ::java::util::Random;
-
-$FieldInfo _ClosedByInterrupt$ReaderWriter_FieldInfo_[] = {
-	{"fc", "Ljava/nio/channels/FileChannel;", nullptr, $FINAL, $field(ClosedByInterrupt$ReaderWriter, fc)},
-	{"interruptible", "Z", nullptr, $FINAL, $field(ClosedByInterrupt$ReaderWriter, interruptible)},
-	{"writer", "Z", nullptr, $FINAL, $field(ClosedByInterrupt$ReaderWriter, writer)},
-	{}
-};
-
-$MethodInfo _ClosedByInterrupt$ReaderWriter_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/FileChannel;Z)V", nullptr, 0, $method(ClosedByInterrupt$ReaderWriter, init$, void, $FileChannel*, bool)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ClosedByInterrupt$ReaderWriter, run, void)},
-	{}
-};
-
-$InnerClassInfo _ClosedByInterrupt$ReaderWriter_InnerClassesInfo_[] = {
-	{"ClosedByInterrupt$ReaderWriter", "ClosedByInterrupt", "ReaderWriter", $STATIC},
-	{}
-};
-
-$ClassInfo _ClosedByInterrupt$ReaderWriter_ClassInfo_ = {
-	$ACC_SUPER,
-	"ClosedByInterrupt$ReaderWriter",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_ClosedByInterrupt$ReaderWriter_FieldInfo_,
-	_ClosedByInterrupt$ReaderWriter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClosedByInterrupt$ReaderWriter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"ClosedByInterrupt"
-};
-
-$Object* allocate$ClosedByInterrupt$ReaderWriter($Class* clazz) {
-	return $of($alloc(ClosedByInterrupt$ReaderWriter));
-}
 
 void ClosedByInterrupt$ReaderWriter::init$($FileChannel* fc, bool interruptible) {
 	$set(this, fc, fc);
@@ -68,28 +28,28 @@ void ClosedByInterrupt$ReaderWriter::init$($FileChannel* fc, bool interruptible)
 }
 
 void ClosedByInterrupt$ReaderWriter::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteBuffer, bb, $ByteBuffer::allocate(1024));
 	if (this->writer) {
 		$init($ClosedByInterrupt);
-		$nc($ClosedByInterrupt::rand)->nextBytes($($cast($bytes, $nc(bb)->array())));
+		$nc($ClosedByInterrupt::rand)->nextBytes($$cast($bytes, $nc(bb)->array()));
 	}
 	try {
 		for (;;) {
 			$init($ClosedByInterrupt);
 			int64_t position = $nc($ClosedByInterrupt::rand)->nextInt(1024 * 1024 - $nc(bb)->capacity());
 			if (this->writer) {
-				$nc($($nc(bb)->position(0)))->limit(bb->capacity());
+				$$nc(bb->position(0))->limit(bb->capacity());
 				$nc(this->fc)->write(bb, position);
 			} else {
-				$nc(bb)->clear();
+				bb->clear();
 				$nc(this->fc)->read(bb, position);
 			}
 			if (!this->interruptible) {
 				try {
-					$Thread::sleep($nc($ClosedByInterrupt::rand)->nextInt(50));
+					$Thread::sleep($ClosedByInterrupt::rand->nextInt(50));
 				} catch ($InterruptedException& e) {
-					$ClosedByInterrupt::unexpected(static_cast<$Exception*>(e));
+					$ClosedByInterrupt::unexpected(e);
 				}
 			}
 		}
@@ -101,16 +61,16 @@ void ClosedByInterrupt$ReaderWriter::run() {
 				$ClosedByInterrupt::unexpected($$str({e, " thrown but interrupt status not set"_s}));
 			}
 		} else {
-			$ClosedByInterrupt::unexpected(static_cast<$Exception*>(e));
+			$ClosedByInterrupt::unexpected(e);
 		}
 	} catch ($ClosedChannelException& e) {
 		if (this->interruptible) {
-			$ClosedByInterrupt::unexpected(static_cast<$Exception*>(e));
+			$ClosedByInterrupt::unexpected(e);
 		} else {
-			$ClosedByInterrupt::expected(static_cast<$Exception*>(e));
+			$ClosedByInterrupt::expected(e);
 		}
 	} catch ($Exception& e) {
-		$ClosedByInterrupt::unexpected($cast($Exception, e));
+		$ClosedByInterrupt::unexpected(e);
 	}
 }
 
@@ -118,7 +78,39 @@ ClosedByInterrupt$ReaderWriter::ClosedByInterrupt$ReaderWriter() {
 }
 
 $Class* ClosedByInterrupt$ReaderWriter::load$($String* name, bool initialize) {
-	$loadClass(ClosedByInterrupt$ReaderWriter, name, initialize, &_ClosedByInterrupt$ReaderWriter_ClassInfo_, allocate$ClosedByInterrupt$ReaderWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"fc", "Ljava/nio/channels/FileChannel;", nullptr, $FINAL, $field(ClosedByInterrupt$ReaderWriter, fc)},
+		{"interruptible", "Z", nullptr, $FINAL, $field(ClosedByInterrupt$ReaderWriter, interruptible)},
+		{"writer", "Z", nullptr, $FINAL, $field(ClosedByInterrupt$ReaderWriter, writer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/FileChannel;Z)V", nullptr, 0, $method(ClosedByInterrupt$ReaderWriter, init$, void, $FileChannel*, bool)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ClosedByInterrupt$ReaderWriter, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ClosedByInterrupt$ReaderWriter", "ClosedByInterrupt", "ReaderWriter", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"ClosedByInterrupt$ReaderWriter",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"ClosedByInterrupt"
+	};
+	$loadClass(ClosedByInterrupt$ReaderWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClosedByInterrupt$ReaderWriter);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/security/interfaces/EdECPrivateKey.h>
-
 #include <java/security/interfaces/EdECKey.h>
 #include <java/util/Optional.h>
 #include <jcpp.h>
@@ -12,29 +11,6 @@ using $Optional = ::java::util::Optional;
 namespace java {
 	namespace security {
 		namespace interfaces {
-
-$MethodInfo _EdECPrivateKey_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getBytes", "()Ljava/util/Optional;", "()Ljava/util/Optional<[B>;", $PUBLIC | $ABSTRACT, $virtualMethod(EdECPrivateKey, getBytes, $Optional*)},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _EdECPrivateKey_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.security.interfaces.EdECPrivateKey",
-	nullptr,
-	"java.security.interfaces.EdECKey,java.security.PrivateKey",
-	nullptr,
-	_EdECPrivateKey_MethodInfo_
-};
-
-$Object* allocate$EdECPrivateKey($Class* clazz) {
-	return $of($alloc(EdECPrivateKey));
-}
 
 int32_t EdECPrivateKey::hashCode() {
 	 return this->$EdECKey::hashCode();
@@ -57,7 +33,26 @@ void EdECPrivateKey::finalize() {
 }
 
 $Class* EdECPrivateKey::load$($String* name, bool initialize) {
-	$loadClass(EdECPrivateKey, name, initialize, &_EdECPrivateKey_ClassInfo_, allocate$EdECPrivateKey);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"getBytes", "()Ljava/util/Optional;", "()Ljava/util/Optional<[B>;", $PUBLIC | $ABSTRACT, $virtualMethod(EdECPrivateKey, getBytes, $Optional*)},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.security.interfaces.EdECPrivateKey",
+		nullptr,
+		"java.security.interfaces.EdECKey,java.security.PrivateKey",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(EdECPrivateKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(EdECPrivateKey));
+	});
 	return class$;
 }
 

@@ -53,6 +53,7 @@ public:
 	virtual ::java::nio::CharBuffer* duplicate() override {return nullptr;}
 	virtual void finalize() override;
 	virtual bool isDirect() override {return false;}
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t mark, int32_t pos, int32_t lim, int32_t cap, $chars* hb, int32_t offset, ::jdk::internal::access::foreign::MemorySegmentProxy* segment);
 	void init$(int32_t mark, int32_t pos, int32_t lim, int32_t cap, ::jdk::internal::access::foreign::MemorySegmentProxy* segment);
 	void init$($chars* hb, int64_t addr, int32_t cap, ::jdk::internal::access::foreign::MemorySegmentProxy* segment);

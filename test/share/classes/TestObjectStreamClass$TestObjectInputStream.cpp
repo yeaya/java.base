@@ -1,5 +1,4 @@
 #include <TestObjectStreamClass$TestObjectInputStream.h>
-
 #include <TestObjectStreamClass.h>
 #include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
@@ -13,43 +12,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _TestObjectStreamClass$TestObjectInputStream_FieldInfo_[] = {
-	{"objectStreamClass", "Ljava/io/ObjectStreamClass;", nullptr, $PRIVATE, $field(TestObjectStreamClass$TestObjectInputStream, objectStreamClass)},
-	{}
-};
-
-$MethodInfo _TestObjectStreamClass$TestObjectInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(TestObjectStreamClass$TestObjectInputStream, init$, void, $InputStream*), "java.io.IOException"},
-	{"getDescriptor", "()Ljava/io/ObjectStreamClass;", nullptr, $PUBLIC, $virtualMethod(TestObjectStreamClass$TestObjectInputStream, getDescriptor, $ObjectStreamClass*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"readClassDescriptor", "()Ljava/io/ObjectStreamClass;", nullptr, $PUBLIC, $virtualMethod(TestObjectStreamClass$TestObjectInputStream, readClassDescriptor, $ObjectStreamClass*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{}
-};
-
-$InnerClassInfo _TestObjectStreamClass$TestObjectInputStream_InnerClassesInfo_[] = {
-	{"TestObjectStreamClass$TestObjectInputStream", "TestObjectStreamClass", "TestObjectInputStream", $STATIC},
-	{}
-};
-
-$ClassInfo _TestObjectStreamClass$TestObjectInputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"TestObjectStreamClass$TestObjectInputStream",
-	"java.io.ObjectInputStream",
-	nullptr,
-	_TestObjectStreamClass$TestObjectInputStream_FieldInfo_,
-	_TestObjectStreamClass$TestObjectInputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestObjectStreamClass$TestObjectInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestObjectStreamClass"
-};
-
-$Object* allocate$TestObjectStreamClass$TestObjectInputStream($Class* clazz) {
-	return $of($alloc(TestObjectStreamClass$TestObjectInputStream));
-}
 
 void TestObjectStreamClass$TestObjectInputStream::init$($InputStream* in) {
 	$ObjectInputStream::init$(in);
@@ -68,7 +30,38 @@ TestObjectStreamClass$TestObjectInputStream::TestObjectStreamClass$TestObjectInp
 }
 
 $Class* TestObjectStreamClass$TestObjectInputStream::load$($String* name, bool initialize) {
-	$loadClass(TestObjectStreamClass$TestObjectInputStream, name, initialize, &_TestObjectStreamClass$TestObjectInputStream_ClassInfo_, allocate$TestObjectStreamClass$TestObjectInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"objectStreamClass", "Ljava/io/ObjectStreamClass;", nullptr, $PRIVATE, $field(TestObjectStreamClass$TestObjectInputStream, objectStreamClass)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(TestObjectStreamClass$TestObjectInputStream, init$, void, $InputStream*), "java.io.IOException"},
+		{"getDescriptor", "()Ljava/io/ObjectStreamClass;", nullptr, $PUBLIC, $virtualMethod(TestObjectStreamClass$TestObjectInputStream, getDescriptor, $ObjectStreamClass*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"readClassDescriptor", "()Ljava/io/ObjectStreamClass;", nullptr, $PUBLIC, $virtualMethod(TestObjectStreamClass$TestObjectInputStream, readClassDescriptor, $ObjectStreamClass*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestObjectStreamClass$TestObjectInputStream", "TestObjectStreamClass", "TestObjectInputStream", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TestObjectStreamClass$TestObjectInputStream",
+		"java.io.ObjectInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestObjectStreamClass"
+	};
+	$loadClass(TestObjectStreamClass$TestObjectInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TestObjectStreamClass$TestObjectInputStream));
+	});
 	return class$;
 }
 

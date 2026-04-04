@@ -26,6 +26,7 @@ class NativeObject : public ::java::lang::Object {
 	$class(NativeObject, 0, ::java::lang::Object)
 public:
 	NativeObject();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t address);
 	void init$(int64_t address, int64_t offset);
 	void init$(int32_t size, bool pageAligned);

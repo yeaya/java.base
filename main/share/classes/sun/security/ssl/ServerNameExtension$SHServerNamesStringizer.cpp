@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ServerNameExtension$SHServerNamesStringizer.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/ByteBuffer.h>
 #include <sun/security/ssl/HandshakeContext.h>
@@ -19,37 +18,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _ServerNameExtension$SHServerNamesStringizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ServerNameExtension$SHServerNamesStringizer, init$, void)},
-	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ServerNameExtension$SHServerNamesStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _ServerNameExtension$SHServerNamesStringizer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ServerNameExtension$SHServerNamesStringizer", "sun.security.ssl.ServerNameExtension", "SHServerNamesStringizer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ServerNameExtension$SHServerNamesStringizer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ServerNameExtension$SHServerNamesStringizer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLStringizer",
-	nullptr,
-	_ServerNameExtension$SHServerNamesStringizer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServerNameExtension$SHServerNamesStringizer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ServerNameExtension"
-};
-
-$Object* allocate$ServerNameExtension$SHServerNamesStringizer($Class* clazz) {
-	return $of($alloc(ServerNameExtension$SHServerNamesStringizer));
-}
-
 void ServerNameExtension$SHServerNamesStringizer::init$() {
 }
 
@@ -66,7 +34,33 @@ ServerNameExtension$SHServerNamesStringizer::ServerNameExtension$SHServerNamesSt
 }
 
 $Class* ServerNameExtension$SHServerNamesStringizer::load$($String* name, bool initialize) {
-	$loadClass(ServerNameExtension$SHServerNamesStringizer, name, initialize, &_ServerNameExtension$SHServerNamesStringizer_ClassInfo_, allocate$ServerNameExtension$SHServerNamesStringizer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ServerNameExtension$SHServerNamesStringizer, init$, void)},
+		{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ServerNameExtension$SHServerNamesStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ServerNameExtension$SHServerNamesStringizer", "sun.security.ssl.ServerNameExtension", "SHServerNamesStringizer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ServerNameExtension$SHServerNamesStringizer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLStringizer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ServerNameExtension"
+	};
+	$loadClass(ServerNameExtension$SHServerNamesStringizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServerNameExtension$SHServerNamesStringizer);
+	});
 	return class$;
 }
 

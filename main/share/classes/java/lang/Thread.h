@@ -65,6 +65,7 @@ class $export Thread : public ::java::lang::Runnable {
 	$class(Thread, $PRELOAD | $PREINIT, ::java::lang::Runnable)
 public:
 	Thread();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::ThreadGroup* g, ::java::lang::Runnable* target, $String* name, int64_t stackSize, ::java::security::AccessControlContext* acc, bool inheritThreadLocals);
 	void init$();
 	void init$(::java::lang::Runnable* target);

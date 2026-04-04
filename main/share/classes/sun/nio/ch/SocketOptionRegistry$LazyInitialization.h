@@ -19,6 +19,7 @@ class SocketOptionRegistry$LazyInitialization : public ::java::lang::Object {
 	$class(SocketOptionRegistry$LazyInitialization, 0, ::java::lang::Object)
 public:
 	SocketOptionRegistry$LazyInitialization();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Map* options();
 	static ::java::util::Map* options$;

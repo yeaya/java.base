@@ -19,6 +19,7 @@ class BsdFileSystem$SupportedFileFileAttributeViewsHolder : public ::java::lang:
 	$class(BsdFileSystem$SupportedFileFileAttributeViewsHolder, 0, ::java::lang::Object)
 public:
 	BsdFileSystem$SupportedFileFileAttributeViewsHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Set* supportedFileAttributeViews();
 	static ::java::util::Set* supportedFileAttributeViews$;

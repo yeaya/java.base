@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method.h>
-
 #include <java/lang/Enum.h>
 #include <jdk/internal/org/objectweb/asm/util/CheckMethodAdapter.h>
 #include <jcpp.h>
@@ -25,51 +24,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 					namespace util {
-
-$FieldInfo _CheckMethodAdapter$Method_FieldInfo_[] = {
-	{"VISIT_INSN", "Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckMethodAdapter$Method, VISIT_INSN)},
-	{"VISIT_INT_INSN", "Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckMethodAdapter$Method, VISIT_INT_INSN)},
-	{"VISIT_VAR_INSN", "Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckMethodAdapter$Method, VISIT_VAR_INSN)},
-	{"VISIT_TYPE_INSN", "Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckMethodAdapter$Method, VISIT_TYPE_INSN)},
-	{"VISIT_FIELD_INSN", "Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckMethodAdapter$Method, VISIT_FIELD_INSN)},
-	{"VISIT_METHOD_INSN", "Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckMethodAdapter$Method, VISIT_METHOD_INSN)},
-	{"VISIT_JUMP_INSN", "Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckMethodAdapter$Method, VISIT_JUMP_INSN)},
-	{"$VALUES", "[Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CheckMethodAdapter$Method, $VALUES)},
-	{}
-};
-
-$MethodInfo _CheckMethodAdapter$Method_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CheckMethodAdapter$Method, $values, $CheckMethodAdapter$MethodArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CheckMethodAdapter$Method, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckMethodAdapter$Method, valueOf, CheckMethodAdapter$Method*, $String*)},
-	{"values", "()[Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckMethodAdapter$Method, values, $CheckMethodAdapter$MethodArray*)},
-	{}
-};
-
-$InnerClassInfo _CheckMethodAdapter$Method_InnerClassesInfo_[] = {
-	{"jdk.internal.org.objectweb.asm.util.CheckMethodAdapter$Method", "jdk.internal.org.objectweb.asm.util.CheckMethodAdapter", "Method", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _CheckMethodAdapter$Method_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"jdk.internal.org.objectweb.asm.util.CheckMethodAdapter$Method",
-	"java.lang.Enum",
-	nullptr,
-	_CheckMethodAdapter$Method_FieldInfo_,
-	_CheckMethodAdapter$Method_MethodInfo_,
-	"Ljava/lang/Enum<Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;>;",
-	nullptr,
-	_CheckMethodAdapter$Method_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.org.objectweb.asm.util.CheckMethodAdapter"
-};
-
-$Object* allocate$CheckMethodAdapter$Method($Class* clazz) {
-	return $of($alloc(CheckMethodAdapter$Method));
-}
 
 CheckMethodAdapter$Method* CheckMethodAdapter$Method::VISIT_INSN = nullptr;
 CheckMethodAdapter$Method* CheckMethodAdapter$Method::VISIT_INT_INSN = nullptr;
@@ -107,7 +61,7 @@ void CheckMethodAdapter$Method::init$($String* $enum$name, int32_t $enum$ordinal
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$CheckMethodAdapter$Method($Class* class$) {
+void CheckMethodAdapter$Method::clinit$($Class* clazz) {
 	$assignStatic(CheckMethodAdapter$Method::VISIT_INSN, $new(CheckMethodAdapter$Method, "VISIT_INSN"_s, 0));
 	$assignStatic(CheckMethodAdapter$Method::VISIT_INT_INSN, $new(CheckMethodAdapter$Method, "VISIT_INT_INSN"_s, 1));
 	$assignStatic(CheckMethodAdapter$Method::VISIT_VAR_INSN, $new(CheckMethodAdapter$Method, "VISIT_VAR_INSN"_s, 2));
@@ -122,7 +76,46 @@ CheckMethodAdapter$Method::CheckMethodAdapter$Method() {
 }
 
 $Class* CheckMethodAdapter$Method::load$($String* name, bool initialize) {
-	$loadClass(CheckMethodAdapter$Method, name, initialize, &_CheckMethodAdapter$Method_ClassInfo_, clinit$CheckMethodAdapter$Method, allocate$CheckMethodAdapter$Method);
+	$FieldInfo fieldInfos$$[] = {
+		{"VISIT_INSN", "Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckMethodAdapter$Method, VISIT_INSN)},
+		{"VISIT_INT_INSN", "Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckMethodAdapter$Method, VISIT_INT_INSN)},
+		{"VISIT_VAR_INSN", "Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckMethodAdapter$Method, VISIT_VAR_INSN)},
+		{"VISIT_TYPE_INSN", "Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckMethodAdapter$Method, VISIT_TYPE_INSN)},
+		{"VISIT_FIELD_INSN", "Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckMethodAdapter$Method, VISIT_FIELD_INSN)},
+		{"VISIT_METHOD_INSN", "Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckMethodAdapter$Method, VISIT_METHOD_INSN)},
+		{"VISIT_JUMP_INSN", "Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CheckMethodAdapter$Method, VISIT_JUMP_INSN)},
+		{"$VALUES", "[Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CheckMethodAdapter$Method, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CheckMethodAdapter$Method, $values, $CheckMethodAdapter$MethodArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CheckMethodAdapter$Method, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckMethodAdapter$Method, valueOf, CheckMethodAdapter$Method*, $String*)},
+		{"values", "()[Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckMethodAdapter$Method, values, $CheckMethodAdapter$MethodArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.org.objectweb.asm.util.CheckMethodAdapter$Method", "jdk.internal.org.objectweb.asm.util.CheckMethodAdapter", "Method", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"jdk.internal.org.objectweb.asm.util.CheckMethodAdapter$Method",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljdk/internal/org/objectweb/asm/util/CheckMethodAdapter$Method;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.org.objectweb.asm.util.CheckMethodAdapter"
+	};
+	$loadClass(CheckMethodAdapter$Method, name, initialize, &classInfo$$, CheckMethodAdapter$Method::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CheckMethodAdapter$Method));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/TreeMap$DescendingSubMap.h>
-
 #include <java/util/Collections.h>
 #include <java/util/Comparator.h>
 #include <java/util/Iterator.h>
@@ -38,59 +37,6 @@ using $TreeMap$NavigableSubMap$SubMapKeyIterator = ::java::util::TreeMap$Navigab
 
 namespace java {
 	namespace util {
-
-$FieldInfo _TreeMap$DescendingSubMap_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TreeMap$DescendingSubMap, serialVersionUID)},
-	{"reverseComparator", "Ljava/util/Comparator;", "Ljava/util/Comparator<-TK;>;", $PRIVATE | $FINAL, $field(TreeMap$DescendingSubMap, reverseComparator)},
-	{}
-};
-
-$MethodInfo _TreeMap$DescendingSubMap_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/TreeMap;ZLjava/lang/Object;ZZLjava/lang/Object;Z)V", "(Ljava/util/TreeMap<TK;TV;>;ZTK;ZZTK;Z)V", 0, $method(TreeMap$DescendingSubMap, init$, void, $TreeMap*, bool, Object$*, bool, bool, Object$*, bool)},
-	{"comparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TK;>;", $PUBLIC, $virtualMethod(TreeMap$DescendingSubMap, comparator, $Comparator*)},
-	{"descendingKeyIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TK;>;", 0, $virtualMethod(TreeMap$DescendingSubMap, descendingKeyIterator, $Iterator*)},
-	{"descendingMap", "()Ljava/util/NavigableMap;", "()Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(TreeMap$DescendingSubMap, descendingMap, $NavigableMap*)},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(TreeMap$DescendingSubMap, entrySet, $Set*)},
-	{"headMap", "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(TreeMap$DescendingSubMap, headMap, $NavigableMap*, Object$*, bool)},
-	{"keyIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TK;>;", 0, $virtualMethod(TreeMap$DescendingSubMap, keyIterator, $Iterator*)},
-	{"keySpliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TK;>;", 0, $virtualMethod(TreeMap$DescendingSubMap, keySpliterator, $Spliterator*)},
-	{"subCeiling", "(Ljava/lang/Object;)Ljava/util/TreeMap$Entry;", "(TK;)Ljava/util/TreeMap$Entry<TK;TV;>;", 0, $virtualMethod(TreeMap$DescendingSubMap, subCeiling, $TreeMap$Entry*, Object$*)},
-	{"subFloor", "(Ljava/lang/Object;)Ljava/util/TreeMap$Entry;", "(TK;)Ljava/util/TreeMap$Entry<TK;TV;>;", 0, $virtualMethod(TreeMap$DescendingSubMap, subFloor, $TreeMap$Entry*, Object$*)},
-	{"subHigher", "(Ljava/lang/Object;)Ljava/util/TreeMap$Entry;", "(TK;)Ljava/util/TreeMap$Entry<TK;TV;>;", 0, $virtualMethod(TreeMap$DescendingSubMap, subHigher, $TreeMap$Entry*, Object$*)},
-	{"subHighest", "()Ljava/util/TreeMap$Entry;", "()Ljava/util/TreeMap$Entry<TK;TV;>;", 0, $virtualMethod(TreeMap$DescendingSubMap, subHighest, $TreeMap$Entry*)},
-	{"subLower", "(Ljava/lang/Object;)Ljava/util/TreeMap$Entry;", "(TK;)Ljava/util/TreeMap$Entry<TK;TV;>;", 0, $virtualMethod(TreeMap$DescendingSubMap, subLower, $TreeMap$Entry*, Object$*)},
-	{"subLowest", "()Ljava/util/TreeMap$Entry;", "()Ljava/util/TreeMap$Entry<TK;TV;>;", 0, $virtualMethod(TreeMap$DescendingSubMap, subLowest, $TreeMap$Entry*)},
-	{"subMap", "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;ZTK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(TreeMap$DescendingSubMap, subMap, $NavigableMap*, Object$*, bool, Object$*, bool)},
-	{"tailMap", "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(TreeMap$DescendingSubMap, tailMap, $NavigableMap*, Object$*, bool)},
-	{}
-};
-
-$InnerClassInfo _TreeMap$DescendingSubMap_InnerClassesInfo_[] = {
-	{"java.util.TreeMap$DescendingSubMap", "java.util.TreeMap", "DescendingSubMap", $STATIC | $FINAL},
-	{"java.util.TreeMap$NavigableSubMap", "java.util.TreeMap", "NavigableSubMap", $STATIC | $ABSTRACT},
-	{"java.util.TreeMap$DescendingSubMap$DescendingEntrySetView", "java.util.TreeMap$DescendingSubMap", "DescendingEntrySetView", $FINAL},
-	{}
-};
-
-$ClassInfo _TreeMap$DescendingSubMap_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.TreeMap$DescendingSubMap",
-	"java.util.TreeMap$NavigableSubMap",
-	nullptr,
-	_TreeMap$DescendingSubMap_FieldInfo_,
-	_TreeMap$DescendingSubMap_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/TreeMap$NavigableSubMap<TK;TV;>;",
-	nullptr,
-	_TreeMap$DescendingSubMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.TreeMap"
-};
-
-$Object* allocate$TreeMap$DescendingSubMap($Class* clazz) {
-	return $of($alloc(TreeMap$DescendingSubMap));
-}
 
 void TreeMap$DescendingSubMap::init$($TreeMap* m, bool fromStart, Object$* lo, bool loInclusive, bool toEnd, Object$* hi, bool hiInclusive) {
 	$TreeMap$NavigableSubMap::init$(m, fromStart, lo, loInclusive, toEnd, hi, hiInclusive);
@@ -131,26 +77,26 @@ $NavigableMap* TreeMap$DescendingSubMap::descendingMap() {
 }
 
 $Iterator* TreeMap$DescendingSubMap::keyIterator() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreeMap$Entry, var$0, absHighest());
 	return $new($TreeMap$NavigableSubMap$DescendingSubMapKeyIterator, this, var$0, $(absLowFence()));
 }
 
 $Spliterator* TreeMap$DescendingSubMap::keySpliterator() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreeMap$Entry, var$0, absHighest());
 	return $new($TreeMap$NavigableSubMap$DescendingSubMapKeyIterator, this, var$0, $(absLowFence()));
 }
 
 $Iterator* TreeMap$DescendingSubMap::descendingKeyIterator() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreeMap$Entry, var$0, absLowest());
 	return $new($TreeMap$NavigableSubMap$SubMapKeyIterator, this, var$0, $(absHighFence()));
 }
 
 $Set* TreeMap$DescendingSubMap::entrySet() {
 	$var($TreeMap$NavigableSubMap$EntrySetView, es, this->entrySetView);
-	return (es != nullptr) ? static_cast<$Set*>(es) : (static_cast<$Set*>(($set(this, entrySetView, $new($TreeMap$DescendingSubMap$DescendingEntrySetView, this)))));
+	return (es != nullptr) ? es : ($set(this, entrySetView, $new($TreeMap$DescendingSubMap$DescendingEntrySetView, this)));
 }
 
 $TreeMap$Entry* TreeMap$DescendingSubMap::subLowest() {
@@ -181,7 +127,54 @@ TreeMap$DescendingSubMap::TreeMap$DescendingSubMap() {
 }
 
 $Class* TreeMap$DescendingSubMap::load$($String* name, bool initialize) {
-	$loadClass(TreeMap$DescendingSubMap, name, initialize, &_TreeMap$DescendingSubMap_ClassInfo_, allocate$TreeMap$DescendingSubMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TreeMap$DescendingSubMap, serialVersionUID)},
+		{"reverseComparator", "Ljava/util/Comparator;", "Ljava/util/Comparator<-TK;>;", $PRIVATE | $FINAL, $field(TreeMap$DescendingSubMap, reverseComparator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/TreeMap;ZLjava/lang/Object;ZZLjava/lang/Object;Z)V", "(Ljava/util/TreeMap<TK;TV;>;ZTK;ZZTK;Z)V", 0, $method(TreeMap$DescendingSubMap, init$, void, $TreeMap*, bool, Object$*, bool, bool, Object$*, bool)},
+		{"comparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TK;>;", $PUBLIC, $virtualMethod(TreeMap$DescendingSubMap, comparator, $Comparator*)},
+		{"descendingKeyIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TK;>;", 0, $virtualMethod(TreeMap$DescendingSubMap, descendingKeyIterator, $Iterator*)},
+		{"descendingMap", "()Ljava/util/NavigableMap;", "()Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(TreeMap$DescendingSubMap, descendingMap, $NavigableMap*)},
+		{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(TreeMap$DescendingSubMap, entrySet, $Set*)},
+		{"headMap", "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(TreeMap$DescendingSubMap, headMap, $NavigableMap*, Object$*, bool)},
+		{"keyIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TK;>;", 0, $virtualMethod(TreeMap$DescendingSubMap, keyIterator, $Iterator*)},
+		{"keySpliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TK;>;", 0, $virtualMethod(TreeMap$DescendingSubMap, keySpliterator, $Spliterator*)},
+		{"subCeiling", "(Ljava/lang/Object;)Ljava/util/TreeMap$Entry;", "(TK;)Ljava/util/TreeMap$Entry<TK;TV;>;", 0, $virtualMethod(TreeMap$DescendingSubMap, subCeiling, $TreeMap$Entry*, Object$*)},
+		{"subFloor", "(Ljava/lang/Object;)Ljava/util/TreeMap$Entry;", "(TK;)Ljava/util/TreeMap$Entry<TK;TV;>;", 0, $virtualMethod(TreeMap$DescendingSubMap, subFloor, $TreeMap$Entry*, Object$*)},
+		{"subHigher", "(Ljava/lang/Object;)Ljava/util/TreeMap$Entry;", "(TK;)Ljava/util/TreeMap$Entry<TK;TV;>;", 0, $virtualMethod(TreeMap$DescendingSubMap, subHigher, $TreeMap$Entry*, Object$*)},
+		{"subHighest", "()Ljava/util/TreeMap$Entry;", "()Ljava/util/TreeMap$Entry<TK;TV;>;", 0, $virtualMethod(TreeMap$DescendingSubMap, subHighest, $TreeMap$Entry*)},
+		{"subLower", "(Ljava/lang/Object;)Ljava/util/TreeMap$Entry;", "(TK;)Ljava/util/TreeMap$Entry<TK;TV;>;", 0, $virtualMethod(TreeMap$DescendingSubMap, subLower, $TreeMap$Entry*, Object$*)},
+		{"subLowest", "()Ljava/util/TreeMap$Entry;", "()Ljava/util/TreeMap$Entry<TK;TV;>;", 0, $virtualMethod(TreeMap$DescendingSubMap, subLowest, $TreeMap$Entry*)},
+		{"subMap", "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;ZTK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(TreeMap$DescendingSubMap, subMap, $NavigableMap*, Object$*, bool, Object$*, bool)},
+		{"tailMap", "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(TreeMap$DescendingSubMap, tailMap, $NavigableMap*, Object$*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.TreeMap$DescendingSubMap", "java.util.TreeMap", "DescendingSubMap", $STATIC | $FINAL},
+		{"java.util.TreeMap$NavigableSubMap", "java.util.TreeMap", "NavigableSubMap", $STATIC | $ABSTRACT},
+		{"java.util.TreeMap$DescendingSubMap$DescendingEntrySetView", "java.util.TreeMap$DescendingSubMap", "DescendingEntrySetView", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.TreeMap$DescendingSubMap",
+		"java.util.TreeMap$NavigableSubMap",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/TreeMap$NavigableSubMap<TK;TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.TreeMap"
+	};
+	$loadClass(TreeMap$DescendingSubMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TreeMap$DescendingSubMap));
+	});
 	return class$;
 }
 

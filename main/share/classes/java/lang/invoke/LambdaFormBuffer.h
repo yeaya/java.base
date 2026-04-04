@@ -34,6 +34,7 @@ class LambdaFormBuffer : public ::java::lang::Object {
 	$class(LambdaFormBuffer, 0, ::java::lang::Object)
 public:
 	LambdaFormBuffer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::LambdaForm* lf);
 	void changeName(int32_t i, ::java::lang::invoke::LambdaForm$Name* name);
 	void clearDuplicatesAndNulls();

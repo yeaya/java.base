@@ -1,5 +1,4 @@
 #include <javax/net/ssl/SSLPermission.h>
-
 #include <java/security/BasicPermission.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $BasicPermission = ::java::security::BasicPermission;
 namespace javax {
 	namespace net {
 		namespace ssl {
-
-$FieldInfo _SSLPermission_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLPermission, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SSLPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SSLPermission, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SSLPermission, init$, void, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _SSLPermission_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.net.ssl.SSLPermission",
-	"java.security.BasicPermission",
-	nullptr,
-	_SSLPermission_FieldInfo_,
-	_SSLPermission_MethodInfo_
-};
-
-$Object* allocate$SSLPermission($Class* clazz) {
-	return $of($alloc(SSLPermission));
-}
 
 void SSLPermission::init$($String* name) {
 	$BasicPermission::init$(name);
@@ -48,7 +23,26 @@ SSLPermission::SSLPermission() {
 }
 
 $Class* SSLPermission::load$($String* name, bool initialize) {
-	$loadClass(SSLPermission, name, initialize, &_SSLPermission_ClassInfo_, allocate$SSLPermission);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLPermission, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SSLPermission, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SSLPermission, init$, void, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.net.ssl.SSLPermission",
+		"java.security.BasicPermission",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SSLPermission, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SSLPermission));
+	});
 	return class$;
 }
 

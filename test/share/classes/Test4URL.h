@@ -43,6 +43,7 @@ class $export Test4URL : public ::java::lang::Object {
 	$class(Test4URL, 0, ::java::lang::Object)
 public:
 	Test4URL();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* s);
 	void init$($String* s, bool xxx);
 	void init$(::java::net::URL* base, $String* spec);

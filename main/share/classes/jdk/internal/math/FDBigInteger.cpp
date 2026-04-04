@@ -1,5 +1,4 @@
 #include <jdk/internal/math/FDBigInteger.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
 #include <java/math/BigInteger.h>
@@ -31,73 +30,6 @@ namespace jdk {
 	namespace internal {
 		namespace math {
 
-$FieldInfo _FDBigInteger_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FDBigInteger, $assertionsDisabled)},
-	{"SMALL_5_POW", "[I", nullptr, $STATIC | $FINAL, $staticField(FDBigInteger, SMALL_5_POW)},
-	{"LONG_5_POW", "[J", nullptr, $STATIC | $FINAL, $staticField(FDBigInteger, LONG_5_POW)},
-	{"MAX_FIVE_POW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FDBigInteger, MAX_FIVE_POW)},
-	{"POW_5_CACHE", "[Ljdk/internal/math/FDBigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FDBigInteger, POW_5_CACHE)},
-	{"ZERO", "Ljdk/internal/math/FDBigInteger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FDBigInteger, ZERO)},
-	{"archivedCaches", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(FDBigInteger, archivedCaches)},
-	{"LONG_MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FDBigInteger, LONG_MASK)},
-	{"data", "[I", nullptr, $PRIVATE, $field(FDBigInteger, data)},
-	{"offset", "I", nullptr, $PRIVATE, $field(FDBigInteger, offset)},
-	{"nWords", "I", nullptr, $PRIVATE, $field(FDBigInteger, nWords)},
-	{"isImmutable", "Z", nullptr, $PRIVATE, $field(FDBigInteger, isImmutable)},
-	{}
-};
-
-$MethodInfo _FDBigInteger_MethodInfo_[] = {
-	{"<init>", "([II)V", nullptr, $PRIVATE, $method(FDBigInteger, init$, void, $ints*, int32_t)},
-	{"<init>", "(J[CII)V", nullptr, $PUBLIC, $method(FDBigInteger, init$, void, int64_t, $chars*, int32_t, int32_t)},
-	{"add", "(Ljdk/internal/math/FDBigInteger;)Ljdk/internal/math/FDBigInteger;", nullptr, $PRIVATE, $method(FDBigInteger, add, FDBigInteger*, FDBigInteger*)},
-	{"addAndCmp", "(Ljdk/internal/math/FDBigInteger;Ljdk/internal/math/FDBigInteger;)I", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, addAndCmp, int32_t, FDBigInteger*, FDBigInteger*)},
-	{"big5pow", "(I)Ljdk/internal/math/FDBigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(FDBigInteger, big5pow, FDBigInteger*, int32_t)},
-	{"big5powRec", "(I)Ljdk/internal/math/FDBigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(FDBigInteger, big5powRec, FDBigInteger*, int32_t)},
-	{"checkZeroTail", "([II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(FDBigInteger, checkZeroTail, int32_t, $ints*, int32_t)},
-	{"cmp", "(Ljdk/internal/math/FDBigInteger;)I", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, cmp, int32_t, FDBigInteger*)},
-	{"cmpPow52", "(II)I", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, cmpPow52, int32_t, int32_t, int32_t)},
-	{"getNormalizationBias", "()I", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, getNormalizationBias, int32_t)},
-	{"leftInplaceSub", "(Ljdk/internal/math/FDBigInteger;)Ljdk/internal/math/FDBigInteger;", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, leftInplaceSub, FDBigInteger*, FDBigInteger*)},
-	{"leftShift", "([II[IIII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FDBigInteger, leftShift, void, $ints*, int32_t, $ints*, int32_t, int32_t, int32_t)},
-	{"leftShift", "(I)Ljdk/internal/math/FDBigInteger;", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, leftShift, FDBigInteger*, int32_t)},
-	{"makeImmutable", "()V", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, makeImmutable, void)},
-	{"mult", "([II[II[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FDBigInteger, mult, void, $ints*, int32_t, $ints*, int32_t, $ints*)},
-	{"mult", "(I)Ljdk/internal/math/FDBigInteger;", nullptr, $PRIVATE, $method(FDBigInteger, mult, FDBigInteger*, int32_t)},
-	{"mult", "(Ljdk/internal/math/FDBigInteger;)Ljdk/internal/math/FDBigInteger;", nullptr, $PRIVATE, $method(FDBigInteger, mult, FDBigInteger*, FDBigInteger*)},
-	{"mult", "([III[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FDBigInteger, mult, void, $ints*, int32_t, int32_t, $ints*)},
-	{"mult", "([IIII[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FDBigInteger, mult, void, $ints*, int32_t, int32_t, int32_t, $ints*)},
-	{"multAddMe", "(II)V", nullptr, $PRIVATE, $method(FDBigInteger, multAddMe, void, int32_t, int32_t)},
-	{"multAndCarryBy10", "([II[I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(FDBigInteger, multAndCarryBy10, int32_t, $ints*, int32_t, $ints*)},
-	{"multBy10", "()Ljdk/internal/math/FDBigInteger;", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, multBy10, FDBigInteger*)},
-	{"multByPow52", "(II)Ljdk/internal/math/FDBigInteger;", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, multByPow52, FDBigInteger*, int32_t, int32_t)},
-	{"multDiffMe", "(JLjdk/internal/math/FDBigInteger;)J", nullptr, $PRIVATE, $method(FDBigInteger, multDiffMe, int64_t, int64_t, FDBigInteger*)},
-	{"quoRemIteration", "(Ljdk/internal/math/FDBigInteger;)I", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, quoRemIteration, int32_t, FDBigInteger*), "java.lang.IllegalArgumentException"},
-	{"rightInplaceSub", "(Ljdk/internal/math/FDBigInteger;)Ljdk/internal/math/FDBigInteger;", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, rightInplaceSub, FDBigInteger*, FDBigInteger*)},
-	{"size", "()I", nullptr, $PRIVATE, $method(FDBigInteger, size, int32_t)},
-	{"toBigInteger", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, toBigInteger, $BigInteger*)},
-	{"toHexString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, toHexString, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, toString, $String*)},
-	{"trimLeadingZeros", "()V", nullptr, $PRIVATE, $method(FDBigInteger, trimLeadingZeros, void)},
-	{"valueOfMulPow52", "(JII)Ljdk/internal/math/FDBigInteger;", nullptr, $PUBLIC | $STATIC, $staticMethod(FDBigInteger, valueOfMulPow52, FDBigInteger*, int64_t, int32_t, int32_t)},
-	{"valueOfPow2", "(I)Ljdk/internal/math/FDBigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(FDBigInteger, valueOfPow2, FDBigInteger*, int32_t)},
-	{"valueOfPow52", "(II)Ljdk/internal/math/FDBigInteger;", nullptr, $PUBLIC | $STATIC, $staticMethod(FDBigInteger, valueOfPow52, FDBigInteger*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _FDBigInteger_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.math.FDBigInteger",
-	"java.lang.Object",
-	nullptr,
-	_FDBigInteger_FieldInfo_,
-	_FDBigInteger_MethodInfo_
-};
-
-$Object* allocate$FDBigInteger($Class* clazz) {
-	return $of($alloc(FDBigInteger));
-}
-
 bool FDBigInteger::$assertionsDisabled = false;
 $ints* FDBigInteger::SMALL_5_POW = nullptr;
 $longs* FDBigInteger::LONG_5_POW = nullptr;
@@ -117,8 +49,8 @@ void FDBigInteger::init$(int64_t lValue, $chars* digits, int32_t kDigits, int32_
 	this->isImmutable = false;
 	int32_t n = $Math::max((nDigits + 8) / 9, 2);
 	$set(this, data, $new($ints, n));
-	$nc(this->data)->set(0, (int32_t)lValue);
-	$nc(this->data)->set(1, (int32_t)((int64_t)((uint64_t)lValue >> 32)));
+	this->data->set(0, (int32_t)lValue);
+	this->data->set(1, (int32_t)((int64_t)((uint64_t)lValue >> 32)));
 	this->offset = 0;
 	this->nWords = 2;
 	int32_t i = kDigits;
@@ -130,7 +62,7 @@ void FDBigInteger::init$(int64_t lValue, $chars* digits, int32_t kDigits, int32_
 		while (i < ilim) {
 			v = 10 * v + (int32_t)digits->get(i++) - (int32_t)u'0';
 		}
-		multAddMe(0x000186A0, v);
+		multAddMe(100000, v);
 	}
 	int32_t factor = 1;
 	v = 0;
@@ -146,26 +78,24 @@ void FDBigInteger::init$(int64_t lValue, $chars* digits, int32_t kDigits, int32_
 
 FDBigInteger* FDBigInteger::valueOfPow52(int32_t p5, int32_t p2) {
 	$init(FDBigInteger);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (p5 != 0) {
 		if (p2 == 0) {
 			return big5pow(p5);
-		} else {
-			if (p5 < $nc(FDBigInteger::SMALL_5_POW)->length) {
-				int32_t pow5 = $nc(FDBigInteger::SMALL_5_POW)->get(p5);
-				int32_t wordcount = p2 >> 5;
-				int32_t bitcount = (int32_t)(p2 & (uint32_t)31);
-				if (bitcount == 0) {
-					return $new(FDBigInteger, $$new($ints, {pow5}), wordcount);
-				} else {
-					return $new(FDBigInteger, $$new($ints, {
-						$sl(pow5, bitcount),
-						$usr(pow5, 32 - bitcount)
-					}), wordcount);
-				}
+		} else if (p5 < $nc(FDBigInteger::SMALL_5_POW)->length) {
+			int32_t pow5 = FDBigInteger::SMALL_5_POW->get(p5);
+			int32_t wordcount = p2 >> 5;
+			int32_t bitcount = p2 & 0x1f;
+			if (bitcount == 0) {
+				return $new(FDBigInteger, $$new($ints, {pow5}), wordcount);
 			} else {
-				return $nc($(big5pow(p5)))->leftShift(p2);
+				return $new(FDBigInteger, $$new($ints, {
+					$sl(pow5, bitcount),
+					$usr(pow5, 32 - bitcount)
+				}), wordcount);
 			}
+		} else {
+			return $$nc(big5pow(p5))->leftShift(p2);
 		}
 	} else {
 		return valueOfPow2(p2);
@@ -174,7 +104,7 @@ FDBigInteger* FDBigInteger::valueOfPow52(int32_t p5, int32_t p2) {
 
 FDBigInteger* FDBigInteger::valueOfMulPow52(int64_t value, int32_t p5, int32_t p2) {
 	$init(FDBigInteger);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!FDBigInteger::$assertionsDisabled && !(p5 >= 0)) {
 		$throwNew($AssertionError, p5);
 	}
@@ -184,14 +114,14 @@ FDBigInteger* FDBigInteger::valueOfMulPow52(int64_t value, int32_t p5, int32_t p
 	int32_t v0 = (int32_t)value;
 	int32_t v1 = (int32_t)((int64_t)((uint64_t)value >> 32));
 	int32_t wordcount = p2 >> 5;
-	int32_t bitcount = (int32_t)(p2 & (uint32_t)31);
+	int32_t bitcount = p2 & 0x1f;
 	if (p5 != 0) {
 		if (p5 < $nc(FDBigInteger::SMALL_5_POW)->length) {
-			int64_t pow5 = (int64_t)($nc(FDBigInteger::SMALL_5_POW)->get(p5) & (uint64_t)FDBigInteger::LONG_MASK);
-			int64_t carry = ((int64_t)(v0 & (uint64_t)FDBigInteger::LONG_MASK)) * pow5;
+			int64_t pow5 = FDBigInteger::SMALL_5_POW->get(p5) & FDBigInteger::LONG_MASK;
+			int64_t carry = (v0 & FDBigInteger::LONG_MASK) * pow5;
 			v0 = (int32_t)carry;
 			$usrAssign(carry, 32);
-			carry = ((int64_t)(v1 & (uint64_t)FDBigInteger::LONG_MASK)) * pow5 + carry;
+			carry = (v1 & FDBigInteger::LONG_MASK) * pow5 + carry;
 			v1 = (int32_t)carry;
 			int32_t v2 = (int32_t)((int64_t)((uint64_t)carry >> 32));
 			if (bitcount == 0) {
@@ -243,7 +173,7 @@ FDBigInteger* FDBigInteger::valueOfMulPow52(int64_t value, int32_t p5, int32_t p
 FDBigInteger* FDBigInteger::valueOfPow2(int32_t p2) {
 	$init(FDBigInteger);
 	int32_t wordcount = p2 >> 5;
-	int32_t bitcount = (int32_t)(p2 & (uint32_t)31);
+	int32_t bitcount = p2 & 0x1f;
 	return $new(FDBigInteger, $$new($ints, {$sl(1, bitcount)}), wordcount);
 }
 
@@ -251,7 +181,7 @@ void FDBigInteger::trimLeadingZeros() {
 	int32_t i = this->nWords;
 	bool var$0 = i > 0;
 	if (var$0 && ($nc(this->data)->get(--i) == 0)) {
-		while (i > 0 && $nc(this->data)->get(i - 1) == 0) {
+		while (i > 0 && this->data->get(i - 1) == 0) {
 			--i;
 		}
 		this->nWords = i;
@@ -282,12 +212,12 @@ void FDBigInteger::leftShift($ints* src, int32_t idx, $ints* result, int32_t bit
 }
 
 FDBigInteger* FDBigInteger::leftShift(int32_t shift) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (shift == 0 || this->nWords == 0) {
 		return this;
 	}
 	int32_t wordcount = shift >> 5;
-	int32_t bitcount = (int32_t)(shift & (uint32_t)31);
+	int32_t bitcount = shift & 0x1f;
 	if (this->isImmutable) {
 		if (bitcount == 0) {
 			return $new(FDBigInteger, $($Arrays::copyOf(this->data, this->nWords)), this->offset + wordcount);
@@ -311,28 +241,28 @@ FDBigInteger* FDBigInteger::leftShift(int32_t shift) {
 			int32_t anticount = 32 - bitcount;
 			if (($sl($nc(this->data)->get(0), bitcount)) == 0) {
 				int32_t idx = 0;
-				int32_t prev = $nc(this->data)->get(idx);
+				int32_t prev = this->data->get(idx);
 				for (; idx < this->nWords - 1; ++idx) {
 					int32_t v = ($usr(prev, anticount));
-					prev = $nc(this->data)->get(idx + 1);
+					prev = this->data->get(idx + 1);
 					v |= ($sl(prev, bitcount));
-					$nc(this->data)->set(idx, v);
+					this->data->set(idx, v);
 				}
 				int32_t v = $usr(prev, anticount);
-				$nc(this->data)->set(idx, v);
+				this->data->set(idx, v);
 				if (v == 0) {
 					--this->nWords;
 				}
 				++this->offset;
 			} else {
 				int32_t idx = this->nWords - 1;
-				int32_t prev = $nc(this->data)->get(idx);
+				int32_t prev = this->data->get(idx);
 				int32_t hi = $usr(prev, anticount);
 				$var($ints, result, this->data);
 				$var($ints, src, this->data);
 				if (hi != 0) {
-					if (this->nWords == $nc(this->data)->length) {
-						$set(this, data, ($assign(result, $new($ints, this->nWords + 1))));
+					if (this->nWords == this->data->length) {
+						$set(this, data, $assign(result, $new($ints, this->nWords + 1)));
 					}
 					$nc(result)->set(this->nWords++, hi);
 				}
@@ -349,7 +279,7 @@ int32_t FDBigInteger::size() {
 }
 
 int32_t FDBigInteger::quoRemIteration(FDBigInteger* S) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!FDBigInteger::$assertionsDisabled && ! !this->isImmutable) {
 		$throwNew($AssertionError, $of("cannot modify immutable value"_s));
 	}
@@ -366,22 +296,18 @@ int32_t FDBigInteger::quoRemIteration(FDBigInteger* S) {
 	} else if (thSize > sSize) {
 		$throwNew($IllegalArgumentException, "disparate values"_s);
 	}
-	int64_t q = $div(((int64_t)($nc(this->data)->get(this->nWords - 1) & (uint64_t)FDBigInteger::LONG_MASK)), ((int64_t)($nc(S->data)->get(S->nWords - 1) & (uint64_t)FDBigInteger::LONG_MASK)));
+	int64_t q = $div(($nc(this->data)->get(this->nWords - 1) & FDBigInteger::LONG_MASK), ($nc(S->data)->get(S->nWords - 1) & FDBigInteger::LONG_MASK));
 	int64_t diff = multDiffMe(q, S);
-	if (diff != (int64_t)0) {
+	if (diff != 0) {
 		int64_t sum = 0;
 		int32_t tStart = S->offset - this->offset;
 		$var($ints, sd, S->data);
 		$var($ints, td, this->data);
-		while (sum == (int64_t)0) {
-			{
-				int32_t sIndex = 0;
-				int32_t tIndex = tStart;
-				for (; tIndex < this->nWords; ++sIndex, ++tIndex) {
-					sum += ((int64_t)($nc(td)->get(tIndex) & (uint64_t)FDBigInteger::LONG_MASK)) + ((int64_t)($nc(sd)->get(sIndex) & (uint64_t)FDBigInteger::LONG_MASK));
-					td->set(tIndex, (int32_t)sum);
-					$usrAssign(sum, 32);
-				}
+		while (sum == 0) {
+			for (int32_t sIndex = 0, tIndex = tStart; tIndex < this->nWords; ++sIndex, ++tIndex) {
+				sum += ($nc(td)->get(tIndex) & FDBigInteger::LONG_MASK) + ($nc(sd)->get(sIndex) & FDBigInteger::LONG_MASK);
+				td->set(tIndex, (int32_t)sum);
+				$usrAssign(sum, 32);
 			}
 			if (!FDBigInteger::$assertionsDisabled && !(sum == 0 || sum == 1)) {
 				$throwNew($AssertionError, sum);
@@ -409,14 +335,14 @@ FDBigInteger* FDBigInteger::multBy10() {
 		int32_t p = multAndCarryBy10(this->data, this->nWords, this->data);
 		if (p != 0) {
 			if (this->nWords == $nc(this->data)->length) {
-				if ($nc(this->data)->get(0) == 0) {
+				if (this->data->get(0) == 0) {
 					$System::arraycopy(this->data, 1, this->data, 0, --this->nWords);
 					++this->offset;
 				} else {
-					$set(this, data, $Arrays::copyOf(this->data, $nc(this->data)->length + 1));
+					$set(this, data, $Arrays::copyOf(this->data, this->data->length + 1));
 				}
 			}
-			$nc(this->data)->set(this->nWords++, p);
+			this->data->set(this->nWords++, p);
 		} else {
 			trimLeadingZeros();
 		}
@@ -425,7 +351,7 @@ FDBigInteger* FDBigInteger::multBy10() {
 }
 
 FDBigInteger* FDBigInteger::multByPow52(int32_t p5, int32_t p2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->nWords == 0) {
 		return this;
 	}
@@ -435,7 +361,7 @@ FDBigInteger* FDBigInteger::multByPow52(int32_t p5, int32_t p2) {
 		int32_t extraSize = (p2 != 0) ? 1 : 0;
 		if (p5 < $nc(FDBigInteger::SMALL_5_POW)->length) {
 			$assign(r, $new($ints, this->nWords + 1 + extraSize));
-			mult(this->data, this->nWords, $nc(FDBigInteger::SMALL_5_POW)->get(p5), r);
+			mult(this->data, this->nWords, FDBigInteger::SMALL_5_POW->get(p5), r);
 			$assign(res, $new(FDBigInteger, r, this->offset));
 		} else {
 			$var(FDBigInteger, pow5, big5pow(p5));
@@ -450,10 +376,10 @@ FDBigInteger* FDBigInteger::multByPow52(int32_t p5, int32_t p2) {
 void FDBigInteger::mult($ints* s1, int32_t s1Len, $ints* s2, int32_t s2Len, $ints* dst) {
 	$init(FDBigInteger);
 	for (int32_t i = 0; i < s1Len; ++i) {
-		int64_t v = (int64_t)($nc(s1)->get(i) & (uint64_t)FDBigInteger::LONG_MASK);
+		int64_t v = $nc(s1)->get(i) & FDBigInteger::LONG_MASK;
 		int64_t p = 0;
 		for (int32_t j = 0; j < s2Len; ++j) {
-			p += ((int64_t)($nc(dst)->get(i + j) & (uint64_t)FDBigInteger::LONG_MASK)) + v * ((int64_t)($nc(s2)->get(j) & (uint64_t)FDBigInteger::LONG_MASK));
+			p += ($nc(dst)->get(i + j) & FDBigInteger::LONG_MASK) + v * ($nc(s2)->get(j) & FDBigInteger::LONG_MASK);
 			dst->set(i + j, (int32_t)p);
 			$usrAssign(p, 32);
 		}
@@ -462,7 +388,7 @@ void FDBigInteger::mult($ints* s1, int32_t s1Len, $ints* s2, int32_t s2Len, $int
 }
 
 FDBigInteger* FDBigInteger::leftInplaceSub(FDBigInteger* subtrahend) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !FDBigInteger::$assertionsDisabled;
 	if (var$0) {
 		int32_t var$1 = this->size();
@@ -473,7 +399,7 @@ FDBigInteger* FDBigInteger::leftInplaceSub(FDBigInteger* subtrahend) {
 	}
 	$var(FDBigInteger, minuend, nullptr);
 	if (this->isImmutable) {
-		$assign(minuend, $new(FDBigInteger, $cast($ints, $($nc(this->data)->clone())), this->offset));
+		$assign(minuend, $new(FDBigInteger, $$cast($ints, $nc(this->data)->clone()), this->offset));
 	} else {
 		$assign(minuend, this);
 	}
@@ -490,7 +416,7 @@ FDBigInteger* FDBigInteger::leftInplaceSub(FDBigInteger* subtrahend) {
 		} else {
 			$var($ints, r, $new($ints, rLen));
 			$System::arraycopy(mData, 0, r, -offsetDiff, minLen);
-			$set(minuend, data, ($assign(mData, r)));
+			$set(minuend, data, $assign(mData, r));
 		}
 		minuend->offset = subtrahend->offset;
 		minuend->nWords = (minLen = rLen);
@@ -499,16 +425,16 @@ FDBigInteger* FDBigInteger::leftInplaceSub(FDBigInteger* subtrahend) {
 	int64_t borrow = 0;
 	int32_t mIndex = offsetDiff;
 	for (int32_t sIndex = 0; sIndex < subLen && mIndex < minLen; ++sIndex, ++mIndex) {
-		int64_t diff = ((int64_t)($nc(mData)->get(mIndex) & (uint64_t)FDBigInteger::LONG_MASK)) - ((int64_t)($nc(sData)->get(sIndex) & (uint64_t)FDBigInteger::LONG_MASK)) + borrow;
+		int64_t diff = ($nc(mData)->get(mIndex) & FDBigInteger::LONG_MASK) - ($nc(sData)->get(sIndex) & FDBigInteger::LONG_MASK) + borrow;
 		mData->set(mIndex, (int32_t)diff);
 		borrow = diff >> 32;
 	}
 	for (; borrow != 0 && mIndex < minLen; ++mIndex) {
-		int64_t diff = ((int64_t)($nc(mData)->get(mIndex) & (uint64_t)FDBigInteger::LONG_MASK)) + borrow;
+		int64_t diff = ($nc(mData)->get(mIndex) & FDBigInteger::LONG_MASK) + borrow;
 		mData->set(mIndex, (int32_t)diff);
 		borrow = diff >> 32;
 	}
-	if (!FDBigInteger::$assertionsDisabled && !(borrow == (int64_t)0)) {
+	if (!FDBigInteger::$assertionsDisabled && !(borrow == 0)) {
 		$throwNew($AssertionError, borrow);
 	}
 	minuend->trimLeadingZeros();
@@ -516,7 +442,7 @@ FDBigInteger* FDBigInteger::leftInplaceSub(FDBigInteger* subtrahend) {
 }
 
 FDBigInteger* FDBigInteger::rightInplaceSub(FDBigInteger* subtrahend$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(FDBigInteger, subtrahend, subtrahend$renamed);
 	bool var$0 = !FDBigInteger::$assertionsDisabled;
 	if (var$0) {
@@ -528,9 +454,9 @@ FDBigInteger* FDBigInteger::rightInplaceSub(FDBigInteger* subtrahend$renamed) {
 	}
 	$var(FDBigInteger, minuend, this);
 	if ($nc(subtrahend)->isImmutable) {
-		$assign(subtrahend, $new(FDBigInteger, $cast($ints, $($nc(subtrahend->data)->clone())), subtrahend->offset));
+		$assign(subtrahend, $new(FDBigInteger, $$cast($ints, $nc(subtrahend->data)->clone()), subtrahend->offset));
 	}
-	int32_t offsetDiff = minuend->offset - $nc(subtrahend)->offset;
+	int32_t offsetDiff = minuend->offset - subtrahend->offset;
 	$var($ints, sData, subtrahend->data);
 	$var($ints, mData, minuend->data);
 	int32_t subLen = subtrahend->nWords;
@@ -543,7 +469,7 @@ FDBigInteger* FDBigInteger::rightInplaceSub(FDBigInteger* subtrahend$renamed) {
 		} else {
 			$var($ints, r, $new($ints, rLen));
 			$System::arraycopy(sData, 0, r, -offsetDiff, subLen);
-			$set(subtrahend, data, ($assign(sData, r)));
+			$set(subtrahend, data, $assign(sData, r));
 		}
 		subtrahend->offset = minuend->offset;
 		subLen -= offsetDiff;
@@ -551,22 +477,22 @@ FDBigInteger* FDBigInteger::rightInplaceSub(FDBigInteger* subtrahend$renamed) {
 	} else {
 		int32_t rLen = minLen + offsetDiff;
 		if (rLen >= $nc(sData)->length) {
-			$set(subtrahend, data, ($assign(sData, $Arrays::copyOf(sData, rLen))));
+			$set(subtrahend, data, $assign(sData, $Arrays::copyOf(sData, rLen)));
 		}
 	}
 	int32_t sIndex = 0;
 	int64_t borrow = 0;
 	for (; sIndex < offsetDiff; ++sIndex) {
-		int64_t diff = (int64_t)0 - ((int64_t)($nc(sData)->get(sIndex) & (uint64_t)FDBigInteger::LONG_MASK)) + borrow;
+		int64_t diff = (int64_t)0 - ($nc(sData)->get(sIndex) & FDBigInteger::LONG_MASK) + borrow;
 		sData->set(sIndex, (int32_t)diff);
 		borrow = diff >> 32;
 	}
 	for (int32_t mIndex = 0; mIndex < minLen; ++sIndex, ++mIndex) {
-		int64_t diff = ((int64_t)($nc(mData)->get(mIndex) & (uint64_t)FDBigInteger::LONG_MASK)) - ((int64_t)($nc(sData)->get(sIndex) & (uint64_t)FDBigInteger::LONG_MASK)) + borrow;
+		int64_t diff = ($nc(mData)->get(mIndex) & FDBigInteger::LONG_MASK) - ($nc(sData)->get(sIndex) & FDBigInteger::LONG_MASK) + borrow;
 		sData->set(sIndex, (int32_t)diff);
 		borrow = diff >> 32;
 	}
-	if (!FDBigInteger::$assertionsDisabled && !(borrow == (int64_t)0)) {
+	if (!FDBigInteger::$assertionsDisabled && !(borrow == 0)) {
 		$throwNew($AssertionError, borrow);
 	}
 	subtrahend->nWords = sIndex;
@@ -586,7 +512,7 @@ int32_t FDBigInteger::checkZeroTail($ints* a, int32_t from) {
 
 int32_t FDBigInteger::cmp(FDBigInteger* other) {
 	int32_t aSize = this->nWords + this->offset;
-	int32_t bSize = $nc(other)->nWords + other->offset;
+	int32_t bSize = $nc(other)->nWords + $nc(other)->offset;
 	if (aSize > bSize) {
 		return 1;
 	} else if (aSize < bSize) {
@@ -598,7 +524,7 @@ int32_t FDBigInteger::cmp(FDBigInteger* other) {
 		int32_t a = $nc(this->data)->get(--aLen);
 		int32_t b = $nc(other->data)->get(--bLen);
 		if (a != b) {
-			return (((int64_t)(a & (uint64_t)FDBigInteger::LONG_MASK)) < ((int64_t)(b & (uint64_t)FDBigInteger::LONG_MASK))) ? -1 : 1;
+			return ((a & FDBigInteger::LONG_MASK) < (b & FDBigInteger::LONG_MASK)) ? -1 : 1;
 		}
 	}
 	if (aLen > 0) {
@@ -611,10 +537,10 @@ int32_t FDBigInteger::cmp(FDBigInteger* other) {
 }
 
 int32_t FDBigInteger::cmpPow52(int32_t p5, int32_t p2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (p5 == 0) {
 		int32_t wordcount = p2 >> 5;
-		int32_t bitcount = (int32_t)(p2 & (uint32_t)31);
+		int32_t bitcount = p2 & 0x1f;
 		int32_t size = this->nWords + this->offset;
 		if (size > wordcount + 1) {
 			return 1;
@@ -624,15 +550,15 @@ int32_t FDBigInteger::cmpPow52(int32_t p5, int32_t p2) {
 		int32_t a = $nc(this->data)->get(this->nWords - 1);
 		int32_t b = $sl(1, bitcount);
 		if (a != b) {
-			return (((int64_t)(a & (uint64_t)FDBigInteger::LONG_MASK)) < ((int64_t)(b & (uint64_t)FDBigInteger::LONG_MASK))) ? -1 : 1;
+			return ((a & FDBigInteger::LONG_MASK) < (b & FDBigInteger::LONG_MASK)) ? -1 : 1;
 		}
 		return checkZeroTail(this->data, this->nWords - 1);
 	}
-	return this->cmp($($nc($(big5pow(p5)))->leftShift(p2)));
+	return this->cmp($($$nc(big5pow(p5))->leftShift(p2)));
 }
 
 int32_t FDBigInteger::addAndCmp(FDBigInteger* x, FDBigInteger* y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(FDBigInteger, big, nullptr);
 	$var(FDBigInteger, small, nullptr);
 	int32_t xSize = $nc(x)->size();
@@ -663,16 +589,16 @@ int32_t FDBigInteger::addAndCmp(FDBigInteger* x, FDBigInteger* y) {
 	if (bSize + 1 < thSize) {
 		return 1;
 	}
-	int64_t top = ((int64_t)($nc($nc(big)->data)->get(big->nWords - 1) & (uint64_t)FDBigInteger::LONG_MASK));
+	int64_t top = ($nc($nc(big)->data)->get($nc(big)->nWords - 1) & FDBigInteger::LONG_MASK);
 	if (sSize == bSize) {
-		top += ((int64_t)($nc($nc(small)->data)->get(small->nWords - 1) & (uint64_t)FDBigInteger::LONG_MASK));
+		top += ($nc($nc(small)->data)->get($nc(small)->nWords - 1) & FDBigInteger::LONG_MASK);
 	}
 	if (((int64_t)((uint64_t)top >> 32)) == 0) {
 		if (((int64_t)((uint64_t)(top + 1) >> 32)) == 0) {
 			if (bSize < thSize) {
 				return 1;
 			}
-			int64_t v = ((int64_t)($nc(this->data)->get(this->nWords - 1) & (uint64_t)FDBigInteger::LONG_MASK));
+			int64_t v = ($nc(this->data)->get(this->nWords - 1) & FDBigInteger::LONG_MASK);
 			if (v < top) {
 				return -1;
 			}
@@ -685,7 +611,7 @@ int32_t FDBigInteger::addAndCmp(FDBigInteger* x, FDBigInteger* y) {
 			return -1;
 		}
 		$usrAssign(top, 32);
-		int64_t v = ((int64_t)($nc(this->data)->get(this->nWords - 1) & (uint64_t)FDBigInteger::LONG_MASK));
+		int64_t v = ($nc(this->data)->get(this->nWords - 1) & FDBigInteger::LONG_MASK);
 		if (v < top) {
 			return -1;
 		}
@@ -719,16 +645,16 @@ FDBigInteger* FDBigInteger::mult(FDBigInteger* other) {
 	if ($nc(other)->nWords == 0) {
 		return other;
 	}
-	if ($nc(other)->size() == 1) {
+	if (other->size() == 1) {
 		return this->mult($nc(other->data)->get(0));
 	}
-	$var($ints, r, $new($ints, this->nWords + $nc(other)->nWords));
+	$var($ints, r, $new($ints, this->nWords + other->nWords));
 	mult(this->data, this->nWords, other->data, other->nWords, r);
 	return $new(FDBigInteger, r, this->offset + other->offset);
 }
 
 FDBigInteger* FDBigInteger::add(FDBigInteger* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(FDBigInteger, big, nullptr);
 	$var(FDBigInteger, small, nullptr);
 	int32_t bigLen = 0;
@@ -750,12 +676,12 @@ FDBigInteger* FDBigInteger::add(FDBigInteger* other) {
 	int32_t i = 0;
 	int64_t carry = 0;
 	for (; i < smallLen; ++i) {
-		carry += (i < $nc(big)->offset ? (int64_t)0 : ((int64_t)($nc($nc(big)->data)->get(i - big->offset) & (uint64_t)FDBigInteger::LONG_MASK))) + (i < $nc(small)->offset ? (int64_t)0 : ((int64_t)($nc($nc(small)->data)->get(i - small->offset) & (uint64_t)FDBigInteger::LONG_MASK)));
+		carry += (i < $nc(big)->offset ? 0 : ($nc(big->data)->get(i - big->offset) & FDBigInteger::LONG_MASK)) + (i < $nc(small)->offset ? 0 : ($nc(small->data)->get(i - small->offset) & FDBigInteger::LONG_MASK));
 		r->set(i, (int32_t)carry);
 		carry >>= 32;
 	}
 	for (; i < bigLen; ++i) {
-		carry += (i < $nc(big)->offset ? (int64_t)0 : ((int64_t)($nc($nc(big)->data)->get(i - big->offset) & (uint64_t)FDBigInteger::LONG_MASK)));
+		carry += (i < $nc(big)->offset ? 0 : ($nc(big->data)->get(i - big->offset) & FDBigInteger::LONG_MASK));
 		r->set(i, (int32_t)carry);
 		carry >>= 32;
 	}
@@ -764,36 +690,32 @@ FDBigInteger* FDBigInteger::add(FDBigInteger* other) {
 }
 
 void FDBigInteger::multAddMe(int32_t iv, int32_t addend) {
-	int64_t v = (int64_t)(iv & (uint64_t)FDBigInteger::LONG_MASK);
-	int64_t p = v * ((int64_t)($nc(this->data)->get(0) & (uint64_t)FDBigInteger::LONG_MASK)) + ((int64_t)(addend & (uint64_t)FDBigInteger::LONG_MASK));
-	$nc(this->data)->set(0, (int32_t)p);
+	int64_t v = iv & FDBigInteger::LONG_MASK;
+	int64_t p = v * ($nc(this->data)->get(0) & FDBigInteger::LONG_MASK) + (addend & FDBigInteger::LONG_MASK);
+	this->data->set(0, (int32_t)p);
 	$usrAssign(p, 32);
 	for (int32_t i = 1; i < this->nWords; ++i) {
-		p += v * ((int64_t)($nc(this->data)->get(i) & (uint64_t)FDBigInteger::LONG_MASK));
-		$nc(this->data)->set(i, (int32_t)p);
+		p += v * (this->data->get(i) & FDBigInteger::LONG_MASK);
+		this->data->set(i, (int32_t)p);
 		$usrAssign(p, 32);
 	}
-	if (p != (int64_t)0) {
-		$nc(this->data)->set(this->nWords++, (int32_t)p);
+	if (p != 0) {
+		this->data->set(this->nWords++, (int32_t)p);
 	}
 }
 
 int64_t FDBigInteger::multDiffMe(int64_t q, FDBigInteger* S) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t diff = 0;
 	if (q != 0) {
 		int32_t deltaSize = $nc(S)->offset - this->offset;
 		if (deltaSize >= 0) {
 			$var($ints, sd, S->data);
 			$var($ints, td, this->data);
-			{
-				int32_t sIndex = 0;
-				int32_t tIndex = deltaSize;
-				for (; sIndex < S->nWords; ++sIndex, ++tIndex) {
-					diff += ((int64_t)($nc(td)->get(tIndex) & (uint64_t)FDBigInteger::LONG_MASK)) - q * ((int64_t)($nc(sd)->get(sIndex) & (uint64_t)FDBigInteger::LONG_MASK));
-					td->set(tIndex, (int32_t)diff);
-					diff >>= 32;
-				}
+			for (int32_t sIndex = 0, tIndex = deltaSize; sIndex < S->nWords; ++sIndex, ++tIndex) {
+				diff += ($nc(td)->get(tIndex) & FDBigInteger::LONG_MASK) - q * ($nc(sd)->get(sIndex) & FDBigInteger::LONG_MASK);
+				td->set(tIndex, (int32_t)diff);
+				diff >>= 32;
 			}
 		} else {
 			deltaSize = -deltaSize;
@@ -802,14 +724,14 @@ int64_t FDBigInteger::multDiffMe(int64_t q, FDBigInteger* S) {
 			int32_t rIndex = 0;
 			$var($ints, sd, S->data);
 			for (; rIndex < deltaSize && sIndex < S->nWords; ++sIndex, ++rIndex) {
-				diff -= q * ((int64_t)($nc(sd)->get(sIndex) & (uint64_t)FDBigInteger::LONG_MASK));
+				diff -= q * ($nc(sd)->get(sIndex) & FDBigInteger::LONG_MASK);
 				rd->set(rIndex, (int32_t)diff);
 				diff >>= 32;
 			}
 			int32_t tIndex = 0;
 			$var($ints, td, this->data);
 			for (; sIndex < S->nWords; ++sIndex, ++tIndex, ++rIndex) {
-				diff += ((int64_t)($nc(td)->get(tIndex) & (uint64_t)FDBigInteger::LONG_MASK)) - q * ((int64_t)($nc(sd)->get(sIndex) & (uint64_t)FDBigInteger::LONG_MASK));
+				diff += ($nc(td)->get(tIndex) & FDBigInteger::LONG_MASK) - q * ($nc(sd)->get(sIndex) & FDBigInteger::LONG_MASK);
 				rd->set(rIndex, (int32_t)diff);
 				diff >>= 32;
 			}
@@ -825,7 +747,7 @@ int32_t FDBigInteger::multAndCarryBy10($ints* src, int32_t srcLen, $ints* dst) {
 	$init(FDBigInteger);
 	int64_t carry = 0;
 	for (int32_t i = 0; i < srcLen; ++i) {
-		int64_t product = ((int64_t)($nc(src)->get(i) & (uint64_t)FDBigInteger::LONG_MASK)) * (int64_t)10 + carry;
+		int64_t product = ($nc(src)->get(i) & FDBigInteger::LONG_MASK) * (int64_t)0x0a + carry;
 		$nc(dst)->set(i, (int32_t)product);
 		carry = (int64_t)((uint64_t)product >> 32);
 	}
@@ -834,10 +756,10 @@ int32_t FDBigInteger::multAndCarryBy10($ints* src, int32_t srcLen, $ints* dst) {
 
 void FDBigInteger::mult($ints* src, int32_t srcLen, int32_t value, $ints* dst) {
 	$init(FDBigInteger);
-	int64_t val = (int64_t)(value & (uint64_t)FDBigInteger::LONG_MASK);
+	int64_t val = value & FDBigInteger::LONG_MASK;
 	int64_t carry = 0;
 	for (int32_t i = 0; i < srcLen; ++i) {
-		int64_t product = ((int64_t)($nc(src)->get(i) & (uint64_t)FDBigInteger::LONG_MASK)) * val + carry;
+		int64_t product = ($nc(src)->get(i) & FDBigInteger::LONG_MASK) * val + carry;
 		$nc(dst)->set(i, (int32_t)product);
 		carry = (int64_t)((uint64_t)product >> 32);
 	}
@@ -846,18 +768,18 @@ void FDBigInteger::mult($ints* src, int32_t srcLen, int32_t value, $ints* dst) {
 
 void FDBigInteger::mult($ints* src, int32_t srcLen, int32_t v0, int32_t v1, $ints* dst) {
 	$init(FDBigInteger);
-	int64_t v = (int64_t)(v0 & (uint64_t)FDBigInteger::LONG_MASK);
+	int64_t v = v0 & FDBigInteger::LONG_MASK;
 	int64_t carry = 0;
 	for (int32_t j = 0; j < srcLen; ++j) {
-		int64_t product = v * ((int64_t)($nc(src)->get(j) & (uint64_t)FDBigInteger::LONG_MASK)) + carry;
+		int64_t product = v * ($nc(src)->get(j) & FDBigInteger::LONG_MASK) + carry;
 		$nc(dst)->set(j, (int32_t)product);
 		carry = (int64_t)((uint64_t)product >> 32);
 	}
 	$nc(dst)->set(srcLen, (int32_t)carry);
-	v = (int64_t)(v1 & (uint64_t)FDBigInteger::LONG_MASK);
+	v = v1 & FDBigInteger::LONG_MASK;
 	carry = 0;
 	for (int32_t j = 0; j < srcLen; ++j) {
-		int64_t product = ((int64_t)(dst->get(j + 1) & (uint64_t)FDBigInteger::LONG_MASK)) + v * ((int64_t)($nc(src)->get(j) & (uint64_t)FDBigInteger::LONG_MASK)) + carry;
+		int64_t product = (dst->get(j + 1) & FDBigInteger::LONG_MASK) + v * ($nc(src)->get(j) & FDBigInteger::LONG_MASK) + carry;
 		dst->set(j + 1, (int32_t)product);
 		carry = (int64_t)((uint64_t)product >> 32);
 	}
@@ -877,7 +799,7 @@ FDBigInteger* FDBigInteger::big5pow(int32_t p) {
 
 FDBigInteger* FDBigInteger::big5powRec(int32_t p) {
 	$init(FDBigInteger);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (p < FDBigInteger::MAX_FIVE_POW) {
 		return $nc(FDBigInteger::POW_5_CACHE)->get(p);
 	}
@@ -887,14 +809,14 @@ FDBigInteger* FDBigInteger::big5powRec(int32_t p) {
 	r = p - q;
 	$var(FDBigInteger, bigq, big5powRec(q));
 	if (r < $nc(FDBigInteger::SMALL_5_POW)->length) {
-		return $nc(bigq)->mult($nc(FDBigInteger::SMALL_5_POW)->get(r));
+		return $nc(bigq)->mult(FDBigInteger::SMALL_5_POW->get(r));
 	} else {
 		return $nc(bigq)->mult($(big5powRec(r)));
 	}
 }
 
 $String* FDBigInteger::toHexString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->nWords == 0) {
 		return "0"_s;
 	}
@@ -913,7 +835,7 @@ $String* FDBigInteger::toHexString() {
 }
 
 $BigInteger* FDBigInteger::toBigInteger() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, magnitude, $new($bytes, this->nWords * 4 + 1));
 	for (int32_t i = 0; i < this->nWords; ++i) {
 		int32_t w = $nc(this->data)->get(i);
@@ -926,19 +848,19 @@ $BigInteger* FDBigInteger::toBigInteger() {
 }
 
 $String* FDBigInteger::toString() {
-	return $nc($(toBigInteger()))->toString();
+	return $$nc(toBigInteger())->toString();
 }
 
-void clinit$FDBigInteger($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void FDBigInteger::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	FDBigInteger::$assertionsDisabled = !FDBigInteger::class$->desiredAssertionStatus();
 	{
 		$CDS::initializeFromArchive(FDBigInteger::class$);
 		$var($ObjectArray, caches, FDBigInteger::archivedCaches);
 		if (caches == nullptr) {
 			$var($longs, long5pow, $new($longs, {
-				(int64_t)1,
-				(int64_t)5,
+				1,
+				5,
 				(int64_t)5 * 5,
 				(int64_t)5 * 5 * 5,
 				(int64_t)5 * 5 * 5 * 5,
@@ -992,17 +914,17 @@ void clinit$FDBigInteger($Class* class$) {
 			$var(FDBigInteger, prev, pow5cache->get(i - 1));
 			while (i < FDBigInteger::MAX_FIVE_POW) {
 				pow5cache->set(i, $assign(prev, $nc(prev)->mult(5)));
-				prev->makeImmutable();
+				$nc(prev)->makeImmutable();
 				++i;
 			}
 			$var(FDBigInteger, zero, $new(FDBigInteger, $$new($ints, 0), 0));
 			zero->makeImmutable();
-			$assignStatic(FDBigInteger::archivedCaches, ($assign(caches, $new($ObjectArray, {
-				$of(small5pow),
-				$of(long5pow),
-				$of(pow5cache),
-				$of(zero)
-			}))));
+			$assignStatic(FDBigInteger::archivedCaches, $assign(caches, $new($ObjectArray, {
+				small5pow,
+				long5pow,
+				pow5cache,
+				zero
+			})));
 		}
 		$assignStatic(FDBigInteger::SMALL_5_POW, $cast($ints, $nc(caches)->get(0)));
 		$assignStatic(FDBigInteger::LONG_5_POW, $cast($longs, caches->get(1)));
@@ -1015,7 +937,69 @@ FDBigInteger::FDBigInteger() {
 }
 
 $Class* FDBigInteger::load$($String* name, bool initialize) {
-	$loadClass(FDBigInteger, name, initialize, &_FDBigInteger_ClassInfo_, clinit$FDBigInteger, allocate$FDBigInteger);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FDBigInteger, $assertionsDisabled)},
+		{"SMALL_5_POW", "[I", nullptr, $STATIC | $FINAL, $staticField(FDBigInteger, SMALL_5_POW)},
+		{"LONG_5_POW", "[J", nullptr, $STATIC | $FINAL, $staticField(FDBigInteger, LONG_5_POW)},
+		{"MAX_FIVE_POW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FDBigInteger, MAX_FIVE_POW)},
+		{"POW_5_CACHE", "[Ljdk/internal/math/FDBigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FDBigInteger, POW_5_CACHE)},
+		{"ZERO", "Ljdk/internal/math/FDBigInteger;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FDBigInteger, ZERO)},
+		{"archivedCaches", "[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(FDBigInteger, archivedCaches)},
+		{"LONG_MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FDBigInteger, LONG_MASK)},
+		{"data", "[I", nullptr, $PRIVATE, $field(FDBigInteger, data)},
+		{"offset", "I", nullptr, $PRIVATE, $field(FDBigInteger, offset)},
+		{"nWords", "I", nullptr, $PRIVATE, $field(FDBigInteger, nWords)},
+		{"isImmutable", "Z", nullptr, $PRIVATE, $field(FDBigInteger, isImmutable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([II)V", nullptr, $PRIVATE, $method(FDBigInteger, init$, void, $ints*, int32_t)},
+		{"<init>", "(J[CII)V", nullptr, $PUBLIC, $method(FDBigInteger, init$, void, int64_t, $chars*, int32_t, int32_t)},
+		{"add", "(Ljdk/internal/math/FDBigInteger;)Ljdk/internal/math/FDBigInteger;", nullptr, $PRIVATE, $method(FDBigInteger, add, FDBigInteger*, FDBigInteger*)},
+		{"addAndCmp", "(Ljdk/internal/math/FDBigInteger;Ljdk/internal/math/FDBigInteger;)I", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, addAndCmp, int32_t, FDBigInteger*, FDBigInteger*)},
+		{"big5pow", "(I)Ljdk/internal/math/FDBigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(FDBigInteger, big5pow, FDBigInteger*, int32_t)},
+		{"big5powRec", "(I)Ljdk/internal/math/FDBigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(FDBigInteger, big5powRec, FDBigInteger*, int32_t)},
+		{"checkZeroTail", "([II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(FDBigInteger, checkZeroTail, int32_t, $ints*, int32_t)},
+		{"cmp", "(Ljdk/internal/math/FDBigInteger;)I", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, cmp, int32_t, FDBigInteger*)},
+		{"cmpPow52", "(II)I", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, cmpPow52, int32_t, int32_t, int32_t)},
+		{"getNormalizationBias", "()I", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, getNormalizationBias, int32_t)},
+		{"leftInplaceSub", "(Ljdk/internal/math/FDBigInteger;)Ljdk/internal/math/FDBigInteger;", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, leftInplaceSub, FDBigInteger*, FDBigInteger*)},
+		{"leftShift", "([II[IIII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FDBigInteger, leftShift, void, $ints*, int32_t, $ints*, int32_t, int32_t, int32_t)},
+		{"leftShift", "(I)Ljdk/internal/math/FDBigInteger;", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, leftShift, FDBigInteger*, int32_t)},
+		{"makeImmutable", "()V", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, makeImmutable, void)},
+		{"mult", "([II[II[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FDBigInteger, mult, void, $ints*, int32_t, $ints*, int32_t, $ints*)},
+		{"mult", "(I)Ljdk/internal/math/FDBigInteger;", nullptr, $PRIVATE, $method(FDBigInteger, mult, FDBigInteger*, int32_t)},
+		{"mult", "(Ljdk/internal/math/FDBigInteger;)Ljdk/internal/math/FDBigInteger;", nullptr, $PRIVATE, $method(FDBigInteger, mult, FDBigInteger*, FDBigInteger*)},
+		{"mult", "([III[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FDBigInteger, mult, void, $ints*, int32_t, int32_t, $ints*)},
+		{"mult", "([IIII[I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FDBigInteger, mult, void, $ints*, int32_t, int32_t, int32_t, $ints*)},
+		{"multAddMe", "(II)V", nullptr, $PRIVATE, $method(FDBigInteger, multAddMe, void, int32_t, int32_t)},
+		{"multAndCarryBy10", "([II[I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(FDBigInteger, multAndCarryBy10, int32_t, $ints*, int32_t, $ints*)},
+		{"multBy10", "()Ljdk/internal/math/FDBigInteger;", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, multBy10, FDBigInteger*)},
+		{"multByPow52", "(II)Ljdk/internal/math/FDBigInteger;", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, multByPow52, FDBigInteger*, int32_t, int32_t)},
+		{"multDiffMe", "(JLjdk/internal/math/FDBigInteger;)J", nullptr, $PRIVATE, $method(FDBigInteger, multDiffMe, int64_t, int64_t, FDBigInteger*)},
+		{"quoRemIteration", "(Ljdk/internal/math/FDBigInteger;)I", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, quoRemIteration, int32_t, FDBigInteger*), "java.lang.IllegalArgumentException"},
+		{"rightInplaceSub", "(Ljdk/internal/math/FDBigInteger;)Ljdk/internal/math/FDBigInteger;", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, rightInplaceSub, FDBigInteger*, FDBigInteger*)},
+		{"size", "()I", nullptr, $PRIVATE, $method(FDBigInteger, size, int32_t)},
+		{"toBigInteger", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, toBigInteger, $BigInteger*)},
+		{"toHexString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, toHexString, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FDBigInteger, toString, $String*)},
+		{"trimLeadingZeros", "()V", nullptr, $PRIVATE, $method(FDBigInteger, trimLeadingZeros, void)},
+		{"valueOfMulPow52", "(JII)Ljdk/internal/math/FDBigInteger;", nullptr, $PUBLIC | $STATIC, $staticMethod(FDBigInteger, valueOfMulPow52, FDBigInteger*, int64_t, int32_t, int32_t)},
+		{"valueOfPow2", "(I)Ljdk/internal/math/FDBigInteger;", nullptr, $PRIVATE | $STATIC, $staticMethod(FDBigInteger, valueOfPow2, FDBigInteger*, int32_t)},
+		{"valueOfPow52", "(II)Ljdk/internal/math/FDBigInteger;", nullptr, $PUBLIC | $STATIC, $staticMethod(FDBigInteger, valueOfPow52, FDBigInteger*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.math.FDBigInteger",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FDBigInteger, name, initialize, &classInfo$$, FDBigInteger::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FDBigInteger);
+	});
 	return class$;
 }
 

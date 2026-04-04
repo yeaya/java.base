@@ -1,11 +1,8 @@
 #include <jdk/internal/jimage/decompressor/StringSharingDecompressor.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/DataInputStream.h>
 #include <java/io/DataOutputStream.h>
-#include <java/io/InputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/ByteOrder.h>
 #include <java/util/Arrays.h>
@@ -26,8 +23,6 @@ using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $DataInputStream = ::java::io::DataInputStream;
 using $DataOutputStream = ::java::io::DataOutputStream;
-using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
@@ -46,67 +41,18 @@ namespace jdk {
 		namespace jimage {
 			namespace decompressor {
 
-$FieldInfo _StringSharingDecompressor_FieldInfo_[] = {
-	{"EXTERNALIZED_STRING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(StringSharingDecompressor, EXTERNALIZED_STRING)},
-	{"EXTERNALIZED_STRING_DESCRIPTOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(StringSharingDecompressor, EXTERNALIZED_STRING_DESCRIPTOR)},
-	{"CONSTANT_Utf8", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_Utf8)},
-	{"CONSTANT_Integer", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_Integer)},
-	{"CONSTANT_Float", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_Float)},
-	{"CONSTANT_Long", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_Long)},
-	{"CONSTANT_Double", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_Double)},
-	{"CONSTANT_Class", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_Class)},
-	{"CONSTANT_String", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_String)},
-	{"CONSTANT_Fieldref", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_Fieldref)},
-	{"CONSTANT_Methodref", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_Methodref)},
-	{"CONSTANT_InterfaceMethodref", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_InterfaceMethodref)},
-	{"CONSTANT_NameAndType", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_NameAndType)},
-	{"CONSTANT_MethodHandle", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_MethodHandle)},
-	{"CONSTANT_MethodType", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_MethodType)},
-	{"CONSTANT_InvokeDynamic", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_InvokeDynamic)},
-	{"CONSTANT_Module", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_Module)},
-	{"CONSTANT_Package", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_Package)},
-	{"SIZES", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StringSharingDecompressor, SIZES)},
-	{}
-};
-
-$MethodInfo _StringSharingDecompressor_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Properties;)V", nullptr, $PUBLIC, $method(StringSharingDecompressor, init$, void, $Properties*)},
-	{"decompress", "(Ljdk/internal/jimage/decompressor/ResourceDecompressor$StringsProvider;[BIJ)[B", nullptr, $PUBLIC, $virtualMethod(StringSharingDecompressor, decompress, $bytes*, $ResourceDecompressor$StringsProvider*, $bytes*, int32_t, int64_t), "java.lang.Exception"},
-	{"getEncoded", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(StringSharingDecompressor, getEncoded, $bytes*, $String*), "java.io.IOException"},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringSharingDecompressor, getName, $String*)},
-	{"getSizes", "()[I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringSharingDecompressor, getSizes, $ints*)},
-	{"normalize", "(Ljdk/internal/jimage/decompressor/ResourceDecompressor$StringsProvider;[BI)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(StringSharingDecompressor, normalize, $bytes*, $ResourceDecompressor$StringsProvider*, $bytes*, int32_t), "java.io.IOException"},
-	{"reconstruct", "(Ljdk/internal/jimage/decompressor/ResourceDecompressor$StringsProvider;Ljava/io/DataInputStream;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(StringSharingDecompressor, reconstruct, $String*, $ResourceDecompressor$StringsProvider*, $DataInputStream*), "java.io.IOException"},
-	{"safeAdd", "(Ljava/nio/ByteBuffer;B)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(StringSharingDecompressor, safeAdd, $ByteBuffer*, $ByteBuffer*, int8_t)},
-	{"safeAdd", "(Ljava/nio/ByteBuffer;[B)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(StringSharingDecompressor, safeAdd, $ByteBuffer*, $ByteBuffer*, $bytes*)},
-	{}
-};
-
-$ClassInfo _StringSharingDecompressor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.jimage.decompressor.StringSharingDecompressor",
-	"java.lang.Object",
-	"jdk.internal.jimage.decompressor.ResourceDecompressor",
-	_StringSharingDecompressor_FieldInfo_,
-	_StringSharingDecompressor_MethodInfo_
-};
-
-$Object* allocate$StringSharingDecompressor($Class* clazz) {
-	return $of($alloc(StringSharingDecompressor));
-}
-
 $ints* StringSharingDecompressor::SIZES = nullptr;
 
 $ints* StringSharingDecompressor::getSizes() {
 	$init(StringSharingDecompressor);
-	return $cast($ints, $nc(StringSharingDecompressor::SIZES)->clone());
+	return $cast($ints, StringSharingDecompressor::SIZES->clone());
 }
 
 $bytes* StringSharingDecompressor::normalize($ResourceDecompressor$StringsProvider* provider, $bytes* transformed, int32_t offset) {
 	$init(StringSharingDecompressor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DataInputStream, stream, $new($DataInputStream, $$new($ByteArrayInputStream, transformed, offset, $nc(transformed)->length - offset)));
-	$var($ByteArrayOutputStream, outStream, $new($ByteArrayOutputStream, $nc(transformed)->length));
+	$var($ByteArrayOutputStream, outStream, $new($ByteArrayOutputStream, transformed->length));
 	$var($DataOutputStream, out, $new($DataOutputStream, outStream));
 	$var($bytes, header, $new($bytes, 8));
 	stream->readFully(header);
@@ -119,62 +65,50 @@ $bytes* StringSharingDecompressor::normalize($ResourceDecompressor$StringsProvid
 		switch (tag) {
 		case StringSharingDecompressor::CONSTANT_Utf8:
 			{
-				{
-					out->write(tag);
-					$var($String, utf, stream->readUTF());
-					out->writeUTF(utf);
-					break;
-				}
+				out->write(tag);
+				$var($String, utf, stream->readUTF());
+				out->writeUTF(utf);
+				break;
 			}
 		case StringSharingDecompressor::EXTERNALIZED_STRING:
 			{
-				{
-					int32_t index = $CompressIndexes::readInt(stream);
-					$var($String, orig, $nc(provider)->getString(index));
-					out->write(StringSharingDecompressor::CONSTANT_Utf8);
-					out->writeUTF(orig);
-					break;
-				}
+				int32_t index = $CompressIndexes::readInt(stream);
+				$var($String, orig, $nc(provider)->getString(index));
+				out->write(StringSharingDecompressor::CONSTANT_Utf8);
+				out->writeUTF(orig);
+				break;
 			}
 		case StringSharingDecompressor::EXTERNALIZED_STRING_DESCRIPTOR:
 			{
-				{
-					$var($String, orig, reconstruct(provider, stream));
-					out->write(StringSharingDecompressor::CONSTANT_Utf8);
-					out->writeUTF(orig);
-					break;
-				}
+				$var($String, orig, reconstruct(provider, stream));
+				out->write(StringSharingDecompressor::CONSTANT_Utf8);
+				out->writeUTF(orig);
+				break;
 			}
 		case StringSharingDecompressor::CONSTANT_Long:
-			{}
 		case StringSharingDecompressor::CONSTANT_Double:
 			{
-				{
-					++i;
-				}
+				++i;
 			}
 		default:
 			{
-				{
-					out->write(tag);
-					int32_t size = $nc(StringSharingDecompressor::SIZES)->get(tag);
-					$assign(arr, $new($bytes, size));
-					stream->readFully(arr);
-					out->write(arr);
-				}
+				out->write(tag);
+				int32_t size = StringSharingDecompressor::SIZES->get(tag);
+				$assign(arr, $new($bytes, size));
+				stream->readFully(arr);
+				out->write(arr);
 			}
 		}
 	}
-	$var($bytes, var$0, transformed);
-	int32_t var$1 = $nc(transformed)->length - stream->available();
-	out->write(var$0, var$1, stream->available());
+	int32_t var$0 = transformed->length - stream->available();
+	out->write(transformed, var$0, stream->available());
 	out->flush();
 	return outStream->toByteArray();
 }
 
 $String* StringSharingDecompressor::reconstruct($ResourceDecompressor$StringsProvider* reader, $DataInputStream* cr) {
 	$init(StringSharingDecompressor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t descIndex = $CompressIndexes::readInt(cr);
 	$var($String, desc, $nc(reader)->getString(descIndex));
 	$var($bytes, encodedDesc, getEncoded(desc));
@@ -188,38 +122,34 @@ $String* StringSharingDecompressor::reconstruct($ResourceDecompressor$StringsPro
 	int32_t argIndex = 0;
 	{
 		$var($bytes, arr$, encodedDesc);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			int8_t c = arr$->get(i$);
-			{
-				if (c == u'L') {
-					$assign(buffer, safeAdd(buffer, c));
-					int32_t index = $nc(($cast($Integer, $($nc(indices)->get(argIndex)))))->intValue();
-					argIndex += 1;
-					$var($String, pkg, reader->getString(index));
-					if (!$nc(pkg)->isEmpty()) {
-						$assign(pkg, $str({pkg, "/"_s}));
-						$var($bytes, encoded, getEncoded(pkg));
-						$assign(buffer, safeAdd(buffer, encoded));
-					}
-					int32_t classIndex = $nc(($cast($Integer, $(indices->get(argIndex)))))->intValue();
-					argIndex += 1;
-					$var($String, clazz, reader->getString(classIndex));
-					$var($bytes, encoded, getEncoded(clazz));
+			if (c == u'L') {
+				$assign(buffer, safeAdd(buffer, c));
+				int32_t index = $$sure($Integer, $nc(indices)->get(argIndex))->intValue();
+				argIndex += 1;
+				$var($String, pkg, reader->getString(index));
+				if (!$nc(pkg)->isEmpty()) {
+					$assign(pkg, $str({pkg, "/"_s}));
+					$var($bytes, encoded, getEncoded(pkg));
 					$assign(buffer, safeAdd(buffer, encoded));
-				} else {
-					$assign(buffer, safeAdd(buffer, c));
 				}
+				int32_t classIndex = $$sure($Integer, indices->get(argIndex))->intValue();
+				argIndex += 1;
+				$var($String, clazz, reader->getString(classIndex));
+				$var($bytes, encoded, getEncoded(clazz));
+				$assign(buffer, safeAdd(buffer, encoded));
+			} else {
+				$assign(buffer, safeAdd(buffer, c));
 			}
 		}
 	}
-	$var($bytes, encoded, $cast($bytes, buffer->array()));
+	$var($bytes, encoded, $cast($bytes, $nc(buffer)->array()));
 	$var($ByteBuffer, result, $ByteBuffer::allocate($nc(encoded)->length + 2));
 	$nc(result)->order($ByteOrder::BIG_ENDIAN);
 	result->putShort((int16_t)buffer->position());
 	result->put(encoded, 0, buffer->position());
-	$var($ByteArrayInputStream, stream, $new($ByteArrayInputStream, $($cast($bytes, result->array()))));
+	$var($ByteArrayInputStream, stream, $new($ByteArrayInputStream, $$cast($bytes, result->array())));
 	$var($DataInputStream, inStream, $new($DataInputStream, stream));
 	$var($String, str, inStream->readUTF());
 	return str;
@@ -227,7 +157,7 @@ $String* StringSharingDecompressor::reconstruct($ResourceDecompressor$StringsPro
 
 $bytes* StringSharingDecompressor::getEncoded($String* pre) {
 	$init(StringSharingDecompressor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteArrayOutputStream, resultStream, $new($ByteArrayOutputStream));
 	$var($DataOutputStream, resultOut, $new($DataOutputStream, resultStream));
 	resultOut->writeUTF(pre);
@@ -235,7 +165,7 @@ $bytes* StringSharingDecompressor::getEncoded($String* pre) {
 	if ($nc(content)->length <= 2) {
 		return $new($bytes, 0);
 	}
-	return $Arrays::copyOfRange(content, 2, $nc(content)->length);
+	return $Arrays::copyOfRange(content, 2, content->length);
 }
 
 $ByteBuffer* StringSharingDecompressor::safeAdd($ByteBuffer* current, int8_t b) {
@@ -246,7 +176,7 @@ $ByteBuffer* StringSharingDecompressor::safeAdd($ByteBuffer* current, int8_t b) 
 
 $ByteBuffer* StringSharingDecompressor::safeAdd($ByteBuffer* current$renamed, $bytes* bytes) {
 	$init(StringSharingDecompressor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteBuffer, current, current$renamed);
 	if ($nc(current)->remaining() < $nc(bytes)->length) {
 		$var($ByteBuffer, newBuffer, $ByteBuffer::allocate((current->capacity() + bytes->length) * 2));
@@ -256,7 +186,7 @@ $ByteBuffer* StringSharingDecompressor::safeAdd($ByteBuffer* current$renamed, $b
 		newBuffer->put(var$0, 0, current->position());
 		$assign(current, newBuffer);
 	}
-	$nc(current)->put(bytes);
+	current->put(bytes);
 	return current;
 }
 
@@ -272,24 +202,24 @@ $bytes* StringSharingDecompressor::decompress($ResourceDecompressor$StringsProvi
 	return normalize(reader, content, offset);
 }
 
-void clinit$StringSharingDecompressor($Class* class$) {
+void StringSharingDecompressor::clinit$($Class* clazz) {
 	$assignStatic(StringSharingDecompressor::SIZES, $new($ints, 21));
 	{
-		$nc(StringSharingDecompressor::SIZES)->set(StringSharingDecompressor::CONSTANT_Integer, 4);
-		$nc(StringSharingDecompressor::SIZES)->set(StringSharingDecompressor::CONSTANT_Float, 4);
-		$nc(StringSharingDecompressor::SIZES)->set(StringSharingDecompressor::CONSTANT_Long, 8);
-		$nc(StringSharingDecompressor::SIZES)->set(StringSharingDecompressor::CONSTANT_Double, 8);
-		$nc(StringSharingDecompressor::SIZES)->set(StringSharingDecompressor::CONSTANT_Class, 2);
-		$nc(StringSharingDecompressor::SIZES)->set(StringSharingDecompressor::CONSTANT_String, 2);
-		$nc(StringSharingDecompressor::SIZES)->set(StringSharingDecompressor::CONSTANT_Fieldref, 4);
-		$nc(StringSharingDecompressor::SIZES)->set(StringSharingDecompressor::CONSTANT_Methodref, 4);
-		$nc(StringSharingDecompressor::SIZES)->set(StringSharingDecompressor::CONSTANT_InterfaceMethodref, 4);
-		$nc(StringSharingDecompressor::SIZES)->set(StringSharingDecompressor::CONSTANT_NameAndType, 4);
-		$nc(StringSharingDecompressor::SIZES)->set(StringSharingDecompressor::CONSTANT_MethodHandle, 3);
-		$nc(StringSharingDecompressor::SIZES)->set(StringSharingDecompressor::CONSTANT_MethodType, 2);
-		$nc(StringSharingDecompressor::SIZES)->set(StringSharingDecompressor::CONSTANT_InvokeDynamic, 4);
-		$nc(StringSharingDecompressor::SIZES)->set(StringSharingDecompressor::CONSTANT_Module, 2);
-		$nc(StringSharingDecompressor::SIZES)->set(StringSharingDecompressor::CONSTANT_Package, 2);
+		StringSharingDecompressor::SIZES->set(StringSharingDecompressor::CONSTANT_Integer, 4);
+		StringSharingDecompressor::SIZES->set(StringSharingDecompressor::CONSTANT_Float, 4);
+		StringSharingDecompressor::SIZES->set(StringSharingDecompressor::CONSTANT_Long, 8);
+		StringSharingDecompressor::SIZES->set(StringSharingDecompressor::CONSTANT_Double, 8);
+		StringSharingDecompressor::SIZES->set(StringSharingDecompressor::CONSTANT_Class, 2);
+		StringSharingDecompressor::SIZES->set(StringSharingDecompressor::CONSTANT_String, 2);
+		StringSharingDecompressor::SIZES->set(StringSharingDecompressor::CONSTANT_Fieldref, 4);
+		StringSharingDecompressor::SIZES->set(StringSharingDecompressor::CONSTANT_Methodref, 4);
+		StringSharingDecompressor::SIZES->set(StringSharingDecompressor::CONSTANT_InterfaceMethodref, 4);
+		StringSharingDecompressor::SIZES->set(StringSharingDecompressor::CONSTANT_NameAndType, 4);
+		StringSharingDecompressor::SIZES->set(StringSharingDecompressor::CONSTANT_MethodHandle, 3);
+		StringSharingDecompressor::SIZES->set(StringSharingDecompressor::CONSTANT_MethodType, 2);
+		StringSharingDecompressor::SIZES->set(StringSharingDecompressor::CONSTANT_InvokeDynamic, 4);
+		StringSharingDecompressor::SIZES->set(StringSharingDecompressor::CONSTANT_Module, 2);
+		StringSharingDecompressor::SIZES->set(StringSharingDecompressor::CONSTANT_Package, 2);
 	}
 }
 
@@ -297,7 +227,51 @@ StringSharingDecompressor::StringSharingDecompressor() {
 }
 
 $Class* StringSharingDecompressor::load$($String* name, bool initialize) {
-	$loadClass(StringSharingDecompressor, name, initialize, &_StringSharingDecompressor_ClassInfo_, clinit$StringSharingDecompressor, allocate$StringSharingDecompressor);
+	$FieldInfo fieldInfos$$[] = {
+		{"EXTERNALIZED_STRING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(StringSharingDecompressor, EXTERNALIZED_STRING)},
+		{"EXTERNALIZED_STRING_DESCRIPTOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(StringSharingDecompressor, EXTERNALIZED_STRING_DESCRIPTOR)},
+		{"CONSTANT_Utf8", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_Utf8)},
+		{"CONSTANT_Integer", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_Integer)},
+		{"CONSTANT_Float", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_Float)},
+		{"CONSTANT_Long", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_Long)},
+		{"CONSTANT_Double", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_Double)},
+		{"CONSTANT_Class", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_Class)},
+		{"CONSTANT_String", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_String)},
+		{"CONSTANT_Fieldref", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_Fieldref)},
+		{"CONSTANT_Methodref", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_Methodref)},
+		{"CONSTANT_InterfaceMethodref", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_InterfaceMethodref)},
+		{"CONSTANT_NameAndType", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_NameAndType)},
+		{"CONSTANT_MethodHandle", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_MethodHandle)},
+		{"CONSTANT_MethodType", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_MethodType)},
+		{"CONSTANT_InvokeDynamic", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_InvokeDynamic)},
+		{"CONSTANT_Module", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_Module)},
+		{"CONSTANT_Package", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringSharingDecompressor, CONSTANT_Package)},
+		{"SIZES", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StringSharingDecompressor, SIZES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Properties;)V", nullptr, $PUBLIC, $method(StringSharingDecompressor, init$, void, $Properties*)},
+		{"decompress", "(Ljdk/internal/jimage/decompressor/ResourceDecompressor$StringsProvider;[BIJ)[B", nullptr, $PUBLIC, $virtualMethod(StringSharingDecompressor, decompress, $bytes*, $ResourceDecompressor$StringsProvider*, $bytes*, int32_t, int64_t), "java.lang.Exception"},
+		{"getEncoded", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(StringSharingDecompressor, getEncoded, $bytes*, $String*), "java.io.IOException"},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringSharingDecompressor, getName, $String*)},
+		{"getSizes", "()[I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringSharingDecompressor, getSizes, $ints*)},
+		{"normalize", "(Ljdk/internal/jimage/decompressor/ResourceDecompressor$StringsProvider;[BI)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(StringSharingDecompressor, normalize, $bytes*, $ResourceDecompressor$StringsProvider*, $bytes*, int32_t), "java.io.IOException"},
+		{"reconstruct", "(Ljdk/internal/jimage/decompressor/ResourceDecompressor$StringsProvider;Ljava/io/DataInputStream;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(StringSharingDecompressor, reconstruct, $String*, $ResourceDecompressor$StringsProvider*, $DataInputStream*), "java.io.IOException"},
+		{"safeAdd", "(Ljava/nio/ByteBuffer;B)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(StringSharingDecompressor, safeAdd, $ByteBuffer*, $ByteBuffer*, int8_t)},
+		{"safeAdd", "(Ljava/nio/ByteBuffer;[B)Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(StringSharingDecompressor, safeAdd, $ByteBuffer*, $ByteBuffer*, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.jimage.decompressor.StringSharingDecompressor",
+		"java.lang.Object",
+		"jdk.internal.jimage.decompressor.ResourceDecompressor",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StringSharingDecompressor, name, initialize, &classInfo$$, StringSharingDecompressor::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StringSharingDecompressor);
+	});
 	return class$;
 }
 

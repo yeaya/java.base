@@ -1,5 +1,4 @@
 #include <Args$5.h>
-
 #include <Args.h>
 #include <java/nio/MappedByteBuffer.h>
 #include <java/nio/channels/FileChannel$MapMode.h>
@@ -16,49 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $FileChannel = ::java::nio::channels::FileChannel;
 using $FileChannel$MapMode = ::java::nio::channels::FileChannel$MapMode;
 
-$FieldInfo _Args$5_FieldInfo_[] = {
-	{"val$fc", "Ljava/nio/channels/FileChannel;", nullptr, $FINAL | $SYNTHETIC, $field(Args$5, val$fc)},
-	{}
-};
-
-$MethodInfo _Args$5_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/FileChannel;)V", "()V", 0, $method(Args$5, init$, void, $FileChannel*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Args$5, run, void), "java.lang.Exception"},
-	{}
-};
-
-$EnclosingMethodInfo _Args$5_EnclosingMethodInfo_ = {
-	"Args",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _Args$5_InnerClassesInfo_[] = {
-	{"Args$5", nullptr, nullptr, 0},
-	{"Args$Thunk", "Args", "Thunk", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Args$5_ClassInfo_ = {
-	$ACC_SUPER,
-	"Args$5",
-	"java.lang.Object",
-	"Args$Thunk",
-	_Args$5_FieldInfo_,
-	_Args$5_MethodInfo_,
-	nullptr,
-	&_Args$5_EnclosingMethodInfo_,
-	_Args$5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Args"
-};
-
-$Object* allocate$Args$5($Class* clazz) {
-	return $of($alloc(Args$5));
-}
-
 void Args$5::init$($FileChannel* val$fc) {
 	$set(this, val$fc, val$fc);
 }
@@ -72,7 +28,43 @@ Args$5::Args$5() {
 }
 
 $Class* Args$5::load$($String* name, bool initialize) {
-	$loadClass(Args$5, name, initialize, &_Args$5_ClassInfo_, allocate$Args$5);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$fc", "Ljava/nio/channels/FileChannel;", nullptr, $FINAL | $SYNTHETIC, $field(Args$5, val$fc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/FileChannel;)V", "()V", 0, $method(Args$5, init$, void, $FileChannel*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Args$5, run, void), "java.lang.Exception"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"Args",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Args$5", nullptr, nullptr, 0},
+		{"Args$Thunk", "Args", "Thunk", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Args$5",
+		"java.lang.Object",
+		"Args$Thunk",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Args"
+	};
+	$loadClass(Args$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Args$5);
+	});
 	return class$;
 }
 

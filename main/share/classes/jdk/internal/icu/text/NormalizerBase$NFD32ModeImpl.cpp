@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/text/NormalizerBase$NFD32ModeImpl.h>
-
 #include <jdk/internal/icu/text/FilteredNormalizer2.h>
 #include <jdk/internal/icu/text/Normalizer2.h>
 #include <jdk/internal/icu/text/NormalizerBase$ModeImpl.h>
@@ -24,48 +23,13 @@ namespace jdk {
 		namespace icu {
 			namespace text {
 
-$FieldInfo _NormalizerBase$NFD32ModeImpl_FieldInfo_[] = {
-	{"INSTANCE", "Ljdk/internal/icu/text/NormalizerBase$ModeImpl;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NormalizerBase$NFD32ModeImpl, INSTANCE)},
-	{}
-};
-
-$MethodInfo _NormalizerBase$NFD32ModeImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(NormalizerBase$NFD32ModeImpl, init$, void)},
-	{}
-};
-
-$InnerClassInfo _NormalizerBase$NFD32ModeImpl_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.text.NormalizerBase$NFD32ModeImpl", "jdk.internal.icu.text.NormalizerBase", "NFD32ModeImpl", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _NormalizerBase$NFD32ModeImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.icu.text.NormalizerBase$NFD32ModeImpl",
-	"java.lang.Object",
-	nullptr,
-	_NormalizerBase$NFD32ModeImpl_FieldInfo_,
-	_NormalizerBase$NFD32ModeImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NormalizerBase$NFD32ModeImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.text.NormalizerBase"
-};
-
-$Object* allocate$NormalizerBase$NFD32ModeImpl($Class* clazz) {
-	return $of($alloc(NormalizerBase$NFD32ModeImpl));
-}
-
 $NormalizerBase$ModeImpl* NormalizerBase$NFD32ModeImpl::INSTANCE = nullptr;
 
 void NormalizerBase$NFD32ModeImpl::init$() {
 }
 
-void clinit$NormalizerBase$NFD32ModeImpl($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void NormalizerBase$NFD32ModeImpl::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($NormalizerBase$Unicode32);
 	$assignStatic(NormalizerBase$NFD32ModeImpl::INSTANCE, $new($NormalizerBase$ModeImpl, $$new($FilteredNormalizer2, $($Normalizer2::getNFDInstance()), $NormalizerBase$Unicode32::INSTANCE)));
 }
@@ -74,7 +38,36 @@ NormalizerBase$NFD32ModeImpl::NormalizerBase$NFD32ModeImpl() {
 }
 
 $Class* NormalizerBase$NFD32ModeImpl::load$($String* name, bool initialize) {
-	$loadClass(NormalizerBase$NFD32ModeImpl, name, initialize, &_NormalizerBase$NFD32ModeImpl_ClassInfo_, clinit$NormalizerBase$NFD32ModeImpl, allocate$NormalizerBase$NFD32ModeImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Ljdk/internal/icu/text/NormalizerBase$ModeImpl;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NormalizerBase$NFD32ModeImpl, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(NormalizerBase$NFD32ModeImpl, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.text.NormalizerBase$NFD32ModeImpl", "jdk.internal.icu.text.NormalizerBase", "NFD32ModeImpl", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.icu.text.NormalizerBase$NFD32ModeImpl",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.text.NormalizerBase"
+	};
+	$loadClass(NormalizerBase$NFD32ModeImpl, name, initialize, &classInfo$$, NormalizerBase$NFD32ModeImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NormalizerBase$NFD32ModeImpl);
+	});
 	return class$;
 }
 

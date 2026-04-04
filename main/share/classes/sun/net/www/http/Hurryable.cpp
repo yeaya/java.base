@@ -1,5 +1,4 @@
 #include <sun/net/www/http/Hurryable.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,26 +9,22 @@ namespace sun {
 		namespace www {
 			namespace http {
 
-$MethodInfo _Hurryable_MethodInfo_[] = {
-	{"hurry", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Hurryable, hurry, bool)},
-	{}
-};
-
-$ClassInfo _Hurryable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.net.www.http.Hurryable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Hurryable_MethodInfo_
-};
-
-$Object* allocate$Hurryable($Class* clazz) {
-	return $of($alloc(Hurryable));
-}
-
 $Class* Hurryable::load$($String* name, bool initialize) {
-	$loadClass(Hurryable, name, initialize, &_Hurryable_ClassInfo_, allocate$Hurryable);
+	$MethodInfo methodInfos$$[] = {
+		{"hurry", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Hurryable, hurry, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.net.www.http.Hurryable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Hurryable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Hurryable);
+	});
 	return class$;
 }
 

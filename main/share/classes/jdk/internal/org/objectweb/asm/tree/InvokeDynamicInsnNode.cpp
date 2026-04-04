@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/tree/InvokeDynamicInsnNode.h>
-
 #include <java/util/Map.h>
 #include <jdk/internal/org/objectweb/asm/Handle.h>
 #include <jdk/internal/org/objectweb/asm/MethodVisitor.h>
@@ -26,35 +25,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace tree {
 
-$FieldInfo _InvokeDynamicInsnNode_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(InvokeDynamicInsnNode, name)},
-	{"desc", "Ljava/lang/String;", nullptr, $PUBLIC, $field(InvokeDynamicInsnNode, desc)},
-	{"bsm", "Ljdk/internal/org/objectweb/asm/Handle;", nullptr, $PUBLIC, $field(InvokeDynamicInsnNode, bsm)},
-	{"bsmArgs", "[Ljava/lang/Object;", nullptr, $PUBLIC, $field(InvokeDynamicInsnNode, bsmArgs)},
-	{}
-};
-
-$MethodInfo _InvokeDynamicInsnNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $method(InvokeDynamicInsnNode, init$, void, $String*, $String*, $Handle*, $ObjectArray*)},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $virtualMethod(InvokeDynamicInsnNode, accept, void, $MethodVisitor*)},
-	{"clone", "(Ljava/util/Map;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", "(Ljava/util/Map<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", $PUBLIC, $virtualMethod(InvokeDynamicInsnNode, clone, $AbstractInsnNode*, $Map*)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(InvokeDynamicInsnNode, getType, int32_t)},
-	{}
-};
-
-$ClassInfo _InvokeDynamicInsnNode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.tree.InvokeDynamicInsnNode",
-	"jdk.internal.org.objectweb.asm.tree.AbstractInsnNode",
-	nullptr,
-	_InvokeDynamicInsnNode_FieldInfo_,
-	_InvokeDynamicInsnNode_MethodInfo_
-};
-
-$Object* allocate$InvokeDynamicInsnNode($Class* clazz) {
-	return $of($alloc(InvokeDynamicInsnNode));
-}
-
 void InvokeDynamicInsnNode::init$($String* name, $String* descriptor, $Handle* bootstrapMethodHandle, $ObjectArray* bootstrapMethodArguments) {
 	$AbstractInsnNode::init$($Opcodes::INVOKEDYNAMIC);
 	$set(this, name, name);
@@ -80,7 +50,31 @@ InvokeDynamicInsnNode::InvokeDynamicInsnNode() {
 }
 
 $Class* InvokeDynamicInsnNode::load$($String* name, bool initialize) {
-	$loadClass(InvokeDynamicInsnNode, name, initialize, &_InvokeDynamicInsnNode_ClassInfo_, allocate$InvokeDynamicInsnNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(InvokeDynamicInsnNode, name)},
+		{"desc", "Ljava/lang/String;", nullptr, $PUBLIC, $field(InvokeDynamicInsnNode, desc)},
+		{"bsm", "Ljdk/internal/org/objectweb/asm/Handle;", nullptr, $PUBLIC, $field(InvokeDynamicInsnNode, bsm)},
+		{"bsmArgs", "[Ljava/lang/Object;", nullptr, $PUBLIC, $field(InvokeDynamicInsnNode, bsmArgs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $method(InvokeDynamicInsnNode, init$, void, $String*, $String*, $Handle*, $ObjectArray*)},
+		{"accept", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $virtualMethod(InvokeDynamicInsnNode, accept, void, $MethodVisitor*)},
+		{"clone", "(Ljava/util/Map;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", "(Ljava/util/Map<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljdk/internal/org/objectweb/asm/tree/LabelNode;>;)Ljdk/internal/org/objectweb/asm/tree/AbstractInsnNode;", $PUBLIC, $virtualMethod(InvokeDynamicInsnNode, clone, $AbstractInsnNode*, $Map*)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(InvokeDynamicInsnNode, getType, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.tree.InvokeDynamicInsnNode",
+		"jdk.internal.org.objectweb.asm.tree.AbstractInsnNode",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvokeDynamicInsnNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvokeDynamicInsnNode);
+	});
 	return class$;
 }
 

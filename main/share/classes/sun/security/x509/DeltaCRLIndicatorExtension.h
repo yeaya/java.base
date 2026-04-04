@@ -34,6 +34,7 @@ class $export DeltaCRLIndicatorExtension : public ::sun::security::x509::CRLNumb
 	$class(DeltaCRLIndicatorExtension, 0, ::sun::security::x509::CRLNumberExtension)
 public:
 	DeltaCRLIndicatorExtension();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::sun::security::x509::CRLNumberExtension::encode;
 	void init$(int32_t crlNum);
 	void init$(::java::math::BigInteger* crlNum);

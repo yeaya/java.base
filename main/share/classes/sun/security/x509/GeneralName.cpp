@@ -1,5 +1,4 @@
 #include <sun/security/x509/GeneralName.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <sun/security/util/DerInputStream.h>
@@ -52,37 +51,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _GeneralName_FieldInfo_[] = {
-	{"name", "Lsun/security/x509/GeneralNameInterface;", nullptr, $PRIVATE, $field(GeneralName, name)},
-	{}
-};
-
-$MethodInfo _GeneralName_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/x509/GeneralNameInterface;)V", nullptr, $PUBLIC, $method(GeneralName, init$, void, $GeneralNameInterface*)},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(GeneralName, init$, void, $DerValue*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;Z)V", nullptr, $PUBLIC, $method(GeneralName, init$, void, $DerValue*, bool), "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(GeneralName, encode, void, $DerOutputStream*), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GeneralName, equals, bool, Object$*)},
-	{"getName", "()Lsun/security/x509/GeneralNameInterface;", nullptr, $PUBLIC, $virtualMethod(GeneralName, getName, $GeneralNameInterface*)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(GeneralName, getType, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GeneralName, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GeneralName, toString, $String*)},
-	{}
-};
-
-$ClassInfo _GeneralName_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.GeneralName",
-	"java.lang.Object",
-	nullptr,
-	_GeneralName_FieldInfo_,
-	_GeneralName_MethodInfo_
-};
-
-$Object* allocate$GeneralName($Class* clazz) {
-	return $of($alloc(GeneralName));
-}
-
 void GeneralName::init$($GeneralNameInterface* name) {
 	$set(this, name, nullptr);
 	if (name == nullptr) {
@@ -96,9 +64,9 @@ void GeneralName::init$($DerValue* encName) {
 }
 
 void GeneralName::init$($DerValue* encName, bool nameConstraint) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, name, nullptr);
-	int16_t tag = (int8_t)((int32_t)($nc(encName)->tag & (uint32_t)31));
+	int16_t tag = (int8_t)($nc(encName)->tag & 0x1f);
 	switch (tag) {
 	case $GeneralNameInterface::NAME_ANY:
 		{
@@ -149,7 +117,7 @@ void GeneralName::init$($DerValue* encName, bool nameConstraint) {
 			bool var$4 = encName->isContextSpecific();
 			if (var$4 && !encName->isConstructed()) {
 				encName->resetTag($DerValue::tag_IA5String);
-				$set(this, name, nameConstraint ? static_cast<$GeneralNameInterface*>($URIName::nameConstraint(encName)) : static_cast<$GeneralNameInterface*>($new($URIName, encName)));
+				$set(this, name, nameConstraint ? $URIName::nameConstraint(encName) : $new($URIName, encName));
 			} else {
 				$throwNew($IOException, "Invalid encoding of URI"_s);
 			}
@@ -199,9 +167,7 @@ void GeneralName::init$($DerValue* encName, bool nameConstraint) {
 			break;
 		}
 	default:
-		{
-			$throwNew($IOException, $$str({"Unrecognized GeneralName tag, ("_s, $$str(tag), ")"_s}));
-		}
+		$throwNew($IOException, $$str({"Unrecognized GeneralName tag, ("_s, $$str(tag), ")"_s}));
 	}
 }
 
@@ -214,7 +180,7 @@ $GeneralNameInterface* GeneralName::getName() {
 }
 
 $String* GeneralName::toString() {
-	return $nc($of(this->name))->toString();
+	return $nc(this->name)->toString();
 }
 
 bool GeneralName::equals(Object$* other) {
@@ -224,7 +190,7 @@ bool GeneralName::equals(Object$* other) {
 	if (!($instanceOf(GeneralName, other))) {
 		return false;
 	}
-	$var($GeneralNameInterface, otherGNI, $nc(($cast(GeneralName, other)))->name);
+	$var($GeneralNameInterface, otherGNI, $nc($cast(GeneralName, other))->name);
 	try {
 		return $nc(this->name)->constrains(otherGNI) == $GeneralNameInterface::NAME_MATCH;
 	} catch ($UnsupportedOperationException& ioe) {
@@ -234,13 +200,13 @@ bool GeneralName::equals(Object$* other) {
 }
 
 int32_t GeneralName::hashCode() {
-	return $nc($of(this->name))->hashCode();
+	return $nc(this->name)->hashCode();
 }
 
 void GeneralName::encode($DerOutputStream* out) {
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	$nc(this->name)->encode(tmp);
-	int32_t nameType = $nc(this->name)->getType();
+	int32_t nameType = this->name->getType();
 	if (nameType == $GeneralNameInterface::NAME_ANY || nameType == $GeneralNameInterface::NAME_X400 || nameType == $GeneralNameInterface::NAME_EDI) {
 		$nc(out)->writeImplicit($DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)nameType), tmp);
 	} else if (nameType == $GeneralNameInterface::NAME_DIRECTORY) {
@@ -254,7 +220,33 @@ GeneralName::GeneralName() {
 }
 
 $Class* GeneralName::load$($String* name, bool initialize) {
-	$loadClass(GeneralName, name, initialize, &_GeneralName_ClassInfo_, allocate$GeneralName);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Lsun/security/x509/GeneralNameInterface;", nullptr, $PRIVATE, $field(GeneralName, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/x509/GeneralNameInterface;)V", nullptr, $PUBLIC, $method(GeneralName, init$, void, $GeneralNameInterface*)},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(GeneralName, init$, void, $DerValue*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/util/DerValue;Z)V", nullptr, $PUBLIC, $method(GeneralName, init$, void, $DerValue*, bool), "java.io.IOException"},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(GeneralName, encode, void, $DerOutputStream*), "java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GeneralName, equals, bool, Object$*)},
+		{"getName", "()Lsun/security/x509/GeneralNameInterface;", nullptr, $PUBLIC, $virtualMethod(GeneralName, getName, $GeneralNameInterface*)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(GeneralName, getType, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GeneralName, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GeneralName, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.GeneralName",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GeneralName, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GeneralName);
+	});
 	return class$;
 }
 

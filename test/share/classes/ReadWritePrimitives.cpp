@@ -1,5 +1,4 @@
 #include <ReadWritePrimitives.h>
-
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <java/io/RandomAccessFile.h>
@@ -9,34 +8,10 @@
 
 using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $RandomAccessFile = ::java::io::RandomAccessFile;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _ReadWritePrimitives_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadWritePrimitives, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReadWritePrimitives, main, void, $StringArray*), "java.io.IOException"},
-	{"testChar", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReadWritePrimitives, testChar, void), "java.io.IOException"},
-	{"testInt", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReadWritePrimitives, testInt, void), "java.io.IOException"},
-	{"testLong", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReadWritePrimitives, testLong, void), "java.io.IOException"},
-	{"testShort", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReadWritePrimitives, testShort, void), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ReadWritePrimitives_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ReadWritePrimitives",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ReadWritePrimitives_MethodInfo_
-};
-
-$Object* allocate$ReadWritePrimitives($Class* clazz) {
-	return $of($alloc(ReadWritePrimitives));
-}
 
 void ReadWritePrimitives::init$() {
 }
@@ -59,13 +34,13 @@ void ReadWritePrimitives::main($StringArray* args) {
 }
 
 void ReadWritePrimitives::testShort() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, fh, $new($File, $($System::getProperty("test.dir"_s, "."_s)), "x.ReadWriteGenerated"_s));
 	$var($RandomAccessFile, f, $new($RandomAccessFile, fh, "rw"_s));
 	for (int32_t i = 0; i < 10000; ++i) {
 		f->writeShort((int16_t)i);
 	}
-	f->writeShort((int16_t)0x0000FFFF);
+	f->writeShort((int16_t)0x0000ffff);
 	f->close();
 	$assign(f, $new($RandomAccessFile, fh, "r"_s));
 	for (int32_t i = 0; i < 10000; ++i) {
@@ -76,7 +51,7 @@ void ReadWritePrimitives::testShort() {
 		}
 	}
 	int16_t rmax = f->readShort();
-	if (rmax != ((int16_t)0x0000FFFF)) {
+	if (rmax != ((int16_t)0x0000ffff)) {
 		$nc($System::err)->println($$str({"An error occurred. Read:"_s, $$str(rmax)}));
 		$throwNew($IOException, "Bad read from a writeShort"_s);
 	}
@@ -84,7 +59,7 @@ void ReadWritePrimitives::testShort() {
 }
 
 void ReadWritePrimitives::testChar() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, fh, $new($File, $($System::getProperty("test.dir"_s, "."_s)), "x.ReadWriteGenerated"_s));
 	$var($RandomAccessFile, f, $new($RandomAccessFile, fh, "rw"_s));
 	for (int32_t i = 0; i < 10000; ++i) {
@@ -103,7 +78,7 @@ void ReadWritePrimitives::testChar() {
 }
 
 void ReadWritePrimitives::testInt() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, fh, $new($File, $($System::getProperty("test.dir"_s, "."_s)), "x.ReadWriteGenerated"_s));
 	$var($RandomAccessFile, f, $new($RandomAccessFile, fh, "rw"_s));
 	for (int32_t i = 0; i < 10000; ++i) {
@@ -128,7 +103,7 @@ void ReadWritePrimitives::testInt() {
 }
 
 void ReadWritePrimitives::testLong() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, fh, $new($File, $($System::getProperty("test.dir"_s, "."_s)), "x.ReadWriteGenerated"_s));
 	$var($RandomAccessFile, f, $new($RandomAccessFile, fh, "rw"_s));
 	for (int32_t i = 0; i < 10000; ++i) {
@@ -150,7 +125,26 @@ ReadWritePrimitives::ReadWritePrimitives() {
 }
 
 $Class* ReadWritePrimitives::load$($String* name, bool initialize) {
-	$loadClass(ReadWritePrimitives, name, initialize, &_ReadWritePrimitives_ClassInfo_, allocate$ReadWritePrimitives);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ReadWritePrimitives, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReadWritePrimitives, main, void, $StringArray*), "java.io.IOException"},
+		{"testChar", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReadWritePrimitives, testChar, void), "java.io.IOException"},
+		{"testInt", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReadWritePrimitives, testInt, void), "java.io.IOException"},
+		{"testLong", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReadWritePrimitives, testLong, void), "java.io.IOException"},
+		{"testShort", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ReadWritePrimitives, testShort, void), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ReadWritePrimitives",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ReadWritePrimitives, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReadWritePrimitives);
+	});
 	return class$;
 }
 

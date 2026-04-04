@@ -1,5 +1,4 @@
 #include <jdk/internal/platform/Container.h>
-
 #include <jdk/internal/platform/Metrics.h>
 #include <jcpp.h>
 
@@ -10,25 +9,6 @@ using $Metrics = ::jdk::internal::platform::Metrics;
 namespace jdk {
 	namespace internal {
 		namespace platform {
-
-$MethodInfo _Container_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Container, init$, void)},
-	{"metrics", "()Ljdk/internal/platform/Metrics;", nullptr, $PUBLIC | $STATIC, $staticMethod(Container, metrics, $Metrics*)},
-	{}
-};
-
-$ClassInfo _Container_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.platform.Container",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Container_MethodInfo_
-};
-
-$Object* allocate$Container($Class* clazz) {
-	return $of($alloc(Container));
-}
 
 void Container::init$() {
 }
@@ -41,7 +21,22 @@ Container::Container() {
 }
 
 $Class* Container::load$($String* name, bool initialize) {
-	$loadClass(Container, name, initialize, &_Container_ClassInfo_, allocate$Container);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Container, init$, void)},
+		{"metrics", "()Ljdk/internal/platform/Metrics;", nullptr, $PUBLIC | $STATIC, $staticMethod(Container, metrics, $Metrics*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.platform.Container",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Container, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Container);
+	});
 	return class$;
 }
 

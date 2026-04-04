@@ -41,6 +41,7 @@ class KeyChecker : public ::java::security::cert::PKIXCertPathChecker {
 public:
 	KeyChecker();
 	using ::java::security::cert::PKIXCertPathChecker::check;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t certPathLen, ::java::security::cert::CertSelector* targetCertSel);
 	virtual void check(::java::security::cert::Certificate* cert, ::java::util::Collection* unresCritExts) override;
 	virtual ::java::util::Set* getSupportedExtensions() override;

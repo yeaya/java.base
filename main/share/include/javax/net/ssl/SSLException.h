@@ -22,10 +22,13 @@ public:
 	void init$($String* reason);
 	void init$($String* message, $Throwable* cause);
 	void init$($Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0x3E9A5079C293DFE7;
+	static const int64_t serialVersionUID = (int64_t)0x3e9a5079c293dfe7;
 	SSLException(const SSLException& e);
 	virtual void throw$() override;
-	inline SSLException* operator ->() {
+	inline SSLException* operator ->() const {
+		return (SSLException*)throwing$;
+	}
+	inline operator SSLException*() const {
 		return (SSLException*)throwing$;
 	}
 };

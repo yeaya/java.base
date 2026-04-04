@@ -221,6 +221,7 @@ class $export BidiBase : public ::java::lang::Object {
 	$class(BidiBase, 0, ::java::lang::Object)
 public:
 	BidiBase();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t maxLength, int32_t maxRunCount);
 	void init$($chars* text, int32_t textStart, $bytes* embeddings, int32_t embStart, int32_t paragraphLength, int32_t flags);
 	int32_t Bidi_Abs(int32_t x);

@@ -31,6 +31,7 @@ class $import NetworkClient : public ::java::lang::Object {
 	$class(NetworkClient, 0, ::java::lang::Object)
 public:
 	NetworkClient();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* host, int32_t port);
 	void init$();
 	virtual void closeServer();

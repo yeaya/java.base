@@ -1,5 +1,4 @@
 #include <javax/crypto/NullCipherSpi.h>
-
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/Key.h>
 #include <java/security/SecureRandom.h>
@@ -17,38 +16,6 @@ using $CipherSpi = ::javax::crypto::CipherSpi;
 
 namespace javax {
 	namespace crypto {
-
-$MethodInfo _NullCipherSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(NullCipherSpi, init$, void)},
-	{"engineDoFinal", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(NullCipherSpi, engineDoFinal, $bytes*, $bytes*, int32_t, int32_t)},
-	{"engineDoFinal", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(NullCipherSpi, engineDoFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"engineGetBlockSize", "()I", nullptr, $PROTECTED, $virtualMethod(NullCipherSpi, engineGetBlockSize, int32_t)},
-	{"engineGetIV", "()[B", nullptr, $PROTECTED, $virtualMethod(NullCipherSpi, engineGetIV, $bytes*)},
-	{"engineGetKeySize", "(Ljava/security/Key;)I", nullptr, $PROTECTED, $virtualMethod(NullCipherSpi, engineGetKeySize, int32_t, $Key*)},
-	{"engineGetOutputSize", "(I)I", nullptr, $PROTECTED, $virtualMethod(NullCipherSpi, engineGetOutputSize, int32_t, int32_t)},
-	{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(NullCipherSpi, engineGetParameters, $AlgorithmParameters*)},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(NullCipherSpi, engineInit, void, int32_t, $Key*, $SecureRandom*)},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(NullCipherSpi, engineInit, void, int32_t, $Key*, $AlgorithmParameterSpec*, $SecureRandom*)},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(NullCipherSpi, engineInit, void, int32_t, $Key*, $AlgorithmParameters*, $SecureRandom*)},
-	{"engineSetMode", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NullCipherSpi, engineSetMode, void, $String*)},
-	{"engineSetPadding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NullCipherSpi, engineSetPadding, void, $String*)},
-	{"engineUpdate", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(NullCipherSpi, engineUpdate, $bytes*, $bytes*, int32_t, int32_t)},
-	{"engineUpdate", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(NullCipherSpi, engineUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{}
-};
-
-$ClassInfo _NullCipherSpi_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.crypto.NullCipherSpi",
-	"javax.crypto.CipherSpi",
-	nullptr,
-	nullptr,
-	_NullCipherSpi_MethodInfo_
-};
-
-$Object* allocate$NullCipherSpi($Class* clazz) {
-	return $of($alloc(NullCipherSpi));
-}
 
 void NullCipherSpi::init$() {
 	$CipherSpi::init$();
@@ -119,7 +86,35 @@ NullCipherSpi::NullCipherSpi() {
 }
 
 $Class* NullCipherSpi::load$($String* name, bool initialize) {
-	$loadClass(NullCipherSpi, name, initialize, &_NullCipherSpi_ClassInfo_, allocate$NullCipherSpi);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(NullCipherSpi, init$, void)},
+		{"engineDoFinal", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(NullCipherSpi, engineDoFinal, $bytes*, $bytes*, int32_t, int32_t)},
+		{"engineDoFinal", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(NullCipherSpi, engineDoFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"engineGetBlockSize", "()I", nullptr, $PROTECTED, $virtualMethod(NullCipherSpi, engineGetBlockSize, int32_t)},
+		{"engineGetIV", "()[B", nullptr, $PROTECTED, $virtualMethod(NullCipherSpi, engineGetIV, $bytes*)},
+		{"engineGetKeySize", "(Ljava/security/Key;)I", nullptr, $PROTECTED, $virtualMethod(NullCipherSpi, engineGetKeySize, int32_t, $Key*)},
+		{"engineGetOutputSize", "(I)I", nullptr, $PROTECTED, $virtualMethod(NullCipherSpi, engineGetOutputSize, int32_t, int32_t)},
+		{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(NullCipherSpi, engineGetParameters, $AlgorithmParameters*)},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(NullCipherSpi, engineInit, void, int32_t, $Key*, $SecureRandom*)},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(NullCipherSpi, engineInit, void, int32_t, $Key*, $AlgorithmParameterSpec*, $SecureRandom*)},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(NullCipherSpi, engineInit, void, int32_t, $Key*, $AlgorithmParameters*, $SecureRandom*)},
+		{"engineSetMode", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NullCipherSpi, engineSetMode, void, $String*)},
+		{"engineSetPadding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NullCipherSpi, engineSetPadding, void, $String*)},
+		{"engineUpdate", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(NullCipherSpi, engineUpdate, $bytes*, $bytes*, int32_t, int32_t)},
+		{"engineUpdate", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(NullCipherSpi, engineUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.crypto.NullCipherSpi",
+		"javax.crypto.CipherSpi",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NullCipherSpi, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NullCipherSpi);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/nio/fs/BsdUserDefinedFileAttributeView.h>
-
 #include <sun/nio/fs/UnixPath.h>
 #include <sun/nio/fs/UnixUserDefinedFileAttributeView.h>
 #include <jcpp.h>
@@ -13,25 +12,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$MethodInfo _BsdUserDefinedFileAttributeView_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/UnixPath;Z)V", nullptr, 0, $method(BsdUserDefinedFileAttributeView, init$, void, $UnixPath*, bool)},
-	{"maxNameLength", "()I", nullptr, $PROTECTED, $virtualMethod(BsdUserDefinedFileAttributeView, maxNameLength, int32_t)},
-	{}
-};
-
-$ClassInfo _BsdUserDefinedFileAttributeView_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.BsdUserDefinedFileAttributeView",
-	"sun.nio.fs.UnixUserDefinedFileAttributeView",
-	nullptr,
-	nullptr,
-	_BsdUserDefinedFileAttributeView_MethodInfo_
-};
-
-$Object* allocate$BsdUserDefinedFileAttributeView($Class* clazz) {
-	return $of($alloc(BsdUserDefinedFileAttributeView));
-}
-
 void BsdUserDefinedFileAttributeView::init$($UnixPath* file, bool followLinks) {
 	$UnixUserDefinedFileAttributeView::init$(file, followLinks);
 }
@@ -44,7 +24,22 @@ BsdUserDefinedFileAttributeView::BsdUserDefinedFileAttributeView() {
 }
 
 $Class* BsdUserDefinedFileAttributeView::load$($String* name, bool initialize) {
-	$loadClass(BsdUserDefinedFileAttributeView, name, initialize, &_BsdUserDefinedFileAttributeView_ClassInfo_, allocate$BsdUserDefinedFileAttributeView);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/fs/UnixPath;Z)V", nullptr, 0, $method(BsdUserDefinedFileAttributeView, init$, void, $UnixPath*, bool)},
+		{"maxNameLength", "()I", nullptr, $PROTECTED, $virtualMethod(BsdUserDefinedFileAttributeView, maxNameLength, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.BsdUserDefinedFileAttributeView",
+		"sun.nio.fs.UnixUserDefinedFileAttributeView",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BsdUserDefinedFileAttributeView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BsdUserDefinedFileAttributeView));
+	});
 	return class$;
 }
 

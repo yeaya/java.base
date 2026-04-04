@@ -1,5 +1,4 @@
 #include <java/util/stream/Nodes$CollectorTask.h>
-
 #include <java/util/Spliterator.h>
 #include <java/util/concurrent/CountedCompleter.h>
 #include <java/util/function/BinaryOperator.h>
@@ -24,57 +23,10 @@ using $AbstractTask = ::java::util::stream::AbstractTask;
 using $Node = ::java::util::stream::Node;
 using $Node$Builder = ::java::util::stream::Node$Builder;
 using $PipelineHelper = ::java::util::stream::PipelineHelper;
-using $Sink = ::java::util::stream::Sink;
 
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _Nodes$CollectorTask_FieldInfo_[] = {
-	{"helper", "Ljava/util/stream/PipelineHelper;", "Ljava/util/stream/PipelineHelper<TP_OUT;>;", $PROTECTED | $FINAL, $field(Nodes$CollectorTask, helper)},
-	{"builderFactory", "Ljava/util/function/LongFunction;", "Ljava/util/function/LongFunction<TT_BUILDER;>;", $PROTECTED | $FINAL, $field(Nodes$CollectorTask, builderFactory)},
-	{"concFactory", "Ljava/util/function/BinaryOperator;", "Ljava/util/function/BinaryOperator<TT_NODE;>;", $PROTECTED | $FINAL, $field(Nodes$CollectorTask, concFactory)},
-	{}
-};
-
-$MethodInfo _Nodes$CollectorTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/LongFunction;Ljava/util/function/BinaryOperator;)V", "(Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/LongFunction<TT_BUILDER;>;Ljava/util/function/BinaryOperator<TT_NODE;>;)V", 0, $method(Nodes$CollectorTask, init$, void, $PipelineHelper*, $Spliterator*, $LongFunction*, $BinaryOperator*)},
-	{"<init>", "(Ljava/util/stream/Nodes$CollectorTask;Ljava/util/Spliterator;)V", "(Ljava/util/stream/Nodes$CollectorTask<TP_IN;TP_OUT;TT_NODE;TT_BUILDER;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(Nodes$CollectorTask, init$, void, Nodes$CollectorTask*, $Spliterator*)},
-	{"doLeaf", "()Ljava/util/stream/Node;", "()TT_NODE;", $PROTECTED, $virtualMethod(Nodes$CollectorTask, doLeaf, $Object*)},
-	{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/Nodes$CollectorTask;", "(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/Nodes$CollectorTask<TP_IN;TP_OUT;TT_NODE;TT_BUILDER;>;", $PROTECTED, $virtualMethod(Nodes$CollectorTask, makeChild, Nodes$CollectorTask*, $Spliterator*)},
-	{"onCompletion", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", $PUBLIC, $virtualMethod(Nodes$CollectorTask, onCompletion, void, $CountedCompleter*)},
-	{}
-};
-
-$InnerClassInfo _Nodes$CollectorTask_InnerClassesInfo_[] = {
-	{"java.util.stream.Nodes$CollectorTask", "java.util.stream.Nodes", "CollectorTask", $PRIVATE | $STATIC},
-	{"java.util.stream.Nodes$CollectorTask$OfDouble", "java.util.stream.Nodes$CollectorTask", "OfDouble", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.stream.Nodes$CollectorTask$OfLong", "java.util.stream.Nodes$CollectorTask", "OfLong", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.stream.Nodes$CollectorTask$OfInt", "java.util.stream.Nodes$CollectorTask", "OfInt", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.stream.Nodes$CollectorTask$OfRef", "java.util.stream.Nodes$CollectorTask", "OfRef", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.stream.Node$Builder", "java.util.stream.Node", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Nodes$CollectorTask_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.Nodes$CollectorTask",
-	"java.util.stream.AbstractTask",
-	nullptr,
-	_Nodes$CollectorTask_FieldInfo_,
-	_Nodes$CollectorTask_MethodInfo_,
-	"<P_IN:Ljava/lang/Object;P_OUT:Ljava/lang/Object;T_NODE::Ljava/util/stream/Node<TP_OUT;>;T_BUILDER::Ljava/util/stream/Node$Builder<TP_OUT;>;>Ljava/util/stream/AbstractTask<TP_IN;TP_OUT;TT_NODE;Ljava/util/stream/Nodes$CollectorTask<TP_IN;TP_OUT;TT_NODE;TT_BUILDER;>;>;",
-	nullptr,
-	_Nodes$CollectorTask_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Nodes"
-};
-
-$Object* allocate$Nodes$CollectorTask($Class* clazz) {
-	return $of($alloc(Nodes$CollectorTask));
-}
 
 void Nodes$CollectorTask::init$($PipelineHelper* helper, $Spliterator* spliterator, $LongFunction* builderFactory, $BinaryOperator* concFactory) {
 	$AbstractTask::init$(helper, spliterator);
@@ -84,7 +36,7 @@ void Nodes$CollectorTask::init$($PipelineHelper* helper, $Spliterator* spliterat
 }
 
 void Nodes$CollectorTask::init$(Nodes$CollectorTask* parent, $Spliterator* spliterator) {
-	$AbstractTask::init$(static_cast<$AbstractTask*>(parent), spliterator);
+	$AbstractTask::init$(parent, spliterator);
 	$set(this, helper, $nc(parent)->helper);
 	$set(this, builderFactory, parent->builderFactory);
 	$set(this, concFactory, parent->concFactory);
@@ -95,16 +47,16 @@ Nodes$CollectorTask* Nodes$CollectorTask::makeChild($Spliterator* spliterator) {
 }
 
 $Object* Nodes$CollectorTask::doLeaf() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node$Builder, builder, $cast($Node$Builder, $nc(this->builderFactory)->apply($nc(this->helper)->exactOutputSizeIfKnown(this->spliterator))));
-	return $of($nc(($cast($Node$Builder, $($nc(this->helper)->wrapAndCopyInto(builder, this->spliterator)))))->build());
+	return $$sure($Node$Builder, this->helper->wrapAndCopyInto(builder, this->spliterator))->build();
 }
 
 void Nodes$CollectorTask::onCompletion($CountedCompleter* caller) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isLeaf()) {
-		$var($Object, var$0, $cast($Node, $nc(($cast(Nodes$CollectorTask, this->leftChild)))->getLocalResult()));
-		setLocalResult($cast($Node, $($nc(this->concFactory)->apply(var$0, $cast($Node, $($nc(($cast(Nodes$CollectorTask, this->rightChild)))->getLocalResult()))))));
+		$var($Object, var$0, $cast($Node, $nc($cast(Nodes$CollectorTask, this->leftChild))->getLocalResult()));
+		setLocalResult($$cast($Node, $nc(this->concFactory)->apply(var$0, $$cast($Node, $nc($cast(Nodes$CollectorTask, this->rightChild))->getLocalResult()))));
 	}
 	$AbstractTask::onCompletion(caller);
 }
@@ -113,7 +65,47 @@ Nodes$CollectorTask::Nodes$CollectorTask() {
 }
 
 $Class* Nodes$CollectorTask::load$($String* name, bool initialize) {
-	$loadClass(Nodes$CollectorTask, name, initialize, &_Nodes$CollectorTask_ClassInfo_, allocate$Nodes$CollectorTask);
+	$FieldInfo fieldInfos$$[] = {
+		{"helper", "Ljava/util/stream/PipelineHelper;", "Ljava/util/stream/PipelineHelper<TP_OUT;>;", $PROTECTED | $FINAL, $field(Nodes$CollectorTask, helper)},
+		{"builderFactory", "Ljava/util/function/LongFunction;", "Ljava/util/function/LongFunction<TT_BUILDER;>;", $PROTECTED | $FINAL, $field(Nodes$CollectorTask, builderFactory)},
+		{"concFactory", "Ljava/util/function/BinaryOperator;", "Ljava/util/function/BinaryOperator<TT_NODE;>;", $PROTECTED | $FINAL, $field(Nodes$CollectorTask, concFactory)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/LongFunction;Ljava/util/function/BinaryOperator;)V", "(Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/LongFunction<TT_BUILDER;>;Ljava/util/function/BinaryOperator<TT_NODE;>;)V", 0, $method(Nodes$CollectorTask, init$, void, $PipelineHelper*, $Spliterator*, $LongFunction*, $BinaryOperator*)},
+		{"<init>", "(Ljava/util/stream/Nodes$CollectorTask;Ljava/util/Spliterator;)V", "(Ljava/util/stream/Nodes$CollectorTask<TP_IN;TP_OUT;TT_NODE;TT_BUILDER;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(Nodes$CollectorTask, init$, void, Nodes$CollectorTask*, $Spliterator*)},
+		{"doLeaf", "()Ljava/util/stream/Node;", "()TT_NODE;", $PROTECTED, $virtualMethod(Nodes$CollectorTask, doLeaf, $Object*)},
+		{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/Nodes$CollectorTask;", "(Ljava/util/Spliterator<TP_IN;>;)Ljava/util/stream/Nodes$CollectorTask<TP_IN;TP_OUT;TT_NODE;TT_BUILDER;>;", $PROTECTED, $virtualMethod(Nodes$CollectorTask, makeChild, Nodes$CollectorTask*, $Spliterator*)},
+		{"onCompletion", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", $PUBLIC, $virtualMethod(Nodes$CollectorTask, onCompletion, void, $CountedCompleter*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Nodes$CollectorTask", "java.util.stream.Nodes", "CollectorTask", $PRIVATE | $STATIC},
+		{"java.util.stream.Nodes$CollectorTask$OfDouble", "java.util.stream.Nodes$CollectorTask", "OfDouble", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.stream.Nodes$CollectorTask$OfLong", "java.util.stream.Nodes$CollectorTask", "OfLong", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.stream.Nodes$CollectorTask$OfInt", "java.util.stream.Nodes$CollectorTask", "OfInt", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.stream.Nodes$CollectorTask$OfRef", "java.util.stream.Nodes$CollectorTask", "OfRef", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.stream.Node$Builder", "java.util.stream.Node", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.Nodes$CollectorTask",
+		"java.util.stream.AbstractTask",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<P_IN:Ljava/lang/Object;P_OUT:Ljava/lang/Object;T_NODE::Ljava/util/stream/Node<TP_OUT;>;T_BUILDER::Ljava/util/stream/Node$Builder<TP_OUT;>;>Ljava/util/stream/AbstractTask<TP_IN;TP_OUT;TT_NODE;Ljava/util/stream/Nodes$CollectorTask<TP_IN;TP_OUT;TT_NODE;TT_BUILDER;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Nodes"
+	};
+	$loadClass(Nodes$CollectorTask, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Nodes$CollectorTask));
+	});
 	return class$;
 }
 

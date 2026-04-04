@@ -1,5 +1,4 @@
 #include <CheckDiscard$Sender.h>
-
 #include <CheckDiscard.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket.h>
@@ -15,48 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $DatagramPacket = ::java::net::DatagramPacket;
 using $DatagramSocket = ::java::net::DatagramSocket;
 using $InetAddress = ::java::net::InetAddress;
-
-$FieldInfo _CheckDiscard$Sender_FieldInfo_[] = {
-	{"this$0", "LCheckDiscard;", nullptr, $FINAL | $SYNTHETIC, $field(CheckDiscard$Sender, this$0)},
-	{"exc", "Ljava/lang/Exception;", nullptr, 0, $field(CheckDiscard$Sender, exc)},
-	{"s", "Ljava/net/DatagramSocket;", nullptr, 0, $field(CheckDiscard$Sender, s)},
-	{"port", "I", nullptr, 0, $field(CheckDiscard$Sender, port)},
-	{}
-};
-
-$MethodInfo _CheckDiscard$Sender_MethodInfo_[] = {
-	{"<init>", "(LCheckDiscard;I)V", nullptr, 0, $method(CheckDiscard$Sender, init$, void, $CheckDiscard*, int32_t), "java.lang.Exception"},
-	{"getException", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $virtualMethod(CheckDiscard$Sender, getException, $Exception*)},
-	{"getLocalPort", "()I", nullptr, $PUBLIC, $virtualMethod(CheckDiscard$Sender, getLocalPort, int32_t)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CheckDiscard$Sender, run, void)},
-	{"setException", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $virtualMethod(CheckDiscard$Sender, setException, void, $Exception*)},
-	{}
-};
-
-$InnerClassInfo _CheckDiscard$Sender_InnerClassesInfo_[] = {
-	{"CheckDiscard$Sender", "CheckDiscard", "Sender", $PUBLIC},
-	{}
-};
-
-$ClassInfo _CheckDiscard$Sender_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"CheckDiscard$Sender",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_CheckDiscard$Sender_FieldInfo_,
-	_CheckDiscard$Sender_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CheckDiscard$Sender_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"CheckDiscard"
-};
-
-$Object* allocate$CheckDiscard$Sender($Class* clazz) {
-	return $of($alloc(CheckDiscard$Sender));
-}
 
 void CheckDiscard$Sender::init$($CheckDiscard* this$0, int32_t port) {
 	$set(this, this$0, this$0);
@@ -78,7 +35,7 @@ $Exception* CheckDiscard$Sender::getException() {
 }
 
 void CheckDiscard$Sender::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($bytes, b, "Hello"_s->getBytes());
 		$var($DatagramPacket, p, $new($DatagramPacket, b, b->length));
@@ -98,7 +55,43 @@ CheckDiscard$Sender::CheckDiscard$Sender() {
 }
 
 $Class* CheckDiscard$Sender::load$($String* name, bool initialize) {
-	$loadClass(CheckDiscard$Sender, name, initialize, &_CheckDiscard$Sender_ClassInfo_, allocate$CheckDiscard$Sender);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LCheckDiscard;", nullptr, $FINAL | $SYNTHETIC, $field(CheckDiscard$Sender, this$0)},
+		{"exc", "Ljava/lang/Exception;", nullptr, 0, $field(CheckDiscard$Sender, exc)},
+		{"s", "Ljava/net/DatagramSocket;", nullptr, 0, $field(CheckDiscard$Sender, s)},
+		{"port", "I", nullptr, 0, $field(CheckDiscard$Sender, port)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LCheckDiscard;I)V", nullptr, 0, $method(CheckDiscard$Sender, init$, void, $CheckDiscard*, int32_t), "java.lang.Exception"},
+		{"getException", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $virtualMethod(CheckDiscard$Sender, getException, $Exception*)},
+		{"getLocalPort", "()I", nullptr, $PUBLIC, $virtualMethod(CheckDiscard$Sender, getLocalPort, int32_t)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CheckDiscard$Sender, run, void)},
+		{"setException", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $virtualMethod(CheckDiscard$Sender, setException, void, $Exception*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"CheckDiscard$Sender", "CheckDiscard", "Sender", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"CheckDiscard$Sender",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"CheckDiscard"
+	};
+	$loadClass(CheckDiscard$Sender, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CheckDiscard$Sender);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLKeyExchange$T12KeyAgreement.h>
-
 #include <java/lang/Enum.h>
 #include <java/util/AbstractMap$SimpleImmutableEntry.h>
 #include <java/util/Map$Entry.h>
@@ -47,7 +46,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractMap$SimpleImmutableEntry = ::java::util::AbstractMap$SimpleImmutableEntry;
-using $Map$Entry = ::java::util::Map$Entry;
 using $DHClientKeyExchange = ::sun::security::ssl::DHClientKeyExchange;
 using $DHKeyExchange = ::sun::security::ssl::DHKeyExchange;
 using $DHServerKeyExchange = ::sun::security::ssl::DHServerKeyExchange;
@@ -55,7 +53,6 @@ using $ECDHClientKeyExchange = ::sun::security::ssl::ECDHClientKeyExchange;
 using $ECDHKeyExchange = ::sun::security::ssl::ECDHKeyExchange;
 using $ECDHServerKeyExchange = ::sun::security::ssl::ECDHServerKeyExchange;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $RSAClientKeyExchange = ::sun::security::ssl::RSAClientKeyExchange;
 using $RSAKeyExchange = ::sun::security::ssl::RSAKeyExchange;
 using $RSAServerKeyExchange = ::sun::security::ssl::RSAServerKeyExchange;
@@ -69,63 +66,6 @@ using $SSLPossessionGenerator = ::sun::security::ssl::SSLPossessionGenerator;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _SSLKeyExchange$T12KeyAgreement_FieldInfo_[] = {
-	{"RSA", "Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLKeyExchange$T12KeyAgreement, RSA)},
-	{"RSA_EXPORT", "Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLKeyExchange$T12KeyAgreement, RSA_EXPORT)},
-	{"DHE", "Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLKeyExchange$T12KeyAgreement, DHE)},
-	{"DHE_EXPORT", "Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLKeyExchange$T12KeyAgreement, DHE_EXPORT)},
-	{"ECDH", "Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLKeyExchange$T12KeyAgreement, ECDH)},
-	{"ECDHE", "Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLKeyExchange$T12KeyAgreement, ECDHE)},
-	{"$VALUES", "[Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLKeyExchange$T12KeyAgreement, $VALUES)},
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(SSLKeyExchange$T12KeyAgreement, name$)},
-	{"possessionGenerator", "Lsun/security/ssl/SSLPossessionGenerator;", nullptr, $FINAL, $field(SSLKeyExchange$T12KeyAgreement, possessionGenerator)},
-	{"keyAgreementGenerator", "Lsun/security/ssl/SSLKeyAgreementGenerator;", nullptr, $FINAL, $field(SSLKeyExchange$T12KeyAgreement, keyAgreementGenerator)},
-	{}
-};
-
-$MethodInfo _SSLKeyExchange$T12KeyAgreement_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLKeyExchange$T12KeyAgreement, $values, $SSLKeyExchange$T12KeyAgreementArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Lsun/security/ssl/SSLPossessionGenerator;Lsun/security/ssl/SSLKeyAgreementGenerator;)V", "(Ljava/lang/String;Lsun/security/ssl/SSLPossessionGenerator;Lsun/security/ssl/SSLKeyAgreementGenerator;)V", $PRIVATE, $method(SSLKeyExchange$T12KeyAgreement, init$, void, $String*, int32_t, $String*, $SSLPossessionGenerator*, $SSLKeyAgreementGenerator*)},
-	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, $virtualMethod(SSLKeyExchange$T12KeyAgreement, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*), "java.io.IOException"},
-	{"createPossession", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC, $virtualMethod(SSLKeyExchange$T12KeyAgreement, createPossession, $SSLPossession*, $HandshakeContext*)},
-	{"getHandshakeConsumers", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry;", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry<Ljava/lang/Byte;Lsun/security/ssl/SSLConsumer;>;", $PUBLIC, $virtualMethod(SSLKeyExchange$T12KeyAgreement, getHandshakeConsumers, $Map$EntryArray*, $HandshakeContext*)},
-	{"getHandshakeProducers", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry;", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry<Ljava/lang/Byte;Lsun/security/ssl/HandshakeProducer;>;", $PUBLIC, $virtualMethod(SSLKeyExchange$T12KeyAgreement, getHandshakeProducers, $Map$EntryArray*, $HandshakeContext*)},
-	{"getRelatedHandshakers", "(Lsun/security/ssl/HandshakeContext;)[Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(SSLKeyExchange$T12KeyAgreement, getRelatedHandshakers, $SSLHandshakeArray*, $HandshakeContext*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLKeyExchange$T12KeyAgreement, valueOf, SSLKeyExchange$T12KeyAgreement*, $String*)},
-	{"values", "()[Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLKeyExchange$T12KeyAgreement, values, $SSLKeyExchange$T12KeyAgreementArray*)},
-	{}
-};
-
-$InnerClassInfo _SSLKeyExchange$T12KeyAgreement_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLKeyExchange$T12KeyAgreement", "sun.security.ssl.SSLKeyExchange", "T12KeyAgreement", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _SSLKeyExchange$T12KeyAgreement_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.ssl.SSLKeyExchange$T12KeyAgreement",
-	"java.lang.Enum",
-	"sun.security.ssl.SSLKeyAgreement",
-	_SSLKeyExchange$T12KeyAgreement_FieldInfo_,
-	_SSLKeyExchange$T12KeyAgreement_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;>;Lsun/security/ssl/SSLKeyAgreement;",
-	nullptr,
-	_SSLKeyExchange$T12KeyAgreement_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLKeyExchange"
-};
-
-$Object* allocate$SSLKeyExchange$T12KeyAgreement($Class* clazz) {
-	return $of($alloc(SSLKeyExchange$T12KeyAgreement));
-}
 
 $String* SSLKeyExchange$T12KeyAgreement::toString() {
 	 return this->$Enum::toString();
@@ -186,7 +126,7 @@ void SSLKeyExchange$T12KeyAgreement::init$($String* $enum$name, int32_t $enum$or
 
 $SSLPossession* SSLKeyExchange$T12KeyAgreement::createPossession($HandshakeContext* context) {
 	if (this->possessionGenerator != nullptr) {
-		return $nc(this->possessionGenerator)->createPossession(context);
+		return this->possessionGenerator->createPossession(context);
 	}
 	return nullptr;
 }
@@ -206,136 +146,102 @@ $SSLHandshakeArray* SSLKeyExchange$T12KeyAgreement::getRelatedHandshakers($Hands
 }
 
 $Map$EntryArray* SSLKeyExchange$T12KeyAgreement::getHandshakeProducers($HandshakeContext* handshakeContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc($nc(handshakeContext)->negotiatedProtocol)->useTLS13PlusSpec()) {
 		return ($new($Map$EntryArray, 0));
 	}
-	if ($nc($nc(handshakeContext)->sslConfig)->isClientMode) {
+	if ($nc(handshakeContext->sslConfig)->isClientMode) {
 		$init($SSLKeyExchange$1);
 		switch ($nc($SSLKeyExchange$1::$SwitchMap$sun$security$ssl$SSLKeyExchange$T12KeyAgreement)->get((this)->ordinal())) {
 		case 1:
-			{}
 		case 2:
-			{
-				$init($SSLHandshake);
-				$init($RSAClientKeyExchange);
-				return ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::CLIENT_KEY_EXCHANGE->id)), $RSAClientKeyExchange::rsaHandshakeProducer))}));
-			}
+			$init($SSLHandshake);
+			$init($RSAClientKeyExchange);
+			return ($new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::CLIENT_KEY_EXCHANGE->id)), $RSAClientKeyExchange::rsaHandshakeProducer)}));
 		case 3:
-			{}
 		case 4:
-			{
-				$init($SSLHandshake);
-				$init($DHClientKeyExchange);
-				return ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::CLIENT_KEY_EXCHANGE->id)), $DHClientKeyExchange::dhHandshakeProducer))}));
-			}
+			$init($SSLHandshake);
+			$init($DHClientKeyExchange);
+			return ($new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::CLIENT_KEY_EXCHANGE->id)), $DHClientKeyExchange::dhHandshakeProducer)}));
 		case 5:
-			{
-				$init($SSLHandshake);
-				$init($ECDHClientKeyExchange);
-				return ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::CLIENT_KEY_EXCHANGE->id)), $ECDHClientKeyExchange::ecdhHandshakeProducer))}));
-			}
+			$init($SSLHandshake);
+			$init($ECDHClientKeyExchange);
+			return ($new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::CLIENT_KEY_EXCHANGE->id)), $ECDHClientKeyExchange::ecdhHandshakeProducer)}));
 		case 6:
-			{
-				$init($SSLHandshake);
-				$init($ECDHClientKeyExchange);
-				return ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::CLIENT_KEY_EXCHANGE->id)), $ECDHClientKeyExchange::ecdheHandshakeProducer))}));
-			}
+			$init($SSLHandshake);
+			$init($ECDHClientKeyExchange);
+			return ($new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::CLIENT_KEY_EXCHANGE->id)), $ECDHClientKeyExchange::ecdheHandshakeProducer)}));
 		}
 	} else {
 		$init($SSLKeyExchange$1);
 		switch ($nc($SSLKeyExchange$1::$SwitchMap$sun$security$ssl$SSLKeyExchange$T12KeyAgreement)->get((this)->ordinal())) {
 		case 2:
-			{
-				$init($SSLHandshake);
-				$init($RSAServerKeyExchange);
-				return ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::SERVER_KEY_EXCHANGE->id)), $RSAServerKeyExchange::rsaHandshakeProducer))}));
-			}
+			$init($SSLHandshake);
+			$init($RSAServerKeyExchange);
+			return ($new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::SERVER_KEY_EXCHANGE->id)), $RSAServerKeyExchange::rsaHandshakeProducer)}));
 		case 3:
-			{}
 		case 4:
-			{
-				$init($SSLHandshake);
-				$init($DHServerKeyExchange);
-				return ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::SERVER_KEY_EXCHANGE->id)), $DHServerKeyExchange::dhHandshakeProducer))}));
-			}
+			$init($SSLHandshake);
+			$init($DHServerKeyExchange);
+			return ($new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::SERVER_KEY_EXCHANGE->id)), $DHServerKeyExchange::dhHandshakeProducer)}));
 		case 6:
-			{
-				$init($SSLHandshake);
-				$init($ECDHServerKeyExchange);
-				return ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::SERVER_KEY_EXCHANGE->id)), $ECDHServerKeyExchange::ecdheHandshakeProducer))}));
-			}
+			$init($SSLHandshake);
+			$init($ECDHServerKeyExchange);
+			return ($new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::SERVER_KEY_EXCHANGE->id)), $ECDHServerKeyExchange::ecdheHandshakeProducer)}));
 		}
 	}
 	return ($new($Map$EntryArray, 0));
 }
 
 $Map$EntryArray* SSLKeyExchange$T12KeyAgreement::getHandshakeConsumers($HandshakeContext* handshakeContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc($nc(handshakeContext)->negotiatedProtocol)->useTLS13PlusSpec()) {
 		return ($new($Map$EntryArray, 0));
 	}
-	if ($nc($nc(handshakeContext)->sslConfig)->isClientMode) {
+	if ($nc(handshakeContext->sslConfig)->isClientMode) {
 		$init($SSLKeyExchange$1);
 		switch ($nc($SSLKeyExchange$1::$SwitchMap$sun$security$ssl$SSLKeyExchange$T12KeyAgreement)->get((this)->ordinal())) {
 		case 2:
-			{
-				$init($SSLHandshake);
-				$init($RSAServerKeyExchange);
-				return ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::SERVER_KEY_EXCHANGE->id)), $RSAServerKeyExchange::rsaHandshakeConsumer))}));
-			}
+			$init($SSLHandshake);
+			$init($RSAServerKeyExchange);
+			return ($new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::SERVER_KEY_EXCHANGE->id)), $RSAServerKeyExchange::rsaHandshakeConsumer)}));
 		case 3:
-			{}
 		case 4:
-			{
-				$init($SSLHandshake);
-				$init($DHServerKeyExchange);
-				return ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::SERVER_KEY_EXCHANGE->id)), $DHServerKeyExchange::dhHandshakeConsumer))}));
-			}
+			$init($SSLHandshake);
+			$init($DHServerKeyExchange);
+			return ($new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::SERVER_KEY_EXCHANGE->id)), $DHServerKeyExchange::dhHandshakeConsumer)}));
 		case 6:
-			{
-				$init($SSLHandshake);
-				$init($ECDHServerKeyExchange);
-				return ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::SERVER_KEY_EXCHANGE->id)), $ECDHServerKeyExchange::ecdheHandshakeConsumer))}));
-			}
+			$init($SSLHandshake);
+			$init($ECDHServerKeyExchange);
+			return ($new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::SERVER_KEY_EXCHANGE->id)), $ECDHServerKeyExchange::ecdheHandshakeConsumer)}));
 		}
 	} else {
 		$init($SSLKeyExchange$1);
 		switch ($nc($SSLKeyExchange$1::$SwitchMap$sun$security$ssl$SSLKeyExchange$T12KeyAgreement)->get((this)->ordinal())) {
 		case 1:
-			{}
 		case 2:
-			{
-				$init($SSLHandshake);
-				$init($RSAClientKeyExchange);
-				return ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::CLIENT_KEY_EXCHANGE->id)), $RSAClientKeyExchange::rsaHandshakeConsumer))}));
-			}
+			$init($SSLHandshake);
+			$init($RSAClientKeyExchange);
+			return ($new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::CLIENT_KEY_EXCHANGE->id)), $RSAClientKeyExchange::rsaHandshakeConsumer)}));
 		case 3:
-			{}
 		case 4:
-			{
-				$init($SSLHandshake);
-				$init($DHClientKeyExchange);
-				return ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::CLIENT_KEY_EXCHANGE->id)), $DHClientKeyExchange::dhHandshakeConsumer))}));
-			}
+			$init($SSLHandshake);
+			$init($DHClientKeyExchange);
+			return ($new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::CLIENT_KEY_EXCHANGE->id)), $DHClientKeyExchange::dhHandshakeConsumer)}));
 		case 5:
-			{
-				$init($SSLHandshake);
-				$init($ECDHClientKeyExchange);
-				return ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::CLIENT_KEY_EXCHANGE->id)), $ECDHClientKeyExchange::ecdhHandshakeConsumer))}));
-			}
+			$init($SSLHandshake);
+			$init($ECDHClientKeyExchange);
+			return ($new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::CLIENT_KEY_EXCHANGE->id)), $ECDHClientKeyExchange::ecdhHandshakeConsumer)}));
 		case 6:
-			{
-				$init($SSLHandshake);
-				$init($ECDHClientKeyExchange);
-				return ($new($Map$EntryArray, {static_cast<$Map$Entry*>($$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::CLIENT_KEY_EXCHANGE->id)), $ECDHClientKeyExchange::ecdheHandshakeConsumer))}));
-			}
+			$init($SSLHandshake);
+			$init($ECDHClientKeyExchange);
+			return ($new($Map$EntryArray, {$$new($AbstractMap$SimpleImmutableEntry, $($Byte::valueOf($SSLHandshake::CLIENT_KEY_EXCHANGE->id)), $ECDHClientKeyExchange::ecdheHandshakeConsumer)}));
 		}
 	}
 	return ($new($Map$EntryArray, 0));
 }
 
-void clinit$SSLKeyExchange$T12KeyAgreement($Class* class$) {
+void SSLKeyExchange$T12KeyAgreement::clinit$($Class* clazz) {
 	$init($RSAKeyExchange);
 	$assignStatic(SSLKeyExchange$T12KeyAgreement::RSA, $new(SSLKeyExchange$T12KeyAgreement, "RSA"_s, 0, "rsa"_s, nullptr, $RSAKeyExchange::kaGenerator));
 	$assignStatic(SSLKeyExchange$T12KeyAgreement::RSA_EXPORT, $new(SSLKeyExchange$T12KeyAgreement, "RSA_EXPORT"_s, 1, "rsa_export"_s, $RSAKeyExchange::poGenerator, $RSAKeyExchange::kaGenerator));
@@ -352,7 +258,58 @@ SSLKeyExchange$T12KeyAgreement::SSLKeyExchange$T12KeyAgreement() {
 }
 
 $Class* SSLKeyExchange$T12KeyAgreement::load$($String* name, bool initialize) {
-	$loadClass(SSLKeyExchange$T12KeyAgreement, name, initialize, &_SSLKeyExchange$T12KeyAgreement_ClassInfo_, clinit$SSLKeyExchange$T12KeyAgreement, allocate$SSLKeyExchange$T12KeyAgreement);
+	$FieldInfo fieldInfos$$[] = {
+		{"RSA", "Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLKeyExchange$T12KeyAgreement, RSA)},
+		{"RSA_EXPORT", "Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLKeyExchange$T12KeyAgreement, RSA_EXPORT)},
+		{"DHE", "Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLKeyExchange$T12KeyAgreement, DHE)},
+		{"DHE_EXPORT", "Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLKeyExchange$T12KeyAgreement, DHE_EXPORT)},
+		{"ECDH", "Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLKeyExchange$T12KeyAgreement, ECDH)},
+		{"ECDHE", "Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SSLKeyExchange$T12KeyAgreement, ECDHE)},
+		{"$VALUES", "[Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLKeyExchange$T12KeyAgreement, $VALUES)},
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(SSLKeyExchange$T12KeyAgreement, name$)},
+		{"possessionGenerator", "Lsun/security/ssl/SSLPossessionGenerator;", nullptr, $FINAL, $field(SSLKeyExchange$T12KeyAgreement, possessionGenerator)},
+		{"keyAgreementGenerator", "Lsun/security/ssl/SSLKeyAgreementGenerator;", nullptr, $FINAL, $field(SSLKeyExchange$T12KeyAgreement, keyAgreementGenerator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLKeyExchange$T12KeyAgreement, $values, $SSLKeyExchange$T12KeyAgreementArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Lsun/security/ssl/SSLPossessionGenerator;Lsun/security/ssl/SSLKeyAgreementGenerator;)V", "(Ljava/lang/String;Lsun/security/ssl/SSLPossessionGenerator;Lsun/security/ssl/SSLKeyAgreementGenerator;)V", $PRIVATE, $method(SSLKeyExchange$T12KeyAgreement, init$, void, $String*, int32_t, $String*, $SSLPossessionGenerator*, $SSLKeyAgreementGenerator*)},
+		{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, $virtualMethod(SSLKeyExchange$T12KeyAgreement, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*), "java.io.IOException"},
+		{"createPossession", "(Lsun/security/ssl/HandshakeContext;)Lsun/security/ssl/SSLPossession;", nullptr, $PUBLIC, $virtualMethod(SSLKeyExchange$T12KeyAgreement, createPossession, $SSLPossession*, $HandshakeContext*)},
+		{"getHandshakeConsumers", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry;", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry<Ljava/lang/Byte;Lsun/security/ssl/SSLConsumer;>;", $PUBLIC, $virtualMethod(SSLKeyExchange$T12KeyAgreement, getHandshakeConsumers, $Map$EntryArray*, $HandshakeContext*)},
+		{"getHandshakeProducers", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry;", "(Lsun/security/ssl/HandshakeContext;)[Ljava/util/Map$Entry<Ljava/lang/Byte;Lsun/security/ssl/HandshakeProducer;>;", $PUBLIC, $virtualMethod(SSLKeyExchange$T12KeyAgreement, getHandshakeProducers, $Map$EntryArray*, $HandshakeContext*)},
+		{"getRelatedHandshakers", "(Lsun/security/ssl/HandshakeContext;)[Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(SSLKeyExchange$T12KeyAgreement, getRelatedHandshakers, $SSLHandshakeArray*, $HandshakeContext*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLKeyExchange$T12KeyAgreement, valueOf, SSLKeyExchange$T12KeyAgreement*, $String*)},
+		{"values", "()[Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLKeyExchange$T12KeyAgreement, values, $SSLKeyExchange$T12KeyAgreementArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLKeyExchange$T12KeyAgreement", "sun.security.ssl.SSLKeyExchange", "T12KeyAgreement", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.ssl.SSLKeyExchange$T12KeyAgreement",
+		"java.lang.Enum",
+		"sun.security.ssl.SSLKeyAgreement",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/ssl/SSLKeyExchange$T12KeyAgreement;>;Lsun/security/ssl/SSLKeyAgreement;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLKeyExchange"
+	};
+	$loadClass(SSLKeyExchange$T12KeyAgreement, name, initialize, &classInfo$$, SSLKeyExchange$T12KeyAgreement::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SSLKeyExchange$T12KeyAgreement));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/stream/MatchOps$2MatchSink.h>
-
 #include <java/util/function/Consumer.h>
 #include <java/util/function/IntPredicate.h>
 #include <java/util/stream/MatchOps$BooleanTerminalSink.h>
@@ -22,64 +21,6 @@ using $Sink$OfInt = ::java::util::stream::Sink$OfInt;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _MatchOps$2MatchSink_FieldInfo_[] = {
-	{"val$predicate", "Ljava/util/function/IntPredicate;", nullptr, $FINAL | $SYNTHETIC, $field(MatchOps$2MatchSink, val$predicate)},
-	{"val$matchKind", "Ljava/util/stream/MatchOps$MatchKind;", nullptr, $FINAL | $SYNTHETIC, $field(MatchOps$2MatchSink, val$matchKind)},
-	{}
-};
-
-$MethodInfo _MatchOps$2MatchSink_MethodInfo_[] = {
-	{"*accept", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*accept", "(D)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*andThen", "(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*begin", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*cancellationRequested", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*end", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/IntPredicate;)V", "()V", 0, $method(MatchOps$2MatchSink, init$, void, $MatchOps$MatchKind*, $IntPredicate*)},
-	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(MatchOps$2MatchSink, accept, void, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$EnclosingMethodInfo _MatchOps$2MatchSink_EnclosingMethodInfo_ = {
-	"java.util.stream.MatchOps",
-	"makeInt",
-	"(Ljava/util/function/IntPredicate;Ljava/util/stream/MatchOps$MatchKind;)Ljava/util/stream/TerminalOp;"
-};
-
-$InnerClassInfo _MatchOps$2MatchSink_InnerClassesInfo_[] = {
-	{"java.util.stream.MatchOps$2MatchSink", nullptr, "MatchSink", 0},
-	{"java.util.stream.MatchOps$BooleanTerminalSink", "java.util.stream.MatchOps", "BooleanTerminalSink", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.stream.Sink$OfInt", "java.util.stream.Sink", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.stream.MatchOps$MatchKind", "java.util.stream.MatchOps", "MatchKind", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _MatchOps$2MatchSink_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.MatchOps$2MatchSink",
-	"java.util.stream.MatchOps$BooleanTerminalSink",
-	"java.util.stream.Sink$OfInt",
-	_MatchOps$2MatchSink_FieldInfo_,
-	_MatchOps$2MatchSink_MethodInfo_,
-	"Ljava/util/stream/MatchOps$BooleanTerminalSink<Ljava/lang/Integer;>;Ljava/util/stream/Sink$OfInt;",
-	&_MatchOps$2MatchSink_EnclosingMethodInfo_,
-	_MatchOps$2MatchSink_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.MatchOps"
-};
-
-$Object* allocate$MatchOps$2MatchSink($Class* clazz) {
-	return $of($alloc(MatchOps$2MatchSink));
-}
 
 bool MatchOps$2MatchSink::cancellationRequested() {
 	 return this->$MatchOps$BooleanTerminalSink::cancellationRequested();
@@ -146,7 +87,58 @@ MatchOps$2MatchSink::MatchOps$2MatchSink() {
 }
 
 $Class* MatchOps$2MatchSink::load$($String* name, bool initialize) {
-	$loadClass(MatchOps$2MatchSink, name, initialize, &_MatchOps$2MatchSink_ClassInfo_, allocate$MatchOps$2MatchSink);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$predicate", "Ljava/util/function/IntPredicate;", nullptr, $FINAL | $SYNTHETIC, $field(MatchOps$2MatchSink, val$predicate)},
+		{"val$matchKind", "Ljava/util/stream/MatchOps$MatchKind;", nullptr, $FINAL | $SYNTHETIC, $field(MatchOps$2MatchSink, val$matchKind)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*accept", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*accept", "(D)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*andThen", "(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*begin", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*cancellationRequested", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*end", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/IntPredicate;)V", "()V", 0, $method(MatchOps$2MatchSink, init$, void, $MatchOps$MatchKind*, $IntPredicate*)},
+		{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(MatchOps$2MatchSink, accept, void, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.MatchOps",
+		"makeInt",
+		"(Ljava/util/function/IntPredicate;Ljava/util/stream/MatchOps$MatchKind;)Ljava/util/stream/TerminalOp;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.MatchOps$2MatchSink", nullptr, "MatchSink", 0},
+		{"java.util.stream.MatchOps$BooleanTerminalSink", "java.util.stream.MatchOps", "BooleanTerminalSink", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.stream.Sink$OfInt", "java.util.stream.Sink", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.stream.MatchOps$MatchKind", "java.util.stream.MatchOps", "MatchKind", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.MatchOps$2MatchSink",
+		"java.util.stream.MatchOps$BooleanTerminalSink",
+		"java.util.stream.Sink$OfInt",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/MatchOps$BooleanTerminalSink<Ljava/lang/Integer;>;Ljava/util/stream/Sink$OfInt;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.MatchOps"
+	};
+	$loadClass(MatchOps$2MatchSink, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MatchOps$2MatchSink));
+	});
 	return class$;
 }
 

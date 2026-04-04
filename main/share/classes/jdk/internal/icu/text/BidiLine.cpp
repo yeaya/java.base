@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/text/BidiLine.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/text/Bidi.h>
 #include <java/util/Arrays.h>
@@ -36,41 +35,11 @@ namespace jdk {
 		namespace icu {
 			namespace text {
 
-$MethodInfo _BidiLine_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(BidiLine, init$, void)},
-	{"getLevelAt", "(Ljdk/internal/icu/text/BidiBase;I)B", nullptr, $STATIC, $staticMethod(BidiLine, getLevelAt, int8_t, $BidiBase*, int32_t)},
-	{"getLevels", "(Ljdk/internal/icu/text/BidiBase;)[B", nullptr, $STATIC, $staticMethod(BidiLine, getLevels, $bytes*, $BidiBase*)},
-	{"getRunFromLogicalIndex", "(Ljdk/internal/icu/text/BidiBase;I)I", nullptr, $STATIC, $staticMethod(BidiLine, getRunFromLogicalIndex, int32_t, $BidiBase*, int32_t)},
-	{"getRuns", "(Ljdk/internal/icu/text/BidiBase;)V", nullptr, $STATIC, $staticMethod(BidiLine, getRuns, void, $BidiBase*)},
-	{"getSingleRun", "(Ljdk/internal/icu/text/BidiBase;B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BidiLine, getSingleRun, void, $BidiBase*, int8_t)},
-	{"getVisualMap", "(Ljdk/internal/icu/text/BidiBase;)[I", nullptr, $STATIC, $staticMethod(BidiLine, getVisualMap, $ints*, $BidiBase*)},
-	{"getVisualRun", "(Ljdk/internal/icu/text/BidiBase;I)Ljdk/internal/icu/text/BidiRun;", nullptr, $STATIC, $staticMethod(BidiLine, getVisualRun, $BidiRun*, $BidiBase*, int32_t)},
-	{"prepareReorder", "([B[B[B)[I", nullptr, $STATIC, $staticMethod(BidiLine, prepareReorder, $ints*, $bytes*, $bytes*, $bytes*)},
-	{"reorderLine", "(Ljdk/internal/icu/text/BidiBase;BB)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BidiLine, reorderLine, void, $BidiBase*, int8_t, int8_t)},
-	{"reorderVisual", "([B)[I", nullptr, $STATIC, $staticMethod(BidiLine, reorderVisual, $ints*, $bytes*)},
-	{"setLine", "(Ljdk/internal/icu/text/BidiBase;Ljava/text/Bidi;Ljdk/internal/icu/text/BidiBase;II)Ljava/text/Bidi;", nullptr, $STATIC, $staticMethod(BidiLine, setLine, $Bidi*, $BidiBase*, $Bidi*, $BidiBase*, int32_t, int32_t)},
-	{"setTrailingWSStart", "(Ljdk/internal/icu/text/BidiBase;)V", nullptr, $STATIC, $staticMethod(BidiLine, setTrailingWSStart, void, $BidiBase*)},
-	{}
-};
-
-$ClassInfo _BidiLine_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.icu.text.BidiLine",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_BidiLine_MethodInfo_
-};
-
-$Object* allocate$BidiLine($Class* clazz) {
-	return $of($alloc(BidiLine));
-}
-
 void BidiLine::init$() {
 }
 
 void BidiLine::setTrailingWSStart($BidiBase* bidiBase) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, dirProps, $nc(bidiBase)->dirProps);
 	$var($bytes, levels, bidiBase->levels);
 	int32_t start = bidiBase->length;
@@ -79,8 +48,7 @@ void BidiLine::setTrailingWSStart($BidiBase* bidiBase) {
 		bidiBase->trailingWSStart = start;
 		return;
 	}
-	$init($BidiBase);
-	while (start > 0 && ((int32_t)($BidiBase::DirPropFlag($nc(dirProps)->get(start - 1)) & (uint32_t)$BidiBase::MASK_WS)) != 0) {
+	while (start > 0 && ($BidiBase::DirPropFlag(dirProps->get(start - 1)) & $BidiBase::MASK_WS) != 0) {
 		--start;
 	}
 	while (start > 0 && $nc(levels)->get(start - 1) == paraLevel) {
@@ -91,10 +59,10 @@ void BidiLine::setTrailingWSStart($BidiBase* bidiBase) {
 
 $Bidi* BidiLine::setLine($BidiBase* paraBidi, $Bidi* newBidi, $BidiBase* lineBidi, int32_t start, int32_t limit) {
 	int32_t length = 0;
-	length = ($nc(lineBidi)->length = (lineBidi->originalLength = (lineBidi->resultLength = limit - start)));
+	length = ($nc(lineBidi)->length = ($nc(lineBidi)->originalLength = ($nc(lineBidi)->resultLength = limit - start)));
 	$set(lineBidi, text, $new($chars, length));
 	$System::arraycopy($nc(paraBidi)->text, start, lineBidi->text, 0, length);
-	lineBidi->paraLevel = $nc(paraBidi)->GetParaLevelAt(start);
+	lineBidi->paraLevel = paraBidi->GetParaLevelAt(start);
 	lineBidi->paraCount = paraBidi->paraCount;
 	$set(lineBidi, runs, $new($BidiRunArray, 0));
 	lineBidi->reorderingMode = paraBidi->reorderingMode;
@@ -132,17 +100,17 @@ $Bidi* BidiLine::setLine($BidiBase* paraBidi, $Bidi* newBidi, $BidiBase* lineBid
 		setTrailingWSStart(lineBidi);
 		trailingWSStart = lineBidi->trailingWSStart;
 		if (trailingWSStart == 0) {
-			lineBidi->direction = (int8_t)((int32_t)(lineBidi->paraLevel & (uint32_t)1));
+			lineBidi->direction = (int8_t)(lineBidi->paraLevel & 1);
 		} else {
-			level = (int8_t)((int32_t)($nc(levels)->get(0) & (uint32_t)1));
-			if (trailingWSStart < length && ((int32_t)(lineBidi->paraLevel & (uint32_t)1)) != level) {
+			level = (int8_t)($nc(levels)->get(0) & 1);
+			if (trailingWSStart < length && (lineBidi->paraLevel & 1) != level) {
 				lineBidi->direction = $BidiBase::MIXED;
 			} else {
 				for (i = 1;; ++i) {
 					if (i == trailingWSStart) {
 						lineBidi->direction = level;
 						break;
-					} else if (((int32_t)(levels->get(i) & (uint32_t)1)) != level) {
+					} else if ((levels->get(i) & 1) != level) {
 						lineBidi->direction = $BidiBase::MIXED;
 						break;
 					}
@@ -151,21 +119,15 @@ $Bidi* BidiLine::setLine($BidiBase* paraBidi, $Bidi* newBidi, $BidiBase* lineBid
 		}
 		switch (lineBidi->direction) {
 		case $Bidi::DIRECTION_LEFT_TO_RIGHT:
-			{
-				lineBidi->paraLevel = (int8_t)((int32_t)((lineBidi->paraLevel + 1) & (uint32_t)~1));
-				lineBidi->trailingWSStart = 0;
-				break;
-			}
+			lineBidi->paraLevel = (int8_t)((lineBidi->paraLevel + 1) & ~1);
+			lineBidi->trailingWSStart = 0;
+			break;
 		case $Bidi::DIRECTION_RIGHT_TO_LEFT:
-			{
-				lineBidi->paraLevel |= 1;
-				lineBidi->trailingWSStart = 0;
-				break;
-			}
+			lineBidi->paraLevel |= 1;
+			lineBidi->trailingWSStart = 0;
+			break;
 		default:
-			{
-				break;
-			}
+			break;
 		}
 	}
 	$set(lineBidi, paraBidi, paraBidi);
@@ -173,7 +135,7 @@ $Bidi* BidiLine::setLine($BidiBase* paraBidi, $Bidi* newBidi, $BidiBase* lineBid
 }
 
 int8_t BidiLine::getLevelAt($BidiBase* bidiBase, int32_t charIndex) {
-	if ($nc(bidiBase)->direction != $BidiBase::MIXED || charIndex >= $nc(bidiBase)->trailingWSStart) {
+	if ($nc(bidiBase)->direction != $BidiBase::MIXED || charIndex >= bidiBase->trailingWSStart) {
 		return bidiBase->GetParaLevelAt(charIndex);
 	} else {
 		return $nc(bidiBase->levels)->get(charIndex);
@@ -198,23 +160,23 @@ $bytes* BidiLine::getLevels($BidiBase* bidiBase) {
 $BidiRun* BidiLine::getVisualRun($BidiBase* bidiBase, int32_t runIndex) {
 	int32_t start = $nc($nc($nc(bidiBase)->runs)->get(runIndex))->start;
 	int32_t limit = 0;
-	int8_t level = $nc($nc(bidiBase->runs)->get(runIndex))->level;
+	int8_t level = $nc(bidiBase->runs->get(runIndex))->level;
 	if (runIndex > 0) {
-		limit = start + $nc($nc(bidiBase->runs)->get(runIndex))->limit - $nc($nc(bidiBase->runs)->get(runIndex - 1))->limit;
+		limit = start + $nc(bidiBase->runs->get(runIndex))->limit - $nc(bidiBase->runs->get(runIndex - 1))->limit;
 	} else {
-		limit = start + $nc($nc(bidiBase->runs)->get(0))->limit;
+		limit = start + $nc(bidiBase->runs->get(0))->limit;
 	}
 	return $new($BidiRun, start, limit, level);
 }
 
 void BidiLine::getSingleRun($BidiBase* bidiBase, int8_t level) {
-	$set($nc(bidiBase), runs, bidiBase->simpleRuns);
+	$set($nc(bidiBase), runs, $nc(bidiBase)->simpleRuns);
 	bidiBase->runCount = 1;
 	$nc(bidiBase->runs)->set(0, $$new($BidiRun, 0, bidiBase->length, level));
 }
 
 void BidiLine::reorderLine($BidiBase* bidiBase, int8_t minLevel, int8_t maxLevel) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (maxLevel <= (minLevel | 1)) {
 		return;
 	}
@@ -241,15 +203,12 @@ void BidiLine::reorderLine($BidiBase* bidiBase, int8_t minLevel, int8_t maxLevel
 			if (firstRun >= runCount) {
 				break;
 			}
-			{
-				limitRun = firstRun;
-				for (;;) {
-					bool var$0 = ++limitRun < runCount;
-					if (!(var$0 && $nc(levels)->get($nc($nc(runs)->get(limitRun))->start) >= maxLevel)) {
-						break;
-					}
-					{
-					}
+			for (limitRun = firstRun;;) {
+				bool var$0 = ++limitRun < runCount;
+				if (!(var$0 && $nc(levels)->get($nc($nc(runs)->get(limitRun))->start) >= maxLevel)) {
+					break;
+				}
+				{
 				}
 			}
 			endRun = limitRun - 1;
@@ -267,7 +226,7 @@ void BidiLine::reorderLine($BidiBase* bidiBase, int8_t minLevel, int8_t maxLevel
 			}
 		}
 	}
-	if (((int32_t)(minLevel & (uint32_t)1)) == 0) {
+	if ((minLevel & 1) == 0) {
 		firstRun = 0;
 		if (bidiBase->trailingWSStart == bidiBase->length) {
 			--runCount;
@@ -301,11 +260,11 @@ int32_t BidiLine::getRunFromLogicalIndex($BidiBase* bidiBase, int32_t logicalInd
 }
 
 void BidiLine::getRuns($BidiBase* bidiBase) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(bidiBase)->runCount >= 0) {
 		return;
 	}
-	if ($nc(bidiBase)->direction != $BidiBase::MIXED) {
+	if (bidiBase->direction != $BidiBase::MIXED) {
 		getSingleRun(bidiBase, bidiBase->paraLevel);
 	} else {
 		int32_t length = bidiBase->length;
@@ -313,7 +272,7 @@ void BidiLine::getRuns($BidiBase* bidiBase) {
 		$var($bytes, levels, bidiBase->levels);
 		int32_t i = 0;
 		int32_t runCount = 0;
-		int8_t level = (int8_t)-1;
+		int8_t level = -1;
 		limit = bidiBase->trailingWSStart;
 		runCount = 0;
 		for (i = 0; i < limit; ++i) {
@@ -329,7 +288,7 @@ void BidiLine::getRuns($BidiBase* bidiBase) {
 			int32_t runIndex = 0;
 			int32_t start = 0;
 			int8_t minLevel = (int8_t)($BidiBase::MAX_EXPLICIT_LEVEL + 1);
-			int8_t maxLevel = (int8_t)0;
+			int8_t maxLevel = 0;
 			if (limit < length) {
 				++runCount;
 			}
@@ -368,26 +327,26 @@ void BidiLine::getRuns($BidiBase* bidiBase) {
 			reorderLine(bidiBase, minLevel, maxLevel);
 			limit = 0;
 			for (i = 0; i < runCount; ++i) {
-				$nc($nc(runs)->get(i))->level = $nc(levels)->get($nc(runs->get(i))->start);
+				$nc($nc(runs)->get(i))->level = $nc(levels)->get($nc($nc(runs)->get(i))->start);
 				limit = ($nc(runs->get(i))->limit += limit);
 			}
 			if (runIndex < runCount) {
-				int32_t trailingRun = (((int32_t)(bidiBase->paraLevel & (uint32_t)1)) != 0) ? 0 : runIndex;
+				int32_t trailingRun = ((bidiBase->paraLevel & 1) != 0) ? 0 : runIndex;
 				$nc($nc(runs)->get(trailingRun))->level = bidiBase->paraLevel;
 			}
 		}
 	}
-	if ($nc($nc(bidiBase)->insertPoints)->size > 0) {
+	if ($nc(bidiBase->insertPoints)->size > 0) {
 		$var($BidiBase$Point, point, nullptr);
 		int32_t runIndex = 0;
 		int32_t ip = 0;
-		for (ip = 0; ip < $nc(bidiBase->insertPoints)->size; ++ip) {
-			$assign(point, $nc($nc(bidiBase->insertPoints)->points)->get(ip));
+		for (ip = 0; ip < bidiBase->insertPoints->size; ++ip) {
+			$assign(point, $nc(bidiBase->insertPoints->points)->get(ip));
 			runIndex = getRunFromLogicalIndex(bidiBase, $nc(point)->pos);
-			$nc($nc(bidiBase->runs)->get(runIndex))->insertRemove |= $nc(point)->flag;
+			$nc($nc(bidiBase->runs)->get(runIndex))->insertRemove |= point->flag;
 		}
 	}
-	if ($nc(bidiBase)->controlCount > 0) {
+	if (bidiBase->controlCount > 0) {
 		int32_t runIndex = 0;
 		int32_t ic = 0;
 		char16_t c = 0;
@@ -406,11 +365,11 @@ $ints* BidiLine::prepareReorder($bytes* levels, $bytes* pMinLevel, $bytes* pMaxL
 	int8_t level = 0;
 	int8_t minLevel = 0;
 	int8_t maxLevel = 0;
-	if (levels == nullptr || $nc(levels)->length <= 0) {
+	if (levels == nullptr || levels->length <= 0) {
 		return nullptr;
 	}
 	minLevel = (int8_t)($BidiBase::MAX_EXPLICIT_LEVEL + 1);
-	maxLevel = (int8_t)0;
+	maxLevel = 0;
 	for (start = $nc(levels)->length; start > 0;) {
 		level = levels->get(--start);
 		if (level < 0 || level > ($BidiBase::MAX_EXPLICIT_LEVEL + 1)) {
@@ -434,7 +393,7 @@ $ints* BidiLine::prepareReorder($bytes* levels, $bytes* pMinLevel, $bytes* pMaxL
 }
 
 $ints* BidiLine::reorderVisual($bytes* levels) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, aMinLevel, $new($bytes, 1));
 	$var($bytes, aMaxLevel, $new($bytes, 1));
 	int32_t start = 0;
@@ -449,7 +408,7 @@ $ints* BidiLine::reorderVisual($bytes* levels) {
 	}
 	minLevel = aMinLevel->get(0);
 	maxLevel = aMaxLevel->get(0);
-	if (minLevel == maxLevel && ((int32_t)(minLevel & (uint32_t)1)) == 0) {
+	if (minLevel == maxLevel && (minLevel & 1) == 0) {
 		return indexMap;
 	}
 	minLevel |= 1;
@@ -459,18 +418,15 @@ $ints* BidiLine::reorderVisual($bytes* levels) {
 			while (start < $nc(levels)->length && levels->get(start) < maxLevel) {
 				++start;
 			}
-			if (start >= $nc(levels)->length) {
+			if (start >= levels->length) {
 				break;
 			}
-			{
-				limit = start;
-				for (;;) {
-					bool var$0 = ++limit < $nc(levels)->length;
-					if (!(var$0 && levels->get(limit) >= maxLevel)) {
-						break;
-					}
-					{
-					}
+			for (limit = start;;) {
+				bool var$0 = ++limit < levels->length;
+				if (!(var$0 && levels->get(limit) >= maxLevel)) {
+					break;
+				}
+				{
 				}
 			}
 			end = limit - 1;
@@ -481,7 +437,7 @@ $ints* BidiLine::reorderVisual($bytes* levels) {
 				++start;
 				--end;
 			}
-			if (limit == $nc(levels)->length) {
+			if (limit == levels->length) {
 				break;
 			} else {
 				start = limit + 1;
@@ -492,7 +448,7 @@ $ints* BidiLine::reorderVisual($bytes* levels) {
 }
 
 $ints* BidiLine::getVisualMap($BidiBase* bidiBase) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BidiRunArray, runs, $nc(bidiBase)->runs);
 	int32_t logicalStart = 0;
 	int32_t visualStart = 0;
@@ -525,17 +481,17 @@ $ints* BidiLine::getVisualMap($BidiBase* bidiBase) {
 		$assign(runs, bidiBase->runs);
 		for (i = 0; i < runCount; ++i) {
 			insertRemove = $nc($nc(runs)->get(i))->insertRemove;
-			if (((int32_t)(insertRemove & (uint32_t)($BidiBase::LRM_BEFORE | $BidiBase::RLM_BEFORE))) > 0) {
+			if ((insertRemove & ($BidiBase::LRM_BEFORE | $BidiBase::RLM_BEFORE)) > 0) {
 				++markFound;
 			}
-			if (((int32_t)(insertRemove & (uint32_t)($BidiBase::LRM_AFTER | $BidiBase::RLM_AFTER))) > 0) {
+			if ((insertRemove & ($BidiBase::LRM_AFTER | $BidiBase::RLM_AFTER)) > 0) {
 				++markFound;
 			}
 		}
 		k = bidiBase->resultLength;
 		for (i = runCount - 1; i >= 0 && markFound > 0; --i) {
 			insertRemove = $nc($nc(runs)->get(i))->insertRemove;
-			if (((int32_t)(insertRemove & (uint32_t)($BidiBase::LRM_AFTER | $BidiBase::RLM_AFTER))) > 0) {
+			if ((insertRemove & ($BidiBase::LRM_AFTER | $BidiBase::RLM_AFTER)) > 0) {
 				indexMap->set(--k, $BidiBase::MAP_NOWHERE);
 				--markFound;
 			}
@@ -543,7 +499,7 @@ $ints* BidiLine::getVisualMap($BidiBase* bidiBase) {
 			for (j = $nc(runs->get(i))->limit - 1; j >= visualStart && markFound > 0; --j) {
 				indexMap->set(--k, indexMap->get(j));
 			}
-			if (((int32_t)(insertRemove & (uint32_t)($BidiBase::LRM_BEFORE | $BidiBase::RLM_BEFORE))) > 0) {
+			if ((insertRemove & ($BidiBase::LRM_BEFORE | $BidiBase::RLM_BEFORE)) > 0) {
 				indexMap->set(--k, $BidiBase::MAP_NOWHERE);
 				--markFound;
 			}
@@ -600,7 +556,33 @@ BidiLine::BidiLine() {
 }
 
 $Class* BidiLine::load$($String* name, bool initialize) {
-	$loadClass(BidiLine, name, initialize, &_BidiLine_ClassInfo_, allocate$BidiLine);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(BidiLine, init$, void)},
+		{"getLevelAt", "(Ljdk/internal/icu/text/BidiBase;I)B", nullptr, $STATIC, $staticMethod(BidiLine, getLevelAt, int8_t, $BidiBase*, int32_t)},
+		{"getLevels", "(Ljdk/internal/icu/text/BidiBase;)[B", nullptr, $STATIC, $staticMethod(BidiLine, getLevels, $bytes*, $BidiBase*)},
+		{"getRunFromLogicalIndex", "(Ljdk/internal/icu/text/BidiBase;I)I", nullptr, $STATIC, $staticMethod(BidiLine, getRunFromLogicalIndex, int32_t, $BidiBase*, int32_t)},
+		{"getRuns", "(Ljdk/internal/icu/text/BidiBase;)V", nullptr, $STATIC, $staticMethod(BidiLine, getRuns, void, $BidiBase*)},
+		{"getSingleRun", "(Ljdk/internal/icu/text/BidiBase;B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BidiLine, getSingleRun, void, $BidiBase*, int8_t)},
+		{"getVisualMap", "(Ljdk/internal/icu/text/BidiBase;)[I", nullptr, $STATIC, $staticMethod(BidiLine, getVisualMap, $ints*, $BidiBase*)},
+		{"getVisualRun", "(Ljdk/internal/icu/text/BidiBase;I)Ljdk/internal/icu/text/BidiRun;", nullptr, $STATIC, $staticMethod(BidiLine, getVisualRun, $BidiRun*, $BidiBase*, int32_t)},
+		{"prepareReorder", "([B[B[B)[I", nullptr, $STATIC, $staticMethod(BidiLine, prepareReorder, $ints*, $bytes*, $bytes*, $bytes*)},
+		{"reorderLine", "(Ljdk/internal/icu/text/BidiBase;BB)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BidiLine, reorderLine, void, $BidiBase*, int8_t, int8_t)},
+		{"reorderVisual", "([B)[I", nullptr, $STATIC, $staticMethod(BidiLine, reorderVisual, $ints*, $bytes*)},
+		{"setLine", "(Ljdk/internal/icu/text/BidiBase;Ljava/text/Bidi;Ljdk/internal/icu/text/BidiBase;II)Ljava/text/Bidi;", nullptr, $STATIC, $staticMethod(BidiLine, setLine, $Bidi*, $BidiBase*, $Bidi*, $BidiBase*, int32_t, int32_t)},
+		{"setTrailingWSStart", "(Ljdk/internal/icu/text/BidiBase;)V", nullptr, $STATIC, $staticMethod(BidiLine, setTrailingWSStart, void, $BidiBase*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.icu.text.BidiLine",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BidiLine, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BidiLine);
+	});
 	return class$;
 }
 

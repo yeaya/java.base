@@ -1,35 +1,15 @@
 #include <comSB/SupAlice.h>
-
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace comSB {
 
-$MethodInfo _SupAlice_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SupAlice, init$, void)},
-	{}
-};
-
-$ClassInfo _SupAlice_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"comSB.SupAlice",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SupAlice_MethodInfo_
-};
-
-$Object* allocate$SupAlice($Class* clazz) {
-	return $of($alloc(SupAlice));
-}
-
 void SupAlice::init$() {
 }
 
-void clinit$SupAlice($Class* class$) {
+void SupAlice::clinit$($Class* clazz) {
 	{
 		$nc($System::out)->println("comSB.SupAlice loaded"_s);
 	}
@@ -39,7 +19,21 @@ SupAlice::SupAlice() {
 }
 
 $Class* SupAlice::load$($String* name, bool initialize) {
-	$loadClass(SupAlice, name, initialize, &_SupAlice_ClassInfo_, clinit$SupAlice, allocate$SupAlice);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SupAlice, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"comSB.SupAlice",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SupAlice, name, initialize, &classInfo$$, SupAlice::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SupAlice);
+	});
 	return class$;
 }
 

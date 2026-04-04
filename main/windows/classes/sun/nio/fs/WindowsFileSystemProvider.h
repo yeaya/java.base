@@ -79,6 +79,7 @@ class WindowsFileSystemProvider : public ::sun::nio::fs::AbstractFileSystemProvi
 	$class(WindowsFileSystemProvider, 0, ::sun::nio::fs::AbstractFileSystemProvider)
 public:
 	WindowsFileSystemProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void checkAccess(::java::nio::file::Path* obj, $Array<::java::nio::file::AccessMode>* modes) override;
 	void checkReadAccess(::sun::nio::fs::WindowsPath* file);

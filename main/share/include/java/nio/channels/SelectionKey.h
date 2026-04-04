@@ -40,6 +40,7 @@ class $import SelectionKey : public ::java::lang::Object {
 	$class(SelectionKey, 0, ::java::lang::Object)
 public:
 	SelectionKey();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	$Object* attach(Object$* ob);
 	$Object* attachment();

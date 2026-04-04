@@ -1,5 +1,4 @@
 #include <jdk/internal/module/ModulePatcher$ExplodedResourceFinder$1.h>
-
 #include <java/io/IOError.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -25,7 +24,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Files = ::java::nio::file::Files;
@@ -36,57 +34,6 @@ using $ModulePatcher$ExplodedResourceFinder = ::jdk::internal::module::ModulePat
 namespace jdk {
 	namespace internal {
 		namespace module {
-
-$FieldInfo _ModulePatcher$ExplodedResourceFinder$1_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/module/ModulePatcher$ExplodedResourceFinder;", nullptr, $FINAL | $SYNTHETIC, $field(ModulePatcher$ExplodedResourceFinder$1, this$0)},
-	{"val$top", "Ljava/nio/file/Path;", nullptr, $FINAL | $SYNTHETIC, $field(ModulePatcher$ExplodedResourceFinder$1, val$top)},
-	{"val$file", "Ljava/nio/file/Path;", nullptr, $FINAL | $SYNTHETIC, $field(ModulePatcher$ExplodedResourceFinder$1, val$file)},
-	{"val$name", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(ModulePatcher$ExplodedResourceFinder$1, val$name)},
-	{}
-};
-
-$MethodInfo _ModulePatcher$ExplodedResourceFinder$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/module/ModulePatcher$ExplodedResourceFinder;Ljava/lang/String;Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, 0, $method(ModulePatcher$ExplodedResourceFinder$1, init$, void, $ModulePatcher$ExplodedResourceFinder*, $String*, $Path*, $Path*)},
-	{"getByteBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder$1, getByteBuffer, $ByteBuffer*), "java.io.IOException"},
-	{"getCodeSourceURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder$1, getCodeSourceURL, $URL*)},
-	{"getContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder$1, getContentLength, int32_t), "java.io.IOException"},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder$1, getInputStream, $InputStream*), "java.io.IOException"},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder$1, getName, $String*)},
-	{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder$1, getURL, $URL*)},
-	{}
-};
-
-$EnclosingMethodInfo _ModulePatcher$ExplodedResourceFinder$1_EnclosingMethodInfo_ = {
-	"jdk.internal.module.ModulePatcher$ExplodedResourceFinder",
-	"newResource",
-	"(Ljava/lang/String;Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljdk/internal/loader/Resource;"
-};
-
-$InnerClassInfo _ModulePatcher$ExplodedResourceFinder$1_InnerClassesInfo_[] = {
-	{"jdk.internal.module.ModulePatcher$ExplodedResourceFinder", "jdk.internal.module.ModulePatcher", "ExplodedResourceFinder", $PRIVATE | $STATIC},
-	{"jdk.internal.module.ModulePatcher$ExplodedResourceFinder$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ModulePatcher$ExplodedResourceFinder$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.module.ModulePatcher$ExplodedResourceFinder$1",
-	"jdk.internal.loader.Resource",
-	nullptr,
-	_ModulePatcher$ExplodedResourceFinder$1_FieldInfo_,
-	_ModulePatcher$ExplodedResourceFinder$1_MethodInfo_,
-	nullptr,
-	&_ModulePatcher$ExplodedResourceFinder$1_EnclosingMethodInfo_,
-	_ModulePatcher$ExplodedResourceFinder$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.module.ModulePatcher"
-};
-
-$Object* allocate$ModulePatcher$ExplodedResourceFinder$1($Class* clazz) {
-	return $of($alloc(ModulePatcher$ExplodedResourceFinder$1));
-}
 
 void ModulePatcher$ExplodedResourceFinder$1::init$($ModulePatcher$ExplodedResourceFinder* this$0, $String* val$name, $Path* val$file, $Path* val$top) {
 	$set(this, this$0, this$0);
@@ -102,7 +49,7 @@ $String* ModulePatcher$ExplodedResourceFinder$1::getName() {
 
 $URL* ModulePatcher$ExplodedResourceFinder$1::getURL() {
 	try {
-		return $nc($($nc(this->val$file)->toUri()))->toURL();
+		return $$nc($nc(this->val$file)->toUri())->toURL();
 	} catch ($IOException& e) {
 		return nullptr;
 	} catch ($IOError& e) {
@@ -113,7 +60,7 @@ $URL* ModulePatcher$ExplodedResourceFinder$1::getURL() {
 
 $URL* ModulePatcher$ExplodedResourceFinder$1::getCodeSourceURL() {
 	try {
-		return $nc($($nc(this->val$top)->toUri()))->toURL();
+		return $$nc($nc(this->val$top)->toUri())->toURL();
 	} catch ($IOException& e) {
 		return nullptr;
 	} catch ($IOError& e) {
@@ -139,7 +86,51 @@ ModulePatcher$ExplodedResourceFinder$1::ModulePatcher$ExplodedResourceFinder$1()
 }
 
 $Class* ModulePatcher$ExplodedResourceFinder$1::load$($String* name, bool initialize) {
-	$loadClass(ModulePatcher$ExplodedResourceFinder$1, name, initialize, &_ModulePatcher$ExplodedResourceFinder$1_ClassInfo_, allocate$ModulePatcher$ExplodedResourceFinder$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/module/ModulePatcher$ExplodedResourceFinder;", nullptr, $FINAL | $SYNTHETIC, $field(ModulePatcher$ExplodedResourceFinder$1, this$0)},
+		{"val$top", "Ljava/nio/file/Path;", nullptr, $FINAL | $SYNTHETIC, $field(ModulePatcher$ExplodedResourceFinder$1, val$top)},
+		{"val$file", "Ljava/nio/file/Path;", nullptr, $FINAL | $SYNTHETIC, $field(ModulePatcher$ExplodedResourceFinder$1, val$file)},
+		{"val$name", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(ModulePatcher$ExplodedResourceFinder$1, val$name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/module/ModulePatcher$ExplodedResourceFinder;Ljava/lang/String;Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, 0, $method(ModulePatcher$ExplodedResourceFinder$1, init$, void, $ModulePatcher$ExplodedResourceFinder*, $String*, $Path*, $Path*)},
+		{"getByteBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder$1, getByteBuffer, $ByteBuffer*), "java.io.IOException"},
+		{"getCodeSourceURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder$1, getCodeSourceURL, $URL*)},
+		{"getContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder$1, getContentLength, int32_t), "java.io.IOException"},
+		{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder$1, getInputStream, $InputStream*), "java.io.IOException"},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder$1, getName, $String*)},
+		{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(ModulePatcher$ExplodedResourceFinder$1, getURL, $URL*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.module.ModulePatcher$ExplodedResourceFinder",
+		"newResource",
+		"(Ljava/lang/String;Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljdk/internal/loader/Resource;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.module.ModulePatcher$ExplodedResourceFinder", "jdk.internal.module.ModulePatcher", "ExplodedResourceFinder", $PRIVATE | $STATIC},
+		{"jdk.internal.module.ModulePatcher$ExplodedResourceFinder$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.module.ModulePatcher$ExplodedResourceFinder$1",
+		"jdk.internal.loader.Resource",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.module.ModulePatcher"
+	};
+	$loadClass(ModulePatcher$ExplodedResourceFinder$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModulePatcher$ExplodedResourceFinder$1);
+	});
 	return class$;
 }
 

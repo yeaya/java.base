@@ -22,6 +22,7 @@ class $export ChangingInterests : public ::java::lang::Object {
 	$class(ChangingInterests, 0, ::java::lang::Object)
 public:
 	ChangingInterests();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void assertTrue(bool v, $String* msg);
 	static void drain(::java::nio::channels::SocketChannel* sc);

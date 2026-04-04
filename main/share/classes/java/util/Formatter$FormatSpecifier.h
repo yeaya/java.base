@@ -49,6 +49,7 @@ class Formatter$FormatSpecifier : public ::java::util::Formatter$FormatString {
 	$class(Formatter$FormatSpecifier, 0, ::java::util::Formatter$FormatString)
 public:
 	Formatter$FormatSpecifier();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::Formatter* this$0, char16_t conv);
 	void init$(::java::util::Formatter* this$0, $String* s, ::java::util::regex::Matcher* m);
 	void addZeros(::java::lang::StringBuilder* sb, int32_t prec);

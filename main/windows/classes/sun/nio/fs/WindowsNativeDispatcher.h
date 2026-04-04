@@ -35,6 +35,7 @@ class WindowsNativeDispatcher : public ::java::lang::Object {
 	$class(WindowsNativeDispatcher, 0, ::java::lang::Object)
 public:
 	WindowsNativeDispatcher();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool AccessCheck(int64_t token, int64_t securityInfo, int32_t accessMask, int32_t genericRead, int32_t genericWrite, int32_t genericExecute, int32_t genericAll);
 	static void AddAccessAllowedAceEx(int64_t aclAddress, int32_t flags, int32_t mask, int64_t sidAddress);

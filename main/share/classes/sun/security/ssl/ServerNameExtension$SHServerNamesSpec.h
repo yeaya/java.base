@@ -29,6 +29,7 @@ class ServerNameExtension$SHServerNamesSpec : public ::sun::security::ssl::SSLEx
 	$class(ServerNameExtension$SHServerNamesSpec, 0, ::sun::security::ssl::SSLExtension$SSLExtensionSpec)
 public:
 	ServerNameExtension$SHServerNamesSpec();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::sun::security::ssl::HandshakeContext* hc, ::java::nio::ByteBuffer* buffer);
 	virtual $String* toString() override;

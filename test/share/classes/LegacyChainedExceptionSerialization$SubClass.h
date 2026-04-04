@@ -19,7 +19,10 @@ public:
 	virtual $Throwable* getCause() override;
 	LegacyChainedExceptionSerialization$SubClass(const LegacyChainedExceptionSerialization$SubClass& e);
 	virtual void throw$() override;
-	inline LegacyChainedExceptionSerialization$SubClass* operator ->() {
+	inline LegacyChainedExceptionSerialization$SubClass* operator ->() const {
+		return (LegacyChainedExceptionSerialization$SubClass*)throwing$;
+	}
+	inline operator LegacyChainedExceptionSerialization$SubClass*() const {
 		return (LegacyChainedExceptionSerialization$SubClass*)throwing$;
 	}
 };

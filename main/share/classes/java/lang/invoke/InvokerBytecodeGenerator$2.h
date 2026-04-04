@@ -13,6 +13,7 @@ class InvokerBytecodeGenerator$2 : public ::java::lang::Object {
 	$class(InvokerBytecodeGenerator$2, 0, ::java::lang::Object)
 public:
 	InvokerBytecodeGenerator$2();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$lang$invoke$MethodHandleImpl$Intrinsic;
 	static $ints* $SwitchMap$java$lang$invoke$LambdaForm$Kind;
 	static $ints* $SwitchMap$sun$invoke$util$Wrapper;

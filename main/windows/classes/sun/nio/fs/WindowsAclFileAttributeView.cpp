@@ -1,5 +1,4 @@
 #include <sun/nio/fs/WindowsAclFileAttributeView.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/RuntimePermission.h>
@@ -34,7 +33,6 @@ using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $ProviderMismatchException = ::java::nio::file::ProviderMismatchException;
 using $UserPrincipal = ::java::nio::file::attribute::UserPrincipal;
-using $Permission = ::java::security::Permission;
 using $List = ::java::util::List;
 using $AbstractAclFileAttributeView = ::sun::nio::fs::AbstractAclFileAttributeView;
 using $NativeBuffer = ::sun::nio::fs::NativeBuffer;
@@ -53,38 +51,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _WindowsAclFileAttributeView_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(WindowsAclFileAttributeView, $assertionsDisabled)},
-	{"SIZEOF_SECURITY_DESCRIPTOR", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsAclFileAttributeView, SIZEOF_SECURITY_DESCRIPTOR)},
-	{"file", "Lsun/nio/fs/WindowsPath;", nullptr, $PRIVATE | $FINAL, $field(WindowsAclFileAttributeView, file)},
-	{"followLinks", "Z", nullptr, $PRIVATE | $FINAL, $field(WindowsAclFileAttributeView, followLinks)},
-	{}
-};
-
-$MethodInfo _WindowsAclFileAttributeView_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/WindowsPath;Z)V", nullptr, 0, $method(WindowsAclFileAttributeView, init$, void, $WindowsPath*, bool)},
-	{"checkAccess", "(Lsun/nio/fs/WindowsPath;ZZ)V", nullptr, $PRIVATE, $method(WindowsAclFileAttributeView, checkAccess, void, $WindowsPath*, bool, bool)},
-	{"getAcl", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/file/attribute/AclEntry;>;", $PUBLIC, $virtualMethod(WindowsAclFileAttributeView, getAcl, $List*), "java.io.IOException"},
-	{"getFileSecurity", "(Ljava/lang/String;I)Lsun/nio/fs/NativeBuffer;", nullptr, $STATIC, $staticMethod(WindowsAclFileAttributeView, getFileSecurity, $NativeBuffer*, $String*, int32_t), "java.io.IOException"},
-	{"getOwner", "()Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC, $virtualMethod(WindowsAclFileAttributeView, getOwner, $UserPrincipal*), "java.io.IOException"},
-	{"setAcl", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/file/attribute/AclEntry;>;)V", $PUBLIC, $virtualMethod(WindowsAclFileAttributeView, setAcl, void, $List*), "java.io.IOException"},
-	{"setOwner", "(Ljava/nio/file/attribute/UserPrincipal;)V", nullptr, $PUBLIC, $virtualMethod(WindowsAclFileAttributeView, setOwner, void, $UserPrincipal*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _WindowsAclFileAttributeView_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.WindowsAclFileAttributeView",
-	"sun.nio.fs.AbstractAclFileAttributeView",
-	nullptr,
-	_WindowsAclFileAttributeView_FieldInfo_,
-	_WindowsAclFileAttributeView_MethodInfo_
-};
-
-$Object* allocate$WindowsAclFileAttributeView($Class* clazz) {
-	return $of($alloc(WindowsAclFileAttributeView));
-}
-
 bool WindowsAclFileAttributeView::$assertionsDisabled = false;
 
 void WindowsAclFileAttributeView::init$($WindowsPath* file, bool followLinks) {
@@ -94,7 +60,7 @@ void WindowsAclFileAttributeView::init$($WindowsPath* file, bool followLinks) {
 }
 
 void WindowsAclFileAttributeView::checkAccess($WindowsPath* file, bool checkRead, bool checkWrite) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		if (checkRead) {
@@ -125,7 +91,7 @@ $NativeBuffer* WindowsAclFileAttributeView::getFileSecurity($String* path, int32
 			if (newSize <= size) {
 				return buffer;
 			}
-			$nc(buffer)->release();
+			buffer->release();
 			$assign(buffer, $NativeBuffers::getNativeBuffer(newSize));
 			size = newSize;
 		}
@@ -138,74 +104,70 @@ $NativeBuffer* WindowsAclFileAttributeView::getFileSecurity($String* path, int32
 }
 
 $UserPrincipal* WindowsAclFileAttributeView::getOwner() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkAccess(this->file, true, false);
 	$var($String, path, $WindowsLinkSupport::getFinalPath(this->file, this->followLinks));
 	$var($NativeBuffer, buffer, getFileSecurity(path, 1));
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($UserPrincipal, var$2, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	$var($UserPrincipal, var$2, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				int64_t sidAddress = $WindowsNativeDispatcher::GetSecurityDescriptorOwner($nc(buffer)->address());
-				if (sidAddress == (int64_t)0) {
-					$throwNew($IOException, "no owner"_s);
-				}
-				$assign(var$2, $WindowsUserPrincipals::fromSid(sidAddress));
-				return$1 = true;
-				goto $finally;
-			} catch ($WindowsException& x) {
-				x->rethrowAsIOException(this->file);
-				$assign(var$2, nullptr);
-				return$1 = true;
-				goto $finally;
+			int64_t sidAddress = $WindowsNativeDispatcher::GetSecurityDescriptorOwner($nc(buffer)->address());
+			if (sidAddress == 0) {
+				$throwNew($IOException, "no owner"_s);
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(buffer)->release();
+			$assign(var$2, $WindowsUserPrincipals::fromSid(sidAddress));
+			return$1 = true;
+			goto $finally;
+		} catch ($WindowsException& x) {
+			x->rethrowAsIOException(this->file);
+			$assign(var$2, nullptr);
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(buffer)->release();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $List* WindowsAclFileAttributeView::getAcl() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkAccess(this->file, true, false);
 	$var($String, path, $WindowsLinkSupport::getFinalPath(this->file, this->followLinks));
 	$var($NativeBuffer, buffer, getFileSecurity(path, 4));
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($List, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, $WindowsSecurityDescriptor::getAcl($nc(buffer)->address()));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(buffer)->release();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($List, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $WindowsSecurityDescriptor::getAcl($nc(buffer)->address()));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(buffer)->release();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void WindowsAclFileAttributeView::setOwner($UserPrincipal* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (obj == nullptr) {
 		$throwNew($NullPointerException, "\'owner\' is null"_s);
 	}
@@ -219,81 +181,77 @@ void WindowsAclFileAttributeView::setOwner($UserPrincipal* obj) {
 	try {
 		pOwner = $WindowsNativeDispatcher::ConvertStringSidToSid($($nc(owner)->sidString()));
 	} catch ($WindowsException& x) {
-		$var($String, var$0, $$str({"Failed to get SID for "_s, $($nc(owner)->getName()), ": "_s}));
-		$throwNew($IOException, $$concat(var$0, $(x->errorString())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Failed to get SID for "_s);
+		var$0->append($($nc(owner)->getName()));
+		var$0->append(": "_s);
+		var$0->append($(x->errorString()));
+		$throwNew($IOException, $$str(var$0));
 	}
-	{
-		$var($Throwable, var$1, nullptr);
+	$var($Throwable, var$1, nullptr);
+	try {
+		$var($NativeBuffer, buffer, $NativeBuffers::getNativeBuffer(WindowsAclFileAttributeView::SIZEOF_SECURITY_DESCRIPTOR));
+		$var($Throwable, var$2, nullptr);
 		try {
-			$var($NativeBuffer, buffer, $NativeBuffers::getNativeBuffer(WindowsAclFileAttributeView::SIZEOF_SECURITY_DESCRIPTOR));
-			{
-				$var($Throwable, var$2, nullptr);
+			try {
+				$WindowsNativeDispatcher::InitializeSecurityDescriptor($nc(buffer)->address());
+				$WindowsNativeDispatcher::SetSecurityDescriptorOwner(buffer->address(), pOwner);
+				$var($WindowsSecurity$Privilege, priv, $WindowsSecurity::enablePrivilege("SeRestorePrivilege"_s));
+				$var($Throwable, var$3, nullptr);
 				try {
-					try {
-						$WindowsNativeDispatcher::InitializeSecurityDescriptor($nc(buffer)->address());
-						$WindowsNativeDispatcher::SetSecurityDescriptorOwner($nc(buffer)->address(), pOwner);
-						$var($WindowsSecurity$Privilege, priv, $WindowsSecurity::enablePrivilege("SeRestorePrivilege"_s));
-						{
-							$var($Throwable, var$3, nullptr);
-							try {
-								$WindowsNativeDispatcher::SetFileSecurity(path, 1, $nc(buffer)->address());
-							} catch ($Throwable& var$4) {
-								$assign(var$3, var$4);
-							} /*finally*/ {
-								$nc(priv)->drop();
-							}
-							if (var$3 != nullptr) {
-								$throw(var$3);
-							}
-						}
-					} catch ($WindowsException& x) {
-						x->rethrowAsIOException(this->file);
-					}
-				} catch ($Throwable& var$5) {
-					$assign(var$2, var$5);
+					$WindowsNativeDispatcher::SetFileSecurity(path, 1, buffer->address());
+				} catch ($Throwable& var$4) {
+					$assign(var$3, var$4);
 				} /*finally*/ {
-					$nc(buffer)->release();
+					$nc(priv)->drop();
 				}
-				if (var$2 != nullptr) {
-					$throw(var$2);
+				if (var$3 != nullptr) {
+					$throw(var$3);
 				}
+			} catch ($WindowsException& x) {
+				x->rethrowAsIOException(this->file);
 			}
-		} catch ($Throwable& var$6) {
-			$assign(var$1, var$6);
+		} catch ($Throwable& var$5) {
+			$assign(var$2, var$5);
 		} /*finally*/ {
-			$WindowsNativeDispatcher::LocalFree(pOwner);
+			$nc(buffer)->release();
 		}
-		if (var$1 != nullptr) {
-			$throw(var$1);
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
+	} catch ($Throwable& var$6) {
+		$assign(var$1, var$6);
+	} /*finally*/ {
+		$WindowsNativeDispatcher::LocalFree(pOwner);
+	}
+	if (var$1 != nullptr) {
+		$throw(var$1);
 	}
 }
 
 void WindowsAclFileAttributeView::setAcl($List* acl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkAccess(this->file, false, true);
 	$var($String, path, $WindowsLinkSupport::getFinalPath(this->file, this->followLinks));
 	$var($WindowsSecurityDescriptor, sd, $WindowsSecurityDescriptor::create(acl));
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$WindowsNativeDispatcher::SetFileSecurity(path, 4, $nc(sd)->address());
-			} catch ($WindowsException& x) {
-				x->rethrowAsIOException(this->file);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(sd)->release();
+			$WindowsNativeDispatcher::SetFileSecurity(path, 4, $nc(sd)->address());
+		} catch ($WindowsException& x) {
+			x->rethrowAsIOException(this->file);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(sd)->release();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
-void clinit$WindowsAclFileAttributeView($Class* class$) {
+void WindowsAclFileAttributeView::clinit$($Class* clazz) {
 	WindowsAclFileAttributeView::$assertionsDisabled = !WindowsAclFileAttributeView::class$->desiredAssertionStatus();
 }
 
@@ -301,7 +259,34 @@ WindowsAclFileAttributeView::WindowsAclFileAttributeView() {
 }
 
 $Class* WindowsAclFileAttributeView::load$($String* name, bool initialize) {
-	$loadClass(WindowsAclFileAttributeView, name, initialize, &_WindowsAclFileAttributeView_ClassInfo_, clinit$WindowsAclFileAttributeView, allocate$WindowsAclFileAttributeView);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(WindowsAclFileAttributeView, $assertionsDisabled)},
+		{"SIZEOF_SECURITY_DESCRIPTOR", "S", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsAclFileAttributeView, SIZEOF_SECURITY_DESCRIPTOR)},
+		{"file", "Lsun/nio/fs/WindowsPath;", nullptr, $PRIVATE | $FINAL, $field(WindowsAclFileAttributeView, file)},
+		{"followLinks", "Z", nullptr, $PRIVATE | $FINAL, $field(WindowsAclFileAttributeView, followLinks)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/fs/WindowsPath;Z)V", nullptr, 0, $method(WindowsAclFileAttributeView, init$, void, $WindowsPath*, bool)},
+		{"checkAccess", "(Lsun/nio/fs/WindowsPath;ZZ)V", nullptr, $PRIVATE, $method(WindowsAclFileAttributeView, checkAccess, void, $WindowsPath*, bool, bool)},
+		{"getAcl", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/file/attribute/AclEntry;>;", $PUBLIC, $virtualMethod(WindowsAclFileAttributeView, getAcl, $List*), "java.io.IOException"},
+		{"getFileSecurity", "(Ljava/lang/String;I)Lsun/nio/fs/NativeBuffer;", nullptr, $STATIC, $staticMethod(WindowsAclFileAttributeView, getFileSecurity, $NativeBuffer*, $String*, int32_t), "java.io.IOException"},
+		{"getOwner", "()Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC, $virtualMethod(WindowsAclFileAttributeView, getOwner, $UserPrincipal*), "java.io.IOException"},
+		{"setAcl", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/file/attribute/AclEntry;>;)V", $PUBLIC, $virtualMethod(WindowsAclFileAttributeView, setAcl, void, $List*), "java.io.IOException"},
+		{"setOwner", "(Ljava/nio/file/attribute/UserPrincipal;)V", nullptr, $PUBLIC, $virtualMethod(WindowsAclFileAttributeView, setOwner, void, $UserPrincipal*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.WindowsAclFileAttributeView",
+		"sun.nio.fs.AbstractAclFileAttributeView",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WindowsAclFileAttributeView, name, initialize, &classInfo$$, WindowsAclFileAttributeView::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsAclFileAttributeView));
+	});
 	return class$;
 }
 

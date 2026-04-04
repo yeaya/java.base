@@ -1,5 +1,4 @@
 #include <java/util/stream/Streams$ConcatSpliterator.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/Comparator.h>
 #include <java/util/Spliterator.h>
@@ -26,55 +25,6 @@ using $Consumer = ::java::util::function::Consumer;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _Streams$ConcatSpliterator_FieldInfo_[] = {
-	{"aSpliterator", "Ljava/util/Spliterator;", "TT_SPLITR;", $PROTECTED | $FINAL, $field(Streams$ConcatSpliterator, aSpliterator)},
-	{"bSpliterator", "Ljava/util/Spliterator;", "TT_SPLITR;", $PROTECTED | $FINAL, $field(Streams$ConcatSpliterator, bSpliterator)},
-	{"beforeSplit", "Z", nullptr, 0, $field(Streams$ConcatSpliterator, beforeSplit)},
-	{"unsized", "Z", nullptr, $FINAL, $field(Streams$ConcatSpliterator, unsized)},
-	{}
-};
-
-$MethodInfo _Streams$ConcatSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Spliterator;Ljava/util/Spliterator;)V", "(TT_SPLITR;TT_SPLITR;)V", $PUBLIC, $method(Streams$ConcatSpliterator, init$, void, $Spliterator*, $Spliterator*)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Streams$ConcatSpliterator, characteristics, int32_t)},
-	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Streams$ConcatSpliterator, estimateSize, int64_t)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Streams$ConcatSpliterator, forEachRemaining, void, $Consumer*)},
-	{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TT;>;", $PUBLIC, $virtualMethod(Streams$ConcatSpliterator, getComparator, $Comparator*)},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(Streams$ConcatSpliterator, tryAdvance, bool, $Consumer*)},
-	{"trySplit", "()Ljava/util/Spliterator;", "()TT_SPLITR;", $PUBLIC, $virtualMethod(Streams$ConcatSpliterator, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _Streams$ConcatSpliterator_InnerClassesInfo_[] = {
-	{"java.util.stream.Streams$ConcatSpliterator", "java.util.stream.Streams", "ConcatSpliterator", $STATIC | $ABSTRACT},
-	{"java.util.stream.Streams$ConcatSpliterator$OfDouble", "java.util.stream.Streams$ConcatSpliterator", "OfDouble", $STATIC},
-	{"java.util.stream.Streams$ConcatSpliterator$OfLong", "java.util.stream.Streams$ConcatSpliterator", "OfLong", $STATIC},
-	{"java.util.stream.Streams$ConcatSpliterator$OfInt", "java.util.stream.Streams$ConcatSpliterator", "OfInt", $STATIC},
-	{"java.util.stream.Streams$ConcatSpliterator$OfPrimitive", "java.util.stream.Streams$ConcatSpliterator", "OfPrimitive", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.stream.Streams$ConcatSpliterator$OfRef", "java.util.stream.Streams$ConcatSpliterator", "OfRef", $STATIC},
-	{}
-};
-
-$ClassInfo _Streams$ConcatSpliterator_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.stream.Streams$ConcatSpliterator",
-	"java.lang.Object",
-	"java.util.Spliterator",
-	_Streams$ConcatSpliterator_FieldInfo_,
-	_Streams$ConcatSpliterator_MethodInfo_,
-	"<T:Ljava/lang/Object;T_SPLITR::Ljava/util/Spliterator<TT;>;>Ljava/lang/Object;Ljava/util/Spliterator<TT;>;",
-	nullptr,
-	_Streams$ConcatSpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Streams"
-};
-
-$Object* allocate$Streams$ConcatSpliterator($Class* clazz) {
-	return $of($alloc(Streams$ConcatSpliterator));
-}
 
 void Streams$ConcatSpliterator::init$($Spliterator* aSpliterator, $Spliterator* bSpliterator) {
 	$set(this, aSpliterator, aSpliterator);
@@ -124,7 +74,7 @@ int64_t Streams$ConcatSpliterator::estimateSize() {
 int32_t Streams$ConcatSpliterator::characteristics() {
 	if (this->beforeSplit) {
 		int32_t var$0 = $nc(this->aSpliterator)->characteristics();
-		return (int32_t)(((int32_t)(var$0 & (uint32_t)$nc(this->bSpliterator)->characteristics())) & (uint32_t)~(($Spliterator::DISTINCT | $Spliterator::SORTED) | (this->unsized ? $Spliterator::SIZED | $Spliterator::SUBSIZED : 0)));
+		return (var$0 & $nc(this->bSpliterator)->characteristics()) & ~(($Spliterator::DISTINCT | $Spliterator::SORTED) | (this->unsized ? $Spliterator::SIZED | $Spliterator::SUBSIZED : 0));
 	} else {
 		return $nc(this->bSpliterator)->characteristics();
 	}
@@ -141,7 +91,50 @@ Streams$ConcatSpliterator::Streams$ConcatSpliterator() {
 }
 
 $Class* Streams$ConcatSpliterator::load$($String* name, bool initialize) {
-	$loadClass(Streams$ConcatSpliterator, name, initialize, &_Streams$ConcatSpliterator_ClassInfo_, allocate$Streams$ConcatSpliterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"aSpliterator", "Ljava/util/Spliterator;", "TT_SPLITR;", $PROTECTED | $FINAL, $field(Streams$ConcatSpliterator, aSpliterator)},
+		{"bSpliterator", "Ljava/util/Spliterator;", "TT_SPLITR;", $PROTECTED | $FINAL, $field(Streams$ConcatSpliterator, bSpliterator)},
+		{"beforeSplit", "Z", nullptr, 0, $field(Streams$ConcatSpliterator, beforeSplit)},
+		{"unsized", "Z", nullptr, $FINAL, $field(Streams$ConcatSpliterator, unsized)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Spliterator;Ljava/util/Spliterator;)V", "(TT_SPLITR;TT_SPLITR;)V", $PUBLIC, $method(Streams$ConcatSpliterator, init$, void, $Spliterator*, $Spliterator*)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(Streams$ConcatSpliterator, characteristics, int32_t)},
+		{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(Streams$ConcatSpliterator, estimateSize, int64_t)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Streams$ConcatSpliterator, forEachRemaining, void, $Consumer*)},
+		{"getComparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TT;>;", $PUBLIC, $virtualMethod(Streams$ConcatSpliterator, getComparator, $Comparator*)},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TT;>;)Z", $PUBLIC, $virtualMethod(Streams$ConcatSpliterator, tryAdvance, bool, $Consumer*)},
+		{"trySplit", "()Ljava/util/Spliterator;", "()TT_SPLITR;", $PUBLIC, $virtualMethod(Streams$ConcatSpliterator, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Streams$ConcatSpliterator", "java.util.stream.Streams", "ConcatSpliterator", $STATIC | $ABSTRACT},
+		{"java.util.stream.Streams$ConcatSpliterator$OfDouble", "java.util.stream.Streams$ConcatSpliterator", "OfDouble", $STATIC},
+		{"java.util.stream.Streams$ConcatSpliterator$OfLong", "java.util.stream.Streams$ConcatSpliterator", "OfLong", $STATIC},
+		{"java.util.stream.Streams$ConcatSpliterator$OfInt", "java.util.stream.Streams$ConcatSpliterator", "OfInt", $STATIC},
+		{"java.util.stream.Streams$ConcatSpliterator$OfPrimitive", "java.util.stream.Streams$ConcatSpliterator", "OfPrimitive", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.stream.Streams$ConcatSpliterator$OfRef", "java.util.stream.Streams$ConcatSpliterator", "OfRef", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.stream.Streams$ConcatSpliterator",
+		"java.lang.Object",
+		"java.util.Spliterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;T_SPLITR::Ljava/util/Spliterator<TT;>;>Ljava/lang/Object;Ljava/util/Spliterator<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Streams"
+	};
+	$loadClass(Streams$ConcatSpliterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Streams$ConcatSpliterator);
+	});
 	return class$;
 }
 

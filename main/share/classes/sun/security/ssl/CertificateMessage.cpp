@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CertificateMessage.h>
-
 #include <sun/security/ssl/CertificateMessage$T12CertificateConsumer.h>
 #include <sun/security/ssl/CertificateMessage$T12CertificateProducer.h>
 #include <sun/security/ssl/CertificateMessage$T13CertificateConsumer.h>
@@ -23,49 +22,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _CertificateMessage_FieldInfo_[] = {
-	{"t12HandshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(CertificateMessage, t12HandshakeConsumer)},
-	{"t12HandshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(CertificateMessage, t12HandshakeProducer)},
-	{"t13HandshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(CertificateMessage, t13HandshakeConsumer)},
-	{"t13HandshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(CertificateMessage, t13HandshakeProducer)},
-	{}
-};
-
-$MethodInfo _CertificateMessage_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CertificateMessage, init$, void)},
-	{}
-};
-
-$InnerClassInfo _CertificateMessage_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertificateMessage$T13CertificateConsumer", "sun.security.ssl.CertificateMessage", "T13CertificateConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.CertificateMessage$T13CertificateProducer", "sun.security.ssl.CertificateMessage", "T13CertificateProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.CertificateMessage$T13CertificateMessage", "sun.security.ssl.CertificateMessage", "T13CertificateMessage", $STATIC | $FINAL},
-	{"sun.security.ssl.CertificateMessage$CertificateEntry", "sun.security.ssl.CertificateMessage", "CertificateEntry", $STATIC | $FINAL},
-	{"sun.security.ssl.CertificateMessage$T12CertificateConsumer", "sun.security.ssl.CertificateMessage", "T12CertificateConsumer", $STATIC | $FINAL},
-	{"sun.security.ssl.CertificateMessage$T12CertificateProducer", "sun.security.ssl.CertificateMessage", "T12CertificateProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.CertificateMessage$T12CertificateMessage", "sun.security.ssl.CertificateMessage", "T12CertificateMessage", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CertificateMessage_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CertificateMessage",
-	"java.lang.Object",
-	nullptr,
-	_CertificateMessage_FieldInfo_,
-	_CertificateMessage_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CertificateMessage_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertificateMessage$T13CertificateConsumer,sun.security.ssl.CertificateMessage$T13CertificateProducer,sun.security.ssl.CertificateMessage$T13CertificateMessage,sun.security.ssl.CertificateMessage$CertificateEntry,sun.security.ssl.CertificateMessage$T12CertificateConsumer,sun.security.ssl.CertificateMessage$T12CertificateProducer,sun.security.ssl.CertificateMessage$T12CertificateMessage"
-};
-
-$Object* allocate$CertificateMessage($Class* clazz) {
-	return $of($alloc(CertificateMessage));
-}
-
 $SSLConsumer* CertificateMessage::t12HandshakeConsumer = nullptr;
 $HandshakeProducer* CertificateMessage::t12HandshakeProducer = nullptr;
 $SSLConsumer* CertificateMessage::t13HandshakeConsumer = nullptr;
@@ -74,7 +30,7 @@ $HandshakeProducer* CertificateMessage::t13HandshakeProducer = nullptr;
 void CertificateMessage::init$() {
 }
 
-void clinit$CertificateMessage($Class* class$) {
+void CertificateMessage::clinit$($Class* clazz) {
 	$assignStatic(CertificateMessage::t12HandshakeConsumer, $new($CertificateMessage$T12CertificateConsumer));
 	$assignStatic(CertificateMessage::t12HandshakeProducer, $new($CertificateMessage$T12CertificateProducer));
 	$assignStatic(CertificateMessage::t13HandshakeConsumer, $new($CertificateMessage$T13CertificateConsumer));
@@ -85,7 +41,44 @@ CertificateMessage::CertificateMessage() {
 }
 
 $Class* CertificateMessage::load$($String* name, bool initialize) {
-	$loadClass(CertificateMessage, name, initialize, &_CertificateMessage_ClassInfo_, clinit$CertificateMessage, allocate$CertificateMessage);
+	$FieldInfo fieldInfos$$[] = {
+		{"t12HandshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(CertificateMessage, t12HandshakeConsumer)},
+		{"t12HandshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(CertificateMessage, t12HandshakeProducer)},
+		{"t13HandshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(CertificateMessage, t13HandshakeConsumer)},
+		{"t13HandshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(CertificateMessage, t13HandshakeProducer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CertificateMessage, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertificateMessage$T13CertificateConsumer", "sun.security.ssl.CertificateMessage", "T13CertificateConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.CertificateMessage$T13CertificateProducer", "sun.security.ssl.CertificateMessage", "T13CertificateProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.CertificateMessage$T13CertificateMessage", "sun.security.ssl.CertificateMessage", "T13CertificateMessage", $STATIC | $FINAL},
+		{"sun.security.ssl.CertificateMessage$CertificateEntry", "sun.security.ssl.CertificateMessage", "CertificateEntry", $STATIC | $FINAL},
+		{"sun.security.ssl.CertificateMessage$T12CertificateConsumer", "sun.security.ssl.CertificateMessage", "T12CertificateConsumer", $STATIC | $FINAL},
+		{"sun.security.ssl.CertificateMessage$T12CertificateProducer", "sun.security.ssl.CertificateMessage", "T12CertificateProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.CertificateMessage$T12CertificateMessage", "sun.security.ssl.CertificateMessage", "T12CertificateMessage", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CertificateMessage",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertificateMessage$T13CertificateConsumer,sun.security.ssl.CertificateMessage$T13CertificateProducer,sun.security.ssl.CertificateMessage$T13CertificateMessage,sun.security.ssl.CertificateMessage$CertificateEntry,sun.security.ssl.CertificateMessage$T12CertificateConsumer,sun.security.ssl.CertificateMessage$T12CertificateProducer,sun.security.ssl.CertificateMessage$T12CertificateMessage"
+	};
+	$loadClass(CertificateMessage, name, initialize, &classInfo$$, CertificateMessage::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateMessage);
+	});
 	return class$;
 }
 

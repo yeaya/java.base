@@ -21,7 +21,10 @@ public:
 	char16_t c = 0;
 	FormatFlagsConversionMismatchException(const FormatFlagsConversionMismatchException& e);
 	virtual void throw$() override;
-	inline FormatFlagsConversionMismatchException* operator ->() {
+	inline FormatFlagsConversionMismatchException* operator ->() const {
+		return (FormatFlagsConversionMismatchException*)throwing$;
+	}
+	inline operator FormatFlagsConversionMismatchException*() const {
 		return (FormatFlagsConversionMismatchException*)throwing$;
 	}
 };

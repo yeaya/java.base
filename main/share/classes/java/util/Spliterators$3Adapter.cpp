@@ -1,5 +1,4 @@
 #include <java/util/Spliterators$3Adapter.h>
-
 #include <java/util/NoSuchElementException.h>
 #include <java/util/Objects.h>
 #include <java/util/PrimitiveIterator$OfLong.h>
@@ -21,61 +20,6 @@ using $LongConsumer = ::java::util::function::LongConsumer;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Spliterators$3Adapter_FieldInfo_[] = {
-	{"val$spliterator", "Ljava/util/Spliterator$OfLong;", nullptr, $FINAL | $SYNTHETIC, $field(Spliterators$3Adapter, val$spliterator)},
-	{"valueReady", "Z", nullptr, 0, $field(Spliterators$3Adapter, valueReady)},
-	{"nextElement", "J", nullptr, 0, $field(Spliterators$3Adapter, nextElement)},
-	{}
-};
-
-$MethodInfo _Spliterators$3Adapter_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/Spliterator$OfLong;)V", "()V", 0, $method(Spliterators$3Adapter, init$, void, $Spliterator$OfLong*)},
-	{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(Spliterators$3Adapter, accept, void, int64_t)},
-	{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC, $virtualMethod(Spliterators$3Adapter, forEachRemaining, void, $LongConsumer*)},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterators$3Adapter, forEachRemaining, void, Object$*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Spliterators$3Adapter, hasNext, bool)},
-	{"nextLong", "()J", nullptr, $PUBLIC, $virtualMethod(Spliterators$3Adapter, nextLong, int64_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$EnclosingMethodInfo _Spliterators$3Adapter_EnclosingMethodInfo_ = {
-	"java.util.Spliterators",
-	"iterator",
-	"(Ljava/util/Spliterator$OfLong;)Ljava/util/PrimitiveIterator$OfLong;"
-};
-
-$InnerClassInfo _Spliterators$3Adapter_InnerClassesInfo_[] = {
-	{"java.util.Spliterators$3Adapter", nullptr, "Adapter", 0},
-	{"java.util.PrimitiveIterator$OfLong", "java.util.PrimitiveIterator", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.Spliterator$OfLong", "java.util.Spliterator", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Spliterators$3Adapter_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Spliterators$3Adapter",
-	"java.lang.Object",
-	"java.util.PrimitiveIterator$OfLong,java.util.function.LongConsumer",
-	_Spliterators$3Adapter_FieldInfo_,
-	_Spliterators$3Adapter_MethodInfo_,
-	nullptr,
-	&_Spliterators$3Adapter_EnclosingMethodInfo_,
-	_Spliterators$3Adapter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Spliterators"
-};
-
-$Object* allocate$Spliterators$3Adapter($Class* clazz) {
-	return $of($alloc(Spliterators$3Adapter));
-}
 
 int32_t Spliterators$3Adapter::hashCode() {
 	 return this->$PrimitiveIterator$OfLong::hashCode();
@@ -109,7 +53,7 @@ void Spliterators$3Adapter::accept(int64_t t) {
 
 bool Spliterators$3Adapter::hasNext() {
 	if (!this->valueReady) {
-		$nc(this->val$spliterator)->tryAdvance(static_cast<$LongConsumer*>(this));
+		$nc(this->val$spliterator)->tryAdvance(this);
 	}
 	return this->valueReady;
 }
@@ -140,7 +84,55 @@ Spliterators$3Adapter::Spliterators$3Adapter() {
 }
 
 $Class* Spliterators$3Adapter::load$($String* name, bool initialize) {
-	$loadClass(Spliterators$3Adapter, name, initialize, &_Spliterators$3Adapter_ClassInfo_, allocate$Spliterators$3Adapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$spliterator", "Ljava/util/Spliterator$OfLong;", nullptr, $FINAL | $SYNTHETIC, $field(Spliterators$3Adapter, val$spliterator)},
+		{"valueReady", "Z", nullptr, 0, $field(Spliterators$3Adapter, valueReady)},
+		{"nextElement", "J", nullptr, 0, $field(Spliterators$3Adapter, nextElement)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/Spliterator$OfLong;)V", "()V", 0, $method(Spliterators$3Adapter, init$, void, $Spliterator$OfLong*)},
+		{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(Spliterators$3Adapter, accept, void, int64_t)},
+		{"forEachRemaining", "(Ljava/util/function/LongConsumer;)V", nullptr, $PUBLIC, $virtualMethod(Spliterators$3Adapter, forEachRemaining, void, $LongConsumer*)},
+		{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterators$3Adapter, forEachRemaining, void, Object$*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Spliterators$3Adapter, hasNext, bool)},
+		{"nextLong", "()J", nullptr, $PUBLIC, $virtualMethod(Spliterators$3Adapter, nextLong, int64_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.Spliterators",
+		"iterator",
+		"(Ljava/util/Spliterator$OfLong;)Ljava/util/PrimitiveIterator$OfLong;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Spliterators$3Adapter", nullptr, "Adapter", 0},
+		{"java.util.PrimitiveIterator$OfLong", "java.util.PrimitiveIterator", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.Spliterator$OfLong", "java.util.Spliterator", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Spliterators$3Adapter",
+		"java.lang.Object",
+		"java.util.PrimitiveIterator$OfLong,java.util.function.LongConsumer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Spliterators"
+	};
+	$loadClass(Spliterators$3Adapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Spliterators$3Adapter));
+	});
 	return class$;
 }
 

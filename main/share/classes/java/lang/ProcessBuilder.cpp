@@ -1,5 +1,4 @@
 #include <java/lang/ProcessBuilder.h>
-
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
@@ -62,7 +61,6 @@ using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $Permission = ::java::security::Permission;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $List = ::java::util::List;
@@ -82,27 +80,24 @@ public:
 	virtual void accept(Object$* inst$) override {
 		$sure($Process, inst$)->destroyForcibly();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ProcessBuilder$$Lambda$destroyForcibly>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ProcessBuilder$$Lambda$destroyForcibly::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ProcessBuilder$$Lambda$destroyForcibly, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$$Lambda$destroyForcibly, accept, void, Object$*)},
-	{}
-};
-$ClassInfo ProcessBuilder$$Lambda$destroyForcibly::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.ProcessBuilder$$Lambda$destroyForcibly",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	nullptr,
-	methodInfos
 };
 $Class* ProcessBuilder$$Lambda$destroyForcibly::load$($String* name, bool initialize) {
-	$loadClass(ProcessBuilder$$Lambda$destroyForcibly, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ProcessBuilder$$Lambda$destroyForcibly, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$$Lambda$destroyForcibly, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.ProcessBuilder$$Lambda$destroyForcibly",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ProcessBuilder$$Lambda$destroyForcibly, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProcessBuilder$$Lambda$destroyForcibly);
+	});
 	return class$;
 }
 $Class* ProcessBuilder$$Lambda$destroyForcibly::class$ = nullptr;
@@ -115,97 +110,27 @@ public:
 	virtual void accept(Object$* p) override {
 		ProcessBuilder::lambda$startPipeline$0($cast($Process, p));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ProcessBuilder$$Lambda$lambda$startPipeline$0$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ProcessBuilder$$Lambda$lambda$startPipeline$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ProcessBuilder$$Lambda$lambda$startPipeline$0$1, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$$Lambda$lambda$startPipeline$0$1, accept, void, Object$*)},
-	{}
-};
-$ClassInfo ProcessBuilder$$Lambda$lambda$startPipeline$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.ProcessBuilder$$Lambda$lambda$startPipeline$0$1",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	nullptr,
-	methodInfos
 };
 $Class* ProcessBuilder$$Lambda$lambda$startPipeline$0$1::load$($String* name, bool initialize) {
-	$loadClass(ProcessBuilder$$Lambda$lambda$startPipeline$0$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ProcessBuilder$$Lambda$lambda$startPipeline$0$1, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$$Lambda$lambda$startPipeline$0$1, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.ProcessBuilder$$Lambda$lambda$startPipeline$0$1",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ProcessBuilder$$Lambda$lambda$startPipeline$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProcessBuilder$$Lambda$lambda$startPipeline$0$1);
+	});
 	return class$;
 }
 $Class* ProcessBuilder$$Lambda$lambda$startPipeline$0$1::class$ = nullptr;
-
-$FieldInfo _ProcessBuilder_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ProcessBuilder, $assertionsDisabled)},
-	{"command", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(ProcessBuilder, command$)},
-	{"directory", "Ljava/io/File;", nullptr, $PRIVATE, $field(ProcessBuilder, directory$)},
-	{"environment", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(ProcessBuilder, environment$)},
-	{"redirectErrorStream", "Z", nullptr, $PRIVATE, $field(ProcessBuilder, redirectErrorStream$)},
-	{"redirects", "[Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PRIVATE, $field(ProcessBuilder, redirects$)},
-	{}
-};
-
-$MethodInfo _ProcessBuilder_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(ProcessBuilder, init$, void, $List*)},
-	{"<init>", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $method(ProcessBuilder, init$, void, $StringArray*)},
-	{"command", "(Ljava/util/List;)Ljava/lang/ProcessBuilder;", "(Ljava/util/List<Ljava/lang/String;>;)Ljava/lang/ProcessBuilder;", $PUBLIC, $method(ProcessBuilder, command, ProcessBuilder*, $List*)},
-	{"command", "([Ljava/lang/String;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC | $TRANSIENT, $method(ProcessBuilder, command, ProcessBuilder*, $StringArray*)},
-	{"command", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $method(ProcessBuilder, command, $List*)},
-	{"directory", "()Ljava/io/File;", nullptr, $PUBLIC, $method(ProcessBuilder, directory, $File*)},
-	{"directory", "(Ljava/io/File;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, directory, ProcessBuilder*, $File*)},
-	{"environment", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $method(ProcessBuilder, environment, $Map*)},
-	{"environment", "([Ljava/lang/String;)Ljava/lang/ProcessBuilder;", nullptr, 0, $method(ProcessBuilder, environment, ProcessBuilder*, $StringArray*)},
-	{"inheritIO", "()Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, inheritIO, ProcessBuilder*)},
-	{"lambda$startPipeline$0", "(Ljava/lang/Process;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProcessBuilder, lambda$startPipeline$0, void, $Process*)},
-	{"redirectError", "(Ljava/lang/ProcessBuilder$Redirect;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectError, ProcessBuilder*, $ProcessBuilder$Redirect*)},
-	{"redirectError", "(Ljava/io/File;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectError, ProcessBuilder*, $File*)},
-	{"redirectError", "()Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectError, $ProcessBuilder$Redirect*)},
-	{"redirectErrorStream", "()Z", nullptr, $PUBLIC, $method(ProcessBuilder, redirectErrorStream, bool)},
-	{"redirectErrorStream", "(Z)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectErrorStream, ProcessBuilder*, bool)},
-	{"redirectInput", "(Ljava/lang/ProcessBuilder$Redirect;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectInput, ProcessBuilder*, $ProcessBuilder$Redirect*)},
-	{"redirectInput", "(Ljava/io/File;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectInput, ProcessBuilder*, $File*)},
-	{"redirectInput", "()Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectInput, $ProcessBuilder$Redirect*)},
-	{"redirectOutput", "(Ljava/lang/ProcessBuilder$Redirect;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectOutput, ProcessBuilder*, $ProcessBuilder$Redirect*)},
-	{"redirectOutput", "(Ljava/io/File;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectOutput, ProcessBuilder*, $File*)},
-	{"redirectOutput", "()Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectOutput, $ProcessBuilder$Redirect*)},
-	{"redirects", "()[Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PRIVATE, $method(ProcessBuilder, redirects, $ProcessBuilder$RedirectArray*)},
-	{"start", "()Ljava/lang/Process;", nullptr, $PUBLIC, $method(ProcessBuilder, start, $Process*), "java.io.IOException"},
-	{"start", "([Ljava/lang/ProcessBuilder$Redirect;)Ljava/lang/Process;", nullptr, $PRIVATE, $method(ProcessBuilder, start, $Process*, $ProcessBuilder$RedirectArray*), "java.io.IOException"},
-	{"startPipeline", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Ljava/lang/ProcessBuilder;>;)Ljava/util/List<Ljava/lang/Process;>;", $PUBLIC | $STATIC, $staticMethod(ProcessBuilder, startPipeline, $List*, $List*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ProcessBuilder_InnerClassesInfo_[] = {
-	{"java.lang.ProcessBuilder$RedirectPipeImpl", "java.lang.ProcessBuilder", "RedirectPipeImpl", $STATIC},
-	{"java.lang.ProcessBuilder$Redirect", "java.lang.ProcessBuilder", "Redirect", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.lang.ProcessBuilder$NullOutputStream", "java.lang.ProcessBuilder", "NullOutputStream", $STATIC},
-	{"java.lang.ProcessBuilder$NullInputStream", "java.lang.ProcessBuilder", "NullInputStream", $STATIC},
-	{}
-};
-
-$ClassInfo _ProcessBuilder_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.lang.ProcessBuilder",
-	"java.lang.Object",
-	nullptr,
-	_ProcessBuilder_FieldInfo_,
-	_ProcessBuilder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ProcessBuilder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.ProcessBuilder$RedirectPipeImpl,java.lang.ProcessBuilder$Redirect,java.lang.ProcessBuilder$Redirect$Type,java.lang.ProcessBuilder$Redirect$6,java.lang.ProcessBuilder$Redirect$5,java.lang.ProcessBuilder$Redirect$4,java.lang.ProcessBuilder$Redirect$3,java.lang.ProcessBuilder$Redirect$2,java.lang.ProcessBuilder$Redirect$1,java.lang.ProcessBuilder$NullOutputStream,java.lang.ProcessBuilder$NullInputStream"
-};
-
-$Object* allocate$ProcessBuilder($Class* clazz) {
-	return $of($alloc(ProcessBuilder));
-}
 
 bool ProcessBuilder::$assertionsDisabled = false;
 
@@ -217,15 +142,13 @@ void ProcessBuilder::init$($List* command) {
 }
 
 void ProcessBuilder::init$($StringArray* command) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, command$, $new($ArrayList, $nc(command)->length));
 	{
 		$var($StringArray, arr$, command);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, arg, arr$->get(i$));
-			$nc(this->command$)->add(arg);
+			this->command$->add(arg);
 		}
 	}
 }
@@ -239,15 +162,13 @@ ProcessBuilder* ProcessBuilder::command($List* command) {
 }
 
 ProcessBuilder* ProcessBuilder::command($StringArray* command) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, command$, $new($ArrayList, $nc(command)->length));
 	{
 		$var($StringArray, arr$, command);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, arg, arr$->get(i$));
-			$nc(this->command$)->add(arg);
+			this->command$->add(arg);
 		}
 	}
 	return this;
@@ -258,7 +179,7 @@ $List* ProcessBuilder::command() {
 }
 
 $Map* ProcessBuilder::environment() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		security->checkPermission($$new($RuntimePermission, "getenv.*"_s));
@@ -273,7 +194,7 @@ $Map* ProcessBuilder::environment() {
 }
 
 ProcessBuilder* ProcessBuilder::environment($StringArray* envp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!ProcessBuilder::$assertionsDisabled && !(this->environment$ == nullptr)) {
 		$throwNew($AssertionError);
 	}
@@ -284,17 +205,15 @@ ProcessBuilder* ProcessBuilder::environment($StringArray* envp) {
 		}
 		{
 			$var($StringArray, arr$, envp);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, envstring, arr$->get(i$));
 				{
 					if ($nc(envstring)->indexOf((int32_t)u'\0') != -1) {
 						$assign(envstring, envstring->replaceFirst($cstr({'\0', '.', '*'}), ""_s));
 					}
-					int32_t eqlsign = $nc(envstring)->indexOf((int32_t)u'=', $ProcessEnvironment::MIN_NAME_LENGTH);
+					int32_t eqlsign = envstring->indexOf(u'=', $ProcessEnvironment::MIN_NAME_LENGTH);
 					if (eqlsign != -1) {
-						$var($Object, var$0, $of(envstring->substring(0, eqlsign)));
+						$var($Object, var$0, envstring->substring(0, eqlsign));
 						$nc(this->environment$)->put(var$0, $(envstring->substring(eqlsign + 1)));
 					}
 				}
@@ -326,10 +245,10 @@ $ProcessBuilder$RedirectArray* ProcessBuilder::redirects() {
 }
 
 ProcessBuilder* ProcessBuilder::redirectInput($ProcessBuilder$Redirect* source) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ProcessBuilder$Redirect$Type);
 	bool var$0 = $nc(source)->type() == $ProcessBuilder$Redirect$Type::WRITE;
-	if (var$0 || $nc(source)->type() == $ProcessBuilder$Redirect$Type::APPEND) {
+	if (var$0 || source->type() == $ProcessBuilder$Redirect$Type::APPEND) {
 		$throwNew($IllegalArgumentException, $$str({"Redirect invalid for reading: "_s, source}));
 	}
 	$nc($(redirects()))->set(0, source);
@@ -337,7 +256,7 @@ ProcessBuilder* ProcessBuilder::redirectInput($ProcessBuilder$Redirect* source) 
 }
 
 ProcessBuilder* ProcessBuilder::redirectOutput($ProcessBuilder$Redirect* destination) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ProcessBuilder$Redirect$Type);
 	if ($nc(destination)->type() == $ProcessBuilder$Redirect$Type::READ) {
 		$throwNew($IllegalArgumentException, $$str({"Redirect invalid for writing: "_s, destination}));
@@ -347,7 +266,7 @@ ProcessBuilder* ProcessBuilder::redirectOutput($ProcessBuilder$Redirect* destina
 }
 
 ProcessBuilder* ProcessBuilder::redirectError($ProcessBuilder$Redirect* destination) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ProcessBuilder$Redirect$Type);
 	if ($nc(destination)->type() == $ProcessBuilder$Redirect$Type::READ) {
 		$throwNew($IllegalArgumentException, $$str({"Redirect invalid for writing: "_s, destination}));
@@ -370,22 +289,22 @@ ProcessBuilder* ProcessBuilder::redirectError($File* file) {
 
 $ProcessBuilder$Redirect* ProcessBuilder::redirectInput() {
 	$init($ProcessBuilder$Redirect);
-	return (this->redirects$ == nullptr) ? $ProcessBuilder$Redirect::PIPE : $nc(this->redirects$)->get(0);
+	return (this->redirects$ == nullptr) ? $ProcessBuilder$Redirect::PIPE : this->redirects$->get(0);
 }
 
 $ProcessBuilder$Redirect* ProcessBuilder::redirectOutput() {
 	$init($ProcessBuilder$Redirect);
-	return (this->redirects$ == nullptr) ? $ProcessBuilder$Redirect::PIPE : $nc(this->redirects$)->get(1);
+	return (this->redirects$ == nullptr) ? $ProcessBuilder$Redirect::PIPE : this->redirects$->get(1);
 }
 
 $ProcessBuilder$Redirect* ProcessBuilder::redirectError() {
 	$init($ProcessBuilder$Redirect);
-	return (this->redirects$ == nullptr) ? $ProcessBuilder$Redirect::PIPE : $nc(this->redirects$)->get(2);
+	return (this->redirects$ == nullptr) ? $ProcessBuilder$Redirect::PIPE : this->redirects$->get(2);
 }
 
 ProcessBuilder* ProcessBuilder::inheritIO() {
 	$init($ProcessBuilder$Redirect);
-	$Arrays::fill($(redirects()), $of($ProcessBuilder$Redirect::INHERIT));
+	$Arrays::fill($(redirects()), $ProcessBuilder$Redirect::INHERIT);
 	return this;
 }
 
@@ -403,14 +322,12 @@ $Process* ProcessBuilder::start() {
 }
 
 $Process* ProcessBuilder::start($ProcessBuilder$RedirectArray* redirects) {
-	$useLocalCurrentObjectStackCache();
-	$var($StringArray, cmdarray, $fcast($StringArray, $nc(this->command$)->toArray($$new($StringArray, $nc(this->command$)->size()))));
+	$useLocalObjectStack();
+	$var($StringArray, cmdarray, $cast($StringArray, $nc(this->command$)->toArray($$new($StringArray, $nc(this->command$)->size()))));
 	$assign(cmdarray, $cast($StringArray, $nc(cmdarray)->clone()));
 	{
 		$var($StringArray, arr$, cmdarray);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, arg, arr$->get(i$));
 			if (arg == nullptr) {
 				$throwNew($NullPointerException);
@@ -422,9 +339,9 @@ $Process* ProcessBuilder::start($ProcessBuilder$RedirectArray* redirects) {
 	if (security != nullptr) {
 		security->checkExec(prog);
 	}
-	$var($String, dir, this->directory$ == nullptr ? ($String*)nullptr : $nc(this->directory$)->toString());
+	$var($String, dir, this->directory$ == nullptr ? ($String*)nullptr : this->directory$->toString());
 	for (int32_t i = 1; i < cmdarray->length; ++i) {
-		if ($nc(cmdarray->get(i))->indexOf((int32_t)u'\0') >= 0) {
+		if ($nc(cmdarray->get(i))->indexOf(u'\0') >= 0) {
 			$throwNew($IOException, "invalid null character in command"_s);
 		}
 	}
@@ -435,9 +352,7 @@ $Process* ProcessBuilder::start($ProcessBuilder$RedirectArray* redirects) {
 			$var($StringJoiner, command, $new($StringJoiner, " "_s));
 			{
 				$var($StringArray, arr$, cmdarray);
-				int32_t len$ = arr$->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
+				for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 					$var($String, s, arr$->get(i$));
 					{
 						command->add(s);
@@ -480,7 +395,7 @@ $Process* ProcessBuilder::start($ProcessBuilder$RedirectArray* redirects) {
 
 $List* ProcessBuilder::startPipeline($List* builders) {
 	$init(ProcessBuilder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t numBuilders = $nc(builders)->size();
 	$var($List, processes, $new($ArrayList, numBuilders));
 	try {
@@ -506,8 +421,8 @@ $List* ProcessBuilder::startPipeline($List* builders) {
 			$assign(prevOutput, $nc(redirects)->get(1));
 		}
 	} catch ($Exception& ex) {
-		processes->forEach(static_cast<$Consumer*>($$new(ProcessBuilder$$Lambda$destroyForcibly)));
-		processes->forEach(static_cast<$Consumer*>($$new(ProcessBuilder$$Lambda$lambda$startPipeline$0$1)));
+		processes->forEach($$new(ProcessBuilder$$Lambda$destroyForcibly));
+		processes->forEach($$new(ProcessBuilder$$Lambda$lambda$startPipeline$0$1));
 		$throw(ex);
 	}
 	return processes;
@@ -522,7 +437,7 @@ void ProcessBuilder::lambda$startPipeline$0($Process* p) {
 	}
 }
 
-void clinit$ProcessBuilder($Class* class$) {
+void ProcessBuilder::clinit$($Class* clazz) {
 	ProcessBuilder::$assertionsDisabled = !ProcessBuilder::class$->desiredAssertionStatus();
 }
 
@@ -531,14 +446,75 @@ ProcessBuilder::ProcessBuilder() {
 
 $Class* ProcessBuilder::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ProcessBuilder$$Lambda$destroyForcibly::classInfo$.name)) {
+		if (name->equals("java.lang.ProcessBuilder$$Lambda$destroyForcibly")) {
 			return ProcessBuilder$$Lambda$destroyForcibly::load$(name, initialize);
 		}
-		if (name->equals(ProcessBuilder$$Lambda$lambda$startPipeline$0$1::classInfo$.name)) {
+		if (name->equals("java.lang.ProcessBuilder$$Lambda$lambda$startPipeline$0$1")) {
 			return ProcessBuilder$$Lambda$lambda$startPipeline$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(ProcessBuilder, name, initialize, &_ProcessBuilder_ClassInfo_, clinit$ProcessBuilder, allocate$ProcessBuilder);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ProcessBuilder, $assertionsDisabled)},
+		{"command", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(ProcessBuilder, command$)},
+		{"directory", "Ljava/io/File;", nullptr, $PRIVATE, $field(ProcessBuilder, directory$)},
+		{"environment", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(ProcessBuilder, environment$)},
+		{"redirectErrorStream", "Z", nullptr, $PRIVATE, $field(ProcessBuilder, redirectErrorStream$)},
+		{"redirects", "[Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PRIVATE, $field(ProcessBuilder, redirects$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $method(ProcessBuilder, init$, void, $List*)},
+		{"<init>", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $method(ProcessBuilder, init$, void, $StringArray*)},
+		{"command", "(Ljava/util/List;)Ljava/lang/ProcessBuilder;", "(Ljava/util/List<Ljava/lang/String;>;)Ljava/lang/ProcessBuilder;", $PUBLIC, $method(ProcessBuilder, command, ProcessBuilder*, $List*)},
+		{"command", "([Ljava/lang/String;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC | $TRANSIENT, $method(ProcessBuilder, command, ProcessBuilder*, $StringArray*)},
+		{"command", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $method(ProcessBuilder, command, $List*)},
+		{"directory", "()Ljava/io/File;", nullptr, $PUBLIC, $method(ProcessBuilder, directory, $File*)},
+		{"directory", "(Ljava/io/File;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, directory, ProcessBuilder*, $File*)},
+		{"environment", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $method(ProcessBuilder, environment, $Map*)},
+		{"environment", "([Ljava/lang/String;)Ljava/lang/ProcessBuilder;", nullptr, 0, $method(ProcessBuilder, environment, ProcessBuilder*, $StringArray*)},
+		{"inheritIO", "()Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, inheritIO, ProcessBuilder*)},
+		{"lambda$startPipeline$0", "(Ljava/lang/Process;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ProcessBuilder, lambda$startPipeline$0, void, $Process*)},
+		{"redirectError", "(Ljava/lang/ProcessBuilder$Redirect;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectError, ProcessBuilder*, $ProcessBuilder$Redirect*)},
+		{"redirectError", "(Ljava/io/File;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectError, ProcessBuilder*, $File*)},
+		{"redirectError", "()Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectError, $ProcessBuilder$Redirect*)},
+		{"redirectErrorStream", "()Z", nullptr, $PUBLIC, $method(ProcessBuilder, redirectErrorStream, bool)},
+		{"redirectErrorStream", "(Z)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectErrorStream, ProcessBuilder*, bool)},
+		{"redirectInput", "(Ljava/lang/ProcessBuilder$Redirect;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectInput, ProcessBuilder*, $ProcessBuilder$Redirect*)},
+		{"redirectInput", "(Ljava/io/File;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectInput, ProcessBuilder*, $File*)},
+		{"redirectInput", "()Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectInput, $ProcessBuilder$Redirect*)},
+		{"redirectOutput", "(Ljava/lang/ProcessBuilder$Redirect;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectOutput, ProcessBuilder*, $ProcessBuilder$Redirect*)},
+		{"redirectOutput", "(Ljava/io/File;)Ljava/lang/ProcessBuilder;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectOutput, ProcessBuilder*, $File*)},
+		{"redirectOutput", "()Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC, $method(ProcessBuilder, redirectOutput, $ProcessBuilder$Redirect*)},
+		{"redirects", "()[Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PRIVATE, $method(ProcessBuilder, redirects, $ProcessBuilder$RedirectArray*)},
+		{"start", "()Ljava/lang/Process;", nullptr, $PUBLIC, $method(ProcessBuilder, start, $Process*), "java.io.IOException"},
+		{"start", "([Ljava/lang/ProcessBuilder$Redirect;)Ljava/lang/Process;", nullptr, $PRIVATE, $method(ProcessBuilder, start, $Process*, $ProcessBuilder$RedirectArray*), "java.io.IOException"},
+		{"startPipeline", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Ljava/lang/ProcessBuilder;>;)Ljava/util/List<Ljava/lang/Process;>;", $PUBLIC | $STATIC, $staticMethod(ProcessBuilder, startPipeline, $List*, $List*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ProcessBuilder$RedirectPipeImpl", "java.lang.ProcessBuilder", "RedirectPipeImpl", $STATIC},
+		{"java.lang.ProcessBuilder$Redirect", "java.lang.ProcessBuilder", "Redirect", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.lang.ProcessBuilder$NullOutputStream", "java.lang.ProcessBuilder", "NullOutputStream", $STATIC},
+		{"java.lang.ProcessBuilder$NullInputStream", "java.lang.ProcessBuilder", "NullInputStream", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.lang.ProcessBuilder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.ProcessBuilder$RedirectPipeImpl,java.lang.ProcessBuilder$Redirect,java.lang.ProcessBuilder$Redirect$Type,java.lang.ProcessBuilder$Redirect$6,java.lang.ProcessBuilder$Redirect$5,java.lang.ProcessBuilder$Redirect$4,java.lang.ProcessBuilder$Redirect$3,java.lang.ProcessBuilder$Redirect$2,java.lang.ProcessBuilder$Redirect$1,java.lang.ProcessBuilder$NullOutputStream,java.lang.ProcessBuilder$NullInputStream"
+	};
+	$loadClass(ProcessBuilder, name, initialize, &classInfo$$, ProcessBuilder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ProcessBuilder);
+	});
 	return class$;
 }
 

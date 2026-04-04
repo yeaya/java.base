@@ -23,10 +23,13 @@ public:
 	void init$($String* msg);
 	void init$($String* message, $Throwable* cause);
 	void init$($Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0x31366AE64EDA869A;
+	static const int64_t serialVersionUID = (int64_t)0x31366ae64eda869a;
 	InvalidKeySpecException(const InvalidKeySpecException& e);
 	virtual void throw$() override;
-	inline InvalidKeySpecException* operator ->() {
+	inline InvalidKeySpecException* operator ->() const {
+		return (InvalidKeySpecException*)throwing$;
+	}
+	inline operator InvalidKeySpecException*() const {
 		return (InvalidKeySpecException*)throwing$;
 	}
 };

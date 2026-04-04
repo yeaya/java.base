@@ -1,5 +1,4 @@
 #include <com/sun/security/ntlm/NTLM$Reader.h>
-
 #include <com/sun/security/ntlm/NTLM.h>
 #include <com/sun/security/ntlm/NTLMException.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
@@ -25,53 +24,13 @@ namespace com {
 		namespace security {
 			namespace ntlm {
 
-$FieldInfo _NTLM$Reader_FieldInfo_[] = {
-	{"internal", "[B", nullptr, $PRIVATE | $FINAL, $field(NTLM$Reader, internal)},
-	{}
-};
-
-$MethodInfo _NTLM$Reader_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, 0, $method(NTLM$Reader, init$, void, $bytes*)},
-	{"readBytes", "(II)[B", nullptr, 0, $virtualMethod(NTLM$Reader, readBytes, $bytes*, int32_t, int32_t), "com.sun.security.ntlm.NTLMException"},
-	{"readInt", "(I)I", nullptr, 0, $virtualMethod(NTLM$Reader, readInt, int32_t, int32_t), "com.sun.security.ntlm.NTLMException"},
-	{"readSecurityBuffer", "(I)[B", nullptr, 0, $virtualMethod(NTLM$Reader, readSecurityBuffer, $bytes*, int32_t), "com.sun.security.ntlm.NTLMException"},
-	{"readSecurityBuffer", "(IZ)Ljava/lang/String;", nullptr, 0, $virtualMethod(NTLM$Reader, readSecurityBuffer, $String*, int32_t, bool), "com.sun.security.ntlm.NTLMException"},
-	{"readShort", "(I)I", nullptr, 0, $virtualMethod(NTLM$Reader, readShort, int32_t, int32_t), "com.sun.security.ntlm.NTLMException"},
-	{}
-};
-
-$InnerClassInfo _NTLM$Reader_InnerClassesInfo_[] = {
-	{"com.sun.security.ntlm.NTLM$Reader", "com.sun.security.ntlm.NTLM", "Reader", $STATIC},
-	{}
-};
-
-$ClassInfo _NTLM$Reader_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.security.ntlm.NTLM$Reader",
-	"java.lang.Object",
-	nullptr,
-	_NTLM$Reader_FieldInfo_,
-	_NTLM$Reader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NTLM$Reader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.security.ntlm.NTLM"
-};
-
-$Object* allocate$NTLM$Reader($Class* clazz) {
-	return $of($alloc(NTLM$Reader));
-}
-
 void NTLM$Reader::init$($bytes* data) {
 	$set(this, internal, data);
 }
 
 int32_t NTLM$Reader::readInt(int32_t offset) {
 	try {
-		return ((int32_t)($nc(this->internal)->get(offset) & (uint32_t)255)) + (((int32_t)($nc(this->internal)->get(offset + 1) & (uint32_t)255)) << 8) + (((int32_t)($nc(this->internal)->get(offset + 2) & (uint32_t)255)) << 16) + (((int32_t)($nc(this->internal)->get(offset + 3) & (uint32_t)255)) << 24);
+		return ($nc(this->internal)->get(offset) & 0xff) + (($nc(this->internal)->get(offset + 1) & 0xff) << 8) + (($nc(this->internal)->get(offset + 2) & 0xff) << 16) + (($nc(this->internal)->get(offset + 3) & 0xff) << 24);
 	} catch ($ArrayIndexOutOfBoundsException& ex) {
 		$throwNew($NTLMException, $NTLMException::PACKET_READ_ERROR, "Input message incorrect size"_s);
 	}
@@ -80,7 +39,7 @@ int32_t NTLM$Reader::readInt(int32_t offset) {
 
 int32_t NTLM$Reader::readShort(int32_t offset) {
 	try {
-		return ((int32_t)($nc(this->internal)->get(offset) & (uint32_t)255)) + (((int32_t)($nc(this->internal)->get(offset + 1) & (uint32_t)255)) << 8);
+		return ($nc(this->internal)->get(offset) & 0xff) + (($nc(this->internal)->get(offset + 1) & 0xff) << 8);
 	} catch ($ArrayIndexOutOfBoundsException& ex) {
 		$throwNew($NTLMException, $NTLMException::PACKET_READ_ERROR, "Input message incorrect size"_s);
 	}
@@ -119,7 +78,41 @@ NTLM$Reader::NTLM$Reader() {
 }
 
 $Class* NTLM$Reader::load$($String* name, bool initialize) {
-	$loadClass(NTLM$Reader, name, initialize, &_NTLM$Reader_ClassInfo_, allocate$NTLM$Reader);
+	$FieldInfo fieldInfos$$[] = {
+		{"internal", "[B", nullptr, $PRIVATE | $FINAL, $field(NTLM$Reader, internal)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([B)V", nullptr, 0, $method(NTLM$Reader, init$, void, $bytes*)},
+		{"readBytes", "(II)[B", nullptr, 0, $virtualMethod(NTLM$Reader, readBytes, $bytes*, int32_t, int32_t), "com.sun.security.ntlm.NTLMException"},
+		{"readInt", "(I)I", nullptr, 0, $virtualMethod(NTLM$Reader, readInt, int32_t, int32_t), "com.sun.security.ntlm.NTLMException"},
+		{"readSecurityBuffer", "(I)[B", nullptr, 0, $virtualMethod(NTLM$Reader, readSecurityBuffer, $bytes*, int32_t), "com.sun.security.ntlm.NTLMException"},
+		{"readSecurityBuffer", "(IZ)Ljava/lang/String;", nullptr, 0, $virtualMethod(NTLM$Reader, readSecurityBuffer, $String*, int32_t, bool), "com.sun.security.ntlm.NTLMException"},
+		{"readShort", "(I)I", nullptr, 0, $virtualMethod(NTLM$Reader, readShort, int32_t, int32_t), "com.sun.security.ntlm.NTLMException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.security.ntlm.NTLM$Reader", "com.sun.security.ntlm.NTLM", "Reader", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.security.ntlm.NTLM$Reader",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.security.ntlm.NTLM"
+	};
+	$loadClass(NTLM$Reader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NTLM$Reader);
+	});
 	return class$;
 }
 

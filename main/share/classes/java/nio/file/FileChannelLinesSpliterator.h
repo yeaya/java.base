@@ -62,6 +62,7 @@ class FileChannelLinesSpliterator : public ::java::util::Spliterator {
 	$class(FileChannelLinesSpliterator, 0, ::java::util::Spliterator)
 public:
 	FileChannelLinesSpliterator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::channels::FileChannel* fc, ::java::nio::charset::Charset* cs, int32_t index, int32_t fence);
 	void init$(::java::nio::channels::FileChannel* fc, ::java::nio::charset::Charset* cs, int32_t index, int32_t fence, ::java::nio::ByteBuffer* buffer, ::java::util::concurrent::atomic::AtomicInteger* bufRefCount);
 	virtual int32_t characteristics() override;

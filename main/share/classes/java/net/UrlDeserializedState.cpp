@@ -1,5 +1,4 @@
 #include <java/net/UrlDeserializedState.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -8,43 +7,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace net {
-
-$FieldInfo _UrlDeserializedState_FieldInfo_[] = {
-	{"protocol", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(UrlDeserializedState, protocol)},
-	{"host", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(UrlDeserializedState, host)},
-	{"port", "I", nullptr, $PRIVATE | $FINAL, $field(UrlDeserializedState, port)},
-	{"authority", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(UrlDeserializedState, authority)},
-	{"file", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(UrlDeserializedState, file)},
-	{"ref", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(UrlDeserializedState, ref)},
-	{"hashCode", "I", nullptr, $PRIVATE | $FINAL, $field(UrlDeserializedState, hashCode$)},
-	{}
-};
-
-$MethodInfo _UrlDeserializedState_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(UrlDeserializedState, init$, void, $String*, $String*, int32_t, $String*, $String*, $String*, int32_t)},
-	{"getAuthority", "()Ljava/lang/String;", nullptr, 0, $method(UrlDeserializedState, getAuthority, $String*)},
-	{"getFile", "()Ljava/lang/String;", nullptr, 0, $method(UrlDeserializedState, getFile, $String*)},
-	{"getHashCode", "()I", nullptr, 0, $method(UrlDeserializedState, getHashCode, int32_t)},
-	{"getHost", "()Ljava/lang/String;", nullptr, 0, $method(UrlDeserializedState, getHost, $String*)},
-	{"getPort", "()I", nullptr, 0, $method(UrlDeserializedState, getPort, int32_t)},
-	{"getProtocol", "()Ljava/lang/String;", nullptr, 0, $method(UrlDeserializedState, getProtocol, $String*)},
-	{"getRef", "()Ljava/lang/String;", nullptr, 0, $method(UrlDeserializedState, getRef, $String*)},
-	{"reconstituteUrlString", "()Ljava/lang/String;", nullptr, 0, $method(UrlDeserializedState, reconstituteUrlString, $String*)},
-	{}
-};
-
-$ClassInfo _UrlDeserializedState_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.net.UrlDeserializedState",
-	"java.lang.Object",
-	nullptr,
-	_UrlDeserializedState_FieldInfo_,
-	_UrlDeserializedState_MethodInfo_
-};
-
-$Object* allocate$UrlDeserializedState($Class* clazz) {
-	return $of($alloc(UrlDeserializedState));
-}
 
 void UrlDeserializedState::init$($String* protocol, $String* host, int32_t port, $String* authority, $String* file, $String* ref, int32_t hashCode) {
 	$set(this, protocol, protocol);
@@ -86,19 +48,19 @@ int32_t UrlDeserializedState::getHashCode() {
 
 $String* UrlDeserializedState::reconstituteUrlString() {
 	int32_t len = $nc(this->protocol)->length() + 1;
-	if (this->authority != nullptr && !$nc(this->authority)->isEmpty()) {
-		len += 2 + $nc(this->authority)->length();
+	if (this->authority != nullptr && !this->authority->isEmpty()) {
+		len += 2 + this->authority->length();
 	}
 	if (this->file != nullptr) {
-		len += $nc(this->file)->length();
+		len += this->file->length();
 	}
 	if (this->ref != nullptr) {
-		len += 1 + $nc(this->ref)->length();
+		len += 1 + this->ref->length();
 	}
 	$var($StringBuilder, result, $new($StringBuilder, len));
 	result->append(this->protocol);
 	result->append(":"_s);
-	if (this->authority != nullptr && !$nc(this->authority)->isEmpty()) {
+	if (this->authority != nullptr && !this->authority->isEmpty()) {
 		result->append("//"_s);
 		result->append(this->authority);
 	}
@@ -116,7 +78,39 @@ UrlDeserializedState::UrlDeserializedState() {
 }
 
 $Class* UrlDeserializedState::load$($String* name, bool initialize) {
-	$loadClass(UrlDeserializedState, name, initialize, &_UrlDeserializedState_ClassInfo_, allocate$UrlDeserializedState);
+	$FieldInfo fieldInfos$$[] = {
+		{"protocol", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(UrlDeserializedState, protocol)},
+		{"host", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(UrlDeserializedState, host)},
+		{"port", "I", nullptr, $PRIVATE | $FINAL, $field(UrlDeserializedState, port)},
+		{"authority", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(UrlDeserializedState, authority)},
+		{"file", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(UrlDeserializedState, file)},
+		{"ref", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(UrlDeserializedState, ref)},
+		{"hashCode", "I", nullptr, $PRIVATE | $FINAL, $field(UrlDeserializedState, hashCode$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(UrlDeserializedState, init$, void, $String*, $String*, int32_t, $String*, $String*, $String*, int32_t)},
+		{"getAuthority", "()Ljava/lang/String;", nullptr, 0, $method(UrlDeserializedState, getAuthority, $String*)},
+		{"getFile", "()Ljava/lang/String;", nullptr, 0, $method(UrlDeserializedState, getFile, $String*)},
+		{"getHashCode", "()I", nullptr, 0, $method(UrlDeserializedState, getHashCode, int32_t)},
+		{"getHost", "()Ljava/lang/String;", nullptr, 0, $method(UrlDeserializedState, getHost, $String*)},
+		{"getPort", "()I", nullptr, 0, $method(UrlDeserializedState, getPort, int32_t)},
+		{"getProtocol", "()Ljava/lang/String;", nullptr, 0, $method(UrlDeserializedState, getProtocol, $String*)},
+		{"getRef", "()Ljava/lang/String;", nullptr, 0, $method(UrlDeserializedState, getRef, $String*)},
+		{"reconstituteUrlString", "()Ljava/lang/String;", nullptr, 0, $method(UrlDeserializedState, reconstituteUrlString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.net.UrlDeserializedState",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UrlDeserializedState, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UrlDeserializedState);
+	});
 	return class$;
 }
 

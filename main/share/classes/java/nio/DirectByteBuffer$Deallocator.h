@@ -12,6 +12,7 @@ class DirectByteBuffer$Deallocator : public ::java::lang::Runnable {
 	$class(DirectByteBuffer$Deallocator, 0, ::java::lang::Runnable)
 public:
 	DirectByteBuffer$Deallocator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t address, int64_t size, int32_t capacity);
 	virtual void run() override;
 	static bool $assertionsDisabled;

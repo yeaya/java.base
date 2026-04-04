@@ -73,6 +73,7 @@ class UnixFileSystem : public ::java::nio::file::FileSystem {
 	$class(UnixFileSystem, 0, ::java::nio::file::FileSystem)
 public:
 	UnixFileSystem();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::nio::fs::UnixFileSystemProvider* provider, $String* dir);
 	virtual void close() override;
 	virtual ::java::util::regex::Pattern* compilePathMatchPattern($String* expr);

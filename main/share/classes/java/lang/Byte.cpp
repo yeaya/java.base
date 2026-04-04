@@ -1,5 +1,4 @@
 #include <java/lang/Byte.h>
-
 #include <java/lang/Byte$ByteCache.h>
 #include <java/lang/Number.h>
 #include <java/lang/NumberFormatException.h>
@@ -29,117 +28,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $Number = ::java::lang::Number;
 using $NumberFormatException = ::java::lang::NumberFormatException;
-using $ConstantDesc = ::java::lang::constant::ConstantDesc;
 using $ConstantDescs = ::java::lang::constant::ConstantDescs;
 using $DynamicConstantDesc = ::java::lang::constant::DynamicConstantDesc;
 using $Optional = ::java::util::Optional;
 
 namespace java {
 	namespace lang {
-
-$CompoundAttribute _Byte_Annotations_[] = {
-	{"Ljdk/internal/ValueBased;", nullptr},
-	{}
-};
-
-$NamedAttribute Byte_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _Byte_MethodAnnotations_init$0[] = {
-	{"Ljava/lang/Deprecated;", Byte_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute Byte_Attribute_var$1[] = {
-	{"since", 's', "9"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _Byte_MethodAnnotations_init$1[] = {
-	{"Ljava/lang/Deprecated;", Byte_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _Byte_MethodAnnotations_byteValue2[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Byte_MethodAnnotations_valueOf23[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$FieldInfo _Byte_FieldInfo_[] = {
-	{"MIN_VALUE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Byte, MIN_VALUE)},
-	{"MAX_VALUE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Byte, MAX_VALUE)},
-	{"TYPE", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/Byte;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Byte, TYPE)},
-	{"value", "B", nullptr, $PRIVATE | $FINAL, $field(Byte, value)},
-	{"SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Byte, SIZE)},
-	{"BYTES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Byte, BYTES)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Byte, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Byte_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(B)V", nullptr, $PUBLIC | $DEPRECATED, $method(Byte, init$, void, int8_t), nullptr, nullptr, _Byte_MethodAnnotations_init$0},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(Byte, init$, void, $String*), "java.lang.NumberFormatException", nullptr, _Byte_MethodAnnotations_init$1},
-	{"byteValue", "()B", nullptr, $PUBLIC, $virtualMethod(Byte, byteValue, int8_t), nullptr, nullptr, _Byte_MethodAnnotations_byteValue2},
-	{"compare", "(BB)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Byte, compare, int32_t, int8_t, int8_t)},
-	{"compareTo", "(Ljava/lang/Byte;)I", nullptr, $PUBLIC, $method(Byte, compareTo, int32_t, Byte*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Byte, compareTo, int32_t, Object$*)},
-	{"compareUnsigned", "(BB)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Byte, compareUnsigned, int32_t, int8_t, int8_t)},
-	{"decode", "(Ljava/lang/String;)Ljava/lang/Byte;", nullptr, $PUBLIC | $STATIC, $staticMethod(Byte, decode, Byte*, $String*), "java.lang.NumberFormatException"},
-	{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/constant/DynamicConstantDesc<Ljava/lang/Byte;>;>;", $PUBLIC, $virtualMethod(Byte, describeConstable, $Optional*)},
-	{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(Byte, doubleValue, double)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Byte, equals, bool, Object$*)},
-	{"floatValue", "()F", nullptr, $PUBLIC, $virtualMethod(Byte, floatValue, float)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Byte, hashCode, int32_t)},
-	{"hashCode", "(B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Byte, hashCode, int32_t, int8_t)},
-	{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(Byte, intValue, int32_t)},
-	{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(Byte, longValue, int64_t)},
-	{"parseByte", "(Ljava/lang/String;I)B", nullptr, $PUBLIC | $STATIC, $staticMethod(Byte, parseByte, int8_t, $String*, int32_t), "java.lang.NumberFormatException"},
-	{"parseByte", "(Ljava/lang/String;)B", nullptr, $PUBLIC | $STATIC, $staticMethod(Byte, parseByte, int8_t, $String*), "java.lang.NumberFormatException"},
-	{"shortValue", "()S", nullptr, $PUBLIC, $virtualMethod(Byte, shortValue, int16_t)},
-	{"toString", "(B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Byte, toString, $String*, int8_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Byte, toString, $String*)},
-	{"toUnsignedInt", "(B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Byte, toUnsignedInt, int32_t, int8_t)},
-	{"toUnsignedLong", "(B)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Byte, toUnsignedLong, int64_t, int8_t)},
-	{"valueOf", "(B)Ljava/lang/Byte;", nullptr, $PUBLIC | $STATIC, $staticMethod(Byte, valueOf, Byte*, int8_t), nullptr, nullptr, _Byte_MethodAnnotations_valueOf23},
-	{"valueOf", "(Ljava/lang/String;I)Ljava/lang/Byte;", nullptr, $PUBLIC | $STATIC, $staticMethod(Byte, valueOf, Byte*, $String*, int32_t), "java.lang.NumberFormatException"},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/Byte;", nullptr, $PUBLIC | $STATIC, $staticMethod(Byte, valueOf, Byte*, $String*), "java.lang.NumberFormatException"},
-	{}
-};
-
-$InnerClassInfo _Byte_InnerClassesInfo_[] = {
-	{"java.lang.Byte$ByteCache", "java.lang.Byte", "ByteCache", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Byte_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.lang.Byte",
-	"java.lang.Number",
-	"java.lang.Comparable,java.lang.constant.Constable",
-	_Byte_FieldInfo_,
-	_Byte_MethodInfo_,
-	"Ljava/lang/Number;Ljava/lang/Comparable<Ljava/lang/Byte;>;Ljava/lang/constant/Constable;",
-	nullptr,
-	_Byte_InnerClassesInfo_,
-	_Byte_Annotations_,
-	nullptr,
-	"java.lang.Byte$ByteCache"
-};
-
-$Object* allocate$Byte($Class* clazz) {
-	return $of($alloc(Byte));
-}
 
 $Object* Byte::clone() {
 	 return this->$Number::clone();
@@ -152,26 +46,23 @@ void Byte::finalize() {
 $Class* Byte::TYPE = nullptr;
 
 $String* Byte::toString(int8_t b) {
-	$init(Byte);
 	return $Integer::toString((int32_t)b, 10);
 }
 
 $Optional* Byte::describeConstable() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ConstantDescs);
-	return $Optional::of($($DynamicConstantDesc::ofNamed($ConstantDescs::BSM_EXPLICIT_CAST, "_"_s, $ConstantDescs::CD_byte, $$new($ConstantDescArray, {$(static_cast<$ConstantDesc*>($Integer::valueOf(intValue())))}))));
+	return $Optional::of($($DynamicConstantDesc::ofNamed($ConstantDescs::BSM_EXPLICIT_CAST, "_"_s, $ConstantDescs::CD_byte, $$new($ConstantDescArray, {$($Integer::valueOf(intValue()))}))));
 }
 
 Byte* Byte::valueOf(int8_t b) {
-	$init(Byte);
 	int32_t offset = 128;
 	$init($Byte$ByteCache);
 	return $nc($Byte$ByteCache::cache)->get((int32_t)b + offset);
 }
 
 int8_t Byte::parseByte($String* s, int32_t radix) {
-	$init(Byte);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = $Integer::parseInt(s, radix);
 	if (i < Byte::MIN_VALUE || i > Byte::MAX_VALUE) {
 		$throwNew($NumberFormatException, $$str({"Value out of range. Value:\""_s, s, "\" Radix:"_s, $$str(radix)}));
@@ -180,24 +71,20 @@ int8_t Byte::parseByte($String* s, int32_t radix) {
 }
 
 int8_t Byte::parseByte($String* s) {
-	$init(Byte);
 	return parseByte(s, 10);
 }
 
 Byte* Byte::valueOf($String* s, int32_t radix) {
-	$init(Byte);
 	return valueOf(parseByte(s, radix));
 }
 
 Byte* Byte::valueOf($String* s) {
-	$init(Byte);
 	return valueOf(s, 10);
 }
 
 Byte* Byte::decode($String* nm) {
-	$init(Byte);
-	$useLocalCurrentObjectStackCache();
-	int32_t i = $nc($($Integer::decode(nm)))->intValue();
+	$useLocalObjectStack();
+	int32_t i = $($Integer::decode(nm))->intValue();
 	if (i < Byte::MIN_VALUE || i > Byte::MAX_VALUE) {
 		$throwNew($NumberFormatException, $$str({"Value "_s, $$str(i), " out of range from input "_s, nm}));
 	}
@@ -247,13 +134,12 @@ int32_t Byte::hashCode() {
 }
 
 int32_t Byte::hashCode(int8_t value) {
-	$init(Byte);
 	return (int32_t)value;
 }
 
 bool Byte::equals(Object$* obj) {
 	if ($instanceOf(Byte, obj)) {
-		return this->value == $nc(($cast(Byte, obj)))->byteValue();
+		return this->value == $cast(Byte, obj)->byteValue();
 	}
 	return false;
 }
@@ -263,31 +149,27 @@ int32_t Byte::compareTo(Byte* anotherByte) {
 }
 
 int32_t Byte::compare(int8_t x, int8_t y) {
-	$init(Byte);
 	return x - y;
 }
 
 int32_t Byte::compareUnsigned(int8_t x, int8_t y) {
-	$init(Byte);
 	int32_t var$0 = Byte::toUnsignedInt(x);
 	return var$0 - Byte::toUnsignedInt(y);
 }
 
 int32_t Byte::toUnsignedInt(int8_t x) {
-	$init(Byte);
-	return (int32_t)(((int32_t)x) & (uint32_t)255);
+	return ((int32_t)x) & 0xff;
 }
 
 int64_t Byte::toUnsignedLong(int8_t x) {
-	$init(Byte);
-	return (int64_t)(((int64_t)x) & (uint64_t)(int64_t)255);
+	return ((int64_t)x) & (int64_t)0xff;
 }
 
 int32_t Byte::compareTo(Object$* anotherByte) {
 	return this->compareTo($cast(Byte, anotherByte));
 }
 
-void clinit$Byte($Class* class$) {
+void Byte::clinit$($Class* clazz) {
 	$assignStatic(Byte::TYPE, $Class::getPrimitiveClass("byte"_s));
 }
 
@@ -295,7 +177,98 @@ Byte::Byte() {
 }
 
 $Class* Byte::load$($String* name, bool initialize) {
-	$loadClass(Byte, name, initialize, &_Byte_ClassInfo_, clinit$Byte, allocate$Byte);
+	$FieldInfo fieldInfos$$[] = {
+		{"MIN_VALUE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Byte, MIN_VALUE)},
+		{"MAX_VALUE", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Byte, MAX_VALUE)},
+		{"TYPE", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/Byte;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Byte, TYPE)},
+		{"value", "B", nullptr, $PRIVATE | $FINAL, $field(Byte, value)},
+		{"SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Byte, SIZE)},
+		{"BYTES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Byte, BYTES)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Byte, serialVersionUID)},
+		{}
+	};
+	$NamedAttribute init$methodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", init$methodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute init$methodAnnotations$$$1$namedAttribute[] = {
+		{"since", 's', "9"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", init$methodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$CompoundAttribute byteValuemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute valueOfmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(B)V", nullptr, $PUBLIC | $DEPRECATED, $method(Byte, init$, void, int8_t), nullptr, nullptr, init$methodAnnotations$$},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(Byte, init$, void, $String*), "java.lang.NumberFormatException", nullptr, init$methodAnnotations$$$1},
+		{"byteValue", "()B", nullptr, $PUBLIC, $virtualMethod(Byte, byteValue, int8_t), nullptr, nullptr, byteValuemethodAnnotations$$},
+		{"compare", "(BB)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Byte, compare, int32_t, int8_t, int8_t)},
+		{"compareTo", "(Ljava/lang/Byte;)I", nullptr, $PUBLIC, $method(Byte, compareTo, int32_t, Byte*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Byte, compareTo, int32_t, Object$*)},
+		{"compareUnsigned", "(BB)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Byte, compareUnsigned, int32_t, int8_t, int8_t)},
+		{"decode", "(Ljava/lang/String;)Ljava/lang/Byte;", nullptr, $PUBLIC | $STATIC, $staticMethod(Byte, decode, Byte*, $String*), "java.lang.NumberFormatException"},
+		{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/constant/DynamicConstantDesc<Ljava/lang/Byte;>;>;", $PUBLIC, $virtualMethod(Byte, describeConstable, $Optional*)},
+		{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(Byte, doubleValue, double)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Byte, equals, bool, Object$*)},
+		{"floatValue", "()F", nullptr, $PUBLIC, $virtualMethod(Byte, floatValue, float)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Byte, hashCode, int32_t)},
+		{"hashCode", "(B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Byte, hashCode, int32_t, int8_t)},
+		{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(Byte, intValue, int32_t)},
+		{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(Byte, longValue, int64_t)},
+		{"parseByte", "(Ljava/lang/String;I)B", nullptr, $PUBLIC | $STATIC, $staticMethod(Byte, parseByte, int8_t, $String*, int32_t), "java.lang.NumberFormatException"},
+		{"parseByte", "(Ljava/lang/String;)B", nullptr, $PUBLIC | $STATIC, $staticMethod(Byte, parseByte, int8_t, $String*), "java.lang.NumberFormatException"},
+		{"shortValue", "()S", nullptr, $PUBLIC, $virtualMethod(Byte, shortValue, int16_t)},
+		{"toString", "(B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Byte, toString, $String*, int8_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Byte, toString, $String*)},
+		{"toUnsignedInt", "(B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Byte, toUnsignedInt, int32_t, int8_t)},
+		{"toUnsignedLong", "(B)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Byte, toUnsignedLong, int64_t, int8_t)},
+		{"valueOf", "(B)Ljava/lang/Byte;", nullptr, $PUBLIC | $STATIC, $staticMethod(Byte, valueOf, Byte*, int8_t), nullptr, nullptr, valueOfmethodAnnotations$$},
+		{"valueOf", "(Ljava/lang/String;I)Ljava/lang/Byte;", nullptr, $PUBLIC | $STATIC, $staticMethod(Byte, valueOf, Byte*, $String*, int32_t), "java.lang.NumberFormatException"},
+		{"valueOf", "(Ljava/lang/String;)Ljava/lang/Byte;", nullptr, $PUBLIC | $STATIC, $staticMethod(Byte, valueOf, Byte*, $String*), "java.lang.NumberFormatException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Byte$ByteCache", "java.lang.Byte", "ByteCache", $PRIVATE | $STATIC},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/ValueBased;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.lang.Byte",
+		"java.lang.Number",
+		"java.lang.Comparable,java.lang.constant.Constable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Number;Ljava/lang/Comparable<Ljava/lang/Byte;>;Ljava/lang/constant/Constable;",
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"java.lang.Byte$ByteCache"
+	};
+	$loadClass(Byte, name, initialize, &classInfo$$, Byte::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Byte));
+	});
 	return class$;
 }
 

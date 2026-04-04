@@ -1,5 +1,4 @@
 #include <Bug7104012.h>
-
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/text/BreakIterator.h>
 #include <java/util/ArrayList.h>
@@ -11,7 +10,6 @@
 #undef DONE
 
 using $LocaleArray = $Array<::java::util::Locale>;
-using $PrintStream = ::java::io::PrintStream;
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -22,40 +20,21 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 
-$MethodInfo _Bug7104012_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug7104012, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug7104012, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _Bug7104012_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Bug7104012",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Bug7104012_MethodInfo_
-};
-
-$Object* allocate$Bug7104012($Class* clazz) {
-	return $of($alloc(Bug7104012));
-}
-
 void Bug7104012::init$() {
 }
 
 void Bug7104012::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool err = false;
 	$var($List, data, $new($ArrayList));
-	data->add($cstr({0xDB40}));
-	data->add($cstr({' ', 0xDB40}));
-	data->add($cstr({0xDC53}));
-	data->add($cstr({' ', 0xDC53}));
-	data->add($cstr({' ', 0xE0053}));
-	data->add($cstr({0xE0053}));
-	data->add($cstr({'A', 'B', 'C', ' ', 0xE0053, ' ', '1', '2', '3'}));
-	data->add($cstr({0xE0053, ' ', 'A', 'B', 'C', ' ', 0xE0053}));
+	data->add($cstr({0xdb40}));
+	data->add($cstr({' ', 0xdb40}));
+	data->add($cstr({0xdc53}));
+	data->add($cstr({' ', 0xdc53}));
+	data->add($cstr({' ', 0x000e0053}));
+	data->add($cstr({0x000e0053}));
+	data->add($cstr({'A', 'B', 'C', ' ', 0x000e0053, ' ', '1', '2', '3'}));
+	data->add($cstr({0x000e0053, ' ', 'A', 'B', 'C', ' ', 0x000e0053}));
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
 		int32_t len$ = $nc(arr$)->length;
@@ -73,24 +52,20 @@ void Bug7104012::main($StringArray* args) {
 					for (; $nc(i$)->hasNext();) {
 						$var($BreakIterator, bi, $cast($BreakIterator, i$->next()));
 						{
-							{
-								$var($Iterator, i$, data->iterator());
-								for (; $nc(i$)->hasNext();) {
-									$var($String, str, $cast($String, i$->next()));
-									{
-										try {
-											$nc(bi)->setText(str);
-											bi->first();
-											while (bi->next() != $BreakIterator::DONE) {
-											}
-											bi->last();
-											while (bi->previous() != $BreakIterator::DONE) {
-											}
-										} catch ($ArrayIndexOutOfBoundsException& ex) {
-											$nc($System::out)->println($$str({"    "_s, $$str(data->indexOf(str)), ": BreakIterator("_s, locale, ") threw AIOBE."_s}));
-											err = true;
-										}
+							$var($Iterator, i$, data->iterator());
+							for (; $nc(i$)->hasNext();) {
+								$var($String, str, $cast($String, i$->next()));
+								try {
+									$nc(bi)->setText(str);
+									bi->first();
+									while (bi->next() != $BreakIterator::DONE) {
 									}
+									bi->last();
+									while (bi->previous() != $BreakIterator::DONE) {
+									}
+								} catch ($ArrayIndexOutOfBoundsException& ex) {
+									$nc($System::out)->println($$str({"    "_s, $$str(data->indexOf(str)), ": BreakIterator("_s, locale, ") threw AIOBE."_s}));
+									err = true;
 								}
 							}
 						}
@@ -108,7 +83,22 @@ Bug7104012::Bug7104012() {
 }
 
 $Class* Bug7104012::load$($String* name, bool initialize) {
-	$loadClass(Bug7104012, name, initialize, &_Bug7104012_ClassInfo_, allocate$Bug7104012);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Bug7104012, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug7104012, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Bug7104012",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Bug7104012, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Bug7104012);
+	});
 	return class$;
 }
 

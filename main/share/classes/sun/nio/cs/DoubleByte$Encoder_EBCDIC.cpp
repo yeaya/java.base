@@ -1,5 +1,4 @@
 #include <sun/nio/cs/DoubleByte$Encoder_EBCDIC.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
 #include <java/nio/charset/Charset.h>
@@ -30,58 +29,10 @@ using $Charset = ::java::nio::charset::Charset;
 using $CoderResult = ::java::nio::charset::CoderResult;
 using $DoubleByte$Encoder = ::sun::nio::cs::DoubleByte$Encoder;
 using $StringUTF16 = ::sun::nio::cs::StringUTF16;
-using $Surrogate$Parser = ::sun::nio::cs::Surrogate$Parser;
 
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$FieldInfo _DoubleByte$Encoder_EBCDIC_FieldInfo_[] = {
-	{"SBCS", "I", nullptr, $STATIC | $FINAL, $constField(DoubleByte$Encoder_EBCDIC, SBCS)},
-	{"DBCS", "I", nullptr, $STATIC | $FINAL, $constField(DoubleByte$Encoder_EBCDIC, DBCS)},
-	{"SO", "B", nullptr, $STATIC | $FINAL, $constField(DoubleByte$Encoder_EBCDIC, SO)},
-	{"SI", "B", nullptr, $STATIC | $FINAL, $constField(DoubleByte$Encoder_EBCDIC, SI)},
-	{"currentState", "I", nullptr, $PROTECTED, $field(DoubleByte$Encoder_EBCDIC, currentState)},
-	{}
-};
-
-$MethodInfo _DoubleByte$Encoder_EBCDIC_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;[C[CZ)V", nullptr, $PUBLIC, $method(DoubleByte$Encoder_EBCDIC, init$, void, $Charset*, $chars*, $chars*, bool)},
-	{"encode", "([CII[B)I", nullptr, $PUBLIC, $virtualMethod(DoubleByte$Encoder_EBCDIC, encode, int32_t, $chars*, int32_t, int32_t, $bytes*)},
-	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Encoder_EBCDIC, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Encoder_EBCDIC, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"encodeFromLatin1", "([BII[B)I", nullptr, $PUBLIC, $virtualMethod(DoubleByte$Encoder_EBCDIC, encodeFromLatin1, int32_t, $bytes*, int32_t, int32_t, $bytes*)},
-	{"encodeFromUTF16", "([BII[B)I", nullptr, $PUBLIC, $virtualMethod(DoubleByte$Encoder_EBCDIC, encodeFromUTF16, int32_t, $bytes*, int32_t, int32_t, $bytes*)},
-	{"implFlush", "(Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Encoder_EBCDIC, implFlush, $CoderResult*, $ByteBuffer*)},
-	{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Encoder_EBCDIC, implReset, void)},
-	{}
-};
-
-$InnerClassInfo _DoubleByte$Encoder_EBCDIC_InnerClassesInfo_[] = {
-	{"sun.nio.cs.DoubleByte$Encoder_EBCDIC", "sun.nio.cs.DoubleByte", "Encoder_EBCDIC", $PUBLIC | $STATIC},
-	{"sun.nio.cs.DoubleByte$Encoder", "sun.nio.cs.DoubleByte", "Encoder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _DoubleByte$Encoder_EBCDIC_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.DoubleByte$Encoder_EBCDIC",
-	"sun.nio.cs.DoubleByte$Encoder",
-	nullptr,
-	_DoubleByte$Encoder_EBCDIC_FieldInfo_,
-	_DoubleByte$Encoder_EBCDIC_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DoubleByte$Encoder_EBCDIC_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.DoubleByte"
-};
-
-$Object* allocate$DoubleByte$Encoder_EBCDIC($Class* clazz) {
-	return $of($alloc(DoubleByte$Encoder_EBCDIC));
-}
 
 void DoubleByte$Encoder_EBCDIC::init$($Charset* cs, $chars* c2b, $chars* c2bIndex, bool isASCIICompatible) {
 	$DoubleByte$Encoder::init$(cs, 4.0f, 5.0f, $$new($bytes, {(int8_t)111}), c2b, c2bIndex, isASCIICompatible);
@@ -98,7 +49,7 @@ $CoderResult* DoubleByte$Encoder_EBCDIC::implFlush($ByteBuffer* out) {
 			$init($CoderResult);
 			return $CoderResult::OVERFLOW;
 		}
-		$nc(out)->put(DoubleByte$Encoder_EBCDIC::SI);
+		out->put(DoubleByte$Encoder_EBCDIC::SI);
 	}
 	implReset();
 	$init($CoderResult);
@@ -106,7 +57,7 @@ $CoderResult* DoubleByte$Encoder_EBCDIC::implFlush($ByteBuffer* out) {
 }
 
 $CoderResult* DoubleByte$Encoder_EBCDIC::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, sa, $cast($chars, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -117,170 +68,166 @@ $CoderResult* DoubleByte$Encoder_EBCDIC::encodeArrayLoop($CharBuffer* src, $Byte
 	int32_t dp = var$2 + dst->position();
 	int32_t var$3 = dst->arrayOffset();
 	int32_t dl = var$3 + dst->limit();
-	{
-		$var($Throwable, var$4, nullptr);
-		$var($CoderResult, var$6, nullptr);
-		bool return$5 = false;
-		try {
-			while (sp < sl) {
-				char16_t c = $nc(sa)->get(sp);
-				int32_t bb = encodeChar(c);
-				if (bb == 0x0000FFFD) {
-					if ($Character::isSurrogate(c)) {
-						if ($nc($(sgp()))->parse(c, sa, sp, sl) < 0) {
-							$assign(var$6, $nc(this->sgp$)->error());
-							return$5 = true;
-							goto $finally;
-						}
-						$assign(var$6, $nc(this->sgp$)->unmappableResult());
+	$var($Throwable, var$4, nullptr);
+	$var($CoderResult, var$6, nullptr);
+	bool return$5 = false;
+	try {
+		while (sp < sl) {
+			char16_t c = $nc(sa)->get(sp);
+			int32_t bb = encodeChar(c);
+			if (bb == 0x0000fffd) {
+				if ($Character::isSurrogate(c)) {
+					if ($$nc(sgp())->parse(c, sa, sp, sl) < 0) {
+						$assign(var$6, $nc(this->sgp$)->error());
 						return$5 = true;
 						goto $finally;
 					}
-					$assign(var$6, $CoderResult::unmappableForLength(1));
+					$assign(var$6, $nc(this->sgp$)->unmappableResult());
 					return$5 = true;
 					goto $finally;
 				}
-				if (bb > $DoubleByte$Encoder::MAX_SINGLEBYTE) {
-					if (this->currentState == DoubleByte$Encoder_EBCDIC::SBCS) {
-						if (dl - dp < 1) {
-							$init($CoderResult);
-							$assign(var$6, $CoderResult::OVERFLOW);
-							return$5 = true;
-							goto $finally;
-						}
-						this->currentState = DoubleByte$Encoder_EBCDIC::DBCS;
-						$nc(da)->set(dp++, DoubleByte$Encoder_EBCDIC::SO);
-					}
-					if (dl - dp < 2) {
-						$init($CoderResult);
-						$assign(var$6, $CoderResult::OVERFLOW);
-						return$5 = true;
-						goto $finally;
-					}
-					$nc(da)->set(dp++, (int8_t)(bb >> 8));
-					da->set(dp++, (int8_t)bb);
-				} else {
-					if (this->currentState == DoubleByte$Encoder_EBCDIC::DBCS) {
-						if (dl - dp < 1) {
-							$init($CoderResult);
-							$assign(var$6, $CoderResult::OVERFLOW);
-							return$5 = true;
-							goto $finally;
-						}
-						this->currentState = DoubleByte$Encoder_EBCDIC::SBCS;
-						$nc(da)->set(dp++, DoubleByte$Encoder_EBCDIC::SI);
-					}
+				$assign(var$6, $CoderResult::unmappableForLength(1));
+				return$5 = true;
+				goto $finally;
+			}
+			if (bb > $DoubleByte$Encoder::MAX_SINGLEBYTE) {
+				if (this->currentState == DoubleByte$Encoder_EBCDIC::SBCS) {
 					if (dl - dp < 1) {
 						$init($CoderResult);
 						$assign(var$6, $CoderResult::OVERFLOW);
 						return$5 = true;
 						goto $finally;
 					}
-					$nc(da)->set(dp++, (int8_t)bb);
+					this->currentState = DoubleByte$Encoder_EBCDIC::DBCS;
+					$nc(da)->set(dp++, DoubleByte$Encoder_EBCDIC::SO);
 				}
-				++sp;
+				if (dl - dp < 2) {
+					$init($CoderResult);
+					$assign(var$6, $CoderResult::OVERFLOW);
+					return$5 = true;
+					goto $finally;
+				}
+				$nc(da)->set(dp++, (int8_t)(bb >> 8));
+				da->set(dp++, (int8_t)bb);
+			} else {
+				if (this->currentState == DoubleByte$Encoder_EBCDIC::DBCS) {
+					if (dl - dp < 1) {
+						$init($CoderResult);
+						$assign(var$6, $CoderResult::OVERFLOW);
+						return$5 = true;
+						goto $finally;
+					}
+					this->currentState = DoubleByte$Encoder_EBCDIC::SBCS;
+					$nc(da)->set(dp++, DoubleByte$Encoder_EBCDIC::SI);
+				}
+				if (dl - dp < 1) {
+					$init($CoderResult);
+					$assign(var$6, $CoderResult::OVERFLOW);
+					return$5 = true;
+					goto $finally;
+				}
+				$nc(da)->set(dp++, (int8_t)bb);
 			}
-			$init($CoderResult);
-			$assign(var$6, $CoderResult::UNDERFLOW);
-			return$5 = true;
-			goto $finally;
-		} catch ($Throwable& var$7) {
-			$assign(var$4, var$7);
-		} $finally: {
-			src->position(sp - src->arrayOffset());
-			dst->position(dp - dst->arrayOffset());
+			++sp;
 		}
-		if (var$4 != nullptr) {
-			$throw(var$4);
-		}
-		if (return$5) {
-			return var$6;
-		}
+		$init($CoderResult);
+		$assign(var$6, $CoderResult::UNDERFLOW);
+		return$5 = true;
+		goto $finally;
+	} catch ($Throwable& var$7) {
+		$assign(var$4, var$7);
+	} $finally: {
+		src->position(sp - src->arrayOffset());
+		dst->position(dp - dst->arrayOffset());
+	}
+	if (var$4 != nullptr) {
+		$throw(var$4);
+	}
+	if (return$5) {
+		return var$6;
 	}
 	$shouldNotReachHere();
 }
 
 $CoderResult* DoubleByte$Encoder_EBCDIC::encodeBufferLoop($CharBuffer* src, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mark = $nc(src)->position();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($CoderResult, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			while (src->hasRemaining()) {
-				char16_t c = src->get();
-				int32_t bb = encodeChar(c);
-				if (bb == 0x0000FFFD) {
-					if ($Character::isSurrogate(c)) {
-						if ($nc($(sgp()))->parse(c, src) < 0) {
-							$assign(var$2, $nc(this->sgp$)->error());
-							return$1 = true;
-							goto $finally;
-						}
-						$assign(var$2, $nc(this->sgp$)->unmappableResult());
+	$var($Throwable, var$0, nullptr);
+	$var($CoderResult, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		while (src->hasRemaining()) {
+			char16_t c = src->get();
+			int32_t bb = encodeChar(c);
+			if (bb == 0x0000fffd) {
+				if ($Character::isSurrogate(c)) {
+					if ($$nc(sgp())->parse(c, src) < 0) {
+						$assign(var$2, $nc(this->sgp$)->error());
 						return$1 = true;
 						goto $finally;
 					}
-					$assign(var$2, $CoderResult::unmappableForLength(1));
+					$assign(var$2, $nc(this->sgp$)->unmappableResult());
 					return$1 = true;
 					goto $finally;
 				}
-				if (bb > $DoubleByte$Encoder::MAX_SINGLEBYTE) {
-					if (this->currentState == DoubleByte$Encoder_EBCDIC::SBCS) {
-						if ($nc(dst)->remaining() < 1) {
-							$init($CoderResult);
-							$assign(var$2, $CoderResult::OVERFLOW);
-							return$1 = true;
-							goto $finally;
-						}
-						this->currentState = DoubleByte$Encoder_EBCDIC::DBCS;
-						$nc(dst)->put(DoubleByte$Encoder_EBCDIC::SO);
-					}
-					if ($nc(dst)->remaining() < 2) {
-						$init($CoderResult);
-						$assign(var$2, $CoderResult::OVERFLOW);
-						return$1 = true;
-						goto $finally;
-					}
-					$nc(dst)->put((int8_t)(bb >> 8));
-					dst->put((int8_t)(bb));
-				} else {
-					if (this->currentState == DoubleByte$Encoder_EBCDIC::DBCS) {
-						if ($nc(dst)->remaining() < 1) {
-							$init($CoderResult);
-							$assign(var$2, $CoderResult::OVERFLOW);
-							return$1 = true;
-							goto $finally;
-						}
-						this->currentState = DoubleByte$Encoder_EBCDIC::SBCS;
-						$nc(dst)->put(DoubleByte$Encoder_EBCDIC::SI);
-					}
+				$assign(var$2, $CoderResult::unmappableForLength(1));
+				return$1 = true;
+				goto $finally;
+			}
+			if (bb > $DoubleByte$Encoder::MAX_SINGLEBYTE) {
+				if (this->currentState == DoubleByte$Encoder_EBCDIC::SBCS) {
 					if ($nc(dst)->remaining() < 1) {
 						$init($CoderResult);
 						$assign(var$2, $CoderResult::OVERFLOW);
 						return$1 = true;
 						goto $finally;
 					}
-					$nc(dst)->put((int8_t)bb);
+					this->currentState = DoubleByte$Encoder_EBCDIC::DBCS;
+					dst->put(DoubleByte$Encoder_EBCDIC::SO);
 				}
-				++mark;
+				if ($nc(dst)->remaining() < 2) {
+					$init($CoderResult);
+					$assign(var$2, $CoderResult::OVERFLOW);
+					return$1 = true;
+					goto $finally;
+				}
+				dst->put((int8_t)(bb >> 8));
+				dst->put((int8_t)(bb));
+			} else {
+				if (this->currentState == DoubleByte$Encoder_EBCDIC::DBCS) {
+					if ($nc(dst)->remaining() < 1) {
+						$init($CoderResult);
+						$assign(var$2, $CoderResult::OVERFLOW);
+						return$1 = true;
+						goto $finally;
+					}
+					this->currentState = DoubleByte$Encoder_EBCDIC::SBCS;
+					dst->put(DoubleByte$Encoder_EBCDIC::SI);
+				}
+				if ($nc(dst)->remaining() < 1) {
+					$init($CoderResult);
+					$assign(var$2, $CoderResult::OVERFLOW);
+					return$1 = true;
+					goto $finally;
+				}
+				dst->put((int8_t)bb);
 			}
-			$init($CoderResult);
-			$assign(var$2, $CoderResult::UNDERFLOW);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			src->position(mark);
+			++mark;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		$init($CoderResult);
+		$assign(var$2, $CoderResult::UNDERFLOW);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		src->position(mark);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -291,14 +238,14 @@ int32_t DoubleByte$Encoder_EBCDIC::encode($chars* src, int32_t sp, int32_t len, 
 	while (sp < sl) {
 		char16_t c = $nc(src)->get(sp++);
 		int32_t bb = encodeChar(c);
-		if (bb == 0x0000FFFD) {
+		if (bb == 0x0000fffd) {
 			bool var$0 = $Character::isHighSurrogate(c) && sp < sl;
 			if (var$0 && $Character::isLowSurrogate(src->get(sp))) {
 				++sp;
 			}
 			$nc(dst)->set(dp++, $nc(this->repl)->get(0));
-			if ($nc(this->repl)->length > 1) {
-				dst->set(dp++, $nc(this->repl)->get(1));
+			if (this->repl->length > 1) {
+				dst->set(dp++, this->repl->get(1));
 			}
 			continue;
 		}
@@ -328,12 +275,12 @@ int32_t DoubleByte$Encoder_EBCDIC::encodeFromLatin1($bytes* src, int32_t sp, int
 	int32_t dp = 0;
 	int32_t sl = sp + len;
 	while (sp < sl) {
-		char16_t c = (char16_t)((int32_t)($nc(src)->get(sp++) & (uint32_t)255));
+		char16_t c = (char16_t)($nc(src)->get(sp++) & 0xff);
 		int32_t bb = encodeChar(c);
-		if (bb == 0x0000FFFD) {
+		if (bb == 0x0000fffd) {
 			$nc(dst)->set(dp++, $nc(this->repl)->get(0));
-			if ($nc(this->repl)->length > 1) {
-				dst->set(dp++, $nc(this->repl)->get(1));
+			if (this->repl->length > 1) {
+				dst->set(dp++, this->repl->get(1));
 			}
 			continue;
 		}
@@ -365,14 +312,14 @@ int32_t DoubleByte$Encoder_EBCDIC::encodeFromUTF16($bytes* src, int32_t sp, int3
 	while (sp < sl) {
 		char16_t c = $StringUTF16::getChar(src, sp++);
 		int32_t bb = encodeChar(c);
-		if (bb == 0x0000FFFD) {
+		if (bb == 0x0000fffd) {
 			bool var$0 = $Character::isHighSurrogate(c) && sp < sl;
 			if (var$0 && $Character::isLowSurrogate($StringUTF16::getChar(src, sp))) {
 				++sp;
 			}
 			$nc(dst)->set(dp++, $nc(this->repl)->get(0));
-			if ($nc(this->repl)->length > 1) {
-				dst->set(dp++, $nc(this->repl)->get(1));
+			if (this->repl->length > 1) {
+				dst->set(dp++, this->repl->get(1));
 			}
 			continue;
 		}
@@ -402,7 +349,48 @@ DoubleByte$Encoder_EBCDIC::DoubleByte$Encoder_EBCDIC() {
 }
 
 $Class* DoubleByte$Encoder_EBCDIC::load$($String* name, bool initialize) {
-	$loadClass(DoubleByte$Encoder_EBCDIC, name, initialize, &_DoubleByte$Encoder_EBCDIC_ClassInfo_, allocate$DoubleByte$Encoder_EBCDIC);
+	$FieldInfo fieldInfos$$[] = {
+		{"SBCS", "I", nullptr, $STATIC | $FINAL, $constField(DoubleByte$Encoder_EBCDIC, SBCS)},
+		{"DBCS", "I", nullptr, $STATIC | $FINAL, $constField(DoubleByte$Encoder_EBCDIC, DBCS)},
+		{"SO", "B", nullptr, $STATIC | $FINAL, $constField(DoubleByte$Encoder_EBCDIC, SO)},
+		{"SI", "B", nullptr, $STATIC | $FINAL, $constField(DoubleByte$Encoder_EBCDIC, SI)},
+		{"currentState", "I", nullptr, $PROTECTED, $field(DoubleByte$Encoder_EBCDIC, currentState)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;[C[CZ)V", nullptr, $PUBLIC, $method(DoubleByte$Encoder_EBCDIC, init$, void, $Charset*, $chars*, $chars*, bool)},
+		{"encode", "([CII[B)I", nullptr, $PUBLIC, $virtualMethod(DoubleByte$Encoder_EBCDIC, encode, int32_t, $chars*, int32_t, int32_t, $bytes*)},
+		{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Encoder_EBCDIC, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Encoder_EBCDIC, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"encodeFromLatin1", "([BII[B)I", nullptr, $PUBLIC, $virtualMethod(DoubleByte$Encoder_EBCDIC, encodeFromLatin1, int32_t, $bytes*, int32_t, int32_t, $bytes*)},
+		{"encodeFromUTF16", "([BII[B)I", nullptr, $PUBLIC, $virtualMethod(DoubleByte$Encoder_EBCDIC, encodeFromUTF16, int32_t, $bytes*, int32_t, int32_t, $bytes*)},
+		{"implFlush", "(Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Encoder_EBCDIC, implFlush, $CoderResult*, $ByteBuffer*)},
+		{"implReset", "()V", nullptr, $PROTECTED, $virtualMethod(DoubleByte$Encoder_EBCDIC, implReset, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.DoubleByte$Encoder_EBCDIC", "sun.nio.cs.DoubleByte", "Encoder_EBCDIC", $PUBLIC | $STATIC},
+		{"sun.nio.cs.DoubleByte$Encoder", "sun.nio.cs.DoubleByte", "Encoder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.DoubleByte$Encoder_EBCDIC",
+		"sun.nio.cs.DoubleByte$Encoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.DoubleByte"
+	};
+	$loadClass(DoubleByte$Encoder_EBCDIC, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DoubleByte$Encoder_EBCDIC));
+	});
 	return class$;
 }
 

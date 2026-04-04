@@ -24,6 +24,7 @@ class $export A4pkg : public ::java::lang::Object {
 	$class(A4pkg, 0, ::java::lang::Object)
 public:
 	A4pkg();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Set* inaccessibleFields();
 	static ::java::lang::invoke::MethodHandles$Lookup* lookup();

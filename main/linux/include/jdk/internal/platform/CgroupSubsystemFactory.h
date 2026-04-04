@@ -47,6 +47,7 @@ class $import CgroupSubsystemFactory : public ::java::lang::Object {
 	$class(CgroupSubsystemFactory, 0, ::java::lang::Object)
 public:
 	CgroupSubsystemFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool amendCgroupInfos($String* mntInfoLine, ::java::util::Map* infos, bool isCgroupsV2);
 	static ::jdk::internal::platform::CgroupMetrics* create();

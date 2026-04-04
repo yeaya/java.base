@@ -1,28 +1,9 @@
 #include <HighLevelException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _HighLevelException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(HighLevelException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _HighLevelException_ClassInfo_ = {
-	$ACC_SUPER,
-	"HighLevelException",
-	"java.lang.Exception",
-	nullptr,
-	nullptr,
-	_HighLevelException_MethodInfo_
-};
-
-$Object* allocate$HighLevelException($Class* clazz) {
-	return $of($alloc(HighLevelException));
-}
 
 void HighLevelException::init$($Throwable* cause) {
 	$Exception::init$(cause);
@@ -39,7 +20,21 @@ void HighLevelException::throw$() {
 }
 
 $Class* HighLevelException::load$($String* name, bool initialize) {
-	$loadClass(HighLevelException, name, initialize, &_HighLevelException_ClassInfo_, allocate$HighLevelException);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(HighLevelException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HighLevelException",
+		"java.lang.Exception",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HighLevelException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HighLevelException);
+	});
 	return class$;
 }
 

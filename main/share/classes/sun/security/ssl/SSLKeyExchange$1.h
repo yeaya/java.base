@@ -13,6 +13,7 @@ class SSLKeyExchange$1 : public ::java::lang::Object {
 	$class(SSLKeyExchange$1, 0, ::java::lang::Object)
 public:
 	SSLKeyExchange$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$security$ssl$SSLKeyExchange$T12KeyAgreement;
 	static $ints* $SwitchMap$sun$security$ssl$CipherSuite$KeyExchange;
 };

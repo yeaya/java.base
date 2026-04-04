@@ -1,5 +1,4 @@
 #include <java/lang/module/ModuleFinder.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
@@ -33,7 +32,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ModuleFinder$1 = ::java::lang::module::ModuleFinder$1;
 using $ModuleFinder$2 = ::java::lang::module::ModuleFinder$2;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $List = ::java::util::List;
 using $Optional = ::java::util::Optional;
@@ -51,75 +49,38 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of($SystemModuleFinders::ofSystem());
+		 return $SystemModuleFinders::ofSystem();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModuleFinder$$Lambda$ofSystem>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ModuleFinder$$Lambda$ofSystem::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleFinder$$Lambda$ofSystem, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleFinder$$Lambda$ofSystem, run, $Object*)},
-	{}
-};
-$ClassInfo ModuleFinder$$Lambda$ofSystem::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.module.ModuleFinder$$Lambda$ofSystem",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* ModuleFinder$$Lambda$ofSystem::load$($String* name, bool initialize) {
-	$loadClass(ModuleFinder$$Lambda$ofSystem, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleFinder$$Lambda$ofSystem, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleFinder$$Lambda$ofSystem, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.module.ModuleFinder$$Lambda$ofSystem",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ModuleFinder$$Lambda$ofSystem, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleFinder$$Lambda$ofSystem);
+	});
 	return class$;
 }
 $Class* ModuleFinder$$Lambda$ofSystem::class$ = nullptr;
 
-$MethodInfo _ModuleFinder_MethodInfo_[] = {
-	{"compose", "([Ljava/lang/module/ModuleFinder;)Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ModuleFinder, compose, ModuleFinder*, $ModuleFinderArray*)},
-	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/module/ModuleReference;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ModuleFinder, find, $Optional*, $String*)},
-	{"findAll", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleReference;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ModuleFinder, findAll, $Set*)},
-	{"of", "([Ljava/nio/file/Path;)Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ModuleFinder, of, ModuleFinder*, $PathArray*)},
-	{"ofSystem", "()Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleFinder, ofSystem, ModuleFinder*)},
-	{}
-};
-
-$InnerClassInfo _ModuleFinder_InnerClassesInfo_[] = {
-	{"java.lang.module.ModuleFinder$2", nullptr, nullptr, 0},
-	{"java.lang.module.ModuleFinder$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ModuleFinder_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.lang.module.ModuleFinder",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ModuleFinder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ModuleFinder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.module.ModuleFinder$2,java.lang.module.ModuleFinder$1"
-};
-
-$Object* allocate$ModuleFinder($Class* clazz) {
-	return $of($alloc(ModuleFinder));
-}
-
 ModuleFinder* ModuleFinder::ofSystem() {
+	$useLocalObjectStack();
 	$load(ModuleFinder);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "accessSystemModules"_s));
-		$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(ModuleFinder$$Lambda$ofSystem)));
+		$var($PrivilegedAction, pa, $new(ModuleFinder$$Lambda$ofSystem));
 		return $cast(ModuleFinder, $AccessController::doPrivileged(pa));
 	} else {
 		return $SystemModuleFinders::ofSystem();
@@ -140,11 +101,40 @@ ModuleFinder* ModuleFinder::compose($ModuleFinderArray* finders) {
 
 $Class* ModuleFinder::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ModuleFinder$$Lambda$ofSystem::classInfo$.name)) {
+		if (name->equals("java.lang.module.ModuleFinder$$Lambda$ofSystem")) {
 			return ModuleFinder$$Lambda$ofSystem::load$(name, initialize);
 		}
 	}
-	$loadClass(ModuleFinder, name, initialize, &_ModuleFinder_ClassInfo_, allocate$ModuleFinder);
+	$MethodInfo methodInfos$$[] = {
+		{"compose", "([Ljava/lang/module/ModuleFinder;)Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ModuleFinder, compose, ModuleFinder*, $ModuleFinderArray*)},
+		{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/module/ModuleReference;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ModuleFinder, find, $Optional*, $String*)},
+		{"findAll", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleReference;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ModuleFinder, findAll, $Set*)},
+		{"of", "([Ljava/nio/file/Path;)Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ModuleFinder, of, ModuleFinder*, $PathArray*)},
+		{"ofSystem", "()Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleFinder, ofSystem, ModuleFinder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.module.ModuleFinder$2", nullptr, nullptr, 0},
+		{"java.lang.module.ModuleFinder$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.lang.module.ModuleFinder",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.module.ModuleFinder$2,java.lang.module.ModuleFinder$1"
+	};
+	$loadClass(ModuleFinder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleFinder);
+	});
 	return class$;
 }
 

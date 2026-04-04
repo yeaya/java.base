@@ -1,5 +1,4 @@
 #include <java/util/ArraysParallelSortHelpers$EmptyCompleter.h>
-
 #include <java/util/ArraysParallelSortHelpers.h>
 #include <java/util/concurrent/CountedCompleter.h>
 #include <jcpp.h>
@@ -13,42 +12,6 @@ using $CountedCompleter = ::java::util::concurrent::CountedCompleter;
 namespace java {
 	namespace util {
 
-$FieldInfo _ArraysParallelSortHelpers$EmptyCompleter_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ArraysParallelSortHelpers$EmptyCompleter, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ArraysParallelSortHelpers$EmptyCompleter_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", 0, $method(ArraysParallelSortHelpers$EmptyCompleter, init$, void, $CountedCompleter*)},
-	{"compute", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ArraysParallelSortHelpers$EmptyCompleter, compute, void)},
-	{}
-};
-
-$InnerClassInfo _ArraysParallelSortHelpers$EmptyCompleter_InnerClassesInfo_[] = {
-	{"java.util.ArraysParallelSortHelpers$EmptyCompleter", "java.util.ArraysParallelSortHelpers", "EmptyCompleter", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ArraysParallelSortHelpers$EmptyCompleter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.ArraysParallelSortHelpers$EmptyCompleter",
-	"java.util.concurrent.CountedCompleter",
-	nullptr,
-	_ArraysParallelSortHelpers$EmptyCompleter_FieldInfo_,
-	_ArraysParallelSortHelpers$EmptyCompleter_MethodInfo_,
-	"Ljava/util/concurrent/CountedCompleter<Ljava/lang/Void;>;",
-	nullptr,
-	_ArraysParallelSortHelpers$EmptyCompleter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.ArraysParallelSortHelpers"
-};
-
-$Object* allocate$ArraysParallelSortHelpers$EmptyCompleter($Class* clazz) {
-	return $of($alloc(ArraysParallelSortHelpers$EmptyCompleter));
-}
-
 void ArraysParallelSortHelpers$EmptyCompleter::init$($CountedCompleter* p) {
 	$CountedCompleter::init$(p);
 }
@@ -60,7 +23,37 @@ ArraysParallelSortHelpers$EmptyCompleter::ArraysParallelSortHelpers$EmptyComplet
 }
 
 $Class* ArraysParallelSortHelpers$EmptyCompleter::load$($String* name, bool initialize) {
-	$loadClass(ArraysParallelSortHelpers$EmptyCompleter, name, initialize, &_ArraysParallelSortHelpers$EmptyCompleter_ClassInfo_, allocate$ArraysParallelSortHelpers$EmptyCompleter);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ArraysParallelSortHelpers$EmptyCompleter, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/CountedCompleter;)V", "(Ljava/util/concurrent/CountedCompleter<*>;)V", 0, $method(ArraysParallelSortHelpers$EmptyCompleter, init$, void, $CountedCompleter*)},
+		{"compute", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ArraysParallelSortHelpers$EmptyCompleter, compute, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ArraysParallelSortHelpers$EmptyCompleter", "java.util.ArraysParallelSortHelpers", "EmptyCompleter", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.ArraysParallelSortHelpers$EmptyCompleter",
+		"java.util.concurrent.CountedCompleter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/concurrent/CountedCompleter<Ljava/lang/Void;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.ArraysParallelSortHelpers"
+	};
+	$loadClass(ArraysParallelSortHelpers$EmptyCompleter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ArraysParallelSortHelpers$EmptyCompleter));
+	});
 	return class$;
 }
 

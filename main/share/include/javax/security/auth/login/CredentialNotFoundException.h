@@ -16,10 +16,13 @@ public:
 	CredentialNotFoundException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0x94081ED269DF608D;
+	static const int64_t serialVersionUID = (int64_t)0x94081ed269df608d;
 	CredentialNotFoundException(const CredentialNotFoundException& e);
 	virtual void throw$() override;
-	inline CredentialNotFoundException* operator ->() {
+	inline CredentialNotFoundException* operator ->() const {
+		return (CredentialNotFoundException*)throwing$;
+	}
+	inline operator CredentialNotFoundException*() const {
 		return (CredentialNotFoundException*)throwing$;
 	}
 };

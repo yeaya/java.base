@@ -30,6 +30,7 @@ class InfoFromMemberName : public ::java::lang::invoke::MethodHandleInfo {
 	$class(InfoFromMemberName, 0, ::java::lang::invoke::MethodHandleInfo)
 public:
 	InfoFromMemberName();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::MethodHandles$Lookup* lookup, ::java::lang::invoke::MemberName* member, int8_t referenceKind);
 	static ::java::lang::invoke::MemberName* convertToMemberName(int8_t refKind, ::java::lang::reflect::Member* mem);
 	virtual $Class* getDeclaringClass() override;

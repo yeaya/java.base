@@ -21,6 +21,7 @@ class Invokers$Lazy : public ::java::lang::Object {
 	$class(Invokers$Lazy, 0, ::java::lang::Object)
 public:
 	Invokers$Lazy();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::invoke::MethodHandle* MH_asSpreader;
 };

@@ -23,6 +23,7 @@ class $export Test4misc : public ::java::lang::Object {
 	$class(Test4misc, 0, ::java::lang::Object)
 public:
 	Test4misc();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::invoke::MethodHandles$Lookup* LOOKUP;
 };

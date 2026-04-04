@@ -14,6 +14,7 @@ class OCSPResponse$1 : public ::java::lang::Object {
 	$class(OCSPResponse$1, 0, ::java::lang::Object)
 public:
 	OCSPResponse$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$security$provider$certpath$OCSPResponse$ResponseStatus;
 };
 

@@ -1,5 +1,4 @@
 #include <java/lang/constant/DirectMethodHandleDescImpl$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/lang/constant/DirectMethodHandleDesc$Kind.h>
 #include <java/lang/constant/DirectMethodHandleDesc.h>
@@ -29,89 +28,53 @@ namespace java {
 	namespace lang {
 		namespace constant {
 
-$FieldInfo _DirectMethodHandleDescImpl$1_FieldInfo_[] = {
-	{"$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectMethodHandleDescImpl$1, $SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)},
-	{}
-};
-
-$EnclosingMethodInfo _DirectMethodHandleDescImpl$1_EnclosingMethodInfo_ = {
-	"java.lang.constant.DirectMethodHandleDescImpl",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _DirectMethodHandleDescImpl$1_InnerClassesInfo_[] = {
-	{"java.lang.constant.DirectMethodHandleDescImpl$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _DirectMethodHandleDescImpl$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"java.lang.constant.DirectMethodHandleDescImpl$1",
-	"java.lang.Object",
-	nullptr,
-	_DirectMethodHandleDescImpl$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_DirectMethodHandleDescImpl$1_EnclosingMethodInfo_,
-	_DirectMethodHandleDescImpl$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.constant.DirectMethodHandleDescImpl"
-};
-
-$Object* allocate$DirectMethodHandleDescImpl$1($Class* clazz) {
-	return $of($alloc(DirectMethodHandleDescImpl$1));
-}
-
 $ints* DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind = nullptr;
 
-void clinit$DirectMethodHandleDescImpl$1($Class* class$) {
+void DirectMethodHandleDescImpl$1::clinit$($Class* clazz) {
 	$assignStatic(DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind, $new($ints, $($DirectMethodHandleDesc$Kind::values())->length));
 	{
 		try {
-			$nc(DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->set($DirectMethodHandleDesc$Kind::CONSTRUCTOR->ordinal(), 1);
+			DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind->set($DirectMethodHandleDesc$Kind::CONSTRUCTOR->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->set($DirectMethodHandleDesc$Kind::GETTER->ordinal(), 2);
+			DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind->set($DirectMethodHandleDesc$Kind::GETTER->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->set($DirectMethodHandleDesc$Kind::SETTER->ordinal(), 3);
+			DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind->set($DirectMethodHandleDesc$Kind::SETTER->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->set($DirectMethodHandleDesc$Kind::STATIC_GETTER->ordinal(), 4);
+			DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind->set($DirectMethodHandleDesc$Kind::STATIC_GETTER->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->set($DirectMethodHandleDesc$Kind::STATIC_SETTER->ordinal(), 5);
+			DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind->set($DirectMethodHandleDesc$Kind::STATIC_SETTER->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->set($DirectMethodHandleDesc$Kind::VIRTUAL->ordinal(), 6);
+			DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind->set($DirectMethodHandleDesc$Kind::VIRTUAL->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->set($DirectMethodHandleDesc$Kind::SPECIAL->ordinal(), 7);
+			DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind->set($DirectMethodHandleDesc$Kind::SPECIAL->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->set($DirectMethodHandleDesc$Kind::INTERFACE_VIRTUAL->ordinal(), 8);
+			DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind->set($DirectMethodHandleDesc$Kind::INTERFACE_VIRTUAL->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->set($DirectMethodHandleDesc$Kind::INTERFACE_SPECIAL->ordinal(), 9);
+			DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind->set($DirectMethodHandleDesc$Kind::INTERFACE_SPECIAL->ordinal(), 9);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->set($DirectMethodHandleDesc$Kind::STATIC->ordinal(), 10);
+			DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind->set($DirectMethodHandleDesc$Kind::STATIC->ordinal(), 10);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)->set($DirectMethodHandleDesc$Kind::INTERFACE_STATIC->ordinal(), 11);
+			DirectMethodHandleDescImpl$1::$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind->set($DirectMethodHandleDesc$Kind::INTERFACE_STATIC->ordinal(), 11);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -121,7 +84,37 @@ DirectMethodHandleDescImpl$1::DirectMethodHandleDescImpl$1() {
 }
 
 $Class* DirectMethodHandleDescImpl$1::load$($String* name, bool initialize) {
-	$loadClass(DirectMethodHandleDescImpl$1, name, initialize, &_DirectMethodHandleDescImpl$1_ClassInfo_, clinit$DirectMethodHandleDescImpl$1, allocate$DirectMethodHandleDescImpl$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectMethodHandleDescImpl$1, $SwitchMap$java$lang$constant$DirectMethodHandleDesc$Kind)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.constant.DirectMethodHandleDescImpl",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.constant.DirectMethodHandleDescImpl$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"java.lang.constant.DirectMethodHandleDescImpl$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.constant.DirectMethodHandleDescImpl"
+	};
+	$loadClass(DirectMethodHandleDescImpl$1, name, initialize, &classInfo$$, DirectMethodHandleDescImpl$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DirectMethodHandleDescImpl$1);
+	});
 	return class$;
 }
 

@@ -12,6 +12,7 @@ class ImmutableCollections$Access : public ::java::lang::Object {
 	$class(ImmutableCollections$Access, 0, ::java::lang::Object)
 public:
 	ImmutableCollections$Access();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 };
 

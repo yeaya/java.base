@@ -1,5 +1,4 @@
 #include <Basic4Appendable.h>
-
 #include <Basic4Appendable$1.h>
 #include <Basic4Appendable$10.h>
 #include <Basic4Appendable$2.h>
@@ -17,7 +16,6 @@
 #include <java/io/File.h>
 #include <java/io/FileWriter.h>
 #include <java/io/IOException.h>
-#include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
 #include <java/io/PrintWriter.h>
 #include <java/io/StringWriter.h>
@@ -50,7 +48,6 @@ using $CharArrayWriter = ::java::io::CharArrayWriter;
 using $File = ::java::io::File;
 using $FileWriter = ::java::io::FileWriter;
 using $IOException = ::java::io::IOException;
-using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
 using $PrintStream = ::java::io::PrintStream;
 using $PrintWriter = ::java::io::PrintWriter;
@@ -67,73 +64,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
-
-$FieldInfo _Basic4Appendable_FieldInfo_[] = {
-	{"s", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Basic4Appendable, s)},
-	{"gw", "Ljava/io/CharArrayWriter;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, gw)},
-	{"gos", "Ljava/io/ByteArrayOutputStream;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, gos)},
-	{"gf", "Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, gf)},
-	{"fail", "I", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, fail$)},
-	{"pass", "I", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, pass$)},
-	{"first", "Ljava/lang/Throwable;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, first)},
-	{"testBufferedWriter", "LBasicRunnable;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, testBufferedWriter)},
-	{"testCharArrayWriter", "LBasicRunnable;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, testCharArrayWriter)},
-	{"testFileWriter", "LBasicRunnable;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, testFileWriter)},
-	{"testOutputStreamWriter", "LBasicRunnable;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, testOutputStreamWriter)},
-	{"testPrintWriter", "LBasicRunnable;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, testPrintWriter)},
-	{"testStringWriter", "LBasicRunnable;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, testStringWriter)},
-	{"testPrintStream", "LBasicRunnable;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, testPrintStream)},
-	{"testCharBuffer", "LBasicRunnable;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, testCharBuffer)},
-	{"testStringBuffer", "LBasicRunnable;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, testStringBuffer)},
-	{"testStringBuilder", "LBasicRunnable;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, testStringBuilder)},
-	{}
-};
-
-$MethodInfo _Basic4Appendable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Basic4Appendable, init$, void)},
-	{"ck", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Basic4Appendable, ck, void, $String*, $String*, $String*)},
-	{"fail", "(Ljava/lang/Throwable;)V", nullptr, $STATIC, $staticMethod(Basic4Appendable, fail, void, $Throwable*)},
-	{"fail", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $STATIC, $staticMethod(Basic4Appendable, fail, void, $String*, $Throwable*)},
-	{"fail", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Basic4Appendable, fail, void, $String*, $String*, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Basic4Appendable, main, void, $StringArray*), "java.lang.Exception"},
-	{"newFile", "()Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Appendable, newFile, $File*)},
-	{"pass", "()V", nullptr, $STATIC, $staticMethod(Basic4Appendable, pass, void)},
-	{"test", "(Ljava/lang/Appendable;Ljava/lang/CharSequence;LBasicRunnable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Appendable, test, void, $Appendable*, $CharSequence*, $BasicRunnable*)},
-	{}
-};
-
-$InnerClassInfo _Basic4Appendable_InnerClassesInfo_[] = {
-	{"Basic4Appendable$10", nullptr, nullptr, 0},
-	{"Basic4Appendable$9", nullptr, nullptr, 0},
-	{"Basic4Appendable$8", nullptr, nullptr, 0},
-	{"Basic4Appendable$7", nullptr, nullptr, 0},
-	{"Basic4Appendable$6", nullptr, nullptr, 0},
-	{"Basic4Appendable$5", nullptr, nullptr, 0},
-	{"Basic4Appendable$4", nullptr, nullptr, 0},
-	{"Basic4Appendable$3", nullptr, nullptr, 0},
-	{"Basic4Appendable$2", nullptr, nullptr, 0},
-	{"Basic4Appendable$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Basic4Appendable_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Basic4Appendable",
-	"java.lang.Object",
-	nullptr,
-	_Basic4Appendable_FieldInfo_,
-	_Basic4Appendable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Basic4Appendable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"Basic4Appendable$10,Basic4Appendable$9,Basic4Appendable$8,Basic4Appendable$7,Basic4Appendable$6,Basic4Appendable$5,Basic4Appendable$4,Basic4Appendable$3,Basic4Appendable$2,Basic4Appendable$1"
-};
-
-$Object* allocate$Basic4Appendable($Class* clazz) {
-	return $of($alloc(Basic4Appendable));
-}
 
 $String* Basic4Appendable::s = nullptr;
 $CharArrayWriter* Basic4Appendable::gw = nullptr;
@@ -184,7 +114,7 @@ void Basic4Appendable::fail($Throwable* ex) {
 
 void Basic4Appendable::fail($String* fs, $Throwable* ex) {
 	$init(Basic4Appendable);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, $str({"\'"_s, fs, "\': "_s, $($nc($of(ex))->getClass()->getName()), " not thrown"_s}));
 	if (Basic4Appendable::first == nullptr) {
 		$assignStatic(Basic4Appendable::first, ex);
@@ -195,7 +125,7 @@ void Basic4Appendable::fail($String* fs, $Throwable* ex) {
 
 void Basic4Appendable::fail($String* fs, $String* exp, $String* got) {
 	$init(Basic4Appendable);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, $str({"\'"_s, fs, "\': Expected \'"_s, exp, "\', got \'"_s, got, "\'"_s}));
 	if (Basic4Appendable::first == nullptr) {
 		$assignStatic(Basic4Appendable::first, $new($RuntimeException, s));
@@ -215,7 +145,7 @@ void Basic4Appendable::ck($String* s, $String* exp, $String* got) {
 
 void Basic4Appendable::test($Appendable* a$renamed, $CharSequence* csq, $BasicRunnable* thunk) {
 	$init(Basic4Appendable);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Appendable, a, a$renamed);
 	$var($intArray2, sp, $new($intArray2, {
 		$$new($ints, {
@@ -236,11 +166,11 @@ void Basic4Appendable::test($Appendable* a$renamed, $CharSequence* csq, $BasicRu
 		}),
 		$$new($ints, {
 			0,
-			$nc(Basic4Appendable::s)->length()
+			Basic4Appendable::s->length()
 		}),
 		$$new($ints, {
-			$nc(Basic4Appendable::s)->length(),
-			$nc(Basic4Appendable::s)->length()
+			Basic4Appendable::s->length(),
+			Basic4Appendable::s->length()
 		})
 	}));
 	for (int32_t j = 0; j < sp->length; ++j) {
@@ -249,8 +179,8 @@ void Basic4Appendable::test($Appendable* a$renamed, $CharSequence* csq, $BasicRu
 		try {
 			$var($Appendable, var$0, $nc(a)->append(csq, start, end));
 			$var($String, var$1, $nc($of(csq))->getClass()->getName());
-			$nc(thunk)->init(var$0, var$1, $($($nc(Basic4Appendable::s)->subSequence(start, end))->toString()));
-			thunk->run();
+			$nc(thunk)->init(var$0, var$1, $($(Basic4Appendable::s->subSequence(start, end))->toString()));
+			$nc(thunk)->run();
 			$assign(a, thunk->reset(a));
 		} catch ($IOException& x) {
 			fail(x);
@@ -271,7 +201,7 @@ void Basic4Appendable::test($Appendable* a$renamed, $CharSequence* csq, $BasicRu
 		}),
 		$$new($ints, {
 			0,
-			$nc(Basic4Appendable::s)->length() + 1
+			Basic4Appendable::s->length() + 1
 		})
 	}));
 	for (int32_t j = 0; j < sf->length; ++j) {
@@ -293,7 +223,7 @@ void Basic4Appendable::test($Appendable* a$renamed, $CharSequence* csq, $BasicRu
 		$var($Appendable, var$2, $nc(a)->append(nullptr, start, end));
 		$var($String, var$3, "null"_s);
 		$nc(thunk)->init(var$2, var$3, $($("null"_s->subSequence(start, end))->toString()));
-		thunk->run();
+		$nc(thunk)->run();
 		$assign(a, thunk->reset(a));
 	} catch ($IOException& x) {
 		fail(x);
@@ -302,42 +232,42 @@ void Basic4Appendable::test($Appendable* a$renamed, $CharSequence* csq, $BasicRu
 
 void Basic4Appendable::main($StringArray* args) {
 	$init(Basic4Appendable);
-	$useLocalCurrentObjectStackCache();
-	$var($CharBuffer, cb, $nc($($CharBuffer::allocate(128)))->put(Basic4Appendable::s));
-	$nc($($nc(cb)->limit($nc(Basic4Appendable::s)->length())))->rewind();
-	$var($CharBuffer, dcb, $nc($($nc($($ByteBuffer::allocateDirect(128)))->asCharBuffer()))->put(Basic4Appendable::s));
-	$nc($($nc(dcb)->limit($nc(Basic4Appendable::s)->length())))->rewind();
+	$useLocalObjectStack();
+	$var($CharBuffer, cb, $$nc($CharBuffer::allocate(128))->put(Basic4Appendable::s));
+	$$nc($nc(cb)->limit(Basic4Appendable::s->length()))->rewind();
+	$var($CharBuffer, dcb, $$nc($$nc($ByteBuffer::allocateDirect(128))->asCharBuffer())->put(Basic4Appendable::s));
+	$$nc($nc(dcb)->limit(Basic4Appendable::s->length()))->rewind();
 	$var($CharSequenceArray, ca, $new($CharSequenceArray, {
-		static_cast<$CharSequence*>(Basic4Appendable::s),
-		static_cast<$CharSequence*>($$new($StringBuffer, Basic4Appendable::s)),
-		static_cast<$CharSequence*>($$new($StringBuilder, Basic4Appendable::s)),
-		static_cast<$CharSequence*>(cb),
-		static_cast<$CharSequence*>(dcb)
+		Basic4Appendable::s,
+		$$new($StringBuffer, Basic4Appendable::s),
+		$$new($StringBuilder, Basic4Appendable::s),
+		cb,
+		dcb
 	}));
 	$var($ObjectArray2, wa, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of($$new($CharArrayWriter)),
-			$of(Basic4Appendable::testCharArrayWriter)
+			$$new($CharArrayWriter),
+			Basic4Appendable::testCharArrayWriter
 		}),
 		$$new($ObjectArray, {
-			$of($$new($BufferedWriter, Basic4Appendable::gw)),
-			$of(Basic4Appendable::testBufferedWriter)
+			$$new($BufferedWriter, Basic4Appendable::gw),
+			Basic4Appendable::testBufferedWriter
 		}),
 		$$new($ObjectArray, {
-			$of($$new($FileWriter, Basic4Appendable::gf)),
-			$of(Basic4Appendable::testFileWriter)
+			$$new($FileWriter, Basic4Appendable::gf),
+			Basic4Appendable::testFileWriter
 		}),
 		$$new($ObjectArray, {
-			$of($$new($OutputStreamWriter, Basic4Appendable::gos)),
-			$of(Basic4Appendable::testOutputStreamWriter)
+			$$new($OutputStreamWriter, Basic4Appendable::gos),
+			Basic4Appendable::testOutputStreamWriter
 		}),
 		$$new($ObjectArray, {
-			$of($$new($PrintWriter, static_cast<$Writer*>(Basic4Appendable::gw))),
-			$of(Basic4Appendable::testPrintWriter)
+			$$new($PrintWriter, Basic4Appendable::gw),
+			Basic4Appendable::testPrintWriter
 		}),
 		$$new($ObjectArray, {
-			$of($$new($StringWriter)),
-			$of(Basic4Appendable::testStringWriter)
+			$$new($StringWriter),
+			Basic4Appendable::testStringWriter
 		})
 	}));
 	for (int32_t i = 0; i < ca->length; ++i) {
@@ -345,9 +275,9 @@ void Basic4Appendable::main($StringArray* args) {
 		for (int32_t j = 0; j < wa->length; ++j) {
 			test($cast($Writer, $nc(wa->get(j))->get(0)), a, $cast($BasicRunnable, $nc(wa->get(j))->get(1)));
 		}
-		test($$new($PrintStream, static_cast<$OutputStream*>(Basic4Appendable::gos)), a, Basic4Appendable::testPrintStream);
+		test($$new($PrintStream, Basic4Appendable::gos), a, Basic4Appendable::testPrintStream);
 		test($($CharBuffer::allocate(128)), a, Basic4Appendable::testCharBuffer);
-		test($($nc($($ByteBuffer::allocateDirect(128)))->asCharBuffer()), a, Basic4Appendable::testCharBuffer);
+		test($($$nc($ByteBuffer::allocateDirect(128))->asCharBuffer()), a, Basic4Appendable::testCharBuffer);
 		test($$new($StringBuffer), a, Basic4Appendable::testStringBuffer);
 		test($$new($StringBuilder), a, Basic4Appendable::testStringBuilder);
 	}
@@ -358,7 +288,7 @@ void Basic4Appendable::main($StringArray* args) {
 	}
 }
 
-void clinit$Basic4Appendable($Class* class$) {
+void Basic4Appendable::clinit$($Class* clazz) {
 	$assignStatic(Basic4Appendable::s, "Beware the Jabberwock, my son!"_s);
 	$assignStatic(Basic4Appendable::gw, $new($CharArrayWriter));
 	$assignStatic(Basic4Appendable::gos, $new($ByteArrayOutputStream));
@@ -381,7 +311,68 @@ Basic4Appendable::Basic4Appendable() {
 }
 
 $Class* Basic4Appendable::load$($String* name, bool initialize) {
-	$loadClass(Basic4Appendable, name, initialize, &_Basic4Appendable_ClassInfo_, clinit$Basic4Appendable, allocate$Basic4Appendable);
+	$FieldInfo fieldInfos$$[] = {
+		{"s", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Basic4Appendable, s)},
+		{"gw", "Ljava/io/CharArrayWriter;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, gw)},
+		{"gos", "Ljava/io/ByteArrayOutputStream;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, gos)},
+		{"gf", "Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, gf)},
+		{"fail", "I", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, fail$)},
+		{"pass", "I", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, pass$)},
+		{"first", "Ljava/lang/Throwable;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, first)},
+		{"testBufferedWriter", "LBasicRunnable;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, testBufferedWriter)},
+		{"testCharArrayWriter", "LBasicRunnable;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, testCharArrayWriter)},
+		{"testFileWriter", "LBasicRunnable;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, testFileWriter)},
+		{"testOutputStreamWriter", "LBasicRunnable;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, testOutputStreamWriter)},
+		{"testPrintWriter", "LBasicRunnable;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, testPrintWriter)},
+		{"testStringWriter", "LBasicRunnable;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, testStringWriter)},
+		{"testPrintStream", "LBasicRunnable;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, testPrintStream)},
+		{"testCharBuffer", "LBasicRunnable;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, testCharBuffer)},
+		{"testStringBuffer", "LBasicRunnable;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, testStringBuffer)},
+		{"testStringBuilder", "LBasicRunnable;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Appendable, testStringBuilder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Basic4Appendable, init$, void)},
+		{"ck", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Basic4Appendable, ck, void, $String*, $String*, $String*)},
+		{"fail", "(Ljava/lang/Throwable;)V", nullptr, $STATIC, $staticMethod(Basic4Appendable, fail, void, $Throwable*)},
+		{"fail", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $STATIC, $staticMethod(Basic4Appendable, fail, void, $String*, $Throwable*)},
+		{"fail", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Basic4Appendable, fail, void, $String*, $String*, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Basic4Appendable, main, void, $StringArray*), "java.lang.Exception"},
+		{"newFile", "()Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Appendable, newFile, $File*)},
+		{"pass", "()V", nullptr, $STATIC, $staticMethod(Basic4Appendable, pass, void)},
+		{"test", "(Ljava/lang/Appendable;Ljava/lang/CharSequence;LBasicRunnable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Appendable, test, void, $Appendable*, $CharSequence*, $BasicRunnable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Basic4Appendable$10", nullptr, nullptr, 0},
+		{"Basic4Appendable$9", nullptr, nullptr, 0},
+		{"Basic4Appendable$8", nullptr, nullptr, 0},
+		{"Basic4Appendable$7", nullptr, nullptr, 0},
+		{"Basic4Appendable$6", nullptr, nullptr, 0},
+		{"Basic4Appendable$5", nullptr, nullptr, 0},
+		{"Basic4Appendable$4", nullptr, nullptr, 0},
+		{"Basic4Appendable$3", nullptr, nullptr, 0},
+		{"Basic4Appendable$2", nullptr, nullptr, 0},
+		{"Basic4Appendable$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Basic4Appendable",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"Basic4Appendable$10,Basic4Appendable$9,Basic4Appendable$8,Basic4Appendable$7,Basic4Appendable$6,Basic4Appendable$5,Basic4Appendable$4,Basic4Appendable$3,Basic4Appendable$2,Basic4Appendable$1"
+	};
+	$loadClass(Basic4Appendable, name, initialize, &classInfo$$, Basic4Appendable::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Basic4Appendable);
+	});
 	return class$;
 }
 

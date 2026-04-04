@@ -1,5 +1,4 @@
 #include <java/nio/file/FileTreeIterator.h>
-
 #include <java/io/IOException.h>
 #include <java/io/UncheckedIOException.h>
 #include <java/lang/AssertionError.h>
@@ -10,7 +9,6 @@
 #include <java/nio/file/FileVisitOption.h>
 #include <java/nio/file/Path.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <java/util/NoSuchElementException.h>
@@ -34,55 +32,12 @@ using $FileTreeWalker$Event = ::java::nio::file::FileTreeWalker$Event;
 using $FileTreeWalker$EventType = ::java::nio::file::FileTreeWalker$EventType;
 using $Path = ::java::nio::file::Path;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _FileTreeIterator_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FileTreeIterator, $assertionsDisabled)},
-	{"walker", "Ljava/nio/file/FileTreeWalker;", nullptr, $PRIVATE | $FINAL, $field(FileTreeIterator, walker)},
-	{"next", "Ljava/nio/file/FileTreeWalker$Event;", nullptr, $PRIVATE, $field(FileTreeIterator, next$)},
-	{}
-};
-
-$MethodInfo _FileTreeIterator_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/nio/file/Path;I[Ljava/nio/file/FileVisitOption;)V", nullptr, $TRANSIENT, $method(FileTreeIterator, init$, void, $Path*, int32_t, $FileVisitOptionArray*), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FileTreeIterator, close, void)},
-	{"fetchNextIfNeeded", "()V", nullptr, $PRIVATE, $method(FileTreeIterator, fetchNextIfNeeded, void)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(FileTreeIterator, hasNext, bool)},
-	{"next", "()Ljava/nio/file/FileTreeWalker$Event;", nullptr, $PUBLIC, $virtualMethod(FileTreeIterator, next, $Object*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _FileTreeIterator_InnerClassesInfo_[] = {
-	{"java.nio.file.FileTreeWalker$Event", "java.nio.file.FileTreeWalker", "Event", $STATIC},
-	{}
-};
-
-$ClassInfo _FileTreeIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.file.FileTreeIterator",
-	"java.lang.Object",
-	"java.util.Iterator,java.io.Closeable",
-	_FileTreeIterator_FieldInfo_,
-	_FileTreeIterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/nio/file/FileTreeWalker$Event;>;Ljava/io/Closeable;",
-	nullptr,
-	_FileTreeIterator_InnerClassesInfo_
-};
-
-$Object* allocate$FileTreeIterator($Class* clazz) {
-	return $of($alloc(FileTreeIterator));
-}
 
 int32_t FileTreeIterator::hashCode() {
 	 return this->$Iterator::hashCode();
@@ -107,14 +62,14 @@ void FileTreeIterator::finalize() {
 bool FileTreeIterator::$assertionsDisabled = false;
 
 void FileTreeIterator::init$($Path* start, int32_t maxDepth, $FileVisitOptionArray* options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, walker, $new($FileTreeWalker, $($Arrays::asList(options)), maxDepth));
 	$set(this, next$, $nc(this->walker)->walk(start));
 	bool var$0 = !FileTreeIterator::$assertionsDisabled;
 	if (var$0) {
 		$init($FileTreeWalker$EventType);
 		bool var$1 = $nc(this->next$)->type() == $FileTreeWalker$EventType::ENTRY;
-		var$0 = !(var$1 || $nc(this->next$)->type() == $FileTreeWalker$EventType::START_DIRECTORY);
+		var$0 = !(var$1 || this->next$->type() == $FileTreeWalker$EventType::START_DIRECTORY);
 	}
 	if (var$0) {
 		$throwNew($AssertionError);
@@ -126,7 +81,7 @@ void FileTreeIterator::init$($Path* start, int32_t maxDepth, $FileVisitOptionArr
 }
 
 void FileTreeIterator::fetchNextIfNeeded() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->next$ == nullptr) {
 		$var($FileTreeWalker$Event, ev, $nc(this->walker)->next());
 		while (ev != nullptr) {
@@ -139,7 +94,7 @@ void FileTreeIterator::fetchNextIfNeeded() {
 				$set(this, next$, ev);
 				return;
 			}
-			$assign(ev, $nc(this->walker)->next());
+			$assign(ev, this->walker->next());
 		}
 	}
 }
@@ -162,14 +117,14 @@ $Object* FileTreeIterator::next() {
 	}
 	$var($FileTreeWalker$Event, result, this->next$);
 	$set(this, next$, nullptr);
-	return $of(result);
+	return result;
 }
 
 void FileTreeIterator::close() {
 	$nc(this->walker)->close();
 }
 
-void clinit$FileTreeIterator($Class* class$) {
+void FileTreeIterator::clinit$($Class* clazz) {
 	FileTreeIterator::$assertionsDisabled = !FileTreeIterator::class$->desiredAssertionStatus();
 }
 
@@ -177,7 +132,43 @@ FileTreeIterator::FileTreeIterator() {
 }
 
 $Class* FileTreeIterator::load$($String* name, bool initialize) {
-	$loadClass(FileTreeIterator, name, initialize, &_FileTreeIterator_ClassInfo_, clinit$FileTreeIterator, allocate$FileTreeIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FileTreeIterator, $assertionsDisabled)},
+		{"walker", "Ljava/nio/file/FileTreeWalker;", nullptr, $PRIVATE | $FINAL, $field(FileTreeIterator, walker)},
+		{"next", "Ljava/nio/file/FileTreeWalker$Event;", nullptr, $PRIVATE, $field(FileTreeIterator, next$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/nio/file/Path;I[Ljava/nio/file/FileVisitOption;)V", nullptr, $TRANSIENT, $method(FileTreeIterator, init$, void, $Path*, int32_t, $FileVisitOptionArray*), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FileTreeIterator, close, void)},
+		{"fetchNextIfNeeded", "()V", nullptr, $PRIVATE, $method(FileTreeIterator, fetchNextIfNeeded, void)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(FileTreeIterator, hasNext, bool)},
+		{"next", "()Ljava/nio/file/FileTreeWalker$Event;", nullptr, $PUBLIC, $virtualMethod(FileTreeIterator, next, $Object*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.file.FileTreeWalker$Event", "java.nio.file.FileTreeWalker", "Event", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.file.FileTreeIterator",
+		"java.lang.Object",
+		"java.util.Iterator,java.io.Closeable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/nio/file/FileTreeWalker$Event;>;Ljava/io/Closeable;",
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(FileTreeIterator, name, initialize, &classInfo$$, FileTreeIterator::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FileTreeIterator));
+	});
 	return class$;
 }
 

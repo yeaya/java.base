@@ -1,5 +1,4 @@
 #include <java/nio/channels/Channels$WritableByteChannelImpl.h>
-
 #include <java/io/OutputStream.h>
 #include <java/lang/Math.h>
 #include <java/nio/ByteBuffer.h>
@@ -23,53 +22,6 @@ using $AbstractInterruptibleChannel = ::java::nio::channels::spi::AbstractInterr
 namespace java {
 	namespace nio {
 		namespace channels {
-
-$FieldInfo _Channels$WritableByteChannelImpl_FieldInfo_[] = {
-	{"out", "Ljava/io/OutputStream;", nullptr, $PRIVATE | $FINAL, $field(Channels$WritableByteChannelImpl, out)},
-	{"TRANSFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Channels$WritableByteChannelImpl, TRANSFER_SIZE)},
-	{"buf", "[B", nullptr, $PRIVATE, $field(Channels$WritableByteChannelImpl, buf)},
-	{"writeLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(Channels$WritableByteChannelImpl, writeLock)},
-	{}
-};
-
-$MethodInfo _Channels$WritableByteChannelImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*close", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, 0, $method(Channels$WritableByteChannelImpl, init$, void, $OutputStream*)},
-	{"implCloseChannel", "()V", nullptr, $PROTECTED, $virtualMethod(Channels$WritableByteChannelImpl, implCloseChannel, void), "java.io.IOException"},
-	{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(Channels$WritableByteChannelImpl, write, int32_t, $ByteBuffer*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Channels$WritableByteChannelImpl_InnerClassesInfo_[] = {
-	{"java.nio.channels.Channels$WritableByteChannelImpl", "java.nio.channels.Channels", "WritableByteChannelImpl", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Channels$WritableByteChannelImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.channels.Channels$WritableByteChannelImpl",
-	"java.nio.channels.spi.AbstractInterruptibleChannel",
-	"java.nio.channels.WritableByteChannel",
-	_Channels$WritableByteChannelImpl_FieldInfo_,
-	_Channels$WritableByteChannelImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Channels$WritableByteChannelImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.nio.channels.Channels"
-};
-
-$Object* allocate$Channels$WritableByteChannelImpl($Class* clazz) {
-	return $of($alloc(Channels$WritableByteChannelImpl));
-}
 
 void Channels$WritableByteChannelImpl::close() {
 	this->$AbstractInterruptibleChannel::close();
@@ -107,7 +59,7 @@ void Channels$WritableByteChannelImpl::init$($OutputStream* out) {
 }
 
 int32_t Channels$WritableByteChannelImpl::write($ByteBuffer* src) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isOpen()) {
 		$throwNew($ClosedChannelException);
 	}
@@ -120,19 +72,17 @@ int32_t Channels$WritableByteChannelImpl::write($ByteBuffer* src) {
 				$set(this, buf, $new($bytes, bytesToWrite));
 			}
 			src->get(this->buf, 0, bytesToWrite);
-			{
-				$var($Throwable, var$0, nullptr);
-				try {
-					begin();
-					$nc(this->out)->write(this->buf, 0, bytesToWrite);
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					end(bytesToWrite > 0);
-				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			$var($Throwable, var$0, nullptr);
+			try {
+				begin();
+				$nc(this->out)->write(this->buf, 0, bytesToWrite);
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				end(bytesToWrite > 0);
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 			totalWritten += bytesToWrite;
 		}
@@ -148,7 +98,48 @@ Channels$WritableByteChannelImpl::Channels$WritableByteChannelImpl() {
 }
 
 $Class* Channels$WritableByteChannelImpl::load$($String* name, bool initialize) {
-	$loadClass(Channels$WritableByteChannelImpl, name, initialize, &_Channels$WritableByteChannelImpl_ClassInfo_, allocate$Channels$WritableByteChannelImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"out", "Ljava/io/OutputStream;", nullptr, $PRIVATE | $FINAL, $field(Channels$WritableByteChannelImpl, out)},
+		{"TRANSFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Channels$WritableByteChannelImpl, TRANSFER_SIZE)},
+		{"buf", "[B", nullptr, $PRIVATE, $field(Channels$WritableByteChannelImpl, buf)},
+		{"writeLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(Channels$WritableByteChannelImpl, writeLock)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*close", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/io/OutputStream;)V", nullptr, 0, $method(Channels$WritableByteChannelImpl, init$, void, $OutputStream*)},
+		{"implCloseChannel", "()V", nullptr, $PROTECTED, $virtualMethod(Channels$WritableByteChannelImpl, implCloseChannel, void), "java.io.IOException"},
+		{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(Channels$WritableByteChannelImpl, write, int32_t, $ByteBuffer*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.channels.Channels$WritableByteChannelImpl", "java.nio.channels.Channels", "WritableByteChannelImpl", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.channels.Channels$WritableByteChannelImpl",
+		"java.nio.channels.spi.AbstractInterruptibleChannel",
+		"java.nio.channels.WritableByteChannel",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.nio.channels.Channels"
+	};
+	$loadClass(Channels$WritableByteChannelImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Channels$WritableByteChannelImpl));
+	});
 	return class$;
 }
 

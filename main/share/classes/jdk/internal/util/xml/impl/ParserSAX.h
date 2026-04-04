@@ -58,6 +58,7 @@ class ParserSAX : public ::jdk::internal::util::xml::impl::Parser, public ::jdk:
 	$class(ParserSAX, 0, ::jdk::internal::util::xml::impl::Parser, ::jdk::internal::org::xml::sax::XMLReader, ::jdk::internal::org::xml::sax::Locator)
 public:
 	ParserSAX();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;

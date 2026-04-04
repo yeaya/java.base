@@ -1,5 +1,4 @@
 #include <java/time/chrono/Chronology$1.h>
-
 #include <java/time/chrono/Chronology.h>
 #include <java/time/temporal/TemporalAccessor.h>
 #include <java/time/temporal/TemporalField.h>
@@ -24,50 +23,6 @@ namespace java {
 	namespace time {
 		namespace chrono {
 
-$FieldInfo _Chronology$1_FieldInfo_[] = {
-	{"this$0", "Ljava/time/chrono/Chronology;", nullptr, $FINAL | $SYNTHETIC, $field(Chronology$1, this$0)},
-	{}
-};
-
-$MethodInfo _Chronology$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/chrono/Chronology;)V", nullptr, 0, $method(Chronology$1, init$, void, $Chronology*)},
-	{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $virtualMethod(Chronology$1, getLong, int64_t, $TemporalField*)},
-	{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC, $virtualMethod(Chronology$1, isSupported, bool, $TemporalField*)},
-	{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC, $virtualMethod(Chronology$1, query, $Object*, $TemporalQuery*)},
-	{}
-};
-
-$EnclosingMethodInfo _Chronology$1_EnclosingMethodInfo_ = {
-	"java.time.chrono.Chronology",
-	"getDisplayName",
-	"(Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;"
-};
-
-$InnerClassInfo _Chronology$1_InnerClassesInfo_[] = {
-	{"java.time.chrono.Chronology$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Chronology$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.time.chrono.Chronology$1",
-	"java.lang.Object",
-	"java.time.temporal.TemporalAccessor",
-	_Chronology$1_FieldInfo_,
-	_Chronology$1_MethodInfo_,
-	nullptr,
-	&_Chronology$1_EnclosingMethodInfo_,
-	_Chronology$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.chrono.Chronology"
-};
-
-$Object* allocate$Chronology$1($Class* clazz) {
-	return $of($alloc(Chronology$1));
-}
-
 void Chronology$1::init$($Chronology* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -83,16 +38,53 @@ int64_t Chronology$1::getLong($TemporalField* field) {
 
 $Object* Chronology$1::query($TemporalQuery* query) {
 	if (query == $TemporalQueries::chronology()) {
-		return $of($of(this->this$0));
+		return $of(this->this$0);
 	}
-	return $of($TemporalAccessor::query(query));
+	return $TemporalAccessor::query(query);
 }
 
 Chronology$1::Chronology$1() {
 }
 
 $Class* Chronology$1::load$($String* name, bool initialize) {
-	$loadClass(Chronology$1, name, initialize, &_Chronology$1_ClassInfo_, allocate$Chronology$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/time/chrono/Chronology;", nullptr, $FINAL | $SYNTHETIC, $field(Chronology$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/time/chrono/Chronology;)V", nullptr, 0, $method(Chronology$1, init$, void, $Chronology*)},
+		{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $virtualMethod(Chronology$1, getLong, int64_t, $TemporalField*)},
+		{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC, $virtualMethod(Chronology$1, isSupported, bool, $TemporalField*)},
+		{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC, $virtualMethod(Chronology$1, query, $Object*, $TemporalQuery*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.time.chrono.Chronology",
+		"getDisplayName",
+		"(Ljava/time/format/TextStyle;Ljava/util/Locale;)Ljava/lang/String;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.chrono.Chronology$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.time.chrono.Chronology$1",
+		"java.lang.Object",
+		"java.time.temporal.TemporalAccessor",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.chrono.Chronology"
+	};
+	$loadClass(Chronology$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Chronology$1);
+	});
 	return class$;
 }
 

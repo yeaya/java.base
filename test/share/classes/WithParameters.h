@@ -9,6 +9,7 @@ class $export WithParameters : public ::java::lang::Object {
 	$class(WithParameters, 0, ::java::lang::Object)
 public:
 	WithParameters();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* argv);
 	virtual void test(int32_t test);

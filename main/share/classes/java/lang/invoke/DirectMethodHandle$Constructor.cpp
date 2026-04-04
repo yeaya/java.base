@@ -1,5 +1,4 @@
 #include <java/lang/invoke/DirectMethodHandle$Constructor.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/invoke/DirectMethodHandle.h>
 #include <java/lang/invoke/LambdaForm.h>
@@ -22,46 +21,6 @@ using $MethodType = ::java::lang::invoke::MethodType;
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$FieldInfo _DirectMethodHandle$Constructor_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectMethodHandle$Constructor, $assertionsDisabled)},
-	{"initMethod", "Ljava/lang/invoke/MemberName;", nullptr, $FINAL, $field(DirectMethodHandle$Constructor, initMethod)},
-	{"instanceClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $FINAL, $field(DirectMethodHandle$Constructor, instanceClass)},
-	{}
-};
-
-$MethodInfo _DirectMethodHandle$Constructor_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MemberName;ZLjava/lang/invoke/MemberName;Ljava/lang/Class;)V", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MemberName;ZLjava/lang/invoke/MemberName;Ljava/lang/Class<*>;)V", $PRIVATE, $method(DirectMethodHandle$Constructor, init$, void, $MethodType*, $LambdaForm*, $MemberName*, bool, $MemberName*, $Class*)},
-	{"copyWith", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(DirectMethodHandle$Constructor, copyWith, $MethodHandle*, $MethodType*, $LambdaForm*)},
-	{"internalProperties", "()Ljava/lang/Object;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(DirectMethodHandle$Constructor, internalProperties, $Object*)},
-	{"viewAsType", "(Ljava/lang/invoke/MethodType;Z)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(DirectMethodHandle$Constructor, viewAsType, $MethodHandle*, $MethodType*, bool)},
-	{}
-};
-
-$InnerClassInfo _DirectMethodHandle$Constructor_InnerClassesInfo_[] = {
-	{"java.lang.invoke.DirectMethodHandle$Constructor", "java.lang.invoke.DirectMethodHandle", "Constructor", $STATIC},
-	{}
-};
-
-$ClassInfo _DirectMethodHandle$Constructor_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.DirectMethodHandle$Constructor",
-	"java.lang.invoke.DirectMethodHandle",
-	nullptr,
-	_DirectMethodHandle$Constructor_FieldInfo_,
-	_DirectMethodHandle$Constructor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DirectMethodHandle$Constructor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.DirectMethodHandle"
-};
-
-$Object* allocate$DirectMethodHandle$Constructor($Class* clazz) {
-	return $of($alloc(DirectMethodHandle$Constructor));
-}
 
 bool DirectMethodHandle$Constructor::$assertionsDisabled = false;
 
@@ -86,10 +45,10 @@ $MethodHandle* DirectMethodHandle$Constructor::viewAsType($MethodType* newType, 
 }
 
 $Object* DirectMethodHandle$Constructor::internalProperties() {
-	return $of($DirectMethodHandle::internalProperties());
+	return $DirectMethodHandle::internalProperties();
 }
 
-void clinit$DirectMethodHandle$Constructor($Class* class$) {
+void DirectMethodHandle$Constructor::clinit$($Class* clazz) {
 	$load($DirectMethodHandle);
 	DirectMethodHandle$Constructor::$assertionsDisabled = !$DirectMethodHandle::class$->desiredAssertionStatus();
 }
@@ -98,7 +57,41 @@ DirectMethodHandle$Constructor::DirectMethodHandle$Constructor() {
 }
 
 $Class* DirectMethodHandle$Constructor::load$($String* name, bool initialize) {
-	$loadClass(DirectMethodHandle$Constructor, name, initialize, &_DirectMethodHandle$Constructor_ClassInfo_, clinit$DirectMethodHandle$Constructor, allocate$DirectMethodHandle$Constructor);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectMethodHandle$Constructor, $assertionsDisabled)},
+		{"initMethod", "Ljava/lang/invoke/MemberName;", nullptr, $FINAL, $field(DirectMethodHandle$Constructor, initMethod)},
+		{"instanceClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $FINAL, $field(DirectMethodHandle$Constructor, instanceClass)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MemberName;ZLjava/lang/invoke/MemberName;Ljava/lang/Class;)V", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MemberName;ZLjava/lang/invoke/MemberName;Ljava/lang/Class<*>;)V", $PRIVATE, $method(DirectMethodHandle$Constructor, init$, void, $MethodType*, $LambdaForm*, $MemberName*, bool, $MemberName*, $Class*)},
+		{"copyWith", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(DirectMethodHandle$Constructor, copyWith, $MethodHandle*, $MethodType*, $LambdaForm*)},
+		{"internalProperties", "()Ljava/lang/Object;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(DirectMethodHandle$Constructor, internalProperties, $Object*)},
+		{"viewAsType", "(Ljava/lang/invoke/MethodType;Z)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(DirectMethodHandle$Constructor, viewAsType, $MethodHandle*, $MethodType*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.DirectMethodHandle$Constructor", "java.lang.invoke.DirectMethodHandle", "Constructor", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.DirectMethodHandle$Constructor",
+		"java.lang.invoke.DirectMethodHandle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.DirectMethodHandle"
+	};
+	$loadClass(DirectMethodHandle$Constructor, name, initialize, &classInfo$$, DirectMethodHandle$Constructor::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DirectMethodHandle$Constructor);
+	});
 	return class$;
 }
 

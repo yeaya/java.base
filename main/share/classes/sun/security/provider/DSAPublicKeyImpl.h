@@ -23,7 +23,7 @@ public:
 	void init$(::java::math::BigInteger* y, ::java::math::BigInteger* p, ::java::math::BigInteger* q, ::java::math::BigInteger* g);
 	void init$($bytes* encoded);
 	$Object* writeReplace();
-	static const int64_t serialVersionUID = (int64_t)0x6C859E0FB206318A;
+	static const int64_t serialVersionUID = (int64_t)0x6c859e0fb206318a;
 };
 
 		} // provider

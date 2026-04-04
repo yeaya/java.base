@@ -19,6 +19,7 @@ class SquareRootTests$BigSquareRoot : public ::java::lang::Object {
 	$class(SquareRootTests$BigSquareRoot, 0, ::java::lang::Object)
 public:
 	SquareRootTests$BigSquareRoot();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool isPowerOfTen(::java::math::BigDecimal* bd);
 	static ::java::math::BigDecimal* sqrt(::java::math::BigDecimal* bd, ::java::math::MathContext* mc);

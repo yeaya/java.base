@@ -1,5 +1,4 @@
 #include <sun/security/x509/SubjectAlternativeNameExtension.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/util/Enumeration.h>
@@ -29,7 +28,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $AttributeNameEnumeration = ::sun::security::x509::AttributeNameEnumeration;
@@ -41,48 +39,6 @@ using $PKIXExtensions = ::sun::security::x509::PKIXExtensions;
 namespace sun {
 	namespace security {
 		namespace x509 {
-
-$FieldInfo _SubjectAlternativeNameExtension_FieldInfo_[] = {
-	{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SubjectAlternativeNameExtension, IDENT)},
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SubjectAlternativeNameExtension, NAME)},
-	{"SUBJECT_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SubjectAlternativeNameExtension, SUBJECT_NAME)},
-	{"names", "Lsun/security/x509/GeneralNames;", nullptr, 0, $field(SubjectAlternativeNameExtension, names)},
-	{}
-};
-
-$MethodInfo _SubjectAlternativeNameExtension_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Lsun/security/x509/GeneralNames;)V", nullptr, $PUBLIC, $method(SubjectAlternativeNameExtension, init$, void, $GeneralNames*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/Boolean;Lsun/security/x509/GeneralNames;)V", nullptr, $PUBLIC, $method(SubjectAlternativeNameExtension, init$, void, $Boolean*, $GeneralNames*), "java.io.IOException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SubjectAlternativeNameExtension, init$, void)},
-	{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(SubjectAlternativeNameExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SubjectAlternativeNameExtension, delete$, void, $String*), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(SubjectAlternativeNameExtension, encode, void, $OutputStream*), "java.io.IOException"},
-	{"encodeThis", "()V", nullptr, $PRIVATE, $method(SubjectAlternativeNameExtension, encodeThis, void), "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Lsun/security/x509/GeneralNames;", nullptr, $PUBLIC, $virtualMethod(SubjectAlternativeNameExtension, get, $Object*, $String*), "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SubjectAlternativeNameExtension, getElements, $Enumeration*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SubjectAlternativeNameExtension, getName, $String*)},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SubjectAlternativeNameExtension, set, void, $String*, Object$*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SubjectAlternativeNameExtension, toString, $String*)},
-	{}
-};
-
-$ClassInfo _SubjectAlternativeNameExtension_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.SubjectAlternativeNameExtension",
-	"sun.security.x509.Extension",
-	"sun.security.x509.CertAttrSet",
-	_SubjectAlternativeNameExtension_FieldInfo_,
-	_SubjectAlternativeNameExtension_MethodInfo_,
-	"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
-};
-
-$Object* allocate$SubjectAlternativeNameExtension($Class* clazz) {
-	return $of($alloc(SubjectAlternativeNameExtension));
-}
 
 int32_t SubjectAlternativeNameExtension::hashCode() {
 	 return this->$Extension::hashCode();
@@ -105,7 +61,7 @@ $String* SubjectAlternativeNameExtension::NAME = nullptr;
 $String* SubjectAlternativeNameExtension::SUBJECT_NAME = nullptr;
 
 void SubjectAlternativeNameExtension::encodeThis() {
-	if (this->names == nullptr || $nc(this->names)->isEmpty()) {
+	if (this->names == nullptr || this->names->isEmpty()) {
 		$set(this, extensionValue, nullptr);
 		return;
 	}
@@ -115,7 +71,6 @@ void SubjectAlternativeNameExtension::encodeThis() {
 }
 
 void SubjectAlternativeNameExtension::init$($GeneralNames* names) {
-	$init($Boolean);
 	SubjectAlternativeNameExtension::init$($Boolean::FALSE, names);
 }
 
@@ -154,18 +109,16 @@ void SubjectAlternativeNameExtension::init$($Boolean* critical, Object$* value) 
 }
 
 $String* SubjectAlternativeNameExtension::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, result, $str({$($Extension::toString()), "SubjectAlternativeName [\n"_s}));
 	if (this->names == nullptr) {
 		$plusAssign(result, "  null\n"_s);
 	} else {
-		{
-			$var($Iterator, i$, $nc($($nc(this->names)->names()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($GeneralName, name, $cast($GeneralName, i$->next()));
-				{
-					$plusAssign(result, $$str({"  "_s, name, "\n"_s}));
-				}
+		$var($Iterator, i$, $$nc(this->names->names())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($GeneralName, name, $cast($GeneralName, i$->next()));
+			{
+				$plusAssign(result, $$str({"  "_s, name, "\n"_s}));
 			}
 		}
 	}
@@ -174,7 +127,7 @@ $String* SubjectAlternativeNameExtension::toString() {
 }
 
 void SubjectAlternativeNameExtension::encode($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);
@@ -200,7 +153,7 @@ void SubjectAlternativeNameExtension::set($String* name, Object$* obj) {
 
 $Object* SubjectAlternativeNameExtension::get($String* name) {
 	if ($nc(name)->equalsIgnoreCase(SubjectAlternativeNameExtension::SUBJECT_NAME)) {
-		return $of((this->names));
+		return (this->names);
 	} else {
 		$throwNew($IOException, "Attribute name not recognized by CertAttrSet:SubjectAlternativeName."_s);
 	}
@@ -228,14 +181,51 @@ $String* SubjectAlternativeNameExtension::getName() {
 SubjectAlternativeNameExtension::SubjectAlternativeNameExtension() {
 }
 
-void clinit$SubjectAlternativeNameExtension($Class* class$) {
+void SubjectAlternativeNameExtension::clinit$($Class* clazz) {
 	$assignStatic(SubjectAlternativeNameExtension::IDENT, "x509.info.extensions.SubjectAlternativeName"_s);
 	$assignStatic(SubjectAlternativeNameExtension::NAME, "SubjectAlternativeName"_s);
 	$assignStatic(SubjectAlternativeNameExtension::SUBJECT_NAME, "subject_name"_s);
 }
 
 $Class* SubjectAlternativeNameExtension::load$($String* name, bool initialize) {
-	$loadClass(SubjectAlternativeNameExtension, name, initialize, &_SubjectAlternativeNameExtension_ClassInfo_, clinit$SubjectAlternativeNameExtension, allocate$SubjectAlternativeNameExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SubjectAlternativeNameExtension, IDENT)},
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SubjectAlternativeNameExtension, NAME)},
+		{"SUBJECT_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SubjectAlternativeNameExtension, SUBJECT_NAME)},
+		{"names", "Lsun/security/x509/GeneralNames;", nullptr, 0, $field(SubjectAlternativeNameExtension, names)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Lsun/security/x509/GeneralNames;)V", nullptr, $PUBLIC, $method(SubjectAlternativeNameExtension, init$, void, $GeneralNames*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/Boolean;Lsun/security/x509/GeneralNames;)V", nullptr, $PUBLIC, $method(SubjectAlternativeNameExtension, init$, void, $Boolean*, $GeneralNames*), "java.io.IOException"},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SubjectAlternativeNameExtension, init$, void)},
+		{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(SubjectAlternativeNameExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
+		{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SubjectAlternativeNameExtension, delete$, void, $String*), "java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(SubjectAlternativeNameExtension, encode, void, $OutputStream*), "java.io.IOException"},
+		{"encodeThis", "()V", nullptr, $PRIVATE, $method(SubjectAlternativeNameExtension, encodeThis, void), "java.io.IOException"},
+		{"get", "(Ljava/lang/String;)Lsun/security/x509/GeneralNames;", nullptr, $PUBLIC, $virtualMethod(SubjectAlternativeNameExtension, get, $Object*, $String*), "java.io.IOException"},
+		{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SubjectAlternativeNameExtension, getElements, $Enumeration*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SubjectAlternativeNameExtension, getName, $String*)},
+		{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SubjectAlternativeNameExtension, set, void, $String*, Object$*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SubjectAlternativeNameExtension, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.SubjectAlternativeNameExtension",
+		"sun.security.x509.Extension",
+		"sun.security.x509.CertAttrSet",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
+	};
+	$loadClass(SubjectAlternativeNameExtension, name, initialize, &classInfo$$, SubjectAlternativeNameExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SubjectAlternativeNameExtension));
+	});
 	return class$;
 }
 

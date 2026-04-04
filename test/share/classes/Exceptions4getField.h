@@ -9,6 +9,7 @@ class $export Exceptions4getField : public ::java::lang::Object {
 	$class(Exceptions4getField, 0, ::java::lang::Object)
 public:
 	Exceptions4getField();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	void test($String* s, $Class* ex);

@@ -1,5 +1,4 @@
 #include <java/util/stream/LongPipeline$6$1.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -25,7 +24,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Spliterator$OfLong = ::java::util::Spliterator$OfLong;
 using $LongConsumer = ::java::util::function::LongConsumer;
-using $LongFunction = ::java::util::function::LongFunction;
 using $LongPipeline$6 = ::java::util::stream::LongPipeline$6;
 using $LongStream = ::java::util::stream::LongStream;
 using $Sink = ::java::util::stream::Sink;
@@ -44,89 +42,37 @@ public:
 	virtual void accept(int64_t value) override {
 		$nc(inst$)->accept(value);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LongPipeline$6$1$$Lambda$accept>());
-	}
 	$Sink* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LongPipeline$6$1$$Lambda$accept::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LongPipeline$6$1$$Lambda$accept, inst$)},
-	{}
-};
-$MethodInfo LongPipeline$6$1$$Lambda$accept::methodInfos[3] = {
-	{"<init>", "(Ljava/util/stream/Sink;)V", nullptr, $PUBLIC, $method(LongPipeline$6$1$$Lambda$accept, init$, void, $Sink*)},
-	{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(LongPipeline$6$1$$Lambda$accept, accept, void, int64_t)},
-	{}
-};
-$ClassInfo LongPipeline$6$1$$Lambda$accept::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.stream.LongPipeline$6$1$$Lambda$accept",
-	"java.lang.Object",
-	"java.util.function.LongConsumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* LongPipeline$6$1$$Lambda$accept::load$($String* name, bool initialize) {
-	$loadClass(LongPipeline$6$1$$Lambda$accept, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LongPipeline$6$1$$Lambda$accept, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/Sink;)V", nullptr, $PUBLIC, $method(LongPipeline$6$1$$Lambda$accept, init$, void, $Sink*)},
+		{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(LongPipeline$6$1$$Lambda$accept, accept, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.stream.LongPipeline$6$1$$Lambda$accept",
+		"java.lang.Object",
+		"java.util.function.LongConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LongPipeline$6$1$$Lambda$accept, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LongPipeline$6$1$$Lambda$accept);
+	});
 	return class$;
 }
 $Class* LongPipeline$6$1$$Lambda$accept::class$ = nullptr;
 
-$FieldInfo _LongPipeline$6$1_FieldInfo_[] = {
-	{"this$1", "Ljava/util/stream/LongPipeline$6;", nullptr, $FINAL | $SYNTHETIC, $field(LongPipeline$6$1, this$1)},
-	{"cancellationRequestedCalled", "Z", nullptr, 0, $field(LongPipeline$6$1, cancellationRequestedCalled)},
-	{"downstreamAsLong", "Ljava/util/function/LongConsumer;", nullptr, 0, $field(LongPipeline$6$1, downstreamAsLong)},
-	{}
-};
-
-$MethodInfo _LongPipeline$6$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/LongPipeline$6;Ljava/util/stream/Sink;)V", nullptr, 0, $method(LongPipeline$6$1, init$, void, $LongPipeline$6*, $Sink*)},
-	{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(LongPipeline$6$1, accept, void, int64_t)},
-	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(LongPipeline$6$1, begin, void, int64_t)},
-	{"cancellationRequested", "()Z", nullptr, $PUBLIC, $virtualMethod(LongPipeline$6$1, cancellationRequested, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _LongPipeline$6$1_EnclosingMethodInfo_ = {
-	"java.util.stream.LongPipeline$6",
-	"opWrapSink",
-	"(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;"
-};
-
-$InnerClassInfo _LongPipeline$6$1_InnerClassesInfo_[] = {
-	{"java.util.stream.LongPipeline$6", nullptr, nullptr, 0},
-	{"java.util.stream.LongPipeline$6$1", nullptr, nullptr, 0},
-	{"java.util.stream.Sink$ChainedLong", "java.util.stream.Sink", "ChainedLong", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _LongPipeline$6$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.LongPipeline$6$1",
-	"java.util.stream.Sink$ChainedLong",
-	nullptr,
-	_LongPipeline$6$1_FieldInfo_,
-	_LongPipeline$6$1_MethodInfo_,
-	"Ljava/util/stream/Sink$ChainedLong<Ljava/lang/Long;>;",
-	&_LongPipeline$6$1_EnclosingMethodInfo_,
-	_LongPipeline$6$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.LongPipeline"
-};
-
-$Object* allocate$LongPipeline$6$1($Class* clazz) {
-	return $of($alloc(LongPipeline$6$1));
-}
-
 void LongPipeline$6$1::init$($LongPipeline$6* this$1, $Sink* downstream) {
 	$set(this, this$1, this$1);
 	$Sink$ChainedLong::init$(downstream);
-	$set(this, downstreamAsLong, static_cast<$LongConsumer*>($new(LongPipeline$6$1$$Lambda$accept, static_cast<$Sink*>($nc(this->downstream)))));
+	$set(this, downstreamAsLong, $new(LongPipeline$6$1$$Lambda$accept, $nc(this->downstream)));
 }
 
 void LongPipeline$6$1::begin(int64_t size) {
@@ -134,44 +80,42 @@ void LongPipeline$6$1::begin(int64_t size) {
 }
 
 void LongPipeline$6$1::accept(int64_t t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($LongStream, result, $cast($LongStream, $nc(this->this$1->val$mapper)->apply(t)));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					if (result != nullptr) {
-						if (!this->cancellationRequestedCalled) {
-							$nc($(result->sequential()))->forEach(this->downstreamAsLong);
-						} else {
-							$var($Spliterator$OfLong, s, $cast($Spliterator$OfLong, $nc($(result->sequential()))->spliterator()));
-							bool var$1 = false;
-							do {
-								var$1 = !$nc(this->downstream)->cancellationRequested();
-							} while (var$1 && $nc(s)->tryAdvance(this->downstreamAsLong));
-						}
-					}
-				} catch ($Throwable& t$) {
-					if (result != nullptr) {
-						try {
-							result->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable& var$2) {
-				$assign(var$0, var$2);
-			} /*finally*/ {
 				if (result != nullptr) {
-					result->close();
+					if (!this->cancellationRequestedCalled) {
+						$$nc(result->sequential())->forEach(this->downstreamAsLong);
+					} else {
+						$var($Spliterator$OfLong, s, $cast($Spliterator$OfLong, $$nc(result->sequential())->spliterator()));
+						bool var$1 = false;
+						do {
+							var$1 = !$nc(this->downstream)->cancellationRequested();
+						} while (var$1 && $nc(s)->tryAdvance(this->downstreamAsLong));
+					}
 				}
+			} catch ($Throwable& t$) {
+				if (result != nullptr) {
+					try {
+						result->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
+		} /*finally*/ {
+			if (result != nullptr) {
+				result->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -186,11 +130,52 @@ LongPipeline$6$1::LongPipeline$6$1() {
 
 $Class* LongPipeline$6$1::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(LongPipeline$6$1$$Lambda$accept::classInfo$.name)) {
+		if (name->equals("java.util.stream.LongPipeline$6$1$$Lambda$accept")) {
 			return LongPipeline$6$1$$Lambda$accept::load$(name, initialize);
 		}
 	}
-	$loadClass(LongPipeline$6$1, name, initialize, &_LongPipeline$6$1_ClassInfo_, allocate$LongPipeline$6$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljava/util/stream/LongPipeline$6;", nullptr, $FINAL | $SYNTHETIC, $field(LongPipeline$6$1, this$1)},
+		{"cancellationRequestedCalled", "Z", nullptr, 0, $field(LongPipeline$6$1, cancellationRequestedCalled)},
+		{"downstreamAsLong", "Ljava/util/function/LongConsumer;", nullptr, 0, $field(LongPipeline$6$1, downstreamAsLong)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/LongPipeline$6;Ljava/util/stream/Sink;)V", nullptr, 0, $method(LongPipeline$6$1, init$, void, $LongPipeline$6*, $Sink*)},
+		{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(LongPipeline$6$1, accept, void, int64_t)},
+		{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(LongPipeline$6$1, begin, void, int64_t)},
+		{"cancellationRequested", "()Z", nullptr, $PUBLIC, $virtualMethod(LongPipeline$6$1, cancellationRequested, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.LongPipeline$6",
+		"opWrapSink",
+		"(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.LongPipeline$6", nullptr, nullptr, 0},
+		{"java.util.stream.LongPipeline$6$1", nullptr, nullptr, 0},
+		{"java.util.stream.Sink$ChainedLong", "java.util.stream.Sink", "ChainedLong", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.LongPipeline$6$1",
+		"java.util.stream.Sink$ChainedLong",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/Sink$ChainedLong<Ljava/lang/Long;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.LongPipeline"
+	};
+	$loadClass(LongPipeline$6$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LongPipeline$6$1));
+	});
 	return class$;
 }
 

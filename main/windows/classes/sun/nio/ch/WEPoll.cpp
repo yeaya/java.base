@@ -1,5 +1,4 @@
 #include <sun/nio/ch/WEPoll.h>
-
 #include <java/lang/AssertionError.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/nio/ch/IOUtil.h>
@@ -31,64 +30,6 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _WEPoll_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(WEPoll, $assertionsDisabled)},
-	{"UNSAFE", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WEPoll, UNSAFE)},
-	{"ADDRESS_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WEPoll, ADDRESS_SIZE)},
-	{"SIZEOF_EPOLLEVENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WEPoll, SIZEOF_EPOLLEVENT)},
-	{"OFFSETOF_EVENTS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WEPoll, OFFSETOF_EVENTS)},
-	{"OFFSETOF_SOCK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WEPoll, OFFSETOF_SOCK)},
-	{"EPOLL_CTL_ADD", "I", nullptr, $STATIC | $FINAL, $constField(WEPoll, EPOLL_CTL_ADD)},
-	{"EPOLL_CTL_MOD", "I", nullptr, $STATIC | $FINAL, $constField(WEPoll, EPOLL_CTL_MOD)},
-	{"EPOLL_CTL_DEL", "I", nullptr, $STATIC | $FINAL, $constField(WEPoll, EPOLL_CTL_DEL)},
-	{"EPOLLIN", "I", nullptr, $STATIC | $FINAL, $constField(WEPoll, EPOLLIN)},
-	{"EPOLLPRI", "I", nullptr, $STATIC | $FINAL, $constField(WEPoll, EPOLLPRI)},
-	{"EPOLLOUT", "I", nullptr, $STATIC | $FINAL, $constField(WEPoll, EPOLLOUT)},
-	{"EPOLLERR", "I", nullptr, $STATIC | $FINAL, $constField(WEPoll, EPOLLERR)},
-	{"EPOLLHUP", "I", nullptr, $STATIC | $FINAL, $constField(WEPoll, EPOLLHUP)},
-	{"EPOLLONESHOT", "I", nullptr, $STATIC | $FINAL, $constField(WEPoll, EPOLLONESHOT)},
-	{}
-};
-
-$MethodInfo _WEPoll_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(WEPoll, init$, void)},
-	{"allocatePollArray", "(I)J", nullptr, $STATIC, $staticMethod(WEPoll, allocatePollArray, int64_t, int32_t)},
-	{"close", "(J)V", nullptr, $STATIC | $NATIVE, $staticMethod(WEPoll, close, void, int64_t)},
-	{"create", "()J", nullptr, $STATIC | $NATIVE, $staticMethod(WEPoll, create, int64_t), "java.io.IOException"},
-	{"ctl", "(JIJI)I", nullptr, $STATIC | $NATIVE, $staticMethod(WEPoll, ctl, int32_t, int64_t, int32_t, int64_t, int32_t)},
-	{"dataOffset", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WEPoll, dataOffset, int32_t)},
-	{"eventSize", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WEPoll, eventSize, int32_t)},
-	{"eventsOffset", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WEPoll, eventsOffset, int32_t)},
-	{"freePollArray", "(J)V", nullptr, $STATIC, $staticMethod(WEPoll, freePollArray, void, int64_t)},
-	{"getDescriptor", "(J)I", nullptr, $STATIC, $staticMethod(WEPoll, getDescriptor, int32_t, int64_t)},
-	{"getEvent", "(JI)J", nullptr, $STATIC, $staticMethod(WEPoll, getEvent, int64_t, int64_t, int32_t)},
-	{"getEvents", "(J)I", nullptr, $STATIC, $staticMethod(WEPoll, getEvents, int32_t, int64_t)},
-	{"getSocket", "(J)J", nullptr, $STATIC, $staticMethod(WEPoll, getSocket, int64_t, int64_t)},
-	{"wait", "(JJII)I", nullptr, $STATIC | $NATIVE, $staticMethod(WEPoll, wait, int32_t, int64_t, int64_t, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-#define _METHOD_INDEX_close 2
-#define _METHOD_INDEX_create 3
-#define _METHOD_INDEX_ctl 4
-#define _METHOD_INDEX_dataOffset 5
-#define _METHOD_INDEX_eventSize 6
-#define _METHOD_INDEX_eventsOffset 7
-#define _METHOD_INDEX_wait 13
-
-$ClassInfo _WEPoll_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.WEPoll",
-	"java.lang.Object",
-	nullptr,
-	_WEPoll_FieldInfo_,
-	_WEPoll_MethodInfo_
-};
-
-$Object* allocate$WEPoll($Class* clazz) {
-	return $of($alloc(WEPoll));
-}
-
 bool WEPoll::$assertionsDisabled = false;
 $Unsafe* WEPoll::UNSAFE = nullptr;
 int32_t WEPoll::ADDRESS_SIZE = 0;
@@ -103,7 +44,7 @@ int64_t WEPoll::allocatePollArray(int32_t count) {
 	$init(WEPoll);
 	int64_t size = (int64_t)count * WEPoll::SIZEOF_EPOLLEVENT;
 	int64_t base = $nc(WEPoll::UNSAFE)->allocateMemory(size);
-	$nc(WEPoll::UNSAFE)->setMemory(base, size, (int8_t)0);
+	WEPoll::UNSAFE->setMemory(base, size, (int8_t)0);
 	return base;
 }
 
@@ -143,66 +84,60 @@ int32_t WEPoll::getEvents(int64_t eventAddress) {
 
 int32_t WEPoll::eventSize() {
 	$init(WEPoll);
-	int32_t $ret = 0;
-	$prepareNativeStatic(WEPoll, eventSize, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(eventSize, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t WEPoll::eventsOffset() {
 	$init(WEPoll);
-	int32_t $ret = 0;
-	$prepareNativeStatic(WEPoll, eventsOffset, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(eventsOffset, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t WEPoll::dataOffset() {
 	$init(WEPoll);
-	int32_t $ret = 0;
-	$prepareNativeStatic(WEPoll, dataOffset, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(dataOffset, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int64_t WEPoll::create() {
 	$init(WEPoll);
-	int64_t $ret = 0;
-	$prepareNativeStatic(WEPoll, create, int64_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(create, int64_t);
+	int64_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t WEPoll::ctl(int64_t h, int32_t opcode, int64_t s, int32_t events) {
 	$init(WEPoll);
-	int32_t $ret = 0;
-	$prepareNativeStatic(WEPoll, ctl, int32_t, int64_t h, int32_t opcode, int64_t s, int32_t events);
-	$ret = $invokeNativeStatic(h, opcode, s, events);
+	$prepareNativeStatic(ctl, int32_t, int64_t h, int32_t opcode, int64_t s, int32_t events);
+	int32_t $ret = $invokeNativeStatic(h, opcode, s, events);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t WEPoll::wait(int64_t h, int64_t pollAddress, int32_t numfds, int32_t timeout) {
 	$init(WEPoll);
-	int32_t $ret = 0;
-	$prepareNativeStatic(WEPoll, wait, int32_t, int64_t h, int64_t pollAddress, int32_t numfds, int32_t timeout);
-	$ret = $invokeNativeStatic(h, pollAddress, numfds, timeout);
+	$prepareNativeStatic(wait, int32_t, int64_t h, int64_t pollAddress, int32_t numfds, int32_t timeout);
+	int32_t $ret = $invokeNativeStatic(h, pollAddress, numfds, timeout);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void WEPoll::close(int64_t h) {
 	$init(WEPoll);
-	$prepareNativeStatic(WEPoll, close, void, int64_t h);
+	$prepareNativeStatic(close, void, int64_t h);
 	$invokeNativeStatic(h);
 	$finishNativeStatic();
 }
 
-void clinit$WEPoll($Class* class$) {
+void WEPoll::clinit$($Class* clazz) {
 	WEPoll::$assertionsDisabled = !WEPoll::class$->desiredAssertionStatus();
 	$assignStatic(WEPoll::UNSAFE, $Unsafe::getUnsafe());
 	WEPoll::ADDRESS_SIZE = $nc(WEPoll::UNSAFE)->addressSize();
@@ -218,7 +153,52 @@ WEPoll::WEPoll() {
 }
 
 $Class* WEPoll::load$($String* name, bool initialize) {
-	$loadClass(WEPoll, name, initialize, &_WEPoll_ClassInfo_, clinit$WEPoll, allocate$WEPoll);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(WEPoll, $assertionsDisabled)},
+		{"UNSAFE", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WEPoll, UNSAFE)},
+		{"ADDRESS_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WEPoll, ADDRESS_SIZE)},
+		{"SIZEOF_EPOLLEVENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WEPoll, SIZEOF_EPOLLEVENT)},
+		{"OFFSETOF_EVENTS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WEPoll, OFFSETOF_EVENTS)},
+		{"OFFSETOF_SOCK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WEPoll, OFFSETOF_SOCK)},
+		{"EPOLL_CTL_ADD", "I", nullptr, $STATIC | $FINAL, $constField(WEPoll, EPOLL_CTL_ADD)},
+		{"EPOLL_CTL_MOD", "I", nullptr, $STATIC | $FINAL, $constField(WEPoll, EPOLL_CTL_MOD)},
+		{"EPOLL_CTL_DEL", "I", nullptr, $STATIC | $FINAL, $constField(WEPoll, EPOLL_CTL_DEL)},
+		{"EPOLLIN", "I", nullptr, $STATIC | $FINAL, $constField(WEPoll, EPOLLIN)},
+		{"EPOLLPRI", "I", nullptr, $STATIC | $FINAL, $constField(WEPoll, EPOLLPRI)},
+		{"EPOLLOUT", "I", nullptr, $STATIC | $FINAL, $constField(WEPoll, EPOLLOUT)},
+		{"EPOLLERR", "I", nullptr, $STATIC | $FINAL, $constField(WEPoll, EPOLLERR)},
+		{"EPOLLHUP", "I", nullptr, $STATIC | $FINAL, $constField(WEPoll, EPOLLHUP)},
+		{"EPOLLONESHOT", "I", nullptr, $STATIC | $FINAL, $constField(WEPoll, EPOLLONESHOT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(WEPoll, init$, void)},
+		{"allocatePollArray", "(I)J", nullptr, $STATIC, $staticMethod(WEPoll, allocatePollArray, int64_t, int32_t)},
+		{"close", "(J)V", nullptr, $STATIC | $NATIVE, $staticMethod(WEPoll, close, void, int64_t)},
+		{"create", "()J", nullptr, $STATIC | $NATIVE, $staticMethod(WEPoll, create, int64_t), "java.io.IOException"},
+		{"ctl", "(JIJI)I", nullptr, $STATIC | $NATIVE, $staticMethod(WEPoll, ctl, int32_t, int64_t, int32_t, int64_t, int32_t)},
+		{"dataOffset", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WEPoll, dataOffset, int32_t)},
+		{"eventSize", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WEPoll, eventSize, int32_t)},
+		{"eventsOffset", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WEPoll, eventsOffset, int32_t)},
+		{"freePollArray", "(J)V", nullptr, $STATIC, $staticMethod(WEPoll, freePollArray, void, int64_t)},
+		{"getDescriptor", "(J)I", nullptr, $STATIC, $staticMethod(WEPoll, getDescriptor, int32_t, int64_t)},
+		{"getEvent", "(JI)J", nullptr, $STATIC, $staticMethod(WEPoll, getEvent, int64_t, int64_t, int32_t)},
+		{"getEvents", "(J)I", nullptr, $STATIC, $staticMethod(WEPoll, getEvents, int32_t, int64_t)},
+		{"getSocket", "(J)J", nullptr, $STATIC, $staticMethod(WEPoll, getSocket, int64_t, int64_t)},
+		{"wait", "(JJII)I", nullptr, $STATIC | $NATIVE, $staticMethod(WEPoll, wait, int32_t, int64_t, int64_t, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.WEPoll",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WEPoll, name, initialize, &classInfo$$, WEPoll::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WEPoll);
+	});
 	return class$;
 }
 

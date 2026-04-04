@@ -41,6 +41,7 @@ class $export IntegerPolynomial : public ::sun::security::util::math::IntegerFie
 public:
 	IntegerPolynomial();
 	using ::sun::security::util::math::IntegerFieldModuloP::getElement;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t bitsPerLimb, int32_t numLimbs, int32_t maxAdds, ::java::math::BigInteger* modulus);
 	virtual void addLimbs($longs* a, $longs* b, $longs* dst);
 	virtual void addLimbsModPowerTwo($longs* limbs, $longs* other, $bytes* result);

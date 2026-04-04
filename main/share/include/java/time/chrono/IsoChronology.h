@@ -70,6 +70,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::time::chrono::ChronoLocalDate* date(::java::time::chrono::Era* era, int32_t yearOfEra, int32_t month, int32_t dayOfMonth) override;
 	virtual ::java::time::chrono::ChronoLocalDate* date(int32_t prolepticYear, int32_t month, int32_t dayOfMonth) override;
@@ -101,7 +102,7 @@ public:
 	virtual ::java::time::chrono::ChronoZonedDateTime* zonedDateTime(::java::time::temporal::TemporalAccessor* temporal) override;
 	virtual ::java::time::chrono::ChronoZonedDateTime* zonedDateTime(::java::time::Instant* instant, ::java::time::ZoneId* zone) override;
 	static ::java::time::chrono::IsoChronology* INSTANCE;
-	static const int64_t serialVersionUID = (int64_t)0xEC02A84FB92610D9;
+	static const int64_t serialVersionUID = (int64_t)0xec02a84fb92610d9;
 	static const int64_t DAYS_0000_TO_1970 = 719528; // (146097 * 5L) - (30L * 365L + 7L)
 };
 

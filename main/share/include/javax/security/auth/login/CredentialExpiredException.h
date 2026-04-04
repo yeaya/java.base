@@ -16,10 +16,13 @@ public:
 	CredentialExpiredException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0xB5D3ABA8330656AF;
+	static const int64_t serialVersionUID = (int64_t)0xb5d3aba8330656af;
 	CredentialExpiredException(const CredentialExpiredException& e);
 	virtual void throw$() override;
-	inline CredentialExpiredException* operator ->() {
+	inline CredentialExpiredException* operator ->() const {
+		return (CredentialExpiredException*)throwing$;
+	}
+	inline operator CredentialExpiredException*() const {
 		return (CredentialExpiredException*)throwing$;
 	}
 };

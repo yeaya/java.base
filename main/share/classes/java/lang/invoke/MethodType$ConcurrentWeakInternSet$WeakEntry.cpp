@@ -1,5 +1,4 @@
 #include <java/lang/invoke/MethodType$ConcurrentWeakInternSet$WeakEntry.h>
-
 #include <java/lang/invoke/MethodType$ConcurrentWeakInternSet.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
@@ -17,57 +16,19 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$FieldInfo _MethodType$ConcurrentWeakInternSet$WeakEntry_FieldInfo_[] = {
-	{"hashcode", "I", nullptr, $PUBLIC | $FINAL, $field(MethodType$ConcurrentWeakInternSet$WeakEntry, hashcode)},
-	{}
-};
-
-$MethodInfo _MethodType$ConcurrentWeakInternSet$WeakEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(TT;Ljava/lang/ref/ReferenceQueue<TT;>;)V", $PUBLIC, $method(MethodType$ConcurrentWeakInternSet$WeakEntry, init$, void, Object$*, $ReferenceQueue*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodType$ConcurrentWeakInternSet$WeakEntry, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MethodType$ConcurrentWeakInternSet$WeakEntry, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MethodType$ConcurrentWeakInternSet$WeakEntry_InnerClassesInfo_[] = {
-	{"java.lang.invoke.MethodType$ConcurrentWeakInternSet", "java.lang.invoke.MethodType", "ConcurrentWeakInternSet", $PRIVATE | $STATIC},
-	{"java.lang.invoke.MethodType$ConcurrentWeakInternSet$WeakEntry", "java.lang.invoke.MethodType$ConcurrentWeakInternSet", "WeakEntry", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MethodType$ConcurrentWeakInternSet$WeakEntry_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.MethodType$ConcurrentWeakInternSet$WeakEntry",
-	"java.lang.ref.WeakReference",
-	nullptr,
-	_MethodType$ConcurrentWeakInternSet$WeakEntry_FieldInfo_,
-	_MethodType$ConcurrentWeakInternSet$WeakEntry_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/ref/WeakReference<TT;>;",
-	nullptr,
-	_MethodType$ConcurrentWeakInternSet$WeakEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.MethodType"
-};
-
-$Object* allocate$MethodType$ConcurrentWeakInternSet$WeakEntry($Class* clazz) {
-	return $of($alloc(MethodType$ConcurrentWeakInternSet$WeakEntry));
-}
-
 void MethodType$ConcurrentWeakInternSet$WeakEntry::init$(Object$* key, $ReferenceQueue* queue) {
 	$WeakReference::init$(key, queue);
 	this->hashcode = $nc($of(key))->hashCode();
 }
 
 bool MethodType$ConcurrentWeakInternSet$WeakEntry::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, mine, get());
 	if ($instanceOf(MethodType$ConcurrentWeakInternSet$WeakEntry, obj)) {
-		$var($Object, that, $nc(($cast(MethodType$ConcurrentWeakInternSet$WeakEntry, obj)))->get());
-		return (that == nullptr || mine == nullptr) ? ($equals(this, obj)) : $nc($of(mine))->equals(that);
+		$var($Object, that, $cast(MethodType$ConcurrentWeakInternSet$WeakEntry, obj)->get());
+		return (that == nullptr || mine == nullptr) ? ($equals(this, obj)) : mine->equals(that);
 	}
-	return (mine == nullptr) ? (obj == nullptr) : $nc($of(mine))->equals(obj);
+	return (mine == nullptr) ? (obj == nullptr) : mine->equals(obj);
 }
 
 int32_t MethodType$ConcurrentWeakInternSet$WeakEntry::hashCode() {
@@ -78,7 +39,39 @@ MethodType$ConcurrentWeakInternSet$WeakEntry::MethodType$ConcurrentWeakInternSet
 }
 
 $Class* MethodType$ConcurrentWeakInternSet$WeakEntry::load$($String* name, bool initialize) {
-	$loadClass(MethodType$ConcurrentWeakInternSet$WeakEntry, name, initialize, &_MethodType$ConcurrentWeakInternSet$WeakEntry_ClassInfo_, allocate$MethodType$ConcurrentWeakInternSet$WeakEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"hashcode", "I", nullptr, $PUBLIC | $FINAL, $field(MethodType$ConcurrentWeakInternSet$WeakEntry, hashcode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(TT;Ljava/lang/ref/ReferenceQueue<TT;>;)V", $PUBLIC, $method(MethodType$ConcurrentWeakInternSet$WeakEntry, init$, void, Object$*, $ReferenceQueue*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodType$ConcurrentWeakInternSet$WeakEntry, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MethodType$ConcurrentWeakInternSet$WeakEntry, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.MethodType$ConcurrentWeakInternSet", "java.lang.invoke.MethodType", "ConcurrentWeakInternSet", $PRIVATE | $STATIC},
+		{"java.lang.invoke.MethodType$ConcurrentWeakInternSet$WeakEntry", "java.lang.invoke.MethodType$ConcurrentWeakInternSet", "WeakEntry", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.MethodType$ConcurrentWeakInternSet$WeakEntry",
+		"java.lang.ref.WeakReference",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/ref/WeakReference<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.MethodType"
+	};
+	$loadClass(MethodType$ConcurrentWeakInternSet$WeakEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodType$ConcurrentWeakInternSet$WeakEntry);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/provider/ByteArrayAccess$LE.h>
-
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/VarHandle.h>
 #include <java/nio/ByteOrder.h>
@@ -22,62 +21,54 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$FieldInfo _ByteArrayAccess$LE_FieldInfo_[] = {
-	{"INT_ARRAY", "Ljava/lang/invoke/VarHandle;", nullptr, $STATIC | $FINAL, $staticField(ByteArrayAccess$LE, INT_ARRAY)},
-	{"LONG_ARRAY", "Ljava/lang/invoke/VarHandle;", nullptr, $STATIC | $FINAL, $staticField(ByteArrayAccess$LE, LONG_ARRAY)},
-	{}
-};
-
-$MethodInfo _ByteArrayAccess$LE_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ByteArrayAccess$LE, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ByteArrayAccess$LE_InnerClassesInfo_[] = {
-	{"sun.security.provider.ByteArrayAccess$LE", "sun.security.provider.ByteArrayAccess", "LE", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ByteArrayAccess$LE_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.provider.ByteArrayAccess$LE",
-	"java.lang.Object",
-	nullptr,
-	_ByteArrayAccess$LE_FieldInfo_,
-	_ByteArrayAccess$LE_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ByteArrayAccess$LE_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.ByteArrayAccess"
-};
-
-$Object* allocate$ByteArrayAccess$LE($Class* clazz) {
-	return $of($alloc(ByteArrayAccess$LE));
-}
-
 $VarHandle* ByteArrayAccess$LE::INT_ARRAY = nullptr;
 $VarHandle* ByteArrayAccess$LE::LONG_ARRAY = nullptr;
 
 void ByteArrayAccess$LE::init$() {
 }
 
-void clinit$ByteArrayAccess$LE($Class* class$) {
-	$useLocalCurrentObjectStackCache();
-	$load($ints);
+void ByteArrayAccess$LE::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($ByteOrder);
-	$assignStatic(ByteArrayAccess$LE::INT_ARRAY, $nc($($MethodHandles::byteArrayViewVarHandle($getClass($ints), $ByteOrder::LITTLE_ENDIAN)))->withInvokeExactBehavior());
-	$load($longs);
-	$assignStatic(ByteArrayAccess$LE::LONG_ARRAY, $nc($($MethodHandles::byteArrayViewVarHandle($getClass($longs), $ByteOrder::LITTLE_ENDIAN)))->withInvokeExactBehavior());
+	$assignStatic(ByteArrayAccess$LE::INT_ARRAY, $$nc($MethodHandles::byteArrayViewVarHandle($getClass($ints), $ByteOrder::LITTLE_ENDIAN))->withInvokeExactBehavior());
+	$assignStatic(ByteArrayAccess$LE::LONG_ARRAY, $$nc($MethodHandles::byteArrayViewVarHandle($getClass($longs), $ByteOrder::LITTLE_ENDIAN))->withInvokeExactBehavior());
 }
 
 ByteArrayAccess$LE::ByteArrayAccess$LE() {
 }
 
 $Class* ByteArrayAccess$LE::load$($String* name, bool initialize) {
-	$loadClass(ByteArrayAccess$LE, name, initialize, &_ByteArrayAccess$LE_ClassInfo_, clinit$ByteArrayAccess$LE, allocate$ByteArrayAccess$LE);
+	$FieldInfo fieldInfos$$[] = {
+		{"INT_ARRAY", "Ljava/lang/invoke/VarHandle;", nullptr, $STATIC | $FINAL, $staticField(ByteArrayAccess$LE, INT_ARRAY)},
+		{"LONG_ARRAY", "Ljava/lang/invoke/VarHandle;", nullptr, $STATIC | $FINAL, $staticField(ByteArrayAccess$LE, LONG_ARRAY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ByteArrayAccess$LE, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.ByteArrayAccess$LE", "sun.security.provider.ByteArrayAccess", "LE", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.provider.ByteArrayAccess$LE",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.ByteArrayAccess"
+	};
+	$loadClass(ByteArrayAccess$LE, name, initialize, &classInfo$$, ByteArrayAccess$LE::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ByteArrayAccess$LE);
+	});
 	return class$;
 }
 

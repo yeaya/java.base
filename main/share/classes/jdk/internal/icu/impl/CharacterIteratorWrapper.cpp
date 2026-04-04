@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/impl/CharacterIteratorWrapper.h>
-
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/text/CharacterIterator.h>
@@ -23,37 +22,6 @@ namespace jdk {
 		namespace icu {
 			namespace impl {
 
-$FieldInfo _CharacterIteratorWrapper_FieldInfo_[] = {
-	{"iterator", "Ljava/text/CharacterIterator;", nullptr, $PRIVATE, $field(CharacterIteratorWrapper, iterator)},
-	{}
-};
-
-$MethodInfo _CharacterIteratorWrapper_MethodInfo_[] = {
-	{"<init>", "(Ljava/text/CharacterIterator;)V", nullptr, $PUBLIC, $method(CharacterIteratorWrapper, init$, void, $CharacterIterator*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorWrapper, clone, $Object*)},
-	{"current", "()I", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorWrapper, current, int32_t)},
-	{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorWrapper, getIndex, int32_t)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorWrapper, getLength, int32_t)},
-	{"getText", "([CI)I", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorWrapper, getText, int32_t, $chars*, int32_t)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorWrapper, next, int32_t)},
-	{"previous", "()I", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorWrapper, previous, int32_t)},
-	{"setIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorWrapper, setIndex, void, int32_t)},
-	{}
-};
-
-$ClassInfo _CharacterIteratorWrapper_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.icu.impl.CharacterIteratorWrapper",
-	"jdk.internal.icu.text.UCharacterIterator",
-	nullptr,
-	_CharacterIteratorWrapper_FieldInfo_,
-	_CharacterIteratorWrapper_MethodInfo_
-};
-
-$Object* allocate$CharacterIteratorWrapper($Class* clazz) {
-	return $of($alloc(CharacterIteratorWrapper));
-}
-
 void CharacterIteratorWrapper::init$($CharacterIterator* iter) {
 	$UCharacterIterator::init$();
 	if (iter == nullptr) {
@@ -72,7 +40,7 @@ int32_t CharacterIteratorWrapper::current() {
 
 int32_t CharacterIteratorWrapper::getLength() {
 	int32_t var$0 = $nc(this->iterator)->getEndIndex();
-	return (var$0 - $nc(this->iterator)->getBeginIndex());
+	return (var$0 - this->iterator->getBeginIndex());
 }
 
 int32_t CharacterIteratorWrapper::getIndex() {
@@ -81,7 +49,7 @@ int32_t CharacterIteratorWrapper::getIndex() {
 
 int32_t CharacterIteratorWrapper::next() {
 	int32_t i = $nc(this->iterator)->current();
-	$nc(this->iterator)->next();
+	this->iterator->next();
 	if (i == $CharacterIterator::DONE) {
 		return $UCharacterIterator::DONE;
 	}
@@ -102,15 +70,15 @@ void CharacterIteratorWrapper::setIndex(int32_t index) {
 
 int32_t CharacterIteratorWrapper::getText($chars* fillIn, int32_t offset) {
 	int32_t var$0 = $nc(this->iterator)->getEndIndex();
-	int32_t length = var$0 - $nc(this->iterator)->getBeginIndex();
-	int32_t currentIndex = $nc(this->iterator)->getIndex();
+	int32_t length = var$0 - this->iterator->getBeginIndex();
+	int32_t currentIndex = this->iterator->getIndex();
 	if (offset < 0 || offset + length > $nc(fillIn)->length) {
 		$throwNew($IndexOutOfBoundsException, $($Integer::toString(length)));
 	}
-	for (char16_t ch = $nc(this->iterator)->first(); ch != $CharacterIterator::DONE; ch = $nc(this->iterator)->next()) {
+	for (char16_t ch = this->iterator->first(); ch != $CharacterIterator::DONE; ch = this->iterator->next()) {
 		$nc(fillIn)->set(offset++, ch);
 	}
-	$nc(this->iterator)->setIndex(currentIndex);
+	this->iterator->setIndex(currentIndex);
 	return length;
 }
 
@@ -118,9 +86,9 @@ $Object* CharacterIteratorWrapper::clone() {
 	try {
 		$var(CharacterIteratorWrapper, result, $cast(CharacterIteratorWrapper, $UCharacterIterator::clone()));
 		$set($nc(result), iterator, $cast($CharacterIterator, $nc(this->iterator)->clone()));
-		return $of(result);
+		return result;
 	} catch ($CloneNotSupportedException& e) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$shouldNotReachHere();
 }
@@ -129,7 +97,33 @@ CharacterIteratorWrapper::CharacterIteratorWrapper() {
 }
 
 $Class* CharacterIteratorWrapper::load$($String* name, bool initialize) {
-	$loadClass(CharacterIteratorWrapper, name, initialize, &_CharacterIteratorWrapper_ClassInfo_, allocate$CharacterIteratorWrapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"iterator", "Ljava/text/CharacterIterator;", nullptr, $PRIVATE, $field(CharacterIteratorWrapper, iterator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/text/CharacterIterator;)V", nullptr, $PUBLIC, $method(CharacterIteratorWrapper, init$, void, $CharacterIterator*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorWrapper, clone, $Object*)},
+		{"current", "()I", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorWrapper, current, int32_t)},
+		{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorWrapper, getIndex, int32_t)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorWrapper, getLength, int32_t)},
+		{"getText", "([CI)I", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorWrapper, getText, int32_t, $chars*, int32_t)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorWrapper, next, int32_t)},
+		{"previous", "()I", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorWrapper, previous, int32_t)},
+		{"setIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorWrapper, setIndex, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.icu.impl.CharacterIteratorWrapper",
+		"jdk.internal.icu.text.UCharacterIterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CharacterIteratorWrapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CharacterIteratorWrapper);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/security/KeyStoreSpi.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -51,54 +50,12 @@ using $Certificate = ::java::security::cert::Certificate;
 using $Date = ::java::util::Date;
 using $Enumeration = ::java::util::Enumeration;
 using $SecretKey = ::javax::crypto::SecretKey;
-using $Callback = ::javax::security::auth::callback::Callback;
 using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;
 using $PasswordCallback = ::javax::security::auth::callback::PasswordCallback;
 using $UnsupportedCallbackException = ::javax::security::auth::callback::UnsupportedCallbackException;
 
 namespace java {
 	namespace security {
-
-$MethodInfo _KeyStoreSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyStoreSpi, init$, void)},
-	{"engineAliases", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineAliases, $Enumeration*)},
-	{"engineContainsAlias", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineContainsAlias, bool, $String*)},
-	{"engineDeleteEntry", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineDeleteEntry, void, $String*), "java.security.KeyStoreException"},
-	{"engineEntryInstanceOf", "(Ljava/lang/String;Ljava/lang/Class;)Z", "(Ljava/lang/String;Ljava/lang/Class<+Ljava/security/KeyStore$Entry;>;)Z", $PUBLIC, $virtualMethod(KeyStoreSpi, engineEntryInstanceOf, bool, $String*, $Class*)},
-	{"engineGetCertificate", "(Ljava/lang/String;)Ljava/security/cert/Certificate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineGetCertificate, $Certificate*, $String*)},
-	{"engineGetCertificateAlias", "(Ljava/security/cert/Certificate;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineGetCertificateAlias, $String*, $Certificate*)},
-	{"engineGetCertificateChain", "(Ljava/lang/String;)[Ljava/security/cert/Certificate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineGetCertificateChain, $CertificateArray*, $String*)},
-	{"engineGetCreationDate", "(Ljava/lang/String;)Ljava/util/Date;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineGetCreationDate, $Date*, $String*)},
-	{"engineGetEntry", "(Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Entry;", nullptr, $PUBLIC, $virtualMethod(KeyStoreSpi, engineGetEntry, $KeyStore$Entry*, $String*, $KeyStore$ProtectionParameter*), "java.security.KeyStoreException,java.security.NoSuchAlgorithmException,java.security.UnrecoverableEntryException"},
-	{"engineGetKey", "(Ljava/lang/String;[C)Ljava/security/Key;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineGetKey, $Key*, $String*, $chars*), "java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
-	{"engineIsCertificateEntry", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineIsCertificateEntry, bool, $String*)},
-	{"engineIsKeyEntry", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineIsKeyEntry, bool, $String*)},
-	{"engineLoad", "(Ljava/io/InputStream;[C)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineLoad, void, $InputStream*, $chars*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
-	{"engineLoad", "(Ljava/security/KeyStore$LoadStoreParameter;)V", nullptr, $PUBLIC, $virtualMethod(KeyStoreSpi, engineLoad, void, $KeyStore$LoadStoreParameter*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
-	{"engineLoad", "(Ljava/io/InputStream;Ljava/security/KeyStore$LoadStoreParameter;)V", nullptr, 0, $virtualMethod(KeyStoreSpi, engineLoad, void, $InputStream*, $KeyStore$LoadStoreParameter*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
-	{"engineProbe", "(Ljava/io/InputStream;)Z", nullptr, $PUBLIC, $virtualMethod(KeyStoreSpi, engineProbe, bool, $InputStream*), "java.io.IOException"},
-	{"engineSetCertificateEntry", "(Ljava/lang/String;Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineSetCertificateEntry, void, $String*, $Certificate*), "java.security.KeyStoreException"},
-	{"engineSetEntry", "(Ljava/lang/String;Ljava/security/KeyStore$Entry;Ljava/security/KeyStore$ProtectionParameter;)V", nullptr, $PUBLIC, $virtualMethod(KeyStoreSpi, engineSetEntry, void, $String*, $KeyStore$Entry*, $KeyStore$ProtectionParameter*), "java.security.KeyStoreException"},
-	{"engineSetKeyEntry", "(Ljava/lang/String;Ljava/security/Key;[C[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineSetKeyEntry, void, $String*, $Key*, $chars*, $CertificateArray*), "java.security.KeyStoreException"},
-	{"engineSetKeyEntry", "(Ljava/lang/String;[B[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineSetKeyEntry, void, $String*, $bytes*, $CertificateArray*), "java.security.KeyStoreException"},
-	{"engineSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineSize, int32_t)},
-	{"engineStore", "(Ljava/io/OutputStream;[C)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineStore, void, $OutputStream*, $chars*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
-	{"engineStore", "(Ljava/security/KeyStore$LoadStoreParameter;)V", nullptr, $PUBLIC, $virtualMethod(KeyStoreSpi, engineStore, void, $KeyStore$LoadStoreParameter*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
-	{}
-};
-
-$ClassInfo _KeyStoreSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.security.KeyStoreSpi",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_KeyStoreSpi_MethodInfo_
-};
-
-$Object* allocate$KeyStoreSpi($Class* clazz) {
-	return $of($alloc(KeyStoreSpi));
-}
 
 void KeyStoreSpi::init$() {
 }
@@ -108,11 +65,11 @@ void KeyStoreSpi::engineStore($KeyStore$LoadStoreParameter* param) {
 }
 
 void KeyStoreSpi::engineLoad($KeyStore$LoadStoreParameter* param) {
-	engineLoad(($InputStream*)nullptr, param);
+	engineLoad(nullptr, param);
 }
 
 void KeyStoreSpi::engineLoad($InputStream* stream, $KeyStore$LoadStoreParameter* param) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (param == nullptr) {
 		engineLoad(($InputStream*)nullptr, ($chars*)nullptr);
 		return;
@@ -120,12 +77,12 @@ void KeyStoreSpi::engineLoad($InputStream* stream, $KeyStore$LoadStoreParameter*
 	$var($KeyStore$ProtectionParameter, protection, $nc(param)->getProtectionParameter());
 	$var($chars, password, nullptr);
 	if ($instanceOf($KeyStore$PasswordProtection, protection)) {
-		$assign(password, $nc(($cast($KeyStore$PasswordProtection, protection)))->getPassword());
+		$assign(password, $cast($KeyStore$PasswordProtection, protection)->getPassword());
 	} else if ($instanceOf($KeyStore$CallbackHandlerProtection, protection)) {
-		$var($CallbackHandler, handler, $nc(($cast($KeyStore$CallbackHandlerProtection, protection)))->getCallbackHandler());
+		$var($CallbackHandler, handler, $cast($KeyStore$CallbackHandlerProtection, protection)->getCallbackHandler());
 		$var($PasswordCallback, callback, $new($PasswordCallback, "Password: "_s, false));
 		try {
-			$nc(handler)->handle($$new($CallbackArray, {static_cast<$Callback*>(callback)}));
+			$nc(handler)->handle($$new($CallbackArray, {callback}));
 		} catch ($UnsupportedCallbackException& e) {
 			$throwNew($NoSuchAlgorithmException, "Could not obtain password"_s, e);
 		}
@@ -142,7 +99,7 @@ void KeyStoreSpi::engineLoad($InputStream* stream, $KeyStore$LoadStoreParameter*
 }
 
 $KeyStore$Entry* KeyStoreSpi::engineGetEntry($String* alias, $KeyStore$ProtectionParameter* protParam) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!engineContainsAlias(alias)) {
 		return nullptr;
 	}
@@ -158,10 +115,10 @@ $KeyStore$Entry* KeyStoreSpi::engineGetEntry($String* alias, $KeyStore$Protectio
 			$throwNew($UnsupportedOperationException, "trusted certificate entries are not password-protected"_s);
 		} else if (engineIsKeyEntry(alias)) {
 			$var($KeyStore$PasswordProtection, pp, $cast($KeyStore$PasswordProtection, protParam));
-			if ($nc(pp)->getProtectionAlgorithm() != nullptr) {
+			if (pp->getProtectionAlgorithm() != nullptr) {
 				$throwNew($KeyStoreException, "unsupported password protection algorithm"_s);
 			}
-			$var($chars, password, $nc(pp)->getPassword());
+			$var($chars, password, pp->getPassword());
 			$var($Key, key, engineGetKey(alias, password));
 			if ($instanceOf($PrivateKey, key)) {
 				$var($CertificateArray, chain, engineGetCertificateChain(alias));
@@ -175,7 +132,7 @@ $KeyStore$Entry* KeyStoreSpi::engineGetEntry($String* alias, $KeyStore$Protectio
 }
 
 void KeyStoreSpi::engineSetEntry($String* alias, $KeyStore$Entry* entry, $KeyStore$ProtectionParameter* protParam) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (protParam != nullptr && !($instanceOf($KeyStore$PasswordProtection, protParam))) {
 		$throwNew($KeyStoreException, "unsupported protection parameter"_s);
 	}
@@ -191,26 +148,24 @@ void KeyStoreSpi::engineSetEntry($String* alias, $KeyStore$Entry* entry, $KeySto
 			$throwNew($KeyStoreException, "trusted certificate entries are not password-protected"_s);
 		} else {
 			$var($KeyStore$TrustedCertificateEntry, tce, $cast($KeyStore$TrustedCertificateEntry, entry));
-			engineSetCertificateEntry(alias, $($nc(tce)->getTrustedCertificate()));
+			engineSetCertificateEntry(alias, $(tce->getTrustedCertificate()));
 			return;
 		}
 	} else if ($instanceOf($KeyStore$PrivateKeyEntry, entry)) {
-		if (pProtect == nullptr || $nc(pProtect)->getPassword() == nullptr) {
+		if (pProtect == nullptr || pProtect->getPassword() == nullptr) {
 			$throwNew($KeyStoreException, "non-null password required to create PrivateKeyEntry"_s);
 		} else {
-			$var($String, var$0, alias);
-			$var($Key, var$1, static_cast<$Key*>($nc(($cast($KeyStore$PrivateKeyEntry, entry)))->getPrivateKey()));
-			$var($chars, var$2, pProtect->getPassword());
-			engineSetKeyEntry(var$0, var$1, var$2, $(($cast($KeyStore$PrivateKeyEntry, entry))->getCertificateChain()));
+			$var($Key, var$0, $cast($KeyStore$PrivateKeyEntry, entry)->getPrivateKey());
+			$var($chars, var$1, pProtect->getPassword());
+			engineSetKeyEntry(alias, var$0, var$1, $($cast($KeyStore$PrivateKeyEntry, entry)->getCertificateChain()));
 			return;
 		}
 	} else if ($instanceOf($KeyStore$SecretKeyEntry, entry)) {
-		if (pProtect == nullptr || $nc(pProtect)->getPassword() == nullptr) {
+		if (pProtect == nullptr || pProtect->getPassword() == nullptr) {
 			$throwNew($KeyStoreException, "non-null password required to create SecretKeyEntry"_s);
 		} else {
-			$var($String, var$3, alias);
-			$var($Key, var$4, static_cast<$Key*>($nc(($cast($KeyStore$SecretKeyEntry, entry)))->getSecretKey()));
-			engineSetKeyEntry(var$3, var$4, $(pProtect->getPassword()), ($CertificateArray*)nullptr);
+			$var($Key, var$2, $cast($KeyStore$SecretKeyEntry, entry)->getSecretKey());
+			engineSetKeyEntry(alias, var$2, $(pProtect->getPassword()), ($CertificateArray*)nullptr);
 			return;
 		}
 	}
@@ -246,7 +201,44 @@ KeyStoreSpi::KeyStoreSpi() {
 }
 
 $Class* KeyStoreSpi::load$($String* name, bool initialize) {
-	$loadClass(KeyStoreSpi, name, initialize, &_KeyStoreSpi_ClassInfo_, allocate$KeyStoreSpi);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(KeyStoreSpi, init$, void)},
+		{"engineAliases", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineAliases, $Enumeration*)},
+		{"engineContainsAlias", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineContainsAlias, bool, $String*)},
+		{"engineDeleteEntry", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineDeleteEntry, void, $String*), "java.security.KeyStoreException"},
+		{"engineEntryInstanceOf", "(Ljava/lang/String;Ljava/lang/Class;)Z", "(Ljava/lang/String;Ljava/lang/Class<+Ljava/security/KeyStore$Entry;>;)Z", $PUBLIC, $virtualMethod(KeyStoreSpi, engineEntryInstanceOf, bool, $String*, $Class*)},
+		{"engineGetCertificate", "(Ljava/lang/String;)Ljava/security/cert/Certificate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineGetCertificate, $Certificate*, $String*)},
+		{"engineGetCertificateAlias", "(Ljava/security/cert/Certificate;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineGetCertificateAlias, $String*, $Certificate*)},
+		{"engineGetCertificateChain", "(Ljava/lang/String;)[Ljava/security/cert/Certificate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineGetCertificateChain, $CertificateArray*, $String*)},
+		{"engineGetCreationDate", "(Ljava/lang/String;)Ljava/util/Date;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineGetCreationDate, $Date*, $String*)},
+		{"engineGetEntry", "(Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Entry;", nullptr, $PUBLIC, $virtualMethod(KeyStoreSpi, engineGetEntry, $KeyStore$Entry*, $String*, $KeyStore$ProtectionParameter*), "java.security.KeyStoreException,java.security.NoSuchAlgorithmException,java.security.UnrecoverableEntryException"},
+		{"engineGetKey", "(Ljava/lang/String;[C)Ljava/security/Key;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineGetKey, $Key*, $String*, $chars*), "java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
+		{"engineIsCertificateEntry", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineIsCertificateEntry, bool, $String*)},
+		{"engineIsKeyEntry", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineIsKeyEntry, bool, $String*)},
+		{"engineLoad", "(Ljava/io/InputStream;[C)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineLoad, void, $InputStream*, $chars*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
+		{"engineLoad", "(Ljava/security/KeyStore$LoadStoreParameter;)V", nullptr, $PUBLIC, $virtualMethod(KeyStoreSpi, engineLoad, void, $KeyStore$LoadStoreParameter*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
+		{"engineLoad", "(Ljava/io/InputStream;Ljava/security/KeyStore$LoadStoreParameter;)V", nullptr, 0, $virtualMethod(KeyStoreSpi, engineLoad, void, $InputStream*, $KeyStore$LoadStoreParameter*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
+		{"engineProbe", "(Ljava/io/InputStream;)Z", nullptr, $PUBLIC, $virtualMethod(KeyStoreSpi, engineProbe, bool, $InputStream*), "java.io.IOException"},
+		{"engineSetCertificateEntry", "(Ljava/lang/String;Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineSetCertificateEntry, void, $String*, $Certificate*), "java.security.KeyStoreException"},
+		{"engineSetEntry", "(Ljava/lang/String;Ljava/security/KeyStore$Entry;Ljava/security/KeyStore$ProtectionParameter;)V", nullptr, $PUBLIC, $virtualMethod(KeyStoreSpi, engineSetEntry, void, $String*, $KeyStore$Entry*, $KeyStore$ProtectionParameter*), "java.security.KeyStoreException"},
+		{"engineSetKeyEntry", "(Ljava/lang/String;Ljava/security/Key;[C[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineSetKeyEntry, void, $String*, $Key*, $chars*, $CertificateArray*), "java.security.KeyStoreException"},
+		{"engineSetKeyEntry", "(Ljava/lang/String;[B[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineSetKeyEntry, void, $String*, $bytes*, $CertificateArray*), "java.security.KeyStoreException"},
+		{"engineSize", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineSize, int32_t)},
+		{"engineStore", "(Ljava/io/OutputStream;[C)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyStoreSpi, engineStore, void, $OutputStream*, $chars*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
+		{"engineStore", "(Ljava/security/KeyStore$LoadStoreParameter;)V", nullptr, $PUBLIC, $virtualMethod(KeyStoreSpi, engineStore, void, $KeyStore$LoadStoreParameter*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.security.KeyStoreSpi",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(KeyStoreSpi, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyStoreSpi);
+	});
 	return class$;
 }
 

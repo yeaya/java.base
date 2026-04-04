@@ -1,5 +1,4 @@
 #include <jdk/internal/loader/URLClassPath$Loader.h>
-
 #include <java/io/InputStream.h>
 #include <java/net/HttpURLConnection.h>
 #include <java/net/JarURLConnection.h>
@@ -28,7 +27,6 @@ using $JarURLConnection = ::java::net::JarURLConnection;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $URL = ::java::net::URL;
 using $URLConnection = ::java::net::URLConnection;
-using $JarFile = ::java::util::jar::JarFile;
 using $Resource = ::jdk::internal::loader::Resource;
 using $URLClassPath = ::jdk::internal::loader::URLClassPath;
 using $URLClassPath$JarLoader = ::jdk::internal::loader::URLClassPath$JarLoader;
@@ -39,49 +37,6 @@ namespace jdk {
 	namespace internal {
 		namespace loader {
 
-$FieldInfo _URLClassPath$Loader_FieldInfo_[] = {
-	{"base", "Ljava/net/URL;", nullptr, $PRIVATE | $FINAL, $field(URLClassPath$Loader, base)},
-	{"jarfile", "Ljava/util/jar/JarFile;", nullptr, $PRIVATE, $field(URLClassPath$Loader, jarfile)},
-	{}
-};
-
-$MethodInfo _URLClassPath$Loader_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;)V", nullptr, 0, $method(URLClassPath$Loader, init$, void, $URL*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(URLClassPath$Loader, close, void), "java.io.IOException"},
-	{"findResource", "(Ljava/lang/String;Z)Ljava/net/URL;", nullptr, 0, $virtualMethod(URLClassPath$Loader, findResource, $URL*, $String*, bool)},
-	{"getBaseURL", "()Ljava/net/URL;", nullptr, 0, $virtualMethod(URLClassPath$Loader, getBaseURL, $URL*)},
-	{"getClassPath", "()[Ljava/net/URL;", nullptr, 0, $virtualMethod(URLClassPath$Loader, getClassPath, $URLArray*), "java.io.IOException"},
-	{"getResource", "(Ljava/lang/String;Z)Ljdk/internal/loader/Resource;", nullptr, 0, $virtualMethod(URLClassPath$Loader, getResource, $Resource*, $String*, bool)},
-	{"getResource", "(Ljava/lang/String;)Ljdk/internal/loader/Resource;", nullptr, 0, $virtualMethod(URLClassPath$Loader, getResource, $Resource*, $String*)},
-	{}
-};
-
-$InnerClassInfo _URLClassPath$Loader_InnerClassesInfo_[] = {
-	{"jdk.internal.loader.URLClassPath$Loader", "jdk.internal.loader.URLClassPath", "Loader", $PRIVATE | $STATIC},
-	{"jdk.internal.loader.URLClassPath$Loader$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _URLClassPath$Loader_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.loader.URLClassPath$Loader",
-	"java.lang.Object",
-	"java.io.Closeable",
-	_URLClassPath$Loader_FieldInfo_,
-	_URLClassPath$Loader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_URLClassPath$Loader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.loader.URLClassPath"
-};
-
-$Object* allocate$URLClassPath$Loader($Class* clazz) {
-	return $of($alloc(URLClassPath$Loader));
-}
-
 void URLClassPath$Loader::init$($URL* url) {
 	$set(this, base, url);
 }
@@ -91,7 +46,7 @@ $URL* URLClassPath$Loader::getBaseURL() {
 }
 
 $URL* URLClassPath$Loader::findResource($String* name, bool check) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URL, url, nullptr);
 	try {
 		$assign(url, $new($URL, this->base, $($ParseUtil::encodePath(name, false))));
@@ -105,7 +60,7 @@ $URL* URLClassPath$Loader::findResource($String* name, bool check) {
 		$var($URLConnection, uc, $nc(url)->openConnection());
 		if ($instanceOf($HttpURLConnection, uc)) {
 			$var($HttpURLConnection, hconn, $cast($HttpURLConnection, uc));
-			$nc(hconn)->setRequestMethod("HEAD"_s);
+			hconn->setRequestMethod("HEAD"_s);
 			if (hconn->getResponseCode() >= $HttpURLConnection::HTTP_BAD_REQUEST) {
 				return nullptr;
 			}
@@ -122,7 +77,7 @@ $URL* URLClassPath$Loader::findResource($String* name, bool check) {
 }
 
 $Resource* URLClassPath$Loader::getResource($String* name, bool check) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URL, url, nullptr);
 	try {
 		$assign(url, $new($URL, this->base, $($ParseUtil::encodePath(name, false))));
@@ -137,7 +92,7 @@ $Resource* URLClassPath$Loader::getResource($String* name, bool check) {
 		$assign(uc, $nc(url)->openConnection());
 		if ($instanceOf($JarURLConnection, uc)) {
 			$var($JarURLConnection, juc, $cast($JarURLConnection, uc));
-			$set(this, jarfile, $URLClassPath$JarLoader::checkJar($($nc(juc)->getJarFile())));
+			$set(this, jarfile, $URLClassPath$JarLoader::checkJar($(juc->getJarFile())));
 		}
 		$var($InputStream, in, $nc(uc)->getInputStream());
 	} catch ($Exception& e) {
@@ -152,7 +107,7 @@ $Resource* URLClassPath$Loader::getResource($String* name) {
 
 void URLClassPath$Loader::close() {
 	if (this->jarfile != nullptr) {
-		$nc(this->jarfile)->close();
+		this->jarfile->close();
 	}
 }
 
@@ -164,7 +119,44 @@ URLClassPath$Loader::URLClassPath$Loader() {
 }
 
 $Class* URLClassPath$Loader::load$($String* name, bool initialize) {
-	$loadClass(URLClassPath$Loader, name, initialize, &_URLClassPath$Loader_ClassInfo_, allocate$URLClassPath$Loader);
+	$FieldInfo fieldInfos$$[] = {
+		{"base", "Ljava/net/URL;", nullptr, $PRIVATE | $FINAL, $field(URLClassPath$Loader, base)},
+		{"jarfile", "Ljava/util/jar/JarFile;", nullptr, $PRIVATE, $field(URLClassPath$Loader, jarfile)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/URL;)V", nullptr, 0, $method(URLClassPath$Loader, init$, void, $URL*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(URLClassPath$Loader, close, void), "java.io.IOException"},
+		{"findResource", "(Ljava/lang/String;Z)Ljava/net/URL;", nullptr, 0, $virtualMethod(URLClassPath$Loader, findResource, $URL*, $String*, bool)},
+		{"getBaseURL", "()Ljava/net/URL;", nullptr, 0, $virtualMethod(URLClassPath$Loader, getBaseURL, $URL*)},
+		{"getClassPath", "()[Ljava/net/URL;", nullptr, 0, $virtualMethod(URLClassPath$Loader, getClassPath, $URLArray*), "java.io.IOException"},
+		{"getResource", "(Ljava/lang/String;Z)Ljdk/internal/loader/Resource;", nullptr, 0, $virtualMethod(URLClassPath$Loader, getResource, $Resource*, $String*, bool)},
+		{"getResource", "(Ljava/lang/String;)Ljdk/internal/loader/Resource;", nullptr, 0, $virtualMethod(URLClassPath$Loader, getResource, $Resource*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.loader.URLClassPath$Loader", "jdk.internal.loader.URLClassPath", "Loader", $PRIVATE | $STATIC},
+		{"jdk.internal.loader.URLClassPath$Loader$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.loader.URLClassPath$Loader",
+		"java.lang.Object",
+		"java.io.Closeable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.loader.URLClassPath"
+	};
+	$loadClass(URLClassPath$Loader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(URLClassPath$Loader);
+	});
 	return class$;
 }
 

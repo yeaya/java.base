@@ -42,6 +42,7 @@ class HandshakeHash$S30HandshakeHash : public ::sun::security::ssl::HandshakeHas
 	$class(HandshakeHash$S30HandshakeHash, 0, ::sun::security::ssl::HandshakeHash$TranscriptHash)
 public:
 	HandshakeHash$S30HandshakeHash();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::ssl::CipherSuite* cipherSuite);
 	virtual $bytes* archived() override;
 	::java::security::MessageDigest* cloneMd5();

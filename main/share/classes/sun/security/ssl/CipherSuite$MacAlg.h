@@ -26,6 +26,7 @@ class CipherSuite$MacAlg : public ::java::lang::Enum {
 public:
 	CipherSuite$MacAlg();
 	static $Array<::sun::security::ssl::CipherSuite$MacAlg>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* name, int32_t size, int32_t hashBlockSize, int32_t minimalPaddingSize);
 	virtual $String* toString() override;
 	static ::sun::security::ssl::CipherSuite$MacAlg* valueOf($String* name);

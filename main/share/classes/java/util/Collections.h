@@ -57,6 +57,7 @@ class $export Collections : public ::java::lang::Object {
 	$class(Collections, $PRELOAD, ::java::lang::Object)
 public:
 	Collections();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool addAll(::java::util::Collection* c, $ObjectArray* elements);
 	static ::java::util::Queue* asLifoQueue(::java::util::Deque* deque);

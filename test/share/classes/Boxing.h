@@ -16,7 +16,7 @@ public:
 	static $String* identityToString(Object$* obj);
 	static void main($StringArray* args);
 	void run();
-	static const int32_t REPS = 0x000186A0;
+	static const int32_t REPS = 0x000186a0;
 	int8_t b = 0;
 	char16_t c = 0;
 	double d = 0.0;

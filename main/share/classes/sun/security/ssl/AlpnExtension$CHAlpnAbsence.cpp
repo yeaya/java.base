@@ -1,5 +1,4 @@
 #include <sun/security/ssl/AlpnExtension$CHAlpnAbsence.h>
-
 #include <sun/security/ssl/AlpnExtension.h>
 #include <sun/security/ssl/ConnectionContext.h>
 #include <sun/security/ssl/SSLHandshake$HandshakeMessage.h>
@@ -18,37 +17,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _AlpnExtension$CHAlpnAbsence_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(AlpnExtension$CHAlpnAbsence, init$, void)},
-	{"absent", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(AlpnExtension$CHAlpnAbsence, absent, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _AlpnExtension$CHAlpnAbsence_InnerClassesInfo_[] = {
-	{"sun.security.ssl.AlpnExtension$CHAlpnAbsence", "sun.security.ssl.AlpnExtension", "CHAlpnAbsence", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _AlpnExtension$CHAlpnAbsence_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.AlpnExtension$CHAlpnAbsence",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeAbsence",
-	nullptr,
-	_AlpnExtension$CHAlpnAbsence_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AlpnExtension$CHAlpnAbsence_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.AlpnExtension"
-};
-
-$Object* allocate$AlpnExtension$CHAlpnAbsence($Class* clazz) {
-	return $of($alloc(AlpnExtension$CHAlpnAbsence));
-}
-
 void AlpnExtension$CHAlpnAbsence::init$() {
 }
 
@@ -62,7 +30,33 @@ AlpnExtension$CHAlpnAbsence::AlpnExtension$CHAlpnAbsence() {
 }
 
 $Class* AlpnExtension$CHAlpnAbsence::load$($String* name, bool initialize) {
-	$loadClass(AlpnExtension$CHAlpnAbsence, name, initialize, &_AlpnExtension$CHAlpnAbsence_ClassInfo_, allocate$AlpnExtension$CHAlpnAbsence);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(AlpnExtension$CHAlpnAbsence, init$, void)},
+		{"absent", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(AlpnExtension$CHAlpnAbsence, absent, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.AlpnExtension$CHAlpnAbsence", "sun.security.ssl.AlpnExtension", "CHAlpnAbsence", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.AlpnExtension$CHAlpnAbsence",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeAbsence",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.AlpnExtension"
+	};
+	$loadClass(AlpnExtension$CHAlpnAbsence, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AlpnExtension$CHAlpnAbsence);
+	});
 	return class$;
 }
 

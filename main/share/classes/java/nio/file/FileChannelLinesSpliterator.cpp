@@ -1,5 +1,4 @@
 #include <java/nio/file/FileChannelLinesSpliterator.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/IOException.h>
 #include <java/io/Reader.h>
@@ -55,7 +54,6 @@ using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
 using $Consumer = ::java::util::function::Consumer;
 using $JavaNioAccess = ::jdk::internal::access::JavaNioAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
-using $UnmapperProxy = ::jdk::internal::access::foreign::UnmapperProxy;
 using $ISO_8859_1 = ::sun::nio::cs::ISO_8859_1;
 using $US_ASCII = ::sun::nio::cs::US_ASCII;
 using $UTF_8 = ::sun::nio::cs::UTF_8;
@@ -63,59 +61,6 @@ using $UTF_8 = ::sun::nio::cs::UTF_8;
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _FileChannelLinesSpliterator_FieldInfo_[] = {
-	{"SUPPORTED_CHARSET_NAMES", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(FileChannelLinesSpliterator, SUPPORTED_CHARSET_NAMES)},
-	{"fc", "Ljava/nio/channels/FileChannel;", nullptr, $PRIVATE | $FINAL, $field(FileChannelLinesSpliterator, fc)},
-	{"cs", "Ljava/nio/charset/Charset;", nullptr, $PRIVATE | $FINAL, $field(FileChannelLinesSpliterator, cs)},
-	{"index", "I", nullptr, $PRIVATE, $field(FileChannelLinesSpliterator, index)},
-	{"fence", "I", nullptr, $PRIVATE | $FINAL, $field(FileChannelLinesSpliterator, fence)},
-	{"buffer", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(FileChannelLinesSpliterator, buffer)},
-	{"reader", "Ljava/io/BufferedReader;", nullptr, $PRIVATE, $field(FileChannelLinesSpliterator, reader)},
-	{"bufRefCount", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $FINAL, $field(FileChannelLinesSpliterator, bufRefCount)},
-	{}
-};
-
-$MethodInfo _FileChannelLinesSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/FileChannel;Ljava/nio/charset/Charset;II)V", nullptr, 0, $method(FileChannelLinesSpliterator, init$, void, $FileChannel*, $Charset*, int32_t, int32_t)},
-	{"<init>", "(Ljava/nio/channels/FileChannel;Ljava/nio/charset/Charset;IILjava/nio/ByteBuffer;Ljava/util/concurrent/atomic/AtomicInteger;)V", nullptr, $PRIVATE, $method(FileChannelLinesSpliterator, init$, void, $FileChannel*, $Charset*, int32_t, int32_t, $ByteBuffer*, $AtomicInteger*)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(FileChannelLinesSpliterator, characteristics, int32_t)},
-	{"close", "()V", nullptr, 0, $method(FileChannelLinesSpliterator, close, void)},
-	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(FileChannelLinesSpliterator, estimateSize, int64_t)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(FileChannelLinesSpliterator, forEachRemaining, void, $Consumer*)},
-	{"getBufferedReader", "()Ljava/io/BufferedReader;", nullptr, $PRIVATE, $method(FileChannelLinesSpliterator, getBufferedReader, $BufferedReader*)},
-	{"getExactSizeIfKnown", "()J", nullptr, $PUBLIC, $virtualMethod(FileChannelLinesSpliterator, getExactSizeIfKnown, int64_t)},
-	{"getMappedByteBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(FileChannelLinesSpliterator, getMappedByteBuffer, $ByteBuffer*)},
-	{"readLine", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(FileChannelLinesSpliterator, readLine, $String*)},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(FileChannelLinesSpliterator, tryAdvance, bool, $Consumer*)},
-	{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(FileChannelLinesSpliterator, trySplit, $Spliterator*)},
-	{"unmap", "()V", nullptr, $PRIVATE, $method(FileChannelLinesSpliterator, unmap, void)},
-	{}
-};
-
-$InnerClassInfo _FileChannelLinesSpliterator_InnerClassesInfo_[] = {
-	{"java.nio.file.FileChannelLinesSpliterator$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FileChannelLinesSpliterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.nio.file.FileChannelLinesSpliterator",
-	"java.lang.Object",
-	"java.util.Spliterator",
-	_FileChannelLinesSpliterator_FieldInfo_,
-	_FileChannelLinesSpliterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Spliterator<Ljava/lang/String;>;",
-	nullptr,
-	_FileChannelLinesSpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.nio.file.FileChannelLinesSpliterator$1"
-};
-
-$Object* allocate$FileChannelLinesSpliterator($Class* clazz) {
-	return $of($alloc(FileChannelLinesSpliterator));
-}
 
 $Set* FileChannelLinesSpliterator::SUPPORTED_CHARSET_NAMES = nullptr;
 
@@ -155,7 +100,7 @@ void FileChannelLinesSpliterator::forEachRemaining($Consumer* action) {
 }
 
 $BufferedReader* FileChannelLinesSpliterator::getBufferedReader() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ReadableByteChannel, rrbc, $new($FileChannelLinesSpliterator$1, this));
 	return $new($BufferedReader, $($Channels::newReader(rrbc, $($nc(this->cs)->newDecoder()), -1)));
 }
@@ -189,7 +134,7 @@ $Spliterator* FileChannelLinesSpliterator::trySplit() {
 	}
 	$var($ByteBuffer, b, nullptr);
 	if (($assign(b, this->buffer)) == nullptr) {
-		$assign(b, ($set(this, buffer, getMappedByteBuffer())));
+		$assign(b, $set(this, buffer, getMappedByteBuffer()));
 		$nc(this->bufRefCount)->set(1);
 	}
 	int32_t hi = this->fence;
@@ -223,7 +168,7 @@ $Spliterator* FileChannelLinesSpliterator::trySplit() {
 			}
 		}
 	}
-	return (mid > lo && mid < hi) ? static_cast<$Spliterator*>($new(FileChannelLinesSpliterator, this->fc, this->cs, lo, this->index = mid, b, this->bufRefCount)) : ($Spliterator*)nullptr;
+	return (mid > lo && mid < hi) ? $cast($Spliterator, $new(FileChannelLinesSpliterator, this->fc, this->cs, lo, this->index = mid, b, this->bufRefCount)) : ($Spliterator*)nullptr;
 }
 
 int64_t FileChannelLinesSpliterator::estimateSize() {
@@ -239,14 +184,14 @@ int32_t FileChannelLinesSpliterator::characteristics() {
 }
 
 void FileChannelLinesSpliterator::unmap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->buffer != nullptr) {
 		$var($ByteBuffer, b, this->buffer);
 		$set(this, buffer, nullptr);
 		if ($nc(this->bufRefCount)->decrementAndGet() == 0) {
 			$var($JavaNioAccess, nioAccess, $SharedSecrets::getJavaNioAccess());
 			try {
-				$nc($($nc(nioAccess)->unmapper(b)))->unmap();
+				$$nc($nc(nioAccess)->unmapper(b))->unmap();
 			} catch ($UnsupportedOperationException& ignored) {
 			}
 		}
@@ -257,16 +202,16 @@ void FileChannelLinesSpliterator::close() {
 	unmap();
 }
 
-void clinit$FileChannelLinesSpliterator($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void FileChannelLinesSpliterator::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$assignStatic(FileChannelLinesSpliterator::SUPPORTED_CHARSET_NAMES, $new($HashSet));
 		$init($UTF_8);
-		$nc(FileChannelLinesSpliterator::SUPPORTED_CHARSET_NAMES)->add($($nc($UTF_8::INSTANCE)->name()));
+		FileChannelLinesSpliterator::SUPPORTED_CHARSET_NAMES->add($($nc($UTF_8::INSTANCE)->name()));
 		$init($ISO_8859_1);
-		$nc(FileChannelLinesSpliterator::SUPPORTED_CHARSET_NAMES)->add($($nc($ISO_8859_1::INSTANCE)->name()));
+		FileChannelLinesSpliterator::SUPPORTED_CHARSET_NAMES->add($($nc($ISO_8859_1::INSTANCE)->name()));
 		$init($US_ASCII);
-		$nc(FileChannelLinesSpliterator::SUPPORTED_CHARSET_NAMES)->add($($nc($US_ASCII::INSTANCE)->name()));
+		FileChannelLinesSpliterator::SUPPORTED_CHARSET_NAMES->add($($nc($US_ASCII::INSTANCE)->name()));
 	}
 }
 
@@ -274,7 +219,54 @@ FileChannelLinesSpliterator::FileChannelLinesSpliterator() {
 }
 
 $Class* FileChannelLinesSpliterator::load$($String* name, bool initialize) {
-	$loadClass(FileChannelLinesSpliterator, name, initialize, &_FileChannelLinesSpliterator_ClassInfo_, clinit$FileChannelLinesSpliterator, allocate$FileChannelLinesSpliterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"SUPPORTED_CHARSET_NAMES", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $STATIC | $FINAL, $staticField(FileChannelLinesSpliterator, SUPPORTED_CHARSET_NAMES)},
+		{"fc", "Ljava/nio/channels/FileChannel;", nullptr, $PRIVATE | $FINAL, $field(FileChannelLinesSpliterator, fc)},
+		{"cs", "Ljava/nio/charset/Charset;", nullptr, $PRIVATE | $FINAL, $field(FileChannelLinesSpliterator, cs)},
+		{"index", "I", nullptr, $PRIVATE, $field(FileChannelLinesSpliterator, index)},
+		{"fence", "I", nullptr, $PRIVATE | $FINAL, $field(FileChannelLinesSpliterator, fence)},
+		{"buffer", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(FileChannelLinesSpliterator, buffer)},
+		{"reader", "Ljava/io/BufferedReader;", nullptr, $PRIVATE, $field(FileChannelLinesSpliterator, reader)},
+		{"bufRefCount", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $FINAL, $field(FileChannelLinesSpliterator, bufRefCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/FileChannel;Ljava/nio/charset/Charset;II)V", nullptr, 0, $method(FileChannelLinesSpliterator, init$, void, $FileChannel*, $Charset*, int32_t, int32_t)},
+		{"<init>", "(Ljava/nio/channels/FileChannel;Ljava/nio/charset/Charset;IILjava/nio/ByteBuffer;Ljava/util/concurrent/atomic/AtomicInteger;)V", nullptr, $PRIVATE, $method(FileChannelLinesSpliterator, init$, void, $FileChannel*, $Charset*, int32_t, int32_t, $ByteBuffer*, $AtomicInteger*)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(FileChannelLinesSpliterator, characteristics, int32_t)},
+		{"close", "()V", nullptr, 0, $method(FileChannelLinesSpliterator, close, void)},
+		{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(FileChannelLinesSpliterator, estimateSize, int64_t)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(FileChannelLinesSpliterator, forEachRemaining, void, $Consumer*)},
+		{"getBufferedReader", "()Ljava/io/BufferedReader;", nullptr, $PRIVATE, $method(FileChannelLinesSpliterator, getBufferedReader, $BufferedReader*)},
+		{"getExactSizeIfKnown", "()J", nullptr, $PUBLIC, $virtualMethod(FileChannelLinesSpliterator, getExactSizeIfKnown, int64_t)},
+		{"getMappedByteBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(FileChannelLinesSpliterator, getMappedByteBuffer, $ByteBuffer*)},
+		{"readLine", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(FileChannelLinesSpliterator, readLine, $String*)},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(FileChannelLinesSpliterator, tryAdvance, bool, $Consumer*)},
+		{"trySplit", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(FileChannelLinesSpliterator, trySplit, $Spliterator*)},
+		{"unmap", "()V", nullptr, $PRIVATE, $method(FileChannelLinesSpliterator, unmap, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.file.FileChannelLinesSpliterator$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.nio.file.FileChannelLinesSpliterator",
+		"java.lang.Object",
+		"java.util.Spliterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Spliterator<Ljava/lang/String;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.nio.file.FileChannelLinesSpliterator$1"
+	};
+	$loadClass(FileChannelLinesSpliterator, name, initialize, &classInfo$$, FileChannelLinesSpliterator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FileChannelLinesSpliterator);
+	});
 	return class$;
 }
 

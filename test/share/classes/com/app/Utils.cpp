@@ -1,5 +1,4 @@
 #include <com/app/Utils.h>
-
 #include <com/app/Utils$1.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassLoader.h>
@@ -12,10 +11,8 @@
 using $StackTraceElementArray = $Array<::java::lang::StackTraceElement>;
 using $StackWalker$StackFrameArray = $Array<::java::lang::StackWalker$StackFrame>;
 using $Utils$1 = ::com::app::Utils$1;
-using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ClassLoader = ::java::lang::ClassLoader;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Module = ::java::lang::Module;
@@ -26,44 +23,11 @@ using $Objects = ::java::util::Objects;
 namespace com {
 	namespace app {
 
-$MethodInfo _Utils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Utils, init$, void)},
-	{"assertEquals", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Utils, assertEquals, void, $String*, $String*, $String*)},
-	{"checkFrame", "(Ljava/lang/String;Ljava/lang/StackWalker$StackFrame;Ljava/lang/StackTraceElement;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, checkFrame, void, $String*, $StackWalker$StackFrame*, $StackTraceElement*)},
-	{"makeStackFrame", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/StackWalker$StackFrame;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/StackWalker$StackFrame;", $PUBLIC | $STATIC, $staticMethod(Utils, makeStackFrame, $StackWalker$StackFrame*, $Class*, $String*, $String*)},
-	{"verify", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", $PUBLIC | $STATIC, $staticMethod(Utils, verify, void, $Class*, $String*, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _Utils_InnerClassesInfo_[] = {
-	{"com.app.Utils$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Utils_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.app.Utils",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Utils_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Utils_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.app.Utils$1"
-};
-
-$Object* allocate$Utils($Class* clazz) {
-	return $of($alloc(Utils));
-}
-
 void Utils::init$() {
 }
 
 void Utils::verify($Class* caller, $String* loaderName, $String* methodname, $String* filename) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StackTraceElementArray, stes, $($Thread::currentThread())->getStackTrace());
 	$load(Utils);
 	$var($StackWalker$StackFrameArray, frames, $new($StackWalker$StackFrameArray, {
@@ -71,7 +35,7 @@ void Utils::verify($Class* caller, $String* loaderName, $String* methodname, $St
 		$(makeStackFrame(caller, methodname, filename))
 	}));
 	checkFrame("app"_s, frames->get(0), $nc(stes)->get(1));
-	checkFrame(loaderName, frames->get(1), $nc(stes)->get(2));
+	checkFrame(loaderName, frames->get(1), stes->get(2));
 }
 
 $StackWalker$StackFrame* Utils::makeStackFrame($Class* c, $String* methodname, $String* filename) {
@@ -79,29 +43,33 @@ $StackWalker$StackFrame* Utils::makeStackFrame($Class* c, $String* methodname, $
 }
 
 void Utils::checkFrame($String* loaderName, $StackWalker$StackFrame* frame, $StackTraceElement* ste) {
+	$useLocalObjectStack();
 	$load(Utils);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$var($String, var$0, $$str({"checking "_s, $($nc(ste)->toString()), " expected: "_s}));
-	$nc($System::err)->println($$concat(var$0, $($nc($of(frame))->toString())));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("checking "_s);
+	var$0->append($($nc(ste)->toString()));
+	var$0->append(" expected: "_s);
+	var$0->append($($nc($of(frame))->toString()));
+	$nc($System::err)->println($$str(var$0));
 	$Class* c = $nc(frame)->getDeclaringClass();
 	$var($Module, module, $nc(c)->getModule());
 	$var($String, var$1, $nc(ste)->getModuleName());
 	assertEquals(var$1, $($nc(module)->getName()), "module name"_s);
-	assertEquals($($nc(ste)->getClassLoaderName()), loaderName, "class loader name"_s);
-	$var($String, var$2, $nc(ste)->getClassLoaderName());
-	assertEquals(var$2, $($nc($(c->getClassLoader()))->getName()), "class loader name"_s);
-	$var($String, var$3, $nc(ste)->getClassName());
+	assertEquals($(ste->getClassLoaderName()), loaderName, "class loader name"_s);
+	$var($String, var$2, ste->getClassLoaderName());
+	assertEquals(var$2, $($$nc(c->getClassLoader())->getName()), "class loader name"_s);
+	$var($String, var$3, ste->getClassName());
 	assertEquals(var$3, $(c->getName()), "class name"_s);
-	$var($String, var$4, $nc(ste)->getMethodName());
+	$var($String, var$4, ste->getMethodName());
 	assertEquals(var$4, $(frame->getMethodName()), "method name"_s);
-	$var($String, var$5, $nc(ste)->getFileName());
+	$var($String, var$5, ste->getFileName());
 	assertEquals(var$5, $(frame->getFileName()), "file name"_s);
 }
 
 void Utils::assertEquals($String* actual, $String* expected, $String* msg) {
 	if (!$Objects::equals(actual, expected)) {
-		$throwNew($AssertionError, $of($$str({"Actual: "_s, actual, " Excepted: "_s, expected, " mismatched "_s, msg})));
+		$throwNew($AssertionError, $$of($str({"Actual: "_s, actual, " Excepted: "_s, expected, " mismatched "_s, msg})));
 	}
 }
 
@@ -109,7 +77,35 @@ Utils::Utils() {
 }
 
 $Class* Utils::load$($String* name, bool initialize) {
-	$loadClass(Utils, name, initialize, &_Utils_ClassInfo_, allocate$Utils);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Utils, init$, void)},
+		{"assertEquals", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Utils, assertEquals, void, $String*, $String*, $String*)},
+		{"checkFrame", "(Ljava/lang/String;Ljava/lang/StackWalker$StackFrame;Ljava/lang/StackTraceElement;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Utils, checkFrame, void, $String*, $StackWalker$StackFrame*, $StackTraceElement*)},
+		{"makeStackFrame", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/StackWalker$StackFrame;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/StackWalker$StackFrame;", $PUBLIC | $STATIC, $staticMethod(Utils, makeStackFrame, $StackWalker$StackFrame*, $Class*, $String*, $String*)},
+		{"verify", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", $PUBLIC | $STATIC, $staticMethod(Utils, verify, void, $Class*, $String*, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.app.Utils$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.app.Utils",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.app.Utils$1"
+	};
+	$loadClass(Utils, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Utils);
+	});
 	return class$;
 }
 

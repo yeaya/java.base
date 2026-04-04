@@ -1,5 +1,4 @@
 #include <javax/crypto/interfaces/DHPublicKey.h>
-
 #include <java/math/BigInteger.h>
 #include <javax/crypto/interfaces/DHKey.h>
 #include <jcpp.h>
@@ -14,39 +13,6 @@ using $DHKey = ::javax::crypto::interfaces::DHKey;
 namespace javax {
 	namespace crypto {
 		namespace interfaces {
-
-$CompoundAttribute _DHPublicKey_FieldAnnotations_serialVersionUID[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _DHPublicKey_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(DHPublicKey, serialVersionUID), _DHPublicKey_FieldAnnotations_serialVersionUID},
-	{}
-};
-
-$MethodInfo _DHPublicKey_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getY", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DHPublicKey, getY, $BigInteger*)},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DHPublicKey_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.crypto.interfaces.DHPublicKey",
-	nullptr,
-	"javax.crypto.interfaces.DHKey,java.security.PublicKey",
-	_DHPublicKey_FieldInfo_,
-	_DHPublicKey_MethodInfo_
-};
-
-$Object* allocate$DHPublicKey($Class* clazz) {
-	return $of($alloc(DHPublicKey));
-}
 
 int32_t DHPublicKey::hashCode() {
 	 return this->$DHKey::hashCode();
@@ -69,7 +35,34 @@ void DHPublicKey::finalize() {
 }
 
 $Class* DHPublicKey::load$($String* name, bool initialize) {
-	$loadClass(DHPublicKey, name, initialize, &_DHPublicKey_ClassInfo_, allocate$DHPublicKey);
+	$CompoundAttribute serialVersionUIDfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(DHPublicKey, serialVersionUID), serialVersionUIDfieldAnnotations$$},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"getY", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DHPublicKey, getY, $BigInteger*)},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.crypto.interfaces.DHPublicKey",
+		nullptr,
+		"javax.crypto.interfaces.DHKey,java.security.PublicKey",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DHPublicKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DHPublicKey));
+	});
 	return class$;
 }
 

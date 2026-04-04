@@ -1,5 +1,4 @@
 #include <MultiThreadStackWalk$Call$WalkType.h>
-
 #include <MultiThreadStackWalk$Call.h>
 #include <MultiThreadStackWalk.h>
 #include <java/lang/Enum.h>
@@ -13,46 +12,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _MultiThreadStackWalk$Call$WalkType_FieldInfo_[] = {
-	{"WALKSTACK", "LMultiThreadStackWalk$Call$WalkType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MultiThreadStackWalk$Call$WalkType, WALKSTACK)},
-	{"$VALUES", "[LMultiThreadStackWalk$Call$WalkType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(MultiThreadStackWalk$Call$WalkType, $VALUES)},
-	{}
-};
-
-$MethodInfo _MultiThreadStackWalk$Call$WalkType_MethodInfo_[] = {
-	{"$values", "()[LMultiThreadStackWalk$Call$WalkType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MultiThreadStackWalk$Call$WalkType, $values, $MultiThreadStackWalk$Call$WalkTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(MultiThreadStackWalk$Call$WalkType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)LMultiThreadStackWalk$Call$WalkType;", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiThreadStackWalk$Call$WalkType, valueOf, MultiThreadStackWalk$Call$WalkType*, $String*)},
-	{"values", "()[LMultiThreadStackWalk$Call$WalkType;", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiThreadStackWalk$Call$WalkType, values, $MultiThreadStackWalk$Call$WalkTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _MultiThreadStackWalk$Call$WalkType_InnerClassesInfo_[] = {
-	{"MultiThreadStackWalk$Call", "MultiThreadStackWalk", "Call", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"MultiThreadStackWalk$Call$WalkType", "MultiThreadStackWalk$Call", "WalkType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _MultiThreadStackWalk$Call$WalkType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"MultiThreadStackWalk$Call$WalkType",
-	"java.lang.Enum",
-	nullptr,
-	_MultiThreadStackWalk$Call$WalkType_FieldInfo_,
-	_MultiThreadStackWalk$Call$WalkType_MethodInfo_,
-	"Ljava/lang/Enum<LMultiThreadStackWalk$Call$WalkType;>;",
-	nullptr,
-	_MultiThreadStackWalk$Call$WalkType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"MultiThreadStackWalk"
-};
-
-$Object* allocate$MultiThreadStackWalk$Call$WalkType($Class* clazz) {
-	return $of($alloc(MultiThreadStackWalk$Call$WalkType));
-}
 
 MultiThreadStackWalk$Call$WalkType* MultiThreadStackWalk$Call$WalkType::WALKSTACK = nullptr;
 $MultiThreadStackWalk$Call$WalkTypeArray* MultiThreadStackWalk$Call$WalkType::$VALUES = nullptr;
@@ -76,7 +35,7 @@ void MultiThreadStackWalk$Call$WalkType::init$($String* $enum$name, int32_t $enu
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$MultiThreadStackWalk$Call$WalkType($Class* class$) {
+void MultiThreadStackWalk$Call$WalkType::clinit$($Class* clazz) {
 	$assignStatic(MultiThreadStackWalk$Call$WalkType::WALKSTACK, $new(MultiThreadStackWalk$Call$WalkType, "WALKSTACK"_s, 0));
 	$assignStatic(MultiThreadStackWalk$Call$WalkType::$VALUES, MultiThreadStackWalk$Call$WalkType::$values());
 }
@@ -85,7 +44,41 @@ MultiThreadStackWalk$Call$WalkType::MultiThreadStackWalk$Call$WalkType() {
 }
 
 $Class* MultiThreadStackWalk$Call$WalkType::load$($String* name, bool initialize) {
-	$loadClass(MultiThreadStackWalk$Call$WalkType, name, initialize, &_MultiThreadStackWalk$Call$WalkType_ClassInfo_, clinit$MultiThreadStackWalk$Call$WalkType, allocate$MultiThreadStackWalk$Call$WalkType);
+	$FieldInfo fieldInfos$$[] = {
+		{"WALKSTACK", "LMultiThreadStackWalk$Call$WalkType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MultiThreadStackWalk$Call$WalkType, WALKSTACK)},
+		{"$VALUES", "[LMultiThreadStackWalk$Call$WalkType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(MultiThreadStackWalk$Call$WalkType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[LMultiThreadStackWalk$Call$WalkType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MultiThreadStackWalk$Call$WalkType, $values, $MultiThreadStackWalk$Call$WalkTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(MultiThreadStackWalk$Call$WalkType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)LMultiThreadStackWalk$Call$WalkType;", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiThreadStackWalk$Call$WalkType, valueOf, MultiThreadStackWalk$Call$WalkType*, $String*)},
+		{"values", "()[LMultiThreadStackWalk$Call$WalkType;", nullptr, $PUBLIC | $STATIC, $staticMethod(MultiThreadStackWalk$Call$WalkType, values, $MultiThreadStackWalk$Call$WalkTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"MultiThreadStackWalk$Call", "MultiThreadStackWalk", "Call", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"MultiThreadStackWalk$Call$WalkType", "MultiThreadStackWalk$Call", "WalkType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"MultiThreadStackWalk$Call$WalkType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<LMultiThreadStackWalk$Call$WalkType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"MultiThreadStackWalk"
+	};
+	$loadClass(MultiThreadStackWalk$Call$WalkType, name, initialize, &classInfo$$, MultiThreadStackWalk$Call$WalkType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MultiThreadStackWalk$Call$WalkType));
+	});
 	return class$;
 }
 

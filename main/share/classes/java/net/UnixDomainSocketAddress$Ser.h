@@ -14,7 +14,7 @@ public:
 	UnixDomainSocketAddress$Ser();
 	void init$($String* pathname);
 	$Object* readResolve();
-	static const int64_t serialVersionUID = (int64_t)0x9197BB2525398A5A;
+	static const int64_t serialVersionUID = (int64_t)0x9197bb2525398a5a;
 	$String* pathname = nullptr;
 };
 

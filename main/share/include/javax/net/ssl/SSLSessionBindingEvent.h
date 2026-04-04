@@ -24,7 +24,7 @@ public:
 	void init$(::javax::net::ssl::SSLSession* session, $String* name);
 	virtual $String* getName();
 	virtual ::javax::net::ssl::SSLSession* getSession();
-	static const int64_t serialVersionUID = (int64_t)0x000E2C21A1FB80A9;
+	static const int64_t serialVersionUID = (int64_t)0x000e2c21a1fb80a9;
 	$String* name = nullptr;
 };
 

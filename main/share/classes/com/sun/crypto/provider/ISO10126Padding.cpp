@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/ISO10126Padding.h>
-
 #include <com/sun/crypto/provider/SunJCE.h>
 #include <java/lang/Math.h>
 #include <java/security/SecureRandom.h>
@@ -11,7 +10,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SecureRandom = ::java::security::SecureRandom;
 using $ShortBufferException = ::javax::crypto::ShortBufferException;
 
 namespace com {
@@ -19,38 +17,12 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _ISO10126Padding_FieldInfo_[] = {
-	{"blockSize", "I", nullptr, $PRIVATE, $field(ISO10126Padding, blockSize)},
-	{}
-};
-
-$MethodInfo _ISO10126Padding_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(ISO10126Padding, init$, void, int32_t)},
-	{"padLength", "(I)I", nullptr, $PUBLIC, $virtualMethod(ISO10126Padding, padLength, int32_t, int32_t)},
-	{"padWithLen", "([BII)V", nullptr, $PUBLIC, $virtualMethod(ISO10126Padding, padWithLen, void, $bytes*, int32_t, int32_t), "javax.crypto.ShortBufferException"},
-	{"unpad", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ISO10126Padding, unpad, int32_t, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _ISO10126Padding_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.ISO10126Padding",
-	"java.lang.Object",
-	"com.sun.crypto.provider.Padding",
-	_ISO10126Padding_FieldInfo_,
-	_ISO10126Padding_MethodInfo_
-};
-
-$Object* allocate$ISO10126Padding($Class* clazz) {
-	return $of($alloc(ISO10126Padding));
-}
-
 void ISO10126Padding::init$(int32_t blockSize) {
 	this->blockSize = blockSize;
 }
 
 void ISO10126Padding::padWithLen($bytes* in, int32_t off, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (in == nullptr) {
 		return;
 	}
@@ -58,11 +30,11 @@ void ISO10126Padding::padWithLen($bytes* in, int32_t off, int32_t len) {
 	if (idx > $nc(in)->length) {
 		$throwNew($ShortBufferException, "Buffer too small to hold padding"_s);
 	}
-	int8_t paddingOctet = (int8_t)((int32_t)(len & (uint32_t)255));
+	int8_t paddingOctet = (int8_t)(len & 0xff);
 	$var($bytes, padding, $new($bytes, len - 1));
-	$nc($($SunJCE::getRandom()))->nextBytes(padding);
+	$$nc($SunJCE::getRandom())->nextBytes(padding);
 	$System::arraycopy(padding, 0, in, off, len - 1);
-	$nc(in)->set(idx - 1, paddingOctet);
+	in->set(idx - 1, paddingOctet);
 	return;
 }
 
@@ -72,7 +44,7 @@ int32_t ISO10126Padding::unpad($bytes* in, int32_t off, int32_t len) {
 	}
 	int32_t idx = $Math::addExact(off, len);
 	int8_t lastByte = $nc(in)->get(idx - 1);
-	int32_t padValue = (int32_t)((int32_t)lastByte & (uint32_t)255);
+	int32_t padValue = (int32_t)lastByte & 0xff;
 	if ((padValue < 1) || (padValue > this->blockSize)) {
 		return -1;
 	}
@@ -92,7 +64,28 @@ ISO10126Padding::ISO10126Padding() {
 }
 
 $Class* ISO10126Padding::load$($String* name, bool initialize) {
-	$loadClass(ISO10126Padding, name, initialize, &_ISO10126Padding_ClassInfo_, allocate$ISO10126Padding);
+	$FieldInfo fieldInfos$$[] = {
+		{"blockSize", "I", nullptr, $PRIVATE, $field(ISO10126Padding, blockSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(ISO10126Padding, init$, void, int32_t)},
+		{"padLength", "(I)I", nullptr, $PUBLIC, $virtualMethod(ISO10126Padding, padLength, int32_t, int32_t)},
+		{"padWithLen", "([BII)V", nullptr, $PUBLIC, $virtualMethod(ISO10126Padding, padWithLen, void, $bytes*, int32_t, int32_t), "javax.crypto.ShortBufferException"},
+		{"unpad", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ISO10126Padding, unpad, int32_t, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.ISO10126Padding",
+		"java.lang.Object",
+		"com.sun.crypto.provider.Padding",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ISO10126Padding, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ISO10126Padding);
+	});
 	return class$;
 }
 

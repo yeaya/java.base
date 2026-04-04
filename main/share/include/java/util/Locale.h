@@ -116,6 +116,7 @@ class $import Locale : public ::java::lang::Cloneable, public ::java::io::Serial
 public:
 	Locale();
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::util::locale::BaseLocale* baseLocale, ::sun::util::locale::LocaleExtensions* extensions);
 	void init$($String* language, $String* country, $String* variant);
 	void init$($String* language, $String* country);
@@ -216,7 +217,7 @@ public:
 	static ::java::util::Locale* TAIWAN;
 	static const char16_t PRIVATE_USE_EXTENSION = ((char16_t)120);
 	static const char16_t UNICODE_LOCALE_EXTENSION = ((char16_t)117);
-	static const int64_t serialVersionUID = (int64_t)0x7EF811609C30F9EC;
+	static const int64_t serialVersionUID = (int64_t)0x7ef811609c30f9ec;
 	static const int32_t DISPLAY_LANGUAGE = 0;
 	static const int32_t DISPLAY_COUNTRY = 1;
 	static const int32_t DISPLAY_VARIANT = 2;

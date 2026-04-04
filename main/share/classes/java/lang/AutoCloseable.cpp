@@ -1,5 +1,4 @@
 #include <java/lang/AutoCloseable.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -8,26 +7,22 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace lang {
 
-$MethodInfo _AutoCloseable_MethodInfo_[] = {
-	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AutoCloseable, close, void), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _AutoCloseable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.lang.AutoCloseable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_AutoCloseable_MethodInfo_
-};
-
-$Object* allocate$AutoCloseable($Class* clazz) {
-	return $of($alloc(AutoCloseable));
-}
-
 $Class* AutoCloseable::load$($String* name, bool initialize) {
-	$loadClass(AutoCloseable, name, initialize, &_AutoCloseable_ClassInfo_, allocate$AutoCloseable);
+	$MethodInfo methodInfos$$[] = {
+		{"close", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AutoCloseable, close, void), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.lang.AutoCloseable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AutoCloseable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AutoCloseable);
+	});
 	return class$;
 }
 

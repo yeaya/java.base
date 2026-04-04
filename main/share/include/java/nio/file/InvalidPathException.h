@@ -19,12 +19,15 @@ public:
 	virtual $String* getInput();
 	virtual $String* getMessage() override;
 	virtual $String* getReason();
-	static const int64_t serialVersionUID = (int64_t)0x3C72FC8164703219;
+	static const int64_t serialVersionUID = (int64_t)0x3c72fc8164703219;
 	$String* input = nullptr;
 	int32_t index = 0;
 	InvalidPathException(const InvalidPathException& e);
 	virtual void throw$() override;
-	inline InvalidPathException* operator ->() {
+	inline InvalidPathException* operator ->() const {
+		return (InvalidPathException*)throwing$;
+	}
+	inline operator InvalidPathException*() const {
 		return (InvalidPathException*)throwing$;
 	}
 };

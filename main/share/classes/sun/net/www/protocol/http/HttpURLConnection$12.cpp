@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/http/HttpURLConnection$12.h>
-
 #include <java/net/URL.h>
 #include <sun/net/www/protocol/http/HttpURLConnection.h>
 #include <jcpp.h>
@@ -19,51 +18,6 @@ namespace sun {
 			namespace protocol {
 				namespace http {
 
-$FieldInfo _HttpURLConnection$12_FieldInfo_[] = {
-	{"this$0", "Lsun/net/www/protocol/http/HttpURLConnection;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$12, this$0)},
-	{"val$locUrl0", "Ljava/net/URL;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$12, val$locUrl0)},
-	{"val$stat", "I", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$12, val$stat)},
-	{"val$loc", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$12, val$loc)},
-	{}
-};
-
-$MethodInfo _HttpURLConnection$12_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/protocol/http/HttpURLConnection;Ljava/lang/String;ILjava/net/URL;)V", nullptr, 0, $method(HttpURLConnection$12, init$, void, $HttpURLConnection*, $String*, int32_t, $URL*)},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$12, run, $Object*), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _HttpURLConnection$12_EnclosingMethodInfo_ = {
-	"sun.net.www.protocol.http.HttpURLConnection",
-	"followRedirect",
-	"()Z"
-};
-
-$InnerClassInfo _HttpURLConnection$12_InnerClassesInfo_[] = {
-	{"sun.net.www.protocol.http.HttpURLConnection$12", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HttpURLConnection$12_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.www.protocol.http.HttpURLConnection$12",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	_HttpURLConnection$12_FieldInfo_,
-	_HttpURLConnection$12_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/Boolean;>;",
-	&_HttpURLConnection$12_EnclosingMethodInfo_,
-	_HttpURLConnection$12_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.www.protocol.http.HttpURLConnection"
-};
-
-$Object* allocate$HttpURLConnection$12($Class* clazz) {
-	return $of($alloc(HttpURLConnection$12));
-}
-
 void HttpURLConnection$12::init$($HttpURLConnection* this$0, $String* val$loc, int32_t val$stat, $URL* val$locUrl0) {
 	$set(this, this$0, this$0);
 	$set(this, val$loc, val$loc);
@@ -79,7 +33,45 @@ HttpURLConnection$12::HttpURLConnection$12() {
 }
 
 $Class* HttpURLConnection$12::load$($String* name, bool initialize) {
-	$loadClass(HttpURLConnection$12, name, initialize, &_HttpURLConnection$12_ClassInfo_, allocate$HttpURLConnection$12);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/net/www/protocol/http/HttpURLConnection;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$12, this$0)},
+		{"val$locUrl0", "Ljava/net/URL;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$12, val$locUrl0)},
+		{"val$stat", "I", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$12, val$stat)},
+		{"val$loc", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$12, val$loc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/www/protocol/http/HttpURLConnection;Ljava/lang/String;ILjava/net/URL;)V", nullptr, 0, $method(HttpURLConnection$12, init$, void, $HttpURLConnection*, $String*, int32_t, $URL*)},
+		{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$12, run, $Object*), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.net.www.protocol.http.HttpURLConnection",
+		"followRedirect",
+		"()Z"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.www.protocol.http.HttpURLConnection$12", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.www.protocol.http.HttpURLConnection$12",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/Boolean;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.www.protocol.http.HttpURLConnection"
+	};
+	$loadClass(HttpURLConnection$12, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpURLConnection$12);
+	});
 	return class$;
 }
 

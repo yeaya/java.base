@@ -1,5 +1,4 @@
 #include <FailingFlushAndClose$FailingCloseReader.h>
-
 #include <FailingFlushAndClose.h>
 #include <java/io/IOException.h>
 #include <java/io/Reader.h>
@@ -12,43 +11,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _FailingFlushAndClose$FailingCloseReader_FieldInfo_[] = {
-	{"closed", "Z", nullptr, 0, $field(FailingFlushAndClose$FailingCloseReader, closed)},
-	{}
-};
-
-$MethodInfo _FailingFlushAndClose$FailingCloseReader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(FailingFlushAndClose$FailingCloseReader, init$, void)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FailingFlushAndClose$FailingCloseReader, close, void), "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(FailingFlushAndClose$FailingCloseReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _FailingFlushAndClose$FailingCloseReader_InnerClassesInfo_[] = {
-	{"FailingFlushAndClose$FailingCloseReader", "FailingFlushAndClose", "FailingCloseReader", $STATIC},
-	{}
-};
-
-$ClassInfo _FailingFlushAndClose$FailingCloseReader_ClassInfo_ = {
-	$ACC_SUPER,
-	"FailingFlushAndClose$FailingCloseReader",
-	"java.io.Reader",
-	nullptr,
-	_FailingFlushAndClose$FailingCloseReader_FieldInfo_,
-	_FailingFlushAndClose$FailingCloseReader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FailingFlushAndClose$FailingCloseReader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"FailingFlushAndClose"
-};
-
-$Object* allocate$FailingFlushAndClose$FailingCloseReader($Class* clazz) {
-	return $of($alloc(FailingFlushAndClose$FailingCloseReader));
-}
 
 void FailingFlushAndClose$FailingCloseReader::init$() {
 	$Reader::init$();
@@ -72,7 +34,38 @@ FailingFlushAndClose$FailingCloseReader::FailingFlushAndClose$FailingCloseReader
 }
 
 $Class* FailingFlushAndClose$FailingCloseReader::load$($String* name, bool initialize) {
-	$loadClass(FailingFlushAndClose$FailingCloseReader, name, initialize, &_FailingFlushAndClose$FailingCloseReader_ClassInfo_, allocate$FailingFlushAndClose$FailingCloseReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"closed", "Z", nullptr, 0, $field(FailingFlushAndClose$FailingCloseReader, closed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(FailingFlushAndClose$FailingCloseReader, init$, void)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FailingFlushAndClose$FailingCloseReader, close, void), "java.io.IOException"},
+		{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(FailingFlushAndClose$FailingCloseReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"FailingFlushAndClose$FailingCloseReader", "FailingFlushAndClose", "FailingCloseReader", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"FailingFlushAndClose$FailingCloseReader",
+		"java.io.Reader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"FailingFlushAndClose"
+	};
+	$loadClass(FailingFlushAndClose$FailingCloseReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FailingFlushAndClose$FailingCloseReader));
+	});
 	return class$;
 }
 

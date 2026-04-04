@@ -83,6 +83,7 @@ class $export DateFormatSymbols : public ::java::io::Serializable, public ::java
 public:
 	DateFormatSymbols();
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::util::Locale* locale);
 	void init$(bool flag);
@@ -153,7 +154,7 @@ public:
 	static const int32_t PATTERN_MONTH_STANDALONE = 22;
 	$String* localPatternChars = nullptr;
 	::java::util::Locale* locale = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xACE671C9351717C2;
+	static const int64_t serialVersionUID = (int64_t)0xace671c9351717c2;
 	static const int32_t millisPerHour = 3600000; // 60 * 60 * 1000
 	static ::java::util::concurrent::ConcurrentMap* cachedInstances;
 	int32_t lastZoneIndex = 0;

@@ -1,5 +1,4 @@
 #include <InnerClassToString.h>
-
 #include <InnerClassToString$MyEntity.h>
 #include <java/lang/reflect/AnnotatedType.h>
 #include <java/lang/reflect/Constructor.h>
@@ -10,7 +9,6 @@
 
 using $InnerClassToString$MyEntity = ::InnerClassToString$MyEntity;
 using $ParameterArray = $Array<::java::lang::reflect::Parameter>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -20,45 +18,6 @@ using $Constructor = ::java::lang::reflect::Constructor;
 using $Parameter = ::java::lang::reflect::Parameter;
 using $Set = ::java::util::Set;
 
-$FieldInfo _InnerClassToString_FieldInfo_[] = {
-	{"genericParamClasses", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(InnerClassToString, genericParamClasses)},
-	{"nongenericParamClasses", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(InnerClassToString, nongenericParamClasses)},
-	{"errors", "I", nullptr, $PRIVATE, $field(InnerClassToString, errors)},
-	{}
-};
-
-$MethodInfo _InnerClassToString_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InnerClassToString, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InnerClassToString, main, void, $StringArray*), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PRIVATE, $method(InnerClassToString, run, void), "java.lang.Exception"},
-	{"test", "(Ljava/lang/reflect/Constructor;[Ljava/lang/Class;)V", "(Ljava/lang/reflect/Constructor<LInnerClassToString$MyEntity;>;[Ljava/lang/Class<*>;)V", $PRIVATE, $method(InnerClassToString, test, void, $Constructor*, $ClassArray*)},
-	{}
-};
-
-$InnerClassInfo _InnerClassToString_InnerClassesInfo_[] = {
-	{"InnerClassToString$MyEntity", "InnerClassToString", "MyEntity", $PUBLIC},
-	{}
-};
-
-$ClassInfo _InnerClassToString_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"InnerClassToString",
-	"java.lang.Object",
-	nullptr,
-	_InnerClassToString_FieldInfo_,
-	_InnerClassToString_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InnerClassToString_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"InnerClassToString$MyEntity"
-};
-
-$Object* allocate$InnerClassToString($Class* clazz) {
-	return $of($alloc(InnerClassToString));
-}
-
 $ClassArray* InnerClassToString::genericParamClasses = nullptr;
 $ClassArray* InnerClassToString::nongenericParamClasses = nullptr;
 
@@ -67,23 +26,27 @@ void InnerClassToString::init$() {
 }
 
 void InnerClassToString::test($Constructor* constructor, $ClassArray* paramClasses) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ParameterArray, params, $nc(constructor)->getParameters());
 	for (int32_t i = 0; i < $nc(params)->length; ++i) {
 		$var($Parameter, parameter, params->get(i));
 		$nc($System::out)->println($($nc(parameter)->toString()));
-		if (!$nc($of($nc(parameter)->getType()))->equals($nc(paramClasses)->get(i))) {
+		if (!$nc(parameter->getType())->equals($nc(paramClasses)->get(i))) {
 			++this->errors;
-			$var($String, var$0, $$str({"Expected type "_s, $nc(paramClasses)->get(i), " but got "_s}));
-			$nc($System::err)->println($$concat(var$0, $(parameter->getType())));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("Expected type "_s);
+			var$0->append(paramClasses->get(i));
+			var$0->append(" but got "_s);
+			var$0->append(parameter->getType());
+			$nc($System::err)->println($$str(var$0));
 		}
-		$nc($System::out)->println($($of($nc(parameter)->getParameterizedType())));
-		$nc($System::out)->println($($of($nc(parameter)->getAnnotatedType())));
+		$System::out->println($(parameter->getParameterizedType()));
+		$System::out->println($(parameter->getAnnotatedType()));
 	}
 }
 
 void InnerClassToString::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$load($InnerClassToString$MyEntity);
 	$load($Set);
@@ -107,7 +70,7 @@ void InnerClassToString::main($StringArray* args) {
 	$$new(InnerClassToString)->run();
 }
 
-void clinit$InnerClassToString($Class* class$) {
+void InnerClassToString::clinit$($Class* clazz) {
 	$load($Set);
 	$assignStatic(InnerClassToString::genericParamClasses, $new($ClassArray, {
 		InnerClassToString::class$,
@@ -123,7 +86,40 @@ InnerClassToString::InnerClassToString() {
 }
 
 $Class* InnerClassToString::load$($String* name, bool initialize) {
-	$loadClass(InnerClassToString, name, initialize, &_InnerClassToString_ClassInfo_, clinit$InnerClassToString, allocate$InnerClassToString);
+	$FieldInfo fieldInfos$$[] = {
+		{"genericParamClasses", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(InnerClassToString, genericParamClasses)},
+		{"nongenericParamClasses", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(InnerClassToString, nongenericParamClasses)},
+		{"errors", "I", nullptr, $PRIVATE, $field(InnerClassToString, errors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InnerClassToString, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InnerClassToString, main, void, $StringArray*), "java.lang.Exception"},
+		{"run", "()V", nullptr, $PRIVATE, $method(InnerClassToString, run, void), "java.lang.Exception"},
+		{"test", "(Ljava/lang/reflect/Constructor;[Ljava/lang/Class;)V", "(Ljava/lang/reflect/Constructor<LInnerClassToString$MyEntity;>;[Ljava/lang/Class<*>;)V", $PRIVATE, $method(InnerClassToString, test, void, $Constructor*, $ClassArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"InnerClassToString$MyEntity", "InnerClassToString", "MyEntity", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"InnerClassToString",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"InnerClassToString$MyEntity"
+	};
+	$loadClass(InnerClassToString, name, initialize, &classInfo$$, InnerClassToString::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(InnerClassToString);
+	});
 	return class$;
 }
 

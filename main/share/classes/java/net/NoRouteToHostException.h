@@ -14,10 +14,13 @@ public:
 	NoRouteToHostException();
 	void init$($String* msg);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xE5AA8B83C7D73EE2;
+	static const int64_t serialVersionUID = (int64_t)0xe5aa8b83c7d73ee2;
 	NoRouteToHostException(const NoRouteToHostException& e);
 	virtual void throw$() override;
-	inline NoRouteToHostException* operator ->() {
+	inline NoRouteToHostException* operator ->() const {
+		return (NoRouteToHostException*)throwing$;
+	}
+	inline operator NoRouteToHostException*() const {
 		return (NoRouteToHostException*)throwing$;
 	}
 };

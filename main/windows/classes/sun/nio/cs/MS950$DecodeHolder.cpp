@@ -1,5 +1,4 @@
 #include <sun/nio/cs/MS950$DecodeHolder.h>
-
 #include <sun/nio/cs/DoubleByte.h>
 #include <sun/nio/cs/MS950.h>
 #include <jcpp.h>
@@ -17,44 +16,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$FieldInfo _MS950$DecodeHolder_FieldInfo_[] = {
-	{"b2cSBStr", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(MS950$DecodeHolder, b2cSBStr)},
-	{"b2cStr", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(MS950$DecodeHolder, b2cStr)},
-	{"b2c", "[[C", nullptr, $STATIC | $FINAL, $staticField(MS950$DecodeHolder, b2c)},
-	{"b2cSB", "[C", nullptr, $STATIC | $FINAL, $staticField(MS950$DecodeHolder, b2cSB)},
-	{}
-};
-
-$MethodInfo _MS950$DecodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MS950$DecodeHolder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _MS950$DecodeHolder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.MS950$DecodeHolder", "sun.nio.cs.MS950", "DecodeHolder", $STATIC},
-	{}
-};
-
-$ClassInfo _MS950$DecodeHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.MS950$DecodeHolder",
-	"java.lang.Object",
-	nullptr,
-	_MS950$DecodeHolder_FieldInfo_,
-	_MS950$DecodeHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MS950$DecodeHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.MS950"
-};
-
-$Object* allocate$MS950$DecodeHolder($Class* clazz) {
-	return $of($alloc(MS950$DecodeHolder));
-}
-
 $String* MS950$DecodeHolder::b2cSBStr = nullptr;
 $StringArray* MS950$DecodeHolder::b2cStr = nullptr;
 $charArray2* MS950$DecodeHolder::b2c = nullptr;
@@ -63,139 +24,139 @@ $chars* MS950$DecodeHolder::b2cSB = nullptr;
 void MS950$DecodeHolder::init$() {
 }
 
-void clinit$MS950$DecodeHolder($Class* class$) {
-	$useLocalCurrentObjectStackCache();
-	$assignStatic(MS950$DecodeHolder::b2cSBStr, $cstr({'\0', 0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, '\b', '\t', '\n', 0xB, '\f', '\r', 0xE, 0xF, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1E, 0x1F, ' ', '!', '\"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';', '<', '=', '>', '?', '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '[', '\\', ']', '^', '_', '`', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '{', '|', '}', '~', 0x7F, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD, 0xFFFD}));
+void MS950$DecodeHolder::clinit$($Class* clazz) {
+	$useLocalObjectStack();
+	$assignStatic(MS950$DecodeHolder::b2cSBStr, $cstr({'\0', 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, '\b', '\t', '\n', 0x0b, '\f', '\r', 0x0e, 0x0f, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1a, 0x1b, 0x1c, 0x1d, 0x1e, 0x1f, ' ', '!', '\"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';', '<', '=', '>', '?', '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '[', '\\', ']', '^', '_', '`', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '{', '|', '}', '~', 0x7f, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd, 0xfffd}));
 	$assignStatic(MS950$DecodeHolder::b2cStr, $new($StringArray, {
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
-		($String*)nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
 		u"\ueeb8\ueeb9\ueeba\ueebb\ueebc\ueebd\ueebe\ueebf\ueec0\ueec1\ueec2\ueec3\ueec4\ueec5\ueec6\ueec7\ueec8\ueec9\ueeca\ueecb\ueecc\ueecd\ueece\ueecf\ueed0\ueed1\ueed2\ueed3\ueed4\ueed5\ueed6\ueed7\ueed8\ueed9\ueeda\ueedb\ueedc\ueedd\ueede\ueedf\ueee0\ueee1\ueee2\ueee3\ueee4\ueee5\ueee6\ueee7\ueee8\ueee9\ueeea\ueeeb\ueeec\ueeed\ueeee\ueeef\ueef0\ueef1\ueef2\ueef3\ueef4\ueef5\ueef6����������������������������������\ueef7\ueef8\ueef9\ueefa\ueefb\ueefc\ueefd\ueefe\ueeff\uef00\uef01\uef02\uef03\uef04\uef05\uef06\uef07\uef08\uef09\uef0a\uef0b\uef0c\uef0d\uef0e\uef0f\uef10\uef11\uef12\uef13\uef14\uef15\uef16\uef17\uef18\uef19\uef1a\uef1b\uef1c\uef1d\uef1e\uef1f\uef20\uef21\uef22\uef23\uef24\uef25\uef26\uef27\uef28\uef29\uef2a\uef2b\uef2c\uef2d\uef2e\uef2f\uef30\uef31\uef32\uef33\uef34\uef35\uef36\uef37\uef38\uef39\uef3a\uef3b\uef3c\uef3d\uef3e\uef3f\uef40\uef41\uef42\uef43\uef44\uef45\uef46\uef47\uef48\uef49\uef4a\uef4b\uef4c\uef4d\uef4e\uef4f\uef50\uef51\uef52\uef53\uef54"_s,
 		u"\uef55\uef56\uef57\uef58\uef59\uef5a\uef5b\uef5c\uef5d\uef5e\uef5f\uef60\uef61\uef62\uef63\uef64\uef65\uef66\uef67\uef68\uef69\uef6a\uef6b\uef6c\uef6d\uef6e\uef6f\uef70\uef71\uef72\uef73\uef74\uef75\uef76\uef77\uef78\uef79\uef7a\uef7b\uef7c\uef7d\uef7e\uef7f\uef80\uef81\uef82\uef83\uef84\uef85\uef86\uef87\uef88\uef89\uef8a\uef8b\uef8c\uef8d\uef8e\uef8f\uef90\uef91\uef92\uef93����������������������������������\uef94\uef95\uef96\uef97\uef98\uef99\uef9a\uef9b\uef9c\uef9d\uef9e\uef9f\uefa0\uefa1\uefa2\uefa3\uefa4\uefa5\uefa6\uefa7\uefa8\uefa9\uefaa\uefab\uefac\uefad\uefae\uefaf\uefb0\uefb1\uefb2\uefb3\uefb4\uefb5\uefb6\uefb7\uefb8\uefb9\uefba\uefbb\uefbc\uefbd\uefbe\uefbf\uefc0\uefc1\uefc2\uefc3\uefc4\uefc5\uefc6\uefc7\uefc8\uefc9\uefca\uefcb\uefcc\uefcd\uefce\uefcf\uefd0\uefd1\uefd2\uefd3\uefd4\uefd5\uefd6\uefd7\uefd8\uefd9\uefda\uefdb\uefdc\uefdd\uefde\uefdf\uefe0\uefe1\uefe2\uefe3\uefe4\uefe5\uefe6\uefe7\uefe8\uefe9\uefea\uefeb\uefec\uefed\uefee\uefef\ueff0\ueff1"_s,
 		u"\ueff2\ueff3\ueff4\ueff5\ueff6\ueff7\ueff8\ueff9\ueffa\ueffb\ueffc\ueffd\ueffe\uefff\uf000\uf001\uf002\uf003\uf004\uf005\uf006\uf007\uf008\uf009\uf00a\uf00b\uf00c\uf00d\uf00e\uf00f\uf010\uf011\uf012\uf013\uf014\uf015\uf016\uf017\uf018\uf019\uf01a\uf01b\uf01c\uf01d\uf01e\uf01f\uf020\uf021\uf022\uf023\uf024\uf025\uf026\uf027\uf028\uf029\uf02a\uf02b\uf02c\uf02d\uf02e\uf02f\uf030����������������������������������\uf031\uf032\uf033\uf034\uf035\uf036\uf037\uf038\uf039\uf03a\uf03b\uf03c\uf03d\uf03e\uf03f\uf040\uf041\uf042\uf043\uf044\uf045\uf046\uf047\uf048\uf049\uf04a\uf04b\uf04c\uf04d\uf04e\uf04f\uf050\uf051\uf052\uf053\uf054\uf055\uf056\uf057\uf058\uf059\uf05a\uf05b\uf05c\uf05d\uf05e\uf05f\uf060\uf061\uf062\uf063\uf064\uf065\uf066\uf067\uf068\uf069\uf06a\uf06b\uf06c\uf06d\uf06e\uf06f\uf070\uf071\uf072\uf073\uf074\uf075\uf076\uf077\uf078\uf079\uf07a\uf07b\uf07c\uf07d\uf07e\uf07f\uf080\uf081\uf082\uf083\uf084\uf085\uf086\uf087\uf088\uf089\uf08a\uf08b\uf08c\uf08d\uf08e"_s,
@@ -322,19 +283,19 @@ void clinit$MS950$DecodeHolder($Class* class$) {
 		u"\ue13a\ue13b\ue13c\ue13d\ue13e\ue13f\ue140\ue141\ue142\ue143\ue144\ue145\ue146\ue147\ue148\ue149\ue14a\ue14b\ue14c\ue14d\ue14e\ue14f\ue150\ue151\ue152\ue153\ue154\ue155\ue156\ue157\ue158\ue159\ue15a\ue15b\ue15c\ue15d\ue15e\ue15f\ue160\ue161\ue162\ue163\ue164\ue165\ue166\ue167\ue168\ue169\ue16a\ue16b\ue16c\ue16d\ue16e\ue16f\ue170\ue171\ue172\ue173\ue174\ue175\ue176\ue177\ue178����������������������������������\ue179\ue17a\ue17b\ue17c\ue17d\ue17e\ue17f\ue180\ue181\ue182\ue183\ue184\ue185\ue186\ue187\ue188\ue189\ue18a\ue18b\ue18c\ue18d\ue18e\ue18f\ue190\ue191\ue192\ue193\ue194\ue195\ue196\ue197\ue198\ue199\ue19a\ue19b\ue19c\ue19d\ue19e\ue19f\ue1a0\ue1a1\ue1a2\ue1a3\ue1a4\ue1a5\ue1a6\ue1a7\ue1a8\ue1a9\ue1aa\ue1ab\ue1ac\ue1ad\ue1ae\ue1af\ue1b0\ue1b1\ue1b2\ue1b3\ue1b4\ue1b5\ue1b6\ue1b7\ue1b8\ue1b9\ue1ba\ue1bb\ue1bc\ue1bd\ue1be\ue1bf\ue1c0\ue1c1\ue1c2\ue1c3\ue1c4\ue1c5\ue1c6\ue1c7\ue1c8\ue1c9\ue1ca\ue1cb\ue1cc\ue1cd\ue1ce\ue1cf\ue1d0\ue1d1\ue1d2\ue1d3\ue1d4\ue1d5\ue1d6"_s,
 		u"\ue1d7\ue1d8\ue1d9\ue1da\ue1db\ue1dc\ue1dd\ue1de\ue1df\ue1e0\ue1e1\ue1e2\ue1e3\ue1e4\ue1e5\ue1e6\ue1e7\ue1e8\ue1e9\ue1ea\ue1eb\ue1ec\ue1ed\ue1ee\ue1ef\ue1f0\ue1f1\ue1f2\ue1f3\ue1f4\ue1f5\ue1f6\ue1f7\ue1f8\ue1f9\ue1fa\ue1fb\ue1fc\ue1fd\ue1fe\ue1ff\ue200\ue201\ue202\ue203\ue204\ue205\ue206\ue207\ue208\ue209\ue20a\ue20b\ue20c\ue20d\ue20e\ue20f\ue210\ue211\ue212\ue213\ue214\ue215����������������������������������\ue216\ue217\ue218\ue219\ue21a\ue21b\ue21c\ue21d\ue21e\ue21f\ue220\ue221\ue222\ue223\ue224\ue225\ue226\ue227\ue228\ue229\ue22a\ue22b\ue22c\ue22d\ue22e\ue22f\ue230\ue231\ue232\ue233\ue234\ue235\ue236\ue237\ue238\ue239\ue23a\ue23b\ue23c\ue23d\ue23e\ue23f\ue240\ue241\ue242\ue243\ue244\ue245\ue246\ue247\ue248\ue249\ue24a\ue24b\ue24c\ue24d\ue24e\ue24f\ue250\ue251\ue252\ue253\ue254\ue255\ue256\ue257\ue258\ue259\ue25a\ue25b\ue25c\ue25d\ue25e\ue25f\ue260\ue261\ue262\ue263\ue264\ue265\ue266\ue267\ue268\ue269\ue26a\ue26b\ue26c\ue26d\ue26e\ue26f\ue270\ue271\ue272\ue273"_s,
 		u"\ue274\ue275\ue276\ue277\ue278\ue279\ue27a\ue27b\ue27c\ue27d\ue27e\ue27f\ue280\ue281\ue282\ue283\ue284\ue285\ue286\ue287\ue288\ue289\ue28a\ue28b\ue28c\ue28d\ue28e\ue28f\ue290\ue291\ue292\ue293\ue294\ue295\ue296\ue297\ue298\ue299\ue29a\ue29b\ue29c\ue29d\ue29e\ue29f\ue2a0\ue2a1\ue2a2\ue2a3\ue2a4\ue2a5\ue2a6\ue2a7\ue2a8\ue2a9\ue2aa\ue2ab\ue2ac\ue2ad\ue2ae\ue2af\ue2b0\ue2b1\ue2b2����������������������������������\ue2b3\ue2b4\ue2b5\ue2b6\ue2b7\ue2b8\ue2b9\ue2ba\ue2bb\ue2bc\ue2bd\ue2be\ue2bf\ue2c0\ue2c1\ue2c2\ue2c3\ue2c4\ue2c5\ue2c6\ue2c7\ue2c8\ue2c9\ue2ca\ue2cb\ue2cc\ue2cd\ue2ce\ue2cf\ue2d0\ue2d1\ue2d2\ue2d3\ue2d4\ue2d5\ue2d6\ue2d7\ue2d8\ue2d9\ue2da\ue2db\ue2dc\ue2dd\ue2de\ue2df\ue2e0\ue2e1\ue2e2\ue2e3\ue2e4\ue2e5\ue2e6\ue2e7\ue2e8\ue2e9\ue2ea\ue2eb\ue2ec\ue2ed\ue2ee\ue2ef\ue2f0\ue2f1\ue2f2\ue2f3\ue2f4\ue2f5\ue2f6\ue2f7\ue2f8\ue2f9\ue2fa\ue2fb\ue2fc\ue2fd\ue2fe\ue2ff\ue300\ue301\ue302\ue303\ue304\ue305\ue306\ue307\ue308\ue309\ue30a\ue30b\ue30c\ue30d\ue30e\ue30f\ue310"_s,
-		($String*)nullptr
+		nullptr
 	}));
-	$assignStatic(MS950$DecodeHolder::b2c, $new($charArray2, $nc(MS950$DecodeHolder::b2cStr)->length));
+	$assignStatic(MS950$DecodeHolder::b2c, $new($charArray2, MS950$DecodeHolder::b2cStr->length));
 	{
-		for (int32_t i = 0; i < $nc(MS950$DecodeHolder::b2cStr)->length; ++i) {
-			if ($nc(MS950$DecodeHolder::b2cStr)->get(i) == nullptr) {
+		for (int32_t i = 0; i < MS950$DecodeHolder::b2cStr->length; ++i) {
+			if (MS950$DecodeHolder::b2cStr->get(i) == nullptr) {
 				$init($DoubleByte);
-				$nc(MS950$DecodeHolder::b2c)->set(i, $DoubleByte::B2C_UNMAPPABLE);
+				MS950$DecodeHolder::b2c->set(i, $DoubleByte::B2C_UNMAPPABLE);
 			} else {
-				$nc(MS950$DecodeHolder::b2c)->set(i, $($nc($nc(MS950$DecodeHolder::b2cStr)->get(i))->toCharArray()));
+				MS950$DecodeHolder::b2c->set(i, $($nc(MS950$DecodeHolder::b2cStr->get(i))->toCharArray()));
 			}
 		}
-		$assignStatic(MS950$DecodeHolder::b2cSB, $nc(MS950$DecodeHolder::b2cSBStr)->toCharArray());
+		$assignStatic(MS950$DecodeHolder::b2cSB, MS950$DecodeHolder::b2cSBStr->toCharArray());
 	}
 }
 
@@ -342,7 +303,39 @@ MS950$DecodeHolder::MS950$DecodeHolder() {
 }
 
 $Class* MS950$DecodeHolder::load$($String* name, bool initialize) {
-	$loadClass(MS950$DecodeHolder, name, initialize, &_MS950$DecodeHolder_ClassInfo_, clinit$MS950$DecodeHolder, allocate$MS950$DecodeHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"b2cSBStr", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(MS950$DecodeHolder, b2cSBStr)},
+		{"b2cStr", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(MS950$DecodeHolder, b2cStr)},
+		{"b2c", "[[C", nullptr, $STATIC | $FINAL, $staticField(MS950$DecodeHolder, b2c)},
+		{"b2cSB", "[C", nullptr, $STATIC | $FINAL, $staticField(MS950$DecodeHolder, b2cSB)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MS950$DecodeHolder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.MS950$DecodeHolder", "sun.nio.cs.MS950", "DecodeHolder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.MS950$DecodeHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.MS950"
+	};
+	$loadClass(MS950$DecodeHolder, name, initialize, &classInfo$$, MS950$DecodeHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MS950$DecodeHolder);
+	});
 	return class$;
 }
 

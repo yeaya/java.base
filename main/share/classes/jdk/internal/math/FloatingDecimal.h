@@ -92,6 +92,7 @@ class $export FloatingDecimal : public ::java::lang::Object {
 	$class(FloatingDecimal, 0, ::java::lang::Object)
 public:
 	FloatingDecimal();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void appendTo(double d, ::java::lang::Appendable* buf);
 	static void appendTo(float f, ::java::lang::Appendable* buf);
@@ -110,7 +111,7 @@ public:
 	static bool $assertionsDisabled;
 	static const int32_t EXP_SHIFT = 52; // DoubleConsts.SIGNIFICAND_WIDTH - 1
 	static const int64_t FRACT_HOB = 4503599627370496; // (1L << EXP_SHIFT)
-	static const int64_t EXP_ONE = 0x3FF0000000000000; // ((long)DoubleConsts.EXP_BIAS) << EXP_SHIFT
+	static const int64_t EXP_ONE = 0x3ff0000000000000; // ((long)DoubleConsts.EXP_BIAS) << EXP_SHIFT
 	static const int32_t MAX_SMALL_BIN_EXP = 62;
 	static const int32_t MIN_SMALL_BIN_EXP = -21; // -(63 / 3)
 	static const int32_t MAX_DECIMAL_DIGITS = 15;

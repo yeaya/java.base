@@ -32,6 +32,7 @@ class $export ProcessBuilder$Redirect : public ::java::lang::Object {
 	$class(ProcessBuilder$Redirect, 0, ::java::lang::Object)
 public:
 	ProcessBuilder$Redirect();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool append();
 	static ::java::lang::ProcessBuilder$Redirect* appendTo(::java::io::File* file);

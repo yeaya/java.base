@@ -1,5 +1,4 @@
 #include <package1/package3/Class3$1.h>
-
 #include <java/lang/AssertionError.h>
 #include <package1/package3/Class3.h>
 #include <jcpp.h>
@@ -15,49 +14,6 @@ using $Class3 = ::package1::package3::Class3;
 
 namespace package1 {
 	namespace package3 {
-
-$FieldInfo _Class3$1_FieldInfo_[] = {
-	{"this$0", "Lpackage1/package3/Class3;", nullptr, $FINAL | $SYNTHETIC, $field(Class3$1, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Class3$1, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _Class3$1_MethodInfo_[] = {
-	{"<init>", "(Lpackage1/package3/Class3;)V", nullptr, 0, $method(Class3$1, init$, void, $Class3*)},
-	{"testAssert", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Class3$1, testAssert, void, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _Class3$1_EnclosingMethodInfo_ = {
-	"package1.package3.Class3",
-	"testAssert",
-	"(Z)V"
-};
-
-$InnerClassInfo _Class3$1_InnerClassesInfo_[] = {
-	{"package1.package3.Class3$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Class3$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"package1.package3.Class3$1",
-	"package1.package3.Class3",
-	nullptr,
-	_Class3$1_FieldInfo_,
-	_Class3$1_MethodInfo_,
-	nullptr,
-	&_Class3$1_EnclosingMethodInfo_,
-	_Class3$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"package1.package3.Class3"
-};
-
-$Object* allocate$Class3$1($Class* clazz) {
-	return $of($alloc(Class3$1));
-}
 
 bool Class3$1::$assertionsDisabled = false;
 
@@ -76,7 +32,7 @@ void Class3$1::testAssert(bool assertsShouldBeOn) {
 	}
 }
 
-void clinit$Class3$1($Class* class$) {
+void Class3$1::clinit$($Class* clazz) {
 	$load($Class3);
 	Class3$1::$assertionsDisabled = !$Class3::class$->desiredAssertionStatus();
 }
@@ -85,7 +41,43 @@ Class3$1::Class3$1() {
 }
 
 $Class* Class3$1::load$($String* name, bool initialize) {
-	$loadClass(Class3$1, name, initialize, &_Class3$1_ClassInfo_, clinit$Class3$1, allocate$Class3$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lpackage1/package3/Class3;", nullptr, $FINAL | $SYNTHETIC, $field(Class3$1, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Class3$1, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lpackage1/package3/Class3;)V", nullptr, 0, $method(Class3$1, init$, void, $Class3*)},
+		{"testAssert", "(Z)V", nullptr, $PUBLIC, $virtualMethod(Class3$1, testAssert, void, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"package1.package3.Class3",
+		"testAssert",
+		"(Z)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"package1.package3.Class3$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"package1.package3.Class3$1",
+		"package1.package3.Class3",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"package1.package3.Class3"
+	};
+	$loadClass(Class3$1, name, initialize, &classInfo$$, Class3$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Class3$1);
+	});
 	return class$;
 }
 

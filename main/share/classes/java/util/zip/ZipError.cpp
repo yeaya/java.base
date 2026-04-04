@@ -1,5 +1,4 @@
 #include <java/util/zip/ZipError.h>
-
 #include <java/lang/InternalError.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace util {
 		namespace zip {
-
-$FieldInfo _ZipError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZipError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ZipError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ZipError, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _ZipError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.zip.ZipError",
-	"java.lang.InternalError",
-	nullptr,
-	_ZipError_FieldInfo_,
-	_ZipError_MethodInfo_
-};
-
-$Object* allocate$ZipError($Class* clazz) {
-	return $of($alloc(ZipError));
-}
 
 void ZipError::init$($String* s) {
 	$InternalError::init$(s);
@@ -50,7 +26,25 @@ void ZipError::throw$() {
 }
 
 $Class* ZipError::load$($String* name, bool initialize) {
-	$loadClass(ZipError, name, initialize, &_ZipError_ClassInfo_, allocate$ZipError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ZipError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ZipError, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.zip.ZipError",
+		"java.lang.InternalError",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ZipError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ZipError);
+	});
 	return class$;
 }
 

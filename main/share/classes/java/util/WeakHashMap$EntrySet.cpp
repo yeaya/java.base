@@ -1,5 +1,4 @@
 #include <java/util/WeakHashMap$EntrySet.h>
-
 #include <java/util/AbstractMap$SimpleEntry.h>
 #include <java/util/AbstractSet.h>
 #include <java/util/ArrayList.h>
@@ -25,57 +24,11 @@ using $List = ::java::util::List;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Spliterator = ::java::util::Spliterator;
 using $WeakHashMap = ::java::util::WeakHashMap;
-using $WeakHashMap$Entry = ::java::util::WeakHashMap$Entry;
 using $WeakHashMap$EntryIterator = ::java::util::WeakHashMap$EntryIterator;
 using $WeakHashMap$EntrySpliterator = ::java::util::WeakHashMap$EntrySpliterator;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _WeakHashMap$EntrySet_FieldInfo_[] = {
-	{"this$0", "Ljava/util/WeakHashMap;", nullptr, $FINAL | $SYNTHETIC, $field(WeakHashMap$EntrySet, this$0)},
-	{}
-};
-
-$MethodInfo _WeakHashMap$EntrySet_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/WeakHashMap;)V", nullptr, $PRIVATE, $method(WeakHashMap$EntrySet, init$, void, $WeakHashMap*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$EntrySet, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$EntrySet, contains, bool, Object$*)},
-	{"deepCopy", "()Ljava/util/List;", "()Ljava/util/List<Ljava/util/Map$Entry<TK;TV;>;>;", $PRIVATE, $method(WeakHashMap$EntrySet, deepCopy, $List*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(WeakHashMap$EntrySet, iterator, $Iterator*)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$EntrySet, remove, bool, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$EntrySet, size, int32_t)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(WeakHashMap$EntrySet, spliterator, $Spliterator*)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$EntrySet, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(WeakHashMap$EntrySet, toArray, $ObjectArray*, $ObjectArray*)},
-	{}
-};
-
-$InnerClassInfo _WeakHashMap$EntrySet_InnerClassesInfo_[] = {
-	{"java.util.WeakHashMap$EntrySet", "java.util.WeakHashMap", "EntrySet", $PRIVATE},
-	{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _WeakHashMap$EntrySet_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.WeakHashMap$EntrySet",
-	"java.util.AbstractSet",
-	nullptr,
-	_WeakHashMap$EntrySet_FieldInfo_,
-	_WeakHashMap$EntrySet_MethodInfo_,
-	"Ljava/util/AbstractSet<Ljava/util/Map$Entry<TK;TV;>;>;",
-	nullptr,
-	_WeakHashMap$EntrySet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.WeakHashMap"
-};
-
-$Object* allocate$WeakHashMap$EntrySet($Class* clazz) {
-	return $of($alloc(WeakHashMap$EntrySet));
-}
 
 void WeakHashMap$EntrySet::init$($WeakHashMap* this$0) {
 	$set(this, this$0, this$0);
@@ -87,7 +40,7 @@ $Iterator* WeakHashMap$EntrySet::iterator() {
 }
 
 bool WeakHashMap$EntrySet::contains(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map$Entry, e, nullptr);
 	bool var$2 = $instanceOf($Map$Entry, o);
 	if (var$2) {
@@ -96,7 +49,7 @@ bool WeakHashMap$EntrySet::contains(Object$* o) {
 	}
 	bool var$1 = var$2;
 	bool var$0 = var$1 && this->this$0->getEntry($($nc(e)->getKey())) != nullptr;
-	return var$0 && $nc($(this->this$0->getEntry($($nc(e)->getKey()))))->equals(e);
+	return var$0 && $$nc(this->this$0->getEntry($(e->getKey())))->equals(e);
 }
 
 bool WeakHashMap$EntrySet::remove(Object$* o) {
@@ -112,7 +65,7 @@ void WeakHashMap$EntrySet::clear() {
 }
 
 $List* WeakHashMap$EntrySet::deepCopy() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, list, $new($ArrayList, size()));
 	{
 		$var($Iterator, i$, this->iterator());
@@ -125,11 +78,11 @@ $List* WeakHashMap$EntrySet::deepCopy() {
 }
 
 $ObjectArray* WeakHashMap$EntrySet::toArray() {
-	return $nc($(deepCopy()))->toArray();
+	return $$nc(deepCopy())->toArray();
 }
 
 $ObjectArray* WeakHashMap$EntrySet::toArray($ObjectArray* a) {
-	return $nc($(deepCopy()))->toArray(a);
+	return $$nc(deepCopy())->toArray(a);
 }
 
 $Spliterator* WeakHashMap$EntrySet::spliterator() {
@@ -140,7 +93,46 @@ WeakHashMap$EntrySet::WeakHashMap$EntrySet() {
 }
 
 $Class* WeakHashMap$EntrySet::load$($String* name, bool initialize) {
-	$loadClass(WeakHashMap$EntrySet, name, initialize, &_WeakHashMap$EntrySet_ClassInfo_, allocate$WeakHashMap$EntrySet);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/WeakHashMap;", nullptr, $FINAL | $SYNTHETIC, $field(WeakHashMap$EntrySet, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/WeakHashMap;)V", nullptr, $PRIVATE, $method(WeakHashMap$EntrySet, init$, void, $WeakHashMap*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$EntrySet, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$EntrySet, contains, bool, Object$*)},
+		{"deepCopy", "()Ljava/util/List;", "()Ljava/util/List<Ljava/util/Map$Entry<TK;TV;>;>;", $PRIVATE, $method(WeakHashMap$EntrySet, deepCopy, $List*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(WeakHashMap$EntrySet, iterator, $Iterator*)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$EntrySet, remove, bool, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$EntrySet, size, int32_t)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(WeakHashMap$EntrySet, spliterator, $Spliterator*)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$EntrySet, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(WeakHashMap$EntrySet, toArray, $ObjectArray*, $ObjectArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.WeakHashMap$EntrySet", "java.util.WeakHashMap", "EntrySet", $PRIVATE},
+		{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.WeakHashMap$EntrySet",
+		"java.util.AbstractSet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractSet<Ljava/util/Map$Entry<TK;TV;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.WeakHashMap"
+	};
+	$loadClass(WeakHashMap$EntrySet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WeakHashMap$EntrySet));
+	});
 	return class$;
 }
 

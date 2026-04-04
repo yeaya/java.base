@@ -21,6 +21,7 @@ class MethodHandleImpl$LoopClauses : public ::java::lang::Object {
 	$class(MethodHandleImpl$LoopClauses, 0, ::java::lang::Object)
 public:
 	MethodHandleImpl$LoopClauses();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Array<::java::lang::invoke::MethodHandle, 2>* clauses);
 	virtual $String* toString() override;
 	static bool $assertionsDisabled;

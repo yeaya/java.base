@@ -1,11 +1,8 @@
 #include <util/MemberFactory.h>
-
 #include <java/lang/Enum.h>
 #include <java/lang/reflect/AccessibleObject.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/EnumSet.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -47,86 +44,13 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
 using $AccessibleObject = ::java::lang::reflect::AccessibleObject;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $EnumSet = ::java::util::EnumSet;
 using $Iterator = ::java::util::Iterator;
 using $MemberFactory$Group = ::util::MemberFactory$Group;
 using $MemberFactory$Kind = ::util::MemberFactory$Kind;
 
 namespace util {
-
-$FieldInfo _MemberFactory_FieldInfo_[] = {
-	{"PRIVATE_INSTANCE_FIELD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PRIVATE_INSTANCE_FIELD)},
-	{"PACKAGE_INSTANCE_FIELD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PACKAGE_INSTANCE_FIELD)},
-	{"PROTECTED_INSTANCE_FIELD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PROTECTED_INSTANCE_FIELD)},
-	{"PUBLIC_INSTANCE_FIELD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PUBLIC_INSTANCE_FIELD)},
-	{"PRIVATE_INSTANCE_METHOD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PRIVATE_INSTANCE_METHOD)},
-	{"PACKAGE_INSTANCE_METHOD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PACKAGE_INSTANCE_METHOD)},
-	{"PROTECTED_INSTANCE_METHOD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PROTECTED_INSTANCE_METHOD)},
-	{"PUBLIC_INSTANCE_METHOD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PUBLIC_INSTANCE_METHOD)},
-	{"PRIVATE_STATIC_FIELD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PRIVATE_STATIC_FIELD)},
-	{"PACKAGE_STATIC_FIELD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PACKAGE_STATIC_FIELD)},
-	{"PROTECTED_STATIC_FIELD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PROTECTED_STATIC_FIELD)},
-	{"PUBLIC_STATIC_FIELD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PUBLIC_STATIC_FIELD)},
-	{"PRIVATE_STATIC_METHOD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PRIVATE_STATIC_METHOD)},
-	{"PACKAGE_STATIC_METHOD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PACKAGE_STATIC_METHOD)},
-	{"PROTECTED_STATIC_METHOD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PROTECTED_STATIC_METHOD)},
-	{"PUBLIC_STATIC_METHOD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PUBLIC_STATIC_METHOD)},
-	{"PRIVATE_CONSTRUCTOR", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PRIVATE_CONSTRUCTOR)},
-	{"PACKAGE_CONSTRUCTOR", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PACKAGE_CONSTRUCTOR)},
-	{"PROTECTED_CONSTRUCTOR", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PROTECTED_CONSTRUCTOR)},
-	{"PUBLIC_CONSTRUCTOR", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PUBLIC_CONSTRUCTOR)},
-	{"$VALUES", "[Lutil/MemberFactory;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(MemberFactory, $VALUES)},
-	{"kind", "Lutil/MemberFactory$Kind;", nullptr, $FINAL, $field(MemberFactory, kind)},
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(MemberFactory, name$)},
-	{"parameterTypes", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $FINAL, $field(MemberFactory, parameterTypes)},
-	{}
-};
-
-$MethodInfo _MemberFactory_MethodInfo_[] = {
-	{"$values", "()[Lutil/MemberFactory;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MemberFactory, $values, $MemberFactoryArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILutil/MemberFactory$Kind;Ljava/lang/String;[Ljava/lang/Class;)V", "(Lutil/MemberFactory$Kind;Ljava/lang/String;[Ljava/lang/Class<*>;)V", $PRIVATE | $TRANSIENT, $method(MemberFactory, init$, void, $String*, int32_t, $MemberFactory$Kind*, $String*, $ClassArray*)},
-	{"apply", "(Ljava/lang/Class;)Ljava/lang/reflect/AccessibleObject;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/AccessibleObject;", $PUBLIC, $method(MemberFactory, apply, $AccessibleObject*, $Class*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MemberFactory, apply, $Object*, Object$*)},
-	{"asSet", "([Lutil/MemberFactory;)Ljava/util/EnumSet;", "([Lutil/MemberFactory;)Ljava/util/EnumSet<Lutil/MemberFactory;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MemberFactory, asSet, $EnumSet*, $MemberFactoryArray*)},
-	{"groupsToMembers", "(Ljava/util/EnumSet;)Ljava/util/EnumSet;", "(Ljava/util/EnumSet<Lutil/MemberFactory$Group;>;)Ljava/util/EnumSet<Lutil/MemberFactory;>;", $PUBLIC | $STATIC, $staticMethod(MemberFactory, groupsToMembers, $EnumSet*, $EnumSet*)},
-	{"membersToGroupsOrNull", "(Ljava/util/EnumSet;)Ljava/util/EnumSet;", "(Ljava/util/EnumSet<Lutil/MemberFactory;>;)Ljava/util/EnumSet<Lutil/MemberFactory$Group;>;", $PUBLIC | $STATIC, $staticMethod(MemberFactory, membersToGroupsOrNull, $EnumSet*, $EnumSet*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemberFactory, valueOf, MemberFactory*, $String*)},
-	{"values", "()[Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemberFactory, values, $MemberFactoryArray*)},
-	{}
-};
-
-$InnerClassInfo _MemberFactory_InnerClassesInfo_[] = {
-	{"util.MemberFactory$Group", "util.MemberFactory", "Group", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"util.MemberFactory$Kind", "util.MemberFactory", "Kind", $STATIC | $ABSTRACT | $ENUM},
-	{}
-};
-
-$ClassInfo _MemberFactory_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"util.MemberFactory",
-	"java.lang.Enum",
-	"java.util.function.Function",
-	_MemberFactory_FieldInfo_,
-	_MemberFactory_MethodInfo_,
-	"Ljava/lang/Enum<Lutil/MemberFactory;>;Ljava/util/function/Function<Ljava/lang/Class<*>;Ljava/lang/reflect/AccessibleObject;>;",
-	nullptr,
-	_MemberFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"util.MemberFactory$Group,util.MemberFactory$Kind,util.MemberFactory$Kind$3,util.MemberFactory$Kind$2,util.MemberFactory$Kind$1"
-};
-
-$Object* allocate$MemberFactory($Class* clazz) {
-	return $of($alloc(MemberFactory));
-}
 
 $String* MemberFactory::toString() {
 	 return this->$Enum::toString();
@@ -219,20 +143,20 @@ $AccessibleObject* MemberFactory::apply($Class* declaringClass) {
 
 $EnumSet* MemberFactory::asSet($MemberFactoryArray* members) {
 	$init(MemberFactory);
-	return $nc(members)->length == 0 ? $EnumSet::noneOf(MemberFactory::class$) : $EnumSet::copyOf($(static_cast<$Collection*>($Arrays::asList(members))));
+	return $nc(members)->length == 0 ? $EnumSet::noneOf(MemberFactory::class$) : $EnumSet::copyOf($($Arrays::asList(members)));
 }
 
 $EnumSet* MemberFactory::membersToGroupsOrNull($EnumSet* members) {
 	$init(MemberFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($EnumSet, mSet, $cast($EnumSet, $nc(members)->clone()));
 	$load($MemberFactory$Group);
 	$var($EnumSet, gSet, $EnumSet::allOf($MemberFactory$Group::class$));
 	$var($Iterator, gIter, $nc(gSet)->iterator());
 	while ($nc(gIter)->hasNext()) {
 		$MemberFactory$Group* g = $cast($MemberFactory$Group, gIter->next());
-		if ($nc(mSet)->containsAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>($nc(g)->members))))) {
-			mSet->removeAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>($nc(g)->members))));
+		if ($nc(mSet)->containsAll($cast($AbstractCollection, $nc(g)->members))) {
+			mSet->removeAll($cast($AbstractCollection, g->members));
 		} else {
 			gIter->remove();
 		}
@@ -242,14 +166,14 @@ $EnumSet* MemberFactory::membersToGroupsOrNull($EnumSet* members) {
 
 $EnumSet* MemberFactory::groupsToMembers($EnumSet* groups) {
 	$init(MemberFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($EnumSet, mSet, $EnumSet::noneOf(MemberFactory::class$));
 	{
 		$var($Iterator, i$, $nc(groups)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$MemberFactory$Group* g = $cast($MemberFactory$Group, i$->next());
 			{
-				$nc(mSet)->addAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>($nc(g)->members))));
+				$nc(mSet)->addAll($cast($AbstractCollection, $nc(g)->members));
 			}
 		}
 	}
@@ -257,11 +181,11 @@ $EnumSet* MemberFactory::groupsToMembers($EnumSet* groups) {
 }
 
 $Object* MemberFactory::apply(Object$* declaringClass) {
-	return $of(this->apply($cast($Class, declaringClass)));
+	return this->apply($cast($Class, declaringClass));
 }
 
-void clinit$MemberFactory($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void MemberFactory::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($MemberFactory$Kind);
 	$assignStatic(MemberFactory::PRIVATE_INSTANCE_FIELD, $new(MemberFactory, "PRIVATE_INSTANCE_FIELD"_s, 0, $MemberFactory$Kind::FIELD, "privateInstance"_s, $$new($ClassArray, 0)));
 	$assignStatic(MemberFactory::PACKAGE_INSTANCE_FIELD, $new(MemberFactory, "PACKAGE_INSTANCE_FIELD"_s, 1, $MemberFactory$Kind::FIELD, "packageInstance"_s, $$new($ClassArray, 0)));
@@ -279,7 +203,6 @@ void clinit$MemberFactory($Class* class$) {
 	$assignStatic(MemberFactory::PACKAGE_STATIC_METHOD, $new(MemberFactory, "PACKAGE_STATIC_METHOD"_s, 13, $MemberFactory$Kind::METHOD, "packageStatic"_s, $$new($ClassArray, 0)));
 	$assignStatic(MemberFactory::PROTECTED_STATIC_METHOD, $new(MemberFactory, "PROTECTED_STATIC_METHOD"_s, 14, $MemberFactory$Kind::METHOD, "protectedStatic"_s, $$new($ClassArray, 0)));
 	$assignStatic(MemberFactory::PUBLIC_STATIC_METHOD, $new(MemberFactory, "PUBLIC_STATIC_METHOD"_s, 15, $MemberFactory$Kind::METHOD, "publicStatic"_s, $$new($ClassArray, 0)));
-	$load($Void);
 	$assignStatic(MemberFactory::PRIVATE_CONSTRUCTOR, $new(MemberFactory, "PRIVATE_CONSTRUCTOR"_s, 16, $MemberFactory$Kind::CONSTRUCTOR, nullptr, $$new($ClassArray, {
 		$Void::class$,
 		$Void::class$,
@@ -298,7 +221,72 @@ MemberFactory::MemberFactory() {
 }
 
 $Class* MemberFactory::load$($String* name, bool initialize) {
-	$loadClass(MemberFactory, name, initialize, &_MemberFactory_ClassInfo_, clinit$MemberFactory, allocate$MemberFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"PRIVATE_INSTANCE_FIELD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PRIVATE_INSTANCE_FIELD)},
+		{"PACKAGE_INSTANCE_FIELD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PACKAGE_INSTANCE_FIELD)},
+		{"PROTECTED_INSTANCE_FIELD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PROTECTED_INSTANCE_FIELD)},
+		{"PUBLIC_INSTANCE_FIELD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PUBLIC_INSTANCE_FIELD)},
+		{"PRIVATE_INSTANCE_METHOD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PRIVATE_INSTANCE_METHOD)},
+		{"PACKAGE_INSTANCE_METHOD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PACKAGE_INSTANCE_METHOD)},
+		{"PROTECTED_INSTANCE_METHOD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PROTECTED_INSTANCE_METHOD)},
+		{"PUBLIC_INSTANCE_METHOD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PUBLIC_INSTANCE_METHOD)},
+		{"PRIVATE_STATIC_FIELD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PRIVATE_STATIC_FIELD)},
+		{"PACKAGE_STATIC_FIELD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PACKAGE_STATIC_FIELD)},
+		{"PROTECTED_STATIC_FIELD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PROTECTED_STATIC_FIELD)},
+		{"PUBLIC_STATIC_FIELD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PUBLIC_STATIC_FIELD)},
+		{"PRIVATE_STATIC_METHOD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PRIVATE_STATIC_METHOD)},
+		{"PACKAGE_STATIC_METHOD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PACKAGE_STATIC_METHOD)},
+		{"PROTECTED_STATIC_METHOD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PROTECTED_STATIC_METHOD)},
+		{"PUBLIC_STATIC_METHOD", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PUBLIC_STATIC_METHOD)},
+		{"PRIVATE_CONSTRUCTOR", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PRIVATE_CONSTRUCTOR)},
+		{"PACKAGE_CONSTRUCTOR", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PACKAGE_CONSTRUCTOR)},
+		{"PROTECTED_CONSTRUCTOR", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PROTECTED_CONSTRUCTOR)},
+		{"PUBLIC_CONSTRUCTOR", "Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MemberFactory, PUBLIC_CONSTRUCTOR)},
+		{"$VALUES", "[Lutil/MemberFactory;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(MemberFactory, $VALUES)},
+		{"kind", "Lutil/MemberFactory$Kind;", nullptr, $FINAL, $field(MemberFactory, kind)},
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(MemberFactory, name$)},
+		{"parameterTypes", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $FINAL, $field(MemberFactory, parameterTypes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lutil/MemberFactory;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MemberFactory, $values, $MemberFactoryArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;ILutil/MemberFactory$Kind;Ljava/lang/String;[Ljava/lang/Class;)V", "(Lutil/MemberFactory$Kind;Ljava/lang/String;[Ljava/lang/Class<*>;)V", $PRIVATE | $TRANSIENT, $method(MemberFactory, init$, void, $String*, int32_t, $MemberFactory$Kind*, $String*, $ClassArray*)},
+		{"apply", "(Ljava/lang/Class;)Ljava/lang/reflect/AccessibleObject;", "(Ljava/lang/Class<*>;)Ljava/lang/reflect/AccessibleObject;", $PUBLIC, $method(MemberFactory, apply, $AccessibleObject*, $Class*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MemberFactory, apply, $Object*, Object$*)},
+		{"asSet", "([Lutil/MemberFactory;)Ljava/util/EnumSet;", "([Lutil/MemberFactory;)Ljava/util/EnumSet<Lutil/MemberFactory;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MemberFactory, asSet, $EnumSet*, $MemberFactoryArray*)},
+		{"groupsToMembers", "(Ljava/util/EnumSet;)Ljava/util/EnumSet;", "(Ljava/util/EnumSet<Lutil/MemberFactory$Group;>;)Ljava/util/EnumSet<Lutil/MemberFactory;>;", $PUBLIC | $STATIC, $staticMethod(MemberFactory, groupsToMembers, $EnumSet*, $EnumSet*)},
+		{"membersToGroupsOrNull", "(Ljava/util/EnumSet;)Ljava/util/EnumSet;", "(Ljava/util/EnumSet<Lutil/MemberFactory;>;)Ljava/util/EnumSet<Lutil/MemberFactory$Group;>;", $PUBLIC | $STATIC, $staticMethod(MemberFactory, membersToGroupsOrNull, $EnumSet*, $EnumSet*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueOf", "(Ljava/lang/String;)Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemberFactory, valueOf, MemberFactory*, $String*)},
+		{"values", "()[Lutil/MemberFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(MemberFactory, values, $MemberFactoryArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"util.MemberFactory$Group", "util.MemberFactory", "Group", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"util.MemberFactory$Kind", "util.MemberFactory", "Kind", $STATIC | $ABSTRACT | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"util.MemberFactory",
+		"java.lang.Enum",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lutil/MemberFactory;>;Ljava/util/function/Function<Ljava/lang/Class<*>;Ljava/lang/reflect/AccessibleObject;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"util.MemberFactory$Group,util.MemberFactory$Kind,util.MemberFactory$Kind$3,util.MemberFactory$Kind$2,util.MemberFactory$Kind$1"
+	};
+	$loadClass(MemberFactory, name, initialize, &classInfo$$, MemberFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MemberFactory));
+	});
 	return class$;
 }
 

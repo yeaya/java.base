@@ -1,5 +1,4 @@
 #include <sun/security/provider/DSAKeyPairGenerator$Legacy.h>
-
 #include <java/math/BigInteger.h>
 #include <java/security/InvalidParameterException.h>
 #include <java/security/KeyPair.h>
@@ -29,46 +28,6 @@ using $SecurityProviderConstants = ::sun::security::util::SecurityProviderConsta
 namespace sun {
 	namespace security {
 		namespace provider {
-
-$MethodInfo _DSAKeyPairGenerator$Legacy_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DSAKeyPairGenerator$Legacy, init$, void)},
-	{"generateKeyPair", "()Ljava/security/KeyPair;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DSAKeyPairGenerator$Legacy, generateKeyPair, $KeyPair*)},
-	{"initialize", "(IZLjava/security/SecureRandom;)V", nullptr, $PUBLIC, $virtualMethod(DSAKeyPairGenerator$Legacy, initialize, void, int32_t, bool, $SecureRandom*), "java.security.InvalidParameterException"},
-	{"initialize", "(Ljava/security/interfaces/DSAParams;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC, $virtualMethod(DSAKeyPairGenerator$Legacy, initialize, void, $DSAParams*, $SecureRandom*), "java.security.InvalidParameterException"},
-	{"initialize", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DSAKeyPairGenerator$Legacy, initialize, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
-	{"initialize", "(ILjava/security/SecureRandom;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DSAKeyPairGenerator$Legacy, initialize, void, int32_t, $SecureRandom*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DSAKeyPairGenerator$Legacy_InnerClassesInfo_[] = {
-	{"sun.security.provider.DSAKeyPairGenerator$Legacy", "sun.security.provider.DSAKeyPairGenerator", "Legacy", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DSAKeyPairGenerator$Legacy_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.provider.DSAKeyPairGenerator$Legacy",
-	"sun.security.provider.DSAKeyPairGenerator",
-	"java.security.interfaces.DSAKeyPairGenerator",
-	nullptr,
-	_DSAKeyPairGenerator$Legacy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DSAKeyPairGenerator$Legacy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.DSAKeyPairGenerator"
-};
-
-$Object* allocate$DSAKeyPairGenerator$Legacy($Class* clazz) {
-	return $of($alloc(DSAKeyPairGenerator$Legacy));
-}
 
 int32_t DSAKeyPairGenerator$Legacy::hashCode() {
 	 return this->$DSAKeyPairGenerator::hashCode();
@@ -107,7 +66,7 @@ void DSAKeyPairGenerator$Legacy::initialize(int32_t modlen, bool genParams, $Sec
 }
 
 void DSAKeyPairGenerator$Legacy::initialize($DSAParams* params, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (params == nullptr) {
 		$throwNew($InvalidParameterException, "Params must not be null"_s);
 	}
@@ -133,7 +92,42 @@ DSAKeyPairGenerator$Legacy::DSAKeyPairGenerator$Legacy() {
 }
 
 $Class* DSAKeyPairGenerator$Legacy::load$($String* name, bool initialize) {
-	$loadClass(DSAKeyPairGenerator$Legacy, name, initialize, &_DSAKeyPairGenerator$Legacy_ClassInfo_, allocate$DSAKeyPairGenerator$Legacy);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DSAKeyPairGenerator$Legacy, init$, void)},
+		{"generateKeyPair", "()Ljava/security/KeyPair;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DSAKeyPairGenerator$Legacy, generateKeyPair, $KeyPair*)},
+		{"initialize", "(IZLjava/security/SecureRandom;)V", nullptr, $PUBLIC, $virtualMethod(DSAKeyPairGenerator$Legacy, initialize, void, int32_t, bool, $SecureRandom*), "java.security.InvalidParameterException"},
+		{"initialize", "(Ljava/security/interfaces/DSAParams;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC, $virtualMethod(DSAKeyPairGenerator$Legacy, initialize, void, $DSAParams*, $SecureRandom*), "java.security.InvalidParameterException"},
+		{"initialize", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DSAKeyPairGenerator$Legacy, initialize, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
+		{"initialize", "(ILjava/security/SecureRandom;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DSAKeyPairGenerator$Legacy, initialize, void, int32_t, $SecureRandom*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.DSAKeyPairGenerator$Legacy", "sun.security.provider.DSAKeyPairGenerator", "Legacy", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.provider.DSAKeyPairGenerator$Legacy",
+		"sun.security.provider.DSAKeyPairGenerator",
+		"java.security.interfaces.DSAKeyPairGenerator",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.DSAKeyPairGenerator"
+	};
+	$loadClass(DSAKeyPairGenerator$Legacy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DSAKeyPairGenerator$Legacy));
+	});
 	return class$;
 }
 

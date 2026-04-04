@@ -1,5 +1,4 @@
 #include <jdk/internal/vm/annotation/ReservedStackAccess.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -12,47 +11,40 @@ namespace jdk {
 		namespace vm {
 			namespace annotation {
 
-$NamedAttribute ReservedStackAccess_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$Attribute ReservedStackAccess_Attribute_var$2[] = {
-	{'e', "Ljava/lang/annotation/ElementType; METHOD"},
-	{'e', "Ljava/lang/annotation/ElementType; CONSTRUCTOR"},
-	{'-'}
-};
-
-$NamedAttribute ReservedStackAccess_Attribute_var$1[] = {
-	{"value", '[', ReservedStackAccess_Attribute_var$2},
-	{}
-};
-
-$CompoundAttribute _ReservedStackAccess_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", ReservedStackAccess_Attribute_var$0},
-	{"Ljava/lang/annotation/Target;", ReservedStackAccess_Attribute_var$1},
-	{}
-};
-
-$ClassInfo _ReservedStackAccess_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"jdk.internal.vm.annotation.ReservedStackAccess",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_ReservedStackAccess_Annotations_
-};
-
-$Object* allocate$ReservedStackAccess($Class* clazz) {
-	return $of($alloc(ReservedStackAccess));
-}
-
 $Class* ReservedStackAccess::load$($String* name, bool initialize) {
-	$loadClass(ReservedStackAccess, name, initialize, &_ReservedStackAccess_ClassInfo_, allocate$ReservedStackAccess);
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; METHOD"},
+		{'e', "Ljava/lang/annotation/ElementType; CONSTRUCTOR"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"jdk.internal.vm.annotation.ReservedStackAccess",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(ReservedStackAccess, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReservedStackAccess);
+	});
 	return class$;
 }
 

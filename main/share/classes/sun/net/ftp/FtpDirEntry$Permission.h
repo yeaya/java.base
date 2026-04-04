@@ -22,6 +22,7 @@ class FtpDirEntry$Permission : public ::java::lang::Enum {
 public:
 	FtpDirEntry$Permission();
 	static $Array<::sun::net::ftp::FtpDirEntry$Permission>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t v);
 	static ::sun::net::ftp::FtpDirEntry$Permission* valueOf($String* name);
 	static $Array<::sun::net::ftp::FtpDirEntry$Permission>* values();

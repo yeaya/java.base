@@ -1,5 +1,4 @@
 #include <java/time/format/DateTimeFormatterBuilder$ReducedPrinterParser.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/Math.h>
 #include <java/lang/invoke/CallSite.h>
@@ -45,9 +44,7 @@ using $DateTimeFormatterBuilder$NumberPrinterParser = ::java::time::format::Date
 using $DateTimeParseContext = ::java::time::format::DateTimeParseContext;
 using $DateTimePrintContext = ::java::time::format::DateTimePrintContext;
 using $SignStyle = ::java::time::format::SignStyle;
-using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 using $TemporalField = ::java::time::temporal::TemporalField;
-using $ValueRange = ::java::time::temporal::ValueRange;
 using $Objects = ::java::util::Objects;
 using $Consumer = ::java::util::function::Consumer;
 
@@ -68,95 +65,45 @@ public:
 	virtual void accept(Object$* _unused) override {
 		$nc(inst$)->lambda$setValue$0(context, initialValue, errorPos, successPos, $cast($Chronology, _unused));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0>());
-	}
 	DateTimeFormatterBuilder$ReducedPrinterParser* inst$ = nullptr;
 	$DateTimeParseContext* context = nullptr;
 	int64_t initialValue = 0;
 	int32_t errorPos = 0;
 	int32_t successPos = 0;
-	static $FieldInfo fieldInfos[6];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0::fieldInfos[6] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0, inst$)},
-	{"context", "Ljava/time/format/DateTimeParseContext;", nullptr, $PUBLIC, $field(DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0, context)},
-	{"initialValue", "J", nullptr, $PUBLIC, $field(DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0, initialValue)},
-	{"errorPos", "I", nullptr, $PUBLIC, $field(DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0, errorPos)},
-	{"successPos", "I", nullptr, $PUBLIC, $field(DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0, successPos)},
-	{}
-};
-$MethodInfo DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0::methodInfos[3] = {
-	{"<init>", "(Ljava/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;Ljava/time/format/DateTimeParseContext;JII)V", nullptr, $PUBLIC, $method(DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0, init$, void, DateTimeFormatterBuilder$ReducedPrinterParser*, $DateTimeParseContext*, int64_t, int32_t, int32_t)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0, accept, void, Object$*)},
-	{}
-};
-$ClassInfo DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.time.format.DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0::load$($String* name, bool initialize) {
-	$loadClass(DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0, inst$)},
+		{"context", "Ljava/time/format/DateTimeParseContext;", nullptr, $PUBLIC, $field(DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0, context)},
+		{"initialValue", "J", nullptr, $PUBLIC, $field(DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0, initialValue)},
+		{"errorPos", "I", nullptr, $PUBLIC, $field(DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0, errorPos)},
+		{"successPos", "I", nullptr, $PUBLIC, $field(DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0, successPos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;Ljava/time/format/DateTimeParseContext;JII)V", nullptr, $PUBLIC, $method(DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0, init$, void, DateTimeFormatterBuilder$ReducedPrinterParser*, $DateTimeParseContext*, int64_t, int32_t, int32_t)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.time.format.DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0);
+	});
 	return class$;
 }
 $Class* DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0::class$ = nullptr;
 
-$FieldInfo _DateTimeFormatterBuilder$ReducedPrinterParser_FieldInfo_[] = {
-	{"BASE_DATE", "Ljava/time/LocalDate;", nullptr, $STATIC | $FINAL, $staticField(DateTimeFormatterBuilder$ReducedPrinterParser, BASE_DATE)},
-	{"baseValue", "I", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$ReducedPrinterParser, baseValue)},
-	{"baseDate", "Ljava/time/chrono/ChronoLocalDate;", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$ReducedPrinterParser, baseDate)},
-	{}
-};
-
-$MethodInfo _DateTimeFormatterBuilder$ReducedPrinterParser_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/temporal/TemporalField;IIILjava/time/chrono/ChronoLocalDate;)V", nullptr, 0, $method(DateTimeFormatterBuilder$ReducedPrinterParser, init$, void, $TemporalField*, int32_t, int32_t, int32_t, $ChronoLocalDate*)},
-	{"<init>", "(Ljava/time/temporal/TemporalField;IIILjava/time/chrono/ChronoLocalDate;I)V", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$ReducedPrinterParser, init$, void, $TemporalField*, int32_t, int32_t, int32_t, $ChronoLocalDate*, int32_t)},
-	{"getValue", "(Ljava/time/format/DateTimePrintContext;J)J", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$ReducedPrinterParser, getValue, int64_t, $DateTimePrintContext*, int64_t)},
-	{"isFixedWidth", "(Ljava/time/format/DateTimeParseContext;)Z", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$ReducedPrinterParser, isFixedWidth, bool, $DateTimeParseContext*)},
-	{"lambda$setValue$0", "(Ljava/time/format/DateTimeParseContext;JIILjava/time/chrono/Chronology;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(DateTimeFormatterBuilder$ReducedPrinterParser, lambda$setValue$0, void, $DateTimeParseContext*, int64_t, int32_t, int32_t, $Chronology*)},
-	{"setValue", "(Ljava/time/format/DateTimeParseContext;JII)I", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$ReducedPrinterParser, setValue, int32_t, $DateTimeParseContext*, int64_t, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$ReducedPrinterParser, toString, $String*)},
-	{"withFixedWidth", "()Ljava/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$ReducedPrinterParser, withFixedWidth, DateTimeFormatterBuilder$ReducedPrinterParser*)},
-	{"withSubsequentWidth", "(I)Ljava/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$ReducedPrinterParser, withSubsequentWidth, DateTimeFormatterBuilder$ReducedPrinterParser*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _DateTimeFormatterBuilder$ReducedPrinterParser_InnerClassesInfo_[] = {
-	{"java.time.format.DateTimeFormatterBuilder$ReducedPrinterParser", "java.time.format.DateTimeFormatterBuilder", "ReducedPrinterParser", $STATIC | $FINAL},
-	{"java.time.format.DateTimeFormatterBuilder$NumberPrinterParser", "java.time.format.DateTimeFormatterBuilder", "NumberPrinterParser", $STATIC},
-	{}
-};
-
-$ClassInfo _DateTimeFormatterBuilder$ReducedPrinterParser_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.time.format.DateTimeFormatterBuilder$ReducedPrinterParser",
-	"java.time.format.DateTimeFormatterBuilder$NumberPrinterParser",
-	nullptr,
-	_DateTimeFormatterBuilder$ReducedPrinterParser_FieldInfo_,
-	_DateTimeFormatterBuilder$ReducedPrinterParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DateTimeFormatterBuilder$ReducedPrinterParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.format.DateTimeFormatterBuilder"
-};
-
-$Object* allocate$DateTimeFormatterBuilder$ReducedPrinterParser($Class* clazz) {
-	return $of($alloc(DateTimeFormatterBuilder$ReducedPrinterParser));
-}
-
 $LocalDate* DateTimeFormatterBuilder$ReducedPrinterParser::BASE_DATE = nullptr;
 
 void DateTimeFormatterBuilder$ReducedPrinterParser::init$($TemporalField* field, int32_t minWidth, int32_t maxWidth, int32_t baseValue, $ChronoLocalDate* baseDate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	DateTimeFormatterBuilder$ReducedPrinterParser::init$(field, minWidth, maxWidth, baseValue, baseDate, 0);
 	if (minWidth < 1 || minWidth > 10) {
 		$throwNew($IllegalArgumentException, $$str({"The minWidth must be from 1 to 10 inclusive but was "_s, $$str(minWidth)}));
@@ -168,7 +115,7 @@ void DateTimeFormatterBuilder$ReducedPrinterParser::init$($TemporalField* field,
 		$throwNew($IllegalArgumentException, $$str({"Maximum width must exceed or equal the minimum width but "_s, $$str(maxWidth), " < "_s, $$str(minWidth)}));
 	}
 	if (baseDate == nullptr) {
-		if ($nc($($nc(field)->range()))->isValidValue(baseValue) == false) {
+		if ($$nc($nc(field)->range())->isValidValue(baseValue) == false) {
 			$throwNew($IllegalArgumentException, "The base value must be within the range of the field"_s);
 		}
 		$init($DateTimeFormatterBuilder$NumberPrinterParser);
@@ -186,28 +133,28 @@ void DateTimeFormatterBuilder$ReducedPrinterParser::init$($TemporalField* field,
 }
 
 int64_t DateTimeFormatterBuilder$ReducedPrinterParser::getValue($DateTimePrintContext* context, int64_t value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t absValue = $Math::abs(value);
 	int32_t baseValue = this->baseValue;
 	if (this->baseDate != nullptr) {
 		$var($Chronology, chrono, $Chronology::from($($nc(context)->getTemporal())));
-		baseValue = $nc($($nc(chrono)->date(this->baseDate)))->get(this->field);
+		baseValue = $$nc($nc(chrono)->date(this->baseDate))->get(this->field);
 	}
 	$init($DateTimeFormatterBuilder$NumberPrinterParser);
 	if (value >= baseValue && value < baseValue + $nc($DateTimeFormatterBuilder$NumberPrinterParser::EXCEED_POINTS)->get(this->minWidth)) {
-		return $mod(absValue, $nc($DateTimeFormatterBuilder$NumberPrinterParser::EXCEED_POINTS)->get(this->minWidth));
+		return $mod(absValue, $DateTimeFormatterBuilder$NumberPrinterParser::EXCEED_POINTS->get(this->minWidth));
 	}
 	return $mod(absValue, $nc($DateTimeFormatterBuilder$NumberPrinterParser::EXCEED_POINTS)->get(this->maxWidth));
 }
 
 int32_t DateTimeFormatterBuilder$ReducedPrinterParser::setValue($DateTimeParseContext* context, int64_t value, int32_t errorPos, int32_t successPos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t baseValue = this->baseValue;
 	if (this->baseDate != nullptr) {
 		$var($Chronology, chrono, $nc(context)->getEffectiveChronology());
-		baseValue = $nc($($nc(chrono)->date(this->baseDate)))->get(this->field);
+		baseValue = $$nc($nc(chrono)->date(this->baseDate))->get(this->field);
 		int64_t initialValue = value;
-		context->addChronoChangedListener(static_cast<$Consumer*>($$new(DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0, this, context, initialValue, errorPos, successPos)));
+		context->addChronoChangedListener($$new(DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0, this, context, initialValue, errorPos, successPos));
 	}
 	int32_t parseLen = successPos - errorPos;
 	if (parseLen == this->minWidth && value >= 0) {
@@ -246,17 +193,25 @@ bool DateTimeFormatterBuilder$ReducedPrinterParser::isFixedWidth($DateTimeParseC
 }
 
 $String* DateTimeFormatterBuilder$ReducedPrinterParser::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({"ReducedValue("_s, this->field, ","_s, $$str(this->minWidth), ","_s, $$str(this->maxWidth), ","_s}));
-	$var($String, var$0, $$concat(var$1, $($Objects::requireNonNullElse(this->baseDate, $($Integer::valueOf(this->baseValue))))));
-	return $concat(var$0, ")"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("ReducedValue("_s);
+	var$0->append(this->field);
+	var$0->append(","_s);
+	var$0->append(this->minWidth);
+	var$0->append(","_s);
+	var$0->append(this->maxWidth);
+	var$0->append(","_s);
+	var$0->append($($Objects::requireNonNullElse(this->baseDate, $($Integer::valueOf(this->baseValue)))));
+	var$0->append(")"_s);
+	return $str(var$0);
 }
 
 void DateTimeFormatterBuilder$ReducedPrinterParser::lambda$setValue$0($DateTimeParseContext* context, int64_t initialValue, int32_t errorPos, int32_t successPos, $Chronology* _unused) {
 	setValue(context, initialValue, errorPos, successPos);
 }
 
-void clinit$DateTimeFormatterBuilder$ReducedPrinterParser($Class* class$) {
+void DateTimeFormatterBuilder$ReducedPrinterParser::clinit$($Class* clazz) {
 	$assignStatic(DateTimeFormatterBuilder$ReducedPrinterParser::BASE_DATE, $LocalDate::of(2000, 1, 1));
 }
 
@@ -265,11 +220,51 @@ DateTimeFormatterBuilder$ReducedPrinterParser::DateTimeFormatterBuilder$ReducedP
 
 $Class* DateTimeFormatterBuilder$ReducedPrinterParser::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0::classInfo$.name)) {
+		if (name->equals("java.time.format.DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0")) {
 			return DateTimeFormatterBuilder$ReducedPrinterParser$$Lambda$lambda$setValue$0::load$(name, initialize);
 		}
 	}
-	$loadClass(DateTimeFormatterBuilder$ReducedPrinterParser, name, initialize, &_DateTimeFormatterBuilder$ReducedPrinterParser_ClassInfo_, clinit$DateTimeFormatterBuilder$ReducedPrinterParser, allocate$DateTimeFormatterBuilder$ReducedPrinterParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"BASE_DATE", "Ljava/time/LocalDate;", nullptr, $STATIC | $FINAL, $staticField(DateTimeFormatterBuilder$ReducedPrinterParser, BASE_DATE)},
+		{"baseValue", "I", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$ReducedPrinterParser, baseValue)},
+		{"baseDate", "Ljava/time/chrono/ChronoLocalDate;", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$ReducedPrinterParser, baseDate)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/time/temporal/TemporalField;IIILjava/time/chrono/ChronoLocalDate;)V", nullptr, 0, $method(DateTimeFormatterBuilder$ReducedPrinterParser, init$, void, $TemporalField*, int32_t, int32_t, int32_t, $ChronoLocalDate*)},
+		{"<init>", "(Ljava/time/temporal/TemporalField;IIILjava/time/chrono/ChronoLocalDate;I)V", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$ReducedPrinterParser, init$, void, $TemporalField*, int32_t, int32_t, int32_t, $ChronoLocalDate*, int32_t)},
+		{"getValue", "(Ljava/time/format/DateTimePrintContext;J)J", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$ReducedPrinterParser, getValue, int64_t, $DateTimePrintContext*, int64_t)},
+		{"isFixedWidth", "(Ljava/time/format/DateTimeParseContext;)Z", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$ReducedPrinterParser, isFixedWidth, bool, $DateTimeParseContext*)},
+		{"lambda$setValue$0", "(Ljava/time/format/DateTimeParseContext;JIILjava/time/chrono/Chronology;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(DateTimeFormatterBuilder$ReducedPrinterParser, lambda$setValue$0, void, $DateTimeParseContext*, int64_t, int32_t, int32_t, $Chronology*)},
+		{"setValue", "(Ljava/time/format/DateTimeParseContext;JII)I", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$ReducedPrinterParser, setValue, int32_t, $DateTimeParseContext*, int64_t, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$ReducedPrinterParser, toString, $String*)},
+		{"withFixedWidth", "()Ljava/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$ReducedPrinterParser, withFixedWidth, DateTimeFormatterBuilder$ReducedPrinterParser*)},
+		{"withSubsequentWidth", "(I)Ljava/time/format/DateTimeFormatterBuilder$ReducedPrinterParser;", nullptr, 0, $virtualMethod(DateTimeFormatterBuilder$ReducedPrinterParser, withSubsequentWidth, DateTimeFormatterBuilder$ReducedPrinterParser*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.format.DateTimeFormatterBuilder$ReducedPrinterParser", "java.time.format.DateTimeFormatterBuilder", "ReducedPrinterParser", $STATIC | $FINAL},
+		{"java.time.format.DateTimeFormatterBuilder$NumberPrinterParser", "java.time.format.DateTimeFormatterBuilder", "NumberPrinterParser", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.time.format.DateTimeFormatterBuilder$ReducedPrinterParser",
+		"java.time.format.DateTimeFormatterBuilder$NumberPrinterParser",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.format.DateTimeFormatterBuilder"
+	};
+	$loadClass(DateTimeFormatterBuilder$ReducedPrinterParser, name, initialize, &classInfo$$, DateTimeFormatterBuilder$ReducedPrinterParser::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DateTimeFormatterBuilder$ReducedPrinterParser);
+	});
 	return class$;
 }
 

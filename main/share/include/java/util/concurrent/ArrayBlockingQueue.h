@@ -114,7 +114,7 @@ public:
 	virtual $ObjectArray* toArray() override;
 	virtual $ObjectArray* toArray($ObjectArray* a) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xF4A631B41E106F86;
+	static const int64_t serialVersionUID = (int64_t)0xf4a631b41e106f86;
 	$ObjectArray* items = nullptr;
 	int32_t takeIndex = 0;
 	int32_t putIndex = 0;

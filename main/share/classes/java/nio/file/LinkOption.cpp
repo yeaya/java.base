@@ -1,5 +1,4 @@
 #include <java/nio/file/LinkOption.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -14,39 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _LinkOption_FieldInfo_[] = {
-	{"NOFOLLOW_LINKS", "Ljava/nio/file/LinkOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LinkOption, NOFOLLOW_LINKS)},
-	{"$VALUES", "[Ljava/nio/file/LinkOption;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(LinkOption, $VALUES)},
-	{}
-};
-
-$MethodInfo _LinkOption_MethodInfo_[] = {
-	{"$values", "()[Ljava/nio/file/LinkOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LinkOption, $values, $LinkOptionArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(LinkOption, init$, void, $String*, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/LinkOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(LinkOption, valueOf, LinkOption*, $String*)},
-	{"values", "()[Ljava/nio/file/LinkOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(LinkOption, values, $LinkOptionArray*)},
-	{}
-};
-
-$ClassInfo _LinkOption_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.nio.file.LinkOption",
-	"java.lang.Enum",
-	"java.nio.file.OpenOption,java.nio.file.CopyOption",
-	_LinkOption_FieldInfo_,
-	_LinkOption_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/nio/file/LinkOption;>;Ljava/nio/file/OpenOption;Ljava/nio/file/CopyOption;"
-};
-
-$Object* allocate$LinkOption($Class* clazz) {
-	return $of($alloc(LinkOption));
-}
 
 $String* LinkOption::toString() {
 	 return this->$Enum::toString();
@@ -90,7 +56,7 @@ void LinkOption::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$LinkOption($Class* class$) {
+void LinkOption::clinit$($Class* clazz) {
 	$assignStatic(LinkOption::NOFOLLOW_LINKS, $new(LinkOption, "NOFOLLOW_LINKS"_s, 0));
 	$assignStatic(LinkOption::$VALUES, LinkOption::$values());
 }
@@ -99,7 +65,35 @@ LinkOption::LinkOption() {
 }
 
 $Class* LinkOption::load$($String* name, bool initialize) {
-	$loadClass(LinkOption, name, initialize, &_LinkOption_ClassInfo_, clinit$LinkOption, allocate$LinkOption);
+	$FieldInfo fieldInfos$$[] = {
+		{"NOFOLLOW_LINKS", "Ljava/nio/file/LinkOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LinkOption, NOFOLLOW_LINKS)},
+		{"$VALUES", "[Ljava/nio/file/LinkOption;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(LinkOption, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/nio/file/LinkOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LinkOption, $values, $LinkOptionArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(LinkOption, init$, void, $String*, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/LinkOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(LinkOption, valueOf, LinkOption*, $String*)},
+		{"values", "()[Ljava/nio/file/LinkOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(LinkOption, values, $LinkOptionArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.nio.file.LinkOption",
+		"java.lang.Enum",
+		"java.nio.file.OpenOption,java.nio.file.CopyOption",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/nio/file/LinkOption;>;Ljava/nio/file/OpenOption;Ljava/nio/file/CopyOption;"
+	};
+	$loadClass(LinkOption, name, initialize, &classInfo$$, LinkOption::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LinkOption));
+	});
 	return class$;
 }
 

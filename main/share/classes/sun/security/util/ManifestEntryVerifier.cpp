@@ -1,5 +1,4 @@
 #include <sun/security/util/ManifestEntryVerifier.h>
-
 #include <java/lang/SecurityException.h>
 #include <java/security/CodeSigner.h>
 #include <java/security/GeneralSecurityException.h>
@@ -21,7 +20,6 @@
 #include <java/util/jar/JarEntry.h>
 #include <java/util/jar/JarFile.h>
 #include <java/util/jar/Manifest.h>
-#include <sun/security/util/ConstraintsParameters.h>
 #include <sun/security/util/Debug.h>
 #include <sun/security/util/DisabledAlgorithmConstraints.h>
 #include <sun/security/util/JarConstraintsParameters.h>
@@ -42,7 +40,6 @@ using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $ArrayList = ::java::util::ArrayList;
 using $Base64 = ::java::util::Base64;
-using $Base64$Decoder = ::java::util::Base64$Decoder;
 using $HashMap = ::java::util::HashMap;
 using $Hashtable = ::java::util::Hashtable;
 using $HexFormat = ::java::util::HexFormat;
@@ -50,12 +47,10 @@ using $Iterator = ::java::util::Iterator;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $Attributes = ::java::util::jar::Attributes;
 using $JarEntry = ::java::util::jar::JarEntry;
 using $JarFile = ::java::util::jar::JarFile;
 using $Manifest = ::java::util::jar::Manifest;
-using $ConstraintsParameters = ::sun::security::util::ConstraintsParameters;
 using $Debug = ::sun::security::util::Debug;
 using $DisabledAlgorithmConstraints = ::sun::security::util::DisabledAlgorithmConstraints;
 using $JarConstraintsParameters = ::sun::security::util::JarConstraintsParameters;
@@ -64,54 +59,6 @@ using $ManifestEntryVerifier$SunProviderHolder = ::sun::security::util::Manifest
 namespace sun {
 	namespace security {
 		namespace util {
-
-$FieldInfo _ManifestEntryVerifier_FieldInfo_[] = {
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ManifestEntryVerifier, debug)},
-	{"createdDigests", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/security/MessageDigest;>;", 0, $field(ManifestEntryVerifier, createdDigests)},
-	{"digests", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/security/MessageDigest;>;", 0, $field(ManifestEntryVerifier, digests)},
-	{"manifestHashes", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<[B>;", 0, $field(ManifestEntryVerifier, manifestHashes)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ManifestEntryVerifier, name)},
-	{"man", "Ljava/util/jar/Manifest;", nullptr, $PRIVATE, $field(ManifestEntryVerifier, man)},
-	{"skip", "Z", nullptr, $PRIVATE, $field(ManifestEntryVerifier, skip)},
-	{"entry", "Ljava/util/jar/JarEntry;", nullptr, $PRIVATE, $field(ManifestEntryVerifier, entry)},
-	{"signers", "[Ljava/security/CodeSigner;", nullptr, $PRIVATE, $field(ManifestEntryVerifier, signers)},
-	{}
-};
-
-$MethodInfo _ManifestEntryVerifier_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/jar/Manifest;)V", nullptr, $PUBLIC, $method(ManifestEntryVerifier, init$, void, $Manifest*)},
-	{"getEntry", "()Ljava/util/jar/JarEntry;", nullptr, $PUBLIC, $virtualMethod(ManifestEntryVerifier, getEntry, $JarEntry*)},
-	{"getParams", "(Ljava/util/Map;Ljava/util/Map;)Lsun/security/util/JarConstraintsParameters;", "(Ljava/util/Map<Ljava/lang/String;[Ljava/security/CodeSigner;>;Ljava/util/Map<Ljava/lang/String;[Ljava/security/CodeSigner;>;)Lsun/security/util/JarConstraintsParameters;", $PRIVATE, $method(ManifestEntryVerifier, getParams, $JarConstraintsParameters*, $Map*, $Map*)},
-	{"setEntry", "(Ljava/lang/String;Ljava/util/jar/JarEntry;)V", nullptr, $PUBLIC, $virtualMethod(ManifestEntryVerifier, setEntry, void, $String*, $JarEntry*), "java.io.IOException"},
-	{"update", "(B)V", nullptr, $PUBLIC, $virtualMethod(ManifestEntryVerifier, update, void, int8_t)},
-	{"update", "([BII)V", nullptr, $PUBLIC, $virtualMethod(ManifestEntryVerifier, update, void, $bytes*, int32_t, int32_t)},
-	{"verify", "(Ljava/util/Hashtable;Ljava/util/Hashtable;)[Ljava/security/CodeSigner;", "(Ljava/util/Hashtable<Ljava/lang/String;[Ljava/security/CodeSigner;>;Ljava/util/Hashtable<Ljava/lang/String;[Ljava/security/CodeSigner;>;)[Ljava/security/CodeSigner;", $PUBLIC, $virtualMethod(ManifestEntryVerifier, verify, $CodeSignerArray*, $Hashtable*, $Hashtable*), "java.util.jar.JarException"},
-	{}
-};
-
-$InnerClassInfo _ManifestEntryVerifier_InnerClassesInfo_[] = {
-	{"sun.security.util.ManifestEntryVerifier$SunProviderHolder", "sun.security.util.ManifestEntryVerifier", "SunProviderHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ManifestEntryVerifier_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.ManifestEntryVerifier",
-	"java.lang.Object",
-	nullptr,
-	_ManifestEntryVerifier_FieldInfo_,
-	_ManifestEntryVerifier_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ManifestEntryVerifier_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.util.ManifestEntryVerifier$SunProviderHolder"
-};
-
-$Object* allocate$ManifestEntryVerifier($Class* clazz) {
-	return $of($alloc(ManifestEntryVerifier));
-}
 
 $Debug* ManifestEntryVerifier::debug = nullptr;
 
@@ -126,7 +73,7 @@ void ManifestEntryVerifier::init$($Manifest* man) {
 }
 
 void ManifestEntryVerifier::setEntry($String* name, $JarEntry* entry) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->digests)->clear();
 	$nc(this->manifestHashes)->clear();
 	$set(this, name, name);
@@ -148,11 +95,11 @@ void ManifestEntryVerifier::setEntry($String* name, $JarEntry* entry) {
 		}
 	}
 	{
-		$var($Iterator, i$, $nc($($nc(attr)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(attr)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, se, $cast($Map$Entry, i$->next()));
 			{
-				$var($String, key, $nc($of($($nc(se)->getKey())))->toString());
+				$var($String, key, $$nc($nc(se)->getKey())->toString());
 				$init($Locale);
 				if ($($nc(key)->toUpperCase($Locale::ENGLISH))->endsWith("-DIGEST"_s)) {
 					$var($String, algorithm, key->substring(0, key->length() - 7));
@@ -161,14 +108,14 @@ void ManifestEntryVerifier::setEntry($String* name, $JarEntry* entry) {
 						try {
 							$init($ManifestEntryVerifier$SunProviderHolder);
 							$assign(digest, $MessageDigest::getInstance(algorithm, $ManifestEntryVerifier$SunProviderHolder::instance));
-							$nc(this->createdDigests)->put(algorithm, digest);
+							this->createdDigests->put(algorithm, digest);
 						} catch ($NoSuchAlgorithmException& nsae) {
 						}
 					}
 					if (digest != nullptr) {
 						digest->reset();
 						$nc(this->digests)->add(digest);
-						$nc(this->manifestHashes)->add($($nc($($Base64::getMimeDecoder()))->decode($cast($String, $(se->getValue())))));
+						$nc(this->manifestHashes)->add($($$nc($Base64::getMimeDecoder())->decode($$cast($String, se->getValue()))));
 					}
 				}
 			}
@@ -177,22 +124,22 @@ void ManifestEntryVerifier::setEntry($String* name, $JarEntry* entry) {
 }
 
 void ManifestEntryVerifier::update(int8_t buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skip) {
 		return;
 	}
 	for (int32_t i = 0; i < $nc(this->digests)->size(); ++i) {
-		$nc(($cast($MessageDigest, $($nc(this->digests)->get(i)))))->update(buffer);
+		$$sure($MessageDigest, this->digests->get(i))->update(buffer);
 	}
 }
 
 void ManifestEntryVerifier::update($bytes* buffer, int32_t off, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skip) {
 		return;
 	}
 	for (int32_t i = 0; i < $nc(this->digests)->size(); ++i) {
-		$nc(($cast($MessageDigest, $($nc(this->digests)->get(i)))))->update(buffer, off, len);
+		$$sure($MessageDigest, this->digests->get(i))->update(buffer, off, len);
 	}
 }
 
@@ -201,7 +148,7 @@ $JarEntry* ManifestEntryVerifier::getEntry() {
 }
 
 $CodeSignerArray* ManifestEntryVerifier::verify($Hashtable* verifiedSigners, $Hashtable* sigFileSigners) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->skip) {
 		return nullptr;
 	}
@@ -212,16 +159,16 @@ $CodeSignerArray* ManifestEntryVerifier::verify($Hashtable* verifiedSigners, $Ha
 		return this->signers;
 	}
 	$var($JarConstraintsParameters, params, getParams(verifiedSigners, sigFileSigners));
-	for (int32_t i = 0; i < $nc(this->digests)->size(); ++i) {
-		$var($MessageDigest, digest, $cast($MessageDigest, $nc(this->digests)->get(i)));
+	for (int32_t i = 0; i < this->digests->size(); ++i) {
+		$var($MessageDigest, digest, $cast($MessageDigest, this->digests->get(i)));
 		if (params != nullptr) {
 			try {
 				$init($JarFile);
 				params->setExtendedExceptionMsg($JarFile::MANIFEST_NAME, $$str({this->name, " entry"_s}));
-				$nc($($DisabledAlgorithmConstraints::jarConstraints()))->permits($($nc(digest)->getAlgorithm()), static_cast<$ConstraintsParameters*>(params));
+				$$nc($DisabledAlgorithmConstraints::jarConstraints())->permits($($nc(digest)->getAlgorithm()), params);
 			} catch ($GeneralSecurityException& e) {
 				if (ManifestEntryVerifier::debug != nullptr) {
-					$nc(ManifestEntryVerifier::debug)->println($$str({"Digest algorithm is restricted: "_s, e}));
+					ManifestEntryVerifier::debug->println($$str({"Digest algorithm is restricted: "_s, e}));
 				}
 				return nullptr;
 			}
@@ -229,10 +176,10 @@ $CodeSignerArray* ManifestEntryVerifier::verify($Hashtable* verifiedSigners, $Ha
 		$var($bytes, manHash, $cast($bytes, $nc(this->manifestHashes)->get(i)));
 		$var($bytes, theHash, $nc(digest)->digest());
 		if (ManifestEntryVerifier::debug != nullptr) {
-			$nc(ManifestEntryVerifier::debug)->println($$str({"Manifest Entry: "_s, this->name, " digest="_s, $(digest->getAlgorithm())}));
-			$nc(ManifestEntryVerifier::debug)->println($$str({"  manifest "_s, $($nc($($HexFormat::of()))->formatHex(manHash))}));
-			$nc(ManifestEntryVerifier::debug)->println($$str({"  computed "_s, $($nc($($HexFormat::of()))->formatHex(theHash))}));
-			$nc(ManifestEntryVerifier::debug)->println();
+			ManifestEntryVerifier::debug->println($$str({"Manifest Entry: "_s, this->name, " digest="_s, $(digest->getAlgorithm())}));
+			ManifestEntryVerifier::debug->println($$str({"  manifest "_s, $($$nc($HexFormat::of())->formatHex(manHash))}));
+			ManifestEntryVerifier::debug->println($$str({"  computed "_s, $($$nc($HexFormat::of())->formatHex(theHash))}));
+			ManifestEntryVerifier::debug->println();
 		}
 		if (!$MessageDigest::isEqual(theHash, manHash)) {
 			$throwNew($SecurityException, $$str({$(digest->getAlgorithm()), " digest error for "_s, this->name}));
@@ -246,13 +193,13 @@ $CodeSignerArray* ManifestEntryVerifier::verify($Hashtable* verifiedSigners, $Ha
 }
 
 $JarConstraintsParameters* ManifestEntryVerifier::getParams($Map* verifiedSigners, $Map* sigFileSigners) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JarFile);
 	if ($nc(verifiedSigners)->containsKey($JarFile::MANIFEST_NAME)) {
 		if (verifiedSigners->size() > 1) {
 			return nullptr;
 		} else {
-			return $new($JarConstraintsParameters, $cast($CodeSignerArray, $(verifiedSigners->get($JarFile::MANIFEST_NAME))));
+			return $new($JarConstraintsParameters, $$cast($CodeSignerArray, verifiedSigners->get($JarFile::MANIFEST_NAME)));
 		}
 	} else {
 		$var($CodeSignerArray, signers, $cast($CodeSignerArray, $nc(sigFileSigners)->get(this->name)));
@@ -264,7 +211,7 @@ $JarConstraintsParameters* ManifestEntryVerifier::getParams($Map* verifiedSigner
 	}
 }
 
-void clinit$ManifestEntryVerifier($Class* class$) {
+void ManifestEntryVerifier::clinit$($Class* clazz) {
 	$assignStatic(ManifestEntryVerifier::debug, $Debug::getInstance("jar"_s));
 }
 
@@ -272,7 +219,49 @@ ManifestEntryVerifier::ManifestEntryVerifier() {
 }
 
 $Class* ManifestEntryVerifier::load$($String* name, bool initialize) {
-	$loadClass(ManifestEntryVerifier, name, initialize, &_ManifestEntryVerifier_ClassInfo_, clinit$ManifestEntryVerifier, allocate$ManifestEntryVerifier);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ManifestEntryVerifier, debug)},
+		{"createdDigests", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/security/MessageDigest;>;", 0, $field(ManifestEntryVerifier, createdDigests)},
+		{"digests", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/security/MessageDigest;>;", 0, $field(ManifestEntryVerifier, digests)},
+		{"manifestHashes", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<[B>;", 0, $field(ManifestEntryVerifier, manifestHashes)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ManifestEntryVerifier, name)},
+		{"man", "Ljava/util/jar/Manifest;", nullptr, $PRIVATE, $field(ManifestEntryVerifier, man)},
+		{"skip", "Z", nullptr, $PRIVATE, $field(ManifestEntryVerifier, skip)},
+		{"entry", "Ljava/util/jar/JarEntry;", nullptr, $PRIVATE, $field(ManifestEntryVerifier, entry)},
+		{"signers", "[Ljava/security/CodeSigner;", nullptr, $PRIVATE, $field(ManifestEntryVerifier, signers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/jar/Manifest;)V", nullptr, $PUBLIC, $method(ManifestEntryVerifier, init$, void, $Manifest*)},
+		{"getEntry", "()Ljava/util/jar/JarEntry;", nullptr, $PUBLIC, $virtualMethod(ManifestEntryVerifier, getEntry, $JarEntry*)},
+		{"getParams", "(Ljava/util/Map;Ljava/util/Map;)Lsun/security/util/JarConstraintsParameters;", "(Ljava/util/Map<Ljava/lang/String;[Ljava/security/CodeSigner;>;Ljava/util/Map<Ljava/lang/String;[Ljava/security/CodeSigner;>;)Lsun/security/util/JarConstraintsParameters;", $PRIVATE, $method(ManifestEntryVerifier, getParams, $JarConstraintsParameters*, $Map*, $Map*)},
+		{"setEntry", "(Ljava/lang/String;Ljava/util/jar/JarEntry;)V", nullptr, $PUBLIC, $virtualMethod(ManifestEntryVerifier, setEntry, void, $String*, $JarEntry*), "java.io.IOException"},
+		{"update", "(B)V", nullptr, $PUBLIC, $virtualMethod(ManifestEntryVerifier, update, void, int8_t)},
+		{"update", "([BII)V", nullptr, $PUBLIC, $virtualMethod(ManifestEntryVerifier, update, void, $bytes*, int32_t, int32_t)},
+		{"verify", "(Ljava/util/Hashtable;Ljava/util/Hashtable;)[Ljava/security/CodeSigner;", "(Ljava/util/Hashtable<Ljava/lang/String;[Ljava/security/CodeSigner;>;Ljava/util/Hashtable<Ljava/lang/String;[Ljava/security/CodeSigner;>;)[Ljava/security/CodeSigner;", $PUBLIC, $virtualMethod(ManifestEntryVerifier, verify, $CodeSignerArray*, $Hashtable*, $Hashtable*), "java.util.jar.JarException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.ManifestEntryVerifier$SunProviderHolder", "sun.security.util.ManifestEntryVerifier", "SunProviderHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.ManifestEntryVerifier",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.util.ManifestEntryVerifier$SunProviderHolder"
+	};
+	$loadClass(ManifestEntryVerifier, name, initialize, &classInfo$$, ManifestEntryVerifier::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ManifestEntryVerifier);
+	});
 	return class$;
 }
 

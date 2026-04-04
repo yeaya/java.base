@@ -27,6 +27,7 @@ class ObjectOutputStream$Caches : public ::java::lang::Object {
 	$class(ObjectOutputStream$Caches, 0, ::java::lang::Object)
 public:
 	ObjectOutputStream$Caches();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::concurrent::ConcurrentMap* subclassAudits;
 	static ::java::lang::ref::ReferenceQueue* subclassAuditsQueue;

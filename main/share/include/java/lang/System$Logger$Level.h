@@ -29,6 +29,7 @@ class $import System$Logger$Level : public ::java::lang::Enum {
 public:
 	System$Logger$Level();
 	static $Array<::java::lang::System$Logger$Level>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t severity);
 	$String* getName();
 	int32_t getSeverity();

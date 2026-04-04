@@ -1,5 +1,4 @@
 #include <java/lang/ProcessEnvironment$StringEntrySet.h>
-
 #include <java/lang/ProcessEnvironment$StringEntry.h>
 #include <java/lang/ProcessEnvironment$StringEntrySet$1.h>
 #include <java/lang/ProcessEnvironment$StringEntrySet$2.h>
@@ -25,53 +24,6 @@ using $Set = ::java::util::Set;
 namespace java {
 	namespace lang {
 
-$FieldInfo _ProcessEnvironment$StringEntrySet_FieldInfo_[] = {
-	{"s", "Ljava/util/Set;", "Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/ProcessEnvironment$Variable;Ljava/lang/ProcessEnvironment$Value;>;>;", $PRIVATE | $FINAL, $field(ProcessEnvironment$StringEntrySet, s)},
-	{}
-};
-
-$MethodInfo _ProcessEnvironment$StringEntrySet_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/ProcessEnvironment$Variable;Ljava/lang/ProcessEnvironment$Value;>;>;)V", $PUBLIC, $method(ProcessEnvironment$StringEntrySet, init$, void, $Set*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEntrySet, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEntrySet, contains, bool, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEntrySet, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEntrySet, hashCode, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEntrySet, isEmpty, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(ProcessEnvironment$StringEntrySet, iterator, $Iterator*)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEntrySet, remove, bool, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEntrySet, size, int32_t)},
-	{"vvEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(Ljava/lang/Object;)Ljava/util/Map$Entry<Ljava/lang/ProcessEnvironment$Variable;Ljava/lang/ProcessEnvironment$Value;>;", $PRIVATE | $STATIC, $staticMethod(ProcessEnvironment$StringEntrySet, vvEntry, $Map$Entry*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _ProcessEnvironment$StringEntrySet_InnerClassesInfo_[] = {
-	{"java.lang.ProcessEnvironment$StringEntrySet", "java.lang.ProcessEnvironment", "StringEntrySet", $PRIVATE | $STATIC},
-	{"java.lang.ProcessEnvironment$StringEntrySet$2", nullptr, nullptr, 0},
-	{"java.lang.ProcessEnvironment$StringEntrySet$1", nullptr, nullptr, 0},
-	{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ProcessEnvironment$StringEntrySet_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.ProcessEnvironment$StringEntrySet",
-	"java.util.AbstractSet",
-	nullptr,
-	_ProcessEnvironment$StringEntrySet_FieldInfo_,
-	_ProcessEnvironment$StringEntrySet_MethodInfo_,
-	"Ljava/util/AbstractSet<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;>;",
-	nullptr,
-	_ProcessEnvironment$StringEntrySet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.ProcessEnvironment"
-};
-
-$Object* allocate$ProcessEnvironment$StringEntrySet($Class* clazz) {
-	return $of($alloc(ProcessEnvironment$StringEntrySet));
-}
-
 void ProcessEnvironment$StringEntrySet::init$($Set* s) {
 	$AbstractSet::init$();
 	$set(this, s, s);
@@ -96,7 +48,7 @@ $Iterator* ProcessEnvironment$StringEntrySet::iterator() {
 $Map$Entry* ProcessEnvironment$StringEntrySet::vvEntry(Object$* o) {
 	$init(ProcessEnvironment$StringEntrySet);
 	if ($instanceOf($ProcessEnvironment$StringEntry, o)) {
-		return $nc(($cast($ProcessEnvironment$StringEntry, o)))->e;
+		return $cast($ProcessEnvironment$StringEntry, o)->e;
 	}
 	return $new($ProcessEnvironment$StringEntrySet$2, o);
 }
@@ -110,7 +62,7 @@ bool ProcessEnvironment$StringEntrySet::remove(Object$* o) {
 }
 
 bool ProcessEnvironment$StringEntrySet::equals(Object$* o) {
-	return $instanceOf(ProcessEnvironment$StringEntrySet, o) && $nc(this->s)->equals($nc(($cast(ProcessEnvironment$StringEntrySet, o)))->s);
+	return $instanceOf(ProcessEnvironment$StringEntrySet, o) && $nc(this->s)->equals($cast(ProcessEnvironment$StringEntrySet, o)->s);
 }
 
 int32_t ProcessEnvironment$StringEntrySet::hashCode() {
@@ -121,7 +73,48 @@ ProcessEnvironment$StringEntrySet::ProcessEnvironment$StringEntrySet() {
 }
 
 $Class* ProcessEnvironment$StringEntrySet::load$($String* name, bool initialize) {
-	$loadClass(ProcessEnvironment$StringEntrySet, name, initialize, &_ProcessEnvironment$StringEntrySet_ClassInfo_, allocate$ProcessEnvironment$StringEntrySet);
+	$FieldInfo fieldInfos$$[] = {
+		{"s", "Ljava/util/Set;", "Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/ProcessEnvironment$Variable;Ljava/lang/ProcessEnvironment$Value;>;>;", $PRIVATE | $FINAL, $field(ProcessEnvironment$StringEntrySet, s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/ProcessEnvironment$Variable;Ljava/lang/ProcessEnvironment$Value;>;>;)V", $PUBLIC, $method(ProcessEnvironment$StringEntrySet, init$, void, $Set*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEntrySet, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEntrySet, contains, bool, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEntrySet, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEntrySet, hashCode, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEntrySet, isEmpty, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(ProcessEnvironment$StringEntrySet, iterator, $Iterator*)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEntrySet, remove, bool, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$StringEntrySet, size, int32_t)},
+		{"vvEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(Ljava/lang/Object;)Ljava/util/Map$Entry<Ljava/lang/ProcessEnvironment$Variable;Ljava/lang/ProcessEnvironment$Value;>;", $PRIVATE | $STATIC, $staticMethod(ProcessEnvironment$StringEntrySet, vvEntry, $Map$Entry*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ProcessEnvironment$StringEntrySet", "java.lang.ProcessEnvironment", "StringEntrySet", $PRIVATE | $STATIC},
+		{"java.lang.ProcessEnvironment$StringEntrySet$2", nullptr, nullptr, 0},
+		{"java.lang.ProcessEnvironment$StringEntrySet$1", nullptr, nullptr, 0},
+		{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.ProcessEnvironment$StringEntrySet",
+		"java.util.AbstractSet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractSet<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.ProcessEnvironment"
+	};
+	$loadClass(ProcessEnvironment$StringEntrySet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ProcessEnvironment$StringEntrySet));
+	});
 	return class$;
 }
 

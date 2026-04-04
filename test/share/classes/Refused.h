@@ -27,6 +27,7 @@ class $export Refused : public ::java::lang::Object {
 	$class(Refused, 0, ::java::lang::Object)
 public:
 	Refused();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void setup();

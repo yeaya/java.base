@@ -48,6 +48,7 @@ public:
 	DESedeWrapCipher();
 	using ::javax::crypto::CipherSpi::engineUpdate;
 	using ::javax::crypto::CipherSpi::engineDoFinal;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $bytes* engineDoFinal($bytes* in, int32_t inOffset, int32_t inLen) override;
 	virtual int32_t engineDoFinal($bytes* input, int32_t inputOffset, int32_t inputLen, $bytes* output, int32_t outputOffset) override;

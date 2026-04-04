@@ -65,6 +65,7 @@ class NamedGroup : public ::java::lang::Enum {
 public:
 	NamedGroup();
 	static $Array<::sun::security::ssl::NamedGroup>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t id, $String* name, ::sun::security::ssl::NamedGroup$NamedGroupSpec* namedGroupSpec, $Array<::sun::security::ssl::ProtocolVersion>* supportedProtocols, ::java::security::spec::AlgorithmParameterSpec* keAlgParamSpec);
 	virtual ::sun::security::ssl::SSLKeyDerivation* createKeyDerivation(::sun::security::ssl::HandshakeContext* hc);
 	virtual ::sun::security::ssl::SSLPossession* createPossession(::java::security::SecureRandom* random);

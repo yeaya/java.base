@@ -21,6 +21,7 @@ class $export SquareRootTests : public ::java::lang::Object {
 	$class(SquareRootTests, 0, ::java::lang::Object)
 public:
 	SquareRootTests();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t almostFourRoundingDown();
 	static int32_t almostFourRoundingUp();

@@ -40,6 +40,7 @@ class $import DateTimeFormatterBuilder$DayPeriod : public ::java::lang::Object {
 	$class(DateTimeFormatterBuilder$DayPeriod, 0, ::java::lang::Object)
 public:
 	DateTimeFormatterBuilder$DayPeriod();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t from, int64_t to, int64_t index);
 	int64_t duration();
 	virtual bool equals(Object$* o) override;

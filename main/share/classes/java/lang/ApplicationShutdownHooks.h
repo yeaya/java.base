@@ -23,6 +23,7 @@ class ApplicationShutdownHooks : public ::java::lang::Object {
 	$class(ApplicationShutdownHooks, 0, ::java::lang::Object)
 public:
 	ApplicationShutdownHooks();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void add($Thread* hook);
 	static bool remove($Thread* hook);

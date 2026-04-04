@@ -21,6 +21,7 @@ class $export Shadow : public ::java::lang::Object {
 	$class(Shadow, 0, ::java::lang::Object)
 public:
 	Shadow();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void check(::java::net::Socket* s);
 	static void dump(::java::net::ServerSocket* s);

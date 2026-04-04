@@ -1,5 +1,4 @@
 #include <sun/security/provider/JavaKeyStore$JKS.h>
-
 #include <java/util/Locale.h>
 #include <sun/security/provider/JavaKeyStore.h>
 #include <jcpp.h>
@@ -16,37 +15,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$MethodInfo _JavaKeyStore$JKS_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavaKeyStore$JKS, init$, void)},
-	{"convertAlias", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(JavaKeyStore$JKS, convertAlias, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _JavaKeyStore$JKS_InnerClassesInfo_[] = {
-	{"sun.security.provider.JavaKeyStore$JKS", "sun.security.provider.JavaKeyStore", "JKS", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _JavaKeyStore$JKS_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.provider.JavaKeyStore$JKS",
-	"sun.security.provider.JavaKeyStore",
-	nullptr,
-	nullptr,
-	_JavaKeyStore$JKS_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavaKeyStore$JKS_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.JavaKeyStore"
-};
-
-$Object* allocate$JavaKeyStore$JKS($Class* clazz) {
-	return $of($alloc(JavaKeyStore$JKS));
-}
-
 void JavaKeyStore$JKS::init$() {
 	$JavaKeyStore::init$();
 }
@@ -60,7 +28,33 @@ JavaKeyStore$JKS::JavaKeyStore$JKS() {
 }
 
 $Class* JavaKeyStore$JKS::load$($String* name, bool initialize) {
-	$loadClass(JavaKeyStore$JKS, name, initialize, &_JavaKeyStore$JKS_ClassInfo_, allocate$JavaKeyStore$JKS);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavaKeyStore$JKS, init$, void)},
+		{"convertAlias", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(JavaKeyStore$JKS, convertAlias, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.JavaKeyStore$JKS", "sun.security.provider.JavaKeyStore", "JKS", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.provider.JavaKeyStore$JKS",
+		"sun.security.provider.JavaKeyStore",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.JavaKeyStore"
+	};
+	$loadClass(JavaKeyStore$JKS, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavaKeyStore$JKS);
+	});
 	return class$;
 }
 

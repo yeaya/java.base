@@ -47,6 +47,7 @@ class ClientHello$ClientHelloMessage : public ::sun::security::ssl::SSLHandshake
 	$class(ClientHello$ClientHelloMessage, 0, ::sun::security::ssl::SSLHandshake$HandshakeMessage)
 public:
 	ClientHello$ClientHelloMessage();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::ssl::HandshakeContext* handshakeContext, int32_t clientVersion, ::sun::security::ssl::SessionId* sessionId, ::java::util::List* cipherSuites, ::java::security::SecureRandom* generator);
 	void init$(::sun::security::ssl::HandshakeContext* handshakeContext, ::java::nio::ByteBuffer* m, $Array<::sun::security::ssl::SSLExtension>* supportedExtensions);
 	static $ints* getCipherSuiteIds(::java::util::List* cipherSuites);

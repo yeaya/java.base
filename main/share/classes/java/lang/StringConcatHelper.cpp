@@ -1,5 +1,4 @@
 #include <java/lang/StringConcatHelper.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/InternalError.h>
@@ -33,90 +32,15 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $StringLatin1 = ::java::lang::StringLatin1;
 using $StringUTF16 = ::java::lang::StringUTF16;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $MethodType = ::java::lang::invoke::MethodType;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace java {
 	namespace lang {
-
-$CompoundAttribute _StringConcatHelper_MethodAnnotations_newArray11[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringConcatHelper_MethodAnnotations_newArrayWithSuffix12[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringConcatHelper_MethodAnnotations_newStringOf14[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringConcatHelper_MethodAnnotations_simpleConcat27[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$FieldInfo _StringConcatHelper_FieldInfo_[] = {
-	{"LATIN1", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringConcatHelper, LATIN1)},
-	{"UTF16", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringConcatHelper, UTF16)},
-	{"UNSAFE", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StringConcatHelper, UNSAFE)},
-	{}
-};
-
-$MethodInfo _StringConcatHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(StringConcatHelper, init$, void)},
-	{"checkOverflow", "(J)J", nullptr, $PRIVATE | $STATIC, $staticMethod(StringConcatHelper, checkOverflow, int64_t, int64_t)},
-	{"initialCoder", "()J", nullptr, $STATIC, $staticMethod(StringConcatHelper, initialCoder, int64_t)},
-	{"lookupStatic", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(StringConcatHelper, lookupStatic, $MethodHandle*, $String*, $MethodType*)},
-	{"mix", "(JZ)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, mix, int64_t, int64_t, bool)},
-	{"mix", "(JB)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, mix, int64_t, int64_t, int8_t)},
-	{"mix", "(JC)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, mix, int64_t, int64_t, char16_t)},
-	{"mix", "(JS)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, mix, int64_t, int64_t, int16_t)},
-	{"mix", "(JI)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, mix, int64_t, int64_t, int32_t)},
-	{"mix", "(JJ)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, mix, int64_t, int64_t, int64_t)},
-	{"mix", "(JLjava/lang/String;)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, mix, int64_t, int64_t, $String*)},
-	{"newArray", "(J)[B", nullptr, $STATIC, $staticMethod(StringConcatHelper, newArray, $bytes*, int64_t), nullptr, nullptr, _StringConcatHelper_MethodAnnotations_newArray11},
-	{"newArrayWithSuffix", "(Ljava/lang/String;J)[B", nullptr, $STATIC, $staticMethod(StringConcatHelper, newArrayWithSuffix, $bytes*, $String*, int64_t), nullptr, nullptr, _StringConcatHelper_MethodAnnotations_newArrayWithSuffix12},
-	{"newString", "([BJ)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StringConcatHelper, newString, $String*, $bytes*, int64_t)},
-	{"newStringOf", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StringConcatHelper, newStringOf, $String*, Object$*), nullptr, nullptr, _StringConcatHelper_MethodAnnotations_newStringOf14},
-	{"prepend", "(J[BZ)J", nullptr, $PRIVATE | $STATIC, $staticMethod(StringConcatHelper, prepend, int64_t, int64_t, $bytes*, bool)},
-	{"prepend", "(J[BZLjava/lang/String;)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, prepend, int64_t, int64_t, $bytes*, bool, $String*)},
-	{"prepend", "(J[BBLjava/lang/String;)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, prepend, int64_t, int64_t, $bytes*, int8_t, $String*)},
-	{"prepend", "(J[BC)J", nullptr, $PRIVATE | $STATIC, $staticMethod(StringConcatHelper, prepend, int64_t, int64_t, $bytes*, char16_t)},
-	{"prepend", "(J[BCLjava/lang/String;)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, prepend, int64_t, int64_t, $bytes*, char16_t, $String*)},
-	{"prepend", "(J[BSLjava/lang/String;)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, prepend, int64_t, int64_t, $bytes*, int16_t, $String*)},
-	{"prepend", "(J[BI)J", nullptr, $PRIVATE | $STATIC, $staticMethod(StringConcatHelper, prepend, int64_t, int64_t, $bytes*, int32_t)},
-	{"prepend", "(J[BILjava/lang/String;)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, prepend, int64_t, int64_t, $bytes*, int32_t, $String*)},
-	{"prepend", "(J[BJ)J", nullptr, $PRIVATE | $STATIC, $staticMethod(StringConcatHelper, prepend, int64_t, int64_t, $bytes*, int64_t)},
-	{"prepend", "(J[BJLjava/lang/String;)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, prepend, int64_t, int64_t, $bytes*, int64_t, $String*)},
-	{"prepend", "(J[BLjava/lang/String;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(StringConcatHelper, prepend, int64_t, int64_t, $bytes*, $String*)},
-	{"prepend", "(J[BLjava/lang/String;Ljava/lang/String;)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, prepend, int64_t, int64_t, $bytes*, $String*, $String*)},
-	{"simpleConcat", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StringConcatHelper, simpleConcat, $String*, Object$*, Object$*), nullptr, nullptr, _StringConcatHelper_MethodAnnotations_simpleConcat27},
-	{"stringOf", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StringConcatHelper, stringOf, $String*, Object$*)},
-	{}
-};
-
-$ClassInfo _StringConcatHelper_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.StringConcatHelper",
-	"java.lang.Object",
-	nullptr,
-	_StringConcatHelper_FieldInfo_,
-	_StringConcatHelper_MethodInfo_
-};
-
-$Object* allocate$StringConcatHelper($Class* clazz) {
-	return $of($alloc(StringConcatHelper));
-}
 
 $Unsafe* StringConcatHelper::UNSAFE = nullptr;
 
@@ -144,7 +68,7 @@ int64_t StringConcatHelper::mix(int64_t lengthCoder, int8_t value) {
 int64_t StringConcatHelper::mix(int64_t lengthCoder, char16_t value) {
 	$init(StringConcatHelper);
 	int64_t var$0 = checkOverflow(lengthCoder + 1);
-	return var$0 | ($StringLatin1::canEncode(value) ? (int64_t)0 : StringConcatHelper::UTF16);
+	return var$0 | ($StringLatin1::canEncode(value) ? 0 : StringConcatHelper::UTF16);
 }
 
 int64_t StringConcatHelper::mix(int64_t lengthCoder, int16_t value) {
@@ -226,7 +150,7 @@ int64_t StringConcatHelper::prepend(int64_t indexCoder, $bytes* buf, int8_t valu
 int64_t StringConcatHelper::prepend(int64_t indexCoder, $bytes* buf, char16_t value) {
 	$init(StringConcatHelper);
 	if (indexCoder < StringConcatHelper::UTF16) {
-		$nc(buf)->set((int32_t)(--indexCoder), (int8_t)((int32_t)(value & (uint32_t)255)));
+		$nc(buf)->set((int32_t)(--indexCoder), (int8_t)(value & 0xff));
 	} else {
 		$StringUTF16::putChar(buf, (int32_t)(--indexCoder), value);
 	}
@@ -309,7 +233,7 @@ int64_t StringConcatHelper::prepend(int64_t indexCoder, $bytes* buf, $String* va
 
 $String* StringConcatHelper::newString($bytes* buf, int64_t indexCoder) {
 	$init(StringConcatHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (indexCoder == StringConcatHelper::LATIN1) {
 		return $new($String, buf, $String::LATIN1);
 	} else if (indexCoder == StringConcatHelper::UTF16) {
@@ -321,7 +245,7 @@ $String* StringConcatHelper::newString($bytes* buf, int64_t indexCoder) {
 
 $String* StringConcatHelper::simpleConcat(Object$* first, Object$* second) {
 	$init(StringConcatHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s1, stringOf(first));
 	$var($String, s2, stringOf(second));
 	if ($nc(s1)->isEmpty()) {
@@ -346,16 +270,16 @@ $String* StringConcatHelper::newStringOf(Object$* arg) {
 $String* StringConcatHelper::stringOf(Object$* value) {
 	$init(StringConcatHelper);
 	$var($String, s, nullptr);
-	return (value == nullptr || ($assign(s, $nc($of(value))->toString())) == nullptr) ? "null"_s : s;
+	return (value == nullptr || ($assign(s, $of(value)->toString())) == nullptr) ? "null"_s : s;
 }
 
 $bytes* StringConcatHelper::newArrayWithSuffix($String* suffix, int64_t indexCoder) {
 	$init(StringConcatHelper);
 	$var($bytes, buf, newArray(indexCoder + $nc(suffix)->length()));
 	if (indexCoder < StringConcatHelper::UTF16) {
-		$nc(suffix)->getBytes(buf, (int32_t)indexCoder, $String::LATIN1);
+		suffix->getBytes(buf, (int32_t)indexCoder, $String::LATIN1);
 	} else {
-		$nc(suffix)->getBytes(buf, (int32_t)indexCoder, $String::UTF16);
+		suffix->getBytes(buf, (int32_t)indexCoder, $String::UTF16);
 	}
 	return buf;
 }
@@ -364,7 +288,6 @@ $bytes* StringConcatHelper::newArray(int64_t indexCoder) {
 	$init(StringConcatHelper);
 	int8_t coder = (int8_t)(indexCoder >> 32);
 	int32_t index = (int32_t)indexCoder;
-	$init($Byte);
 	return $cast($bytes, $nc(StringConcatHelper::UNSAFE)->allocateUninitializedArray($Byte::TYPE, $sl(index, coder)));
 }
 
@@ -377,7 +300,7 @@ $MethodHandle* StringConcatHelper::lookupStatic($String* name, $MethodType* meth
 	$init(StringConcatHelper);
 	$beforeCallerSensitive();
 	try {
-		return $nc($($MethodHandles::lookup()))->findStatic(StringConcatHelper::class$, name, methodType);
+		return $$nc($MethodHandles::lookup())->findStatic(StringConcatHelper::class$, name, methodType);
 	} catch ($NoSuchMethodException& e) {
 		$throwNew($AssertionError, $of(e));
 	} catch ($IllegalAccessException& e) {
@@ -386,7 +309,7 @@ $MethodHandle* StringConcatHelper::lookupStatic($String* name, $MethodType* meth
 	$shouldNotReachHere();
 }
 
-void clinit$StringConcatHelper($Class* class$) {
+void StringConcatHelper::clinit$($Class* clazz) {
 	$assignStatic(StringConcatHelper::UNSAFE, $Unsafe::getUnsafe());
 }
 
@@ -394,7 +317,71 @@ StringConcatHelper::StringConcatHelper() {
 }
 
 $Class* StringConcatHelper::load$($String* name, bool initialize) {
-	$loadClass(StringConcatHelper, name, initialize, &_StringConcatHelper_ClassInfo_, clinit$StringConcatHelper, allocate$StringConcatHelper);
+	$FieldInfo fieldInfos$$[] = {
+		{"LATIN1", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringConcatHelper, LATIN1)},
+		{"UTF16", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StringConcatHelper, UTF16)},
+		{"UNSAFE", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StringConcatHelper, UNSAFE)},
+		{}
+	};
+	$CompoundAttribute newArraymethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute newArrayWithSuffixmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute newStringOfmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute simpleConcatmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(StringConcatHelper, init$, void)},
+		{"checkOverflow", "(J)J", nullptr, $PRIVATE | $STATIC, $staticMethod(StringConcatHelper, checkOverflow, int64_t, int64_t)},
+		{"initialCoder", "()J", nullptr, $STATIC, $staticMethod(StringConcatHelper, initialCoder, int64_t)},
+		{"lookupStatic", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC, $staticMethod(StringConcatHelper, lookupStatic, $MethodHandle*, $String*, $MethodType*)},
+		{"mix", "(JZ)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, mix, int64_t, int64_t, bool)},
+		{"mix", "(JB)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, mix, int64_t, int64_t, int8_t)},
+		{"mix", "(JC)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, mix, int64_t, int64_t, char16_t)},
+		{"mix", "(JS)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, mix, int64_t, int64_t, int16_t)},
+		{"mix", "(JI)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, mix, int64_t, int64_t, int32_t)},
+		{"mix", "(JJ)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, mix, int64_t, int64_t, int64_t)},
+		{"mix", "(JLjava/lang/String;)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, mix, int64_t, int64_t, $String*)},
+		{"newArray", "(J)[B", nullptr, $STATIC, $staticMethod(StringConcatHelper, newArray, $bytes*, int64_t), nullptr, nullptr, newArraymethodAnnotations$$},
+		{"newArrayWithSuffix", "(Ljava/lang/String;J)[B", nullptr, $STATIC, $staticMethod(StringConcatHelper, newArrayWithSuffix, $bytes*, $String*, int64_t), nullptr, nullptr, newArrayWithSuffixmethodAnnotations$$},
+		{"newString", "([BJ)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StringConcatHelper, newString, $String*, $bytes*, int64_t)},
+		{"newStringOf", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StringConcatHelper, newStringOf, $String*, Object$*), nullptr, nullptr, newStringOfmethodAnnotations$$},
+		{"prepend", "(J[BZ)J", nullptr, $PRIVATE | $STATIC, $staticMethod(StringConcatHelper, prepend, int64_t, int64_t, $bytes*, bool)},
+		{"prepend", "(J[BZLjava/lang/String;)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, prepend, int64_t, int64_t, $bytes*, bool, $String*)},
+		{"prepend", "(J[BBLjava/lang/String;)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, prepend, int64_t, int64_t, $bytes*, int8_t, $String*)},
+		{"prepend", "(J[BC)J", nullptr, $PRIVATE | $STATIC, $staticMethod(StringConcatHelper, prepend, int64_t, int64_t, $bytes*, char16_t)},
+		{"prepend", "(J[BCLjava/lang/String;)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, prepend, int64_t, int64_t, $bytes*, char16_t, $String*)},
+		{"prepend", "(J[BSLjava/lang/String;)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, prepend, int64_t, int64_t, $bytes*, int16_t, $String*)},
+		{"prepend", "(J[BI)J", nullptr, $PRIVATE | $STATIC, $staticMethod(StringConcatHelper, prepend, int64_t, int64_t, $bytes*, int32_t)},
+		{"prepend", "(J[BILjava/lang/String;)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, prepend, int64_t, int64_t, $bytes*, int32_t, $String*)},
+		{"prepend", "(J[BJ)J", nullptr, $PRIVATE | $STATIC, $staticMethod(StringConcatHelper, prepend, int64_t, int64_t, $bytes*, int64_t)},
+		{"prepend", "(J[BJLjava/lang/String;)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, prepend, int64_t, int64_t, $bytes*, int64_t, $String*)},
+		{"prepend", "(J[BLjava/lang/String;)J", nullptr, $PRIVATE | $STATIC, $staticMethod(StringConcatHelper, prepend, int64_t, int64_t, $bytes*, $String*)},
+		{"prepend", "(J[BLjava/lang/String;Ljava/lang/String;)J", nullptr, $STATIC, $staticMethod(StringConcatHelper, prepend, int64_t, int64_t, $bytes*, $String*, $String*)},
+		{"simpleConcat", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StringConcatHelper, simpleConcat, $String*, Object$*, Object$*), nullptr, nullptr, simpleConcatmethodAnnotations$$},
+		{"stringOf", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(StringConcatHelper, stringOf, $String*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.StringConcatHelper",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StringConcatHelper, name, initialize, &classInfo$$, StringConcatHelper::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StringConcatHelper);
+	});
 	return class$;
 }
 

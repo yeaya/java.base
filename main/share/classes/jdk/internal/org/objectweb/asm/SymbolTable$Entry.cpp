@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/SymbolTable$Entry.h>
-
 #include <jdk/internal/org/objectweb/asm/Symbol.h>
 #include <jdk/internal/org/objectweb/asm/SymbolTable.h>
 #include <jcpp.h>
@@ -15,46 +14,6 @@ namespace jdk {
 		namespace org {
 			namespace objectweb {
 				namespace asm$ {
-
-$FieldInfo _SymbolTable$Entry_FieldInfo_[] = {
-	{"hashCode", "I", nullptr, $FINAL, $field(SymbolTable$Entry, hashCode$)},
-	{"next", "Ljdk/internal/org/objectweb/asm/SymbolTable$Entry;", nullptr, 0, $field(SymbolTable$Entry, next)},
-	{}
-};
-
-$MethodInfo _SymbolTable$Entry_MethodInfo_[] = {
-	{"<init>", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;JI)V", nullptr, 0, $method(SymbolTable$Entry, init$, void, int32_t, int32_t, $String*, $String*, $String*, int64_t, int32_t)},
-	{"<init>", "(IILjava/lang/String;I)V", nullptr, 0, $method(SymbolTable$Entry, init$, void, int32_t, int32_t, $String*, int32_t)},
-	{"<init>", "(IILjava/lang/String;JI)V", nullptr, 0, $method(SymbolTable$Entry, init$, void, int32_t, int32_t, $String*, int64_t, int32_t)},
-	{"<init>", "(IILjava/lang/String;Ljava/lang/String;I)V", nullptr, 0, $method(SymbolTable$Entry, init$, void, int32_t, int32_t, $String*, $String*, int32_t)},
-	{"<init>", "(IIJI)V", nullptr, 0, $method(SymbolTable$Entry, init$, void, int32_t, int32_t, int64_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _SymbolTable$Entry_InnerClassesInfo_[] = {
-	{"jdk.internal.org.objectweb.asm.SymbolTable$Entry", "jdk.internal.org.objectweb.asm.SymbolTable", "Entry", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SymbolTable$Entry_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.SymbolTable$Entry",
-	"jdk.internal.org.objectweb.asm.Symbol",
-	nullptr,
-	_SymbolTable$Entry_FieldInfo_,
-	_SymbolTable$Entry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SymbolTable$Entry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.org.objectweb.asm.SymbolTable"
-};
-
-$Object* allocate$SymbolTable$Entry($Class* clazz) {
-	return $of($alloc(SymbolTable$Entry));
-}
 
 void SymbolTable$Entry::init$(int32_t index, int32_t tag, $String* owner, $String* name, $String* value, int64_t data, int32_t hashCode) {
 	$Symbol::init$(index, tag, owner, name, value, data);
@@ -85,7 +44,41 @@ SymbolTable$Entry::SymbolTable$Entry() {
 }
 
 $Class* SymbolTable$Entry::load$($String* name, bool initialize) {
-	$loadClass(SymbolTable$Entry, name, initialize, &_SymbolTable$Entry_ClassInfo_, allocate$SymbolTable$Entry);
+	$FieldInfo fieldInfos$$[] = {
+		{"hashCode", "I", nullptr, $FINAL, $field(SymbolTable$Entry, hashCode$)},
+		{"next", "Ljdk/internal/org/objectweb/asm/SymbolTable$Entry;", nullptr, 0, $field(SymbolTable$Entry, next)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;JI)V", nullptr, 0, $method(SymbolTable$Entry, init$, void, int32_t, int32_t, $String*, $String*, $String*, int64_t, int32_t)},
+		{"<init>", "(IILjava/lang/String;I)V", nullptr, 0, $method(SymbolTable$Entry, init$, void, int32_t, int32_t, $String*, int32_t)},
+		{"<init>", "(IILjava/lang/String;JI)V", nullptr, 0, $method(SymbolTable$Entry, init$, void, int32_t, int32_t, $String*, int64_t, int32_t)},
+		{"<init>", "(IILjava/lang/String;Ljava/lang/String;I)V", nullptr, 0, $method(SymbolTable$Entry, init$, void, int32_t, int32_t, $String*, $String*, int32_t)},
+		{"<init>", "(IIJI)V", nullptr, 0, $method(SymbolTable$Entry, init$, void, int32_t, int32_t, int64_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.org.objectweb.asm.SymbolTable$Entry", "jdk.internal.org.objectweb.asm.SymbolTable", "Entry", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.SymbolTable$Entry",
+		"jdk.internal.org.objectweb.asm.Symbol",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.org.objectweb.asm.SymbolTable"
+	};
+	$loadClass(SymbolTable$Entry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SymbolTable$Entry);
+	});
 	return class$;
 }
 

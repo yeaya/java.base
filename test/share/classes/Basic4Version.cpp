@@ -1,5 +1,4 @@
 #include <Basic4Version.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/Runtime$Version.h>
@@ -28,7 +27,6 @@
 #undef TOO_BIG
 #undef TOO_BIG_STR
 
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
 using $Character = ::java::lang::Character;
@@ -50,7 +48,6 @@ using $List = ::java::util::List;
 using $Optional = ::java::util::Optional;
 using $Function = ::java::util::function::Function;
 using $Collectors = ::java::util::stream::Collectors;
-using $Stream = ::java::util::stream::Stream;
 
 class Basic4Version$$Lambda$parseInt : public $Function {
 	$class(Basic4Version$$Lambda$parseInt, $NO_CLASS_INIT, $Function)
@@ -60,79 +57,27 @@ public:
 	virtual $Object* apply(Object$* arg0) override {
 		 return $of($Integer::parseInt($cast($String, arg0)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Basic4Version$$Lambda$parseInt>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Basic4Version$$Lambda$parseInt::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Basic4Version$$Lambda$parseInt, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Basic4Version$$Lambda$parseInt, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Basic4Version$$Lambda$parseInt::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"Basic4Version$$Lambda$parseInt",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Basic4Version$$Lambda$parseInt::load$($String* name, bool initialize) {
-	$loadClass(Basic4Version$$Lambda$parseInt, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Basic4Version$$Lambda$parseInt, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Basic4Version$$Lambda$parseInt, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"Basic4Version$$Lambda$parseInt",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Basic4Version$$Lambda$parseInt, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Basic4Version$$Lambda$parseInt);
+	});
 	return class$;
 }
 $Class* Basic4Version$$Lambda$parseInt::class$ = nullptr;
-
-$FieldInfo _Basic4Version_FieldInfo_[] = {
-	{"IAE", "Ljava/lang/Class;", "Ljava/lang/Class<+Ljava/lang/Throwable;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Basic4Version, IAE)},
-	{"NPE", "Ljava/lang/Class;", "Ljava/lang/Class<+Ljava/lang/Throwable;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Basic4Version, NPE)},
-	{"NFE", "Ljava/lang/Class;", "Ljava/lang/Class<+Ljava/lang/Throwable;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Basic4Version, NFE)},
-	{"TOO_BIG", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Basic4Version, TOO_BIG)},
-	{"TOO_BIG_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Basic4Version, TOO_BIG_STR)},
-	{"fail", "I", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Version, fail$)},
-	{"pass", "I", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Version, pass$)},
-	{"first", "Ljava/lang/Throwable;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Version, first)},
-	{}
-};
-
-$MethodInfo _Basic4Version_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Basic4Version, init$, void)},
-	{"checkCompare", "(Ljava/lang/Runtime$Version;Ljava/lang/Runtime$Version;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Version, checkCompare, void, $Runtime$Version*, $Runtime$Version*, int32_t, int32_t)},
-	{"fail", "(Ljava/lang/String;Ljava/lang/Class;)V", nullptr, $STATIC, $staticMethod(Basic4Version, fail, void, $String*, $Class*)},
-	{"fail", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Basic4Version, fail, void, $String*, $String*, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Basic4Version, main, void, $StringArray*)},
-	{"pass", "()V", nullptr, $STATIC, $staticMethod(Basic4Version, pass, void)},
-	{"setFirst", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Version, setFirst, void, $String*)},
-	{"test", "(Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Version, test, void, $String*, $Integer*, $Integer*, $Integer*, $Integer*, $String*, $Integer*, $String*)},
-	{"testCompare", "(Ljava/lang/Runtime$Version;Ljava/lang/Runtime$Version;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Version, testCompare, void, $Runtime$Version*, $Runtime$Version*, int32_t)},
-	{"testCompareNO", "(Ljava/lang/Runtime$Version;Ljava/lang/Runtime$Version;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Version, testCompareNO, void, $Runtime$Version*, $Runtime$Version*, int32_t)},
-	{"testEHC", "(Ljava/lang/String;Ljava/lang/String;ZZII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Version, testEHC, void, $String*, $String*, bool, bool, int32_t, int32_t)},
-	{"testEquals", "(Ljava/lang/Runtime$Version;Ljava/lang/Runtime$Version;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Version, testEquals, void, $Runtime$Version*, $Runtime$Version*, bool)},
-	{"testEqualsNO", "(Ljava/lang/Runtime$Version;Ljava/lang/Runtime$Version;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Version, testEqualsNO, void, $Runtime$Version*, $Runtime$Version*, bool)},
-	{"testHashCode", "(Ljava/lang/Runtime$Version;Ljava/lang/Runtime$Version;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Version, testHashCode, void, $Runtime$Version*, $Runtime$Version*, bool)},
-	{"testInt", "(II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Version, testInt, void, int32_t, int32_t)},
-	{"testParse", "(Ljava/lang/String;)Ljava/lang/Runtime$Version;", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Version, testParse, $Runtime$Version*, $String*)},
-	{"testStr", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Version, testStr, void, $String*, $String*)},
-	{"testVersion", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Version, testVersion, void)},
-	{"testVersion", "(Ljava/util/List;Ljava/lang/String;)V", "(Ljava/util/List<Ljava/lang/Integer;>;Ljava/lang/String;)V", $PRIVATE | $STATIC, $staticMethod(Basic4Version, testVersion, void, $List*, $String*)},
-	{"tryCatch", "(Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/Class<+Ljava/lang/Throwable;>;)V", $PRIVATE | $STATIC, $staticMethod(Basic4Version, tryCatch, void, $String*, $Class*)},
-	{}
-};
-
-$ClassInfo _Basic4Version_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Basic4Version",
-	"java.lang.Object",
-	nullptr,
-	_Basic4Version_FieldInfo_,
-	_Basic4Version_MethodInfo_
-};
-
-$Object* allocate$Basic4Version($Class* clazz) {
-	return $of($alloc(Basic4Version));
-}
 
 $Class* Basic4Version::IAE = nullptr;
 $Class* Basic4Version::NPE = nullptr;
@@ -148,7 +93,7 @@ void Basic4Version::init$() {
 
 void Basic4Version::main($StringArray* args) {
 	$init(Basic4Version);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, "9"_s);
 	$var($Integer, var$1, $Integer::valueOf(9));
 	$var($Integer, var$2, $Integer::valueOf(0));
@@ -280,7 +225,7 @@ void Basic4Version::main($StringArray* args) {
 	$var($Integer, var$99, $Integer::valueOf(0));
 	$var($Integer, var$100, $Integer::valueOf(0));
 	$var($String, var$101, ""_s);
-	test(var$96, var$97, var$98, var$99, var$100, var$101, $($Integer::valueOf(0x0098961C)), ""_s);
+	test(var$96, var$97, var$98, var$99, var$100, var$101, $($Integer::valueOf(0x0098961c)), ""_s);
 	$var($String, var$102, "9-pre+105"_s);
 	$var($Integer, var$103, $Integer::valueOf(9));
 	$var($Integer, var$104, $Integer::valueOf(0));
@@ -390,28 +335,28 @@ void Basic4Version::main($StringArray* args) {
 
 void Basic4Version::test($String* s, $Integer* feature, $Integer* interim, $Integer* update, $Integer* patch, $String* pre, $Integer* build, $String* opt) {
 	$init(Basic4Version);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Runtime$Version, v, testParse(s));
 	testStr($($nc(v)->toString()), s);
-	int32_t var$0 = $nc(v)->feature();
+	int32_t var$0 = v->feature();
 	testInt(var$0, $nc(feature)->intValue());
-	int32_t var$1 = $nc(v)->major();
-	testInt(var$1, $nc(feature)->intValue());
-	int32_t var$2 = $nc(v)->interim();
+	int32_t var$1 = v->major();
+	testInt(var$1, feature->intValue());
+	int32_t var$2 = v->interim();
 	testInt(var$2, $nc(interim)->intValue());
-	int32_t var$3 = $nc(v)->minor();
-	testInt(var$3, $nc(interim)->intValue());
-	int32_t var$4 = $nc(v)->update();
+	int32_t var$3 = v->minor();
+	testInt(var$3, interim->intValue());
+	int32_t var$4 = v->update();
 	testInt(var$4, $nc(update)->intValue());
-	int32_t var$5 = $nc(v)->security();
-	testInt(var$5, $nc(update)->intValue());
-	int32_t var$6 = $nc(v)->patch();
+	int32_t var$5 = v->security();
+	testInt(var$5, update->intValue());
+	int32_t var$6 = v->patch();
 	testInt(var$6, $nc(patch)->intValue());
-	testStr(($nc($($nc(v)->pre()))->isPresent() ? $cast($String, $($nc($($nc(v)->pre()))->get())) : ""_s), pre);
-	int32_t var$7 = ($nc($($nc(v)->build()))->isPresent() ? $nc(($cast($Integer, $($nc($($nc(v)->build()))->get()))))->intValue() : 0);
+	testStr(($$nc(v->pre())->isPresent() ? $$cast($String, $$nc(v->pre())->get()) : ""_s), pre);
+	int32_t var$7 = $$nc(v->build())->isPresent() ? $$sure($Integer, $$nc(v->build())->get())->intValue() : 0;
 	testInt(var$7, $nc(build)->intValue());
-	testStr(($nc($($nc(v)->optional()))->isPresent() ? $cast($String, $($nc($($nc(v)->optional()))->get())) : ""_s), opt);
-	testVersion($($nc(v)->version()), s);
+	testStr(($$nc(v->optional())->isPresent() ? $$cast($String, $$nc(v->optional())->get()) : ""_s), opt);
+	testVersion($(v->version()), s);
 }
 
 $Runtime$Version* Basic4Version::testParse($String* s) {
@@ -423,7 +368,7 @@ $Runtime$Version* Basic4Version::testParse($String* s) {
 
 void Basic4Version::testInt(int32_t got, int32_t exp) {
 	$init(Basic4Version);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (got != exp) {
 		$var($String, var$0, "testInt()"_s);
 		$var($String, var$1, $Integer::toString(exp));
@@ -448,7 +393,7 @@ void Basic4Version::tryCatch($String* s, $Class* ex) {
 	try {
 		$Runtime$Version::parse(s);
 	} catch ($Throwable& x) {
-		if ($nc(ex)->isAssignableFrom($of(x)->getClass())) {
+		if ($nc(ex)->isAssignableFrom(x->getClass())) {
 			$assign(t, x);
 		} else {
 			x->printStackTrace();
@@ -463,44 +408,44 @@ void Basic4Version::tryCatch($String* s, $Class* ex) {
 
 void Basic4Version::testVersion() {
 	$init(Basic4Version);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Runtime$Version, current, $Runtime::version());
 	$var($String, javaVer, $System::getProperty("java.runtime.version"_s));
 	$var($StringArray, jv, $nc(javaVer)->split("\\+"_s));
 	$var($StringArray, ver, $nc(jv->get(0))->split("-"_s));
-	$var($List, javaVerVNum, $cast($List, $nc($($nc($($Arrays::stream($($nc(ver->get(0))->split("\\."_s)))))->map(static_cast<$Function*>($$new(Basic4Version$$Lambda$parseInt)))))->collect($($Collectors::toList()))));
+	$var($List, javaVerVNum, $cast($List, $$nc($$nc($Arrays::stream($($nc(ver->get(0))->split("\\."_s))))->map($$new(Basic4Version$$Lambda$parseInt)))->collect($($Collectors::toList()))));
 	if (!$nc(javaVerVNum)->equals($($nc(current)->version()))) {
 		$var($String, var$0, "Runtime.version()"_s);
-		$var($String, var$1, $of(javaVerVNum)->toString());
-		fail(var$0, var$1, $($nc($of($($nc(current)->version())))->toString()));
+		$var($String, var$1, javaVerVNum->toString());
+		fail(var$0, var$1, $($$nc(current->version())->toString()));
 	} else {
 		pass();
 	}
 	$var($Optional, javaVerPre, (ver->length == 2) ? $Optional::ofNullable(ver->get(1)) : $Optional::empty());
-	if (!$nc(javaVerPre)->equals($($nc(current)->pre()))) {
+	if (!$nc(javaVerPre)->equals($(current->pre()))) {
 		$var($String, var$2, "testCurrent() pre()"_s);
 		$var($String, var$3, javaVerPre->toString());
-		fail(var$2, var$3, $($nc($($nc(current)->pre()))->toString()));
+		fail(var$2, var$3, $($$nc(current->pre())->toString()));
 	} else {
 		pass();
 	}
-	testEHC($($nc(current)->toString()), javaVer, true, true, 0, 0);
+	testEHC($(current->toString()), javaVer, true, true, 0, 0);
 }
 
 void Basic4Version::testVersion($List* vnum, $String* s) {
 	$init(Basic4Version);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, svnum, $new($ArrayList));
 	$var($StringBuilder, sb, $new($StringBuilder));
 	for (int32_t i = 0; i < $nc(s)->length(); ++i) {
 		$var($Character, c, $Character::valueOf(s->charAt(i)));
-		if ($Character::isDigit($nc(c)->charValue())) {
-			sb->append($of(c));
+		if ($Character::isDigit(c->charValue())) {
+			sb->append(c);
 		} else {
 			svnum->add($($Integer::valueOf($Integer::parseInt($(sb->toString())))));
 			$assign(sb, $new($StringBuilder));
-			bool var$0 = $nc(c)->charValue() == u'+';
-			if (var$0 || $nc(c)->charValue() == u'-') {
+			bool var$0 = c->charValue() == u'+';
+			if (var$0 || c->charValue() == u'-') {
 				break;
 			}
 		}
@@ -510,7 +455,7 @@ void Basic4Version::testVersion($List* vnum, $String* s) {
 	}
 	if (!svnum->equals(vnum)) {
 		$var($String, var$1, "testVersion() equals()"_s);
-		$var($String, var$2, $of(svnum)->toString());
+		$var($String, var$2, svnum->toString());
 		fail(var$1, var$2, $($nc($of(vnum))->toString()));
 	} else {
 		pass();
@@ -519,7 +464,7 @@ void Basic4Version::testVersion($List* vnum, $String* s) {
 
 void Basic4Version::testEHC($String* s0, $String* s1, bool eq, bool eqNO, int32_t cmp, int32_t cmpNO) {
 	$init(Basic4Version);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Runtime$Version, v0, $Runtime$Version::parse(s0));
 	$var($Runtime$Version, v1, $Runtime$Version::parse(s1));
 	testEquals(v0, v1, eq);
@@ -531,7 +476,7 @@ void Basic4Version::testEHC($String* s0, $String* s1, bool eq, bool eqNO, int32_
 
 void Basic4Version::testEqualsNO($Runtime$Version* v0, $Runtime$Version* v1, bool eq) {
 	$init(Basic4Version);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (eq == $nc(v0)->equalsIgnoreOptional(v1)) {
 		pass();
 	} else {
@@ -543,7 +488,7 @@ void Basic4Version::testEqualsNO($Runtime$Version* v0, $Runtime$Version* v1, boo
 
 void Basic4Version::testEquals($Runtime$Version* v0, $Runtime$Version* v1, bool eq) {
 	$init(Basic4Version);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (eq == $nc(v0)->equals(v1)) {
 		pass();
 	} else {
@@ -555,13 +500,13 @@ void Basic4Version::testEquals($Runtime$Version* v0, $Runtime$Version* v1, bool 
 
 void Basic4Version::testHashCode($Runtime$Version* v0, $Runtime$Version* v1, bool eq) {
 	$init(Basic4Version);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t h0 = $nc(v0)->hashCode();
 	int32_t h1 = $nc(v1)->hashCode();
 	if (eq) {
 		testInt(h0, h1);
 	} else if (h0 == h1) {
-		$var($String, var$0, $String::format("hashCode() %s"_s, $$new($ObjectArray, {$($of($Integer::valueOf(h0)))})));
+		$var($String, var$0, $String::format("hashCode() %s"_s, $$new($ObjectArray, {$($Integer::valueOf(h0))})));
 		$var($String, var$1, $Integer::toString(h0));
 		fail(var$0, var$1, $($Integer::toString(h1)));
 	} else {
@@ -583,14 +528,14 @@ void Basic4Version::testCompare($Runtime$Version* v0, $Runtime$Version* v1, int3
 
 void Basic4Version::checkCompare($Runtime$Version* v0, $Runtime$Version* v1, int32_t expected, int32_t actual) {
 	$init(Basic4Version);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $Integer::signum(expected);
 	if (var$0 == $Integer::signum(actual)) {
 		pass();
 	} else {
 		$var($String, var$1, $String::format("compare() (actual = %s) (expected = %s)"_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf(actual))),
-			$($of($Integer::valueOf(expected)))
+			$($Integer::valueOf(actual)),
+			$($Integer::valueOf(expected))
 		})));
 		$var($String, var$2, $nc(v0)->toString());
 		fail(var$1, var$2, $($nc(v1)->toString()));
@@ -604,7 +549,7 @@ void Basic4Version::pass() {
 
 void Basic4Version::fail($String* fs, $Class* ex) {
 	$init(Basic4Version);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, $str({"\'"_s, fs, "\'"_s}));
 	if (ex != nullptr) {
 		$plusAssign(s, $$str({": "_s, $(ex->getName()), " not thrown"_s}));
@@ -618,7 +563,7 @@ void Basic4Version::fail($String* fs, $Class* ex) {
 
 void Basic4Version::fail($String* t, $String* exp, $String* got) {
 	$init(Basic4Version);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, $str({t, ": Expected \'"_s, exp, "\', got \'"_s, got, "\'"_s}));
 	if (Basic4Version::first == nullptr) {
 		setFirst(s);
@@ -636,16 +581,15 @@ void Basic4Version::setFirst($String* s) {
 	}
 }
 
-void clinit$Basic4Version($Class* class$) {
+void Basic4Version::clinit$($Class* clazz) {
 	$load($IllegalArgumentException);
 	$assignStatic(Basic4Version::IAE, $IllegalArgumentException::class$);
-	$load($NullPointerException);
 	$assignStatic(Basic4Version::NPE, $NullPointerException::class$);
 	$load($NumberFormatException);
 	$assignStatic(Basic4Version::NFE, $NumberFormatException::class$);
 	$init($BigInteger);
-	$assignStatic(Basic4Version::TOO_BIG, $nc(($($BigInteger::valueOf((int64_t)$Integer::MAX_VALUE))))->add($BigInteger::ONE));
-	$assignStatic(Basic4Version::TOO_BIG_STR, $nc(Basic4Version::TOO_BIG)->toString());
+	$assignStatic(Basic4Version::TOO_BIG, ($($BigInteger::valueOf($Integer::MAX_VALUE)))->add($BigInteger::ONE));
+	$assignStatic(Basic4Version::TOO_BIG_STR, Basic4Version::TOO_BIG->toString());
 	Basic4Version::fail$ = 0;
 	Basic4Version::pass$ = 0;
 }
@@ -655,11 +599,55 @@ Basic4Version::Basic4Version() {
 
 $Class* Basic4Version::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Basic4Version$$Lambda$parseInt::classInfo$.name)) {
+		if (name->equals("Basic4Version$$Lambda$parseInt")) {
 			return Basic4Version$$Lambda$parseInt::load$(name, initialize);
 		}
 	}
-	$loadClass(Basic4Version, name, initialize, &_Basic4Version_ClassInfo_, clinit$Basic4Version, allocate$Basic4Version);
+	$FieldInfo fieldInfos$$[] = {
+		{"IAE", "Ljava/lang/Class;", "Ljava/lang/Class<+Ljava/lang/Throwable;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Basic4Version, IAE)},
+		{"NPE", "Ljava/lang/Class;", "Ljava/lang/Class<+Ljava/lang/Throwable;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Basic4Version, NPE)},
+		{"NFE", "Ljava/lang/Class;", "Ljava/lang/Class<+Ljava/lang/Throwable;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Basic4Version, NFE)},
+		{"TOO_BIG", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Basic4Version, TOO_BIG)},
+		{"TOO_BIG_STR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Basic4Version, TOO_BIG_STR)},
+		{"fail", "I", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Version, fail$)},
+		{"pass", "I", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Version, pass$)},
+		{"first", "Ljava/lang/Throwable;", nullptr, $PRIVATE | $STATIC, $staticField(Basic4Version, first)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Basic4Version, init$, void)},
+		{"checkCompare", "(Ljava/lang/Runtime$Version;Ljava/lang/Runtime$Version;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Version, checkCompare, void, $Runtime$Version*, $Runtime$Version*, int32_t, int32_t)},
+		{"fail", "(Ljava/lang/String;Ljava/lang/Class;)V", nullptr, $STATIC, $staticMethod(Basic4Version, fail, void, $String*, $Class*)},
+		{"fail", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Basic4Version, fail, void, $String*, $String*, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Basic4Version, main, void, $StringArray*)},
+		{"pass", "()V", nullptr, $STATIC, $staticMethod(Basic4Version, pass, void)},
+		{"setFirst", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Version, setFirst, void, $String*)},
+		{"test", "(Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Version, test, void, $String*, $Integer*, $Integer*, $Integer*, $Integer*, $String*, $Integer*, $String*)},
+		{"testCompare", "(Ljava/lang/Runtime$Version;Ljava/lang/Runtime$Version;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Version, testCompare, void, $Runtime$Version*, $Runtime$Version*, int32_t)},
+		{"testCompareNO", "(Ljava/lang/Runtime$Version;Ljava/lang/Runtime$Version;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Version, testCompareNO, void, $Runtime$Version*, $Runtime$Version*, int32_t)},
+		{"testEHC", "(Ljava/lang/String;Ljava/lang/String;ZZII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Version, testEHC, void, $String*, $String*, bool, bool, int32_t, int32_t)},
+		{"testEquals", "(Ljava/lang/Runtime$Version;Ljava/lang/Runtime$Version;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Version, testEquals, void, $Runtime$Version*, $Runtime$Version*, bool)},
+		{"testEqualsNO", "(Ljava/lang/Runtime$Version;Ljava/lang/Runtime$Version;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Version, testEqualsNO, void, $Runtime$Version*, $Runtime$Version*, bool)},
+		{"testHashCode", "(Ljava/lang/Runtime$Version;Ljava/lang/Runtime$Version;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Version, testHashCode, void, $Runtime$Version*, $Runtime$Version*, bool)},
+		{"testInt", "(II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Version, testInt, void, int32_t, int32_t)},
+		{"testParse", "(Ljava/lang/String;)Ljava/lang/Runtime$Version;", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Version, testParse, $Runtime$Version*, $String*)},
+		{"testStr", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Version, testStr, void, $String*, $String*)},
+		{"testVersion", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Basic4Version, testVersion, void)},
+		{"testVersion", "(Ljava/util/List;Ljava/lang/String;)V", "(Ljava/util/List<Ljava/lang/Integer;>;Ljava/lang/String;)V", $PRIVATE | $STATIC, $staticMethod(Basic4Version, testVersion, void, $List*, $String*)},
+		{"tryCatch", "(Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/Class<+Ljava/lang/Throwable;>;)V", $PRIVATE | $STATIC, $staticMethod(Basic4Version, tryCatch, void, $String*, $Class*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Basic4Version",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Basic4Version, name, initialize, &classInfo$$, Basic4Version::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Basic4Version);
+	});
 	return class$;
 }
 

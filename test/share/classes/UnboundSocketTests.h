@@ -15,6 +15,7 @@ class $export UnboundSocketTests : public ::java::lang::Object {
 	$class(UnboundSocketTests, 0, ::java::lang::Object)
 public:
 	UnboundSocketTests();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void check($String* msg, Object$* actual, Object$* expected);
 	static void checkIsAnyLocalAddress($String* msg, ::java::net::InetAddress* actual);

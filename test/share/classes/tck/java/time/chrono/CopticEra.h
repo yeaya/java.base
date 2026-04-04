@@ -27,6 +27,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual int32_t getValue() override;
 	static ::tck::java::time::chrono::CopticEra* of(int32_t era);

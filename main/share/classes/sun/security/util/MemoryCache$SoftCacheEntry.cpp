@@ -1,5 +1,4 @@
 #include <sun/security/util/MemoryCache$SoftCacheEntry.h>
-
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/lang/ref/SoftReference.h>
@@ -16,53 +15,6 @@ using $SoftReference = ::java::lang::ref::SoftReference;
 namespace sun {
 	namespace security {
 		namespace util {
-
-$FieldInfo _MemoryCache$SoftCacheEntry_FieldInfo_[] = {
-	{"key", "Ljava/lang/Object;", "TK;", $PRIVATE, $field(MemoryCache$SoftCacheEntry, key)},
-	{"expirationTime", "J", nullptr, $PRIVATE, $field(MemoryCache$SoftCacheEntry, expirationTime)},
-	{}
-};
-
-$MethodInfo _MemoryCache$SoftCacheEntry_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;JLjava/lang/ref/ReferenceQueue;)V", "(TK;TV;JLjava/lang/ref/ReferenceQueue<TV;>;)V", 0, $method(MemoryCache$SoftCacheEntry, init$, void, Object$*, Object$*, int64_t, $ReferenceQueue*)},
-	{"getExpirationTime", "()J", nullptr, $PUBLIC, $virtualMethod(MemoryCache$SoftCacheEntry, getExpirationTime, int64_t)},
-	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(MemoryCache$SoftCacheEntry, getKey, $Object*)},
-	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(MemoryCache$SoftCacheEntry, getValue, $Object*)},
-	{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(MemoryCache$SoftCacheEntry, invalidate, void)},
-	{"isValid", "(J)Z", nullptr, $PUBLIC, $virtualMethod(MemoryCache$SoftCacheEntry, isValid, bool, int64_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MemoryCache$SoftCacheEntry_InnerClassesInfo_[] = {
-	{"sun.security.util.MemoryCache$SoftCacheEntry", "sun.security.util.MemoryCache", "SoftCacheEntry", $PRIVATE | $STATIC},
-	{"sun.security.util.MemoryCache$CacheEntry", "sun.security.util.MemoryCache", "CacheEntry", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MemoryCache$SoftCacheEntry_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.util.MemoryCache$SoftCacheEntry",
-	"java.lang.ref.SoftReference",
-	"sun.security.util.MemoryCache$CacheEntry",
-	_MemoryCache$SoftCacheEntry_FieldInfo_,
-	_MemoryCache$SoftCacheEntry_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/ref/SoftReference<TV;>;Lsun/security/util/MemoryCache$CacheEntry<TK;TV;>;",
-	nullptr,
-	_MemoryCache$SoftCacheEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.util.MemoryCache"
-};
-
-$Object* allocate$MemoryCache$SoftCacheEntry($Class* clazz) {
-	return $of($alloc(MemoryCache$SoftCacheEntry));
-}
 
 $Object* MemoryCache$SoftCacheEntry::clone() {
 	 return this->$SoftReference::clone();
@@ -91,11 +43,11 @@ void MemoryCache$SoftCacheEntry::init$(Object$* key, Object$* value, int64_t exp
 }
 
 $Object* MemoryCache$SoftCacheEntry::getKey() {
-	return $of(this->key);
+	return this->key;
 }
 
 $Object* MemoryCache$SoftCacheEntry::getValue() {
-	return $of(get());
+	return get();
 }
 
 int64_t MemoryCache$SoftCacheEntry::getExpirationTime() {
@@ -120,7 +72,48 @@ MemoryCache$SoftCacheEntry::MemoryCache$SoftCacheEntry() {
 }
 
 $Class* MemoryCache$SoftCacheEntry::load$($String* name, bool initialize) {
-	$loadClass(MemoryCache$SoftCacheEntry, name, initialize, &_MemoryCache$SoftCacheEntry_ClassInfo_, allocate$MemoryCache$SoftCacheEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"key", "Ljava/lang/Object;", "TK;", $PRIVATE, $field(MemoryCache$SoftCacheEntry, key)},
+		{"expirationTime", "J", nullptr, $PRIVATE, $field(MemoryCache$SoftCacheEntry, expirationTime)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;JLjava/lang/ref/ReferenceQueue;)V", "(TK;TV;JLjava/lang/ref/ReferenceQueue<TV;>;)V", 0, $method(MemoryCache$SoftCacheEntry, init$, void, Object$*, Object$*, int64_t, $ReferenceQueue*)},
+		{"getExpirationTime", "()J", nullptr, $PUBLIC, $virtualMethod(MemoryCache$SoftCacheEntry, getExpirationTime, int64_t)},
+		{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(MemoryCache$SoftCacheEntry, getKey, $Object*)},
+		{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(MemoryCache$SoftCacheEntry, getValue, $Object*)},
+		{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(MemoryCache$SoftCacheEntry, invalidate, void)},
+		{"isValid", "(J)Z", nullptr, $PUBLIC, $virtualMethod(MemoryCache$SoftCacheEntry, isValid, bool, int64_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.MemoryCache$SoftCacheEntry", "sun.security.util.MemoryCache", "SoftCacheEntry", $PRIVATE | $STATIC},
+		{"sun.security.util.MemoryCache$CacheEntry", "sun.security.util.MemoryCache", "CacheEntry", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.util.MemoryCache$SoftCacheEntry",
+		"java.lang.ref.SoftReference",
+		"sun.security.util.MemoryCache$CacheEntry",
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/ref/SoftReference<TV;>;Lsun/security/util/MemoryCache$CacheEntry<TK;TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.util.MemoryCache"
+	};
+	$loadClass(MemoryCache$SoftCacheEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MemoryCache$SoftCacheEntry));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <ValueOf4Integer.h>
-
 #include <jcpp.h>
 
 #undef TEST_HIGH
@@ -11,39 +10,14 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
-$FieldInfo _ValueOf4Integer_FieldInfo_[] = {
-	{"TEST_LOW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ValueOf4Integer, TEST_LOW)},
-	{"TEST_HIGH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ValueOf4Integer, TEST_HIGH)},
-	{}
-};
-
-$MethodInfo _ValueOf4Integer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ValueOf4Integer, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ValueOf4Integer, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _ValueOf4Integer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ValueOf4Integer",
-	"java.lang.Object",
-	nullptr,
-	_ValueOf4Integer_FieldInfo_,
-	_ValueOf4Integer_MethodInfo_
-};
-
-$Object* allocate$ValueOf4Integer($Class* clazz) {
-	return $of($alloc(ValueOf4Integer));
-}
-
 void ValueOf4Integer::init$() {
 }
 
 void ValueOf4Integer::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = ValueOf4Integer::TEST_LOW;
 	while (i <= ValueOf4Integer::TEST_HIGH) {
-		if ($nc($($Integer::valueOf(i)))->intValue() != i) {
+		if ($($Integer::valueOf(i))->intValue() != i) {
 			$throwNew($RuntimeException);
 		}
 		if (i >= -128 && i <= 127) {
@@ -59,7 +33,27 @@ ValueOf4Integer::ValueOf4Integer() {
 }
 
 $Class* ValueOf4Integer::load$($String* name, bool initialize) {
-	$loadClass(ValueOf4Integer, name, initialize, &_ValueOf4Integer_ClassInfo_, allocate$ValueOf4Integer);
+	$FieldInfo fieldInfos$$[] = {
+		{"TEST_LOW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ValueOf4Integer, TEST_LOW)},
+		{"TEST_HIGH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ValueOf4Integer, TEST_HIGH)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ValueOf4Integer, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ValueOf4Integer, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ValueOf4Integer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ValueOf4Integer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ValueOf4Integer);
+	});
 	return class$;
 }
 

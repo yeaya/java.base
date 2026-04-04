@@ -1,5 +1,4 @@
 #include <java/time/temporal/ValueRange.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/time/DateTimeException.h>
@@ -22,51 +21,6 @@ using $TemporalField = ::java::time::temporal::TemporalField;
 namespace java {
 	namespace time {
 		namespace temporal {
-
-$FieldInfo _ValueRange_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ValueRange, serialVersionUID)},
-	{"minSmallest", "J", nullptr, $PRIVATE | $FINAL, $field(ValueRange, minSmallest)},
-	{"minLargest", "J", nullptr, $PRIVATE | $FINAL, $field(ValueRange, minLargest)},
-	{"maxSmallest", "J", nullptr, $PRIVATE | $FINAL, $field(ValueRange, maxSmallest)},
-	{"maxLargest", "J", nullptr, $PRIVATE | $FINAL, $field(ValueRange, maxLargest)},
-	{}
-};
-
-$MethodInfo _ValueRange_MethodInfo_[] = {
-	{"<init>", "(JJJJ)V", nullptr, $PRIVATE, $method(ValueRange, init$, void, int64_t, int64_t, int64_t, int64_t)},
-	{"checkValidIntValue", "(JLjava/time/temporal/TemporalField;)I", nullptr, $PUBLIC, $method(ValueRange, checkValidIntValue, int32_t, int64_t, $TemporalField*)},
-	{"checkValidValue", "(JLjava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $method(ValueRange, checkValidValue, int64_t, int64_t, $TemporalField*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ValueRange, equals, bool, Object$*)},
-	{"genInvalidFieldMessage", "(Ljava/time/temporal/TemporalField;J)Ljava/lang/String;", nullptr, $PRIVATE, $method(ValueRange, genInvalidFieldMessage, $String*, $TemporalField*, int64_t)},
-	{"getLargestMinimum", "()J", nullptr, $PUBLIC, $method(ValueRange, getLargestMinimum, int64_t)},
-	{"getMaximum", "()J", nullptr, $PUBLIC, $method(ValueRange, getMaximum, int64_t)},
-	{"getMinimum", "()J", nullptr, $PUBLIC, $method(ValueRange, getMinimum, int64_t)},
-	{"getSmallestMaximum", "()J", nullptr, $PUBLIC, $method(ValueRange, getSmallestMaximum, int64_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ValueRange, hashCode, int32_t)},
-	{"isFixed", "()Z", nullptr, $PUBLIC, $method(ValueRange, isFixed, bool)},
-	{"isIntValue", "()Z", nullptr, $PUBLIC, $method(ValueRange, isIntValue, bool)},
-	{"isValidIntValue", "(J)Z", nullptr, $PUBLIC, $method(ValueRange, isValidIntValue, bool, int64_t)},
-	{"isValidValue", "(J)Z", nullptr, $PUBLIC, $method(ValueRange, isValidValue, bool, int64_t)},
-	{"of", "(JJ)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC | $STATIC, $staticMethod(ValueRange, of, ValueRange*, int64_t, int64_t)},
-	{"of", "(JJJ)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC | $STATIC, $staticMethod(ValueRange, of, ValueRange*, int64_t, int64_t, int64_t)},
-	{"of", "(JJJJ)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC | $STATIC, $staticMethod(ValueRange, of, ValueRange*, int64_t, int64_t, int64_t, int64_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ValueRange, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException,java.io.InvalidObjectException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ValueRange, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ValueRange_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.time.temporal.ValueRange",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_ValueRange_FieldInfo_,
-	_ValueRange_MethodInfo_
-};
-
-$Object* allocate$ValueRange($Class* clazz) {
-	return $of($alloc(ValueRange));
-}
 
 ValueRange* ValueRange::of(int64_t min, int64_t max) {
 	$init(ValueRange);
@@ -158,7 +112,7 @@ int32_t ValueRange::checkValidIntValue(int64_t value, $TemporalField* field) {
 }
 
 $String* ValueRange::genInvalidFieldMessage($TemporalField* field, int64_t value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (field != nullptr) {
 		return $str({"Invalid value for "_s, field, " (valid values "_s, this, "): "_s, $$str(value)});
 	} else {
@@ -189,7 +143,7 @@ bool ValueRange::equals(Object$* obj) {
 		$assign(other, $cast(ValueRange, obj));
 		var$4 = true;
 	}
-	bool var$3 = (var$4);
+	bool var$3 = var$4;
 	bool var$2 = var$3 && this->minSmallest == $nc(other)->minSmallest;
 	bool var$1 = var$2 && this->minLargest == other->minLargest;
 	bool var$0 = var$1 && this->maxSmallest == other->maxSmallest;
@@ -218,7 +172,47 @@ ValueRange::ValueRange() {
 }
 
 $Class* ValueRange::load$($String* name, bool initialize) {
-	$loadClass(ValueRange, name, initialize, &_ValueRange_ClassInfo_, allocate$ValueRange);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ValueRange, serialVersionUID)},
+		{"minSmallest", "J", nullptr, $PRIVATE | $FINAL, $field(ValueRange, minSmallest)},
+		{"minLargest", "J", nullptr, $PRIVATE | $FINAL, $field(ValueRange, minLargest)},
+		{"maxSmallest", "J", nullptr, $PRIVATE | $FINAL, $field(ValueRange, maxSmallest)},
+		{"maxLargest", "J", nullptr, $PRIVATE | $FINAL, $field(ValueRange, maxLargest)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JJJJ)V", nullptr, $PRIVATE, $method(ValueRange, init$, void, int64_t, int64_t, int64_t, int64_t)},
+		{"checkValidIntValue", "(JLjava/time/temporal/TemporalField;)I", nullptr, $PUBLIC, $method(ValueRange, checkValidIntValue, int32_t, int64_t, $TemporalField*)},
+		{"checkValidValue", "(JLjava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $method(ValueRange, checkValidValue, int64_t, int64_t, $TemporalField*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ValueRange, equals, bool, Object$*)},
+		{"genInvalidFieldMessage", "(Ljava/time/temporal/TemporalField;J)Ljava/lang/String;", nullptr, $PRIVATE, $method(ValueRange, genInvalidFieldMessage, $String*, $TemporalField*, int64_t)},
+		{"getLargestMinimum", "()J", nullptr, $PUBLIC, $method(ValueRange, getLargestMinimum, int64_t)},
+		{"getMaximum", "()J", nullptr, $PUBLIC, $method(ValueRange, getMaximum, int64_t)},
+		{"getMinimum", "()J", nullptr, $PUBLIC, $method(ValueRange, getMinimum, int64_t)},
+		{"getSmallestMaximum", "()J", nullptr, $PUBLIC, $method(ValueRange, getSmallestMaximum, int64_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ValueRange, hashCode, int32_t)},
+		{"isFixed", "()Z", nullptr, $PUBLIC, $method(ValueRange, isFixed, bool)},
+		{"isIntValue", "()Z", nullptr, $PUBLIC, $method(ValueRange, isIntValue, bool)},
+		{"isValidIntValue", "(J)Z", nullptr, $PUBLIC, $method(ValueRange, isValidIntValue, bool, int64_t)},
+		{"isValidValue", "(J)Z", nullptr, $PUBLIC, $method(ValueRange, isValidValue, bool, int64_t)},
+		{"of", "(JJ)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC | $STATIC, $staticMethod(ValueRange, of, ValueRange*, int64_t, int64_t)},
+		{"of", "(JJJ)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC | $STATIC, $staticMethod(ValueRange, of, ValueRange*, int64_t, int64_t, int64_t)},
+		{"of", "(JJJJ)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC | $STATIC, $staticMethod(ValueRange, of, ValueRange*, int64_t, int64_t, int64_t, int64_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ValueRange, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException,java.io.InvalidObjectException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ValueRange, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.time.temporal.ValueRange",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ValueRange, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ValueRange);
+	});
 	return class$;
 }
 

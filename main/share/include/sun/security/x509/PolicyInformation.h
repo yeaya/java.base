@@ -42,6 +42,7 @@ class $import PolicyInformation : public ::java::lang::Object {
 	$class(PolicyInformation, 0, ::java::lang::Object)
 public:
 	PolicyInformation();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::x509::CertificatePolicyId* policyIdentifier, ::java::util::Set* policyQualifiers);
 	void init$(::sun::security::util::DerValue* val);
 	virtual void delete$($String* name);

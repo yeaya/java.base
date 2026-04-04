@@ -1,10 +1,8 @@
 #include <sun/security/util/DisabledAlgorithmConstraints$KeySizeConstraint.h>
-
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/Key.h>
 #include <java/security/cert/CertPath.h>
 #include <java/security/cert/CertPathValidatorException$BasicReason.h>
-#include <java/security/cert/CertPathValidatorException$Reason.h>
 #include <java/security/cert/CertPathValidatorException.h>
 #include <java/util/Collection.h>
 #include <java/util/Iterator.h>
@@ -32,13 +30,10 @@ using $Key = ::java::security::Key;
 using $CertPath = ::java::security::cert::CertPath;
 using $CertPathValidatorException = ::java::security::cert::CertPathValidatorException;
 using $CertPathValidatorException$BasicReason = ::java::security::cert::CertPathValidatorException$BasicReason;
-using $CertPathValidatorException$Reason = ::java::security::cert::CertPathValidatorException$Reason;
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
-using $Set = ::java::util::Set;
 using $AlgorithmDecomposer = ::sun::security::util::AlgorithmDecomposer;
 using $ConstraintsParameters = ::sun::security::util::ConstraintsParameters;
-using $Debug = ::sun::security::util::Debug;
 using $DisabledAlgorithmConstraints = ::sun::security::util::DisabledAlgorithmConstraints;
 using $DisabledAlgorithmConstraints$1 = ::sun::security::util::DisabledAlgorithmConstraints$1;
 using $DisabledAlgorithmConstraints$Constraint = ::sun::security::util::DisabledAlgorithmConstraints$Constraint;
@@ -49,48 +44,6 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$FieldInfo _DisabledAlgorithmConstraints$KeySizeConstraint_FieldInfo_[] = {
-	{"minSize", "I", nullptr, $PRIVATE, $field(DisabledAlgorithmConstraints$KeySizeConstraint, minSize)},
-	{"maxSize", "I", nullptr, $PRIVATE, $field(DisabledAlgorithmConstraints$KeySizeConstraint, maxSize)},
-	{"prohibitedSize", "I", nullptr, $PRIVATE, $field(DisabledAlgorithmConstraints$KeySizeConstraint, prohibitedSize)},
-	{}
-};
-
-$MethodInfo _DisabledAlgorithmConstraints$KeySizeConstraint_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/security/util/DisabledAlgorithmConstraints$Constraint$Operator;I)V", nullptr, $PUBLIC, $method(DisabledAlgorithmConstraints$KeySizeConstraint, init$, void, $String*, $DisabledAlgorithmConstraints$Constraint$Operator*, int32_t)},
-	{"permits", "(Lsun/security/util/ConstraintsParameters;)V", nullptr, $PUBLIC, $virtualMethod(DisabledAlgorithmConstraints$KeySizeConstraint, permits, void, $ConstraintsParameters*), "java.security.cert.CertPathValidatorException"},
-	{"permits", "(Ljava/security/Key;)Z", nullptr, $PUBLIC, $virtualMethod(DisabledAlgorithmConstraints$KeySizeConstraint, permits, bool, $Key*)},
-	{"permits", "(Ljava/security/AlgorithmParameters;)Z", nullptr, $PUBLIC, $virtualMethod(DisabledAlgorithmConstraints$KeySizeConstraint, permits, bool, $AlgorithmParameters*)},
-	{"permitsImpl", "(Ljava/security/Key;)Z", nullptr, $PRIVATE, $method(DisabledAlgorithmConstraints$KeySizeConstraint, permitsImpl, bool, $Key*)},
-	{}
-};
-
-$InnerClassInfo _DisabledAlgorithmConstraints$KeySizeConstraint_InnerClassesInfo_[] = {
-	{"sun.security.util.DisabledAlgorithmConstraints$KeySizeConstraint", "sun.security.util.DisabledAlgorithmConstraints", "KeySizeConstraint", $PRIVATE | $STATIC},
-	{"sun.security.util.DisabledAlgorithmConstraints$Constraint", "sun.security.util.DisabledAlgorithmConstraints", "Constraint", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DisabledAlgorithmConstraints$KeySizeConstraint_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.util.DisabledAlgorithmConstraints$KeySizeConstraint",
-	"sun.security.util.DisabledAlgorithmConstraints$Constraint",
-	nullptr,
-	_DisabledAlgorithmConstraints$KeySizeConstraint_FieldInfo_,
-	_DisabledAlgorithmConstraints$KeySizeConstraint_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DisabledAlgorithmConstraints$KeySizeConstraint_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.util.DisabledAlgorithmConstraints"
-};
-
-$Object* allocate$DisabledAlgorithmConstraints$KeySizeConstraint($Class* clazz) {
-	return $of($alloc(DisabledAlgorithmConstraints$KeySizeConstraint));
-}
-
 void DisabledAlgorithmConstraints$KeySizeConstraint::init$($String* algo, $DisabledAlgorithmConstraints$Constraint$Operator* operator$, int32_t length) {
 	$DisabledAlgorithmConstraints$Constraint::init$();
 	this->prohibitedSize = -1;
@@ -98,84 +51,72 @@ void DisabledAlgorithmConstraints$KeySizeConstraint::init$($String* algo, $Disab
 	$init($DisabledAlgorithmConstraints$1);
 	switch ($nc($DisabledAlgorithmConstraints$1::$SwitchMap$sun$security$util$DisabledAlgorithmConstraints$Constraint$Operator)->get($nc((operator$))->ordinal())) {
 	case 1:
-		{
-			this->minSize = 0;
-			this->maxSize = $Integer::MAX_VALUE;
-			this->prohibitedSize = length;
-			break;
-		}
+		this->minSize = 0;
+		this->maxSize = $Integer::MAX_VALUE;
+		this->prohibitedSize = length;
+		break;
 	case 2:
-		{
-			this->minSize = length;
-			this->maxSize = length;
-			break;
-		}
+		this->minSize = length;
+		this->maxSize = length;
+		break;
 	case 3:
-		{
-			this->minSize = length;
-			this->maxSize = $Integer::MAX_VALUE;
-			break;
-		}
+		this->minSize = length;
+		this->maxSize = $Integer::MAX_VALUE;
+		break;
 	case 4:
-		{
-			this->minSize = length + 1;
-			this->maxSize = $Integer::MAX_VALUE;
-			break;
-		}
+		this->minSize = length + 1;
+		this->maxSize = $Integer::MAX_VALUE;
+		break;
 	case 5:
-		{
-			this->minSize = 0;
-			this->maxSize = length;
-			break;
-		}
+		this->minSize = 0;
+		this->maxSize = length;
+		break;
 	case 6:
-		{
-			this->minSize = 0;
-			this->maxSize = length > 1 ? (length - 1) : 0;
-			break;
-		}
+		this->minSize = 0;
+		this->maxSize = length > 1 ? (length - 1) : 0;
+		break;
 	default:
-		{
-			this->minSize = $Integer::MAX_VALUE;
-			this->maxSize = -1;
-		}
+		this->minSize = $Integer::MAX_VALUE;
+		this->maxSize = -1;
 	}
 }
 
 void DisabledAlgorithmConstraints$KeySizeConstraint::permits($ConstraintsParameters* cp) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($nc(cp)->getKeys()))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Key, key, $cast($Key, i$->next()));
-			{
-				if (!permitsImpl(key)) {
-					if (this->nextConstraint != nullptr) {
-						$nc(this->nextConstraint)->permits(cp);
-						continue;
-					}
-					$var($String, var$0, $$str({"Algorithm constraints check failed on keysize limits: "_s, this->algorithm, " "_s, $$str($KeyUtil::getKeySize(key)), " bit key"_s}));
-					$init($CertPathValidatorException$BasicReason);
-					$throwNew($CertPathValidatorException, $$concat(var$0, $(cp->extendedExceptionMsg())), nullptr, nullptr, -1, $CertPathValidatorException$BasicReason::ALGORITHM_CONSTRAINED);
-				}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$nc($nc(cp)->getKeys())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Key, key, $cast($Key, i$->next()));
+		if (!permitsImpl(key)) {
+			if (this->nextConstraint != nullptr) {
+				this->nextConstraint->permits(cp);
+				continue;
 			}
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("Algorithm constraints check failed on keysize limits: "_s);
+			var$0->append(this->algorithm);
+			var$0->append(" "_s);
+			var$0->append($KeyUtil::getKeySize(key));
+			var$0->append(" bit key"_s);
+			var$0->append($(cp->extendedExceptionMsg()));
+			$init($CertPathValidatorException$BasicReason);
+			$throwNew($CertPathValidatorException, $$str(var$0), nullptr, nullptr, -1, $CertPathValidatorException$BasicReason::ALGORITHM_CONSTRAINED);
 		}
 	}
 }
 
 bool DisabledAlgorithmConstraints$KeySizeConstraint::permits($Key* key) {
-	if (this->nextConstraint != nullptr && $nc(this->nextConstraint)->permits(key)) {
+	if (this->nextConstraint != nullptr && this->nextConstraint->permits(key)) {
 		return true;
 	}
 	$init($DisabledAlgorithmConstraints);
 	if ($DisabledAlgorithmConstraints::debug != nullptr) {
-		$nc($DisabledAlgorithmConstraints::debug)->println($$str({"KeySizeConstraints.permits(): "_s, this->algorithm}));
+		$DisabledAlgorithmConstraints::debug->println($$str({"KeySizeConstraints.permits(): "_s, this->algorithm}));
 	}
 	return permitsImpl(key);
 }
 
 bool DisabledAlgorithmConstraints$KeySizeConstraint::permits($AlgorithmParameters* parameters) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, paramAlg, $nc(parameters)->getAlgorithm());
 	if (!$nc(this->algorithm)->equalsIgnoreCase($(parameters->getAlgorithm()))) {
 		$var($Collection, aliases, $AlgorithmDecomposer::getAliases(this->algorithm));
@@ -209,7 +150,43 @@ DisabledAlgorithmConstraints$KeySizeConstraint::DisabledAlgorithmConstraints$Key
 }
 
 $Class* DisabledAlgorithmConstraints$KeySizeConstraint::load$($String* name, bool initialize) {
-	$loadClass(DisabledAlgorithmConstraints$KeySizeConstraint, name, initialize, &_DisabledAlgorithmConstraints$KeySizeConstraint_ClassInfo_, allocate$DisabledAlgorithmConstraints$KeySizeConstraint);
+	$FieldInfo fieldInfos$$[] = {
+		{"minSize", "I", nullptr, $PRIVATE, $field(DisabledAlgorithmConstraints$KeySizeConstraint, minSize)},
+		{"maxSize", "I", nullptr, $PRIVATE, $field(DisabledAlgorithmConstraints$KeySizeConstraint, maxSize)},
+		{"prohibitedSize", "I", nullptr, $PRIVATE, $field(DisabledAlgorithmConstraints$KeySizeConstraint, prohibitedSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Lsun/security/util/DisabledAlgorithmConstraints$Constraint$Operator;I)V", nullptr, $PUBLIC, $method(DisabledAlgorithmConstraints$KeySizeConstraint, init$, void, $String*, $DisabledAlgorithmConstraints$Constraint$Operator*, int32_t)},
+		{"permits", "(Lsun/security/util/ConstraintsParameters;)V", nullptr, $PUBLIC, $virtualMethod(DisabledAlgorithmConstraints$KeySizeConstraint, permits, void, $ConstraintsParameters*), "java.security.cert.CertPathValidatorException"},
+		{"permits", "(Ljava/security/Key;)Z", nullptr, $PUBLIC, $virtualMethod(DisabledAlgorithmConstraints$KeySizeConstraint, permits, bool, $Key*)},
+		{"permits", "(Ljava/security/AlgorithmParameters;)Z", nullptr, $PUBLIC, $virtualMethod(DisabledAlgorithmConstraints$KeySizeConstraint, permits, bool, $AlgorithmParameters*)},
+		{"permitsImpl", "(Ljava/security/Key;)Z", nullptr, $PRIVATE, $method(DisabledAlgorithmConstraints$KeySizeConstraint, permitsImpl, bool, $Key*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.DisabledAlgorithmConstraints$KeySizeConstraint", "sun.security.util.DisabledAlgorithmConstraints", "KeySizeConstraint", $PRIVATE | $STATIC},
+		{"sun.security.util.DisabledAlgorithmConstraints$Constraint", "sun.security.util.DisabledAlgorithmConstraints", "Constraint", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.util.DisabledAlgorithmConstraints$KeySizeConstraint",
+		"sun.security.util.DisabledAlgorithmConstraints$Constraint",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.util.DisabledAlgorithmConstraints"
+	};
+	$loadClass(DisabledAlgorithmConstraints$KeySizeConstraint, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DisabledAlgorithmConstraints$KeySizeConstraint);
+	});
 	return class$;
 }
 

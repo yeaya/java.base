@@ -1,5 +1,4 @@
 #include <sun/nio/fs/WindowsNativeDispatcher$CompletionStatus.h>
-
 #include <sun/nio/fs/WindowsNativeDispatcher.h>
 #include <jcpp.h>
 
@@ -11,46 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace nio {
 		namespace fs {
-
-$FieldInfo _WindowsNativeDispatcher$CompletionStatus_FieldInfo_[] = {
-	{"error", "I", nullptr, $PRIVATE, $field(WindowsNativeDispatcher$CompletionStatus, error$)},
-	{"bytesTransferred", "I", nullptr, $PRIVATE, $field(WindowsNativeDispatcher$CompletionStatus, bytesTransferred$)},
-	{"completionKey", "J", nullptr, $PRIVATE, $field(WindowsNativeDispatcher$CompletionStatus, completionKey$)},
-	{}
-};
-
-$MethodInfo _WindowsNativeDispatcher$CompletionStatus_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsNativeDispatcher$CompletionStatus, init$, void)},
-	{"bytesTransferred", "()I", nullptr, 0, $virtualMethod(WindowsNativeDispatcher$CompletionStatus, bytesTransferred, int32_t)},
-	{"completionKey", "()J", nullptr, 0, $virtualMethod(WindowsNativeDispatcher$CompletionStatus, completionKey, int64_t)},
-	{"error", "()I", nullptr, 0, $virtualMethod(WindowsNativeDispatcher$CompletionStatus, error, int32_t)},
-	{}
-};
-
-$InnerClassInfo _WindowsNativeDispatcher$CompletionStatus_InnerClassesInfo_[] = {
-	{"sun.nio.fs.WindowsNativeDispatcher$CompletionStatus", "sun.nio.fs.WindowsNativeDispatcher", "CompletionStatus", $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsNativeDispatcher$CompletionStatus_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.WindowsNativeDispatcher$CompletionStatus",
-	"java.lang.Object",
-	nullptr,
-	_WindowsNativeDispatcher$CompletionStatus_FieldInfo_,
-	_WindowsNativeDispatcher$CompletionStatus_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsNativeDispatcher$CompletionStatus_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.WindowsNativeDispatcher"
-};
-
-$Object* allocate$WindowsNativeDispatcher$CompletionStatus($Class* clazz) {
-	return $of($alloc(WindowsNativeDispatcher$CompletionStatus));
-}
 
 void WindowsNativeDispatcher$CompletionStatus::init$() {
 }
@@ -71,7 +30,41 @@ WindowsNativeDispatcher$CompletionStatus::WindowsNativeDispatcher$CompletionStat
 }
 
 $Class* WindowsNativeDispatcher$CompletionStatus::load$($String* name, bool initialize) {
-	$loadClass(WindowsNativeDispatcher$CompletionStatus, name, initialize, &_WindowsNativeDispatcher$CompletionStatus_ClassInfo_, allocate$WindowsNativeDispatcher$CompletionStatus);
+	$FieldInfo fieldInfos$$[] = {
+		{"error", "I", nullptr, $PRIVATE, $field(WindowsNativeDispatcher$CompletionStatus, error$)},
+		{"bytesTransferred", "I", nullptr, $PRIVATE, $field(WindowsNativeDispatcher$CompletionStatus, bytesTransferred$)},
+		{"completionKey", "J", nullptr, $PRIVATE, $field(WindowsNativeDispatcher$CompletionStatus, completionKey$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsNativeDispatcher$CompletionStatus, init$, void)},
+		{"bytesTransferred", "()I", nullptr, 0, $virtualMethod(WindowsNativeDispatcher$CompletionStatus, bytesTransferred, int32_t)},
+		{"completionKey", "()J", nullptr, 0, $virtualMethod(WindowsNativeDispatcher$CompletionStatus, completionKey, int64_t)},
+		{"error", "()I", nullptr, 0, $virtualMethod(WindowsNativeDispatcher$CompletionStatus, error, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.WindowsNativeDispatcher$CompletionStatus", "sun.nio.fs.WindowsNativeDispatcher", "CompletionStatus", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.WindowsNativeDispatcher$CompletionStatus",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.WindowsNativeDispatcher"
+	};
+	$loadClass(WindowsNativeDispatcher$CompletionStatus, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsNativeDispatcher$CompletionStatus);
+	});
 	return class$;
 }
 

@@ -62,6 +62,7 @@ class $export Proxy : public ::java::io::Serializable {
 	$class(Proxy, 0, ::java::io::Serializable)
 public:
 	Proxy();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::lang::reflect::InvocationHandler* h);
 	static void checkNewProxyPermission($Class* caller, $Class* proxyClass);
@@ -81,7 +82,7 @@ public:
 	static $Object* newProxyInstance($Class* caller, ::java::lang::reflect::Constructor* cons, ::java::lang::reflect::InvocationHandler* h);
 	static ::java::lang::invoke::MethodHandles$Lookup* proxyClassLookup(::java::lang::invoke::MethodHandles$Lookup* caller, $Class* proxyClass);
 	static bool $assertionsDisabled;
-	static const int64_t serialVersionUID = (int64_t)0xE127DA20CC1043CB;
+	static const int64_t serialVersionUID = (int64_t)0xe127da20cc1043cb;
 	static $ClassArray* constructorParams;
 	static ::jdk::internal::loader::ClassLoaderValue* proxyCache;
 	::java::lang::reflect::InvocationHandler* h = nullptr;

@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ISO_8859_13.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -23,44 +22,6 @@ using $StandardCharsets = ::sun::nio::cs::StandardCharsets;
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$MethodInfo _ISO_8859_13_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ISO_8859_13, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(ISO_8859_13, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ISO_8859_13, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(ISO_8859_13, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(ISO_8859_13, newEncoder, $CharsetEncoder*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{}
-};
-
-$InnerClassInfo _ISO_8859_13_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ISO_8859_13$Holder", "sun.nio.cs.ISO_8859_13", "Holder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ISO_8859_13_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.ISO_8859_13",
-	"java.nio.charset.Charset",
-	"sun.nio.cs.HistoricallyNamedCharset",
-	nullptr,
-	_ISO_8859_13_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ISO_8859_13_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ISO_8859_13$Holder"
-};
-
-$Object* allocate$ISO_8859_13($Class* clazz) {
-	return $of($alloc(ISO_8859_13));
-}
 
 int32_t ISO_8859_13::hashCode() {
 	 return this->$Charset::hashCode();
@@ -91,7 +52,7 @@ $String* ISO_8859_13::historicalName() {
 }
 
 bool ISO_8859_13::contains($Charset* cs) {
-	return (($nc($($nc(cs)->name()))->equals("US-ASCII"_s)) || ($instanceOf(ISO_8859_13, cs)));
+	return (($$nc($nc(cs)->name())->equals("US-ASCII"_s)) || ($instanceOf(ISO_8859_13, cs)));
 }
 
 $CharsetDecoder* ISO_8859_13::newDecoder() {
@@ -108,7 +69,40 @@ ISO_8859_13::ISO_8859_13() {
 }
 
 $Class* ISO_8859_13::load$($String* name, bool initialize) {
-	$loadClass(ISO_8859_13, name, initialize, &_ISO_8859_13_ClassInfo_, allocate$ISO_8859_13);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ISO_8859_13, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(ISO_8859_13, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ISO_8859_13, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(ISO_8859_13, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(ISO_8859_13, newEncoder, $CharsetEncoder*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ISO_8859_13$Holder", "sun.nio.cs.ISO_8859_13", "Holder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.ISO_8859_13",
+		"java.nio.charset.Charset",
+		"sun.nio.cs.HistoricallyNamedCharset",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ISO_8859_13$Holder"
+	};
+	$loadClass(ISO_8859_13, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ISO_8859_13));
+	});
 	return class$;
 }
 

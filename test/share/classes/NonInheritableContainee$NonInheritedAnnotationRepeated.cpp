@@ -1,5 +1,4 @@
 #include <NonInheritableContainee$NonInheritedAnnotationRepeated.h>
-
 #include <NonInheritableContainee.h>
 #include <jcpp.h>
 
@@ -9,54 +8,46 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
-$NamedAttribute NonInheritableContainee$NonInheritedAnnotationRepeated_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$NamedAttribute NonInheritableContainee$NonInheritedAnnotationRepeated_Attribute_var$1[] = {
-	{"value", 'c', "LNonInheritableContainee$InheritedAnnotationContainer;"},
-	{}
-};
-
-$CompoundAttribute _NonInheritableContainee$NonInheritedAnnotationRepeated_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", NonInheritableContainee$NonInheritedAnnotationRepeated_Attribute_var$0},
-	{"Ljava/lang/annotation/Repeatable;", NonInheritableContainee$NonInheritedAnnotationRepeated_Attribute_var$1},
-	{}
-};
-
-$MethodInfo _NonInheritableContainee$NonInheritedAnnotationRepeated_MethodInfo_[] = {
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NonInheritableContainee$NonInheritedAnnotationRepeated, name, $String*)},
-	{}
-};
-
-$InnerClassInfo _NonInheritableContainee$NonInheritedAnnotationRepeated_InnerClassesInfo_[] = {
-	{"NonInheritableContainee$NonInheritedAnnotationRepeated", "NonInheritableContainee", "NonInheritedAnnotationRepeated", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{}
-};
-
-$ClassInfo _NonInheritableContainee$NonInheritedAnnotationRepeated_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"NonInheritableContainee$NonInheritedAnnotationRepeated",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_NonInheritableContainee$NonInheritedAnnotationRepeated_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NonInheritableContainee$NonInheritedAnnotationRepeated_InnerClassesInfo_,
-	_NonInheritableContainee$NonInheritedAnnotationRepeated_Annotations_,
-	nullptr,
-	nullptr,
-	"NonInheritableContainee"
-};
-
-$Object* allocate$NonInheritableContainee$NonInheritedAnnotationRepeated($Class* clazz) {
-	return $of($alloc(NonInheritableContainee$NonInheritedAnnotationRepeated));
-}
-
 $Class* NonInheritableContainee$NonInheritedAnnotationRepeated::load$($String* name, bool initialize) {
-	$loadClass(NonInheritableContainee$NonInheritedAnnotationRepeated, name, initialize, &_NonInheritableContainee$NonInheritedAnnotationRepeated_ClassInfo_, allocate$NonInheritableContainee$NonInheritedAnnotationRepeated);
+	$MethodInfo methodInfos$$[] = {
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NonInheritableContainee$NonInheritedAnnotationRepeated, name, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"NonInheritableContainee$NonInheritedAnnotationRepeated", "NonInheritableContainee", "NonInheritedAnnotationRepeated", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'c', "LNonInheritableContainee$InheritedAnnotationContainer;"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Repeatable;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"NonInheritableContainee$NonInheritedAnnotationRepeated",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"NonInheritableContainee"
+	};
+	$loadClass(NonInheritableContainee$NonInheritedAnnotationRepeated, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NonInheritableContainee$NonInheritedAnnotationRepeated);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/stream/DoublePipeline$StatefulOp.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/util/Iterator.h>
 #include <java/util/PrimitiveIterator$OfDouble.h>
@@ -36,49 +35,6 @@ using $StreamShape = ::java::util::stream::StreamShape;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _DoublePipeline$StatefulOp_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DoublePipeline$StatefulOp, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _DoublePipeline$StatefulOp_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;I)V", "(Ljava/util/stream/AbstractPipeline<*TE_IN;*>;Ljava/util/stream/StreamShape;I)V", 0, $method(DoublePipeline$StatefulOp, init$, void, $AbstractPipeline*, $StreamShape*, int32_t)},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoublePipeline$StatefulOp, iterator, $Iterator*)},
-	{"lazySpliterator", "(Ljava/util/function/Supplier;)Ljava/util/Spliterator;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(DoublePipeline$StatefulOp, lazySpliterator, $Spliterator*, $Supplier*)},
-	{"opEvaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", nullptr, $ABSTRACT},
-	{"opIsStateful", "()Z", nullptr, $FINAL, $virtualMethod(DoublePipeline$StatefulOp, opIsStateful, bool)},
-	{"parallel", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoublePipeline$StatefulOp, parallel, $BaseStream*)},
-	{"sequential", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoublePipeline$StatefulOp, sequential, $BaseStream*)},
-	{"spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoublePipeline$StatefulOp, spliterator, $Spliterator*)},
-	{"unordered", "()Ljava/util/stream/BaseStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoublePipeline$StatefulOp, unordered, $BaseStream*)},
-	{}
-};
-
-$InnerClassInfo _DoublePipeline$StatefulOp_InnerClassesInfo_[] = {
-	{"java.util.stream.DoublePipeline$StatefulOp", "java.util.stream.DoublePipeline", "StatefulOp", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DoublePipeline$StatefulOp_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.stream.DoublePipeline$StatefulOp",
-	"java.util.stream.DoublePipeline",
-	nullptr,
-	_DoublePipeline$StatefulOp_FieldInfo_,
-	_DoublePipeline$StatefulOp_MethodInfo_,
-	"<E_IN:Ljava/lang/Object;>Ljava/util/stream/DoublePipeline<TE_IN;>;",
-	nullptr,
-	_DoublePipeline$StatefulOp_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.DoublePipeline"
-};
-
-$Object* allocate$DoublePipeline$StatefulOp($Class* clazz) {
-	return $of($alloc(DoublePipeline$StatefulOp));
-}
 
 $Node* DoublePipeline$StatefulOp::opEvaluateParallel($PipelineHelper* helper, $Spliterator* spliterator, $IntFunction* generator) {
 	 return this->$DoublePipeline::opEvaluateParallel(helper, spliterator, generator);
@@ -121,7 +77,7 @@ $Spliterator* DoublePipeline$StatefulOp::lazySpliterator($Supplier* supplier) {
 	return $DoublePipeline::lazySpliterator(supplier);
 }
 
-void clinit$DoublePipeline$StatefulOp($Class* class$) {
+void DoublePipeline$StatefulOp::clinit$($Class* clazz) {
 	$load($DoublePipeline);
 	DoublePipeline$StatefulOp::$assertionsDisabled = !$DoublePipeline::class$->desiredAssertionStatus();
 }
@@ -130,7 +86,44 @@ DoublePipeline$StatefulOp::DoublePipeline$StatefulOp() {
 }
 
 $Class* DoublePipeline$StatefulOp::load$($String* name, bool initialize) {
-	$loadClass(DoublePipeline$StatefulOp, name, initialize, &_DoublePipeline$StatefulOp_ClassInfo_, clinit$DoublePipeline$StatefulOp, allocate$DoublePipeline$StatefulOp);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DoublePipeline$StatefulOp, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;I)V", "(Ljava/util/stream/AbstractPipeline<*TE_IN;*>;Ljava/util/stream/StreamShape;I)V", 0, $method(DoublePipeline$StatefulOp, init$, void, $AbstractPipeline*, $StreamShape*, int32_t)},
+		{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoublePipeline$StatefulOp, iterator, $Iterator*)},
+		{"lazySpliterator", "(Ljava/util/function/Supplier;)Ljava/util/Spliterator;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(DoublePipeline$StatefulOp, lazySpliterator, $Spliterator*, $Supplier*)},
+		{"opEvaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", nullptr, $ABSTRACT},
+		{"opIsStateful", "()Z", nullptr, $FINAL, $virtualMethod(DoublePipeline$StatefulOp, opIsStateful, bool)},
+		{"parallel", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoublePipeline$StatefulOp, parallel, $BaseStream*)},
+		{"sequential", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoublePipeline$StatefulOp, sequential, $BaseStream*)},
+		{"spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoublePipeline$StatefulOp, spliterator, $Spliterator*)},
+		{"unordered", "()Ljava/util/stream/BaseStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoublePipeline$StatefulOp, unordered, $BaseStream*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.DoublePipeline$StatefulOp", "java.util.stream.DoublePipeline", "StatefulOp", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.stream.DoublePipeline$StatefulOp",
+		"java.util.stream.DoublePipeline",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<E_IN:Ljava/lang/Object;>Ljava/util/stream/DoublePipeline<TE_IN;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.DoublePipeline"
+	};
+	$loadClass(DoublePipeline$StatefulOp, name, initialize, &classInfo$$, DoublePipeline$StatefulOp::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DoublePipeline$StatefulOp));
+	});
 	return class$;
 }
 

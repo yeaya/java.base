@@ -1,5 +1,4 @@
 #include <sun/security/rsa/RSASignature.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/nio/ByteBuffer.h>
@@ -7,7 +6,6 @@
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/InvalidKeyException.h>
-#include <java/security/Key.h>
 #include <java/security/MessageDigest.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/PrivateKey.h>
@@ -49,7 +47,6 @@ using $AlgorithmParameters = ::java::security::AlgorithmParameters;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
-using $Key = ::java::security::Key;
 using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $PrivateKey = ::java::security::PrivateKey;
@@ -78,93 +75,13 @@ namespace sun {
 	namespace security {
 		namespace rsa {
 
-$CompoundAttribute _RSASignature_MethodAnnotations_engineGetParameter3[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _RSASignature_MethodAnnotations_engineSetParameter8[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _RSASignature_FieldInfo_[] = {
-	{"baseLength", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RSASignature, baseLength)},
-	{"digestOID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE | $FINAL, $field(RSASignature, digestOID)},
-	{"encodedLength", "I", nullptr, $PRIVATE | $FINAL, $field(RSASignature, encodedLength)},
-	{"md", "Ljava/security/MessageDigest;", nullptr, $PRIVATE | $FINAL, $field(RSASignature, md)},
-	{"digestReset", "Z", nullptr, $PRIVATE, $field(RSASignature, digestReset)},
-	{"privateKey", "Ljava/security/interfaces/RSAPrivateKey;", nullptr, $PRIVATE, $field(RSASignature, privateKey)},
-	{"publicKey", "Ljava/security/interfaces/RSAPublicKey;", nullptr, $PRIVATE, $field(RSASignature, publicKey)},
-	{"padding", "Lsun/security/rsa/RSAPadding;", nullptr, $PRIVATE, $field(RSASignature, padding)},
-	{}
-};
-
-$MethodInfo _RSASignature_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/security/util/ObjectIdentifier;I)V", nullptr, 0, $method(RSASignature, init$, void, $String*, $ObjectIdentifier*, int32_t)},
-	{"decodeSignature", "(Lsun/security/util/ObjectIdentifier;[B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(RSASignature, decodeSignature, $bytes*, $ObjectIdentifier*, $bytes*), "java.io.IOException"},
-	{"encodeSignature", "(Lsun/security/util/ObjectIdentifier;[B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(RSASignature, encodeSignature, $bytes*, $ObjectIdentifier*, $bytes*), "java.io.IOException"},
-	{"engineGetParameter", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(RSASignature, engineGetParameter, $Object*, $String*), "java.security.InvalidParameterException", nullptr, _RSASignature_MethodAnnotations_engineGetParameter3},
-	{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineGetParameters, $AlgorithmParameters*)},
-	{"engineInitSign", "(Ljava/security/PrivateKey;)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineInitSign, void, $PrivateKey*), "java.security.InvalidKeyException"},
-	{"engineInitSign", "(Ljava/security/PrivateKey;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineInitSign, void, $PrivateKey*, $SecureRandom*), "java.security.InvalidKeyException"},
-	{"engineInitVerify", "(Ljava/security/PublicKey;)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineInitVerify, void, $PublicKey*), "java.security.InvalidKeyException"},
-	{"engineSetParameter", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(RSASignature, engineSetParameter, void, $String*, Object$*), "java.security.InvalidParameterException", nullptr, _RSASignature_MethodAnnotations_engineSetParameter8},
-	{"engineSetParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineSetParameter, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"engineSign", "()[B", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineSign, $bytes*), "java.security.SignatureException"},
-	{"engineUpdate", "(B)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineUpdate, void, int8_t), "java.security.SignatureException"},
-	{"engineUpdate", "([BII)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineUpdate, void, $bytes*, int32_t, int32_t), "java.security.SignatureException"},
-	{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineUpdate, void, $ByteBuffer*)},
-	{"engineVerify", "([B)Z", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineVerify, bool, $bytes*), "java.security.SignatureException"},
-	{"getDigestValue", "()[B", nullptr, $PRIVATE, $method(RSASignature, getDigestValue, $bytes*)},
-	{"initCommon", "(Ljava/security/interfaces/RSAKey;Ljava/security/SecureRandom;)V", nullptr, $PRIVATE, $method(RSASignature, initCommon, void, $RSAKey*, $SecureRandom*), "java.security.InvalidKeyException"},
-	{"resetDigest", "()V", nullptr, $PRIVATE, $method(RSASignature, resetDigest, void)},
-	{}
-};
-
-$InnerClassInfo _RSASignature_InnerClassesInfo_[] = {
-	{"sun.security.rsa.RSASignature$SHA3_512withRSA", "sun.security.rsa.RSASignature", "SHA3_512withRSA", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.rsa.RSASignature$SHA3_384withRSA", "sun.security.rsa.RSASignature", "SHA3_384withRSA", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.rsa.RSASignature$SHA3_256withRSA", "sun.security.rsa.RSASignature", "SHA3_256withRSA", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.rsa.RSASignature$SHA3_224withRSA", "sun.security.rsa.RSASignature", "SHA3_224withRSA", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.rsa.RSASignature$SHA512_256withRSA", "sun.security.rsa.RSASignature", "SHA512_256withRSA", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.rsa.RSASignature$SHA512_224withRSA", "sun.security.rsa.RSASignature", "SHA512_224withRSA", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.rsa.RSASignature$SHA512withRSA", "sun.security.rsa.RSASignature", "SHA512withRSA", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.rsa.RSASignature$SHA384withRSA", "sun.security.rsa.RSASignature", "SHA384withRSA", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.rsa.RSASignature$SHA256withRSA", "sun.security.rsa.RSASignature", "SHA256withRSA", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.rsa.RSASignature$SHA224withRSA", "sun.security.rsa.RSASignature", "SHA224withRSA", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.rsa.RSASignature$SHA1withRSA", "sun.security.rsa.RSASignature", "SHA1withRSA", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.rsa.RSASignature$MD5withRSA", "sun.security.rsa.RSASignature", "MD5withRSA", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.rsa.RSASignature$MD2withRSA", "sun.security.rsa.RSASignature", "MD2withRSA", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _RSASignature_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.security.rsa.RSASignature",
-	"java.security.SignatureSpi",
-	nullptr,
-	_RSASignature_FieldInfo_,
-	_RSASignature_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RSASignature_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.rsa.RSASignature$SHA3_512withRSA,sun.security.rsa.RSASignature$SHA3_384withRSA,sun.security.rsa.RSASignature$SHA3_256withRSA,sun.security.rsa.RSASignature$SHA3_224withRSA,sun.security.rsa.RSASignature$SHA512_256withRSA,sun.security.rsa.RSASignature$SHA512_224withRSA,sun.security.rsa.RSASignature$SHA512withRSA,sun.security.rsa.RSASignature$SHA384withRSA,sun.security.rsa.RSASignature$SHA256withRSA,sun.security.rsa.RSASignature$SHA224withRSA,sun.security.rsa.RSASignature$SHA1withRSA,sun.security.rsa.RSASignature$MD5withRSA,sun.security.rsa.RSASignature$MD2withRSA"
-};
-
-$Object* allocate$RSASignature($Class* clazz) {
-	return $of($alloc(RSASignature));
-}
-
 void RSASignature::init$($String* algorithm, $ObjectIdentifier* digestOID, int32_t oidLength) {
 	$SignatureSpi::init$();
 	$set(this, digestOID, digestOID);
 	try {
 		$set(this, md, $MessageDigest::getInstance(algorithm));
 	} catch ($NoSuchAlgorithmException& e) {
-		$throwNew($ProviderException, static_cast<$Throwable*>(e));
+		$throwNew($ProviderException, e);
 	}
 	this->digestReset = true;
 	this->encodedLength = RSASignature::baseLength + oidLength + $nc(this->md)->getDigestLength();
@@ -189,7 +106,7 @@ void RSASignature::engineInitSign($PrivateKey* privateKey, $SecureRandom* random
 }
 
 void RSASignature::initCommon($RSAKey* rsaKey, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($RSAUtil$KeyType);
 		$RSAUtil::checkParamsAgainstType($RSAUtil$KeyType::RSA, $($nc(rsaKey)->getParams()));
@@ -237,7 +154,7 @@ void RSASignature::engineUpdate($ByteBuffer* b) {
 }
 
 $bytes* RSASignature::engineSign() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->privateKey == nullptr) {
 		$throwNew($SignatureException, "Missing private key"_s);
 	}
@@ -256,51 +173,49 @@ $bytes* RSASignature::engineSign() {
 }
 
 bool RSASignature::engineVerify($bytes* sigBytes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->publicKey == nullptr) {
 		$throwNew($SignatureException, "Missing public key"_s);
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				if ($nc(sigBytes)->length != $RSACore::getByteLength(static_cast<$RSAKey*>(this->publicKey))) {
-					$throwNew($SignatureException, $$str({"Signature length not correct: got "_s, $$str(sigBytes->length), " but was expecting "_s, $$str($RSACore::getByteLength(static_cast<$RSAKey*>(this->publicKey)))}));
-				}
-				$var($bytes, digest, getDigestValue());
-				$var($bytes, decrypted, $RSACore::rsa(sigBytes, this->publicKey));
-				$var($bytes, unpadded, $nc(this->padding)->unpad(decrypted));
-				$var($bytes, decodedDigest, decodeSignature(this->digestOID, unpadded));
-				var$2 = $MessageDigest::isEqual(digest, decodedDigest);
-				return$1 = true;
-				goto $finally;
-			} catch ($BadPaddingException& e) {
-				var$2 = false;
-				return$1 = true;
-				goto $finally;
-			} catch ($IOException& e) {
-				$throwNew($SignatureException, "Signature encoding error"_s, e);
+			if ($nc(sigBytes)->length != $RSACore::getByteLength(this->publicKey)) {
+				$throwNew($SignatureException, $$str({"Signature length not correct: got "_s, $$str(sigBytes->length), " but was expecting "_s, $$str($RSACore::getByteLength(this->publicKey))}));
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			resetDigest();
+			$var($bytes, digest, getDigestValue());
+			$var($bytes, decrypted, $RSACore::rsa(sigBytes, this->publicKey));
+			$var($bytes, unpadded, $nc(this->padding)->unpad(decrypted));
+			$var($bytes, decodedDigest, decodeSignature(this->digestOID, unpadded));
+			var$2 = $MessageDigest::isEqual(digest, decodedDigest);
+			return$1 = true;
+			goto $finally;
+		} catch ($BadPaddingException& e) {
+			var$2 = false;
+			return$1 = true;
+			goto $finally;
+		} catch ($IOException& e) {
+			$throwNew($SignatureException, "Signature encoding error"_s, e);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		resetDigest();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $bytes* RSASignature::encodeSignature($ObjectIdentifier* oid, $bytes* digest) {
 	$init(RSASignature);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, out, $new($DerOutputStream));
 	$$new($AlgorithmId, oid)->encode(out);
 	out->putOctetString(digest);
@@ -310,20 +225,20 @@ $bytes* RSASignature::encodeSignature($ObjectIdentifier* oid, $bytes* digest) {
 
 $bytes* RSASignature::decodeSignature($ObjectIdentifier* oid, $bytes* sig) {
 	$init(RSASignature);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerInputStream, in, $new($DerInputStream, sig, 0, $nc(sig)->length, false));
 	$var($DerValueArray, values, in->getSequence(2));
 	if (($nc(values)->length != 2) || (in->available() != 0)) {
 		$throwNew($IOException, "SEQUENCE length error"_s);
 	}
-	$var($AlgorithmId, algId, $AlgorithmId::parse($nc(values)->get(0)));
-	if ($nc($($nc(algId)->getOID()))->equals(oid) == false) {
+	$var($AlgorithmId, algId, $AlgorithmId::parse(values->get(0)));
+	if ($$nc($nc(algId)->getOID())->equals(oid) == false) {
 		$throwNew($IOException, $$str({"ObjectIdentifier mismatch: "_s, $(algId->getOID())}));
 	}
-	if ($nc(algId)->getEncodedParams() != nullptr) {
+	if (algId->getEncodedParams() != nullptr) {
 		$throwNew($IOException, "Unexpected AlgorithmId parameters"_s);
 	}
-	$var($bytes, digest, $nc($nc(values)->get(1))->getOctetString());
+	$var($bytes, digest, $nc(values->get(1))->getOctetString());
 	return digest;
 }
 
@@ -350,7 +265,79 @@ RSASignature::RSASignature() {
 }
 
 $Class* RSASignature::load$($String* name, bool initialize) {
-	$loadClass(RSASignature, name, initialize, &_RSASignature_ClassInfo_, allocate$RSASignature);
+	$FieldInfo fieldInfos$$[] = {
+		{"baseLength", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RSASignature, baseLength)},
+		{"digestOID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE | $FINAL, $field(RSASignature, digestOID)},
+		{"encodedLength", "I", nullptr, $PRIVATE | $FINAL, $field(RSASignature, encodedLength)},
+		{"md", "Ljava/security/MessageDigest;", nullptr, $PRIVATE | $FINAL, $field(RSASignature, md)},
+		{"digestReset", "Z", nullptr, $PRIVATE, $field(RSASignature, digestReset)},
+		{"privateKey", "Ljava/security/interfaces/RSAPrivateKey;", nullptr, $PRIVATE, $field(RSASignature, privateKey)},
+		{"publicKey", "Ljava/security/interfaces/RSAPublicKey;", nullptr, $PRIVATE, $field(RSASignature, publicKey)},
+		{"padding", "Lsun/security/rsa/RSAPadding;", nullptr, $PRIVATE, $field(RSASignature, padding)},
+		{}
+	};
+	$CompoundAttribute engineGetParametermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute engineSetParametermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Lsun/security/util/ObjectIdentifier;I)V", nullptr, 0, $method(RSASignature, init$, void, $String*, $ObjectIdentifier*, int32_t)},
+		{"decodeSignature", "(Lsun/security/util/ObjectIdentifier;[B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(RSASignature, decodeSignature, $bytes*, $ObjectIdentifier*, $bytes*), "java.io.IOException"},
+		{"encodeSignature", "(Lsun/security/util/ObjectIdentifier;[B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(RSASignature, encodeSignature, $bytes*, $ObjectIdentifier*, $bytes*), "java.io.IOException"},
+		{"engineGetParameter", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(RSASignature, engineGetParameter, $Object*, $String*), "java.security.InvalidParameterException", nullptr, engineGetParametermethodAnnotations$$},
+		{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineGetParameters, $AlgorithmParameters*)},
+		{"engineInitSign", "(Ljava/security/PrivateKey;)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineInitSign, void, $PrivateKey*), "java.security.InvalidKeyException"},
+		{"engineInitSign", "(Ljava/security/PrivateKey;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineInitSign, void, $PrivateKey*, $SecureRandom*), "java.security.InvalidKeyException"},
+		{"engineInitVerify", "(Ljava/security/PublicKey;)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineInitVerify, void, $PublicKey*), "java.security.InvalidKeyException"},
+		{"engineSetParameter", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(RSASignature, engineSetParameter, void, $String*, Object$*), "java.security.InvalidParameterException", nullptr, engineSetParametermethodAnnotations$$},
+		{"engineSetParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineSetParameter, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"engineSign", "()[B", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineSign, $bytes*), "java.security.SignatureException"},
+		{"engineUpdate", "(B)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineUpdate, void, int8_t), "java.security.SignatureException"},
+		{"engineUpdate", "([BII)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineUpdate, void, $bytes*, int32_t, int32_t), "java.security.SignatureException"},
+		{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineUpdate, void, $ByteBuffer*)},
+		{"engineVerify", "([B)Z", nullptr, $PROTECTED, $virtualMethod(RSASignature, engineVerify, bool, $bytes*), "java.security.SignatureException"},
+		{"getDigestValue", "()[B", nullptr, $PRIVATE, $method(RSASignature, getDigestValue, $bytes*)},
+		{"initCommon", "(Ljava/security/interfaces/RSAKey;Ljava/security/SecureRandom;)V", nullptr, $PRIVATE, $method(RSASignature, initCommon, void, $RSAKey*, $SecureRandom*), "java.security.InvalidKeyException"},
+		{"resetDigest", "()V", nullptr, $PRIVATE, $method(RSASignature, resetDigest, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.rsa.RSASignature$SHA3_512withRSA", "sun.security.rsa.RSASignature", "SHA3_512withRSA", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.rsa.RSASignature$SHA3_384withRSA", "sun.security.rsa.RSASignature", "SHA3_384withRSA", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.rsa.RSASignature$SHA3_256withRSA", "sun.security.rsa.RSASignature", "SHA3_256withRSA", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.rsa.RSASignature$SHA3_224withRSA", "sun.security.rsa.RSASignature", "SHA3_224withRSA", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.rsa.RSASignature$SHA512_256withRSA", "sun.security.rsa.RSASignature", "SHA512_256withRSA", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.rsa.RSASignature$SHA512_224withRSA", "sun.security.rsa.RSASignature", "SHA512_224withRSA", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.rsa.RSASignature$SHA512withRSA", "sun.security.rsa.RSASignature", "SHA512withRSA", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.rsa.RSASignature$SHA384withRSA", "sun.security.rsa.RSASignature", "SHA384withRSA", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.rsa.RSASignature$SHA256withRSA", "sun.security.rsa.RSASignature", "SHA256withRSA", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.rsa.RSASignature$SHA224withRSA", "sun.security.rsa.RSASignature", "SHA224withRSA", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.rsa.RSASignature$SHA1withRSA", "sun.security.rsa.RSASignature", "SHA1withRSA", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.rsa.RSASignature$MD5withRSA", "sun.security.rsa.RSASignature", "MD5withRSA", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.rsa.RSASignature$MD2withRSA", "sun.security.rsa.RSASignature", "MD2withRSA", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.security.rsa.RSASignature",
+		"java.security.SignatureSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.rsa.RSASignature$SHA3_512withRSA,sun.security.rsa.RSASignature$SHA3_384withRSA,sun.security.rsa.RSASignature$SHA3_256withRSA,sun.security.rsa.RSASignature$SHA3_224withRSA,sun.security.rsa.RSASignature$SHA512_256withRSA,sun.security.rsa.RSASignature$SHA512_224withRSA,sun.security.rsa.RSASignature$SHA512withRSA,sun.security.rsa.RSASignature$SHA384withRSA,sun.security.rsa.RSASignature$SHA256withRSA,sun.security.rsa.RSASignature$SHA224withRSA,sun.security.rsa.RSASignature$SHA1withRSA,sun.security.rsa.RSASignature$MD5withRSA,sun.security.rsa.RSASignature$MD2withRSA"
+	};
+	$loadClass(RSASignature, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RSASignature);
+	});
 	return class$;
 }
 

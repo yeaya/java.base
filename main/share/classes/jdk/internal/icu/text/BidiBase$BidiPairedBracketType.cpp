@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/text/BidiBase$BidiPairedBracketType.h>
-
 #include <jdk/internal/icu/text/BidiBase.h>
 #include <jcpp.h>
 
@@ -17,41 +16,36 @@ namespace jdk {
 		namespace icu {
 			namespace text {
 
-$FieldInfo _BidiBase$BidiPairedBracketType_FieldInfo_[] = {
-	{"NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BidiBase$BidiPairedBracketType, NONE)},
-	{"OPEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BidiBase$BidiPairedBracketType, OPEN)},
-	{"CLOSE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BidiBase$BidiPairedBracketType, CLOSE)},
-	{"COUNT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BidiBase$BidiPairedBracketType, COUNT)},
-	{}
-};
-
-$InnerClassInfo _BidiBase$BidiPairedBracketType_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.text.BidiBase$BidiPairedBracketType", "jdk.internal.icu.text.BidiBase", "BidiPairedBracketType", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _BidiBase$BidiPairedBracketType_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.icu.text.BidiBase$BidiPairedBracketType",
-	nullptr,
-	nullptr,
-	_BidiBase$BidiPairedBracketType_FieldInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_BidiBase$BidiPairedBracketType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.text.BidiBase"
-};
-
-$Object* allocate$BidiBase$BidiPairedBracketType($Class* clazz) {
-	return $of($alloc(BidiBase$BidiPairedBracketType));
-}
-
 $Class* BidiBase$BidiPairedBracketType::load$($String* name, bool initialize) {
-	$loadClass(BidiBase$BidiPairedBracketType, name, initialize, &_BidiBase$BidiPairedBracketType_ClassInfo_, allocate$BidiBase$BidiPairedBracketType);
+	$FieldInfo fieldInfos$$[] = {
+		{"NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BidiBase$BidiPairedBracketType, NONE)},
+		{"OPEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BidiBase$BidiPairedBracketType, OPEN)},
+		{"CLOSE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BidiBase$BidiPairedBracketType, CLOSE)},
+		{"COUNT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BidiBase$BidiPairedBracketType, COUNT)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.text.BidiBase$BidiPairedBracketType", "jdk.internal.icu.text.BidiBase", "BidiPairedBracketType", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.icu.text.BidiBase$BidiPairedBracketType",
+		nullptr,
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.text.BidiBase"
+	};
+	$loadClass(BidiBase$BidiPairedBracketType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BidiBase$BidiPairedBracketType);
+	});
 	return class$;
 }
 

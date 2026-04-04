@@ -1,5 +1,4 @@
 #include <javax/security/auth/AuthPermission.h>
-
 #include <java/security/BasicPermission.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $BasicPermission = ::java::security::BasicPermission;
 namespace javax {
 	namespace security {
 		namespace auth {
-
-$FieldInfo _AuthPermission_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AuthPermission, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AuthPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AuthPermission, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AuthPermission, init$, void, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _AuthPermission_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.security.auth.AuthPermission",
-	"java.security.BasicPermission",
-	nullptr,
-	_AuthPermission_FieldInfo_,
-	_AuthPermission_MethodInfo_
-};
-
-$Object* allocate$AuthPermission($Class* clazz) {
-	return $of($alloc(AuthPermission));
-}
 
 void AuthPermission::init$($String* name) {
 	$BasicPermission::init$("createLoginContext"_s->equals(name) ? "createLoginContext.*"_s : name);
@@ -48,7 +23,26 @@ AuthPermission::AuthPermission() {
 }
 
 $Class* AuthPermission::load$($String* name, bool initialize) {
-	$loadClass(AuthPermission, name, initialize, &_AuthPermission_ClassInfo_, allocate$AuthPermission);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AuthPermission, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AuthPermission, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AuthPermission, init$, void, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.security.auth.AuthPermission",
+		"java.security.BasicPermission",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AuthPermission, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AuthPermission));
+	});
 	return class$;
 }
 

@@ -16,7 +16,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)18830826;
 	IllegalFormatException(const IllegalFormatException& e);
 	virtual void throw$() override;
-	inline IllegalFormatException* operator ->() {
+	inline IllegalFormatException* operator ->() const {
+		return (IllegalFormatException*)throwing$;
+	}
+	inline operator IllegalFormatException*() const {
 		return (IllegalFormatException*)throwing$;
 	}
 };

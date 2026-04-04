@@ -1,5 +1,4 @@
 #include <org/w3c/dom/css/FakePackage.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -12,47 +11,40 @@ namespace org {
 		namespace dom {
 			namespace css {
 
-$NamedAttribute FakePackage_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$Attribute FakePackage_Attribute_var$2[] = {
-	{'e', "Ljava/lang/annotation/ElementType; PACKAGE"},
-	{'-'}
-};
-
-$NamedAttribute FakePackage_Attribute_var$1[] = {
-	{"value", '[', FakePackage_Attribute_var$2},
-	{}
-};
-
-$CompoundAttribute _FakePackage_Annotations_[] = {
-	{"Ljava/lang/annotation/Documented;", nullptr},
-	{"Ljava/lang/annotation/Retention;", FakePackage_Attribute_var$0},
-	{"Ljava/lang/annotation/Target;", FakePackage_Attribute_var$1},
-	{}
-};
-
-$ClassInfo _FakePackage_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"org.w3c.dom.css.FakePackage",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_FakePackage_Annotations_
-};
-
-$Object* allocate$FakePackage($Class* clazz) {
-	return $of($alloc(FakePackage));
-}
-
 $Class* FakePackage::load$($String* name, bool initialize) {
-	$loadClass(FakePackage, name, initialize, &_FakePackage_ClassInfo_, allocate$FakePackage);
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; PACKAGE"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Documented;", nullptr},
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"org.w3c.dom.css.FakePackage",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(FakePackage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FakePackage);
+	});
 	return class$;
 }
 

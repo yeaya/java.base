@@ -16,6 +16,7 @@ class $export Test6987555 : public ::java::lang::Object {
 	$class(Test6987555, 0, ::java::lang::Object)
 public:
 	Test6987555();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void doboolean(bool x);
 	static void dobyte(int8_t x);

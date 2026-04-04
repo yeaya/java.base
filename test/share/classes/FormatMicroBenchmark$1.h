@@ -9,6 +9,7 @@ class FormatMicroBenchmark$1 : public ::java::lang::Object {
 	$class(FormatMicroBenchmark$1, 0, ::java::lang::Object)
 public:
 	FormatMicroBenchmark$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$FormatMicroBenchmark$BenchType;
 };
 

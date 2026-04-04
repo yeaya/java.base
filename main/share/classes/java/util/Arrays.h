@@ -61,6 +61,7 @@ public:
 	Arrays();
 	using ::java::lang::Object::hashCode;
 	using ::java::lang::Object::equals;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::List* asList($ObjectArray* a);
 	static int32_t binarySearch($longs* a, int64_t key);

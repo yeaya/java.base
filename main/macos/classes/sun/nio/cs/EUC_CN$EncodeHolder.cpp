@@ -1,5 +1,4 @@
 #include <sun/nio/cs/EUC_CN$EncodeHolder.h>
-
 #include <sun/nio/cs/DoubleByte$Encoder.h>
 #include <sun/nio/cs/EUC_CN$DecodeHolder.h>
 #include <sun/nio/cs/EUC_CN.h>
@@ -16,50 +15,14 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$FieldInfo _EUC_CN$EncodeHolder_FieldInfo_[] = {
-	{"c2b", "[C", nullptr, $STATIC | $FINAL, $staticField(EUC_CN$EncodeHolder, c2b)},
-	{"c2bIndex", "[C", nullptr, $STATIC | $FINAL, $staticField(EUC_CN$EncodeHolder, c2bIndex)},
-	{}
-};
-
-$MethodInfo _EUC_CN$EncodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(EUC_CN$EncodeHolder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _EUC_CN$EncodeHolder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.EUC_CN$EncodeHolder", "sun.nio.cs.EUC_CN", "EncodeHolder", $STATIC},
-	{}
-};
-
-$ClassInfo _EUC_CN$EncodeHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.EUC_CN$EncodeHolder",
-	"java.lang.Object",
-	nullptr,
-	_EUC_CN$EncodeHolder_FieldInfo_,
-	_EUC_CN$EncodeHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_EUC_CN$EncodeHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.EUC_CN"
-};
-
-$Object* allocate$EUC_CN$EncodeHolder($Class* clazz) {
-	return $of($alloc(EUC_CN$EncodeHolder));
-}
-
 $chars* EUC_CN$EncodeHolder::c2b = nullptr;
 $chars* EUC_CN$EncodeHolder::c2bIndex = nullptr;
 
 void EUC_CN$EncodeHolder::init$() {
 }
 
-void clinit$EUC_CN$EncodeHolder($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void EUC_CN$EncodeHolder::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(EUC_CN$EncodeHolder::c2b, $new($chars, 25088));
 	$assignStatic(EUC_CN$EncodeHolder::c2bIndex, $new($chars, 256));
 	{
@@ -74,7 +37,37 @@ EUC_CN$EncodeHolder::EUC_CN$EncodeHolder() {
 }
 
 $Class* EUC_CN$EncodeHolder::load$($String* name, bool initialize) {
-	$loadClass(EUC_CN$EncodeHolder, name, initialize, &_EUC_CN$EncodeHolder_ClassInfo_, clinit$EUC_CN$EncodeHolder, allocate$EUC_CN$EncodeHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"c2b", "[C", nullptr, $STATIC | $FINAL, $staticField(EUC_CN$EncodeHolder, c2b)},
+		{"c2bIndex", "[C", nullptr, $STATIC | $FINAL, $staticField(EUC_CN$EncodeHolder, c2bIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(EUC_CN$EncodeHolder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.EUC_CN$EncodeHolder", "sun.nio.cs.EUC_CN", "EncodeHolder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.EUC_CN$EncodeHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.EUC_CN"
+	};
+	$loadClass(EUC_CN$EncodeHolder, name, initialize, &classInfo$$, EUC_CN$EncodeHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(EUC_CN$EncodeHolder);
+	});
 	return class$;
 }
 

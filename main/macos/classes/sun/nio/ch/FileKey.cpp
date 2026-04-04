@@ -1,5 +1,4 @@
 #include <sun/nio/ch/FileKey.h>
-
 #include <java/io/FileDescriptor.h>
 #include <jcpp.h>
 
@@ -11,38 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _FileKey_FieldInfo_[] = {
-	{"st_dev", "J", nullptr, $PRIVATE, $field(FileKey, st_dev)},
-	{"st_ino", "J", nullptr, $PRIVATE, $field(FileKey, st_ino)},
-	{}
-};
-
-$MethodInfo _FileKey_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(FileKey, init$, void)},
-	{"create", "(Ljava/io/FileDescriptor;)Lsun/nio/ch/FileKey;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileKey, create, FileKey*, $FileDescriptor*), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FileKey, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(FileKey, hashCode, int32_t)},
-	{"init", "(Ljava/io/FileDescriptor;)V", nullptr, $PRIVATE | $NATIVE, $method(FileKey, init, void, $FileDescriptor*), "java.io.IOException"},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FileKey, initIDs, void)},
-	{}
-};
-
-#define _METHOD_INDEX_init 4
-#define _METHOD_INDEX_initIDs 5
-
-$ClassInfo _FileKey_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.ch.FileKey",
-	"java.lang.Object",
-	nullptr,
-	_FileKey_FieldInfo_,
-	_FileKey_MethodInfo_
-};
-
-$Object* allocate$FileKey($Class* clazz) {
-	return $of($alloc(FileKey));
-}
 
 void FileKey::init$() {
 }
@@ -66,26 +33,26 @@ bool FileKey::equals(Object$* obj) {
 		return false;
 	}
 	$var(FileKey, other, $cast(FileKey, obj));
-	if ((this->st_dev != $nc(other)->st_dev) || (this->st_ino != $nc(other)->st_ino)) {
+	if ((this->st_dev != $nc(other)->st_dev) || (this->st_ino != other->st_ino)) {
 		return false;
 	}
 	return true;
 }
 
 void FileKey::init($FileDescriptor* fd) {
-	$prepareNative(FileKey, init, void, $FileDescriptor* fd);
+	$prepareNative(init, void, $FileDescriptor* fd);
 	$invokeNative(fd);
 	$finishNative();
 }
 
 void FileKey::initIDs() {
 	$init(FileKey);
-	$prepareNativeStatic(FileKey, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
-void clinit$FileKey($Class* class$) {
+void FileKey::clinit$($Class* clazz) {
 	{
 		FileKey::initIDs();
 	}
@@ -95,7 +62,31 @@ FileKey::FileKey() {
 }
 
 $Class* FileKey::load$($String* name, bool initialize) {
-	$loadClass(FileKey, name, initialize, &_FileKey_ClassInfo_, clinit$FileKey, allocate$FileKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"st_dev", "J", nullptr, $PRIVATE, $field(FileKey, st_dev)},
+		{"st_ino", "J", nullptr, $PRIVATE, $field(FileKey, st_ino)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(FileKey, init$, void)},
+		{"create", "(Ljava/io/FileDescriptor;)Lsun/nio/ch/FileKey;", nullptr, $PUBLIC | $STATIC, $staticMethod(FileKey, create, FileKey*, $FileDescriptor*), "java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FileKey, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(FileKey, hashCode, int32_t)},
+		{"init", "(Ljava/io/FileDescriptor;)V", nullptr, $PRIVATE | $NATIVE, $method(FileKey, init, void, $FileDescriptor*), "java.io.IOException"},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FileKey, initIDs, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.ch.FileKey",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FileKey, name, initialize, &classInfo$$, FileKey::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FileKey);
+	});
 	return class$;
 }
 

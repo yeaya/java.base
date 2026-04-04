@@ -1,5 +1,4 @@
 #include <java/io/Reader.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Reader$1.h>
 #include <java/io/Writer.h>
@@ -29,61 +28,6 @@ using $Objects = ::java::util::Objects;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _Reader_FieldInfo_[] = {
-	{"TRANSFER_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Reader, TRANSFER_BUFFER_SIZE)},
-	{"lock", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(Reader, lock)},
-	{"maxSkipBufferSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Reader, maxSkipBufferSize)},
-	{"skipBuffer", "[C", nullptr, $PRIVATE, $field(Reader, skipBuffer)},
-	{}
-};
-
-$MethodInfo _Reader_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(Reader, init$, void)},
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PROTECTED, $method(Reader, init$, void, Object$*)},
-	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(Reader, mark, void, int32_t), "java.io.IOException"},
-	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(Reader, markSupported, bool)},
-	{"nullReader", "()Ljava/io/Reader;", nullptr, $PUBLIC | $STATIC, $staticMethod(Reader, nullReader, Reader*)},
-	{"read", "(Ljava/nio/CharBuffer;)I", nullptr, $PUBLIC, $virtualMethod(Reader, read, int32_t, $CharBuffer*), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(Reader, read, int32_t), "java.io.IOException"},
-	{"read", "([C)I", nullptr, $PUBLIC, $virtualMethod(Reader, read, int32_t, $chars*), "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Reader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(Reader, ready, bool), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(Reader, reset, void), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(Reader, skip, int64_t, int64_t), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"transferTo", "(Ljava/io/Writer;)J", nullptr, $PUBLIC, $virtualMethod(Reader, transferTo, int64_t, $Writer*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Reader_InnerClassesInfo_[] = {
-	{"java.io.Reader$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Reader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.io.Reader",
-	"java.lang.Object",
-	"java.lang.Readable,java.io.Closeable",
-	_Reader_FieldInfo_,
-	_Reader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Reader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.io.Reader$1"
-};
-
-$Object* allocate$Reader($Class* clazz) {
-	return $of($alloc(Reader));
-}
 
 int32_t Reader::hashCode() {
 	 return this->$Readable::hashCode();
@@ -124,12 +68,12 @@ void Reader::init$(Object$* lock) {
 }
 
 int32_t Reader::read($CharBuffer* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(target)->isReadOnly()) {
 		$throwNew($ReadOnlyBufferException);
 	}
 	int32_t nread = 0;
-	if ($nc(target)->hasArray()) {
+	if (target->hasArray()) {
 		$var($chars, cbuf, $cast($chars, target->array()));
 		int32_t pos = target->position();
 		int32_t rem = $Math::max(target->limit() - pos, 0);
@@ -163,12 +107,12 @@ int32_t Reader::read($chars* cbuf) {
 }
 
 int64_t Reader::skip(int64_t n) {
-	if (n < (int64_t)0) {
+	if (n < 0) {
 		$throwNew($IllegalArgumentException, "skip value is negative"_s);
 	}
 	int32_t nn = (int32_t)$Math::min(n, (int64_t)Reader::maxSkipBufferSize);
 	$synchronized(this->lock) {
-		if ((this->skipBuffer == nullptr) || ($nc(this->skipBuffer)->length < nn)) {
+		if ((this->skipBuffer == nullptr) || (this->skipBuffer->length < nn)) {
 			$set(this, skipBuffer, $new($chars, nn));
 		}
 		int64_t r = n;
@@ -200,7 +144,7 @@ void Reader::reset() {
 }
 
 int64_t Reader::transferTo($Writer* out) {
-	$Objects::requireNonNull($of(out), "out"_s);
+	$Objects::requireNonNull(out, "out"_s);
 	int64_t transferred = 0;
 	$var($chars, buffer, $new($chars, Reader::TRANSFER_BUFFER_SIZE));
 	int32_t nRead = 0;
@@ -215,7 +159,56 @@ Reader::Reader() {
 }
 
 $Class* Reader::load$($String* name, bool initialize) {
-	$loadClass(Reader, name, initialize, &_Reader_ClassInfo_, allocate$Reader);
+	$FieldInfo fieldInfos$$[] = {
+		{"TRANSFER_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Reader, TRANSFER_BUFFER_SIZE)},
+		{"lock", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(Reader, lock)},
+		{"maxSkipBufferSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Reader, maxSkipBufferSize)},
+		{"skipBuffer", "[C", nullptr, $PRIVATE, $field(Reader, skipBuffer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(Reader, init$, void)},
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PROTECTED, $method(Reader, init$, void, Object$*)},
+		{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(Reader, mark, void, int32_t), "java.io.IOException"},
+		{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(Reader, markSupported, bool)},
+		{"nullReader", "()Ljava/io/Reader;", nullptr, $PUBLIC | $STATIC, $staticMethod(Reader, nullReader, Reader*)},
+		{"read", "(Ljava/nio/CharBuffer;)I", nullptr, $PUBLIC, $virtualMethod(Reader, read, int32_t, $CharBuffer*), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(Reader, read, int32_t), "java.io.IOException"},
+		{"read", "([C)I", nullptr, $PUBLIC, $virtualMethod(Reader, read, int32_t, $chars*), "java.io.IOException"},
+		{"read", "([CII)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Reader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(Reader, ready, bool), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(Reader, reset, void), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(Reader, skip, int64_t, int64_t), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"transferTo", "(Ljava/io/Writer;)J", nullptr, $PUBLIC, $virtualMethod(Reader, transferTo, int64_t, $Writer*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.Reader$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.io.Reader",
+		"java.lang.Object",
+		"java.lang.Readable,java.io.Closeable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.io.Reader$1"
+	};
+	$loadClass(Reader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Reader));
+	});
 	return class$;
 }
 

@@ -1,6 +1,4 @@
 #include <java/util/jar/JarVerifier$2.h>
-
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Map.h>
@@ -16,7 +14,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Enumeration = ::java::util::Enumeration;
 using $Map = ::java::util::Map;
@@ -29,54 +26,6 @@ namespace java {
 	namespace util {
 		namespace jar {
 
-$FieldInfo _JarVerifier$2_FieldInfo_[] = {
-	{"this$0", "Ljava/util/jar/JarVerifier;", nullptr, $FINAL | $SYNTHETIC, $field(JarVerifier$2, this$0)},
-	{"val$map", "Ljava/util/Map;", nullptr, $FINAL | $SYNTHETIC, $field(JarVerifier$2, val$map)},
-	{"val$jar", "Ljava/util/jar/JarFile;", nullptr, $FINAL | $SYNTHETIC, $field(JarVerifier$2, val$jar)},
-	{"val$enum_", "Ljava/util/Enumeration;", nullptr, $FINAL | $SYNTHETIC, $field(JarVerifier$2, val$enum_)},
-	{"signers", "Ljava/util/Enumeration;", "Ljava/util/Enumeration<Ljava/lang/String;>;", 0, $field(JarVerifier$2, signers)},
-	{"entry", "Ljava/util/jar/JarEntry;", nullptr, 0, $field(JarVerifier$2, entry)},
-	{}
-};
-
-$MethodInfo _JarVerifier$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/jar/JarVerifier;Ljava/util/Enumeration;Ljava/util/jar/JarFile;Ljava/util/Map;)V", nullptr, 0, $method(JarVerifier$2, init$, void, $JarVerifier*, $Enumeration*, $JarFile*, $Map*)},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(JarVerifier$2, hasMoreElements, bool)},
-	{"nextElement", "()Ljava/util/jar/JarEntry;", nullptr, $PUBLIC, $virtualMethod(JarVerifier$2, nextElement, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _JarVerifier$2_EnclosingMethodInfo_ = {
-	"java.util.jar.JarVerifier",
-	"entries2",
-	"(Ljava/util/jar/JarFile;Ljava/util/Enumeration;)Ljava/util/Enumeration;"
-};
-
-$InnerClassInfo _JarVerifier$2_InnerClassesInfo_[] = {
-	{"java.util.jar.JarVerifier$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JarVerifier$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.jar.JarVerifier$2",
-	"java.lang.Object",
-	"java.util.Enumeration",
-	_JarVerifier$2_FieldInfo_,
-	_JarVerifier$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/util/jar/JarEntry;>;",
-	&_JarVerifier$2_EnclosingMethodInfo_,
-	_JarVerifier$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.jar.JarVerifier"
-};
-
-$Object* allocate$JarVerifier$2($Class* clazz) {
-	return $of($alloc(JarVerifier$2));
-}
-
 void JarVerifier$2::init$($JarVerifier* this$0, $Enumeration* val$enum_, $JarFile* val$jar, $Map* val$map) {
 	$set(this, this$0, this$0);
 	$set(this, val$enum_, val$enum_);
@@ -86,12 +35,12 @@ void JarVerifier$2::init$($JarVerifier* this$0, $Enumeration* val$enum_, $JarFil
 }
 
 bool JarVerifier$2::hasMoreElements() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->entry != nullptr) {
 		return true;
 	}
 	while ($nc(this->val$enum_)->hasMoreElements()) {
-		$var($JarEntry, je, $cast($JarEntry, $nc(this->val$enum_)->nextElement()));
+		$var($JarEntry, je, $cast($JarEntry, this->val$enum_->nextElement()));
 		if ($JarVerifier::isSigningRelated($($nc(je)->getName()))) {
 			continue;
 		}
@@ -102,7 +51,7 @@ bool JarVerifier$2::hasMoreElements() {
 		$set(this, signers, $Collections::enumeration($($nc(this->val$map)->keySet())));
 	}
 	while ($nc(this->signers)->hasMoreElements()) {
-		$var($String, name, $cast($String, $nc(this->signers)->nextElement()));
+		$var($String, name, $cast($String, this->signers->nextElement()));
 		$set(this, entry, $nc(this->val$jar)->newEntry(name));
 		return true;
 	}
@@ -110,7 +59,7 @@ bool JarVerifier$2::hasMoreElements() {
 }
 
 $Object* JarVerifier$2::nextElement() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (hasMoreElements()) {
 		$var($JarEntry, je, this->entry);
 		$nc(this->val$map)->remove($($nc(je)->getName()));
@@ -124,7 +73,48 @@ JarVerifier$2::JarVerifier$2() {
 }
 
 $Class* JarVerifier$2::load$($String* name, bool initialize) {
-	$loadClass(JarVerifier$2, name, initialize, &_JarVerifier$2_ClassInfo_, allocate$JarVerifier$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/jar/JarVerifier;", nullptr, $FINAL | $SYNTHETIC, $field(JarVerifier$2, this$0)},
+		{"val$map", "Ljava/util/Map;", nullptr, $FINAL | $SYNTHETIC, $field(JarVerifier$2, val$map)},
+		{"val$jar", "Ljava/util/jar/JarFile;", nullptr, $FINAL | $SYNTHETIC, $field(JarVerifier$2, val$jar)},
+		{"val$enum_", "Ljava/util/Enumeration;", nullptr, $FINAL | $SYNTHETIC, $field(JarVerifier$2, val$enum_)},
+		{"signers", "Ljava/util/Enumeration;", "Ljava/util/Enumeration<Ljava/lang/String;>;", 0, $field(JarVerifier$2, signers)},
+		{"entry", "Ljava/util/jar/JarEntry;", nullptr, 0, $field(JarVerifier$2, entry)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/jar/JarVerifier;Ljava/util/Enumeration;Ljava/util/jar/JarFile;Ljava/util/Map;)V", nullptr, 0, $method(JarVerifier$2, init$, void, $JarVerifier*, $Enumeration*, $JarFile*, $Map*)},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(JarVerifier$2, hasMoreElements, bool)},
+		{"nextElement", "()Ljava/util/jar/JarEntry;", nullptr, $PUBLIC, $virtualMethod(JarVerifier$2, nextElement, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.jar.JarVerifier",
+		"entries2",
+		"(Ljava/util/jar/JarFile;Ljava/util/Enumeration;)Ljava/util/Enumeration;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.jar.JarVerifier$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.jar.JarVerifier$2",
+		"java.lang.Object",
+		"java.util.Enumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/util/jar/JarEntry;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.jar.JarVerifier"
+	};
+	$loadClass(JarVerifier$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JarVerifier$2);
+	});
 	return class$;
 }
 

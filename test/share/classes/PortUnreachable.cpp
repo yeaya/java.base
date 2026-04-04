@@ -1,17 +1,14 @@
 #include <PortUnreachable.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/net/BindException.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
-#include <java/net/SocketAddress.h>
 #include <jcpp.h>
 
 #undef MAX_VALUE
 
-using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -23,45 +20,11 @@ using $DatagramPacket = ::java::net::DatagramPacket;
 using $DatagramSocket = ::java::net::DatagramSocket;
 using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
-using $SocketAddress = ::java::net::SocketAddress;
-
-$FieldInfo _PortUnreachable_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PortUnreachable, $assertionsDisabled)},
-	{"clientSock", "Ljava/net/DatagramSocket;", nullptr, 0, $field(PortUnreachable, clientSock)},
-	{"serverPort", "I", nullptr, 0, $field(PortUnreachable, serverPort)},
-	{"clientPort", "I", nullptr, 0, $field(PortUnreachable, clientPort)},
-	{}
-};
-
-$MethodInfo _PortUnreachable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(PortUnreachable, init$, void), "java.lang.Exception"},
-	{"attempt", "(I)Ljava/lang/String;", nullptr, 0, $virtualMethod(PortUnreachable, attempt, $String*, int32_t)},
-	{"execute", "()V", nullptr, 0, $virtualMethod(PortUnreachable, execute, void), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PortUnreachable, main, void, $StringArray*), "java.lang.Exception"},
-	{"recreateServerSocket", "(I)Ljava/net/DatagramSocket;", nullptr, 0, $virtualMethod(PortUnreachable, recreateServerSocket, $DatagramSocket*, int32_t), "java.lang.Exception"},
-	{"serverSend", "()V", nullptr, $PUBLIC, $virtualMethod(PortUnreachable, serverSend, void), "java.lang.Exception"},
-	{"sleepAtLeast", "(J)J", nullptr, 0, $virtualMethod(PortUnreachable, sleepAtLeast, int64_t, int64_t), "java.lang.Exception"},
-	{"sleeptime", "(J)Ljava/lang/String;", nullptr, 0, $virtualMethod(PortUnreachable, sleeptime, $String*, int64_t)},
-	{}
-};
-
-$ClassInfo _PortUnreachable_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"PortUnreachable",
-	"java.lang.Object",
-	nullptr,
-	_PortUnreachable_FieldInfo_,
-	_PortUnreachable_MethodInfo_
-};
-
-$Object* allocate$PortUnreachable($Class* clazz) {
-	return $of($alloc(PortUnreachable));
-}
 
 bool PortUnreachable::$assertionsDisabled = false;
 
 void PortUnreachable::serverSend() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetAddress, addr, $InetAddress::getLocalHost());
 	$Thread::sleep(1000);
 	$var($bytes, b, "A late msg"_s->getBytes());
@@ -76,7 +39,7 @@ void PortUnreachable::serverSend() {
 }
 
 $DatagramSocket* PortUnreachable::recreateServerSocket(int32_t serverPort) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DatagramSocket, serverSocket, nullptr);
 	int32_t retryCount = 0;
 	int64_t sleeptime = 0;
@@ -88,18 +51,22 @@ $DatagramSocket* PortUnreachable::recreateServerSocket(int32_t serverPort) {
 			if (retryCount++ < 10) {
 				sleeptime += sleepAtLeast(500);
 			} else {
-				$nc($System::out)->println($$str({"Give up after 10 retries and "_s, $(this->sleeptime(sleeptime))}));
-				$nc($System::out)->println($$str({"Has some other process grabbed port "_s, $$str(serverPort), "?"_s}));
+				$System::out->println($$str({"Give up after 10 retries and "_s, $(this->sleeptime(sleeptime))}));
+				$System::out->println($$str({"Has some other process grabbed port "_s, $$str(serverPort), "?"_s}));
 				$throw(bEx);
 			}
 		}
 	}
-	$var($String, var$4, $$str({"PortUnreachableTest.recreateServerSocket: returning socket == "_s, $($nc(serverSocket)->getLocalAddress()), ":"_s}));
-	$var($String, var$3, $$concat(var$4, $$str(serverSocket->getLocalPort())));
-	$var($String, var$2, $$concat(var$3, " obtained at "_s));
-	$var($String, var$1, $$concat(var$2, $(attempt(retryCount))));
-	$var($String, var$0, $$concat(var$1, " attempt with "_s));
-	$nc($System::out)->println($$concat(var$0, $(this->sleeptime(sleeptime))));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("PortUnreachableTest.recreateServerSocket: returning socket == "_s);
+	var$0->append($($nc(serverSocket)->getLocalAddress()));
+	var$0->append(":"_s);
+	var$0->append(serverSocket->getLocalPort());
+	var$0->append(" obtained at "_s);
+	var$0->append($(attempt(retryCount)));
+	var$0->append(" attempt with "_s);
+	var$0->append($(this->sleeptime(sleeptime)));
+	$System::out->println($$str(var$0));
 	return serverSocket;
 }
 
@@ -120,26 +87,18 @@ int64_t PortUnreachable::sleepAtLeast(int64_t millis) {
 $String* PortUnreachable::attempt(int32_t retry) {
 	switch (retry) {
 	case 0:
-		{
-			return "first"_s;
-		}
+		return "first"_s;
 	case 1:
-		{
-			return "second"_s;
-		}
+		return "second"_s;
 	case 2:
-		{
-			return "third"_s;
-		}
+		return "third"_s;
 	default:
-		{
-			return $str({$$str(retry), "th"_s});
-		}
+		return $str({$$str(retry), "th"_s});
 	}
 }
 
 $String* PortUnreachable::sleeptime(int64_t millis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (millis == 0) {
 		return "no sleep"_s;
 	}
@@ -160,14 +119,14 @@ $String* PortUnreachable::sleeptime(int64_t millis) {
 }
 
 void PortUnreachable::init$() {
-	$useLocalCurrentObjectStackCache();
-	$set(this, clientSock, $new($DatagramSocket, static_cast<$SocketAddress*>($$new($InetSocketAddress, $($InetAddress::getLocalHost()), 0))));
-	this->clientPort = $nc(this->clientSock)->getLocalPort();
+	$useLocalObjectStack();
+	$set(this, clientSock, $new($DatagramSocket, $$new($InetSocketAddress, $($InetAddress::getLocalHost()), 0)));
+	this->clientPort = this->clientSock->getLocalPort();
 }
 
 void PortUnreachable::execute() {
-	$useLocalCurrentObjectStackCache();
-	$var($DatagramSocket, sock2, $new($DatagramSocket, static_cast<$SocketAddress*>($$new($InetSocketAddress, $($InetAddress::getLocalHost()), 0))));
+	$useLocalObjectStack();
+	$var($DatagramSocket, sock2, $new($DatagramSocket, $$new($InetSocketAddress, $($InetAddress::getLocalHost()), 0)));
 	this->serverPort = sock2->getLocalPort();
 	$var($InetAddress, addr, $InetAddress::getLocalHost());
 	$var($bytes, b, "Hello me"_s->getBytes());
@@ -180,14 +139,14 @@ void PortUnreachable::execute() {
 	$assign(b, $new($bytes, 25));
 	$assign(packet, $new($DatagramPacket, b, b->length, addr, this->serverPort));
 	$nc(this->clientSock)->setSoTimeout(10000);
-	$nc(this->clientSock)->receive(packet);
+	this->clientSock->receive(packet);
 	$nc($System::out)->println($$str({"client received data packet "_s, $$new($String, $(packet->getData()))}));
-	$nc(this->clientSock)->close();
+	this->clientSock->close();
 }
 
 void PortUnreachable::main($StringArray* args) {
 	$init(PortUnreachable);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t catchCount = 0;
 	while (true) {
 		try {
@@ -197,15 +156,15 @@ void PortUnreachable::main($StringArray* args) {
 		} catch ($BindException& bEx) {
 			$nc($System::out)->println($$str({"Failed to bind server: "_s, bEx}));
 			if (++catchCount > 3) {
-				$nc($System::out)->printf("Max retry count exceeded (%d)%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(catchCount)))}));
+				$System::out->printf("Max retry count exceeded (%d)%n"_s, $$new($ObjectArray, {$($Integer::valueOf(catchCount))}));
 				$throw(bEx);
 			}
-			$nc($System::out)->printf("Retrying; retry count: %d%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(catchCount)))}));
+			$System::out->printf("Retrying; retry count: %d%n"_s, $$new($ObjectArray, {$($Integer::valueOf(catchCount))}));
 		}
 	}
 }
 
-void clinit$PortUnreachable($Class* class$) {
+void PortUnreachable::clinit$($Class* clazz) {
 	PortUnreachable::$assertionsDisabled = !PortUnreachable::class$->desiredAssertionStatus();
 }
 
@@ -213,7 +172,35 @@ PortUnreachable::PortUnreachable() {
 }
 
 $Class* PortUnreachable::load$($String* name, bool initialize) {
-	$loadClass(PortUnreachable, name, initialize, &_PortUnreachable_ClassInfo_, clinit$PortUnreachable, allocate$PortUnreachable);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PortUnreachable, $assertionsDisabled)},
+		{"clientSock", "Ljava/net/DatagramSocket;", nullptr, 0, $field(PortUnreachable, clientSock)},
+		{"serverPort", "I", nullptr, 0, $field(PortUnreachable, serverPort)},
+		{"clientPort", "I", nullptr, 0, $field(PortUnreachable, clientPort)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(PortUnreachable, init$, void), "java.lang.Exception"},
+		{"attempt", "(I)Ljava/lang/String;", nullptr, 0, $virtualMethod(PortUnreachable, attempt, $String*, int32_t)},
+		{"execute", "()V", nullptr, 0, $virtualMethod(PortUnreachable, execute, void), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PortUnreachable, main, void, $StringArray*), "java.lang.Exception"},
+		{"recreateServerSocket", "(I)Ljava/net/DatagramSocket;", nullptr, 0, $virtualMethod(PortUnreachable, recreateServerSocket, $DatagramSocket*, int32_t), "java.lang.Exception"},
+		{"serverSend", "()V", nullptr, $PUBLIC, $virtualMethod(PortUnreachable, serverSend, void), "java.lang.Exception"},
+		{"sleepAtLeast", "(J)J", nullptr, 0, $virtualMethod(PortUnreachable, sleepAtLeast, int64_t, int64_t), "java.lang.Exception"},
+		{"sleeptime", "(J)Ljava/lang/String;", nullptr, 0, $virtualMethod(PortUnreachable, sleeptime, $String*, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"PortUnreachable",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PortUnreachable, name, initialize, &classInfo$$, PortUnreachable::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PortUnreachable);
+	});
 	return class$;
 }
 

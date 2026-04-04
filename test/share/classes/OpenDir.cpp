@@ -1,5 +1,4 @@
 #include <OpenDir.h>
-
 #include <java/io/FileInputStream.h>
 #include <java/io/FileOutputStream.h>
 #include <java/io/IOException.h>
@@ -14,30 +13,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _OpenDir_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(OpenDir, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OpenDir, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _OpenDir_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"OpenDir",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_OpenDir_MethodInfo_
-};
-
-$Object* allocate$OpenDir($Class* clazz) {
-	return $of($alloc(OpenDir));
-}
-
 void OpenDir::init$() {
 }
 
 void OpenDir::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileInputStream, fs, nullptr);
 	try {
 		$assign(fs, $new($FileInputStream, "."_s));
@@ -62,7 +42,22 @@ OpenDir::OpenDir() {
 }
 
 $Class* OpenDir::load$($String* name, bool initialize) {
-	$loadClass(OpenDir, name, initialize, &_OpenDir_ClassInfo_, allocate$OpenDir);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(OpenDir, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OpenDir, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"OpenDir",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(OpenDir, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OpenDir);
+	});
 	return class$;
 }
 

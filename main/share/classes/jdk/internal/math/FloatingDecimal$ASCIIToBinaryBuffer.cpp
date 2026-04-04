@@ -1,5 +1,4 @@
 #include <jdk/internal/math/FloatingDecimal$ASCIIToBinaryBuffer.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
 #include <jdk/internal/math/DoubleConsts.h>
@@ -42,54 +41,6 @@ namespace jdk {
 	namespace internal {
 		namespace math {
 
-$FieldInfo _FloatingDecimal$ASCIIToBinaryBuffer_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FloatingDecimal$ASCIIToBinaryBuffer, $assertionsDisabled)},
-	{"isNegative", "Z", nullptr, 0, $field(FloatingDecimal$ASCIIToBinaryBuffer, isNegative)},
-	{"decExponent", "I", nullptr, 0, $field(FloatingDecimal$ASCIIToBinaryBuffer, decExponent)},
-	{"digits", "[C", nullptr, 0, $field(FloatingDecimal$ASCIIToBinaryBuffer, digits)},
-	{"nDigits", "I", nullptr, 0, $field(FloatingDecimal$ASCIIToBinaryBuffer, nDigits)},
-	{"SMALL_10_POW", "[D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal$ASCIIToBinaryBuffer, SMALL_10_POW)},
-	{"SINGLE_SMALL_10_POW", "[F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal$ASCIIToBinaryBuffer, SINGLE_SMALL_10_POW)},
-	{"BIG_10_POW", "[D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal$ASCIIToBinaryBuffer, BIG_10_POW)},
-	{"TINY_10_POW", "[D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal$ASCIIToBinaryBuffer, TINY_10_POW)},
-	{"MAX_SMALL_TEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal$ASCIIToBinaryBuffer, MAX_SMALL_TEN)},
-	{"SINGLE_MAX_SMALL_TEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal$ASCIIToBinaryBuffer, SINGLE_MAX_SMALL_TEN)},
-	{}
-};
-
-$MethodInfo _FloatingDecimal$ASCIIToBinaryBuffer_MethodInfo_[] = {
-	{"<init>", "(ZI[CI)V", nullptr, 0, $method(FloatingDecimal$ASCIIToBinaryBuffer, init$, void, bool, int32_t, $chars*, int32_t)},
-	{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$ASCIIToBinaryBuffer, doubleValue, double)},
-	{"floatValue", "()F", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$ASCIIToBinaryBuffer, floatValue, float)},
-	{}
-};
-
-$InnerClassInfo _FloatingDecimal$ASCIIToBinaryBuffer_InnerClassesInfo_[] = {
-	{"jdk.internal.math.FloatingDecimal$ASCIIToBinaryBuffer", "jdk.internal.math.FloatingDecimal", "ASCIIToBinaryBuffer", $STATIC},
-	{"jdk.internal.math.FloatingDecimal$ASCIIToBinaryConverter", "jdk.internal.math.FloatingDecimal", "ASCIIToBinaryConverter", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _FloatingDecimal$ASCIIToBinaryBuffer_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.math.FloatingDecimal$ASCIIToBinaryBuffer",
-	"java.lang.Object",
-	"jdk.internal.math.FloatingDecimal$ASCIIToBinaryConverter",
-	_FloatingDecimal$ASCIIToBinaryBuffer_FieldInfo_,
-	_FloatingDecimal$ASCIIToBinaryBuffer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FloatingDecimal$ASCIIToBinaryBuffer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.math.FloatingDecimal"
-};
-
-$Object* allocate$FloatingDecimal$ASCIIToBinaryBuffer($Class* clazz) {
-	return $of($alloc(FloatingDecimal$ASCIIToBinaryBuffer));
-}
-
 bool FloatingDecimal$ASCIIToBinaryBuffer::$assertionsDisabled = false;
 $doubles* FloatingDecimal$ASCIIToBinaryBuffer::SMALL_10_POW = nullptr;
 $floats* FloatingDecimal$ASCIIToBinaryBuffer::SINGLE_SMALL_10_POW = nullptr;
@@ -106,16 +57,16 @@ void FloatingDecimal$ASCIIToBinaryBuffer::init$(bool negSign, int32_t decExponen
 }
 
 double FloatingDecimal$ASCIIToBinaryBuffer::doubleValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t kDigits = $Math::min(this->nDigits, 15 + 1);
 	int32_t iValue = (int32_t)$nc(this->digits)->get(0) - (int32_t)u'0';
 	int32_t iDigits = $Math::min(kDigits, 9);
 	for (int32_t i = 1; i < iDigits; ++i) {
-		iValue = iValue * 10 + (int32_t)$nc(this->digits)->get(i) - (int32_t)u'0';
+		iValue = iValue * 10 + (int32_t)this->digits->get(i) - (int32_t)u'0';
 	}
 	int64_t lValue = (int64_t)iValue;
 	for (int32_t i = iDigits; i < kDigits; ++i) {
-		lValue = lValue * (int64_t)10 + (int64_t)((int32_t)$nc(this->digits)->get(i) - (int32_t)u'0');
+		lValue = lValue * (int64_t)10 + (int64_t)((int32_t)this->digits->get(i) - (int32_t)u'0');
 	}
 	double dValue = (double)lValue;
 	int32_t exp = this->decExponent - kDigits;
@@ -124,41 +75,39 @@ double FloatingDecimal$ASCIIToBinaryBuffer::doubleValue() {
 			return (this->isNegative) ? -dValue : dValue;
 		} else if (exp >= 0) {
 			if (exp <= FloatingDecimal$ASCIIToBinaryBuffer::MAX_SMALL_TEN) {
-				double rValue = dValue * $nc(FloatingDecimal$ASCIIToBinaryBuffer::SMALL_10_POW)->get(exp);
+				double rValue = dValue * FloatingDecimal$ASCIIToBinaryBuffer::SMALL_10_POW->get(exp);
 				return (this->isNegative) ? -rValue : rValue;
 			}
 			int32_t slop = 15 - kDigits;
 			if (exp <= FloatingDecimal$ASCIIToBinaryBuffer::MAX_SMALL_TEN + slop) {
-				dValue *= $nc(FloatingDecimal$ASCIIToBinaryBuffer::SMALL_10_POW)->get(slop);
-				double rValue = dValue * $nc(FloatingDecimal$ASCIIToBinaryBuffer::SMALL_10_POW)->get(exp - slop);
+				dValue *= FloatingDecimal$ASCIIToBinaryBuffer::SMALL_10_POW->get(slop);
+				double rValue = dValue * FloatingDecimal$ASCIIToBinaryBuffer::SMALL_10_POW->get(exp - slop);
 				return (this->isNegative) ? -rValue : rValue;
 			}
 		} else if (exp >= -FloatingDecimal$ASCIIToBinaryBuffer::MAX_SMALL_TEN) {
-			double rValue = dValue / $nc(FloatingDecimal$ASCIIToBinaryBuffer::SMALL_10_POW)->get(-exp);
+			double rValue = dValue / FloatingDecimal$ASCIIToBinaryBuffer::SMALL_10_POW->get(-exp);
 			return (this->isNegative) ? -rValue : rValue;
 		}
 	}
 	if (exp > 0) {
 		if (this->decExponent > 308 + 1) {
-			$init($Double);
 			return (this->isNegative) ? $Double::NEGATIVE_INFINITY : $Double::POSITIVE_INFINITY;
 		}
-		if (((int32_t)(exp & (uint32_t)15)) != 0) {
-			dValue *= $nc(FloatingDecimal$ASCIIToBinaryBuffer::SMALL_10_POW)->get((int32_t)(exp & (uint32_t)15));
+		if ((exp & 0x0f) != 0) {
+			dValue *= FloatingDecimal$ASCIIToBinaryBuffer::SMALL_10_POW->get(exp & 0x0f);
 		}
 		if ((exp >>= 4) != 0) {
 			int32_t j = 0;
 			for (j = 0; exp > 1; ++j, exp >>= 1) {
-				if (((int32_t)(exp & (uint32_t)1)) != 0) {
-					dValue *= $nc(FloatingDecimal$ASCIIToBinaryBuffer::BIG_10_POW)->get(j);
+				if ((exp & 1) != 0) {
+					dValue *= FloatingDecimal$ASCIIToBinaryBuffer::BIG_10_POW->get(j);
 				}
 			}
-			double t = dValue * $nc(FloatingDecimal$ASCIIToBinaryBuffer::BIG_10_POW)->get(j);
+			double t = dValue * FloatingDecimal$ASCIIToBinaryBuffer::BIG_10_POW->get(j);
 			if ($Double::isInfinite(t)) {
 				t = dValue / 2.0;
-				t *= $nc(FloatingDecimal$ASCIIToBinaryBuffer::BIG_10_POW)->get(j);
+				t *= FloatingDecimal$ASCIIToBinaryBuffer::BIG_10_POW->get(j);
 				if ($Double::isInfinite(t)) {
-					$init($Double);
 					return (this->isNegative) ? $Double::NEGATIVE_INFINITY : $Double::POSITIVE_INFINITY;
 				}
 				t = $Double::MAX_VALUE;
@@ -170,24 +119,23 @@ double FloatingDecimal$ASCIIToBinaryBuffer::doubleValue() {
 		if (this->decExponent < -324 - 1) {
 			return (this->isNegative) ? -0.0 : 0.0;
 		}
-		if (((int32_t)(exp & (uint32_t)15)) != 0) {
-			dValue /= $nc(FloatingDecimal$ASCIIToBinaryBuffer::SMALL_10_POW)->get((int32_t)(exp & (uint32_t)15));
+		if ((exp & 0x0f) != 0) {
+			dValue /= FloatingDecimal$ASCIIToBinaryBuffer::SMALL_10_POW->get(exp & 0x0f);
 		}
 		if ((exp >>= 4) != 0) {
 			int32_t j = 0;
 			for (j = 0; exp > 1; ++j, exp >>= 1) {
-				if (((int32_t)(exp & (uint32_t)1)) != 0) {
-					dValue *= $nc(FloatingDecimal$ASCIIToBinaryBuffer::TINY_10_POW)->get(j);
+				if ((exp & 1) != 0) {
+					dValue *= FloatingDecimal$ASCIIToBinaryBuffer::TINY_10_POW->get(j);
 				}
 			}
-			double t = dValue * $nc(FloatingDecimal$ASCIIToBinaryBuffer::TINY_10_POW)->get(j);
+			double t = dValue * FloatingDecimal$ASCIIToBinaryBuffer::TINY_10_POW->get(j);
 			if (t == 0.0) {
 				t = dValue * 2.0;
-				t *= $nc(FloatingDecimal$ASCIIToBinaryBuffer::TINY_10_POW)->get(j);
+				t *= FloatingDecimal$ASCIIToBinaryBuffer::TINY_10_POW->get(j);
 				if (t == 0.0) {
 					return (this->isNegative) ? -0.0 : 0.0;
 				}
-				$init($Double);
 				t = $Double::MIN_VALUE;
 			}
 			dValue = t;
@@ -195,7 +143,7 @@ double FloatingDecimal$ASCIIToBinaryBuffer::doubleValue() {
 	}
 	if (this->nDigits > 1100) {
 		this->nDigits = 1100 + 1;
-		$nc(this->digits)->set(1100, u'1');
+		this->digits->set(1100, u'1');
 	}
 	$var($FDBigInteger, bigD0, $new($FDBigInteger, lValue, this->digits, kDigits, this->nDigits));
 	exp = this->decExponent - this->nDigits;
@@ -209,11 +157,11 @@ double FloatingDecimal$ASCIIToBinaryBuffer::doubleValue() {
 	bool correctionLoop$break = false;
 	while (true) {
 		int32_t binexp = (int32_t)((int64_t)((uint64_t)ieeeBits >> 52));
-		int64_t bigBbits = (int64_t)(ieeeBits & (uint64_t)$DoubleConsts::SIGNIF_BIT_MASK);
+		int64_t bigBbits = ieeeBits & $DoubleConsts::SIGNIF_BIT_MASK;
 		if (binexp > 0) {
-			bigBbits |= 0x0010000000000000;
+			bigBbits |= (int64_t)0x0010000000000000;
 		} else {
-			if (!FloatingDecimal$ASCIIToBinaryBuffer::$assertionsDisabled && !(bigBbits != (int64_t)0)) {
+			if (!FloatingDecimal$ASCIIToBinaryBuffer::$assertionsDisabled && !(bigBbits != 0)) {
 				$throwNew($AssertionError, bigBbits);
 			}
 			int32_t leadingZeros = $Long::numberOfLeadingZeros(bigBbits);
@@ -277,7 +225,7 @@ double FloatingDecimal$ASCIIToBinaryBuffer::doubleValue() {
 			correctionLoop$break = true;
 			break;
 		} else if (cmpResult == 0) {
-			if (((int64_t)(ieeeBits & (uint64_t)(int64_t)1)) != 0) {
+			if ((ieeeBits & 1) != 0) {
 				ieeeBits += overvalue ? -1 : 1;
 			}
 			correctionLoop$break = true;
@@ -298,11 +246,11 @@ double FloatingDecimal$ASCIIToBinaryBuffer::doubleValue() {
 }
 
 float FloatingDecimal$ASCIIToBinaryBuffer::floatValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t kDigits = $Math::min(this->nDigits, 7 + 1);
 	int32_t iValue = (int32_t)$nc(this->digits)->get(0) - (int32_t)u'0';
 	for (int32_t i = 1; i < kDigits; ++i) {
-		iValue = iValue * 10 + (int32_t)$nc(this->digits)->get(i) - (int32_t)u'0';
+		iValue = iValue * 10 + (int32_t)this->digits->get(i) - (int32_t)u'0';
 	}
 	float fValue = (float)iValue;
 	int32_t exp = this->decExponent - kDigits;
@@ -311,44 +259,43 @@ float FloatingDecimal$ASCIIToBinaryBuffer::floatValue() {
 			return (this->isNegative) ? -fValue : fValue;
 		} else if (exp >= 0) {
 			if (exp <= FloatingDecimal$ASCIIToBinaryBuffer::SINGLE_MAX_SMALL_TEN) {
-				fValue *= $nc(FloatingDecimal$ASCIIToBinaryBuffer::SINGLE_SMALL_10_POW)->get(exp);
+				fValue *= FloatingDecimal$ASCIIToBinaryBuffer::SINGLE_SMALL_10_POW->get(exp);
 				return (this->isNegative) ? -fValue : fValue;
 			}
 			int32_t slop = 7 - kDigits;
 			if (exp <= FloatingDecimal$ASCIIToBinaryBuffer::SINGLE_MAX_SMALL_TEN + slop) {
-				fValue *= $nc(FloatingDecimal$ASCIIToBinaryBuffer::SINGLE_SMALL_10_POW)->get(slop);
-				fValue *= $nc(FloatingDecimal$ASCIIToBinaryBuffer::SINGLE_SMALL_10_POW)->get(exp - slop);
+				fValue *= FloatingDecimal$ASCIIToBinaryBuffer::SINGLE_SMALL_10_POW->get(slop);
+				fValue *= FloatingDecimal$ASCIIToBinaryBuffer::SINGLE_SMALL_10_POW->get(exp - slop);
 				return (this->isNegative) ? -fValue : fValue;
 			}
 		} else if (exp >= -FloatingDecimal$ASCIIToBinaryBuffer::SINGLE_MAX_SMALL_TEN) {
-			fValue /= $nc(FloatingDecimal$ASCIIToBinaryBuffer::SINGLE_SMALL_10_POW)->get(-exp);
+			fValue /= FloatingDecimal$ASCIIToBinaryBuffer::SINGLE_SMALL_10_POW->get(-exp);
 			return (this->isNegative) ? -fValue : fValue;
 		}
 	} else if ((this->decExponent >= this->nDigits) && (this->nDigits + this->decExponent <= 15)) {
 		int64_t lValue = (int64_t)iValue;
 		for (int32_t i = kDigits; i < this->nDigits; ++i) {
-			lValue = lValue * (int64_t)10 + (int64_t)((int32_t)$nc(this->digits)->get(i) - (int32_t)u'0');
+			lValue = lValue * (int64_t)10 + (int64_t)((int32_t)this->digits->get(i) - (int32_t)u'0');
 		}
 		double dValue = (double)lValue;
 		exp = this->decExponent - this->nDigits;
-		dValue *= $nc(FloatingDecimal$ASCIIToBinaryBuffer::SMALL_10_POW)->get(exp);
+		dValue *= FloatingDecimal$ASCIIToBinaryBuffer::SMALL_10_POW->get(exp);
 		fValue = (float)dValue;
 		return (this->isNegative) ? -fValue : fValue;
 	}
 	double dValue = fValue;
 	if (exp > 0) {
 		if (this->decExponent > 38 + 1) {
-			$init($Float);
 			return (this->isNegative) ? $Float::NEGATIVE_INFINITY : $Float::POSITIVE_INFINITY;
 		}
-		if (((int32_t)(exp & (uint32_t)15)) != 0) {
-			dValue *= $nc(FloatingDecimal$ASCIIToBinaryBuffer::SMALL_10_POW)->get((int32_t)(exp & (uint32_t)15));
+		if ((exp & 0x0f) != 0) {
+			dValue *= FloatingDecimal$ASCIIToBinaryBuffer::SMALL_10_POW->get(exp & 0x0f);
 		}
 		if ((exp >>= 4) != 0) {
 			int32_t j = 0;
 			for (j = 0; exp > 0; ++j, exp >>= 1) {
-				if (((int32_t)(exp & (uint32_t)1)) != 0) {
-					dValue *= $nc(FloatingDecimal$ASCIIToBinaryBuffer::BIG_10_POW)->get(j);
+				if ((exp & 1) != 0) {
+					dValue *= FloatingDecimal$ASCIIToBinaryBuffer::BIG_10_POW->get(j);
 				}
 			}
 		}
@@ -357,23 +304,22 @@ float FloatingDecimal$ASCIIToBinaryBuffer::floatValue() {
 		if (this->decExponent < -45 - 1) {
 			return (this->isNegative) ? -0.0f : 0.0f;
 		}
-		if (((int32_t)(exp & (uint32_t)15)) != 0) {
-			dValue /= $nc(FloatingDecimal$ASCIIToBinaryBuffer::SMALL_10_POW)->get((int32_t)(exp & (uint32_t)15));
+		if ((exp & 0x0f) != 0) {
+			dValue /= FloatingDecimal$ASCIIToBinaryBuffer::SMALL_10_POW->get(exp & 0x0f);
 		}
 		if ((exp >>= 4) != 0) {
 			int32_t j = 0;
 			for (j = 0; exp > 0; ++j, exp >>= 1) {
-				if (((int32_t)(exp & (uint32_t)1)) != 0) {
-					dValue *= $nc(FloatingDecimal$ASCIIToBinaryBuffer::TINY_10_POW)->get(j);
+				if ((exp & 1) != 0) {
+					dValue *= FloatingDecimal$ASCIIToBinaryBuffer::TINY_10_POW->get(j);
 				}
 			}
 		}
 	}
-	$init($Float);
 	fValue = $Math::max($Float::MIN_VALUE, $Math::min($Float::MAX_VALUE, (float)dValue));
 	if (this->nDigits > 200) {
 		this->nDigits = 200 + 1;
-		$nc(this->digits)->set(200, u'1');
+		this->digits->set(200, u'1');
 	}
 	$var($FDBigInteger, bigD0, $new($FDBigInteger, iValue, this->digits, kDigits, this->nDigits));
 	exp = this->decExponent - this->nDigits;
@@ -387,7 +333,7 @@ float FloatingDecimal$ASCIIToBinaryBuffer::floatValue() {
 	bool correctionLoop$break = false;
 	while (true) {
 		int32_t binexp = (int32_t)((uint32_t)ieeeBits >> 23);
-		int32_t bigBbits = (int32_t)(ieeeBits & (uint32_t)$FloatConsts::SIGNIF_BIT_MASK);
+		int32_t bigBbits = ieeeBits & $FloatConsts::SIGNIF_BIT_MASK;
 		if (binexp > 0) {
 			bigBbits |= 0x00800000;
 		} else {
@@ -455,7 +401,7 @@ float FloatingDecimal$ASCIIToBinaryBuffer::floatValue() {
 			correctionLoop$break = true;
 			break;
 		} else if (cmpResult == 0) {
-			if (((int32_t)(ieeeBits & (uint32_t)1)) != 0) {
+			if ((ieeeBits & 1) != 0) {
 				ieeeBits += overvalue ? -1 : 1;
 			}
 			correctionLoop$break = true;
@@ -475,7 +421,7 @@ float FloatingDecimal$ASCIIToBinaryBuffer::floatValue() {
 	return $Float::intBitsToFloat(ieeeBits);
 }
 
-void clinit$FloatingDecimal$ASCIIToBinaryBuffer($Class* class$) {
+void FloatingDecimal$ASCIIToBinaryBuffer::clinit$($Class* clazz) {
 	$load($FloatingDecimal);
 	FloatingDecimal$ASCIIToBinaryBuffer::$assertionsDisabled = !$FloatingDecimal::class$->desiredAssertionStatus();
 	$assignStatic(FloatingDecimal$ASCIIToBinaryBuffer::SMALL_10_POW, $new($doubles, {
@@ -530,15 +476,57 @@ void clinit$FloatingDecimal$ASCIIToBinaryBuffer($Class* class$) {
 		1.0E-128,
 		1.0E-256
 	}));
-	FloatingDecimal$ASCIIToBinaryBuffer::MAX_SMALL_TEN = $nc(FloatingDecimal$ASCIIToBinaryBuffer::SMALL_10_POW)->length - 1;
-	FloatingDecimal$ASCIIToBinaryBuffer::SINGLE_MAX_SMALL_TEN = $nc(FloatingDecimal$ASCIIToBinaryBuffer::SINGLE_SMALL_10_POW)->length - 1;
+	FloatingDecimal$ASCIIToBinaryBuffer::MAX_SMALL_TEN = FloatingDecimal$ASCIIToBinaryBuffer::SMALL_10_POW->length - 1;
+	FloatingDecimal$ASCIIToBinaryBuffer::SINGLE_MAX_SMALL_TEN = FloatingDecimal$ASCIIToBinaryBuffer::SINGLE_SMALL_10_POW->length - 1;
 }
 
 FloatingDecimal$ASCIIToBinaryBuffer::FloatingDecimal$ASCIIToBinaryBuffer() {
 }
 
 $Class* FloatingDecimal$ASCIIToBinaryBuffer::load$($String* name, bool initialize) {
-	$loadClass(FloatingDecimal$ASCIIToBinaryBuffer, name, initialize, &_FloatingDecimal$ASCIIToBinaryBuffer_ClassInfo_, clinit$FloatingDecimal$ASCIIToBinaryBuffer, allocate$FloatingDecimal$ASCIIToBinaryBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FloatingDecimal$ASCIIToBinaryBuffer, $assertionsDisabled)},
+		{"isNegative", "Z", nullptr, 0, $field(FloatingDecimal$ASCIIToBinaryBuffer, isNegative)},
+		{"decExponent", "I", nullptr, 0, $field(FloatingDecimal$ASCIIToBinaryBuffer, decExponent)},
+		{"digits", "[C", nullptr, 0, $field(FloatingDecimal$ASCIIToBinaryBuffer, digits)},
+		{"nDigits", "I", nullptr, 0, $field(FloatingDecimal$ASCIIToBinaryBuffer, nDigits)},
+		{"SMALL_10_POW", "[D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal$ASCIIToBinaryBuffer, SMALL_10_POW)},
+		{"SINGLE_SMALL_10_POW", "[F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal$ASCIIToBinaryBuffer, SINGLE_SMALL_10_POW)},
+		{"BIG_10_POW", "[D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal$ASCIIToBinaryBuffer, BIG_10_POW)},
+		{"TINY_10_POW", "[D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal$ASCIIToBinaryBuffer, TINY_10_POW)},
+		{"MAX_SMALL_TEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal$ASCIIToBinaryBuffer, MAX_SMALL_TEN)},
+		{"SINGLE_MAX_SMALL_TEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FloatingDecimal$ASCIIToBinaryBuffer, SINGLE_MAX_SMALL_TEN)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZI[CI)V", nullptr, 0, $method(FloatingDecimal$ASCIIToBinaryBuffer, init$, void, bool, int32_t, $chars*, int32_t)},
+		{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$ASCIIToBinaryBuffer, doubleValue, double)},
+		{"floatValue", "()F", nullptr, $PUBLIC, $virtualMethod(FloatingDecimal$ASCIIToBinaryBuffer, floatValue, float)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.math.FloatingDecimal$ASCIIToBinaryBuffer", "jdk.internal.math.FloatingDecimal", "ASCIIToBinaryBuffer", $STATIC},
+		{"jdk.internal.math.FloatingDecimal$ASCIIToBinaryConverter", "jdk.internal.math.FloatingDecimal", "ASCIIToBinaryConverter", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.math.FloatingDecimal$ASCIIToBinaryBuffer",
+		"java.lang.Object",
+		"jdk.internal.math.FloatingDecimal$ASCIIToBinaryConverter",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.math.FloatingDecimal"
+	};
+	$loadClass(FloatingDecimal$ASCIIToBinaryBuffer, name, initialize, &classInfo$$, FloatingDecimal$ASCIIToBinaryBuffer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FloatingDecimal$ASCIIToBinaryBuffer);
+	});
 	return class$;
 }
 

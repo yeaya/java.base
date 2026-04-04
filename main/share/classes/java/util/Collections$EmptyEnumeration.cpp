@@ -1,5 +1,4 @@
 #include <java/util/Collections$EmptyEnumeration.h>
-
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
 #include <java/util/NoSuchElementException.h>
@@ -17,44 +16,6 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Collections$EmptyEnumeration_FieldInfo_[] = {
-	{"EMPTY_ENUMERATION", "Ljava/util/Collections$EmptyEnumeration;", "Ljava/util/Collections$EmptyEnumeration<Ljava/lang/Object;>;", $STATIC | $FINAL, $staticField(Collections$EmptyEnumeration, EMPTY_ENUMERATION)},
-	{}
-};
-
-$MethodInfo _Collections$EmptyEnumeration_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Collections$EmptyEnumeration, init$, void)},
-	{"asIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(Collections$EmptyEnumeration, asIterator, $Iterator*)},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$EmptyEnumeration, hasMoreElements, bool)},
-	{"nextElement", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$EmptyEnumeration, nextElement, $Object*)},
-	{}
-};
-
-$InnerClassInfo _Collections$EmptyEnumeration_InnerClassesInfo_[] = {
-	{"java.util.Collections$EmptyEnumeration", "java.util.Collections", "EmptyEnumeration", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Collections$EmptyEnumeration_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$EmptyEnumeration",
-	"java.lang.Object",
-	"java.util.Enumeration",
-	_Collections$EmptyEnumeration_FieldInfo_,
-	_Collections$EmptyEnumeration_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Enumeration<TE;>;",
-	nullptr,
-	_Collections$EmptyEnumeration_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$EmptyEnumeration($Class* clazz) {
-	return $of($alloc(Collections$EmptyEnumeration));
-}
 
 Collections$EmptyEnumeration* Collections$EmptyEnumeration::EMPTY_ENUMERATION = nullptr;
 
@@ -74,7 +35,7 @@ $Iterator* Collections$EmptyEnumeration::asIterator() {
 	return $Collections::emptyIterator();
 }
 
-void clinit$Collections$EmptyEnumeration($Class* class$) {
+void Collections$EmptyEnumeration::clinit$($Class* clazz) {
 	$assignStatic(Collections$EmptyEnumeration::EMPTY_ENUMERATION, $new(Collections$EmptyEnumeration));
 }
 
@@ -82,7 +43,39 @@ Collections$EmptyEnumeration::Collections$EmptyEnumeration() {
 }
 
 $Class* Collections$EmptyEnumeration::load$($String* name, bool initialize) {
-	$loadClass(Collections$EmptyEnumeration, name, initialize, &_Collections$EmptyEnumeration_ClassInfo_, clinit$Collections$EmptyEnumeration, allocate$Collections$EmptyEnumeration);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY_ENUMERATION", "Ljava/util/Collections$EmptyEnumeration;", "Ljava/util/Collections$EmptyEnumeration<Ljava/lang/Object;>;", $STATIC | $FINAL, $staticField(Collections$EmptyEnumeration, EMPTY_ENUMERATION)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Collections$EmptyEnumeration, init$, void)},
+		{"asIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(Collections$EmptyEnumeration, asIterator, $Iterator*)},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$EmptyEnumeration, hasMoreElements, bool)},
+		{"nextElement", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$EmptyEnumeration, nextElement, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$EmptyEnumeration", "java.util.Collections", "EmptyEnumeration", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$EmptyEnumeration",
+		"java.lang.Object",
+		"java.util.Enumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Enumeration<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$EmptyEnumeration, name, initialize, &classInfo$$, Collections$EmptyEnumeration::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Collections$EmptyEnumeration);
+	});
 	return class$;
 }
 

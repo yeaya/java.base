@@ -38,6 +38,7 @@ class StreamSpliterators$UnorderedSliceSpliterator : public ::java::lang::Object
 	$class(StreamSpliterators$UnorderedSliceSpliterator, 0, ::java::lang::Object)
 public:
 	StreamSpliterators$UnorderedSliceSpliterator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::Spliterator* s, int64_t skip, int64_t limit);
 	void init$(::java::util::Spliterator* s, ::java::util::stream::StreamSpliterators$UnorderedSliceSpliterator* parent);
 	int64_t acquirePermits(int64_t numElements);

@@ -14,10 +14,13 @@ class $import NotYetBoundException : public ::java::lang::IllegalStateException 
 public:
 	NotYetBoundException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x4068244722C97582;
+	static const int64_t serialVersionUID = (int64_t)0x4068244722c97582;
 	NotYetBoundException(const NotYetBoundException& e);
 	virtual void throw$() override;
-	inline NotYetBoundException* operator ->() {
+	inline NotYetBoundException* operator ->() const {
+		return (NotYetBoundException*)throwing$;
+	}
+	inline operator NotYetBoundException*() const {
 		return (NotYetBoundException*)throwing$;
 	}
 };

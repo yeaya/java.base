@@ -15,10 +15,13 @@ public:
 	FileSystemAlreadyExistsException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0xB486DA9E28ADC274;
+	static const int64_t serialVersionUID = (int64_t)0xb486da9e28adc274;
 	FileSystemAlreadyExistsException(const FileSystemAlreadyExistsException& e);
 	virtual void throw$() override;
-	inline FileSystemAlreadyExistsException* operator ->() {
+	inline FileSystemAlreadyExistsException* operator ->() const {
+		return (FileSystemAlreadyExistsException*)throwing$;
+	}
+	inline operator FileSystemAlreadyExistsException*() const {
 		return (FileSystemAlreadyExistsException*)throwing$;
 	}
 };

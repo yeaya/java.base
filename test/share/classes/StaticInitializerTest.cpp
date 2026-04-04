@@ -1,5 +1,4 @@
 #include <StaticInitializerTest.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Error.h>
 #include <java/lang/reflect/Field.h>
@@ -8,36 +7,16 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Field = ::java::lang::reflect::Field;
-
-$MethodInfo _StaticInitializerTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StaticInitializerTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticInitializerTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _StaticInitializerTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"StaticInitializerTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_StaticInitializerTest_MethodInfo_
-};
-
-$Object* allocate$StaticInitializerTest($Class* clazz) {
-	return $of($alloc(StaticInitializerTest));
-}
 
 void StaticInitializerTest::init$() {
 }
 
 void StaticInitializerTest::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(StaticInitializerTest);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* cl = $Class::forName("Bar"_s, false, $(StaticInitializerTest::class$->getClassLoader()));
-	if ($nc($($nc(cl)->getDeclaredField("obj"_s)))->get(nullptr) == nullptr) {
+	if ($$nc(cl->getDeclaredField("obj"_s))->get(nullptr) == nullptr) {
 		$throwNew($Error);
 	}
 }
@@ -46,7 +25,22 @@ StaticInitializerTest::StaticInitializerTest() {
 }
 
 $Class* StaticInitializerTest::load$($String* name, bool initialize) {
-	$loadClass(StaticInitializerTest, name, initialize, &_StaticInitializerTest_ClassInfo_, allocate$StaticInitializerTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StaticInitializerTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticInitializerTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"StaticInitializerTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StaticInitializerTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StaticInitializerTest);
+	});
 	return class$;
 }
 

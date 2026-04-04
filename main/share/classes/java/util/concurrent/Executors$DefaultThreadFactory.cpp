@@ -1,5 +1,4 @@
 #include <java/util/concurrent/Executors$DefaultThreadFactory.h>
-
 #include <java/lang/Runnable.h>
 #include <java/lang/SecurityManager.h>
 #include <java/lang/ThreadGroup.h>
@@ -21,58 +20,19 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _Executors$DefaultThreadFactory_FieldInfo_[] = {
-	{"poolNumber", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Executors$DefaultThreadFactory, poolNumber)},
-	{"group", "Ljava/lang/ThreadGroup;", nullptr, $PRIVATE | $FINAL, $field(Executors$DefaultThreadFactory, group)},
-	{"threadNumber", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $FINAL, $field(Executors$DefaultThreadFactory, threadNumber)},
-	{"namePrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Executors$DefaultThreadFactory, namePrefix)},
-	{}
-};
-
-$MethodInfo _Executors$DefaultThreadFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Executors$DefaultThreadFactory, init$, void)},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(Executors$DefaultThreadFactory, newThread, $Thread*, $Runnable*)},
-	{}
-};
-
-$InnerClassInfo _Executors$DefaultThreadFactory_InnerClassesInfo_[] = {
-	{"java.util.concurrent.Executors$DefaultThreadFactory", "java.util.concurrent.Executors", "DefaultThreadFactory", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Executors$DefaultThreadFactory_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.concurrent.Executors$DefaultThreadFactory",
-	"java.lang.Object",
-	"java.util.concurrent.ThreadFactory",
-	_Executors$DefaultThreadFactory_FieldInfo_,
-	_Executors$DefaultThreadFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Executors$DefaultThreadFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.Executors"
-};
-
-$Object* allocate$Executors$DefaultThreadFactory($Class* clazz) {
-	return $of($alloc(Executors$DefaultThreadFactory));
-}
-
 $AtomicInteger* Executors$DefaultThreadFactory::poolNumber = nullptr;
 
 void Executors$DefaultThreadFactory::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, threadNumber, $new($AtomicInteger, 1));
 	$var($SecurityManager, s, $System::getSecurityManager());
-	$set(this, group, (s != nullptr) ? $nc(s)->getThreadGroup() : $($Thread::currentThread())->getThreadGroup());
-	$set(this, namePrefix, $str({"pool-"_s, $$str($nc(Executors$DefaultThreadFactory::poolNumber)->getAndIncrement()), "-thread-"_s}));
+	$set(this, group, (s != nullptr) ? s->getThreadGroup() : $($Thread::currentThread())->getThreadGroup());
+	$set(this, namePrefix, $str({"pool-"_s, $$str(Executors$DefaultThreadFactory::poolNumber->getAndIncrement()), "-thread-"_s}));
 }
 
 $Thread* Executors$DefaultThreadFactory::newThread($Runnable* r) {
-	$useLocalCurrentObjectStackCache();
-	$var($Thread, t, $new($Thread, this->group, r, $$str({this->namePrefix, $$str($nc(this->threadNumber)->getAndIncrement())}), 0));
+	$useLocalObjectStack();
+	$var($Thread, t, $new($Thread, this->group, r, $$str({this->namePrefix, $$str(this->threadNumber->getAndIncrement())}), 0));
 	if (t->isDaemon()) {
 		t->setDaemon(false);
 	}
@@ -82,7 +42,7 @@ $Thread* Executors$DefaultThreadFactory::newThread($Runnable* r) {
 	return t;
 }
 
-void clinit$Executors$DefaultThreadFactory($Class* class$) {
+void Executors$DefaultThreadFactory::clinit$($Class* clazz) {
 	$assignStatic(Executors$DefaultThreadFactory::poolNumber, $new($AtomicInteger, 1));
 }
 
@@ -90,7 +50,40 @@ Executors$DefaultThreadFactory::Executors$DefaultThreadFactory() {
 }
 
 $Class* Executors$DefaultThreadFactory::load$($String* name, bool initialize) {
-	$loadClass(Executors$DefaultThreadFactory, name, initialize, &_Executors$DefaultThreadFactory_ClassInfo_, clinit$Executors$DefaultThreadFactory, allocate$Executors$DefaultThreadFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"poolNumber", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Executors$DefaultThreadFactory, poolNumber)},
+		{"group", "Ljava/lang/ThreadGroup;", nullptr, $PRIVATE | $FINAL, $field(Executors$DefaultThreadFactory, group)},
+		{"threadNumber", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $FINAL, $field(Executors$DefaultThreadFactory, threadNumber)},
+		{"namePrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Executors$DefaultThreadFactory, namePrefix)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Executors$DefaultThreadFactory, init$, void)},
+		{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(Executors$DefaultThreadFactory, newThread, $Thread*, $Runnable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.Executors$DefaultThreadFactory", "java.util.concurrent.Executors", "DefaultThreadFactory", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.concurrent.Executors$DefaultThreadFactory",
+		"java.lang.Object",
+		"java.util.concurrent.ThreadFactory",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.Executors"
+	};
+	$loadClass(Executors$DefaultThreadFactory, name, initialize, &classInfo$$, Executors$DefaultThreadFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Executors$DefaultThreadFactory);
+	});
 	return class$;
 }
 

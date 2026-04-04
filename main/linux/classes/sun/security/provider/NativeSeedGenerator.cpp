@@ -1,5 +1,4 @@
 #include <sun/security/provider/NativeSeedGenerator.h>
-
 #include <sun/security/provider/SeedGenerator$URLSeedGenerator.h>
 #include <jcpp.h>
 
@@ -12,32 +11,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$MethodInfo _NativeSeedGenerator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(NativeSeedGenerator, init$, void, $String*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _NativeSeedGenerator_InnerClassesInfo_[] = {
-	{"sun.security.provider.SeedGenerator$URLSeedGenerator", "sun.security.provider.SeedGenerator", "URLSeedGenerator", $STATIC},
-	{}
-};
-
-$ClassInfo _NativeSeedGenerator_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.provider.NativeSeedGenerator",
-	"sun.security.provider.SeedGenerator$URLSeedGenerator",
-	nullptr,
-	nullptr,
-	_NativeSeedGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NativeSeedGenerator_InnerClassesInfo_
-};
-
-$Object* allocate$NativeSeedGenerator($Class* clazz) {
-	return $of($alloc(NativeSeedGenerator));
-}
-
 void NativeSeedGenerator::init$($String* seedFile) {
 	$SeedGenerator$URLSeedGenerator::init$(seedFile);
 }
@@ -46,7 +19,28 @@ NativeSeedGenerator::NativeSeedGenerator() {
 }
 
 $Class* NativeSeedGenerator::load$($String* name, bool initialize) {
-	$loadClass(NativeSeedGenerator, name, initialize, &_NativeSeedGenerator_ClassInfo_, allocate$NativeSeedGenerator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(NativeSeedGenerator, init$, void, $String*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.SeedGenerator$URLSeedGenerator", "sun.security.provider.SeedGenerator", "URLSeedGenerator", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.provider.NativeSeedGenerator",
+		"sun.security.provider.SeedGenerator$URLSeedGenerator",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(NativeSeedGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NativeSeedGenerator);
+	});
 	return class$;
 }
 

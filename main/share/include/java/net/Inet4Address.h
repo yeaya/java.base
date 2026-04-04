@@ -16,6 +16,7 @@ class $import Inet4Address : public ::java::net::InetAddress {
 	$class(Inet4Address, 0, ::java::net::InetAddress)
 public:
 	Inet4Address();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* hostName, $bytes* addr);
 	void init$($String* hostName, int32_t address);
@@ -38,7 +39,7 @@ public:
 	static $String* numericToTextFormat($bytes* src);
 	$Object* writeReplace();
 	static const int32_t INADDRSZ = 4;
-	static const int64_t serialVersionUID = (int64_t)0x2D9B57AF9FE3EBDB;
+	static const int64_t serialVersionUID = (int64_t)0x2d9b57af9fe3ebdb;
 };
 
 	} // net

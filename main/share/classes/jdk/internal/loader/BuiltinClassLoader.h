@@ -75,6 +75,7 @@ public:
 	BuiltinClassLoader();
 	using ::java::security::SecureClassLoader::defineClass;
 	using ::java::security::SecureClassLoader::definePackage;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, ::jdk::internal::loader::BuiltinClassLoader* parent, ::jdk::internal::loader::URLClassPath* ucp);
 	virtual void appendClassPath($String* path);
 	static ::java::net::URL* checkURL(::java::net::URL* url);

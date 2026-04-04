@@ -1,5 +1,4 @@
 #include <java/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus.h>
-
 #include <java/lang/Enum.h>
 #include <java/util/stream/StreamSpliterators$UnorderedSliceSpliterator.h>
 #include <java/util/stream/StreamSpliterators.h>
@@ -19,48 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _StreamSpliterators$UnorderedSliceSpliterator$PermitStatus_FieldInfo_[] = {
-	{"NO_MORE", "Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus, NO_MORE)},
-	{"MAYBE_MORE", "Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus, MAYBE_MORE)},
-	{"UNLIMITED", "Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus, UNLIMITED)},
-	{"$VALUES", "[Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus, $VALUES)},
-	{}
-};
-
-$MethodInfo _StreamSpliterators$UnorderedSliceSpliterator$PermitStatus_MethodInfo_[] = {
-	{"$values", "()[Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus, $values, $StreamSpliterators$UnorderedSliceSpliterator$PermitStatusArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus, valueOf, StreamSpliterators$UnorderedSliceSpliterator$PermitStatus*, $String*)},
-	{"values", "()[Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus, values, $StreamSpliterators$UnorderedSliceSpliterator$PermitStatusArray*)},
-	{}
-};
-
-$InnerClassInfo _StreamSpliterators$UnorderedSliceSpliterator$PermitStatus_InnerClassesInfo_[] = {
-	{"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator", "java.util.stream.StreamSpliterators", "UnorderedSliceSpliterator", $STATIC | $ABSTRACT},
-	{"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator$PermitStatus", "java.util.stream.StreamSpliterators$UnorderedSliceSpliterator", "PermitStatus", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _StreamSpliterators$UnorderedSliceSpliterator$PermitStatus_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator$PermitStatus",
-	"java.lang.Enum",
-	nullptr,
-	_StreamSpliterators$UnorderedSliceSpliterator$PermitStatus_FieldInfo_,
-	_StreamSpliterators$UnorderedSliceSpliterator$PermitStatus_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;>;",
-	nullptr,
-	_StreamSpliterators$UnorderedSliceSpliterator$PermitStatus_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.StreamSpliterators"
-};
-
-$Object* allocate$StreamSpliterators$UnorderedSliceSpliterator$PermitStatus($Class* clazz) {
-	return $of($alloc(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus));
-}
 
 StreamSpliterators$UnorderedSliceSpliterator$PermitStatus* StreamSpliterators$UnorderedSliceSpliterator$PermitStatus::NO_MORE = nullptr;
 StreamSpliterators$UnorderedSliceSpliterator$PermitStatus* StreamSpliterators$UnorderedSliceSpliterator$PermitStatus::MAYBE_MORE = nullptr;
@@ -90,7 +47,7 @@ void StreamSpliterators$UnorderedSliceSpliterator$PermitStatus::init$($String* $
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$StreamSpliterators$UnorderedSliceSpliterator$PermitStatus($Class* class$) {
+void StreamSpliterators$UnorderedSliceSpliterator$PermitStatus::clinit$($Class* clazz) {
 	$assignStatic(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus::NO_MORE, $new(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus, "NO_MORE"_s, 0));
 	$assignStatic(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus::MAYBE_MORE, $new(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus, "MAYBE_MORE"_s, 1));
 	$assignStatic(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus::UNLIMITED, $new(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus, "UNLIMITED"_s, 2));
@@ -101,7 +58,43 @@ StreamSpliterators$UnorderedSliceSpliterator$PermitStatus::StreamSpliterators$Un
 }
 
 $Class* StreamSpliterators$UnorderedSliceSpliterator$PermitStatus::load$($String* name, bool initialize) {
-	$loadClass(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus, name, initialize, &_StreamSpliterators$UnorderedSliceSpliterator$PermitStatus_ClassInfo_, clinit$StreamSpliterators$UnorderedSliceSpliterator$PermitStatus, allocate$StreamSpliterators$UnorderedSliceSpliterator$PermitStatus);
+	$FieldInfo fieldInfos$$[] = {
+		{"NO_MORE", "Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus, NO_MORE)},
+		{"MAYBE_MORE", "Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus, MAYBE_MORE)},
+		{"UNLIMITED", "Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus, UNLIMITED)},
+		{"$VALUES", "[Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus, $values, $StreamSpliterators$UnorderedSliceSpliterator$PermitStatusArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus, valueOf, StreamSpliterators$UnorderedSliceSpliterator$PermitStatus*, $String*)},
+		{"values", "()[Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus, values, $StreamSpliterators$UnorderedSliceSpliterator$PermitStatusArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator", "java.util.stream.StreamSpliterators", "UnorderedSliceSpliterator", $STATIC | $ABSTRACT},
+		{"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator$PermitStatus", "java.util.stream.StreamSpliterators$UnorderedSliceSpliterator", "PermitStatus", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"java.util.stream.StreamSpliterators$UnorderedSliceSpliterator$PermitStatus",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/util/stream/StreamSpliterators$UnorderedSliceSpliterator$PermitStatus;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.StreamSpliterators"
+	};
+	$loadClass(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus, name, initialize, &classInfo$$, StreamSpliterators$UnorderedSliceSpliterator$PermitStatus::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StreamSpliterators$UnorderedSliceSpliterator$PermitStatus));
+	});
 	return class$;
 }
 

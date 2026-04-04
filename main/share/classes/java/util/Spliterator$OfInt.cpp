@@ -1,5 +1,4 @@
 #include <java/util/Spliterator$OfInt.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -34,75 +33,34 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual void accept(int32_t t) override {
-		$nc(inst$)->accept($$of(t));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Spliterator$OfInt$$Lambda$accept>());
+		$nc(inst$)->accept($of(t));
 	}
 	$Consumer* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Spliterator$OfInt$$Lambda$accept::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Spliterator$OfInt$$Lambda$accept, inst$)},
-	{}
-};
-$MethodInfo Spliterator$OfInt$$Lambda$accept::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(Spliterator$OfInt$$Lambda$accept, init$, void, $Consumer*)},
-	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(Spliterator$OfInt$$Lambda$accept, accept, void, int32_t)},
-	{}
-};
-$ClassInfo Spliterator$OfInt$$Lambda$accept::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Spliterator$OfInt$$Lambda$accept",
-	"java.lang.Object",
-	"java.util.function.IntConsumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Spliterator$OfInt$$Lambda$accept::load$($String* name, bool initialize) {
-	$loadClass(Spliterator$OfInt$$Lambda$accept, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Spliterator$OfInt$$Lambda$accept, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(Spliterator$OfInt$$Lambda$accept, init$, void, $Consumer*)},
+		{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(Spliterator$OfInt$$Lambda$accept, accept, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Spliterator$OfInt$$Lambda$accept",
+		"java.lang.Object",
+		"java.util.function.IntConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Spliterator$OfInt$$Lambda$accept, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Spliterator$OfInt$$Lambda$accept);
+	});
 	return class$;
 }
 $Class* Spliterator$OfInt$$Lambda$accept::class$ = nullptr;
-
-$MethodInfo _Spliterator$OfInt_MethodInfo_[] = {
-	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(Spliterator$OfInt, forEachRemaining, void, $IntConsumer*)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/Integer;>;)V", $PUBLIC, $virtualMethod(Spliterator$OfInt, forEachRemaining, void, $Consumer*)},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterator$OfInt, forEachRemaining, void, Object$*)},
-	{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Spliterator$OfInt, tryAdvance, bool, $IntConsumer*)},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/lang/Integer;>;)Z", $PUBLIC, $virtualMethod(Spliterator$OfInt, tryAdvance, bool, $Consumer*)},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterator$OfInt, tryAdvance, bool, Object$*)},
-	{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$InnerClassInfo _Spliterator$OfInt_InnerClassesInfo_[] = {
-	{"java.util.Spliterator$OfInt", "java.util.Spliterator", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.Spliterator$OfPrimitive", "java.util.Spliterator", "OfPrimitive", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Spliterator$OfInt_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.Spliterator$OfInt",
-	nullptr,
-	"java.util.Spliterator$OfPrimitive",
-	nullptr,
-	_Spliterator$OfInt_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Spliterator$OfPrimitive<Ljava/lang/Integer;Ljava/util/function/IntConsumer;Ljava/util/Spliterator$OfInt;>;",
-	nullptr,
-	_Spliterator$OfInt_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Spliterator"
-};
-
-$Object* allocate$Spliterator$OfInt($Class* clazz) {
-	return $of($alloc(Spliterator$OfInt));
-}
 
 void Spliterator$OfInt::forEachRemaining($IntConsumer* action) {
 	do {
@@ -117,7 +75,7 @@ bool Spliterator$OfInt::tryAdvance($Consumer* action) {
 		if ($Tripwire::ENABLED) {
 			$Tripwire::trip($of(this)->getClass(), "{0} calling Spliterator.OfInt.tryAdvance((IntConsumer) action::accept)"_s);
 		}
-		return tryAdvance(static_cast<$IntConsumer*>($$new(Spliterator$OfInt$$Lambda$accept, static_cast<$Consumer*>($nc(action)))));
+		return tryAdvance($cast($IntConsumer, $$new(Spliterator$OfInt$$Lambda$accept, $nc(action))));
 	}
 }
 
@@ -129,7 +87,7 @@ void Spliterator$OfInt::forEachRemaining($Consumer* action) {
 		if ($Tripwire::ENABLED) {
 			$Tripwire::trip($of(this)->getClass(), "{0} calling Spliterator.OfInt.forEachRemaining((IntConsumer) action::accept)"_s);
 		}
-		forEachRemaining(static_cast<$IntConsumer*>($$new(Spliterator$OfInt$$Lambda$accept, static_cast<$Consumer*>($nc(action)))));
+		forEachRemaining($cast($IntConsumer, $$new(Spliterator$OfInt$$Lambda$accept, $nc(action))));
 	}
 }
 
@@ -143,11 +101,43 @@ bool Spliterator$OfInt::tryAdvance(Object$* action) {
 
 $Class* Spliterator$OfInt::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Spliterator$OfInt$$Lambda$accept::classInfo$.name)) {
+		if (name->equals("java.util.Spliterator$OfInt$$Lambda$accept")) {
 			return Spliterator$OfInt$$Lambda$accept::load$(name, initialize);
 		}
 	}
-	$loadClass(Spliterator$OfInt, name, initialize, &_Spliterator$OfInt_ClassInfo_, allocate$Spliterator$OfInt);
+	$MethodInfo methodInfos$$[] = {
+		{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(Spliterator$OfInt, forEachRemaining, void, $IntConsumer*)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/Integer;>;)V", $PUBLIC, $virtualMethod(Spliterator$OfInt, forEachRemaining, void, $Consumer*)},
+		{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterator$OfInt, forEachRemaining, void, Object$*)},
+		{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Spliterator$OfInt, tryAdvance, bool, $IntConsumer*)},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/lang/Integer;>;)Z", $PUBLIC, $virtualMethod(Spliterator$OfInt, tryAdvance, bool, $Consumer*)},
+		{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spliterator$OfInt, tryAdvance, bool, Object$*)},
+		{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Spliterator$OfInt", "java.util.Spliterator", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.Spliterator$OfPrimitive", "java.util.Spliterator", "OfPrimitive", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.Spliterator$OfInt",
+		nullptr,
+		"java.util.Spliterator$OfPrimitive",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Spliterator$OfPrimitive<Ljava/lang/Integer;Ljava/util/function/IntConsumer;Ljava/util/Spliterator$OfInt;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Spliterator"
+	};
+	$loadClass(Spliterator$OfInt, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Spliterator$OfInt);
+	});
 	return class$;
 }
 

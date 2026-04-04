@@ -16,12 +16,16 @@ class $import ScopedMemoryAccess$Scope$ScopedAccessError : public ::java::lang::
 	$class(ScopedMemoryAccess$Scope$ScopedAccessError, 0, ::java::lang::Error)
 public:
 	ScopedMemoryAccess$Scope$ScopedAccessError();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static const int64_t serialVersionUID = (int64_t)1;
 	static ::jdk::internal::misc::ScopedMemoryAccess$Scope$ScopedAccessError* INSTANCE;
 	ScopedMemoryAccess$Scope$ScopedAccessError(const ScopedMemoryAccess$Scope$ScopedAccessError& e);
 	virtual void throw$() override;
-	inline ScopedMemoryAccess$Scope$ScopedAccessError* operator ->() {
+	inline ScopedMemoryAccess$Scope$ScopedAccessError* operator ->() const {
+		return (ScopedMemoryAccess$Scope$ScopedAccessError*)throwing$;
+	}
+	inline operator ScopedMemoryAccess$Scope$ScopedAccessError*() const {
 		return (ScopedMemoryAccess$Scope$ScopedAccessError*)throwing$;
 	}
 };

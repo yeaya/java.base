@@ -17,7 +17,7 @@ public:
 	$Object* readResolve();
 	using ::java::util::Collections$UnmodifiableNavigableSet::subSet;
 	using ::java::util::Collections$UnmodifiableNavigableSet::tailSet;
-	static const int64_t serialVersionUID = (int64_t)0xA8B0FAD0DE1DE942;
+	static const int64_t serialVersionUID = (int64_t)0xa8b0fad0de1de942;
 };
 
 	} // util

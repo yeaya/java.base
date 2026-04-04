@@ -1,5 +1,4 @@
 #include <sun/nio/cs/SJIS$EncodeHolder.h>
-
 #include <sun/nio/cs/DoubleByte$Encoder.h>
 #include <sun/nio/cs/SJIS$DecodeHolder.h>
 #include <sun/nio/cs/SJIS.h>
@@ -16,50 +15,14 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$FieldInfo _SJIS$EncodeHolder_FieldInfo_[] = {
-	{"c2b", "[C", nullptr, $STATIC | $FINAL, $staticField(SJIS$EncodeHolder, c2b)},
-	{"c2bIndex", "[C", nullptr, $STATIC | $FINAL, $staticField(SJIS$EncodeHolder, c2bIndex)},
-	{}
-};
-
-$MethodInfo _SJIS$EncodeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SJIS$EncodeHolder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _SJIS$EncodeHolder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.SJIS$EncodeHolder", "sun.nio.cs.SJIS", "EncodeHolder", $STATIC},
-	{}
-};
-
-$ClassInfo _SJIS$EncodeHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.SJIS$EncodeHolder",
-	"java.lang.Object",
-	nullptr,
-	_SJIS$EncodeHolder_FieldInfo_,
-	_SJIS$EncodeHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SJIS$EncodeHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.SJIS"
-};
-
-$Object* allocate$SJIS$EncodeHolder($Class* clazz) {
-	return $of($alloc(SJIS$EncodeHolder));
-}
-
 $chars* SJIS$EncodeHolder::c2b = nullptr;
 $chars* SJIS$EncodeHolder::c2bIndex = nullptr;
 
 void SJIS$EncodeHolder::init$() {
 }
 
-void clinit$SJIS$EncodeHolder($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void SJIS$EncodeHolder::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(SJIS$EncodeHolder::c2b, $new($chars, 24064));
 	$assignStatic(SJIS$EncodeHolder::c2bIndex, $new($chars, 256));
 	{
@@ -74,7 +37,37 @@ SJIS$EncodeHolder::SJIS$EncodeHolder() {
 }
 
 $Class* SJIS$EncodeHolder::load$($String* name, bool initialize) {
-	$loadClass(SJIS$EncodeHolder, name, initialize, &_SJIS$EncodeHolder_ClassInfo_, clinit$SJIS$EncodeHolder, allocate$SJIS$EncodeHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"c2b", "[C", nullptr, $STATIC | $FINAL, $staticField(SJIS$EncodeHolder, c2b)},
+		{"c2bIndex", "[C", nullptr, $STATIC | $FINAL, $staticField(SJIS$EncodeHolder, c2bIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SJIS$EncodeHolder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.SJIS$EncodeHolder", "sun.nio.cs.SJIS", "EncodeHolder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.SJIS$EncodeHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.SJIS"
+	};
+	$loadClass(SJIS$EncodeHolder, name, initialize, &classInfo$$, SJIS$EncodeHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SJIS$EncodeHolder);
+	});
 	return class$;
 }
 

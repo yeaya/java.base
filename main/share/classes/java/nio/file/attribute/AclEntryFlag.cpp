@@ -1,5 +1,4 @@
 #include <java/nio/file/attribute/AclEntryFlag.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -18,37 +17,6 @@ namespace java {
 	namespace nio {
 		namespace file {
 			namespace attribute {
-
-$FieldInfo _AclEntryFlag_FieldInfo_[] = {
-	{"FILE_INHERIT", "Ljava/nio/file/attribute/AclEntryFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryFlag, FILE_INHERIT)},
-	{"DIRECTORY_INHERIT", "Ljava/nio/file/attribute/AclEntryFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryFlag, DIRECTORY_INHERIT)},
-	{"NO_PROPAGATE_INHERIT", "Ljava/nio/file/attribute/AclEntryFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryFlag, NO_PROPAGATE_INHERIT)},
-	{"INHERIT_ONLY", "Ljava/nio/file/attribute/AclEntryFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryFlag, INHERIT_ONLY)},
-	{"$VALUES", "[Ljava/nio/file/attribute/AclEntryFlag;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(AclEntryFlag, $VALUES)},
-	{}
-};
-
-$MethodInfo _AclEntryFlag_MethodInfo_[] = {
-	{"$values", "()[Ljava/nio/file/attribute/AclEntryFlag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AclEntryFlag, $values, $AclEntryFlagArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AclEntryFlag, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/attribute/AclEntryFlag;", nullptr, $PUBLIC | $STATIC, $staticMethod(AclEntryFlag, valueOf, AclEntryFlag*, $String*)},
-	{"values", "()[Ljava/nio/file/attribute/AclEntryFlag;", nullptr, $PUBLIC | $STATIC, $staticMethod(AclEntryFlag, values, $AclEntryFlagArray*)},
-	{}
-};
-
-$ClassInfo _AclEntryFlag_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.nio.file.attribute.AclEntryFlag",
-	"java.lang.Enum",
-	nullptr,
-	_AclEntryFlag_FieldInfo_,
-	_AclEntryFlag_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/nio/file/attribute/AclEntryFlag;>;"
-};
-
-$Object* allocate$AclEntryFlag($Class* clazz) {
-	return $of($alloc(AclEntryFlag));
-}
 
 AclEntryFlag* AclEntryFlag::FILE_INHERIT = nullptr;
 AclEntryFlag* AclEntryFlag::DIRECTORY_INHERIT = nullptr;
@@ -80,7 +48,7 @@ void AclEntryFlag::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$AclEntryFlag($Class* class$) {
+void AclEntryFlag::clinit$($Class* clazz) {
 	$assignStatic(AclEntryFlag::FILE_INHERIT, $new(AclEntryFlag, "FILE_INHERIT"_s, 0));
 	$assignStatic(AclEntryFlag::DIRECTORY_INHERIT, $new(AclEntryFlag, "DIRECTORY_INHERIT"_s, 1));
 	$assignStatic(AclEntryFlag::NO_PROPAGATE_INHERIT, $new(AclEntryFlag, "NO_PROPAGATE_INHERIT"_s, 2));
@@ -92,7 +60,33 @@ AclEntryFlag::AclEntryFlag() {
 }
 
 $Class* AclEntryFlag::load$($String* name, bool initialize) {
-	$loadClass(AclEntryFlag, name, initialize, &_AclEntryFlag_ClassInfo_, clinit$AclEntryFlag, allocate$AclEntryFlag);
+	$FieldInfo fieldInfos$$[] = {
+		{"FILE_INHERIT", "Ljava/nio/file/attribute/AclEntryFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryFlag, FILE_INHERIT)},
+		{"DIRECTORY_INHERIT", "Ljava/nio/file/attribute/AclEntryFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryFlag, DIRECTORY_INHERIT)},
+		{"NO_PROPAGATE_INHERIT", "Ljava/nio/file/attribute/AclEntryFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryFlag, NO_PROPAGATE_INHERIT)},
+		{"INHERIT_ONLY", "Ljava/nio/file/attribute/AclEntryFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AclEntryFlag, INHERIT_ONLY)},
+		{"$VALUES", "[Ljava/nio/file/attribute/AclEntryFlag;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(AclEntryFlag, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/nio/file/attribute/AclEntryFlag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AclEntryFlag, $values, $AclEntryFlagArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AclEntryFlag, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/attribute/AclEntryFlag;", nullptr, $PUBLIC | $STATIC, $staticMethod(AclEntryFlag, valueOf, AclEntryFlag*, $String*)},
+		{"values", "()[Ljava/nio/file/attribute/AclEntryFlag;", nullptr, $PUBLIC | $STATIC, $staticMethod(AclEntryFlag, values, $AclEntryFlagArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.nio.file.attribute.AclEntryFlag",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/nio/file/attribute/AclEntryFlag;>;"
+	};
+	$loadClass(AclEntryFlag, name, initialize, &classInfo$$, AclEntryFlag::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AclEntryFlag));
+	});
 	return class$;
 }
 

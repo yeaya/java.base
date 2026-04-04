@@ -1,5 +1,4 @@
 #include <java/util/stream/IntPipeline$7.h>
-
 #include <java/util/function/IntFunction.h>
 #include <java/util/stream/AbstractPipeline.h>
 #include <java/util/stream/IntPipeline$7$1.h>
@@ -26,51 +25,6 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$FieldInfo _IntPipeline$7_FieldInfo_[] = {
-	{"this$0", "Ljava/util/stream/IntPipeline;", nullptr, $FINAL | $SYNTHETIC, $field(IntPipeline$7, this$0)},
-	{"val$mapper", "Ljava/util/function/IntFunction;", nullptr, $FINAL | $SYNTHETIC, $field(IntPipeline$7, val$mapper)},
-	{}
-};
-
-$MethodInfo _IntPipeline$7_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/IntPipeline;Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;ILjava/util/function/IntFunction;)V", nullptr, 0, $method(IntPipeline$7, init$, void, $IntPipeline*, $AbstractPipeline*, $StreamShape*, int32_t, $IntFunction*)},
-	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<Ljava/lang/Integer;>;)Ljava/util/stream/Sink<Ljava/lang/Integer;>;", 0, $virtualMethod(IntPipeline$7, opWrapSink, $Sink*, int32_t, $Sink*)},
-	{}
-};
-
-$EnclosingMethodInfo _IntPipeline$7_EnclosingMethodInfo_ = {
-	"java.util.stream.IntPipeline",
-	"flatMap",
-	"(Ljava/util/function/IntFunction;)Ljava/util/stream/IntStream;"
-};
-
-$InnerClassInfo _IntPipeline$7_InnerClassesInfo_[] = {
-	{"java.util.stream.IntPipeline$7", nullptr, nullptr, 0},
-	{"java.util.stream.IntPipeline$StatelessOp", "java.util.stream.IntPipeline", "StatelessOp", $STATIC | $ABSTRACT},
-	{"java.util.stream.IntPipeline$7$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _IntPipeline$7_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.IntPipeline$7",
-	"java.util.stream.IntPipeline$StatelessOp",
-	nullptr,
-	_IntPipeline$7_FieldInfo_,
-	_IntPipeline$7_MethodInfo_,
-	"Ljava/util/stream/IntPipeline$StatelessOp<Ljava/lang/Integer;>;",
-	&_IntPipeline$7_EnclosingMethodInfo_,
-	_IntPipeline$7_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.IntPipeline"
-};
-
-$Object* allocate$IntPipeline$7($Class* clazz) {
-	return $of($alloc(IntPipeline$7));
-}
-
 void IntPipeline$7::init$($IntPipeline* this$0, $AbstractPipeline* upstream, $StreamShape* inputShape, int32_t opFlags, $IntFunction* val$mapper) {
 	$set(this, this$0, this$0);
 	$set(this, val$mapper, val$mapper);
@@ -85,7 +39,45 @@ IntPipeline$7::IntPipeline$7() {
 }
 
 $Class* IntPipeline$7::load$($String* name, bool initialize) {
-	$loadClass(IntPipeline$7, name, initialize, &_IntPipeline$7_ClassInfo_, allocate$IntPipeline$7);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/stream/IntPipeline;", nullptr, $FINAL | $SYNTHETIC, $field(IntPipeline$7, this$0)},
+		{"val$mapper", "Ljava/util/function/IntFunction;", nullptr, $FINAL | $SYNTHETIC, $field(IntPipeline$7, val$mapper)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/IntPipeline;Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;ILjava/util/function/IntFunction;)V", nullptr, 0, $method(IntPipeline$7, init$, void, $IntPipeline*, $AbstractPipeline*, $StreamShape*, int32_t, $IntFunction*)},
+		{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<Ljava/lang/Integer;>;)Ljava/util/stream/Sink<Ljava/lang/Integer;>;", 0, $virtualMethod(IntPipeline$7, opWrapSink, $Sink*, int32_t, $Sink*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.IntPipeline",
+		"flatMap",
+		"(Ljava/util/function/IntFunction;)Ljava/util/stream/IntStream;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.IntPipeline$7", nullptr, nullptr, 0},
+		{"java.util.stream.IntPipeline$StatelessOp", "java.util.stream.IntPipeline", "StatelessOp", $STATIC | $ABSTRACT},
+		{"java.util.stream.IntPipeline$7$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.IntPipeline$7",
+		"java.util.stream.IntPipeline$StatelessOp",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/IntPipeline$StatelessOp<Ljava/lang/Integer;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.IntPipeline"
+	};
+	$loadClass(IntPipeline$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(IntPipeline$7));
+	});
 	return class$;
 }
 

@@ -19,12 +19,15 @@ public:
 	virtual $String* getMessage() override;
 	virtual $String* getOtherFile();
 	virtual $String* getReason();
-	static const int64_t serialVersionUID = (int64_t)0xD598F27876D360FC;
+	static const int64_t serialVersionUID = (int64_t)0xd598f27876d360fc;
 	$String* file = nullptr;
 	$String* other = nullptr;
 	FileSystemException(const FileSystemException& e);
 	virtual void throw$() override;
-	inline FileSystemException* operator ->() {
+	inline FileSystemException* operator ->() const {
+		return (FileSystemException*)throwing$;
+	}
+	inline operator FileSystemException*() const {
 		return (FileSystemException*)throwing$;
 	}
 };

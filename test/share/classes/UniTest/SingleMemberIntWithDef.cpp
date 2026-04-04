@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberIntWithDef.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -10,44 +9,38 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$NamedAttribute SingleMemberIntWithDef_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _SingleMemberIntWithDef_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", SingleMemberIntWithDef_Attribute_var$0},
-	{}
-};
-
-$Attribute _SingleMemberIntWithDef_DefaultValue_value0 = {
-	'I', "13"
-};
-
-$MethodInfo _SingleMemberIntWithDef_MethodInfo_[] = {
-	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberIntWithDef, value, int32_t), nullptr, &_SingleMemberIntWithDef_DefaultValue_value0},
-	{}
-};
-
-$ClassInfo _SingleMemberIntWithDef_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"UniTest.SingleMemberIntWithDef",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_SingleMemberIntWithDef_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberIntWithDef_Annotations_
-};
-
-$Object* allocate$SingleMemberIntWithDef($Class* clazz) {
-	return $of($alloc(SingleMemberIntWithDef));
-}
-
 $Class* SingleMemberIntWithDef::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberIntWithDef, name, initialize, &_SingleMemberIntWithDef_ClassInfo_, allocate$SingleMemberIntWithDef);
+
+	$Attribute valuedefaultValue$$ = {
+		'I', "13"
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberIntWithDef, value, int32_t), nullptr, &valuedefaultValue$$},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"UniTest.SingleMemberIntWithDef",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberIntWithDef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberIntWithDef);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/loader/AbstractClassLoaderValue$Sub.h>
-
 #include <java/util/Objects.h>
 #include <jdk/internal/loader/AbstractClassLoaderValue.h>
 #include <jcpp.h>
@@ -15,47 +14,6 @@ namespace jdk {
 	namespace internal {
 		namespace loader {
 
-$FieldInfo _AbstractClassLoaderValue$Sub_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/loader/AbstractClassLoaderValue;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractClassLoaderValue$Sub, this$0)},
-	{"key", "Ljava/lang/Object;", "TK;", $PRIVATE | $FINAL, $field(AbstractClassLoaderValue$Sub, key$)},
-	{}
-};
-
-$MethodInfo _AbstractClassLoaderValue$Sub_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/loader/AbstractClassLoaderValue;Ljava/lang/Object;)V", "(TK;)V", 0, $method(AbstractClassLoaderValue$Sub, init$, void, $AbstractClassLoaderValue*, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractClassLoaderValue$Sub, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractClassLoaderValue$Sub, hashCode, int32_t)},
-	{"isEqualOrDescendantOf", "(Ljdk/internal/loader/AbstractClassLoaderValue;)Z", "(Ljdk/internal/loader/AbstractClassLoaderValue<*TV;>;)Z", $PUBLIC, $virtualMethod(AbstractClassLoaderValue$Sub, isEqualOrDescendantOf, bool, $AbstractClassLoaderValue*)},
-	{"key", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(AbstractClassLoaderValue$Sub, key, $Object*)},
-	{"parent", "()Ljdk/internal/loader/AbstractClassLoaderValue;", "()Ljdk/internal/loader/AbstractClassLoaderValue<TCLV;TV;>;", $PUBLIC, $method(AbstractClassLoaderValue$Sub, parent, $AbstractClassLoaderValue*)},
-	{}
-};
-
-$InnerClassInfo _AbstractClassLoaderValue$Sub_InnerClassesInfo_[] = {
-	{"jdk.internal.loader.AbstractClassLoaderValue$Sub", "jdk.internal.loader.AbstractClassLoaderValue", "Sub", $PUBLIC | $FINAL},
-	{}
-};
-
-$ClassInfo _AbstractClassLoaderValue$Sub_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.loader.AbstractClassLoaderValue$Sub",
-	"jdk.internal.loader.AbstractClassLoaderValue",
-	nullptr,
-	_AbstractClassLoaderValue$Sub_FieldInfo_,
-	_AbstractClassLoaderValue$Sub_MethodInfo_,
-	"<K:Ljava/lang/Object;>Ljdk/internal/loader/AbstractClassLoaderValue<Ljdk/internal/loader/AbstractClassLoaderValue<TCLV;TV;>.Sub<TK;>;TV;>;",
-	nullptr,
-	_AbstractClassLoaderValue$Sub_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.loader.AbstractClassLoaderValue"
-};
-
-$Object* allocate$AbstractClassLoaderValue$Sub($Class* clazz) {
-	return $of($alloc(AbstractClassLoaderValue$Sub));
-}
-
 void AbstractClassLoaderValue$Sub::init$($AbstractClassLoaderValue* this$0, Object$* key) {
 	$set(this, this$0, this$0);
 	$AbstractClassLoaderValue::init$();
@@ -67,16 +25,16 @@ $AbstractClassLoaderValue* AbstractClassLoaderValue$Sub::parent() {
 }
 
 $Object* AbstractClassLoaderValue$Sub::key() {
-	return $of(this->key$);
+	return this->key$;
 }
 
 bool AbstractClassLoaderValue$Sub::isEqualOrDescendantOf($AbstractClassLoaderValue* clv) {
 	bool var$0 = equals($Objects::requireNonNull(clv));
-	return var$0 || $nc($(parent()))->isEqualOrDescendantOf(clv);
+	return var$0 || $$nc(parent())->isEqualOrDescendantOf(clv);
 }
 
 bool AbstractClassLoaderValue$Sub::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, o)) {
 		return true;
 	}
@@ -84,12 +42,12 @@ bool AbstractClassLoaderValue$Sub::equals(Object$* o) {
 		return false;
 	}
 	$var(AbstractClassLoaderValue$Sub, that, $cast(AbstractClassLoaderValue$Sub, o));
-	bool var$0 = $nc($of($(this->parent())))->equals($($nc(that)->parent()));
-	return var$0 && $Objects::equals(this->key$, $nc(that)->key$);
+	bool var$0 = $$nc(this->parent())->equals($($nc(that)->parent()));
+	return var$0 && $Objects::equals(this->key$, that->key$);
 }
 
 int32_t AbstractClassLoaderValue$Sub::hashCode() {
-	int32_t var$0 = 31 * $nc($of($(parent())))->hashCode();
+	int32_t var$0 = 31 * $$nc(parent())->hashCode();
 	return var$0 + $Objects::hashCode(this->key$);
 }
 
@@ -97,7 +55,42 @@ AbstractClassLoaderValue$Sub::AbstractClassLoaderValue$Sub() {
 }
 
 $Class* AbstractClassLoaderValue$Sub::load$($String* name, bool initialize) {
-	$loadClass(AbstractClassLoaderValue$Sub, name, initialize, &_AbstractClassLoaderValue$Sub_ClassInfo_, allocate$AbstractClassLoaderValue$Sub);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/loader/AbstractClassLoaderValue;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractClassLoaderValue$Sub, this$0)},
+		{"key", "Ljava/lang/Object;", "TK;", $PRIVATE | $FINAL, $field(AbstractClassLoaderValue$Sub, key$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/loader/AbstractClassLoaderValue;Ljava/lang/Object;)V", "(TK;)V", 0, $method(AbstractClassLoaderValue$Sub, init$, void, $AbstractClassLoaderValue*, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractClassLoaderValue$Sub, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractClassLoaderValue$Sub, hashCode, int32_t)},
+		{"isEqualOrDescendantOf", "(Ljdk/internal/loader/AbstractClassLoaderValue;)Z", "(Ljdk/internal/loader/AbstractClassLoaderValue<*TV;>;)Z", $PUBLIC, $virtualMethod(AbstractClassLoaderValue$Sub, isEqualOrDescendantOf, bool, $AbstractClassLoaderValue*)},
+		{"key", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(AbstractClassLoaderValue$Sub, key, $Object*)},
+		{"parent", "()Ljdk/internal/loader/AbstractClassLoaderValue;", "()Ljdk/internal/loader/AbstractClassLoaderValue<TCLV;TV;>;", $PUBLIC, $method(AbstractClassLoaderValue$Sub, parent, $AbstractClassLoaderValue*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.loader.AbstractClassLoaderValue$Sub", "jdk.internal.loader.AbstractClassLoaderValue", "Sub", $PUBLIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.loader.AbstractClassLoaderValue$Sub",
+		"jdk.internal.loader.AbstractClassLoaderValue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;>Ljdk/internal/loader/AbstractClassLoaderValue<Ljdk/internal/loader/AbstractClassLoaderValue<TCLV;TV;>.Sub<TK;>;TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.loader.AbstractClassLoaderValue"
+	};
+	$loadClass(AbstractClassLoaderValue$Sub, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractClassLoaderValue$Sub);
+	});
 	return class$;
 }
 

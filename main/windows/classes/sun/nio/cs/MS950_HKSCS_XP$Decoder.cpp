@@ -1,5 +1,4 @@
 #include <sun/nio/cs/MS950_HKSCS_XP$Decoder.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <sun/nio/cs/DoubleByte$Decoder.h>
@@ -24,56 +23,18 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$FieldInfo _MS950_HKSCS_XP$Decoder_FieldInfo_[] = {
-	{"ms950", "Lsun/nio/cs/DoubleByte$Decoder;", nullptr, $PRIVATE | $STATIC, $staticField(MS950_HKSCS_XP$Decoder, ms950)},
-	{"b2cBmp", "[[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MS950_HKSCS_XP$Decoder, b2cBmp)},
-	{}
-};
-
-$MethodInfo _MS950_HKSCS_XP$Decoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(MS950_HKSCS_XP$Decoder, init$, void, $Charset*)},
-	{"decodeDoubleEx", "(II)C", nullptr, $PUBLIC, $virtualMethod(MS950_HKSCS_XP$Decoder, decodeDoubleEx, char16_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MS950_HKSCS_XP$Decoder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.MS950_HKSCS_XP$Decoder", "sun.nio.cs.MS950_HKSCS_XP", "Decoder", $STATIC},
-	{"sun.nio.cs.HKSCS$Decoder", "sun.nio.cs.HKSCS", "Decoder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MS950_HKSCS_XP$Decoder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.MS950_HKSCS_XP$Decoder",
-	"sun.nio.cs.HKSCS$Decoder",
-	nullptr,
-	_MS950_HKSCS_XP$Decoder_FieldInfo_,
-	_MS950_HKSCS_XP$Decoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MS950_HKSCS_XP$Decoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.MS950_HKSCS_XP"
-};
-
-$Object* allocate$MS950_HKSCS_XP$Decoder($Class* clazz) {
-	return $of($alloc(MS950_HKSCS_XP$Decoder));
-}
-
 $DoubleByte$Decoder* MS950_HKSCS_XP$Decoder::ms950 = nullptr;
 $charArray2* MS950_HKSCS_XP$Decoder::b2cBmp = nullptr;
 
 char16_t MS950_HKSCS_XP$Decoder::decodeDoubleEx(int32_t b1, int32_t b2) {
-	return (char16_t)0xFFFD;
+	return (char16_t)0xfffd;
 }
 
 void MS950_HKSCS_XP$Decoder::init$($Charset* cs) {
 	$HKSCS$Decoder::init$(cs, MS950_HKSCS_XP$Decoder::ms950, MS950_HKSCS_XP$Decoder::b2cBmp, nullptr);
 }
 
-void clinit$MS950_HKSCS_XP$Decoder($Class* class$) {
+void MS950_HKSCS_XP$Decoder::clinit$($Class* clazz) {
 	$assignStatic(MS950_HKSCS_XP$Decoder::ms950, $cast($DoubleByte$Decoder, $$new($MS950)->newDecoder()));
 	$assignStatic(MS950_HKSCS_XP$Decoder::b2cBmp, $new($charArray2, 256));
 	{
@@ -86,7 +47,39 @@ MS950_HKSCS_XP$Decoder::MS950_HKSCS_XP$Decoder() {
 }
 
 $Class* MS950_HKSCS_XP$Decoder::load$($String* name, bool initialize) {
-	$loadClass(MS950_HKSCS_XP$Decoder, name, initialize, &_MS950_HKSCS_XP$Decoder_ClassInfo_, clinit$MS950_HKSCS_XP$Decoder, allocate$MS950_HKSCS_XP$Decoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"ms950", "Lsun/nio/cs/DoubleByte$Decoder;", nullptr, $PRIVATE | $STATIC, $staticField(MS950_HKSCS_XP$Decoder, ms950)},
+		{"b2cBmp", "[[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MS950_HKSCS_XP$Decoder, b2cBmp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(MS950_HKSCS_XP$Decoder, init$, void, $Charset*)},
+		{"decodeDoubleEx", "(II)C", nullptr, $PUBLIC, $virtualMethod(MS950_HKSCS_XP$Decoder, decodeDoubleEx, char16_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.MS950_HKSCS_XP$Decoder", "sun.nio.cs.MS950_HKSCS_XP", "Decoder", $STATIC},
+		{"sun.nio.cs.HKSCS$Decoder", "sun.nio.cs.HKSCS", "Decoder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.MS950_HKSCS_XP$Decoder",
+		"sun.nio.cs.HKSCS$Decoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.MS950_HKSCS_XP"
+	};
+	$loadClass(MS950_HKSCS_XP$Decoder, name, initialize, &classInfo$$, MS950_HKSCS_XP$Decoder::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MS950_HKSCS_XP$Decoder));
+	});
 	return class$;
 }
 

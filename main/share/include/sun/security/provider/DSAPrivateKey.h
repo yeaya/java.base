@@ -43,7 +43,7 @@ public:
 	virtual ::java::math::BigInteger* getX() override;
 	virtual bool isDestroyed() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xD2F96290676EC6CE;
+	static const int64_t serialVersionUID = (int64_t)0xd2f96290676ec6ce;
 	::java::math::BigInteger* x = nullptr;
 };
 

@@ -1,5 +1,4 @@
 #include <java/net/UnknownContentHandler.h>
-
 #include <java/io/InputStream.h>
 #include <java/net/ContentHandler.h>
 #include <java/net/URLConnection.h>
@@ -16,30 +15,6 @@ using $URLConnection = ::java::net::URLConnection;
 namespace java {
 	namespace net {
 
-$FieldInfo _UnknownContentHandler_FieldInfo_[] = {
-	{"INSTANCE", "Ljava/net/ContentHandler;", nullptr, $STATIC | $FINAL, $staticField(UnknownContentHandler, INSTANCE)},
-	{}
-};
-
-$MethodInfo _UnknownContentHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(UnknownContentHandler, init$, void)},
-	{"getContent", "(Ljava/net/URLConnection;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnknownContentHandler, getContent, $Object*, $URLConnection*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _UnknownContentHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.UnknownContentHandler",
-	"java.net.ContentHandler",
-	nullptr,
-	_UnknownContentHandler_FieldInfo_,
-	_UnknownContentHandler_MethodInfo_
-};
-
-$Object* allocate$UnknownContentHandler($Class* clazz) {
-	return $of($alloc(UnknownContentHandler));
-}
-
 $ContentHandler* UnknownContentHandler::INSTANCE = nullptr;
 
 void UnknownContentHandler::init$() {
@@ -47,10 +22,10 @@ void UnknownContentHandler::init$() {
 }
 
 $Object* UnknownContentHandler::getContent($URLConnection* uc) {
-	return $of($nc(uc)->getInputStream());
+	return $nc(uc)->getInputStream();
 }
 
-void clinit$UnknownContentHandler($Class* class$) {
+void UnknownContentHandler::clinit$($Class* clazz) {
 	$assignStatic(UnknownContentHandler::INSTANCE, $new(UnknownContentHandler));
 }
 
@@ -58,7 +33,26 @@ UnknownContentHandler::UnknownContentHandler() {
 }
 
 $Class* UnknownContentHandler::load$($String* name, bool initialize) {
-	$loadClass(UnknownContentHandler, name, initialize, &_UnknownContentHandler_ClassInfo_, clinit$UnknownContentHandler, allocate$UnknownContentHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Ljava/net/ContentHandler;", nullptr, $STATIC | $FINAL, $staticField(UnknownContentHandler, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(UnknownContentHandler, init$, void)},
+		{"getContent", "(Ljava/net/URLConnection;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnknownContentHandler, getContent, $Object*, $URLConnection*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.UnknownContentHandler",
+		"java.net.ContentHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnknownContentHandler, name, initialize, &classInfo$$, UnknownContentHandler::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(UnknownContentHandler);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/logger/LazyLoggers$JdkLazyLogger.h>
-
 #include <java/lang/Module.h>
 #include <jdk/internal/logger/LazyLoggers$LazyLoggerAccessor.h>
 #include <jdk/internal/logger/LazyLoggers$LazyLoggerFactories.h>
@@ -20,38 +19,6 @@ namespace jdk {
 	namespace internal {
 		namespace logger {
 
-$MethodInfo _LazyLoggers$JdkLazyLogger_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Module;)V", nullptr, 0, $method(LazyLoggers$JdkLazyLogger, init$, void, $String*, $Module*)},
-	{"<init>", "(Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(LazyLoggers$JdkLazyLogger, init$, void, $LazyLoggers$LazyLoggerAccessor*, $Void*)},
-	{}
-};
-
-$InnerClassInfo _LazyLoggers$JdkLazyLogger_InnerClassesInfo_[] = {
-	{"jdk.internal.logger.LazyLoggers$JdkLazyLogger", "jdk.internal.logger.LazyLoggers", "JdkLazyLogger", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.logger.LazyLoggers$LazyLoggerWrapper", "jdk.internal.logger.LazyLoggers", "LazyLoggerWrapper", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _LazyLoggers$JdkLazyLogger_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.logger.LazyLoggers$JdkLazyLogger",
-	"jdk.internal.logger.LazyLoggers$LazyLoggerWrapper",
-	nullptr,
-	nullptr,
-	_LazyLoggers$JdkLazyLogger_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LazyLoggers$JdkLazyLogger_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.logger.LazyLoggers"
-};
-
-$Object* allocate$LazyLoggers$JdkLazyLogger($Class* clazz) {
-	return $of($alloc(LazyLoggers$JdkLazyLogger));
-}
-
 void LazyLoggers$JdkLazyLogger::init$($String* name, $Module* module) {
 	$init($LazyLoggers);
 	LazyLoggers$JdkLazyLogger::init$($($LazyLoggers$LazyLoggerAccessor::makeAccessor(name, $LazyLoggers::factories, module)), ($Void*)nullptr);
@@ -65,7 +32,34 @@ LazyLoggers$JdkLazyLogger::LazyLoggers$JdkLazyLogger() {
 }
 
 $Class* LazyLoggers$JdkLazyLogger::load$($String* name, bool initialize) {
-	$loadClass(LazyLoggers$JdkLazyLogger, name, initialize, &_LazyLoggers$JdkLazyLogger_ClassInfo_, allocate$LazyLoggers$JdkLazyLogger);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Module;)V", nullptr, 0, $method(LazyLoggers$JdkLazyLogger, init$, void, $String*, $Module*)},
+		{"<init>", "(Ljdk/internal/logger/LazyLoggers$LazyLoggerAccessor;Ljava/lang/Void;)V", nullptr, $PRIVATE, $method(LazyLoggers$JdkLazyLogger, init$, void, $LazyLoggers$LazyLoggerAccessor*, $Void*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.logger.LazyLoggers$JdkLazyLogger", "jdk.internal.logger.LazyLoggers", "JdkLazyLogger", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.logger.LazyLoggers$LazyLoggerWrapper", "jdk.internal.logger.LazyLoggers", "LazyLoggerWrapper", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.logger.LazyLoggers$JdkLazyLogger",
+		"jdk.internal.logger.LazyLoggers$LazyLoggerWrapper",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.logger.LazyLoggers"
+	};
+	$loadClass(LazyLoggers$JdkLazyLogger, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LazyLoggers$JdkLazyLogger));
+	});
 	return class$;
 }
 

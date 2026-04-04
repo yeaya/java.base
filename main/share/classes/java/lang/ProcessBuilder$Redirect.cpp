@@ -1,5 +1,4 @@
 #include <java/lang/ProcessBuilder$Redirect.h>
-
 #include <java/io/File.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/ProcessBuilder$Redirect$1.h>
@@ -39,60 +38,6 @@ using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _ProcessBuilder$Redirect_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ProcessBuilder$Redirect, $assertionsDisabled)},
-	{"NULL_FILE", "Ljava/io/File;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProcessBuilder$Redirect, NULL_FILE)},
-	{"PIPE", "Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ProcessBuilder$Redirect, PIPE)},
-	{"INHERIT", "Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ProcessBuilder$Redirect, INHERIT)},
-	{"DISCARD", "Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ProcessBuilder$Redirect, DISCARD)},
-	{}
-};
-
-$MethodInfo _ProcessBuilder$Redirect_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ProcessBuilder$Redirect, init$, void)},
-	{"append", "()Z", nullptr, 0, $virtualMethod(ProcessBuilder$Redirect, append, bool)},
-	{"appendTo", "(Ljava/io/File;)Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessBuilder$Redirect, appendTo, ProcessBuilder$Redirect*, $File*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$Redirect, equals, bool, Object$*)},
-	{"file", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$Redirect, file, $File*)},
-	{"from", "(Ljava/io/File;)Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessBuilder$Redirect, from, ProcessBuilder$Redirect*, $File*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$Redirect, hashCode, int32_t)},
-	{"to", "(Ljava/io/File;)Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessBuilder$Redirect, to, ProcessBuilder$Redirect*, $File*)},
-	{"type", "()Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessBuilder$Redirect, type, $ProcessBuilder$Redirect$Type*)},
-	{}
-};
-
-$InnerClassInfo _ProcessBuilder$Redirect_InnerClassesInfo_[] = {
-	{"java.lang.ProcessBuilder$Redirect", "java.lang.ProcessBuilder", "Redirect", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.lang.ProcessBuilder$Redirect$Type", "java.lang.ProcessBuilder$Redirect", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"java.lang.ProcessBuilder$Redirect$6", nullptr, nullptr, 0},
-	{"java.lang.ProcessBuilder$Redirect$5", nullptr, nullptr, 0},
-	{"java.lang.ProcessBuilder$Redirect$4", nullptr, nullptr, 0},
-	{"java.lang.ProcessBuilder$Redirect$3", nullptr, nullptr, 0},
-	{"java.lang.ProcessBuilder$Redirect$2", nullptr, nullptr, 0},
-	{"java.lang.ProcessBuilder$Redirect$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ProcessBuilder$Redirect_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.lang.ProcessBuilder$Redirect",
-	"java.lang.Object",
-	nullptr,
-	_ProcessBuilder$Redirect_FieldInfo_,
-	_ProcessBuilder$Redirect_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ProcessBuilder$Redirect_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.ProcessBuilder"
-};
-
-$Object* allocate$ProcessBuilder$Redirect($Class* clazz) {
-	return $of($alloc(ProcessBuilder$Redirect));
-}
 
 bool ProcessBuilder$Redirect::$assertionsDisabled = false;
 $File* ProcessBuilder$Redirect::NULL_FILE = nullptr;
@@ -134,7 +79,7 @@ ProcessBuilder$Redirect* ProcessBuilder$Redirect::appendTo($File* file) {
 }
 
 bool ProcessBuilder$Redirect::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(obj, this)) {
 		return true;
 	}
@@ -153,7 +98,7 @@ bool ProcessBuilder$Redirect::equals(Object$* obj) {
 	if (!ProcessBuilder$Redirect::$assertionsDisabled && !(this->file() != nullptr)) {
 		$throwNew($AssertionError);
 	}
-	return $nc($(this->file()))->equals($($nc(r)->file()));
+	return $$nc(this->file())->equals($(r->file()));
 }
 
 int32_t ProcessBuilder$Redirect::hashCode() {
@@ -161,17 +106,17 @@ int32_t ProcessBuilder$Redirect::hashCode() {
 	if (file == nullptr) {
 		return $Object::hashCode();
 	} else {
-		return $nc(file)->hashCode();
+		return file->hashCode();
 	}
 }
 
 void ProcessBuilder$Redirect::init$() {
 }
 
-void clinit$ProcessBuilder$Redirect($Class* class$) {
+void ProcessBuilder$Redirect::clinit$($Class* clazz) {
 	$load($ProcessBuilder);
 	ProcessBuilder$Redirect::$assertionsDisabled = !$ProcessBuilder::class$->desiredAssertionStatus();
-	$assignStatic(ProcessBuilder$Redirect::NULL_FILE, $new($File, ($nc($($GetPropertyAction::privilegedGetProperty("os.name"_s)))->startsWith("Windows"_s) ? "NUL"_s : "/dev/null"_s)));
+	$assignStatic(ProcessBuilder$Redirect::NULL_FILE, $new($File, ($$nc($GetPropertyAction::privilegedGetProperty("os.name"_s))->startsWith("Windows"_s) ? "NUL"_s : "/dev/null"_s)));
 	$assignStatic(ProcessBuilder$Redirect::PIPE, $new($ProcessBuilder$Redirect$1));
 	$assignStatic(ProcessBuilder$Redirect::INHERIT, $new($ProcessBuilder$Redirect$2));
 	$assignStatic(ProcessBuilder$Redirect::DISCARD, $new($ProcessBuilder$Redirect$3));
@@ -181,7 +126,55 @@ ProcessBuilder$Redirect::ProcessBuilder$Redirect() {
 }
 
 $Class* ProcessBuilder$Redirect::load$($String* name, bool initialize) {
-	$loadClass(ProcessBuilder$Redirect, name, initialize, &_ProcessBuilder$Redirect_ClassInfo_, clinit$ProcessBuilder$Redirect, allocate$ProcessBuilder$Redirect);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ProcessBuilder$Redirect, $assertionsDisabled)},
+		{"NULL_FILE", "Ljava/io/File;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProcessBuilder$Redirect, NULL_FILE)},
+		{"PIPE", "Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ProcessBuilder$Redirect, PIPE)},
+		{"INHERIT", "Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ProcessBuilder$Redirect, INHERIT)},
+		{"DISCARD", "Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ProcessBuilder$Redirect, DISCARD)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ProcessBuilder$Redirect, init$, void)},
+		{"append", "()Z", nullptr, 0, $virtualMethod(ProcessBuilder$Redirect, append, bool)},
+		{"appendTo", "(Ljava/io/File;)Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessBuilder$Redirect, appendTo, ProcessBuilder$Redirect*, $File*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$Redirect, equals, bool, Object$*)},
+		{"file", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$Redirect, file, $File*)},
+		{"from", "(Ljava/io/File;)Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessBuilder$Redirect, from, ProcessBuilder$Redirect*, $File*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessBuilder$Redirect, hashCode, int32_t)},
+		{"to", "(Ljava/io/File;)Ljava/lang/ProcessBuilder$Redirect;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessBuilder$Redirect, to, ProcessBuilder$Redirect*, $File*)},
+		{"type", "()Ljava/lang/ProcessBuilder$Redirect$Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ProcessBuilder$Redirect, type, $ProcessBuilder$Redirect$Type*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ProcessBuilder$Redirect", "java.lang.ProcessBuilder", "Redirect", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.lang.ProcessBuilder$Redirect$Type", "java.lang.ProcessBuilder$Redirect", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"java.lang.ProcessBuilder$Redirect$6", nullptr, nullptr, 0},
+		{"java.lang.ProcessBuilder$Redirect$5", nullptr, nullptr, 0},
+		{"java.lang.ProcessBuilder$Redirect$4", nullptr, nullptr, 0},
+		{"java.lang.ProcessBuilder$Redirect$3", nullptr, nullptr, 0},
+		{"java.lang.ProcessBuilder$Redirect$2", nullptr, nullptr, 0},
+		{"java.lang.ProcessBuilder$Redirect$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.lang.ProcessBuilder$Redirect",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.ProcessBuilder"
+	};
+	$loadClass(ProcessBuilder$Redirect, name, initialize, &classInfo$$, ProcessBuilder$Redirect::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ProcessBuilder$Redirect);
+	});
 	return class$;
 }
 

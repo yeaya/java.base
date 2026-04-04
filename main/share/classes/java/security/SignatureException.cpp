@@ -1,5 +1,4 @@
 #include <java/security/SignatureException.h>
-
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -10,32 +9,6 @@ using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _SignatureException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SignatureException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SignatureException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SignatureException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SignatureException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _SignatureException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.SignatureException",
-	"java.security.GeneralSecurityException",
-	nullptr,
-	_SignatureException_FieldInfo_,
-	_SignatureException_MethodInfo_
-};
-
-$Object* allocate$SignatureException($Class* clazz) {
-	return $of($alloc(SignatureException));
-}
 
 void SignatureException::init$() {
 	$GeneralSecurityException::init$();
@@ -64,7 +37,28 @@ void SignatureException::throw$() {
 }
 
 $Class* SignatureException::load$($String* name, bool initialize) {
-	$loadClass(SignatureException, name, initialize, &_SignatureException_ClassInfo_, allocate$SignatureException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SignatureException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SignatureException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SignatureException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SignatureException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.SignatureException",
+		"java.security.GeneralSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SignatureException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureException);
+	});
 	return class$;
 }
 

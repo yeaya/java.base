@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/DecimalFormatSymbolsProviderImpl.h>
-
 #include <java/text/DecimalFormatSymbols.h>
 #include <java/text/spi/DecimalFormatSymbolsProvider.h>
 #include <java/util/Locale.h>
@@ -24,39 +23,6 @@ namespace sun {
 	namespace util {
 		namespace locale {
 			namespace provider {
-
-$FieldInfo _DecimalFormatSymbolsProviderImpl_FieldInfo_[] = {
-	{"type", "Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PRIVATE | $FINAL, $field(DecimalFormatSymbolsProviderImpl, type)},
-	{"langtags", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(DecimalFormatSymbolsProviderImpl, langtags)},
-	{}
-};
-
-$MethodInfo _DecimalFormatSymbolsProviderImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(DecimalFormatSymbolsProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
-	{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(DecimalFormatSymbolsProviderImpl, getAvailableLanguageTags, $Set*)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(DecimalFormatSymbolsProviderImpl, getAvailableLocales, $LocaleArray*)},
-	{"getInstance", "(Ljava/util/Locale;)Ljava/text/DecimalFormatSymbols;", nullptr, $PUBLIC, $virtualMethod(DecimalFormatSymbolsProviderImpl, getInstance, $DecimalFormatSymbols*, $Locale*)},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(DecimalFormatSymbolsProviderImpl, isSupportedLocale, bool, $Locale*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DecimalFormatSymbolsProviderImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.locale.provider.DecimalFormatSymbolsProviderImpl",
-	"java.text.spi.DecimalFormatSymbolsProvider",
-	"sun.util.locale.provider.AvailableLanguageTags",
-	_DecimalFormatSymbolsProviderImpl_FieldInfo_,
-	_DecimalFormatSymbolsProviderImpl_MethodInfo_
-};
-
-$Object* allocate$DecimalFormatSymbolsProviderImpl($Class* clazz) {
-	return $of($alloc(DecimalFormatSymbolsProviderImpl));
-}
 
 int32_t DecimalFormatSymbolsProviderImpl::hashCode() {
 	 return this->$DecimalFormatSymbolsProvider::hashCode();
@@ -89,7 +55,7 @@ $LocaleArray* DecimalFormatSymbolsProviderImpl::getAvailableLocales() {
 }
 
 bool DecimalFormatSymbolsProviderImpl::isSupportedLocale($Locale* locale) {
-	return $nc($($LocaleProviderAdapter::forType(this->type)))->isSupportedProviderLocale(locale, this->langtags);
+	return $$nc($LocaleProviderAdapter::forType(this->type))->isSupportedProviderLocale(locale, this->langtags);
 }
 
 $DecimalFormatSymbols* DecimalFormatSymbolsProviderImpl::getInstance($Locale* locale) {
@@ -107,7 +73,35 @@ DecimalFormatSymbolsProviderImpl::DecimalFormatSymbolsProviderImpl() {
 }
 
 $Class* DecimalFormatSymbolsProviderImpl::load$($String* name, bool initialize) {
-	$loadClass(DecimalFormatSymbolsProviderImpl, name, initialize, &_DecimalFormatSymbolsProviderImpl_ClassInfo_, allocate$DecimalFormatSymbolsProviderImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PRIVATE | $FINAL, $field(DecimalFormatSymbolsProviderImpl, type)},
+		{"langtags", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(DecimalFormatSymbolsProviderImpl, langtags)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(DecimalFormatSymbolsProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
+		{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(DecimalFormatSymbolsProviderImpl, getAvailableLanguageTags, $Set*)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(DecimalFormatSymbolsProviderImpl, getAvailableLocales, $LocaleArray*)},
+		{"getInstance", "(Ljava/util/Locale;)Ljava/text/DecimalFormatSymbols;", nullptr, $PUBLIC, $virtualMethod(DecimalFormatSymbolsProviderImpl, getInstance, $DecimalFormatSymbols*, $Locale*)},
+		{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(DecimalFormatSymbolsProviderImpl, isSupportedLocale, bool, $Locale*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.locale.provider.DecimalFormatSymbolsProviderImpl",
+		"java.text.spi.DecimalFormatSymbolsProvider",
+		"sun.util.locale.provider.AvailableLanguageTags",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DecimalFormatSymbolsProviderImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DecimalFormatSymbolsProviderImpl));
+	});
 	return class$;
 }
 

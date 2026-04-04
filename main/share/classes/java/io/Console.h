@@ -36,6 +36,7 @@ class $export Console : public ::java::io::Flushable {
 	$class(Console, 0, ::java::io::Flushable)
 public:
 	Console();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::java::nio::charset::Charset* charset();
 	static bool echo(bool on);

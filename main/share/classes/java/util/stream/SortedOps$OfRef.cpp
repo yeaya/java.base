@@ -1,5 +1,4 @@
 #include <java/util/stream/SortedOps$OfRef.h>
-
 #include <java/util/Arrays.h>
 #include <java/util/Comparator.h>
 #include <java/util/Objects.h>
@@ -49,46 +48,6 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$FieldInfo _SortedOps$OfRef_FieldInfo_[] = {
-	{"isNaturalSort", "Z", nullptr, $PRIVATE | $FINAL, $field(SortedOps$OfRef, isNaturalSort)},
-	{"comparator", "Ljava/util/Comparator;", "Ljava/util/Comparator<-TT;>;", $PRIVATE | $FINAL, $field(SortedOps$OfRef, comparator)},
-	{}
-};
-
-$MethodInfo _SortedOps$OfRef_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/AbstractPipeline;)V", "(Ljava/util/stream/AbstractPipeline<*TT;*>;)V", 0, $method(SortedOps$OfRef, init$, void, $AbstractPipeline*)},
-	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/Comparator;)V", "(Ljava/util/stream/AbstractPipeline<*TT;*>;Ljava/util/Comparator<-TT;>;)V", 0, $method(SortedOps$OfRef, init$, void, $AbstractPipeline*, $Comparator*)},
-	{"opEvaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[TT;>;)Ljava/util/stream/Node<TT;>;", $PUBLIC, $virtualMethod(SortedOps$OfRef, opEvaluateParallel, $Node*, $PipelineHelper*, $Spliterator*, $IntFunction*)},
-	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<TT;>;)Ljava/util/stream/Sink<TT;>;", $PUBLIC, $virtualMethod(SortedOps$OfRef, opWrapSink, $Sink*, int32_t, $Sink*)},
-	{}
-};
-
-$InnerClassInfo _SortedOps$OfRef_InnerClassesInfo_[] = {
-	{"java.util.stream.SortedOps$OfRef", "java.util.stream.SortedOps", "OfRef", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.stream.ReferencePipeline$StatefulOp", "java.util.stream.ReferencePipeline", "StatefulOp", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SortedOps$OfRef_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.SortedOps$OfRef",
-	"java.util.stream.ReferencePipeline$StatefulOp",
-	nullptr,
-	_SortedOps$OfRef_FieldInfo_,
-	_SortedOps$OfRef_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/util/stream/ReferencePipeline$StatefulOp<TT;TT;>;",
-	nullptr,
-	_SortedOps$OfRef_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.SortedOps"
-};
-
-$Object* allocate$SortedOps$OfRef($Class* clazz) {
-	return $of($alloc(SortedOps$OfRef));
-}
-
 void SortedOps$OfRef::init$($AbstractPipeline* upstream) {
 	$init($StreamShape);
 	$init($StreamOpFlag);
@@ -111,22 +70,20 @@ $Sink* SortedOps$OfRef::opWrapSink(int32_t flags, $Sink* sink) {
 	$init($StreamOpFlag);
 	if ($StreamOpFlag::SORTED->isKnown(flags) && this->isNaturalSort) {
 		return sink;
+	} else if ($StreamOpFlag::SIZED->isKnown(flags)) {
+		return $new($SortedOps$SizedRefSortingSink, sink, this->comparator);
 	} else {
-		if ($StreamOpFlag::SIZED->isKnown(flags)) {
-			return $new($SortedOps$SizedRefSortingSink, sink, this->comparator);
-		} else {
-			return $new($SortedOps$RefSortingSink, sink, this->comparator);
-		}
+		return $new($SortedOps$RefSortingSink, sink, this->comparator);
 	}
 }
 
 $Node* SortedOps$OfRef::opEvaluateParallel($PipelineHelper* helper, $Spliterator* spliterator, $IntFunction* generator) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($StreamOpFlag);
 	if ($StreamOpFlag::SORTED->isKnown($nc(helper)->getStreamAndOpFlags()) && this->isNaturalSort) {
-		return $nc(helper)->evaluate(spliterator, false, generator);
+		return helper->evaluate(spliterator, false, generator);
 	} else {
-		$var($ObjectArray, flattenedData, $nc($($nc(helper)->evaluate(spliterator, true, generator)))->asArray(generator));
+		$var($ObjectArray, flattenedData, $$nc(helper->evaluate(spliterator, true, generator))->asArray(generator));
 		$Arrays::parallelSort(flattenedData, this->comparator);
 		return $Nodes::node(flattenedData);
 	}
@@ -136,7 +93,41 @@ SortedOps$OfRef::SortedOps$OfRef() {
 }
 
 $Class* SortedOps$OfRef::load$($String* name, bool initialize) {
-	$loadClass(SortedOps$OfRef, name, initialize, &_SortedOps$OfRef_ClassInfo_, allocate$SortedOps$OfRef);
+	$FieldInfo fieldInfos$$[] = {
+		{"isNaturalSort", "Z", nullptr, $PRIVATE | $FINAL, $field(SortedOps$OfRef, isNaturalSort)},
+		{"comparator", "Ljava/util/Comparator;", "Ljava/util/Comparator<-TT;>;", $PRIVATE | $FINAL, $field(SortedOps$OfRef, comparator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/AbstractPipeline;)V", "(Ljava/util/stream/AbstractPipeline<*TT;*>;)V", 0, $method(SortedOps$OfRef, init$, void, $AbstractPipeline*)},
+		{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/Comparator;)V", "(Ljava/util/stream/AbstractPipeline<*TT;*>;Ljava/util/Comparator<-TT;>;)V", 0, $method(SortedOps$OfRef, init$, void, $AbstractPipeline*, $Comparator*)},
+		{"opEvaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[TT;>;)Ljava/util/stream/Node<TT;>;", $PUBLIC, $virtualMethod(SortedOps$OfRef, opEvaluateParallel, $Node*, $PipelineHelper*, $Spliterator*, $IntFunction*)},
+		{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<TT;>;)Ljava/util/stream/Sink<TT;>;", $PUBLIC, $virtualMethod(SortedOps$OfRef, opWrapSink, $Sink*, int32_t, $Sink*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.SortedOps$OfRef", "java.util.stream.SortedOps", "OfRef", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.stream.ReferencePipeline$StatefulOp", "java.util.stream.ReferencePipeline", "StatefulOp", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.SortedOps$OfRef",
+		"java.util.stream.ReferencePipeline$StatefulOp",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/util/stream/ReferencePipeline$StatefulOp<TT;TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.SortedOps"
+	};
+	$loadClass(SortedOps$OfRef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SortedOps$OfRef));
+	});
 	return class$;
 }
 

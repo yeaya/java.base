@@ -1,5 +1,4 @@
 #include <NativeMethod.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/StackWalker$Option.h>
@@ -45,29 +44,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(NativeMethod::lambda$walk$0($cast($Stream, s)));
+		 return NativeMethod::lambda$walk$0($cast($Stream, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<NativeMethod$$Lambda$lambda$walk$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo NativeMethod$$Lambda$lambda$walk$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NativeMethod$$Lambda$lambda$walk$0, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NativeMethod$$Lambda$lambda$walk$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo NativeMethod$$Lambda$lambda$walk$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"NativeMethod$$Lambda$lambda$walk$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* NativeMethod$$Lambda$lambda$walk$0::load$($String* name, bool initialize) {
-	$loadClass(NativeMethod$$Lambda$lambda$walk$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NativeMethod$$Lambda$lambda$walk$0, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NativeMethod$$Lambda$lambda$walk$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"NativeMethod$$Lambda$lambda$walk$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NativeMethod$$Lambda$lambda$walk$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NativeMethod$$Lambda$lambda$walk$0);
+	});
 	return class$;
 }
 $Class* NativeMethod$$Lambda$lambda$walk$0::class$ = nullptr;
@@ -80,58 +76,27 @@ public:
 	virtual bool test(Object$* inst$) override {
 		 return $sure($StackWalker$StackFrame, inst$)->isNativeMethod();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<NativeMethod$$Lambda$isNativeMethod$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo NativeMethod$$Lambda$isNativeMethod$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NativeMethod$$Lambda$isNativeMethod$1, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NativeMethod$$Lambda$isNativeMethod$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo NativeMethod$$Lambda$isNativeMethod$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"NativeMethod$$Lambda$isNativeMethod$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* NativeMethod$$Lambda$isNativeMethod$1::load$($String* name, bool initialize) {
-	$loadClass(NativeMethod$$Lambda$isNativeMethod$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NativeMethod$$Lambda$isNativeMethod$1, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NativeMethod$$Lambda$isNativeMethod$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"NativeMethod$$Lambda$isNativeMethod$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NativeMethod$$Lambda$isNativeMethod$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NativeMethod$$Lambda$isNativeMethod$1);
+	});
 	return class$;
 }
 $Class* NativeMethod$$Lambda$isNativeMethod$1::class$ = nullptr;
-
-$FieldInfo _NativeMethod_FieldInfo_[] = {
-	{"walker", "Ljava/lang/StackWalker;", nullptr, $PRIVATE | $FINAL, $field(NativeMethod, walker)},
-	{}
-};
-
-$MethodInfo _NativeMethod_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(NativeMethod, init$, void)},
-	{"assertTrue", "(ZLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NativeMethod, assertTrue, void, bool, $String*)},
-	{"lambda$walk$0", "(Ljava/util/stream/Stream;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NativeMethod, lambda$walk$0, $List*, $Stream*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(NativeMethod, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "()V", nullptr, 0, $virtualMethod(NativeMethod, test, void), "java.lang.Exception"},
-	{"walk", "()V", nullptr, 0, $virtualMethod(NativeMethod, walk, void)},
-	{}
-};
-
-$ClassInfo _NativeMethod_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NativeMethod",
-	"java.lang.Object",
-	nullptr,
-	_NativeMethod_FieldInfo_,
-	_NativeMethod_MethodInfo_
-};
-
-$Object* allocate$NativeMethod($Class* clazz) {
-	return $of($alloc(NativeMethod));
-}
 
 void NativeMethod::main($StringArray* args) {
 	$$new(NativeMethod)->test();
@@ -143,25 +108,25 @@ void NativeMethod::init$() {
 }
 
 void NativeMethod::test() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Method, m, NativeMethod::class$->getDeclaredMethod("walk"_s, $$new($ClassArray, 0)));
 	$nc(m)->invoke(this, $$new($ObjectArray, 0));
 }
 
 void NativeMethod::walk() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($List, nativeFrames, $cast($List, $nc(this->walker)->walk(static_cast<$Function*>($$new(NativeMethod$$Lambda$lambda$walk$0)))));
+	$var($List, nativeFrames, $cast($List, $nc(this->walker)->walk($$new(NativeMethod$$Lambda$lambda$walk$0))));
 	assertTrue($nc(nativeFrames)->size() > 0, "native frame not found"_s);
 	{
-		$var($Iterator, i$, $nc(nativeFrames)->iterator());
+		$var($Iterator, i$, nativeFrames->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($StackWalker$StackFrame, f, $cast($StackWalker$StackFrame, i$->next()));
 			{
 				assertTrue($nc(f)->getFileName() != nullptr, "source file expected to be found"_s);
-				assertTrue($nc(f)->getLineNumber() < 0, "line number expected to be unavailable"_s);
-				assertTrue($nc(f)->getByteCodeIndex() < 0, "bci expected to be unavailable"_s);
+				assertTrue(f->getLineNumber() < 0, "line number expected to be unavailable"_s);
+				assertTrue(f->getByteCodeIndex() < 0, "bci expected to be unavailable"_s);
 			}
 		}
 	}
@@ -174,8 +139,8 @@ void NativeMethod::assertTrue(bool value, $String* msg) {
 }
 
 $List* NativeMethod::lambda$walk$0($Stream* s) {
-	$useLocalCurrentObjectStackCache();
-	return $cast($List, $nc($($nc(s)->filter(static_cast<$Predicate*>($$new(NativeMethod$$Lambda$isNativeMethod$1)))))->collect($($Collectors::toList())));
+	$useLocalObjectStack();
+	return $cast($List, $$nc($nc(s)->filter($$new(NativeMethod$$Lambda$isNativeMethod$1)))->collect($($Collectors::toList())));
 }
 
 NativeMethod::NativeMethod() {
@@ -183,14 +148,37 @@ NativeMethod::NativeMethod() {
 
 $Class* NativeMethod::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(NativeMethod$$Lambda$lambda$walk$0::classInfo$.name)) {
+		if (name->equals("NativeMethod$$Lambda$lambda$walk$0")) {
 			return NativeMethod$$Lambda$lambda$walk$0::load$(name, initialize);
 		}
-		if (name->equals(NativeMethod$$Lambda$isNativeMethod$1::classInfo$.name)) {
+		if (name->equals("NativeMethod$$Lambda$isNativeMethod$1")) {
 			return NativeMethod$$Lambda$isNativeMethod$1::load$(name, initialize);
 		}
 	}
-	$loadClass(NativeMethod, name, initialize, &_NativeMethod_ClassInfo_, allocate$NativeMethod);
+	$FieldInfo fieldInfos$$[] = {
+		{"walker", "Ljava/lang/StackWalker;", nullptr, $PRIVATE | $FINAL, $field(NativeMethod, walker)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(NativeMethod, init$, void)},
+		{"assertTrue", "(ZLjava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NativeMethod, assertTrue, void, bool, $String*)},
+		{"lambda$walk$0", "(Ljava/util/stream/Stream;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NativeMethod, lambda$walk$0, $List*, $Stream*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(NativeMethod, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "()V", nullptr, 0, $virtualMethod(NativeMethod, test, void), "java.lang.Exception"},
+		{"walk", "()V", nullptr, 0, $virtualMethod(NativeMethod, walk, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NativeMethod",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NativeMethod, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NativeMethod);
+	});
 	return class$;
 }
 

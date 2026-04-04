@@ -15,6 +15,7 @@ class $export PipeChannel : public ::java::lang::Object {
 	$class(PipeChannel, 0, ::java::lang::Object)
 public:
 	PipeChannel();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::java::util::Random* generator;

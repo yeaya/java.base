@@ -1,5 +1,4 @@
 #include <java/nio/file/FileTreeWalker.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalStateException.h>
@@ -59,57 +58,6 @@ namespace java {
 	namespace nio {
 		namespace file {
 
-$FieldInfo _FileTreeWalker_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FileTreeWalker, $assertionsDisabled)},
-	{"followLinks", "Z", nullptr, $PRIVATE | $FINAL, $field(FileTreeWalker, followLinks)},
-	{"linkOptions", "[Ljava/nio/file/LinkOption;", nullptr, $PRIVATE | $FINAL, $field(FileTreeWalker, linkOptions)},
-	{"maxDepth", "I", nullptr, $PRIVATE | $FINAL, $field(FileTreeWalker, maxDepth)},
-	{"stack", "Ljava/util/ArrayDeque;", "Ljava/util/ArrayDeque<Ljava/nio/file/FileTreeWalker$DirectoryNode;>;", $PRIVATE | $FINAL, $field(FileTreeWalker, stack)},
-	{"closed", "Z", nullptr, $PRIVATE, $field(FileTreeWalker, closed)},
-	{}
-};
-
-$MethodInfo _FileTreeWalker_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Collection;I)V", "(Ljava/util/Collection<Ljava/nio/file/FileVisitOption;>;I)V", 0, $method(FileTreeWalker, init$, void, $Collection*, int32_t)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FileTreeWalker, close, void)},
-	{"getAttributes", "(Ljava/nio/file/Path;Z)Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, $PRIVATE, $method(FileTreeWalker, getAttributes, $BasicFileAttributes*, $Path*, bool), "java.io.IOException"},
-	{"isOpen", "()Z", nullptr, 0, $virtualMethod(FileTreeWalker, isOpen, bool)},
-	{"next", "()Ljava/nio/file/FileTreeWalker$Event;", nullptr, 0, $virtualMethod(FileTreeWalker, next, $FileTreeWalker$Event*)},
-	{"pop", "()V", nullptr, 0, $virtualMethod(FileTreeWalker, pop, void)},
-	{"skipRemainingSiblings", "()V", nullptr, 0, $virtualMethod(FileTreeWalker, skipRemainingSiblings, void)},
-	{"visit", "(Ljava/nio/file/Path;ZZ)Ljava/nio/file/FileTreeWalker$Event;", nullptr, $PRIVATE, $method(FileTreeWalker, visit, $FileTreeWalker$Event*, $Path*, bool, bool)},
-	{"walk", "(Ljava/nio/file/Path;)Ljava/nio/file/FileTreeWalker$Event;", nullptr, 0, $virtualMethod(FileTreeWalker, walk, $FileTreeWalker$Event*, $Path*)},
-	{"wouldLoop", "(Ljava/nio/file/Path;Ljava/lang/Object;)Z", nullptr, $PRIVATE, $method(FileTreeWalker, wouldLoop, bool, $Path*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _FileTreeWalker_InnerClassesInfo_[] = {
-	{"java.nio.file.FileTreeWalker$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"java.nio.file.FileTreeWalker$Event", "java.nio.file.FileTreeWalker", "Event", $STATIC},
-	{"java.nio.file.FileTreeWalker$EventType", "java.nio.file.FileTreeWalker", "EventType", $STATIC | $FINAL | $ENUM},
-	{"java.nio.file.FileTreeWalker$DirectoryNode", "java.nio.file.FileTreeWalker", "DirectoryNode", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _FileTreeWalker_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.file.FileTreeWalker",
-	"java.lang.Object",
-	"java.io.Closeable",
-	_FileTreeWalker_FieldInfo_,
-	_FileTreeWalker_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FileTreeWalker_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.nio.file.FileTreeWalker$1,java.nio.file.FileTreeWalker$Event,java.nio.file.FileTreeWalker$EventType,java.nio.file.FileTreeWalker$DirectoryNode"
-};
-
-$Object* allocate$FileTreeWalker($Class* clazz) {
-	return $of($alloc(FileTreeWalker));
-}
-
 bool FileTreeWalker::$assertionsDisabled = false;
 
 void FileTreeWalker::init$($Collection* options, int32_t maxDepth) {
@@ -123,14 +71,10 @@ void FileTreeWalker::init$($Collection* options, int32_t maxDepth) {
 				$init($FileTreeWalker$1);
 				switch ($nc($FileTreeWalker$1::$SwitchMap$java$nio$file$FileVisitOption)->get($nc((option))->ordinal())) {
 				case 1:
-					{
-						fl = true;
-						break;
-					}
+					fl = true;
+					break;
 				default:
-					{
-						$throwNew($AssertionError, $of("Should not get here"_s));
-					}
+					$throwNew($AssertionError, $of("Should not get here"_s));
 				}
 			}
 		}
@@ -145,10 +89,10 @@ void FileTreeWalker::init$($Collection* options, int32_t maxDepth) {
 }
 
 $BasicFileAttributes* FileTreeWalker::getAttributes($Path* file, bool canUseCached) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (canUseCached && ($instanceOf($BasicFileAttributesHolder, file)) && ($System::getSecurityManager() == nullptr)) {
-		$var($BasicFileAttributes, cached, $nc(($cast($BasicFileAttributesHolder, file)))->get());
-		if (cached != nullptr && (!this->followLinks || !$nc(cached)->isSymbolicLink())) {
+		$var($BasicFileAttributes, cached, $cast($BasicFileAttributesHolder, file)->get());
+		if (cached != nullptr && (!this->followLinks || !cached->isSymbolicLink())) {
 			return cached;
 		}
 	}
@@ -168,25 +112,23 @@ $BasicFileAttributes* FileTreeWalker::getAttributes($Path* file, bool canUseCach
 }
 
 bool FileTreeWalker::wouldLoop($Path* dir, Object$* key) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(this->stack)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($FileTreeWalker$DirectoryNode, ancestor, $cast($FileTreeWalker$DirectoryNode, i$->next()));
-			{
-				$var($Object, ancestorKey, $nc(ancestor)->key());
-				if (key != nullptr && ancestorKey != nullptr) {
-					if ($of(key)->equals(ancestorKey)) {
+	$useLocalObjectStack();
+	$var($Iterator, i$, this->stack->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($FileTreeWalker$DirectoryNode, ancestor, $cast($FileTreeWalker$DirectoryNode, i$->next()));
+		{
+			$var($Object, ancestorKey, $nc(ancestor)->key());
+			if (key != nullptr && ancestorKey != nullptr) {
+				if ($of(key)->equals(ancestorKey)) {
+					return true;
+				}
+			} else {
+				try {
+					if ($Files::isSameFile(dir, $(ancestor->directory()))) {
 						return true;
 					}
-				} else {
-					try {
-						if ($Files::isSameFile(dir, $(ancestor->directory()))) {
-							return true;
-						}
-					} catch ($IOException& x) {
-					} catch ($SecurityException& x) {
-					}
+				} catch ($IOException& x) {
+				} catch ($SecurityException& x) {
 				}
 			}
 		}
@@ -195,41 +137,41 @@ bool FileTreeWalker::wouldLoop($Path* dir, Object$* key) {
 }
 
 $FileTreeWalker$Event* FileTreeWalker::visit($Path* entry, bool ignoreSecurityException, bool canUseCached) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BasicFileAttributes, attrs, nullptr);
 	try {
 		$assign(attrs, getAttributes(entry, canUseCached));
 	} catch ($IOException& ioe) {
 		$init($FileTreeWalker$EventType);
-		return $new($FileTreeWalker$Event, $FileTreeWalker$EventType::ENTRY, entry, $cast($IOException, ioe));
+		return $new($FileTreeWalker$Event, $FileTreeWalker$EventType::ENTRY, entry, ioe);
 	} catch ($SecurityException& se) {
 		if (ignoreSecurityException) {
 			return nullptr;
 		}
 		$throw(se);
 	}
-	int32_t depth = $nc(this->stack)->size();
+	int32_t depth = this->stack->size();
 	if (depth >= this->maxDepth || !$nc(attrs)->isDirectory()) {
 		$init($FileTreeWalker$EventType);
 		return $new($FileTreeWalker$Event, $FileTreeWalker$EventType::ENTRY, entry, attrs);
 	}
 	if (this->followLinks && wouldLoop(entry, $($nc(attrs)->fileKey()))) {
 		$init($FileTreeWalker$EventType);
-		return $new($FileTreeWalker$Event, $FileTreeWalker$EventType::ENTRY, entry, static_cast<$IOException*>($$new($FileSystemLoopException, $($nc(entry)->toString()))));
+		return $new($FileTreeWalker$Event, $FileTreeWalker$EventType::ENTRY, entry, $$new($FileSystemLoopException, $($nc(entry)->toString())));
 	}
 	$var($DirectoryStream, stream, nullptr);
 	try {
 		$assign(stream, $Files::newDirectoryStream(entry));
 	} catch ($IOException& ioe) {
 		$init($FileTreeWalker$EventType);
-		return $new($FileTreeWalker$Event, $FileTreeWalker$EventType::ENTRY, entry, $cast($IOException, ioe));
+		return $new($FileTreeWalker$Event, $FileTreeWalker$EventType::ENTRY, entry, ioe);
 	} catch ($SecurityException& se) {
 		if (ignoreSecurityException) {
 			return nullptr;
 		}
 		$throw(se);
 	}
-	$nc(this->stack)->push($$new($FileTreeWalker$DirectoryNode, entry, $($nc(attrs)->fileKey()), stream));
+	this->stack->push($$new($FileTreeWalker$DirectoryNode, entry, $($nc(attrs)->fileKey()), stream));
 	$init($FileTreeWalker$EventType);
 	return $new($FileTreeWalker$Event, $FileTreeWalker$EventType::START_DIRECTORY, entry, attrs);
 }
@@ -246,8 +188,8 @@ $FileTreeWalker$Event* FileTreeWalker::walk($Path* file) {
 }
 
 $FileTreeWalker$Event* FileTreeWalker::next() {
-	$useLocalCurrentObjectStackCache();
-	$var($FileTreeWalker$DirectoryNode, top, $cast($FileTreeWalker$DirectoryNode, $nc(this->stack)->peek()));
+	$useLocalObjectStack();
+	$var($FileTreeWalker$DirectoryNode, top, $cast($FileTreeWalker$DirectoryNode, this->stack->peek()));
 	if (top == nullptr) {
 		return nullptr;
 	}
@@ -267,17 +209,17 @@ $FileTreeWalker$Event* FileTreeWalker::next() {
 		}
 		if (entry == nullptr) {
 			try {
-				$nc($($nc(top)->stream()))->close();
+				$$nc(top->stream())->close();
 			} catch ($IOException& e) {
 				if (ioe == nullptr) {
 					$assign(ioe, e);
 				} else {
-					$nc(ioe)->addSuppressed(e);
+					ioe->addSuppressed(e);
 				}
 			}
-			$nc(this->stack)->pop();
+			this->stack->pop();
 			$init($FileTreeWalker$EventType);
-			return $new($FileTreeWalker$Event, $FileTreeWalker$EventType::END_DIRECTORY, $($nc(top)->directory()), ioe);
+			return $new($FileTreeWalker$Event, $FileTreeWalker$EventType::END_DIRECTORY, $(top->directory()), ioe);
 		}
 		$assign(ev, visit(entry, true, true));
 	} while (ev == nullptr);
@@ -285,19 +227,19 @@ $FileTreeWalker$Event* FileTreeWalker::next() {
 }
 
 void FileTreeWalker::pop() {
-	$useLocalCurrentObjectStackCache();
-	if (!$nc(this->stack)->isEmpty()) {
-		$var($FileTreeWalker$DirectoryNode, node, $cast($FileTreeWalker$DirectoryNode, $nc(this->stack)->pop()));
+	$useLocalObjectStack();
+	if (!this->stack->isEmpty()) {
+		$var($FileTreeWalker$DirectoryNode, node, $cast($FileTreeWalker$DirectoryNode, this->stack->pop()));
 		try {
-			$nc($($nc(node)->stream()))->close();
+			$$nc($nc(node)->stream())->close();
 		} catch ($IOException& ignore) {
 		}
 	}
 }
 
 void FileTreeWalker::skipRemainingSiblings() {
-	if (!$nc(this->stack)->isEmpty()) {
-		$nc(($cast($FileTreeWalker$DirectoryNode, $($nc(this->stack)->peek()))))->skip();
+	if (!this->stack->isEmpty()) {
+		$$sure($FileTreeWalker$DirectoryNode, this->stack->peek())->skip();
 	}
 }
 
@@ -307,14 +249,14 @@ bool FileTreeWalker::isOpen() {
 
 void FileTreeWalker::close() {
 	if (!this->closed) {
-		while (!$nc(this->stack)->isEmpty()) {
+		while (!this->stack->isEmpty()) {
 			pop();
 		}
 		this->closed = true;
 	}
 }
 
-void clinit$FileTreeWalker($Class* class$) {
+void FileTreeWalker::clinit$($Class* clazz) {
 	FileTreeWalker::$assertionsDisabled = !FileTreeWalker::class$->desiredAssertionStatus();
 }
 
@@ -322,7 +264,52 @@ FileTreeWalker::FileTreeWalker() {
 }
 
 $Class* FileTreeWalker::load$($String* name, bool initialize) {
-	$loadClass(FileTreeWalker, name, initialize, &_FileTreeWalker_ClassInfo_, clinit$FileTreeWalker, allocate$FileTreeWalker);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FileTreeWalker, $assertionsDisabled)},
+		{"followLinks", "Z", nullptr, $PRIVATE | $FINAL, $field(FileTreeWalker, followLinks)},
+		{"linkOptions", "[Ljava/nio/file/LinkOption;", nullptr, $PRIVATE | $FINAL, $field(FileTreeWalker, linkOptions)},
+		{"maxDepth", "I", nullptr, $PRIVATE | $FINAL, $field(FileTreeWalker, maxDepth)},
+		{"stack", "Ljava/util/ArrayDeque;", "Ljava/util/ArrayDeque<Ljava/nio/file/FileTreeWalker$DirectoryNode;>;", $PRIVATE | $FINAL, $field(FileTreeWalker, stack)},
+		{"closed", "Z", nullptr, $PRIVATE, $field(FileTreeWalker, closed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collection;I)V", "(Ljava/util/Collection<Ljava/nio/file/FileVisitOption;>;I)V", 0, $method(FileTreeWalker, init$, void, $Collection*, int32_t)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FileTreeWalker, close, void)},
+		{"getAttributes", "(Ljava/nio/file/Path;Z)Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, $PRIVATE, $method(FileTreeWalker, getAttributes, $BasicFileAttributes*, $Path*, bool), "java.io.IOException"},
+		{"isOpen", "()Z", nullptr, 0, $virtualMethod(FileTreeWalker, isOpen, bool)},
+		{"next", "()Ljava/nio/file/FileTreeWalker$Event;", nullptr, 0, $virtualMethod(FileTreeWalker, next, $FileTreeWalker$Event*)},
+		{"pop", "()V", nullptr, 0, $virtualMethod(FileTreeWalker, pop, void)},
+		{"skipRemainingSiblings", "()V", nullptr, 0, $virtualMethod(FileTreeWalker, skipRemainingSiblings, void)},
+		{"visit", "(Ljava/nio/file/Path;ZZ)Ljava/nio/file/FileTreeWalker$Event;", nullptr, $PRIVATE, $method(FileTreeWalker, visit, $FileTreeWalker$Event*, $Path*, bool, bool)},
+		{"walk", "(Ljava/nio/file/Path;)Ljava/nio/file/FileTreeWalker$Event;", nullptr, 0, $virtualMethod(FileTreeWalker, walk, $FileTreeWalker$Event*, $Path*)},
+		{"wouldLoop", "(Ljava/nio/file/Path;Ljava/lang/Object;)Z", nullptr, $PRIVATE, $method(FileTreeWalker, wouldLoop, bool, $Path*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.file.FileTreeWalker$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"java.nio.file.FileTreeWalker$Event", "java.nio.file.FileTreeWalker", "Event", $STATIC},
+		{"java.nio.file.FileTreeWalker$EventType", "java.nio.file.FileTreeWalker", "EventType", $STATIC | $FINAL | $ENUM},
+		{"java.nio.file.FileTreeWalker$DirectoryNode", "java.nio.file.FileTreeWalker", "DirectoryNode", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.file.FileTreeWalker",
+		"java.lang.Object",
+		"java.io.Closeable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.nio.file.FileTreeWalker$1,java.nio.file.FileTreeWalker$Event,java.nio.file.FileTreeWalker$EventType,java.nio.file.FileTreeWalker$DirectoryNode"
+	};
+	$loadClass(FileTreeWalker, name, initialize, &classInfo$$, FileTreeWalker::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FileTreeWalker);
+	});
 	return class$;
 }
 

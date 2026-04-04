@@ -13,10 +13,13 @@ class $import ReadOnlyBufferException : public ::java::lang::UnsupportedOperatio
 public:
 	ReadOnlyBufferException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xEF34FD397D720196;
+	static const int64_t serialVersionUID = (int64_t)0xef34fd397d720196;
 	ReadOnlyBufferException(const ReadOnlyBufferException& e);
 	virtual void throw$() override;
-	inline ReadOnlyBufferException* operator ->() {
+	inline ReadOnlyBufferException* operator ->() const {
+		return (ReadOnlyBufferException*)throwing$;
+	}
+	inline operator ReadOnlyBufferException*() const {
 		return (ReadOnlyBufferException*)throwing$;
 	}
 };

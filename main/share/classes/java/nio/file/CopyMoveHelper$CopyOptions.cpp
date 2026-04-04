@@ -1,5 +1,4 @@
 #include <java/nio/file/CopyMoveHelper$CopyOptions.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/nio/file/CopyMoveHelper.h>
 #include <java/nio/file/CopyOption.h>
@@ -26,44 +25,6 @@ namespace java {
 	namespace nio {
 		namespace file {
 
-$FieldInfo _CopyMoveHelper$CopyOptions_FieldInfo_[] = {
-	{"replaceExisting", "Z", nullptr, 0, $field(CopyMoveHelper$CopyOptions, replaceExisting)},
-	{"copyAttributes", "Z", nullptr, 0, $field(CopyMoveHelper$CopyOptions, copyAttributes)},
-	{"followLinks", "Z", nullptr, 0, $field(CopyMoveHelper$CopyOptions, followLinks)},
-	{}
-};
-
-$MethodInfo _CopyMoveHelper$CopyOptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CopyMoveHelper$CopyOptions, init$, void)},
-	{"parse", "([Ljava/nio/file/CopyOption;)Ljava/nio/file/CopyMoveHelper$CopyOptions;", nullptr, $STATIC | $TRANSIENT, $staticMethod(CopyMoveHelper$CopyOptions, parse, CopyMoveHelper$CopyOptions*, $CopyOptionArray*)},
-	{}
-};
-
-$InnerClassInfo _CopyMoveHelper$CopyOptions_InnerClassesInfo_[] = {
-	{"java.nio.file.CopyMoveHelper$CopyOptions", "java.nio.file.CopyMoveHelper", "CopyOptions", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _CopyMoveHelper$CopyOptions_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.file.CopyMoveHelper$CopyOptions",
-	"java.lang.Object",
-	nullptr,
-	_CopyMoveHelper$CopyOptions_FieldInfo_,
-	_CopyMoveHelper$CopyOptions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CopyMoveHelper$CopyOptions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.nio.file.CopyMoveHelper"
-};
-
-$Object* allocate$CopyMoveHelper$CopyOptions($Class* clazz) {
-	return $of($alloc(CopyMoveHelper$CopyOptions));
-}
-
 void CopyMoveHelper$CopyOptions::init$() {
 	this->replaceExisting = false;
 	this->copyAttributes = false;
@@ -71,13 +32,11 @@ void CopyMoveHelper$CopyOptions::init$() {
 }
 
 CopyMoveHelper$CopyOptions* CopyMoveHelper$CopyOptions::parse($CopyOptionArray* options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(CopyMoveHelper$CopyOptions, result, $new(CopyMoveHelper$CopyOptions));
 	{
 		$var($CopyOptionArray, arr$, options);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($CopyOption, option, arr$->get(i$));
 			{
 				$init($StandardCopyOption);
@@ -108,7 +67,39 @@ CopyMoveHelper$CopyOptions::CopyMoveHelper$CopyOptions() {
 }
 
 $Class* CopyMoveHelper$CopyOptions::load$($String* name, bool initialize) {
-	$loadClass(CopyMoveHelper$CopyOptions, name, initialize, &_CopyMoveHelper$CopyOptions_ClassInfo_, allocate$CopyMoveHelper$CopyOptions);
+	$FieldInfo fieldInfos$$[] = {
+		{"replaceExisting", "Z", nullptr, 0, $field(CopyMoveHelper$CopyOptions, replaceExisting)},
+		{"copyAttributes", "Z", nullptr, 0, $field(CopyMoveHelper$CopyOptions, copyAttributes)},
+		{"followLinks", "Z", nullptr, 0, $field(CopyMoveHelper$CopyOptions, followLinks)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CopyMoveHelper$CopyOptions, init$, void)},
+		{"parse", "([Ljava/nio/file/CopyOption;)Ljava/nio/file/CopyMoveHelper$CopyOptions;", nullptr, $STATIC | $TRANSIENT, $staticMethod(CopyMoveHelper$CopyOptions, parse, CopyMoveHelper$CopyOptions*, $CopyOptionArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.file.CopyMoveHelper$CopyOptions", "java.nio.file.CopyMoveHelper", "CopyOptions", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.file.CopyMoveHelper$CopyOptions",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.nio.file.CopyMoveHelper"
+	};
+	$loadClass(CopyMoveHelper$CopyOptions, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CopyMoveHelper$CopyOptions);
+	});
 	return class$;
 }
 

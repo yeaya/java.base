@@ -1,5 +1,4 @@
 #include <TimeZoneLastModified.h>
-
 #include <java/io/File.h>
 #include <java/lang/Math.h>
 #include <java/util/TimeZone.h>
@@ -8,7 +7,6 @@
 #undef TIME
 
 using $File = ::java::io::File;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Long = ::java::lang::Long;
@@ -17,42 +15,15 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $TimeZone = ::java::util::TimeZone;
 
-$FieldInfo _TimeZoneLastModified_FieldInfo_[] = {
-	{"TIME", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimeZoneLastModified, TIME)},
-	{}
-};
-
-$MethodInfo _TimeZoneLastModified_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TimeZoneLastModified, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeZoneLastModified, main, void, $StringArray*), "java.lang.Throwable"},
-	{"test", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TimeZoneLastModified, test, int32_t, $String*), "java.lang.Throwable"},
-	{}
-};
-
-$ClassInfo _TimeZoneLastModified_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TimeZoneLastModified",
-	"java.lang.Object",
-	nullptr,
-	_TimeZoneLastModified_FieldInfo_,
-	_TimeZoneLastModified_MethodInfo_
-};
-
-$Object* allocate$TimeZoneLastModified($Class* clazz) {
-	return $of($alloc(TimeZoneLastModified));
-}
-
 void TimeZoneLastModified::init$() {
 }
 
 void TimeZoneLastModified::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = test(nullptr);
 	{
 		$var($StringArray, arr$, $TimeZone::getAvailableIDs());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, timeZoneID, arr$->get(i$));
 			{
 				failures += test(timeZoneID);
@@ -66,40 +37,38 @@ void TimeZoneLastModified::main($StringArray* args) {
 }
 
 int32_t TimeZoneLastModified::test($String* timeZoneID) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, f, $new($File, "test-timezone.txt"_s));
 	int32_t failures = 0;
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			f->createNewFile();
-			if (timeZoneID != nullptr) {
-				$TimeZone::setDefault($($TimeZone::getTimeZone(timeZoneID)));
-			}
-			bool succeeded = f->setLastModified(TimeZoneLastModified::TIME);
-			if (!succeeded) {
-				$nc($System::err)->format("Setting time to %d failed for time zone %s%n"_s, $$new($ObjectArray, {
-					$($of($Long::valueOf(TimeZoneLastModified::TIME))),
-					$of(timeZoneID)
-				}));
-				++failures;
-			}
-			int64_t time = f->lastModified();
-			if ($Math::abs(time - TimeZoneLastModified::TIME) > 999) {
-				$nc($System::err)->format("Wrong modification time (ms): expected %d, obtained %d%n"_s, $$new($ObjectArray, {
-					$($of($Long::valueOf(TimeZoneLastModified::TIME))),
-					$($of($Long::valueOf(time)))
-				}));
-				++failures;
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			f->delete$();
+	$var($Throwable, var$0, nullptr);
+	try {
+		f->createNewFile();
+		if (timeZoneID != nullptr) {
+			$TimeZone::setDefault($($TimeZone::getTimeZone(timeZoneID)));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		bool succeeded = f->setLastModified(TimeZoneLastModified::TIME);
+		if (!succeeded) {
+			$nc($System::err)->format("Setting time to %d failed for time zone %s%n"_s, $$new($ObjectArray, {
+				$($Long::valueOf(TimeZoneLastModified::TIME)),
+				timeZoneID
+			}));
+			++failures;
 		}
+		int64_t time = f->lastModified();
+		if ($Math::abs(time - TimeZoneLastModified::TIME) > 999) {
+			$nc($System::err)->format("Wrong modification time (ms): expected %d, obtained %d%n"_s, $$new($ObjectArray, {
+				$($Long::valueOf(TimeZoneLastModified::TIME)),
+				$($Long::valueOf(time))
+			}));
+			++failures;
+		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		f->delete$();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return failures;
 }
@@ -108,7 +77,27 @@ TimeZoneLastModified::TimeZoneLastModified() {
 }
 
 $Class* TimeZoneLastModified::load$($String* name, bool initialize) {
-	$loadClass(TimeZoneLastModified, name, initialize, &_TimeZoneLastModified_ClassInfo_, allocate$TimeZoneLastModified);
+	$FieldInfo fieldInfos$$[] = {
+		{"TIME", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimeZoneLastModified, TIME)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TimeZoneLastModified, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TimeZoneLastModified, main, void, $StringArray*), "java.lang.Throwable"},
+		{"test", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TimeZoneLastModified, test, int32_t, $String*), "java.lang.Throwable"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TimeZoneLastModified",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TimeZoneLastModified, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TimeZoneLastModified);
+	});
 	return class$;
 }
 

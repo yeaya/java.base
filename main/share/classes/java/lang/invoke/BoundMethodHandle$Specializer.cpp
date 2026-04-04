@@ -1,5 +1,4 @@
 #include <java/lang/invoke/BoundMethodHandle$Specializer.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/ReflectiveOperationException.h>
@@ -30,7 +29,6 @@
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -57,60 +55,15 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$FieldInfo _BoundMethodHandle$Specializer_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(BoundMethodHandle$Specializer, $assertionsDisabled)},
-	{"SPECIES_DATA_ACCESSOR", "Ljava/lang/invoke/MemberName;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BoundMethodHandle$Specializer, SPECIES_DATA_ACCESSOR)},
-	{"BMH_TRANSFORMS", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/invoke/MemberName;>;", $STATIC | $FINAL, $staticField(BoundMethodHandle$Specializer, BMH_TRANSFORMS)},
-	{"TN_COPY_NO_EXTEND", "I", nullptr, $STATIC | $FINAL, $staticField(BoundMethodHandle$Specializer, TN_COPY_NO_EXTEND)},
-	{}
-};
-
-$MethodInfo _BoundMethodHandle$Specializer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(BoundMethodHandle$Specializer, init$, void)},
-	{"makeFactory", "()Ljava/lang/invoke/BoundMethodHandle$Specializer$Factory;", nullptr, $PROTECTED, $virtualMethod(BoundMethodHandle$Specializer, makeFactory, $ClassSpecializer$Factory*)},
-	{"newSpeciesData", "(Ljava/lang/String;)Ljava/lang/invoke/BoundMethodHandle$SpeciesData;", nullptr, $PROTECTED, $method(BoundMethodHandle$Specializer, newSpeciesData, $BoundMethodHandle$SpeciesData*, $String*)},
-	{"newSpeciesData", "(Ljava/lang/Object;)Ljava/lang/invoke/ClassSpecializer$SpeciesData;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(BoundMethodHandle$Specializer, newSpeciesData, $ClassSpecializer$SpeciesData*, Object$*)},
-	{"topSpeciesKey", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BoundMethodHandle$Specializer, topSpeciesKey, $Object*)},
-	{}
-};
-
-$InnerClassInfo _BoundMethodHandle$Specializer_InnerClassesInfo_[] = {
-	{"java.lang.invoke.BoundMethodHandle$Specializer", "java.lang.invoke.BoundMethodHandle", "Specializer", $STATIC | $FINAL},
-	{"java.lang.invoke.BoundMethodHandle$Specializer$Factory", "java.lang.invoke.BoundMethodHandle$Specializer", "Factory", 0},
-	{"java.lang.invoke.BoundMethodHandle$SpeciesData", "java.lang.invoke.BoundMethodHandle", "SpeciesData", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _BoundMethodHandle$Specializer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.invoke.BoundMethodHandle$Specializer",
-	"java.lang.invoke.ClassSpecializer",
-	nullptr,
-	_BoundMethodHandle$Specializer_FieldInfo_,
-	_BoundMethodHandle$Specializer_MethodInfo_,
-	"Ljava/lang/invoke/ClassSpecializer<Ljava/lang/invoke/BoundMethodHandle;Ljava/lang/String;Ljava/lang/invoke/BoundMethodHandle$SpeciesData;>;",
-	nullptr,
-	_BoundMethodHandle$Specializer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.BoundMethodHandle"
-};
-
-$Object* allocate$BoundMethodHandle$Specializer($Class* clazz) {
-	return $of($alloc(BoundMethodHandle$Specializer));
-}
-
 bool BoundMethodHandle$Specializer::$assertionsDisabled = false;
 $MemberName* BoundMethodHandle$Specializer::SPECIES_DATA_ACCESSOR = nullptr;
 $List* BoundMethodHandle$Specializer::BMH_TRANSFORMS = nullptr;
 int32_t BoundMethodHandle$Specializer::TN_COPY_NO_EXTEND = 0;
 
 void BoundMethodHandle$Specializer::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($BoundMethodHandle);
 	$load($BoundMethodHandle$SpeciesData);
-	$init($Void);
 	$load($MethodType);
 	$load($LambdaForm);
 	$ClassSpecializer::init$($BoundMethodHandle::class$, $String::class$, $BoundMethodHandle$SpeciesData::class$, $($MethodType::methodType($Void::TYPE, $MethodType::class$, $$new($ClassArray, {$LambdaForm::class$}))), BoundMethodHandle$Specializer::SPECIES_DATA_ACCESSOR, "BMH_SPECIES"_s, BoundMethodHandle$Specializer::BMH_TRANSFORMS);
@@ -132,15 +85,15 @@ $ClassSpecializer$SpeciesData* BoundMethodHandle$Specializer::newSpeciesData(Obj
 	return this->newSpeciesData($cast($String, key));
 }
 
-void clinit$BoundMethodHandle$Specializer($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void BoundMethodHandle$Specializer::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$load($BoundMethodHandle);
 	BoundMethodHandle$Specializer::$assertionsDisabled = !$BoundMethodHandle::class$->desiredAssertionStatus();
 	{
 		try {
 			$init($MethodHandles$Lookup);
 			$load($BoundMethodHandle$SpeciesData);
-			$assignStatic(BoundMethodHandle$Specializer::SPECIES_DATA_ACCESSOR, $nc($MethodHandles$Lookup::IMPL_LOOKUP)->resolveOrFail((int8_t)5, $BoundMethodHandle::class$, "speciesData"_s, $($MethodType::methodType($BoundMethodHandle$SpeciesData::class$))));
+			$assignStatic(BoundMethodHandle$Specializer::SPECIES_DATA_ACCESSOR, $nc($MethodHandles$Lookup::IMPL_LOOKUP)->resolveOrFail(5, $BoundMethodHandle::class$, "speciesData"_s, $($MethodType::methodType($BoundMethodHandle$SpeciesData::class$))));
 		} catch ($ReflectiveOperationException& ex) {
 			$throw($($MethodHandleStatics::newInternalError("Bootstrap link error"_s, ex)));
 		}
@@ -153,31 +106,27 @@ void clinit$BoundMethodHandle$Specializer($Class* class$) {
 			$init($MethodHandles$Lookup);
 			$load($MethodType);
 			$load($LambdaForm);
-			$var($Object, var$0, $of($nc($MethodHandles$Lookup::IMPL_LOOKUP)->resolveOrFail((int8_t)5, BMH, "copyWithExtendL"_s, $($MethodType::methodType(BMH, $MethodType::class$, $$new($ClassArray, {
+			$var($Object, var$0, $nc($MethodHandles$Lookup::IMPL_LOOKUP)->resolveOrFail(5, BMH, "copyWithExtendL"_s, $($MethodType::methodType(BMH, $MethodType::class$, $$new($ClassArray, {
 				$LambdaForm::class$,
 				$Object::class$
-			}))))));
-			$init($Integer);
-			$var($Object, var$1, $of($nc($MethodHandles$Lookup::IMPL_LOOKUP)->resolveOrFail((int8_t)5, BMH, "copyWithExtendI"_s, $($MethodType::methodType(BMH, $MethodType::class$, $$new($ClassArray, {
+			})))));
+			$var($Object, var$1, $MethodHandles$Lookup::IMPL_LOOKUP->resolveOrFail(5, BMH, "copyWithExtendI"_s, $($MethodType::methodType(BMH, $MethodType::class$, $$new($ClassArray, {
 				$LambdaForm::class$,
 				$Integer::TYPE
-			}))))));
-			$init($Long);
-			$var($Object, var$2, $of($nc($MethodHandles$Lookup::IMPL_LOOKUP)->resolveOrFail((int8_t)5, BMH, "copyWithExtendJ"_s, $($MethodType::methodType(BMH, $MethodType::class$, $$new($ClassArray, {
+			})))));
+			$var($Object, var$2, $MethodHandles$Lookup::IMPL_LOOKUP->resolveOrFail(5, BMH, "copyWithExtendJ"_s, $($MethodType::methodType(BMH, $MethodType::class$, $$new($ClassArray, {
 				$LambdaForm::class$,
 				$Long::TYPE
-			}))))));
-			$init($Float);
-			$var($Object, var$3, $of($nc($MethodHandles$Lookup::IMPL_LOOKUP)->resolveOrFail((int8_t)5, BMH, "copyWithExtendF"_s, $($MethodType::methodType(BMH, $MethodType::class$, $$new($ClassArray, {
+			})))));
+			$var($Object, var$3, $MethodHandles$Lookup::IMPL_LOOKUP->resolveOrFail(5, BMH, "copyWithExtendF"_s, $($MethodType::methodType(BMH, $MethodType::class$, $$new($ClassArray, {
 				$LambdaForm::class$,
 				$Float::TYPE
-			}))))));
-			$init($Double);
-			$var($Object, var$4, $of($nc($MethodHandles$Lookup::IMPL_LOOKUP)->resolveOrFail((int8_t)5, BMH, "copyWithExtendD"_s, $($MethodType::methodType(BMH, $MethodType::class$, $$new($ClassArray, {
+			})))));
+			$var($Object, var$4, $MethodHandles$Lookup::IMPL_LOOKUP->resolveOrFail(5, BMH, "copyWithExtendD"_s, $($MethodType::methodType(BMH, $MethodType::class$, $$new($ClassArray, {
 				$LambdaForm::class$,
 				$Double::TYPE
-			}))))));
-			$assignStatic(BoundMethodHandle$Specializer::BMH_TRANSFORMS, $List::of(var$0, var$1, var$2, var$3, var$4, $($nc($MethodHandles$Lookup::IMPL_LOOKUP)->resolveOrFail((int8_t)5, BMH, "copyWith"_s, $($MethodType::methodType(BMH, $MethodType::class$, $$new($ClassArray, {$LambdaForm::class$})))))));
+			})))));
+			$assignStatic(BoundMethodHandle$Specializer::BMH_TRANSFORMS, $List::of(var$0, var$1, var$2, var$3, var$4, $($MethodHandles$Lookup::IMPL_LOOKUP->resolveOrFail(5, BMH, "copyWith"_s, $($MethodType::methodType(BMH, $MethodType::class$, $$new($ClassArray, {$LambdaForm::class$})))))));
 		} catch ($ReflectiveOperationException& ex) {
 			$throw($($MethodHandleStatics::newInternalError("Failed resolving copyWith methods"_s, ex)));
 		}
@@ -191,7 +140,45 @@ BoundMethodHandle$Specializer::BoundMethodHandle$Specializer() {
 }
 
 $Class* BoundMethodHandle$Specializer::load$($String* name, bool initialize) {
-	$loadClass(BoundMethodHandle$Specializer, name, initialize, &_BoundMethodHandle$Specializer_ClassInfo_, clinit$BoundMethodHandle$Specializer, allocate$BoundMethodHandle$Specializer);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(BoundMethodHandle$Specializer, $assertionsDisabled)},
+		{"SPECIES_DATA_ACCESSOR", "Ljava/lang/invoke/MemberName;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BoundMethodHandle$Specializer, SPECIES_DATA_ACCESSOR)},
+		{"BMH_TRANSFORMS", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/invoke/MemberName;>;", $STATIC | $FINAL, $staticField(BoundMethodHandle$Specializer, BMH_TRANSFORMS)},
+		{"TN_COPY_NO_EXTEND", "I", nullptr, $STATIC | $FINAL, $staticField(BoundMethodHandle$Specializer, TN_COPY_NO_EXTEND)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(BoundMethodHandle$Specializer, init$, void)},
+		{"makeFactory", "()Ljava/lang/invoke/BoundMethodHandle$Specializer$Factory;", nullptr, $PROTECTED, $virtualMethod(BoundMethodHandle$Specializer, makeFactory, $ClassSpecializer$Factory*)},
+		{"newSpeciesData", "(Ljava/lang/String;)Ljava/lang/invoke/BoundMethodHandle$SpeciesData;", nullptr, $PROTECTED, $method(BoundMethodHandle$Specializer, newSpeciesData, $BoundMethodHandle$SpeciesData*, $String*)},
+		{"newSpeciesData", "(Ljava/lang/Object;)Ljava/lang/invoke/ClassSpecializer$SpeciesData;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(BoundMethodHandle$Specializer, newSpeciesData, $ClassSpecializer$SpeciesData*, Object$*)},
+		{"topSpeciesKey", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BoundMethodHandle$Specializer, topSpeciesKey, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.BoundMethodHandle$Specializer", "java.lang.invoke.BoundMethodHandle", "Specializer", $STATIC | $FINAL},
+		{"java.lang.invoke.BoundMethodHandle$Specializer$Factory", "java.lang.invoke.BoundMethodHandle$Specializer", "Factory", 0},
+		{"java.lang.invoke.BoundMethodHandle$SpeciesData", "java.lang.invoke.BoundMethodHandle", "SpeciesData", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.invoke.BoundMethodHandle$Specializer",
+		"java.lang.invoke.ClassSpecializer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/invoke/ClassSpecializer<Ljava/lang/invoke/BoundMethodHandle;Ljava/lang/String;Ljava/lang/invoke/BoundMethodHandle$SpeciesData;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.BoundMethodHandle"
+	};
+	$loadClass(BoundMethodHandle$Specializer, name, initialize, &classInfo$$, BoundMethodHandle$Specializer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BoundMethodHandle$Specializer);
+	});
 	return class$;
 }
 

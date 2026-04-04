@@ -1,6 +1,4 @@
 #include <sun/util/locale/UnicodeLocaleExtension.h>
-
-#include <java/lang/CharSequence.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
 #include <java/util/Map$Entry.h>
@@ -21,13 +19,11 @@
 #undef SEP
 #undef SINGLETON
 
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
-using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Set = ::java::util::Set;
 using $SortedMap = ::java::util::SortedMap;
@@ -41,45 +37,6 @@ namespace sun {
 	namespace util {
 		namespace locale {
 
-$FieldInfo _UnicodeLocaleExtension_FieldInfo_[] = {
-	{"SINGLETON", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeLocaleExtension, SINGLETON)},
-	{"attributes", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(UnicodeLocaleExtension, attributes)},
-	{"keywords", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(UnicodeLocaleExtension, keywords)},
-	{"CA_JAPANESE", "Lsun/util/locale/UnicodeLocaleExtension;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(UnicodeLocaleExtension, CA_JAPANESE)},
-	{"NU_THAI", "Lsun/util/locale/UnicodeLocaleExtension;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(UnicodeLocaleExtension, NU_THAI)},
-	{}
-};
-
-$MethodInfo _UnicodeLocaleExtension_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(UnicodeLocaleExtension, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/util/SortedSet;Ljava/util/SortedMap;)V", "(Ljava/util/SortedSet<Ljava/lang/String;>;Ljava/util/SortedMap<Ljava/lang/String;Ljava/lang/String;>;)V", 0, $method(UnicodeLocaleExtension, init$, void, $SortedSet*, $SortedMap*)},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(UnicodeLocaleExtension, getID, $String*)},
-	{"getKey", "()C", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(UnicodeLocaleExtension, getKey, char16_t)},
-	{"getUnicodeLocaleAttributes", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(UnicodeLocaleExtension, getUnicodeLocaleAttributes, $Set*)},
-	{"getUnicodeLocaleKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(UnicodeLocaleExtension, getUnicodeLocaleKeys, $Set*)},
-	{"getUnicodeLocaleType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicodeLocaleExtension, getUnicodeLocaleType, $String*, $String*)},
-	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(UnicodeLocaleExtension, getValue, $String*)},
-	{"isAttribute", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeLocaleExtension, isAttribute, bool, $String*)},
-	{"isKey", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeLocaleExtension, isKey, bool, $String*)},
-	{"isSingletonChar", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeLocaleExtension, isSingletonChar, bool, char16_t)},
-	{"isTypeSubtag", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeLocaleExtension, isTypeSubtag, bool, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(UnicodeLocaleExtension, toString, $String*)},
-	{}
-};
-
-$ClassInfo _UnicodeLocaleExtension_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.locale.UnicodeLocaleExtension",
-	"sun.util.locale.Extension",
-	nullptr,
-	_UnicodeLocaleExtension_FieldInfo_,
-	_UnicodeLocaleExtension_MethodInfo_
-};
-
-$Object* allocate$UnicodeLocaleExtension($Class* clazz) {
-	return $of($alloc(UnicodeLocaleExtension));
-}
-
 UnicodeLocaleExtension* UnicodeLocaleExtension::CA_JAPANESE = nullptr;
 UnicodeLocaleExtension* UnicodeLocaleExtension::NU_THAI = nullptr;
 
@@ -90,7 +47,7 @@ void UnicodeLocaleExtension::init$($String* key, $String* value) {
 }
 
 void UnicodeLocaleExtension::init$($SortedSet* attributes, $SortedMap* keywords) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Extension::init$(UnicodeLocaleExtension::SINGLETON);
 	if (attributes != nullptr) {
 		$set(this, attributes, attributes);
@@ -107,7 +64,7 @@ void UnicodeLocaleExtension::init$($SortedSet* attributes, $SortedMap* keywords)
 		$init($LanguageTag);
 		$var($StringJoiner, sj, $new($StringJoiner, $LanguageTag::SEP));
 		{
-			$var($Iterator, i$, $nc(this->attributes)->iterator());
+			$var($Iterator, i$, this->attributes->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($String, attribute, $cast($String, i$->next()));
 				{
@@ -116,7 +73,7 @@ void UnicodeLocaleExtension::init$($SortedSet* attributes, $SortedMap* keywords)
 			}
 		}
 		{
-			$var($Iterator, i$, $nc($($nc(this->keywords)->entrySet()))->iterator());
+			$var($Iterator, i$, $$nc($nc(this->keywords)->entrySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Map$Entry, keyword, $cast($Map$Entry, i$->next()));
 				{
@@ -166,7 +123,7 @@ bool UnicodeLocaleExtension::isAttribute($String* s) {
 
 bool UnicodeLocaleExtension::isKey($String* s) {
 	$init(UnicodeLocaleExtension);
-	bool var$0 = ($nc(s)->length() == 2);
+	bool var$0 = $nc(s)->length() == 2;
 	return var$0 && $LocaleUtils::isAlphaNumericString(s);
 }
 
@@ -192,7 +149,7 @@ char16_t UnicodeLocaleExtension::getKey() {
 	return $Extension::getKey();
 }
 
-void clinit$UnicodeLocaleExtension($Class* class$) {
+void UnicodeLocaleExtension::clinit$($Class* clazz) {
 	$assignStatic(UnicodeLocaleExtension::CA_JAPANESE, $new(UnicodeLocaleExtension, "ca"_s, "japanese"_s));
 	$assignStatic(UnicodeLocaleExtension::NU_THAI, $new(UnicodeLocaleExtension, "nu"_s, "thai"_s));
 }
@@ -201,7 +158,41 @@ UnicodeLocaleExtension::UnicodeLocaleExtension() {
 }
 
 $Class* UnicodeLocaleExtension::load$($String* name, bool initialize) {
-	$loadClass(UnicodeLocaleExtension, name, initialize, &_UnicodeLocaleExtension_ClassInfo_, clinit$UnicodeLocaleExtension, allocate$UnicodeLocaleExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"SINGLETON", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(UnicodeLocaleExtension, SINGLETON)},
+		{"attributes", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(UnicodeLocaleExtension, attributes)},
+		{"keywords", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(UnicodeLocaleExtension, keywords)},
+		{"CA_JAPANESE", "Lsun/util/locale/UnicodeLocaleExtension;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(UnicodeLocaleExtension, CA_JAPANESE)},
+		{"NU_THAI", "Lsun/util/locale/UnicodeLocaleExtension;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(UnicodeLocaleExtension, NU_THAI)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(UnicodeLocaleExtension, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/util/SortedSet;Ljava/util/SortedMap;)V", "(Ljava/util/SortedSet<Ljava/lang/String;>;Ljava/util/SortedMap<Ljava/lang/String;Ljava/lang/String;>;)V", 0, $method(UnicodeLocaleExtension, init$, void, $SortedSet*, $SortedMap*)},
+		{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(UnicodeLocaleExtension, getID, $String*)},
+		{"getKey", "()C", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(UnicodeLocaleExtension, getKey, char16_t)},
+		{"getUnicodeLocaleAttributes", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(UnicodeLocaleExtension, getUnicodeLocaleAttributes, $Set*)},
+		{"getUnicodeLocaleKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(UnicodeLocaleExtension, getUnicodeLocaleKeys, $Set*)},
+		{"getUnicodeLocaleType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicodeLocaleExtension, getUnicodeLocaleType, $String*, $String*)},
+		{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(UnicodeLocaleExtension, getValue, $String*)},
+		{"isAttribute", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeLocaleExtension, isAttribute, bool, $String*)},
+		{"isKey", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeLocaleExtension, isKey, bool, $String*)},
+		{"isSingletonChar", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeLocaleExtension, isSingletonChar, bool, char16_t)},
+		{"isTypeSubtag", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicodeLocaleExtension, isTypeSubtag, bool, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(UnicodeLocaleExtension, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.locale.UnicodeLocaleExtension",
+		"sun.util.locale.Extension",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnicodeLocaleExtension, name, initialize, &classInfo$$, UnicodeLocaleExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(UnicodeLocaleExtension);
+	});
 	return class$;
 }
 

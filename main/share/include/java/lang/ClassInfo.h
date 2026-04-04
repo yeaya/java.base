@@ -84,6 +84,7 @@ public:
 
 	void encode(::java::io::DataOutputStream* os, ::jdk::internal::reflect::ConstantPool* constantPool);
 	void visit(::jdk::internal::reflect::ConstantPool* constantPool);
+	ClassInfo* clone();
 	static $bytes* getRawAnnotations(CompoundAttribute* annotations, ::jdk::internal::reflect::ConstantPool* constantPool);
 	static $bytes* getRawTypeAnnotations(TypeAnnotation* typeAnnotations, ::jdk::internal::reflect::ConstantPool* constantPool);
 	static $bytes* getRawAttribute(Attribute* attribute, ::jdk::internal::reflect::ConstantPool* constantPool);

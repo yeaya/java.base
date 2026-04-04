@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/http/HttpCallerInfo.h>
-
 #include <java/net/Authenticator$RequestorType.h>
 #include <java/net/Authenticator.h>
 #include <java/net/InetAddress.h>
@@ -24,39 +23,6 @@ namespace sun {
 			namespace protocol {
 				namespace http {
 
-$FieldInfo _HttpCallerInfo_FieldInfo_[] = {
-	{"url", "Ljava/net/URL;", nullptr, $PUBLIC | $FINAL, $field(HttpCallerInfo, url)},
-	{"host", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(HttpCallerInfo, host)},
-	{"protocol", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(HttpCallerInfo, protocol)},
-	{"prompt", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(HttpCallerInfo, prompt)},
-	{"scheme", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(HttpCallerInfo, scheme)},
-	{"port", "I", nullptr, $PUBLIC | $FINAL, $field(HttpCallerInfo, port)},
-	{"addr", "Ljava/net/InetAddress;", nullptr, $PUBLIC | $FINAL, $field(HttpCallerInfo, addr)},
-	{"authType", "Ljava/net/Authenticator$RequestorType;", nullptr, $PUBLIC | $FINAL, $field(HttpCallerInfo, authType)},
-	{"authenticator", "Ljava/net/Authenticator;", nullptr, $PUBLIC | $FINAL, $field(HttpCallerInfo, authenticator)},
-	{}
-};
-
-$MethodInfo _HttpCallerInfo_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/protocol/http/HttpCallerInfo;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpCallerInfo, init$, void, HttpCallerInfo*, $String*)},
-	{"<init>", "(Ljava/net/URL;Ljava/net/Authenticator;)V", nullptr, $PUBLIC, $method(HttpCallerInfo, init$, void, $URL*, $Authenticator*)},
-	{"<init>", "(Ljava/net/URL;Ljava/lang/String;ILjava/net/Authenticator;)V", nullptr, $PUBLIC, $method(HttpCallerInfo, init$, void, $URL*, $String*, int32_t, $Authenticator*)},
-	{}
-};
-
-$ClassInfo _HttpCallerInfo_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.net.www.protocol.http.HttpCallerInfo",
-	"java.lang.Object",
-	nullptr,
-	_HttpCallerInfo_FieldInfo_,
-	_HttpCallerInfo_MethodInfo_
-};
-
-$Object* allocate$HttpCallerInfo($Class* clazz) {
-	return $of($alloc(HttpCallerInfo));
-}
-
 void HttpCallerInfo::init$(HttpCallerInfo* old, $String* scheme) {
 	$set(this, url, $nc(old)->url);
 	$set(this, host, old->host);
@@ -70,7 +36,7 @@ void HttpCallerInfo::init$(HttpCallerInfo* old, $String* scheme) {
 }
 
 void HttpCallerInfo::init$($URL* url, $Authenticator* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, url, url);
 	$set(this, prompt, ""_s);
 	$set(this, host, $nc(url)->getHost());
@@ -111,7 +77,35 @@ HttpCallerInfo::HttpCallerInfo() {
 }
 
 $Class* HttpCallerInfo::load$($String* name, bool initialize) {
-	$loadClass(HttpCallerInfo, name, initialize, &_HttpCallerInfo_ClassInfo_, allocate$HttpCallerInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"url", "Ljava/net/URL;", nullptr, $PUBLIC | $FINAL, $field(HttpCallerInfo, url)},
+		{"host", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(HttpCallerInfo, host)},
+		{"protocol", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(HttpCallerInfo, protocol)},
+		{"prompt", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(HttpCallerInfo, prompt)},
+		{"scheme", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(HttpCallerInfo, scheme)},
+		{"port", "I", nullptr, $PUBLIC | $FINAL, $field(HttpCallerInfo, port)},
+		{"addr", "Ljava/net/InetAddress;", nullptr, $PUBLIC | $FINAL, $field(HttpCallerInfo, addr)},
+		{"authType", "Ljava/net/Authenticator$RequestorType;", nullptr, $PUBLIC | $FINAL, $field(HttpCallerInfo, authType)},
+		{"authenticator", "Ljava/net/Authenticator;", nullptr, $PUBLIC | $FINAL, $field(HttpCallerInfo, authenticator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/www/protocol/http/HttpCallerInfo;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpCallerInfo, init$, void, HttpCallerInfo*, $String*)},
+		{"<init>", "(Ljava/net/URL;Ljava/net/Authenticator;)V", nullptr, $PUBLIC, $method(HttpCallerInfo, init$, void, $URL*, $Authenticator*)},
+		{"<init>", "(Ljava/net/URL;Ljava/lang/String;ILjava/net/Authenticator;)V", nullptr, $PUBLIC, $method(HttpCallerInfo, init$, void, $URL*, $String*, int32_t, $Authenticator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.net.www.protocol.http.HttpCallerInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpCallerInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpCallerInfo);
+	});
 	return class$;
 }
 

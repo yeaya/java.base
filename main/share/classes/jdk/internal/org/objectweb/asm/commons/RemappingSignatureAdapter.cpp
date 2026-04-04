@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/commons/RemappingSignatureAdapter.h>
-
 #include <jdk/internal/org/objectweb/asm/Opcodes.h>
 #include <jdk/internal/org/objectweb/asm/commons/Remapper.h>
 #include <jdk/internal/org/objectweb/asm/signature/SignatureVisitor.h>
@@ -22,57 +21,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace commons {
 
-$CompoundAttribute _RemappingSignatureAdapter_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _RemappingSignatureAdapter_FieldInfo_[] = {
-	{"signatureVisitor", "Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;", nullptr, $PRIVATE | $FINAL, $field(RemappingSignatureAdapter, signatureVisitor)},
-	{"remapper", "Ljdk/internal/org/objectweb/asm/commons/Remapper;", nullptr, $PRIVATE | $FINAL, $field(RemappingSignatureAdapter, remapper)},
-	{"className", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RemappingSignatureAdapter, className)},
-	{}
-};
-
-$MethodInfo _RemappingSignatureAdapter_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PUBLIC, $method(RemappingSignatureAdapter, init$, void, $SignatureVisitor*, $Remapper*)},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/signature/SignatureVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PROTECTED, $method(RemappingSignatureAdapter, init$, void, int32_t, $SignatureVisitor*, $Remapper*)},
-	{"visitArrayType", "()Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitArrayType, $SignatureVisitor*)},
-	{"visitBaseType", "(C)V", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitBaseType, void, char16_t)},
-	{"visitClassBound", "()Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitClassBound, $SignatureVisitor*)},
-	{"visitClassType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitClassType, void, $String*)},
-	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitEnd, void)},
-	{"visitExceptionType", "()Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitExceptionType, $SignatureVisitor*)},
-	{"visitFormalTypeParameter", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitFormalTypeParameter, void, $String*)},
-	{"visitInnerClassType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitInnerClassType, void, $String*)},
-	{"visitInterface", "()Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitInterface, $SignatureVisitor*)},
-	{"visitInterfaceBound", "()Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitInterfaceBound, $SignatureVisitor*)},
-	{"visitParameterType", "()Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitParameterType, $SignatureVisitor*)},
-	{"visitReturnType", "()Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitReturnType, $SignatureVisitor*)},
-	{"visitSuperclass", "()Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitSuperclass, $SignatureVisitor*)},
-	{"visitTypeArgument", "()V", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitTypeArgument, void)},
-	{"visitTypeArgument", "(C)Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitTypeArgument, $SignatureVisitor*, char16_t)},
-	{"visitTypeVariable", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitTypeVariable, void, $String*)},
-	{}
-};
-
-$ClassInfo _RemappingSignatureAdapter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.commons.RemappingSignatureAdapter",
-	"jdk.internal.org.objectweb.asm.signature.SignatureVisitor",
-	nullptr,
-	_RemappingSignatureAdapter_FieldInfo_,
-	_RemappingSignatureAdapter_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_RemappingSignatureAdapter_Annotations_
-};
-
-$Object* allocate$RemappingSignatureAdapter($Class* clazz) {
-	return $of($alloc(RemappingSignatureAdapter));
-}
-
 void RemappingSignatureAdapter::init$($SignatureVisitor* signatureVisitor, $Remapper* remapper) {
 	RemappingSignatureAdapter::init$($Opcodes::ASM6, signatureVisitor, remapper);
 }
@@ -89,11 +37,11 @@ void RemappingSignatureAdapter::visitClassType($String* name) {
 }
 
 void RemappingSignatureAdapter::visitInnerClassType($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, remappedOuter, $str({$($nc(this->remapper)->mapType(this->className)), $$str(u'$')}));
 	$set(this, className, $str({this->className, $$str(u'$'), name}));
-	$var($String, remappedName, $nc(this->remapper)->mapType(this->className));
-	int32_t index = $nc(remappedName)->startsWith(remappedOuter) ? $nc(remappedOuter)->length() : $nc(remappedName)->lastIndexOf((int32_t)u'$') + 1;
+	$var($String, remappedName, this->remapper->mapType(this->className));
+	int32_t index = $nc(remappedName)->startsWith(remappedOuter) ? remappedOuter->length() : remappedName->lastIndexOf(u'$') + 1;
 	$nc(this->signatureVisitor)->visitInnerClassType($(remappedName->substring(index)));
 }
 
@@ -166,7 +114,52 @@ RemappingSignatureAdapter::RemappingSignatureAdapter() {
 }
 
 $Class* RemappingSignatureAdapter::load$($String* name, bool initialize) {
-	$loadClass(RemappingSignatureAdapter, name, initialize, &_RemappingSignatureAdapter_ClassInfo_, allocate$RemappingSignatureAdapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"signatureVisitor", "Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;", nullptr, $PRIVATE | $FINAL, $field(RemappingSignatureAdapter, signatureVisitor)},
+		{"remapper", "Ljdk/internal/org/objectweb/asm/commons/Remapper;", nullptr, $PRIVATE | $FINAL, $field(RemappingSignatureAdapter, remapper)},
+		{"className", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RemappingSignatureAdapter, className)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PUBLIC, $method(RemappingSignatureAdapter, init$, void, $SignatureVisitor*, $Remapper*)},
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/signature/SignatureVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PROTECTED, $method(RemappingSignatureAdapter, init$, void, int32_t, $SignatureVisitor*, $Remapper*)},
+		{"visitArrayType", "()Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitArrayType, $SignatureVisitor*)},
+		{"visitBaseType", "(C)V", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitBaseType, void, char16_t)},
+		{"visitClassBound", "()Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitClassBound, $SignatureVisitor*)},
+		{"visitClassType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitClassType, void, $String*)},
+		{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitEnd, void)},
+		{"visitExceptionType", "()Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitExceptionType, $SignatureVisitor*)},
+		{"visitFormalTypeParameter", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitFormalTypeParameter, void, $String*)},
+		{"visitInnerClassType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitInnerClassType, void, $String*)},
+		{"visitInterface", "()Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitInterface, $SignatureVisitor*)},
+		{"visitInterfaceBound", "()Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitInterfaceBound, $SignatureVisitor*)},
+		{"visitParameterType", "()Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitParameterType, $SignatureVisitor*)},
+		{"visitReturnType", "()Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitReturnType, $SignatureVisitor*)},
+		{"visitSuperclass", "()Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitSuperclass, $SignatureVisitor*)},
+		{"visitTypeArgument", "()V", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitTypeArgument, void)},
+		{"visitTypeArgument", "(C)Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitTypeArgument, $SignatureVisitor*, char16_t)},
+		{"visitTypeVariable", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RemappingSignatureAdapter, visitTypeVariable, void, $String*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.commons.RemappingSignatureAdapter",
+		"jdk.internal.org.objectweb.asm.signature.SignatureVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(RemappingSignatureAdapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RemappingSignatureAdapter);
+	});
 	return class$;
 }
 

@@ -405,11 +405,11 @@ public:
 	ObjectStack* objectStack;
 };
 #define $var(type, name, ...) \
-			type* name = $tryCast<type>(__VA_ARGS__); \
-			::java::lang::ObjectVar<type, decltype($localCurrentObjectStackCache)> name##$objvar(name, $localCurrentObjectStackCache);
+	type* name = $tryCast<type>(__VA_ARGS__); \
+	::java::lang::ObjectVar<type, decltype($localObjectStack)> name##$objvar(name, $localObjectStack);
 #define $auto(name, ...) \
-			auto name = __VA_ARGS__; \
-			::java::lang::ObjectVar<decltype(*name), decltype($localCurrentObjectStackCache)> name##$objvar(name, $localCurrentObjectStackCache);
+	auto name = __VA_ARGS__; \
+	::java::lang::ObjectVar<decltype(*name), decltype($localObjectStack)> name##$objvar(name, $localObjectStack);
 #elif defined(JCPP_OBJECT_VAR_STACK_SAVE_ADDRESS)
 template<typename T>
 class ObjectVar {
@@ -421,7 +421,7 @@ public:
 		$getCurrentObjectStatck()->popLocalVar();
 	}
 };
-#else
+#else // JCPP_OBJECT_VAR_STACK_DUAL_STACK
 template<typename T, typename S = int32_t>
 class ObjectVar {
 public:
@@ -452,14 +452,21 @@ public:
 };
 
 #define $var(type, name, ...) \
-			type* name##$objvalue = $tryCast<type>(__VA_ARGS__); \
-			::java::lang::ObjectVar<type, decltype($localCurrentObjectStackCache)> name##$objvar($localCurrentObjectStackCache); \
-			type*& name = (type*&)(void*&)name##$objvar.pushLocalVar(name##$objvalue);
+	type* name##$objvalue = $tryCast<type>(__VA_ARGS__); \
+	::java::lang::ObjectVar<type, decltype($localObjectStack)> name##$objvar($localObjectStack); \
+	type*& name = (type*&)(void*&)name##$objvar.pushLocalVar(name##$objvalue);
+
 #define $auto(name, ...) \
-			auto name##$objvalue = __VA_ARGS__; \
-			::java::lang::ObjectVar<decltype(name##$objvalue), decltype($localCurrentObjectStackCache)> name##$objvar($localCurrentObjectStackCache); \
-			decltype(name##$objvalue)& name = (decltype(name##$objvalue)&)(void*&)name##$objvar.pushLocalVar(name##$objvalue);
-#endif
+	auto name##$objvalue = __VA_ARGS__; \
+	::java::lang::ObjectVar<decltype(name##$objvalue), decltype($localObjectStack)> name##$objvar($localObjectStack); \
+	decltype(name##$objvalue)& name = (decltype(name##$objvalue)&)(void*&)name##$objvar.pushLocalVar(name##$objvalue);
+
+#endif // JCPP_OBJECT_VAR_STACK_DUAL_STACK
+
+#define $var0(type, name, ...) \
+	type* name = $tryCast<type>(__VA_ARGS__)
+#define $auto0(name, ...) \
+	auto name = __VA_ARGS__
 
 template<typename T, typename S = int32_t>
 class Ref {
@@ -516,7 +523,7 @@ inline ::java::lang::Ref<T, S> makeRef(S s, const $volatile(T)& ref) {
 	return ::java::lang::Ref<T, S>(ref.get(), s);
 }
 
-#define $ref(...) ::java::lang::makeRef($localCurrentObjectStackCache, __VA_ARGS__).ref
+#define $ref(...) ::java::lang::makeRef($localObjectStack, __VA_ARGS__).ref
 
 template<typename T>
 class Allocator {
@@ -556,8 +563,8 @@ void detachCurrentThread() {
 } // java
 
 // 0: default is disable
-const int32_t $localCurrentObjectStackCache = 0;
-#define $useLocalCurrentObjectStackCache() ::java::lang::ObjectStack* $localCurrentObjectStackCache = $getCurrentObjectStatck()
+const int32_t $localObjectStack = 0;
+#define $useLocalObjectStack() ::java::lang::ObjectStack* $localObjectStack = $getCurrentObjectStatck()
 
 #define $attachCurrentThread() ::java::lang::attachCurrentThread<void>()
 #define $detachCurrentThread() ::java::lang::detachCurrentThread<void>()

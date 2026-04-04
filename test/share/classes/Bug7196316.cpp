@@ -1,11 +1,8 @@
 #include <Bug7196316.h>
-
 #include <java/io/FileInputStream.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/math/RoundingMode.h>
 #include <java/text/DecimalFormat.h>
 #include <jcpp.h>
@@ -14,11 +11,8 @@
 
 using $FileInputStream = ::java::io::FileInputStream;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $InputStream = ::java::io::InputStream;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
-using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -27,30 +21,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $RoundingMode = ::java::math::RoundingMode;
 using $DecimalFormat = ::java::text::DecimalFormat;
 
-$FieldInfo _Bug7196316_FieldInfo_[] = {
-	{"filename", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bug7196316, filename)},
-	{}
-};
-
-$MethodInfo _Bug7196316_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug7196316, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug7196316, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Bug7196316_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Bug7196316",
-	"java.lang.Object",
-	nullptr,
-	_Bug7196316_FieldInfo_,
-	_Bug7196316_MethodInfo_
-};
-
-$Object* allocate$Bug7196316($Class* clazz) {
-	return $of($alloc(Bug7196316));
-}
-
 $String* Bug7196316::filename = nullptr;
 
 void Bug7196316::init$() {
@@ -58,7 +28,7 @@ void Bug7196316::init$() {
 
 void Bug7196316::main($StringArray* args) {
 	$init(Bug7196316);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DecimalFormat, df, nullptr);
 	$init($RoundingMode);
 	$RoundingMode* mode = $RoundingMode::DOWN;
@@ -67,55 +37,51 @@ void Bug7196316::main($StringArray* args) {
 	$var($String, actual, nullptr);
 	{
 		$var($ObjectOutputStream, os, $new($ObjectOutputStream, $$new($FileOutputStream, Bug7196316::filename)));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				$assign(df, $new($DecimalFormat, "#"_s));
+				df->setRoundingMode(mode);
+				$assign(expected, df->format(given));
+				os->writeObject(df);
+			} catch ($Throwable& t$) {
 				try {
-					$assign(df, $new($DecimalFormat, "#"_s));
-					df->setRoundingMode(mode);
-					$assign(expected, df->format(given));
-					os->writeObject(df);
-				} catch ($Throwable& t$) {
-					try {
-						os->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+					os->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				os->close();
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			os->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	{
 		$var($ObjectInputStream, is, $new($ObjectInputStream, $$new($FileInputStream, Bug7196316::filename)));
-		{
-			$var($Throwable, var$2, nullptr);
+		$var($Throwable, var$2, nullptr);
+		try {
 			try {
+				$assign(df, $cast($DecimalFormat, is->readObject()));
+			} catch ($Throwable& t$) {
 				try {
-					$assign(df, $cast($DecimalFormat, is->readObject()));
-				} catch ($Throwable& t$) {
-					try {
-						is->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+					is->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$2, var$3);
-			} /*finally*/ {
-				is->close();
+				$throw(t$);
 			}
-			if (var$2 != nullptr) {
-				$throw(var$2);
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$2, var$3);
+		} /*finally*/ {
+			is->close();
+		}
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
 	}
 	$RoundingMode* newMode = $nc(df)->getRoundingMode();
@@ -134,12 +100,31 @@ void Bug7196316::main($StringArray* args) {
 Bug7196316::Bug7196316() {
 }
 
-void clinit$Bug7196316($Class* class$) {
+void Bug7196316::clinit$($Class* clazz) {
 	$assignStatic(Bug7196316::filename, "bug7196316.ser"_s);
 }
 
 $Class* Bug7196316::load$($String* name, bool initialize) {
-	$loadClass(Bug7196316, name, initialize, &_Bug7196316_ClassInfo_, clinit$Bug7196316, allocate$Bug7196316);
+	$FieldInfo fieldInfos$$[] = {
+		{"filename", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Bug7196316, filename)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Bug7196316, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug7196316, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Bug7196316",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Bug7196316, name, initialize, &classInfo$$, Bug7196316::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Bug7196316);
+	});
 	return class$;
 }
 

@@ -26,6 +26,7 @@ class MutableBigInteger : public ::java::lang::Object {
 	$class(MutableBigInteger, 0, ::java::lang::Object)
 public:
 	MutableBigInteger();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t val);
 	void init$($ints* val);

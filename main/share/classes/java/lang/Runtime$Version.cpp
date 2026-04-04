@@ -1,5 +1,4 @@
 #include <java/lang/Runtime$Version.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/Math.h>
@@ -50,9 +49,7 @@ using $Optional = ::java::util::Optional;
 using $Consumer = ::java::util::function::Consumer;
 using $Function = ::java::util::function::Function;
 using $Matcher = ::java::util::regex::Matcher;
-using $Pattern = ::java::util::regex::Pattern;
 using $Collectors = ::java::util::stream::Collectors;
-using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace lang {
@@ -63,29 +60,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($of($nc(inst$))->toString());
+		 return $of($ofnc(inst$)->toString());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Runtime$Version$$Lambda$toString>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Runtime$Version$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Runtime$Version$$Lambda$toString, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Runtime$Version$$Lambda$toString, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Runtime$Version$$Lambda$toString::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.Runtime$Version$$Lambda$toString",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Runtime$Version$$Lambda$toString::load$($String* name, bool initialize) {
-	$loadClass(Runtime$Version$$Lambda$toString, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Runtime$Version$$Lambda$toString, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Runtime$Version$$Lambda$toString, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.Runtime$Version$$Lambda$toString",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Runtime$Version$$Lambda$toString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Runtime$Version$$Lambda$toString);
+	});
 	return class$;
 }
 $Class* Runtime$Version$$Lambda$toString::class$ = nullptr;
@@ -99,135 +93,32 @@ public:
 	virtual void accept(Object$* v) override {
 		Runtime$Version::lambda$toString$0(sb, $cast($String, v));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Runtime$Version$$Lambda$lambda$toString$0$1>());
-	}
 	$StringBuilder* sb = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Runtime$Version$$Lambda$lambda$toString$0$1::fieldInfos[2] = {
-	{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(Runtime$Version$$Lambda$lambda$toString$0$1, sb)},
-	{}
-};
-$MethodInfo Runtime$Version$$Lambda$lambda$toString$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Runtime$Version$$Lambda$lambda$toString$0$1, init$, void, $StringBuilder*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Runtime$Version$$Lambda$lambda$toString$0$1, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Runtime$Version$$Lambda$lambda$toString$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.Runtime$Version$$Lambda$lambda$toString$0$1",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Runtime$Version$$Lambda$lambda$toString$0$1::load$($String* name, bool initialize) {
-	$loadClass(Runtime$Version$$Lambda$lambda$toString$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"sb", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(Runtime$Version$$Lambda$lambda$toString$0$1, sb)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Runtime$Version$$Lambda$lambda$toString$0$1, init$, void, $StringBuilder*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Runtime$Version$$Lambda$lambda$toString$0$1, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.Runtime$Version$$Lambda$lambda$toString$0$1",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Runtime$Version$$Lambda$lambda$toString$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Runtime$Version$$Lambda$lambda$toString$0$1);
+	});
 	return class$;
 }
 $Class* Runtime$Version$$Lambda$lambda$toString$0$1::class$ = nullptr;
-
-$CompoundAttribute _Runtime$Version_Annotations_[] = {
-	{"Ljdk/internal/ValueBased;", nullptr},
-	{}
-};
-
-$NamedAttribute Runtime$Version_Attribute_var$0[] = {
-	{"since", 's', "10"},
-	{}
-};
-
-$CompoundAttribute _Runtime$Version_MethodAnnotations_major17[] = {
-	{"Ljava/lang/Deprecated;", Runtime$Version_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute Runtime$Version_Attribute_var$1[] = {
-	{"since", 's', "10"},
-	{}
-};
-
-$CompoundAttribute _Runtime$Version_MethodAnnotations_minor18[] = {
-	{"Ljava/lang/Deprecated;", Runtime$Version_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute Runtime$Version_Attribute_var$2[] = {
-	{"since", 's', "10"},
-	{}
-};
-
-$CompoundAttribute _Runtime$Version_MethodAnnotations_security23[] = {
-	{"Ljava/lang/Deprecated;", Runtime$Version_Attribute_var$2},
-	{}
-};
-
-$FieldInfo _Runtime$Version_FieldInfo_[] = {
-	{"version", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Integer;>;", $PRIVATE | $FINAL, $field(Runtime$Version, version$)},
-	{"pre", "Ljava/util/Optional;", "Ljava/util/Optional<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(Runtime$Version, pre$)},
-	{"build", "Ljava/util/Optional;", "Ljava/util/Optional<Ljava/lang/Integer;>;", $PRIVATE | $FINAL, $field(Runtime$Version, build$)},
-	{"optional", "Ljava/util/Optional;", "Ljava/util/Optional<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(Runtime$Version, optional$)},
-	{}
-};
-
-$MethodInfo _Runtime$Version_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;)V", "(Ljava/util/List<Ljava/lang/Integer;>;Ljava/util/Optional<Ljava/lang/String;>;Ljava/util/Optional<Ljava/lang/Integer;>;Ljava/util/Optional<Ljava/lang/String;>;)V", $PRIVATE, $method(Runtime$Version, init$, void, $List*, $Optional*, $Optional*, $Optional*)},
-	{"build", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/Integer;>;", $PUBLIC, $method(Runtime$Version, build, $Optional*)},
-	{"compare", "(Ljava/lang/Runtime$Version;Z)I", nullptr, $PRIVATE, $method(Runtime$Version, compare, int32_t, Runtime$Version*, bool)},
-	{"compareBuild", "(Ljava/lang/Runtime$Version;)I", nullptr, $PRIVATE, $method(Runtime$Version, compareBuild, int32_t, Runtime$Version*)},
-	{"compareOptional", "(Ljava/lang/Runtime$Version;)I", nullptr, $PRIVATE, $method(Runtime$Version, compareOptional, int32_t, Runtime$Version*)},
-	{"comparePre", "(Ljava/lang/Runtime$Version;)I", nullptr, $PRIVATE, $method(Runtime$Version, comparePre, int32_t, Runtime$Version*)},
-	{"compareTo", "(Ljava/lang/Runtime$Version;)I", nullptr, $PUBLIC, $method(Runtime$Version, compareTo, int32_t, Runtime$Version*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Runtime$Version, compareTo, int32_t, Object$*)},
-	{"compareToIgnoreOptional", "(Ljava/lang/Runtime$Version;)I", nullptr, $PUBLIC, $method(Runtime$Version, compareToIgnoreOptional, int32_t, Runtime$Version*)},
-	{"compareVersion", "(Ljava/lang/Runtime$Version;)I", nullptr, $PRIVATE, $method(Runtime$Version, compareVersion, int32_t, Runtime$Version*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Runtime$Version, equals, bool, Object$*)},
-	{"equalsIgnoreOptional", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $method(Runtime$Version, equalsIgnoreOptional, bool, Object$*)},
-	{"feature", "()I", nullptr, $PUBLIC, $method(Runtime$Version, feature, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Runtime$Version, hashCode, int32_t)},
-	{"interim", "()I", nullptr, $PUBLIC, $method(Runtime$Version, interim, int32_t)},
-	{"isSimpleNumber", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Runtime$Version, isSimpleNumber, bool, $String*)},
-	{"lambda$toString$0", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Runtime$Version, lambda$toString$0, void, $StringBuilder*, $String*)},
-	{"major", "()I", nullptr, $PUBLIC | $DEPRECATED, $method(Runtime$Version, major, int32_t), nullptr, nullptr, _Runtime$Version_MethodAnnotations_major17},
-	{"minor", "()I", nullptr, $PUBLIC | $DEPRECATED, $method(Runtime$Version, minor, int32_t), nullptr, nullptr, _Runtime$Version_MethodAnnotations_minor18},
-	{"optional", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $method(Runtime$Version, optional, $Optional*)},
-	{"parse", "(Ljava/lang/String;)Ljava/lang/Runtime$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(Runtime$Version, parse, Runtime$Version*, $String*)},
-	{"patch", "()I", nullptr, $PUBLIC, $method(Runtime$Version, patch, int32_t)},
-	{"pre", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $method(Runtime$Version, pre, $Optional*)},
-	{"security", "()I", nullptr, $PUBLIC | $DEPRECATED, $method(Runtime$Version, security, int32_t), nullptr, nullptr, _Runtime$Version_MethodAnnotations_security23},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Runtime$Version, toString, $String*)},
-	{"update", "()I", nullptr, $PUBLIC, $method(Runtime$Version, update, int32_t)},
-	{"version", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Integer;>;", $PUBLIC, $method(Runtime$Version, version, $List*)},
-	{}
-};
-
-$InnerClassInfo _Runtime$Version_InnerClassesInfo_[] = {
-	{"java.lang.Runtime$Version", "java.lang.Runtime", "Version", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Runtime$Version_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.lang.Runtime$Version",
-	"java.lang.Object",
-	"java.lang.Comparable",
-	_Runtime$Version_FieldInfo_,
-	_Runtime$Version_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Comparable<Ljava/lang/Runtime$Version;>;",
-	nullptr,
-	_Runtime$Version_InnerClassesInfo_,
-	_Runtime$Version_Annotations_,
-	nullptr,
-	nullptr,
-	"java.lang.Runtime"
-};
-
-$Object* allocate$Runtime$Version($Class* clazz) {
-	return $of($alloc(Runtime$Version));
-}
 
 void Runtime$Version::init$($List* unmodifiableListOfVersions, $Optional* pre, $Optional* build, $Optional* optional) {
 	$set(this, version$, unmodifiableListOfVersions);
@@ -238,12 +129,12 @@ void Runtime$Version::init$($List* unmodifiableListOfVersions, $Optional* pre, $
 
 Runtime$Version* Runtime$Version::parse($String* s) {
 	$init(Runtime$Version);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (s == nullptr) {
 		$throwNew($NullPointerException);
 	}
 	if (isSimpleNumber(s)) {
-		$var($List, var$0, $List::of($($of($Integer::valueOf($Integer::parseInt(s))))));
+		$var($List, var$0, $List::of($($Integer::valueOf($Integer::parseInt(s)))));
 		$var($Optional, var$1, $Optional::empty());
 		$var($Optional, var$2, $Optional::empty());
 		return $new(Runtime$Version, var$0, var$1, var$2, $($Optional::empty()));
@@ -253,7 +144,7 @@ Runtime$Version* Runtime$Version::parse($String* s) {
 	if (!$nc(m)->matches()) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid version string: \'"_s, s, "\'"_s}));
 	}
-	$var($StringArray, split, $nc($($nc(m)->group($Runtime$VersionPattern::VNUM_GROUP)))->split("\\."_s));
+	$var($StringArray, split, $$nc(m->group($Runtime$VersionPattern::VNUM_GROUP))->split("\\."_s));
 	$var($IntegerArray, version, $new($IntegerArray, split->length));
 	for (int32_t i = 0; i < split->length; ++i) {
 		version->set(i, $($Integer::valueOf($Integer::parseInt(split->get(i)))));
@@ -272,8 +163,8 @@ Runtime$Version* Runtime$Version::parse($String* s) {
 				$throwNew($IllegalArgumentException, $$str({"\'+\' found with neither build or optional components: \'"_s, s, "\'"_s}));
 			}
 		} else {
-			bool var$4 = $nc(optional)->isPresent();
-			if (var$4 && !$nc(pre)->isPresent()) {
+			bool var$3 = $nc(optional)->isPresent();
+			if (var$3 && !$nc(pre)->isPresent()) {
 				$throwNew($IllegalArgumentException, $$str({"optional component must be preceded by a pre-release component or \'+\': \'"_s, s, "\'"_s}));
 			}
 		}
@@ -294,19 +185,19 @@ bool Runtime$Version::isSimpleNumber($String* s) {
 }
 
 int32_t Runtime$Version::feature() {
-	return $nc(($cast($Integer, $($nc(this->version$)->get(0)))))->intValue();
+	return $$sure($Integer, $nc(this->version$)->get(0))->intValue();
 }
 
 int32_t Runtime$Version::interim() {
-	return ($nc(this->version$)->size() > 1 ? $nc(($cast($Integer, $($nc(this->version$)->get(1)))))->intValue() : 0);
+	return ($nc(this->version$)->size() > 1 ? $$sure($Integer, this->version$->get(1))->intValue() : 0);
 }
 
 int32_t Runtime$Version::update() {
-	return ($nc(this->version$)->size() > 2 ? $nc(($cast($Integer, $($nc(this->version$)->get(2)))))->intValue() : 0);
+	return ($nc(this->version$)->size() > 2 ? $$sure($Integer, this->version$->get(2))->intValue() : 0);
 }
 
 int32_t Runtime$Version::patch() {
-	return ($nc(this->version$)->size() > 3 ? $nc(($cast($Integer, $($nc(this->version$)->get(3)))))->intValue() : 0);
+	return ($nc(this->version$)->size() > 3 ? $$sure($Integer, this->version$->get(3))->intValue() : 0);
 }
 
 int32_t Runtime$Version::major() {
@@ -368,13 +259,13 @@ int32_t Runtime$Version::compare(Runtime$Version* obj, bool ignoreOpt) {
 }
 
 int32_t Runtime$Version::compareVersion(Runtime$Version* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = $nc(this->version$)->size();
-	int32_t oSize = $nc($($nc(obj)->version()))->size();
+	int32_t oSize = $$nc($nc(obj)->version())->size();
 	int32_t min = $Math::min(size, oSize);
 	for (int32_t i = 0; i < min; ++i) {
-		int32_t val = $nc(($cast($Integer, $($nc(this->version$)->get(i)))))->intValue();
-		int32_t oVal = $nc(($cast($Integer, $($nc($(obj->version()))->get(i)))))->intValue();
+		int32_t val = $$sure($Integer, this->version$->get(i))->intValue();
+		int32_t oVal = $$sure($Integer, $$nc(obj->version())->get(i))->intValue();
 		if (val != oVal) {
 			return val - oVal;
 		}
@@ -383,7 +274,7 @@ int32_t Runtime$Version::compareVersion(Runtime$Version* obj) {
 }
 
 int32_t Runtime$Version::comparePre(Runtime$Version* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Optional, oPre, $nc(obj)->pre());
 	if (!$nc(this->pre$)->isPresent()) {
 		if ($nc(oPre)->isPresent()) {
@@ -393,8 +284,8 @@ int32_t Runtime$Version::comparePre(Runtime$Version* obj) {
 		if (!$nc(oPre)->isPresent()) {
 			return -1;
 		}
-		$var($String, val, $cast($String, $nc(this->pre$)->get()));
-		$var($String, oVal, $cast($String, $nc(oPre)->get()));
+		$var($String, val, $cast($String, this->pre$->get()));
+		$var($String, oVal, $cast($String, oPre->get()));
 		if ($nc(val)->matches("\\d+"_s)) {
 			return ($nc(oVal)->matches("\\d+"_s) ? ($$new($BigInteger, val))->compareTo($$new($BigInteger, oVal)) : -1);
 		} else {
@@ -405,10 +296,10 @@ int32_t Runtime$Version::comparePre(Runtime$Version* obj) {
 }
 
 int32_t Runtime$Version::compareBuild(Runtime$Version* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Optional, oBuild, $nc(obj)->build());
 	if ($nc(oBuild)->isPresent()) {
-		return ($nc(this->build$)->isPresent() ? $nc(($cast($Integer, $($nc(this->build$)->get()))))->compareTo($cast($Integer, $(oBuild->get()))) : -1);
+		return ($nc(this->build$)->isPresent() ? $$sure($Integer, this->build$->get())->compareTo($$cast($Integer, oBuild->get())) : -1);
 	} else if ($nc(this->build$)->isPresent()) {
 		return 1;
 	}
@@ -416,7 +307,7 @@ int32_t Runtime$Version::compareBuild(Runtime$Version* obj) {
 }
 
 int32_t Runtime$Version::compareOptional(Runtime$Version* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Optional, oOpt, $nc(obj)->optional());
 	if (!$nc(this->optional$)->isPresent()) {
 		if ($nc(oOpt)->isPresent()) {
@@ -426,39 +317,39 @@ int32_t Runtime$Version::compareOptional(Runtime$Version* obj) {
 		if (!$nc(oOpt)->isPresent()) {
 			return 1;
 		}
-		return $nc(($cast($String, $($nc(this->optional$)->get()))))->compareTo($cast($String, $($nc(oOpt)->get())));
+		return $$sure($String, this->optional$->get())->compareTo($$cast($String, oOpt->get()));
 	}
 	return 0;
 }
 
 $String* Runtime$Version::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($StringBuilder, sb, $new($StringBuilder, $cast($String, $($nc($($nc($($nc(this->version$)->stream()))->map(static_cast<$Function*>($$new(Runtime$Version$$Lambda$toString)))))->collect($($Collectors::joining("."_s)))))));
-	$nc(this->pre$)->ifPresent(static_cast<$Consumer*>($$new(Runtime$Version$$Lambda$lambda$toString$0$1, sb)));
+	$useLocalObjectStack();
+	$var($StringBuilder, sb, $new($StringBuilder, $$cast($String, $$nc($$nc($nc(this->version$)->stream())->map($$new(Runtime$Version$$Lambda$toString)))->collect($($Collectors::joining("."_s))))));
+	$nc(this->pre$)->ifPresent($$new(Runtime$Version$$Lambda$lambda$toString$0$1, sb));
 	if ($nc(this->build$)->isPresent()) {
-		sb->append("+"_s)->append($($nc(this->build$)->get()));
+		sb->append("+"_s)->append($(this->build$->get()));
 		if ($nc(this->optional$)->isPresent()) {
-			sb->append("-"_s)->append($cast($String, $($nc(this->optional$)->get())));
+			sb->append("-"_s)->append($$cast($String, this->optional$->get()));
 		}
 	} else if ($nc(this->optional$)->isPresent()) {
-		sb->append($nc(this->pre$)->isPresent() ? "-"_s : "+-"_s);
-		sb->append($cast($String, $($nc(this->optional$)->get())));
+		sb->append(this->pre$->isPresent() ? "-"_s : "+-"_s);
+		sb->append($$cast($String, this->optional$->get()));
 	}
 	return sb->toString();
 }
 
 bool Runtime$Version::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool ret = equalsIgnoreOptional(obj);
 	if (!ret) {
 		return false;
 	}
 	$var(Runtime$Version, that, $cast(Runtime$Version, obj));
-	return ($nc($(this->optional()))->equals($($nc(that)->optional())));
+	return ($$nc(this->optional())->equals($($nc(that)->optional())));
 }
 
 bool Runtime$Version::equalsIgnoreOptional(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -468,11 +359,11 @@ bool Runtime$Version::equalsIgnoreOptional(Object$* obj) {
 		$assign(that, $cast(Runtime$Version, obj));
 		var$1 = true;
 	}
-	bool var$0 = (var$1);
+	bool var$0 = var$1;
 	if (var$0) {
-		bool var$3 = $nc($(this->version()))->equals($($nc(that)->version()));
-		bool var$2 = var$3 && $nc($(this->pre()))->equals($($nc(that)->pre()));
-		var$0 = (var$2 && $nc($(this->build()))->equals($($nc(that)->build())));
+		bool var$3 = $$nc(this->version())->equals($($nc(that)->version()));
+		bool var$2 = var$3 && $$nc(this->pre())->equals($(that->pre()));
+		var$0 = var$2 && $$nc(this->build())->equals($(that->build()));
 	}
 	return var$0;
 }
@@ -501,14 +392,100 @@ Runtime$Version::Runtime$Version() {
 
 $Class* Runtime$Version::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Runtime$Version$$Lambda$toString::classInfo$.name)) {
+		if (name->equals("java.lang.Runtime$Version$$Lambda$toString")) {
 			return Runtime$Version$$Lambda$toString::load$(name, initialize);
 		}
-		if (name->equals(Runtime$Version$$Lambda$lambda$toString$0$1::classInfo$.name)) {
+		if (name->equals("java.lang.Runtime$Version$$Lambda$lambda$toString$0$1")) {
 			return Runtime$Version$$Lambda$lambda$toString$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(Runtime$Version, name, initialize, &_Runtime$Version_ClassInfo_, allocate$Runtime$Version);
+	$FieldInfo fieldInfos$$[] = {
+		{"version", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Integer;>;", $PRIVATE | $FINAL, $field(Runtime$Version, version$)},
+		{"pre", "Ljava/util/Optional;", "Ljava/util/Optional<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(Runtime$Version, pre$)},
+		{"build", "Ljava/util/Optional;", "Ljava/util/Optional<Ljava/lang/Integer;>;", $PRIVATE | $FINAL, $field(Runtime$Version, build$)},
+		{"optional", "Ljava/util/Optional;", "Ljava/util/Optional<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(Runtime$Version, optional$)},
+		{}
+	};
+	$NamedAttribute majormethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "10"},
+		{}
+	};
+	$CompoundAttribute majormethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", majormethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute minormethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "10"},
+		{}
+	};
+	$CompoundAttribute minormethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", minormethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute securitymethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "10"},
+		{}
+	};
+	$CompoundAttribute securitymethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", securitymethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;)V", "(Ljava/util/List<Ljava/lang/Integer;>;Ljava/util/Optional<Ljava/lang/String;>;Ljava/util/Optional<Ljava/lang/Integer;>;Ljava/util/Optional<Ljava/lang/String;>;)V", $PRIVATE, $method(Runtime$Version, init$, void, $List*, $Optional*, $Optional*, $Optional*)},
+		{"build", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/Integer;>;", $PUBLIC, $method(Runtime$Version, build, $Optional*)},
+		{"compare", "(Ljava/lang/Runtime$Version;Z)I", nullptr, $PRIVATE, $method(Runtime$Version, compare, int32_t, Runtime$Version*, bool)},
+		{"compareBuild", "(Ljava/lang/Runtime$Version;)I", nullptr, $PRIVATE, $method(Runtime$Version, compareBuild, int32_t, Runtime$Version*)},
+		{"compareOptional", "(Ljava/lang/Runtime$Version;)I", nullptr, $PRIVATE, $method(Runtime$Version, compareOptional, int32_t, Runtime$Version*)},
+		{"comparePre", "(Ljava/lang/Runtime$Version;)I", nullptr, $PRIVATE, $method(Runtime$Version, comparePre, int32_t, Runtime$Version*)},
+		{"compareTo", "(Ljava/lang/Runtime$Version;)I", nullptr, $PUBLIC, $method(Runtime$Version, compareTo, int32_t, Runtime$Version*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Runtime$Version, compareTo, int32_t, Object$*)},
+		{"compareToIgnoreOptional", "(Ljava/lang/Runtime$Version;)I", nullptr, $PUBLIC, $method(Runtime$Version, compareToIgnoreOptional, int32_t, Runtime$Version*)},
+		{"compareVersion", "(Ljava/lang/Runtime$Version;)I", nullptr, $PRIVATE, $method(Runtime$Version, compareVersion, int32_t, Runtime$Version*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Runtime$Version, equals, bool, Object$*)},
+		{"equalsIgnoreOptional", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $method(Runtime$Version, equalsIgnoreOptional, bool, Object$*)},
+		{"feature", "()I", nullptr, $PUBLIC, $method(Runtime$Version, feature, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Runtime$Version, hashCode, int32_t)},
+		{"interim", "()I", nullptr, $PUBLIC, $method(Runtime$Version, interim, int32_t)},
+		{"isSimpleNumber", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Runtime$Version, isSimpleNumber, bool, $String*)},
+		{"lambda$toString$0", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Runtime$Version, lambda$toString$0, void, $StringBuilder*, $String*)},
+		{"major", "()I", nullptr, $PUBLIC | $DEPRECATED, $method(Runtime$Version, major, int32_t), nullptr, nullptr, majormethodAnnotations$$},
+		{"minor", "()I", nullptr, $PUBLIC | $DEPRECATED, $method(Runtime$Version, minor, int32_t), nullptr, nullptr, minormethodAnnotations$$},
+		{"optional", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $method(Runtime$Version, optional, $Optional*)},
+		{"parse", "(Ljava/lang/String;)Ljava/lang/Runtime$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(Runtime$Version, parse, Runtime$Version*, $String*)},
+		{"patch", "()I", nullptr, $PUBLIC, $method(Runtime$Version, patch, int32_t)},
+		{"pre", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $method(Runtime$Version, pre, $Optional*)},
+		{"security", "()I", nullptr, $PUBLIC | $DEPRECATED, $method(Runtime$Version, security, int32_t), nullptr, nullptr, securitymethodAnnotations$$},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Runtime$Version, toString, $String*)},
+		{"update", "()I", nullptr, $PUBLIC, $method(Runtime$Version, update, int32_t)},
+		{"version", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Integer;>;", $PUBLIC, $method(Runtime$Version, version, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Runtime$Version", "java.lang.Runtime", "Version", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/ValueBased;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.lang.Runtime$Version",
+		"java.lang.Object",
+		"java.lang.Comparable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Comparable<Ljava/lang/Runtime$Version;>;",
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"java.lang.Runtime"
+	};
+	$loadClass(Runtime$Version, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Runtime$Version);
+	});
 	return class$;
 }
 

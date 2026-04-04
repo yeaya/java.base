@@ -1,5 +1,4 @@
 #include <Streams$InputStreamGetter.h>
-
 #include <Streams$StreamGetter.h>
 #include <Streams.h>
 #include <java/io/InputStream.h>
@@ -11,38 +10,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Socket = ::java::net::Socket;
-
-$MethodInfo _Streams$InputStreamGetter_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/Socket;)V", nullptr, $PUBLIC, $method(Streams$InputStreamGetter, init$, void, $Socket*)},
-	{"getStream", "()V", nullptr, 0, $virtualMethod(Streams$InputStreamGetter, getStream, void), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Streams$InputStreamGetter_InnerClassesInfo_[] = {
-	{"Streams$InputStreamGetter", "Streams", "InputStreamGetter", $STATIC},
-	{"Streams$StreamGetter", "Streams", "StreamGetter", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Streams$InputStreamGetter_ClassInfo_ = {
-	$ACC_SUPER,
-	"Streams$InputStreamGetter",
-	"Streams$StreamGetter",
-	nullptr,
-	nullptr,
-	_Streams$InputStreamGetter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Streams$InputStreamGetter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Streams"
-};
-
-$Object* allocate$Streams$InputStreamGetter($Class* clazz) {
-	return $of($alloc(Streams$InputStreamGetter));
-}
 
 void Streams$InputStreamGetter::init$($Socket* s) {
 	$Streams$StreamGetter::init$(s);
@@ -56,7 +23,34 @@ Streams$InputStreamGetter::Streams$InputStreamGetter() {
 }
 
 $Class* Streams$InputStreamGetter::load$($String* name, bool initialize) {
-	$loadClass(Streams$InputStreamGetter, name, initialize, &_Streams$InputStreamGetter_ClassInfo_, allocate$Streams$InputStreamGetter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/Socket;)V", nullptr, $PUBLIC, $method(Streams$InputStreamGetter, init$, void, $Socket*)},
+		{"getStream", "()V", nullptr, 0, $virtualMethod(Streams$InputStreamGetter, getStream, void), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Streams$InputStreamGetter", "Streams", "InputStreamGetter", $STATIC},
+		{"Streams$StreamGetter", "Streams", "StreamGetter", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Streams$InputStreamGetter",
+		"Streams$StreamGetter",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Streams"
+	};
+	$loadClass(Streams$InputStreamGetter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Streams$InputStreamGetter);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer.h>
-
 #include <java/util/Spliterators$AbstractDoubleSpliterator.h>
 #include <jcpp.h>
 
@@ -10,43 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer_FieldInfo_[] = {
-	{"value", "D", nullptr, 0, $field(Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer, value)},
-	{}
-};
-
-$MethodInfo _Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer, init$, void)},
-	{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer, accept, void, double)},
-	{}
-};
-
-$InnerClassInfo _Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer_InnerClassesInfo_[] = {
-	{"java.util.Spliterators$AbstractDoubleSpliterator", "java.util.Spliterators", "AbstractDoubleSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.util.Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer", "java.util.Spliterators$AbstractDoubleSpliterator", "HoldingDoubleConsumer", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer",
-	"java.lang.Object",
-	"java.util.function.DoubleConsumer",
-	_Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer_FieldInfo_,
-	_Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Spliterators"
-};
-
-$Object* allocate$Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer($Class* clazz) {
-	return $of($alloc(Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer));
-}
 
 void Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer::init$() {
 }
@@ -59,7 +21,38 @@ Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer::Spliterators$Abstr
 }
 
 $Class* Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer::load$($String* name, bool initialize) {
-	$loadClass(Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer, name, initialize, &_Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer_ClassInfo_, allocate$Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "D", nullptr, 0, $field(Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer, init$, void)},
+		{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer, accept, void, double)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Spliterators$AbstractDoubleSpliterator", "java.util.Spliterators", "AbstractDoubleSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.util.Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer", "java.util.Spliterators$AbstractDoubleSpliterator", "HoldingDoubleConsumer", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer",
+		"java.lang.Object",
+		"java.util.function.DoubleConsumer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Spliterators"
+	};
+	$loadClass(Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Spliterators$AbstractDoubleSpliterator$HoldingDoubleConsumer);
+	});
 	return class$;
 }
 

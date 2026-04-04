@@ -59,6 +59,7 @@ class $import Label : public ::java::lang::Object {
 	$class(Label, 0, ::java::lang::Object)
 public:
 	Label();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void accept(::jdk::internal::org::objectweb::asm$::MethodVisitor* methodVisitor, bool visitLineNumbers);
 	void addForwardReference(int32_t sourceInsnBytecodeOffset, int32_t referenceType, int32_t referenceHandle);
@@ -80,10 +81,10 @@ public:
 	static const int32_t FLAG_SUBROUTINE_END = 64;
 	static const int32_t LINE_NUMBERS_CAPACITY_INCREMENT = 4;
 	static const int32_t FORWARD_REFERENCES_CAPACITY_INCREMENT = 6;
-	static const int32_t FORWARD_REFERENCE_TYPE_MASK = 0xF0000000;
+	static const int32_t FORWARD_REFERENCE_TYPE_MASK = 0xf0000000;
 	static const int32_t FORWARD_REFERENCE_TYPE_SHORT = 0x10000000;
 	static const int32_t FORWARD_REFERENCE_TYPE_WIDE = 0x20000000;
-	static const int32_t FORWARD_REFERENCE_HANDLE_MASK = 0x0FFFFFFF;
+	static const int32_t FORWARD_REFERENCE_HANDLE_MASK = 0x0fffffff;
 	static ::jdk::internal::org::objectweb::asm$::Label* EMPTY_LIST;
 	$Object* info = nullptr;
 	int16_t flags = 0;

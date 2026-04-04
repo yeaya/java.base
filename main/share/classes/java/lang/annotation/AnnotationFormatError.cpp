@@ -1,5 +1,4 @@
 #include <java/lang/annotation/AnnotationFormatError.h>
-
 #include <java/lang/Error.h>
 #include <jcpp.h>
 
@@ -11,31 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace lang {
 		namespace annotation {
-
-$FieldInfo _AnnotationFormatError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AnnotationFormatError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AnnotationFormatError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AnnotationFormatError, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(AnnotationFormatError, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(AnnotationFormatError, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _AnnotationFormatError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.annotation.AnnotationFormatError",
-	"java.lang.Error",
-	nullptr,
-	_AnnotationFormatError_FieldInfo_,
-	_AnnotationFormatError_MethodInfo_
-};
-
-$Object* allocate$AnnotationFormatError($Class* clazz) {
-	return $of($alloc(AnnotationFormatError));
-}
 
 void AnnotationFormatError::init$($String* message) {
 	$Error::init$(message);
@@ -60,7 +34,27 @@ void AnnotationFormatError::throw$() {
 }
 
 $Class* AnnotationFormatError::load$($String* name, bool initialize) {
-	$loadClass(AnnotationFormatError, name, initialize, &_AnnotationFormatError_ClassInfo_, allocate$AnnotationFormatError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AnnotationFormatError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AnnotationFormatError, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(AnnotationFormatError, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(AnnotationFormatError, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.annotation.AnnotationFormatError",
+		"java.lang.Error",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AnnotationFormatError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AnnotationFormatError);
+	});
 	return class$;
 }
 

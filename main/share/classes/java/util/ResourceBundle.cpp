@@ -1,5 +1,4 @@
 #include <java/util/ResourceBundle.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassLoader.h>
@@ -20,7 +19,6 @@
 #include <java/security/AccessController.h>
 #include <java/security/Permission.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/Collection.h>
 #include <java/util/Enumeration.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
@@ -45,7 +43,6 @@
 #include <java/util/concurrent/ConcurrentHashMap.h>
 #include <java/util/concurrent/ConcurrentMap.h>
 #include <java/util/function/Predicate.h>
-#include <jdk/internal/access/JavaUtilResourceBundleAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
 #include <jdk/internal/loader/BootLoader.h>
 #include <jdk/internal/reflect/Reflection.h>
@@ -63,7 +60,6 @@
 #undef TTL_NO_EXPIRATION_CONTROL
 #undef UNKNOWN_FORMAT
 
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
@@ -87,9 +83,7 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Reference = ::java::lang::ref::Reference;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Collection = ::java::util::Collection;
 using $Enumeration = ::java::util::Enumeration;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
@@ -114,7 +108,6 @@ using $Set = ::java::util::Set;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 using $Predicate = ::java::util::function::Predicate;
-using $JavaUtilResourceBundleAccess = ::jdk::internal::access::JavaUtilResourceBundleAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $BootLoader = ::jdk::internal::loader::BootLoader;
 using $Reflection = ::jdk::internal::reflect::Reflection;
@@ -131,35 +124,31 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->getClassLoader());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ResourceBundle$$Lambda$getClassLoader>());
+		 return $nc(inst$)->getClassLoader();
 	}
 	$Module* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ResourceBundle$$Lambda$getClassLoader::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ResourceBundle$$Lambda$getClassLoader, inst$)},
-	{}
-};
-$MethodInfo ResourceBundle$$Lambda$getClassLoader::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(ResourceBundle$$Lambda$getClassLoader, init$, void, $Module*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$$Lambda$getClassLoader, run, $Object*)},
-	{}
-};
-$ClassInfo ResourceBundle$$Lambda$getClassLoader::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.ResourceBundle$$Lambda$getClassLoader",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* ResourceBundle$$Lambda$getClassLoader::load$($String* name, bool initialize) {
-	$loadClass(ResourceBundle$$Lambda$getClassLoader, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ResourceBundle$$Lambda$getClassLoader, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Module;)V", nullptr, $PUBLIC, $method(ResourceBundle$$Lambda$getClassLoader, init$, void, $Module*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$$Lambda$getClassLoader, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.ResourceBundle$$Lambda$getClassLoader",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResourceBundle$$Lambda$getClassLoader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourceBundle$$Lambda$getClassLoader);
+	});
 	return class$;
 }
 $Class* ResourceBundle$$Lambda$getClassLoader::class$ = nullptr;
@@ -173,33 +162,29 @@ public:
 	virtual bool test(Object$* key) override {
 		 return ResourceBundle::lambda$clearCache$0(caller, $cast($ResourceBundle$CacheKey, key));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ResourceBundle$$Lambda$lambda$clearCache$0$1>());
-	}
 	$Class* caller = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ResourceBundle$$Lambda$lambda$clearCache$0$1::fieldInfos[2] = {
-	{"caller", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(ResourceBundle$$Lambda$lambda$clearCache$0$1, caller)},
-	{}
-};
-$MethodInfo ResourceBundle$$Lambda$lambda$clearCache$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(ResourceBundle$$Lambda$lambda$clearCache$0$1, init$, void, $Class*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$$Lambda$lambda$clearCache$0$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo ResourceBundle$$Lambda$lambda$clearCache$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.ResourceBundle$$Lambda$lambda$clearCache$0$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* ResourceBundle$$Lambda$lambda$clearCache$0$1::load$($String* name, bool initialize) {
-	$loadClass(ResourceBundle$$Lambda$lambda$clearCache$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"caller", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(ResourceBundle$$Lambda$lambda$clearCache$0$1, caller)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;)V", nullptr, $PUBLIC, $method(ResourceBundle$$Lambda$lambda$clearCache$0$1, init$, void, $Class*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$$Lambda$lambda$clearCache$0$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.ResourceBundle$$Lambda$lambda$clearCache$0$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResourceBundle$$Lambda$lambda$clearCache$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourceBundle$$Lambda$lambda$clearCache$0$1);
+	});
 	return class$;
 }
 $Class* ResourceBundle$$Lambda$lambda$clearCache$0$1::class$ = nullptr;
@@ -213,186 +198,32 @@ public:
 	virtual bool test(Object$* key) override {
 		 return ResourceBundle::lambda$clearCache$1(loader, $cast($ResourceBundle$CacheKey, key));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ResourceBundle$$Lambda$lambda$clearCache$1$2>());
-	}
 	$ClassLoader* loader = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ResourceBundle$$Lambda$lambda$clearCache$1$2::fieldInfos[2] = {
-	{"loader", "Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $field(ResourceBundle$$Lambda$lambda$clearCache$1$2, loader)},
-	{}
-};
-$MethodInfo ResourceBundle$$Lambda$lambda$clearCache$1$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(ResourceBundle$$Lambda$lambda$clearCache$1$2, init$, void, $ClassLoader*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$$Lambda$lambda$clearCache$1$2, test, bool, Object$*)},
-	{}
-};
-$ClassInfo ResourceBundle$$Lambda$lambda$clearCache$1$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.ResourceBundle$$Lambda$lambda$clearCache$1$2",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* ResourceBundle$$Lambda$lambda$clearCache$1$2::load$($String* name, bool initialize) {
-	$loadClass(ResourceBundle$$Lambda$lambda$clearCache$1$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"loader", "Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $field(ResourceBundle$$Lambda$lambda$clearCache$1$2, loader)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(ResourceBundle$$Lambda$lambda$clearCache$1$2, init$, void, $ClassLoader*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ResourceBundle$$Lambda$lambda$clearCache$1$2, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.ResourceBundle$$Lambda$lambda$clearCache$1$2",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResourceBundle$$Lambda$lambda$clearCache$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourceBundle$$Lambda$lambda$clearCache$1$2);
+	});
 	return class$;
 }
 $Class* ResourceBundle$$Lambda$lambda$clearCache$1$2::class$ = nullptr;
-
-$CompoundAttribute _ResourceBundle_MethodAnnotations_clearCache3[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ResourceBundle_MethodAnnotations_getBundle9[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ResourceBundle_MethodAnnotations_getBundle10[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ResourceBundle_MethodAnnotations_getBundle11[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ResourceBundle_MethodAnnotations_getBundle12[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ResourceBundle_MethodAnnotations_getBundle13[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ResourceBundle_MethodAnnotations_getBundle14[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ResourceBundle_MethodAnnotations_getBundle15[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ResourceBundle_MethodAnnotations_getBundle16[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$FieldInfo _ResourceBundle_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ResourceBundle, $assertionsDisabled)},
-	{"INITIAL_CACHE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ResourceBundle, INITIAL_CACHE_SIZE)},
-	{"NONEXISTENT_BUNDLE", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResourceBundle, NONEXISTENT_BUNDLE)},
-	{"cacheList", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/util/ResourceBundle$CacheKey;Ljava/util/ResourceBundle$BundleReference;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ResourceBundle, cacheList)},
-	{"referenceQueue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ResourceBundle, referenceQueue)},
-	{"parent", "Ljava/util/ResourceBundle;", nullptr, $PROTECTED, $field(ResourceBundle, parent)},
-	{"locale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(ResourceBundle, locale)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ResourceBundle, name)},
-	{"expired", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ResourceBundle, expired)},
-	{"cacheKey", "Ljava/util/ResourceBundle$CacheKey;", nullptr, $PRIVATE | $VOLATILE, $field(ResourceBundle, cacheKey)},
-	{"keySet", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $VOLATILE, $field(ResourceBundle, keySet$)},
-	{"UNKNOWN_FORMAT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResourceBundle, UNKNOWN_FORMAT)},
-	{"TRACE_ON", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResourceBundle, TRACE_ON)},
-	{}
-};
-
-$MethodInfo _ResourceBundle_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ResourceBundle, init$, void)},
-	{"checkList", "(Ljava/util/List;)Z", "(Ljava/util/List<*>;)Z", $PRIVATE | $STATIC, $staticMethod(ResourceBundle, checkList, bool, $List*)},
-	{"checkNamedModule", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(ResourceBundle, checkNamedModule, void, $Class*)},
-	{"clearCache", "()V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ResourceBundle, clearCache, void), nullptr, nullptr, _ResourceBundle_MethodAnnotations_clearCache3},
-	{"clearCache", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ResourceBundle, clearCache, void, $ClassLoader*)},
-	{"containsKey", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ResourceBundle, containsKey, bool, $String*)},
-	{"findBundle", "(Ljava/lang/Module;Ljava/lang/Module;Ljava/util/ResourceBundle$CacheKey;Ljava/util/List;Ljava/util/List;ILjava/util/ResourceBundle$Control;Ljava/util/ResourceBundle;)Ljava/util/ResourceBundle;", "(Ljava/lang/Module;Ljava/lang/Module;Ljava/util/ResourceBundle$CacheKey;Ljava/util/List<Ljava/util/Locale;>;Ljava/util/List<Ljava/lang/String;>;ILjava/util/ResourceBundle$Control;Ljava/util/ResourceBundle;)Ljava/util/ResourceBundle;", $PRIVATE | $STATIC, $staticMethod(ResourceBundle, findBundle, ResourceBundle*, $Module*, $Module*, $ResourceBundle$CacheKey*, $List*, $List*, int32_t, $ResourceBundle$Control*, ResourceBundle*)},
-	{"findBundleInCache", "(Ljava/util/ResourceBundle$CacheKey;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceBundle, findBundleInCache, ResourceBundle*, $ResourceBundle$CacheKey*, $ResourceBundle$Control*)},
-	{"getBaseBundleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle, getBaseBundleName, $String*)},
-	{"getBundle", "(Ljava/lang/String;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ResourceBundle, getBundle, ResourceBundle*, $String*), nullptr, nullptr, _ResourceBundle_MethodAnnotations_getBundle9},
-	{"getBundle", "(Ljava/lang/String;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ResourceBundle, getBundle, ResourceBundle*, $String*, $ResourceBundle$Control*), nullptr, nullptr, _ResourceBundle_MethodAnnotations_getBundle10},
-	{"getBundle", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ResourceBundle, getBundle, ResourceBundle*, $String*, $Locale*), nullptr, nullptr, _ResourceBundle_MethodAnnotations_getBundle11},
-	{"getBundle", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourceBundle, getBundle, ResourceBundle*, $String*, $Module*), nullptr, nullptr, _ResourceBundle_MethodAnnotations_getBundle12},
-	{"getBundle", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/Module;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourceBundle, getBundle, ResourceBundle*, $String*, $Locale*, $Module*), nullptr, nullptr, _ResourceBundle_MethodAnnotations_getBundle13},
-	{"getBundle", "(Ljava/lang/String;Ljava/util/Locale;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ResourceBundle, getBundle, ResourceBundle*, $String*, $Locale*, $ResourceBundle$Control*), nullptr, nullptr, _ResourceBundle_MethodAnnotations_getBundle14},
-	{"getBundle", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/ClassLoader;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourceBundle, getBundle, ResourceBundle*, $String*, $Locale*, $ClassLoader*), nullptr, nullptr, _ResourceBundle_MethodAnnotations_getBundle15},
-	{"getBundle", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/ClassLoader;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourceBundle, getBundle, ResourceBundle*, $String*, $Locale*, $ClassLoader*, $ResourceBundle$Control*), nullptr, nullptr, _ResourceBundle_MethodAnnotations_getBundle16},
-	{"getBundleFromModule", "(Ljava/lang/Class;Ljava/lang/Module;Ljava/lang/String;Ljava/util/Locale;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", "(Ljava/lang/Class<*>;Ljava/lang/Module;Ljava/lang/String;Ljava/util/Locale;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", $PRIVATE | $STATIC, $staticMethod(ResourceBundle, getBundleFromModule, ResourceBundle*, $Class*, $Module*, $String*, $Locale*, $ResourceBundle$Control*)},
-	{"getBundleImpl", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/Class;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/Class<*>;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", $PRIVATE | $STATIC, $staticMethod(ResourceBundle, getBundleImpl, ResourceBundle*, $String*, $Locale*, $Class*, $ResourceBundle$Control*)},
-	{"getBundleImpl", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/Class;Ljava/lang/ClassLoader;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/Class<*>;Ljava/lang/ClassLoader;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", $PRIVATE | $STATIC, $staticMethod(ResourceBundle, getBundleImpl, ResourceBundle*, $String*, $Locale*, $Class*, $ClassLoader*, $ResourceBundle$Control*)},
-	{"getBundleImpl", "(Ljava/lang/Module;Ljava/lang/Module;Ljava/lang/String;Ljava/util/Locale;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceBundle, getBundleImpl, ResourceBundle*, $Module*, $Module*, $String*, $Locale*, $ResourceBundle$Control*)},
-	{"getDefaultControl", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/util/ResourceBundle$Control;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/util/ResourceBundle$Control;", $PRIVATE | $STATIC, $staticMethod(ResourceBundle, getDefaultControl, $ResourceBundle$Control*, $Class*, $String*)},
-	{"getDefaultControl", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/util/ResourceBundle$Control;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceBundle, getDefaultControl, $ResourceBundle$Control*, $Module*, $String*)},
-	{"getKeys", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ResourceBundle, getKeys, $Enumeration*)},
-	{"getLoader", "(Ljava/lang/Module;)Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceBundle, getLoader, $ClassLoader*, $Module*)},
-	{"getLoaderForControl", "(Ljava/lang/Module;)Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceBundle, getLoaderForControl, $ClassLoader*, $Module*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle, getLocale, $Locale*)},
-	{"getObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(ResourceBundle, getObject, $Object*, $String*)},
-	{"getResourceBundleProviderType", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<Ljava/util/spi/ResourceBundleProvider;>;", $PRIVATE | $STATIC, $staticMethod(ResourceBundle, getResourceBundleProviderType, $Class*, $String*, $ClassLoader*)},
-	{"getServiceLoader", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/util/ServiceLoader;", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/util/ServiceLoader<Ljava/util/spi/ResourceBundleProvider;>;", $PRIVATE | $STATIC, $staticMethod(ResourceBundle, getServiceLoader, $ServiceLoader*, $Module*, $String*)},
-	{"getString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(ResourceBundle, getString, $String*, $String*)},
-	{"getStringArray", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(ResourceBundle, getStringArray, $StringArray*, $String*)},
-	{"handleGetObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ResourceBundle, handleGetObject, $Object*, $String*)},
-	{"handleKeySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED, $virtualMethod(ResourceBundle, handleKeySet, $Set*)},
-	{"hasValidParentChain", "(Ljava/util/ResourceBundle;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceBundle, hasValidParentChain, bool, ResourceBundle*)},
-	{"isValidBundle", "(Ljava/util/ResourceBundle;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceBundle, isValidBundle, bool, ResourceBundle*)},
-	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ResourceBundle, keySet, $Set*)},
-	{"lambda$clearCache$0", "(Ljava/lang/Class;Ljava/util/ResourceBundle$CacheKey;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResourceBundle, lambda$clearCache$0, bool, $Class*, $ResourceBundle$CacheKey*)},
-	{"lambda$clearCache$1", "(Ljava/lang/ClassLoader;Ljava/util/ResourceBundle$CacheKey;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResourceBundle, lambda$clearCache$1, bool, $ClassLoader*, $ResourceBundle$CacheKey*)},
-	{"loadBundle", "(Ljava/util/ResourceBundle$CacheKey;Ljava/util/List;Ljava/util/ResourceBundle$Control;Ljava/lang/Module;Ljava/lang/Module;)Ljava/util/ResourceBundle;", "(Ljava/util/ResourceBundle$CacheKey;Ljava/util/List<Ljava/lang/String;>;Ljava/util/ResourceBundle$Control;Ljava/lang/Module;Ljava/lang/Module;)Ljava/util/ResourceBundle;", $PRIVATE | $STATIC, $staticMethod(ResourceBundle, loadBundle, ResourceBundle*, $ResourceBundle$CacheKey*, $List*, $ResourceBundle$Control*, $Module*, $Module*)},
-	{"loadBundle", "(Ljava/util/ResourceBundle$CacheKey;Ljava/util/List;Ljava/util/ResourceBundle$Control;Z)Ljava/util/ResourceBundle;", "(Ljava/util/ResourceBundle$CacheKey;Ljava/util/List<Ljava/lang/String;>;Ljava/util/ResourceBundle$Control;Z)Ljava/util/ResourceBundle;", $PRIVATE | $STATIC, $staticMethod(ResourceBundle, loadBundle, ResourceBundle*, $ResourceBundle$CacheKey*, $List*, $ResourceBundle$Control*, bool)},
-	{"loadBundleFromProviders", "(Ljava/lang/String;Ljava/util/Locale;Ljava/util/ServiceLoader;Ljava/util/ResourceBundle$CacheKey;)Ljava/util/ResourceBundle;", "(Ljava/lang/String;Ljava/util/Locale;Ljava/util/ServiceLoader<Ljava/util/spi/ResourceBundleProvider;>;Ljava/util/ResourceBundle$CacheKey;)Ljava/util/ResourceBundle;", $PRIVATE | $STATIC, $staticMethod(ResourceBundle, loadBundleFromProviders, ResourceBundle*, $String*, $Locale*, $ServiceLoader*, $ResourceBundle$CacheKey*)},
-	{"putBundleInCache", "(Ljava/util/ResourceBundle$CacheKey;Ljava/util/ResourceBundle;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceBundle, putBundleInCache, ResourceBundle*, $ResourceBundle$CacheKey*, ResourceBundle*, $ResourceBundle$Control*)},
-	{"setExpirationTime", "(Ljava/util/ResourceBundle$CacheKey;Ljava/util/ResourceBundle$Control;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceBundle, setExpirationTime, void, $ResourceBundle$CacheKey*, $ResourceBundle$Control*)},
-	{"setParent", "(Ljava/util/ResourceBundle;)V", nullptr, $PROTECTED, $virtualMethod(ResourceBundle, setParent, void, ResourceBundle*)},
-	{"throwMissingResourceException", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceBundle, throwMissingResourceException, void, $String*, $Locale*, $Throwable*)},
-	{"trace", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(ResourceBundle, trace, void, $String*, $ObjectArray*)},
-	{"uncheckedThrow", "(Ljava/lang/Throwable;)V", "<T:Ljava/lang/Throwable;>(Ljava/lang/Throwable;)V^TT;", $PRIVATE | $STATIC, $staticMethod(ResourceBundle, uncheckedThrow, void, $Throwable*), "java.lang.Throwable"},
-	{}
-};
-
-$InnerClassInfo _ResourceBundle_InnerClassesInfo_[] = {
-	{"java.util.ResourceBundle$ResourceBundleProviderHelper", "java.util.ResourceBundle", "ResourceBundleProviderHelper", $PRIVATE | $STATIC},
-	{"java.util.ResourceBundle$NoFallbackControl", "java.util.ResourceBundle", "NoFallbackControl", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.ResourceBundle$SingleFormatControl", "java.util.ResourceBundle", "SingleFormatControl", $PRIVATE | $STATIC},
-	{"java.util.ResourceBundle$Control", "java.util.ResourceBundle", "Control", $PUBLIC | $STATIC},
-	{"java.util.ResourceBundle$ResourceBundleControlProviderHolder", "java.util.ResourceBundle", "ResourceBundleControlProviderHolder", $PRIVATE | $STATIC},
-	{"java.util.ResourceBundle$BundleReference", "java.util.ResourceBundle", "BundleReference", $PRIVATE | $STATIC},
-	{"java.util.ResourceBundle$KeyElementReference", "java.util.ResourceBundle", "KeyElementReference", $PRIVATE | $STATIC},
-	{"java.util.ResourceBundle$CacheKeyReference", "java.util.ResourceBundle", "CacheKeyReference", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.ResourceBundle$CacheKey", "java.util.ResourceBundle", "CacheKey", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.ResourceBundle$4", nullptr, nullptr, 0},
-	{"java.util.ResourceBundle$3", nullptr, nullptr, 0},
-	{"java.util.ResourceBundle$2", nullptr, nullptr, 0},
-	{"java.util.ResourceBundle$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ResourceBundle_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.util.ResourceBundle",
-	"java.lang.Object",
-	nullptr,
-	_ResourceBundle_FieldInfo_,
-	_ResourceBundle_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ResourceBundle_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.ResourceBundle$ResourceBundleProviderHelper,java.util.ResourceBundle$NoFallbackControl,java.util.ResourceBundle$SingleFormatControl,java.util.ResourceBundle$Control,java.util.ResourceBundle$Control$CandidateListCache,java.util.ResourceBundle$Control$2,java.util.ResourceBundle$Control$1,java.util.ResourceBundle$ResourceBundleControlProviderHolder,java.util.ResourceBundle$BundleReference,java.util.ResourceBundle$KeyElementReference,java.util.ResourceBundle$CacheKeyReference,java.util.ResourceBundle$CacheKey,java.util.ResourceBundle$4,java.util.ResourceBundle$3,java.util.ResourceBundle$2,java.util.ResourceBundle$1"
-};
-
-$Object* allocate$ResourceBundle($Class* clazz) {
-	return $of($alloc(ResourceBundle));
-}
 
 bool ResourceBundle::$assertionsDisabled = false;
 ResourceBundle* ResourceBundle::NONEXISTENT_BUNDLE = nullptr;
@@ -419,18 +250,18 @@ $StringArray* ResourceBundle::getStringArray($String* key) {
 }
 
 $Object* ResourceBundle::getObject($String* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, obj, handleGetObject(key));
 	if (obj == nullptr) {
 		if (this->parent != nullptr) {
-			$assign(obj, $nc(this->parent)->getObject(key));
+			$assign(obj, this->parent->getObject(key));
 		}
 		if (obj == nullptr) {
-			$var($String, var$0, $str({"Can\'t find resource for bundle "_s, $($of(this)->getClass()->getName()), ", key "_s, key}));
-			$throwNew($MissingResourceException, var$0, $($of(this)->getClass()->getName()), key);
+			$var($String, var$0, $str({"Can\'t find resource for bundle "_s, $(this->getClass()->getName()), ", key "_s, key}));
+			$throwNew($MissingResourceException, var$0, $(this->getClass()->getName()), key);
 		}
 	}
-	return $of(obj);
+	return obj;
 }
 
 $Locale* ResourceBundle::getLocale() {
@@ -440,7 +271,7 @@ $Locale* ResourceBundle::getLocale() {
 $ClassLoader* ResourceBundle::getLoader($Module* module) {
 	$init(ResourceBundle);
 	$beforeCallerSensitive();
-	$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(ResourceBundle$$Lambda$getClassLoader, static_cast<$Module*>($nc(module)))));
+	$var($PrivilegedAction, pa, $new(ResourceBundle$$Lambda$getClassLoader, $nc(module)));
 	return $cast($ClassLoader, $AccessController::doPrivileged(pa));
 }
 
@@ -460,12 +291,10 @@ void ResourceBundle::setParent(ResourceBundle* parent) {
 
 ResourceBundle* ResourceBundle::getBundle($String* baseName) {
 	$init(ResourceBundle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Class* caller = $Reflection::getCallerClass();
-	$var($String, var$0, baseName);
-	$var($Locale, var$1, $Locale::getDefault());
-	$Class* var$2 = caller;
-	return getBundleImpl(var$0, var$1, var$2, $(getDefaultControl(caller, baseName)));
+	$var($Locale, var$0, $Locale::getDefault());
+	return getBundleImpl(baseName, var$0, caller, $(getDefaultControl(caller, baseName)));
 }
 
 ResourceBundle* ResourceBundle::getBundle($String* baseName, $ResourceBundle$Control* control) {
@@ -484,22 +313,16 @@ ResourceBundle* ResourceBundle::getBundle($String* baseName, $Locale* locale) {
 
 ResourceBundle* ResourceBundle::getBundle($String* baseName, $Module* module) {
 	$init(ResourceBundle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Class* var$0 = $Reflection::getCallerClass();
-	$var($Module, var$1, module);
-	$var($String, var$2, baseName);
-	$var($Locale, var$3, $Locale::getDefault());
-	return getBundleFromModule(var$0, var$1, var$2, var$3, $(getDefaultControl(module, baseName)));
+	$var($Locale, var$1, $Locale::getDefault());
+	return getBundleFromModule(var$0, module, baseName, var$1, $(getDefaultControl(module, baseName)));
 }
 
 ResourceBundle* ResourceBundle::getBundle($String* baseName, $Locale* targetLocale, $Module* module) {
 	$init(ResourceBundle);
-	$useLocalCurrentObjectStackCache();
 	$Class* var$0 = $Reflection::getCallerClass();
-	$var($Module, var$1, module);
-	$var($String, var$2, baseName);
-	$var($Locale, var$3, targetLocale);
-	return getBundleFromModule(var$0, var$1, var$2, var$3, $(getDefaultControl(module, baseName)));
+	return getBundleFromModule(var$0, module, baseName, targetLocale, $(getDefaultControl(module, baseName)));
 }
 
 ResourceBundle* ResourceBundle::getBundle($String* baseName, $Locale* targetLocale, $ResourceBundle$Control* control) {
@@ -541,7 +364,7 @@ $ResourceBundle$Control* ResourceBundle::getDefaultControl($Module* targetModule
 
 void ResourceBundle::checkNamedModule($Class* caller) {
 	$init(ResourceBundle);
-	if ($nc($($nc(caller)->getModule()))->isNamed()) {
+	if ($$nc($nc(caller)->getModule())->isNamed()) {
 		$throwNew($UnsupportedOperationException, "ResourceBundle.Control not supported in named modules"_s);
 	}
 }
@@ -554,7 +377,7 @@ ResourceBundle* ResourceBundle::getBundleImpl($String* baseName, $Locale* locale
 
 ResourceBundle* ResourceBundle::getBundleImpl($String* baseName, $Locale* locale, $Class* caller, $ClassLoader* loader, $ResourceBundle$Control* control) {
 	$init(ResourceBundle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (caller == nullptr) {
 		$throwNew($InternalError, "null caller"_s);
 	}
@@ -563,13 +386,13 @@ ResourceBundle* ResourceBundle::getBundleImpl($String* baseName, $Locale* locale
 	if (var$0 && loader == getLoader(callerModule)) {
 		return getBundleImpl(callerModule, callerModule, baseName, locale, control);
 	}
-	$var($Module, unnamedModule, loader != nullptr ? $nc(loader)->getUnnamedModule() : $BootLoader::getUnnamedModule());
+	$var($Module, unnamedModule, loader != nullptr ? loader->getUnnamedModule() : $BootLoader::getUnnamedModule());
 	return getBundleImpl(callerModule, unnamedModule, baseName, locale, control);
 }
 
 ResourceBundle* ResourceBundle::getBundleFromModule($Class* caller, $Module* module, $String* baseName, $Locale* locale, $ResourceBundle$Control* control) {
 	$init(ResourceBundle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(module);
 	$var($Module, callerModule, $nc(caller)->getModule());
 	if (callerModule != module) {
@@ -584,13 +407,13 @@ ResourceBundle* ResourceBundle::getBundleFromModule($Class* caller, $Module* mod
 
 ResourceBundle* ResourceBundle::getBundleImpl($Module* callerModule, $Module* module, $String* baseName, $Locale* locale, $ResourceBundle$Control* control) {
 	$init(ResourceBundle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (locale == nullptr || control == nullptr) {
 		$throwNew($NullPointerException);
 	}
 	$var($ResourceBundle$CacheKey, cacheKey, $new($ResourceBundle$CacheKey, baseName, locale, module, callerModule));
 	$var(ResourceBundle, bundle, nullptr);
-	$var($ResourceBundle$BundleReference, bundleRef, $cast($ResourceBundle$BundleReference, $nc(ResourceBundle::cacheList)->get(cacheKey)));
+	$var($ResourceBundle$BundleReference, bundleRef, $cast($ResourceBundle$BundleReference, ResourceBundle::cacheList->get(cacheKey)));
 	if (bundleRef != nullptr) {
 		$assign(bundle, $cast(ResourceBundle, bundleRef->get()));
 		$assign(bundleRef, nullptr);
@@ -617,10 +440,10 @@ ResourceBundle* ResourceBundle::getBundleImpl($Module* callerModule, $Module* mo
 			if (isValidBundle(bundle)) {
 				$init($Locale);
 				bool isBaseBundle = $nc($Locale::ROOT)->equals($nc(bundle)->locale);
-				bool var$1 = !isBaseBundle || $nc($nc(bundle)->locale)->equals(locale);
+				bool var$1 = !isBaseBundle || $nc(bundle->locale)->equals(locale);
 				if (!var$1) {
 					bool var$2 = $nc(candidateLocales)->size() == 1;
-					var$1 = (var$2 && $nc($nc(bundle)->locale)->equals($(candidateLocales->get(0))));
+					var$1 = var$2 && $nc(bundle->locale)->equals($(candidateLocales->get(0)));
 				}
 				if (var$1) {
 					break;
@@ -646,7 +469,7 @@ bool ResourceBundle::checkList($List* a) {
 	$init(ResourceBundle);
 	bool valid = (a != nullptr && !a->isEmpty());
 	if (valid) {
-		int32_t size = a->size();
+		int32_t size = $nc(a)->size();
 		for (int32_t i = 0; valid && i < size; ++i) {
 			valid = (a->get(i) != nullptr);
 		}
@@ -656,7 +479,7 @@ bool ResourceBundle::checkList($List* a) {
 
 ResourceBundle* ResourceBundle::findBundle($Module* callerModule, $Module* module, $ResourceBundle$CacheKey* cacheKey, $List* candidateLocales, $List* formats, int32_t index, $ResourceBundle$Control* control, ResourceBundle* baseBundle) {
 	$init(ResourceBundle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, targetLocale, $cast($Locale, $nc(candidateLocales)->get(index)));
 	$var(ResourceBundle, parent, nullptr);
 	if (index != candidateLocales->size() - 1) {
@@ -668,8 +491,8 @@ ResourceBundle* ResourceBundle::findBundle($Module* callerModule, $Module* modul
 		}
 	}
 	$var($Object, ref, nullptr);
-	while (($assign(ref, $nc(ResourceBundle::referenceQueue)->poll())) != nullptr) {
-		$nc(ResourceBundle::cacheList)->remove($($nc(($cast($ResourceBundle$CacheKeyReference, ref)))->getCacheKey()));
+	while (($assign(ref, ResourceBundle::referenceQueue->poll())) != nullptr) {
+		ResourceBundle::cacheList->remove($($nc($cast($ResourceBundle$CacheKeyReference, ref))->getCacheKey()));
 	}
 	bool expiredBundle = false;
 	$nc(cacheKey)->setLocale(targetLocale);
@@ -680,18 +503,18 @@ ResourceBundle* ResourceBundle::findBundle($Module* callerModule, $Module* modul
 			if (bundle->parent == parent) {
 				return bundle;
 			}
-			$var($ResourceBundle$BundleReference, bundleRef, $cast($ResourceBundle$BundleReference, $nc(ResourceBundle::cacheList)->get(cacheKey)));
+			$var($ResourceBundle$BundleReference, bundleRef, $cast($ResourceBundle$BundleReference, ResourceBundle::cacheList->get(cacheKey)));
 			if (bundleRef != nullptr && bundleRef->refersTo(bundle)) {
-				$nc(ResourceBundle::cacheList)->remove(cacheKey, bundleRef);
+				ResourceBundle::cacheList->remove(cacheKey, bundleRef);
 			}
 		}
 	}
 	if (bundle != ResourceBundle::NONEXISTENT_BUNDLE) {
 		trace("findBundle: %d %s %s formats: %s%n"_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf(index))),
-			$of(candidateLocales),
-			$of(cacheKey),
-			$of(formats)
+			$($Integer::valueOf(index)),
+			candidateLocales,
+			cacheKey,
+			formats
 		}));
 		if ($nc(module)->isNamed()) {
 			$assign(bundle, loadBundle(cacheKey, formats, control, module, callerModule));
@@ -713,7 +536,7 @@ ResourceBundle* ResourceBundle::findBundle($Module* callerModule, $Module* modul
 
 ResourceBundle* ResourceBundle::loadBundle($ResourceBundle$CacheKey* cacheKey, $List* formats, $ResourceBundle$Control* control, $Module* module, $Module* callerModule) {
 	$init(ResourceBundle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, baseName, $nc(cacheKey)->getName());
 	$var($Locale, targetLocale, cacheKey->getLocale());
 	$var(ResourceBundle, bundle, nullptr);
@@ -733,59 +556,44 @@ ResourceBundle* ResourceBundle::loadBundle($ResourceBundle$CacheKey* cacheKey, $
 		}
 	}
 	if (bundle == nullptr && !cacheKey->callerHasProvider()) {
-		{
-			$var($Iterator, i$, $nc(formats)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($String, format, $cast($String, i$->next()));
-				{
-					try {
-						$var($String, s80502$, format);
-						int32_t tmp80502$ = -1;
-						switch ($nc(s80502$)->hashCode()) {
-						case (int32_t)0x95829EAC:
-							{
-								if (s80502$->equals("java.class"_s)) {
-									tmp80502$ = 0;
-								}
-								break;
-							}
-						case 0x2E7DB87F:
-							{
-								if (s80502$->equals("java.properties"_s)) {
-									tmp80502$ = 1;
-								}
-								break;
-							}
-						}
-
-						$var(ResourceBundle, var$1, nullptr)
-						switch (tmp80502$) {
-						case 0:
-							{
-								$assign(var$1, $ResourceBundle$ResourceBundleProviderHelper::loadResourceBundle(callerModule, module, baseName, targetLocale));
-								break;
-							}
-						case 1:
-							{
-								$assign(var$1, $ResourceBundle$ResourceBundleProviderHelper::loadPropertyResourceBundle(callerModule, module, baseName, targetLocale));
-								break;
-							}
-						default:
-							{
-								$throwNew($InternalError, $$str({"unexpected format: "_s, format}));
-							}
-						}
-						$assign(bundle, var$1);
-						if (bundle != nullptr) {
-							cacheKey->setFormat(format);
-							break;
-						}
-					} catch ($LinkageError& e) {
-						cacheKey->setCause(e);
-					} catch ($Exception& e) {
-						cacheKey->setCause(e);
+		$var($Iterator, i$, $nc(formats)->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($String, format, $cast($String, i$->next()));
+			try {
+				$var($String, s80502$, format);
+				int32_t tmp80502$ = -1;
+				switch ($nc(s80502$)->hashCode()) {
+				case (int32_t)0x95829eac:
+					if (s80502$->equals("java.class"_s)) {
+						tmp80502$ = 0;
 					}
+					break;
+				case 0x2e7db87f:
+					if (s80502$->equals("java.properties"_s)) {
+						tmp80502$ = 1;
+					}
+					break;
 				}
+				$var(ResourceBundle, var$1, nullptr);
+				switch (tmp80502$) {
+				case 0:
+					$assign(var$1, $ResourceBundle$ResourceBundleProviderHelper::loadResourceBundle(callerModule, module, baseName, targetLocale));
+					break;
+				case 1:
+					$assign(var$1, $ResourceBundle$ResourceBundleProviderHelper::loadPropertyResourceBundle(callerModule, module, baseName, targetLocale));
+					break;
+				default:
+					$throwNew($InternalError, $$str({"unexpected format: "_s, format}));
+				}
+				$assign(bundle, var$1);
+				if (bundle != nullptr) {
+					cacheKey->setFormat(format);
+					break;
+				}
+			} catch ($LinkageError& e) {
+				cacheKey->setCause(e);
+			} catch ($Exception& e) {
+				cacheKey->setCause(e);
 			}
 		}
 	}
@@ -811,15 +619,15 @@ $ServiceLoader* ResourceBundle::getServiceLoader($Module* module, $String* baseN
 
 $Class* ResourceBundle::getResourceBundleProviderType($String* baseName, $ClassLoader* loader) {
 	$init(ResourceBundle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	int32_t i = $nc(baseName)->lastIndexOf((int32_t)u'.');
+	int32_t i = $nc(baseName)->lastIndexOf(u'.');
 	if (i <= 0) {
 		return nullptr;
 	}
 	$var($String, name, $str({$(baseName->substring(i + 1, baseName->length())), "Provider"_s}));
 	$var($String, providerName, $str({$(baseName->substring(0, i)), ".spi."_s, name}));
-	return $cast($Class, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ResourceBundle$3, providerName, loader))));
+	return $cast($Class, $AccessController::doPrivileged($$new($ResourceBundle$3, providerName, loader)));
 }
 
 ResourceBundle* ResourceBundle::loadBundleFromProviders($String* baseName, $Locale* locale, $ServiceLoader* providers, $ResourceBundle$CacheKey* cacheKey) {
@@ -828,12 +636,12 @@ ResourceBundle* ResourceBundle::loadBundleFromProviders($String* baseName, $Loca
 	if (providers == nullptr) {
 		return nullptr;
 	}
-	return $cast(ResourceBundle, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ResourceBundle$4, providers, cacheKey, baseName, locale))));
+	return $cast(ResourceBundle, $AccessController::doPrivileged($$new($ResourceBundle$4, providers, cacheKey, baseName, locale)));
 }
 
 ResourceBundle* ResourceBundle::loadBundle($ResourceBundle$CacheKey* cacheKey, $List* formats, $ResourceBundle$Control* control, bool reload) {
 	$init(ResourceBundle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, targetLocale, $nc(cacheKey)->getLocale());
 	$var($Module, module, cacheKey->getModule());
 	if (module == nullptr) {
@@ -873,7 +681,7 @@ bool ResourceBundle::isValidBundle(ResourceBundle* bundle) {
 
 bool ResourceBundle::hasValidParentChain(ResourceBundle* bundle$renamed) {
 	$init(ResourceBundle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(ResourceBundle, bundle, bundle$renamed);
 	int64_t now = $System::currentTimeMillis();
 	while (bundle != nullptr) {
@@ -894,7 +702,7 @@ bool ResourceBundle::hasValidParentChain(ResourceBundle* bundle$renamed) {
 
 void ResourceBundle::throwMissingResourceException($String* baseName, $Locale* locale, $Throwable* cause$renamed) {
 	$init(ResourceBundle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Throwable, cause, cause$renamed);
 	if ($instanceOf($MissingResourceException, cause)) {
 		$assign(cause, nullptr);
@@ -905,8 +713,8 @@ void ResourceBundle::throwMissingResourceException($String* baseName, $Locale* l
 
 ResourceBundle* ResourceBundle::findBundleInCache($ResourceBundle$CacheKey* cacheKey, $ResourceBundle$Control* control) {
 	$init(ResourceBundle);
-	$useLocalCurrentObjectStackCache();
-	$var($ResourceBundle$BundleReference, bundleRef, $cast($ResourceBundle$BundleReference, $nc(ResourceBundle::cacheList)->get(cacheKey)));
+	$useLocalObjectStack();
+	$var($ResourceBundle$BundleReference, bundleRef, $cast($ResourceBundle$BundleReference, ResourceBundle::cacheList->get(cacheKey)));
 	if (bundleRef == nullptr) {
 		return nullptr;
 	}
@@ -924,7 +732,7 @@ ResourceBundle* ResourceBundle::findBundleInCache($ResourceBundle$CacheKey* cach
 		}
 		bundle->expired = true;
 		$set(bundle, cacheKey, nullptr);
-		$nc(ResourceBundle::cacheList)->remove(cacheKey, bundleRef);
+		ResourceBundle::cacheList->remove(cacheKey, bundleRef);
 		$assign(bundle, nullptr);
 	} else {
 		$var($ResourceBundle$CacheKey, key, bundleRef->getCacheKey());
@@ -949,14 +757,14 @@ ResourceBundle* ResourceBundle::findBundleInCache($ResourceBundle$CacheKey* cach
 						}
 						if (bundle->expired) {
 							$set(bundle, cacheKey, nullptr);
-							$nc(ResourceBundle::cacheList)->remove(cacheKey, bundleRef);
+							ResourceBundle::cacheList->remove(cacheKey, bundleRef);
 						} else {
 							setExpirationTime(key, control);
 						}
 					}
 				}
 			} else {
-				$nc(ResourceBundle::cacheList)->remove(cacheKey, bundleRef);
+				ResourceBundle::cacheList->remove(cacheKey, bundleRef);
 				$assign(bundle, nullptr);
 			}
 		}
@@ -966,14 +774,14 @@ ResourceBundle* ResourceBundle::findBundleInCache($ResourceBundle$CacheKey* cach
 
 ResourceBundle* ResourceBundle::putBundleInCache($ResourceBundle$CacheKey* cacheKey, ResourceBundle* bundle$renamed, $ResourceBundle$Control* control) {
 	$init(ResourceBundle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(ResourceBundle, bundle, bundle$renamed);
 	setExpirationTime(cacheKey, control);
 	if ($nc(cacheKey)->expirationTime != $ResourceBundle$Control::TTL_DONT_CACHE) {
 		$var($ResourceBundle$CacheKey, key, $new($ResourceBundle$CacheKey, cacheKey));
 		$var($ResourceBundle$BundleReference, bundleRef, $new($ResourceBundle$BundleReference, bundle, ResourceBundle::referenceQueue, key));
 		$set($nc(bundle), cacheKey, key);
-		$var($ResourceBundle$BundleReference, result, $cast($ResourceBundle$BundleReference, $nc(ResourceBundle::cacheList)->putIfAbsent(key, bundleRef)));
+		$var($ResourceBundle$BundleReference, result, $cast($ResourceBundle$BundleReference, ResourceBundle::cacheList->putIfAbsent(key, bundleRef)));
 		if (result != nullptr) {
 			$var(ResourceBundle, rb, $cast(ResourceBundle, result->get()));
 			if (rb != nullptr && !rb->expired) {
@@ -981,7 +789,7 @@ ResourceBundle* ResourceBundle::putBundleInCache($ResourceBundle$CacheKey* cache
 				$assign(bundle, rb);
 				bundleRef->clear();
 			} else {
-				$nc(ResourceBundle::cacheList)->put(key, bundleRef);
+				ResourceBundle::cacheList->put(key, bundleRef);
 			}
 		}
 	}
@@ -990,15 +798,15 @@ ResourceBundle* ResourceBundle::putBundleInCache($ResourceBundle$CacheKey* cache
 
 void ResourceBundle::setExpirationTime($ResourceBundle$CacheKey* cacheKey, $ResourceBundle$Control* control) {
 	$init(ResourceBundle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, $nc(cacheKey)->getName());
 	int64_t ttl = $nc(control)->getTimeToLive(var$0, $(cacheKey->getLocale()));
 	if (ttl >= 0) {
 		int64_t now = $System::currentTimeMillis();
-		$nc(cacheKey)->loadTime = now;
+		cacheKey->loadTime = now;
 		cacheKey->expirationTime = now + ttl;
 	} else if (ttl >= $ResourceBundle$Control::TTL_NO_EXPIRATION_CONTROL) {
-		$nc(cacheKey)->expirationTime = ttl;
+		cacheKey->expirationTime = ttl;
 	} else {
 		$throwNew($IllegalArgumentException, $$str({"Invalid Control: TTL="_s, $$str(ttl)}));
 	}
@@ -1006,27 +814,27 @@ void ResourceBundle::setExpirationTime($ResourceBundle$CacheKey* cacheKey, $Reso
 
 void ResourceBundle::clearCache() {
 	$init(ResourceBundle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Class* caller = $Reflection::getCallerClass();
-	$nc($($nc(ResourceBundle::cacheList)->keySet()))->removeIf(static_cast<$Predicate*>($$new(ResourceBundle$$Lambda$lambda$clearCache$0$1, caller)));
+	$$nc(ResourceBundle::cacheList->keySet())->removeIf($$new(ResourceBundle$$Lambda$lambda$clearCache$0$1, caller));
 }
 
 void ResourceBundle::clearCache($ClassLoader* loader) {
 	$init(ResourceBundle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(loader);
-	$nc($($nc(ResourceBundle::cacheList)->keySet()))->removeIf(static_cast<$Predicate*>($$new(ResourceBundle$$Lambda$lambda$clearCache$1$2, loader)));
+	$$nc(ResourceBundle::cacheList->keySet())->removeIf($$new(ResourceBundle$$Lambda$lambda$clearCache$1$2, loader));
 }
 
 bool ResourceBundle::containsKey($String* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (key == nullptr) {
 		$throwNew($NullPointerException);
 	}
 	{
 		$var(ResourceBundle, rb, this);
 		for (; rb != nullptr; $assign(rb, rb->parent)) {
-			if ($nc($($nc(rb)->handleKeySet()))->contains(key)) {
+			if ($$nc(rb->handleKeySet())->contains(key)) {
 				return true;
 			}
 		}
@@ -1035,19 +843,19 @@ bool ResourceBundle::containsKey($String* key) {
 }
 
 $Set* ResourceBundle::keySet() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, keys, $new($HashSet));
 	{
 		$var(ResourceBundle, rb, this);
 		for (; rb != nullptr; $assign(rb, rb->parent)) {
-			keys->addAll($($nc(rb)->handleKeySet()));
+			keys->addAll($(rb->handleKeySet()));
 		}
 	}
 	return keys;
 }
 
 $Set* ResourceBundle::handleKeySet() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->keySet$ == nullptr) {
 		$synchronized(this) {
 			if (this->keySet$ == nullptr) {
@@ -1094,8 +902,8 @@ bool ResourceBundle::lambda$clearCache$0($Class* caller, $ResourceBundle$CacheKe
 	return $nc(key)->getCallerModule() == $nc(caller)->getModule();
 }
 
-void clinit$ResourceBundle($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ResourceBundle::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(ResourceBundle::UNKNOWN_FORMAT, ""_s);
 	ResourceBundle::$assertionsDisabled = !ResourceBundle::class$->desiredAssertionStatus();
 	{
@@ -1104,7 +912,7 @@ void clinit$ResourceBundle($Class* class$) {
 	$assignStatic(ResourceBundle::NONEXISTENT_BUNDLE, $new($ResourceBundle$2));
 	$assignStatic(ResourceBundle::cacheList, $new($ConcurrentHashMap, ResourceBundle::INITIAL_CACHE_SIZE));
 	$assignStatic(ResourceBundle::referenceQueue, $new($ReferenceQueue));
-	ResourceBundle::TRACE_ON = $nc($($Boolean::valueOf($($GetPropertyAction::privilegedGetProperty("resource.bundle.debug"_s, "false"_s)))))->booleanValue();
+	ResourceBundle::TRACE_ON = $($Boolean::valueOf($($GetPropertyAction::privilegedGetProperty("resource.bundle.debug"_s, "false"_s))))->booleanValue();
 }
 
 ResourceBundle::ResourceBundle() {
@@ -1112,17 +920,152 @@ ResourceBundle::ResourceBundle() {
 
 $Class* ResourceBundle::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ResourceBundle$$Lambda$getClassLoader::classInfo$.name)) {
+		if (name->equals("java.util.ResourceBundle$$Lambda$getClassLoader")) {
 			return ResourceBundle$$Lambda$getClassLoader::load$(name, initialize);
 		}
-		if (name->equals(ResourceBundle$$Lambda$lambda$clearCache$0$1::classInfo$.name)) {
+		if (name->equals("java.util.ResourceBundle$$Lambda$lambda$clearCache$0$1")) {
 			return ResourceBundle$$Lambda$lambda$clearCache$0$1::load$(name, initialize);
 		}
-		if (name->equals(ResourceBundle$$Lambda$lambda$clearCache$1$2::classInfo$.name)) {
+		if (name->equals("java.util.ResourceBundle$$Lambda$lambda$clearCache$1$2")) {
 			return ResourceBundle$$Lambda$lambda$clearCache$1$2::load$(name, initialize);
 		}
 	}
-	$loadClass(ResourceBundle, name, initialize, &_ResourceBundle_ClassInfo_, clinit$ResourceBundle, allocate$ResourceBundle);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ResourceBundle, $assertionsDisabled)},
+		{"INITIAL_CACHE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ResourceBundle, INITIAL_CACHE_SIZE)},
+		{"NONEXISTENT_BUNDLE", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResourceBundle, NONEXISTENT_BUNDLE)},
+		{"cacheList", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/util/ResourceBundle$CacheKey;Ljava/util/ResourceBundle$BundleReference;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ResourceBundle, cacheList)},
+		{"referenceQueue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ResourceBundle, referenceQueue)},
+		{"parent", "Ljava/util/ResourceBundle;", nullptr, $PROTECTED, $field(ResourceBundle, parent)},
+		{"locale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(ResourceBundle, locale)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ResourceBundle, name)},
+		{"expired", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ResourceBundle, expired)},
+		{"cacheKey", "Ljava/util/ResourceBundle$CacheKey;", nullptr, $PRIVATE | $VOLATILE, $field(ResourceBundle, cacheKey)},
+		{"keySet", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $VOLATILE, $field(ResourceBundle, keySet$)},
+		{"UNKNOWN_FORMAT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResourceBundle, UNKNOWN_FORMAT)},
+		{"TRACE_ON", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResourceBundle, TRACE_ON)},
+		{}
+	};
+	$CompoundAttribute clearCachemethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute getBundlemethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute getBundlemethodAnnotations$$$1[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute getBundlemethodAnnotations$$$2[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute getBundlemethodAnnotations$$$3[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute getBundlemethodAnnotations$$$4[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute getBundlemethodAnnotations$$$5[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute getBundlemethodAnnotations$$$6[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute getBundlemethodAnnotations$$$7[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ResourceBundle, init$, void)},
+		{"checkList", "(Ljava/util/List;)Z", "(Ljava/util/List<*>;)Z", $PRIVATE | $STATIC, $staticMethod(ResourceBundle, checkList, bool, $List*)},
+		{"checkNamedModule", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(ResourceBundle, checkNamedModule, void, $Class*)},
+		{"clearCache", "()V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ResourceBundle, clearCache, void), nullptr, nullptr, clearCachemethodAnnotations$$},
+		{"clearCache", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ResourceBundle, clearCache, void, $ClassLoader*)},
+		{"containsKey", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ResourceBundle, containsKey, bool, $String*)},
+		{"findBundle", "(Ljava/lang/Module;Ljava/lang/Module;Ljava/util/ResourceBundle$CacheKey;Ljava/util/List;Ljava/util/List;ILjava/util/ResourceBundle$Control;Ljava/util/ResourceBundle;)Ljava/util/ResourceBundle;", "(Ljava/lang/Module;Ljava/lang/Module;Ljava/util/ResourceBundle$CacheKey;Ljava/util/List<Ljava/util/Locale;>;Ljava/util/List<Ljava/lang/String;>;ILjava/util/ResourceBundle$Control;Ljava/util/ResourceBundle;)Ljava/util/ResourceBundle;", $PRIVATE | $STATIC, $staticMethod(ResourceBundle, findBundle, ResourceBundle*, $Module*, $Module*, $ResourceBundle$CacheKey*, $List*, $List*, int32_t, $ResourceBundle$Control*, ResourceBundle*)},
+		{"findBundleInCache", "(Ljava/util/ResourceBundle$CacheKey;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceBundle, findBundleInCache, ResourceBundle*, $ResourceBundle$CacheKey*, $ResourceBundle$Control*)},
+		{"getBaseBundleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle, getBaseBundleName, $String*)},
+		{"getBundle", "(Ljava/lang/String;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ResourceBundle, getBundle, ResourceBundle*, $String*), nullptr, nullptr, getBundlemethodAnnotations$$},
+		{"getBundle", "(Ljava/lang/String;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ResourceBundle, getBundle, ResourceBundle*, $String*, $ResourceBundle$Control*), nullptr, nullptr, getBundlemethodAnnotations$$$1},
+		{"getBundle", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ResourceBundle, getBundle, ResourceBundle*, $String*, $Locale*), nullptr, nullptr, getBundlemethodAnnotations$$$2},
+		{"getBundle", "(Ljava/lang/String;Ljava/lang/Module;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourceBundle, getBundle, ResourceBundle*, $String*, $Module*), nullptr, nullptr, getBundlemethodAnnotations$$$3},
+		{"getBundle", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/Module;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourceBundle, getBundle, ResourceBundle*, $String*, $Locale*, $Module*), nullptr, nullptr, getBundlemethodAnnotations$$$4},
+		{"getBundle", "(Ljava/lang/String;Ljava/util/Locale;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ResourceBundle, getBundle, ResourceBundle*, $String*, $Locale*, $ResourceBundle$Control*), nullptr, nullptr, getBundlemethodAnnotations$$$5},
+		{"getBundle", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/ClassLoader;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourceBundle, getBundle, ResourceBundle*, $String*, $Locale*, $ClassLoader*), nullptr, nullptr, getBundlemethodAnnotations$$$6},
+		{"getBundle", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/ClassLoader;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResourceBundle, getBundle, ResourceBundle*, $String*, $Locale*, $ClassLoader*, $ResourceBundle$Control*), nullptr, nullptr, getBundlemethodAnnotations$$$7},
+		{"getBundleFromModule", "(Ljava/lang/Class;Ljava/lang/Module;Ljava/lang/String;Ljava/util/Locale;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", "(Ljava/lang/Class<*>;Ljava/lang/Module;Ljava/lang/String;Ljava/util/Locale;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", $PRIVATE | $STATIC, $staticMethod(ResourceBundle, getBundleFromModule, ResourceBundle*, $Class*, $Module*, $String*, $Locale*, $ResourceBundle$Control*)},
+		{"getBundleImpl", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/Class;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/Class<*>;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", $PRIVATE | $STATIC, $staticMethod(ResourceBundle, getBundleImpl, ResourceBundle*, $String*, $Locale*, $Class*, $ResourceBundle$Control*)},
+		{"getBundleImpl", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/Class;Ljava/lang/ClassLoader;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/Class<*>;Ljava/lang/ClassLoader;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", $PRIVATE | $STATIC, $staticMethod(ResourceBundle, getBundleImpl, ResourceBundle*, $String*, $Locale*, $Class*, $ClassLoader*, $ResourceBundle$Control*)},
+		{"getBundleImpl", "(Ljava/lang/Module;Ljava/lang/Module;Ljava/lang/String;Ljava/util/Locale;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceBundle, getBundleImpl, ResourceBundle*, $Module*, $Module*, $String*, $Locale*, $ResourceBundle$Control*)},
+		{"getDefaultControl", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/util/ResourceBundle$Control;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/util/ResourceBundle$Control;", $PRIVATE | $STATIC, $staticMethod(ResourceBundle, getDefaultControl, $ResourceBundle$Control*, $Class*, $String*)},
+		{"getDefaultControl", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/util/ResourceBundle$Control;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceBundle, getDefaultControl, $ResourceBundle$Control*, $Module*, $String*)},
+		{"getKeys", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ResourceBundle, getKeys, $Enumeration*)},
+		{"getLoader", "(Ljava/lang/Module;)Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceBundle, getLoader, $ClassLoader*, $Module*)},
+		{"getLoaderForControl", "(Ljava/lang/Module;)Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceBundle, getLoaderForControl, $ClassLoader*, $Module*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(ResourceBundle, getLocale, $Locale*)},
+		{"getObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(ResourceBundle, getObject, $Object*, $String*)},
+		{"getResourceBundleProviderType", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<Ljava/util/spi/ResourceBundleProvider;>;", $PRIVATE | $STATIC, $staticMethod(ResourceBundle, getResourceBundleProviderType, $Class*, $String*, $ClassLoader*)},
+		{"getServiceLoader", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/util/ServiceLoader;", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/util/ServiceLoader<Ljava/util/spi/ResourceBundleProvider;>;", $PRIVATE | $STATIC, $staticMethod(ResourceBundle, getServiceLoader, $ServiceLoader*, $Module*, $String*)},
+		{"getString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(ResourceBundle, getString, $String*, $String*)},
+		{"getStringArray", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(ResourceBundle, getStringArray, $StringArray*, $String*)},
+		{"handleGetObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(ResourceBundle, handleGetObject, $Object*, $String*)},
+		{"handleKeySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED, $virtualMethod(ResourceBundle, handleKeySet, $Set*)},
+		{"hasValidParentChain", "(Ljava/util/ResourceBundle;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceBundle, hasValidParentChain, bool, ResourceBundle*)},
+		{"isValidBundle", "(Ljava/util/ResourceBundle;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceBundle, isValidBundle, bool, ResourceBundle*)},
+		{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ResourceBundle, keySet, $Set*)},
+		{"lambda$clearCache$0", "(Ljava/lang/Class;Ljava/util/ResourceBundle$CacheKey;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResourceBundle, lambda$clearCache$0, bool, $Class*, $ResourceBundle$CacheKey*)},
+		{"lambda$clearCache$1", "(Ljava/lang/ClassLoader;Ljava/util/ResourceBundle$CacheKey;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResourceBundle, lambda$clearCache$1, bool, $ClassLoader*, $ResourceBundle$CacheKey*)},
+		{"loadBundle", "(Ljava/util/ResourceBundle$CacheKey;Ljava/util/List;Ljava/util/ResourceBundle$Control;Ljava/lang/Module;Ljava/lang/Module;)Ljava/util/ResourceBundle;", "(Ljava/util/ResourceBundle$CacheKey;Ljava/util/List<Ljava/lang/String;>;Ljava/util/ResourceBundle$Control;Ljava/lang/Module;Ljava/lang/Module;)Ljava/util/ResourceBundle;", $PRIVATE | $STATIC, $staticMethod(ResourceBundle, loadBundle, ResourceBundle*, $ResourceBundle$CacheKey*, $List*, $ResourceBundle$Control*, $Module*, $Module*)},
+		{"loadBundle", "(Ljava/util/ResourceBundle$CacheKey;Ljava/util/List;Ljava/util/ResourceBundle$Control;Z)Ljava/util/ResourceBundle;", "(Ljava/util/ResourceBundle$CacheKey;Ljava/util/List<Ljava/lang/String;>;Ljava/util/ResourceBundle$Control;Z)Ljava/util/ResourceBundle;", $PRIVATE | $STATIC, $staticMethod(ResourceBundle, loadBundle, ResourceBundle*, $ResourceBundle$CacheKey*, $List*, $ResourceBundle$Control*, bool)},
+		{"loadBundleFromProviders", "(Ljava/lang/String;Ljava/util/Locale;Ljava/util/ServiceLoader;Ljava/util/ResourceBundle$CacheKey;)Ljava/util/ResourceBundle;", "(Ljava/lang/String;Ljava/util/Locale;Ljava/util/ServiceLoader<Ljava/util/spi/ResourceBundleProvider;>;Ljava/util/ResourceBundle$CacheKey;)Ljava/util/ResourceBundle;", $PRIVATE | $STATIC, $staticMethod(ResourceBundle, loadBundleFromProviders, ResourceBundle*, $String*, $Locale*, $ServiceLoader*, $ResourceBundle$CacheKey*)},
+		{"putBundleInCache", "(Ljava/util/ResourceBundle$CacheKey;Ljava/util/ResourceBundle;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceBundle, putBundleInCache, ResourceBundle*, $ResourceBundle$CacheKey*, ResourceBundle*, $ResourceBundle$Control*)},
+		{"setExpirationTime", "(Ljava/util/ResourceBundle$CacheKey;Ljava/util/ResourceBundle$Control;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceBundle, setExpirationTime, void, $ResourceBundle$CacheKey*, $ResourceBundle$Control*)},
+		{"setParent", "(Ljava/util/ResourceBundle;)V", nullptr, $PROTECTED, $virtualMethod(ResourceBundle, setParent, void, ResourceBundle*)},
+		{"throwMissingResourceException", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ResourceBundle, throwMissingResourceException, void, $String*, $Locale*, $Throwable*)},
+		{"trace", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(ResourceBundle, trace, void, $String*, $ObjectArray*)},
+		{"uncheckedThrow", "(Ljava/lang/Throwable;)V", "<T:Ljava/lang/Throwable;>(Ljava/lang/Throwable;)V^TT;", $PRIVATE | $STATIC, $staticMethod(ResourceBundle, uncheckedThrow, void, $Throwable*), "java.lang.Throwable"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ResourceBundle$ResourceBundleProviderHelper", "java.util.ResourceBundle", "ResourceBundleProviderHelper", $PRIVATE | $STATIC},
+		{"java.util.ResourceBundle$NoFallbackControl", "java.util.ResourceBundle", "NoFallbackControl", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.ResourceBundle$SingleFormatControl", "java.util.ResourceBundle", "SingleFormatControl", $PRIVATE | $STATIC},
+		{"java.util.ResourceBundle$Control", "java.util.ResourceBundle", "Control", $PUBLIC | $STATIC},
+		{"java.util.ResourceBundle$ResourceBundleControlProviderHolder", "java.util.ResourceBundle", "ResourceBundleControlProviderHolder", $PRIVATE | $STATIC},
+		{"java.util.ResourceBundle$BundleReference", "java.util.ResourceBundle", "BundleReference", $PRIVATE | $STATIC},
+		{"java.util.ResourceBundle$KeyElementReference", "java.util.ResourceBundle", "KeyElementReference", $PRIVATE | $STATIC},
+		{"java.util.ResourceBundle$CacheKeyReference", "java.util.ResourceBundle", "CacheKeyReference", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.ResourceBundle$CacheKey", "java.util.ResourceBundle", "CacheKey", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.ResourceBundle$4", nullptr, nullptr, 0},
+		{"java.util.ResourceBundle$3", nullptr, nullptr, 0},
+		{"java.util.ResourceBundle$2", nullptr, nullptr, 0},
+		{"java.util.ResourceBundle$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.util.ResourceBundle",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.ResourceBundle$ResourceBundleProviderHelper,java.util.ResourceBundle$NoFallbackControl,java.util.ResourceBundle$SingleFormatControl,java.util.ResourceBundle$Control,java.util.ResourceBundle$Control$CandidateListCache,java.util.ResourceBundle$Control$2,java.util.ResourceBundle$Control$1,java.util.ResourceBundle$ResourceBundleControlProviderHolder,java.util.ResourceBundle$BundleReference,java.util.ResourceBundle$KeyElementReference,java.util.ResourceBundle$CacheKeyReference,java.util.ResourceBundle$CacheKey,java.util.ResourceBundle$4,java.util.ResourceBundle$3,java.util.ResourceBundle$2,java.util.ResourceBundle$1"
+	};
+	$loadClass(ResourceBundle, name, initialize, &classInfo$$, ResourceBundle::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourceBundle);
+	});
 	return class$;
 }
 

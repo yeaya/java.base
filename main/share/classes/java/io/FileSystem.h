@@ -40,6 +40,7 @@ class FileSystem : public ::java::lang::Object {
 public:
 	FileSystem();
 	using ::java::lang::Object::hashCode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* canonicalize($String* path) {return nullptr;}
 	virtual bool checkAccess(::java::io::File* f, int32_t access) {return false;}

@@ -107,6 +107,7 @@ class $export HostLocaleProviderAdapterImpl : public ::java::lang::Object {
 	$class(HostLocaleProviderAdapterImpl, 0, ::java::lang::Object)
 public:
 	HostLocaleProviderAdapterImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void appendN(char16_t c, int32_t n, ::java::lang::StringBuilder* sb);
 	static void convert($String* calendarType, char16_t cldrLetter, int32_t count, ::java::lang::StringBuilder* sb);

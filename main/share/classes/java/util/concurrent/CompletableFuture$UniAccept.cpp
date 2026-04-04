@@ -1,5 +1,4 @@
 #include <java/util/concurrent/CompletableFuture$UniAccept.h>
-
 #include <java/util/concurrent/CompletableFuture$AltResult.h>
 #include <java/util/concurrent/CompletableFuture$UniCompletion.h>
 #include <java/util/concurrent/CompletableFuture.h>
@@ -21,50 +20,13 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _CompletableFuture$UniAccept_FieldInfo_[] = {
-	{"fn", "Ljava/util/function/Consumer;", "Ljava/util/function/Consumer<-TT;>;", 0, $field(CompletableFuture$UniAccept, fn)},
-	{}
-};
-
-$MethodInfo _CompletableFuture$UniAccept_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/Consumer;)V", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/function/Consumer<-TT;>;)V", 0, $method(CompletableFuture$UniAccept, init$, void, $Executor*, $CompletableFuture*, $CompletableFuture*, $Consumer*)},
-	{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $FINAL, $virtualMethod(CompletableFuture$UniAccept, tryFire, $CompletableFuture*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CompletableFuture$UniAccept_InnerClassesInfo_[] = {
-	{"java.util.concurrent.CompletableFuture$UniAccept", "java.util.concurrent.CompletableFuture", "UniAccept", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$UniCompletion", "java.util.concurrent.CompletableFuture", "UniCompletion", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CompletableFuture$UniAccept_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.CompletableFuture$UniAccept",
-	"java.util.concurrent.CompletableFuture$UniCompletion",
-	nullptr,
-	_CompletableFuture$UniAccept_FieldInfo_,
-	_CompletableFuture$UniAccept_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/util/concurrent/CompletableFuture$UniCompletion<TT;Ljava/lang/Void;>;",
-	nullptr,
-	_CompletableFuture$UniAccept_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.CompletableFuture"
-};
-
-$Object* allocate$CompletableFuture$UniAccept($Class* clazz) {
-	return $of($alloc(CompletableFuture$UniAccept));
-}
-
 void CompletableFuture$UniAccept::init$($Executor* executor, $CompletableFuture* dep, $CompletableFuture* src, $Consumer* fn) {
 	$CompletableFuture$UniCompletion::init$(executor, dep, src);
 	$set(this, fn, fn);
 }
 
 $CompletableFuture* CompletableFuture$UniAccept::tryFire(int32_t mode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CompletableFuture, d, nullptr);
 	$var($CompletableFuture, a, nullptr);
 	$var($Object, r, nullptr);
@@ -78,7 +40,7 @@ $CompletableFuture* CompletableFuture$UniAccept::tryFire(int32_t mode) {
 	for (;;) {
 		if ($nc(d)->result == nullptr) {
 			if ($instanceOf($CompletableFuture$AltResult, r)) {
-				if (($assign(x, $nc(($cast($CompletableFuture$AltResult, r)))->ex)) != nullptr) {
+				if (($assign(x, $cast($CompletableFuture$AltResult, r)->ex)) != nullptr) {
 					d->completeThrowable(x, r);
 					tryComplete$break = true;
 					break;
@@ -102,14 +64,45 @@ $CompletableFuture* CompletableFuture$UniAccept::tryFire(int32_t mode) {
 	$set(this, src, nullptr);
 	$set(this, dep, nullptr);
 	$set(this, fn, nullptr);
-	return $nc(d)->postFire(a, mode);
+	return d->postFire(a, mode);
 }
 
 CompletableFuture$UniAccept::CompletableFuture$UniAccept() {
 }
 
 $Class* CompletableFuture$UniAccept::load$($String* name, bool initialize) {
-	$loadClass(CompletableFuture$UniAccept, name, initialize, &_CompletableFuture$UniAccept_ClassInfo_, allocate$CompletableFuture$UniAccept);
+	$FieldInfo fieldInfos$$[] = {
+		{"fn", "Ljava/util/function/Consumer;", "Ljava/util/function/Consumer<-TT;>;", 0, $field(CompletableFuture$UniAccept, fn)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture;Ljava/util/concurrent/CompletableFuture;Ljava/util/function/Consumer;)V", "(Ljava/util/concurrent/Executor;Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;Ljava/util/concurrent/CompletableFuture<TT;>;Ljava/util/function/Consumer<-TT;>;)V", 0, $method(CompletableFuture$UniAccept, init$, void, $Executor*, $CompletableFuture*, $CompletableFuture*, $Consumer*)},
+		{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $FINAL, $virtualMethod(CompletableFuture$UniAccept, tryFire, $CompletableFuture*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.CompletableFuture$UniAccept", "java.util.concurrent.CompletableFuture", "UniAccept", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$UniCompletion", "java.util.concurrent.CompletableFuture", "UniCompletion", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.CompletableFuture$UniAccept",
+		"java.util.concurrent.CompletableFuture$UniCompletion",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/util/concurrent/CompletableFuture$UniCompletion<TT;Ljava/lang/Void;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.CompletableFuture"
+	};
+	$loadClass(CompletableFuture$UniAccept, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CompletableFuture$UniAccept));
+	});
 	return class$;
 }
 

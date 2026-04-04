@@ -37,6 +37,7 @@ class $export OptionalLong : public ::java::lang::Object {
 	$class(OptionalLong, 0, ::java::lang::Object)
 public:
 	OptionalLong();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int64_t value);
 	static ::java::util::OptionalLong* empty();

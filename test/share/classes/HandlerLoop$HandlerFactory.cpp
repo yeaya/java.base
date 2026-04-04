@@ -1,5 +1,4 @@
 #include <HandlerLoop$HandlerFactory.h>
-
 #include <HandlerLoop$Dummy.h>
 #include <HandlerLoop.h>
 #include <java/lang/ClassNotFoundException.h>
@@ -13,7 +12,6 @@
 #include <jcpp.h>
 
 using $HandlerLoop$Dummy = ::HandlerLoop$Dummy;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -22,60 +20,22 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InstantiationException = ::java::lang::InstantiationException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
-using $Constructor = ::java::lang::reflect::Constructor;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $URLStreamHandler = ::java::net::URLStreamHandler;
-
-$FieldInfo _HandlerLoop$HandlerFactory_FieldInfo_[] = {
-	{"pkg", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HandlerLoop$HandlerFactory, pkg)},
-	{}
-};
-
-$MethodInfo _HandlerLoop$HandlerFactory_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(HandlerLoop$HandlerFactory, init$, void, $String*)},
-	{"createURLStreamHandler", "(Ljava/lang/String;)Ljava/net/URLStreamHandler;", nullptr, $PUBLIC, $virtualMethod(HandlerLoop$HandlerFactory, createURLStreamHandler, $URLStreamHandler*, $String*)},
-	{}
-};
-
-$InnerClassInfo _HandlerLoop$HandlerFactory_InnerClassesInfo_[] = {
-	{"HandlerLoop$HandlerFactory", "HandlerLoop", "HandlerFactory", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _HandlerLoop$HandlerFactory_ClassInfo_ = {
-	$ACC_SUPER,
-	"HandlerLoop$HandlerFactory",
-	"java.lang.Object",
-	"java.net.URLStreamHandlerFactory",
-	_HandlerLoop$HandlerFactory_FieldInfo_,
-	_HandlerLoop$HandlerFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HandlerLoop$HandlerFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HandlerLoop"
-};
-
-$Object* allocate$HandlerLoop$HandlerFactory($Class* clazz) {
-	return $of($alloc(HandlerLoop$HandlerFactory));
-}
 
 void HandlerLoop$HandlerFactory::init$($String* pkg) {
 	$set(this, pkg, pkg);
 }
 
 $URLStreamHandler* HandlerLoop$HandlerFactory::createURLStreamHandler($String* protocol) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, name, $str({this->pkg, "."_s, protocol, ".Handler"_s}));
 	$nc($System::out)->println($$str({"Loading handler class: "_s, name}));
 	$new($HandlerLoop$Dummy);
 	try {
 		$Class* c = $Class::forName(name);
-		return $cast($URLStreamHandler, $nc($($nc(c)->getDeclaredConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0)));
+		return $cast($URLStreamHandler, $$nc(c->getDeclaredConstructor($$new($ClassArray, 0)))->newInstance($$new($ObjectArray, 0)));
 	} catch ($ClassNotFoundException& e) {
 		e->printStackTrace();
 	} catch ($IllegalAccessException& e) {
@@ -94,7 +54,37 @@ HandlerLoop$HandlerFactory::HandlerLoop$HandlerFactory() {
 }
 
 $Class* HandlerLoop$HandlerFactory::load$($String* name, bool initialize) {
-	$loadClass(HandlerLoop$HandlerFactory, name, initialize, &_HandlerLoop$HandlerFactory_ClassInfo_, allocate$HandlerLoop$HandlerFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"pkg", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HandlerLoop$HandlerFactory, pkg)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(HandlerLoop$HandlerFactory, init$, void, $String*)},
+		{"createURLStreamHandler", "(Ljava/lang/String;)Ljava/net/URLStreamHandler;", nullptr, $PUBLIC, $virtualMethod(HandlerLoop$HandlerFactory, createURLStreamHandler, $URLStreamHandler*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HandlerLoop$HandlerFactory", "HandlerLoop", "HandlerFactory", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HandlerLoop$HandlerFactory",
+		"java.lang.Object",
+		"java.net.URLStreamHandlerFactory",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HandlerLoop"
+	};
+	$loadClass(HandlerLoop$HandlerFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HandlerLoop$HandlerFactory);
+	});
 	return class$;
 }
 

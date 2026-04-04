@@ -1,5 +1,4 @@
 #include <p2/C.h>
-
 #include <jcpp.h>
 
 #undef C
@@ -9,24 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace p2 {
 
-$MethodInfo _C_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(C, init$, void)},
-	{}
-};
-
-$ClassInfo _C_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"p2.C",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_C_MethodInfo_
-};
-
-$Object* allocate$C($Class* clazz) {
-	return $of($alloc(C));
-}
-
 void C::init$() {
 }
 
@@ -34,7 +15,21 @@ C::C() {
 }
 
 $Class* C::load$($String* name, bool initialize) {
-	$loadClass(C, name, initialize, &_C_ClassInfo_, allocate$C);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(C, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"p2.C",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(C, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(C);
+	});
 	return class$;
 }
 

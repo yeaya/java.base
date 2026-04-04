@@ -1,16 +1,13 @@
 #include <jdk/internal/module/ModulePath.h>
-
 #include <java/io/BufferedInputStream.h>
 #include <java/io/BufferedReader.h>
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/Reader.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/Runtime$Version.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -109,12 +106,10 @@ using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
-using $Reader = ::java::io::Reader;
 using $Serializable = ::java::io::Serializable;
 using $UncheckedIOException = ::java::io::UncheckedIOException;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -132,16 +127,12 @@ using $ModuleDescriptor$Version = ::java::lang::module::ModuleDescriptor$Version
 using $ModuleFinder = ::java::lang::module::ModuleFinder;
 using $ModuleReference = ::java::lang::module::ModuleReference;
 using $URI = ::java::net::URI;
-using $Charset = ::java::nio::charset::Charset;
 using $DirectoryStream = ::java::nio::file::DirectoryStream;
-using $FileSystem = ::java::nio::file::FileSystem;
 using $Files = ::java::nio::file::Files;
 using $NoSuchFileException = ::java::nio::file::NoSuchFileException;
 using $Path = ::java::nio::file::Path;
 using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;
-using $FileSystemProvider = ::java::nio::file::spi::FileSystemProvider;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
@@ -160,9 +151,7 @@ using $JarEntry = ::java::util::jar::JarEntry;
 using $JarFile = ::java::util::jar::JarFile;
 using $Manifest = ::java::util::jar::Manifest;
 using $Matcher = ::java::util::regex::Matcher;
-using $Pattern = ::java::util::regex::Pattern;
 using $Collectors = ::java::util::stream::Collectors;
-using $Stream = ::java::util::stream::Stream;
 using $ZipEntry = ::java::util::zip::ZipEntry;
 using $ZipException = ::java::util::zip::ZipException;
 using $ZipFile = ::java::util::zip::ZipFile;
@@ -193,27 +182,24 @@ public:
 	virtual bool test(Object$* e) override {
 		 return ModulePath::lambda$jmodPackages$0($cast($JmodFile$Entry, e));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModulePath$$Lambda$lambda$jmodPackages$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ModulePath$$Lambda$lambda$jmodPackages$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$jmodPackages$0, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$jmodPackages$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo ModulePath$$Lambda$lambda$jmodPackages$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.ModulePath$$Lambda$lambda$jmodPackages$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* ModulePath$$Lambda$lambda$jmodPackages$0::load$($String* name, bool initialize) {
-	$loadClass(ModulePath$$Lambda$lambda$jmodPackages$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$jmodPackages$0, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$jmodPackages$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.ModulePath$$Lambda$lambda$jmodPackages$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ModulePath$$Lambda$lambda$jmodPackages$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModulePath$$Lambda$lambda$jmodPackages$0);
+	});
 	return class$;
 }
 $Class* ModulePath$$Lambda$lambda$jmodPackages$0::class$ = nullptr;
@@ -226,27 +212,24 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($JmodFile$Entry, inst$)->name());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModulePath$$Lambda$name$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ModulePath$$Lambda$name$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$name$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$name$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ModulePath$$Lambda$name$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.ModulePath$$Lambda$name$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* ModulePath$$Lambda$name$1::load$($String* name, bool initialize) {
-	$loadClass(ModulePath$$Lambda$name$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$name$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$name$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.ModulePath$$Lambda$name$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ModulePath$$Lambda$name$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModulePath$$Lambda$name$1);
+	});
 	return class$;
 }
 $Class* ModulePath$$Lambda$name$1::class$ = nullptr;
@@ -258,35 +241,31 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* name) override {
-		 return $of($nc(inst$)->toPackageName($cast($String, name)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModulePath$$Lambda$toPackageName$2>());
+		 return $nc(inst$)->toPackageName($cast($String, name));
 	}
 	ModulePath* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ModulePath$$Lambda$toPackageName$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ModulePath$$Lambda$toPackageName$2, inst$)},
-	{}
-};
-$MethodInfo ModulePath$$Lambda$toPackageName$2::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModulePath;)V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$toPackageName$2, init$, void, ModulePath*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$toPackageName$2, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ModulePath$$Lambda$toPackageName$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.ModulePath$$Lambda$toPackageName$2",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* ModulePath$$Lambda$toPackageName$2::load$($String* name, bool initialize) {
-	$loadClass(ModulePath$$Lambda$toPackageName$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ModulePath$$Lambda$toPackageName$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/module/ModulePath;)V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$toPackageName$2, init$, void, ModulePath*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$toPackageName$2, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.ModulePath$$Lambda$toPackageName$2",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModulePath$$Lambda$toPackageName$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModulePath$$Lambda$toPackageName$2);
+	});
 	return class$;
 }
 $Class* ModulePath$$Lambda$toPackageName$2::class$ = nullptr;
@@ -297,29 +276,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($Optional, inst$)->stream());
+		 return $sure($Optional, inst$)->stream();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModulePath$$Lambda$stream$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ModulePath$$Lambda$stream$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$stream$3, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$stream$3, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ModulePath$$Lambda$stream$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.ModulePath$$Lambda$stream$3",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* ModulePath$$Lambda$stream$3::load$($String* name, bool initialize) {
-	$loadClass(ModulePath$$Lambda$stream$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$stream$3, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$stream$3, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.ModulePath$$Lambda$stream$3",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ModulePath$$Lambda$stream$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModulePath$$Lambda$stream$3);
+	});
 	return class$;
 }
 $Class* ModulePath$$Lambda$stream$3::class$ = nullptr;
@@ -332,37 +308,33 @@ public:
 		$set(this, jf, jf);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$readJMod$1(jf));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModulePath$$Lambda$lambda$readJMod$1$4>());
+		 return $nc(inst$)->lambda$readJMod$1(jf);
 	}
 	ModulePath* inst$ = nullptr;
 	$JmodFile* jf = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ModulePath$$Lambda$lambda$readJMod$1$4::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ModulePath$$Lambda$lambda$readJMod$1$4, inst$)},
-	{"jf", "Ljdk/internal/jmod/JmodFile;", nullptr, $PUBLIC, $field(ModulePath$$Lambda$lambda$readJMod$1$4, jf)},
-	{}
-};
-$MethodInfo ModulePath$$Lambda$lambda$readJMod$1$4::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModulePath;Ljdk/internal/jmod/JmodFile;)V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$readJMod$1$4, init$, void, ModulePath*, $JmodFile*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$readJMod$1$4, get, $Object*)},
-	{}
-};
-$ClassInfo ModulePath$$Lambda$lambda$readJMod$1$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.ModulePath$$Lambda$lambda$readJMod$1$4",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* ModulePath$$Lambda$lambda$readJMod$1$4::load$($String* name, bool initialize) {
-	$loadClass(ModulePath$$Lambda$lambda$readJMod$1$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ModulePath$$Lambda$lambda$readJMod$1$4, inst$)},
+		{"jf", "Ljdk/internal/jmod/JmodFile;", nullptr, $PUBLIC, $field(ModulePath$$Lambda$lambda$readJMod$1$4, jf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/module/ModulePath;Ljdk/internal/jmod/JmodFile;)V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$readJMod$1$4, init$, void, ModulePath*, $JmodFile*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$readJMod$1$4, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.ModulePath$$Lambda$lambda$readJMod$1$4",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModulePath$$Lambda$lambda$readJMod$1$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModulePath$$Lambda$lambda$readJMod$1$4);
+	});
 	return class$;
 }
 $Class* ModulePath$$Lambda$lambda$readJMod$1$4::class$ = nullptr;
@@ -375,27 +347,24 @@ public:
 	virtual bool test(Object$* e) override {
 		 return ModulePath::lambda$deriveModuleDescriptor$2($cast($JarEntry, e));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5, test, bool, Object$*)},
-	{}
-};
-$ClassInfo ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5::load$($String* name, bool initialize) {
-	$loadClass(ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5);
+	});
 	return class$;
 }
 $Class* ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5::class$ = nullptr;
@@ -408,27 +377,24 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($ZipEntry, inst$)->getName());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModulePath$$Lambda$getName$6>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ModulePath$$Lambda$getName$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$getName$6, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$getName$6, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ModulePath$$Lambda$getName$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.ModulePath$$Lambda$getName$6",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* ModulePath$$Lambda$getName$6::load$($String* name, bool initialize) {
-	$loadClass(ModulePath$$Lambda$getName$6, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$getName$6, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$getName$6, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.ModulePath$$Lambda$getName$6",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ModulePath$$Lambda$getName$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModulePath$$Lambda$getName$6);
+	});
 	return class$;
 }
 $Class* ModulePath$$Lambda$getName$6::class$ = nullptr;
@@ -441,27 +407,24 @@ public:
 	virtual bool test(Object$* e) override {
 		 return ModulePath::lambda$deriveModuleDescriptor$3($cast($String, e));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModulePath$$Lambda$lambda$deriveModuleDescriptor$3$7>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ModulePath$$Lambda$lambda$deriveModuleDescriptor$3$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$deriveModuleDescriptor$3$7, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$deriveModuleDescriptor$3$7, test, bool, Object$*)},
-	{}
-};
-$ClassInfo ModulePath$$Lambda$lambda$deriveModuleDescriptor$3$7::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.ModulePath$$Lambda$lambda$deriveModuleDescriptor$3$7",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* ModulePath$$Lambda$lambda$deriveModuleDescriptor$3$7::load$($String* name, bool initialize) {
-	$loadClass(ModulePath$$Lambda$lambda$deriveModuleDescriptor$3$7, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$deriveModuleDescriptor$3$7, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$deriveModuleDescriptor$3$7, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.ModulePath$$Lambda$lambda$deriveModuleDescriptor$3$7",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ModulePath$$Lambda$lambda$deriveModuleDescriptor$3$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModulePath$$Lambda$lambda$deriveModuleDescriptor$3$7);
+	});
 	return class$;
 }
 $Class* ModulePath$$Lambda$lambda$deriveModuleDescriptor$3$7::class$ = nullptr;
@@ -474,27 +437,24 @@ public:
 	virtual bool test(Object$* e) override {
 		 return ModulePath::lambda$deriveModuleDescriptor$4($cast($String, e));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModulePath$$Lambda$lambda$deriveModuleDescriptor$4$8>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ModulePath$$Lambda$lambda$deriveModuleDescriptor$4$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$deriveModuleDescriptor$4$8, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$deriveModuleDescriptor$4$8, test, bool, Object$*)},
-	{}
-};
-$ClassInfo ModulePath$$Lambda$lambda$deriveModuleDescriptor$4$8::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.ModulePath$$Lambda$lambda$deriveModuleDescriptor$4$8",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* ModulePath$$Lambda$lambda$deriveModuleDescriptor$4$8::load$($String* name, bool initialize) {
-	$loadClass(ModulePath$$Lambda$lambda$deriveModuleDescriptor$4$8, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$deriveModuleDescriptor$4$8, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$deriveModuleDescriptor$4$8, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.ModulePath$$Lambda$lambda$deriveModuleDescriptor$4$8",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ModulePath$$Lambda$lambda$deriveModuleDescriptor$4$8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModulePath$$Lambda$lambda$deriveModuleDescriptor$4$8);
+	});
 	return class$;
 }
 $Class* ModulePath$$Lambda$lambda$deriveModuleDescriptor$4$8::class$ = nullptr;
@@ -506,35 +466,31 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* cf) override {
-		 return $of($nc(inst$)->toServiceName($cast($String, cf)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModulePath$$Lambda$toServiceName$9>());
+		 return $nc(inst$)->toServiceName($cast($String, cf));
 	}
 	ModulePath* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ModulePath$$Lambda$toServiceName$9::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ModulePath$$Lambda$toServiceName$9, inst$)},
-	{}
-};
-$MethodInfo ModulePath$$Lambda$toServiceName$9::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModulePath;)V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$toServiceName$9, init$, void, ModulePath*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$toServiceName$9, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ModulePath$$Lambda$toServiceName$9::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.ModulePath$$Lambda$toServiceName$9",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* ModulePath$$Lambda$toServiceName$9::load$($String* name, bool initialize) {
-	$loadClass(ModulePath$$Lambda$toServiceName$9, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ModulePath$$Lambda$toServiceName$9, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/module/ModulePath;)V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$toServiceName$9, init$, void, ModulePath*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$toServiceName$9, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.ModulePath$$Lambda$toServiceName$9",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModulePath$$Lambda$toServiceName$9, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModulePath$$Lambda$toServiceName$9);
+	});
 	return class$;
 }
 $Class* ModulePath$$Lambda$toServiceName$9::class$ = nullptr;
@@ -547,37 +503,33 @@ public:
 		$set(this, jf, jf);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$readJar$6(jf));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModulePath$$Lambda$lambda$readJar$6$10>());
+		 return $nc(inst$)->lambda$readJar$6(jf);
 	}
 	ModulePath* inst$ = nullptr;
 	$JarFile* jf = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ModulePath$$Lambda$lambda$readJar$6$10::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ModulePath$$Lambda$lambda$readJar$6$10, inst$)},
-	{"jf", "Ljava/util/jar/JarFile;", nullptr, $PUBLIC, $field(ModulePath$$Lambda$lambda$readJar$6$10, jf)},
-	{}
-};
-$MethodInfo ModulePath$$Lambda$lambda$readJar$6$10::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModulePath;Ljava/util/jar/JarFile;)V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$readJar$6$10, init$, void, ModulePath*, $JarFile*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$readJar$6$10, get, $Object*)},
-	{}
-};
-$ClassInfo ModulePath$$Lambda$lambda$readJar$6$10::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.ModulePath$$Lambda$lambda$readJar$6$10",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* ModulePath$$Lambda$lambda$readJar$6$10::load$($String* name, bool initialize) {
-	$loadClass(ModulePath$$Lambda$lambda$readJar$6$10, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ModulePath$$Lambda$lambda$readJar$6$10, inst$)},
+		{"jf", "Ljava/util/jar/JarFile;", nullptr, $PUBLIC, $field(ModulePath$$Lambda$lambda$readJar$6$10, jf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/module/ModulePath;Ljava/util/jar/JarFile;)V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$readJar$6$10, init$, void, ModulePath*, $JarFile*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$readJar$6$10, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.ModulePath$$Lambda$lambda$readJar$6$10",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModulePath$$Lambda$lambda$readJar$6$10, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModulePath$$Lambda$lambda$readJar$6$10);
+	});
 	return class$;
 }
 $Class* ModulePath$$Lambda$lambda$readJar$6$10::class$ = nullptr;
@@ -591,33 +543,29 @@ public:
 	virtual bool test(Object$* path, Object$* attrs) override {
 		 return $nc(inst$)->lambda$explodedPackages$7($cast($Path, path), $cast($BasicFileAttributes, attrs));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModulePath$$Lambda$lambda$explodedPackages$7$11>());
-	}
 	ModulePath* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ModulePath$$Lambda$lambda$explodedPackages$7$11::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ModulePath$$Lambda$lambda$explodedPackages$7$11, inst$)},
-	{}
-};
-$MethodInfo ModulePath$$Lambda$lambda$explodedPackages$7$11::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModulePath;)V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$explodedPackages$7$11, init$, void, ModulePath*)},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$explodedPackages$7$11, test, bool, Object$*, Object$*)},
-	{}
-};
-$ClassInfo ModulePath$$Lambda$lambda$explodedPackages$7$11::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.ModulePath$$Lambda$lambda$explodedPackages$7$11",
-	"java.lang.Object",
-	"java.util.function.BiPredicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* ModulePath$$Lambda$lambda$explodedPackages$7$11::load$($String* name, bool initialize) {
-	$loadClass(ModulePath$$Lambda$lambda$explodedPackages$7$11, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ModulePath$$Lambda$lambda$explodedPackages$7$11, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/module/ModulePath;)V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$explodedPackages$7$11, init$, void, ModulePath*)},
+		{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$explodedPackages$7$11, test, bool, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.ModulePath$$Lambda$lambda$explodedPackages$7$11",
+		"java.lang.Object",
+		"java.util.function.BiPredicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModulePath$$Lambda$lambda$explodedPackages$7$11, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModulePath$$Lambda$lambda$explodedPackages$7$11);
+	});
 	return class$;
 }
 $Class* ModulePath$$Lambda$lambda$explodedPackages$7$11::class$ = nullptr;
@@ -631,33 +579,29 @@ public:
 	virtual $Object* apply(Object$* path) override {
 		 return $of(ModulePath::lambda$explodedPackages$8(dir, $cast($Path, path)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModulePath$$Lambda$lambda$explodedPackages$8$12>());
-	}
 	$Path* dir = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ModulePath$$Lambda$lambda$explodedPackages$8$12::fieldInfos[2] = {
-	{"dir", "Ljava/nio/file/Path;", nullptr, $PUBLIC, $field(ModulePath$$Lambda$lambda$explodedPackages$8$12, dir)},
-	{}
-};
-$MethodInfo ModulePath$$Lambda$lambda$explodedPackages$8$12::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$explodedPackages$8$12, init$, void, $Path*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$explodedPackages$8$12, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ModulePath$$Lambda$lambda$explodedPackages$8$12::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.ModulePath$$Lambda$lambda$explodedPackages$8$12",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* ModulePath$$Lambda$lambda$explodedPackages$8$12::load$($String* name, bool initialize) {
-	$loadClass(ModulePath$$Lambda$lambda$explodedPackages$8$12, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"dir", "Ljava/nio/file/Path;", nullptr, $PUBLIC, $field(ModulePath$$Lambda$lambda$explodedPackages$8$12, dir)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$explodedPackages$8$12, init$, void, $Path*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$explodedPackages$8$12, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.ModulePath$$Lambda$lambda$explodedPackages$8$12",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModulePath$$Lambda$lambda$explodedPackages$8$12, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModulePath$$Lambda$lambda$explodedPackages$8$12);
+	});
 	return class$;
 }
 $Class* ModulePath$$Lambda$lambda$explodedPackages$8$12::class$ = nullptr;
@@ -669,35 +613,31 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* file) override {
-		 return $of($nc(inst$)->toPackageName($cast($Path, file)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModulePath$$Lambda$toPackageName$13>());
+		 return $nc(inst$)->toPackageName($cast($Path, file));
 	}
 	ModulePath* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ModulePath$$Lambda$toPackageName$13::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ModulePath$$Lambda$toPackageName$13, inst$)},
-	{}
-};
-$MethodInfo ModulePath$$Lambda$toPackageName$13::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModulePath;)V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$toPackageName$13, init$, void, ModulePath*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$toPackageName$13, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ModulePath$$Lambda$toPackageName$13::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.ModulePath$$Lambda$toPackageName$13",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* ModulePath$$Lambda$toPackageName$13::load$($String* name, bool initialize) {
-	$loadClass(ModulePath$$Lambda$toPackageName$13, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ModulePath$$Lambda$toPackageName$13, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/module/ModulePath;)V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$toPackageName$13, init$, void, ModulePath*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$toPackageName$13, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.ModulePath$$Lambda$toPackageName$13",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModulePath$$Lambda$toPackageName$13, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModulePath$$Lambda$toPackageName$13);
+	});
 	return class$;
 }
 $Class* ModulePath$$Lambda$toPackageName$13::class$ = nullptr;
@@ -710,120 +650,36 @@ public:
 		$set(this, dir, dir);
 	}
 	virtual $Object* get() override {
-		 return $of($nc(inst$)->lambda$readExplodedModule$9(dir));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModulePath$$Lambda$lambda$readExplodedModule$9$14>());
+		 return $nc(inst$)->lambda$readExplodedModule$9(dir);
 	}
 	ModulePath* inst$ = nullptr;
 	$Path* dir = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ModulePath$$Lambda$lambda$readExplodedModule$9$14::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ModulePath$$Lambda$lambda$readExplodedModule$9$14, inst$)},
-	{"dir", "Ljava/nio/file/Path;", nullptr, $PUBLIC, $field(ModulePath$$Lambda$lambda$readExplodedModule$9$14, dir)},
-	{}
-};
-$MethodInfo ModulePath$$Lambda$lambda$readExplodedModule$9$14::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModulePath;Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$readExplodedModule$9$14, init$, void, ModulePath*, $Path*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$readExplodedModule$9$14, get, $Object*)},
-	{}
-};
-$ClassInfo ModulePath$$Lambda$lambda$readExplodedModule$9$14::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.ModulePath$$Lambda$lambda$readExplodedModule$9$14",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* ModulePath$$Lambda$lambda$readExplodedModule$9$14::load$($String* name, bool initialize) {
-	$loadClass(ModulePath$$Lambda$lambda$readExplodedModule$9$14, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ModulePath$$Lambda$lambda$readExplodedModule$9$14, inst$)},
+		{"dir", "Ljava/nio/file/Path;", nullptr, $PUBLIC, $field(ModulePath$$Lambda$lambda$readExplodedModule$9$14, dir)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/module/ModulePath;Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(ModulePath$$Lambda$lambda$readExplodedModule$9$14, init$, void, ModulePath*, $Path*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModulePath$$Lambda$lambda$readExplodedModule$9$14, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.ModulePath$$Lambda$lambda$readExplodedModule$9$14",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModulePath$$Lambda$lambda$readExplodedModule$9$14, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModulePath$$Lambda$lambda$readExplodedModule$9$14);
+	});
 	return class$;
 }
 $Class* ModulePath$$Lambda$lambda$readExplodedModule$9$14::class$ = nullptr;
-
-$FieldInfo _ModulePath_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ModulePath, $assertionsDisabled)},
-	{"MODULE_INFO", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModulePath, MODULE_INFO)},
-	{"releaseVersion", "Ljava/lang/Runtime$Version;", nullptr, $PRIVATE | $FINAL, $field(ModulePath, releaseVersion)},
-	{"isLinkPhase", "Z", nullptr, $PRIVATE | $FINAL, $field(ModulePath, isLinkPhase)},
-	{"patcher", "Ljdk/internal/module/ModulePatcher;", nullptr, $PRIVATE | $FINAL, $field(ModulePath, patcher)},
-	{"entries", "[Ljava/nio/file/Path;", nullptr, $PRIVATE | $FINAL, $field(ModulePath, entries)},
-	{"next", "I", nullptr, $PRIVATE, $field(ModulePath, next)},
-	{"cachedModules", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/module/ModuleReference;>;", $PRIVATE | $FINAL, $field(ModulePath, cachedModules)},
-	{"SERVICES_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModulePath, SERVICES_PREFIX)},
-	{"AUTOMATIC_MODULE_NAME", "Ljava/util/jar/Attributes$Name;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModulePath, AUTOMATIC_MODULE_NAME)},
-	{"scanTime", "Ljdk/internal/perf/PerfCounter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModulePath, scanTime)},
-	{"moduleCount", "Ljdk/internal/perf/PerfCounter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModulePath, moduleCount)},
-	{}
-};
-
-$MethodInfo _ModulePath_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Runtime$Version;ZLjdk/internal/module/ModulePatcher;[Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $TRANSIENT, $method(ModulePath, init$, void, $Runtime$Version*, bool, $ModulePatcher*, $PathArray*)},
-	{"cleanModuleName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ModulePath, cleanModuleName, $String*, $String*)},
-	{"deriveModuleDescriptor", "(Ljava/util/jar/JarFile;)Ljava/lang/module/ModuleDescriptor;", nullptr, $PRIVATE, $method(ModulePath, deriveModuleDescriptor, $ModuleDescriptor*, $JarFile*), "java.io.IOException"},
-	{"explodedPackages", "(Ljava/nio/file/Path;)Ljava/util/Set;", "(Ljava/nio/file/Path;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(ModulePath, explodedPackages, $Set*, $Path*)},
-	{"fileName", "(Ljava/lang/module/ModuleReference;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ModulePath, fileName, $String*, $ModuleReference*)},
-	{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/module/ModuleReference;>;", $PUBLIC, $virtualMethod(ModulePath, find, $Optional*, $String*)},
-	{"findAll", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleReference;>;", $PUBLIC, $virtualMethod(ModulePath, findAll, $Set*)},
-	{"hasNextEntry", "()Z", nullptr, $PRIVATE, $method(ModulePath, hasNextEntry, bool)},
-	{"isDefaultFileSystem", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE, $method(ModulePath, isDefaultFileSystem, bool, $Path*)},
-	{"isHidden", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE, $method(ModulePath, isHidden, bool, $Path*)},
-	{"jarPackages", "(Ljava/util/jar/JarFile;)Ljava/util/Set;", "(Ljava/util/jar/JarFile;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(ModulePath, jarPackages, $Set*, $JarFile*)},
-	{"jmodPackages", "(Ljdk/internal/jmod/JmodFile;)Ljava/util/Set;", "(Ljdk/internal/jmod/JmodFile;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(ModulePath, jmodPackages, $Set*, $JmodFile*)},
-	{"lambda$deriveModuleDescriptor$2", "(Ljava/util/jar/JarEntry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModulePath, lambda$deriveModuleDescriptor$2, bool, $JarEntry*)},
-	{"lambda$deriveModuleDescriptor$3", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModulePath, lambda$deriveModuleDescriptor$3, bool, $String*)},
-	{"lambda$deriveModuleDescriptor$4", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModulePath, lambda$deriveModuleDescriptor$4, bool, $String*)},
-	{"lambda$explodedPackages$7", "(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(ModulePath, lambda$explodedPackages$7, bool, $Path*, $BasicFileAttributes*)},
-	{"lambda$explodedPackages$8", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModulePath, lambda$explodedPackages$8, $Path*, $Path*, $Path*)},
-	{"lambda$jmodPackages$0", "(Ljdk/internal/jmod/JmodFile$Entry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModulePath, lambda$jmodPackages$0, bool, $JmodFile$Entry*)},
-	{"lambda$readExplodedModule$9", "(Ljava/nio/file/Path;)Ljava/util/Set;", nullptr, $PRIVATE | $SYNTHETIC, $method(ModulePath, lambda$readExplodedModule$9, $Set*, $Path*)},
-	{"lambda$readJMod$1", "(Ljdk/internal/jmod/JmodFile;)Ljava/util/Set;", nullptr, $PRIVATE | $SYNTHETIC, $method(ModulePath, lambda$readJMod$1, $Set*, $JmodFile*)},
-	{"lambda$readJar$6", "(Ljava/util/jar/JarFile;)Ljava/util/Set;", nullptr, $PRIVATE | $SYNTHETIC, $method(ModulePath, lambda$readJar$6, $Set*, $JarFile*)},
-	{"nextLine", "(Ljava/io/BufferedReader;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ModulePath, nextLine, $String*, $BufferedReader*), "java.io.IOException"},
-	{"of", "(Ljdk/internal/module/ModulePatcher;[Ljava/nio/file/Path;)Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ModulePath, of, $ModuleFinder*, $ModulePatcher*, $PathArray*)},
-	{"of", "([Ljava/nio/file/Path;)Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ModulePath, of, $ModuleFinder*, $PathArray*)},
-	{"of", "(Ljava/lang/Runtime$Version;Z[Ljava/nio/file/Path;)Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ModulePath, of, $ModuleFinder*, $Runtime$Version*, bool, $PathArray*)},
-	{"packageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ModulePath, packageName, $String*, $String*)},
-	{"readExplodedModule", "(Ljava/nio/file/Path;)Ljava/lang/module/ModuleReference;", nullptr, $PRIVATE, $method(ModulePath, readExplodedModule, $ModuleReference*, $Path*), "java.io.IOException"},
-	{"readJMod", "(Ljava/nio/file/Path;)Ljava/lang/module/ModuleReference;", nullptr, $PRIVATE, $method(ModulePath, readJMod, $ModuleReference*, $Path*), "java.io.IOException"},
-	{"readJar", "(Ljava/nio/file/Path;)Ljava/lang/module/ModuleReference;", nullptr, $PRIVATE, $method(ModulePath, readJar, $ModuleReference*, $Path*), "java.io.IOException"},
-	{"readModule", "(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/lang/module/ModuleReference;", nullptr, $PRIVATE, $method(ModulePath, readModule, $ModuleReference*, $Path*, $BasicFileAttributes*), "java.io.IOException"},
-	{"scan", "(Ljava/nio/file/Path;)Ljava/util/Map;", "(Ljava/nio/file/Path;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/module/ModuleReference;>;", $PRIVATE, $method(ModulePath, scan, $Map*, $Path*)},
-	{"scanDirectory", "(Ljava/nio/file/Path;)Ljava/util/Map;", "(Ljava/nio/file/Path;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/module/ModuleReference;>;", $PRIVATE, $method(ModulePath, scanDirectory, $Map*, $Path*), "java.io.IOException"},
-	{"scanNextEntry", "()V", nullptr, $PRIVATE, $method(ModulePath, scanNextEntry, void)},
-	{"toPackageName", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/String;>;", $PRIVATE, $method(ModulePath, toPackageName, $Optional*, $String*)},
-	{"toPackageName", "(Ljava/nio/file/Path;)Ljava/util/Optional;", "(Ljava/nio/file/Path;)Ljava/util/Optional<Ljava/lang/String;>;", $PRIVATE, $method(ModulePath, toPackageName, $Optional*, $Path*)},
-	{"toServiceName", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/String;>;", $PRIVATE, $method(ModulePath, toServiceName, $Optional*, $String*)},
-	{}
-};
-
-$InnerClassInfo _ModulePath_InnerClassesInfo_[] = {
-	{"jdk.internal.module.ModulePath$Patterns", "jdk.internal.module.ModulePath", "Patterns", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ModulePath_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.module.ModulePath",
-	"java.lang.Object",
-	"java.lang.module.ModuleFinder",
-	_ModulePath_FieldInfo_,
-	_ModulePath_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ModulePath_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.module.ModulePath$Patterns"
-};
-
-$Object* allocate$ModulePath($Class* clazz) {
-	return $of($alloc(ModulePath));
-}
 
 bool ModulePath::$assertionsDisabled = false;
 $String* ModulePath::MODULE_INFO = nullptr;
@@ -833,7 +689,7 @@ $PerfCounter* ModulePath::scanTime = nullptr;
 $PerfCounter* ModulePath::moduleCount = nullptr;
 
 void ModulePath::init$($Runtime$Version* version, bool isLinkPhase, $ModulePatcher* patcher, $PathArray* entries) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, cachedModules, $new($HashMap));
 	$set(this, releaseVersion, version);
 	this->isLinkPhase = isLinkPhase;
@@ -841,9 +697,7 @@ void ModulePath::init$($Runtime$Version* version, bool isLinkPhase, $ModulePatch
 	$set(this, entries, $cast($PathArray, $nc(entries)->clone()));
 	{
 		$var($PathArray, arr$, this->entries);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Path, entry, arr$->get(i$));
 			{
 				$Objects::requireNonNull(entry);
@@ -869,13 +723,13 @@ $ModuleFinder* ModulePath::of($Runtime$Version* version, bool isLinkPhase, $Path
 
 $Optional* ModulePath::find($String* name) {
 	$Objects::requireNonNull(name);
-	$var($ModuleReference, m, $cast($ModuleReference, $nc(this->cachedModules)->get(name)));
+	$var($ModuleReference, m, $cast($ModuleReference, this->cachedModules->get(name)));
 	if (m != nullptr) {
 		return $Optional::of(m);
 	}
 	while (hasNextEntry()) {
 		scanNextEntry();
-		$assign(m, $cast($ModuleReference, $nc(this->cachedModules)->get(name)));
+		$assign(m, $cast($ModuleReference, this->cachedModules->get(name)));
 		if (m != nullptr) {
 			return $Optional::of(m);
 		}
@@ -884,11 +738,11 @@ $Optional* ModulePath::find($String* name) {
 }
 
 $Set* ModulePath::findAll() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (hasNextEntry()) {
 		scanNextEntry();
 	}
-	return $cast($Set, $nc($($nc($($nc(this->cachedModules)->values()))->stream()))->collect($($Collectors::toSet())));
+	return $cast($Set, $$nc($$nc(this->cachedModules->values())->stream())->collect($($Collectors::toSet())));
 }
 
 bool ModulePath::hasNextEntry() {
@@ -896,31 +750,31 @@ bool ModulePath::hasNextEntry() {
 }
 
 void ModulePath::scanNextEntry() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (hasNextEntry()) {
 		int64_t t0 = $System::nanoTime();
 		$var($Path, entry, $nc(this->entries)->get(this->next));
 		$var($Map, modules, scan(entry));
 		++this->next;
-		int32_t initialSize = $nc(this->cachedModules)->size();
+		int32_t initialSize = this->cachedModules->size();
 		{
-			$var($Iterator, i$, $nc($($nc(modules)->entrySet()))->iterator());
+			$var($Iterator, i$, $$nc($nc(modules)->entrySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 				{
 					$var($Object, var$0, $cast($String, $nc(e)->getKey()));
-					$nc(this->cachedModules)->putIfAbsent(var$0, $cast($ModuleReference, $(e->getValue())));
+					this->cachedModules->putIfAbsent(var$0, $$cast($ModuleReference, e->getValue()));
 				}
 			}
 		}
-		int32_t added = $nc(this->cachedModules)->size() - initialSize;
+		int32_t added = this->cachedModules->size() - initialSize;
 		$nc(ModulePath::moduleCount)->add(added);
 		$nc(ModulePath::scanTime)->addElapsedTimeFrom(t0);
 	}
 }
 
 $Map* ModulePath::scan($Path* entry) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BasicFileAttributes, attrs, nullptr);
 	try {
 		$load($BasicFileAttributes);
@@ -928,7 +782,7 @@ $Map* ModulePath::scan($Path* entry) {
 	} catch ($NoSuchFileException& e) {
 		return $Map::of();
 	} catch ($IOException& ioe) {
-		$throwNew($FindException, static_cast<$Throwable*>(ioe));
+		$throwNew($FindException, ioe);
 	}
 	try {
 		if ($nc(attrs)->isDirectory()) {
@@ -939,89 +793,85 @@ $Map* ModulePath::scan($Path* entry) {
 		}
 		$var($ModuleReference, mref, readModule(entry, attrs));
 		if (mref != nullptr) {
-			$var($String, name, $nc($(mref->descriptor()))->name());
+			$var($String, name, $$nc(mref->descriptor())->name());
 			return $Map::of(name, mref);
 		}
 		$var($String, msg, nullptr);
-		if (!this->isLinkPhase && $nc($($nc(entry)->toString()))->endsWith(".jmod"_s)) {
+		if (!this->isLinkPhase && $$nc($nc(entry)->toString())->endsWith(".jmod"_s)) {
 			$assign(msg, "JMOD format not supported at execution time"_s);
 		} else {
 			$assign(msg, "Module format not recognized"_s);
 		}
 		$throwNew($FindException, $$str({msg, ": "_s, entry}));
 	} catch ($IOException& ioe) {
-		$throwNew($FindException, static_cast<$Throwable*>(ioe));
+		$throwNew($FindException, ioe);
 	}
 	$shouldNotReachHere();
 }
 
 $Map* ModulePath::scanDirectory($Path* dir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, nameToReference, $new($HashMap));
 	{
 		$var($DirectoryStream, stream, $Files::newDirectoryStream(dir));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
+				$var($Iterator, i$, $nc(stream)->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($Path, entry, $cast($Path, i$->next()));
 					{
-						$var($Iterator, i$, $nc(stream)->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($Path, entry, $cast($Path, i$->next()));
-							{
-								$var($BasicFileAttributes, attrs, nullptr);
-								try {
-									$load($BasicFileAttributes);
-									$assign(attrs, $Files::readAttributes(entry, $BasicFileAttributes::class$, $$new($LinkOptionArray, 0)));
-								} catch ($NoSuchFileException& ignore) {
-									continue;
-								}
-								$var($ModuleReference, mref, readModule(entry, attrs));
-								if (mref != nullptr) {
-									$var($String, name, $nc($(mref->descriptor()))->name());
-									$var($ModuleReference, previous, $cast($ModuleReference, nameToReference->put(name, mref)));
-									if (previous != nullptr) {
-										$var($String, fn1, fileName(mref));
-										$var($String, fn2, fileName(previous));
-										$throwNew($FindException, $$str({"Two versions of module "_s, name, " found in "_s, dir, " ("_s, fn1, " and "_s, fn2, ")"_s}));
-									}
-								}
+						$var($BasicFileAttributes, attrs, nullptr);
+						try {
+							$load($BasicFileAttributes);
+							$assign(attrs, $Files::readAttributes(entry, $BasicFileAttributes::class$, $$new($LinkOptionArray, 0)));
+						} catch ($NoSuchFileException& ignore) {
+							continue;
+						}
+						$var($ModuleReference, mref, readModule(entry, attrs));
+						if (mref != nullptr) {
+							$var($String, name, $$nc(mref->descriptor())->name());
+							$var($ModuleReference, previous, $cast($ModuleReference, nameToReference->put(name, mref)));
+							if (previous != nullptr) {
+								$var($String, fn1, fileName(mref));
+								$var($String, fn2, fileName(previous));
+								$throwNew($FindException, $$str({"Two versions of module "_s, name, " found in "_s, dir, " ("_s, fn1, " and "_s, fn2, ")"_s}));
 							}
 						}
 					}
-				} catch ($Throwable& t$) {
-					if (stream != nullptr) {
-						try {
-							stream->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
+			} catch ($Throwable& t$) {
 				if (stream != nullptr) {
-					stream->close();
+					try {
+						stream->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			if (stream != nullptr) {
+				stream->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	return nameToReference;
 }
 
 $ModuleReference* ModulePath::readModule($Path* entry, $BasicFileAttributes* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if ($nc(attrs)->isDirectory()) {
 			return readExplodedModule(entry);
 		}
-		if ($nc(attrs)->isRegularFile()) {
-			$var($String, fn, $nc($($nc(entry)->getFileName()))->toString());
+		if (attrs->isRegularFile()) {
+			$var($String, fn, $$nc($nc(entry)->getFileName())->toString());
 			bool isDefaultFileSystem = this->isDefaultFileSystem(entry);
 			if ($nc(fn)->endsWith(".jar"_s)) {
 				if (isDefaultFileSystem) {
@@ -1032,7 +882,7 @@ $ModuleReference* ModulePath::readModule($Path* entry, $BasicFileAttributes* att
 					return readJar(target);
 				}
 			}
-			if (isDefaultFileSystem && this->isLinkPhase && $nc(fn)->endsWith(".jmod"_s)) {
+			if (isDefaultFileSystem && this->isLinkPhase && fn->endsWith(".jmod"_s)) {
 				return readJMod(entry);
 			}
 		}
@@ -1044,12 +894,12 @@ $ModuleReference* ModulePath::readModule($Path* entry, $BasicFileAttributes* att
 }
 
 $String* ModulePath::fileName($ModuleReference* mref) {
-	$useLocalCurrentObjectStackCache();
-	$var($URI, uri, $cast($URI, $nc($($nc(mref)->location()))->orElse(nullptr)));
+	$useLocalObjectStack();
+	$var($URI, uri, $cast($URI, $$nc($nc(mref)->location())->orElse(nullptr)));
 	if (uri != nullptr) {
-		if ($nc($(uri->getScheme()))->equalsIgnoreCase("file"_s)) {
+		if ($$nc(uri->getScheme())->equalsIgnoreCase("file"_s)) {
 			$var($Path, file, $Path::of(uri));
-			return $nc($($nc(file)->getFileName()))->toString();
+			return $$nc($nc(file)->getFileName())->toString();
 		} else {
 			return uri->toString();
 		}
@@ -1059,80 +909,76 @@ $String* ModulePath::fileName($ModuleReference* mref) {
 }
 
 $Set* ModulePath::jmodPackages($JmodFile* jf) {
-	$useLocalCurrentObjectStackCache();
-	return $cast($Set, $nc($($nc($($nc($($nc($($nc($($nc(jf)->stream()))->filter(static_cast<$Predicate*>($$new(ModulePath$$Lambda$lambda$jmodPackages$0)))))->map(static_cast<$Function*>($$new(ModulePath$$Lambda$name$1)))))->map(static_cast<$Function*>($$new(ModulePath$$Lambda$toPackageName$2, this)))))->flatMap(static_cast<$Function*>($$new(ModulePath$$Lambda$stream$3)))))->collect($($Collectors::toSet())));
+	$useLocalObjectStack();
+	return $cast($Set, $$nc($$nc($$nc($$nc($$nc($nc(jf)->stream())->filter($$new(ModulePath$$Lambda$lambda$jmodPackages$0)))->map($$new(ModulePath$$Lambda$name$1)))->map($$new(ModulePath$$Lambda$toPackageName$2, this)))->flatMap($$new(ModulePath$$Lambda$stream$3)))->collect($($Collectors::toSet())));
 }
 
 $ModuleReference* ModulePath::readJMod($Path* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($JmodFile, jf, $new($JmodFile, file));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($ModuleReference, var$2, nullptr);
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		$var($ModuleReference, var$2, nullptr);
+		bool return$1 = false;
+		try {
 			try {
-				try {
-					$var($ModuleInfo$Attributes, attrs, nullptr);
-					{
-						$init($JmodFile$Section);
-						$var($InputStream, in, jf->getInputStream($JmodFile$Section::CLASSES, ModulePath::MODULE_INFO));
-						{
-							$var($Throwable, var$3, nullptr);
-							try {
+				$var($ModuleInfo$Attributes, attrs, nullptr);
+				{
+					$init($JmodFile$Section);
+					$var($InputStream, in, jf->getInputStream($JmodFile$Section::CLASSES, ModulePath::MODULE_INFO));
+					$var($Throwable, var$3, nullptr);
+					try {
+						try {
+							$assign(attrs, $ModuleInfo::read(in, $$new(ModulePath$$Lambda$lambda$readJMod$1$4, this, jf)));
+						} catch ($Throwable& t$) {
+							if (in != nullptr) {
 								try {
-									$assign(attrs, $ModuleInfo::read(in, static_cast<$Supplier*>($$new(ModulePath$$Lambda$lambda$readJMod$1$4, this, jf))));
-								} catch ($Throwable& t$) {
-									if (in != nullptr) {
-										try {
-											in->close();
-										} catch ($Throwable& x2) {
-											t$->addSuppressed(x2);
-										}
-									}
-									$throw(t$);
-								}
-							} catch ($Throwable& var$4) {
-								$assign(var$3, var$4);
-							} /*finally*/ {
-								if (in != nullptr) {
 									in->close();
+								} catch ($Throwable& x2) {
+									t$->addSuppressed(x2);
 								}
 							}
-							if (var$3 != nullptr) {
-								$throw(var$3);
-							}
+							$throw(t$);
+						}
+					} catch ($Throwable& var$4) {
+						$assign(var$3, var$4);
+					} /*finally*/ {
+						if (in != nullptr) {
+							in->close();
 						}
 					}
-					$assign(var$2, $ModuleReferences::newJModModule(attrs, file));
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& t$) {
-					try {
-						jf->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
+					if (var$3 != nullptr) {
+						$throw(var$3);
 					}
-					$throw(t$);
 				}
-			} catch ($Throwable& var$5) {
-				$assign(var$0, var$5);
-			} $finally: {
-				jf->close();
+				$assign(var$2, $ModuleReferences::newJModModule(attrs, file));
+				return$1 = true;
+				goto $finally;
+			} catch ($Throwable& t$) {
+				try {
+					jf->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		} catch ($Throwable& var$5) {
+			$assign(var$0, var$5);
+		} $finally: {
+			jf->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	}
 	$shouldNotReachHere();
 }
 
 $Optional* ModulePath::toServiceName($String* cf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!ModulePath::$assertionsDisabled && !$nc(cf)->startsWith(ModulePath::SERVICES_PREFIX)) {
 		$throwNew($AssertionError);
 	}
@@ -1152,7 +998,7 @@ $Optional* ModulePath::toServiceName($String* cf) {
 $String* ModulePath::nextLine($BufferedReader* reader) {
 	$var($String, ln, $nc(reader)->readLine());
 	if (ln != nullptr) {
-		int32_t ci = ln->indexOf((int32_t)u'#');
+		int32_t ci = ln->indexOf(u'#');
 		if (ci >= 0) {
 			$assign(ln, ln->substring(0, ci));
 		}
@@ -1162,7 +1008,7 @@ $String* ModulePath::nextLine($BufferedReader* reader) {
 }
 
 $ModuleDescriptor* ModulePath::deriveModuleDescriptor($JarFile* jf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Manifest, man, $nc(jf)->getManifest());
 	$var($Attributes, attrs, nullptr);
 	$var($String, moduleName, nullptr);
@@ -1197,8 +1043,11 @@ $ModuleDescriptor* ModulePath::deriveModuleDescriptor($JarFile* jf) {
 		try {
 			$assign(builder, $ModuleDescriptor::newAutomaticModule(moduleName));
 		} catch ($IllegalArgumentException& e) {
-			$var($String, var$0, $$str({ModulePath::AUTOMATIC_MODULE_NAME, ": "_s}));
-			$throwNew($FindException, $$concat(var$0, $(e->getMessage())));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append(ModulePath::AUTOMATIC_MODULE_NAME);
+			var$0->append(": "_s);
+			var$0->append($(e->getMessage()));
+			$throwNew($FindException, $$str(var$0));
 		}
 	} else {
 		$assign(builder, $ModuleDescriptor::newAutomaticModule($(cleanModuleName(name))));
@@ -1206,14 +1055,13 @@ $ModuleDescriptor* ModulePath::deriveModuleDescriptor($JarFile* jf) {
 	if (vs != nullptr) {
 		$nc(builder)->version(vs);
 	}
-	$var($Predicate, var$1, static_cast<$Predicate*>($new(ModulePath$$Lambda$lambda$deriveModuleDescriptor$4$8)));
-	$var($Map, map, $cast($Map, $nc($($nc($($nc($($nc($(jf->versionedStream()))->filter(static_cast<$Predicate*>($$new(ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5)))))->map(static_cast<$Function*>($$new(ModulePath$$Lambda$getName$6)))))->filter(static_cast<$Predicate*>($$new(ModulePath$$Lambda$lambda$deriveModuleDescriptor$3$7)))))->collect($($Collectors::partitioningBy(var$1, $($Collectors::toSet()))))));
-	$init($Boolean);
+	$var($Predicate, var$1, $new(ModulePath$$Lambda$lambda$deriveModuleDescriptor$4$8));
+	$var($Map, map, $cast($Map, $$nc($$nc($$nc($$nc(jf->versionedStream())->filter($$new(ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5)))->map($$new(ModulePath$$Lambda$getName$6)))->filter($$new(ModulePath$$Lambda$lambda$deriveModuleDescriptor$3$7)))->collect($($Collectors::partitioningBy(var$1, $($Collectors::toSet()))))));
 	$var($Set, classFiles, $cast($Set, $nc(map)->get($Boolean::FALSE)));
 	$var($Set, configFiles, $cast($Set, map->get($Boolean::TRUE)));
-	$var($Set, packages, $cast($Set, $nc($($nc($($nc($($nc($($nc(classFiles)->stream()))->map(static_cast<$Function*>($$new(ModulePath$$Lambda$toPackageName$2, this)))))->flatMap(static_cast<$Function*>($$new(ModulePath$$Lambda$stream$3)))))->distinct()))->collect($($Collectors::toSet()))));
+	$var($Set, packages, $cast($Set, $$nc($$nc($$nc($$nc($nc(classFiles)->stream())->map($$new(ModulePath$$Lambda$toPackageName$2, this)))->flatMap($$new(ModulePath$$Lambda$stream$3)))->distinct())->collect($($Collectors::toSet()))));
 	$nc(builder)->packages(packages);
-	$var($Set, serviceNames, $cast($Set, $nc($($nc($($nc($($nc(configFiles)->stream()))->map(static_cast<$Function*>($$new(ModulePath$$Lambda$toServiceName$9, this)))))->flatMap(static_cast<$Function*>($$new(ModulePath$$Lambda$stream$3)))))->collect($($Collectors::toSet()))));
+	$var($Set, serviceNames, $cast($Set, $$nc($$nc($$nc($nc(configFiles)->stream())->map($$new(ModulePath$$Lambda$toServiceName$9, this)))->flatMap($$new(ModulePath$$Lambda$stream$3)))->collect($($Collectors::toSet()))));
 	{
 		$var($Iterator, i$, $nc(serviceNames)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -1223,43 +1071,41 @@ $ModuleDescriptor* ModulePath::deriveModuleDescriptor($JarFile* jf) {
 				$var($List, providerClasses, $new($ArrayList));
 				{
 					$var($InputStream, in, jf->getInputStream(entry));
-					{
-						$var($Throwable, var$2, nullptr);
+					$var($Throwable, var$2, nullptr);
+					try {
 						try {
-							try {
-								$init($UTF_8);
-								$var($BufferedReader, reader, $new($BufferedReader, $$new($InputStreamReader, in, static_cast<$Charset*>($UTF_8::INSTANCE))));
-								$var($String, cn, nullptr);
-								while (($assign(cn, nextLine(reader))) != nullptr) {
-									if (!$nc(cn)->isEmpty()) {
-										$var($String, pn, packageName(cn));
-										if (!$nc(packages)->contains(pn)) {
-											$var($String, msg, $str({"Provider class "_s, cn, " not in module"_s}));
-											$throwNew($InvalidModuleDescriptorException, msg);
-										}
-										providerClasses->add(cn);
+							$init($UTF_8);
+							$var($BufferedReader, reader, $new($BufferedReader, $$new($InputStreamReader, in, $UTF_8::INSTANCE)));
+							$var($String, cn, nullptr);
+							while (($assign(cn, nextLine(reader))) != nullptr) {
+								if (!$nc(cn)->isEmpty()) {
+									$var($String, pn, packageName(cn));
+									if (!$nc(packages)->contains(pn)) {
+										$var($String, msg, $str({"Provider class "_s, cn, " not in module"_s}));
+										$throwNew($InvalidModuleDescriptorException, msg);
 									}
+									providerClasses->add(cn);
 								}
-							} catch ($Throwable& t$) {
-								if (in != nullptr) {
-									try {
-										in->close();
-									} catch ($Throwable& x2) {
-										t$->addSuppressed(x2);
-									}
-								}
-								$throw(t$);
 							}
-						} catch ($Throwable& var$3) {
-							$assign(var$2, var$3);
-						} /*finally*/ {
+						} catch ($Throwable& t$) {
 							if (in != nullptr) {
-								in->close();
+								try {
+									in->close();
+								} catch ($Throwable& x2) {
+									t$->addSuppressed(x2);
+								}
 							}
+							$throw(t$);
 						}
-						if (var$2 != nullptr) {
-							$throw(var$2);
+					} catch ($Throwable& var$3) {
+						$assign(var$2, var$3);
+					} /*finally*/ {
+						if (in != nullptr) {
+							in->close();
 						}
+					}
+					if (var$2 != nullptr) {
+						$throw(var$2);
 					}
 				}
 				if (!providerClasses->isEmpty()) {
@@ -1286,72 +1132,70 @@ $ModuleDescriptor* ModulePath::deriveModuleDescriptor($JarFile* jf) {
 
 $String* ModulePath::cleanModuleName($String* mn$renamed) {
 	$init(ModulePath);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, mn, mn$renamed);
 	$init($ModulePath$Patterns);
-	$assign(mn, $nc($($nc($ModulePath$Patterns::NON_ALPHANUM)->matcher(mn)))->replaceAll("."_s));
-	$assign(mn, $nc($($nc($ModulePath$Patterns::REPEATING_DOTS)->matcher(mn)))->replaceAll("."_s));
+	$assign(mn, $$nc($nc($ModulePath$Patterns::NON_ALPHANUM)->matcher(mn))->replaceAll("."_s));
+	$assign(mn, $$nc($nc($ModulePath$Patterns::REPEATING_DOTS)->matcher(mn))->replaceAll("."_s));
 	bool var$0 = !$nc(mn)->isEmpty();
 	if (var$0 && mn->charAt(0) == u'.') {
-		$assign(mn, $nc($($nc($ModulePath$Patterns::LEADING_DOTS)->matcher(mn)))->replaceAll(""_s));
+		$assign(mn, $$nc($nc($ModulePath$Patterns::LEADING_DOTS)->matcher(mn))->replaceAll(""_s));
 	}
 	int32_t len = $nc(mn)->length();
 	if (len > 0 && mn->charAt(len - 1) == u'.') {
-		$assign(mn, $nc($($nc($ModulePath$Patterns::TRAILING_DOTS)->matcher(mn)))->replaceAll(""_s));
+		$assign(mn, $$nc($nc($ModulePath$Patterns::TRAILING_DOTS)->matcher(mn))->replaceAll(""_s));
 	}
 	return mn;
 }
 
 $Set* ModulePath::jarPackages($JarFile* jf) {
-	$useLocalCurrentObjectStackCache();
-	return $cast($Set, $nc($($nc($($nc($($nc($($nc($($nc(jf)->versionedStream()))->filter(static_cast<$Predicate*>($$new(ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5)))))->map(static_cast<$Function*>($$new(ModulePath$$Lambda$getName$6)))))->map(static_cast<$Function*>($$new(ModulePath$$Lambda$toPackageName$2, this)))))->flatMap(static_cast<$Function*>($$new(ModulePath$$Lambda$stream$3)))))->collect($($Collectors::toSet())));
+	$useLocalObjectStack();
+	return $cast($Set, $$nc($$nc($$nc($$nc($$nc($nc(jf)->versionedStream())->filter($$new(ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5)))->map($$new(ModulePath$$Lambda$getName$6)))->map($$new(ModulePath$$Lambda$toPackageName$2, this)))->flatMap($$new(ModulePath$$Lambda$stream$3)))->collect($($Collectors::toSet())));
 }
 
 $ModuleReference* ModulePath::readJar($Path* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($JarFile, jf, $new($JarFile, $($nc(file)->toFile()), true, $ZipFile::OPEN_READ, this->releaseVersion));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($ModuleReference, var$2, nullptr);
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		$var($ModuleReference, var$2, nullptr);
+		bool return$1 = false;
+		try {
 			try {
-				try {
-					$var($ModuleInfo$Attributes, attrs, nullptr);
-					$var($JarEntry, entry, jf->getJarEntry(ModulePath::MODULE_INFO));
-					if (entry == nullptr) {
-						try {
-							$var($ModuleDescriptor, md, deriveModuleDescriptor(jf));
-							$assign(attrs, $new($ModuleInfo$Attributes, md, nullptr, nullptr, nullptr));
-						} catch ($RuntimeException& e) {
-							$throwNew($FindException, $$str({"Unable to derive module descriptor for "_s, $(jf->getName())}), e);
-						}
-					} else {
-						$var($InputStream, var$3, jf->getInputStream(entry));
-						$assign(attrs, $ModuleInfo::read(var$3, static_cast<$Supplier*>($$new(ModulePath$$Lambda$lambda$readJar$6$10, this, jf))));
-					}
-					$assign(var$2, $ModuleReferences::newJarModule(attrs, this->patcher, file));
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& t$) {
+				$var($ModuleInfo$Attributes, attrs, nullptr);
+				$var($JarEntry, entry, jf->getJarEntry(ModulePath::MODULE_INFO));
+				if (entry == nullptr) {
 					try {
-						jf->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
+						$var($ModuleDescriptor, md, deriveModuleDescriptor(jf));
+						$assign(attrs, $new($ModuleInfo$Attributes, md, nullptr, nullptr, nullptr));
+					} catch ($RuntimeException& e) {
+						$throwNew($FindException, $$str({"Unable to derive module descriptor for "_s, $(jf->getName())}), e);
 					}
-					$throw(t$);
+				} else {
+					$var($InputStream, var$3, jf->getInputStream(entry));
+					$assign(attrs, $ModuleInfo::read(var$3, $$new(ModulePath$$Lambda$lambda$readJar$6$10, this, jf)));
 				}
-			} catch ($Throwable& var$4) {
-				$assign(var$0, var$4);
-			} $finally: {
-				jf->close();
+				$assign(var$2, $ModuleReferences::newJarModule(attrs, this->patcher, file));
+				return$1 = true;
+				goto $finally;
+			} catch ($Throwable& t$) {
+				try {
+					jf->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
+		} $finally: {
+			jf->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	} catch ($ZipException& e) {
 		$throwNew($FindException, $$str({"Error reading "_s, file}), e);
@@ -1360,9 +1204,9 @@ $ModuleReference* ModulePath::readJar($Path* file) {
 }
 
 $Set* ModulePath::explodedPackages($Path* dir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		return $cast($Set, $nc($($nc($($nc($($nc($($Files::find(dir, $Integer::MAX_VALUE, (static_cast<$BiPredicate*>($$new(ModulePath$$Lambda$lambda$explodedPackages$7$11, this))), $$new($FileVisitOptionArray, 0))))->map(static_cast<$Function*>($$new(ModulePath$$Lambda$lambda$explodedPackages$8$12, dir)))))->map(static_cast<$Function*>($$new(ModulePath$$Lambda$toPackageName$13, this)))))->flatMap(static_cast<$Function*>($$new(ModulePath$$Lambda$stream$3)))))->collect($($Collectors::toSet())));
+		return $cast($Set, $$nc($$nc($$nc($$nc($Files::find(dir, $Integer::MAX_VALUE, ($$new(ModulePath$$Lambda$lambda$explodedPackages$7$11, this)), $$new($FileVisitOptionArray, 0)))->map($$new(ModulePath$$Lambda$lambda$explodedPackages$8$12, dir)))->map($$new(ModulePath$$Lambda$toPackageName$13, this)))->flatMap($$new(ModulePath$$Lambda$stream$3)))->collect($($Collectors::toSet())));
 	} catch ($IOException& x) {
 		$throwNew($UncheckedIOException, x);
 	}
@@ -1370,37 +1214,35 @@ $Set* ModulePath::explodedPackages($Path* dir) {
 }
 
 $ModuleReference* ModulePath::readExplodedModule($Path* dir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, mi, $nc(dir)->resolve(ModulePath::MODULE_INFO));
 	$var($ModuleInfo$Attributes, attrs, nullptr);
 	try {
 		$var($InputStream, in, $Files::newInputStream(mi, $$new($OpenOptionArray, 0)));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$var($InputStream, var$1, static_cast<$InputStream*>($new($BufferedInputStream, in)));
-					$assign(attrs, $ModuleInfo::read(var$1, static_cast<$Supplier*>($$new(ModulePath$$Lambda$lambda$readExplodedModule$9$14, this, dir))));
-				} catch ($Throwable& t$) {
-					if (in != nullptr) {
-						try {
-							in->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable& var$2) {
-				$assign(var$0, var$2);
-			} /*finally*/ {
+				$var($InputStream, var$1, $new($BufferedInputStream, in));
+				$assign(attrs, $ModuleInfo::read(var$1, $$new(ModulePath$$Lambda$lambda$readExplodedModule$9$14, this, dir)));
+			} catch ($Throwable& t$) {
 				if (in != nullptr) {
-					in->close();
+					try {
+						in->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
+		} /*finally*/ {
+			if (in != nullptr) {
+				in->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} catch ($NoSuchFileException& e) {
 		return nullptr;
@@ -1410,12 +1252,12 @@ $ModuleReference* ModulePath::readExplodedModule($Path* dir) {
 
 $String* ModulePath::packageName($String* cn) {
 	$init(ModulePath);
-	int32_t index = $nc(cn)->lastIndexOf((int32_t)u'.');
+	int32_t index = $nc(cn)->lastIndexOf(u'.');
 	return (index == -1) ? ""_s : cn->substring(0, index);
 }
 
 $Optional* ModulePath::toPackageName($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!ModulePath::$assertionsDisabled && ! !$nc(name)->endsWith("/"_s)) {
 		$throwNew($AssertionError);
 	}
@@ -1437,7 +1279,7 @@ $Optional* ModulePath::toPackageName($String* name) {
 }
 
 $Optional* ModulePath::toPackageName($Path* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!ModulePath::$assertionsDisabled && !($nc(file)->getRoot() == nullptr)) {
 		$throwNew($AssertionError);
 	}
@@ -1452,7 +1294,7 @@ $Optional* ModulePath::toPackageName($Path* file) {
 		return $Optional::empty();
 	}
 	$init($File);
-	$var($String, pn, $nc($($nc(parent)->toString()))->replace($File::separatorChar, u'.'));
+	$var($String, pn, $$nc($nc(parent)->toString())->replace($File::separatorChar, u'.'));
 	if ($Checks::isPackageName(pn)) {
 		return $Optional::of(pn);
 	} else {
@@ -1470,8 +1312,8 @@ bool ModulePath::isHidden($Path* file) {
 }
 
 bool ModulePath::isDefaultFileSystem($Path* path) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($($nc($($nc(path)->getFileSystem()))->provider()))->getScheme()))->equalsIgnoreCase("file"_s);
+	$useLocalObjectStack();
+	return $$nc($$nc($$nc($nc(path)->getFileSystem())->provider())->getScheme())->equalsIgnoreCase("file"_s);
 }
 
 $Set* ModulePath::lambda$readExplodedModule$9($Path* dir) {
@@ -1518,7 +1360,7 @@ bool ModulePath::lambda$jmodPackages$0($JmodFile$Entry* e) {
 	return $nc(e)->section() == $JmodFile$Section::CLASSES;
 }
 
-void clinit$ModulePath($Class* class$) {
+void ModulePath::clinit$($Class* clazz) {
 	$assignStatic(ModulePath::MODULE_INFO, "module-info.class"_s);
 	$assignStatic(ModulePath::SERVICES_PREFIX, "META-INF/services/"_s);
 	ModulePath::$assertionsDisabled = !ModulePath::class$->desiredAssertionStatus();
@@ -1532,53 +1374,127 @@ ModulePath::ModulePath() {
 
 $Class* ModulePath::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ModulePath$$Lambda$lambda$jmodPackages$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.ModulePath$$Lambda$lambda$jmodPackages$0")) {
 			return ModulePath$$Lambda$lambda$jmodPackages$0::load$(name, initialize);
 		}
-		if (name->equals(ModulePath$$Lambda$name$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.ModulePath$$Lambda$name$1")) {
 			return ModulePath$$Lambda$name$1::load$(name, initialize);
 		}
-		if (name->equals(ModulePath$$Lambda$toPackageName$2::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.ModulePath$$Lambda$toPackageName$2")) {
 			return ModulePath$$Lambda$toPackageName$2::load$(name, initialize);
 		}
-		if (name->equals(ModulePath$$Lambda$stream$3::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.ModulePath$$Lambda$stream$3")) {
 			return ModulePath$$Lambda$stream$3::load$(name, initialize);
 		}
-		if (name->equals(ModulePath$$Lambda$lambda$readJMod$1$4::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.ModulePath$$Lambda$lambda$readJMod$1$4")) {
 			return ModulePath$$Lambda$lambda$readJMod$1$4::load$(name, initialize);
 		}
-		if (name->equals(ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5")) {
 			return ModulePath$$Lambda$lambda$deriveModuleDescriptor$2$5::load$(name, initialize);
 		}
-		if (name->equals(ModulePath$$Lambda$getName$6::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.ModulePath$$Lambda$getName$6")) {
 			return ModulePath$$Lambda$getName$6::load$(name, initialize);
 		}
-		if (name->equals(ModulePath$$Lambda$lambda$deriveModuleDescriptor$3$7::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.ModulePath$$Lambda$lambda$deriveModuleDescriptor$3$7")) {
 			return ModulePath$$Lambda$lambda$deriveModuleDescriptor$3$7::load$(name, initialize);
 		}
-		if (name->equals(ModulePath$$Lambda$lambda$deriveModuleDescriptor$4$8::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.ModulePath$$Lambda$lambda$deriveModuleDescriptor$4$8")) {
 			return ModulePath$$Lambda$lambda$deriveModuleDescriptor$4$8::load$(name, initialize);
 		}
-		if (name->equals(ModulePath$$Lambda$toServiceName$9::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.ModulePath$$Lambda$toServiceName$9")) {
 			return ModulePath$$Lambda$toServiceName$9::load$(name, initialize);
 		}
-		if (name->equals(ModulePath$$Lambda$lambda$readJar$6$10::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.ModulePath$$Lambda$lambda$readJar$6$10")) {
 			return ModulePath$$Lambda$lambda$readJar$6$10::load$(name, initialize);
 		}
-		if (name->equals(ModulePath$$Lambda$lambda$explodedPackages$7$11::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.ModulePath$$Lambda$lambda$explodedPackages$7$11")) {
 			return ModulePath$$Lambda$lambda$explodedPackages$7$11::load$(name, initialize);
 		}
-		if (name->equals(ModulePath$$Lambda$lambda$explodedPackages$8$12::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.ModulePath$$Lambda$lambda$explodedPackages$8$12")) {
 			return ModulePath$$Lambda$lambda$explodedPackages$8$12::load$(name, initialize);
 		}
-		if (name->equals(ModulePath$$Lambda$toPackageName$13::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.ModulePath$$Lambda$toPackageName$13")) {
 			return ModulePath$$Lambda$toPackageName$13::load$(name, initialize);
 		}
-		if (name->equals(ModulePath$$Lambda$lambda$readExplodedModule$9$14::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.ModulePath$$Lambda$lambda$readExplodedModule$9$14")) {
 			return ModulePath$$Lambda$lambda$readExplodedModule$9$14::load$(name, initialize);
 		}
 	}
-	$loadClass(ModulePath, name, initialize, &_ModulePath_ClassInfo_, clinit$ModulePath, allocate$ModulePath);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ModulePath, $assertionsDisabled)},
+		{"MODULE_INFO", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModulePath, MODULE_INFO)},
+		{"releaseVersion", "Ljava/lang/Runtime$Version;", nullptr, $PRIVATE | $FINAL, $field(ModulePath, releaseVersion)},
+		{"isLinkPhase", "Z", nullptr, $PRIVATE | $FINAL, $field(ModulePath, isLinkPhase)},
+		{"patcher", "Ljdk/internal/module/ModulePatcher;", nullptr, $PRIVATE | $FINAL, $field(ModulePath, patcher)},
+		{"entries", "[Ljava/nio/file/Path;", nullptr, $PRIVATE | $FINAL, $field(ModulePath, entries)},
+		{"next", "I", nullptr, $PRIVATE, $field(ModulePath, next)},
+		{"cachedModules", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/module/ModuleReference;>;", $PRIVATE | $FINAL, $field(ModulePath, cachedModules)},
+		{"SERVICES_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModulePath, SERVICES_PREFIX)},
+		{"AUTOMATIC_MODULE_NAME", "Ljava/util/jar/Attributes$Name;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModulePath, AUTOMATIC_MODULE_NAME)},
+		{"scanTime", "Ljdk/internal/perf/PerfCounter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModulePath, scanTime)},
+		{"moduleCount", "Ljdk/internal/perf/PerfCounter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ModulePath, moduleCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Runtime$Version;ZLjdk/internal/module/ModulePatcher;[Ljava/nio/file/Path;)V", nullptr, $PRIVATE | $TRANSIENT, $method(ModulePath, init$, void, $Runtime$Version*, bool, $ModulePatcher*, $PathArray*)},
+		{"cleanModuleName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ModulePath, cleanModuleName, $String*, $String*)},
+		{"deriveModuleDescriptor", "(Ljava/util/jar/JarFile;)Ljava/lang/module/ModuleDescriptor;", nullptr, $PRIVATE, $method(ModulePath, deriveModuleDescriptor, $ModuleDescriptor*, $JarFile*), "java.io.IOException"},
+		{"explodedPackages", "(Ljava/nio/file/Path;)Ljava/util/Set;", "(Ljava/nio/file/Path;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(ModulePath, explodedPackages, $Set*, $Path*)},
+		{"fileName", "(Ljava/lang/module/ModuleReference;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ModulePath, fileName, $String*, $ModuleReference*)},
+		{"find", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/module/ModuleReference;>;", $PUBLIC, $virtualMethod(ModulePath, find, $Optional*, $String*)},
+		{"findAll", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleReference;>;", $PUBLIC, $virtualMethod(ModulePath, findAll, $Set*)},
+		{"hasNextEntry", "()Z", nullptr, $PRIVATE, $method(ModulePath, hasNextEntry, bool)},
+		{"isDefaultFileSystem", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE, $method(ModulePath, isDefaultFileSystem, bool, $Path*)},
+		{"isHidden", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE, $method(ModulePath, isHidden, bool, $Path*)},
+		{"jarPackages", "(Ljava/util/jar/JarFile;)Ljava/util/Set;", "(Ljava/util/jar/JarFile;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(ModulePath, jarPackages, $Set*, $JarFile*)},
+		{"jmodPackages", "(Ljdk/internal/jmod/JmodFile;)Ljava/util/Set;", "(Ljdk/internal/jmod/JmodFile;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(ModulePath, jmodPackages, $Set*, $JmodFile*)},
+		{"lambda$deriveModuleDescriptor$2", "(Ljava/util/jar/JarEntry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModulePath, lambda$deriveModuleDescriptor$2, bool, $JarEntry*)},
+		{"lambda$deriveModuleDescriptor$3", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModulePath, lambda$deriveModuleDescriptor$3, bool, $String*)},
+		{"lambda$deriveModuleDescriptor$4", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModulePath, lambda$deriveModuleDescriptor$4, bool, $String*)},
+		{"lambda$explodedPackages$7", "(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(ModulePath, lambda$explodedPackages$7, bool, $Path*, $BasicFileAttributes*)},
+		{"lambda$explodedPackages$8", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModulePath, lambda$explodedPackages$8, $Path*, $Path*, $Path*)},
+		{"lambda$jmodPackages$0", "(Ljdk/internal/jmod/JmodFile$Entry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModulePath, lambda$jmodPackages$0, bool, $JmodFile$Entry*)},
+		{"lambda$readExplodedModule$9", "(Ljava/nio/file/Path;)Ljava/util/Set;", nullptr, $PRIVATE | $SYNTHETIC, $method(ModulePath, lambda$readExplodedModule$9, $Set*, $Path*)},
+		{"lambda$readJMod$1", "(Ljdk/internal/jmod/JmodFile;)Ljava/util/Set;", nullptr, $PRIVATE | $SYNTHETIC, $method(ModulePath, lambda$readJMod$1, $Set*, $JmodFile*)},
+		{"lambda$readJar$6", "(Ljava/util/jar/JarFile;)Ljava/util/Set;", nullptr, $PRIVATE | $SYNTHETIC, $method(ModulePath, lambda$readJar$6, $Set*, $JarFile*)},
+		{"nextLine", "(Ljava/io/BufferedReader;)Ljava/lang/String;", nullptr, $PRIVATE, $method(ModulePath, nextLine, $String*, $BufferedReader*), "java.io.IOException"},
+		{"of", "(Ljdk/internal/module/ModulePatcher;[Ljava/nio/file/Path;)Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ModulePath, of, $ModuleFinder*, $ModulePatcher*, $PathArray*)},
+		{"of", "([Ljava/nio/file/Path;)Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ModulePath, of, $ModuleFinder*, $PathArray*)},
+		{"of", "(Ljava/lang/Runtime$Version;Z[Ljava/nio/file/Path;)Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(ModulePath, of, $ModuleFinder*, $Runtime$Version*, bool, $PathArray*)},
+		{"packageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ModulePath, packageName, $String*, $String*)},
+		{"readExplodedModule", "(Ljava/nio/file/Path;)Ljava/lang/module/ModuleReference;", nullptr, $PRIVATE, $method(ModulePath, readExplodedModule, $ModuleReference*, $Path*), "java.io.IOException"},
+		{"readJMod", "(Ljava/nio/file/Path;)Ljava/lang/module/ModuleReference;", nullptr, $PRIVATE, $method(ModulePath, readJMod, $ModuleReference*, $Path*), "java.io.IOException"},
+		{"readJar", "(Ljava/nio/file/Path;)Ljava/lang/module/ModuleReference;", nullptr, $PRIVATE, $method(ModulePath, readJar, $ModuleReference*, $Path*), "java.io.IOException"},
+		{"readModule", "(Ljava/nio/file/Path;Ljava/nio/file/attribute/BasicFileAttributes;)Ljava/lang/module/ModuleReference;", nullptr, $PRIVATE, $method(ModulePath, readModule, $ModuleReference*, $Path*, $BasicFileAttributes*), "java.io.IOException"},
+		{"scan", "(Ljava/nio/file/Path;)Ljava/util/Map;", "(Ljava/nio/file/Path;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/module/ModuleReference;>;", $PRIVATE, $method(ModulePath, scan, $Map*, $Path*)},
+		{"scanDirectory", "(Ljava/nio/file/Path;)Ljava/util/Map;", "(Ljava/nio/file/Path;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/module/ModuleReference;>;", $PRIVATE, $method(ModulePath, scanDirectory, $Map*, $Path*), "java.io.IOException"},
+		{"scanNextEntry", "()V", nullptr, $PRIVATE, $method(ModulePath, scanNextEntry, void)},
+		{"toPackageName", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/String;>;", $PRIVATE, $method(ModulePath, toPackageName, $Optional*, $String*)},
+		{"toPackageName", "(Ljava/nio/file/Path;)Ljava/util/Optional;", "(Ljava/nio/file/Path;)Ljava/util/Optional<Ljava/lang/String;>;", $PRIVATE, $method(ModulePath, toPackageName, $Optional*, $Path*)},
+		{"toServiceName", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/String;>;", $PRIVATE, $method(ModulePath, toServiceName, $Optional*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.module.ModulePath$Patterns", "jdk.internal.module.ModulePath", "Patterns", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.module.ModulePath",
+		"java.lang.Object",
+		"java.lang.module.ModuleFinder",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.module.ModulePath$Patterns"
+	};
+	$loadClass(ModulePath, name, initialize, &classInfo$$, ModulePath::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ModulePath);
+	});
 	return class$;
 }
 

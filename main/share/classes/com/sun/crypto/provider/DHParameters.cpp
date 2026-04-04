@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/DHParameters.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/math/BigInteger.h>
@@ -27,7 +26,6 @@ using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $InvalidParameterSpecException = ::java::security::spec::InvalidParameterSpecException;
 using $DHParameterSpec = ::javax::crypto::spec::DHParameterSpec;
 using $Debug = ::sun::security::util::Debug;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 
@@ -35,38 +33,6 @@ namespace com {
 	namespace sun {
 		namespace crypto {
 			namespace provider {
-
-$FieldInfo _DHParameters_FieldInfo_[] = {
-	{"p", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHParameters, p)},
-	{"g", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHParameters, g)},
-	{"l", "I", nullptr, $PRIVATE, $field(DHParameters, l)},
-	{}
-};
-
-$MethodInfo _DHParameters_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DHParameters, init$, void)},
-	{"engineGetEncoded", "()[B", nullptr, $PROTECTED, $virtualMethod(DHParameters, engineGetEncoded, $bytes*), "java.io.IOException"},
-	{"engineGetEncoded", "(Ljava/lang/String;)[B", nullptr, $PROTECTED, $virtualMethod(DHParameters, engineGetEncoded, $bytes*, $String*), "java.io.IOException"},
-	{"engineGetParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", $PROTECTED, $virtualMethod(DHParameters, engineGetParameterSpec, $AlgorithmParameterSpec*, $Class*), "java.security.spec.InvalidParameterSpecException"},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(DHParameters, engineInit, void, $AlgorithmParameterSpec*), "java.security.spec.InvalidParameterSpecException"},
-	{"engineInit", "([B)V", nullptr, $PROTECTED, $virtualMethod(DHParameters, engineInit, void, $bytes*), "java.io.IOException"},
-	{"engineInit", "([BLjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(DHParameters, engineInit, void, $bytes*, $String*), "java.io.IOException"},
-	{"engineToString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(DHParameters, engineToString, $String*)},
-	{}
-};
-
-$ClassInfo _DHParameters_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.DHParameters",
-	"java.security.AlgorithmParametersSpi",
-	nullptr,
-	_DHParameters_FieldInfo_,
-	_DHParameters_MethodInfo_
-};
-
-$Object* allocate$DHParameters($Class* clazz) {
-	return $of($alloc(DHParameters));
-}
 
 void DHParameters::init$() {
 	$AlgorithmParametersSpi::init$();
@@ -80,9 +46,9 @@ void DHParameters::engineInit($AlgorithmParameterSpec* paramSpec) {
 	if (!($instanceOf($DHParameterSpec, paramSpec))) {
 		$throwNew($InvalidParameterSpecException, "Inappropriate parameter specification"_s);
 	}
-	$set(this, p, $nc(($cast($DHParameterSpec, paramSpec)))->getP());
-	$set(this, g, ($cast($DHParameterSpec, paramSpec))->getG());
-	this->l = ($cast($DHParameterSpec, paramSpec))->getL();
+	$set(this, p, $nc($cast($DHParameterSpec, paramSpec))->getP());
+	$set(this, g, $cast($DHParameterSpec, paramSpec)->getG());
+	this->l = $cast($DHParameterSpec, paramSpec)->getL();
 }
 
 void DHParameters::engineInit($bytes* params) {
@@ -92,12 +58,12 @@ void DHParameters::engineInit($bytes* params) {
 			$throwNew($IOException, "DH params parsing error"_s);
 		}
 		$nc(encodedParams->data$)->reset();
-		$set(this, p, $nc(encodedParams->data$)->getBigInteger());
-		$set(this, g, $nc(encodedParams->data$)->getBigInteger());
-		if ($nc(encodedParams->data$)->available() != 0) {
-			this->l = $nc(encodedParams->data$)->getInteger();
+		$set(this, p, encodedParams->data$->getBigInteger());
+		$set(this, g, encodedParams->data$->getBigInteger());
+		if (encodedParams->data$->available() != 0) {
+			this->l = encodedParams->data$->getInteger();
 		}
-		if ($nc(encodedParams->data$)->available() != 0) {
+		if (encodedParams->data$->available() != 0) {
 			$throwNew($IOException, "DH parameter parsing error: Extra data"_s);
 		}
 	} catch ($NumberFormatException& e) {
@@ -119,7 +85,7 @@ $AlgorithmParameterSpec* DHParameters::engineGetParameterSpec($Class* paramSpec)
 }
 
 $bytes* DHParameters::engineGetEncoded() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, out, $new($DerOutputStream));
 	$var($DerOutputStream, bytes, $new($DerOutputStream));
 	bytes->putInteger(this->p);
@@ -136,10 +102,19 @@ $bytes* DHParameters::engineGetEncoded($String* encodingMethod) {
 }
 
 $String* DHParameters::engineToString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, LINE_SEP, $System::lineSeparator());
-	$var($String, var$0, $$str({"SunJCE Diffie-Hellman Parameters:"_s, LINE_SEP, "p:"_s, LINE_SEP, $($Debug::toHexString(this->p)), LINE_SEP, "g:"_s, LINE_SEP}));
-	$var($StringBuilder, sb, $new($StringBuilder, $$concat(var$0, $($Debug::toHexString(this->g)))));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("SunJCE Diffie-Hellman Parameters:"_s);
+	var$0->append(LINE_SEP);
+	var$0->append("p:"_s);
+	var$0->append(LINE_SEP);
+	var$0->append($($Debug::toHexString(this->p)));
+	var$0->append(LINE_SEP);
+	var$0->append("g:"_s);
+	var$0->append(LINE_SEP);
+	var$0->append($($Debug::toHexString(this->g)));
+	$var($StringBuilder, sb, $new($StringBuilder, $$str(var$0)));
 	if (this->l != 0) {
 		sb->append($$str({LINE_SEP, "l:"_s, LINE_SEP, "    "_s, $$str(this->l)}));
 	}
@@ -150,7 +125,34 @@ DHParameters::DHParameters() {
 }
 
 $Class* DHParameters::load$($String* name, bool initialize) {
-	$loadClass(DHParameters, name, initialize, &_DHParameters_ClassInfo_, allocate$DHParameters);
+	$FieldInfo fieldInfos$$[] = {
+		{"p", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHParameters, p)},
+		{"g", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHParameters, g)},
+		{"l", "I", nullptr, $PRIVATE, $field(DHParameters, l)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DHParameters, init$, void)},
+		{"engineGetEncoded", "()[B", nullptr, $PROTECTED, $virtualMethod(DHParameters, engineGetEncoded, $bytes*), "java.io.IOException"},
+		{"engineGetEncoded", "(Ljava/lang/String;)[B", nullptr, $PROTECTED, $virtualMethod(DHParameters, engineGetEncoded, $bytes*, $String*), "java.io.IOException"},
+		{"engineGetParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", $PROTECTED, $virtualMethod(DHParameters, engineGetParameterSpec, $AlgorithmParameterSpec*, $Class*), "java.security.spec.InvalidParameterSpecException"},
+		{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(DHParameters, engineInit, void, $AlgorithmParameterSpec*), "java.security.spec.InvalidParameterSpecException"},
+		{"engineInit", "([B)V", nullptr, $PROTECTED, $virtualMethod(DHParameters, engineInit, void, $bytes*), "java.io.IOException"},
+		{"engineInit", "([BLjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(DHParameters, engineInit, void, $bytes*, $String*), "java.io.IOException"},
+		{"engineToString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(DHParameters, engineToString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.DHParameters",
+		"java.security.AlgorithmParametersSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DHParameters, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DHParameters);
+	});
 	return class$;
 }
 

@@ -29,6 +29,7 @@ class PollArrayWrapper : public ::java::lang::Object {
 	$class(PollArrayWrapper, 0, ::java::lang::Object)
 public:
 	PollArrayWrapper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t newSize);
 	virtual void addWakeupSocket(int32_t fdVal, int32_t index);
 	virtual void free();

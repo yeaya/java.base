@@ -60,6 +60,7 @@ class $import CheckSignatureAdapter : public ::jdk::internal::org::objectweb::as
 	$class(CheckSignatureAdapter, 0, ::jdk::internal::org::objectweb::asm$::signature::SignatureVisitor)
 public:
 	CheckSignatureAdapter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t type, ::jdk::internal::org::objectweb::asm$::signature::SignatureVisitor* signatureVisitor);
 	void init$(int32_t api, int32_t type, ::jdk::internal::org::objectweb::asm$::signature::SignatureVisitor* signatureVisitor);
 	void checkClassName($String* name, $String* message);

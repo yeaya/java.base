@@ -42,6 +42,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	void init$(::java::nio::charset::Charset* cs, float avgCpb, float maxCpb, ::sun::nio::cs::SingleByte$Decoder* dec0201, ::sun::nio::cs::DoubleByte$Decoder* dec0208, ::sun::nio::cs::DoubleByte$Decoder* dec0212);
 	::java::nio::charset::CoderResult* decodeArrayLoop(::java::nio::ByteBuffer* src, ::java::nio::CharBuffer* dst);

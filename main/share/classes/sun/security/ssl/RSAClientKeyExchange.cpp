@@ -1,5 +1,4 @@
 #include <sun/security/ssl/RSAClientKeyExchange.h>
-
 #include <sun/security/ssl/HandshakeProducer.h>
 #include <sun/security/ssl/RSAClientKeyExchange$RSAClientKeyExchangeConsumer.h>
 #include <sun/security/ssl/RSAClientKeyExchange$RSAClientKeyExchangeProducer.h>
@@ -19,50 +18,13 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _RSAClientKeyExchange_FieldInfo_[] = {
-	{"rsaHandshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(RSAClientKeyExchange, rsaHandshakeConsumer)},
-	{"rsaHandshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(RSAClientKeyExchange, rsaHandshakeProducer)},
-	{}
-};
-
-$MethodInfo _RSAClientKeyExchange_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(RSAClientKeyExchange, init$, void)},
-	{}
-};
-
-$InnerClassInfo _RSAClientKeyExchange_InnerClassesInfo_[] = {
-	{"sun.security.ssl.RSAClientKeyExchange$RSAClientKeyExchangeConsumer", "sun.security.ssl.RSAClientKeyExchange", "RSAClientKeyExchangeConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.RSAClientKeyExchange$RSAClientKeyExchangeProducer", "sun.security.ssl.RSAClientKeyExchange", "RSAClientKeyExchangeProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.RSAClientKeyExchange$RSAClientKeyExchangeMessage", "sun.security.ssl.RSAClientKeyExchange", "RSAClientKeyExchangeMessage", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _RSAClientKeyExchange_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.RSAClientKeyExchange",
-	"java.lang.Object",
-	nullptr,
-	_RSAClientKeyExchange_FieldInfo_,
-	_RSAClientKeyExchange_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RSAClientKeyExchange_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.RSAClientKeyExchange$RSAClientKeyExchangeConsumer,sun.security.ssl.RSAClientKeyExchange$RSAClientKeyExchangeProducer,sun.security.ssl.RSAClientKeyExchange$RSAClientKeyExchangeMessage"
-};
-
-$Object* allocate$RSAClientKeyExchange($Class* clazz) {
-	return $of($alloc(RSAClientKeyExchange));
-}
-
 $SSLConsumer* RSAClientKeyExchange::rsaHandshakeConsumer = nullptr;
 $HandshakeProducer* RSAClientKeyExchange::rsaHandshakeProducer = nullptr;
 
 void RSAClientKeyExchange::init$() {
 }
 
-void clinit$RSAClientKeyExchange($Class* class$) {
+void RSAClientKeyExchange::clinit$($Class* clazz) {
 	$assignStatic(RSAClientKeyExchange::rsaHandshakeConsumer, $new($RSAClientKeyExchange$RSAClientKeyExchangeConsumer));
 	$assignStatic(RSAClientKeyExchange::rsaHandshakeProducer, $new($RSAClientKeyExchange$RSAClientKeyExchangeProducer));
 }
@@ -71,7 +33,38 @@ RSAClientKeyExchange::RSAClientKeyExchange() {
 }
 
 $Class* RSAClientKeyExchange::load$($String* name, bool initialize) {
-	$loadClass(RSAClientKeyExchange, name, initialize, &_RSAClientKeyExchange_ClassInfo_, clinit$RSAClientKeyExchange, allocate$RSAClientKeyExchange);
+	$FieldInfo fieldInfos$$[] = {
+		{"rsaHandshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(RSAClientKeyExchange, rsaHandshakeConsumer)},
+		{"rsaHandshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(RSAClientKeyExchange, rsaHandshakeProducer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(RSAClientKeyExchange, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.RSAClientKeyExchange$RSAClientKeyExchangeConsumer", "sun.security.ssl.RSAClientKeyExchange", "RSAClientKeyExchangeConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.RSAClientKeyExchange$RSAClientKeyExchangeProducer", "sun.security.ssl.RSAClientKeyExchange", "RSAClientKeyExchangeProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.RSAClientKeyExchange$RSAClientKeyExchangeMessage", "sun.security.ssl.RSAClientKeyExchange", "RSAClientKeyExchangeMessage", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.RSAClientKeyExchange",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.RSAClientKeyExchange$RSAClientKeyExchangeConsumer,sun.security.ssl.RSAClientKeyExchange$RSAClientKeyExchangeProducer,sun.security.ssl.RSAClientKeyExchange$RSAClientKeyExchangeMessage"
+	};
+	$loadClass(RSAClientKeyExchange, name, initialize, &classInfo$$, RSAClientKeyExchange::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RSAClientKeyExchange);
+	});
 	return class$;
 }
 

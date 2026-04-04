@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/http/AuthenticationHeader.h>
-
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
@@ -35,55 +34,6 @@ namespace sun {
 			namespace protocol {
 				namespace http {
 
-$FieldInfo _AuthenticationHeader_FieldInfo_[] = {
-	{"rsp", "Lsun/net/www/MessageHeader;", nullptr, 0, $field(AuthenticationHeader, rsp)},
-	{"preferred", "Lsun/net/www/HeaderParser;", nullptr, 0, $field(AuthenticationHeader, preferred)},
-	{"preferred_r", "Ljava/lang/String;", nullptr, 0, $field(AuthenticationHeader, preferred_r)},
-	{"hci", "Lsun/net/www/protocol/http/HttpCallerInfo;", nullptr, $PRIVATE | $FINAL, $field(AuthenticationHeader, hci)},
-	{"dontUseNegotiate", "Z", nullptr, 0, $field(AuthenticationHeader, dontUseNegotiate)},
-	{"authPref", "Ljava/lang/String;", nullptr, $STATIC, $staticField(AuthenticationHeader, authPref)},
-	{"hdrname", "Ljava/lang/String;", nullptr, 0, $field(AuthenticationHeader, hdrname)},
-	{"schemes", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Lsun/net/www/protocol/http/AuthenticationHeader$SchemeMapValue;>;", 0, $field(AuthenticationHeader, schemes)},
-	{}
-};
-
-$MethodInfo _AuthenticationHeader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lsun/net/www/MessageHeader;Lsun/net/www/protocol/http/HttpCallerInfo;Z)V", nullptr, $PUBLIC, $method(AuthenticationHeader, init$, void, $String*, $MessageHeader*, $HttpCallerInfo*, bool)},
-	{"<init>", "(Ljava/lang/String;Lsun/net/www/MessageHeader;Lsun/net/www/protocol/http/HttpCallerInfo;ZLjava/util/Set;)V", "(Ljava/lang/String;Lsun/net/www/MessageHeader;Lsun/net/www/protocol/http/HttpCallerInfo;ZLjava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(AuthenticationHeader, init$, void, $String*, $MessageHeader*, $HttpCallerInfo*, bool, $Set*)},
-	{"getHttpCallerInfo", "()Lsun/net/www/protocol/http/HttpCallerInfo;", nullptr, $PUBLIC, $virtualMethod(AuthenticationHeader, getHttpCallerInfo, $HttpCallerInfo*)},
-	{"headerParser", "()Lsun/net/www/HeaderParser;", nullptr, $PUBLIC, $virtualMethod(AuthenticationHeader, headerParser, $HeaderParser*)},
-	{"isPresent", "()Z", nullptr, $PUBLIC, $virtualMethod(AuthenticationHeader, isPresent, bool)},
-	{"parse", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(AuthenticationHeader, parse, void, $Set*)},
-	{"raw", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthenticationHeader, raw, $String*)},
-	{"scheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthenticationHeader, scheme, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthenticationHeader, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _AuthenticationHeader_InnerClassesInfo_[] = {
-	{"sun.net.www.protocol.http.AuthenticationHeader$SchemeMapValue", "sun.net.www.protocol.http.AuthenticationHeader", "SchemeMapValue", $STATIC},
-	{}
-};
-
-$ClassInfo _AuthenticationHeader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.www.protocol.http.AuthenticationHeader",
-	"java.lang.Object",
-	nullptr,
-	_AuthenticationHeader_FieldInfo_,
-	_AuthenticationHeader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AuthenticationHeader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.net.www.protocol.http.AuthenticationHeader$SchemeMapValue"
-};
-
-$Object* allocate$AuthenticationHeader($Class* clazz) {
-	return $of($alloc(AuthenticationHeader));
-}
-
 $String* AuthenticationHeader::authPref = nullptr;
 
 $String* AuthenticationHeader::toString() {
@@ -109,7 +59,7 @@ $HttpCallerInfo* AuthenticationHeader::getHttpCallerInfo() {
 }
 
 void AuthenticationHeader::parse($Set* disabledSchemes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Iterator, iter, $nc(this->rsp)->multiValueIterator(this->hdrname));
 	while ($nc(iter)->hasNext()) {
 		$var($String, raw, $cast($String, iter->next()));
@@ -161,12 +111,12 @@ void AuthenticationHeader::parse($Set* disabledSchemes) {
 		if (v == nullptr) {
 			if (($assign(v, $cast($AuthenticationHeader$SchemeMapValue, $nc(this->schemes)->get("digest"_s)))) == nullptr) {
 				$init($NTLMAuthenticationProxy);
-				if (!$NTLMAuthenticationProxy::supported || (($assign(v, $cast($AuthenticationHeader$SchemeMapValue, $nc(this->schemes)->get("ntlm"_s)))) == nullptr)) {
-					$assign(v, $cast($AuthenticationHeader$SchemeMapValue, $nc(this->schemes)->get("basic"_s)));
+				if (!$NTLMAuthenticationProxy::supported || (($assign(v, $cast($AuthenticationHeader$SchemeMapValue, this->schemes->get("ntlm"_s)))) == nullptr)) {
+					$assign(v, $cast($AuthenticationHeader$SchemeMapValue, this->schemes->get("basic"_s)));
 				}
 			}
 		}
-	} else if (this->dontUseNegotiate && $nc(AuthenticationHeader::authPref)->equals("negotiate"_s)) {
+	} else if (this->dontUseNegotiate && AuthenticationHeader::authPref->equals("negotiate"_s)) {
 		$assign(v, nullptr);
 	}
 	if (v != nullptr) {
@@ -181,7 +131,7 @@ $HeaderParser* AuthenticationHeader::headerParser() {
 
 $String* AuthenticationHeader::scheme() {
 	if (this->preferred != nullptr) {
-		return $nc(this->preferred)->findKey(0);
+		return this->preferred->findKey(0);
 	} else {
 		return nullptr;
 	}
@@ -195,14 +145,14 @@ bool AuthenticationHeader::isPresent() {
 	return this->preferred != nullptr;
 }
 
-void clinit$AuthenticationHeader($Class* class$) {
+void AuthenticationHeader::clinit$($Class* clazz) {
 	$assignStatic(AuthenticationHeader::authPref, nullptr);
 	{
 		$assignStatic(AuthenticationHeader::authPref, $GetPropertyAction::privilegedGetProperty("http.auth.preference"_s));
 		if (AuthenticationHeader::authPref != nullptr) {
-			$assignStatic(AuthenticationHeader::authPref, $nc(AuthenticationHeader::authPref)->toLowerCase());
-			bool var$0 = $nc(AuthenticationHeader::authPref)->equals("spnego"_s);
-			if (var$0 || $nc(AuthenticationHeader::authPref)->equals("kerberos"_s)) {
+			$assignStatic(AuthenticationHeader::authPref, AuthenticationHeader::authPref->toLowerCase());
+			bool var$0 = AuthenticationHeader::authPref->equals("spnego"_s);
+			if (var$0 || AuthenticationHeader::authPref->equals("kerberos"_s)) {
 				$assignStatic(AuthenticationHeader::authPref, "negotiate"_s);
 			}
 		}
@@ -213,7 +163,50 @@ AuthenticationHeader::AuthenticationHeader() {
 }
 
 $Class* AuthenticationHeader::load$($String* name, bool initialize) {
-	$loadClass(AuthenticationHeader, name, initialize, &_AuthenticationHeader_ClassInfo_, clinit$AuthenticationHeader, allocate$AuthenticationHeader);
+	$FieldInfo fieldInfos$$[] = {
+		{"rsp", "Lsun/net/www/MessageHeader;", nullptr, 0, $field(AuthenticationHeader, rsp)},
+		{"preferred", "Lsun/net/www/HeaderParser;", nullptr, 0, $field(AuthenticationHeader, preferred)},
+		{"preferred_r", "Ljava/lang/String;", nullptr, 0, $field(AuthenticationHeader, preferred_r)},
+		{"hci", "Lsun/net/www/protocol/http/HttpCallerInfo;", nullptr, $PRIVATE | $FINAL, $field(AuthenticationHeader, hci)},
+		{"dontUseNegotiate", "Z", nullptr, 0, $field(AuthenticationHeader, dontUseNegotiate)},
+		{"authPref", "Ljava/lang/String;", nullptr, $STATIC, $staticField(AuthenticationHeader, authPref)},
+		{"hdrname", "Ljava/lang/String;", nullptr, 0, $field(AuthenticationHeader, hdrname)},
+		{"schemes", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Lsun/net/www/protocol/http/AuthenticationHeader$SchemeMapValue;>;", 0, $field(AuthenticationHeader, schemes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Lsun/net/www/MessageHeader;Lsun/net/www/protocol/http/HttpCallerInfo;Z)V", nullptr, $PUBLIC, $method(AuthenticationHeader, init$, void, $String*, $MessageHeader*, $HttpCallerInfo*, bool)},
+		{"<init>", "(Ljava/lang/String;Lsun/net/www/MessageHeader;Lsun/net/www/protocol/http/HttpCallerInfo;ZLjava/util/Set;)V", "(Ljava/lang/String;Lsun/net/www/MessageHeader;Lsun/net/www/protocol/http/HttpCallerInfo;ZLjava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(AuthenticationHeader, init$, void, $String*, $MessageHeader*, $HttpCallerInfo*, bool, $Set*)},
+		{"getHttpCallerInfo", "()Lsun/net/www/protocol/http/HttpCallerInfo;", nullptr, $PUBLIC, $virtualMethod(AuthenticationHeader, getHttpCallerInfo, $HttpCallerInfo*)},
+		{"headerParser", "()Lsun/net/www/HeaderParser;", nullptr, $PUBLIC, $virtualMethod(AuthenticationHeader, headerParser, $HeaderParser*)},
+		{"isPresent", "()Z", nullptr, $PUBLIC, $virtualMethod(AuthenticationHeader, isPresent, bool)},
+		{"parse", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(AuthenticationHeader, parse, void, $Set*)},
+		{"raw", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthenticationHeader, raw, $String*)},
+		{"scheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthenticationHeader, scheme, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthenticationHeader, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.www.protocol.http.AuthenticationHeader$SchemeMapValue", "sun.net.www.protocol.http.AuthenticationHeader", "SchemeMapValue", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.www.protocol.http.AuthenticationHeader",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.net.www.protocol.http.AuthenticationHeader$SchemeMapValue"
+	};
+	$loadClass(AuthenticationHeader, name, initialize, &classInfo$$, AuthenticationHeader::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AuthenticationHeader);
+	});
 	return class$;
 }
 

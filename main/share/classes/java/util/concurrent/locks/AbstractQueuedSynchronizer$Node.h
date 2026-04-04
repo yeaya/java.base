@@ -27,6 +27,7 @@ class $export AbstractQueuedSynchronizer$Node : public ::java::lang::Object {
 	$class(AbstractQueuedSynchronizer$Node, 0, ::java::lang::Object)
 public:
 	AbstractQueuedSynchronizer$Node();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	bool casNext(::java::util::concurrent::locks::AbstractQueuedSynchronizer$Node* c, ::java::util::concurrent::locks::AbstractQueuedSynchronizer$Node* v);
 	bool casPrev(::java::util::concurrent::locks::AbstractQueuedSynchronizer$Node* c, ::java::util::concurrent::locks::AbstractQueuedSynchronizer$Node* v);

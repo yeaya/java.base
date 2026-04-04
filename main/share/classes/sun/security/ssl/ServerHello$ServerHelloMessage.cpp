@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ServerHello$ServerHelloMessage.h>
-
 #include <java/io/OutputStream.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/text/MessageFormat.h>
@@ -50,65 +49,15 @@ using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $RandomCookie = ::sun::security::ssl::RandomCookie;
 using $Record = ::sun::security::ssl::Record;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLExtensions = ::sun::security::ssl::SSLExtensions;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SessionId = ::sun::security::ssl::SessionId;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 using $Utilities = ::sun::security::ssl::Utilities;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _ServerHello$ServerHelloMessage_FieldInfo_[] = {
-	{"serverVersion", "Lsun/security/ssl/ProtocolVersion;", nullptr, $FINAL, $field(ServerHello$ServerHelloMessage, serverVersion)},
-	{"serverRandom", "Lsun/security/ssl/RandomCookie;", nullptr, $FINAL, $field(ServerHello$ServerHelloMessage, serverRandom)},
-	{"sessionId", "Lsun/security/ssl/SessionId;", nullptr, $FINAL, $field(ServerHello$ServerHelloMessage, sessionId)},
-	{"cipherSuite", "Lsun/security/ssl/CipherSuite;", nullptr, $FINAL, $field(ServerHello$ServerHelloMessage, cipherSuite)},
-	{"compressionMethod", "B", nullptr, $FINAL, $field(ServerHello$ServerHelloMessage, compressionMethod)},
-	{"extensions", "Lsun/security/ssl/SSLExtensions;", nullptr, $FINAL, $field(ServerHello$ServerHelloMessage, extensions)},
-	{"clientHello", "Lsun/security/ssl/ClientHello$ClientHelloMessage;", nullptr, $FINAL, $field(ServerHello$ServerHelloMessage, clientHello)},
-	{"handshakeRecord", "Ljava/nio/ByteBuffer;", nullptr, $FINAL, $field(ServerHello$ServerHelloMessage, handshakeRecord)},
-	{}
-};
-
-$MethodInfo _ServerHello$ServerHelloMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/SessionId;Lsun/security/ssl/CipherSuite;Lsun/security/ssl/RandomCookie;Lsun/security/ssl/ClientHello$ClientHelloMessage;)V", nullptr, 0, $method(ServerHello$ServerHelloMessage, init$, void, $HandshakeContext*, $ProtocolVersion*, $SessionId*, $CipherSuite*, $RandomCookie*, $ClientHello$ClientHelloMessage*)},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(ServerHello$ServerHelloMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(ServerHello$ServerHelloMessage, handshakeType, $SSLHandshake*)},
-	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(ServerHello$ServerHelloMessage, messageLength, int32_t)},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(ServerHello$ServerHelloMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ServerHello$ServerHelloMessage, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _ServerHello$ServerHelloMessage_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ServerHello$ServerHelloMessage", "sun.security.ssl.ServerHello", "ServerHelloMessage", $STATIC | $FINAL},
-	{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ServerHello$ServerHelloMessage_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ServerHello$ServerHelloMessage",
-	"sun.security.ssl.SSLHandshake$HandshakeMessage",
-	nullptr,
-	_ServerHello$ServerHelloMessage_FieldInfo_,
-	_ServerHello$ServerHelloMessage_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServerHello$ServerHelloMessage_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ServerHello"
-};
-
-$Object* allocate$ServerHello$ServerHelloMessage($Class* clazz) {
-	return $of($alloc(ServerHello$ServerHelloMessage));
-}
 
 void ServerHello$ServerHelloMessage::init$($HandshakeContext* context, $ProtocolVersion* serverVersion, $SessionId* sessionId, $CipherSuite* cipherSuite, $RandomCookie* serverRandom, $ClientHello$ClientHelloMessage* clientHello) {
 	$SSLHandshake$HandshakeMessage::init$(context);
@@ -116,14 +65,14 @@ void ServerHello$ServerHelloMessage::init$($HandshakeContext* context, $Protocol
 	$set(this, serverRandom, serverRandom);
 	$set(this, sessionId, sessionId);
 	$set(this, cipherSuite, cipherSuite);
-	this->compressionMethod = (int8_t)0;
+	this->compressionMethod = 0;
 	$set(this, extensions, $new($SSLExtensions, this));
 	$set(this, clientHello, clientHello);
 	$set(this, handshakeRecord, nullptr);
 }
 
 void ServerHello$ServerHelloMessage::init$($HandshakeContext* context, $ByteBuffer* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SSLHandshake$HandshakeMessage::init$(context);
 	$set(this, handshakeRecord, $nc(m)->duplicate());
 	int8_t major = m->get();
@@ -139,13 +88,13 @@ void ServerHello$ServerHelloMessage::init$($HandshakeContext* context, $ByteBuff
 		$nc(this->sessionId)->checkLength(this->serverVersion->id);
 	} catch ($SSLProtocolException& ex) {
 		$init($Alert);
-		$throw($($nc($nc(this->handshakeContext)->conContext)->fatal($Alert::ILLEGAL_PARAMETER, static_cast<$Throwable*>(ex))));
+		$throw($($nc($nc(this->handshakeContext)->conContext)->fatal($Alert::ILLEGAL_PARAMETER, ex)));
 	}
 	int32_t cipherSuiteId = $Record::getInt16(m);
 	$set(this, cipherSuite, $CipherSuite::valueOf(cipherSuiteId));
 	if (this->cipherSuite == nullptr || !$nc(context)->isNegotiable(this->cipherSuite)) {
 		$init($Alert);
-		$throw($($nc(context->conContext)->fatal($Alert::ILLEGAL_PARAMETER, $$str({"Server selected improper ciphersuite "_s, $($CipherSuite::nameOf(cipherSuiteId))}))));
+		$throw($($nc($nc(context)->conContext)->fatal($Alert::ILLEGAL_PARAMETER, $$str({"Server selected improper ciphersuite "_s, $($CipherSuite::nameOf(cipherSuiteId))}))));
 	}
 	this->compressionMethod = m->get();
 	if (this->compressionMethod != 0) {
@@ -183,24 +132,24 @@ void ServerHello$ServerHelloMessage::send($HandshakeOutStream* hos) {
 	hos->putInt8(this->serverVersion->minor);
 	hos->write($nc(this->serverRandom)->randomBytes);
 	hos->putBytes8($($nc(this->sessionId)->getId()));
-	hos->putInt8((int32_t)((this->cipherSuite->id >> 8) & (uint32_t)255));
-	hos->putInt8((int32_t)(this->cipherSuite->id & (uint32_t)255));
+	hos->putInt8((this->cipherSuite->id >> 8) & 0xff);
+	hos->putInt8(this->cipherSuite->id & 0xff);
 	hos->putInt8(this->compressionMethod);
 	$nc(this->extensions)->send(hos);
 }
 
 $String* ServerHello$ServerHelloMessage::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"{0}\": \'{\'\n  \"server version\"      : \"{1}\",\n  \"random\"              : \"{2}\",\n  \"session id\"          : \"{3}\",\n  \"cipher suite\"        : \"{4}\",\n  \"compression methods\" : \"{5}\",\n  \"extensions\"          : [\n{6}\n  ]\n\'}\'"_s, $Locale::ENGLISH));
 	$var($ObjectArray, messageFields, $new($ObjectArray, {
-		$nc(this->serverRandom)->isHelloRetryRequest() ? $of("HelloRetryRequest"_s) : $of("ServerHello"_s),
-		$of(this->serverVersion->name$),
-		$($of($Utilities::toHexString($nc(this->serverRandom)->randomBytes))),
-		$($of($nc(this->sessionId)->toString())),
-		$of($$str({this->cipherSuite->name$, "("_s, $($Utilities::byte16HexString(this->cipherSuite->id)), ")"_s})),
-		$($of($nc($($HexFormat::of()))->toHexDigits(this->compressionMethod))),
-		$($of($Utilities::indent($($nc(this->extensions)->toString()), "    "_s)))
+		$nc(this->serverRandom)->isHelloRetryRequest() ? "HelloRetryRequest"_s : "ServerHello"_s,
+		this->serverVersion->name$,
+		$($Utilities::toHexString(this->serverRandom->randomBytes)),
+		$($nc(this->sessionId)->toString()),
+		$$str({this->cipherSuite->name$, "("_s, $($Utilities::byte16HexString(this->cipherSuite->id)), ")"_s}),
+		$($$nc($HexFormat::of())->toHexDigits(this->compressionMethod)),
+		$($Utilities::indent($($nc(this->extensions)->toString()), "    "_s))
 	}));
 	return messageFormat->format(messageFields);
 }
@@ -209,7 +158,49 @@ ServerHello$ServerHelloMessage::ServerHello$ServerHelloMessage() {
 }
 
 $Class* ServerHello$ServerHelloMessage::load$($String* name, bool initialize) {
-	$loadClass(ServerHello$ServerHelloMessage, name, initialize, &_ServerHello$ServerHelloMessage_ClassInfo_, allocate$ServerHello$ServerHelloMessage);
+	$FieldInfo fieldInfos$$[] = {
+		{"serverVersion", "Lsun/security/ssl/ProtocolVersion;", nullptr, $FINAL, $field(ServerHello$ServerHelloMessage, serverVersion)},
+		{"serverRandom", "Lsun/security/ssl/RandomCookie;", nullptr, $FINAL, $field(ServerHello$ServerHelloMessage, serverRandom)},
+		{"sessionId", "Lsun/security/ssl/SessionId;", nullptr, $FINAL, $field(ServerHello$ServerHelloMessage, sessionId)},
+		{"cipherSuite", "Lsun/security/ssl/CipherSuite;", nullptr, $FINAL, $field(ServerHello$ServerHelloMessage, cipherSuite)},
+		{"compressionMethod", "B", nullptr, $FINAL, $field(ServerHello$ServerHelloMessage, compressionMethod)},
+		{"extensions", "Lsun/security/ssl/SSLExtensions;", nullptr, $FINAL, $field(ServerHello$ServerHelloMessage, extensions)},
+		{"clientHello", "Lsun/security/ssl/ClientHello$ClientHelloMessage;", nullptr, $FINAL, $field(ServerHello$ServerHelloMessage, clientHello)},
+		{"handshakeRecord", "Ljava/nio/ByteBuffer;", nullptr, $FINAL, $field(ServerHello$ServerHelloMessage, handshakeRecord)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/SessionId;Lsun/security/ssl/CipherSuite;Lsun/security/ssl/RandomCookie;Lsun/security/ssl/ClientHello$ClientHelloMessage;)V", nullptr, 0, $method(ServerHello$ServerHelloMessage, init$, void, $HandshakeContext*, $ProtocolVersion*, $SessionId*, $CipherSuite*, $RandomCookie*, $ClientHello$ClientHelloMessage*)},
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(ServerHello$ServerHelloMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+		{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(ServerHello$ServerHelloMessage, handshakeType, $SSLHandshake*)},
+		{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(ServerHello$ServerHelloMessage, messageLength, int32_t)},
+		{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(ServerHello$ServerHelloMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ServerHello$ServerHelloMessage, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ServerHello$ServerHelloMessage", "sun.security.ssl.ServerHello", "ServerHelloMessage", $STATIC | $FINAL},
+		{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ServerHello$ServerHelloMessage",
+		"sun.security.ssl.SSLHandshake$HandshakeMessage",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ServerHello"
+	};
+	$loadClass(ServerHello$ServerHelloMessage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServerHello$ServerHelloMessage);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <getAnnotationTest.h>
-
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/annotation/Retention.h>
 #include <java/lang/reflect/Method.h>
@@ -13,39 +12,20 @@ using $Annotation = ::java::lang::annotation::Annotation;
 using $Retention = ::java::lang::annotation::Retention;
 using $Method = ::java::lang::reflect::Method;
 
-$MethodInfo _getAnnotationTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(getAnnotationTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(getAnnotationTest, main, void, $StringArray*), "java.lang.Throwable"},
-	{}
-};
-
-$ClassInfo _getAnnotationTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"getAnnotationTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_getAnnotationTest_MethodInfo_
-};
-
-$Object* allocate$getAnnotationTest($Class* clazz) {
-	return $of($alloc(getAnnotationTest));
-}
-
 void getAnnotationTest::init$() {
 }
 
 void getAnnotationTest::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(getAnnotationTest);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* c = $Class::forName("java.lang.annotation.Retention"_s);
 	$load($Retention);
-	$var($Annotation, result, $nc(c)->getAnnotation($Retention::class$));
+	$var($Annotation, result, c->getAnnotation($Retention::class$));
 	$Class* meta_c = $of(c)->getClass();
-	$var($Method, meta_getAnnotation, $nc(meta_c)->getMethod("getAnnotation"_s, $$new($ClassArray, {$of($Retention::class$)->getClass()})));
-	$var($Object, meta_result, $nc(meta_getAnnotation)->invoke(c, $$new($ObjectArray, {$of($Retention::class$)})));
-	if (!$nc($of(meta_result))->equals(result)) {
+	$var($Method, meta_getAnnotation, meta_c->getMethod("getAnnotation"_s, $$new($ClassArray, {$of($Retention::class$)->getClass()})));
+	$var($Object, meta_result, $nc(meta_getAnnotation)->invoke(c, $$new($ObjectArray, {$Retention::class$})));
+	if (!$nc(meta_result)->equals(result)) {
 		$throwNew($RuntimeException, "Base and meta results are not equal."_s);
 	}
 	meta_getAnnotation->getGenericExceptionTypes();
@@ -57,7 +37,22 @@ getAnnotationTest::getAnnotationTest() {
 }
 
 $Class* getAnnotationTest::load$($String* name, bool initialize) {
-	$loadClass(getAnnotationTest, name, initialize, &_getAnnotationTest_ClassInfo_, allocate$getAnnotationTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(getAnnotationTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(getAnnotationTest, main, void, $StringArray*), "java.lang.Throwable"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"getAnnotationTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(getAnnotationTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(getAnnotationTest);
+	});
 	return class$;
 }
 

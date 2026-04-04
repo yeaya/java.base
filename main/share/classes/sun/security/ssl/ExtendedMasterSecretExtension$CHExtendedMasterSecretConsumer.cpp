@@ -1,11 +1,9 @@
 #include <sun/security/ssl/ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Map.h>
 #include <sun/security/ssl/ConnectionContext.h>
 #include <sun/security/ssl/ExtendedMasterSecretExtension$ExtendedMasterSecretSpec.h>
 #include <sun/security/ssl/ExtendedMasterSecretExtension.h>
-#include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/ProtocolVersion.h>
 #include <sun/security/ssl/SSLConfiguration.h>
 #include <sun/security/ssl/SSLExtension.h>
@@ -22,11 +20,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Map = ::java::util::Map;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $ExtendedMasterSecretExtension$ExtendedMasterSecretSpec = ::sun::security::ssl::ExtendedMasterSecretExtension$ExtendedMasterSecretSpec;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
-using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
@@ -37,48 +32,15 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer, init$, void)},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*, $ByteBuffer*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer", "sun.security.ssl.ExtendedMasterSecretExtension", "CHExtendedMasterSecretConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLExtension$ExtensionConsumer", "sun.security.ssl.SSLExtension", "ExtensionConsumer", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLExtension$ExtensionConsumer",
-	nullptr,
-	_ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ExtendedMasterSecretExtension"
-};
-
-$Object* allocate$ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer($Class* clazz) {
-	return $of($alloc(ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer));
-}
-
 void ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer::init$() {
 }
 
 void ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message, $ByteBuffer* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
-	$init($SSLConfiguration);
 	bool var$0 = !$nc($nc(shc)->sslConfig)->isAvailable($SSLExtension::CH_EXTENDED_MASTER_SECRET) || !$SSLConfiguration::useExtendedMasterSecret;
-	if (var$0 || !$nc($nc(shc)->negotiatedProtocol)->useTLS10PlusSpec()) {
+	if (var$0 || !$nc(shc->negotiatedProtocol)->useTLS10PlusSpec()) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 			$SSLLogger::fine($$str({"Ignore unavailable extension: "_s, $SSLExtension::CH_EXTENDED_MASTER_SECRET->name$}), $$new($ObjectArray, 0));
@@ -86,7 +48,7 @@ void ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer::consume($Conn
 		return;
 	}
 	$var($ExtendedMasterSecretExtension$ExtendedMasterSecretSpec, spec, $new($ExtendedMasterSecretExtension$ExtendedMasterSecretSpec, shc, buffer));
-	if ($nc(shc)->isResumption && shc->resumingSession != nullptr && !$nc(shc->resumingSession)->useExtendedMasterSecret) {
+	if (shc->isResumption && shc->resumingSession != nullptr && !shc->resumingSession->useExtendedMasterSecret) {
 		shc->isResumption = false;
 		$set(shc, resumingSession, nullptr);
 		$init($SSLLogger);
@@ -94,15 +56,41 @@ void ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer::consume($Conn
 			$SSLLogger::fine("abort session resumption which did not use Extended Master Secret extension"_s, $$new($ObjectArray, 0));
 		}
 	}
-	$init($ExtendedMasterSecretExtension$ExtendedMasterSecretSpec);
-	$nc($nc(shc)->handshakeExtensions)->put($SSLExtension::CH_EXTENDED_MASTER_SECRET, $ExtendedMasterSecretExtension$ExtendedMasterSecretSpec::NOMINAL);
+	$nc(shc->handshakeExtensions)->put($SSLExtension::CH_EXTENDED_MASTER_SECRET, $ExtendedMasterSecretExtension$ExtendedMasterSecretSpec::NOMINAL);
 }
 
 ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer::ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer() {
 }
 
 $Class* ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer::load$($String* name, bool initialize) {
-	$loadClass(ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer, name, initialize, &_ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer_ClassInfo_, allocate$ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer, init$, void)},
+		{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*, $ByteBuffer*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer", "sun.security.ssl.ExtendedMasterSecretExtension", "CHExtendedMasterSecretConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLExtension$ExtensionConsumer", "sun.security.ssl.SSLExtension", "ExtensionConsumer", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLExtension$ExtensionConsumer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ExtendedMasterSecretExtension"
+	};
+	$loadClass(ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer);
+	});
 	return class$;
 }
 

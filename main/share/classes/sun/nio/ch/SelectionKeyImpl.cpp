@@ -1,5 +1,4 @@
 #include <sun/nio/ch/SelectionKeyImpl.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/invoke/ConstantBootstraps.h>
@@ -40,62 +39,6 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _SelectionKeyImpl_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SelectionKeyImpl, $assertionsDisabled)},
-	{"INTERESTOPS", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SelectionKeyImpl, INTERESTOPS)},
-	{"channel", "Lsun/nio/ch/SelChImpl;", nullptr, $PRIVATE | $FINAL, $field(SelectionKeyImpl, channel$)},
-	{"selector", "Lsun/nio/ch/SelectorImpl;", nullptr, $PRIVATE | $FINAL, $field(SelectionKeyImpl, selector$)},
-	{"interestOps", "I", nullptr, $PRIVATE | $VOLATILE, $field(SelectionKeyImpl, interestOps$)},
-	{"readyOps", "I", nullptr, $PRIVATE | $VOLATILE, $field(SelectionKeyImpl, readyOps$)},
-	{"registeredEvents", "I", nullptr, $PRIVATE, $field(SelectionKeyImpl, registeredEvents$)},
-	{"reset", "Z", nullptr, $PRIVATE | $VOLATILE, $field(SelectionKeyImpl, reset$)},
-	{"index", "I", nullptr, $PRIVATE, $field(SelectionKeyImpl, index)},
-	{"lastPolled", "I", nullptr, 0, $field(SelectionKeyImpl, lastPolled)},
-	{}
-};
-
-$MethodInfo _SelectionKeyImpl_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/SelChImpl;Lsun/nio/ch/SelectorImpl;)V", nullptr, 0, $method(SelectionKeyImpl, init$, void, $SelChImpl*, $SelectorImpl*)},
-	{"channel", "()Ljava/nio/channels/SelectableChannel;", nullptr, $PUBLIC, $virtualMethod(SelectionKeyImpl, channel, $SelectableChannel*)},
-	{"ensureValid", "()V", nullptr, $PRIVATE, $method(SelectionKeyImpl, ensureValid, void)},
-	{"getAndClearReset", "()Z", nullptr, 0, $method(SelectionKeyImpl, getAndClearReset, bool)},
-	{"getFD", "()Ljava/io/FileDescriptor;", nullptr, 0, $method(SelectionKeyImpl, getFD, $FileDescriptor*)},
-	{"getFDVal", "()I", nullptr, 0, $method(SelectionKeyImpl, getFDVal, int32_t)},
-	{"getIndex", "()I", nullptr, 0, $method(SelectionKeyImpl, getIndex, int32_t)},
-	{"interestOps", "()I", nullptr, $PUBLIC, $virtualMethod(SelectionKeyImpl, interestOps, int32_t)},
-	{"interestOps", "(I)Ljava/nio/channels/SelectionKey;", nullptr, $PUBLIC, $virtualMethod(SelectionKeyImpl, interestOps, $SelectionKey*, int32_t)},
-	{"interestOpsAnd", "(I)I", nullptr, $PUBLIC, $virtualMethod(SelectionKeyImpl, interestOpsAnd, int32_t, int32_t)},
-	{"interestOpsOr", "(I)I", nullptr, $PUBLIC, $virtualMethod(SelectionKeyImpl, interestOpsOr, int32_t, int32_t)},
-	{"nioInterestOps", "(I)Ljava/nio/channels/SelectionKey;", nullptr, $PUBLIC, $method(SelectionKeyImpl, nioInterestOps, $SelectionKey*, int32_t)},
-	{"nioInterestOps", "()I", nullptr, $PUBLIC, $method(SelectionKeyImpl, nioInterestOps, int32_t)},
-	{"nioReadyOps", "(I)V", nullptr, $PUBLIC, $method(SelectionKeyImpl, nioReadyOps, void, int32_t)},
-	{"nioReadyOps", "()I", nullptr, $PUBLIC, $method(SelectionKeyImpl, nioReadyOps, int32_t)},
-	{"readyOps", "()I", nullptr, $PUBLIC, $virtualMethod(SelectionKeyImpl, readyOps, int32_t)},
-	{"registeredEvents", "(I)V", nullptr, 0, $method(SelectionKeyImpl, registeredEvents, void, int32_t)},
-	{"registeredEvents", "()I", nullptr, 0, $method(SelectionKeyImpl, registeredEvents, int32_t)},
-	{"reset", "()V", nullptr, 0, $method(SelectionKeyImpl, reset, void)},
-	{"selector", "()Ljava/nio/channels/Selector;", nullptr, $PUBLIC, $virtualMethod(SelectionKeyImpl, selector, $Selector*)},
-	{"setIndex", "(I)V", nullptr, 0, $method(SelectionKeyImpl, setIndex, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SelectionKeyImpl, toString, $String*)},
-	{"translateAndSetReadyOps", "(I)Z", nullptr, 0, $method(SelectionKeyImpl, translateAndSetReadyOps, bool, int32_t)},
-	{"translateAndUpdateReadyOps", "(I)Z", nullptr, 0, $method(SelectionKeyImpl, translateAndUpdateReadyOps, bool, int32_t)},
-	{"translateInterestOps", "()I", nullptr, 0, $method(SelectionKeyImpl, translateInterestOps, int32_t)},
-	{}
-};
-
-$ClassInfo _SelectionKeyImpl_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.nio.ch.SelectionKeyImpl",
-	"java.nio.channels.spi.AbstractSelectionKey",
-	nullptr,
-	_SelectionKeyImpl_FieldInfo_,
-	_SelectionKeyImpl_MethodInfo_
-};
-
-$Object* allocate$SelectionKeyImpl($Class* clazz) {
-	return $of($alloc(SelectionKeyImpl));
-}
-
 bool SelectionKeyImpl::$assertionsDisabled = false;
 $VarHandle* SelectionKeyImpl::INTERESTOPS = nullptr;
 
@@ -133,12 +76,12 @@ int32_t SelectionKeyImpl::interestOps() {
 }
 
 $SelectionKey* SelectionKeyImpl::interestOps(int32_t ops) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureValid();
-	if (((int32_t)(ops & (uint32_t)~$nc($(channel()))->validOps())) != 0) {
+	if ((ops & ~$$nc(channel())->validOps()) != 0) {
 		$throwNew($IllegalArgumentException);
 	}
-	int32_t oldOps = $intValue($nc(SelectionKeyImpl::INTERESTOPS)->getAndSet($$new($ObjectArray, {$of(this), $$of(ops)})));
+	int32_t oldOps = $intValue($nc(SelectionKeyImpl::INTERESTOPS)->getAndSet($$new($ObjectArray, {this, $$of(ops)})));
 	if (ops != oldOps) {
 		$nc(this->selector$)->setEventOps(this);
 	}
@@ -146,12 +89,12 @@ $SelectionKey* SelectionKeyImpl::interestOps(int32_t ops) {
 }
 
 int32_t SelectionKeyImpl::interestOpsOr(int32_t ops) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureValid();
-	if (((int32_t)(ops & (uint32_t)~$nc($(channel()))->validOps())) != 0) {
+	if ((ops & ~$$nc(channel())->validOps()) != 0) {
 		$throwNew($IllegalArgumentException);
 	}
-	int32_t oldVal = $intValue($nc(SelectionKeyImpl::INTERESTOPS)->getAndBitwiseOr($$new($ObjectArray, {$of(this), $$of(ops)})));
+	int32_t oldVal = $intValue($nc(SelectionKeyImpl::INTERESTOPS)->getAndBitwiseOr($$new($ObjectArray, {this, $$of(ops)})));
 	if (oldVal != (oldVal | ops)) {
 		$nc(this->selector$)->setEventOps(this);
 	}
@@ -160,8 +103,8 @@ int32_t SelectionKeyImpl::interestOpsOr(int32_t ops) {
 
 int32_t SelectionKeyImpl::interestOpsAnd(int32_t ops) {
 	ensureValid();
-	int32_t oldVal = $intValue($nc(SelectionKeyImpl::INTERESTOPS)->getAndBitwiseAnd($$new($ObjectArray, {$of(this), $$of(ops)})));
-	if (oldVal != ((int32_t)(oldVal & (uint32_t)ops))) {
+	int32_t oldVal = $intValue($nc(SelectionKeyImpl::INTERESTOPS)->getAndBitwiseAnd($$new($ObjectArray, {this, $$of(ops)})));
+	if (oldVal != (oldVal & ops)) {
 		$nc(this->selector$)->setEventOps(this);
 	}
 	return oldVal;
@@ -181,7 +124,7 @@ int32_t SelectionKeyImpl::nioReadyOps() {
 }
 
 $SelectionKey* SelectionKeyImpl::nioInterestOps(int32_t ops) {
-	if (((int32_t)(ops & (uint32_t)~$nc($(channel()))->validOps())) != 0) {
+	if ((ops & ~$$nc(channel())->validOps()) != 0) {
 		$throwNew($IllegalArgumentException);
 	}
 	this->interestOps$ = ops;
@@ -224,7 +167,7 @@ void SelectionKeyImpl::setIndex(int32_t i) {
 void SelectionKeyImpl::reset() {
 	this->reset$ = true;
 	$nc(this->selector$)->setEventOps(this);
-	$nc(this->selector$)->wakeup();
+	this->selector$->wakeup();
 }
 
 bool SelectionKeyImpl::getAndClearReset() {
@@ -240,7 +183,7 @@ bool SelectionKeyImpl::getAndClearReset() {
 
 $String* SelectionKeyImpl::toString() {
 	$var($StringBuilder, sb, $new($StringBuilder));
-	sb->append("channel="_s)->append($of(this->channel$))->append(", selector="_s)->append($of(this->selector$));
+	sb->append("channel="_s)->append(this->channel$)->append(", selector="_s)->append(this->selector$);
 	if (isValid()) {
 		sb->append(", interestOps="_s)->append(this->interestOps$)->append(", readyOps="_s)->append(this->readyOps$);
 	} else {
@@ -249,11 +192,10 @@ $String* SelectionKeyImpl::toString() {
 	return sb->toString();
 }
 
-void clinit$SelectionKeyImpl($Class* class$) {
+void SelectionKeyImpl::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	SelectionKeyImpl::$assertionsDisabled = !SelectionKeyImpl::class$->desiredAssertionStatus();
 	$load($VarHandle);
-	$init($Integer);
 	$assignStatic(SelectionKeyImpl::INTERESTOPS, $ConstantBootstraps::fieldVarHandle($($MethodHandles::lookup()), "interestOps"_s, $VarHandle::class$, SelectionKeyImpl::class$, $Integer::TYPE));
 }
 
@@ -261,7 +203,58 @@ SelectionKeyImpl::SelectionKeyImpl() {
 }
 
 $Class* SelectionKeyImpl::load$($String* name, bool initialize) {
-	$loadClass(SelectionKeyImpl, name, initialize, &_SelectionKeyImpl_ClassInfo_, clinit$SelectionKeyImpl, allocate$SelectionKeyImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SelectionKeyImpl, $assertionsDisabled)},
+		{"INTERESTOPS", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SelectionKeyImpl, INTERESTOPS)},
+		{"channel", "Lsun/nio/ch/SelChImpl;", nullptr, $PRIVATE | $FINAL, $field(SelectionKeyImpl, channel$)},
+		{"selector", "Lsun/nio/ch/SelectorImpl;", nullptr, $PRIVATE | $FINAL, $field(SelectionKeyImpl, selector$)},
+		{"interestOps", "I", nullptr, $PRIVATE | $VOLATILE, $field(SelectionKeyImpl, interestOps$)},
+		{"readyOps", "I", nullptr, $PRIVATE | $VOLATILE, $field(SelectionKeyImpl, readyOps$)},
+		{"registeredEvents", "I", nullptr, $PRIVATE, $field(SelectionKeyImpl, registeredEvents$)},
+		{"reset", "Z", nullptr, $PRIVATE | $VOLATILE, $field(SelectionKeyImpl, reset$)},
+		{"index", "I", nullptr, $PRIVATE, $field(SelectionKeyImpl, index)},
+		{"lastPolled", "I", nullptr, 0, $field(SelectionKeyImpl, lastPolled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/ch/SelChImpl;Lsun/nio/ch/SelectorImpl;)V", nullptr, 0, $method(SelectionKeyImpl, init$, void, $SelChImpl*, $SelectorImpl*)},
+		{"channel", "()Ljava/nio/channels/SelectableChannel;", nullptr, $PUBLIC, $virtualMethod(SelectionKeyImpl, channel, $SelectableChannel*)},
+		{"ensureValid", "()V", nullptr, $PRIVATE, $method(SelectionKeyImpl, ensureValid, void)},
+		{"getAndClearReset", "()Z", nullptr, 0, $method(SelectionKeyImpl, getAndClearReset, bool)},
+		{"getFD", "()Ljava/io/FileDescriptor;", nullptr, 0, $method(SelectionKeyImpl, getFD, $FileDescriptor*)},
+		{"getFDVal", "()I", nullptr, 0, $method(SelectionKeyImpl, getFDVal, int32_t)},
+		{"getIndex", "()I", nullptr, 0, $method(SelectionKeyImpl, getIndex, int32_t)},
+		{"interestOps", "()I", nullptr, $PUBLIC, $virtualMethod(SelectionKeyImpl, interestOps, int32_t)},
+		{"interestOps", "(I)Ljava/nio/channels/SelectionKey;", nullptr, $PUBLIC, $virtualMethod(SelectionKeyImpl, interestOps, $SelectionKey*, int32_t)},
+		{"interestOpsAnd", "(I)I", nullptr, $PUBLIC, $virtualMethod(SelectionKeyImpl, interestOpsAnd, int32_t, int32_t)},
+		{"interestOpsOr", "(I)I", nullptr, $PUBLIC, $virtualMethod(SelectionKeyImpl, interestOpsOr, int32_t, int32_t)},
+		{"nioInterestOps", "(I)Ljava/nio/channels/SelectionKey;", nullptr, $PUBLIC, $method(SelectionKeyImpl, nioInterestOps, $SelectionKey*, int32_t)},
+		{"nioInterestOps", "()I", nullptr, $PUBLIC, $method(SelectionKeyImpl, nioInterestOps, int32_t)},
+		{"nioReadyOps", "(I)V", nullptr, $PUBLIC, $method(SelectionKeyImpl, nioReadyOps, void, int32_t)},
+		{"nioReadyOps", "()I", nullptr, $PUBLIC, $method(SelectionKeyImpl, nioReadyOps, int32_t)},
+		{"readyOps", "()I", nullptr, $PUBLIC, $virtualMethod(SelectionKeyImpl, readyOps, int32_t)},
+		{"registeredEvents", "(I)V", nullptr, 0, $method(SelectionKeyImpl, registeredEvents, void, int32_t)},
+		{"registeredEvents", "()I", nullptr, 0, $method(SelectionKeyImpl, registeredEvents, int32_t)},
+		{"reset", "()V", nullptr, 0, $method(SelectionKeyImpl, reset, void)},
+		{"selector", "()Ljava/nio/channels/Selector;", nullptr, $PUBLIC, $virtualMethod(SelectionKeyImpl, selector, $Selector*)},
+		{"setIndex", "(I)V", nullptr, 0, $method(SelectionKeyImpl, setIndex, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SelectionKeyImpl, toString, $String*)},
+		{"translateAndSetReadyOps", "(I)Z", nullptr, 0, $method(SelectionKeyImpl, translateAndSetReadyOps, bool, int32_t)},
+		{"translateAndUpdateReadyOps", "(I)Z", nullptr, 0, $method(SelectionKeyImpl, translateAndUpdateReadyOps, bool, int32_t)},
+		{"translateInterestOps", "()I", nullptr, 0, $method(SelectionKeyImpl, translateInterestOps, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.nio.ch.SelectionKeyImpl",
+		"java.nio.channels.spi.AbstractSelectionKey",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SelectionKeyImpl, name, initialize, &classInfo$$, SelectionKeyImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SelectionKeyImpl);
+	});
 	return class$;
 }
 

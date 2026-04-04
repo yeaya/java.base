@@ -1,5 +1,4 @@
 #include <MissingRepeatableContainer.h>
-
 #include <MissingRepeatable.h>
 #include <jcpp.h>
 
@@ -9,40 +8,34 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
-$NamedAttribute MissingRepeatableContainer_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _MissingRepeatableContainer_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", MissingRepeatableContainer_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _MissingRepeatableContainer_MethodInfo_[] = {
-	{"value", "()[LMissingRepeatable;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MissingRepeatableContainer, value, $MissingRepeatableArray*)},
-	{}
-};
-
-$ClassInfo _MissingRepeatableContainer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"MissingRepeatableContainer",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_MissingRepeatableContainer_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_MissingRepeatableContainer_Annotations_
-};
-
-$Object* allocate$MissingRepeatableContainer($Class* clazz) {
-	return $of($alloc(MissingRepeatableContainer));
-}
-
 $Class* MissingRepeatableContainer::load$($String* name, bool initialize) {
-	$loadClass(MissingRepeatableContainer, name, initialize, &_MissingRepeatableContainer_ClassInfo_, allocate$MissingRepeatableContainer);
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()[LMissingRepeatable;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MissingRepeatableContainer, value, $MissingRepeatableArray*)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"MissingRepeatableContainer",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(MissingRepeatableContainer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MissingRepeatableContainer);
+	});
 	return class$;
 }
 

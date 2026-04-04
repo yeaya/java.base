@@ -1,5 +1,4 @@
 #include <java/util/stream/WhileOps$2Op.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -22,7 +21,6 @@
 #include <java/util/stream/WhileOps$DropWhileSink.h>
 #include <java/util/stream/WhileOps$DropWhileTask.h>
 #include <java/util/stream/WhileOps$UnorderedWhileSpliterator$OfInt$Dropping.h>
-#include <java/util/stream/WhileOps$UnorderedWhileSpliterator$OfInt.h>
 #include <java/util/stream/WhileOps$UnorderedWhileSpliterator.h>
 #include <java/util/stream/WhileOps.h>
 #include <jcpp.h>
@@ -52,7 +50,6 @@ using $WhileOps$2Op$1OpSink = ::java::util::stream::WhileOps$2Op$1OpSink;
 using $WhileOps$DropWhileSink = ::java::util::stream::WhileOps$DropWhileSink;
 using $WhileOps$DropWhileTask = ::java::util::stream::WhileOps$DropWhileTask;
 using $WhileOps$UnorderedWhileSpliterator = ::java::util::stream::WhileOps$UnorderedWhileSpliterator;
-using $WhileOps$UnorderedWhileSpliterator$OfInt = ::java::util::stream::WhileOps$UnorderedWhileSpliterator$OfInt;
 using $WhileOps$UnorderedWhileSpliterator$OfInt$Dropping = ::java::util::stream::WhileOps$UnorderedWhileSpliterator$OfInt$Dropping;
 
 namespace java {
@@ -65,86 +62,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return $of(WhileOps$2Op::lambda$opEvaluateParallelLazy$0(x$0));
+		 return WhileOps$2Op::lambda$opEvaluateParallelLazy$0(x$0);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WhileOps$2Op$$Lambda$lambda$opEvaluateParallelLazy$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WhileOps$2Op$$Lambda$lambda$opEvaluateParallelLazy$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WhileOps$2Op$$Lambda$lambda$opEvaluateParallelLazy$0, init$, void)},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WhileOps$2Op$$Lambda$lambda$opEvaluateParallelLazy$0, apply, $Object*, int32_t)},
-	{}
-};
-$ClassInfo WhileOps$2Op$$Lambda$lambda$opEvaluateParallelLazy$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.stream.WhileOps$2Op$$Lambda$lambda$opEvaluateParallelLazy$0",
-	"java.lang.Object",
-	"java.util.function.IntFunction",
-	nullptr,
-	methodInfos
 };
 $Class* WhileOps$2Op$$Lambda$lambda$opEvaluateParallelLazy$0::load$($String* name, bool initialize) {
-	$loadClass(WhileOps$2Op$$Lambda$lambda$opEvaluateParallelLazy$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WhileOps$2Op$$Lambda$lambda$opEvaluateParallelLazy$0, init$, void)},
+		{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WhileOps$2Op$$Lambda$lambda$opEvaluateParallelLazy$0, apply, $Object*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.stream.WhileOps$2Op$$Lambda$lambda$opEvaluateParallelLazy$0",
+		"java.lang.Object",
+		"java.util.function.IntFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WhileOps$2Op$$Lambda$lambda$opEvaluateParallelLazy$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WhileOps$2Op$$Lambda$lambda$opEvaluateParallelLazy$0);
+	});
 	return class$;
 }
 $Class* WhileOps$2Op$$Lambda$lambda$opEvaluateParallelLazy$0::class$ = nullptr;
-
-$FieldInfo _WhileOps$2Op_FieldInfo_[] = {
-	{"val$predicate", "Ljava/util/function/IntPredicate;", nullptr, $FINAL | $SYNTHETIC, $field(WhileOps$2Op, val$predicate)},
-	{}
-};
-
-$MethodInfo _WhileOps$2Op_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;ILjava/util/function/IntPredicate;)V", "(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Integer;*>;Ljava/util/stream/StreamShape;I)V", $PUBLIC, $method(WhileOps$2Op, init$, void, $AbstractPipeline*, $StreamShape*, int32_t, $IntPredicate*)},
-	{"lambda$opEvaluateParallelLazy$0", "(I)[Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WhileOps$2Op, lambda$opEvaluateParallelLazy$0, $IntegerArray*, int32_t)},
-	{"opEvaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[Ljava/lang/Integer;>;)Ljava/util/stream/Node<Ljava/lang/Integer;>;", 0, $virtualMethod(WhileOps$2Op, opEvaluateParallel, $Node*, $PipelineHelper*, $Spliterator*, $IntFunction*)},
-	{"opEvaluateParallelLazy", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/util/Spliterator;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;Ljava/util/Spliterator<TP_IN;>;)Ljava/util/Spliterator<Ljava/lang/Integer;>;", 0, $virtualMethod(WhileOps$2Op, opEvaluateParallelLazy, $Spliterator*, $PipelineHelper*, $Spliterator*)},
-	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<Ljava/lang/Integer;>;)Ljava/util/stream/Sink<Ljava/lang/Integer;>;", 0, $virtualMethod(WhileOps$2Op, opWrapSink, $Sink*, int32_t, $Sink*)},
-	{"opWrapSink", "(Ljava/util/stream/Sink;Z)Ljava/util/stream/WhileOps$DropWhileSink;", "(Ljava/util/stream/Sink<Ljava/lang/Integer;>;Z)Ljava/util/stream/WhileOps$DropWhileSink<Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(WhileOps$2Op, opWrapSink, $WhileOps$DropWhileSink*, $Sink*, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$EnclosingMethodInfo _WhileOps$2Op_EnclosingMethodInfo_ = {
-	"java.util.stream.WhileOps",
-	"makeDropWhileInt",
-	"(Ljava/util/stream/AbstractPipeline;Ljava/util/function/IntPredicate;)Ljava/util/stream/IntStream;"
-};
-
-$InnerClassInfo _WhileOps$2Op_InnerClassesInfo_[] = {
-	{"java.util.stream.WhileOps$2Op", nullptr, "Op", 0},
-	{"java.util.stream.IntPipeline$StatefulOp", "java.util.stream.IntPipeline", "StatefulOp", $STATIC | $ABSTRACT},
-	{"java.util.stream.WhileOps$DropWhileOp", "java.util.stream.WhileOps", "DropWhileOp", $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.stream.WhileOps$2Op$1OpSink", nullptr, "OpSink", 0},
-	{}
-};
-
-$ClassInfo _WhileOps$2Op_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.WhileOps$2Op",
-	"java.util.stream.IntPipeline$StatefulOp",
-	"java.util.stream.WhileOps$DropWhileOp",
-	_WhileOps$2Op_FieldInfo_,
-	_WhileOps$2Op_MethodInfo_,
-	"Ljava/util/stream/IntPipeline$StatefulOp<Ljava/lang/Integer;>;Ljava/util/stream/WhileOps$DropWhileOp<Ljava/lang/Integer;>;",
-	&_WhileOps$2Op_EnclosingMethodInfo_,
-	_WhileOps$2Op_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.WhileOps"
-};
-
-$Object* allocate$WhileOps$2Op($Class* clazz) {
-	return $of($alloc(WhileOps$2Op));
-}
 
 int32_t WhileOps$2Op::hashCode() {
 	 return this->$IntPipeline$StatefulOp::hashCode();
@@ -172,12 +112,12 @@ void WhileOps$2Op::init$($AbstractPipeline* upstream, $StreamShape* inputShape, 
 }
 
 $Spliterator* WhileOps$2Op::opEvaluateParallelLazy($PipelineHelper* helper, $Spliterator* spliterator) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($StreamOpFlag);
 	if ($StreamOpFlag::ORDERED->isKnown($nc(helper)->getStreamAndOpFlags())) {
-		return $nc($(opEvaluateParallel(helper, spliterator, static_cast<$IntFunction*>($$new(WhileOps$2Op$$Lambda$lambda$opEvaluateParallelLazy$0)))))->spliterator();
+		return $$nc(opEvaluateParallel(helper, spliterator, $$new(WhileOps$2Op$$Lambda$lambda$opEvaluateParallelLazy$0)))->spliterator();
 	} else {
-		return static_cast<$Spliterator*>(static_cast<$WhileOps$UnorderedWhileSpliterator*>(static_cast<$WhileOps$UnorderedWhileSpliterator$OfInt*>($new($WhileOps$UnorderedWhileSpliterator$OfInt$Dropping, $cast($Spliterator$OfInt, $($nc(helper)->wrapSpliterator(spliterator))), false, this->val$predicate))));
+		return $cast($WhileOps$UnorderedWhileSpliterator, $new($WhileOps$UnorderedWhileSpliterator$OfInt$Dropping, $$cast($Spliterator$OfInt, helper->wrapSpliterator(spliterator)), false, this->val$predicate));
 	}
 }
 
@@ -205,11 +145,58 @@ WhileOps$2Op::WhileOps$2Op() {
 
 $Class* WhileOps$2Op::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(WhileOps$2Op$$Lambda$lambda$opEvaluateParallelLazy$0::classInfo$.name)) {
+		if (name->equals("java.util.stream.WhileOps$2Op$$Lambda$lambda$opEvaluateParallelLazy$0")) {
 			return WhileOps$2Op$$Lambda$lambda$opEvaluateParallelLazy$0::load$(name, initialize);
 		}
 	}
-	$loadClass(WhileOps$2Op, name, initialize, &_WhileOps$2Op_ClassInfo_, allocate$WhileOps$2Op);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$predicate", "Ljava/util/function/IntPredicate;", nullptr, $FINAL | $SYNTHETIC, $field(WhileOps$2Op, val$predicate)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;ILjava/util/function/IntPredicate;)V", "(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Integer;*>;Ljava/util/stream/StreamShape;I)V", $PUBLIC, $method(WhileOps$2Op, init$, void, $AbstractPipeline*, $StreamShape*, int32_t, $IntPredicate*)},
+		{"lambda$opEvaluateParallelLazy$0", "(I)[Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WhileOps$2Op, lambda$opEvaluateParallelLazy$0, $IntegerArray*, int32_t)},
+		{"opEvaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;Ljava/util/Spliterator<TP_IN;>;Ljava/util/function/IntFunction<[Ljava/lang/Integer;>;)Ljava/util/stream/Node<Ljava/lang/Integer;>;", 0, $virtualMethod(WhileOps$2Op, opEvaluateParallel, $Node*, $PipelineHelper*, $Spliterator*, $IntFunction*)},
+		{"opEvaluateParallelLazy", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/util/Spliterator;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<Ljava/lang/Integer;>;Ljava/util/Spliterator<TP_IN;>;)Ljava/util/Spliterator<Ljava/lang/Integer;>;", 0, $virtualMethod(WhileOps$2Op, opEvaluateParallelLazy, $Spliterator*, $PipelineHelper*, $Spliterator*)},
+		{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<Ljava/lang/Integer;>;)Ljava/util/stream/Sink<Ljava/lang/Integer;>;", 0, $virtualMethod(WhileOps$2Op, opWrapSink, $Sink*, int32_t, $Sink*)},
+		{"opWrapSink", "(Ljava/util/stream/Sink;Z)Ljava/util/stream/WhileOps$DropWhileSink;", "(Ljava/util/stream/Sink<Ljava/lang/Integer;>;Z)Ljava/util/stream/WhileOps$DropWhileSink<Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(WhileOps$2Op, opWrapSink, $WhileOps$DropWhileSink*, $Sink*, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.WhileOps",
+		"makeDropWhileInt",
+		"(Ljava/util/stream/AbstractPipeline;Ljava/util/function/IntPredicate;)Ljava/util/stream/IntStream;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.WhileOps$2Op", nullptr, "Op", 0},
+		{"java.util.stream.IntPipeline$StatefulOp", "java.util.stream.IntPipeline", "StatefulOp", $STATIC | $ABSTRACT},
+		{"java.util.stream.WhileOps$DropWhileOp", "java.util.stream.WhileOps", "DropWhileOp", $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.stream.WhileOps$2Op$1OpSink", nullptr, "OpSink", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.WhileOps$2Op",
+		"java.util.stream.IntPipeline$StatefulOp",
+		"java.util.stream.WhileOps$DropWhileOp",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/IntPipeline$StatefulOp<Ljava/lang/Integer;>;Ljava/util/stream/WhileOps$DropWhileOp<Ljava/lang/Integer;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.WhileOps"
+	};
+	$loadClass(WhileOps$2Op, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WhileOps$2Op));
+	});
 	return class$;
 }
 

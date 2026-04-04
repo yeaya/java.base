@@ -12,6 +12,7 @@ class ZonedDateTime$1 : public ::java::lang::Object {
 	$class(ZonedDateTime$1, 0, ::java::lang::Object)
 public:
 	ZonedDateTime$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$time$temporal$ChronoField;
 };
 

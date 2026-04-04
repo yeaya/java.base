@@ -9,6 +9,7 @@ class $export EnclosingMethodTests : public ::java::lang::Object {
 	$class(EnclosingMethodTests, 0, ::java::lang::Object)
 public:
 	EnclosingMethodTests();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t examine($Class* enclosedClass, $String* methodSig);
 	virtual $Class* getLocalClass(Object$* o);

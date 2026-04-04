@@ -1,5 +1,4 @@
 #include <java/nio/channels/SocketChannel.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ProtocolFamily.h>
@@ -42,57 +41,6 @@ namespace java {
 	namespace nio {
 		namespace channels {
 
-$FieldInfo _SocketChannel_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SocketChannel, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _SocketChannel_MethodInfo_[] = {
-	{"bind", "(Ljava/net/SocketAddress;)Ljava/nio/channels/NetworkChannel;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*close", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getLocalAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, $PROTECTED, $method(SocketChannel, init$, void, $SelectorProvider*)},
-	{"connect", "(Ljava/net/SocketAddress;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketChannel, connect, bool, $SocketAddress*), "java.io.IOException"},
-	{"finishConnect", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketChannel, finishConnect, bool), "java.io.IOException"},
-	{"getRemoteAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketChannel, getRemoteAddress, $SocketAddress*), "java.io.IOException"},
-	{"isConnected", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketChannel, isConnected, bool)},
-	{"isConnectionPending", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketChannel, isConnectionPending, bool)},
-	{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"open", "()Ljava/nio/channels/SocketChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(SocketChannel, open, SocketChannel*), "java.io.IOException"},
-	{"open", "(Ljava/net/ProtocolFamily;)Ljava/nio/channels/SocketChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(SocketChannel, open, SocketChannel*, $ProtocolFamily*), "java.io.IOException"},
-	{"open", "(Ljava/net/SocketAddress;)Ljava/nio/channels/SocketChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(SocketChannel, open, SocketChannel*, $SocketAddress*), "java.io.IOException"},
-	{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"read", "([Ljava/nio/ByteBuffer;II)J", nullptr, $PUBLIC | $ABSTRACT},
-	{"read", "([Ljava/nio/ByteBuffer;)J", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketChannel, read, int64_t, $ByteBufferArray*), "java.io.IOException"},
-	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/NetworkChannel;", nullptr, $PUBLIC | $ABSTRACT},
-	{"shutdownInput", "()Ljava/nio/channels/SocketChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketChannel, shutdownInput, SocketChannel*), "java.io.IOException"},
-	{"shutdownOutput", "()Ljava/nio/channels/SocketChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketChannel, shutdownOutput, SocketChannel*), "java.io.IOException"},
-	{"socket", "()Ljava/net/Socket;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketChannel, socket, $Socket*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validOps", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketChannel, validOps, int32_t)},
-	{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"write", "([Ljava/nio/ByteBuffer;II)J", nullptr, $PUBLIC | $ABSTRACT},
-	{"write", "([Ljava/nio/ByteBuffer;)J", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketChannel, write, int64_t, $ByteBufferArray*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _SocketChannel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.nio.channels.SocketChannel",
-	"java.nio.channels.spi.AbstractSelectableChannel",
-	"java.nio.channels.ByteChannel,java.nio.channels.ScatteringByteChannel,java.nio.channels.GatheringByteChannel,java.nio.channels.NetworkChannel",
-	_SocketChannel_FieldInfo_,
-	_SocketChannel_MethodInfo_
-};
-
-$Object* allocate$SocketChannel($Class* clazz) {
-	return $of($alloc(SocketChannel));
-}
-
 void SocketChannel::close() {
 	this->$AbstractSelectableChannel::close();
 }
@@ -129,12 +77,12 @@ void SocketChannel::init$($SelectorProvider* provider) {
 
 SocketChannel* SocketChannel::open() {
 	$init(SocketChannel);
-	return $nc($($SelectorProvider::provider()))->openSocketChannel();
+	return $$nc($SelectorProvider::provider())->openSocketChannel();
 }
 
 SocketChannel* SocketChannel::open($ProtocolFamily* family) {
 	$init(SocketChannel);
-	return $nc($($SelectorProvider::provider()))->openSocketChannel($cast($ProtocolFamily, $Objects::requireNonNull(family)));
+	return $$nc($SelectorProvider::provider())->openSocketChannel($cast($ProtocolFamily, $Objects::requireNonNull(family)));
 }
 
 SocketChannel* SocketChannel::open($SocketAddress* remote) {
@@ -145,7 +93,7 @@ SocketChannel* SocketChannel::open($SocketAddress* remote) {
 		$assign(sc, open());
 	} else if ($instanceOf($UnixDomainSocketAddress, remote)) {
 		$init($StandardProtocolFamily);
-		$assign(sc, open(static_cast<$ProtocolFamily*>($StandardProtocolFamily::UNIX)));
+		$assign(sc, open($StandardProtocolFamily::UNIX));
 	} else {
 		$throwNew($UnsupportedAddressTypeException);
 	}
@@ -177,7 +125,7 @@ int64_t SocketChannel::write($ByteBufferArray* srcs) {
 	return write(srcs, 0, $nc(srcs)->length);
 }
 
-void clinit$SocketChannel($Class* class$) {
+void SocketChannel::clinit$($Class* clazz) {
 	SocketChannel::$assertionsDisabled = !SocketChannel::class$->desiredAssertionStatus();
 }
 
@@ -185,7 +133,53 @@ SocketChannel::SocketChannel() {
 }
 
 $Class* SocketChannel::load$($String* name, bool initialize) {
-	$loadClass(SocketChannel, name, initialize, &_SocketChannel_ClassInfo_, clinit$SocketChannel, allocate$SocketChannel);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SocketChannel, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"bind", "(Ljava/net/SocketAddress;)Ljava/nio/channels/NetworkChannel;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*close", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"getLocalAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;)V", nullptr, $PROTECTED, $method(SocketChannel, init$, void, $SelectorProvider*)},
+		{"connect", "(Ljava/net/SocketAddress;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketChannel, connect, bool, $SocketAddress*), "java.io.IOException"},
+		{"finishConnect", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketChannel, finishConnect, bool), "java.io.IOException"},
+		{"getRemoteAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketChannel, getRemoteAddress, $SocketAddress*), "java.io.IOException"},
+		{"isConnected", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketChannel, isConnected, bool)},
+		{"isConnectionPending", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketChannel, isConnectionPending, bool)},
+		{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"open", "()Ljava/nio/channels/SocketChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(SocketChannel, open, SocketChannel*), "java.io.IOException"},
+		{"open", "(Ljava/net/ProtocolFamily;)Ljava/nio/channels/SocketChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(SocketChannel, open, SocketChannel*, $ProtocolFamily*), "java.io.IOException"},
+		{"open", "(Ljava/net/SocketAddress;)Ljava/nio/channels/SocketChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(SocketChannel, open, SocketChannel*, $SocketAddress*), "java.io.IOException"},
+		{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $ABSTRACT},
+		{"read", "([Ljava/nio/ByteBuffer;II)J", nullptr, $PUBLIC | $ABSTRACT},
+		{"read", "([Ljava/nio/ByteBuffer;)J", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketChannel, read, int64_t, $ByteBufferArray*), "java.io.IOException"},
+		{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/NetworkChannel;", nullptr, $PUBLIC | $ABSTRACT},
+		{"shutdownInput", "()Ljava/nio/channels/SocketChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketChannel, shutdownInput, SocketChannel*), "java.io.IOException"},
+		{"shutdownOutput", "()Ljava/nio/channels/SocketChannel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketChannel, shutdownOutput, SocketChannel*), "java.io.IOException"},
+		{"socket", "()Ljava/net/Socket;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketChannel, socket, $Socket*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"validOps", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketChannel, validOps, int32_t)},
+		{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC | $ABSTRACT},
+		{"write", "([Ljava/nio/ByteBuffer;II)J", nullptr, $PUBLIC | $ABSTRACT},
+		{"write", "([Ljava/nio/ByteBuffer;)J", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketChannel, write, int64_t, $ByteBufferArray*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.nio.channels.SocketChannel",
+		"java.nio.channels.spi.AbstractSelectableChannel",
+		"java.nio.channels.ByteChannel,java.nio.channels.ScatteringByteChannel,java.nio.channels.GatheringByteChannel,java.nio.channels.NetworkChannel",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SocketChannel, name, initialize, &classInfo$$, SocketChannel::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SocketChannel));
+	});
 	return class$;
 }
 

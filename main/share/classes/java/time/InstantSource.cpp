@@ -1,5 +1,4 @@
 #include <java/time/InstantSource.h>
-
 #include <java/time/Clock$SourceClock.h>
 #include <java/time/Clock$SystemInstantSource.h>
 #include <java/time/Clock.h>
@@ -27,37 +26,13 @@ using $Objects = ::java::util::Objects;
 namespace java {
 	namespace time {
 
-$MethodInfo _InstantSource_MethodInfo_[] = {
-	{"fixed", "(Ljava/time/Instant;)Ljava/time/InstantSource;", nullptr, $PUBLIC | $STATIC, $staticMethod(InstantSource, fixed, InstantSource*, $Instant*)},
-	{"instant", "()Ljava/time/Instant;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InstantSource, instant, $Instant*)},
-	{"millis", "()J", nullptr, $PUBLIC, $virtualMethod(InstantSource, millis, int64_t)},
-	{"offset", "(Ljava/time/InstantSource;Ljava/time/Duration;)Ljava/time/InstantSource;", nullptr, $PUBLIC | $STATIC, $staticMethod(InstantSource, offset, InstantSource*, InstantSource*, $Duration*)},
-	{"system", "()Ljava/time/InstantSource;", nullptr, $PUBLIC | $STATIC, $staticMethod(InstantSource, system, InstantSource*)},
-	{"tick", "(Ljava/time/InstantSource;Ljava/time/Duration;)Ljava/time/InstantSource;", nullptr, $PUBLIC | $STATIC, $staticMethod(InstantSource, tick, InstantSource*, InstantSource*, $Duration*)},
-	{"withZone", "(Ljava/time/ZoneId;)Ljava/time/Clock;", nullptr, $PUBLIC, $virtualMethod(InstantSource, withZone, $Clock*, $ZoneId*)},
-	{}
-};
-
-$ClassInfo _InstantSource_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.time.InstantSource",
-	nullptr,
-	nullptr,
-	nullptr,
-	_InstantSource_MethodInfo_
-};
-
-$Object* allocate$InstantSource($Class* clazz) {
-	return $of($alloc(InstantSource));
-}
-
 InstantSource* InstantSource::system() {
 	$init($Clock$SystemInstantSource);
 	return $Clock$SystemInstantSource::INSTANCE;
 }
 
 InstantSource* InstantSource::tick(InstantSource* baseSource, $Duration* tickDuration) {
-	$Objects::requireNonNull($of(baseSource), "baseSource"_s);
+	$Objects::requireNonNull(baseSource, "baseSource"_s);
 	$init($ZoneOffset);
 	return $Clock::tick($($nc(baseSource)->withZone($ZoneOffset::UTC)), tickDuration);
 }
@@ -68,13 +43,13 @@ InstantSource* InstantSource::fixed($Instant* fixedInstant) {
 }
 
 InstantSource* InstantSource::offset(InstantSource* baseSource, $Duration* offsetDuration) {
-	$Objects::requireNonNull($of(baseSource), "baseSource"_s);
+	$Objects::requireNonNull(baseSource, "baseSource"_s);
 	$init($ZoneOffset);
 	return $Clock::offset($($nc(baseSource)->withZone($ZoneOffset::UTC)), offsetDuration);
 }
 
 int64_t InstantSource::millis() {
-	return $nc($(instant()))->toEpochMilli();
+	return $$nc(instant())->toEpochMilli();
 }
 
 $Clock* InstantSource::withZone($ZoneId* zone) {
@@ -82,7 +57,27 @@ $Clock* InstantSource::withZone($ZoneId* zone) {
 }
 
 $Class* InstantSource::load$($String* name, bool initialize) {
-	$loadClass(InstantSource, name, initialize, &_InstantSource_ClassInfo_, allocate$InstantSource);
+	$MethodInfo methodInfos$$[] = {
+		{"fixed", "(Ljava/time/Instant;)Ljava/time/InstantSource;", nullptr, $PUBLIC | $STATIC, $staticMethod(InstantSource, fixed, InstantSource*, $Instant*)},
+		{"instant", "()Ljava/time/Instant;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InstantSource, instant, $Instant*)},
+		{"millis", "()J", nullptr, $PUBLIC, $virtualMethod(InstantSource, millis, int64_t)},
+		{"offset", "(Ljava/time/InstantSource;Ljava/time/Duration;)Ljava/time/InstantSource;", nullptr, $PUBLIC | $STATIC, $staticMethod(InstantSource, offset, InstantSource*, InstantSource*, $Duration*)},
+		{"system", "()Ljava/time/InstantSource;", nullptr, $PUBLIC | $STATIC, $staticMethod(InstantSource, system, InstantSource*)},
+		{"tick", "(Ljava/time/InstantSource;Ljava/time/Duration;)Ljava/time/InstantSource;", nullptr, $PUBLIC | $STATIC, $staticMethod(InstantSource, tick, InstantSource*, InstantSource*, $Duration*)},
+		{"withZone", "(Ljava/time/ZoneId;)Ljava/time/Clock;", nullptr, $PUBLIC, $virtualMethod(InstantSource, withZone, $Clock*, $ZoneId*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.time.InstantSource",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InstantSource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InstantSource);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/rsa/RSASignature$MD5withRSA.h>
-
 #include <sun/security/rsa/RSASignature.h>
 #include <sun/security/util/ObjectIdentifier.h>
 #include <sun/security/x509/AlgorithmId.h>
@@ -15,36 +14,6 @@ namespace sun {
 	namespace security {
 		namespace rsa {
 
-$MethodInfo _RSASignature$MD5withRSA_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RSASignature$MD5withRSA, init$, void)},
-	{}
-};
-
-$InnerClassInfo _RSASignature$MD5withRSA_InnerClassesInfo_[] = {
-	{"sun.security.rsa.RSASignature$MD5withRSA", "sun.security.rsa.RSASignature", "MD5withRSA", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _RSASignature$MD5withRSA_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.rsa.RSASignature$MD5withRSA",
-	"sun.security.rsa.RSASignature",
-	nullptr,
-	nullptr,
-	_RSASignature$MD5withRSA_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RSASignature$MD5withRSA_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.rsa.RSASignature"
-};
-
-$Object* allocate$RSASignature$MD5withRSA($Class* clazz) {
-	return $of($alloc(RSASignature$MD5withRSA));
-}
-
 void RSASignature$MD5withRSA::init$() {
 	$init($AlgorithmId);
 	$RSASignature::init$("MD5"_s, $AlgorithmId::MD5_oid, 10);
@@ -54,7 +23,32 @@ RSASignature$MD5withRSA::RSASignature$MD5withRSA() {
 }
 
 $Class* RSASignature$MD5withRSA::load$($String* name, bool initialize) {
-	$loadClass(RSASignature$MD5withRSA, name, initialize, &_RSASignature$MD5withRSA_ClassInfo_, allocate$RSASignature$MD5withRSA);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RSASignature$MD5withRSA, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.rsa.RSASignature$MD5withRSA", "sun.security.rsa.RSASignature", "MD5withRSA", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.rsa.RSASignature$MD5withRSA",
+		"sun.security.rsa.RSASignature",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.rsa.RSASignature"
+	};
+	$loadClass(RSASignature$MD5withRSA, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RSASignature$MD5withRSA);
+	});
 	return class$;
 }
 

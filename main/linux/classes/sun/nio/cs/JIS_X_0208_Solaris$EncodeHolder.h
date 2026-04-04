@@ -13,6 +13,7 @@ class $export JIS_X_0208_Solaris$EncodeHolder : public ::java::lang::Object {
 	$class(JIS_X_0208_Solaris$EncodeHolder, 0, ::java::lang::Object)
 public:
 	JIS_X_0208_Solaris$EncodeHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $chars* c2b;
 	static $chars* c2bIndex;

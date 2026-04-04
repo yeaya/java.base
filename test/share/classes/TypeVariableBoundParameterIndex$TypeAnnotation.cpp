@@ -1,5 +1,4 @@
 #include <TypeVariableBoundParameterIndex$TypeAnnotation.h>
-
 #include <TypeVariableBoundParameterIndex.h>
 #include <jcpp.h>
 
@@ -9,54 +8,46 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
-$NamedAttribute TypeVariableBoundParameterIndex$TypeAnnotation_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$Attribute TypeVariableBoundParameterIndex$TypeAnnotation_Attribute_var$2[] = {
-	{'e', "Ljava/lang/annotation/ElementType; TYPE_USE"},
-	{'-'}
-};
-
-$NamedAttribute TypeVariableBoundParameterIndex$TypeAnnotation_Attribute_var$1[] = {
-	{"value", '[', TypeVariableBoundParameterIndex$TypeAnnotation_Attribute_var$2},
-	{}
-};
-
-$CompoundAttribute _TypeVariableBoundParameterIndex$TypeAnnotation_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", TypeVariableBoundParameterIndex$TypeAnnotation_Attribute_var$0},
-	{"Ljava/lang/annotation/Target;", TypeVariableBoundParameterIndex$TypeAnnotation_Attribute_var$1},
-	{}
-};
-
-$InnerClassInfo _TypeVariableBoundParameterIndex$TypeAnnotation_InnerClassesInfo_[] = {
-	{"TypeVariableBoundParameterIndex$TypeAnnotation", "TypeVariableBoundParameterIndex", "TypeAnnotation", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{}
-};
-
-$ClassInfo _TypeVariableBoundParameterIndex$TypeAnnotation_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"TypeVariableBoundParameterIndex$TypeAnnotation",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_TypeVariableBoundParameterIndex$TypeAnnotation_InnerClassesInfo_,
-	_TypeVariableBoundParameterIndex$TypeAnnotation_Annotations_,
-	nullptr,
-	nullptr,
-	"TypeVariableBoundParameterIndex"
-};
-
-$Object* allocate$TypeVariableBoundParameterIndex$TypeAnnotation($Class* clazz) {
-	return $of($alloc(TypeVariableBoundParameterIndex$TypeAnnotation));
-}
-
 $Class* TypeVariableBoundParameterIndex$TypeAnnotation::load$($String* name, bool initialize) {
-	$loadClass(TypeVariableBoundParameterIndex$TypeAnnotation, name, initialize, &_TypeVariableBoundParameterIndex$TypeAnnotation_ClassInfo_, allocate$TypeVariableBoundParameterIndex$TypeAnnotation);
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TypeVariableBoundParameterIndex$TypeAnnotation", "TypeVariableBoundParameterIndex", "TypeAnnotation", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; TYPE_USE"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"TypeVariableBoundParameterIndex$TypeAnnotation",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"TypeVariableBoundParameterIndex"
+	};
+	$loadClass(TypeVariableBoundParameterIndex$TypeAnnotation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeVariableBoundParameterIndex$TypeAnnotation);
+	});
 	return class$;
 }
 

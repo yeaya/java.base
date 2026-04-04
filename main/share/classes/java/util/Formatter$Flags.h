@@ -33,6 +33,7 @@ class Formatter$Flags : public ::java::lang::Object {
 	$class(Formatter$Flags, 0, ::java::lang::Object)
 public:
 	Formatter$Flags();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t f);
 	::java::util::Formatter$Flags* add(::java::util::Formatter$Flags* f);
 	virtual bool contains(::java::util::Formatter$Flags* f);

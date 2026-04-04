@@ -12,6 +12,7 @@ class FdLibm$Exp : public ::java::lang::Object {
 	$class(FdLibm$Exp, 0, ::java::lang::Object)
 public:
 	FdLibm$Exp();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static double compute(double x);
 	static double one;

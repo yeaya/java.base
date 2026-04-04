@@ -1,5 +1,4 @@
 #include <AnnotationTypeRuntimeAssumptionTest.h>
-
 #include <AnnotationTypeRuntimeAssumptionTest$AltClassLoader.h>
 #include <AnnotationTypeRuntimeAssumptionTest$TestTask.h>
 #include <java/lang/ClassLoader.h>
@@ -14,46 +13,12 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 
-$MethodInfo _AnnotationTypeRuntimeAssumptionTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AnnotationTypeRuntimeAssumptionTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AnnotationTypeRuntimeAssumptionTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _AnnotationTypeRuntimeAssumptionTest_InnerClassesInfo_[] = {
-	{"AnnotationTypeRuntimeAssumptionTest$AltClassLoader", "AnnotationTypeRuntimeAssumptionTest", "AltClassLoader", $STATIC},
-	{"AnnotationTypeRuntimeAssumptionTest$TestTask", "AnnotationTypeRuntimeAssumptionTest", "TestTask", $PUBLIC | $STATIC},
-	{"AnnotationTypeRuntimeAssumptionTest$AnnB", "AnnotationTypeRuntimeAssumptionTest", "AnnB", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{"AnnotationTypeRuntimeAssumptionTest$AnnA_v2", "AnnotationTypeRuntimeAssumptionTest", "AnnA_v2", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{"AnnotationTypeRuntimeAssumptionTest$AnnA_v1", "AnnotationTypeRuntimeAssumptionTest", "AnnA_v1", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{}
-};
-
-$ClassInfo _AnnotationTypeRuntimeAssumptionTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"AnnotationTypeRuntimeAssumptionTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_AnnotationTypeRuntimeAssumptionTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AnnotationTypeRuntimeAssumptionTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"AnnotationTypeRuntimeAssumptionTest$AltClassLoader,AnnotationTypeRuntimeAssumptionTest$TestTask,AnnotationTypeRuntimeAssumptionTest$AnnB,AnnotationTypeRuntimeAssumptionTest$AnnA_v2,AnnotationTypeRuntimeAssumptionTest$AnnA_v1"
-};
-
-$Object* allocate$AnnotationTypeRuntimeAssumptionTest($Class* clazz) {
-	return $of($alloc(AnnotationTypeRuntimeAssumptionTest));
-}
-
 void AnnotationTypeRuntimeAssumptionTest::init$() {
 }
 
 void AnnotationTypeRuntimeAssumptionTest::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(AnnotationTypeRuntimeAssumptionTest);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ClassLoader, altLoader, $new($AnnotationTypeRuntimeAssumptionTest$AltClassLoader, $(AnnotationTypeRuntimeAssumptionTest::class$->getClassLoader())));
 	$load($AnnotationTypeRuntimeAssumptionTest$TestTask);
@@ -65,7 +30,36 @@ AnnotationTypeRuntimeAssumptionTest::AnnotationTypeRuntimeAssumptionTest() {
 }
 
 $Class* AnnotationTypeRuntimeAssumptionTest::load$($String* name, bool initialize) {
-	$loadClass(AnnotationTypeRuntimeAssumptionTest, name, initialize, &_AnnotationTypeRuntimeAssumptionTest_ClassInfo_, allocate$AnnotationTypeRuntimeAssumptionTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AnnotationTypeRuntimeAssumptionTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AnnotationTypeRuntimeAssumptionTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"AnnotationTypeRuntimeAssumptionTest$AltClassLoader", "AnnotationTypeRuntimeAssumptionTest", "AltClassLoader", $STATIC},
+		{"AnnotationTypeRuntimeAssumptionTest$TestTask", "AnnotationTypeRuntimeAssumptionTest", "TestTask", $PUBLIC | $STATIC},
+		{"AnnotationTypeRuntimeAssumptionTest$AnnB", "AnnotationTypeRuntimeAssumptionTest", "AnnB", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{"AnnotationTypeRuntimeAssumptionTest$AnnA_v2", "AnnotationTypeRuntimeAssumptionTest", "AnnA_v2", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{"AnnotationTypeRuntimeAssumptionTest$AnnA_v1", "AnnotationTypeRuntimeAssumptionTest", "AnnA_v1", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"AnnotationTypeRuntimeAssumptionTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"AnnotationTypeRuntimeAssumptionTest$AltClassLoader,AnnotationTypeRuntimeAssumptionTest$TestTask,AnnotationTypeRuntimeAssumptionTest$AnnB,AnnotationTypeRuntimeAssumptionTest$AnnA_v2,AnnotationTypeRuntimeAssumptionTest$AnnA_v1"
+	};
+	$loadClass(AnnotationTypeRuntimeAssumptionTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AnnotationTypeRuntimeAssumptionTest);
+	});
 	return class$;
 }
 

@@ -27,6 +27,7 @@ class InetAddress$HostsFileNameService : public ::java::net::InetAddress$NameSer
 	$class(InetAddress$HostsFileNameService, 0, ::java::net::InetAddress$NameService)
 public:
 	InetAddress$HostsFileNameService();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* hostsFileName);
 	static ::java::util::List* concatAddresses(::java::util::List* firstPart, ::java::util::List* secondPart);
 	$bytes* createAddressByteArray($String* addrStr);

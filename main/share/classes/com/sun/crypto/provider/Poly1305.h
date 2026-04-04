@@ -52,6 +52,7 @@ class Poly1305 : public ::java::lang::Object {
 	$class(Poly1305, 0, ::java::lang::Object)
 public:
 	Poly1305();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	$bytes* engineDoFinal();
 	int32_t engineGetMacLength();

@@ -1,5 +1,4 @@
 #include <java/lang/invoke/VolatileCallSite.h>
-
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodType.h>
@@ -14,28 +13,6 @@ using $MethodType = ::java::lang::invoke::MethodType;
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$MethodInfo _VolatileCallSite_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodType;)V", nullptr, $PUBLIC, $method(VolatileCallSite, init$, void, $MethodType*)},
-	{"<init>", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC, $method(VolatileCallSite, init$, void, $MethodHandle*)},
-	{"dynamicInvoker", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $FINAL, $virtualMethod(VolatileCallSite, dynamicInvoker, $MethodHandle*)},
-	{"getTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $FINAL, $virtualMethod(VolatileCallSite, getTarget, $MethodHandle*)},
-	{"setTarget", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC, $virtualMethod(VolatileCallSite, setTarget, void, $MethodHandle*)},
-	{}
-};
-
-$ClassInfo _VolatileCallSite_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.invoke.VolatileCallSite",
-	"java.lang.invoke.CallSite",
-	nullptr,
-	nullptr,
-	_VolatileCallSite_MethodInfo_
-};
-
-$Object* allocate$VolatileCallSite($Class* clazz) {
-	return $of($alloc(VolatileCallSite));
-}
 
 void VolatileCallSite::init$($MethodType* type) {
 	$CallSite::init$(type);
@@ -61,7 +38,25 @@ VolatileCallSite::VolatileCallSite() {
 }
 
 $Class* VolatileCallSite::load$($String* name, bool initialize) {
-	$loadClass(VolatileCallSite, name, initialize, &_VolatileCallSite_ClassInfo_, allocate$VolatileCallSite);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/invoke/MethodType;)V", nullptr, $PUBLIC, $method(VolatileCallSite, init$, void, $MethodType*)},
+		{"<init>", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC, $method(VolatileCallSite, init$, void, $MethodHandle*)},
+		{"dynamicInvoker", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $FINAL, $virtualMethod(VolatileCallSite, dynamicInvoker, $MethodHandle*)},
+		{"getTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $FINAL, $virtualMethod(VolatileCallSite, getTarget, $MethodHandle*)},
+		{"setTarget", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC, $virtualMethod(VolatileCallSite, setTarget, void, $MethodHandle*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.invoke.VolatileCallSite",
+		"java.lang.invoke.CallSite",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(VolatileCallSite, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VolatileCallSite);
+	});
 	return class$;
 }
 

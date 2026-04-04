@@ -1,8 +1,5 @@
 #include <sun/security/ssl/SSLExtension$ClientExtensions.h>
-
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractSequentialList.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/LinkedList.h>
@@ -22,8 +19,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $LinkedList = ::java::util::LinkedList;
@@ -35,62 +30,23 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SSLExtension$ClientExtensions_FieldInfo_[] = {
-	{"defaults", "Ljava/util/Collection;", "Ljava/util/Collection<Lsun/security/ssl/SSLExtension;>;", $STATIC | $FINAL, $staticField(SSLExtension$ClientExtensions, defaults)},
-	{}
-};
-
-$MethodInfo _SSLExtension$ClientExtensions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SSLExtension$ClientExtensions, init$, void)},
-	{}
-};
-
-$InnerClassInfo _SSLExtension$ClientExtensions_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLExtension$ClientExtensions", "sun.security.ssl.SSLExtension", "ClientExtensions", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SSLExtension$ClientExtensions_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLExtension$ClientExtensions",
-	"java.lang.Object",
-	nullptr,
-	_SSLExtension$ClientExtensions_FieldInfo_,
-	_SSLExtension$ClientExtensions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLExtension$ClientExtensions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLExtension"
-};
-
-$Object* allocate$SSLExtension$ClientExtensions($Class* clazz) {
-	return $of($alloc(SSLExtension$ClientExtensions));
-}
-
 $Collection* SSLExtension$ClientExtensions::defaults = nullptr;
 
 void SSLExtension$ClientExtensions::init$() {
 }
 
-void clinit$SSLExtension$ClientExtensions($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void SSLExtension$ClientExtensions::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$var($Collection, clientDisabledExtensions, $SSLExtension::getDisabledExtensions("jdk.tls.client.disableExtensions"_s));
-		$var($Collection, extensions, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(static_cast<$AbstractSequentialList*>($new($LinkedList))))));
+		$var($Collection, extensions, $cast($AbstractCollection, $new($LinkedList)));
 		{
 			$var($SSLExtensionArray, arr$, $SSLExtension::values());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$SSLExtension* extension = arr$->get(i$);
-				{
-					$init($SSLHandshake);
-					if ($nc(extension)->handshakeType != $SSLHandshake::NOT_APPLICABLE && !$nc(clientDisabledExtensions)->contains(extension->name$)) {
-						extensions->add(extension);
-					}
+				$init($SSLHandshake);
+				if ($nc(extension)->handshakeType != $SSLHandshake::NOT_APPLICABLE && !$nc(clientDisabledExtensions)->contains(extension->name$)) {
+					extensions->add(extension);
 				}
 			}
 		}
@@ -121,7 +77,36 @@ SSLExtension$ClientExtensions::SSLExtension$ClientExtensions() {
 }
 
 $Class* SSLExtension$ClientExtensions::load$($String* name, bool initialize) {
-	$loadClass(SSLExtension$ClientExtensions, name, initialize, &_SSLExtension$ClientExtensions_ClassInfo_, clinit$SSLExtension$ClientExtensions, allocate$SSLExtension$ClientExtensions);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaults", "Ljava/util/Collection;", "Ljava/util/Collection<Lsun/security/ssl/SSLExtension;>;", $STATIC | $FINAL, $staticField(SSLExtension$ClientExtensions, defaults)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SSLExtension$ClientExtensions, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLExtension$ClientExtensions", "sun.security.ssl.SSLExtension", "ClientExtensions", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLExtension$ClientExtensions",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLExtension"
+	};
+	$loadClass(SSLExtension$ClientExtensions, name, initialize, &classInfo$$, SSLExtension$ClientExtensions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLExtension$ClientExtensions);
+	});
 	return class$;
 }
 

@@ -47,6 +47,7 @@ class $export StringSharingDecompressor : public ::jdk::internal::jimage::decomp
 	$class(StringSharingDecompressor, 0, ::jdk::internal::jimage::decompressor::ResourceDecompressor)
 public:
 	StringSharingDecompressor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::Properties* properties);
 	virtual $bytes* decompress(::jdk::internal::jimage::decompressor::ResourceDecompressor$StringsProvider* reader, $bytes* content, int32_t offset, int64_t originalSize) override;
 	static $bytes* getEncoded($String* pre);

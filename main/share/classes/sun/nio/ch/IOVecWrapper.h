@@ -38,6 +38,7 @@ class IOVecWrapper : public ::java::lang::Object {
 	$class(IOVecWrapper, 0, ::java::lang::Object)
 public:
 	IOVecWrapper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t size);
 	virtual void clearRefs(int32_t i);
 	static ::sun::nio::ch::IOVecWrapper* get(int32_t size);

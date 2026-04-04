@@ -1,5 +1,4 @@
 #include <java/util/concurrent/ThreadPoolExecutor$DiscardPolicy.h>
-
 #include <java/lang/Runnable.h>
 #include <java/util/concurrent/ThreadPoolExecutor.h>
 #include <jcpp.h>
@@ -14,37 +13,6 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$MethodInfo _ThreadPoolExecutor$DiscardPolicy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ThreadPoolExecutor$DiscardPolicy, init$, void)},
-	{"rejectedExecution", "(Ljava/lang/Runnable;Ljava/util/concurrent/ThreadPoolExecutor;)V", nullptr, $PUBLIC, $virtualMethod(ThreadPoolExecutor$DiscardPolicy, rejectedExecution, void, $Runnable*, $ThreadPoolExecutor*)},
-	{}
-};
-
-$InnerClassInfo _ThreadPoolExecutor$DiscardPolicy_InnerClassesInfo_[] = {
-	{"java.util.concurrent.ThreadPoolExecutor$DiscardPolicy", "java.util.concurrent.ThreadPoolExecutor", "DiscardPolicy", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _ThreadPoolExecutor$DiscardPolicy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.concurrent.ThreadPoolExecutor$DiscardPolicy",
-	"java.lang.Object",
-	"java.util.concurrent.RejectedExecutionHandler",
-	nullptr,
-	_ThreadPoolExecutor$DiscardPolicy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ThreadPoolExecutor$DiscardPolicy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.ThreadPoolExecutor"
-};
-
-$Object* allocate$ThreadPoolExecutor$DiscardPolicy($Class* clazz) {
-	return $of($alloc(ThreadPoolExecutor$DiscardPolicy));
-}
-
 void ThreadPoolExecutor$DiscardPolicy::init$() {
 }
 
@@ -55,7 +23,33 @@ ThreadPoolExecutor$DiscardPolicy::ThreadPoolExecutor$DiscardPolicy() {
 }
 
 $Class* ThreadPoolExecutor$DiscardPolicy::load$($String* name, bool initialize) {
-	$loadClass(ThreadPoolExecutor$DiscardPolicy, name, initialize, &_ThreadPoolExecutor$DiscardPolicy_ClassInfo_, allocate$ThreadPoolExecutor$DiscardPolicy);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ThreadPoolExecutor$DiscardPolicy, init$, void)},
+		{"rejectedExecution", "(Ljava/lang/Runnable;Ljava/util/concurrent/ThreadPoolExecutor;)V", nullptr, $PUBLIC, $virtualMethod(ThreadPoolExecutor$DiscardPolicy, rejectedExecution, void, $Runnable*, $ThreadPoolExecutor*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.ThreadPoolExecutor$DiscardPolicy", "java.util.concurrent.ThreadPoolExecutor", "DiscardPolicy", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.concurrent.ThreadPoolExecutor$DiscardPolicy",
+		"java.lang.Object",
+		"java.util.concurrent.RejectedExecutionHandler",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.ThreadPoolExecutor"
+	};
+	$loadClass(ThreadPoolExecutor$DiscardPolicy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ThreadPoolExecutor$DiscardPolicy);
+	});
 	return class$;
 }
 

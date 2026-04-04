@@ -1,5 +1,4 @@
 #include <sun/security/ssl/MaxFragExtension$EEMaxFragmentLengthUpdate.h>
-
 #include <java/util/Map.h>
 #include <sun/security/ssl/CipherSuite.h>
 #include <sun/security/ssl/ClientHandshakeContext.h>
@@ -23,59 +22,22 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
-using $CipherSuite = ::sun::security::ssl::CipherSuite;
 using $ClientHandshakeContext = ::sun::security::ssl::ClientHandshakeContext;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $InputRecord = ::sun::security::ssl::InputRecord;
 using $MaxFragExtension$MaxFragLenSpec = ::sun::security::ssl::MaxFragExtension$MaxFragLenSpec;
-using $OutputRecord = ::sun::security::ssl::OutputRecord;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
-using $SSLSessionImpl = ::sun::security::ssl::SSLSessionImpl;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _MaxFragExtension$EEMaxFragmentLengthUpdate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MaxFragExtension$EEMaxFragmentLengthUpdate, init$, void)},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(MaxFragExtension$EEMaxFragmentLengthUpdate, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _MaxFragExtension$EEMaxFragmentLengthUpdate_InnerClassesInfo_[] = {
-	{"sun.security.ssl.MaxFragExtension$EEMaxFragmentLengthUpdate", "sun.security.ssl.MaxFragExtension", "EEMaxFragmentLengthUpdate", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MaxFragExtension$EEMaxFragmentLengthUpdate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.MaxFragExtension$EEMaxFragmentLengthUpdate",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeConsumer",
-	nullptr,
-	_MaxFragExtension$EEMaxFragmentLengthUpdate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MaxFragExtension$EEMaxFragmentLengthUpdate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.MaxFragExtension"
-};
-
-$Object* allocate$MaxFragExtension$EEMaxFragmentLengthUpdate($Class* clazz) {
-	return $of($alloc(MaxFragExtension$EEMaxFragmentLengthUpdate));
-}
-
 void MaxFragExtension$EEMaxFragmentLengthUpdate::init$() {
 }
 
 void MaxFragExtension$EEMaxFragmentLengthUpdate::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClientHandshakeContext, chc, $cast($ClientHandshakeContext, context));
 	$init($SSLExtension);
 	$var($MaxFragExtension$MaxFragLenSpec, spec, $cast($MaxFragExtension$MaxFragLenSpec, $nc($nc(chc)->handshakeExtensions)->get($SSLExtension::EE_MAX_FRAGMENT_LENGTH)));
@@ -84,7 +46,7 @@ void MaxFragExtension$EEMaxFragmentLengthUpdate::consume($ConnectionContext* con
 	}
 	if ((chc->maxFragmentLength > 0) && ($nc(chc->sslConfig)->maximumPacketSize != 0)) {
 		int32_t estimatedMaxFragSize = $nc(chc->negotiatedCipherSuite)->calculatePacketSize(chc->maxFragmentLength, chc->negotiatedProtocol, $nc(chc->sslContext)->isDTLS());
-		if (estimatedMaxFragSize > $nc(chc->sslConfig)->maximumPacketSize) {
+		if (estimatedMaxFragSize > chc->sslConfig->maximumPacketSize) {
 			$init($SSLLogger);
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 				$SSLLogger::fine("Abort the maximum fragment length negotiation, may overflow the maximum packet size limit."_s, $$new($ObjectArray, 0));
@@ -95,7 +57,7 @@ void MaxFragExtension$EEMaxFragmentLengthUpdate::consume($ConnectionContext* con
 	if (chc->maxFragmentLength > 0) {
 		$nc(chc->handshakeSession)->setNegotiatedMaxFragSize(chc->maxFragmentLength);
 		$nc($nc(chc->conContext)->inputRecord)->changeFragmentSize(chc->maxFragmentLength);
-		$nc($nc(chc->conContext)->outputRecord)->changeFragmentSize(chc->maxFragmentLength);
+		$nc(chc->conContext->outputRecord)->changeFragmentSize(chc->maxFragmentLength);
 	}
 }
 
@@ -103,7 +65,33 @@ MaxFragExtension$EEMaxFragmentLengthUpdate::MaxFragExtension$EEMaxFragmentLength
 }
 
 $Class* MaxFragExtension$EEMaxFragmentLengthUpdate::load$($String* name, bool initialize) {
-	$loadClass(MaxFragExtension$EEMaxFragmentLengthUpdate, name, initialize, &_MaxFragExtension$EEMaxFragmentLengthUpdate_ClassInfo_, allocate$MaxFragExtension$EEMaxFragmentLengthUpdate);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MaxFragExtension$EEMaxFragmentLengthUpdate, init$, void)},
+		{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(MaxFragExtension$EEMaxFragmentLengthUpdate, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.MaxFragExtension$EEMaxFragmentLengthUpdate", "sun.security.ssl.MaxFragExtension", "EEMaxFragmentLengthUpdate", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.MaxFragExtension$EEMaxFragmentLengthUpdate",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeConsumer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.MaxFragExtension"
+	};
+	$loadClass(MaxFragExtension$EEMaxFragmentLengthUpdate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MaxFragExtension$EEMaxFragmentLengthUpdate);
+	});
 	return class$;
 }
 

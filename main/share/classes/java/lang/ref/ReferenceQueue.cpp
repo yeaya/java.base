@@ -1,5 +1,4 @@
 #include <java/lang/ref/ReferenceQueue.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/ref/FinalReference.h>
 #include <java/lang/ref/Reference.h>
@@ -29,52 +28,6 @@ namespace java {
 	namespace lang {
 		namespace ref {
 
-$FieldInfo _ReferenceQueue_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ReferenceQueue, $assertionsDisabled)},
-	{"NULL", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $STATIC | $FINAL, $staticField(ReferenceQueue, NULL)},
-	{"ENQUEUED", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $STATIC | $FINAL, $staticField(ReferenceQueue, ENQUEUED)},
-	{"lock", "Ljava/lang/ref/ReferenceQueue$Lock;", nullptr, $PRIVATE | $FINAL, $field(ReferenceQueue, lock)},
-	{"head", "Ljava/lang/ref/Reference;", "Ljava/lang/ref/Reference<+TT;>;", $PRIVATE | $VOLATILE, $field(ReferenceQueue, head)},
-	{"queueLength", "J", nullptr, $PRIVATE, $field(ReferenceQueue, queueLength)},
-	{}
-};
-
-$MethodInfo _ReferenceQueue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ReferenceQueue, init$, void)},
-	{"enqueue", "(Ljava/lang/ref/Reference;)Z", "(Ljava/lang/ref/Reference<+TT;>;)Z", 0, $virtualMethod(ReferenceQueue, enqueue, bool, $Reference*)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/ref/Reference<+TT;>;>;)V", 0, $virtualMethod(ReferenceQueue, forEach, void, $Consumer*)},
-	{"poll", "()Ljava/lang/ref/Reference;", "()Ljava/lang/ref/Reference<+TT;>;", $PUBLIC, $virtualMethod(ReferenceQueue, poll, $Reference*)},
-	{"reallyPoll", "()Ljava/lang/ref/Reference;", "()Ljava/lang/ref/Reference<+TT;>;", $PRIVATE, $method(ReferenceQueue, reallyPoll, $Reference*)},
-	{"remove", "(J)Ljava/lang/ref/Reference;", "(J)Ljava/lang/ref/Reference<+TT;>;", $PUBLIC, $virtualMethod(ReferenceQueue, remove, $Reference*, int64_t), "java.lang.IllegalArgumentException,java.lang.InterruptedException"},
-	{"remove", "()Ljava/lang/ref/Reference;", "()Ljava/lang/ref/Reference<+TT;>;", $PUBLIC, $virtualMethod(ReferenceQueue, remove, $Reference*), "java.lang.InterruptedException"},
-	{}
-};
-
-$InnerClassInfo _ReferenceQueue_InnerClassesInfo_[] = {
-	{"java.lang.ref.ReferenceQueue$Lock", "java.lang.ref.ReferenceQueue", "Lock", $PRIVATE | $STATIC},
-	{"java.lang.ref.ReferenceQueue$Null", "java.lang.ref.ReferenceQueue", "Null", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ReferenceQueue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.ref.ReferenceQueue",
-	"java.lang.Object",
-	nullptr,
-	_ReferenceQueue_FieldInfo_,
-	_ReferenceQueue_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_ReferenceQueue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.ref.ReferenceQueue$Lock,java.lang.ref.ReferenceQueue$Null"
-};
-
-$Object* allocate$ReferenceQueue($Class* clazz) {
-	return $of($alloc(ReferenceQueue));
-}
-
 bool ReferenceQueue::$assertionsDisabled = false;
 ReferenceQueue* ReferenceQueue::NULL = nullptr;
 ReferenceQueue* ReferenceQueue::ENQUEUED = nullptr;
@@ -100,13 +53,13 @@ bool ReferenceQueue::enqueue($Reference* r) {
 		if ($instanceOf($FinalReference, r)) {
 			$VM::addFinalRefCount(1);
 		}
-		$nc($of(this->lock))->notifyAll();
+		this->lock->notifyAll();
 		return true;
 	}
 }
 
 $Reference* ReferenceQueue::reallyPoll() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Reference, r, this->head);
 	if (r != nullptr) {
 		$set(r, queue, ReferenceQueue::NULL);
@@ -140,16 +93,16 @@ $Reference* ReferenceQueue::remove(int64_t timeout) {
 		if (r != nullptr) {
 			return r;
 		}
-		int64_t start = (timeout == 0) ? (int64_t)0 : $System::nanoTime();
+		int64_t start = (timeout == 0) ? 0 : $System::nanoTime();
 		for (;;) {
-			$nc($of(this->lock))->wait(timeout);
+			this->lock->wait(timeout);
 			$assign(r, reallyPoll());
 			if (r != nullptr) {
 				return r;
 			}
 			if (timeout != 0) {
 				int64_t end = $System::nanoTime();
-				timeout -= (end - start) / 0x000F4240;
+				timeout -= (end - start) / 1000000;
 				if (timeout <= 0) {
 					return nullptr;
 				}
@@ -164,26 +117,24 @@ $Reference* ReferenceQueue::remove() {
 }
 
 void ReferenceQueue::forEach($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Reference, r, this->head);
-		for (; r != nullptr;) {
-			$nc(action)->accept(r);
-			$var($Reference, rn, r->next);
-			if (rn == r) {
-				if (r->queue == ReferenceQueue::ENQUEUED) {
-					$assign(r, nullptr);
-				} else {
-					$assign(r, this->head);
-				}
+	$useLocalObjectStack();
+	$var($Reference, r, this->head);
+	for (; r != nullptr;) {
+		$nc(action)->accept(r);
+		$var($Reference, rn, r->next);
+		if (rn == r) {
+			if (r->queue == ReferenceQueue::ENQUEUED) {
+				$assign(r, nullptr);
 			} else {
-				$assign(r, rn);
+				$assign(r, this->head);
 			}
+		} else {
+			$assign(r, rn);
 		}
 	}
 }
 
-void clinit$ReferenceQueue($Class* class$) {
+void ReferenceQueue::clinit$($Class* clazz) {
 	ReferenceQueue::$assertionsDisabled = !ReferenceQueue::class$->desiredAssertionStatus();
 	$assignStatic(ReferenceQueue::NULL, $new($ReferenceQueue$Null));
 	$assignStatic(ReferenceQueue::ENQUEUED, $new($ReferenceQueue$Null));
@@ -193,7 +144,47 @@ ReferenceQueue::ReferenceQueue() {
 }
 
 $Class* ReferenceQueue::load$($String* name, bool initialize) {
-	$loadClass(ReferenceQueue, name, initialize, &_ReferenceQueue_ClassInfo_, clinit$ReferenceQueue, allocate$ReferenceQueue);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ReferenceQueue, $assertionsDisabled)},
+		{"NULL", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $STATIC | $FINAL, $staticField(ReferenceQueue, NULL)},
+		{"ENQUEUED", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $STATIC | $FINAL, $staticField(ReferenceQueue, ENQUEUED)},
+		{"lock", "Ljava/lang/ref/ReferenceQueue$Lock;", nullptr, $PRIVATE | $FINAL, $field(ReferenceQueue, lock)},
+		{"head", "Ljava/lang/ref/Reference;", "Ljava/lang/ref/Reference<+TT;>;", $PRIVATE | $VOLATILE, $field(ReferenceQueue, head)},
+		{"queueLength", "J", nullptr, $PRIVATE, $field(ReferenceQueue, queueLength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ReferenceQueue, init$, void)},
+		{"enqueue", "(Ljava/lang/ref/Reference;)Z", "(Ljava/lang/ref/Reference<+TT;>;)Z", 0, $virtualMethod(ReferenceQueue, enqueue, bool, $Reference*)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/ref/Reference<+TT;>;>;)V", 0, $virtualMethod(ReferenceQueue, forEach, void, $Consumer*)},
+		{"poll", "()Ljava/lang/ref/Reference;", "()Ljava/lang/ref/Reference<+TT;>;", $PUBLIC, $virtualMethod(ReferenceQueue, poll, $Reference*)},
+		{"reallyPoll", "()Ljava/lang/ref/Reference;", "()Ljava/lang/ref/Reference<+TT;>;", $PRIVATE, $method(ReferenceQueue, reallyPoll, $Reference*)},
+		{"remove", "(J)Ljava/lang/ref/Reference;", "(J)Ljava/lang/ref/Reference<+TT;>;", $PUBLIC, $virtualMethod(ReferenceQueue, remove, $Reference*, int64_t), "java.lang.IllegalArgumentException,java.lang.InterruptedException"},
+		{"remove", "()Ljava/lang/ref/Reference;", "()Ljava/lang/ref/Reference<+TT;>;", $PUBLIC, $virtualMethod(ReferenceQueue, remove, $Reference*), "java.lang.InterruptedException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ref.ReferenceQueue$Lock", "java.lang.ref.ReferenceQueue", "Lock", $PRIVATE | $STATIC},
+		{"java.lang.ref.ReferenceQueue$Null", "java.lang.ref.ReferenceQueue", "Null", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.ref.ReferenceQueue",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.ref.ReferenceQueue$Lock,java.lang.ref.ReferenceQueue$Null"
+	};
+	$loadClass(ReferenceQueue, name, initialize, &classInfo$$, ReferenceQueue::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ReferenceQueue);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/access/SharedSecrets.h>
-
 #include <java/io/Console.h>
 #include <java/io/FileDescriptor.h>
 #include <java/io/FilePermission.h>
@@ -118,117 +117,6 @@ using $JavaxCryptoSpecAccess = ::jdk::internal::access::JavaxCryptoSpecAccess;
 namespace jdk {
 	namespace internal {
 		namespace access {
-
-$FieldInfo _SharedSecrets_FieldInfo_[] = {
-	{"lookup", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SharedSecrets, lookup)},
-	{"javaAWTAccess", "Ljdk/internal/access/JavaAWTAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaAWTAccess)},
-	{"javaAWTFontAccess", "Ljdk/internal/access/JavaAWTFontAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaAWTFontAccess)},
-	{"javaBeansAccess", "Ljdk/internal/access/JavaBeansAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaBeansAccess)},
-	{"javaLangAccess", "Ljdk/internal/access/JavaLangAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaLangAccess)},
-	{"javaLangInvokeAccess", "Ljdk/internal/access/JavaLangInvokeAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaLangInvokeAccess)},
-	{"javaLangModuleAccess", "Ljdk/internal/access/JavaLangModuleAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaLangModuleAccess)},
-	{"javaLangRefAccess", "Ljdk/internal/access/JavaLangRefAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaLangRefAccess)},
-	{"javaLangReflectAccess", "Ljdk/internal/access/JavaLangReflectAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaLangReflectAccess)},
-	{"javaIOAccess", "Ljdk/internal/access/JavaIOAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaIOAccess)},
-	{"javaIOFileDescriptorAccess", "Ljdk/internal/access/JavaIOFileDescriptorAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaIOFileDescriptorAccess)},
-	{"javaIOFilePermissionAccess", "Ljdk/internal/access/JavaIOFilePermissionAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaIOFilePermissionAccess)},
-	{"javaIORandomAccessFileAccess", "Ljdk/internal/access/JavaIORandomAccessFileAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaIORandomAccessFileAccess)},
-	{"javaObjectInputStreamReadString", "Ljdk/internal/access/JavaObjectInputStreamReadString;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaObjectInputStreamReadString)},
-	{"javaObjectInputStreamAccess", "Ljdk/internal/access/JavaObjectInputStreamAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaObjectInputStreamAccess)},
-	{"javaObjectInputFilterAccess", "Ljdk/internal/access/JavaObjectInputFilterAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaObjectInputFilterAccess)},
-	{"javaNetInetAddressAccess", "Ljdk/internal/access/JavaNetInetAddressAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaNetInetAddressAccess)},
-	{"javaNetHttpCookieAccess", "Ljdk/internal/access/JavaNetHttpCookieAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaNetHttpCookieAccess)},
-	{"javaNetUriAccess", "Ljdk/internal/access/JavaNetUriAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaNetUriAccess)},
-	{"javaNetURLAccess", "Ljdk/internal/access/JavaNetURLAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaNetURLAccess)},
-	{"javaNioAccess", "Ljdk/internal/access/JavaNioAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaNioAccess)},
-	{"javaUtilCollectionAccess", "Ljdk/internal/access/JavaUtilCollectionAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaUtilCollectionAccess)},
-	{"javaUtilJarAccess", "Ljdk/internal/access/JavaUtilJarAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaUtilJarAccess$)},
-	{"javaUtilZipFileAccess", "Ljdk/internal/access/JavaUtilZipFileAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaUtilZipFileAccess)},
-	{"javaUtilResourceBundleAccess", "Ljdk/internal/access/JavaUtilResourceBundleAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaUtilResourceBundleAccess)},
-	{"javaSecurityAccess", "Ljdk/internal/access/JavaSecurityAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaSecurityAccess)},
-	{"javaSecuritySignatureAccess", "Ljdk/internal/access/JavaSecuritySignatureAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaSecuritySignatureAccess)},
-	{"javaSecuritySpecAccess", "Ljdk/internal/access/JavaSecuritySpecAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaSecuritySpecAccess)},
-	{"javaxCryptoSealedObjectAccess", "Ljdk/internal/access/JavaxCryptoSealedObjectAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaxCryptoSealedObjectAccess)},
-	{"javaxCryptoSpecAccess", "Ljdk/internal/access/JavaxCryptoSpecAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaxCryptoSpecAccess)},
-	{}
-};
-
-$MethodInfo _SharedSecrets_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SharedSecrets, init$, void)},
-	{"ensureClassInitialized", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(SharedSecrets, ensureClassInitialized, void, $Class*)},
-	{"getJavaAWTAccess", "()Ljdk/internal/access/JavaAWTAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaAWTAccess, $JavaAWTAccess*)},
-	{"getJavaAWTFontAccess", "()Ljdk/internal/access/JavaAWTFontAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaAWTFontAccess, $JavaAWTFontAccess*)},
-	{"getJavaBeansAccess", "()Ljdk/internal/access/JavaBeansAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaBeansAccess, $JavaBeansAccess*)},
-	{"getJavaIOAccess", "()Ljdk/internal/access/JavaIOAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaIOAccess, $JavaIOAccess*)},
-	{"getJavaIOFileDescriptorAccess", "()Ljdk/internal/access/JavaIOFileDescriptorAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaIOFileDescriptorAccess, $JavaIOFileDescriptorAccess*)},
-	{"getJavaIOFilePermissionAccess", "()Ljdk/internal/access/JavaIOFilePermissionAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaIOFilePermissionAccess, $JavaIOFilePermissionAccess*)},
-	{"getJavaIORandomAccessFileAccess", "()Ljdk/internal/access/JavaIORandomAccessFileAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaIORandomAccessFileAccess, $JavaIORandomAccessFileAccess*)},
-	{"getJavaLangAccess", "()Ljdk/internal/access/JavaLangAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaLangAccess, $JavaLangAccess*)},
-	{"getJavaLangInvokeAccess", "()Ljdk/internal/access/JavaLangInvokeAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaLangInvokeAccess, $JavaLangInvokeAccess*)},
-	{"getJavaLangModuleAccess", "()Ljdk/internal/access/JavaLangModuleAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaLangModuleAccess, $JavaLangModuleAccess*)},
-	{"getJavaLangRefAccess", "()Ljdk/internal/access/JavaLangRefAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaLangRefAccess, $JavaLangRefAccess*)},
-	{"getJavaLangReflectAccess", "()Ljdk/internal/access/JavaLangReflectAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaLangReflectAccess, $JavaLangReflectAccess*)},
-	{"getJavaNetHttpCookieAccess", "()Ljdk/internal/access/JavaNetHttpCookieAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaNetHttpCookieAccess, $JavaNetHttpCookieAccess*)},
-	{"getJavaNetInetAddressAccess", "()Ljdk/internal/access/JavaNetInetAddressAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaNetInetAddressAccess, $JavaNetInetAddressAccess*)},
-	{"getJavaNetURLAccess", "()Ljdk/internal/access/JavaNetURLAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaNetURLAccess, $JavaNetURLAccess*)},
-	{"getJavaNetUriAccess", "()Ljdk/internal/access/JavaNetUriAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaNetUriAccess, $JavaNetUriAccess*)},
-	{"getJavaNioAccess", "()Ljdk/internal/access/JavaNioAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaNioAccess, $JavaNioAccess*)},
-	{"getJavaObjectInputFilterAccess", "()Ljdk/internal/access/JavaObjectInputFilterAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaObjectInputFilterAccess, $JavaObjectInputFilterAccess*)},
-	{"getJavaObjectInputStreamAccess", "()Ljdk/internal/access/JavaObjectInputStreamAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaObjectInputStreamAccess, $JavaObjectInputStreamAccess*)},
-	{"getJavaObjectInputStreamReadString", "()Ljdk/internal/access/JavaObjectInputStreamReadString;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaObjectInputStreamReadString, $JavaObjectInputStreamReadString*)},
-	{"getJavaSecurityAccess", "()Ljdk/internal/access/JavaSecurityAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaSecurityAccess, $JavaSecurityAccess*)},
-	{"getJavaSecuritySignatureAccess", "()Ljdk/internal/access/JavaSecuritySignatureAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaSecuritySignatureAccess, $JavaSecuritySignatureAccess*)},
-	{"getJavaSecuritySpecAccess", "()Ljdk/internal/access/JavaSecuritySpecAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaSecuritySpecAccess, $JavaSecuritySpecAccess*)},
-	{"getJavaUtilCollectionAccess", "()Ljdk/internal/access/JavaUtilCollectionAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaUtilCollectionAccess, $JavaUtilCollectionAccess*)},
-	{"getJavaUtilResourceBundleAccess", "()Ljdk/internal/access/JavaUtilResourceBundleAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaUtilResourceBundleAccess, $JavaUtilResourceBundleAccess*)},
-	{"getJavaUtilZipFileAccess", "()Ljdk/internal/access/JavaUtilZipFileAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaUtilZipFileAccess, $JavaUtilZipFileAccess*)},
-	{"getJavaxCryptoSealedObjectAccess", "()Ljdk/internal/access/JavaxCryptoSealedObjectAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaxCryptoSealedObjectAccess, $JavaxCryptoSealedObjectAccess*)},
-	{"getJavaxCryptoSpecAccess", "()Ljdk/internal/access/JavaxCryptoSpecAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaxCryptoSpecAccess, $JavaxCryptoSpecAccess*)},
-	{"javaUtilJarAccess", "()Ljdk/internal/access/JavaUtilJarAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, javaUtilJarAccess, $JavaUtilJarAccess*)},
-	{"setJavaAWTAccess", "(Ljdk/internal/access/JavaAWTAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaAWTAccess, void, $JavaAWTAccess*)},
-	{"setJavaAWTFontAccess", "(Ljdk/internal/access/JavaAWTFontAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaAWTFontAccess, void, $JavaAWTFontAccess*)},
-	{"setJavaBeansAccess", "(Ljdk/internal/access/JavaBeansAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaBeansAccess, void, $JavaBeansAccess*)},
-	{"setJavaIOAccess", "(Ljdk/internal/access/JavaIOAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaIOAccess, void, $JavaIOAccess*)},
-	{"setJavaIOFileDescriptorAccess", "(Ljdk/internal/access/JavaIOFileDescriptorAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaIOFileDescriptorAccess, void, $JavaIOFileDescriptorAccess*)},
-	{"setJavaIOFilePermissionAccess", "(Ljdk/internal/access/JavaIOFilePermissionAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaIOFilePermissionAccess, void, $JavaIOFilePermissionAccess*)},
-	{"setJavaIORandomAccessFileAccess", "(Ljdk/internal/access/JavaIORandomAccessFileAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaIORandomAccessFileAccess, void, $JavaIORandomAccessFileAccess*)},
-	{"setJavaLangAccess", "(Ljdk/internal/access/JavaLangAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaLangAccess, void, $JavaLangAccess*)},
-	{"setJavaLangInvokeAccess", "(Ljdk/internal/access/JavaLangInvokeAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaLangInvokeAccess, void, $JavaLangInvokeAccess*)},
-	{"setJavaLangModuleAccess", "(Ljdk/internal/access/JavaLangModuleAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaLangModuleAccess, void, $JavaLangModuleAccess*)},
-	{"setJavaLangRefAccess", "(Ljdk/internal/access/JavaLangRefAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaLangRefAccess, void, $JavaLangRefAccess*)},
-	{"setJavaLangReflectAccess", "(Ljdk/internal/access/JavaLangReflectAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaLangReflectAccess, void, $JavaLangReflectAccess*)},
-	{"setJavaNetHttpCookieAccess", "(Ljdk/internal/access/JavaNetHttpCookieAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaNetHttpCookieAccess, void, $JavaNetHttpCookieAccess*)},
-	{"setJavaNetInetAddressAccess", "(Ljdk/internal/access/JavaNetInetAddressAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaNetInetAddressAccess, void, $JavaNetInetAddressAccess*)},
-	{"setJavaNetURLAccess", "(Ljdk/internal/access/JavaNetURLAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaNetURLAccess, void, $JavaNetURLAccess*)},
-	{"setJavaNetUriAccess", "(Ljdk/internal/access/JavaNetUriAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaNetUriAccess, void, $JavaNetUriAccess*)},
-	{"setJavaNioAccess", "(Ljdk/internal/access/JavaNioAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaNioAccess, void, $JavaNioAccess*)},
-	{"setJavaObjectInputFilterAccess", "(Ljdk/internal/access/JavaObjectInputFilterAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaObjectInputFilterAccess, void, $JavaObjectInputFilterAccess*)},
-	{"setJavaObjectInputStreamAccess", "(Ljdk/internal/access/JavaObjectInputStreamAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaObjectInputStreamAccess, void, $JavaObjectInputStreamAccess*)},
-	{"setJavaObjectInputStreamReadString", "(Ljdk/internal/access/JavaObjectInputStreamReadString;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaObjectInputStreamReadString, void, $JavaObjectInputStreamReadString*)},
-	{"setJavaSecurityAccess", "(Ljdk/internal/access/JavaSecurityAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaSecurityAccess, void, $JavaSecurityAccess*)},
-	{"setJavaSecuritySignatureAccess", "(Ljdk/internal/access/JavaSecuritySignatureAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaSecuritySignatureAccess, void, $JavaSecuritySignatureAccess*)},
-	{"setJavaSecuritySpecAccess", "(Ljdk/internal/access/JavaSecuritySpecAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaSecuritySpecAccess, void, $JavaSecuritySpecAccess*)},
-	{"setJavaUtilCollectionAccess", "(Ljdk/internal/access/JavaUtilCollectionAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaUtilCollectionAccess, void, $JavaUtilCollectionAccess*)},
-	{"setJavaUtilJarAccess", "(Ljdk/internal/access/JavaUtilJarAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaUtilJarAccess, void, $JavaUtilJarAccess*)},
-	{"setJavaUtilResourceBundleAccess", "(Ljdk/internal/access/JavaUtilResourceBundleAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaUtilResourceBundleAccess, void, $JavaUtilResourceBundleAccess*)},
-	{"setJavaUtilZipFileAccess", "(Ljdk/internal/access/JavaUtilZipFileAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaUtilZipFileAccess, void, $JavaUtilZipFileAccess*)},
-	{"setJavaxCryptoSealedObjectAccess", "(Ljdk/internal/access/JavaxCryptoSealedObjectAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaxCryptoSealedObjectAccess, void, $JavaxCryptoSealedObjectAccess*)},
-	{"setJavaxCryptoSpecAccess", "(Ljdk/internal/access/JavaxCryptoSpecAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaxCryptoSpecAccess, void, $JavaxCryptoSpecAccess*)},
-	{}
-};
-
-$ClassInfo _SharedSecrets_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.access.SharedSecrets",
-	"java.lang.Object",
-	nullptr,
-	_SharedSecrets_FieldInfo_,
-	_SharedSecrets_MethodInfo_
-};
-
-$Object* allocate$SharedSecrets($Class* clazz) {
-	return $of($alloc(SharedSecrets));
-}
 
 $MethodHandles$Lookup* SharedSecrets::lookup = nullptr;
 $JavaAWTAccess* SharedSecrets::javaAWTAccess = nullptr;
@@ -698,12 +586,12 @@ void SharedSecrets::ensureClassInitialized($Class* c) {
 	$init(SharedSecrets);
 	$beforeCallerSensitive();
 	try {
-		$nc($($MethodHandles::lookup()))->ensureInitialized(c);
+		$$nc($MethodHandles::lookup())->ensureInitialized(c);
 	} catch ($IllegalAccessException& e) {
 	}
 }
 
-void clinit$SharedSecrets($Class* class$) {
+void SharedSecrets::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	$assignStatic(SharedSecrets::lookup, $MethodHandles::lookup());
 }
@@ -712,7 +600,113 @@ SharedSecrets::SharedSecrets() {
 }
 
 $Class* SharedSecrets::load$($String* name, bool initialize) {
-	$loadClass(SharedSecrets, name, initialize, &_SharedSecrets_ClassInfo_, clinit$SharedSecrets, allocate$SharedSecrets);
+	$FieldInfo fieldInfos$$[] = {
+		{"lookup", "Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SharedSecrets, lookup)},
+		{"javaAWTAccess", "Ljdk/internal/access/JavaAWTAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaAWTAccess)},
+		{"javaAWTFontAccess", "Ljdk/internal/access/JavaAWTFontAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaAWTFontAccess)},
+		{"javaBeansAccess", "Ljdk/internal/access/JavaBeansAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaBeansAccess)},
+		{"javaLangAccess", "Ljdk/internal/access/JavaLangAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaLangAccess)},
+		{"javaLangInvokeAccess", "Ljdk/internal/access/JavaLangInvokeAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaLangInvokeAccess)},
+		{"javaLangModuleAccess", "Ljdk/internal/access/JavaLangModuleAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaLangModuleAccess)},
+		{"javaLangRefAccess", "Ljdk/internal/access/JavaLangRefAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaLangRefAccess)},
+		{"javaLangReflectAccess", "Ljdk/internal/access/JavaLangReflectAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaLangReflectAccess)},
+		{"javaIOAccess", "Ljdk/internal/access/JavaIOAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaIOAccess)},
+		{"javaIOFileDescriptorAccess", "Ljdk/internal/access/JavaIOFileDescriptorAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaIOFileDescriptorAccess)},
+		{"javaIOFilePermissionAccess", "Ljdk/internal/access/JavaIOFilePermissionAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaIOFilePermissionAccess)},
+		{"javaIORandomAccessFileAccess", "Ljdk/internal/access/JavaIORandomAccessFileAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaIORandomAccessFileAccess)},
+		{"javaObjectInputStreamReadString", "Ljdk/internal/access/JavaObjectInputStreamReadString;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaObjectInputStreamReadString)},
+		{"javaObjectInputStreamAccess", "Ljdk/internal/access/JavaObjectInputStreamAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaObjectInputStreamAccess)},
+		{"javaObjectInputFilterAccess", "Ljdk/internal/access/JavaObjectInputFilterAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaObjectInputFilterAccess)},
+		{"javaNetInetAddressAccess", "Ljdk/internal/access/JavaNetInetAddressAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaNetInetAddressAccess)},
+		{"javaNetHttpCookieAccess", "Ljdk/internal/access/JavaNetHttpCookieAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaNetHttpCookieAccess)},
+		{"javaNetUriAccess", "Ljdk/internal/access/JavaNetUriAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaNetUriAccess)},
+		{"javaNetURLAccess", "Ljdk/internal/access/JavaNetURLAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaNetURLAccess)},
+		{"javaNioAccess", "Ljdk/internal/access/JavaNioAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaNioAccess)},
+		{"javaUtilCollectionAccess", "Ljdk/internal/access/JavaUtilCollectionAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaUtilCollectionAccess)},
+		{"javaUtilJarAccess", "Ljdk/internal/access/JavaUtilJarAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaUtilJarAccess$)},
+		{"javaUtilZipFileAccess", "Ljdk/internal/access/JavaUtilZipFileAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaUtilZipFileAccess)},
+		{"javaUtilResourceBundleAccess", "Ljdk/internal/access/JavaUtilResourceBundleAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaUtilResourceBundleAccess)},
+		{"javaSecurityAccess", "Ljdk/internal/access/JavaSecurityAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaSecurityAccess)},
+		{"javaSecuritySignatureAccess", "Ljdk/internal/access/JavaSecuritySignatureAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaSecuritySignatureAccess)},
+		{"javaSecuritySpecAccess", "Ljdk/internal/access/JavaSecuritySpecAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaSecuritySpecAccess)},
+		{"javaxCryptoSealedObjectAccess", "Ljdk/internal/access/JavaxCryptoSealedObjectAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaxCryptoSealedObjectAccess)},
+		{"javaxCryptoSpecAccess", "Ljdk/internal/access/JavaxCryptoSpecAccess;", nullptr, $PRIVATE | $STATIC, $staticField(SharedSecrets, javaxCryptoSpecAccess)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SharedSecrets, init$, void)},
+		{"ensureClassInitialized", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(SharedSecrets, ensureClassInitialized, void, $Class*)},
+		{"getJavaAWTAccess", "()Ljdk/internal/access/JavaAWTAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaAWTAccess, $JavaAWTAccess*)},
+		{"getJavaAWTFontAccess", "()Ljdk/internal/access/JavaAWTFontAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaAWTFontAccess, $JavaAWTFontAccess*)},
+		{"getJavaBeansAccess", "()Ljdk/internal/access/JavaBeansAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaBeansAccess, $JavaBeansAccess*)},
+		{"getJavaIOAccess", "()Ljdk/internal/access/JavaIOAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaIOAccess, $JavaIOAccess*)},
+		{"getJavaIOFileDescriptorAccess", "()Ljdk/internal/access/JavaIOFileDescriptorAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaIOFileDescriptorAccess, $JavaIOFileDescriptorAccess*)},
+		{"getJavaIOFilePermissionAccess", "()Ljdk/internal/access/JavaIOFilePermissionAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaIOFilePermissionAccess, $JavaIOFilePermissionAccess*)},
+		{"getJavaIORandomAccessFileAccess", "()Ljdk/internal/access/JavaIORandomAccessFileAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaIORandomAccessFileAccess, $JavaIORandomAccessFileAccess*)},
+		{"getJavaLangAccess", "()Ljdk/internal/access/JavaLangAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaLangAccess, $JavaLangAccess*)},
+		{"getJavaLangInvokeAccess", "()Ljdk/internal/access/JavaLangInvokeAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaLangInvokeAccess, $JavaLangInvokeAccess*)},
+		{"getJavaLangModuleAccess", "()Ljdk/internal/access/JavaLangModuleAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaLangModuleAccess, $JavaLangModuleAccess*)},
+		{"getJavaLangRefAccess", "()Ljdk/internal/access/JavaLangRefAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaLangRefAccess, $JavaLangRefAccess*)},
+		{"getJavaLangReflectAccess", "()Ljdk/internal/access/JavaLangReflectAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaLangReflectAccess, $JavaLangReflectAccess*)},
+		{"getJavaNetHttpCookieAccess", "()Ljdk/internal/access/JavaNetHttpCookieAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaNetHttpCookieAccess, $JavaNetHttpCookieAccess*)},
+		{"getJavaNetInetAddressAccess", "()Ljdk/internal/access/JavaNetInetAddressAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaNetInetAddressAccess, $JavaNetInetAddressAccess*)},
+		{"getJavaNetURLAccess", "()Ljdk/internal/access/JavaNetURLAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaNetURLAccess, $JavaNetURLAccess*)},
+		{"getJavaNetUriAccess", "()Ljdk/internal/access/JavaNetUriAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaNetUriAccess, $JavaNetUriAccess*)},
+		{"getJavaNioAccess", "()Ljdk/internal/access/JavaNioAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaNioAccess, $JavaNioAccess*)},
+		{"getJavaObjectInputFilterAccess", "()Ljdk/internal/access/JavaObjectInputFilterAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaObjectInputFilterAccess, $JavaObjectInputFilterAccess*)},
+		{"getJavaObjectInputStreamAccess", "()Ljdk/internal/access/JavaObjectInputStreamAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaObjectInputStreamAccess, $JavaObjectInputStreamAccess*)},
+		{"getJavaObjectInputStreamReadString", "()Ljdk/internal/access/JavaObjectInputStreamReadString;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaObjectInputStreamReadString, $JavaObjectInputStreamReadString*)},
+		{"getJavaSecurityAccess", "()Ljdk/internal/access/JavaSecurityAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaSecurityAccess, $JavaSecurityAccess*)},
+		{"getJavaSecuritySignatureAccess", "()Ljdk/internal/access/JavaSecuritySignatureAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaSecuritySignatureAccess, $JavaSecuritySignatureAccess*)},
+		{"getJavaSecuritySpecAccess", "()Ljdk/internal/access/JavaSecuritySpecAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaSecuritySpecAccess, $JavaSecuritySpecAccess*)},
+		{"getJavaUtilCollectionAccess", "()Ljdk/internal/access/JavaUtilCollectionAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaUtilCollectionAccess, $JavaUtilCollectionAccess*)},
+		{"getJavaUtilResourceBundleAccess", "()Ljdk/internal/access/JavaUtilResourceBundleAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaUtilResourceBundleAccess, $JavaUtilResourceBundleAccess*)},
+		{"getJavaUtilZipFileAccess", "()Ljdk/internal/access/JavaUtilZipFileAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaUtilZipFileAccess, $JavaUtilZipFileAccess*)},
+		{"getJavaxCryptoSealedObjectAccess", "()Ljdk/internal/access/JavaxCryptoSealedObjectAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaxCryptoSealedObjectAccess, $JavaxCryptoSealedObjectAccess*)},
+		{"getJavaxCryptoSpecAccess", "()Ljdk/internal/access/JavaxCryptoSpecAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, getJavaxCryptoSpecAccess, $JavaxCryptoSpecAccess*)},
+		{"javaUtilJarAccess", "()Ljdk/internal/access/JavaUtilJarAccess;", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, javaUtilJarAccess, $JavaUtilJarAccess*)},
+		{"setJavaAWTAccess", "(Ljdk/internal/access/JavaAWTAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaAWTAccess, void, $JavaAWTAccess*)},
+		{"setJavaAWTFontAccess", "(Ljdk/internal/access/JavaAWTFontAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaAWTFontAccess, void, $JavaAWTFontAccess*)},
+		{"setJavaBeansAccess", "(Ljdk/internal/access/JavaBeansAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaBeansAccess, void, $JavaBeansAccess*)},
+		{"setJavaIOAccess", "(Ljdk/internal/access/JavaIOAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaIOAccess, void, $JavaIOAccess*)},
+		{"setJavaIOFileDescriptorAccess", "(Ljdk/internal/access/JavaIOFileDescriptorAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaIOFileDescriptorAccess, void, $JavaIOFileDescriptorAccess*)},
+		{"setJavaIOFilePermissionAccess", "(Ljdk/internal/access/JavaIOFilePermissionAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaIOFilePermissionAccess, void, $JavaIOFilePermissionAccess*)},
+		{"setJavaIORandomAccessFileAccess", "(Ljdk/internal/access/JavaIORandomAccessFileAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaIORandomAccessFileAccess, void, $JavaIORandomAccessFileAccess*)},
+		{"setJavaLangAccess", "(Ljdk/internal/access/JavaLangAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaLangAccess, void, $JavaLangAccess*)},
+		{"setJavaLangInvokeAccess", "(Ljdk/internal/access/JavaLangInvokeAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaLangInvokeAccess, void, $JavaLangInvokeAccess*)},
+		{"setJavaLangModuleAccess", "(Ljdk/internal/access/JavaLangModuleAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaLangModuleAccess, void, $JavaLangModuleAccess*)},
+		{"setJavaLangRefAccess", "(Ljdk/internal/access/JavaLangRefAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaLangRefAccess, void, $JavaLangRefAccess*)},
+		{"setJavaLangReflectAccess", "(Ljdk/internal/access/JavaLangReflectAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaLangReflectAccess, void, $JavaLangReflectAccess*)},
+		{"setJavaNetHttpCookieAccess", "(Ljdk/internal/access/JavaNetHttpCookieAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaNetHttpCookieAccess, void, $JavaNetHttpCookieAccess*)},
+		{"setJavaNetInetAddressAccess", "(Ljdk/internal/access/JavaNetInetAddressAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaNetInetAddressAccess, void, $JavaNetInetAddressAccess*)},
+		{"setJavaNetURLAccess", "(Ljdk/internal/access/JavaNetURLAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaNetURLAccess, void, $JavaNetURLAccess*)},
+		{"setJavaNetUriAccess", "(Ljdk/internal/access/JavaNetUriAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaNetUriAccess, void, $JavaNetUriAccess*)},
+		{"setJavaNioAccess", "(Ljdk/internal/access/JavaNioAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaNioAccess, void, $JavaNioAccess*)},
+		{"setJavaObjectInputFilterAccess", "(Ljdk/internal/access/JavaObjectInputFilterAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaObjectInputFilterAccess, void, $JavaObjectInputFilterAccess*)},
+		{"setJavaObjectInputStreamAccess", "(Ljdk/internal/access/JavaObjectInputStreamAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaObjectInputStreamAccess, void, $JavaObjectInputStreamAccess*)},
+		{"setJavaObjectInputStreamReadString", "(Ljdk/internal/access/JavaObjectInputStreamReadString;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaObjectInputStreamReadString, void, $JavaObjectInputStreamReadString*)},
+		{"setJavaSecurityAccess", "(Ljdk/internal/access/JavaSecurityAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaSecurityAccess, void, $JavaSecurityAccess*)},
+		{"setJavaSecuritySignatureAccess", "(Ljdk/internal/access/JavaSecuritySignatureAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaSecuritySignatureAccess, void, $JavaSecuritySignatureAccess*)},
+		{"setJavaSecuritySpecAccess", "(Ljdk/internal/access/JavaSecuritySpecAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaSecuritySpecAccess, void, $JavaSecuritySpecAccess*)},
+		{"setJavaUtilCollectionAccess", "(Ljdk/internal/access/JavaUtilCollectionAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaUtilCollectionAccess, void, $JavaUtilCollectionAccess*)},
+		{"setJavaUtilJarAccess", "(Ljdk/internal/access/JavaUtilJarAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaUtilJarAccess, void, $JavaUtilJarAccess*)},
+		{"setJavaUtilResourceBundleAccess", "(Ljdk/internal/access/JavaUtilResourceBundleAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaUtilResourceBundleAccess, void, $JavaUtilResourceBundleAccess*)},
+		{"setJavaUtilZipFileAccess", "(Ljdk/internal/access/JavaUtilZipFileAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaUtilZipFileAccess, void, $JavaUtilZipFileAccess*)},
+		{"setJavaxCryptoSealedObjectAccess", "(Ljdk/internal/access/JavaxCryptoSealedObjectAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaxCryptoSealedObjectAccess, void, $JavaxCryptoSealedObjectAccess*)},
+		{"setJavaxCryptoSpecAccess", "(Ljdk/internal/access/JavaxCryptoSpecAccess;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SharedSecrets, setJavaxCryptoSpecAccess, void, $JavaxCryptoSpecAccess*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.access.SharedSecrets",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SharedSecrets, name, initialize, &classInfo$$, SharedSecrets::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SharedSecrets);
+	});
 	return class$;
 }
 

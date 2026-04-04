@@ -52,6 +52,7 @@ class $export PKIXCertPathValidator : public ::java::security::cert::CertPathVal
 	$class(PKIXCertPathValidator, 0, ::java::security::cert::CertPathValidatorSpi)
 public:
 	PKIXCertPathValidator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::security::cert::CertPathChecker* engineGetRevocationChecker() override;
 	virtual ::java::security::cert::CertPathValidatorResult* engineValidate(::java::security::cert::CertPath* cp, ::java::security::cert::CertPathParameters* params) override;

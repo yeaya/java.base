@@ -26,6 +26,7 @@ class WinNTFileSystem : public ::java::io::FileSystem {
 public:
 	WinNTFileSystem();
 	using ::java::io::FileSystem::hashCode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	bool access($String* path);
 	virtual $String* canonicalize($String* path) override;

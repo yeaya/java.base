@@ -27,6 +27,7 @@ class $import Thread$State : public ::java::lang::Enum {
 public:
 	Thread$State();
 	static $Array<::java::lang::Thread$State>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::lang::Thread$State* valueOf($String* name);
 	static $Array<::java::lang::Thread$State>* values();

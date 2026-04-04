@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/SPILocaleProviderAdapter$Delegate.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -29,13 +28,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Arrays = ::java::util::Arrays;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $Predicate = ::java::util::function::Predicate;
 using $LocaleServiceProvider = ::java::util::spi::LocaleServiceProvider;
-using $Stream = ::java::util::stream::Stream;
 using $CalendarDataUtility = ::sun::util::locale::provider::CalendarDataUtility;
 using $LocaleServiceProviderPool = ::sun::util::locale::provider::LocaleServiceProviderPool;
 
@@ -53,97 +49,53 @@ public:
 	virtual bool test(Object$* obj) override {
 		 return $nc(inst$)->equals(obj);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SPILocaleProviderAdapter$Delegate$$Lambda$equals>());
-	}
 	$Locale* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SPILocaleProviderAdapter$Delegate$$Lambda$equals::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SPILocaleProviderAdapter$Delegate$$Lambda$equals, inst$)},
-	{}
-};
-$MethodInfo SPILocaleProviderAdapter$Delegate$$Lambda$equals::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(SPILocaleProviderAdapter$Delegate$$Lambda$equals, init$, void, $Locale*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$Delegate$$Lambda$equals, test, bool, Object$*)},
-	{}
-};
-$ClassInfo SPILocaleProviderAdapter$Delegate$$Lambda$equals::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate$$Lambda$equals",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* SPILocaleProviderAdapter$Delegate$$Lambda$equals::load$($String* name, bool initialize) {
-	$loadClass(SPILocaleProviderAdapter$Delegate$$Lambda$equals, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SPILocaleProviderAdapter$Delegate$$Lambda$equals, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(SPILocaleProviderAdapter$Delegate$$Lambda$equals, init$, void, $Locale*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$Delegate$$Lambda$equals, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate$$Lambda$equals",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SPILocaleProviderAdapter$Delegate$$Lambda$equals, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SPILocaleProviderAdapter$Delegate$$Lambda$equals);
+	});
 	return class$;
 }
 $Class* SPILocaleProviderAdapter$Delegate$$Lambda$equals::class$ = nullptr;
 
-$MethodInfo _SPILocaleProviderAdapter$Delegate_MethodInfo_[] = {
-	{"addImpl", "(Ljava/util/spi/LocaleServiceProvider;)V", "(TP;)V", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$Delegate, addImpl, void, $LocaleServiceProvider*)},
-	{"getAvailableLocalesDelegate", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$Delegate, getAvailableLocalesDelegate, $LocaleArray*)},
-	{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;TP;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SPILocaleProviderAdapter$Delegate, getDelegateMap, $Map*)},
-	{"getImpl", "(Ljava/util/Locale;)Ljava/util/spi/LocaleServiceProvider;", "(Ljava/util/Locale;)TP;", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$Delegate, getImpl, $LocaleServiceProvider*, $Locale*)},
-	{"isSupportedLocaleDelegate", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$Delegate, isSupportedLocaleDelegate, bool, $Locale*)},
-	{}
-};
-
-$InnerClassInfo _SPILocaleProviderAdapter$Delegate_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "Delegate", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SPILocaleProviderAdapter$Delegate_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate",
-	nullptr,
-	nullptr,
-	nullptr,
-	_SPILocaleProviderAdapter$Delegate_MethodInfo_,
-	"<P:Ljava/util/spi/LocaleServiceProvider;>Ljava/lang/Object;",
-	nullptr,
-	_SPILocaleProviderAdapter$Delegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.SPILocaleProviderAdapter"
-};
-
-$Object* allocate$SPILocaleProviderAdapter$Delegate($Class* clazz) {
-	return $of($alloc(SPILocaleProviderAdapter$Delegate));
-}
-
 void SPILocaleProviderAdapter$Delegate::addImpl($LocaleServiceProvider* impl) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($LocaleArray, arr$, $nc(impl)->getAvailableLocales());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($Locale, l, arr$->get(i$));
-			{
-				$nc($(getDelegateMap()))->putIfAbsent(l, impl);
-			}
+	$useLocalObjectStack();
+	$var($LocaleArray, arr$, $nc(impl)->getAvailableLocales());
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($Locale, l, arr$->get(i$));
+		{
+			$$nc(getDelegateMap())->putIfAbsent(l, impl);
 		}
 	}
 }
 
 $LocaleServiceProvider* SPILocaleProviderAdapter$Delegate::getImpl($Locale* locale) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($LocaleServiceProviderPool::getLookupLocales($($nc(locale)->stripExtensions()))))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Locale, l, $cast($Locale, i$->next()));
-			{
-				$var($LocaleServiceProvider, ret, $cast($LocaleServiceProvider, $nc($(getDelegateMap()))->get(l)));
-				if (ret != nullptr) {
-					return ret;
-				}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$nc($LocaleServiceProviderPool::getLookupLocales($($nc(locale)->stripExtensions())))->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Locale, l, $cast($Locale, i$->next()));
+		{
+			$var($LocaleServiceProvider, ret, $cast($LocaleServiceProvider, $$nc(getDelegateMap())->get(l)));
+			if (ret != nullptr) {
+				return ret;
 			}
 		}
 	}
@@ -151,12 +103,12 @@ $LocaleServiceProvider* SPILocaleProviderAdapter$Delegate::getImpl($Locale* loca
 }
 
 $LocaleArray* SPILocaleProviderAdapter$Delegate::getAvailableLocalesDelegate() {
-	$useLocalCurrentObjectStackCache();
-	return $fcast($LocaleArray, $nc($($nc($(getDelegateMap()))->keySet()))->toArray($$new($LocaleArray, 0)));
+	$useLocalObjectStack();
+	return $cast($LocaleArray, $$nc($$nc(getDelegateMap())->keySet())->toArray($$new($LocaleArray, 0)));
 }
 
 bool SPILocaleProviderAdapter$Delegate::isSupportedLocaleDelegate($Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, map, getDelegateMap());
 	$var($Locale, override$, $CalendarDataUtility::findRegionOverride(locale));
 	$var($LocaleServiceProvider, impl, $cast($LocaleServiceProvider, $nc(map)->get(override$)));
@@ -166,7 +118,7 @@ bool SPILocaleProviderAdapter$Delegate::isSupportedLocaleDelegate($Locale* local
 		$var($Locale, overrideNoExt, $nc(override$)->stripExtensions());
 		$assign(impl, $cast($LocaleServiceProvider, map->get(overrideNoExt)));
 		if (impl != nullptr) {
-			return $nc($($Arrays::stream($(impl->getAvailableLocales()))))->anyMatch(static_cast<$Predicate*>($$new(SPILocaleProviderAdapter$Delegate$$Lambda$equals, static_cast<$Locale*>($nc(overrideNoExt)))));
+			return $$nc($Arrays::stream($(impl->getAvailableLocales())))->anyMatch($$new(SPILocaleProviderAdapter$Delegate$$Lambda$equals, $nc(overrideNoExt)));
 		}
 	}
 	return false;
@@ -174,11 +126,40 @@ bool SPILocaleProviderAdapter$Delegate::isSupportedLocaleDelegate($Locale* local
 
 $Class* SPILocaleProviderAdapter$Delegate::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SPILocaleProviderAdapter$Delegate$$Lambda$equals::classInfo$.name)) {
+		if (name->equals("sun.util.locale.provider.SPILocaleProviderAdapter$Delegate$$Lambda$equals")) {
 			return SPILocaleProviderAdapter$Delegate$$Lambda$equals::load$(name, initialize);
 		}
 	}
-	$loadClass(SPILocaleProviderAdapter$Delegate, name, initialize, &_SPILocaleProviderAdapter$Delegate_ClassInfo_, allocate$SPILocaleProviderAdapter$Delegate);
+	$MethodInfo methodInfos$$[] = {
+		{"addImpl", "(Ljava/util/spi/LocaleServiceProvider;)V", "(TP;)V", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$Delegate, addImpl, void, $LocaleServiceProvider*)},
+		{"getAvailableLocalesDelegate", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$Delegate, getAvailableLocalesDelegate, $LocaleArray*)},
+		{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;TP;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SPILocaleProviderAdapter$Delegate, getDelegateMap, $Map*)},
+		{"getImpl", "(Ljava/util/Locale;)Ljava/util/spi/LocaleServiceProvider;", "(Ljava/util/Locale;)TP;", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$Delegate, getImpl, $LocaleServiceProvider*, $Locale*)},
+		{"isSupportedLocaleDelegate", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$Delegate, isSupportedLocaleDelegate, bool, $Locale*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "Delegate", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<P:Ljava/util/spi/LocaleServiceProvider;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.SPILocaleProviderAdapter"
+	};
+	$loadClass(SPILocaleProviderAdapter$Delegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SPILocaleProviderAdapter$Delegate);
+	});
 	return class$;
 }
 

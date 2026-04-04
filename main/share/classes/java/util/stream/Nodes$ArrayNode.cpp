@@ -1,5 +1,4 @@
 #include <java/util/stream/Nodes$ArrayNode.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/Arrays.h>
 #include <java/util/Spliterator.h>
@@ -24,51 +23,8 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$FieldInfo _Nodes$ArrayNode_FieldInfo_[] = {
-	{"array", "[Ljava/lang/Object;", "[TT;", $FINAL, $field(Nodes$ArrayNode, array)},
-	{"curSize", "I", nullptr, 0, $field(Nodes$ArrayNode, curSize)},
-	{}
-};
-
-$MethodInfo _Nodes$ArrayNode_MethodInfo_[] = {
-	{"<init>", "(JLjava/util/function/IntFunction;)V", "(JLjava/util/function/IntFunction<[TT;>;)V", 0, $method(Nodes$ArrayNode, init$, void, int64_t, $IntFunction*)},
-	{"<init>", "([Ljava/lang/Object;)V", "([TT;)V", 0, $method(Nodes$ArrayNode, init$, void, $ObjectArray*)},
-	{"asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "(Ljava/util/function/IntFunction<[TT;>;)[TT;", $PUBLIC, $virtualMethod(Nodes$ArrayNode, asArray, $ObjectArray*, $IntFunction*)},
-	{"copyInto", "([Ljava/lang/Object;I)V", "([TT;I)V", $PUBLIC, $virtualMethod(Nodes$ArrayNode, copyInto, void, $ObjectArray*, int32_t)},
-	{"count", "()J", nullptr, $PUBLIC, $virtualMethod(Nodes$ArrayNode, count, int64_t)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Nodes$ArrayNode, forEach, void, $Consumer*)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC, $virtualMethod(Nodes$ArrayNode, spliterator, $Spliterator*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Nodes$ArrayNode, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Nodes$ArrayNode_InnerClassesInfo_[] = {
-	{"java.util.stream.Nodes$ArrayNode", "java.util.stream.Nodes", "ArrayNode", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Nodes$ArrayNode_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.Nodes$ArrayNode",
-	"java.lang.Object",
-	"java.util.stream.Node",
-	_Nodes$ArrayNode_FieldInfo_,
-	_Nodes$ArrayNode_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/stream/Node<TT;>;",
-	nullptr,
-	_Nodes$ArrayNode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Nodes"
-};
-
-$Object* allocate$Nodes$ArrayNode($Class* clazz) {
-	return $of($alloc(Nodes$ArrayNode));
-}
-
 void Nodes$ArrayNode::init$(int64_t size, $IntFunction* generator) {
-	if (size >= (int64_t)2147483639) {
+	if (size >= 2147483639) {
 		$throwNew($IllegalArgumentException, "Stream size exceeds max array size"_s);
 	}
 	$set(this, array, $cast($ObjectArray, $nc(generator)->apply((int32_t)size)));
@@ -107,10 +63,10 @@ void Nodes$ArrayNode::forEach($Consumer* consumer) {
 }
 
 $String* Nodes$ArrayNode::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("ArrayNode[%d][%s]"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf($nc(this->array)->length - this->curSize))),
-		$($of($Arrays::toString(this->array)))
+		$($Integer::valueOf($nc(this->array)->length - this->curSize)),
+		$($Arrays::toString(this->array))
 	}));
 }
 
@@ -118,7 +74,44 @@ Nodes$ArrayNode::Nodes$ArrayNode() {
 }
 
 $Class* Nodes$ArrayNode::load$($String* name, bool initialize) {
-	$loadClass(Nodes$ArrayNode, name, initialize, &_Nodes$ArrayNode_ClassInfo_, allocate$Nodes$ArrayNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"array", "[Ljava/lang/Object;", "[TT;", $FINAL, $field(Nodes$ArrayNode, array)},
+		{"curSize", "I", nullptr, 0, $field(Nodes$ArrayNode, curSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JLjava/util/function/IntFunction;)V", "(JLjava/util/function/IntFunction<[TT;>;)V", 0, $method(Nodes$ArrayNode, init$, void, int64_t, $IntFunction*)},
+		{"<init>", "([Ljava/lang/Object;)V", "([TT;)V", 0, $method(Nodes$ArrayNode, init$, void, $ObjectArray*)},
+		{"asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "(Ljava/util/function/IntFunction<[TT;>;)[TT;", $PUBLIC, $virtualMethod(Nodes$ArrayNode, asArray, $ObjectArray*, $IntFunction*)},
+		{"copyInto", "([Ljava/lang/Object;I)V", "([TT;I)V", $PUBLIC, $virtualMethod(Nodes$ArrayNode, copyInto, void, $ObjectArray*, int32_t)},
+		{"count", "()J", nullptr, $PUBLIC, $virtualMethod(Nodes$ArrayNode, count, int64_t)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TT;>;)V", $PUBLIC, $virtualMethod(Nodes$ArrayNode, forEach, void, $Consumer*)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TT;>;", $PUBLIC, $virtualMethod(Nodes$ArrayNode, spliterator, $Spliterator*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Nodes$ArrayNode, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Nodes$ArrayNode", "java.util.stream.Nodes", "ArrayNode", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.Nodes$ArrayNode",
+		"java.lang.Object",
+		"java.util.stream.Node",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/stream/Node<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Nodes"
+	};
+	$loadClass(Nodes$ArrayNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Nodes$ArrayNode);
+	});
 	return class$;
 }
 

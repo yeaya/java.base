@@ -20,10 +20,13 @@ public:
 	DateTimeException();
 	void init$($String* message);
 	void init$($String* message, $Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0xE9587BD1CEA8B031;
+	static const int64_t serialVersionUID = (int64_t)0xe9587bd1cea8b031;
 	DateTimeException(const DateTimeException& e);
 	virtual void throw$() override;
-	inline DateTimeException* operator ->() {
+	inline DateTimeException* operator ->() const {
+		return (DateTimeException*)throwing$;
+	}
+	inline operator DateTimeException*() const {
 		return (DateTimeException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SupportedVersionsExtension$CHSupportedVersionsStringizer.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/ByteBuffer.h>
 #include <sun/security/ssl/HandshakeContext.h>
@@ -19,37 +18,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SupportedVersionsExtension$CHSupportedVersionsStringizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SupportedVersionsExtension$CHSupportedVersionsStringizer, init$, void)},
-	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SupportedVersionsExtension$CHSupportedVersionsStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _SupportedVersionsExtension$CHSupportedVersionsStringizer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SupportedVersionsExtension$CHSupportedVersionsStringizer", "sun.security.ssl.SupportedVersionsExtension", "CHSupportedVersionsStringizer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SupportedVersionsExtension$CHSupportedVersionsStringizer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SupportedVersionsExtension$CHSupportedVersionsStringizer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLStringizer",
-	nullptr,
-	_SupportedVersionsExtension$CHSupportedVersionsStringizer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SupportedVersionsExtension$CHSupportedVersionsStringizer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SupportedVersionsExtension"
-};
-
-$Object* allocate$SupportedVersionsExtension$CHSupportedVersionsStringizer($Class* clazz) {
-	return $of($alloc(SupportedVersionsExtension$CHSupportedVersionsStringizer));
-}
-
 void SupportedVersionsExtension$CHSupportedVersionsStringizer::init$() {
 }
 
@@ -66,7 +34,33 @@ SupportedVersionsExtension$CHSupportedVersionsStringizer::SupportedVersionsExten
 }
 
 $Class* SupportedVersionsExtension$CHSupportedVersionsStringizer::load$($String* name, bool initialize) {
-	$loadClass(SupportedVersionsExtension$CHSupportedVersionsStringizer, name, initialize, &_SupportedVersionsExtension$CHSupportedVersionsStringizer_ClassInfo_, allocate$SupportedVersionsExtension$CHSupportedVersionsStringizer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SupportedVersionsExtension$CHSupportedVersionsStringizer, init$, void)},
+		{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SupportedVersionsExtension$CHSupportedVersionsStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SupportedVersionsExtension$CHSupportedVersionsStringizer", "sun.security.ssl.SupportedVersionsExtension", "CHSupportedVersionsStringizer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SupportedVersionsExtension$CHSupportedVersionsStringizer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLStringizer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SupportedVersionsExtension"
+	};
+	$loadClass(SupportedVersionsExtension$CHSupportedVersionsStringizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SupportedVersionsExtension$CHSupportedVersionsStringizer);
+	});
 	return class$;
 }
 

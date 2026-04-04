@@ -1,5 +1,4 @@
 #include <java/util/HashMap$TreeNode.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/util/HashMap$Node.h>
 #include <java/util/HashMap.h>
@@ -19,62 +18,6 @@ using $LinkedHashMap$Entry = ::java::util::LinkedHashMap$Entry;
 namespace java {
 	namespace util {
 
-$FieldInfo _HashMap$TreeNode_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(HashMap$TreeNode, $assertionsDisabled)},
-	{"parent", "Ljava/util/HashMap$TreeNode;", "Ljava/util/HashMap$TreeNode<TK;TV;>;", 0, $field(HashMap$TreeNode, parent)},
-	{"left", "Ljava/util/HashMap$TreeNode;", "Ljava/util/HashMap$TreeNode<TK;TV;>;", 0, $field(HashMap$TreeNode, left)},
-	{"right", "Ljava/util/HashMap$TreeNode;", "Ljava/util/HashMap$TreeNode<TK;TV;>;", 0, $field(HashMap$TreeNode, right)},
-	{"prev", "Ljava/util/HashMap$TreeNode;", "Ljava/util/HashMap$TreeNode<TK;TV;>;", 0, $field(HashMap$TreeNode, prev)},
-	{"red", "Z", nullptr, 0, $field(HashMap$TreeNode, red)},
-	{}
-};
-
-$MethodInfo _HashMap$TreeNode_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/Object;Ljava/lang/Object;Ljava/util/HashMap$Node;)V", "(ITK;TV;Ljava/util/HashMap$Node<TK;TV;>;)V", 0, $method(HashMap$TreeNode, init$, void, int32_t, Object$*, Object$*, $HashMap$Node*)},
-	{"balanceDeletion", "(Ljava/util/HashMap$TreeNode;Ljava/util/HashMap$TreeNode;)Ljava/util/HashMap$TreeNode;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/HashMap$TreeNode<TK;TV;>;Ljava/util/HashMap$TreeNode<TK;TV;>;)Ljava/util/HashMap$TreeNode<TK;TV;>;", $STATIC, $staticMethod(HashMap$TreeNode, balanceDeletion, HashMap$TreeNode*, HashMap$TreeNode*, HashMap$TreeNode*)},
-	{"balanceInsertion", "(Ljava/util/HashMap$TreeNode;Ljava/util/HashMap$TreeNode;)Ljava/util/HashMap$TreeNode;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/HashMap$TreeNode<TK;TV;>;Ljava/util/HashMap$TreeNode<TK;TV;>;)Ljava/util/HashMap$TreeNode<TK;TV;>;", $STATIC, $staticMethod(HashMap$TreeNode, balanceInsertion, HashMap$TreeNode*, HashMap$TreeNode*, HashMap$TreeNode*)},
-	{"checkInvariants", "(Ljava/util/HashMap$TreeNode;)Z", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/HashMap$TreeNode<TK;TV;>;)Z", $STATIC, $staticMethod(HashMap$TreeNode, checkInvariants, bool, HashMap$TreeNode*)},
-	{"find", "(ILjava/lang/Object;Ljava/lang/Class;)Ljava/util/HashMap$TreeNode;", "(ILjava/lang/Object;Ljava/lang/Class<*>;)Ljava/util/HashMap$TreeNode<TK;TV;>;", $FINAL, $method(HashMap$TreeNode, find, HashMap$TreeNode*, int32_t, Object$*, $Class*)},
-	{"getTreeNode", "(ILjava/lang/Object;)Ljava/util/HashMap$TreeNode;", "(ILjava/lang/Object;)Ljava/util/HashMap$TreeNode<TK;TV;>;", $FINAL, $method(HashMap$TreeNode, getTreeNode, HashMap$TreeNode*, int32_t, Object$*)},
-	{"moveRootToFront", "([Ljava/util/HashMap$Node;Ljava/util/HashMap$TreeNode;)V", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>([Ljava/util/HashMap$Node<TK;TV;>;Ljava/util/HashMap$TreeNode<TK;TV;>;)V", $STATIC, $staticMethod(HashMap$TreeNode, moveRootToFront, void, $HashMap$NodeArray*, HashMap$TreeNode*)},
-	{"putTreeVal", "(Ljava/util/HashMap;[Ljava/util/HashMap$Node;ILjava/lang/Object;Ljava/lang/Object;)Ljava/util/HashMap$TreeNode;", "(Ljava/util/HashMap<TK;TV;>;[Ljava/util/HashMap$Node<TK;TV;>;ITK;TV;)Ljava/util/HashMap$TreeNode<TK;TV;>;", $FINAL, $method(HashMap$TreeNode, putTreeVal, HashMap$TreeNode*, $HashMap*, $HashMap$NodeArray*, int32_t, Object$*, Object$*)},
-	{"removeTreeNode", "(Ljava/util/HashMap;[Ljava/util/HashMap$Node;Z)V", "(Ljava/util/HashMap<TK;TV;>;[Ljava/util/HashMap$Node<TK;TV;>;Z)V", $FINAL, $method(HashMap$TreeNode, removeTreeNode, void, $HashMap*, $HashMap$NodeArray*, bool)},
-	{"root", "()Ljava/util/HashMap$TreeNode;", "()Ljava/util/HashMap$TreeNode<TK;TV;>;", $FINAL, $method(HashMap$TreeNode, root, HashMap$TreeNode*)},
-	{"rotateLeft", "(Ljava/util/HashMap$TreeNode;Ljava/util/HashMap$TreeNode;)Ljava/util/HashMap$TreeNode;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/HashMap$TreeNode<TK;TV;>;Ljava/util/HashMap$TreeNode<TK;TV;>;)Ljava/util/HashMap$TreeNode<TK;TV;>;", $STATIC, $staticMethod(HashMap$TreeNode, rotateLeft, HashMap$TreeNode*, HashMap$TreeNode*, HashMap$TreeNode*)},
-	{"rotateRight", "(Ljava/util/HashMap$TreeNode;Ljava/util/HashMap$TreeNode;)Ljava/util/HashMap$TreeNode;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/HashMap$TreeNode<TK;TV;>;Ljava/util/HashMap$TreeNode<TK;TV;>;)Ljava/util/HashMap$TreeNode<TK;TV;>;", $STATIC, $staticMethod(HashMap$TreeNode, rotateRight, HashMap$TreeNode*, HashMap$TreeNode*, HashMap$TreeNode*)},
-	{"split", "(Ljava/util/HashMap;[Ljava/util/HashMap$Node;II)V", "(Ljava/util/HashMap<TK;TV;>;[Ljava/util/HashMap$Node<TK;TV;>;II)V", $FINAL, $method(HashMap$TreeNode, split, void, $HashMap*, $HashMap$NodeArray*, int32_t, int32_t)},
-	{"tieBreakOrder", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $STATIC, $staticMethod(HashMap$TreeNode, tieBreakOrder, int32_t, Object$*, Object$*)},
-	{"treeify", "([Ljava/util/HashMap$Node;)V", "([Ljava/util/HashMap$Node<TK;TV;>;)V", $FINAL, $method(HashMap$TreeNode, treeify, void, $HashMap$NodeArray*)},
-	{"untreeify", "(Ljava/util/HashMap;)Ljava/util/HashMap$Node;", "(Ljava/util/HashMap<TK;TV;>;)Ljava/util/HashMap$Node<TK;TV;>;", $FINAL, $method(HashMap$TreeNode, untreeify, $HashMap$Node*, $HashMap*)},
-	{}
-};
-
-$InnerClassInfo _HashMap$TreeNode_InnerClassesInfo_[] = {
-	{"java.util.HashMap$TreeNode", "java.util.HashMap", "TreeNode", $STATIC | $FINAL},
-	{"java.util.LinkedHashMap$Entry", "java.util.LinkedHashMap", "Entry", $STATIC},
-	{}
-};
-
-$ClassInfo _HashMap$TreeNode_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.HashMap$TreeNode",
-	"java.util.LinkedHashMap$Entry",
-	nullptr,
-	_HashMap$TreeNode_FieldInfo_,
-	_HashMap$TreeNode_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/LinkedHashMap$Entry<TK;TV;>;",
-	nullptr,
-	_HashMap$TreeNode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.HashMap"
-};
-
-$Object* allocate$HashMap$TreeNode($Class* clazz) {
-	return $of($alloc(HashMap$TreeNode));
-}
-
 bool HashMap$TreeNode::$assertionsDisabled = false;
 
 void HashMap$TreeNode::init$(int32_t hash, Object$* key, Object$* val, $HashMap$Node* next) {
@@ -82,25 +25,23 @@ void HashMap$TreeNode::init$(int32_t hash, Object$* key, Object$* val, $HashMap$
 }
 
 HashMap$TreeNode* HashMap$TreeNode::root() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var(HashMap$TreeNode, r, this);
-		$var(HashMap$TreeNode, p, nullptr);
-		for (;;) {
-			if (($assign(p, r->parent)) == nullptr) {
-				return r;
-			}
-			$assign(r, p);
+	$useLocalObjectStack();
+	$var(HashMap$TreeNode, r, this);
+	$var(HashMap$TreeNode, p, nullptr);
+	for (;;) {
+		if (($assign(p, $nc(r)->parent)) == nullptr) {
+			return r;
 		}
+		$assign(r, p);
 	}
 }
 
 void HashMap$TreeNode::moveRootToFront($HashMap$NodeArray* tab, HashMap$TreeNode* root) {
 	$init(HashMap$TreeNode);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = 0;
 	if (root != nullptr && tab != nullptr && (n = tab->length) > 0) {
-		int32_t index = (int32_t)((n - 1) & (uint32_t)root->hash);
+		int32_t index = (n - 1) & root->hash;
 		$var(HashMap$TreeNode, first, $cast(HashMap$TreeNode, tab->get(index)));
 		if (root != first) {
 			$var($HashMap$Node, rn, nullptr);
@@ -125,13 +66,13 @@ void HashMap$TreeNode::moveRootToFront($HashMap$NodeArray* tab, HashMap$TreeNode
 }
 
 HashMap$TreeNode* HashMap$TreeNode::find(int32_t h, Object$* k, $Class* kc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(HashMap$TreeNode, p, this);
 	do {
 		int32_t ph = 0;
 		int32_t dir = 0;
 		$var($Object, pk, nullptr);
-		$var(HashMap$TreeNode, pl, p->left);
+		$var(HashMap$TreeNode, pl, $nc(p)->left);
 		$var(HashMap$TreeNode, pr, p->right);
 		$var(HashMap$TreeNode, q, nullptr);
 		if ((ph = p->hash) > h) {
@@ -139,18 +80,18 @@ HashMap$TreeNode* HashMap$TreeNode::find(int32_t h, Object$* k, $Class* kc) {
 		} else if (ph < h) {
 			$assign(p, pr);
 		} else {
-			bool var$1 = $equals($assign(pk, p->key), k);
-			if (var$1 || (k != nullptr && $of(k)->equals(pk))) {
+			bool var$0 = $equals($assign(pk, p->key), k);
+			if (var$0 || (k != nullptr && $of(k)->equals(pk))) {
 				return p;
 			} else if (pl == nullptr) {
 				$assign(p, pr);
 			} else if (pr == nullptr) {
 				$assign(p, pl);
 			} else {
-				bool var$3 = (kc != nullptr || (kc = $HashMap::comparableClassFor(k)) != nullptr);
-				if (var$3 && (dir = $HashMap::compareComparables(kc, k, pk)) != 0) {
+				bool var$1 = kc != nullptr || (kc = $HashMap::comparableClassFor(k)) != nullptr;
+				if (var$1 && (dir = $HashMap::compareComparables(kc, k, pk)) != 0) {
 					$assign(p, (dir < 0) ? pl : pr);
-				} else if (($assign(q, $nc(pr)->find(h, k, kc))) != nullptr) {
+				} else if (($assign(q, pr->find(h, k, kc))) != nullptr) {
 					return q;
 				} else {
 					$assign(p, pl);
@@ -167,9 +108,9 @@ HashMap$TreeNode* HashMap$TreeNode::getTreeNode(int32_t h, Object$* k) {
 
 int32_t HashMap$TreeNode::tieBreakOrder(Object$* a, Object$* b) {
 	$init(HashMap$TreeNode);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t d = 0;
-	if (a == nullptr || b == nullptr || (d = $nc($($nc($of(a))->getClass()->getName()))->compareTo($($nc($of(b))->getClass()->getName()))) == 0) {
+	if (a == nullptr || b == nullptr || (d = $$nc($of(a)->getClass()->getName())->compareTo($($of(b)->getClass()->getName()))) == 0) {
 		int32_t var$0 = $System::identityHashCode(a);
 		d = (var$0 <= $System::identityHashCode(b) ? -1 : 1);
 	}
@@ -177,14 +118,14 @@ int32_t HashMap$TreeNode::tieBreakOrder(Object$* a, Object$* b) {
 }
 
 void HashMap$TreeNode::treeify($HashMap$NodeArray* tab) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(HashMap$TreeNode, root, nullptr);
 	{
 		$var(HashMap$TreeNode, x, this);
 		$var(HashMap$TreeNode, next, nullptr);
 		for (; x != nullptr; $assign(x, next)) {
-			$assign(next, $cast(HashMap$TreeNode, $nc(x)->next));
-			$set(x, left, ($set(x, right, nullptr)));
+			$assign(next, $cast(HashMap$TreeNode, x->next));
+			$set(x, left, $set(x, right, nullptr));
 			if (root == nullptr) {
 				$set(x, parent, nullptr);
 				x->red = false;
@@ -204,8 +145,8 @@ void HashMap$TreeNode::treeify($HashMap$NodeArray* tab) {
 						} else if (ph < h) {
 							dir = 1;
 						} else {
-							bool var$1 = (kc == nullptr && (kc = $HashMap::comparableClassFor(k)) == nullptr);
-							if (var$1 || (dir = $HashMap::compareComparables(kc, k, pk)) == 0) {
+							bool var$0 = kc == nullptr && (kc = $HashMap::comparableClassFor(k)) == nullptr;
+							if (var$0 || (dir = $HashMap::compareComparables(kc, k, pk)) == 0) {
 								dir = tieBreakOrder(k, pk);
 							}
 						}
@@ -229,7 +170,7 @@ void HashMap$TreeNode::treeify($HashMap$NodeArray* tab) {
 }
 
 $HashMap$Node* HashMap$TreeNode::untreeify($HashMap* map) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashMap$Node, hd, nullptr);
 	$var($HashMap$Node, tl, nullptr);
 	{
@@ -239,7 +180,7 @@ $HashMap$Node* HashMap$TreeNode::untreeify($HashMap* map) {
 			if (tl == nullptr) {
 				$assign(hd, p);
 			} else {
-				$set($nc(tl), next, p);
+				$set(tl, next, p);
 			}
 			$assign(tl, p);
 		}
@@ -248,7 +189,7 @@ $HashMap$Node* HashMap$TreeNode::untreeify($HashMap* map) {
 }
 
 HashMap$TreeNode* HashMap$TreeNode::putTreeVal($HashMap* map, $HashMap$NodeArray* tab, int32_t h, Object$* k, Object$* v) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Class* kc = nullptr;
 	bool searched = false;
 	$var(HashMap$TreeNode, root, (this->parent != nullptr) ? this->root() : this);
@@ -263,23 +204,23 @@ HashMap$TreeNode* HashMap$TreeNode::putTreeVal($HashMap* map, $HashMap$NodeArray
 			} else if (ph < h) {
 				dir = 1;
 			} else {
-				bool var$1 = $equals($assign(pk, p->key), k);
-				if (var$1 || (k != nullptr && $of(k)->equals(pk))) {
+				bool var$0 = $equals($assign(pk, p->key), k);
+				if (var$0 || (k != nullptr && $of(k)->equals(pk))) {
 					return p;
 				} else {
-					bool var$3 = (kc == nullptr && (kc = $HashMap::comparableClassFor(k)) == nullptr);
-					if (var$3 || (dir = $HashMap::compareComparables(kc, k, pk)) == 0) {
+					bool var$1 = kc == nullptr && (kc = $HashMap::comparableClassFor(k)) == nullptr;
+					if (var$1 || (dir = $HashMap::compareComparables(kc, k, pk)) == 0) {
 						if (!searched) {
 							$var(HashMap$TreeNode, q, nullptr);
 							$var(HashMap$TreeNode, ch, nullptr);
 							searched = true;
-							bool var$5 = ($assign(ch, p->left)) != nullptr;
-							bool var$4 = (var$5 && ($assign(q, $nc(ch)->find(h, k, kc))) != nullptr);
-							if (!var$4) {
-								bool var$6 = ($assign(ch, p->right)) != nullptr;
-								var$4 = (var$6 && ($assign(q, $nc(ch)->find(h, k, kc))) != nullptr);
+							bool var$3 = ($assign(ch, p->left)) != nullptr;
+							bool var$2 = var$3 && ($assign(q, $nc(ch)->find(h, k, kc))) != nullptr;
+							if (!var$2) {
+								bool var$4 = ($assign(ch, p->right)) != nullptr;
+								var$2 = var$4 && ($assign(q, $nc(ch)->find(h, k, kc))) != nullptr;
 							}
-							if (var$4) {
+							if (var$2) {
 								return q;
 							}
 						}
@@ -288,8 +229,8 @@ HashMap$TreeNode* HashMap$TreeNode::putTreeVal($HashMap* map, $HashMap$NodeArray
 				}
 			}
 			$var(HashMap$TreeNode, xp, p);
-			if (($assign(p, (dir <= 0) ? $nc(p)->left : p->right)) == nullptr) {
-				$var($HashMap$Node, xpn, $nc(xp)->next);
+			if (($assign(p, (dir <= 0) ? p->left : p->right)) == nullptr) {
+				$var($HashMap$Node, xpn, xp->next);
 				$var(HashMap$TreeNode, x, $nc(map)->newTreeNode(h, k, v, xpn));
 				if (dir <= 0) {
 					$set(xp, left, x);
@@ -297,9 +238,9 @@ HashMap$TreeNode* HashMap$TreeNode::putTreeVal($HashMap* map, $HashMap$NodeArray
 					$set(xp, right, x);
 				}
 				$set(xp, next, x);
-				$set($nc(x), parent, ($set(x, prev, xp)));
+				$set($nc(x), parent, $set($nc(x), prev, xp));
 				if (xpn != nullptr) {
-					$set($nc($cast(HashMap$TreeNode, xpn)), prev, x);
+					$set($cast(HashMap$TreeNode, xpn), prev, x);
 				}
 				moveRootToFront(tab, $(balanceInsertion(root, x)));
 				return nullptr;
@@ -309,21 +250,21 @@ HashMap$TreeNode* HashMap$TreeNode::putTreeVal($HashMap* map, $HashMap$NodeArray
 }
 
 void HashMap$TreeNode::removeTreeNode($HashMap* map, $HashMap$NodeArray* tab, bool movable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = 0;
-	if (tab == nullptr || (n = $nc(tab)->length) == 0) {
+	if (tab == nullptr || (n = tab->length) == 0) {
 		return;
 	}
-	int32_t index = (int32_t)((n - 1) & (uint32_t)this->hash);
+	int32_t index = (n - 1) & this->hash;
 	$var(HashMap$TreeNode, first, $cast(HashMap$TreeNode, $nc(tab)->get(index)));
 	$var(HashMap$TreeNode, root, first);
 	$var(HashMap$TreeNode, rl, nullptr);
 	$var(HashMap$TreeNode, succ, $cast(HashMap$TreeNode, this->next));
 	$var(HashMap$TreeNode, pred, this->prev);
 	if (pred == nullptr) {
-		tab->set(index, ($assign(first, succ)));
+		tab->set(index, $assign(first, succ));
 	} else {
-		$set($nc(pred), next, succ);
+		$set(pred, next, succ);
 	}
 	if (succ != nullptr) {
 		$set(succ, prev, pred);
@@ -338,10 +279,10 @@ void HashMap$TreeNode::removeTreeNode($HashMap* map, $HashMap$NodeArray* tab, bo
 	if (!var$0) {
 		bool var$1 = movable;
 		if (var$1) {
-			bool var$2 = $nc(root)->right == nullptr || ($assign(rl, $nc(root)->left)) == nullptr;
-			var$1 = (var$2 || $nc(rl)->left == nullptr);
+			bool var$2 = root->right == nullptr || ($assign(rl, root->left)) == nullptr;
+			var$1 = var$2 || $nc(rl)->left == nullptr;
 		}
-		var$0 = (var$1);
+		var$0 = var$1;
 	}
 	if (var$0) {
 		tab->set(index, $($nc(first)->untreeify(map)));
@@ -408,12 +349,12 @@ void HashMap$TreeNode::removeTreeNode($HashMap* map, $HashMap$NodeArray* tab, bo
 		$var(HashMap$TreeNode, pp, $set($nc(replacement), parent, p->parent));
 		if (pp == nullptr) {
 			$nc(($assign(root, replacement)))->red = false;
-		} else if (p == $nc(pp)->left) {
+		} else if (p == pp->left) {
 			$set(pp, left, replacement);
 		} else {
 			$set(pp, right, replacement);
 		}
-		$set(p, left, ($set(p, right, ($set(p, parent, nullptr)))));
+		$set(p, left, $set(p, right, $set(p, parent, nullptr)));
 	}
 	$var(HashMap$TreeNode, r, p->red ? root : balanceDeletion(root, replacement));
 	if (replacement == p) {
@@ -433,7 +374,7 @@ void HashMap$TreeNode::removeTreeNode($HashMap* map, $HashMap$NodeArray* tab, bo
 }
 
 void HashMap$TreeNode::split($HashMap* map, $HashMap$NodeArray* tab, int32_t index, int32_t bit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(HashMap$TreeNode, b, this);
 	$var(HashMap$TreeNode, loHead, nullptr);
 	$var(HashMap$TreeNode, loTail, nullptr);
@@ -445,9 +386,9 @@ void HashMap$TreeNode::split($HashMap* map, $HashMap$NodeArray* tab, int32_t ind
 		$var(HashMap$TreeNode, e, b);
 		$var(HashMap$TreeNode, next, nullptr);
 		for (; e != nullptr; $assign(e, next)) {
-			$assign(next, $cast(HashMap$TreeNode, $nc(e)->next));
+			$assign(next, $cast(HashMap$TreeNode, e->next));
 			$set(e, next, nullptr);
-			if (((int32_t)(e->hash & (uint32_t)bit)) == 0) {
+			if ((e->hash & bit) == 0) {
 				if (($set(e, prev, loTail)) == nullptr) {
 					$assign(loHead, e);
 				} else {
@@ -490,23 +431,23 @@ void HashMap$TreeNode::split($HashMap* map, $HashMap$NodeArray* tab, int32_t ind
 
 HashMap$TreeNode* HashMap$TreeNode::rotateLeft(HashMap$TreeNode* root$renamed, HashMap$TreeNode* p) {
 	$init(HashMap$TreeNode);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(HashMap$TreeNode, root, root$renamed);
 	$var(HashMap$TreeNode, r, nullptr);
 	$var(HashMap$TreeNode, pp, nullptr);
 	$var(HashMap$TreeNode, rl, nullptr);
 	if (p != nullptr && ($assign(r, p->right)) != nullptr) {
-		if (($assign(rl, ($set(p, right, $nc(r)->left)))) != nullptr) {
+		if (($assign(rl, $set(p, right, $nc(r)->left))) != nullptr) {
 			$set($nc(rl), parent, p);
 		}
-		if (($assign(pp, ($set($nc(r), parent, p->parent)))) == nullptr) {
+		if (($assign(pp, $set(r, parent, p->parent))) == nullptr) {
 			$nc(($assign(root, r)))->red = false;
 		} else if ($nc(pp)->left == p) {
 			$set(pp, left, r);
 		} else {
 			$set(pp, right, r);
 		}
-		$set($nc(r), left, p);
+		$set(r, left, p);
 		$set(p, parent, r);
 	}
 	return root;
@@ -514,23 +455,23 @@ HashMap$TreeNode* HashMap$TreeNode::rotateLeft(HashMap$TreeNode* root$renamed, H
 
 HashMap$TreeNode* HashMap$TreeNode::rotateRight(HashMap$TreeNode* root$renamed, HashMap$TreeNode* p) {
 	$init(HashMap$TreeNode);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(HashMap$TreeNode, root, root$renamed);
 	$var(HashMap$TreeNode, l, nullptr);
 	$var(HashMap$TreeNode, pp, nullptr);
 	$var(HashMap$TreeNode, lr, nullptr);
 	if (p != nullptr && ($assign(l, p->left)) != nullptr) {
-		if (($assign(lr, ($set(p, left, $nc(l)->right)))) != nullptr) {
+		if (($assign(lr, $set(p, left, $nc(l)->right))) != nullptr) {
 			$set($nc(lr), parent, p);
 		}
-		if (($assign(pp, ($set($nc(l), parent, p->parent)))) == nullptr) {
+		if (($assign(pp, $set(l, parent, p->parent))) == nullptr) {
 			$nc(($assign(root, l)))->red = false;
 		} else if ($nc(pp)->right == p) {
 			$set(pp, right, l);
 		} else {
 			$set(pp, left, l);
 		}
-		$set($nc(l), right, p);
+		$set(l, right, p);
 		$set(p, parent, l);
 	}
 	return root;
@@ -538,7 +479,7 @@ HashMap$TreeNode* HashMap$TreeNode::rotateRight(HashMap$TreeNode* root$renamed, 
 
 HashMap$TreeNode* HashMap$TreeNode::balanceInsertion(HashMap$TreeNode* root$renamed, HashMap$TreeNode* x$renamed) {
 	$init(HashMap$TreeNode);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(HashMap$TreeNode, root, root$renamed);
 	$var(HashMap$TreeNode, x, x$renamed);
 	$nc(x)->red = true;
@@ -548,10 +489,10 @@ HashMap$TreeNode* HashMap$TreeNode::balanceInsertion(HashMap$TreeNode* root$rena
 		$var(HashMap$TreeNode, xppl, nullptr);
 		$var(HashMap$TreeNode, xppr, nullptr);
 		for (;;) {
-			if (($assign(xp, x->parent)) == nullptr) {
+			if (($assign(xp, $nc(x)->parent)) == nullptr) {
 				x->red = false;
 				return x;
-			} else if (!$nc(xp)->red || ($assign(xpp, $nc(xp)->parent)) == nullptr) {
+			} else if (!$nc(xp)->red || ($assign(xpp, xp->parent)) == nullptr) {
 				return root;
 			}
 			if (xp == ($assign(xppl, $nc(xpp)->left))) {
@@ -564,7 +505,7 @@ HashMap$TreeNode* HashMap$TreeNode::balanceInsertion(HashMap$TreeNode* root$rena
 				} else {
 					if (x == $nc(xp)->right) {
 						$assign(root, rotateLeft(root, $assign(x, xp)));
-						$assign(xpp, ($assign(xp, x->parent)) == nullptr ? (HashMap$TreeNode*)nullptr : xp->parent);
+						$assign(xpp, ($assign(xp, x->parent)) == nullptr ? (HashMap$TreeNode*)nullptr : $nc(xp)->parent);
 					}
 					if (xp != nullptr) {
 						xp->red = false;
@@ -582,7 +523,7 @@ HashMap$TreeNode* HashMap$TreeNode::balanceInsertion(HashMap$TreeNode* root$rena
 			} else {
 				if (x == $nc(xp)->left) {
 					$assign(root, rotateRight(root, $assign(x, xp)));
-					$assign(xpp, ($assign(xp, x->parent)) == nullptr ? (HashMap$TreeNode*)nullptr : xp->parent);
+					$assign(xpp, ($assign(xp, x->parent)) == nullptr ? (HashMap$TreeNode*)nullptr : $nc(xp)->parent);
 				}
 				if (xp != nullptr) {
 					xp->red = false;
@@ -598,96 +539,94 @@ HashMap$TreeNode* HashMap$TreeNode::balanceInsertion(HashMap$TreeNode* root$rena
 
 HashMap$TreeNode* HashMap$TreeNode::balanceDeletion(HashMap$TreeNode* root$renamed, HashMap$TreeNode* x$renamed) {
 	$init(HashMap$TreeNode);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(HashMap$TreeNode, root, root$renamed);
 	$var(HashMap$TreeNode, x, x$renamed);
-	{
-		$var(HashMap$TreeNode, xp, nullptr);
-		$var(HashMap$TreeNode, xpl, nullptr);
-		$var(HashMap$TreeNode, xpr, nullptr);
-		for (;;) {
-			if (x == nullptr || x == root) {
-				return root;
-			} else if (($assign(xp, $nc(x)->parent)) == nullptr) {
-				x->red = false;
-				return x;
-			} else if (x->red) {
-				x->red = false;
-				return root;
-			} else if (($assign(xpl, $nc(xp)->left)) == x) {
-				bool var$0 = ($assign(xpr, xp->right)) != nullptr;
-				if (var$0 && $nc(xpr)->red) {
-					xpr->red = false;
-					xp->red = true;
-					$assign(root, rotateLeft(root, xp));
-					$assign(xpr, ($assign(xp, x->parent)) == nullptr ? (HashMap$TreeNode*)nullptr : xp->right);
-				}
-				if (xpr == nullptr) {
-					$assign(x, xp);
-				} else {
-					$var(HashMap$TreeNode, sl, $nc(xpr)->left);
-					$var(HashMap$TreeNode, sr, xpr->right);
-					if ((sr == nullptr || !$nc(sr)->red) && (sl == nullptr || !$nc(sl)->red)) {
-						xpr->red = true;
-						$assign(x, xp);
-					} else {
-						if (sr == nullptr || !$nc(sr)->red) {
-							if (sl != nullptr) {
-								sl->red = false;
-							}
-							xpr->red = true;
-							$assign(root, rotateRight(root, xpr));
-							$assign(xpr, ($assign(xp, x->parent)) == nullptr ? (HashMap$TreeNode*)nullptr : xp->right);
-						}
-						if (xpr != nullptr) {
-							xpr->red = (xp == nullptr) ? false : xp->red;
-							if (($assign(sr, xpr->right)) != nullptr) {
-								$nc(sr)->red = false;
-							}
-						}
-						if (xp != nullptr) {
-							xp->red = false;
-							$assign(root, rotateLeft(root, xp));
-						}
-						$assign(x, root);
-					}
-				}
+	$var(HashMap$TreeNode, xp, nullptr);
+	$var(HashMap$TreeNode, xpl, nullptr);
+	$var(HashMap$TreeNode, xpr, nullptr);
+	for (;;) {
+		if (x == nullptr || x == root) {
+			return root;
+		} else if (($assign(xp, x->parent)) == nullptr) {
+			x->red = false;
+			return x;
+		} else if (x->red) {
+			x->red = false;
+			return root;
+		} else if (($assign(xpl, $nc(xp)->left)) == x) {
+			bool var$0 = ($assign(xpr, xp->right)) != nullptr;
+			if (var$0 && $nc(xpr)->red) {
+				xpr->red = false;
+				xp->red = true;
+				$assign(root, rotateLeft(root, xp));
+				$assign(xpr, ($assign(xp, x->parent)) == nullptr ? (HashMap$TreeNode*)nullptr : $nc(xp)->right);
+			}
+			if (xpr == nullptr) {
+				$assign(x, xp);
 			} else {
-				if (xpl != nullptr && xpl->red) {
-					xpl->red = false;
-					xp->red = true;
-					$assign(root, rotateRight(root, xp));
-					$assign(xpl, ($assign(xp, x->parent)) == nullptr ? (HashMap$TreeNode*)nullptr : xp->left);
-				}
-				if (xpl == nullptr) {
+				$var(HashMap$TreeNode, sl, xpr->left);
+				$var(HashMap$TreeNode, sr, xpr->right);
+				if ((sr == nullptr || !sr->red) && (sl == nullptr || !sl->red)) {
+					xpr->red = true;
 					$assign(x, xp);
 				} else {
-					$var(HashMap$TreeNode, sl, $nc(xpl)->left);
-					$var(HashMap$TreeNode, sr, xpl->right);
-					if ((sl == nullptr || !$nc(sl)->red) && (sr == nullptr || !$nc(sr)->red)) {
-						xpl->red = true;
-						$assign(x, xp);
-					} else {
-						if (sl == nullptr || !$nc(sl)->red) {
-							if (sr != nullptr) {
-								sr->red = false;
-							}
-							xpl->red = true;
-							$assign(root, rotateLeft(root, xpl));
-							$assign(xpl, ($assign(xp, x->parent)) == nullptr ? (HashMap$TreeNode*)nullptr : xp->left);
+					if (sr == nullptr || !sr->red) {
+						if (sl != nullptr) {
+							sl->red = false;
 						}
-						if (xpl != nullptr) {
-							xpl->red = (xp == nullptr) ? false : xp->red;
-							if (($assign(sl, xpl->left)) != nullptr) {
-								$nc(sl)->red = false;
-							}
-						}
-						if (xp != nullptr) {
-							xp->red = false;
-							$assign(root, rotateRight(root, xp));
-						}
-						$assign(x, root);
+						xpr->red = true;
+						$assign(root, rotateRight(root, xpr));
+						$assign(xpr, ($assign(xp, x->parent)) == nullptr ? (HashMap$TreeNode*)nullptr : $nc(xp)->right);
 					}
+					if (xpr != nullptr) {
+						xpr->red = (xp == nullptr) ? false : xp->red;
+						if (($assign(sr, xpr->right)) != nullptr) {
+							$nc(sr)->red = false;
+						}
+					}
+					if (xp != nullptr) {
+						xp->red = false;
+						$assign(root, rotateLeft(root, xp));
+					}
+					$assign(x, root);
+				}
+			}
+		} else {
+			if (xpl != nullptr && xpl->red) {
+				xpl->red = false;
+				xp->red = true;
+				$assign(root, rotateRight(root, xp));
+				$assign(xpl, ($assign(xp, x->parent)) == nullptr ? (HashMap$TreeNode*)nullptr : $nc(xp)->left);
+			}
+			if (xpl == nullptr) {
+				$assign(x, xp);
+			} else {
+				$var(HashMap$TreeNode, sl, xpl->left);
+				$var(HashMap$TreeNode, sr, xpl->right);
+				if ((sl == nullptr || !sl->red) && (sr == nullptr || !sr->red)) {
+					xpl->red = true;
+					$assign(x, xp);
+				} else {
+					if (sl == nullptr || !sl->red) {
+						if (sr != nullptr) {
+							sr->red = false;
+						}
+						xpl->red = true;
+						$assign(root, rotateLeft(root, xpl));
+						$assign(xpl, ($assign(xp, x->parent)) == nullptr ? (HashMap$TreeNode*)nullptr : $nc(xp)->left);
+					}
+					if (xpl != nullptr) {
+						xpl->red = (xp == nullptr) ? false : xp->red;
+						if (($assign(sl, xpl->left)) != nullptr) {
+							$nc(sl)->red = false;
+						}
+					}
+					if (xp != nullptr) {
+						xp->red = false;
+						$assign(root, rotateRight(root, xp));
+					}
+					$assign(x, root);
 				}
 			}
 		}
@@ -696,7 +635,7 @@ HashMap$TreeNode* HashMap$TreeNode::balanceDeletion(HashMap$TreeNode* root$renam
 
 bool HashMap$TreeNode::checkInvariants(HashMap$TreeNode* t) {
 	$init(HashMap$TreeNode);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(HashMap$TreeNode, tp, $nc(t)->parent);
 	$var(HashMap$TreeNode, tl, t->left);
 	$var(HashMap$TreeNode, tr, t->right);
@@ -711,10 +650,10 @@ bool HashMap$TreeNode::checkInvariants(HashMap$TreeNode* t) {
 	if (tp != nullptr && t != tp->left && t != tp->right) {
 		return false;
 	}
-	if (tl != nullptr && (tl->parent != t || $nc(tl)->hash > t->hash)) {
+	if (tl != nullptr && (tl->parent != t || tl->hash > t->hash)) {
 		return false;
 	}
-	if (tr != nullptr && (tr->parent != t || $nc(tr)->hash < t->hash)) {
+	if (tr != nullptr && (tr->parent != t || tr->hash < t->hash)) {
 		return false;
 	}
 	if (t->red && tl != nullptr && tl->red && tr != nullptr && tr->red) {
@@ -729,7 +668,7 @@ bool HashMap$TreeNode::checkInvariants(HashMap$TreeNode* t) {
 	return true;
 }
 
-void clinit$HashMap$TreeNode($Class* class$) {
+void HashMap$TreeNode::clinit$($Class* clazz) {
 	$load($HashMap);
 	HashMap$TreeNode::$assertionsDisabled = !$HashMap::class$->desiredAssertionStatus();
 }
@@ -738,7 +677,57 @@ HashMap$TreeNode::HashMap$TreeNode() {
 }
 
 $Class* HashMap$TreeNode::load$($String* name, bool initialize) {
-	$loadClass(HashMap$TreeNode, name, initialize, &_HashMap$TreeNode_ClassInfo_, clinit$HashMap$TreeNode, allocate$HashMap$TreeNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(HashMap$TreeNode, $assertionsDisabled)},
+		{"parent", "Ljava/util/HashMap$TreeNode;", "Ljava/util/HashMap$TreeNode<TK;TV;>;", 0, $field(HashMap$TreeNode, parent)},
+		{"left", "Ljava/util/HashMap$TreeNode;", "Ljava/util/HashMap$TreeNode<TK;TV;>;", 0, $field(HashMap$TreeNode, left)},
+		{"right", "Ljava/util/HashMap$TreeNode;", "Ljava/util/HashMap$TreeNode<TK;TV;>;", 0, $field(HashMap$TreeNode, right)},
+		{"prev", "Ljava/util/HashMap$TreeNode;", "Ljava/util/HashMap$TreeNode<TK;TV;>;", 0, $field(HashMap$TreeNode, prev)},
+		{"red", "Z", nullptr, 0, $field(HashMap$TreeNode, red)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/lang/Object;Ljava/lang/Object;Ljava/util/HashMap$Node;)V", "(ITK;TV;Ljava/util/HashMap$Node<TK;TV;>;)V", 0, $method(HashMap$TreeNode, init$, void, int32_t, Object$*, Object$*, $HashMap$Node*)},
+		{"balanceDeletion", "(Ljava/util/HashMap$TreeNode;Ljava/util/HashMap$TreeNode;)Ljava/util/HashMap$TreeNode;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/HashMap$TreeNode<TK;TV;>;Ljava/util/HashMap$TreeNode<TK;TV;>;)Ljava/util/HashMap$TreeNode<TK;TV;>;", $STATIC, $staticMethod(HashMap$TreeNode, balanceDeletion, HashMap$TreeNode*, HashMap$TreeNode*, HashMap$TreeNode*)},
+		{"balanceInsertion", "(Ljava/util/HashMap$TreeNode;Ljava/util/HashMap$TreeNode;)Ljava/util/HashMap$TreeNode;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/HashMap$TreeNode<TK;TV;>;Ljava/util/HashMap$TreeNode<TK;TV;>;)Ljava/util/HashMap$TreeNode<TK;TV;>;", $STATIC, $staticMethod(HashMap$TreeNode, balanceInsertion, HashMap$TreeNode*, HashMap$TreeNode*, HashMap$TreeNode*)},
+		{"checkInvariants", "(Ljava/util/HashMap$TreeNode;)Z", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/HashMap$TreeNode<TK;TV;>;)Z", $STATIC, $staticMethod(HashMap$TreeNode, checkInvariants, bool, HashMap$TreeNode*)},
+		{"find", "(ILjava/lang/Object;Ljava/lang/Class;)Ljava/util/HashMap$TreeNode;", "(ILjava/lang/Object;Ljava/lang/Class<*>;)Ljava/util/HashMap$TreeNode<TK;TV;>;", $FINAL, $method(HashMap$TreeNode, find, HashMap$TreeNode*, int32_t, Object$*, $Class*)},
+		{"getTreeNode", "(ILjava/lang/Object;)Ljava/util/HashMap$TreeNode;", "(ILjava/lang/Object;)Ljava/util/HashMap$TreeNode<TK;TV;>;", $FINAL, $method(HashMap$TreeNode, getTreeNode, HashMap$TreeNode*, int32_t, Object$*)},
+		{"moveRootToFront", "([Ljava/util/HashMap$Node;Ljava/util/HashMap$TreeNode;)V", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>([Ljava/util/HashMap$Node<TK;TV;>;Ljava/util/HashMap$TreeNode<TK;TV;>;)V", $STATIC, $staticMethod(HashMap$TreeNode, moveRootToFront, void, $HashMap$NodeArray*, HashMap$TreeNode*)},
+		{"putTreeVal", "(Ljava/util/HashMap;[Ljava/util/HashMap$Node;ILjava/lang/Object;Ljava/lang/Object;)Ljava/util/HashMap$TreeNode;", "(Ljava/util/HashMap<TK;TV;>;[Ljava/util/HashMap$Node<TK;TV;>;ITK;TV;)Ljava/util/HashMap$TreeNode<TK;TV;>;", $FINAL, $method(HashMap$TreeNode, putTreeVal, HashMap$TreeNode*, $HashMap*, $HashMap$NodeArray*, int32_t, Object$*, Object$*)},
+		{"removeTreeNode", "(Ljava/util/HashMap;[Ljava/util/HashMap$Node;Z)V", "(Ljava/util/HashMap<TK;TV;>;[Ljava/util/HashMap$Node<TK;TV;>;Z)V", $FINAL, $method(HashMap$TreeNode, removeTreeNode, void, $HashMap*, $HashMap$NodeArray*, bool)},
+		{"root", "()Ljava/util/HashMap$TreeNode;", "()Ljava/util/HashMap$TreeNode<TK;TV;>;", $FINAL, $method(HashMap$TreeNode, root, HashMap$TreeNode*)},
+		{"rotateLeft", "(Ljava/util/HashMap$TreeNode;Ljava/util/HashMap$TreeNode;)Ljava/util/HashMap$TreeNode;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/HashMap$TreeNode<TK;TV;>;Ljava/util/HashMap$TreeNode<TK;TV;>;)Ljava/util/HashMap$TreeNode<TK;TV;>;", $STATIC, $staticMethod(HashMap$TreeNode, rotateLeft, HashMap$TreeNode*, HashMap$TreeNode*, HashMap$TreeNode*)},
+		{"rotateRight", "(Ljava/util/HashMap$TreeNode;Ljava/util/HashMap$TreeNode;)Ljava/util/HashMap$TreeNode;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/HashMap$TreeNode<TK;TV;>;Ljava/util/HashMap$TreeNode<TK;TV;>;)Ljava/util/HashMap$TreeNode<TK;TV;>;", $STATIC, $staticMethod(HashMap$TreeNode, rotateRight, HashMap$TreeNode*, HashMap$TreeNode*, HashMap$TreeNode*)},
+		{"split", "(Ljava/util/HashMap;[Ljava/util/HashMap$Node;II)V", "(Ljava/util/HashMap<TK;TV;>;[Ljava/util/HashMap$Node<TK;TV;>;II)V", $FINAL, $method(HashMap$TreeNode, split, void, $HashMap*, $HashMap$NodeArray*, int32_t, int32_t)},
+		{"tieBreakOrder", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $STATIC, $staticMethod(HashMap$TreeNode, tieBreakOrder, int32_t, Object$*, Object$*)},
+		{"treeify", "([Ljava/util/HashMap$Node;)V", "([Ljava/util/HashMap$Node<TK;TV;>;)V", $FINAL, $method(HashMap$TreeNode, treeify, void, $HashMap$NodeArray*)},
+		{"untreeify", "(Ljava/util/HashMap;)Ljava/util/HashMap$Node;", "(Ljava/util/HashMap<TK;TV;>;)Ljava/util/HashMap$Node<TK;TV;>;", $FINAL, $method(HashMap$TreeNode, untreeify, $HashMap$Node*, $HashMap*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.HashMap$TreeNode", "java.util.HashMap", "TreeNode", $STATIC | $FINAL},
+		{"java.util.LinkedHashMap$Entry", "java.util.LinkedHashMap", "Entry", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.HashMap$TreeNode",
+		"java.util.LinkedHashMap$Entry",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/LinkedHashMap$Entry<TK;TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.HashMap"
+	};
+	$loadClass(HashMap$TreeNode, name, initialize, &classInfo$$, HashMap$TreeNode::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HashMap$TreeNode);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <TestType2$nestedTestType2.h>
-
 #include <TestType2.h>
 #include <jcpp.h>
 
@@ -9,51 +8,44 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
-$NamedAttribute TestType2$nestedTestType2_Attribute_var$0[] = {
-	{"value", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _TestType2$nestedTestType2_MethodAnnotations_nestedBar0[] = {
-	{"LExpectedIsDefault;", TestType2$nestedTestType2_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _TestType2$nestedTestType2_MethodInfo_[] = {
-	{"nestedBar", "()V", nullptr, $PUBLIC, $virtualMethod(TestType2$nestedTestType2, nestedBar, void), nullptr, nullptr, _TestType2$nestedTestType2_MethodAnnotations_nestedBar0},
-	{}
-};
-
-$InnerClassInfo _TestType2$nestedTestType2_InnerClassesInfo_[] = {
-	{"TestType2$nestedTestType2", "TestType2", "nestedTestType2", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TestType2$nestedTestType2_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"TestType2$nestedTestType2",
-	nullptr,
-	nullptr,
-	nullptr,
-	_TestType2$nestedTestType2_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestType2$nestedTestType2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestType2"
-};
-
-$Object* allocate$TestType2$nestedTestType2($Class* clazz) {
-	return $of($alloc(TestType2$nestedTestType2));
-}
-
 void TestType2$nestedTestType2::nestedBar() {
 }
 
 $Class* TestType2$nestedTestType2::load$($String* name, bool initialize) {
-	$loadClass(TestType2$nestedTestType2, name, initialize, &_TestType2$nestedTestType2_ClassInfo_, allocate$TestType2$nestedTestType2);
+	$NamedAttribute nestedBarmethodAnnotations$$$namedAttribute[] = {
+		{"value", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute nestedBarmethodAnnotations$$[] = {
+		{"LExpectedIsDefault;", nestedBarmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"nestedBar", "()V", nullptr, $PUBLIC, $virtualMethod(TestType2$nestedTestType2, nestedBar, void), nullptr, nullptr, nestedBarmethodAnnotations$$},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestType2$nestedTestType2", "TestType2", "nestedTestType2", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"TestType2$nestedTestType2",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestType2"
+	};
+	$loadClass(TestType2$nestedTestType2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestType2$nestedTestType2);
+	});
 	return class$;
 }
 

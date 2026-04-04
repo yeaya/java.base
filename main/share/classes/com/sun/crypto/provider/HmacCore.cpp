@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/HmacCore.h>
-
 #include <java/lang/Cloneable.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/DigestException.h>
@@ -43,65 +42,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _HmacCore_FieldInfo_[] = {
-	{"md", "Ljava/security/MessageDigest;", nullptr, $PRIVATE, $field(HmacCore, md)},
-	{"k_ipad", "[B", nullptr, $PRIVATE, $field(HmacCore, k_ipad)},
-	{"k_opad", "[B", nullptr, $PRIVATE, $field(HmacCore, k_opad)},
-	{"first", "Z", nullptr, $PRIVATE, $field(HmacCore, first)},
-	{"blockLen", "I", nullptr, $PRIVATE | $FINAL, $field(HmacCore, blockLen)},
-	{}
-};
-
-$MethodInfo _HmacCore_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(HmacCore, init$, void, $String*, int32_t), "java.security.NoSuchAlgorithmException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HmacCore, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"engineDoFinal", "()[B", nullptr, $PROTECTED, $virtualMethod(HmacCore, engineDoFinal, $bytes*)},
-	{"engineGetMacLength", "()I", nullptr, $PROTECTED, $virtualMethod(HmacCore, engineGetMacLength, int32_t)},
-	{"engineInit", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(HmacCore, engineInit, void, $Key*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"engineReset", "()V", nullptr, $PROTECTED, $virtualMethod(HmacCore, engineReset, void)},
-	{"engineUpdate", "(B)V", nullptr, $PROTECTED, $virtualMethod(HmacCore, engineUpdate, void, int8_t)},
-	{"engineUpdate", "([BII)V", nullptr, $PROTECTED, $virtualMethod(HmacCore, engineUpdate, void, $bytes*, int32_t, int32_t)},
-	{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED, $virtualMethod(HmacCore, engineUpdate, void, $ByteBuffer*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _HmacCore_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.HmacCore$HmacSHA3_512", "com.sun.crypto.provider.HmacCore", "HmacSHA3_512", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.HmacCore$HmacSHA3_384", "com.sun.crypto.provider.HmacCore", "HmacSHA3_384", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.HmacCore$HmacSHA3_256", "com.sun.crypto.provider.HmacCore", "HmacSHA3_256", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.HmacCore$HmacSHA3_224", "com.sun.crypto.provider.HmacCore", "HmacSHA3_224", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.HmacCore$HmacSHA512_256", "com.sun.crypto.provider.HmacCore", "HmacSHA512_256", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.HmacCore$HmacSHA512_224", "com.sun.crypto.provider.HmacCore", "HmacSHA512_224", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.HmacCore$HmacSHA512", "com.sun.crypto.provider.HmacCore", "HmacSHA512", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.HmacCore$HmacSHA384", "com.sun.crypto.provider.HmacCore", "HmacSHA384", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.HmacCore$HmacSHA256", "com.sun.crypto.provider.HmacCore", "HmacSHA256", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.HmacCore$HmacSHA224", "com.sun.crypto.provider.HmacCore", "HmacSHA224", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _HmacCore_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.crypto.provider.HmacCore",
-	"javax.crypto.MacSpi",
-	"java.lang.Cloneable",
-	_HmacCore_FieldInfo_,
-	_HmacCore_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HmacCore_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.HmacCore$HmacSHA3_512,com.sun.crypto.provider.HmacCore$HmacSHA3_384,com.sun.crypto.provider.HmacCore$HmacSHA3_256,com.sun.crypto.provider.HmacCore$HmacSHA3_224,com.sun.crypto.provider.HmacCore$HmacSHA512_256,com.sun.crypto.provider.HmacCore$HmacSHA512_224,com.sun.crypto.provider.HmacCore$HmacSHA512,com.sun.crypto.provider.HmacCore$HmacSHA384,com.sun.crypto.provider.HmacCore$HmacSHA256,com.sun.crypto.provider.HmacCore$HmacSHA224"
-};
-
-$Object* allocate$HmacCore($Class* clazz) {
-	return $of($alloc(HmacCore));
-}
-
 int32_t HmacCore::hashCode() {
 	 return this->$MacSpi::hashCode();
 }
@@ -119,7 +59,7 @@ void HmacCore::finalize() {
 }
 
 void HmacCore::init$($String* digestAlgo, int32_t bl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MacSpi::init$();
 	$var($MessageDigest, md, $MessageDigest::getInstance(digestAlgo));
 	if (!($instanceOf($Cloneable, md))) {
@@ -127,27 +67,23 @@ void HmacCore::init$($String* digestAlgo, int32_t bl) {
 		if (sun != nullptr) {
 			$assign(md, $MessageDigest::getInstance(digestAlgo, sun));
 		} else {
-			$var($String, noCloneProv, $nc($($nc(md)->getProvider()))->getName());
+			$var($String, noCloneProv, $$nc($nc(md)->getProvider())->getName());
 			$assign(md, nullptr);
 			$var($ProviderArray, provs, $Security::getProviders());
 			{
 				$var($ProviderArray, arr$, provs);
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
+				for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 					$var($Provider, p, arr$->get(i$));
-					{
-						try {
-							if (!$nc($($nc(p)->getName()))->equals(noCloneProv)) {
-								$var($MessageDigest, md2, $MessageDigest::getInstance(digestAlgo, p));
-								if ($instanceOf($Cloneable, md2)) {
-									$assign(md, md2);
-									break;
-								}
+					try {
+						if (!$$nc($nc(p)->getName())->equals(noCloneProv)) {
+							$var($MessageDigest, md2, $MessageDigest::getInstance(digestAlgo, p));
+							if ($instanceOf($Cloneable, md2)) {
+								$assign(md, md2);
+								break;
 							}
-						} catch ($NoSuchAlgorithmException& nsae) {
-							continue;
 						}
+					} catch ($NoSuchAlgorithmException& nsae) {
+						continue;
 					}
 				}
 			}
@@ -168,7 +104,7 @@ int32_t HmacCore::engineGetMacLength() {
 }
 
 void HmacCore::engineInit($Key* key, $AlgorithmParameterSpec* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (params != nullptr) {
 		$throwNew($InvalidAlgorithmParameterException, "HMAC does not use parameters"_s);
 	}
@@ -185,9 +121,9 @@ void HmacCore::engineInit($Key* key, $AlgorithmParameterSpec* params) {
 		$assign(secret, tmp);
 	}
 	for (int32_t i = 0; i < this->blockLen; ++i) {
-		int32_t si = (i < $nc(secret)->length) ? $nc(secret)->get(i) : (int8_t)0;
-		$nc(this->k_ipad)->set(i, (int8_t)(si ^ 54));
-		$nc(this->k_opad)->set(i, (int8_t)(si ^ 92));
+		int32_t si = (i < $nc(secret)->length) ? secret->get(i) : 0;
+		$nc(this->k_ipad)->set(i, (int8_t)(si ^ 0x36));
+		$nc(this->k_opad)->set(i, (int8_t)(si ^ 0x5c));
 	}
 	$Arrays::fill(secret, (int8_t)0);
 	$assign(secret, nullptr);
@@ -226,12 +162,12 @@ $bytes* HmacCore::engineDoFinal() {
 	}
 	try {
 		$var($bytes, tmp, $nc(this->md)->digest());
-		$nc(this->md)->update(this->k_opad);
-		$nc(this->md)->update(tmp);
-		$nc(this->md)->digest(tmp, 0, $nc(tmp)->length);
+		this->md->update(this->k_opad);
+		this->md->update(tmp);
+		this->md->digest(tmp, 0, $nc(tmp)->length);
 		return tmp;
 	} catch ($DigestException& e) {
-		$throwNew($ProviderException, static_cast<$Throwable*>(e));
+		$throwNew($ProviderException, e);
 	}
 	$shouldNotReachHere();
 }
@@ -255,7 +191,60 @@ HmacCore::HmacCore() {
 }
 
 $Class* HmacCore::load$($String* name, bool initialize) {
-	$loadClass(HmacCore, name, initialize, &_HmacCore_ClassInfo_, allocate$HmacCore);
+	$FieldInfo fieldInfos$$[] = {
+		{"md", "Ljava/security/MessageDigest;", nullptr, $PRIVATE, $field(HmacCore, md)},
+		{"k_ipad", "[B", nullptr, $PRIVATE, $field(HmacCore, k_ipad)},
+		{"k_opad", "[B", nullptr, $PRIVATE, $field(HmacCore, k_opad)},
+		{"first", "Z", nullptr, $PRIVATE, $field(HmacCore, first)},
+		{"blockLen", "I", nullptr, $PRIVATE | $FINAL, $field(HmacCore, blockLen)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(HmacCore, init$, void, $String*, int32_t), "java.security.NoSuchAlgorithmException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HmacCore, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"engineDoFinal", "()[B", nullptr, $PROTECTED, $virtualMethod(HmacCore, engineDoFinal, $bytes*)},
+		{"engineGetMacLength", "()I", nullptr, $PROTECTED, $virtualMethod(HmacCore, engineGetMacLength, int32_t)},
+		{"engineInit", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(HmacCore, engineInit, void, $Key*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"engineReset", "()V", nullptr, $PROTECTED, $virtualMethod(HmacCore, engineReset, void)},
+		{"engineUpdate", "(B)V", nullptr, $PROTECTED, $virtualMethod(HmacCore, engineUpdate, void, int8_t)},
+		{"engineUpdate", "([BII)V", nullptr, $PROTECTED, $virtualMethod(HmacCore, engineUpdate, void, $bytes*, int32_t, int32_t)},
+		{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED, $virtualMethod(HmacCore, engineUpdate, void, $ByteBuffer*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.HmacCore$HmacSHA3_512", "com.sun.crypto.provider.HmacCore", "HmacSHA3_512", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.HmacCore$HmacSHA3_384", "com.sun.crypto.provider.HmacCore", "HmacSHA3_384", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.HmacCore$HmacSHA3_256", "com.sun.crypto.provider.HmacCore", "HmacSHA3_256", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.HmacCore$HmacSHA3_224", "com.sun.crypto.provider.HmacCore", "HmacSHA3_224", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.HmacCore$HmacSHA512_256", "com.sun.crypto.provider.HmacCore", "HmacSHA512_256", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.HmacCore$HmacSHA512_224", "com.sun.crypto.provider.HmacCore", "HmacSHA512_224", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.HmacCore$HmacSHA512", "com.sun.crypto.provider.HmacCore", "HmacSHA512", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.HmacCore$HmacSHA384", "com.sun.crypto.provider.HmacCore", "HmacSHA384", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.HmacCore$HmacSHA256", "com.sun.crypto.provider.HmacCore", "HmacSHA256", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.HmacCore$HmacSHA224", "com.sun.crypto.provider.HmacCore", "HmacSHA224", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.crypto.provider.HmacCore",
+		"javax.crypto.MacSpi",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.HmacCore$HmacSHA3_512,com.sun.crypto.provider.HmacCore$HmacSHA3_384,com.sun.crypto.provider.HmacCore$HmacSHA3_256,com.sun.crypto.provider.HmacCore$HmacSHA3_224,com.sun.crypto.provider.HmacCore$HmacSHA512_256,com.sun.crypto.provider.HmacCore$HmacSHA512_224,com.sun.crypto.provider.HmacCore$HmacSHA512,com.sun.crypto.provider.HmacCore$HmacSHA384,com.sun.crypto.provider.HmacCore$HmacSHA256,com.sun.crypto.provider.HmacCore$HmacSHA224"
+	};
+	$loadClass(HmacCore, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HmacCore));
+	});
 	return class$;
 }
 

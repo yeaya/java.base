@@ -1,5 +1,4 @@
 #include <sun/security/provider/certpath/OCSPResponse$ResponseStatus.h>
-
 #include <java/lang/Enum.h>
 #include <sun/security/provider/certpath/OCSPResponse.h>
 #include <jcpp.h>
@@ -23,51 +22,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 			namespace certpath {
-
-$FieldInfo _OCSPResponse$ResponseStatus_FieldInfo_[] = {
-	{"SUCCESSFUL", "Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OCSPResponse$ResponseStatus, SUCCESSFUL)},
-	{"MALFORMED_REQUEST", "Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OCSPResponse$ResponseStatus, MALFORMED_REQUEST)},
-	{"INTERNAL_ERROR", "Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OCSPResponse$ResponseStatus, INTERNAL_ERROR)},
-	{"TRY_LATER", "Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OCSPResponse$ResponseStatus, TRY_LATER)},
-	{"UNUSED", "Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OCSPResponse$ResponseStatus, UNUSED)},
-	{"SIG_REQUIRED", "Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OCSPResponse$ResponseStatus, SIG_REQUIRED)},
-	{"UNAUTHORIZED", "Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OCSPResponse$ResponseStatus, UNAUTHORIZED)},
-	{"$VALUES", "[Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(OCSPResponse$ResponseStatus, $VALUES)},
-	{}
-};
-
-$MethodInfo _OCSPResponse$ResponseStatus_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(OCSPResponse$ResponseStatus, $values, $OCSPResponse$ResponseStatusArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(OCSPResponse$ResponseStatus, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(OCSPResponse$ResponseStatus, valueOf, OCSPResponse$ResponseStatus*, $String*)},
-	{"values", "()[Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(OCSPResponse$ResponseStatus, values, $OCSPResponse$ResponseStatusArray*)},
-	{}
-};
-
-$InnerClassInfo _OCSPResponse$ResponseStatus_InnerClassesInfo_[] = {
-	{"sun.security.provider.certpath.OCSPResponse$ResponseStatus", "sun.security.provider.certpath.OCSPResponse", "ResponseStatus", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _OCSPResponse$ResponseStatus_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.provider.certpath.OCSPResponse$ResponseStatus",
-	"java.lang.Enum",
-	nullptr,
-	_OCSPResponse$ResponseStatus_FieldInfo_,
-	_OCSPResponse$ResponseStatus_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;>;",
-	nullptr,
-	_OCSPResponse$ResponseStatus_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.certpath.OCSPResponse"
-};
-
-$Object* allocate$OCSPResponse$ResponseStatus($Class* clazz) {
-	return $of($alloc(OCSPResponse$ResponseStatus));
-}
 
 OCSPResponse$ResponseStatus* OCSPResponse$ResponseStatus::SUCCESSFUL = nullptr;
 OCSPResponse$ResponseStatus* OCSPResponse$ResponseStatus::MALFORMED_REQUEST = nullptr;
@@ -105,7 +59,7 @@ void OCSPResponse$ResponseStatus::init$($String* $enum$name, int32_t $enum$ordin
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$OCSPResponse$ResponseStatus($Class* class$) {
+void OCSPResponse$ResponseStatus::clinit$($Class* clazz) {
 	$assignStatic(OCSPResponse$ResponseStatus::SUCCESSFUL, $new(OCSPResponse$ResponseStatus, "SUCCESSFUL"_s, 0));
 	$assignStatic(OCSPResponse$ResponseStatus::MALFORMED_REQUEST, $new(OCSPResponse$ResponseStatus, "MALFORMED_REQUEST"_s, 1));
 	$assignStatic(OCSPResponse$ResponseStatus::INTERNAL_ERROR, $new(OCSPResponse$ResponseStatus, "INTERNAL_ERROR"_s, 2));
@@ -120,7 +74,46 @@ OCSPResponse$ResponseStatus::OCSPResponse$ResponseStatus() {
 }
 
 $Class* OCSPResponse$ResponseStatus::load$($String* name, bool initialize) {
-	$loadClass(OCSPResponse$ResponseStatus, name, initialize, &_OCSPResponse$ResponseStatus_ClassInfo_, clinit$OCSPResponse$ResponseStatus, allocate$OCSPResponse$ResponseStatus);
+	$FieldInfo fieldInfos$$[] = {
+		{"SUCCESSFUL", "Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OCSPResponse$ResponseStatus, SUCCESSFUL)},
+		{"MALFORMED_REQUEST", "Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OCSPResponse$ResponseStatus, MALFORMED_REQUEST)},
+		{"INTERNAL_ERROR", "Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OCSPResponse$ResponseStatus, INTERNAL_ERROR)},
+		{"TRY_LATER", "Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OCSPResponse$ResponseStatus, TRY_LATER)},
+		{"UNUSED", "Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OCSPResponse$ResponseStatus, UNUSED)},
+		{"SIG_REQUIRED", "Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OCSPResponse$ResponseStatus, SIG_REQUIRED)},
+		{"UNAUTHORIZED", "Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(OCSPResponse$ResponseStatus, UNAUTHORIZED)},
+		{"$VALUES", "[Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(OCSPResponse$ResponseStatus, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(OCSPResponse$ResponseStatus, $values, $OCSPResponse$ResponseStatusArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(OCSPResponse$ResponseStatus, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(OCSPResponse$ResponseStatus, valueOf, OCSPResponse$ResponseStatus*, $String*)},
+		{"values", "()[Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(OCSPResponse$ResponseStatus, values, $OCSPResponse$ResponseStatusArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.certpath.OCSPResponse$ResponseStatus", "sun.security.provider.certpath.OCSPResponse", "ResponseStatus", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.provider.certpath.OCSPResponse$ResponseStatus",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/provider/certpath/OCSPResponse$ResponseStatus;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.certpath.OCSPResponse"
+	};
+	$loadClass(OCSPResponse$ResponseStatus, name, initialize, &classInfo$$, OCSPResponse$ResponseStatus::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(OCSPResponse$ResponseStatus));
+	});
 	return class$;
 }
 

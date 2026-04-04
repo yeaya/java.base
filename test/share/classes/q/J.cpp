@@ -1,5 +1,4 @@
 #include <q/J.h>
-
 #include <java/nio/file/Path.h>
 #include <java/util/function/Function.h>
 #include <jcpp.h>
@@ -14,30 +13,6 @@ using $Function = ::java::util::function::Function;
 
 namespace q {
 
-$FieldInfo _J_FieldInfo_[] = {
-	{"fileReader", "Ljava/util/function/Function;", "Ljava/util/function/Function<Ljava/nio/file/Path;Ljava/lang/String;>;", $PROTECTED | $FINAL, $field(J, fileReader)},
-	{}
-};
-
-$MethodInfo _J_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/Function;)V", "(Ljava/util/function/Function<Ljava/nio/file/Path;Ljava/lang/String;>;)V", $PUBLIC, $method(J, init$, void, $Function*)},
-	{"check", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(J, check, void, $Path*)},
-	{}
-};
-
-$ClassInfo _J_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"q.J",
-	"java.lang.Object",
-	nullptr,
-	_J_FieldInfo_,
-	_J_MethodInfo_
-};
-
-$Object* allocate$J($Class* clazz) {
-	return $of($alloc(J));
-}
-
 void J::init$($Function* fileReader) {
 	$set(this, fileReader, fileReader);
 }
@@ -50,7 +25,26 @@ J::J() {
 }
 
 $Class* J::load$($String* name, bool initialize) {
-	$loadClass(J, name, initialize, &_J_ClassInfo_, allocate$J);
+	$FieldInfo fieldInfos$$[] = {
+		{"fileReader", "Ljava/util/function/Function;", "Ljava/util/function/Function<Ljava/nio/file/Path;Ljava/lang/String;>;", $PROTECTED | $FINAL, $field(J, fileReader)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/Function;)V", "(Ljava/util/function/Function<Ljava/nio/file/Path;Ljava/lang/String;>;)V", $PUBLIC, $method(J, init$, void, $Function*)},
+		{"check", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(J, check, void, $Path*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"q.J",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(J, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(J);
+	});
 	return class$;
 }
 

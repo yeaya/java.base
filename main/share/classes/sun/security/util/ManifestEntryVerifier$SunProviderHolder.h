@@ -19,6 +19,7 @@ class ManifestEntryVerifier$SunProviderHolder : public ::java::lang::Object {
 	$class(ManifestEntryVerifier$SunProviderHolder, 0, ::java::lang::Object)
 public:
 	ManifestEntryVerifier$SunProviderHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::security::Provider* instance;
 };

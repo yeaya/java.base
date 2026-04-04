@@ -1,5 +1,4 @@
 #include <MetafactoryParameterCastTest$B.h>
-
 #include <MetafactoryParameterCastTest$A.h>
 #include <MetafactoryParameterCastTest.h>
 #include <jcpp.h>
@@ -8,41 +7,6 @@ using $MetafactoryParameterCastTest$A = ::MetafactoryParameterCastTest$A;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _MetafactoryParameterCastTest$B_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetafactoryParameterCastTest$B, init$, void)},
-	{"instance0", "()V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest$B, instance0, void)},
-	{"instance1", "(LMetafactoryParameterCastTest$B;)V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest$B, instance1, void, MetafactoryParameterCastTest$B*)},
-	{"static1", "(LMetafactoryParameterCastTest$B;)V", nullptr, $STATIC, $staticMethod(MetafactoryParameterCastTest$B, static1, void, MetafactoryParameterCastTest$B*)},
-	{"static2", "(LMetafactoryParameterCastTest$B;LMetafactoryParameterCastTest$B;)V", nullptr, $STATIC, $staticMethod(MetafactoryParameterCastTest$B, static2, void, MetafactoryParameterCastTest$B*, MetafactoryParameterCastTest$B*)},
-	{}
-};
-
-$InnerClassInfo _MetafactoryParameterCastTest$B_InnerClassesInfo_[] = {
-	{"MetafactoryParameterCastTest$B", "MetafactoryParameterCastTest", "B", $PUBLIC | $STATIC},
-	{"MetafactoryParameterCastTest$A", "MetafactoryParameterCastTest", "A", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MetafactoryParameterCastTest$B_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MetafactoryParameterCastTest$B",
-	"MetafactoryParameterCastTest$A",
-	nullptr,
-	nullptr,
-	_MetafactoryParameterCastTest$B_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetafactoryParameterCastTest$B_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"MetafactoryParameterCastTest"
-};
-
-$Object* allocate$MetafactoryParameterCastTest$B($Class* clazz) {
-	return $of($alloc(MetafactoryParameterCastTest$B));
-}
 
 void MetafactoryParameterCastTest$B::init$() {
 	$MetafactoryParameterCastTest$A::init$();
@@ -66,7 +30,37 @@ MetafactoryParameterCastTest$B::MetafactoryParameterCastTest$B() {
 }
 
 $Class* MetafactoryParameterCastTest$B::load$($String* name, bool initialize) {
-	$loadClass(MetafactoryParameterCastTest$B, name, initialize, &_MetafactoryParameterCastTest$B_ClassInfo_, allocate$MetafactoryParameterCastTest$B);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetafactoryParameterCastTest$B, init$, void)},
+		{"instance0", "()V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest$B, instance0, void)},
+		{"instance1", "(LMetafactoryParameterCastTest$B;)V", nullptr, 0, $virtualMethod(MetafactoryParameterCastTest$B, instance1, void, MetafactoryParameterCastTest$B*)},
+		{"static1", "(LMetafactoryParameterCastTest$B;)V", nullptr, $STATIC, $staticMethod(MetafactoryParameterCastTest$B, static1, void, MetafactoryParameterCastTest$B*)},
+		{"static2", "(LMetafactoryParameterCastTest$B;LMetafactoryParameterCastTest$B;)V", nullptr, $STATIC, $staticMethod(MetafactoryParameterCastTest$B, static2, void, MetafactoryParameterCastTest$B*, MetafactoryParameterCastTest$B*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"MetafactoryParameterCastTest$B", "MetafactoryParameterCastTest", "B", $PUBLIC | $STATIC},
+		{"MetafactoryParameterCastTest$A", "MetafactoryParameterCastTest", "A", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MetafactoryParameterCastTest$B",
+		"MetafactoryParameterCastTest$A",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"MetafactoryParameterCastTest"
+	};
+	$loadClass(MetafactoryParameterCastTest$B, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetafactoryParameterCastTest$B);
+	});
 	return class$;
 }
 

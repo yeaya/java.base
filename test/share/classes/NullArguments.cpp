@@ -1,5 +1,4 @@
 #include <NullArguments.h>
-
 #include <java/io/IOException.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ProxySelector.h>
@@ -10,7 +9,6 @@
 #include <jcpp.h>
 
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -22,30 +20,11 @@ using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
 using $List = ::java::util::List;
 
-$MethodInfo _NullArguments_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NullArguments, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullArguments, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _NullArguments_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NullArguments",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_NullArguments_MethodInfo_
-};
-
-$Object* allocate$NullArguments($Class* clazz) {
-	return $of($alloc(NullArguments));
-}
-
 void NullArguments::init$() {
 }
 
 void NullArguments::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ProxySelector, ps, $ProxySelector::getDefault());
 	$var($List, p, nullptr);
 	bool ok = false;
@@ -103,7 +82,22 @@ NullArguments::NullArguments() {
 }
 
 $Class* NullArguments::load$($String* name, bool initialize) {
-	$loadClass(NullArguments, name, initialize, &_NullArguments_ClassInfo_, allocate$NullArguments);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NullArguments, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullArguments, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NullArguments",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NullArguments, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NullArguments);
+	});
 	return class$;
 }
 

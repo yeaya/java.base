@@ -1,5 +1,4 @@
 #include <java/nio/channels/ByteChannel.h>
-
 #include <java/nio/channels/ReadableByteChannel.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $ReadableByteChannel = ::java::nio::channels::ReadableByteChannel;
 namespace java {
 	namespace nio {
 		namespace channels {
-
-$MethodInfo _ByteChannel_MethodInfo_[] = {
-	{"*isOpen", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*close", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{}
-};
-
-$ClassInfo _ByteChannel_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.nio.channels.ByteChannel",
-	nullptr,
-	"java.nio.channels.ReadableByteChannel,java.nio.channels.WritableByteChannel",
-	nullptr,
-	_ByteChannel_MethodInfo_
-};
-
-$Object* allocate$ByteChannel($Class* clazz) {
-	return $of($alloc(ByteChannel));
-}
 
 int32_t ByteChannel::hashCode() {
 	 return this->$ReadableByteChannel::hashCode();
@@ -56,7 +31,27 @@ void ByteChannel::finalize() {
 }
 
 $Class* ByteChannel::load$($String* name, bool initialize) {
-	$loadClass(ByteChannel, name, initialize, &_ByteChannel_ClassInfo_, allocate$ByteChannel);
+	$MethodInfo methodInfos$$[] = {
+		{"*isOpen", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*close", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.nio.channels.ByteChannel",
+		nullptr,
+		"java.nio.channels.ReadableByteChannel,java.nio.channels.WritableByteChannel",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ByteChannel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ByteChannel));
+	});
 	return class$;
 }
 

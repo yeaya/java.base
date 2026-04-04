@@ -1,5 +1,4 @@
 #include <sun/nio/fs/WindowsWatchService$WindowsWatchKey.h>
-
 #include <java/nio/file/Path.h>
 #include <java/nio/file/WatchKey.h>
 #include <java/util/Set.h>
@@ -17,76 +16,16 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Path = ::java::nio::file::Path;
-using $WatchKey = ::java::nio::file::WatchKey;
 using $Set = ::java::util::Set;
 using $AbstractWatchKey = ::sun::nio::fs::AbstractWatchKey;
 using $AbstractWatchService = ::sun::nio::fs::AbstractWatchService;
 using $NativeBuffer = ::sun::nio::fs::NativeBuffer;
 using $WindowsWatchService = ::sun::nio::fs::WindowsWatchService;
 using $WindowsWatchService$FileKey = ::sun::nio::fs::WindowsWatchService$FileKey;
-using $WindowsWatchService$Poller = ::sun::nio::fs::WindowsWatchService$Poller;
 
 namespace sun {
 	namespace nio {
 		namespace fs {
-
-$FieldInfo _WindowsWatchService$WindowsWatchKey_FieldInfo_[] = {
-	{"fileKey", "Lsun/nio/fs/WindowsWatchService$FileKey;", nullptr, $PRIVATE | $FINAL, $field(WindowsWatchService$WindowsWatchKey, fileKey$)},
-	{"handle", "J", nullptr, $PRIVATE | $VOLATILE, $field(WindowsWatchService$WindowsWatchKey, handle$)},
-	{"events", "Ljava/util/Set;", "Ljava/util/Set<+Ljava/nio/file/WatchEvent$Kind<*>;>;", $PRIVATE, $field(WindowsWatchService$WindowsWatchKey, events$)},
-	{"watchSubtree", "Z", nullptr, $PRIVATE, $field(WindowsWatchService$WindowsWatchKey, watchSubtree$)},
-	{"buffer", "Lsun/nio/fs/NativeBuffer;", nullptr, $PRIVATE, $field(WindowsWatchService$WindowsWatchKey, buffer$)},
-	{"countAddress", "J", nullptr, $PRIVATE, $field(WindowsWatchService$WindowsWatchKey, countAddress$)},
-	{"overlappedAddress", "J", nullptr, $PRIVATE, $field(WindowsWatchService$WindowsWatchKey, overlappedAddress$)},
-	{"completionKey", "I", nullptr, $PRIVATE, $field(WindowsWatchService$WindowsWatchKey, completionKey$)},
-	{"errorStartingOverlapped", "Z", nullptr, $PRIVATE, $field(WindowsWatchService$WindowsWatchKey, errorStartingOverlapped)},
-	{}
-};
-
-$MethodInfo _WindowsWatchService$WindowsWatchKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;Lsun/nio/fs/AbstractWatchService;Lsun/nio/fs/WindowsWatchService$FileKey;)V", nullptr, 0, $method(WindowsWatchService$WindowsWatchKey, init$, void, $Path*, $AbstractWatchService*, $WindowsWatchService$FileKey*)},
-	{"buffer", "()Lsun/nio/fs/NativeBuffer;", nullptr, 0, $virtualMethod(WindowsWatchService$WindowsWatchKey, buffer, $NativeBuffer*)},
-	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsWatchService$WindowsWatchKey, cancel, void)},
-	{"completionKey", "()I", nullptr, 0, $virtualMethod(WindowsWatchService$WindowsWatchKey, completionKey, int32_t)},
-	{"countAddress", "()J", nullptr, 0, $virtualMethod(WindowsWatchService$WindowsWatchKey, countAddress, int64_t)},
-	{"events", "()Ljava/util/Set;", "()Ljava/util/Set<+Ljava/nio/file/WatchEvent$Kind<*>;>;", 0, $virtualMethod(WindowsWatchService$WindowsWatchKey, events, $Set*)},
-	{"fileKey", "()Lsun/nio/fs/WindowsWatchService$FileKey;", nullptr, 0, $virtualMethod(WindowsWatchService$WindowsWatchKey, fileKey, $WindowsWatchService$FileKey*)},
-	{"handle", "()J", nullptr, 0, $virtualMethod(WindowsWatchService$WindowsWatchKey, handle, int64_t)},
-	{"init", "(JLjava/util/Set;ZLsun/nio/fs/NativeBuffer;JJI)Lsun/nio/fs/WindowsWatchService$WindowsWatchKey;", "(JLjava/util/Set<+Ljava/nio/file/WatchEvent$Kind<*>;>;ZLsun/nio/fs/NativeBuffer;JJI)Lsun/nio/fs/WindowsWatchService$WindowsWatchKey;", 0, $virtualMethod(WindowsWatchService$WindowsWatchKey, init, WindowsWatchService$WindowsWatchKey*, int64_t, $Set*, bool, $NativeBuffer*, int64_t, int64_t, int32_t)},
-	{"invalidate", "()V", nullptr, 0, $virtualMethod(WindowsWatchService$WindowsWatchKey, invalidate, void)},
-	{"isErrorStartingOverlapped", "()Z", nullptr, 0, $virtualMethod(WindowsWatchService$WindowsWatchKey, isErrorStartingOverlapped, bool)},
-	{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsWatchService$WindowsWatchKey, isValid, bool)},
-	{"overlappedAddress", "()J", nullptr, 0, $virtualMethod(WindowsWatchService$WindowsWatchKey, overlappedAddress, int64_t)},
-	{"setErrorStartingOverlapped", "(Z)V", nullptr, 0, $virtualMethod(WindowsWatchService$WindowsWatchKey, setErrorStartingOverlapped, void, bool)},
-	{"setEvents", "(Ljava/util/Set;)V", "(Ljava/util/Set<+Ljava/nio/file/WatchEvent$Kind<*>;>;)V", 0, $virtualMethod(WindowsWatchService$WindowsWatchKey, setEvents, void, $Set*)},
-	{"watchSubtree", "()Z", nullptr, 0, $virtualMethod(WindowsWatchService$WindowsWatchKey, watchSubtree, bool)},
-	{}
-};
-
-$InnerClassInfo _WindowsWatchService$WindowsWatchKey_InnerClassesInfo_[] = {
-	{"sun.nio.fs.WindowsWatchService$WindowsWatchKey", "sun.nio.fs.WindowsWatchService", "WindowsWatchKey", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsWatchService$WindowsWatchKey_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.WindowsWatchService$WindowsWatchKey",
-	"sun.nio.fs.AbstractWatchKey",
-	nullptr,
-	_WindowsWatchService$WindowsWatchKey_FieldInfo_,
-	_WindowsWatchService$WindowsWatchKey_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsWatchService$WindowsWatchKey_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.WindowsWatchService"
-};
-
-$Object* allocate$WindowsWatchService$WindowsWatchKey($Class* clazz) {
-	return $of($alloc(WindowsWatchService$WindowsWatchKey));
-}
 
 void WindowsWatchService$WindowsWatchKey::init$($Path* dir, $AbstractWatchService* watcher, $WindowsWatchService$FileKey* fileKey) {
 	$AbstractWatchKey::init$(dir, watcher);
@@ -150,7 +89,7 @@ bool WindowsWatchService$WindowsWatchKey::isErrorStartingOverlapped() {
 }
 
 void WindowsWatchService$WindowsWatchKey::invalidate() {
-	$nc($nc(($cast($WindowsWatchService, $(watcher()))))->poller)->releaseResources(this);
+	$nc($nc($$cast($WindowsWatchService, watcher()))->poller)->releaseResources(this);
 	this->handle$ = -1;
 	$set(this, buffer$, nullptr);
 	this->countAddress$ = 0;
@@ -159,12 +98,12 @@ void WindowsWatchService$WindowsWatchKey::invalidate() {
 }
 
 bool WindowsWatchService$WindowsWatchKey::isValid() {
-	return this->handle$ != (int64_t)-1;
+	return this->handle$ != -1;
 }
 
 void WindowsWatchService$WindowsWatchKey::cancel() {
 	if (isValid()) {
-		$nc($nc(($cast($WindowsWatchService, $(watcher()))))->poller)->cancel(this);
+		$nc($nc($$cast($WindowsWatchService, watcher()))->poller)->cancel(this);
 	}
 }
 
@@ -172,7 +111,59 @@ WindowsWatchService$WindowsWatchKey::WindowsWatchService$WindowsWatchKey() {
 }
 
 $Class* WindowsWatchService$WindowsWatchKey::load$($String* name, bool initialize) {
-	$loadClass(WindowsWatchService$WindowsWatchKey, name, initialize, &_WindowsWatchService$WindowsWatchKey_ClassInfo_, allocate$WindowsWatchService$WindowsWatchKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"fileKey", "Lsun/nio/fs/WindowsWatchService$FileKey;", nullptr, $PRIVATE | $FINAL, $field(WindowsWatchService$WindowsWatchKey, fileKey$)},
+		{"handle", "J", nullptr, $PRIVATE | $VOLATILE, $field(WindowsWatchService$WindowsWatchKey, handle$)},
+		{"events", "Ljava/util/Set;", "Ljava/util/Set<+Ljava/nio/file/WatchEvent$Kind<*>;>;", $PRIVATE, $field(WindowsWatchService$WindowsWatchKey, events$)},
+		{"watchSubtree", "Z", nullptr, $PRIVATE, $field(WindowsWatchService$WindowsWatchKey, watchSubtree$)},
+		{"buffer", "Lsun/nio/fs/NativeBuffer;", nullptr, $PRIVATE, $field(WindowsWatchService$WindowsWatchKey, buffer$)},
+		{"countAddress", "J", nullptr, $PRIVATE, $field(WindowsWatchService$WindowsWatchKey, countAddress$)},
+		{"overlappedAddress", "J", nullptr, $PRIVATE, $field(WindowsWatchService$WindowsWatchKey, overlappedAddress$)},
+		{"completionKey", "I", nullptr, $PRIVATE, $field(WindowsWatchService$WindowsWatchKey, completionKey$)},
+		{"errorStartingOverlapped", "Z", nullptr, $PRIVATE, $field(WindowsWatchService$WindowsWatchKey, errorStartingOverlapped)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/Path;Lsun/nio/fs/AbstractWatchService;Lsun/nio/fs/WindowsWatchService$FileKey;)V", nullptr, 0, $method(WindowsWatchService$WindowsWatchKey, init$, void, $Path*, $AbstractWatchService*, $WindowsWatchService$FileKey*)},
+		{"buffer", "()Lsun/nio/fs/NativeBuffer;", nullptr, 0, $virtualMethod(WindowsWatchService$WindowsWatchKey, buffer, $NativeBuffer*)},
+		{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsWatchService$WindowsWatchKey, cancel, void)},
+		{"completionKey", "()I", nullptr, 0, $virtualMethod(WindowsWatchService$WindowsWatchKey, completionKey, int32_t)},
+		{"countAddress", "()J", nullptr, 0, $virtualMethod(WindowsWatchService$WindowsWatchKey, countAddress, int64_t)},
+		{"events", "()Ljava/util/Set;", "()Ljava/util/Set<+Ljava/nio/file/WatchEvent$Kind<*>;>;", 0, $virtualMethod(WindowsWatchService$WindowsWatchKey, events, $Set*)},
+		{"fileKey", "()Lsun/nio/fs/WindowsWatchService$FileKey;", nullptr, 0, $virtualMethod(WindowsWatchService$WindowsWatchKey, fileKey, $WindowsWatchService$FileKey*)},
+		{"handle", "()J", nullptr, 0, $virtualMethod(WindowsWatchService$WindowsWatchKey, handle, int64_t)},
+		{"init", "(JLjava/util/Set;ZLsun/nio/fs/NativeBuffer;JJI)Lsun/nio/fs/WindowsWatchService$WindowsWatchKey;", "(JLjava/util/Set<+Ljava/nio/file/WatchEvent$Kind<*>;>;ZLsun/nio/fs/NativeBuffer;JJI)Lsun/nio/fs/WindowsWatchService$WindowsWatchKey;", 0, $virtualMethod(WindowsWatchService$WindowsWatchKey, init, WindowsWatchService$WindowsWatchKey*, int64_t, $Set*, bool, $NativeBuffer*, int64_t, int64_t, int32_t)},
+		{"invalidate", "()V", nullptr, 0, $virtualMethod(WindowsWatchService$WindowsWatchKey, invalidate, void)},
+		{"isErrorStartingOverlapped", "()Z", nullptr, 0, $virtualMethod(WindowsWatchService$WindowsWatchKey, isErrorStartingOverlapped, bool)},
+		{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsWatchService$WindowsWatchKey, isValid, bool)},
+		{"overlappedAddress", "()J", nullptr, 0, $virtualMethod(WindowsWatchService$WindowsWatchKey, overlappedAddress, int64_t)},
+		{"setErrorStartingOverlapped", "(Z)V", nullptr, 0, $virtualMethod(WindowsWatchService$WindowsWatchKey, setErrorStartingOverlapped, void, bool)},
+		{"setEvents", "(Ljava/util/Set;)V", "(Ljava/util/Set<+Ljava/nio/file/WatchEvent$Kind<*>;>;)V", 0, $virtualMethod(WindowsWatchService$WindowsWatchKey, setEvents, void, $Set*)},
+		{"watchSubtree", "()Z", nullptr, 0, $virtualMethod(WindowsWatchService$WindowsWatchKey, watchSubtree, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.WindowsWatchService$WindowsWatchKey", "sun.nio.fs.WindowsWatchService", "WindowsWatchKey", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.WindowsWatchService$WindowsWatchKey",
+		"sun.nio.fs.AbstractWatchKey",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.WindowsWatchService"
+	};
+	$loadClass(WindowsWatchService$WindowsWatchKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsWatchService$WindowsWatchKey);
+	});
 	return class$;
 }
 

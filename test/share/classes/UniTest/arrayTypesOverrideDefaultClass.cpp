@@ -1,5 +1,4 @@
 #include <UniTest/arrayTypesOverrideDefaultClass.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -10,119 +9,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$Attribute arrayTypesOverrideDefaultClass_Attribute_var$1[] = {
-	{'B', "1"},
-	{'-'}
-};
-
-$Attribute arrayTypesOverrideDefaultClass_Attribute_var$2[] = {
-	{'S', "2"},
-	{'-'}
-};
-
-$Attribute arrayTypesOverrideDefaultClass_Attribute_var$3[] = {
-	{'I', "3"},
-	{'-'}
-};
-
-$Attribute arrayTypesOverrideDefaultClass_Attribute_var$4[] = {
-	{'J', "4"},
-	{'-'}
-};
-
-$Attribute arrayTypesOverrideDefaultClass_Attribute_var$5[] = {
-	{'C', "5"},
-	{'-'}
-};
-
-$Attribute arrayTypesOverrideDefaultClass_Attribute_var$6[] = {
-	{'F', "6.0"},
-	{'-'}
-};
-
-$Attribute arrayTypesOverrideDefaultClass_Attribute_var$7[] = {
-	{'D', "7.0"},
-	{'-'}
-};
-
-$Attribute arrayTypesOverrideDefaultClass_Attribute_var$8[] = {
-	{'Z', "true"},
-	{'-'}
-};
-
-$Attribute arrayTypesOverrideDefaultClass_Attribute_var$9[] = {
-	{'s', "custom"},
-	{'-'}
-};
-
-$Attribute arrayTypesOverrideDefaultClass_Attribute_var$10[] = {
-	{'c', "Ljava/util/Map;"},
-	{'-'}
-};
-
-$Attribute arrayTypesOverrideDefaultClass_Attribute_var$11[] = {
-	{'e', "LUniTest/Stooge; MOE"},
-	{'-'}
-};
-
-$NamedAttribute arrayTypesOverrideDefaultClass_Attribute_var$14[] = {
-	{"x", 'I', "1"},
-	{"y", 'I', "2"},
-	{}
-};
-
-$CompoundAttribute arrayTypesOverrideDefaultClass_CompoundAttribute_var$13 = {
-"LUniTest/Point;", arrayTypesOverrideDefaultClass_Attribute_var$14
-};
-
-$Attribute arrayTypesOverrideDefaultClass_Attribute_var$12[] = {
-	{'@', &arrayTypesOverrideDefaultClass_CompoundAttribute_var$13},
-	{'-'}
-};
-
-$NamedAttribute arrayTypesOverrideDefaultClass_Attribute_var$0[] = {
-	{"b", '[', arrayTypesOverrideDefaultClass_Attribute_var$1},
-	{"s", '[', arrayTypesOverrideDefaultClass_Attribute_var$2},
-	{"i", '[', arrayTypesOverrideDefaultClass_Attribute_var$3},
-	{"l", '[', arrayTypesOverrideDefaultClass_Attribute_var$4},
-	{"c", '[', arrayTypesOverrideDefaultClass_Attribute_var$5},
-	{"f", '[', arrayTypesOverrideDefaultClass_Attribute_var$6},
-	{"d", '[', arrayTypesOverrideDefaultClass_Attribute_var$7},
-	{"bool", '[', arrayTypesOverrideDefaultClass_Attribute_var$8},
-	{"str", '[', arrayTypesOverrideDefaultClass_Attribute_var$9},
-	{"cls", '[', arrayTypesOverrideDefaultClass_Attribute_var$10},
-	{"e", '[', arrayTypesOverrideDefaultClass_Attribute_var$11},
-	{"a", '[', arrayTypesOverrideDefaultClass_Attribute_var$12},
-	{}
-};
-
-$CompoundAttribute _arrayTypesOverrideDefaultClass_Annotations_[] = {
-	{"LUniTest/ArrayTypesWithDefault;", arrayTypesOverrideDefaultClass_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _arrayTypesOverrideDefaultClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(arrayTypesOverrideDefaultClass, init$, void)},
-	{}
-};
-
-$ClassInfo _arrayTypesOverrideDefaultClass_ClassInfo_ = {
-	$ACC_SUPER,
-	"UniTest.arrayTypesOverrideDefaultClass",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_arrayTypesOverrideDefaultClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_arrayTypesOverrideDefaultClass_Annotations_
-};
-
-$Object* allocate$arrayTypesOverrideDefaultClass($Class* clazz) {
-	return $of($alloc(arrayTypesOverrideDefaultClass));
-}
-
 void arrayTypesOverrideDefaultClass::init$() {
 }
 
@@ -130,7 +16,100 @@ arrayTypesOverrideDefaultClass::arrayTypesOverrideDefaultClass() {
 }
 
 $Class* arrayTypesOverrideDefaultClass::load$($String* name, bool initialize) {
-	$loadClass(arrayTypesOverrideDefaultClass, name, initialize, &_arrayTypesOverrideDefaultClass_ClassInfo_, allocate$arrayTypesOverrideDefaultClass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(arrayTypesOverrideDefaultClass, init$, void)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'B', "1"},
+		{'-'}
+	};
+	$Attribute $attribute$1[] = {
+		{'S', "2"},
+		{'-'}
+	};
+	$Attribute $attribute$2[] = {
+		{'I', "3"},
+		{'-'}
+	};
+	$Attribute $attribute$3[] = {
+		{'J', "4"},
+		{'-'}
+	};
+	$Attribute $attribute$4[] = {
+		{'C', "5"},
+		{'-'}
+	};
+	$Attribute $attribute$5[] = {
+		{'F', "6.0"},
+		{'-'}
+	};
+	$Attribute $attribute$6[] = {
+		{'D', "7.0"},
+		{'-'}
+	};
+	$Attribute $attribute$7[] = {
+		{'Z', "true"},
+		{'-'}
+	};
+	$Attribute $attribute$8[] = {
+		{'s', "custom"},
+		{'-'}
+	};
+	$Attribute $attribute$9[] = {
+		{'c', "Ljava/util/Map;"},
+		{'-'}
+	};
+	$Attribute $attribute$10[] = {
+		{'e', "LUniTest/Stooge; MOE"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute$compoundAttribute$namedAttribute[] = {
+		{"x", 'I', "1"},
+		{"y", 'I', "2"},
+		{}
+	};
+$CompoundAttribute annotations$$$namedAttribute$compoundAttribute = {
+	"LUniTest/Point;", annotations$$$namedAttribute$compoundAttribute$namedAttribute
+};
+	$Attribute $attribute$11[] = {
+		{'@', &annotations$$$namedAttribute$compoundAttribute},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"b", '[', $attribute},
+		{"s", '[', $attribute$1},
+		{"i", '[', $attribute$2},
+		{"l", '[', $attribute$3},
+		{"c", '[', $attribute$4},
+		{"f", '[', $attribute$5},
+		{"d", '[', $attribute$6},
+		{"bool", '[', $attribute$7},
+		{"str", '[', $attribute$8},
+		{"cls", '[', $attribute$9},
+		{"e", '[', $attribute$10},
+		{"a", '[', $attribute$11},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LUniTest/ArrayTypesWithDefault;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"UniTest.arrayTypesOverrideDefaultClass",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(arrayTypesOverrideDefaultClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(arrayTypesOverrideDefaultClass);
+	});
 	return class$;
 }
 

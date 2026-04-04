@@ -36,6 +36,7 @@ class $export UntrustedChecker : public ::java::security::cert::PKIXCertPathChec
 public:
 	UntrustedChecker();
 	using ::java::security::cert::PKIXCertPathChecker::check;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void check(::java::security::cert::Certificate* cert, ::java::util::Collection* unresolvedCritExts) override;
 	virtual ::java::util::Set* getSupportedExtensions() override;

@@ -1,5 +1,4 @@
 #include <sun/util/locale/InternalLocaleBuilder$CaseInsensitiveString.h>
-
 #include <sun/util/locale/InternalLocaleBuilder.h>
 #include <sun/util/locale/LocaleUtils.h>
 #include <jcpp.h>
@@ -13,45 +12,6 @@ using $LocaleUtils = ::sun::util::locale::LocaleUtils;
 namespace sun {
 	namespace util {
 		namespace locale {
-
-$FieldInfo _InternalLocaleBuilder$CaseInsensitiveString_FieldInfo_[] = {
-	{"str", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(InternalLocaleBuilder$CaseInsensitiveString, str)},
-	{"lowerStr", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(InternalLocaleBuilder$CaseInsensitiveString, lowerStr)},
-	{}
-};
-
-$MethodInfo _InternalLocaleBuilder$CaseInsensitiveString_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(InternalLocaleBuilder$CaseInsensitiveString, init$, void, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(InternalLocaleBuilder$CaseInsensitiveString, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(InternalLocaleBuilder$CaseInsensitiveString, hashCode, int32_t)},
-	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(InternalLocaleBuilder$CaseInsensitiveString, value, $String*)},
-	{}
-};
-
-$InnerClassInfo _InternalLocaleBuilder$CaseInsensitiveString_InnerClassesInfo_[] = {
-	{"sun.util.locale.InternalLocaleBuilder$CaseInsensitiveString", "sun.util.locale.InternalLocaleBuilder", "CaseInsensitiveString", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _InternalLocaleBuilder$CaseInsensitiveString_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.util.locale.InternalLocaleBuilder$CaseInsensitiveString",
-	"java.lang.Object",
-	nullptr,
-	_InternalLocaleBuilder$CaseInsensitiveString_FieldInfo_,
-	_InternalLocaleBuilder$CaseInsensitiveString_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InternalLocaleBuilder$CaseInsensitiveString_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.InternalLocaleBuilder"
-};
-
-$Object* allocate$InternalLocaleBuilder$CaseInsensitiveString($Class* clazz) {
-	return $of($alloc(InternalLocaleBuilder$CaseInsensitiveString));
-}
 
 void InternalLocaleBuilder$CaseInsensitiveString::init$($String* s) {
 	$set(this, str, s);
@@ -73,14 +33,47 @@ bool InternalLocaleBuilder$CaseInsensitiveString::equals(Object$* obj) {
 	if (!($instanceOf(InternalLocaleBuilder$CaseInsensitiveString, obj))) {
 		return false;
 	}
-	return $nc(this->lowerStr)->equals($nc(($cast(InternalLocaleBuilder$CaseInsensitiveString, obj)))->lowerStr);
+	return $nc(this->lowerStr)->equals($nc($cast(InternalLocaleBuilder$CaseInsensitiveString, obj))->lowerStr);
 }
 
 InternalLocaleBuilder$CaseInsensitiveString::InternalLocaleBuilder$CaseInsensitiveString() {
 }
 
 $Class* InternalLocaleBuilder$CaseInsensitiveString::load$($String* name, bool initialize) {
-	$loadClass(InternalLocaleBuilder$CaseInsensitiveString, name, initialize, &_InternalLocaleBuilder$CaseInsensitiveString_ClassInfo_, allocate$InternalLocaleBuilder$CaseInsensitiveString);
+	$FieldInfo fieldInfos$$[] = {
+		{"str", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(InternalLocaleBuilder$CaseInsensitiveString, str)},
+		{"lowerStr", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(InternalLocaleBuilder$CaseInsensitiveString, lowerStr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(InternalLocaleBuilder$CaseInsensitiveString, init$, void, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(InternalLocaleBuilder$CaseInsensitiveString, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(InternalLocaleBuilder$CaseInsensitiveString, hashCode, int32_t)},
+		{"value", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(InternalLocaleBuilder$CaseInsensitiveString, value, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.InternalLocaleBuilder$CaseInsensitiveString", "sun.util.locale.InternalLocaleBuilder", "CaseInsensitiveString", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.util.locale.InternalLocaleBuilder$CaseInsensitiveString",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.InternalLocaleBuilder"
+	};
+	$loadClass(InternalLocaleBuilder$CaseInsensitiveString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InternalLocaleBuilder$CaseInsensitiveString);
+	});
 	return class$;
 }
 

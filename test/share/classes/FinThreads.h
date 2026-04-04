@@ -15,6 +15,7 @@ class $export FinThreads : public ::java::lang::Object {
 	$class(FinThreads, 0, ::java::lang::Object)
 public:
 	FinThreads();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void alarm($Thread* sleeper, int64_t delay);
 	static void main($StringArray* args);

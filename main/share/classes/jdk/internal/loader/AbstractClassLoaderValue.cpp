@@ -1,5 +1,4 @@
 #include <jdk/internal/loader/AbstractClassLoaderValue.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/util/Iterator.h>
 #include <java/util/Set.h>
@@ -36,51 +35,6 @@ namespace jdk {
 	namespace internal {
 		namespace loader {
 
-$FieldInfo _AbstractClassLoaderValue_FieldInfo_[] = {
-	{"JLA", "Ljdk/internal/access/JavaLangAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractClassLoaderValue, JLA)},
-	{}
-};
-
-$MethodInfo _AbstractClassLoaderValue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AbstractClassLoaderValue, init$, void)},
-	{"computeIfAbsent", "(Ljava/lang/ClassLoader;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(Ljava/lang/ClassLoader;Ljava/util/function/BiFunction<-Ljava/lang/ClassLoader;-TCLV;+TV;>;)TV;", $PUBLIC, $virtualMethod(AbstractClassLoaderValue, computeIfAbsent, $Object*, $ClassLoader*, $BiFunction*), "java.lang.IllegalStateException"},
-	{"extractValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PRIVATE, $method(AbstractClassLoaderValue, extractValue, $Object*, Object$*)},
-	{"get", "(Ljava/lang/ClassLoader;)Ljava/lang/Object;", "(Ljava/lang/ClassLoader;)TV;", $PUBLIC, $virtualMethod(AbstractClassLoaderValue, get, $Object*, $ClassLoader*)},
-	{"isEqualOrDescendantOf", "(Ljdk/internal/loader/AbstractClassLoaderValue;)Z", "(Ljdk/internal/loader/AbstractClassLoaderValue<*TV;>;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(AbstractClassLoaderValue, isEqualOrDescendantOf, bool, AbstractClassLoaderValue*)},
-	{"key", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AbstractClassLoaderValue, key, $Object*)},
-	{"map", "(Ljava/lang/ClassLoader;)Ljava/util/concurrent/ConcurrentHashMap;", "<CLV:Ljdk/internal/loader/AbstractClassLoaderValue<TCLV;*>;>(Ljava/lang/ClassLoader;)Ljava/util/concurrent/ConcurrentHashMap<TCLV;Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticMethod(AbstractClassLoaderValue, map, $ConcurrentHashMap*, $ClassLoader*)},
-	{"putIfAbsent", "(Ljava/lang/ClassLoader;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/ClassLoader;TV;)TV;", $PUBLIC, $virtualMethod(AbstractClassLoaderValue, putIfAbsent, $Object*, $ClassLoader*, Object$*)},
-	{"remove", "(Ljava/lang/ClassLoader;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractClassLoaderValue, remove, bool, $ClassLoader*, Object$*)},
-	{"removeAll", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $virtualMethod(AbstractClassLoaderValue, removeAll, void, $ClassLoader*)},
-	{"sub", "(Ljava/lang/Object;)Ljdk/internal/loader/AbstractClassLoaderValue$Sub;", "<K:Ljava/lang/Object;>(TK;)Ljdk/internal/loader/AbstractClassLoaderValue<TCLV;TV;>.Sub<TK;>;", $PUBLIC, $virtualMethod(AbstractClassLoaderValue, sub, $AbstractClassLoaderValue$Sub*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _AbstractClassLoaderValue_InnerClassesInfo_[] = {
-	{"jdk.internal.loader.AbstractClassLoaderValue$Sub", "jdk.internal.loader.AbstractClassLoaderValue", "Sub", $PUBLIC | $FINAL},
-	{"jdk.internal.loader.AbstractClassLoaderValue$Memoizer", "jdk.internal.loader.AbstractClassLoaderValue", "Memoizer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _AbstractClassLoaderValue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"jdk.internal.loader.AbstractClassLoaderValue",
-	"java.lang.Object",
-	nullptr,
-	_AbstractClassLoaderValue_FieldInfo_,
-	_AbstractClassLoaderValue_MethodInfo_,
-	"<CLV:Ljdk/internal/loader/AbstractClassLoaderValue<TCLV;TV;>;V:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_AbstractClassLoaderValue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.loader.AbstractClassLoaderValue$Sub,jdk.internal.loader.AbstractClassLoaderValue$Memoizer,jdk.internal.loader.AbstractClassLoaderValue$Memoizer$RecursiveInvocationException"
-};
-
-$Object* allocate$AbstractClassLoaderValue($Class* clazz) {
-	return $of($alloc(AbstractClassLoaderValue));
-}
-
 $JavaLangAccess* AbstractClassLoaderValue::JLA = nullptr;
 
 void AbstractClassLoaderValue::init$() {
@@ -91,26 +45,26 @@ $AbstractClassLoaderValue$Sub* AbstractClassLoaderValue::sub(Object$* key) {
 }
 
 $Object* AbstractClassLoaderValue::get($ClassLoader* cl) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, val, $nc($(AbstractClassLoaderValue::map(cl)))->get(this));
+	$useLocalObjectStack();
+	$var($Object, val, $$nc(AbstractClassLoaderValue::map(cl))->get(this));
 	try {
-		return $of(extractValue(val));
+		return extractValue(val);
 	} catch ($AbstractClassLoaderValue$Memoizer$RecursiveInvocationException& e) {
 		$throw(e);
 	} catch ($Throwable& t) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$shouldNotReachHere();
 }
 
 $Object* AbstractClassLoaderValue::putIfAbsent($ClassLoader* cl, Object$* v) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentHashMap, map, AbstractClassLoaderValue::map(cl));
 	$var(AbstractClassLoaderValue, clv, this);
 	while (true) {
 		try {
 			$var($Object, val, $nc(map)->putIfAbsent(clv, v));
-			return $of(extractValue(val));
+			return extractValue(val);
 		} catch ($AbstractClassLoaderValue$Memoizer$RecursiveInvocationException& e) {
 			$throw(e);
 		} catch ($Throwable& t) {
@@ -120,16 +74,16 @@ $Object* AbstractClassLoaderValue::putIfAbsent($ClassLoader* cl, Object$* v) {
 }
 
 bool AbstractClassLoaderValue::remove($ClassLoader* cl, Object$* v) {
-	return $nc($(AbstractClassLoaderValue::map(cl)))->remove(this, v);
+	return $$nc(AbstractClassLoaderValue::map(cl))->remove(this, v);
 }
 
 $Object* AbstractClassLoaderValue::computeIfAbsent($ClassLoader* cl, $BiFunction* mappingFunction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentHashMap, map, AbstractClassLoaderValue::map(cl));
 	$var(AbstractClassLoaderValue, clv, this);
 	$var($AbstractClassLoaderValue$Memoizer, mv, nullptr);
 	while (true) {
-		$var($Object, val, (mv == nullptr) ? $nc(map)->get(clv) : map->putIfAbsent(clv, mv));
+		$var($Object, val, (mv == nullptr) ? $nc(map)->get(clv) : $nc(map)->putIfAbsent(clv, mv));
 		if (val == nullptr) {
 			if (mv == nullptr) {
 				$assign(mv, $new($AbstractClassLoaderValue$Memoizer, cl, clv, mappingFunction));
@@ -137,15 +91,15 @@ $Object* AbstractClassLoaderValue::computeIfAbsent($ClassLoader* cl, $BiFunction
 			}
 			try {
 				$var($Object, v, $nc(mv)->get());
-				map->replace(clv, mv, v);
-				return $of(v);
+				$nc(map)->replace(clv, mv, v);
+				return v;
 			} catch ($Throwable& t) {
-				map->remove(clv, mv);
+				$nc(map)->remove(clv, mv);
 				$throw(t);
 			}
 		} else {
 			try {
-				return $of(extractValue(val));
+				return extractValue(val);
 			} catch ($AbstractClassLoaderValue$Memoizer$RecursiveInvocationException& e) {
 				$throw(e);
 			} catch ($Throwable& t) {
@@ -156,12 +110,12 @@ $Object* AbstractClassLoaderValue::computeIfAbsent($ClassLoader* cl, $BiFunction
 }
 
 void AbstractClassLoaderValue::removeAll($ClassLoader* cl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentHashMap, map, AbstractClassLoaderValue::map(cl));
 	{
-		$var($Iterator, i, $nc($($cast($ConcurrentHashMap$KeySetView, $nc(map)->keySet())))->iterator());
+		$var($Iterator, i, $$sure($ConcurrentHashMap$KeySetView, $nc(map)->keySet())->iterator());
 		for (; $nc(i)->hasNext();) {
-			if ($nc(($cast(AbstractClassLoaderValue, $(i->next()))))->isEqualOrDescendantOf(this)) {
+			if ($$sure(AbstractClassLoaderValue, i->next())->isEqualOrDescendantOf(this)) {
 				i->remove();
 			}
 		}
@@ -175,13 +129,13 @@ $ConcurrentHashMap* AbstractClassLoaderValue::map($ClassLoader* cl) {
 
 $Object* AbstractClassLoaderValue::extractValue(Object$* memoizerOrValue) {
 	if ($instanceOf($AbstractClassLoaderValue$Memoizer, memoizerOrValue)) {
-		return $of($nc(($cast($AbstractClassLoaderValue$Memoizer, memoizerOrValue)))->get());
+		return $cast($AbstractClassLoaderValue$Memoizer, memoizerOrValue)->get();
 	} else {
 		return $of(memoizerOrValue);
 	}
 }
 
-void clinit$AbstractClassLoaderValue($Class* class$) {
+void AbstractClassLoaderValue::clinit$($Class* clazz) {
 	$assignStatic(AbstractClassLoaderValue::JLA, $SharedSecrets::getJavaLangAccess());
 }
 
@@ -189,7 +143,46 @@ AbstractClassLoaderValue::AbstractClassLoaderValue() {
 }
 
 $Class* AbstractClassLoaderValue::load$($String* name, bool initialize) {
-	$loadClass(AbstractClassLoaderValue, name, initialize, &_AbstractClassLoaderValue_ClassInfo_, clinit$AbstractClassLoaderValue, allocate$AbstractClassLoaderValue);
+	$FieldInfo fieldInfos$$[] = {
+		{"JLA", "Ljdk/internal/access/JavaLangAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractClassLoaderValue, JLA)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AbstractClassLoaderValue, init$, void)},
+		{"computeIfAbsent", "(Ljava/lang/ClassLoader;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(Ljava/lang/ClassLoader;Ljava/util/function/BiFunction<-Ljava/lang/ClassLoader;-TCLV;+TV;>;)TV;", $PUBLIC, $virtualMethod(AbstractClassLoaderValue, computeIfAbsent, $Object*, $ClassLoader*, $BiFunction*), "java.lang.IllegalStateException"},
+		{"extractValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PRIVATE, $method(AbstractClassLoaderValue, extractValue, $Object*, Object$*)},
+		{"get", "(Ljava/lang/ClassLoader;)Ljava/lang/Object;", "(Ljava/lang/ClassLoader;)TV;", $PUBLIC, $virtualMethod(AbstractClassLoaderValue, get, $Object*, $ClassLoader*)},
+		{"isEqualOrDescendantOf", "(Ljdk/internal/loader/AbstractClassLoaderValue;)Z", "(Ljdk/internal/loader/AbstractClassLoaderValue<*TV;>;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(AbstractClassLoaderValue, isEqualOrDescendantOf, bool, AbstractClassLoaderValue*)},
+		{"key", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AbstractClassLoaderValue, key, $Object*)},
+		{"map", "(Ljava/lang/ClassLoader;)Ljava/util/concurrent/ConcurrentHashMap;", "<CLV:Ljdk/internal/loader/AbstractClassLoaderValue<TCLV;*>;>(Ljava/lang/ClassLoader;)Ljava/util/concurrent/ConcurrentHashMap<TCLV;Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticMethod(AbstractClassLoaderValue, map, $ConcurrentHashMap*, $ClassLoader*)},
+		{"putIfAbsent", "(Ljava/lang/ClassLoader;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/ClassLoader;TV;)TV;", $PUBLIC, $virtualMethod(AbstractClassLoaderValue, putIfAbsent, $Object*, $ClassLoader*, Object$*)},
+		{"remove", "(Ljava/lang/ClassLoader;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractClassLoaderValue, remove, bool, $ClassLoader*, Object$*)},
+		{"removeAll", "(Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $virtualMethod(AbstractClassLoaderValue, removeAll, void, $ClassLoader*)},
+		{"sub", "(Ljava/lang/Object;)Ljdk/internal/loader/AbstractClassLoaderValue$Sub;", "<K:Ljava/lang/Object;>(TK;)Ljdk/internal/loader/AbstractClassLoaderValue<TCLV;TV;>.Sub<TK;>;", $PUBLIC, $virtualMethod(AbstractClassLoaderValue, sub, $AbstractClassLoaderValue$Sub*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.loader.AbstractClassLoaderValue$Sub", "jdk.internal.loader.AbstractClassLoaderValue", "Sub", $PUBLIC | $FINAL},
+		{"jdk.internal.loader.AbstractClassLoaderValue$Memoizer", "jdk.internal.loader.AbstractClassLoaderValue", "Memoizer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"jdk.internal.loader.AbstractClassLoaderValue",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<CLV:Ljdk/internal/loader/AbstractClassLoaderValue<TCLV;TV;>;V:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.loader.AbstractClassLoaderValue$Sub,jdk.internal.loader.AbstractClassLoaderValue$Memoizer,jdk.internal.loader.AbstractClassLoaderValue$Memoizer$RecursiveInvocationException"
+	};
+	$loadClass(AbstractClassLoaderValue, name, initialize, &classInfo$$, AbstractClassLoaderValue::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractClassLoaderValue);
+	});
 	return class$;
 }
 

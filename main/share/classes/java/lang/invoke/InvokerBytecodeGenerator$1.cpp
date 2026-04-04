@@ -1,5 +1,4 @@
 #include <java/lang/invoke/InvokerBytecodeGenerator$1.h>
-
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
 #include <java/io/IOException.h>
@@ -13,10 +12,8 @@
 using $File = ::java::io::File;
 using $FileOutputStream = ::java::io::FileOutputStream;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -27,68 +24,25 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$FieldInfo _InvokerBytecodeGenerator$1_FieldInfo_[] = {
-	{"val$classFile", "[B", nullptr, $FINAL | $SYNTHETIC, $field(InvokerBytecodeGenerator$1, val$classFile)},
-	{"val$className", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(InvokerBytecodeGenerator$1, val$className)},
-	{}
-};
-
-$MethodInfo _InvokerBytecodeGenerator$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[B)V", nullptr, 0, $method(InvokerBytecodeGenerator$1, init$, void, $String*, $bytes*)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(InvokerBytecodeGenerator$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _InvokerBytecodeGenerator$1_EnclosingMethodInfo_ = {
-	"java.lang.invoke.InvokerBytecodeGenerator",
-	"maybeDump",
-	"(Ljava/lang/String;[B)V"
-};
-
-$InnerClassInfo _InvokerBytecodeGenerator$1_InnerClassesInfo_[] = {
-	{"java.lang.invoke.InvokerBytecodeGenerator$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _InvokerBytecodeGenerator$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.InvokerBytecodeGenerator$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_InvokerBytecodeGenerator$1_FieldInfo_,
-	_InvokerBytecodeGenerator$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
-	&_InvokerBytecodeGenerator$1_EnclosingMethodInfo_,
-	_InvokerBytecodeGenerator$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.InvokerBytecodeGenerator"
-};
-
-$Object* allocate$InvokerBytecodeGenerator$1($Class* clazz) {
-	return $of($alloc(InvokerBytecodeGenerator$1));
-}
-
 void InvokerBytecodeGenerator$1::init$($String* val$className, $bytes* val$classFile) {
 	$set(this, val$className, val$className);
 	$set(this, val$classFile, val$classFile);
 }
 
 $Object* InvokerBytecodeGenerator$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($String, dumpName, $nc(this->val$className)->replace(u'.', u'/'));
 		$init($InvokerBytecodeGenerator);
 		$var($File, dumpFile, $new($File, $InvokerBytecodeGenerator::DUMP_CLASS_FILES_DIR, $$str({dumpName, ".class"_s})));
 		$nc($System::out)->println($$str({"dump: "_s, dumpFile}));
-		$nc($(dumpFile->getParentFile()))->mkdirs();
+		$$nc(dumpFile->getParentFile())->mkdirs();
 		$var($FileOutputStream, file, $new($FileOutputStream, dumpFile));
 		file->write(this->val$classFile);
 		file->close();
-		return $of(nullptr);
+		return nullptr;
 	} catch ($IOException& ex) {
-		$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(ex))));
+		$throw($($MethodHandleStatics::newInternalError(ex)));
 	}
 	$shouldNotReachHere();
 }
@@ -97,7 +51,43 @@ InvokerBytecodeGenerator$1::InvokerBytecodeGenerator$1() {
 }
 
 $Class* InvokerBytecodeGenerator$1::load$($String* name, bool initialize) {
-	$loadClass(InvokerBytecodeGenerator$1, name, initialize, &_InvokerBytecodeGenerator$1_ClassInfo_, allocate$InvokerBytecodeGenerator$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$classFile", "[B", nullptr, $FINAL | $SYNTHETIC, $field(InvokerBytecodeGenerator$1, val$classFile)},
+		{"val$className", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(InvokerBytecodeGenerator$1, val$className)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;[B)V", nullptr, 0, $method(InvokerBytecodeGenerator$1, init$, void, $String*, $bytes*)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(InvokerBytecodeGenerator$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.invoke.InvokerBytecodeGenerator",
+		"maybeDump",
+		"(Ljava/lang/String;[B)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.InvokerBytecodeGenerator$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.InvokerBytecodeGenerator$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.InvokerBytecodeGenerator"
+	};
+	$loadClass(InvokerBytecodeGenerator$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvokerBytecodeGenerator$1);
+	});
 	return class$;
 }
 

@@ -27,7 +27,7 @@ public:
 	virtual $String* getText();
 	virtual void setText($String* text);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x90162061AE4213E4;
+	static const int64_t serialVersionUID = (int64_t)0x90162061ae4213e4;
 	$String* prompt = nullptr;
 	$String* defaultText = nullptr;
 	$String* inputText = nullptr;

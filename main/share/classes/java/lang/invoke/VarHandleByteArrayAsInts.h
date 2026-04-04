@@ -35,6 +35,7 @@ class VarHandleByteArrayAsInts : public ::java::lang::invoke::VarHandleByteArray
 	$class(VarHandleByteArrayAsInts, 0, ::java::lang::invoke::VarHandleByteArrayBase)
 public:
 	VarHandleByteArrayAsInts();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t convEndian(bool big, int32_t n);
 	static ::jdk::internal::access::JavaNioAccess* NIO_ACCESS;

@@ -1,5 +1,4 @@
 #include <java/lang/NoSuchFieldError.h>
-
 #include <java/lang/IncompatibleClassChangeError.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _NoSuchFieldError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NoSuchFieldError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NoSuchFieldError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NoSuchFieldError, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchFieldError, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _NoSuchFieldError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.NoSuchFieldError",
-	"java.lang.IncompatibleClassChangeError",
-	nullptr,
-	_NoSuchFieldError_FieldInfo_,
-	_NoSuchFieldError_MethodInfo_
-};
-
-$Object* allocate$NoSuchFieldError($Class* clazz) {
-	return $of($alloc(NoSuchFieldError));
-}
 
 void NoSuchFieldError::init$() {
 	$IncompatibleClassChangeError::init$();
@@ -54,7 +29,26 @@ void NoSuchFieldError::throw$() {
 }
 
 $Class* NoSuchFieldError::load$($String* name, bool initialize) {
-	$loadClass(NoSuchFieldError, name, initialize, &_NoSuchFieldError_ClassInfo_, allocate$NoSuchFieldError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NoSuchFieldError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NoSuchFieldError, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchFieldError, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.NoSuchFieldError",
+		"java.lang.IncompatibleClassChangeError",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NoSuchFieldError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NoSuchFieldError);
+	});
 	return class$;
 }
 

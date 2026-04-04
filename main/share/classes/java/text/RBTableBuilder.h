@@ -62,7 +62,7 @@ public:
 	::java::util::Vector* getContractValuesImpl(int32_t index);
 	int32_t increment(int32_t aStrength, int32_t lastValue);
 	static const int32_t CHARINDEX = 0x70000000;
-	static const int32_t IGNORABLEMASK = 0x0000FFFF;
+	static const int32_t IGNORABLEMASK = 0x0000ffff;
 	static const int32_t PRIMARYORDERINCREMENT = 0x00010000;
 	static const int32_t SECONDARYORDERINCREMENT = 256;
 	static const int32_t TERTIARYORDERINCREMENT = 1;

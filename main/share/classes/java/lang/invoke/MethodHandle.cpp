@@ -1,5 +1,4 @@
 #include <java/lang/invoke/MethodHandle.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/InternalError.h>
@@ -66,13 +65,11 @@ using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ClassDesc = ::java::lang::constant::ClassDesc;
-using $Constable = ::java::lang::constant::Constable;
 using $DirectMethodHandleDesc$Kind = ::java::lang::constant::DirectMethodHandleDesc$Kind;
 using $MethodHandleDesc = ::java::lang::constant::MethodHandleDesc;
 using $MethodTypeDesc = ::java::lang::constant::MethodTypeDesc;
 using $BoundMethodHandle = ::java::lang::invoke::BoundMethodHandle;
 using $LambdaForm = ::java::lang::invoke::LambdaForm;
-using $LambdaFormEditor = ::java::lang::invoke::LambdaFormEditor;
 using $MemberName = ::java::lang::invoke::MemberName;
 using $MethodHandle$1 = ::java::lang::invoke::MethodHandle$1;
 using $MethodHandleImpl = ::java::lang::invoke::MethodHandleImpl;
@@ -87,159 +84,10 @@ using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $Optional = ::java::util::Optional;
 using $Function = ::java::util::function::Function;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$CompoundAttribute _MethodHandle_MethodAnnotations_invoke25[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{"Ljava/lang/invoke/MethodHandle$PolymorphicSignature;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MethodHandle_MethodAnnotations_invokeBasic26[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{"Ljava/lang/invoke/MethodHandle$PolymorphicSignature;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MethodHandle_MethodAnnotations_invokeExact27[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{"Ljava/lang/invoke/MethodHandle$PolymorphicSignature;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MethodHandle_MethodAnnotations_linkToInterface33[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{"Ljava/lang/invoke/MethodHandle$PolymorphicSignature;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MethodHandle_MethodAnnotations_linkToNative34[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{"Ljava/lang/invoke/MethodHandle$PolymorphicSignature;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MethodHandle_MethodAnnotations_linkToSpecial35[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{"Ljava/lang/invoke/MethodHandle$PolymorphicSignature;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MethodHandle_MethodAnnotations_linkToStatic36[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{"Ljava/lang/invoke/MethodHandle$PolymorphicSignature;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MethodHandle_MethodAnnotations_linkToVirtual37[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{"Ljava/lang/invoke/MethodHandle$PolymorphicSignature;", nullptr},
-	{}
-};
-
-$FieldInfo _MethodHandle_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MethodHandle, $assertionsDisabled)},
-	{"type", "Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE | $FINAL, $field(MethodHandle, type$)},
-	{"form", "Ljava/lang/invoke/LambdaForm;", nullptr, $FINAL, $field(MethodHandle, form)},
-	{"asTypeCache", "Ljava/lang/invoke/MethodHandle;", nullptr, 0, $field(MethodHandle, asTypeCache)},
-	{"customizationCount", "B", nullptr, $PRIVATE, $field(MethodHandle, customizationCount)},
-	{"updateInProgress", "Z", nullptr, $PRIVATE | $VOLATILE, $field(MethodHandle, updateInProgress)},
-	{"FORM_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MethodHandle, FORM_OFFSET)},
-	{"UPDATE_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MethodHandle, UPDATE_OFFSET)},
-	{}
-};
-
-$MethodInfo _MethodHandle_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)V", nullptr, 0, $method(MethodHandle, init$, void, $MethodType*, $LambdaForm*)},
-	{"asCollector", "(Ljava/lang/Class;I)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;I)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $virtualMethod(MethodHandle, asCollector, MethodHandle*, $Class*, int32_t)},
-	{"asCollector", "(ILjava/lang/Class;I)Ljava/lang/invoke/MethodHandle;", "(ILjava/lang/Class<*>;I)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $virtualMethod(MethodHandle, asCollector, MethodHandle*, int32_t, $Class*, int32_t)},
-	{"asCollectorChecks", "(Ljava/lang/Class;II)Z", "(Ljava/lang/Class<*>;II)Z", 0, $virtualMethod(MethodHandle, asCollectorChecks, bool, $Class*, int32_t, int32_t)},
-	{"asFixedArity", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(MethodHandle, asFixedArity, MethodHandle*)},
-	{"asSpreader", "(Ljava/lang/Class;I)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;I)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $virtualMethod(MethodHandle, asSpreader, MethodHandle*, $Class*, int32_t)},
-	{"asSpreader", "(ILjava/lang/Class;I)Ljava/lang/invoke/MethodHandle;", "(ILjava/lang/Class<*>;I)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $virtualMethod(MethodHandle, asSpreader, MethodHandle*, int32_t, $Class*, int32_t)},
-	{"asSpreaderChecks", "(Ljava/lang/Class;II)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;II)Ljava/lang/invoke/MethodType;", $PRIVATE, $method(MethodHandle, asSpreaderChecks, $MethodType*, $Class*, int32_t, int32_t)},
-	{"asType", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(MethodHandle, asType, MethodHandle*, $MethodType*)},
-	{"asTypeCached", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE, $method(MethodHandle, asTypeCached, MethodHandle*, $MethodType*)},
-	{"asTypeUncached", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(MethodHandle, asTypeUncached, MethodHandle*, $MethodType*)},
-	{"asVarargsCollector", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $virtualMethod(MethodHandle, asVarargsCollector, MethodHandle*, $Class*)},
-	{"bindArgumentL", "(ILjava/lang/Object;)Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(MethodHandle, bindArgumentL, $BoundMethodHandle*, int32_t, Object$*)},
-	{"bindTo", "(Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(MethodHandle, bindTo, MethodHandle*, Object$*)},
-	{"copyWith", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/MethodHandle;", nullptr, $ABSTRACT, $virtualMethod(MethodHandle, copyWith, MethodHandle*, $MethodType*, $LambdaForm*)},
-	{"customize", "()V", nullptr, 0, $virtualMethod(MethodHandle, customize, void)},
-	{"debugString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MethodHandle, debugString, $String*)},
-	{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/constant/MethodHandleDesc;>;", $PUBLIC, $virtualMethod(MethodHandle, describeConstable, $Optional*)},
-	{"internalCallerClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0, $virtualMethod(MethodHandle, internalCallerClass, $Class*)},
-	{"internalForm", "()Ljava/lang/invoke/LambdaForm;", nullptr, 0, $virtualMethod(MethodHandle, internalForm, $LambdaForm*)},
-	{"internalMemberName", "()Ljava/lang/invoke/MemberName;", nullptr, 0, $virtualMethod(MethodHandle, internalMemberName, $MemberName*)},
-	{"internalProperties", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(MethodHandle, internalProperties, $Object*)},
-	{"internalValues", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(MethodHandle, internalValues, $Object*)},
-	{"intrinsicData", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(MethodHandle, intrinsicData, $Object*)},
-	{"intrinsicName", "()Ljava/lang/invoke/MethodHandleImpl$Intrinsic;", nullptr, 0, $virtualMethod(MethodHandle, intrinsicName, $MethodHandleImpl$Intrinsic*)},
-	{"invoke", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL | $TRANSIENT | $NATIVE, $method(MethodHandle, invoke, $Object*, $ObjectArray*), "java.lang.Throwable", nullptr, _MethodHandle_MethodAnnotations_invoke25},
-	{"invokeBasic", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL | $TRANSIENT | $NATIVE, $method(MethodHandle, invokeBasic, $Object*, $ObjectArray*), "java.lang.Throwable", nullptr, _MethodHandle_MethodAnnotations_invokeBasic26},
-	{"invokeExact", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL | $TRANSIENT | $NATIVE, $method(MethodHandle, invokeExact, $Object*, $ObjectArray*), "java.lang.Throwable", nullptr, _MethodHandle_MethodAnnotations_invokeExact27},
-	{"invokeWithArguments", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(MethodHandle, invokeWithArguments, $Object*, $ObjectArray*), "java.lang.Throwable"},
-	{"invokeWithArguments", "(Ljava/util/List;)Ljava/lang/Object;", "(Ljava/util/List<*>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(MethodHandle, invokeWithArguments, $Object*, $List*), "java.lang.Throwable"},
-	{"isCrackable", "()Z", nullptr, 0, $virtualMethod(MethodHandle, isCrackable, bool)},
-	{"isInvokeSpecial", "()Z", nullptr, 0, $virtualMethod(MethodHandle, isInvokeSpecial, bool)},
-	{"isVarargsCollector", "()Z", nullptr, $PUBLIC, $virtualMethod(MethodHandle, isVarargsCollector, bool)},
-	{"linkToInterface", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC | $TRANSIENT | $NATIVE, $staticMethod(MethodHandle, linkToInterface, $Object*, $ObjectArray*), "java.lang.Throwable", nullptr, _MethodHandle_MethodAnnotations_linkToInterface33},
-	{"linkToNative", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC | $TRANSIENT | $NATIVE, $staticMethod(MethodHandle, linkToNative, $Object*, $ObjectArray*), "java.lang.Throwable", nullptr, _MethodHandle_MethodAnnotations_linkToNative34},
-	{"linkToSpecial", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC | $TRANSIENT | $NATIVE, $staticMethod(MethodHandle, linkToSpecial, $Object*, $ObjectArray*), "java.lang.Throwable", nullptr, _MethodHandle_MethodAnnotations_linkToSpecial35},
-	{"linkToStatic", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC | $TRANSIENT | $NATIVE, $staticMethod(MethodHandle, linkToStatic, $Object*, $ObjectArray*), "java.lang.Throwable", nullptr, _MethodHandle_MethodAnnotations_linkToStatic36},
-	{"linkToVirtual", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC | $TRANSIENT | $NATIVE, $staticMethod(MethodHandle, linkToVirtual, $Object*, $ObjectArray*), "java.lang.Throwable", nullptr, _MethodHandle_MethodAnnotations_linkToVirtual37},
-	{"maybeCustomize", "()V", nullptr, 0, $virtualMethod(MethodHandle, maybeCustomize, void)},
-	{"rebind", "()Ljava/lang/invoke/BoundMethodHandle;", nullptr, $ABSTRACT, $virtualMethod(MethodHandle, rebind, $BoundMethodHandle*)},
-	{"setVarargs", "(Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(MethodHandle, setVarargs, MethodHandle*, $MemberName*), "java.lang.IllegalAccessException"},
-	{"spreadArrayChecks", "(Ljava/lang/Class;I)V", "(Ljava/lang/Class<*>;I)V", $PRIVATE, $method(MethodHandle, spreadArrayChecks, void, $Class*, int32_t)},
-	{"standardString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MethodHandle, standardString, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodHandle, toString, $String*)},
-	{"type", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $virtualMethod(MethodHandle, type, $MethodType*)},
-	{"updateForm", "(Ljava/util/function/Function;)V", "(Ljava/util/function/Function<Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/LambdaForm;>;)V", 0, $virtualMethod(MethodHandle, updateForm, void, $Function*)},
-	{"viewAsType", "(Ljava/lang/invoke/MethodType;Z)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(MethodHandle, viewAsType, MethodHandle*, $MethodType*, bool)},
-	{"viewAsTypeChecks", "(Ljava/lang/invoke/MethodType;Z)Z", nullptr, 0, $virtualMethod(MethodHandle, viewAsTypeChecks, bool, $MethodType*, bool)},
-	{"withInternalMemberName", "(Ljava/lang/invoke/MemberName;Z)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(MethodHandle, withInternalMemberName, MethodHandle*, $MemberName*, bool)},
-	{"withVarargs", "(Z)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(MethodHandle, withVarargs, MethodHandle*, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_invoke 25
-#define _METHOD_INDEX_invokeBasic 26
-#define _METHOD_INDEX_invokeExact 27
-#define _METHOD_INDEX_linkToInterface 33
-#define _METHOD_INDEX_linkToNative 34
-#define _METHOD_INDEX_linkToSpecial 35
-#define _METHOD_INDEX_linkToStatic 36
-#define _METHOD_INDEX_linkToVirtual 37
-
-$InnerClassInfo _MethodHandle_InnerClassesInfo_[] = {
-	{"java.lang.invoke.MethodHandle$PolymorphicSignature", "java.lang.invoke.MethodHandle", "PolymorphicSignature", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{"java.lang.invoke.MethodHandle$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MethodHandle_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.lang.invoke.MethodHandle",
-	"java.lang.Object",
-	"java.lang.constant.Constable",
-	_MethodHandle_FieldInfo_,
-	_MethodHandle_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MethodHandle_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.MethodHandle$PolymorphicSignature,java.lang.invoke.MethodHandle$1"
-};
-
-$Object* allocate$MethodHandle($Class* clazz) {
-	return $of($alloc(MethodHandle));
-}
 
 bool MethodHandle::$assertionsDisabled = false;
 int64_t MethodHandle::FORM_OFFSET = 0;
@@ -251,7 +99,7 @@ $MethodType* MethodHandle::type() {
 
 void MethodHandle::init$($MethodType* type, $LambdaForm* form) {
 	$set(this, type$, $cast($MethodType, $Objects::requireNonNull(type)));
-	$set(this, form, $nc(($cast($LambdaForm, $Objects::requireNonNull(form))))->uncustomize());
+	$set(this, form, $sure($LambdaForm, $Objects::requireNonNull(form))->uncustomize());
 	$nc(this->form)->prepare();
 }
 
@@ -292,7 +140,7 @@ $Object* MethodHandle::invokeWithArguments($ObjectArray* arguments) {
 }
 
 $Object* MethodHandle::invokeWithArguments($List* arguments) {
-	return $of(invokeWithArguments($($nc(arguments)->toArray())));
+	return invokeWithArguments($($nc(arguments)->toArray()));
 }
 
 MethodHandle* MethodHandle::asType($MethodType* newType) {
@@ -322,23 +170,23 @@ MethodHandle* MethodHandle::asTypeUncached($MethodType* newType) {
 }
 
 MethodHandle* MethodHandle::asSpreader($Class* arrayType, int32_t arrayLength) {
-	return asSpreader($nc($(type()))->parameterCount() - arrayLength, arrayType, arrayLength);
+	return asSpreader($$nc(type())->parameterCount() - arrayLength, arrayType, arrayLength);
 }
 
 MethodHandle* MethodHandle::asSpreader(int32_t spreadArgPos, $Class* arrayType, int32_t arrayLength) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodType, postSpreadType, asSpreaderChecks(arrayType, spreadArgPos, arrayLength));
 	$var(MethodHandle, afterSpread, this->asType(postSpreadType));
 	$var($BoundMethodHandle, mh, $nc(afterSpread)->rebind());
-	$var($LambdaForm, lform, $nc($($nc(mh)->editor()))->spreadArgumentsForm(1 + spreadArgPos, arrayType, arrayLength));
+	$var($LambdaForm, lform, $$nc($nc(mh)->editor())->spreadArgumentsForm(1 + spreadArgPos, arrayType, arrayLength));
 	$var($MethodType, preSpreadType, $nc(postSpreadType)->replaceParameterTypes(spreadArgPos, spreadArgPos + arrayLength, $$new($ClassArray, {arrayType})));
 	return mh->copyWith(preSpreadType, lform);
 }
 
 $MethodType* MethodHandle::asSpreaderChecks($Class* arrayType, int32_t pos, int32_t arrayLength) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	spreadArrayChecks(arrayType, arrayLength);
-	int32_t nargs = $nc($(type()))->parameterCount();
+	int32_t nargs = $$nc(type())->parameterCount();
 	if (nargs < arrayLength || arrayLength < 0) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException("bad spread array length"_s)));
 	}
@@ -371,20 +219,18 @@ $MethodType* MethodHandle::asSpreaderChecks($Class* arrayType, int32_t pos, int3
 }
 
 void MethodHandle::spreadArrayChecks($Class* arrayType, int32_t arrayLength) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Class* arrayElement = $nc(arrayType)->getComponentType();
 	if (arrayElement == nullptr) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException("not an array type"_s, arrayType)));
 	}
-	if (((int32_t)(arrayLength & (uint32_t)127)) != arrayLength) {
-		if (((int32_t)(arrayLength & (uint32_t)255)) != arrayLength) {
+	if ((arrayLength & 0x7f) != arrayLength) {
+		if ((arrayLength & 0xff) != arrayLength) {
 			$throw($($MethodHandleStatics::newIllegalArgumentException("array length is not legal"_s, $($Integer::valueOf(arrayLength)))));
 		}
 		if (!MethodHandle::$assertionsDisabled && !(arrayLength >= 128)) {
 			$throwNew($AssertionError);
 		}
-		$init($Long);
-		$init($Double);
 		if (arrayElement == $Long::TYPE || arrayElement == $Double::TYPE) {
 			$throw($($MethodHandleStatics::newIllegalArgumentException("array length is not legal for long[] or double[]"_s, $($Integer::valueOf(arrayLength)))));
 		}
@@ -396,35 +242,35 @@ MethodHandle* MethodHandle::withVarargs(bool makeVarargs) {
 		$throwNew($AssertionError);
 	}
 	if (makeVarargs) {
-		return asVarargsCollector($nc($(type()))->lastParameterType());
+		return asVarargsCollector($$nc(type())->lastParameterType());
 	} else {
 		return this;
 	}
 }
 
 MethodHandle* MethodHandle::asCollector($Class* arrayType, int32_t arrayLength) {
-	return asCollector($nc($(type()))->parameterCount() - 1, arrayType, arrayLength);
+	return asCollector($$nc(type())->parameterCount() - 1, arrayType, arrayLength);
 }
 
 MethodHandle* MethodHandle::asCollector(int32_t collectArgPos, $Class* arrayType, int32_t arrayLength) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	asCollectorChecks(arrayType, collectArgPos, arrayLength);
 	$var($BoundMethodHandle, mh, rebind());
-	$var($MethodType, resultType, $nc($(type()))->asCollectorType(arrayType, collectArgPos, arrayLength));
+	$var($MethodType, resultType, $$nc(type())->asCollectorType(arrayType, collectArgPos, arrayLength));
 	$var(MethodHandle, collector, $MethodHandleImpl::varargsArray(arrayType, arrayLength));
-	$var($LambdaForm, lform, $nc($($nc(mh)->editor()))->collectArgumentsForm(1 + collectArgPos, $($nc($($nc(collector)->type()))->basicType())));
+	$var($LambdaForm, lform, $$nc($nc(mh)->editor())->collectArgumentsForm(1 + collectArgPos, $($$nc($nc(collector)->type())->basicType())));
 	return mh->copyWithExtendL(resultType, lform, collector);
 }
 
 bool MethodHandle::asCollectorChecks($Class* arrayType, int32_t pos, int32_t arrayLength) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	spreadArrayChecks(arrayType, arrayLength);
-	int32_t nargs = $nc($(type()))->parameterCount();
+	int32_t nargs = $$nc(type())->parameterCount();
 	if (pos < 0 || pos >= nargs) {
 		$throw($($MethodHandleStatics::newIllegalArgumentException("bad collect position"_s)));
 	}
 	if (nargs != 0) {
-		$Class* param = $cast($Class, $nc($(type()))->parameterType(pos));
+		$Class* param = $cast($Class, $$nc(type())->parameterType(pos));
 		if (param == arrayType) {
 			return true;
 		}
@@ -437,7 +283,7 @@ bool MethodHandle::asCollectorChecks($Class* arrayType, int32_t pos, int32_t arr
 
 MethodHandle* MethodHandle::asVarargsCollector($Class* arrayType) {
 	$Objects::requireNonNull(arrayType);
-	bool lastMatch = asCollectorChecks(arrayType, $nc($(type()))->parameterCount() - 1, 0);
+	bool lastMatch = asCollectorChecks(arrayType, $$nc(type())->parameterCount() - 1, 0);
 	if (isVarargsCollector() && lastMatch) {
 		return this;
 	}
@@ -462,7 +308,7 @@ MethodHandle* MethodHandle::bindTo(Object$* x$renamed) {
 }
 
 $Optional* MethodHandle::describeConstable() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodHandleInfo, info, nullptr);
 	$var($ClassDesc, owner, nullptr);
 	$var($String, name, nullptr);
@@ -472,74 +318,53 @@ $Optional* MethodHandle::describeConstable() {
 		$init($MethodHandles$Lookup);
 		$assign(info, $nc($MethodHandles$Lookup::IMPL_LOOKUP)->revealDirect(this));
 		isInterface = $nc($nc(info)->getDeclaringClass())->isInterface();
-		$assign(owner, $cast($ClassDesc, $nc($($nc(info->getDeclaringClass())->describeConstable()))->orElseThrow()));
-		$assign(type, $cast($MethodTypeDesc, $nc($($nc($(info->getMethodType()))->describeConstable()))->orElseThrow()));
+		$assign(owner, $cast($ClassDesc, $$nc($nc(info->getDeclaringClass())->describeConstable())->orElseThrow()));
+		$assign(type, $cast($MethodTypeDesc, $$nc($$nc(info->getMethodType())->describeConstable())->orElseThrow()));
 		$assign(name, info->getName());
 	} catch ($Exception& e) {
 		return $Optional::empty();
 	}
-
-	$var($Optional, var$0, nullptr)
+	$var($Optional, var$0, nullptr);
 	switch ($nc(info)->getReferenceKind()) {
 	case 1:
-		{
-			$init($DirectMethodHandleDesc$Kind);
-			$assign(var$0, $Optional::of($($MethodHandleDesc::ofField($DirectMethodHandleDesc$Kind::GETTER, owner, name, $($cast($ClassDesc, $nc(type)->returnType()))))));
-			break;
-		}
+		$init($DirectMethodHandleDesc$Kind);
+		$assign(var$0, $Optional::of($($MethodHandleDesc::ofField($DirectMethodHandleDesc$Kind::GETTER, owner, name, $$cast($ClassDesc, $nc(type)->returnType())))));
+		break;
 	case 3:
-		{
-			$init($DirectMethodHandleDesc$Kind);
-			$assign(var$0, $Optional::of($($MethodHandleDesc::ofField($DirectMethodHandleDesc$Kind::SETTER, owner, name, $($cast($ClassDesc, $nc(type)->parameterType(0)))))));
-			break;
-		}
+		$init($DirectMethodHandleDesc$Kind);
+		$assign(var$0, $Optional::of($($MethodHandleDesc::ofField($DirectMethodHandleDesc$Kind::SETTER, owner, name, $$cast($ClassDesc, $nc(type)->parameterType(0))))));
+		break;
 	case 2:
-		{
-			$init($DirectMethodHandleDesc$Kind);
-			$assign(var$0, $Optional::of($($MethodHandleDesc::ofField($DirectMethodHandleDesc$Kind::STATIC_GETTER, owner, name, $($cast($ClassDesc, $nc(type)->returnType()))))));
-			break;
-		}
+		$init($DirectMethodHandleDesc$Kind);
+		$assign(var$0, $Optional::of($($MethodHandleDesc::ofField($DirectMethodHandleDesc$Kind::STATIC_GETTER, owner, name, $$cast($ClassDesc, $nc(type)->returnType())))));
+		break;
 	case 4:
-		{
-			$init($DirectMethodHandleDesc$Kind);
-			$assign(var$0, $Optional::of($($MethodHandleDesc::ofField($DirectMethodHandleDesc$Kind::STATIC_SETTER, owner, name, $($cast($ClassDesc, $nc(type)->parameterType(0)))))));
-			break;
-		}
+		$init($DirectMethodHandleDesc$Kind);
+		$assign(var$0, $Optional::of($($MethodHandleDesc::ofField($DirectMethodHandleDesc$Kind::STATIC_SETTER, owner, name, $$cast($ClassDesc, $nc(type)->parameterType(0))))));
+		break;
 	case 5:
-		{
-			$init($DirectMethodHandleDesc$Kind);
-			$assign(var$0, $Optional::of($($MethodHandleDesc::ofMethod($DirectMethodHandleDesc$Kind::VIRTUAL, owner, name, type))));
-			break;
-		}
+		$init($DirectMethodHandleDesc$Kind);
+		$assign(var$0, $Optional::of($($MethodHandleDesc::ofMethod($DirectMethodHandleDesc$Kind::VIRTUAL, owner, name, type))));
+		break;
 	case 6:
-		{
-			$init($DirectMethodHandleDesc$Kind);
-			$assign(var$0, isInterface ? $Optional::of($($MethodHandleDesc::ofMethod($DirectMethodHandleDesc$Kind::INTERFACE_STATIC, owner, name, type))) : $Optional::of($($MethodHandleDesc::ofMethod($DirectMethodHandleDesc$Kind::STATIC, owner, name, type))));
-			break;
-		}
+		$init($DirectMethodHandleDesc$Kind);
+		$assign(var$0, isInterface ? $Optional::of($($MethodHandleDesc::ofMethod($DirectMethodHandleDesc$Kind::INTERFACE_STATIC, owner, name, type))) : $Optional::of($($MethodHandleDesc::ofMethod($DirectMethodHandleDesc$Kind::STATIC, owner, name, type))));
+		break;
 	case 7:
-		{
-			$init($DirectMethodHandleDesc$Kind);
-			$assign(var$0, isInterface ? $Optional::of($($MethodHandleDesc::ofMethod($DirectMethodHandleDesc$Kind::INTERFACE_SPECIAL, owner, name, type))) : $Optional::of($($MethodHandleDesc::ofMethod($DirectMethodHandleDesc$Kind::SPECIAL, owner, name, type))));
-			break;
-		}
+		$init($DirectMethodHandleDesc$Kind);
+		$assign(var$0, isInterface ? $Optional::of($($MethodHandleDesc::ofMethod($DirectMethodHandleDesc$Kind::INTERFACE_SPECIAL, owner, name, type))) : $Optional::of($($MethodHandleDesc::ofMethod($DirectMethodHandleDesc$Kind::SPECIAL, owner, name, type))));
+		break;
 	case 9:
-		{
-			$init($DirectMethodHandleDesc$Kind);
-			$assign(var$0, $Optional::of($($MethodHandleDesc::ofMethod($DirectMethodHandleDesc$Kind::INTERFACE_VIRTUAL, owner, name, type))));
-			break;
-		}
+		$init($DirectMethodHandleDesc$Kind);
+		$assign(var$0, $Optional::of($($MethodHandleDesc::ofMethod($DirectMethodHandleDesc$Kind::INTERFACE_VIRTUAL, owner, name, type))));
+		break;
 	case 8:
-		{
-			$init($DirectMethodHandleDesc$Kind);
-			$assign(var$0, $Optional::of($($MethodHandleDesc::ofMethod($DirectMethodHandleDesc$Kind::CONSTRUCTOR, owner, name, type))));
-			break;
-		}
+		$init($DirectMethodHandleDesc$Kind);
+		$assign(var$0, $Optional::of($($MethodHandleDesc::ofMethod($DirectMethodHandleDesc$Kind::CONSTRUCTOR, owner, name, type))));
+		break;
 	default:
-		{
-			$assign(var$0, $Optional::empty());
-			break;
-		}
+		$assign(var$0, $Optional::empty());
+		break;
 	}
 	return var$0;
 }
@@ -557,14 +382,17 @@ $String* MethodHandle::standardString() {
 }
 
 $String* MethodHandle::debugString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({this->type$, " : "_s}));
-	$var($String, var$0, $$concat(var$1, $(internalForm())));
-	return $concat(var$0, $(internalProperties()));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append(this->type$);
+	var$0->append(" : "_s);
+	var$0->append($(internalForm()));
+	var$0->append($(internalProperties()));
+	return $str(var$0);
 }
 
 $BoundMethodHandle* MethodHandle::bindArgumentL(int32_t pos, Object$* value) {
-	return $nc($(rebind()))->bindArgumentL(pos, value);
+	return $$nc(rebind())->bindArgumentL(pos, value);
 }
 
 MethodHandle* MethodHandle::setVarargs($MemberName* member) {
@@ -574,7 +402,7 @@ MethodHandle* MethodHandle::setVarargs($MemberName* member) {
 	try {
 		return this->withVarargs(true);
 	} catch ($IllegalArgumentException& ex) {
-		$throw($($nc(member)->makeAccessException("cannot make variable arity"_s, nullptr)));
+		$throw($(member->makeAccessException("cannot make variable arity"_s, nullptr)));
 	}
 	$shouldNotReachHere();
 }
@@ -587,19 +415,19 @@ MethodHandle* MethodHandle::viewAsType($MethodType* newType, bool strict) {
 }
 
 bool MethodHandle::viewAsTypeChecks($MethodType* newType, bool strict) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (strict) {
-		if (!MethodHandle::$assertionsDisabled && !($nc($(type()))->isViewableAs(newType, true))) {
-			$throwNew($AssertionError, $($of($Arrays::asList($$new($ConstableArray, {
-				static_cast<$Constable*>(this),
-				static_cast<$Constable*>(newType)
-			})))));
+		if (!MethodHandle::$assertionsDisabled && !($$nc(type())->isViewableAs(newType, true))) {
+			$throwNew($AssertionError, $($Arrays::asList($$new($ConstableArray, {
+				this,
+				newType
+			}))));
 		}
-	} else if (!MethodHandle::$assertionsDisabled && !($nc($($nc($(type()))->basicType()))->isViewableAs($($nc(newType)->basicType()), true))) {
-		$throwNew($AssertionError, $($of($Arrays::asList($$new($ConstableArray, {
-			static_cast<$Constable*>(this),
-			static_cast<$Constable*>(newType)
-		})))));
+	} else if (!MethodHandle::$assertionsDisabled && !($$nc($$nc(type())->basicType())->isViewableAs($($nc(newType)->basicType()), true))) {
+		$throwNew($AssertionError, $($Arrays::asList($$new($ConstableArray, {
+			this,
+			newType
+		}))));
 	}
 	return true;
 }
@@ -622,7 +450,7 @@ $MethodHandleImpl$Intrinsic* MethodHandle::intrinsicName() {
 }
 
 $Object* MethodHandle::intrinsicData() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 MethodHandle* MethodHandle::withInternalMemberName($MemberName* member, bool isInvokeSpecial) {
@@ -648,7 +476,7 @@ bool MethodHandle::isCrackable() {
 }
 
 $Object* MethodHandle::internalValues() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* MethodHandle::internalProperties() {
@@ -672,47 +500,170 @@ void MethodHandle::customize() {
 }
 
 void MethodHandle::updateForm($Function* updater) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($MethodHandleStatics);
 	if ($nc($MethodHandleStatics::UNSAFE)->compareAndSetBoolean(this, MethodHandle::UPDATE_OFFSET, false, true)) {
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$var($LambdaForm, oldForm, this->form);
-				$var($LambdaForm, newForm, $cast($LambdaForm, $nc(updater)->apply(oldForm)));
-				if (oldForm != newForm) {
-					if (!MethodHandle::$assertionsDisabled && !($nc(newForm)->customized == nullptr || $nc(newForm)->customized == this)) {
-						$throwNew($AssertionError);
-					}
-					$nc(newForm)->prepare();
-					$nc($MethodHandleStatics::UNSAFE)->putReference(this, MethodHandle::FORM_OFFSET, newForm);
-					$nc($MethodHandleStatics::UNSAFE)->fullFence();
+		$var($Throwable, var$0, nullptr);
+		try {
+			$var($LambdaForm, oldForm, this->form);
+			$var($LambdaForm, newForm, $cast($LambdaForm, $nc(updater)->apply(oldForm)));
+			if (oldForm != newForm) {
+				if (!MethodHandle::$assertionsDisabled && !($nc(newForm)->customized == nullptr || newForm->customized == this)) {
+					$throwNew($AssertionError);
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				this->updateInProgress = false;
+				$nc(newForm)->prepare();
+				$MethodHandleStatics::UNSAFE->putReference(this, MethodHandle::FORM_OFFSET, newForm);
+				$MethodHandleStatics::UNSAFE->fullFence();
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			this->updateInProgress = false;
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} else {
 	}
 }
 
-void clinit$MethodHandle($Class* class$) {
+void MethodHandle::clinit$($Class* clazz) {
 	MethodHandle::$assertionsDisabled = !MethodHandle::class$->desiredAssertionStatus();
 	$init($MethodHandleStatics);
 	MethodHandle::FORM_OFFSET = $nc($MethodHandleStatics::UNSAFE)->objectFieldOffset(MethodHandle::class$, "form"_s);
-	MethodHandle::UPDATE_OFFSET = $nc($MethodHandleStatics::UNSAFE)->objectFieldOffset(MethodHandle::class$, "updateInProgress"_s);
+	MethodHandle::UPDATE_OFFSET = $MethodHandleStatics::UNSAFE->objectFieldOffset(MethodHandle::class$, "updateInProgress"_s);
 }
 
 MethodHandle::MethodHandle() {
 }
 
 $Class* MethodHandle::load$($String* name, bool initialize) {
-	$loadClass(MethodHandle, name, initialize, &_MethodHandle_ClassInfo_, clinit$MethodHandle, allocate$MethodHandle);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MethodHandle, $assertionsDisabled)},
+		{"type", "Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE | $FINAL, $field(MethodHandle, type$)},
+		{"form", "Ljava/lang/invoke/LambdaForm;", nullptr, $FINAL, $field(MethodHandle, form)},
+		{"asTypeCache", "Ljava/lang/invoke/MethodHandle;", nullptr, 0, $field(MethodHandle, asTypeCache)},
+		{"customizationCount", "B", nullptr, $PRIVATE, $field(MethodHandle, customizationCount)},
+		{"updateInProgress", "Z", nullptr, $PRIVATE | $VOLATILE, $field(MethodHandle, updateInProgress)},
+		{"FORM_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MethodHandle, FORM_OFFSET)},
+		{"UPDATE_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MethodHandle, UPDATE_OFFSET)},
+		{}
+	};
+	$CompoundAttribute invokemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{"Ljava/lang/invoke/MethodHandle$PolymorphicSignature;", nullptr},
+		{}
+	};
+	$CompoundAttribute invokeBasicmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{"Ljava/lang/invoke/MethodHandle$PolymorphicSignature;", nullptr},
+		{}
+	};
+	$CompoundAttribute invokeExactmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{"Ljava/lang/invoke/MethodHandle$PolymorphicSignature;", nullptr},
+		{}
+	};
+	$CompoundAttribute linkToInterfacemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{"Ljava/lang/invoke/MethodHandle$PolymorphicSignature;", nullptr},
+		{}
+	};
+	$CompoundAttribute linkToNativemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{"Ljava/lang/invoke/MethodHandle$PolymorphicSignature;", nullptr},
+		{}
+	};
+	$CompoundAttribute linkToSpecialmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{"Ljava/lang/invoke/MethodHandle$PolymorphicSignature;", nullptr},
+		{}
+	};
+	$CompoundAttribute linkToStaticmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{"Ljava/lang/invoke/MethodHandle$PolymorphicSignature;", nullptr},
+		{}
+	};
+	$CompoundAttribute linkToVirtualmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{"Ljava/lang/invoke/MethodHandle$PolymorphicSignature;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)V", nullptr, 0, $method(MethodHandle, init$, void, $MethodType*, $LambdaForm*)},
+		{"asCollector", "(Ljava/lang/Class;I)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;I)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $virtualMethod(MethodHandle, asCollector, MethodHandle*, $Class*, int32_t)},
+		{"asCollector", "(ILjava/lang/Class;I)Ljava/lang/invoke/MethodHandle;", "(ILjava/lang/Class<*>;I)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $virtualMethod(MethodHandle, asCollector, MethodHandle*, int32_t, $Class*, int32_t)},
+		{"asCollectorChecks", "(Ljava/lang/Class;II)Z", "(Ljava/lang/Class<*>;II)Z", 0, $virtualMethod(MethodHandle, asCollectorChecks, bool, $Class*, int32_t, int32_t)},
+		{"asFixedArity", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(MethodHandle, asFixedArity, MethodHandle*)},
+		{"asSpreader", "(Ljava/lang/Class;I)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;I)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $virtualMethod(MethodHandle, asSpreader, MethodHandle*, $Class*, int32_t)},
+		{"asSpreader", "(ILjava/lang/Class;I)Ljava/lang/invoke/MethodHandle;", "(ILjava/lang/Class<*>;I)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $virtualMethod(MethodHandle, asSpreader, MethodHandle*, int32_t, $Class*, int32_t)},
+		{"asSpreaderChecks", "(Ljava/lang/Class;II)Ljava/lang/invoke/MethodType;", "(Ljava/lang/Class<*>;II)Ljava/lang/invoke/MethodType;", $PRIVATE, $method(MethodHandle, asSpreaderChecks, $MethodType*, $Class*, int32_t, int32_t)},
+		{"asType", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(MethodHandle, asType, MethodHandle*, $MethodType*)},
+		{"asTypeCached", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE, $method(MethodHandle, asTypeCached, MethodHandle*, $MethodType*)},
+		{"asTypeUncached", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(MethodHandle, asTypeUncached, MethodHandle*, $MethodType*)},
+		{"asVarargsCollector", "(Ljava/lang/Class;)Ljava/lang/invoke/MethodHandle;", "(Ljava/lang/Class<*>;)Ljava/lang/invoke/MethodHandle;", $PUBLIC, $virtualMethod(MethodHandle, asVarargsCollector, MethodHandle*, $Class*)},
+		{"bindArgumentL", "(ILjava/lang/Object;)Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(MethodHandle, bindArgumentL, $BoundMethodHandle*, int32_t, Object$*)},
+		{"bindTo", "(Ljava/lang/Object;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(MethodHandle, bindTo, MethodHandle*, Object$*)},
+		{"copyWith", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/MethodHandle;", nullptr, $ABSTRACT, $virtualMethod(MethodHandle, copyWith, MethodHandle*, $MethodType*, $LambdaForm*)},
+		{"customize", "()V", nullptr, 0, $virtualMethod(MethodHandle, customize, void)},
+		{"debugString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MethodHandle, debugString, $String*)},
+		{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/constant/MethodHandleDesc;>;", $PUBLIC, $virtualMethod(MethodHandle, describeConstable, $Optional*)},
+		{"internalCallerClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", 0, $virtualMethod(MethodHandle, internalCallerClass, $Class*)},
+		{"internalForm", "()Ljava/lang/invoke/LambdaForm;", nullptr, 0, $virtualMethod(MethodHandle, internalForm, $LambdaForm*)},
+		{"internalMemberName", "()Ljava/lang/invoke/MemberName;", nullptr, 0, $virtualMethod(MethodHandle, internalMemberName, $MemberName*)},
+		{"internalProperties", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(MethodHandle, internalProperties, $Object*)},
+		{"internalValues", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(MethodHandle, internalValues, $Object*)},
+		{"intrinsicData", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(MethodHandle, intrinsicData, $Object*)},
+		{"intrinsicName", "()Ljava/lang/invoke/MethodHandleImpl$Intrinsic;", nullptr, 0, $virtualMethod(MethodHandle, intrinsicName, $MethodHandleImpl$Intrinsic*)},
+		{"invoke", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL | $TRANSIENT | $NATIVE, $method(MethodHandle, invoke, $Object*, $ObjectArray*), "java.lang.Throwable", nullptr, invokemethodAnnotations$$},
+		{"invokeBasic", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL | $TRANSIENT | $NATIVE, $method(MethodHandle, invokeBasic, $Object*, $ObjectArray*), "java.lang.Throwable", nullptr, invokeBasicmethodAnnotations$$},
+		{"invokeExact", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL | $TRANSIENT | $NATIVE, $method(MethodHandle, invokeExact, $Object*, $ObjectArray*), "java.lang.Throwable", nullptr, invokeExactmethodAnnotations$$},
+		{"invokeWithArguments", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(MethodHandle, invokeWithArguments, $Object*, $ObjectArray*), "java.lang.Throwable"},
+		{"invokeWithArguments", "(Ljava/util/List;)Ljava/lang/Object;", "(Ljava/util/List<*>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(MethodHandle, invokeWithArguments, $Object*, $List*), "java.lang.Throwable"},
+		{"isCrackable", "()Z", nullptr, 0, $virtualMethod(MethodHandle, isCrackable, bool)},
+		{"isInvokeSpecial", "()Z", nullptr, 0, $virtualMethod(MethodHandle, isInvokeSpecial, bool)},
+		{"isVarargsCollector", "()Z", nullptr, $PUBLIC, $virtualMethod(MethodHandle, isVarargsCollector, bool)},
+		{"linkToInterface", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC | $TRANSIENT | $NATIVE, $staticMethod(MethodHandle, linkToInterface, $Object*, $ObjectArray*), "java.lang.Throwable", nullptr, linkToInterfacemethodAnnotations$$},
+		{"linkToNative", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC | $TRANSIENT | $NATIVE, $staticMethod(MethodHandle, linkToNative, $Object*, $ObjectArray*), "java.lang.Throwable", nullptr, linkToNativemethodAnnotations$$},
+		{"linkToSpecial", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC | $TRANSIENT | $NATIVE, $staticMethod(MethodHandle, linkToSpecial, $Object*, $ObjectArray*), "java.lang.Throwable", nullptr, linkToSpecialmethodAnnotations$$},
+		{"linkToStatic", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC | $TRANSIENT | $NATIVE, $staticMethod(MethodHandle, linkToStatic, $Object*, $ObjectArray*), "java.lang.Throwable", nullptr, linkToStaticmethodAnnotations$$},
+		{"linkToVirtual", "([Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC | $TRANSIENT | $NATIVE, $staticMethod(MethodHandle, linkToVirtual, $Object*, $ObjectArray*), "java.lang.Throwable", nullptr, linkToVirtualmethodAnnotations$$},
+		{"maybeCustomize", "()V", nullptr, 0, $virtualMethod(MethodHandle, maybeCustomize, void)},
+		{"rebind", "()Ljava/lang/invoke/BoundMethodHandle;", nullptr, $ABSTRACT, $virtualMethod(MethodHandle, rebind, $BoundMethodHandle*)},
+		{"setVarargs", "(Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(MethodHandle, setVarargs, MethodHandle*, $MemberName*), "java.lang.IllegalAccessException"},
+		{"spreadArrayChecks", "(Ljava/lang/Class;I)V", "(Ljava/lang/Class<*>;I)V", $PRIVATE, $method(MethodHandle, spreadArrayChecks, void, $Class*, int32_t)},
+		{"standardString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(MethodHandle, standardString, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodHandle, toString, $String*)},
+		{"type", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $virtualMethod(MethodHandle, type, $MethodType*)},
+		{"updateForm", "(Ljava/util/function/Function;)V", "(Ljava/util/function/Function<Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/LambdaForm;>;)V", 0, $virtualMethod(MethodHandle, updateForm, void, $Function*)},
+		{"viewAsType", "(Ljava/lang/invoke/MethodType;Z)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(MethodHandle, viewAsType, MethodHandle*, $MethodType*, bool)},
+		{"viewAsTypeChecks", "(Ljava/lang/invoke/MethodType;Z)Z", nullptr, 0, $virtualMethod(MethodHandle, viewAsTypeChecks, bool, $MethodType*, bool)},
+		{"withInternalMemberName", "(Ljava/lang/invoke/MemberName;Z)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(MethodHandle, withInternalMemberName, MethodHandle*, $MemberName*, bool)},
+		{"withVarargs", "(Z)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(MethodHandle, withVarargs, MethodHandle*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.MethodHandle$PolymorphicSignature", "java.lang.invoke.MethodHandle", "PolymorphicSignature", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{"java.lang.invoke.MethodHandle$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.lang.invoke.MethodHandle",
+		"java.lang.Object",
+		"java.lang.constant.Constable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.MethodHandle$PolymorphicSignature,java.lang.invoke.MethodHandle$1"
+	};
+	$loadClass(MethodHandle, name, initialize, &classInfo$$, MethodHandle::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodHandle);
+	});
 	return class$;
 }
 

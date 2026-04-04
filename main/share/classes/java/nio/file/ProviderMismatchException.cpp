@@ -1,5 +1,4 @@
 #include <java/nio/file/ProviderMismatchException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _ProviderMismatchException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ProviderMismatchException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ProviderMismatchException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ProviderMismatchException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ProviderMismatchException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _ProviderMismatchException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.file.ProviderMismatchException",
-	"java.lang.IllegalArgumentException",
-	nullptr,
-	_ProviderMismatchException_FieldInfo_,
-	_ProviderMismatchException_MethodInfo_
-};
-
-$Object* allocate$ProviderMismatchException($Class* clazz) {
-	return $of($alloc(ProviderMismatchException));
-}
 
 void ProviderMismatchException::init$() {
 	$IllegalArgumentException::init$();
@@ -54,7 +29,26 @@ void ProviderMismatchException::throw$() {
 }
 
 $Class* ProviderMismatchException::load$($String* name, bool initialize) {
-	$loadClass(ProviderMismatchException, name, initialize, &_ProviderMismatchException_ClassInfo_, allocate$ProviderMismatchException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ProviderMismatchException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ProviderMismatchException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ProviderMismatchException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.file.ProviderMismatchException",
+		"java.lang.IllegalArgumentException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ProviderMismatchException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProviderMismatchException);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <ImplicitStringConcat.h>
-
 #include <ImplicitStringConcat$MyClass.h>
 #include <ImplicitStringConcat$MyClassNull.h>
 #include <java/lang/CharSequence.h>
@@ -19,62 +18,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
-
-$FieldInfo _ImplicitStringConcat_FieldInfo_[] = {
-	{"b", "Z", nullptr, $STATIC, $staticField(ImplicitStringConcat, b)},
-	{"by", "B", nullptr, $STATIC, $staticField(ImplicitStringConcat, by)},
-	{"sh", "S", nullptr, $STATIC, $staticField(ImplicitStringConcat, sh)},
-	{"ch", "C", nullptr, $STATIC, $staticField(ImplicitStringConcat, ch)},
-	{"i", "I", nullptr, $STATIC, $staticField(ImplicitStringConcat, i)},
-	{"fl", "F", nullptr, $STATIC, $staticField(ImplicitStringConcat, fl)},
-	{"l", "J", nullptr, $STATIC, $staticField(ImplicitStringConcat, l)},
-	{"d", "D", nullptr, $STATIC, $staticField(ImplicitStringConcat, d)},
-	{"s", "Ljava/lang/String;", nullptr, $STATIC, $staticField(ImplicitStringConcat, s)},
-	{"sNull", "Ljava/lang/String;", nullptr, $STATIC, $staticField(ImplicitStringConcat, sNull)},
-	{"o", "Ljava/lang/Object;", nullptr, $STATIC, $staticField(ImplicitStringConcat, o)},
-	{"oNull", "Ljava/lang/Object;", nullptr, $STATIC, $staticField(ImplicitStringConcat, oNull)},
-	{"cs", "Ljava/lang/CharSequence;", nullptr, $STATIC, $staticField(ImplicitStringConcat, cs)},
-	{"chars", "[C", nullptr, $STATIC, $staticField(ImplicitStringConcat, chars)},
-	{"myCl", "LImplicitStringConcat$MyClass;", nullptr, $STATIC, $staticField(ImplicitStringConcat, myCl)},
-	{"myClNull", "LImplicitStringConcat$MyClassNull;", nullptr, $STATIC, $staticField(ImplicitStringConcat, myClNull)},
-	{"myCl2", "Ljava/lang/Object;", nullptr, $STATIC, $staticField(ImplicitStringConcat, myCl2)},
-	{"myArr", "[Ljava/lang/Object;", nullptr, $STATIC, $staticField(ImplicitStringConcat, myArr)},
-	{"s_myArr", "[Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcat, s_myArr)},
-	{"sb", "Ljava/lang/StringBuffer;", nullptr, $STATIC, $staticField(ImplicitStringConcat, sb)},
-	{}
-};
-
-$MethodInfo _ImplicitStringConcat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ImplicitStringConcat, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcat, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcat, test, void, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _ImplicitStringConcat_InnerClassesInfo_[] = {
-	{"ImplicitStringConcat$MyClassNull", "ImplicitStringConcat", "MyClassNull", $STATIC},
-	{"ImplicitStringConcat$MyClass", "ImplicitStringConcat", "MyClass", $STATIC},
-	{}
-};
-
-$ClassInfo _ImplicitStringConcat_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ImplicitStringConcat",
-	"java.lang.Object",
-	nullptr,
-	_ImplicitStringConcat_FieldInfo_,
-	_ImplicitStringConcat_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ImplicitStringConcat_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"ImplicitStringConcat$MyClassNull,ImplicitStringConcat$MyClass"
-};
-
-$Object* allocate$ImplicitStringConcat($Class* clazz) {
-	return $of($alloc(ImplicitStringConcat));
-}
 
 bool ImplicitStringConcat::b = false;
 int8_t ImplicitStringConcat::by = 0;
@@ -102,7 +45,7 @@ void ImplicitStringConcat::init$() {
 
 void ImplicitStringConcat::main($StringArray* args) {
 	$init(ImplicitStringConcat);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	test("footrue"_s, $$str({ImplicitStringConcat::s, $$str(ImplicitStringConcat::b)}));
 	test("foo42"_s, $$str({ImplicitStringConcat::s, $$str(ImplicitStringConcat::by)}));
 	test("foo42"_s, $$str({ImplicitStringConcat::s, $$str(ImplicitStringConcat::sh)}));
@@ -119,14 +62,14 @@ void ImplicitStringConcat::main($StringArray* args) {
 	{
 		$var($StringBuilder, sb, $new($StringBuilder));
 		sb->append("foo"_s);
-		sb->append($($nc($of(ImplicitStringConcat::myArr))->toString()));
+		sb->append($($nc(ImplicitStringConcat::myArr)->toString()));
 		$var($String, var$0, sb->toString());
 		test(var$0, $$str({ImplicitStringConcat::s, ImplicitStringConcat::myArr}));
 	}
 	{
 		$var($StringBuilder, sb, $new($StringBuilder));
 		sb->append("foo"_s);
-		sb->append($($nc($of(ImplicitStringConcat::s_myArr))->toString()));
+		sb->append($(ImplicitStringConcat::s_myArr->toString()));
 		$var($String, var$1, sb->toString());
 		test(var$1, $$str({ImplicitStringConcat::s, ImplicitStringConcat::s_myArr}));
 	}
@@ -205,7 +148,7 @@ void ImplicitStringConcat::main($StringArray* args) {
 
 void ImplicitStringConcat::test($String* expected, $String* actual) {
 	$init(ImplicitStringConcat);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(expected)->equals(actual)) {
 		$var($StringBuilder, sb, $new($StringBuilder));
 		sb->append("Expected = "_s);
@@ -216,10 +159,10 @@ void ImplicitStringConcat::test($String* expected, $String* actual) {
 	}
 }
 
-void clinit$ImplicitStringConcat($Class* class$) {
+void ImplicitStringConcat::clinit$($Class* clazz) {
 	ImplicitStringConcat::b = true;
-	ImplicitStringConcat::by = (int8_t)42;
-	ImplicitStringConcat::sh = (int16_t)42;
+	ImplicitStringConcat::by = 42;
+	ImplicitStringConcat::sh = 42;
 	ImplicitStringConcat::ch = u'a';
 	ImplicitStringConcat::i = 42;
 	ImplicitStringConcat::fl = 42.0f;
@@ -234,8 +177,8 @@ void clinit$ImplicitStringConcat($Class* class$) {
 	$assignStatic(ImplicitStringConcat::myCl, $new($ImplicitStringConcat$MyClass));
 	$assignStatic(ImplicitStringConcat::myClNull, $new($ImplicitStringConcat$MyClassNull));
 	$assignStatic(ImplicitStringConcat::myCl2, $new($ImplicitStringConcat$MyClass));
-	$assignStatic(ImplicitStringConcat::myArr, $new($ObjectArray, {$of(ImplicitStringConcat::myCl)}));
-	$assignStatic(ImplicitStringConcat::s_myArr, $new($ObjectArray, {$of(ImplicitStringConcat::myCl)}));
+	$assignStatic(ImplicitStringConcat::myArr, $new($ObjectArray, {ImplicitStringConcat::myCl}));
+	$assignStatic(ImplicitStringConcat::s_myArr, $new($ObjectArray, {ImplicitStringConcat::myCl}));
 	$assignStatic(ImplicitStringConcat::sb, $new($StringBuffer, "a"_s));
 }
 
@@ -243,7 +186,57 @@ ImplicitStringConcat::ImplicitStringConcat() {
 }
 
 $Class* ImplicitStringConcat::load$($String* name, bool initialize) {
-	$loadClass(ImplicitStringConcat, name, initialize, &_ImplicitStringConcat_ClassInfo_, clinit$ImplicitStringConcat, allocate$ImplicitStringConcat);
+	$FieldInfo fieldInfos$$[] = {
+		{"b", "Z", nullptr, $STATIC, $staticField(ImplicitStringConcat, b)},
+		{"by", "B", nullptr, $STATIC, $staticField(ImplicitStringConcat, by)},
+		{"sh", "S", nullptr, $STATIC, $staticField(ImplicitStringConcat, sh)},
+		{"ch", "C", nullptr, $STATIC, $staticField(ImplicitStringConcat, ch)},
+		{"i", "I", nullptr, $STATIC, $staticField(ImplicitStringConcat, i)},
+		{"fl", "F", nullptr, $STATIC, $staticField(ImplicitStringConcat, fl)},
+		{"l", "J", nullptr, $STATIC, $staticField(ImplicitStringConcat, l)},
+		{"d", "D", nullptr, $STATIC, $staticField(ImplicitStringConcat, d)},
+		{"s", "Ljava/lang/String;", nullptr, $STATIC, $staticField(ImplicitStringConcat, s)},
+		{"sNull", "Ljava/lang/String;", nullptr, $STATIC, $staticField(ImplicitStringConcat, sNull)},
+		{"o", "Ljava/lang/Object;", nullptr, $STATIC, $staticField(ImplicitStringConcat, o)},
+		{"oNull", "Ljava/lang/Object;", nullptr, $STATIC, $staticField(ImplicitStringConcat, oNull)},
+		{"cs", "Ljava/lang/CharSequence;", nullptr, $STATIC, $staticField(ImplicitStringConcat, cs)},
+		{"chars", "[C", nullptr, $STATIC, $staticField(ImplicitStringConcat, chars)},
+		{"myCl", "LImplicitStringConcat$MyClass;", nullptr, $STATIC, $staticField(ImplicitStringConcat, myCl)},
+		{"myClNull", "LImplicitStringConcat$MyClassNull;", nullptr, $STATIC, $staticField(ImplicitStringConcat, myClNull)},
+		{"myCl2", "Ljava/lang/Object;", nullptr, $STATIC, $staticField(ImplicitStringConcat, myCl2)},
+		{"myArr", "[Ljava/lang/Object;", nullptr, $STATIC, $staticField(ImplicitStringConcat, myArr)},
+		{"s_myArr", "[Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(ImplicitStringConcat, s_myArr)},
+		{"sb", "Ljava/lang/StringBuffer;", nullptr, $STATIC, $staticField(ImplicitStringConcat, sb)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ImplicitStringConcat, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcat, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ImplicitStringConcat, test, void, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ImplicitStringConcat$MyClassNull", "ImplicitStringConcat", "MyClassNull", $STATIC},
+		{"ImplicitStringConcat$MyClass", "ImplicitStringConcat", "MyClass", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ImplicitStringConcat",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"ImplicitStringConcat$MyClassNull,ImplicitStringConcat$MyClass"
+	};
+	$loadClass(ImplicitStringConcat, name, initialize, &classInfo$$, ImplicitStringConcat::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ImplicitStringConcat);
+	});
 	return class$;
 }
 

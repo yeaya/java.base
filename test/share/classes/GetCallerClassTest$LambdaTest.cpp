@@ -1,5 +1,4 @@
 #include <GetCallerClassTest$LambdaTest.h>
-
 #include <GetCallerClassTest.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
@@ -12,7 +11,6 @@
 #include <jcpp.h>
 
 using $GetCallerClassTest = ::GetCallerClassTest;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -20,7 +18,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $StackWalker = ::java::lang::StackWalker;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 
 class GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0 : public $Runnable {
@@ -32,80 +29,39 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$run$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0>());
-	}
 	GetCallerClassTest$LambdaTest* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0, inst$)},
-	{}
-};
-$MethodInfo GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0::methodInfos[3] = {
-	{"<init>", "(LGetCallerClassTest$LambdaTest;)V", nullptr, $PUBLIC, $method(GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0, init$, void, GetCallerClassTest$LambdaTest*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0, run, void)},
-	{}
-};
-$ClassInfo GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0::load$($String* name, bool initialize) {
-	$loadClass(GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LGetCallerClassTest$LambdaTest;)V", nullptr, $PUBLIC, $method(GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0, init$, void, GetCallerClassTest$LambdaTest*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0);
+	});
 	return class$;
 }
 $Class* GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0::class$ = nullptr;
-
-$FieldInfo _GetCallerClassTest$LambdaTest_FieldInfo_[] = {
-	{"this$0", "LGetCallerClassTest;", nullptr, $FINAL | $SYNTHETIC, $field(GetCallerClassTest$LambdaTest, this$0)},
-	{}
-};
-
-$MethodInfo _GetCallerClassTest$LambdaTest_MethodInfo_[] = {
-	{"<init>", "(LGetCallerClassTest;)V", nullptr, 0, $method(GetCallerClassTest$LambdaTest, init$, void, $GetCallerClassTest*)},
-	{"lambda$run$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(GetCallerClassTest$LambdaTest, lambda$run$0, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GetCallerClassTest$LambdaTest, run, void)},
-	{}
-};
-
-$InnerClassInfo _GetCallerClassTest$LambdaTest_InnerClassesInfo_[] = {
-	{"GetCallerClassTest$LambdaTest", "GetCallerClassTest", "LambdaTest", 0},
-	{}
-};
-
-$ClassInfo _GetCallerClassTest$LambdaTest_ClassInfo_ = {
-	$ACC_SUPER,
-	"GetCallerClassTest$LambdaTest",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_GetCallerClassTest$LambdaTest_FieldInfo_,
-	_GetCallerClassTest$LambdaTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GetCallerClassTest$LambdaTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"GetCallerClassTest"
-};
-
-$Object* allocate$GetCallerClassTest$LambdaTest($Class* clazz) {
-	return $of($alloc(GetCallerClassTest$LambdaTest));
-}
 
 void GetCallerClassTest$LambdaTest::init$($GetCallerClassTest* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void GetCallerClassTest$LambdaTest::run() {
-	$var($Runnable, lambdaRunnable, static_cast<$Runnable*>($new(GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0, this)));
+	$var($Runnable, lambdaRunnable, $new(GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0, this));
 	$nc(lambdaRunnable)->run();
 }
 
@@ -122,7 +78,7 @@ void GetCallerClassTest$LambdaTest::lambda$run$0() {
 			return;
 		}
 		$nc($System::err)->println("Unexpected exception:"_s);
-		$throwNew($RuntimeException, $cast($Throwable, e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
@@ -131,11 +87,42 @@ GetCallerClassTest$LambdaTest::GetCallerClassTest$LambdaTest() {
 
 $Class* GetCallerClassTest$LambdaTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0::classInfo$.name)) {
+		if (name->equals("GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0")) {
 			return GetCallerClassTest$LambdaTest$$Lambda$lambda$run$0::load$(name, initialize);
 		}
 	}
-	$loadClass(GetCallerClassTest$LambdaTest, name, initialize, &_GetCallerClassTest$LambdaTest_ClassInfo_, allocate$GetCallerClassTest$LambdaTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LGetCallerClassTest;", nullptr, $FINAL | $SYNTHETIC, $field(GetCallerClassTest$LambdaTest, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LGetCallerClassTest;)V", nullptr, 0, $method(GetCallerClassTest$LambdaTest, init$, void, $GetCallerClassTest*)},
+		{"lambda$run$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(GetCallerClassTest$LambdaTest, lambda$run$0, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(GetCallerClassTest$LambdaTest, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"GetCallerClassTest$LambdaTest", "GetCallerClassTest", "LambdaTest", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"GetCallerClassTest$LambdaTest",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"GetCallerClassTest"
+	};
+	$loadClass(GetCallerClassTest$LambdaTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GetCallerClassTest$LambdaTest);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/http/EmptyInputStream.h>
-
 #include <java/io/InputStream.h>
 #include <jcpp.h>
 
@@ -12,26 +11,6 @@ namespace sun {
 		namespace www {
 			namespace protocol {
 				namespace http {
-
-$MethodInfo _EmptyInputStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(EmptyInputStream, init$, void)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(EmptyInputStream, available, int32_t)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(EmptyInputStream, read, int32_t)},
-	{}
-};
-
-$ClassInfo _EmptyInputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.www.protocol.http.EmptyInputStream",
-	"java.io.InputStream",
-	nullptr,
-	nullptr,
-	_EmptyInputStream_MethodInfo_
-};
-
-$Object* allocate$EmptyInputStream($Class* clazz) {
-	return $of($alloc(EmptyInputStream));
-}
 
 void EmptyInputStream::init$() {
 	$InputStream::init$();
@@ -49,7 +28,23 @@ EmptyInputStream::EmptyInputStream() {
 }
 
 $Class* EmptyInputStream::load$($String* name, bool initialize) {
-	$loadClass(EmptyInputStream, name, initialize, &_EmptyInputStream_ClassInfo_, allocate$EmptyInputStream);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(EmptyInputStream, init$, void)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(EmptyInputStream, available, int32_t)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(EmptyInputStream, read, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.www.protocol.http.EmptyInputStream",
+		"java.io.InputStream",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(EmptyInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EmptyInputStream);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/nio/ch/DatagramChannelImpl$AbstractSelectableChannels.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/invoke/CallSite.h>
@@ -43,67 +42,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(DatagramChannelImpl$AbstractSelectableChannels::lambda$static$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.nio.ch.DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	nullptr,
-	methodInfos
 };
 $Class* DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.nio.ch.DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0::class$ = nullptr;
-
-$FieldInfo _DatagramChannelImpl$AbstractSelectableChannels_FieldInfo_[] = {
-	{"FOREACH", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DatagramChannelImpl$AbstractSelectableChannels, FOREACH)},
-	{}
-};
-
-$MethodInfo _DatagramChannelImpl$AbstractSelectableChannels_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DatagramChannelImpl$AbstractSelectableChannels, init$, void)},
-	{"forEach", "(Ljava/nio/channels/spi/AbstractSelectableChannel;Ljava/util/function/Consumer;)V", "(Ljava/nio/channels/spi/AbstractSelectableChannel;Ljava/util/function/Consumer<Lsun/nio/ch/SelectionKeyImpl;>;)V", $STATIC, $staticMethod(DatagramChannelImpl$AbstractSelectableChannels, forEach, void, $AbstractSelectableChannel*, $Consumer*)},
-	{"lambda$static$0", "()Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DatagramChannelImpl$AbstractSelectableChannels, lambda$static$0, $Method*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _DatagramChannelImpl$AbstractSelectableChannels_InnerClassesInfo_[] = {
-	{"sun.nio.ch.DatagramChannelImpl$AbstractSelectableChannels", "sun.nio.ch.DatagramChannelImpl", "AbstractSelectableChannels", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DatagramChannelImpl$AbstractSelectableChannels_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.DatagramChannelImpl$AbstractSelectableChannels",
-	"java.lang.Object",
-	nullptr,
-	_DatagramChannelImpl$AbstractSelectableChannels_FieldInfo_,
-	_DatagramChannelImpl$AbstractSelectableChannels_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DatagramChannelImpl$AbstractSelectableChannels_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.DatagramChannelImpl"
-};
-
-$Object* allocate$DatagramChannelImpl$AbstractSelectableChannels($Class* clazz) {
-	return $of($alloc(DatagramChannelImpl$AbstractSelectableChannels));
-}
 
 $Method* DatagramChannelImpl$AbstractSelectableChannels::FOREACH = nullptr;
 
@@ -114,15 +73,15 @@ void DatagramChannelImpl$AbstractSelectableChannels::forEach($AbstractSelectable
 	$init(DatagramChannelImpl$AbstractSelectableChannels);
 	$beforeCallerSensitive();
 	try {
-		$nc(DatagramChannelImpl$AbstractSelectableChannels::FOREACH)->invoke(ch, $$new($ObjectArray, {$of(action)}));
+		$nc(DatagramChannelImpl$AbstractSelectableChannels::FOREACH)->invoke(ch, $$new($ObjectArray, {action}));
 	} catch ($Exception& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 }
 
 $Method* DatagramChannelImpl$AbstractSelectableChannels::lambda$static$0() {
 	$init(DatagramChannelImpl$AbstractSelectableChannels);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$load($AbstractSelectableChannel);
 	$load($Consumer);
@@ -131,14 +90,14 @@ $Method* DatagramChannelImpl$AbstractSelectableChannels::lambda$static$0() {
 	return m;
 }
 
-void clinit$DatagramChannelImpl$AbstractSelectableChannels($Class* class$) {
+void DatagramChannelImpl$AbstractSelectableChannels::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
 		try {
-			$var($PrivilegedExceptionAction, pae, static_cast<$PrivilegedExceptionAction*>($new(DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0)));
+			$var($PrivilegedExceptionAction, pae, $new(DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0));
 			$assignStatic(DatagramChannelImpl$AbstractSelectableChannels::FOREACH, $cast($Method, $AccessController::doPrivileged(pae)));
 		} catch ($Exception& e) {
-			$throwNew($InternalError, static_cast<$Throwable*>(e));
+			$throwNew($InternalError, e);
 		}
 	}
 }
@@ -148,11 +107,42 @@ DatagramChannelImpl$AbstractSelectableChannels::DatagramChannelImpl$AbstractSele
 
 $Class* DatagramChannelImpl$AbstractSelectableChannels::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("sun.nio.ch.DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0")) {
 			return DatagramChannelImpl$AbstractSelectableChannels$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(DatagramChannelImpl$AbstractSelectableChannels, name, initialize, &_DatagramChannelImpl$AbstractSelectableChannels_ClassInfo_, clinit$DatagramChannelImpl$AbstractSelectableChannels, allocate$DatagramChannelImpl$AbstractSelectableChannels);
+	$FieldInfo fieldInfos$$[] = {
+		{"FOREACH", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DatagramChannelImpl$AbstractSelectableChannels, FOREACH)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DatagramChannelImpl$AbstractSelectableChannels, init$, void)},
+		{"forEach", "(Ljava/nio/channels/spi/AbstractSelectableChannel;Ljava/util/function/Consumer;)V", "(Ljava/nio/channels/spi/AbstractSelectableChannel;Ljava/util/function/Consumer<Lsun/nio/ch/SelectionKeyImpl;>;)V", $STATIC, $staticMethod(DatagramChannelImpl$AbstractSelectableChannels, forEach, void, $AbstractSelectableChannel*, $Consumer*)},
+		{"lambda$static$0", "()Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DatagramChannelImpl$AbstractSelectableChannels, lambda$static$0, $Method*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.DatagramChannelImpl$AbstractSelectableChannels", "sun.nio.ch.DatagramChannelImpl", "AbstractSelectableChannels", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.DatagramChannelImpl$AbstractSelectableChannels",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.DatagramChannelImpl"
+	};
+	$loadClass(DatagramChannelImpl$AbstractSelectableChannels, name, initialize, &classInfo$$, DatagramChannelImpl$AbstractSelectableChannels::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DatagramChannelImpl$AbstractSelectableChannels);
+	});
 	return class$;
 }
 

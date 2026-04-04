@@ -54,6 +54,7 @@ class $export Indify : public ::java::lang::Object {
 	$class(Indify, 0, ::java::lang::Object)
 public:
 	Indify();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t argsize($String* type);
 	bool booleanOption($String* s);

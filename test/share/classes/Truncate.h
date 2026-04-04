@@ -27,6 +27,7 @@ class $export Truncate : public ::java::lang::Object {
 	$class(Truncate, 0, ::java::lang::Object)
 public:
 	Truncate();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void appendTest(::java::io::File* blah);
 	static void basicTest(::java::io::File* blah);

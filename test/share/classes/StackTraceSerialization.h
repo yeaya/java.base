@@ -21,6 +21,7 @@ class $export StackTraceSerialization : public ::java::lang::Object {
 	$class(StackTraceSerialization, 0, ::java::lang::Object)
 public:
 	StackTraceSerialization();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void a();
 	static void assertEmptyStackTrace($Throwable* t);

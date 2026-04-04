@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/DESedeKey.h>
-
 #include <com/sun/crypto/provider/DESKeyGenerator.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
@@ -34,7 +33,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $Cleaner = ::java::lang::ref::Cleaner;
 using $Reference = ::java::lang::ref::Reference;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
 using $KeyRep = ::java::security::KeyRep;
@@ -59,77 +57,40 @@ public:
 	virtual void run() override {
 		DESedeKey::lambda$new$0(k);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DESedeKey$$Lambda$lambda$new$0>());
-	}
 	$bytes* k = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo DESedeKey$$Lambda$lambda$new$0::fieldInfos[2] = {
-	{"k", "[B", nullptr, $PUBLIC, $field(DESedeKey$$Lambda$lambda$new$0, k)},
-	{}
-};
-$MethodInfo DESedeKey$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(DESedeKey$$Lambda$lambda$new$0, init$, void, $bytes*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DESedeKey$$Lambda$lambda$new$0, run, void)},
-	{}
-};
-$ClassInfo DESedeKey$$Lambda$lambda$new$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.crypto.provider.DESedeKey$$Lambda$lambda$new$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* DESedeKey$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
-	$loadClass(DESedeKey$$Lambda$lambda$new$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"k", "[B", nullptr, $PUBLIC, $field(DESedeKey$$Lambda$lambda$new$0, k)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(DESedeKey$$Lambda$lambda$new$0, init$, void, $bytes*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DESedeKey$$Lambda$lambda$new$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.crypto.provider.DESedeKey$$Lambda$lambda$new$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DESedeKey$$Lambda$lambda$new$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DESedeKey$$Lambda$lambda$new$0);
+	});
 	return class$;
 }
 $Class* DESedeKey$$Lambda$lambda$new$0::class$ = nullptr;
-
-$FieldInfo _DESedeKey_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(DESedeKey, serialVersionUID)},
-	{"key", "[B", nullptr, $PRIVATE, $field(DESedeKey, key)},
-	{}
-};
-
-$MethodInfo _DESedeKey_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, 0, $method(DESedeKey, init$, void, $bytes*), "java.security.InvalidKeyException"},
-	{"<init>", "([BI)V", nullptr, 0, $method(DESedeKey, init$, void, $bytes*, int32_t), "java.security.InvalidKeyException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DESedeKey, equals, bool, Object$*)},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DESedeKey, getAlgorithm, $String*)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(DESedeKey, getEncoded, $bytes*)},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DESedeKey, getFormat, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DESedeKey, hashCode, int32_t)},
-	{"lambda$new$0", "([B)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DESedeKey, lambda$new$0, void, $bytes*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DESedeKey, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(DESedeKey, writeReplace, $Object*), "java.io.ObjectStreamException"},
-	{}
-};
-
-$ClassInfo _DESedeKey_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.DESedeKey",
-	"java.lang.Object",
-	"javax.crypto.SecretKey",
-	_DESedeKey_FieldInfo_,
-	_DESedeKey_MethodInfo_
-};
-
-$Object* allocate$DESedeKey($Class* clazz) {
-	return $of($alloc(DESedeKey));
-}
 
 void DESedeKey::init$($bytes* key) {
 	DESedeKey::init$(key, 0);
 }
 
 void DESedeKey::init$($bytes* key, int32_t offset) {
-	$useLocalCurrentObjectStackCache();
-	if (key == nullptr || (($nc(key)->length - offset) < $DESedeKeySpec::DES_EDE_KEY_LEN)) {
+	$useLocalObjectStack();
+	if (key == nullptr || ((key->length - offset) < $DESedeKeySpec::DES_EDE_KEY_LEN)) {
 		$throwNew($InvalidKeyException, "Wrong key size"_s);
 	}
 	$set(this, key, $new($bytes, $DESedeKeySpec::DES_EDE_KEY_LEN));
@@ -138,7 +99,7 @@ void DESedeKey::init$($bytes* key, int32_t offset) {
 	$DESKeyGenerator::setParityBit(this->key, 8);
 	$DESKeyGenerator::setParityBit(this->key, 16);
 	$var($bytes, k, this->key);
-	$nc($($CleanerFactory::cleaner()))->register$(this, static_cast<$Runnable*>($$new(DESedeKey$$Lambda$lambda$new$0, k)));
+	$$nc($CleanerFactory::cleaner())->register$(this, $$new(DESedeKey$$Lambda$lambda$new$0, k));
 }
 
 $bytes* DESedeKey::getEncoded() {
@@ -158,25 +119,25 @@ $String* DESedeKey::getFormat() {
 int32_t DESedeKey::hashCode() {
 	int32_t retval = 0;
 	for (int32_t i = 1; i < $nc(this->key)->length; ++i) {
-		retval += $nc(this->key)->get(i) * i;
+		retval += this->key->get(i) * i;
 	}
 	return (retval ^= "desede"_s->hashCode());
 }
 
 bool DESedeKey::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, obj)) {
 		return true;
 	}
 	if (!($instanceOf($SecretKey, obj))) {
 		return false;
 	}
-	$var($String, thatAlg, $nc(($cast($SecretKey, obj)))->getAlgorithm());
+	$var($String, thatAlg, $nc($cast($SecretKey, obj))->getAlgorithm());
 	bool var$0 = !($nc(thatAlg)->equalsIgnoreCase("DESede"_s));
 	if (var$0 && !(thatAlg->equalsIgnoreCase("TripleDES"_s))) {
 		return false;
 	}
-	$var($bytes, thatKey, ($cast($SecretKey, obj))->getEncoded());
+	$var($bytes, thatKey, $cast($SecretKey, obj)->getEncoded());
 	bool ret = $MessageDigest::isEqual(this->key, thatKey);
 	$Arrays::fill(thatKey, (int8_t)0);
 	return ret;
@@ -188,11 +149,11 @@ void DESedeKey::readObject($ObjectInputStream* s) {
 }
 
 $Object* DESedeKey::writeReplace() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($KeyRep$Type);
 	$var($KeyRep$Type, var$0, $KeyRep$Type::SECRET);
 	$var($String, var$1, getAlgorithm());
-	return $of($new($KeyRep, var$0, var$1, $(getFormat()), this->key));
+	return $new($KeyRep, var$0, var$1, $(getFormat()), this->key);
 }
 
 void DESedeKey::lambda$new$0($bytes* k) {
@@ -205,11 +166,39 @@ DESedeKey::DESedeKey() {
 
 $Class* DESedeKey::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DESedeKey$$Lambda$lambda$new$0::classInfo$.name)) {
+		if (name->equals("com.sun.crypto.provider.DESedeKey$$Lambda$lambda$new$0")) {
 			return DESedeKey$$Lambda$lambda$new$0::load$(name, initialize);
 		}
 	}
-	$loadClass(DESedeKey, name, initialize, &_DESedeKey_ClassInfo_, allocate$DESedeKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(DESedeKey, serialVersionUID)},
+		{"key", "[B", nullptr, $PRIVATE, $field(DESedeKey, key)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([B)V", nullptr, 0, $method(DESedeKey, init$, void, $bytes*), "java.security.InvalidKeyException"},
+		{"<init>", "([BI)V", nullptr, 0, $method(DESedeKey, init$, void, $bytes*, int32_t), "java.security.InvalidKeyException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DESedeKey, equals, bool, Object$*)},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DESedeKey, getAlgorithm, $String*)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(DESedeKey, getEncoded, $bytes*)},
+		{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DESedeKey, getFormat, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DESedeKey, hashCode, int32_t)},
+		{"lambda$new$0", "([B)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DESedeKey, lambda$new$0, void, $bytes*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DESedeKey, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(DESedeKey, writeReplace, $Object*), "java.io.ObjectStreamException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.DESedeKey",
+		"java.lang.Object",
+		"javax.crypto.SecretKey",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DESedeKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DESedeKey));
+	});
 	return class$;
 }
 

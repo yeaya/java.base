@@ -32,6 +32,7 @@ class PropertyResourceBundleCharset$PropertiesFileDecoder : public ::java::nio::
 	$class(PropertyResourceBundleCharset$PropertiesFileDecoder, 0, ::java::nio::charset::CharsetDecoder)
 public:
 	PropertyResourceBundleCharset$PropertiesFileDecoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::util::PropertyResourceBundleCharset* this$0, ::java::nio::charset::Charset* cs, float averageCharsPerByte, float maxCharsPerByte);
 	virtual ::java::nio::charset::CoderResult* decodeLoop(::java::nio::ByteBuffer* in, ::java::nio::CharBuffer* out) override;
 	::sun::util::PropertyResourceBundleCharset* this$0 = nullptr;

@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/DHKeyFactory.h>
-
 #include <com/sun/crypto/provider/DHPrivateKey.h>
 #include <com/sun/crypto/provider/DHPublicKey.h>
 #include <java/math/BigInteger.h>
@@ -46,42 +45,20 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$MethodInfo _DHKeyFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DHKeyFactory, init$, void)},
-	{"engineGeneratePrivate", "(Ljava/security/spec/KeySpec;)Ljava/security/PrivateKey;", nullptr, $PROTECTED, $virtualMethod(DHKeyFactory, engineGeneratePrivate, $PrivateKey*, $KeySpec*), "java.security.spec.InvalidKeySpecException"},
-	{"engineGeneratePublic", "(Ljava/security/spec/KeySpec;)Ljava/security/PublicKey;", nullptr, $PROTECTED, $virtualMethod(DHKeyFactory, engineGeneratePublic, $PublicKey*, $KeySpec*), "java.security.spec.InvalidKeySpecException"},
-	{"engineGetKeySpec", "(Ljava/security/Key;Ljava/lang/Class;)Ljava/security/spec/KeySpec;", "<T::Ljava/security/spec/KeySpec;>(Ljava/security/Key;Ljava/lang/Class<TT;>;)TT;", $PROTECTED, $virtualMethod(DHKeyFactory, engineGetKeySpec, $KeySpec*, $Key*, $Class*), "java.security.spec.InvalidKeySpecException"},
-	{"engineTranslateKey", "(Ljava/security/Key;)Ljava/security/Key;", nullptr, $PROTECTED, $virtualMethod(DHKeyFactory, engineTranslateKey, $Key*, $Key*), "java.security.InvalidKeyException"},
-	{}
-};
-
-$ClassInfo _DHKeyFactory_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.DHKeyFactory",
-	"java.security.KeyFactorySpi",
-	nullptr,
-	nullptr,
-	_DHKeyFactory_MethodInfo_
-};
-
-$Object* allocate$DHKeyFactory($Class* clazz) {
-	return $of($alloc(DHKeyFactory));
-}
-
 void DHKeyFactory::init$() {
 	$KeyFactorySpi::init$();
 }
 
 $PublicKey* DHKeyFactory::engineGeneratePublic($KeySpec* keySpec) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if ($instanceOf($DHPublicKeySpec, keySpec)) {
 			$var($DHPublicKeySpec, dhPubKeySpec, $cast($DHPublicKeySpec, keySpec));
-			$var($BigInteger, var$0, $nc(dhPubKeySpec)->getY());
+			$var($BigInteger, var$0, dhPubKeySpec->getY());
 			$var($BigInteger, var$1, dhPubKeySpec->getP());
 			return $new($DHPublicKey, var$0, var$1, $(dhPubKeySpec->getG()));
 		} else if ($instanceOf($X509EncodedKeySpec, keySpec)) {
-			return $new($DHPublicKey, $($nc(($cast($X509EncodedKeySpec, keySpec)))->getEncoded()));
+			return $new($DHPublicKey, $($cast($X509EncodedKeySpec, keySpec)->getEncoded()));
 		} else {
 			$throwNew($InvalidKeySpecException, "Inappropriate key specification"_s);
 		}
@@ -92,34 +69,32 @@ $PublicKey* DHKeyFactory::engineGeneratePublic($KeySpec* keySpec) {
 }
 
 $PrivateKey* DHKeyFactory::engineGeneratePrivate($KeySpec* keySpec) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if ($instanceOf($DHPrivateKeySpec, keySpec)) {
 			$var($DHPrivateKeySpec, dhPrivKeySpec, $cast($DHPrivateKeySpec, keySpec));
-			$var($BigInteger, var$0, $nc(dhPrivKeySpec)->getX());
+			$var($BigInteger, var$0, dhPrivKeySpec->getX());
 			$var($BigInteger, var$1, dhPrivKeySpec->getP());
 			return $new($DHPrivateKey, var$0, var$1, $(dhPrivKeySpec->getG()));
 		} else if ($instanceOf($PKCS8EncodedKeySpec, keySpec)) {
-			$var($bytes, encoded, $nc(($cast($PKCS8EncodedKeySpec, keySpec)))->getEncoded());
-			{
-				$var($Throwable, var$2, nullptr);
-				$var($PrivateKey, var$4, nullptr);
-				bool return$3 = false;
-				try {
-					$assign(var$4, $new($DHPrivateKey, encoded));
-					return$3 = true;
-					goto $finally;
-				} catch ($Throwable& var$5) {
-					$assign(var$2, var$5);
-				} $finally: {
-					$Arrays::fill(encoded, (int8_t)0);
-				}
-				if (var$2 != nullptr) {
-					$throw(var$2);
-				}
-				if (return$3) {
-					return var$4;
-				}
+			$var($bytes, encoded, $cast($PKCS8EncodedKeySpec, keySpec)->getEncoded());
+			$var($Throwable, var$2, nullptr);
+			$var($PrivateKey, var$4, nullptr);
+			bool return$3 = false;
+			try {
+				$assign(var$4, $new($DHPrivateKey, encoded));
+				return$3 = true;
+				goto $finally;
+			} catch ($Throwable& var$5) {
+				$assign(var$2, var$5);
+			} $finally: {
+				$Arrays::fill(encoded, (int8_t)0);
+			}
+			if (var$2 != nullptr) {
+				$throw(var$2);
+			}
+			if (return$3) {
+				return var$4;
 			}
 		} else {
 			$throwNew($InvalidKeySpecException, "Inappropriate key specification"_s);
@@ -131,20 +106,20 @@ $PrivateKey* DHKeyFactory::engineGeneratePrivate($KeySpec* keySpec) {
 }
 
 $KeySpec* DHKeyFactory::engineGetKeySpec($Key* key, $Class* keySpec) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DHParameterSpec, params, nullptr);
 	if ($instanceOf($1DHPublicKey, key)) {
 		$load($DHPublicKeySpec);
 		if ($nc(keySpec)->isAssignableFrom($DHPublicKeySpec::class$)) {
 			$var($1DHPublicKey, dhPubKey, $cast($1DHPublicKey, key));
-			$assign(params, $nc(dhPubKey)->getParams());
+			$assign(params, dhPubKey->getParams());
 			$var($BigInteger, var$0, dhPubKey->getY());
 			$var($BigInteger, var$1, $nc(params)->getP());
 			return $cast($KeySpec, keySpec->cast($$new($DHPublicKeySpec, var$0, var$1, $(params->getG()))));
 		} else {
 			$load($X509EncodedKeySpec);
 			if (keySpec->isAssignableFrom($X509EncodedKeySpec::class$)) {
-				return $cast($KeySpec, keySpec->cast($$new($X509EncodedKeySpec, $($nc(key)->getEncoded()))));
+				return $cast($KeySpec, keySpec->cast($$new($X509EncodedKeySpec, $(key->getEncoded()))));
 			} else {
 				$throwNew($InvalidKeySpecException, "Inappropriate key specification"_s);
 			}
@@ -153,33 +128,31 @@ $KeySpec* DHKeyFactory::engineGetKeySpec($Key* key, $Class* keySpec) {
 		$load($DHPrivateKeySpec);
 		if ($nc(keySpec)->isAssignableFrom($DHPrivateKeySpec::class$)) {
 			$var($1DHPrivateKey, dhPrivKey, $cast($1DHPrivateKey, key));
-			$assign(params, $nc(dhPrivKey)->getParams());
+			$assign(params, dhPrivKey->getParams());
 			$var($BigInteger, var$2, dhPrivKey->getX());
 			$var($BigInteger, var$3, $nc(params)->getP());
 			return $cast($KeySpec, keySpec->cast($$new($DHPrivateKeySpec, var$2, var$3, $(params->getG()))));
 		} else {
 			$load($PKCS8EncodedKeySpec);
 			if (keySpec->isAssignableFrom($PKCS8EncodedKeySpec::class$)) {
-				$var($bytes, encoded, $nc(key)->getEncoded());
-				{
-					$var($Throwable, var$4, nullptr);
-					$var($KeySpec, var$6, nullptr);
-					bool return$5 = false;
-					try {
-						$assign(var$6, $cast($KeySpec, keySpec->cast($$new($PKCS8EncodedKeySpec, encoded))));
-						return$5 = true;
-						goto $finally;
-					} catch ($Throwable& var$7) {
-						$assign(var$4, var$7);
-					} $finally: {
-						$Arrays::fill(encoded, (int8_t)0);
-					}
-					if (var$4 != nullptr) {
-						$throw(var$4);
-					}
-					if (return$5) {
-						return var$6;
-					}
+				$var($bytes, encoded, key->getEncoded());
+				$var($Throwable, var$4, nullptr);
+				$var($KeySpec, var$6, nullptr);
+				bool return$5 = false;
+				try {
+					$assign(var$6, $cast($KeySpec, keySpec->cast($$new($PKCS8EncodedKeySpec, encoded))));
+					return$5 = true;
+					goto $finally;
+				} catch ($Throwable& var$7) {
+					$assign(var$4, var$7);
+				} $finally: {
+					$Arrays::fill(encoded, (int8_t)0);
+				}
+				if (var$4 != nullptr) {
+					$throw(var$4);
+				}
+				if (return$5) {
+					return var$6;
 				}
 			} else {
 				$throwNew($InvalidKeySpecException, "Inappropriate key specification"_s);
@@ -192,7 +165,7 @@ $KeySpec* DHKeyFactory::engineGetKeySpec($Key* key, $Class* keySpec) {
 }
 
 $Key* DHKeyFactory::engineTranslateKey($Key* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if ($instanceOf($1DHPublicKey, key)) {
 			if ($instanceOf($DHPublicKey, key)) {
@@ -221,7 +194,25 @@ DHKeyFactory::DHKeyFactory() {
 }
 
 $Class* DHKeyFactory::load$($String* name, bool initialize) {
-	$loadClass(DHKeyFactory, name, initialize, &_DHKeyFactory_ClassInfo_, allocate$DHKeyFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DHKeyFactory, init$, void)},
+		{"engineGeneratePrivate", "(Ljava/security/spec/KeySpec;)Ljava/security/PrivateKey;", nullptr, $PROTECTED, $virtualMethod(DHKeyFactory, engineGeneratePrivate, $PrivateKey*, $KeySpec*), "java.security.spec.InvalidKeySpecException"},
+		{"engineGeneratePublic", "(Ljava/security/spec/KeySpec;)Ljava/security/PublicKey;", nullptr, $PROTECTED, $virtualMethod(DHKeyFactory, engineGeneratePublic, $PublicKey*, $KeySpec*), "java.security.spec.InvalidKeySpecException"},
+		{"engineGetKeySpec", "(Ljava/security/Key;Ljava/lang/Class;)Ljava/security/spec/KeySpec;", "<T::Ljava/security/spec/KeySpec;>(Ljava/security/Key;Ljava/lang/Class<TT;>;)TT;", $PROTECTED, $virtualMethod(DHKeyFactory, engineGetKeySpec, $KeySpec*, $Key*, $Class*), "java.security.spec.InvalidKeySpecException"},
+		{"engineTranslateKey", "(Ljava/security/Key;)Ljava/security/Key;", nullptr, $PROTECTED, $virtualMethod(DHKeyFactory, engineTranslateKey, $Key*, $Key*), "java.security.InvalidKeyException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.DHKeyFactory",
+		"java.security.KeyFactorySpi",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DHKeyFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DHKeyFactory);
+	});
 	return class$;
 }
 

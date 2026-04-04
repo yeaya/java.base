@@ -32,6 +32,7 @@ class $export SecureClassLoader : public ::java::lang::ClassLoader {
 public:
 	SecureClassLoader();
 	using ::java::lang::ClassLoader::defineClass;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::ClassLoader* parent);
 	void init$();
 	void init$($String* name, ::java::lang::ClassLoader* parent);

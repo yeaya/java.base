@@ -62,6 +62,7 @@ class LambdaForm : public ::java::lang::Object {
 	$class(LambdaForm, 0, ::java::lang::Object)
 public:
 	LambdaForm();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t arity, $Array<::java::lang::invoke::LambdaForm$Name>* names, int32_t result);
 	void init$(int32_t arity, $Array<::java::lang::invoke::LambdaForm$Name>* names, int32_t result, ::java::lang::invoke::LambdaForm$Kind* kind);
 	void init$(int32_t arity, $Array<::java::lang::invoke::LambdaForm$Name>* names, int32_t result, bool forceInline, ::java::lang::invoke::MethodHandle* customized);

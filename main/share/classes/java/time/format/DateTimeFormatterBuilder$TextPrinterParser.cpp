@@ -1,5 +1,4 @@
 #include <java/time/format/DateTimeFormatterBuilder$TextPrinterParser.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/time/chrono/Chronology.h>
@@ -45,7 +44,6 @@ using $DateTimeTextProvider = ::java::time::format::DateTimeTextProvider;
 using $SignStyle = ::java::time::format::SignStyle;
 using $TextStyle = ::java::time::format::TextStyle;
 using $ChronoField = ::java::time::temporal::ChronoField;
-using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 using $TemporalField = ::java::time::temporal::TemporalField;
 using $TemporalQueries = ::java::time::temporal::TemporalQueries;
 using $Iterator = ::java::util::Iterator;
@@ -56,49 +54,6 @@ namespace java {
 	namespace time {
 		namespace format {
 
-$FieldInfo _DateTimeFormatterBuilder$TextPrinterParser_FieldInfo_[] = {
-	{"field", "Ljava/time/temporal/TemporalField;", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$TextPrinterParser, field)},
-	{"textStyle", "Ljava/time/format/TextStyle;", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$TextPrinterParser, textStyle)},
-	{"provider", "Ljava/time/format/DateTimeTextProvider;", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$TextPrinterParser, provider)},
-	{"numberPrinterParser", "Ljava/time/format/DateTimeFormatterBuilder$NumberPrinterParser;", nullptr, $PRIVATE | $VOLATILE, $field(DateTimeFormatterBuilder$TextPrinterParser, numberPrinterParser$)},
-	{}
-};
-
-$MethodInfo _DateTimeFormatterBuilder$TextPrinterParser_MethodInfo_[] = {
-	{"<init>", "(Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/time/format/DateTimeTextProvider;)V", nullptr, 0, $method(DateTimeFormatterBuilder$TextPrinterParser, init$, void, $TemporalField*, $TextStyle*, $DateTimeTextProvider*)},
-	{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$TextPrinterParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
-	{"numberPrinterParser", "()Ljava/time/format/DateTimeFormatterBuilder$NumberPrinterParser;", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$TextPrinterParser, numberPrinterParser, $DateTimeFormatterBuilder$NumberPrinterParser*)},
-	{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$TextPrinterParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$TextPrinterParser, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _DateTimeFormatterBuilder$TextPrinterParser_InnerClassesInfo_[] = {
-	{"java.time.format.DateTimeFormatterBuilder$TextPrinterParser", "java.time.format.DateTimeFormatterBuilder", "TextPrinterParser", $STATIC | $FINAL},
-	{"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser", "java.time.format.DateTimeFormatterBuilder", "DateTimePrinterParser", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DateTimeFormatterBuilder$TextPrinterParser_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.time.format.DateTimeFormatterBuilder$TextPrinterParser",
-	"java.lang.Object",
-	"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser",
-	_DateTimeFormatterBuilder$TextPrinterParser_FieldInfo_,
-	_DateTimeFormatterBuilder$TextPrinterParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DateTimeFormatterBuilder$TextPrinterParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.format.DateTimeFormatterBuilder"
-};
-
-$Object* allocate$DateTimeFormatterBuilder$TextPrinterParser($Class* clazz) {
-	return $of($alloc(DateTimeFormatterBuilder$TextPrinterParser));
-}
-
 void DateTimeFormatterBuilder$TextPrinterParser::init$($TemporalField* field, $TextStyle* textStyle, $DateTimeTextProvider* provider) {
 	$set(this, field, field);
 	$set(this, textStyle, textStyle);
@@ -106,13 +61,13 @@ void DateTimeFormatterBuilder$TextPrinterParser::init$($TemporalField* field, $T
 }
 
 bool DateTimeFormatterBuilder$TextPrinterParser::format($DateTimePrintContext* context, $StringBuilder* buf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Long, value, $nc(context)->getValue(this->field));
 	if (value == nullptr) {
 		return false;
 	}
 	$var($String, text, nullptr);
-	$var($Chronology, chrono, $cast($Chronology, $nc($(context->getTemporal()))->query($($TemporalQueries::chronology()))));
+	$var($Chronology, chrono, $cast($Chronology, $$nc(context->getTemporal())->query($($TemporalQueries::chronology()))));
 	$init($IsoChronology);
 	if (chrono == nullptr || $equals(chrono, $IsoChronology::INSTANCE)) {
 		$var($TemporalField, var$0, this->field);
@@ -120,27 +75,26 @@ bool DateTimeFormatterBuilder$TextPrinterParser::format($DateTimePrintContext* c
 		$var($TextStyle, var$2, this->textStyle);
 		$assign(text, $nc(this->provider)->getText(var$0, var$1, var$2, $(context->getLocale())));
 	} else {
-		$var($Chronology, var$3, chrono);
-		$var($TemporalField, var$4, this->field);
-		int64_t var$5 = $nc(value)->longValue();
-		$var($TextStyle, var$6, this->textStyle);
-		$assign(text, $nc(this->provider)->getText(var$3, var$4, var$5, var$6, $(context->getLocale())));
+		$var($TemporalField, var$3, this->field);
+		int64_t var$4 = $nc(value)->longValue();
+		$var($TextStyle, var$5, this->textStyle);
+		$assign(text, $nc(this->provider)->getText(chrono, var$3, var$4, var$5, $(context->getLocale())));
 	}
 	if (text == nullptr) {
-		return $nc($(numberPrinterParser()))->format(context, buf);
+		return $$nc(numberPrinterParser())->format(context, buf);
 	}
 	$nc(buf)->append(text);
 	return true;
 }
 
 int32_t DateTimeFormatterBuilder$TextPrinterParser::parse($DateTimeParseContext* context, $CharSequence* parseText, int32_t position) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = $nc(parseText)->length();
 	if (position < 0 || position > length) {
 		$throwNew($IndexOutOfBoundsException);
 	}
 	$TextStyle* style = ($nc(context)->isStrict() ? this->textStyle : ($TextStyle*)nullptr);
-	$var($Chronology, chrono, $nc(context)->getEffectiveChronology());
+	$var($Chronology, chrono, context->getEffectiveChronology());
 	$var($Iterator, it, nullptr);
 	$init($IsoChronology);
 	if (chrono == nullptr || $equals(chrono, $IsoChronology::INSTANCE)) {
@@ -154,9 +108,8 @@ int32_t DateTimeFormatterBuilder$TextPrinterParser::parse($DateTimeParseContext*
 			$var($String, itText, $cast($String, $nc(entry)->getKey()));
 			if (context->subSequenceEquals(itText, 0, parseText, position, $nc(itText)->length())) {
 				$var($TemporalField, var$0, this->field);
-				int64_t var$1 = $nc(($cast($Long, $(entry->getValue()))))->longValue();
-				int32_t var$2 = position;
-				return context->setParsedField(var$0, var$1, var$2, position + $nc(itText)->length());
+				int64_t var$1 = $$sure($Long, entry->getValue())->longValue();
+				return context->setParsedField(var$0, var$1, position, position + itText->length());
 			}
 		}
 		$init($ChronoField);
@@ -167,12 +120,11 @@ int32_t DateTimeFormatterBuilder$TextPrinterParser::parse($DateTimeParseContext*
 				for (; $nc(i$)->hasNext();) {
 					$var($Era, era, $cast($Era, i$->next()));
 					{
-						$var($String, name, $nc($of(era))->toString());
+						$var($String, name, $nc(era)->toString());
 						if (context->subSequenceEquals(name, 0, parseText, position, $nc(name)->length())) {
-							$var($TemporalField, var$3, this->field);
-							int64_t var$4 = (int64_t)era->getValue();
-							int32_t var$5 = position;
-							return context->setParsedField(var$3, var$4, var$5, position + $nc(name)->length());
+							$var($TemporalField, var$2, this->field);
+							int64_t var$3 = era->getValue();
+							return context->setParsedField(var$2, var$3, position, position + name->length());
 						}
 					}
 				}
@@ -182,7 +134,7 @@ int32_t DateTimeFormatterBuilder$TextPrinterParser::parse($DateTimeParseContext*
 			return ~position;
 		}
 	}
-	return $nc($(numberPrinterParser()))->parse(context, parseText, position);
+	return $$nc(numberPrinterParser())->parse(context, parseText, position);
 }
 
 $DateTimeFormatterBuilder$NumberPrinterParser* DateTimeFormatterBuilder$TextPrinterParser::numberPrinterParser() {
@@ -205,7 +157,44 @@ DateTimeFormatterBuilder$TextPrinterParser::DateTimeFormatterBuilder$TextPrinter
 }
 
 $Class* DateTimeFormatterBuilder$TextPrinterParser::load$($String* name, bool initialize) {
-	$loadClass(DateTimeFormatterBuilder$TextPrinterParser, name, initialize, &_DateTimeFormatterBuilder$TextPrinterParser_ClassInfo_, allocate$DateTimeFormatterBuilder$TextPrinterParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"field", "Ljava/time/temporal/TemporalField;", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$TextPrinterParser, field)},
+		{"textStyle", "Ljava/time/format/TextStyle;", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$TextPrinterParser, textStyle)},
+		{"provider", "Ljava/time/format/DateTimeTextProvider;", nullptr, $PRIVATE | $FINAL, $field(DateTimeFormatterBuilder$TextPrinterParser, provider)},
+		{"numberPrinterParser", "Ljava/time/format/DateTimeFormatterBuilder$NumberPrinterParser;", nullptr, $PRIVATE | $VOLATILE, $field(DateTimeFormatterBuilder$TextPrinterParser, numberPrinterParser$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/time/temporal/TemporalField;Ljava/time/format/TextStyle;Ljava/time/format/DateTimeTextProvider;)V", nullptr, 0, $method(DateTimeFormatterBuilder$TextPrinterParser, init$, void, $TemporalField*, $TextStyle*, $DateTimeTextProvider*)},
+		{"format", "(Ljava/time/format/DateTimePrintContext;Ljava/lang/StringBuilder;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$TextPrinterParser, format, bool, $DateTimePrintContext*, $StringBuilder*)},
+		{"numberPrinterParser", "()Ljava/time/format/DateTimeFormatterBuilder$NumberPrinterParser;", nullptr, $PRIVATE, $method(DateTimeFormatterBuilder$TextPrinterParser, numberPrinterParser, $DateTimeFormatterBuilder$NumberPrinterParser*)},
+		{"parse", "(Ljava/time/format/DateTimeParseContext;Ljava/lang/CharSequence;I)I", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$TextPrinterParser, parse, int32_t, $DateTimeParseContext*, $CharSequence*, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DateTimeFormatterBuilder$TextPrinterParser, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.format.DateTimeFormatterBuilder$TextPrinterParser", "java.time.format.DateTimeFormatterBuilder", "TextPrinterParser", $STATIC | $FINAL},
+		{"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser", "java.time.format.DateTimeFormatterBuilder", "DateTimePrinterParser", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.time.format.DateTimeFormatterBuilder$TextPrinterParser",
+		"java.lang.Object",
+		"java.time.format.DateTimeFormatterBuilder$DateTimePrinterParser",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.format.DateTimeFormatterBuilder"
+	};
+	$loadClass(DateTimeFormatterBuilder$TextPrinterParser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DateTimeFormatterBuilder$TextPrinterParser);
+	});
 	return class$;
 }
 

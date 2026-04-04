@@ -29,6 +29,7 @@ class $export Position : public ::java::lang::Object {
 	$class(Position, 0, ::java::lang::Object)
 public:
 	Position();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void initTestFile(::java::nio::file::Path* blah);
 	static void main($StringArray* args);

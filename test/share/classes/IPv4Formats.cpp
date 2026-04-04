@@ -1,5 +1,4 @@
 #include <IPv4Formats.h>
-
 #include <java/net/InetAddress.h>
 #include <java/net/UnknownHostException.h>
 #include <jcpp.h>
@@ -11,30 +10,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $InetAddress = ::java::net::InetAddress;
 using $UnknownHostException = ::java::net::UnknownHostException;
 
-$MethodInfo _IPv4Formats_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IPv4Formats, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IPv4Formats, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _IPv4Formats_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"IPv4Formats",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_IPv4Formats_MethodInfo_
-};
-
-$Object* allocate$IPv4Formats($Class* clazz) {
-	return $of($alloc(IPv4Formats));
-}
-
 void IPv4Formats::init$() {
 }
 
 void IPv4Formats::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetAddress, ad1, nullptr);
 	$var($InetAddress, ad2, nullptr);
 	$var($StringArray2, adds, $new($StringArray2, {
@@ -56,15 +36,15 @@ void IPv4Formats::main($StringArray* args) {
 		}),
 		$$new($StringArray, {
 			"invalidhost.invalid"_s,
-			($String*)nullptr
+			nullptr
 		}),
 		$$new($StringArray, {
 			"1024.1.2.3"_s,
-			($String*)nullptr
+			nullptr
 		}),
 		$$new($StringArray, {
 			"128.14.66000"_s,
-			($String*)nullptr
+			nullptr
 		})
 	}));
 	for (int32_t i = 0; i < adds->length; ++i) {
@@ -92,7 +72,22 @@ IPv4Formats::IPv4Formats() {
 }
 
 $Class* IPv4Formats::load$($String* name, bool initialize) {
-	$loadClass(IPv4Formats, name, initialize, &_IPv4Formats_ClassInfo_, allocate$IPv4Formats);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IPv4Formats, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IPv4Formats, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"IPv4Formats",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(IPv4Formats, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IPv4Formats);
+	});
 	return class$;
 }
 

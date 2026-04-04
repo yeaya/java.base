@@ -1,5 +1,4 @@
 #include <ToUpperCase.h>
-
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
@@ -8,39 +7,17 @@
 #undef US
 
 using $StringArray2 = $Array<::java::lang::String, 2>;
-using $PrintStream = ::java::io::PrintStream;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 
-$MethodInfo _ToUpperCase_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ToUpperCase, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ToUpperCase, main, void, $StringArray*)},
-	{"test", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ToUpperCase, test, void, $String*, $Locale*, $String*)},
-	{"test0", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ToUpperCase, test0, void, $String*, $Locale*, $String*)},
-	{}
-};
-
-$ClassInfo _ToUpperCase_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ToUpperCase",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ToUpperCase_MethodInfo_
-};
-
-$Object* allocate$ToUpperCase($Class* clazz) {
-	return $of($alloc(ToUpperCase));
-}
-
 void ToUpperCase::init$() {
 }
 
 void ToUpperCase::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, turkish, $new($Locale, "tr"_s, "TR"_s));
 	$var($Locale, lt, $new($Locale, "lt"_s));
 	$var($Locale, az, $new($Locale, "az"_s));
@@ -49,7 +26,6 @@ void ToUpperCase::main($StringArray* args) {
 	test("i"_s, turkish, u"İ"_s);
 	test("i"_s, az, u"İ"_s);
 	test(u"ı"_s, turkish, "I"_s);
-	$init($Locale);
 	test(u"ß"_s, $Locale::GERMANY, "SS"_s);
 	test(u"aß"_s, $Locale::GERMANY, "ASS"_s);
 	test("i"_s, $Locale::GERMANY, "I"_s);
@@ -77,13 +53,13 @@ void ToUpperCase::main($StringArray* args) {
 	test(u"abċdef"_s, lt, u"ABĊDEF"_s);
 	test(u"i̇"_s, $Locale::US, u"İ"_s);
 	test(u"i̇"_s, turkish, u"İ̇"_s);
-	test($cstr({0x10428, 0x10429, 0x1042A}), $Locale::US, $cstr({0x10400, 0x10401, 0x10402}));
-	test($cstr({0x10428, 'a', 0x10429, 'b', 0x1042A, 'c'}), $Locale::US, $cstr({0x10400, 'A', 0x10401, 'B', 0x10402, 'C'}));
-	test($cstr({0xD800, 0xD800, 0xD801, 'a', 0xDC00, 0xDC00, 0xDC00, 'b'}), $Locale::US, $cstr({0xD800, 0xD800, 0xD801, 'A', 0xDC00, 0xDC00, 0xDC00, 'B'}));
-	test($cstr({'a', 0x10444}), $Locale::ROOT, $cstr({'A', 0x1041C}));
-	test($cstr({'A', 0x10444}), $Locale::ROOT, $cstr({'A', 0x1041C}));
-	test($cstr({'a', 0x10428, 0x10429, 0x1042A}), $Locale::US, $cstr({'A', 0x10400, 0x10401, 0x10402}));
-	test($cstr({'A', 0x10428, 'a', 0x10429, 'b', 0x1042A, 'c'}), $Locale::US, $cstr({'A', 0x10400, 'A', 0x10401, 'B', 0x10402, 'C'}));
+	test($cstr({0x00010428, 0x00010429, 0x0001042a}), $Locale::US, $cstr({0x00010400, 0x00010401, 0x00010402}));
+	test($cstr({0x00010428, 'a', 0x00010429, 'b', 0x0001042a, 'c'}), $Locale::US, $cstr({0x00010400, 'A', 0x00010401, 'B', 0x00010402, 'C'}));
+	test($cstr({0xd800, 0xd800, 0xd801, 'a', 0xdc00, 0xdc00, 0xdc00, 'b'}), $Locale::US, $cstr({0xd800, 0xd800, 0xd801, 'A', 0xdc00, 0xdc00, 0xdc00, 'B'}));
+	test($cstr({'a', 0x00010444}), $Locale::ROOT, $cstr({'A', 0x0001041c}));
+	test($cstr({'A', 0x00010444}), $Locale::ROOT, $cstr({'A', 0x0001041c}));
+	test($cstr({'a', 0x00010428, 0x00010429, 0x0001042a}), $Locale::US, $cstr({'A', 0x00010400, 0x00010401, 0x00010402}));
+	test($cstr({'A', 0x00010428, 'a', 0x00010429, 'b', 0x0001042a, 'c'}), $Locale::US, $cstr({'A', 0x00010400, 'A', 0x00010401, 'B', 0x00010402, 'C'}));
 	$var($StringBuilder, src, $new($StringBuilder, 256));
 	$var($StringBuilder, exp, $new($StringBuilder, 256));
 	for (int32_t cp = 0; cp < 256; ++cp) {
@@ -92,7 +68,7 @@ void ToUpperCase::main($StringArray* args) {
 			continue;
 		}
 		src->appendCodePoint(cp);
-		if (cp == (char16_t)0xDF) {
+		if (cp == (char16_t)0xdf) {
 			exp->append("SS"_s);
 		} else {
 			exp->appendCodePoint(upperCase);
@@ -116,7 +92,7 @@ void ToUpperCase::main($StringArray* args) {
 }
 
 void ToUpperCase::test($String* in, $Locale* locale, $String* expected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	test0(in, locale, expected);
 	{
 		$var($StringArray2, arr$, $new($StringArray2, {
@@ -145,44 +121,42 @@ void ToUpperCase::test($String* in, $Locale* locale, $String* expected) {
 				u"AB一"_s
 			}),
 			$$new($StringArray, {
-				$cstr({'A', 'B', 0x10000}),
-				$cstr({'A', 'B', 0x10000})
+				$cstr({'A', 'B', 0x00010000}),
+				$cstr({'A', 'B', 0x00010000})
 			}),
 			$$new($StringArray, {
-				$cstr({'A', 'b', 0x10000}),
-				$cstr({'A', 'B', 0x10000})
+				$cstr({'A', 'b', 0x00010000}),
+				$cstr({'A', 'B', 0x00010000})
 			}),
 			$$new($StringArray, {
-				$cstr({'a', 'b', 0x10000}),
-				$cstr({'A', 'B', 0x10000})
+				$cstr({'a', 'b', 0x00010000}),
+				$cstr({'A', 'B', 0x00010000})
 			}),
 			$$new($StringArray, {
-				$cstr({'A', 'B', 0x10444}),
-				$cstr({'A', 'B', 0x1041C})
+				$cstr({'A', 'B', 0x00010444}),
+				$cstr({'A', 'B', 0x0001041c})
 			}),
 			$$new($StringArray, {
-				$cstr({'A', 'b', 0x10444}),
-				$cstr({'A', 'B', 0x1041C})
+				$cstr({'A', 'b', 0x00010444}),
+				$cstr({'A', 'B', 0x0001041c})
 			}),
 			$$new($StringArray, {
-				$cstr({'a', 'b', 0x10444}),
-				$cstr({'A', 'B', 0x1041C})
+				$cstr({'a', 'b', 0x00010444}),
+				$cstr({'A', 'B', 0x0001041c})
 			})
 		}));
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($StringArray, ss, arr$->get(i$));
 			{
-				test0($$str({$nc(ss)->get(0), " "_s, in}), locale, $$str({ss->get(1), " "_s, expected}));
-				test0($$str({in, " "_s, $nc(ss)->get(0)}), locale, $$str({expected, " "_s, ss->get(1)}));
+				test0($$str({$nc(ss)->get(0), " "_s, in}), locale, $$str({$nc(ss)->get(1), " "_s, expected}));
+				test0($$str({in, " "_s, ss->get(0)}), locale, $$str({expected, " "_s, ss->get(1)}));
 			}
 		}
 	}
 }
 
 void ToUpperCase::test0($String* in, $Locale* locale, $String* expected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, result, $nc(in)->toUpperCase(locale));
 	if (!result->equals(expected)) {
 		$nc($System::err)->println($$str({"input: "_s, in, ", locale: "_s, locale, ", expected: "_s, expected, ", actual: "_s, result}));
@@ -194,7 +168,24 @@ ToUpperCase::ToUpperCase() {
 }
 
 $Class* ToUpperCase::load$($String* name, bool initialize) {
-	$loadClass(ToUpperCase, name, initialize, &_ToUpperCase_ClassInfo_, allocate$ToUpperCase);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ToUpperCase, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ToUpperCase, main, void, $StringArray*)},
+		{"test", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ToUpperCase, test, void, $String*, $Locale*, $String*)},
+		{"test0", "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ToUpperCase, test0, void, $String*, $Locale*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ToUpperCase",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ToUpperCase, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ToUpperCase);
+	});
 	return class$;
 }
 

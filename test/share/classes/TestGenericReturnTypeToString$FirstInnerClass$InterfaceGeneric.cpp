@@ -1,39 +1,34 @@
 #include <TestGenericReturnTypeToString$FirstInnerClass$InterfaceGeneric.h>
-
 #include <TestGenericReturnTypeToString$FirstInnerClass.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 
-$InnerClassInfo _TestGenericReturnTypeToString$FirstInnerClass$InterfaceGeneric_InnerClassesInfo_[] = {
-	{"TestGenericReturnTypeToString$FirstInnerClass", "TestGenericReturnTypeToString", "FirstInnerClass", $PUBLIC | $STATIC},
-	{"TestGenericReturnTypeToString$FirstInnerClass$InterfaceGeneric", "TestGenericReturnTypeToString$FirstInnerClass", "InterfaceGeneric", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TestGenericReturnTypeToString$FirstInnerClass$InterfaceGeneric_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"TestGenericReturnTypeToString$FirstInnerClass$InterfaceGeneric",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_TestGenericReturnTypeToString$FirstInnerClass$InterfaceGeneric_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestGenericReturnTypeToString"
-};
-
-$Object* allocate$TestGenericReturnTypeToString$FirstInnerClass$InterfaceGeneric($Class* clazz) {
-	return $of($alloc(TestGenericReturnTypeToString$FirstInnerClass$InterfaceGeneric));
-}
-
 $Class* TestGenericReturnTypeToString$FirstInnerClass$InterfaceGeneric::load$($String* name, bool initialize) {
-	$loadClass(TestGenericReturnTypeToString$FirstInnerClass$InterfaceGeneric, name, initialize, &_TestGenericReturnTypeToString$FirstInnerClass$InterfaceGeneric_ClassInfo_, allocate$TestGenericReturnTypeToString$FirstInnerClass$InterfaceGeneric);
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestGenericReturnTypeToString$FirstInnerClass", "TestGenericReturnTypeToString", "FirstInnerClass", $PUBLIC | $STATIC},
+		{"TestGenericReturnTypeToString$FirstInnerClass$InterfaceGeneric", "TestGenericReturnTypeToString$FirstInnerClass", "InterfaceGeneric", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"TestGenericReturnTypeToString$FirstInnerClass$InterfaceGeneric",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestGenericReturnTypeToString"
+	};
+	$loadClass(TestGenericReturnTypeToString$FirstInnerClass$InterfaceGeneric, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestGenericReturnTypeToString$FirstInnerClass$InterfaceGeneric);
+	});
 	return class$;
 }
 

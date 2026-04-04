@@ -1,5 +1,4 @@
 #include <sun/nio/cs/StreamEncoder.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/io/UnsupportedEncodingException.h>
@@ -45,63 +44,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$FieldInfo _StreamEncoder_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(StreamEncoder, $assertionsDisabled)},
-	{"DEFAULT_BYTE_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StreamEncoder, DEFAULT_BYTE_BUFFER_SIZE)},
-	{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(StreamEncoder, closed)},
-	{"cs", "Ljava/nio/charset/Charset;", nullptr, $PRIVATE | $FINAL, $field(StreamEncoder, cs)},
-	{"encoder", "Ljava/nio/charset/CharsetEncoder;", nullptr, $PRIVATE | $FINAL, $field(StreamEncoder, encoder)},
-	{"bb", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $FINAL, $field(StreamEncoder, bb)},
-	{"out", "Ljava/io/OutputStream;", nullptr, $PRIVATE | $FINAL, $field(StreamEncoder, out)},
-	{"ch", "Ljava/nio/channels/WritableByteChannel;", nullptr, $PRIVATE | $FINAL, $field(StreamEncoder, ch)},
-	{"haveLeftoverChar", "Z", nullptr, $PRIVATE, $field(StreamEncoder, haveLeftoverChar)},
-	{"leftoverChar", "C", nullptr, $PRIVATE, $field(StreamEncoder, leftoverChar)},
-	{"lcb", "Ljava/nio/CharBuffer;", nullptr, $PRIVATE, $field(StreamEncoder, lcb)},
-	{}
-};
-
-$MethodInfo _StreamEncoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;Ljava/lang/Object;Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(StreamEncoder, init$, void, $OutputStream*, Object$*, $Charset*)},
-	{"<init>", "(Ljava/io/OutputStream;Ljava/lang/Object;Ljava/nio/charset/CharsetEncoder;)V", nullptr, $PRIVATE, $method(StreamEncoder, init$, void, $OutputStream*, Object$*, $CharsetEncoder*)},
-	{"<init>", "(Ljava/nio/channels/WritableByteChannel;Ljava/nio/charset/CharsetEncoder;I)V", nullptr, $PRIVATE, $method(StreamEncoder, init$, void, $WritableByteChannel*, $CharsetEncoder*, int32_t)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(StreamEncoder, close, void), "java.io.IOException"},
-	{"encodingName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(StreamEncoder, encodingName, $String*)},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(StreamEncoder, ensureOpen, void), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(StreamEncoder, flush, void), "java.io.IOException"},
-	{"flushBuffer", "()V", nullptr, $PUBLIC, $virtualMethod(StreamEncoder, flushBuffer, void), "java.io.IOException"},
-	{"flushLeftoverChar", "(Ljava/nio/CharBuffer;Z)V", nullptr, $PRIVATE, $method(StreamEncoder, flushLeftoverChar, void, $CharBuffer*, bool), "java.io.IOException"},
-	{"forEncoder", "(Ljava/nio/channels/WritableByteChannel;Ljava/nio/charset/CharsetEncoder;I)Lsun/nio/cs/StreamEncoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamEncoder, forEncoder, StreamEncoder*, $WritableByteChannel*, $CharsetEncoder*, int32_t)},
-	{"forOutputStreamWriter", "(Ljava/io/OutputStream;Ljava/lang/Object;Ljava/lang/String;)Lsun/nio/cs/StreamEncoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamEncoder, forOutputStreamWriter, StreamEncoder*, $OutputStream*, Object$*, $String*), "java.io.UnsupportedEncodingException"},
-	{"forOutputStreamWriter", "(Ljava/io/OutputStream;Ljava/lang/Object;Ljava/nio/charset/Charset;)Lsun/nio/cs/StreamEncoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamEncoder, forOutputStreamWriter, StreamEncoder*, $OutputStream*, Object$*, $Charset*)},
-	{"forOutputStreamWriter", "(Ljava/io/OutputStream;Ljava/lang/Object;Ljava/nio/charset/CharsetEncoder;)Lsun/nio/cs/StreamEncoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamEncoder, forOutputStreamWriter, StreamEncoder*, $OutputStream*, Object$*, $CharsetEncoder*)},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamEncoder, getEncoding, $String*)},
-	{"implClose", "()V", nullptr, 0, $virtualMethod(StreamEncoder, implClose, void), "java.io.IOException"},
-	{"implFlush", "()V", nullptr, 0, $virtualMethod(StreamEncoder, implFlush, void), "java.io.IOException"},
-	{"implFlushBuffer", "()V", nullptr, 0, $virtualMethod(StreamEncoder, implFlushBuffer, void), "java.io.IOException"},
-	{"implWrite", "([CII)V", nullptr, 0, $virtualMethod(StreamEncoder, implWrite, void, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"implWrite", "(Ljava/nio/CharBuffer;)V", nullptr, 0, $virtualMethod(StreamEncoder, implWrite, void, $CharBuffer*), "java.io.IOException"},
-	{"isOpen", "()Z", nullptr, $PRIVATE, $method(StreamEncoder, isOpen, bool)},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(StreamEncoder, write, void, int32_t), "java.io.IOException"},
-	{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(StreamEncoder, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(StreamEncoder, write, void, $String*, int32_t, int32_t), "java.io.IOException"},
-	{"write", "(Ljava/nio/CharBuffer;)V", nullptr, $PUBLIC, $virtualMethod(StreamEncoder, write, void, $CharBuffer*), "java.io.IOException"},
-	{"writeBytes", "()V", nullptr, $PRIVATE, $method(StreamEncoder, writeBytes, void), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _StreamEncoder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.StreamEncoder",
-	"java.io.Writer",
-	nullptr,
-	_StreamEncoder_FieldInfo_,
-	_StreamEncoder_MethodInfo_
-};
-
-$Object* allocate$StreamEncoder($Class* clazz) {
-	return $of($alloc(StreamEncoder));
-}
-
 bool StreamEncoder::$assertionsDisabled = false;
 
 void StreamEncoder::ensureOpen() {
@@ -112,10 +54,10 @@ void StreamEncoder::ensureOpen() {
 
 StreamEncoder* StreamEncoder::forOutputStreamWriter($OutputStream* out, Object$* lock, $String* charsetName) {
 	$init(StreamEncoder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, csn, charsetName);
 	if (csn == nullptr) {
-		$assign(csn, $nc($($Charset::defaultCharset()))->name());
+		$assign(csn, $$nc($Charset::defaultCharset())->name());
 	}
 	try {
 		return $new(StreamEncoder, out, lock, $($Charset::forName(csn)));
@@ -188,21 +130,19 @@ void StreamEncoder::write($String* str, int32_t off, int32_t len) {
 
 void StreamEncoder::write($CharBuffer* cb) {
 	int32_t position = $nc(cb)->position();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$synchronized(this->lock) {
-				ensureOpen();
-				implWrite(cb);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			cb->position(position);
+	$var($Throwable, var$0, nullptr);
+	try {
+		$synchronized(this->lock) {
+			ensureOpen();
+			implWrite(cb);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		cb->position(position);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -218,18 +158,16 @@ void StreamEncoder::close() {
 		if (this->closed) {
 			return;
 		}
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				implClose();
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				this->closed = true;
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			implClose();
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			this->closed = true;
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -239,9 +177,9 @@ bool StreamEncoder::isOpen() {
 }
 
 void StreamEncoder::init$($OutputStream* out, Object$* lock, $Charset* cs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($CodingErrorAction);
-	StreamEncoder::init$(out, lock, $($nc($($nc($($nc(cs)->newEncoder()))->onMalformedInput($CodingErrorAction::REPLACE)))->onUnmappableCharacter($CodingErrorAction::REPLACE)));
+	StreamEncoder::init$(out, lock, $($$nc($$nc($nc(cs)->newEncoder())->onMalformedInput($CodingErrorAction::REPLACE))->onUnmappableCharacter($CodingErrorAction::REPLACE)));
 }
 
 void StreamEncoder::init$($OutputStream* out, Object$* lock, $CharsetEncoder* enc) {
@@ -268,35 +206,35 @@ void StreamEncoder::init$($WritableByteChannel* ch, $CharsetEncoder* enc, int32_
 
 void StreamEncoder::writeBytes() {
 	$nc(this->bb)->flip();
-	int32_t lim = $nc(this->bb)->limit();
-	int32_t pos = $nc(this->bb)->position();
+	int32_t lim = this->bb->limit();
+	int32_t pos = this->bb->position();
 	if (!StreamEncoder::$assertionsDisabled && !(pos <= lim)) {
 		$throwNew($AssertionError);
 	}
 	int32_t rem = (pos <= lim ? lim - pos : 0);
 	if (rem > 0) {
 		if (this->ch != nullptr) {
-			int32_t wc = $nc(this->ch)->write(this->bb);
+			int32_t wc = this->ch->write(this->bb);
 			if (!StreamEncoder::$assertionsDisabled && !(wc == rem)) {
 				$throwNew($AssertionError, rem);
 			}
 		} else {
-			$var($bytes, var$0, $cast($bytes, $nc(this->bb)->array()));
-			$nc(this->out)->write(var$0, $nc(this->bb)->arrayOffset() + pos, rem);
+			$var($bytes, var$0, $cast($bytes, this->bb->array()));
+			$nc(this->out)->write(var$0, this->bb->arrayOffset() + pos, rem);
 		}
 	}
-	$nc(this->bb)->clear();
+	this->bb->clear();
 }
 
 void StreamEncoder::flushLeftoverChar($CharBuffer* cb, bool endOfInput) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->haveLeftoverChar && !endOfInput) {
 		return;
 	}
 	if (this->lcb == nullptr) {
 		$set(this, lcb, $CharBuffer::allocate(2));
 	} else {
-		$nc(this->lcb)->clear();
+		this->lcb->clear();
 	}
 	if (this->haveLeftoverChar) {
 		$nc(this->lcb)->put(this->leftoverChar);
@@ -308,25 +246,25 @@ void StreamEncoder::flushLeftoverChar($CharBuffer* cb, bool endOfInput) {
 	while ($nc(this->lcb)->hasRemaining() || endOfInput) {
 		$var($CoderResult, cr, $nc(this->encoder)->encode(this->lcb, this->bb, endOfInput));
 		if ($nc(cr)->isUnderflow()) {
-			if ($nc(this->lcb)->hasRemaining()) {
+			if (this->lcb->hasRemaining()) {
 				this->leftoverChar = $nc(this->lcb)->get();
 				if (cb != nullptr && cb->hasRemaining()) {
 					$nc(this->lcb)->clear();
-					$nc($($nc($($nc(this->lcb)->put(this->leftoverChar)))->put(cb->get())))->flip();
+					$$nc($$nc($nc(this->lcb)->put(this->leftoverChar))->put(cb->get()))->flip();
 					continue;
 				}
 				return;
 			}
 			break;
 		}
-		if ($nc(cr)->isOverflow()) {
+		if (cr->isOverflow()) {
 			if (!StreamEncoder::$assertionsDisabled && !($nc(this->bb)->position() > 0)) {
 				$throwNew($AssertionError);
 			}
 			writeBytes();
 			continue;
 		}
-		$nc(cr)->throwException();
+		cr->throwException();
 	}
 	this->haveLeftoverChar = false;
 }
@@ -337,7 +275,7 @@ void StreamEncoder::implWrite($chars* cbuf, int32_t off, int32_t len) {
 }
 
 void StreamEncoder::implWrite($CharBuffer* cb) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->haveLeftoverChar) {
 		flushLeftoverChar(cb, false);
 	}
@@ -353,14 +291,14 @@ void StreamEncoder::implWrite($CharBuffer* cb) {
 			}
 			break;
 		}
-		if ($nc(cr)->isOverflow()) {
+		if (cr->isOverflow()) {
 			if (!StreamEncoder::$assertionsDisabled && !($nc(this->bb)->position() > 0)) {
 				$throwNew($AssertionError);
 			}
 			writeBytes();
 			continue;
 		}
-		$nc(cr)->throwException();
+		cr->throwException();
 	}
 }
 
@@ -373,12 +311,12 @@ void StreamEncoder::implFlushBuffer() {
 void StreamEncoder::implFlush() {
 	implFlushBuffer();
 	if (this->out != nullptr) {
-		$nc(this->out)->flush();
+		this->out->flush();
 	}
 }
 
 void StreamEncoder::implClose() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	flushLeftoverChar(nullptr, true);
 	try {
 		for (;;) {
@@ -386,33 +324,31 @@ void StreamEncoder::implClose() {
 			if ($nc(cr)->isUnderflow()) {
 				break;
 			}
-			if ($nc(cr)->isOverflow()) {
+			if (cr->isOverflow()) {
 				if (!StreamEncoder::$assertionsDisabled && !($nc(this->bb)->position() > 0)) {
 					$throwNew($AssertionError);
 				}
 				writeBytes();
 				continue;
 			}
-			$nc(cr)->throwException();
+			cr->throwException();
 		}
 		if ($nc(this->bb)->position() > 0) {
 			writeBytes();
 		}
 		if (this->ch != nullptr) {
-			$nc(this->ch)->close();
+			this->ch->close();
 		} else {
-			{
-				$var($Throwable, var$0, nullptr);
-				try {
-					$nc(this->out)->flush();
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					$nc(this->out)->close();
-				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			$var($Throwable, var$0, nullptr);
+			try {
+				$nc(this->out)->flush();
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				$nc(this->out)->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 	} catch ($IOException& x) {
@@ -422,10 +358,10 @@ void StreamEncoder::implClose() {
 }
 
 $String* StreamEncoder::encodingName() {
-	return (($instanceOf($HistoricallyNamedCharset, this->cs)) ? $nc(($cast($HistoricallyNamedCharset, this->cs)))->historicalName() : $nc(this->cs)->name());
+	return (($instanceOf($HistoricallyNamedCharset, this->cs)) ? $cast($HistoricallyNamedCharset, this->cs)->historicalName() : $nc(this->cs)->name());
 }
 
-void clinit$StreamEncoder($Class* class$) {
+void StreamEncoder::clinit$($Class* clazz) {
 	StreamEncoder::$assertionsDisabled = !StreamEncoder::class$->desiredAssertionStatus();
 }
 
@@ -433,7 +369,59 @@ StreamEncoder::StreamEncoder() {
 }
 
 $Class* StreamEncoder::load$($String* name, bool initialize) {
-	$loadClass(StreamEncoder, name, initialize, &_StreamEncoder_ClassInfo_, clinit$StreamEncoder, allocate$StreamEncoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(StreamEncoder, $assertionsDisabled)},
+		{"DEFAULT_BYTE_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StreamEncoder, DEFAULT_BYTE_BUFFER_SIZE)},
+		{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(StreamEncoder, closed)},
+		{"cs", "Ljava/nio/charset/Charset;", nullptr, $PRIVATE | $FINAL, $field(StreamEncoder, cs)},
+		{"encoder", "Ljava/nio/charset/CharsetEncoder;", nullptr, $PRIVATE | $FINAL, $field(StreamEncoder, encoder)},
+		{"bb", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $FINAL, $field(StreamEncoder, bb)},
+		{"out", "Ljava/io/OutputStream;", nullptr, $PRIVATE | $FINAL, $field(StreamEncoder, out)},
+		{"ch", "Ljava/nio/channels/WritableByteChannel;", nullptr, $PRIVATE | $FINAL, $field(StreamEncoder, ch)},
+		{"haveLeftoverChar", "Z", nullptr, $PRIVATE, $field(StreamEncoder, haveLeftoverChar)},
+		{"leftoverChar", "C", nullptr, $PRIVATE, $field(StreamEncoder, leftoverChar)},
+		{"lcb", "Ljava/nio/CharBuffer;", nullptr, $PRIVATE, $field(StreamEncoder, lcb)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/OutputStream;Ljava/lang/Object;Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(StreamEncoder, init$, void, $OutputStream*, Object$*, $Charset*)},
+		{"<init>", "(Ljava/io/OutputStream;Ljava/lang/Object;Ljava/nio/charset/CharsetEncoder;)V", nullptr, $PRIVATE, $method(StreamEncoder, init$, void, $OutputStream*, Object$*, $CharsetEncoder*)},
+		{"<init>", "(Ljava/nio/channels/WritableByteChannel;Ljava/nio/charset/CharsetEncoder;I)V", nullptr, $PRIVATE, $method(StreamEncoder, init$, void, $WritableByteChannel*, $CharsetEncoder*, int32_t)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(StreamEncoder, close, void), "java.io.IOException"},
+		{"encodingName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(StreamEncoder, encodingName, $String*)},
+		{"ensureOpen", "()V", nullptr, $PRIVATE, $method(StreamEncoder, ensureOpen, void), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(StreamEncoder, flush, void), "java.io.IOException"},
+		{"flushBuffer", "()V", nullptr, $PUBLIC, $virtualMethod(StreamEncoder, flushBuffer, void), "java.io.IOException"},
+		{"flushLeftoverChar", "(Ljava/nio/CharBuffer;Z)V", nullptr, $PRIVATE, $method(StreamEncoder, flushLeftoverChar, void, $CharBuffer*, bool), "java.io.IOException"},
+		{"forEncoder", "(Ljava/nio/channels/WritableByteChannel;Ljava/nio/charset/CharsetEncoder;I)Lsun/nio/cs/StreamEncoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamEncoder, forEncoder, StreamEncoder*, $WritableByteChannel*, $CharsetEncoder*, int32_t)},
+		{"forOutputStreamWriter", "(Ljava/io/OutputStream;Ljava/lang/Object;Ljava/lang/String;)Lsun/nio/cs/StreamEncoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamEncoder, forOutputStreamWriter, StreamEncoder*, $OutputStream*, Object$*, $String*), "java.io.UnsupportedEncodingException"},
+		{"forOutputStreamWriter", "(Ljava/io/OutputStream;Ljava/lang/Object;Ljava/nio/charset/Charset;)Lsun/nio/cs/StreamEncoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamEncoder, forOutputStreamWriter, StreamEncoder*, $OutputStream*, Object$*, $Charset*)},
+		{"forOutputStreamWriter", "(Ljava/io/OutputStream;Ljava/lang/Object;Ljava/nio/charset/CharsetEncoder;)Lsun/nio/cs/StreamEncoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamEncoder, forOutputStreamWriter, StreamEncoder*, $OutputStream*, Object$*, $CharsetEncoder*)},
+		{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamEncoder, getEncoding, $String*)},
+		{"implClose", "()V", nullptr, 0, $virtualMethod(StreamEncoder, implClose, void), "java.io.IOException"},
+		{"implFlush", "()V", nullptr, 0, $virtualMethod(StreamEncoder, implFlush, void), "java.io.IOException"},
+		{"implFlushBuffer", "()V", nullptr, 0, $virtualMethod(StreamEncoder, implFlushBuffer, void), "java.io.IOException"},
+		{"implWrite", "([CII)V", nullptr, 0, $virtualMethod(StreamEncoder, implWrite, void, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"implWrite", "(Ljava/nio/CharBuffer;)V", nullptr, 0, $virtualMethod(StreamEncoder, implWrite, void, $CharBuffer*), "java.io.IOException"},
+		{"isOpen", "()Z", nullptr, $PRIVATE, $method(StreamEncoder, isOpen, bool)},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(StreamEncoder, write, void, int32_t), "java.io.IOException"},
+		{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(StreamEncoder, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(StreamEncoder, write, void, $String*, int32_t, int32_t), "java.io.IOException"},
+		{"write", "(Ljava/nio/CharBuffer;)V", nullptr, $PUBLIC, $virtualMethod(StreamEncoder, write, void, $CharBuffer*), "java.io.IOException"},
+		{"writeBytes", "()V", nullptr, $PRIVATE, $method(StreamEncoder, writeBytes, void), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.StreamEncoder",
+		"java.io.Writer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StreamEncoder, name, initialize, &classInfo$$, StreamEncoder::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StreamEncoder));
+	});
 	return class$;
 }
 

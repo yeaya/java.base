@@ -1,5 +1,4 @@
 #include <java/io/BufferedReader.h>
-
 #include <java/io/BufferedReader$1.h>
 #include <java/io/IOException.h>
 #include <java/io/Reader.h>
@@ -35,66 +34,6 @@ using $StreamSupport = ::java::util::stream::StreamSupport;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _BufferedReader_FieldInfo_[] = {
-	{"in", "Ljava/io/Reader;", nullptr, $PRIVATE, $field(BufferedReader, in)},
-	{"cb", "[C", nullptr, $PRIVATE, $field(BufferedReader, cb)},
-	{"nChars", "I", nullptr, $PRIVATE, $field(BufferedReader, nChars)},
-	{"nextChar", "I", nullptr, $PRIVATE, $field(BufferedReader, nextChar)},
-	{"INVALIDATED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedReader, INVALIDATED)},
-	{"UNMARKED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedReader, UNMARKED)},
-	{"markedChar", "I", nullptr, $PRIVATE, $field(BufferedReader, markedChar)},
-	{"readAheadLimit", "I", nullptr, $PRIVATE, $field(BufferedReader, readAheadLimit)},
-	{"skipLF", "Z", nullptr, $PRIVATE, $field(BufferedReader, skipLF)},
-	{"markedSkipLF", "Z", nullptr, $PRIVATE, $field(BufferedReader, markedSkipLF)},
-	{"defaultCharBufferSize", "I", nullptr, $PRIVATE | $STATIC, $staticField(BufferedReader, defaultCharBufferSize)},
-	{"defaultExpectedLineLength", "I", nullptr, $PRIVATE | $STATIC, $staticField(BufferedReader, defaultExpectedLineLength)},
-	{}
-};
-
-$MethodInfo _BufferedReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Reader;I)V", nullptr, $PUBLIC, $method(BufferedReader, init$, void, $Reader*, int32_t)},
-	{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(BufferedReader, init$, void, $Reader*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(BufferedReader, close, void), "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(BufferedReader, ensureOpen, void), "java.io.IOException"},
-	{"fill", "()V", nullptr, $PRIVATE, $method(BufferedReader, fill, void), "java.io.IOException"},
-	{"lines", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(BufferedReader, lines, $Stream*)},
-	{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(BufferedReader, mark, void, int32_t), "java.io.IOException"},
-	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferedReader, markSupported, bool)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedReader, read, int32_t), "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(BufferedReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"read1", "([CII)I", nullptr, $PRIVATE, $method(BufferedReader, read1, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"readLine", "(Z[Z)Ljava/lang/String;", nullptr, 0, $virtualMethod(BufferedReader, readLine, $String*, bool, $booleans*), "java.io.IOException"},
-	{"readLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BufferedReader, readLine, $String*), "java.io.IOException"},
-	{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferedReader, ready, bool), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(BufferedReader, reset, void), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(BufferedReader, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _BufferedReader_InnerClassesInfo_[] = {
-	{"java.io.BufferedReader$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BufferedReader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.BufferedReader",
-	"java.io.Reader",
-	nullptr,
-	_BufferedReader_FieldInfo_,
-	_BufferedReader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BufferedReader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.io.BufferedReader$1"
-};
-
-$Object* allocate$BufferedReader($Class* clazz) {
-	return $of($alloc(BufferedReader));
-}
 
 int32_t BufferedReader::defaultCharBufferSize = 0;
 int32_t BufferedReader::defaultExpectedLineLength = 0;
@@ -231,7 +170,7 @@ int32_t BufferedReader::read($chars* cbuf, int32_t off, int32_t len) {
 }
 
 $String* BufferedReader::readLine(bool ignoreLF, $booleans* term) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, s, nullptr);
 	int32_t startChar = 0;
 	$synchronized(this->lock) {
@@ -252,7 +191,7 @@ $String* BufferedReader::readLine(bool ignoreLF, $booleans* term) {
 				}
 			}
 			bool eol = false;
-			char16_t c = (char16_t)0;
+			char16_t c = 0;
 			int32_t i = 0;
 			if (omitLF && ($nc(this->cb)->get(this->nextChar) == u'\n')) {
 				++this->nextChar;
@@ -278,7 +217,7 @@ $String* BufferedReader::readLine(bool ignoreLF, $booleans* term) {
 				if (s == nullptr) {
 					$assign(str, $new($String, this->cb, startChar, i - startChar));
 				} else {
-					$nc(s)->append(this->cb, startChar, i - startChar);
+					s->append(this->cb, startChar, i - startChar);
 					$assign(str, s->toString());
 				}
 				++this->nextChar;
@@ -300,7 +239,7 @@ $String* BufferedReader::readLine() {
 }
 
 int64_t BufferedReader::skip(int64_t n) {
-	if (n < (int64_t)0) {
+	if (n < 0) {
 		$throwNew($IllegalArgumentException, "skip value is negative"_s);
 	}
 	$synchronized(this->lock) {
@@ -383,30 +322,28 @@ void BufferedReader::close() {
 		if (this->in == nullptr) {
 			return;
 		}
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$nc(this->in)->close();
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$set(this, in, nullptr);
-				$set(this, cb, nullptr);
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			$nc(this->in)->close();
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$set(this, in, nullptr);
+			$set(this, cb, nullptr);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 $Stream* BufferedReader::lines() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Iterator, iter, $new($BufferedReader$1, this));
 	return $StreamSupport::stream($($Spliterators::spliteratorUnknownSize(iter, $Spliterator::ORDERED | $Spliterator::NONNULL)), false);
 }
 
-void clinit$BufferedReader($Class* class$) {
+void BufferedReader::clinit$($Class* clazz) {
 	BufferedReader::defaultCharBufferSize = 8192;
 	BufferedReader::defaultExpectedLineLength = 80;
 }
@@ -415,7 +352,61 @@ BufferedReader::BufferedReader() {
 }
 
 $Class* BufferedReader::load$($String* name, bool initialize) {
-	$loadClass(BufferedReader, name, initialize, &_BufferedReader_ClassInfo_, clinit$BufferedReader, allocate$BufferedReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"in", "Ljava/io/Reader;", nullptr, $PRIVATE, $field(BufferedReader, in)},
+		{"cb", "[C", nullptr, $PRIVATE, $field(BufferedReader, cb)},
+		{"nChars", "I", nullptr, $PRIVATE, $field(BufferedReader, nChars)},
+		{"nextChar", "I", nullptr, $PRIVATE, $field(BufferedReader, nextChar)},
+		{"INVALIDATED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedReader, INVALIDATED)},
+		{"UNMARKED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedReader, UNMARKED)},
+		{"markedChar", "I", nullptr, $PRIVATE, $field(BufferedReader, markedChar)},
+		{"readAheadLimit", "I", nullptr, $PRIVATE, $field(BufferedReader, readAheadLimit)},
+		{"skipLF", "Z", nullptr, $PRIVATE, $field(BufferedReader, skipLF)},
+		{"markedSkipLF", "Z", nullptr, $PRIVATE, $field(BufferedReader, markedSkipLF)},
+		{"defaultCharBufferSize", "I", nullptr, $PRIVATE | $STATIC, $staticField(BufferedReader, defaultCharBufferSize)},
+		{"defaultExpectedLineLength", "I", nullptr, $PRIVATE | $STATIC, $staticField(BufferedReader, defaultExpectedLineLength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/Reader;I)V", nullptr, $PUBLIC, $method(BufferedReader, init$, void, $Reader*, int32_t)},
+		{"<init>", "(Ljava/io/Reader;)V", nullptr, $PUBLIC, $method(BufferedReader, init$, void, $Reader*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(BufferedReader, close, void), "java.io.IOException"},
+		{"ensureOpen", "()V", nullptr, $PRIVATE, $method(BufferedReader, ensureOpen, void), "java.io.IOException"},
+		{"fill", "()V", nullptr, $PRIVATE, $method(BufferedReader, fill, void), "java.io.IOException"},
+		{"lines", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(BufferedReader, lines, $Stream*)},
+		{"mark", "(I)V", nullptr, $PUBLIC, $virtualMethod(BufferedReader, mark, void, int32_t), "java.io.IOException"},
+		{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferedReader, markSupported, bool)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedReader, read, int32_t), "java.io.IOException"},
+		{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(BufferedReader, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"read1", "([CII)I", nullptr, $PRIVATE, $method(BufferedReader, read1, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"readLine", "(Z[Z)Ljava/lang/String;", nullptr, 0, $virtualMethod(BufferedReader, readLine, $String*, bool, $booleans*), "java.io.IOException"},
+		{"readLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BufferedReader, readLine, $String*), "java.io.IOException"},
+		{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferedReader, ready, bool), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(BufferedReader, reset, void), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(BufferedReader, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.BufferedReader$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.BufferedReader",
+		"java.io.Reader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.io.BufferedReader$1"
+	};
+	$loadClass(BufferedReader, name, initialize, &classInfo$$, BufferedReader::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BufferedReader));
+	});
 	return class$;
 }
 

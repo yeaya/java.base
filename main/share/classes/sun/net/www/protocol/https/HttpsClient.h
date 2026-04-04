@@ -63,6 +63,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::net::ssl::SSLSocketFactory* sf, ::java::net::URL* url);
 	void init$(::javax::net::ssl::SSLSocketFactory* sf, ::java::net::URL* url, $String* proxyHost, int32_t proxyPort);
 	void init$(::javax::net::ssl::SSLSocketFactory* sf, ::java::net::URL* url, $String* proxyHost, int32_t proxyPort, int32_t connectTimeout);

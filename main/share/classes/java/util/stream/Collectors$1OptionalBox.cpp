@@ -1,5 +1,4 @@
 #include <java/util/stream/Collectors$1OptionalBox.h>
-
 #include <java/util/function/BinaryOperator.h>
 #include <java/util/stream/Collectors.h>
 #include <jcpp.h>
@@ -14,50 +13,6 @@ using $BinaryOperator = ::java::util::function::BinaryOperator;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _Collectors$1OptionalBox_FieldInfo_[] = {
-	{"val$op", "Ljava/util/function/BinaryOperator;", nullptr, $FINAL | $SYNTHETIC, $field(Collectors$1OptionalBox, val$op)},
-	{"value", "Ljava/lang/Object;", "TT;", 0, $field(Collectors$1OptionalBox, value)},
-	{"present", "Z", nullptr, 0, $field(Collectors$1OptionalBox, present)},
-	{}
-};
-
-$MethodInfo _Collectors$1OptionalBox_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/BinaryOperator;)V", "()V", 0, $method(Collectors$1OptionalBox, init$, void, $BinaryOperator*)},
-	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(Collectors$1OptionalBox, accept, void, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _Collectors$1OptionalBox_EnclosingMethodInfo_ = {
-	"java.util.stream.Collectors",
-	"reducing",
-	"(Ljava/util/function/BinaryOperator;)Ljava/util/stream/Collector;"
-};
-
-$InnerClassInfo _Collectors$1OptionalBox_InnerClassesInfo_[] = {
-	{"java.util.stream.Collectors$1OptionalBox", nullptr, "OptionalBox", 0},
-	{}
-};
-
-$ClassInfo _Collectors$1OptionalBox_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.Collectors$1OptionalBox",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	_Collectors$1OptionalBox_FieldInfo_,
-	_Collectors$1OptionalBox_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/function/Consumer<TT;>;",
-	&_Collectors$1OptionalBox_EnclosingMethodInfo_,
-	_Collectors$1OptionalBox_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Collectors"
-};
-
-$Object* allocate$Collectors$1OptionalBox($Class* clazz) {
-	return $of($alloc(Collectors$1OptionalBox));
-}
 
 void Collectors$1OptionalBox::init$($BinaryOperator* val$op) {
 	$set(this, val$op, val$op);
@@ -78,7 +33,44 @@ Collectors$1OptionalBox::Collectors$1OptionalBox() {
 }
 
 $Class* Collectors$1OptionalBox::load$($String* name, bool initialize) {
-	$loadClass(Collectors$1OptionalBox, name, initialize, &_Collectors$1OptionalBox_ClassInfo_, allocate$Collectors$1OptionalBox);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$op", "Ljava/util/function/BinaryOperator;", nullptr, $FINAL | $SYNTHETIC, $field(Collectors$1OptionalBox, val$op)},
+		{"value", "Ljava/lang/Object;", "TT;", 0, $field(Collectors$1OptionalBox, value)},
+		{"present", "Z", nullptr, 0, $field(Collectors$1OptionalBox, present)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/BinaryOperator;)V", "()V", 0, $method(Collectors$1OptionalBox, init$, void, $BinaryOperator*)},
+		{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(Collectors$1OptionalBox, accept, void, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.Collectors",
+		"reducing",
+		"(Ljava/util/function/BinaryOperator;)Ljava/util/stream/Collector;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Collectors$1OptionalBox", nullptr, "OptionalBox", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.Collectors$1OptionalBox",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/function/Consumer<TT;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Collectors"
+	};
+	$loadClass(Collectors$1OptionalBox, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Collectors$1OptionalBox);
+	});
 	return class$;
 }
 

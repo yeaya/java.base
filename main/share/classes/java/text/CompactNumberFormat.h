@@ -120,6 +120,7 @@ class $export CompactNumberFormat : public ::java::text::NumberFormat {
 public:
 	CompactNumberFormat();
 	using ::java::text::NumberFormat::format;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* decimalPattern, ::java::text::DecimalFormatSymbols* symbols, $StringArray* compactPatterns);
 	void init$($String* decimalPattern, ::java::text::DecimalFormatSymbols* symbols, $StringArray* compactPatterns, $String* pluralRules);
 	void append(::java::lang::StringBuffer* result, $String* string, ::java::text::Format$FieldDelegate* delegate, ::java::util::List* positions);
@@ -186,7 +187,7 @@ public:
 	virtual void setRoundingMode(::java::math::RoundingMode* roundingMode) override;
 	static bool valOrRangeMatches($String* valueOrRange, double input);
 	$String* validateRule($String* rule);
-	static const int64_t serialVersionUID = (int64_t)0x62ED0C37B8207CF6;
+	static const int64_t serialVersionUID = (int64_t)0x62ed0c37b8207cf6;
 	$StringArray* compactPatterns = nullptr;
 	::java::util::List* positivePrefixPatterns = nullptr;
 	::java::util::List* negativePrefixPatterns = nullptr;

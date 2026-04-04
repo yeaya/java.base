@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/DESedeKeyGenerator.h>
-
 #include <com/sun/crypto/provider/DESKeyGenerator.h>
 #include <com/sun/crypto/provider/DESedeKey.h>
 #include <com/sun/crypto/provider/SunJCE.h>
@@ -38,34 +37,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _DESedeKeyGenerator_FieldInfo_[] = {
-	{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(DESedeKeyGenerator, random)},
-	{"keysize", "I", nullptr, $PRIVATE, $field(DESedeKeyGenerator, keysize)},
-	{}
-};
-
-$MethodInfo _DESedeKeyGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DESedeKeyGenerator, init$, void)},
-	{"engineGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(DESedeKeyGenerator, engineGenerateKey, $SecretKey*)},
-	{"engineInit", "(Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DESedeKeyGenerator, engineInit, void, $SecureRandom*)},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DESedeKeyGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
-	{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DESedeKeyGenerator, engineInit, void, int32_t, $SecureRandom*)},
-	{}
-};
-
-$ClassInfo _DESedeKeyGenerator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.DESedeKeyGenerator",
-	"javax.crypto.KeyGeneratorSpi",
-	nullptr,
-	_DESedeKeyGenerator_FieldInfo_,
-	_DESedeKeyGenerator_MethodInfo_
-};
-
-$Object* allocate$DESedeKeyGenerator($Class* clazz) {
-	return $of($alloc(DESedeKeyGenerator));
-}
-
 void DESedeKeyGenerator::init$() {
 	$KeyGeneratorSpi::init$();
 	$set(this, random, nullptr);
@@ -89,7 +60,7 @@ void DESedeKeyGenerator::engineInit(int32_t keysize, $SecureRandom* random) {
 }
 
 $SecretKey* DESedeKeyGenerator::engineGenerateKey() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->random == nullptr) {
 		$set(this, random, $SunJCE::getRandom());
 	}
@@ -122,7 +93,30 @@ DESedeKeyGenerator::DESedeKeyGenerator() {
 }
 
 $Class* DESedeKeyGenerator::load$($String* name, bool initialize) {
-	$loadClass(DESedeKeyGenerator, name, initialize, &_DESedeKeyGenerator_ClassInfo_, allocate$DESedeKeyGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(DESedeKeyGenerator, random)},
+		{"keysize", "I", nullptr, $PRIVATE, $field(DESedeKeyGenerator, keysize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DESedeKeyGenerator, init$, void)},
+		{"engineGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(DESedeKeyGenerator, engineGenerateKey, $SecretKey*)},
+		{"engineInit", "(Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DESedeKeyGenerator, engineInit, void, $SecureRandom*)},
+		{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DESedeKeyGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
+		{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DESedeKeyGenerator, engineInit, void, int32_t, $SecureRandom*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.DESedeKeyGenerator",
+		"javax.crypto.KeyGeneratorSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DESedeKeyGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DESedeKeyGenerator);
+	});
 	return class$;
 }
 

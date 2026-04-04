@@ -9,6 +9,7 @@ class InheritIOEHandle$1 : public ::java::lang::Object {
 	$class(InheritIOEHandle$1, 0, ::java::lang::Object)
 public:
 	InheritIOEHandle$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$InheritIOEHandle$APP;
 };
 

@@ -1,7 +1,5 @@
 #include <sun/security/ssl/SSLKeyExchange$SSLKeyExDHANON.h>
-
 #include <java/util/List.h>
-#include <sun/security/ssl/SSLKeyAgreement.h>
 #include <sun/security/ssl/SSLKeyExchange$T12KeyAgreement.h>
 #include <sun/security/ssl/SSLKeyExchange.h>
 #include <jcpp.h>
@@ -14,7 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $List = ::java::util::List;
-using $SSLKeyAgreement = ::sun::security::ssl::SSLKeyAgreement;
 using $SSLKeyExchange = ::sun::security::ssl::SSLKeyExchange;
 using $SSLKeyExchange$T12KeyAgreement = ::sun::security::ssl::SSLKeyExchange$T12KeyAgreement;
 
@@ -22,47 +19,12 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SSLKeyExchange$SSLKeyExDHANON_FieldInfo_[] = {
-	{"KE", "Lsun/security/ssl/SSLKeyExchange;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLKeyExchange$SSLKeyExDHANON, KE)},
-	{}
-};
-
-$MethodInfo _SSLKeyExchange$SSLKeyExDHANON_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLKeyExchange$SSLKeyExDHANON, init$, void)},
-	{}
-};
-
-$InnerClassInfo _SSLKeyExchange$SSLKeyExDHANON_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLKeyExchange$SSLKeyExDHANON", "sun.security.ssl.SSLKeyExchange", "SSLKeyExDHANON", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SSLKeyExchange$SSLKeyExDHANON_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.ssl.SSLKeyExchange$SSLKeyExDHANON",
-	"java.lang.Object",
-	nullptr,
-	_SSLKeyExchange$SSLKeyExDHANON_FieldInfo_,
-	_SSLKeyExchange$SSLKeyExDHANON_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLKeyExchange$SSLKeyExDHANON_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLKeyExchange"
-};
-
-$Object* allocate$SSLKeyExchange$SSLKeyExDHANON($Class* clazz) {
-	return $of($alloc(SSLKeyExchange$SSLKeyExDHANON));
-}
-
 $SSLKeyExchange* SSLKeyExchange$SSLKeyExDHANON::KE = nullptr;
 
 void SSLKeyExchange$SSLKeyExDHANON::init$() {
 }
 
-void clinit$SSLKeyExchange$SSLKeyExDHANON($Class* class$) {
+void SSLKeyExchange$SSLKeyExDHANON::clinit$($Class* clazz) {
 	$init($SSLKeyExchange$T12KeyAgreement);
 	$assignStatic(SSLKeyExchange$SSLKeyExDHANON::KE, $new($SSLKeyExchange, nullptr, $SSLKeyExchange$T12KeyAgreement::DHE));
 }
@@ -71,7 +33,36 @@ SSLKeyExchange$SSLKeyExDHANON::SSLKeyExchange$SSLKeyExDHANON() {
 }
 
 $Class* SSLKeyExchange$SSLKeyExDHANON::load$($String* name, bool initialize) {
-	$loadClass(SSLKeyExchange$SSLKeyExDHANON, name, initialize, &_SSLKeyExchange$SSLKeyExDHANON_ClassInfo_, clinit$SSLKeyExchange$SSLKeyExDHANON, allocate$SSLKeyExchange$SSLKeyExDHANON);
+	$FieldInfo fieldInfos$$[] = {
+		{"KE", "Lsun/security/ssl/SSLKeyExchange;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLKeyExchange$SSLKeyExDHANON, KE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SSLKeyExchange$SSLKeyExDHANON, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLKeyExchange$SSLKeyExDHANON", "sun.security.ssl.SSLKeyExchange", "SSLKeyExDHANON", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.ssl.SSLKeyExchange$SSLKeyExDHANON",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLKeyExchange"
+	};
+	$loadClass(SSLKeyExchange$SSLKeyExDHANON, name, initialize, &classInfo$$, SSLKeyExchange$SSLKeyExDHANON::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLKeyExchange$SSLKeyExDHANON);
+	});
 	return class$;
 }
 

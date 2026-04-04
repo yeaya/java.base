@@ -1,5 +1,4 @@
 #include <sun/security/provider/certpath/ForwardState.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
@@ -58,43 +57,6 @@ namespace sun {
 		namespace provider {
 			namespace certpath {
 
-$FieldInfo _ForwardState_FieldInfo_[] = {
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ForwardState, debug)},
-	{"issuerDN", "Ljavax/security/auth/x500/X500Principal;", nullptr, 0, $field(ForwardState, issuerDN)},
-	{"cert", "Lsun/security/x509/X509CertImpl;", nullptr, 0, $field(ForwardState, cert)},
-	{"subjectNamesTraversed", "Ljava/util/HashSet;", "Ljava/util/HashSet<Lsun/security/x509/GeneralNameInterface;>;", 0, $field(ForwardState, subjectNamesTraversed)},
-	{"traversedCACerts", "I", nullptr, 0, $field(ForwardState, traversedCACerts)},
-	{"init", "Z", nullptr, $PRIVATE, $field(ForwardState, init)},
-	{"untrustedChecker", "Lsun/security/provider/certpath/UntrustedChecker;", nullptr, 0, $field(ForwardState, untrustedChecker)},
-	{"forwardCheckers", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/security/cert/PKIXCertPathChecker;>;", 0, $field(ForwardState, forwardCheckers)},
-	{"keyParamsNeededFlag", "Z", nullptr, 0, $field(ForwardState, keyParamsNeededFlag)},
-	{}
-};
-
-$MethodInfo _ForwardState_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ForwardState, init$, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ForwardState, clone, $Object*)},
-	{"initState", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/security/cert/PKIXCertPathChecker;>;)V", $PUBLIC, $virtualMethod(ForwardState, initState, void, $List*), "java.security.cert.CertPathValidatorException"},
-	{"isInitial", "()Z", nullptr, $PUBLIC, $virtualMethod(ForwardState, isInitial, bool)},
-	{"keyParamsNeeded", "()Z", nullptr, $PUBLIC, $virtualMethod(ForwardState, keyParamsNeeded, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ForwardState, toString, $String*)},
-	{"updateState", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $virtualMethod(ForwardState, updateState, void, $X509Certificate*), "java.security.cert.CertificateException,java.io.IOException,java.security.cert.CertPathValidatorException"},
-	{}
-};
-
-$ClassInfo _ForwardState_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.provider.certpath.ForwardState",
-	"java.lang.Object",
-	"sun.security.provider.certpath.State",
-	_ForwardState_FieldInfo_,
-	_ForwardState_MethodInfo_
-};
-
-$Object* allocate$ForwardState($Class* clazz) {
-	return $of($alloc(ForwardState));
-}
-
 $Debug* ForwardState::debug = nullptr;
 
 void ForwardState::init$() {
@@ -111,20 +73,20 @@ bool ForwardState::keyParamsNeeded() {
 }
 
 $String* ForwardState::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("State ["_s);
-	sb->append("\n  issuerDN of last cert: "_s)->append($of(this->issuerDN));
+	sb->append("\n  issuerDN of last cert: "_s)->append(this->issuerDN);
 	sb->append("\n  traversedCACerts: "_s)->append(this->traversedCACerts);
 	sb->append("\n  init: "_s)->append($($String::valueOf(this->init)));
 	sb->append("\n  keyParamsNeeded: "_s)->append($($String::valueOf(this->keyParamsNeededFlag)));
-	sb->append("\n  subjectNamesTraversed: \n"_s)->append($of(this->subjectNamesTraversed));
+	sb->append("\n  subjectNamesTraversed: \n"_s)->append(this->subjectNamesTraversed);
 	sb->append("]\n"_s);
 	return sb->toString();
 }
 
 void ForwardState::initState($List* certPathCheckers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, subjectNamesTraversed, $new($HashSet));
 	this->traversedCACerts = 0;
 	$set(this, forwardCheckers, $new($ArrayList));
@@ -132,11 +94,9 @@ void ForwardState::initState($List* certPathCheckers) {
 		$var($Iterator, i$, $nc(certPathCheckers)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($PKIXCertPathChecker, checker, $cast($PKIXCertPathChecker, i$->next()));
-			{
-				if ($nc(checker)->isForwardCheckingSupported()) {
-					checker->init(true);
-					$nc(this->forwardCheckers)->add(checker);
-				}
+			if ($nc(checker)->isForwardCheckingSupported()) {
+				checker->init(true);
+				this->forwardCheckers->add(checker);
 			}
 		}
 	}
@@ -144,7 +104,7 @@ void ForwardState::initState($List* certPathCheckers) {
 }
 
 void ForwardState::updateState($X509Certificate* cert) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (cert == nullptr) {
 		return;
 	}
@@ -163,33 +123,33 @@ void ForwardState::updateState($X509Certificate* cert) {
 		$var($X500Principal, subjName, cert->getSubjectX500Principal());
 		$nc(this->subjectNamesTraversed)->add($($X500Name::asX500Name(subjName)));
 		try {
-			$var($SubjectAlternativeNameExtension, subjAltNameExt, $nc(icert)->getSubjectAlternativeNameExtension());
+			$var($SubjectAlternativeNameExtension, subjAltNameExt, icert->getSubjectAlternativeNameExtension());
 			if (subjAltNameExt != nullptr) {
 				$init($SubjectAlternativeNameExtension);
 				$var($GeneralNames, gNames, $cast($GeneralNames, subjAltNameExt->get($SubjectAlternativeNameExtension::SUBJECT_NAME)));
 				{
-					$var($Iterator, i$, $nc($($nc(gNames)->names()))->iterator());
+					$var($Iterator, i$, $$nc($nc(gNames)->names())->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($GeneralName, gName, $cast($GeneralName, i$->next()));
 						{
-							$nc(this->subjectNamesTraversed)->add($($nc(gName)->getName()));
+							this->subjectNamesTraversed->add($($nc(gName)->getName()));
 						}
 					}
 				}
 			}
 		} catch ($IOException& e) {
 			if (ForwardState::debug != nullptr) {
-				$nc(ForwardState::debug)->println("ForwardState.updateState() unexpected exception"_s);
+				ForwardState::debug->println("ForwardState.updateState() unexpected exception"_s);
 				e->printStackTrace();
 			}
-			$throwNew($CertPathValidatorException, static_cast<$Throwable*>(e));
+			$throwNew($CertPathValidatorException, e);
 		}
 	}
 	this->init = false;
 }
 
 $Object* ForwardState::clone() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var(ForwardState, clonedState, $cast(ForwardState, $State::clone()));
 		$set($nc(clonedState), forwardCheckers, $cast($ArrayList, $nc(this->forwardCheckers)->clone()));
@@ -197,18 +157,18 @@ $Object* ForwardState::clone() {
 		while ($nc(li)->hasNext()) {
 			$var($PKIXCertPathChecker, checker, $cast($PKIXCertPathChecker, li->next()));
 			if ($instanceOf($Cloneable, checker)) {
-				li->set($cast($PKIXCertPathChecker, $($nc(checker)->clone())));
+				li->set($$cast($PKIXCertPathChecker, checker->clone()));
 			}
 		}
 		$set(clonedState, subjectNamesTraversed, $cast($HashSet, $nc(this->subjectNamesTraversed)->clone()));
-		return $of(clonedState);
+		return clonedState;
 	} catch ($CloneNotSupportedException& e) {
 		$throwNew($InternalError, $(e->toString()), e);
 	}
 	$shouldNotReachHere();
 }
 
-void clinit$ForwardState($Class* class$) {
+void ForwardState::clinit$($Class* clazz) {
 	$assignStatic(ForwardState::debug, $Debug::getInstance("certpath"_s));
 }
 
@@ -216,7 +176,39 @@ ForwardState::ForwardState() {
 }
 
 $Class* ForwardState::load$($String* name, bool initialize) {
-	$loadClass(ForwardState, name, initialize, &_ForwardState_ClassInfo_, clinit$ForwardState, allocate$ForwardState);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ForwardState, debug)},
+		{"issuerDN", "Ljavax/security/auth/x500/X500Principal;", nullptr, 0, $field(ForwardState, issuerDN)},
+		{"cert", "Lsun/security/x509/X509CertImpl;", nullptr, 0, $field(ForwardState, cert)},
+		{"subjectNamesTraversed", "Ljava/util/HashSet;", "Ljava/util/HashSet<Lsun/security/x509/GeneralNameInterface;>;", 0, $field(ForwardState, subjectNamesTraversed)},
+		{"traversedCACerts", "I", nullptr, 0, $field(ForwardState, traversedCACerts)},
+		{"init", "Z", nullptr, $PRIVATE, $field(ForwardState, init)},
+		{"untrustedChecker", "Lsun/security/provider/certpath/UntrustedChecker;", nullptr, 0, $field(ForwardState, untrustedChecker)},
+		{"forwardCheckers", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/security/cert/PKIXCertPathChecker;>;", 0, $field(ForwardState, forwardCheckers)},
+		{"keyParamsNeededFlag", "Z", nullptr, 0, $field(ForwardState, keyParamsNeededFlag)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ForwardState, init$, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ForwardState, clone, $Object*)},
+		{"initState", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/security/cert/PKIXCertPathChecker;>;)V", $PUBLIC, $virtualMethod(ForwardState, initState, void, $List*), "java.security.cert.CertPathValidatorException"},
+		{"isInitial", "()Z", nullptr, $PUBLIC, $virtualMethod(ForwardState, isInitial, bool)},
+		{"keyParamsNeeded", "()Z", nullptr, $PUBLIC, $virtualMethod(ForwardState, keyParamsNeeded, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ForwardState, toString, $String*)},
+		{"updateState", "(Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $virtualMethod(ForwardState, updateState, void, $X509Certificate*), "java.security.cert.CertificateException,java.io.IOException,java.security.cert.CertPathValidatorException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.provider.certpath.ForwardState",
+		"java.lang.Object",
+		"sun.security.provider.certpath.State",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ForwardState, name, initialize, &classInfo$$, ForwardState::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ForwardState);
+	});
 	return class$;
 }
 

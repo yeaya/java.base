@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/PBEKeyFactory.h>
-
 #include <com/sun/crypto/provider/PBEKey.h>
 #include <java/security/InvalidKeyException.h>
 #include <java/security/spec/InvalidKeySpecException.h>
@@ -34,60 +33,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _PBEKeyFactory_FieldInfo_[] = {
-	{"type", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PBEKeyFactory, type)},
-	{"validTypes", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(PBEKeyFactory, validTypes)},
-	{}
-};
-
-$MethodInfo _PBEKeyFactory_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(PBEKeyFactory, init$, void, $String*)},
-	{"engineGenerateSecret", "(Ljava/security/spec/KeySpec;)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(PBEKeyFactory, engineGenerateSecret, $SecretKey*, $KeySpec*), "java.security.spec.InvalidKeySpecException"},
-	{"engineGetKeySpec", "(Ljavax/crypto/SecretKey;Ljava/lang/Class;)Ljava/security/spec/KeySpec;", "(Ljavax/crypto/SecretKey;Ljava/lang/Class<*>;)Ljava/security/spec/KeySpec;", $PROTECTED, $virtualMethod(PBEKeyFactory, engineGetKeySpec, $KeySpec*, $SecretKey*, $Class*), "java.security.spec.InvalidKeySpecException"},
-	{"engineTranslateKey", "(Ljavax/crypto/SecretKey;)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(PBEKeyFactory, engineTranslateKey, $SecretKey*, $SecretKey*), "java.security.InvalidKeyException"},
-	{}
-};
-
-$InnerClassInfo _PBEKeyFactory_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA512AndAES_256", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithHmacSHA512AndAES_256", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA384AndAES_256", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithHmacSHA384AndAES_256", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA256AndAES_256", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithHmacSHA256AndAES_256", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA224AndAES_256", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithHmacSHA224AndAES_256", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA1AndAES_256", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithHmacSHA1AndAES_256", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA512AndAES_128", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithHmacSHA512AndAES_128", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA384AndAES_128", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithHmacSHA384AndAES_128", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA256AndAES_128", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithHmacSHA256AndAES_128", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA224AndAES_128", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithHmacSHA224AndAES_128", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA1AndAES_128", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithHmacSHA1AndAES_128", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.PBEKeyFactory$PBEWithMD5AndTripleDES", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithMD5AndTripleDES", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.PBEKeyFactory$PBEWithSHA1AndRC4_128", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithSHA1AndRC4_128", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.PBEKeyFactory$PBEWithSHA1AndRC4_40", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithSHA1AndRC4_40", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.PBEKeyFactory$PBEWithSHA1AndRC2_128", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithSHA1AndRC2_128", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.PBEKeyFactory$PBEWithSHA1AndRC2_40", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithSHA1AndRC2_40", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.PBEKeyFactory$PBEWithSHA1AndDESede", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithSHA1AndDESede", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.PBEKeyFactory$PBEWithMD5AndDES", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithMD5AndDES", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PBEKeyFactory_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.crypto.provider.PBEKeyFactory",
-	"javax.crypto.SecretKeyFactorySpi",
-	nullptr,
-	_PBEKeyFactory_FieldInfo_,
-	_PBEKeyFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PBEKeyFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA512AndAES_256,com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA384AndAES_256,com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA256AndAES_256,com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA224AndAES_256,com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA1AndAES_256,com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA512AndAES_128,com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA384AndAES_128,com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA256AndAES_128,com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA224AndAES_128,com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA1AndAES_128,com.sun.crypto.provider.PBEKeyFactory$PBEWithMD5AndTripleDES,com.sun.crypto.provider.PBEKeyFactory$PBEWithSHA1AndRC4_128,com.sun.crypto.provider.PBEKeyFactory$PBEWithSHA1AndRC4_40,com.sun.crypto.provider.PBEKeyFactory$PBEWithSHA1AndRC2_128,com.sun.crypto.provider.PBEKeyFactory$PBEWithSHA1AndRC2_40,com.sun.crypto.provider.PBEKeyFactory$PBEWithSHA1AndDESede,com.sun.crypto.provider.PBEKeyFactory$PBEWithMD5AndDES"
-};
-
-$Object* allocate$PBEKeyFactory($Class* clazz) {
-	return $of($alloc(PBEKeyFactory));
-}
-
 $HashSet* PBEKeyFactory::validTypes = nullptr;
 
 void PBEKeyFactory::init$($String* keytype) {
@@ -103,16 +48,16 @@ $SecretKey* PBEKeyFactory::engineGenerateSecret($KeySpec* keySpec) {
 }
 
 $KeySpec* PBEKeyFactory::engineGetKeySpec($SecretKey* key, $Class* keySpecCl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
-	bool var$0 = ($instanceOf($SecretKey, key)) && ($nc(PBEKeyFactory::validTypes)->contains($($nc($($nc(key)->getAlgorithm()))->toUpperCase($Locale::ENGLISH))));
-	if (var$0 && ($nc($($nc(key)->getFormat()))->equalsIgnoreCase("RAW"_s))) {
+	bool var$0 = ($instanceOf($SecretKey, key)) && ($nc(PBEKeyFactory::validTypes)->contains($($$nc(key->getAlgorithm())->toUpperCase($Locale::ENGLISH))));
+	if (var$0 && ($$nc(key->getFormat())->equalsIgnoreCase("RAW"_s))) {
 		$load($PBEKeySpec);
 		if ((keySpecCl != nullptr) && $PBEKeySpec::class$->isAssignableFrom(keySpecCl)) {
 			$var($bytes, passwdBytes, key->getEncoded());
 			$var($chars, passwdChars, $new($chars, $nc(passwdBytes)->length));
 			for (int32_t i = 0; i < passwdChars->length; ++i) {
-				passwdChars->set(i, (char16_t)((int32_t)(passwdBytes->get(i) & (uint32_t)127)));
+				passwdChars->set(i, (char16_t)(passwdBytes->get(i) & 0x7f));
 			}
 			$var($PBEKeySpec, ret, $new($PBEKeySpec, passwdChars));
 			$Arrays::fill(passwdChars, u' ');
@@ -127,35 +72,33 @@ $KeySpec* PBEKeyFactory::engineGetKeySpec($SecretKey* key, $Class* keySpecCl) {
 }
 
 $SecretKey* PBEKeyFactory::engineTranslateKey($SecretKey* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($Locale);
-		bool var$0 = (key != nullptr) && ($nc(PBEKeyFactory::validTypes)->contains($($nc($(key->getAlgorithm()))->toUpperCase($Locale::ENGLISH))));
-		if (var$0 && ($nc($(key->getFormat()))->equalsIgnoreCase("RAW"_s))) {
+		bool var$0 = (key != nullptr) && ($nc(PBEKeyFactory::validTypes)->contains($($$nc(key->getAlgorithm())->toUpperCase($Locale::ENGLISH))));
+		if (var$0 && ($$nc(key->getFormat())->equalsIgnoreCase("RAW"_s))) {
 			if ($instanceOf($PBEKey, key)) {
 				return key;
 			}
 			$load($PBEKeySpec);
 			$var($PBEKeySpec, pbeKeySpec, $cast($PBEKeySpec, engineGetKeySpec(key, $PBEKeySpec::class$)));
-			{
-				$var($Throwable, var$1, nullptr);
-				$var($SecretKey, var$3, nullptr);
-				bool return$2 = false;
-				try {
-					$assign(var$3, engineGenerateSecret(pbeKeySpec));
-					return$2 = true;
-					goto $finally;
-				} catch ($Throwable& var$4) {
-					$assign(var$1, var$4);
-				} $finally: {
-					$nc(pbeKeySpec)->clearPassword();
-				}
-				if (var$1 != nullptr) {
-					$throw(var$1);
-				}
-				if (return$2) {
-					return var$3;
-				}
+			$var($Throwable, var$1, nullptr);
+			$var($SecretKey, var$3, nullptr);
+			bool return$2 = false;
+			try {
+				$assign(var$3, engineGenerateSecret(pbeKeySpec));
+				return$2 = true;
+				goto $finally;
+			} catch ($Throwable& var$4) {
+				$assign(var$1, var$4);
+			} $finally: {
+				$nc(pbeKeySpec)->clearPassword();
+			}
+			if (var$1 != nullptr) {
+				$throw(var$1);
+			}
+			if (return$2) {
+				return var$3;
 			}
 		} else {
 			$throwNew($InvalidKeyException, "Invalid key format/algorithm"_s);
@@ -166,28 +109,28 @@ $SecretKey* PBEKeyFactory::engineTranslateKey($SecretKey* key) {
 	$shouldNotReachHere();
 }
 
-void clinit$PBEKeyFactory($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void PBEKeyFactory::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$assignStatic(PBEKeyFactory::validTypes, $new($HashSet, 17));
 		$init($Locale);
-		$nc(PBEKeyFactory::validTypes)->add($("PBEWithMD5AndDES"_s->toUpperCase($Locale::ENGLISH)));
-		$nc(PBEKeyFactory::validTypes)->add($("PBEWithSHA1AndDESede"_s->toUpperCase($Locale::ENGLISH)));
-		$nc(PBEKeyFactory::validTypes)->add($("PBEWithSHA1AndRC2_40"_s->toUpperCase($Locale::ENGLISH)));
-		$nc(PBEKeyFactory::validTypes)->add($("PBEWithSHA1AndRC2_128"_s->toUpperCase($Locale::ENGLISH)));
-		$nc(PBEKeyFactory::validTypes)->add($("PBEWithSHA1AndRC4_40"_s->toUpperCase($Locale::ENGLISH)));
-		$nc(PBEKeyFactory::validTypes)->add($("PBEWithSHA1AndRC4_128"_s->toUpperCase($Locale::ENGLISH)));
-		$nc(PBEKeyFactory::validTypes)->add($("PBEWithMD5AndTripleDES"_s->toUpperCase($Locale::ENGLISH)));
-		$nc(PBEKeyFactory::validTypes)->add($("PBEWithHmacSHA1AndAES_128"_s->toUpperCase($Locale::ENGLISH)));
-		$nc(PBEKeyFactory::validTypes)->add($("PBEWithHmacSHA224AndAES_128"_s->toUpperCase($Locale::ENGLISH)));
-		$nc(PBEKeyFactory::validTypes)->add($("PBEWithHmacSHA256AndAES_128"_s->toUpperCase($Locale::ENGLISH)));
-		$nc(PBEKeyFactory::validTypes)->add($("PBEWithHmacSHA384AndAES_128"_s->toUpperCase($Locale::ENGLISH)));
-		$nc(PBEKeyFactory::validTypes)->add($("PBEWithHmacSHA512AndAES_128"_s->toUpperCase($Locale::ENGLISH)));
-		$nc(PBEKeyFactory::validTypes)->add($("PBEWithHmacSHA1AndAES_256"_s->toUpperCase($Locale::ENGLISH)));
-		$nc(PBEKeyFactory::validTypes)->add($("PBEWithHmacSHA224AndAES_256"_s->toUpperCase($Locale::ENGLISH)));
-		$nc(PBEKeyFactory::validTypes)->add($("PBEWithHmacSHA256AndAES_256"_s->toUpperCase($Locale::ENGLISH)));
-		$nc(PBEKeyFactory::validTypes)->add($("PBEWithHmacSHA384AndAES_256"_s->toUpperCase($Locale::ENGLISH)));
-		$nc(PBEKeyFactory::validTypes)->add($("PBEWithHmacSHA512AndAES_256"_s->toUpperCase($Locale::ENGLISH)));
+		PBEKeyFactory::validTypes->add($("PBEWithMD5AndDES"_s->toUpperCase($Locale::ENGLISH)));
+		PBEKeyFactory::validTypes->add($("PBEWithSHA1AndDESede"_s->toUpperCase($Locale::ENGLISH)));
+		PBEKeyFactory::validTypes->add($("PBEWithSHA1AndRC2_40"_s->toUpperCase($Locale::ENGLISH)));
+		PBEKeyFactory::validTypes->add($("PBEWithSHA1AndRC2_128"_s->toUpperCase($Locale::ENGLISH)));
+		PBEKeyFactory::validTypes->add($("PBEWithSHA1AndRC4_40"_s->toUpperCase($Locale::ENGLISH)));
+		PBEKeyFactory::validTypes->add($("PBEWithSHA1AndRC4_128"_s->toUpperCase($Locale::ENGLISH)));
+		PBEKeyFactory::validTypes->add($("PBEWithMD5AndTripleDES"_s->toUpperCase($Locale::ENGLISH)));
+		PBEKeyFactory::validTypes->add($("PBEWithHmacSHA1AndAES_128"_s->toUpperCase($Locale::ENGLISH)));
+		PBEKeyFactory::validTypes->add($("PBEWithHmacSHA224AndAES_128"_s->toUpperCase($Locale::ENGLISH)));
+		PBEKeyFactory::validTypes->add($("PBEWithHmacSHA256AndAES_128"_s->toUpperCase($Locale::ENGLISH)));
+		PBEKeyFactory::validTypes->add($("PBEWithHmacSHA384AndAES_128"_s->toUpperCase($Locale::ENGLISH)));
+		PBEKeyFactory::validTypes->add($("PBEWithHmacSHA512AndAES_128"_s->toUpperCase($Locale::ENGLISH)));
+		PBEKeyFactory::validTypes->add($("PBEWithHmacSHA1AndAES_256"_s->toUpperCase($Locale::ENGLISH)));
+		PBEKeyFactory::validTypes->add($("PBEWithHmacSHA224AndAES_256"_s->toUpperCase($Locale::ENGLISH)));
+		PBEKeyFactory::validTypes->add($("PBEWithHmacSHA256AndAES_256"_s->toUpperCase($Locale::ENGLISH)));
+		PBEKeyFactory::validTypes->add($("PBEWithHmacSHA384AndAES_256"_s->toUpperCase($Locale::ENGLISH)));
+		PBEKeyFactory::validTypes->add($("PBEWithHmacSHA512AndAES_256"_s->toUpperCase($Locale::ENGLISH)));
 	}
 }
 
@@ -195,7 +138,55 @@ PBEKeyFactory::PBEKeyFactory() {
 }
 
 $Class* PBEKeyFactory::load$($String* name, bool initialize) {
-	$loadClass(PBEKeyFactory, name, initialize, &_PBEKeyFactory_ClassInfo_, clinit$PBEKeyFactory, allocate$PBEKeyFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PBEKeyFactory, type)},
+		{"validTypes", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(PBEKeyFactory, validTypes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(PBEKeyFactory, init$, void, $String*)},
+		{"engineGenerateSecret", "(Ljava/security/spec/KeySpec;)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(PBEKeyFactory, engineGenerateSecret, $SecretKey*, $KeySpec*), "java.security.spec.InvalidKeySpecException"},
+		{"engineGetKeySpec", "(Ljavax/crypto/SecretKey;Ljava/lang/Class;)Ljava/security/spec/KeySpec;", "(Ljavax/crypto/SecretKey;Ljava/lang/Class<*>;)Ljava/security/spec/KeySpec;", $PROTECTED, $virtualMethod(PBEKeyFactory, engineGetKeySpec, $KeySpec*, $SecretKey*, $Class*), "java.security.spec.InvalidKeySpecException"},
+		{"engineTranslateKey", "(Ljavax/crypto/SecretKey;)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(PBEKeyFactory, engineTranslateKey, $SecretKey*, $SecretKey*), "java.security.InvalidKeyException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA512AndAES_256", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithHmacSHA512AndAES_256", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA384AndAES_256", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithHmacSHA384AndAES_256", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA256AndAES_256", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithHmacSHA256AndAES_256", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA224AndAES_256", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithHmacSHA224AndAES_256", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA1AndAES_256", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithHmacSHA1AndAES_256", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA512AndAES_128", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithHmacSHA512AndAES_128", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA384AndAES_128", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithHmacSHA384AndAES_128", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA256AndAES_128", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithHmacSHA256AndAES_128", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA224AndAES_128", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithHmacSHA224AndAES_128", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA1AndAES_128", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithHmacSHA1AndAES_128", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.PBEKeyFactory$PBEWithMD5AndTripleDES", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithMD5AndTripleDES", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.PBEKeyFactory$PBEWithSHA1AndRC4_128", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithSHA1AndRC4_128", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.PBEKeyFactory$PBEWithSHA1AndRC4_40", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithSHA1AndRC4_40", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.PBEKeyFactory$PBEWithSHA1AndRC2_128", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithSHA1AndRC2_128", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.PBEKeyFactory$PBEWithSHA1AndRC2_40", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithSHA1AndRC2_40", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.PBEKeyFactory$PBEWithSHA1AndDESede", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithSHA1AndDESede", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.PBEKeyFactory$PBEWithMD5AndDES", "com.sun.crypto.provider.PBEKeyFactory", "PBEWithMD5AndDES", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.crypto.provider.PBEKeyFactory",
+		"javax.crypto.SecretKeyFactorySpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA512AndAES_256,com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA384AndAES_256,com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA256AndAES_256,com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA224AndAES_256,com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA1AndAES_256,com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA512AndAES_128,com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA384AndAES_128,com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA256AndAES_128,com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA224AndAES_128,com.sun.crypto.provider.PBEKeyFactory$PBEWithHmacSHA1AndAES_128,com.sun.crypto.provider.PBEKeyFactory$PBEWithMD5AndTripleDES,com.sun.crypto.provider.PBEKeyFactory$PBEWithSHA1AndRC4_128,com.sun.crypto.provider.PBEKeyFactory$PBEWithSHA1AndRC4_40,com.sun.crypto.provider.PBEKeyFactory$PBEWithSHA1AndRC2_128,com.sun.crypto.provider.PBEKeyFactory$PBEWithSHA1AndRC2_40,com.sun.crypto.provider.PBEKeyFactory$PBEWithSHA1AndDESede,com.sun.crypto.provider.PBEKeyFactory$PBEWithMD5AndDES"
+	};
+	$loadClass(PBEKeyFactory, name, initialize, &classInfo$$, PBEKeyFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PBEKeyFactory);
+	});
 	return class$;
 }
 

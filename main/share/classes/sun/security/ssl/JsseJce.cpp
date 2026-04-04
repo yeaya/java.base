@@ -1,7 +1,5 @@
 #include <sun/security/ssl/JsseJce.h>
-
 #include <java/math/BigInteger.h>
-#include <java/security/Key.h>
 #include <java/security/KeyFactory.h>
 #include <java/security/PublicKey.h>
 #include <java/security/interfaces/RSAPublicKey.h>
@@ -33,7 +31,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $BigInteger = ::java::math::BigInteger;
-using $Key = ::java::security::Key;
 using $KeyFactory = ::java::security::KeyFactory;
 using $PublicKey = ::java::security::PublicKey;
 using $RSAPublicKey = ::java::security::interfaces::RSAPublicKey;
@@ -44,57 +41,6 @@ using $Utilities = ::sun::security::ssl::Utilities;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _JsseJce_FieldInfo_[] = {
-	{"ALLOW_ECC", "Z", nullptr, $STATIC | $FINAL, $staticField(JsseJce, ALLOW_ECC)},
-	{"CIPHER_RSA_PKCS1", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, CIPHER_RSA_PKCS1)},
-	{"CIPHER_RC4", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, CIPHER_RC4)},
-	{"CIPHER_DES", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, CIPHER_DES)},
-	{"CIPHER_3DES", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, CIPHER_3DES)},
-	{"CIPHER_AES", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, CIPHER_AES)},
-	{"CIPHER_AES_GCM", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, CIPHER_AES_GCM)},
-	{"CIPHER_CHACHA20_POLY1305", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, CIPHER_CHACHA20_POLY1305)},
-	{"SIGNATURE_DSA", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, SIGNATURE_DSA)},
-	{"SIGNATURE_ECDSA", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, SIGNATURE_ECDSA)},
-	{"SIGNATURE_EDDSA", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, SIGNATURE_EDDSA)},
-	{"SIGNATURE_RAWDSA", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, SIGNATURE_RAWDSA)},
-	{"SIGNATURE_RAWECDSA", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, SIGNATURE_RAWECDSA)},
-	{"SIGNATURE_RAWRSA", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, SIGNATURE_RAWRSA)},
-	{"SIGNATURE_SSLRSA", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, SIGNATURE_SSLRSA)},
-	{}
-};
-
-$MethodInfo _JsseJce_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(JsseJce, init$, void)},
-	{"getRSAKeyLength", "(Ljava/security/PublicKey;)I", nullptr, $STATIC, $staticMethod(JsseJce, getRSAKeyLength, int32_t, $PublicKey*)},
-	{"getRSAPublicKeySpec", "(Ljava/security/PublicKey;)Ljava/security/spec/RSAPublicKeySpec;", nullptr, $STATIC, $staticMethod(JsseJce, getRSAPublicKeySpec, $RSAPublicKeySpec*, $PublicKey*)},
-	{"isEcAvailable", "()Z", nullptr, $STATIC, $staticMethod(JsseJce, isEcAvailable, bool)},
-	{}
-};
-
-$InnerClassInfo _JsseJce_InnerClassesInfo_[] = {
-	{"sun.security.ssl.JsseJce$EcAvailability", "sun.security.ssl.JsseJce", "EcAvailability", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JsseJce_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.JsseJce",
-	"java.lang.Object",
-	nullptr,
-	_JsseJce_FieldInfo_,
-	_JsseJce_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JsseJce_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.JsseJce$EcAvailability"
-};
-
-$Object* allocate$JsseJce($Class* clazz) {
-	return $of($alloc(JsseJce));
-}
 
 bool JsseJce::ALLOW_ECC = false;
 $String* JsseJce::CIPHER_RSA_PKCS1 = nullptr;
@@ -123,10 +69,10 @@ bool JsseJce::isEcAvailable() {
 
 int32_t JsseJce::getRSAKeyLength($PublicKey* key) {
 	$init(JsseJce);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BigInteger, modulus, nullptr);
 	if ($instanceOf($RSAPublicKey, key)) {
-		$assign(modulus, $nc(($cast($RSAPublicKey, key)))->getModulus());
+		$assign(modulus, $cast($RSAPublicKey, key)->getModulus());
 	} else {
 		$var($RSAPublicKeySpec, spec, getRSAPublicKeySpec(key));
 		$assign(modulus, $nc(spec)->getModulus());
@@ -136,10 +82,10 @@ int32_t JsseJce::getRSAKeyLength($PublicKey* key) {
 
 $RSAPublicKeySpec* JsseJce::getRSAPublicKeySpec($PublicKey* key) {
 	$init(JsseJce);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($RSAPublicKey, key)) {
 		$var($RSAPublicKey, rsaKey, $cast($RSAPublicKey, key));
-		$var($BigInteger, var$0, $nc(rsaKey)->getModulus());
+		$var($BigInteger, var$0, rsaKey->getModulus());
 		return $new($RSAPublicKeySpec, var$0, $(rsaKey->getPublicExponent()));
 	}
 	try {
@@ -147,12 +93,12 @@ $RSAPublicKeySpec* JsseJce::getRSAPublicKeySpec($PublicKey* key) {
 		$load($RSAPublicKeySpec);
 		return $cast($RSAPublicKeySpec, $nc(factory)->getKeySpec(key, $RSAPublicKeySpec::class$));
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 	$shouldNotReachHere();
 }
 
-void clinit$JsseJce($Class* class$) {
+void JsseJce::clinit$($Class* clazz) {
 	$assignStatic(JsseJce::CIPHER_RSA_PKCS1, "RSA/ECB/PKCS1Padding"_s);
 	$assignStatic(JsseJce::CIPHER_RC4, "RC4"_s);
 	$assignStatic(JsseJce::CIPHER_DES, "DES/CBC/NoPadding"_s);
@@ -174,7 +120,52 @@ JsseJce::JsseJce() {
 }
 
 $Class* JsseJce::load$($String* name, bool initialize) {
-	$loadClass(JsseJce, name, initialize, &_JsseJce_ClassInfo_, clinit$JsseJce, allocate$JsseJce);
+	$FieldInfo fieldInfos$$[] = {
+		{"ALLOW_ECC", "Z", nullptr, $STATIC | $FINAL, $staticField(JsseJce, ALLOW_ECC)},
+		{"CIPHER_RSA_PKCS1", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, CIPHER_RSA_PKCS1)},
+		{"CIPHER_RC4", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, CIPHER_RC4)},
+		{"CIPHER_DES", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, CIPHER_DES)},
+		{"CIPHER_3DES", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, CIPHER_3DES)},
+		{"CIPHER_AES", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, CIPHER_AES)},
+		{"CIPHER_AES_GCM", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, CIPHER_AES_GCM)},
+		{"CIPHER_CHACHA20_POLY1305", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, CIPHER_CHACHA20_POLY1305)},
+		{"SIGNATURE_DSA", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, SIGNATURE_DSA)},
+		{"SIGNATURE_ECDSA", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, SIGNATURE_ECDSA)},
+		{"SIGNATURE_EDDSA", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, SIGNATURE_EDDSA)},
+		{"SIGNATURE_RAWDSA", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, SIGNATURE_RAWDSA)},
+		{"SIGNATURE_RAWECDSA", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, SIGNATURE_RAWECDSA)},
+		{"SIGNATURE_RAWRSA", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, SIGNATURE_RAWRSA)},
+		{"SIGNATURE_SSLRSA", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(JsseJce, SIGNATURE_SSLRSA)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(JsseJce, init$, void)},
+		{"getRSAKeyLength", "(Ljava/security/PublicKey;)I", nullptr, $STATIC, $staticMethod(JsseJce, getRSAKeyLength, int32_t, $PublicKey*)},
+		{"getRSAPublicKeySpec", "(Ljava/security/PublicKey;)Ljava/security/spec/RSAPublicKeySpec;", nullptr, $STATIC, $staticMethod(JsseJce, getRSAPublicKeySpec, $RSAPublicKeySpec*, $PublicKey*)},
+		{"isEcAvailable", "()Z", nullptr, $STATIC, $staticMethod(JsseJce, isEcAvailable, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.JsseJce$EcAvailability", "sun.security.ssl.JsseJce", "EcAvailability", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.JsseJce",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.JsseJce$EcAvailability"
+	};
+	$loadClass(JsseJce, name, initialize, &classInfo$$, JsseJce::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JsseJce);
+	});
 	return class$;
 }
 

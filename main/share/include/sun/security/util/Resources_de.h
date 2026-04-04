@@ -14,6 +14,7 @@ class $import Resources_de : public ::java::util::ListResourceBundle {
 	$class(Resources_de, 0, ::java::util::ListResourceBundle)
 public:
 	Resources_de();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Array<::java::lang::Object, 2>* getContents() override;
 	static $Array<::java::lang::Object, 2>* contents;

@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/tree/TypeAnnotationNode.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jdk/internal/org/objectweb/asm/Opcodes.h>
 #include <jdk/internal/org/objectweb/asm/TypePath.h>
@@ -23,31 +22,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace tree {
 
-$FieldInfo _TypeAnnotationNode_FieldInfo_[] = {
-	{"typeRef", "I", nullptr, $PUBLIC, $field(TypeAnnotationNode, typeRef)},
-	{"typePath", "Ljdk/internal/org/objectweb/asm/TypePath;", nullptr, $PUBLIC, $field(TypeAnnotationNode, typePath)},
-	{}
-};
-
-$MethodInfo _TypeAnnotationNode_MethodInfo_[] = {
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TypeAnnotationNode, init$, void, int32_t, $TypePath*, $String*)},
-	{"<init>", "(IILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TypeAnnotationNode, init$, void, int32_t, int32_t, $TypePath*, $String*)},
-	{}
-};
-
-$ClassInfo _TypeAnnotationNode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.tree.TypeAnnotationNode",
-	"jdk.internal.org.objectweb.asm.tree.AnnotationNode",
-	nullptr,
-	_TypeAnnotationNode_FieldInfo_,
-	_TypeAnnotationNode_MethodInfo_
-};
-
-$Object* allocate$TypeAnnotationNode($Class* clazz) {
-	return $of($alloc(TypeAnnotationNode));
-}
-
 void TypeAnnotationNode::init$(int32_t typeRef, $TypePath* typePath, $String* descriptor) {
 	TypeAnnotationNode::init$($Opcodes::ASM8, typeRef, typePath, descriptor);
 	if ($of(this)->getClass() != TypeAnnotationNode::class$) {
@@ -65,7 +39,27 @@ TypeAnnotationNode::TypeAnnotationNode() {
 }
 
 $Class* TypeAnnotationNode::load$($String* name, bool initialize) {
-	$loadClass(TypeAnnotationNode, name, initialize, &_TypeAnnotationNode_ClassInfo_, allocate$TypeAnnotationNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"typeRef", "I", nullptr, $PUBLIC, $field(TypeAnnotationNode, typeRef)},
+		{"typePath", "Ljdk/internal/org/objectweb/asm/TypePath;", nullptr, $PUBLIC, $field(TypeAnnotationNode, typePath)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TypeAnnotationNode, init$, void, int32_t, $TypePath*, $String*)},
+		{"<init>", "(IILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TypeAnnotationNode, init$, void, int32_t, int32_t, $TypePath*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.tree.TypeAnnotationNode",
+		"jdk.internal.org.objectweb.asm.tree.AnnotationNode",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TypeAnnotationNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeAnnotationNode);
+	});
 	return class$;
 }
 

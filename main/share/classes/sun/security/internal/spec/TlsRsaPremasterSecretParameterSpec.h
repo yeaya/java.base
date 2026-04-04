@@ -15,6 +15,7 @@ class $export TlsRsaPremasterSecretParameterSpec : public ::java::security::spec
 	$class(TlsRsaPremasterSecretParameterSpec, 0, ::java::security::spec::AlgorithmParameterSpec)
 public:
 	TlsRsaPremasterSecretParameterSpec();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t clientVersion, int32_t serverVersion);
 	void init$(int32_t clientVersion, int32_t serverVersion, $bytes* encodedSecret);
 	int32_t checkVersion(int32_t version);

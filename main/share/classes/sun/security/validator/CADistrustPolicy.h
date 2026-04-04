@@ -33,6 +33,7 @@ class CADistrustPolicy : public ::java::lang::Enum {
 public:
 	CADistrustPolicy();
 	static $Array<::sun::security::validator::CADistrustPolicy>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual void checkDistrust($String* variant, $Array<::java::security::cert::X509Certificate>* chain) {}
 	static ::java::util::EnumSet* parseProperty();

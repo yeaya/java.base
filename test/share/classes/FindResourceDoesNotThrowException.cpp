@@ -1,5 +1,4 @@
 #include <FindResourceDoesNotThrowException.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/net/URL.h>
 #include <java/net/URLClassLoader.h>
@@ -12,65 +11,43 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $URL = ::java::net::URL;
 using $URLClassLoader = ::java::net::URLClassLoader;
-using $Enumeration = ::java::util::Enumeration;
-
-$MethodInfo _FindResourceDoesNotThrowException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(FindResourceDoesNotThrowException, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FindResourceDoesNotThrowException, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _FindResourceDoesNotThrowException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"FindResourceDoesNotThrowException",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_FindResourceDoesNotThrowException_MethodInfo_
-};
-
-$Object* allocate$FindResourceDoesNotThrowException($Class* clazz) {
-	return $of($alloc(FindResourceDoesNotThrowException));
-}
 
 void FindResourceDoesNotThrowException::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URL, url, $new($URL, "https://127.0.0.1/"_s));
 	$var($String, resource, "c:/windows"_s);
 	{
 		$var($URLClassLoader, urlClassLoader, $new($URLClassLoader, $$new($URLArray, {url})));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					if (urlClassLoader->findResource(resource) != nullptr) {
-						$throwNew($RuntimeException, "findResource should return null"_s);
-					}
-					if (urlClassLoader->getResource(resource) != nullptr) {
-						$throwNew($RuntimeException, "getResource should return null"_s);
-					}
-					if ($nc($(urlClassLoader->findResources(resource)))->hasMoreElements()) {
-						$throwNew($RuntimeException, "findResources should return an empty enumeration"_s);
-					}
-					if ($nc($(urlClassLoader->getResources(resource)))->hasMoreElements()) {
-						$throwNew($RuntimeException, "getResources should return an empty enumeration"_s);
-					}
-				} catch ($Throwable& t$) {
-					try {
-						urlClassLoader->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+				if (urlClassLoader->findResource(resource) != nullptr) {
+					$throwNew($RuntimeException, "findResource should return null"_s);
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				urlClassLoader->close();
+				if (urlClassLoader->getResource(resource) != nullptr) {
+					$throwNew($RuntimeException, "getResource should return null"_s);
+				}
+				if ($$nc(urlClassLoader->findResources(resource))->hasMoreElements()) {
+					$throwNew($RuntimeException, "findResources should return an empty enumeration"_s);
+				}
+				if ($$nc(urlClassLoader->getResources(resource))->hasMoreElements()) {
+					$throwNew($RuntimeException, "getResources should return an empty enumeration"_s);
+				}
+			} catch ($Throwable& t$) {
+				try {
+					urlClassLoader->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			urlClassLoader->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -82,7 +59,22 @@ FindResourceDoesNotThrowException::FindResourceDoesNotThrowException() {
 }
 
 $Class* FindResourceDoesNotThrowException::load$($String* name, bool initialize) {
-	$loadClass(FindResourceDoesNotThrowException, name, initialize, &_FindResourceDoesNotThrowException_ClassInfo_, allocate$FindResourceDoesNotThrowException);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(FindResourceDoesNotThrowException, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FindResourceDoesNotThrowException, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"FindResourceDoesNotThrowException",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FindResourceDoesNotThrowException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FindResourceDoesNotThrowException);
+	});
 	return class$;
 }
 

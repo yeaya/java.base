@@ -1,5 +1,4 @@
 #include <Mode.h>
-
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/FileOutputStream.h>
@@ -26,32 +25,6 @@ using $FileChannel$MapMode = ::java::nio::channels::FileChannel$MapMode;
 using $NonReadableChannelException = ::java::nio::channels::NonReadableChannelException;
 using $NonWritableChannelException = ::java::nio::channels::NonWritableChannelException;
 
-$FieldInfo _Mode_FieldInfo_[] = {
-	{"testFile", "Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticField(Mode, testFile)},
-	{}
-};
-
-$MethodInfo _Mode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Mode, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Mode, main, void, $StringArray*), "java.lang.Exception"},
-	{"testReadable", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Mode, testReadable, void), "java.io.IOException"},
-	{"testWritable", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Mode, testWritable, void), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _Mode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Mode",
-	"java.lang.Object",
-	nullptr,
-	_Mode_FieldInfo_,
-	_Mode_MethodInfo_
-};
-
-$Object* allocate$Mode($Class* clazz) {
-	return $of($alloc(Mode));
-}
-
 $File* Mode::testFile = nullptr;
 
 void Mode::init$() {
@@ -66,7 +39,7 @@ void Mode::main($StringArray* args) {
 }
 
 void Mode::testReadable() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(Mode);
 	$var($FileInputStream, is, $new($FileInputStream, Mode::testFile));
 	$var($FileChannel, channel, is->getChannel());
@@ -80,7 +53,7 @@ void Mode::testReadable() {
 }
 
 void Mode::testWritable() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(Mode);
 	$var($FileOutputStream, is, $new($FileOutputStream, Mode::testFile));
 	$var($FileChannel, channel, is->getChannel());
@@ -97,7 +70,28 @@ Mode::Mode() {
 }
 
 $Class* Mode::load$($String* name, bool initialize) {
-	$loadClass(Mode, name, initialize, &_Mode_ClassInfo_, allocate$Mode);
+	$FieldInfo fieldInfos$$[] = {
+		{"testFile", "Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticField(Mode, testFile)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Mode, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Mode, main, void, $StringArray*), "java.lang.Exception"},
+		{"testReadable", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Mode, testReadable, void), "java.io.IOException"},
+		{"testWritable", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Mode, testWritable, void), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Mode",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Mode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Mode);
+	});
 	return class$;
 }
 

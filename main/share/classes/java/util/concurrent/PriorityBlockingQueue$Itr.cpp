@@ -1,5 +1,4 @@
 #include <java/util/concurrent/PriorityBlockingQueue$Itr.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/NoSuchElementException.h>
 #include <java/util/Objects.h>
@@ -21,48 +20,6 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _PriorityBlockingQueue$Itr_FieldInfo_[] = {
-	{"this$0", "Ljava/util/concurrent/PriorityBlockingQueue;", nullptr, $FINAL | $SYNTHETIC, $field(PriorityBlockingQueue$Itr, this$0)},
-	{"array", "[Ljava/lang/Object;", nullptr, $FINAL, $field(PriorityBlockingQueue$Itr, array)},
-	{"cursor", "I", nullptr, 0, $field(PriorityBlockingQueue$Itr, cursor)},
-	{"lastRet", "I", nullptr, 0, $field(PriorityBlockingQueue$Itr, lastRet)},
-	{}
-};
-
-$MethodInfo _PriorityBlockingQueue$Itr_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/PriorityBlockingQueue;[Ljava/lang/Object;)V", nullptr, 0, $method(PriorityBlockingQueue$Itr, init$, void, $PriorityBlockingQueue*, $ObjectArray*)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(PriorityBlockingQueue$Itr, forEachRemaining, void, $Consumer*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue$Itr, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(PriorityBlockingQueue$Itr, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue$Itr, remove, void)},
-	{}
-};
-
-$InnerClassInfo _PriorityBlockingQueue$Itr_InnerClassesInfo_[] = {
-	{"java.util.concurrent.PriorityBlockingQueue$Itr", "java.util.concurrent.PriorityBlockingQueue", "Itr", $FINAL},
-	{}
-};
-
-$ClassInfo _PriorityBlockingQueue$Itr_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.PriorityBlockingQueue$Itr",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_PriorityBlockingQueue$Itr_FieldInfo_,
-	_PriorityBlockingQueue$Itr_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
-	nullptr,
-	_PriorityBlockingQueue$Itr_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.PriorityBlockingQueue"
-};
-
-$Object* allocate$PriorityBlockingQueue$Itr($Class* clazz) {
-	return $of($alloc(PriorityBlockingQueue$Itr));
-}
-
 void PriorityBlockingQueue$Itr::init$($PriorityBlockingQueue* this$0, $ObjectArray* array) {
 	$set(this, this$0, this$0);
 	this->lastRet = -1;
@@ -77,7 +34,7 @@ $Object* PriorityBlockingQueue$Itr::next() {
 	if (this->cursor >= $nc(this->array)->length) {
 		$throwNew($NoSuchElementException);
 	}
-	return $of($nc(this->array)->get(this->lastRet = this->cursor++));
+	return this->array->get(this->lastRet = this->cursor++);
 }
 
 void PriorityBlockingQueue$Itr::remove() {
@@ -106,7 +63,43 @@ PriorityBlockingQueue$Itr::PriorityBlockingQueue$Itr() {
 }
 
 $Class* PriorityBlockingQueue$Itr::load$($String* name, bool initialize) {
-	$loadClass(PriorityBlockingQueue$Itr, name, initialize, &_PriorityBlockingQueue$Itr_ClassInfo_, allocate$PriorityBlockingQueue$Itr);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/concurrent/PriorityBlockingQueue;", nullptr, $FINAL | $SYNTHETIC, $field(PriorityBlockingQueue$Itr, this$0)},
+		{"array", "[Ljava/lang/Object;", nullptr, $FINAL, $field(PriorityBlockingQueue$Itr, array)},
+		{"cursor", "I", nullptr, 0, $field(PriorityBlockingQueue$Itr, cursor)},
+		{"lastRet", "I", nullptr, 0, $field(PriorityBlockingQueue$Itr, lastRet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/PriorityBlockingQueue;[Ljava/lang/Object;)V", nullptr, 0, $method(PriorityBlockingQueue$Itr, init$, void, $PriorityBlockingQueue*, $ObjectArray*)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(PriorityBlockingQueue$Itr, forEachRemaining, void, $Consumer*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue$Itr, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(PriorityBlockingQueue$Itr, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(PriorityBlockingQueue$Itr, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.PriorityBlockingQueue$Itr", "java.util.concurrent.PriorityBlockingQueue", "Itr", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.PriorityBlockingQueue$Itr",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.PriorityBlockingQueue"
+	};
+	$loadClass(PriorityBlockingQueue$Itr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PriorityBlockingQueue$Itr);
+	});
 	return class$;
 }
 

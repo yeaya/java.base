@@ -1,5 +1,4 @@
 #include <sun/net/sdp/SdpProvider$PortRangeRule.h>
-
 #include <java/net/InetAddress.h>
 #include <sun/net/sdp/SdpProvider$Action.h>
 #include <sun/net/sdp/SdpProvider.h>
@@ -15,46 +14,6 @@ using $SdpProvider$Action = ::sun::net::sdp::SdpProvider$Action;
 namespace sun {
 	namespace net {
 		namespace sdp {
-
-$FieldInfo _SdpProvider$PortRangeRule_FieldInfo_[] = {
-	{"action", "Lsun/net/sdp/SdpProvider$Action;", nullptr, $PRIVATE | $FINAL, $field(SdpProvider$PortRangeRule, action$)},
-	{"portStart", "I", nullptr, $PRIVATE | $FINAL, $field(SdpProvider$PortRangeRule, portStart)},
-	{"portEnd", "I", nullptr, $PRIVATE | $FINAL, $field(SdpProvider$PortRangeRule, portEnd)},
-	{}
-};
-
-$MethodInfo _SdpProvider$PortRangeRule_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/sdp/SdpProvider$Action;II)V", nullptr, 0, $method(SdpProvider$PortRangeRule, init$, void, $SdpProvider$Action*, int32_t, int32_t)},
-	{"action", "()Lsun/net/sdp/SdpProvider$Action;", nullptr, 0, $virtualMethod(SdpProvider$PortRangeRule, action, $SdpProvider$Action*)},
-	{"match", "(Lsun/net/sdp/SdpProvider$Action;Ljava/net/InetAddress;I)Z", nullptr, $PUBLIC, $virtualMethod(SdpProvider$PortRangeRule, match, bool, $SdpProvider$Action*, $InetAddress*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _SdpProvider$PortRangeRule_InnerClassesInfo_[] = {
-	{"sun.net.sdp.SdpProvider$PortRangeRule", "sun.net.sdp.SdpProvider", "PortRangeRule", $PRIVATE | $STATIC},
-	{"sun.net.sdp.SdpProvider$Rule", "sun.net.sdp.SdpProvider", "Rule", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SdpProvider$PortRangeRule_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.sdp.SdpProvider$PortRangeRule",
-	"java.lang.Object",
-	"sun.net.sdp.SdpProvider$Rule",
-	_SdpProvider$PortRangeRule_FieldInfo_,
-	_SdpProvider$PortRangeRule_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SdpProvider$PortRangeRule_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.sdp.SdpProvider"
-};
-
-$Object* allocate$SdpProvider$PortRangeRule($Class* clazz) {
-	return $of($alloc(SdpProvider$PortRangeRule));
-}
 
 void SdpProvider$PortRangeRule::init$($SdpProvider$Action* action, int32_t portStart, int32_t portEnd) {
 	$set(this, action$, action);
@@ -74,7 +33,41 @@ SdpProvider$PortRangeRule::SdpProvider$PortRangeRule() {
 }
 
 $Class* SdpProvider$PortRangeRule::load$($String* name, bool initialize) {
-	$loadClass(SdpProvider$PortRangeRule, name, initialize, &_SdpProvider$PortRangeRule_ClassInfo_, allocate$SdpProvider$PortRangeRule);
+	$FieldInfo fieldInfos$$[] = {
+		{"action", "Lsun/net/sdp/SdpProvider$Action;", nullptr, $PRIVATE | $FINAL, $field(SdpProvider$PortRangeRule, action$)},
+		{"portStart", "I", nullptr, $PRIVATE | $FINAL, $field(SdpProvider$PortRangeRule, portStart)},
+		{"portEnd", "I", nullptr, $PRIVATE | $FINAL, $field(SdpProvider$PortRangeRule, portEnd)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/sdp/SdpProvider$Action;II)V", nullptr, 0, $method(SdpProvider$PortRangeRule, init$, void, $SdpProvider$Action*, int32_t, int32_t)},
+		{"action", "()Lsun/net/sdp/SdpProvider$Action;", nullptr, 0, $virtualMethod(SdpProvider$PortRangeRule, action, $SdpProvider$Action*)},
+		{"match", "(Lsun/net/sdp/SdpProvider$Action;Ljava/net/InetAddress;I)Z", nullptr, $PUBLIC, $virtualMethod(SdpProvider$PortRangeRule, match, bool, $SdpProvider$Action*, $InetAddress*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.sdp.SdpProvider$PortRangeRule", "sun.net.sdp.SdpProvider", "PortRangeRule", $PRIVATE | $STATIC},
+		{"sun.net.sdp.SdpProvider$Rule", "sun.net.sdp.SdpProvider", "Rule", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.sdp.SdpProvider$PortRangeRule",
+		"java.lang.Object",
+		"sun.net.sdp.SdpProvider$Rule",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.sdp.SdpProvider"
+	};
+	$loadClass(SdpProvider$PortRangeRule, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SdpProvider$PortRangeRule);
+	});
 	return class$;
 }
 

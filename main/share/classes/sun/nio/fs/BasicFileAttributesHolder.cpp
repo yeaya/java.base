@@ -1,5 +1,4 @@
 #include <sun/nio/fs/BasicFileAttributesHolder.h>
-
 #include <java/nio/file/attribute/BasicFileAttributes.h>
 #include <jcpp.h>
 
@@ -11,27 +10,23 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$MethodInfo _BasicFileAttributesHolder_MethodInfo_[] = {
-	{"get", "()Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BasicFileAttributesHolder, get, $BasicFileAttributes*)},
-	{"invalidate", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BasicFileAttributesHolder, invalidate, void)},
-	{}
-};
-
-$ClassInfo _BasicFileAttributesHolder_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.nio.fs.BasicFileAttributesHolder",
-	nullptr,
-	nullptr,
-	nullptr,
-	_BasicFileAttributesHolder_MethodInfo_
-};
-
-$Object* allocate$BasicFileAttributesHolder($Class* clazz) {
-	return $of($alloc(BasicFileAttributesHolder));
-}
-
 $Class* BasicFileAttributesHolder::load$($String* name, bool initialize) {
-	$loadClass(BasicFileAttributesHolder, name, initialize, &_BasicFileAttributesHolder_ClassInfo_, allocate$BasicFileAttributesHolder);
+	$MethodInfo methodInfos$$[] = {
+		{"get", "()Ljava/nio/file/attribute/BasicFileAttributes;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BasicFileAttributesHolder, get, $BasicFileAttributes*)},
+		{"invalidate", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BasicFileAttributesHolder, invalidate, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.nio.fs.BasicFileAttributesHolder",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BasicFileAttributesHolder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicFileAttributesHolder);
+	});
 	return class$;
 }
 

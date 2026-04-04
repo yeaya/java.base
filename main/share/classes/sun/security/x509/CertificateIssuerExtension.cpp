@@ -1,5 +1,4 @@
 #include <sun/security/x509/CertificateIssuerExtension.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/util/Enumeration.h>
@@ -33,45 +32,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _CertificateIssuerExtension_FieldInfo_[] = {
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateIssuerExtension, NAME)},
-	{"ISSUER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateIssuerExtension, ISSUER)},
-	{"names", "Lsun/security/x509/GeneralNames;", nullptr, $PRIVATE, $field(CertificateIssuerExtension, names)},
-	{}
-};
-
-$MethodInfo _CertificateIssuerExtension_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Lsun/security/x509/GeneralNames;)V", nullptr, $PUBLIC, $method(CertificateIssuerExtension, init$, void, $GeneralNames*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(CertificateIssuerExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CertificateIssuerExtension, delete$, void, $String*), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateIssuerExtension, encode, void, $OutputStream*), "java.io.IOException"},
-	{"encodeThis", "()V", nullptr, $PRIVATE, $method(CertificateIssuerExtension, encodeThis, void), "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Lsun/security/x509/GeneralNames;", nullptr, $PUBLIC, $virtualMethod(CertificateIssuerExtension, get, $Object*, $String*), "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CertificateIssuerExtension, getElements, $Enumeration*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateIssuerExtension, getName, $String*)},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CertificateIssuerExtension, set, void, $String*, Object$*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateIssuerExtension, toString, $String*)},
-	{}
-};
-
-$ClassInfo _CertificateIssuerExtension_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.CertificateIssuerExtension",
-	"sun.security.x509.Extension",
-	"sun.security.x509.CertAttrSet",
-	_CertificateIssuerExtension_FieldInfo_,
-	_CertificateIssuerExtension_MethodInfo_,
-	"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
-};
-
-$Object* allocate$CertificateIssuerExtension($Class* clazz) {
-	return $of($alloc(CertificateIssuerExtension));
-}
-
 int32_t CertificateIssuerExtension::hashCode() {
 	 return this->$Extension::hashCode();
 }
@@ -92,7 +52,7 @@ $String* CertificateIssuerExtension::NAME = nullptr;
 $String* CertificateIssuerExtension::ISSUER = nullptr;
 
 void CertificateIssuerExtension::encodeThis() {
-	if (this->names == nullptr || $nc(this->names)->isEmpty()) {
+	if (this->names == nullptr || this->names->isEmpty()) {
 		$set(this, extensionValue, nullptr);
 		return;
 	}
@@ -134,7 +94,7 @@ void CertificateIssuerExtension::set($String* name, Object$* obj) {
 
 $Object* CertificateIssuerExtension::get($String* name) {
 	if ($nc(name)->equalsIgnoreCase(CertificateIssuerExtension::ISSUER)) {
-		return $of(this->names);
+		return this->names;
 	} else {
 		$throwNew($IOException, "Attribute name not recognized by CertAttrSet:CertificateIssuer"_s);
 	}
@@ -150,14 +110,17 @@ void CertificateIssuerExtension::delete$($String* name) {
 }
 
 $String* CertificateIssuerExtension::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({$($Extension::toString()), "Certificate Issuer [\n"_s}));
-	$var($String, var$0, $$concat(var$1, $($String::valueOf($of(this->names)))));
-	return $concat(var$0, "]\n"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($Extension::toString()));
+	var$0->append("Certificate Issuer [\n"_s);
+	var$0->append($($String::valueOf(this->names)));
+	var$0->append("]\n"_s);
+	return $str(var$0);
 }
 
 void CertificateIssuerExtension::encode($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);
@@ -182,13 +145,47 @@ $String* CertificateIssuerExtension::getName() {
 CertificateIssuerExtension::CertificateIssuerExtension() {
 }
 
-void clinit$CertificateIssuerExtension($Class* class$) {
+void CertificateIssuerExtension::clinit$($Class* clazz) {
 	$assignStatic(CertificateIssuerExtension::NAME, "CertificateIssuer"_s);
 	$assignStatic(CertificateIssuerExtension::ISSUER, "issuer"_s);
 }
 
 $Class* CertificateIssuerExtension::load$($String* name, bool initialize) {
-	$loadClass(CertificateIssuerExtension, name, initialize, &_CertificateIssuerExtension_ClassInfo_, clinit$CertificateIssuerExtension, allocate$CertificateIssuerExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateIssuerExtension, NAME)},
+		{"ISSUER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateIssuerExtension, ISSUER)},
+		{"names", "Lsun/security/x509/GeneralNames;", nullptr, $PRIVATE, $field(CertificateIssuerExtension, names)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Lsun/security/x509/GeneralNames;)V", nullptr, $PUBLIC, $method(CertificateIssuerExtension, init$, void, $GeneralNames*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(CertificateIssuerExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
+		{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CertificateIssuerExtension, delete$, void, $String*), "java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateIssuerExtension, encode, void, $OutputStream*), "java.io.IOException"},
+		{"encodeThis", "()V", nullptr, $PRIVATE, $method(CertificateIssuerExtension, encodeThis, void), "java.io.IOException"},
+		{"get", "(Ljava/lang/String;)Lsun/security/x509/GeneralNames;", nullptr, $PUBLIC, $virtualMethod(CertificateIssuerExtension, get, $Object*, $String*), "java.io.IOException"},
+		{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CertificateIssuerExtension, getElements, $Enumeration*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateIssuerExtension, getName, $String*)},
+		{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CertificateIssuerExtension, set, void, $String*, Object$*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateIssuerExtension, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.CertificateIssuerExtension",
+		"sun.security.x509.Extension",
+		"sun.security.x509.CertAttrSet",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
+	};
+	$loadClass(CertificateIssuerExtension, name, initialize, &classInfo$$, CertificateIssuerExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CertificateIssuerExtension));
+	});
 	return class$;
 }
 

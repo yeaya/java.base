@@ -1,5 +1,4 @@
 #include <java/nio/channels/Channels.h>
-
 #include <java/io/FileInputStream.h>
 #include <java/io/FileOutputStream.h>
 #include <java/io/InputStream.h>
@@ -9,7 +8,6 @@
 #include <java/lang/Error.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/AsynchronousByteChannel.h>
-#include <java/nio/channels/ByteChannel.h>
 #include <java/nio/channels/Channels$1.h>
 #include <java/nio/channels/Channels$2.h>
 #include <java/nio/channels/Channels$3.h>
@@ -43,7 +41,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $AsynchronousByteChannel = ::java::nio::channels::AsynchronousByteChannel;
-using $ByteChannel = ::java::nio::channels::ByteChannel;
 using $Channels$1 = ::java::nio::channels::Channels$1;
 using $Channels$2 = ::java::nio::channels::Channels$2;
 using $Channels$3 = ::java::nio::channels::Channels$3;
@@ -65,53 +62,6 @@ using $StreamEncoder = ::sun::nio::cs::StreamEncoder;
 namespace java {
 	namespace nio {
 		namespace channels {
-
-$MethodInfo _Channels_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Channels, init$, void)},
-	{"newChannel", "(Ljava/io/InputStream;)Ljava/nio/channels/ReadableByteChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, newChannel, $ReadableByteChannel*, $InputStream*)},
-	{"newChannel", "(Ljava/io/OutputStream;)Ljava/nio/channels/WritableByteChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, newChannel, $WritableByteChannel*, $OutputStream*)},
-	{"newInputStream", "(Ljava/nio/channels/ReadableByteChannel;)Ljava/io/InputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, newInputStream, $InputStream*, $ReadableByteChannel*)},
-	{"newInputStream", "(Ljava/nio/channels/AsynchronousByteChannel;)Ljava/io/InputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, newInputStream, $InputStream*, $AsynchronousByteChannel*)},
-	{"newOutputStream", "(Ljava/nio/channels/WritableByteChannel;)Ljava/io/OutputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, newOutputStream, $OutputStream*, $WritableByteChannel*)},
-	{"newOutputStream", "(Ljava/nio/channels/AsynchronousByteChannel;)Ljava/io/OutputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, newOutputStream, $OutputStream*, $AsynchronousByteChannel*)},
-	{"newReader", "(Ljava/nio/channels/ReadableByteChannel;Ljava/nio/charset/CharsetDecoder;I)Ljava/io/Reader;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, newReader, $Reader*, $ReadableByteChannel*, $CharsetDecoder*, int32_t)},
-	{"newReader", "(Ljava/nio/channels/ReadableByteChannel;Ljava/lang/String;)Ljava/io/Reader;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, newReader, $Reader*, $ReadableByteChannel*, $String*)},
-	{"newReader", "(Ljava/nio/channels/ReadableByteChannel;Ljava/nio/charset/Charset;)Ljava/io/Reader;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, newReader, $Reader*, $ReadableByteChannel*, $Charset*)},
-	{"newWriter", "(Ljava/nio/channels/WritableByteChannel;Ljava/nio/charset/CharsetEncoder;I)Ljava/io/Writer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, newWriter, $Writer*, $WritableByteChannel*, $CharsetEncoder*, int32_t)},
-	{"newWriter", "(Ljava/nio/channels/WritableByteChannel;Ljava/lang/String;)Ljava/io/Writer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, newWriter, $Writer*, $WritableByteChannel*, $String*)},
-	{"newWriter", "(Ljava/nio/channels/WritableByteChannel;Ljava/nio/charset/Charset;)Ljava/io/Writer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, newWriter, $Writer*, $WritableByteChannel*, $Charset*)},
-	{"writeFully", "(Ljava/nio/channels/WritableByteChannel;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Channels, writeFully, void, $WritableByteChannel*, $ByteBuffer*), "java.io.IOException"},
-	{"writeFullyImpl", "(Ljava/nio/channels/WritableByteChannel;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Channels, writeFullyImpl, void, $WritableByteChannel*, $ByteBuffer*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Channels_InnerClassesInfo_[] = {
-	{"java.nio.channels.Channels$WritableByteChannelImpl", "java.nio.channels.Channels", "WritableByteChannelImpl", $PRIVATE | $STATIC},
-	{"java.nio.channels.Channels$ReadableByteChannelImpl", "java.nio.channels.Channels", "ReadableByteChannelImpl", $PRIVATE | $STATIC},
-	{"java.nio.channels.Channels$3", nullptr, nullptr, 0},
-	{"java.nio.channels.Channels$2", nullptr, nullptr, 0},
-	{"java.nio.channels.Channels$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Channels_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.nio.channels.Channels",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Channels_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Channels_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.nio.channels.Channels$WritableByteChannelImpl,java.nio.channels.Channels$ReadableByteChannelImpl,java.nio.channels.Channels$3,java.nio.channels.Channels$2,java.nio.channels.Channels$1"
-};
-
-$Object* allocate$Channels($Class* clazz) {
-	return $of($alloc(Channels));
-}
 
 void Channels::init$() {
 	$throwNew($Error, "no instances"_s);
@@ -148,72 +98,72 @@ void Channels::writeFully($WritableByteChannel* ch, $ByteBuffer* bb) {
 }
 
 $InputStream* Channels::newInputStream($ReadableByteChannel* ch) {
-	$Objects::requireNonNull($of(ch), "ch"_s);
+	$Objects::requireNonNull(ch, "ch"_s);
 	return $new($ChannelInputStream, ch);
 }
 
 $OutputStream* Channels::newOutputStream($WritableByteChannel* ch) {
-	$Objects::requireNonNull($of(ch), "ch"_s);
+	$Objects::requireNonNull(ch, "ch"_s);
 	return $new($Channels$1, ch);
 }
 
 $InputStream* Channels::newInputStream($AsynchronousByteChannel* ch) {
-	$Objects::requireNonNull($of(ch), "ch"_s);
+	$Objects::requireNonNull(ch, "ch"_s);
 	return $new($Channels$2, ch);
 }
 
 $OutputStream* Channels::newOutputStream($AsynchronousByteChannel* ch) {
-	$Objects::requireNonNull($of(ch), "ch"_s);
+	$Objects::requireNonNull(ch, "ch"_s);
 	return $new($Channels$3, ch);
 }
 
 $ReadableByteChannel* Channels::newChannel($InputStream* in) {
-	$Objects::requireNonNull($of(in), "in"_s);
+	$Objects::requireNonNull(in, "in"_s);
 	$load($FileInputStream);
 	if ($nc($of(in))->getClass() == $FileInputStream::class$) {
-		return static_cast<$ReadableByteChannel*>(static_cast<$ByteChannel*>(static_cast<$SeekableByteChannel*>($nc(($cast($FileInputStream, in)))->getChannel())));
+		return $cast($SeekableByteChannel, $cast($FileInputStream, in)->getChannel());
 	}
 	return $new($Channels$ReadableByteChannelImpl, in);
 }
 
 $WritableByteChannel* Channels::newChannel($OutputStream* out) {
-	$Objects::requireNonNull($of(out), "out"_s);
+	$Objects::requireNonNull(out, "out"_s);
 	$load($FileOutputStream);
 	if ($nc($of(out))->getClass() == $FileOutputStream::class$) {
-		return static_cast<$WritableByteChannel*>(static_cast<$ByteChannel*>(static_cast<$SeekableByteChannel*>($nc(($cast($FileOutputStream, out)))->getChannel())));
+		return $cast($SeekableByteChannel, $cast($FileOutputStream, out)->getChannel());
 	}
 	return $new($Channels$WritableByteChannelImpl, out);
 }
 
 $Reader* Channels::newReader($ReadableByteChannel* ch, $CharsetDecoder* dec, int32_t minBufferCap) {
-	$Objects::requireNonNull($of(ch), "ch"_s);
+	$Objects::requireNonNull(ch, "ch"_s);
 	return $StreamDecoder::forDecoder(ch, $($nc(dec)->reset()), minBufferCap);
 }
 
 $Reader* Channels::newReader($ReadableByteChannel* ch, $String* csName) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(csName), "csName"_s);
-	return newReader(ch, $($nc($($Charset::forName(csName)))->newDecoder()), -1);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(csName, "csName"_s);
+	return newReader(ch, $($$nc($Charset::forName(csName))->newDecoder()), -1);
 }
 
 $Reader* Channels::newReader($ReadableByteChannel* ch, $Charset* charset) {
-	$Objects::requireNonNull($of(charset), "charset"_s);
+	$Objects::requireNonNull(charset, "charset"_s);
 	return newReader(ch, $($nc(charset)->newDecoder()), -1);
 }
 
 $Writer* Channels::newWriter($WritableByteChannel* ch, $CharsetEncoder* enc, int32_t minBufferCap) {
-	$Objects::requireNonNull($of(ch), "ch"_s);
+	$Objects::requireNonNull(ch, "ch"_s);
 	return $StreamEncoder::forEncoder(ch, $($nc(enc)->reset()), minBufferCap);
 }
 
 $Writer* Channels::newWriter($WritableByteChannel* ch, $String* csName) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(csName), "csName"_s);
-	return newWriter(ch, $($nc($($Charset::forName(csName)))->newEncoder()), -1);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(csName, "csName"_s);
+	return newWriter(ch, $($$nc($Charset::forName(csName))->newEncoder()), -1);
 }
 
 $Writer* Channels::newWriter($WritableByteChannel* ch, $Charset* charset) {
-	$Objects::requireNonNull($of(charset), "charset"_s);
+	$Objects::requireNonNull(charset, "charset"_s);
 	return newWriter(ch, $($nc(charset)->newEncoder()), -1);
 }
 
@@ -221,7 +171,49 @@ Channels::Channels() {
 }
 
 $Class* Channels::load$($String* name, bool initialize) {
-	$loadClass(Channels, name, initialize, &_Channels_ClassInfo_, allocate$Channels);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Channels, init$, void)},
+		{"newChannel", "(Ljava/io/InputStream;)Ljava/nio/channels/ReadableByteChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, newChannel, $ReadableByteChannel*, $InputStream*)},
+		{"newChannel", "(Ljava/io/OutputStream;)Ljava/nio/channels/WritableByteChannel;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, newChannel, $WritableByteChannel*, $OutputStream*)},
+		{"newInputStream", "(Ljava/nio/channels/ReadableByteChannel;)Ljava/io/InputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, newInputStream, $InputStream*, $ReadableByteChannel*)},
+		{"newInputStream", "(Ljava/nio/channels/AsynchronousByteChannel;)Ljava/io/InputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, newInputStream, $InputStream*, $AsynchronousByteChannel*)},
+		{"newOutputStream", "(Ljava/nio/channels/WritableByteChannel;)Ljava/io/OutputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, newOutputStream, $OutputStream*, $WritableByteChannel*)},
+		{"newOutputStream", "(Ljava/nio/channels/AsynchronousByteChannel;)Ljava/io/OutputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, newOutputStream, $OutputStream*, $AsynchronousByteChannel*)},
+		{"newReader", "(Ljava/nio/channels/ReadableByteChannel;Ljava/nio/charset/CharsetDecoder;I)Ljava/io/Reader;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, newReader, $Reader*, $ReadableByteChannel*, $CharsetDecoder*, int32_t)},
+		{"newReader", "(Ljava/nio/channels/ReadableByteChannel;Ljava/lang/String;)Ljava/io/Reader;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, newReader, $Reader*, $ReadableByteChannel*, $String*)},
+		{"newReader", "(Ljava/nio/channels/ReadableByteChannel;Ljava/nio/charset/Charset;)Ljava/io/Reader;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, newReader, $Reader*, $ReadableByteChannel*, $Charset*)},
+		{"newWriter", "(Ljava/nio/channels/WritableByteChannel;Ljava/nio/charset/CharsetEncoder;I)Ljava/io/Writer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, newWriter, $Writer*, $WritableByteChannel*, $CharsetEncoder*, int32_t)},
+		{"newWriter", "(Ljava/nio/channels/WritableByteChannel;Ljava/lang/String;)Ljava/io/Writer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, newWriter, $Writer*, $WritableByteChannel*, $String*)},
+		{"newWriter", "(Ljava/nio/channels/WritableByteChannel;Ljava/nio/charset/Charset;)Ljava/io/Writer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Channels, newWriter, $Writer*, $WritableByteChannel*, $Charset*)},
+		{"writeFully", "(Ljava/nio/channels/WritableByteChannel;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Channels, writeFully, void, $WritableByteChannel*, $ByteBuffer*), "java.io.IOException"},
+		{"writeFullyImpl", "(Ljava/nio/channels/WritableByteChannel;Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Channels, writeFullyImpl, void, $WritableByteChannel*, $ByteBuffer*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.channels.Channels$WritableByteChannelImpl", "java.nio.channels.Channels", "WritableByteChannelImpl", $PRIVATE | $STATIC},
+		{"java.nio.channels.Channels$ReadableByteChannelImpl", "java.nio.channels.Channels", "ReadableByteChannelImpl", $PRIVATE | $STATIC},
+		{"java.nio.channels.Channels$3", nullptr, nullptr, 0},
+		{"java.nio.channels.Channels$2", nullptr, nullptr, 0},
+		{"java.nio.channels.Channels$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.nio.channels.Channels",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.nio.channels.Channels$WritableByteChannelImpl,java.nio.channels.Channels$ReadableByteChannelImpl,java.nio.channels.Channels$3,java.nio.channels.Channels$2,java.nio.channels.Channels$1"
+	};
+	$loadClass(Channels, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Channels);
+	});
 	return class$;
 }
 

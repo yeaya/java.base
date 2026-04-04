@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/DHKeyAgreement.h>
-
 #include <com/sun/crypto/provider/AESConstants.h>
 #include <com/sun/crypto/provider/BlowfishConstants.h>
 #include <com/sun/crypto/provider/DESKey.h>
@@ -64,50 +63,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _DHKeyAgreement_FieldInfo_[] = {
-	{"generateSecret", "Z", nullptr, $PRIVATE, $field(DHKeyAgreement, generateSecret)},
-	{"init_p", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHKeyAgreement, init_p)},
-	{"init_g", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHKeyAgreement, init_g)},
-	{"x", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHKeyAgreement, x)},
-	{"y", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHKeyAgreement, y)},
-	{}
-};
-
-$MethodInfo _DHKeyAgreement_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DHKeyAgreement, init$, void)},
-	{"engineDoPhase", "(Ljava/security/Key;Z)Ljava/security/Key;", nullptr, $PROTECTED, $virtualMethod(DHKeyAgreement, engineDoPhase, $Key*, $Key*, bool), "java.security.InvalidKeyException,java.lang.IllegalStateException"},
-	{"engineGenerateSecret", "()[B", nullptr, $PROTECTED, $virtualMethod(DHKeyAgreement, engineGenerateSecret, $bytes*), "java.lang.IllegalStateException"},
-	{"engineGenerateSecret", "([BI)I", nullptr, $PROTECTED, $virtualMethod(DHKeyAgreement, engineGenerateSecret, int32_t, $bytes*, int32_t), "java.lang.IllegalStateException,javax.crypto.ShortBufferException"},
-	{"engineGenerateSecret", "(Ljava/lang/String;)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(DHKeyAgreement, engineGenerateSecret, $SecretKey*, $String*), "java.lang.IllegalStateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
-	{"engineInit", "(Ljava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DHKeyAgreement, engineInit, void, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
-	{"engineInit", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DHKeyAgreement, engineInit, void, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{}
-};
-
-$InnerClassInfo _DHKeyAgreement_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.DHKeyAgreement$AllowKDF", "com.sun.crypto.provider.DHKeyAgreement", "AllowKDF", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DHKeyAgreement_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.DHKeyAgreement",
-	"javax.crypto.KeyAgreementSpi",
-	nullptr,
-	_DHKeyAgreement_FieldInfo_,
-	_DHKeyAgreement_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DHKeyAgreement_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.DHKeyAgreement$AllowKDF"
-};
-
-$Object* allocate$DHKeyAgreement($Class* clazz) {
-	return $of($alloc(DHKeyAgreement));
-}
-
 void DHKeyAgreement::init$() {
 	$KeyAgreementSpi::init$();
 	this->generateSecret = false;
@@ -126,7 +81,7 @@ void DHKeyAgreement::engineInit($Key* key, $SecureRandom* random) {
 }
 
 void DHKeyAgreement::engineInit($Key* key, $AlgorithmParameterSpec* params, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->generateSecret = false;
 	$set(this, init_p, nullptr);
 	$set(this, init_g, nullptr);
@@ -139,15 +94,15 @@ void DHKeyAgreement::engineInit($Key* key, $AlgorithmParameterSpec* params, $Sec
 	$var($DHPrivateKey, dhPrivKey, nullptr);
 	$assign(dhPrivKey, $cast($DHPrivateKey, key));
 	if (params != nullptr) {
-		$set(this, init_p, $nc(($cast($DHParameterSpec, params)))->getP());
-		$set(this, init_g, ($cast($DHParameterSpec, params))->getG());
+		$set(this, init_p, $cast($DHParameterSpec, params)->getP());
+		$set(this, init_g, $cast($DHParameterSpec, params)->getG());
 	}
-	$var($BigInteger, priv_p, $nc($($nc(dhPrivKey)->getParams()))->getP());
-	$var($BigInteger, priv_g, $nc($(dhPrivKey->getParams()))->getG());
-	if (this->init_p != nullptr && priv_p != nullptr && !($nc(this->init_p)->equals(priv_p))) {
+	$var($BigInteger, priv_p, $$nc($nc(dhPrivKey)->getParams())->getP());
+	$var($BigInteger, priv_g, $$nc(dhPrivKey->getParams())->getG());
+	if (this->init_p != nullptr && priv_p != nullptr && !(this->init_p->equals(priv_p))) {
 		$throwNew($InvalidKeyException, "Incompatible parameters"_s);
 	}
-	if (this->init_g != nullptr && priv_g != nullptr && !($nc(this->init_g)->equals(priv_g))) {
+	if (this->init_g != nullptr && priv_g != nullptr && !(this->init_g->equals(priv_g))) {
 		$throwNew($InvalidKeyException, "Incompatible parameters"_s);
 	}
 	if ((this->init_p == nullptr && priv_p == nullptr) || (this->init_g == nullptr && priv_g == nullptr)) {
@@ -159,7 +114,7 @@ void DHKeyAgreement::engineInit($Key* key, $AlgorithmParameterSpec* params, $Sec
 }
 
 $Key* DHKeyAgreement::engineDoPhase($Key* key, bool lastPhase) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($DHPublicKey, key))) {
 		$throwNew($InvalidKeyException, "Diffie-Hellman public key expected"_s);
 	}
@@ -168,15 +123,15 @@ $Key* DHKeyAgreement::engineDoPhase($Key* key, bool lastPhase) {
 	if (this->init_p == nullptr || this->init_g == nullptr) {
 		$throwNew($IllegalStateException, "Not initialized"_s);
 	}
-	$var($BigInteger, pub_p, $nc($($nc(dhPubKey)->getParams()))->getP());
-	$var($BigInteger, pub_g, $nc($(dhPubKey->getParams()))->getG());
+	$var($BigInteger, pub_p, $$nc($nc(dhPubKey)->getParams())->getP());
+	$var($BigInteger, pub_g, $$nc(dhPubKey->getParams())->getG());
 	if (pub_p != nullptr && !($nc(this->init_p)->equals(pub_p))) {
 		$throwNew($InvalidKeyException, "Incompatible parameters"_s);
 	}
 	if (pub_g != nullptr && !($nc(this->init_g)->equals(pub_g))) {
 		$throwNew($InvalidKeyException, "Incompatible parameters"_s);
 	}
-	$KeyUtil::validate(static_cast<$Key*>(dhPubKey));
+	$KeyUtil::validate(dhPubKey);
 	$set(this, y, dhPubKey->getY());
 	this->generateSecret = true;
 	if (lastPhase == false) {
@@ -198,7 +153,7 @@ $bytes* DHKeyAgreement::engineGenerateSecret() {
 }
 
 int32_t DHKeyAgreement::engineGenerateSecret($bytes* sharedSecret, int32_t offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->generateSecret == false) {
 		$throwNew($IllegalStateException, "Key agreement has not been completed yet"_s);
 	}
@@ -212,12 +167,12 @@ int32_t DHKeyAgreement::engineGenerateSecret($bytes* sharedSecret, int32_t offse
 	}
 	this->generateSecret = false;
 	$var($BigInteger, z, $nc(this->y)->modPow(this->x, modulus));
-	bool var$0 = ($nc(z)->compareTo($BigInteger::ONE) <= 0);
-	if (var$0 || $nc(z)->equals($(modulus->subtract($BigInteger::ONE)))) {
+	bool var$0 = z->compareTo($BigInteger::ONE) <= 0;
+	if (var$0 || z->equals($(modulus->subtract($BigInteger::ONE)))) {
 		$throwNew($ProviderException, "Generated secret is out-of-range of (1, p -1)"_s);
 	}
-	$var($bytes, secret, $nc(z)->toByteArray());
-	if ($nc(secret)->length == expectedLen) {
+	$var($bytes, secret, z->toByteArray());
+	if (secret->length == expectedLen) {
 		$System::arraycopy(secret, 0, sharedSecret, offset, secret->length);
 	} else if (secret->length < expectedLen) {
 		$System::arraycopy(secret, 0, sharedSecret, offset + (expectedLen - secret->length), secret->length);
@@ -230,7 +185,7 @@ int32_t DHKeyAgreement::engineGenerateSecret($bytes* sharedSecret, int32_t offse
 }
 
 $SecretKey* DHKeyAgreement::engineGenerateSecret($String* algorithm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (algorithm == nullptr) {
 		$throwNew($NoSuchAlgorithmException, "null algorithm"_s);
 	}
@@ -239,11 +194,11 @@ $SecretKey* DHKeyAgreement::engineGenerateSecret($String* algorithm) {
 		$throwNew($NoSuchAlgorithmException, $$str({"Unsupported secret key algorithm: "_s, algorithm}));
 	}
 	$var($bytes, secret, engineGenerateSecret());
-	if ($nc(algorithm)->equalsIgnoreCase("DES"_s)) {
+	if (algorithm->equalsIgnoreCase("DES"_s)) {
 		return $new($DESKey, secret);
 	} else {
-		bool var$1 = algorithm->equalsIgnoreCase("DESede"_s);
-		if (var$1 || algorithm->equalsIgnoreCase("TripleDES"_s)) {
+		bool var$0 = algorithm->equalsIgnoreCase("DESede"_s);
+		if (var$0 || algorithm->equalsIgnoreCase("TripleDES"_s)) {
 			return $new($DESedeKey, secret);
 		} else if (algorithm->equalsIgnoreCase("Blowfish"_s)) {
 			int32_t keysize = $nc(secret)->length;
@@ -258,8 +213,8 @@ $SecretKey* DHKeyAgreement::engineGenerateSecret($String* algorithm) {
 			$init($AESConstants);
 			int32_t idx = $nc($AESConstants::AES_KEYSIZES)->length - 1;
 			while (skey == nullptr && idx >= 0) {
-				if (keysize >= $nc($AESConstants::AES_KEYSIZES)->get(idx)) {
-					keysize = $nc($AESConstants::AES_KEYSIZES)->get(idx);
+				if (keysize >= $AESConstants::AES_KEYSIZES->get(idx)) {
+					keysize = $AESConstants::AES_KEYSIZES->get(idx);
 					$assign(skey, $new($SecretKeySpec, secret, 0, keysize, "AES"_s));
 				}
 				--idx;
@@ -280,7 +235,45 @@ DHKeyAgreement::DHKeyAgreement() {
 }
 
 $Class* DHKeyAgreement::load$($String* name, bool initialize) {
-	$loadClass(DHKeyAgreement, name, initialize, &_DHKeyAgreement_ClassInfo_, allocate$DHKeyAgreement);
+	$FieldInfo fieldInfos$$[] = {
+		{"generateSecret", "Z", nullptr, $PRIVATE, $field(DHKeyAgreement, generateSecret)},
+		{"init_p", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHKeyAgreement, init_p)},
+		{"init_g", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHKeyAgreement, init_g)},
+		{"x", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHKeyAgreement, x)},
+		{"y", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHKeyAgreement, y)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DHKeyAgreement, init$, void)},
+		{"engineDoPhase", "(Ljava/security/Key;Z)Ljava/security/Key;", nullptr, $PROTECTED, $virtualMethod(DHKeyAgreement, engineDoPhase, $Key*, $Key*, bool), "java.security.InvalidKeyException,java.lang.IllegalStateException"},
+		{"engineGenerateSecret", "()[B", nullptr, $PROTECTED, $virtualMethod(DHKeyAgreement, engineGenerateSecret, $bytes*), "java.lang.IllegalStateException"},
+		{"engineGenerateSecret", "([BI)I", nullptr, $PROTECTED, $virtualMethod(DHKeyAgreement, engineGenerateSecret, int32_t, $bytes*, int32_t), "java.lang.IllegalStateException,javax.crypto.ShortBufferException"},
+		{"engineGenerateSecret", "(Ljava/lang/String;)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(DHKeyAgreement, engineGenerateSecret, $SecretKey*, $String*), "java.lang.IllegalStateException,java.security.NoSuchAlgorithmException,java.security.InvalidKeyException"},
+		{"engineInit", "(Ljava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DHKeyAgreement, engineInit, void, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
+		{"engineInit", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(DHKeyAgreement, engineInit, void, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.DHKeyAgreement$AllowKDF", "com.sun.crypto.provider.DHKeyAgreement", "AllowKDF", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.DHKeyAgreement",
+		"javax.crypto.KeyAgreementSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.DHKeyAgreement$AllowKDF"
+	};
+	$loadClass(DHKeyAgreement, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DHKeyAgreement);
+	});
 	return class$;
 }
 

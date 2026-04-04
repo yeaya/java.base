@@ -21,6 +21,7 @@ class SimpleAsynchronousFileChannelImpl$DefaultExecutorHolder : public ::java::l
 	$class(SimpleAsynchronousFileChannelImpl$DefaultExecutorHolder, 0, ::java::lang::Object)
 public:
 	SimpleAsynchronousFileChannelImpl$DefaultExecutorHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::concurrent::ExecutorService* defaultExecutor;
 };

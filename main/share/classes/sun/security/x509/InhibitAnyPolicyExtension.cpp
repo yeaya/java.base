@@ -1,5 +1,4 @@
 #include <sun/security/x509/InhibitAnyPolicyExtension.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/util/Enumeration.h>
@@ -40,48 +39,6 @@ using $PKIXExtensions = ::sun::security::x509::PKIXExtensions;
 namespace sun {
 	namespace security {
 		namespace x509 {
-
-$FieldInfo _InhibitAnyPolicyExtension_FieldInfo_[] = {
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InhibitAnyPolicyExtension, debug)},
-	{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InhibitAnyPolicyExtension, IDENT)},
-	{"AnyPolicy_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(InhibitAnyPolicyExtension, AnyPolicy_Id)},
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InhibitAnyPolicyExtension, NAME)},
-	{"SKIP_CERTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InhibitAnyPolicyExtension, SKIP_CERTS)},
-	{"skipCerts", "I", nullptr, $PRIVATE, $field(InhibitAnyPolicyExtension, skipCerts)},
-	{}
-};
-
-$MethodInfo _InhibitAnyPolicyExtension_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(InhibitAnyPolicyExtension, init$, void, int32_t), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(InhibitAnyPolicyExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(InhibitAnyPolicyExtension, delete$, void, $String*), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(InhibitAnyPolicyExtension, encode, void, $OutputStream*), "java.io.IOException"},
-	{"encodeThis", "()V", nullptr, $PRIVATE, $method(InhibitAnyPolicyExtension, encodeThis, void), "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(InhibitAnyPolicyExtension, get, $Object*, $String*), "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(InhibitAnyPolicyExtension, getElements, $Enumeration*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InhibitAnyPolicyExtension, getName, $String*)},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InhibitAnyPolicyExtension, set, void, $String*, Object$*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InhibitAnyPolicyExtension, toString, $String*)},
-	{}
-};
-
-$ClassInfo _InhibitAnyPolicyExtension_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.InhibitAnyPolicyExtension",
-	"sun.security.x509.Extension",
-	"sun.security.x509.CertAttrSet",
-	_InhibitAnyPolicyExtension_FieldInfo_,
-	_InhibitAnyPolicyExtension_MethodInfo_,
-	"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
-};
-
-$Object* allocate$InhibitAnyPolicyExtension($Class* clazz) {
-	return $of($alloc(InhibitAnyPolicyExtension));
-}
 
 int32_t InhibitAnyPolicyExtension::hashCode() {
 	 return this->$Extension::hashCode();
@@ -136,7 +93,7 @@ void InhibitAnyPolicyExtension::init$($Boolean* critical, Object$* value) {
 	if (!$nc(critical)->booleanValue()) {
 		$throwNew($IOException, "Criticality cannot be false for InhibitAnyPolicy"_s);
 	}
-	this->critical = $nc(critical)->booleanValue();
+	this->critical = critical->booleanValue();
 	$set(this, extensionValue, $cast($bytes, value));
 	$var($DerValue, val, $new($DerValue, this->extensionValue));
 	if (val->tag != $DerValue::tag_Integer) {
@@ -157,13 +114,13 @@ void InhibitAnyPolicyExtension::init$($Boolean* critical, Object$* value) {
 }
 
 $String* InhibitAnyPolicyExtension::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, $str({$($Extension::toString()), "InhibitAnyPolicy: "_s, $$str(this->skipCerts), "\n"_s}));
 	return s;
 }
 
 void InhibitAnyPolicyExtension::encode($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);
@@ -180,7 +137,7 @@ void InhibitAnyPolicyExtension::set($String* name, Object$* obj) {
 		if (!($instanceOf($Integer, obj))) {
 			$throwNew($IOException, "Attribute value should be of type Integer."_s);
 		}
-		int32_t skipCertsValue = $nc(($cast($Integer, obj)))->intValue();
+		int32_t skipCertsValue = $nc($cast($Integer, obj))->intValue();
 		if (skipCertsValue < -1) {
 			$throwNew($IOException, "Invalid value for skipCerts"_s);
 		}
@@ -221,7 +178,7 @@ $String* InhibitAnyPolicyExtension::getName() {
 	return (InhibitAnyPolicyExtension::NAME);
 }
 
-void clinit$InhibitAnyPolicyExtension($Class* class$) {
+void InhibitAnyPolicyExtension::clinit$($Class* clazz) {
 	$assignStatic(InhibitAnyPolicyExtension::IDENT, "x509.info.extensions.InhibitAnyPolicy"_s);
 	$assignStatic(InhibitAnyPolicyExtension::NAME, "InhibitAnyPolicy"_s);
 	$assignStatic(InhibitAnyPolicyExtension::SKIP_CERTS, "skip_certs"_s);
@@ -234,7 +191,44 @@ InhibitAnyPolicyExtension::InhibitAnyPolicyExtension() {
 }
 
 $Class* InhibitAnyPolicyExtension::load$($String* name, bool initialize) {
-	$loadClass(InhibitAnyPolicyExtension, name, initialize, &_InhibitAnyPolicyExtension_ClassInfo_, clinit$InhibitAnyPolicyExtension, allocate$InhibitAnyPolicyExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InhibitAnyPolicyExtension, debug)},
+		{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InhibitAnyPolicyExtension, IDENT)},
+		{"AnyPolicy_Id", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticField(InhibitAnyPolicyExtension, AnyPolicy_Id)},
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InhibitAnyPolicyExtension, NAME)},
+		{"SKIP_CERTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InhibitAnyPolicyExtension, SKIP_CERTS)},
+		{"skipCerts", "I", nullptr, $PRIVATE, $field(InhibitAnyPolicyExtension, skipCerts)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(InhibitAnyPolicyExtension, init$, void, int32_t), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(InhibitAnyPolicyExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
+		{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(InhibitAnyPolicyExtension, delete$, void, $String*), "java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(InhibitAnyPolicyExtension, encode, void, $OutputStream*), "java.io.IOException"},
+		{"encodeThis", "()V", nullptr, $PRIVATE, $method(InhibitAnyPolicyExtension, encodeThis, void), "java.io.IOException"},
+		{"get", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(InhibitAnyPolicyExtension, get, $Object*, $String*), "java.io.IOException"},
+		{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(InhibitAnyPolicyExtension, getElements, $Enumeration*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InhibitAnyPolicyExtension, getName, $String*)},
+		{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(InhibitAnyPolicyExtension, set, void, $String*, Object$*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InhibitAnyPolicyExtension, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.InhibitAnyPolicyExtension",
+		"sun.security.x509.Extension",
+		"sun.security.x509.CertAttrSet",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
+	};
+	$loadClass(InhibitAnyPolicyExtension, name, initialize, &classInfo$$, InhibitAnyPolicyExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(InhibitAnyPolicyExtension));
+	});
 	return class$;
 }
 

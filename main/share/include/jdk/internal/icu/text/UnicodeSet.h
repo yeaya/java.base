@@ -77,6 +77,7 @@ class $import UnicodeSet : public ::java::lang::Object {
 	$class(UnicodeSet, 0, ::java::lang::Object)
 public:
 	UnicodeSet();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::jdk::internal::icu::text::UnicodeSet* other);
 	void init$(int32_t start, int32_t end);

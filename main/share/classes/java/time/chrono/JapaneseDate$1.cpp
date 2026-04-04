@@ -1,5 +1,4 @@
 #include <java/time/chrono/JapaneseDate$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/time/chrono/JapaneseDate.h>
 #include <java/time/temporal/ChronoField.h>
@@ -26,81 +25,45 @@ namespace java {
 	namespace time {
 		namespace chrono {
 
-$FieldInfo _JapaneseDate$1_FieldInfo_[] = {
-	{"$SwitchMap$java$time$temporal$ChronoField", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JapaneseDate$1, $SwitchMap$java$time$temporal$ChronoField)},
-	{}
-};
-
-$EnclosingMethodInfo _JapaneseDate$1_EnclosingMethodInfo_ = {
-	"java.time.chrono.JapaneseDate",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _JapaneseDate$1_InnerClassesInfo_[] = {
-	{"java.time.chrono.JapaneseDate$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _JapaneseDate$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"java.time.chrono.JapaneseDate$1",
-	"java.lang.Object",
-	nullptr,
-	_JapaneseDate$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_JapaneseDate$1_EnclosingMethodInfo_,
-	_JapaneseDate$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.chrono.JapaneseDate"
-};
-
-$Object* allocate$JapaneseDate$1($Class* clazz) {
-	return $of($alloc(JapaneseDate$1));
-}
-
 $ints* JapaneseDate$1::$SwitchMap$java$time$temporal$ChronoField = nullptr;
 
-void clinit$JapaneseDate$1($Class* class$) {
+void JapaneseDate$1::clinit$($Class* clazz) {
 	$assignStatic(JapaneseDate$1::$SwitchMap$java$time$temporal$ChronoField, $new($ints, $($ChronoField::values())->length));
 	{
 		try {
-			$nc(JapaneseDate$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::DAY_OF_MONTH->ordinal(), 1);
+			JapaneseDate$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::DAY_OF_MONTH->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JapaneseDate$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::DAY_OF_YEAR->ordinal(), 2);
+			JapaneseDate$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::DAY_OF_YEAR->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JapaneseDate$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::YEAR_OF_ERA->ordinal(), 3);
+			JapaneseDate$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::YEAR_OF_ERA->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JapaneseDate$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::ALIGNED_DAY_OF_WEEK_IN_MONTH->ordinal(), 4);
+			JapaneseDate$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::ALIGNED_DAY_OF_WEEK_IN_MONTH->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JapaneseDate$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::ALIGNED_DAY_OF_WEEK_IN_YEAR->ordinal(), 5);
+			JapaneseDate$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::ALIGNED_DAY_OF_WEEK_IN_YEAR->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JapaneseDate$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::ALIGNED_WEEK_OF_MONTH->ordinal(), 6);
+			JapaneseDate$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::ALIGNED_WEEK_OF_MONTH->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JapaneseDate$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::ALIGNED_WEEK_OF_YEAR->ordinal(), 7);
+			JapaneseDate$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::ALIGNED_WEEK_OF_YEAR->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JapaneseDate$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::ERA->ordinal(), 8);
+			JapaneseDate$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::ERA->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JapaneseDate$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::YEAR->ordinal(), 9);
+			JapaneseDate$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::YEAR->ordinal(), 9);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -110,7 +73,37 @@ JapaneseDate$1::JapaneseDate$1() {
 }
 
 $Class* JapaneseDate$1::load$($String* name, bool initialize) {
-	$loadClass(JapaneseDate$1, name, initialize, &_JapaneseDate$1_ClassInfo_, clinit$JapaneseDate$1, allocate$JapaneseDate$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$time$temporal$ChronoField", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JapaneseDate$1, $SwitchMap$java$time$temporal$ChronoField)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.time.chrono.JapaneseDate",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.chrono.JapaneseDate$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"java.time.chrono.JapaneseDate$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.chrono.JapaneseDate"
+	};
+	$loadClass(JapaneseDate$1, name, initialize, &classInfo$$, JapaneseDate$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JapaneseDate$1);
+	});
 	return class$;
 }
 

@@ -28,6 +28,7 @@ class EUC_JP_Open$Decoder : public ::sun::nio::cs::EUC_JP$Decoder {
 	$class(EUC_JP_Open$Decoder, 0, ::sun::nio::cs::EUC_JP$Decoder)
 public:
 	EUC_JP_Open$Decoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	virtual char16_t decodeDouble(int32_t byte1, int32_t byte2) override;
 	static ::sun::nio::cs::DoubleByte$Decoder* DEC0208_Solaris;

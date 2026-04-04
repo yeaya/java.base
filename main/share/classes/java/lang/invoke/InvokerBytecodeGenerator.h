@@ -116,6 +116,7 @@ class InvokerBytecodeGenerator : public ::java::lang::Object {
 	$class(InvokerBytecodeGenerator, 0, ::java::lang::Object)
 public:
 	InvokerBytecodeGenerator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::LambdaForm* lambdaForm, int32_t localsMapSize, $String* name, $String* invokerName, ::java::lang::invoke::MethodType* invokerType);
 	void init$($String* name, $String* invokerName, ::java::lang::invoke::MethodType* invokerType);
 	void init$($String* name, ::java::lang::invoke::LambdaForm* form, ::java::lang::invoke::MethodType* invokerType);

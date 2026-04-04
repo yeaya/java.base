@@ -1,5 +1,4 @@
 #include <sun/security/internal/spec/TlsPrfParameterSpec.h>
-
 #include <javax/crypto/SecretKey.h>
 #include <jcpp.h>
 
@@ -15,51 +14,6 @@ namespace sun {
 	namespace security {
 		namespace internal {
 			namespace spec {
-
-$CompoundAttribute _TlsPrfParameterSpec_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _TlsPrfParameterSpec_FieldInfo_[] = {
-	{"secret", "Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $FINAL, $field(TlsPrfParameterSpec, secret)},
-	{"label", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(TlsPrfParameterSpec, label)},
-	{"seed", "[B", nullptr, $PRIVATE | $FINAL, $field(TlsPrfParameterSpec, seed)},
-	{"outputLength", "I", nullptr, $PRIVATE | $FINAL, $field(TlsPrfParameterSpec, outputLength)},
-	{"prfHashAlg", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(TlsPrfParameterSpec, prfHashAlg)},
-	{"prfHashLength", "I", nullptr, $PRIVATE | $FINAL, $field(TlsPrfParameterSpec, prfHashLength)},
-	{"prfBlockSize", "I", nullptr, $PRIVATE | $FINAL, $field(TlsPrfParameterSpec, prfBlockSize)},
-	{}
-};
-
-$MethodInfo _TlsPrfParameterSpec_MethodInfo_[] = {
-	{"<init>", "(Ljavax/crypto/SecretKey;Ljava/lang/String;[BILjava/lang/String;II)V", nullptr, $PUBLIC, $method(TlsPrfParameterSpec, init$, void, $SecretKey*, $String*, $bytes*, int32_t, $String*, int32_t, int32_t)},
-	{"getLabel", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TlsPrfParameterSpec, getLabel, $String*)},
-	{"getOutputLength", "()I", nullptr, $PUBLIC, $virtualMethod(TlsPrfParameterSpec, getOutputLength, int32_t)},
-	{"getPRFBlockSize", "()I", nullptr, $PUBLIC, $virtualMethod(TlsPrfParameterSpec, getPRFBlockSize, int32_t)},
-	{"getPRFHashAlg", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TlsPrfParameterSpec, getPRFHashAlg, $String*)},
-	{"getPRFHashLength", "()I", nullptr, $PUBLIC, $virtualMethod(TlsPrfParameterSpec, getPRFHashLength, int32_t)},
-	{"getSecret", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(TlsPrfParameterSpec, getSecret, $SecretKey*)},
-	{"getSeed", "()[B", nullptr, $PUBLIC, $virtualMethod(TlsPrfParameterSpec, getSeed, $bytes*)},
-	{}
-};
-
-$ClassInfo _TlsPrfParameterSpec_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.internal.spec.TlsPrfParameterSpec",
-	"java.lang.Object",
-	"java.security.spec.AlgorithmParameterSpec",
-	_TlsPrfParameterSpec_FieldInfo_,
-	_TlsPrfParameterSpec_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_TlsPrfParameterSpec_Annotations_
-};
-
-$Object* allocate$TlsPrfParameterSpec($Class* clazz) {
-	return $of($alloc(TlsPrfParameterSpec));
-}
 
 void TlsPrfParameterSpec::init$($SecretKey* secret, $String* label, $bytes* seed, int32_t outputLength, $String* prfHashAlg, int32_t prfHashLength, int32_t prfBlockSize) {
 	if ((label == nullptr) || (seed == nullptr)) {
@@ -109,7 +63,46 @@ TlsPrfParameterSpec::TlsPrfParameterSpec() {
 }
 
 $Class* TlsPrfParameterSpec::load$($String* name, bool initialize) {
-	$loadClass(TlsPrfParameterSpec, name, initialize, &_TlsPrfParameterSpec_ClassInfo_, allocate$TlsPrfParameterSpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"secret", "Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $FINAL, $field(TlsPrfParameterSpec, secret)},
+		{"label", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(TlsPrfParameterSpec, label)},
+		{"seed", "[B", nullptr, $PRIVATE | $FINAL, $field(TlsPrfParameterSpec, seed)},
+		{"outputLength", "I", nullptr, $PRIVATE | $FINAL, $field(TlsPrfParameterSpec, outputLength)},
+		{"prfHashAlg", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(TlsPrfParameterSpec, prfHashAlg)},
+		{"prfHashLength", "I", nullptr, $PRIVATE | $FINAL, $field(TlsPrfParameterSpec, prfHashLength)},
+		{"prfBlockSize", "I", nullptr, $PRIVATE | $FINAL, $field(TlsPrfParameterSpec, prfBlockSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/crypto/SecretKey;Ljava/lang/String;[BILjava/lang/String;II)V", nullptr, $PUBLIC, $method(TlsPrfParameterSpec, init$, void, $SecretKey*, $String*, $bytes*, int32_t, $String*, int32_t, int32_t)},
+		{"getLabel", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TlsPrfParameterSpec, getLabel, $String*)},
+		{"getOutputLength", "()I", nullptr, $PUBLIC, $virtualMethod(TlsPrfParameterSpec, getOutputLength, int32_t)},
+		{"getPRFBlockSize", "()I", nullptr, $PUBLIC, $virtualMethod(TlsPrfParameterSpec, getPRFBlockSize, int32_t)},
+		{"getPRFHashAlg", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TlsPrfParameterSpec, getPRFHashAlg, $String*)},
+		{"getPRFHashLength", "()I", nullptr, $PUBLIC, $virtualMethod(TlsPrfParameterSpec, getPRFHashLength, int32_t)},
+		{"getSecret", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(TlsPrfParameterSpec, getSecret, $SecretKey*)},
+		{"getSeed", "()[B", nullptr, $PUBLIC, $virtualMethod(TlsPrfParameterSpec, getSeed, $bytes*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.internal.spec.TlsPrfParameterSpec",
+		"java.lang.Object",
+		"java.security.spec.AlgorithmParameterSpec",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(TlsPrfParameterSpec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TlsPrfParameterSpec);
+	});
 	return class$;
 }
 

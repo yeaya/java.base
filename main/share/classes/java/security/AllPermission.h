@@ -25,7 +25,7 @@ public:
 	virtual int32_t hashCode() override;
 	virtual bool implies(::java::security::Permission* p) override;
 	virtual ::java::security::PermissionCollection* newPermissionCollection() override;
-	static const int64_t serialVersionUID = (int64_t)0xD78699D4542F40C5;
+	static const int64_t serialVersionUID = (int64_t)0xd78699d4542f40c5;
 };
 
 	} // security

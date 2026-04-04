@@ -19,6 +19,7 @@ class SSLExtension$ClientExtensions : public ::java::lang::Object {
 	$class(SSLExtension$ClientExtensions, 0, ::java::lang::Object)
 public:
 	SSLExtension$ClientExtensions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Collection* defaults;
 };

@@ -1,5 +1,4 @@
 #include <java/util/concurrent/CopyOnWriteArrayList$COWSubListIterator.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/List.h>
 #include <java/util/ListIterator.h>
@@ -15,7 +14,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $List = ::java::util::List;
-using $ListIterator = ::java::util::ListIterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $Objects = ::java::util::Objects;
 using $Consumer = ::java::util::function::Consumer;
@@ -23,53 +21,6 @@ using $Consumer = ::java::util::function::Consumer;
 namespace java {
 	namespace util {
 		namespace concurrent {
-
-$FieldInfo _CopyOnWriteArrayList$COWSubListIterator_FieldInfo_[] = {
-	{"it", "Ljava/util/ListIterator;", "Ljava/util/ListIterator<TE;>;", $PRIVATE | $FINAL, $field(CopyOnWriteArrayList$COWSubListIterator, it)},
-	{"offset", "I", nullptr, $PRIVATE | $FINAL, $field(CopyOnWriteArrayList$COWSubListIterator, offset)},
-	{"size", "I", nullptr, $PRIVATE | $FINAL, $field(CopyOnWriteArrayList$COWSubListIterator, size)},
-	{}
-};
-
-$MethodInfo _CopyOnWriteArrayList$COWSubListIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;III)V", "(Ljava/util/List<TE;>;III)V", 0, $method(CopyOnWriteArrayList$COWSubListIterator, init$, void, $List*, int32_t, int32_t, int32_t)},
-	{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, add, void, Object$*)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, forEachRemaining, void, $Consumer*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, hasNext, bool)},
-	{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, hasPrevious, bool)},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, next, $Object*)},
-	{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, nextIndex, int32_t)},
-	{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, previous, $Object*)},
-	{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, previousIndex, int32_t)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, remove, void)},
-	{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, set, void, Object$*)},
-	{}
-};
-
-$InnerClassInfo _CopyOnWriteArrayList$COWSubListIterator_InnerClassesInfo_[] = {
-	{"java.util.concurrent.CopyOnWriteArrayList$COWSubListIterator", "java.util.concurrent.CopyOnWriteArrayList", "COWSubListIterator", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _CopyOnWriteArrayList$COWSubListIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.concurrent.CopyOnWriteArrayList$COWSubListIterator",
-	"java.lang.Object",
-	"java.util.ListIterator",
-	_CopyOnWriteArrayList$COWSubListIterator_FieldInfo_,
-	_CopyOnWriteArrayList$COWSubListIterator_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/ListIterator<TE;>;",
-	nullptr,
-	_CopyOnWriteArrayList$COWSubListIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.CopyOnWriteArrayList"
-};
-
-$Object* allocate$CopyOnWriteArrayList$COWSubListIterator($Class* clazz) {
-	return $of($alloc(CopyOnWriteArrayList$COWSubListIterator));
-}
 
 void CopyOnWriteArrayList$COWSubListIterator::init$($List* l, int32_t index, int32_t offset, int32_t size) {
 	this->offset = offset;
@@ -83,7 +34,7 @@ bool CopyOnWriteArrayList$COWSubListIterator::hasNext() {
 
 $Object* CopyOnWriteArrayList$COWSubListIterator::next() {
 	if (hasNext()) {
-		return $of($nc(this->it)->next());
+		return $nc(this->it)->next();
 	} else {
 		$throwNew($NoSuchElementException);
 	}
@@ -95,7 +46,7 @@ bool CopyOnWriteArrayList$COWSubListIterator::hasPrevious() {
 
 $Object* CopyOnWriteArrayList$COWSubListIterator::previous() {
 	if (hasPrevious()) {
-		return $of($nc(this->it)->previous());
+		return $nc(this->it)->previous();
 	} else {
 		$throwNew($NoSuchElementException);
 	}
@@ -122,7 +73,7 @@ void CopyOnWriteArrayList$COWSubListIterator::add(Object$* e) {
 }
 
 void CopyOnWriteArrayList$COWSubListIterator::forEachRemaining($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(action);
 	while (hasNext()) {
 		action->accept($($nc(this->it)->next()));
@@ -133,7 +84,48 @@ CopyOnWriteArrayList$COWSubListIterator::CopyOnWriteArrayList$COWSubListIterator
 }
 
 $Class* CopyOnWriteArrayList$COWSubListIterator::load$($String* name, bool initialize) {
-	$loadClass(CopyOnWriteArrayList$COWSubListIterator, name, initialize, &_CopyOnWriteArrayList$COWSubListIterator_ClassInfo_, allocate$CopyOnWriteArrayList$COWSubListIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"it", "Ljava/util/ListIterator;", "Ljava/util/ListIterator<TE;>;", $PRIVATE | $FINAL, $field(CopyOnWriteArrayList$COWSubListIterator, it)},
+		{"offset", "I", nullptr, $PRIVATE | $FINAL, $field(CopyOnWriteArrayList$COWSubListIterator, offset)},
+		{"size", "I", nullptr, $PRIVATE | $FINAL, $field(CopyOnWriteArrayList$COWSubListIterator, size)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;III)V", "(Ljava/util/List<TE;>;III)V", 0, $method(CopyOnWriteArrayList$COWSubListIterator, init$, void, $List*, int32_t, int32_t, int32_t)},
+		{"add", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, add, void, Object$*)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, forEachRemaining, void, $Consumer*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, hasNext, bool)},
+		{"hasPrevious", "()Z", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, hasPrevious, bool)},
+		{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, next, $Object*)},
+		{"nextIndex", "()I", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, nextIndex, int32_t)},
+		{"previous", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, previous, $Object*)},
+		{"previousIndex", "()I", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, previousIndex, int32_t)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, remove, void)},
+		{"set", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(CopyOnWriteArrayList$COWSubListIterator, set, void, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.CopyOnWriteArrayList$COWSubListIterator", "java.util.concurrent.CopyOnWriteArrayList", "COWSubListIterator", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.concurrent.CopyOnWriteArrayList$COWSubListIterator",
+		"java.lang.Object",
+		"java.util.ListIterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/ListIterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.CopyOnWriteArrayList"
+	};
+	$loadClass(CopyOnWriteArrayList$COWSubListIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CopyOnWriteArrayList$COWSubListIterator);
+	});
 	return class$;
 }
 

@@ -22,6 +22,7 @@ class $export BlockDeviceSize : public ::java::lang::Object {
 	$class(BlockDeviceSize, 0, ::java::lang::Object)
 public:
 	BlockDeviceSize();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $String* BLK_FNAME;

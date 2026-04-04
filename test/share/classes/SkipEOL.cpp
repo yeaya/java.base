@@ -1,62 +1,39 @@
 #include <SkipEOL.h>
-
 #include <java/io/ByteArrayInputStream.h>
-#include <java/io/InputStream.h>
 #include <java/io/LineNumberInputStream.h>
 #include <jcpp.h>
 
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
-using $InputStream = ::java::io::InputStream;
 using $LineNumberInputStream = ::java::io::LineNumberInputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-
-$MethodInfo _SkipEOL_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SkipEOL, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SkipEOL, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _SkipEOL_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"SkipEOL",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SkipEOL_MethodInfo_
-};
-
-$Object* allocate$SkipEOL($Class* clazz) {
-	return $of($alloc(SkipEOL));
-}
 
 void SkipEOL::init$() {
 }
 
 void SkipEOL::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, data, $new($bytes, {
-		(int8_t)12,
-		(int8_t)13,
-		(int8_t)10,
-		(int8_t)23,
-		(int8_t)11,
-		(int8_t)13,
-		(int8_t)12,
-		(int8_t)10,
-		(int8_t)13
+		12,
+		13,
+		10,
+		23,
+		11,
+		13,
+		12,
+		10,
+		13
 	}));
 	$var($bytes, expected, $new($bytes, {
-		(int8_t)12,
-		(int8_t)10,
-		(int8_t)23,
-		(int8_t)11,
-		(int8_t)10,
-		(int8_t)12,
-		(int8_t)10,
-		(int8_t)10
+		12,
+		10,
+		23,
+		11,
+		10,
+		12,
+		10,
+		10
 	}));
 	$var($LineNumberInputStream, in, $new($LineNumberInputStream, $$new($ByteArrayInputStream, data)));
 	int64_t skipped = in->skip(3);
@@ -76,7 +53,22 @@ SkipEOL::SkipEOL() {
 }
 
 $Class* SkipEOL::load$($String* name, bool initialize) {
-	$loadClass(SkipEOL, name, initialize, &_SkipEOL_ClassInfo_, allocate$SkipEOL);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SkipEOL, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SkipEOL, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"SkipEOL",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SkipEOL, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SkipEOL);
+	});
 	return class$;
 }
 

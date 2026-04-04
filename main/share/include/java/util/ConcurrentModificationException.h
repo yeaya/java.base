@@ -22,10 +22,13 @@ public:
 	void init$($String* message);
 	void init$($Throwable* cause);
 	void init$($String* message, $Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0xCD1D156276C777BD;
+	static const int64_t serialVersionUID = (int64_t)0xcd1d156276c777bd;
 	ConcurrentModificationException(const ConcurrentModificationException& e);
 	virtual void throw$() override;
-	inline ConcurrentModificationException* operator ->() {
+	inline ConcurrentModificationException* operator ->() const {
+		return (ConcurrentModificationException*)throwing$;
+	}
+	inline operator ConcurrentModificationException*() const {
 		return (ConcurrentModificationException*)throwing$;
 	}
 };

@@ -26,11 +26,12 @@ class $export DoubleConsts : public ::java::lang::Object {
 	$class(DoubleConsts, 0, ::java::lang::Object)
 public:
 	DoubleConsts();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static const int32_t EXP_BIAS = 1023;
-	static const int64_t EXP_BIT_MASK = (int64_t)0x7FF0000000000000;
+	static const int64_t EXP_BIT_MASK = (int64_t)0x7ff0000000000000;
 	static const int64_t SIGN_BIT_MASK = (int64_t)0x8000000000000000;
-	static const int64_t SIGNIF_BIT_MASK = (int64_t)0x000FFFFFFFFFFFFF;
+	static const int64_t SIGNIF_BIT_MASK = (int64_t)0x000fffffffffffff;
 	static const int32_t SIGNIFICAND_WIDTH = 53;
 	static const int32_t MIN_SUB_EXPONENT = -1074; // Double.MIN_EXPONENT - (SIGNIFICAND_WIDTH - 1)
 };

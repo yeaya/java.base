@@ -1,12 +1,10 @@
 #include <LotsOfWrites$Writer.h>
-
 #include <LotsOfWrites.h>
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <java/lang/Math.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/AsynchronousFileChannel.h>
-#include <java/nio/channels/CompletionHandler.h>
 #include <java/nio/file/OpenOption.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/StandardOpenOption.h>
@@ -28,61 +26,8 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $AsynchronousFileChannel = ::java::nio::channels::AsynchronousFileChannel;
-using $CompletionHandler = ::java::nio::channels::CompletionHandler;
-using $OpenOption = ::java::nio::file::OpenOption;
 using $StandardOpenOption = ::java::nio::file::StandardOpenOption;
-using $Random = ::java::util::Random;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
-
-$FieldInfo _LotsOfWrites$Writer_FieldInfo_[] = {
-	{"file", "Ljava/io/File;", nullptr, $PRIVATE | $FINAL, $field(LotsOfWrites$Writer, file$)},
-	{"size", "J", nullptr, $PRIVATE | $FINAL, $field(LotsOfWrites$Writer, size$)},
-	{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $FINAL, $field(LotsOfWrites$Writer, latch)},
-	{"channel", "Ljava/nio/channels/AsynchronousFileChannel;", nullptr, $PRIVATE | $FINAL, $field(LotsOfWrites$Writer, channel)},
-	{"position", "J", nullptr, $PRIVATE | $VOLATILE, $field(LotsOfWrites$Writer, position)},
-	{"nextByte", "B", nullptr, $PRIVATE | $VOLATILE, $field(LotsOfWrites$Writer, nextByte)},
-	{}
-};
-
-$MethodInfo _LotsOfWrites$Writer_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/File;JLjava/util/concurrent/CountDownLatch;)V", nullptr, 0, $method(LotsOfWrites$Writer, init$, void, $File*, int64_t, $CountDownLatch*), "java.io.IOException"},
-	{"completed", "(Ljava/lang/Integer;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(LotsOfWrites$Writer, completed, void, $Integer*, $ByteBuffer*)},
-	{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LotsOfWrites$Writer, completed, void, Object$*, Object$*)},
-	{"done", "()V", nullptr, $PRIVATE, $method(LotsOfWrites$Writer, done, void)},
-	{"failed", "(Ljava/lang/Throwable;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(LotsOfWrites$Writer, failed, void, $Throwable*, $ByteBuffer*)},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LotsOfWrites$Writer, failed, void, $Throwable*, Object$*)},
-	{"file", "()Ljava/io/File;", nullptr, 0, $virtualMethod(LotsOfWrites$Writer, file, $File*)},
-	{"genNextBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(LotsOfWrites$Writer, genNextBuffer, $ByteBuffer*)},
-	{"size", "()J", nullptr, 0, $virtualMethod(LotsOfWrites$Writer, size, int64_t)},
-	{"start", "()V", nullptr, 0, $virtualMethod(LotsOfWrites$Writer, start, void)},
-	{"updatePosition", "(J)J", nullptr, $PRIVATE, $method(LotsOfWrites$Writer, updatePosition, int64_t, int64_t)},
-	{}
-};
-
-$InnerClassInfo _LotsOfWrites$Writer_InnerClassesInfo_[] = {
-	{"LotsOfWrites$Writer", "LotsOfWrites", "Writer", $STATIC},
-	{}
-};
-
-$ClassInfo _LotsOfWrites$Writer_ClassInfo_ = {
-	$ACC_SUPER,
-	"LotsOfWrites$Writer",
-	"java.lang.Object",
-	"java.nio.channels.CompletionHandler",
-	_LotsOfWrites$Writer_FieldInfo_,
-	_LotsOfWrites$Writer_MethodInfo_,
-	"Ljava/lang/Object;Ljava/nio/channels/CompletionHandler<Ljava/lang/Integer;Ljava/nio/ByteBuffer;>;",
-	nullptr,
-	_LotsOfWrites$Writer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"LotsOfWrites"
-};
-
-$Object* allocate$LotsOfWrites$Writer($Class* clazz) {
-	return $of($alloc(LotsOfWrites$Writer));
-}
 
 int64_t LotsOfWrites$Writer::updatePosition(int64_t nwrote) {
 	this->position += nwrote;
@@ -109,12 +54,12 @@ void LotsOfWrites$Writer::done() {
 }
 
 void LotsOfWrites$Writer::init$($File* file, int64_t size, $CountDownLatch* latch) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, file$, file);
 	this->size$ = size;
 	$set(this, latch, latch);
 	$init($StandardOpenOption);
-	$set(this, channel, $AsynchronousFileChannel::open($($nc(file)->toPath()), $$new($OpenOptionArray, {static_cast<$OpenOption*>($StandardOpenOption::WRITE)})));
+	$set(this, channel, $AsynchronousFileChannel::open($($nc(file)->toPath()), $$new($OpenOptionArray, {$StandardOpenOption::WRITE})));
 }
 
 $File* LotsOfWrites$Writer::file() {
@@ -160,7 +105,51 @@ LotsOfWrites$Writer::LotsOfWrites$Writer() {
 }
 
 $Class* LotsOfWrites$Writer::load$($String* name, bool initialize) {
-	$loadClass(LotsOfWrites$Writer, name, initialize, &_LotsOfWrites$Writer_ClassInfo_, allocate$LotsOfWrites$Writer);
+	$FieldInfo fieldInfos$$[] = {
+		{"file", "Ljava/io/File;", nullptr, $PRIVATE | $FINAL, $field(LotsOfWrites$Writer, file$)},
+		{"size", "J", nullptr, $PRIVATE | $FINAL, $field(LotsOfWrites$Writer, size$)},
+		{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $FINAL, $field(LotsOfWrites$Writer, latch)},
+		{"channel", "Ljava/nio/channels/AsynchronousFileChannel;", nullptr, $PRIVATE | $FINAL, $field(LotsOfWrites$Writer, channel)},
+		{"position", "J", nullptr, $PRIVATE | $VOLATILE, $field(LotsOfWrites$Writer, position)},
+		{"nextByte", "B", nullptr, $PRIVATE | $VOLATILE, $field(LotsOfWrites$Writer, nextByte)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/File;JLjava/util/concurrent/CountDownLatch;)V", nullptr, 0, $method(LotsOfWrites$Writer, init$, void, $File*, int64_t, $CountDownLatch*), "java.io.IOException"},
+		{"completed", "(Ljava/lang/Integer;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(LotsOfWrites$Writer, completed, void, $Integer*, $ByteBuffer*)},
+		{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LotsOfWrites$Writer, completed, void, Object$*, Object$*)},
+		{"done", "()V", nullptr, $PRIVATE, $method(LotsOfWrites$Writer, done, void)},
+		{"failed", "(Ljava/lang/Throwable;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(LotsOfWrites$Writer, failed, void, $Throwable*, $ByteBuffer*)},
+		{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LotsOfWrites$Writer, failed, void, $Throwable*, Object$*)},
+		{"file", "()Ljava/io/File;", nullptr, 0, $virtualMethod(LotsOfWrites$Writer, file, $File*)},
+		{"genNextBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $method(LotsOfWrites$Writer, genNextBuffer, $ByteBuffer*)},
+		{"size", "()J", nullptr, 0, $virtualMethod(LotsOfWrites$Writer, size, int64_t)},
+		{"start", "()V", nullptr, 0, $virtualMethod(LotsOfWrites$Writer, start, void)},
+		{"updatePosition", "(J)J", nullptr, $PRIVATE, $method(LotsOfWrites$Writer, updatePosition, int64_t, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"LotsOfWrites$Writer", "LotsOfWrites", "Writer", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"LotsOfWrites$Writer",
+		"java.lang.Object",
+		"java.nio.channels.CompletionHandler",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/nio/channels/CompletionHandler<Ljava/lang/Integer;Ljava/nio/ByteBuffer;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"LotsOfWrites"
+	};
+	$loadClass(LotsOfWrites$Writer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LotsOfWrites$Writer);
+	});
 	return class$;
 }
 

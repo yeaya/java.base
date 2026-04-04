@@ -1,5 +1,4 @@
 #include <ToStringCache.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/StringBuffer.h>
 #include <jcpp.h>
@@ -13,32 +12,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $StringBuffer = ::java::lang::StringBuffer;
 
-$MethodInfo _ToStringCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ToStringCache, init$, void)},
-	{"checkEqual", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ToStringCache, checkEqual, void, $String*, $String*)},
-	{"checkUnequal", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ToStringCache, checkUnequal, void, $String*, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ToStringCache, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ToStringCache_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ToStringCache",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ToStringCache_MethodInfo_
-};
-
-$Object* allocate$ToStringCache($Class* clazz) {
-	return $of($alloc(ToStringCache));
-}
-
 void ToStringCache::init$() {
 }
 
 void ToStringCache::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, original, "The original String"_s);
 	$var($StringBuffer, sb, $new($StringBuffer, original));
 	$var($String, a, sb->toString());
@@ -53,7 +31,7 @@ void ToStringCache::main($StringArray* args) {
 	$assign(b, sb->toString());
 	checkUnequal(a, b);
 	$assign(a, b);
-	sb->append($of($$new($Character, u'X')));
+	sb->append($$new($Character, u'X'));
 	$assign(b, sb->toString());
 	checkUnequal(a, b);
 	$assign(a, b);
@@ -65,11 +43,11 @@ void ToStringCache::main($StringArray* args) {
 	$assign(b, sb->toString());
 	checkUnequal(a, b);
 	$assign(a, b);
-	sb->append(static_cast<$CharSequence*>($$new($StringBuilder, "Build"_s)));
+	sb->append($$cast($CharSequence, $new($StringBuilder, "Build"_s)));
 	$assign(b, sb->toString());
 	checkUnequal(a, b);
 	$assign(a, b);
-	sb->append(static_cast<$CharSequence*>($$new($StringBuilder, "Build2"_s)), 0, 1);
+	sb->append($$new($StringBuilder, "Build2"_s), 0, 1);
 	$assign(b, sb->toString());
 	checkUnequal(a, b);
 	$assign(a, b);
@@ -144,11 +122,11 @@ void ToStringCache::main($StringArray* args) {
 	$assign(b, sb->toString());
 	checkUnequal(a, b);
 	$assign(a, b);
-	sb->insert(0, static_cast<$CharSequence*>($$new($StringBuilder, "Build"_s)));
+	sb->insert(0, $$new($StringBuilder, "Build"_s));
 	$assign(b, sb->toString());
 	checkUnequal(a, b);
 	$assign(a, b);
-	sb->insert(0, static_cast<$CharSequence*>($$new($StringBuilder, "Build"_s)), 0, 1);
+	sb->insert(0, $$new($StringBuilder, "Build"_s), 0, 1);
 	$assign(b, sb->toString());
 	checkUnequal(a, b);
 	$assign(a, b);
@@ -268,7 +246,24 @@ ToStringCache::ToStringCache() {
 }
 
 $Class* ToStringCache::load$($String* name, bool initialize) {
-	$loadClass(ToStringCache, name, initialize, &_ToStringCache_ClassInfo_, allocate$ToStringCache);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ToStringCache, init$, void)},
+		{"checkEqual", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ToStringCache, checkEqual, void, $String*, $String*)},
+		{"checkUnequal", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ToStringCache, checkUnequal, void, $String*, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ToStringCache, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ToStringCache",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ToStringCache, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ToStringCache);
+	});
 	return class$;
 }
 

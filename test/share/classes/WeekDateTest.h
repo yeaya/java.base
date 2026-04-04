@@ -20,6 +20,7 @@ class $export WeekDateTest : public ::java::lang::Object {
 	$class(WeekDateTest, 0, ::java::lang::Object)
 public:
 	WeekDateTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void formatTest($Array<::java::lang::String, 2>* data);
 	static void main($StringArray* args);

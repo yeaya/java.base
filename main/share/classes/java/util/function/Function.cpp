@@ -1,5 +1,4 @@
 #include <java/util/function/Function.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -31,35 +30,31 @@ public:
 	virtual $Object* apply(Object$* v) override {
 		 return $nc(inst$)->lambda$compose$0(before, v);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Function$$Lambda$lambda$compose$0>());
-	}
 	Function* inst$ = nullptr;
 	Function* before = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Function$$Lambda$lambda$compose$0::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Function$$Lambda$lambda$compose$0, inst$)},
-	{"before", "Ljava/util/function/Function;", nullptr, $PUBLIC, $field(Function$$Lambda$lambda$compose$0, before)},
-	{}
-};
-$MethodInfo Function$$Lambda$lambda$compose$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Function;Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(Function$$Lambda$lambda$compose$0, init$, void, Function*, Function*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Function$$Lambda$lambda$compose$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Function$$Lambda$lambda$compose$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.function.Function$$Lambda$lambda$compose$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* Function$$Lambda$lambda$compose$0::load$($String* name, bool initialize) {
-	$loadClass(Function$$Lambda$lambda$compose$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Function$$Lambda$lambda$compose$0, inst$)},
+		{"before", "Ljava/util/function/Function;", nullptr, $PUBLIC, $field(Function$$Lambda$lambda$compose$0, before)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/Function;Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(Function$$Lambda$lambda$compose$0, init$, void, Function*, Function*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Function$$Lambda$lambda$compose$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.function.Function$$Lambda$lambda$compose$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Function$$Lambda$lambda$compose$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Function$$Lambda$lambda$compose$0);
+	});
 	return class$;
 }
 $Class* Function$$Lambda$lambda$compose$0::class$ = nullptr;
@@ -74,35 +69,31 @@ public:
 	virtual $Object* apply(Object$* t) override {
 		 return $nc(inst$)->lambda$andThen$1(after, t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Function$$Lambda$lambda$andThen$1$1>());
-	}
 	Function* inst$ = nullptr;
 	Function* after = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Function$$Lambda$lambda$andThen$1$1::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Function$$Lambda$lambda$andThen$1$1, inst$)},
-	{"after", "Ljava/util/function/Function;", nullptr, $PUBLIC, $field(Function$$Lambda$lambda$andThen$1$1, after)},
-	{}
-};
-$MethodInfo Function$$Lambda$lambda$andThen$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Function;Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(Function$$Lambda$lambda$andThen$1$1, init$, void, Function*, Function*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Function$$Lambda$lambda$andThen$1$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Function$$Lambda$lambda$andThen$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.function.Function$$Lambda$lambda$andThen$1$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* Function$$Lambda$lambda$andThen$1$1::load$($String* name, bool initialize) {
-	$loadClass(Function$$Lambda$lambda$andThen$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Function$$Lambda$lambda$andThen$1$1, inst$)},
+		{"after", "Ljava/util/function/Function;", nullptr, $PUBLIC, $field(Function$$Lambda$lambda$andThen$1$1, after)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/Function;Ljava/util/function/Function;)V", nullptr, $PUBLIC, $method(Function$$Lambda$lambda$andThen$1$1, init$, void, Function*, Function*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Function$$Lambda$lambda$andThen$1$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.function.Function$$Lambda$lambda$andThen$1$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Function$$Lambda$lambda$andThen$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Function$$Lambda$lambda$andThen$1$1);
+	});
 	return class$;
 }
 $Class* Function$$Lambda$lambda$andThen$1$1::class$ = nullptr;
@@ -115,76 +106,40 @@ public:
 	virtual $Object* apply(Object$* t) override {
 		 return Function::lambda$identity$2(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Function$$Lambda$lambda$identity$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Function$$Lambda$lambda$identity$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Function$$Lambda$lambda$identity$2$2, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Function$$Lambda$lambda$identity$2$2, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Function$$Lambda$lambda$identity$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.function.Function$$Lambda$lambda$identity$2$2",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Function$$Lambda$lambda$identity$2$2::load$($String* name, bool initialize) {
-	$loadClass(Function$$Lambda$lambda$identity$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Function$$Lambda$lambda$identity$2$2, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Function$$Lambda$lambda$identity$2$2, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.function.Function$$Lambda$lambda$identity$2$2",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Function$$Lambda$lambda$identity$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Function$$Lambda$lambda$identity$2$2);
+	});
 	return class$;
 }
 $Class* Function$$Lambda$lambda$identity$2$2::class$ = nullptr;
 
-$CompoundAttribute _Function_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _Function_MethodInfo_[] = {
-	{"andThen", "(Ljava/util/function/Function;)Ljava/util/function/Function;", "<V:Ljava/lang/Object;>(Ljava/util/function/Function<-TR;+TV;>;)Ljava/util/function/Function<TT;TV;>;", $PUBLIC, $virtualMethod(Function, andThen, Function*, Function*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Function, apply, $Object*, Object$*)},
-	{"compose", "(Ljava/util/function/Function;)Ljava/util/function/Function;", "<V:Ljava/lang/Object;>(Ljava/util/function/Function<-TV;+TT;>;)Ljava/util/function/Function<TV;TR;>;", $PUBLIC, $virtualMethod(Function, compose, Function*, Function*)},
-	{"identity", "()Ljava/util/function/Function;", "<T:Ljava/lang/Object;>()Ljava/util/function/Function<TT;TT;>;", $PUBLIC | $STATIC, $staticMethod(Function, identity, Function*)},
-	{"lambda$andThen$1", "(Ljava/util/function/Function;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(Function, lambda$andThen$1, $Object*, Function*, Object$*)},
-	{"lambda$compose$0", "(Ljava/util/function/Function;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(Function, lambda$compose$0, $Object*, Function*, Object$*)},
-	{"lambda$identity$2", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Function, lambda$identity$2, $Object*, Object$*)},
-	{}
-};
-
-$ClassInfo _Function_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.function.Function",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Function_MethodInfo_,
-	"<T:Ljava/lang/Object;R:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	nullptr,
-	_Function_Annotations_
-};
-
-$Object* allocate$Function($Class* clazz) {
-	return $of($alloc(Function));
-}
-
 Function* Function::compose(Function* before) {
 	$Objects::requireNonNull(before);
-	return static_cast<Function*>($new(Function$$Lambda$lambda$compose$0, this, before));
+	return $new(Function$$Lambda$lambda$compose$0, this, before);
 }
 
 Function* Function::andThen(Function* after) {
 	$Objects::requireNonNull(after);
-	return static_cast<Function*>($new(Function$$Lambda$lambda$andThen$1$1, this, after));
+	return $new(Function$$Lambda$lambda$andThen$1$1, this, after);
 }
 
 Function* Function::identity() {
-	return static_cast<Function*>($new(Function$$Lambda$lambda$identity$2$2));
+	return $new(Function$$Lambda$lambda$identity$2$2);
 }
 
 $Object* Function::lambda$identity$2(Object$* t) {
@@ -192,26 +147,54 @@ $Object* Function::lambda$identity$2(Object$* t) {
 }
 
 $Object* Function::lambda$andThen$1(Function* after, Object$* t) {
-	return $of($nc(after)->apply($(apply(t))));
+	return $nc(after)->apply($(apply(t)));
 }
 
 $Object* Function::lambda$compose$0(Function* before, Object$* v) {
-	return $of(apply($($nc(before)->apply(v))));
+	return apply($($nc(before)->apply(v)));
 }
 
 $Class* Function::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Function$$Lambda$lambda$compose$0::classInfo$.name)) {
+		if (name->equals("java.util.function.Function$$Lambda$lambda$compose$0")) {
 			return Function$$Lambda$lambda$compose$0::load$(name, initialize);
 		}
-		if (name->equals(Function$$Lambda$lambda$andThen$1$1::classInfo$.name)) {
+		if (name->equals("java.util.function.Function$$Lambda$lambda$andThen$1$1")) {
 			return Function$$Lambda$lambda$andThen$1$1::load$(name, initialize);
 		}
-		if (name->equals(Function$$Lambda$lambda$identity$2$2::classInfo$.name)) {
+		if (name->equals("java.util.function.Function$$Lambda$lambda$identity$2$2")) {
 			return Function$$Lambda$lambda$identity$2$2::load$(name, initialize);
 		}
 	}
-	$loadClass(Function, name, initialize, &_Function_ClassInfo_, allocate$Function);
+	$MethodInfo methodInfos$$[] = {
+		{"andThen", "(Ljava/util/function/Function;)Ljava/util/function/Function;", "<V:Ljava/lang/Object;>(Ljava/util/function/Function<-TR;+TV;>;)Ljava/util/function/Function<TT;TV;>;", $PUBLIC, $virtualMethod(Function, andThen, Function*, Function*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TT;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Function, apply, $Object*, Object$*)},
+		{"compose", "(Ljava/util/function/Function;)Ljava/util/function/Function;", "<V:Ljava/lang/Object;>(Ljava/util/function/Function<-TV;+TT;>;)Ljava/util/function/Function<TV;TR;>;", $PUBLIC, $virtualMethod(Function, compose, Function*, Function*)},
+		{"identity", "()Ljava/util/function/Function;", "<T:Ljava/lang/Object;>()Ljava/util/function/Function<TT;TT;>;", $PUBLIC | $STATIC, $staticMethod(Function, identity, Function*)},
+		{"lambda$andThen$1", "(Ljava/util/function/Function;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(Function, lambda$andThen$1, $Object*, Function*, Object$*)},
+		{"lambda$compose$0", "(Ljava/util/function/Function;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(Function, lambda$compose$0, $Object*, Function*, Object$*)},
+		{"lambda$identity$2", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Function, lambda$identity$2, $Object*, Object$*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.function.Function",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;R:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Function, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Function);
+	});
 	return class$;
 }
 

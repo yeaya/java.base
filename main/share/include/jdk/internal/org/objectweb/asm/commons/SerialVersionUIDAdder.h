@@ -43,6 +43,7 @@ class $import SerialVersionUIDAdder : public ::jdk::internal::org::objectweb::as
 	$class(SerialVersionUIDAdder, 0, ::jdk::internal::org::objectweb::asm$::ClassVisitor)
 public:
 	SerialVersionUIDAdder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::org::objectweb::asm$::ClassVisitor* classVisitor);
 	void init$(int32_t api, ::jdk::internal::org::objectweb::asm$::ClassVisitor* classVisitor);
 	virtual void addSVUID(int64_t svuid);

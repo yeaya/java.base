@@ -38,7 +38,7 @@ public:
 	static void lambda$new$0($bytes* k);
 	void readObject(::java::io::ObjectInputStream* s);
 	$Object* writeReplace();
-	static const int64_t serialVersionUID = (int64_t)0xE0FC818458927930;
+	static const int64_t serialVersionUID = (int64_t)0xe0fc818458927930;
 	$bytes* key = nullptr;
 	$String* type = nullptr;
 };

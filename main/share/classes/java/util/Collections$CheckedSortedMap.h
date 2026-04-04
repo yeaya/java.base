@@ -55,7 +55,7 @@ public:
 	virtual ::java::util::SortedMap* tailMap(Object$* fromKey) override;
 	virtual $String* toString() override;
 	virtual ::java::util::Collection* values() override;
-	static const int64_t serialVersionUID = (int64_t)0x16332C973AFE036E;
+	static const int64_t serialVersionUID = (int64_t)0x16332c973afe036e;
 	::java::util::SortedMap* sm = nullptr;
 };
 

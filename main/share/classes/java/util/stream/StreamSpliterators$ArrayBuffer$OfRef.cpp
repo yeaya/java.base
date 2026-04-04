@@ -1,5 +1,4 @@
 #include <java/util/stream/StreamSpliterators$ArrayBuffer$OfRef.h>
-
 #include <java/util/function/Consumer.h>
 #include <java/util/stream/StreamSpliterators$ArrayBuffer.h>
 #include <jcpp.h>
@@ -14,49 +13,6 @@ using $StreamSpliterators$ArrayBuffer = ::java::util::stream::StreamSpliterators
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _StreamSpliterators$ArrayBuffer$OfRef_FieldInfo_[] = {
-	{"array", "[Ljava/lang/Object;", nullptr, $FINAL, $field(StreamSpliterators$ArrayBuffer$OfRef, array)},
-	{}
-};
-
-$MethodInfo _StreamSpliterators$ArrayBuffer$OfRef_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(I)V", nullptr, 0, $method(StreamSpliterators$ArrayBuffer$OfRef, init$, void, int32_t)},
-	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(StreamSpliterators$ArrayBuffer$OfRef, accept, void, Object$*)},
-	{"forEach", "(Ljava/util/function/Consumer;J)V", "(Ljava/util/function/Consumer<-TT;>;J)V", $PUBLIC, $method(StreamSpliterators$ArrayBuffer$OfRef, forEach, void, $Consumer*, int64_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _StreamSpliterators$ArrayBuffer$OfRef_InnerClassesInfo_[] = {
-	{"java.util.stream.StreamSpliterators$ArrayBuffer", "java.util.stream.StreamSpliterators", "ArrayBuffer", $STATIC | $ABSTRACT},
-	{"java.util.stream.StreamSpliterators$ArrayBuffer$OfRef", "java.util.stream.StreamSpliterators$ArrayBuffer", "OfRef", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _StreamSpliterators$ArrayBuffer$OfRef_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.StreamSpliterators$ArrayBuffer$OfRef",
-	"java.util.stream.StreamSpliterators$ArrayBuffer",
-	"java.util.function.Consumer",
-	_StreamSpliterators$ArrayBuffer$OfRef_FieldInfo_,
-	_StreamSpliterators$ArrayBuffer$OfRef_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/util/stream/StreamSpliterators$ArrayBuffer;Ljava/util/function/Consumer<TT;>;",
-	nullptr,
-	_StreamSpliterators$ArrayBuffer$OfRef_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.StreamSpliterators"
-};
-
-$Object* allocate$StreamSpliterators$ArrayBuffer$OfRef($Class* clazz) {
-	return $of($alloc(StreamSpliterators$ArrayBuffer$OfRef));
-}
 
 int32_t StreamSpliterators$ArrayBuffer$OfRef::hashCode() {
 	 return this->$StreamSpliterators$ArrayBuffer::hashCode();
@@ -88,7 +44,7 @@ void StreamSpliterators$ArrayBuffer$OfRef::accept(Object$* t) {
 }
 
 void StreamSpliterators$ArrayBuffer$OfRef::forEach($Consumer* action, int64_t fence) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < fence; ++i) {
 		$var($Object, t, $nc(this->array)->get(i));
 		$nc(action)->accept(t);
@@ -99,7 +55,44 @@ StreamSpliterators$ArrayBuffer$OfRef::StreamSpliterators$ArrayBuffer$OfRef() {
 }
 
 $Class* StreamSpliterators$ArrayBuffer$OfRef::load$($String* name, bool initialize) {
-	$loadClass(StreamSpliterators$ArrayBuffer$OfRef, name, initialize, &_StreamSpliterators$ArrayBuffer$OfRef_ClassInfo_, allocate$StreamSpliterators$ArrayBuffer$OfRef);
+	$FieldInfo fieldInfos$$[] = {
+		{"array", "[Ljava/lang/Object;", nullptr, $FINAL, $field(StreamSpliterators$ArrayBuffer$OfRef, array)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(I)V", nullptr, 0, $method(StreamSpliterators$ArrayBuffer$OfRef, init$, void, int32_t)},
+		{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(StreamSpliterators$ArrayBuffer$OfRef, accept, void, Object$*)},
+		{"forEach", "(Ljava/util/function/Consumer;J)V", "(Ljava/util/function/Consumer<-TT;>;J)V", $PUBLIC, $method(StreamSpliterators$ArrayBuffer$OfRef, forEach, void, $Consumer*, int64_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.StreamSpliterators$ArrayBuffer", "java.util.stream.StreamSpliterators", "ArrayBuffer", $STATIC | $ABSTRACT},
+		{"java.util.stream.StreamSpliterators$ArrayBuffer$OfRef", "java.util.stream.StreamSpliterators$ArrayBuffer", "OfRef", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.StreamSpliterators$ArrayBuffer$OfRef",
+		"java.util.stream.StreamSpliterators$ArrayBuffer",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/util/stream/StreamSpliterators$ArrayBuffer;Ljava/util/function/Consumer<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.StreamSpliterators"
+	};
+	$loadClass(StreamSpliterators$ArrayBuffer$OfRef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StreamSpliterators$ArrayBuffer$OfRef));
+	});
 	return class$;
 }
 

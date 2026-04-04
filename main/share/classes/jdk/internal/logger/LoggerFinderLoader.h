@@ -44,6 +44,7 @@ class $export LoggerFinderLoader : public ::java::lang::Object {
 	$class(LoggerFinderLoader, 0, ::java::lang::Object)
 public:
 	LoggerFinderLoader();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::jdk::internal::logger::LoggerFinderLoader$ErrorPolicy* configurationErrorPolicy();
 	static bool ensureSingletonProvider();

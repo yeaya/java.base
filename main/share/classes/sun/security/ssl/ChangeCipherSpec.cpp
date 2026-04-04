@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ChangeCipherSpec.h>
-
 #include <sun/security/ssl/ChangeCipherSpec$T10ChangeCipherSpecConsumer.h>
 #include <sun/security/ssl/ChangeCipherSpec$T10ChangeCipherSpecProducer.h>
 #include <sun/security/ssl/ChangeCipherSpec$T13ChangeCipherSpecConsumer.h>
@@ -21,44 +20,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _ChangeCipherSpec_FieldInfo_[] = {
-	{"t10Consumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(ChangeCipherSpec, t10Consumer)},
-	{"t10Producer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(ChangeCipherSpec, t10Producer)},
-	{"t13Consumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(ChangeCipherSpec, t13Consumer)},
-	{}
-};
-
-$MethodInfo _ChangeCipherSpec_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ChangeCipherSpec, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ChangeCipherSpec_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ChangeCipherSpec$T13ChangeCipherSpecConsumer", "sun.security.ssl.ChangeCipherSpec", "T13ChangeCipherSpecConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ChangeCipherSpec$T10ChangeCipherSpecConsumer", "sun.security.ssl.ChangeCipherSpec", "T10ChangeCipherSpecConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ChangeCipherSpec$T10ChangeCipherSpecProducer", "sun.security.ssl.ChangeCipherSpec", "T10ChangeCipherSpecProducer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ChangeCipherSpec_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ChangeCipherSpec",
-	"java.lang.Object",
-	nullptr,
-	_ChangeCipherSpec_FieldInfo_,
-	_ChangeCipherSpec_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ChangeCipherSpec_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ChangeCipherSpec$T13ChangeCipherSpecConsumer,sun.security.ssl.ChangeCipherSpec$T10ChangeCipherSpecConsumer,sun.security.ssl.ChangeCipherSpec$T10ChangeCipherSpecProducer"
-};
-
-$Object* allocate$ChangeCipherSpec($Class* clazz) {
-	return $of($alloc(ChangeCipherSpec));
-}
-
 $SSLConsumer* ChangeCipherSpec::t10Consumer = nullptr;
 $HandshakeProducer* ChangeCipherSpec::t10Producer = nullptr;
 $SSLConsumer* ChangeCipherSpec::t13Consumer = nullptr;
@@ -66,7 +27,7 @@ $SSLConsumer* ChangeCipherSpec::t13Consumer = nullptr;
 void ChangeCipherSpec::init$() {
 }
 
-void clinit$ChangeCipherSpec($Class* class$) {
+void ChangeCipherSpec::clinit$($Class* clazz) {
 	$assignStatic(ChangeCipherSpec::t10Consumer, $new($ChangeCipherSpec$T10ChangeCipherSpecConsumer));
 	$assignStatic(ChangeCipherSpec::t10Producer, $new($ChangeCipherSpec$T10ChangeCipherSpecProducer));
 	$assignStatic(ChangeCipherSpec::t13Consumer, $new($ChangeCipherSpec$T13ChangeCipherSpecConsumer));
@@ -76,7 +37,39 @@ ChangeCipherSpec::ChangeCipherSpec() {
 }
 
 $Class* ChangeCipherSpec::load$($String* name, bool initialize) {
-	$loadClass(ChangeCipherSpec, name, initialize, &_ChangeCipherSpec_ClassInfo_, clinit$ChangeCipherSpec, allocate$ChangeCipherSpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"t10Consumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(ChangeCipherSpec, t10Consumer)},
+		{"t10Producer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(ChangeCipherSpec, t10Producer)},
+		{"t13Consumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(ChangeCipherSpec, t13Consumer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ChangeCipherSpec, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ChangeCipherSpec$T13ChangeCipherSpecConsumer", "sun.security.ssl.ChangeCipherSpec", "T13ChangeCipherSpecConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ChangeCipherSpec$T10ChangeCipherSpecConsumer", "sun.security.ssl.ChangeCipherSpec", "T10ChangeCipherSpecConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ChangeCipherSpec$T10ChangeCipherSpecProducer", "sun.security.ssl.ChangeCipherSpec", "T10ChangeCipherSpecProducer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ChangeCipherSpec",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ChangeCipherSpec$T13ChangeCipherSpecConsumer,sun.security.ssl.ChangeCipherSpec$T10ChangeCipherSpecConsumer,sun.security.ssl.ChangeCipherSpec$T10ChangeCipherSpecProducer"
+	};
+	$loadClass(ChangeCipherSpec, name, initialize, &classInfo$$, ChangeCipherSpec::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ChangeCipherSpec);
+	});
 	return class$;
 }
 

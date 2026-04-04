@@ -1,5 +1,4 @@
 #include <sun/nio/cs/CharsetMapping$2.h>
-
 #include <sun/nio/cs/CharsetMapping$Entry.h>
 #include <jcpp.h>
 
@@ -12,46 +11,6 @@ using $CharsetMapping$Entry = ::sun::nio::cs::CharsetMapping$Entry;
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$MethodInfo _CharsetMapping$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CharsetMapping$2, init$, void)},
-	{"compare", "(Lsun/nio/cs/CharsetMapping$Entry;Lsun/nio/cs/CharsetMapping$Entry;)I", nullptr, $PUBLIC, $virtualMethod(CharsetMapping$2, compare, int32_t, $CharsetMapping$Entry*, $CharsetMapping$Entry*)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CharsetMapping$2, compare, int32_t, Object$*, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CharsetMapping$2, equals, bool, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _CharsetMapping$2_EnclosingMethodInfo_ = {
-	"sun.nio.cs.CharsetMapping",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _CharsetMapping$2_InnerClassesInfo_[] = {
-	{"sun.nio.cs.CharsetMapping$2", nullptr, nullptr, 0},
-	{"sun.nio.cs.CharsetMapping$Entry", "sun.nio.cs.CharsetMapping", "Entry", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _CharsetMapping$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.CharsetMapping$2",
-	"java.lang.Object",
-	"java.util.Comparator",
-	nullptr,
-	_CharsetMapping$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Comparator<Lsun/nio/cs/CharsetMapping$Entry;>;",
-	&_CharsetMapping$2_EnclosingMethodInfo_,
-	_CharsetMapping$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.CharsetMapping"
-};
-
-$Object* allocate$CharsetMapping$2($Class* clazz) {
-	return $of($alloc(CharsetMapping$2));
-}
 
 void CharsetMapping$2::init$() {
 }
@@ -72,7 +31,41 @@ CharsetMapping$2::CharsetMapping$2() {
 }
 
 $Class* CharsetMapping$2::load$($String* name, bool initialize) {
-	$loadClass(CharsetMapping$2, name, initialize, &_CharsetMapping$2_ClassInfo_, allocate$CharsetMapping$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CharsetMapping$2, init$, void)},
+		{"compare", "(Lsun/nio/cs/CharsetMapping$Entry;Lsun/nio/cs/CharsetMapping$Entry;)I", nullptr, $PUBLIC, $virtualMethod(CharsetMapping$2, compare, int32_t, $CharsetMapping$Entry*, $CharsetMapping$Entry*)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CharsetMapping$2, compare, int32_t, Object$*, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CharsetMapping$2, equals, bool, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.nio.cs.CharsetMapping",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.CharsetMapping$2", nullptr, nullptr, 0},
+		{"sun.nio.cs.CharsetMapping$Entry", "sun.nio.cs.CharsetMapping", "Entry", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.CharsetMapping$2",
+		"java.lang.Object",
+		"java.util.Comparator",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Comparator<Lsun/nio/cs/CharsetMapping$Entry;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.CharsetMapping"
+	};
+	$loadClass(CharsetMapping$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CharsetMapping$2);
+	});
 	return class$;
 }
 

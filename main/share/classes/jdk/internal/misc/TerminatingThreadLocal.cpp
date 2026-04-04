@@ -1,5 +1,4 @@
 #include <jdk/internal/misc/TerminatingThreadLocal.h>
-
 #include <java/lang/ThreadLocal.h>
 #include <java/util/Collection.h>
 #include <java/util/Iterator.h>
@@ -20,47 +19,6 @@ using $TerminatingThreadLocal$1 = ::jdk::internal::misc::TerminatingThreadLocal$
 namespace jdk {
 	namespace internal {
 		namespace misc {
-
-$FieldInfo _TerminatingThreadLocal_FieldInfo_[] = {
-	{"REGISTRY", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljava/util/Collection<Ljdk/internal/misc/TerminatingThreadLocal<*>;>;>;", $PUBLIC | $STATIC | $FINAL, $staticField(TerminatingThreadLocal, REGISTRY)},
-	{}
-};
-
-$MethodInfo _TerminatingThreadLocal_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TerminatingThreadLocal, init$, void)},
-	{"_threadTerminated", "()V", nullptr, $PRIVATE, $method(TerminatingThreadLocal, _threadTerminated, void)},
-	{"register", "(Ljdk/internal/misc/TerminatingThreadLocal;)V", "(Ljdk/internal/misc/TerminatingThreadLocal<*>;)V", $PUBLIC | $STATIC, $staticMethod(TerminatingThreadLocal, register$, void, TerminatingThreadLocal*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(TerminatingThreadLocal, remove, void)},
-	{"set", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(TerminatingThreadLocal, set, void, Object$*)},
-	{"threadTerminated", "(Ljava/lang/Object;)V", "(TT;)V", $PROTECTED, $virtualMethod(TerminatingThreadLocal, threadTerminated, void, Object$*)},
-	{"threadTerminated", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(TerminatingThreadLocal, threadTerminated, void)},
-	{"unregister", "(Ljdk/internal/misc/TerminatingThreadLocal;)V", "(Ljdk/internal/misc/TerminatingThreadLocal<*>;)V", $PRIVATE | $STATIC, $staticMethod(TerminatingThreadLocal, unregister, void, TerminatingThreadLocal*)},
-	{}
-};
-
-$InnerClassInfo _TerminatingThreadLocal_InnerClassesInfo_[] = {
-	{"jdk.internal.misc.TerminatingThreadLocal$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TerminatingThreadLocal_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.misc.TerminatingThreadLocal",
-	"java.lang.ThreadLocal",
-	nullptr,
-	_TerminatingThreadLocal_FieldInfo_,
-	_TerminatingThreadLocal_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/ThreadLocal<TT;>;",
-	nullptr,
-	_TerminatingThreadLocal_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.misc.TerminatingThreadLocal$1"
-};
-
-$Object* allocate$TerminatingThreadLocal($Class* clazz) {
-	return $of($alloc(TerminatingThreadLocal));
-}
 
 $ThreadLocal* TerminatingThreadLocal::REGISTRY = nullptr;
 
@@ -83,14 +41,12 @@ void TerminatingThreadLocal::threadTerminated(Object$* value) {
 
 void TerminatingThreadLocal::threadTerminated() {
 	$init(TerminatingThreadLocal);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(($cast($Collection, $($nc(TerminatingThreadLocal::REGISTRY)->get()))))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var(TerminatingThreadLocal, ttl, $cast(TerminatingThreadLocal, i$->next()));
-			{
-				$nc(ttl)->_threadTerminated();
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$sure($Collection, TerminatingThreadLocal::REGISTRY->get())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var(TerminatingThreadLocal, ttl, $cast(TerminatingThreadLocal, i$->next()));
+		{
+			$nc(ttl)->_threadTerminated();
 		}
 	}
 }
@@ -101,15 +57,15 @@ void TerminatingThreadLocal::_threadTerminated() {
 
 void TerminatingThreadLocal::register$(TerminatingThreadLocal* tl) {
 	$init(TerminatingThreadLocal);
-	$nc(($cast($Collection, $($nc(TerminatingThreadLocal::REGISTRY)->get()))))->add(tl);
+	$$sure($Collection, TerminatingThreadLocal::REGISTRY->get())->add(tl);
 }
 
 void TerminatingThreadLocal::unregister(TerminatingThreadLocal* tl) {
 	$init(TerminatingThreadLocal);
-	$nc(($cast($Collection, $($nc(TerminatingThreadLocal::REGISTRY)->get()))))->remove(tl);
+	$$sure($Collection, TerminatingThreadLocal::REGISTRY->get())->remove(tl);
 }
 
-void clinit$TerminatingThreadLocal($Class* class$) {
+void TerminatingThreadLocal::clinit$($Class* clazz) {
 	$assignStatic(TerminatingThreadLocal::REGISTRY, $new($TerminatingThreadLocal$1));
 }
 
@@ -117,7 +73,42 @@ TerminatingThreadLocal::TerminatingThreadLocal() {
 }
 
 $Class* TerminatingThreadLocal::load$($String* name, bool initialize) {
-	$loadClass(TerminatingThreadLocal, name, initialize, &_TerminatingThreadLocal_ClassInfo_, clinit$TerminatingThreadLocal, allocate$TerminatingThreadLocal);
+	$FieldInfo fieldInfos$$[] = {
+		{"REGISTRY", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljava/util/Collection<Ljdk/internal/misc/TerminatingThreadLocal<*>;>;>;", $PUBLIC | $STATIC | $FINAL, $staticField(TerminatingThreadLocal, REGISTRY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TerminatingThreadLocal, init$, void)},
+		{"_threadTerminated", "()V", nullptr, $PRIVATE, $method(TerminatingThreadLocal, _threadTerminated, void)},
+		{"register", "(Ljdk/internal/misc/TerminatingThreadLocal;)V", "(Ljdk/internal/misc/TerminatingThreadLocal<*>;)V", $PUBLIC | $STATIC, $staticMethod(TerminatingThreadLocal, register$, void, TerminatingThreadLocal*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(TerminatingThreadLocal, remove, void)},
+		{"set", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(TerminatingThreadLocal, set, void, Object$*)},
+		{"threadTerminated", "(Ljava/lang/Object;)V", "(TT;)V", $PROTECTED, $virtualMethod(TerminatingThreadLocal, threadTerminated, void, Object$*)},
+		{"threadTerminated", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(TerminatingThreadLocal, threadTerminated, void)},
+		{"unregister", "(Ljdk/internal/misc/TerminatingThreadLocal;)V", "(Ljdk/internal/misc/TerminatingThreadLocal<*>;)V", $PRIVATE | $STATIC, $staticMethod(TerminatingThreadLocal, unregister, void, TerminatingThreadLocal*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.misc.TerminatingThreadLocal$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.misc.TerminatingThreadLocal",
+		"java.lang.ThreadLocal",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/ThreadLocal<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.misc.TerminatingThreadLocal$1"
+	};
+	$loadClass(TerminatingThreadLocal, name, initialize, &classInfo$$, TerminatingThreadLocal::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TerminatingThreadLocal);
+	});
 	return class$;
 }
 

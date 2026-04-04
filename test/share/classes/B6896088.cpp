@@ -1,5 +1,4 @@
 #include <B6896088.h>
-
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
 #include <java/lang/ClassLoader.h>
@@ -11,39 +10,12 @@
 using $URLArray = $Array<::java::net::URL>;
 using $File = ::java::io::File;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
 using $URLClassLoader = ::java::net::URLClassLoader;
-
-$FieldInfo _B6896088_FieldInfo_[] = {
-	{"nums", "[I", nullptr, $STATIC | $FINAL, $staticField(B6896088, nums)},
-	{}
-};
-
-$MethodInfo _B6896088_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(B6896088, init$, void)},
-	{"bytes", "([I)[B", nullptr, $STATIC, $staticMethod(B6896088, bytes, $bytes*, $ints*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B6896088, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _B6896088_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"B6896088",
-	"java.lang.Object",
-	nullptr,
-	_B6896088_FieldInfo_,
-	_B6896088_MethodInfo_
-};
-
-$Object* allocate$B6896088($Class* clazz) {
-	return $of($alloc(B6896088));
-}
 
 $ints* B6896088::nums = nullptr;
 
@@ -52,13 +24,13 @@ void B6896088::init$() {
 
 void B6896088::main($StringArray* args) {
 	$init(B6896088);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, dir, $System::getProperty("test.classes"_s));
 	$var($File, jarf, $new($File, dir, "foo.jar"_s));
 	$var($FileOutputStream, fos, $new($FileOutputStream, jarf));
 	fos->write($(bytes(B6896088::nums)));
 	fos->close();
-	$var($String, jarName, $nc(($(jarf->toURI())))->toString());
+	$var($String, jarName, ($$nc(jarf->toURI()))->toString());
 	$var($URL, url, $new($URL, "jar"_s, ""_s, $$str({jarName, "!/"_s})));
 	$var($URLClassLoader, loader, $new($URLClassLoader, $$new($URLArray, {url})));
 	$Class* c = loader->loadClass("Foo"_s);
@@ -81,7 +53,7 @@ $bytes* B6896088::bytes($ints* i) {
 	return buf;
 }
 
-void clinit$B6896088($Class* class$) {
+void B6896088::clinit$($Class* clazz) {
 	$assignStatic(B6896088::nums, $new($ints, {
 		80,
 		75,
@@ -700,7 +672,27 @@ B6896088::B6896088() {
 }
 
 $Class* B6896088::load$($String* name, bool initialize) {
-	$loadClass(B6896088, name, initialize, &_B6896088_ClassInfo_, clinit$B6896088, allocate$B6896088);
+	$FieldInfo fieldInfos$$[] = {
+		{"nums", "[I", nullptr, $STATIC | $FINAL, $staticField(B6896088, nums)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(B6896088, init$, void)},
+		{"bytes", "([I)[B", nullptr, $STATIC, $staticMethod(B6896088, bytes, $bytes*, $ints*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B6896088, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"B6896088",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(B6896088, name, initialize, &classInfo$$, B6896088::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(B6896088);
+	});
 	return class$;
 }
 

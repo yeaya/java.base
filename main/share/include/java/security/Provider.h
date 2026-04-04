@@ -61,6 +61,7 @@ public:
 	Provider();
 	using ::java::util::Properties::load;
 	using ::java::util::Properties::getProperty;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, double version, $String* info);
 	void init$($String* name, $String* versionStr, $String* info);
 	static void addEngine($String* name, bool sp, $String* paramName);
@@ -127,7 +128,7 @@ public:
 	virtual $String* toString() override;
 	void updateSecureRandomEntries(bool doAdd, $String* s);
 	virtual ::java::util::Collection* values() override;
-	static const int64_t serialVersionUID = (int64_t)0xC45A6F4D905EAFA5;
+	static const int64_t serialVersionUID = (int64_t)0xc45a6f4d905eafa5;
 	static ::sun::security::util::Debug* debug;
 	$String* name = nullptr;
 	$String* info = nullptr;

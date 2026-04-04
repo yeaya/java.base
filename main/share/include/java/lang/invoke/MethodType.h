@@ -67,6 +67,7 @@ public:
 	MethodType();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Class* rtype, $ClassArray* ptypes);
 	::java::lang::invoke::MethodType* appendParameterTypes($ClassArray* ptypesToInsert);
 	::java::lang::invoke::MethodType* appendParameterTypes(::java::util::List* ptypesToInsert);

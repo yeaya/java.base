@@ -63,6 +63,7 @@ public:
 	virtual bool equals(Object$* ob) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t cap);
 	void init$(int64_t addr, int32_t cap, Object$* ob, ::jdk::internal::access::foreign::MemorySegmentProxy* segment);
 	void init$(int64_t addr, int32_t cap, Object$* ob, ::java::io::FileDescriptor* fd, bool isSync, ::jdk::internal::access::foreign::MemorySegmentProxy* segment);

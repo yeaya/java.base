@@ -36,6 +36,7 @@ class LambdaForm$NamedFunction : public ::java::lang::Object {
 	$class(LambdaForm$NamedFunction, 0, ::java::lang::Object)
 public:
 	LambdaForm$NamedFunction();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::MethodHandle* resolvedHandle);
 	void init$(::java::lang::invoke::MemberName* member, ::java::lang::invoke::MethodHandle* resolvedHandle);
 	void init$(::java::lang::invoke::MethodType* basicInvokerType);

@@ -22,6 +22,7 @@ class $export EqualsIgnoreCase : public ::java::lang::Object {
 	$class(EqualsIgnoreCase, 0, ::java::lang::Object)
 public:
 	EqualsIgnoreCase();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void compareFuncs($String* s1, $String* s2, bool expectEquals, bool expectTuTl);
 	static void main($StringArray* args);

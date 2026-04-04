@@ -69,6 +69,7 @@ class $import Phaser : public ::java::lang::Object {
 	$class(Phaser, 0, ::java::lang::Object)
 public:
 	Phaser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t parties);
 	void init$(::java::util::concurrent::Phaser* parent);
@@ -105,13 +106,13 @@ public:
 	virtual $String* toString() override;
 	static int32_t unarrivedOf(int64_t s);
 	$volatile(int64_t) state = 0;
-	static const int32_t MAX_PARTIES = 0x0000FFFF;
-	static const int32_t MAX_PHASE = 0x7FFFFFFF; // Integer.MAX_VALUE
+	static const int32_t MAX_PARTIES = 0x0000ffff;
+	static const int32_t MAX_PHASE = 0x7fffffff; // Integer.MAX_VALUE
 	static const int32_t PARTIES_SHIFT = 16;
 	static const int32_t PHASE_SHIFT = 32;
-	static const int32_t UNARRIVED_MASK = 0x0000FFFF;
-	static const int64_t PARTIES_MASK = (int64_t)0x00000000FFFF0000;
-	static const int64_t COUNTS_MASK = (int64_t)0x00000000FFFFFFFF;
+	static const int32_t UNARRIVED_MASK = 0x0000ffff;
+	static const int64_t PARTIES_MASK = (int64_t)0x00000000ffff0000;
+	static const int64_t COUNTS_MASK = (int64_t)0x00000000ffffffff;
 	static const int64_t TERMINATION_BIT = 0x8000000000000000; // 1L << 63
 	static const int32_t ONE_ARRIVAL = 1;
 	static const int32_t ONE_PARTY = 65536; // 1 << PARTIES_SHIFT

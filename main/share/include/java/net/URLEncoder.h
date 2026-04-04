@@ -25,6 +25,7 @@ class $import URLEncoder : public ::java::lang::Object {
 	$class(URLEncoder, 0, ::java::lang::Object)
 public:
 	URLEncoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* encode($String* s);
 	static $String* encode($String* s, $String* enc);

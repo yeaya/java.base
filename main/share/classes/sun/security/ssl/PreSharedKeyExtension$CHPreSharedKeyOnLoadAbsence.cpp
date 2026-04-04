@@ -1,5 +1,4 @@
 #include <sun/security/ssl/PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence.h>
-
 #include <sun/security/ssl/ConnectionContext.h>
 #include <sun/security/ssl/PreSharedKeyExtension.h>
 #include <sun/security/ssl/SSLHandshake$HandshakeMessage.h>
@@ -20,42 +19,11 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence, init$, void)},
-	{"absent", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence, absent, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence_InnerClassesInfo_[] = {
-	{"sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence", "sun.security.ssl.PreSharedKeyExtension", "CHPreSharedKeyOnLoadAbsence", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeAbsence",
-	nullptr,
-	_PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.PreSharedKeyExtension"
-};
-
-$Object* allocate$PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence($Class* clazz) {
-	return $of($alloc(PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence));
-}
-
 void PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence::init$() {
 }
 
 void PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence::absent($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 		$SSLLogger::fine("Handling pre_shared_key absence."_s, $$new($ObjectArray, 0));
@@ -69,7 +37,33 @@ PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence::PreSharedKeyExtension$CHPreSh
 }
 
 $Class* PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence::load$($String* name, bool initialize) {
-	$loadClass(PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence, name, initialize, &_PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence_ClassInfo_, allocate$PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence, init$, void)},
+		{"absent", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence, absent, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence", "sun.security.ssl.PreSharedKeyExtension", "CHPreSharedKeyOnLoadAbsence", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeAbsence",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.PreSharedKeyExtension"
+	};
+	$loadClass(PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PreSharedKeyExtension$CHPreSharedKeyOnLoadAbsence);
+	});
 	return class$;
 }
 

@@ -1,9 +1,7 @@
 #include <sun/nio/ch/AsynchronousServerSocketChannelImpl$DefaultOptionsHolder.h>
-
 #include <java/net/SocketOption.h>
 #include <java/net/StandardSocketOptions.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/HashSet.h>
 #include <java/util/Set.h>
@@ -21,7 +19,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StandardSocketOptions = ::java::net::StandardSocketOptions;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
@@ -32,42 +29,6 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _AsynchronousServerSocketChannelImpl$DefaultOptionsHolder_FieldInfo_[] = {
-	{"defaultOptions", "Ljava/util/Set;", "Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $STATIC | $FINAL, $staticField(AsynchronousServerSocketChannelImpl$DefaultOptionsHolder, defaultOptions$)},
-	{}
-};
-
-$MethodInfo _AsynchronousServerSocketChannelImpl$DefaultOptionsHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(AsynchronousServerSocketChannelImpl$DefaultOptionsHolder, init$, void)},
-	{"defaultOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE | $STATIC, $staticMethod(AsynchronousServerSocketChannelImpl$DefaultOptionsHolder, defaultOptions, $Set*)},
-	{}
-};
-
-$InnerClassInfo _AsynchronousServerSocketChannelImpl$DefaultOptionsHolder_InnerClassesInfo_[] = {
-	{"sun.nio.ch.AsynchronousServerSocketChannelImpl$DefaultOptionsHolder", "sun.nio.ch.AsynchronousServerSocketChannelImpl", "DefaultOptionsHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AsynchronousServerSocketChannelImpl$DefaultOptionsHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.AsynchronousServerSocketChannelImpl$DefaultOptionsHolder",
-	"java.lang.Object",
-	nullptr,
-	_AsynchronousServerSocketChannelImpl$DefaultOptionsHolder_FieldInfo_,
-	_AsynchronousServerSocketChannelImpl$DefaultOptionsHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AsynchronousServerSocketChannelImpl$DefaultOptionsHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.AsynchronousServerSocketChannelImpl"
-};
-
-$Object* allocate$AsynchronousServerSocketChannelImpl$DefaultOptionsHolder($Class* clazz) {
-	return $of($alloc(AsynchronousServerSocketChannelImpl$DefaultOptionsHolder));
-}
-
 $Set* AsynchronousServerSocketChannelImpl$DefaultOptionsHolder::defaultOptions$ = nullptr;
 
 void AsynchronousServerSocketChannelImpl$DefaultOptionsHolder::init$() {
@@ -75,7 +36,7 @@ void AsynchronousServerSocketChannelImpl$DefaultOptionsHolder::init$() {
 
 $Set* AsynchronousServerSocketChannelImpl$DefaultOptionsHolder::defaultOptions() {
 	$init(AsynchronousServerSocketChannelImpl$DefaultOptionsHolder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashSet, set, $new($HashSet, 2));
 	$init($StandardSocketOptions);
 	set->add($StandardSocketOptions::SO_RCVBUF);
@@ -87,7 +48,7 @@ $Set* AsynchronousServerSocketChannelImpl$DefaultOptionsHolder::defaultOptions()
 	return $Collections::unmodifiableSet(set);
 }
 
-void clinit$AsynchronousServerSocketChannelImpl$DefaultOptionsHolder($Class* class$) {
+void AsynchronousServerSocketChannelImpl$DefaultOptionsHolder::clinit$($Class* clazz) {
 	$assignStatic(AsynchronousServerSocketChannelImpl$DefaultOptionsHolder::defaultOptions$, AsynchronousServerSocketChannelImpl$DefaultOptionsHolder::defaultOptions());
 }
 
@@ -95,7 +56,37 @@ AsynchronousServerSocketChannelImpl$DefaultOptionsHolder::AsynchronousServerSock
 }
 
 $Class* AsynchronousServerSocketChannelImpl$DefaultOptionsHolder::load$($String* name, bool initialize) {
-	$loadClass(AsynchronousServerSocketChannelImpl$DefaultOptionsHolder, name, initialize, &_AsynchronousServerSocketChannelImpl$DefaultOptionsHolder_ClassInfo_, clinit$AsynchronousServerSocketChannelImpl$DefaultOptionsHolder, allocate$AsynchronousServerSocketChannelImpl$DefaultOptionsHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultOptions", "Ljava/util/Set;", "Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $STATIC | $FINAL, $staticField(AsynchronousServerSocketChannelImpl$DefaultOptionsHolder, defaultOptions$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(AsynchronousServerSocketChannelImpl$DefaultOptionsHolder, init$, void)},
+		{"defaultOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE | $STATIC, $staticMethod(AsynchronousServerSocketChannelImpl$DefaultOptionsHolder, defaultOptions, $Set*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.AsynchronousServerSocketChannelImpl$DefaultOptionsHolder", "sun.nio.ch.AsynchronousServerSocketChannelImpl", "DefaultOptionsHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.AsynchronousServerSocketChannelImpl$DefaultOptionsHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.AsynchronousServerSocketChannelImpl"
+	};
+	$loadClass(AsynchronousServerSocketChannelImpl$DefaultOptionsHolder, name, initialize, &classInfo$$, AsynchronousServerSocketChannelImpl$DefaultOptionsHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AsynchronousServerSocketChannelImpl$DefaultOptionsHolder);
+	});
 	return class$;
 }
 

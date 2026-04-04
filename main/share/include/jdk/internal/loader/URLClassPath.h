@@ -67,6 +67,7 @@ class $import URLClassPath : public ::java::lang::Object {
 	$class(URLClassPath, $PRELOAD, ::java::lang::Object)
 public:
 	URLClassPath();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Array<::java::net::URL>* urls, ::java::net::URLStreamHandlerFactory* factory, ::java::security::AccessControlContext* acc);
 	void init$($Array<::java::net::URL>* urls, ::java::security::AccessControlContext* acc);
 	void init$($String* cp, bool skipEmptyElements);

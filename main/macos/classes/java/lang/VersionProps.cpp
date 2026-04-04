@@ -1,6 +1,4 @@
 #include <java/lang/VersionProps.h>
-
-#include <java/lang/CharSequence.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
@@ -21,7 +19,6 @@
 
 using $IntegerArray = $Array<::java::lang::Integer>;
 using $PrintStream = ::java::io::PrintStream;
-using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -35,56 +32,6 @@ using $Optional = ::java::util::Optional;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _VersionProps_FieldInfo_[] = {
-	{"launcher_name", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, launcher_name)},
-	{"java_version", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, java_version)},
-	{"java_version_date", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, java_version_date)},
-	{"java_runtime_name", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, java_runtime_name)},
-	{"java_runtime_version", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, java_runtime_version)},
-	{"VERSION_NUMBER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, VERSION_NUMBER)},
-	{"VERSION_SPECIFICATION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, VERSION_SPECIFICATION)},
-	{"VERSION_BUILD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, VERSION_BUILD)},
-	{"VERSION_PRE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, VERSION_PRE)},
-	{"VERSION_OPT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, VERSION_OPT)},
-	{"isLTS", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, isLTS)},
-	{"CLASSFILE_MAJOR_MINOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, CLASSFILE_MAJOR_MINOR)},
-	{"VENDOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, VENDOR)},
-	{"VENDOR_URL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, VENDOR_URL)},
-	{"VENDOR_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(VersionProps, VENDOR_VERSION)},
-	{"VENDOR_URL_BUG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(VersionProps, VENDOR_URL_BUG)},
-	{"VENDOR_URL_VM_BUG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(VersionProps, VENDOR_URL_VM_BUG)},
-	{}
-};
-
-$MethodInfo _VersionProps_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(VersionProps, init$, void)},
-	{"build", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/Integer;>;", $STATIC, $staticMethod(VersionProps, build, $Optional*)},
-	{"init", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC | $STATIC, $staticMethod(VersionProps, init, void, $Map*)},
-	{"optional", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $STATIC, $staticMethod(VersionProps, optional, $Optional*)},
-	{"optionalOf", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(VersionProps, optionalOf, $Optional*, $String*)},
-	{"parseVersionNumber", "(Ljava/lang/String;II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(VersionProps, parseVersionNumber, int32_t, $String*, int32_t, int32_t)},
-	{"parseVersionNumbers", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/Integer;>;", $STATIC, $staticMethod(VersionProps, parseVersionNumbers, $List*, $String*)},
-	{"pre", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $STATIC, $staticMethod(VersionProps, pre, $Optional*)},
-	{"print", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(VersionProps, print, void, bool)},
-	{"print", "(ZZ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(VersionProps, print, void, bool, bool)},
-	{"println", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(VersionProps, println, void, bool)},
-	{"versionNumbers", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Integer;>;", $STATIC, $staticMethod(VersionProps, versionNumbers, $List*)},
-	{}
-};
-
-$ClassInfo _VersionProps_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.VersionProps",
-	"java.lang.Object",
-	nullptr,
-	_VersionProps_FieldInfo_,
-	_VersionProps_MethodInfo_
-};
-
-$Object* allocate$VersionProps($Class* clazz) {
-	return $of($alloc(VersionProps));
-}
 
 $String* VersionProps::launcher_name = nullptr;
 $String* VersionProps::java_version = nullptr;
@@ -127,30 +74,30 @@ void VersionProps::init($Map* props) {
 
 int32_t VersionProps::parseVersionNumber($String* version, int32_t prevIndex, int32_t index) {
 	$init(VersionProps);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (index - prevIndex > 1 && $Character::digit($nc(version)->charAt(prevIndex), 10) <= 0) {
-		$throwNew($IllegalArgumentException, $$str({"Leading zeros not supported ("_s, $($nc(version)->substring(prevIndex, index)), ")"_s}));
+		$throwNew($IllegalArgumentException, $$str({"Leading zeros not supported ("_s, $(version->substring(prevIndex, index)), ")"_s}));
 	}
 	return $Integer::parseInt(version, prevIndex, index, 10);
 }
 
 $List* VersionProps::parseVersionNumbers($String* version) {
 	$init(VersionProps);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = 0;
 	int32_t prevIndex = 0;
 	do {
-		prevIndex = $nc(version)->indexOf((int32_t)u'.', prevIndex) + 1;
+		prevIndex = $nc(version)->indexOf(u'.', prevIndex) + 1;
 		++size;
 	} while (prevIndex > 0);
 	$var($IntegerArray, verNumbers, $new($IntegerArray, size));
 	int32_t n = 0;
 	prevIndex = 0;
-	int32_t index = $nc(version)->indexOf((int32_t)u'.');
+	int32_t index = $nc(version)->indexOf(u'.');
 	while (index > -1) {
 		verNumbers->set(n, $($Integer::valueOf(parseVersionNumber(version, prevIndex, index))));
 		prevIndex = index + 1;
-		index = version->indexOf((int32_t)u'.', prevIndex);
+		index = version->indexOf(u'.', prevIndex);
 		++n;
 	}
 	verNumbers->set(n, $($Integer::valueOf(parseVersionNumber(version, prevIndex, version->length()))));
@@ -173,7 +120,7 @@ $Optional* VersionProps::pre() {
 
 $Optional* VersionProps::build() {
 	$init(VersionProps);
-	return $nc(VersionProps::VERSION_BUILD)->isEmpty() ? $Optional::empty() : $Optional::of($($Integer::valueOf($Integer::parseInt(VersionProps::VERSION_BUILD))));
+	return VersionProps::VERSION_BUILD->isEmpty() ? $Optional::empty() : $Optional::of($($Integer::valueOf($Integer::parseInt(VersionProps::VERSION_BUILD))));
 }
 
 $Optional* VersionProps::optional() {
@@ -202,7 +149,7 @@ void VersionProps::println(bool err) {
 
 void VersionProps::print(bool err, bool newln) {
 	$init(VersionProps);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrintStream, ps, err ? $System::err : $System::out);
 	if (err) {
 		$nc(ps)->println($$str({VersionProps::launcher_name, " version \""_s, VersionProps::java_version, "\" "_s, VersionProps::java_version_date, (VersionProps::isLTS ? " LTS"_s : ""_s)}));
@@ -223,7 +170,7 @@ void VersionProps::print(bool err, bool newln) {
 	ps->println($$str({java_vm_name, vendor_version, " ("_s, jdk_debug_level, "build "_s, java_vm_version, ", "_s, java_vm_info, ")"_s}));
 }
 
-void clinit$VersionProps($Class* class$) {
+void VersionProps::clinit$($Class* clazz) {
 	$assignStatic(VersionProps::launcher_name, "openjdk"_s);
 	$assignStatic(VersionProps::java_version, "17-internal"_s);
 	$assignStatic(VersionProps::java_version_date, "2021-09-14"_s);
@@ -247,7 +194,52 @@ VersionProps::VersionProps() {
 }
 
 $Class* VersionProps::load$($String* name, bool initialize) {
-	$loadClass(VersionProps, name, initialize, &_VersionProps_ClassInfo_, clinit$VersionProps, allocate$VersionProps);
+	$FieldInfo fieldInfos$$[] = {
+		{"launcher_name", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, launcher_name)},
+		{"java_version", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, java_version)},
+		{"java_version_date", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, java_version_date)},
+		{"java_runtime_name", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, java_runtime_name)},
+		{"java_runtime_version", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, java_runtime_version)},
+		{"VERSION_NUMBER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, VERSION_NUMBER)},
+		{"VERSION_SPECIFICATION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, VERSION_SPECIFICATION)},
+		{"VERSION_BUILD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, VERSION_BUILD)},
+		{"VERSION_PRE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, VERSION_PRE)},
+		{"VERSION_OPT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, VERSION_OPT)},
+		{"isLTS", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, isLTS)},
+		{"CLASSFILE_MAJOR_MINOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, CLASSFILE_MAJOR_MINOR)},
+		{"VENDOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, VENDOR)},
+		{"VENDOR_URL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionProps, VENDOR_URL)},
+		{"VENDOR_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(VersionProps, VENDOR_VERSION)},
+		{"VENDOR_URL_BUG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(VersionProps, VENDOR_URL_BUG)},
+		{"VENDOR_URL_VM_BUG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(VersionProps, VENDOR_URL_VM_BUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(VersionProps, init$, void)},
+		{"build", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/Integer;>;", $STATIC, $staticMethod(VersionProps, build, $Optional*)},
+		{"init", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC | $STATIC, $staticMethod(VersionProps, init, void, $Map*)},
+		{"optional", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $STATIC, $staticMethod(VersionProps, optional, $Optional*)},
+		{"optionalOf", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(VersionProps, optionalOf, $Optional*, $String*)},
+		{"parseVersionNumber", "(Ljava/lang/String;II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(VersionProps, parseVersionNumber, int32_t, $String*, int32_t, int32_t)},
+		{"parseVersionNumbers", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/Integer;>;", $STATIC, $staticMethod(VersionProps, parseVersionNumbers, $List*, $String*)},
+		{"pre", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $STATIC, $staticMethod(VersionProps, pre, $Optional*)},
+		{"print", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(VersionProps, print, void, bool)},
+		{"print", "(ZZ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(VersionProps, print, void, bool, bool)},
+		{"println", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(VersionProps, println, void, bool)},
+		{"versionNumbers", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Integer;>;", $STATIC, $staticMethod(VersionProps, versionNumbers, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.VersionProps",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(VersionProps, name, initialize, &classInfo$$, VersionProps::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(VersionProps);
+	});
 	return class$;
 }
 

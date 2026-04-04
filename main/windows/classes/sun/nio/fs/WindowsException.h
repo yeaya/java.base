@@ -42,12 +42,15 @@ public:
 	virtual void rethrowAsIOException(::sun::nio::fs::WindowsPath* file, ::sun::nio::fs::WindowsPath* other);
 	virtual void rethrowAsIOException(::sun::nio::fs::WindowsPath* file);
 	::java::io::IOException* translateToIOException($String* file, $String* other);
-	static const int64_t serialVersionUID = (int64_t)0x265F64C4E72ED9D4;
+	static const int64_t serialVersionUID = (int64_t)0x265f64c4e72ed9d4;
 	int32_t lastError$ = 0;
 	$String* msg = nullptr;
 	WindowsException(const WindowsException& e);
 	virtual void throw$() override;
-	inline WindowsException* operator ->() {
+	inline WindowsException* operator ->() const {
+		return (WindowsException*)throwing$;
+	}
+	inline operator WindowsException*() const {
 		return (WindowsException*)throwing$;
 	}
 };

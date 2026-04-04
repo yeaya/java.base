@@ -58,6 +58,7 @@ class $export AlgorithmChecker : public ::java::security::cert::PKIXCertPathChec
 public:
 	AlgorithmChecker();
 	using ::java::security::cert::PKIXCertPathChecker::check;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::cert::TrustAnchor* anchor, $String* variant);
 	void init$(::java::security::AlgorithmConstraints* constraints, $String* variant);
 	void init$(::java::security::cert::TrustAnchor* anchor, ::java::security::AlgorithmConstraints* constraints, ::java::util::Date* date, $String* variant);

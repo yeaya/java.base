@@ -1,5 +1,4 @@
 #include <java/io/FilterInputStream.h>
-
 #include <java/io/InputStream.h>
 #include <jcpp.h>
 
@@ -10,38 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _FilterInputStream_FieldInfo_[] = {
-	{"in", "Ljava/io/InputStream;", nullptr, $PROTECTED | $VOLATILE, $field(FilterInputStream, in)},
-	{}
-};
-
-$MethodInfo _FilterInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PROTECTED, $method(FilterInputStream, init$, void, $InputStream*)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(FilterInputStream, available, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FilterInputStream, close, void), "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FilterInputStream, mark, void, int32_t)},
-	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(FilterInputStream, markSupported, bool)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(FilterInputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(FilterInputStream, read, int32_t, $bytes*), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(FilterInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FilterInputStream, reset, void), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(FilterInputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _FilterInputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.FilterInputStream",
-	"java.io.InputStream",
-	nullptr,
-	_FilterInputStream_FieldInfo_,
-	_FilterInputStream_MethodInfo_
-};
-
-$Object* allocate$FilterInputStream($Class* clazz) {
-	return $of($alloc(FilterInputStream));
-}
 
 void FilterInputStream::init$($InputStream* in) {
 	$InputStream::init$();
@@ -92,7 +59,34 @@ FilterInputStream::FilterInputStream() {
 }
 
 $Class* FilterInputStream::load$($String* name, bool initialize) {
-	$loadClass(FilterInputStream, name, initialize, &_FilterInputStream_ClassInfo_, allocate$FilterInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"in", "Ljava/io/InputStream;", nullptr, $PROTECTED | $VOLATILE, $field(FilterInputStream, in)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PROTECTED, $method(FilterInputStream, init$, void, $InputStream*)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(FilterInputStream, available, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FilterInputStream, close, void), "java.io.IOException"},
+		{"mark", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FilterInputStream, mark, void, int32_t)},
+		{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(FilterInputStream, markSupported, bool)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(FilterInputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(FilterInputStream, read, int32_t, $bytes*), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(FilterInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FilterInputStream, reset, void), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(FilterInputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.FilterInputStream",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FilterInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FilterInputStream);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/x509/GeneralNames.h>
-
 #include <java/io/IOException.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
@@ -18,7 +17,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $GeneralName = ::sun::security::x509::GeneralName;
@@ -27,51 +25,17 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _GeneralNames_FieldInfo_[] = {
-	{"names", "Ljava/util/List;", "Ljava/util/List<Lsun/security/x509/GeneralName;>;", $PRIVATE | $FINAL, $field(GeneralNames, names$)},
-	{}
-};
-
-$MethodInfo _GeneralNames_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(GeneralNames, init$, void, $DerValue*), "java.io.IOException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GeneralNames, init$, void)},
-	{"add", "(Lsun/security/x509/GeneralName;)Lsun/security/x509/GeneralNames;", nullptr, $PUBLIC, $virtualMethod(GeneralNames, add, GeneralNames*, $GeneralName*)},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(GeneralNames, encode, void, $DerOutputStream*), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GeneralNames, equals, bool, Object$*)},
-	{"get", "(I)Lsun/security/x509/GeneralName;", nullptr, $PUBLIC, $virtualMethod(GeneralNames, get, $GeneralName*, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GeneralNames, hashCode, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(GeneralNames, isEmpty, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lsun/security/x509/GeneralName;>;", $PUBLIC, $virtualMethod(GeneralNames, iterator, $Iterator*)},
-	{"names", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/x509/GeneralName;>;", $PUBLIC, $virtualMethod(GeneralNames, names, $List*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(GeneralNames, size, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GeneralNames, toString, $String*)},
-	{}
-};
-
-$ClassInfo _GeneralNames_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.GeneralNames",
-	"java.lang.Object",
-	nullptr,
-	_GeneralNames_FieldInfo_,
-	_GeneralNames_MethodInfo_
-};
-
-$Object* allocate$GeneralNames($Class* clazz) {
-	return $of($alloc(GeneralNames));
-}
-
 void GeneralNames::init$($DerValue* derVal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	GeneralNames::init$();
 	if ($nc(derVal)->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "Invalid encoding for GeneralNames."_s);
 	}
-	if ($nc($nc(derVal)->data$)->available() == 0) {
+	if ($nc(derVal->data$)->available() == 0) {
 		$throwNew($IOException, "No data available in passed DER encoded value."_s);
 	}
-	while ($nc($nc(derVal)->data$)->available() != 0) {
-		$var($DerValue, encName, $nc(derVal->data$)->getDerValue());
+	while (derVal->data$->available() != 0) {
+		$var($DerValue, encName, derVal->data$->getDerValue());
 		$var($GeneralName, name, $new($GeneralName, encName));
 		add(name);
 	}
@@ -110,7 +74,7 @@ $List* GeneralNames::names() {
 }
 
 void GeneralNames::encode($DerOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isEmpty()) {
 		return;
 	}
@@ -143,14 +107,43 @@ int32_t GeneralNames::hashCode() {
 }
 
 $String* GeneralNames::toString() {
-	return $nc($of(this->names$))->toString();
+	return $nc(this->names$)->toString();
 }
 
 GeneralNames::GeneralNames() {
 }
 
 $Class* GeneralNames::load$($String* name, bool initialize) {
-	$loadClass(GeneralNames, name, initialize, &_GeneralNames_ClassInfo_, allocate$GeneralNames);
+	$FieldInfo fieldInfos$$[] = {
+		{"names", "Ljava/util/List;", "Ljava/util/List<Lsun/security/x509/GeneralName;>;", $PRIVATE | $FINAL, $field(GeneralNames, names$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(GeneralNames, init$, void, $DerValue*), "java.io.IOException"},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GeneralNames, init$, void)},
+		{"add", "(Lsun/security/x509/GeneralName;)Lsun/security/x509/GeneralNames;", nullptr, $PUBLIC, $virtualMethod(GeneralNames, add, GeneralNames*, $GeneralName*)},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(GeneralNames, encode, void, $DerOutputStream*), "java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GeneralNames, equals, bool, Object$*)},
+		{"get", "(I)Lsun/security/x509/GeneralName;", nullptr, $PUBLIC, $virtualMethod(GeneralNames, get, $GeneralName*, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GeneralNames, hashCode, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(GeneralNames, isEmpty, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lsun/security/x509/GeneralName;>;", $PUBLIC, $virtualMethod(GeneralNames, iterator, $Iterator*)},
+		{"names", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/x509/GeneralName;>;", $PUBLIC, $virtualMethod(GeneralNames, names, $List*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(GeneralNames, size, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GeneralNames, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.GeneralNames",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GeneralNames, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GeneralNames);
+	});
 	return class$;
 }
 

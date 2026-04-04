@@ -1,5 +1,4 @@
 #include <java/lang/StrictMath.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/FdLibm$Cbrt.h>
 #include <java/lang/FdLibm$Exp.h>
@@ -31,184 +30,10 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StrictMath$RandomNumberGeneratorHolder = ::java::lang::StrictMath$RandomNumberGeneratorHolder;
-using $Random = ::java::util::Random;
 using $DoubleConsts = ::jdk::internal::math::DoubleConsts;
 
 namespace java {
 	namespace lang {
-
-$CompoundAttribute _StrictMath_MethodAnnotations_max42[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StrictMath_MethodAnnotations_max44[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StrictMath_MethodAnnotations_max45[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StrictMath_MethodAnnotations_min46[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StrictMath_MethodAnnotations_min48[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StrictMath_MethodAnnotations_min49[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StrictMath_MethodAnnotations_sqrt74[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$FieldInfo _StrictMath_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(StrictMath, $assertionsDisabled)},
-	{"E", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StrictMath, E)},
-	{"PI", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StrictMath, PI)},
-	{"DEGREES_TO_RADIANS", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StrictMath, DEGREES_TO_RADIANS)},
-	{"RADIANS_TO_DEGREES", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StrictMath, RADIANS_TO_DEGREES)},
-	{}
-};
-
-$MethodInfo _StrictMath_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(StrictMath, init$, void)},
-	{"IEEEremainder", "(DD)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, IEEEremainder, double, double, double)},
-	{"abs", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, abs, int32_t, int32_t)},
-	{"abs", "(J)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, abs, int64_t, int64_t)},
-	{"abs", "(F)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, abs, float, float)},
-	{"abs", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, abs, double, double)},
-	{"absExact", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, absExact, int32_t, int32_t)},
-	{"absExact", "(J)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, absExact, int64_t, int64_t)},
-	{"acos", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, acos, double, double)},
-	{"addExact", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, addExact, int32_t, int32_t, int32_t)},
-	{"addExact", "(JJ)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, addExact, int64_t, int64_t, int64_t)},
-	{"asin", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, asin, double, double)},
-	{"atan", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, atan, double, double)},
-	{"atan2", "(DD)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, atan2, double, double, double)},
-	{"cbrt", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, cbrt, double, double)},
-	{"ceil", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, ceil, double, double)},
-	{"copySign", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, copySign, double, double, double)},
-	{"copySign", "(FF)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, copySign, float, float, float)},
-	{"cos", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, cos, double, double)},
-	{"cosh", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, cosh, double, double)},
-	{"decrementExact", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, decrementExact, int32_t, int32_t)},
-	{"decrementExact", "(J)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, decrementExact, int64_t, int64_t)},
-	{"exp", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, exp, double, double)},
-	{"expm1", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, expm1, double, double)},
-	{"floor", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, floor, double, double)},
-	{"floorDiv", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, floorDiv, int32_t, int32_t, int32_t)},
-	{"floorDiv", "(JI)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, floorDiv, int64_t, int64_t, int32_t)},
-	{"floorDiv", "(JJ)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, floorDiv, int64_t, int64_t, int64_t)},
-	{"floorMod", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, floorMod, int32_t, int32_t, int32_t)},
-	{"floorMod", "(JI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, floorMod, int32_t, int64_t, int32_t)},
-	{"floorMod", "(JJ)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, floorMod, int64_t, int64_t, int64_t)},
-	{"floorOrCeil", "(DDDD)D", nullptr, $PRIVATE | $STATIC, $staticMethod(StrictMath, floorOrCeil, double, double, double, double, double)},
-	{"fma", "(DDD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, fma, double, double, double, double)},
-	{"fma", "(FFF)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, fma, float, float, float, float)},
-	{"getExponent", "(F)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, getExponent, int32_t, float)},
-	{"getExponent", "(D)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, getExponent, int32_t, double)},
-	{"hypot", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, hypot, double, double, double)},
-	{"incrementExact", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, incrementExact, int32_t, int32_t)},
-	{"incrementExact", "(J)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, incrementExact, int64_t, int64_t)},
-	{"log", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, log, double, double)},
-	{"log10", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, log10, double, double)},
-	{"log1p", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, log1p, double, double)},
-	{"max", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, max, int32_t, int32_t, int32_t), nullptr, nullptr, _StrictMath_MethodAnnotations_max42},
-	{"max", "(JJ)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, max, int64_t, int64_t, int64_t)},
-	{"max", "(FF)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, max, float, float, float), nullptr, nullptr, _StrictMath_MethodAnnotations_max44},
-	{"max", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, max, double, double, double), nullptr, nullptr, _StrictMath_MethodAnnotations_max45},
-	{"min", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, min, int32_t, int32_t, int32_t), nullptr, nullptr, _StrictMath_MethodAnnotations_min46},
-	{"min", "(JJ)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, min, int64_t, int64_t, int64_t)},
-	{"min", "(FF)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, min, float, float, float), nullptr, nullptr, _StrictMath_MethodAnnotations_min48},
-	{"min", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, min, double, double, double), nullptr, nullptr, _StrictMath_MethodAnnotations_min49},
-	{"multiplyExact", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, multiplyExact, int32_t, int32_t, int32_t)},
-	{"multiplyExact", "(JI)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, multiplyExact, int64_t, int64_t, int32_t)},
-	{"multiplyExact", "(JJ)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, multiplyExact, int64_t, int64_t, int64_t)},
-	{"multiplyFull", "(II)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, multiplyFull, int64_t, int32_t, int32_t)},
-	{"multiplyHigh", "(JJ)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, multiplyHigh, int64_t, int64_t, int64_t)},
-	{"negateExact", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, negateExact, int32_t, int32_t)},
-	{"negateExact", "(J)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, negateExact, int64_t, int64_t)},
-	{"nextAfter", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, nextAfter, double, double, double)},
-	{"nextAfter", "(FD)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, nextAfter, float, float, double)},
-	{"nextDown", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, nextDown, double, double)},
-	{"nextDown", "(F)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, nextDown, float, float)},
-	{"nextUp", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, nextUp, double, double)},
-	{"nextUp", "(F)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, nextUp, float, float)},
-	{"pow", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, pow, double, double, double)},
-	{"random", "()D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, random, double)},
-	{"rint", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, rint, double, double)},
-	{"round", "(F)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, round, int32_t, float)},
-	{"round", "(D)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, round, int64_t, double)},
-	{"scalb", "(DI)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, scalb, double, double, int32_t)},
-	{"scalb", "(FI)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, scalb, float, float, int32_t)},
-	{"signum", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, signum, double, double)},
-	{"signum", "(F)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, signum, float, float)},
-	{"sin", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, sin, double, double)},
-	{"sinh", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, sinh, double, double)},
-	{"sqrt", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, sqrt, double, double), nullptr, nullptr, _StrictMath_MethodAnnotations_sqrt74},
-	{"subtractExact", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, subtractExact, int32_t, int32_t, int32_t)},
-	{"subtractExact", "(JJ)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, subtractExact, int64_t, int64_t, int64_t)},
-	{"tan", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, tan, double, double)},
-	{"tanh", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, tanh, double, double)},
-	{"toDegrees", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, toDegrees, double, double)},
-	{"toIntExact", "(J)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, toIntExact, int32_t, int64_t)},
-	{"toRadians", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, toRadians, double, double)},
-	{"ulp", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, ulp, double, double)},
-	{"ulp", "(F)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, ulp, float, float)},
-	{}
-};
-
-#define _METHOD_INDEX_IEEEremainder 1
-#define _METHOD_INDEX_acos 8
-#define _METHOD_INDEX_asin 11
-#define _METHOD_INDEX_atan 12
-#define _METHOD_INDEX_atan2 13
-#define _METHOD_INDEX_cos 18
-#define _METHOD_INDEX_cosh 19
-#define _METHOD_INDEX_expm1 23
-#define _METHOD_INDEX_log 39
-#define _METHOD_INDEX_log10 40
-#define _METHOD_INDEX_log1p 41
-#define _METHOD_INDEX_sin 72
-#define _METHOD_INDEX_sinh 73
-#define _METHOD_INDEX_sqrt 74
-#define _METHOD_INDEX_tan 77
-#define _METHOD_INDEX_tanh 78
-
-$InnerClassInfo _StrictMath_InnerClassesInfo_[] = {
-	{"java.lang.StrictMath$RandomNumberGeneratorHolder", "java.lang.StrictMath", "RandomNumberGeneratorHolder", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _StrictMath_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.lang.StrictMath",
-	"java.lang.Object",
-	nullptr,
-	_StrictMath_FieldInfo_,
-	_StrictMath_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StrictMath_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.StrictMath$RandomNumberGeneratorHolder"
-};
-
-$Object* allocate$StrictMath($Class* clazz) {
-	return $of($alloc(StrictMath));
-}
 
 bool StrictMath::$assertionsDisabled = false;
 double StrictMath::E = 0.0;
@@ -221,54 +46,48 @@ void StrictMath::init$() {
 
 double StrictMath::sin(double a) {
 	$init(StrictMath);
-	double $ret = 0.0;
-	$prepareNativeStatic(StrictMath, sin, double, double a);
-	$ret = $invokeNativeStatic(a);
+	$prepareNativeStatic(sin, double, double a);
+	double $ret = $invokeNativeStatic(a);
 	$finishNativeStatic();
 	return $ret;
 }
 
 double StrictMath::cos(double a) {
 	$init(StrictMath);
-	double $ret = 0.0;
-	$prepareNativeStatic(StrictMath, cos, double, double a);
-	$ret = $invokeNativeStatic(a);
+	$prepareNativeStatic(cos, double, double a);
+	double $ret = $invokeNativeStatic(a);
 	$finishNativeStatic();
 	return $ret;
 }
 
 double StrictMath::tan(double a) {
 	$init(StrictMath);
-	double $ret = 0.0;
-	$prepareNativeStatic(StrictMath, tan, double, double a);
-	$ret = $invokeNativeStatic(a);
+	$prepareNativeStatic(tan, double, double a);
+	double $ret = $invokeNativeStatic(a);
 	$finishNativeStatic();
 	return $ret;
 }
 
 double StrictMath::asin(double a) {
 	$init(StrictMath);
-	double $ret = 0.0;
-	$prepareNativeStatic(StrictMath, asin, double, double a);
-	$ret = $invokeNativeStatic(a);
+	$prepareNativeStatic(asin, double, double a);
+	double $ret = $invokeNativeStatic(a);
 	$finishNativeStatic();
 	return $ret;
 }
 
 double StrictMath::acos(double a) {
 	$init(StrictMath);
-	double $ret = 0.0;
-	$prepareNativeStatic(StrictMath, acos, double, double a);
-	$ret = $invokeNativeStatic(a);
+	$prepareNativeStatic(acos, double, double a);
+	double $ret = $invokeNativeStatic(a);
 	$finishNativeStatic();
 	return $ret;
 }
 
 double StrictMath::atan(double a) {
 	$init(StrictMath);
-	double $ret = 0.0;
-	$prepareNativeStatic(StrictMath, atan, double, double a);
-	$ret = $invokeNativeStatic(a);
+	$prepareNativeStatic(atan, double, double a);
+	double $ret = $invokeNativeStatic(a);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -290,27 +109,24 @@ double StrictMath::exp(double a) {
 
 double StrictMath::log(double a) {
 	$init(StrictMath);
-	double $ret = 0.0;
-	$prepareNativeStatic(StrictMath, log, double, double a);
-	$ret = $invokeNativeStatic(a);
+	$prepareNativeStatic(log, double, double a);
+	double $ret = $invokeNativeStatic(a);
 	$finishNativeStatic();
 	return $ret;
 }
 
 double StrictMath::log10(double a) {
 	$init(StrictMath);
-	double $ret = 0.0;
-	$prepareNativeStatic(StrictMath, log10, double, double a);
-	$ret = $invokeNativeStatic(a);
+	$prepareNativeStatic(log10, double, double a);
+	double $ret = $invokeNativeStatic(a);
 	$finishNativeStatic();
 	return $ret;
 }
 
 double StrictMath::sqrt(double a) {
 	$init(StrictMath);
-	double $ret = 0.0;
-	$prepareNativeStatic(StrictMath, sqrt, double, double a);
-	$ret = $invokeNativeStatic(a);
+	$prepareNativeStatic(sqrt, double, double a);
+	double $ret = $invokeNativeStatic(a);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -322,9 +138,8 @@ double StrictMath::cbrt(double a) {
 
 double StrictMath::IEEEremainder(double f1, double f2) {
 	$init(StrictMath);
-	double $ret = 0.0;
-	$prepareNativeStatic(StrictMath, IEEEremainder, double, double f1, double f2);
-	$ret = $invokeNativeStatic(f1, f2);
+	$prepareNativeStatic(IEEEremainder, double, double f1, double f2);
+	double $ret = $invokeNativeStatic(f1, f2);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -352,10 +167,10 @@ double StrictMath::floorOrCeil(double a, double negativeBoundary, double positiv
 	}
 	int64_t doppel = $Double::doubleToRawLongBits(a);
 	int64_t mask = $sr($DoubleConsts::SIGNIF_BIT_MASK, exponent);
-	if (((int64_t)(mask & (uint64_t)doppel)) == (int64_t)0) {
+	if ((mask & doppel) == 0) {
 		return a;
 	} else {
-		double result = $Double::longBitsToDouble((int64_t)(doppel & (uint64_t)(~mask)));
+		double result = $Double::longBitsToDouble(doppel & (~mask));
 		if (sign * a > 0.0) {
 			result = result + sign;
 		}
@@ -376,9 +191,8 @@ double StrictMath::rint(double a) {
 
 double StrictMath::atan2(double y, double x) {
 	$init(StrictMath);
-	double $ret = 0.0;
-	$prepareNativeStatic(StrictMath, atan2, double, double y, double x);
-	$ret = $invokeNativeStatic(y, x);
+	$prepareNativeStatic(atan2, double, double y, double x);
+	double $ret = $invokeNativeStatic(y, x);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -616,27 +430,24 @@ float StrictMath::signum(float f) {
 
 double StrictMath::sinh(double x) {
 	$init(StrictMath);
-	double $ret = 0.0;
-	$prepareNativeStatic(StrictMath, sinh, double, double x);
-	$ret = $invokeNativeStatic(x);
+	$prepareNativeStatic(sinh, double, double x);
+	double $ret = $invokeNativeStatic(x);
 	$finishNativeStatic();
 	return $ret;
 }
 
 double StrictMath::cosh(double x) {
 	$init(StrictMath);
-	double $ret = 0.0;
-	$prepareNativeStatic(StrictMath, cosh, double, double x);
-	$ret = $invokeNativeStatic(x);
+	$prepareNativeStatic(cosh, double, double x);
+	double $ret = $invokeNativeStatic(x);
 	$finishNativeStatic();
 	return $ret;
 }
 
 double StrictMath::tanh(double x) {
 	$init(StrictMath);
-	double $ret = 0.0;
-	$prepareNativeStatic(StrictMath, tanh, double, double x);
-	$ret = $invokeNativeStatic(x);
+	$prepareNativeStatic(tanh, double, double x);
+	double $ret = $invokeNativeStatic(x);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -648,18 +459,16 @@ double StrictMath::hypot(double x, double y) {
 
 double StrictMath::expm1(double x) {
 	$init(StrictMath);
-	double $ret = 0.0;
-	$prepareNativeStatic(StrictMath, expm1, double, double x);
-	$ret = $invokeNativeStatic(x);
+	$prepareNativeStatic(expm1, double, double x);
+	double $ret = $invokeNativeStatic(x);
 	$finishNativeStatic();
 	return $ret;
 }
 
 double StrictMath::log1p(double x) {
 	$init(StrictMath);
-	double $ret = 0.0;
-	$prepareNativeStatic(StrictMath, log1p, double, double x);
-	$ret = $invokeNativeStatic(x);
+	$prepareNativeStatic(log1p, double, double x);
+	double $ret = $invokeNativeStatic(x);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -724,7 +533,7 @@ float StrictMath::scalb(float f, int32_t scaleFactor) {
 	return $Math::scalb(f, scaleFactor);
 }
 
-void clinit$StrictMath($Class* class$) {
+void StrictMath::clinit$($Class* clazz) {
 	StrictMath::E = 2.718281828459045;
 	StrictMath::PI = 3.141592653589793;
 	StrictMath::DEGREES_TO_RADIANS = 0.017453292519943295;
@@ -736,7 +545,150 @@ StrictMath::StrictMath() {
 }
 
 $Class* StrictMath::load$($String* name, bool initialize) {
-	$loadClass(StrictMath, name, initialize, &_StrictMath_ClassInfo_, clinit$StrictMath, allocate$StrictMath);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(StrictMath, $assertionsDisabled)},
+		{"E", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StrictMath, E)},
+		{"PI", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StrictMath, PI)},
+		{"DEGREES_TO_RADIANS", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StrictMath, DEGREES_TO_RADIANS)},
+		{"RADIANS_TO_DEGREES", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StrictMath, RADIANS_TO_DEGREES)},
+		{}
+	};
+	$CompoundAttribute maxmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute maxmethodAnnotations$$$2[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute maxmethodAnnotations$$$3[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute minmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute minmethodAnnotations$$$2[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute minmethodAnnotations$$$3[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute sqrtmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(StrictMath, init$, void)},
+		{"IEEEremainder", "(DD)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, IEEEremainder, double, double, double)},
+		{"abs", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, abs, int32_t, int32_t)},
+		{"abs", "(J)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, abs, int64_t, int64_t)},
+		{"abs", "(F)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, abs, float, float)},
+		{"abs", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, abs, double, double)},
+		{"absExact", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, absExact, int32_t, int32_t)},
+		{"absExact", "(J)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, absExact, int64_t, int64_t)},
+		{"acos", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, acos, double, double)},
+		{"addExact", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, addExact, int32_t, int32_t, int32_t)},
+		{"addExact", "(JJ)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, addExact, int64_t, int64_t, int64_t)},
+		{"asin", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, asin, double, double)},
+		{"atan", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, atan, double, double)},
+		{"atan2", "(DD)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, atan2, double, double, double)},
+		{"cbrt", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, cbrt, double, double)},
+		{"ceil", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, ceil, double, double)},
+		{"copySign", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, copySign, double, double, double)},
+		{"copySign", "(FF)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, copySign, float, float, float)},
+		{"cos", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, cos, double, double)},
+		{"cosh", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, cosh, double, double)},
+		{"decrementExact", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, decrementExact, int32_t, int32_t)},
+		{"decrementExact", "(J)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, decrementExact, int64_t, int64_t)},
+		{"exp", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, exp, double, double)},
+		{"expm1", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, expm1, double, double)},
+		{"floor", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, floor, double, double)},
+		{"floorDiv", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, floorDiv, int32_t, int32_t, int32_t)},
+		{"floorDiv", "(JI)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, floorDiv, int64_t, int64_t, int32_t)},
+		{"floorDiv", "(JJ)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, floorDiv, int64_t, int64_t, int64_t)},
+		{"floorMod", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, floorMod, int32_t, int32_t, int32_t)},
+		{"floorMod", "(JI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, floorMod, int32_t, int64_t, int32_t)},
+		{"floorMod", "(JJ)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, floorMod, int64_t, int64_t, int64_t)},
+		{"floorOrCeil", "(DDDD)D", nullptr, $PRIVATE | $STATIC, $staticMethod(StrictMath, floorOrCeil, double, double, double, double, double)},
+		{"fma", "(DDD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, fma, double, double, double, double)},
+		{"fma", "(FFF)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, fma, float, float, float, float)},
+		{"getExponent", "(F)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, getExponent, int32_t, float)},
+		{"getExponent", "(D)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, getExponent, int32_t, double)},
+		{"hypot", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, hypot, double, double, double)},
+		{"incrementExact", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, incrementExact, int32_t, int32_t)},
+		{"incrementExact", "(J)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, incrementExact, int64_t, int64_t)},
+		{"log", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, log, double, double)},
+		{"log10", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, log10, double, double)},
+		{"log1p", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, log1p, double, double)},
+		{"max", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, max, int32_t, int32_t, int32_t), nullptr, nullptr, maxmethodAnnotations$$},
+		{"max", "(JJ)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, max, int64_t, int64_t, int64_t)},
+		{"max", "(FF)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, max, float, float, float), nullptr, nullptr, maxmethodAnnotations$$$2},
+		{"max", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, max, double, double, double), nullptr, nullptr, maxmethodAnnotations$$$3},
+		{"min", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, min, int32_t, int32_t, int32_t), nullptr, nullptr, minmethodAnnotations$$},
+		{"min", "(JJ)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, min, int64_t, int64_t, int64_t)},
+		{"min", "(FF)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, min, float, float, float), nullptr, nullptr, minmethodAnnotations$$$2},
+		{"min", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, min, double, double, double), nullptr, nullptr, minmethodAnnotations$$$3},
+		{"multiplyExact", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, multiplyExact, int32_t, int32_t, int32_t)},
+		{"multiplyExact", "(JI)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, multiplyExact, int64_t, int64_t, int32_t)},
+		{"multiplyExact", "(JJ)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, multiplyExact, int64_t, int64_t, int64_t)},
+		{"multiplyFull", "(II)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, multiplyFull, int64_t, int32_t, int32_t)},
+		{"multiplyHigh", "(JJ)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, multiplyHigh, int64_t, int64_t, int64_t)},
+		{"negateExact", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, negateExact, int32_t, int32_t)},
+		{"negateExact", "(J)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, negateExact, int64_t, int64_t)},
+		{"nextAfter", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, nextAfter, double, double, double)},
+		{"nextAfter", "(FD)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, nextAfter, float, float, double)},
+		{"nextDown", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, nextDown, double, double)},
+		{"nextDown", "(F)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, nextDown, float, float)},
+		{"nextUp", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, nextUp, double, double)},
+		{"nextUp", "(F)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, nextUp, float, float)},
+		{"pow", "(DD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, pow, double, double, double)},
+		{"random", "()D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, random, double)},
+		{"rint", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, rint, double, double)},
+		{"round", "(F)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, round, int32_t, float)},
+		{"round", "(D)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, round, int64_t, double)},
+		{"scalb", "(DI)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, scalb, double, double, int32_t)},
+		{"scalb", "(FI)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, scalb, float, float, int32_t)},
+		{"signum", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, signum, double, double)},
+		{"signum", "(F)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, signum, float, float)},
+		{"sin", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, sin, double, double)},
+		{"sinh", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, sinh, double, double)},
+		{"sqrt", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, sqrt, double, double), nullptr, nullptr, sqrtmethodAnnotations$$},
+		{"subtractExact", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, subtractExact, int32_t, int32_t, int32_t)},
+		{"subtractExact", "(JJ)J", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, subtractExact, int64_t, int64_t, int64_t)},
+		{"tan", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, tan, double, double)},
+		{"tanh", "(D)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(StrictMath, tanh, double, double)},
+		{"toDegrees", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, toDegrees, double, double)},
+		{"toIntExact", "(J)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, toIntExact, int32_t, int64_t)},
+		{"toRadians", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, toRadians, double, double)},
+		{"ulp", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, ulp, double, double)},
+		{"ulp", "(F)F", nullptr, $PUBLIC | $STATIC, $staticMethod(StrictMath, ulp, float, float)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.StrictMath$RandomNumberGeneratorHolder", "java.lang.StrictMath", "RandomNumberGeneratorHolder", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.lang.StrictMath",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.StrictMath$RandomNumberGeneratorHolder"
+	};
+	$loadClass(StrictMath, name, initialize, &classInfo$$, StrictMath::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StrictMath);
+	});
 	return class$;
 }
 

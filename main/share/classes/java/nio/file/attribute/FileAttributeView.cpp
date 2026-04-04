@@ -1,5 +1,4 @@
 #include <java/nio/file/attribute/FileAttributeView.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,19 +8,16 @@ namespace java {
 		namespace file {
 			namespace attribute {
 
-$ClassInfo _FileAttributeView_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.nio.file.attribute.FileAttributeView",
-	nullptr,
-	"java.nio.file.attribute.AttributeView"
-};
-
-$Object* allocate$FileAttributeView($Class* clazz) {
-	return $of($alloc(FileAttributeView));
-}
-
 $Class* FileAttributeView::load$($String* name, bool initialize) {
-	$loadClass(FileAttributeView, name, initialize, &_FileAttributeView_ClassInfo_, allocate$FileAttributeView);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.nio.file.attribute.FileAttributeView",
+		nullptr,
+		"java.nio.file.attribute.AttributeView"
+	};
+	$loadClass(FileAttributeView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileAttributeView);
+	});
 	return class$;
 }
 

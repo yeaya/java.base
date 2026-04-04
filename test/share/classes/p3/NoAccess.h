@@ -34,6 +34,7 @@ class $export NoAccess : public ::java::lang::Object {
 	$class(NoAccess, 0, ::java::lang::Object)
 public:
 	NoAccess();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Class* findClass(::java::lang::Module* module, $String* cn);
 	static $Class* findClass(::java::lang::Module* module, $String* cn, ::java::security::Permission* perm);

@@ -14,6 +14,7 @@ class $import Pattern$BitClass : public ::java::util::regex::Pattern$BmpCharPred
 	$class(Pattern$BitClass, 0, ::java::util::regex::Pattern$BmpCharPredicate)
 public:
 	Pattern$BitClass();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::java::util::regex::Pattern$BitClass* add(int32_t c, int32_t flags);
 	virtual bool is(int32_t ch) override;

@@ -61,6 +61,7 @@ class NegotiateAuthentication : public ::sun::net::www::protocol::http::Authenti
 	$class(NegotiateAuthentication, 0, ::sun::net::www::protocol::http::AuthenticationInfo)
 public:
 	NegotiateAuthentication();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::net::www::protocol::http::HttpCallerInfo* hci);
 	$bytes* firstToken();
 	static ::java::util::HashMap* getCache();

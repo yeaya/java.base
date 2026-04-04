@@ -1,5 +1,4 @@
 #include <sun/security/tools/PathList.h>
-
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <java/net/MalformedURLException.h>
@@ -21,34 +20,13 @@ namespace sun {
 	namespace security {
 		namespace tools {
 
-$MethodInfo _PathList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PathList, init$, void)},
-	{"appendPath", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(PathList, appendPath, $String*, $String*, $String*)},
-	{"fileToURL", "(Ljava/io/File;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(PathList, fileToURL, $URL*, $File*)},
-	{"pathToURLs", "(Ljava/lang/String;)[Ljava/net/URL;", nullptr, $PUBLIC | $STATIC, $staticMethod(PathList, pathToURLs, $URLArray*, $String*)},
-	{}
-};
-
-$ClassInfo _PathList_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.tools.PathList",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_PathList_MethodInfo_
-};
-
-$Object* allocate$PathList($Class* clazz) {
-	return $of($alloc(PathList));
-}
-
 void PathList::init$() {
 }
 
 $String* PathList::appendPath($String* pathTo, $String* pathFrom) {
-	if (pathTo == nullptr || $nc(pathTo)->isEmpty()) {
+	if (pathTo == nullptr || pathTo->isEmpty()) {
 		return pathFrom;
-	} else if (pathFrom == nullptr || $nc(pathFrom)->isEmpty()) {
+	} else if (pathFrom == nullptr || pathFrom->isEmpty()) {
 		return pathTo;
 	} else {
 		$init($File);
@@ -57,7 +35,7 @@ $String* PathList::appendPath($String* pathTo, $String* pathFrom) {
 }
 
 $URLArray* PathList::pathToURLs($String* path) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($File);
 	$var($StringTokenizer, st, $new($StringTokenizer, path, $File::pathSeparator));
 	$var($URLArray, urls, $new($URLArray, st->countTokens()));
@@ -103,7 +81,24 @@ PathList::PathList() {
 }
 
 $Class* PathList::load$($String* name, bool initialize) {
-	$loadClass(PathList, name, initialize, &_PathList_ClassInfo_, allocate$PathList);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PathList, init$, void)},
+		{"appendPath", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(PathList, appendPath, $String*, $String*, $String*)},
+		{"fileToURL", "(Ljava/io/File;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(PathList, fileToURL, $URL*, $File*)},
+		{"pathToURLs", "(Ljava/lang/String;)[Ljava/net/URL;", nullptr, $PUBLIC | $STATIC, $staticMethod(PathList, pathToURLs, $URLArray*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.tools.PathList",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PathList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PathList);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/regex/Pattern$NotBehind.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/Math.h>
 #include <java/util/regex/Matcher.h>
@@ -19,45 +18,6 @@ using $Pattern$Node = ::java::util::regex::Pattern$Node;
 namespace java {
 	namespace util {
 		namespace regex {
-
-$FieldInfo _Pattern$NotBehind_FieldInfo_[] = {
-	{"cond", "Ljava/util/regex/Pattern$Node;", nullptr, 0, $field(Pattern$NotBehind, cond)},
-	{"rmax", "I", nullptr, 0, $field(Pattern$NotBehind, rmax)},
-	{"rmin", "I", nullptr, 0, $field(Pattern$NotBehind, rmin)},
-	{}
-};
-
-$MethodInfo _Pattern$NotBehind_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/regex/Pattern$Node;II)V", nullptr, 0, $method(Pattern$NotBehind, init$, void, $Pattern$Node*, int32_t, int32_t)},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$NotBehind, match, bool, $Matcher*, int32_t, $CharSequence*)},
-	{}
-};
-
-$InnerClassInfo _Pattern$NotBehind_InnerClassesInfo_[] = {
-	{"java.util.regex.Pattern$NotBehind", "java.util.regex.Pattern", "NotBehind", $STATIC},
-	{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
-	{}
-};
-
-$ClassInfo _Pattern$NotBehind_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.regex.Pattern$NotBehind",
-	"java.util.regex.Pattern$Node",
-	nullptr,
-	_Pattern$NotBehind_FieldInfo_,
-	_Pattern$NotBehind_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pattern$NotBehind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.regex.Pattern"
-};
-
-$Object* allocate$Pattern$NotBehind($Class* clazz) {
-	return $of($alloc(Pattern$NotBehind));
-}
 
 void Pattern$NotBehind::init$($Pattern$Node* cond, int32_t rmax, int32_t rmin) {
 	$Pattern$Node::init$();
@@ -88,7 +48,40 @@ Pattern$NotBehind::Pattern$NotBehind() {
 }
 
 $Class* Pattern$NotBehind::load$($String* name, bool initialize) {
-	$loadClass(Pattern$NotBehind, name, initialize, &_Pattern$NotBehind_ClassInfo_, allocate$Pattern$NotBehind);
+	$FieldInfo fieldInfos$$[] = {
+		{"cond", "Ljava/util/regex/Pattern$Node;", nullptr, 0, $field(Pattern$NotBehind, cond)},
+		{"rmax", "I", nullptr, 0, $field(Pattern$NotBehind, rmax)},
+		{"rmin", "I", nullptr, 0, $field(Pattern$NotBehind, rmin)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/regex/Pattern$Node;II)V", nullptr, 0, $method(Pattern$NotBehind, init$, void, $Pattern$Node*, int32_t, int32_t)},
+		{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$NotBehind, match, bool, $Matcher*, int32_t, $CharSequence*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Pattern$NotBehind", "java.util.regex.Pattern", "NotBehind", $STATIC},
+		{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.regex.Pattern$NotBehind",
+		"java.util.regex.Pattern$Node",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.regex.Pattern"
+	};
+	$loadClass(Pattern$NotBehind, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$NotBehind);
+	});
 	return class$;
 }
 

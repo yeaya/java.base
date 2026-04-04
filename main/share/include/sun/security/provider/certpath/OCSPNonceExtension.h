@@ -18,6 +18,7 @@ class $import OCSPNonceExtension : public ::sun::security::x509::Extension {
 	$class(OCSPNonceExtension, 0, ::sun::security::x509::Extension)
 public:
 	OCSPNonceExtension();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t length);
 	void init$(bool isCritical, int32_t length);
 	void init$($bytes* incomingNonce);

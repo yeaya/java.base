@@ -1,5 +1,4 @@
 #include <java/lang/invoke/VarHandleByteArrayBase.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/invoke/MethodHandleStatics.h>
 #include <java/nio/Buffer.h>
@@ -21,39 +20,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandleStatics = ::java::lang::invoke::MethodHandleStatics;
 using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$FieldInfo _VarHandleByteArrayBase_FieldInfo_[] = {
-	{"BUFFER_ADDRESS", "J", nullptr, $STATIC | $FINAL, $staticField(VarHandleByteArrayBase, BUFFER_ADDRESS)},
-	{"BUFFER_LIMIT", "J", nullptr, $STATIC | $FINAL, $staticField(VarHandleByteArrayBase, BUFFER_LIMIT)},
-	{"BYTE_BUFFER_HB", "J", nullptr, $STATIC | $FINAL, $staticField(VarHandleByteArrayBase, BYTE_BUFFER_HB)},
-	{"BYTE_BUFFER_IS_READ_ONLY", "J", nullptr, $STATIC | $FINAL, $staticField(VarHandleByteArrayBase, BYTE_BUFFER_IS_READ_ONLY)},
-	{"BE", "Z", nullptr, $STATIC | $FINAL, $staticField(VarHandleByteArrayBase, BE)},
-	{}
-};
-
-$MethodInfo _VarHandleByteArrayBase_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(VarHandleByteArrayBase, init$, void)},
-	{"newIllegalStateExceptionForMisalignedAccess", "(I)Ljava/lang/IllegalStateException;", nullptr, $STATIC, $staticMethod(VarHandleByteArrayBase, newIllegalStateExceptionForMisalignedAccess, $IllegalStateException*, int32_t)},
-	{}
-};
-
-$ClassInfo _VarHandleByteArrayBase_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.lang.invoke.VarHandleByteArrayBase",
-	"java.lang.Object",
-	nullptr,
-	_VarHandleByteArrayBase_FieldInfo_,
-	_VarHandleByteArrayBase_MethodInfo_
-};
-
-$Object* allocate$VarHandleByteArrayBase($Class* clazz) {
-	return $of($alloc(VarHandleByteArrayBase));
-}
 
 int64_t VarHandleByteArrayBase::BUFFER_ADDRESS = 0;
 int64_t VarHandleByteArrayBase::BUFFER_LIMIT = 0;
@@ -66,26 +36,49 @@ void VarHandleByteArrayBase::init$() {
 
 $IllegalStateException* VarHandleByteArrayBase::newIllegalStateExceptionForMisalignedAccess(int32_t index) {
 	$init(VarHandleByteArrayBase);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($IllegalStateException, $$str({"Misaligned access at index: "_s, $$str(index)}));
 }
 
-void clinit$VarHandleByteArrayBase($Class* class$) {
+void VarHandleByteArrayBase::clinit$($Class* clazz) {
 	$init($MethodHandleStatics);
 	$load($Buffer);
 	VarHandleByteArrayBase::BUFFER_ADDRESS = $nc($MethodHandleStatics::UNSAFE)->objectFieldOffset($Buffer::class$, "address"_s);
-	VarHandleByteArrayBase::BUFFER_LIMIT = $nc($MethodHandleStatics::UNSAFE)->objectFieldOffset($Buffer::class$, "limit"_s);
+	VarHandleByteArrayBase::BUFFER_LIMIT = $MethodHandleStatics::UNSAFE->objectFieldOffset($Buffer::class$, "limit"_s);
 	$load($ByteBuffer);
-	VarHandleByteArrayBase::BYTE_BUFFER_HB = $nc($MethodHandleStatics::UNSAFE)->objectFieldOffset($ByteBuffer::class$, "hb"_s);
-	VarHandleByteArrayBase::BYTE_BUFFER_IS_READ_ONLY = $nc($MethodHandleStatics::UNSAFE)->objectFieldOffset($ByteBuffer::class$, "isReadOnly"_s);
-	VarHandleByteArrayBase::BE = $nc($MethodHandleStatics::UNSAFE)->isBigEndian();
+	VarHandleByteArrayBase::BYTE_BUFFER_HB = $MethodHandleStatics::UNSAFE->objectFieldOffset($ByteBuffer::class$, "hb"_s);
+	VarHandleByteArrayBase::BYTE_BUFFER_IS_READ_ONLY = $MethodHandleStatics::UNSAFE->objectFieldOffset($ByteBuffer::class$, "isReadOnly"_s);
+	VarHandleByteArrayBase::BE = $MethodHandleStatics::UNSAFE->isBigEndian();
 }
 
 VarHandleByteArrayBase::VarHandleByteArrayBase() {
 }
 
 $Class* VarHandleByteArrayBase::load$($String* name, bool initialize) {
-	$loadClass(VarHandleByteArrayBase, name, initialize, &_VarHandleByteArrayBase_ClassInfo_, clinit$VarHandleByteArrayBase, allocate$VarHandleByteArrayBase);
+	$FieldInfo fieldInfos$$[] = {
+		{"BUFFER_ADDRESS", "J", nullptr, $STATIC | $FINAL, $staticField(VarHandleByteArrayBase, BUFFER_ADDRESS)},
+		{"BUFFER_LIMIT", "J", nullptr, $STATIC | $FINAL, $staticField(VarHandleByteArrayBase, BUFFER_LIMIT)},
+		{"BYTE_BUFFER_HB", "J", nullptr, $STATIC | $FINAL, $staticField(VarHandleByteArrayBase, BYTE_BUFFER_HB)},
+		{"BYTE_BUFFER_IS_READ_ONLY", "J", nullptr, $STATIC | $FINAL, $staticField(VarHandleByteArrayBase, BYTE_BUFFER_IS_READ_ONLY)},
+		{"BE", "Z", nullptr, $STATIC | $FINAL, $staticField(VarHandleByteArrayBase, BE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(VarHandleByteArrayBase, init$, void)},
+		{"newIllegalStateExceptionForMisalignedAccess", "(I)Ljava/lang/IllegalStateException;", nullptr, $STATIC, $staticMethod(VarHandleByteArrayBase, newIllegalStateExceptionForMisalignedAccess, $IllegalStateException*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.lang.invoke.VarHandleByteArrayBase",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(VarHandleByteArrayBase, name, initialize, &classInfo$$, VarHandleByteArrayBase::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(VarHandleByteArrayBase);
+	});
 	return class$;
 }
 

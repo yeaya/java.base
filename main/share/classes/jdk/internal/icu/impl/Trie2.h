@@ -69,6 +69,7 @@ class Trie2 : public ::java::lang::Iterable {
 	$class(Trie2, 0, ::java::lang::Iterable)
 public:
 	Trie2();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::jdk::internal::icu::impl::Trie2* createFromSerialized(::java::nio::ByteBuffer* bytes);
 	virtual int32_t get(int32_t codePoint) {return 0;}

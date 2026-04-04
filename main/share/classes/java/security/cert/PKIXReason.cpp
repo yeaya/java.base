@@ -1,5 +1,4 @@
 #include <java/security/cert/PKIXReason.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -22,53 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace security {
 		namespace cert {
-
-$FieldInfo _PKIXReason_FieldInfo_[] = {
-	{"NAME_CHAINING", "Ljava/security/cert/PKIXReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PKIXReason, NAME_CHAINING)},
-	{"INVALID_KEY_USAGE", "Ljava/security/cert/PKIXReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PKIXReason, INVALID_KEY_USAGE)},
-	{"INVALID_POLICY", "Ljava/security/cert/PKIXReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PKIXReason, INVALID_POLICY)},
-	{"NO_TRUST_ANCHOR", "Ljava/security/cert/PKIXReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PKIXReason, NO_TRUST_ANCHOR)},
-	{"UNRECOGNIZED_CRIT_EXT", "Ljava/security/cert/PKIXReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PKIXReason, UNRECOGNIZED_CRIT_EXT)},
-	{"NOT_CA_CERT", "Ljava/security/cert/PKIXReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PKIXReason, NOT_CA_CERT)},
-	{"PATH_TOO_LONG", "Ljava/security/cert/PKIXReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PKIXReason, PATH_TOO_LONG)},
-	{"INVALID_NAME", "Ljava/security/cert/PKIXReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PKIXReason, INVALID_NAME)},
-	{"$VALUES", "[Ljava/security/cert/PKIXReason;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(PKIXReason, $VALUES)},
-	{}
-};
-
-$MethodInfo _PKIXReason_MethodInfo_[] = {
-	{"$values", "()[Ljava/security/cert/PKIXReason;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PKIXReason, $values, $PKIXReasonArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(PKIXReason, init$, void, $String*, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/security/cert/PKIXReason;", nullptr, $PUBLIC | $STATIC, $staticMethod(PKIXReason, valueOf, PKIXReason*, $String*)},
-	{"values", "()[Ljava/security/cert/PKIXReason;", nullptr, $PUBLIC | $STATIC, $staticMethod(PKIXReason, values, $PKIXReasonArray*)},
-	{}
-};
-
-$InnerClassInfo _PKIXReason_InnerClassesInfo_[] = {
-	{"java.security.cert.CertPathValidatorException$Reason", "java.security.cert.CertPathValidatorException", "Reason", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _PKIXReason_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.security.cert.PKIXReason",
-	"java.lang.Enum",
-	"java.security.cert.CertPathValidatorException$Reason",
-	_PKIXReason_FieldInfo_,
-	_PKIXReason_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/security/cert/PKIXReason;>;Ljava/security/cert/CertPathValidatorException$Reason;",
-	nullptr,
-	_PKIXReason_InnerClassesInfo_
-};
-
-$Object* allocate$PKIXReason($Class* clazz) {
-	return $of($alloc(PKIXReason));
-}
 
 $String* PKIXReason::toString() {
 	 return this->$Enum::toString();
@@ -128,7 +80,7 @@ void PKIXReason::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$PKIXReason($Class* class$) {
+void PKIXReason::clinit$($Class* clazz) {
 	$assignStatic(PKIXReason::NAME_CHAINING, $new(PKIXReason, "NAME_CHAINING"_s, 0));
 	$assignStatic(PKIXReason::INVALID_KEY_USAGE, $new(PKIXReason, "INVALID_KEY_USAGE"_s, 1));
 	$assignStatic(PKIXReason::INVALID_POLICY, $new(PKIXReason, "INVALID_POLICY"_s, 2));
@@ -144,7 +96,48 @@ PKIXReason::PKIXReason() {
 }
 
 $Class* PKIXReason::load$($String* name, bool initialize) {
-	$loadClass(PKIXReason, name, initialize, &_PKIXReason_ClassInfo_, clinit$PKIXReason, allocate$PKIXReason);
+	$FieldInfo fieldInfos$$[] = {
+		{"NAME_CHAINING", "Ljava/security/cert/PKIXReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PKIXReason, NAME_CHAINING)},
+		{"INVALID_KEY_USAGE", "Ljava/security/cert/PKIXReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PKIXReason, INVALID_KEY_USAGE)},
+		{"INVALID_POLICY", "Ljava/security/cert/PKIXReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PKIXReason, INVALID_POLICY)},
+		{"NO_TRUST_ANCHOR", "Ljava/security/cert/PKIXReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PKIXReason, NO_TRUST_ANCHOR)},
+		{"UNRECOGNIZED_CRIT_EXT", "Ljava/security/cert/PKIXReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PKIXReason, UNRECOGNIZED_CRIT_EXT)},
+		{"NOT_CA_CERT", "Ljava/security/cert/PKIXReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PKIXReason, NOT_CA_CERT)},
+		{"PATH_TOO_LONG", "Ljava/security/cert/PKIXReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PKIXReason, PATH_TOO_LONG)},
+		{"INVALID_NAME", "Ljava/security/cert/PKIXReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(PKIXReason, INVALID_NAME)},
+		{"$VALUES", "[Ljava/security/cert/PKIXReason;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(PKIXReason, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/security/cert/PKIXReason;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PKIXReason, $values, $PKIXReasonArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(PKIXReason, init$, void, $String*, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueOf", "(Ljava/lang/String;)Ljava/security/cert/PKIXReason;", nullptr, $PUBLIC | $STATIC, $staticMethod(PKIXReason, valueOf, PKIXReason*, $String*)},
+		{"values", "()[Ljava/security/cert/PKIXReason;", nullptr, $PUBLIC | $STATIC, $staticMethod(PKIXReason, values, $PKIXReasonArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.cert.CertPathValidatorException$Reason", "java.security.cert.CertPathValidatorException", "Reason", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.security.cert.PKIXReason",
+		"java.lang.Enum",
+		"java.security.cert.CertPathValidatorException$Reason",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/security/cert/PKIXReason;>;Ljava/security/cert/CertPathValidatorException$Reason;",
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(PKIXReason, name, initialize, &classInfo$$, PKIXReason::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PKIXReason));
+	});
 	return class$;
 }
 

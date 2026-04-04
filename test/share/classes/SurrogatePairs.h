@@ -9,6 +9,7 @@ class $export SurrogatePairs : public ::java::lang::Object {
 	$class(SurrogatePairs, 0, ::java::lang::Object)
 public:
 	SurrogatePairs();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* getHexBytes($String* s);
 	static void main($StringArray* args);

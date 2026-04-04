@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/LocaleNames.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -13,43 +12,24 @@ namespace sun {
 		namespace resources {
 			namespace cldr {
 
-$MethodInfo _LocaleNames_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.LocaleNames",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_MethodInfo_
-};
-
-$Object* allocate$LocaleNames($Class* clazz) {
-	return $of($alloc(LocaleNames));
-}
-
 void LocaleNames::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* LocaleNames::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("DisplayNamePattern"_s),
-			$of("{0,choice,0#|1#{1}|2#{1} ({2})}"_s)
+			"DisplayNamePattern"_s,
+			"{0,choice,0#|1#{1}|2#{1} ({2})}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ListKeyTypePattern"_s),
-			$of("{0}: {1}"_s)
+			"ListKeyTypePattern"_s,
+			"{0}: {1}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ListCompositionPattern"_s),
-			$of("{0}, {1}"_s)
+			"ListCompositionPattern"_s,
+			"{0}, {1}"_s
 		})
 	}));
 	return data;
@@ -59,7 +39,22 @@ LocaleNames::LocaleNames() {
 }
 
 $Class* LocaleNames::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames, name, initialize, &_LocaleNames_ClassInfo_, allocate$LocaleNames);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.LocaleNames",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames);
+	});
 	return class$;
 }
 

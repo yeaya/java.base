@@ -1,5 +1,4 @@
 #include <java/util/concurrent/Helpers.h>
-
 #include <java/util/Collection.h>
 #include <jcpp.h>
 
@@ -11,33 +10,11 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$MethodInfo _Helpers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Helpers, init$, void)},
-	{"collectionToString", "(Ljava/util/Collection;)Ljava/lang/String;", "(Ljava/util/Collection<*>;)Ljava/lang/String;", $STATIC, $staticMethod(Helpers, collectionToString, $String*, $Collection*)},
-	{"mapEntryToString", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Helpers, mapEntryToString, $String*, Object$*, Object$*)},
-	{"objectToString", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Helpers, objectToString, $String*, Object$*)},
-	{"toString", "([Ljava/lang/Object;II)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Helpers, toString, $String*, $ObjectArray*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _Helpers_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.concurrent.Helpers",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Helpers_MethodInfo_
-};
-
-$Object* allocate$Helpers($Class* clazz) {
-	return $of($alloc(Helpers));
-}
-
 void Helpers::init$() {
 }
 
 $String* Helpers::collectionToString($Collection* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, a, $nc(c)->toArray());
 	int32_t size = $nc(a)->length;
 	if (size == 0) {
@@ -54,7 +31,7 @@ $String* Helpers::collectionToString($Collection* c) {
 }
 
 $String* Helpers::toString($ObjectArray* a, int32_t size, int32_t charLength) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, chars, $new($chars, charLength + 2 * size));
 	chars->set(0, u'[');
 	int32_t j = 1;
@@ -73,12 +50,12 @@ $String* Helpers::toString($ObjectArray* a, int32_t size, int32_t charLength) {
 }
 
 $String* Helpers::mapEntryToString(Object$* key, Object$* val) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, k, nullptr);
 	$var($String, v, nullptr);
 	int32_t klen = 0;
 	int32_t vlen = 0;
-	int32_t var$0 = (klen = $nc(($assign(k, objectToString(key))))->length());
+	int32_t var$0 = klen = $nc(($assign(k, objectToString(key))))->length();
 	$var($chars, chars, $new($chars, var$0 + (vlen = $nc(($assign(v, objectToString(val))))->length()) + 1));
 	$nc(k)->getChars(0, klen, chars, 0);
 	chars->set(klen, u'=');
@@ -88,14 +65,32 @@ $String* Helpers::mapEntryToString(Object$* key, Object$* val) {
 
 $String* Helpers::objectToString(Object$* x) {
 	$var($String, s, nullptr);
-	return (x == nullptr || ($assign(s, $nc($of(x))->toString())) == nullptr) ? "null"_s : s;
+	return (x == nullptr || ($assign(s, $of(x)->toString())) == nullptr) ? "null"_s : s;
 }
 
 Helpers::Helpers() {
 }
 
 $Class* Helpers::load$($String* name, bool initialize) {
-	$loadClass(Helpers, name, initialize, &_Helpers_ClassInfo_, allocate$Helpers);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Helpers, init$, void)},
+		{"collectionToString", "(Ljava/util/Collection;)Ljava/lang/String;", "(Ljava/util/Collection<*>;)Ljava/lang/String;", $STATIC, $staticMethod(Helpers, collectionToString, $String*, $Collection*)},
+		{"mapEntryToString", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Helpers, mapEntryToString, $String*, Object$*, Object$*)},
+		{"objectToString", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Helpers, objectToString, $String*, Object$*)},
+		{"toString", "([Ljava/lang/Object;II)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Helpers, toString, $String*, $ObjectArray*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.concurrent.Helpers",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Helpers, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Helpers);
+	});
 	return class$;
 }
 

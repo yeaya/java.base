@@ -22,6 +22,7 @@ class NativePRNG$Variant : public ::java::lang::Enum {
 public:
 	NativePRNG$Variant();
 	static $Array<::sun::security::provider::NativePRNG$Variant>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::security::provider::NativePRNG$Variant* valueOf($String* name);
 	static $Array<::sun::security::provider::NativePRNG$Variant>* values();

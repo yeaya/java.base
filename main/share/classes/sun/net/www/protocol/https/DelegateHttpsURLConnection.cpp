@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/https/DelegateHttpsURLConnection.h>
-
 #include <java/net/Proxy.h>
 #include <java/net/URL.h>
 #include <javax/net/ssl/HostnameVerifier.h>
@@ -26,32 +25,6 @@ namespace sun {
 			namespace protocol {
 				namespace https {
 
-$FieldInfo _DelegateHttpsURLConnection_FieldInfo_[] = {
-	{"httpsURLConnection", "Ljavax/net/ssl/HttpsURLConnection;", nullptr, $PUBLIC, $field(DelegateHttpsURLConnection, httpsURLConnection)},
-	{}
-};
-
-$MethodInfo _DelegateHttpsURLConnection_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;Lsun/net/www/protocol/http/Handler;Ljavax/net/ssl/HttpsURLConnection;)V", nullptr, 0, $method(DelegateHttpsURLConnection, init$, void, $URL*, $Handler*, $HttpsURLConnection*), "java.io.IOException"},
-	{"<init>", "(Ljava/net/URL;Ljava/net/Proxy;Lsun/net/www/protocol/http/Handler;Ljavax/net/ssl/HttpsURLConnection;)V", nullptr, 0, $method(DelegateHttpsURLConnection, init$, void, $URL*, $Proxy*, $Handler*, $HttpsURLConnection*), "java.io.IOException"},
-	{"getHostnameVerifier", "()Ljavax/net/ssl/HostnameVerifier;", nullptr, $PROTECTED, $virtualMethod(DelegateHttpsURLConnection, getHostnameVerifier, $HostnameVerifier*)},
-	{"getSSLSocketFactory", "()Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PROTECTED, $virtualMethod(DelegateHttpsURLConnection, getSSLSocketFactory, $SSLSocketFactory*)},
-	{}
-};
-
-$ClassInfo _DelegateHttpsURLConnection_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.www.protocol.https.DelegateHttpsURLConnection",
-	"sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection",
-	nullptr,
-	_DelegateHttpsURLConnection_FieldInfo_,
-	_DelegateHttpsURLConnection_MethodInfo_
-};
-
-$Object* allocate$DelegateHttpsURLConnection($Class* clazz) {
-	return $of($alloc(DelegateHttpsURLConnection));
-}
-
 void DelegateHttpsURLConnection::init$($URL* url, $Handler* handler, $HttpsURLConnection* httpsURLConnection) {
 	DelegateHttpsURLConnection::init$(url, nullptr, handler, httpsURLConnection);
 }
@@ -73,7 +46,28 @@ DelegateHttpsURLConnection::DelegateHttpsURLConnection() {
 }
 
 $Class* DelegateHttpsURLConnection::load$($String* name, bool initialize) {
-	$loadClass(DelegateHttpsURLConnection, name, initialize, &_DelegateHttpsURLConnection_ClassInfo_, allocate$DelegateHttpsURLConnection);
+	$FieldInfo fieldInfos$$[] = {
+		{"httpsURLConnection", "Ljavax/net/ssl/HttpsURLConnection;", nullptr, $PUBLIC, $field(DelegateHttpsURLConnection, httpsURLConnection)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/URL;Lsun/net/www/protocol/http/Handler;Ljavax/net/ssl/HttpsURLConnection;)V", nullptr, 0, $method(DelegateHttpsURLConnection, init$, void, $URL*, $Handler*, $HttpsURLConnection*), "java.io.IOException"},
+		{"<init>", "(Ljava/net/URL;Ljava/net/Proxy;Lsun/net/www/protocol/http/Handler;Ljavax/net/ssl/HttpsURLConnection;)V", nullptr, 0, $method(DelegateHttpsURLConnection, init$, void, $URL*, $Proxy*, $Handler*, $HttpsURLConnection*), "java.io.IOException"},
+		{"getHostnameVerifier", "()Ljavax/net/ssl/HostnameVerifier;", nullptr, $PROTECTED, $virtualMethod(DelegateHttpsURLConnection, getHostnameVerifier, $HostnameVerifier*)},
+		{"getSSLSocketFactory", "()Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PROTECTED, $virtualMethod(DelegateHttpsURLConnection, getSSLSocketFactory, $SSLSocketFactory*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.www.protocol.https.DelegateHttpsURLConnection",
+		"sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DelegateHttpsURLConnection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DelegateHttpsURLConnection);
+	});
 	return class$;
 }
 

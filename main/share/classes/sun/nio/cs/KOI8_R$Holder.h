@@ -13,6 +13,7 @@ class KOI8_R$Holder : public ::java::lang::Object {
 	$class(KOI8_R$Holder, 0, ::java::lang::Object)
 public:
 	KOI8_R$Holder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* b2cTable;
 	static $chars* b2c;

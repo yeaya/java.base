@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/commons/JSRInlinerAdapter.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/util/AbstractCollection.h>
@@ -60,9 +59,7 @@ using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $Label = ::jdk::internal::org::objectweb::asm$::Label;
 using $MethodVisitor = ::jdk::internal::org::objectweb::asm$::MethodVisitor;
 using $Opcodes = ::jdk::internal::org::objectweb::asm$::Opcodes;
@@ -84,55 +81,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 					namespace commons {
-
-$FieldInfo _JSRInlinerAdapter_FieldInfo_[] = {
-	{"mainSubroutineInsns", "Ljava/util/BitSet;", nullptr, $PRIVATE | $FINAL, $field(JSRInlinerAdapter, mainSubroutineInsns)},
-	{"subroutinesInsns", "Ljava/util/Map;", "Ljava/util/Map<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljava/util/BitSet;>;", $PRIVATE | $FINAL, $field(JSRInlinerAdapter, subroutinesInsns)},
-	{"sharedSubroutineInsns", "Ljava/util/BitSet;", nullptr, $FINAL, $field(JSRInlinerAdapter, sharedSubroutineInsns)},
-	{}
-};
-
-$MethodInfo _JSRInlinerAdapter_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JSRInlinerAdapter, init$, void, $MethodVisitor*, int32_t, $String*, $String*, $String*, $StringArray*)},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/MethodVisitor;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PROTECTED, $method(JSRInlinerAdapter, init$, void, int32_t, $MethodVisitor*, int32_t, $String*, $String*, $String*, $StringArray*)},
-	{"emitCode", "()V", nullptr, $PRIVATE, $method(JSRInlinerAdapter, emitCode, void)},
-	{"emitInstantiation", "(Ljdk/internal/org/objectweb/asm/commons/JSRInlinerAdapter$Instantiation;Ljava/util/List;Ljdk/internal/org/objectweb/asm/tree/InsnList;Ljava/util/List;Ljava/util/List;)V", "(Ljdk/internal/org/objectweb/asm/commons/JSRInlinerAdapter$Instantiation;Ljava/util/List<Ljdk/internal/org/objectweb/asm/commons/JSRInlinerAdapter$Instantiation;>;Ljdk/internal/org/objectweb/asm/tree/InsnList;Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/TryCatchBlockNode;>;Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/LocalVariableNode;>;)V", $PRIVATE, $method(JSRInlinerAdapter, emitInstantiation, void, $JSRInlinerAdapter$Instantiation*, $List*, $InsnList*, $List*, $List*)},
-	{"findReachableInsns", "(ILjava/util/BitSet;Ljava/util/BitSet;)V", nullptr, $PRIVATE, $method(JSRInlinerAdapter, findReachableInsns, void, int32_t, $BitSet*, $BitSet*)},
-	{"findSubroutineInsns", "(ILjava/util/BitSet;Ljava/util/BitSet;)V", nullptr, $PRIVATE, $method(JSRInlinerAdapter, findSubroutineInsns, void, int32_t, $BitSet*, $BitSet*)},
-	{"findSubroutinesInsns", "()V", nullptr, $PRIVATE, $method(JSRInlinerAdapter, findSubroutinesInsns, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(JSRInlinerAdapter, visitEnd, void)},
-	{"visitJumpInsn", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(JSRInlinerAdapter, visitJumpInsn, void, int32_t, $Label*)},
-	{}
-};
-
-$InnerClassInfo _JSRInlinerAdapter_InnerClassesInfo_[] = {
-	{"jdk.internal.org.objectweb.asm.commons.JSRInlinerAdapter$Instantiation", "jdk.internal.org.objectweb.asm.commons.JSRInlinerAdapter", "Instantiation", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JSRInlinerAdapter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.commons.JSRInlinerAdapter",
-	"jdk.internal.org.objectweb.asm.tree.MethodNode",
-	"jdk.internal.org.objectweb.asm.Opcodes",
-	_JSRInlinerAdapter_FieldInfo_,
-	_JSRInlinerAdapter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JSRInlinerAdapter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.org.objectweb.asm.commons.JSRInlinerAdapter$Instantiation"
-};
-
-$Object* allocate$JSRInlinerAdapter($Class* clazz) {
-	return $of($alloc(JSRInlinerAdapter));
-}
 
 int32_t JSRInlinerAdapter::hashCode() {
 	 return this->$MethodNode::hashCode();
@@ -170,11 +118,11 @@ void JSRInlinerAdapter::init$(int32_t api, $MethodVisitor* methodVisitor, int32_
 }
 
 void JSRInlinerAdapter::visitJumpInsn(int32_t opcode, $Label* label) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MethodNode::visitJumpInsn(opcode, label);
-	$var($LabelNode, labelNode, $nc(($cast($JumpInsnNode, $($nc(this->instructions)->getLast()))))->label);
+	$var($LabelNode, labelNode, $nc($$cast($JumpInsnNode, $nc(this->instructions)->getLast()))->label);
 	if (opcode == $Opcodes::JSR && !$nc(this->subroutinesInsns)->containsKey(labelNode)) {
-		$nc(this->subroutinesInsns)->put(labelNode, $$new($BitSet));
+		this->subroutinesInsns->put(labelNode, $$new($BitSet));
 	}
 }
 
@@ -189,11 +137,11 @@ void JSRInlinerAdapter::visitEnd() {
 }
 
 void JSRInlinerAdapter::findSubroutinesInsns() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BitSet, visitedInsns, $new($BitSet));
 	findSubroutineInsns(0, this->mainSubroutineInsns, visitedInsns);
 	{
-		$var($Iterator, i$, $nc($($nc(this->subroutinesInsns)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->subroutinesInsns)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
@@ -206,7 +154,7 @@ void JSRInlinerAdapter::findSubroutinesInsns() {
 }
 
 void JSRInlinerAdapter::findSubroutineInsns(int32_t startInsnIndex, $BitSet* subroutineInsns, $BitSet* visitedInsns) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	findReachableInsns(startInsnIndex, subroutineInsns, visitedInsns);
 	while (true) {
 		bool applicableHandlerFound = false;
@@ -219,9 +167,9 @@ void JSRInlinerAdapter::findSubroutineInsns(int32_t startInsnIndex, $BitSet* sub
 					if ($nc(subroutineInsns)->get(handlerIndex)) {
 						continue;
 					}
-					int32_t startIndex = $nc(this->instructions)->indexOf($nc(tryCatchBlockNode)->start);
-					int32_t endIndex = $nc(this->instructions)->indexOf($nc(tryCatchBlockNode)->end);
-					int32_t firstSubroutineInsnAfterTryCatchStart = $nc(subroutineInsns)->nextSetBit(startIndex);
+					int32_t startIndex = this->instructions->indexOf(tryCatchBlockNode->start);
+					int32_t endIndex = this->instructions->indexOf(tryCatchBlockNode->end);
+					int32_t firstSubroutineInsnAfterTryCatchStart = subroutineInsns->nextSetBit(startIndex);
 					if (firstSubroutineInsnAfterTryCatchStart >= startIndex && firstSubroutineInsnAfterTryCatchStart < endIndex) {
 						findReachableInsns(handlerIndex, subroutineInsns, visitedInsns);
 						applicableHandlerFound = true;
@@ -236,83 +184,69 @@ void JSRInlinerAdapter::findSubroutineInsns(int32_t startInsnIndex, $BitSet* sub
 }
 
 void JSRInlinerAdapter::findReachableInsns(int32_t insnIndex, $BitSet* subroutineInsns, $BitSet* visitedInsns) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t currentInsnIndex = insnIndex;
 	while (currentInsnIndex < $nc(this->instructions)->size()) {
 		if ($nc(subroutineInsns)->get(currentInsnIndex)) {
 			return;
 		}
-		$nc(subroutineInsns)->set(currentInsnIndex);
+		subroutineInsns->set(currentInsnIndex);
 		if ($nc(visitedInsns)->get(currentInsnIndex)) {
 			$nc(this->sharedSubroutineInsns)->set(currentInsnIndex);
 		}
-		$nc(visitedInsns)->set(currentInsnIndex);
-		$var($AbstractInsnNode, currentInsnNode, $nc(this->instructions)->get(currentInsnIndex));
+		visitedInsns->set(currentInsnIndex);
+		$var($AbstractInsnNode, currentInsnNode, this->instructions->get(currentInsnIndex));
 		bool var$0 = $nc(currentInsnNode)->getType() == $AbstractInsnNode::JUMP_INSN;
 		if (var$0 && currentInsnNode->getOpcode() != $Opcodes::JSR) {
 			$var($JumpInsnNode, jumpInsnNode, $cast($JumpInsnNode, currentInsnNode));
-			findReachableInsns($nc(this->instructions)->indexOf(jumpInsnNode->label), subroutineInsns, visitedInsns);
+			findReachableInsns(this->instructions->indexOf(jumpInsnNode->label), subroutineInsns, visitedInsns);
 		} else if (currentInsnNode->getType() == $AbstractInsnNode::TABLESWITCH_INSN) {
 			$var($TableSwitchInsnNode, tableSwitchInsnNode, $cast($TableSwitchInsnNode, currentInsnNode));
-			findReachableInsns($nc(this->instructions)->indexOf(tableSwitchInsnNode->dflt), subroutineInsns, visitedInsns);
+			findReachableInsns(this->instructions->indexOf(tableSwitchInsnNode->dflt), subroutineInsns, visitedInsns);
 			{
 				$var($Iterator, i$, $nc(tableSwitchInsnNode->labels)->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($LabelNode, labelNode, $cast($LabelNode, i$->next()));
 					{
-						findReachableInsns($nc(this->instructions)->indexOf(labelNode), subroutineInsns, visitedInsns);
+						findReachableInsns(this->instructions->indexOf(labelNode), subroutineInsns, visitedInsns);
 					}
 				}
 			}
 		} else if (currentInsnNode->getType() == $AbstractInsnNode::LOOKUPSWITCH_INSN) {
 			$var($LookupSwitchInsnNode, lookupSwitchInsnNode, $cast($LookupSwitchInsnNode, currentInsnNode));
-			findReachableInsns($nc(this->instructions)->indexOf(lookupSwitchInsnNode->dflt), subroutineInsns, visitedInsns);
+			findReachableInsns(this->instructions->indexOf(lookupSwitchInsnNode->dflt), subroutineInsns, visitedInsns);
 			{
 				$var($Iterator, i$, $nc(lookupSwitchInsnNode->labels)->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($LabelNode, labelNode, $cast($LabelNode, i$->next()));
 					{
-						findReachableInsns($nc(this->instructions)->indexOf(labelNode), subroutineInsns, visitedInsns);
+						findReachableInsns(this->instructions->indexOf(labelNode), subroutineInsns, visitedInsns);
 					}
 				}
 			}
 		}
-		switch ($nc($($nc(this->instructions)->get(currentInsnIndex)))->getOpcode()) {
+		switch ($$nc(this->instructions->get(currentInsnIndex))->getOpcode()) {
 		case $Opcodes::GOTO:
-			{}
 		case $Opcodes::RET:
-			{}
 		case $Opcodes::TABLESWITCH:
-			{}
 		case $Opcodes::LOOKUPSWITCH:
-			{}
 		case $Opcodes::IRETURN:
-			{}
 		case $Opcodes::LRETURN:
-			{}
 		case $Opcodes::FRETURN:
-			{}
 		case $Opcodes::DRETURN:
-			{}
 		case $Opcodes::ARETURN:
-			{}
 		case $Opcodes::RETURN:
-			{}
 		case $Opcodes::ATHROW:
-			{
-				return;
-			}
+			return;
 		default:
-			{
-				++currentInsnIndex;
-				break;
-			}
+			++currentInsnIndex;
+			break;
 		}
 	}
 }
 
 void JSRInlinerAdapter::emitCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedList, worklist, $new($LinkedList));
 	worklist->add($$new($JSRInlinerAdapter$Instantiation, this, nullptr, this->mainSubroutineInsns));
 	$var($InsnList, newInstructions, $new($InsnList));
@@ -328,15 +262,15 @@ void JSRInlinerAdapter::emitCode() {
 }
 
 void JSRInlinerAdapter::emitInstantiation($JSRInlinerAdapter$Instantiation* instantiation, $List* worklist, $InsnList* newInstructions, $List* newTryCatchBlocks, $List* newLocalVariables) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LabelNode, previousLabelNode, nullptr);
 	for (int32_t i = 0; i < $nc(this->instructions)->size(); ++i) {
-		$var($AbstractInsnNode, insnNode, $nc(this->instructions)->get(i));
+		$var($AbstractInsnNode, insnNode, this->instructions->get(i));
 		if ($nc(insnNode)->getType() == $AbstractInsnNode::LABEL) {
 			$var($LabelNode, labelNode, $cast($LabelNode, insnNode));
 			$var($LabelNode, clonedLabelNode, $nc(instantiation)->getClonedLabel(labelNode));
 			if (clonedLabelNode != previousLabelNode) {
-				$nc(newInstructions)->add(static_cast<$AbstractInsnNode*>(clonedLabelNode));
+				$nc(newInstructions)->add(clonedLabelNode);
 				$assign(previousLabelNode, clonedLabelNode);
 			}
 		} else if ($nc(instantiation)->findOwner(i) == instantiation) {
@@ -345,7 +279,7 @@ void JSRInlinerAdapter::emitInstantiation($JSRInlinerAdapter$Instantiation* inst
 				{
 					$var($JSRInlinerAdapter$Instantiation, retLabelOwner, instantiation);
 					for (; retLabelOwner != nullptr; $assign(retLabelOwner, retLabelOwner->parent)) {
-						if ($nc($nc(retLabelOwner)->subroutineInsns)->get(i)) {
+						if ($nc(retLabelOwner->subroutineInsns)->get(i)) {
 							$assign(retLabel, retLabelOwner->returnLabel);
 						}
 					}
@@ -353,15 +287,15 @@ void JSRInlinerAdapter::emitInstantiation($JSRInlinerAdapter$Instantiation* inst
 				if (retLabel == nullptr) {
 					$throwNew($IllegalArgumentException, $$str({"Instruction #"_s, $$str(i), " is a RET not owned by any subroutine"_s}));
 				}
-				$nc(newInstructions)->add(static_cast<$AbstractInsnNode*>($$new($JumpInsnNode, $Opcodes::GOTO, retLabel)));
+				$nc(newInstructions)->add($$new($JumpInsnNode, $Opcodes::GOTO, retLabel));
 			} else if (insnNode->getOpcode() == $Opcodes::JSR) {
-				$var($LabelNode, jsrLabelNode, $nc(($cast($JumpInsnNode, insnNode)))->label);
+				$var($LabelNode, jsrLabelNode, $cast($JumpInsnNode, insnNode)->label);
 				$var($BitSet, subroutineInsns, $cast($BitSet, $nc(this->subroutinesInsns)->get(jsrLabelNode)));
 				$var($JSRInlinerAdapter$Instantiation, newInstantiation, $new($JSRInlinerAdapter$Instantiation, this, instantiation, subroutineInsns));
 				$var($LabelNode, clonedJsrLabelNode, newInstantiation->getClonedLabelForJumpInsn(jsrLabelNode));
-				$nc(newInstructions)->add(static_cast<$AbstractInsnNode*>($$new($InsnNode, $Opcodes::ACONST_NULL)));
-				newInstructions->add(static_cast<$AbstractInsnNode*>($$new($JumpInsnNode, $Opcodes::GOTO, clonedJsrLabelNode)));
-				newInstructions->add(static_cast<$AbstractInsnNode*>(newInstantiation->returnLabel));
+				$nc(newInstructions)->add($$new($InsnNode, $Opcodes::ACONST_NULL));
+				newInstructions->add($$new($JumpInsnNode, $Opcodes::GOTO, clonedJsrLabelNode));
+				newInstructions->add(newInstantiation->returnLabel);
 				$nc(worklist)->add(newInstantiation);
 			} else {
 				$nc(newInstructions)->add($(insnNode->clone(instantiation)));
@@ -374,13 +308,13 @@ void JSRInlinerAdapter::emitInstantiation($JSRInlinerAdapter$Instantiation* inst
 			$var($TryCatchBlockNode, tryCatchBlockNode, $cast($TryCatchBlockNode, i$->next()));
 			{
 				$var($LabelNode, start, $nc(instantiation)->getClonedLabel($nc(tryCatchBlockNode)->start));
-				$var($LabelNode, end, instantiation->getClonedLabel($nc(tryCatchBlockNode)->end));
+				$var($LabelNode, end, instantiation->getClonedLabel(tryCatchBlockNode->end));
 				if (start != end) {
-					$var($LabelNode, handler, instantiation->getClonedLabelForJumpInsn($nc(tryCatchBlockNode)->handler));
+					$var($LabelNode, handler, instantiation->getClonedLabelForJumpInsn(tryCatchBlockNode->handler));
 					if (start == nullptr || end == nullptr || handler == nullptr) {
 						$throwNew($AssertionError, $of("Internal error!"_s));
 					}
-					$nc(newTryCatchBlocks)->add($$new($TryCatchBlockNode, start, end, handler, $nc(tryCatchBlockNode)->type));
+					$nc(newTryCatchBlocks)->add($$new($TryCatchBlockNode, start, end, handler, tryCatchBlockNode->type));
 				}
 			}
 		}
@@ -391,9 +325,9 @@ void JSRInlinerAdapter::emitInstantiation($JSRInlinerAdapter$Instantiation* inst
 			$var($LocalVariableNode, localVariableNode, $cast($LocalVariableNode, i$->next()));
 			{
 				$var($LabelNode, start, $nc(instantiation)->getClonedLabel($nc(localVariableNode)->start));
-				$var($LabelNode, end, instantiation->getClonedLabel($nc(localVariableNode)->end));
+				$var($LabelNode, end, instantiation->getClonedLabel(localVariableNode->end));
 				if (start != end) {
-					$nc(newLocalVariables)->add($$new($LocalVariableNode, $nc(localVariableNode)->name, localVariableNode->desc, localVariableNode->signature, start, end, localVariableNode->index));
+					$nc(newLocalVariables)->add($$new($LocalVariableNode, localVariableNode->name, localVariableNode->desc, localVariableNode->signature, start, end, localVariableNode->index));
 				}
 			}
 		}
@@ -404,7 +338,50 @@ JSRInlinerAdapter::JSRInlinerAdapter() {
 }
 
 $Class* JSRInlinerAdapter::load$($String* name, bool initialize) {
-	$loadClass(JSRInlinerAdapter, name, initialize, &_JSRInlinerAdapter_ClassInfo_, allocate$JSRInlinerAdapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"mainSubroutineInsns", "Ljava/util/BitSet;", nullptr, $PRIVATE | $FINAL, $field(JSRInlinerAdapter, mainSubroutineInsns)},
+		{"subroutinesInsns", "Ljava/util/Map;", "Ljava/util/Map<Ljdk/internal/org/objectweb/asm/tree/LabelNode;Ljava/util/BitSet;>;", $PRIVATE | $FINAL, $field(JSRInlinerAdapter, subroutinesInsns)},
+		{"sharedSubroutineInsns", "Ljava/util/BitSet;", nullptr, $FINAL, $field(JSRInlinerAdapter, sharedSubroutineInsns)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JSRInlinerAdapter, init$, void, $MethodVisitor*, int32_t, $String*, $String*, $String*, $StringArray*)},
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/MethodVisitor;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PROTECTED, $method(JSRInlinerAdapter, init$, void, int32_t, $MethodVisitor*, int32_t, $String*, $String*, $String*, $StringArray*)},
+		{"emitCode", "()V", nullptr, $PRIVATE, $method(JSRInlinerAdapter, emitCode, void)},
+		{"emitInstantiation", "(Ljdk/internal/org/objectweb/asm/commons/JSRInlinerAdapter$Instantiation;Ljava/util/List;Ljdk/internal/org/objectweb/asm/tree/InsnList;Ljava/util/List;Ljava/util/List;)V", "(Ljdk/internal/org/objectweb/asm/commons/JSRInlinerAdapter$Instantiation;Ljava/util/List<Ljdk/internal/org/objectweb/asm/commons/JSRInlinerAdapter$Instantiation;>;Ljdk/internal/org/objectweb/asm/tree/InsnList;Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/TryCatchBlockNode;>;Ljava/util/List<Ljdk/internal/org/objectweb/asm/tree/LocalVariableNode;>;)V", $PRIVATE, $method(JSRInlinerAdapter, emitInstantiation, void, $JSRInlinerAdapter$Instantiation*, $List*, $InsnList*, $List*, $List*)},
+		{"findReachableInsns", "(ILjava/util/BitSet;Ljava/util/BitSet;)V", nullptr, $PRIVATE, $method(JSRInlinerAdapter, findReachableInsns, void, int32_t, $BitSet*, $BitSet*)},
+		{"findSubroutineInsns", "(ILjava/util/BitSet;Ljava/util/BitSet;)V", nullptr, $PRIVATE, $method(JSRInlinerAdapter, findSubroutineInsns, void, int32_t, $BitSet*, $BitSet*)},
+		{"findSubroutinesInsns", "()V", nullptr, $PRIVATE, $method(JSRInlinerAdapter, findSubroutinesInsns, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(JSRInlinerAdapter, visitEnd, void)},
+		{"visitJumpInsn", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(JSRInlinerAdapter, visitJumpInsn, void, int32_t, $Label*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.org.objectweb.asm.commons.JSRInlinerAdapter$Instantiation", "jdk.internal.org.objectweb.asm.commons.JSRInlinerAdapter", "Instantiation", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.commons.JSRInlinerAdapter",
+		"jdk.internal.org.objectweb.asm.tree.MethodNode",
+		"jdk.internal.org.objectweb.asm.Opcodes",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.org.objectweb.asm.commons.JSRInlinerAdapter$Instantiation"
+	};
+	$loadClass(JSRInlinerAdapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JSRInlinerAdapter));
+	});
 	return class$;
 }
 

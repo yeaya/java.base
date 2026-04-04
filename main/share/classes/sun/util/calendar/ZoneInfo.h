@@ -93,7 +93,7 @@ public:
 	$ints* simpleTimeZoneParams = nullptr;
 	bool willGMTOffsetChange = false;
 	bool dirty = false;
-	static const int64_t serialVersionUID = (int64_t)0x24D1D3CE001D719B;
+	static const int64_t serialVersionUID = (int64_t)0x24d1d3ce001d719b;
 	::java::util::SimpleTimeZone* lastRule = nullptr;
 };
 

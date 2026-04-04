@@ -1,5 +1,4 @@
 #include <java/util/ImmutableCollections$AbstractImmutableList.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/Collection.h>
@@ -45,77 +44,6 @@ using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace util {
-
-$CompoundAttribute _ImmutableCollections$AbstractImmutableList_Annotations_[] = {
-	{"Ljdk/internal/ValueBased;", nullptr},
-	{}
-};
-
-$MethodInfo _ImmutableCollections$AbstractImmutableList_MethodInfo_[] = {
-	{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, 0, $method(ImmutableCollections$AbstractImmutableList, init$, void)},
-	{"add", "(ILjava/lang/Object;)V", "(ITE;)V", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableList, add, void, int32_t, Object$*)},
-	{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableList, addAll, bool, int32_t, $Collection*)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableList, contains, bool, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableList, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableList, hashCode, int32_t)},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableList, iterator, $Iterator*)},
-	{"listIterator", "()Ljava/util/ListIterator;", "()Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableList, listIterator, $ListIterator*)},
-	{"listIterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableList, listIterator, $ListIterator*, int32_t)},
-	{"outOfBounds", "(I)Ljava/lang/IndexOutOfBoundsException;", nullptr, 0, $virtualMethod(ImmutableCollections$AbstractImmutableList, outOfBounds, $IndexOutOfBoundsException*, int32_t)},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"remove", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableList, remove, $Object*, int32_t)},
-	{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC},
-	{"replaceAll", "(Ljava/util/function/UnaryOperator;)V", "(Ljava/util/function/UnaryOperator<TE;>;)V", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableList, replaceAll, void, $UnaryOperator*)},
-	{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITE;)TE;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableList, set, $Object*, int32_t, Object$*)},
-	{"*size", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"sort", "(Ljava/util/Comparator;)V", "(Ljava/util/Comparator<-TE;>;)V", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableList, sort, void, $Comparator*)},
-	{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableList, subList, $List*, int32_t, int32_t)},
-	{"subListRangeCheck", "(III)V", nullptr, $STATIC, $staticMethod(ImmutableCollections$AbstractImmutableList, subListRangeCheck, void, int32_t, int32_t, int32_t)},
-	{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$InnerClassInfo _ImmutableCollections$AbstractImmutableList_InnerClassesInfo_[] = {
-	{"java.util.ImmutableCollections$AbstractImmutableList", "java.util.ImmutableCollections", "AbstractImmutableList", $STATIC | $ABSTRACT},
-	{"java.util.ImmutableCollections$AbstractImmutableCollection", "java.util.ImmutableCollections", "AbstractImmutableCollection", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ImmutableCollections$AbstractImmutableList_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.ImmutableCollections$AbstractImmutableList",
-	"java.util.ImmutableCollections$AbstractImmutableCollection",
-	"java.util.List,java.util.RandomAccess",
-	nullptr,
-	_ImmutableCollections$AbstractImmutableList_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/ImmutableCollections$AbstractImmutableCollection<TE;>;Ljava/util/List<TE;>;Ljava/util/RandomAccess;",
-	nullptr,
-	_ImmutableCollections$AbstractImmutableList_InnerClassesInfo_,
-	_ImmutableCollections$AbstractImmutableList_Annotations_,
-	nullptr,
-	nullptr,
-	"java.util.ImmutableCollections"
-};
-
-$Object* allocate$ImmutableCollections$AbstractImmutableList($Class* clazz) {
-	return $of($alloc(ImmutableCollections$AbstractImmutableList));
-}
 
 bool ImmutableCollections$AbstractImmutableList::add(Object$* e) {
 	 return this->$ImmutableCollections$AbstractImmutableCollection::add(e);
@@ -232,7 +160,7 @@ $List* ImmutableCollections$AbstractImmutableList::subList(int32_t fromIndex, in
 
 void ImmutableCollections$AbstractImmutableList::subListRangeCheck(int32_t fromIndex, int32_t toIndex, int32_t size) {
 	$init(ImmutableCollections$AbstractImmutableList);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (fromIndex < 0) {
 		$throwNew($IndexOutOfBoundsException, $$str({"fromIndex = "_s, $$str(fromIndex)}));
 	}
@@ -261,40 +189,32 @@ $ListIterator* ImmutableCollections$AbstractImmutableList::listIterator(int32_t 
 }
 
 bool ImmutableCollections$AbstractImmutableList::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(o, this)) {
 		return true;
 	}
 	if (!($instanceOf($List, o))) {
 		return false;
 	}
-	$var($Iterator, oit, $nc(($cast($List, o)))->iterator());
-	{
-		int32_t i = 0;
-		int32_t s = size();
-		for (; i < s; ++i) {
-			bool var$0 = !$nc(oit)->hasNext();
-			if (!var$0) {
-				$var($Object, var$1, get(i));
-				var$0 = !$Objects::equals(var$1, $($nc(oit)->next()));
-			}
-			if (var$0) {
-				return false;
-			}
+	$var($Iterator, oit, $nc($cast($List, o))->iterator());
+	for (int32_t i = 0, s = size(); i < s; ++i) {
+		bool var$0 = !$nc(oit)->hasNext();
+		if (!var$0) {
+			$var($Object, var$1, get(i));
+			var$0 = !$Objects::equals(var$1, $(oit->next()));
+		}
+		if (var$0) {
+			return false;
 		}
 	}
 	return !$nc(oit)->hasNext();
 }
 
 int32_t ImmutableCollections$AbstractImmutableList::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t hash = 1;
-	{
-		int32_t i = 0;
-		int32_t s = size();
-		for (; i < s; ++i) {
-			hash = 31 * hash + $Objects::hashCode($(get(i)));
-		}
+	for (int32_t i = 0, s = size(); i < s; ++i) {
+		hash = 31 * hash + $Objects::hashCode($(get(i)));
 	}
 	return hash;
 }
@@ -304,7 +224,7 @@ bool ImmutableCollections$AbstractImmutableList::contains(Object$* o) {
 }
 
 $IndexOutOfBoundsException* ImmutableCollections$AbstractImmutableList::outOfBounds(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($IndexOutOfBoundsException, $$str({"Index: "_s, $$str(index), " Size: "_s, $$str(size())}));
 }
 
@@ -312,7 +232,72 @@ ImmutableCollections$AbstractImmutableList::ImmutableCollections$AbstractImmutab
 }
 
 $Class* ImmutableCollections$AbstractImmutableList::load$($String* name, bool initialize) {
-	$loadClass(ImmutableCollections$AbstractImmutableList, name, initialize, &_ImmutableCollections$AbstractImmutableList_ClassInfo_, allocate$ImmutableCollections$AbstractImmutableList);
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "()V", nullptr, 0, $method(ImmutableCollections$AbstractImmutableList, init$, void)},
+		{"add", "(ILjava/lang/Object;)V", "(ITE;)V", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableList, add, void, int32_t, Object$*)},
+		{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableList, addAll, bool, int32_t, $Collection*)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableList, contains, bool, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableList, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableList, hashCode, int32_t)},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableList, iterator, $Iterator*)},
+		{"listIterator", "()Ljava/util/ListIterator;", "()Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableList, listIterator, $ListIterator*)},
+		{"listIterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableList, listIterator, $ListIterator*, int32_t)},
+		{"outOfBounds", "(I)Ljava/lang/IndexOutOfBoundsException;", nullptr, 0, $virtualMethod(ImmutableCollections$AbstractImmutableList, outOfBounds, $IndexOutOfBoundsException*, int32_t)},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"remove", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableList, remove, $Object*, int32_t)},
+		{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC},
+		{"replaceAll", "(Ljava/util/function/UnaryOperator;)V", "(Ljava/util/function/UnaryOperator<TE;>;)V", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableList, replaceAll, void, $UnaryOperator*)},
+		{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITE;)TE;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableList, set, $Object*, int32_t, Object$*)},
+		{"*size", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"sort", "(Ljava/util/Comparator;)V", "(Ljava/util/Comparator<-TE;>;)V", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableList, sort, void, $Comparator*)},
+		{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(ImmutableCollections$AbstractImmutableList, subList, $List*, int32_t, int32_t)},
+		{"subListRangeCheck", "(III)V", nullptr, $STATIC, $staticMethod(ImmutableCollections$AbstractImmutableList, subListRangeCheck, void, int32_t, int32_t, int32_t)},
+		{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ImmutableCollections$AbstractImmutableList", "java.util.ImmutableCollections", "AbstractImmutableList", $STATIC | $ABSTRACT},
+		{"java.util.ImmutableCollections$AbstractImmutableCollection", "java.util.ImmutableCollections", "AbstractImmutableCollection", $STATIC | $ABSTRACT},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/ValueBased;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.ImmutableCollections$AbstractImmutableList",
+		"java.util.ImmutableCollections$AbstractImmutableCollection",
+		"java.util.List,java.util.RandomAccess",
+		nullptr,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/ImmutableCollections$AbstractImmutableCollection<TE;>;Ljava/util/List<TE;>;Ljava/util/RandomAccess;",
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"java.util.ImmutableCollections"
+	};
+	$loadClass(ImmutableCollections$AbstractImmutableList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ImmutableCollections$AbstractImmutableList));
+	});
 	return class$;
 }
 

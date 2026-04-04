@@ -1,5 +1,4 @@
 #include <java/lang/module/ModuleDescriptor.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
@@ -18,7 +17,6 @@
 #include <java/lang/module/ModuleDescriptor$Version.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
 #include <java/util/Locale.h>
@@ -30,7 +28,6 @@
 #include <java/util/stream/Collector.h>
 #include <java/util/stream/Collectors.h>
 #include <java/util/stream/Stream.h>
-#include <jdk/internal/access/JavaLangModuleAccess.h>
 #include <jdk/internal/access/SharedSecrets.h>
 #include <jdk/internal/module/ModuleInfo$Attributes.h>
 #include <jdk/internal/module/ModuleInfo.h>
@@ -61,7 +58,6 @@ using $ModuleDescriptor$Requires = ::java::lang::module::ModuleDescriptor$Requir
 using $ModuleDescriptor$Version = ::java::lang::module::ModuleDescriptor$Version;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $Locale = ::java::util::Locale;
@@ -72,10 +68,8 @@ using $Function = ::java::util::function::Function;
 using $Supplier = ::java::util::function::Supplier;
 using $Collectors = ::java::util::stream::Collectors;
 using $Stream = ::java::util::stream::Stream;
-using $JavaLangModuleAccess = ::jdk::internal::access::JavaLangModuleAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $ModuleInfo = ::jdk::internal::module::ModuleInfo;
-using $ModuleInfo$Attributes = ::jdk::internal::module::ModuleInfo$Attributes;
 
 namespace java {
 	namespace lang {
@@ -89,27 +83,24 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($ModuleDescriptor$Requires, inst$)->name());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModuleDescriptor$$Lambda$name>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ModuleDescriptor$$Lambda$name::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleDescriptor$$Lambda$name, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor$$Lambda$name, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ModuleDescriptor$$Lambda$name::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.module.ModuleDescriptor$$Lambda$name",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* ModuleDescriptor$$Lambda$name::load$($String* name, bool initialize) {
-	$loadClass(ModuleDescriptor$$Lambda$name, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleDescriptor$$Lambda$name, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor$$Lambda$name, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.module.ModuleDescriptor$$Lambda$name",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ModuleDescriptor$$Lambda$name, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleDescriptor$$Lambda$name);
+	});
 	return class$;
 }
 $Class* ModuleDescriptor$$Lambda$name::class$ = nullptr;
@@ -122,124 +113,32 @@ public:
 	virtual $Object* apply(Object$* e) override {
 		 return $of(ModuleDescriptor::lambda$toString$0(e));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ModuleDescriptor$$Lambda$lambda$toString$0$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ModuleDescriptor$$Lambda$lambda$toString$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleDescriptor$$Lambda$lambda$toString$0$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor$$Lambda$lambda$toString$0$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ModuleDescriptor$$Lambda$lambda$toString$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.module.ModuleDescriptor$$Lambda$lambda$toString$0$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* ModuleDescriptor$$Lambda$lambda$toString$0$1::load$($String* name, bool initialize) {
-	$loadClass(ModuleDescriptor$$Lambda$lambda$toString$0$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModuleDescriptor$$Lambda$lambda$toString$0$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor$$Lambda$lambda$toString$0$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.module.ModuleDescriptor$$Lambda$lambda$toString$0$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ModuleDescriptor$$Lambda$lambda$toString$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleDescriptor$$Lambda$lambda$toString$0$1);
+	});
 	return class$;
 }
 $Class* ModuleDescriptor$$Lambda$lambda$toString$0$1::class$ = nullptr;
 
-$FieldInfo _ModuleDescriptor_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ModuleDescriptor, $assertionsDisabled)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ModuleDescriptor, name$)},
-	{"version", "Ljava/lang/module/ModuleDescriptor$Version;", nullptr, $PRIVATE | $FINAL, $field(ModuleDescriptor, version$)},
-	{"rawVersionString", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ModuleDescriptor, rawVersionString)},
-	{"modifiers", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Modifier;>;", $PRIVATE | $FINAL, $field(ModuleDescriptor, modifiers$)},
-	{"open", "Z", nullptr, $PRIVATE | $FINAL, $field(ModuleDescriptor, open)},
-	{"automatic", "Z", nullptr, $PRIVATE | $FINAL, $field(ModuleDescriptor, automatic)},
-	{"requires", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires;>;", $PRIVATE | $FINAL, $field(ModuleDescriptor, requires$)},
-	{"exports", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Exports;>;", $PRIVATE | $FINAL, $field(ModuleDescriptor, exports$)},
-	{"opens", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Opens;>;", $PRIVATE | $FINAL, $field(ModuleDescriptor, opens$)},
-	{"uses", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(ModuleDescriptor, uses$)},
-	{"provides", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Provides;>;", $PRIVATE | $FINAL, $field(ModuleDescriptor, provides$)},
-	{"packages", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(ModuleDescriptor, packages$)},
-	{"mainClass", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ModuleDescriptor, mainClass$)},
-	{"hash", "I", nullptr, $PRIVATE | $TRANSIENT, $field(ModuleDescriptor, hash)},
-	{}
-};
-
-$MethodInfo _ModuleDescriptor_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Ljava/lang/String;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Modifier;>;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires;>;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Exports;>;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Opens;>;Ljava/util/Set<Ljava/lang/String;>;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Provides;>;Ljava/util/Set<Ljava/lang/String;>;Ljava/lang/String;)V", $PRIVATE, $method(ModuleDescriptor, init$, void, $String*, $ModuleDescriptor$Version*, $String*, $Set*, $Set*, $Set*, $Set*, $Set*, $Set*, $Set*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/lang/String;IZ)V", "(Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Modifier;>;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires;>;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Exports;>;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Opens;>;Ljava/util/Set<Ljava/lang/String;>;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Provides;>;Ljava/util/Set<Ljava/lang/String;>;Ljava/lang/String;IZ)V", 0, $method(ModuleDescriptor, init$, void, $String*, $ModuleDescriptor$Version*, $Set*, $Set*, $Set*, $Set*, $Set*, $Set*, $Set*, $String*, int32_t, bool)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", "<T:Ljava/lang/Object;:Ljava/lang/Comparable<-TT;>;>(TT;TT;)I", $PRIVATE | $STATIC, $staticMethod(ModuleDescriptor, compare, int32_t, Object$*, Object$*)},
-	{"compare", "(Ljava/util/Set;Ljava/util/Set;)I", "<T:Ljava/lang/Object;:Ljava/lang/Comparable<-TT;>;>(Ljava/util/Set<TT;>;Ljava/util/Set<TT;>;)I", $PRIVATE | $STATIC, $staticMethod(ModuleDescriptor, compare, int32_t, $Set*, $Set*)},
-	{"compareTo", "(Ljava/lang/module/ModuleDescriptor;)I", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor, compareTo, int32_t, ModuleDescriptor*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ModuleDescriptor, compareTo, int32_t, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor, equals, bool, Object$*)},
-	{"exports", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Exports;>;", $PUBLIC, $virtualMethod(ModuleDescriptor, exports, $Set*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor, hashCode, int32_t)},
-	{"isAutomatic", "()Z", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor, isAutomatic, bool)},
-	{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor, isOpen, bool)},
-	{"lambda$toString$0", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleDescriptor, lambda$toString$0, $String*, Object$*)},
-	{"mainClass", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ModuleDescriptor, mainClass, $Optional*)},
-	{"modifiers", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Modifier;>;", $PUBLIC, $virtualMethod(ModuleDescriptor, modifiers, $Set*)},
-	{"modsValue", "(Ljava/util/Set;)J", "<E:Ljava/lang/Enum<TE;>;>(Ljava/util/Set<TE;>;)J", $PRIVATE | $STATIC, $staticMethod(ModuleDescriptor, modsValue, int64_t, $Set*)},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor, name, $String*)},
-	{"newAutomaticModule", "(Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor, newAutomaticModule, $ModuleDescriptor$Builder*, $String*)},
-	{"newModule", "(Ljava/lang/String;Ljava/util/Set;)Ljava/lang/module/ModuleDescriptor$Builder;", "(Ljava/lang/String;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Modifier;>;)Ljava/lang/module/ModuleDescriptor$Builder;", $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor, newModule, $ModuleDescriptor$Builder*, $String*, $Set*)},
-	{"newModule", "(Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor, newModule, $ModuleDescriptor$Builder*, $String*)},
-	{"newOpenModule", "(Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor, newOpenModule, $ModuleDescriptor$Builder*, $String*)},
-	{"opens", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Opens;>;", $PUBLIC, $virtualMethod(ModuleDescriptor, opens, $Set*)},
-	{"packageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ModuleDescriptor, packageName, $String*, $String*)},
-	{"packages", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ModuleDescriptor, packages, $Set*)},
-	{"provides", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Provides;>;", $PUBLIC, $virtualMethod(ModuleDescriptor, provides, $Set*)},
-	{"rawVersion", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ModuleDescriptor, rawVersion, $Optional*)},
-	{"read", "(Ljava/io/InputStream;Ljava/util/function/Supplier;)Ljava/lang/module/ModuleDescriptor;", "(Ljava/io/InputStream;Ljava/util/function/Supplier<Ljava/util/Set<Ljava/lang/String;>;>;)Ljava/lang/module/ModuleDescriptor;", $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor, read, ModuleDescriptor*, $InputStream*, $Supplier*), "java.io.IOException"},
-	{"read", "(Ljava/io/InputStream;)Ljava/lang/module/ModuleDescriptor;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor, read, ModuleDescriptor*, $InputStream*), "java.io.IOException"},
-	{"read", "(Ljava/nio/ByteBuffer;Ljava/util/function/Supplier;)Ljava/lang/module/ModuleDescriptor;", "(Ljava/nio/ByteBuffer;Ljava/util/function/Supplier<Ljava/util/Set<Ljava/lang/String;>;>;)Ljava/lang/module/ModuleDescriptor;", $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor, read, ModuleDescriptor*, $ByteBuffer*, $Supplier*)},
-	{"read", "(Ljava/nio/ByteBuffer;)Ljava/lang/module/ModuleDescriptor;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor, read, ModuleDescriptor*, $ByteBuffer*)},
-	{"requires", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires;>;", $PUBLIC, $virtualMethod(ModuleDescriptor, requires, $Set*)},
-	{"toNameAndVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor, toNameAndVersion, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor, toString, $String*)},
-	{"toString", "(Ljava/util/Set;Ljava/lang/String;)Ljava/lang/String;", "<M:Ljava/lang/Object;>(Ljava/util/Set<TM;>;Ljava/lang/String;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(ModuleDescriptor, toString, $String*, $Set*, $String*)},
-	{"uses", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ModuleDescriptor, uses, $Set*)},
-	{"version", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/module/ModuleDescriptor$Version;>;", $PUBLIC, $virtualMethod(ModuleDescriptor, version, $Optional*)},
-	{}
-};
-
-$InnerClassInfo _ModuleDescriptor_InnerClassesInfo_[] = {
-	{"java.lang.module.ModuleDescriptor$Builder", "java.lang.module.ModuleDescriptor", "Builder", $PUBLIC | $STATIC | $FINAL},
-	{"java.lang.module.ModuleDescriptor$Version", "java.lang.module.ModuleDescriptor", "Version", $PUBLIC | $STATIC | $FINAL},
-	{"java.lang.module.ModuleDescriptor$Provides", "java.lang.module.ModuleDescriptor", "Provides", $PUBLIC | $STATIC | $FINAL},
-	{"java.lang.module.ModuleDescriptor$Opens", "java.lang.module.ModuleDescriptor", "Opens", $PUBLIC | $STATIC | $FINAL},
-	{"java.lang.module.ModuleDescriptor$Exports", "java.lang.module.ModuleDescriptor", "Exports", $PUBLIC | $STATIC | $FINAL},
-	{"java.lang.module.ModuleDescriptor$Requires", "java.lang.module.ModuleDescriptor", "Requires", $PUBLIC | $STATIC | $FINAL},
-	{"java.lang.module.ModuleDescriptor$Modifier", "java.lang.module.ModuleDescriptor", "Modifier", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"java.lang.module.ModuleDescriptor$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ModuleDescriptor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.module.ModuleDescriptor",
-	"java.lang.Object",
-	"java.lang.Comparable",
-	_ModuleDescriptor_FieldInfo_,
-	_ModuleDescriptor_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Comparable<Ljava/lang/module/ModuleDescriptor;>;",
-	nullptr,
-	_ModuleDescriptor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.module.ModuleDescriptor$Builder,java.lang.module.ModuleDescriptor$Version,java.lang.module.ModuleDescriptor$Provides,java.lang.module.ModuleDescriptor$Opens,java.lang.module.ModuleDescriptor$Opens$Modifier,java.lang.module.ModuleDescriptor$Exports,java.lang.module.ModuleDescriptor$Exports$Modifier,java.lang.module.ModuleDescriptor$Requires,java.lang.module.ModuleDescriptor$Requires$Modifier,java.lang.module.ModuleDescriptor$Modifier,java.lang.module.ModuleDescriptor$1"
-};
-
-$Object* allocate$ModuleDescriptor($Class* clazz) {
-	return $of($alloc(ModuleDescriptor));
-}
-
 bool ModuleDescriptor::$assertionsDisabled = false;
 
 void ModuleDescriptor::init$($String* name, $ModuleDescriptor$Version* version, $String* rawVersionString, $Set* modifiers, $Set* requires, $Set* exports, $Set* opens, $Set* uses, $Set* provides, $Set* packages, $String* mainClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!ModuleDescriptor::$assertionsDisabled && !(version == nullptr || rawVersionString == nullptr)) {
 		$throwNew($AssertionError);
 	}
@@ -252,7 +151,7 @@ void ModuleDescriptor::init$($String* name, $ModuleDescriptor$Version* version, 
 	this->automatic = modifiers->contains($ModuleDescriptor$Modifier::AUTOMATIC);
 	bool var$0 = !ModuleDescriptor::$assertionsDisabled;
 	if (var$0) {
-		int64_t var$1 = $nc($($nc($($nc($($nc(requires)->stream()))->map(static_cast<$Function*>($$new(ModuleDescriptor$$Lambda$name)))))->distinct()))->count();
+		int64_t var$1 = $$nc($$nc($$nc($nc(requires)->stream())->map($$new(ModuleDescriptor$$Lambda$name)))->distinct())->count();
 		var$0 = !(var$1 == requires->size());
 	}
 	if (var$0) {
@@ -327,7 +226,7 @@ $Optional* ModuleDescriptor::version() {
 
 $Optional* ModuleDescriptor::rawVersion() {
 	if (this->version$ != nullptr) {
-		return $Optional::of($($nc(this->version$)->toString()));
+		return $Optional::of($(this->version$->toString()));
 	} else {
 		return $Optional::ofNullable(this->rawVersionString);
 	}
@@ -350,53 +249,53 @@ $Set* ModuleDescriptor::packages() {
 }
 
 int32_t ModuleDescriptor::compareTo(ModuleDescriptor* that) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this == that) {
 		return 0;
 	}
-	int32_t c = $nc($(this->name()))->compareTo($($nc(that)->name()));
+	int32_t c = $$nc(this->name())->compareTo($($nc(that)->name()));
 	if (c != 0) {
 		return c;
 	}
-	c = compare($of(this->version$), $of($nc(that)->version$));
+	c = compare(this->version$, that->version$);
 	if (c != 0) {
 		return c;
 	}
-	c = compare($of(this->rawVersionString), $of($nc(that)->rawVersionString));
+	c = compare(this->rawVersionString, that->rawVersionString);
 	if (c != 0) {
 		return c;
 	}
 	int64_t v1 = modsValue($(this->modifiers()));
-	int64_t v2 = modsValue($($nc(that)->modifiers()));
+	int64_t v2 = modsValue($(that->modifiers()));
 	c = $Long::compare(v1, v2);
 	if (c != 0) {
 		return c;
 	}
-	c = compare(this->requires$, $nc(that)->requires$);
+	c = compare(this->requires$, that->requires$);
 	if (c != 0) {
 		return c;
 	}
-	c = compare(this->packages$, $nc(that)->packages$);
+	c = compare(this->packages$, that->packages$);
 	if (c != 0) {
 		return c;
 	}
-	c = compare(this->exports$, $nc(that)->exports$);
+	c = compare(this->exports$, that->exports$);
 	if (c != 0) {
 		return c;
 	}
-	c = compare(this->opens$, $nc(that)->opens$);
+	c = compare(this->opens$, that->opens$);
 	if (c != 0) {
 		return c;
 	}
-	c = compare(this->uses$, $nc(that)->uses$);
+	c = compare(this->uses$, that->uses$);
 	if (c != 0) {
 		return c;
 	}
-	c = compare(this->provides$, $nc(that)->provides$);
+	c = compare(this->provides$, that->provides$);
 	if (c != 0) {
 		return c;
 	}
-	c = compare($of(this->mainClass$), $of($nc(that)->mainClass$));
+	c = compare(this->mainClass$, that->mainClass$);
 	if (c != 0) {
 		return c;
 	}
@@ -413,19 +312,19 @@ bool ModuleDescriptor::equals(Object$* ob) {
 		$assign(that, $cast(ModuleDescriptor, ob));
 		var$1 = true;
 	}
-	bool var$0 = (var$1);
+	bool var$0 = var$1;
 	if (var$0) {
 		bool var$11 = $nc(this->name$)->equals($nc(that)->name$);
-		bool var$10 = var$11 && $nc(this->modifiers$)->equals($nc(that)->modifiers$);
-		bool var$9 = var$10 && $nc(this->requires$)->equals($nc(that)->requires$);
-		bool var$8 = var$9 && $Objects::equals(this->packages$, $nc(that)->packages$);
-		bool var$7 = var$8 && $nc(this->exports$)->equals($nc(that)->exports$);
-		bool var$6 = var$7 && $nc(this->opens$)->equals($nc(that)->opens$);
-		bool var$5 = var$6 && $nc(this->uses$)->equals($nc(that)->uses$);
-		bool var$4 = var$5 && $nc(this->provides$)->equals($nc(that)->provides$);
-		bool var$3 = var$4 && $Objects::equals(this->version$, $nc(that)->version$);
-		bool var$2 = var$3 && $Objects::equals(this->rawVersionString, $nc(that)->rawVersionString);
-		var$0 = (var$2 && $Objects::equals(this->mainClass$, $nc(that)->mainClass$));
+		bool var$10 = var$11 && $nc(this->modifiers$)->equals(that->modifiers$);
+		bool var$9 = var$10 && $nc(this->requires$)->equals(that->requires$);
+		bool var$8 = var$9 && $Objects::equals(this->packages$, that->packages$);
+		bool var$7 = var$8 && $nc(this->exports$)->equals(that->exports$);
+		bool var$6 = var$7 && $nc(this->opens$)->equals(that->opens$);
+		bool var$5 = var$6 && $nc(this->uses$)->equals(that->uses$);
+		bool var$4 = var$5 && $nc(this->provides$)->equals(that->provides$);
+		bool var$3 = var$4 && $Objects::equals(this->version$, that->version$);
+		bool var$2 = var$3 && $Objects::equals(this->rawVersionString, that->rawVersionString);
+		var$0 = var$2 && $Objects::equals(this->mainClass$, that->mainClass$);
 	}
 	return var$0;
 }
@@ -453,26 +352,26 @@ int32_t ModuleDescriptor::hashCode() {
 }
 
 $String* ModuleDescriptor::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	if (isOpen()) {
 		sb->append("open "_s);
 	}
 	sb->append("module { name: "_s)->append($(toNameAndVersion()));
 	if (!$nc(this->requires$)->isEmpty()) {
-		sb->append(", "_s)->append($of(this->requires$));
+		sb->append(", "_s)->append(this->requires$);
 	}
 	if (!$nc(this->uses$)->isEmpty()) {
-		sb->append(", uses: "_s)->append($of(this->uses$));
+		sb->append(", uses: "_s)->append(this->uses$);
 	}
 	if (!$nc(this->exports$)->isEmpty()) {
-		sb->append(", exports: "_s)->append($of(this->exports$));
+		sb->append(", exports: "_s)->append(this->exports$);
 	}
 	if (!$nc(this->opens$)->isEmpty()) {
-		sb->append(", opens: "_s)->append($of(this->opens$));
+		sb->append(", opens: "_s)->append(this->opens$);
 	}
 	if (!$nc(this->provides$)->isEmpty()) {
-		sb->append(", provides: "_s)->append($of(this->provides$));
+		sb->append(", provides: "_s)->append(this->provides$);
 	}
 	sb->append(" }"_s);
 	return sb->toString();
@@ -480,7 +379,7 @@ $String* ModuleDescriptor::toString() {
 
 $ModuleDescriptor$Builder* ModuleDescriptor::newModule($String* name, $Set* ms) {
 	$init(ModuleDescriptor);
-	$var($Set, mods, $new($HashSet, static_cast<$Collection*>(ms)));
+	$var($Set, mods, $new($HashSet, ms));
 	$init($ModuleDescriptor$Modifier);
 	bool var$0 = mods->contains($ModuleDescriptor$Modifier::AUTOMATIC);
 	if (var$0 && mods->size() > 1) {
@@ -497,52 +396,52 @@ $ModuleDescriptor$Builder* ModuleDescriptor::newModule($String* name) {
 $ModuleDescriptor$Builder* ModuleDescriptor::newOpenModule($String* name) {
 	$init(ModuleDescriptor);
 	$init($ModuleDescriptor$Modifier);
-	return $new($ModuleDescriptor$Builder, name, true, $($Set::of($of($ModuleDescriptor$Modifier::OPEN))));
+	return $new($ModuleDescriptor$Builder, name, true, $($Set::of($ModuleDescriptor$Modifier::OPEN)));
 }
 
 $ModuleDescriptor$Builder* ModuleDescriptor::newAutomaticModule($String* name) {
 	$init(ModuleDescriptor);
 	$init($ModuleDescriptor$Modifier);
-	return $new($ModuleDescriptor$Builder, name, true, $($Set::of($of($ModuleDescriptor$Modifier::AUTOMATIC))));
+	return $new($ModuleDescriptor$Builder, name, true, $($Set::of($ModuleDescriptor$Modifier::AUTOMATIC)));
 }
 
 ModuleDescriptor* ModuleDescriptor::read($InputStream* in, $Supplier* packageFinder) {
 	$init(ModuleDescriptor);
-	return $nc($($ModuleInfo::read(in, $cast($Supplier, $Objects::requireNonNull(packageFinder)))))->descriptor();
+	return $$nc($ModuleInfo::read(in, $cast($Supplier, $Objects::requireNonNull(packageFinder))))->descriptor();
 }
 
 ModuleDescriptor* ModuleDescriptor::read($InputStream* in) {
 	$init(ModuleDescriptor);
-	return $nc($($ModuleInfo::read(in, ($Supplier*)nullptr)))->descriptor();
+	return $$nc($ModuleInfo::read(in, nullptr))->descriptor();
 }
 
 ModuleDescriptor* ModuleDescriptor::read($ByteBuffer* bb, $Supplier* packageFinder) {
 	$init(ModuleDescriptor);
-	return $nc($($ModuleInfo::read(bb, $cast($Supplier, $Objects::requireNonNull(packageFinder)))))->descriptor();
+	return $$nc($ModuleInfo::read(bb, $cast($Supplier, $Objects::requireNonNull(packageFinder))))->descriptor();
 }
 
 ModuleDescriptor* ModuleDescriptor::read($ByteBuffer* bb) {
 	$init(ModuleDescriptor);
-	return $nc($($ModuleInfo::read(bb, ($Supplier*)nullptr)))->descriptor();
+	return $$nc($ModuleInfo::read(bb, nullptr))->descriptor();
 }
 
 $String* ModuleDescriptor::packageName($String* cn) {
 	$init(ModuleDescriptor);
-	int32_t index = $nc(cn)->lastIndexOf((int32_t)u'.');
+	int32_t index = $nc(cn)->lastIndexOf(u'.');
 	return (index == -1) ? ""_s : cn->substring(0, index);
 }
 
 $String* ModuleDescriptor::toString($Set* mods, $String* what) {
 	$init(ModuleDescriptor);
-	$useLocalCurrentObjectStackCache();
-	$var($Stream, var$0, $nc($($nc(mods)->stream()))->map(static_cast<$Function*>($$new(ModuleDescriptor$$Lambda$lambda$toString$0$1))));
-	return $cast($String, $nc(($($Stream::concat(var$0, $($Stream::of($of(what)))))))->collect($($Collectors::joining(" "_s))));
+	$useLocalObjectStack();
+	$var($Stream, var$0, $$nc($nc(mods)->stream())->map($$new(ModuleDescriptor$$Lambda$lambda$toString$0$1)));
+	return $cast($String, ($$nc($Stream::concat(var$0, $($Stream::of(what)))))->collect($($Collectors::joining(" "_s))));
 }
 
 int32_t ModuleDescriptor::compare(Object$* obj1, Object$* obj2) {
 	$init(ModuleDescriptor);
 	if (obj1 != nullptr) {
-		return (obj2 != nullptr) ? $nc(($cast($Comparable, obj1)))->compareTo(obj2) : 1;
+		return (obj2 != nullptr) ? $cast($Comparable, obj1)->compareTo(obj2) : 1;
 	} else {
 		return (obj2 == nullptr) ? 0 : -1;
 	}
@@ -550,17 +449,17 @@ int32_t ModuleDescriptor::compare(Object$* obj1, Object$* obj2) {
 
 int32_t ModuleDescriptor::compare($Set* s1, $Set* s2) {
 	$init(ModuleDescriptor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, a1, $nc(s1)->toArray());
 	$var($ObjectArray, a2, $nc(s2)->toArray());
 	$Arrays::sort(a1);
 	$Arrays::sort(a2);
-	return $Arrays::compare($fcast($ComparableArray, a1), $fcast($ComparableArray, a2));
+	return $Arrays::compare($cast($ComparableArray, a1), $cast($ComparableArray, a2));
 }
 
 int64_t ModuleDescriptor::modsValue($Set* set) {
 	$init(ModuleDescriptor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t value = 0;
 	{
 		$var($Iterator, i$, $nc(set)->iterator());
@@ -581,10 +480,10 @@ int32_t ModuleDescriptor::compareTo(Object$* that) {
 $String* ModuleDescriptor::lambda$toString$0(Object$* e) {
 	$init(ModuleDescriptor);
 	$init($Locale);
-	return $nc($($nc($of(e))->toString()))->toLowerCase($Locale::ROOT);
+	return $$nc($nc($of(e))->toString())->toLowerCase($Locale::ROOT);
 }
 
-void clinit$ModuleDescriptor($Class* class$) {
+void ModuleDescriptor::clinit$($Class* clazz) {
 	ModuleDescriptor::$assertionsDisabled = !ModuleDescriptor::class$->desiredAssertionStatus();
 	{
 		$SharedSecrets::setJavaLangModuleAccess($$new($ModuleDescriptor$1));
@@ -596,14 +495,97 @@ ModuleDescriptor::ModuleDescriptor() {
 
 $Class* ModuleDescriptor::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ModuleDescriptor$$Lambda$name::classInfo$.name)) {
+		if (name->equals("java.lang.module.ModuleDescriptor$$Lambda$name")) {
 			return ModuleDescriptor$$Lambda$name::load$(name, initialize);
 		}
-		if (name->equals(ModuleDescriptor$$Lambda$lambda$toString$0$1::classInfo$.name)) {
+		if (name->equals("java.lang.module.ModuleDescriptor$$Lambda$lambda$toString$0$1")) {
 			return ModuleDescriptor$$Lambda$lambda$toString$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(ModuleDescriptor, name, initialize, &_ModuleDescriptor_ClassInfo_, clinit$ModuleDescriptor, allocate$ModuleDescriptor);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ModuleDescriptor, $assertionsDisabled)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ModuleDescriptor, name$)},
+		{"version", "Ljava/lang/module/ModuleDescriptor$Version;", nullptr, $PRIVATE | $FINAL, $field(ModuleDescriptor, version$)},
+		{"rawVersionString", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ModuleDescriptor, rawVersionString)},
+		{"modifiers", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Modifier;>;", $PRIVATE | $FINAL, $field(ModuleDescriptor, modifiers$)},
+		{"open", "Z", nullptr, $PRIVATE | $FINAL, $field(ModuleDescriptor, open)},
+		{"automatic", "Z", nullptr, $PRIVATE | $FINAL, $field(ModuleDescriptor, automatic)},
+		{"requires", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires;>;", $PRIVATE | $FINAL, $field(ModuleDescriptor, requires$)},
+		{"exports", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Exports;>;", $PRIVATE | $FINAL, $field(ModuleDescriptor, exports$)},
+		{"opens", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Opens;>;", $PRIVATE | $FINAL, $field(ModuleDescriptor, opens$)},
+		{"uses", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(ModuleDescriptor, uses$)},
+		{"provides", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Provides;>;", $PRIVATE | $FINAL, $field(ModuleDescriptor, provides$)},
+		{"packages", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(ModuleDescriptor, packages$)},
+		{"mainClass", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ModuleDescriptor, mainClass$)},
+		{"hash", "I", nullptr, $PRIVATE | $TRANSIENT, $field(ModuleDescriptor, hash)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Ljava/lang/String;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Ljava/lang/String;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Modifier;>;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires;>;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Exports;>;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Opens;>;Ljava/util/Set<Ljava/lang/String;>;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Provides;>;Ljava/util/Set<Ljava/lang/String;>;Ljava/lang/String;)V", $PRIVATE, $method(ModuleDescriptor, init$, void, $String*, $ModuleDescriptor$Version*, $String*, $Set*, $Set*, $Set*, $Set*, $Set*, $Set*, $Set*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/lang/String;IZ)V", "(Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Modifier;>;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires;>;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Exports;>;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Opens;>;Ljava/util/Set<Ljava/lang/String;>;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Provides;>;Ljava/util/Set<Ljava/lang/String;>;Ljava/lang/String;IZ)V", 0, $method(ModuleDescriptor, init$, void, $String*, $ModuleDescriptor$Version*, $Set*, $Set*, $Set*, $Set*, $Set*, $Set*, $Set*, $String*, int32_t, bool)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", "<T:Ljava/lang/Object;:Ljava/lang/Comparable<-TT;>;>(TT;TT;)I", $PRIVATE | $STATIC, $staticMethod(ModuleDescriptor, compare, int32_t, Object$*, Object$*)},
+		{"compare", "(Ljava/util/Set;Ljava/util/Set;)I", "<T:Ljava/lang/Object;:Ljava/lang/Comparable<-TT;>;>(Ljava/util/Set<TT;>;Ljava/util/Set<TT;>;)I", $PRIVATE | $STATIC, $staticMethod(ModuleDescriptor, compare, int32_t, $Set*, $Set*)},
+		{"compareTo", "(Ljava/lang/module/ModuleDescriptor;)I", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor, compareTo, int32_t, ModuleDescriptor*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ModuleDescriptor, compareTo, int32_t, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor, equals, bool, Object$*)},
+		{"exports", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Exports;>;", $PUBLIC, $virtualMethod(ModuleDescriptor, exports, $Set*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor, hashCode, int32_t)},
+		{"isAutomatic", "()Z", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor, isAutomatic, bool)},
+		{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor, isOpen, bool)},
+		{"lambda$toString$0", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleDescriptor, lambda$toString$0, $String*, Object$*)},
+		{"mainClass", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ModuleDescriptor, mainClass, $Optional*)},
+		{"modifiers", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Modifier;>;", $PUBLIC, $virtualMethod(ModuleDescriptor, modifiers, $Set*)},
+		{"modsValue", "(Ljava/util/Set;)J", "<E:Ljava/lang/Enum<TE;>;>(Ljava/util/Set<TE;>;)J", $PRIVATE | $STATIC, $staticMethod(ModuleDescriptor, modsValue, int64_t, $Set*)},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor, name, $String*)},
+		{"newAutomaticModule", "(Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor, newAutomaticModule, $ModuleDescriptor$Builder*, $String*)},
+		{"newModule", "(Ljava/lang/String;Ljava/util/Set;)Ljava/lang/module/ModuleDescriptor$Builder;", "(Ljava/lang/String;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Modifier;>;)Ljava/lang/module/ModuleDescriptor$Builder;", $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor, newModule, $ModuleDescriptor$Builder*, $String*, $Set*)},
+		{"newModule", "(Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor, newModule, $ModuleDescriptor$Builder*, $String*)},
+		{"newOpenModule", "(Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Builder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor, newOpenModule, $ModuleDescriptor$Builder*, $String*)},
+		{"opens", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Opens;>;", $PUBLIC, $virtualMethod(ModuleDescriptor, opens, $Set*)},
+		{"packageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ModuleDescriptor, packageName, $String*, $String*)},
+		{"packages", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ModuleDescriptor, packages, $Set*)},
+		{"provides", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Provides;>;", $PUBLIC, $virtualMethod(ModuleDescriptor, provides, $Set*)},
+		{"rawVersion", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ModuleDescriptor, rawVersion, $Optional*)},
+		{"read", "(Ljava/io/InputStream;Ljava/util/function/Supplier;)Ljava/lang/module/ModuleDescriptor;", "(Ljava/io/InputStream;Ljava/util/function/Supplier<Ljava/util/Set<Ljava/lang/String;>;>;)Ljava/lang/module/ModuleDescriptor;", $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor, read, ModuleDescriptor*, $InputStream*, $Supplier*), "java.io.IOException"},
+		{"read", "(Ljava/io/InputStream;)Ljava/lang/module/ModuleDescriptor;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor, read, ModuleDescriptor*, $InputStream*), "java.io.IOException"},
+		{"read", "(Ljava/nio/ByteBuffer;Ljava/util/function/Supplier;)Ljava/lang/module/ModuleDescriptor;", "(Ljava/nio/ByteBuffer;Ljava/util/function/Supplier<Ljava/util/Set<Ljava/lang/String;>;>;)Ljava/lang/module/ModuleDescriptor;", $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor, read, ModuleDescriptor*, $ByteBuffer*, $Supplier*)},
+		{"read", "(Ljava/nio/ByteBuffer;)Ljava/lang/module/ModuleDescriptor;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleDescriptor, read, ModuleDescriptor*, $ByteBuffer*)},
+		{"requires", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires;>;", $PUBLIC, $virtualMethod(ModuleDescriptor, requires, $Set*)},
+		{"toNameAndVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor, toNameAndVersion, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleDescriptor, toString, $String*)},
+		{"toString", "(Ljava/util/Set;Ljava/lang/String;)Ljava/lang/String;", "<M:Ljava/lang/Object;>(Ljava/util/Set<TM;>;Ljava/lang/String;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(ModuleDescriptor, toString, $String*, $Set*, $String*)},
+		{"uses", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ModuleDescriptor, uses, $Set*)},
+		{"version", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/module/ModuleDescriptor$Version;>;", $PUBLIC, $virtualMethod(ModuleDescriptor, version, $Optional*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.module.ModuleDescriptor$Builder", "java.lang.module.ModuleDescriptor", "Builder", $PUBLIC | $STATIC | $FINAL},
+		{"java.lang.module.ModuleDescriptor$Version", "java.lang.module.ModuleDescriptor", "Version", $PUBLIC | $STATIC | $FINAL},
+		{"java.lang.module.ModuleDescriptor$Provides", "java.lang.module.ModuleDescriptor", "Provides", $PUBLIC | $STATIC | $FINAL},
+		{"java.lang.module.ModuleDescriptor$Opens", "java.lang.module.ModuleDescriptor", "Opens", $PUBLIC | $STATIC | $FINAL},
+		{"java.lang.module.ModuleDescriptor$Exports", "java.lang.module.ModuleDescriptor", "Exports", $PUBLIC | $STATIC | $FINAL},
+		{"java.lang.module.ModuleDescriptor$Requires", "java.lang.module.ModuleDescriptor", "Requires", $PUBLIC | $STATIC | $FINAL},
+		{"java.lang.module.ModuleDescriptor$Modifier", "java.lang.module.ModuleDescriptor", "Modifier", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"java.lang.module.ModuleDescriptor$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.module.ModuleDescriptor",
+		"java.lang.Object",
+		"java.lang.Comparable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Comparable<Ljava/lang/module/ModuleDescriptor;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.module.ModuleDescriptor$Builder,java.lang.module.ModuleDescriptor$Version,java.lang.module.ModuleDescriptor$Provides,java.lang.module.ModuleDescriptor$Opens,java.lang.module.ModuleDescriptor$Opens$Modifier,java.lang.module.ModuleDescriptor$Exports,java.lang.module.ModuleDescriptor$Exports$Modifier,java.lang.module.ModuleDescriptor$Requires,java.lang.module.ModuleDescriptor$Requires$Modifier,java.lang.module.ModuleDescriptor$Modifier,java.lang.module.ModuleDescriptor$1"
+	};
+	$loadClass(ModuleDescriptor, name, initialize, &classInfo$$, ModuleDescriptor::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleDescriptor);
+	});
 	return class$;
 }
 

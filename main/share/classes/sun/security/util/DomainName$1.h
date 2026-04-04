@@ -13,6 +13,7 @@ class DomainName$1 : public ::java::lang::Object {
 	$class(DomainName$1, 0, ::java::lang::Object)
 public:
 	DomainName$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$security$util$DomainName$Rule$Type;
 };
 

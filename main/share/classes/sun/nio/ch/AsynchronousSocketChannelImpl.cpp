@@ -1,5 +1,4 @@
 #include <sun/nio/ch/AsynchronousSocketChannelImpl.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
 #include <java/lang/IllegalStateException.h>
@@ -74,7 +73,6 @@ using $SocketOption = ::java::net::SocketOption;
 using $StandardSocketOptions = ::java::net::StandardSocketOptions;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $AlreadyBoundException = ::java::nio::channels::AlreadyBoundException;
-using $AsynchronousChannel = ::java::nio::channels::AsynchronousChannel;
 using $AsynchronousSocketChannel = ::java::nio::channels::AsynchronousSocketChannel;
 using $ClosedChannelException = ::java::nio::channels::ClosedChannelException;
 using $CompletionHandler = ::java::nio::channels::CompletionHandler;
@@ -86,8 +84,6 @@ using $WritePendingException = ::java::nio::channels::WritePendingException;
 using $Set = ::java::util::Set;
 using $Future = ::java::util::concurrent::Future;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
-using $Lock = ::java::util::concurrent::locks::Lock;
-using $ReadWriteLock = ::java::util::concurrent::locks::ReadWriteLock;
 using $ReentrantReadWriteLock = ::java::util::concurrent::locks::ReentrantReadWriteLock;
 using $NetHooks = ::sun::net::NetHooks;
 using $AsynchronousChannelGroupImpl = ::sun::nio::ch::AsynchronousChannelGroupImpl;
@@ -100,98 +96,6 @@ using $Util = ::sun::nio::ch::Util;
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _AsynchronousSocketChannelImpl_FieldInfo_[] = {
-	{"fd", "Ljava/io/FileDescriptor;", nullptr, $PROTECTED | $FINAL, $field(AsynchronousSocketChannelImpl, fd)},
-	{"stateLock", "Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $field(AsynchronousSocketChannelImpl, stateLock)},
-	{"localAddress", "Ljava/net/InetSocketAddress;", nullptr, $PROTECTED | $VOLATILE, $field(AsynchronousSocketChannelImpl, localAddress)},
-	{"remoteAddress", "Ljava/net/InetSocketAddress;", nullptr, $PROTECTED | $VOLATILE, $field(AsynchronousSocketChannelImpl, remoteAddress)},
-	{"ST_UNINITIALIZED", "I", nullptr, $STATIC | $FINAL, $constField(AsynchronousSocketChannelImpl, ST_UNINITIALIZED)},
-	{"ST_UNCONNECTED", "I", nullptr, $STATIC | $FINAL, $constField(AsynchronousSocketChannelImpl, ST_UNCONNECTED)},
-	{"ST_PENDING", "I", nullptr, $STATIC | $FINAL, $constField(AsynchronousSocketChannelImpl, ST_PENDING)},
-	{"ST_CONNECTED", "I", nullptr, $STATIC | $FINAL, $constField(AsynchronousSocketChannelImpl, ST_CONNECTED)},
-	{"state", "I", nullptr, $PROTECTED | $VOLATILE, $field(AsynchronousSocketChannelImpl, state)},
-	{"readLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(AsynchronousSocketChannelImpl, readLock)},
-	{"reading", "Z", nullptr, $PRIVATE, $field(AsynchronousSocketChannelImpl, reading)},
-	{"readShutdown", "Z", nullptr, $PRIVATE, $field(AsynchronousSocketChannelImpl, readShutdown)},
-	{"readKilled", "Z", nullptr, $PRIVATE, $field(AsynchronousSocketChannelImpl, readKilled)},
-	{"writeLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(AsynchronousSocketChannelImpl, writeLock)},
-	{"writing", "Z", nullptr, $PRIVATE, $field(AsynchronousSocketChannelImpl, writing)},
-	{"writeShutdown", "Z", nullptr, $PRIVATE, $field(AsynchronousSocketChannelImpl, writeShutdown)},
-	{"writeKilled", "Z", nullptr, $PRIVATE, $field(AsynchronousSocketChannelImpl, writeKilled)},
-	{"closeLock", "Ljava/util/concurrent/locks/ReadWriteLock;", nullptr, $PRIVATE | $FINAL, $field(AsynchronousSocketChannelImpl, closeLock)},
-	{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(AsynchronousSocketChannelImpl, closed)},
-	{"isReuseAddress", "Z", nullptr, $PRIVATE, $field(AsynchronousSocketChannelImpl, isReuseAddress)},
-	{}
-};
-
-$MethodInfo _AsynchronousSocketChannelImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/nio/ch/AsynchronousChannelGroupImpl;)V", nullptr, 0, $method(AsynchronousSocketChannelImpl, init$, void, $AsynchronousChannelGroupImpl*), "java.io.IOException"},
-	{"<init>", "(Lsun/nio/ch/AsynchronousChannelGroupImpl;Ljava/io/FileDescriptor;Ljava/net/InetSocketAddress;)V", nullptr, 0, $method(AsynchronousSocketChannelImpl, init$, void, $AsynchronousChannelGroupImpl*, $FileDescriptor*, $InetSocketAddress*), "java.io.IOException"},
-	{"begin", "()V", nullptr, $FINAL, $method(AsynchronousSocketChannelImpl, begin, void), "java.io.IOException"},
-	{"bind", "(Ljava/net/SocketAddress;)Ljava/nio/channels/AsynchronousSocketChannel;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, bind, $NetworkChannel*, $SocketAddress*), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, close, void), "java.io.IOException"},
-	{"connect", "(Ljava/net/SocketAddress;)Ljava/util/concurrent/Future;", "(Ljava/net/SocketAddress;)Ljava/util/concurrent/Future<Ljava/lang/Void;>;", $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, connect, $Future*, $SocketAddress*)},
-	{"connect", "(Ljava/net/SocketAddress;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", "<A:Ljava/lang/Object;>(Ljava/net/SocketAddress;TA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Void;-TA;>;)V", $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, connect, void, $SocketAddress*, Object$*, $CompletionHandler*)},
-	{"enableReading", "(Z)V", nullptr, $FINAL, $method(AsynchronousSocketChannelImpl, enableReading, void, bool)},
-	{"enableReading", "()V", nullptr, $FINAL, $method(AsynchronousSocketChannelImpl, enableReading, void)},
-	{"enableWriting", "(Z)V", nullptr, $FINAL, $method(AsynchronousSocketChannelImpl, enableWriting, void, bool)},
-	{"enableWriting", "()V", nullptr, $FINAL, $method(AsynchronousSocketChannelImpl, enableWriting, void)},
-	{"end", "()V", nullptr, $FINAL, $method(AsynchronousSocketChannelImpl, end, void)},
-	{"getLocalAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, getLocalAddress, $SocketAddress*), "java.io.IOException"},
-	{"getOption", "(Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;)TT;", $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, getOption, $Object*, $SocketOption*), "java.io.IOException"},
-	{"getRemoteAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, getRemoteAddress, $SocketAddress*), "java.io.IOException"},
-	{"implClose", "()V", nullptr, $ABSTRACT, $virtualMethod(AsynchronousSocketChannelImpl, implClose, void), "java.io.IOException"},
-	{"implConnect", "(Ljava/net/SocketAddress;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)Ljava/util/concurrent/Future;", "<A:Ljava/lang/Object;>(Ljava/net/SocketAddress;TA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Void;-TA;>;)Ljava/util/concurrent/Future<Ljava/lang/Void;>;", $ABSTRACT, $virtualMethod(AsynchronousSocketChannelImpl, implConnect, $Future*, $SocketAddress*, Object$*, $CompletionHandler*)},
-	{"implRead", "(ZLjava/nio/ByteBuffer;[Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)Ljava/util/concurrent/Future;", "<V:Ljava/lang/Number;A:Ljava/lang/Object;>(ZLjava/nio/ByteBuffer;[Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;TA;Ljava/nio/channels/CompletionHandler<TV;-TA;>;)Ljava/util/concurrent/Future<TV;>;", $ABSTRACT, $virtualMethod(AsynchronousSocketChannelImpl, implRead, $Future*, bool, $ByteBuffer*, $ByteBufferArray*, int64_t, $TimeUnit*, Object$*, $CompletionHandler*)},
-	{"implWrite", "(ZLjava/nio/ByteBuffer;[Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)Ljava/util/concurrent/Future;", "<V:Ljava/lang/Number;A:Ljava/lang/Object;>(ZLjava/nio/ByteBuffer;[Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;TA;Ljava/nio/channels/CompletionHandler<TV;-TA;>;)Ljava/util/concurrent/Future<TV;>;", $ABSTRACT, $virtualMethod(AsynchronousSocketChannelImpl, implWrite, $Future*, bool, $ByteBuffer*, $ByteBufferArray*, int64_t, $TimeUnit*, Object$*, $CompletionHandler*)},
-	{"isOpen", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, isOpen, bool)},
-	{"killConnect", "()V", nullptr, $FINAL, $method(AsynchronousSocketChannelImpl, killConnect, void)},
-	{"killReading", "()V", nullptr, $FINAL, $method(AsynchronousSocketChannelImpl, killReading, void)},
-	{"killWriting", "()V", nullptr, $FINAL, $method(AsynchronousSocketChannelImpl, killWriting, void)},
-	{"read", "(ZLjava/nio/ByteBuffer;[Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)Ljava/util/concurrent/Future;", "<V:Ljava/lang/Number;A:Ljava/lang/Object;>(ZLjava/nio/ByteBuffer;[Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;TA;Ljava/nio/channels/CompletionHandler<TV;-TA;>;)Ljava/util/concurrent/Future<TV;>;", $PRIVATE, $method(AsynchronousSocketChannelImpl, read, $Future*, bool, $ByteBuffer*, $ByteBufferArray*, int64_t, $TimeUnit*, Object$*, $CompletionHandler*)},
-	{"read", "(Ljava/nio/ByteBuffer;)Ljava/util/concurrent/Future;", "(Ljava/nio/ByteBuffer;)Ljava/util/concurrent/Future<Ljava/lang/Integer;>;", $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, read, $Future*, $ByteBuffer*)},
-	{"read", "(Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", "<A:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;TA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Integer;-TA;>;)V", $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, read, void, $ByteBuffer*, int64_t, $TimeUnit*, Object$*, $CompletionHandler*)},
-	{"read", "([Ljava/nio/ByteBuffer;IIJLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", "<A:Ljava/lang/Object;>([Ljava/nio/ByteBuffer;IIJLjava/util/concurrent/TimeUnit;TA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Long;-TA;>;)V", $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, read, void, $ByteBufferArray*, int32_t, int32_t, int64_t, $TimeUnit*, Object$*, $CompletionHandler*)},
-	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/AsynchronousSocketChannel;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)Ljava/nio/channels/AsynchronousSocketChannel;", $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, setOption, $NetworkChannel*, $SocketOption*, Object$*), "java.io.IOException"},
-	{"shutdownInput", "()Ljava/nio/channels/AsynchronousSocketChannel;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, shutdownInput, $AsynchronousSocketChannel*), "java.io.IOException"},
-	{"shutdownOutput", "()Ljava/nio/channels/AsynchronousSocketChannel;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, shutdownOutput, $AsynchronousSocketChannel*), "java.io.IOException"},
-	{"supportedOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, supportedOptions, $Set*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, toString, $String*)},
-	{"write", "(ZLjava/nio/ByteBuffer;[Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)Ljava/util/concurrent/Future;", "<V:Ljava/lang/Number;A:Ljava/lang/Object;>(ZLjava/nio/ByteBuffer;[Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;TA;Ljava/nio/channels/CompletionHandler<TV;-TA;>;)Ljava/util/concurrent/Future<TV;>;", $PRIVATE, $method(AsynchronousSocketChannelImpl, write, $Future*, bool, $ByteBuffer*, $ByteBufferArray*, int64_t, $TimeUnit*, Object$*, $CompletionHandler*)},
-	{"write", "(Ljava/nio/ByteBuffer;)Ljava/util/concurrent/Future;", "(Ljava/nio/ByteBuffer;)Ljava/util/concurrent/Future<Ljava/lang/Integer;>;", $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, write, $Future*, $ByteBuffer*)},
-	{"write", "(Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", "<A:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;TA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Integer;-TA;>;)V", $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, write, void, $ByteBuffer*, int64_t, $TimeUnit*, Object$*, $CompletionHandler*)},
-	{"write", "([Ljava/nio/ByteBuffer;IIJLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", "<A:Ljava/lang/Object;>([Ljava/nio/ByteBuffer;IIJLjava/util/concurrent/TimeUnit;TA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Long;-TA;>;)V", $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, write, void, $ByteBufferArray*, int32_t, int32_t, int64_t, $TimeUnit*, Object$*, $CompletionHandler*)},
-	{}
-};
-
-$InnerClassInfo _AsynchronousSocketChannelImpl_InnerClassesInfo_[] = {
-	{"sun.nio.ch.AsynchronousSocketChannelImpl$DefaultOptionsHolder", "sun.nio.ch.AsynchronousSocketChannelImpl", "DefaultOptionsHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AsynchronousSocketChannelImpl_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.nio.ch.AsynchronousSocketChannelImpl",
-	"java.nio.channels.AsynchronousSocketChannel",
-	"sun.nio.ch.Cancellable,sun.nio.ch.Groupable",
-	_AsynchronousSocketChannelImpl_FieldInfo_,
-	_AsynchronousSocketChannelImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AsynchronousSocketChannelImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.AsynchronousSocketChannelImpl$DefaultOptionsHolder"
-};
-
-$Object* allocate$AsynchronousSocketChannelImpl($Class* clazz) {
-	return $of($alloc(AsynchronousSocketChannelImpl));
-}
 
 int32_t AsynchronousSocketChannelImpl::hashCode() {
 	 return this->$AsynchronousSocketChannel::hashCode();
@@ -238,39 +142,37 @@ bool AsynchronousSocketChannelImpl::isOpen() {
 }
 
 void AsynchronousSocketChannelImpl::begin() {
-	$nc($($nc(this->closeLock)->readLock()))->lock();
+	$$nc($nc(this->closeLock)->readLock())->lock();
 	if (!isOpen()) {
 		$throwNew($ClosedChannelException);
 	}
 }
 
 void AsynchronousSocketChannelImpl::end() {
-	$nc($($nc(this->closeLock)->readLock()))->unlock();
+	$$nc($nc(this->closeLock)->readLock())->unlock();
 }
 
 void AsynchronousSocketChannelImpl::close() {
-	$useLocalCurrentObjectStackCache();
-	$nc($($nc(this->closeLock)->writeLock()))->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			if (this->closed) {
-				return$1 = true;
-				goto $finally;
-			}
-			this->closed = true;
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			$nc($($nc(this->closeLock)->writeLock()))->unlock();
+	$useLocalObjectStack();
+	$$nc($nc(this->closeLock)->writeLock())->lock();
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		if (this->closed) {
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return;
-		}
+		this->closed = true;
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		$$nc(this->closeLock->writeLock())->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 	implClose();
 }
@@ -330,7 +232,7 @@ void AsynchronousSocketChannelImpl::connect($SocketAddress* remote, Object$* att
 }
 
 $Future* AsynchronousSocketChannelImpl::read(bool isScatteringRead, $ByteBuffer* dst, $ByteBufferArray* dsts, int64_t timeout, $TimeUnit* unit, Object$* att, $CompletionHandler* handler) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isOpen()) {
 		$var($Throwable, e, $new($ClosedChannelException));
 		if (handler == nullptr) {
@@ -360,7 +262,7 @@ $Future* AsynchronousSocketChannelImpl::read(bool isScatteringRead, $ByteBuffer*
 	if (shutdown || !hasSpaceToRead) {
 		$var($Number, result, nullptr);
 		if (isScatteringRead) {
-			$assign(result, ((shutdown) ? $Long::valueOf((int64_t)-1) : $Long::valueOf((int64_t)0)));
+			$assign(result, (shutdown) ? $Long::valueOf(-1) : $Long::valueOf((int64_t)0));
 		} else {
 			$assign(result, $Integer::valueOf((shutdown) ? -1 : 0));
 		}
@@ -378,7 +280,7 @@ $Future* AsynchronousSocketChannelImpl::read($ByteBuffer* dst) {
 		$throwNew($IllegalArgumentException, "Read-only buffer"_s);
 	}
 	$init($TimeUnit);
-	return read(false, dst, ($ByteBufferArray*)nullptr, (int64_t)0, $TimeUnit::MILLISECONDS, ($Object*)nullptr, ($CompletionHandler*)nullptr);
+	return read(false, dst, nullptr, 0, $TimeUnit::MILLISECONDS, nullptr, nullptr);
 }
 
 void AsynchronousSocketChannelImpl::read($ByteBuffer* dst, int64_t timeout, $TimeUnit* unit, Object$* attachment, $CompletionHandler* handler) {
@@ -388,7 +290,7 @@ void AsynchronousSocketChannelImpl::read($ByteBuffer* dst, int64_t timeout, $Tim
 	if ($nc(dst)->isReadOnly()) {
 		$throwNew($IllegalArgumentException, "Read-only buffer"_s);
 	}
-	read(false, dst, ($ByteBufferArray*)nullptr, timeout, unit, attachment, handler);
+	read(false, dst, nullptr, timeout, unit, attachment, handler);
 }
 
 void AsynchronousSocketChannelImpl::read($ByteBufferArray* dsts, int32_t offset, int32_t length, int64_t timeout, $TimeUnit* unit, Object$* attachment, $CompletionHandler* handler) {
@@ -404,11 +306,11 @@ void AsynchronousSocketChannelImpl::read($ByteBufferArray* dsts, int32_t offset,
 			$throwNew($IllegalArgumentException, "Read-only buffer"_s);
 		}
 	}
-	read(true, ($ByteBuffer*)nullptr, bufs, timeout, unit, attachment, handler);
+	read(true, nullptr, bufs, timeout, unit, attachment, handler);
 }
 
 $Future* AsynchronousSocketChannelImpl::write(bool isGatheringWrite, $ByteBuffer* src, $ByteBufferArray* srcs, int64_t timeout, $TimeUnit* unit, Object$* att, $CompletionHandler* handler) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool hasDataToWrite = isGatheringWrite || $nc(src)->hasRemaining();
 	bool closed = false;
 	if (isOpen()) {
@@ -440,7 +342,7 @@ $Future* AsynchronousSocketChannelImpl::write(bool isGatheringWrite, $ByteBuffer
 		return nullptr;
 	}
 	if (!hasDataToWrite) {
-		$var($Number, result, (isGatheringWrite) ? static_cast<$Number*>($Long::valueOf((int64_t)0)) : static_cast<$Number*>($Integer::valueOf(0)));
+		$var($Number, result, (isGatheringWrite) ? $cast($Number, $Long::valueOf((int64_t)0)) : $cast($Number, $Integer::valueOf(0)));
 		if (handler == nullptr) {
 			return $CompletedFuture::withResult(result);
 		}
@@ -452,14 +354,14 @@ $Future* AsynchronousSocketChannelImpl::write(bool isGatheringWrite, $ByteBuffer
 
 $Future* AsynchronousSocketChannelImpl::write($ByteBuffer* src) {
 	$init($TimeUnit);
-	return write(false, src, ($ByteBufferArray*)nullptr, (int64_t)0, $TimeUnit::MILLISECONDS, ($Object*)nullptr, ($CompletionHandler*)nullptr);
+	return write(false, src, nullptr, 0, $TimeUnit::MILLISECONDS, nullptr, nullptr);
 }
 
 void AsynchronousSocketChannelImpl::write($ByteBuffer* src, int64_t timeout, $TimeUnit* unit, Object$* attachment, $CompletionHandler* handler) {
 	if (handler == nullptr) {
 		$throwNew($NullPointerException, "\'handler\' is null"_s);
 	}
-	write(false, src, ($ByteBufferArray*)nullptr, timeout, unit, attachment, handler);
+	write(false, src, nullptr, timeout, unit, attachment, handler);
 }
 
 void AsynchronousSocketChannelImpl::write($ByteBufferArray* srcs$renamed, int32_t offset, int32_t length, int64_t timeout, $TimeUnit* unit, Object$* attachment, $CompletionHandler* handler) {
@@ -471,43 +373,41 @@ void AsynchronousSocketChannelImpl::write($ByteBufferArray* srcs$renamed, int32_
 		$throwNew($IndexOutOfBoundsException);
 	}
 	$assign(srcs, $Util::subsequence(srcs, offset, length));
-	write(true, ($ByteBuffer*)nullptr, srcs, timeout, unit, attachment, handler);
+	write(true, nullptr, srcs, timeout, unit, attachment, handler);
 }
 
 $NetworkChannel* AsynchronousSocketChannelImpl::bind($SocketAddress* local) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			begin();
-			$synchronized(this->stateLock) {
-				if (this->state == AsynchronousSocketChannelImpl::ST_PENDING) {
-					$throwNew($ConnectionPendingException);
-				}
-				if (this->localAddress != nullptr) {
-					$throwNew($AlreadyBoundException);
-				}
-				$var($InetSocketAddress, isa, (local == nullptr) ? $new($InetSocketAddress, 0) : $Net::checkAddress(local));
-				$var($SecurityManager, sm, $System::getSecurityManager());
-				if (sm != nullptr) {
-					sm->checkListen($nc(isa)->getPort());
-				}
-				$var($FileDescriptor, var$1, this->fd);
-				$var($InetAddress, var$2, $nc(isa)->getAddress());
-				$NetHooks::beforeTcpBind(var$1, var$2, isa->getPort());
-				$var($FileDescriptor, var$3, this->fd);
-				$var($InetAddress, var$4, $nc(isa)->getAddress());
-				$Net::bind(var$3, var$4, isa->getPort());
-				$set(this, localAddress, $Net::localAddress(this->fd));
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		begin();
+		$synchronized(this->stateLock) {
+			if (this->state == AsynchronousSocketChannelImpl::ST_PENDING) {
+				$throwNew($ConnectionPendingException);
 			}
-		} catch ($Throwable& var$5) {
-			$assign(var$0, var$5);
-		} /*finally*/ {
-			end();
+			if (this->localAddress != nullptr) {
+				$throwNew($AlreadyBoundException);
+			}
+			$var($InetSocketAddress, isa, (local == nullptr) ? $new($InetSocketAddress, 0) : $Net::checkAddress(local));
+			$var($SecurityManager, sm, $System::getSecurityManager());
+			if (sm != nullptr) {
+				sm->checkListen($nc(isa)->getPort());
+			}
+			$var($FileDescriptor, var$1, this->fd);
+			$var($InetAddress, var$2, $nc(isa)->getAddress());
+			$NetHooks::beforeTcpBind(var$1, var$2, isa->getPort());
+			$var($FileDescriptor, var$3, this->fd);
+			$var($InetAddress, var$4, isa->getAddress());
+			$Net::bind(var$3, var$4, isa->getPort());
+			$set(this, localAddress, $Net::localAddress(this->fd));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$5) {
+		$assign(var$0, var$5);
+	} /*finally*/ {
+		end();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return this;
 }
@@ -520,81 +420,78 @@ $SocketAddress* AsynchronousSocketChannelImpl::getLocalAddress() {
 }
 
 $NetworkChannel* AsynchronousSocketChannelImpl::setOption($SocketOption* name, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
 		$throwNew($NullPointerException);
 	}
-	if (!$nc($(supportedOptions()))->contains(name)) {
+	if (!$$nc(supportedOptions())->contains(name)) {
 		$throwNew($UnsupportedOperationException, $$str({"\'"_s, name, "\' not supported"_s}));
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($NetworkChannel, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			begin();
-			if (this->writeShutdown) {
-				$throwNew($IOException, "Connection has been shutdown for writing"_s);
-			}
-			$init($StandardSocketOptions);
-			if (name == $StandardSocketOptions::SO_REUSEADDR && $Net::useExclusiveBind()) {
-				this->isReuseAddress = $nc(($cast($Boolean, value)))->booleanValue();
-			} else {
-				$init($Net);
-				$Net::setSocketOption(this->fd, $Net::UNSPEC, name, value);
-			}
-			$assign(var$2, this);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			end();
+	$var($Throwable, var$0, nullptr);
+	$var($NetworkChannel, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		begin();
+		if (this->writeShutdown) {
+			$throwNew($IOException, "Connection has been shutdown for writing"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$init($StandardSocketOptions);
+		if (name == $StandardSocketOptions::SO_REUSEADDR && $Net::useExclusiveBind()) {
+			this->isReuseAddress = $nc($cast($Boolean, value))->booleanValue();
+		} else {
+			$init($Net);
+			$Net::setSocketOption(this->fd, $Net::UNSPEC, name, value);
 		}
-		if (return$1) {
-			return var$2;
-		}
+		$assign(var$2, this);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		end();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $Object* AsynchronousSocketChannelImpl::getOption($SocketOption* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
 		$throwNew($NullPointerException);
 	}
-	if (!$nc($(supportedOptions()))->contains(name)) {
+	if (!$$nc(supportedOptions())->contains(name)) {
 		$throwNew($UnsupportedOperationException, $$str({"\'"_s, name, "\' not supported"_s}));
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Object, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			begin();
-			$init($StandardSocketOptions);
-			if (name == $StandardSocketOptions::SO_REUSEADDR && $Net::useExclusiveBind()) {
-				$assign(var$2, $of($Boolean::valueOf(this->isReuseAddress)));
-				return$1 = true;
-				goto $finally;
-			}
-			$assign(var$2, $Net::getSocketOption(this->fd, $Net::UNSPEC, name));
+	$var($Throwable, var$0, nullptr);
+	$var($Object, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		begin();
+		$init($StandardSocketOptions);
+		if (name == $StandardSocketOptions::SO_REUSEADDR && $Net::useExclusiveBind()) {
+			$assign(var$2, $of($Boolean::valueOf(this->isReuseAddress)));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			end();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		$init($Net);
+		$assign(var$2, $Net::getSocketOption(this->fd, $Net::UNSPEC, name));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		end();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -612,59 +509,55 @@ $SocketAddress* AsynchronousSocketChannelImpl::getRemoteAddress() {
 }
 
 $AsynchronousSocketChannel* AsynchronousSocketChannelImpl::shutdownInput() {
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			begin();
-			if (this->remoteAddress == nullptr) {
-				$throwNew($NotYetConnectedException);
-			}
-			$synchronized(this->readLock) {
-				if (!this->readShutdown) {
-					$Net::shutdown(this->fd, $Net::SHUT_RD);
-					this->readShutdown = true;
-				}
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			end();
+	$var($Throwable, var$0, nullptr);
+	try {
+		begin();
+		if (this->remoteAddress == nullptr) {
+			$throwNew($NotYetConnectedException);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$synchronized(this->readLock) {
+			if (!this->readShutdown) {
+				$Net::shutdown(this->fd, $Net::SHUT_RD);
+				this->readShutdown = true;
+			}
 		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		end();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return this;
 }
 
 $AsynchronousSocketChannel* AsynchronousSocketChannelImpl::shutdownOutput() {
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			begin();
-			if (this->remoteAddress == nullptr) {
-				$throwNew($NotYetConnectedException);
-			}
-			$synchronized(this->writeLock) {
-				if (!this->writeShutdown) {
-					$Net::shutdown(this->fd, $Net::SHUT_WR);
-					this->writeShutdown = true;
-				}
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			end();
+	$var($Throwable, var$0, nullptr);
+	try {
+		begin();
+		if (this->remoteAddress == nullptr) {
+			$throwNew($NotYetConnectedException);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$synchronized(this->writeLock) {
+			if (!this->writeShutdown) {
+				$Net::shutdown(this->fd, $Net::SHUT_WR);
+				this->writeShutdown = true;
+			}
 		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		end();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return this;
 }
 
 $String* AsynchronousSocketChannelImpl::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($of(this)->getClass()->getName()));
 	sb->append(u'[');
@@ -674,26 +567,20 @@ $String* AsynchronousSocketChannelImpl::toString() {
 		} else {
 			switch (this->state) {
 			case AsynchronousSocketChannelImpl::ST_UNCONNECTED:
-				{
-					sb->append("unconnected"_s);
-					break;
-				}
+				sb->append("unconnected"_s);
+				break;
 			case AsynchronousSocketChannelImpl::ST_PENDING:
-				{
-					sb->append("connection-pending"_s);
-					break;
-				}
+				sb->append("connection-pending"_s);
+				break;
 			case AsynchronousSocketChannelImpl::ST_CONNECTED:
-				{
-					sb->append("connected"_s);
-					if (this->readShutdown) {
-						sb->append(" ishut"_s);
-					}
-					if (this->writeShutdown) {
-						sb->append(" oshut"_s);
-					}
-					break;
+				sb->append("connected"_s);
+				if (this->readShutdown) {
+					sb->append(" ishut"_s);
 				}
+				if (this->writeShutdown) {
+					sb->append(" oshut"_s);
+				}
+				break;
 			}
 			if (this->localAddress != nullptr) {
 				sb->append(" local="_s);
@@ -713,7 +600,93 @@ AsynchronousSocketChannelImpl::AsynchronousSocketChannelImpl() {
 }
 
 $Class* AsynchronousSocketChannelImpl::load$($String* name, bool initialize) {
-	$loadClass(AsynchronousSocketChannelImpl, name, initialize, &_AsynchronousSocketChannelImpl_ClassInfo_, allocate$AsynchronousSocketChannelImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fd", "Ljava/io/FileDescriptor;", nullptr, $PROTECTED | $FINAL, $field(AsynchronousSocketChannelImpl, fd)},
+		{"stateLock", "Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $field(AsynchronousSocketChannelImpl, stateLock)},
+		{"localAddress", "Ljava/net/InetSocketAddress;", nullptr, $PROTECTED | $VOLATILE, $field(AsynchronousSocketChannelImpl, localAddress)},
+		{"remoteAddress", "Ljava/net/InetSocketAddress;", nullptr, $PROTECTED | $VOLATILE, $field(AsynchronousSocketChannelImpl, remoteAddress)},
+		{"ST_UNINITIALIZED", "I", nullptr, $STATIC | $FINAL, $constField(AsynchronousSocketChannelImpl, ST_UNINITIALIZED)},
+		{"ST_UNCONNECTED", "I", nullptr, $STATIC | $FINAL, $constField(AsynchronousSocketChannelImpl, ST_UNCONNECTED)},
+		{"ST_PENDING", "I", nullptr, $STATIC | $FINAL, $constField(AsynchronousSocketChannelImpl, ST_PENDING)},
+		{"ST_CONNECTED", "I", nullptr, $STATIC | $FINAL, $constField(AsynchronousSocketChannelImpl, ST_CONNECTED)},
+		{"state", "I", nullptr, $PROTECTED | $VOLATILE, $field(AsynchronousSocketChannelImpl, state)},
+		{"readLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(AsynchronousSocketChannelImpl, readLock)},
+		{"reading", "Z", nullptr, $PRIVATE, $field(AsynchronousSocketChannelImpl, reading)},
+		{"readShutdown", "Z", nullptr, $PRIVATE, $field(AsynchronousSocketChannelImpl, readShutdown)},
+		{"readKilled", "Z", nullptr, $PRIVATE, $field(AsynchronousSocketChannelImpl, readKilled)},
+		{"writeLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(AsynchronousSocketChannelImpl, writeLock)},
+		{"writing", "Z", nullptr, $PRIVATE, $field(AsynchronousSocketChannelImpl, writing)},
+		{"writeShutdown", "Z", nullptr, $PRIVATE, $field(AsynchronousSocketChannelImpl, writeShutdown)},
+		{"writeKilled", "Z", nullptr, $PRIVATE, $field(AsynchronousSocketChannelImpl, writeKilled)},
+		{"closeLock", "Ljava/util/concurrent/locks/ReadWriteLock;", nullptr, $PRIVATE | $FINAL, $field(AsynchronousSocketChannelImpl, closeLock)},
+		{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(AsynchronousSocketChannelImpl, closed)},
+		{"isReuseAddress", "Z", nullptr, $PRIVATE, $field(AsynchronousSocketChannelImpl, isReuseAddress)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/nio/ch/AsynchronousChannelGroupImpl;)V", nullptr, 0, $method(AsynchronousSocketChannelImpl, init$, void, $AsynchronousChannelGroupImpl*), "java.io.IOException"},
+		{"<init>", "(Lsun/nio/ch/AsynchronousChannelGroupImpl;Ljava/io/FileDescriptor;Ljava/net/InetSocketAddress;)V", nullptr, 0, $method(AsynchronousSocketChannelImpl, init$, void, $AsynchronousChannelGroupImpl*, $FileDescriptor*, $InetSocketAddress*), "java.io.IOException"},
+		{"begin", "()V", nullptr, $FINAL, $method(AsynchronousSocketChannelImpl, begin, void), "java.io.IOException"},
+		{"bind", "(Ljava/net/SocketAddress;)Ljava/nio/channels/AsynchronousSocketChannel;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, bind, $NetworkChannel*, $SocketAddress*), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, close, void), "java.io.IOException"},
+		{"connect", "(Ljava/net/SocketAddress;)Ljava/util/concurrent/Future;", "(Ljava/net/SocketAddress;)Ljava/util/concurrent/Future<Ljava/lang/Void;>;", $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, connect, $Future*, $SocketAddress*)},
+		{"connect", "(Ljava/net/SocketAddress;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", "<A:Ljava/lang/Object;>(Ljava/net/SocketAddress;TA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Void;-TA;>;)V", $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, connect, void, $SocketAddress*, Object$*, $CompletionHandler*)},
+		{"enableReading", "(Z)V", nullptr, $FINAL, $method(AsynchronousSocketChannelImpl, enableReading, void, bool)},
+		{"enableReading", "()V", nullptr, $FINAL, $method(AsynchronousSocketChannelImpl, enableReading, void)},
+		{"enableWriting", "(Z)V", nullptr, $FINAL, $method(AsynchronousSocketChannelImpl, enableWriting, void, bool)},
+		{"enableWriting", "()V", nullptr, $FINAL, $method(AsynchronousSocketChannelImpl, enableWriting, void)},
+		{"end", "()V", nullptr, $FINAL, $method(AsynchronousSocketChannelImpl, end, void)},
+		{"getLocalAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, getLocalAddress, $SocketAddress*), "java.io.IOException"},
+		{"getOption", "(Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;)TT;", $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, getOption, $Object*, $SocketOption*), "java.io.IOException"},
+		{"getRemoteAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, getRemoteAddress, $SocketAddress*), "java.io.IOException"},
+		{"implClose", "()V", nullptr, $ABSTRACT, $virtualMethod(AsynchronousSocketChannelImpl, implClose, void), "java.io.IOException"},
+		{"implConnect", "(Ljava/net/SocketAddress;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)Ljava/util/concurrent/Future;", "<A:Ljava/lang/Object;>(Ljava/net/SocketAddress;TA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Void;-TA;>;)Ljava/util/concurrent/Future<Ljava/lang/Void;>;", $ABSTRACT, $virtualMethod(AsynchronousSocketChannelImpl, implConnect, $Future*, $SocketAddress*, Object$*, $CompletionHandler*)},
+		{"implRead", "(ZLjava/nio/ByteBuffer;[Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)Ljava/util/concurrent/Future;", "<V:Ljava/lang/Number;A:Ljava/lang/Object;>(ZLjava/nio/ByteBuffer;[Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;TA;Ljava/nio/channels/CompletionHandler<TV;-TA;>;)Ljava/util/concurrent/Future<TV;>;", $ABSTRACT, $virtualMethod(AsynchronousSocketChannelImpl, implRead, $Future*, bool, $ByteBuffer*, $ByteBufferArray*, int64_t, $TimeUnit*, Object$*, $CompletionHandler*)},
+		{"implWrite", "(ZLjava/nio/ByteBuffer;[Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)Ljava/util/concurrent/Future;", "<V:Ljava/lang/Number;A:Ljava/lang/Object;>(ZLjava/nio/ByteBuffer;[Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;TA;Ljava/nio/channels/CompletionHandler<TV;-TA;>;)Ljava/util/concurrent/Future<TV;>;", $ABSTRACT, $virtualMethod(AsynchronousSocketChannelImpl, implWrite, $Future*, bool, $ByteBuffer*, $ByteBufferArray*, int64_t, $TimeUnit*, Object$*, $CompletionHandler*)},
+		{"isOpen", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, isOpen, bool)},
+		{"killConnect", "()V", nullptr, $FINAL, $method(AsynchronousSocketChannelImpl, killConnect, void)},
+		{"killReading", "()V", nullptr, $FINAL, $method(AsynchronousSocketChannelImpl, killReading, void)},
+		{"killWriting", "()V", nullptr, $FINAL, $method(AsynchronousSocketChannelImpl, killWriting, void)},
+		{"read", "(ZLjava/nio/ByteBuffer;[Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)Ljava/util/concurrent/Future;", "<V:Ljava/lang/Number;A:Ljava/lang/Object;>(ZLjava/nio/ByteBuffer;[Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;TA;Ljava/nio/channels/CompletionHandler<TV;-TA;>;)Ljava/util/concurrent/Future<TV;>;", $PRIVATE, $method(AsynchronousSocketChannelImpl, read, $Future*, bool, $ByteBuffer*, $ByteBufferArray*, int64_t, $TimeUnit*, Object$*, $CompletionHandler*)},
+		{"read", "(Ljava/nio/ByteBuffer;)Ljava/util/concurrent/Future;", "(Ljava/nio/ByteBuffer;)Ljava/util/concurrent/Future<Ljava/lang/Integer;>;", $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, read, $Future*, $ByteBuffer*)},
+		{"read", "(Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", "<A:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;TA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Integer;-TA;>;)V", $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, read, void, $ByteBuffer*, int64_t, $TimeUnit*, Object$*, $CompletionHandler*)},
+		{"read", "([Ljava/nio/ByteBuffer;IIJLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", "<A:Ljava/lang/Object;>([Ljava/nio/ByteBuffer;IIJLjava/util/concurrent/TimeUnit;TA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Long;-TA;>;)V", $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, read, void, $ByteBufferArray*, int32_t, int32_t, int64_t, $TimeUnit*, Object$*, $CompletionHandler*)},
+		{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/nio/channels/AsynchronousSocketChannel;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)Ljava/nio/channels/AsynchronousSocketChannel;", $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, setOption, $NetworkChannel*, $SocketOption*, Object$*), "java.io.IOException"},
+		{"shutdownInput", "()Ljava/nio/channels/AsynchronousSocketChannel;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, shutdownInput, $AsynchronousSocketChannel*), "java.io.IOException"},
+		{"shutdownOutput", "()Ljava/nio/channels/AsynchronousSocketChannel;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, shutdownOutput, $AsynchronousSocketChannel*), "java.io.IOException"},
+		{"supportedOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, supportedOptions, $Set*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, toString, $String*)},
+		{"write", "(ZLjava/nio/ByteBuffer;[Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)Ljava/util/concurrent/Future;", "<V:Ljava/lang/Number;A:Ljava/lang/Object;>(ZLjava/nio/ByteBuffer;[Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;TA;Ljava/nio/channels/CompletionHandler<TV;-TA;>;)Ljava/util/concurrent/Future<TV;>;", $PRIVATE, $method(AsynchronousSocketChannelImpl, write, $Future*, bool, $ByteBuffer*, $ByteBufferArray*, int64_t, $TimeUnit*, Object$*, $CompletionHandler*)},
+		{"write", "(Ljava/nio/ByteBuffer;)Ljava/util/concurrent/Future;", "(Ljava/nio/ByteBuffer;)Ljava/util/concurrent/Future<Ljava/lang/Integer;>;", $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, write, $Future*, $ByteBuffer*)},
+		{"write", "(Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", "<A:Ljava/lang/Object;>(Ljava/nio/ByteBuffer;JLjava/util/concurrent/TimeUnit;TA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Integer;-TA;>;)V", $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, write, void, $ByteBuffer*, int64_t, $TimeUnit*, Object$*, $CompletionHandler*)},
+		{"write", "([Ljava/nio/ByteBuffer;IIJLjava/util/concurrent/TimeUnit;Ljava/lang/Object;Ljava/nio/channels/CompletionHandler;)V", "<A:Ljava/lang/Object;>([Ljava/nio/ByteBuffer;IIJLjava/util/concurrent/TimeUnit;TA;Ljava/nio/channels/CompletionHandler<Ljava/lang/Long;-TA;>;)V", $PUBLIC | $FINAL, $virtualMethod(AsynchronousSocketChannelImpl, write, void, $ByteBufferArray*, int32_t, int32_t, int64_t, $TimeUnit*, Object$*, $CompletionHandler*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.AsynchronousSocketChannelImpl$DefaultOptionsHolder", "sun.nio.ch.AsynchronousSocketChannelImpl", "DefaultOptionsHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.nio.ch.AsynchronousSocketChannelImpl",
+		"java.nio.channels.AsynchronousSocketChannel",
+		"sun.nio.ch.Cancellable,sun.nio.ch.Groupable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.AsynchronousSocketChannelImpl$DefaultOptionsHolder"
+	};
+	$loadClass(AsynchronousSocketChannelImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AsynchronousSocketChannelImpl));
+	});
 	return class$;
 }
 

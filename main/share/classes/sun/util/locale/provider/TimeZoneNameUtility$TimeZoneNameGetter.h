@@ -33,6 +33,7 @@ class TimeZoneNameUtility$TimeZoneNameGetter : public ::sun::util::locale::provi
 	$class(TimeZoneNameUtility$TimeZoneNameGetter, 0, ::sun::util::locale::provider::LocaleServiceProviderPool$LocalizedObjectGetter)
 public:
 	TimeZoneNameUtility$TimeZoneNameGetter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* examineAliases(::java::util::spi::TimeZoneNameProvider* tznp, ::java::util::Locale* locale, $String* requestID, $String* tzid, int32_t style, ::java::util::Map* aliases);
 	static $String* getName(::java::util::spi::TimeZoneNameProvider* timeZoneNameProvider, ::java::util::Locale* locale, $String* requestID, int32_t style, $String* tzid);

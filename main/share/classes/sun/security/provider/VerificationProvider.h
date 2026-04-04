@@ -24,9 +24,10 @@ public:
 	VerificationProvider();
 	using ::java::security::Provider::load;
 	using ::java::security::Provider::getProperty;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void putEntries(::java::util::Iterator* i);
-	static const int64_t serialVersionUID = (int64_t)0x67D7C60FEB01A24D;
+	static const int64_t serialVersionUID = (int64_t)0x67d7c60feb01a24d;
 	static bool ACTIVE;
 };
 

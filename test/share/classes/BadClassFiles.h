@@ -11,6 +11,7 @@ class $export BadClassFiles : public ::java::lang::Object {
 	$class(BadClassFiles, 0, ::java::lang::Object)
 public:
 	BadClassFiles();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void assertBadParameters($Class* cls);
 	static void main($StringArray* args);

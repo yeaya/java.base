@@ -1,5 +1,4 @@
 #include <java/security/spec/InvalidKeySpecException.h>
-
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -11,32 +10,6 @@ using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 namespace java {
 	namespace security {
 		namespace spec {
-
-$FieldInfo _InvalidKeySpecException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidKeySpecException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InvalidKeySpecException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidKeySpecException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidKeySpecException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InvalidKeySpecException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InvalidKeySpecException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _InvalidKeySpecException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.spec.InvalidKeySpecException",
-	"java.security.GeneralSecurityException",
-	nullptr,
-	_InvalidKeySpecException_FieldInfo_,
-	_InvalidKeySpecException_MethodInfo_
-};
-
-$Object* allocate$InvalidKeySpecException($Class* clazz) {
-	return $of($alloc(InvalidKeySpecException));
-}
 
 void InvalidKeySpecException::init$() {
 	$GeneralSecurityException::init$();
@@ -65,7 +38,28 @@ void InvalidKeySpecException::throw$() {
 }
 
 $Class* InvalidKeySpecException::load$($String* name, bool initialize) {
-	$loadClass(InvalidKeySpecException, name, initialize, &_InvalidKeySpecException_ClassInfo_, allocate$InvalidKeySpecException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidKeySpecException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidKeySpecException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidKeySpecException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InvalidKeySpecException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InvalidKeySpecException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.spec.InvalidKeySpecException",
+		"java.security.GeneralSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvalidKeySpecException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidKeySpecException);
+	});
 	return class$;
 }
 

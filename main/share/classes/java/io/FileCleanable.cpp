@@ -1,5 +1,4 @@
 #include <java/io/FileCleanable.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
 #include <java/io/UncheckedIOException.h>
@@ -25,53 +24,21 @@ using $PhantomCleanable = ::jdk::internal::ref::PhantomCleanable;
 namespace java {
 	namespace io {
 
-$FieldInfo _FileCleanable_FieldInfo_[] = {
-	{"fdAccess", "Ljdk/internal/access/JavaIOFileDescriptorAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FileCleanable, fdAccess)},
-	{"fd", "I", nullptr, $PRIVATE | $FINAL, $field(FileCleanable, fd)},
-	{"handle", "J", nullptr, $PRIVATE | $FINAL, $field(FileCleanable, handle)},
-	{}
-};
-
-$MethodInfo _FileCleanable_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/FileDescriptor;Ljava/lang/ref/Cleaner;IJ)V", nullptr, $PRIVATE, $method(FileCleanable, init$, void, $FileDescriptor*, $Cleaner*, int32_t, int64_t)},
-	{"cleanupClose0", "(IJ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FileCleanable, cleanupClose0, void, int32_t, int64_t), "java.io.IOException"},
-	{"performCleanup", "()V", nullptr, $PROTECTED, $virtualMethod(FileCleanable, performCleanup, void)},
-	{"register", "(Ljava/io/FileDescriptor;)V", nullptr, $STATIC, $staticMethod(FileCleanable, register$, void, $FileDescriptor*)},
-	{"unregister", "(Ljava/io/FileDescriptor;)V", nullptr, $STATIC, $staticMethod(FileCleanable, unregister, void, $FileDescriptor*)},
-	{}
-};
-
-#define _METHOD_INDEX_cleanupClose0 1
-
-$ClassInfo _FileCleanable_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.io.FileCleanable",
-	"jdk.internal.ref.PhantomCleanable",
-	nullptr,
-	_FileCleanable_FieldInfo_,
-	_FileCleanable_MethodInfo_,
-	"Ljdk/internal/ref/PhantomCleanable<Ljava/io/FileDescriptor;>;"
-};
-
-$Object* allocate$FileCleanable($Class* clazz) {
-	return $of($alloc(FileCleanable));
-}
-
 $JavaIOFileDescriptorAccess* FileCleanable::fdAccess = nullptr;
 
 void FileCleanable::cleanupClose0(int32_t fd, int64_t handle) {
 	$init(FileCleanable);
-	$prepareNativeStatic(FileCleanable, cleanupClose0, void, int32_t fd, int64_t handle);
+	$prepareNativeStatic(cleanupClose0, void, int32_t fd, int64_t handle);
 	$invokeNativeStatic(fd, handle);
 	$finishNativeStatic();
 }
 
 void FileCleanable::register$($FileDescriptor* fdo) {
 	$init(FileCleanable);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (fdo != nullptr && fdo->valid()) {
 		int32_t fd = $nc(FileCleanable::fdAccess)->get(fdo);
-		int64_t handle = $nc(FileCleanable::fdAccess)->getHandle(fdo);
+		int64_t handle = FileCleanable::fdAccess->getHandle(fdo);
 		fdo->registerCleanup($$new(FileCleanable, fdo, $($CleanerFactory::cleaner()), fd, handle));
 	}
 }
@@ -97,7 +64,7 @@ void FileCleanable::performCleanup() {
 	}
 }
 
-void clinit$FileCleanable($Class* class$) {
+void FileCleanable::clinit$($Class* clazz) {
 	$assignStatic(FileCleanable::fdAccess, $SharedSecrets::getJavaIOFileDescriptorAccess());
 }
 
@@ -105,7 +72,32 @@ FileCleanable::FileCleanable() {
 }
 
 $Class* FileCleanable::load$($String* name, bool initialize) {
-	$loadClass(FileCleanable, name, initialize, &_FileCleanable_ClassInfo_, clinit$FileCleanable, allocate$FileCleanable);
+	$FieldInfo fieldInfos$$[] = {
+		{"fdAccess", "Ljdk/internal/access/JavaIOFileDescriptorAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FileCleanable, fdAccess)},
+		{"fd", "I", nullptr, $PRIVATE | $FINAL, $field(FileCleanable, fd)},
+		{"handle", "J", nullptr, $PRIVATE | $FINAL, $field(FileCleanable, handle)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/FileDescriptor;Ljava/lang/ref/Cleaner;IJ)V", nullptr, $PRIVATE, $method(FileCleanable, init$, void, $FileDescriptor*, $Cleaner*, int32_t, int64_t)},
+		{"cleanupClose0", "(IJ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(FileCleanable, cleanupClose0, void, int32_t, int64_t), "java.io.IOException"},
+		{"performCleanup", "()V", nullptr, $PROTECTED, $virtualMethod(FileCleanable, performCleanup, void)},
+		{"register", "(Ljava/io/FileDescriptor;)V", nullptr, $STATIC, $staticMethod(FileCleanable, register$, void, $FileDescriptor*)},
+		{"unregister", "(Ljava/io/FileDescriptor;)V", nullptr, $STATIC, $staticMethod(FileCleanable, unregister, void, $FileDescriptor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.io.FileCleanable",
+		"jdk.internal.ref.PhantomCleanable",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljdk/internal/ref/PhantomCleanable<Ljava/io/FileDescriptor;>;"
+	};
+	$loadClass(FileCleanable, name, initialize, &classInfo$$, FileCleanable::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FileCleanable));
+	});
 	return class$;
 }
 

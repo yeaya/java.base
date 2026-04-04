@@ -1,5 +1,4 @@
 #include <sun/security/x509/OIDMap.h>
-
 #include <java/io/IOException.h>
 #include <java/security/cert/CertificateException.h>
 #include <java/util/HashMap.h>
@@ -107,72 +106,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _OIDMap_FieldInfo_[] = {
-	{"ROOT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, ROOT)},
-	{"AUTH_KEY_IDENTIFIER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, AUTH_KEY_IDENTIFIER)},
-	{"SUB_KEY_IDENTIFIER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, SUB_KEY_IDENTIFIER)},
-	{"KEY_USAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, KEY_USAGE)},
-	{"PRIVATE_KEY_USAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, PRIVATE_KEY_USAGE)},
-	{"POLICY_MAPPINGS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, POLICY_MAPPINGS)},
-	{"SUB_ALT_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, SUB_ALT_NAME)},
-	{"ISSUER_ALT_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, ISSUER_ALT_NAME)},
-	{"BASIC_CONSTRAINTS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, BASIC_CONSTRAINTS)},
-	{"NAME_CONSTRAINTS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, NAME_CONSTRAINTS)},
-	{"POLICY_CONSTRAINTS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, POLICY_CONSTRAINTS)},
-	{"CRL_NUMBER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, CRL_NUMBER)},
-	{"CRL_REASON", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, CRL_REASON)},
-	{"NETSCAPE_CERT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, NETSCAPE_CERT)},
-	{"CERT_POLICIES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, CERT_POLICIES)},
-	{"EXT_KEY_USAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, EXT_KEY_USAGE)},
-	{"INHIBIT_ANY_POLICY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, INHIBIT_ANY_POLICY)},
-	{"CRL_DIST_POINTS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, CRL_DIST_POINTS)},
-	{"CERT_ISSUER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, CERT_ISSUER)},
-	{"SUBJECT_INFO_ACCESS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, SUBJECT_INFO_ACCESS)},
-	{"AUTH_INFO_ACCESS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, AUTH_INFO_ACCESS)},
-	{"ISSUING_DIST_POINT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, ISSUING_DIST_POINT)},
-	{"DELTA_CRL_INDICATOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, DELTA_CRL_INDICATOR)},
-	{"FRESHEST_CRL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, FRESHEST_CRL)},
-	{"OCSPNOCHECK", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, OCSPNOCHECK)},
-	{"oidMap", "Ljava/util/Map;", "Ljava/util/Map<Lsun/security/util/ObjectIdentifier;Lsun/security/x509/OIDMap$OIDInfo;>;", $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, oidMap)},
-	{"nameMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lsun/security/x509/OIDMap$OIDInfo;>;", $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, nameMap)},
-	{}
-};
-
-$MethodInfo _OIDMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(OIDMap, init$, void)},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $staticMethod(OIDMap, addAttribute, void, $String*, $String*, $Class*), "java.security.cert.CertificateException"},
-	{"addInternal", "(Ljava/lang/String;Lsun/security/util/ObjectIdentifier;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(OIDMap, addInternal, void, $String*, $ObjectIdentifier*, $String*)},
-	{"getClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(OIDMap, getClass, $Class*, $String*), "java.security.cert.CertificateException"},
-	{"getClass", "(Lsun/security/util/ObjectIdentifier;)Ljava/lang/Class;", "(Lsun/security/util/ObjectIdentifier;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(OIDMap, getClass, $Class*, $ObjectIdentifier*), "java.security.cert.CertificateException"},
-	{"getName", "(Lsun/security/util/ObjectIdentifier;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(OIDMap, getName, $String*, $ObjectIdentifier*)},
-	{"getOID", "(Ljava/lang/String;)Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(OIDMap, getOID, $ObjectIdentifier*, $String*)},
-	{}
-};
-
-$InnerClassInfo _OIDMap_InnerClassesInfo_[] = {
-	{"sun.security.x509.OIDMap$OIDInfo", "sun.security.x509.OIDMap", "OIDInfo", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _OIDMap_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.OIDMap",
-	"java.lang.Object",
-	nullptr,
-	_OIDMap_FieldInfo_,
-	_OIDMap_MethodInfo_,
-	nullptr,
-	nullptr,
-	_OIDMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.x509.OIDMap$OIDInfo"
-};
-
-$Object* allocate$OIDMap($Class* clazz) {
-	return $of($alloc(OIDMap));
-}
-
 $String* OIDMap::ROOT = nullptr;
 $String* OIDMap::AUTH_KEY_IDENTIFIER = nullptr;
 $String* OIDMap::SUB_KEY_IDENTIFIER = nullptr;
@@ -213,7 +146,7 @@ void OIDMap::addInternal($String* name, $ObjectIdentifier* oid, $String* classNa
 
 void OIDMap::addAttribute($String* name, $String* oid, $Class* clazz) {
 	$init(OIDMap);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectIdentifier, objId, nullptr);
 	try {
 		$assign(objId, $ObjectIdentifier::of(oid));
@@ -232,28 +165,28 @@ void OIDMap::addAttribute($String* name, $String* oid, $Class* clazz) {
 $String* OIDMap::getName($ObjectIdentifier* oid) {
 	$init(OIDMap);
 	$var($OIDMap$OIDInfo, info, $cast($OIDMap$OIDInfo, $nc(OIDMap::oidMap)->get(oid)));
-	return (info == nullptr) ? ($String*)nullptr : $nc(info)->name;
+	return (info == nullptr) ? ($String*)nullptr : info->name;
 }
 
 $ObjectIdentifier* OIDMap::getOID($String* name) {
 	$init(OIDMap);
 	$var($OIDMap$OIDInfo, info, $cast($OIDMap$OIDInfo, $nc(OIDMap::nameMap)->get(name)));
-	return (info == nullptr) ? ($ObjectIdentifier*)nullptr : $nc(info)->oid;
+	return (info == nullptr) ? ($ObjectIdentifier*)nullptr : info->oid;
 }
 
 $Class* OIDMap::getClass($String* name) {
 	$init(OIDMap);
 	$var($OIDMap$OIDInfo, info, $cast($OIDMap$OIDInfo, $nc(OIDMap::nameMap)->get(name)));
-	return (info == nullptr) ? ($Class*)nullptr : $nc(info)->getClazz();
+	return (info == nullptr) ? ($Class*)nullptr : info->getClazz();
 }
 
 $Class* OIDMap::getClass($ObjectIdentifier* oid) {
 	$init(OIDMap);
 	$var($OIDMap$OIDInfo, info, $cast($OIDMap$OIDInfo, $nc(OIDMap::oidMap)->get(oid)));
-	return (info == nullptr) ? ($Class*)nullptr : $nc(info)->getClazz();
+	return (info == nullptr) ? ($Class*)nullptr : info->getClazz();
 }
 
-void clinit$OIDMap($Class* class$) {
+void OIDMap::clinit$($Class* clazz) {
 	$init($X509CertImpl);
 	$init($X509CertInfo);
 	$assignStatic(OIDMap::ROOT, $str({$X509CertImpl::NAME, "."_s, $X509CertInfo::NAME, "."_s, $X509CertInfo::EXTENSIONS}));
@@ -341,7 +274,67 @@ OIDMap::OIDMap() {
 }
 
 $Class* OIDMap::load$($String* name, bool initialize) {
-	$loadClass(OIDMap, name, initialize, &_OIDMap_ClassInfo_, clinit$OIDMap, allocate$OIDMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"ROOT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, ROOT)},
+		{"AUTH_KEY_IDENTIFIER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, AUTH_KEY_IDENTIFIER)},
+		{"SUB_KEY_IDENTIFIER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, SUB_KEY_IDENTIFIER)},
+		{"KEY_USAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, KEY_USAGE)},
+		{"PRIVATE_KEY_USAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, PRIVATE_KEY_USAGE)},
+		{"POLICY_MAPPINGS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, POLICY_MAPPINGS)},
+		{"SUB_ALT_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, SUB_ALT_NAME)},
+		{"ISSUER_ALT_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, ISSUER_ALT_NAME)},
+		{"BASIC_CONSTRAINTS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, BASIC_CONSTRAINTS)},
+		{"NAME_CONSTRAINTS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, NAME_CONSTRAINTS)},
+		{"POLICY_CONSTRAINTS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, POLICY_CONSTRAINTS)},
+		{"CRL_NUMBER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, CRL_NUMBER)},
+		{"CRL_REASON", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, CRL_REASON)},
+		{"NETSCAPE_CERT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, NETSCAPE_CERT)},
+		{"CERT_POLICIES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, CERT_POLICIES)},
+		{"EXT_KEY_USAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, EXT_KEY_USAGE)},
+		{"INHIBIT_ANY_POLICY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, INHIBIT_ANY_POLICY)},
+		{"CRL_DIST_POINTS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, CRL_DIST_POINTS)},
+		{"CERT_ISSUER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, CERT_ISSUER)},
+		{"SUBJECT_INFO_ACCESS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, SUBJECT_INFO_ACCESS)},
+		{"AUTH_INFO_ACCESS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, AUTH_INFO_ACCESS)},
+		{"ISSUING_DIST_POINT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, ISSUING_DIST_POINT)},
+		{"DELTA_CRL_INDICATOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, DELTA_CRL_INDICATOR)},
+		{"FRESHEST_CRL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, FRESHEST_CRL)},
+		{"OCSPNOCHECK", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, OCSPNOCHECK)},
+		{"oidMap", "Ljava/util/Map;", "Ljava/util/Map<Lsun/security/util/ObjectIdentifier;Lsun/security/x509/OIDMap$OIDInfo;>;", $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, oidMap)},
+		{"nameMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lsun/security/x509/OIDMap$OIDInfo;>;", $PRIVATE | $STATIC | $FINAL, $staticField(OIDMap, nameMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(OIDMap, init$, void)},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $staticMethod(OIDMap, addAttribute, void, $String*, $String*, $Class*), "java.security.cert.CertificateException"},
+		{"addInternal", "(Ljava/lang/String;Lsun/security/util/ObjectIdentifier;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(OIDMap, addInternal, void, $String*, $ObjectIdentifier*, $String*)},
+		{"getClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(OIDMap, getClass, $Class*, $String*), "java.security.cert.CertificateException"},
+		{"getClass", "(Lsun/security/util/ObjectIdentifier;)Ljava/lang/Class;", "(Lsun/security/util/ObjectIdentifier;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(OIDMap, getClass, $Class*, $ObjectIdentifier*), "java.security.cert.CertificateException"},
+		{"getName", "(Lsun/security/util/ObjectIdentifier;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(OIDMap, getName, $String*, $ObjectIdentifier*)},
+		{"getOID", "(Ljava/lang/String;)Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC, $staticMethod(OIDMap, getOID, $ObjectIdentifier*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.x509.OIDMap$OIDInfo", "sun.security.x509.OIDMap", "OIDInfo", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.OIDMap",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.x509.OIDMap$OIDInfo"
+	};
+	$loadClass(OIDMap, name, initialize, &classInfo$$, OIDMap::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(OIDMap);
+	});
 	return class$;
 }
 

@@ -20,6 +20,7 @@ class LocaleServiceProviderPool$AllAvailableLocales : public ::java::lang::Objec
 	$class(LocaleServiceProviderPool$AllAvailableLocales, 0, ::java::lang::Object)
 public:
 	LocaleServiceProviderPool$AllAvailableLocales();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Array<::java::util::Locale>* allAvailableLocales;
 };

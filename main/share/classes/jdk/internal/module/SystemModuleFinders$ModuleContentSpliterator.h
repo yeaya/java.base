@@ -27,6 +27,7 @@ class SystemModuleFinders$ModuleContentSpliterator : public ::java::util::Splite
 	$class(SystemModuleFinders$ModuleContentSpliterator, 0, ::java::util::Spliterator)
 public:
 	SystemModuleFinders$ModuleContentSpliterator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* module);
 	virtual int32_t characteristics() override;
 	virtual int64_t estimateSize() override;

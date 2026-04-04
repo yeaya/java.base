@@ -1,5 +1,4 @@
 #include <java/lang/Shutdown$Lock.h>
-
 #include <java/lang/Shutdown.h>
 #include <jcpp.h>
 
@@ -10,36 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace lang {
 
-$MethodInfo _Shutdown$Lock_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Shutdown$Lock, init$, void)},
-	{}
-};
-
-$InnerClassInfo _Shutdown$Lock_InnerClassesInfo_[] = {
-	{"java.lang.Shutdown$Lock", "java.lang.Shutdown", "Lock", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Shutdown$Lock_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.Shutdown$Lock",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Shutdown$Lock_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Shutdown$Lock_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.Shutdown"
-};
-
-$Object* allocate$Shutdown$Lock($Class* clazz) {
-	return $of($alloc(Shutdown$Lock));
-}
-
 void Shutdown$Lock::init$() {
 }
 
@@ -47,7 +16,32 @@ Shutdown$Lock::Shutdown$Lock() {
 }
 
 $Class* Shutdown$Lock::load$($String* name, bool initialize) {
-	$loadClass(Shutdown$Lock, name, initialize, &_Shutdown$Lock_ClassInfo_, allocate$Shutdown$Lock);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Shutdown$Lock, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Shutdown$Lock", "java.lang.Shutdown", "Lock", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.Shutdown$Lock",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.Shutdown"
+	};
+	$loadClass(Shutdown$Lock, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Shutdown$Lock);
+	});
 	return class$;
 }
 

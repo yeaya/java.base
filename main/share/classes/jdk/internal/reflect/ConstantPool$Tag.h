@@ -46,6 +46,7 @@ class $export ConstantPool$Tag : public ::java::lang::Enum {
 public:
 	ConstantPool$Tag();
 	static $Array<::jdk::internal::reflect::ConstantPool$Tag>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t tagCode);
 	static ::jdk::internal::reflect::ConstantPool$Tag* valueOf($String* name);
 	static ::jdk::internal::reflect::ConstantPool$Tag* valueOf(int8_t v);

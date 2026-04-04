@@ -19,6 +19,7 @@ class CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder : public ::java::lang::O
 	$class(CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder, 0, ::java::lang::Object)
 public:
 	CLDRBaseLocaleDataMetaInfo$TZCanonicalIDMapHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Map* tzCanonicalIDMap;
 };

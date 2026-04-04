@@ -1,5 +1,4 @@
 #include <java/security/InvalidKeyException.h>
-
 #include <java/security/KeyException.h>
 #include <jcpp.h>
 
@@ -10,32 +9,6 @@ using $KeyException = ::java::security::KeyException;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _InvalidKeyException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidKeyException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InvalidKeyException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidKeyException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidKeyException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InvalidKeyException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InvalidKeyException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _InvalidKeyException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.InvalidKeyException",
-	"java.security.KeyException",
-	nullptr,
-	_InvalidKeyException_FieldInfo_,
-	_InvalidKeyException_MethodInfo_
-};
-
-$Object* allocate$InvalidKeyException($Class* clazz) {
-	return $of($alloc(InvalidKeyException));
-}
 
 void InvalidKeyException::init$() {
 	$KeyException::init$();
@@ -64,7 +37,28 @@ void InvalidKeyException::throw$() {
 }
 
 $Class* InvalidKeyException::load$($String* name, bool initialize) {
-	$loadClass(InvalidKeyException, name, initialize, &_InvalidKeyException_ClassInfo_, allocate$InvalidKeyException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidKeyException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidKeyException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidKeyException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InvalidKeyException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(InvalidKeyException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.InvalidKeyException",
+		"java.security.KeyException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvalidKeyException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidKeyException);
+	});
 	return class$;
 }
 

@@ -16,11 +16,14 @@ public:
 	void init$(int32_t inputLength);
 	virtual int32_t getInputLength();
 	virtual $String* getMessage() override;
-	static const int64_t serialVersionUID = (int64_t)0xD046D856678B984E;
+	static const int64_t serialVersionUID = (int64_t)0xd046d856678b984e;
 	int32_t inputLength = 0;
 	MalformedInputException(const MalformedInputException& e);
 	virtual void throw$() override;
-	inline MalformedInputException* operator ->() {
+	inline MalformedInputException* operator ->() const {
+		return (MalformedInputException*)throwing$;
+	}
+	inline operator MalformedInputException*() const {
 		return (MalformedInputException*)throwing$;
 	}
 };

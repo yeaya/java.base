@@ -44,7 +44,7 @@ public:
 	virtual $Object* parseObject($String* source, ::java::text::ParsePosition* pos) {return nullptr;}
 	virtual $Object* parseObject($String* source);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xFBD8BC12E90F1843;
+	static const int64_t serialVersionUID = (int64_t)0xfbd8bc12e90f1843;
 };
 
 	} // text

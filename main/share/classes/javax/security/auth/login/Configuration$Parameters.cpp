@@ -1,5 +1,4 @@
 #include <javax/security/auth/login/Configuration$Parameters.h>
-
 #include <javax/security/auth/login/Configuration.h>
 #include <jcpp.h>
 
@@ -11,33 +10,29 @@ namespace javax {
 		namespace auth {
 			namespace login {
 
-$InnerClassInfo _Configuration$Parameters_InnerClassesInfo_[] = {
-	{"javax.security.auth.login.Configuration$Parameters", "javax.security.auth.login.Configuration", "Parameters", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Configuration$Parameters_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.security.auth.login.Configuration$Parameters",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Configuration$Parameters_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.security.auth.login.Configuration"
-};
-
-$Object* allocate$Configuration$Parameters($Class* clazz) {
-	return $of($alloc(Configuration$Parameters));
-}
-
 $Class* Configuration$Parameters::load$($String* name, bool initialize) {
-	$loadClass(Configuration$Parameters, name, initialize, &_Configuration$Parameters_ClassInfo_, allocate$Configuration$Parameters);
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.security.auth.login.Configuration$Parameters", "javax.security.auth.login.Configuration", "Parameters", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.security.auth.login.Configuration$Parameters",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.security.auth.login.Configuration"
+	};
+	$loadClass(Configuration$Parameters, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Configuration$Parameters);
+	});
 	return class$;
 }
 

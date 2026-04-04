@@ -1,5 +1,4 @@
 #include <java/io/Externalizable.h>
-
 #include <java/io/ObjectInput.h>
 #include <java/io/ObjectOutput.h>
 #include <jcpp.h>
@@ -12,27 +11,23 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace io {
 
-$MethodInfo _Externalizable_MethodInfo_[] = {
-	{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Externalizable, readExternal, void, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Externalizable, writeExternal, void, $ObjectOutput*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _Externalizable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.io.Externalizable",
-	nullptr,
-	"java.io.Serializable",
-	nullptr,
-	_Externalizable_MethodInfo_
-};
-
-$Object* allocate$Externalizable($Class* clazz) {
-	return $of($alloc(Externalizable));
-}
-
 $Class* Externalizable::load$($String* name, bool initialize) {
-	$loadClass(Externalizable, name, initialize, &_Externalizable_ClassInfo_, allocate$Externalizable);
+	$MethodInfo methodInfos$$[] = {
+		{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Externalizable, readExternal, void, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Externalizable, writeExternal, void, $ObjectOutput*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.io.Externalizable",
+		nullptr,
+		"java.io.Serializable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Externalizable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Externalizable);
+	});
 	return class$;
 }
 

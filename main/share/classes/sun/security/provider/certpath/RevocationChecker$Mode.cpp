@@ -1,5 +1,4 @@
 #include <sun/security/provider/certpath/RevocationChecker$Mode.h>
-
 #include <java/lang/Enum.h>
 #include <sun/security/provider/certpath/RevocationChecker.h>
 #include <jcpp.h>
@@ -20,48 +19,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 			namespace certpath {
-
-$FieldInfo _RevocationChecker$Mode_FieldInfo_[] = {
-	{"PREFER_OCSP", "Lsun/security/provider/certpath/RevocationChecker$Mode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RevocationChecker$Mode, PREFER_OCSP)},
-	{"PREFER_CRLS", "Lsun/security/provider/certpath/RevocationChecker$Mode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RevocationChecker$Mode, PREFER_CRLS)},
-	{"ONLY_CRLS", "Lsun/security/provider/certpath/RevocationChecker$Mode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RevocationChecker$Mode, ONLY_CRLS)},
-	{"ONLY_OCSP", "Lsun/security/provider/certpath/RevocationChecker$Mode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RevocationChecker$Mode, ONLY_OCSP)},
-	{"$VALUES", "[Lsun/security/provider/certpath/RevocationChecker$Mode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(RevocationChecker$Mode, $VALUES)},
-	{}
-};
-
-$MethodInfo _RevocationChecker$Mode_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/provider/certpath/RevocationChecker$Mode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RevocationChecker$Mode, $values, $RevocationChecker$ModeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(RevocationChecker$Mode, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/provider/certpath/RevocationChecker$Mode;", nullptr, $PUBLIC | $STATIC, $staticMethod(RevocationChecker$Mode, valueOf, RevocationChecker$Mode*, $String*)},
-	{"values", "()[Lsun/security/provider/certpath/RevocationChecker$Mode;", nullptr, $PUBLIC | $STATIC, $staticMethod(RevocationChecker$Mode, values, $RevocationChecker$ModeArray*)},
-	{}
-};
-
-$InnerClassInfo _RevocationChecker$Mode_InnerClassesInfo_[] = {
-	{"sun.security.provider.certpath.RevocationChecker$Mode", "sun.security.provider.certpath.RevocationChecker", "Mode", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _RevocationChecker$Mode_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.provider.certpath.RevocationChecker$Mode",
-	"java.lang.Enum",
-	nullptr,
-	_RevocationChecker$Mode_FieldInfo_,
-	_RevocationChecker$Mode_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/provider/certpath/RevocationChecker$Mode;>;",
-	nullptr,
-	_RevocationChecker$Mode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.certpath.RevocationChecker"
-};
-
-$Object* allocate$RevocationChecker$Mode($Class* clazz) {
-	return $of($alloc(RevocationChecker$Mode));
-}
 
 RevocationChecker$Mode* RevocationChecker$Mode::PREFER_OCSP = nullptr;
 RevocationChecker$Mode* RevocationChecker$Mode::PREFER_CRLS = nullptr;
@@ -93,7 +50,7 @@ void RevocationChecker$Mode::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$RevocationChecker$Mode($Class* class$) {
+void RevocationChecker$Mode::clinit$($Class* clazz) {
 	$assignStatic(RevocationChecker$Mode::PREFER_OCSP, $new(RevocationChecker$Mode, "PREFER_OCSP"_s, 0));
 	$assignStatic(RevocationChecker$Mode::PREFER_CRLS, $new(RevocationChecker$Mode, "PREFER_CRLS"_s, 1));
 	$assignStatic(RevocationChecker$Mode::ONLY_CRLS, $new(RevocationChecker$Mode, "ONLY_CRLS"_s, 2));
@@ -105,7 +62,43 @@ RevocationChecker$Mode::RevocationChecker$Mode() {
 }
 
 $Class* RevocationChecker$Mode::load$($String* name, bool initialize) {
-	$loadClass(RevocationChecker$Mode, name, initialize, &_RevocationChecker$Mode_ClassInfo_, clinit$RevocationChecker$Mode, allocate$RevocationChecker$Mode);
+	$FieldInfo fieldInfos$$[] = {
+		{"PREFER_OCSP", "Lsun/security/provider/certpath/RevocationChecker$Mode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RevocationChecker$Mode, PREFER_OCSP)},
+		{"PREFER_CRLS", "Lsun/security/provider/certpath/RevocationChecker$Mode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RevocationChecker$Mode, PREFER_CRLS)},
+		{"ONLY_CRLS", "Lsun/security/provider/certpath/RevocationChecker$Mode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RevocationChecker$Mode, ONLY_CRLS)},
+		{"ONLY_OCSP", "Lsun/security/provider/certpath/RevocationChecker$Mode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RevocationChecker$Mode, ONLY_OCSP)},
+		{"$VALUES", "[Lsun/security/provider/certpath/RevocationChecker$Mode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(RevocationChecker$Mode, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/provider/certpath/RevocationChecker$Mode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RevocationChecker$Mode, $values, $RevocationChecker$ModeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(RevocationChecker$Mode, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/provider/certpath/RevocationChecker$Mode;", nullptr, $PUBLIC | $STATIC, $staticMethod(RevocationChecker$Mode, valueOf, RevocationChecker$Mode*, $String*)},
+		{"values", "()[Lsun/security/provider/certpath/RevocationChecker$Mode;", nullptr, $PUBLIC | $STATIC, $staticMethod(RevocationChecker$Mode, values, $RevocationChecker$ModeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.certpath.RevocationChecker$Mode", "sun.security.provider.certpath.RevocationChecker", "Mode", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.provider.certpath.RevocationChecker$Mode",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/provider/certpath/RevocationChecker$Mode;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.certpath.RevocationChecker"
+	};
+	$loadClass(RevocationChecker$Mode, name, initialize, &classInfo$$, RevocationChecker$Mode::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RevocationChecker$Mode));
+	});
 	return class$;
 }
 

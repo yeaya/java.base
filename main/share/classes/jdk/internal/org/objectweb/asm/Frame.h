@@ -183,11 +183,11 @@ public:
 	static const int32_t DIM_SHIFT = 26; // KIND_SIZE + FLAGS_SIZE + VALUE_SIZE
 	static const int32_t KIND_SHIFT = 22; // FLAGS_SIZE + VALUE_SIZE
 	static const int32_t FLAGS_SHIFT = VALUE_SIZE;
-	static const int32_t DIM_MASK = 0xFC000000; // ((1 << DIM_SIZE) - 1) << DIM_SHIFT
+	static const int32_t DIM_MASK = 0xfc000000; // ((1 << DIM_SIZE) - 1) << DIM_SHIFT
 	static const int32_t KIND_MASK = 62914560; // ((1 << KIND_SIZE) - 1) << KIND_SHIFT
 	static const int32_t VALUE_MASK = 1048575; // (1 << VALUE_SIZE) - 1
 	static const int32_t ARRAY_OF = 67108864; // +1 << DIM_SHIFT
-	static const int32_t ELEMENT_OF = 0xFC000000; // -1 << DIM_SHIFT
+	static const int32_t ELEMENT_OF = 0xfc000000; // -1 << DIM_SHIFT
 	static const int32_t CONSTANT_KIND = 4194304; // 1 << KIND_SHIFT
 	static const int32_t REFERENCE_KIND = 8388608; // 2 << KIND_SHIFT
 	static const int32_t UNINITIALIZED_KIND = 12582912; // 3 << KIND_SHIFT

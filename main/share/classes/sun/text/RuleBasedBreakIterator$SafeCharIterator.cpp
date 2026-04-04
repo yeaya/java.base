@@ -1,5 +1,4 @@
 #include <sun/text/RuleBasedBreakIterator$SafeCharIterator.h>
-
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Error.h>
 #include <java/text/CharacterIterator.h>
@@ -19,54 +18,6 @@ using $CharacterIterator = ::java::text::CharacterIterator;
 
 namespace sun {
 	namespace text {
-
-$FieldInfo _RuleBasedBreakIterator$SafeCharIterator_FieldInfo_[] = {
-	{"base", "Ljava/text/CharacterIterator;", nullptr, $PRIVATE, $field(RuleBasedBreakIterator$SafeCharIterator, base)},
-	{"rangeStart", "I", nullptr, $PRIVATE, $field(RuleBasedBreakIterator$SafeCharIterator, rangeStart)},
-	{"rangeLimit", "I", nullptr, $PRIVATE, $field(RuleBasedBreakIterator$SafeCharIterator, rangeLimit)},
-	{"currentIndex", "I", nullptr, $PRIVATE, $field(RuleBasedBreakIterator$SafeCharIterator, currentIndex)},
-	{}
-};
-
-$MethodInfo _RuleBasedBreakIterator$SafeCharIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/text/CharacterIterator;)V", nullptr, 0, $method(RuleBasedBreakIterator$SafeCharIterator, init$, void, $CharacterIterator*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, clone, $Object*)},
-	{"current", "()C", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, current, char16_t)},
-	{"first", "()C", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, first, char16_t)},
-	{"getBeginIndex", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, getBeginIndex, int32_t)},
-	{"getEndIndex", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, getEndIndex, int32_t)},
-	{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, getIndex, int32_t)},
-	{"last", "()C", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, last, char16_t)},
-	{"next", "()C", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, next, char16_t)},
-	{"previous", "()C", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, previous, char16_t)},
-	{"setIndex", "(I)C", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, setIndex, char16_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _RuleBasedBreakIterator$SafeCharIterator_InnerClassesInfo_[] = {
-	{"sun.text.RuleBasedBreakIterator$SafeCharIterator", "sun.text.RuleBasedBreakIterator", "SafeCharIterator", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _RuleBasedBreakIterator$SafeCharIterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.text.RuleBasedBreakIterator$SafeCharIterator",
-	"java.lang.Object",
-	"java.text.CharacterIterator",
-	_RuleBasedBreakIterator$SafeCharIterator_FieldInfo_,
-	_RuleBasedBreakIterator$SafeCharIterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RuleBasedBreakIterator$SafeCharIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.text.RuleBasedBreakIterator"
-};
-
-$Object* allocate$RuleBasedBreakIterator$SafeCharIterator($Class* clazz) {
-	return $of($alloc(RuleBasedBreakIterator$SafeCharIterator));
-}
 
 void RuleBasedBreakIterator$SafeCharIterator::init$($CharacterIterator* base) {
 	$set(this, base, base);
@@ -132,7 +83,7 @@ int32_t RuleBasedBreakIterator$SafeCharIterator::getIndex() {
 }
 
 $Object* RuleBasedBreakIterator$SafeCharIterator::clone() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(RuleBasedBreakIterator$SafeCharIterator, copy, nullptr);
 	try {
 		$assign(copy, $cast(RuleBasedBreakIterator$SafeCharIterator, $CharacterIterator::clone()));
@@ -141,14 +92,56 @@ $Object* RuleBasedBreakIterator$SafeCharIterator::clone() {
 	}
 	$var($CharacterIterator, copyOfBase, $cast($CharacterIterator, $nc(this->base)->clone()));
 	$set($nc(copy), base, copyOfBase);
-	return $of(copy);
+	return copy;
 }
 
 RuleBasedBreakIterator$SafeCharIterator::RuleBasedBreakIterator$SafeCharIterator() {
 }
 
 $Class* RuleBasedBreakIterator$SafeCharIterator::load$($String* name, bool initialize) {
-	$loadClass(RuleBasedBreakIterator$SafeCharIterator, name, initialize, &_RuleBasedBreakIterator$SafeCharIterator_ClassInfo_, allocate$RuleBasedBreakIterator$SafeCharIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"base", "Ljava/text/CharacterIterator;", nullptr, $PRIVATE, $field(RuleBasedBreakIterator$SafeCharIterator, base)},
+		{"rangeStart", "I", nullptr, $PRIVATE, $field(RuleBasedBreakIterator$SafeCharIterator, rangeStart)},
+		{"rangeLimit", "I", nullptr, $PRIVATE, $field(RuleBasedBreakIterator$SafeCharIterator, rangeLimit)},
+		{"currentIndex", "I", nullptr, $PRIVATE, $field(RuleBasedBreakIterator$SafeCharIterator, currentIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/text/CharacterIterator;)V", nullptr, 0, $method(RuleBasedBreakIterator$SafeCharIterator, init$, void, $CharacterIterator*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, clone, $Object*)},
+		{"current", "()C", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, current, char16_t)},
+		{"first", "()C", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, first, char16_t)},
+		{"getBeginIndex", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, getBeginIndex, int32_t)},
+		{"getEndIndex", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, getEndIndex, int32_t)},
+		{"getIndex", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, getIndex, int32_t)},
+		{"last", "()C", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, last, char16_t)},
+		{"next", "()C", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, next, char16_t)},
+		{"previous", "()C", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, previous, char16_t)},
+		{"setIndex", "(I)C", nullptr, $PUBLIC, $virtualMethod(RuleBasedBreakIterator$SafeCharIterator, setIndex, char16_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.text.RuleBasedBreakIterator$SafeCharIterator", "sun.text.RuleBasedBreakIterator", "SafeCharIterator", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.text.RuleBasedBreakIterator$SafeCharIterator",
+		"java.lang.Object",
+		"java.text.CharacterIterator",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.text.RuleBasedBreakIterator"
+	};
+	$loadClass(RuleBasedBreakIterator$SafeCharIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RuleBasedBreakIterator$SafeCharIterator);
+	});
 	return class$;
 }
 

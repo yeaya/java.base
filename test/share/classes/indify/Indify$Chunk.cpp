@@ -1,5 +1,4 @@
 #include <indify/Indify$Chunk.h>
-
 #include <indify/Indify.h>
 #include <java/io/DataInputStream.h>
 #include <java/io/DataOutputStream.h>
@@ -13,39 +12,34 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace indify {
 
-$MethodInfo _Indify$Chunk_MethodInfo_[] = {
-	{"readFrom", "(Ljava/io/DataInputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Indify$Chunk, readFrom, void, $DataInputStream*), "java.io.IOException"},
-	{"writeTo", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Indify$Chunk, writeTo, void, $DataOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Indify$Chunk_InnerClassesInfo_[] = {
-	{"indify.Indify$Chunk", "indify.Indify", "Chunk", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Indify$Chunk_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"indify.Indify$Chunk",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Indify$Chunk_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Indify$Chunk_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"indify.Indify"
-};
-
-$Object* allocate$Indify$Chunk($Class* clazz) {
-	return $of($alloc(Indify$Chunk));
-}
-
 $Class* Indify$Chunk::load$($String* name, bool initialize) {
-	$loadClass(Indify$Chunk, name, initialize, &_Indify$Chunk_ClassInfo_, allocate$Indify$Chunk);
+	$MethodInfo methodInfos$$[] = {
+		{"readFrom", "(Ljava/io/DataInputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Indify$Chunk, readFrom, void, $DataInputStream*), "java.io.IOException"},
+		{"writeTo", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Indify$Chunk, writeTo, void, $DataOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"indify.Indify$Chunk", "indify.Indify", "Chunk", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"indify.Indify$Chunk",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"indify.Indify"
+	};
+	$loadClass(Indify$Chunk, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Indify$Chunk);
+	});
 	return class$;
 }
 

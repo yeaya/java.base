@@ -48,6 +48,7 @@ class $import EventHelper : public ::java::lang::Object {
 	$class(EventHelper, 0, ::java::lang::Object)
 public:
 	EventHelper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* getDurationString(::java::time::Instant* start);
 	static bool isLoggingSecurity();

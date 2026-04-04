@@ -1,5 +1,4 @@
 #include <I2B.h>
-
 #include <jcpp.h>
 
 #undef I2B
@@ -7,27 +6,23 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _I2B_MethodInfo_[] = {
-	{"bar", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE3;)TE1;^TE2;", $PUBLIC | $ABSTRACT, $virtualMethod(I2B, bar, $Object*, Object$*), "java.lang.Throwable"},
-	{}
-};
-
-$ClassInfo _I2B_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"I2B",
-	nullptr,
-	nullptr,
-	nullptr,
-	_I2B_MethodInfo_,
-	"<E1:Ljava/lang/Object;E2:Ljava/lang/Throwable;E3:Ljava/lang/Object;>Ljava/lang/Object;"
-};
-
-$Object* allocate$I2B($Class* clazz) {
-	return $of($alloc(I2B));
-}
-
 $Class* I2B::load$($String* name, bool initialize) {
-	$loadClass(I2B, name, initialize, &_I2B_ClassInfo_, allocate$I2B);
+	$MethodInfo methodInfos$$[] = {
+		{"bar", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE3;)TE1;^TE2;", $PUBLIC | $ABSTRACT, $virtualMethod(I2B, bar, $Object*, Object$*), "java.lang.Throwable"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"I2B",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<E1:Ljava/lang/Object;E2:Ljava/lang/Throwable;E3:Ljava/lang/Object;>Ljava/lang/Object;"
+	};
+	$loadClass(I2B, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(I2B);
+	});
 	return class$;
 }
 

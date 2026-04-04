@@ -1,5 +1,4 @@
 #include <sun/net/ftp/FtpDirEntry$Type.h>
-
 #include <java/lang/Enum.h>
 #include <sun/net/ftp/FtpDirEntry.h>
 #include <jcpp.h>
@@ -20,49 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace net {
 		namespace ftp {
-
-$FieldInfo _FtpDirEntry$Type_FieldInfo_[] = {
-	{"FILE", "Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpDirEntry$Type, FILE)},
-	{"DIR", "Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpDirEntry$Type, DIR)},
-	{"PDIR", "Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpDirEntry$Type, PDIR)},
-	{"CDIR", "Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpDirEntry$Type, CDIR)},
-	{"LINK", "Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpDirEntry$Type, LINK)},
-	{"$VALUES", "[Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(FtpDirEntry$Type, $VALUES)},
-	{}
-};
-
-$MethodInfo _FtpDirEntry$Type_MethodInfo_[] = {
-	{"$values", "()[Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FtpDirEntry$Type, $values, $FtpDirEntry$TypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(FtpDirEntry$Type, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(FtpDirEntry$Type, valueOf, FtpDirEntry$Type*, $String*)},
-	{"values", "()[Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(FtpDirEntry$Type, values, $FtpDirEntry$TypeArray*)},
-	{}
-};
-
-$InnerClassInfo _FtpDirEntry$Type_InnerClassesInfo_[] = {
-	{"sun.net.ftp.FtpDirEntry$Type", "sun.net.ftp.FtpDirEntry", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _FtpDirEntry$Type_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"sun.net.ftp.FtpDirEntry$Type",
-	"java.lang.Enum",
-	nullptr,
-	_FtpDirEntry$Type_FieldInfo_,
-	_FtpDirEntry$Type_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/net/ftp/FtpDirEntry$Type;>;",
-	nullptr,
-	_FtpDirEntry$Type_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.ftp.FtpDirEntry"
-};
-
-$Object* allocate$FtpDirEntry$Type($Class* clazz) {
-	return $of($alloc(FtpDirEntry$Type));
-}
 
 FtpDirEntry$Type* FtpDirEntry$Type::FILE = nullptr;
 FtpDirEntry$Type* FtpDirEntry$Type::DIR = nullptr;
@@ -96,7 +52,7 @@ void FtpDirEntry$Type::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$FtpDirEntry$Type($Class* class$) {
+void FtpDirEntry$Type::clinit$($Class* clazz) {
 	$assignStatic(FtpDirEntry$Type::FILE, $new(FtpDirEntry$Type, "FILE"_s, 0));
 	$assignStatic(FtpDirEntry$Type::DIR, $new(FtpDirEntry$Type, "DIR"_s, 1));
 	$assignStatic(FtpDirEntry$Type::PDIR, $new(FtpDirEntry$Type, "PDIR"_s, 2));
@@ -109,7 +65,44 @@ FtpDirEntry$Type::FtpDirEntry$Type() {
 }
 
 $Class* FtpDirEntry$Type::load$($String* name, bool initialize) {
-	$loadClass(FtpDirEntry$Type, name, initialize, &_FtpDirEntry$Type_ClassInfo_, clinit$FtpDirEntry$Type, allocate$FtpDirEntry$Type);
+	$FieldInfo fieldInfos$$[] = {
+		{"FILE", "Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpDirEntry$Type, FILE)},
+		{"DIR", "Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpDirEntry$Type, DIR)},
+		{"PDIR", "Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpDirEntry$Type, PDIR)},
+		{"CDIR", "Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpDirEntry$Type, CDIR)},
+		{"LINK", "Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FtpDirEntry$Type, LINK)},
+		{"$VALUES", "[Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(FtpDirEntry$Type, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FtpDirEntry$Type, $values, $FtpDirEntry$TypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(FtpDirEntry$Type, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(FtpDirEntry$Type, valueOf, FtpDirEntry$Type*, $String*)},
+		{"values", "()[Lsun/net/ftp/FtpDirEntry$Type;", nullptr, $PUBLIC | $STATIC, $staticMethod(FtpDirEntry$Type, values, $FtpDirEntry$TypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.ftp.FtpDirEntry$Type", "sun.net.ftp.FtpDirEntry", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"sun.net.ftp.FtpDirEntry$Type",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/net/ftp/FtpDirEntry$Type;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.ftp.FtpDirEntry"
+	};
+	$loadClass(FtpDirEntry$Type, name, initialize, &classInfo$$, FtpDirEntry$Type::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FtpDirEntry$Type));
+	});
 	return class$;
 }
 

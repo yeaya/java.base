@@ -1,5 +1,4 @@
 #include <java/net/IDN.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/lang/AssertionError.h>
@@ -7,7 +6,6 @@
 #include <java/lang/StringBuffer.h>
 #include <java/net/IDN$1.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/text/ParseException.h>
 #include <jdk/internal/icu/impl/Punycode.h>
 #include <jdk/internal/icu/text/StringPrep.h>
@@ -34,7 +32,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $IDN$1 = ::java::net::IDN$1;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ParseException = ::java::text::ParseException;
 using $Punycode = ::jdk::internal::icu::impl::Punycode;
 using $StringPrep = ::jdk::internal::icu::text::StringPrep;
@@ -43,60 +40,6 @@ using $UCharacterIterator = ::jdk::internal::icu::text::UCharacterIterator;
 namespace java {
 	namespace net {
 
-$FieldInfo _IDN_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(IDN, $assertionsDisabled)},
-	{"ALLOW_UNASSIGNED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(IDN, ALLOW_UNASSIGNED)},
-	{"USE_STD3_ASCII_RULES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(IDN, USE_STD3_ASCII_RULES)},
-	{"ACE_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IDN, ACE_PREFIX)},
-	{"ACE_PREFIX_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IDN, ACE_PREFIX_LENGTH)},
-	{"MAX_LABEL_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IDN, MAX_LABEL_LENGTH)},
-	{"namePrep", "Ljdk/internal/icu/text/StringPrep;", nullptr, $PRIVATE | $STATIC, $staticField(IDN, namePrep)},
-	{}
-};
-
-$MethodInfo _IDN_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(IDN, init$, void)},
-	{"isAllASCII", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, isAllASCII, bool, $String*)},
-	{"isLabelSeparator", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, isLabelSeparator, bool, char16_t)},
-	{"isNonLDHAsciiCodePoint", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, isNonLDHAsciiCodePoint, bool, int32_t)},
-	{"isRootLabel", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, isRootLabel, bool, $String*)},
-	{"searchDots", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, searchDots, int32_t, $String*, int32_t)},
-	{"startsWithACEPrefix", "(Ljava/lang/StringBuffer;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, startsWithACEPrefix, bool, $StringBuffer*)},
-	{"toASCII", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(IDN, toASCII, $String*, $String*, int32_t)},
-	{"toASCII", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(IDN, toASCII, $String*, $String*)},
-	{"toASCIIInternal", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, toASCIIInternal, $String*, $String*, int32_t)},
-	{"toASCIILower", "(C)C", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, toASCIILower, char16_t, char16_t)},
-	{"toASCIILower", "(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, toASCIILower, $StringBuffer*, $StringBuffer*)},
-	{"toUnicode", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(IDN, toUnicode, $String*, $String*, int32_t)},
-	{"toUnicode", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(IDN, toUnicode, $String*, $String*)},
-	{"toUnicodeInternal", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, toUnicodeInternal, $String*, $String*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _IDN_InnerClassesInfo_[] = {
-	{"java.net.IDN$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _IDN_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.net.IDN",
-	"java.lang.Object",
-	nullptr,
-	_IDN_FieldInfo_,
-	_IDN_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IDN_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.net.IDN$1"
-};
-
-$Object* allocate$IDN($Class* clazz) {
-	return $of($alloc(IDN));
-}
-
 bool IDN::$assertionsDisabled = false;
 $String* IDN::ACE_PREFIX = nullptr;
 int32_t IDN::ACE_PREFIX_LENGTH = 0;
@@ -104,7 +47,7 @@ $StringPrep* IDN::namePrep = nullptr;
 
 $String* IDN::toASCII($String* input, int32_t flag) {
 	$init(IDN);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t p = 0;
 	int32_t q = 0;
 	$var($StringBuilder, out, $new($StringBuilder));
@@ -129,7 +72,7 @@ $String* IDN::toASCII($String* input) {
 
 $String* IDN::toUnicode($String* input, int32_t flag) {
 	$init(IDN);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t p = 0;
 	int32_t q = 0;
 	$var($StringBuilder, out, $new($StringBuilder));
@@ -157,7 +100,7 @@ void IDN::init$() {
 
 $String* IDN::toASCIIInternal($String* label, int32_t flag) {
 	$init(IDN);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool isASCII = isAllASCII(label);
 	$var($StringBuffer, dest, nullptr);
 	if (!isASCII) {
@@ -165,7 +108,7 @@ $String* IDN::toASCIIInternal($String* label, int32_t flag) {
 		try {
 			$assign(dest, $nc(IDN::namePrep)->prepare(iter, flag));
 		} catch ($ParseException& e) {
-			$throwNew($IllegalArgumentException, static_cast<$Throwable*>(e));
+			$throwNew($IllegalArgumentException, e);
 		}
 	} else {
 		$assign(dest, $new($StringBuffer, label));
@@ -173,26 +116,26 @@ $String* IDN::toASCIIInternal($String* label, int32_t flag) {
 	if ($nc(dest)->length() == 0) {
 		$throwNew($IllegalArgumentException, "Empty label is not a legal name"_s);
 	}
-	bool useSTD3ASCIIRules = (((int32_t)(flag & (uint32_t)IDN::USE_STD3_ASCII_RULES)) != 0);
+	bool useSTD3ASCIIRules = ((flag & IDN::USE_STD3_ASCII_RULES) != 0);
 	if (useSTD3ASCIIRules) {
-		for (int32_t i = 0; i < $nc(dest)->length(); ++i) {
+		for (int32_t i = 0; i < dest->length(); ++i) {
 			int32_t c = dest->charAt(i);
 			if (isNonLDHAsciiCodePoint(c)) {
 				$throwNew($IllegalArgumentException, "Contains non-LDH ASCII characters"_s);
 			}
 		}
-		bool var$0 = $nc(dest)->charAt(0) == u'-';
-		if (var$0 || $nc(dest)->charAt(dest->length() - 1) == u'-') {
+		bool var$0 = dest->charAt(0) == u'-';
+		if (var$0 || dest->charAt(dest->length() - 1) == u'-') {
 			$throwNew($IllegalArgumentException, "Has leading or trailing hyphen"_s);
 		}
 	}
 	if (!isASCII) {
-		if (!isAllASCII($($nc(dest)->toString()))) {
+		if (!isAllASCII($(dest->toString()))) {
 			if (!startsWithACEPrefix(dest)) {
 				try {
 					$assign(dest, $Punycode::encode(dest, nullptr));
 				} catch ($ParseException& e) {
-					$throwNew($IllegalArgumentException, static_cast<$Throwable*>(e));
+					$throwNew($IllegalArgumentException, e);
 				}
 				$assign(dest, toASCIILower(dest));
 				$nc(dest)->insert(0, IDN::ACE_PREFIX);
@@ -204,12 +147,12 @@ $String* IDN::toASCIIInternal($String* label, int32_t flag) {
 	if ($nc(dest)->length() > IDN::MAX_LABEL_LENGTH) {
 		$throwNew($IllegalArgumentException, "The label in the input is too long"_s);
 	}
-	return $nc(dest)->toString();
+	return dest->toString();
 }
 
 $String* IDN::toUnicodeInternal($String* label, int32_t flag) {
 	$init(IDN);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($booleans, caseFlags, nullptr);
 	$var($StringBuffer, dest, nullptr);
 	bool isASCII = isAllASCII(label);
@@ -224,12 +167,12 @@ $String* IDN::toUnicodeInternal($String* label, int32_t flag) {
 		$assign(dest, $new($StringBuffer, label));
 	}
 	if (startsWithACEPrefix(dest)) {
-		$var($String, temp, $nc(dest)->substring(IDN::ACE_PREFIX_LENGTH, dest->length()));
+		$var($String, temp, $nc(dest)->substring(IDN::ACE_PREFIX_LENGTH, $nc(dest)->length()));
 		try {
 			$var($StringBuffer, decodeOut, $Punycode::decode($$new($StringBuffer, temp), nullptr));
 			$var($String, toASCIIOut, toASCII($($nc(decodeOut)->toString()), flag));
 			if ($nc(toASCIIOut)->equalsIgnoreCase($(dest->toString()))) {
-				return $nc(decodeOut)->toString();
+				return decodeOut->toString();
 			}
 		} catch ($Exception& ignored) {
 		}
@@ -261,7 +204,7 @@ bool IDN::isRootLabel($String* s) {
 
 bool IDN::isLabelSeparator(char16_t c) {
 	$init(IDN);
-	return (c == u'.' || c == (char16_t)0x3002 || c == (char16_t)0xFF0E || c == (char16_t)0xFF61);
+	return (c == u'.' || c == (char16_t)0x3002 || c == (char16_t)0xff0e || c == (char16_t)0xff61);
 }
 
 bool IDN::isAllASCII($String* input) {
@@ -284,8 +227,8 @@ bool IDN::startsWithACEPrefix($StringBuffer* input) {
 		return false;
 	}
 	for (int32_t i = 0; i < IDN::ACE_PREFIX_LENGTH; ++i) {
-		char16_t var$0 = toASCIILower($nc(input)->charAt(i));
-		if (var$0 != $nc(IDN::ACE_PREFIX)->charAt(i)) {
+		char16_t var$0 = toASCIILower(input->charAt(i));
+		if (var$0 != IDN::ACE_PREFIX->charAt(i)) {
 			startsWithPrefix = false;
 		}
 	}
@@ -309,20 +252,20 @@ $StringBuffer* IDN::toASCIILower($StringBuffer* input) {
 	return dest;
 }
 
-void clinit$IDN($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void IDN::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(IDN::ACE_PREFIX, "xn--"_s);
 	$beforeCallerSensitive();
 	$var($String, IDN_PROFILE, "/sun/net/idn/uidna.spp"_s);
 	IDN::$assertionsDisabled = !IDN::class$->desiredAssertionStatus();
-	IDN::ACE_PREFIX_LENGTH = $nc(IDN::ACE_PREFIX)->length();
+	IDN::ACE_PREFIX_LENGTH = IDN::ACE_PREFIX->length();
 	$assignStatic(IDN::namePrep, nullptr);
 	{
 		$var($InputStream, stream, nullptr);
 		try {
 			$var($String, IDN_PROFILE, "/sun/net/idn/uidna.spp"_s);
 			if ($System::getSecurityManager() != nullptr) {
-				$assign(stream, $cast($InputStream, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($IDN$1)))));
+				$assign(stream, $cast($InputStream, $AccessController::doPrivileged($$new($IDN$1))));
 			} else {
 				$load($StringPrep);
 				$assign(stream, $StringPrep::class$->getResourceAsStream(IDN_PROFILE));
@@ -341,7 +284,55 @@ IDN::IDN() {
 }
 
 $Class* IDN::load$($String* name, bool initialize) {
-	$loadClass(IDN, name, initialize, &_IDN_ClassInfo_, clinit$IDN, allocate$IDN);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(IDN, $assertionsDisabled)},
+		{"ALLOW_UNASSIGNED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(IDN, ALLOW_UNASSIGNED)},
+		{"USE_STD3_ASCII_RULES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(IDN, USE_STD3_ASCII_RULES)},
+		{"ACE_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IDN, ACE_PREFIX)},
+		{"ACE_PREFIX_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IDN, ACE_PREFIX_LENGTH)},
+		{"MAX_LABEL_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IDN, MAX_LABEL_LENGTH)},
+		{"namePrep", "Ljdk/internal/icu/text/StringPrep;", nullptr, $PRIVATE | $STATIC, $staticField(IDN, namePrep)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(IDN, init$, void)},
+		{"isAllASCII", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, isAllASCII, bool, $String*)},
+		{"isLabelSeparator", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, isLabelSeparator, bool, char16_t)},
+		{"isNonLDHAsciiCodePoint", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, isNonLDHAsciiCodePoint, bool, int32_t)},
+		{"isRootLabel", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, isRootLabel, bool, $String*)},
+		{"searchDots", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, searchDots, int32_t, $String*, int32_t)},
+		{"startsWithACEPrefix", "(Ljava/lang/StringBuffer;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, startsWithACEPrefix, bool, $StringBuffer*)},
+		{"toASCII", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(IDN, toASCII, $String*, $String*, int32_t)},
+		{"toASCII", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(IDN, toASCII, $String*, $String*)},
+		{"toASCIIInternal", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, toASCIIInternal, $String*, $String*, int32_t)},
+		{"toASCIILower", "(C)C", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, toASCIILower, char16_t, char16_t)},
+		{"toASCIILower", "(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, toASCIILower, $StringBuffer*, $StringBuffer*)},
+		{"toUnicode", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(IDN, toUnicode, $String*, $String*, int32_t)},
+		{"toUnicode", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(IDN, toUnicode, $String*, $String*)},
+		{"toUnicodeInternal", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(IDN, toUnicodeInternal, $String*, $String*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.IDN$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.net.IDN",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.net.IDN$1"
+	};
+	$loadClass(IDN, name, initialize, &classInfo$$, IDN::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(IDN);
+	});
 	return class$;
 }
 

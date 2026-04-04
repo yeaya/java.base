@@ -12,6 +12,7 @@ class $export UTF16 : public ::java::lang::Object {
 	$class(UTF16, 0, ::java::lang::Object)
 public:
 	UTF16();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void go($String* cs);
 	static void main($StringArray* args);

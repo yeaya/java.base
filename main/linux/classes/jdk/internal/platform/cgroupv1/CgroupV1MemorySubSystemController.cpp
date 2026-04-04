@@ -1,5 +1,4 @@
 #include <jdk/internal/platform/cgroupv1/CgroupV1MemorySubSystemController.h>
-
 #include <jdk/internal/platform/cgroupv1/CgroupV1SubsystemController.h>
 #include <jcpp.h>
 
@@ -12,34 +11,6 @@ namespace jdk {
 	namespace internal {
 		namespace platform {
 			namespace cgroupv1 {
-
-$FieldInfo _CgroupV1MemorySubSystemController_FieldInfo_[] = {
-	{"hierarchical", "Z", nullptr, $PRIVATE, $field(CgroupV1MemorySubSystemController, hierarchical)},
-	{"swapenabled", "Z", nullptr, $PRIVATE, $field(CgroupV1MemorySubSystemController, swapenabled)},
-	{}
-};
-
-$MethodInfo _CgroupV1MemorySubSystemController_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CgroupV1MemorySubSystemController, init$, void, $String*, $String*)},
-	{"isHierarchical", "()Z", nullptr, 0, $virtualMethod(CgroupV1MemorySubSystemController, isHierarchical, bool)},
-	{"isSwapEnabled", "()Z", nullptr, 0, $virtualMethod(CgroupV1MemorySubSystemController, isSwapEnabled, bool)},
-	{"setHierarchical", "(Z)V", nullptr, 0, $virtualMethod(CgroupV1MemorySubSystemController, setHierarchical, void, bool)},
-	{"setSwapEnabled", "(Z)V", nullptr, 0, $virtualMethod(CgroupV1MemorySubSystemController, setSwapEnabled, void, bool)},
-	{}
-};
-
-$ClassInfo _CgroupV1MemorySubSystemController_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.platform.cgroupv1.CgroupV1MemorySubSystemController",
-	"jdk.internal.platform.cgroupv1.CgroupV1SubsystemController",
-	nullptr,
-	_CgroupV1MemorySubSystemController_FieldInfo_,
-	_CgroupV1MemorySubSystemController_MethodInfo_
-};
-
-$Object* allocate$CgroupV1MemorySubSystemController($Class* clazz) {
-	return $of($alloc(CgroupV1MemorySubSystemController));
-}
 
 void CgroupV1MemorySubSystemController::init$($String* root, $String* mountPoint) {
 	$CgroupV1SubsystemController::init$(root, mountPoint);
@@ -65,7 +36,30 @@ CgroupV1MemorySubSystemController::CgroupV1MemorySubSystemController() {
 }
 
 $Class* CgroupV1MemorySubSystemController::load$($String* name, bool initialize) {
-	$loadClass(CgroupV1MemorySubSystemController, name, initialize, &_CgroupV1MemorySubSystemController_ClassInfo_, allocate$CgroupV1MemorySubSystemController);
+	$FieldInfo fieldInfos$$[] = {
+		{"hierarchical", "Z", nullptr, $PRIVATE, $field(CgroupV1MemorySubSystemController, hierarchical)},
+		{"swapenabled", "Z", nullptr, $PRIVATE, $field(CgroupV1MemorySubSystemController, swapenabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CgroupV1MemorySubSystemController, init$, void, $String*, $String*)},
+		{"isHierarchical", "()Z", nullptr, 0, $virtualMethod(CgroupV1MemorySubSystemController, isHierarchical, bool)},
+		{"isSwapEnabled", "()Z", nullptr, 0, $virtualMethod(CgroupV1MemorySubSystemController, isSwapEnabled, bool)},
+		{"setHierarchical", "(Z)V", nullptr, 0, $virtualMethod(CgroupV1MemorySubSystemController, setHierarchical, void, bool)},
+		{"setSwapEnabled", "(Z)V", nullptr, 0, $virtualMethod(CgroupV1MemorySubSystemController, setSwapEnabled, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.platform.cgroupv1.CgroupV1MemorySubSystemController",
+		"jdk.internal.platform.cgroupv1.CgroupV1SubsystemController",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CgroupV1MemorySubSystemController, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CgroupV1MemorySubSystemController);
+	});
 	return class$;
 }
 

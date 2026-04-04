@@ -1,5 +1,4 @@
 #include <java/lang/SuppressWarnings.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -11,57 +10,49 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 namespace java {
 	namespace lang {
 
-$Attribute SuppressWarnings_Attribute_var$1[] = {
-	{'e', "Ljava/lang/annotation/ElementType; TYPE"},
-	{'e', "Ljava/lang/annotation/ElementType; FIELD"},
-	{'e', "Ljava/lang/annotation/ElementType; METHOD"},
-	{'e', "Ljava/lang/annotation/ElementType; PARAMETER"},
-	{'e', "Ljava/lang/annotation/ElementType; CONSTRUCTOR"},
-	{'e', "Ljava/lang/annotation/ElementType; LOCAL_VARIABLE"},
-	{'e', "Ljava/lang/annotation/ElementType; MODULE"},
-	{'-'}
-};
-
-$NamedAttribute SuppressWarnings_Attribute_var$0[] = {
-	{"value", '[', SuppressWarnings_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute SuppressWarnings_Attribute_var$2[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; SOURCE"},
-	{}
-};
-
-$CompoundAttribute _SuppressWarnings_Annotations_[] = {
-	{"Ljava/lang/annotation/Target;", SuppressWarnings_Attribute_var$0},
-	{"Ljava/lang/annotation/Retention;", SuppressWarnings_Attribute_var$2},
-	{}
-};
-
-$MethodInfo _SuppressWarnings_MethodInfo_[] = {
-	{"value", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SuppressWarnings, value, $StringArray*)},
-	{}
-};
-
-$ClassInfo _SuppressWarnings_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"java.lang.SuppressWarnings",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_SuppressWarnings_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SuppressWarnings_Annotations_
-};
-
-$Object* allocate$SuppressWarnings($Class* clazz) {
-	return $of($alloc(SuppressWarnings));
-}
-
 $Class* SuppressWarnings::load$($String* name, bool initialize) {
-	$loadClass(SuppressWarnings, name, initialize, &_SuppressWarnings_ClassInfo_, allocate$SuppressWarnings);
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SuppressWarnings, value, $StringArray*)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; TYPE"},
+		{'e', "Ljava/lang/annotation/ElementType; FIELD"},
+		{'e', "Ljava/lang/annotation/ElementType; METHOD"},
+		{'e', "Ljava/lang/annotation/ElementType; PARAMETER"},
+		{'e', "Ljava/lang/annotation/ElementType; CONSTRUCTOR"},
+		{'e', "Ljava/lang/annotation/ElementType; LOCAL_VARIABLE"},
+		{'e', "Ljava/lang/annotation/ElementType; MODULE"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; SOURCE"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"java.lang.SuppressWarnings",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SuppressWarnings, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SuppressWarnings);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/net/dns/ResolverConfigurationImpl$AddressChangeListener.h>
-
 #include <sun/net/dns/ResolverConfigurationImpl.h>
 #include <jcpp.h>
 
@@ -11,37 +10,6 @@ using $ResolverConfigurationImpl = ::sun::net::dns::ResolverConfigurationImpl;
 namespace sun {
 	namespace net {
 		namespace dns {
-
-$MethodInfo _ResolverConfigurationImpl$AddressChangeListener_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ResolverConfigurationImpl$AddressChangeListener, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ResolverConfigurationImpl$AddressChangeListener, run, void)},
-	{}
-};
-
-$InnerClassInfo _ResolverConfigurationImpl$AddressChangeListener_InnerClassesInfo_[] = {
-	{"sun.net.dns.ResolverConfigurationImpl$AddressChangeListener", "sun.net.dns.ResolverConfigurationImpl", "AddressChangeListener", $STATIC},
-	{}
-};
-
-$ClassInfo _ResolverConfigurationImpl$AddressChangeListener_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.dns.ResolverConfigurationImpl$AddressChangeListener",
-	"java.lang.Thread",
-	nullptr,
-	nullptr,
-	_ResolverConfigurationImpl$AddressChangeListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ResolverConfigurationImpl$AddressChangeListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.dns.ResolverConfigurationImpl"
-};
-
-$Object* allocate$ResolverConfigurationImpl$AddressChangeListener($Class* clazz) {
-	return $of($alloc(ResolverConfigurationImpl$AddressChangeListener));
-}
 
 void ResolverConfigurationImpl$AddressChangeListener::init$() {
 	$Thread::init$();
@@ -62,7 +30,33 @@ ResolverConfigurationImpl$AddressChangeListener::ResolverConfigurationImpl$Addre
 }
 
 $Class* ResolverConfigurationImpl$AddressChangeListener::load$($String* name, bool initialize) {
-	$loadClass(ResolverConfigurationImpl$AddressChangeListener, name, initialize, &_ResolverConfigurationImpl$AddressChangeListener_ClassInfo_, allocate$ResolverConfigurationImpl$AddressChangeListener);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ResolverConfigurationImpl$AddressChangeListener, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ResolverConfigurationImpl$AddressChangeListener, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.dns.ResolverConfigurationImpl$AddressChangeListener", "sun.net.dns.ResolverConfigurationImpl", "AddressChangeListener", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.dns.ResolverConfigurationImpl$AddressChangeListener",
+		"java.lang.Thread",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.dns.ResolverConfigurationImpl"
+	};
+	$loadClass(ResolverConfigurationImpl$AddressChangeListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResolverConfigurationImpl$AddressChangeListener);
+	});
 	return class$;
 }
 

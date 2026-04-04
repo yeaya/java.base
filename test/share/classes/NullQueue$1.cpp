@@ -1,5 +1,4 @@
 #include <NullQueue$1.h>
-
 #include <NullQueue.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
@@ -11,46 +10,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Reference = ::java::lang::ref::Reference;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $WeakReference = ::java::lang::ref::WeakReference;
-
-$MethodInfo _NullQueue$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(NullQueue$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NullQueue$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _NullQueue$1_EnclosingMethodInfo_ = {
-	"NullQueue",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _NullQueue$1_InnerClassesInfo_[] = {
-	{"NullQueue$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NullQueue$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"NullQueue$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_NullQueue$1_MethodInfo_,
-	nullptr,
-	&_NullQueue$1_EnclosingMethodInfo_,
-	_NullQueue$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"NullQueue"
-};
-
-$Object* allocate$NullQueue$1($Class* clazz) {
-	return $of($alloc(NullQueue$1));
-}
 
 void NullQueue$1::init$() {
 }
@@ -64,7 +25,38 @@ NullQueue$1::NullQueue$1() {
 }
 
 $Class* NullQueue$1::load$($String* name, bool initialize) {
-	$loadClass(NullQueue$1, name, initialize, &_NullQueue$1_ClassInfo_, allocate$NullQueue$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(NullQueue$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NullQueue$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"NullQueue",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"NullQueue$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"NullQueue$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"NullQueue"
+	};
+	$loadClass(NullQueue$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NullQueue$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/net/www/MimeTable$1.h>
-
 #include <jdk/internal/util/StaticProperty.h>
 #include <sun/net/www/MimeTable.h>
 #include <jcpp.h>
@@ -15,48 +14,11 @@ namespace sun {
 	namespace net {
 		namespace www {
 
-$MethodInfo _MimeTable$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MimeTable$1, init$, void)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(MimeTable$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _MimeTable$1_EnclosingMethodInfo_ = {
-	"sun.net.www.MimeTable",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _MimeTable$1_InnerClassesInfo_[] = {
-	{"sun.net.www.MimeTable$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MimeTable$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.www.MimeTable$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_MimeTable$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
-	&_MimeTable$1_EnclosingMethodInfo_,
-	_MimeTable$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.www.MimeTable"
-};
-
-$Object* allocate$MimeTable$1($Class* clazz) {
-	return $of($alloc(MimeTable$1));
-}
-
 void MimeTable$1::init$() {
 }
 
 $Object* MimeTable$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($MimeTable);
 	$assignStatic($MimeTable::tempFileTemplate, $System::getProperty("content.types.temp.file.template"_s, "/tmp/%s"_s));
 	$assignStatic($MimeTable::mailcapLocations, $new($StringArray, {
@@ -66,14 +28,45 @@ $Object* MimeTable$1::run() {
 		"/usr/etc/mailcap"_s,
 		"/usr/local/etc/mailcap"_s
 	}));
-	return $of(nullptr);
+	return nullptr;
 }
 
 MimeTable$1::MimeTable$1() {
 }
 
 $Class* MimeTable$1::load$($String* name, bool initialize) {
-	$loadClass(MimeTable$1, name, initialize, &_MimeTable$1_ClassInfo_, allocate$MimeTable$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MimeTable$1, init$, void)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(MimeTable$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.net.www.MimeTable",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.www.MimeTable$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.www.MimeTable$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.www.MimeTable"
+	};
+	$loadClass(MimeTable$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MimeTable$1);
+	});
 	return class$;
 }
 

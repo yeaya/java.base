@@ -1,5 +1,4 @@
 #include <java/util/Arrays$ArrayList.h>
-
 #include <java/util/AbstractList.h>
 #include <java/util/Arrays$ArrayItr.h>
 #include <java/util/Arrays.h>
@@ -32,59 +31,6 @@ using $UnaryOperator = ::java::util::function::UnaryOperator;
 namespace java {
 	namespace util {
 
-$FieldInfo _Arrays$ArrayList_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Arrays$ArrayList, serialVersionUID)},
-	{"a", "[Ljava/lang/Object;", "[TE;", $PRIVATE | $FINAL, $field(Arrays$ArrayList, a)},
-	{}
-};
-
-$MethodInfo _Arrays$ArrayList_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "([Ljava/lang/Object;)V", "([TE;)V", 0, $method(Arrays$ArrayList, init$, void, $ObjectArray*)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Arrays$ArrayList, contains, bool, Object$*)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Arrays$ArrayList, forEach, void, $Consumer*)},
-	{"get", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(Arrays$ArrayList, get, $Object*, int32_t)},
-	{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Arrays$ArrayList, indexOf, int32_t, Object$*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(Arrays$ArrayList, iterator, $Iterator*)},
-	{"replaceAll", "(Ljava/util/function/UnaryOperator;)V", "(Ljava/util/function/UnaryOperator<TE;>;)V", $PUBLIC, $virtualMethod(Arrays$ArrayList, replaceAll, void, $UnaryOperator*)},
-	{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITE;)TE;", $PUBLIC, $virtualMethod(Arrays$ArrayList, set, $Object*, int32_t, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Arrays$ArrayList, size, int32_t)},
-	{"sort", "(Ljava/util/Comparator;)V", "(Ljava/util/Comparator<-TE;>;)V", $PUBLIC, $virtualMethod(Arrays$ArrayList, sort, void, $Comparator*)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(Arrays$ArrayList, spliterator, $Spliterator*)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Arrays$ArrayList, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(Arrays$ArrayList, toArray, $ObjectArray*, $ObjectArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Arrays$ArrayList_InnerClassesInfo_[] = {
-	{"java.util.Arrays$ArrayList", "java.util.Arrays", "ArrayList", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Arrays$ArrayList_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Arrays$ArrayList",
-	"java.util.AbstractList",
-	"java.util.RandomAccess,java.io.Serializable",
-	_Arrays$ArrayList_FieldInfo_,
-	_Arrays$ArrayList_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/AbstractList<TE;>;Ljava/util/RandomAccess;Ljava/io/Serializable;",
-	nullptr,
-	_Arrays$ArrayList_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Arrays"
-};
-
-$Object* allocate$Arrays$ArrayList($Class* clazz) {
-	return $of($alloc(Arrays$ArrayList));
-}
-
 bool Arrays$ArrayList::equals(Object$* o) {
 	 return this->$AbstractList::equals(o);
 }
@@ -115,7 +61,6 @@ int32_t Arrays$ArrayList::size() {
 }
 
 $ObjectArray* Arrays$ArrayList::toArray() {
-	$load($ObjectArray);
 	return $Arrays::copyOf(this->a, $nc(this->a)->length, $getClass($ObjectArray));
 }
 
@@ -125,20 +70,20 @@ $ObjectArray* Arrays$ArrayList::toArray($ObjectArray* a) {
 		return $Arrays::copyOf(this->a, size, $of(a)->getClass());
 	}
 	$System::arraycopy(this->a, 0, a, 0, size);
-	if ($nc(a)->length > size) {
+	if (a->length > size) {
 		a->set(size, nullptr);
 	}
 	return a;
 }
 
 $Object* Arrays$ArrayList::get(int32_t index) {
-	return $of($nc(this->a)->get(index));
+	return $nc(this->a)->get(index);
 }
 
 $Object* Arrays$ArrayList::set(int32_t index, Object$* element) {
 	$var($Object0, oldValue, $nc(this->a)->get(index));
-	$nc(this->a)->set(index, element);
-	return $of(oldValue);
+	this->a->set(index, element);
+	return oldValue;
 }
 
 int32_t Arrays$ArrayList::indexOf(Object$* o) {
@@ -151,7 +96,7 @@ int32_t Arrays$ArrayList::indexOf(Object$* o) {
 		}
 	} else {
 		for (int32_t i = 0; i < $nc(a)->length; ++i) {
-			if ($nc($of(o))->equals(a->get(i))) {
+			if ($of(o)->equals(a->get(i))) {
 				return i;
 			}
 		}
@@ -168,13 +113,11 @@ $Spliterator* Arrays$ArrayList::spliterator() {
 }
 
 void Arrays$ArrayList::forEach($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(action);
 	{
 		$var($ObjectArray, arr$, this->a);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Object0, e, arr$->get(i$));
 			{
 				action->accept(e);
@@ -184,7 +127,7 @@ void Arrays$ArrayList::forEach($Consumer* action) {
 }
 
 void Arrays$ArrayList::replaceAll($UnaryOperator* operator$) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(operator$);
 	$var($ObjectArray, a, this->a);
 	for (int32_t i = 0; i < $nc(a)->length; ++i) {
@@ -204,7 +147,54 @@ Arrays$ArrayList::Arrays$ArrayList() {
 }
 
 $Class* Arrays$ArrayList::load$($String* name, bool initialize) {
-	$loadClass(Arrays$ArrayList, name, initialize, &_Arrays$ArrayList_ClassInfo_, allocate$Arrays$ArrayList);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Arrays$ArrayList, serialVersionUID)},
+		{"a", "[Ljava/lang/Object;", "[TE;", $PRIVATE | $FINAL, $field(Arrays$ArrayList, a)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "([Ljava/lang/Object;)V", "([TE;)V", 0, $method(Arrays$ArrayList, init$, void, $ObjectArray*)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Arrays$ArrayList, contains, bool, Object$*)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Arrays$ArrayList, forEach, void, $Consumer*)},
+		{"get", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(Arrays$ArrayList, get, $Object*, int32_t)},
+		{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Arrays$ArrayList, indexOf, int32_t, Object$*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(Arrays$ArrayList, iterator, $Iterator*)},
+		{"replaceAll", "(Ljava/util/function/UnaryOperator;)V", "(Ljava/util/function/UnaryOperator<TE;>;)V", $PUBLIC, $virtualMethod(Arrays$ArrayList, replaceAll, void, $UnaryOperator*)},
+		{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITE;)TE;", $PUBLIC, $virtualMethod(Arrays$ArrayList, set, $Object*, int32_t, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Arrays$ArrayList, size, int32_t)},
+		{"sort", "(Ljava/util/Comparator;)V", "(Ljava/util/Comparator<-TE;>;)V", $PUBLIC, $virtualMethod(Arrays$ArrayList, sort, void, $Comparator*)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(Arrays$ArrayList, spliterator, $Spliterator*)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Arrays$ArrayList, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(Arrays$ArrayList, toArray, $ObjectArray*, $ObjectArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Arrays$ArrayList", "java.util.Arrays", "ArrayList", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Arrays$ArrayList",
+		"java.util.AbstractList",
+		"java.util.RandomAccess,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/AbstractList<TE;>;Ljava/util/RandomAccess;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Arrays"
+	};
+	$loadClass(Arrays$ArrayList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Arrays$ArrayList));
+	});
 	return class$;
 }
 

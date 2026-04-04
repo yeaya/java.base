@@ -1,5 +1,4 @@
 #include <java/util/WeakHashMap$HashIterator.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/ref/Reference.h>
 #include <java/util/ConcurrentModificationException.h>
@@ -22,50 +21,6 @@ using $WeakHashMap$Entry = ::java::util::WeakHashMap$Entry;
 namespace java {
 	namespace util {
 
-$FieldInfo _WeakHashMap$HashIterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/WeakHashMap;", nullptr, $FINAL | $SYNTHETIC, $field(WeakHashMap$HashIterator, this$0)},
-	{"index", "I", nullptr, $PRIVATE, $field(WeakHashMap$HashIterator, index)},
-	{"entry", "Ljava/util/WeakHashMap$Entry;", "Ljava/util/WeakHashMap$Entry<TK;TV;>;", $PRIVATE, $field(WeakHashMap$HashIterator, entry)},
-	{"lastReturned", "Ljava/util/WeakHashMap$Entry;", "Ljava/util/WeakHashMap$Entry<TK;TV;>;", $PRIVATE, $field(WeakHashMap$HashIterator, lastReturned)},
-	{"expectedModCount", "I", nullptr, $PRIVATE, $field(WeakHashMap$HashIterator, expectedModCount)},
-	{"nextKey", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(WeakHashMap$HashIterator, nextKey)},
-	{"currentKey", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(WeakHashMap$HashIterator, currentKey)},
-	{}
-};
-
-$MethodInfo _WeakHashMap$HashIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/WeakHashMap;)V", nullptr, 0, $method(WeakHashMap$HashIterator, init$, void, $WeakHashMap*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$HashIterator, hasNext, bool)},
-	{"nextEntry", "()Ljava/util/WeakHashMap$Entry;", "()Ljava/util/WeakHashMap$Entry<TK;TV;>;", $PROTECTED, $virtualMethod(WeakHashMap$HashIterator, nextEntry, $WeakHashMap$Entry*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$HashIterator, remove, void)},
-	{}
-};
-
-$InnerClassInfo _WeakHashMap$HashIterator_InnerClassesInfo_[] = {
-	{"java.util.WeakHashMap$HashIterator", "java.util.WeakHashMap", "HashIterator", $PRIVATE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _WeakHashMap$HashIterator_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.WeakHashMap$HashIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_WeakHashMap$HashIterator_FieldInfo_,
-	_WeakHashMap$HashIterator_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Iterator<TT;>;",
-	nullptr,
-	_WeakHashMap$HashIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.WeakHashMap"
-};
-
-$Object* allocate$WeakHashMap$HashIterator($Class* clazz) {
-	return $of($alloc(WeakHashMap$HashIterator));
-}
-
 void WeakHashMap$HashIterator::init$($WeakHashMap* this$0) {
 	$set(this, this$0, this$0);
 	this->expectedModCount = this->this$0->modCount;
@@ -73,7 +28,7 @@ void WeakHashMap$HashIterator::init$($WeakHashMap* this$0) {
 }
 
 bool WeakHashMap$HashIterator::hasNext() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WeakHashMap$EntryArray, t, this->this$0->table);
 	while (this->nextKey == nullptr) {
 		$var($WeakHashMap$Entry, e, this->entry);
@@ -126,7 +81,45 @@ WeakHashMap$HashIterator::WeakHashMap$HashIterator() {
 }
 
 $Class* WeakHashMap$HashIterator::load$($String* name, bool initialize) {
-	$loadClass(WeakHashMap$HashIterator, name, initialize, &_WeakHashMap$HashIterator_ClassInfo_, allocate$WeakHashMap$HashIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/WeakHashMap;", nullptr, $FINAL | $SYNTHETIC, $field(WeakHashMap$HashIterator, this$0)},
+		{"index", "I", nullptr, $PRIVATE, $field(WeakHashMap$HashIterator, index)},
+		{"entry", "Ljava/util/WeakHashMap$Entry;", "Ljava/util/WeakHashMap$Entry<TK;TV;>;", $PRIVATE, $field(WeakHashMap$HashIterator, entry)},
+		{"lastReturned", "Ljava/util/WeakHashMap$Entry;", "Ljava/util/WeakHashMap$Entry<TK;TV;>;", $PRIVATE, $field(WeakHashMap$HashIterator, lastReturned)},
+		{"expectedModCount", "I", nullptr, $PRIVATE, $field(WeakHashMap$HashIterator, expectedModCount)},
+		{"nextKey", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(WeakHashMap$HashIterator, nextKey)},
+		{"currentKey", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(WeakHashMap$HashIterator, currentKey)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/WeakHashMap;)V", nullptr, 0, $method(WeakHashMap$HashIterator, init$, void, $WeakHashMap*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$HashIterator, hasNext, bool)},
+		{"nextEntry", "()Ljava/util/WeakHashMap$Entry;", "()Ljava/util/WeakHashMap$Entry<TK;TV;>;", $PROTECTED, $virtualMethod(WeakHashMap$HashIterator, nextEntry, $WeakHashMap$Entry*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$HashIterator, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.WeakHashMap$HashIterator", "java.util.WeakHashMap", "HashIterator", $PRIVATE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.WeakHashMap$HashIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Iterator<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.WeakHashMap"
+	};
+	$loadClass(WeakHashMap$HashIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WeakHashMap$HashIterator);
+	});
 	return class$;
 }
 

@@ -49,6 +49,7 @@ class InheritedChannel : public ::java::lang::Object {
 	$class(InheritedChannel, 0, ::java::lang::Object)
 public:
 	InheritedChannel();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t addressFamily(int32_t fd);
 	static void checkAccess();

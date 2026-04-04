@@ -24,6 +24,7 @@ class $export FloatSignature : public ::sun::reflect::generics::tree::BaseType {
 	$class(FloatSignature, 0, ::sun::reflect::generics::tree::BaseType)
 public:
 	FloatSignature();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void accept(::sun::reflect::generics::visitor::TypeTreeVisitor* v) override;
 	static ::sun::reflect::generics::tree::FloatSignature* make();

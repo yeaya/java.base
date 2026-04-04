@@ -1,5 +1,4 @@
 #include <GetURLsTest.h>
-
 #include <GetURLsTest$MyURLClassLoader.h>
 #include <java/io/File.h>
 #include <java/lang/ClassLoader.h>
@@ -11,49 +10,11 @@
 using $GetURLsTest$MyURLClassLoader = ::GetURLsTest$MyURLClassLoader;
 using $URLArray = $Array<::java::net::URL>;
 using $File = ::java::io::File;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
-
-$FieldInfo _GetURLsTest_FieldInfo_[] = {
-	{"TEST_DIR", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GetURLsTest, TEST_DIR)},
-	{}
-};
-
-$MethodInfo _GetURLsTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GetURLsTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetURLsTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"p", "(Ljava/lang/String;[Ljava/net/URL;)V", nullptr, $STATIC, $staticMethod(GetURLsTest, p, void, $String*, $URLArray*)},
-	{"p", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(GetURLsTest, p, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _GetURLsTest_InnerClassesInfo_[] = {
-	{"GetURLsTest$MyURLClassLoader", "GetURLsTest", "MyURLClassLoader", $STATIC},
-	{}
-};
-
-$ClassInfo _GetURLsTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"GetURLsTest",
-	"java.lang.Object",
-	nullptr,
-	_GetURLsTest_FieldInfo_,
-	_GetURLsTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GetURLsTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"GetURLsTest$MyURLClassLoader"
-};
-
-$Object* allocate$GetURLsTest($Class* clazz) {
-	return $of($alloc(GetURLsTest));
-}
 
 $String* GetURLsTest::TEST_DIR = nullptr;
 
@@ -62,7 +23,7 @@ void GetURLsTest::init$() {
 
 void GetURLsTest::main($StringArray* args) {
 	$init(GetURLsTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, testJars, $new($File, GetURLsTest::TEST_DIR, "jars"_s));
 	$var($GetURLsTest$MyURLClassLoader, ucl, $new($GetURLsTest$MyURLClassLoader, $$new($URLArray, {$($$new($File, "."_s)->toURL())})));
 	p("initial urls = "_s, $(ucl->getURLs()));
@@ -78,14 +39,14 @@ void GetURLsTest::main($StringArray* args) {
 
 void GetURLsTest::p($String* s, $URLArray* urls) {
 	$init(GetURLsTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->print(s);
 	if ($nc(urls)->length > 0) {
 		for (int32_t i = 0; i < urls->length - 1; ++i) {
-			$nc($System::out)->print($$str({urls->get(i), " "_s}));
+			$System::out->print($$str({urls->get(i), " "_s}));
 		}
 	}
-	$nc($System::out)->println($of($nc(urls)->get(urls->length - 1)));
+	$System::out->println(urls->get(urls->length - 1));
 }
 
 void GetURLsTest::p($String* s) {
@@ -93,7 +54,7 @@ void GetURLsTest::p($String* s) {
 	$nc($System::out)->println(s);
 }
 
-void clinit$GetURLsTest($Class* class$) {
+void GetURLsTest::clinit$($Class* clazz) {
 	$assignStatic(GetURLsTest::TEST_DIR, $System::getProperty("test.src"_s, "."_s));
 }
 
@@ -101,7 +62,38 @@ GetURLsTest::GetURLsTest() {
 }
 
 $Class* GetURLsTest::load$($String* name, bool initialize) {
-	$loadClass(GetURLsTest, name, initialize, &_GetURLsTest_ClassInfo_, clinit$GetURLsTest, allocate$GetURLsTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"TEST_DIR", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GetURLsTest, TEST_DIR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GetURLsTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetURLsTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"p", "(Ljava/lang/String;[Ljava/net/URL;)V", nullptr, $STATIC, $staticMethod(GetURLsTest, p, void, $String*, $URLArray*)},
+		{"p", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(GetURLsTest, p, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"GetURLsTest$MyURLClassLoader", "GetURLsTest", "MyURLClassLoader", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"GetURLsTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"GetURLsTest$MyURLClassLoader"
+	};
+	$loadClass(GetURLsTest, name, initialize, &classInfo$$, GetURLsTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GetURLsTest);
+	});
 	return class$;
 }
 

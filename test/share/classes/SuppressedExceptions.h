@@ -9,6 +9,7 @@ class $export SuppressedExceptions : public ::java::lang::Object {
 	$class(SuppressedExceptions, 0, ::java::lang::Object)
 public:
 	SuppressedExceptions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void basicSupressionTest();
 	static void initCausePlumbing();

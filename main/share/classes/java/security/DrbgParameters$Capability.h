@@ -21,6 +21,7 @@ class $export DrbgParameters$Capability : public ::java::lang::Enum {
 public:
 	DrbgParameters$Capability();
 	static $Array<::java::security::DrbgParameters$Capability>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual bool supportsPredictionResistance();
 	virtual bool supportsReseeding();

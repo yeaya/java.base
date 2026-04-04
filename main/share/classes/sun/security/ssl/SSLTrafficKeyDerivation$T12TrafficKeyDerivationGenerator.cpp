@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator.h>
-
 #include <javax/crypto/SecretKey.h>
 #include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/SSLKeyDerivation.h>
@@ -19,37 +18,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator, init$, void)},
-	{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, $virtualMethod(SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*, $SecretKey*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator", "sun.security.ssl.SSLTrafficKeyDerivation", "T12TrafficKeyDerivationGenerator", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator",
-	"java.lang.Object",
-	"sun.security.ssl.SSLKeyDerivationGenerator",
-	nullptr,
-	_SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLTrafficKeyDerivation"
-};
-
-$Object* allocate$SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator($Class* clazz) {
-	return $of($alloc(SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator));
-}
-
 void SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator::init$() {
 }
 
@@ -61,7 +29,33 @@ SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator::SSLTrafficKeyDerivatio
 }
 
 $Class* SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator::load$($String* name, bool initialize) {
-	$loadClass(SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator, name, initialize, &_SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator_ClassInfo_, allocate$SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator, init$, void)},
+		{"createKeyDerivation", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)Lsun/security/ssl/SSLKeyDerivation;", nullptr, $PUBLIC, $virtualMethod(SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator, createKeyDerivation, $SSLKeyDerivation*, $HandshakeContext*, $SecretKey*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator", "sun.security.ssl.SSLTrafficKeyDerivation", "T12TrafficKeyDerivationGenerator", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator",
+		"java.lang.Object",
+		"sun.security.ssl.SSLKeyDerivationGenerator",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLTrafficKeyDerivation"
+	};
+	$loadClass(SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLTrafficKeyDerivation$T12TrafficKeyDerivationGenerator);
+	});
 	return class$;
 }
 

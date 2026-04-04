@@ -1,11 +1,9 @@
 #include <ReuseBuf$ServerThread.h>
-
 #include <ReuseBuf.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
-#include <java/net/SocketAddress.h>
 #include <jcpp.h>
 
 using $ReuseBuf = ::ReuseBuf;
@@ -19,60 +17,23 @@ using $DatagramPacket = ::java::net::DatagramPacket;
 using $DatagramSocket = ::java::net::DatagramSocket;
 using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
-using $SocketAddress = ::java::net::SocketAddress;
-
-$FieldInfo _ReuseBuf$ServerThread_FieldInfo_[] = {
-	{"ds", "Ljava/net/DatagramSocket;", nullptr, 0, $field(ReuseBuf$ServerThread, ds)},
-	{}
-};
-
-$MethodInfo _ReuseBuf$ServerThread_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ReuseBuf$ServerThread, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ReuseBuf$ServerThread, run, void)},
-	{}
-};
-
-$InnerClassInfo _ReuseBuf$ServerThread_InnerClassesInfo_[] = {
-	{"ReuseBuf$ServerThread", "ReuseBuf", "ServerThread", $STATIC},
-	{}
-};
-
-$ClassInfo _ReuseBuf$ServerThread_ClassInfo_ = {
-	$ACC_SUPER,
-	"ReuseBuf$ServerThread",
-	"java.lang.Thread",
-	nullptr,
-	_ReuseBuf$ServerThread_FieldInfo_,
-	_ReuseBuf$ServerThread_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ReuseBuf$ServerThread_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"ReuseBuf"
-};
-
-$Object* allocate$ReuseBuf$ServerThread($Class* clazz) {
-	return $of($alloc(ReuseBuf$ServerThread));
-}
 
 void ReuseBuf$ServerThread::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Thread::init$();
 	try {
 		$var($InetAddress, local, $InetAddress::getLocalHost());
 		$var($InetSocketAddress, bindaddr, $new($InetSocketAddress, local, 0));
-		$set(this, ds, $new($DatagramSocket, static_cast<$SocketAddress*>(bindaddr)));
+		$set(this, ds, $new($DatagramSocket, bindaddr));
 		$init($ReuseBuf);
-		$ReuseBuf::port = $nc(this->ds)->getLocalPort();
+		$ReuseBuf::port = this->ds->getLocalPort();
 	} catch ($Exception& e) {
 		$throwNew($RuntimeException, $(e->getMessage()));
 	}
 }
 
 void ReuseBuf$ServerThread::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, b, $new($bytes, 100));
 	$var($DatagramPacket, dp, $new($DatagramPacket, b, b->length));
 	while (true) {
@@ -84,7 +45,7 @@ void ReuseBuf$ServerThread::run() {
 			$var($bytes, var$2, reply->getBytes());
 			int32_t var$3 = reply->length();
 			$var($InetAddress, var$4, dp->getAddress());
-			$nc(this->ds)->send($$new($DatagramPacket, var$2, var$3, var$4, dp->getPort()));
+			this->ds->send($$new($DatagramPacket, var$2, var$3, var$4, dp->getPort()));
 			$init($ReuseBuf);
 			if (reply->equals($nc($ReuseBuf::msgs)->get($nc($ReuseBuf::msgs)->length - 1))) {
 				break;
@@ -100,7 +61,37 @@ ReuseBuf$ServerThread::ReuseBuf$ServerThread() {
 }
 
 $Class* ReuseBuf$ServerThread::load$($String* name, bool initialize) {
-	$loadClass(ReuseBuf$ServerThread, name, initialize, &_ReuseBuf$ServerThread_ClassInfo_, allocate$ReuseBuf$ServerThread);
+	$FieldInfo fieldInfos$$[] = {
+		{"ds", "Ljava/net/DatagramSocket;", nullptr, 0, $field(ReuseBuf$ServerThread, ds)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ReuseBuf$ServerThread, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ReuseBuf$ServerThread, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ReuseBuf$ServerThread", "ReuseBuf", "ServerThread", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"ReuseBuf$ServerThread",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"ReuseBuf"
+	};
+	$loadClass(ReuseBuf$ServerThread, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReuseBuf$ServerThread);
+	});
 	return class$;
 }
 

@@ -13,6 +13,7 @@ class CipherSuite$1 : public ::java::lang::Object {
 	$class(CipherSuite$1, 0, ::java::lang::Object)
 public:
 	CipherSuite$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$security$ssl$CipherType;
 };
 

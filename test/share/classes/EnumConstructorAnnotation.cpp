@@ -1,5 +1,4 @@
 #include <EnumConstructorAnnotation.h>
-
 #include <EnumConstructorAnnotation$SampleAnnotation.h>
 #include <EnumConstructorAnnotation$SampleEnum.h>
 #include <java/lang/annotation/Annotation.h>
@@ -18,70 +17,34 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Annotation = ::java::lang::annotation::Annotation;
 using $Constructor = ::java::lang::reflect::Constructor;
-using $Parameter = ::java::lang::reflect::Parameter;
 using $Arrays = ::java::util::Arrays;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
-
-$MethodInfo _EnumConstructorAnnotation_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(EnumConstructorAnnotation, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EnumConstructorAnnotation, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _EnumConstructorAnnotation_InnerClassesInfo_[] = {
-	{"EnumConstructorAnnotation$SampleAnnotation", "EnumConstructorAnnotation", "SampleAnnotation", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{"EnumConstructorAnnotation$SampleEnum", "EnumConstructorAnnotation", "SampleEnum", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _EnumConstructorAnnotation_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"EnumConstructorAnnotation",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_EnumConstructorAnnotation_MethodInfo_,
-	nullptr,
-	nullptr,
-	_EnumConstructorAnnotation_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"EnumConstructorAnnotation$SampleAnnotation,EnumConstructorAnnotation$SampleEnum"
-};
-
-$Object* allocate$EnumConstructorAnnotation($Class* clazz) {
-	return $of($alloc(EnumConstructorAnnotation));
-}
 
 void EnumConstructorAnnotation::init$() {
 }
 
 void EnumConstructorAnnotation::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(EnumConstructorAnnotation);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($EnumConstructorAnnotation$SampleEnum);
 	$var($Constructor, c, $nc($($EnumConstructorAnnotation$SampleEnum::class$->getDeclaredConstructors()))->get(0));
 	$var($AnnotationArray, a1, $nc($nc($($nc(c)->getParameters()))->get(2))->getAnnotations());
 	$var($AnnotationArray, a2, $nc($(c->getParameterAnnotations()))->get(2));
 	{
-		$var($Iterator, i$, $nc($($Arrays::asList($$new($AnnotationArray2, {
+		$var($Iterator, i$, $$nc($Arrays::asList($$new($AnnotationArray2, {
 			a1,
 			a2
-		}))))->iterator());
+		})))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($AnnotationArray, a, $cast($AnnotationArray, i$->next()));
-			{
-				if ($nc(a)->length != 1) {
-					$throwNew($RuntimeException, $$str({"Unexpected length "_s, $$str(a->length)}));
-				} else {
-					$load($EnumConstructorAnnotation$SampleAnnotation);
-					if ($nc(a->get(0))->annotationType() != $EnumConstructorAnnotation$SampleAnnotation::class$) {
-						$throwNew($RuntimeException, $$str({"Unexpected type "_s, a->get(0)}));
-					}
+			if ($nc(a)->length != 1) {
+				$throwNew($RuntimeException, $$str({"Unexpected length "_s, $$str(a->length)}));
+			} else {
+				$load($EnumConstructorAnnotation$SampleAnnotation);
+				if ($nc(a->get(0))->annotationType() != $EnumConstructorAnnotation$SampleAnnotation::class$) {
+					$throwNew($RuntimeException, $$str({"Unexpected type "_s, a->get(0)}));
 				}
 			}
 		}
@@ -92,7 +55,33 @@ EnumConstructorAnnotation::EnumConstructorAnnotation() {
 }
 
 $Class* EnumConstructorAnnotation::load$($String* name, bool initialize) {
-	$loadClass(EnumConstructorAnnotation, name, initialize, &_EnumConstructorAnnotation_ClassInfo_, allocate$EnumConstructorAnnotation);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(EnumConstructorAnnotation, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EnumConstructorAnnotation, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"EnumConstructorAnnotation$SampleAnnotation", "EnumConstructorAnnotation", "SampleAnnotation", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{"EnumConstructorAnnotation$SampleEnum", "EnumConstructorAnnotation", "SampleEnum", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"EnumConstructorAnnotation",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"EnumConstructorAnnotation$SampleAnnotation,EnumConstructorAnnotation$SampleEnum"
+	};
+	$loadClass(EnumConstructorAnnotation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EnumConstructorAnnotation);
+	});
 	return class$;
 }
 

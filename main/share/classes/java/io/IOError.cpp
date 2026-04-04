@@ -1,5 +1,4 @@
 #include <java/io/IOError.h>
-
 #include <java/lang/Error.h>
 #include <jcpp.h>
 
@@ -10,29 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _IOError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IOError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _IOError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(IOError, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _IOError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.IOError",
-	"java.lang.Error",
-	nullptr,
-	_IOError_FieldInfo_,
-	_IOError_MethodInfo_
-};
-
-$Object* allocate$IOError($Class* clazz) {
-	return $of($alloc(IOError));
-}
 
 void IOError::init$($Throwable* cause) {
 	$Error::init$(cause);
@@ -49,7 +25,25 @@ void IOError::throw$() {
 }
 
 $Class* IOError::load$($String* name, bool initialize) {
-	$loadClass(IOError, name, initialize, &_IOError_ClassInfo_, allocate$IOError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IOError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(IOError, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.IOError",
+		"java.lang.Error",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IOError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IOError);
+	});
 	return class$;
 }
 

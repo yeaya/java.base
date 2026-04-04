@@ -18,13 +18,16 @@ public:
 	virtual int32_t getIndex();
 	virtual $String* getMessage() override;
 	virtual $String* getPattern();
-	static const int64_t serialVersionUID = (int64_t)0xCA5E0B30C038402E;
+	static const int64_t serialVersionUID = (int64_t)0xca5e0b30c038402e;
 	$String* desc = nullptr;
 	$String* pattern = nullptr;
 	int32_t index = 0;
 	PatternSyntaxException(const PatternSyntaxException& e);
 	virtual void throw$() override;
-	inline PatternSyntaxException* operator ->() {
+	inline PatternSyntaxException* operator ->() const {
+		return (PatternSyntaxException*)throwing$;
+	}
+	inline operator PatternSyntaxException*() const {
 		return (PatternSyntaxException*)throwing$;
 	}
 };

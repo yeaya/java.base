@@ -19,6 +19,7 @@ class SSLContextImpl$TLS10Context : public ::sun::security::ssl::SSLContextImpl$
 	$class(SSLContextImpl$TLS10Context, 0, ::sun::security::ssl::SSLContextImpl$AbstractTLSContext)
 public:
 	SSLContextImpl$TLS10Context();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::util::List* getClientDefaultCipherSuites() override;
 	virtual ::java::util::List* getClientDefaultProtocolVersions() override;

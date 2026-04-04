@@ -1,5 +1,4 @@
 #include <java/lang/reflect/GenericArrayType.h>
-
 #include <java/lang/reflect/Type.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace lang {
 		namespace reflect {
 
-$MethodInfo _GenericArrayType_MethodInfo_[] = {
-	{"getGenericComponentType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GenericArrayType, getGenericComponentType, $Type*)},
-	{}
-};
-
-$ClassInfo _GenericArrayType_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.lang.reflect.GenericArrayType",
-	nullptr,
-	"java.lang.reflect.Type",
-	nullptr,
-	_GenericArrayType_MethodInfo_
-};
-
-$Object* allocate$GenericArrayType($Class* clazz) {
-	return $of($alloc(GenericArrayType));
-}
-
 $Class* GenericArrayType::load$($String* name, bool initialize) {
-	$loadClass(GenericArrayType, name, initialize, &_GenericArrayType_ClassInfo_, allocate$GenericArrayType);
+	$MethodInfo methodInfos$$[] = {
+		{"getGenericComponentType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GenericArrayType, getGenericComponentType, $Type*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.lang.reflect.GenericArrayType",
+		nullptr,
+		"java.lang.reflect.Type",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GenericArrayType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GenericArrayType);
+	});
 	return class$;
 }
 

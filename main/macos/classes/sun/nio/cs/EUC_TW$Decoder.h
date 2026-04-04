@@ -30,6 +30,7 @@ class $export EUC_TW$Decoder : public ::java::nio::charset::CharsetDecoder {
 public:
 	EUC_TW$Decoder();
 	using ::java::nio::charset::CharsetDecoder::decode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	static $chars* decode(int32_t b1, int32_t b2, int32_t p, $chars* c1, $chars* c2);
 	::java::nio::charset::CoderResult* decodeArrayLoop(::java::nio::ByteBuffer* src, ::java::nio::CharBuffer* dst);

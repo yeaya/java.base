@@ -1,5 +1,4 @@
 #include <UpdateInterference$2.h>
-
 #include <UpdateInterference.h>
 #include <java/io/IOException.h>
 #include <java/lang/InterruptedException.h>
@@ -19,7 +18,6 @@ using $WatchKeyArray = $Array<::java::nio::file::WatchKey>;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
@@ -27,51 +25,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Path = ::java::nio::file::Path;
 using $StandardWatchEventKinds = ::java::nio::file::StandardWatchEventKinds;
-using $WatchKey = ::java::nio::file::WatchKey;
 using $WatchService = ::java::nio::file::WatchService;
-
-$FieldInfo _UpdateInterference$2_FieldInfo_[] = {
-	{"val$watcher", "Ljava/nio/file/WatchService;", nullptr, $FINAL | $SYNTHETIC, $field(UpdateInterference$2, val$watcher)},
-	{"val$baz", "Ljava/nio/file/Path;", nullptr, $FINAL | $SYNTHETIC, $field(UpdateInterference$2, val$baz)},
-	{}
-};
-
-$MethodInfo _UpdateInterference$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/Path;Ljava/nio/file/WatchService;)V", nullptr, 0, $method(UpdateInterference$2, init$, void, $Path*, $WatchService*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(UpdateInterference$2, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _UpdateInterference$2_EnclosingMethodInfo_ = {
-	"UpdateInterference",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _UpdateInterference$2_InnerClassesInfo_[] = {
-	{"UpdateInterference$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _UpdateInterference$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"UpdateInterference$2",
-	"java.lang.Thread",
-	nullptr,
-	_UpdateInterference$2_FieldInfo_,
-	_UpdateInterference$2_MethodInfo_,
-	nullptr,
-	&_UpdateInterference$2_EnclosingMethodInfo_,
-	_UpdateInterference$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"UpdateInterference"
-};
-
-$Object* allocate$UpdateInterference$2($Class* clazz) {
-	return $of($alloc(UpdateInterference$2));
-}
 
 void UpdateInterference$2::init$($Path* val$baz, $WatchService* val$watcher) {
 	$set(this, val$baz, val$baz);
@@ -80,7 +34,7 @@ void UpdateInterference$2::init$($Path* val$baz, $WatchService* val$watcher) {
 }
 
 void UpdateInterference$2::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WatchKeyArray, bazKeys, $new($WatchKeyArray, 32));
 	$init($UpdateInterference);
 	while (!$UpdateInterference::stop) {
@@ -94,9 +48,9 @@ void UpdateInterference$2::run() {
 			}
 			$Thread::sleep(1);
 		} catch ($IOException& e) {
-			$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+			$throwNew($RuntimeException, e);
 		} catch ($InterruptedException& e) {
-			$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+			$throwNew($RuntimeException, e);
 		}
 	}
 }
@@ -105,7 +59,43 @@ UpdateInterference$2::UpdateInterference$2() {
 }
 
 $Class* UpdateInterference$2::load$($String* name, bool initialize) {
-	$loadClass(UpdateInterference$2, name, initialize, &_UpdateInterference$2_ClassInfo_, allocate$UpdateInterference$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$watcher", "Ljava/nio/file/WatchService;", nullptr, $FINAL | $SYNTHETIC, $field(UpdateInterference$2, val$watcher)},
+		{"val$baz", "Ljava/nio/file/Path;", nullptr, $FINAL | $SYNTHETIC, $field(UpdateInterference$2, val$baz)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/Path;Ljava/nio/file/WatchService;)V", nullptr, 0, $method(UpdateInterference$2, init$, void, $Path*, $WatchService*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(UpdateInterference$2, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"UpdateInterference",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"UpdateInterference$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"UpdateInterference$2",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"UpdateInterference"
+	};
+	$loadClass(UpdateInterference$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UpdateInterference$2);
+	});
 	return class$;
 }
 

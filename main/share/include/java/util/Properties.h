@@ -74,6 +74,7 @@ class $import Properties : public ::java::util::Hashtable {
 	$class(Properties, $PRELOAD, ::java::util::Hashtable)
 public:
 	Properties();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t initialCapacity);
 	void init$(::java::util::Properties* defaults);
@@ -134,7 +135,7 @@ public:
 	virtual ::java::util::Collection* values() override;
 	static void writeComments(::java::io::BufferedWriter* bw, $String* comments);
 	virtual void writeHashtable(::java::io::ObjectOutputStream* s) override;
-	static const int64_t serialVersionUID = (int64_t)0x3912D07A70363E98;
+	static const int64_t serialVersionUID = (int64_t)0x3912d07a70363e98;
 	static ::jdk::internal::misc::Unsafe* UNSAFE;
 	$volatile(::java::util::Properties*) defaults = nullptr;
 	$volatile(::java::util::concurrent::ConcurrentHashMap*) map = nullptr;

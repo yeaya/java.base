@@ -1,5 +1,4 @@
 #include <java/util/concurrent/Callable.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,35 +9,30 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$CompoundAttribute _Callable_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _Callable_MethodInfo_[] = {
-	{"call", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $ABSTRACT, $virtualMethod(Callable, call, $Object*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Callable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.concurrent.Callable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Callable_MethodInfo_,
-	"<V:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	nullptr,
-	_Callable_Annotations_
-};
-
-$Object* allocate$Callable($Class* clazz) {
-	return $of($alloc(Callable));
-}
-
 $Class* Callable::load$($String* name, bool initialize) {
-	$loadClass(Callable, name, initialize, &_Callable_ClassInfo_, allocate$Callable);
+	$MethodInfo methodInfos$$[] = {
+		{"call", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $ABSTRACT, $virtualMethod(Callable, call, $Object*), "java.lang.Exception"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.concurrent.Callable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<V:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Callable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Callable);
+	});
 	return class$;
 }
 

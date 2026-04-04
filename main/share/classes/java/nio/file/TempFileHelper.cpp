@@ -1,5 +1,4 @@
 #include <java/nio/file/TempFileHelper.h>
-
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
 #include <java/nio/file/FileAlreadyExistsException.h>
@@ -25,60 +24,17 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $FileAlreadyExistsException = ::java::nio::file::FileAlreadyExistsException;
-using $FileSystem = ::java::nio::file::FileSystem;
 using $FileSystems = ::java::nio::file::FileSystems;
 using $Files = ::java::nio::file::Files;
 using $InvalidPathException = ::java::nio::file::InvalidPathException;
 using $Path = ::java::nio::file::Path;
 using $TempFileHelper$PosixPermissions = ::java::nio::file::TempFileHelper$PosixPermissions;
-using $FileAttribute = ::java::nio::file::attribute::FileAttribute;
 using $SecureRandom = ::java::security::SecureRandom;
-using $Set = ::java::util::Set;
 using $StaticProperty = ::jdk::internal::util::StaticProperty;
 
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _TempFileHelper_FieldInfo_[] = {
-	{"tmpdir", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TempFileHelper, tmpdir)},
-	{"isPosix", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TempFileHelper, isPosix)},
-	{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TempFileHelper, random)},
-	{}
-};
-
-$MethodInfo _TempFileHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(TempFileHelper, init$, void)},
-	{"create", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;Z[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;Z[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/file/Path;", $PRIVATE | $STATIC, $staticMethod(TempFileHelper, create, $Path*, $Path*, $String*, $String*, bool, $FileAttributeArray*), "java.io.IOException"},
-	{"createTempDirectory", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/file/Path;", $STATIC, $staticMethod(TempFileHelper, createTempDirectory, $Path*, $Path*, $String*, $FileAttributeArray*), "java.io.IOException"},
-	{"createTempFile", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/file/Path;", $STATIC, $staticMethod(TempFileHelper, createTempFile, $Path*, $Path*, $String*, $String*, $FileAttributeArray*), "java.io.IOException"},
-	{"generatePath", "(Ljava/lang/String;Ljava/lang/String;Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC, $staticMethod(TempFileHelper, generatePath, $Path*, $String*, $String*, $Path*)},
-	{}
-};
-
-$InnerClassInfo _TempFileHelper_InnerClassesInfo_[] = {
-	{"java.nio.file.TempFileHelper$PosixPermissions", "java.nio.file.TempFileHelper", "PosixPermissions", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _TempFileHelper_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.file.TempFileHelper",
-	"java.lang.Object",
-	nullptr,
-	_TempFileHelper_FieldInfo_,
-	_TempFileHelper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TempFileHelper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.nio.file.TempFileHelper$PosixPermissions"
-};
-
-$Object* allocate$TempFileHelper($Class* clazz) {
-	return $of($alloc(TempFileHelper));
-}
 
 $Path* TempFileHelper::tmpdir = nullptr;
 bool TempFileHelper::isPosix = false;
@@ -89,10 +45,10 @@ void TempFileHelper::init$() {
 
 $Path* TempFileHelper::generatePath($String* prefix, $String* suffix, $Path* dir) {
 	$init(TempFileHelper);
-	$useLocalCurrentObjectStackCache();
-	int64_t n = $nc(TempFileHelper::random)->nextLong();
+	$useLocalObjectStack();
+	int64_t n = TempFileHelper::random->nextLong();
 	$var($String, s, $str({prefix, $($Long::toUnsignedString(n)), suffix}));
-	$var($Path, name, $nc($($nc(dir)->getFileSystem()))->getPath(s, $$new($StringArray, 0)));
+	$var($Path, name, $$nc($nc(dir)->getFileSystem())->getPath(s, $$new($StringArray, 0)));
 	if ($nc(name)->getParent() != nullptr) {
 		$throwNew($IllegalArgumentException, "Invalid prefix or suffix"_s);
 	}
@@ -101,7 +57,7 @@ $Path* TempFileHelper::generatePath($String* prefix, $String* suffix, $Path* dir
 
 $Path* TempFileHelper::create($Path* dir$renamed, $String* prefix$renamed, $String* suffix$renamed, bool createDirectory, $FileAttributeArray* attrs$renamed) {
 	$init(TempFileHelper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefix, prefix$renamed);
 	$var($Path, dir, dir$renamed);
 	$var($String, suffix, suffix$renamed);
@@ -117,7 +73,7 @@ $Path* TempFileHelper::create($Path* dir$renamed, $String* prefix$renamed, $Stri
 	}
 	bool var$0 = TempFileHelper::isPosix;
 	if (var$0) {
-		var$0 = ($nc(dir)->getFileSystem() == $FileSystems::getDefault());
+		var$0 = $nc(dir)->getFileSystem() == $FileSystems::getDefault();
 	}
 	if (var$0) {
 		if ($nc(attrs)->length == 0) {
@@ -127,7 +83,7 @@ $Path* TempFileHelper::create($Path* dir$renamed, $String* prefix$renamed, $Stri
 		} else {
 			bool hasPermissions = false;
 			for (int32_t i = 0; i < attrs->length; ++i) {
-				if ($nc($($nc(attrs->get(i))->name()))->equals("posix:permissions"_s)) {
+				if ($$nc($nc(attrs->get(i))->name())->equals("posix:permissions"_s)) {
 					hasPermissions = true;
 					break;
 				}
@@ -179,10 +135,10 @@ $Path* TempFileHelper::createTempDirectory($Path* dir, $String* prefix, $FileAtt
 	return create(dir, prefix, nullptr, true, attrs);
 }
 
-void clinit$TempFileHelper($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void TempFileHelper::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(TempFileHelper::tmpdir, $Path::of($($StaticProperty::javaIoTmpDir()), $$new($StringArray, 0)));
-	TempFileHelper::isPosix = $nc($($nc($($FileSystems::getDefault()))->supportedFileAttributeViews()))->contains("posix"_s);
+	TempFileHelper::isPosix = $$nc($$nc($FileSystems::getDefault())->supportedFileAttributeViews())->contains("posix"_s);
 	$assignStatic(TempFileHelper::random, $new($SecureRandom));
 }
 
@@ -190,7 +146,41 @@ TempFileHelper::TempFileHelper() {
 }
 
 $Class* TempFileHelper::load$($String* name, bool initialize) {
-	$loadClass(TempFileHelper, name, initialize, &_TempFileHelper_ClassInfo_, clinit$TempFileHelper, allocate$TempFileHelper);
+	$FieldInfo fieldInfos$$[] = {
+		{"tmpdir", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TempFileHelper, tmpdir)},
+		{"isPosix", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TempFileHelper, isPosix)},
+		{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TempFileHelper, random)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(TempFileHelper, init$, void)},
+		{"create", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;Z[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;Z[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/file/Path;", $PRIVATE | $STATIC, $staticMethod(TempFileHelper, create, $Path*, $Path*, $String*, $String*, bool, $FileAttributeArray*), "java.io.IOException"},
+		{"createTempDirectory", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/file/Path;", $STATIC, $staticMethod(TempFileHelper, createTempDirectory, $Path*, $Path*, $String*, $FileAttributeArray*), "java.io.IOException"},
+		{"createTempFile", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/String;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/file/Path;", $STATIC, $staticMethod(TempFileHelper, createTempFile, $Path*, $Path*, $String*, $String*, $FileAttributeArray*), "java.io.IOException"},
+		{"generatePath", "(Ljava/lang/String;Ljava/lang/String;Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC, $staticMethod(TempFileHelper, generatePath, $Path*, $String*, $String*, $Path*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.file.TempFileHelper$PosixPermissions", "java.nio.file.TempFileHelper", "PosixPermissions", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.file.TempFileHelper",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.nio.file.TempFileHelper$PosixPermissions"
+	};
+	$loadClass(TempFileHelper, name, initialize, &classInfo$$, TempFileHelper::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TempFileHelper);
+	});
 	return class$;
 }
 

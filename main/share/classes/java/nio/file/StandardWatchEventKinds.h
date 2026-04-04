@@ -30,6 +30,7 @@ class $export StandardWatchEventKinds : public ::java::lang::Object {
 	$class(StandardWatchEventKinds, 0, ::java::lang::Object)
 public:
 	StandardWatchEventKinds();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::nio::file::WatchEvent$Kind* OVERFLOW;
 	static ::java::nio::file::WatchEvent$Kind* ENTRY_CREATE;

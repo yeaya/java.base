@@ -1,5 +1,4 @@
 #include <javax/crypto/spec/RC5ParameterSpec.h>
-
 #include <java/util/Arrays.h>
 #include <jcpp.h>
 
@@ -12,40 +11,6 @@ using $Arrays = ::java::util::Arrays;
 namespace javax {
 	namespace crypto {
 		namespace spec {
-
-$FieldInfo _RC5ParameterSpec_FieldInfo_[] = {
-	{"iv", "[B", nullptr, $PRIVATE, $field(RC5ParameterSpec, iv)},
-	{"version", "I", nullptr, $PRIVATE, $field(RC5ParameterSpec, version)},
-	{"rounds", "I", nullptr, $PRIVATE, $field(RC5ParameterSpec, rounds)},
-	{"wordSize", "I", nullptr, $PRIVATE, $field(RC5ParameterSpec, wordSize)},
-	{}
-};
-
-$MethodInfo _RC5ParameterSpec_MethodInfo_[] = {
-	{"<init>", "(III)V", nullptr, $PUBLIC, $method(RC5ParameterSpec, init$, void, int32_t, int32_t, int32_t)},
-	{"<init>", "(III[B)V", nullptr, $PUBLIC, $method(RC5ParameterSpec, init$, void, int32_t, int32_t, int32_t, $bytes*)},
-	{"<init>", "(III[BI)V", nullptr, $PUBLIC, $method(RC5ParameterSpec, init$, void, int32_t, int32_t, int32_t, $bytes*, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RC5ParameterSpec, equals, bool, Object$*)},
-	{"getIV", "()[B", nullptr, $PUBLIC, $virtualMethod(RC5ParameterSpec, getIV, $bytes*)},
-	{"getRounds", "()I", nullptr, $PUBLIC, $virtualMethod(RC5ParameterSpec, getRounds, int32_t)},
-	{"getVersion", "()I", nullptr, $PUBLIC, $virtualMethod(RC5ParameterSpec, getVersion, int32_t)},
-	{"getWordSize", "()I", nullptr, $PUBLIC, $virtualMethod(RC5ParameterSpec, getWordSize, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RC5ParameterSpec, hashCode, int32_t)},
-	{}
-};
-
-$ClassInfo _RC5ParameterSpec_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.crypto.spec.RC5ParameterSpec",
-	"java.lang.Object",
-	"java.security.spec.AlgorithmParameterSpec",
-	_RC5ParameterSpec_FieldInfo_,
-	_RC5ParameterSpec_MethodInfo_
-};
-
-$Object* allocate$RC5ParameterSpec($Class* clazz) {
-	return $of($alloc(RC5ParameterSpec));
-}
 
 void RC5ParameterSpec::init$(int32_t version, int32_t rounds, int32_t wordSize) {
 	$set(this, iv, nullptr);
@@ -87,7 +52,7 @@ int32_t RC5ParameterSpec::getWordSize() {
 }
 
 $bytes* RC5ParameterSpec::getIV() {
-	return (this->iv == nullptr ? ($bytes*)nullptr : $cast($bytes, $nc(this->iv)->clone()));
+	return (this->iv == nullptr ? ($bytes*)nullptr : $cast($bytes, this->iv->clone()));
 }
 
 bool RC5ParameterSpec::equals(Object$* obj) {
@@ -104,8 +69,8 @@ bool RC5ParameterSpec::equals(Object$* obj) {
 int32_t RC5ParameterSpec::hashCode() {
 	int32_t retval = 0;
 	if (this->iv != nullptr) {
-		for (int32_t i = 1; i < $nc(this->iv)->length; ++i) {
-			retval += $nc(this->iv)->get(i) * i;
+		for (int32_t i = 1; i < this->iv->length; ++i) {
+			retval += this->iv->get(i) * i;
 		}
 	}
 	retval += (this->version + this->rounds + this->wordSize);
@@ -116,7 +81,36 @@ RC5ParameterSpec::RC5ParameterSpec() {
 }
 
 $Class* RC5ParameterSpec::load$($String* name, bool initialize) {
-	$loadClass(RC5ParameterSpec, name, initialize, &_RC5ParameterSpec_ClassInfo_, allocate$RC5ParameterSpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"iv", "[B", nullptr, $PRIVATE, $field(RC5ParameterSpec, iv)},
+		{"version", "I", nullptr, $PRIVATE, $field(RC5ParameterSpec, version)},
+		{"rounds", "I", nullptr, $PRIVATE, $field(RC5ParameterSpec, rounds)},
+		{"wordSize", "I", nullptr, $PRIVATE, $field(RC5ParameterSpec, wordSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(III)V", nullptr, $PUBLIC, $method(RC5ParameterSpec, init$, void, int32_t, int32_t, int32_t)},
+		{"<init>", "(III[B)V", nullptr, $PUBLIC, $method(RC5ParameterSpec, init$, void, int32_t, int32_t, int32_t, $bytes*)},
+		{"<init>", "(III[BI)V", nullptr, $PUBLIC, $method(RC5ParameterSpec, init$, void, int32_t, int32_t, int32_t, $bytes*, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RC5ParameterSpec, equals, bool, Object$*)},
+		{"getIV", "()[B", nullptr, $PUBLIC, $virtualMethod(RC5ParameterSpec, getIV, $bytes*)},
+		{"getRounds", "()I", nullptr, $PUBLIC, $virtualMethod(RC5ParameterSpec, getRounds, int32_t)},
+		{"getVersion", "()I", nullptr, $PUBLIC, $virtualMethod(RC5ParameterSpec, getVersion, int32_t)},
+		{"getWordSize", "()I", nullptr, $PUBLIC, $virtualMethod(RC5ParameterSpec, getWordSize, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RC5ParameterSpec, hashCode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.crypto.spec.RC5ParameterSpec",
+		"java.lang.Object",
+		"java.security.spec.AlgorithmParameterSpec",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RC5ParameterSpec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RC5ParameterSpec);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/AuxLocaleProviderAdapter.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -16,7 +15,6 @@
 #include <java/text/spi/NumberFormatProvider.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/List.h>
 #include <java/util/Locale.h>
 #include <java/util/concurrent/ConcurrentHashMap.h>
@@ -54,11 +52,9 @@ using $DecimalFormatSymbolsProvider = ::java::text::spi::DecimalFormatSymbolsPro
 using $NumberFormatProvider = ::java::text::spi::NumberFormatProvider;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
-using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 using $CalendarDataProvider = ::java::util::spi::CalendarDataProvider;
 using $CalendarNameProvider = ::java::util::spi::CalendarNameProvider;
 using $CurrencyNameProvider = ::java::util::spi::CurrencyNameProvider;
@@ -83,86 +79,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(AuxLocaleProviderAdapter::lambda$static$0());
+		 return AuxLocaleProviderAdapter::lambda$static$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AuxLocaleProviderAdapter$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo AuxLocaleProviderAdapter$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AuxLocaleProviderAdapter$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo AuxLocaleProviderAdapter$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.util.locale.provider.AuxLocaleProviderAdapter$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* AuxLocaleProviderAdapter$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(AuxLocaleProviderAdapter$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AuxLocaleProviderAdapter$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.util.locale.provider.AuxLocaleProviderAdapter$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AuxLocaleProviderAdapter$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AuxLocaleProviderAdapter$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* AuxLocaleProviderAdapter$$Lambda$lambda$static$0::class$ = nullptr;
-
-$FieldInfo _AuxLocaleProviderAdapter_FieldInfo_[] = {
-	{"providersMap", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/lang/Class<+Ljava/util/spi/LocaleServiceProvider;>;Ljava/util/spi/LocaleServiceProvider;>;", $PRIVATE | $FINAL, $field(AuxLocaleProviderAdapter, providersMap)},
-	{"availableLocales", "[Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $staticField(AuxLocaleProviderAdapter, availableLocales)},
-	{"NULL_PROVIDER", "Lsun/util/locale/provider/AuxLocaleProviderAdapter$NullProvider;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AuxLocaleProviderAdapter, NULL_PROVIDER)},
-	{}
-};
-
-$MethodInfo _AuxLocaleProviderAdapter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AuxLocaleProviderAdapter, init$, void)},
-	{"findInstalledProvider", "(Ljava/lang/Class;)Ljava/util/spi/LocaleServiceProvider;", "<P:Ljava/util/spi/LocaleServiceProvider;>(Ljava/lang/Class<TP;>;)TP;", $PROTECTED | $ABSTRACT, $virtualMethod(AuxLocaleProviderAdapter, findInstalledProvider, $LocaleServiceProvider*, $Class*)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getAvailableLocales, $LocaleArray*)},
-	{"getBreakIteratorProvider", "()Ljava/text/spi/BreakIteratorProvider;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getBreakIteratorProvider, $BreakIteratorProvider*)},
-	{"getCalendarDataProvider", "()Ljava/util/spi/CalendarDataProvider;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getCalendarDataProvider, $CalendarDataProvider*)},
-	{"getCalendarNameProvider", "()Ljava/util/spi/CalendarNameProvider;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getCalendarNameProvider, $CalendarNameProvider*)},
-	{"getCalendarProvider", "()Lsun/util/spi/CalendarProvider;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getCalendarProvider, $CalendarProvider*)},
-	{"getCollatorProvider", "()Ljava/text/spi/CollatorProvider;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getCollatorProvider, $CollatorProvider*)},
-	{"getCurrencyNameProvider", "()Ljava/util/spi/CurrencyNameProvider;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getCurrencyNameProvider, $CurrencyNameProvider*)},
-	{"getDateFormatProvider", "()Ljava/text/spi/DateFormatProvider;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getDateFormatProvider, $DateFormatProvider*)},
-	{"getDateFormatSymbolsProvider", "()Ljava/text/spi/DateFormatSymbolsProvider;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getDateFormatSymbolsProvider, $DateFormatSymbolsProvider*)},
-	{"getDecimalFormatSymbolsProvider", "()Ljava/text/spi/DecimalFormatSymbolsProvider;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getDecimalFormatSymbolsProvider, $DecimalFormatSymbolsProvider*)},
-	{"getJavaTimeDateTimePatternProvider", "()Lsun/text/spi/JavaTimeDateTimePatternProvider;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getJavaTimeDateTimePatternProvider, $JavaTimeDateTimePatternProvider*)},
-	{"getLocaleNameProvider", "()Ljava/util/spi/LocaleNameProvider;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getLocaleNameProvider, $LocaleNameProvider*)},
-	{"getLocaleResources", "(Ljava/util/Locale;)Lsun/util/locale/provider/LocaleResources;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getLocaleResources, $LocaleResources*, $Locale*)},
-	{"getLocaleServiceProvider", "(Ljava/lang/Class;)Ljava/util/spi/LocaleServiceProvider;", "<P:Ljava/util/spi/LocaleServiceProvider;>(Ljava/lang/Class<TP;>;)TP;", $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getLocaleServiceProvider, $LocaleServiceProvider*, $Class*)},
-	{"getNumberFormatProvider", "()Ljava/text/spi/NumberFormatProvider;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getNumberFormatProvider, $NumberFormatProvider*)},
-	{"getTimeZoneNameProvider", "()Ljava/util/spi/TimeZoneNameProvider;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getTimeZoneNameProvider, $TimeZoneNameProvider*)},
-	{"lambda$static$0", "()Lsun/util/locale/provider/AuxLocaleProviderAdapter$NullProvider;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AuxLocaleProviderAdapter, lambda$static$0, $AuxLocaleProviderAdapter$NullProvider*)},
-	{}
-};
-
-$InnerClassInfo _AuxLocaleProviderAdapter_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.AuxLocaleProviderAdapter$NullProvider", "sun.util.locale.provider.AuxLocaleProviderAdapter", "NullProvider", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AuxLocaleProviderAdapter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.util.locale.provider.AuxLocaleProviderAdapter",
-	"sun.util.locale.provider.LocaleProviderAdapter",
-	nullptr,
-	_AuxLocaleProviderAdapter_FieldInfo_,
-	_AuxLocaleProviderAdapter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AuxLocaleProviderAdapter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.AuxLocaleProviderAdapter$NullProvider"
-};
-
-$Object* allocate$AuxLocaleProviderAdapter($Class* clazz) {
-	return $of($alloc(AuxLocaleProviderAdapter));
-}
 
 $LocaleArray* AuxLocaleProviderAdapter::availableLocales = nullptr;
 $AuxLocaleProviderAdapter$NullProvider* AuxLocaleProviderAdapter::NULL_PROVIDER = nullptr;
@@ -173,10 +112,10 @@ void AuxLocaleProviderAdapter::init$() {
 }
 
 $LocaleServiceProvider* AuxLocaleProviderAdapter::getLocaleServiceProvider($Class* c) {
-	$var($LocaleServiceProvider, lsp, $cast($LocaleServiceProvider, $nc(this->providersMap)->get(c)));
+	$var($LocaleServiceProvider, lsp, $cast($LocaleServiceProvider, this->providersMap->get(c)));
 	if (lsp == nullptr) {
 		$assign(lsp, findInstalledProvider(c));
-		$nc(this->providersMap)->putIfAbsent(c, lsp == nullptr ? static_cast<$LocaleServiceProvider*>(AuxLocaleProviderAdapter::NULL_PROVIDER) : lsp);
+		this->providersMap->putIfAbsent(c, lsp == nullptr ? $cast($LocaleServiceProvider, AuxLocaleProviderAdapter::NULL_PROVIDER) : lsp);
 	}
 	return lsp;
 }
@@ -251,15 +190,13 @@ $JavaTimeDateTimePatternProvider* AuxLocaleProviderAdapter::getJavaTimeDateTimeP
 }
 
 $LocaleArray* AuxLocaleProviderAdapter::getAvailableLocales() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (AuxLocaleProviderAdapter::availableLocales == nullptr) {
 		$var($List, avail, $new($ArrayList));
 		{
 			$init($LocaleServiceProviderPool);
 			$var($ClassArray, arr$, $LocaleServiceProviderPool::spiClasses);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$Class* c = arr$->get(i$);
 				{
 					$var($LocaleServiceProvider, lsp, getLocaleServiceProvider(c));
@@ -269,7 +206,7 @@ $LocaleArray* AuxLocaleProviderAdapter::getAvailableLocales() {
 				}
 			}
 		}
-		$assignStatic(AuxLocaleProviderAdapter::availableLocales, $fcast($LocaleArray, avail->toArray($$new($LocaleArray, 0))));
+		$assignStatic(AuxLocaleProviderAdapter::availableLocales, $cast($LocaleArray, avail->toArray($$new($LocaleArray, 0))));
 	}
 	return AuxLocaleProviderAdapter::availableLocales;
 }
@@ -279,10 +216,10 @@ $AuxLocaleProviderAdapter$NullProvider* AuxLocaleProviderAdapter::lambda$static$
 	return $new($AuxLocaleProviderAdapter$NullProvider);
 }
 
-void clinit$AuxLocaleProviderAdapter($Class* class$) {
+void AuxLocaleProviderAdapter::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	$assignStatic(AuxLocaleProviderAdapter::availableLocales, nullptr);
-	$assignStatic(AuxLocaleProviderAdapter::NULL_PROVIDER, $cast($AuxLocaleProviderAdapter$NullProvider, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(AuxLocaleProviderAdapter$$Lambda$lambda$static$0)))));
+	$assignStatic(AuxLocaleProviderAdapter::NULL_PROVIDER, $cast($AuxLocaleProviderAdapter$NullProvider, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(AuxLocaleProviderAdapter$$Lambda$lambda$static$0)))));
 }
 
 AuxLocaleProviderAdapter::AuxLocaleProviderAdapter() {
@@ -290,11 +227,59 @@ AuxLocaleProviderAdapter::AuxLocaleProviderAdapter() {
 
 $Class* AuxLocaleProviderAdapter::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(AuxLocaleProviderAdapter$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("sun.util.locale.provider.AuxLocaleProviderAdapter$$Lambda$lambda$static$0")) {
 			return AuxLocaleProviderAdapter$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(AuxLocaleProviderAdapter, name, initialize, &_AuxLocaleProviderAdapter_ClassInfo_, clinit$AuxLocaleProviderAdapter, allocate$AuxLocaleProviderAdapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"providersMap", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/lang/Class<+Ljava/util/spi/LocaleServiceProvider;>;Ljava/util/spi/LocaleServiceProvider;>;", $PRIVATE | $FINAL, $field(AuxLocaleProviderAdapter, providersMap)},
+		{"availableLocales", "[Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $staticField(AuxLocaleProviderAdapter, availableLocales)},
+		{"NULL_PROVIDER", "Lsun/util/locale/provider/AuxLocaleProviderAdapter$NullProvider;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AuxLocaleProviderAdapter, NULL_PROVIDER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AuxLocaleProviderAdapter, init$, void)},
+		{"findInstalledProvider", "(Ljava/lang/Class;)Ljava/util/spi/LocaleServiceProvider;", "<P:Ljava/util/spi/LocaleServiceProvider;>(Ljava/lang/Class<TP;>;)TP;", $PROTECTED | $ABSTRACT, $virtualMethod(AuxLocaleProviderAdapter, findInstalledProvider, $LocaleServiceProvider*, $Class*)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getAvailableLocales, $LocaleArray*)},
+		{"getBreakIteratorProvider", "()Ljava/text/spi/BreakIteratorProvider;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getBreakIteratorProvider, $BreakIteratorProvider*)},
+		{"getCalendarDataProvider", "()Ljava/util/spi/CalendarDataProvider;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getCalendarDataProvider, $CalendarDataProvider*)},
+		{"getCalendarNameProvider", "()Ljava/util/spi/CalendarNameProvider;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getCalendarNameProvider, $CalendarNameProvider*)},
+		{"getCalendarProvider", "()Lsun/util/spi/CalendarProvider;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getCalendarProvider, $CalendarProvider*)},
+		{"getCollatorProvider", "()Ljava/text/spi/CollatorProvider;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getCollatorProvider, $CollatorProvider*)},
+		{"getCurrencyNameProvider", "()Ljava/util/spi/CurrencyNameProvider;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getCurrencyNameProvider, $CurrencyNameProvider*)},
+		{"getDateFormatProvider", "()Ljava/text/spi/DateFormatProvider;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getDateFormatProvider, $DateFormatProvider*)},
+		{"getDateFormatSymbolsProvider", "()Ljava/text/spi/DateFormatSymbolsProvider;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getDateFormatSymbolsProvider, $DateFormatSymbolsProvider*)},
+		{"getDecimalFormatSymbolsProvider", "()Ljava/text/spi/DecimalFormatSymbolsProvider;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getDecimalFormatSymbolsProvider, $DecimalFormatSymbolsProvider*)},
+		{"getJavaTimeDateTimePatternProvider", "()Lsun/text/spi/JavaTimeDateTimePatternProvider;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getJavaTimeDateTimePatternProvider, $JavaTimeDateTimePatternProvider*)},
+		{"getLocaleNameProvider", "()Ljava/util/spi/LocaleNameProvider;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getLocaleNameProvider, $LocaleNameProvider*)},
+		{"getLocaleResources", "(Ljava/util/Locale;)Lsun/util/locale/provider/LocaleResources;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getLocaleResources, $LocaleResources*, $Locale*)},
+		{"getLocaleServiceProvider", "(Ljava/lang/Class;)Ljava/util/spi/LocaleServiceProvider;", "<P:Ljava/util/spi/LocaleServiceProvider;>(Ljava/lang/Class<TP;>;)TP;", $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getLocaleServiceProvider, $LocaleServiceProvider*, $Class*)},
+		{"getNumberFormatProvider", "()Ljava/text/spi/NumberFormatProvider;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getNumberFormatProvider, $NumberFormatProvider*)},
+		{"getTimeZoneNameProvider", "()Ljava/util/spi/TimeZoneNameProvider;", nullptr, $PUBLIC, $virtualMethod(AuxLocaleProviderAdapter, getTimeZoneNameProvider, $TimeZoneNameProvider*)},
+		{"lambda$static$0", "()Lsun/util/locale/provider/AuxLocaleProviderAdapter$NullProvider;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AuxLocaleProviderAdapter, lambda$static$0, $AuxLocaleProviderAdapter$NullProvider*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.AuxLocaleProviderAdapter$NullProvider", "sun.util.locale.provider.AuxLocaleProviderAdapter", "NullProvider", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.util.locale.provider.AuxLocaleProviderAdapter",
+		"sun.util.locale.provider.LocaleProviderAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.AuxLocaleProviderAdapter$NullProvider"
+	};
+	$loadClass(AuxLocaleProviderAdapter, name, initialize, &classInfo$$, AuxLocaleProviderAdapter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AuxLocaleProviderAdapter);
+	});
 	return class$;
 }
 

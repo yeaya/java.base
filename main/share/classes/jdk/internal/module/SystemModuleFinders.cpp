@@ -1,5 +1,4 @@
 #include <jdk/internal/module/SystemModuleFinders.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/invoke/CallSite.h>
@@ -113,91 +112,36 @@ public:
 		$set(this, name, name);
 	}
 	virtual $Object* apply(Object$* k) override {
-		 return $of(SystemModuleFinders::lambda$ofModuleInfos$0(hashes, name, $cast($String, k)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0>());
+		 return SystemModuleFinders::lambda$ofModuleInfos$0(hashes, name, $cast($String, k));
 	}
 	$ModuleHashes* hashes = nullptr;
 	$String* name = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0::fieldInfos[3] = {
-	{"hashes", "Ljdk/internal/module/ModuleHashes;", nullptr, $PUBLIC, $field(SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0, hashes)},
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0, name)},
-	{}
-};
-$MethodInfo SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/module/ModuleHashes;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0, init$, void, $ModuleHashes*, $String*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.module.SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0::load$($String* name, bool initialize) {
-	$loadClass(SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"hashes", "Ljdk/internal/module/ModuleHashes;", nullptr, $PUBLIC, $field(SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0, hashes)},
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/module/ModuleHashes;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0, init$, void, $ModuleHashes*, $String*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.module.SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0);
+	});
 	return class$;
 }
 $Class* SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0::class$ = nullptr;
-
-$FieldInfo _SystemModuleFinders_FieldInfo_[] = {
-	{"JNUA", "Ljdk/internal/access/JavaNetUriAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SystemModuleFinders, JNUA)},
-	{"USE_FAST_PATH", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SystemModuleFinders, USE_FAST_PATH)},
-	{"cachedSystemModuleFinder", "Ljava/lang/module/ModuleFinder;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(SystemModuleFinders, cachedSystemModuleFinder)},
-	{}
-};
-
-$MethodInfo _SystemModuleFinders_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SystemModuleFinders, init$, void)},
-	{"allSystemModules", "()Ljdk/internal/module/SystemModules;", nullptr, $STATIC, $staticMethod(SystemModuleFinders, allSystemModules, $SystemModules*)},
-	{"generateNameToHash", "([Ljdk/internal/module/ModuleHashes;)Ljava/util/Map;", "([Ljdk/internal/module/ModuleHashes;)Ljava/util/Map<Ljava/lang/String;[B>;", $STATIC, $staticMethod(SystemModuleFinders, generateNameToHash, $Map*, $ModuleHashesArray*)},
-	{"hashSupplier", "(Ljava/util/Map;Ljava/lang/String;)Ljdk/internal/module/ModuleHashes$HashSupplier;", "(Ljava/util/Map<Ljava/lang/String;[B>;Ljava/lang/String;)Ljdk/internal/module/ModuleHashes$HashSupplier;", $STATIC, $staticMethod(SystemModuleFinders, hashSupplier, $ModuleHashes$HashSupplier*, $Map*, $String*)},
-	{"lambda$ofModuleInfos$0", "(Ljdk/internal/module/ModuleHashes;Ljava/lang/String;Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SystemModuleFinders, lambda$ofModuleInfos$0, $bytes*, $ModuleHashes*, $String*, $String*)},
-	{"of", "(Ljdk/internal/module/SystemModules;)Ljava/lang/module/ModuleFinder;", nullptr, $STATIC, $staticMethod(SystemModuleFinders, of, $ModuleFinder*, $SystemModules*)},
-	{"ofModuleInfos", "()Ljava/lang/module/ModuleFinder;", nullptr, $PRIVATE | $STATIC, $staticMethod(SystemModuleFinders, ofModuleInfos, $ModuleFinder*)},
-	{"ofSystem", "()Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemModuleFinders, ofSystem, $ModuleFinder*)},
-	{"systemModules", "(Ljava/lang/String;)Ljdk/internal/module/SystemModules;", nullptr, $STATIC, $staticMethod(SystemModuleFinders, systemModules, $SystemModules*, $String*)},
-	{"toModuleReference", "(Ljava/lang/module/ModuleDescriptor;Ljdk/internal/module/ModuleTarget;Ljdk/internal/module/ModuleHashes;Ljdk/internal/module/ModuleHashes$HashSupplier;Ljdk/internal/module/ModuleResolution;)Ljava/lang/module/ModuleReference;", nullptr, $STATIC, $staticMethod(SystemModuleFinders, toModuleReference, $ModuleReference*, $ModuleDescriptor*, $ModuleTarget*, $ModuleHashes*, $ModuleHashes$HashSupplier*, $ModuleResolution*)},
-	{}
-};
-
-$InnerClassInfo _SystemModuleFinders_InnerClassesInfo_[] = {
-	{"jdk.internal.module.SystemModuleFinders$ModuleContentSpliterator", "jdk.internal.module.SystemModuleFinders", "ModuleContentSpliterator", $PRIVATE | $STATIC},
-	{"jdk.internal.module.SystemModuleFinders$SystemModuleReader", "jdk.internal.module.SystemModuleFinders", "SystemModuleReader", $PRIVATE | $STATIC},
-	{"jdk.internal.module.SystemModuleFinders$SystemImage", "jdk.internal.module.SystemModuleFinders", "SystemImage", $PRIVATE | $STATIC},
-	{"jdk.internal.module.SystemModuleFinders$SystemModuleFinder", "jdk.internal.module.SystemModuleFinders", "SystemModuleFinder", $PRIVATE | $STATIC},
-	{"jdk.internal.module.SystemModuleFinders$3", nullptr, nullptr, 0},
-	{"jdk.internal.module.SystemModuleFinders$2", nullptr, nullptr, 0},
-	{"jdk.internal.module.SystemModuleFinders$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SystemModuleFinders_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.module.SystemModuleFinders",
-	"java.lang.Object",
-	nullptr,
-	_SystemModuleFinders_FieldInfo_,
-	_SystemModuleFinders_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SystemModuleFinders_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.module.SystemModuleFinders$ModuleContentSpliterator,jdk.internal.module.SystemModuleFinders$SystemModuleReader,jdk.internal.module.SystemModuleFinders$SystemImage,jdk.internal.module.SystemModuleFinders$SystemModuleFinder,jdk.internal.module.SystemModuleFinders$3,jdk.internal.module.SystemModuleFinders$2,jdk.internal.module.SystemModuleFinders$1"
-};
-
-$Object* allocate$SystemModuleFinders($Class* clazz) {
-	return $of($alloc(SystemModuleFinders));
-}
 
 $JavaNetUriAccess* SystemModuleFinders::JNUA = nullptr;
 bool SystemModuleFinders::USE_FAST_PATH = false;
@@ -217,7 +161,7 @@ $SystemModules* SystemModuleFinders::allSystemModules() {
 
 $SystemModules* SystemModuleFinders::systemModules($String* initialModule) {
 	$init(SystemModuleFinders);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (SystemModuleFinders::USE_FAST_PATH) {
 		if (initialModule == nullptr) {
@@ -232,7 +176,7 @@ $SystemModules* SystemModuleFinders::systemModules($String* initialModule) {
 					$var($Constructor, ctor, $Class::forName(cn)->getConstructor($$new($ClassArray, 0)));
 					return $cast($SystemModules, $nc(ctor)->newInstance($$new($ObjectArray, 0)));
 				} catch ($Exception& e) {
-					$throwNew($InternalError, static_cast<$Throwable*>(e));
+					$throwNew($InternalError, e);
 				}
 			}
 		}
@@ -242,7 +186,7 @@ $SystemModules* SystemModuleFinders::systemModules($String* initialModule) {
 
 $ModuleFinder* SystemModuleFinders::of($SystemModules* systemModules) {
 	$init(SystemModuleFinders);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ModuleDescriptorArray, descriptors, $nc(systemModules)->moduleDescriptors());
 	$var($ModuleTargetArray, targets, systemModules->moduleTargets());
 	$var($ModuleHashesArray, recordedHashes, systemModules->moduleHashes());
@@ -274,7 +218,7 @@ $ModuleFinder* SystemModuleFinders::ofSystem() {
 
 $ModuleFinder* SystemModuleFinders::ofModuleInfos() {
 	$init(SystemModuleFinders);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, nameToAttributes, $new($HashMap));
 	$var($Map, nameToHash, $new($HashMap));
 	$var($ImageReader, reader, $SystemModuleFinders$SystemImage::reader());
@@ -286,17 +230,15 @@ $ModuleFinder* SystemModuleFinders::ofModuleInfos() {
 			$var($String, mn, arr$->get(i$));
 			{
 				$var($ImageLocation, loc, reader->findLocation(mn, "module-info.class"_s));
-				$var($ModuleInfo$Attributes, attrs, $ModuleInfo::read($(reader->getResourceBuffer(loc)), ($Supplier*)nullptr));
+				$var($ModuleInfo$Attributes, attrs, $ModuleInfo::read($(reader->getResourceBuffer(loc)), nullptr));
 				nameToAttributes->put(mn, attrs);
 				$var($ModuleHashes, hashes, $nc(attrs)->recordedHashes());
 				if (hashes != nullptr) {
-					{
-						$var($Iterator, i$, $nc($(hashes->names()))->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($String, name, $cast($String, i$->next()));
-							{
-								nameToHash->computeIfAbsent(name, static_cast<$Function*>($$new(SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0, hashes, name)));
-							}
+					$var($Iterator, i$, $$nc(hashes->names())->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($String, name, $cast($String, i$->next()));
+						{
+							nameToHash->computeIfAbsent(name, $$new(SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0, hashes, name));
 						}
 					}
 				}
@@ -306,7 +248,7 @@ $ModuleFinder* SystemModuleFinders::ofModuleInfos() {
 	$var($Set, mrefs, $new($HashSet));
 	$var($Map, nameToModule, $new($HashMap));
 	{
-		$var($Iterator, i$, $nc($(nameToAttributes->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(nameToAttributes->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 			{
@@ -316,8 +258,7 @@ $ModuleFinder* SystemModuleFinders::ofModuleInfos() {
 				$var($ModuleDescriptor, var$0, $nc(attrs)->descriptor());
 				$var($ModuleTarget, var$1, attrs->target());
 				$var($ModuleHashes, var$2, attrs->recordedHashes());
-				$var($ModuleHashes$HashSupplier, var$3, hashSupplier);
-				$var($ModuleReference, mref, toModuleReference(var$0, var$1, var$2, var$3, $(attrs->moduleResolution())));
+				$var($ModuleReference, mref, toModuleReference(var$0, var$1, var$2, hashSupplier, $(attrs->moduleResolution())));
 				mrefs->add(mref);
 				nameToModule->put(mn, mref);
 			}
@@ -328,37 +269,33 @@ $ModuleFinder* SystemModuleFinders::ofModuleInfos() {
 
 $ModuleReference* SystemModuleFinders::toModuleReference($ModuleDescriptor* descriptor, $ModuleTarget* target, $ModuleHashes* recordedHashes, $ModuleHashes$HashSupplier* hasher, $ModuleResolution* mres) {
 	$init(SystemModuleFinders);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, mn, $nc(descriptor)->name());
 	$var($URI, uri, $nc(SystemModuleFinders::JNUA)->create("jrt"_s, $("/"_s->concat(mn))));
 	$var($Supplier, readerSupplier, $new($SystemModuleFinders$2, mn, uri));
 	$var($ModuleReference, mref, $new($ModuleReferenceImpl, descriptor, uri, readerSupplier, nullptr, target, recordedHashes, hasher, mres));
-	$assign(mref, $nc($($ModuleBootstrap::patcher()))->patchIfNeeded(mref));
+	$assign(mref, $$nc($ModuleBootstrap::patcher())->patchIfNeeded(mref));
 	return mref;
 }
 
 $Map* SystemModuleFinders::generateNameToHash($ModuleHashesArray* recordedHashes) {
 	$init(SystemModuleFinders);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, nameToHash, nullptr);
 	bool secondSeen = false;
 	{
 		$var($ModuleHashesArray, arr$, recordedHashes);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ModuleHashes, mh, arr$->get(i$));
-			{
-				if (mh != nullptr) {
-					if (nameToHash == nullptr) {
-						$assign(nameToHash, mh->hashes());
-					} else {
-						if (!secondSeen) {
-							$assign(nameToHash, $new($HashMap, nameToHash));
-							secondSeen = true;
-						}
-						$nc(nameToHash)->putAll($(mh->hashes()));
+			if (mh != nullptr) {
+				if (nameToHash == nullptr) {
+					$assign(nameToHash, mh->hashes());
+				} else {
+					if (!secondSeen) {
+						$assign(nameToHash, $new($HashMap, nameToHash));
+						secondSeen = true;
 					}
+					nameToHash->putAll($(mh->hashes()));
 				}
 			}
 		}
@@ -381,14 +318,14 @@ $bytes* SystemModuleFinders::lambda$ofModuleInfos$0($ModuleHashes* hashes, $Stri
 	return $nc(hashes)->hashFor(name);
 }
 
-void clinit$SystemModuleFinders($Class* class$) {
+void SystemModuleFinders::clinit$($Class* clazz) {
 	$assignStatic(SystemModuleFinders::JNUA, $SharedSecrets::getJavaNetUriAccess());
 	{
 		$var($String, value, $System::getProperty("jdk.system.module.finder.disableFastPath"_s));
 		if (value == nullptr) {
 			SystemModuleFinders::USE_FAST_PATH = true;
 		} else {
-			bool var$0 = !$nc(value)->isEmpty();
+			bool var$0 = !value->isEmpty();
 			SystemModuleFinders::USE_FAST_PATH = var$0 && !$Boolean::parseBoolean(value);
 		}
 	}
@@ -399,11 +336,56 @@ SystemModuleFinders::SystemModuleFinders() {
 
 $Class* SystemModuleFinders::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.module.SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0")) {
 			return SystemModuleFinders$$Lambda$lambda$ofModuleInfos$0::load$(name, initialize);
 		}
 	}
-	$loadClass(SystemModuleFinders, name, initialize, &_SystemModuleFinders_ClassInfo_, clinit$SystemModuleFinders, allocate$SystemModuleFinders);
+	$FieldInfo fieldInfos$$[] = {
+		{"JNUA", "Ljdk/internal/access/JavaNetUriAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SystemModuleFinders, JNUA)},
+		{"USE_FAST_PATH", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SystemModuleFinders, USE_FAST_PATH)},
+		{"cachedSystemModuleFinder", "Ljava/lang/module/ModuleFinder;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(SystemModuleFinders, cachedSystemModuleFinder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SystemModuleFinders, init$, void)},
+		{"allSystemModules", "()Ljdk/internal/module/SystemModules;", nullptr, $STATIC, $staticMethod(SystemModuleFinders, allSystemModules, $SystemModules*)},
+		{"generateNameToHash", "([Ljdk/internal/module/ModuleHashes;)Ljava/util/Map;", "([Ljdk/internal/module/ModuleHashes;)Ljava/util/Map<Ljava/lang/String;[B>;", $STATIC, $staticMethod(SystemModuleFinders, generateNameToHash, $Map*, $ModuleHashesArray*)},
+		{"hashSupplier", "(Ljava/util/Map;Ljava/lang/String;)Ljdk/internal/module/ModuleHashes$HashSupplier;", "(Ljava/util/Map<Ljava/lang/String;[B>;Ljava/lang/String;)Ljdk/internal/module/ModuleHashes$HashSupplier;", $STATIC, $staticMethod(SystemModuleFinders, hashSupplier, $ModuleHashes$HashSupplier*, $Map*, $String*)},
+		{"lambda$ofModuleInfos$0", "(Ljdk/internal/module/ModuleHashes;Ljava/lang/String;Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SystemModuleFinders, lambda$ofModuleInfos$0, $bytes*, $ModuleHashes*, $String*, $String*)},
+		{"of", "(Ljdk/internal/module/SystemModules;)Ljava/lang/module/ModuleFinder;", nullptr, $STATIC, $staticMethod(SystemModuleFinders, of, $ModuleFinder*, $SystemModules*)},
+		{"ofModuleInfos", "()Ljava/lang/module/ModuleFinder;", nullptr, $PRIVATE | $STATIC, $staticMethod(SystemModuleFinders, ofModuleInfos, $ModuleFinder*)},
+		{"ofSystem", "()Ljava/lang/module/ModuleFinder;", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemModuleFinders, ofSystem, $ModuleFinder*)},
+		{"systemModules", "(Ljava/lang/String;)Ljdk/internal/module/SystemModules;", nullptr, $STATIC, $staticMethod(SystemModuleFinders, systemModules, $SystemModules*, $String*)},
+		{"toModuleReference", "(Ljava/lang/module/ModuleDescriptor;Ljdk/internal/module/ModuleTarget;Ljdk/internal/module/ModuleHashes;Ljdk/internal/module/ModuleHashes$HashSupplier;Ljdk/internal/module/ModuleResolution;)Ljava/lang/module/ModuleReference;", nullptr, $STATIC, $staticMethod(SystemModuleFinders, toModuleReference, $ModuleReference*, $ModuleDescriptor*, $ModuleTarget*, $ModuleHashes*, $ModuleHashes$HashSupplier*, $ModuleResolution*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.module.SystemModuleFinders$ModuleContentSpliterator", "jdk.internal.module.SystemModuleFinders", "ModuleContentSpliterator", $PRIVATE | $STATIC},
+		{"jdk.internal.module.SystemModuleFinders$SystemModuleReader", "jdk.internal.module.SystemModuleFinders", "SystemModuleReader", $PRIVATE | $STATIC},
+		{"jdk.internal.module.SystemModuleFinders$SystemImage", "jdk.internal.module.SystemModuleFinders", "SystemImage", $PRIVATE | $STATIC},
+		{"jdk.internal.module.SystemModuleFinders$SystemModuleFinder", "jdk.internal.module.SystemModuleFinders", "SystemModuleFinder", $PRIVATE | $STATIC},
+		{"jdk.internal.module.SystemModuleFinders$3", nullptr, nullptr, 0},
+		{"jdk.internal.module.SystemModuleFinders$2", nullptr, nullptr, 0},
+		{"jdk.internal.module.SystemModuleFinders$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.module.SystemModuleFinders",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.module.SystemModuleFinders$ModuleContentSpliterator,jdk.internal.module.SystemModuleFinders$SystemModuleReader,jdk.internal.module.SystemModuleFinders$SystemImage,jdk.internal.module.SystemModuleFinders$SystemModuleFinder,jdk.internal.module.SystemModuleFinders$3,jdk.internal.module.SystemModuleFinders$2,jdk.internal.module.SystemModuleFinders$1"
+	};
+	$loadClass(SystemModuleFinders, name, initialize, &classInfo$$, SystemModuleFinders::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SystemModuleFinders);
+	});
 	return class$;
 }
 

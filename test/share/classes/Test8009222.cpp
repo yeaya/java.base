@@ -1,5 +1,4 @@
 #include <Test8009222.h>
-
 #include <Intf.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
@@ -10,43 +9,21 @@
 #undef TYPE
 
 using $Intf = ::Intf;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $Objects = ::java::util::Objects;
-
-$MethodInfo _Test8009222_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test8009222, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test8009222, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Test8009222_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Test8009222",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Test8009222_MethodInfo_
-};
-
-$Object* allocate$Test8009222($Class* clazz) {
-	return $of($alloc(Test8009222));
-}
 
 void Test8009222::init$() {
 }
 
 void Test8009222::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(Test8009222);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($Intf);
-	$init($Integer);
-	$Objects::requireNonNull($($nc($($MethodHandles::lookup()))->findStaticGetter($Intf::class$, "i"_s, $Integer::TYPE)));
+	$Objects::requireNonNull($($$nc($MethodHandles::lookup())->findStaticGetter($Intf::class$, "i"_s, $Integer::TYPE)));
 	$nc($System::out)->println("TEST PASSED"_s);
 }
 
@@ -54,7 +31,22 @@ Test8009222::Test8009222() {
 }
 
 $Class* Test8009222::load$($String* name, bool initialize) {
-	$loadClass(Test8009222, name, initialize, &_Test8009222_ClassInfo_, allocate$Test8009222);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test8009222, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test8009222, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Test8009222",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Test8009222, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test8009222);
+	});
 	return class$;
 }
 

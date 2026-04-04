@@ -32,6 +32,7 @@ class SocketCleanable : public ::jdk::internal::ref::PhantomCleanable {
 	$class(SocketCleanable, 0, ::jdk::internal::ref::PhantomCleanable)
 public:
 	SocketCleanable();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::FileDescriptor* obj, ::java::lang::ref::Cleaner* cleaner, int32_t fd, bool stream);
 	static void cleanupClose0(int32_t fd);
 	virtual void performCleanup() override;

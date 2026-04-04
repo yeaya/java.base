@@ -1,5 +1,4 @@
 #include <java/util/Collections$UnmodifiableCollection.h>
-
 #include <java/lang/Iterable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/Collection.h>
@@ -30,67 +29,6 @@ using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Collections$UnmodifiableCollection_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$UnmodifiableCollection, serialVersionUID)},
-	{"c", "Ljava/util/Collection;", "Ljava/util/Collection<+TE;>;", $FINAL, $field(Collections$UnmodifiableCollection, c)},
-	{}
-};
-
-$MethodInfo _Collections$UnmodifiableCollection_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+TE;>;)V", 0, $method(Collections$UnmodifiableCollection, init$, void, $Collection*)},
-	{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, add, bool, Object$*)},
-	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, addAll, bool, $Collection*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, contains, bool, Object$*)},
-	{"containsAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, containsAll, bool, $Collection*)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, forEach, void, $Consumer*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, isEmpty, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, iterator, $Iterator*)},
-	{"parallelStream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TE;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, parallelStream, $Stream*)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, remove, bool, Object$*)},
-	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, removeAll, bool, $Collection*)},
-	{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, removeIf, bool, $Predicate*)},
-	{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, retainAll, bool, $Collection*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, size, int32_t)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, spliterator, $Spliterator*)},
-	{"stream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TE;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, stream, $Stream*)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, toArray, $ObjectArray*, $ObjectArray*)},
-	{"toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/function/IntFunction<[TT;>;)[TT;", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, toArray, $ObjectArray*, $IntFunction*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Collections$UnmodifiableCollection_InnerClassesInfo_[] = {
-	{"java.util.Collections$UnmodifiableCollection", "java.util.Collections", "UnmodifiableCollection", $STATIC},
-	{"java.util.Collections$UnmodifiableCollection$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Collections$UnmodifiableCollection_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$UnmodifiableCollection",
-	"java.lang.Object",
-	"java.util.Collection,java.io.Serializable",
-	_Collections$UnmodifiableCollection_FieldInfo_,
-	_Collections$UnmodifiableCollection_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Collection<TE;>;Ljava/io/Serializable;",
-	nullptr,
-	_Collections$UnmodifiableCollection_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$UnmodifiableCollection($Class* clazz) {
-	return $of($alloc(Collections$UnmodifiableCollection));
-}
 
 bool Collections$UnmodifiableCollection::equals(Object$* o) {
 	 return this->$Collection::equals(o);
@@ -140,7 +78,7 @@ $ObjectArray* Collections$UnmodifiableCollection::toArray($IntFunction* f) {
 }
 
 $String* Collections$UnmodifiableCollection::toString() {
-	return $nc($of(this->c))->toString();
+	return $nc(this->c)->toString();
 }
 
 $Iterator* Collections$UnmodifiableCollection::iterator() {
@@ -205,7 +143,62 @@ Collections$UnmodifiableCollection::Collections$UnmodifiableCollection() {
 }
 
 $Class* Collections$UnmodifiableCollection::load$($String* name, bool initialize) {
-	$loadClass(Collections$UnmodifiableCollection, name, initialize, &_Collections$UnmodifiableCollection_ClassInfo_, allocate$Collections$UnmodifiableCollection);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$UnmodifiableCollection, serialVersionUID)},
+		{"c", "Ljava/util/Collection;", "Ljava/util/Collection<+TE;>;", $FINAL, $field(Collections$UnmodifiableCollection, c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+TE;>;)V", 0, $method(Collections$UnmodifiableCollection, init$, void, $Collection*)},
+		{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, add, bool, Object$*)},
+		{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, addAll, bool, $Collection*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, contains, bool, Object$*)},
+		{"containsAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, containsAll, bool, $Collection*)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, forEach, void, $Consumer*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, isEmpty, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, iterator, $Iterator*)},
+		{"parallelStream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TE;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, parallelStream, $Stream*)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, remove, bool, Object$*)},
+		{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, removeAll, bool, $Collection*)},
+		{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, removeIf, bool, $Predicate*)},
+		{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, retainAll, bool, $Collection*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, size, int32_t)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, spliterator, $Spliterator*)},
+		{"stream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<TE;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, stream, $Stream*)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, toArray, $ObjectArray*, $ObjectArray*)},
+		{"toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/function/IntFunction<[TT;>;)[TT;", $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, toArray, $ObjectArray*, $IntFunction*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Collections$UnmodifiableCollection, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$UnmodifiableCollection", "java.util.Collections", "UnmodifiableCollection", $STATIC},
+		{"java.util.Collections$UnmodifiableCollection$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$UnmodifiableCollection",
+		"java.lang.Object",
+		"java.util.Collection,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Collection<TE;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$UnmodifiableCollection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Collections$UnmodifiableCollection));
+	});
 	return class$;
 }
 

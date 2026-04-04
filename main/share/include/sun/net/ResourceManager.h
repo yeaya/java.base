@@ -25,6 +25,7 @@ class $import ResourceManager : public ::java::lang::Object {
 	$class(ResourceManager, 0, ::java::lang::Object)
 public:
 	ResourceManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void afterUdpClose();
 	static void beforeUdpCreate();

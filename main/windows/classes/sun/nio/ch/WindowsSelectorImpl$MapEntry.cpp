@@ -1,5 +1,4 @@
 #include <sun/nio/ch/WindowsSelectorImpl$MapEntry.h>
-
 #include <sun/nio/ch/SelectionKeyImpl.h>
 #include <sun/nio/ch/WindowsSelectorImpl.h>
 #include <jcpp.h>
@@ -14,42 +13,6 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _WindowsSelectorImpl$MapEntry_FieldInfo_[] = {
-	{"ski", "Lsun/nio/ch/SelectionKeyImpl;", nullptr, $FINAL, $field(WindowsSelectorImpl$MapEntry, ski)},
-	{"updateCount", "J", nullptr, 0, $field(WindowsSelectorImpl$MapEntry, updateCount)},
-	{}
-};
-
-$MethodInfo _WindowsSelectorImpl$MapEntry_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/SelectionKeyImpl;)V", nullptr, 0, $method(WindowsSelectorImpl$MapEntry, init$, void, $SelectionKeyImpl*)},
-	{}
-};
-
-$InnerClassInfo _WindowsSelectorImpl$MapEntry_InnerClassesInfo_[] = {
-	{"sun.nio.ch.WindowsSelectorImpl$MapEntry", "sun.nio.ch.WindowsSelectorImpl", "MapEntry", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _WindowsSelectorImpl$MapEntry_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.nio.ch.WindowsSelectorImpl$MapEntry",
-	"java.lang.Object",
-	nullptr,
-	_WindowsSelectorImpl$MapEntry_FieldInfo_,
-	_WindowsSelectorImpl$MapEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsSelectorImpl$MapEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.WindowsSelectorImpl"
-};
-
-$Object* allocate$WindowsSelectorImpl$MapEntry($Class* clazz) {
-	return $of($alloc(WindowsSelectorImpl$MapEntry));
-}
-
 void WindowsSelectorImpl$MapEntry::init$($SelectionKeyImpl* ski) {
 	this->updateCount = 0;
 	$set(this, ski, ski);
@@ -59,7 +22,37 @@ WindowsSelectorImpl$MapEntry::WindowsSelectorImpl$MapEntry() {
 }
 
 $Class* WindowsSelectorImpl$MapEntry::load$($String* name, bool initialize) {
-	$loadClass(WindowsSelectorImpl$MapEntry, name, initialize, &_WindowsSelectorImpl$MapEntry_ClassInfo_, allocate$WindowsSelectorImpl$MapEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"ski", "Lsun/nio/ch/SelectionKeyImpl;", nullptr, $FINAL, $field(WindowsSelectorImpl$MapEntry, ski)},
+		{"updateCount", "J", nullptr, 0, $field(WindowsSelectorImpl$MapEntry, updateCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/ch/SelectionKeyImpl;)V", nullptr, 0, $method(WindowsSelectorImpl$MapEntry, init$, void, $SelectionKeyImpl*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.WindowsSelectorImpl$MapEntry", "sun.nio.ch.WindowsSelectorImpl", "MapEntry", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.nio.ch.WindowsSelectorImpl$MapEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.WindowsSelectorImpl"
+	};
+	$loadClass(WindowsSelectorImpl$MapEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsSelectorImpl$MapEntry);
+	});
 	return class$;
 }
 

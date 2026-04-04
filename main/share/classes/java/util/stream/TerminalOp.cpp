@@ -1,5 +1,4 @@
 #include <java/util/stream/TerminalOp.h>
-
 #include <java/util/Spliterator.h>
 #include <java/util/stream/PipelineHelper.h>
 #include <java/util/stream/StreamShape.h>
@@ -20,28 +19,6 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$MethodInfo _TerminalOp_MethodInfo_[] = {
-	{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TE_IN;>;Ljava/util/Spliterator<TP_IN;>;)TR;", $PUBLIC, $virtualMethod(TerminalOp, evaluateParallel, $Object*, $PipelineHelper*, $Spliterator*)},
-	{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TE_IN;>;Ljava/util/Spliterator<TP_IN;>;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(TerminalOp, evaluateSequential, $Object*, $PipelineHelper*, $Spliterator*)},
-	{"getOpFlags", "()I", nullptr, $PUBLIC, $virtualMethod(TerminalOp, getOpFlags, int32_t)},
-	{"inputShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC, $virtualMethod(TerminalOp, inputShape, $StreamShape*)},
-	{}
-};
-
-$ClassInfo _TerminalOp_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"java.util.stream.TerminalOp",
-	nullptr,
-	nullptr,
-	nullptr,
-	_TerminalOp_MethodInfo_,
-	"<E_IN:Ljava/lang/Object;R:Ljava/lang/Object;>Ljava/lang/Object;"
-};
-
-$Object* allocate$TerminalOp($Class* clazz) {
-	return $of($alloc(TerminalOp));
-}
-
 $StreamShape* TerminalOp::inputShape() {
 	$init($StreamShape);
 	return $StreamShape::REFERENCE;
@@ -56,11 +33,29 @@ $Object* TerminalOp::evaluateParallel($PipelineHelper* helper, $Spliterator* spl
 	if ($Tripwire::ENABLED) {
 		$Tripwire::trip($of(this)->getClass(), "{0} triggering TerminalOp.evaluateParallel serial default"_s);
 	}
-	return $of(evaluateSequential(helper, spliterator));
+	return evaluateSequential(helper, spliterator);
 }
 
 $Class* TerminalOp::load$($String* name, bool initialize) {
-	$loadClass(TerminalOp, name, initialize, &_TerminalOp_ClassInfo_, allocate$TerminalOp);
+	$MethodInfo methodInfos$$[] = {
+		{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TE_IN;>;Ljava/util/Spliterator<TP_IN;>;)TR;", $PUBLIC, $virtualMethod(TerminalOp, evaluateParallel, $Object*, $PipelineHelper*, $Spliterator*)},
+		{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TE_IN;>;Ljava/util/Spliterator<TP_IN;>;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(TerminalOp, evaluateSequential, $Object*, $PipelineHelper*, $Spliterator*)},
+		{"getOpFlags", "()I", nullptr, $PUBLIC, $virtualMethod(TerminalOp, getOpFlags, int32_t)},
+		{"inputShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC, $virtualMethod(TerminalOp, inputShape, $StreamShape*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"java.util.stream.TerminalOp",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<E_IN:Ljava/lang/Object;R:Ljava/lang/Object;>Ljava/lang/Object;"
+	};
+	$loadClass(TerminalOp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TerminalOp);
+	});
 	return class$;
 }
 

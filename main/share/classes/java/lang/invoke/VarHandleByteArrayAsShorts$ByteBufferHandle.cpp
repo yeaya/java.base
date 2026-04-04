@@ -1,5 +1,4 @@
 #include <java/lang/invoke/VarHandleByteArrayAsShorts$ByteBufferHandle.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/invoke/MethodHandleStatics.h>
 #include <java/lang/invoke/MethodType.h>
@@ -9,7 +8,6 @@
 #include <java/lang/invoke/VarHandleByteArrayAsShorts$ByteArrayViewVarHandle.h>
 #include <java/lang/invoke/VarHandleByteArrayAsShorts.h>
 #include <java/lang/invoke/VarHandleByteArrayBase.h>
-#include <java/nio/Buffer.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/ReadOnlyBufferException.h>
 #include <java/util/Objects.h>
@@ -47,133 +45,17 @@ using $VarHandle$AccessType = ::java::lang::invoke::VarHandle$AccessType;
 using $VarHandleByteArrayAsShorts = ::java::lang::invoke::VarHandleByteArrayAsShorts;
 using $VarHandleByteArrayAsShorts$ByteArrayViewVarHandle = ::java::lang::invoke::VarHandleByteArrayAsShorts$ByteArrayViewVarHandle;
 using $VarHandleByteArrayBase = ::java::lang::invoke::VarHandleByteArrayBase;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ReadOnlyBufferException = ::java::nio::ReadOnlyBufferException;
 using $Objects = ::java::util::Objects;
 using $BiFunction = ::java::util::function::BiFunction;
-using $JavaNioAccess = ::jdk::internal::access::JavaNioAccess;
 using $MemorySegmentProxy = ::jdk::internal::access::foreign::MemorySegmentProxy;
-using $ScopedMemoryAccess = ::jdk::internal::misc::ScopedMemoryAccess;
 using $ScopedMemoryAccess$Scope = ::jdk::internal::misc::ScopedMemoryAccess$Scope;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Preconditions = ::jdk::internal::util::Preconditions;
 
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$CompoundAttribute _VarHandleByteArrayAsShorts$ByteBufferHandle_MethodAnnotations_address3[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsShorts$ByteBufferHandle_MethodAnnotations_get4[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsShorts$ByteBufferHandle_MethodAnnotations_getAcquire5[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsShorts$ByteBufferHandle_MethodAnnotations_getOpaque6[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsShorts$ByteBufferHandle_MethodAnnotations_getVolatile7[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsShorts$ByteBufferHandle_MethodAnnotations_index8[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsShorts$ByteBufferHandle_MethodAnnotations_indexRO9[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsShorts$ByteBufferHandle_MethodAnnotations_scope10[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsShorts$ByteBufferHandle_MethodAnnotations_set11[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsShorts$ByteBufferHandle_MethodAnnotations_setOpaque12[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsShorts$ByteBufferHandle_MethodAnnotations_setRelease13[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsShorts$ByteBufferHandle_MethodAnnotations_setVolatile14[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$FieldInfo _VarHandleByteArrayAsShorts$ByteBufferHandle_FieldInfo_[] = {
-	{"FORM", "Ljava/lang/invoke/VarForm;", nullptr, $STATIC | $FINAL, $staticField(VarHandleByteArrayAsShorts$ByteBufferHandle, FORM)},
-	{}
-};
-
-$MethodInfo _VarHandleByteArrayAsShorts$ByteBufferHandle_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, 0, $method(VarHandleByteArrayAsShorts$ByteBufferHandle, init$, void, bool)},
-	{"<init>", "(ZZ)V", nullptr, $PRIVATE, $method(VarHandleByteArrayAsShorts$ByteBufferHandle, init$, void, bool, bool)},
-	{"accessModeTypeUncached", "(Ljava/lang/invoke/VarHandle$AccessType;)Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $virtualMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, accessModeTypeUncached, $MethodType*, $VarHandle$AccessType*)},
-	{"address", "(Ljava/nio/ByteBuffer;I)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, address, int64_t, $ByteBuffer*, int32_t), nullptr, nullptr, _VarHandleByteArrayAsShorts$ByteBufferHandle_MethodAnnotations_address3},
-	{"get", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)S", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, get, int16_t, $VarHandle*, Object$*, int32_t), nullptr, nullptr, _VarHandleByteArrayAsShorts$ByteBufferHandle_MethodAnnotations_get4},
-	{"getAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)S", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, getAcquire, int16_t, $VarHandle*, Object$*, int32_t), nullptr, nullptr, _VarHandleByteArrayAsShorts$ByteBufferHandle_MethodAnnotations_getAcquire5},
-	{"getOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)S", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, getOpaque, int16_t, $VarHandle*, Object$*, int32_t), nullptr, nullptr, _VarHandleByteArrayAsShorts$ByteBufferHandle_MethodAnnotations_getOpaque6},
-	{"getVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)S", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, getVolatile, int16_t, $VarHandle*, Object$*, int32_t), nullptr, nullptr, _VarHandleByteArrayAsShorts$ByteBufferHandle_MethodAnnotations_getVolatile7},
-	{"index", "(Ljava/nio/ByteBuffer;I)I", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, index, int32_t, $ByteBuffer*, int32_t), nullptr, nullptr, _VarHandleByteArrayAsShorts$ByteBufferHandle_MethodAnnotations_index8},
-	{"indexRO", "(Ljava/nio/ByteBuffer;I)I", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, indexRO, int32_t, $ByteBuffer*, int32_t), nullptr, nullptr, _VarHandleByteArrayAsShorts$ByteBufferHandle_MethodAnnotations_indexRO9},
-	{"scope", "(Ljava/nio/ByteBuffer;)Ljdk/internal/misc/ScopedMemoryAccess$Scope;", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, scope, $ScopedMemoryAccess$Scope*, $ByteBuffer*), nullptr, nullptr, _VarHandleByteArrayAsShorts$ByteBufferHandle_MethodAnnotations_scope10},
-	{"set", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IS)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, set, void, $VarHandle*, Object$*, int32_t, int16_t), nullptr, nullptr, _VarHandleByteArrayAsShorts$ByteBufferHandle_MethodAnnotations_set11},
-	{"setOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IS)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, setOpaque, void, $VarHandle*, Object$*, int32_t, int16_t), nullptr, nullptr, _VarHandleByteArrayAsShorts$ByteBufferHandle_MethodAnnotations_setOpaque12},
-	{"setRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IS)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, setRelease, void, $VarHandle*, Object$*, int32_t, int16_t), nullptr, nullptr, _VarHandleByteArrayAsShorts$ByteBufferHandle_MethodAnnotations_setRelease13},
-	{"setVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IS)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, setVolatile, void, $VarHandle*, Object$*, int32_t, int16_t), nullptr, nullptr, _VarHandleByteArrayAsShorts$ByteBufferHandle_MethodAnnotations_setVolatile14},
-	{"withInvokeBehavior", "()Ljava/lang/invoke/VarHandleByteArrayAsShorts$ByteBufferHandle;", nullptr, $PUBLIC, $virtualMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, withInvokeBehavior, VarHandleByteArrayAsShorts$ByteBufferHandle*)},
-	{"withInvokeExactBehavior", "()Ljava/lang/invoke/VarHandleByteArrayAsShorts$ByteBufferHandle;", nullptr, $PUBLIC, $virtualMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, withInvokeExactBehavior, VarHandleByteArrayAsShorts$ByteBufferHandle*)},
-	{}
-};
-
-$InnerClassInfo _VarHandleByteArrayAsShorts$ByteBufferHandle_InnerClassesInfo_[] = {
-	{"java.lang.invoke.VarHandleByteArrayAsShorts$ByteBufferHandle", "java.lang.invoke.VarHandleByteArrayAsShorts", "ByteBufferHandle", $STATIC | $FINAL},
-	{"java.lang.invoke.VarHandleByteArrayAsShorts$ByteArrayViewVarHandle", "java.lang.invoke.VarHandleByteArrayAsShorts", "ByteArrayViewVarHandle", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _VarHandleByteArrayAsShorts$ByteBufferHandle_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.invoke.VarHandleByteArrayAsShorts$ByteBufferHandle",
-	"java.lang.invoke.VarHandleByteArrayAsShorts$ByteArrayViewVarHandle",
-	nullptr,
-	_VarHandleByteArrayAsShorts$ByteBufferHandle_FieldInfo_,
-	_VarHandleByteArrayAsShorts$ByteBufferHandle_MethodInfo_,
-	nullptr,
-	nullptr,
-	_VarHandleByteArrayAsShorts$ByteBufferHandle_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.VarHandleByteArrayAsShorts"
-};
-
-$Object* allocate$VarHandleByteArrayAsShorts$ByteBufferHandle($Class* clazz) {
-	return $of($alloc(VarHandleByteArrayAsShorts$ByteBufferHandle));
-}
 
 $VarForm* VarHandleByteArrayAsShorts$ByteBufferHandle::FORM = nullptr;
 
@@ -195,8 +77,6 @@ VarHandleByteArrayAsShorts$ByteBufferHandle* VarHandleByteArrayAsShorts$ByteBuff
 
 $MethodType* VarHandleByteArrayAsShorts$ByteBufferHandle::accessModeTypeUncached($VarHandle$AccessType* at) {
 	$load($ByteBuffer);
-	$init($Short);
-	$init($Integer);
 	return $nc(at)->accessModeType($ByteBuffer::class$, $Short::TYPE, $$new($ClassArray, {$Integer::TYPE}));
 }
 
@@ -206,14 +86,14 @@ int32_t VarHandleByteArrayAsShorts$ByteBufferHandle::index($ByteBuffer* bb, int3
 	$var($MemorySegmentProxy, segmentProxy, $nc($VarHandleByteArrayAsShorts::NIO_ACCESS)->bufferSegment(bb));
 	$init($MethodHandleStatics);
 	$init($VarHandleByteArrayBase);
-	return $Preconditions::checkIndex(index, $nc($MethodHandleStatics::UNSAFE)->getInt(bb, $VarHandleByteArrayBase::BUFFER_LIMIT) - 1, ($BiFunction*)nullptr);
+	return $Preconditions::checkIndex(index, $nc($MethodHandleStatics::UNSAFE)->getInt(bb, $VarHandleByteArrayBase::BUFFER_LIMIT) - 1, nullptr);
 }
 
 $ScopedMemoryAccess$Scope* VarHandleByteArrayAsShorts$ByteBufferHandle::scope($ByteBuffer* bb) {
 	$init(VarHandleByteArrayAsShorts$ByteBufferHandle);
 	$init($VarHandleByteArrayAsShorts);
 	$var($MemorySegmentProxy, segmentProxy, $nc($VarHandleByteArrayAsShorts::NIO_ACCESS)->bufferSegment(bb));
-	return segmentProxy != nullptr ? $nc(segmentProxy)->scope() : ($ScopedMemoryAccess$Scope*)nullptr;
+	return segmentProxy != nullptr ? segmentProxy->scope() : ($ScopedMemoryAccess$Scope*)nullptr;
 }
 
 int32_t VarHandleByteArrayAsShorts$ByteBufferHandle::indexRO($ByteBuffer* bb, int32_t index) {
@@ -231,7 +111,7 @@ int64_t VarHandleByteArrayAsShorts$ByteBufferHandle::address($ByteBuffer* bb, in
 	$init($MethodHandleStatics);
 	$init($VarHandleByteArrayBase);
 	int64_t address = ((int64_t)index) + $nc($MethodHandleStatics::UNSAFE)->getLong(bb, $VarHandleByteArrayBase::BUFFER_ADDRESS);
-	if (((int64_t)(address & (uint64_t)(int64_t)1)) != 0) {
+	if ((address & 1) != 0) {
 		$throw($($VarHandleByteArrayBase::newIllegalStateExceptionForMisalignedAccess(index)));
 	}
 	return address;
@@ -239,7 +119,7 @@ int64_t VarHandleByteArrayAsShorts$ByteBufferHandle::address($ByteBuffer* bb, in
 
 int16_t VarHandleByteArrayAsShorts$ByteBufferHandle::get($VarHandle* ob, Object$* obb, int32_t index) {
 	$init(VarHandleByteArrayAsShorts$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsShorts$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsShorts$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsShorts);
@@ -247,13 +127,13 @@ int16_t VarHandleByteArrayAsShorts$ByteBufferHandle::get($VarHandle* ob, Object$
 	$init($MethodHandleStatics);
 	$init($VarHandleByteArrayBase);
 	$var($Object, var$1, $nc($MethodHandleStatics::UNSAFE)->getReference(bb, $VarHandleByteArrayBase::BYTE_BUFFER_HB));
-	int64_t var$2 = ((int64_t)VarHandleByteArrayAsShorts$ByteBufferHandle::index(bb, index));
-	return $nc($VarHandleByteArrayAsShorts::SCOPED_MEMORY_ACCESS)->getShortUnaligned(var$0, var$1, var$2 + $nc($MethodHandleStatics::UNSAFE)->getLong(bb, $VarHandleByteArrayBase::BUFFER_ADDRESS), $nc(handle)->be);
+	int64_t var$2 = (int64_t)VarHandleByteArrayAsShorts$ByteBufferHandle::index(bb, index);
+	return $nc($VarHandleByteArrayAsShorts::SCOPED_MEMORY_ACCESS)->getShortUnaligned(var$0, var$1, var$2 + $MethodHandleStatics::UNSAFE->getLong(bb, $VarHandleByteArrayBase::BUFFER_ADDRESS), $nc(handle)->be);
 }
 
 void VarHandleByteArrayAsShorts$ByteBufferHandle::set($VarHandle* ob, Object$* obb, int32_t index, int16_t value) {
 	$init(VarHandleByteArrayAsShorts$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsShorts$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsShorts$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsShorts);
@@ -261,13 +141,13 @@ void VarHandleByteArrayAsShorts$ByteBufferHandle::set($VarHandle* ob, Object$* o
 	$init($MethodHandleStatics);
 	$init($VarHandleByteArrayBase);
 	$var($Object, var$1, $nc($MethodHandleStatics::UNSAFE)->getReference(bb, $VarHandleByteArrayBase::BYTE_BUFFER_HB));
-	int64_t var$2 = ((int64_t)indexRO(bb, index));
-	$nc($VarHandleByteArrayAsShorts::SCOPED_MEMORY_ACCESS)->putShortUnaligned(var$0, var$1, var$2 + $nc($MethodHandleStatics::UNSAFE)->getLong(bb, $VarHandleByteArrayBase::BUFFER_ADDRESS), value, $nc(handle)->be);
+	int64_t var$2 = (int64_t)indexRO(bb, index);
+	$nc($VarHandleByteArrayAsShorts::SCOPED_MEMORY_ACCESS)->putShortUnaligned(var$0, var$1, var$2 + $MethodHandleStatics::UNSAFE->getLong(bb, $VarHandleByteArrayBase::BUFFER_ADDRESS), value, $nc(handle)->be);
 }
 
 int16_t VarHandleByteArrayAsShorts$ByteBufferHandle::getVolatile($VarHandle* ob, Object$* obb, int32_t index) {
 	$init(VarHandleByteArrayAsShorts$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsShorts$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsShorts$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsShorts);
@@ -280,7 +160,7 @@ int16_t VarHandleByteArrayAsShorts$ByteBufferHandle::getVolatile($VarHandle* ob,
 
 void VarHandleByteArrayAsShorts$ByteBufferHandle::setVolatile($VarHandle* ob, Object$* obb, int32_t index, int16_t value) {
 	$init(VarHandleByteArrayAsShorts$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsShorts$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsShorts$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsShorts);
@@ -294,7 +174,7 @@ void VarHandleByteArrayAsShorts$ByteBufferHandle::setVolatile($VarHandle* ob, Ob
 
 int16_t VarHandleByteArrayAsShorts$ByteBufferHandle::getAcquire($VarHandle* ob, Object$* obb, int32_t index) {
 	$init(VarHandleByteArrayAsShorts$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsShorts$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsShorts$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsShorts);
@@ -307,7 +187,7 @@ int16_t VarHandleByteArrayAsShorts$ByteBufferHandle::getAcquire($VarHandle* ob, 
 
 void VarHandleByteArrayAsShorts$ByteBufferHandle::setRelease($VarHandle* ob, Object$* obb, int32_t index, int16_t value) {
 	$init(VarHandleByteArrayAsShorts$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsShorts$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsShorts$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsShorts);
@@ -321,7 +201,7 @@ void VarHandleByteArrayAsShorts$ByteBufferHandle::setRelease($VarHandle* ob, Obj
 
 int16_t VarHandleByteArrayAsShorts$ByteBufferHandle::getOpaque($VarHandle* ob, Object$* obb, int32_t index) {
 	$init(VarHandleByteArrayAsShorts$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsShorts$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsShorts$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsShorts);
@@ -334,7 +214,7 @@ int16_t VarHandleByteArrayAsShorts$ByteBufferHandle::getOpaque($VarHandle* ob, O
 
 void VarHandleByteArrayAsShorts$ByteBufferHandle::setOpaque($VarHandle* ob, Object$* obb, int32_t index, int16_t value) {
 	$init(VarHandleByteArrayAsShorts$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsShorts$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsShorts$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsShorts);
@@ -346,10 +226,8 @@ void VarHandleByteArrayAsShorts$ByteBufferHandle::setOpaque($VarHandle* ob, Obje
 	$nc($VarHandleByteArrayAsShorts::SCOPED_MEMORY_ACCESS)->putShortOpaque(var$0, var$1, var$2, $VarHandleByteArrayAsShorts::convEndian($nc(handle)->be, value));
 }
 
-void clinit$VarHandleByteArrayAsShorts$ByteBufferHandle($Class* class$) {
+void VarHandleByteArrayAsShorts$ByteBufferHandle::clinit$($Class* clazz) {
 	$load($ByteBuffer);
-	$init($Short);
-	$init($Integer);
 	$assignStatic(VarHandleByteArrayAsShorts$ByteBufferHandle::FORM, $new($VarForm, VarHandleByteArrayAsShorts$ByteBufferHandle::class$, $ByteBuffer::class$, $Short::TYPE, $$new($ClassArray, {$Integer::TYPE})));
 }
 
@@ -357,7 +235,101 @@ VarHandleByteArrayAsShorts$ByteBufferHandle::VarHandleByteArrayAsShorts$ByteBuff
 }
 
 $Class* VarHandleByteArrayAsShorts$ByteBufferHandle::load$($String* name, bool initialize) {
-	$loadClass(VarHandleByteArrayAsShorts$ByteBufferHandle, name, initialize, &_VarHandleByteArrayAsShorts$ByteBufferHandle_ClassInfo_, clinit$VarHandleByteArrayAsShorts$ByteBufferHandle, allocate$VarHandleByteArrayAsShorts$ByteBufferHandle);
+	$FieldInfo fieldInfos$$[] = {
+		{"FORM", "Ljava/lang/invoke/VarForm;", nullptr, $STATIC | $FINAL, $staticField(VarHandleByteArrayAsShorts$ByteBufferHandle, FORM)},
+		{}
+	};
+	$CompoundAttribute addressmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getOpaquemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute indexmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute indexROmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute scopemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setOpaquemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, 0, $method(VarHandleByteArrayAsShorts$ByteBufferHandle, init$, void, bool)},
+		{"<init>", "(ZZ)V", nullptr, $PRIVATE, $method(VarHandleByteArrayAsShorts$ByteBufferHandle, init$, void, bool, bool)},
+		{"accessModeTypeUncached", "(Ljava/lang/invoke/VarHandle$AccessType;)Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $virtualMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, accessModeTypeUncached, $MethodType*, $VarHandle$AccessType*)},
+		{"address", "(Ljava/nio/ByteBuffer;I)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, address, int64_t, $ByteBuffer*, int32_t), nullptr, nullptr, addressmethodAnnotations$$},
+		{"get", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)S", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, get, int16_t, $VarHandle*, Object$*, int32_t), nullptr, nullptr, getmethodAnnotations$$},
+		{"getAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)S", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, getAcquire, int16_t, $VarHandle*, Object$*, int32_t), nullptr, nullptr, getAcquiremethodAnnotations$$},
+		{"getOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)S", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, getOpaque, int16_t, $VarHandle*, Object$*, int32_t), nullptr, nullptr, getOpaquemethodAnnotations$$},
+		{"getVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)S", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, getVolatile, int16_t, $VarHandle*, Object$*, int32_t), nullptr, nullptr, getVolatilemethodAnnotations$$},
+		{"index", "(Ljava/nio/ByteBuffer;I)I", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, index, int32_t, $ByteBuffer*, int32_t), nullptr, nullptr, indexmethodAnnotations$$},
+		{"indexRO", "(Ljava/nio/ByteBuffer;I)I", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, indexRO, int32_t, $ByteBuffer*, int32_t), nullptr, nullptr, indexROmethodAnnotations$$},
+		{"scope", "(Ljava/nio/ByteBuffer;)Ljdk/internal/misc/ScopedMemoryAccess$Scope;", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, scope, $ScopedMemoryAccess$Scope*, $ByteBuffer*), nullptr, nullptr, scopemethodAnnotations$$},
+		{"set", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IS)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, set, void, $VarHandle*, Object$*, int32_t, int16_t), nullptr, nullptr, setmethodAnnotations$$},
+		{"setOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IS)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, setOpaque, void, $VarHandle*, Object$*, int32_t, int16_t), nullptr, nullptr, setOpaquemethodAnnotations$$},
+		{"setRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IS)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, setRelease, void, $VarHandle*, Object$*, int32_t, int16_t), nullptr, nullptr, setReleasemethodAnnotations$$},
+		{"setVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IS)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, setVolatile, void, $VarHandle*, Object$*, int32_t, int16_t), nullptr, nullptr, setVolatilemethodAnnotations$$},
+		{"withInvokeBehavior", "()Ljava/lang/invoke/VarHandleByteArrayAsShorts$ByteBufferHandle;", nullptr, $PUBLIC, $virtualMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, withInvokeBehavior, VarHandleByteArrayAsShorts$ByteBufferHandle*)},
+		{"withInvokeExactBehavior", "()Ljava/lang/invoke/VarHandleByteArrayAsShorts$ByteBufferHandle;", nullptr, $PUBLIC, $virtualMethod(VarHandleByteArrayAsShorts$ByteBufferHandle, withInvokeExactBehavior, VarHandleByteArrayAsShorts$ByteBufferHandle*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.VarHandleByteArrayAsShorts$ByteBufferHandle", "java.lang.invoke.VarHandleByteArrayAsShorts", "ByteBufferHandle", $STATIC | $FINAL},
+		{"java.lang.invoke.VarHandleByteArrayAsShorts$ByteArrayViewVarHandle", "java.lang.invoke.VarHandleByteArrayAsShorts", "ByteArrayViewVarHandle", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.invoke.VarHandleByteArrayAsShorts$ByteBufferHandle",
+		"java.lang.invoke.VarHandleByteArrayAsShorts$ByteArrayViewVarHandle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.VarHandleByteArrayAsShorts"
+	};
+	$loadClass(VarHandleByteArrayAsShorts$ByteBufferHandle, name, initialize, &classInfo$$, VarHandleByteArrayAsShorts$ByteBufferHandle::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(VarHandleByteArrayAsShorts$ByteBufferHandle);
+	});
 	return class$;
 }
 

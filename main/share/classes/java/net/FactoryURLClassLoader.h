@@ -33,6 +33,7 @@ public:
 	using ::java::net::URLClassLoader::definePackage;
 	using ::java::net::URLClassLoader::findResource;
 	using ::java::net::URLClassLoader::defineClass;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, $Array<::java::net::URL>* urls, ::java::lang::ClassLoader* parent, ::java::security::AccessControlContext* acc);
 	void init$($Array<::java::net::URL>* urls, ::java::security::AccessControlContext* acc);
 	using ::java::net::URLClassLoader::loadClass;

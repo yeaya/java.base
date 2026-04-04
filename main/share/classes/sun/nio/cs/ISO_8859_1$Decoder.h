@@ -38,6 +38,7 @@ class ISO_8859_1$Decoder : public ::java::nio::charset::CharsetDecoder {
 	$class(ISO_8859_1$Decoder, 0, ::java::nio::charset::CharsetDecoder)
 public:
 	ISO_8859_1$Decoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	::java::nio::charset::CoderResult* decodeArrayLoop(::java::nio::ByteBuffer* src, ::java::nio::CharBuffer* dst);
 	::java::nio::charset::CoderResult* decodeBufferLoop(::java::nio::ByteBuffer* src, ::java::nio::CharBuffer* dst);

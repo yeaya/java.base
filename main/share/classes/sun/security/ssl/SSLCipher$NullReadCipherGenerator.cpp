@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLCipher$NullReadCipherGenerator.h>
-
 #include <java/security/Key.h>
 #include <java/security/SecureRandom.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
@@ -26,39 +25,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SSLCipher$NullReadCipherGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLCipher$NullReadCipherGenerator, init$, void)},
-	{"createCipher", "(Lsun/security/ssl/SSLCipher;Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)Lsun/security/ssl/SSLCipher$SSLReadCipher;", nullptr, $PUBLIC, $virtualMethod(SSLCipher$NullReadCipherGenerator, createCipher, $SSLCipher$SSLReadCipher*, $SSLCipher*, $Authenticator*, $ProtocolVersion*, $String*, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.GeneralSecurityException"},
-	{}
-};
-
-$InnerClassInfo _SSLCipher$NullReadCipherGenerator_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLCipher$NullReadCipherGenerator", "sun.security.ssl.SSLCipher", "NullReadCipherGenerator", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLCipher$ReadCipherGenerator", "sun.security.ssl.SSLCipher", "ReadCipherGenerator", $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.security.ssl.SSLCipher$NullReadCipherGenerator$NullReadCipher", "sun.security.ssl.SSLCipher$NullReadCipherGenerator", "NullReadCipher", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SSLCipher$NullReadCipherGenerator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLCipher$NullReadCipherGenerator",
-	"java.lang.Object",
-	"sun.security.ssl.SSLCipher$ReadCipherGenerator",
-	nullptr,
-	_SSLCipher$NullReadCipherGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLCipher$NullReadCipherGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLCipher"
-};
-
-$Object* allocate$SSLCipher$NullReadCipherGenerator($Class* clazz) {
-	return $of($alloc(SSLCipher$NullReadCipherGenerator));
-}
-
 void SSLCipher$NullReadCipherGenerator::init$() {
 }
 
@@ -70,7 +36,35 @@ SSLCipher$NullReadCipherGenerator::SSLCipher$NullReadCipherGenerator() {
 }
 
 $Class* SSLCipher$NullReadCipherGenerator::load$($String* name, bool initialize) {
-	$loadClass(SSLCipher$NullReadCipherGenerator, name, initialize, &_SSLCipher$NullReadCipherGenerator_ClassInfo_, allocate$SSLCipher$NullReadCipherGenerator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SSLCipher$NullReadCipherGenerator, init$, void)},
+		{"createCipher", "(Lsun/security/ssl/SSLCipher;Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)Lsun/security/ssl/SSLCipher$SSLReadCipher;", nullptr, $PUBLIC, $virtualMethod(SSLCipher$NullReadCipherGenerator, createCipher, $SSLCipher$SSLReadCipher*, $SSLCipher*, $Authenticator*, $ProtocolVersion*, $String*, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.GeneralSecurityException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLCipher$NullReadCipherGenerator", "sun.security.ssl.SSLCipher", "NullReadCipherGenerator", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLCipher$ReadCipherGenerator", "sun.security.ssl.SSLCipher", "ReadCipherGenerator", $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.security.ssl.SSLCipher$NullReadCipherGenerator$NullReadCipher", "sun.security.ssl.SSLCipher$NullReadCipherGenerator", "NullReadCipher", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLCipher$NullReadCipherGenerator",
+		"java.lang.Object",
+		"sun.security.ssl.SSLCipher$ReadCipherGenerator",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLCipher"
+	};
+	$loadClass(SSLCipher$NullReadCipherGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLCipher$NullReadCipherGenerator);
+	});
 	return class$;
 }
 

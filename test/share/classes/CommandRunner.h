@@ -15,6 +15,7 @@ class CommandRunner : public ::java::lang::Object {
 	$class(CommandRunner, 0, ::java::lang::Object)
 public:
 	CommandRunner();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($StringArray* args);
 	static ::java::util::Random* generator;
 	int32_t exitValue = 0;

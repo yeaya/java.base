@@ -34,6 +34,7 @@ class $export AtomicLongArray : public ::java::io::Serializable {
 	$class(AtomicLongArray, 0, ::java::io::Serializable)
 public:
 	AtomicLongArray();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t length);
 	void init$($longs* array);
 	int64_t accumulateAndGet(int32_t i, int64_t x, ::java::util::function::LongBinaryOperator* accumulatorFunction);
@@ -67,7 +68,7 @@ public:
 	bool weakCompareAndSetPlain(int32_t i, int64_t expectedValue, int64_t newValue);
 	bool weakCompareAndSetRelease(int32_t i, int64_t expectedValue, int64_t newValue);
 	bool weakCompareAndSetVolatile(int32_t i, int64_t expectedValue, int64_t newValue);
-	static const int64_t serialVersionUID = (int64_t)0xDFF6CE0A62E2BFF8;
+	static const int64_t serialVersionUID = (int64_t)0xdff6ce0a62e2bff8;
 	static ::java::lang::invoke::VarHandle* AA;
 	$longs* array = nullptr;
 };

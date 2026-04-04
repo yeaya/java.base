@@ -1,5 +1,4 @@
 #include <java/lang/ProcessImpl.h>
-
 #include <java/io/File.h>
 #include <java/io/FileDescriptor.h>
 #include <java/io/FileInputStream.h>
@@ -91,7 +90,6 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Map = ::java::util::Map;
@@ -114,39 +112,35 @@ public:
 		this->forceNullOutputStream = forceNullOutputStream;
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$new$0(fds, forceNullOutputStream));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ProcessImpl$$Lambda$lambda$new$0>());
+		 return $nc(inst$)->lambda$new$0(fds, forceNullOutputStream);
 	}
 	ProcessImpl* inst$ = nullptr;
 	$ints* fds = nullptr;
 	bool forceNullOutputStream = false;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ProcessImpl$$Lambda$lambda$new$0::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ProcessImpl$$Lambda$lambda$new$0, inst$)},
-	{"fds", "[I", nullptr, $PUBLIC, $field(ProcessImpl$$Lambda$lambda$new$0, fds)},
-	{"forceNullOutputStream", "Z", nullptr, $PUBLIC, $field(ProcessImpl$$Lambda$lambda$new$0, forceNullOutputStream)},
-	{}
-};
-$MethodInfo ProcessImpl$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/ProcessImpl;[IZ)V", nullptr, $PUBLIC, $method(ProcessImpl$$Lambda$lambda$new$0, init$, void, ProcessImpl*, $ints*, bool)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl$$Lambda$lambda$new$0, run, $Object*)},
-	{}
-};
-$ClassInfo ProcessImpl$$Lambda$lambda$new$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.ProcessImpl$$Lambda$lambda$new$0",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* ProcessImpl$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
-	$loadClass(ProcessImpl$$Lambda$lambda$new$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ProcessImpl$$Lambda$lambda$new$0, inst$)},
+		{"fds", "[I", nullptr, $PUBLIC, $field(ProcessImpl$$Lambda$lambda$new$0, fds)},
+		{"forceNullOutputStream", "Z", nullptr, $PUBLIC, $field(ProcessImpl$$Lambda$lambda$new$0, forceNullOutputStream)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/ProcessImpl;[IZ)V", nullptr, $PUBLIC, $method(ProcessImpl$$Lambda$lambda$new$0, init$, void, ProcessImpl*, $ints*, bool)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl$$Lambda$lambda$new$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.ProcessImpl$$Lambda$lambda$new$0",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ProcessImpl$$Lambda$lambda$new$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProcessImpl$$Lambda$lambda$new$0);
+	});
 	return class$;
 }
 $Class* ProcessImpl$$Lambda$lambda$new$0::class$ = nullptr;
@@ -160,33 +154,29 @@ public:
 	virtual $Object* apply(Object$* exitcode, Object$* throwable) override {
 		 return $nc(inst$)->lambda$initStreams$1($cast($Integer, exitcode), $cast($Throwable, throwable));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ProcessImpl$$Lambda$lambda$initStreams$1$1>());
-	}
 	ProcessImpl* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ProcessImpl$$Lambda$lambda$initStreams$1$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ProcessImpl$$Lambda$lambda$initStreams$1$1, inst$)},
-	{}
-};
-$MethodInfo ProcessImpl$$Lambda$lambda$initStreams$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/ProcessImpl;)V", nullptr, $PUBLIC, $method(ProcessImpl$$Lambda$lambda$initStreams$1$1, init$, void, ProcessImpl*)},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl$$Lambda$lambda$initStreams$1$1, apply, $Object*, Object$*, Object$*)},
-	{}
-};
-$ClassInfo ProcessImpl$$Lambda$lambda$initStreams$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.ProcessImpl$$Lambda$lambda$initStreams$1$1",
-	"java.lang.Object",
-	"java.util.function.BiFunction",
-	fieldInfos,
-	methodInfos
 };
 $Class* ProcessImpl$$Lambda$lambda$initStreams$1$1::load$($String* name, bool initialize) {
-	$loadClass(ProcessImpl$$Lambda$lambda$initStreams$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ProcessImpl$$Lambda$lambda$initStreams$1$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/ProcessImpl;)V", nullptr, $PUBLIC, $method(ProcessImpl$$Lambda$lambda$initStreams$1$1, init$, void, ProcessImpl*)},
+		{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl$$Lambda$lambda$initStreams$1$1, apply, $Object*, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.ProcessImpl$$Lambda$lambda$initStreams$1$1",
+		"java.lang.Object",
+		"java.util.function.BiFunction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ProcessImpl$$Lambda$lambda$initStreams$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProcessImpl$$Lambda$lambda$initStreams$1$1);
+	});
 	return class$;
 }
 $Class* ProcessImpl$$Lambda$lambda$initStreams$1$1::class$ = nullptr;
@@ -200,33 +190,29 @@ public:
 	virtual $Object* apply(Object$* exitcode, Object$* throwable) override {
 		 return $nc(inst$)->lambda$initStreams$2($cast($Integer, exitcode), $cast($Throwable, throwable));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ProcessImpl$$Lambda$lambda$initStreams$2$2>());
-	}
 	ProcessImpl* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ProcessImpl$$Lambda$lambda$initStreams$2$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ProcessImpl$$Lambda$lambda$initStreams$2$2, inst$)},
-	{}
-};
-$MethodInfo ProcessImpl$$Lambda$lambda$initStreams$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/ProcessImpl;)V", nullptr, $PUBLIC, $method(ProcessImpl$$Lambda$lambda$initStreams$2$2, init$, void, ProcessImpl*)},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl$$Lambda$lambda$initStreams$2$2, apply, $Object*, Object$*, Object$*)},
-	{}
-};
-$ClassInfo ProcessImpl$$Lambda$lambda$initStreams$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.ProcessImpl$$Lambda$lambda$initStreams$2$2",
-	"java.lang.Object",
-	"java.util.function.BiFunction",
-	fieldInfos,
-	methodInfos
 };
 $Class* ProcessImpl$$Lambda$lambda$initStreams$2$2::load$($String* name, bool initialize) {
-	$loadClass(ProcessImpl$$Lambda$lambda$initStreams$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ProcessImpl$$Lambda$lambda$initStreams$2$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/ProcessImpl;)V", nullptr, $PUBLIC, $method(ProcessImpl$$Lambda$lambda$initStreams$2$2, init$, void, ProcessImpl*)},
+		{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl$$Lambda$lambda$initStreams$2$2, apply, $Object*, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.ProcessImpl$$Lambda$lambda$initStreams$2$2",
+		"java.lang.Object",
+		"java.util.function.BiFunction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ProcessImpl$$Lambda$lambda$initStreams$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProcessImpl$$Lambda$lambda$initStreams$2$2);
+	});
 	return class$;
 }
 $Class* ProcessImpl$$Lambda$lambda$initStreams$2$2::class$ = nullptr;
@@ -238,118 +224,34 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* unusedExitStatus, Object$* unusedThrowable) override {
-		 return $of($nc(inst$)->lambda$onExit$3($cast($Integer, unusedExitStatus), $cast($Throwable, unusedThrowable)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ProcessImpl$$Lambda$lambda$onExit$3$3>());
+		 return $nc(inst$)->lambda$onExit$3($cast($Integer, unusedExitStatus), $cast($Throwable, unusedThrowable));
 	}
 	ProcessImpl* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ProcessImpl$$Lambda$lambda$onExit$3$3::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ProcessImpl$$Lambda$lambda$onExit$3$3, inst$)},
-	{}
-};
-$MethodInfo ProcessImpl$$Lambda$lambda$onExit$3$3::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/ProcessImpl;)V", nullptr, $PUBLIC, $method(ProcessImpl$$Lambda$lambda$onExit$3$3, init$, void, ProcessImpl*)},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl$$Lambda$lambda$onExit$3$3, apply, $Object*, Object$*, Object$*)},
-	{}
-};
-$ClassInfo ProcessImpl$$Lambda$lambda$onExit$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.ProcessImpl$$Lambda$lambda$onExit$3$3",
-	"java.lang.Object",
-	"java.util.function.BiFunction",
-	fieldInfos,
-	methodInfos
 };
 $Class* ProcessImpl$$Lambda$lambda$onExit$3$3::load$($String* name, bool initialize) {
-	$loadClass(ProcessImpl$$Lambda$lambda$onExit$3$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ProcessImpl$$Lambda$lambda$onExit$3$3, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/ProcessImpl;)V", nullptr, $PUBLIC, $method(ProcessImpl$$Lambda$lambda$onExit$3$3, init$, void, ProcessImpl*)},
+		{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl$$Lambda$lambda$onExit$3$3, apply, $Object*, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.ProcessImpl$$Lambda$lambda$onExit$3$3",
+		"java.lang.Object",
+		"java.util.function.BiFunction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ProcessImpl$$Lambda$lambda$onExit$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProcessImpl$$Lambda$lambda$onExit$3$3);
+	});
 	return class$;
 }
 $Class* ProcessImpl$$Lambda$lambda$onExit$3$3::class$ = nullptr;
-
-$FieldInfo _ProcessImpl_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ProcessImpl, $assertionsDisabled)},
-	{"fdAccess", "Ljdk/internal/access/JavaIOFileDescriptorAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProcessImpl, fdAccess)},
-	{"SUPPORTS_NORMAL_TERMINATION", "Z", nullptr, $STATIC | $FINAL, $constField(ProcessImpl, SUPPORTS_NORMAL_TERMINATION)},
-	{"pid", "I", nullptr, $PRIVATE | $FINAL, $field(ProcessImpl, pid$)},
-	{"processHandle", "Ljava/lang/ProcessHandleImpl;", nullptr, $PRIVATE | $FINAL, $field(ProcessImpl, processHandle)},
-	{"exitcode", "I", nullptr, $PRIVATE, $field(ProcessImpl, exitcode)},
-	{"hasExited", "Z", nullptr, $PRIVATE, $field(ProcessImpl, hasExited)},
-	{"stdin", "Ljava/io/OutputStream;", nullptr, $PRIVATE, $field(ProcessImpl, stdin)},
-	{"stdout", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(ProcessImpl, stdout)},
-	{"stderr", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(ProcessImpl, stderr)},
-	{"platform", "Ljava/lang/ProcessImpl$Platform;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProcessImpl, platform)},
-	{"launchMechanism", "Ljava/lang/ProcessImpl$LaunchMechanism;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProcessImpl, launchMechanism)},
-	{"helperpath", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProcessImpl, helperpath)},
-	{}
-};
-
-$MethodInfo _ProcessImpl_MethodInfo_[] = {
-	{"<init>", "([B[BI[BI[B[IZZ)V", nullptr, $PRIVATE, $method(ProcessImpl, init$, void, $bytes*, $bytes*, int32_t, $bytes*, int32_t, $bytes*, $ints*, bool, bool), "java.io.IOException"},
-	{"destroy", "(Z)V", nullptr, $PRIVATE, $method(ProcessImpl, destroy, void, bool)},
-	{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, destroy, void)},
-	{"destroyForcibly", "()Ljava/lang/Process;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, destroyForcibly, $Process*)},
-	{"exitValue", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ProcessImpl, exitValue, int32_t)},
-	{"forkAndExec", "(I[B[B[BI[BI[B[IZ)I", nullptr, $PRIVATE | $NATIVE, $method(ProcessImpl, forkAndExec, int32_t, int32_t, $bytes*, $bytes*, $bytes*, int32_t, $bytes*, int32_t, $bytes*, $ints*, bool), "java.io.IOException"},
-	{"getErrorStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, getErrorStream, $InputStream*)},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, getInputStream, $InputStream*)},
-	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, getOutputStream, $OutputStream*)},
-	{"init", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ProcessImpl, init, void)},
-	{"initStreams", "([IZ)V", nullptr, 0, $method(ProcessImpl, initStreams, void, $ints*, bool), "java.io.IOException"},
-	{"isAlive", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ProcessImpl, isAlive, bool)},
-	{"lambda$initStreams$1", "(Ljava/lang/Integer;Ljava/lang/Throwable;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(ProcessImpl, lambda$initStreams$1, $Object*, $Integer*, $Throwable*)},
-	{"lambda$initStreams$2", "(Ljava/lang/Integer;Ljava/lang/Throwable;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(ProcessImpl, lambda$initStreams$2, $Object*, $Integer*, $Throwable*)},
-	{"lambda$new$0", "([IZ)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(ProcessImpl, lambda$new$0, $Void*, $ints*, bool), "java.lang.Exception"},
-	{"lambda$onExit$3", "(Ljava/lang/Integer;Ljava/lang/Throwable;)Ljava/lang/Process;", nullptr, $PRIVATE | $SYNTHETIC, $method(ProcessImpl, lambda$onExit$3, $Process*, $Integer*, $Throwable*)},
-	{"newFileDescriptor", "(I)Ljava/io/FileDescriptor;", nullptr, $STATIC, $staticMethod(ProcessImpl, newFileDescriptor, $FileDescriptor*, int32_t)},
-	{"onExit", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Process;>;", $PUBLIC, $virtualMethod(ProcessImpl, onExit, $CompletableFuture*)},
-	{"pid", "()J", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, pid, int64_t)},
-	{"start", "([Ljava/lang/String;Ljava/util/Map;Ljava/lang/String;[Ljava/lang/ProcessBuilder$Redirect;Z)Ljava/lang/Process;", "([Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;Ljava/lang/String;[Ljava/lang/ProcessBuilder$Redirect;Z)Ljava/lang/Process;", $STATIC, $staticMethod(ProcessImpl, start, $Process*, $StringArray*, $Map*, $String*, $ProcessBuilder$RedirectArray*, bool), "java.io.IOException"},
-	{"supportsNormalTermination", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, supportsNormalTermination, bool)},
-	{"toCString", "(Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessImpl, toCString, $bytes*, $String*)},
-	{"toHandle", "()Ljava/lang/ProcessHandle;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, toHandle, $ProcessHandle*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, toString, $String*)},
-	{"waitFor", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ProcessImpl, waitFor, int32_t), "java.lang.InterruptedException"},
-	{"waitFor", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ProcessImpl, waitFor, bool, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
-	{}
-};
-
-#define _METHOD_INDEX_forkAndExec 5
-#define _METHOD_INDEX_init 9
-
-$InnerClassInfo _ProcessImpl_InnerClassesInfo_[] = {
-	{"java.lang.ProcessImpl$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"java.lang.ProcessImpl$DeferredCloseProcessPipeInputStream", "java.lang.ProcessImpl", "DeferredCloseProcessPipeInputStream", $PRIVATE | $STATIC},
-	{"java.lang.ProcessImpl$DeferredCloseInputStream", "java.lang.ProcessImpl", "DeferredCloseInputStream", $PRIVATE | $STATIC},
-	{"java.lang.ProcessImpl$ProcessPipeOutputStream", "java.lang.ProcessImpl", "ProcessPipeOutputStream", $PRIVATE | $STATIC},
-	{"java.lang.ProcessImpl$ProcessPipeInputStream", "java.lang.ProcessImpl", "ProcessPipeInputStream", $PRIVATE | $STATIC},
-	{"java.lang.ProcessImpl$Platform", "java.lang.ProcessImpl", "Platform", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{"java.lang.ProcessImpl$LaunchMechanism", "java.lang.ProcessImpl", "LaunchMechanism", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _ProcessImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.ProcessImpl",
-	"java.lang.Process",
-	nullptr,
-	_ProcessImpl_FieldInfo_,
-	_ProcessImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ProcessImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.ProcessImpl$1,java.lang.ProcessImpl$DeferredCloseProcessPipeInputStream,java.lang.ProcessImpl$DeferredCloseInputStream,java.lang.ProcessImpl$ProcessPipeOutputStream,java.lang.ProcessImpl$ProcessPipeInputStream,java.lang.ProcessImpl$Platform,java.lang.ProcessImpl$LaunchMechanism"
-};
-
-$Object* allocate$ProcessImpl($Class* clazz) {
-	return $of($alloc(ProcessImpl));
-}
 
 bool ProcessImpl::$assertionsDisabled = false;
 $JavaIOFileDescriptorAccess* ProcessImpl::fdAccess = nullptr;
@@ -359,7 +261,7 @@ $bytes* ProcessImpl::helperpath = nullptr;
 
 $bytes* ProcessImpl::toCString($String* s) {
 	$init(ProcessImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (s == nullptr) {
 		return nullptr;
 	}
@@ -372,7 +274,7 @@ $bytes* ProcessImpl::toCString($String* s) {
 
 $Process* ProcessImpl::start($StringArray* cmdarray, $Map* environment, $String* dir, $ProcessBuilder$RedirectArray* redirects, bool redirectErrorStream) {
 	$init(ProcessImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!ProcessImpl::$assertionsDisabled && !(cmdarray != nullptr && cmdarray->length > 0)) {
 		$throwNew($AssertionError);
 	}
@@ -386,13 +288,11 @@ $Process* ProcessImpl::start($StringArray* cmdarray, $Map* environment, $String*
 	int32_t i = 0;
 	{
 		$var($byteArray2, arr$, args);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($bytes, arg, arr$->get(i$));
 			{
 				$System::arraycopy(arg, 0, argBlock, i, $nc(arg)->length);
-				i += $nc(arg)->length + 1;
+				i += arg->length + 1;
 			}
 		}
 	}
@@ -402,122 +302,108 @@ $Process* ProcessImpl::start($StringArray* cmdarray, $Map* environment, $String*
 	$var($FileInputStream, f0, nullptr);
 	$var($FileOutputStream, f1, nullptr);
 	$var($FileOutputStream, f2, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Process, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			bool forceNullOutputStream = false;
-			if (redirects == nullptr) {
-				$assign(std_fds, $new($ints, {
-					-1,
-					-1,
-					-1
-				}));
+	$var($Throwable, var$0, nullptr);
+	$var($Process, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		bool forceNullOutputStream = false;
+		if (redirects == nullptr) {
+			$assign(std_fds, $new($ints, {
+				-1,
+				-1,
+				-1
+			}));
+		} else {
+			$assign(std_fds, $new($ints, 3));
+			$init($ProcessBuilder$Redirect);
+			if (redirects->get(0) == $ProcessBuilder$Redirect::PIPE) {
+				std_fds->set(0, -1);
+			} else if (redirects->get(0) == $ProcessBuilder$Redirect::INHERIT) {
+				std_fds->set(0, 0);
+			} else if ($instanceOf($ProcessBuilder$RedirectPipeImpl, redirects->get(0))) {
+				std_fds->set(0, $nc(ProcessImpl::fdAccess)->get($($nc($cast($ProcessBuilder$RedirectPipeImpl, redirects->get(0)))->getFd())));
 			} else {
-				$assign(std_fds, $new($ints, 3));
-				$init($ProcessBuilder$Redirect);
-				if ($nc(redirects)->get(0) == $ProcessBuilder$Redirect::PIPE) {
-					std_fds->set(0, -1);
-				} else {
-					if (redirects->get(0) == $ProcessBuilder$Redirect::INHERIT) {
-						std_fds->set(0, 0);
-					} else if ($instanceOf($ProcessBuilder$RedirectPipeImpl, redirects->get(0))) {
-						std_fds->set(0, $nc(ProcessImpl::fdAccess)->get($($nc(($cast($ProcessBuilder$RedirectPipeImpl, redirects->get(0))))->getFd())));
-					} else {
-						$assign(f0, $new($FileInputStream, $($nc(redirects->get(0))->file())));
-						std_fds->set(0, $nc(ProcessImpl::fdAccess)->get($(f0->getFD())));
-					}
-				}
-				if ($nc(redirects)->get(1) == $ProcessBuilder$Redirect::PIPE) {
-					std_fds->set(1, -1);
-				} else {
-					if (redirects->get(1) == $ProcessBuilder$Redirect::INHERIT) {
-						std_fds->set(1, 1);
-					} else if ($instanceOf($ProcessBuilder$RedirectPipeImpl, redirects->get(1))) {
-						std_fds->set(1, $nc(ProcessImpl::fdAccess)->get($($nc(($cast($ProcessBuilder$RedirectPipeImpl, redirects->get(1))))->getFd())));
-						forceNullOutputStream = true;
-					} else {
-						$var($File, var$3, $nc(redirects->get(1))->file());
-						$assign(f1, $new($FileOutputStream, var$3, $nc(redirects->get(1))->append()));
-						std_fds->set(1, $nc(ProcessImpl::fdAccess)->get($(f1->getFD())));
-					}
-				}
-				if ($nc(redirects)->get(2) == $ProcessBuilder$Redirect::PIPE) {
-					std_fds->set(2, -1);
-				} else {
-					if (redirects->get(2) == $ProcessBuilder$Redirect::INHERIT) {
-						std_fds->set(2, 2);
-					} else if ($instanceOf($ProcessBuilder$RedirectPipeImpl, redirects->get(2))) {
-						std_fds->set(2, $nc(ProcessImpl::fdAccess)->get($($nc(($cast($ProcessBuilder$RedirectPipeImpl, redirects->get(2))))->getFd())));
-					} else {
-						$var($File, var$4, $nc(redirects->get(2))->file());
-						$assign(f2, $new($FileOutputStream, var$4, $nc(redirects->get(2))->append()));
-						std_fds->set(2, $nc(ProcessImpl::fdAccess)->get($(f2->getFD())));
-					}
-				}
+				$assign(f0, $new($FileInputStream, $($nc(redirects->get(0))->file())));
+				std_fds->set(0, $nc(ProcessImpl::fdAccess)->get($(f0->getFD())));
 			}
-			$var($bytes, var$5, toCString(cmdarray->get(0)));
-			$var($bytes, var$6, argBlock);
-			int32_t var$7 = args->length;
-			$var($bytes, var$8, envBlock);
-			int32_t var$9 = envc->get(0);
-			$var($Process, p, $new(ProcessImpl, var$5, var$6, var$7, var$8, var$9, $(toCString(dir)), std_fds, forceNullOutputStream, redirectErrorStream));
-			if (redirects != nullptr) {
-				if ($nc(std_fds)->get(0) >= 0 && $instanceOf($ProcessBuilder$RedirectPipeImpl, redirects->get(0))) {
-					$nc(ProcessImpl::fdAccess)->set($($nc(($cast($ProcessBuilder$RedirectPipeImpl, redirects->get(0))))->getFd()), std_fds->get(0));
-				}
-				if ($nc(std_fds)->get(1) >= 0 && $instanceOf($ProcessBuilder$RedirectPipeImpl, redirects->get(1))) {
-					$nc(ProcessImpl::fdAccess)->set($($nc(($cast($ProcessBuilder$RedirectPipeImpl, redirects->get(1))))->getFd()), std_fds->get(1));
-				}
-				if ($nc(std_fds)->get(2) >= 0 && $instanceOf($ProcessBuilder$RedirectPipeImpl, redirects->get(2))) {
-					$nc(ProcessImpl::fdAccess)->set($($nc(($cast($ProcessBuilder$RedirectPipeImpl, redirects->get(2))))->getFd()), std_fds->get(2));
-				}
+			if (redirects->get(1) == $ProcessBuilder$Redirect::PIPE) {
+				std_fds->set(1, -1);
+			} else if (redirects->get(1) == $ProcessBuilder$Redirect::INHERIT) {
+				std_fds->set(1, 1);
+			} else if ($instanceOf($ProcessBuilder$RedirectPipeImpl, redirects->get(1))) {
+				std_fds->set(1, $nc(ProcessImpl::fdAccess)->get($($nc($cast($ProcessBuilder$RedirectPipeImpl, redirects->get(1)))->getFd())));
+				forceNullOutputStream = true;
+			} else {
+				$var($File, var$3, $nc(redirects->get(1))->file());
+				$assign(f1, $new($FileOutputStream, var$3, $nc(redirects->get(1))->append()));
+				std_fds->set(1, $nc(ProcessImpl::fdAccess)->get($(f1->getFD())));
 			}
-			$assign(var$2, p);
-			return$1 = true;
-			goto $finally;
+			if (redirects->get(2) == $ProcessBuilder$Redirect::PIPE) {
+				std_fds->set(2, -1);
+			} else if (redirects->get(2) == $ProcessBuilder$Redirect::INHERIT) {
+				std_fds->set(2, 2);
+			} else if ($instanceOf($ProcessBuilder$RedirectPipeImpl, redirects->get(2))) {
+				std_fds->set(2, $nc(ProcessImpl::fdAccess)->get($($nc($cast($ProcessBuilder$RedirectPipeImpl, redirects->get(2)))->getFd())));
+			} else {
+				$var($File, var$4, $nc(redirects->get(2))->file());
+				$assign(f2, $new($FileOutputStream, var$4, $nc(redirects->get(2))->append()));
+				std_fds->set(2, $nc(ProcessImpl::fdAccess)->get($(f2->getFD())));
+			}
+		}
+		$var($bytes, var$5, toCString(cmdarray->get(0)));
+		int32_t var$6 = args->length;
+		int32_t var$7 = envc->get(0);
+		$var($Process, p, $new(ProcessImpl, var$5, argBlock, var$6, envBlock, var$7, $(toCString(dir)), std_fds, forceNullOutputStream, redirectErrorStream));
+		if (redirects != nullptr) {
+			if ($nc(std_fds)->get(0) >= 0 && $instanceOf($ProcessBuilder$RedirectPipeImpl, redirects->get(0))) {
+				$nc(ProcessImpl::fdAccess)->set($($nc($cast($ProcessBuilder$RedirectPipeImpl, redirects->get(0)))->getFd()), std_fds->get(0));
+			}
+			if (std_fds->get(1) >= 0 && $instanceOf($ProcessBuilder$RedirectPipeImpl, redirects->get(1))) {
+				$nc(ProcessImpl::fdAccess)->set($($nc($cast($ProcessBuilder$RedirectPipeImpl, redirects->get(1)))->getFd()), std_fds->get(1));
+			}
+			if (std_fds->get(2) >= 0 && $instanceOf($ProcessBuilder$RedirectPipeImpl, redirects->get(2))) {
+				$nc(ProcessImpl::fdAccess)->set($($nc($cast($ProcessBuilder$RedirectPipeImpl, redirects->get(2)))->getFd()), std_fds->get(2));
+			}
+		}
+		$assign(var$2, p);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$8) {
+		$assign(var$0, var$8);
+	} $finally: {
+		$var($Throwable, var$9, nullptr);
+		try {
+			if (f0 != nullptr) {
+				f0->close();
+			}
 		} catch ($Throwable& var$10) {
-			$assign(var$0, var$10);
-		} $finally: {
-			{
-				$var($Throwable, var$11, nullptr);
-				try {
-					if (f0 != nullptr) {
-						f0->close();
-					}
-				} catch ($Throwable& var$12) {
-					$assign(var$11, var$12);
-				} /*finally*/ {
-					{
-						$var($Throwable, var$13, nullptr);
-						try {
-							if (f1 != nullptr) {
-								f1->close();
-							}
-						} catch ($Throwable& var$14) {
-							$assign(var$13, var$14);
-						} /*finally*/ {
-							if (f2 != nullptr) {
-								f2->close();
-							}
-						}
-						if (var$13 != nullptr) {
-							$throw(var$13);
-						}
-					}
+			$assign(var$9, var$10);
+		} /*finally*/ {
+			$var($Throwable, var$11, nullptr);
+			try {
+				if (f1 != nullptr) {
+					f1->close();
 				}
-				if (var$11 != nullptr) {
-					$throw(var$11);
+			} catch ($Throwable& var$12) {
+				$assign(var$11, var$12);
+			} /*finally*/ {
+				if (f2 != nullptr) {
+					f2->close();
 				}
 			}
+			if (var$11 != nullptr) {
+				$throw(var$11);
+			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (var$9 != nullptr) {
+			$throw(var$9);
 		}
-		if (return$1) {
-			return var$2;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -527,15 +413,15 @@ int32_t ProcessImpl::forkAndExec(int32_t mode, $bytes* helperpath, $bytes* prog,
 }
 
 void ProcessImpl::init$($bytes* prog, $bytes* argBlock, int32_t argc, $bytes* envBlock, int32_t envc, $bytes* dir, $ints* fds, bool forceNullOutputStream, bool redirectErrorStream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Process::init$();
 	this->pid$ = forkAndExec(ProcessImpl::launchMechanism->ordinal() + 1, ProcessImpl::helperpath, prog, argBlock, argc, envBlock, envc, dir, fds, redirectErrorStream);
 	$set(this, processHandle, $ProcessHandleImpl::getInternal(this->pid$));
 	try {
-		$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new(ProcessImpl$$Lambda$lambda$new$0, this, fds, forceNullOutputStream)));
+		$AccessController::doPrivileged($cast($PrivilegedExceptionAction, $$new(ProcessImpl$$Lambda$lambda$new$0, this, fds, forceNullOutputStream)));
 	} catch ($PrivilegedActionException& ex) {
-		$throw($cast($IOException, $(ex->getCause())));
+		$throw($$cast($IOException, ex->getCause()));
 	}
 }
 
@@ -547,37 +433,28 @@ $FileDescriptor* ProcessImpl::newFileDescriptor(int32_t fd) {
 }
 
 void ProcessImpl::initStreams($ints* fds, bool forceNullOutputStream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ProcessImpl$1);
 	switch ($nc($ProcessImpl$1::$SwitchMap$java$lang$ProcessImpl$Platform)->get((ProcessImpl::platform)->ordinal())) {
 	case 1:
-		{}
 	case 2:
-		{
-			$init($ProcessBuilder$NullOutputStream);
-			$set(this, stdin, ($nc(fds)->get(0) == -1) ? static_cast<$OutputStream*>($ProcessBuilder$NullOutputStream::INSTANCE) : static_cast<$OutputStream*>($new($ProcessImpl$ProcessPipeOutputStream, $nc(fds)->get(0))));
-			$init($ProcessBuilder$NullInputStream);
-			$set(this, stdout, ($nc(fds)->get(1) == -1 || forceNullOutputStream) ? static_cast<$InputStream*>($ProcessBuilder$NullInputStream::INSTANCE) : static_cast<$InputStream*>($new($ProcessImpl$ProcessPipeInputStream, $nc(fds)->get(1))));
-			$init($ProcessBuilder$NullInputStream);
-			$set(this, stderr, ($nc(fds)->get(2) == -1) ? static_cast<$InputStream*>($ProcessBuilder$NullInputStream::INSTANCE) : static_cast<$InputStream*>($new($ProcessImpl$ProcessPipeInputStream, $nc(fds)->get(2))));
-			$nc($($ProcessHandleImpl::completion(this->pid$, true)))->handle(static_cast<$BiFunction*>($$new(ProcessImpl$$Lambda$lambda$initStreams$1$1, this)));
-			break;
-		}
+		$init($ProcessBuilder$NullOutputStream);
+		$set(this, stdin, ($nc(fds)->get(0) == -1) ? $cast($OutputStream, $ProcessBuilder$NullOutputStream::INSTANCE) : $cast($OutputStream, $new($ProcessImpl$ProcessPipeOutputStream, fds->get(0))));
+		$init($ProcessBuilder$NullInputStream);
+		$set(this, stdout, (fds->get(1) == -1 || forceNullOutputStream) ? $cast($InputStream, $ProcessBuilder$NullInputStream::INSTANCE) : $cast($InputStream, $new($ProcessImpl$ProcessPipeInputStream, fds->get(1))));
+		$set(this, stderr, (fds->get(2) == -1) ? $cast($InputStream, $ProcessBuilder$NullInputStream::INSTANCE) : $cast($InputStream, $new($ProcessImpl$ProcessPipeInputStream, fds->get(2))));
+		$$nc($ProcessHandleImpl::completion(this->pid$, true))->handle($$new(ProcessImpl$$Lambda$lambda$initStreams$1$1, this));
+		break;
 	case 3:
-		{
-			$init($ProcessBuilder$NullOutputStream);
-			$set(this, stdin, ($nc(fds)->get(0) == -1) ? static_cast<$OutputStream*>($ProcessBuilder$NullOutputStream::INSTANCE) : static_cast<$OutputStream*>($new($ProcessImpl$ProcessPipeOutputStream, $nc(fds)->get(0))));
-			$init($ProcessBuilder$NullInputStream);
-			$set(this, stdout, ($nc(fds)->get(1) == -1 || forceNullOutputStream) ? static_cast<$InputStream*>($ProcessBuilder$NullInputStream::INSTANCE) : static_cast<$InputStream*>($new($ProcessImpl$DeferredCloseProcessPipeInputStream, $nc(fds)->get(1))));
-			$init($ProcessBuilder$NullInputStream);
-			$set(this, stderr, ($nc(fds)->get(2) == -1) ? static_cast<$InputStream*>($ProcessBuilder$NullInputStream::INSTANCE) : static_cast<$InputStream*>($new($ProcessImpl$DeferredCloseProcessPipeInputStream, $nc(fds)->get(2))));
-			$nc($($ProcessHandleImpl::completion(this->pid$, true)))->handle(static_cast<$BiFunction*>($$new(ProcessImpl$$Lambda$lambda$initStreams$2$2, this)));
-			break;
-		}
+		$init($ProcessBuilder$NullOutputStream);
+		$set(this, stdin, ($nc(fds)->get(0) == -1) ? $cast($OutputStream, $ProcessBuilder$NullOutputStream::INSTANCE) : $cast($OutputStream, $new($ProcessImpl$ProcessPipeOutputStream, fds->get(0))));
+		$init($ProcessBuilder$NullInputStream);
+		$set(this, stdout, (fds->get(1) == -1 || forceNullOutputStream) ? $cast($InputStream, $ProcessBuilder$NullInputStream::INSTANCE) : $cast($InputStream, $new($ProcessImpl$DeferredCloseProcessPipeInputStream, fds->get(1))));
+		$set(this, stderr, (fds->get(2) == -1) ? $cast($InputStream, $ProcessBuilder$NullInputStream::INSTANCE) : $cast($InputStream, $new($ProcessImpl$DeferredCloseProcessPipeInputStream, fds->get(2))));
+		$$nc($ProcessHandleImpl::completion(this->pid$, true))->handle($$new(ProcessImpl$$Lambda$lambda$initStreams$2$2, this));
+		break;
 	default:
-		{
-			$throwNew($AssertionError, $of($$str({"Unsupported platform: "_s, ProcessImpl::platform})));
-		}
+		$throwNew($AssertionError, $$of($str({"Unsupported platform: "_s, ProcessImpl::platform})));
 	}
 }
 
@@ -636,44 +513,38 @@ void ProcessImpl::destroy(bool force) {
 	$init($ProcessImpl$1);
 	switch ($nc($ProcessImpl$1::$SwitchMap$java$lang$ProcessImpl$Platform)->get((ProcessImpl::platform)->ordinal())) {
 	case 1:
-		{}
 	case 2:
-		{}
 	case 3:
-		{
-			$synchronized(this) {
-				if (!this->hasExited) {
-					$nc(this->processHandle)->destroyProcess(force);
-				}
+		$synchronized(this) {
+			if (!this->hasExited) {
+				$nc(this->processHandle)->destroyProcess(force);
 			}
-			try {
-				$nc(this->stdin)->close();
-			} catch ($IOException& ignored) {
-			}
-			try {
-				$nc(this->stdout)->close();
-			} catch ($IOException& ignored) {
-			}
-			try {
-				$nc(this->stderr)->close();
-			} catch ($IOException& ignored) {
-			}
-			break;
 		}
+		try {
+			$nc(this->stdin)->close();
+		} catch ($IOException& ignored) {
+		}
+		try {
+			$nc(this->stdout)->close();
+		} catch ($IOException& ignored) {
+		}
+		try {
+			$nc(this->stderr)->close();
+		} catch ($IOException& ignored) {
+		}
+		break;
 	default:
-		{
-			$throwNew($AssertionError, $of($$str({"Unsupported platform: "_s, ProcessImpl::platform})));
-		}
+		$throwNew($AssertionError, $$of($str({"Unsupported platform: "_s, ProcessImpl::platform})));
 	}
 }
 
 $CompletableFuture* ProcessImpl::onExit() {
-	$useLocalCurrentObjectStackCache();
-	return $cast($CompletableFuture, $nc($($ProcessHandleImpl::completion(this->pid$, false)))->handleAsync(static_cast<$BiFunction*>($$new(ProcessImpl$$Lambda$lambda$onExit$3$3, this))));
+	$useLocalObjectStack();
+	return $cast($CompletableFuture, $$nc($ProcessHandleImpl::completion(this->pid$, false))->handleAsync($$new(ProcessImpl$$Lambda$lambda$onExit$3$3, this)));
 }
 
 $ProcessHandle* ProcessImpl::toHandle() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		sm->checkPermission($$new($RuntimePermission, "manageProcess"_s));
@@ -705,8 +576,8 @@ bool ProcessImpl::isAlive() {
 }
 
 $String* ProcessImpl::toString() {
-	$useLocalCurrentObjectStackCache();
-	return $$new($StringBuilder, "Process[pid="_s)->append(this->pid$)->append(", exitValue="_s)->append(this->hasExited ? $($of($Integer::valueOf(this->exitcode))) : $of("\"not exited\""_s))->append("]"_s)->toString();
+	$useLocalObjectStack();
+	return $$new($StringBuilder, "Process[pid="_s)->append(this->pid$)->append(", exitValue="_s)->append(this->hasExited ? $$of($Integer::valueOf(this->exitcode)) : $of("\"not exited\""_s))->append("]"_s)->toString();
 }
 
 void ProcessImpl::init() {
@@ -731,38 +602,38 @@ $Process* ProcessImpl::lambda$onExit$3($Integer* unusedExitStatus, $Throwable* u
 
 $Object* ProcessImpl::lambda$initStreams$2($Integer* exitcode, $Throwable* throwable) {
 	$synchronized(this) {
-		this->exitcode = (exitcode == nullptr) ? -1 : $nc(exitcode)->intValue();
+		this->exitcode = (exitcode == nullptr) ? -1 : exitcode->intValue();
 		this->hasExited = true;
-		$of(this)->notifyAll();
+		this->notifyAll();
 	}
 	if ($instanceOf($ProcessImpl$DeferredCloseProcessPipeInputStream, this->stdout)) {
-		$nc(($cast($ProcessImpl$DeferredCloseProcessPipeInputStream, this->stdout)))->processExited();
+		$cast($ProcessImpl$DeferredCloseProcessPipeInputStream, this->stdout)->processExited();
 	}
 	if ($instanceOf($ProcessImpl$DeferredCloseProcessPipeInputStream, this->stderr)) {
-		$nc(($cast($ProcessImpl$DeferredCloseProcessPipeInputStream, this->stderr)))->processExited();
+		$cast($ProcessImpl$DeferredCloseProcessPipeInputStream, this->stderr)->processExited();
 	}
 	if ($instanceOf($ProcessImpl$ProcessPipeOutputStream, this->stdin)) {
-		$nc(($cast($ProcessImpl$ProcessPipeOutputStream, this->stdin)))->processExited();
+		$cast($ProcessImpl$ProcessPipeOutputStream, this->stdin)->processExited();
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* ProcessImpl::lambda$initStreams$1($Integer* exitcode, $Throwable* throwable) {
 	$synchronized(this) {
-		this->exitcode = (exitcode == nullptr) ? -1 : $nc(exitcode)->intValue();
+		this->exitcode = (exitcode == nullptr) ? -1 : exitcode->intValue();
 		this->hasExited = true;
-		$of(this)->notifyAll();
+		this->notifyAll();
 	}
 	if ($instanceOf($ProcessImpl$ProcessPipeInputStream, this->stdout)) {
-		$nc(($cast($ProcessImpl$ProcessPipeInputStream, this->stdout)))->processExited();
+		$cast($ProcessImpl$ProcessPipeInputStream, this->stdout)->processExited();
 	}
 	if ($instanceOf($ProcessImpl$ProcessPipeInputStream, this->stderr)) {
-		$nc(($cast($ProcessImpl$ProcessPipeInputStream, this->stderr)))->processExited();
+		$cast($ProcessImpl$ProcessPipeInputStream, this->stderr)->processExited();
 	}
 	if ($instanceOf($ProcessImpl$ProcessPipeOutputStream, this->stdin)) {
-		$nc(($cast($ProcessImpl$ProcessPipeOutputStream, this->stdin)))->processExited();
+		$cast($ProcessImpl$ProcessPipeOutputStream, this->stdin)->processExited();
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Void* ProcessImpl::lambda$new$0($ints* fds, bool forceNullOutputStream) {
@@ -770,8 +641,8 @@ $Void* ProcessImpl::lambda$new$0($ints* fds, bool forceNullOutputStream) {
 	return nullptr;
 }
 
-void clinit$ProcessImpl($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ProcessImpl::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	ProcessImpl::$assertionsDisabled = !ProcessImpl::class$->desiredAssertionStatus();
 	$assignStatic(ProcessImpl::fdAccess, $SharedSecrets::getJavaIOFileDescriptorAccess());
 	$assignStatic(ProcessImpl::platform, $ProcessImpl$Platform::get());
@@ -787,20 +658,91 @@ ProcessImpl::ProcessImpl() {
 
 $Class* ProcessImpl::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ProcessImpl$$Lambda$lambda$new$0::classInfo$.name)) {
+		if (name->equals("java.lang.ProcessImpl$$Lambda$lambda$new$0")) {
 			return ProcessImpl$$Lambda$lambda$new$0::load$(name, initialize);
 		}
-		if (name->equals(ProcessImpl$$Lambda$lambda$initStreams$1$1::classInfo$.name)) {
+		if (name->equals("java.lang.ProcessImpl$$Lambda$lambda$initStreams$1$1")) {
 			return ProcessImpl$$Lambda$lambda$initStreams$1$1::load$(name, initialize);
 		}
-		if (name->equals(ProcessImpl$$Lambda$lambda$initStreams$2$2::classInfo$.name)) {
+		if (name->equals("java.lang.ProcessImpl$$Lambda$lambda$initStreams$2$2")) {
 			return ProcessImpl$$Lambda$lambda$initStreams$2$2::load$(name, initialize);
 		}
-		if (name->equals(ProcessImpl$$Lambda$lambda$onExit$3$3::classInfo$.name)) {
+		if (name->equals("java.lang.ProcessImpl$$Lambda$lambda$onExit$3$3")) {
 			return ProcessImpl$$Lambda$lambda$onExit$3$3::load$(name, initialize);
 		}
 	}
-	$loadClass(ProcessImpl, name, initialize, &_ProcessImpl_ClassInfo_, clinit$ProcessImpl, allocate$ProcessImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ProcessImpl, $assertionsDisabled)},
+		{"fdAccess", "Ljdk/internal/access/JavaIOFileDescriptorAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProcessImpl, fdAccess)},
+		{"SUPPORTS_NORMAL_TERMINATION", "Z", nullptr, $STATIC | $FINAL, $constField(ProcessImpl, SUPPORTS_NORMAL_TERMINATION)},
+		{"pid", "I", nullptr, $PRIVATE | $FINAL, $field(ProcessImpl, pid$)},
+		{"processHandle", "Ljava/lang/ProcessHandleImpl;", nullptr, $PRIVATE | $FINAL, $field(ProcessImpl, processHandle)},
+		{"exitcode", "I", nullptr, $PRIVATE, $field(ProcessImpl, exitcode)},
+		{"hasExited", "Z", nullptr, $PRIVATE, $field(ProcessImpl, hasExited)},
+		{"stdin", "Ljava/io/OutputStream;", nullptr, $PRIVATE, $field(ProcessImpl, stdin)},
+		{"stdout", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(ProcessImpl, stdout)},
+		{"stderr", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(ProcessImpl, stderr)},
+		{"platform", "Ljava/lang/ProcessImpl$Platform;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProcessImpl, platform)},
+		{"launchMechanism", "Ljava/lang/ProcessImpl$LaunchMechanism;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProcessImpl, launchMechanism)},
+		{"helperpath", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ProcessImpl, helperpath)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([B[BI[BI[B[IZZ)V", nullptr, $PRIVATE, $method(ProcessImpl, init$, void, $bytes*, $bytes*, int32_t, $bytes*, int32_t, $bytes*, $ints*, bool, bool), "java.io.IOException"},
+		{"destroy", "(Z)V", nullptr, $PRIVATE, $method(ProcessImpl, destroy, void, bool)},
+		{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, destroy, void)},
+		{"destroyForcibly", "()Ljava/lang/Process;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, destroyForcibly, $Process*)},
+		{"exitValue", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ProcessImpl, exitValue, int32_t)},
+		{"forkAndExec", "(I[B[B[BI[BI[B[IZ)I", nullptr, $PRIVATE | $NATIVE, $method(ProcessImpl, forkAndExec, int32_t, int32_t, $bytes*, $bytes*, $bytes*, int32_t, $bytes*, int32_t, $bytes*, $ints*, bool), "java.io.IOException"},
+		{"getErrorStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, getErrorStream, $InputStream*)},
+		{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, getInputStream, $InputStream*)},
+		{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, getOutputStream, $OutputStream*)},
+		{"init", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ProcessImpl, init, void)},
+		{"initStreams", "([IZ)V", nullptr, 0, $method(ProcessImpl, initStreams, void, $ints*, bool), "java.io.IOException"},
+		{"isAlive", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ProcessImpl, isAlive, bool)},
+		{"lambda$initStreams$1", "(Ljava/lang/Integer;Ljava/lang/Throwable;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(ProcessImpl, lambda$initStreams$1, $Object*, $Integer*, $Throwable*)},
+		{"lambda$initStreams$2", "(Ljava/lang/Integer;Ljava/lang/Throwable;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(ProcessImpl, lambda$initStreams$2, $Object*, $Integer*, $Throwable*)},
+		{"lambda$new$0", "([IZ)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(ProcessImpl, lambda$new$0, $Void*, $ints*, bool), "java.lang.Exception"},
+		{"lambda$onExit$3", "(Ljava/lang/Integer;Ljava/lang/Throwable;)Ljava/lang/Process;", nullptr, $PRIVATE | $SYNTHETIC, $method(ProcessImpl, lambda$onExit$3, $Process*, $Integer*, $Throwable*)},
+		{"newFileDescriptor", "(I)Ljava/io/FileDescriptor;", nullptr, $STATIC, $staticMethod(ProcessImpl, newFileDescriptor, $FileDescriptor*, int32_t)},
+		{"onExit", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/Process;>;", $PUBLIC, $virtualMethod(ProcessImpl, onExit, $CompletableFuture*)},
+		{"pid", "()J", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, pid, int64_t)},
+		{"start", "([Ljava/lang/String;Ljava/util/Map;Ljava/lang/String;[Ljava/lang/ProcessBuilder$Redirect;Z)Ljava/lang/Process;", "([Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;Ljava/lang/String;[Ljava/lang/ProcessBuilder$Redirect;Z)Ljava/lang/Process;", $STATIC, $staticMethod(ProcessImpl, start, $Process*, $StringArray*, $Map*, $String*, $ProcessBuilder$RedirectArray*, bool), "java.io.IOException"},
+		{"supportsNormalTermination", "()Z", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, supportsNormalTermination, bool)},
+		{"toCString", "(Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessImpl, toCString, $bytes*, $String*)},
+		{"toHandle", "()Ljava/lang/ProcessHandle;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, toHandle, $ProcessHandle*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessImpl, toString, $String*)},
+		{"waitFor", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ProcessImpl, waitFor, int32_t), "java.lang.InterruptedException"},
+		{"waitFor", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ProcessImpl, waitFor, bool, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ProcessImpl$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"java.lang.ProcessImpl$DeferredCloseProcessPipeInputStream", "java.lang.ProcessImpl", "DeferredCloseProcessPipeInputStream", $PRIVATE | $STATIC},
+		{"java.lang.ProcessImpl$DeferredCloseInputStream", "java.lang.ProcessImpl", "DeferredCloseInputStream", $PRIVATE | $STATIC},
+		{"java.lang.ProcessImpl$ProcessPipeOutputStream", "java.lang.ProcessImpl", "ProcessPipeOutputStream", $PRIVATE | $STATIC},
+		{"java.lang.ProcessImpl$ProcessPipeInputStream", "java.lang.ProcessImpl", "ProcessPipeInputStream", $PRIVATE | $STATIC},
+		{"java.lang.ProcessImpl$Platform", "java.lang.ProcessImpl", "Platform", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{"java.lang.ProcessImpl$LaunchMechanism", "java.lang.ProcessImpl", "LaunchMechanism", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.ProcessImpl",
+		"java.lang.Process",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.ProcessImpl$1,java.lang.ProcessImpl$DeferredCloseProcessPipeInputStream,java.lang.ProcessImpl$DeferredCloseInputStream,java.lang.ProcessImpl$ProcessPipeOutputStream,java.lang.ProcessImpl$ProcessPipeInputStream,java.lang.ProcessImpl$Platform,java.lang.ProcessImpl$LaunchMechanism"
+	};
+	$loadClass(ProcessImpl, name, initialize, &classInfo$$, ProcessImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ProcessImpl);
+	});
 	return class$;
 }
 

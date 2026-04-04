@@ -56,6 +56,7 @@ class $import SharedSecrets : public ::java::lang::Object {
 	$class(SharedSecrets, $PRELOAD, ::java::lang::Object)
 public:
 	SharedSecrets();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void ensureClassInitialized($Class* c);
 	static ::jdk::internal::access::JavaAWTAccess* getJavaAWTAccess();

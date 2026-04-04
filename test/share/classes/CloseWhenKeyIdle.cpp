@@ -1,7 +1,5 @@
 #include <CloseWhenKeyIdle.h>
-
 #include <CloseWhenKeyIdle$Waker.h>
-#include <java/lang/Runnable.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ServerSocket.h>
@@ -15,57 +13,18 @@
 #include <jcpp.h>
 
 using $CloseWhenKeyIdle$Waker = ::CloseWhenKeyIdle$Waker;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
-using $ServerSocket = ::java::net::ServerSocket;
-using $Socket = ::java::net::Socket;
 using $SocketAddress = ::java::net::SocketAddress;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $Selector = ::java::nio::channels::Selector;
 using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
-
-$FieldInfo _CloseWhenKeyIdle_FieldInfo_[] = {
-	{"wakeupDone", "Z", nullptr, $STATIC | $VOLATILE, $staticField(CloseWhenKeyIdle, wakeupDone)},
-	{}
-};
-
-$MethodInfo _CloseWhenKeyIdle_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CloseWhenKeyIdle, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CloseWhenKeyIdle, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _CloseWhenKeyIdle_InnerClassesInfo_[] = {
-	{"CloseWhenKeyIdle$Waker", "CloseWhenKeyIdle", "Waker", $STATIC},
-	{}
-};
-
-$ClassInfo _CloseWhenKeyIdle_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"CloseWhenKeyIdle",
-	"java.lang.Object",
-	nullptr,
-	_CloseWhenKeyIdle_FieldInfo_,
-	_CloseWhenKeyIdle_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CloseWhenKeyIdle_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"CloseWhenKeyIdle$Waker"
-};
-
-$Object* allocate$CloseWhenKeyIdle($Class* clazz) {
-	return $of($alloc(CloseWhenKeyIdle));
-}
 
 $volatile(bool) CloseWhenKeyIdle::wakeupDone = false;
 
@@ -74,20 +33,20 @@ void CloseWhenKeyIdle::init$() {
 
 void CloseWhenKeyIdle::main($StringArray* args) {
 	$init(CloseWhenKeyIdle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerSocketChannel, ssc, $ServerSocketChannel::open());
-	$nc($($nc(ssc)->socket()))->bind($$new($InetSocketAddress, 0));
+	$$nc($nc(ssc)->socket())->bind($$new($InetSocketAddress, 0));
 	$var($InetAddress, var$0, $InetAddress::getLocalHost());
-	$var($SocketAddress, remote, $new($InetSocketAddress, var$0, $nc($(ssc->socket()))->getLocalPort()));
+	$var($SocketAddress, remote, $new($InetSocketAddress, var$0, $$nc(ssc->socket())->getLocalPort()));
 	$var($SocketChannel, sc1, $SocketChannel::open(remote));
 	$var($SocketChannel, sc2, ssc->accept());
 	$var($Selector, sel, $Selector::open());
 	$nc(sc1)->configureBlocking(false);
 	$var($SelectionKey, k, sc1->register$(sel, 0));
 	$nc(sel)->selectNow();
-	$nc($($nc(sc2)->socket()))->setSoLinger(true, 0);
+	$$nc($nc(sc2)->socket())->setSoLinger(true, 0);
 	sc2->close();
-	$var($Thread, t, $new($Thread, static_cast<$Runnable*>($$new($CloseWhenKeyIdle$Waker, sel, 5000))));
+	$var($Thread, t, $new($Thread, $$new($CloseWhenKeyIdle$Waker, sel, 5000)));
 	t->setDaemon(true);
 	t->start();
 	int32_t spinCount = 0;
@@ -117,7 +76,7 @@ void CloseWhenKeyIdle::main($StringArray* args) {
 	$nc($System::out)->println("PASS"_s);
 }
 
-void clinit$CloseWhenKeyIdle($Class* class$) {
+void CloseWhenKeyIdle::clinit$($Class* clazz) {
 	CloseWhenKeyIdle::wakeupDone = false;
 }
 
@@ -125,7 +84,36 @@ CloseWhenKeyIdle::CloseWhenKeyIdle() {
 }
 
 $Class* CloseWhenKeyIdle::load$($String* name, bool initialize) {
-	$loadClass(CloseWhenKeyIdle, name, initialize, &_CloseWhenKeyIdle_ClassInfo_, clinit$CloseWhenKeyIdle, allocate$CloseWhenKeyIdle);
+	$FieldInfo fieldInfos$$[] = {
+		{"wakeupDone", "Z", nullptr, $STATIC | $VOLATILE, $staticField(CloseWhenKeyIdle, wakeupDone)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CloseWhenKeyIdle, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CloseWhenKeyIdle, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"CloseWhenKeyIdle$Waker", "CloseWhenKeyIdle", "Waker", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"CloseWhenKeyIdle",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"CloseWhenKeyIdle$Waker"
+	};
+	$loadClass(CloseWhenKeyIdle, name, initialize, &classInfo$$, CloseWhenKeyIdle::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CloseWhenKeyIdle);
+	});
 	return class$;
 }
 

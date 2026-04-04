@@ -1,5 +1,4 @@
 #include <java/util/concurrent/TimeUnit$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/time/temporal/ChronoUnit.h>
 #include <java/util/concurrent/TimeUnit.h>
@@ -28,107 +27,70 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _TimeUnit$1_FieldInfo_[] = {
-	{"$SwitchMap$java$time$temporal$ChronoUnit", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TimeUnit$1, $SwitchMap$java$time$temporal$ChronoUnit)},
-	{"$SwitchMap$java$util$concurrent$TimeUnit", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TimeUnit$1, $SwitchMap$java$util$concurrent$TimeUnit)},
-	{}
-};
-
-$EnclosingMethodInfo _TimeUnit$1_EnclosingMethodInfo_ = {
-	"java.util.concurrent.TimeUnit",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _TimeUnit$1_InnerClassesInfo_[] = {
-	{"java.util.concurrent.TimeUnit$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _TimeUnit$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"java.util.concurrent.TimeUnit$1",
-	"java.lang.Object",
-	nullptr,
-	_TimeUnit$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_TimeUnit$1_EnclosingMethodInfo_,
-	_TimeUnit$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.TimeUnit"
-};
-
-$Object* allocate$TimeUnit$1($Class* clazz) {
-	return $of($alloc(TimeUnit$1));
-}
-
 $ints* TimeUnit$1::$SwitchMap$java$time$temporal$ChronoUnit = nullptr;
 $ints* TimeUnit$1::$SwitchMap$java$util$concurrent$TimeUnit = nullptr;
 
-void clinit$TimeUnit$1($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void TimeUnit$1::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(TimeUnit$1::$SwitchMap$java$time$temporal$ChronoUnit, $new($ints, $($ChronoUnit::values())->length));
 	{
 		try {
-			$nc(TimeUnit$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::NANOS->ordinal(), 1);
+			TimeUnit$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::NANOS->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TimeUnit$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::MICROS->ordinal(), 2);
+			TimeUnit$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::MICROS->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TimeUnit$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::MILLIS->ordinal(), 3);
+			TimeUnit$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::MILLIS->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TimeUnit$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::SECONDS->ordinal(), 4);
+			TimeUnit$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::SECONDS->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TimeUnit$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::MINUTES->ordinal(), 5);
+			TimeUnit$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::MINUTES->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TimeUnit$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::HOURS->ordinal(), 6);
+			TimeUnit$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::HOURS->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TimeUnit$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::DAYS->ordinal(), 7);
+			TimeUnit$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::DAYS->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(TimeUnit$1::$SwitchMap$java$util$concurrent$TimeUnit, $new($ints, $($TimeUnit::values())->length));
 	{
 		try {
-			$nc(TimeUnit$1::$SwitchMap$java$util$concurrent$TimeUnit)->set($TimeUnit::NANOSECONDS->ordinal(), 1);
+			TimeUnit$1::$SwitchMap$java$util$concurrent$TimeUnit->set($TimeUnit::NANOSECONDS->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TimeUnit$1::$SwitchMap$java$util$concurrent$TimeUnit)->set($TimeUnit::MICROSECONDS->ordinal(), 2);
+			TimeUnit$1::$SwitchMap$java$util$concurrent$TimeUnit->set($TimeUnit::MICROSECONDS->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TimeUnit$1::$SwitchMap$java$util$concurrent$TimeUnit)->set($TimeUnit::MILLISECONDS->ordinal(), 3);
+			TimeUnit$1::$SwitchMap$java$util$concurrent$TimeUnit->set($TimeUnit::MILLISECONDS->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TimeUnit$1::$SwitchMap$java$util$concurrent$TimeUnit)->set($TimeUnit::SECONDS->ordinal(), 4);
+			TimeUnit$1::$SwitchMap$java$util$concurrent$TimeUnit->set($TimeUnit::SECONDS->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TimeUnit$1::$SwitchMap$java$util$concurrent$TimeUnit)->set($TimeUnit::MINUTES->ordinal(), 5);
+			TimeUnit$1::$SwitchMap$java$util$concurrent$TimeUnit->set($TimeUnit::MINUTES->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TimeUnit$1::$SwitchMap$java$util$concurrent$TimeUnit)->set($TimeUnit::HOURS->ordinal(), 6);
+			TimeUnit$1::$SwitchMap$java$util$concurrent$TimeUnit->set($TimeUnit::HOURS->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TimeUnit$1::$SwitchMap$java$util$concurrent$TimeUnit)->set($TimeUnit::DAYS->ordinal(), 7);
+			TimeUnit$1::$SwitchMap$java$util$concurrent$TimeUnit->set($TimeUnit::DAYS->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -138,7 +100,38 @@ TimeUnit$1::TimeUnit$1() {
 }
 
 $Class* TimeUnit$1::load$($String* name, bool initialize) {
-	$loadClass(TimeUnit$1, name, initialize, &_TimeUnit$1_ClassInfo_, clinit$TimeUnit$1, allocate$TimeUnit$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$time$temporal$ChronoUnit", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TimeUnit$1, $SwitchMap$java$time$temporal$ChronoUnit)},
+		{"$SwitchMap$java$util$concurrent$TimeUnit", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TimeUnit$1, $SwitchMap$java$util$concurrent$TimeUnit)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.concurrent.TimeUnit",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.TimeUnit$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"java.util.concurrent.TimeUnit$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.TimeUnit"
+	};
+	$loadClass(TimeUnit$1, name, initialize, &classInfo$$, TimeUnit$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TimeUnit$1);
+	});
 	return class$;
 }
 

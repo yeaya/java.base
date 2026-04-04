@@ -31,6 +31,7 @@ class $import FallbackLocaleProviderAdapter : public ::sun::util::locale::provid
 	$class(FallbackLocaleProviderAdapter, 0, ::sun::util::locale::provider::JRELocaleProviderAdapter)
 public:
 	FallbackLocaleProviderAdapter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::util::Set* createLanguageTagSet($String* category) override;
 	virtual ::sun::util::locale::provider::LocaleProviderAdapter$Type* getAdapterType() override;

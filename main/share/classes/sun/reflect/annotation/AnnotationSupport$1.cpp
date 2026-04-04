@@ -1,5 +1,4 @@
 #include <sun/reflect/annotation/AnnotationSupport$1.h>
-
 #include <java/lang/reflect/Method.h>
 #include <jdk/internal/reflect/ReflectionFactory.h>
 #include <sun/reflect/annotation/AnnotationSupport.h>
@@ -17,56 +16,14 @@ namespace sun {
 	namespace reflect {
 		namespace annotation {
 
-$FieldInfo _AnnotationSupport$1_FieldInfo_[] = {
-	{"val$m", "Ljava/lang/reflect/Method;", nullptr, $FINAL | $SYNTHETIC, $field(AnnotationSupport$1, val$m)},
-	{}
-};
-
-$MethodInfo _AnnotationSupport$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Method;)V", "()V", 0, $method(AnnotationSupport$1, init$, void, $Method*)},
-	{"run", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $virtualMethod(AnnotationSupport$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _AnnotationSupport$1_EnclosingMethodInfo_ = {
-	"sun.reflect.annotation.AnnotationSupport",
-	"getValueArray",
-	"(Ljava/lang/annotation/Annotation;)[Ljava/lang/annotation/Annotation;"
-};
-
-$InnerClassInfo _AnnotationSupport$1_InnerClassesInfo_[] = {
-	{"sun.reflect.annotation.AnnotationSupport$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AnnotationSupport$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.reflect.annotation.AnnotationSupport$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_AnnotationSupport$1_FieldInfo_,
-	_AnnotationSupport$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/reflect/Method;>;",
-	&_AnnotationSupport$1_EnclosingMethodInfo_,
-	_AnnotationSupport$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.reflect.annotation.AnnotationSupport"
-};
-
-$Object* allocate$AnnotationSupport$1($Class* clazz) {
-	return $of($alloc(AnnotationSupport$1));
-}
-
 void AnnotationSupport$1::init$($Method* val$m) {
 	$set(this, val$m, val$m);
 }
 
 $Object* AnnotationSupport$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($Method, res, $nc($($ReflectionFactory::getReflectionFactory()))->leafCopyMethod(this->val$m));
+	$var($Method, res, $$nc($ReflectionFactory::getReflectionFactory())->leafCopyMethod(this->val$m));
 	$nc(res)->setAccessible(true);
 	return $of(res);
 }
@@ -75,7 +32,42 @@ AnnotationSupport$1::AnnotationSupport$1() {
 }
 
 $Class* AnnotationSupport$1::load$($String* name, bool initialize) {
-	$loadClass(AnnotationSupport$1, name, initialize, &_AnnotationSupport$1_ClassInfo_, allocate$AnnotationSupport$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$m", "Ljava/lang/reflect/Method;", nullptr, $FINAL | $SYNTHETIC, $field(AnnotationSupport$1, val$m)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/reflect/Method;)V", "()V", 0, $method(AnnotationSupport$1, init$, void, $Method*)},
+		{"run", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC, $virtualMethod(AnnotationSupport$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.reflect.annotation.AnnotationSupport",
+		"getValueArray",
+		"(Ljava/lang/annotation/Annotation;)[Ljava/lang/annotation/Annotation;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.reflect.annotation.AnnotationSupport$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.reflect.annotation.AnnotationSupport$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/reflect/Method;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.reflect.annotation.AnnotationSupport"
+	};
+	$loadClass(AnnotationSupport$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AnnotationSupport$1);
+	});
 	return class$;
 }
 

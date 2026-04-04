@@ -1,5 +1,4 @@
 #include <java/util/concurrent/Semaphore$NonfairSync.h>
-
 #include <java/util/concurrent/Semaphore$Sync.h>
 #include <java/util/concurrent/Semaphore.h>
 #include <jcpp.h>
@@ -14,43 +13,6 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _Semaphore$NonfairSync_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Semaphore$NonfairSync, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Semaphore$NonfairSync_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(Semaphore$NonfairSync, init$, void, int32_t)},
-	{"tryAcquireShared", "(I)I", nullptr, $PROTECTED, $virtualMethod(Semaphore$NonfairSync, tryAcquireShared, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Semaphore$NonfairSync_InnerClassesInfo_[] = {
-	{"java.util.concurrent.Semaphore$NonfairSync", "java.util.concurrent.Semaphore", "NonfairSync", $STATIC | $FINAL},
-	{"java.util.concurrent.Semaphore$Sync", "java.util.concurrent.Semaphore", "Sync", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Semaphore$NonfairSync_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.Semaphore$NonfairSync",
-	"java.util.concurrent.Semaphore$Sync",
-	nullptr,
-	_Semaphore$NonfairSync_FieldInfo_,
-	_Semaphore$NonfairSync_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Semaphore$NonfairSync_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.Semaphore"
-};
-
-$Object* allocate$Semaphore$NonfairSync($Class* clazz) {
-	return $of($alloc(Semaphore$NonfairSync));
-}
-
 void Semaphore$NonfairSync::init$(int32_t permits) {
 	$Semaphore$Sync::init$(permits);
 }
@@ -63,7 +25,38 @@ Semaphore$NonfairSync::Semaphore$NonfairSync() {
 }
 
 $Class* Semaphore$NonfairSync::load$($String* name, bool initialize) {
-	$loadClass(Semaphore$NonfairSync, name, initialize, &_Semaphore$NonfairSync_ClassInfo_, allocate$Semaphore$NonfairSync);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Semaphore$NonfairSync, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(Semaphore$NonfairSync, init$, void, int32_t)},
+		{"tryAcquireShared", "(I)I", nullptr, $PROTECTED, $virtualMethod(Semaphore$NonfairSync, tryAcquireShared, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.Semaphore$NonfairSync", "java.util.concurrent.Semaphore", "NonfairSync", $STATIC | $FINAL},
+		{"java.util.concurrent.Semaphore$Sync", "java.util.concurrent.Semaphore", "Sync", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.Semaphore$NonfairSync",
+		"java.util.concurrent.Semaphore$Sync",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.Semaphore"
+	};
+	$loadClass(Semaphore$NonfairSync, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Semaphore$NonfairSync);
+	});
 	return class$;
 }
 

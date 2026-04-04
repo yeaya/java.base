@@ -26,6 +26,7 @@ class $export AnnotationType : public ::java::lang::Object {
 	$class(AnnotationType, 0, ::java::lang::Object)
 public:
 	AnnotationType();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Class* annotationClass);
 	static ::sun::reflect::annotation::AnnotationType* getInstance($Class* annotationClass);
 	static $Class* invocationHandlerReturnType($Class* type);

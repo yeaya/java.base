@@ -51,6 +51,7 @@ public:
 	using ::java::lang::invoke::VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle::getAndSetAcquire;
 	using ::java::lang::invoke::VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle::getAndSetRelease;
 	using ::java::lang::invoke::VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle::accessModeTypeUncached;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool be);
 	void init$(bool be, bool exact);
 	virtual ::java::lang::invoke::MethodType* accessModeTypeUncached(::java::lang::invoke::VarHandle$AccessType* at) override;

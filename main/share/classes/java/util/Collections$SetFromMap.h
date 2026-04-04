@@ -72,7 +72,7 @@ public:
 	virtual $String* toString() override;
 	::java::util::Map* m = nullptr;
 	::java::util::Set* s = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x2210B25045F21FC4;
+	static const int64_t serialVersionUID = (int64_t)0x2210b25045f21fc4;
 };
 
 	} // util

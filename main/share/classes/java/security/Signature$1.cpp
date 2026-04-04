@@ -1,5 +1,4 @@
 #include <java/security/Signature$1.h>
-
 #include <java/security/PrivateKey.h>
 #include <java/security/PublicKey.h>
 #include <java/security/SecureRandom.h>
@@ -22,45 +21,6 @@ using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 namespace java {
 	namespace security {
 
-$MethodInfo _Signature$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Signature$1, init$, void)},
-	{"initSign", "(Ljava/security/Signature;Ljava/security/PrivateKey;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC, $virtualMethod(Signature$1, initSign, void, $Signature*, $PrivateKey*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"initVerify", "(Ljava/security/Signature;Ljava/security/PublicKey;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(Signature$1, initVerify, void, $Signature*, $PublicKey*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"initVerify", "(Ljava/security/Signature;Ljava/security/cert/Certificate;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(Signature$1, initVerify, void, $Signature*, $Certificate*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{}
-};
-
-$EnclosingMethodInfo _Signature$1_EnclosingMethodInfo_ = {
-	"java.security.Signature",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Signature$1_InnerClassesInfo_[] = {
-	{"java.security.Signature$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Signature$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.security.Signature$1",
-	"java.lang.Object",
-	"jdk.internal.access.JavaSecuritySignatureAccess",
-	nullptr,
-	_Signature$1_MethodInfo_,
-	nullptr,
-	&_Signature$1_EnclosingMethodInfo_,
-	_Signature$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.Signature"
-};
-
-$Object* allocate$Signature$1($Class* clazz) {
-	return $of($alloc(Signature$1));
-}
-
 void Signature$1::init$() {
 }
 
@@ -80,7 +40,40 @@ Signature$1::Signature$1() {
 }
 
 $Class* Signature$1::load$($String* name, bool initialize) {
-	$loadClass(Signature$1, name, initialize, &_Signature$1_ClassInfo_, allocate$Signature$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Signature$1, init$, void)},
+		{"initSign", "(Ljava/security/Signature;Ljava/security/PrivateKey;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC, $virtualMethod(Signature$1, initSign, void, $Signature*, $PrivateKey*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"initVerify", "(Ljava/security/Signature;Ljava/security/PublicKey;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(Signature$1, initVerify, void, $Signature*, $PublicKey*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"initVerify", "(Ljava/security/Signature;Ljava/security/cert/Certificate;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(Signature$1, initVerify, void, $Signature*, $Certificate*, $AlgorithmParameterSpec*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.security.Signature",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.Signature$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.security.Signature$1",
+		"java.lang.Object",
+		"jdk.internal.access.JavaSecuritySignatureAccess",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.Signature"
+	};
+	$loadClass(Signature$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Signature$1);
+	});
 	return class$;
 }
 

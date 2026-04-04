@@ -1,5 +1,4 @@
 #include <java/io/PushbackInputStream.h>
-
 #include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -21,43 +20,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _PushbackInputStream_FieldInfo_[] = {
-	{"buf", "[B", nullptr, $PROTECTED, $field(PushbackInputStream, buf)},
-	{"pos", "I", nullptr, $PROTECTED, $field(PushbackInputStream, pos)},
-	{}
-};
-
-$MethodInfo _PushbackInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $method(PushbackInputStream, init$, void, $InputStream*, int32_t)},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(PushbackInputStream, init$, void, $InputStream*)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(PushbackInputStream, available, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PushbackInputStream, close, void), "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(PushbackInputStream, ensureOpen, void), "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PushbackInputStream, mark, void, int32_t)},
-	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(PushbackInputStream, markSupported, bool)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(PushbackInputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(PushbackInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PushbackInputStream, reset, void), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(PushbackInputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{"unread", "(I)V", nullptr, $PUBLIC, $virtualMethod(PushbackInputStream, unread, void, int32_t), "java.io.IOException"},
-	{"unread", "([BII)V", nullptr, $PUBLIC, $virtualMethod(PushbackInputStream, unread, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"unread", "([B)V", nullptr, $PUBLIC, $virtualMethod(PushbackInputStream, unread, void, $bytes*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _PushbackInputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.PushbackInputStream",
-	"java.io.FilterInputStream",
-	nullptr,
-	_PushbackInputStream_FieldInfo_,
-	_PushbackInputStream_MethodInfo_
-};
-
-$Object* allocate$PushbackInputStream($Class* clazz) {
-	return $of($alloc(PushbackInputStream));
-}
 
 void PushbackInputStream::ensureOpen() {
 	if (this->in == nullptr) {
@@ -81,7 +43,7 @@ void PushbackInputStream::init$($InputStream* in) {
 int32_t PushbackInputStream::read() {
 	ensureOpen();
 	if (this->pos < $nc(this->buf)->length) {
-		return (int32_t)($nc(this->buf)->get(this->pos++) & (uint32_t)255);
+		return this->buf->get(this->pos++) & 0xff;
 	}
 	return $FilterInputStream::read();
 }
@@ -90,7 +52,7 @@ int32_t PushbackInputStream::read($bytes* b, int32_t off, int32_t len) {
 	ensureOpen();
 	if (b == nullptr) {
 		$throwNew($NullPointerException);
-	} else if (off < 0 || len < 0 || len > $nc(b)->length - off) {
+	} else if (off < 0 || len < 0 || len > b->length - off) {
 		$throwNew($IndexOutOfBoundsException);
 	} else if (len == 0) {
 		return 0;
@@ -192,7 +154,39 @@ PushbackInputStream::PushbackInputStream() {
 }
 
 $Class* PushbackInputStream::load$($String* name, bool initialize) {
-	$loadClass(PushbackInputStream, name, initialize, &_PushbackInputStream_ClassInfo_, allocate$PushbackInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"buf", "[B", nullptr, $PROTECTED, $field(PushbackInputStream, buf)},
+		{"pos", "I", nullptr, $PROTECTED, $field(PushbackInputStream, pos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $method(PushbackInputStream, init$, void, $InputStream*, int32_t)},
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(PushbackInputStream, init$, void, $InputStream*)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(PushbackInputStream, available, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PushbackInputStream, close, void), "java.io.IOException"},
+		{"ensureOpen", "()V", nullptr, $PRIVATE, $method(PushbackInputStream, ensureOpen, void), "java.io.IOException"},
+		{"mark", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PushbackInputStream, mark, void, int32_t)},
+		{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(PushbackInputStream, markSupported, bool)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(PushbackInputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(PushbackInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PushbackInputStream, reset, void), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(PushbackInputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{"unread", "(I)V", nullptr, $PUBLIC, $virtualMethod(PushbackInputStream, unread, void, int32_t), "java.io.IOException"},
+		{"unread", "([BII)V", nullptr, $PUBLIC, $virtualMethod(PushbackInputStream, unread, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"unread", "([B)V", nullptr, $PUBLIC, $virtualMethod(PushbackInputStream, unread, void, $bytes*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.PushbackInputStream",
+		"java.io.FilterInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PushbackInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PushbackInputStream);
+	});
 	return class$;
 }
 

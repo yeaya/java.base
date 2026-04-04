@@ -24,11 +24,14 @@ public:
 	void init$($Throwable* target, $String* s);
 	virtual $Throwable* getCause() override;
 	virtual $Throwable* getTargetException();
-	static const int64_t serialVersionUID = (int64_t)0x38B1268ED671246F;
+	static const int64_t serialVersionUID = (int64_t)0x38b1268ed671246f;
 	$Throwable* target = nullptr;
 	InvocationTargetException(const InvocationTargetException& e);
 	virtual void throw$() override;
-	inline InvocationTargetException* operator ->() {
+	inline InvocationTargetException* operator ->() const {
+		return (InvocationTargetException*)throwing$;
+	}
+	inline operator InvocationTargetException*() const {
 		return (InvocationTargetException*)throwing$;
 	}
 };

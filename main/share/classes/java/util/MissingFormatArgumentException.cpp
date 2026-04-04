@@ -1,5 +1,4 @@
 #include <java/util/MissingFormatArgumentException.h>
-
 #include <java/util/IllegalFormatException.h>
 #include <jcpp.h>
 
@@ -11,32 +10,6 @@ using $IllegalFormatException = ::java::util::IllegalFormatException;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _MissingFormatArgumentException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MissingFormatArgumentException, serialVersionUID)},
-	{"s", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MissingFormatArgumentException, s)},
-	{}
-};
-
-$MethodInfo _MissingFormatArgumentException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MissingFormatArgumentException, init$, void, $String*)},
-	{"getFormatSpecifier", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MissingFormatArgumentException, getFormatSpecifier, $String*)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MissingFormatArgumentException, getMessage, $String*)},
-	{}
-};
-
-$ClassInfo _MissingFormatArgumentException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.MissingFormatArgumentException",
-	"java.util.IllegalFormatException",
-	nullptr,
-	_MissingFormatArgumentException_FieldInfo_,
-	_MissingFormatArgumentException_MethodInfo_
-};
-
-$Object* allocate$MissingFormatArgumentException($Class* clazz) {
-	return $of($alloc(MissingFormatArgumentException));
-}
 
 void MissingFormatArgumentException::init$($String* s) {
 	$IllegalFormatException::init$();
@@ -65,7 +38,28 @@ void MissingFormatArgumentException::throw$() {
 }
 
 $Class* MissingFormatArgumentException::load$($String* name, bool initialize) {
-	$loadClass(MissingFormatArgumentException, name, initialize, &_MissingFormatArgumentException_ClassInfo_, allocate$MissingFormatArgumentException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MissingFormatArgumentException, serialVersionUID)},
+		{"s", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MissingFormatArgumentException, s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MissingFormatArgumentException, init$, void, $String*)},
+		{"getFormatSpecifier", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MissingFormatArgumentException, getFormatSpecifier, $String*)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MissingFormatArgumentException, getMessage, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.MissingFormatArgumentException",
+		"java.util.IllegalFormatException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MissingFormatArgumentException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MissingFormatArgumentException);
+	});
 	return class$;
 }
 

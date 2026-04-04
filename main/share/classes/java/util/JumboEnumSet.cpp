@@ -1,5 +1,4 @@
 #include <java/util/JumboEnumSet.h>
-
 #include <java/lang/ClassCastException.h>
 #include <java/lang/Enum.h>
 #include <java/util/AbstractCollection.h>
@@ -28,60 +27,6 @@ using $JumboEnumSet$EnumSetIterator = ::java::util::JumboEnumSet$EnumSetIterator
 namespace java {
 	namespace util {
 
-$FieldInfo _JumboEnumSet_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JumboEnumSet, serialVersionUID)},
-	{"elements", "[J", nullptr, $PRIVATE, $field(JumboEnumSet, elements)},
-	{"size", "I", nullptr, $PRIVATE, $field(JumboEnumSet, size$)},
-	{}
-};
-
-$MethodInfo _JumboEnumSet_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;[Ljava/lang/Enum;)V", "(Ljava/lang/Class<TE;>;[Ljava/lang/Enum<*>;)V", 0, $method(JumboEnumSet, init$, void, $Class*, $EnumArray*)},
-	{"add", "(Ljava/lang/Enum;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(JumboEnumSet, add, bool, $Enum*)},
-	{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JumboEnumSet, add, bool, Object$*)},
-	{"addAll", "()V", nullptr, 0, $virtualMethod(JumboEnumSet, addAll, void)},
-	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(JumboEnumSet, addAll, bool, $Collection*)},
-	{"addRange", "(Ljava/lang/Enum;Ljava/lang/Enum;)V", "(TE;TE;)V", 0, $virtualMethod(JumboEnumSet, addRange, void, $Enum*, $Enum*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(JumboEnumSet, clear, void)},
-	{"clone", "()Ljava/util/EnumSet;", "()Ljava/util/EnumSet<TE;>;", $PUBLIC, $virtualMethod(JumboEnumSet, clone, $Object*)},
-	{"complement", "()V", nullptr, 0, $virtualMethod(JumboEnumSet, complement, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JumboEnumSet, contains, bool, Object$*)},
-	{"containsAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(JumboEnumSet, containsAll, bool, $Collection*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JumboEnumSet, equals, bool, Object$*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(JumboEnumSet, isEmpty, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(JumboEnumSet, iterator, $Iterator*)},
-	{"recalculateSize", "()Z", nullptr, $PRIVATE, $method(JumboEnumSet, recalculateSize, bool)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JumboEnumSet, remove, bool, Object$*)},
-	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(JumboEnumSet, removeAll, bool, $Collection*)},
-	{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(JumboEnumSet, retainAll, bool, $Collection*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(JumboEnumSet, size, int32_t)},
-	{}
-};
-
-$InnerClassInfo _JumboEnumSet_InnerClassesInfo_[] = {
-	{"java.util.JumboEnumSet$EnumSetIterator", "java.util.JumboEnumSet", "EnumSetIterator", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JumboEnumSet_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.JumboEnumSet",
-	"java.util.EnumSet",
-	nullptr,
-	_JumboEnumSet_FieldInfo_,
-	_JumboEnumSet_MethodInfo_,
-	"<E:Ljava/lang/Enum<TE;>;>Ljava/util/EnumSet<TE;>;",
-	nullptr,
-	_JumboEnumSet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.JumboEnumSet$EnumSetIterator"
-};
-
-$Object* allocate$JumboEnumSet($Class* clazz) {
-	return $of($alloc(JumboEnumSet));
-}
-
 void JumboEnumSet::init$($Class* elementType, $EnumArray* universe) {
 	$EnumSet::init$(elementType, universe);
 	this->size$ = 0;
@@ -93,14 +38,14 @@ void JumboEnumSet::addRange($Enum* from, $Enum* to) {
 	int32_t toIndex = (int32_t)((uint32_t)$nc(to)->ordinal() >> 6);
 	if (fromIndex == toIndex) {
 		int32_t var$1 = from->ordinal();
-		int64_t var$0 = ($usr((int64_t)-1, var$1 - to->ordinal() - 1));
+		int64_t var$0 = $usr((int64_t)-1, var$1 - to->ordinal() - 1);
 		$nc(this->elements)->set(fromIndex, $sl(var$0, from->ordinal()));
 	} else {
 		$nc(this->elements)->set(fromIndex, ($sl((int64_t)-1, from->ordinal())));
 		for (int32_t i = fromIndex + 1; i < toIndex; ++i) {
-			$nc(this->elements)->set(i, -1);
+			this->elements->set(i, -1);
 		}
-		$nc(this->elements)->set(toIndex, $usr((int64_t)-1, 63 - to->ordinal()));
+		this->elements->set(toIndex, $usr((int64_t)-1, 63 - to->ordinal()));
 	}
 	int32_t var$2 = to->ordinal();
 	this->size$ = var$2 - from->ordinal() + 1;
@@ -108,18 +53,18 @@ void JumboEnumSet::addRange($Enum* from, $Enum* to) {
 
 void JumboEnumSet::addAll() {
 	for (int32_t i = 0; i < $nc(this->elements)->length; ++i) {
-		$nc(this->elements)->set(i, -1);
+		this->elements->set(i, -1);
 	}
-	$usrAssign((*$nc(this->elements))[$nc(this->elements)->length - 1], -$nc(this->universe)->length);
-	this->size$ = $nc(this->universe)->length;
+	$usrAssign((*this->elements)[this->elements->length - 1], -$nc(this->universe)->length);
+	this->size$ = this->universe->length;
 }
 
 void JumboEnumSet::complement() {
 	for (int32_t i = 0; i < $nc(this->elements)->length; ++i) {
-		$nc(this->elements)->set(i, ~$nc(this->elements)->get(i));
+		this->elements->set(i, ~this->elements->get(i));
 	}
-	(*$nc(this->elements))[$nc(this->elements)->length - 1] &= (uint64_t)($usr((int64_t)-1, -$nc(this->universe)->length));
-	this->size$ = $nc(this->universe)->length - this->size$;
+	(*this->elements)[this->elements->length - 1] &= (uint64_t)($usr((int64_t)-1, -$nc(this->universe)->length));
+	this->size$ = this->universe->length - this->size$;
 }
 
 $Iterator* JumboEnumSet::iterator() {
@@ -139,11 +84,11 @@ bool JumboEnumSet::contains(Object$* e) {
 		return false;
 	}
 	$Class* eClass = $nc($of(e))->getClass();
-	if (eClass != this->elementType && $nc(eClass)->getSuperclass() != this->elementType) {
+	if (eClass != this->elementType && eClass->getSuperclass() != this->elementType) {
 		return false;
 	}
-	int32_t eOrdinal = $nc(($cast($Enum, e)))->ordinal();
-	return ((int64_t)($nc(this->elements)->get((int32_t)((uint32_t)eOrdinal >> 6)) & (uint64_t)($sl((int64_t)1, eOrdinal)))) != 0;
+	int32_t eOrdinal = $cast($Enum, e)->ordinal();
+	return ($nc(this->elements)->get((int32_t)((uint32_t)eOrdinal >> 6)) & ($sl((int64_t)1, eOrdinal))) != 0;
 }
 
 bool JumboEnumSet::add($Enum* e) {
@@ -151,8 +96,8 @@ bool JumboEnumSet::add($Enum* e) {
 	int32_t eOrdinal = $nc(e)->ordinal();
 	int32_t eWordNum = (int32_t)((uint32_t)eOrdinal >> 6);
 	int64_t oldElements = $nc(this->elements)->get(eWordNum);
-	(*$nc(this->elements))[eWordNum] |= ($sl((int64_t)1, eOrdinal));
-	bool result = ($nc(this->elements)->get(eWordNum) != oldElements);
+	(*this->elements)[eWordNum] |= ($sl((int64_t)1, eOrdinal));
+	bool result = (this->elements->get(eWordNum) != oldElements);
 	if (result) {
 		++this->size$;
 	}
@@ -164,14 +109,14 @@ bool JumboEnumSet::remove(Object$* e) {
 		return false;
 	}
 	$Class* eClass = $nc($of(e))->getClass();
-	if (eClass != this->elementType && $nc(eClass)->getSuperclass() != this->elementType) {
+	if (eClass != this->elementType && eClass->getSuperclass() != this->elementType) {
 		return false;
 	}
-	int32_t eOrdinal = $nc(($cast($Enum, e)))->ordinal();
+	int32_t eOrdinal = $cast($Enum, e)->ordinal();
 	int32_t eWordNum = (int32_t)((uint32_t)eOrdinal >> 6);
 	int64_t oldElements = $nc(this->elements)->get(eWordNum);
-	(*$nc(this->elements))[eWordNum] &= (uint64_t)~($sl((int64_t)1, eOrdinal));
-	bool result = ($nc(this->elements)->get(eWordNum) != oldElements);
+	(*this->elements)[eWordNum] &= (uint64_t)~($sl((int64_t)1, eOrdinal));
+	bool result = (this->elements->get(eWordNum) != oldElements);
 	if (result) {
 		--this->size$;
 	}
@@ -192,7 +137,7 @@ bool JumboEnumSet::containsAll($Collection* c) {
 		return es->isEmpty();
 	}
 	for (int32_t i = 0; i < $nc(this->elements)->length; ++i) {
-		if (((int64_t)($nc($nc(es)->elements)->get(i) & (uint64_t)~$nc(this->elements)->get(i))) != 0) {
+		if (($nc(es->elements)->get(i) & ~this->elements->get(i)) != 0) {
 			return false;
 		}
 	}
@@ -200,7 +145,7 @@ bool JumboEnumSet::containsAll($Collection* c) {
 }
 
 bool JumboEnumSet::addAll($Collection* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(JumboEnumSet, es, nullptr);
 	bool var$0 = $instanceOf(JumboEnumSet, c);
 	if (var$0) {
@@ -218,7 +163,7 @@ bool JumboEnumSet::addAll($Collection* c) {
 		}
 	}
 	for (int32_t i = 0; i < $nc(this->elements)->length; ++i) {
-		(*$nc(this->elements))[i] |= $nc($nc(es)->elements)->get(i);
+		(*this->elements)[i] |= $nc(es->elements)->get(i);
 	}
 	return recalculateSize();
 }
@@ -237,7 +182,7 @@ bool JumboEnumSet::removeAll($Collection* c) {
 		return false;
 	}
 	for (int32_t i = 0; i < $nc(this->elements)->length; ++i) {
-		(*$nc(this->elements))[i] &= (uint64_t)~$nc($nc(es)->elements)->get(i);
+		(*this->elements)[i] &= (uint64_t)~$nc(es->elements)->get(i);
 	}
 	return recalculateSize();
 }
@@ -258,13 +203,13 @@ bool JumboEnumSet::retainAll($Collection* c) {
 		return changed;
 	}
 	for (int32_t i = 0; i < $nc(this->elements)->length; ++i) {
-		(*$nc(this->elements))[i] &= (uint64_t)$nc($nc(es)->elements)->get(i);
+		(*this->elements)[i] &= (uint64_t)$nc(es->elements)->get(i);
 	}
 	return recalculateSize();
 }
 
 void JumboEnumSet::clear() {
-	$Arrays::fill(this->elements, (int64_t)0);
+	$Arrays::fill(this->elements, 0);
 	this->size$ = 0;
 }
 
@@ -281,7 +226,7 @@ bool JumboEnumSet::equals(Object$* o) {
 	if ($nc(es)->elementType != this->elementType) {
 		return this->size$ == 0 && es->size$ == 0;
 	}
-	return $Arrays::equals($nc(es)->elements, this->elements);
+	return $Arrays::equals(es->elements, this->elements);
 }
 
 bool JumboEnumSet::recalculateSize() {
@@ -289,9 +234,7 @@ bool JumboEnumSet::recalculateSize() {
 	this->size$ = 0;
 	{
 		$var($longs, arr$, this->elements);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int64_t elt = arr$->get(i$);
 			this->size$ += $Long::bitCount(elt);
 		}
@@ -301,7 +244,7 @@ bool JumboEnumSet::recalculateSize() {
 
 $Object* JumboEnumSet::clone() {
 	$var(JumboEnumSet, result, $cast(JumboEnumSet, $cast($EnumSet, $EnumSet::clone())));
-	$set($nc(result), elements, $cast($longs, $nc(result->elements)->clone()));
+	$set($nc(result), elements, $cast($longs, $nc($nc(result)->elements)->clone()));
 	return $of(result);
 }
 
@@ -313,7 +256,55 @@ JumboEnumSet::JumboEnumSet() {
 }
 
 $Class* JumboEnumSet::load$($String* name, bool initialize) {
-	$loadClass(JumboEnumSet, name, initialize, &_JumboEnumSet_ClassInfo_, allocate$JumboEnumSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JumboEnumSet, serialVersionUID)},
+		{"elements", "[J", nullptr, $PRIVATE, $field(JumboEnumSet, elements)},
+		{"size", "I", nullptr, $PRIVATE, $field(JumboEnumSet, size$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;[Ljava/lang/Enum;)V", "(Ljava/lang/Class<TE;>;[Ljava/lang/Enum<*>;)V", 0, $method(JumboEnumSet, init$, void, $Class*, $EnumArray*)},
+		{"add", "(Ljava/lang/Enum;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(JumboEnumSet, add, bool, $Enum*)},
+		{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JumboEnumSet, add, bool, Object$*)},
+		{"addAll", "()V", nullptr, 0, $virtualMethod(JumboEnumSet, addAll, void)},
+		{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(JumboEnumSet, addAll, bool, $Collection*)},
+		{"addRange", "(Ljava/lang/Enum;Ljava/lang/Enum;)V", "(TE;TE;)V", 0, $virtualMethod(JumboEnumSet, addRange, void, $Enum*, $Enum*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(JumboEnumSet, clear, void)},
+		{"clone", "()Ljava/util/EnumSet;", "()Ljava/util/EnumSet<TE;>;", $PUBLIC, $virtualMethod(JumboEnumSet, clone, $Object*)},
+		{"complement", "()V", nullptr, 0, $virtualMethod(JumboEnumSet, complement, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JumboEnumSet, contains, bool, Object$*)},
+		{"containsAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(JumboEnumSet, containsAll, bool, $Collection*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JumboEnumSet, equals, bool, Object$*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(JumboEnumSet, isEmpty, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(JumboEnumSet, iterator, $Iterator*)},
+		{"recalculateSize", "()Z", nullptr, $PRIVATE, $method(JumboEnumSet, recalculateSize, bool)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JumboEnumSet, remove, bool, Object$*)},
+		{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(JumboEnumSet, removeAll, bool, $Collection*)},
+		{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(JumboEnumSet, retainAll, bool, $Collection*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(JumboEnumSet, size, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.JumboEnumSet$EnumSetIterator", "java.util.JumboEnumSet", "EnumSetIterator", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.JumboEnumSet",
+		"java.util.EnumSet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Enum<TE;>;>Ljava/util/EnumSet<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.JumboEnumSet$EnumSetIterator"
+	};
+	$loadClass(JumboEnumSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JumboEnumSet));
+	});
 	return class$;
 }
 

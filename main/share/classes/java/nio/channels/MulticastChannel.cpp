@@ -1,5 +1,4 @@
 #include <java/nio/channels/MulticastChannel.h>
-
 #include <java/net/InetAddress.h>
 #include <java/net/NetworkInterface.h>
 #include <java/nio/channels/MembershipKey.h>
@@ -15,28 +14,24 @@ namespace java {
 	namespace nio {
 		namespace channels {
 
-$MethodInfo _MulticastChannel_MethodInfo_[] = {
-	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"join", "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;)Ljava/nio/channels/MembershipKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MulticastChannel, join, $MembershipKey*, $InetAddress*, $NetworkInterface*), "java.io.IOException"},
-	{"join", "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;Ljava/net/InetAddress;)Ljava/nio/channels/MembershipKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MulticastChannel, join, $MembershipKey*, $InetAddress*, $NetworkInterface*, $InetAddress*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _MulticastChannel_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.nio.channels.MulticastChannel",
-	nullptr,
-	"java.nio.channels.NetworkChannel",
-	nullptr,
-	_MulticastChannel_MethodInfo_
-};
-
-$Object* allocate$MulticastChannel($Class* clazz) {
-	return $of($alloc(MulticastChannel));
-}
-
 $Class* MulticastChannel::load$($String* name, bool initialize) {
-	$loadClass(MulticastChannel, name, initialize, &_MulticastChannel_ClassInfo_, allocate$MulticastChannel);
+	$MethodInfo methodInfos$$[] = {
+		{"close", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"join", "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;)Ljava/nio/channels/MembershipKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MulticastChannel, join, $MembershipKey*, $InetAddress*, $NetworkInterface*), "java.io.IOException"},
+		{"join", "(Ljava/net/InetAddress;Ljava/net/NetworkInterface;Ljava/net/InetAddress;)Ljava/nio/channels/MembershipKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MulticastChannel, join, $MembershipKey*, $InetAddress*, $NetworkInterface*, $InetAddress*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.nio.channels.MulticastChannel",
+		nullptr,
+		"java.nio.channels.NetworkChannel",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MulticastChannel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MulticastChannel);
+	});
 	return class$;
 }
 

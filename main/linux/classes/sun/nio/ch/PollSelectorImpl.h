@@ -65,6 +65,7 @@ public:
 	using ::sun::nio::ch::SelectorImpl::begin;
 	using ::sun::nio::ch::SelectorImpl::end;
 	using ::sun::nio::ch::SelectorImpl::cancel;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::channels::spi::SelectorProvider* sp);
 	void add(::sun::nio::ch::SelectionKeyImpl* ski, int32_t ops);
 	void clearInterrupt();

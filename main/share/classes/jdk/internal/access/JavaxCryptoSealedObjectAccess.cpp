@@ -1,5 +1,4 @@
 #include <jdk/internal/access/JavaxCryptoSealedObjectAccess.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <javax/crypto/Cipher.h>
 #include <javax/crypto/SealedObject.h>
@@ -15,26 +14,22 @@ namespace jdk {
 	namespace internal {
 		namespace access {
 
-$MethodInfo _JavaxCryptoSealedObjectAccess_MethodInfo_[] = {
-	{"getExtObjectInputStream", "(Ljavax/crypto/SealedObject;Ljavax/crypto/Cipher;)Ljava/io/ObjectInputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaxCryptoSealedObjectAccess, getExtObjectInputStream, $ObjectInputStream*, $SealedObject*, $Cipher*), "javax.crypto.BadPaddingException,javax.crypto.IllegalBlockSizeException,java.io.IOException"},
-	{}
-};
-
-$ClassInfo _JavaxCryptoSealedObjectAccess_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.access.JavaxCryptoSealedObjectAccess",
-	nullptr,
-	nullptr,
-	nullptr,
-	_JavaxCryptoSealedObjectAccess_MethodInfo_
-};
-
-$Object* allocate$JavaxCryptoSealedObjectAccess($Class* clazz) {
-	return $of($alloc(JavaxCryptoSealedObjectAccess));
-}
-
 $Class* JavaxCryptoSealedObjectAccess::load$($String* name, bool initialize) {
-	$loadClass(JavaxCryptoSealedObjectAccess, name, initialize, &_JavaxCryptoSealedObjectAccess_ClassInfo_, allocate$JavaxCryptoSealedObjectAccess);
+	$MethodInfo methodInfos$$[] = {
+		{"getExtObjectInputStream", "(Ljavax/crypto/SealedObject;Ljavax/crypto/Cipher;)Ljava/io/ObjectInputStream;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaxCryptoSealedObjectAccess, getExtObjectInputStream, $ObjectInputStream*, $SealedObject*, $Cipher*), "javax.crypto.BadPaddingException,javax.crypto.IllegalBlockSizeException,java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.access.JavaxCryptoSealedObjectAccess",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavaxCryptoSealedObjectAccess, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavaxCryptoSealedObjectAccess);
+	});
 	return class$;
 }
 

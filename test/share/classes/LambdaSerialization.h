@@ -25,6 +25,7 @@ class $export LambdaSerialization : public ::java::lang::Object {
 public:
 	LambdaSerialization();
 	static $Object* $deserializeLambda$(::java::lang::invoke::SerializedLambda* lambda);
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void assertTrue(bool cond);
 	static $String* lambda$main$344202ae$1($String* z);

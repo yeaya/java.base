@@ -58,6 +58,7 @@ class $export Socket : public ::java::io::Closeable {
 	$class(Socket, 0, ::java::io::Closeable)
 public:
 	Socket();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::net::Proxy* proxy);
 	void init$(::java::net::SocketImpl* impl);

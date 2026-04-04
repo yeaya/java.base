@@ -18,6 +18,7 @@ class DeleteOnExitHook : public ::java::lang::Object {
 	$class(DeleteOnExitHook, 0, ::java::lang::Object)
 public:
 	DeleteOnExitHook();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void add($String* file);
 	static void runHooks();

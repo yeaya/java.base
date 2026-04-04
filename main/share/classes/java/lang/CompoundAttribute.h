@@ -38,6 +38,9 @@ public:
 	bool isEnd();
 	void encode(::java::io::DataOutputStream* os, ::jdk::internal::reflect::ConstantPool* cp);
 	void visit(::jdk::internal::reflect::ConstantPool* cp);
+	CompoundAttribute* clone();
+	void cloneSelf();
+	static CompoundAttribute* cloneArray(CompoundAttribute* array);
 };
 
 	} // lang

@@ -1,5 +1,4 @@
 #include <jdk/internal/util/xml/impl/Input.h>
-
 #include <java/io/Reader.h>
 #include <jcpp.h>
 
@@ -13,42 +12,9 @@ namespace jdk {
 			namespace xml {
 				namespace impl {
 
-$FieldInfo _Input_FieldInfo_[] = {
-	{"pubid", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Input, pubid)},
-	{"sysid", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Input, sysid)},
-	{"xmlenc", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Input, xmlenc)},
-	{"xmlver", "C", nullptr, $PUBLIC, $field(Input, xmlver)},
-	{"src", "Ljava/io/Reader;", nullptr, $PUBLIC, $field(Input, src)},
-	{"chars", "[C", nullptr, $PUBLIC, $field(Input, chars)},
-	{"chLen", "I", nullptr, $PUBLIC, $field(Input, chLen)},
-	{"chIdx", "I", nullptr, $PUBLIC, $field(Input, chIdx)},
-	{"next", "Ljdk/internal/util/xml/impl/Input;", nullptr, $PUBLIC, $field(Input, next)},
-	{}
-};
-
-$MethodInfo _Input_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Input, init$, void, int32_t)},
-	{"<init>", "([C)V", nullptr, $PUBLIC, $method(Input, init$, void, $chars*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Input, init$, void)},
-	{}
-};
-
-$ClassInfo _Input_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.util.xml.impl.Input",
-	"java.lang.Object",
-	nullptr,
-	_Input_FieldInfo_,
-	_Input_MethodInfo_
-};
-
-$Object* allocate$Input($Class* clazz) {
-	return $of($alloc(Input));
-}
-
 void Input::init$(int32_t buffsize) {
 	$set(this, chars, $new($chars, buffsize));
-	this->chLen = $nc(this->chars)->length;
+	this->chLen = this->chars->length;
 }
 
 void Input::init$($chars* buff) {
@@ -63,7 +29,35 @@ Input::Input() {
 }
 
 $Class* Input::load$($String* name, bool initialize) {
-	$loadClass(Input, name, initialize, &_Input_ClassInfo_, allocate$Input);
+	$FieldInfo fieldInfos$$[] = {
+		{"pubid", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Input, pubid)},
+		{"sysid", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Input, sysid)},
+		{"xmlenc", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Input, xmlenc)},
+		{"xmlver", "C", nullptr, $PUBLIC, $field(Input, xmlver)},
+		{"src", "Ljava/io/Reader;", nullptr, $PUBLIC, $field(Input, src)},
+		{"chars", "[C", nullptr, $PUBLIC, $field(Input, chars)},
+		{"chLen", "I", nullptr, $PUBLIC, $field(Input, chLen)},
+		{"chIdx", "I", nullptr, $PUBLIC, $field(Input, chIdx)},
+		{"next", "Ljdk/internal/util/xml/impl/Input;", nullptr, $PUBLIC, $field(Input, next)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Input, init$, void, int32_t)},
+		{"<init>", "([C)V", nullptr, $PUBLIC, $method(Input, init$, void, $chars*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Input, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.util.xml.impl.Input",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Input, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Input);
+	});
 	return class$;
 }
 

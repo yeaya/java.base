@@ -1,5 +1,4 @@
 #include <jdk/internal/reflect/MethodAccessorImpl.h>
-
 #include <jdk/internal/reflect/MagicAccessorImpl.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $MagicAccessorImpl = ::jdk::internal::reflect::MagicAccessorImpl;
 namespace jdk {
 	namespace internal {
 		namespace reflect {
-
-$MethodInfo _MethodAccessorImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(MethodAccessorImpl, init$, void)},
-	{"invoke", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _MethodAccessorImpl_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"jdk.internal.reflect.MethodAccessorImpl",
-	"jdk.internal.reflect.MagicAccessorImpl",
-	"jdk.internal.reflect.MethodAccessor",
-	nullptr,
-	_MethodAccessorImpl_MethodInfo_
-};
-
-$Object* allocate$MethodAccessorImpl($Class* clazz) {
-	return $of($alloc(MethodAccessorImpl));
-}
 
 int32_t MethodAccessorImpl::hashCode() {
 	 return this->$MagicAccessorImpl::hashCode();
@@ -63,7 +38,27 @@ MethodAccessorImpl::MethodAccessorImpl() {
 }
 
 $Class* MethodAccessorImpl::load$($String* name, bool initialize) {
-	$loadClass(MethodAccessorImpl, name, initialize, &_MethodAccessorImpl_ClassInfo_, allocate$MethodAccessorImpl);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(MethodAccessorImpl, init$, void)},
+		{"invoke", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"jdk.internal.reflect.MethodAccessorImpl",
+		"jdk.internal.reflect.MagicAccessorImpl",
+		"jdk.internal.reflect.MethodAccessor",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MethodAccessorImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MethodAccessorImpl));
+	});
 	return class$;
 }
 

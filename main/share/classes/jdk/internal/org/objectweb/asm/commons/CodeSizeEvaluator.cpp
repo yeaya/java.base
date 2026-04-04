@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/commons/CodeSizeEvaluator.h>
-
 #include <jdk/internal/org/objectweb/asm/ConstantDynamic.h>
 #include <jdk/internal/org/objectweb/asm/Handle.h>
 #include <jdk/internal/org/objectweb/asm/Label.h>
@@ -35,51 +34,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 					namespace commons {
-
-$FieldInfo _CodeSizeEvaluator_FieldInfo_[] = {
-	{"minSize", "I", nullptr, $PRIVATE, $field(CodeSizeEvaluator, minSize)},
-	{"maxSize", "I", nullptr, $PRIVATE, $field(CodeSizeEvaluator, maxSize)},
-	{}
-};
-
-$MethodInfo _CodeSizeEvaluator_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $method(CodeSizeEvaluator, init$, void, $MethodVisitor*)},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PROTECTED, $method(CodeSizeEvaluator, init$, void, int32_t, $MethodVisitor*)},
-	{"getMaxSize", "()I", nullptr, $PUBLIC, $virtualMethod(CodeSizeEvaluator, getMaxSize, int32_t)},
-	{"getMinSize", "()I", nullptr, $PUBLIC, $virtualMethod(CodeSizeEvaluator, getMinSize, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"visitFieldInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CodeSizeEvaluator, visitFieldInsn, void, int32_t, $String*, $String*, $String*)},
-	{"visitIincInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(CodeSizeEvaluator, visitIincInsn, void, int32_t, int32_t)},
-	{"visitInsn", "(I)V", nullptr, $PUBLIC, $virtualMethod(CodeSizeEvaluator, visitInsn, void, int32_t)},
-	{"visitIntInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(CodeSizeEvaluator, visitIntInsn, void, int32_t, int32_t)},
-	{"visitInvokeDynamicInsn", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(CodeSizeEvaluator, visitInvokeDynamicInsn, void, $String*, $String*, $Handle*, $ObjectArray*)},
-	{"visitJumpInsn", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(CodeSizeEvaluator, visitJumpInsn, void, int32_t, $Label*)},
-	{"visitLdcInsn", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CodeSizeEvaluator, visitLdcInsn, void, Object$*)},
-	{"visitLookupSwitchInsn", "(Ljdk/internal/org/objectweb/asm/Label;[I[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(CodeSizeEvaluator, visitLookupSwitchInsn, void, $Label*, $ints*, $LabelArray*)},
-	{"visitMethodInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(CodeSizeEvaluator, visitMethodInsn, void, int32_t, $String*, $String*, $String*, bool)},
-	{"visitMultiANewArrayInsn", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(CodeSizeEvaluator, visitMultiANewArrayInsn, void, $String*, int32_t)},
-	{"visitTableSwitchInsn", "(IILjdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(CodeSizeEvaluator, visitTableSwitchInsn, void, int32_t, int32_t, $Label*, $LabelArray*)},
-	{"visitTypeInsn", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CodeSizeEvaluator, visitTypeInsn, void, int32_t, $String*)},
-	{"visitVarInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(CodeSizeEvaluator, visitVarInsn, void, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _CodeSizeEvaluator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.commons.CodeSizeEvaluator",
-	"jdk.internal.org.objectweb.asm.MethodVisitor",
-	"jdk.internal.org.objectweb.asm.Opcodes",
-	_CodeSizeEvaluator_FieldInfo_,
-	_CodeSizeEvaluator_MethodInfo_
-};
-
-$Object* allocate$CodeSizeEvaluator($Class* clazz) {
-	return $of($alloc(CodeSizeEvaluator));
-}
 
 int32_t CodeSizeEvaluator::hashCode() {
 	 return this->$MethodVisitor::hashCode();
@@ -161,11 +115,11 @@ void CodeSizeEvaluator::visitFieldInsn(int32_t opcode, $String* owner, $String* 
 }
 
 void CodeSizeEvaluator::visitMethodInsn(int32_t opcodeAndSource, $String* owner, $String* name, $String* descriptor, bool isInterface) {
-	if (this->api < $Opcodes::ASM5 && ((int32_t)(opcodeAndSource & (uint32_t)$Opcodes::SOURCE_DEPRECATED)) == 0) {
+	if (this->api < $Opcodes::ASM5 && (opcodeAndSource & $Opcodes::SOURCE_DEPRECATED) == 0) {
 		$MethodVisitor::visitMethodInsn(opcodeAndSource, owner, name, descriptor, isInterface);
 		return;
 	}
-	int32_t opcode = (int32_t)(opcodeAndSource & (uint32_t)~$Opcodes::SOURCE_MASK);
+	int32_t opcode = opcodeAndSource & ~$Opcodes::SOURCE_MASK;
 	if (opcode == $Opcodes::INVOKEINTERFACE) {
 		this->minSize += 5;
 		this->maxSize += 5;
@@ -193,7 +147,7 @@ void CodeSizeEvaluator::visitJumpInsn(int32_t opcode, $Label* label) {
 }
 
 void CodeSizeEvaluator::visitLdcInsn(Object$* value) {
-	if ($instanceOf($Long, value) || $instanceOf($Double, value) || ($instanceOf($ConstantDynamic, value) && $nc(($cast($ConstantDynamic, value)))->getSize() == 2)) {
+	if ($instanceOf($Long, value) || $instanceOf($Double, value) || ($instanceOf($ConstantDynamic, value) && $cast($ConstantDynamic, value)->getSize() == 2)) {
 		this->minSize += 3;
 		this->maxSize += 3;
 	} else {
@@ -236,7 +190,47 @@ CodeSizeEvaluator::CodeSizeEvaluator() {
 }
 
 $Class* CodeSizeEvaluator::load$($String* name, bool initialize) {
-	$loadClass(CodeSizeEvaluator, name, initialize, &_CodeSizeEvaluator_ClassInfo_, allocate$CodeSizeEvaluator);
+	$FieldInfo fieldInfos$$[] = {
+		{"minSize", "I", nullptr, $PRIVATE, $field(CodeSizeEvaluator, minSize)},
+		{"maxSize", "I", nullptr, $PRIVATE, $field(CodeSizeEvaluator, maxSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PUBLIC, $method(CodeSizeEvaluator, init$, void, $MethodVisitor*)},
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/MethodVisitor;)V", nullptr, $PROTECTED, $method(CodeSizeEvaluator, init$, void, int32_t, $MethodVisitor*)},
+		{"getMaxSize", "()I", nullptr, $PUBLIC, $virtualMethod(CodeSizeEvaluator, getMaxSize, int32_t)},
+		{"getMinSize", "()I", nullptr, $PUBLIC, $virtualMethod(CodeSizeEvaluator, getMinSize, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"visitFieldInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CodeSizeEvaluator, visitFieldInsn, void, int32_t, $String*, $String*, $String*)},
+		{"visitIincInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(CodeSizeEvaluator, visitIincInsn, void, int32_t, int32_t)},
+		{"visitInsn", "(I)V", nullptr, $PUBLIC, $virtualMethod(CodeSizeEvaluator, visitInsn, void, int32_t)},
+		{"visitIntInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(CodeSizeEvaluator, visitIntInsn, void, int32_t, int32_t)},
+		{"visitInvokeDynamicInsn", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(CodeSizeEvaluator, visitInvokeDynamicInsn, void, $String*, $String*, $Handle*, $ObjectArray*)},
+		{"visitJumpInsn", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(CodeSizeEvaluator, visitJumpInsn, void, int32_t, $Label*)},
+		{"visitLdcInsn", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CodeSizeEvaluator, visitLdcInsn, void, Object$*)},
+		{"visitLookupSwitchInsn", "(Ljdk/internal/org/objectweb/asm/Label;[I[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(CodeSizeEvaluator, visitLookupSwitchInsn, void, $Label*, $ints*, $LabelArray*)},
+		{"visitMethodInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(CodeSizeEvaluator, visitMethodInsn, void, int32_t, $String*, $String*, $String*, bool)},
+		{"visitMultiANewArrayInsn", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(CodeSizeEvaluator, visitMultiANewArrayInsn, void, $String*, int32_t)},
+		{"visitTableSwitchInsn", "(IILjdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(CodeSizeEvaluator, visitTableSwitchInsn, void, int32_t, int32_t, $Label*, $LabelArray*)},
+		{"visitTypeInsn", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CodeSizeEvaluator, visitTypeInsn, void, int32_t, $String*)},
+		{"visitVarInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(CodeSizeEvaluator, visitVarInsn, void, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.commons.CodeSizeEvaluator",
+		"jdk.internal.org.objectweb.asm.MethodVisitor",
+		"jdk.internal.org.objectweb.asm.Opcodes",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CodeSizeEvaluator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CodeSizeEvaluator));
+	});
 	return class$;
 }
 

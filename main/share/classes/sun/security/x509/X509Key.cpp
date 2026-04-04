@@ -1,5 +1,4 @@
 #include <sun/security/x509/X509Key.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -50,12 +49,10 @@ using $Provider = ::java::security::Provider;
 using $PublicKey = ::java::security::PublicKey;
 using $Security = ::java::security::Security;
 using $InvalidKeySpecException = ::java::security::spec::InvalidKeySpecException;
-using $KeySpec = ::java::security::spec::KeySpec;
 using $X509EncodedKeySpec = ::java::security::spec::X509EncodedKeySpec;
 using $Arrays = ::java::util::Arrays;
 using $Properties = ::java::util::Properties;
 using $BitArray = ::sun::security::util::BitArray;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $HexDumpEncoder = ::sun::security::util::HexDumpEncoder;
@@ -64,65 +61,6 @@ using $AlgorithmId = ::sun::security::x509::AlgorithmId;
 namespace sun {
 	namespace security {
 		namespace x509 {
-
-$CompoundAttribute _X509Key_FieldAnnotations_key[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _X509Key_FieldAnnotations_unusedBits[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _X509Key_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X509Key, serialVersionUID)},
-	{"algid", "Lsun/security/x509/AlgorithmId;", nullptr, $PROTECTED, $field(X509Key, algid)},
-	{"key", "[B", nullptr, $PROTECTED | $DEPRECATED, $field(X509Key, key), _X509Key_FieldAnnotations_key},
-	{"unusedBits", "I", nullptr, $PRIVATE | $DEPRECATED, $field(X509Key, unusedBits), _X509Key_FieldAnnotations_unusedBits},
-	{"bitStringKey", "Lsun/security/util/BitArray;", nullptr, $PRIVATE | $TRANSIENT, $field(X509Key, bitStringKey)},
-	{"encodedKey", "[B", nullptr, $PROTECTED, $field(X509Key, encodedKey)},
-	{}
-};
-
-$MethodInfo _X509Key_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(X509Key, init$, void)},
-	{"<init>", "(Lsun/security/x509/AlgorithmId;Lsun/security/util/BitArray;)V", nullptr, $PRIVATE, $method(X509Key, init$, void, $AlgorithmId*, $BitArray*), "java.security.InvalidKeyException"},
-	{"buildX509Key", "(Lsun/security/x509/AlgorithmId;Lsun/security/util/BitArray;)Ljava/security/PublicKey;", nullptr, $STATIC, $staticMethod(X509Key, buildX509Key, $PublicKey*, $AlgorithmId*, $BitArray*), "java.io.IOException,java.security.InvalidKeyException"},
-	{"decode", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(X509Key, decode, void, $InputStream*), "java.security.InvalidKeyException"},
-	{"decode", "([B)V", nullptr, $PUBLIC, $virtualMethod(X509Key, decode, void, $bytes*), "java.security.InvalidKeyException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC | $FINAL, $method(X509Key, encode, void, $DerOutputStream*), "java.io.IOException"},
-	{"encode", "()[B", nullptr, $PUBLIC, $virtualMethod(X509Key, encode, $bytes*), "java.security.InvalidKeyException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;Lsun/security/x509/AlgorithmId;Lsun/security/util/BitArray;)V", nullptr, $STATIC, $staticMethod(X509Key, encode, void, $DerOutputStream*, $AlgorithmId*, $BitArray*), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(X509Key, equals, bool, Object$*)},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509Key, getAlgorithm, $String*)},
-	{"getAlgorithmId", "()Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC, $virtualMethod(X509Key, getAlgorithmId, $AlgorithmId*)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(X509Key, getEncoded, $bytes*)},
-	{"getEncodedInternal", "()[B", nullptr, $PUBLIC, $virtualMethod(X509Key, getEncodedInternal, $bytes*), "java.security.InvalidKeyException"},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509Key, getFormat, $String*)},
-	{"getKey", "()Lsun/security/util/BitArray;", nullptr, $PROTECTED, $virtualMethod(X509Key, getKey, $BitArray*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(X509Key, hashCode, int32_t)},
-	{"parse", "(Lsun/security/util/DerValue;)Ljava/security/PublicKey;", nullptr, $PUBLIC | $STATIC, $staticMethod(X509Key, parse, $PublicKey*, $DerValue*), "java.io.IOException"},
-	{"parseKeyBits", "()V", nullptr, $PROTECTED, $virtualMethod(X509Key, parseKeyBits, void), "java.io.IOException,java.security.InvalidKeyException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(X509Key, readObject, void, $ObjectInputStream*), "java.io.IOException"},
-	{"setKey", "(Lsun/security/util/BitArray;)V", nullptr, $PROTECTED, $virtualMethod(X509Key, setKey, void, $BitArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509Key, toString, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(X509Key, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _X509Key_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.X509Key",
-	"java.lang.Object",
-	"java.security.PublicKey",
-	_X509Key_FieldInfo_,
-	_X509Key_MethodInfo_
-};
-
-$Object* allocate$X509Key($Class* clazz) {
-	return $of($alloc(X509Key));
-}
 
 void X509Key::init$() {
 	$set(this, key, nullptr);
@@ -153,19 +91,19 @@ $BitArray* X509Key::getKey() {
 
 $PublicKey* X509Key::parse($DerValue* in) {
 	$init(X509Key);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AlgorithmId, algorithm, nullptr);
 	$var($PublicKey, subjectKey, nullptr);
 	if ($nc(in)->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "corrupt subject key"_s);
 	}
-	$assign(algorithm, $AlgorithmId::parse($($nc($nc(in)->data$)->getDerValue())));
+	$assign(algorithm, $AlgorithmId::parse($($nc(in->data$)->getDerValue())));
 	try {
-		$assign(subjectKey, buildX509Key(algorithm, $($nc($nc(in)->data$)->getUnalignedBitString())));
+		$assign(subjectKey, buildX509Key(algorithm, $(in->data$->getUnalignedBitString())));
 	} catch ($InvalidKeyException& e) {
 		$throwNew($IOException, $$str({"subject key, "_s, $(e->getMessage())}), e);
 	}
-	if ($nc($nc(in)->data$)->available() != 0) {
+	if (in->data$->available() != 0) {
 		$throwNew($IOException, "excess subject key"_s);
 	}
 	return subjectKey;
@@ -177,7 +115,7 @@ void X509Key::parseKeyBits() {
 
 $PublicKey* X509Key::buildX509Key($AlgorithmId* algid, $BitArray* key) {
 	$init(X509Key);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($DerOutputStream, x509EncodedKeyStream, $new($DerOutputStream));
 	encode(x509EncodedKeyStream, algid, key);
@@ -211,11 +149,11 @@ $PublicKey* X509Key::buildX509Key($AlgorithmId* algid, $BitArray* key) {
 				keyClass = cl->loadClass(classname);
 			}
 		}
-		$var($Object, inst, (keyClass != nullptr) ? $nc(keyClass)->newInstance() : ($Object*)nullptr);
+		$var($Object, inst, (keyClass != nullptr) ? keyClass->newInstance() : ($Object*)nullptr);
 		$var(X509Key, result, nullptr);
 		if ($instanceOf(X509Key, inst)) {
 			$assign(result, $cast(X509Key, inst));
-			$set($nc(result), algid, algid);
+			$set(result, algid, algid);
 			result->setKey(key);
 			result->parseKeyBits();
 			return result;
@@ -243,14 +181,14 @@ void X509Key::encode($DerOutputStream* out) {
 
 $bytes* X509Key::getEncoded() {
 	try {
-		return $cast($bytes, $nc($(getEncodedInternal()))->clone());
+		return $cast($bytes, $$nc(getEncodedInternal())->clone());
 	} catch ($InvalidKeyException& e) {
 	}
 	return nullptr;
 }
 
 $bytes* X509Key::getEncodedInternal() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, encoded, this->encodedKey);
 	if (encoded == nullptr) {
 		try {
@@ -270,18 +208,22 @@ $String* X509Key::getFormat() {
 }
 
 $bytes* X509Key::encode() {
-	return $cast($bytes, $nc($(getEncodedInternal()))->clone());
+	return $cast($bytes, $$nc(getEncodedInternal())->clone());
 }
 
 $String* X509Key::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HexDumpEncoder, encoder, $new($HexDumpEncoder));
-	$var($String, var$0, $$str({"algorithm = "_s, $($nc(this->algid)->toString()), ", unparsed keybits = \n"_s}));
-	return $concat(var$0, $(encoder->encodeBuffer(this->key)));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("algorithm = "_s);
+	var$0->append($($nc(this->algid)->toString()));
+	var$0->append(", unparsed keybits = \n"_s);
+	var$0->append($(encoder->encodeBuffer(this->key)));
+	return $str(var$0);
 }
 
 void X509Key::decode($InputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerValue, val, nullptr);
 	try {
 		$assign(val, $new($DerValue, in));
@@ -289,9 +231,9 @@ void X509Key::decode($InputStream* in) {
 			$throwNew($InvalidKeyException, "invalid key format"_s);
 		}
 		$set(this, algid, $AlgorithmId::parse($($nc(val->data$)->getDerValue())));
-		setKey($($nc(val->data$)->getUnalignedBitString()));
+		setKey($(val->data$->getUnalignedBitString()));
 		parseKeyBits();
-		if ($nc(val->data$)->available() != 0) {
+		if (val->data$->available() != 0) {
 			$throwNew($InvalidKeyException, "excess key data"_s);
 		}
 	} catch ($IOException& e) {
@@ -300,7 +242,7 @@ void X509Key::decode($InputStream* in) {
 }
 
 void X509Key::decode($bytes* encodedKey) {
-	decode(static_cast<$InputStream*>($$new($ByteArrayInputStream, encodedKey)));
+	decode($$new($ByteArrayInputStream, encodedKey));
 }
 
 void X509Key::writeObject($ObjectOutputStream* stream) {
@@ -308,9 +250,9 @@ void X509Key::writeObject($ObjectOutputStream* stream) {
 }
 
 void X509Key::readObject($ObjectInputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		decode(static_cast<$InputStream*>(stream));
+		decode(stream);
 	} catch ($InvalidKeyException& e) {
 		e->printStackTrace();
 		$throwNew($IOException, $$str({"deserialized key is invalid: "_s, $(e->getMessage())}));
@@ -318,7 +260,7 @@ void X509Key::readObject($ObjectInputStream* stream) {
 }
 
 bool X509Key::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -329,9 +271,9 @@ bool X509Key::equals(Object$* obj) {
 		$var($bytes, thisEncoded, this->getEncodedInternal());
 		$var($bytes, otherEncoded, nullptr);
 		if ($instanceOf(X509Key, obj)) {
-			$assign(otherEncoded, $nc(($cast(X509Key, obj)))->getEncodedInternal());
+			$assign(otherEncoded, $cast(X509Key, obj)->getEncodedInternal());
 		} else {
-			$assign(otherEncoded, $nc(($cast($Key, obj)))->getEncoded());
+			$assign(otherEncoded, $nc($cast($Key, obj))->getEncoded());
 		}
 		return $Arrays::equals(thisEncoded, otherEncoded);
 	} catch ($InvalidKeyException& e) {
@@ -345,7 +287,7 @@ int32_t X509Key::hashCode() {
 		$var($bytes, b1, getEncodedInternal());
 		int32_t r = $nc(b1)->length;
 		for (int32_t i = 0; i < b1->length; ++i) {
-			r += ((int32_t)(b1->get(i) & (uint32_t)255)) * 37;
+			r += (b1->get(i) & 0xff) * 0x25;
 		}
 		return r;
 	} catch ($InvalidKeyException& e) {
@@ -366,7 +308,59 @@ X509Key::X509Key() {
 }
 
 $Class* X509Key::load$($String* name, bool initialize) {
-	$loadClass(X509Key, name, initialize, &_X509Key_ClassInfo_, allocate$X509Key);
+	$CompoundAttribute keyfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute unusedBitsfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X509Key, serialVersionUID)},
+		{"algid", "Lsun/security/x509/AlgorithmId;", nullptr, $PROTECTED, $field(X509Key, algid)},
+		{"key", "[B", nullptr, $PROTECTED | $DEPRECATED, $field(X509Key, key), keyfieldAnnotations$$},
+		{"unusedBits", "I", nullptr, $PRIVATE | $DEPRECATED, $field(X509Key, unusedBits), unusedBitsfieldAnnotations$$},
+		{"bitStringKey", "Lsun/security/util/BitArray;", nullptr, $PRIVATE | $TRANSIENT, $field(X509Key, bitStringKey)},
+		{"encodedKey", "[B", nullptr, $PROTECTED, $field(X509Key, encodedKey)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(X509Key, init$, void)},
+		{"<init>", "(Lsun/security/x509/AlgorithmId;Lsun/security/util/BitArray;)V", nullptr, $PRIVATE, $method(X509Key, init$, void, $AlgorithmId*, $BitArray*), "java.security.InvalidKeyException"},
+		{"buildX509Key", "(Lsun/security/x509/AlgorithmId;Lsun/security/util/BitArray;)Ljava/security/PublicKey;", nullptr, $STATIC, $staticMethod(X509Key, buildX509Key, $PublicKey*, $AlgorithmId*, $BitArray*), "java.io.IOException,java.security.InvalidKeyException"},
+		{"decode", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $virtualMethod(X509Key, decode, void, $InputStream*), "java.security.InvalidKeyException"},
+		{"decode", "([B)V", nullptr, $PUBLIC, $virtualMethod(X509Key, decode, void, $bytes*), "java.security.InvalidKeyException"},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC | $FINAL, $method(X509Key, encode, void, $DerOutputStream*), "java.io.IOException"},
+		{"encode", "()[B", nullptr, $PUBLIC, $virtualMethod(X509Key, encode, $bytes*), "java.security.InvalidKeyException"},
+		{"encode", "(Lsun/security/util/DerOutputStream;Lsun/security/x509/AlgorithmId;Lsun/security/util/BitArray;)V", nullptr, $STATIC, $staticMethod(X509Key, encode, void, $DerOutputStream*, $AlgorithmId*, $BitArray*), "java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(X509Key, equals, bool, Object$*)},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509Key, getAlgorithm, $String*)},
+		{"getAlgorithmId", "()Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC, $virtualMethod(X509Key, getAlgorithmId, $AlgorithmId*)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(X509Key, getEncoded, $bytes*)},
+		{"getEncodedInternal", "()[B", nullptr, $PUBLIC, $virtualMethod(X509Key, getEncodedInternal, $bytes*), "java.security.InvalidKeyException"},
+		{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509Key, getFormat, $String*)},
+		{"getKey", "()Lsun/security/util/BitArray;", nullptr, $PROTECTED, $virtualMethod(X509Key, getKey, $BitArray*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(X509Key, hashCode, int32_t)},
+		{"parse", "(Lsun/security/util/DerValue;)Ljava/security/PublicKey;", nullptr, $PUBLIC | $STATIC, $staticMethod(X509Key, parse, $PublicKey*, $DerValue*), "java.io.IOException"},
+		{"parseKeyBits", "()V", nullptr, $PROTECTED, $virtualMethod(X509Key, parseKeyBits, void), "java.io.IOException,java.security.InvalidKeyException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(X509Key, readObject, void, $ObjectInputStream*), "java.io.IOException"},
+		{"setKey", "(Lsun/security/util/BitArray;)V", nullptr, $PROTECTED, $virtualMethod(X509Key, setKey, void, $BitArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X509Key, toString, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(X509Key, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.X509Key",
+		"java.lang.Object",
+		"java.security.PublicKey",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(X509Key, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(X509Key);
+	});
 	return class$;
 }
 

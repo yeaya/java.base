@@ -1,5 +1,4 @@
 #include <IndirectlyPresentContainer.h>
-
 #include <IndirectlyPresent.h>
 #include <jcpp.h>
 
@@ -9,40 +8,34 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
-$NamedAttribute IndirectlyPresentContainer_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _IndirectlyPresentContainer_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", IndirectlyPresentContainer_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _IndirectlyPresentContainer_MethodInfo_[] = {
-	{"value", "()[LIndirectlyPresent;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IndirectlyPresentContainer, value, $IndirectlyPresentArray*)},
-	{}
-};
-
-$ClassInfo _IndirectlyPresentContainer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"IndirectlyPresentContainer",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_IndirectlyPresentContainer_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_IndirectlyPresentContainer_Annotations_
-};
-
-$Object* allocate$IndirectlyPresentContainer($Class* clazz) {
-	return $of($alloc(IndirectlyPresentContainer));
-}
-
 $Class* IndirectlyPresentContainer::load$($String* name, bool initialize) {
-	$loadClass(IndirectlyPresentContainer, name, initialize, &_IndirectlyPresentContainer_ClassInfo_, allocate$IndirectlyPresentContainer);
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()[LIndirectlyPresent;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IndirectlyPresentContainer, value, $IndirectlyPresentArray*)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"IndirectlyPresentContainer",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(IndirectlyPresentContainer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IndirectlyPresentContainer);
+	});
 	return class$;
 }
 

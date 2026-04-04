@@ -1,5 +1,4 @@
 #include <jdk/internal/logger/BootstrapLogger$BootstrapExecutors.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Runnable.h>
@@ -19,7 +18,6 @@
 #include <java/util/concurrent/ExecutorService.h>
 #include <java/util/concurrent/Future.h>
 #include <java/util/concurrent/LinkedBlockingQueue.h>
-#include <java/util/concurrent/ThreadFactory.h>
 #include <java/util/concurrent/ThreadPoolExecutor.h>
 #include <java/util/concurrent/TimeUnit.h>
 #include <jdk/internal/logger/BootstrapLogger$BootstrapExecutors$1.h>
@@ -33,7 +31,6 @@
 using $PermissionArray = $Array<::java::security::Permission>;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
@@ -45,14 +42,11 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $BlockingQueue = ::java::util::concurrent::BlockingQueue;
 using $ExecutionException = ::java::util::concurrent::ExecutionException;
 using $ExecutorService = ::java::util::concurrent::ExecutorService;
-using $Future = ::java::util::concurrent::Future;
 using $LinkedBlockingQueue = ::java::util::concurrent::LinkedBlockingQueue;
-using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 using $ThreadPoolExecutor = ::java::util::concurrent::ThreadPoolExecutor;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 using $BootstrapLogger$BootstrapExecutors$1 = ::jdk::internal::logger::BootstrapLogger$BootstrapExecutors$1;
@@ -70,79 +64,27 @@ public:
 	virtual void run() override {
 		BootstrapLogger$BootstrapExecutors::lambda$awaitPendingTasks$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<BootstrapLogger$BootstrapExecutors$$Lambda$lambda$awaitPendingTasks$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo BootstrapLogger$BootstrapExecutors$$Lambda$lambda$awaitPendingTasks$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BootstrapLogger$BootstrapExecutors$$Lambda$lambda$awaitPendingTasks$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger$BootstrapExecutors$$Lambda$lambda$awaitPendingTasks$0, run, void)},
-	{}
-};
-$ClassInfo BootstrapLogger$BootstrapExecutors$$Lambda$lambda$awaitPendingTasks$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.logger.BootstrapLogger$BootstrapExecutors$$Lambda$lambda$awaitPendingTasks$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* BootstrapLogger$BootstrapExecutors$$Lambda$lambda$awaitPendingTasks$0::load$($String* name, bool initialize) {
-	$loadClass(BootstrapLogger$BootstrapExecutors$$Lambda$lambda$awaitPendingTasks$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BootstrapLogger$BootstrapExecutors$$Lambda$lambda$awaitPendingTasks$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger$BootstrapExecutors$$Lambda$lambda$awaitPendingTasks$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.logger.BootstrapLogger$BootstrapExecutors$$Lambda$lambda$awaitPendingTasks$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BootstrapLogger$BootstrapExecutors$$Lambda$lambda$awaitPendingTasks$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BootstrapLogger$BootstrapExecutors$$Lambda$lambda$awaitPendingTasks$0);
+	});
 	return class$;
 }
 $Class* BootstrapLogger$BootstrapExecutors$$Lambda$lambda$awaitPendingTasks$0::class$ = nullptr;
-
-$FieldInfo _BootstrapLogger$BootstrapExecutors_FieldInfo_[] = {
-	{"KEEP_EXECUTOR_ALIVE_SECONDS", "J", nullptr, $STATIC | $FINAL, $constField(BootstrapLogger$BootstrapExecutors, KEEP_EXECUTOR_ALIVE_SECONDS)},
-	{"executorRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/util/concurrent/ExecutorService;>;", $PRIVATE | $STATIC | $VOLATILE, $staticField(BootstrapLogger$BootstrapExecutors, executorRef)},
-	{"head", "Ljdk/internal/logger/BootstrapLogger$LogEvent;", nullptr, $STATIC, $staticField(BootstrapLogger$BootstrapExecutors, head)},
-	{"tail", "Ljdk/internal/logger/BootstrapLogger$LogEvent;", nullptr, $STATIC, $staticField(BootstrapLogger$BootstrapExecutors, tail)},
-	{}
-};
-
-$MethodInfo _BootstrapLogger$BootstrapExecutors_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(BootstrapLogger$BootstrapExecutors, init$, void)},
-	{"awaitPendingTasks", "()V", nullptr, $STATIC, $staticMethod(BootstrapLogger$BootstrapExecutors, awaitPendingTasks, void)},
-	{"enqueue", "(Ljdk/internal/logger/BootstrapLogger$LogEvent;)V", nullptr, $STATIC, $staticMethod(BootstrapLogger$BootstrapExecutors, enqueue, void, $BootstrapLogger$LogEvent*)},
-	{"flush", "()V", nullptr, $STATIC, $staticMethod(BootstrapLogger$BootstrapExecutors, flush, void)},
-	{"getExecutor", "()Ljava/util/concurrent/ExecutorService;", nullptr, $PRIVATE | $STATIC, $staticMethod(BootstrapLogger$BootstrapExecutors, getExecutor, $ExecutorService*)},
-	{"isAlive", "()Z", nullptr, $STATIC, $staticMethod(BootstrapLogger$BootstrapExecutors, isAlive, bool)},
-	{"join", "(Ljava/lang/Runnable;)V", nullptr, $STATIC, $staticMethod(BootstrapLogger$BootstrapExecutors, join, void, $Runnable*)},
-	{"lambda$awaitPendingTasks$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BootstrapLogger$BootstrapExecutors, lambda$awaitPendingTasks$0, void)},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger$BootstrapExecutors, newThread, $Thread*, $Runnable*)},
-	{"submit", "(Ljava/lang/Runnable;)V", nullptr, $STATIC, $staticMethod(BootstrapLogger$BootstrapExecutors, submit, void, $Runnable*)},
-	{}
-};
-
-$InnerClassInfo _BootstrapLogger$BootstrapExecutors_InnerClassesInfo_[] = {
-	{"jdk.internal.logger.BootstrapLogger$BootstrapExecutors", "jdk.internal.logger.BootstrapLogger", "BootstrapExecutors", $PRIVATE | $STATIC},
-	{"jdk.internal.logger.BootstrapLogger$BootstrapExecutors$BootstrapMessageLoggerTask", "jdk.internal.logger.BootstrapLogger$BootstrapExecutors", "BootstrapMessageLoggerTask", $PRIVATE | $STATIC},
-	{"jdk.internal.logger.BootstrapLogger$BootstrapExecutors$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BootstrapLogger$BootstrapExecutors_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.logger.BootstrapLogger$BootstrapExecutors",
-	"java.lang.Object",
-	"java.util.concurrent.ThreadFactory",
-	_BootstrapLogger$BootstrapExecutors_FieldInfo_,
-	_BootstrapLogger$BootstrapExecutors_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BootstrapLogger$BootstrapExecutors_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.logger.BootstrapLogger"
-};
-
-$Object* allocate$BootstrapLogger$BootstrapExecutors($Class* clazz) {
-	return $of($alloc(BootstrapLogger$BootstrapExecutors));
-}
 
 $volatile($WeakReference*) BootstrapLogger$BootstrapExecutors::executorRef = nullptr;
 $BootstrapLogger$LogEvent* BootstrapLogger$BootstrapExecutors::head = nullptr;
@@ -153,21 +95,20 @@ void BootstrapLogger$BootstrapExecutors::init$() {
 
 $ExecutorService* BootstrapLogger$BootstrapExecutors::getExecutor() {
 	$init(BootstrapLogger$BootstrapExecutors);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WeakReference, ref, BootstrapLogger$BootstrapExecutors::executorRef);
-	$var($ExecutorService, executor, ref == nullptr ? ($ExecutorService*)nullptr : $cast($ExecutorService, $nc(ref)->get()));
+	$var($ExecutorService, executor, ref == nullptr ? ($ExecutorService*)nullptr : $cast($ExecutorService, ref->get()));
 	if (executor != nullptr) {
 		return executor;
 	}
 	$synchronized(BootstrapLogger$BootstrapExecutors::class$) {
 		$assign(ref, BootstrapLogger$BootstrapExecutors::executorRef);
-		$assign(executor, ref == nullptr ? ($ExecutorService*)nullptr : $cast($ExecutorService, $nc(ref)->get()));
+		$assign(executor, ref == nullptr ? ($ExecutorService*)nullptr : $cast($ExecutorService, ref->get()));
 		if (executor == nullptr) {
-			int64_t var$0 = BootstrapLogger$BootstrapExecutors::KEEP_EXECUTOR_ALIVE_SECONDS;
 			$init($TimeUnit);
-			$var($TimeUnit, var$1, $TimeUnit::SECONDS);
-			$var($BlockingQueue, var$2, static_cast<$BlockingQueue*>($new($LinkedBlockingQueue)));
-			$assign(executor, $new($ThreadPoolExecutor, 0, 1, var$0, var$1, var$2, static_cast<$ThreadFactory*>($$new(BootstrapLogger$BootstrapExecutors))));
+			$var($TimeUnit, var$0, $TimeUnit::SECONDS);
+			$var($BlockingQueue, var$1, $new($LinkedBlockingQueue));
+			$assign(executor, $new($ThreadPoolExecutor, 0, 1, BootstrapLogger$BootstrapExecutors::KEEP_EXECUTOR_ALIVE_SECONDS, var$0, var$1, $$new(BootstrapLogger$BootstrapExecutors)));
 		}
 		$assignStatic(BootstrapLogger$BootstrapExecutors::executorRef, $new($WeakReference, executor));
 		return $cast($ExecutorService, $nc(BootstrapLogger$BootstrapExecutors::executorRef)->get());
@@ -175,45 +116,45 @@ $ExecutorService* BootstrapLogger$BootstrapExecutors::getExecutor() {
 }
 
 $Thread* BootstrapLogger$BootstrapExecutors::newThread($Runnable* r) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ExecutorService, owner, getExecutor());
-	$var($PrivilegedAction, var$0, static_cast<$PrivilegedAction*>($new($BootstrapLogger$BootstrapExecutors$1, this, owner, r)));
-	$var($Thread, thread, $cast($Thread, $AccessController::doPrivileged(var$0, ($AccessControlContext*)nullptr, $$new($PermissionArray, {static_cast<$Permission*>($$new($RuntimePermission, "enableContextClassLoaderOverride"_s))}))));
+	$var($PrivilegedAction, var$0, $new($BootstrapLogger$BootstrapExecutors$1, this, owner, r));
+	$var($Thread, thread, $cast($Thread, $AccessController::doPrivileged(var$0, nullptr, $$new($PermissionArray, {$$new($RuntimePermission, "enableContextClassLoaderOverride"_s)}))));
 	$nc(thread)->setDaemon(true);
 	return thread;
 }
 
 void BootstrapLogger$BootstrapExecutors::submit($Runnable* r) {
 	$init(BootstrapLogger$BootstrapExecutors);
-	$nc($(getExecutor()))->execute(r);
+	$$nc(getExecutor())->execute(r);
 }
 
 void BootstrapLogger$BootstrapExecutors::join($Runnable* r) {
 	$init(BootstrapLogger$BootstrapExecutors);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$nc($($nc($(getExecutor()))->submit(r)))->get();
+		$$nc($$nc(getExecutor())->submit(r))->get();
 	} catch ($InterruptedException& ex) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(ex));
+		$throwNew($RuntimeException, ex);
 	} catch ($ExecutionException& ex) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(ex));
+		$throwNew($RuntimeException, ex);
 	}
 }
 
 void BootstrapLogger$BootstrapExecutors::awaitPendingTasks() {
 	$init(BootstrapLogger$BootstrapExecutors);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WeakReference, ref, BootstrapLogger$BootstrapExecutors::executorRef);
-	$var($ExecutorService, executor, ref == nullptr ? ($ExecutorService*)nullptr : $cast($ExecutorService, $nc(ref)->get()));
+	$var($ExecutorService, executor, ref == nullptr ? ($ExecutorService*)nullptr : $cast($ExecutorService, ref->get()));
 	if (ref == nullptr) {
 		$synchronized(BootstrapLogger$BootstrapExecutors::class$) {
 			$assign(ref, BootstrapLogger$BootstrapExecutors::executorRef);
-			$assign(executor, ref == nullptr ? ($ExecutorService*)nullptr : $cast($ExecutorService, $nc(ref)->get()));
+			$assign(executor, ref == nullptr ? ($ExecutorService*)nullptr : $cast($ExecutorService, ref->get()));
 		}
 	}
 	if (executor != nullptr) {
-		join(static_cast<$Runnable*>($$new(BootstrapLogger$BootstrapExecutors$$Lambda$lambda$awaitPendingTasks$0)));
+		join($$new(BootstrapLogger$BootstrapExecutors$$Lambda$lambda$awaitPendingTasks$0));
 	}
 }
 
@@ -235,14 +176,14 @@ void BootstrapLogger$BootstrapExecutors::enqueue($BootstrapLogger$LogEvent* even
 		return;
 	}
 	$synchronized(BootstrapLogger$BootstrapExecutors::class$) {
-		if ($nc(event)->next != nullptr) {
+		if (event->next != nullptr) {
 			return;
 		}
-		$set($nc(event), next, event);
+		$set(event, next, event);
 		if (BootstrapLogger$BootstrapExecutors::tail == nullptr) {
-			$assignStatic(BootstrapLogger$BootstrapExecutors::head, ($assignStatic(BootstrapLogger$BootstrapExecutors::tail, event)));
+			$assignStatic(BootstrapLogger$BootstrapExecutors::head, $assignStatic(BootstrapLogger$BootstrapExecutors::tail, event));
 		} else {
-			$set($nc(BootstrapLogger$BootstrapExecutors::tail), next, event);
+			$set(BootstrapLogger$BootstrapExecutors::tail, next, event);
 			$assignStatic(BootstrapLogger$BootstrapExecutors::tail, event);
 		}
 	}
@@ -250,11 +191,11 @@ void BootstrapLogger$BootstrapExecutors::enqueue($BootstrapLogger$LogEvent* even
 
 void BootstrapLogger$BootstrapExecutors::flush() {
 	$init(BootstrapLogger$BootstrapExecutors);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BootstrapLogger$LogEvent, event, nullptr);
 	$synchronized(BootstrapLogger$BootstrapExecutors::class$) {
 		$assign(event, BootstrapLogger$BootstrapExecutors::head);
-		$assignStatic(BootstrapLogger$BootstrapExecutors::head, ($assignStatic(BootstrapLogger$BootstrapExecutors::tail, nullptr)));
+		$assignStatic(BootstrapLogger$BootstrapExecutors::head, $assignStatic(BootstrapLogger$BootstrapExecutors::tail, nullptr));
 	}
 	while (event != nullptr) {
 		$BootstrapLogger$LogEvent::log(event);
@@ -275,11 +216,54 @@ BootstrapLogger$BootstrapExecutors::BootstrapLogger$BootstrapExecutors() {
 
 $Class* BootstrapLogger$BootstrapExecutors::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(BootstrapLogger$BootstrapExecutors$$Lambda$lambda$awaitPendingTasks$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.logger.BootstrapLogger$BootstrapExecutors$$Lambda$lambda$awaitPendingTasks$0")) {
 			return BootstrapLogger$BootstrapExecutors$$Lambda$lambda$awaitPendingTasks$0::load$(name, initialize);
 		}
 	}
-	$loadClass(BootstrapLogger$BootstrapExecutors, name, initialize, &_BootstrapLogger$BootstrapExecutors_ClassInfo_, allocate$BootstrapLogger$BootstrapExecutors);
+	$FieldInfo fieldInfos$$[] = {
+		{"KEEP_EXECUTOR_ALIVE_SECONDS", "J", nullptr, $STATIC | $FINAL, $constField(BootstrapLogger$BootstrapExecutors, KEEP_EXECUTOR_ALIVE_SECONDS)},
+		{"executorRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/util/concurrent/ExecutorService;>;", $PRIVATE | $STATIC | $VOLATILE, $staticField(BootstrapLogger$BootstrapExecutors, executorRef)},
+		{"head", "Ljdk/internal/logger/BootstrapLogger$LogEvent;", nullptr, $STATIC, $staticField(BootstrapLogger$BootstrapExecutors, head)},
+		{"tail", "Ljdk/internal/logger/BootstrapLogger$LogEvent;", nullptr, $STATIC, $staticField(BootstrapLogger$BootstrapExecutors, tail)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(BootstrapLogger$BootstrapExecutors, init$, void)},
+		{"awaitPendingTasks", "()V", nullptr, $STATIC, $staticMethod(BootstrapLogger$BootstrapExecutors, awaitPendingTasks, void)},
+		{"enqueue", "(Ljdk/internal/logger/BootstrapLogger$LogEvent;)V", nullptr, $STATIC, $staticMethod(BootstrapLogger$BootstrapExecutors, enqueue, void, $BootstrapLogger$LogEvent*)},
+		{"flush", "()V", nullptr, $STATIC, $staticMethod(BootstrapLogger$BootstrapExecutors, flush, void)},
+		{"getExecutor", "()Ljava/util/concurrent/ExecutorService;", nullptr, $PRIVATE | $STATIC, $staticMethod(BootstrapLogger$BootstrapExecutors, getExecutor, $ExecutorService*)},
+		{"isAlive", "()Z", nullptr, $STATIC, $staticMethod(BootstrapLogger$BootstrapExecutors, isAlive, bool)},
+		{"join", "(Ljava/lang/Runnable;)V", nullptr, $STATIC, $staticMethod(BootstrapLogger$BootstrapExecutors, join, void, $Runnable*)},
+		{"lambda$awaitPendingTasks$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BootstrapLogger$BootstrapExecutors, lambda$awaitPendingTasks$0, void)},
+		{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(BootstrapLogger$BootstrapExecutors, newThread, $Thread*, $Runnable*)},
+		{"submit", "(Ljava/lang/Runnable;)V", nullptr, $STATIC, $staticMethod(BootstrapLogger$BootstrapExecutors, submit, void, $Runnable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.logger.BootstrapLogger$BootstrapExecutors", "jdk.internal.logger.BootstrapLogger", "BootstrapExecutors", $PRIVATE | $STATIC},
+		{"jdk.internal.logger.BootstrapLogger$BootstrapExecutors$BootstrapMessageLoggerTask", "jdk.internal.logger.BootstrapLogger$BootstrapExecutors", "BootstrapMessageLoggerTask", $PRIVATE | $STATIC},
+		{"jdk.internal.logger.BootstrapLogger$BootstrapExecutors$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.logger.BootstrapLogger$BootstrapExecutors",
+		"java.lang.Object",
+		"java.util.concurrent.ThreadFactory",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.logger.BootstrapLogger"
+	};
+	$loadClass(BootstrapLogger$BootstrapExecutors, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BootstrapLogger$BootstrapExecutors);
+	});
 	return class$;
 }
 

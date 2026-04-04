@@ -40,6 +40,7 @@ class $export CDS : public ::java::lang::Object {
 	$class(CDS, $PRELOAD, ::java::lang::Object)
 public:
 	CDS();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool containsExcludedFlags($String* testStr);
 	static void defineArchivedModules(::java::lang::ClassLoader* platformLoader, ::java::lang::ClassLoader* systemLoader);

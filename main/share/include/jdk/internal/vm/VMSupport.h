@@ -19,6 +19,7 @@ class $import VMSupport : public ::java::lang::Object {
 	$class(VMSupport, 0, ::java::lang::Object)
 public:
 	VMSupport();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Properties* getAgentProperties();
 	static $String* getVMTemporaryDirectory();

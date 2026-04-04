@@ -1,5 +1,4 @@
 #include <java/util/stream/Nodes$InternalNodeSpliterator$OfPrimitive.h>
-
 #include <java/util/Comparator.h>
 #include <java/util/Deque.h>
 #include <java/util/Spliterator$OfPrimitive.h>
@@ -18,61 +17,12 @@ using $Deque = ::java::util::Deque;
 using $Spliterator = ::java::util::Spliterator;
 using $Spliterator$OfPrimitive = ::java::util::Spliterator$OfPrimitive;
 using $Consumer = ::java::util::function::Consumer;
-using $Node = ::java::util::stream::Node;
 using $Node$OfPrimitive = ::java::util::stream::Node$OfPrimitive;
 using $Nodes$InternalNodeSpliterator = ::java::util::stream::Nodes$InternalNodeSpliterator;
 
 namespace java {
 	namespace util {
 		namespace stream {
-
-$MethodInfo _Nodes$InternalNodeSpliterator$OfPrimitive_MethodInfo_[] = {
-	{"*characteristics", "()I", nullptr, $PUBLIC | $FINAL},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*estimateSize", "()J", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getComparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/stream/Node$OfPrimitive;)V", "(TN;)V", 0, $method(Nodes$InternalNodeSpliterator$OfPrimitive, init$, void, $Node$OfPrimitive*)},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PUBLIC, $virtualMethod(Nodes$InternalNodeSpliterator$OfPrimitive, forEachRemaining, void, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", "(TT_CONS;)Z", $PUBLIC, $virtualMethod(Nodes$InternalNodeSpliterator$OfPrimitive, tryAdvance, bool, Object$*)},
-	{"trySplit", "()Ljava/util/Spliterator$OfPrimitive;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$InternalNodeSpliterator$OfPrimitive, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _Nodes$InternalNodeSpliterator$OfPrimitive_InnerClassesInfo_[] = {
-	{"java.util.stream.Nodes$InternalNodeSpliterator", "java.util.stream.Nodes", "InternalNodeSpliterator", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.stream.Nodes$InternalNodeSpliterator$OfPrimitive", "java.util.stream.Nodes$InternalNodeSpliterator", "OfPrimitive", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.Spliterator$OfPrimitive", "java.util.Spliterator", "OfPrimitive", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.stream.Node$OfPrimitive", "java.util.stream.Node", "OfPrimitive", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Nodes$InternalNodeSpliterator$OfPrimitive_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.stream.Nodes$InternalNodeSpliterator$OfPrimitive",
-	"java.util.stream.Nodes$InternalNodeSpliterator",
-	"java.util.Spliterator$OfPrimitive",
-	nullptr,
-	_Nodes$InternalNodeSpliterator$OfPrimitive_MethodInfo_,
-	"<T:Ljava/lang/Object;T_CONS:Ljava/lang/Object;T_ARR:Ljava/lang/Object;T_SPLITR::Ljava/util/Spliterator$OfPrimitive<TT;TT_CONS;TT_SPLITR;>;N::Ljava/util/stream/Node$OfPrimitive<TT;TT_CONS;TT_ARR;TT_SPLITR;TN;>;>Ljava/util/stream/Nodes$InternalNodeSpliterator<TT;TT_SPLITR;TN;>;Ljava/util/Spliterator$OfPrimitive<TT;TT_CONS;TT_SPLITR;>;",
-	nullptr,
-	_Nodes$InternalNodeSpliterator$OfPrimitive_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Nodes"
-};
-
-$Object* allocate$Nodes$InternalNodeSpliterator$OfPrimitive($Class* clazz) {
-	return $of($alloc(Nodes$InternalNodeSpliterator$OfPrimitive));
-}
 
 int64_t Nodes$InternalNodeSpliterator$OfPrimitive::estimateSize() {
 	 return this->$Nodes$InternalNodeSpliterator::estimateSize();
@@ -126,13 +76,13 @@ bool Nodes$InternalNodeSpliterator$OfPrimitive::tryAdvance(Object$* consumer) {
 	if (!initTryAdvance()) {
 		return false;
 	}
-	bool hasNext = $nc(($cast($Spliterator$OfPrimitive, this->tryAdvanceSpliterator)))->tryAdvance(consumer);
+	bool hasNext = $nc($cast($Spliterator$OfPrimitive, this->tryAdvanceSpliterator))->tryAdvance(consumer);
 	if (!hasNext) {
 		if (this->lastNodeSpliterator == nullptr) {
 			$var($Node$OfPrimitive, leaf, $cast($Node$OfPrimitive, findNextLeafNode(this->tryAdvanceStack)));
 			if (leaf != nullptr) {
 				$set(this, tryAdvanceSpliterator, leaf->spliterator());
-				return $nc(($cast($Spliterator$OfPrimitive, this->tryAdvanceSpliterator)))->tryAdvance(consumer);
+				return $nc($cast($Spliterator$OfPrimitive, this->tryAdvanceSpliterator))->tryAdvance(consumer);
 			}
 		}
 		$set(this, curNode, nullptr);
@@ -141,7 +91,7 @@ bool Nodes$InternalNodeSpliterator$OfPrimitive::tryAdvance(Object$* consumer) {
 }
 
 void Nodes$InternalNodeSpliterator$OfPrimitive::forEachRemaining(Object$* consumer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->curNode == nullptr) {
 		return;
 	}
@@ -154,7 +104,7 @@ void Nodes$InternalNodeSpliterator$OfPrimitive::forEachRemaining(Object$* consum
 			}
 			$set(this, curNode, nullptr);
 		} else {
-			$nc(($cast($Spliterator$OfPrimitive, this->lastNodeSpliterator)))->forEachRemaining(consumer);
+			$cast($Spliterator$OfPrimitive, this->lastNodeSpliterator)->forEachRemaining(consumer);
 		}
 	} else {
 		while (tryAdvance(consumer)) {
@@ -170,7 +120,50 @@ Nodes$InternalNodeSpliterator$OfPrimitive::Nodes$InternalNodeSpliterator$OfPrimi
 }
 
 $Class* Nodes$InternalNodeSpliterator$OfPrimitive::load$($String* name, bool initialize) {
-	$loadClass(Nodes$InternalNodeSpliterator$OfPrimitive, name, initialize, &_Nodes$InternalNodeSpliterator$OfPrimitive_ClassInfo_, allocate$Nodes$InternalNodeSpliterator$OfPrimitive);
+	$MethodInfo methodInfos$$[] = {
+		{"*characteristics", "()I", nullptr, $PUBLIC | $FINAL},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*estimateSize", "()J", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEachRemaining", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getComparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getExactSizeIfKnown", "()J", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hasCharacteristics", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/stream/Node$OfPrimitive;)V", "(TN;)V", 0, $method(Nodes$InternalNodeSpliterator$OfPrimitive, init$, void, $Node$OfPrimitive*)},
+		{"forEachRemaining", "(Ljava/lang/Object;)V", "(TT_CONS;)V", $PUBLIC, $virtualMethod(Nodes$InternalNodeSpliterator$OfPrimitive, forEachRemaining, void, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*tryAdvance", "(Ljava/util/function/Consumer;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"tryAdvance", "(Ljava/lang/Object;)Z", "(TT_CONS;)Z", $PUBLIC, $virtualMethod(Nodes$InternalNodeSpliterator$OfPrimitive, tryAdvance, bool, Object$*)},
+		{"trySplit", "()Ljava/util/Spliterator$OfPrimitive;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$InternalNodeSpliterator$OfPrimitive, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Nodes$InternalNodeSpliterator", "java.util.stream.Nodes", "InternalNodeSpliterator", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.stream.Nodes$InternalNodeSpliterator$OfPrimitive", "java.util.stream.Nodes$InternalNodeSpliterator", "OfPrimitive", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.Spliterator$OfPrimitive", "java.util.Spliterator", "OfPrimitive", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.stream.Node$OfPrimitive", "java.util.stream.Node", "OfPrimitive", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.stream.Nodes$InternalNodeSpliterator$OfPrimitive",
+		"java.util.stream.Nodes$InternalNodeSpliterator",
+		"java.util.Spliterator$OfPrimitive",
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;T_CONS:Ljava/lang/Object;T_ARR:Ljava/lang/Object;T_SPLITR::Ljava/util/Spliterator$OfPrimitive<TT;TT_CONS;TT_SPLITR;>;N::Ljava/util/stream/Node$OfPrimitive<TT;TT_CONS;TT_ARR;TT_SPLITR;TN;>;>Ljava/util/stream/Nodes$InternalNodeSpliterator<TT;TT_SPLITR;TN;>;Ljava/util/Spliterator$OfPrimitive<TT;TT_CONS;TT_SPLITR;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Nodes"
+	};
+	$loadClass(Nodes$InternalNodeSpliterator$OfPrimitive, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Nodes$InternalNodeSpliterator$OfPrimitive));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/lang/LiveStackFrameInfo$PrimitiveSlot64.h>
-
 #include <java/lang/LiveStackFrame$PrimitiveSlot.h>
 #include <java/lang/LiveStackFrameInfo.h>
 #include <jcpp.h>
@@ -12,45 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _LiveStackFrameInfo$PrimitiveSlot64_FieldInfo_[] = {
-	{"value", "J", nullptr, $FINAL, $field(LiveStackFrameInfo$PrimitiveSlot64, value)},
-	{}
-};
-
-$MethodInfo _LiveStackFrameInfo$PrimitiveSlot64_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, 0, $method(LiveStackFrameInfo$PrimitiveSlot64, init$, void, int64_t)},
-	{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(LiveStackFrameInfo$PrimitiveSlot64, longValue, int64_t)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(LiveStackFrameInfo$PrimitiveSlot64, size, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LiveStackFrameInfo$PrimitiveSlot64, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _LiveStackFrameInfo$PrimitiveSlot64_InnerClassesInfo_[] = {
-	{"java.lang.LiveStackFrameInfo$PrimitiveSlot64", "java.lang.LiveStackFrameInfo", "PrimitiveSlot64", $PRIVATE | $STATIC},
-	{"java.lang.LiveStackFrame$PrimitiveSlot", "java.lang.LiveStackFrame", "PrimitiveSlot", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _LiveStackFrameInfo$PrimitiveSlot64_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.LiveStackFrameInfo$PrimitiveSlot64",
-	"java.lang.LiveStackFrame$PrimitiveSlot",
-	nullptr,
-	_LiveStackFrameInfo$PrimitiveSlot64_FieldInfo_,
-	_LiveStackFrameInfo$PrimitiveSlot64_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LiveStackFrameInfo$PrimitiveSlot64_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.LiveStackFrameInfo"
-};
-
-$Object* allocate$LiveStackFrameInfo$PrimitiveSlot64($Class* clazz) {
-	return $of($alloc(LiveStackFrameInfo$PrimitiveSlot64));
-}
 
 void LiveStackFrameInfo$PrimitiveSlot64::init$(int64_t value) {
 	$LiveStackFrame$PrimitiveSlot::init$();
@@ -73,7 +33,40 @@ LiveStackFrameInfo$PrimitiveSlot64::LiveStackFrameInfo$PrimitiveSlot64() {
 }
 
 $Class* LiveStackFrameInfo$PrimitiveSlot64::load$($String* name, bool initialize) {
-	$loadClass(LiveStackFrameInfo$PrimitiveSlot64, name, initialize, &_LiveStackFrameInfo$PrimitiveSlot64_ClassInfo_, allocate$LiveStackFrameInfo$PrimitiveSlot64);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "J", nullptr, $FINAL, $field(LiveStackFrameInfo$PrimitiveSlot64, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, 0, $method(LiveStackFrameInfo$PrimitiveSlot64, init$, void, int64_t)},
+		{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(LiveStackFrameInfo$PrimitiveSlot64, longValue, int64_t)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(LiveStackFrameInfo$PrimitiveSlot64, size, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LiveStackFrameInfo$PrimitiveSlot64, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.LiveStackFrameInfo$PrimitiveSlot64", "java.lang.LiveStackFrameInfo", "PrimitiveSlot64", $PRIVATE | $STATIC},
+		{"java.lang.LiveStackFrame$PrimitiveSlot", "java.lang.LiveStackFrame", "PrimitiveSlot", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.LiveStackFrameInfo$PrimitiveSlot64",
+		"java.lang.LiveStackFrame$PrimitiveSlot",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.LiveStackFrameInfo"
+	};
+	$loadClass(LiveStackFrameInfo$PrimitiveSlot64, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LiveStackFrameInfo$PrimitiveSlot64);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/TrustManagerFactoryImpl$SimpleFactory.h>
-
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/util/Collection.h>
 #include <javax/net/ssl/ManagerFactoryParameters.h>
@@ -26,38 +25,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _TrustManagerFactoryImpl$SimpleFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TrustManagerFactoryImpl$SimpleFactory, init$, void)},
-	{"getInstance", "(Ljava/util/Collection;)Ljavax/net/ssl/X509TrustManager;", "(Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;)Ljavax/net/ssl/X509TrustManager;", 0, $virtualMethod(TrustManagerFactoryImpl$SimpleFactory, getInstance, $X509TrustManager*, $Collection*)},
-	{"getInstance", "(Ljavax/net/ssl/ManagerFactoryParameters;)Ljavax/net/ssl/X509TrustManager;", nullptr, 0, $virtualMethod(TrustManagerFactoryImpl$SimpleFactory, getInstance, $X509TrustManager*, $ManagerFactoryParameters*), "java.security.InvalidAlgorithmParameterException"},
-	{}
-};
-
-$InnerClassInfo _TrustManagerFactoryImpl$SimpleFactory_InnerClassesInfo_[] = {
-	{"sun.security.ssl.TrustManagerFactoryImpl$SimpleFactory", "sun.security.ssl.TrustManagerFactoryImpl", "SimpleFactory", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _TrustManagerFactoryImpl$SimpleFactory_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.ssl.TrustManagerFactoryImpl$SimpleFactory",
-	"sun.security.ssl.TrustManagerFactoryImpl",
-	nullptr,
-	nullptr,
-	_TrustManagerFactoryImpl$SimpleFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TrustManagerFactoryImpl$SimpleFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.TrustManagerFactoryImpl"
-};
-
-$Object* allocate$TrustManagerFactoryImpl$SimpleFactory($Class* clazz) {
-	return $of($alloc(TrustManagerFactoryImpl$SimpleFactory));
-}
-
 void TrustManagerFactoryImpl$SimpleFactory::init$() {
 	$TrustManagerFactoryImpl::init$();
 }
@@ -76,7 +43,34 @@ TrustManagerFactoryImpl$SimpleFactory::TrustManagerFactoryImpl$SimpleFactory() {
 }
 
 $Class* TrustManagerFactoryImpl$SimpleFactory::load$($String* name, bool initialize) {
-	$loadClass(TrustManagerFactoryImpl$SimpleFactory, name, initialize, &_TrustManagerFactoryImpl$SimpleFactory_ClassInfo_, allocate$TrustManagerFactoryImpl$SimpleFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TrustManagerFactoryImpl$SimpleFactory, init$, void)},
+		{"getInstance", "(Ljava/util/Collection;)Ljavax/net/ssl/X509TrustManager;", "(Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;)Ljavax/net/ssl/X509TrustManager;", 0, $virtualMethod(TrustManagerFactoryImpl$SimpleFactory, getInstance, $X509TrustManager*, $Collection*)},
+		{"getInstance", "(Ljavax/net/ssl/ManagerFactoryParameters;)Ljavax/net/ssl/X509TrustManager;", nullptr, 0, $virtualMethod(TrustManagerFactoryImpl$SimpleFactory, getInstance, $X509TrustManager*, $ManagerFactoryParameters*), "java.security.InvalidAlgorithmParameterException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.TrustManagerFactoryImpl$SimpleFactory", "sun.security.ssl.TrustManagerFactoryImpl", "SimpleFactory", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.ssl.TrustManagerFactoryImpl$SimpleFactory",
+		"sun.security.ssl.TrustManagerFactoryImpl",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.TrustManagerFactoryImpl"
+	};
+	$loadClass(TrustManagerFactoryImpl$SimpleFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TrustManagerFactoryImpl$SimpleFactory);
+	});
 	return class$;
 }
 

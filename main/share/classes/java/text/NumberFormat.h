@@ -140,7 +140,7 @@ public:
 	int32_t minimumFractionDigits = 0;
 	static const int32_t currentSerialVersion = 1;
 	int32_t serialVersionOnStream = 0;
-	static const int64_t serialVersionUID = (int64_t)0xDFF6B3BF137D07E8;
+	static const int64_t serialVersionUID = (int64_t)0xdff6b3bf137d07e8;
 };
 
 	} // text

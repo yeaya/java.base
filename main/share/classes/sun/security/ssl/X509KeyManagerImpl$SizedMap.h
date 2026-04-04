@@ -21,7 +21,7 @@ public:
 	X509KeyManagerImpl$SizedMap();
 	void init$();
 	virtual bool removeEldestEntry(::java::util::Map$Entry* eldest) override;
-	static const int64_t serialVersionUID = (int64_t)0x8E0BE07CD7140AB2;
+	static const int64_t serialVersionUID = (int64_t)0x8e0be07cd7140ab2;
 };
 
 		} // ssl

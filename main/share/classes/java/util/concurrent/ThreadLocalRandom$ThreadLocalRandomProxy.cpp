@@ -1,5 +1,4 @@
 #include <java/util/concurrent/ThreadLocalRandom$ThreadLocalRandomProxy.h>
-
 #include <java/util/Random.h>
 #include <java/util/concurrent/ThreadLocalRandom.h>
 #include <jcpp.h>
@@ -17,43 +16,6 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _ThreadLocalRandom$ThreadLocalRandomProxy_FieldInfo_[] = {
-	{"PROXY", "Ljava/util/Random;", nullptr, $STATIC | $FINAL, $staticField(ThreadLocalRandom$ThreadLocalRandomProxy, PROXY)},
-	{}
-};
-
-$MethodInfo _ThreadLocalRandom$ThreadLocalRandomProxy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ThreadLocalRandom$ThreadLocalRandomProxy, init$, void)},
-	{"nextInt", "()I", nullptr, $PUBLIC, $virtualMethod(ThreadLocalRandom$ThreadLocalRandomProxy, nextInt, int32_t)},
-	{"nextLong", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadLocalRandom$ThreadLocalRandomProxy, nextLong, int64_t)},
-	{}
-};
-
-$InnerClassInfo _ThreadLocalRandom$ThreadLocalRandomProxy_InnerClassesInfo_[] = {
-	{"java.util.concurrent.ThreadLocalRandom$ThreadLocalRandomProxy", "java.util.concurrent.ThreadLocalRandom", "ThreadLocalRandomProxy", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ThreadLocalRandom$ThreadLocalRandomProxy_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.ThreadLocalRandom$ThreadLocalRandomProxy",
-	"java.util.Random",
-	nullptr,
-	_ThreadLocalRandom$ThreadLocalRandomProxy_FieldInfo_,
-	_ThreadLocalRandom$ThreadLocalRandomProxy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ThreadLocalRandom$ThreadLocalRandomProxy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.ThreadLocalRandom"
-};
-
-$Object* allocate$ThreadLocalRandom$ThreadLocalRandomProxy($Class* clazz) {
-	return $of($alloc(ThreadLocalRandom$ThreadLocalRandomProxy));
-}
-
 $Random* ThreadLocalRandom$ThreadLocalRandomProxy::PROXY = nullptr;
 
 void ThreadLocalRandom$ThreadLocalRandomProxy::init$() {
@@ -61,14 +23,14 @@ void ThreadLocalRandom$ThreadLocalRandomProxy::init$() {
 }
 
 int32_t ThreadLocalRandom$ThreadLocalRandomProxy::nextInt() {
-	return $nc($($ThreadLocalRandom::current()))->nextInt();
+	return $$nc($ThreadLocalRandom::current())->nextInt();
 }
 
 int64_t ThreadLocalRandom$ThreadLocalRandomProxy::nextLong() {
-	return $nc($($ThreadLocalRandom::current()))->nextLong();
+	return $$nc($ThreadLocalRandom::current())->nextLong();
 }
 
-void clinit$ThreadLocalRandom$ThreadLocalRandomProxy($Class* class$) {
+void ThreadLocalRandom$ThreadLocalRandomProxy::clinit$($Class* clazz) {
 	$assignStatic(ThreadLocalRandom$ThreadLocalRandomProxy::PROXY, $new(ThreadLocalRandom$ThreadLocalRandomProxy));
 }
 
@@ -76,7 +38,38 @@ ThreadLocalRandom$ThreadLocalRandomProxy::ThreadLocalRandom$ThreadLocalRandomPro
 }
 
 $Class* ThreadLocalRandom$ThreadLocalRandomProxy::load$($String* name, bool initialize) {
-	$loadClass(ThreadLocalRandom$ThreadLocalRandomProxy, name, initialize, &_ThreadLocalRandom$ThreadLocalRandomProxy_ClassInfo_, clinit$ThreadLocalRandom$ThreadLocalRandomProxy, allocate$ThreadLocalRandom$ThreadLocalRandomProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"PROXY", "Ljava/util/Random;", nullptr, $STATIC | $FINAL, $staticField(ThreadLocalRandom$ThreadLocalRandomProxy, PROXY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ThreadLocalRandom$ThreadLocalRandomProxy, init$, void)},
+		{"nextInt", "()I", nullptr, $PUBLIC, $virtualMethod(ThreadLocalRandom$ThreadLocalRandomProxy, nextInt, int32_t)},
+		{"nextLong", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadLocalRandom$ThreadLocalRandomProxy, nextLong, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.ThreadLocalRandom$ThreadLocalRandomProxy", "java.util.concurrent.ThreadLocalRandom", "ThreadLocalRandomProxy", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.ThreadLocalRandom$ThreadLocalRandomProxy",
+		"java.util.Random",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.ThreadLocalRandom"
+	};
+	$loadClass(ThreadLocalRandom$ThreadLocalRandomProxy, name, initialize, &classInfo$$, ThreadLocalRandom$ThreadLocalRandomProxy::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ThreadLocalRandom$ThreadLocalRandomProxy));
+	});
 	return class$;
 }
 

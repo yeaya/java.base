@@ -24,7 +24,10 @@ public:
 	static const int64_t serialVersionUID = 301; // 292L + 9L
 	StringConcatException(const StringConcatException& e);
 	virtual void throw$() override;
-	inline StringConcatException* operator ->() {
+	inline StringConcatException* operator ->() const {
+		return (StringConcatException*)throwing$;
+	}
+	inline operator StringConcatException*() const {
 		return (StringConcatException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/ftp/FtpURLConnection.h>
-
 #include <java/io/FileNotFoundException.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -17,7 +16,6 @@
 #include <java/net/UnknownHostException.h>
 #include <java/security/AccessController.h>
 #include <java/security/Permission.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <java/util/Properties.h>
@@ -73,7 +71,6 @@ using $URL = ::java::net::URL;
 using $UnknownHostException = ::java::net::UnknownHostException;
 using $AccessController = ::java::security::AccessController;
 using $Permission = ::java::security::Permission;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Properties = ::java::util::Properties;
@@ -101,82 +98,11 @@ namespace sun {
 			namespace protocol {
 				namespace ftp {
 
-$FieldInfo _FtpURLConnection_FieldInfo_[] = {
-	{"http", "Lsun/net/www/protocol/http/HttpURLConnection;", nullptr, 0, $field(FtpURLConnection, http)},
-	{"instProxy", "Ljava/net/Proxy;", nullptr, $PRIVATE, $field(FtpURLConnection, instProxy)},
-	{"is", "Ljava/io/InputStream;", nullptr, 0, $field(FtpURLConnection, is)},
-	{"os", "Ljava/io/OutputStream;", nullptr, 0, $field(FtpURLConnection, os)},
-	{"ftp", "Lsun/net/ftp/FtpClient;", nullptr, 0, $field(FtpURLConnection, ftp)},
-	{"permission", "Ljava/security/Permission;", nullptr, 0, $field(FtpURLConnection, permission)},
-	{"password", "Ljava/lang/String;", nullptr, 0, $field(FtpURLConnection, password)},
-	{"user", "Ljava/lang/String;", nullptr, 0, $field(FtpURLConnection, user)},
-	{"host", "Ljava/lang/String;", nullptr, 0, $field(FtpURLConnection, host)},
-	{"pathname", "Ljava/lang/String;", nullptr, 0, $field(FtpURLConnection, pathname)},
-	{"filename", "Ljava/lang/String;", nullptr, 0, $field(FtpURLConnection, filename)},
-	{"fullpath", "Ljava/lang/String;", nullptr, 0, $field(FtpURLConnection, fullpath)},
-	{"port", "I", nullptr, 0, $field(FtpURLConnection, port)},
-	{"NONE", "I", nullptr, $STATIC | $FINAL, $constField(FtpURLConnection, NONE)},
-	{"ASCII", "I", nullptr, $STATIC | $FINAL, $constField(FtpURLConnection, ASCII)},
-	{"BIN", "I", nullptr, $STATIC | $FINAL, $constField(FtpURLConnection, BIN)},
-	{"DIR", "I", nullptr, $STATIC | $FINAL, $constField(FtpURLConnection, DIR)},
-	{"type", "I", nullptr, 0, $field(FtpURLConnection, type)},
-	{"connectTimeout", "I", nullptr, $PRIVATE, $field(FtpURLConnection, connectTimeout)},
-	{"readTimeout", "I", nullptr, $PRIVATE, $field(FtpURLConnection, readTimeout)},
-	{}
-};
-
-$MethodInfo _FtpURLConnection_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $method(FtpURLConnection, init$, void, $URL*)},
-	{"<init>", "(Ljava/net/URL;Ljava/net/Proxy;)V", nullptr, 0, $method(FtpURLConnection, init$, void, $URL*, $Proxy*)},
-	{"cd", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(FtpURLConnection, cd, void, $String*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
-	{"checkURL", "(Ljava/net/URL;)Ljava/net/URL;", nullptr, $STATIC, $staticMethod(FtpURLConnection, checkURL, $URL*, $URL*), "java.lang.IllegalArgumentException"},
-	{"connect", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FtpURLConnection, connect, void), "java.io.IOException"},
-	{"decodePath", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(FtpURLConnection, decodePath, void, $String*)},
-	{"getConnectTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(FtpURLConnection, getConnectTimeout, int32_t)},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(FtpURLConnection, getInputStream, $InputStream*), "java.io.IOException"},
-	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(FtpURLConnection, getOutputStream, $OutputStream*), "java.io.IOException"},
-	{"getPermission", "()Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(FtpURLConnection, getPermission, $Permission*)},
-	{"getReadTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(FtpURLConnection, getReadTimeout, int32_t)},
-	{"getRequestProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FtpURLConnection, getRequestProperty, $String*, $String*)},
-	{"guessContentTypeFromFilename", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(FtpURLConnection, guessContentTypeFromFilename, $String*, $String*)},
-	{"setConnectTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(FtpURLConnection, setConnectTimeout, void, int32_t)},
-	{"setReadTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(FtpURLConnection, setReadTimeout, void, int32_t)},
-	{"setRequestProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FtpURLConnection, setRequestProperty, void, $String*, $String*)},
-	{"setTimeouts", "()V", nullptr, $PRIVATE, $method(FtpURLConnection, setTimeouts, void)},
-	{}
-};
-
-$InnerClassInfo _FtpURLConnection_InnerClassesInfo_[] = {
-	{"sun.net.www.protocol.ftp.FtpURLConnection$FtpOutputStream", "sun.net.www.protocol.ftp.FtpURLConnection", "FtpOutputStream", $PROTECTED | $STATIC},
-	{"sun.net.www.protocol.ftp.FtpURLConnection$FtpInputStream", "sun.net.www.protocol.ftp.FtpURLConnection", "FtpInputStream", $PROTECTED | $STATIC},
-	{"sun.net.www.protocol.ftp.FtpURLConnection$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FtpURLConnection_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.www.protocol.ftp.FtpURLConnection",
-	"sun.net.www.URLConnection",
-	nullptr,
-	_FtpURLConnection_FieldInfo_,
-	_FtpURLConnection_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FtpURLConnection_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.net.www.protocol.ftp.FtpURLConnection$FtpOutputStream,sun.net.www.protocol.ftp.FtpURLConnection$FtpInputStream,sun.net.www.protocol.ftp.FtpURLConnection$1"
-};
-
-$Object* allocate$FtpURLConnection($Class* clazz) {
-	return $of($alloc(FtpURLConnection));
-}
-
 $URL* FtpURLConnection::checkURL($URL* u) {
 	$init(FtpURLConnection);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (u != nullptr) {
-		if ($nc($(u->toExternalForm()))->indexOf((int32_t)u'\n') > -1) {
+		if ($$nc(u->toExternalForm())->indexOf(u'\n') > -1) {
 			$var($Exception, mfue, $new($MalformedURLException, "Illegal character in URL"_s));
 			$throwNew($IllegalArgumentException, $(mfue->getMessage()), mfue);
 		}
@@ -194,7 +120,7 @@ void FtpURLConnection::init$($URL* url) {
 }
 
 void FtpURLConnection::init$($URL* url, $Proxy* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$URLConnection::init$($(checkURL(url)));
 	$set(this, http, nullptr);
 	$set(this, is, nullptr);
@@ -208,7 +134,7 @@ void FtpURLConnection::init$($URL* url, $Proxy* p) {
 	this->port = url->getPort();
 	$var($String, userInfo, url->getUserInfo());
 	if (userInfo != nullptr) {
-		int32_t delimiter = userInfo->indexOf((int32_t)u':');
+		int32_t delimiter = userInfo->indexOf(u':');
 		if (delimiter == -1) {
 			$set(this, user, $ParseUtil::decode(userInfo));
 			$set(this, password, nullptr);
@@ -222,24 +148,24 @@ void FtpURLConnection::init$($URL* url, $Proxy* p) {
 void FtpURLConnection::setTimeouts() {
 	if (this->ftp != nullptr) {
 		if (this->connectTimeout >= 0) {
-			$nc(this->ftp)->setConnectTimeout(this->connectTimeout);
+			this->ftp->setConnectTimeout(this->connectTimeout);
 		}
 		if (this->readTimeout >= 0) {
-			$nc(this->ftp)->setReadTimeout(this->readTimeout);
+			this->ftp->setReadTimeout(this->readTimeout);
 		}
 	}
 }
 
 void FtpURLConnection::connect() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$beforeCallerSensitive();
 		if (this->connected) {
 			return;
 		}
 		$var($Proxy, p, nullptr);
 		if (this->instProxy == nullptr) {
-			$var($ProxySelector, sel, $cast($ProxySelector, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($FtpURLConnection$1, this)))));
+			$var($ProxySelector, sel, $cast($ProxySelector, $AccessController::doPrivileged($$new($FtpURLConnection$1, this))));
 			if (sel != nullptr) {
 				$var($URI, uri, $ParseUtil::toURI(this->url));
 				$var($List, proxies, nullptr);
@@ -253,28 +179,27 @@ void FtpURLConnection::connect() {
 					$assign(p, $cast($Proxy, it->next()));
 					$init($Proxy);
 					$init($Proxy$Type);
-					if (p == nullptr || p == $Proxy::NO_PROXY || $nc(p)->type() == $Proxy$Type::SOCKS) {
+					if (p == nullptr || p == $Proxy::NO_PROXY || p->type() == $Proxy$Type::SOCKS) {
 						break;
 					}
 					bool var$0 = $nc(p)->type() != $Proxy$Type::HTTP;
-					if (var$0 || !($instanceOf($InetSocketAddress, $($nc(p)->address())))) {
-						$var($URI, var$1, uri);
-						$var($SocketAddress, var$2, p->address());
-						sel->connectFailed(var$1, var$2, $$new($IOException, "Wrong proxy type"_s));
+					if (var$0 || !($instanceOf($InetSocketAddress, $(p->address())))) {
+						$var($SocketAddress, var$1, p->address());
+						sel->connectFailed(uri, var$1, $$new($IOException, "Wrong proxy type"_s));
 						continue;
 					}
-					$var($InetSocketAddress, paddr, $cast($InetSocketAddress, $nc(p)->address()));
+					$var($InetSocketAddress, paddr, $cast($InetSocketAddress, p->address()));
 					try {
 						$set(this, http, $new($HttpURLConnection, this->url, p));
-						$nc(this->http)->setDoInput(getDoInput());
-						$nc(this->http)->setDoOutput(getDoOutput());
+						this->http->setDoInput(getDoInput());
+						this->http->setDoOutput(getDoOutput());
 						if (this->connectTimeout >= 0) {
-							$nc(this->http)->setConnectTimeout(this->connectTimeout);
+							this->http->setConnectTimeout(this->connectTimeout);
 						}
 						if (this->readTimeout >= 0) {
-							$nc(this->http)->setReadTimeout(this->readTimeout);
+							this->http->setReadTimeout(this->readTimeout);
 						}
-						$nc(this->http)->connect();
+						this->http->connect();
 						this->connected = true;
 						return;
 					} catch ($IOException& ioe) {
@@ -288,15 +213,15 @@ void FtpURLConnection::connect() {
 			$init($Proxy$Type);
 			if ($nc(p)->type() == $Proxy$Type::HTTP) {
 				$set(this, http, $new($HttpURLConnection, this->url, this->instProxy));
-				$nc(this->http)->setDoInput(getDoInput());
-				$nc(this->http)->setDoOutput(getDoOutput());
+				this->http->setDoInput(getDoInput());
+				this->http->setDoOutput(getDoOutput());
 				if (this->connectTimeout >= 0) {
-					$nc(this->http)->setConnectTimeout(this->connectTimeout);
+					this->http->setConnectTimeout(this->connectTimeout);
 				}
 				if (this->readTimeout >= 0) {
-					$nc(this->http)->setReadTimeout(this->readTimeout);
+					this->http->setReadTimeout(this->readTimeout);
 				}
-				$nc(this->http)->connect();
+				this->http->connect();
 				this->connected = true;
 				return;
 			}
@@ -323,15 +248,15 @@ void FtpURLConnection::connect() {
 		} catch ($FtpProtocolException& fe) {
 			if (this->ftp != nullptr) {
 				try {
-					$nc(this->ftp)->close();
+					this->ftp->close();
 				} catch ($IOException& ioe) {
 					fe->addSuppressed(ioe);
 				}
 			}
-			$throwNew($IOException, static_cast<$Throwable*>(fe));
+			$throwNew($IOException, fe);
 		}
 		try {
-			$nc(this->ftp)->login(this->user, this->password == nullptr ? ($chars*)nullptr : $($nc(this->password)->toCharArray()));
+			$nc(this->ftp)->login(this->user, this->password == nullptr ? ($chars*)nullptr : $(this->password->toCharArray()));
 		} catch ($FtpProtocolException& e) {
 			$nc(this->ftp)->close();
 			$throwNew($FtpLoginException, "Invalid username/password"_s);
@@ -341,7 +266,7 @@ void FtpURLConnection::connect() {
 }
 
 void FtpURLConnection::decodePath($String* path$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, path, path$renamed);
 	int32_t i = $nc(path)->indexOf(";type="_s);
 	if (i >= 0) {
@@ -365,7 +290,7 @@ void FtpURLConnection::decodePath($String* path$renamed) {
 		$assign(path, "./"_s);
 	}
 	if (!path->endsWith("/"_s)) {
-		i = path->lastIndexOf((int32_t)u'/');
+		i = path->lastIndexOf(u'/');
 		if (i > 0) {
 			$set(this, filename, path->substring(i + 1, path->length()));
 			$set(this, filename, $ParseUtil::decode(this->filename));
@@ -386,11 +311,11 @@ void FtpURLConnection::decodePath($String* path$renamed) {
 }
 
 void FtpURLConnection::cd($String* path) {
-	$useLocalCurrentObjectStackCache();
-	if (path == nullptr || $nc(path)->isEmpty()) {
+	$useLocalObjectStack();
+	if (path == nullptr || path->isEmpty()) {
 		return;
 	}
-	if ($nc(path)->indexOf((int32_t)u'/') == -1) {
+	if ($nc(path)->indexOf(u'/') == -1) {
 		$nc(this->ftp)->changeDirectory($($ParseUtil::decode(path)));
 		return;
 	}
@@ -401,12 +326,12 @@ void FtpURLConnection::cd($String* path) {
 }
 
 $InputStream* FtpURLConnection::getInputStream() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->connected) {
 		connect();
 	}
 	if (this->http != nullptr) {
-		return $nc(this->http)->getInputStream();
+		return this->http->getInputStream();
 	}
 	if (this->os != nullptr) {
 		$throwNew($IOException, "Already opened for output"_s);
@@ -422,9 +347,9 @@ $InputStream* FtpURLConnection::getInputStream() {
 			$nc(this->ftp)->setAsciiType();
 			cd(this->pathname);
 			if (this->filename == nullptr) {
-				$set(this, is, $new($FtpURLConnection$FtpInputStream, this->ftp, $($nc(this->ftp)->list(nullptr))));
+				$set(this, is, $new($FtpURLConnection$FtpInputStream, this->ftp, $(this->ftp->list(nullptr))));
 			} else {
-				$set(this, is, $new($FtpURLConnection$FtpInputStream, this->ftp, $($nc(this->ftp)->nameList(this->filename))));
+				$set(this, is, $new($FtpURLConnection$FtpInputStream, this->ftp, $(this->ftp->nameList(this->filename))));
 			}
 		} else {
 			if (this->type == FtpURLConnection::ASCII) {
@@ -439,7 +364,7 @@ $InputStream* FtpURLConnection::getInputStream() {
 			int64_t l = $nc(this->ftp)->getLastTransferSize();
 			msgh->add("content-length"_s, $($Long::toString(l)));
 			if (l > 0) {
-				bool meteredInput = $nc($($ProgressMonitor::getDefault()))->shouldMeterInput(this->url, "GET"_s);
+				bool meteredInput = $$nc($ProgressMonitor::getDefault())->shouldMeterInput(this->url, "GET"_s);
 				$var($ProgressSource, pi, nullptr);
 				if (meteredInput) {
 					$assign(pi, $new($ProgressSource, this->url, "GET"_s, l));
@@ -467,14 +392,14 @@ $InputStream* FtpURLConnection::getInputStream() {
 		try {
 			cd(this->fullpath);
 			$nc(this->ftp)->setAsciiType();
-			$set(this, is, $new($FtpURLConnection$FtpInputStream, this->ftp, $($nc(this->ftp)->list(nullptr))));
+			$set(this, is, $new($FtpURLConnection$FtpInputStream, this->ftp, $(this->ftp->list(nullptr))));
 			msgh->add("content-type"_s, "text/plain"_s);
 			msgh->add("access-type"_s, "directory"_s);
 		} catch ($IOException& ex) {
 			$var($FileNotFoundException, fnfe, $new($FileNotFoundException, this->fullpath));
 			if (this->ftp != nullptr) {
 				try {
-					$nc(this->ftp)->close();
+					this->ftp->close();
 				} catch ($IOException& ioe) {
 					fnfe->addSuppressed(ioe);
 				}
@@ -484,7 +409,7 @@ $InputStream* FtpURLConnection::getInputStream() {
 			$var($FileNotFoundException, fnfe, $new($FileNotFoundException, this->fullpath));
 			if (this->ftp != nullptr) {
 				try {
-					$nc(this->ftp)->close();
+					this->ftp->close();
 				} catch ($IOException& ioe) {
 					fnfe->addSuppressed(ioe);
 				}
@@ -494,25 +419,25 @@ $InputStream* FtpURLConnection::getInputStream() {
 	} catch ($FtpProtocolException& ftpe) {
 		if (this->ftp != nullptr) {
 			try {
-				$nc(this->ftp)->close();
+				this->ftp->close();
 			} catch ($IOException& ioe) {
 				ftpe->addSuppressed(ioe);
 			}
 		}
-		$throwNew($IOException, static_cast<$Throwable*>(ftpe));
+		$throwNew($IOException, ftpe);
 	}
 	setProperties(msgh);
 	return this->is;
 }
 
 $OutputStream* FtpURLConnection::getOutputStream() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->connected) {
 		connect();
 	}
 	if (this->http != nullptr) {
-		$var($OutputStream, out, $nc(this->http)->getOutputStream());
-		$nc(this->http)->getInputStream();
+		$var($OutputStream, out, this->http->getOutputStream());
+		this->http->getInputStream();
 		return out;
 	}
 	if (this->is != nullptr) {
@@ -522,7 +447,7 @@ $OutputStream* FtpURLConnection::getOutputStream() {
 		return this->os;
 	}
 	decodePath($($nc(this->url)->getPath()));
-	if (this->filename == nullptr || $nc(this->filename)->isEmpty()) {
+	if (this->filename == nullptr || this->filename->isEmpty()) {
 		$throwNew($IOException, "illegal filename for a PUT"_s);
 	}
 	try {
@@ -536,7 +461,7 @@ $OutputStream* FtpURLConnection::getOutputStream() {
 		}
 		$set(this, os, $new($FtpURLConnection$FtpOutputStream, this->ftp, $($nc(this->ftp)->putFileStream(this->filename, false))));
 	} catch ($FtpProtocolException& e) {
-		$throwNew($IOException, static_cast<$Throwable*>(e));
+		$throwNew($IOException, e);
 	}
 	return this->os;
 }
@@ -546,7 +471,7 @@ $String* FtpURLConnection::guessContentTypeFromFilename($String* fname) {
 }
 
 $Permission* FtpURLConnection::getPermission() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->permission == nullptr) {
 		int32_t urlport = $nc(this->url)->getPort();
 		urlport = urlport < 0 ? $FtpClient::defaultPort() : urlport;
@@ -607,7 +532,72 @@ FtpURLConnection::FtpURLConnection() {
 }
 
 $Class* FtpURLConnection::load$($String* name, bool initialize) {
-	$loadClass(FtpURLConnection, name, initialize, &_FtpURLConnection_ClassInfo_, allocate$FtpURLConnection);
+	$FieldInfo fieldInfos$$[] = {
+		{"http", "Lsun/net/www/protocol/http/HttpURLConnection;", nullptr, 0, $field(FtpURLConnection, http)},
+		{"instProxy", "Ljava/net/Proxy;", nullptr, $PRIVATE, $field(FtpURLConnection, instProxy)},
+		{"is", "Ljava/io/InputStream;", nullptr, 0, $field(FtpURLConnection, is)},
+		{"os", "Ljava/io/OutputStream;", nullptr, 0, $field(FtpURLConnection, os)},
+		{"ftp", "Lsun/net/ftp/FtpClient;", nullptr, 0, $field(FtpURLConnection, ftp)},
+		{"permission", "Ljava/security/Permission;", nullptr, 0, $field(FtpURLConnection, permission)},
+		{"password", "Ljava/lang/String;", nullptr, 0, $field(FtpURLConnection, password)},
+		{"user", "Ljava/lang/String;", nullptr, 0, $field(FtpURLConnection, user)},
+		{"host", "Ljava/lang/String;", nullptr, 0, $field(FtpURLConnection, host)},
+		{"pathname", "Ljava/lang/String;", nullptr, 0, $field(FtpURLConnection, pathname)},
+		{"filename", "Ljava/lang/String;", nullptr, 0, $field(FtpURLConnection, filename)},
+		{"fullpath", "Ljava/lang/String;", nullptr, 0, $field(FtpURLConnection, fullpath)},
+		{"port", "I", nullptr, 0, $field(FtpURLConnection, port)},
+		{"NONE", "I", nullptr, $STATIC | $FINAL, $constField(FtpURLConnection, NONE)},
+		{"ASCII", "I", nullptr, $STATIC | $FINAL, $constField(FtpURLConnection, ASCII)},
+		{"BIN", "I", nullptr, $STATIC | $FINAL, $constField(FtpURLConnection, BIN)},
+		{"DIR", "I", nullptr, $STATIC | $FINAL, $constField(FtpURLConnection, DIR)},
+		{"type", "I", nullptr, 0, $field(FtpURLConnection, type)},
+		{"connectTimeout", "I", nullptr, $PRIVATE, $field(FtpURLConnection, connectTimeout)},
+		{"readTimeout", "I", nullptr, $PRIVATE, $field(FtpURLConnection, readTimeout)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $method(FtpURLConnection, init$, void, $URL*)},
+		{"<init>", "(Ljava/net/URL;Ljava/net/Proxy;)V", nullptr, 0, $method(FtpURLConnection, init$, void, $URL*, $Proxy*)},
+		{"cd", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(FtpURLConnection, cd, void, $String*), "sun.net.ftp.FtpProtocolException,java.io.IOException"},
+		{"checkURL", "(Ljava/net/URL;)Ljava/net/URL;", nullptr, $STATIC, $staticMethod(FtpURLConnection, checkURL, $URL*, $URL*), "java.lang.IllegalArgumentException"},
+		{"connect", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FtpURLConnection, connect, void), "java.io.IOException"},
+		{"decodePath", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(FtpURLConnection, decodePath, void, $String*)},
+		{"getConnectTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(FtpURLConnection, getConnectTimeout, int32_t)},
+		{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(FtpURLConnection, getInputStream, $InputStream*), "java.io.IOException"},
+		{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(FtpURLConnection, getOutputStream, $OutputStream*), "java.io.IOException"},
+		{"getPermission", "()Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(FtpURLConnection, getPermission, $Permission*)},
+		{"getReadTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(FtpURLConnection, getReadTimeout, int32_t)},
+		{"getRequestProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FtpURLConnection, getRequestProperty, $String*, $String*)},
+		{"guessContentTypeFromFilename", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(FtpURLConnection, guessContentTypeFromFilename, $String*, $String*)},
+		{"setConnectTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(FtpURLConnection, setConnectTimeout, void, int32_t)},
+		{"setReadTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(FtpURLConnection, setReadTimeout, void, int32_t)},
+		{"setRequestProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FtpURLConnection, setRequestProperty, void, $String*, $String*)},
+		{"setTimeouts", "()V", nullptr, $PRIVATE, $method(FtpURLConnection, setTimeouts, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.www.protocol.ftp.FtpURLConnection$FtpOutputStream", "sun.net.www.protocol.ftp.FtpURLConnection", "FtpOutputStream", $PROTECTED | $STATIC},
+		{"sun.net.www.protocol.ftp.FtpURLConnection$FtpInputStream", "sun.net.www.protocol.ftp.FtpURLConnection", "FtpInputStream", $PROTECTED | $STATIC},
+		{"sun.net.www.protocol.ftp.FtpURLConnection$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.www.protocol.ftp.FtpURLConnection",
+		"sun.net.www.URLConnection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.net.www.protocol.ftp.FtpURLConnection$FtpOutputStream,sun.net.www.protocol.ftp.FtpURLConnection$FtpInputStream,sun.net.www.protocol.ftp.FtpURLConnection$1"
+	};
+	$loadClass(FtpURLConnection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FtpURLConnection);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberStringWithDef.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -10,44 +9,38 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$NamedAttribute SingleMemberStringWithDef_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _SingleMemberStringWithDef_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", SingleMemberStringWithDef_Attribute_var$0},
-	{}
-};
-
-$Attribute _SingleMemberStringWithDef_DefaultValue_value0 = {
-	's', "default"
-};
-
-$MethodInfo _SingleMemberStringWithDef_MethodInfo_[] = {
-	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberStringWithDef, value, $String*), nullptr, &_SingleMemberStringWithDef_DefaultValue_value0},
-	{}
-};
-
-$ClassInfo _SingleMemberStringWithDef_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"UniTest.SingleMemberStringWithDef",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_SingleMemberStringWithDef_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberStringWithDef_Annotations_
-};
-
-$Object* allocate$SingleMemberStringWithDef($Class* clazz) {
-	return $of($alloc(SingleMemberStringWithDef));
-}
-
 $Class* SingleMemberStringWithDef::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberStringWithDef, name, initialize, &_SingleMemberStringWithDef_ClassInfo_, allocate$SingleMemberStringWithDef);
+
+	$Attribute valuedefaultValue$$ = {
+		's', "default"
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberStringWithDef, value, $String*), nullptr, &valuedefaultValue$$},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"UniTest.SingleMemberStringWithDef",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberStringWithDef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberStringWithDef);
+	});
 	return class$;
 }
 

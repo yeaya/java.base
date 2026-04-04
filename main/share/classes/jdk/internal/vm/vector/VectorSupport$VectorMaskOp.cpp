@@ -1,5 +1,4 @@
 #include <jdk/internal/vm/vector/VectorSupport$VectorMaskOp.h>
-
 #include <jdk/internal/vm/vector/VectorSupport.h>
 #include <jcpp.h>
 
@@ -12,38 +11,33 @@ namespace jdk {
 		namespace vm {
 			namespace vector {
 
-$MethodInfo _VectorSupport$VectorMaskOp_MethodInfo_[] = {
-	{"apply", "(Ljava/lang/Object;)I", "(TM;)I", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$VectorMaskOp, apply, int32_t, Object$*)},
-	{}
-};
-
-$InnerClassInfo _VectorSupport$VectorMaskOp_InnerClassesInfo_[] = {
-	{"jdk.internal.vm.vector.VectorSupport$VectorMaskOp", "jdk.internal.vm.vector.VectorSupport", "VectorMaskOp", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _VectorSupport$VectorMaskOp_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.vm.vector.VectorSupport$VectorMaskOp",
-	nullptr,
-	nullptr,
-	nullptr,
-	_VectorSupport$VectorMaskOp_MethodInfo_,
-	"<M:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_VectorSupport$VectorMaskOp_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.vm.vector.VectorSupport"
-};
-
-$Object* allocate$VectorSupport$VectorMaskOp($Class* clazz) {
-	return $of($alloc(VectorSupport$VectorMaskOp));
-}
-
 $Class* VectorSupport$VectorMaskOp::load$($String* name, bool initialize) {
-	$loadClass(VectorSupport$VectorMaskOp, name, initialize, &_VectorSupport$VectorMaskOp_ClassInfo_, allocate$VectorSupport$VectorMaskOp);
+	$MethodInfo methodInfos$$[] = {
+		{"apply", "(Ljava/lang/Object;)I", "(TM;)I", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$VectorMaskOp, apply, int32_t, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.vm.vector.VectorSupport$VectorMaskOp", "jdk.internal.vm.vector.VectorSupport", "VectorMaskOp", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.vm.vector.VectorSupport$VectorMaskOp",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<M:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.vm.vector.VectorSupport"
+	};
+	$loadClass(VectorSupport$VectorMaskOp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VectorSupport$VectorMaskOp);
+	});
 	return class$;
 }
 

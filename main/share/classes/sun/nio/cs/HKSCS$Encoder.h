@@ -34,6 +34,7 @@ public:
 	HKSCS$Encoder();
 	using ::sun::nio::cs::DoubleByte$Encoder::encode;
 	using ::sun::nio::cs::DoubleByte$Encoder::canEncode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs, ::sun::nio::cs::DoubleByte$Encoder* big5Enc, $Array<char16_t, 2>* c2bBmp, $Array<char16_t, 2>* c2bSupp);
 	virtual bool canEncode(char16_t c) override;
 	virtual int32_t encode($chars* src, int32_t sp, int32_t len, $bytes* dst) override;

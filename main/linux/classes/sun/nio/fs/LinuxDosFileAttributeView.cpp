@@ -1,5 +1,4 @@
 #include <sun/nio/fs/LinuxDosFileAttributeView.h>
-
 #include <java/lang/NumberFormatException.h>
 #include <java/nio/file/attribute/BasicFileAttributes.h>
 #include <java/nio/file/attribute/DosFileAttributes.h>
@@ -66,68 +65,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _LinuxDosFileAttributeView_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LinuxDosFileAttributeView, unsafe)},
-	{"READONLY_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LinuxDosFileAttributeView, READONLY_NAME)},
-	{"ARCHIVE_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LinuxDosFileAttributeView, ARCHIVE_NAME)},
-	{"SYSTEM_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LinuxDosFileAttributeView, SYSTEM_NAME)},
-	{"HIDDEN_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LinuxDosFileAttributeView, HIDDEN_NAME)},
-	{"DOS_XATTR_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LinuxDosFileAttributeView, DOS_XATTR_NAME)},
-	{"DOS_XATTR_NAME_AS_BYTES", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LinuxDosFileAttributeView, DOS_XATTR_NAME_AS_BYTES)},
-	{"DOS_XATTR_READONLY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinuxDosFileAttributeView, DOS_XATTR_READONLY)},
-	{"DOS_XATTR_HIDDEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinuxDosFileAttributeView, DOS_XATTR_HIDDEN)},
-	{"DOS_XATTR_SYSTEM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinuxDosFileAttributeView, DOS_XATTR_SYSTEM)},
-	{"DOS_XATTR_ARCHIVE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinuxDosFileAttributeView, DOS_XATTR_ARCHIVE)},
-	{"dosAttributeNames", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LinuxDosFileAttributeView, dosAttributeNames)},
-	{}
-};
-
-$MethodInfo _LinuxDosFileAttributeView_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/nio/fs/UnixPath;Z)V", nullptr, 0, $method(LinuxDosFileAttributeView, init$, void, $UnixPath*, bool)},
-	{"getDosAttribute", "(I)I", nullptr, $PRIVATE, $method(LinuxDosFileAttributeView, getDosAttribute, int32_t, int32_t), "sun.nio.fs.UnixException"},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView, name, $String*)},
-	{"readAttributes", "([Ljava/lang/String;)Ljava/util/Map;", "([Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(LinuxDosFileAttributeView, readAttributes, $Map*, $StringArray*), "java.io.IOException"},
-	{"readAttributes", "()Ljava/nio/file/attribute/DosFileAttributes;", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView, readAttributes, $BasicFileAttributes*), "java.io.IOException"},
-	{"setArchive", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView, setArchive, void, bool), "java.io.IOException"},
-	{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView, setAttribute, void, $String*, Object$*), "java.io.IOException"},
-	{"setHidden", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView, setHidden, void, bool), "java.io.IOException"},
-	{"setReadOnly", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView, setReadOnly, void, bool), "java.io.IOException"},
-	{"setSystem", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView, setSystem, void, bool), "java.io.IOException"},
-	{"*setTimes", "(Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;)V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateDosAttribute", "(IZ)V", nullptr, $PRIVATE, $method(LinuxDosFileAttributeView, updateDosAttribute, void, int32_t, bool), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _LinuxDosFileAttributeView_InnerClassesInfo_[] = {
-	{"sun.nio.fs.UnixFileAttributeViews$Basic", "sun.nio.fs.UnixFileAttributeViews", "Basic", $STATIC},
-	{"sun.nio.fs.LinuxDosFileAttributeView$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LinuxDosFileAttributeView_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.LinuxDosFileAttributeView",
-	"sun.nio.fs.UnixFileAttributeViews$Basic",
-	"java.nio.file.attribute.DosFileAttributeView",
-	_LinuxDosFileAttributeView_FieldInfo_,
-	_LinuxDosFileAttributeView_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LinuxDosFileAttributeView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.LinuxDosFileAttributeView$1"
-};
-
-$Object* allocate$LinuxDosFileAttributeView($Class* clazz) {
-	return $of($alloc(LinuxDosFileAttributeView));
-}
-
 void LinuxDosFileAttributeView::setTimes($FileTime* lastModifiedTime, $FileTime* lastAccessTime, $FileTime* createTime) {
 	this->$UnixFileAttributeViews$Basic::setTimes(lastModifiedTime, lastAccessTime, createTime);
 }
@@ -171,77 +108,75 @@ $String* LinuxDosFileAttributeView::name() {
 
 void LinuxDosFileAttributeView::setAttribute($String* attribute, Object$* value) {
 	if ($nc(attribute)->equals(LinuxDosFileAttributeView::READONLY_NAME)) {
-		setReadOnly($nc(($cast($Boolean, value)))->booleanValue());
+		setReadOnly($nc($cast($Boolean, value))->booleanValue());
 		return;
 	}
-	if ($nc(attribute)->equals(LinuxDosFileAttributeView::ARCHIVE_NAME)) {
-		setArchive($nc(($cast($Boolean, value)))->booleanValue());
+	if (attribute->equals(LinuxDosFileAttributeView::ARCHIVE_NAME)) {
+		setArchive($nc($cast($Boolean, value))->booleanValue());
 		return;
 	}
-	if ($nc(attribute)->equals(LinuxDosFileAttributeView::SYSTEM_NAME)) {
-		setSystem($nc(($cast($Boolean, value)))->booleanValue());
+	if (attribute->equals(LinuxDosFileAttributeView::SYSTEM_NAME)) {
+		setSystem($nc($cast($Boolean, value))->booleanValue());
 		return;
 	}
-	if ($nc(attribute)->equals(LinuxDosFileAttributeView::HIDDEN_NAME)) {
-		setHidden($nc(($cast($Boolean, value)))->booleanValue());
+	if (attribute->equals(LinuxDosFileAttributeView::HIDDEN_NAME)) {
+		setHidden($nc($cast($Boolean, value))->booleanValue());
 		return;
 	}
 	$UnixFileAttributeViews$Basic::setAttribute(attribute, value);
 }
 
 $Map* LinuxDosFileAttributeView::readAttributes($StringArray* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractBasicFileAttributeView$AttributesBuilder, builder, $AbstractBasicFileAttributeView$AttributesBuilder::create(LinuxDosFileAttributeView::dosAttributeNames, attributes));
 	$var($DosFileAttributes, attrs, $cast($DosFileAttributes, readAttributes()));
 	addRequestedBasicAttributes(attrs, builder);
 	if ($nc(builder)->match(LinuxDosFileAttributeView::READONLY_NAME)) {
 		builder->add(LinuxDosFileAttributeView::READONLY_NAME, $($Boolean::valueOf($nc(attrs)->isReadOnly())));
 	}
-	if ($nc(builder)->match(LinuxDosFileAttributeView::ARCHIVE_NAME)) {
+	if (builder->match(LinuxDosFileAttributeView::ARCHIVE_NAME)) {
 		builder->add(LinuxDosFileAttributeView::ARCHIVE_NAME, $($Boolean::valueOf($nc(attrs)->isArchive())));
 	}
-	if ($nc(builder)->match(LinuxDosFileAttributeView::SYSTEM_NAME)) {
+	if (builder->match(LinuxDosFileAttributeView::SYSTEM_NAME)) {
 		builder->add(LinuxDosFileAttributeView::SYSTEM_NAME, $($Boolean::valueOf($nc(attrs)->isSystem())));
 	}
-	if ($nc(builder)->match(LinuxDosFileAttributeView::HIDDEN_NAME)) {
+	if (builder->match(LinuxDosFileAttributeView::HIDDEN_NAME)) {
 		builder->add(LinuxDosFileAttributeView::HIDDEN_NAME, $($Boolean::valueOf($nc(attrs)->isHidden())));
 	}
-	return $nc(builder)->unmodifiableMap();
+	return builder->unmodifiableMap();
 }
 
 $BasicFileAttributes* LinuxDosFileAttributeView::readAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->file)->checkRead();
 	int32_t fd = -1;
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($BasicFileAttributes, var$2, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	$var($BasicFileAttributes, var$2, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				fd = $nc(this->file)->openForAttributeAccess(this->followLinks);
-				$var($UnixFileAttributes, attrs, $UnixFileAttributes::get(fd));
-				int32_t dosAttribute = getDosAttribute(fd);
-				$assign(var$2, $new($LinuxDosFileAttributeView$1, this, attrs, dosAttribute));
-				return$1 = true;
-				goto $finally;
-			} catch ($UnixException& x) {
-				x->rethrowAsIOException(this->file);
-				$assign(var$2, nullptr);
-				return$1 = true;
-				goto $finally;
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$UnixNativeDispatcher::close(fd);
+			fd = this->file->openForAttributeAccess(this->followLinks);
+			$var($UnixFileAttributes, attrs, $UnixFileAttributes::get(fd));
+			int32_t dosAttribute = getDosAttribute(fd);
+			$assign(var$2, $new($LinuxDosFileAttributeView$1, this, attrs, dosAttribute));
+			return$1 = true;
+			goto $finally;
+		} catch ($UnixException& x) {
+			x->rethrowAsIOException(this->file);
+			$assign(var$2, nullptr);
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$UnixNativeDispatcher::close(fd);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -263,106 +198,100 @@ void LinuxDosFileAttributeView::setSystem(bool value) {
 }
 
 int32_t LinuxDosFileAttributeView::getDosAttribute(int32_t fd) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = 24;
 	$var($NativeBuffer, buffer, $NativeBuffers::getNativeBuffer(size));
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				int32_t len = $LinuxNativeDispatcher::fgetxattr(fd, LinuxDosFileAttributeView::DOS_XATTR_NAME_AS_BYTES, $nc(buffer)->address(), size);
-				if (len > 0) {
-					if ($nc(LinuxDosFileAttributeView::unsafe)->getByte($nc(buffer)->address() + len - 1) == 0) {
-						--len;
-					}
-					$var($bytes, buf, $new($bytes, len));
-					$nc(LinuxDosFileAttributeView::unsafe)->copyMemory(nullptr, $nc(buffer)->address(), buf, $Unsafe::ARRAY_BYTE_BASE_OFFSET, len);
-					$var($String, value, $Util::toString(buf));
-					bool var$3 = $nc(value)->length() >= 3;
-					if (var$3 && value->startsWith("0x"_s)) {
-						try {
-							var$2 = $Integer::parseInt($(value->substring(2)), 16);
-							return$1 = true;
-							goto $finally;
-						} catch ($NumberFormatException& x) {
-						}
+			int32_t len = $LinuxNativeDispatcher::fgetxattr(fd, LinuxDosFileAttributeView::DOS_XATTR_NAME_AS_BYTES, $nc(buffer)->address(), size);
+			if (len > 0) {
+				if ($nc(LinuxDosFileAttributeView::unsafe)->getByte(buffer->address() + len - 1) == 0) {
+					--len;
+				}
+				$var($bytes, buf, $new($bytes, len));
+				LinuxDosFileAttributeView::unsafe->copyMemory(nullptr, buffer->address(), buf, $Unsafe::ARRAY_BYTE_BASE_OFFSET, len);
+				$var($String, value, $Util::toString(buf));
+				bool var$3 = $nc(value)->length() >= 3;
+				if (var$3 && value->startsWith("0x"_s)) {
+					try {
+						var$2 = $Integer::parseInt($(value->substring(2)), 16);
+						return$1 = true;
+						goto $finally;
+					} catch ($NumberFormatException& x) {
 					}
 				}
-				$throwNew($UnixException, $$str({"Value of "_s, LinuxDosFileAttributeView::DOS_XATTR_NAME, " attribute is invalid"_s}));
-			} catch ($UnixException& x) {
-				$init($UnixConstants);
-				if (x->errno$() == $UnixConstants::ENODATA) {
-					var$2 = 0;
-					return$1 = true;
-					goto $finally;
-				}
-				$throw(x);
 			}
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			$nc(buffer)->release();
+			$throwNew($UnixException, $$str({"Value of "_s, LinuxDosFileAttributeView::DOS_XATTR_NAME, " attribute is invalid"_s}));
+		} catch ($UnixException& x) {
+			$init($UnixConstants);
+			if (x->errno$() == $UnixConstants::ENODATA) {
+				var$2 = 0;
+				return$1 = true;
+				goto $finally;
+			}
+			$throw(x);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		$nc(buffer)->release();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void LinuxDosFileAttributeView::updateDosAttribute(int32_t flag, bool enable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->file)->checkWrite();
 	int32_t fd = -1;
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				fd = $nc(this->file)->openForAttributeAccess(this->followLinks);
-				int32_t oldValue = getDosAttribute(fd);
-				int32_t newValue = oldValue;
-				if (enable) {
-					newValue |= flag;
-				} else {
-					newValue &= (uint32_t)~flag;
-				}
-				if (newValue != oldValue) {
-					$var($bytes, value, $Util::toBytes($$str({"0x"_s, $($Integer::toHexString(newValue))})));
-					$var($NativeBuffer, buffer, $NativeBuffers::asNativeBuffer(value));
-					{
-						$var($Throwable, var$1, nullptr);
-						try {
-							$LinuxNativeDispatcher::fsetxattr(fd, LinuxDosFileAttributeView::DOS_XATTR_NAME_AS_BYTES, $nc(buffer)->address(), $nc(value)->length + 1);
-						} catch ($Throwable& var$2) {
-							$assign(var$1, var$2);
-						} /*finally*/ {
-							$nc(buffer)->release();
-						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
-						}
-					}
-				}
-			} catch ($UnixException& x) {
-				x->rethrowAsIOException(this->file);
+			fd = this->file->openForAttributeAccess(this->followLinks);
+			int32_t oldValue = getDosAttribute(fd);
+			int32_t newValue = oldValue;
+			if (enable) {
+				newValue |= flag;
+			} else {
+				newValue &= (uint32_t)~flag;
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} /*finally*/ {
-			$UnixNativeDispatcher::close(fd);
+			if (newValue != oldValue) {
+				$var($bytes, value, $Util::toBytes($$str({"0x"_s, $($Integer::toHexString(newValue))})));
+				$var($NativeBuffer, buffer, $NativeBuffers::asNativeBuffer(value));
+				$var($Throwable, var$1, nullptr);
+				try {
+					$LinuxNativeDispatcher::fsetxattr(fd, LinuxDosFileAttributeView::DOS_XATTR_NAME_AS_BYTES, $nc(buffer)->address(), $nc(value)->length + 1);
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
+				} /*finally*/ {
+					$nc(buffer)->release();
+				}
+				if (var$1 != nullptr) {
+					$throw(var$1);
+				}
+			}
+		} catch ($UnixException& x) {
+			x->rethrowAsIOException(this->file);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		$UnixNativeDispatcher::close(fd);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
-void clinit$LinuxDosFileAttributeView($Class* class$) {
+void LinuxDosFileAttributeView::clinit$($Class* clazz) {
 	$assignStatic(LinuxDosFileAttributeView::READONLY_NAME, "readonly"_s);
 	$assignStatic(LinuxDosFileAttributeView::ARCHIVE_NAME, "archive"_s);
 	$assignStatic(LinuxDosFileAttributeView::SYSTEM_NAME, "system"_s);
@@ -383,7 +312,63 @@ LinuxDosFileAttributeView::LinuxDosFileAttributeView() {
 }
 
 $Class* LinuxDosFileAttributeView::load$($String* name, bool initialize) {
-	$loadClass(LinuxDosFileAttributeView, name, initialize, &_LinuxDosFileAttributeView_ClassInfo_, clinit$LinuxDosFileAttributeView, allocate$LinuxDosFileAttributeView);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LinuxDosFileAttributeView, unsafe)},
+		{"READONLY_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LinuxDosFileAttributeView, READONLY_NAME)},
+		{"ARCHIVE_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LinuxDosFileAttributeView, ARCHIVE_NAME)},
+		{"SYSTEM_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LinuxDosFileAttributeView, SYSTEM_NAME)},
+		{"HIDDEN_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LinuxDosFileAttributeView, HIDDEN_NAME)},
+		{"DOS_XATTR_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LinuxDosFileAttributeView, DOS_XATTR_NAME)},
+		{"DOS_XATTR_NAME_AS_BYTES", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LinuxDosFileAttributeView, DOS_XATTR_NAME_AS_BYTES)},
+		{"DOS_XATTR_READONLY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinuxDosFileAttributeView, DOS_XATTR_READONLY)},
+		{"DOS_XATTR_HIDDEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinuxDosFileAttributeView, DOS_XATTR_HIDDEN)},
+		{"DOS_XATTR_SYSTEM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinuxDosFileAttributeView, DOS_XATTR_SYSTEM)},
+		{"DOS_XATTR_ARCHIVE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinuxDosFileAttributeView, DOS_XATTR_ARCHIVE)},
+		{"dosAttributeNames", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LinuxDosFileAttributeView, dosAttributeNames)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/nio/fs/UnixPath;Z)V", nullptr, 0, $method(LinuxDosFileAttributeView, init$, void, $UnixPath*, bool)},
+		{"getDosAttribute", "(I)I", nullptr, $PRIVATE, $method(LinuxDosFileAttributeView, getDosAttribute, int32_t, int32_t), "sun.nio.fs.UnixException"},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView, name, $String*)},
+		{"readAttributes", "([Ljava/lang/String;)Ljava/util/Map;", "([Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(LinuxDosFileAttributeView, readAttributes, $Map*, $StringArray*), "java.io.IOException"},
+		{"readAttributes", "()Ljava/nio/file/attribute/DosFileAttributes;", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView, readAttributes, $BasicFileAttributes*), "java.io.IOException"},
+		{"setArchive", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView, setArchive, void, bool), "java.io.IOException"},
+		{"setAttribute", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView, setAttribute, void, $String*, Object$*), "java.io.IOException"},
+		{"setHidden", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView, setHidden, void, bool), "java.io.IOException"},
+		{"setReadOnly", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView, setReadOnly, void, bool), "java.io.IOException"},
+		{"setSystem", "(Z)V", nullptr, $PUBLIC, $virtualMethod(LinuxDosFileAttributeView, setSystem, void, bool), "java.io.IOException"},
+		{"*setTimes", "(Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;)V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateDosAttribute", "(IZ)V", nullptr, $PRIVATE, $method(LinuxDosFileAttributeView, updateDosAttribute, void, int32_t, bool), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.UnixFileAttributeViews$Basic", "sun.nio.fs.UnixFileAttributeViews", "Basic", $STATIC},
+		{"sun.nio.fs.LinuxDosFileAttributeView$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.LinuxDosFileAttributeView",
+		"sun.nio.fs.UnixFileAttributeViews$Basic",
+		"java.nio.file.attribute.DosFileAttributeView",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.LinuxDosFileAttributeView$1"
+	};
+	$loadClass(LinuxDosFileAttributeView, name, initialize, &classInfo$$, LinuxDosFileAttributeView::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LinuxDosFileAttributeView));
+	});
 	return class$;
 }
 

@@ -18,7 +18,7 @@ public:
 	virtual bool exec() override;
 	virtual $Object* getRawResult() override;
 	virtual void setRawResult(Object$* value) override;
-	static const int64_t serialVersionUID = (int64_t)0x489D692599075496;
+	static const int64_t serialVersionUID = (int64_t)0x489d692599075496;
 	$Object* result = nullptr;
 };
 

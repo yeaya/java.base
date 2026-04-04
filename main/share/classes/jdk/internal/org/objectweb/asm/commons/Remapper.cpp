@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/commons/Remapper.h>
-
 #include <java/lang/CharSequence.h>
 #include <jdk/internal/org/objectweb/asm/ConstantDynamic.h>
 #include <jdk/internal/org/objectweb/asm/Handle.h>
@@ -39,96 +38,46 @@ namespace jdk {
 				namespace asm$ {
 					namespace commons {
 
-$CompoundAttribute _Remapper_MethodAnnotations_createRemappingSignatureAdapter1[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$MethodInfo _Remapper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Remapper, init$, void)},
-	{"createRemappingSignatureAdapter", "(Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;)Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(Remapper, createRemappingSignatureAdapter, $SignatureVisitor*, $SignatureVisitor*), nullptr, nullptr, _Remapper_MethodAnnotations_createRemappingSignatureAdapter1},
-	{"createSignatureRemapper", "(Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;)Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;", nullptr, $PROTECTED, $virtualMethod(Remapper, createSignatureRemapper, $SignatureVisitor*, $SignatureVisitor*)},
-	{"map", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Remapper, map, $String*, $String*)},
-	{"mapDesc", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Remapper, mapDesc, $String*, $String*)},
-	{"mapFieldName", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Remapper, mapFieldName, $String*, $String*, $String*, $String*)},
-	{"mapInnerClassName", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Remapper, mapInnerClassName, $String*, $String*, $String*, $String*)},
-	{"mapInvokeDynamicMethodName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Remapper, mapInvokeDynamicMethodName, $String*, $String*, $String*)},
-	{"mapMethodDesc", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Remapper, mapMethodDesc, $String*, $String*)},
-	{"mapMethodName", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Remapper, mapMethodName, $String*, $String*, $String*, $String*)},
-	{"mapModuleName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Remapper, mapModuleName, $String*, $String*)},
-	{"mapPackageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Remapper, mapPackageName, $String*, $String*)},
-	{"mapRecordComponentName", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Remapper, mapRecordComponentName, $String*, $String*, $String*, $String*)},
-	{"mapSignature", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Remapper, mapSignature, $String*, $String*, bool)},
-	{"mapType", "(Ljdk/internal/org/objectweb/asm/Type;)Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE, $method(Remapper, mapType, $Type*, $Type*)},
-	{"mapType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Remapper, mapType, $String*, $String*)},
-	{"mapTypes", "([Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Remapper, mapTypes, $StringArray*, $StringArray*)},
-	{"mapValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Remapper, mapValue, $Object*, Object$*)},
-	{}
-};
-
-$ClassInfo _Remapper_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"jdk.internal.org.objectweb.asm.commons.Remapper",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Remapper_MethodInfo_
-};
-
-$Object* allocate$Remapper($Class* clazz) {
-	return $of($alloc(Remapper));
-}
-
 void Remapper::init$() {
 }
 
 $String* Remapper::mapDesc($String* descriptor) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($(mapType($($Type::getType(descriptor)))))->getDescriptor();
+	$useLocalObjectStack();
+	return $$nc(mapType($($Type::getType(descriptor))))->getDescriptor();
 }
 
 $Type* Remapper::mapType($Type* type) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($StringBuilder, remappedDescriptor, nullptr)
-		$var($String, remappedInternalName, nullptr)
-		switch ($nc(type)->getSort()) {
-		case $Type::ARRAY:
-			{
-				$assign(remappedDescriptor, $new($StringBuilder));
-				for (int32_t i = 0; i < type->getDimensions(); ++i) {
-					$nc(remappedDescriptor)->append(u'[');
-				}
-				$nc(remappedDescriptor)->append($($nc($(mapType($(type->getElementType()))))->getDescriptor()));
-				return $Type::getType($($nc(remappedDescriptor)->toString()));
-			}
-		case $Type::OBJECT:
-			{
-				$assign(remappedInternalName, map($(type->getInternalName())));
-				return remappedInternalName != nullptr ? $Type::getObjectType(remappedInternalName) : type;
-			}
-		case $Type::METHOD:
-			{
-				return $Type::getMethodType($(mapMethodDesc($(type->getDescriptor()))));
-			}
-		default:
-			{
-				return type;
-			}
+	$useLocalObjectStack();
+	$var($StringBuilder, remappedDescriptor, nullptr);
+	$var($String, remappedInternalName, nullptr);
+	switch ($nc(type)->getSort()) {
+	case $Type::ARRAY:
+		$assign(remappedDescriptor, $new($StringBuilder));
+		for (int32_t i = 0; i < type->getDimensions(); ++i) {
+			$nc(remappedDescriptor)->append(u'[');
 		}
+		$nc(remappedDescriptor)->append($($$nc(mapType($(type->getElementType())))->getDescriptor()));
+		return $Type::getType($(remappedDescriptor->toString()));
+	case $Type::OBJECT:
+		$assign(remappedInternalName, map($(type->getInternalName())));
+		return remappedInternalName != nullptr ? $Type::getObjectType(remappedInternalName) : type;
+	case $Type::METHOD:
+		return $Type::getMethodType($(mapMethodDesc($(type->getDescriptor()))));
+	default:
+		return type;
 	}
 }
 
 $String* Remapper::mapType($String* internalName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (internalName == nullptr) {
 		return nullptr;
 	}
-	return $nc($(mapType($($Type::getObjectType(internalName)))))->getInternalName();
+	return $$nc(mapType($($Type::getObjectType(internalName))))->getInternalName();
 }
 
 $StringArray* Remapper::mapTypes($StringArray* internalNames) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, remappedInternalNames, nullptr);
 	for (int32_t i = 0; i < $nc(internalNames)->length; ++i) {
 		$var($String, internalName, internalNames->get(i));
@@ -144,19 +93,17 @@ $StringArray* Remapper::mapTypes($StringArray* internalNames) {
 }
 
 $String* Remapper::mapMethodDesc($String* methodDescriptor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ("()V"_s->equals(methodDescriptor)) {
 		return methodDescriptor;
 	}
 	$var($StringBuilder, stringBuilder, $new($StringBuilder, "("_s));
 	{
 		$var($TypeArray, arr$, $Type::getArgumentTypes(methodDescriptor));
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Type, argumentType, arr$->get(i$));
 			{
-				stringBuilder->append($($nc($(mapType(argumentType)))->getDescriptor()));
+				stringBuilder->append($($$nc(mapType(argumentType))->getDescriptor()));
 			}
 		}
 	}
@@ -164,29 +111,29 @@ $String* Remapper::mapMethodDesc($String* methodDescriptor) {
 	if (returnType == $Type::VOID_TYPE) {
 		stringBuilder->append(")V"_s);
 	} else {
-		stringBuilder->append(u')')->append($($nc($(mapType(returnType)))->getDescriptor()));
+		stringBuilder->append(u')')->append($($$nc(mapType(returnType))->getDescriptor()));
 	}
 	return stringBuilder->toString();
 }
 
 $Object* Remapper::mapValue(Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Type, value)) {
-		return $of(mapType($cast($Type, value)));
+		return mapType($cast($Type, value));
 	}
 	if ($instanceOf($Handle, value)) {
 		$var($Handle, handle, $cast($Handle, value));
-		int32_t var$0 = $nc(handle)->getTag();
+		int32_t var$0 = handle->getTag();
 		$var($String, var$1, mapType($(handle->getOwner())));
 		$var($String, var$3, handle->getOwner());
 		$var($String, var$4, handle->getName());
 		$var($String, var$2, mapMethodName(var$3, var$4, $(handle->getDesc())));
 		$var($String, var$5, handle->getTag() <= $Opcodes::H_PUTSTATIC ? mapDesc($(handle->getDesc())) : mapMethodDesc($(handle->getDesc())));
-		return $of($new($Handle, var$0, var$1, var$2, var$5, handle->isInterface()));
+		return $new($Handle, var$0, var$1, var$2, var$5, handle->isInterface());
 	}
 	if ($instanceOf($ConstantDynamic, value)) {
 		$var($ConstantDynamic, constantDynamic, $cast($ConstantDynamic, value));
-		int32_t bootstrapMethodArgumentCount = $nc(constantDynamic)->getBootstrapMethodArgumentCount();
+		int32_t bootstrapMethodArgumentCount = constantDynamic->getBootstrapMethodArgumentCount();
 		$var($ObjectArray, remappedBootstrapMethodArguments, $new($ObjectArray, bootstrapMethodArgumentCount));
 		for (int32_t i = 0; i < bootstrapMethodArgumentCount; ++i) {
 			remappedBootstrapMethodArguments->set(i, $(mapValue($(constantDynamic->getBootstrapMethodArgument(i)))));
@@ -194,13 +141,13 @@ $Object* Remapper::mapValue(Object$* value) {
 		$var($String, descriptor, constantDynamic->getDescriptor());
 		$var($String, var$6, mapInvokeDynamicMethodName($(constantDynamic->getName()), descriptor));
 		$var($String, var$7, mapDesc(descriptor));
-		return $of($new($ConstantDynamic, var$6, var$7, $cast($Handle, $(mapValue($(constantDynamic->getBootstrapMethod())))), remappedBootstrapMethodArguments));
+		return $new($ConstantDynamic, var$6, var$7, $$cast($Handle, mapValue($(constantDynamic->getBootstrapMethod()))), remappedBootstrapMethodArguments);
 	}
 	return $of(value);
 }
 
 $String* Remapper::mapSignature($String* signature, bool typeSignature) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (signature == nullptr) {
 		return nullptr;
 	}
@@ -226,7 +173,7 @@ $SignatureVisitor* Remapper::createSignatureRemapper($SignatureVisitor* signatur
 $String* Remapper::mapInnerClassName($String* name, $String* ownerName, $String* innerName) {
 	$var($String, remappedInnerName, this->mapType(name));
 	if ($nc(remappedInnerName)->contains("$"_s)) {
-		int32_t index = remappedInnerName->lastIndexOf((int32_t)u'$') + 1;
+		int32_t index = remappedInnerName->lastIndexOf(u'$') + 1;
 		while (true) {
 			bool var$0 = index < remappedInnerName->length();
 			if (!(var$0 && $Character::isDigit(remappedInnerName->charAt(index)))) {
@@ -274,7 +221,42 @@ Remapper::Remapper() {
 }
 
 $Class* Remapper::load$($String* name, bool initialize) {
-	$loadClass(Remapper, name, initialize, &_Remapper_ClassInfo_, allocate$Remapper);
+	$CompoundAttribute createRemappingSignatureAdaptermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Remapper, init$, void)},
+		{"createRemappingSignatureAdapter", "(Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;)Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(Remapper, createRemappingSignatureAdapter, $SignatureVisitor*, $SignatureVisitor*), nullptr, nullptr, createRemappingSignatureAdaptermethodAnnotations$$},
+		{"createSignatureRemapper", "(Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;)Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;", nullptr, $PROTECTED, $virtualMethod(Remapper, createSignatureRemapper, $SignatureVisitor*, $SignatureVisitor*)},
+		{"map", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Remapper, map, $String*, $String*)},
+		{"mapDesc", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Remapper, mapDesc, $String*, $String*)},
+		{"mapFieldName", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Remapper, mapFieldName, $String*, $String*, $String*, $String*)},
+		{"mapInnerClassName", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Remapper, mapInnerClassName, $String*, $String*, $String*, $String*)},
+		{"mapInvokeDynamicMethodName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Remapper, mapInvokeDynamicMethodName, $String*, $String*, $String*)},
+		{"mapMethodDesc", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Remapper, mapMethodDesc, $String*, $String*)},
+		{"mapMethodName", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Remapper, mapMethodName, $String*, $String*, $String*, $String*)},
+		{"mapModuleName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Remapper, mapModuleName, $String*, $String*)},
+		{"mapPackageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Remapper, mapPackageName, $String*, $String*)},
+		{"mapRecordComponentName", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Remapper, mapRecordComponentName, $String*, $String*, $String*, $String*)},
+		{"mapSignature", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Remapper, mapSignature, $String*, $String*, bool)},
+		{"mapType", "(Ljdk/internal/org/objectweb/asm/Type;)Ljdk/internal/org/objectweb/asm/Type;", nullptr, $PRIVATE, $method(Remapper, mapType, $Type*, $Type*)},
+		{"mapType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Remapper, mapType, $String*, $String*)},
+		{"mapTypes", "([Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Remapper, mapTypes, $StringArray*, $StringArray*)},
+		{"mapValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Remapper, mapValue, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"jdk.internal.org.objectweb.asm.commons.Remapper",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Remapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Remapper);
+	});
 	return class$;
 }
 

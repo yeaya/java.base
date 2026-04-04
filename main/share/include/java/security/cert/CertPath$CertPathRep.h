@@ -16,7 +16,7 @@ public:
 	CertPath$CertPathRep();
 	void init$($String* type, $bytes* data);
 	virtual $Object* readResolve();
-	static const int64_t serialVersionUID = (int64_t)0x29D9AE4D46FC6E13;
+	static const int64_t serialVersionUID = (int64_t)0x29d9ae4d46fc6e13;
 	$String* type = nullptr;
 	$bytes* data = nullptr;
 };

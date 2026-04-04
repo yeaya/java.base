@@ -1,5 +1,4 @@
 #include <java/util/TreeMap$SubMap.h>
-
 #include <java/lang/InternalError.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/Collection.h>
@@ -33,81 +32,6 @@ using $Function = ::java::util::function::Function;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _TreeMap$SubMap_FieldInfo_[] = {
-	{"this$0", "Ljava/util/TreeMap;", nullptr, $FINAL | $SYNTHETIC, $field(TreeMap$SubMap, this$0)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TreeMap$SubMap, serialVersionUID)},
-	{"fromStart", "Z", nullptr, $PRIVATE, $field(TreeMap$SubMap, fromStart)},
-	{"toEnd", "Z", nullptr, $PRIVATE, $field(TreeMap$SubMap, toEnd)},
-	{"fromKey", "Ljava/lang/Object;", "TK;", $PRIVATE, $field(TreeMap$SubMap, fromKey)},
-	{"toKey", "Ljava/lang/Object;", "TK;", $PRIVATE, $field(TreeMap$SubMap, toKey)},
-	{}
-};
-
-$MethodInfo _TreeMap$SubMap_MethodInfo_[] = {
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"*compute", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*computeIfAbsent", "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*computeIfPresent", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getOrDefault", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/util/TreeMap;)V", nullptr, $PRIVATE, $method(TreeMap$SubMap, init$, void, $TreeMap*)},
-	{"comparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TK;>;", $PUBLIC, $virtualMethod(TreeMap$SubMap, comparator, $Comparator*)},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(TreeMap$SubMap, entrySet, $Set*)},
-	{"firstKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(TreeMap$SubMap, firstKey, $Object*)},
-	{"headMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC, $virtualMethod(TreeMap$SubMap, headMap, $SortedMap*, Object$*)},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"*keySet", "()Ljava/util/Set;", nullptr, $PUBLIC},
-	{"lastKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(TreeMap$SubMap, lastKey, $Object*)},
-	{"*merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*putAll", "(Ljava/util/Map;)V", nullptr, $PUBLIC},
-	{"*putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(TreeMap$SubMap, readResolve, $Object*)},
-	{"*remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*remove", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*replaceAll", "(Ljava/util/function/BiFunction;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*size", "()I", nullptr, $PUBLIC},
-	{"subMap", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC, $virtualMethod(TreeMap$SubMap, subMap, $SortedMap*, Object$*, Object$*)},
-	{"tailMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC, $virtualMethod(TreeMap$SubMap, tailMap, $SortedMap*, Object$*)},
-	{"*values", "()Ljava/util/Collection;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _TreeMap$SubMap_InnerClassesInfo_[] = {
-	{"java.util.TreeMap$SubMap", "java.util.TreeMap", "SubMap", $PRIVATE},
-	{}
-};
-
-$ClassInfo _TreeMap$SubMap_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.TreeMap$SubMap",
-	"java.util.AbstractMap",
-	"java.util.SortedMap,java.io.Serializable",
-	_TreeMap$SubMap_FieldInfo_,
-	_TreeMap$SubMap_MethodInfo_,
-	"Ljava/util/AbstractMap<TK;TV;>;Ljava/util/SortedMap<TK;TV;>;Ljava/io/Serializable;",
-	nullptr,
-	_TreeMap$SubMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.TreeMap"
-};
-
-$Object* allocate$TreeMap$SubMap($Class* clazz) {
-	return $of($alloc(TreeMap$SubMap));
-}
 
 int32_t TreeMap$SubMap::size() {
 	 return this->$AbstractMap::size();
@@ -267,7 +191,76 @@ TreeMap$SubMap::TreeMap$SubMap() {
 }
 
 $Class* TreeMap$SubMap::load$($String* name, bool initialize) {
-	$loadClass(TreeMap$SubMap, name, initialize, &_TreeMap$SubMap_ClassInfo_, allocate$TreeMap$SubMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/TreeMap;", nullptr, $FINAL | $SYNTHETIC, $field(TreeMap$SubMap, this$0)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TreeMap$SubMap, serialVersionUID)},
+		{"fromStart", "Z", nullptr, $PRIVATE, $field(TreeMap$SubMap, fromStart)},
+		{"toEnd", "Z", nullptr, $PRIVATE, $field(TreeMap$SubMap, toEnd)},
+		{"fromKey", "Ljava/lang/Object;", "TK;", $PRIVATE, $field(TreeMap$SubMap, fromKey)},
+		{"toKey", "Ljava/lang/Object;", "TK;", $PRIVATE, $field(TreeMap$SubMap, toKey)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
+		{"*compute", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*computeIfAbsent", "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*computeIfPresent", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getOrDefault", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/util/TreeMap;)V", nullptr, $PRIVATE, $method(TreeMap$SubMap, init$, void, $TreeMap*)},
+		{"comparator", "()Ljava/util/Comparator;", "()Ljava/util/Comparator<-TK;>;", $PUBLIC, $virtualMethod(TreeMap$SubMap, comparator, $Comparator*)},
+		{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(TreeMap$SubMap, entrySet, $Set*)},
+		{"firstKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(TreeMap$SubMap, firstKey, $Object*)},
+		{"headMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC, $virtualMethod(TreeMap$SubMap, headMap, $SortedMap*, Object$*)},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"*keySet", "()Ljava/util/Set;", nullptr, $PUBLIC},
+		{"lastKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(TreeMap$SubMap, lastKey, $Object*)},
+		{"*merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*putAll", "(Ljava/util/Map;)V", nullptr, $PUBLIC},
+		{"*putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(TreeMap$SubMap, readResolve, $Object*)},
+		{"*remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*remove", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*replaceAll", "(Ljava/util/function/BiFunction;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*size", "()I", nullptr, $PUBLIC},
+		{"subMap", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC, $virtualMethod(TreeMap$SubMap, subMap, $SortedMap*, Object$*, Object$*)},
+		{"tailMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", "(TK;)Ljava/util/SortedMap<TK;TV;>;", $PUBLIC, $virtualMethod(TreeMap$SubMap, tailMap, $SortedMap*, Object$*)},
+		{"*values", "()Ljava/util/Collection;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.TreeMap$SubMap", "java.util.TreeMap", "SubMap", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.TreeMap$SubMap",
+		"java.util.AbstractMap",
+		"java.util.SortedMap,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractMap<TK;TV;>;Ljava/util/SortedMap<TK;TV;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.TreeMap"
+	};
+	$loadClass(TreeMap$SubMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TreeMap$SubMap));
+	});
 	return class$;
 }
 

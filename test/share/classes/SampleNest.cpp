@@ -1,5 +1,4 @@
 #include <SampleNest.h>
-
 #include <SampleNest$1.h>
 #include <SampleNest$1LocalClass.h>
 #include <java/lang/Runnable.h>
@@ -17,48 +16,6 @@ using $Runnable = ::java::lang::Runnable;
 using $LinkedList = ::java::util::LinkedList;
 using $List = ::java::util::List;
 
-$FieldInfo _SampleNest_FieldInfo_[] = {
-	{"_nestedTypes", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Class<*>;>;", $STATIC, $staticField(SampleNest, _nestedTypes)},
-	{}
-};
-
-$MethodInfo _SampleNest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SampleNest, init$, void)},
-	{"gather", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $STATIC, $staticMethod(SampleNest, gather, void, $Class*)},
-	{"nestedTypes", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(SampleNest, nestedTypes, $ClassArray*)},
-	{}
-};
-
-$InnerClassInfo _SampleNest_InnerClassesInfo_[] = {
-	{"SampleNest$DeepNest1", "SampleNest", "DeepNest1", $STATIC},
-	{"SampleNest$InnerIface", "SampleNest", "InnerIface", $STATIC | $INTERFACE | $ABSTRACT},
-	{"SampleNest$InnerClass", "SampleNest", "InnerClass", 0},
-	{"SampleNest$StaticIface", "SampleNest", "StaticIface", $STATIC | $INTERFACE | $ABSTRACT},
-	{"SampleNest$StaticClass", "SampleNest", "StaticClass", $STATIC},
-	{"SampleNest$1", nullptr, nullptr, 0},
-	{"SampleNest$1LocalClass", nullptr, "LocalClass", 0},
-	{}
-};
-
-$ClassInfo _SampleNest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"SampleNest",
-	"java.lang.Object",
-	nullptr,
-	_SampleNest_FieldInfo_,
-	_SampleNest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SampleNest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"SampleNest$DeepNest1,SampleNest$DeepNest1$DeepNest2,SampleNest$DeepNest1$DeepNest2$DeepNest3,SampleNest$InnerIface,SampleNest$InnerClass,SampleNest$StaticIface,SampleNest$StaticClass,SampleNest$1,SampleNest$1LocalClass"
-};
-
-$Object* allocate$SampleNest($Class* clazz) {
-	return $of($alloc(SampleNest));
-}
-
 $List* SampleNest::_nestedTypes = nullptr;
 
 void SampleNest::gather($Class* c) {
@@ -67,9 +24,7 @@ void SampleNest::gather($Class* c) {
 	$nc(SampleNest::_nestedTypes)->add(c);
 	{
 		$var($ClassArray, arr$, $nc(c)->getDeclaredClasses());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$Class* d = arr$->get(i$);
 			{
 				gather(d);
@@ -80,7 +35,7 @@ void SampleNest::gather($Class* c) {
 
 $ClassArray* SampleNest::nestedTypes() {
 	$init(SampleNest);
-	return $fcast($ClassArray, $nc(SampleNest::_nestedTypes)->toArray($$new($ClassArray, 0)));
+	return $cast($ClassArray, $nc(SampleNest::_nestedTypes)->toArray($$new($ClassArray, 0)));
 }
 
 void SampleNest::init$() {
@@ -92,7 +47,7 @@ void SampleNest::init$() {
 	r->run();
 }
 
-void clinit$SampleNest($Class* class$) {
+void SampleNest::clinit$($Class* clazz) {
 	$assignStatic(SampleNest::_nestedTypes, $new($LinkedList));
 	{
 		SampleNest::gather(SampleNest::class$);
@@ -104,7 +59,43 @@ SampleNest::SampleNest() {
 }
 
 $Class* SampleNest::load$($String* name, bool initialize) {
-	$loadClass(SampleNest, name, initialize, &_SampleNest_ClassInfo_, clinit$SampleNest, allocate$SampleNest);
+	$FieldInfo fieldInfos$$[] = {
+		{"_nestedTypes", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Class<*>;>;", $STATIC, $staticField(SampleNest, _nestedTypes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SampleNest, init$, void)},
+		{"gather", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $STATIC, $staticMethod(SampleNest, gather, void, $Class*)},
+		{"nestedTypes", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(SampleNest, nestedTypes, $ClassArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"SampleNest$DeepNest1", "SampleNest", "DeepNest1", $STATIC},
+		{"SampleNest$InnerIface", "SampleNest", "InnerIface", $STATIC | $INTERFACE | $ABSTRACT},
+		{"SampleNest$InnerClass", "SampleNest", "InnerClass", 0},
+		{"SampleNest$StaticIface", "SampleNest", "StaticIface", $STATIC | $INTERFACE | $ABSTRACT},
+		{"SampleNest$StaticClass", "SampleNest", "StaticClass", $STATIC},
+		{"SampleNest$1", nullptr, nullptr, 0},
+		{"SampleNest$1LocalClass", nullptr, "LocalClass", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"SampleNest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"SampleNest$DeepNest1,SampleNest$DeepNest1$DeepNest2,SampleNest$DeepNest1$DeepNest2$DeepNest3,SampleNest$InnerIface,SampleNest$InnerClass,SampleNest$StaticIface,SampleNest$StaticClass,SampleNest$1,SampleNest$1LocalClass"
+	};
+	$loadClass(SampleNest, name, initialize, &classInfo$$, SampleNest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SampleNest);
+	});
 	return class$;
 }
 

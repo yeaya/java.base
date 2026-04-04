@@ -51,6 +51,7 @@ class $import Deflater : public ::java::lang::Object {
 	$class(Deflater, 0, ::java::lang::Object)
 public:
 	Deflater();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t level, bool nowrap);
 	void init$(int32_t level);
 	void init$();

@@ -1,5 +1,4 @@
 #include <java/lang/invoke/LambdaFormEditor.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
 #include <java/lang/invoke/BoundMethodHandle$Specializer.h>
@@ -23,7 +22,6 @@
 #include <java/lang/invoke/TypeDescriptor$OfField.h>
 #include <java/lang/invoke/TypeDescriptor$OfMethod.h>
 #include <java/util/Arrays.h>
-#include <java/util/Comparator.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <java/util/Map$Entry.h>
@@ -77,7 +75,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
 using $BoundMethodHandle = ::java::lang::invoke::BoundMethodHandle;
-using $BoundMethodHandle$Specializer = ::java::lang::invoke::BoundMethodHandle$Specializer;
 using $BoundMethodHandle$SpeciesData = ::java::lang::invoke::BoundMethodHandle$SpeciesData;
 using $LambdaForm = ::java::lang::invoke::LambdaForm;
 using $LambdaForm$BasicType = ::java::lang::invoke::LambdaForm$BasicType;
@@ -93,11 +90,9 @@ using $MethodHandleImpl$Intrinsic = ::java::lang::invoke::MethodHandleImpl$Intri
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodType = ::java::lang::invoke::MethodType;
 using $Arrays = ::java::util::Arrays;
-using $Comparator = ::java::util::Comparator;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $TreeMap = ::java::util::TreeMap;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $Wrapper = ::sun::invoke::util::Wrapper;
@@ -105,94 +100,6 @@ using $Wrapper = ::sun::invoke::util::Wrapper;
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$FieldInfo _LambdaFormEditor_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaFormEditor, $assertionsDisabled)},
-	{"lambdaForm", "Ljava/lang/invoke/LambdaForm;", nullptr, $FINAL, $field(LambdaFormEditor, lambdaForm)},
-	{"BIND_ARG", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, BIND_ARG)},
-	{"ADD_ARG", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, ADD_ARG)},
-	{"DUP_ARG", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, DUP_ARG)},
-	{"SPREAD_ARGS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, SPREAD_ARGS)},
-	{"FILTER_ARG", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, FILTER_ARG)},
-	{"FILTER_RETURN", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, FILTER_RETURN)},
-	{"FILTER_RETURN_TO_ZERO", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, FILTER_RETURN_TO_ZERO)},
-	{"COLLECT_ARGS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, COLLECT_ARGS)},
-	{"COLLECT_ARGS_TO_VOID", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, COLLECT_ARGS_TO_VOID)},
-	{"COLLECT_ARGS_TO_ARRAY", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, COLLECT_ARGS_TO_ARRAY)},
-	{"FOLD_ARGS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, FOLD_ARGS)},
-	{"FOLD_ARGS_TO_VOID", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, FOLD_ARGS_TO_VOID)},
-	{"PERMUTE_ARGS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, PERMUTE_ARGS)},
-	{"LOCAL_TYPES", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, LOCAL_TYPES)},
-	{"FOLD_SELECT_ARGS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, FOLD_SELECT_ARGS)},
-	{"FOLD_SELECT_ARGS_TO_VOID", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, FOLD_SELECT_ARGS_TO_VOID)},
-	{"FILTER_SELECT_ARGS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, FILTER_SELECT_ARGS)},
-	{"REPEAT_FILTER_ARGS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, REPEAT_FILTER_ARGS)},
-	{"MIN_CACHE_ARRAY_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, MIN_CACHE_ARRAY_SIZE)},
-	{"MAX_CACHE_ARRAY_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, MAX_CACHE_ARRAY_SIZE)},
-	{}
-};
-
-$MethodInfo _LambdaFormEditor_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/LambdaForm;)V", nullptr, $PRIVATE, $method(LambdaFormEditor, init$, void, $LambdaForm*)},
-	{"addArgumentForm", "(ILjava/lang/invoke/LambdaForm$BasicType;)Ljava/lang/invoke/LambdaForm;", nullptr, 0, $virtualMethod(LambdaFormEditor, addArgumentForm, $LambdaForm*, int32_t, $LambdaForm$BasicType*)},
-	{"bindArgumentD", "(Ljava/lang/invoke/BoundMethodHandle;ID)Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(LambdaFormEditor, bindArgumentD, $BoundMethodHandle*, $BoundMethodHandle*, int32_t, double)},
-	{"bindArgumentF", "(Ljava/lang/invoke/BoundMethodHandle;IF)Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(LambdaFormEditor, bindArgumentF, $BoundMethodHandle*, $BoundMethodHandle*, int32_t, float)},
-	{"bindArgumentForm", "(I)Ljava/lang/invoke/LambdaForm;", nullptr, 0, $virtualMethod(LambdaFormEditor, bindArgumentForm, $LambdaForm*, int32_t)},
-	{"bindArgumentI", "(Ljava/lang/invoke/BoundMethodHandle;II)Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(LambdaFormEditor, bindArgumentI, $BoundMethodHandle*, $BoundMethodHandle*, int32_t, int32_t)},
-	{"bindArgumentJ", "(Ljava/lang/invoke/BoundMethodHandle;IJ)Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(LambdaFormEditor, bindArgumentJ, $BoundMethodHandle*, $BoundMethodHandle*, int32_t, int64_t)},
-	{"bindArgumentL", "(Ljava/lang/invoke/BoundMethodHandle;ILjava/lang/Object;)Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(LambdaFormEditor, bindArgumentL, $BoundMethodHandle*, $BoundMethodHandle*, int32_t, Object$*)},
-	{"bindArgumentType", "(Ljava/lang/invoke/BoundMethodHandle;ILjava/lang/invoke/LambdaForm$BasicType;)Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE, $method(LambdaFormEditor, bindArgumentType, $MethodType*, $BoundMethodHandle*, int32_t, $LambdaForm$BasicType*)},
-	{"buffer", "()Ljava/lang/invoke/LambdaFormBuffer;", nullptr, $PRIVATE, $method(LambdaFormEditor, buffer, $LambdaFormBuffer*)},
-	{"collectArgumentsForm", "(ILjava/lang/invoke/MethodType;)Ljava/lang/invoke/LambdaForm;", nullptr, 0, $virtualMethod(LambdaFormEditor, collectArgumentsForm, $LambdaForm*, int32_t, $MethodType*)},
-	{"collectReturnValueForm", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/LambdaForm;", nullptr, 0, $virtualMethod(LambdaFormEditor, collectReturnValueForm, $LambdaForm*, $MethodType*)},
-	{"dupArgumentForm", "(II)Ljava/lang/invoke/LambdaForm;", nullptr, 0, $virtualMethod(LambdaFormEditor, dupArgumentForm, $LambdaForm*, int32_t, int32_t)},
-	{"filterArgumentForm", "(ILjava/lang/invoke/LambdaForm$BasicType;)Ljava/lang/invoke/LambdaForm;", nullptr, 0, $virtualMethod(LambdaFormEditor, filterArgumentForm, $LambdaForm*, int32_t, $LambdaForm$BasicType*)},
-	{"filterArgumentsForm", "(ILjava/lang/invoke/MethodType;[I)Ljava/lang/invoke/LambdaForm;", nullptr, $TRANSIENT, $virtualMethod(LambdaFormEditor, filterArgumentsForm, $LambdaForm*, int32_t, $MethodType*, $ints*)},
-	{"filterRepeatedArgumentForm", "(Ljava/lang/invoke/LambdaForm$BasicType;[I)Ljava/lang/invoke/LambdaForm;", nullptr, $TRANSIENT, $virtualMethod(LambdaFormEditor, filterRepeatedArgumentForm, $LambdaForm*, $LambdaForm$BasicType*, $ints*)},
-	{"filterReturnForm", "(Ljava/lang/invoke/LambdaForm$BasicType;Z)Ljava/lang/invoke/LambdaForm;", nullptr, 0, $virtualMethod(LambdaFormEditor, filterReturnForm, $LambdaForm*, $LambdaForm$BasicType*, bool)},
-	{"foldArgumentsForm", "(IZLjava/lang/invoke/MethodType;)Ljava/lang/invoke/LambdaForm;", nullptr, 0, $virtualMethod(LambdaFormEditor, foldArgumentsForm, $LambdaForm*, int32_t, bool, $MethodType*)},
-	{"foldArgumentsForm", "(IZLjava/lang/invoke/MethodType;[I)Ljava/lang/invoke/LambdaForm;", nullptr, $TRANSIENT, $virtualMethod(LambdaFormEditor, foldArgumentsForm, $LambdaForm*, int32_t, bool, $MethodType*, $ints*)},
-	{"formParametersMatch", "(Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/LambdaForm$BasicType;[I)Z", nullptr, $PRIVATE | $TRANSIENT, $method(LambdaFormEditor, formParametersMatch, bool, $LambdaForm*, $LambdaForm$BasicType*, $ints*)},
-	{"getInCache", "(Ljava/lang/invoke/LambdaFormEditor$TransformKey;)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE, $method(LambdaFormEditor, getInCache, $LambdaForm*, $LambdaFormEditor$TransformKey*)},
-	{"lambdaFormEditor", "(Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/LambdaFormEditor;", nullptr, $STATIC, $staticMethod(LambdaFormEditor, lambdaFormEditor, LambdaFormEditor*, $LambdaForm*)},
-	{"makeArgumentCombinationForm", "(ILjava/lang/invoke/MethodType;ZZ)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE, $method(LambdaFormEditor, makeArgumentCombinationForm, $LambdaForm*, int32_t, $MethodType*, bool, bool)},
-	{"makeArgumentCombinationForm", "(ILjava/lang/invoke/MethodType;[IZZ)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE, $method(LambdaFormEditor, makeArgumentCombinationForm, $LambdaForm*, int32_t, $MethodType*, $ints*, bool, bool)},
-	{"makeRepeatedFilterForm", "(Ljava/lang/invoke/MethodType;[I)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $TRANSIENT, $method(LambdaFormEditor, makeRepeatedFilterForm, $LambdaForm*, $MethodType*, $ints*)},
-	{"newSpeciesData", "(Ljava/lang/invoke/LambdaForm$BasicType;)Ljava/lang/invoke/BoundMethodHandle$SpeciesData;", nullptr, $PRIVATE, $method(LambdaFormEditor, newSpeciesData, $BoundMethodHandle$SpeciesData*, $LambdaForm$BasicType*)},
-	{"noteLoopLocalTypesForm", "(I[Ljava/lang/invoke/LambdaForm$BasicType;)Ljava/lang/invoke/LambdaForm;", nullptr, 0, $virtualMethod(LambdaFormEditor, noteLoopLocalTypesForm, $LambdaForm*, int32_t, $LambdaForm$BasicTypeArray*)},
-	{"oldSpeciesData", "()Ljava/lang/invoke/BoundMethodHandle$SpeciesData;", nullptr, $PRIVATE, $method(LambdaFormEditor, oldSpeciesData, $BoundMethodHandle$SpeciesData*)},
-	{"permuteArgumentsForm", "(I[I)Ljava/lang/invoke/LambdaForm;", nullptr, 0, $virtualMethod(LambdaFormEditor, permuteArgumentsForm, $LambdaForm*, int32_t, $ints*)},
-	{"permutedTypesMatch", "([I[Ljava/lang/invoke/LambdaForm$BasicType;[Ljava/lang/invoke/LambdaForm$Name;I)Z", nullptr, $STATIC, $staticMethod(LambdaFormEditor, permutedTypesMatch, bool, $ints*, $LambdaForm$BasicTypeArray*, $LambdaForm$NameArray*, int32_t)},
-	{"putInCache", "(Ljava/lang/invoke/LambdaFormEditor$TransformKey;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE, $method(LambdaFormEditor, putInCache, $LambdaForm*, $LambdaFormEditor$TransformKey*, $LambdaForm*)},
-	{"spreadArgumentsForm", "(ILjava/lang/Class;I)Ljava/lang/invoke/LambdaForm;", "(ILjava/lang/Class<*>;I)Ljava/lang/invoke/LambdaForm;", 0, $virtualMethod(LambdaFormEditor, spreadArgumentsForm, $LambdaForm*, int32_t, $Class*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _LambdaFormEditor_InnerClassesInfo_[] = {
-	{"java.lang.invoke.LambdaFormEditor$TransformKey", "java.lang.invoke.LambdaFormEditor", "TransformKey", $PRIVATE | $STATIC | $FINAL},
-	{"java.lang.invoke.LambdaFormEditor$Transform", "java.lang.invoke.LambdaFormEditor", "Transform", $PRIVATE | $STATIC | $FINAL},
-	{"java.lang.invoke.LambdaFormEditor$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LambdaFormEditor_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.LambdaFormEditor",
-	"java.lang.Object",
-	nullptr,
-	_LambdaFormEditor_FieldInfo_,
-	_LambdaFormEditor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LambdaFormEditor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.LambdaFormEditor$TransformKey,java.lang.invoke.LambdaFormEditor$Transform,java.lang.invoke.LambdaFormEditor$1"
-};
-
-$Object* allocate$LambdaFormEditor($Class* clazz) {
-	return $of($alloc(LambdaFormEditor));
-}
 
 bool LambdaFormEditor::$assertionsDisabled = false;
 
@@ -206,35 +113,35 @@ LambdaFormEditor* LambdaFormEditor::lambdaFormEditor($LambdaForm* lambdaForm) {
 }
 
 $LambdaForm* LambdaFormEditor::getInCache($LambdaFormEditor$TransformKey* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, c, $nc(this->lambdaForm)->transformCache);
 	$var($LambdaFormEditor$Transform, k, nullptr);
 	{
 		$var($LambdaFormEditor$Transform, t, nullptr);
 		if ($instanceOf($ConcurrentHashMap, c)) {
 			$var($ConcurrentHashMap, m, $cast($ConcurrentHashMap, c));
-			$assign(k, $cast($LambdaFormEditor$Transform, $nc(m)->get(key)));
+			$assign(k, $cast($LambdaFormEditor$Transform, m->get(key)));
 		} else if (c == nullptr) {
 			return nullptr;
 		} else {
-			bool var$1 = $instanceOf($LambdaFormEditor$Transform, c);
-			if (var$1) {
+			bool var$0 = $instanceOf($LambdaFormEditor$Transform, c);
+			if (var$0) {
 				$assign(t, $cast($LambdaFormEditor$Transform, c));
-				var$1 = true;
+				var$0 = true;
 			}
-			if (var$1) {
+			if (var$0) {
 				if ($nc(t)->equals(key)) {
 					$assign(k, t);
 				}
 			} else {
 				$var($LambdaFormEditor$TransformArray, ta, $cast($LambdaFormEditor$TransformArray, c));
-				for (int32_t i = 0; i < $nc(ta)->length; ++i) {
-					$var($LambdaFormEditor$Transform, t_1, ta->get(i));
-					if (t_1 == nullptr) {
+				for (int32_t i = 0; i < ta->length; ++i) {
+					$var($LambdaFormEditor$Transform, t, ta->get(i));
+					if (t == nullptr) {
 						break;
 					}
-					if ($nc(t_1)->equals(key)) {
-						$assign(k, t_1);
+					if ($nc(t)->equals(key)) {
+						$assign(k, t);
 						break;
 					}
 				}
@@ -244,17 +151,17 @@ $LambdaForm* LambdaFormEditor::getInCache($LambdaFormEditor$TransformKey* key) {
 	if (!LambdaFormEditor::$assertionsDisabled && !(k == nullptr || $nc(key)->equals(k))) {
 		$throwNew($AssertionError);
 	}
-	return (k != nullptr) ? $cast($LambdaForm, $nc(k)->get()) : ($LambdaForm*)nullptr;
+	return (k != nullptr) ? $cast($LambdaForm, k->get()) : ($LambdaForm*)nullptr;
 }
 
 $LambdaForm* LambdaFormEditor::putInCache($LambdaFormEditor$TransformKey* key, $LambdaForm* form) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LambdaFormEditor$Transform, transform, $nc(key)->withResult(form));
 	for (int32_t pass = 0;; ++pass) {
 		$var($Object, c, $nc(this->lambdaForm)->transformCache);
 		if ($instanceOf($ConcurrentHashMap, c)) {
 			$var($ConcurrentHashMap, m, $cast($ConcurrentHashMap, c));
-			$var($LambdaFormEditor$Transform, k, $cast($LambdaFormEditor$Transform, $nc(m)->putIfAbsent(transform, transform)));
+			$var($LambdaFormEditor$Transform, k, $cast($LambdaFormEditor$Transform, m->putIfAbsent(transform, transform)));
 			if (k == nullptr) {
 				return form;
 			}
@@ -271,12 +178,12 @@ $LambdaForm* LambdaFormEditor::putInCache($LambdaFormEditor$TransformKey* key, $
 			$throwNew($AssertionError);
 		}
 		$synchronized(this->lambdaForm) {
-			$assign(c, $nc(this->lambdaForm)->transformCache);
+			$assign(c, this->lambdaForm->transformCache);
 			if ($instanceOf($ConcurrentHashMap, c)) {
 				continue;
 			}
 			if (c == nullptr) {
-				$set($nc(this->lambdaForm), transformCache, transform);
+				$set(this->lambdaForm, transformCache, transform);
 				return form;
 			}
 			$var($LambdaFormEditor$TransformArray, ta, nullptr);
@@ -291,18 +198,18 @@ $LambdaForm* LambdaFormEditor::putInCache($LambdaFormEditor$TransformKey* key, $
 					if ($nc(k)->equals(key)) {
 						$var($LambdaForm, result, $cast($LambdaForm, k->get()));
 						if (result == nullptr) {
-							$set($nc(this->lambdaForm), transformCache, transform);
+							$set(this->lambdaForm, transformCache, transform);
 							return form;
 						} else {
 							return result;
 						}
 					} else if (k->get() == nullptr) {
-						$set($nc(this->lambdaForm), transformCache, transform);
+						$set(this->lambdaForm, transformCache, transform);
 						return form;
 					}
 					$assign(ta, $new($LambdaFormEditor$TransformArray, LambdaFormEditor::MIN_CACHE_ARRAY_SIZE));
 					ta->set(0, k);
-					$set($nc(this->lambdaForm), transformCache, ta);
+					$set(this->lambdaForm, transformCache, ta);
 				} else {
 					$assign(ta, $cast($LambdaFormEditor$TransformArray, c));
 				}
@@ -330,22 +237,20 @@ $LambdaForm* LambdaFormEditor::putInCache($LambdaFormEditor$TransformKey* key, $
 			if (i < len || stale >= 0) {
 			} else if (len < LambdaFormEditor::MAX_CACHE_ARRAY_SIZE) {
 				len = $Math::min(len * 2, LambdaFormEditor::MAX_CACHE_ARRAY_SIZE);
-				$assign(ta, $fcast($LambdaFormEditor$TransformArray, $Arrays::copyOf(ta, len)));
-				$set($nc(this->lambdaForm), transformCache, ta);
+				$assign(ta, $cast($LambdaFormEditor$TransformArray, $Arrays::copyOf(ta, len)));
+				$set(this->lambdaForm, transformCache, ta);
 			} else {
 				$var($ConcurrentHashMap, m, $new($ConcurrentHashMap, LambdaFormEditor::MAX_CACHE_ARRAY_SIZE * 2));
 				{
 					$var($LambdaFormEditor$TransformArray, arr$, ta);
-					int32_t len$ = arr$->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
+					for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 						$var($LambdaFormEditor$Transform, k, arr$->get(i$));
 						{
 							m->put(k, k);
 						}
 					}
 				}
-				$set($nc(this->lambdaForm), transformCache, m);
+				$set(this->lambdaForm, transformCache, m);
 				continue;
 			}
 			int32_t idx = (stale >= 0) ? stale : i;
@@ -364,11 +269,11 @@ $BoundMethodHandle$SpeciesData* LambdaFormEditor::oldSpeciesData() {
 }
 
 $BoundMethodHandle$SpeciesData* LambdaFormEditor::newSpeciesData($LambdaForm$BasicType* type) {
-	return $nc($(oldSpeciesData()))->extendWith((int8_t)$nc(type)->ordinal());
+	return $$nc(oldSpeciesData())->extendWith((int8_t)$nc(type)->ordinal());
 }
 
 $BoundMethodHandle* LambdaFormEditor::bindArgumentL($BoundMethodHandle* mh, int32_t pos, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !LambdaFormEditor::$assertionsDisabled;
 	if (var$0) {
 		var$0 = !($nc(mh)->speciesData() == oldSpeciesData());
@@ -384,7 +289,7 @@ $BoundMethodHandle* LambdaFormEditor::bindArgumentL($BoundMethodHandle* mh, int3
 }
 
 $BoundMethodHandle* LambdaFormEditor::bindArgumentI($BoundMethodHandle* mh, int32_t pos, int32_t value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !LambdaFormEditor::$assertionsDisabled;
 	if (var$0) {
 		var$0 = !($nc(mh)->speciesData() == oldSpeciesData());
@@ -400,7 +305,7 @@ $BoundMethodHandle* LambdaFormEditor::bindArgumentI($BoundMethodHandle* mh, int3
 }
 
 $BoundMethodHandle* LambdaFormEditor::bindArgumentJ($BoundMethodHandle* mh, int32_t pos, int64_t value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !LambdaFormEditor::$assertionsDisabled;
 	if (var$0) {
 		var$0 = !($nc(mh)->speciesData() == oldSpeciesData());
@@ -416,7 +321,7 @@ $BoundMethodHandle* LambdaFormEditor::bindArgumentJ($BoundMethodHandle* mh, int3
 }
 
 $BoundMethodHandle* LambdaFormEditor::bindArgumentF($BoundMethodHandle* mh, int32_t pos, float value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !LambdaFormEditor::$assertionsDisabled;
 	if (var$0) {
 		var$0 = !($nc(mh)->speciesData() == oldSpeciesData());
@@ -432,7 +337,7 @@ $BoundMethodHandle* LambdaFormEditor::bindArgumentF($BoundMethodHandle* mh, int3
 }
 
 $BoundMethodHandle* LambdaFormEditor::bindArgumentD($BoundMethodHandle* mh, int32_t pos, double value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !LambdaFormEditor::$assertionsDisabled;
 	if (var$0) {
 		var$0 = !($nc(mh)->speciesData() == oldSpeciesData());
@@ -448,21 +353,21 @@ $BoundMethodHandle* LambdaFormEditor::bindArgumentD($BoundMethodHandle* mh, int3
 }
 
 $MethodType* LambdaFormEditor::bindArgumentType($BoundMethodHandle* mh, int32_t pos, $LambdaForm$BasicType* bt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!LambdaFormEditor::$assertionsDisabled && !($nc($nc(mh)->form)->uncustomize() == this->lambdaForm)) {
 		$throwNew($AssertionError);
 	}
 	if (!LambdaFormEditor::$assertionsDisabled && !($nc($nc($nc($nc(mh)->form)->names)->get(1 + pos))->type$ == bt)) {
 		$throwNew($AssertionError);
 	}
-	if (!LambdaFormEditor::$assertionsDisabled && !($LambdaForm$BasicType::basicType($($cast($Class, $nc($($nc(mh)->type()))->parameterType(pos)))) == bt)) {
+	if (!LambdaFormEditor::$assertionsDisabled && !($LambdaForm$BasicType::basicType($$cast($Class, $$nc($nc(mh)->type())->parameterType(pos))) == bt)) {
 		$throwNew($AssertionError);
 	}
-	return $cast($MethodType, $nc($($nc(mh)->type()))->dropParameterTypes(pos, pos + 1));
+	return $cast($MethodType, $$nc($nc(mh)->type())->dropParameterTypes(pos, pos + 1));
 }
 
 $LambdaForm* LambdaFormEditor::bindArgumentForm(int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LambdaFormEditor$TransformKey, key, $LambdaFormEditor$TransformKey::of(LambdaFormEditor::BIND_ARG, pos));
 	$var($LambdaForm, form, getInCache(key));
 	if (form != nullptr) {
@@ -479,15 +384,15 @@ $LambdaForm* LambdaFormEditor::bindArgumentForm(int32_t pos) {
 	$nc(buf)->startEdit();
 	$var($BoundMethodHandle$SpeciesData, oldData, oldSpeciesData());
 	$var($BoundMethodHandle$SpeciesData, newData, newSpeciesData($($nc(this->lambdaForm)->parameterType(pos))));
-	$var($LambdaForm$Name, oldBaseAddress, $nc(this->lambdaForm)->parameter(0));
+	$var($LambdaForm$Name, oldBaseAddress, this->lambdaForm->parameter(0));
 	$var($LambdaForm$Name, newBaseAddress, nullptr);
 	$var($LambdaForm$NamedFunction, getter, $nc(newData)->getterFunction($nc(oldData)->fieldCount()));
 	if (pos != 0) {
-		$var($List, var$1, $nc(oldData)->getterFunctions());
-		buf->replaceFunctions(var$1, $(newData->getterFunctions()), $$new($ObjectArray, {$of(oldBaseAddress)}));
+		$var($List, var$1, oldData->getterFunctions());
+		buf->replaceFunctions(var$1, $(newData->getterFunctions()), $$new($ObjectArray, {oldBaseAddress}));
 		$assign(newBaseAddress, $nc(oldBaseAddress)->withConstraint(newData));
 		buf->renameParameter(0, newBaseAddress);
-		buf->replaceParameterByNewExpression(pos, $$new($LambdaForm$Name, getter, $$new($ObjectArray, {$of(newBaseAddress)})));
+		buf->replaceParameterByNewExpression(pos, $$new($LambdaForm$Name, getter, $$new($ObjectArray, {newBaseAddress})));
 	} else {
 		$init($BoundMethodHandle);
 		if (!LambdaFormEditor::$assertionsDisabled && !($equals(oldData, $nc($BoundMethodHandle::SPECIALIZER)->topSpecies()))) {
@@ -495,7 +400,7 @@ $LambdaForm* LambdaFormEditor::bindArgumentForm(int32_t pos) {
 		}
 		$init($LambdaForm$BasicType);
 		$assign(newBaseAddress, $$new($LambdaForm$Name, $LambdaForm$BasicType::L_TYPE)->withConstraint(newData));
-		buf->replaceParameterByNewExpression(0, $$new($LambdaForm$Name, getter, $$new($ObjectArray, {$of(newBaseAddress)})));
+		buf->replaceParameterByNewExpression(0, $$new($LambdaForm$Name, getter, $$new($ObjectArray, {newBaseAddress})));
 		buf->insertParameter(0, newBaseAddress);
 	}
 	$assign(form, buf->endEdit());
@@ -503,7 +408,7 @@ $LambdaForm* LambdaFormEditor::bindArgumentForm(int32_t pos) {
 }
 
 $LambdaForm* LambdaFormEditor::addArgumentForm(int32_t pos, $LambdaForm$BasicType* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LambdaFormEditor$TransformKey, key, $LambdaFormEditor$TransformKey::of(LambdaFormEditor::ADD_ARG, pos, $nc(type)->ordinal()));
 	$var($LambdaForm, form, getInCache(key));
 	if (form != nullptr) {
@@ -523,7 +428,7 @@ $LambdaForm* LambdaFormEditor::addArgumentForm(int32_t pos, $LambdaForm$BasicTyp
 }
 
 $LambdaForm* LambdaFormEditor::dupArgumentForm(int32_t srcPos, int32_t dstPos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LambdaFormEditor$TransformKey, key, $LambdaFormEditor$TransformKey::of(LambdaFormEditor::DUP_ARG, srcPos, dstPos));
 	$var($LambdaForm, form, getInCache(key));
 	if (form != nullptr) {
@@ -546,18 +451,17 @@ $LambdaForm* LambdaFormEditor::dupArgumentForm(int32_t srcPos, int32_t dstPos) {
 }
 
 $LambdaForm* LambdaFormEditor::spreadArgumentsForm(int32_t pos, $Class* arrayType, int32_t arrayLength) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Class* elementType = $nc(arrayType)->getComponentType();
 	$Class* erasedArrayType = arrayType;
 	if (!$nc(elementType)->isPrimitive()) {
-		$load($ObjectArray);
 		erasedArrayType = $getClass($ObjectArray);
 	}
 	$LambdaForm$BasicType* bt = $LambdaForm$BasicType::basicType(elementType);
 	int32_t elementTypeKey = $nc(bt)->ordinal();
 	if (bt->basicTypeClass() != elementType) {
-		if ($nc(elementType)->isPrimitive()) {
-			elementTypeKey = $LambdaForm$BasicType::TYPE_LIMIT + $nc($($Wrapper::forPrimitiveType(elementType)))->ordinal();
+		if (elementType->isPrimitive()) {
+			elementTypeKey = $LambdaForm$BasicType::TYPE_LIMIT + $$nc($Wrapper::forPrimitiveType(elementType))->ordinal();
 		}
 	}
 	$var($LambdaFormEditor$TransformKey, key, $LambdaFormEditor$TransformKey::of(LambdaFormEditor::SPREAD_ARGS, pos, elementTypeKey, arrayLength));
@@ -582,8 +486,8 @@ $LambdaForm* LambdaFormEditor::spreadArgumentsForm(int32_t pos, $Class* arrayTyp
 	$var($LambdaForm$Name, spreadParam, $new($LambdaForm$Name, $LambdaForm$BasicType::L_TYPE));
 	$var($LambdaForm$NamedFunction, var$0, $MethodHandleImpl::getFunction($MethodHandleImpl::NF_checkSpreadArgument));
 	$var($LambdaForm$Name, checkSpread, $new($LambdaForm$Name, var$0, $$new($ObjectArray, {
-		$of(spreadParam),
-		$($of($Integer::valueOf(arrayLength)))
+		spreadParam,
+		$($Integer::valueOf(arrayLength))
 	})));
 	int32_t exprPos = $nc(this->lambdaForm)->arity();
 	buf->insertExpression(exprPos++, checkSpread);
@@ -592,8 +496,8 @@ $LambdaForm* LambdaFormEditor::spreadArgumentsForm(int32_t pos, $Class* arrayTyp
 		$init($MethodHandleImpl$Intrinsic);
 		$var($LambdaForm$NamedFunction, var$1, $new($LambdaForm$NamedFunction, $($MethodHandleImpl::makeIntrinsic(aload, $MethodHandleImpl$Intrinsic::ARRAY_LOAD))));
 		$var($LambdaForm$Name, loadArgument, $new($LambdaForm$Name, var$1, $$new($ObjectArray, {
-			$of(spreadParam),
-			$($of($Integer::valueOf(i)))
+			spreadParam,
+			$($Integer::valueOf(i))
 		})));
 		buf->insertExpression(exprPos + i, loadArgument);
 		buf->replaceParameterByCopy(pos + i, exprPos + i);
@@ -604,12 +508,11 @@ $LambdaForm* LambdaFormEditor::spreadArgumentsForm(int32_t pos, $Class* arrayTyp
 }
 
 $LambdaForm* LambdaFormEditor::collectArgumentsForm(int32_t pos, $MethodType* collectorType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t collectorArity = $nc(collectorType)->parameterCount();
-	$init($Void);
 	bool dropResult = ($cast($Class, collectorType->returnType()) == $Void::TYPE);
 	if (collectorArity == 1 && !dropResult) {
-		return filterArgumentForm(pos, $($LambdaForm$BasicType::basicType($($cast($Class, collectorType->parameterType(0))))));
+		return filterArgumentForm(pos, $($LambdaForm$BasicType::basicType($$cast($Class, collectorType->parameterType(0)))));
 	}
 	$var($bytes, newTypes, $LambdaForm$BasicType::basicTypesOrd($(collectorType->ptypes())));
 	int8_t kind = (dropResult ? LambdaFormEditor::COLLECT_ARGS_TO_VOID : LambdaFormEditor::COLLECT_ARGS);
@@ -629,7 +532,7 @@ $LambdaForm* LambdaFormEditor::collectArgumentsForm(int32_t pos, $MethodType* co
 }
 
 $LambdaForm* LambdaFormEditor::filterArgumentForm(int32_t pos, $LambdaForm$BasicType* newType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LambdaFormEditor$TransformKey, key, $LambdaFormEditor$TransformKey::of(LambdaFormEditor::FILTER_ARG, pos, $nc(newType)->ordinal()));
 	$var($LambdaForm, form, getInCache(key));
 	if (form != nullptr) {
@@ -643,13 +546,13 @@ $LambdaForm* LambdaFormEditor::filterArgumentForm(int32_t pos, $LambdaForm$Basic
 	}
 	$LambdaForm$BasicType* oldType = $nc(this->lambdaForm)->parameterType(pos);
 	$Class* var$0 = $nc(oldType)->basicTypeClass();
-	$var($MethodType, filterType, $MethodType::methodType(var$0, $nc(newType)->basicTypeClass()));
+	$var($MethodType, filterType, $MethodType::methodType(var$0, newType->basicTypeClass()));
 	$assign(form, makeArgumentCombinationForm(pos, filterType, false, false));
 	return putInCache(key, form);
 }
 
 $LambdaForm* LambdaFormEditor::filterRepeatedArgumentForm($LambdaForm$BasicType* newType, $ints* argPositions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!LambdaFormEditor::$assertionsDisabled && !($nc(argPositions)->length > 1)) {
 		$throwNew($AssertionError);
 	}
@@ -663,7 +566,7 @@ $LambdaForm* LambdaFormEditor::filterRepeatedArgumentForm($LambdaForm$BasicType*
 	}
 	$LambdaForm$BasicType* oldType = $nc(this->lambdaForm)->parameterType($nc(argPositions)->get(0));
 	$Class* var$0 = $nc(oldType)->basicTypeClass();
-	$var($MethodType, filterType, $MethodType::methodType(var$0, $nc(newType)->basicTypeClass()));
+	$var($MethodType, filterType, $MethodType::methodType(var$0, newType->basicTypeClass()));
 	$assign(form, makeRepeatedFilterForm(filterType, argPositions));
 	if (!LambdaFormEditor::$assertionsDisabled && !(formParametersMatch(form, newType, argPositions))) {
 		$throwNew($AssertionError);
@@ -672,29 +575,22 @@ $LambdaForm* LambdaFormEditor::filterRepeatedArgumentForm($LambdaForm$BasicType*
 }
 
 bool LambdaFormEditor::formParametersMatch($LambdaForm* form, $LambdaForm$BasicType* newType, $ints* argPositions) {
-	{
-		$var($ints, arr$, argPositions);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			int32_t i = arr$->get(i$);
-			{
-				if ($nc(form)->parameterType(i) != newType) {
-					return false;
-				}
-			}
+	$var($ints, arr$, argPositions);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		int32_t i = arr$->get(i$);
+		if ($nc(form)->parameterType(i) != newType) {
+			return false;
 		}
 	}
 	return true;
 }
 
 $LambdaForm* LambdaFormEditor::makeRepeatedFilterForm($MethodType* combinerType, $ints* positions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !LambdaFormEditor::$assertionsDisabled;
 	if (var$0) {
 		bool var$2 = $nc(combinerType)->parameterCount() == 1;
 		bool var$1 = var$2 && combinerType == combinerType->basicType();
-		$init($Void);
 		var$0 = !(var$1 && $cast($Class, combinerType->returnType()) != $Void::TYPE);
 	}
 	if (var$0) {
@@ -707,22 +603,22 @@ $LambdaForm* LambdaFormEditor::makeRepeatedFilterForm($MethodType* combinerType,
 	$var($BoundMethodHandle$SpeciesData, newData, newSpeciesData($LambdaForm$BasicType::L_TYPE));
 	$var($LambdaForm$Name, oldBaseAddress, $nc(this->lambdaForm)->parameter(0));
 	$var($List, var$3, $nc(oldData)->getterFunctions());
-	buf->replaceFunctions(var$3, $($nc(newData)->getterFunctions()), $$new($ObjectArray, {$of(oldBaseAddress)}));
+	buf->replaceFunctions(var$3, $($nc(newData)->getterFunctions()), $$new($ObjectArray, {oldBaseAddress}));
 	$var($LambdaForm$Name, newBaseAddress, $nc(oldBaseAddress)->withConstraint(newData));
 	buf->renameParameter(0, newBaseAddress);
-	int32_t exprPos = $nc(this->lambdaForm)->arity();
-	$var($LambdaForm$Name, getCombiner, $new($LambdaForm$Name, $($nc(newData)->getterFunction($nc(oldData)->fieldCount())), $$new($ObjectArray, {$of(newBaseAddress)})));
+	int32_t exprPos = this->lambdaForm->arity();
+	$var($LambdaForm$Name, getCombiner, $new($LambdaForm$Name, $(newData->getterFunction(oldData->fieldCount())), $$new($ObjectArray, {newBaseAddress})));
 	buf->insertExpression(exprPos++, getCombiner);
-	$var($TreeMap, newParameters, $new($TreeMap, static_cast<$Comparator*>($$new($LambdaFormEditor$1, this))));
+	$var($TreeMap, newParameters, $new($TreeMap, $$new($LambdaFormEditor$1, this)));
 	for (int32_t i = $nc(positions)->length - 1; i >= 0; --i) {
 		int32_t pos = positions->get(i);
-		if (!LambdaFormEditor::$assertionsDisabled && !(pos > 0 && pos <= $MethodType::MAX_JVM_ARITY && pos < $nc(this->lambdaForm)->arity$)) {
+		if (!LambdaFormEditor::$assertionsDisabled && !(pos > 0 && pos <= $MethodType::MAX_JVM_ARITY && pos < this->lambdaForm->arity$)) {
 			$throwNew($AssertionError);
 		}
-		$var($LambdaForm$Name, newParameter, $new($LambdaForm$Name, pos, $($LambdaForm$BasicType::basicType($($cast($Class, $nc(combinerType)->parameterType(0)))))));
+		$var($LambdaForm$Name, newParameter, $new($LambdaForm$Name, pos, $($LambdaForm$BasicType::basicType($$cast($Class, $nc(combinerType)->parameterType(0))))));
 		$var($ObjectArray, combinerArgs, $new($ObjectArray, {
-			$of(getCombiner),
-			$of(newParameter)
+			getCombiner,
+			newParameter
 		}));
 		$var($LambdaForm$Name, callCombiner, $new($LambdaForm$Name, combinerType, combinerArgs));
 		buf->insertExpression(exprPos++, callCombiner);
@@ -730,14 +626,14 @@ $LambdaForm* LambdaFormEditor::makeRepeatedFilterForm($MethodType* combinerType,
 	}
 	int32_t offset = 0;
 	{
-		$var($Iterator, i$, $nc($(newParameters->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(newParameters->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
 				$var($LambdaForm$Name, newParameter, $cast($LambdaForm$Name, $nc(entry)->getKey()));
-				int32_t from = $nc(($cast($Integer, $(entry->getValue()))))->intValue();
+				int32_t from = $$sure($Integer, entry->getValue())->intValue();
 				buf->insertParameter($nc(newParameter)->index() + 1 + offset, newParameter);
-				buf->replaceParameterByCopy($nc(newParameter)->index() + offset, from + offset);
+				buf->replaceParameterByCopy(newParameter->index() + offset, from + offset);
 				++offset;
 			}
 		}
@@ -746,7 +642,7 @@ $LambdaForm* LambdaFormEditor::makeRepeatedFilterForm($MethodType* combinerType,
 }
 
 $LambdaForm* LambdaFormEditor::makeArgumentCombinationForm(int32_t pos, $MethodType* combinerType, bool keepArguments, bool dropResult) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LambdaFormBuffer, buf, buffer());
 	$nc(buf)->startEdit();
 	int32_t combinerArity = $nc(combinerType)->parameterCount();
@@ -763,7 +659,6 @@ $LambdaForm* LambdaFormEditor::makeArgumentCombinationForm(int32_t pos, $MethodT
 	if (!LambdaFormEditor::$assertionsDisabled && !(combinerType == combinerType->basicType())) {
 		$throwNew($AssertionError);
 	}
-	$init($Void);
 	if (!LambdaFormEditor::$assertionsDisabled && !($cast($Class, combinerType->returnType()) != $Void::TYPE || dropResult)) {
 		$throwNew($AssertionError);
 	}
@@ -772,33 +667,31 @@ $LambdaForm* LambdaFormEditor::makeArgumentCombinationForm(int32_t pos, $MethodT
 	$var($BoundMethodHandle$SpeciesData, newData, newSpeciesData($LambdaForm$BasicType::L_TYPE));
 	$var($LambdaForm$Name, oldBaseAddress, $nc(this->lambdaForm)->parameter(0));
 	$var($List, var$0, $nc(oldData)->getterFunctions());
-	buf->replaceFunctions(var$0, $($nc(newData)->getterFunctions()), $$new($ObjectArray, {$of(oldBaseAddress)}));
+	buf->replaceFunctions(var$0, $($nc(newData)->getterFunctions()), $$new($ObjectArray, {oldBaseAddress}));
 	$var($LambdaForm$Name, newBaseAddress, $nc(oldBaseAddress)->withConstraint(newData));
 	buf->renameParameter(0, newBaseAddress);
-	$var($LambdaForm$Name, getCombiner, $new($LambdaForm$Name, $($nc(newData)->getterFunction($nc(oldData)->fieldCount())), $$new($ObjectArray, {$of(newBaseAddress)})));
+	$var($LambdaForm$Name, getCombiner, $new($LambdaForm$Name, $(newData->getterFunction(oldData->fieldCount())), $$new($ObjectArray, {newBaseAddress})));
 	$var($ObjectArray, combinerArgs, $new($ObjectArray, 1 + combinerArity));
 	combinerArgs->set(0, getCombiner);
 	$var($LambdaForm$NameArray, newParams, nullptr);
 	if (keepArguments) {
 		$assign(newParams, $new($LambdaForm$NameArray, 0));
-		$System::arraycopy($nc(this->lambdaForm)->names, pos + resultArity, combinerArgs, 1, combinerArity);
+		$System::arraycopy(this->lambdaForm->names, pos + resultArity, combinerArgs, 1, combinerArity);
 	} else {
 		$assign(newParams, $new($LambdaForm$NameArray, combinerArity));
 		for (int32_t i = 0; i < newParams->length; ++i) {
-			newParams->set(i, $$new($LambdaForm$Name, pos + i, $($LambdaForm$BasicType::basicType($($cast($Class, combinerType->parameterType(i)))))));
+			newParams->set(i, $$new($LambdaForm$Name, pos + i, $($LambdaForm$BasicType::basicType($$cast($Class, combinerType->parameterType(i))))));
 		}
 		$System::arraycopy(newParams, 0, combinerArgs, 1, combinerArity);
 	}
 	$var($LambdaForm$Name, callCombiner, $new($LambdaForm$Name, combinerType, combinerArgs));
-	int32_t exprPos = $nc(this->lambdaForm)->arity();
+	int32_t exprPos = this->lambdaForm->arity();
 	buf->insertExpression(exprPos + 0, getCombiner);
 	buf->insertExpression(exprPos + 1, callCombiner);
 	int32_t argPos = pos + resultArity;
 	{
 		$var($LambdaForm$NameArray, arr$, newParams);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($LambdaForm$Name, newParam, arr$->get(i$));
 			{
 				buf->insertParameter(argPos++, newParam);
@@ -815,7 +708,7 @@ $LambdaForm* LambdaFormEditor::makeArgumentCombinationForm(int32_t pos, $MethodT
 }
 
 $LambdaForm* LambdaFormEditor::makeArgumentCombinationForm(int32_t pos, $MethodType* combinerType, $ints* argPositions, bool keepArguments, bool dropResult) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LambdaFormBuffer, buf, buffer());
 	$nc(buf)->startEdit();
 	int32_t combinerArity = $nc(combinerType)->parameterCount();
@@ -832,7 +725,6 @@ $LambdaForm* LambdaFormEditor::makeArgumentCombinationForm(int32_t pos, $MethodT
 	if (!LambdaFormEditor::$assertionsDisabled && !(combinerType == combinerType->basicType())) {
 		$throwNew($AssertionError);
 	}
-	$init($Void);
 	if (!LambdaFormEditor::$assertionsDisabled && !($cast($Class, combinerType->returnType()) != $Void::TYPE || dropResult)) {
 		$throwNew($AssertionError);
 	}
@@ -841,36 +733,36 @@ $LambdaForm* LambdaFormEditor::makeArgumentCombinationForm(int32_t pos, $MethodT
 	$var($BoundMethodHandle$SpeciesData, newData, newSpeciesData($LambdaForm$BasicType::L_TYPE));
 	$var($LambdaForm$Name, oldBaseAddress, $nc(this->lambdaForm)->parameter(0));
 	$var($List, var$0, $nc(oldData)->getterFunctions());
-	buf->replaceFunctions(var$0, $($nc(newData)->getterFunctions()), $$new($ObjectArray, {$of(oldBaseAddress)}));
+	buf->replaceFunctions(var$0, $($nc(newData)->getterFunctions()), $$new($ObjectArray, {oldBaseAddress}));
 	$var($LambdaForm$Name, newBaseAddress, $nc(oldBaseAddress)->withConstraint(newData));
 	buf->renameParameter(0, newBaseAddress);
-	$var($LambdaForm$Name, getCombiner, $new($LambdaForm$Name, $($nc(newData)->getterFunction($nc(oldData)->fieldCount())), $$new($ObjectArray, {$of(newBaseAddress)})));
+	$var($LambdaForm$Name, getCombiner, $new($LambdaForm$Name, $(newData->getterFunction(oldData->fieldCount())), $$new($ObjectArray, {newBaseAddress})));
 	$var($ObjectArray, combinerArgs, $new($ObjectArray, 1 + combinerArity));
 	combinerArgs->set(0, getCombiner);
 	$var($LambdaForm$Name, newParam, nullptr);
 	if (keepArguments) {
 		for (int32_t i = 0; i < combinerArity; ++i) {
-			combinerArgs->set(i + 1, $($nc(this->lambdaForm)->parameter(1 + $nc(argPositions)->get(i))));
+			combinerArgs->set(i + 1, $(this->lambdaForm->parameter(1 + $nc(argPositions)->get(i))));
 			bool var$1 = !LambdaFormEditor::$assertionsDisabled;
 			if (var$1) {
-				var$1 = !($LambdaForm$BasicType::basicType($($cast($Class, combinerType->parameterType(i)))) == $nc(this->lambdaForm)->parameterType(1 + $nc(argPositions)->get(i)));
+				var$1 = !($LambdaForm$BasicType::basicType($$cast($Class, combinerType->parameterType(i))) == this->lambdaForm->parameterType(1 + argPositions->get(i)));
 			}
 			if (var$1) {
 				$throwNew($AssertionError);
 			}
 		}
 	} else {
-		$assign(newParam, $new($LambdaForm$Name, pos, $($LambdaForm$BasicType::basicType($($cast($Class, combinerType->returnType()))))));
+		$assign(newParam, $new($LambdaForm$Name, pos, $($LambdaForm$BasicType::basicType($$cast($Class, combinerType->returnType())))));
 		for (int32_t i = 0; i < combinerArity; ++i) {
 			int32_t argPos = 1 + $nc(argPositions)->get(i);
 			if (argPos == pos) {
 				combinerArgs->set(i + 1, newParam);
 			} else {
-				combinerArgs->set(i + 1, $($nc(this->lambdaForm)->parameter(argPos)));
+				combinerArgs->set(i + 1, $(this->lambdaForm->parameter(argPos)));
 			}
 			bool var$2 = !LambdaFormEditor::$assertionsDisabled;
 			if (var$2) {
-				var$2 = !($LambdaForm$BasicType::basicType($($cast($Class, combinerType->parameterType(i)))) == $nc(this->lambdaForm)->parameterType(1 + argPositions->get(i)));
+				var$2 = !($LambdaForm$BasicType::basicType($$cast($Class, combinerType->parameterType(i))) == this->lambdaForm->parameterType(1 + argPositions->get(i)));
 			}
 			if (var$2) {
 				$throwNew($AssertionError);
@@ -878,7 +770,7 @@ $LambdaForm* LambdaFormEditor::makeArgumentCombinationForm(int32_t pos, $MethodT
 		}
 	}
 	$var($LambdaForm$Name, callCombiner, $new($LambdaForm$Name, combinerType, combinerArgs));
-	int32_t exprPos = $nc(this->lambdaForm)->arity();
+	int32_t exprPos = this->lambdaForm->arity();
 	buf->insertExpression(exprPos + 0, getCombiner);
 	buf->insertExpression(exprPos + 1, callCombiner);
 	int32_t argPos = pos + resultArity;
@@ -896,7 +788,7 @@ $LambdaForm* LambdaFormEditor::makeArgumentCombinationForm(int32_t pos, $MethodT
 }
 
 $LambdaForm* LambdaFormEditor::filterReturnForm($LambdaForm$BasicType* newType, bool constantZero) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int8_t kind = (constantZero ? LambdaFormEditor::FILTER_RETURN_TO_ZERO : LambdaFormEditor::FILTER_RETURN);
 	$var($LambdaFormEditor$TransformKey, key, $LambdaFormEditor$TransformKey::of(kind, $nc(newType)->ordinal()));
 	$var($LambdaForm, form, getInCache(key));
@@ -922,23 +814,23 @@ $LambdaForm* LambdaFormEditor::filterReturnForm($LambdaForm$BasicType* newType, 
 	} else {
 		$var($BoundMethodHandle$SpeciesData, oldData, oldSpeciesData());
 		$var($BoundMethodHandle$SpeciesData, newData, newSpeciesData($LambdaForm$BasicType::L_TYPE));
-		$var($LambdaForm$Name, oldBaseAddress, $nc(this->lambdaForm)->parameter(0));
+		$var($LambdaForm$Name, oldBaseAddress, this->lambdaForm->parameter(0));
 		$var($List, var$0, $nc(oldData)->getterFunctions());
-		buf->replaceFunctions(var$0, $($nc(newData)->getterFunctions()), $$new($ObjectArray, {$of(oldBaseAddress)}));
+		buf->replaceFunctions(var$0, $($nc(newData)->getterFunctions()), $$new($ObjectArray, {oldBaseAddress}));
 		$var($LambdaForm$Name, newBaseAddress, $nc(oldBaseAddress)->withConstraint(newData));
 		buf->renameParameter(0, newBaseAddress);
-		$var($LambdaForm$Name, getFilter, $new($LambdaForm$Name, $($nc(newData)->getterFunction($nc(oldData)->fieldCount())), $$new($ObjectArray, {$of(newBaseAddress)})));
+		$var($LambdaForm$Name, getFilter, $new($LambdaForm$Name, $(newData->getterFunction(oldData->fieldCount())), $$new($ObjectArray, {newBaseAddress})));
 		buf->insertExpression(insPos++, getFilter);
-		$LambdaForm$BasicType* oldType = $nc(this->lambdaForm)->returnType();
+		$LambdaForm$BasicType* oldType = this->lambdaForm->returnType();
 		if (oldType == $LambdaForm$BasicType::V_TYPE) {
-			$var($MethodType, filterType, $MethodType::methodType($nc(newType)->basicTypeClass()));
-			$assign(callFilter, $new($LambdaForm$Name, filterType, $$new($ObjectArray, {$of(getFilter)})));
+			$var($MethodType, filterType, $MethodType::methodType(newType->basicTypeClass()));
+			$assign(callFilter, $new($LambdaForm$Name, filterType, $$new($ObjectArray, {getFilter})));
 		} else {
-			$Class* var$1 = $nc(newType)->basicTypeClass();
-			$var($MethodType, filterType, $MethodType::methodType(var$1, oldType->basicTypeClass()));
+			$Class* var$1 = newType->basicTypeClass();
+			$var($MethodType, filterType, $MethodType::methodType(var$1, $nc(oldType)->basicTypeClass()));
 			$assign(callFilter, $new($LambdaForm$Name, filterType, $$new($ObjectArray, {
-				$of(getFilter),
-				$of($nc($nc(this->lambdaForm)->names)->get($nc(this->lambdaForm)->result))
+				getFilter,
+				this->lambdaForm->names->get(this->lambdaForm->result)
 			})));
 		}
 	}
@@ -951,38 +843,36 @@ $LambdaForm* LambdaFormEditor::filterReturnForm($LambdaForm$BasicType* newType, 
 }
 
 $LambdaForm* LambdaFormEditor::collectReturnValueForm($MethodType* combinerType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LambdaFormBuffer, buf, buffer());
 	$nc(buf)->startEdit();
 	int32_t combinerArity = $nc(combinerType)->parameterCount();
 	int32_t argPos = $nc(this->lambdaForm)->arity();
-	int32_t exprPos = $nc($nc(this->lambdaForm)->names)->length;
+	int32_t exprPos = $nc(this->lambdaForm->names)->length;
 	$var($BoundMethodHandle$SpeciesData, oldData, oldSpeciesData());
 	$init($LambdaForm$BasicType);
 	$var($BoundMethodHandle$SpeciesData, newData, newSpeciesData($LambdaForm$BasicType::L_TYPE));
-	$var($LambdaForm$Name, oldBaseAddress, $nc(this->lambdaForm)->parameter(0));
+	$var($LambdaForm$Name, oldBaseAddress, this->lambdaForm->parameter(0));
 	$var($List, var$0, $nc(oldData)->getterFunctions());
-	buf->replaceFunctions(var$0, $($nc(newData)->getterFunctions()), $$new($ObjectArray, {$of(oldBaseAddress)}));
+	buf->replaceFunctions(var$0, $($nc(newData)->getterFunctions()), $$new($ObjectArray, {oldBaseAddress}));
 	$var($LambdaForm$Name, newBaseAddress, $nc(oldBaseAddress)->withConstraint(newData));
 	buf->renameParameter(0, newBaseAddress);
-	$var($LambdaForm$Name, getCombiner, $new($LambdaForm$Name, $($nc(newData)->getterFunction($nc(oldData)->fieldCount())), $$new($ObjectArray, {$of(newBaseAddress)})));
+	$var($LambdaForm$Name, getCombiner, $new($LambdaForm$Name, $(newData->getterFunction(oldData->fieldCount())), $$new($ObjectArray, {newBaseAddress})));
 	$var($ObjectArray, combinerArgs, $new($ObjectArray, combinerArity + 1));
 	combinerArgs->set(0, getCombiner);
 	$var($LambdaForm$NameArray, newParams, $new($LambdaForm$NameArray, combinerArity - 1));
 	for (int32_t i = 0; i < newParams->length; ++i) {
-		newParams->set(i, $$new($LambdaForm$Name, argPos + i, $($LambdaForm$BasicType::basicType($($cast($Class, combinerType->parameterType(i)))))));
+		newParams->set(i, $$new($LambdaForm$Name, argPos + i, $($LambdaForm$BasicType::basicType($$cast($Class, combinerType->parameterType(i))))));
 	}
 	$System::arraycopy(newParams, 0, combinerArgs, 1, combinerArity - 1);
-	combinerArgs->set(combinerArity, $(buf->name($nc($nc(this->lambdaForm)->names)->length - 1)));
+	combinerArgs->set(combinerArity, $(buf->name(this->lambdaForm->names->length - 1)));
 	$var($LambdaForm$Name, callCombiner, $new($LambdaForm$Name, combinerType, combinerArgs));
 	buf->insertExpression(exprPos, getCombiner);
 	buf->insertExpression(exprPos + 1, callCombiner);
 	int32_t insPos = argPos;
 	{
 		$var($LambdaForm$NameArray, arr$, newParams);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($LambdaForm$Name, newParam, arr$->get(i$));
 			{
 				buf->insertParameter(insPos++, newParam);
@@ -994,7 +884,7 @@ $LambdaForm* LambdaFormEditor::collectReturnValueForm($MethodType* combinerType)
 }
 
 $LambdaForm* LambdaFormEditor::foldArgumentsForm(int32_t foldPos, bool dropResult, $MethodType* combinerType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t combinerArity = $nc(combinerType)->parameterCount();
 	int8_t kind = (dropResult ? LambdaFormEditor::FOLD_ARGS_TO_VOID : LambdaFormEditor::FOLD_ARGS);
 	$var($LambdaFormEditor$TransformKey, key, $LambdaFormEditor$TransformKey::of(kind, foldPos, combinerArity));
@@ -1010,7 +900,7 @@ $LambdaForm* LambdaFormEditor::foldArgumentsForm(int32_t foldPos, bool dropResul
 }
 
 $LambdaForm* LambdaFormEditor::foldArgumentsForm(int32_t foldPos, bool dropResult, $MethodType* combinerType, $ints* argPositions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int8_t kind = (dropResult ? LambdaFormEditor::FOLD_SELECT_ARGS_TO_VOID : LambdaFormEditor::FOLD_SELECT_ARGS);
 	$var($LambdaFormEditor$TransformKey, key, $LambdaFormEditor$TransformKey::of(kind, foldPos, argPositions));
 	$var($LambdaForm, form, getInCache(key));
@@ -1025,7 +915,7 @@ $LambdaForm* LambdaFormEditor::foldArgumentsForm(int32_t foldPos, bool dropResul
 }
 
 $LambdaForm* LambdaFormEditor::filterArgumentsForm(int32_t filterPos, $MethodType* combinerType, $ints* argPositions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LambdaFormEditor$TransformKey, key, $LambdaFormEditor$TransformKey::of(LambdaFormEditor::FILTER_SELECT_ARGS, filterPos, argPositions));
 	$var($LambdaForm, form, getInCache(key));
 	if (form != nullptr) {
@@ -1039,7 +929,7 @@ $LambdaForm* LambdaFormEditor::filterArgumentsForm(int32_t filterPos, $MethodTyp
 }
 
 $LambdaForm* LambdaFormEditor::permuteArgumentsForm(int32_t skip, $ints* reorder) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!LambdaFormEditor::$assertionsDisabled && !(skip == 1)) {
 		$throwNew($AssertionError);
 	}
@@ -1054,7 +944,7 @@ $LambdaForm* LambdaFormEditor::permuteArgumentsForm(int32_t skip, $ints* reorder
 		}
 		inTypes = $Math::max(inTypes, inArg + 1);
 	}
-	if (!LambdaFormEditor::$assertionsDisabled && !(skip + reorder->length == $nc(this->lambdaForm)->arity$)) {
+	if (!LambdaFormEditor::$assertionsDisabled && !(skip + reorder->length == this->lambdaForm->arity$)) {
 		$throwNew($AssertionError);
 	}
 	if (nullPerm) {
@@ -1064,19 +954,19 @@ $LambdaForm* LambdaFormEditor::permuteArgumentsForm(int32_t skip, $ints* reorder
 	$var($LambdaForm, form, getInCache(key));
 	if (form != nullptr) {
 		if (!LambdaFormEditor::$assertionsDisabled && !(form->arity$ == skip + inTypes)) {
-			$throwNew($AssertionError, $of(form));
+			$throwNew($AssertionError, form);
 		}
 		return form;
 	}
 	$var($LambdaForm$BasicTypeArray, types, $new($LambdaForm$BasicTypeArray, inTypes));
 	for (int32_t i = 0; i < outArgs; ++i) {
 		int32_t inArg = reorder->get(i);
-		types->set(inArg, $nc($nc($nc(this->lambdaForm)->names)->get(skip + i))->type$);
+		types->set(inArg, $nc(this->lambdaForm->names->get(skip + i))->type$);
 	}
-	if (!LambdaFormEditor::$assertionsDisabled && !(skip + outArgs == $nc(this->lambdaForm)->arity$)) {
+	if (!LambdaFormEditor::$assertionsDisabled && !(skip + outArgs == this->lambdaForm->arity$)) {
 		$throwNew($AssertionError);
 	}
-	if (!LambdaFormEditor::$assertionsDisabled && !(permutedTypesMatch(reorder, types, $nc(this->lambdaForm)->names, skip))) {
+	if (!LambdaFormEditor::$assertionsDisabled && !(permutedTypesMatch(reorder, types, this->lambdaForm->names, skip))) {
 		$throwNew($AssertionError);
 	}
 	int32_t pos = 0;
@@ -1084,11 +974,11 @@ $LambdaForm* LambdaFormEditor::permuteArgumentsForm(int32_t skip, $ints* reorder
 		pos += 1;
 	}
 	$var($LambdaForm$NameArray, names2, $new($LambdaForm$NameArray, length - outArgs + inTypes));
-	$System::arraycopy($nc(this->lambdaForm)->names, 0, names2, 0, skip + pos);
-	int32_t bodyLength = length - $nc(this->lambdaForm)->arity$;
-	$System::arraycopy($nc(this->lambdaForm)->names, skip + outArgs, names2, skip + inTypes, bodyLength);
+	$System::arraycopy(this->lambdaForm->names, 0, names2, 0, skip + pos);
+	int32_t bodyLength = length - this->lambdaForm->arity$;
+	$System::arraycopy(this->lambdaForm->names, skip + outArgs, names2, skip + inTypes, bodyLength);
 	int32_t arity2 = names2->length - bodyLength;
-	int32_t result2 = $nc(this->lambdaForm)->result;
+	int32_t result2 = this->lambdaForm->result;
 	if (result2 >= skip) {
 		if (result2 < skip + outArgs) {
 			result2 = reorder->get(result2 - skip) + skip;
@@ -1097,12 +987,12 @@ $LambdaForm* LambdaFormEditor::permuteArgumentsForm(int32_t skip, $ints* reorder
 		}
 	}
 	for (int32_t j = pos; j < outArgs; ++j) {
-		$var($LambdaForm$Name, n, $nc($nc(this->lambdaForm)->names)->get(skip + j));
+		$var($LambdaForm$Name, n, this->lambdaForm->names->get(skip + j));
 		int32_t i = reorder->get(j);
 		$var($LambdaForm$Name, n2, names2->get(skip + i));
 		if (n2 == nullptr) {
 			names2->set(skip + i, $assign(n2, $new($LambdaForm$Name, types->get(i))));
-		} else if (!LambdaFormEditor::$assertionsDisabled && !($nc(n2)->type$ == types->get(i))) {
+		} else if (!LambdaFormEditor::$assertionsDisabled && !(n2->type$ == types->get(i))) {
 			$throwNew($AssertionError);
 		}
 		for (int32_t k = arity2; k < names2->length; ++k) {
@@ -1114,9 +1004,9 @@ $LambdaForm* LambdaFormEditor::permuteArgumentsForm(int32_t skip, $ints* reorder
 			names2->set(i, $($LambdaForm::argument(i, types->get(i - skip))));
 		}
 	}
-	for (int32_t j = $nc(this->lambdaForm)->arity$; j < $nc($nc(this->lambdaForm)->names)->length; ++j) {
-		int32_t i = j - $nc(this->lambdaForm)->arity$ + arity2;
-		$var($LambdaForm$Name, n, $nc($nc(this->lambdaForm)->names)->get(j));
+	for (int32_t j = this->lambdaForm->arity$; j < this->lambdaForm->names->length; ++j) {
+		int32_t i = j - this->lambdaForm->arity$ + arity2;
+		$var($LambdaForm$Name, n, this->lambdaForm->names->get(j));
 		$var($LambdaForm$Name, n2, names2->get(i));
 		if (n != n2) {
 			for (int32_t k = i + 1; k < names2->length; ++k) {
@@ -1129,7 +1019,7 @@ $LambdaForm* LambdaFormEditor::permuteArgumentsForm(int32_t skip, $ints* reorder
 }
 
 $LambdaForm* LambdaFormEditor::noteLoopLocalTypesForm(int32_t pos, $LambdaForm$BasicTypeArray* localTypes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!LambdaFormEditor::$assertionsDisabled && !($nc(this->lambdaForm)->isLoop(pos))) {
 		$throwNew($AssertionError);
 	}
@@ -1142,17 +1032,17 @@ $LambdaForm* LambdaFormEditor::noteLoopLocalTypesForm(int32_t pos, $LambdaForm$B
 		return form;
 	}
 	$var($LambdaForm$Name, invokeLoop, $nc($nc(this->lambdaForm)->names)->get(pos + 1));
-	if (!LambdaFormEditor::$assertionsDisabled && !($nc($nc(invokeLoop)->function)->equals($($MethodHandleImpl::getFunction((int8_t)4))))) {
+	if (!LambdaFormEditor::$assertionsDisabled && !($nc($nc(invokeLoop)->function)->equals($($MethodHandleImpl::getFunction(4))))) {
 		$throwNew($AssertionError);
 	}
-	$var($ObjectArray, args, $Arrays::copyOf($nc(invokeLoop)->arguments, $nc(invokeLoop->arguments)->length));
+	$var($ObjectArray, args, $Arrays::copyOf($nc(invokeLoop)->arguments, $nc($nc(invokeLoop)->arguments)->length));
 	if (!LambdaFormEditor::$assertionsDisabled && !(args->get(0) == nullptr)) {
 		$throwNew($AssertionError);
 	}
 	args->set(0, localTypes);
 	$var($LambdaFormBuffer, buf, buffer());
 	$nc(buf)->startEdit();
-	buf->changeName(pos + 1, $$new($LambdaForm$Name, $($MethodHandleImpl::getFunction((int8_t)4)), args));
+	buf->changeName(pos + 1, $$new($LambdaForm$Name, $($MethodHandleImpl::getFunction(4)), args));
 	$assign(form, buf->endEdit());
 	return putInCache(key, form);
 }
@@ -1170,7 +1060,7 @@ bool LambdaFormEditor::permutedTypesMatch($ints* reorder, $LambdaForm$BasicTypeA
 	return true;
 }
 
-void clinit$LambdaFormEditor($Class* class$) {
+void LambdaFormEditor::clinit$($Class* clazz) {
 	LambdaFormEditor::$assertionsDisabled = !LambdaFormEditor::class$->desiredAssertionStatus();
 }
 
@@ -1178,7 +1068,89 @@ LambdaFormEditor::LambdaFormEditor() {
 }
 
 $Class* LambdaFormEditor::load$($String* name, bool initialize) {
-	$loadClass(LambdaFormEditor, name, initialize, &_LambdaFormEditor_ClassInfo_, clinit$LambdaFormEditor, allocate$LambdaFormEditor);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaFormEditor, $assertionsDisabled)},
+		{"lambdaForm", "Ljava/lang/invoke/LambdaForm;", nullptr, $FINAL, $field(LambdaFormEditor, lambdaForm)},
+		{"BIND_ARG", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, BIND_ARG)},
+		{"ADD_ARG", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, ADD_ARG)},
+		{"DUP_ARG", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, DUP_ARG)},
+		{"SPREAD_ARGS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, SPREAD_ARGS)},
+		{"FILTER_ARG", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, FILTER_ARG)},
+		{"FILTER_RETURN", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, FILTER_RETURN)},
+		{"FILTER_RETURN_TO_ZERO", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, FILTER_RETURN_TO_ZERO)},
+		{"COLLECT_ARGS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, COLLECT_ARGS)},
+		{"COLLECT_ARGS_TO_VOID", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, COLLECT_ARGS_TO_VOID)},
+		{"COLLECT_ARGS_TO_ARRAY", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, COLLECT_ARGS_TO_ARRAY)},
+		{"FOLD_ARGS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, FOLD_ARGS)},
+		{"FOLD_ARGS_TO_VOID", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, FOLD_ARGS_TO_VOID)},
+		{"PERMUTE_ARGS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, PERMUTE_ARGS)},
+		{"LOCAL_TYPES", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, LOCAL_TYPES)},
+		{"FOLD_SELECT_ARGS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, FOLD_SELECT_ARGS)},
+		{"FOLD_SELECT_ARGS_TO_VOID", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, FOLD_SELECT_ARGS_TO_VOID)},
+		{"FILTER_SELECT_ARGS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, FILTER_SELECT_ARGS)},
+		{"REPEAT_FILTER_ARGS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, REPEAT_FILTER_ARGS)},
+		{"MIN_CACHE_ARRAY_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, MIN_CACHE_ARRAY_SIZE)},
+		{"MAX_CACHE_ARRAY_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LambdaFormEditor, MAX_CACHE_ARRAY_SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/invoke/LambdaForm;)V", nullptr, $PRIVATE, $method(LambdaFormEditor, init$, void, $LambdaForm*)},
+		{"addArgumentForm", "(ILjava/lang/invoke/LambdaForm$BasicType;)Ljava/lang/invoke/LambdaForm;", nullptr, 0, $virtualMethod(LambdaFormEditor, addArgumentForm, $LambdaForm*, int32_t, $LambdaForm$BasicType*)},
+		{"bindArgumentD", "(Ljava/lang/invoke/BoundMethodHandle;ID)Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(LambdaFormEditor, bindArgumentD, $BoundMethodHandle*, $BoundMethodHandle*, int32_t, double)},
+		{"bindArgumentF", "(Ljava/lang/invoke/BoundMethodHandle;IF)Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(LambdaFormEditor, bindArgumentF, $BoundMethodHandle*, $BoundMethodHandle*, int32_t, float)},
+		{"bindArgumentForm", "(I)Ljava/lang/invoke/LambdaForm;", nullptr, 0, $virtualMethod(LambdaFormEditor, bindArgumentForm, $LambdaForm*, int32_t)},
+		{"bindArgumentI", "(Ljava/lang/invoke/BoundMethodHandle;II)Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(LambdaFormEditor, bindArgumentI, $BoundMethodHandle*, $BoundMethodHandle*, int32_t, int32_t)},
+		{"bindArgumentJ", "(Ljava/lang/invoke/BoundMethodHandle;IJ)Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(LambdaFormEditor, bindArgumentJ, $BoundMethodHandle*, $BoundMethodHandle*, int32_t, int64_t)},
+		{"bindArgumentL", "(Ljava/lang/invoke/BoundMethodHandle;ILjava/lang/Object;)Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(LambdaFormEditor, bindArgumentL, $BoundMethodHandle*, $BoundMethodHandle*, int32_t, Object$*)},
+		{"bindArgumentType", "(Ljava/lang/invoke/BoundMethodHandle;ILjava/lang/invoke/LambdaForm$BasicType;)Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE, $method(LambdaFormEditor, bindArgumentType, $MethodType*, $BoundMethodHandle*, int32_t, $LambdaForm$BasicType*)},
+		{"buffer", "()Ljava/lang/invoke/LambdaFormBuffer;", nullptr, $PRIVATE, $method(LambdaFormEditor, buffer, $LambdaFormBuffer*)},
+		{"collectArgumentsForm", "(ILjava/lang/invoke/MethodType;)Ljava/lang/invoke/LambdaForm;", nullptr, 0, $virtualMethod(LambdaFormEditor, collectArgumentsForm, $LambdaForm*, int32_t, $MethodType*)},
+		{"collectReturnValueForm", "(Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/LambdaForm;", nullptr, 0, $virtualMethod(LambdaFormEditor, collectReturnValueForm, $LambdaForm*, $MethodType*)},
+		{"dupArgumentForm", "(II)Ljava/lang/invoke/LambdaForm;", nullptr, 0, $virtualMethod(LambdaFormEditor, dupArgumentForm, $LambdaForm*, int32_t, int32_t)},
+		{"filterArgumentForm", "(ILjava/lang/invoke/LambdaForm$BasicType;)Ljava/lang/invoke/LambdaForm;", nullptr, 0, $virtualMethod(LambdaFormEditor, filterArgumentForm, $LambdaForm*, int32_t, $LambdaForm$BasicType*)},
+		{"filterArgumentsForm", "(ILjava/lang/invoke/MethodType;[I)Ljava/lang/invoke/LambdaForm;", nullptr, $TRANSIENT, $virtualMethod(LambdaFormEditor, filterArgumentsForm, $LambdaForm*, int32_t, $MethodType*, $ints*)},
+		{"filterRepeatedArgumentForm", "(Ljava/lang/invoke/LambdaForm$BasicType;[I)Ljava/lang/invoke/LambdaForm;", nullptr, $TRANSIENT, $virtualMethod(LambdaFormEditor, filterRepeatedArgumentForm, $LambdaForm*, $LambdaForm$BasicType*, $ints*)},
+		{"filterReturnForm", "(Ljava/lang/invoke/LambdaForm$BasicType;Z)Ljava/lang/invoke/LambdaForm;", nullptr, 0, $virtualMethod(LambdaFormEditor, filterReturnForm, $LambdaForm*, $LambdaForm$BasicType*, bool)},
+		{"foldArgumentsForm", "(IZLjava/lang/invoke/MethodType;)Ljava/lang/invoke/LambdaForm;", nullptr, 0, $virtualMethod(LambdaFormEditor, foldArgumentsForm, $LambdaForm*, int32_t, bool, $MethodType*)},
+		{"foldArgumentsForm", "(IZLjava/lang/invoke/MethodType;[I)Ljava/lang/invoke/LambdaForm;", nullptr, $TRANSIENT, $virtualMethod(LambdaFormEditor, foldArgumentsForm, $LambdaForm*, int32_t, bool, $MethodType*, $ints*)},
+		{"formParametersMatch", "(Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/LambdaForm$BasicType;[I)Z", nullptr, $PRIVATE | $TRANSIENT, $method(LambdaFormEditor, formParametersMatch, bool, $LambdaForm*, $LambdaForm$BasicType*, $ints*)},
+		{"getInCache", "(Ljava/lang/invoke/LambdaFormEditor$TransformKey;)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE, $method(LambdaFormEditor, getInCache, $LambdaForm*, $LambdaFormEditor$TransformKey*)},
+		{"lambdaFormEditor", "(Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/LambdaFormEditor;", nullptr, $STATIC, $staticMethod(LambdaFormEditor, lambdaFormEditor, LambdaFormEditor*, $LambdaForm*)},
+		{"makeArgumentCombinationForm", "(ILjava/lang/invoke/MethodType;ZZ)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE, $method(LambdaFormEditor, makeArgumentCombinationForm, $LambdaForm*, int32_t, $MethodType*, bool, bool)},
+		{"makeArgumentCombinationForm", "(ILjava/lang/invoke/MethodType;[IZZ)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE, $method(LambdaFormEditor, makeArgumentCombinationForm, $LambdaForm*, int32_t, $MethodType*, $ints*, bool, bool)},
+		{"makeRepeatedFilterForm", "(Ljava/lang/invoke/MethodType;[I)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $TRANSIENT, $method(LambdaFormEditor, makeRepeatedFilterForm, $LambdaForm*, $MethodType*, $ints*)},
+		{"newSpeciesData", "(Ljava/lang/invoke/LambdaForm$BasicType;)Ljava/lang/invoke/BoundMethodHandle$SpeciesData;", nullptr, $PRIVATE, $method(LambdaFormEditor, newSpeciesData, $BoundMethodHandle$SpeciesData*, $LambdaForm$BasicType*)},
+		{"noteLoopLocalTypesForm", "(I[Ljava/lang/invoke/LambdaForm$BasicType;)Ljava/lang/invoke/LambdaForm;", nullptr, 0, $virtualMethod(LambdaFormEditor, noteLoopLocalTypesForm, $LambdaForm*, int32_t, $LambdaForm$BasicTypeArray*)},
+		{"oldSpeciesData", "()Ljava/lang/invoke/BoundMethodHandle$SpeciesData;", nullptr, $PRIVATE, $method(LambdaFormEditor, oldSpeciesData, $BoundMethodHandle$SpeciesData*)},
+		{"permuteArgumentsForm", "(I[I)Ljava/lang/invoke/LambdaForm;", nullptr, 0, $virtualMethod(LambdaFormEditor, permuteArgumentsForm, $LambdaForm*, int32_t, $ints*)},
+		{"permutedTypesMatch", "([I[Ljava/lang/invoke/LambdaForm$BasicType;[Ljava/lang/invoke/LambdaForm$Name;I)Z", nullptr, $STATIC, $staticMethod(LambdaFormEditor, permutedTypesMatch, bool, $ints*, $LambdaForm$BasicTypeArray*, $LambdaForm$NameArray*, int32_t)},
+		{"putInCache", "(Ljava/lang/invoke/LambdaFormEditor$TransformKey;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE, $method(LambdaFormEditor, putInCache, $LambdaForm*, $LambdaFormEditor$TransformKey*, $LambdaForm*)},
+		{"spreadArgumentsForm", "(ILjava/lang/Class;I)Ljava/lang/invoke/LambdaForm;", "(ILjava/lang/Class<*>;I)Ljava/lang/invoke/LambdaForm;", 0, $virtualMethod(LambdaFormEditor, spreadArgumentsForm, $LambdaForm*, int32_t, $Class*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.LambdaFormEditor$TransformKey", "java.lang.invoke.LambdaFormEditor", "TransformKey", $PRIVATE | $STATIC | $FINAL},
+		{"java.lang.invoke.LambdaFormEditor$Transform", "java.lang.invoke.LambdaFormEditor", "Transform", $PRIVATE | $STATIC | $FINAL},
+		{"java.lang.invoke.LambdaFormEditor$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.LambdaFormEditor",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.LambdaFormEditor$TransformKey,java.lang.invoke.LambdaFormEditor$Transform,java.lang.invoke.LambdaFormEditor$1"
+	};
+	$loadClass(LambdaFormEditor, name, initialize, &classInfo$$, LambdaFormEditor::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaFormEditor);
+	});
 	return class$;
 }
 

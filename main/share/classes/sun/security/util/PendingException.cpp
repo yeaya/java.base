@@ -1,5 +1,4 @@
 #include <sun/security/util/PendingException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,30 +9,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 namespace sun {
 	namespace security {
 		namespace util {
-
-$FieldInfo _PendingException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PendingException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PendingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PendingException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PendingException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _PendingException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.PendingException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_PendingException_FieldInfo_,
-	_PendingException_MethodInfo_
-};
-
-$Object* allocate$PendingException($Class* clazz) {
-	return $of($alloc(PendingException));
-}
 
 void PendingException::init$() {
 	$RuntimeException::init$();
@@ -54,7 +29,26 @@ void PendingException::throw$() {
 }
 
 $Class* PendingException::load$($String* name, bool initialize) {
-	$loadClass(PendingException, name, initialize, &_PendingException_ClassInfo_, allocate$PendingException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PendingException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PendingException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PendingException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.PendingException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PendingException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PendingException);
+	});
 	return class$;
 }
 

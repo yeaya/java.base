@@ -22,6 +22,7 @@ class UnknownContentHandler : public ::java::net::ContentHandler {
 public:
 	UnknownContentHandler();
 	using ::java::net::ContentHandler::getContent;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* getContent(::java::net::URLConnection* uc) override;
 	static ::java::net::ContentHandler* INSTANCE;

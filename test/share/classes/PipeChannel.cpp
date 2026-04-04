@@ -1,5 +1,4 @@
 #include <PipeChannel.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/Pipe$SinkChannel.h>
 #include <java/nio/channels/Pipe$SourceChannel.h>
@@ -22,30 +21,6 @@ using $Pipe$SourceChannel = ::java::nio::channels::Pipe$SourceChannel;
 using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
 using $Random = ::java::util::Random;
 
-$FieldInfo _PipeChannel_FieldInfo_[] = {
-	{"generator", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC, $staticField(PipeChannel, generator)},
-	{}
-};
-
-$MethodInfo _PipeChannel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PipeChannel, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PipeChannel, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _PipeChannel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"PipeChannel",
-	"java.lang.Object",
-	nullptr,
-	_PipeChannel_FieldInfo_,
-	_PipeChannel_MethodInfo_
-};
-
-$Object* allocate$PipeChannel($Class* clazz) {
-	return $of($alloc(PipeChannel));
-}
-
 $Random* PipeChannel::generator = nullptr;
 
 void PipeChannel::init$() {
@@ -53,7 +28,7 @@ void PipeChannel::init$() {
 
 void PipeChannel::main($StringArray* args) {
 	$init(PipeChannel);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t x = 0; x < 100; ++x) {
 		$var($SelectorProvider, sp, $SelectorProvider::provider());
 		$var($Pipe, p, $nc(sp)->openPipe());
@@ -91,7 +66,7 @@ void PipeChannel::main($StringArray* args) {
 	}
 }
 
-void clinit$PipeChannel($Class* class$) {
+void PipeChannel::clinit$($Class* clazz) {
 	$assignStatic(PipeChannel::generator, $new($Random));
 }
 
@@ -99,7 +74,26 @@ PipeChannel::PipeChannel() {
 }
 
 $Class* PipeChannel::load$($String* name, bool initialize) {
-	$loadClass(PipeChannel, name, initialize, &_PipeChannel_ClassInfo_, clinit$PipeChannel, allocate$PipeChannel);
+	$FieldInfo fieldInfos$$[] = {
+		{"generator", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC, $staticField(PipeChannel, generator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PipeChannel, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PipeChannel, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"PipeChannel",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PipeChannel, name, initialize, &classInfo$$, PipeChannel::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PipeChannel);
+	});
 	return class$;
 }
 

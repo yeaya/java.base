@@ -1,5 +1,4 @@
 #include <javax/security/auth/Subject$SecureSet.h>
-
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream$PutField.h>
@@ -10,12 +9,8 @@
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
 #include <java/security/AccessController.h>
-#include <java/security/Permission.h>
 #include <java/security/Principal.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractSequentialList.h>
 #include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedList.h>
@@ -59,12 +54,8 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $Principal = ::java::security::Principal;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
@@ -84,72 +75,6 @@ using $ResourcesMgr = ::sun::security::util::ResourcesMgr;
 namespace javax {
 	namespace security {
 		namespace auth {
-
-$FieldInfo _Subject$SecureSet_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Subject$SecureSet, serialVersionUID)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Subject$SecureSet, serialPersistentFields)},
-	{"subject", "Ljavax/security/auth/Subject;", nullptr, 0, $field(Subject$SecureSet, subject)},
-	{"elements", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<TE;>;", 0, $field(Subject$SecureSet, elements)},
-	{"which", "I", nullptr, $PRIVATE, $field(Subject$SecureSet, which)},
-	{}
-};
-
-$MethodInfo _Subject$SecureSet_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljavax/security/auth/Subject;I)V", nullptr, 0, $method(Subject$SecureSet, init$, void, $Subject*, int32_t)},
-	{"<init>", "(Ljavax/security/auth/Subject;ILjava/util/LinkedList;)V", "(Ljavax/security/auth/Subject;ILjava/util/LinkedList<TE;>;)V", 0, $method(Subject$SecureSet, init$, void, $Subject*, int32_t, $LinkedList*)},
-	{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(Subject$SecureSet, add, bool, Object$*)},
-	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(Subject$SecureSet, addAll, bool, $Collection*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Subject$SecureSet, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Subject$SecureSet, contains, bool, Object$*)},
-	{"containsAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Subject$SecureSet, containsAll, bool, $Collection*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Subject$SecureSet, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Subject$SecureSet, hashCode, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Subject$SecureSet, isEmpty, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(Subject$SecureSet, iterator, $Iterator*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Subject$SecureSet, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Subject$SecureSet, remove, bool, Object$*)},
-	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Subject$SecureSet, removeAll, bool, $Collection*)},
-	{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Subject$SecureSet, retainAll, bool, $Collection*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Subject$SecureSet, size, int32_t)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Subject$SecureSet, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(Subject$SecureSet, toArray, $ObjectArray*, $ObjectArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Subject$SecureSet, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Subject$SecureSet_InnerClassesInfo_[] = {
-	{"javax.security.auth.Subject$SecureSet", "javax.security.auth.Subject", "SecureSet", $PRIVATE | $STATIC},
-	{"javax.security.auth.Subject$SecureSet$6", nullptr, nullptr, 0},
-	{"javax.security.auth.Subject$SecureSet$5", nullptr, nullptr, 0},
-	{"javax.security.auth.Subject$SecureSet$4", nullptr, nullptr, 0},
-	{"javax.security.auth.Subject$SecureSet$3", nullptr, nullptr, 0},
-	{"javax.security.auth.Subject$SecureSet$2", nullptr, nullptr, 0},
-	{"javax.security.auth.Subject$SecureSet$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Subject$SecureSet_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.security.auth.Subject$SecureSet",
-	"java.lang.Object",
-	"java.util.Set,java.io.Serializable",
-	_Subject$SecureSet_FieldInfo_,
-	_Subject$SecureSet_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Set<TE;>;Ljava/io/Serializable;",
-	nullptr,
-	_Subject$SecureSet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.security.auth.Subject"
-};
-
-$Object* allocate$Subject$SecureSet($Class* clazz) {
-	return $of($alloc(Subject$SecureSet));
-}
 
 $Object* Subject$SecureSet::clone() {
 	 return this->$Set::clone();
@@ -187,7 +112,7 @@ $Iterator* Subject$SecureSet::iterator() {
 }
 
 bool Subject$SecureSet::add(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(o, $($ResourcesMgr::getString("invalid.null.input.s."_s)));
 	if ($nc(this->subject)->isReadOnly()) {
 		$throwNew($IllegalStateException, $($ResourcesMgr::getString("Subject.is.read.only"_s)));
@@ -196,47 +121,37 @@ bool Subject$SecureSet::add(Object$* o) {
 	if (sm != nullptr) {
 		switch (this->which) {
 		case $Subject::PRINCIPAL_SET:
-			{
-				$init($Subject$AuthPermissionHolder);
-				sm->checkPermission($Subject$AuthPermissionHolder::MODIFY_PRINCIPALS_PERMISSION);
-				break;
-			}
+			$init($Subject$AuthPermissionHolder);
+			sm->checkPermission($Subject$AuthPermissionHolder::MODIFY_PRINCIPALS_PERMISSION);
+			break;
 		case $Subject::PUB_CREDENTIAL_SET:
-			{
-				$init($Subject$AuthPermissionHolder);
-				sm->checkPermission($Subject$AuthPermissionHolder::MODIFY_PUBLIC_CREDENTIALS_PERMISSION);
-				break;
-			}
+			$init($Subject$AuthPermissionHolder);
+			sm->checkPermission($Subject$AuthPermissionHolder::MODIFY_PUBLIC_CREDENTIALS_PERMISSION);
+			break;
 		default:
-			{
-				$init($Subject$AuthPermissionHolder);
-				sm->checkPermission($Subject$AuthPermissionHolder::MODIFY_PRIVATE_CREDENTIALS_PERMISSION);
-				break;
-			}
+			$init($Subject$AuthPermissionHolder);
+			sm->checkPermission($Subject$AuthPermissionHolder::MODIFY_PRIVATE_CREDENTIALS_PERMISSION);
+			break;
 		}
 	}
 	switch (this->which) {
 	case $Subject::PRINCIPAL_SET:
-		{
-			if (!($instanceOf($Principal, o))) {
-				$throwNew($SecurityException, $($ResourcesMgr::getString("attempting.to.add.an.object.which.is.not.an.instance.of.java.security.Principal.to.a.Subject.s.Principal.Set"_s)));
-			}
-			break;
+		if (!($instanceOf($Principal, o))) {
+			$throwNew($SecurityException, $($ResourcesMgr::getString("attempting.to.add.an.object.which.is.not.an.instance.of.java.security.Principal.to.a.Subject.s.Principal.Set"_s)));
 		}
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 	if (!$nc(this->elements)->contains(o)) {
-		return $nc(this->elements)->add(o);
+		return this->elements->add(o);
 	} else {
 		return false;
 	}
 }
 
 bool Subject$SecureSet::remove(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Objects::requireNonNull(o, $($ResourcesMgr::getString("invalid.null.input.s."_s)));
 	$var($Iterator, e, iterator());
@@ -245,9 +160,9 @@ bool Subject$SecureSet::remove(Object$* o) {
 		if (this->which != $Subject::PRIV_CREDENTIAL_SET) {
 			$assign(next, e->next());
 		} else {
-			$assign(next, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Subject$SecureSet$2, this, e))));
+			$assign(next, $AccessController::doPrivileged($$new($Subject$SecureSet$2, this, e)));
 		}
-		if ($nc($of(next))->equals(o)) {
+		if ($nc(next)->equals(o)) {
 			e->remove();
 			return true;
 		}
@@ -256,7 +171,7 @@ bool Subject$SecureSet::remove(Object$* o) {
 }
 
 bool Subject$SecureSet::contains(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Objects::requireNonNull(o, $($ResourcesMgr::getString("invalid.null.input.s."_s)));
 	$var($Iterator, e, iterator());
@@ -270,9 +185,9 @@ bool Subject$SecureSet::contains(Object$* o) {
 				$var($String, var$0, $nc($of(o))->getClass()->getName());
 				sm->checkPermission($$new($PrivateCredentialPermission, var$0, $($nc(this->subject)->getPrincipals())));
 			}
-			$assign(next, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Subject$SecureSet$3, this, e))));
+			$assign(next, $AccessController::doPrivileged($$new($Subject$SecureSet$3, this, e)));
 		}
-		if ($nc($of(next))->equals(o)) {
+		if ($nc(next)->equals(o)) {
 			return true;
 		}
 	}
@@ -280,10 +195,10 @@ bool Subject$SecureSet::contains(Object$* o) {
 }
 
 bool Subject$SecureSet::addAll($Collection* c$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Collection, c, c$renamed);
 	bool result = false;
-	$assign(c, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(static_cast<$AbstractSequentialList*>($Subject::collectionNullClean(c))))));
+	$assign(c, $cast($AbstractCollection, $Subject::collectionNullClean(c)));
 	{
 		$var($Iterator, i$, $nc(c)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -297,10 +212,10 @@ bool Subject$SecureSet::addAll($Collection* c$renamed) {
 }
 
 bool Subject$SecureSet::removeAll($Collection* c$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Collection, c, c$renamed);
 	$beforeCallerSensitive();
-	$assign(c, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(static_cast<$AbstractSequentialList*>($Subject::collectionNullClean(c))))));
+	$assign(c, $cast($AbstractCollection, $Subject::collectionNullClean(c)));
 	bool modified = false;
 	$var($Iterator, e, iterator());
 	while ($nc(e)->hasNext()) {
@@ -308,11 +223,11 @@ bool Subject$SecureSet::removeAll($Collection* c$renamed) {
 		if (this->which != $Subject::PRIV_CREDENTIAL_SET) {
 			$assign(next, e->next());
 		} else {
-			$assign(next, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Subject$SecureSet$4, this, e))));
+			$assign(next, $AccessController::doPrivileged($$new($Subject$SecureSet$4, this, e)));
 		}
 		$var($Iterator, ce, $nc(c)->iterator());
 		while ($nc(ce)->hasNext()) {
-			if ($nc($of(next))->equals($(ce->next()))) {
+			if ($nc(next)->equals($(ce->next()))) {
 				e->remove();
 				modified = true;
 				break;
@@ -323,17 +238,15 @@ bool Subject$SecureSet::removeAll($Collection* c$renamed) {
 }
 
 bool Subject$SecureSet::containsAll($Collection* c$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Collection, c, c$renamed);
-	$assign(c, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(static_cast<$AbstractSequentialList*>($Subject::collectionNullClean(c))))));
+	$assign(c, $cast($AbstractCollection, $Subject::collectionNullClean(c)));
 	{
 		$var($Iterator, i$, $nc(c)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Object, item, i$->next());
-			{
-				if (this->contains(item) == false) {
-					return false;
-				}
+			if (this->contains(item) == false) {
+				return false;
 			}
 		}
 	}
@@ -341,10 +254,10 @@ bool Subject$SecureSet::containsAll($Collection* c$renamed) {
 }
 
 bool Subject$SecureSet::retainAll($Collection* c$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Collection, c, c$renamed);
 	$beforeCallerSensitive();
-	$assign(c, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(static_cast<$AbstractSequentialList*>($Subject::collectionNullClean(c))))));
+	$assign(c, $cast($AbstractCollection, $Subject::collectionNullClean(c)));
 	bool modified = false;
 	$var($Iterator, e, iterator());
 	while ($nc(e)->hasNext()) {
@@ -352,7 +265,7 @@ bool Subject$SecureSet::retainAll($Collection* c$renamed) {
 		if (this->which != $Subject::PRIV_CREDENTIAL_SET) {
 			$assign(next, e->next());
 		} else {
-			$assign(next, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Subject$SecureSet$5, this, e))));
+			$assign(next, $AccessController::doPrivileged($$new($Subject$SecureSet$5, this, e)));
 		}
 		if ($nc(c)->contains(next) == false) {
 			e->remove();
@@ -363,7 +276,7 @@ bool Subject$SecureSet::retainAll($Collection* c$renamed) {
 }
 
 void Subject$SecureSet::clear() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Iterator, e, iterator());
 	while ($nc(e)->hasNext()) {
@@ -371,7 +284,7 @@ void Subject$SecureSet::clear() {
 		if (this->which != $Subject::PRIV_CREDENTIAL_SET) {
 			$assign(next, e->next());
 		} else {
-			$assign(next, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Subject$SecureSet$6, this, e))));
+			$assign(next, $AccessController::doPrivileged($$new($Subject$SecureSet$6, this, e)));
 		}
 		e->remove();
 	}
@@ -420,20 +333,20 @@ bool Subject$SecureSet::equals(Object$* o) {
 }
 
 int32_t Subject$SecureSet::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t h = 0;
 	$var($Iterator, i, iterator());
 	while ($nc(i)->hasNext()) {
 		$var($Object, obj, i->next());
 		if (obj != nullptr) {
-			h += $of(obj)->hashCode();
+			h += obj->hashCode();
 		}
 	}
 	return h;
 }
 
 void Subject$SecureSet::writeObject($ObjectOutputStream* oos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->which == $Subject::PRIV_CREDENTIAL_SET) {
 		$var($Iterator, i, iterator());
 		while ($nc(i)->hasNext()) {
@@ -441,26 +354,25 @@ void Subject$SecureSet::writeObject($ObjectOutputStream* oos) {
 		}
 	}
 	$var($ObjectOutputStream$PutField, fields, $nc(oos)->putFields());
-	$nc(fields)->put("this$0"_s, $of(this->subject));
-	fields->put("elements"_s, $of(this->elements));
+	$nc(fields)->put("this$0"_s, this->subject);
+	fields->put("elements"_s, this->elements);
 	fields->put("which"_s, this->which);
 	oos->writeFields();
 }
 
 void Subject$SecureSet::readObject($ObjectInputStream* ois) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, fields, $nc(ois)->readFields());
-	$set(this, subject, $cast($Subject, $nc(fields)->get("this$0"_s, ($Object*)nullptr)));
+	$set(this, subject, $cast($Subject, $nc(fields)->get("this$0"_s, nullptr)));
 	this->which = fields->get("which"_s, 0);
-	$var($LinkedList, tmp, $cast($LinkedList, fields->get("elements"_s, ($Object*)nullptr)));
-	$set(this, elements, $Subject::collectionNullClean(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(static_cast<$AbstractSequentialList*>(tmp))))));
+	$var($LinkedList, tmp, $cast($LinkedList, fields->get("elements"_s, nullptr)));
+	$set(this, elements, $Subject::collectionNullClean($cast($AbstractCollection, tmp)));
 }
 
-void clinit$Subject$SecureSet($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Subject$SecureSet::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$load($Subject);
 	$load($LinkedList);
-	$init($Integer);
 	$assignStatic(Subject$SecureSet::serialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "this$0"_s, $Subject::class$),
 		$$new($ObjectStreamField, "elements"_s, $LinkedList::class$),
@@ -472,7 +384,67 @@ Subject$SecureSet::Subject$SecureSet() {
 }
 
 $Class* Subject$SecureSet::load$($String* name, bool initialize) {
-	$loadClass(Subject$SecureSet, name, initialize, &_Subject$SecureSet_ClassInfo_, clinit$Subject$SecureSet, allocate$Subject$SecureSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Subject$SecureSet, serialVersionUID)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Subject$SecureSet, serialPersistentFields)},
+		{"subject", "Ljavax/security/auth/Subject;", nullptr, 0, $field(Subject$SecureSet, subject)},
+		{"elements", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<TE;>;", 0, $field(Subject$SecureSet, elements)},
+		{"which", "I", nullptr, $PRIVATE, $field(Subject$SecureSet, which)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljavax/security/auth/Subject;I)V", nullptr, 0, $method(Subject$SecureSet, init$, void, $Subject*, int32_t)},
+		{"<init>", "(Ljavax/security/auth/Subject;ILjava/util/LinkedList;)V", "(Ljavax/security/auth/Subject;ILjava/util/LinkedList<TE;>;)V", 0, $method(Subject$SecureSet, init$, void, $Subject*, int32_t, $LinkedList*)},
+		{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(Subject$SecureSet, add, bool, Object$*)},
+		{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(Subject$SecureSet, addAll, bool, $Collection*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Subject$SecureSet, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Subject$SecureSet, contains, bool, Object$*)},
+		{"containsAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Subject$SecureSet, containsAll, bool, $Collection*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Subject$SecureSet, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Subject$SecureSet, hashCode, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Subject$SecureSet, isEmpty, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(Subject$SecureSet, iterator, $Iterator*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Subject$SecureSet, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Subject$SecureSet, remove, bool, Object$*)},
+		{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Subject$SecureSet, removeAll, bool, $Collection*)},
+		{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Subject$SecureSet, retainAll, bool, $Collection*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Subject$SecureSet, size, int32_t)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Subject$SecureSet, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(Subject$SecureSet, toArray, $ObjectArray*, $ObjectArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Subject$SecureSet, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.security.auth.Subject$SecureSet", "javax.security.auth.Subject", "SecureSet", $PRIVATE | $STATIC},
+		{"javax.security.auth.Subject$SecureSet$6", nullptr, nullptr, 0},
+		{"javax.security.auth.Subject$SecureSet$5", nullptr, nullptr, 0},
+		{"javax.security.auth.Subject$SecureSet$4", nullptr, nullptr, 0},
+		{"javax.security.auth.Subject$SecureSet$3", nullptr, nullptr, 0},
+		{"javax.security.auth.Subject$SecureSet$2", nullptr, nullptr, 0},
+		{"javax.security.auth.Subject$SecureSet$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.security.auth.Subject$SecureSet",
+		"java.lang.Object",
+		"java.util.Set,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Set<TE;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.security.auth.Subject"
+	};
+	$loadClass(Subject$SecureSet, name, initialize, &classInfo$$, Subject$SecureSet::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Subject$SecureSet));
+	});
 	return class$;
 }
 

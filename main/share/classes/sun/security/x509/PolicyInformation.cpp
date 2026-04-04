@@ -1,9 +1,7 @@
 #include <sun/security/x509/PolicyInformation.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/security/cert/PolicyQualifierInfo.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Iterator.h>
@@ -26,13 +24,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $PolicyQualifierInfo = ::java::security::cert::PolicyQualifierInfo;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
 using $Set = ::java::util::Set;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $AttributeNameEnumeration = ::sun::security::x509::AttributeNameEnumeration;
@@ -42,45 +38,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _PolicyInformation_FieldInfo_[] = {
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PolicyInformation, NAME)},
-	{"ID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PolicyInformation, ID)},
-	{"QUALIFIERS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PolicyInformation, QUALIFIERS)},
-	{"policyIdentifier", "Lsun/security/x509/CertificatePolicyId;", nullptr, $PRIVATE, $field(PolicyInformation, policyIdentifier)},
-	{"policyQualifiers", "Ljava/util/Set;", "Ljava/util/Set<Ljava/security/cert/PolicyQualifierInfo;>;", $PRIVATE, $field(PolicyInformation, policyQualifiers)},
-	{}
-};
-
-$MethodInfo _PolicyInformation_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/x509/CertificatePolicyId;Ljava/util/Set;)V", "(Lsun/security/x509/CertificatePolicyId;Ljava/util/Set<Ljava/security/cert/PolicyQualifierInfo;>;)V", $PUBLIC, $method(PolicyInformation, init$, void, $CertificatePolicyId*, $Set*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(PolicyInformation, init$, void, $DerValue*), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, delete$, void, $String*), "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, encode, void, $DerOutputStream*), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, equals, bool, Object$*)},
-	{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, get, $Object*, $String*), "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(PolicyInformation, getElements, $Enumeration*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, getName, $String*)},
-	{"getPolicyIdentifier", "()Lsun/security/x509/CertificatePolicyId;", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, getPolicyIdentifier, $CertificatePolicyId*)},
-	{"getPolicyQualifiers", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/cert/PolicyQualifierInfo;>;", $PUBLIC, $virtualMethod(PolicyInformation, getPolicyQualifiers, $Set*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, hashCode, int32_t)},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, set, void, $String*, Object$*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, toString, $String*)},
-	{}
-};
-
-$ClassInfo _PolicyInformation_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.PolicyInformation",
-	"java.lang.Object",
-	nullptr,
-	_PolicyInformation_FieldInfo_,
-	_PolicyInformation_MethodInfo_
-};
-
-$Object* allocate$PolicyInformation($Class* clazz) {
-	return $of($alloc(PolicyInformation));
-}
-
 $String* PolicyInformation::NAME = nullptr;
 $String* PolicyInformation::ID = nullptr;
 $String* PolicyInformation::QUALIFIERS = nullptr;
@@ -89,27 +46,27 @@ void PolicyInformation::init$($CertificatePolicyId* policyIdentifier, $Set* poli
 	if (policyQualifiers == nullptr) {
 		$throwNew($NullPointerException, "policyQualifiers is null"_s);
 	}
-	$set(this, policyQualifiers, $new($LinkedHashSet, static_cast<$Collection*>(policyQualifiers)));
+	$set(this, policyQualifiers, $new($LinkedHashSet, policyQualifiers));
 	$set(this, policyIdentifier, policyIdentifier);
 }
 
 void PolicyInformation::init$($DerValue* val) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(val)->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "Invalid encoding of PolicyInformation"_s);
 	}
-	$set(this, policyIdentifier, $new($CertificatePolicyId, $($nc($nc(val)->data$)->getDerValue())));
-	if ($nc($nc(val)->data$)->available() != 0) {
+	$set(this, policyIdentifier, $new($CertificatePolicyId, $($nc(val->data$)->getDerValue())));
+	if (val->data$->available() != 0) {
 		$set(this, policyQualifiers, $new($LinkedHashSet));
-		$var($DerValue, opt, $nc(val->data$)->getDerValue());
+		$var($DerValue, opt, val->data$->getDerValue());
 		if ($nc(opt)->tag != $DerValue::tag_Sequence) {
 			$throwNew($IOException, "Invalid encoding of PolicyInformation"_s);
 		}
-		if ($nc($nc(opt)->data$)->available() == 0) {
+		if ($nc(opt->data$)->available() == 0) {
 			$throwNew($IOException, "No data available in policyQualifiers"_s);
 		}
-		while ($nc($nc(opt)->data$)->available() != 0) {
-			$nc(this->policyQualifiers)->add($$new($PolicyQualifierInfo, $($nc($($nc(opt->data$)->getDerValue()))->toByteArray())));
+		while (opt->data$->available() != 0) {
+			this->policyQualifiers->add($$new($PolicyQualifierInfo, $($$nc(opt->data$->getDerValue())->toByteArray())));
 		}
 	} else {
 		$set(this, policyQualifiers, $Collections::emptySet());
@@ -117,7 +74,7 @@ void PolicyInformation::init$($DerValue* val) {
 }
 
 bool PolicyInformation::equals(Object$* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf(PolicyInformation, other))) {
 		return false;
 	}
@@ -125,7 +82,7 @@ bool PolicyInformation::equals(Object$* other) {
 	if (!$nc(this->policyIdentifier)->equals($($nc(piOther)->getPolicyIdentifier()))) {
 		return false;
 	}
-	return $nc(this->policyQualifiers)->equals($($nc(piOther)->getPolicyQualifiers()));
+	return $nc(this->policyQualifiers)->equals($(piOther->getPolicyQualifiers()));
 }
 
 int32_t PolicyInformation::hashCode() {
@@ -144,16 +101,16 @@ $Set* PolicyInformation::getPolicyQualifiers() {
 
 $Object* PolicyInformation::get($String* name) {
 	if ($nc(name)->equalsIgnoreCase(PolicyInformation::ID)) {
-		return $of(this->policyIdentifier);
+		return this->policyIdentifier;
 	} else if (name->equalsIgnoreCase(PolicyInformation::QUALIFIERS)) {
-		return $of(this->policyQualifiers);
+		return this->policyQualifiers;
 	} else {
 		$throwNew($IOException, $$str({"Attribute name ["_s, name, "] not recognized by PolicyInformation."_s}));
 	}
 }
 
 void PolicyInformation::set($String* name, Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(name)->equalsIgnoreCase(PolicyInformation::ID)) {
 		if ($instanceOf($CertificatePolicyId, obj)) {
 			$set(this, policyIdentifier, $cast($CertificatePolicyId, obj));
@@ -165,7 +122,7 @@ void PolicyInformation::set($String* name, Object$* obj) {
 			$throwNew($IOException, "Attribute must have a CertificatePolicyIdentifier value before PolicyQualifierInfo can be set."_s);
 		}
 		if ($instanceOf($Set, obj)) {
-			$var($Iterator, i, $nc(($cast($Set, obj)))->iterator());
+			$var($Iterator, i, $cast($Set, obj)->iterator());
 			while ($nc(i)->hasNext()) {
 				$var($Object, obj1, i->next());
 				if (!($instanceOf($PolicyQualifierInfo, obj1))) {
@@ -207,13 +164,13 @@ $String* PolicyInformation::toString() {
 }
 
 void PolicyInformation::encode($DerOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	$nc(this->policyIdentifier)->encode(tmp);
 	if (!$nc(this->policyQualifiers)->isEmpty()) {
 		$var($DerOutputStream, tmp2, $new($DerOutputStream));
 		{
-			$var($Iterator, i$, $nc(this->policyQualifiers)->iterator());
+			$var($Iterator, i$, this->policyQualifiers->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($PolicyQualifierInfo, pq, $cast($PolicyQualifierInfo, i$->next()));
 				{
@@ -229,14 +186,48 @@ void PolicyInformation::encode($DerOutputStream* out) {
 PolicyInformation::PolicyInformation() {
 }
 
-void clinit$PolicyInformation($Class* class$) {
+void PolicyInformation::clinit$($Class* clazz) {
 	$assignStatic(PolicyInformation::NAME, "PolicyInformation"_s);
 	$assignStatic(PolicyInformation::ID, "id"_s);
 	$assignStatic(PolicyInformation::QUALIFIERS, "qualifiers"_s);
 }
 
 $Class* PolicyInformation::load$($String* name, bool initialize) {
-	$loadClass(PolicyInformation, name, initialize, &_PolicyInformation_ClassInfo_, clinit$PolicyInformation, allocate$PolicyInformation);
+	$FieldInfo fieldInfos$$[] = {
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PolicyInformation, NAME)},
+		{"ID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PolicyInformation, ID)},
+		{"QUALIFIERS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PolicyInformation, QUALIFIERS)},
+		{"policyIdentifier", "Lsun/security/x509/CertificatePolicyId;", nullptr, $PRIVATE, $field(PolicyInformation, policyIdentifier)},
+		{"policyQualifiers", "Ljava/util/Set;", "Ljava/util/Set<Ljava/security/cert/PolicyQualifierInfo;>;", $PRIVATE, $field(PolicyInformation, policyQualifiers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/x509/CertificatePolicyId;Ljava/util/Set;)V", "(Lsun/security/x509/CertificatePolicyId;Ljava/util/Set<Ljava/security/cert/PolicyQualifierInfo;>;)V", $PUBLIC, $method(PolicyInformation, init$, void, $CertificatePolicyId*, $Set*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(PolicyInformation, init$, void, $DerValue*), "java.io.IOException"},
+		{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, delete$, void, $String*), "java.io.IOException"},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, encode, void, $DerOutputStream*), "java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, equals, bool, Object$*)},
+		{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, get, $Object*, $String*), "java.io.IOException"},
+		{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(PolicyInformation, getElements, $Enumeration*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, getName, $String*)},
+		{"getPolicyIdentifier", "()Lsun/security/x509/CertificatePolicyId;", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, getPolicyIdentifier, $CertificatePolicyId*)},
+		{"getPolicyQualifiers", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/security/cert/PolicyQualifierInfo;>;", $PUBLIC, $virtualMethod(PolicyInformation, getPolicyQualifiers, $Set*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, hashCode, int32_t)},
+		{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, set, void, $String*, Object$*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyInformation, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.PolicyInformation",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PolicyInformation, name, initialize, &classInfo$$, PolicyInformation::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PolicyInformation);
+	});
 	return class$;
 }
 

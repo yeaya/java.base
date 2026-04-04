@@ -1,5 +1,4 @@
 #include <jdk/internal/ref/PhantomCleanable.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/ref/Cleaner.h>
 #include <java/lang/ref/PhantomReference.h>
@@ -25,53 +24,6 @@ namespace jdk {
 	namespace internal {
 		namespace ref {
 
-$FieldInfo _PhantomCleanable_FieldInfo_[] = {
-	{"prev", "Ljdk/internal/ref/PhantomCleanable;", "Ljdk/internal/ref/PhantomCleanable<*>;", 0, $field(PhantomCleanable, prev)},
-	{"next", "Ljdk/internal/ref/PhantomCleanable;", "Ljdk/internal/ref/PhantomCleanable<*>;", 0, $field(PhantomCleanable, next)},
-	{"list", "Ljdk/internal/ref/PhantomCleanable;", "Ljdk/internal/ref/PhantomCleanable<*>;", $PRIVATE | $FINAL, $field(PhantomCleanable, list)},
-	{}
-};
-
-$MethodInfo _PhantomCleanable_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/Cleaner;)V", "(TT;Ljava/lang/ref/Cleaner;)V", $PUBLIC, $method(PhantomCleanable, init$, void, Object$*, $Cleaner*)},
-	{"<init>", "()V", nullptr, 0, $method(PhantomCleanable, init$, void)},
-	{"clean", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(PhantomCleanable, clean, void)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(PhantomCleanable, clear, void)},
-	{"enqueue", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(PhantomCleanable, enqueue, bool)},
-	{"insert", "()V", nullptr, $PRIVATE, $method(PhantomCleanable, insert, void)},
-	{"isEnqueued", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(PhantomCleanable, isEnqueued, bool)},
-	{"isListEmpty", "()Z", nullptr, 0, $virtualMethod(PhantomCleanable, isListEmpty, bool)},
-	{"performCleanup", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PhantomCleanable, performCleanup, void)},
-	{"remove", "()Z", nullptr, $PRIVATE, $method(PhantomCleanable, remove, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _PhantomCleanable_InnerClassesInfo_[] = {
-	{"java.lang.ref.Cleaner$Cleanable", "java.lang.ref.Cleaner", "Cleanable", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _PhantomCleanable_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"jdk.internal.ref.PhantomCleanable",
-	"java.lang.ref.PhantomReference",
-	"java.lang.ref.Cleaner$Cleanable",
-	_PhantomCleanable_FieldInfo_,
-	_PhantomCleanable_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/ref/PhantomReference<TT;>;Ljava/lang/ref/Cleaner$Cleanable;",
-	nullptr,
-	_PhantomCleanable_InnerClassesInfo_
-};
-
-$Object* allocate$PhantomCleanable($Class* clazz) {
-	return $of($alloc(PhantomCleanable));
-}
-
 $Object* PhantomCleanable::clone() {
 	 return this->$PhantomReference::clone();
 }
@@ -93,7 +45,7 @@ void PhantomCleanable::finalize() {
 }
 
 void PhantomCleanable::init$(Object$* referent, $Cleaner* cleaner) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, var$0, $Objects::requireNonNull(referent));
 	$PhantomReference::init$(var$0, $nc($($CleanerImpl::getCleanerImpl(cleaner)))->queue);
 	$set(this, prev, this);
@@ -114,9 +66,9 @@ void PhantomCleanable::init$() {
 void PhantomCleanable::insert() {
 	$synchronized(this->list) {
 		$set(this, prev, this->list);
-		$set(this, next, $nc(this->list)->next);
+		$set(this, next, this->list->next);
 		$set($nc(this->next), prev, this);
-		$set($nc(this->list), next, this);
+		$set(this->list, next, this);
 	}
 }
 
@@ -135,7 +87,7 @@ bool PhantomCleanable::remove() {
 
 bool PhantomCleanable::isListEmpty() {
 	$synchronized(this->list) {
-		return this->list == $nc(this->list)->next;
+		return this->list == this->list->next;
 	}
 }
 
@@ -166,7 +118,48 @@ PhantomCleanable::PhantomCleanable() {
 }
 
 $Class* PhantomCleanable::load$($String* name, bool initialize) {
-	$loadClass(PhantomCleanable, name, initialize, &_PhantomCleanable_ClassInfo_, allocate$PhantomCleanable);
+	$FieldInfo fieldInfos$$[] = {
+		{"prev", "Ljdk/internal/ref/PhantomCleanable;", "Ljdk/internal/ref/PhantomCleanable<*>;", 0, $field(PhantomCleanable, prev)},
+		{"next", "Ljdk/internal/ref/PhantomCleanable;", "Ljdk/internal/ref/PhantomCleanable<*>;", 0, $field(PhantomCleanable, next)},
+		{"list", "Ljdk/internal/ref/PhantomCleanable;", "Ljdk/internal/ref/PhantomCleanable<*>;", $PRIVATE | $FINAL, $field(PhantomCleanable, list)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/ref/Cleaner;)V", "(TT;Ljava/lang/ref/Cleaner;)V", $PUBLIC, $method(PhantomCleanable, init$, void, Object$*, $Cleaner*)},
+		{"<init>", "()V", nullptr, 0, $method(PhantomCleanable, init$, void)},
+		{"clean", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(PhantomCleanable, clean, void)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(PhantomCleanable, clear, void)},
+		{"enqueue", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(PhantomCleanable, enqueue, bool)},
+		{"insert", "()V", nullptr, $PRIVATE, $method(PhantomCleanable, insert, void)},
+		{"isEnqueued", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(PhantomCleanable, isEnqueued, bool)},
+		{"isListEmpty", "()Z", nullptr, 0, $virtualMethod(PhantomCleanable, isListEmpty, bool)},
+		{"performCleanup", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(PhantomCleanable, performCleanup, void)},
+		{"remove", "()Z", nullptr, $PRIVATE, $method(PhantomCleanable, remove, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ref.Cleaner$Cleanable", "java.lang.ref.Cleaner", "Cleanable", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"jdk.internal.ref.PhantomCleanable",
+		"java.lang.ref.PhantomReference",
+		"java.lang.ref.Cleaner$Cleanable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/ref/PhantomReference<TT;>;Ljava/lang/ref/Cleaner$Cleanable;",
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(PhantomCleanable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PhantomCleanable));
+	});
 	return class$;
 }
 

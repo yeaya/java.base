@@ -65,6 +65,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::nio::ch::Iocp* iocp);
 	static int32_t accept0(int64_t listenSocket, int64_t acceptSocket, int64_t overlapped, int64_t dataBuffer);
 	static void closesocket0(int64_t socket);

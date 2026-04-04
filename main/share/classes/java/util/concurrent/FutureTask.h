@@ -58,6 +58,7 @@ class $export FutureTask : public ::java::util::concurrent::RunnableFuture {
 	$class(FutureTask, 0, ::java::util::concurrent::RunnableFuture)
 public:
 	FutureTask();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::concurrent::Callable* callable);
 	void init$(::java::lang::Runnable* runnable, Object$* result);
 	int32_t awaitDone(bool timed, int64_t nanos);

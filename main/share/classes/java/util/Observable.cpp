@@ -1,5 +1,4 @@
 #include <java/util/Observable.h>
-
 #include <java/util/Observer.h>
 #include <java/util/Vector.h>
 #include <jcpp.h>
@@ -16,53 +15,6 @@ using $Vector = ::java::util::Vector;
 namespace java {
 	namespace util {
 
-$NamedAttribute Observable_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _Observable_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", Observable_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _Observable_FieldInfo_[] = {
-	{"changed", "Z", nullptr, $PRIVATE, $field(Observable, changed)},
-	{"obs", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/util/Observer;>;", $PRIVATE, $field(Observable, obs)},
-	{}
-};
-
-$MethodInfo _Observable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Observable, init$, void)},
-	{"addObserver", "(Ljava/util/Observer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Observable, addObserver, void, $Observer*)},
-	{"clearChanged", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(Observable, clearChanged, void)},
-	{"countObservers", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Observable, countObservers, int32_t)},
-	{"deleteObserver", "(Ljava/util/Observer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Observable, deleteObserver, void, $Observer*)},
-	{"deleteObservers", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Observable, deleteObservers, void)},
-	{"hasChanged", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Observable, hasChanged, bool)},
-	{"notifyObservers", "()V", nullptr, $PUBLIC, $virtualMethod(Observable, notifyObservers, void)},
-	{"notifyObservers", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Observable, notifyObservers, void, Object$*)},
-	{"setChanged", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(Observable, setChanged, void)},
-	{}
-};
-
-$ClassInfo _Observable_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.Observable",
-	"java.lang.Object",
-	nullptr,
-	_Observable_FieldInfo_,
-	_Observable_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Observable_Annotations_
-};
-
-$Object* allocate$Observable($Class* clazz) {
-	return $of($alloc(Observable));
-}
-
 void Observable::init$() {
 	this->changed = false;
 	$set(this, obs, $new($Vector));
@@ -74,7 +26,7 @@ void Observable::addObserver($Observer* o) {
 			$throwNew($NullPointerException);
 		}
 		if (!$nc(this->obs)->contains(o)) {
-			$nc(this->obs)->addElement(o);
+			this->obs->addElement(o);
 		}
 	}
 }
@@ -99,7 +51,7 @@ void Observable::notifyObservers(Object$* arg) {
 		clearChanged();
 	}
 	for (int32_t i = $nc(arrLocal)->length - 1; i >= 0; --i) {
-		$nc(($cast($Observer, arrLocal->get(i))))->update(this, arg);
+		$nc($cast($Observer, arrLocal->get(i)))->update(this, arg);
 	}
 }
 
@@ -137,7 +89,47 @@ Observable::Observable() {
 }
 
 $Class* Observable::load$($String* name, bool initialize) {
-	$loadClass(Observable, name, initialize, &_Observable_ClassInfo_, allocate$Observable);
+	$FieldInfo fieldInfos$$[] = {
+		{"changed", "Z", nullptr, $PRIVATE, $field(Observable, changed)},
+		{"obs", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/util/Observer;>;", $PRIVATE, $field(Observable, obs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Observable, init$, void)},
+		{"addObserver", "(Ljava/util/Observer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Observable, addObserver, void, $Observer*)},
+		{"clearChanged", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(Observable, clearChanged, void)},
+		{"countObservers", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Observable, countObservers, int32_t)},
+		{"deleteObserver", "(Ljava/util/Observer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Observable, deleteObserver, void, $Observer*)},
+		{"deleteObservers", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Observable, deleteObservers, void)},
+		{"hasChanged", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Observable, hasChanged, bool)},
+		{"notifyObservers", "()V", nullptr, $PUBLIC, $virtualMethod(Observable, notifyObservers, void)},
+		{"notifyObservers", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Observable, notifyObservers, void, Object$*)},
+		{"setChanged", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(Observable, setChanged, void)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.Observable",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Observable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Observable);
+	});
 	return class$;
 }
 

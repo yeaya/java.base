@@ -20,26 +20,7 @@
 
 #include <java/lang/Util.h>
 
-#include <java/lang/Class.h>
-#include <java/lang/String.h>
-#include <java/lang/Byte.h>
-#include <java/lang/Short.h>
-#include <java/lang/Integer.h>
-#include <java/lang/Long.h>
-#include <java/lang/Float.h>
-#include <java/lang/Double.h>
-#include <java/lang/Boolean.h>
-#include <java/lang/Character.h>
-#include <java/lang/ByteArray.h>
-#include <java/lang/LongArray.h>
-#include <java/lang/IllegalArgumentException.h>
-#include <java/nio/ByteBuffer.h>
-#include <java/lang/reflect/Array.h>
 #include <jcpp.h>
-
-#include <atomic>
-
-using ::java::nio::ByteBuffer;
 
 namespace java {
 	namespace lang {
@@ -51,7 +32,7 @@ $StringArray* Util::split(const char* s, char separatorChar) {
 			count++;
 		}
 	}
-	$var($StringArray, sa, $new<$StringArray>(count));
+	$var($StringArray, sa, $new($StringArray, count));
 	int32_t offset = 0;
 	for (int32_t i = 0; i < sa->length; i++) {
 		char buffer[512] = {};
@@ -78,7 +59,7 @@ $StringArray* Util::split(const char* s, char separatorChar) {
 bool Util::needConvert(Class* type, Object0* arg) {
 	if (arg == nullptr) {
 		if (type->isPrimitive()) {
-			$throwNew(IllegalArgumentException);
+			$throwNew(IllegalArgumentException, "argument type mismatch"_s);
 		}
 		return false;
 	}
@@ -137,9 +118,9 @@ Object0* Util::convert(Class* type, Object0* arg) {
 			} else if (argClass == Integer::class$) {
 				return arg;
 			} else {
-				$throwNew(IllegalArgumentException);
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
 			}
-			return $fcast<Object0>(Integer::valueOf(value));
+			return $of(Integer::valueOf(value));
 		}
 		if (type == Long::TYPE) {
 			int64_t value = 0;
@@ -160,9 +141,9 @@ Object0* Util::convert(Class* type, Object0* arg) {
 			} else if (argClass == Long::class$) {
 				return arg;
 			} else {
-				$throwNew(IllegalArgumentException);
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
 			}
-			return $fcast<Object0>(Long::valueOf(value));
+			return $of(Long::valueOf(value));
 		}
 		if (type == Byte::TYPE) {
 			int8_t value = 0;
@@ -183,9 +164,9 @@ Object0* Util::convert(Class* type, Object0* arg) {
 			} else if (argClass == Byte::class$) {
 				return arg;
 			} else {
-				$throwNew(IllegalArgumentException);
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
 			}
-			return $fcast<Object0>(Byte::valueOf(value));
+			return $of(Byte::valueOf(value));
 		}
 		if (type == Short::TYPE) {
 			int16_t value = 0;
@@ -206,9 +187,9 @@ Object0* Util::convert(Class* type, Object0* arg) {
 			} else if (argClass == Short::class$) {
 				return arg;
 			} else {
-				$throwNew(IllegalArgumentException);
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
 			}
-			return $fcast<Object0>(Short::valueOf(value));
+			return $of(Short::valueOf(value));
 		}
 		if (type == Character::TYPE) {
 			char16_t value = 0;
@@ -229,9 +210,9 @@ Object0* Util::convert(Class* type, Object0* arg) {
 			} else if (argClass == Character::class$) {
 				return arg;
 			} else {
-				$throwNew(IllegalArgumentException);
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
 			}
-			return $fcast<Object0>(Character::valueOf(value));
+			return $of(Character::valueOf(value));
 		}
 		if (type == Float::TYPE) {
 			float value = 0;
@@ -252,9 +233,9 @@ Object0* Util::convert(Class* type, Object0* arg) {
 			} else if (argClass == Float::class$) {
 				return arg;
 			} else {
-				$throwNew(IllegalArgumentException);
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
 			}
-			return $fcast<Object0>(Float::valueOf(value));
+			return $of(Float::valueOf(value));
 		}
 		if (type == Double::TYPE) {
 			double value = 0;
@@ -275,9 +256,9 @@ Object0* Util::convert(Class* type, Object0* arg) {
 			} else if (argClass == Double::class$) {
 				return arg;
 			} else {
-				$throwNew(IllegalArgumentException);
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
 			}
-			return $fcast<Object0>(Double::valueOf(value));
+			return $of(Double::valueOf(value));
 		}
 		if (type == Boolean::TYPE) {
 			bool value = false;
@@ -298,15 +279,14 @@ Object0* Util::convert(Class* type, Object0* arg) {
 			} else if (argClass == Boolean::class$) {
 				return arg;
 			} else {
-				$throwNew(IllegalArgumentException);
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
 			}
-			return $fcast<Object0>(Boolean::valueOf(value));
+			return $of(Boolean::valueOf(value));
 		}
-		$throwNew(IllegalArgumentException);
+		$shouldNotReachHere();
 	} else {
 		if (!type->isInstance(arg)) {
-		//	type->isInstance(arg); // TODO for test
-			$throwNew(IllegalArgumentException);
+			$throwNew(IllegalArgumentException, "argument type mismatch"_s);
 		}
 		return arg;
 	}
@@ -337,7 +317,7 @@ $Value Util::prepareArg(Class* type, Object0* arg) {
 			} else if (argClass == Integer::class$) {
 				value = $intValue(arg);
 			} else {
-				$throwNew(IllegalArgumentException);
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
 			}
 			return value;
 		}
@@ -360,7 +340,7 @@ $Value Util::prepareArg(Class* type, Object0* arg) {
 			} else if (argClass == Long::class$) {
 				value = $longValue(arg);
 			} else {
-				$throwNew(IllegalArgumentException);
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
 			}
 			return value;
 		}
@@ -383,7 +363,7 @@ $Value Util::prepareArg(Class* type, Object0* arg) {
 			} else if (argClass == Byte::class$) {
 				value = $byteValue(arg);
 			} else {
-				$throwNew(IllegalArgumentException);
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
 			}
 			return value;
 		}
@@ -406,7 +386,7 @@ $Value Util::prepareArg(Class* type, Object0* arg) {
 			} else if (argClass == Short::class$) {
 				value = $shortValue(arg);
 			} else {
-				$throwNew(IllegalArgumentException);
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
 			}
 			return value;
 		}
@@ -429,7 +409,7 @@ $Value Util::prepareArg(Class* type, Object0* arg) {
 			} else if (argClass == Character::class$) {
 				value = $charValue(arg);
 			} else {
-				$throwNew(IllegalArgumentException);
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
 			}
 			return value;
 		}
@@ -452,7 +432,7 @@ $Value Util::prepareArg(Class* type, Object0* arg) {
 			} else if (argClass == Float::class$) {
 				value = $floatValue(arg);
 			} else {
-				$throwNew(IllegalArgumentException);
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
 			}
 			return value;
 		}
@@ -475,7 +455,7 @@ $Value Util::prepareArg(Class* type, Object0* arg) {
 			} else if (argClass == Double::class$) {
 				value = $doubleValue(arg);
 			} else {
-				$throwNew(IllegalArgumentException);
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
 			}
 			return value;
 		}
@@ -498,16 +478,15 @@ $Value Util::prepareArg(Class* type, Object0* arg) {
 			} else if (argClass == Boolean::class$) {
 				value = $booleanValue(arg) != 0;
 			} else {
-				$throwNew(IllegalArgumentException);
+				$throwNew(IllegalArgumentException, "argument type mismatch"_s);
 			}
 			return value;
 		}
-		$throwNew(IllegalArgumentException);
+		$shouldNotReachHere();
 	} else {
-		//if (!type->isInstance(arg)) {
-		//	type->isInstance(arg); // TODO for test
-		//	$throwNew(IllegalArgumentException);
-	//	}
+		if (!type->isInstance(arg)) {
+			$throwNew(IllegalArgumentException, "argument type mismatch"_s);
+		}
 		return type->cast(arg);
 	}
 }
@@ -543,7 +522,7 @@ Object* Util::toObject(Class* type, $Value var) {
 	return var.is<$Object>();
 }
 
-void Util::prepareArgs($Array<Class>* types, $ObjectArray* args, $Value* output) {
+void Util::prepareArgs($ClassArray* types, $ObjectArray* args, $Value* output) {
 	if (args == nullptr) {
 		if (types->length == 0) {
 			return;
@@ -560,14 +539,14 @@ void Util::prepareArgs($Array<Class>* types, $ObjectArray* args, $Value* output)
 	}
 }
 
-Object* Util::prepareArgsWithVarArgs($Array<Class>* types, $ObjectArray* args, $Value* output) {
+Object* Util::prepareArgsWithVarArgs($ClassArray* types, $ObjectArray* args, $Value* output) {
 	int32_t fixArgCount = types->length - 1;
 	Class* varArgClazz = types->get(fixArgCount);
 	Class* componentType = varArgClazz->getComponentType();
 	if (args == nullptr) {
 		if (types->length == 1) {
-			$var($ObjectArray, args0, $new<$ObjectArray>(1));
-			args0->set(0, ::java::lang::reflect::Array::newArray(componentType, 0));
+			$var($ObjectArray, args0, $new($ObjectArray, 1));
+			args0->set(0, $ObjectArray::create(componentType, 0));
 			output[0] = args0;
 			return args0;
 		}
@@ -615,7 +594,7 @@ Object* Util::prepareArgsWithVarArgs($Array<Class>* types, $ObjectArray* args, $
 	return varArgs;
 }
 
-String* Util::subStr(::java::lang::String* origin, ::java::lang::String* start, ::java::lang::String* end) {
+String* Util::subStr(String* origin, String* start, String* end) {
 	int32_t index = $nullcheck(origin)->indexOf(start);
 	if (index == -1) {
 		return nullptr;

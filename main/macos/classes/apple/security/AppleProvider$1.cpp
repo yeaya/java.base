@@ -1,8 +1,6 @@
 #include <apple/security/AppleProvider$1.h>
-
 #include <apple/security/AppleProvider$ProviderService.h>
 #include <apple/security/AppleProvider.h>
-#include <java/security/Provider$Service.h>
 #include <java/security/Provider.h>
 #include <jcpp.h>
 
@@ -14,53 +12,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Provider = ::java::security::Provider;
-using $Provider$Service = ::java::security::Provider$Service;
 
 namespace apple {
 	namespace security {
-
-$FieldInfo _AppleProvider$1_FieldInfo_[] = {
-	{"this$0", "Lapple/security/AppleProvider;", nullptr, $FINAL | $SYNTHETIC, $field(AppleProvider$1, this$0)},
-	{"val$p", "Ljava/security/Provider;", nullptr, $FINAL | $SYNTHETIC, $field(AppleProvider$1, val$p)},
-	{}
-};
-
-$MethodInfo _AppleProvider$1_MethodInfo_[] = {
-	{"<init>", "(Lapple/security/AppleProvider;Ljava/security/Provider;)V", "()V", 0, $method(AppleProvider$1, init$, void, $AppleProvider*, $Provider*)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(AppleProvider$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _AppleProvider$1_EnclosingMethodInfo_ = {
-	"apple.security.AppleProvider",
-	"<init>",
-	"()V"
-};
-
-$InnerClassInfo _AppleProvider$1_InnerClassesInfo_[] = {
-	{"apple.security.AppleProvider$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AppleProvider$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"apple.security.AppleProvider$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_AppleProvider$1_FieldInfo_,
-	_AppleProvider$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
-	&_AppleProvider$1_EnclosingMethodInfo_,
-	_AppleProvider$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"apple.security.AppleProvider"
-};
-
-$Object* allocate$AppleProvider$1($Class* clazz) {
-	return $of($alloc(AppleProvider$1));
-}
 
 void AppleProvider$1::init$($AppleProvider* this$0, $Provider* val$p) {
 	$set(this, this$0, this$0);
@@ -69,14 +23,50 @@ void AppleProvider$1::init$($AppleProvider* this$0, $Provider* val$p) {
 
 $Object* AppleProvider$1::run() {
 	$AppleProvider::access$000(this->this$0, $$new($AppleProvider$ProviderService, this->val$p, "KeyStore"_s, "KeychainStore"_s, "apple.security.KeychainStore"_s));
-	return $of(nullptr);
+	return nullptr;
 }
 
 AppleProvider$1::AppleProvider$1() {
 }
 
 $Class* AppleProvider$1::load$($String* name, bool initialize) {
-	$loadClass(AppleProvider$1, name, initialize, &_AppleProvider$1_ClassInfo_, allocate$AppleProvider$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lapple/security/AppleProvider;", nullptr, $FINAL | $SYNTHETIC, $field(AppleProvider$1, this$0)},
+		{"val$p", "Ljava/security/Provider;", nullptr, $FINAL | $SYNTHETIC, $field(AppleProvider$1, val$p)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lapple/security/AppleProvider;Ljava/security/Provider;)V", "()V", 0, $method(AppleProvider$1, init$, void, $AppleProvider*, $Provider*)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(AppleProvider$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"apple.security.AppleProvider",
+		"<init>",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"apple.security.AppleProvider$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"apple.security.AppleProvider$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"apple.security.AppleProvider"
+	};
+	$loadClass(AppleProvider$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AppleProvider$1);
+	});
 	return class$;
 }
 

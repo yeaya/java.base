@@ -38,6 +38,7 @@ class $import CRLReason : public ::java::lang::Enum {
 public:
 	CRLReason();
 	static $Array<::java::security::cert::CRLReason>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::security::cert::CRLReason* valueOf($String* name);
 	static $Array<::java::security::cert::CRLReason>* values();

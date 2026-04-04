@@ -39,6 +39,7 @@ class SSLAlgorithmConstraints : public ::java::security::AlgorithmConstraints {
 	$class(SSLAlgorithmConstraints, 0, ::java::security::AlgorithmConstraints)
 public:
 	SSLAlgorithmConstraints();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::AlgorithmConstraints* userSpecifiedConstraints);
 	void init$(::javax::net::ssl::SSLSocket* socket, bool withDefaultCertPathConstraints);
 	void init$(::javax::net::ssl::SSLEngine* engine, bool withDefaultCertPathConstraints);

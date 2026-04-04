@@ -1,8 +1,6 @@
 #include <com/sun/crypto/provider/RC2Cipher.h>
-
 #include <com/sun/crypto/provider/CipherCore.h>
 #include <com/sun/crypto/provider/RC2Crypt.h>
-#include <com/sun/crypto/provider/SymmetricCipher.h>
 #include <java/security/AlgorithmParameters.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/Key.h>
@@ -16,7 +14,6 @@
 
 using $CipherCore = ::com::sun::crypto::provider::CipherCore;
 using $RC2Crypt = ::com::sun::crypto::provider::RC2Crypt;
-using $SymmetricCipher = ::com::sun::crypto::provider::SymmetricCipher;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -35,46 +32,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _RC2Cipher_FieldInfo_[] = {
-	{"core", "Lcom/sun/crypto/provider/CipherCore;", nullptr, $PRIVATE | $FINAL, $field(RC2Cipher, core)},
-	{"embeddedCipher", "Lcom/sun/crypto/provider/RC2Crypt;", nullptr, $PRIVATE | $FINAL, $field(RC2Cipher, embeddedCipher)},
-	{}
-};
-
-$MethodInfo _RC2Cipher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RC2Cipher, init$, void)},
-	{"engineDoFinal", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineDoFinal, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{"engineDoFinal", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineDoFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.ShortBufferException,javax.crypto.BadPaddingException"},
-	{"engineGetBlockSize", "()I", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineGetBlockSize, int32_t)},
-	{"engineGetIV", "()[B", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineGetIV, $bytes*)},
-	{"engineGetKeySize", "(Ljava/security/Key;)I", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineGetKeySize, int32_t, $Key*), "java.security.InvalidKeyException"},
-	{"engineGetOutputSize", "(I)I", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineGetOutputSize, int32_t, int32_t)},
-	{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineGetParameters, $AlgorithmParameters*)},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineInit, void, int32_t, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineInit, void, int32_t, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineInit, void, int32_t, $Key*, $AlgorithmParameters*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"engineSetMode", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineSetMode, void, $String*), "java.security.NoSuchAlgorithmException"},
-	{"engineSetPadding", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineSetPadding, void, $String*), "javax.crypto.NoSuchPaddingException"},
-	{"engineUnwrap", "([BLjava/lang/String;I)Ljava/security/Key;", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineUnwrap, $Key*, $bytes*, $String*, int32_t), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
-	{"engineUpdate", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineUpdate, $bytes*, $bytes*, int32_t, int32_t)},
-	{"engineUpdate", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
-	{"engineWrap", "(Ljava/security/Key;)[B", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineWrap, $bytes*, $Key*), "javax.crypto.IllegalBlockSizeException,java.security.InvalidKeyException"},
-	{}
-};
-
-$ClassInfo _RC2Cipher_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.RC2Cipher",
-	"javax.crypto.CipherSpi",
-	nullptr,
-	_RC2Cipher_FieldInfo_,
-	_RC2Cipher_MethodInfo_
-};
-
-$Object* allocate$RC2Cipher($Class* clazz) {
-	return $of($alloc(RC2Cipher));
-}
-
 void RC2Cipher::init$() {
 	$CipherSpi::init$();
 	$set(this, embeddedCipher, $new($RC2Crypt));
@@ -82,11 +39,11 @@ void RC2Cipher::init$() {
 }
 
 void RC2Cipher::engineSetMode($String* mode) {
-	$nc(this->core)->setMode(mode);
+	this->core->setMode(mode);
 }
 
 void RC2Cipher::engineSetPadding($String* paddingScheme) {
-	$nc(this->core)->setPadding(paddingScheme);
+	this->core->setPadding(paddingScheme);
 }
 
 int32_t RC2Cipher::engineGetBlockSize() {
@@ -94,84 +51,119 @@ int32_t RC2Cipher::engineGetBlockSize() {
 }
 
 int32_t RC2Cipher::engineGetOutputSize(int32_t inputLen) {
-	return $nc(this->core)->getOutputSize(inputLen);
+	return this->core->getOutputSize(inputLen);
 }
 
 $bytes* RC2Cipher::engineGetIV() {
-	return $nc(this->core)->getIV();
+	return this->core->getIV();
 }
 
 $AlgorithmParameters* RC2Cipher::engineGetParameters() {
-	return $nc(this->core)->getParameters("RC2"_s);
+	return this->core->getParameters("RC2"_s);
 }
 
 void RC2Cipher::engineInit(int32_t opmode, $Key* key, $SecureRandom* random) {
-	$nc(this->embeddedCipher)->initEffectiveKeyBits(0);
-	$nc(this->core)->init(opmode, key, random);
+	this->embeddedCipher->initEffectiveKeyBits(0);
+	this->core->init(opmode, key, random);
 }
 
 void RC2Cipher::engineInit(int32_t opmode, $Key* key, $AlgorithmParameterSpec* params, $SecureRandom* random) {
 	if (params != nullptr && $instanceOf($RC2ParameterSpec, params)) {
-		$nc(this->embeddedCipher)->initEffectiveKeyBits($nc(($cast($RC2ParameterSpec, params)))->getEffectiveKeyBits());
+		this->embeddedCipher->initEffectiveKeyBits($cast($RC2ParameterSpec, params)->getEffectiveKeyBits());
 	} else {
-		$nc(this->embeddedCipher)->initEffectiveKeyBits(0);
+		this->embeddedCipher->initEffectiveKeyBits(0);
 	}
-	$nc(this->core)->init(opmode, key, params, random);
+	this->core->init(opmode, key, params, random);
 }
 
 void RC2Cipher::engineInit(int32_t opmode, $Key* key, $AlgorithmParameters* params, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
-	if (params != nullptr && $nc($(params->getAlgorithm()))->equals("RC2"_s)) {
+	$useLocalObjectStack();
+	if (params != nullptr && $$nc(params->getAlgorithm())->equals("RC2"_s)) {
 		try {
 			$load($RC2ParameterSpec);
 			$var($RC2ParameterSpec, rc2Params, $cast($RC2ParameterSpec, params->getParameterSpec($RC2ParameterSpec::class$)));
-			engineInit(opmode, key, static_cast<$AlgorithmParameterSpec*>(rc2Params), random);
+			engineInit(opmode, key, rc2Params, random);
 		} catch ($InvalidParameterSpecException& ipse) {
 			$throwNew($InvalidAlgorithmParameterException, "Wrong parameter type: RC2 expected"_s);
 		}
 	} else {
-		$nc(this->embeddedCipher)->initEffectiveKeyBits(0);
-		$nc(this->core)->init(opmode, key, params, random);
+		this->embeddedCipher->initEffectiveKeyBits(0);
+		this->core->init(opmode, key, params, random);
 	}
 }
 
 $bytes* RC2Cipher::engineUpdate($bytes* in, int32_t inOfs, int32_t inLen) {
-	return $nc(this->core)->update(in, inOfs, inLen);
+	return this->core->update(in, inOfs, inLen);
 }
 
 int32_t RC2Cipher::engineUpdate($bytes* in, int32_t inOfs, int32_t inLen, $bytes* out, int32_t outOfs) {
-	return $nc(this->core)->update(in, inOfs, inLen, out, outOfs);
+	return this->core->update(in, inOfs, inLen, out, outOfs);
 }
 
 $bytes* RC2Cipher::engineDoFinal($bytes* in, int32_t inOfs, int32_t inLen) {
-	return $nc(this->core)->doFinal(in, inOfs, inLen);
+	return this->core->doFinal(in, inOfs, inLen);
 }
 
 int32_t RC2Cipher::engineDoFinal($bytes* in, int32_t inOfs, int32_t inLen, $bytes* out, int32_t outOfs) {
-	return $nc(this->core)->doFinal(in, inOfs, inLen, out, outOfs);
+	return this->core->doFinal(in, inOfs, inLen, out, outOfs);
 }
 
 int32_t RC2Cipher::engineGetKeySize($Key* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, keyBytes, $CipherCore::getKeyBytes(key));
 	$Arrays::fill(keyBytes, (int8_t)0);
 	$RC2Crypt::checkKey($($nc(key)->getAlgorithm()), $nc(keyBytes)->length);
-	return $nc(keyBytes)->length << 3;
+	return keyBytes->length << 3;
 }
 
 $bytes* RC2Cipher::engineWrap($Key* key) {
-	return $nc(this->core)->wrap(key);
+	return this->core->wrap(key);
 }
 
 $Key* RC2Cipher::engineUnwrap($bytes* wrappedKey, $String* wrappedKeyAlgorithm, int32_t wrappedKeyType) {
-	return $nc(this->core)->unwrap(wrappedKey, wrappedKeyAlgorithm, wrappedKeyType);
+	return this->core->unwrap(wrappedKey, wrappedKeyAlgorithm, wrappedKeyType);
 }
 
 RC2Cipher::RC2Cipher() {
 }
 
 $Class* RC2Cipher::load$($String* name, bool initialize) {
-	$loadClass(RC2Cipher, name, initialize, &_RC2Cipher_ClassInfo_, allocate$RC2Cipher);
+	$FieldInfo fieldInfos$$[] = {
+		{"core", "Lcom/sun/crypto/provider/CipherCore;", nullptr, $PRIVATE | $FINAL, $field(RC2Cipher, core)},
+		{"embeddedCipher", "Lcom/sun/crypto/provider/RC2Crypt;", nullptr, $PRIVATE | $FINAL, $field(RC2Cipher, embeddedCipher)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RC2Cipher, init$, void)},
+		{"engineDoFinal", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineDoFinal, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+		{"engineDoFinal", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineDoFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.ShortBufferException,javax.crypto.BadPaddingException"},
+		{"engineGetBlockSize", "()I", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineGetBlockSize, int32_t)},
+		{"engineGetIV", "()[B", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineGetIV, $bytes*)},
+		{"engineGetKeySize", "(Ljava/security/Key;)I", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineGetKeySize, int32_t, $Key*), "java.security.InvalidKeyException"},
+		{"engineGetOutputSize", "(I)I", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineGetOutputSize, int32_t, int32_t)},
+		{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineGetParameters, $AlgorithmParameters*)},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineInit, void, int32_t, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineInit, void, int32_t, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineInit, void, int32_t, $Key*, $AlgorithmParameters*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"engineSetMode", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineSetMode, void, $String*), "java.security.NoSuchAlgorithmException"},
+		{"engineSetPadding", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineSetPadding, void, $String*), "javax.crypto.NoSuchPaddingException"},
+		{"engineUnwrap", "([BLjava/lang/String;I)Ljava/security/Key;", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineUnwrap, $Key*, $bytes*, $String*, int32_t), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
+		{"engineUpdate", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineUpdate, $bytes*, $bytes*, int32_t, int32_t)},
+		{"engineUpdate", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
+		{"engineWrap", "(Ljava/security/Key;)[B", nullptr, $PROTECTED, $virtualMethod(RC2Cipher, engineWrap, $bytes*, $Key*), "javax.crypto.IllegalBlockSizeException,java.security.InvalidKeyException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.RC2Cipher",
+		"javax.crypto.CipherSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RC2Cipher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RC2Cipher);
+	});
 	return class$;
 }
 

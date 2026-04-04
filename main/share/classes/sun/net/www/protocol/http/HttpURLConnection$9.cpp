@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/http/HttpURLConnection$9.h>
-
 #include <java/io/InputStream.h>
 #include <sun/net/www/protocol/http/HttpURLConnection.h>
 #include <jcpp.h>
@@ -17,61 +16,54 @@ namespace sun {
 			namespace protocol {
 				namespace http {
 
-$FieldInfo _HttpURLConnection$9_FieldInfo_[] = {
-	{"this$0", "Lsun/net/www/protocol/http/HttpURLConnection;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$9, this$0)},
-	{}
-};
-
-$MethodInfo _HttpURLConnection$9_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/protocol/http/HttpURLConnection;)V", nullptr, 0, $method(HttpURLConnection$9, init$, void, $HttpURLConnection*)},
-	{"run", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$9, run, $Object*), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _HttpURLConnection$9_EnclosingMethodInfo_ = {
-	"sun.net.www.protocol.http.HttpURLConnection",
-	"getInputStream",
-	"()Ljava/io/InputStream;"
-};
-
-$InnerClassInfo _HttpURLConnection$9_InnerClassesInfo_[] = {
-	{"sun.net.www.protocol.http.HttpURLConnection$9", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HttpURLConnection$9_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.www.protocol.http.HttpURLConnection$9",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	_HttpURLConnection$9_FieldInfo_,
-	_HttpURLConnection$9_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/io/InputStream;>;",
-	&_HttpURLConnection$9_EnclosingMethodInfo_,
-	_HttpURLConnection$9_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.www.protocol.http.HttpURLConnection"
-};
-
-$Object* allocate$HttpURLConnection$9($Class* clazz) {
-	return $of($alloc(HttpURLConnection$9));
-}
-
 void HttpURLConnection$9::init$($HttpURLConnection* this$0) {
 	$set(this, this$0, this$0);
 }
 
 $Object* HttpURLConnection$9::run() {
-	return $of(this->this$0->getInputStream0());
+	return this->this$0->getInputStream0();
 }
 
 HttpURLConnection$9::HttpURLConnection$9() {
 }
 
 $Class* HttpURLConnection$9::load$($String* name, bool initialize) {
-	$loadClass(HttpURLConnection$9, name, initialize, &_HttpURLConnection$9_ClassInfo_, allocate$HttpURLConnection$9);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/net/www/protocol/http/HttpURLConnection;", nullptr, $FINAL | $SYNTHETIC, $field(HttpURLConnection$9, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/www/protocol/http/HttpURLConnection;)V", nullptr, 0, $method(HttpURLConnection$9, init$, void, $HttpURLConnection*)},
+		{"run", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(HttpURLConnection$9, run, $Object*), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.net.www.protocol.http.HttpURLConnection",
+		"getInputStream",
+		"()Ljava/io/InputStream;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.www.protocol.http.HttpURLConnection$9", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.www.protocol.http.HttpURLConnection$9",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/io/InputStream;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.www.protocol.http.HttpURLConnection"
+	};
+	$loadClass(HttpURLConnection$9, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpURLConnection$9);
+	});
 	return class$;
 }
 

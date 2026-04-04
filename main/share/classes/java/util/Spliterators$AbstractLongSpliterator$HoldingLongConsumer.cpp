@@ -1,5 +1,4 @@
 #include <java/util/Spliterators$AbstractLongSpliterator$HoldingLongConsumer.h>
-
 #include <java/util/Spliterators$AbstractLongSpliterator.h>
 #include <jcpp.h>
 
@@ -10,43 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Spliterators$AbstractLongSpliterator$HoldingLongConsumer_FieldInfo_[] = {
-	{"value", "J", nullptr, 0, $field(Spliterators$AbstractLongSpliterator$HoldingLongConsumer, value)},
-	{}
-};
-
-$MethodInfo _Spliterators$AbstractLongSpliterator$HoldingLongConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Spliterators$AbstractLongSpliterator$HoldingLongConsumer, init$, void)},
-	{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(Spliterators$AbstractLongSpliterator$HoldingLongConsumer, accept, void, int64_t)},
-	{}
-};
-
-$InnerClassInfo _Spliterators$AbstractLongSpliterator$HoldingLongConsumer_InnerClassesInfo_[] = {
-	{"java.util.Spliterators$AbstractLongSpliterator", "java.util.Spliterators", "AbstractLongSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.util.Spliterators$AbstractLongSpliterator$HoldingLongConsumer", "java.util.Spliterators$AbstractLongSpliterator", "HoldingLongConsumer", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Spliterators$AbstractLongSpliterator$HoldingLongConsumer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.Spliterators$AbstractLongSpliterator$HoldingLongConsumer",
-	"java.lang.Object",
-	"java.util.function.LongConsumer",
-	_Spliterators$AbstractLongSpliterator$HoldingLongConsumer_FieldInfo_,
-	_Spliterators$AbstractLongSpliterator$HoldingLongConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Spliterators$AbstractLongSpliterator$HoldingLongConsumer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Spliterators"
-};
-
-$Object* allocate$Spliterators$AbstractLongSpliterator$HoldingLongConsumer($Class* clazz) {
-	return $of($alloc(Spliterators$AbstractLongSpliterator$HoldingLongConsumer));
-}
 
 void Spliterators$AbstractLongSpliterator$HoldingLongConsumer::init$() {
 }
@@ -59,7 +21,38 @@ Spliterators$AbstractLongSpliterator$HoldingLongConsumer::Spliterators$AbstractL
 }
 
 $Class* Spliterators$AbstractLongSpliterator$HoldingLongConsumer::load$($String* name, bool initialize) {
-	$loadClass(Spliterators$AbstractLongSpliterator$HoldingLongConsumer, name, initialize, &_Spliterators$AbstractLongSpliterator$HoldingLongConsumer_ClassInfo_, allocate$Spliterators$AbstractLongSpliterator$HoldingLongConsumer);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "J", nullptr, 0, $field(Spliterators$AbstractLongSpliterator$HoldingLongConsumer, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Spliterators$AbstractLongSpliterator$HoldingLongConsumer, init$, void)},
+		{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(Spliterators$AbstractLongSpliterator$HoldingLongConsumer, accept, void, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Spliterators$AbstractLongSpliterator", "java.util.Spliterators", "AbstractLongSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.util.Spliterators$AbstractLongSpliterator$HoldingLongConsumer", "java.util.Spliterators$AbstractLongSpliterator", "HoldingLongConsumer", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.Spliterators$AbstractLongSpliterator$HoldingLongConsumer",
+		"java.lang.Object",
+		"java.util.function.LongConsumer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Spliterators"
+	};
+	$loadClass(Spliterators$AbstractLongSpliterator$HoldingLongConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Spliterators$AbstractLongSpliterator$HoldingLongConsumer);
+	});
 	return class$;
 }
 

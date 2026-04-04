@@ -1,5 +1,4 @@
 #include <java/util/stream/StreamSpliterators$SliceSpliterator.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
 #include <java/util/Spliterator.h>
@@ -21,55 +20,6 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$FieldInfo _StreamSpliterators$SliceSpliterator_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(StreamSpliterators$SliceSpliterator, $assertionsDisabled)},
-	{"sliceOrigin", "J", nullptr, $FINAL, $field(StreamSpliterators$SliceSpliterator, sliceOrigin)},
-	{"sliceFence", "J", nullptr, $FINAL, $field(StreamSpliterators$SliceSpliterator, sliceFence)},
-	{"s", "Ljava/util/Spliterator;", "TT_SPLITR;", 0, $field(StreamSpliterators$SliceSpliterator, s)},
-	{"index", "J", nullptr, 0, $field(StreamSpliterators$SliceSpliterator, index)},
-	{"fence", "J", nullptr, 0, $field(StreamSpliterators$SliceSpliterator, fence)},
-	{}
-};
-
-$MethodInfo _StreamSpliterators$SliceSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Spliterator;JJJJ)V", "(TT_SPLITR;JJJJ)V", 0, $method(StreamSpliterators$SliceSpliterator, init$, void, $Spliterator*, int64_t, int64_t, int64_t, int64_t)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$SliceSpliterator, characteristics, int32_t)},
-	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$SliceSpliterator, estimateSize, int64_t)},
-	{"makeSpliterator", "(Ljava/util/Spliterator;JJJJ)Ljava/util/Spliterator;", "(TT_SPLITR;JJJJ)TT_SPLITR;", $PROTECTED | $ABSTRACT, $virtualMethod(StreamSpliterators$SliceSpliterator, makeSpliterator, $Spliterator*, $Spliterator*, int64_t, int64_t, int64_t, int64_t)},
-	{"trySplit", "()Ljava/util/Spliterator;", "()TT_SPLITR;", $PUBLIC, $virtualMethod(StreamSpliterators$SliceSpliterator, trySplit, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _StreamSpliterators$SliceSpliterator_InnerClassesInfo_[] = {
-	{"java.util.stream.StreamSpliterators$SliceSpliterator", "java.util.stream.StreamSpliterators", "SliceSpliterator", $STATIC | $ABSTRACT},
-	{"java.util.stream.StreamSpliterators$SliceSpliterator$OfDouble", "java.util.stream.StreamSpliterators$SliceSpliterator", "OfDouble", $STATIC | $FINAL},
-	{"java.util.stream.StreamSpliterators$SliceSpliterator$OfLong", "java.util.stream.StreamSpliterators$SliceSpliterator", "OfLong", $STATIC | $FINAL},
-	{"java.util.stream.StreamSpliterators$SliceSpliterator$OfInt", "java.util.stream.StreamSpliterators$SliceSpliterator", "OfInt", $STATIC | $FINAL},
-	{"java.util.stream.StreamSpliterators$SliceSpliterator$OfPrimitive", "java.util.stream.StreamSpliterators$SliceSpliterator", "OfPrimitive", $STATIC | $ABSTRACT},
-	{"java.util.stream.StreamSpliterators$SliceSpliterator$OfRef", "java.util.stream.StreamSpliterators$SliceSpliterator", "OfRef", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _StreamSpliterators$SliceSpliterator_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.stream.StreamSpliterators$SliceSpliterator",
-	"java.lang.Object",
-	nullptr,
-	_StreamSpliterators$SliceSpliterator_FieldInfo_,
-	_StreamSpliterators$SliceSpliterator_MethodInfo_,
-	"<T:Ljava/lang/Object;T_SPLITR::Ljava/util/Spliterator<TT;>;>Ljava/lang/Object;",
-	nullptr,
-	_StreamSpliterators$SliceSpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.StreamSpliterators"
-};
-
-$Object* allocate$StreamSpliterators$SliceSpliterator($Class* clazz) {
-	return $of($alloc(StreamSpliterators$SliceSpliterator));
-}
-
 bool StreamSpliterators$SliceSpliterator::$assertionsDisabled = false;
 
 void StreamSpliterators$SliceSpliterator::init$($Spliterator* s, int64_t sliceOrigin, int64_t sliceFence, int64_t origin, int64_t fence) {
@@ -84,7 +34,7 @@ void StreamSpliterators$SliceSpliterator::init$($Spliterator* s, int64_t sliceOr
 }
 
 $Spliterator* StreamSpliterators$SliceSpliterator::trySplit() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->sliceOrigin >= this->fence) {
 		return nullptr;
 	}
@@ -107,24 +57,23 @@ $Spliterator* StreamSpliterators$SliceSpliterator::trySplit() {
 			this->index = leftSplitFence;
 			return leftSplit;
 		} else {
-			$var($Spliterator, var$0, leftSplit);
-			int64_t var$1 = this->sliceOrigin;
-			int64_t var$2 = this->sliceFence;
-			int64_t var$3 = this->index;
-			return makeSpliterator(var$0, var$1, var$2, var$3, this->index = leftSplitFence);
+			int64_t var$0 = this->sliceOrigin;
+			int64_t var$1 = this->sliceFence;
+			int64_t var$2 = this->index;
+			return makeSpliterator(leftSplit, var$0, var$1, var$2, this->index = leftSplitFence);
 		}
 	}
 }
 
 int64_t StreamSpliterators$SliceSpliterator::estimateSize() {
-	return (this->sliceOrigin < this->fence) ? this->fence - $Math::max(this->sliceOrigin, this->index) : (int64_t)0;
+	return (this->sliceOrigin < this->fence) ? this->fence - $Math::max(this->sliceOrigin, this->index) : 0;
 }
 
 int32_t StreamSpliterators$SliceSpliterator::characteristics() {
 	return $nc(this->s)->characteristics();
 }
 
-void clinit$StreamSpliterators$SliceSpliterator($Class* class$) {
+void StreamSpliterators$SliceSpliterator::clinit$($Class* clazz) {
 	$load($StreamSpliterators);
 	StreamSpliterators$SliceSpliterator::$assertionsDisabled = !$StreamSpliterators::class$->desiredAssertionStatus();
 }
@@ -133,7 +82,50 @@ StreamSpliterators$SliceSpliterator::StreamSpliterators$SliceSpliterator() {
 }
 
 $Class* StreamSpliterators$SliceSpliterator::load$($String* name, bool initialize) {
-	$loadClass(StreamSpliterators$SliceSpliterator, name, initialize, &_StreamSpliterators$SliceSpliterator_ClassInfo_, clinit$StreamSpliterators$SliceSpliterator, allocate$StreamSpliterators$SliceSpliterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(StreamSpliterators$SliceSpliterator, $assertionsDisabled)},
+		{"sliceOrigin", "J", nullptr, $FINAL, $field(StreamSpliterators$SliceSpliterator, sliceOrigin)},
+		{"sliceFence", "J", nullptr, $FINAL, $field(StreamSpliterators$SliceSpliterator, sliceFence)},
+		{"s", "Ljava/util/Spliterator;", "TT_SPLITR;", 0, $field(StreamSpliterators$SliceSpliterator, s)},
+		{"index", "J", nullptr, 0, $field(StreamSpliterators$SliceSpliterator, index)},
+		{"fence", "J", nullptr, 0, $field(StreamSpliterators$SliceSpliterator, fence)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Spliterator;JJJJ)V", "(TT_SPLITR;JJJJ)V", 0, $method(StreamSpliterators$SliceSpliterator, init$, void, $Spliterator*, int64_t, int64_t, int64_t, int64_t)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$SliceSpliterator, characteristics, int32_t)},
+		{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(StreamSpliterators$SliceSpliterator, estimateSize, int64_t)},
+		{"makeSpliterator", "(Ljava/util/Spliterator;JJJJ)Ljava/util/Spliterator;", "(TT_SPLITR;JJJJ)TT_SPLITR;", $PROTECTED | $ABSTRACT, $virtualMethod(StreamSpliterators$SliceSpliterator, makeSpliterator, $Spliterator*, $Spliterator*, int64_t, int64_t, int64_t, int64_t)},
+		{"trySplit", "()Ljava/util/Spliterator;", "()TT_SPLITR;", $PUBLIC, $virtualMethod(StreamSpliterators$SliceSpliterator, trySplit, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.StreamSpliterators$SliceSpliterator", "java.util.stream.StreamSpliterators", "SliceSpliterator", $STATIC | $ABSTRACT},
+		{"java.util.stream.StreamSpliterators$SliceSpliterator$OfDouble", "java.util.stream.StreamSpliterators$SliceSpliterator", "OfDouble", $STATIC | $FINAL},
+		{"java.util.stream.StreamSpliterators$SliceSpliterator$OfLong", "java.util.stream.StreamSpliterators$SliceSpliterator", "OfLong", $STATIC | $FINAL},
+		{"java.util.stream.StreamSpliterators$SliceSpliterator$OfInt", "java.util.stream.StreamSpliterators$SliceSpliterator", "OfInt", $STATIC | $FINAL},
+		{"java.util.stream.StreamSpliterators$SliceSpliterator$OfPrimitive", "java.util.stream.StreamSpliterators$SliceSpliterator", "OfPrimitive", $STATIC | $ABSTRACT},
+		{"java.util.stream.StreamSpliterators$SliceSpliterator$OfRef", "java.util.stream.StreamSpliterators$SliceSpliterator", "OfRef", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.stream.StreamSpliterators$SliceSpliterator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;T_SPLITR::Ljava/util/Spliterator<TT;>;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.StreamSpliterators"
+	};
+	$loadClass(StreamSpliterators$SliceSpliterator, name, initialize, &classInfo$$, StreamSpliterators$SliceSpliterator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StreamSpliterators$SliceSpliterator);
+	});
 	return class$;
 }
 

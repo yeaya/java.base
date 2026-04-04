@@ -21,6 +21,7 @@ class $export Package$VersionInfo : public ::java::lang::Object {
 	$class(Package$VersionInfo, 0, ::java::lang::Object)
 public:
 	Package$VersionInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* spectitle, $String* specversion, $String* specvendor, $String* impltitle, $String* implversion, $String* implvendor, ::java::net::URL* sealbase);
 	static ::java::lang::Package$VersionInfo* getInstance($String* spectitle, $String* specversion, $String* specvendor, $String* impltitle, $String* implversion, $String* implvendor, ::java::net::URL* sealbase);
 	static ::java::lang::Package$VersionInfo* NULL_VERSION_INFO;

@@ -1,12 +1,10 @@
 #include <TestNegativeCodepoint.h>
-
 #include <java/lang/Character$UnicodeBlock.h>
 #include <jcpp.h>
 
 #undef DIRECTIONALITY_UNDEFINED
 #undef UNASSIGNED
 
-using $PrintStream = ::java::io::PrintStream;
 using $Character = ::java::lang::Character;
 using $Character$UnicodeBlock = ::java::lang::Character$UnicodeBlock;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -14,33 +12,14 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
-$MethodInfo _TestNegativeCodepoint_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestNegativeCodepoint, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestNegativeCodepoint, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _TestNegativeCodepoint_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestNegativeCodepoint",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestNegativeCodepoint_MethodInfo_
-};
-
-$Object* allocate$TestNegativeCodepoint($Class* clazz) {
-	return $of($alloc(TestNegativeCodepoint));
-}
-
 void TestNegativeCodepoint::init$() {
 }
 
 void TestNegativeCodepoint::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, invalidCodePoints, $new($ints, {
 		-1,
-		-(int32_t)u'a',
+		-u'a',
 		0x00110000
 	}));
 	for (int32_t x = 0; x < invalidCodePoints->length; ++x) {
@@ -69,13 +48,13 @@ void TestNegativeCodepoint::main($StringArray* args) {
 		bool var$1 = var$2 || $Character::getType(cp) != $Character::UNASSIGNED;
 		bool var$0 = var$1 || $Character::getNumericValue(cp) != -1;
 		if (var$0 || $Character::digit(cp, 10) != -1) {
-			$nc($System::out)->println("Failed."_s);
+			$System::out->println("Failed."_s);
 			$throwNew($RuntimeException);
 		}
 		$var($Character$UnicodeBlock, block, nullptr);
 		try {
 			$assign(block, $Character$UnicodeBlock::of(cp));
-			$nc($System::out)->println("Failed."_s);
+			$System::out->println("Failed."_s);
 			$throwNew($RuntimeException);
 		} catch ($IllegalArgumentException& e) {
 		}
@@ -87,7 +66,22 @@ TestNegativeCodepoint::TestNegativeCodepoint() {
 }
 
 $Class* TestNegativeCodepoint::load$($String* name, bool initialize) {
-	$loadClass(TestNegativeCodepoint, name, initialize, &_TestNegativeCodepoint_ClassInfo_, allocate$TestNegativeCodepoint);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestNegativeCodepoint, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestNegativeCodepoint, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestNegativeCodepoint",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestNegativeCodepoint, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestNegativeCodepoint);
+	});
 	return class$;
 }
 

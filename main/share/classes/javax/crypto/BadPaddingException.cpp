@@ -1,5 +1,4 @@
 #include <javax/crypto/BadPaddingException.h>
-
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 
 namespace javax {
 	namespace crypto {
-
-$FieldInfo _BadPaddingException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BadPaddingException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _BadPaddingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BadPaddingException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BadPaddingException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _BadPaddingException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.crypto.BadPaddingException",
-	"java.security.GeneralSecurityException",
-	nullptr,
-	_BadPaddingException_FieldInfo_,
-	_BadPaddingException_MethodInfo_
-};
-
-$Object* allocate$BadPaddingException($Class* clazz) {
-	return $of($alloc(BadPaddingException));
-}
 
 void BadPaddingException::init$() {
 	$GeneralSecurityException::init$();
@@ -54,7 +29,26 @@ void BadPaddingException::throw$() {
 }
 
 $Class* BadPaddingException::load$($String* name, bool initialize) {
-	$loadClass(BadPaddingException, name, initialize, &_BadPaddingException_ClassInfo_, allocate$BadPaddingException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BadPaddingException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BadPaddingException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BadPaddingException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.crypto.BadPaddingException",
+		"java.security.GeneralSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BadPaddingException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BadPaddingException);
+	});
 	return class$;
 }
 

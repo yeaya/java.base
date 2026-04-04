@@ -1,5 +1,4 @@
 #include <java/util/Calendar$Builder.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/Calendar.h>
 #include <java/util/Date.h>
@@ -28,77 +27,11 @@ using $Date = ::java::util::Date;
 using $GregorianCalendar = ::java::util::GregorianCalendar;
 using $JapaneseImperialCalendar = ::java::util::JapaneseImperialCalendar;
 using $Locale = ::java::util::Locale;
-using $Set = ::java::util::Set;
 using $TimeZone = ::java::util::TimeZone;
 using $BuddhistCalendar = ::sun::util::BuddhistCalendar;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Calendar$Builder_FieldInfo_[] = {
-	{"NFIELDS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Calendar$Builder, NFIELDS)},
-	{"WEEK_YEAR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Calendar$Builder, WEEK_YEAR)},
-	{"instant", "J", nullptr, $PRIVATE, $field(Calendar$Builder, instant)},
-	{"fields", "[I", nullptr, $PRIVATE, $field(Calendar$Builder, fields)},
-	{"nextStamp", "I", nullptr, $PRIVATE, $field(Calendar$Builder, nextStamp)},
-	{"maxFieldIndex", "I", nullptr, $PRIVATE, $field(Calendar$Builder, maxFieldIndex)},
-	{"type", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Calendar$Builder, type)},
-	{"zone", "Ljava/util/TimeZone;", nullptr, $PRIVATE, $field(Calendar$Builder, zone)},
-	{"lenient", "Z", nullptr, $PRIVATE, $field(Calendar$Builder, lenient)},
-	{"locale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(Calendar$Builder, locale)},
-	{"firstDayOfWeek", "I", nullptr, $PRIVATE, $field(Calendar$Builder, firstDayOfWeek)},
-	{"minimalDaysInFirstWeek", "I", nullptr, $PRIVATE, $field(Calendar$Builder, minimalDaysInFirstWeek)},
-	{}
-};
-
-$MethodInfo _Calendar$Builder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Calendar$Builder, init$, void)},
-	{"allocateFields", "()V", nullptr, $PRIVATE, $method(Calendar$Builder, allocateFields, void)},
-	{"build", "()Ljava/util/Calendar;", nullptr, $PUBLIC, $virtualMethod(Calendar$Builder, build, $Calendar*)},
-	{"internalSet", "(II)V", nullptr, $PRIVATE, $method(Calendar$Builder, internalSet, void, int32_t, int32_t)},
-	{"isInstantSet", "()Z", nullptr, $PRIVATE, $method(Calendar$Builder, isInstantSet, bool)},
-	{"isSet", "(I)Z", nullptr, $PRIVATE, $method(Calendar$Builder, isSet, bool, int32_t)},
-	{"isValidWeekParameter", "(I)Z", nullptr, $PRIVATE, $method(Calendar$Builder, isValidWeekParameter, bool, int32_t)},
-	{"set", "(II)Ljava/util/Calendar$Builder;", nullptr, $PUBLIC, $virtualMethod(Calendar$Builder, set, Calendar$Builder*, int32_t, int32_t)},
-	{"setCalendarType", "(Ljava/lang/String;)Ljava/util/Calendar$Builder;", nullptr, $PUBLIC, $virtualMethod(Calendar$Builder, setCalendarType, Calendar$Builder*, $String*)},
-	{"setDate", "(III)Ljava/util/Calendar$Builder;", nullptr, $PUBLIC, $virtualMethod(Calendar$Builder, setDate, Calendar$Builder*, int32_t, int32_t, int32_t)},
-	{"setFields", "([I)Ljava/util/Calendar$Builder;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Calendar$Builder, setFields, Calendar$Builder*, $ints*)},
-	{"setInstant", "(J)Ljava/util/Calendar$Builder;", nullptr, $PUBLIC, $virtualMethod(Calendar$Builder, setInstant, Calendar$Builder*, int64_t)},
-	{"setInstant", "(Ljava/util/Date;)Ljava/util/Calendar$Builder;", nullptr, $PUBLIC, $virtualMethod(Calendar$Builder, setInstant, Calendar$Builder*, $Date*)},
-	{"setLenient", "(Z)Ljava/util/Calendar$Builder;", nullptr, $PUBLIC, $virtualMethod(Calendar$Builder, setLenient, Calendar$Builder*, bool)},
-	{"setLocale", "(Ljava/util/Locale;)Ljava/util/Calendar$Builder;", nullptr, $PUBLIC, $virtualMethod(Calendar$Builder, setLocale, Calendar$Builder*, $Locale*)},
-	{"setTimeOfDay", "(III)Ljava/util/Calendar$Builder;", nullptr, $PUBLIC, $virtualMethod(Calendar$Builder, setTimeOfDay, Calendar$Builder*, int32_t, int32_t, int32_t)},
-	{"setTimeOfDay", "(IIII)Ljava/util/Calendar$Builder;", nullptr, $PUBLIC, $virtualMethod(Calendar$Builder, setTimeOfDay, Calendar$Builder*, int32_t, int32_t, int32_t, int32_t)},
-	{"setTimeZone", "(Ljava/util/TimeZone;)Ljava/util/Calendar$Builder;", nullptr, $PUBLIC, $virtualMethod(Calendar$Builder, setTimeZone, Calendar$Builder*, $TimeZone*)},
-	{"setWeekDate", "(III)Ljava/util/Calendar$Builder;", nullptr, $PUBLIC, $virtualMethod(Calendar$Builder, setWeekDate, Calendar$Builder*, int32_t, int32_t, int32_t)},
-	{"setWeekDefinition", "(II)Ljava/util/Calendar$Builder;", nullptr, $PUBLIC, $virtualMethod(Calendar$Builder, setWeekDefinition, Calendar$Builder*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Calendar$Builder_InnerClassesInfo_[] = {
-	{"java.util.Calendar$Builder", "java.util.Calendar", "Builder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Calendar$Builder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.Calendar$Builder",
-	"java.lang.Object",
-	nullptr,
-	_Calendar$Builder_FieldInfo_,
-	_Calendar$Builder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Calendar$Builder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Calendar"
-};
-
-$Object* allocate$Calendar$Builder($Class* clazz) {
-	return $of($alloc(Calendar$Builder));
-}
 
 void Calendar$Builder::init$() {
 	this->lenient = true;
@@ -201,18 +134,18 @@ Calendar$Builder* Calendar$Builder::setLenient(bool lenient) {
 }
 
 Calendar$Builder* Calendar$Builder::setCalendarType($String* type$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, type, type$renamed);
 	if ($nc(type)->equals("gregorian"_s)) {
 		$assign(type, "gregory"_s);
 	}
-	bool var$0 = !$nc($($Calendar::getAvailableCalendarTypes()))->contains(type);
-	if (var$0 && !$nc(type)->equals("iso8601"_s)) {
+	bool var$0 = !$$nc($Calendar::getAvailableCalendarTypes())->contains(type);
+	if (var$0 && !type->equals("iso8601"_s)) {
 		$throwNew($IllegalArgumentException, $$str({"unknown calendar type: "_s, type}));
 	}
 	if (this->type == nullptr) {
 		$set(this, type, type);
-	} else if (!$nc(this->type)->equals(type)) {
+	} else if (!this->type->equals(type)) {
 		$throwNew($IllegalStateException, "calendar type override"_s);
 	}
 	return this;
@@ -237,7 +170,7 @@ Calendar$Builder* Calendar$Builder::setWeekDefinition(int32_t firstDayOfWeek, in
 }
 
 $Calendar* Calendar$Builder::build() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->locale == nullptr) {
 		$set(this, locale, $Locale::getDefault());
 	}
@@ -249,7 +182,7 @@ $Calendar* Calendar$Builder::build() {
 	}
 	if (this->type == nullptr) {
 		bool var$0 = $nc(this->locale)->getCountry() == "TH"_s;
-		if (var$0 && $nc(this->locale)->getLanguage() == "th"_s) {
+		if (var$0 && this->locale->getLanguage() == "th"_s) {
 			$set(this, type, "buddhist"_s);
 		} else {
 			$set(this, type, "gregory"_s);
@@ -258,71 +191,52 @@ $Calendar* Calendar$Builder::build() {
 	$var($String, s61336$, this->type);
 	int32_t tmp61336$ = -1;
 	switch ($nc(s61336$)->hashCode()) {
-	case 0x10EA1509:
-		{
-			if (s61336$->equals("gregory"_s)) {
-				tmp61336$ = 0;
-			}
-			break;
+	case 0x10ea1509:
+		if (s61336$->equals("gregory"_s)) {
+			tmp61336$ = 0;
 		}
-	case 0x7CE21384:
-		{
-			if (s61336$->equals("iso8601"_s)) {
-				tmp61336$ = 1;
-			}
-			break;
+		break;
+	case 0x7ce21384:
+		if (s61336$->equals("iso8601"_s)) {
+			tmp61336$ = 1;
 		}
-	case (int32_t)0xA1C2EDB5:
-		{
-			if (s61336$->equals("buddhist"_s)) {
-				tmp61336$ = 2;
-			}
-			break;
+		break;
+	case (int32_t)0xa1c2edb5:
+		if (s61336$->equals("buddhist"_s)) {
+			tmp61336$ = 2;
 		}
-	case (int32_t)0xD3223FB1:
-		{
-			if (s61336$->equals("japanese"_s)) {
-				tmp61336$ = 3;
-			}
-			break;
+		break;
+	case (int32_t)0xd3223fb1:
+		if (s61336$->equals("japanese"_s)) {
+			tmp61336$ = 3;
 		}
+		break;
 	}
-
-	$var($Calendar, var$1, nullptr)
+	$var($Calendar, var$1, nullptr);
 	switch (tmp61336$) {
 	case 0:
-		{
-			$assign(var$1, $new($GregorianCalendar, this->zone, this->locale, true));
-			break;
-		}
+		$assign(var$1, $new($GregorianCalendar, this->zone, this->locale, true));
+		break;
 	case 1:
 		{
-			{
-				$var($GregorianCalendar, gcal, $new($GregorianCalendar, this->zone, this->locale, true));
-				gcal->setGregorianChange($$new($Date, $Long::MIN_VALUE));
-				setWeekDefinition(2, 4);
-				$assign(var$1, gcal);
-				break;
-			}
+			$var($GregorianCalendar, gcal, $new($GregorianCalendar, this->zone, this->locale, true));
+			gcal->setGregorianChange($$new($Date, $Long::MIN_VALUE));
+			setWeekDefinition(2, 4);
+			$assign(var$1, gcal);
+			break;
 		}
 	case 2:
 		{
-			{
-				$var($BuddhistCalendar, buddhistCalendar, $new($BuddhistCalendar, this->zone, this->locale));
-				buddhistCalendar->clear();
-				$assign(var$1, buddhistCalendar);
-				break;
-			}
-		}
-	case 3:
-		{
-			$assign(var$1, $new($JapaneseImperialCalendar, this->zone, this->locale, true));
+			$var($BuddhistCalendar, buddhistCalendar, $new($BuddhistCalendar, this->zone, this->locale));
+			buddhistCalendar->clear();
+			$assign(var$1, buddhistCalendar);
 			break;
 		}
+	case 3:
+		$assign(var$1, $new($JapaneseImperialCalendar, this->zone, this->locale, true));
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"unknown calendar type: "_s, this->type}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"unknown calendar type: "_s, this->type}));
 	}
 	$var($Calendar, cal, var$1);
 	$nc(cal)->setLenient(this->lenient);
@@ -336,22 +250,22 @@ $Calendar* Calendar$Builder::build() {
 		return cal;
 	}
 	if (this->fields != nullptr) {
-		bool weekDate = isSet(Calendar$Builder::WEEK_YEAR) && $nc(this->fields)->get(Calendar$Builder::WEEK_YEAR) > $nc(this->fields)->get(1);
+		bool weekDate = isSet(Calendar$Builder::WEEK_YEAR) && this->fields->get(Calendar$Builder::WEEK_YEAR) > this->fields->get(1);
 		if (weekDate && !cal->isWeekDateSupported()) {
 			$throwNew($IllegalArgumentException, $$str({"week date is unsupported by "_s, this->type}));
 		}
 		for (int32_t stamp = 2; stamp < this->nextStamp; ++stamp) {
 			for (int32_t index = 0; index <= this->maxFieldIndex; ++index) {
-				if ($nc(this->fields)->get(index) == stamp) {
-					cal->set(index, $nc(this->fields)->get(Calendar$Builder::NFIELDS + index));
+				if (this->fields->get(index) == stamp) {
+					cal->set(index, this->fields->get(Calendar$Builder::NFIELDS + index));
 					break;
 				}
 			}
 		}
 		if (weekDate) {
-			int32_t weekOfYear = isSet(3) ? $nc(this->fields)->get(Calendar$Builder::NFIELDS + 3) : 1;
-			int32_t dayOfWeek = isSet(7) ? $nc(this->fields)->get(Calendar$Builder::NFIELDS + 7) : cal->getFirstDayOfWeek();
-			cal->setWeekDate($nc(this->fields)->get(Calendar$Builder::NFIELDS + Calendar$Builder::WEEK_YEAR), weekOfYear, dayOfWeek);
+			int32_t weekOfYear = isSet(3) ? this->fields->get(Calendar$Builder::NFIELDS + 3) : 1;
+			int32_t dayOfWeek = isSet(7) ? this->fields->get(Calendar$Builder::NFIELDS + 7) : cal->getFirstDayOfWeek();
+			cal->setWeekDate(this->fields->get(Calendar$Builder::NFIELDS + Calendar$Builder::WEEK_YEAR), weekOfYear, dayOfWeek);
 		}
 		cal->complete();
 	}
@@ -371,7 +285,7 @@ void Calendar$Builder::internalSet(int32_t field, int32_t value) {
 	if (this->nextStamp < 0) {
 		$throwNew($IllegalStateException, "stamp counter overflow"_s);
 	}
-	$nc(this->fields)->set(Calendar$Builder::NFIELDS + field, value);
+	this->fields->set(Calendar$Builder::NFIELDS + field, value);
 	if (field > this->maxFieldIndex && field < Calendar$Builder::WEEK_YEAR) {
 		this->maxFieldIndex = field;
 	}
@@ -382,7 +296,7 @@ bool Calendar$Builder::isInstantSet() {
 }
 
 bool Calendar$Builder::isSet(int32_t index) {
-	return this->fields != nullptr && $nc(this->fields)->get(index) > 0;
+	return this->fields != nullptr && this->fields->get(index) > 0;
 }
 
 bool Calendar$Builder::isValidWeekParameter(int32_t value) {
@@ -393,7 +307,66 @@ Calendar$Builder::Calendar$Builder() {
 }
 
 $Class* Calendar$Builder::load$($String* name, bool initialize) {
-	$loadClass(Calendar$Builder, name, initialize, &_Calendar$Builder_ClassInfo_, allocate$Calendar$Builder);
+	$FieldInfo fieldInfos$$[] = {
+		{"NFIELDS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Calendar$Builder, NFIELDS)},
+		{"WEEK_YEAR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Calendar$Builder, WEEK_YEAR)},
+		{"instant", "J", nullptr, $PRIVATE, $field(Calendar$Builder, instant)},
+		{"fields", "[I", nullptr, $PRIVATE, $field(Calendar$Builder, fields)},
+		{"nextStamp", "I", nullptr, $PRIVATE, $field(Calendar$Builder, nextStamp)},
+		{"maxFieldIndex", "I", nullptr, $PRIVATE, $field(Calendar$Builder, maxFieldIndex)},
+		{"type", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Calendar$Builder, type)},
+		{"zone", "Ljava/util/TimeZone;", nullptr, $PRIVATE, $field(Calendar$Builder, zone)},
+		{"lenient", "Z", nullptr, $PRIVATE, $field(Calendar$Builder, lenient)},
+		{"locale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(Calendar$Builder, locale)},
+		{"firstDayOfWeek", "I", nullptr, $PRIVATE, $field(Calendar$Builder, firstDayOfWeek)},
+		{"minimalDaysInFirstWeek", "I", nullptr, $PRIVATE, $field(Calendar$Builder, minimalDaysInFirstWeek)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Calendar$Builder, init$, void)},
+		{"allocateFields", "()V", nullptr, $PRIVATE, $method(Calendar$Builder, allocateFields, void)},
+		{"build", "()Ljava/util/Calendar;", nullptr, $PUBLIC, $virtualMethod(Calendar$Builder, build, $Calendar*)},
+		{"internalSet", "(II)V", nullptr, $PRIVATE, $method(Calendar$Builder, internalSet, void, int32_t, int32_t)},
+		{"isInstantSet", "()Z", nullptr, $PRIVATE, $method(Calendar$Builder, isInstantSet, bool)},
+		{"isSet", "(I)Z", nullptr, $PRIVATE, $method(Calendar$Builder, isSet, bool, int32_t)},
+		{"isValidWeekParameter", "(I)Z", nullptr, $PRIVATE, $method(Calendar$Builder, isValidWeekParameter, bool, int32_t)},
+		{"set", "(II)Ljava/util/Calendar$Builder;", nullptr, $PUBLIC, $virtualMethod(Calendar$Builder, set, Calendar$Builder*, int32_t, int32_t)},
+		{"setCalendarType", "(Ljava/lang/String;)Ljava/util/Calendar$Builder;", nullptr, $PUBLIC, $virtualMethod(Calendar$Builder, setCalendarType, Calendar$Builder*, $String*)},
+		{"setDate", "(III)Ljava/util/Calendar$Builder;", nullptr, $PUBLIC, $virtualMethod(Calendar$Builder, setDate, Calendar$Builder*, int32_t, int32_t, int32_t)},
+		{"setFields", "([I)Ljava/util/Calendar$Builder;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Calendar$Builder, setFields, Calendar$Builder*, $ints*)},
+		{"setInstant", "(J)Ljava/util/Calendar$Builder;", nullptr, $PUBLIC, $virtualMethod(Calendar$Builder, setInstant, Calendar$Builder*, int64_t)},
+		{"setInstant", "(Ljava/util/Date;)Ljava/util/Calendar$Builder;", nullptr, $PUBLIC, $virtualMethod(Calendar$Builder, setInstant, Calendar$Builder*, $Date*)},
+		{"setLenient", "(Z)Ljava/util/Calendar$Builder;", nullptr, $PUBLIC, $virtualMethod(Calendar$Builder, setLenient, Calendar$Builder*, bool)},
+		{"setLocale", "(Ljava/util/Locale;)Ljava/util/Calendar$Builder;", nullptr, $PUBLIC, $virtualMethod(Calendar$Builder, setLocale, Calendar$Builder*, $Locale*)},
+		{"setTimeOfDay", "(III)Ljava/util/Calendar$Builder;", nullptr, $PUBLIC, $virtualMethod(Calendar$Builder, setTimeOfDay, Calendar$Builder*, int32_t, int32_t, int32_t)},
+		{"setTimeOfDay", "(IIII)Ljava/util/Calendar$Builder;", nullptr, $PUBLIC, $virtualMethod(Calendar$Builder, setTimeOfDay, Calendar$Builder*, int32_t, int32_t, int32_t, int32_t)},
+		{"setTimeZone", "(Ljava/util/TimeZone;)Ljava/util/Calendar$Builder;", nullptr, $PUBLIC, $virtualMethod(Calendar$Builder, setTimeZone, Calendar$Builder*, $TimeZone*)},
+		{"setWeekDate", "(III)Ljava/util/Calendar$Builder;", nullptr, $PUBLIC, $virtualMethod(Calendar$Builder, setWeekDate, Calendar$Builder*, int32_t, int32_t, int32_t)},
+		{"setWeekDefinition", "(II)Ljava/util/Calendar$Builder;", nullptr, $PUBLIC, $virtualMethod(Calendar$Builder, setWeekDefinition, Calendar$Builder*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Calendar$Builder", "java.util.Calendar", "Builder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.Calendar$Builder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Calendar"
+	};
+	$loadClass(Calendar$Builder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Calendar$Builder);
+	});
 	return class$;
 }
 

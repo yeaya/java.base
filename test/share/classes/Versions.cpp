@@ -1,9 +1,7 @@
 #include <Versions.h>
-
 #include <java/io/DataOutputStream.h>
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Runtime$Version.h>
 #include <java/lang/Runtime.h>
@@ -16,8 +14,6 @@ using $URLArray = $Array<::java::net::URL>;
 using $DataOutputStream = ::java::io::DataOutputStream;
 using $File = ::java::io::File;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $Exception = ::java::lang::Exception;
@@ -25,35 +21,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runtime = ::java::lang::Runtime;
-using $Runtime$Version = ::java::lang::Runtime$Version;
 using $UnsupportedClassVersionError = ::java::lang::UnsupportedClassVersionError;
 using $URLClassLoader = ::java::net::URLClassLoader;
-
-$FieldInfo _Versions_FieldInfo_[] = {
-	{"cl", "Ljava/lang/ClassLoader;", nullptr, $STATIC, $staticField(Versions, cl)},
-	{}
-};
-
-$MethodInfo _Versions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Versions, init$, void)},
-	{"checkClassVersion", "(IIZ)V", nullptr, $STATIC, $staticMethod(Versions, checkClassVersion, void, int32_t, int32_t, bool), "java.lang.Exception"},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Versions, getProperty, $String*, $String*), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Versions, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Versions_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Versions",
-	"java.lang.Object",
-	nullptr,
-	_Versions_FieldInfo_,
-	_Versions_MethodInfo_
-};
-
-$Object* allocate$Versions($Class* clazz) {
-	return $of($alloc(Versions));
-}
 
 $ClassLoader* Versions::cl = nullptr;
 
@@ -61,26 +30,26 @@ void Versions::init$() {
 }
 
 $String* Versions::getProperty($String* prop) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, value, $System::getProperty(prop));
 	if (value == nullptr) {
 		$throwNew($Exception, $$str({"No such system property: "_s, prop}));
 	}
 	$nc($System::out)->printf("%s=%s%n"_s, $$new($ObjectArray, {
-		$of(prop),
-		$of(value)
+		prop,
+		value
 	}));
 	return value;
 }
 
 void Versions::checkClassVersion(int32_t major, int32_t minor, bool expectSupported) {
+	$useLocalObjectStack();
 	$load(Versions);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($String, className, "ClassVersionTest"_s);
 	$var($String, classFile, $str({className, ".class"_s}));
 	$var($DataOutputStream, dos, $new($DataOutputStream, $$new($FileOutputStream, classFile)));
-	dos->writeLong(((int64_t)0x00000000CAFEBABE << 32) + (minor << 16) + major);
+	dos->writeLong(((int64_t)0x00000000cafebabe << 32) + (minor << 16) + major);
 	dos->close();
 	bool supported = true;
 	try {
@@ -97,13 +66,13 @@ void Versions::checkClassVersion(int32_t major, int32_t minor, bool expectSuppor
 }
 
 void Versions::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, classVersion, getProperty("java.class.version"_s));
 	$var($String, javaVersion, getProperty("java.version"_s));
 	$var($String, runtimeVersion, getProperty("java.runtime.version"_s));
 	$var($String, specVersion, getProperty("java.specification.version"_s));
 	$var($String, vmSpecVersion, getProperty("java.vm.specification.version"_s));
-	$var($String, featureVersion, $Integer::toString($nc($($Runtime::version()))->feature()));
+	$var($String, featureVersion, $Integer::toString($$nc($Runtime::version())->feature()));
 	bool var$2 = $nc(javaVersion)->startsWith(specVersion);
 	bool var$1 = var$2 && $nc(runtimeVersion)->startsWith(specVersion);
 	bool var$0 = var$1 && $nc(specVersion)->equals(featureVersion);
@@ -113,8 +82,8 @@ void Versions::main($StringArray* args) {
 	$var($StringArray, versions, $nc(classVersion)->split("\\."_s));
 	int32_t majorVersion = $Integer::parseInt(versions->get(0));
 	int32_t minorVersion = $Integer::parseInt(versions->get(1));
-	$nc($System::out)->printf("majorVersion=%s%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(majorVersion)))}));
-	$nc($System::out)->printf("minorVersion=%s%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(minorVersion)))}));
+	$nc($System::out)->printf("majorVersion=%s%n"_s, $$new($ObjectArray, {$($Integer::valueOf(majorVersion))}));
+	$System::out->printf("minorVersion=%s%n"_s, $$new($ObjectArray, {$($Integer::valueOf(minorVersion))}));
 	$init(Versions);
 	$assignStatic(Versions::cl, $new($URLClassLoader, $$new($URLArray, {$($$new($File, "./"_s)->toURL())}), ($ClassLoader*)nullptr));
 	checkClassVersion(majorVersion, minorVersion, true);
@@ -126,7 +95,28 @@ Versions::Versions() {
 }
 
 $Class* Versions::load$($String* name, bool initialize) {
-	$loadClass(Versions, name, initialize, &_Versions_ClassInfo_, allocate$Versions);
+	$FieldInfo fieldInfos$$[] = {
+		{"cl", "Ljava/lang/ClassLoader;", nullptr, $STATIC, $staticField(Versions, cl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Versions, init$, void)},
+		{"checkClassVersion", "(IIZ)V", nullptr, $STATIC, $staticMethod(Versions, checkClassVersion, void, int32_t, int32_t, bool), "java.lang.Exception"},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(Versions, getProperty, $String*, $String*), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Versions, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Versions",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Versions, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Versions);
+	});
 	return class$;
 }
 

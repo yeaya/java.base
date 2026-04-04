@@ -1,5 +1,4 @@
 #include <java/math/BigDecimal$UnsafeHolder.h>
-
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
 #include <jdk/internal/misc/Unsafe.h>
@@ -15,45 +14,6 @@ using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace java {
 	namespace math {
-
-$FieldInfo _BigDecimal$UnsafeHolder_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BigDecimal$UnsafeHolder, unsafe)},
-	{"intCompactOffset", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BigDecimal$UnsafeHolder, intCompactOffset)},
-	{"intValOffset", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BigDecimal$UnsafeHolder, intValOffset)},
-	{}
-};
-
-$MethodInfo _BigDecimal$UnsafeHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(BigDecimal$UnsafeHolder, init$, void)},
-	{"setIntCompact", "(Ljava/math/BigDecimal;J)V", nullptr, $STATIC, $staticMethod(BigDecimal$UnsafeHolder, setIntCompact, void, $BigDecimal*, int64_t)},
-	{"setIntValVolatile", "(Ljava/math/BigDecimal;Ljava/math/BigInteger;)V", nullptr, $STATIC, $staticMethod(BigDecimal$UnsafeHolder, setIntValVolatile, void, $BigDecimal*, $BigInteger*)},
-	{}
-};
-
-$InnerClassInfo _BigDecimal$UnsafeHolder_InnerClassesInfo_[] = {
-	{"java.math.BigDecimal$UnsafeHolder", "java.math.BigDecimal", "UnsafeHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BigDecimal$UnsafeHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.math.BigDecimal$UnsafeHolder",
-	"java.lang.Object",
-	nullptr,
-	_BigDecimal$UnsafeHolder_FieldInfo_,
-	_BigDecimal$UnsafeHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BigDecimal$UnsafeHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.math.BigDecimal"
-};
-
-$Object* allocate$BigDecimal$UnsafeHolder($Class* clazz) {
-	return $of($alloc(BigDecimal$UnsafeHolder));
-}
 
 $Unsafe* BigDecimal$UnsafeHolder::unsafe = nullptr;
 int64_t BigDecimal$UnsafeHolder::intCompactOffset = 0;
@@ -72,18 +32,51 @@ void BigDecimal$UnsafeHolder::setIntValVolatile($BigDecimal* bd, $BigInteger* va
 	$nc(BigDecimal$UnsafeHolder::unsafe)->putReferenceVolatile(bd, BigDecimal$UnsafeHolder::intValOffset, val);
 }
 
-void clinit$BigDecimal$UnsafeHolder($Class* class$) {
+void BigDecimal$UnsafeHolder::clinit$($Class* clazz) {
 	$assignStatic(BigDecimal$UnsafeHolder::unsafe, $Unsafe::getUnsafe());
 	$load($BigDecimal);
 	BigDecimal$UnsafeHolder::intCompactOffset = $nc(BigDecimal$UnsafeHolder::unsafe)->objectFieldOffset($BigDecimal::class$, "intCompact"_s);
-	BigDecimal$UnsafeHolder::intValOffset = $nc(BigDecimal$UnsafeHolder::unsafe)->objectFieldOffset($BigDecimal::class$, "intVal"_s);
+	BigDecimal$UnsafeHolder::intValOffset = BigDecimal$UnsafeHolder::unsafe->objectFieldOffset($BigDecimal::class$, "intVal"_s);
 }
 
 BigDecimal$UnsafeHolder::BigDecimal$UnsafeHolder() {
 }
 
 $Class* BigDecimal$UnsafeHolder::load$($String* name, bool initialize) {
-	$loadClass(BigDecimal$UnsafeHolder, name, initialize, &_BigDecimal$UnsafeHolder_ClassInfo_, clinit$BigDecimal$UnsafeHolder, allocate$BigDecimal$UnsafeHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BigDecimal$UnsafeHolder, unsafe)},
+		{"intCompactOffset", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BigDecimal$UnsafeHolder, intCompactOffset)},
+		{"intValOffset", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BigDecimal$UnsafeHolder, intValOffset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(BigDecimal$UnsafeHolder, init$, void)},
+		{"setIntCompact", "(Ljava/math/BigDecimal;J)V", nullptr, $STATIC, $staticMethod(BigDecimal$UnsafeHolder, setIntCompact, void, $BigDecimal*, int64_t)},
+		{"setIntValVolatile", "(Ljava/math/BigDecimal;Ljava/math/BigInteger;)V", nullptr, $STATIC, $staticMethod(BigDecimal$UnsafeHolder, setIntValVolatile, void, $BigDecimal*, $BigInteger*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.math.BigDecimal$UnsafeHolder", "java.math.BigDecimal", "UnsafeHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.math.BigDecimal$UnsafeHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.math.BigDecimal"
+	};
+	$loadClass(BigDecimal$UnsafeHolder, name, initialize, &classInfo$$, BigDecimal$UnsafeHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BigDecimal$UnsafeHolder);
+	});
 	return class$;
 }
 

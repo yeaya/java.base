@@ -1,5 +1,4 @@
 #include <java/lang/FunctionalInterface.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -10,47 +9,40 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 namespace java {
 	namespace lang {
 
-$NamedAttribute FunctionalInterface_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$Attribute FunctionalInterface_Attribute_var$2[] = {
-	{'e', "Ljava/lang/annotation/ElementType; TYPE"},
-	{'-'}
-};
-
-$NamedAttribute FunctionalInterface_Attribute_var$1[] = {
-	{"value", '[', FunctionalInterface_Attribute_var$2},
-	{}
-};
-
-$CompoundAttribute _FunctionalInterface_Annotations_[] = {
-	{"Ljava/lang/annotation/Documented;", nullptr},
-	{"Ljava/lang/annotation/Retention;", FunctionalInterface_Attribute_var$0},
-	{"Ljava/lang/annotation/Target;", FunctionalInterface_Attribute_var$1},
-	{}
-};
-
-$ClassInfo _FunctionalInterface_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"java.lang.FunctionalInterface",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_FunctionalInterface_Annotations_
-};
-
-$Object* allocate$FunctionalInterface($Class* clazz) {
-	return $of($alloc(FunctionalInterface));
-}
-
 $Class* FunctionalInterface::load$($String* name, bool initialize) {
-	$loadClass(FunctionalInterface, name, initialize, &_FunctionalInterface_ClassInfo_, allocate$FunctionalInterface);
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; TYPE"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Documented;", nullptr},
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"java.lang.FunctionalInterface",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(FunctionalInterface, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FunctionalInterface);
+	});
 	return class$;
 }
 

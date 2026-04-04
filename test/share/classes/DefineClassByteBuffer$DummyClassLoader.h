@@ -38,6 +38,7 @@ class $export DefineClassByteBuffer$DummyClassLoader : public ::java::lang::Clas
 public:
 	DefineClassByteBuffer$DummyClassLoader();
 	using ::java::lang::ClassLoader::findClass;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t loaderType);
 	virtual $Class* findClass($String* name) override;
 	using ::java::lang::ClassLoader::loadClass;

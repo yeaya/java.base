@@ -1,5 +1,4 @@
 #include <java/io/File$TempDirectory.h>
-
 #include <java/io/File.h>
 #include <java/io/FileSystem.h>
 #include <java/io/IOException.h>
@@ -10,7 +9,6 @@
 #include <jcpp.h>
 
 using $File = ::java::io::File;
-using $FileSystem = ::java::io::FileSystem;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -23,45 +21,6 @@ using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _File$TempDirectory_FieldInfo_[] = {
-	{"tmpdir", "Ljava/io/File;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(File$TempDirectory, tmpdir)},
-	{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(File$TempDirectory, random)},
-	{}
-};
-
-$MethodInfo _File$TempDirectory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(File$TempDirectory, init$, void)},
-	{"generateFile", "(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)Ljava/io/File;", nullptr, $STATIC, $staticMethod(File$TempDirectory, generateFile, $File*, $String*, $String*, $File*), "java.io.IOException"},
-	{"location", "()Ljava/io/File;", nullptr, $STATIC, $staticMethod(File$TempDirectory, location, $File*)},
-	{"shortenSubName", "(III)I", nullptr, $PRIVATE | $STATIC, $staticMethod(File$TempDirectory, shortenSubName, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _File$TempDirectory_InnerClassesInfo_[] = {
-	{"java.io.File$TempDirectory", "java.io.File", "TempDirectory", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _File$TempDirectory_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.io.File$TempDirectory",
-	"java.lang.Object",
-	nullptr,
-	_File$TempDirectory_FieldInfo_,
-	_File$TempDirectory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_File$TempDirectory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.io.File"
-};
-
-$Object* allocate$File$TempDirectory($Class* clazz) {
-	return $of($alloc(File$TempDirectory));
-}
 
 $File* File$TempDirectory::tmpdir = nullptr;
 $SecureRandom* File$TempDirectory::random = nullptr;
@@ -85,14 +44,15 @@ int32_t File$TempDirectory::shortenSubName(int32_t subNameLength, int32_t excess
 
 $File* File$TempDirectory::generateFile($String* prefix$renamed, $String* suffix, $File* dir) {
 	$init(File$TempDirectory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefix, prefix$renamed);
-	int64_t n = $nc(File$TempDirectory::random)->nextLong();
+	int64_t n = File$TempDirectory::random->nextLong();
 	$var($String, nus, $Long::toUnsignedString(n));
 	$assign(prefix, ($$new($File, prefix))->getName());
 	int32_t prefixLength = $nc(prefix)->length();
 	int32_t nusLength = $nc(nus)->length();
 	int32_t suffixLength = $nc(suffix)->length();
+	;
 	$var($String, name, nullptr);
 	int32_t nameMax = $nc($File::fs)->getNameMax($($nc(dir)->getPath()));
 	int32_t excess = prefixLength + nusLength + suffixLength - nameMax;
@@ -115,7 +75,7 @@ $File* File$TempDirectory::generateFile($String* prefix$renamed, $String* suffix
 		sb->append(suffixLength < suffix->length() ? $(suffix->substring(0, suffixLength)) : suffix);
 		$assign(name, sb->toString());
 	}
-	$assign(name, $nc($File::fs)->normalize(name));
+	$assign(name, $File::fs->normalize(name));
 	$var($File, f, $new($File, dir, name));
 	bool var$0 = !$nc(name)->equals($(f->getName()));
 	if (var$0 || f->isInvalid()) {
@@ -128,7 +88,7 @@ $File* File$TempDirectory::generateFile($String* prefix$renamed, $String* suffix
 	return f;
 }
 
-void clinit$File$TempDirectory($Class* class$) {
+void File$TempDirectory::clinit$($Class* clazz) {
 	$assignStatic(File$TempDirectory::tmpdir, $new($File, $($GetPropertyAction::privilegedGetProperty("java.io.tmpdir"_s))));
 	$assignStatic(File$TempDirectory::random, $new($SecureRandom));
 }
@@ -137,7 +97,40 @@ File$TempDirectory::File$TempDirectory() {
 }
 
 $Class* File$TempDirectory::load$($String* name, bool initialize) {
-	$loadClass(File$TempDirectory, name, initialize, &_File$TempDirectory_ClassInfo_, clinit$File$TempDirectory, allocate$File$TempDirectory);
+	$FieldInfo fieldInfos$$[] = {
+		{"tmpdir", "Ljava/io/File;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(File$TempDirectory, tmpdir)},
+		{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(File$TempDirectory, random)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(File$TempDirectory, init$, void)},
+		{"generateFile", "(Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)Ljava/io/File;", nullptr, $STATIC, $staticMethod(File$TempDirectory, generateFile, $File*, $String*, $String*, $File*), "java.io.IOException"},
+		{"location", "()Ljava/io/File;", nullptr, $STATIC, $staticMethod(File$TempDirectory, location, $File*)},
+		{"shortenSubName", "(III)I", nullptr, $PRIVATE | $STATIC, $staticMethod(File$TempDirectory, shortenSubName, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.File$TempDirectory", "java.io.File", "TempDirectory", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.io.File$TempDirectory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.io.File"
+	};
+	$loadClass(File$TempDirectory, name, initialize, &classInfo$$, File$TempDirectory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(File$TempDirectory);
+	});
 	return class$;
 }
 

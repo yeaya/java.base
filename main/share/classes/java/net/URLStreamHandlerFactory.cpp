@@ -1,5 +1,4 @@
 #include <java/net/URLStreamHandlerFactory.h>
-
 #include <java/net/URLStreamHandler.h>
 #include <jcpp.h>
 
@@ -10,26 +9,22 @@ using $URLStreamHandler = ::java::net::URLStreamHandler;
 namespace java {
 	namespace net {
 
-$MethodInfo _URLStreamHandlerFactory_MethodInfo_[] = {
-	{"createURLStreamHandler", "(Ljava/lang/String;)Ljava/net/URLStreamHandler;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(URLStreamHandlerFactory, createURLStreamHandler, $URLStreamHandler*, $String*)},
-	{}
-};
-
-$ClassInfo _URLStreamHandlerFactory_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.net.URLStreamHandlerFactory",
-	nullptr,
-	nullptr,
-	nullptr,
-	_URLStreamHandlerFactory_MethodInfo_
-};
-
-$Object* allocate$URLStreamHandlerFactory($Class* clazz) {
-	return $of($alloc(URLStreamHandlerFactory));
-}
-
 $Class* URLStreamHandlerFactory::load$($String* name, bool initialize) {
-	$loadClass(URLStreamHandlerFactory, name, initialize, &_URLStreamHandlerFactory_ClassInfo_, allocate$URLStreamHandlerFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"createURLStreamHandler", "(Ljava/lang/String;)Ljava/net/URLStreamHandler;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(URLStreamHandlerFactory, createURLStreamHandler, $URLStreamHandler*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.net.URLStreamHandlerFactory",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(URLStreamHandlerFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(URLStreamHandlerFactory);
+	});
 	return class$;
 }
 

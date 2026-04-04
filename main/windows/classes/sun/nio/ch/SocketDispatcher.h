@@ -26,6 +26,7 @@ class SocketDispatcher : public ::sun::nio::ch::NativeDispatcher {
 	$class(SocketDispatcher, 0, ::sun::nio::ch::NativeDispatcher)
 public:
 	SocketDispatcher();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void close(::java::io::FileDescriptor* fd) override;
 	static void close0(int32_t fdVal);

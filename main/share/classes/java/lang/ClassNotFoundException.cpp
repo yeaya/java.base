@@ -1,5 +1,4 @@
 #include <java/lang/ClassNotFoundException.h>
-
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream$PutField.h>
@@ -22,35 +21,6 @@ using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException
 namespace java {
 	namespace lang {
 
-$FieldInfo _ClassNotFoundException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClassNotFoundException, serialVersionUID)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClassNotFoundException, serialPersistentFields)},
-	{}
-};
-
-$MethodInfo _ClassNotFoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassNotFoundException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ClassNotFoundException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ClassNotFoundException, init$, void, $String*, $Throwable*)},
-	{"getException", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(ClassNotFoundException, getException, $Throwable*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ClassNotFoundException, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ClassNotFoundException, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ClassNotFoundException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.ClassNotFoundException",
-	"java.lang.ReflectiveOperationException",
-	nullptr,
-	_ClassNotFoundException_FieldInfo_,
-	_ClassNotFoundException_MethodInfo_
-};
-
-$Object* allocate$ClassNotFoundException($Class* clazz) {
-	return $of($alloc(ClassNotFoundException));
-}
-
 $ObjectStreamFieldArray* ClassNotFoundException::serialPersistentFields = nullptr;
 
 void ClassNotFoundException::init$() {
@@ -70,22 +40,22 @@ $Throwable* ClassNotFoundException::getException() {
 }
 
 void ClassNotFoundException::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, fields, $nc(s)->readFields());
-	$var($Throwable, exception, $cast($Throwable, $nc(fields)->get("ex"_s, ($Object*)nullptr)));
+	$var($Throwable, exception, $cast($Throwable, $nc(fields)->get("ex"_s, nullptr)));
 	if (exception != nullptr) {
 		setCause(exception);
 	}
 }
 
 void ClassNotFoundException::writeObject($ObjectOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectOutputStream$PutField, fields, $nc(out)->putFields());
-	$nc(fields)->put("ex"_s, $($of($ReflectiveOperationException::getCause())));
+	$nc(fields)->put("ex"_s, $($ReflectiveOperationException::getCause()));
 	out->writeFields();
 }
 
-void clinit$ClassNotFoundException($Class* class$) {
+void ClassNotFoundException::clinit$($Class* clazz) {
 	$assignStatic(ClassNotFoundException::serialPersistentFields, $new($ObjectStreamFieldArray, {$$new($ObjectStreamField, "ex"_s, $Throwable::class$)}));
 }
 
@@ -100,7 +70,31 @@ void ClassNotFoundException::throw$() {
 }
 
 $Class* ClassNotFoundException::load$($String* name, bool initialize) {
-	$loadClass(ClassNotFoundException, name, initialize, &_ClassNotFoundException_ClassInfo_, clinit$ClassNotFoundException, allocate$ClassNotFoundException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClassNotFoundException, serialVersionUID)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClassNotFoundException, serialPersistentFields)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ClassNotFoundException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ClassNotFoundException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ClassNotFoundException, init$, void, $String*, $Throwable*)},
+		{"getException", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(ClassNotFoundException, getException, $Throwable*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ClassNotFoundException, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ClassNotFoundException, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.ClassNotFoundException",
+		"java.lang.ReflectiveOperationException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClassNotFoundException, name, initialize, &classInfo$$, ClassNotFoundException::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassNotFoundException);
+	});
 	return class$;
 }
 

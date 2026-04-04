@@ -1,5 +1,4 @@
 #include <CollationKeyTestImpl.h>
-
 #include <java/text/CollationKey.h>
 #include <java/text/Collator.h>
 #include <java/util/Locale.h>
@@ -18,64 +17,31 @@ using $CollationKey = ::java::text::CollationKey;
 using $Collator = ::java::text::Collator;
 using $Locale = ::java::util::Locale;
 
-$FieldInfo _CollationKeyTestImpl_FieldInfo_[] = {
-	{"sourceData_ja", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(CollationKeyTestImpl, sourceData_ja)},
-	{"targetData_ja", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CollationKeyTestImpl, targetData_ja)},
-	{}
-};
-
-$MethodInfo _CollationKeyTestImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CollationKeyTestImpl, init$, void, $String*)},
-	{"InsertionSort", "([Ljava/text/CollationKey;)V", nullptr, $PRIVATE, $method(CollationKeyTestImpl, InsertionSort, void, $CollationKeyArray*)},
-	{"compareTo", "(Ljava/text/CollationKey;)I", nullptr, $PUBLIC, $virtualMethod(CollationKeyTestImpl, compareTo, int32_t, $CollationKey*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CollationKeyTestImpl, compareTo, int32_t, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CollationKeyTestImpl, equals, bool, Object$*)},
-	{"getSourceString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CollationKeyTestImpl, getSourceString, $String*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CollationKeyTestImpl, run, void)},
-	{"testConstructor", "()V", nullptr, $PRIVATE, $method(CollationKeyTestImpl, testConstructor, void)},
-	{"testSubclassMethods", "()V", nullptr, $PRIVATE, $method(CollationKeyTestImpl, testSubclassMethods, void)},
-	{"toByteArray", "()[B", nullptr, $PUBLIC, $virtualMethod(CollationKeyTestImpl, toByteArray, $bytes*)},
-	{}
-};
-
-$ClassInfo _CollationKeyTestImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"CollationKeyTestImpl",
-	"java.text.CollationKey",
-	nullptr,
-	_CollationKeyTestImpl_FieldInfo_,
-	_CollationKeyTestImpl_MethodInfo_
-};
-
-$Object* allocate$CollationKeyTestImpl($Class* clazz) {
-	return $of($alloc(CollationKeyTestImpl));
-}
-
 $StringArray* CollationKeyTestImpl::sourceData_ja = nullptr;
 $StringArray* CollationKeyTestImpl::targetData_ja = nullptr;
 
 void CollationKeyTestImpl::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($Collator, myCollator, $Collator::getInstance($Locale::JAPAN));
 	$var($CollationKeyArray, keys, $new($CollationKeyArray, $nc(CollationKeyTestImpl::sourceData_ja)->length));
-	$var($CollationKeyArray, target_keys, $new($CollationKeyArray, $nc(CollationKeyTestImpl::targetData_ja)->length));
-	for (int32_t i = 0; i < $nc(CollationKeyTestImpl::sourceData_ja)->length; ++i) {
-		keys->set(i, $($nc(myCollator)->getCollationKey($nc(CollationKeyTestImpl::sourceData_ja)->get(i))));
-		target_keys->set(i, $(myCollator->getCollationKey($nc(CollationKeyTestImpl::targetData_ja)->get(i))));
+	$var($CollationKeyArray, target_keys, $new($CollationKeyArray, CollationKeyTestImpl::targetData_ja->length));
+	for (int32_t i = 0; i < CollationKeyTestImpl::sourceData_ja->length; ++i) {
+		keys->set(i, $($nc(myCollator)->getCollationKey(CollationKeyTestImpl::sourceData_ja->get(i))));
+		target_keys->set(i, $(myCollator->getCollationKey(CollationKeyTestImpl::targetData_ja->get(i))));
 	}
 	InsertionSort(keys);
 	bool pass = true;
 	for (int32_t i = 0; i < $nc(CollationKeyTestImpl::sourceData_ja)->length; ++i) {
-		if (!$nc($nc(CollationKeyTestImpl::targetData_ja)->get(i))->equals($($nc(keys->get(i))->getSourceString()))) {
-			$throwNew($RuntimeException, $$str({"FAILED: CollationKeyTest backward compatibility while comparing"_s, $nc(CollationKeyTestImpl::targetData_ja)->get(i), " vs "_s, $($nc(keys->get(i))->getSourceString())}));
+		if (!$nc(CollationKeyTestImpl::targetData_ja->get(i))->equals($($nc(keys->get(i))->getSourceString()))) {
+			$throwNew($RuntimeException, $$str({"FAILED: CollationKeyTest backward compatibility while comparing"_s, CollationKeyTestImpl::targetData_ja->get(i), " vs "_s, $($nc(keys->get(i))->getSourceString())}));
 		}
-		if (!$nc($of(target_keys->get(i)))->equals(keys->get(i))) {
-			$throwNew($RuntimeException, $$str({"FAILED: CollationKeyTest backward compatibility. Using CollationKey.equals "_s, $nc(CollationKeyTestImpl::targetData_ja)->get(i), " vs "_s, $($nc(keys->get(i))->getSourceString())}));
+		if (!$nc(target_keys->get(i))->equals(keys->get(i))) {
+			$throwNew($RuntimeException, $$str({"FAILED: CollationKeyTest backward compatibility. Using CollationKey.equals "_s, CollationKeyTestImpl::targetData_ja->get(i), " vs "_s, $($nc(keys->get(i))->getSourceString())}));
 		}
-		int32_t var$0 = $nc($of(target_keys->get(i)))->hashCode();
-		if (var$0 != $nc($of(keys->get(i)))->hashCode()) {
-			$throwNew($RuntimeException, $$str({"FAILED: CollationKeyTest backward compatibility. Using CollationKey.hashCode "_s, $nc(CollationKeyTestImpl::targetData_ja)->get(i), " vs "_s, $($nc(keys->get(i))->getSourceString())}));
+		int32_t var$0 = $nc(target_keys->get(i))->hashCode();
+		if (var$0 != $nc(keys->get(i))->hashCode()) {
+			$throwNew($RuntimeException, $$str({"FAILED: CollationKeyTest backward compatibility. Using CollationKey.hashCode "_s, CollationKeyTestImpl::targetData_ja->get(i), " vs "_s, $($nc(keys->get(i))->getSourceString())}));
 		}
 		$var($bytes, target_bytes, $nc(target_keys->get(i))->toByteArray());
 		$var($bytes, source_bytes, $nc(keys->get(i))->toByteArray());
@@ -83,7 +49,7 @@ void CollationKeyTestImpl::run() {
 			$var($Byte, targetByte, $new($Byte, target_bytes->get(j)));
 			$var($Byte, sourceByte, $new($Byte, $nc(source_bytes)->get(j)));
 			if (targetByte->compareTo(sourceByte) != 0) {
-				$throwNew($RuntimeException, $$str({"FAILED: CollationKeyTest backward compatibility. Using Byte.compareTo from CollationKey.toByteArray "_s, $nc(CollationKeyTestImpl::targetData_ja)->get(i), " vs "_s, $($nc(keys->get(i))->getSourceString())}));
+				$throwNew($RuntimeException, $$str({"FAILED: CollationKeyTest backward compatibility. Using Byte.compareTo from CollationKey.toByteArray "_s, CollationKeyTestImpl::targetData_ja->get(i), " vs "_s, $($nc(keys->get(i))->getSourceString())}));
 			}
 		}
 	}
@@ -131,16 +97,16 @@ $String* CollationKeyTestImpl::getSourceString() {
 }
 
 void CollationKeyTestImpl::testSubclassMethods() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(CollationKeyTestImpl, clt1, $new(CollationKeyTestImpl, "testSubclassMethods-1"_s));
 	$var(CollationKeyTestImpl, clt2, $new(CollationKeyTestImpl, "testSubclassMethods-2"_s));
 	if (!clt1->equals(clt2)) {
 		$throwNew($RuntimeException, "Failed: equals(CollationKeySubClass)"_s);
 	}
-	if (clt1->compareTo(static_cast<$CollationKey*>(clt2)) != 0) {
+	if (clt1->compareTo(clt2) != 0) {
 		$throwNew($RuntimeException, "Failed: compareTo(CollationKeySubClass)"_s);
 	}
-	if (!$nc($(clt1->getSourceString()))->equals("CollationKeyTestImpl"_s)) {
+	if (!$$nc(clt1->getSourceString())->equals("CollationKeyTestImpl"_s)) {
 		$throwNew($RuntimeException, "Failed: CollationKey subclass overriding getSourceString()"_s);
 	}
 	$var($String, str2, $new($String, $(clt2->toByteArray())));
@@ -165,7 +131,7 @@ int32_t CollationKeyTestImpl::compareTo(Object$* target) {
 	return this->compareTo($cast($CollationKey, target));
 }
 
-void clinit$CollationKeyTestImpl($Class* class$) {
+void CollationKeyTestImpl::clinit$($Class* clazz) {
 	$assignStatic(CollationKeyTestImpl::sourceData_ja, $new($StringArray, {
 		u"あいうええ"_s,
 		u"ぁぃぅぇぉ"_s,
@@ -216,7 +182,35 @@ CollationKeyTestImpl::CollationKeyTestImpl() {
 }
 
 $Class* CollationKeyTestImpl::load$($String* name, bool initialize) {
-	$loadClass(CollationKeyTestImpl, name, initialize, &_CollationKeyTestImpl_ClassInfo_, clinit$CollationKeyTestImpl, allocate$CollationKeyTestImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"sourceData_ja", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(CollationKeyTestImpl, sourceData_ja)},
+		{"targetData_ja", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CollationKeyTestImpl, targetData_ja)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CollationKeyTestImpl, init$, void, $String*)},
+		{"InsertionSort", "([Ljava/text/CollationKey;)V", nullptr, $PRIVATE, $method(CollationKeyTestImpl, InsertionSort, void, $CollationKeyArray*)},
+		{"compareTo", "(Ljava/text/CollationKey;)I", nullptr, $PUBLIC, $virtualMethod(CollationKeyTestImpl, compareTo, int32_t, $CollationKey*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CollationKeyTestImpl, compareTo, int32_t, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CollationKeyTestImpl, equals, bool, Object$*)},
+		{"getSourceString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CollationKeyTestImpl, getSourceString, $String*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CollationKeyTestImpl, run, void)},
+		{"testConstructor", "()V", nullptr, $PRIVATE, $method(CollationKeyTestImpl, testConstructor, void)},
+		{"testSubclassMethods", "()V", nullptr, $PRIVATE, $method(CollationKeyTestImpl, testSubclassMethods, void)},
+		{"toByteArray", "()[B", nullptr, $PUBLIC, $virtualMethod(CollationKeyTestImpl, toByteArray, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"CollationKeyTestImpl",
+		"java.text.CollationKey",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CollationKeyTestImpl, name, initialize, &classInfo$$, CollationKeyTestImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CollationKeyTestImpl);
+	});
 	return class$;
 }
 

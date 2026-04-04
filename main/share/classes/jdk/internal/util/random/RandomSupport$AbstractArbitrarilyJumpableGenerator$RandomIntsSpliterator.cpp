@@ -1,5 +1,4 @@
 #include <jdk/internal/util/random/RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator.h>
-
 #include <java/util/Objects.h>
 #include <java/util/Spliterator$OfInt.h>
 #include <java/util/function/IntConsumer.h>
@@ -18,7 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Objects = ::java::util::Objects;
 using $Spliterator$OfInt = ::java::util::Spliterator$OfInt;
 using $IntConsumer = ::java::util::function::IntConsumer;
-using $RandomGenerator = ::java::util::random::RandomGenerator;
 using $RandomGenerator$ArbitrarilyJumpableGenerator = ::java::util::random::RandomGenerator$ArbitrarilyJumpableGenerator;
 using $RandomSupport = ::jdk::internal::util::random::RandomSupport;
 using $RandomSupport$RandomSpliterator = ::jdk::internal::util::random::RandomSupport$RandomSpliterator;
@@ -27,58 +25,6 @@ namespace jdk {
 	namespace internal {
 		namespace util {
 			namespace random {
-
-$FieldInfo _RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator_FieldInfo_[] = {
-	{"generatingGenerator", "Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;", nullptr, $FINAL, $field(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator, generatingGenerator)},
-	{"origin", "I", nullptr, $FINAL, $field(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator, origin)},
-	{"bound", "I", nullptr, $FINAL, $field(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator, bound)},
-	{}
-};
-
-$MethodInfo _RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator_MethodInfo_[] = {
-	{"*characteristics", "()I", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*estimateSize", "()J", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;JJII)V", nullptr, 0, $method(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator, init$, void, $RandomGenerator$ArbitrarilyJumpableGenerator*, int64_t, int64_t, int32_t, int32_t)},
-	{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator, forEachRemaining, void, $IntConsumer*)},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator, forEachRemaining, void, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator, tryAdvance, bool, $IntConsumer*)},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator, tryAdvance, bool, Object$*)},
-	{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator, trySplit, $Spliterator$OfInt*)},
-	{}
-};
-
-$InnerClassInfo _RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator_InnerClassesInfo_[] = {
-	{"jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator", "jdk.internal.util.random.RandomSupport", "AbstractArbitrarilyJumpableGenerator", $PUBLIC | $STATIC | $ABSTRACT},
-	{"jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator", "jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator", "RandomIntsSpliterator", $STATIC},
-	{"jdk.internal.util.random.RandomSupport$RandomSpliterator", "jdk.internal.util.random.RandomSupport", "RandomSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.util.Spliterator$OfInt", "java.util.Spliterator", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator",
-	"jdk.internal.util.random.RandomSupport$RandomSpliterator",
-	"java.util.Spliterator$OfInt",
-	_RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator_FieldInfo_,
-	_RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.util.random.RandomSupport"
-};
-
-$Object* allocate$RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator($Class* clazz) {
-	return $of($alloc(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator));
-}
 
 int64_t RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator::estimateSize() {
 	 return this->$RandomSupport$RandomSpliterator::estimateSize();
@@ -116,7 +62,7 @@ void RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator::i
 }
 
 $Spliterator$OfInt* RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator::trySplit() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t i = this->index;
 	int64_t delta = $Long::highestOneBit((this->fence - i) - 1);
 	int64_t m = i + delta;
@@ -168,7 +114,53 @@ RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator::Random
 }
 
 $Class* RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator::load$($String* name, bool initialize) {
-	$loadClass(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator, name, initialize, &_RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator_ClassInfo_, allocate$RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"generatingGenerator", "Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;", nullptr, $FINAL, $field(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator, generatingGenerator)},
+		{"origin", "I", nullptr, $FINAL, $field(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator, origin)},
+		{"bound", "I", nullptr, $FINAL, $field(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator, bound)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*characteristics", "()I", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*estimateSize", "()J", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/random/RandomGenerator$ArbitrarilyJumpableGenerator;JJII)V", nullptr, 0, $method(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator, init$, void, $RandomGenerator$ArbitrarilyJumpableGenerator*, int64_t, int64_t, int32_t, int32_t)},
+		{"forEachRemaining", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator, forEachRemaining, void, $IntConsumer*)},
+		{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator, forEachRemaining, void, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"tryAdvance", "(Ljava/util/function/IntConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator, tryAdvance, bool, $IntConsumer*)},
+		{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator, tryAdvance, bool, Object$*)},
+		{"trySplit", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator, trySplit, $Spliterator$OfInt*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator", "jdk.internal.util.random.RandomSupport", "AbstractArbitrarilyJumpableGenerator", $PUBLIC | $STATIC | $ABSTRACT},
+		{"jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator", "jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator", "RandomIntsSpliterator", $STATIC},
+		{"jdk.internal.util.random.RandomSupport$RandomSpliterator", "jdk.internal.util.random.RandomSupport", "RandomSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.util.Spliterator$OfInt", "java.util.Spliterator", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.util.random.RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator",
+		"jdk.internal.util.random.RandomSupport$RandomSpliterator",
+		"java.util.Spliterator$OfInt",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.util.random.RandomSupport"
+	};
+	$loadClass(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RandomSupport$AbstractArbitrarilyJumpableGenerator$RandomIntsSpliterator));
+	});
 	return class$;
 }
 

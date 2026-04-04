@@ -1,5 +1,4 @@
 #include <sun/nio/fs/WindowsLinkSupport$1.h>
-
 #include <sun/nio/fs/WindowsLinkSupport.h>
 #include <sun/nio/fs/WindowsPath.h>
 #include <jcpp.h>
@@ -15,48 +14,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _WindowsLinkSupport$1_FieldInfo_[] = {
-	{"val$t", "Lsun/nio/fs/WindowsPath;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsLinkSupport$1, val$t)},
-	{}
-};
-
-$MethodInfo _WindowsLinkSupport$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/WindowsPath;)V", "()V", 0, $method(WindowsLinkSupport$1, init$, void, $WindowsPath*)},
-	{"run", "()Lsun/nio/fs/WindowsPath;", nullptr, $PUBLIC, $virtualMethod(WindowsLinkSupport$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _WindowsLinkSupport$1_EnclosingMethodInfo_ = {
-	"sun.nio.fs.WindowsLinkSupport",
-	"getFinalPath",
-	"(Lsun/nio/fs/WindowsPath;Z)Ljava/lang/String;"
-};
-
-$InnerClassInfo _WindowsLinkSupport$1_InnerClassesInfo_[] = {
-	{"sun.nio.fs.WindowsLinkSupport$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsLinkSupport$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.WindowsLinkSupport$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_WindowsLinkSupport$1_FieldInfo_,
-	_WindowsLinkSupport$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Lsun/nio/fs/WindowsPath;>;",
-	&_WindowsLinkSupport$1_EnclosingMethodInfo_,
-	_WindowsLinkSupport$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.WindowsLinkSupport"
-};
-
-$Object* allocate$WindowsLinkSupport$1($Class* clazz) {
-	return $of($alloc(WindowsLinkSupport$1));
-}
-
 void WindowsLinkSupport$1::init$($WindowsPath* val$t) {
 	$set(this, val$t, val$t);
 }
@@ -69,7 +26,42 @@ WindowsLinkSupport$1::WindowsLinkSupport$1() {
 }
 
 $Class* WindowsLinkSupport$1::load$($String* name, bool initialize) {
-	$loadClass(WindowsLinkSupport$1, name, initialize, &_WindowsLinkSupport$1_ClassInfo_, allocate$WindowsLinkSupport$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$t", "Lsun/nio/fs/WindowsPath;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsLinkSupport$1, val$t)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/fs/WindowsPath;)V", "()V", 0, $method(WindowsLinkSupport$1, init$, void, $WindowsPath*)},
+		{"run", "()Lsun/nio/fs/WindowsPath;", nullptr, $PUBLIC, $virtualMethod(WindowsLinkSupport$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.nio.fs.WindowsLinkSupport",
+		"getFinalPath",
+		"(Lsun/nio/fs/WindowsPath;Z)Ljava/lang/String;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.WindowsLinkSupport$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.WindowsLinkSupport$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Lsun/nio/fs/WindowsPath;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.WindowsLinkSupport"
+	};
+	$loadClass(WindowsLinkSupport$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLinkSupport$1);
+	});
 	return class$;
 }
 

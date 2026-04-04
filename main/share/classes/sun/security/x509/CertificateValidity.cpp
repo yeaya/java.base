@@ -1,5 +1,4 @@
 #include <sun/security/x509/CertificateValidity.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/security/cert/CertificateExpiredException.h>
@@ -36,50 +35,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _CertificateValidity_FieldInfo_[] = {
-	{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateValidity, IDENT)},
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateValidity, NAME)},
-	{"NOT_BEFORE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateValidity, NOT_BEFORE)},
-	{"NOT_AFTER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateValidity, NOT_AFTER)},
-	{"YR_2050", "J", nullptr, $STATIC | $FINAL, $constField(CertificateValidity, YR_2050)},
-	{"notBefore", "Ljava/util/Date;", nullptr, $PRIVATE, $field(CertificateValidity, notBefore)},
-	{"notAfter", "Ljava/util/Date;", nullptr, $PRIVATE, $field(CertificateValidity, notAfter)},
-	{}
-};
-
-$MethodInfo _CertificateValidity_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CertificateValidity, init$, void)},
-	{"<init>", "(Ljava/util/Date;Ljava/util/Date;)V", nullptr, $PUBLIC, $method(CertificateValidity, init$, void, $Date*, $Date*)},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(CertificateValidity, init$, void, $DerInputStream*), "java.io.IOException"},
-	{"construct", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(CertificateValidity, construct, void, $DerValue*), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CertificateValidity, delete$, void, $String*), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateValidity, encode, void, $OutputStream*), "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(CertificateValidity, get, $Object*, $String*), "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CertificateValidity, getElements, $Enumeration*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateValidity, getName, $String*)},
-	{"getNotAfter", "()Ljava/util/Date;", nullptr, $PRIVATE, $method(CertificateValidity, getNotAfter, $Date*)},
-	{"getNotBefore", "()Ljava/util/Date;", nullptr, $PRIVATE, $method(CertificateValidity, getNotBefore, $Date*)},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CertificateValidity, set, void, $String*, Object$*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateValidity, toString, $String*)},
-	{"valid", "()V", nullptr, $PUBLIC, $virtualMethod(CertificateValidity, valid, void), "java.security.cert.CertificateNotYetValidException,java.security.cert.CertificateExpiredException"},
-	{"valid", "(Ljava/util/Date;)V", nullptr, $PUBLIC, $virtualMethod(CertificateValidity, valid, void, $Date*), "java.security.cert.CertificateNotYetValidException,java.security.cert.CertificateExpiredException"},
-	{}
-};
-
-$ClassInfo _CertificateValidity_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.CertificateValidity",
-	"java.lang.Object",
-	"sun.security.x509.CertAttrSet",
-	_CertificateValidity_FieldInfo_,
-	_CertificateValidity_MethodInfo_,
-	"Ljava/lang/Object;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
-};
-
-$Object* allocate$CertificateValidity($Class* clazz) {
-	return $of($alloc(CertificateValidity));
-}
-
 $String* CertificateValidity::IDENT = nullptr;
 $String* CertificateValidity::NAME = nullptr;
 $String* CertificateValidity::NOT_BEFORE = nullptr;
@@ -94,29 +49,29 @@ $Date* CertificateValidity::getNotAfter() {
 }
 
 void CertificateValidity::construct($DerValue* derVal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(derVal)->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "Invalid encoded CertificateValidity, starting sequence tag missing."_s);
 	}
-	if ($nc($nc(derVal)->data$)->available() == 0) {
+	if ($nc(derVal->data$)->available() == 0) {
 		$throwNew($IOException, "No data encoded for CertificateValidity"_s);
 	}
-	$var($DerInputStream, derIn, $new($DerInputStream, $($nc(derVal)->toByteArray())));
+	$var($DerInputStream, derIn, $new($DerInputStream, $(derVal->toByteArray())));
 	$var($DerValueArray, seq, derIn->getSequence(2));
 	if ($nc(seq)->length != 2) {
 		$throwNew($IOException, "Invalid encoding for CertificateValidity"_s);
 	}
-	if ($nc($nc(seq)->get(0))->tag == $DerValue::tag_UtcTime) {
-		$set(this, notBefore, $nc($nc(derVal)->data$)->getUTCTime());
+	if ($nc(seq->get(0))->tag == $DerValue::tag_UtcTime) {
+		$set(this, notBefore, derVal->data$->getUTCTime());
 	} else if ($nc(seq->get(0))->tag == $DerValue::tag_GeneralizedTime) {
-		$set(this, notBefore, $nc($nc(derVal)->data$)->getGeneralizedTime());
+		$set(this, notBefore, derVal->data$->getGeneralizedTime());
 	} else {
 		$throwNew($IOException, "Invalid encoding for CertificateValidity"_s);
 	}
-	if ($nc($nc(seq)->get(1))->tag == $DerValue::tag_UtcTime) {
-		$set(this, notAfter, $nc($nc(derVal)->data$)->getUTCTime());
+	if ($nc(seq->get(1))->tag == $DerValue::tag_UtcTime) {
+		$set(this, notAfter, derVal->data$->getUTCTime());
 	} else if ($nc(seq->get(1))->tag == $DerValue::tag_GeneralizedTime) {
-		$set(this, notAfter, $nc($nc(derVal)->data$)->getGeneralizedTime());
+		$set(this, notAfter, derVal->data$->getGeneralizedTime());
 	} else {
 		$throwNew($IOException, "Invalid encoding for CertificateValidity"_s);
 	}
@@ -143,7 +98,7 @@ $String* CertificateValidity::toString() {
 }
 
 void CertificateValidity::encode($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->notBefore == nullptr || this->notAfter == nullptr) {
 		$throwNew($IOException, "CertAttrSet:CertificateValidity: null values to encode.\n"_s);
 	}
@@ -178,9 +133,9 @@ void CertificateValidity::set($String* name, Object$* obj) {
 
 $Object* CertificateValidity::get($String* name) {
 	if ($nc(name)->equalsIgnoreCase(CertificateValidity::NOT_BEFORE)) {
-		return $of((getNotBefore()));
+		return ($of(getNotBefore()));
 	} else if (name->equalsIgnoreCase(CertificateValidity::NOT_AFTER)) {
-		return $of((getNotAfter()));
+		return ($of(getNotAfter()));
 	} else {
 		$throwNew($IOException, "Attribute name not recognized by CertAttrSet: CertificateValidity."_s);
 	}
@@ -213,19 +168,19 @@ void CertificateValidity::valid() {
 }
 
 void CertificateValidity::valid($Date* now) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->notBefore)->after(now)) {
-		$throwNew($CertificateNotYetValidException, $$str({"NotBefore: "_s, $($nc(this->notBefore)->toString())}));
+		$throwNew($CertificateNotYetValidException, $$str({"NotBefore: "_s, $(this->notBefore->toString())}));
 	}
 	if ($nc(this->notAfter)->before(now)) {
-		$throwNew($CertificateExpiredException, $$str({"NotAfter: "_s, $($nc(this->notAfter)->toString())}));
+		$throwNew($CertificateExpiredException, $$str({"NotAfter: "_s, $(this->notAfter->toString())}));
 	}
 }
 
 CertificateValidity::CertificateValidity() {
 }
 
-void clinit$CertificateValidity($Class* class$) {
+void CertificateValidity::clinit$($Class* clazz) {
 	$assignStatic(CertificateValidity::IDENT, "x509.info.validity"_s);
 	$assignStatic(CertificateValidity::NAME, "validity"_s);
 	$assignStatic(CertificateValidity::NOT_BEFORE, "notBefore"_s);
@@ -233,7 +188,46 @@ void clinit$CertificateValidity($Class* class$) {
 }
 
 $Class* CertificateValidity::load$($String* name, bool initialize) {
-	$loadClass(CertificateValidity, name, initialize, &_CertificateValidity_ClassInfo_, clinit$CertificateValidity, allocate$CertificateValidity);
+	$FieldInfo fieldInfos$$[] = {
+		{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateValidity, IDENT)},
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateValidity, NAME)},
+		{"NOT_BEFORE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateValidity, NOT_BEFORE)},
+		{"NOT_AFTER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateValidity, NOT_AFTER)},
+		{"YR_2050", "J", nullptr, $STATIC | $FINAL, $constField(CertificateValidity, YR_2050)},
+		{"notBefore", "Ljava/util/Date;", nullptr, $PRIVATE, $field(CertificateValidity, notBefore)},
+		{"notAfter", "Ljava/util/Date;", nullptr, $PRIVATE, $field(CertificateValidity, notAfter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CertificateValidity, init$, void)},
+		{"<init>", "(Ljava/util/Date;Ljava/util/Date;)V", nullptr, $PUBLIC, $method(CertificateValidity, init$, void, $Date*, $Date*)},
+		{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(CertificateValidity, init$, void, $DerInputStream*), "java.io.IOException"},
+		{"construct", "(Lsun/security/util/DerValue;)V", nullptr, $PRIVATE, $method(CertificateValidity, construct, void, $DerValue*), "java.io.IOException"},
+		{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CertificateValidity, delete$, void, $String*), "java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateValidity, encode, void, $OutputStream*), "java.io.IOException"},
+		{"get", "(Ljava/lang/String;)Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(CertificateValidity, get, $Object*, $String*), "java.io.IOException"},
+		{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CertificateValidity, getElements, $Enumeration*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateValidity, getName, $String*)},
+		{"getNotAfter", "()Ljava/util/Date;", nullptr, $PRIVATE, $method(CertificateValidity, getNotAfter, $Date*)},
+		{"getNotBefore", "()Ljava/util/Date;", nullptr, $PRIVATE, $method(CertificateValidity, getNotBefore, $Date*)},
+		{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CertificateValidity, set, void, $String*, Object$*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateValidity, toString, $String*)},
+		{"valid", "()V", nullptr, $PUBLIC, $virtualMethod(CertificateValidity, valid, void), "java.security.cert.CertificateNotYetValidException,java.security.cert.CertificateExpiredException"},
+		{"valid", "(Ljava/util/Date;)V", nullptr, $PUBLIC, $virtualMethod(CertificateValidity, valid, void, $Date*), "java.security.cert.CertificateNotYetValidException,java.security.cert.CertificateExpiredException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.CertificateValidity",
+		"java.lang.Object",
+		"sun.security.x509.CertAttrSet",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
+	};
+	$loadClass(CertificateValidity, name, initialize, &classInfo$$, CertificateValidity::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateValidity);
+	});
 	return class$;
 }
 

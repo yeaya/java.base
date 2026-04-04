@@ -1,5 +1,4 @@
 #include <sun/util/cldr/CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -23,7 +22,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Arrays = ::java::util::Arrays;
 using $IntFunction = ::java::util::function::IntFunction;
-using $Stream = ::java::util::stream::Stream;
 using $ZoneInfoFile = ::sun::util::calendar::ZoneInfoFile;
 
 namespace sun {
@@ -36,68 +34,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t x$0) override {
-		 return $of(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS::lambda$static$0(x$0));
+		 return CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS::lambda$static$0(x$0);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0, init$, void)},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0, apply, $Object*, int32_t)},
-	{}
-};
-$ClassInfo CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.util.cldr.CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.util.function.IntFunction",
-	nullptr,
-	methodInfos
 };
 $Class* CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0, init$, void)},
+		{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0, apply, $Object*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.util.cldr.CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.util.function.IntFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0::class$ = nullptr;
-
-$FieldInfo _CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS_FieldInfo_[] = {
-	{"INSTANCE", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS, INSTANCE)},
-	{}
-};
-
-$MethodInfo _CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS, init$, void)},
-	{"lambda$static$0", "(I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS, lambda$static$0, $StringArray*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS_InnerClassesInfo_[] = {
-	{"sun.util.cldr.CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS", "sun.util.cldr.CLDRTimeZoneNameProviderImpl", "AVAILABLE_IDS", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.cldr.CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS",
-	"java.lang.Object",
-	nullptr,
-	_CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS_FieldInfo_,
-	_CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.cldr.CLDRTimeZoneNameProviderImpl"
-};
-
-$Object* allocate$CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS($Class* clazz) {
-	return $of($alloc(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS));
-}
 
 $StringArray* CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS::INSTANCE = nullptr;
 
@@ -109,9 +68,9 @@ $StringArray* CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS::lambda$static$0(int32_
 	return $new($StringArray, x$0);
 }
 
-void clinit$CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS($Class* class$) {
-	$useLocalCurrentObjectStackCache();
-	$assignStatic(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS::INSTANCE, $fcast($StringArray, $nc($($nc($($Arrays::stream($($ZoneInfoFile::getZoneIds()))))->sorted()))->toArray(static_cast<$IntFunction*>($$new(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0)))));
+void CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS::clinit$($Class* clazz) {
+	$useLocalObjectStack();
+	$assignStatic(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS::INSTANCE, $cast($StringArray, $$nc($$nc($Arrays::stream($($ZoneInfoFile::getZoneIds())))->sorted())->toArray($$new(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0))));
 }
 
 CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS::CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS() {
@@ -119,11 +78,41 @@ CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS::CLDRTimeZoneNameProviderImpl$AVAILAB
 
 $Class* CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("sun.util.cldr.CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0")) {
 			return CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS, name, initialize, &_CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS_ClassInfo_, clinit$CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS, allocate$CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS, init$, void)},
+		{"lambda$static$0", "(I)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS, lambda$static$0, $StringArray*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.cldr.CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS", "sun.util.cldr.CLDRTimeZoneNameProviderImpl", "AVAILABLE_IDS", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.cldr.CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.cldr.CLDRTimeZoneNameProviderImpl"
+	};
+	$loadClass(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS, name, initialize, &classInfo$$, CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS);
+	});
 	return class$;
 }
 

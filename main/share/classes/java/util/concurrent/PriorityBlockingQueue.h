@@ -78,6 +78,7 @@ public:
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
 	virtual bool isEmpty() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t initialCapacity);
 	void init$(int32_t initialCapacity, ::java::util::Comparator* comparator);
@@ -130,7 +131,7 @@ public:
 	virtual $String* toString() override;
 	void tryGrow($ObjectArray* array, int32_t oldCap);
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0x4DA73F88E6712814;
+	static const int64_t serialVersionUID = (int64_t)0x4da73f88e6712814;
 	static const int32_t DEFAULT_INITIAL_CAPACITY = 11;
 	$ObjectArray* queue = nullptr;
 	int32_t size$ = 0;

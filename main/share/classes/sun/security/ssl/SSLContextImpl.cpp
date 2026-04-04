@@ -1,6 +1,4 @@
 #include <sun/security/ssl/SSLContextImpl.h>
-
-#include <java/lang/Enum.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/security/AlgorithmConstraints.h>
@@ -9,14 +7,11 @@
 #include <java/security/KeyStore.h>
 #include <java/security/SecureRandom.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/EnumSet.h>
 #include <java/util/HashMap.h>
-#include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedHashSet.h>
 #include <java/util/List.h>
@@ -62,7 +57,6 @@ using $KeyManagerArray = $Array<::javax::net::ssl::KeyManager>;
 using $TrustManagerArray = $Array<::javax::net::ssl::TrustManager>;
 using $ProtocolVersionArray = $Array<::sun::security::ssl::ProtocolVersion>;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -70,24 +64,19 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $AlgorithmConstraints = ::java::security::AlgorithmConstraints;
 using $AlgorithmParameters = ::java::security::AlgorithmParameters;
 using $CryptoPrimitive = ::java::security::CryptoPrimitive;
 using $KeyStore = ::java::security::KeyStore;
 using $SecureRandom = ::java::security::SecureRandom;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractSet = ::java::util::AbstractSet;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $EnumSet = ::java::util::EnumSet;
 using $HashMap = ::java::util::HashMap;
-using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
 using $List = ::java::util::List;
-using $Set = ::java::util::Set;
 using $ReentrantLock = ::java::util::concurrent::locks::ReentrantLock;
 using $KeyManager = ::javax::net::ssl::KeyManager;
 using $SSLContextSpi = ::javax::net::ssl::SSLContextSpi;
@@ -111,7 +100,6 @@ using $HelloCookieManager = ::sun::security::ssl::HelloCookieManager;
 using $HelloCookieManager$Builder = ::sun::security::ssl::HelloCookieManager$Builder;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLAlgorithmConstraints = ::sun::security::ssl::SSLAlgorithmConstraints;
-using $SSLCipher = ::sun::security::ssl::SSLCipher;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $SSLServerSocketFactoryImpl = ::sun::security::ssl::SSLServerSocketFactoryImpl;
 using $SSLSessionContextImpl = ::sun::security::ssl::SSLSessionContextImpl;
@@ -122,103 +110,6 @@ using $Utilities = ::sun::security::ssl::Utilities;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _SSLContextImpl_FieldInfo_[] = {
-	{"ephemeralKeyManager", "Lsun/security/ssl/EphemeralKeyManager;", nullptr, $PRIVATE | $FINAL, $field(SSLContextImpl, ephemeralKeyManager)},
-	{"clientCache", "Lsun/security/ssl/SSLSessionContextImpl;", nullptr, $PRIVATE | $FINAL, $field(SSLContextImpl, clientCache)},
-	{"serverCache", "Lsun/security/ssl/SSLSessionContextImpl;", nullptr, $PRIVATE | $FINAL, $field(SSLContextImpl, serverCache)},
-	{"isInitialized", "Z", nullptr, $PRIVATE, $field(SSLContextImpl, isInitialized)},
-	{"keyManager", "Ljavax/net/ssl/X509ExtendedKeyManager;", nullptr, $PRIVATE, $field(SSLContextImpl, keyManager)},
-	{"trustManager", "Ljavax/net/ssl/X509TrustManager;", nullptr, $PRIVATE, $field(SSLContextImpl, trustManager)},
-	{"secureRandom", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(SSLContextImpl, secureRandom)},
-	{"helloCookieManagerBuilder", "Lsun/security/ssl/HelloCookieManager$Builder;", nullptr, $PRIVATE | $VOLATILE, $field(SSLContextImpl, helloCookieManagerBuilder)},
-	{"clientEnableStapling", "Z", nullptr, $PRIVATE | $FINAL, $field(SSLContextImpl, clientEnableStapling)},
-	{"serverEnableStapling", "Z", nullptr, $PRIVATE | $FINAL, $field(SSLContextImpl, serverEnableStapling)},
-	{"clientCustomizedCipherSuites", "Ljava/util/Collection;", "Ljava/util/Collection<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl, clientCustomizedCipherSuites)},
-	{"serverCustomizedCipherSuites", "Ljava/util/Collection;", "Ljava/util/Collection<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl, serverCustomizedCipherSuites)},
-	{"statusResponseManager", "Lsun/security/ssl/StatusResponseManager;", nullptr, $PRIVATE | $VOLATILE, $field(SSLContextImpl, statusResponseManager)},
-	{"contextLock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $FINAL, $field(SSLContextImpl, contextLock)},
-	{"keyHashMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Integer;Lsun/security/ssl/SessionTicketExtension$StatelessKey;>;", $FINAL, $field(SSLContextImpl, keyHashMap)},
-	{}
-};
-
-$MethodInfo _SSLContextImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SSLContextImpl, init$, void)},
-	{"chooseKeyManager", "([Ljavax/net/ssl/KeyManager;)Ljavax/net/ssl/X509ExtendedKeyManager;", nullptr, $PRIVATE, $method(SSLContextImpl, chooseKeyManager, $X509ExtendedKeyManager*, $KeyManagerArray*), "java.security.KeyManagementException"},
-	{"chooseTrustManager", "([Ljavax/net/ssl/TrustManager;)Ljavax/net/ssl/X509TrustManager;", nullptr, $PRIVATE, $method(SSLContextImpl, chooseTrustManager, $X509TrustManager*, $TrustManagerArray*), "java.security.KeyManagementException"},
-	{"createSSLEngineImpl", "()Ljavax/net/ssl/SSLEngine;", nullptr, $ABSTRACT, $virtualMethod(SSLContextImpl, createSSLEngineImpl, $SSLEngine*)},
-	{"createSSLEngineImpl", "(Ljava/lang/String;I)Ljavax/net/ssl/SSLEngine;", nullptr, $ABSTRACT, $virtualMethod(SSLContextImpl, createSSLEngineImpl, $SSLEngine*, $String*, int32_t)},
-	{"engineCreateSSLEngine", "()Ljavax/net/ssl/SSLEngine;", nullptr, $PROTECTED, $virtualMethod(SSLContextImpl, engineCreateSSLEngine, $SSLEngine*)},
-	{"engineCreateSSLEngine", "(Ljava/lang/String;I)Ljavax/net/ssl/SSLEngine;", nullptr, $PROTECTED, $virtualMethod(SSLContextImpl, engineCreateSSLEngine, $SSLEngine*, $String*, int32_t)},
-	{"engineGetClientSessionContext", "()Ljavax/net/ssl/SSLSessionContext;", nullptr, $PROTECTED, $virtualMethod(SSLContextImpl, engineGetClientSessionContext, $SSLSessionContext*)},
-	{"engineGetServerSessionContext", "()Ljavax/net/ssl/SSLSessionContext;", nullptr, $PROTECTED, $virtualMethod(SSLContextImpl, engineGetServerSessionContext, $SSLSessionContext*)},
-	{"engineGetServerSocketFactory", "()Ljavax/net/ssl/SSLServerSocketFactory;", nullptr, $PROTECTED, $virtualMethod(SSLContextImpl, engineGetServerSocketFactory, $SSLServerSocketFactory*)},
-	{"engineGetSocketFactory", "()Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PROTECTED, $virtualMethod(SSLContextImpl, engineGetSocketFactory, $SSLSocketFactory*)},
-	{"engineInit", "([Ljavax/net/ssl/KeyManager;[Ljavax/net/ssl/TrustManager;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(SSLContextImpl, engineInit, void, $KeyManagerArray*, $TrustManagerArray*, $SecureRandom*), "java.security.KeyManagementException"},
-	{"getApplicableCipherSuites", "(Ljava/util/Collection;Ljava/util/List;)Ljava/util/List;", "(Ljava/util/Collection<Lsun/security/ssl/CipherSuite;>;Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;)Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC, $staticMethod(SSLContextImpl, getApplicableCipherSuites, $List*, $Collection*, $List*)},
-	{"getApplicableEnabledCipherSuites", "(Ljava/util/List;Z)Ljava/util/List;", "(Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;Z)Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC, $staticMethod(SSLContextImpl, getApplicableEnabledCipherSuites, $List*, $List*, bool)},
-	{"getApplicableSupportedCipherSuites", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;)Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC, $staticMethod(SSLContextImpl, getApplicableSupportedCipherSuites, $List*, $List*)},
-	{"getAvailableProtocols", "([Lsun/security/ssl/ProtocolVersion;)Ljava/util/List;", "([Lsun/security/ssl/ProtocolVersion;)Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $PRIVATE | $STATIC, $staticMethod(SSLContextImpl, getAvailableProtocols, $List*, $ProtocolVersionArray*)},
-	{"getClientDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $ABSTRACT, $virtualMethod(SSLContextImpl, getClientDefaultCipherSuites, $List*)},
-	{"getClientDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $ABSTRACT, $virtualMethod(SSLContextImpl, getClientDefaultProtocolVersions, $List*)},
-	{"getCustomizedCipherSuites", "(Ljava/lang/String;)Ljava/util/Collection;", "(Ljava/lang/String;)Ljava/util/Collection<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC, $staticMethod(SSLContextImpl, getCustomizedCipherSuites, $Collection*, $String*)},
-	{"getDefaultCipherSuites", "(Z)Ljava/util/List;", "(Z)Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $virtualMethod(SSLContextImpl, getDefaultCipherSuites, $List*, bool)},
-	{"getDefaultProtocolVersions", "(Z)Ljava/util/List;", "(Z)Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $virtualMethod(SSLContextImpl, getDefaultProtocolVersions, $List*, bool)},
-	{"getEphemeralKeyManager", "()Lsun/security/ssl/EphemeralKeyManager;", nullptr, 0, $virtualMethod(SSLContextImpl, getEphemeralKeyManager, $EphemeralKeyManager*)},
-	{"getHelloCookieManager", "(Lsun/security/ssl/ProtocolVersion;)Lsun/security/ssl/HelloCookieManager;", nullptr, 0, $virtualMethod(SSLContextImpl, getHelloCookieManager, $HelloCookieManager*, $ProtocolVersion*)},
-	{"getSecureRandom", "()Ljava/security/SecureRandom;", nullptr, 0, $virtualMethod(SSLContextImpl, getSecureRandom, $SecureRandom*)},
-	{"getServerDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $ABSTRACT, $virtualMethod(SSLContextImpl, getServerDefaultCipherSuites, $List*)},
-	{"getServerDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $ABSTRACT, $virtualMethod(SSLContextImpl, getServerDefaultProtocolVersions, $List*)},
-	{"getStatusResponseManager", "()Lsun/security/ssl/StatusResponseManager;", nullptr, 0, $virtualMethod(SSLContextImpl, getStatusResponseManager, $StatusResponseManager*)},
-	{"getSupportedCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $ABSTRACT, $virtualMethod(SSLContextImpl, getSupportedCipherSuites, $List*)},
-	{"getSupportedProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $ABSTRACT, $virtualMethod(SSLContextImpl, getSupportedProtocolVersions, $List*)},
-	{"getX509KeyManager", "()Ljavax/net/ssl/X509ExtendedKeyManager;", nullptr, 0, $virtualMethod(SSLContextImpl, getX509KeyManager, $X509ExtendedKeyManager*)},
-	{"getX509TrustManager", "()Ljavax/net/ssl/X509TrustManager;", nullptr, 0, $virtualMethod(SSLContextImpl, getX509TrustManager, $X509TrustManager*)},
-	{"isDTLS", "()Z", nullptr, $ABSTRACT, $virtualMethod(SSLContextImpl, isDTLS, bool)},
-	{"isDefaultCipherSuiteList", "(Ljava/util/List;)Z", "(Ljava/util/List<Lsun/security/ssl/CipherSuite;>;)Z", 0, $virtualMethod(SSLContextImpl, isDefaultCipherSuiteList, bool, $List*)},
-	{"isDefaultProtocolVesions", "(Ljava/util/List;)Z", "(Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;)Z", 0, $virtualMethod(SSLContextImpl, isDefaultProtocolVesions, bool, $List*)},
-	{"isStaplingEnabled", "(Z)Z", nullptr, 0, $virtualMethod(SSLContextImpl, isStaplingEnabled, bool, bool)},
-	{}
-};
-
-$InnerClassInfo _SSLContextImpl_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLContextImpl$DTLSContext", "sun.security.ssl.SSLContextImpl", "DTLSContext", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLContextImpl$CustomizedDTLSContext", "sun.security.ssl.SSLContextImpl", "CustomizedDTLSContext", $PRIVATE | $STATIC},
-	{"sun.security.ssl.SSLContextImpl$DTLS12Context", "sun.security.ssl.SSLContextImpl", "DTLS12Context", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLContextImpl$DTLS10Context", "sun.security.ssl.SSLContextImpl", "DTLS10Context", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLContextImpl$AbstractDTLSContext", "sun.security.ssl.SSLContextImpl", "AbstractDTLSContext", $PRIVATE | $STATIC | $ABSTRACT},
-	{"sun.security.ssl.SSLContextImpl$DefaultSSLContext", "sun.security.ssl.SSLContextImpl", "DefaultSSLContext", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLContextImpl$DefaultSSLContextHolder", "sun.security.ssl.SSLContextImpl", "DefaultSSLContextHolder", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLContextImpl$DefaultManagersHolder", "sun.security.ssl.SSLContextImpl", "DefaultManagersHolder", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLContextImpl$TLSContext", "sun.security.ssl.SSLContextImpl", "TLSContext", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLContextImpl$CustomizedTLSContext", "sun.security.ssl.SSLContextImpl", "CustomizedTLSContext", $PRIVATE | $STATIC},
-	{"sun.security.ssl.SSLContextImpl$CustomizedSSLProtocols", "sun.security.ssl.SSLContextImpl", "CustomizedSSLProtocols", $PRIVATE | $STATIC},
-	{"sun.security.ssl.SSLContextImpl$TLS13Context", "sun.security.ssl.SSLContextImpl", "TLS13Context", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLContextImpl$TLS12Context", "sun.security.ssl.SSLContextImpl", "TLS12Context", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLContextImpl$TLS11Context", "sun.security.ssl.SSLContextImpl", "TLS11Context", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLContextImpl$TLS10Context", "sun.security.ssl.SSLContextImpl", "TLS10Context", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLContextImpl$AbstractTLSContext", "sun.security.ssl.SSLContextImpl", "AbstractTLSContext", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SSLContextImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.security.ssl.SSLContextImpl",
-	"javax.net.ssl.SSLContextSpi",
-	nullptr,
-	_SSLContextImpl_FieldInfo_,
-	_SSLContextImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLContextImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLContextImpl$DTLSContext,sun.security.ssl.SSLContextImpl$CustomizedDTLSContext,sun.security.ssl.SSLContextImpl$DTLS12Context,sun.security.ssl.SSLContextImpl$DTLS10Context,sun.security.ssl.SSLContextImpl$AbstractDTLSContext,sun.security.ssl.SSLContextImpl$DefaultSSLContext,sun.security.ssl.SSLContextImpl$DefaultSSLContextHolder,sun.security.ssl.SSLContextImpl$DefaultManagersHolder,sun.security.ssl.SSLContextImpl$DefaultManagersHolder$2,sun.security.ssl.SSLContextImpl$DefaultManagersHolder$1,sun.security.ssl.SSLContextImpl$TLSContext,sun.security.ssl.SSLContextImpl$CustomizedTLSContext,sun.security.ssl.SSLContextImpl$CustomizedSSLProtocols,sun.security.ssl.SSLContextImpl$TLS13Context,sun.security.ssl.SSLContextImpl$TLS12Context,sun.security.ssl.SSLContextImpl$TLS11Context,sun.security.ssl.SSLContextImpl$TLS10Context,sun.security.ssl.SSLContextImpl$AbstractTLSContext"
-};
-
-$Object* allocate$SSLContextImpl($Class* clazz) {
-	return $of($alloc(SSLContextImpl));
-}
 
 $Collection* SSLContextImpl::clientCustomizedCipherSuites = nullptr;
 $Collection* SSLContextImpl::serverCustomizedCipherSuites = nullptr;
@@ -235,7 +126,7 @@ void SSLContextImpl::init$() {
 }
 
 void SSLContextImpl::engineInit($KeyManagerArray* km, $TrustManagerArray* tm$renamed, $SecureRandom* sr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TrustManagerArray, tm, tm$renamed);
 	this->isInitialized = false;
 	$set(this, keyManager, chooseKeyManager(km));
@@ -279,7 +170,7 @@ $X509TrustManager* SSLContextImpl::chooseTrustManager($TrustManagerArray* tm) {
 }
 
 $X509ExtendedKeyManager* SSLContextImpl::chooseKeyManager($KeyManagerArray* kms) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; kms != nullptr && i < kms->length; ++i) {
 		$var($KeyManager, km, kms->get(i));
 		if (!($instanceOf($X509KeyManager, km))) {
@@ -358,48 +249,44 @@ $EphemeralKeyManager* SSLContextImpl::getEphemeralKeyManager() {
 
 $HelloCookieManager* SSLContextImpl::getHelloCookieManager($ProtocolVersion* protocolVersion) {
 	if (this->helloCookieManagerBuilder == nullptr) {
-		$nc(this->contextLock)->lock();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				if (this->helloCookieManagerBuilder == nullptr) {
-					$set(this, helloCookieManagerBuilder, $new($HelloCookieManager$Builder, this->secureRandom));
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(this->contextLock)->unlock();
+		this->contextLock->lock();
+		$var($Throwable, var$0, nullptr);
+		try {
+			if (this->helloCookieManagerBuilder == nullptr) {
+				$set(this, helloCookieManagerBuilder, $new($HelloCookieManager$Builder, this->secureRandom));
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			this->contextLock->unlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	return $nc(this->helloCookieManagerBuilder)->valueOf(protocolVersion);
 }
 
 $StatusResponseManager* SSLContextImpl::getStatusResponseManager() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->serverEnableStapling && this->statusResponseManager == nullptr) {
-		$nc(this->contextLock)->lock();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				if (this->statusResponseManager == nullptr) {
-					$init($SSLLogger);
-					if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,sslctx"_s)) {
-						$SSLLogger::finest("Initializing StatusResponseManager"_s, $$new($ObjectArray, 0));
-					}
-					$set(this, statusResponseManager, $new($StatusResponseManager));
+		this->contextLock->lock();
+		$var($Throwable, var$0, nullptr);
+		try {
+			if (this->statusResponseManager == nullptr) {
+				$init($SSLLogger);
+				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,sslctx"_s)) {
+					$SSLLogger::finest("Initializing StatusResponseManager"_s, $$new($ObjectArray, 0));
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(this->contextLock)->unlock();
+				$set(this, statusResponseManager, $new($StatusResponseManager));
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			this->contextLock->unlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	return this->statusResponseManager;
@@ -414,12 +301,12 @@ $List* SSLContextImpl::getDefaultCipherSuites(bool roleIsServer) {
 }
 
 bool SSLContextImpl::isDefaultProtocolVesions($List* protocols) {
-	bool var$0 = (protocols == getServerDefaultProtocolVersions());
+	bool var$0 = protocols == getServerDefaultProtocolVersions();
 	return var$0 || (protocols == getClientDefaultProtocolVersions());
 }
 
 bool SSLContextImpl::isDefaultCipherSuiteList($List* cipherSuites) {
-	bool var$0 = (cipherSuites == getServerDefaultCipherSuites());
+	bool var$0 = cipherSuites == getServerDefaultCipherSuites();
 	return var$0 || (cipherSuites == getClientDefaultCipherSuites());
 }
 
@@ -438,66 +325,62 @@ $List* SSLContextImpl::getApplicableEnabledCipherSuites($List* protocols, bool i
 		if (!$nc(SSLContextImpl::clientCustomizedCipherSuites)->isEmpty()) {
 			return getApplicableCipherSuites(SSLContextImpl::clientCustomizedCipherSuites, protocols);
 		}
-	} else {
-		if (!$nc(SSLContextImpl::serverCustomizedCipherSuites)->isEmpty()) {
-			return getApplicableCipherSuites(SSLContextImpl::serverCustomizedCipherSuites, protocols);
-		}
+	} else if (!$nc(SSLContextImpl::serverCustomizedCipherSuites)->isEmpty()) {
+		return getApplicableCipherSuites(SSLContextImpl::serverCustomizedCipherSuites, protocols);
 	}
 	return getApplicableCipherSuites($($CipherSuite::defaultCipherSuites()), protocols);
 }
 
 $List* SSLContextImpl::getApplicableCipherSuites($Collection* allowedCipherSuites, $List* protocols) {
 	$init(SSLContextImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedHashSet, suites, $new($LinkedHashSet));
 	if (protocols != nullptr && (!protocols->isEmpty())) {
-		{
-			$var($Iterator, i$, $nc(allowedCipherSuites)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$CipherSuite* suite = $cast($CipherSuite, i$->next());
+		$var($Iterator, i$, $nc(allowedCipherSuites)->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$CipherSuite* suite = $cast($CipherSuite, i$->next());
+			{
+				if (!$nc(suite)->isAvailable()) {
+					continue;
+				}
+				bool isSupported = false;
 				{
-					if (!$nc(suite)->isAvailable()) {
-						continue;
-					}
-					bool isSupported = false;
-					{
-						$var($Iterator, i$, protocols->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$ProtocolVersion* protocol = $cast($ProtocolVersion, i$->next());
-							{
-								bool var$0 = !$nc(suite)->supports(protocol);
-								if (var$0 || !$nc(suite)->bulkCipher->isAvailable()) {
-									continue;
-								}
-								$init($SSLAlgorithmConstraints);
-								$init($CryptoPrimitive);
-								if ($nc($SSLAlgorithmConstraints::DEFAULT)->permits($($EnumSet::of($CryptoPrimitive::KEY_AGREEMENT)), $nc(suite)->name$, nullptr)) {
-									suites->add(suite);
-									isSupported = true;
-								} else {
-									$init($SSLLogger);
-									if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,sslctx,verbose"_s)) {
-										$SSLLogger::fine($$str({"Ignore disabled cipher suite: "_s, $nc(suite)->name$}), $$new($ObjectArray, 0));
-									}
-								}
-								break;
+					$var($Iterator, i$, protocols->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$ProtocolVersion* protocol = $cast($ProtocolVersion, i$->next());
+						{
+							bool var$0 = !suite->supports(protocol);
+							if (var$0 || !suite->bulkCipher->isAvailable()) {
+								continue;
 							}
+							$init($SSLAlgorithmConstraints);
+							$init($CryptoPrimitive);
+							if ($nc($SSLAlgorithmConstraints::DEFAULT)->permits($($EnumSet::of($CryptoPrimitive::KEY_AGREEMENT)), suite->name$, nullptr)) {
+								suites->add(suite);
+								isSupported = true;
+							} else {
+								$init($SSLLogger);
+								if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,sslctx,verbose"_s)) {
+									$SSLLogger::fine($$str({"Ignore disabled cipher suite: "_s, suite->name$}), $$new($ObjectArray, 0));
+								}
+							}
+							break;
 						}
 					}
-					$init($SSLLogger);
-					if (!isSupported && $SSLLogger::isOn$ && $SSLLogger::isOn("ssl,sslctx,verbose"_s)) {
-						$SSLLogger::finest($$str({"Ignore unsupported cipher suite: "_s, suite}), $$new($ObjectArray, 0));
-					}
+				}
+				$init($SSLLogger);
+				if (!isSupported && $SSLLogger::isOn$ && $SSLLogger::isOn("ssl,sslctx,verbose"_s)) {
+					$SSLLogger::finest($$str({"Ignore unsupported cipher suite: "_s, suite}), $$new($ObjectArray, 0));
 				}
 			}
 		}
 	}
-	return $new($ArrayList, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(static_cast<$HashSet*>(suites)))));
+	return $new($ArrayList, $cast($AbstractCollection, suites));
 }
 
 $Collection* SSLContextImpl::getCustomizedCipherSuites($String* propertyName) {
 	$init(SSLContextImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, property, $GetPropertyAction::privilegedGetProperty(propertyName));
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,sslctx"_s)) {
@@ -512,7 +395,7 @@ $Collection* SSLContextImpl::getCustomizedCipherSuites($String* propertyName) {
 	}
 	if (property != nullptr && !property->isEmpty()) {
 		$var($StringArray, cipherSuiteNames, property->split(","_s));
-		$var($Collection, cipherSuites, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>($new($ArrayList, cipherSuiteNames->length)))));
+		$var($Collection, cipherSuites, $cast($AbstractCollection, $new($ArrayList, cipherSuiteNames->length)));
 		for (int32_t i = 0; i < cipherSuiteNames->length; ++i) {
 			cipherSuiteNames->set(i, $($nc(cipherSuiteNames->get(i))->trim()));
 			if ($nc(cipherSuiteNames->get(i))->isEmpty()) {
@@ -529,10 +412,8 @@ $Collection* SSLContextImpl::getCustomizedCipherSuites($String* propertyName) {
 			}
 			if (suite != nullptr && suite->isAvailable()) {
 				cipherSuites->add(suite);
-			} else {
-				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,sslctx"_s)) {
-					$SSLLogger::fine($$str({"The current installed providers do not support cipher suite: "_s, cipherSuiteNames->get(i)}), $$new($ObjectArray, 0));
-				}
+			} else if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,sslctx"_s)) {
+				$SSLLogger::fine($$str({"The current installed providers do not support cipher suite: "_s, cipherSuiteNames->get(i)}), $$new($ObjectArray, 0));
 			}
 		}
 		return cipherSuites;
@@ -542,20 +423,16 @@ $Collection* SSLContextImpl::getCustomizedCipherSuites($String* propertyName) {
 
 $List* SSLContextImpl::getAvailableProtocols($ProtocolVersionArray* protocolCandidates) {
 	$init(SSLContextImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, availableProtocols, $Collections::emptyList());
 	if (protocolCandidates != nullptr && protocolCandidates->length != 0) {
 		$assign(availableProtocols, $new($ArrayList, protocolCandidates->length));
 		{
 			$var($ProtocolVersionArray, arr$, protocolCandidates);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$ProtocolVersion* p = arr$->get(i$);
-				{
-					if ($nc(p)->isAvailable) {
-						availableProtocols->add(p);
-					}
+				if ($nc(p)->isAvailable) {
+					availableProtocols->add(p);
 				}
 			}
 		}
@@ -563,7 +440,7 @@ $List* SSLContextImpl::getAvailableProtocols($ProtocolVersionArray* protocolCand
 	return availableProtocols;
 }
 
-void clinit$SSLContextImpl($Class* class$) {
+void SSLContextImpl::clinit$($Class* clazz) {
 	$assignStatic(SSLContextImpl::clientCustomizedCipherSuites, SSLContextImpl::getCustomizedCipherSuites("jdk.tls.client.cipherSuites"_s));
 	$assignStatic(SSLContextImpl::serverCustomizedCipherSuites, SSLContextImpl::getCustomizedCipherSuites("jdk.tls.server.cipherSuites"_s));
 }
@@ -572,7 +449,98 @@ SSLContextImpl::SSLContextImpl() {
 }
 
 $Class* SSLContextImpl::load$($String* name, bool initialize) {
-	$loadClass(SSLContextImpl, name, initialize, &_SSLContextImpl_ClassInfo_, clinit$SSLContextImpl, allocate$SSLContextImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"ephemeralKeyManager", "Lsun/security/ssl/EphemeralKeyManager;", nullptr, $PRIVATE | $FINAL, $field(SSLContextImpl, ephemeralKeyManager)},
+		{"clientCache", "Lsun/security/ssl/SSLSessionContextImpl;", nullptr, $PRIVATE | $FINAL, $field(SSLContextImpl, clientCache)},
+		{"serverCache", "Lsun/security/ssl/SSLSessionContextImpl;", nullptr, $PRIVATE | $FINAL, $field(SSLContextImpl, serverCache)},
+		{"isInitialized", "Z", nullptr, $PRIVATE, $field(SSLContextImpl, isInitialized)},
+		{"keyManager", "Ljavax/net/ssl/X509ExtendedKeyManager;", nullptr, $PRIVATE, $field(SSLContextImpl, keyManager)},
+		{"trustManager", "Ljavax/net/ssl/X509TrustManager;", nullptr, $PRIVATE, $field(SSLContextImpl, trustManager)},
+		{"secureRandom", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(SSLContextImpl, secureRandom)},
+		{"helloCookieManagerBuilder", "Lsun/security/ssl/HelloCookieManager$Builder;", nullptr, $PRIVATE | $VOLATILE, $field(SSLContextImpl, helloCookieManagerBuilder)},
+		{"clientEnableStapling", "Z", nullptr, $PRIVATE | $FINAL, $field(SSLContextImpl, clientEnableStapling)},
+		{"serverEnableStapling", "Z", nullptr, $PRIVATE | $FINAL, $field(SSLContextImpl, serverEnableStapling)},
+		{"clientCustomizedCipherSuites", "Ljava/util/Collection;", "Ljava/util/Collection<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl, clientCustomizedCipherSuites)},
+		{"serverCustomizedCipherSuites", "Ljava/util/Collection;", "Ljava/util/Collection<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl, serverCustomizedCipherSuites)},
+		{"statusResponseManager", "Lsun/security/ssl/StatusResponseManager;", nullptr, $PRIVATE | $VOLATILE, $field(SSLContextImpl, statusResponseManager)},
+		{"contextLock", "Ljava/util/concurrent/locks/ReentrantLock;", nullptr, $PRIVATE | $FINAL, $field(SSLContextImpl, contextLock)},
+		{"keyHashMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Integer;Lsun/security/ssl/SessionTicketExtension$StatelessKey;>;", $FINAL, $field(SSLContextImpl, keyHashMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SSLContextImpl, init$, void)},
+		{"chooseKeyManager", "([Ljavax/net/ssl/KeyManager;)Ljavax/net/ssl/X509ExtendedKeyManager;", nullptr, $PRIVATE, $method(SSLContextImpl, chooseKeyManager, $X509ExtendedKeyManager*, $KeyManagerArray*), "java.security.KeyManagementException"},
+		{"chooseTrustManager", "([Ljavax/net/ssl/TrustManager;)Ljavax/net/ssl/X509TrustManager;", nullptr, $PRIVATE, $method(SSLContextImpl, chooseTrustManager, $X509TrustManager*, $TrustManagerArray*), "java.security.KeyManagementException"},
+		{"createSSLEngineImpl", "()Ljavax/net/ssl/SSLEngine;", nullptr, $ABSTRACT, $virtualMethod(SSLContextImpl, createSSLEngineImpl, $SSLEngine*)},
+		{"createSSLEngineImpl", "(Ljava/lang/String;I)Ljavax/net/ssl/SSLEngine;", nullptr, $ABSTRACT, $virtualMethod(SSLContextImpl, createSSLEngineImpl, $SSLEngine*, $String*, int32_t)},
+		{"engineCreateSSLEngine", "()Ljavax/net/ssl/SSLEngine;", nullptr, $PROTECTED, $virtualMethod(SSLContextImpl, engineCreateSSLEngine, $SSLEngine*)},
+		{"engineCreateSSLEngine", "(Ljava/lang/String;I)Ljavax/net/ssl/SSLEngine;", nullptr, $PROTECTED, $virtualMethod(SSLContextImpl, engineCreateSSLEngine, $SSLEngine*, $String*, int32_t)},
+		{"engineGetClientSessionContext", "()Ljavax/net/ssl/SSLSessionContext;", nullptr, $PROTECTED, $virtualMethod(SSLContextImpl, engineGetClientSessionContext, $SSLSessionContext*)},
+		{"engineGetServerSessionContext", "()Ljavax/net/ssl/SSLSessionContext;", nullptr, $PROTECTED, $virtualMethod(SSLContextImpl, engineGetServerSessionContext, $SSLSessionContext*)},
+		{"engineGetServerSocketFactory", "()Ljavax/net/ssl/SSLServerSocketFactory;", nullptr, $PROTECTED, $virtualMethod(SSLContextImpl, engineGetServerSocketFactory, $SSLServerSocketFactory*)},
+		{"engineGetSocketFactory", "()Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PROTECTED, $virtualMethod(SSLContextImpl, engineGetSocketFactory, $SSLSocketFactory*)},
+		{"engineInit", "([Ljavax/net/ssl/KeyManager;[Ljavax/net/ssl/TrustManager;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(SSLContextImpl, engineInit, void, $KeyManagerArray*, $TrustManagerArray*, $SecureRandom*), "java.security.KeyManagementException"},
+		{"getApplicableCipherSuites", "(Ljava/util/Collection;Ljava/util/List;)Ljava/util/List;", "(Ljava/util/Collection<Lsun/security/ssl/CipherSuite;>;Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;)Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC, $staticMethod(SSLContextImpl, getApplicableCipherSuites, $List*, $Collection*, $List*)},
+		{"getApplicableEnabledCipherSuites", "(Ljava/util/List;Z)Ljava/util/List;", "(Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;Z)Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC, $staticMethod(SSLContextImpl, getApplicableEnabledCipherSuites, $List*, $List*, bool)},
+		{"getApplicableSupportedCipherSuites", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;)Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC, $staticMethod(SSLContextImpl, getApplicableSupportedCipherSuites, $List*, $List*)},
+		{"getAvailableProtocols", "([Lsun/security/ssl/ProtocolVersion;)Ljava/util/List;", "([Lsun/security/ssl/ProtocolVersion;)Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $PRIVATE | $STATIC, $staticMethod(SSLContextImpl, getAvailableProtocols, $List*, $ProtocolVersionArray*)},
+		{"getClientDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $ABSTRACT, $virtualMethod(SSLContextImpl, getClientDefaultCipherSuites, $List*)},
+		{"getClientDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $ABSTRACT, $virtualMethod(SSLContextImpl, getClientDefaultProtocolVersions, $List*)},
+		{"getCustomizedCipherSuites", "(Ljava/lang/String;)Ljava/util/Collection;", "(Ljava/lang/String;)Ljava/util/Collection<Lsun/security/ssl/CipherSuite;>;", $PRIVATE | $STATIC, $staticMethod(SSLContextImpl, getCustomizedCipherSuites, $Collection*, $String*)},
+		{"getDefaultCipherSuites", "(Z)Ljava/util/List;", "(Z)Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $virtualMethod(SSLContextImpl, getDefaultCipherSuites, $List*, bool)},
+		{"getDefaultProtocolVersions", "(Z)Ljava/util/List;", "(Z)Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $virtualMethod(SSLContextImpl, getDefaultProtocolVersions, $List*, bool)},
+		{"getEphemeralKeyManager", "()Lsun/security/ssl/EphemeralKeyManager;", nullptr, 0, $virtualMethod(SSLContextImpl, getEphemeralKeyManager, $EphemeralKeyManager*)},
+		{"getHelloCookieManager", "(Lsun/security/ssl/ProtocolVersion;)Lsun/security/ssl/HelloCookieManager;", nullptr, 0, $virtualMethod(SSLContextImpl, getHelloCookieManager, $HelloCookieManager*, $ProtocolVersion*)},
+		{"getSecureRandom", "()Ljava/security/SecureRandom;", nullptr, 0, $virtualMethod(SSLContextImpl, getSecureRandom, $SecureRandom*)},
+		{"getServerDefaultCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $ABSTRACT, $virtualMethod(SSLContextImpl, getServerDefaultCipherSuites, $List*)},
+		{"getServerDefaultProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $ABSTRACT, $virtualMethod(SSLContextImpl, getServerDefaultProtocolVersions, $List*)},
+		{"getStatusResponseManager", "()Lsun/security/ssl/StatusResponseManager;", nullptr, 0, $virtualMethod(SSLContextImpl, getStatusResponseManager, $StatusResponseManager*)},
+		{"getSupportedCipherSuites", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", $ABSTRACT, $virtualMethod(SSLContextImpl, getSupportedCipherSuites, $List*)},
+		{"getSupportedProtocolVersions", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", $ABSTRACT, $virtualMethod(SSLContextImpl, getSupportedProtocolVersions, $List*)},
+		{"getX509KeyManager", "()Ljavax/net/ssl/X509ExtendedKeyManager;", nullptr, 0, $virtualMethod(SSLContextImpl, getX509KeyManager, $X509ExtendedKeyManager*)},
+		{"getX509TrustManager", "()Ljavax/net/ssl/X509TrustManager;", nullptr, 0, $virtualMethod(SSLContextImpl, getX509TrustManager, $X509TrustManager*)},
+		{"isDTLS", "()Z", nullptr, $ABSTRACT, $virtualMethod(SSLContextImpl, isDTLS, bool)},
+		{"isDefaultCipherSuiteList", "(Ljava/util/List;)Z", "(Ljava/util/List<Lsun/security/ssl/CipherSuite;>;)Z", 0, $virtualMethod(SSLContextImpl, isDefaultCipherSuiteList, bool, $List*)},
+		{"isDefaultProtocolVesions", "(Ljava/util/List;)Z", "(Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;)Z", 0, $virtualMethod(SSLContextImpl, isDefaultProtocolVesions, bool, $List*)},
+		{"isStaplingEnabled", "(Z)Z", nullptr, 0, $virtualMethod(SSLContextImpl, isStaplingEnabled, bool, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLContextImpl$DTLSContext", "sun.security.ssl.SSLContextImpl", "DTLSContext", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLContextImpl$CustomizedDTLSContext", "sun.security.ssl.SSLContextImpl", "CustomizedDTLSContext", $PRIVATE | $STATIC},
+		{"sun.security.ssl.SSLContextImpl$DTLS12Context", "sun.security.ssl.SSLContextImpl", "DTLS12Context", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLContextImpl$DTLS10Context", "sun.security.ssl.SSLContextImpl", "DTLS10Context", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLContextImpl$AbstractDTLSContext", "sun.security.ssl.SSLContextImpl", "AbstractDTLSContext", $PRIVATE | $STATIC | $ABSTRACT},
+		{"sun.security.ssl.SSLContextImpl$DefaultSSLContext", "sun.security.ssl.SSLContextImpl", "DefaultSSLContext", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLContextImpl$DefaultSSLContextHolder", "sun.security.ssl.SSLContextImpl", "DefaultSSLContextHolder", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLContextImpl$DefaultManagersHolder", "sun.security.ssl.SSLContextImpl", "DefaultManagersHolder", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLContextImpl$TLSContext", "sun.security.ssl.SSLContextImpl", "TLSContext", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLContextImpl$CustomizedTLSContext", "sun.security.ssl.SSLContextImpl", "CustomizedTLSContext", $PRIVATE | $STATIC},
+		{"sun.security.ssl.SSLContextImpl$CustomizedSSLProtocols", "sun.security.ssl.SSLContextImpl", "CustomizedSSLProtocols", $PRIVATE | $STATIC},
+		{"sun.security.ssl.SSLContextImpl$TLS13Context", "sun.security.ssl.SSLContextImpl", "TLS13Context", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLContextImpl$TLS12Context", "sun.security.ssl.SSLContextImpl", "TLS12Context", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLContextImpl$TLS11Context", "sun.security.ssl.SSLContextImpl", "TLS11Context", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLContextImpl$TLS10Context", "sun.security.ssl.SSLContextImpl", "TLS10Context", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLContextImpl$AbstractTLSContext", "sun.security.ssl.SSLContextImpl", "AbstractTLSContext", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.security.ssl.SSLContextImpl",
+		"javax.net.ssl.SSLContextSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLContextImpl$DTLSContext,sun.security.ssl.SSLContextImpl$CustomizedDTLSContext,sun.security.ssl.SSLContextImpl$DTLS12Context,sun.security.ssl.SSLContextImpl$DTLS10Context,sun.security.ssl.SSLContextImpl$AbstractDTLSContext,sun.security.ssl.SSLContextImpl$DefaultSSLContext,sun.security.ssl.SSLContextImpl$DefaultSSLContextHolder,sun.security.ssl.SSLContextImpl$DefaultManagersHolder,sun.security.ssl.SSLContextImpl$DefaultManagersHolder$2,sun.security.ssl.SSLContextImpl$DefaultManagersHolder$1,sun.security.ssl.SSLContextImpl$TLSContext,sun.security.ssl.SSLContextImpl$CustomizedTLSContext,sun.security.ssl.SSLContextImpl$CustomizedSSLProtocols,sun.security.ssl.SSLContextImpl$TLS13Context,sun.security.ssl.SSLContextImpl$TLS12Context,sun.security.ssl.SSLContextImpl$TLS11Context,sun.security.ssl.SSLContextImpl$TLS10Context,sun.security.ssl.SSLContextImpl$AbstractTLSContext"
+	};
+	$loadClass(SSLContextImpl, name, initialize, &classInfo$$, SSLContextImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLContextImpl);
+	});
 	return class$;
 }
 

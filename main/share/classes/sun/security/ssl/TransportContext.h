@@ -57,6 +57,7 @@ class TransportContext : public ::sun::security::ssl::ConnectionContext {
 	$class(TransportContext, 0, ::sun::security::ssl::ConnectionContext)
 public:
 	TransportContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::ssl::SSLContextImpl* sslContext, ::sun::security::ssl::SSLTransport* transport, ::sun::security::ssl::InputRecord* inputRecord, ::sun::security::ssl::OutputRecord* outputRecord);
 	void init$(::sun::security::ssl::SSLContextImpl* sslContext, ::sun::security::ssl::SSLTransport* transport, ::sun::security::ssl::InputRecord* inputRecord, ::sun::security::ssl::OutputRecord* outputRecord, bool isClientMode);
 	void init$(::sun::security::ssl::SSLContextImpl* sslContext, ::sun::security::ssl::SSLTransport* transport, ::sun::security::ssl::SSLConfiguration* sslConfig, ::sun::security::ssl::InputRecord* inputRecord, ::sun::security::ssl::OutputRecord* outputRecord);

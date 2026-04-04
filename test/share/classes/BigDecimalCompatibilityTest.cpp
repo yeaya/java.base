@@ -1,5 +1,4 @@
 #include <BigDecimalCompatibilityTest.h>
-
 #include <java/lang/Number.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/RoundingMode.h>
@@ -12,7 +11,6 @@
 #undef MAX_VALUE
 #undef US
 
-using $PrintStream = ::java::io::PrintStream;
 using $ArithmeticException = ::java::lang::ArithmeticException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -25,37 +23,6 @@ using $RoundingMode = ::java::math::RoundingMode;
 using $DecimalFormat = ::java::text::DecimalFormat;
 using $ParseException = ::java::text::ParseException;
 using $Locale = ::java::util::Locale;
-
-$FieldInfo _BigDecimalCompatibilityTest_FieldInfo_[] = {
-	{"err", "Z", nullptr, $STATIC, $staticField(BigDecimalCompatibilityTest, err)},
-	{"input_data", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BigDecimalCompatibilityTest, input_data)},
-	{"exponents", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BigDecimalCompatibilityTest, exponents)},
-	{"multipliers", "[I", nullptr, $STATIC | $FINAL, $staticField(BigDecimalCompatibilityTest, multipliers)},
-	{}
-};
-
-$MethodInfo _BigDecimalCompatibilityTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BigDecimalCompatibilityTest, init$, void)},
-	{"check", "(Ljava/lang/Number;Ljava/math/BigDecimal;I)V", nullptr, $STATIC, $staticMethod(BigDecimalCompatibilityTest, check, void, $Number*, $BigDecimal*, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BigDecimalCompatibilityTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "(Ljava/text/DecimalFormat;Ljava/lang/String;I)V", nullptr, $STATIC, $staticMethod(BigDecimalCompatibilityTest, test, void, $DecimalFormat*, $String*, int32_t)},
-	{"testBigDecimal", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(BigDecimalCompatibilityTest, testBigDecimal, void)},
-	{"testBigInteger", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(BigDecimalCompatibilityTest, testBigInteger, void)},
-	{}
-};
-
-$ClassInfo _BigDecimalCompatibilityTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"BigDecimalCompatibilityTest",
-	"java.lang.Object",
-	nullptr,
-	_BigDecimalCompatibilityTest_FieldInfo_,
-	_BigDecimalCompatibilityTest_MethodInfo_
-};
-
-$Object* allocate$BigDecimalCompatibilityTest($Class* clazz) {
-	return $of($alloc(BigDecimalCompatibilityTest));
-}
 
 bool BigDecimalCompatibilityTest::err = false;
 $StringArray* BigDecimalCompatibilityTest::input_data = nullptr;
@@ -79,19 +46,19 @@ void BigDecimalCompatibilityTest::main($StringArray* args) {
 
 void BigDecimalCompatibilityTest::testBigDecimal() {
 	$init(BigDecimalCompatibilityTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DecimalFormat, df, $new($DecimalFormat));
 	df->setParseBigDecimal(true);
 	df->setMaximumFractionDigits($Integer::MAX_VALUE);
-	for (int32_t i = 0; i < $nc(BigDecimalCompatibilityTest::input_data)->length; ++i) {
-		for (int32_t j = 0; j < $nc(BigDecimalCompatibilityTest::input_data)->length; ++j) {
-			for (int32_t k = 0; k < $nc(BigDecimalCompatibilityTest::input_data)->length; ++k) {
-				for (int32_t l = 0; l < $nc(BigDecimalCompatibilityTest::input_data)->length; ++l) {
-					for (int32_t m = 0; m < $nc(BigDecimalCompatibilityTest::exponents)->length; ++m) {
-						$var($String, s, $str({$nc(BigDecimalCompatibilityTest::input_data)->get(i), $nc(BigDecimalCompatibilityTest::input_data)->get(j), $$str(u'.'), $nc(BigDecimalCompatibilityTest::input_data)->get(k), $nc(BigDecimalCompatibilityTest::input_data)->get(l), $nc(BigDecimalCompatibilityTest::exponents)->get(m)}));
-						for (int32_t n = 0; n < $nc(BigDecimalCompatibilityTest::multipliers)->length; ++n) {
-							test(df, s, $nc(BigDecimalCompatibilityTest::multipliers)->get(n));
-							test(df, $$str({$$str(u'-'), s}), $nc(BigDecimalCompatibilityTest::multipliers)->get(n));
+	for (int32_t i = 0; i < BigDecimalCompatibilityTest::input_data->length; ++i) {
+		for (int32_t j = 0; j < BigDecimalCompatibilityTest::input_data->length; ++j) {
+			for (int32_t k = 0; k < BigDecimalCompatibilityTest::input_data->length; ++k) {
+				for (int32_t l = 0; l < BigDecimalCompatibilityTest::input_data->length; ++l) {
+					for (int32_t m = 0; m < BigDecimalCompatibilityTest::exponents->length; ++m) {
+						$var($String, s, $str({BigDecimalCompatibilityTest::input_data->get(i), BigDecimalCompatibilityTest::input_data->get(j), $$str(u'.'), BigDecimalCompatibilityTest::input_data->get(k), BigDecimalCompatibilityTest::input_data->get(l), BigDecimalCompatibilityTest::exponents->get(m)}));
+						for (int32_t n = 0; n < BigDecimalCompatibilityTest::multipliers->length; ++n) {
+							test(df, s, BigDecimalCompatibilityTest::multipliers->get(n));
+							test(df, $$str({$$str(u'-'), s}), BigDecimalCompatibilityTest::multipliers->get(n));
 						}
 					}
 				}
@@ -102,16 +69,16 @@ void BigDecimalCompatibilityTest::testBigDecimal() {
 
 void BigDecimalCompatibilityTest::testBigInteger() {
 	$init(BigDecimalCompatibilityTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DecimalFormat, df, $new($DecimalFormat));
 	df->setParseBigDecimal(true);
 	df->setMaximumFractionDigits($Integer::MAX_VALUE);
-	for (int32_t i = 0; i < $nc(BigDecimalCompatibilityTest::input_data)->length; ++i) {
-		for (int32_t j = 0; j < $nc(BigDecimalCompatibilityTest::input_data)->length; ++j) {
-			$var($String, s, $str({$nc(BigDecimalCompatibilityTest::input_data)->get(i), $nc(BigDecimalCompatibilityTest::input_data)->get(j)}));
-			for (int32_t k = 0; k < $nc(BigDecimalCompatibilityTest::multipliers)->length; ++k) {
-				test(df, s, $nc(BigDecimalCompatibilityTest::multipliers)->get(k));
-				test(df, $$str({$$str(u'-'), s}), $nc(BigDecimalCompatibilityTest::multipliers)->get(k));
+	for (int32_t i = 0; i < BigDecimalCompatibilityTest::input_data->length; ++i) {
+		for (int32_t j = 0; j < BigDecimalCompatibilityTest::input_data->length; ++j) {
+			$var($String, s, $str({BigDecimalCompatibilityTest::input_data->get(i), BigDecimalCompatibilityTest::input_data->get(j)}));
+			for (int32_t k = 0; k < BigDecimalCompatibilityTest::multipliers->length; ++k) {
+				test(df, s, BigDecimalCompatibilityTest::multipliers->get(k));
+				test(df, $$str({$$str(u'-'), s}), BigDecimalCompatibilityTest::multipliers->get(k));
 			}
 		}
 	}
@@ -119,7 +86,7 @@ void BigDecimalCompatibilityTest::testBigInteger() {
 
 void BigDecimalCompatibilityTest::test($DecimalFormat* df, $String* s, int32_t multiplier) {
 	$init(BigDecimalCompatibilityTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(df)->setMultiplier(multiplier);
 	$var($Number, num, nullptr);
 	try {
@@ -141,14 +108,14 @@ void BigDecimalCompatibilityTest::test($DecimalFormat* df, $String* s, int32_t m
 
 void BigDecimalCompatibilityTest::check($Number* got, $BigDecimal* expected, int32_t multiplier) {
 	$init(BigDecimalCompatibilityTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc($of(got))->equals(expected)) {
 		BigDecimalCompatibilityTest::err = true;
 		$nc($System::err)->println($$str({"Failed: got:"_s, got, ", expected: "_s, expected, ", multiplier="_s, $$str(multiplier)}));
 	}
 }
 
-void clinit$BigDecimalCompatibilityTest($Class* class$) {
+void BigDecimalCompatibilityTest::clinit$($Class* clazz) {
 	BigDecimalCompatibilityTest::err = false;
 	$assignStatic(BigDecimalCompatibilityTest::input_data, $new($StringArray, {
 		"0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"_s,
@@ -175,7 +142,33 @@ BigDecimalCompatibilityTest::BigDecimalCompatibilityTest() {
 }
 
 $Class* BigDecimalCompatibilityTest::load$($String* name, bool initialize) {
-	$loadClass(BigDecimalCompatibilityTest, name, initialize, &_BigDecimalCompatibilityTest_ClassInfo_, clinit$BigDecimalCompatibilityTest, allocate$BigDecimalCompatibilityTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"err", "Z", nullptr, $STATIC, $staticField(BigDecimalCompatibilityTest, err)},
+		{"input_data", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BigDecimalCompatibilityTest, input_data)},
+		{"exponents", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(BigDecimalCompatibilityTest, exponents)},
+		{"multipliers", "[I", nullptr, $STATIC | $FINAL, $staticField(BigDecimalCompatibilityTest, multipliers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BigDecimalCompatibilityTest, init$, void)},
+		{"check", "(Ljava/lang/Number;Ljava/math/BigDecimal;I)V", nullptr, $STATIC, $staticMethod(BigDecimalCompatibilityTest, check, void, $Number*, $BigDecimal*, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(BigDecimalCompatibilityTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "(Ljava/text/DecimalFormat;Ljava/lang/String;I)V", nullptr, $STATIC, $staticMethod(BigDecimalCompatibilityTest, test, void, $DecimalFormat*, $String*, int32_t)},
+		{"testBigDecimal", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(BigDecimalCompatibilityTest, testBigDecimal, void)},
+		{"testBigInteger", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(BigDecimalCompatibilityTest, testBigInteger, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"BigDecimalCompatibilityTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BigDecimalCompatibilityTest, name, initialize, &classInfo$$, BigDecimalCompatibilityTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BigDecimalCompatibilityTest);
+	});
 	return class$;
 }
 

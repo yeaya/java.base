@@ -1,5 +1,4 @@
 #include <CloseAndAvailableRC$Sink.h>
-
 #include <CloseAndAvailableRC.h>
 #include <java/io/IOException.h>
 #include <java/io/PipedInputStream.h>
@@ -7,48 +6,10 @@
 
 using $CloseAndAvailableRC = ::CloseAndAvailableRC;
 using $IOException = ::java::io::IOException;
-using $PipedInputStream = ::java::io::PipedInputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _CloseAndAvailableRC$Sink_FieldInfo_[] = {
-	{"this$0", "LCloseAndAvailableRC;", nullptr, $FINAL | $SYNTHETIC, $field(CloseAndAvailableRC$Sink, this$0)},
-	{}
-};
-
-$MethodInfo _CloseAndAvailableRC$Sink_MethodInfo_[] = {
-	{"<init>", "(LCloseAndAvailableRC;)V", nullptr, $PRIVATE, $method(CloseAndAvailableRC$Sink, init$, void, $CloseAndAvailableRC*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CloseAndAvailableRC$Sink, run, void)},
-	{}
-};
-
-$InnerClassInfo _CloseAndAvailableRC$Sink_InnerClassesInfo_[] = {
-	{"CloseAndAvailableRC$Sink", "CloseAndAvailableRC", "Sink", $PRIVATE},
-	{}
-};
-
-$ClassInfo _CloseAndAvailableRC$Sink_ClassInfo_ = {
-	$ACC_SUPER,
-	"CloseAndAvailableRC$Sink",
-	"java.lang.Thread",
-	nullptr,
-	_CloseAndAvailableRC$Sink_FieldInfo_,
-	_CloseAndAvailableRC$Sink_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CloseAndAvailableRC$Sink_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"CloseAndAvailableRC"
-};
-
-$Object* allocate$CloseAndAvailableRC$Sink($Class* clazz) {
-	return $of($alloc(CloseAndAvailableRC$Sink));
-}
 
 void CloseAndAvailableRC$Sink::init$($CloseAndAvailableRC* this$0) {
 	$set(this, this$0, this$0);
@@ -56,7 +17,7 @@ void CloseAndAvailableRC$Sink::init$($CloseAndAvailableRC* this$0) {
 }
 
 void CloseAndAvailableRC$Sink::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (!this->this$0->stop) {
 		try {
 			int32_t num = $nc(this->this$0->inPipe)->available();
@@ -74,7 +35,37 @@ CloseAndAvailableRC$Sink::CloseAndAvailableRC$Sink() {
 }
 
 $Class* CloseAndAvailableRC$Sink::load$($String* name, bool initialize) {
-	$loadClass(CloseAndAvailableRC$Sink, name, initialize, &_CloseAndAvailableRC$Sink_ClassInfo_, allocate$CloseAndAvailableRC$Sink);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LCloseAndAvailableRC;", nullptr, $FINAL | $SYNTHETIC, $field(CloseAndAvailableRC$Sink, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LCloseAndAvailableRC;)V", nullptr, $PRIVATE, $method(CloseAndAvailableRC$Sink, init$, void, $CloseAndAvailableRC*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CloseAndAvailableRC$Sink, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"CloseAndAvailableRC$Sink", "CloseAndAvailableRC", "Sink", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"CloseAndAvailableRC$Sink",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"CloseAndAvailableRC"
+	};
+	$loadClass(CloseAndAvailableRC$Sink, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CloseAndAvailableRC$Sink);
+	});
 	return class$;
 }
 

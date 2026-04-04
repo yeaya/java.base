@@ -1,5 +1,4 @@
 #include <java/util/stream/MatchOps$MatchOp.h>
-
 #include <java/util/Spliterator.h>
 #include <java/util/concurrent/ForkJoinTask.h>
 #include <java/util/function/Supplier.h>
@@ -27,54 +26,12 @@ using $MatchOps$BooleanTerminalSink = ::java::util::stream::MatchOps$BooleanTerm
 using $MatchOps$MatchKind = ::java::util::stream::MatchOps$MatchKind;
 using $MatchOps$MatchTask = ::java::util::stream::MatchOps$MatchTask;
 using $PipelineHelper = ::java::util::stream::PipelineHelper;
-using $Sink = ::java::util::stream::Sink;
 using $StreamOpFlag = ::java::util::stream::StreamOpFlag;
 using $StreamShape = ::java::util::stream::StreamShape;
 
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _MatchOps$MatchOp_FieldInfo_[] = {
-	{"inputShape", "Ljava/util/stream/StreamShape;", nullptr, $PRIVATE | $FINAL, $field(MatchOps$MatchOp, inputShape$)},
-	{"matchKind", "Ljava/util/stream/MatchOps$MatchKind;", nullptr, $FINAL, $field(MatchOps$MatchOp, matchKind)},
-	{"sinkSupplier", "Ljava/util/function/Supplier;", "Ljava/util/function/Supplier<Ljava/util/stream/MatchOps$BooleanTerminalSink<TT;>;>;", $FINAL, $field(MatchOps$MatchOp, sinkSupplier)},
-	{}
-};
-
-$MethodInfo _MatchOps$MatchOp_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/StreamShape;Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/Supplier;)V", "(Ljava/util/stream/StreamShape;Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/Supplier<Ljava/util/stream/MatchOps$BooleanTerminalSink<TT;>;>;)V", 0, $method(MatchOps$MatchOp, init$, void, $StreamShape*, $MatchOps$MatchKind*, $Supplier*)},
-	{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Boolean;", "<S:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TS;>;)Ljava/lang/Boolean;", $PUBLIC, $virtualMethod(MatchOps$MatchOp, evaluateParallel, $Object*, $PipelineHelper*, $Spliterator*)},
-	{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Boolean;", "<S:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TS;>;)Ljava/lang/Boolean;", $PUBLIC, $virtualMethod(MatchOps$MatchOp, evaluateSequential, $Object*, $PipelineHelper*, $Spliterator*)},
-	{"getOpFlags", "()I", nullptr, $PUBLIC, $virtualMethod(MatchOps$MatchOp, getOpFlags, int32_t)},
-	{"inputShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC, $virtualMethod(MatchOps$MatchOp, inputShape, $StreamShape*)},
-	{}
-};
-
-$InnerClassInfo _MatchOps$MatchOp_InnerClassesInfo_[] = {
-	{"java.util.stream.MatchOps$MatchOp", "java.util.stream.MatchOps", "MatchOp", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MatchOps$MatchOp_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.MatchOps$MatchOp",
-	"java.lang.Object",
-	"java.util.stream.TerminalOp",
-	_MatchOps$MatchOp_FieldInfo_,
-	_MatchOps$MatchOp_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/stream/TerminalOp<TT;Ljava/lang/Boolean;>;",
-	nullptr,
-	_MatchOps$MatchOp_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.MatchOps"
-};
-
-$Object* allocate$MatchOps$MatchOp($Class* clazz) {
-	return $of($alloc(MatchOps$MatchOp));
-}
 
 void MatchOps$MatchOp::init$($StreamShape* shape, $MatchOps$MatchKind* matchKind, $Supplier* sinkSupplier) {
 	$set(this, inputShape$, shape);
@@ -92,8 +49,8 @@ $StreamShape* MatchOps$MatchOp::inputShape() {
 }
 
 $Object* MatchOps$MatchOp::evaluateSequential($PipelineHelper* helper, $Spliterator* spliterator) {
-	$useLocalCurrentObjectStackCache();
-	return $of($Boolean::valueOf($nc(($cast($MatchOps$BooleanTerminalSink, $($nc(helper)->wrapAndCopyInto($cast($MatchOps$BooleanTerminalSink, $($nc(this->sinkSupplier)->get())), spliterator)))))->getAndClearState()));
+	$useLocalObjectStack();
+	return $of($Boolean::valueOf($$sure($MatchOps$BooleanTerminalSink, $nc(helper)->wrapAndCopyInto($$cast($MatchOps$BooleanTerminalSink, $nc(this->sinkSupplier)->get()), spliterator))->getAndClearState()));
 }
 
 $Object* MatchOps$MatchOp::evaluateParallel($PipelineHelper* helper, $Spliterator* spliterator) {
@@ -104,7 +61,42 @@ MatchOps$MatchOp::MatchOps$MatchOp() {
 }
 
 $Class* MatchOps$MatchOp::load$($String* name, bool initialize) {
-	$loadClass(MatchOps$MatchOp, name, initialize, &_MatchOps$MatchOp_ClassInfo_, allocate$MatchOps$MatchOp);
+	$FieldInfo fieldInfos$$[] = {
+		{"inputShape", "Ljava/util/stream/StreamShape;", nullptr, $PRIVATE | $FINAL, $field(MatchOps$MatchOp, inputShape$)},
+		{"matchKind", "Ljava/util/stream/MatchOps$MatchKind;", nullptr, $FINAL, $field(MatchOps$MatchOp, matchKind)},
+		{"sinkSupplier", "Ljava/util/function/Supplier;", "Ljava/util/function/Supplier<Ljava/util/stream/MatchOps$BooleanTerminalSink<TT;>;>;", $FINAL, $field(MatchOps$MatchOp, sinkSupplier)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/StreamShape;Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/Supplier;)V", "(Ljava/util/stream/StreamShape;Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/Supplier<Ljava/util/stream/MatchOps$BooleanTerminalSink<TT;>;>;)V", 0, $method(MatchOps$MatchOp, init$, void, $StreamShape*, $MatchOps$MatchKind*, $Supplier*)},
+		{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Boolean;", "<S:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TS;>;)Ljava/lang/Boolean;", $PUBLIC, $virtualMethod(MatchOps$MatchOp, evaluateParallel, $Object*, $PipelineHelper*, $Spliterator*)},
+		{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Boolean;", "<S:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TS;>;)Ljava/lang/Boolean;", $PUBLIC, $virtualMethod(MatchOps$MatchOp, evaluateSequential, $Object*, $PipelineHelper*, $Spliterator*)},
+		{"getOpFlags", "()I", nullptr, $PUBLIC, $virtualMethod(MatchOps$MatchOp, getOpFlags, int32_t)},
+		{"inputShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC, $virtualMethod(MatchOps$MatchOp, inputShape, $StreamShape*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.MatchOps$MatchOp", "java.util.stream.MatchOps", "MatchOp", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.MatchOps$MatchOp",
+		"java.lang.Object",
+		"java.util.stream.TerminalOp",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/stream/TerminalOp<TT;Ljava/lang/Boolean;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.MatchOps"
+	};
+	$loadClass(MatchOps$MatchOp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MatchOps$MatchOp);
+	});
 	return class$;
 }
 

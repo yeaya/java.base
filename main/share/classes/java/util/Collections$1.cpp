@@ -1,5 +1,4 @@
 #include <java/util/Collections$1.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/Collections.h>
 #include <java/util/NoSuchElementException.h>
@@ -20,52 +19,6 @@ using $Consumer = ::java::util::function::Consumer;
 namespace java {
 	namespace util {
 
-$FieldInfo _Collections$1_FieldInfo_[] = {
-	{"val$e", "Ljava/lang/Object;", nullptr, $FINAL | $SYNTHETIC, $field(Collections$1, val$e)},
-	{"hasNext", "Z", nullptr, $PRIVATE, $field(Collections$1, hasNext$)},
-	{}
-};
-
-$MethodInfo _Collections$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", "()V", 0, $method(Collections$1, init$, void, Object$*)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Collections$1, forEachRemaining, void, $Consumer*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$1, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$1, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Collections$1, remove, void)},
-	{}
-};
-
-$EnclosingMethodInfo _Collections$1_EnclosingMethodInfo_ = {
-	"java.util.Collections",
-	"singletonIterator",
-	"(Ljava/lang/Object;)Ljava/util/Iterator;"
-};
-
-$InnerClassInfo _Collections$1_InnerClassesInfo_[] = {
-	{"java.util.Collections$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Collections$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$1",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_Collections$1_FieldInfo_,
-	_Collections$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
-	&_Collections$1_EnclosingMethodInfo_,
-	_Collections$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$1($Class* clazz) {
-	return $of($alloc(Collections$1));
-}
-
 void Collections$1::init$(Object$* val$e) {
 	$set(this, val$e, val$e);
 	this->hasNext$ = true;
@@ -78,7 +31,7 @@ bool Collections$1::hasNext() {
 $Object* Collections$1::next() {
 	if (this->hasNext$) {
 		this->hasNext$ = false;
-		return $of(this->val$e);
+		return this->val$e;
 	}
 	$throwNew($NoSuchElementException);
 }
@@ -99,7 +52,46 @@ Collections$1::Collections$1() {
 }
 
 $Class* Collections$1::load$($String* name, bool initialize) {
-	$loadClass(Collections$1, name, initialize, &_Collections$1_ClassInfo_, allocate$Collections$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$e", "Ljava/lang/Object;", nullptr, $FINAL | $SYNTHETIC, $field(Collections$1, val$e)},
+		{"hasNext", "Z", nullptr, $PRIVATE, $field(Collections$1, hasNext$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", "()V", 0, $method(Collections$1, init$, void, Object$*)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(Collections$1, forEachRemaining, void, $Consumer*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$1, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Collections$1, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(Collections$1, remove, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.Collections",
+		"singletonIterator",
+		"(Ljava/lang/Object;)Ljava/util/Iterator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$1",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Collections$1);
+	});
 	return class$;
 }
 

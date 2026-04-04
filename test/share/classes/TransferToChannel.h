@@ -25,6 +25,7 @@ class $export TransferToChannel : public ::java::lang::Object {
 	$class(TransferToChannel, 0, ::java::lang::Object)
 public:
 	TransferToChannel();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void generateBigFile(::java::io::File* file);
 	static void main($StringArray* args);

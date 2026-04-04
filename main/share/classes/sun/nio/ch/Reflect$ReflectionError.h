@@ -20,10 +20,13 @@ class Reflect$ReflectionError : public ::java::lang::Error {
 public:
 	Reflect$ReflectionError();
 	void init$($Throwable* x);
-	static const int64_t serialVersionUID = (int64_t)0x87D3350D1C458F7F;
+	static const int64_t serialVersionUID = (int64_t)0x87d3350d1c458f7f;
 	Reflect$ReflectionError(const Reflect$ReflectionError& e);
 	virtual void throw$() override;
-	inline Reflect$ReflectionError* operator ->() {
+	inline Reflect$ReflectionError* operator ->() const {
+		return (Reflect$ReflectionError*)throwing$;
+	}
+	inline operator Reflect$ReflectionError*() const {
 		return (Reflect$ReflectionError*)throwing$;
 	}
 };

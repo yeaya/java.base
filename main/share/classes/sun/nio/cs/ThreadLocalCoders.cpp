@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ThreadLocalCoders.h>
-
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
 #include <sun/nio/cs/ThreadLocalCoders$1.h>
@@ -23,46 +22,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$FieldInfo _ThreadLocalCoders_FieldInfo_[] = {
-	{"CACHE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ThreadLocalCoders, CACHE_SIZE)},
-	{"decoderCache", "Lsun/nio/cs/ThreadLocalCoders$Cache;", nullptr, $PRIVATE | $STATIC, $staticField(ThreadLocalCoders, decoderCache)},
-	{"encoderCache", "Lsun/nio/cs/ThreadLocalCoders$Cache;", nullptr, $PRIVATE | $STATIC, $staticField(ThreadLocalCoders, encoderCache)},
-	{}
-};
-
-$MethodInfo _ThreadLocalCoders_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ThreadLocalCoders, init$, void)},
-	{"decoderFor", "(Ljava/lang/Object;)Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ThreadLocalCoders, decoderFor, $CharsetDecoder*, Object$*)},
-	{"encoderFor", "(Ljava/lang/Object;)Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ThreadLocalCoders, encoderFor, $CharsetEncoder*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _ThreadLocalCoders_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ThreadLocalCoders$Cache", "sun.nio.cs.ThreadLocalCoders", "Cache", $PRIVATE | $STATIC | $ABSTRACT},
-	{"sun.nio.cs.ThreadLocalCoders$2", nullptr, nullptr, 0},
-	{"sun.nio.cs.ThreadLocalCoders$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ThreadLocalCoders_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.ThreadLocalCoders",
-	"java.lang.Object",
-	nullptr,
-	_ThreadLocalCoders_FieldInfo_,
-	_ThreadLocalCoders_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ThreadLocalCoders_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ThreadLocalCoders$Cache,sun.nio.cs.ThreadLocalCoders$2,sun.nio.cs.ThreadLocalCoders$1"
-};
-
-$Object* allocate$ThreadLocalCoders($Class* clazz) {
-	return $of($alloc(ThreadLocalCoders));
-}
-
 $ThreadLocalCoders$Cache* ThreadLocalCoders::decoderCache = nullptr;
 $ThreadLocalCoders$Cache* ThreadLocalCoders::encoderCache = nullptr;
 
@@ -83,7 +42,7 @@ $CharsetEncoder* ThreadLocalCoders::encoderFor(Object$* name) {
 	return ce;
 }
 
-void clinit$ThreadLocalCoders($Class* class$) {
+void ThreadLocalCoders::clinit$($Class* clazz) {
 	$assignStatic(ThreadLocalCoders::decoderCache, $new($ThreadLocalCoders$1, ThreadLocalCoders::CACHE_SIZE));
 	$assignStatic(ThreadLocalCoders::encoderCache, $new($ThreadLocalCoders$2, ThreadLocalCoders::CACHE_SIZE));
 }
@@ -92,7 +51,41 @@ ThreadLocalCoders::ThreadLocalCoders() {
 }
 
 $Class* ThreadLocalCoders::load$($String* name, bool initialize) {
-	$loadClass(ThreadLocalCoders, name, initialize, &_ThreadLocalCoders_ClassInfo_, clinit$ThreadLocalCoders, allocate$ThreadLocalCoders);
+	$FieldInfo fieldInfos$$[] = {
+		{"CACHE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ThreadLocalCoders, CACHE_SIZE)},
+		{"decoderCache", "Lsun/nio/cs/ThreadLocalCoders$Cache;", nullptr, $PRIVATE | $STATIC, $staticField(ThreadLocalCoders, decoderCache)},
+		{"encoderCache", "Lsun/nio/cs/ThreadLocalCoders$Cache;", nullptr, $PRIVATE | $STATIC, $staticField(ThreadLocalCoders, encoderCache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ThreadLocalCoders, init$, void)},
+		{"decoderFor", "(Ljava/lang/Object;)Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ThreadLocalCoders, decoderFor, $CharsetDecoder*, Object$*)},
+		{"encoderFor", "(Ljava/lang/Object;)Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ThreadLocalCoders, encoderFor, $CharsetEncoder*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ThreadLocalCoders$Cache", "sun.nio.cs.ThreadLocalCoders", "Cache", $PRIVATE | $STATIC | $ABSTRACT},
+		{"sun.nio.cs.ThreadLocalCoders$2", nullptr, nullptr, 0},
+		{"sun.nio.cs.ThreadLocalCoders$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.ThreadLocalCoders",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ThreadLocalCoders$Cache,sun.nio.cs.ThreadLocalCoders$2,sun.nio.cs.ThreadLocalCoders$1"
+	};
+	$loadClass(ThreadLocalCoders, name, initialize, &classInfo$$, ThreadLocalCoders::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ThreadLocalCoders);
+	});
 	return class$;
 }
 

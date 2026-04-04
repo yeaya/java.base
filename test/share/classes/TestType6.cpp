@@ -1,5 +1,4 @@
 #include <TestType6.h>
-
 #include <TestType6$nestedTestType6.h>
 #include <jcpp.h>
 
@@ -9,46 +8,6 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-
-$NamedAttribute TestType6_Attribute_var$0[] = {
-	{"value", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _TestType6_MethodAnnotations_foo1[] = {
-	{"LExpectedIsDefault;", TestType6_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _TestType6_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TestType6, init$, void)},
-	{"foo", "(LTestType6$nestedTestType6;)V", nullptr, 0, $virtualMethod(TestType6, foo, void, $TestType6$nestedTestType6*), nullptr, nullptr, _TestType6_MethodAnnotations_foo1},
-	{}
-};
-
-$InnerClassInfo _TestType6_InnerClassesInfo_[] = {
-	{"TestType6$nestedTestType6", "TestType6", "nestedTestType6", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TestType6_ClassInfo_ = {
-	$ACC_SUPER,
-	"TestType6",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestType6_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestType6_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TestType6$nestedTestType6"
-};
-
-$Object* allocate$TestType6($Class* clazz) {
-	return $of($alloc(TestType6));
-}
 
 void TestType6::init$() {
 }
@@ -60,7 +19,40 @@ TestType6::TestType6() {
 }
 
 $Class* TestType6::load$($String* name, bool initialize) {
-	$loadClass(TestType6, name, initialize, &_TestType6_ClassInfo_, allocate$TestType6);
+	$NamedAttribute foomethodAnnotations$$$namedAttribute[] = {
+		{"value", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute foomethodAnnotations$$[] = {
+		{"LExpectedIsDefault;", foomethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TestType6, init$, void)},
+		{"foo", "(LTestType6$nestedTestType6;)V", nullptr, 0, $virtualMethod(TestType6, foo, void, $TestType6$nestedTestType6*), nullptr, nullptr, foomethodAnnotations$$},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestType6$nestedTestType6", "TestType6", "nestedTestType6", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TestType6",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TestType6$nestedTestType6"
+	};
+	$loadClass(TestType6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestType6);
+	});
 	return class$;
 }
 

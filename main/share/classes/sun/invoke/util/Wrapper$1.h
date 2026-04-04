@@ -13,6 +13,7 @@ class Wrapper$1 : public ::java::lang::Object {
 	$class(Wrapper$1, 0, ::java::lang::Object)
 public:
 	Wrapper$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$invoke$util$Wrapper;
 };
 

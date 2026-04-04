@@ -1,5 +1,4 @@
 #include <Unicode.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <jcpp.h>
 
@@ -16,57 +15,34 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$FieldInfo _Unicode_FieldInfo_[] = {
-	{"BOM_HIGH", "I", nullptr, $STATIC | $FINAL, $constField(Unicode, BOM_HIGH)},
-	{"BOM_LOW", "I", nullptr, $STATIC | $FINAL, $constField(Unicode, BOM_LOW)},
-	{"BIG", "I", nullptr, $STATIC | $FINAL, $constField(Unicode, BIG)},
-	{"LITTLE", "I", nullptr, $STATIC | $FINAL, $constField(Unicode, LITTLE)},
-	{}
-};
-
-$MethodInfo _Unicode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Unicode, init$, void)},
-	{"decode", "(Ljava/lang/String;IZ)V", nullptr, $STATIC, $staticMethod(Unicode, decode, void, $String*, int32_t, bool), "java.lang.Exception"},
-	{"encode", "(Ljava/lang/String;IZ)V", nullptr, $STATIC, $staticMethod(Unicode, encode, void, $String*, int32_t, bool), "java.lang.Exception"},
-	{"fail", "(Ljava/lang/String;Ljava/lang/String;IIII)V", nullptr, $STATIC, $staticMethod(Unicode, fail, void, $String*, $String*, int32_t, int32_t, int32_t, int32_t), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Unicode, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Unicode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Unicode",
-	"java.lang.Object",
-	nullptr,
-	_Unicode_FieldInfo_,
-	_Unicode_MethodInfo_
-};
-
-$Object* allocate$Unicode($Class* clazz) {
-	return $of($alloc(Unicode));
-}
-
 void Unicode::init$() {
 }
 
 void Unicode::fail($String* enc, $String* msg, int32_t e0, int32_t e1, int32_t b0, int32_t b1) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$4, $$str({enc, ": "_s, msg, ": Expected "_s, $($Integer::toHexString(e0)), " "_s}));
-	$var($String, var$3, $$concat(var$4, $($Integer::toHexString(e1))));
-	$var($String, var$2, $$concat(var$3, ", got "_s));
-	$var($String, var$1, $$concat(var$2, $($Integer::toHexString(b0))));
-	$var($String, var$0, $$concat(var$1, " "_s));
-	$throwNew($Exception, $$concat(var$0, $($Integer::toHexString(b1))));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append(enc);
+	var$0->append(": "_s);
+	var$0->append(msg);
+	var$0->append(": Expected "_s);
+	var$0->append($($Integer::toHexString(e0)));
+	var$0->append(" "_s);
+	var$0->append($($Integer::toHexString(e1)));
+	var$0->append(", got "_s);
+	var$0->append($($Integer::toHexString(b0)));
+	var$0->append(" "_s);
+	var$0->append($($Integer::toHexString(b1)));
+	$throwNew($Exception, $$str(var$0));
 }
 
 void Unicode::encode($String* enc, int32_t byteOrder, bool markExpected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, "abc"_s);
 	$var($bytes, b, s->getBytes(enc));
 	int32_t i = 0;
 	if (markExpected) {
-		int32_t b0 = (int32_t)(b->get(i++) & (uint32_t)255);
-		int32_t b1 = (int32_t)(b->get(i++) & (uint32_t)255);
+		int32_t b0 = b->get(i++) & 0xff;
+		int32_t b1 = b->get(i++) & 0xff;
 		int32_t e0 = 0;
 		int32_t e1 = 0;
 		if (byteOrder == Unicode::BIG) {
@@ -82,15 +58,15 @@ void Unicode::encode($String* enc, int32_t byteOrder, bool markExpected) {
 	}
 	for (int32_t j = 0; j < s->length(); ++j) {
 		char16_t c = s->charAt(j);
-		int32_t b0 = (int32_t)(b->get(i++) & (uint32_t)255);
-		int32_t b1 = (int32_t)(b->get(i++) & (uint32_t)255);
+		int32_t b0 = b->get(i++) & 0xff;
+		int32_t b1 = b->get(i++) & 0xff;
 		int32_t e0 = 0;
 		int32_t e1 = 0;
 		if (byteOrder == Unicode::BIG) {
 			e0 = c >> 8;
-			e1 = (int32_t)(c & (uint32_t)255);
+			e1 = c & 0xff;
 		} else if (byteOrder == Unicode::LITTLE) {
-			e0 = (int32_t)(c & (uint32_t)255);
+			e0 = c & 0xff;
 			e1 = c >> 8;
 		}
 		if ((b0 != e0) || (b1 != e1)) {
@@ -100,7 +76,7 @@ void Unicode::encode($String* enc, int32_t byteOrder, bool markExpected) {
 }
 
 void Unicode::decode($String* enc, int32_t byteOrder, bool markit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, "abc"_s);
 	$var($ByteArrayOutputStream, bo, $new($ByteArrayOutputStream));
 	if (markit) {
@@ -116,9 +92,9 @@ void Unicode::decode($String* enc, int32_t byteOrder, bool markit) {
 		char16_t c = s->charAt(i);
 		if (byteOrder == Unicode::BIG) {
 			bo->write(c >> 8);
-			bo->write((int32_t)(c & (uint32_t)255));
+			bo->write(c & 0xff);
 		} else if (byteOrder == Unicode::LITTLE) {
-			bo->write((int32_t)(c & (uint32_t)255));
+			bo->write(c & 0xff);
 			bo->write(c >> 8);
 		}
 	}
@@ -130,15 +106,15 @@ void Unicode::decode($String* enc, int32_t byteOrder, bool markit) {
 }
 
 void Unicode::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, enc, $nc(args)->get(0));
 	$var($String, bos, args->get(1));
-	bool markExpected = $nc($($Boolean::valueOf(args->get(2))))->booleanValue();
+	bool markExpected = $($Boolean::valueOf(args->get(2)))->booleanValue();
 	int32_t byteOrder = -1;
 	if ($nc(bos)->equals("big"_s)) {
 		byteOrder = Unicode::BIG;
 	}
-	if ($nc(bos)->equals("little"_s)) {
+	if (bos->equals("little"_s)) {
 		byteOrder = Unicode::LITTLE;
 	}
 	encode(enc, byteOrder, markExpected);
@@ -151,7 +127,32 @@ Unicode::Unicode() {
 }
 
 $Class* Unicode::load$($String* name, bool initialize) {
-	$loadClass(Unicode, name, initialize, &_Unicode_ClassInfo_, allocate$Unicode);
+	$FieldInfo fieldInfos$$[] = {
+		{"BOM_HIGH", "I", nullptr, $STATIC | $FINAL, $constField(Unicode, BOM_HIGH)},
+		{"BOM_LOW", "I", nullptr, $STATIC | $FINAL, $constField(Unicode, BOM_LOW)},
+		{"BIG", "I", nullptr, $STATIC | $FINAL, $constField(Unicode, BIG)},
+		{"LITTLE", "I", nullptr, $STATIC | $FINAL, $constField(Unicode, LITTLE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Unicode, init$, void)},
+		{"decode", "(Ljava/lang/String;IZ)V", nullptr, $STATIC, $staticMethod(Unicode, decode, void, $String*, int32_t, bool), "java.lang.Exception"},
+		{"encode", "(Ljava/lang/String;IZ)V", nullptr, $STATIC, $staticMethod(Unicode, encode, void, $String*, int32_t, bool), "java.lang.Exception"},
+		{"fail", "(Ljava/lang/String;Ljava/lang/String;IIII)V", nullptr, $STATIC, $staticMethod(Unicode, fail, void, $String*, $String*, int32_t, int32_t, int32_t, int32_t), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Unicode, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Unicode",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Unicode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Unicode);
+	});
 	return class$;
 }
 

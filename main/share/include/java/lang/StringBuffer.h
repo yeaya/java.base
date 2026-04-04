@@ -41,6 +41,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t capacity);
 	void init$($String* str);
@@ -104,7 +105,7 @@ public:
 	virtual void trimToSize() override;
 	void writeObject(::java::io::ObjectOutputStream* s);
 	$String* toStringCache = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x2F0707D9EAC8EAD3;
+	static const int64_t serialVersionUID = (int64_t)0x2f0707d9eac8ead3;
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
 public:
 	StringBuffer* append(const char* s);

@@ -1,5 +1,4 @@
 #include <sun/security/validator/EndEntityChecker.h>
-
 #include <java/security/cert/CertificateException.h>
 #include <java/security/cert/X509Certificate.h>
 #include <java/util/Arrays.h>
@@ -60,7 +59,6 @@ using $X509Certificate = ::java::security::cert::X509Certificate;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
-using $EnumSet = ::java::util::EnumSet;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Set = ::java::util::Set;
@@ -74,58 +72,6 @@ using $NetscapeCertTypeExtension = ::sun::security::x509::NetscapeCertTypeExtens
 namespace sun {
 	namespace security {
 		namespace validator {
-
-$FieldInfo _EndEntityChecker_FieldInfo_[] = {
-	{"OID_EXTENDED_KEY_USAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, OID_EXTENDED_KEY_USAGE)},
-	{"OID_EKU_TLS_SERVER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, OID_EKU_TLS_SERVER)},
-	{"OID_EKU_TLS_CLIENT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, OID_EKU_TLS_CLIENT)},
-	{"OID_EKU_CODE_SIGNING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, OID_EKU_CODE_SIGNING)},
-	{"OID_EKU_TIME_STAMPING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, OID_EKU_TIME_STAMPING)},
-	{"OID_EKU_ANY_USAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, OID_EKU_ANY_USAGE)},
-	{"OID_EKU_NS_SGC", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, OID_EKU_NS_SGC)},
-	{"OID_EKU_MS_SGC", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, OID_EKU_MS_SGC)},
-	{"OID_SUBJECT_ALT_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, OID_SUBJECT_ALT_NAME)},
-	{"NSCT_SSL_CLIENT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, NSCT_SSL_CLIENT)},
-	{"NSCT_SSL_SERVER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, NSCT_SSL_SERVER)},
-	{"NSCT_CODE_SIGNING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, NSCT_CODE_SIGNING)},
-	{"KU_SIGNATURE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EndEntityChecker, KU_SIGNATURE)},
-	{"KU_KEY_ENCIPHERMENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EndEntityChecker, KU_KEY_ENCIPHERMENT)},
-	{"KU_KEY_AGREEMENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EndEntityChecker, KU_KEY_AGREEMENT)},
-	{"KU_SERVER_SIGNATURE", "Ljava/util/Collection;", "Ljava/util/Collection<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, KU_SERVER_SIGNATURE)},
-	{"KU_SERVER_ENCRYPTION", "Ljava/util/Collection;", "Ljava/util/Collection<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, KU_SERVER_ENCRYPTION)},
-	{"KU_SERVER_KEY_AGREEMENT", "Ljava/util/Collection;", "Ljava/util/Collection<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, KU_SERVER_KEY_AGREEMENT)},
-	{"variant", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(EndEntityChecker, variant)},
-	{"type", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(EndEntityChecker, type)},
-	{}
-};
-
-$MethodInfo _EndEntityChecker_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(EndEntityChecker, init$, void, $String*, $String*)},
-	{"check", "([Ljava/security/cert/X509Certificate;Ljava/lang/Object;Z)V", nullptr, 0, $virtualMethod(EndEntityChecker, check, void, $X509CertificateArray*, Object$*, bool), "java.security.cert.CertificateException"},
-	{"checkCodeSigning", "(Ljava/security/cert/X509Certificate;Ljava/util/Set;)V", "(Ljava/security/cert/X509Certificate;Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(EndEntityChecker, checkCodeSigning, void, $X509Certificate*, $Set*), "java.security.cert.CertificateException"},
-	{"checkEKU", "(Ljava/security/cert/X509Certificate;Ljava/util/Set;Ljava/lang/String;)Z", "(Ljava/security/cert/X509Certificate;Ljava/util/Set<Ljava/lang/String;>;Ljava/lang/String;)Z", $PRIVATE, $method(EndEntityChecker, checkEKU, bool, $X509Certificate*, $Set*, $String*), "java.security.cert.CertificateException"},
-	{"checkKeyUsage", "(Ljava/security/cert/X509Certificate;I)Z", nullptr, $PRIVATE, $method(EndEntityChecker, checkKeyUsage, bool, $X509Certificate*, int32_t), "java.security.cert.CertificateException"},
-	{"checkRemainingExtensions", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(EndEntityChecker, checkRemainingExtensions, void, $Set*), "java.security.cert.CertificateException"},
-	{"checkTLSClient", "(Ljava/security/cert/X509Certificate;Ljava/util/Set;)V", "(Ljava/security/cert/X509Certificate;Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(EndEntityChecker, checkTLSClient, void, $X509Certificate*, $Set*), "java.security.cert.CertificateException"},
-	{"checkTLSServer", "(Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/util/Set;)V", "(Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(EndEntityChecker, checkTLSServer, void, $X509Certificate*, $String*, $Set*), "java.security.cert.CertificateException"},
-	{"checkTSAServer", "(Ljava/security/cert/X509Certificate;Ljava/util/Set;)V", "(Ljava/security/cert/X509Certificate;Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(EndEntityChecker, checkTSAServer, void, $X509Certificate*, $Set*), "java.security.cert.CertificateException"},
-	{"getCriticalExtensions", "(Ljava/security/cert/X509Certificate;)Ljava/util/Set;", "(Ljava/security/cert/X509Certificate;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(EndEntityChecker, getCriticalExtensions, $Set*, $X509Certificate*)},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Lsun/security/validator/EndEntityChecker;", nullptr, $STATIC, $staticMethod(EndEntityChecker, getInstance, EndEntityChecker*, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _EndEntityChecker_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.validator.EndEntityChecker",
-	"java.lang.Object",
-	nullptr,
-	_EndEntityChecker_FieldInfo_,
-	_EndEntityChecker_MethodInfo_
-};
-
-$Object* allocate$EndEntityChecker($Class* clazz) {
-	return $of($alloc(EndEntityChecker));
-}
 
 $String* EndEntityChecker::OID_EXTENDED_KEY_USAGE = nullptr;
 $String* EndEntityChecker::OID_EKU_TLS_SERVER = nullptr;
@@ -154,36 +100,26 @@ EndEntityChecker* EndEntityChecker::getInstance($String* type, $String* variant)
 }
 
 void EndEntityChecker::check($X509CertificateArray* chain, Object$* parameter, bool checkUnresolvedCritExts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Validator);
 	if ($nc(this->variant)->equals($Validator::VAR_GENERIC)) {
 		return;
 	}
 	$var($Set, exts, getCriticalExtensions($nc(chain)->get(0)));
-	if ($nc(this->variant)->equals($Validator::VAR_TLS_SERVER)) {
-		checkTLSServer($nc(chain)->get(0), $cast($String, parameter), exts);
+	if (this->variant->equals($Validator::VAR_TLS_SERVER)) {
+		checkTLSServer(chain->get(0), $cast($String, parameter), exts);
+	} else if (this->variant->equals($Validator::VAR_TLS_CLIENT)) {
+		checkTLSClient(chain->get(0), exts);
+	} else if (this->variant->equals($Validator::VAR_CODE_SIGNING)) {
+		checkCodeSigning(chain->get(0), exts);
+	} else if (this->variant->equals($Validator::VAR_JCE_SIGNING)) {
+		checkCodeSigning(chain->get(0), exts);
+	} else if (this->variant->equals($Validator::VAR_PLUGIN_CODE_SIGNING)) {
+		checkCodeSigning(chain->get(0), exts);
+	} else if (this->variant->equals($Validator::VAR_TSA_SERVER)) {
+		checkTSAServer(chain->get(0), exts);
 	} else {
-		if ($nc(this->variant)->equals($Validator::VAR_TLS_CLIENT)) {
-			checkTLSClient($nc(chain)->get(0), exts);
-		} else {
-			if ($nc(this->variant)->equals($Validator::VAR_CODE_SIGNING)) {
-				checkCodeSigning($nc(chain)->get(0), exts);
-			} else {
-				if ($nc(this->variant)->equals($Validator::VAR_JCE_SIGNING)) {
-					checkCodeSigning($nc(chain)->get(0), exts);
-				} else {
-					if ($nc(this->variant)->equals($Validator::VAR_PLUGIN_CODE_SIGNING)) {
-						checkCodeSigning($nc(chain)->get(0), exts);
-					} else {
-						if ($nc(this->variant)->equals($Validator::VAR_TSA_SERVER)) {
-							checkTSAServer($nc(chain)->get(0), exts);
-						} else {
-							$throwNew($CertificateException, $$str({"Unknown variant: "_s, this->variant}));
-						}
-					}
-				}
-			}
-		}
+		$throwNew($CertificateException, $$str({"Unknown variant: "_s, this->variant}));
 	}
 	if (checkUnresolvedCritExts) {
 		checkRemainingExtensions(exts);
@@ -223,7 +159,7 @@ bool EndEntityChecker::checkEKU($X509Certificate* cert, $Set* exts, $String* exp
 		return true;
 	}
 	bool var$0 = $nc(eku)->contains(expectedEKU);
-	return var$0 || $nc(eku)->contains(EndEntityChecker::OID_EKU_ANY_USAGE);
+	return var$0 || eku->contains(EndEntityChecker::OID_EKU_ANY_USAGE);
 }
 
 bool EndEntityChecker::checkKeyUsage($X509Certificate* cert, int32_t bit) {
@@ -272,7 +208,7 @@ void EndEntityChecker::checkTLSServer($X509Certificate* cert, $String* parameter
 		$throwNew($CertificateException, $$str({"Unknown authType: "_s, parameter}));
 	}
 	if (checkEKU(cert, exts, EndEntityChecker::OID_EKU_TLS_SERVER) == false) {
-		bool var$0 = (checkEKU(cert, exts, EndEntityChecker::OID_EKU_MS_SGC) == false);
+		bool var$0 = checkEKU(cert, exts, EndEntityChecker::OID_EKU_MS_SGC) == false;
 		if (var$0 && (checkEKU(cert, exts, EndEntityChecker::OID_EKU_NS_SGC) == false)) {
 			$init($ValidatorException);
 			$throwNew($ValidatorException, "Extended key usage does not permit use for TLS server authentication"_s, $ValidatorException::T_EE_EXTENSIONS, cert);
@@ -327,8 +263,8 @@ void EndEntityChecker::checkTSAServer($X509Certificate* cert, $Set* exts) {
 	exts->remove($SimpleValidator::OID_EXTENDED_KEY_USAGE);
 }
 
-void clinit$EndEntityChecker($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void EndEntityChecker::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($NetscapeCertTypeExtension);
 	$assignStatic(EndEntityChecker::NSCT_SSL_CLIENT, $NetscapeCertTypeExtension::SSL_CLIENT);
 	$assignStatic(EndEntityChecker::NSCT_SSL_SERVER, $NetscapeCertTypeExtension::SSL_SERVER);
@@ -365,7 +301,54 @@ EndEntityChecker::EndEntityChecker() {
 }
 
 $Class* EndEntityChecker::load$($String* name, bool initialize) {
-	$loadClass(EndEntityChecker, name, initialize, &_EndEntityChecker_ClassInfo_, clinit$EndEntityChecker, allocate$EndEntityChecker);
+	$FieldInfo fieldInfos$$[] = {
+		{"OID_EXTENDED_KEY_USAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, OID_EXTENDED_KEY_USAGE)},
+		{"OID_EKU_TLS_SERVER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, OID_EKU_TLS_SERVER)},
+		{"OID_EKU_TLS_CLIENT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, OID_EKU_TLS_CLIENT)},
+		{"OID_EKU_CODE_SIGNING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, OID_EKU_CODE_SIGNING)},
+		{"OID_EKU_TIME_STAMPING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, OID_EKU_TIME_STAMPING)},
+		{"OID_EKU_ANY_USAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, OID_EKU_ANY_USAGE)},
+		{"OID_EKU_NS_SGC", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, OID_EKU_NS_SGC)},
+		{"OID_EKU_MS_SGC", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, OID_EKU_MS_SGC)},
+		{"OID_SUBJECT_ALT_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, OID_SUBJECT_ALT_NAME)},
+		{"NSCT_SSL_CLIENT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, NSCT_SSL_CLIENT)},
+		{"NSCT_SSL_SERVER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, NSCT_SSL_SERVER)},
+		{"NSCT_CODE_SIGNING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, NSCT_CODE_SIGNING)},
+		{"KU_SIGNATURE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EndEntityChecker, KU_SIGNATURE)},
+		{"KU_KEY_ENCIPHERMENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EndEntityChecker, KU_KEY_ENCIPHERMENT)},
+		{"KU_KEY_AGREEMENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EndEntityChecker, KU_KEY_AGREEMENT)},
+		{"KU_SERVER_SIGNATURE", "Ljava/util/Collection;", "Ljava/util/Collection<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, KU_SERVER_SIGNATURE)},
+		{"KU_SERVER_ENCRYPTION", "Ljava/util/Collection;", "Ljava/util/Collection<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, KU_SERVER_ENCRYPTION)},
+		{"KU_SERVER_KEY_AGREEMENT", "Ljava/util/Collection;", "Ljava/util/Collection<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(EndEntityChecker, KU_SERVER_KEY_AGREEMENT)},
+		{"variant", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(EndEntityChecker, variant)},
+		{"type", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(EndEntityChecker, type)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(EndEntityChecker, init$, void, $String*, $String*)},
+		{"check", "([Ljava/security/cert/X509Certificate;Ljava/lang/Object;Z)V", nullptr, 0, $virtualMethod(EndEntityChecker, check, void, $X509CertificateArray*, Object$*, bool), "java.security.cert.CertificateException"},
+		{"checkCodeSigning", "(Ljava/security/cert/X509Certificate;Ljava/util/Set;)V", "(Ljava/security/cert/X509Certificate;Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(EndEntityChecker, checkCodeSigning, void, $X509Certificate*, $Set*), "java.security.cert.CertificateException"},
+		{"checkEKU", "(Ljava/security/cert/X509Certificate;Ljava/util/Set;Ljava/lang/String;)Z", "(Ljava/security/cert/X509Certificate;Ljava/util/Set<Ljava/lang/String;>;Ljava/lang/String;)Z", $PRIVATE, $method(EndEntityChecker, checkEKU, bool, $X509Certificate*, $Set*, $String*), "java.security.cert.CertificateException"},
+		{"checkKeyUsage", "(Ljava/security/cert/X509Certificate;I)Z", nullptr, $PRIVATE, $method(EndEntityChecker, checkKeyUsage, bool, $X509Certificate*, int32_t), "java.security.cert.CertificateException"},
+		{"checkRemainingExtensions", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(EndEntityChecker, checkRemainingExtensions, void, $Set*), "java.security.cert.CertificateException"},
+		{"checkTLSClient", "(Ljava/security/cert/X509Certificate;Ljava/util/Set;)V", "(Ljava/security/cert/X509Certificate;Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(EndEntityChecker, checkTLSClient, void, $X509Certificate*, $Set*), "java.security.cert.CertificateException"},
+		{"checkTLSServer", "(Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/util/Set;)V", "(Ljava/security/cert/X509Certificate;Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(EndEntityChecker, checkTLSServer, void, $X509Certificate*, $String*, $Set*), "java.security.cert.CertificateException"},
+		{"checkTSAServer", "(Ljava/security/cert/X509Certificate;Ljava/util/Set;)V", "(Ljava/security/cert/X509Certificate;Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(EndEntityChecker, checkTSAServer, void, $X509Certificate*, $Set*), "java.security.cert.CertificateException"},
+		{"getCriticalExtensions", "(Ljava/security/cert/X509Certificate;)Ljava/util/Set;", "(Ljava/security/cert/X509Certificate;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $method(EndEntityChecker, getCriticalExtensions, $Set*, $X509Certificate*)},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Lsun/security/validator/EndEntityChecker;", nullptr, $STATIC, $staticMethod(EndEntityChecker, getInstance, EndEntityChecker*, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.validator.EndEntityChecker",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EndEntityChecker, name, initialize, &classInfo$$, EndEntityChecker::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(EndEntityChecker);
+	});
 	return class$;
 }
 

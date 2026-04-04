@@ -1,17 +1,14 @@
 #include <jdk/internal/org/objectweb/asm/commons/SerialVersionUIDAdder.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/DataOutput.h>
 #include <java/io/DataOutputStream.h>
 #include <java/io/IOException.h>
-#include <java/io/OutputStream.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/Math.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/security/MessageDigest.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
@@ -43,7 +40,6 @@ using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $DataOutput = ::java::io::DataOutput;
 using $DataOutputStream = ::java::io::DataOutputStream;
 using $IOException = ::java::io::IOException;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
@@ -55,7 +51,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
@@ -72,60 +67,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace commons {
 
-$FieldInfo _SerialVersionUIDAdder_FieldInfo_[] = {
-	{"CLINIT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SerialVersionUIDAdder, CLINIT)},
-	{"computeSvuid", "Z", nullptr, $PRIVATE, $field(SerialVersionUIDAdder, computeSvuid)},
-	{"hasSvuid", "Z", nullptr, $PRIVATE, $field(SerialVersionUIDAdder, hasSvuid)},
-	{"access", "I", nullptr, $PRIVATE, $field(SerialVersionUIDAdder, access)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SerialVersionUIDAdder, name)},
-	{"interfaces", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(SerialVersionUIDAdder, interfaces)},
-	{"svuidFields", "Ljava/util/Collection;", "Ljava/util/Collection<Ljdk/internal/org/objectweb/asm/commons/SerialVersionUIDAdder$Item;>;", $PRIVATE, $field(SerialVersionUIDAdder, svuidFields)},
-	{"hasStaticInitializer", "Z", nullptr, $PRIVATE, $field(SerialVersionUIDAdder, hasStaticInitializer)},
-	{"svuidConstructors", "Ljava/util/Collection;", "Ljava/util/Collection<Ljdk/internal/org/objectweb/asm/commons/SerialVersionUIDAdder$Item;>;", $PRIVATE, $field(SerialVersionUIDAdder, svuidConstructors)},
-	{"svuidMethods", "Ljava/util/Collection;", "Ljava/util/Collection<Ljdk/internal/org/objectweb/asm/commons/SerialVersionUIDAdder$Item;>;", $PRIVATE, $field(SerialVersionUIDAdder, svuidMethods)},
-	{}
-};
-
-$MethodInfo _SerialVersionUIDAdder_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, $PUBLIC, $method(SerialVersionUIDAdder, init$, void, $ClassVisitor*)},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, $PROTECTED, $method(SerialVersionUIDAdder, init$, void, int32_t, $ClassVisitor*)},
-	{"addSVUID", "(J)V", nullptr, $PROTECTED, $virtualMethod(SerialVersionUIDAdder, addSVUID, void, int64_t)},
-	{"computeSHAdigest", "([B)[B", nullptr, $PROTECTED, $virtualMethod(SerialVersionUIDAdder, computeSHAdigest, $bytes*, $bytes*)},
-	{"computeSVUID", "()J", nullptr, $PROTECTED, $virtualMethod(SerialVersionUIDAdder, computeSVUID, int64_t), "java.io.IOException"},
-	{"hasSVUID", "()Z", nullptr, $PUBLIC, $virtualMethod(SerialVersionUIDAdder, hasSVUID, bool)},
-	{"visit", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerialVersionUIDAdder, visit, void, int32_t, int32_t, $String*, $String*, $String*, $StringArray*)},
-	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(SerialVersionUIDAdder, visitEnd, void)},
-	{"visitField", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Ljdk/internal/org/objectweb/asm/FieldVisitor;", nullptr, $PUBLIC, $virtualMethod(SerialVersionUIDAdder, visitField, $FieldVisitor*, int32_t, $String*, $String*, $String*, Object$*)},
-	{"visitInnerClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(SerialVersionUIDAdder, visitInnerClass, void, $String*, $String*, $String*, int32_t)},
-	{"visitMethod", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/MethodVisitor;", nullptr, $PUBLIC, $virtualMethod(SerialVersionUIDAdder, visitMethod, $MethodVisitor*, int32_t, $String*, $String*, $String*, $StringArray*)},
-	{"writeItems", "(Ljava/util/Collection;Ljava/io/DataOutput;Z)V", "(Ljava/util/Collection<Ljdk/internal/org/objectweb/asm/commons/SerialVersionUIDAdder$Item;>;Ljava/io/DataOutput;Z)V", $PRIVATE | $STATIC, $staticMethod(SerialVersionUIDAdder, writeItems, void, $Collection*, $DataOutput*, bool), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _SerialVersionUIDAdder_InnerClassesInfo_[] = {
-	{"jdk.internal.org.objectweb.asm.commons.SerialVersionUIDAdder$Item", "jdk.internal.org.objectweb.asm.commons.SerialVersionUIDAdder", "Item", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SerialVersionUIDAdder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.commons.SerialVersionUIDAdder",
-	"jdk.internal.org.objectweb.asm.ClassVisitor",
-	nullptr,
-	_SerialVersionUIDAdder_FieldInfo_,
-	_SerialVersionUIDAdder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SerialVersionUIDAdder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.org.objectweb.asm.commons.SerialVersionUIDAdder$Item"
-};
-
-$Object* allocate$SerialVersionUIDAdder($Class* clazz) {
-	return $of($alloc(SerialVersionUIDAdder));
-}
-
 $String* SerialVersionUIDAdder::CLINIT = nullptr;
 
 void SerialVersionUIDAdder::init$($ClassVisitor* classVisitor) {
@@ -140,29 +81,29 @@ void SerialVersionUIDAdder::init$(int32_t api, $ClassVisitor* classVisitor) {
 }
 
 void SerialVersionUIDAdder::visit(int32_t version, int32_t access, $String* name, $String* signature, $String* superName, $StringArray* interfaces) {
-	this->computeSvuid = ((int32_t)(access & (uint32_t)$Opcodes::ACC_ENUM)) == 0;
+	this->computeSvuid = (access & $Opcodes::ACC_ENUM) == 0;
 	if (this->computeSvuid) {
 		$set(this, name, name);
 		this->access = access;
 		$set(this, interfaces, $cast($StringArray, $nc(interfaces)->clone()));
-		$set(this, svuidFields, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>($new($ArrayList)))));
-		$set(this, svuidConstructors, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>($new($ArrayList)))));
-		$set(this, svuidMethods, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>($new($ArrayList)))));
+		$set(this, svuidFields, $cast($AbstractCollection, $new($ArrayList)));
+		$set(this, svuidConstructors, $cast($AbstractCollection, $new($ArrayList)));
+		$set(this, svuidMethods, $cast($AbstractCollection, $new($ArrayList)));
 	}
 	$ClassVisitor::visit(version, access, name, signature, superName, interfaces);
 }
 
 $MethodVisitor* SerialVersionUIDAdder::visitMethod(int32_t access, $String* name, $String* descriptor, $String* signature, $StringArray* exceptions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->computeSvuid) {
-		if ($nc(SerialVersionUIDAdder::CLINIT)->equals(name)) {
+		if (SerialVersionUIDAdder::CLINIT->equals(name)) {
 			this->hasStaticInitializer = true;
 		}
-		int32_t mods = (int32_t)(access & (uint32_t)(((((((($Opcodes::ACC_PUBLIC | $Opcodes::ACC_PRIVATE) | $Opcodes::ACC_PROTECTED) | $Opcodes::ACC_STATIC) | $Opcodes::ACC_FINAL) | $Opcodes::ACC_SYNCHRONIZED) | $Opcodes::ACC_NATIVE) | $Opcodes::ACC_ABSTRACT) | $Opcodes::ACC_STRICT));
-		if (((int32_t)(access & (uint32_t)$Opcodes::ACC_PRIVATE)) == 0) {
+		int32_t mods = access & (((((((($Opcodes::ACC_PUBLIC | $Opcodes::ACC_PRIVATE) | $Opcodes::ACC_PROTECTED) | $Opcodes::ACC_STATIC) | $Opcodes::ACC_FINAL) | $Opcodes::ACC_SYNCHRONIZED) | $Opcodes::ACC_NATIVE) | $Opcodes::ACC_ABSTRACT) | $Opcodes::ACC_STRICT);
+		if ((access & $Opcodes::ACC_PRIVATE) == 0) {
 			if ("<init>"_s->equals(name)) {
 				$nc(this->svuidConstructors)->add($$new($SerialVersionUIDAdder$Item, name, mods, descriptor));
-			} else if (!$nc(SerialVersionUIDAdder::CLINIT)->equals(name)) {
+			} else if (!SerialVersionUIDAdder::CLINIT->equals(name)) {
 				$nc(this->svuidMethods)->add($$new($SerialVersionUIDAdder$Item, name, mods, descriptor));
 			}
 		}
@@ -176,8 +117,8 @@ $FieldVisitor* SerialVersionUIDAdder::visitField(int32_t access, $String* name, 
 			this->computeSvuid = false;
 			this->hasSvuid = true;
 		}
-		if (((int32_t)(access & (uint32_t)$Opcodes::ACC_PRIVATE)) == 0 || ((int32_t)(access & (uint32_t)($Opcodes::ACC_STATIC | $Opcodes::ACC_TRANSIENT))) == 0) {
-			int32_t mods = (int32_t)(access & (uint32_t)(((((($Opcodes::ACC_PUBLIC | $Opcodes::ACC_PRIVATE) | $Opcodes::ACC_PROTECTED) | $Opcodes::ACC_STATIC) | $Opcodes::ACC_FINAL) | $Opcodes::ACC_VOLATILE) | $Opcodes::ACC_TRANSIENT));
+		if ((access & $Opcodes::ACC_PRIVATE) == 0 || (access & ($Opcodes::ACC_STATIC | $Opcodes::ACC_TRANSIENT)) == 0) {
+			int32_t mods = access & (((((($Opcodes::ACC_PUBLIC | $Opcodes::ACC_PRIVATE) | $Opcodes::ACC_PROTECTED) | $Opcodes::ACC_STATIC) | $Opcodes::ACC_FINAL) | $Opcodes::ACC_VOLATILE) | $Opcodes::ACC_TRANSIENT);
 			$nc(this->svuidFields)->add($$new($SerialVersionUIDAdder$Item, name, mods, desc));
 		}
 	}
@@ -185,7 +126,7 @@ $FieldVisitor* SerialVersionUIDAdder::visitField(int32_t access, $String* name, 
 }
 
 void SerialVersionUIDAdder::visitInnerClass($String* innerClassName, $String* outerName, $String* innerName, int32_t innerClassAccess) {
-	if ((this->name != nullptr) && $nc(this->name)->equals(innerClassName)) {
+	if ((this->name != nullptr) && this->name->equals(innerClassName)) {
 		this->access = innerClassAccess;
 	}
 	$ClassVisitor::visitInnerClass(innerClassName, outerName, innerName, innerClassAccess);
@@ -207,7 +148,7 @@ bool SerialVersionUIDAdder::hasSVUID() {
 }
 
 void SerialVersionUIDAdder::addSVUID(int64_t svuid) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FieldVisitor, fieldVisitor, $ClassVisitor::visitField($Opcodes::ACC_FINAL + $Opcodes::ACC_STATIC, "serialVersionUID"_s, "J"_s, nullptr, $($Long::valueOf(svuid))));
 	if (fieldVisitor != nullptr) {
 		fieldVisitor->visitEnd();
@@ -215,83 +156,77 @@ void SerialVersionUIDAdder::addSVUID(int64_t svuid) {
 }
 
 int64_t SerialVersionUIDAdder::computeSVUID() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t svuid = 0;
 	{
 		$var($ByteArrayOutputStream, byteArrayOutputStream, $new($ByteArrayOutputStream));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				$var($DataOutputStream, dataOutputStream, $new($DataOutputStream, byteArrayOutputStream));
+				$var($Throwable, var$1, nullptr);
 				try {
-					$var($DataOutputStream, dataOutputStream, $new($DataOutputStream, byteArrayOutputStream));
-					{
-						$var($Throwable, var$1, nullptr);
-						try {
-							try {
-								dataOutputStream->writeUTF($($nc(this->name)->replace(u'/', u'.')));
-								int32_t mods = this->access;
-								if (((int32_t)(mods & (uint32_t)$Opcodes::ACC_INTERFACE)) != 0) {
-									mods = $nc(this->svuidMethods)->isEmpty() ? ((int32_t)(mods & (uint32_t)~$Opcodes::ACC_ABSTRACT)) : (mods | $Opcodes::ACC_ABSTRACT);
-								}
-								dataOutputStream->writeInt((int32_t)(mods & (uint32_t)((($Opcodes::ACC_PUBLIC | $Opcodes::ACC_FINAL) | $Opcodes::ACC_INTERFACE) | $Opcodes::ACC_ABSTRACT)));
-								$Arrays::sort(this->interfaces);
-								{
-									$var($StringArray, arr$, this->interfaces);
-									int32_t len$ = $nc(arr$)->length;
-									int32_t i$ = 0;
-									for (; i$ < len$; ++i$) {
-										$var($String, interfaceName, arr$->get(i$));
-										{
-											dataOutputStream->writeUTF($($nc(interfaceName)->replace(u'/', u'.')));
-										}
-									}
-								}
-								writeItems(this->svuidFields, dataOutputStream, false);
-								if (this->hasStaticInitializer) {
-									dataOutputStream->writeUTF(SerialVersionUIDAdder::CLINIT);
-									dataOutputStream->writeInt($Opcodes::ACC_STATIC);
-									dataOutputStream->writeUTF("()V"_s);
-								}
-								writeItems(this->svuidConstructors, dataOutputStream, true);
-								writeItems(this->svuidMethods, dataOutputStream, true);
-								dataOutputStream->flush();
-								$var($bytes, hashBytes, computeSHAdigest($(byteArrayOutputStream->toByteArray())));
-								for (int32_t i = $Math::min($nc(hashBytes)->length, 8) - 1; i >= 0; --i) {
-									svuid = (svuid << 8) | ((int32_t)($nc(hashBytes)->get(i) & (uint32_t)255));
-								}
-							} catch ($Throwable& t$) {
-								try {
-									dataOutputStream->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$2) {
-							$assign(var$1, var$2);
-						} /*finally*/ {
-							dataOutputStream->close();
-						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
-						}
-					}
-				} catch ($Throwable& t$) {
 					try {
-						byteArrayOutputStream->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
+						dataOutputStream->writeUTF($($nc(this->name)->replace(u'/', u'.')));
+						int32_t mods = this->access;
+						if ((mods & $Opcodes::ACC_INTERFACE) != 0) {
+							mods = $nc(this->svuidMethods)->isEmpty() ? (mods & ~$Opcodes::ACC_ABSTRACT) : (mods | $Opcodes::ACC_ABSTRACT);
+						}
+						dataOutputStream->writeInt(mods & ((($Opcodes::ACC_PUBLIC | $Opcodes::ACC_FINAL) | $Opcodes::ACC_INTERFACE) | $Opcodes::ACC_ABSTRACT));
+						$Arrays::sort(this->interfaces);
+						{
+							$var($StringArray, arr$, this->interfaces);
+							for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+								$var($String, interfaceName, arr$->get(i$));
+								{
+									dataOutputStream->writeUTF($($nc(interfaceName)->replace(u'/', u'.')));
+								}
+							}
+						}
+						writeItems(this->svuidFields, dataOutputStream, false);
+						if (this->hasStaticInitializer) {
+							dataOutputStream->writeUTF(SerialVersionUIDAdder::CLINIT);
+							dataOutputStream->writeInt($Opcodes::ACC_STATIC);
+							dataOutputStream->writeUTF("()V"_s);
+						}
+						writeItems(this->svuidConstructors, dataOutputStream, true);
+						writeItems(this->svuidMethods, dataOutputStream, true);
+						dataOutputStream->flush();
+						$var($bytes, hashBytes, computeSHAdigest($(byteArrayOutputStream->toByteArray())));
+						for (int32_t i = $Math::min($nc(hashBytes)->length, 8) - 1; i >= 0; --i) {
+							svuid = (svuid << 8) | (hashBytes->get(i) & 0xff);
+						}
+					} catch ($Throwable& t$) {
+						try {
+							dataOutputStream->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
+						$throw(t$);
 					}
-					$throw(t$);
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
+				} /*finally*/ {
+					dataOutputStream->close();
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
-				byteArrayOutputStream->close();
+				if (var$1 != nullptr) {
+					$throw(var$1);
+				}
+			} catch ($Throwable& t$) {
+				try {
+					byteArrayOutputStream->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			byteArrayOutputStream->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	return svuid;
@@ -299,28 +234,26 @@ int64_t SerialVersionUIDAdder::computeSVUID() {
 
 $bytes* SerialVersionUIDAdder::computeSHAdigest($bytes* value) {
 	try {
-		return $nc($($MessageDigest::getInstance("SHA"_s)))->digest(value);
+		return $$nc($MessageDigest::getInstance("SHA"_s))->digest(value);
 	} catch ($NoSuchAlgorithmException& e) {
-		$throwNew($UnsupportedOperationException, static_cast<$Throwable*>(e));
+		$throwNew($UnsupportedOperationException, e);
 	}
 	$shouldNotReachHere();
 }
 
 void SerialVersionUIDAdder::writeItems($Collection* itemCollection, $DataOutput* dataOutputStream, bool dotted) {
 	$init(SerialVersionUIDAdder);
-	$useLocalCurrentObjectStackCache();
-	$var($SerialVersionUIDAdder$ItemArray, items, $fcast($SerialVersionUIDAdder$ItemArray, $nc(itemCollection)->toArray($$new($SerialVersionUIDAdder$ItemArray, 0))));
+	$useLocalObjectStack();
+	$var($SerialVersionUIDAdder$ItemArray, items, $cast($SerialVersionUIDAdder$ItemArray, $nc(itemCollection)->toArray($$new($SerialVersionUIDAdder$ItemArray, 0))));
 	$Arrays::sort(items);
 	{
 		$var($SerialVersionUIDAdder$ItemArray, arr$, items);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($SerialVersionUIDAdder$Item, item, arr$->get(i$));
 			{
 				$nc(dataOutputStream)->writeUTF($nc(item)->name);
-				dataOutputStream->writeInt($nc(item)->access);
-				dataOutputStream->writeUTF(dotted ? $($nc($nc(item)->descriptor)->replace(u'/', u'.')) : item->descriptor);
+				dataOutputStream->writeInt(item->access);
+				dataOutputStream->writeUTF(dotted ? $($nc(item->descriptor)->replace(u'/', u'.')) : item->descriptor);
 			}
 		}
 	}
@@ -329,12 +262,60 @@ void SerialVersionUIDAdder::writeItems($Collection* itemCollection, $DataOutput*
 SerialVersionUIDAdder::SerialVersionUIDAdder() {
 }
 
-void clinit$SerialVersionUIDAdder($Class* class$) {
+void SerialVersionUIDAdder::clinit$($Class* clazz) {
 	$assignStatic(SerialVersionUIDAdder::CLINIT, "<clinit>"_s);
 }
 
 $Class* SerialVersionUIDAdder::load$($String* name, bool initialize) {
-	$loadClass(SerialVersionUIDAdder, name, initialize, &_SerialVersionUIDAdder_ClassInfo_, clinit$SerialVersionUIDAdder, allocate$SerialVersionUIDAdder);
+	$FieldInfo fieldInfos$$[] = {
+		{"CLINIT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SerialVersionUIDAdder, CLINIT)},
+		{"computeSvuid", "Z", nullptr, $PRIVATE, $field(SerialVersionUIDAdder, computeSvuid)},
+		{"hasSvuid", "Z", nullptr, $PRIVATE, $field(SerialVersionUIDAdder, hasSvuid)},
+		{"access", "I", nullptr, $PRIVATE, $field(SerialVersionUIDAdder, access)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SerialVersionUIDAdder, name)},
+		{"interfaces", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(SerialVersionUIDAdder, interfaces)},
+		{"svuidFields", "Ljava/util/Collection;", "Ljava/util/Collection<Ljdk/internal/org/objectweb/asm/commons/SerialVersionUIDAdder$Item;>;", $PRIVATE, $field(SerialVersionUIDAdder, svuidFields)},
+		{"hasStaticInitializer", "Z", nullptr, $PRIVATE, $field(SerialVersionUIDAdder, hasStaticInitializer)},
+		{"svuidConstructors", "Ljava/util/Collection;", "Ljava/util/Collection<Ljdk/internal/org/objectweb/asm/commons/SerialVersionUIDAdder$Item;>;", $PRIVATE, $field(SerialVersionUIDAdder, svuidConstructors)},
+		{"svuidMethods", "Ljava/util/Collection;", "Ljava/util/Collection<Ljdk/internal/org/objectweb/asm/commons/SerialVersionUIDAdder$Item;>;", $PRIVATE, $field(SerialVersionUIDAdder, svuidMethods)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, $PUBLIC, $method(SerialVersionUIDAdder, init$, void, $ClassVisitor*)},
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/ClassVisitor;)V", nullptr, $PROTECTED, $method(SerialVersionUIDAdder, init$, void, int32_t, $ClassVisitor*)},
+		{"addSVUID", "(J)V", nullptr, $PROTECTED, $virtualMethod(SerialVersionUIDAdder, addSVUID, void, int64_t)},
+		{"computeSHAdigest", "([B)[B", nullptr, $PROTECTED, $virtualMethod(SerialVersionUIDAdder, computeSHAdigest, $bytes*, $bytes*)},
+		{"computeSVUID", "()J", nullptr, $PROTECTED, $virtualMethod(SerialVersionUIDAdder, computeSVUID, int64_t), "java.io.IOException"},
+		{"hasSVUID", "()Z", nullptr, $PUBLIC, $virtualMethod(SerialVersionUIDAdder, hasSVUID, bool)},
+		{"visit", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SerialVersionUIDAdder, visit, void, int32_t, int32_t, $String*, $String*, $String*, $StringArray*)},
+		{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(SerialVersionUIDAdder, visitEnd, void)},
+		{"visitField", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Ljdk/internal/org/objectweb/asm/FieldVisitor;", nullptr, $PUBLIC, $virtualMethod(SerialVersionUIDAdder, visitField, $FieldVisitor*, int32_t, $String*, $String*, $String*, Object$*)},
+		{"visitInnerClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(SerialVersionUIDAdder, visitInnerClass, void, $String*, $String*, $String*, int32_t)},
+		{"visitMethod", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/MethodVisitor;", nullptr, $PUBLIC, $virtualMethod(SerialVersionUIDAdder, visitMethod, $MethodVisitor*, int32_t, $String*, $String*, $String*, $StringArray*)},
+		{"writeItems", "(Ljava/util/Collection;Ljava/io/DataOutput;Z)V", "(Ljava/util/Collection<Ljdk/internal/org/objectweb/asm/commons/SerialVersionUIDAdder$Item;>;Ljava/io/DataOutput;Z)V", $PRIVATE | $STATIC, $staticMethod(SerialVersionUIDAdder, writeItems, void, $Collection*, $DataOutput*, bool), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.org.objectweb.asm.commons.SerialVersionUIDAdder$Item", "jdk.internal.org.objectweb.asm.commons.SerialVersionUIDAdder", "Item", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.commons.SerialVersionUIDAdder",
+		"jdk.internal.org.objectweb.asm.ClassVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.org.objectweb.asm.commons.SerialVersionUIDAdder$Item"
+	};
+	$loadClass(SerialVersionUIDAdder, name, initialize, &classInfo$$, SerialVersionUIDAdder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SerialVersionUIDAdder);
+	});
 	return class$;
 }
 

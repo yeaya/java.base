@@ -1,5 +1,4 @@
 #include <indify/Indify$Method.h>
-
 #include <indify/Indify$Attr.h>
 #include <indify/Indify$Code.h>
 #include <indify/Indify$Instruction.h>
@@ -17,39 +16,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace indify {
-
-$MethodInfo _Indify$Method_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Indify$Method, init$, void)},
-	{"code", "()Lindify/Indify$Code;", nullptr, $PUBLIC, $virtualMethod(Indify$Method, code, $Indify$Code*)},
-	{"instructions", "()Lindify/Indify$Instruction;", nullptr, $PUBLIC, $virtualMethod(Indify$Method, instructions, $Indify$Instruction*)},
-	{}
-};
-
-$InnerClassInfo _Indify$Method_InnerClassesInfo_[] = {
-	{"indify.Indify$Method", "indify.Indify", "Method", $PUBLIC | $STATIC},
-	{"indify.Indify$Member", "indify.Indify", "Member", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Indify$Method_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"indify.Indify$Method",
-	"indify.Indify$Member",
-	nullptr,
-	nullptr,
-	_Indify$Method_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Indify$Method_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"indify.Indify"
-};
-
-$Object* allocate$Indify$Method($Class* clazz) {
-	return $of($alloc(Indify$Method));
-}
 
 void Indify$Method::init$() {
 	$Indify$Member::init$();
@@ -75,7 +41,35 @@ Indify$Method::Indify$Method() {
 }
 
 $Class* Indify$Method::load$($String* name, bool initialize) {
-	$loadClass(Indify$Method, name, initialize, &_Indify$Method_ClassInfo_, allocate$Indify$Method);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Indify$Method, init$, void)},
+		{"code", "()Lindify/Indify$Code;", nullptr, $PUBLIC, $virtualMethod(Indify$Method, code, $Indify$Code*)},
+		{"instructions", "()Lindify/Indify$Instruction;", nullptr, $PUBLIC, $virtualMethod(Indify$Method, instructions, $Indify$Instruction*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"indify.Indify$Method", "indify.Indify", "Method", $PUBLIC | $STATIC},
+		{"indify.Indify$Member", "indify.Indify", "Member", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"indify.Indify$Method",
+		"indify.Indify$Member",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"indify.Indify"
+	};
+	$loadClass(Indify$Method, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Indify$Method));
+	});
 	return class$;
 }
 

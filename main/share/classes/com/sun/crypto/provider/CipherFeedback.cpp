@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/CipherFeedback.h>
-
 #include <com/sun/crypto/provider/FeedbackCipher.h>
 #include <com/sun/crypto/provider/SymmetricCipher.h>
 #include <java/security/InvalidKeyException.h>
@@ -19,41 +18,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _CipherFeedback_FieldInfo_[] = {
-	{"k", "[B", nullptr, $PRIVATE | $FINAL, $field(CipherFeedback, k)},
-	{"register", "[B", nullptr, $PRIVATE | $FINAL, $field(CipherFeedback, register$)},
-	{"numBytes", "I", nullptr, $PRIVATE, $field(CipherFeedback, numBytes)},
-	{"registerSave", "[B", nullptr, $PRIVATE, $field(CipherFeedback, registerSave)},
-	{}
-};
-
-$MethodInfo _CipherFeedback_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;I)V", nullptr, 0, $method(CipherFeedback, init$, void, $SymmetricCipher*, int32_t)},
-	{"decrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(CipherFeedback, decrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"decryptFinal", "([BII[BI)I", nullptr, 0, $virtualMethod(CipherFeedback, decryptFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"encrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(CipherFeedback, encrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"encryptFinal", "([BII[BI)I", nullptr, 0, $virtualMethod(CipherFeedback, encryptFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"getFeedback", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(CipherFeedback, getFeedback, $String*)},
-	{"init", "(ZLjava/lang/String;[B[B)V", nullptr, 0, $virtualMethod(CipherFeedback, init, void, bool, $String*, $bytes*, $bytes*), "java.security.InvalidKeyException"},
-	{"reset", "()V", nullptr, 0, $virtualMethod(CipherFeedback, reset, void)},
-	{"restore", "()V", nullptr, 0, $virtualMethod(CipherFeedback, restore, void)},
-	{"save", "()V", nullptr, 0, $virtualMethod(CipherFeedback, save, void)},
-	{}
-};
-
-$ClassInfo _CipherFeedback_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.CipherFeedback",
-	"com.sun.crypto.provider.FeedbackCipher",
-	nullptr,
-	_CipherFeedback_FieldInfo_,
-	_CipherFeedback_MethodInfo_
-};
-
-$Object* allocate$CipherFeedback($Class* clazz) {
-	return $of($alloc(CipherFeedback));
-}
-
 void CipherFeedback::init$($SymmetricCipher* embeddedCipher, int32_t numBytes) {
 	$FeedbackCipher::init$(embeddedCipher);
 	$set(this, registerSave, nullptr);
@@ -70,7 +34,7 @@ $String* CipherFeedback::getFeedback() {
 }
 
 void CipherFeedback::init(bool decrypting, $String* algorithm, $bytes* key, $bytes* iv) {
-	if ((key == nullptr) || (iv == nullptr) || ($nc(iv)->length != this->blockSize)) {
+	if ((key == nullptr) || (iv == nullptr) || (iv->length != this->blockSize)) {
 		$throwNew($InvalidKeyException, "Internal error"_s);
 	}
 	$set(this, iv, iv);
@@ -106,7 +70,7 @@ int32_t CipherFeedback::encrypt($bytes* plain, int32_t plainOffset, int32_t plai
 		}
 		for (int32_t i = 0; i < this->numBytes; ++i) {
 			int32_t var$0 = nShift + i;
-			$nc(this->register$)->set(var$0, $nc(cipher)->set(i + cipherOffset, (int8_t)($nc(this->k)->get(i) ^ $nc(plain)->get(i + plainOffset))));
+			this->register$->set(var$0, $nc(cipher)->set(i + cipherOffset, (int8_t)(this->k->get(i) ^ $nc(plain)->get(i + plainOffset))));
 		}
 	}
 	return plainLen;
@@ -120,7 +84,7 @@ int32_t CipherFeedback::encryptFinal($bytes* plain, int32_t plainOffset, int32_t
 	if (oddBytes != 0) {
 		$nc(this->embeddedCipher)->encryptBlock(this->register$, 0, this->k, 0);
 		for (int32_t i = 0; i < oddBytes; ++i) {
-			$nc(cipher)->set(i + cipherOffset, (int8_t)($nc(this->k)->get(i) ^ $nc(plain)->get(i + plainOffset)));
+			$nc(cipher)->set(i + cipherOffset, (int8_t)(this->k->get(i) ^ $nc(plain)->get(i + plainOffset)));
 		}
 	}
 	return plainLen;
@@ -138,8 +102,8 @@ int32_t CipherFeedback::decrypt($bytes* cipher, int32_t cipherOffset, int32_t ci
 			$System::arraycopy(this->register$, this->numBytes, this->register$, 0, nShift);
 		}
 		for (int32_t i = 0; i < this->numBytes; ++i) {
-			$nc(this->register$)->set(i + nShift, $nc(cipher)->get(i + cipherOffset));
-			$nc(plain)->set(i + plainOffset, (int8_t)(cipher->get(i + cipherOffset) ^ $nc(this->k)->get(i)));
+			this->register$->set(i + nShift, $nc(cipher)->get(i + cipherOffset));
+			$nc(plain)->set(i + plainOffset, (int8_t)(cipher->get(i + cipherOffset) ^ this->k->get(i)));
 		}
 	}
 	return cipherLen;
@@ -153,7 +117,7 @@ int32_t CipherFeedback::decryptFinal($bytes* cipher, int32_t cipherOffset, int32
 	if (oddBytes != 0) {
 		$nc(this->embeddedCipher)->encryptBlock(this->register$, 0, this->k, 0);
 		for (int32_t i = 0; i < oddBytes; ++i) {
-			$nc(plain)->set(i + plainOffset, (int8_t)($nc(cipher)->get(i + cipherOffset) ^ $nc(this->k)->get(i)));
+			$nc(plain)->set(i + plainOffset, (int8_t)($nc(cipher)->get(i + cipherOffset) ^ this->k->get(i)));
 		}
 	}
 	return cipherLen;
@@ -163,7 +127,37 @@ CipherFeedback::CipherFeedback() {
 }
 
 $Class* CipherFeedback::load$($String* name, bool initialize) {
-	$loadClass(CipherFeedback, name, initialize, &_CipherFeedback_ClassInfo_, allocate$CipherFeedback);
+	$FieldInfo fieldInfos$$[] = {
+		{"k", "[B", nullptr, $PRIVATE | $FINAL, $field(CipherFeedback, k)},
+		{"register", "[B", nullptr, $PRIVATE | $FINAL, $field(CipherFeedback, register$)},
+		{"numBytes", "I", nullptr, $PRIVATE, $field(CipherFeedback, numBytes)},
+		{"registerSave", "[B", nullptr, $PRIVATE, $field(CipherFeedback, registerSave)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/crypto/provider/SymmetricCipher;I)V", nullptr, 0, $method(CipherFeedback, init$, void, $SymmetricCipher*, int32_t)},
+		{"decrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(CipherFeedback, decrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"decryptFinal", "([BII[BI)I", nullptr, 0, $virtualMethod(CipherFeedback, decryptFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"encrypt", "([BII[BI)I", nullptr, 0, $virtualMethod(CipherFeedback, encrypt, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"encryptFinal", "([BII[BI)I", nullptr, 0, $virtualMethod(CipherFeedback, encryptFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"getFeedback", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(CipherFeedback, getFeedback, $String*)},
+		{"init", "(ZLjava/lang/String;[B[B)V", nullptr, 0, $virtualMethod(CipherFeedback, init, void, bool, $String*, $bytes*, $bytes*), "java.security.InvalidKeyException"},
+		{"reset", "()V", nullptr, 0, $virtualMethod(CipherFeedback, reset, void)},
+		{"restore", "()V", nullptr, 0, $virtualMethod(CipherFeedback, restore, void)},
+		{"save", "()V", nullptr, 0, $virtualMethod(CipherFeedback, save, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.CipherFeedback",
+		"com.sun.crypto.provider.FeedbackCipher",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CipherFeedback, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CipherFeedback);
+	});
 	return class$;
 }
 

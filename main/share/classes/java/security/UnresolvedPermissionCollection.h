@@ -39,6 +39,7 @@ class UnresolvedPermissionCollection : public ::java::security::PermissionCollec
 	$class(UnresolvedPermissionCollection, 0, ::java::security::PermissionCollection)
 public:
 	UnresolvedPermissionCollection();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void add(::java::security::Permission* permission) override;
 	virtual ::java::util::Enumeration* elements() override;
@@ -47,7 +48,7 @@ public:
 	void readObject(::java::io::ObjectInputStream* in);
 	void writeObject(::java::io::ObjectOutputStream* out);
 	::java::util::concurrent::ConcurrentHashMap* perms = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x9C692ECD5984B390;
+	static const int64_t serialVersionUID = (int64_t)0x9c692ecd5984b390;
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
 };
 

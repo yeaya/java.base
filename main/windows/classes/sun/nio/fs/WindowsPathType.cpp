@@ -1,5 +1,4 @@
 #include <sun/nio/fs/WindowsPathType.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -18,38 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace nio {
 		namespace fs {
-
-$FieldInfo _WindowsPathType_FieldInfo_[] = {
-	{"ABSOLUTE", "Lsun/nio/fs/WindowsPathType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WindowsPathType, ABSOLUTE)},
-	{"UNC", "Lsun/nio/fs/WindowsPathType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WindowsPathType, UNC)},
-	{"RELATIVE", "Lsun/nio/fs/WindowsPathType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WindowsPathType, RELATIVE)},
-	{"DIRECTORY_RELATIVE", "Lsun/nio/fs/WindowsPathType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WindowsPathType, DIRECTORY_RELATIVE)},
-	{"DRIVE_RELATIVE", "Lsun/nio/fs/WindowsPathType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WindowsPathType, DRIVE_RELATIVE)},
-	{"$VALUES", "[Lsun/nio/fs/WindowsPathType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(WindowsPathType, $VALUES)},
-	{}
-};
-
-$MethodInfo _WindowsPathType_MethodInfo_[] = {
-	{"$values", "()[Lsun/nio/fs/WindowsPathType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsPathType, $values, $WindowsPathTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(WindowsPathType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/nio/fs/WindowsPathType;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsPathType, valueOf, WindowsPathType*, $String*)},
-	{"values", "()[Lsun/nio/fs/WindowsPathType;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsPathType, values, $WindowsPathTypeArray*)},
-	{}
-};
-
-$ClassInfo _WindowsPathType_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.nio.fs.WindowsPathType",
-	"java.lang.Enum",
-	nullptr,
-	_WindowsPathType_FieldInfo_,
-	_WindowsPathType_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/nio/fs/WindowsPathType;>;"
-};
-
-$Object* allocate$WindowsPathType($Class* clazz) {
-	return $of($alloc(WindowsPathType));
-}
 
 WindowsPathType* WindowsPathType::ABSOLUTE = nullptr;
 WindowsPathType* WindowsPathType::UNC = nullptr;
@@ -83,7 +50,7 @@ void WindowsPathType::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$WindowsPathType($Class* class$) {
+void WindowsPathType::clinit$($Class* clazz) {
 	$assignStatic(WindowsPathType::ABSOLUTE, $new(WindowsPathType, "ABSOLUTE"_s, 0));
 	$assignStatic(WindowsPathType::UNC, $new(WindowsPathType, "UNC"_s, 1));
 	$assignStatic(WindowsPathType::RELATIVE, $new(WindowsPathType, "RELATIVE"_s, 2));
@@ -96,7 +63,34 @@ WindowsPathType::WindowsPathType() {
 }
 
 $Class* WindowsPathType::load$($String* name, bool initialize) {
-	$loadClass(WindowsPathType, name, initialize, &_WindowsPathType_ClassInfo_, clinit$WindowsPathType, allocate$WindowsPathType);
+	$FieldInfo fieldInfos$$[] = {
+		{"ABSOLUTE", "Lsun/nio/fs/WindowsPathType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WindowsPathType, ABSOLUTE)},
+		{"UNC", "Lsun/nio/fs/WindowsPathType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WindowsPathType, UNC)},
+		{"RELATIVE", "Lsun/nio/fs/WindowsPathType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WindowsPathType, RELATIVE)},
+		{"DIRECTORY_RELATIVE", "Lsun/nio/fs/WindowsPathType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WindowsPathType, DIRECTORY_RELATIVE)},
+		{"DRIVE_RELATIVE", "Lsun/nio/fs/WindowsPathType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WindowsPathType, DRIVE_RELATIVE)},
+		{"$VALUES", "[Lsun/nio/fs/WindowsPathType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(WindowsPathType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/nio/fs/WindowsPathType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsPathType, $values, $WindowsPathTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(WindowsPathType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/nio/fs/WindowsPathType;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsPathType, valueOf, WindowsPathType*, $String*)},
+		{"values", "()[Lsun/nio/fs/WindowsPathType;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsPathType, values, $WindowsPathTypeArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.nio.fs.WindowsPathType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/nio/fs/WindowsPathType;>;"
+	};
+	$loadClass(WindowsPathType, name, initialize, &classInfo$$, WindowsPathType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsPathType));
+	});
 	return class$;
 }
 

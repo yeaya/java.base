@@ -20,11 +20,14 @@ public:
 	TypeNotPresentException();
 	void init$($String* typeName, $Throwable* cause);
 	virtual $String* typeName();
-	static const int64_t serialVersionUID = (int64_t)0xB934D8B76522CF20;
+	static const int64_t serialVersionUID = (int64_t)0xb934d8b76522cf20;
 	$String* typeName$ = nullptr;
 	TypeNotPresentException(const TypeNotPresentException& e);
 	virtual void throw$() override;
-	inline TypeNotPresentException* operator ->() {
+	inline TypeNotPresentException* operator ->() const {
+		return (TypeNotPresentException*)throwing$;
+	}
+	inline operator TypeNotPresentException*() const {
 		return (TypeNotPresentException*)throwing$;
 	}
 };

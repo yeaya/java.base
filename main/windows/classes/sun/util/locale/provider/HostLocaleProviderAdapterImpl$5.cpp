@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/HostLocaleProviderAdapterImpl$5.h>
-
 #include <java/util/Locale.h>
 #include <java/util/spi/CalendarDataProvider.h>
 #include <sun/util/locale/provider/HostLocaleProviderAdapterImpl.h>
@@ -19,46 +18,6 @@ namespace sun {
 		namespace locale {
 			namespace provider {
 
-$MethodInfo _HostLocaleProviderAdapterImpl$5_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HostLocaleProviderAdapterImpl$5, init$, void)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$5, getAvailableLocales, $LocaleArray*)},
-	{"getFirstDayOfWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$5, getFirstDayOfWeek, int32_t, $Locale*)},
-	{"getMinimalDaysInFirstWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$5, getMinimalDaysInFirstWeek, int32_t, $Locale*)},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$5, isSupportedLocale, bool, $Locale*)},
-	{}
-};
-
-$EnclosingMethodInfo _HostLocaleProviderAdapterImpl$5_EnclosingMethodInfo_ = {
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl",
-	"getCalendarDataProvider",
-	"()Ljava/util/spi/CalendarDataProvider;"
-};
-
-$InnerClassInfo _HostLocaleProviderAdapterImpl$5_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.HostLocaleProviderAdapterImpl$5", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HostLocaleProviderAdapterImpl$5_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl$5",
-	"java.util.spi.CalendarDataProvider",
-	nullptr,
-	nullptr,
-	_HostLocaleProviderAdapterImpl$5_MethodInfo_,
-	nullptr,
-	&_HostLocaleProviderAdapterImpl$5_EnclosingMethodInfo_,
-	_HostLocaleProviderAdapterImpl$5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl"
-};
-
-$Object* allocate$HostLocaleProviderAdapterImpl$5($Class* clazz) {
-	return $of($alloc(HostLocaleProviderAdapterImpl$5));
-}
-
 void HostLocaleProviderAdapterImpl$5::init$() {
 	$CalendarDataProvider::init$();
 }
@@ -72,8 +31,8 @@ bool HostLocaleProviderAdapterImpl$5::isSupportedLocale($Locale* locale) {
 }
 
 int32_t HostLocaleProviderAdapterImpl$5::getFirstDayOfWeek($Locale* locale) {
-	$useLocalCurrentObjectStackCache();
-	int32_t first = $HostLocaleProviderAdapterImpl::getCalendarDataValue($($nc($($HostLocaleProviderAdapterImpl::removeExtensions(locale)))->toLanguageTag()), 0);
+	$useLocalObjectStack();
+	int32_t first = $HostLocaleProviderAdapterImpl::getCalendarDataValue($($$nc($HostLocaleProviderAdapterImpl::removeExtensions(locale))->toLanguageTag()), 0);
 	if (first != -1) {
 		return (first + 1) % 7 + 1;
 	} else {
@@ -82,26 +41,19 @@ int32_t HostLocaleProviderAdapterImpl$5::getFirstDayOfWeek($Locale* locale) {
 }
 
 int32_t HostLocaleProviderAdapterImpl$5::getMinimalDaysInFirstWeek($Locale* locale) {
-	$useLocalCurrentObjectStackCache();
-	int32_t firstWeek = $HostLocaleProviderAdapterImpl::getCalendarDataValue($($nc($($HostLocaleProviderAdapterImpl::removeExtensions(locale)))->toLanguageTag()), 1);
-
+	$useLocalObjectStack();
+	int32_t firstWeek = $HostLocaleProviderAdapterImpl::getCalendarDataValue($($$nc($HostLocaleProviderAdapterImpl::removeExtensions(locale))->toLanguageTag()), 1);
 	int32_t var$0 = 0;
 	switch (firstWeek) {
 	case 1:
-		{
-			var$0 = 7;
-			break;
-		}
+		var$0 = 7;
+		break;
 	case 2:
-		{
-			var$0 = 4;
-			break;
-		}
+		var$0 = 4;
+		break;
 	default:
-		{
-			var$0 = 1;
-			break;
-		}
+		var$0 = 1;
+		break;
 	}
 	return var$0;
 }
@@ -110,7 +62,41 @@ HostLocaleProviderAdapterImpl$5::HostLocaleProviderAdapterImpl$5() {
 }
 
 $Class* HostLocaleProviderAdapterImpl$5::load$($String* name, bool initialize) {
-	$loadClass(HostLocaleProviderAdapterImpl$5, name, initialize, &_HostLocaleProviderAdapterImpl$5_ClassInfo_, allocate$HostLocaleProviderAdapterImpl$5);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HostLocaleProviderAdapterImpl$5, init$, void)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$5, getAvailableLocales, $LocaleArray*)},
+		{"getFirstDayOfWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$5, getFirstDayOfWeek, int32_t, $Locale*)},
+		{"getMinimalDaysInFirstWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$5, getMinimalDaysInFirstWeek, int32_t, $Locale*)},
+		{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$5, isSupportedLocale, bool, $Locale*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl",
+		"getCalendarDataProvider",
+		"()Ljava/util/spi/CalendarDataProvider;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.HostLocaleProviderAdapterImpl$5", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl$5",
+		"java.util.spi.CalendarDataProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl"
+	};
+	$loadClass(HostLocaleProviderAdapterImpl$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HostLocaleProviderAdapterImpl$5);
+	});
 	return class$;
 }
 

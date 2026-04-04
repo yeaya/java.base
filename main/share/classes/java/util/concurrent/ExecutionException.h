@@ -23,10 +23,13 @@ public:
 	void init$($String* message);
 	void init$($String* message, $Throwable* cause);
 	void init$($Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0x6CAAB173BFB4E069;
+	static const int64_t serialVersionUID = (int64_t)0x6caab173bfb4e069;
 	ExecutionException(const ExecutionException& e);
 	virtual void throw$() override;
-	inline ExecutionException* operator ->() {
+	inline ExecutionException* operator ->() const {
+		return (ExecutionException*)throwing$;
+	}
+	inline operator ExecutionException*() const {
 		return (ExecutionException*)throwing$;
 	}
 };

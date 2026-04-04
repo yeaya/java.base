@@ -1,5 +1,4 @@
 #include <test/java/lang/invoke/CountedLoopIterationCountsTest.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/ExceptionInInitializerError.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -12,7 +11,6 @@
 #undef MIN_VALUE
 #undef TYPE
 
-using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ExceptionInInitializerError = ::java::lang::ExceptionInInitializerError;
@@ -21,41 +19,12 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $MethodType = ::java::lang::invoke::MethodType;
 
 namespace test {
 	namespace java {
 		namespace lang {
 			namespace invoke {
-
-$FieldInfo _CountedLoopIterationCountsTest_FieldInfo_[] = {
-	{"failed", "Z", nullptr, $STATIC, $staticField(CountedLoopIterationCountsTest, failed)},
-	{"MH_m1", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(CountedLoopIterationCountsTest, MH_m1)},
-	{"MH_step", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(CountedLoopIterationCountsTest, MH_step)},
-	{}
-};
-
-$MethodInfo _CountedLoopIterationCountsTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CountedLoopIterationCountsTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CountedLoopIterationCountsTest, main, void, $StringArray*), "java.lang.Throwable"},
-	{"run", "(III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CountedLoopIterationCountsTest, run, void, int32_t, int32_t, int32_t), "java.lang.Throwable"},
-	{"step", "(II)I", nullptr, $STATIC, $staticMethod(CountedLoopIterationCountsTest, step, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _CountedLoopIterationCountsTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"test.java.lang.invoke.CountedLoopIterationCountsTest",
-	"java.lang.Object",
-	nullptr,
-	_CountedLoopIterationCountsTest_FieldInfo_,
-	_CountedLoopIterationCountsTest_MethodInfo_
-};
-
-$Object* allocate$CountedLoopIterationCountsTest($Class* clazz) {
-	return $of($alloc(CountedLoopIterationCountsTest));
-}
 
 bool CountedLoopIterationCountsTest::failed = false;
 $MethodHandle* CountedLoopIterationCountsTest::MH_m1 = nullptr;
@@ -84,14 +53,13 @@ void CountedLoopIterationCountsTest::main($StringArray* args) {
 
 void CountedLoopIterationCountsTest::run(int32_t start, int32_t end, int32_t expectedIterations) {
 	$init(CountedLoopIterationCountsTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println($$str({"run from "_s, $$str(start), " to "_s, $$str(end)}));
-	$init($Integer);
 	$var($MethodHandle, var$0, $MethodHandles::constant($Integer::TYPE, $($Integer::valueOf(start))));
 	$var($MethodHandle, loop, $MethodHandles::countedLoop(var$0, $($MethodHandles::constant($Integer::TYPE, $($Integer::valueOf(end)))), CountedLoopIterationCountsTest::MH_m1, CountedLoopIterationCountsTest::MH_step));
 	int32_t r = $intValue($nc(loop)->invoke($$new($ObjectArray, 0)));
 	if (r + 1 != expectedIterations) {
-		$nc($System::out)->println($$str({"expected "_s, $$str(expectedIterations), " iterations, but got "_s, $$str(r)}));
+		$System::out->println($$str({"expected "_s, $$str(expectedIterations), " iterations, but got "_s, $$str(r)}));
 		CountedLoopIterationCountsTest::failed = true;
 	}
 }
@@ -101,17 +69,16 @@ int32_t CountedLoopIterationCountsTest::step(int32_t stepCount, int32_t counter)
 	return stepCount + 1;
 }
 
-void clinit$CountedLoopIterationCountsTest($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void CountedLoopIterationCountsTest::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	CountedLoopIterationCountsTest::failed = false;
 	{
 		try {
-			$init($Integer);
 			$assignStatic(CountedLoopIterationCountsTest::MH_m1, $MethodHandles::constant($Integer::TYPE, $($Integer::valueOf(-1))));
-			$assignStatic(CountedLoopIterationCountsTest::MH_step, $nc($($MethodHandles::lookup()))->findStatic(CountedLoopIterationCountsTest::class$, "step"_s, $($MethodType::methodType($Integer::TYPE, $Integer::TYPE, $$new($ClassArray, {$Integer::TYPE})))));
+			$assignStatic(CountedLoopIterationCountsTest::MH_step, $$nc($MethodHandles::lookup())->findStatic(CountedLoopIterationCountsTest::class$, "step"_s, $($MethodType::methodType($Integer::TYPE, $Integer::TYPE, $$new($ClassArray, {$Integer::TYPE})))));
 		} catch ($Throwable& t) {
-			$throwNew($ExceptionInInitializerError, $cast($Throwable, t));
+			$throwNew($ExceptionInInitializerError, t);
 		}
 	}
 }
@@ -120,7 +87,30 @@ CountedLoopIterationCountsTest::CountedLoopIterationCountsTest() {
 }
 
 $Class* CountedLoopIterationCountsTest::load$($String* name, bool initialize) {
-	$loadClass(CountedLoopIterationCountsTest, name, initialize, &_CountedLoopIterationCountsTest_ClassInfo_, clinit$CountedLoopIterationCountsTest, allocate$CountedLoopIterationCountsTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"failed", "Z", nullptr, $STATIC, $staticField(CountedLoopIterationCountsTest, failed)},
+		{"MH_m1", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(CountedLoopIterationCountsTest, MH_m1)},
+		{"MH_step", "Ljava/lang/invoke/MethodHandle;", nullptr, $STATIC | $FINAL, $staticField(CountedLoopIterationCountsTest, MH_step)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CountedLoopIterationCountsTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CountedLoopIterationCountsTest, main, void, $StringArray*), "java.lang.Throwable"},
+		{"run", "(III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CountedLoopIterationCountsTest, run, void, int32_t, int32_t, int32_t), "java.lang.Throwable"},
+		{"step", "(II)I", nullptr, $STATIC, $staticMethod(CountedLoopIterationCountsTest, step, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"test.java.lang.invoke.CountedLoopIterationCountsTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CountedLoopIterationCountsTest, name, initialize, &classInfo$$, CountedLoopIterationCountsTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CountedLoopIterationCountsTest);
+	});
 	return class$;
 }
 

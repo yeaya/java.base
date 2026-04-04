@@ -1,5 +1,4 @@
 #include <java/nio/channels/AsynchronousCloseException.h>
-
 #include <java/nio/channels/ClosedChannelException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $ClosedChannelException = ::java::nio::channels::ClosedChannelException;
 namespace java {
 	namespace nio {
 		namespace channels {
-
-$FieldInfo _AsynchronousCloseException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AsynchronousCloseException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AsynchronousCloseException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AsynchronousCloseException, init$, void)},
-	{}
-};
-
-$ClassInfo _AsynchronousCloseException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.channels.AsynchronousCloseException",
-	"java.nio.channels.ClosedChannelException",
-	nullptr,
-	_AsynchronousCloseException_FieldInfo_,
-	_AsynchronousCloseException_MethodInfo_
-};
-
-$Object* allocate$AsynchronousCloseException($Class* clazz) {
-	return $of($alloc(AsynchronousCloseException));
-}
 
 void AsynchronousCloseException::init$() {
 	$ClosedChannelException::init$();
@@ -50,7 +26,25 @@ void AsynchronousCloseException::throw$() {
 }
 
 $Class* AsynchronousCloseException::load$($String* name, bool initialize) {
-	$loadClass(AsynchronousCloseException, name, initialize, &_AsynchronousCloseException_ClassInfo_, allocate$AsynchronousCloseException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AsynchronousCloseException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AsynchronousCloseException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.channels.AsynchronousCloseException",
+		"java.nio.channels.ClosedChannelException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AsynchronousCloseException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AsynchronousCloseException);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jcpp/test/TestASIF4.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -8,26 +7,22 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace jcpp {
 	namespace test {
 
-$MethodInfo _TestASIF4_MethodInfo_[] = {
-	{"get4", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestASIF4, get4, $String*)},
-	{}
-};
-
-$ClassInfo _TestASIF4_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"jcpp.test.TestASIF4",
-	nullptr,
-	nullptr,
-	nullptr,
-	_TestASIF4_MethodInfo_
-};
-
-$Object* allocate$TestASIF4($Class* clazz) {
-	return $of($alloc(TestASIF4));
-}
-
 $Class* TestASIF4::load$($String* name, bool initialize) {
-	$loadClass(TestASIF4, name, initialize, &_TestASIF4_ClassInfo_, allocate$TestASIF4);
+	$MethodInfo methodInfos$$[] = {
+		{"get4", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestASIF4, get4, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"jcpp.test.TestASIF4",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestASIF4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestASIF4);
+	});
 	return class$;
 }
 

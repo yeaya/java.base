@@ -1,5 +1,4 @@
 #include <java/lang/invoke/MemberName$Factory.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/IllegalAccessException.h>
@@ -10,9 +9,7 @@
 #include <java/lang/invoke/MethodHandleNatives.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -38,9 +35,7 @@ using $MemberName = ::java::lang::invoke::MemberName;
 using $MethodHandleNatives = ::java::lang::invoke::MethodHandleNatives;
 using $MethodType = ::java::lang::invoke::MethodType;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
@@ -50,54 +45,6 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$FieldInfo _MemberName$Factory_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MemberName$Factory, $assertionsDisabled)},
-	{"INSTANCE", "Ljava/lang/invoke/MemberName$Factory;", nullptr, $STATIC, $staticField(MemberName$Factory, INSTANCE)},
-	{"ALLOWED_FLAGS", "I", nullptr, $PRIVATE | $STATIC, $staticField(MemberName$Factory, ALLOWED_FLAGS)},
-	{}
-};
-
-$MethodInfo _MemberName$Factory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MemberName$Factory, init$, void)},
-	{"getConstructors", "(Ljava/lang/Class;Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/util/List<Ljava/lang/invoke/MemberName;>;", $PUBLIC, $virtualMethod(MemberName$Factory, getConstructors, $List*, $Class*, $Class*)},
-	{"getFields", "(Ljava/lang/Class;ZLjava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;ZLjava/lang/Class<*>;)Ljava/util/List<Ljava/lang/invoke/MemberName;>;", $PUBLIC, $virtualMethod(MemberName$Factory, getFields, $List*, $Class*, bool, $Class*)},
-	{"getFields", "(Ljava/lang/Class;ZLjava/lang/String;Ljava/lang/Class;Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;ZLjava/lang/String;Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/util/List<Ljava/lang/invoke/MemberName;>;", $PUBLIC, $virtualMethod(MemberName$Factory, getFields, $List*, $Class*, bool, $String*, $Class*, $Class*)},
-	{"getMembers", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Object;ILjava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Object;ILjava/lang/Class<*>;)Ljava/util/List<Ljava/lang/invoke/MemberName;>;", 0, $virtualMethod(MemberName$Factory, getMembers, $List*, $Class*, $String*, Object$*, int32_t, $Class*)},
-	{"getMethods", "(Ljava/lang/Class;ZLjava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;ZLjava/lang/Class<*>;)Ljava/util/List<Ljava/lang/invoke/MemberName;>;", $PUBLIC, $virtualMethod(MemberName$Factory, getMethods, $List*, $Class*, bool, $Class*)},
-	{"getMethods", "(Ljava/lang/Class;ZLjava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;ZLjava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Class<*>;)Ljava/util/List<Ljava/lang/invoke/MemberName;>;", $PUBLIC, $virtualMethod(MemberName$Factory, getMethods, $List*, $Class*, bool, $String*, $MethodType*, $Class*)},
-	{"getNestedTypes", "(Ljava/lang/Class;ZLjava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;ZLjava/lang/Class<*>;)Ljava/util/List<Ljava/lang/invoke/MemberName;>;", $PUBLIC, $virtualMethod(MemberName$Factory, getNestedTypes, $List*, $Class*, bool, $Class*)},
-	{"newMemberBuffer", "(I)[Ljava/lang/invoke/MemberName;", nullptr, $PRIVATE | $STATIC, $staticMethod(MemberName$Factory, newMemberBuffer, $MemberNameArray*, int32_t)},
-	{"resolve", "(BLjava/lang/invoke/MemberName;Ljava/lang/Class;IZ)Ljava/lang/invoke/MemberName;", "(BLjava/lang/invoke/MemberName;Ljava/lang/Class<*>;IZ)Ljava/lang/invoke/MemberName;", $PRIVATE, $method(MemberName$Factory, resolve, $MemberName*, int8_t, $MemberName*, $Class*, int32_t, bool)},
-	{"resolveOrFail", "(BLjava/lang/invoke/MemberName;Ljava/lang/Class;ILjava/lang/Class;)Ljava/lang/invoke/MemberName;", "<NoSuchMemberException:Ljava/lang/ReflectiveOperationException;>(BLjava/lang/invoke/MemberName;Ljava/lang/Class<*>;ILjava/lang/Class<TNoSuchMemberException;>;)Ljava/lang/invoke/MemberName;^Ljava/lang/IllegalAccessException;^TNoSuchMemberException;", $PUBLIC, $virtualMethod(MemberName$Factory, resolveOrFail, $MemberName*, int8_t, $MemberName*, $Class*, int32_t, $Class*), "java.lang.IllegalAccessException,java.lang.ReflectiveOperationException"},
-	{"resolveOrNull", "(BLjava/lang/invoke/MemberName;Ljava/lang/Class;I)Ljava/lang/invoke/MemberName;", "(BLjava/lang/invoke/MemberName;Ljava/lang/Class<*>;I)Ljava/lang/invoke/MemberName;", $PUBLIC, $virtualMethod(MemberName$Factory, resolveOrNull, $MemberName*, int8_t, $MemberName*, $Class*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MemberName$Factory_InnerClassesInfo_[] = {
-	{"java.lang.invoke.MemberName$Factory", "java.lang.invoke.MemberName", "Factory", $STATIC},
-	{}
-};
-
-$ClassInfo _MemberName$Factory_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.MemberName$Factory",
-	"java.lang.Object",
-	nullptr,
-	_MemberName$Factory_FieldInfo_,
-	_MemberName$Factory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MemberName$Factory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.MemberName"
-};
-
-$Object* allocate$MemberName$Factory($Class* clazz) {
-	return $of($alloc(MemberName$Factory));
-}
-
 bool MemberName$Factory::$assertionsDisabled = false;
 MemberName$Factory* MemberName$Factory::INSTANCE = nullptr;
 int32_t MemberName$Factory::ALLOWED_FLAGS = 0;
@@ -106,15 +53,15 @@ void MemberName$Factory::init$() {
 }
 
 $List* MemberName$Factory::getMembers($Class* defc, $String* matchName, Object$* matchType, int32_t matchFlags, $Class* lookupClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	matchFlags &= (uint32_t)MemberName$Factory::ALLOWED_FLAGS;
 	$var($String, matchSig, nullptr);
 	if (matchType != nullptr) {
 		$assign(matchSig, $BytecodeDescriptor::unparse(matchType));
 		if ($nc(matchSig)->startsWith("("_s)) {
-			matchFlags &= (uint32_t)~((int32_t)(0x000F0000 & (uint32_t)~0x00030000));
+			matchFlags &= (uint32_t)~(0x000f0000 & ~0x00030000);
 		} else {
-			matchFlags &= (uint32_t)~((int32_t)(0x000F0000 & (uint32_t)~0x00040000));
+			matchFlags &= (uint32_t)~(0x000f0000 & ~0x00040000);
 		}
 	}
 	int32_t BUF_MAX = 8192;
@@ -132,7 +79,7 @@ $List* MemberName$Factory::getMembers($Class* defc, $String* matchName, Object$*
 			totalCount += bufCount;
 			break;
 		}
-		totalCount += $nc(buf)->length;
+		totalCount += buf->length;
 		int32_t excess = bufCount - buf->length;
 		if (bufs == nullptr) {
 			$assign(bufs, $new($ArrayList, 1));
@@ -145,13 +92,11 @@ $List* MemberName$Factory::getMembers($Class* defc, $String* matchName, Object$*
 	}
 	$var($ArrayList, result, $new($ArrayList, totalCount));
 	if (bufs != nullptr) {
-		{
-			$var($Iterator, i$, bufs->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($MemberNameArray, buf0, $cast($MemberNameArray, i$->next()));
-				{
-					$Collections::addAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(result))), buf0);
-				}
+		$var($Iterator, i$, bufs->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($MemberNameArray, buf0, $cast($MemberNameArray, i$->next()));
+			{
+				$Collections::addAll($cast($AbstractCollection, result), buf0);
 			}
 		}
 	}
@@ -159,13 +104,11 @@ $List* MemberName$Factory::getMembers($Class* defc, $String* matchName, Object$*
 		result->add($nc(buf)->get(i));
 	}
 	if (matchType != nullptr && !$equals(matchType, matchSig)) {
-		{
-			$var($Iterator, it, result->iterator());
-			for (; $nc(it)->hasNext();) {
-				$var($MemberName, m, $cast($MemberName, it->next()));
-				if (!$of(matchType)->equals($($nc(m)->getType()))) {
-					it->remove();
-				}
+		$var($Iterator, it, result->iterator());
+		for (; $nc(it)->hasNext();) {
+			$var($MemberName, m, $cast($MemberName, it->next()));
+			if (!$of(matchType)->equals($($nc(m)->getType()))) {
+				it->remove();
 			}
 		}
 	}
@@ -182,7 +125,7 @@ $MemberName* MemberName$Factory::resolve(int8_t refKind, $MemberName* ref, $Clas
 		if (m == nullptr && speculativeResolve) {
 			return nullptr;
 		}
-		$nc(m)->checkForTypeAlias(m->getDeclaringClass());
+		$nc(m)->checkForTypeAlias($nc(m)->getDeclaringClass());
 		$set(m, resolution, nullptr);
 	} catch ($ClassNotFoundException& ex) {
 		if (!MemberName$Factory::$assertionsDisabled && !(!$nc(m)->isResolved())) {
@@ -208,7 +151,7 @@ $MemberName* MemberName$Factory::resolve(int8_t refKind, $MemberName* ref, $Clas
 }
 
 $MemberName* MemberName$Factory::resolveOrFail(int8_t refKind, $MemberName* m, $Class* lookupClass, int32_t allowedModes, $Class* nsmClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!MemberName$Factory::$assertionsDisabled && !(lookupClass != nullptr || allowedModes == -1)) {
 		$throwNew($AssertionError);
 	}
@@ -216,11 +159,11 @@ $MemberName* MemberName$Factory::resolveOrFail(int8_t refKind, $MemberName* m, $
 	if ($nc(result)->isResolved()) {
 		return result;
 	}
-	$var($ReflectiveOperationException, ex, $nc(result)->makeAccessException());
+	$var($ReflectiveOperationException, ex, result->makeAccessException());
 	if ($instanceOf($IllegalAccessException, ex)) {
 		$throw($cast($IllegalAccessException, ex));
 	}
-	$throw($cast($ReflectiveOperationException, $($nc(nsmClass)->cast(ex))));
+	$throw($$cast($ReflectiveOperationException, $nc(nsmClass)->cast(ex)));
 }
 
 $MemberName* MemberName$Factory::resolveOrNull(int8_t refKind, $MemberName* m, $Class* lookupClass, int32_t allowedModes) {
@@ -263,7 +206,7 @@ $List* MemberName$Factory::getNestedTypes($Class* defc, bool searchSupers, $Clas
 
 $MemberNameArray* MemberName$Factory::newMemberBuffer(int32_t length) {
 	$init(MemberName$Factory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemberNameArray, buf, $new($MemberNameArray, length));
 	for (int32_t i = 0; i < length; ++i) {
 		buf->set(i, $$new($MemberName));
@@ -271,18 +214,60 @@ $MemberNameArray* MemberName$Factory::newMemberBuffer(int32_t length) {
 	return buf;
 }
 
-void clinit$MemberName$Factory($Class* class$) {
+void MemberName$Factory::clinit$($Class* clazz) {
 	$load($MemberName);
 	MemberName$Factory::$assertionsDisabled = !$MemberName::class$->desiredAssertionStatus();
 	$assignStatic(MemberName$Factory::INSTANCE, $new(MemberName$Factory));
-	MemberName$Factory::ALLOWED_FLAGS = 0x000F0000;
+	MemberName$Factory::ALLOWED_FLAGS = 0x000f0000;
 }
 
 MemberName$Factory::MemberName$Factory() {
 }
 
 $Class* MemberName$Factory::load$($String* name, bool initialize) {
-	$loadClass(MemberName$Factory, name, initialize, &_MemberName$Factory_ClassInfo_, clinit$MemberName$Factory, allocate$MemberName$Factory);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MemberName$Factory, $assertionsDisabled)},
+		{"INSTANCE", "Ljava/lang/invoke/MemberName$Factory;", nullptr, $STATIC, $staticField(MemberName$Factory, INSTANCE)},
+		{"ALLOWED_FLAGS", "I", nullptr, $PRIVATE | $STATIC, $staticField(MemberName$Factory, ALLOWED_FLAGS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MemberName$Factory, init$, void)},
+		{"getConstructors", "(Ljava/lang/Class;Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/util/List<Ljava/lang/invoke/MemberName;>;", $PUBLIC, $virtualMethod(MemberName$Factory, getConstructors, $List*, $Class*, $Class*)},
+		{"getFields", "(Ljava/lang/Class;ZLjava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;ZLjava/lang/Class<*>;)Ljava/util/List<Ljava/lang/invoke/MemberName;>;", $PUBLIC, $virtualMethod(MemberName$Factory, getFields, $List*, $Class*, bool, $Class*)},
+		{"getFields", "(Ljava/lang/Class;ZLjava/lang/String;Ljava/lang/Class;Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;ZLjava/lang/String;Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Ljava/util/List<Ljava/lang/invoke/MemberName;>;", $PUBLIC, $virtualMethod(MemberName$Factory, getFields, $List*, $Class*, bool, $String*, $Class*, $Class*)},
+		{"getMembers", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Object;ILjava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Object;ILjava/lang/Class<*>;)Ljava/util/List<Ljava/lang/invoke/MemberName;>;", 0, $virtualMethod(MemberName$Factory, getMembers, $List*, $Class*, $String*, Object$*, int32_t, $Class*)},
+		{"getMethods", "(Ljava/lang/Class;ZLjava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;ZLjava/lang/Class<*>;)Ljava/util/List<Ljava/lang/invoke/MemberName;>;", $PUBLIC, $virtualMethod(MemberName$Factory, getMethods, $List*, $Class*, bool, $Class*)},
+		{"getMethods", "(Ljava/lang/Class;ZLjava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;ZLjava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/Class<*>;)Ljava/util/List<Ljava/lang/invoke/MemberName;>;", $PUBLIC, $virtualMethod(MemberName$Factory, getMethods, $List*, $Class*, bool, $String*, $MethodType*, $Class*)},
+		{"getNestedTypes", "(Ljava/lang/Class;ZLjava/lang/Class;)Ljava/util/List;", "(Ljava/lang/Class<*>;ZLjava/lang/Class<*>;)Ljava/util/List<Ljava/lang/invoke/MemberName;>;", $PUBLIC, $virtualMethod(MemberName$Factory, getNestedTypes, $List*, $Class*, bool, $Class*)},
+		{"newMemberBuffer", "(I)[Ljava/lang/invoke/MemberName;", nullptr, $PRIVATE | $STATIC, $staticMethod(MemberName$Factory, newMemberBuffer, $MemberNameArray*, int32_t)},
+		{"resolve", "(BLjava/lang/invoke/MemberName;Ljava/lang/Class;IZ)Ljava/lang/invoke/MemberName;", "(BLjava/lang/invoke/MemberName;Ljava/lang/Class<*>;IZ)Ljava/lang/invoke/MemberName;", $PRIVATE, $method(MemberName$Factory, resolve, $MemberName*, int8_t, $MemberName*, $Class*, int32_t, bool)},
+		{"resolveOrFail", "(BLjava/lang/invoke/MemberName;Ljava/lang/Class;ILjava/lang/Class;)Ljava/lang/invoke/MemberName;", "<NoSuchMemberException:Ljava/lang/ReflectiveOperationException;>(BLjava/lang/invoke/MemberName;Ljava/lang/Class<*>;ILjava/lang/Class<TNoSuchMemberException;>;)Ljava/lang/invoke/MemberName;^Ljava/lang/IllegalAccessException;^TNoSuchMemberException;", $PUBLIC, $virtualMethod(MemberName$Factory, resolveOrFail, $MemberName*, int8_t, $MemberName*, $Class*, int32_t, $Class*), "java.lang.IllegalAccessException,java.lang.ReflectiveOperationException"},
+		{"resolveOrNull", "(BLjava/lang/invoke/MemberName;Ljava/lang/Class;I)Ljava/lang/invoke/MemberName;", "(BLjava/lang/invoke/MemberName;Ljava/lang/Class<*>;I)Ljava/lang/invoke/MemberName;", $PUBLIC, $virtualMethod(MemberName$Factory, resolveOrNull, $MemberName*, int8_t, $MemberName*, $Class*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.MemberName$Factory", "java.lang.invoke.MemberName", "Factory", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.MemberName$Factory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.MemberName"
+	};
+	$loadClass(MemberName$Factory, name, initialize, &classInfo$$, MemberName$Factory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MemberName$Factory);
+	});
 	return class$;
 }
 

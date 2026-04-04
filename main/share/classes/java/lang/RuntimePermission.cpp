@@ -1,5 +1,4 @@
 #include <java/lang/RuntimePermission.h>
-
 #include <java/security/BasicPermission.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $BasicPermission = ::java::security::BasicPermission;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _RuntimePermission_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RuntimePermission, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _RuntimePermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RuntimePermission, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RuntimePermission, init$, void, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _RuntimePermission_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.lang.RuntimePermission",
-	"java.security.BasicPermission",
-	nullptr,
-	_RuntimePermission_FieldInfo_,
-	_RuntimePermission_MethodInfo_
-};
-
-$Object* allocate$RuntimePermission($Class* clazz) {
-	return $of($alloc(RuntimePermission));
-}
 
 void RuntimePermission::init$($String* name) {
 	$BasicPermission::init$(name);
@@ -47,7 +22,26 @@ RuntimePermission::RuntimePermission() {
 }
 
 $Class* RuntimePermission::load$($String* name, bool initialize) {
-	$loadClass(RuntimePermission, name, initialize, &_RuntimePermission_ClassInfo_, allocate$RuntimePermission);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RuntimePermission, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RuntimePermission, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RuntimePermission, init$, void, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.lang.RuntimePermission",
+		"java.security.BasicPermission",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RuntimePermission, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RuntimePermission));
+	});
 	return class$;
 }
 

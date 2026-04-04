@@ -1,5 +1,4 @@
 #include <java/io/Writer$1.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Writer.h>
 #include <java/lang/CharSequence.h>
@@ -18,57 +17,6 @@ using $Objects = ::java::util::Objects;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _Writer$1_FieldInfo_[] = {
-	{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(Writer$1, closed)},
-	{}
-};
-
-$MethodInfo _Writer$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Writer$1, init$, void)},
-	{"append", "(C)Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(Writer$1, append, $Writer*, char16_t), "java.io.IOException"},
-	{"append", "(Ljava/lang/CharSequence;)Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(Writer$1, append, $Writer*, $CharSequence*), "java.io.IOException"},
-	{"append", "(Ljava/lang/CharSequence;II)Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(Writer$1, append, $Writer*, $CharSequence*, int32_t, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Writer$1, close, void), "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(Writer$1, ensureOpen, void), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(Writer$1, flush, void), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(Writer$1, write, void, int32_t), "java.io.IOException"},
-	{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(Writer$1, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"write", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Writer$1, write, void, $String*), "java.io.IOException"},
-	{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(Writer$1, write, void, $String*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _Writer$1_EnclosingMethodInfo_ = {
-	"java.io.Writer",
-	"nullWriter",
-	"()Ljava/io/Writer;"
-};
-
-$InnerClassInfo _Writer$1_InnerClassesInfo_[] = {
-	{"java.io.Writer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Writer$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.io.Writer$1",
-	"java.io.Writer",
-	nullptr,
-	_Writer$1_FieldInfo_,
-	_Writer$1_MethodInfo_,
-	nullptr,
-	&_Writer$1_EnclosingMethodInfo_,
-	_Writer$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.io.Writer"
-};
-
-$Object* allocate$Writer$1($Class* clazz) {
-	return $of($alloc(Writer$1));
-}
 
 void Writer$1::init$() {
 	$Writer::init$();
@@ -129,7 +77,51 @@ Writer$1::Writer$1() {
 }
 
 $Class* Writer$1::load$($String* name, bool initialize) {
-	$loadClass(Writer$1, name, initialize, &_Writer$1_ClassInfo_, allocate$Writer$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(Writer$1, closed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Writer$1, init$, void)},
+		{"append", "(C)Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(Writer$1, append, $Writer*, char16_t), "java.io.IOException"},
+		{"append", "(Ljava/lang/CharSequence;)Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(Writer$1, append, $Writer*, $CharSequence*), "java.io.IOException"},
+		{"append", "(Ljava/lang/CharSequence;II)Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(Writer$1, append, $Writer*, $CharSequence*, int32_t, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Writer$1, close, void), "java.io.IOException"},
+		{"ensureOpen", "()V", nullptr, $PRIVATE, $method(Writer$1, ensureOpen, void), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(Writer$1, flush, void), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(Writer$1, write, void, int32_t), "java.io.IOException"},
+		{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(Writer$1, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"write", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Writer$1, write, void, $String*), "java.io.IOException"},
+		{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(Writer$1, write, void, $String*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.io.Writer",
+		"nullWriter",
+		"()Ljava/io/Writer;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.Writer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.io.Writer$1",
+		"java.io.Writer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.io.Writer"
+	};
+	$loadClass(Writer$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Writer$1));
+	});
 	return class$;
 }
 

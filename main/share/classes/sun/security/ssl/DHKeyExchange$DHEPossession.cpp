@@ -1,9 +1,7 @@
 #include <sun/security/ssl/DHKeyExchange$DHEPossession.h>
-
 #include <java/math/BigInteger.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidKeyException.h>
-#include <java/security/Key.h>
 #include <java/security/KeyFactory.h>
 #include <java/security/KeyPair.h>
 #include <java/security/KeyPairGenerator.h>
@@ -36,19 +34,14 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $BigInteger = ::java::math::BigInteger;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
-using $Key = ::java::security::Key;
 using $KeyFactory = ::java::security::KeyFactory;
 using $KeyPair = ::java::security::KeyPair;
 using $KeyPairGenerator = ::java::security::KeyPairGenerator;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $PrivateKey = ::java::security::PrivateKey;
-using $Provider = ::java::security::Provider;
 using $PublicKey = ::java::security::PublicKey;
 using $SecureRandom = ::java::security::SecureRandom;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $InvalidKeySpecException = ::java::security::spec::InvalidKeySpecException;
-using $KeySpec = ::java::security::spec::KeySpec;
-using $Map = ::java::util::Map;
 using $DHPublicKey = ::javax::crypto::interfaces::DHPublicKey;
 using $DHParameterSpec = ::javax::crypto::spec::DHParameterSpec;
 using $DHPublicKeySpec = ::javax::crypto::spec::DHPublicKeySpec;
@@ -62,53 +55,8 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _DHKeyExchange$DHEPossession_FieldInfo_[] = {
-	{"privateKey", "Ljava/security/PrivateKey;", nullptr, $FINAL, $field(DHKeyExchange$DHEPossession, privateKey)},
-	{"publicKey", "Ljavax/crypto/interfaces/DHPublicKey;", nullptr, $FINAL, $field(DHKeyExchange$DHEPossession, publicKey)},
-	{"namedGroup", "Lsun/security/ssl/NamedGroup;", nullptr, $FINAL, $field(DHKeyExchange$DHEPossession, namedGroup)},
-	{}
-};
-
-$MethodInfo _DHKeyExchange$DHEPossession_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/NamedGroup;Ljava/security/SecureRandom;)V", nullptr, 0, $method(DHKeyExchange$DHEPossession, init$, void, $NamedGroup*, $SecureRandom*)},
-	{"<init>", "(ILjava/security/SecureRandom;)V", nullptr, 0, $method(DHKeyExchange$DHEPossession, init$, void, int32_t, $SecureRandom*)},
-	{"<init>", "(Lsun/security/ssl/DHKeyExchange$DHECredentials;Ljava/security/SecureRandom;)V", nullptr, 0, $method(DHKeyExchange$DHEPossession, init$, void, $DHKeyExchange$DHECredentials*, $SecureRandom*)},
-	{"encode", "()[B", nullptr, $PUBLIC, $virtualMethod(DHKeyExchange$DHEPossession, encode, $bytes*)},
-	{"generateDHKeyPair", "(Ljava/security/KeyPairGenerator;)Ljava/security/KeyPair;", nullptr, $PRIVATE, $method(DHKeyExchange$DHEPossession, generateDHKeyPair, $KeyPair*, $KeyPairGenerator*), "java.security.GeneralSecurityException"},
-	{"getDHPublicKeySpec", "(Ljava/security/PublicKey;)Ljavax/crypto/spec/DHPublicKeySpec;", nullptr, $PRIVATE | $STATIC, $staticMethod(DHKeyExchange$DHEPossession, getDHPublicKeySpec, $DHPublicKeySpec*, $PublicKey*)},
-	{"getNamedGroup", "()Lsun/security/ssl/NamedGroup;", nullptr, $PUBLIC, $virtualMethod(DHKeyExchange$DHEPossession, getNamedGroup, $NamedGroup*)},
-	{"getPrivateKey", "()Ljava/security/PrivateKey;", nullptr, $PUBLIC, $virtualMethod(DHKeyExchange$DHEPossession, getPrivateKey, $PrivateKey*)},
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(DHKeyExchange$DHEPossession, getPublicKey, $PublicKey*)},
-	{}
-};
-
-$InnerClassInfo _DHKeyExchange$DHEPossession_InnerClassesInfo_[] = {
-	{"sun.security.ssl.DHKeyExchange$DHEPossession", "sun.security.ssl.DHKeyExchange", "DHEPossession", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DHKeyExchange$DHEPossession_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.DHKeyExchange$DHEPossession",
-	"java.lang.Object",
-	"sun.security.ssl.NamedGroupPossession",
-	_DHKeyExchange$DHEPossession_FieldInfo_,
-	_DHKeyExchange$DHEPossession_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DHKeyExchange$DHEPossession_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.DHKeyExchange"
-};
-
-$Object* allocate$DHKeyExchange$DHEPossession($Class* clazz) {
-	return $of($alloc(DHKeyExchange$DHEPossession));
-}
-
 void DHKeyExchange$DHEPossession::init$($NamedGroup* namedGroup, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($KeyPairGenerator, kpg, $KeyPairGenerator::getInstance("DiffieHellman"_s));
 		$nc(kpg)->initialize($nc(namedGroup)->keAlgParamSpec, random);
@@ -125,13 +73,13 @@ void DHKeyExchange$DHEPossession::init$($NamedGroup* namedGroup, $SecureRandom* 
 }
 
 void DHKeyExchange$DHEPossession::init$(int32_t keyLength, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PredefinedDHParameterSpecs);
 	$var($DHParameterSpec, params, $cast($DHParameterSpec, $nc($PredefinedDHParameterSpecs::definedParams)->get($($Integer::valueOf(keyLength)))));
 	try {
 		$var($KeyPairGenerator, kpg, $KeyPairGenerator::getInstance("DiffieHellman"_s));
 		if (params != nullptr) {
-			$nc(kpg)->initialize(static_cast<$AlgorithmParameterSpec*>(params), random);
+			$nc(kpg)->initialize(params, random);
 		} else {
 			$nc(kpg)->initialize(keyLength, random);
 		}
@@ -148,10 +96,10 @@ void DHKeyExchange$DHEPossession::init$(int32_t keyLength, $SecureRandom* random
 }
 
 void DHKeyExchange$DHEPossession::init$($DHKeyExchange$DHECredentials* credentials, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($KeyPairGenerator, kpg, $KeyPairGenerator::getInstance("DiffieHellman"_s));
-		$nc(kpg)->initialize($(static_cast<$AlgorithmParameterSpec*>($nc($nc(credentials)->popPublicKey)->getParams())), random);
+		$nc(kpg)->initialize($($nc($nc(credentials)->popPublicKey)->getParams()), random);
 		$var($KeyPair, kp, generateDHKeyPair(kpg));
 		if (kp == nullptr) {
 			$throwNew($RuntimeException, "Could not generate DH keypair"_s);
@@ -165,15 +113,15 @@ void DHKeyExchange$DHEPossession::init$($DHKeyExchange$DHECredentials* credentia
 }
 
 $KeyPair* DHKeyExchange$DHEPossession::generateDHKeyPair($KeyPairGenerator* kpg) {
-	$useLocalCurrentObjectStackCache();
-	bool doExtraValidation = (!$KeyUtil::isOracleJCEProvider($($nc($($nc(kpg)->getProvider()))->getName())));
+	$useLocalObjectStack();
+	bool doExtraValidation = (!$KeyUtil::isOracleJCEProvider($($$nc($nc(kpg)->getProvider())->getName())));
 	bool isRecovering = false;
 	for (int32_t i = 0; i <= 2; ++i) {
-		$var($KeyPair, kp, $nc(kpg)->generateKeyPair());
+		$var($KeyPair, kp, kpg->generateKeyPair());
 		if (doExtraValidation) {
 			$var($DHPublicKeySpec, spec, getDHPublicKeySpec($($nc(kp)->getPublic())));
 			try {
-				$KeyUtil::validate(static_cast<$KeySpec*>(spec));
+				$KeyUtil::validate(spec);
 			} catch ($InvalidKeyException& ivke) {
 				if (isRecovering) {
 					$throw(ivke);
@@ -189,10 +137,10 @@ $KeyPair* DHKeyExchange$DHEPossession::generateDHKeyPair($KeyPairGenerator* kpg)
 
 $DHPublicKeySpec* DHKeyExchange$DHEPossession::getDHPublicKeySpec($PublicKey* key) {
 	$init(DHKeyExchange$DHEPossession);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($DHPublicKey, key)) {
 		$var($DHPublicKey, dhKey, $cast($DHPublicKey, key));
-		$var($DHParameterSpec, params, $nc(dhKey)->getParams());
+		$var($DHParameterSpec, params, dhKey->getParams());
 		$var($BigInteger, var$0, dhKey->getY());
 		$var($BigInteger, var$1, $nc(params)->getP());
 		return $new($DHPublicKeySpec, var$0, var$1, $(params->getG()));
@@ -210,9 +158,9 @@ $DHPublicKeySpec* DHKeyExchange$DHEPossession::getDHPublicKeySpec($PublicKey* ke
 }
 
 $bytes* DHKeyExchange$DHEPossession::encode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, encoded, $Utilities::toByteArray($($nc(this->publicKey)->getY())));
-	int32_t pSize = (int32_t)((uint32_t)($KeyUtil::getKeySize(static_cast<$Key*>(this->publicKey)) + 7) >> 3);
+	int32_t pSize = (int32_t)((uint32_t)($KeyUtil::getKeySize(this->publicKey) + 7) >> 3);
 	if (pSize > 0 && $nc(encoded)->length < pSize) {
 		$var($bytes, buffer, $new($bytes, pSize));
 		$System::arraycopy(encoded, 0, buffer, pSize - encoded->length, encoded->length);
@@ -237,7 +185,46 @@ DHKeyExchange$DHEPossession::DHKeyExchange$DHEPossession() {
 }
 
 $Class* DHKeyExchange$DHEPossession::load$($String* name, bool initialize) {
-	$loadClass(DHKeyExchange$DHEPossession, name, initialize, &_DHKeyExchange$DHEPossession_ClassInfo_, allocate$DHKeyExchange$DHEPossession);
+	$FieldInfo fieldInfos$$[] = {
+		{"privateKey", "Ljava/security/PrivateKey;", nullptr, $FINAL, $field(DHKeyExchange$DHEPossession, privateKey)},
+		{"publicKey", "Ljavax/crypto/interfaces/DHPublicKey;", nullptr, $FINAL, $field(DHKeyExchange$DHEPossession, publicKey)},
+		{"namedGroup", "Lsun/security/ssl/NamedGroup;", nullptr, $FINAL, $field(DHKeyExchange$DHEPossession, namedGroup)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/NamedGroup;Ljava/security/SecureRandom;)V", nullptr, 0, $method(DHKeyExchange$DHEPossession, init$, void, $NamedGroup*, $SecureRandom*)},
+		{"<init>", "(ILjava/security/SecureRandom;)V", nullptr, 0, $method(DHKeyExchange$DHEPossession, init$, void, int32_t, $SecureRandom*)},
+		{"<init>", "(Lsun/security/ssl/DHKeyExchange$DHECredentials;Ljava/security/SecureRandom;)V", nullptr, 0, $method(DHKeyExchange$DHEPossession, init$, void, $DHKeyExchange$DHECredentials*, $SecureRandom*)},
+		{"encode", "()[B", nullptr, $PUBLIC, $virtualMethod(DHKeyExchange$DHEPossession, encode, $bytes*)},
+		{"generateDHKeyPair", "(Ljava/security/KeyPairGenerator;)Ljava/security/KeyPair;", nullptr, $PRIVATE, $method(DHKeyExchange$DHEPossession, generateDHKeyPair, $KeyPair*, $KeyPairGenerator*), "java.security.GeneralSecurityException"},
+		{"getDHPublicKeySpec", "(Ljava/security/PublicKey;)Ljavax/crypto/spec/DHPublicKeySpec;", nullptr, $PRIVATE | $STATIC, $staticMethod(DHKeyExchange$DHEPossession, getDHPublicKeySpec, $DHPublicKeySpec*, $PublicKey*)},
+		{"getNamedGroup", "()Lsun/security/ssl/NamedGroup;", nullptr, $PUBLIC, $virtualMethod(DHKeyExchange$DHEPossession, getNamedGroup, $NamedGroup*)},
+		{"getPrivateKey", "()Ljava/security/PrivateKey;", nullptr, $PUBLIC, $virtualMethod(DHKeyExchange$DHEPossession, getPrivateKey, $PrivateKey*)},
+		{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(DHKeyExchange$DHEPossession, getPublicKey, $PublicKey*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.DHKeyExchange$DHEPossession", "sun.security.ssl.DHKeyExchange", "DHEPossession", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.DHKeyExchange$DHEPossession",
+		"java.lang.Object",
+		"sun.security.ssl.NamedGroupPossession",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.DHKeyExchange"
+	};
+	$loadClass(DHKeyExchange$DHEPossession, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DHKeyExchange$DHEPossession);
+	});
 	return class$;
 }
 

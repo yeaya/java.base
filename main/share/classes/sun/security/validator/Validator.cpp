@@ -1,5 +1,4 @@
 #include <sun/security/validator/Validator.h>
-
 #include <java/security/AlgorithmConstraints.h>
 #include <java/security/KeyStore.h>
 #include <java/security/cert/PKIXBuilderParameters.h>
@@ -48,62 +47,6 @@ namespace sun {
 	namespace security {
 		namespace validator {
 
-$CompoundAttribute _Validator_FieldAnnotations_validationDate[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Validator_MethodAnnotations_setValidationDate6[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _Validator_FieldInfo_[] = {
-	{"CHAIN0", "[Ljava/security/cert/X509Certificate;", nullptr, $STATIC | $FINAL, $staticField(Validator, CHAIN0)},
-	{"TYPE_SIMPLE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Validator, TYPE_SIMPLE)},
-	{"TYPE_PKIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Validator, TYPE_PKIX)},
-	{"VAR_GENERIC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Validator, VAR_GENERIC)},
-	{"VAR_CODE_SIGNING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Validator, VAR_CODE_SIGNING)},
-	{"VAR_JCE_SIGNING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Validator, VAR_JCE_SIGNING)},
-	{"VAR_TLS_CLIENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Validator, VAR_TLS_CLIENT)},
-	{"VAR_TLS_SERVER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Validator, VAR_TLS_SERVER)},
-	{"VAR_TSA_SERVER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Validator, VAR_TSA_SERVER)},
-	{"VAR_PLUGIN_CODE_SIGNING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Validator, VAR_PLUGIN_CODE_SIGNING)},
-	{"type", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Validator, type)},
-	{"endEntityChecker", "Lsun/security/validator/EndEntityChecker;", nullptr, $FINAL, $field(Validator, endEntityChecker)},
-	{"variant", "Ljava/lang/String;", nullptr, $FINAL, $field(Validator, variant)},
-	{"validationDate", "Ljava/util/Date;", nullptr, $VOLATILE | $DEPRECATED, $field(Validator, validationDate), _Validator_FieldAnnotations_validationDate},
-	{}
-};
-
-$MethodInfo _Validator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(Validator, init$, void, $String*, $String*)},
-	{"engineValidate", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection;Ljava/util/List;Ljava/security/AlgorithmConstraints;Ljava/lang/Object;)[Ljava/security/cert/X509Certificate;", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;Ljava/util/List<[B>;Ljava/security/AlgorithmConstraints;Ljava/lang/Object;)[Ljava/security/cert/X509Certificate;", $ABSTRACT, $virtualMethod(Validator, engineValidate, $X509CertificateArray*, $X509CertificateArray*, $Collection*, $List*, $AlgorithmConstraints*, Object$*), "java.security.cert.CertificateException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/KeyStore;)Lsun/security/validator/Validator;", nullptr, $PUBLIC | $STATIC, $staticMethod(Validator, getInstance, Validator*, $String*, $String*, $KeyStore*)},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Collection;)Lsun/security/validator/Validator;", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;)Lsun/security/validator/Validator;", $PUBLIC | $STATIC, $staticMethod(Validator, getInstance, Validator*, $String*, $String*, $Collection*)},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/cert/PKIXBuilderParameters;)Lsun/security/validator/Validator;", nullptr, $PUBLIC | $STATIC, $staticMethod(Validator, getInstance, Validator*, $String*, $String*, $PKIXBuilderParameters*)},
-	{"getTrustedCertificates", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Validator, getTrustedCertificates, $Collection*)},
-	{"setValidationDate", "(Ljava/util/Date;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Validator, setValidationDate, void, $Date*), nullptr, nullptr, _Validator_MethodAnnotations_setValidationDate6},
-	{"validate", "([Ljava/security/cert/X509Certificate;)[Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC | $FINAL, $method(Validator, validate, $X509CertificateArray*, $X509CertificateArray*), "java.security.cert.CertificateException"},
-	{"validate", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection;)[Ljava/security/cert/X509Certificate;", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;)[Ljava/security/cert/X509Certificate;", $PUBLIC | $FINAL, $method(Validator, validate, $X509CertificateArray*, $X509CertificateArray*, $Collection*), "java.security.cert.CertificateException"},
-	{"validate", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection;Ljava/lang/Object;)[Ljava/security/cert/X509Certificate;", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;Ljava/lang/Object;)[Ljava/security/cert/X509Certificate;", $PUBLIC | $FINAL, $method(Validator, validate, $X509CertificateArray*, $X509CertificateArray*, $Collection*, Object$*), "java.security.cert.CertificateException"},
-	{"validate", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection;Ljava/util/List;Ljava/security/AlgorithmConstraints;Ljava/lang/Object;)[Ljava/security/cert/X509Certificate;", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;Ljava/util/List<[B>;Ljava/security/AlgorithmConstraints;Ljava/lang/Object;)[Ljava/security/cert/X509Certificate;", $PUBLIC | $FINAL, $method(Validator, validate, $X509CertificateArray*, $X509CertificateArray*, $Collection*, $List*, $AlgorithmConstraints*, Object$*), "java.security.cert.CertificateException"},
-	{}
-};
-
-$ClassInfo _Validator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.security.validator.Validator",
-	"java.lang.Object",
-	nullptr,
-	_Validator_FieldInfo_,
-	_Validator_MethodInfo_
-};
-
-$Object* allocate$Validator($Class* clazz) {
-	return $of($alloc(Validator));
-}
-
 $X509CertificateArray* Validator::CHAIN0 = nullptr;
 $String* Validator::TYPE_SIMPLE = nullptr;
 $String* Validator::TYPE_PKIX = nullptr;
@@ -123,19 +66,17 @@ void Validator::init$($String* type, $String* variant) {
 
 Validator* Validator::getInstance($String* type, $String* variant, $KeyStore* ks) {
 	$init(Validator);
-	return getInstance(type, variant, $(static_cast<$Collection*>($TrustStoreUtil::getTrustedCerts(ks))));
+	return getInstance(type, variant, $($TrustStoreUtil::getTrustedCerts(ks)));
 }
 
 Validator* Validator::getInstance($String* type, $String* variant, $Collection* trustedCerts) {
 	$init(Validator);
 	if ($nc(type)->equals(Validator::TYPE_SIMPLE)) {
 		return $new($SimpleValidator, variant, trustedCerts);
+	} else if (type->equals(Validator::TYPE_PKIX)) {
+		return $new($PKIXValidator, variant, trustedCerts);
 	} else {
-		if (type->equals(Validator::TYPE_PKIX)) {
-			return $new($PKIXValidator, variant, trustedCerts);
-		} else {
-			$throwNew($IllegalArgumentException, $$str({"Unknown validator type: "_s, type}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Unknown validator type: "_s, type}));
 	}
 }
 
@@ -173,7 +114,7 @@ void Validator::setValidationDate($Date* validationDate) {
 	$set(this, validationDate, validationDate);
 }
 
-void clinit$Validator($Class* class$) {
+void Validator::clinit$($Class* clazz) {
 	$assignStatic(Validator::TYPE_SIMPLE, "Simple"_s);
 	$assignStatic(Validator::TYPE_PKIX, "PKIX"_s);
 	$assignStatic(Validator::VAR_GENERIC, "generic"_s);
@@ -190,7 +131,56 @@ Validator::Validator() {
 }
 
 $Class* Validator::load$($String* name, bool initialize) {
-	$loadClass(Validator, name, initialize, &_Validator_ClassInfo_, clinit$Validator, allocate$Validator);
+	$CompoundAttribute validationDatefieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"CHAIN0", "[Ljava/security/cert/X509Certificate;", nullptr, $STATIC | $FINAL, $staticField(Validator, CHAIN0)},
+		{"TYPE_SIMPLE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Validator, TYPE_SIMPLE)},
+		{"TYPE_PKIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Validator, TYPE_PKIX)},
+		{"VAR_GENERIC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Validator, VAR_GENERIC)},
+		{"VAR_CODE_SIGNING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Validator, VAR_CODE_SIGNING)},
+		{"VAR_JCE_SIGNING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Validator, VAR_JCE_SIGNING)},
+		{"VAR_TLS_CLIENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Validator, VAR_TLS_CLIENT)},
+		{"VAR_TLS_SERVER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Validator, VAR_TLS_SERVER)},
+		{"VAR_TSA_SERVER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Validator, VAR_TSA_SERVER)},
+		{"VAR_PLUGIN_CODE_SIGNING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Validator, VAR_PLUGIN_CODE_SIGNING)},
+		{"type", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Validator, type)},
+		{"endEntityChecker", "Lsun/security/validator/EndEntityChecker;", nullptr, $FINAL, $field(Validator, endEntityChecker)},
+		{"variant", "Ljava/lang/String;", nullptr, $FINAL, $field(Validator, variant)},
+		{"validationDate", "Ljava/util/Date;", nullptr, $VOLATILE | $DEPRECATED, $field(Validator, validationDate), validationDatefieldAnnotations$$},
+		{}
+	};
+	$CompoundAttribute setValidationDatemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(Validator, init$, void, $String*, $String*)},
+		{"engineValidate", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection;Ljava/util/List;Ljava/security/AlgorithmConstraints;Ljava/lang/Object;)[Ljava/security/cert/X509Certificate;", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;Ljava/util/List<[B>;Ljava/security/AlgorithmConstraints;Ljava/lang/Object;)[Ljava/security/cert/X509Certificate;", $ABSTRACT, $virtualMethod(Validator, engineValidate, $X509CertificateArray*, $X509CertificateArray*, $Collection*, $List*, $AlgorithmConstraints*, Object$*), "java.security.cert.CertificateException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/KeyStore;)Lsun/security/validator/Validator;", nullptr, $PUBLIC | $STATIC, $staticMethod(Validator, getInstance, Validator*, $String*, $String*, $KeyStore*)},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Collection;)Lsun/security/validator/Validator;", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;)Lsun/security/validator/Validator;", $PUBLIC | $STATIC, $staticMethod(Validator, getInstance, Validator*, $String*, $String*, $Collection*)},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/cert/PKIXBuilderParameters;)Lsun/security/validator/Validator;", nullptr, $PUBLIC | $STATIC, $staticMethod(Validator, getInstance, Validator*, $String*, $String*, $PKIXBuilderParameters*)},
+		{"getTrustedCertificates", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Validator, getTrustedCertificates, $Collection*)},
+		{"setValidationDate", "(Ljava/util/Date;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(Validator, setValidationDate, void, $Date*), nullptr, nullptr, setValidationDatemethodAnnotations$$},
+		{"validate", "([Ljava/security/cert/X509Certificate;)[Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC | $FINAL, $method(Validator, validate, $X509CertificateArray*, $X509CertificateArray*), "java.security.cert.CertificateException"},
+		{"validate", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection;)[Ljava/security/cert/X509Certificate;", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;)[Ljava/security/cert/X509Certificate;", $PUBLIC | $FINAL, $method(Validator, validate, $X509CertificateArray*, $X509CertificateArray*, $Collection*), "java.security.cert.CertificateException"},
+		{"validate", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection;Ljava/lang/Object;)[Ljava/security/cert/X509Certificate;", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;Ljava/lang/Object;)[Ljava/security/cert/X509Certificate;", $PUBLIC | $FINAL, $method(Validator, validate, $X509CertificateArray*, $X509CertificateArray*, $Collection*, Object$*), "java.security.cert.CertificateException"},
+		{"validate", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection;Ljava/util/List;Ljava/security/AlgorithmConstraints;Ljava/lang/Object;)[Ljava/security/cert/X509Certificate;", "([Ljava/security/cert/X509Certificate;Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;Ljava/util/List<[B>;Ljava/security/AlgorithmConstraints;Ljava/lang/Object;)[Ljava/security/cert/X509Certificate;", $PUBLIC | $FINAL, $method(Validator, validate, $X509CertificateArray*, $X509CertificateArray*, $Collection*, $List*, $AlgorithmConstraints*, Object$*), "java.security.cert.CertificateException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.security.validator.Validator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Validator, name, initialize, &classInfo$$, Validator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Validator);
+	});
 	return class$;
 }
 

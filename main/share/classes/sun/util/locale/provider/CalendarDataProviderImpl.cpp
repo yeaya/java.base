@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/CalendarDataProviderImpl.h>
-
 #include <java/util/Locale.h>
 #include <java/util/Set.h>
 #include <java/util/spi/CalendarDataProvider.h>
@@ -23,46 +22,11 @@ using $CalendarDataProvider = ::java::util::spi::CalendarDataProvider;
 using $CalendarDataUtility = ::sun::util::locale::provider::CalendarDataUtility;
 using $LocaleProviderAdapter = ::sun::util::locale::provider::LocaleProviderAdapter;
 using $LocaleProviderAdapter$Type = ::sun::util::locale::provider::LocaleProviderAdapter$Type;
-using $LocaleResources = ::sun::util::locale::provider::LocaleResources;
 
 namespace sun {
 	namespace util {
 		namespace locale {
 			namespace provider {
-
-$FieldInfo _CalendarDataProviderImpl_FieldInfo_[] = {
-	{"type", "Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PRIVATE | $FINAL, $field(CalendarDataProviderImpl, type)},
-	{"langtags", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(CalendarDataProviderImpl, langtags)},
-	{}
-};
-
-$MethodInfo _CalendarDataProviderImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(CalendarDataProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
-	{"convertToCalendarData", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(CalendarDataProviderImpl, convertToCalendarData, int32_t, $String*)},
-	{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CalendarDataProviderImpl, getAvailableLanguageTags, $Set*)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(CalendarDataProviderImpl, getAvailableLocales, $LocaleArray*)},
-	{"getFirstDayOfWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC, $virtualMethod(CalendarDataProviderImpl, getFirstDayOfWeek, int32_t, $Locale*)},
-	{"getMinimalDaysInFirstWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC, $virtualMethod(CalendarDataProviderImpl, getMinimalDaysInFirstWeek, int32_t, $Locale*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _CalendarDataProviderImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.locale.provider.CalendarDataProviderImpl",
-	"java.util.spi.CalendarDataProvider",
-	"sun.util.locale.provider.AvailableLanguageTags",
-	_CalendarDataProviderImpl_FieldInfo_,
-	_CalendarDataProviderImpl_MethodInfo_
-};
-
-$Object* allocate$CalendarDataProviderImpl($Class* clazz) {
-	return $of($alloc(CalendarDataProviderImpl));
-}
 
 int32_t CalendarDataProviderImpl::hashCode() {
 	 return this->$CalendarDataProvider::hashCode();
@@ -91,16 +55,16 @@ void CalendarDataProviderImpl::init$($LocaleProviderAdapter$Type* type, $Set* la
 }
 
 int32_t CalendarDataProviderImpl::getFirstDayOfWeek($Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($CalendarDataUtility);
-	$var($String, fw, $nc($($nc($($LocaleProviderAdapter::forType(this->type)))->getLocaleResources(locale)))->getCalendarData($CalendarDataUtility::FIRST_DAY_OF_WEEK));
+	$var($String, fw, $$nc($$nc($LocaleProviderAdapter::forType(this->type))->getLocaleResources(locale))->getCalendarData($CalendarDataUtility::FIRST_DAY_OF_WEEK));
 	return convertToCalendarData(fw);
 }
 
 int32_t CalendarDataProviderImpl::getMinimalDaysInFirstWeek($Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($CalendarDataUtility);
-	$var($String, md, $nc($($nc($($LocaleProviderAdapter::forType(this->type)))->getLocaleResources(locale)))->getCalendarData($CalendarDataUtility::MINIMAL_DAYS_IN_FIRST_WEEK));
+	$var($String, md, $$nc($$nc($LocaleProviderAdapter::forType(this->type))->getLocaleResources(locale))->getCalendarData($CalendarDataUtility::MINIMAL_DAYS_IN_FIRST_WEEK));
 	return convertToCalendarData(md);
 }
 
@@ -121,7 +85,36 @@ CalendarDataProviderImpl::CalendarDataProviderImpl() {
 }
 
 $Class* CalendarDataProviderImpl::load$($String* name, bool initialize) {
-	$loadClass(CalendarDataProviderImpl, name, initialize, &_CalendarDataProviderImpl_ClassInfo_, allocate$CalendarDataProviderImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PRIVATE | $FINAL, $field(CalendarDataProviderImpl, type)},
+		{"langtags", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(CalendarDataProviderImpl, langtags)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(CalendarDataProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
+		{"convertToCalendarData", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(CalendarDataProviderImpl, convertToCalendarData, int32_t, $String*)},
+		{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CalendarDataProviderImpl, getAvailableLanguageTags, $Set*)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(CalendarDataProviderImpl, getAvailableLocales, $LocaleArray*)},
+		{"getFirstDayOfWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC, $virtualMethod(CalendarDataProviderImpl, getFirstDayOfWeek, int32_t, $Locale*)},
+		{"getMinimalDaysInFirstWeek", "(Ljava/util/Locale;)I", nullptr, $PUBLIC, $virtualMethod(CalendarDataProviderImpl, getMinimalDaysInFirstWeek, int32_t, $Locale*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.locale.provider.CalendarDataProviderImpl",
+		"java.util.spi.CalendarDataProvider",
+		"sun.util.locale.provider.AvailableLanguageTags",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CalendarDataProviderImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CalendarDataProviderImpl));
+	});
 	return class$;
 }
 

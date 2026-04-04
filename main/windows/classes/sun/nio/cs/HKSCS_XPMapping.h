@@ -13,6 +13,7 @@ class HKSCS_XPMapping : public ::java::lang::Object {
 	$class(HKSCS_XPMapping, 0, ::java::lang::Object)
 public:
 	HKSCS_XPMapping();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $StringArray* b2cBmpStr;
 	static $StringArray* b2cSuppStr;

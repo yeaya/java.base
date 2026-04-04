@@ -1,5 +1,4 @@
 #include <java/nio/DirectLongBufferRU.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/nio/ByteOrder.h>
 #include <java/nio/DirectLongBufferU.h>
@@ -28,40 +27,6 @@ using $DirectBuffer = ::sun::nio::ch::DirectBuffer;
 namespace java {
 	namespace nio {
 
-$FieldInfo _DirectLongBufferRU_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectLongBufferRU, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _DirectLongBufferRU_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/DirectBuffer;IIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(DirectLongBufferRU, init$, void, $DirectBuffer*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"asReadOnlyBuffer", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRU, asReadOnlyBuffer, $LongBuffer*)},
-	{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectLongBufferRU, base, $Object*)},
-	{"compact", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRU, compact, $LongBuffer*)},
-	{"duplicate", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRU, duplicate, $LongBuffer*)},
-	{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRU, isDirect, bool)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRU, isReadOnly, bool)},
-	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRU, order, $ByteOrder*)},
-	{"put", "(J)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRU, put, $LongBuffer*, int64_t)},
-	{"put", "(IJ)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRU, put, $LongBuffer*, int32_t, int64_t)},
-	{"slice", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRU, slice, $LongBuffer*)},
-	{"slice", "(II)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRU, slice, $LongBuffer*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _DirectLongBufferRU_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.DirectLongBufferRU",
-	"java.nio.DirectLongBufferU",
-	nullptr,
-	_DirectLongBufferRU_FieldInfo_,
-	_DirectLongBufferRU_MethodInfo_
-};
-
-$Object* allocate$DirectLongBufferRU($Class* clazz) {
-	return $of($alloc(DirectLongBufferRU));
-}
-
 bool DirectLongBufferRU::$assertionsDisabled = false;
 
 void DirectLongBufferRU::init$($DirectBuffer* db, int32_t mark, int32_t pos, int32_t lim, int32_t cap, int32_t off, $MemorySegmentProxy* segment) {
@@ -70,7 +35,7 @@ void DirectLongBufferRU::init$($DirectBuffer* db, int32_t mark, int32_t pos, int
 }
 
 $Object* DirectLongBufferRU::base() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $LongBuffer* DirectLongBufferRU::slice() {
@@ -128,7 +93,7 @@ $ByteOrder* DirectLongBufferRU::order() {
 	return (($ByteOrder::nativeOrder() != $ByteOrder::BIG_ENDIAN) ? $ByteOrder::LITTLE_ENDIAN : $ByteOrder::BIG_ENDIAN);
 }
 
-void clinit$DirectLongBufferRU($Class* class$) {
+void DirectLongBufferRU::clinit$($Class* clazz) {
 	DirectLongBufferRU::$assertionsDisabled = !DirectLongBufferRU::class$->desiredAssertionStatus();
 }
 
@@ -136,7 +101,36 @@ DirectLongBufferRU::DirectLongBufferRU() {
 }
 
 $Class* DirectLongBufferRU::load$($String* name, bool initialize) {
-	$loadClass(DirectLongBufferRU, name, initialize, &_DirectLongBufferRU_ClassInfo_, clinit$DirectLongBufferRU, allocate$DirectLongBufferRU);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectLongBufferRU, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/ch/DirectBuffer;IIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(DirectLongBufferRU, init$, void, $DirectBuffer*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"asReadOnlyBuffer", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRU, asReadOnlyBuffer, $LongBuffer*)},
+		{"base", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectLongBufferRU, base, $Object*)},
+		{"compact", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRU, compact, $LongBuffer*)},
+		{"duplicate", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRU, duplicate, $LongBuffer*)},
+		{"isDirect", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRU, isDirect, bool)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRU, isReadOnly, bool)},
+		{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRU, order, $ByteOrder*)},
+		{"put", "(J)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRU, put, $LongBuffer*, int64_t)},
+		{"put", "(IJ)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRU, put, $LongBuffer*, int32_t, int64_t)},
+		{"slice", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRU, slice, $LongBuffer*)},
+		{"slice", "(II)Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(DirectLongBufferRU, slice, $LongBuffer*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.DirectLongBufferRU",
+		"java.nio.DirectLongBufferU",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DirectLongBufferRU, name, initialize, &classInfo$$, DirectLongBufferRU::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DirectLongBufferRU));
+	});
 	return class$;
 }
 

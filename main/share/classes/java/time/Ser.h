@@ -57,7 +57,7 @@ public:
 	$Object* readResolve();
 	virtual void writeExternal(::java::io::ObjectOutput* out) override;
 	static void writeInternal(int8_t type, Object$* object, ::java::io::ObjectOutput* out);
-	static const int64_t serialVersionUID = (int64_t)0x955D84BA1B2248B2;
+	static const int64_t serialVersionUID = (int64_t)0x955d84ba1b2248b2;
 	static const int8_t DURATION_TYPE = 1;
 	static const int8_t INSTANT_TYPE = 2;
 	static const int8_t LOCAL_DATE_TYPE = 3;

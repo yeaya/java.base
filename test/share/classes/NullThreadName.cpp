@@ -1,17 +1,14 @@
 #include <NullThreadName.h>
-
 #include <NullThreadName$1.h>
 #include <NullThreadName$GoodThread.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/ThreadGroup.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <jcpp.h>
 
 using $NullThreadName$1 = ::NullThreadName$1;
 using $NullThreadName$GoodThread = ::NullThreadName$GoodThread;
-using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -19,45 +16,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $Runnable = ::java::lang::Runnable;
 using $ThreadGroup = ::java::lang::ThreadGroup;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
-
-$FieldInfo _NullThreadName_FieldInfo_[] = {
-	{"done", "Ljava/util/concurrent/CountDownLatch;", nullptr, $STATIC, $staticField(NullThreadName, done)},
-	{}
-};
-
-$MethodInfo _NullThreadName_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NullThreadName, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullThreadName, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _NullThreadName_InnerClassesInfo_[] = {
-	{"NullThreadName$GoodThread", "NullThreadName", "GoodThread", $STATIC},
-	{"NullThreadName$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NullThreadName_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NullThreadName",
-	"java.lang.Object",
-	nullptr,
-	_NullThreadName_FieldInfo_,
-	_NullThreadName_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NullThreadName_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"NullThreadName$GoodThread,NullThreadName$1"
-};
-
-$Object* allocate$NullThreadName($Class* clazz) {
-	return $of($alloc(NullThreadName));
-}
 
 $CountDownLatch* NullThreadName::done = nullptr;
 
@@ -66,7 +26,7 @@ void NullThreadName::init$() {
 
 void NullThreadName::main($StringArray* args) {
 	$init(NullThreadName);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ThreadGroup, tg, $new($ThreadGroup, "chegar-threads"_s));
 	$var($Thread, goodThread, $new($Thread, tg, $$new($NullThreadName$GoodThread), "goodThread"_s));
 	try {
@@ -93,7 +53,7 @@ void NullThreadName::main($StringArray* args) {
 	}
 }
 
-void clinit$NullThreadName($Class* class$) {
+void NullThreadName::clinit$($Class* clazz) {
 	$assignStatic(NullThreadName::done, $new($CountDownLatch, 1));
 }
 
@@ -101,7 +61,37 @@ NullThreadName::NullThreadName() {
 }
 
 $Class* NullThreadName::load$($String* name, bool initialize) {
-	$loadClass(NullThreadName, name, initialize, &_NullThreadName_ClassInfo_, clinit$NullThreadName, allocate$NullThreadName);
+	$FieldInfo fieldInfos$$[] = {
+		{"done", "Ljava/util/concurrent/CountDownLatch;", nullptr, $STATIC, $staticField(NullThreadName, done)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NullThreadName, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullThreadName, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"NullThreadName$GoodThread", "NullThreadName", "GoodThread", $STATIC},
+		{"NullThreadName$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NullThreadName",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"NullThreadName$GoodThread,NullThreadName$1"
+	};
+	$loadClass(NullThreadName, name, initialize, &classInfo$$, NullThreadName::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NullThreadName);
+	});
 	return class$;
 }
 

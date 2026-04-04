@@ -1,8 +1,6 @@
 #include <sun/security/ssl/CertStatusExtension$CTCertStatusResponseProducer.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/IOException.h>
-#include <java/io/InputStream.h>
 #include <java/security/cert/Certificate.h>
 #include <java/security/cert/CertificateException.h>
 #include <java/security/cert/CertificateFactory.h>
@@ -30,14 +28,12 @@
 
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CertificateException = ::java::security::cert::CertificateException;
 using $CertificateFactory = ::java::security::cert::CertificateFactory;
 using $X509Certificate = ::java::security::cert::X509Certificate;
-using $Map = ::java::util::Map;
 using $Alert = ::sun::security::ssl::Alert;
 using $CertStatusExtension$CertStatusRequestType = ::sun::security::ssl::CertStatusExtension$CertStatusRequestType;
 using $CertStatusExtension$CertStatusResponse = ::sun::security::ssl::CertStatusExtension$CertStatusResponse;
@@ -46,48 +42,16 @@ using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _CertStatusExtension$CTCertStatusResponseProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CertStatusExtension$CTCertStatusResponseProducer, init$, void)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(CertStatusExtension$CTCertStatusResponseProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _CertStatusExtension$CTCertStatusResponseProducer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertStatusExtension$CTCertStatusResponseProducer", "sun.security.ssl.CertStatusExtension", "CTCertStatusResponseProducer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CertStatusExtension$CTCertStatusResponseProducer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CertStatusExtension$CTCertStatusResponseProducer",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeProducer",
-	nullptr,
-	_CertStatusExtension$CTCertStatusResponseProducer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CertStatusExtension$CTCertStatusResponseProducer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertStatusExtension"
-};
-
-$Object* allocate$CertStatusExtension$CTCertStatusResponseProducer($Class* clazz) {
-	return $of($alloc(CertStatusExtension$CTCertStatusResponseProducer));
-}
-
 void CertStatusExtension$CTCertStatusResponseProducer::init$() {
 }
 
 $bytes* CertStatusExtension$CTCertStatusResponseProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$var($bytes, producedData, nullptr);
 	if ($nc(shc)->stapleParams == nullptr) {
@@ -97,7 +61,7 @@ $bytes* CertStatusExtension$CTCertStatusResponseProducer::produce($ConnectionCon
 		}
 		return nullptr;
 	}
-	if ($nc(shc)->currentCertEntry == nullptr) {
+	if (shc->currentCertEntry == nullptr) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 			$SSLLogger::finest("Found null CertificateEntry in context"_s, $$new($ObjectArray, 0));
@@ -106,8 +70,8 @@ $bytes* CertStatusExtension$CTCertStatusResponseProducer::produce($ConnectionCon
 	}
 	try {
 		$var($CertificateFactory, cf, $CertificateFactory::getInstance("X.509"_s));
-		$var($X509Certificate, x509Cert, $cast($X509Certificate, $nc(cf)->generateCertificate($$new($ByteArrayInputStream, $nc($nc(shc)->currentCertEntry)->encoded))));
-		$var($bytes, respBytes, $cast($bytes, $nc($nc($nc(shc)->stapleParams)->responseMap)->get(x509Cert)));
+		$var($X509Certificate, x509Cert, $cast($X509Certificate, $nc(cf)->generateCertificate($$new($ByteArrayInputStream, $nc(shc->currentCertEntry)->encoded))));
+		$var($bytes, respBytes, $cast($bytes, $nc($nc(shc->stapleParams)->responseMap)->get(x509Cert)));
 		if (respBytes == nullptr) {
 			$init($SSLLogger);
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake,verbose"_s)) {
@@ -121,16 +85,16 @@ $bytes* CertStatusExtension$CTCertStatusResponseProducer::produce($ConnectionCon
 			$SSLLogger::finest($$str({"Found status response for "_s, $($nc(x509Cert)->getSubjectX500Principal()), ", response length: "_s, $$str($nc(respBytes)->length)}), $$new($ObjectArray, 0));
 		}
 		$init($CertStatusExtension$CertStatusRequestType);
-		$var($CertStatusExtension$CertStatusResponse, certResp, ($nc(shc->stapleParams)->statReqType == $CertStatusExtension$CertStatusRequestType::OCSP) ? static_cast<$CertStatusExtension$CertStatusResponse*>($new($CertStatusExtension$OCSPStatusResponse, $nc(shc->stapleParams)->statReqType->id, respBytes)) : $new($CertStatusExtension$CertStatusResponse, $nc(shc->stapleParams)->statReqType->id, respBytes));
+		$var($CertStatusExtension$CertStatusResponse, certResp, (shc->stapleParams->statReqType == $CertStatusExtension$CertStatusRequestType::OCSP) ? $cast($CertStatusExtension$CertStatusResponse, $new($CertStatusExtension$OCSPStatusResponse, shc->stapleParams->statReqType->id, respBytes)) : $new($CertStatusExtension$CertStatusResponse, shc->stapleParams->statReqType->id, respBytes));
 		$assign(producedData, $nc(certResp)->toByteArray());
 	} catch ($CertificateException& ce) {
 		$init($Alert);
-		$throw($($nc($nc(shc)->conContext)->fatal($Alert::BAD_CERTIFICATE, "Failed to parse server certificates"_s, ce)));
+		$throw($($nc(shc->conContext)->fatal($Alert::BAD_CERTIFICATE, "Failed to parse server certificates"_s, ce)));
 	} catch ($IOException& ioe) {
 		$init($Alert);
-		$throw($($nc($nc(shc)->conContext)->fatal($Alert::BAD_CERT_STATUS_RESPONSE, "Failed to parse certificate status response"_s, ioe)));
+		$throw($($nc(shc->conContext)->fatal($Alert::BAD_CERT_STATUS_RESPONSE, "Failed to parse certificate status response"_s, ioe)));
 	}
-	$set($nc(shc), currentCertEntry, nullptr);
+	$set(shc, currentCertEntry, nullptr);
 	return producedData;
 }
 
@@ -138,7 +102,33 @@ CertStatusExtension$CTCertStatusResponseProducer::CertStatusExtension$CTCertStat
 }
 
 $Class* CertStatusExtension$CTCertStatusResponseProducer::load$($String* name, bool initialize) {
-	$loadClass(CertStatusExtension$CTCertStatusResponseProducer, name, initialize, &_CertStatusExtension$CTCertStatusResponseProducer_ClassInfo_, allocate$CertStatusExtension$CTCertStatusResponseProducer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CertStatusExtension$CTCertStatusResponseProducer, init$, void)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(CertStatusExtension$CTCertStatusResponseProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertStatusExtension$CTCertStatusResponseProducer", "sun.security.ssl.CertStatusExtension", "CTCertStatusResponseProducer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CertStatusExtension$CTCertStatusResponseProducer",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeProducer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertStatusExtension"
+	};
+	$loadClass(CertStatusExtension$CTCertStatusResponseProducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertStatusExtension$CTCertStatusResponseProducer);
+	});
 	return class$;
 }
 

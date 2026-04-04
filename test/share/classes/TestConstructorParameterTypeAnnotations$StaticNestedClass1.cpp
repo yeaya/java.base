@@ -1,5 +1,4 @@
 #include <TestConstructorParameterTypeAnnotations$StaticNestedClass1.h>
-
 #include <TestConstructorParameterTypeAnnotations.h>
 #include <jcpp.h>
 
@@ -11,67 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $TypeAnnotation = ::java::lang::TypeAnnotation;
 
-$NamedAttribute TestConstructorParameterTypeAnnotations$StaticNestedClass1_Attribute_var$0[] = {
-	{"value", 's', "[[]]"},
-	{}
-};
-
-$Attribute TestConstructorParameterTypeAnnotations$StaticNestedClass1_Attribute_var$2[] = {
-	{'s', "@TestConstructorParameterTypeAnnotations$MarkerTypeAnnotation(1)"},
-	{'-'}
-};
-
-$NamedAttribute TestConstructorParameterTypeAnnotations$StaticNestedClass1_Attribute_var$1[] = {
-	{"value", '[', TestConstructorParameterTypeAnnotations$StaticNestedClass1_Attribute_var$2},
-	{}
-};
-
-$CompoundAttribute _TestConstructorParameterTypeAnnotations$StaticNestedClass1_Annotations_[] = {
-	{"LTestConstructorParameterTypeAnnotations$ExpectedGetParameterAnnotations;", TestConstructorParameterTypeAnnotations$StaticNestedClass1_Attribute_var$0},
-	{"LTestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations;", TestConstructorParameterTypeAnnotations$StaticNestedClass1_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute TestConstructorParameterTypeAnnotations$StaticNestedClass1_Attribute_var$3[] = {
-	{"value", 'I', "1"},
-	{}
-};
-
-$TypeAnnotation _TestConstructorParameterTypeAnnotations$StaticNestedClass1_MethodTypeAnnotations_init$0[] = {
-	{"LTestConstructorParameterTypeAnnotations$MarkerTypeAnnotation;", TestConstructorParameterTypeAnnotations$StaticNestedClass1_Attribute_var$3, "METHOD_FORMAL_PARAMETER, param_index = 0"},
-	{}
-};
-
-$MethodInfo _TestConstructorParameterTypeAnnotations$StaticNestedClass1_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(TestConstructorParameterTypeAnnotations$StaticNestedClass1, init$, void, int32_t), nullptr, nullptr, nullptr, _TestConstructorParameterTypeAnnotations$StaticNestedClass1_MethodTypeAnnotations_init$0},
-	{}
-};
-
-$InnerClassInfo _TestConstructorParameterTypeAnnotations$StaticNestedClass1_InnerClassesInfo_[] = {
-	{"TestConstructorParameterTypeAnnotations$StaticNestedClass1", "TestConstructorParameterTypeAnnotations", "StaticNestedClass1", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _TestConstructorParameterTypeAnnotations$StaticNestedClass1_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestConstructorParameterTypeAnnotations$StaticNestedClass1",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestConstructorParameterTypeAnnotations$StaticNestedClass1_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestConstructorParameterTypeAnnotations$StaticNestedClass1_InnerClassesInfo_,
-	_TestConstructorParameterTypeAnnotations$StaticNestedClass1_Annotations_,
-	nullptr,
-	nullptr,
-	"TestConstructorParameterTypeAnnotations"
-};
-
-$Object* allocate$TestConstructorParameterTypeAnnotations$StaticNestedClass1($Class* clazz) {
-	return $of($alloc(TestConstructorParameterTypeAnnotations$StaticNestedClass1));
-}
-
 void TestConstructorParameterTypeAnnotations$StaticNestedClass1::init$(int32_t parameter) {
 }
 
@@ -79,7 +17,57 @@ TestConstructorParameterTypeAnnotations$StaticNestedClass1::TestConstructorParam
 }
 
 $Class* TestConstructorParameterTypeAnnotations$StaticNestedClass1::load$($String* name, bool initialize) {
-	$loadClass(TestConstructorParameterTypeAnnotations$StaticNestedClass1, name, initialize, &_TestConstructorParameterTypeAnnotations$StaticNestedClass1_ClassInfo_, allocate$TestConstructorParameterTypeAnnotations$StaticNestedClass1);
+	$NamedAttribute init$methodTypeAnnotations$$$namedAttribute[] = {
+		{"value", 'I', "1"},
+		{}
+	};
+	$TypeAnnotation init$methodTypeAnnotations$$[] = {
+		{"LTestConstructorParameterTypeAnnotations$MarkerTypeAnnotation;", init$methodTypeAnnotations$$$namedAttribute, "METHOD_FORMAL_PARAMETER, param_index = 0"},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(TestConstructorParameterTypeAnnotations$StaticNestedClass1, init$, void, int32_t), nullptr, nullptr, nullptr, init$methodTypeAnnotations$$},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestConstructorParameterTypeAnnotations$StaticNestedClass1", "TestConstructorParameterTypeAnnotations", "StaticNestedClass1", $PUBLIC | $STATIC},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 's', "[[]]"},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "@TestConstructorParameterTypeAnnotations$MarkerTypeAnnotation(1)"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LTestConstructorParameterTypeAnnotations$ExpectedGetParameterAnnotations;", annotations$$$namedAttribute},
+		{"LTestConstructorParameterTypeAnnotations$ExpectedParameterTypeAnnotations;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestConstructorParameterTypeAnnotations$StaticNestedClass1",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"TestConstructorParameterTypeAnnotations"
+	};
+	$loadClass(TestConstructorParameterTypeAnnotations$StaticNestedClass1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestConstructorParameterTypeAnnotations$StaticNestedClass1);
+	});
 	return class$;
 }
 

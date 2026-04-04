@@ -1,7 +1,5 @@
 #include <sun/security/ssl/CertificateMessage$CertificateEntry.h>
-
 #include <java/io/ByteArrayInputStream.h>
-#include <java/io/InputStream.h>
 #include <java/security/cert/Certificate.h>
 #include <java/security/cert/CertificateException.h>
 #include <java/security/cert/CertificateFactory.h>
@@ -16,7 +14,6 @@
 #undef ENGLISH
 
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
-using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -33,44 +30,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _CertificateMessage$CertificateEntry_FieldInfo_[] = {
-	{"encoded", "[B", nullptr, $FINAL, $field(CertificateMessage$CertificateEntry, encoded)},
-	{"extensions", "Lsun/security/ssl/SSLExtensions;", nullptr, $PRIVATE | $FINAL, $field(CertificateMessage$CertificateEntry, extensions)},
-	{}
-};
-
-$MethodInfo _CertificateMessage$CertificateEntry_MethodInfo_[] = {
-	{"<init>", "([BLsun/security/ssl/SSLExtensions;)V", nullptr, 0, $method(CertificateMessage$CertificateEntry, init$, void, $bytes*, $SSLExtensions*)},
-	{"getEncodedSize", "()I", nullptr, $PRIVATE, $method(CertificateMessage$CertificateEntry, getEncodedSize, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateMessage$CertificateEntry, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _CertificateMessage$CertificateEntry_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertificateMessage$CertificateEntry", "sun.security.ssl.CertificateMessage", "CertificateEntry", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CertificateMessage$CertificateEntry_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CertificateMessage$CertificateEntry",
-	"java.lang.Object",
-	nullptr,
-	_CertificateMessage$CertificateEntry_FieldInfo_,
-	_CertificateMessage$CertificateEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CertificateMessage$CertificateEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertificateMessage"
-};
-
-$Object* allocate$CertificateMessage$CertificateEntry($Class* clazz) {
-	return $of($alloc(CertificateMessage$CertificateEntry));
-}
-
 void CertificateMessage$CertificateEntry::init$($bytes* encoded, $SSLExtensions* extensions) {
 	$set(this, encoded, encoded);
 	$set(this, extensions, extensions);
@@ -85,7 +44,7 @@ int32_t CertificateMessage$CertificateEntry::getEncodedSize() {
 }
 
 $String* CertificateMessage$CertificateEntry::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\n\'{\'\n{0}\n  \"extensions\": \'{\'\n{1}\n  \'}\'\n\'}\',"_s, $Locale::ENGLISH));
 	$var($Object, x509Certs, nullptr);
@@ -96,8 +55,8 @@ $String* CertificateMessage$CertificateEntry::toString() {
 		$assign(x509Certs, this->encoded);
 	}
 	$var($ObjectArray, messageFields, $new($ObjectArray, {
-		$($of($SSLLogger::toString($$new($ObjectArray, {x509Certs})))),
-		$($of($Utilities::indent($($nc(this->extensions)->toString()), "    "_s)))
+		$($SSLLogger::toString($$new($ObjectArray, {x509Certs}))),
+		$($Utilities::indent($($nc(this->extensions)->toString()), "    "_s))
 	}));
 	return messageFormat->format(messageFields);
 }
@@ -106,7 +65,39 @@ CertificateMessage$CertificateEntry::CertificateMessage$CertificateEntry() {
 }
 
 $Class* CertificateMessage$CertificateEntry::load$($String* name, bool initialize) {
-	$loadClass(CertificateMessage$CertificateEntry, name, initialize, &_CertificateMessage$CertificateEntry_ClassInfo_, allocate$CertificateMessage$CertificateEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"encoded", "[B", nullptr, $FINAL, $field(CertificateMessage$CertificateEntry, encoded)},
+		{"extensions", "Lsun/security/ssl/SSLExtensions;", nullptr, $PRIVATE | $FINAL, $field(CertificateMessage$CertificateEntry, extensions)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([BLsun/security/ssl/SSLExtensions;)V", nullptr, 0, $method(CertificateMessage$CertificateEntry, init$, void, $bytes*, $SSLExtensions*)},
+		{"getEncodedSize", "()I", nullptr, $PRIVATE, $method(CertificateMessage$CertificateEntry, getEncodedSize, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateMessage$CertificateEntry, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertificateMessage$CertificateEntry", "sun.security.ssl.CertificateMessage", "CertificateEntry", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CertificateMessage$CertificateEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertificateMessage"
+	};
+	$loadClass(CertificateMessage$CertificateEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateMessage$CertificateEntry);
+	});
 	return class$;
 }
 

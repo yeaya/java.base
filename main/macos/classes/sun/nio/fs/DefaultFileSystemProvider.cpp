@@ -1,5 +1,4 @@
 #include <sun/nio/fs/DefaultFileSystemProvider.h>
-
 #include <java/nio/file/FileSystem.h>
 #include <sun/nio/fs/MacOSXFileSystemProvider.h>
 #include <sun/nio/fs/UnixFileSystem.h>
@@ -18,31 +17,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _DefaultFileSystemProvider_FieldInfo_[] = {
-	{"INSTANCE", "Lsun/nio/fs/MacOSXFileSystemProvider;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultFileSystemProvider, INSTANCE)},
-	{}
-};
-
-$MethodInfo _DefaultFileSystemProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DefaultFileSystemProvider, init$, void)},
-	{"instance", "()Lsun/nio/fs/MacOSXFileSystemProvider;", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultFileSystemProvider, instance, $MacOSXFileSystemProvider*)},
-	{"theFileSystem", "()Ljava/nio/file/FileSystem;", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultFileSystemProvider, theFileSystem, $FileSystem*)},
-	{}
-};
-
-$ClassInfo _DefaultFileSystemProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.fs.DefaultFileSystemProvider",
-	"java.lang.Object",
-	nullptr,
-	_DefaultFileSystemProvider_FieldInfo_,
-	_DefaultFileSystemProvider_MethodInfo_
-};
-
-$Object* allocate$DefaultFileSystemProvider($Class* clazz) {
-	return $of($alloc(DefaultFileSystemProvider));
-}
-
 $MacOSXFileSystemProvider* DefaultFileSystemProvider::INSTANCE = nullptr;
 
 void DefaultFileSystemProvider::init$() {
@@ -55,10 +29,10 @@ $MacOSXFileSystemProvider* DefaultFileSystemProvider::instance() {
 
 $FileSystem* DefaultFileSystemProvider::theFileSystem() {
 	$init(DefaultFileSystemProvider);
-	return $nc(DefaultFileSystemProvider::INSTANCE)->theFileSystem();
+	return DefaultFileSystemProvider::INSTANCE->theFileSystem();
 }
 
-void clinit$DefaultFileSystemProvider($Class* class$) {
+void DefaultFileSystemProvider::clinit$($Class* clazz) {
 	$assignStatic(DefaultFileSystemProvider::INSTANCE, $new($MacOSXFileSystemProvider));
 }
 
@@ -66,7 +40,27 @@ DefaultFileSystemProvider::DefaultFileSystemProvider() {
 }
 
 $Class* DefaultFileSystemProvider::load$($String* name, bool initialize) {
-	$loadClass(DefaultFileSystemProvider, name, initialize, &_DefaultFileSystemProvider_ClassInfo_, clinit$DefaultFileSystemProvider, allocate$DefaultFileSystemProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Lsun/nio/fs/MacOSXFileSystemProvider;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultFileSystemProvider, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DefaultFileSystemProvider, init$, void)},
+		{"instance", "()Lsun/nio/fs/MacOSXFileSystemProvider;", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultFileSystemProvider, instance, $MacOSXFileSystemProvider*)},
+		{"theFileSystem", "()Ljava/nio/file/FileSystem;", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultFileSystemProvider, theFileSystem, $FileSystem*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.fs.DefaultFileSystemProvider",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DefaultFileSystemProvider, name, initialize, &classInfo$$, DefaultFileSystemProvider::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultFileSystemProvider);
+	});
 	return class$;
 }
 

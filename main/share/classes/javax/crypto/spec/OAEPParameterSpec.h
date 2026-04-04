@@ -24,6 +24,7 @@ class $export OAEPParameterSpec : public ::java::security::spec::AlgorithmParame
 	$class(OAEPParameterSpec, 0, ::java::security::spec::AlgorithmParameterSpec)
 public:
 	OAEPParameterSpec();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* mdName, $String* mgfName, ::java::security::spec::AlgorithmParameterSpec* mgfSpec, ::javax::crypto::spec::PSource* pSrc);
 	virtual $String* getDigestAlgorithm();

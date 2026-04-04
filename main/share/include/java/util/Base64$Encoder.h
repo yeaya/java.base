@@ -28,6 +28,7 @@ class $import Base64$Encoder : public ::java::lang::Object {
 	$class(Base64$Encoder, 0, ::java::lang::Object)
 public:
 	Base64$Encoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool isURL, $bytes* newline, int32_t linemax, bool doPadding);
 	virtual $bytes* encode($bytes* src);
 	virtual int32_t encode($bytes* src, $bytes* dst);

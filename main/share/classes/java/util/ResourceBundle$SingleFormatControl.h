@@ -23,6 +23,7 @@ class ResourceBundle$SingleFormatControl : public ::java::util::ResourceBundle$C
 	$class(ResourceBundle$SingleFormatControl, 0, ::java::util::ResourceBundle$Control)
 public:
 	ResourceBundle$SingleFormatControl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::List* formats);
 	virtual ::java::util::List* getFormats($String* baseName) override;
 	static ::java::util::ResourceBundle$Control* PROPERTIES_ONLY;

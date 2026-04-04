@@ -13,6 +13,7 @@ class OutputRecord$T13PaddingHolder : public ::java::lang::Object {
 	$class(OutputRecord$T13PaddingHolder, 0, ::java::lang::Object)
 public:
 	OutputRecord$T13PaddingHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $bytes* zeros;
 };

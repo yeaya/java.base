@@ -1,5 +1,4 @@
 #include <java/security/Policy$PolicyDelegate.h>
-
 #include <java/security/CodeSource.h>
 #include <java/security/Permission.h>
 #include <java/security/PermissionCollection.h>
@@ -25,51 +24,6 @@ using $Provider = ::java::security::Provider;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _Policy$PolicyDelegate_FieldInfo_[] = {
-	{"spi", "Ljava/security/PolicySpi;", nullptr, $PRIVATE, $field(Policy$PolicyDelegate, spi)},
-	{"p", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(Policy$PolicyDelegate, p)},
-	{"type", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Policy$PolicyDelegate, type)},
-	{"params", "Ljava/security/Policy$Parameters;", nullptr, $PRIVATE, $field(Policy$PolicyDelegate, params)},
-	{}
-};
-
-$MethodInfo _Policy$PolicyDelegate_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/PolicySpi;Ljava/security/Provider;Ljava/lang/String;Ljava/security/Policy$Parameters;)V", nullptr, $PRIVATE, $method(Policy$PolicyDelegate, init$, void, $PolicySpi*, $Provider*, $String*, $Policy$Parameters*)},
-	{"getParameters", "()Ljava/security/Policy$Parameters;", nullptr, $PUBLIC, $virtualMethod(Policy$PolicyDelegate, getParameters, $Policy$Parameters*)},
-	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(Policy$PolicyDelegate, getPermissions, $PermissionCollection*, $CodeSource*)},
-	{"getPermissions", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(Policy$PolicyDelegate, getPermissions, $PermissionCollection*, $ProtectionDomain*)},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(Policy$PolicyDelegate, getProvider, $Provider*)},
-	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Policy$PolicyDelegate, getType, $String*)},
-	{"implies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(Policy$PolicyDelegate, implies, bool, $ProtectionDomain*, $Permission*)},
-	{"refresh", "()V", nullptr, $PUBLIC, $virtualMethod(Policy$PolicyDelegate, refresh, void)},
-	{}
-};
-
-$InnerClassInfo _Policy$PolicyDelegate_InnerClassesInfo_[] = {
-	{"java.security.Policy$PolicyDelegate", "java.security.Policy", "PolicyDelegate", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Policy$PolicyDelegate_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.security.Policy$PolicyDelegate",
-	"java.security.Policy",
-	nullptr,
-	_Policy$PolicyDelegate_FieldInfo_,
-	_Policy$PolicyDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Policy$PolicyDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.Policy"
-};
-
-$Object* allocate$Policy$PolicyDelegate($Class* clazz) {
-	return $of($alloc(Policy$PolicyDelegate));
-}
 
 void Policy$PolicyDelegate::init$($PolicySpi* spi, $Provider* p, $String* type, $Policy$Parameters* params) {
 	$Policy::init$();
@@ -111,7 +65,46 @@ Policy$PolicyDelegate::Policy$PolicyDelegate() {
 }
 
 $Class* Policy$PolicyDelegate::load$($String* name, bool initialize) {
-	$loadClass(Policy$PolicyDelegate, name, initialize, &_Policy$PolicyDelegate_ClassInfo_, allocate$Policy$PolicyDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"spi", "Ljava/security/PolicySpi;", nullptr, $PRIVATE, $field(Policy$PolicyDelegate, spi)},
+		{"p", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(Policy$PolicyDelegate, p)},
+		{"type", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Policy$PolicyDelegate, type)},
+		{"params", "Ljava/security/Policy$Parameters;", nullptr, $PRIVATE, $field(Policy$PolicyDelegate, params)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/PolicySpi;Ljava/security/Provider;Ljava/lang/String;Ljava/security/Policy$Parameters;)V", nullptr, $PRIVATE, $method(Policy$PolicyDelegate, init$, void, $PolicySpi*, $Provider*, $String*, $Policy$Parameters*)},
+		{"getParameters", "()Ljava/security/Policy$Parameters;", nullptr, $PUBLIC, $virtualMethod(Policy$PolicyDelegate, getParameters, $Policy$Parameters*)},
+		{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(Policy$PolicyDelegate, getPermissions, $PermissionCollection*, $CodeSource*)},
+		{"getPermissions", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(Policy$PolicyDelegate, getPermissions, $PermissionCollection*, $ProtectionDomain*)},
+		{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(Policy$PolicyDelegate, getProvider, $Provider*)},
+		{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Policy$PolicyDelegate, getType, $String*)},
+		{"implies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(Policy$PolicyDelegate, implies, bool, $ProtectionDomain*, $Permission*)},
+		{"refresh", "()V", nullptr, $PUBLIC, $virtualMethod(Policy$PolicyDelegate, refresh, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.Policy$PolicyDelegate", "java.security.Policy", "PolicyDelegate", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.security.Policy$PolicyDelegate",
+		"java.security.Policy",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.Policy"
+	};
+	$loadClass(Policy$PolicyDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Policy$PolicyDelegate);
+	});
 	return class$;
 }
 

@@ -15,10 +15,13 @@ public:
 	ProviderMismatchException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0x45430D587BC7BDF2;
+	static const int64_t serialVersionUID = (int64_t)0x45430d587bc7bdf2;
 	ProviderMismatchException(const ProviderMismatchException& e);
 	virtual void throw$() override;
-	inline ProviderMismatchException* operator ->() {
+	inline ProviderMismatchException* operator ->() const {
+		return (ProviderMismatchException*)throwing$;
+	}
+	inline operator ProviderMismatchException*() const {
 		return (ProviderMismatchException*)throwing$;
 	}
 };

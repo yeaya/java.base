@@ -1,5 +1,4 @@
 #include <TestClassArray.h>
-
 #include <java/io/Serializable.h>
 #include <jcpp.h>
 
@@ -9,97 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $TypeAnnotation = ::java::lang::TypeAnnotation;
-
-$NamedAttribute TestClassArray_Attribute_var$0[] = {
-	{"value", 's', "extends"},
-	{}
-};
-
-$NamedAttribute TestClassArray_Attribute_var$1[] = {
-	{"value", 's', "extends2"},
-	{}
-};
-
-$NamedAttribute TestClassArray_Attribute_var$2[] = {
-	{"value", 's', "implements serializable"},
-	{}
-};
-
-$NamedAttribute TestClassArray_Attribute_var$3[] = {
-	{"value", 's', "implements2 serializable"},
-	{}
-};
-
-$NamedAttribute TestClassArray_Attribute_var$4[] = {
-	{"value", 's', "implements cloneable"},
-	{}
-};
-
-$NamedAttribute TestClassArray_Attribute_var$5[] = {
-	{"value", 's', "implements2 cloneable"},
-	{}
-};
-
-$TypeAnnotation _TestClassArray_TypeAnnotations_[] = {
-	{"LTypeAnno;", TestClassArray_Attribute_var$0, "CLASS_EXTENDS, type_index = 65535"},
-	{"LTypeAnno2;", TestClassArray_Attribute_var$1, "CLASS_EXTENDS, type_index = 65535"},
-	{"LTypeAnno;", TestClassArray_Attribute_var$2, "CLASS_EXTENDS, type_index = 0"},
-	{"LTypeAnno2;", TestClassArray_Attribute_var$3, "CLASS_EXTENDS, type_index = 0"},
-	{"LTypeAnno;", TestClassArray_Attribute_var$4, "CLASS_EXTENDS, type_index = 2"},
-	{"LTypeAnno2;", TestClassArray_Attribute_var$5, "CLASS_EXTENDS, type_index = 2"},
-	{}
-};
-
-$NamedAttribute TestClassArray_Attribute_var$6[] = {
-	{"value", 's', "return1"},
-	{}
-};
-
-$NamedAttribute TestClassArray_Attribute_var$7[] = {
-	{"value", 's', "return3"},
-	{}
-};
-
-$NamedAttribute TestClassArray_Attribute_var$8[] = {
-	{"value", 's', "return4"},
-	{}
-};
-
-$TypeAnnotation _TestClassArray_MethodTypeAnnotations_foo1[] = {
-	{"LTypeAnno;", TestClassArray_Attribute_var$6, "METHOD_RETURN"},
-	{"LTypeAnno;", TestClassArray_Attribute_var$7, "METHOD_RETURN, location = (ARRAY,ARRAY)"},
-	{"LTypeAnno;", TestClassArray_Attribute_var$8, "METHOD_RETURN, location = (ARRAY,ARRAY,ARRAY)"},
-	{}
-};
-
-$MethodInfo _TestClassArray_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(TestClassArray, init$, void)},
-	{"foo", "()[[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TestClassArray, foo, $ObjectArray3*), nullptr, nullptr, nullptr, _TestClassArray_MethodTypeAnnotations_foo1},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _TestClassArray_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"TestClassArray",
-	"java.lang.Object",
-	"java.io.Serializable,java.lang.Readable,java.lang.Cloneable",
-	nullptr,
-	_TestClassArray_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_TestClassArray_TypeAnnotations_
-};
-
-$Object* allocate$TestClassArray($Class* clazz) {
-	return $of($alloc(TestClassArray));
-}
 
 int32_t TestClassArray::hashCode() {
 	 return this->$Serializable::hashCode();
@@ -132,7 +40,83 @@ TestClassArray::TestClassArray() {
 }
 
 $Class* TestClassArray::load$($String* name, bool initialize) {
-	$loadClass(TestClassArray, name, initialize, &_TestClassArray_ClassInfo_, allocate$TestClassArray);
+	$NamedAttribute foomethodTypeAnnotations$$$namedAttribute[] = {
+		{"value", 's', "return1"},
+		{}
+	};
+	$NamedAttribute foomethodTypeAnnotations$$$namedAttribute$1[] = {
+		{"value", 's', "return3"},
+		{}
+	};
+	$NamedAttribute foomethodTypeAnnotations$$$namedAttribute$2[] = {
+		{"value", 's', "return4"},
+		{}
+	};
+	$TypeAnnotation foomethodTypeAnnotations$$[] = {
+		{"LTypeAnno;", foomethodTypeAnnotations$$$namedAttribute, "METHOD_RETURN"},
+		{"LTypeAnno;", foomethodTypeAnnotations$$$namedAttribute$1, "METHOD_RETURN, location = (ARRAY,ARRAY)"},
+		{"LTypeAnno;", foomethodTypeAnnotations$$$namedAttribute$2, "METHOD_RETURN, location = (ARRAY,ARRAY,ARRAY)"},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(TestClassArray, init$, void)},
+		{"foo", "()[[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TestClassArray, foo, $ObjectArray3*), nullptr, nullptr, nullptr, foomethodTypeAnnotations$$},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$NamedAttribute typeAnnotations$$$namedAttribute[] = {
+		{"value", 's', "extends"},
+		{}
+	};
+	$NamedAttribute typeAnnotations$$$namedAttribute$1[] = {
+		{"value", 's', "extends2"},
+		{}
+	};
+	$NamedAttribute typeAnnotations$$$namedAttribute$2[] = {
+		{"value", 's', "implements serializable"},
+		{}
+	};
+	$NamedAttribute typeAnnotations$$$namedAttribute$3[] = {
+		{"value", 's', "implements2 serializable"},
+		{}
+	};
+	$NamedAttribute typeAnnotations$$$namedAttribute$4[] = {
+		{"value", 's', "implements cloneable"},
+		{}
+	};
+	$NamedAttribute typeAnnotations$$$namedAttribute$5[] = {
+		{"value", 's', "implements2 cloneable"},
+		{}
+	};
+	$TypeAnnotation typeAnnotations$$[] = {
+		{"LTypeAnno;", typeAnnotations$$$namedAttribute, "CLASS_EXTENDS, type_index = 65535"},
+		{"LTypeAnno2;", typeAnnotations$$$namedAttribute$1, "CLASS_EXTENDS, type_index = 65535"},
+		{"LTypeAnno;", typeAnnotations$$$namedAttribute$2, "CLASS_EXTENDS, type_index = 0"},
+		{"LTypeAnno2;", typeAnnotations$$$namedAttribute$3, "CLASS_EXTENDS, type_index = 0"},
+		{"LTypeAnno;", typeAnnotations$$$namedAttribute$4, "CLASS_EXTENDS, type_index = 2"},
+		{"LTypeAnno2;", typeAnnotations$$$namedAttribute$5, "CLASS_EXTENDS, type_index = 2"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"TestClassArray",
+		"java.lang.Object",
+		"java.io.Serializable,java.lang.Readable,java.lang.Cloneable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		typeAnnotations$$
+	};
+	$loadClass(TestClassArray, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TestClassArray));
+	});
 	return class$;
 }
 

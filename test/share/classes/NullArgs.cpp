@@ -1,82 +1,45 @@
 #include <NullArgs.h>
-
 #include <java/io/File.h>
 #include <jcpp.h>
 
 using $File = ::java::io::File;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 
-$MethodInfo _NullArgs_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NullArgs, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullArgs, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _NullArgs_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NullArgs",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_NullArgs_MethodInfo_
-};
-
-$Object* allocate$NullArgs($Class* clazz) {
-	return $of($alloc(NullArgs));
-}
-
 void NullArgs::init$() {
 }
 
 void NullArgs::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0;; ++i) {
 		try {
 			switch (i) {
 			case 0:
-				{
-					$new($File, ($String*)nullptr);
-					break;
-				}
+				$new($File, ($String*)nullptr);
+				break;
 			case 1:
-				{
-					$new($File, ($String*)nullptr, ($String*)nullptr);
-					break;
-				}
+				$new($File, ($String*)nullptr, ($String*)nullptr);
+				break;
 			case 2:
-				{
-					$new($File, ($File*)nullptr, ($String*)nullptr);
-					break;
-				}
+				$new($File, ($File*)nullptr, nullptr);
+				break;
 			case 3:
-				{
-					$File::createTempFile(nullptr, nullptr, nullptr);
-					break;
-				}
+				$File::createTempFile(nullptr, nullptr, nullptr);
+				break;
 			case 4:
-				{
-					$File::createTempFile(nullptr, nullptr);
-					break;
-				}
+				$File::createTempFile(nullptr, nullptr);
+				break;
 			case 5:
-				{
-					$$new($File, "foo"_s)->compareTo(($File*)nullptr);
-					break;
-				}
+				$$new($File, "foo"_s)->compareTo(($File*)nullptr);
+				break;
 			case 6:
-				{
-					$$new($File, "foo"_s)->renameTo(nullptr);
-					break;
-				}
+				$$new($File, "foo"_s)->renameTo(nullptr);
+				break;
 			default:
-				{
-					$nc($System::err)->println();
-					return;
-				}
+				$nc($System::err)->println();
+				return;
 			}
 		} catch ($NullPointerException& x) {
 			$nc($System::err)->print($$str({$$str(i), " "_s}));
@@ -90,7 +53,22 @@ NullArgs::NullArgs() {
 }
 
 $Class* NullArgs::load$($String* name, bool initialize) {
-	$loadClass(NullArgs, name, initialize, &_NullArgs_ClassInfo_, allocate$NullArgs);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NullArgs, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullArgs, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NullArgs",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NullArgs, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NullArgs);
+	});
 	return class$;
 }
 

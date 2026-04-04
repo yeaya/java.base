@@ -1,5 +1,4 @@
 #include <TestN1.h>
-
 #include <N1$Inner1.h>
 #include <N1$Inner2.h>
 #include <N1$Inner3.h>
@@ -17,7 +16,6 @@ using $N1$Inner1 = ::N1$Inner1;
 using $N1$Inner2 = ::N1$Inner2;
 using $N1$Inner3 = ::N1$Inner3;
 using $TypeVariableArray = $Array<::java::lang::reflect::TypeVariable>;
-using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
 using $Byte = ::java::lang::Byte;
@@ -30,36 +28,6 @@ using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Short = ::java::lang::Short;
-using $Field = ::java::lang::reflect::Field;
-
-$FieldInfo _TestN1_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TestN1, $assertionsDisabled)},
-	{"cls", "Ljava/lang/Class;", "Ljava/lang/Class<LN1;>;", $STATIC, $staticField(TestN1, cls)},
-	{}
-};
-
-$MethodInfo _TestN1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestN1, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestN1, main, void, $StringArray*), "java.lang.Throwable"},
-	{"testInner1", "()V", nullptr, $STATIC, $staticMethod(TestN1, testInner1, void)},
-	{"testInner2", "()V", nullptr, $STATIC, $staticMethod(TestN1, testInner2, void), "java.lang.NoSuchFieldException"},
-	{"testInner3", "()V", nullptr, $STATIC, $staticMethod(TestN1, testInner3, void)},
-	{"testTypeParameters", "()V", nullptr, $STATIC, $staticMethod(TestN1, testTypeParameters, void)},
-	{}
-};
-
-$ClassInfo _TestN1_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestN1",
-	"java.lang.Object",
-	nullptr,
-	_TestN1_FieldInfo_,
-	_TestN1_MethodInfo_
-};
-
-$Object* allocate$TestN1($Class* clazz) {
-	return $of($alloc(TestN1));
-}
 
 bool TestN1::$assertionsDisabled = false;
 $Class* TestN1::cls = nullptr;
@@ -89,7 +57,7 @@ void TestN1::testInner1() {
 	$nc($System::out)->println("testing non-generic inner class"_s);
 	$load($N1$Inner1);
 	$Class* in1 = $N1$Inner1::class$;
-	$var($TypeVariableArray, tvs, $nc(in1)->getTypeParameters());
+	$var($TypeVariableArray, tvs, in1->getTypeParameters());
 	if (!TestN1::$assertionsDisabled && !($nc(tvs)->length == 0)) {
 		$throwNew($AssertionError, $of("N1.Inner2 should have no type parameters"_s));
 	}
@@ -97,77 +65,61 @@ void TestN1::testInner1() {
 
 void TestN1::testInner2() {
 	$init(TestN1);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$nc($System::out)->println("testing generic inner class 1"_s);
 	$load($N1$Inner2);
 	$Class* in1 = $N1$Inner2::class$;
-	$var($TypeVariableArray, tvs, $nc(in1)->getTypeParameters());
+	$var($TypeVariableArray, tvs, in1->getTypeParameters());
 	if (!TestN1::$assertionsDisabled && !($nc(tvs)->length == 1)) {
 		$throwNew($AssertionError, $of("N1.Inner2 should have one type parameter"_s));
 	}
-	$init($Boolean);
-	if (!TestN1::$assertionsDisabled && !$equals($nc($(in1->getField("x"_s)))->getGenericType(), $Boolean::TYPE)) {
+	if (!TestN1::$assertionsDisabled && !$equals($$nc(in1->getField("x"_s))->getGenericType(), $Boolean::TYPE)) {
 		$throwNew($AssertionError, $of("Type of Inner2.x should be boolean"_s));
 	}
-	$init($Byte);
-	if (!TestN1::$assertionsDisabled && !$equals($nc($(in1->getField("b"_s)))->getGenericType(), $Byte::TYPE)) {
+	if (!TestN1::$assertionsDisabled && !$equals($$nc(in1->getField("b"_s))->getGenericType(), $Byte::TYPE)) {
 		$throwNew($AssertionError, $of("Type of Inner2.b should be byte"_s));
 	}
-	$init($Short);
-	if (!TestN1::$assertionsDisabled && !$equals($nc($(in1->getField("s"_s)))->getGenericType(), $Short::TYPE)) {
+	if (!TestN1::$assertionsDisabled && !$equals($$nc(in1->getField("s"_s))->getGenericType(), $Short::TYPE)) {
 		$throwNew($AssertionError, $of("Type of Inner2.s should be short"_s));
 	}
-	$init($Character);
-	if (!TestN1::$assertionsDisabled && !$equals($nc($(in1->getField("c"_s)))->getGenericType(), $Character::TYPE)) {
+	if (!TestN1::$assertionsDisabled && !$equals($$nc(in1->getField("c"_s))->getGenericType(), $Character::TYPE)) {
 		$throwNew($AssertionError, $of("Type of Inner2.x should be char"_s));
 	}
-	$init($Integer);
-	if (!TestN1::$assertionsDisabled && !$equals($nc($(in1->getField("i"_s)))->getGenericType(), $Integer::TYPE)) {
+	if (!TestN1::$assertionsDisabled && !$equals($$nc(in1->getField("i"_s))->getGenericType(), $Integer::TYPE)) {
 		$throwNew($AssertionError, $of("Type of Inner2.i should be int"_s));
 	}
-	$init($Long);
-	if (!TestN1::$assertionsDisabled && !$equals($nc($(in1->getField("l"_s)))->getGenericType(), $Long::TYPE)) {
+	if (!TestN1::$assertionsDisabled && !$equals($$nc(in1->getField("l"_s))->getGenericType(), $Long::TYPE)) {
 		$throwNew($AssertionError, $of("Type of Inner2.l should be long"_s));
 	}
-	$init($Float);
-	if (!TestN1::$assertionsDisabled && !$equals($nc($(in1->getField("f"_s)))->getGenericType(), $Float::TYPE)) {
+	if (!TestN1::$assertionsDisabled && !$equals($$nc(in1->getField("f"_s))->getGenericType(), $Float::TYPE)) {
 		$throwNew($AssertionError, $of("Type of Inner2.f should be float"_s));
 	}
-	$init($Double);
-	if (!TestN1::$assertionsDisabled && !$equals($nc($(in1->getField("d"_s)))->getGenericType(), $Double::TYPE)) {
+	if (!TestN1::$assertionsDisabled && !$equals($$nc(in1->getField("d"_s))->getGenericType(), $Double::TYPE)) {
 		$throwNew($AssertionError, $of("Type of Inner2.d should be double"_s));
 	}
-	$load($booleans);
-	if (!TestN1::$assertionsDisabled && !$equals($nc($(in1->getField("xa"_s)))->getGenericType(), $getClass($booleans))) {
+	if (!TestN1::$assertionsDisabled && !$equals($$nc(in1->getField("xa"_s))->getGenericType(), $getClass($booleans))) {
 		$throwNew($AssertionError, $of("Type of Inner2.xa should be boolean[]"_s));
 	}
-	$load($bytes);
-	if (!TestN1::$assertionsDisabled && !$equals($nc($(in1->getField("ba"_s)))->getGenericType(), $getClass($bytes))) {
+	if (!TestN1::$assertionsDisabled && !$equals($$nc(in1->getField("ba"_s))->getGenericType(), $getClass($bytes))) {
 		$throwNew($AssertionError, $of("Type of Inner2.ba should be byte[]"_s));
 	}
-	$load($shorts);
-	if (!TestN1::$assertionsDisabled && !$equals($nc($(in1->getField("sa"_s)))->getGenericType(), $getClass($shorts))) {
+	if (!TestN1::$assertionsDisabled && !$equals($$nc(in1->getField("sa"_s))->getGenericType(), $getClass($shorts))) {
 		$throwNew($AssertionError, $of("Type of Inner2.sa should be short[]"_s));
 	}
-	$load($chars);
-	if (!TestN1::$assertionsDisabled && !$equals($nc($(in1->getField("ca"_s)))->getGenericType(), $getClass($chars))) {
+	if (!TestN1::$assertionsDisabled && !$equals($$nc(in1->getField("ca"_s))->getGenericType(), $getClass($chars))) {
 		$throwNew($AssertionError, $of("Type of Inner2.xa should be char[]"_s));
 	}
-	$load($ints);
-	if (!TestN1::$assertionsDisabled && !$equals($nc($(in1->getField("ia"_s)))->getGenericType(), $getClass($ints))) {
+	if (!TestN1::$assertionsDisabled && !$equals($$nc(in1->getField("ia"_s))->getGenericType(), $getClass($ints))) {
 		$throwNew($AssertionError, $of("Type of Inner2.ia should be int[]"_s));
 	}
-	$load($longs);
-	if (!TestN1::$assertionsDisabled && !$equals($nc($(in1->getField("la"_s)))->getGenericType(), $getClass($longs))) {
+	if (!TestN1::$assertionsDisabled && !$equals($$nc(in1->getField("la"_s))->getGenericType(), $getClass($longs))) {
 		$throwNew($AssertionError, $of("Type of Inner2.la should be long[]"_s));
 	}
-	$load($floats);
-	if (!TestN1::$assertionsDisabled && !$equals($nc($(in1->getField("fa"_s)))->getGenericType(), $getClass($floats))) {
+	if (!TestN1::$assertionsDisabled && !$equals($$nc(in1->getField("fa"_s))->getGenericType(), $getClass($floats))) {
 		$throwNew($AssertionError, $of("Type of Inner2.fa should be float[]"_s));
 	}
-	$load($doubles);
-	if (!TestN1::$assertionsDisabled && !$equals($nc($(in1->getField("da"_s)))->getGenericType(), $getClass($doubles))) {
+	if (!TestN1::$assertionsDisabled && !$equals($$nc(in1->getField("da"_s))->getGenericType(), $getClass($doubles))) {
 		$throwNew($AssertionError, $of("Type of Inner2.da should be double[]"_s));
 	}
 }
@@ -177,13 +129,13 @@ void TestN1::testInner3() {
 	$nc($System::out)->println("testing generic inner class 3"_s);
 	$load($N1$Inner3);
 	$Class* in1 = $N1$Inner3::class$;
-	$var($TypeVariableArray, tvs, $nc(in1)->getTypeParameters());
+	$var($TypeVariableArray, tvs, in1->getTypeParameters());
 	if (!TestN1::$assertionsDisabled && !($nc(tvs)->length == 3)) {
 		$throwNew($AssertionError, $of("N1.Inner2 should have three type parameters"_s));
 	}
 }
 
-void clinit$TestN1($Class* class$) {
+void TestN1::clinit$($Class* clazz) {
 	TestN1::$assertionsDisabled = !TestN1::class$->desiredAssertionStatus();
 	$load($N1);
 	$assignStatic(TestN1::cls, $N1::class$);
@@ -193,7 +145,31 @@ TestN1::TestN1() {
 }
 
 $Class* TestN1::load$($String* name, bool initialize) {
-	$loadClass(TestN1, name, initialize, &_TestN1_ClassInfo_, clinit$TestN1, allocate$TestN1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TestN1, $assertionsDisabled)},
+		{"cls", "Ljava/lang/Class;", "Ljava/lang/Class<LN1;>;", $STATIC, $staticField(TestN1, cls)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestN1, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestN1, main, void, $StringArray*), "java.lang.Throwable"},
+		{"testInner1", "()V", nullptr, $STATIC, $staticMethod(TestN1, testInner1, void)},
+		{"testInner2", "()V", nullptr, $STATIC, $staticMethod(TestN1, testInner2, void), "java.lang.NoSuchFieldException"},
+		{"testInner3", "()V", nullptr, $STATIC, $staticMethod(TestN1, testInner3, void)},
+		{"testTypeParameters", "()V", nullptr, $STATIC, $staticMethod(TestN1, testTypeParameters, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestN1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestN1, name, initialize, &classInfo$$, TestN1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TestN1);
+	});
 	return class$;
 }
 

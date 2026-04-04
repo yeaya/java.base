@@ -22,6 +22,7 @@ class DHServerKeyExchange : public ::java::lang::Object {
 	$class(DHServerKeyExchange, 0, ::java::lang::Object)
 public:
 	DHServerKeyExchange();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::SSLConsumer* dhHandshakeConsumer;
 	static ::sun::security::ssl::HandshakeProducer* dhHandshakeProducer;

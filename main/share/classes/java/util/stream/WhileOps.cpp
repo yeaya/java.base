@@ -1,5 +1,4 @@
 #include <java/util/stream/WhileOps.h>
-
 #include <java/util/Objects.h>
 #include <java/util/function/DoublePredicate.h>
 #include <java/util/function/IntPredicate.h>
@@ -59,61 +58,6 @@ using $WhileOps$4Op = ::java::util::stream::WhileOps$4Op;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _WhileOps_FieldInfo_[] = {
-	{"TAKE_FLAGS", "I", nullptr, $STATIC | $FINAL, $staticField(WhileOps, TAKE_FLAGS)},
-	{"DROP_FLAGS", "I", nullptr, $STATIC | $FINAL, $staticField(WhileOps, DROP_FLAGS)},
-	{}
-};
-
-$MethodInfo _WhileOps_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(WhileOps, init$, void)},
-	{"makeDropWhileDouble", "(Ljava/util/stream/AbstractPipeline;Ljava/util/function/DoublePredicate;)Ljava/util/stream/DoubleStream;", "(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Double;*>;Ljava/util/function/DoublePredicate;)Ljava/util/stream/DoubleStream;", $STATIC, $staticMethod(WhileOps, makeDropWhileDouble, $DoubleStream*, $AbstractPipeline*, $DoublePredicate*)},
-	{"makeDropWhileInt", "(Ljava/util/stream/AbstractPipeline;Ljava/util/function/IntPredicate;)Ljava/util/stream/IntStream;", "(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Integer;*>;Ljava/util/function/IntPredicate;)Ljava/util/stream/IntStream;", $STATIC, $staticMethod(WhileOps, makeDropWhileInt, $IntStream*, $AbstractPipeline*, $IntPredicate*)},
-	{"makeDropWhileLong", "(Ljava/util/stream/AbstractPipeline;Ljava/util/function/LongPredicate;)Ljava/util/stream/LongStream;", "(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Long;*>;Ljava/util/function/LongPredicate;)Ljava/util/stream/LongStream;", $STATIC, $staticMethod(WhileOps, makeDropWhileLong, $LongStream*, $AbstractPipeline*, $LongPredicate*)},
-	{"makeDropWhileRef", "(Ljava/util/stream/AbstractPipeline;Ljava/util/function/Predicate;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(Ljava/util/stream/AbstractPipeline<*TT;*>;Ljava/util/function/Predicate<-TT;>;)Ljava/util/stream/Stream<TT;>;", $STATIC, $staticMethod(WhileOps, makeDropWhileRef, $Stream*, $AbstractPipeline*, $Predicate*)},
-	{"makeTakeWhileDouble", "(Ljava/util/stream/AbstractPipeline;Ljava/util/function/DoublePredicate;)Ljava/util/stream/DoubleStream;", "(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Double;*>;Ljava/util/function/DoublePredicate;)Ljava/util/stream/DoubleStream;", $STATIC, $staticMethod(WhileOps, makeTakeWhileDouble, $DoubleStream*, $AbstractPipeline*, $DoublePredicate*)},
-	{"makeTakeWhileInt", "(Ljava/util/stream/AbstractPipeline;Ljava/util/function/IntPredicate;)Ljava/util/stream/IntStream;", "(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Integer;*>;Ljava/util/function/IntPredicate;)Ljava/util/stream/IntStream;", $STATIC, $staticMethod(WhileOps, makeTakeWhileInt, $IntStream*, $AbstractPipeline*, $IntPredicate*)},
-	{"makeTakeWhileLong", "(Ljava/util/stream/AbstractPipeline;Ljava/util/function/LongPredicate;)Ljava/util/stream/LongStream;", "(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Long;*>;Ljava/util/function/LongPredicate;)Ljava/util/stream/LongStream;", $STATIC, $staticMethod(WhileOps, makeTakeWhileLong, $LongStream*, $AbstractPipeline*, $LongPredicate*)},
-	{"makeTakeWhileRef", "(Ljava/util/stream/AbstractPipeline;Ljava/util/function/Predicate;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(Ljava/util/stream/AbstractPipeline<*TT;*>;Ljava/util/function/Predicate<-TT;>;)Ljava/util/stream/Stream<TT;>;", $STATIC, $staticMethod(WhileOps, makeTakeWhileRef, $Stream*, $AbstractPipeline*, $Predicate*)},
-	{}
-};
-
-$InnerClassInfo _WhileOps_InnerClassesInfo_[] = {
-	{"java.util.stream.WhileOps$DropWhileTask", "java.util.stream.WhileOps", "DropWhileTask", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.stream.WhileOps$TakeWhileTask", "java.util.stream.WhileOps", "TakeWhileTask", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.stream.WhileOps$UnorderedWhileSpliterator", "java.util.stream.WhileOps", "UnorderedWhileSpliterator", $STATIC | $ABSTRACT},
-	{"java.util.stream.WhileOps$DropWhileSink", "java.util.stream.WhileOps", "DropWhileSink", $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.stream.WhileOps$DropWhileOp", "java.util.stream.WhileOps", "DropWhileOp", $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.stream.WhileOps$4Op", nullptr, "Op", 0},
-	{"java.util.stream.WhileOps$3Op", nullptr, "Op", 0},
-	{"java.util.stream.WhileOps$2Op", nullptr, "Op", 0},
-	{"java.util.stream.WhileOps$1Op", nullptr, "Op", 0},
-	{"java.util.stream.WhileOps$4", nullptr, nullptr, 0},
-	{"java.util.stream.WhileOps$3", nullptr, nullptr, 0},
-	{"java.util.stream.WhileOps$2", nullptr, nullptr, 0},
-	{"java.util.stream.WhileOps$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WhileOps_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.WhileOps",
-	"java.lang.Object",
-	nullptr,
-	_WhileOps_FieldInfo_,
-	_WhileOps_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WhileOps_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.stream.WhileOps$DropWhileTask,java.util.stream.WhileOps$TakeWhileTask,java.util.stream.WhileOps$UnorderedWhileSpliterator,java.util.stream.WhileOps$UnorderedWhileSpliterator$OfDouble,java.util.stream.WhileOps$UnorderedWhileSpliterator$OfDouble$Dropping,java.util.stream.WhileOps$UnorderedWhileSpliterator$OfDouble$Taking,java.util.stream.WhileOps$UnorderedWhileSpliterator$OfLong,java.util.stream.WhileOps$UnorderedWhileSpliterator$OfLong$Dropping,java.util.stream.WhileOps$UnorderedWhileSpliterator$OfLong$Taking,java.util.stream.WhileOps$UnorderedWhileSpliterator$OfInt,java.util.stream.WhileOps$UnorderedWhileSpliterator$OfInt$Dropping,java.util.stream.WhileOps$UnorderedWhileSpliterator$OfInt$Taking,java.util.stream.WhileOps$UnorderedWhileSpliterator$OfRef,java.util.stream.WhileOps$UnorderedWhileSpliterator$OfRef$Dropping,java.util.stream.WhileOps$UnorderedWhileSpliterator$OfRef$Taking,java.util.stream.WhileOps$DropWhileSink,java.util.stream.WhileOps$DropWhileOp,java.util.stream.WhileOps$4Op,java.util.stream.WhileOps$4Op$1OpSink,java.util.stream.WhileOps$3Op,java.util.stream.WhileOps$3Op$1OpSink,java.util.stream.WhileOps$2Op,java.util.stream.WhileOps$2Op$1OpSink,java.util.stream.WhileOps$1Op,java.util.stream.WhileOps$1Op$1OpSink,java.util.stream.WhileOps$4,java.util.stream.WhileOps$4$1,java.util.stream.WhileOps$3,java.util.stream.WhileOps$3$1,java.util.stream.WhileOps$2,java.util.stream.WhileOps$2$1,java.util.stream.WhileOps$1,java.util.stream.WhileOps$1$1"
-};
-
-$Object* allocate$WhileOps($Class* clazz) {
-	return $of($alloc(WhileOps));
-}
 
 int32_t WhileOps::TAKE_FLAGS = 0;
 int32_t WhileOps::DROP_FLAGS = 0;
@@ -185,7 +129,7 @@ $DoubleStream* WhileOps::makeDropWhileDouble($AbstractPipeline* upstream, $Doubl
 	return $as($DoubleStream, $new($WhileOps$4Op, upstream, $StreamShape::DOUBLE_VALUE, WhileOps::DROP_FLAGS, predicate));
 }
 
-void clinit$WhileOps($Class* class$) {
+void WhileOps::clinit$($Class* clazz) {
 	$init($StreamOpFlag);
 	WhileOps::TAKE_FLAGS = $StreamOpFlag::NOT_SIZED | $StreamOpFlag::IS_SHORT_CIRCUIT;
 	WhileOps::DROP_FLAGS = $StreamOpFlag::NOT_SIZED;
@@ -195,7 +139,56 @@ WhileOps::WhileOps() {
 }
 
 $Class* WhileOps::load$($String* name, bool initialize) {
-	$loadClass(WhileOps, name, initialize, &_WhileOps_ClassInfo_, clinit$WhileOps, allocate$WhileOps);
+	$FieldInfo fieldInfos$$[] = {
+		{"TAKE_FLAGS", "I", nullptr, $STATIC | $FINAL, $staticField(WhileOps, TAKE_FLAGS)},
+		{"DROP_FLAGS", "I", nullptr, $STATIC | $FINAL, $staticField(WhileOps, DROP_FLAGS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(WhileOps, init$, void)},
+		{"makeDropWhileDouble", "(Ljava/util/stream/AbstractPipeline;Ljava/util/function/DoublePredicate;)Ljava/util/stream/DoubleStream;", "(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Double;*>;Ljava/util/function/DoublePredicate;)Ljava/util/stream/DoubleStream;", $STATIC, $staticMethod(WhileOps, makeDropWhileDouble, $DoubleStream*, $AbstractPipeline*, $DoublePredicate*)},
+		{"makeDropWhileInt", "(Ljava/util/stream/AbstractPipeline;Ljava/util/function/IntPredicate;)Ljava/util/stream/IntStream;", "(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Integer;*>;Ljava/util/function/IntPredicate;)Ljava/util/stream/IntStream;", $STATIC, $staticMethod(WhileOps, makeDropWhileInt, $IntStream*, $AbstractPipeline*, $IntPredicate*)},
+		{"makeDropWhileLong", "(Ljava/util/stream/AbstractPipeline;Ljava/util/function/LongPredicate;)Ljava/util/stream/LongStream;", "(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Long;*>;Ljava/util/function/LongPredicate;)Ljava/util/stream/LongStream;", $STATIC, $staticMethod(WhileOps, makeDropWhileLong, $LongStream*, $AbstractPipeline*, $LongPredicate*)},
+		{"makeDropWhileRef", "(Ljava/util/stream/AbstractPipeline;Ljava/util/function/Predicate;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(Ljava/util/stream/AbstractPipeline<*TT;*>;Ljava/util/function/Predicate<-TT;>;)Ljava/util/stream/Stream<TT;>;", $STATIC, $staticMethod(WhileOps, makeDropWhileRef, $Stream*, $AbstractPipeline*, $Predicate*)},
+		{"makeTakeWhileDouble", "(Ljava/util/stream/AbstractPipeline;Ljava/util/function/DoublePredicate;)Ljava/util/stream/DoubleStream;", "(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Double;*>;Ljava/util/function/DoublePredicate;)Ljava/util/stream/DoubleStream;", $STATIC, $staticMethod(WhileOps, makeTakeWhileDouble, $DoubleStream*, $AbstractPipeline*, $DoublePredicate*)},
+		{"makeTakeWhileInt", "(Ljava/util/stream/AbstractPipeline;Ljava/util/function/IntPredicate;)Ljava/util/stream/IntStream;", "(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Integer;*>;Ljava/util/function/IntPredicate;)Ljava/util/stream/IntStream;", $STATIC, $staticMethod(WhileOps, makeTakeWhileInt, $IntStream*, $AbstractPipeline*, $IntPredicate*)},
+		{"makeTakeWhileLong", "(Ljava/util/stream/AbstractPipeline;Ljava/util/function/LongPredicate;)Ljava/util/stream/LongStream;", "(Ljava/util/stream/AbstractPipeline<*Ljava/lang/Long;*>;Ljava/util/function/LongPredicate;)Ljava/util/stream/LongStream;", $STATIC, $staticMethod(WhileOps, makeTakeWhileLong, $LongStream*, $AbstractPipeline*, $LongPredicate*)},
+		{"makeTakeWhileRef", "(Ljava/util/stream/AbstractPipeline;Ljava/util/function/Predicate;)Ljava/util/stream/Stream;", "<T:Ljava/lang/Object;>(Ljava/util/stream/AbstractPipeline<*TT;*>;Ljava/util/function/Predicate<-TT;>;)Ljava/util/stream/Stream<TT;>;", $STATIC, $staticMethod(WhileOps, makeTakeWhileRef, $Stream*, $AbstractPipeline*, $Predicate*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.WhileOps$DropWhileTask", "java.util.stream.WhileOps", "DropWhileTask", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.stream.WhileOps$TakeWhileTask", "java.util.stream.WhileOps", "TakeWhileTask", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.stream.WhileOps$UnorderedWhileSpliterator", "java.util.stream.WhileOps", "UnorderedWhileSpliterator", $STATIC | $ABSTRACT},
+		{"java.util.stream.WhileOps$DropWhileSink", "java.util.stream.WhileOps", "DropWhileSink", $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.stream.WhileOps$DropWhileOp", "java.util.stream.WhileOps", "DropWhileOp", $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.stream.WhileOps$4Op", nullptr, "Op", 0},
+		{"java.util.stream.WhileOps$3Op", nullptr, "Op", 0},
+		{"java.util.stream.WhileOps$2Op", nullptr, "Op", 0},
+		{"java.util.stream.WhileOps$1Op", nullptr, "Op", 0},
+		{"java.util.stream.WhileOps$4", nullptr, nullptr, 0},
+		{"java.util.stream.WhileOps$3", nullptr, nullptr, 0},
+		{"java.util.stream.WhileOps$2", nullptr, nullptr, 0},
+		{"java.util.stream.WhileOps$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.WhileOps",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.stream.WhileOps$DropWhileTask,java.util.stream.WhileOps$TakeWhileTask,java.util.stream.WhileOps$UnorderedWhileSpliterator,java.util.stream.WhileOps$UnorderedWhileSpliterator$OfDouble,java.util.stream.WhileOps$UnorderedWhileSpliterator$OfDouble$Dropping,java.util.stream.WhileOps$UnorderedWhileSpliterator$OfDouble$Taking,java.util.stream.WhileOps$UnorderedWhileSpliterator$OfLong,java.util.stream.WhileOps$UnorderedWhileSpliterator$OfLong$Dropping,java.util.stream.WhileOps$UnorderedWhileSpliterator$OfLong$Taking,java.util.stream.WhileOps$UnorderedWhileSpliterator$OfInt,java.util.stream.WhileOps$UnorderedWhileSpliterator$OfInt$Dropping,java.util.stream.WhileOps$UnorderedWhileSpliterator$OfInt$Taking,java.util.stream.WhileOps$UnorderedWhileSpliterator$OfRef,java.util.stream.WhileOps$UnorderedWhileSpliterator$OfRef$Dropping,java.util.stream.WhileOps$UnorderedWhileSpliterator$OfRef$Taking,java.util.stream.WhileOps$DropWhileSink,java.util.stream.WhileOps$DropWhileOp,java.util.stream.WhileOps$4Op,java.util.stream.WhileOps$4Op$1OpSink,java.util.stream.WhileOps$3Op,java.util.stream.WhileOps$3Op$1OpSink,java.util.stream.WhileOps$2Op,java.util.stream.WhileOps$2Op$1OpSink,java.util.stream.WhileOps$1Op,java.util.stream.WhileOps$1Op$1OpSink,java.util.stream.WhileOps$4,java.util.stream.WhileOps$4$1,java.util.stream.WhileOps$3,java.util.stream.WhileOps$3$1,java.util.stream.WhileOps$2,java.util.stream.WhileOps$2$1,java.util.stream.WhileOps$1,java.util.stream.WhileOps$1$1"
+	};
+	$loadClass(WhileOps, name, initialize, &classInfo$$, WhileOps::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WhileOps);
+	});
 	return class$;
 }
 

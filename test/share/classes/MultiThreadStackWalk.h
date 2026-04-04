@@ -18,6 +18,7 @@ class $export MultiThreadStackWalk : public ::java::lang::Object {
 	$class(MultiThreadStackWalk, 0, ::java::lang::Object)
 public:
 	MultiThreadStackWalk();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkTest(::MultiThreadStackWalk$Env* env, ::MultiThreadStackWalk$Test* test);
 	static $Class* classForName($String* name);

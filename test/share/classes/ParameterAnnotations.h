@@ -15,6 +15,7 @@ class $export ParameterAnnotations : public ::java::lang::Object {
 	$class(ParameterAnnotations, 0, ::java::lang::Object)
 public:
 	ParameterAnnotations();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void check(bool cond);
 	virtual void equal(Object$* x, Object$* y);

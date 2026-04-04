@@ -37,6 +37,7 @@ class $export OptionalDouble : public ::java::lang::Object {
 	$class(OptionalDouble, 0, ::java::lang::Object)
 public:
 	OptionalDouble();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(double value);
 	static ::java::util::OptionalDouble* empty();

@@ -1,5 +1,4 @@
 #include <java/nio/HeapCharBufferR.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/StringIndexOutOfBoundsException.h>
@@ -30,53 +29,9 @@ using $HeapCharBuffer = ::java::nio::HeapCharBuffer;
 using $ReadOnlyBufferException = ::java::nio::ReadOnlyBufferException;
 using $Objects = ::java::util::Objects;
 using $MemorySegmentProxy = ::jdk::internal::access::foreign::MemorySegmentProxy;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace java {
 	namespace nio {
-
-$FieldInfo _HeapCharBufferR_FieldInfo_[] = {
-	{"ARRAY_BASE_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HeapCharBufferR, ARRAY_BASE_OFFSET)},
-	{"ARRAY_INDEX_SCALE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HeapCharBufferR, ARRAY_INDEX_SCALE)},
-	{}
-};
-
-$MethodInfo _HeapCharBufferR_MethodInfo_[] = {
-	{"<init>", "(IILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(HeapCharBufferR, init$, void, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"<init>", "([CIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(HeapCharBufferR, init$, void, $chars*, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"<init>", "([CIIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, $PROTECTED, $method(HeapCharBufferR, init$, void, $chars*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"asReadOnlyBuffer", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, asReadOnlyBuffer, $CharBuffer*)},
-	{"charRegionOrder", "()Ljava/nio/ByteOrder;", nullptr, 0, $virtualMethod(HeapCharBufferR, charRegionOrder, $ByteOrder*)},
-	{"compact", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, compact, $CharBuffer*)},
-	{"duplicate", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, duplicate, $CharBuffer*)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, isReadOnly, bool)},
-	{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, order, $ByteOrder*)},
-	{"put", "(C)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, put, $CharBuffer*, char16_t)},
-	{"put", "(IC)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, put, $CharBuffer*, int32_t, char16_t)},
-	{"put", "([CII)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, put, $CharBuffer*, $chars*, int32_t, int32_t)},
-	{"put", "(Ljava/nio/CharBuffer;)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, put, $CharBuffer*, $CharBuffer*)},
-	{"put", "(ILjava/nio/CharBuffer;II)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, put, $CharBuffer*, int32_t, $CharBuffer*, int32_t, int32_t)},
-	{"put", "(I[CII)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, put, $CharBuffer*, int32_t, $chars*, int32_t, int32_t)},
-	{"put", "(Ljava/lang/String;II)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, put, $CharBuffer*, $String*, int32_t, int32_t)},
-	{"slice", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, slice, $CharBuffer*)},
-	{"slice", "(II)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, slice, $CharBuffer*, int32_t, int32_t)},
-	{"subSequence", "(II)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, subSequence, $CharSequence*, int32_t, int32_t)},
-	{"toString", "(II)Ljava/lang/String;", nullptr, 0, $virtualMethod(HeapCharBufferR, toString, $String*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _HeapCharBufferR_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.HeapCharBufferR",
-	"java.nio.HeapCharBuffer",
-	nullptr,
-	_HeapCharBufferR_FieldInfo_,
-	_HeapCharBufferR_MethodInfo_
-};
-
-$Object* allocate$HeapCharBufferR($Class* clazz) {
-	return $of($alloc(HeapCharBufferR));
-}
 
 int64_t HeapCharBufferR::ARRAY_BASE_OFFSET = 0;
 int64_t HeapCharBufferR::ARRAY_INDEX_SCALE = 0;
@@ -187,18 +142,55 @@ $ByteOrder* HeapCharBufferR::charRegionOrder() {
 	return order();
 }
 
-void clinit$HeapCharBufferR($Class* class$) {
+void HeapCharBufferR::clinit$($Class* clazz) {
 	$init($Buffer);
-	$load($chars);
 	HeapCharBufferR::ARRAY_BASE_OFFSET = $nc($Buffer::UNSAFE)->arrayBaseOffset($getClass($chars));
-	HeapCharBufferR::ARRAY_INDEX_SCALE = $nc($Buffer::UNSAFE)->arrayIndexScale($getClass($chars));
+	HeapCharBufferR::ARRAY_INDEX_SCALE = $Buffer::UNSAFE->arrayIndexScale($getClass($chars));
 }
 
 HeapCharBufferR::HeapCharBufferR() {
 }
 
 $Class* HeapCharBufferR::load$($String* name, bool initialize) {
-	$loadClass(HeapCharBufferR, name, initialize, &_HeapCharBufferR_ClassInfo_, clinit$HeapCharBufferR, allocate$HeapCharBufferR);
+	$FieldInfo fieldInfos$$[] = {
+		{"ARRAY_BASE_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HeapCharBufferR, ARRAY_BASE_OFFSET)},
+		{"ARRAY_INDEX_SCALE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HeapCharBufferR, ARRAY_INDEX_SCALE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(HeapCharBufferR, init$, void, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"<init>", "([CIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(HeapCharBufferR, init$, void, $chars*, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"<init>", "([CIIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, $PROTECTED, $method(HeapCharBufferR, init$, void, $chars*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"asReadOnlyBuffer", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, asReadOnlyBuffer, $CharBuffer*)},
+		{"charRegionOrder", "()Ljava/nio/ByteOrder;", nullptr, 0, $virtualMethod(HeapCharBufferR, charRegionOrder, $ByteOrder*)},
+		{"compact", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, compact, $CharBuffer*)},
+		{"duplicate", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, duplicate, $CharBuffer*)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, isReadOnly, bool)},
+		{"order", "()Ljava/nio/ByteOrder;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, order, $ByteOrder*)},
+		{"put", "(C)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, put, $CharBuffer*, char16_t)},
+		{"put", "(IC)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, put, $CharBuffer*, int32_t, char16_t)},
+		{"put", "([CII)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, put, $CharBuffer*, $chars*, int32_t, int32_t)},
+		{"put", "(Ljava/nio/CharBuffer;)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, put, $CharBuffer*, $CharBuffer*)},
+		{"put", "(ILjava/nio/CharBuffer;II)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, put, $CharBuffer*, int32_t, $CharBuffer*, int32_t, int32_t)},
+		{"put", "(I[CII)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, put, $CharBuffer*, int32_t, $chars*, int32_t, int32_t)},
+		{"put", "(Ljava/lang/String;II)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, put, $CharBuffer*, $String*, int32_t, int32_t)},
+		{"slice", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, slice, $CharBuffer*)},
+		{"slice", "(II)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, slice, $CharBuffer*, int32_t, int32_t)},
+		{"subSequence", "(II)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapCharBufferR, subSequence, $CharSequence*, int32_t, int32_t)},
+		{"toString", "(II)Ljava/lang/String;", nullptr, 0, $virtualMethod(HeapCharBufferR, toString, $String*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.HeapCharBufferR",
+		"java.nio.HeapCharBuffer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HeapCharBufferR, name, initialize, &classInfo$$, HeapCharBufferR::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HeapCharBufferR));
+	});
 	return class$;
 }
 

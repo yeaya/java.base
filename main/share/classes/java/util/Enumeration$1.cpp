@@ -1,5 +1,4 @@
 #include <java/util/Enumeration$1.h>
-
 #include <java/util/Enumeration.h>
 #include <jcpp.h>
 
@@ -13,49 +12,6 @@ using $Enumeration = ::java::util::Enumeration;
 namespace java {
 	namespace util {
 
-$FieldInfo _Enumeration$1_FieldInfo_[] = {
-	{"this$0", "Ljava/util/Enumeration;", nullptr, $FINAL | $SYNTHETIC, $field(Enumeration$1, this$0)},
-	{}
-};
-
-$MethodInfo _Enumeration$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Enumeration;)V", nullptr, 0, $method(Enumeration$1, init$, void, $Enumeration*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Enumeration$1, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Enumeration$1, next, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Enumeration$1_EnclosingMethodInfo_ = {
-	"java.util.Enumeration",
-	"asIterator",
-	"()Ljava/util/Iterator;"
-};
-
-$InnerClassInfo _Enumeration$1_InnerClassesInfo_[] = {
-	{"java.util.Enumeration$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Enumeration$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Enumeration$1",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_Enumeration$1_FieldInfo_,
-	_Enumeration$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
-	&_Enumeration$1_EnclosingMethodInfo_,
-	_Enumeration$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Enumeration"
-};
-
-$Object* allocate$Enumeration$1($Class* clazz) {
-	return $of($alloc(Enumeration$1));
-}
-
 void Enumeration$1::init$($Enumeration* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -65,14 +21,50 @@ bool Enumeration$1::hasNext() {
 }
 
 $Object* Enumeration$1::next() {
-	return $of(this->this$0->nextElement());
+	return this->this$0->nextElement();
 }
 
 Enumeration$1::Enumeration$1() {
 }
 
 $Class* Enumeration$1::load$($String* name, bool initialize) {
-	$loadClass(Enumeration$1, name, initialize, &_Enumeration$1_ClassInfo_, allocate$Enumeration$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/Enumeration;", nullptr, $FINAL | $SYNTHETIC, $field(Enumeration$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Enumeration;)V", nullptr, 0, $method(Enumeration$1, init$, void, $Enumeration*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(Enumeration$1, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(Enumeration$1, next, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.Enumeration",
+		"asIterator",
+		"()Ljava/util/Iterator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Enumeration$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Enumeration$1",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<TE;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Enumeration"
+	};
+	$loadClass(Enumeration$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Enumeration$1);
+	});
 	return class$;
 }
 

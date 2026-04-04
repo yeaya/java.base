@@ -39,6 +39,7 @@ class $export StackStreamTest$G : public ::java::lang::Object {
 	$class(StackStreamTest$G, 0, ::java::lang::Object)
 public:
 	StackStreamTest$G();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkStackTraceElements(::java::util::List* classNames, ::java::util::List* methodNames, ::java::util::List* stes);
 	static void dumpSTEInfo(::java::util::List* classNames, ::java::util::List* methodNames, ::java::util::List* stes);

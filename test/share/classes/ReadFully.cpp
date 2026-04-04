@@ -1,430 +1,373 @@
 #include <ReadFully.h>
-
 #include <java/io/DataInputStream.h>
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
-#include <java/io/InputStream.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <jcpp.h>
 
 using $DataInputStream = ::java::io::DataInputStream;
 using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
-using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
-$MethodInfo _ReadFully_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ReadFully, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ReadFully, main, void, $StringArray*), "java.lang.Exception"},
-	{"testBigOffsetLength1", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ReadFully, testBigOffsetLength1, void), "java.lang.Exception"},
-	{"testBigOffsetLength2", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ReadFully, testBigOffsetLength2, void), "java.lang.Exception"},
-	{"testBigOffsetLength3", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ReadFully, testBigOffsetLength3, void), "java.lang.Exception"},
-	{"testBigOffsetLength4", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ReadFully, testBigOffsetLength4, void), "java.lang.Exception"},
-	{"testNegativeLength", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ReadFully, testNegativeLength, void), "java.lang.Exception"},
-	{"testNegativeOffset", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ReadFully, testNegativeOffset, void), "java.lang.Exception"},
-	{"testNegativeOffsetZeroLength", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ReadFully, testNegativeOffsetZeroLength, void), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ReadFully_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ReadFully",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ReadFully_MethodInfo_
-};
-
-$Object* allocate$ReadFully($Class* clazz) {
-	return $of($alloc(ReadFully));
-}
-
 void ReadFully::init$() {
 }
 
 void ReadFully::testNegativeOffset() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, file, $new($File, $($System::getProperty("test.src"_s)), "ReadFully.java"_s));
 	try {
 		$var($FileInputStream, in, $new($FileInputStream, file));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				$var($DataInputStream, dis, $new($DataInputStream, in));
+				$var($Throwable, var$1, nullptr);
 				try {
-					$var($DataInputStream, dis, $new($DataInputStream, in));
-					{
-						$var($Throwable, var$1, nullptr);
-						try {
-							try {
-								$var($bytes, buffer, $new($bytes, 100));
-								dis->readFully(buffer, -1, buffer->length);
-								$throwNew($RuntimeException, "Test testNegativeOffset() failed"_s);
-							} catch ($Throwable& t$) {
-								try {
-									dis->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$2) {
-							$assign(var$1, var$2);
-						} /*finally*/ {
-							dis->close();
-						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
-						}
-					}
-				} catch ($Throwable& t$) {
 					try {
-						in->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
+						$var($bytes, buffer, $new($bytes, 100));
+						dis->readFully(buffer, -1, buffer->length);
+						$throwNew($RuntimeException, "Test testNegativeOffset() failed"_s);
+					} catch ($Throwable& t$) {
+						try {
+							dis->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
+						$throw(t$);
 					}
-					$throw(t$);
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
+				} /*finally*/ {
+					dis->close();
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
-				in->close();
+				if (var$1 != nullptr) {
+					$throw(var$1);
+				}
+			} catch ($Throwable& t$) {
+				try {
+					in->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			in->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} catch ($IndexOutOfBoundsException& ignore) {
 	}
 }
 
 void ReadFully::testNegativeLength() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, file, $new($File, $($System::getProperty("test.src"_s)), "ReadFully.java"_s));
 	try {
 		$var($FileInputStream, in, $new($FileInputStream, file));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				$var($DataInputStream, dis, $new($DataInputStream, in));
+				$var($Throwable, var$1, nullptr);
 				try {
-					$var($DataInputStream, dis, $new($DataInputStream, in));
-					{
-						$var($Throwable, var$1, nullptr);
-						try {
-							try {
-								$var($bytes, buffer, $new($bytes, 100));
-								dis->readFully(buffer, 0, -1);
-								$throwNew($RuntimeException, "Test testNegativeLength() failed"_s);
-							} catch ($Throwable& t$) {
-								try {
-									dis->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$2) {
-							$assign(var$1, var$2);
-						} /*finally*/ {
-							dis->close();
-						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
-						}
-					}
-				} catch ($Throwable& t$) {
 					try {
-						in->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
+						$var($bytes, buffer, $new($bytes, 100));
+						dis->readFully(buffer, 0, -1);
+						$throwNew($RuntimeException, "Test testNegativeLength() failed"_s);
+					} catch ($Throwable& t$) {
+						try {
+							dis->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
+						$throw(t$);
 					}
-					$throw(t$);
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
+				} /*finally*/ {
+					dis->close();
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
-				in->close();
+				if (var$1 != nullptr) {
+					$throw(var$1);
+				}
+			} catch ($Throwable& t$) {
+				try {
+					in->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			in->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} catch ($IndexOutOfBoundsException& ignore) {
 	}
 }
 
 void ReadFully::testNegativeOffsetZeroLength() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, file, $new($File, $($System::getProperty("test.src"_s)), "ReadFully.java"_s));
 	try {
 		$var($FileInputStream, in, $new($FileInputStream, file));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				$var($DataInputStream, dis, $new($DataInputStream, in));
+				$var($Throwable, var$1, nullptr);
 				try {
-					$var($DataInputStream, dis, $new($DataInputStream, in));
-					{
-						$var($Throwable, var$1, nullptr);
-						try {
-							try {
-								$var($bytes, buffer, $new($bytes, 100));
-								dis->readFully(buffer, -1, 0);
-								$throwNew($RuntimeException, "Test testNegativeOffsetZeroLength() failed"_s);
-							} catch ($Throwable& t$) {
-								try {
-									dis->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$2) {
-							$assign(var$1, var$2);
-						} /*finally*/ {
-							dis->close();
-						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
-						}
-					}
-				} catch ($Throwable& t$) {
 					try {
-						in->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
+						$var($bytes, buffer, $new($bytes, 100));
+						dis->readFully(buffer, -1, 0);
+						$throwNew($RuntimeException, "Test testNegativeOffsetZeroLength() failed"_s);
+					} catch ($Throwable& t$) {
+						try {
+							dis->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
+						$throw(t$);
 					}
-					$throw(t$);
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
+				} /*finally*/ {
+					dis->close();
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
-				in->close();
+				if (var$1 != nullptr) {
+					$throw(var$1);
+				}
+			} catch ($Throwable& t$) {
+				try {
+					in->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			in->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} catch ($IndexOutOfBoundsException& ignore) {
 	}
 }
 
 void ReadFully::testBigOffsetLength1() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, file, $new($File, $($System::getProperty("test.src"_s)), "ReadFully.java"_s));
 	try {
 		$var($FileInputStream, in, $new($FileInputStream, file));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				$var($DataInputStream, dis, $new($DataInputStream, in));
+				$var($Throwable, var$1, nullptr);
 				try {
-					$var($DataInputStream, dis, $new($DataInputStream, in));
-					{
-						$var($Throwable, var$1, nullptr);
-						try {
-							try {
-								$var($bytes, buffer, $new($bytes, 100));
-								dis->readFully(buffer, 0, buffer->length + 1);
-								$throwNew($RuntimeException, "Test testBigOffsetLength1() failed"_s);
-							} catch ($Throwable& t$) {
-								try {
-									dis->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$2) {
-							$assign(var$1, var$2);
-						} /*finally*/ {
-							dis->close();
-						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
-						}
-					}
-				} catch ($Throwable& t$) {
 					try {
-						in->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
+						$var($bytes, buffer, $new($bytes, 100));
+						dis->readFully(buffer, 0, buffer->length + 1);
+						$throwNew($RuntimeException, "Test testBigOffsetLength1() failed"_s);
+					} catch ($Throwable& t$) {
+						try {
+							dis->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
+						$throw(t$);
 					}
-					$throw(t$);
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
+				} /*finally*/ {
+					dis->close();
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
-				in->close();
+				if (var$1 != nullptr) {
+					$throw(var$1);
+				}
+			} catch ($Throwable& t$) {
+				try {
+					in->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			in->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} catch ($IndexOutOfBoundsException& ignore) {
 	}
 }
 
 void ReadFully::testBigOffsetLength2() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, file, $new($File, $($System::getProperty("test.src"_s)), "ReadFully.java"_s));
 	try {
 		$var($FileInputStream, in, $new($FileInputStream, file));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				$var($DataInputStream, dis, $new($DataInputStream, in));
+				$var($Throwable, var$1, nullptr);
 				try {
-					$var($DataInputStream, dis, $new($DataInputStream, in));
-					{
-						$var($Throwable, var$1, nullptr);
-						try {
-							try {
-								$var($bytes, buffer, $new($bytes, 100));
-								dis->readFully(buffer, 1, buffer->length);
-								$throwNew($RuntimeException, "Test testBigOffsetLength2() failed"_s);
-							} catch ($Throwable& t$) {
-								try {
-									dis->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$2) {
-							$assign(var$1, var$2);
-						} /*finally*/ {
-							dis->close();
-						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
-						}
-					}
-				} catch ($Throwable& t$) {
 					try {
-						in->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
+						$var($bytes, buffer, $new($bytes, 100));
+						dis->readFully(buffer, 1, buffer->length);
+						$throwNew($RuntimeException, "Test testBigOffsetLength2() failed"_s);
+					} catch ($Throwable& t$) {
+						try {
+							dis->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
+						$throw(t$);
 					}
-					$throw(t$);
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
+				} /*finally*/ {
+					dis->close();
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
-				in->close();
+				if (var$1 != nullptr) {
+					$throw(var$1);
+				}
+			} catch ($Throwable& t$) {
+				try {
+					in->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			in->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} catch ($IndexOutOfBoundsException& ignore) {
 	}
 }
 
 void ReadFully::testBigOffsetLength3() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, file, $new($File, $($System::getProperty("test.src"_s)), "ReadFully.java"_s));
 	try {
 		$var($FileInputStream, in, $new($FileInputStream, file));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				$var($DataInputStream, dis, $new($DataInputStream, in));
+				$var($Throwable, var$1, nullptr);
 				try {
-					$var($DataInputStream, dis, $new($DataInputStream, in));
-					{
-						$var($Throwable, var$1, nullptr);
-						try {
-							try {
-								$var($bytes, buffer, $new($bytes, 100));
-								dis->readFully(buffer, buffer->length, 1);
-								$throwNew($RuntimeException, "Test testBigOffsetLength3() failed"_s);
-							} catch ($Throwable& t$) {
-								try {
-									dis->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$2) {
-							$assign(var$1, var$2);
-						} /*finally*/ {
-							dis->close();
-						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
-						}
-					}
-				} catch ($Throwable& t$) {
 					try {
-						in->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
+						$var($bytes, buffer, $new($bytes, 100));
+						dis->readFully(buffer, buffer->length, 1);
+						$throwNew($RuntimeException, "Test testBigOffsetLength3() failed"_s);
+					} catch ($Throwable& t$) {
+						try {
+							dis->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
+						$throw(t$);
 					}
-					$throw(t$);
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
+				} /*finally*/ {
+					dis->close();
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
-				in->close();
+				if (var$1 != nullptr) {
+					$throw(var$1);
+				}
+			} catch ($Throwable& t$) {
+				try {
+					in->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			in->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} catch ($IndexOutOfBoundsException& ignore) {
 	}
 }
 
 void ReadFully::testBigOffsetLength4() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, file, $new($File, $($System::getProperty("test.src"_s)), "ReadFully.java"_s));
 	try {
 		$var($FileInputStream, in, $new($FileInputStream, file));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				$var($DataInputStream, dis, $new($DataInputStream, in));
+				$var($Throwable, var$1, nullptr);
 				try {
-					$var($DataInputStream, dis, $new($DataInputStream, in));
-					{
-						$var($Throwable, var$1, nullptr);
-						try {
-							try {
-								$var($bytes, buffer, $new($bytes, 100));
-								dis->readFully(buffer, buffer->length + 1, 0);
-								$throwNew($RuntimeException, "Test testBigOffsetLength4() failed"_s);
-							} catch ($Throwable& t$) {
-								try {
-									dis->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$2) {
-							$assign(var$1, var$2);
-						} /*finally*/ {
-							dis->close();
-						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
-						}
-					}
-				} catch ($Throwable& t$) {
 					try {
-						in->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
+						$var($bytes, buffer, $new($bytes, 100));
+						dis->readFully(buffer, buffer->length + 1, 0);
+						$throwNew($RuntimeException, "Test testBigOffsetLength4() failed"_s);
+					} catch ($Throwable& t$) {
+						try {
+							dis->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
+						$throw(t$);
 					}
-					$throw(t$);
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
+				} /*finally*/ {
+					dis->close();
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
-				in->close();
+				if (var$1 != nullptr) {
+					$throw(var$1);
+				}
+			} catch ($Throwable& t$) {
+				try {
+					in->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			in->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} catch ($IndexOutOfBoundsException& ignore) {
 	}
@@ -444,7 +387,29 @@ ReadFully::ReadFully() {
 }
 
 $Class* ReadFully::load$($String* name, bool initialize) {
-	$loadClass(ReadFully, name, initialize, &_ReadFully_ClassInfo_, allocate$ReadFully);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ReadFully, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ReadFully, main, void, $StringArray*), "java.lang.Exception"},
+		{"testBigOffsetLength1", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ReadFully, testBigOffsetLength1, void), "java.lang.Exception"},
+		{"testBigOffsetLength2", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ReadFully, testBigOffsetLength2, void), "java.lang.Exception"},
+		{"testBigOffsetLength3", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ReadFully, testBigOffsetLength3, void), "java.lang.Exception"},
+		{"testBigOffsetLength4", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ReadFully, testBigOffsetLength4, void), "java.lang.Exception"},
+		{"testNegativeLength", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ReadFully, testNegativeLength, void), "java.lang.Exception"},
+		{"testNegativeOffset", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ReadFully, testNegativeOffset, void), "java.lang.Exception"},
+		{"testNegativeOffsetZeroLength", "()V", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(ReadFully, testNegativeOffsetZeroLength, void), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ReadFully",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ReadFully, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReadFully);
+	});
 	return class$;
 }
 

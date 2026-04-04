@@ -60,6 +60,7 @@ class TlsPrfGenerator : public ::javax::crypto::KeyGeneratorSpi {
 	$class(TlsPrfGenerator, 0, ::javax::crypto::KeyGeneratorSpi)
 public:
 	TlsPrfGenerator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $bytes* concat($bytes* b1, $bytes* b2);
 	static $bytes* doTLS10PRF($bytes* secret, $bytes* labelBytes, $bytes* seed, int32_t outputLength);

@@ -1,5 +1,4 @@
 #include <java/lang/module/ModuleDescriptor$1.h>
-
 #include <java/lang/module/Configuration.h>
 #include <java/lang/module/ModuleDescriptor$Builder.h>
 #include <java/lang/module/ModuleDescriptor$Exports.h>
@@ -37,54 +36,6 @@ using $Set = ::java::util::Set;
 namespace java {
 	namespace lang {
 		namespace module {
-
-$MethodInfo _ModuleDescriptor$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ModuleDescriptor$1, init$, void)},
-	{"newConfiguration", "(Ljava/lang/module/ModuleFinder;Ljava/util/Map;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;)Ljava/lang/module/Configuration;", $PUBLIC, $virtualMethod(ModuleDescriptor$1, newConfiguration, $Configuration*, $ModuleFinder*, $Map*)},
-	{"newExports", "(Ljava/util/Set;Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Exports;", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Exports$Modifier;>;Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Exports;", $PUBLIC, $virtualMethod(ModuleDescriptor$1, newExports, $ModuleDescriptor$Exports*, $Set*, $String*)},
-	{"newExports", "(Ljava/util/Set;Ljava/lang/String;Ljava/util/Set;)Ljava/lang/module/ModuleDescriptor$Exports;", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Exports$Modifier;>;Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;)Ljava/lang/module/ModuleDescriptor$Exports;", $PUBLIC, $virtualMethod(ModuleDescriptor$1, newExports, $ModuleDescriptor$Exports*, $Set*, $String*, $Set*)},
-	{"newModuleBuilder", "(Ljava/lang/String;ZLjava/util/Set;)Ljava/lang/module/ModuleDescriptor$Builder;", "(Ljava/lang/String;ZLjava/util/Set<Ljava/lang/module/ModuleDescriptor$Modifier;>;)Ljava/lang/module/ModuleDescriptor$Builder;", $PUBLIC, $virtualMethod(ModuleDescriptor$1, newModuleBuilder, $ModuleDescriptor$Builder*, $String*, bool, $Set*)},
-	{"newModuleDescriptor", "(Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/lang/String;I)Ljava/lang/module/ModuleDescriptor;", "(Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Modifier;>;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires;>;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Exports;>;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Opens;>;Ljava/util/Set<Ljava/lang/String;>;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Provides;>;Ljava/util/Set<Ljava/lang/String;>;Ljava/lang/String;I)Ljava/lang/module/ModuleDescriptor;", $PUBLIC, $virtualMethod(ModuleDescriptor$1, newModuleDescriptor, $ModuleDescriptor*, $String*, $ModuleDescriptor$Version*, $Set*, $Set*, $Set*, $Set*, $Set*, $Set*, $Set*, $String*, int32_t)},
-	{"newOpens", "(Ljava/util/Set;Ljava/lang/String;Ljava/util/Set;)Ljava/lang/module/ModuleDescriptor$Opens;", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Opens$Modifier;>;Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;)Ljava/lang/module/ModuleDescriptor$Opens;", $PUBLIC, $virtualMethod(ModuleDescriptor$1, newOpens, $ModuleDescriptor$Opens*, $Set*, $String*, $Set*)},
-	{"newOpens", "(Ljava/util/Set;Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Opens;", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Opens$Modifier;>;Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Opens;", $PUBLIC, $virtualMethod(ModuleDescriptor$1, newOpens, $ModuleDescriptor$Opens*, $Set*, $String*)},
-	{"newProvides", "(Ljava/lang/String;Ljava/util/List;)Ljava/lang/module/ModuleDescriptor$Provides;", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)Ljava/lang/module/ModuleDescriptor$Provides;", $PUBLIC, $virtualMethod(ModuleDescriptor$1, newProvides, $ModuleDescriptor$Provides*, $String*, $List*)},
-	{"newRequires", "(Ljava/util/Set;Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;)Ljava/lang/module/ModuleDescriptor$Requires;", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires$Modifier;>;Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;)Ljava/lang/module/ModuleDescriptor$Requires;", $PUBLIC, $virtualMethod(ModuleDescriptor$1, newRequires, $ModuleDescriptor$Requires*, $Set*, $String*, $ModuleDescriptor$Version*)},
-	{"packages", "(Ljava/lang/module/ModuleDescriptor$Builder;)Ljava/util/Set;", "(Ljava/lang/module/ModuleDescriptor$Builder;)Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ModuleDescriptor$1, packages, $Set*, $ModuleDescriptor$Builder*)},
-	{"requires", "(Ljava/lang/module/ModuleDescriptor$Builder;Ljava/util/Set;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/module/ModuleDescriptor$Builder;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires$Modifier;>;Ljava/lang/String;Ljava/lang/String;)V", $PUBLIC, $virtualMethod(ModuleDescriptor$1, requires, void, $ModuleDescriptor$Builder*, $Set*, $String*, $String*)},
-	{"resolveAndBind", "(Ljava/lang/module/ModuleFinder;Ljava/util/Collection;Ljava/io/PrintStream;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/util/Collection<Ljava/lang/String;>;Ljava/io/PrintStream;)Ljava/lang/module/Configuration;", $PUBLIC, $virtualMethod(ModuleDescriptor$1, resolveAndBind, $Configuration*, $ModuleFinder*, $Collection*, $PrintStream*)},
-	{}
-};
-
-$EnclosingMethodInfo _ModuleDescriptor$1_EnclosingMethodInfo_ = {
-	"java.lang.module.ModuleDescriptor",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ModuleDescriptor$1_InnerClassesInfo_[] = {
-	{"java.lang.module.ModuleDescriptor$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ModuleDescriptor$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.module.ModuleDescriptor$1",
-	"java.lang.Object",
-	"jdk.internal.access.JavaLangModuleAccess",
-	nullptr,
-	_ModuleDescriptor$1_MethodInfo_,
-	nullptr,
-	&_ModuleDescriptor$1_EnclosingMethodInfo_,
-	_ModuleDescriptor$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.module.ModuleDescriptor"
-};
-
-$Object* allocate$ModuleDescriptor$1($Class* clazz) {
-	return $of($alloc(ModuleDescriptor$1));
-}
 
 void ModuleDescriptor$1::init$() {
 }
@@ -141,7 +92,49 @@ ModuleDescriptor$1::ModuleDescriptor$1() {
 }
 
 $Class* ModuleDescriptor$1::load$($String* name, bool initialize) {
-	$loadClass(ModuleDescriptor$1, name, initialize, &_ModuleDescriptor$1_ClassInfo_, allocate$ModuleDescriptor$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ModuleDescriptor$1, init$, void)},
+		{"newConfiguration", "(Ljava/lang/module/ModuleFinder;Ljava/util/Map;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;)Ljava/lang/module/Configuration;", $PUBLIC, $virtualMethod(ModuleDescriptor$1, newConfiguration, $Configuration*, $ModuleFinder*, $Map*)},
+		{"newExports", "(Ljava/util/Set;Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Exports;", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Exports$Modifier;>;Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Exports;", $PUBLIC, $virtualMethod(ModuleDescriptor$1, newExports, $ModuleDescriptor$Exports*, $Set*, $String*)},
+		{"newExports", "(Ljava/util/Set;Ljava/lang/String;Ljava/util/Set;)Ljava/lang/module/ModuleDescriptor$Exports;", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Exports$Modifier;>;Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;)Ljava/lang/module/ModuleDescriptor$Exports;", $PUBLIC, $virtualMethod(ModuleDescriptor$1, newExports, $ModuleDescriptor$Exports*, $Set*, $String*, $Set*)},
+		{"newModuleBuilder", "(Ljava/lang/String;ZLjava/util/Set;)Ljava/lang/module/ModuleDescriptor$Builder;", "(Ljava/lang/String;ZLjava/util/Set<Ljava/lang/module/ModuleDescriptor$Modifier;>;)Ljava/lang/module/ModuleDescriptor$Builder;", $PUBLIC, $virtualMethod(ModuleDescriptor$1, newModuleBuilder, $ModuleDescriptor$Builder*, $String*, bool, $Set*)},
+		{"newModuleDescriptor", "(Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/util/Set;Ljava/lang/String;I)Ljava/lang/module/ModuleDescriptor;", "(Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Modifier;>;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires;>;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Exports;>;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Opens;>;Ljava/util/Set<Ljava/lang/String;>;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Provides;>;Ljava/util/Set<Ljava/lang/String;>;Ljava/lang/String;I)Ljava/lang/module/ModuleDescriptor;", $PUBLIC, $virtualMethod(ModuleDescriptor$1, newModuleDescriptor, $ModuleDescriptor*, $String*, $ModuleDescriptor$Version*, $Set*, $Set*, $Set*, $Set*, $Set*, $Set*, $Set*, $String*, int32_t)},
+		{"newOpens", "(Ljava/util/Set;Ljava/lang/String;Ljava/util/Set;)Ljava/lang/module/ModuleDescriptor$Opens;", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Opens$Modifier;>;Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;)Ljava/lang/module/ModuleDescriptor$Opens;", $PUBLIC, $virtualMethod(ModuleDescriptor$1, newOpens, $ModuleDescriptor$Opens*, $Set*, $String*, $Set*)},
+		{"newOpens", "(Ljava/util/Set;Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Opens;", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Opens$Modifier;>;Ljava/lang/String;)Ljava/lang/module/ModuleDescriptor$Opens;", $PUBLIC, $virtualMethod(ModuleDescriptor$1, newOpens, $ModuleDescriptor$Opens*, $Set*, $String*)},
+		{"newProvides", "(Ljava/lang/String;Ljava/util/List;)Ljava/lang/module/ModuleDescriptor$Provides;", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)Ljava/lang/module/ModuleDescriptor$Provides;", $PUBLIC, $virtualMethod(ModuleDescriptor$1, newProvides, $ModuleDescriptor$Provides*, $String*, $List*)},
+		{"newRequires", "(Ljava/util/Set;Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;)Ljava/lang/module/ModuleDescriptor$Requires;", "(Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires$Modifier;>;Ljava/lang/String;Ljava/lang/module/ModuleDescriptor$Version;)Ljava/lang/module/ModuleDescriptor$Requires;", $PUBLIC, $virtualMethod(ModuleDescriptor$1, newRequires, $ModuleDescriptor$Requires*, $Set*, $String*, $ModuleDescriptor$Version*)},
+		{"packages", "(Ljava/lang/module/ModuleDescriptor$Builder;)Ljava/util/Set;", "(Ljava/lang/module/ModuleDescriptor$Builder;)Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ModuleDescriptor$1, packages, $Set*, $ModuleDescriptor$Builder*)},
+		{"requires", "(Ljava/lang/module/ModuleDescriptor$Builder;Ljava/util/Set;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/module/ModuleDescriptor$Builder;Ljava/util/Set<Ljava/lang/module/ModuleDescriptor$Requires$Modifier;>;Ljava/lang/String;Ljava/lang/String;)V", $PUBLIC, $virtualMethod(ModuleDescriptor$1, requires, void, $ModuleDescriptor$Builder*, $Set*, $String*, $String*)},
+		{"resolveAndBind", "(Ljava/lang/module/ModuleFinder;Ljava/util/Collection;Ljava/io/PrintStream;)Ljava/lang/module/Configuration;", "(Ljava/lang/module/ModuleFinder;Ljava/util/Collection<Ljava/lang/String;>;Ljava/io/PrintStream;)Ljava/lang/module/Configuration;", $PUBLIC, $virtualMethod(ModuleDescriptor$1, resolveAndBind, $Configuration*, $ModuleFinder*, $Collection*, $PrintStream*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.module.ModuleDescriptor",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.module.ModuleDescriptor$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.module.ModuleDescriptor$1",
+		"java.lang.Object",
+		"jdk.internal.access.JavaLangModuleAccess",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.module.ModuleDescriptor"
+	};
+	$loadClass(ModuleDescriptor$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleDescriptor$1);
+	});
 	return class$;
 }
 

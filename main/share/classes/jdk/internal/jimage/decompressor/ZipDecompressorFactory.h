@@ -32,6 +32,7 @@ class $export ZipDecompressorFactory : public ::jdk::internal::jimage::decompres
 	$class(ZipDecompressorFactory, 0, ::jdk::internal::jimage::decompressor::ResourceDecompressorFactory)
 public:
 	ZipDecompressorFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::jdk::internal::jimage::decompressor::ResourceDecompressor* newDecompressor(::java::util::Properties* properties) override;
 	static $String* NAME;

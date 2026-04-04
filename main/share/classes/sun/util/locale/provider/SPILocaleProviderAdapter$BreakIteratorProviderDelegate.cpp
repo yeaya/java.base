@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/SPILocaleProviderAdapter$BreakIteratorProviderDelegate.h>
-
 #include <java/text/BreakIterator.h>
 #include <java/text/spi/BreakIteratorProvider.h>
 #include <java/util/AbstractMap.h>
@@ -29,54 +28,6 @@ namespace sun {
 		namespace locale {
 			namespace provider {
 
-$FieldInfo _SPILocaleProviderAdapter$BreakIteratorProviderDelegate_FieldInfo_[] = {
-	{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/Locale;Ljava/text/spi/BreakIteratorProvider;>;", $PRIVATE | $FINAL, $field(SPILocaleProviderAdapter$BreakIteratorProviderDelegate, map)},
-	{}
-};
-
-$MethodInfo _SPILocaleProviderAdapter$BreakIteratorProviderDelegate_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(SPILocaleProviderAdapter$BreakIteratorProviderDelegate, init$, void)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$BreakIteratorProviderDelegate, getAvailableLocales, $LocaleArray*)},
-	{"getCharacterInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$BreakIteratorProviderDelegate, getCharacterInstance, $BreakIterator*, $Locale*)},
-	{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;Ljava/text/spi/BreakIteratorProvider;>;", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$BreakIteratorProviderDelegate, getDelegateMap, $Map*)},
-	{"getLineInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$BreakIteratorProviderDelegate, getLineInstance, $BreakIterator*, $Locale*)},
-	{"getSentenceInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$BreakIteratorProviderDelegate, getSentenceInstance, $BreakIterator*, $Locale*)},
-	{"getWordInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$BreakIteratorProviderDelegate, getWordInstance, $BreakIterator*, $Locale*)},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$BreakIteratorProviderDelegate, isSupportedLocale, bool, $Locale*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SPILocaleProviderAdapter$BreakIteratorProviderDelegate_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.SPILocaleProviderAdapter$BreakIteratorProviderDelegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "BreakIteratorProviderDelegate", $STATIC},
-	{"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "Delegate", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SPILocaleProviderAdapter$BreakIteratorProviderDelegate_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.locale.provider.SPILocaleProviderAdapter$BreakIteratorProviderDelegate",
-	"java.text.spi.BreakIteratorProvider",
-	"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate",
-	_SPILocaleProviderAdapter$BreakIteratorProviderDelegate_FieldInfo_,
-	_SPILocaleProviderAdapter$BreakIteratorProviderDelegate_MethodInfo_,
-	"Ljava/text/spi/BreakIteratorProvider;Lsun/util/locale/provider/SPILocaleProviderAdapter$Delegate<Ljava/text/spi/BreakIteratorProvider;>;",
-	nullptr,
-	_SPILocaleProviderAdapter$BreakIteratorProviderDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.SPILocaleProviderAdapter"
-};
-
-$Object* allocate$SPILocaleProviderAdapter$BreakIteratorProviderDelegate($Class* clazz) {
-	return $of($alloc(SPILocaleProviderAdapter$BreakIteratorProviderDelegate));
-}
-
 int32_t SPILocaleProviderAdapter$BreakIteratorProviderDelegate::hashCode() {
 	 return this->$BreakIteratorProvider::hashCode();
 }
@@ -99,7 +50,7 @@ void SPILocaleProviderAdapter$BreakIteratorProviderDelegate::finalize() {
 
 void SPILocaleProviderAdapter$BreakIteratorProviderDelegate::init$() {
 	$BreakIteratorProvider::init$();
-	$set(this, map, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
+	$set(this, map, $cast($AbstractMap, $new($ConcurrentHashMap)));
 }
 
 $Map* SPILocaleProviderAdapter$BreakIteratorProviderDelegate::getDelegateMap() {
@@ -115,7 +66,7 @@ bool SPILocaleProviderAdapter$BreakIteratorProviderDelegate::isSupportedLocale($
 }
 
 $BreakIterator* SPILocaleProviderAdapter$BreakIteratorProviderDelegate::getWordInstance($Locale* locale$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($BreakIteratorProvider, bip, $cast($BreakIteratorProvider, getImpl(locale)));
@@ -123,7 +74,7 @@ $BreakIterator* SPILocaleProviderAdapter$BreakIteratorProviderDelegate::getWordI
 }
 
 $BreakIterator* SPILocaleProviderAdapter$BreakIteratorProviderDelegate::getLineInstance($Locale* locale$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($BreakIteratorProvider, bip, $cast($BreakIteratorProvider, getImpl(locale)));
@@ -131,7 +82,7 @@ $BreakIterator* SPILocaleProviderAdapter$BreakIteratorProviderDelegate::getLineI
 }
 
 $BreakIterator* SPILocaleProviderAdapter$BreakIteratorProviderDelegate::getCharacterInstance($Locale* locale$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($BreakIteratorProvider, bip, $cast($BreakIteratorProvider, getImpl(locale)));
@@ -139,7 +90,7 @@ $BreakIterator* SPILocaleProviderAdapter$BreakIteratorProviderDelegate::getChara
 }
 
 $BreakIterator* SPILocaleProviderAdapter$BreakIteratorProviderDelegate::getSentenceInstance($Locale* locale$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($BreakIteratorProvider, bip, $cast($BreakIteratorProvider, getImpl(locale)));
@@ -150,7 +101,49 @@ SPILocaleProviderAdapter$BreakIteratorProviderDelegate::SPILocaleProviderAdapter
 }
 
 $Class* SPILocaleProviderAdapter$BreakIteratorProviderDelegate::load$($String* name, bool initialize) {
-	$loadClass(SPILocaleProviderAdapter$BreakIteratorProviderDelegate, name, initialize, &_SPILocaleProviderAdapter$BreakIteratorProviderDelegate_ClassInfo_, allocate$SPILocaleProviderAdapter$BreakIteratorProviderDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/Locale;Ljava/text/spi/BreakIteratorProvider;>;", $PRIVATE | $FINAL, $field(SPILocaleProviderAdapter$BreakIteratorProviderDelegate, map)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(SPILocaleProviderAdapter$BreakIteratorProviderDelegate, init$, void)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$BreakIteratorProviderDelegate, getAvailableLocales, $LocaleArray*)},
+		{"getCharacterInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$BreakIteratorProviderDelegate, getCharacterInstance, $BreakIterator*, $Locale*)},
+		{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;Ljava/text/spi/BreakIteratorProvider;>;", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$BreakIteratorProviderDelegate, getDelegateMap, $Map*)},
+		{"getLineInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$BreakIteratorProviderDelegate, getLineInstance, $BreakIterator*, $Locale*)},
+		{"getSentenceInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$BreakIteratorProviderDelegate, getSentenceInstance, $BreakIterator*, $Locale*)},
+		{"getWordInstance", "(Ljava/util/Locale;)Ljava/text/BreakIterator;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$BreakIteratorProviderDelegate, getWordInstance, $BreakIterator*, $Locale*)},
+		{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$BreakIteratorProviderDelegate, isSupportedLocale, bool, $Locale*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.SPILocaleProviderAdapter$BreakIteratorProviderDelegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "BreakIteratorProviderDelegate", $STATIC},
+		{"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "Delegate", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.locale.provider.SPILocaleProviderAdapter$BreakIteratorProviderDelegate",
+		"java.text.spi.BreakIteratorProvider",
+		"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/text/spi/BreakIteratorProvider;Lsun/util/locale/provider/SPILocaleProviderAdapter$Delegate<Ljava/text/spi/BreakIteratorProvider;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.SPILocaleProviderAdapter"
+	};
+	$loadClass(SPILocaleProviderAdapter$BreakIteratorProviderDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SPILocaleProviderAdapter$BreakIteratorProviderDelegate));
+	});
 	return class$;
 }
 

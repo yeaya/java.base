@@ -1,5 +1,4 @@
 #include <java/util/stream/Nodes$EmptyNode$OfInt.h>
-
 #include <java/util/Spliterator$OfInt.h>
 #include <java/util/Spliterator.h>
 #include <java/util/Spliterators.h>
@@ -31,57 +30,6 @@ using $StreamShape = ::java::util::stream::StreamShape;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$MethodInfo _Nodes$EmptyNode$OfInt_MethodInfo_[] = {
-	{"*asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*copyInto", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC},
-	{"*copyInto", "([Ljava/lang/Object;I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*copyInto", "([Ljava/lang/Integer;I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*count", "()J", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getChild", "(I)Ljava/util/stream/Node;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getChildCount", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(Nodes$EmptyNode$OfInt, init$, void)},
-	{"asPrimitiveArray", "()[I", nullptr, $PUBLIC, $method(Nodes$EmptyNode$OfInt, asPrimitiveArray, $ints*)},
-	{"*newArray", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"spliterator", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC, $virtualMethod(Nodes$EmptyNode$OfInt, spliterator, $Spliterator*)},
-	{"*truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Nodes$EmptyNode$OfInt_InnerClassesInfo_[] = {
-	{"java.util.stream.Nodes$EmptyNode", "java.util.stream.Nodes", "EmptyNode", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.stream.Nodes$EmptyNode$OfInt", "java.util.stream.Nodes$EmptyNode", "OfInt", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.stream.Node$OfInt", "java.util.stream.Node", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Nodes$EmptyNode$OfInt_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.Nodes$EmptyNode$OfInt",
-	"java.util.stream.Nodes$EmptyNode",
-	"java.util.stream.Node$OfInt",
-	nullptr,
-	_Nodes$EmptyNode$OfInt_MethodInfo_,
-	"Ljava/util/stream/Nodes$EmptyNode<Ljava/lang/Integer;[ILjava/util/function/IntConsumer;>;Ljava/util/stream/Node$OfInt;",
-	nullptr,
-	_Nodes$EmptyNode$OfInt_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Nodes"
-};
-
-$Object* allocate$Nodes$EmptyNode$OfInt($Class* clazz) {
-	return $of($alloc(Nodes$EmptyNode$OfInt));
-}
 
 $ObjectArray* Nodes$EmptyNode$OfInt::asArray($IntFunction* generator) {
 	 return this->$Nodes$EmptyNode::asArray(generator);
@@ -196,7 +144,7 @@ $ObjectArray* Nodes$EmptyNode$OfInt::MemberClass0$::asArray($IntFunction* genera
 }
 
 $Object* Nodes$EmptyNode$OfInt::MemberClass0$::asPrimitiveArray() {
-	return $of(((Nodes$EmptyNode$OfInt*)(void*)((int8_t*)(void*)this - $offsetof(Nodes$EmptyNode$OfInt, memberClass0$)))->asPrimitiveArray());
+	return ((Nodes$EmptyNode$OfInt*)(void*)((int8_t*)(void*)this - $offsetof(Nodes$EmptyNode$OfInt, memberClass0$)))->asPrimitiveArray();
 }
 
 void Nodes$EmptyNode$OfInt::MemberClass0$::copyInto(Object$* array, int32_t offset) {
@@ -248,7 +196,53 @@ Nodes$EmptyNode$OfInt::Nodes$EmptyNode$OfInt() {
 }
 
 $Class* Nodes$EmptyNode$OfInt::load$($String* name, bool initialize) {
-	$loadClass(Nodes$EmptyNode$OfInt, name, initialize, &_Nodes$EmptyNode$OfInt_ClassInfo_, allocate$Nodes$EmptyNode$OfInt);
+	$MethodInfo methodInfos$$[] = {
+		{"*asArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*copyInto", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC},
+		{"*copyInto", "([Ljava/lang/Object;I)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*copyInto", "([Ljava/lang/Integer;I)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*count", "()J", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getChild", "(I)Ljava/util/stream/Node;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getChildCount", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(Nodes$EmptyNode$OfInt, init$, void)},
+		{"asPrimitiveArray", "()[I", nullptr, $PUBLIC, $method(Nodes$EmptyNode$OfInt, asPrimitiveArray, $ints*)},
+		{"*newArray", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"spliterator", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC, $virtualMethod(Nodes$EmptyNode$OfInt, spliterator, $Spliterator*)},
+		{"*truncate", "(JJLjava/util/function/IntFunction;)Ljava/util/stream/Node;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Nodes$EmptyNode", "java.util.stream.Nodes", "EmptyNode", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.stream.Nodes$EmptyNode$OfInt", "java.util.stream.Nodes$EmptyNode", "OfInt", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.stream.Node$OfInt", "java.util.stream.Node", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.Nodes$EmptyNode$OfInt",
+		"java.util.stream.Nodes$EmptyNode",
+		"java.util.stream.Node$OfInt",
+		nullptr,
+		methodInfos$$,
+		"Ljava/util/stream/Nodes$EmptyNode<Ljava/lang/Integer;[ILjava/util/function/IntConsumer;>;Ljava/util/stream/Node$OfInt;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Nodes"
+	};
+	$loadClass(Nodes$EmptyNode$OfInt, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Nodes$EmptyNode$OfInt));
+	});
 	return class$;
 }
 

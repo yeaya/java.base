@@ -1,5 +1,4 @@
 #include <java/lang/invoke/MemberName.h>
-
 #include <java/lang/AbstractMethodError.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassLoader.h>
@@ -68,7 +67,6 @@ using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -108,153 +106,6 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$FieldInfo _MemberName_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MemberName, $assertionsDisabled)},
-	{"clazz", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(MemberName, clazz)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MemberName, name)},
-	{"type", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(MemberName, type)},
-	{"flags", "I", nullptr, $PRIVATE, $field(MemberName, flags)},
-	{"method", "Ljava/lang/invoke/ResolvedMethodName;", nullptr, $PRIVATE, $field(MemberName, method)},
-	{"resolution", "Ljava/lang/Object;", nullptr, 0, $field(MemberName, resolution)},
-	{"MH_INVOKE_MODS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MemberName, MH_INVOKE_MODS)},
-	{"BRIDGE", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, BRIDGE)},
-	{"VARARGS", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, VARARGS)},
-	{"SYNTHETIC", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, SYNTHETIC)},
-	{"ANNOTATION", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, ANNOTATION)},
-	{"ENUM", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, ENUM)},
-	{"CONSTRUCTOR_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(MemberName, CONSTRUCTOR_NAME)},
-	{"RECOGNIZED_MODIFIERS", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, RECOGNIZED_MODIFIERS)},
-	{"IS_METHOD", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, IS_METHOD)},
-	{"IS_CONSTRUCTOR", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, IS_CONSTRUCTOR)},
-	{"IS_FIELD", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, IS_FIELD)},
-	{"IS_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, IS_TYPE)},
-	{"CALLER_SENSITIVE", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, CALLER_SENSITIVE)},
-	{"TRUSTED_FINAL", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, TRUSTED_FINAL)},
-	{"ALL_ACCESS", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, ALL_ACCESS)},
-	{"ALL_KINDS", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, ALL_KINDS)},
-	{"IS_INVOCABLE", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, IS_INVOCABLE)},
-	{"IS_FIELD_OR_METHOD", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, IS_FIELD_OR_METHOD)},
-	{"SEARCH_ALL_SUPERS", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, SEARCH_ALL_SUPERS)},
-	{}
-};
-
-$MethodInfo _MemberName_MethodInfo_[] = {
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/reflect/Method;)V", nullptr, $PUBLIC, $method(MemberName, init$, void, $Method*)},
-	{"<init>", "(Ljava/lang/reflect/Method;Z)V", nullptr, $PUBLIC, $method(MemberName, init$, void, $Method*, bool)},
-	{"<init>", "(Ljava/lang/reflect/Constructor;)V", "(Ljava/lang/reflect/Constructor<*>;)V", $PUBLIC, $method(MemberName, init$, void, $Constructor*)},
-	{"<init>", "(Ljava/lang/reflect/Field;)V", nullptr, $PUBLIC, $method(MemberName, init$, void, $Field*)},
-	{"<init>", "(Ljava/lang/reflect/Field;Z)V", nullptr, $PUBLIC, $method(MemberName, init$, void, $Field*, bool)},
-	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC, $method(MemberName, init$, void, $Class*)},
-	{"<init>", "()V", nullptr, 0, $method(MemberName, init$, void)},
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;B)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;B)V", $PUBLIC, $method(MemberName, init$, void, $Class*, $String*, $Class*, int8_t)},
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;B)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;B)V", $PUBLIC, $method(MemberName, init$, void, $Class*, $String*, $MethodType*, int8_t)},
-	{"<init>", "(BLjava/lang/Class;Ljava/lang/String;Ljava/lang/Object;)V", "(BLjava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Object;)V", $PUBLIC, $method(MemberName, init$, void, int8_t, $Class*, $String*, Object$*)},
-	{"asConstructor", "()Ljava/lang/invoke/MemberName;", nullptr, $PUBLIC, $method(MemberName, asConstructor, MemberName*)},
-	{"asNormalOriginal", "()Ljava/lang/invoke/MemberName;", nullptr, $PUBLIC, $method(MemberName, asNormalOriginal, MemberName*)},
-	{"asSetter", "()Ljava/lang/invoke/MemberName;", nullptr, $PUBLIC, $method(MemberName, asSetter, MemberName*)},
-	{"asSpecial", "()Ljava/lang/invoke/MemberName;", nullptr, $PUBLIC, $method(MemberName, asSpecial, MemberName*)},
-	{"canBeStaticallyBound", "()Z", nullptr, $PUBLIC, $method(MemberName, canBeStaticallyBound, bool)},
-	{"changeReferenceKind", "(BB)Ljava/lang/invoke/MemberName;", nullptr, $PRIVATE, $method(MemberName, changeReferenceKind, MemberName*, int8_t, int8_t)},
-	{"checkForTypeAlias", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", 0, $method(MemberName, checkForTypeAlias, void, $Class*)},
-	{"clone", "()Ljava/lang/invoke/MemberName;", nullptr, $PROTECTED, $virtualMethod(MemberName, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MemberName, equals, bool, Object$*)},
-	{"equals", "(Ljava/lang/invoke/MemberName;)Z", nullptr, $PUBLIC, $method(MemberName, equals, bool, MemberName*)},
-	{"expandFromVM", "()V", nullptr, $PRIVATE, $method(MemberName, expandFromVM, void)},
-	{"flagsMods", "(IIB)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MemberName, flagsMods, int32_t, int32_t, int32_t, int8_t)},
-	{"getClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $method(MemberName, getClassLoader, $ClassLoader*)},
-	{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(MemberName, getDeclaringClass, $Class*)},
-	{"getDefinition", "()Ljava/lang/invoke/MemberName;", nullptr, $PUBLIC, $method(MemberName, getDefinition, MemberName*)},
-	{"getFactory", "()Ljava/lang/invoke/MemberName$Factory;", nullptr, $STATIC, $staticMethod(MemberName, getFactory, $MemberName$Factory*)},
-	{"getFieldType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(MemberName, getFieldType, $Class*)},
-	{"getInvocationType", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $method(MemberName, getInvocationType, $MethodType*)},
-	{"getMethodDescriptor", "()Ljava/lang/String;", nullptr, 0, $method(MemberName, getMethodDescriptor, $String*)},
-	{"getMethodOrFieldType", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $method(MemberName, getMethodOrFieldType, $MethodType*)},
-	{"getMethodType", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $method(MemberName, getMethodType, $MethodType*)},
-	{"getModifiers", "()I", nullptr, $PUBLIC, $virtualMethod(MemberName, getModifiers, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MemberName, getName, $String*)},
-	{"getName", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MemberName, getName, $String*, Object$*)},
-	{"getParameterTypes", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $method(MemberName, getParameterTypes, $ClassArray*)},
-	{"getReferenceKind", "()B", nullptr, $PUBLIC, $method(MemberName, getReferenceKind, int8_t)},
-	{"getReturnType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(MemberName, getReturnType, $Class*)},
-	{"getSignature", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(MemberName, getSignature, $String*)},
-	{"getType", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(MemberName, getType, $Object*)},
-	{"hasReceiverTypeDispatch", "()Z", nullptr, $PUBLIC, $method(MemberName, hasReceiverTypeDispatch, bool)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MemberName, hashCode, int32_t)},
-	{"init", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Object;I)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Object;I)V", $PRIVATE, $method(MemberName, init, void, $Class*, $String*, Object$*, int32_t)},
-	{"initResolved", "(Z)V", nullptr, 0, $method(MemberName, initResolved, void, bool)},
-	{"isAbstract", "()Z", nullptr, $PUBLIC, $method(MemberName, isAbstract, bool)},
-	{"isAccessibleFrom", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC, $method(MemberName, isAccessibleFrom, bool, $Class*)},
-	{"isBridge", "()Z", nullptr, $PUBLIC, $method(MemberName, isBridge, bool)},
-	{"isCallerSensitive", "()Z", nullptr, $PUBLIC, $method(MemberName, isCallerSensitive, bool)},
-	{"isConstructor", "()Z", nullptr, $PUBLIC, $method(MemberName, isConstructor, bool)},
-	{"isField", "()Z", nullptr, $PUBLIC, $method(MemberName, isField, bool)},
-	{"isFieldOrMethod", "()Z", nullptr, $PUBLIC, $method(MemberName, isFieldOrMethod, bool)},
-	{"isFinal", "()Z", nullptr, $PUBLIC, $method(MemberName, isFinal, bool)},
-	{"isGetter", "()Z", nullptr, $PUBLIC, $method(MemberName, isGetter, bool)},
-	{"isInvocable", "()Z", nullptr, $PUBLIC, $method(MemberName, isInvocable, bool)},
-	{"isMethod", "()Z", nullptr, $PUBLIC, $method(MemberName, isMethod, bool)},
-	{"isMethodHandleInvoke", "()Z", nullptr, $PUBLIC, $method(MemberName, isMethodHandleInvoke, bool)},
-	{"isMethodHandleInvokeName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MemberName, isMethodHandleInvokeName, bool, $String*)},
-	{"isNative", "()Z", nullptr, $PUBLIC, $method(MemberName, isNative, bool)},
-	{"isObjectPublicMethod", "()Z", nullptr, $PRIVATE, $method(MemberName, isObjectPublicMethod, bool)},
-	{"isPackage", "()Z", nullptr, $PUBLIC, $method(MemberName, isPackage, bool)},
-	{"isPrivate", "()Z", nullptr, $PUBLIC, $method(MemberName, isPrivate, bool)},
-	{"isProtected", "()Z", nullptr, $PUBLIC, $method(MemberName, isProtected, bool)},
-	{"isPublic", "()Z", nullptr, $PUBLIC, $method(MemberName, isPublic, bool)},
-	{"isResolved", "()Z", nullptr, $PUBLIC, $method(MemberName, isResolved, bool)},
-	{"isSetter", "()Z", nullptr, $PUBLIC, $method(MemberName, isSetter, bool)},
-	{"isStatic", "()Z", nullptr, $PUBLIC, $method(MemberName, isStatic, bool)},
-	{"isSynthetic", "()Z", nullptr, $PUBLIC, $virtualMethod(MemberName, isSynthetic, bool)},
-	{"isTrustedFinalField", "()Z", nullptr, $PUBLIC, $method(MemberName, isTrustedFinalField, bool)},
-	{"isType", "()Z", nullptr, $PUBLIC, $method(MemberName, isType, bool)},
-	{"isVarHandleMethodInvoke", "()Z", nullptr, $PUBLIC, $method(MemberName, isVarHandleMethodInvoke, bool)},
-	{"isVarHandleMethodInvokeName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MemberName, isVarHandleMethodInvokeName, bool, $String*)},
-	{"isVarargs", "()Z", nullptr, $PUBLIC, $method(MemberName, isVarargs, bool)},
-	{"isVolatile", "()Z", nullptr, $PUBLIC, $method(MemberName, isVolatile, bool)},
-	{"makeAccessException", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/IllegalAccessException;", nullptr, $PUBLIC, $method(MemberName, makeAccessException, $IllegalAccessException*, $String*, Object$*)},
-	{"makeAccessException", "()Ljava/lang/ReflectiveOperationException;", nullptr, $PUBLIC, $method(MemberName, makeAccessException, $ReflectiveOperationException*)},
-	{"makeMethodHandleInvoke", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MemberName;", nullptr, $STATIC, $staticMethod(MemberName, makeMethodHandleInvoke, MemberName*, $String*, $MethodType*)},
-	{"makeMethodHandleInvoke", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;I)Ljava/lang/invoke/MemberName;", nullptr, $STATIC, $staticMethod(MemberName, makeMethodHandleInvoke, MemberName*, $String*, $MethodType*, int32_t)},
-	{"makeVarHandleMethodInvoke", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MemberName;", nullptr, $STATIC, $staticMethod(MemberName, makeVarHandleMethodInvoke, MemberName*, $String*, $MethodType*)},
-	{"makeVarHandleMethodInvoke", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;I)Ljava/lang/invoke/MemberName;", nullptr, $STATIC, $staticMethod(MemberName, makeVarHandleMethodInvoke, MemberName*, $String*, $MethodType*, int32_t)},
-	{"message", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(MemberName, message, $String*)},
-	{"referenceKindIsConsistent", "()Z", nullptr, $PRIVATE, $method(MemberName, referenceKindIsConsistent, bool)},
-	{"referenceKindIsConsistentWith", "(I)Z", nullptr, 0, $method(MemberName, referenceKindIsConsistentWith, bool, int32_t)},
-	{"refersTo", "(Ljava/lang/Class;Ljava/lang/String;)Z", "(Ljava/lang/Class<*>;Ljava/lang/String;)Z", $PUBLIC, $method(MemberName, refersTo, bool, $Class*, $String*)},
-	{"staticIsConsistent", "()Z", nullptr, $PRIVATE, $method(MemberName, staticIsConsistent, bool)},
-	{"testAllFlags", "(I)Z", nullptr, $PRIVATE, $method(MemberName, testAllFlags, bool, int32_t)},
-	{"testAnyFlags", "(I)Z", nullptr, $PRIVATE, $method(MemberName, testAnyFlags, bool, int32_t)},
-	{"testFlags", "(II)Z", nullptr, $PRIVATE, $method(MemberName, testFlags, bool, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MemberName, toString, $String*)},
-	{"vminfoIsConsistent", "()Z", nullptr, $PRIVATE, $method(MemberName, vminfoIsConsistent, bool)},
-	{}
-};
-
-$InnerClassInfo _MemberName_InnerClassesInfo_[] = {
-	{"java.lang.invoke.MemberName$Factory", "java.lang.invoke.MemberName", "Factory", $STATIC},
-	{}
-};
-
-$ClassInfo _MemberName_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.invoke.MemberName",
-	"java.lang.Object",
-	"java.lang.reflect.Member,java.lang.Cloneable",
-	_MemberName_FieldInfo_,
-	_MemberName_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MemberName_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.MemberName$Factory"
-};
-
-$Object* allocate$MemberName($Class* clazz) {
-	return $of($alloc(MemberName));
-}
-
 void MemberName::finalize() {
 	this->$Member::finalize();
 }
@@ -289,14 +140,13 @@ $MethodType* MemberName::getMethodOrFieldType() {
 		return $MethodType::methodType(getFieldType());
 	}
 	if (isSetter()) {
-		$init($Void);
 		return $MethodType::methodType($Void::TYPE, getFieldType());
 	}
 	$throwNew($InternalError, $$str({"not a method or field: "_s, this}));
 }
 
 $MethodType* MemberName::getMethodType() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->type == nullptr) {
 		expandFromVM();
 		if (this->type == nullptr) {
@@ -327,12 +177,12 @@ $MethodType* MemberName::getMethodType() {
 				$set(this, type, res);
 			} else {
 				$var($Object, patt6149$temp, this->type);
-				bool var$2 = $instanceOf($ObjectArray, patt6149$temp);
-				if (var$2) {
+				bool var$1 = $instanceOf($ObjectArray, patt6149$temp);
+				if (var$1) {
 					$assign(typeInfo, $cast($ObjectArray, patt6149$temp));
-					var$2 = true;
+					var$1 = true;
 				}
-				if (var$2) {
+				if (var$1) {
 					$var($ClassArray, ptypes, $cast($ClassArray, $nc(typeInfo)->get(1)));
 					$Class* rtype = $cast($Class, typeInfo->get(0));
 					$var($MethodType, res, $MethodType::makeImpl(rtype, ptypes, true));
@@ -341,14 +191,14 @@ $MethodType* MemberName::getMethodType() {
 			}
 		}
 		if (!MemberName::$assertionsDisabled && !$instanceOf($MethodType, this->type)) {
-			$throwNew($AssertionError, $of($$str({"bad method type "_s, this->type})));
+			$throwNew($AssertionError, $$of($str({"bad method type "_s, this->type})));
 		}
 	}
 	return $cast($MethodType, this->type);
 }
 
 $String* MemberName::getMethodDescriptor() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->type == nullptr) {
 		expandFromVM();
 		if (this->type == nullptr) {
@@ -362,15 +212,15 @@ $String* MemberName::getMethodDescriptor() {
 	if ($instanceOf($String, type)) {
 		return $cast($String, type);
 	} else {
-		return $nc($(getMethodType()))->toMethodDescriptorString();
+		return $$nc(getMethodType())->toMethodDescriptorString();
 	}
 }
 
 $MethodType* MemberName::getInvocationType() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodType, itype, getMethodOrFieldType());
 	bool var$0 = isConstructor();
-	if (var$0 && getReferenceKind() == (int8_t)8) {
+	if (var$0 && getReferenceKind() == 8) {
 		return $nc(itype)->changeReturnType(this->clazz);
 	}
 	if (!isStatic()) {
@@ -380,15 +230,15 @@ $MethodType* MemberName::getInvocationType() {
 }
 
 $ClassArray* MemberName::getParameterTypes() {
-	return $fcast($ClassArray, $nc($(getMethodType()))->parameterArray());
+	return $cast($ClassArray, $$nc(getMethodType())->parameterArray());
 }
 
 $Class* MemberName::getReturnType() {
-	return $cast($Class, $nc($(getMethodType()))->returnType());
+	return $cast($Class, $$nc(getMethodType())->returnType());
 }
 
 $Class* MemberName::getFieldType() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->type == nullptr) {
 		expandFromVM();
 		if (this->type == nullptr) {
@@ -420,14 +270,14 @@ $Class* MemberName::getFieldType() {
 			}
 		}
 		if (!MemberName::$assertionsDisabled && !$instanceOf($Class, this->type)) {
-			$throwNew($AssertionError, $of($$str({"bad field type "_s, this->type})));
+			$throwNew($AssertionError, $$of($str({"bad field type "_s, this->type})));
 		}
 	}
 	return $cast($Class, this->type);
 }
 
 $Object* MemberName::getType() {
-	return $of((isInvocable() ? $of(getMethodType()) : $of(getFieldType())));
+	return (isInvocable() ? $of(getMethodType()) : $of(getFieldType()));
 }
 
 $String* MemberName::getSignature() {
@@ -445,16 +295,16 @@ $String* MemberName::getSignature() {
 }
 
 int32_t MemberName::getModifiers() {
-	return ((int32_t)(this->flags & (uint32_t)MemberName::RECOGNIZED_MODIFIERS));
+	return (this->flags & MemberName::RECOGNIZED_MODIFIERS);
 }
 
 int8_t MemberName::getReferenceKind() {
-	return (int8_t)((int32_t)(((int32_t)((uint32_t)this->flags >> 24)) & (uint32_t)15));
+	return (int8_t)(((int32_t)((uint32_t)this->flags >> 24)) & 0x0f);
 }
 
 bool MemberName::referenceKindIsConsistent() {
 	int8_t refKind = getReferenceKind();
-	if (refKind == (int8_t)0) {
+	if (refKind == 0) {
 		return isType();
 	}
 	if (isField()) {
@@ -465,7 +315,7 @@ bool MemberName::referenceKindIsConsistent() {
 			$throwNew($AssertionError);
 		}
 	} else if (isConstructor()) {
-		if (!MemberName::$assertionsDisabled && !(refKind == (int8_t)8 || refKind == (int8_t)7)) {
+		if (!MemberName::$assertionsDisabled && !(refKind == 8 || refKind == 7)) {
 			$throwNew($AssertionError);
 		}
 	} else if (isMethod()) {
@@ -476,7 +326,7 @@ bool MemberName::referenceKindIsConsistent() {
 			$throwNew($AssertionError);
 		}
 		if ($nc(this->clazz)->isInterface()) {
-			if (!MemberName::$assertionsDisabled && !(refKind == (int8_t)9 || refKind == (int8_t)6 || refKind == (int8_t)7 || refKind == (int8_t)5 && isObjectPublicMethod())) {
+			if (!MemberName::$assertionsDisabled && !(refKind == 9 || refKind == 6 || refKind == 7 || refKind == 5 && isObjectPublicMethod())) {
 				$throwNew($AssertionError);
 			}
 		}
@@ -496,14 +346,12 @@ bool MemberName::isObjectPublicMethod() {
 	if (var$0 && mtype->parameterCount() == 0) {
 		return true;
 	}
-	bool var$3 = $nc(this->name)->equals("hashCode"_s);
-	$init($Integer);
+	bool var$3 = this->name->equals("hashCode"_s);
 	bool var$2 = var$3 && $cast($Class, $nc(mtype)->returnType()) == $Integer::TYPE;
 	if (var$2 && mtype->parameterCount() == 0) {
 		return true;
 	}
-	bool var$6 = $nc(this->name)->equals("equals"_s);
-	$init($Boolean);
+	bool var$6 = this->name->equals("equals"_s);
 	bool var$5 = var$6 && $cast($Class, $nc(mtype)->returnType()) == $Boolean::TYPE;
 	bool var$4 = var$5 && mtype->parameterCount() == 1;
 	if (var$4 && $cast($Class, mtype->parameterType(0)) == $Object::class$) {
@@ -513,7 +361,7 @@ bool MemberName::isObjectPublicMethod() {
 }
 
 bool MemberName::referenceKindIsConsistentWith(int32_t originalRefKind) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t refKind = getReferenceKind();
 	if (refKind == originalRefKind) {
 		return true;
@@ -522,34 +370,30 @@ bool MemberName::referenceKindIsConsistentWith(int32_t originalRefKind) {
 		switch (originalRefKind) {
 		case 9:
 			{
-				{
-					if (!MemberName::$assertionsDisabled && !(refKind == (int8_t)5 || refKind == (int8_t)7)) {
-						$throwNew($AssertionError, $of(this));
-					}
+				if (!MemberName::$assertionsDisabled && !(refKind == 5 || refKind == 7)) {
+					$throwNew($AssertionError, this);
 				}
-				break;
 			}
+			break;
 		case 5:
-			{}
 		case 8:
 			{
-				{
-					if (!MemberName::$assertionsDisabled && !(refKind == (int8_t)7)) {
-						$throwNew($AssertionError, $of(this));
-					}
+				if (!MemberName::$assertionsDisabled && !(refKind == 7)) {
+					$throwNew($AssertionError, this);
 				}
-				break;
 			}
+			break;
 		default:
 			{
-				{
-					if (!MemberName::$assertionsDisabled) {
-						$var($String, var$0, $$str({this, " != "_s}));
-						$throwNew($AssertionError, $of(($$concat(var$0, $($MethodHandleNatives::refKindName((int8_t)originalRefKind))))));
-					}
+				if (!MemberName::$assertionsDisabled) {
+					$var($StringBuilder, var$0, $new($StringBuilder));
+					var$0->append(this);
+					var$0->append(" != "_s);
+					var$0->append($($MethodHandleNatives::refKindName((int8_t)originalRefKind)));
+					$throwNew($AssertionError, $$of($str(var$0)));
 				}
-				break;
 			}
+			break;
 		}
 	}
 	return true;
@@ -563,7 +407,7 @@ bool MemberName::staticIsConsistent() {
 }
 
 bool MemberName::vminfoIsConsistent() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int8_t refKind = getReferenceKind();
 	if (!MemberName::$assertionsDisabled && !(isResolved())) {
 		$throwNew($AssertionError);
@@ -572,11 +416,11 @@ bool MemberName::vminfoIsConsistent() {
 	if (!MemberName::$assertionsDisabled && !($instanceOf($ObjectArray, vminfo))) {
 		$throwNew($AssertionError);
 	}
-	int64_t vmindex = $nc(($cast($Long, $nc(($cast($ObjectArray, vminfo)))->get(0))))->longValue();
-	$var($Object0, vmtarget, $nc(($cast($ObjectArray, vminfo)))->get(1));
+	int64_t vmindex = $nc($cast($Long, $nc($cast($ObjectArray, vminfo))->get(0)))->longValue();
+	$var($Object0, vmtarget, $cast($ObjectArray, vminfo)->get(1));
 	if ($MethodHandleNatives::refKindIsField(refKind)) {
 		if (!MemberName::$assertionsDisabled && !(vmindex >= 0)) {
-			$throwNew($AssertionError, $of($$str({$$str(vmindex), ":"_s, this})));
+			$throwNew($AssertionError, $$of($str({$$str(vmindex), ":"_s, this})));
 		}
 		if (!MemberName::$assertionsDisabled && !($instanceOf($Class, vmtarget))) {
 			$throwNew($AssertionError);
@@ -584,13 +428,13 @@ bool MemberName::vminfoIsConsistent() {
 	} else {
 		if ($MethodHandleNatives::refKindDoesDispatch(refKind)) {
 			if (!MemberName::$assertionsDisabled && !(vmindex >= 0)) {
-				$throwNew($AssertionError, $of($$str({$$str(vmindex), ":"_s, this})));
+				$throwNew($AssertionError, $$of($str({$$str(vmindex), ":"_s, this})));
 			}
 		} else if (!MemberName::$assertionsDisabled && !(vmindex < 0)) {
 			$throwNew($AssertionError, vmindex);
 		}
 		if (!MemberName::$assertionsDisabled && !($instanceOf(MemberName, vmtarget))) {
-			$throwNew($AssertionError, $of($$str({vmtarget, " in "_s, this})));
+			$throwNew($AssertionError, $$of($str({vmtarget, " in "_s, this})));
 		}
 	}
 	return true;
@@ -608,7 +452,7 @@ MemberName* MemberName::changeReferenceKind(int8_t refKind, int8_t oldKind) {
 }
 
 bool MemberName::testFlags(int32_t mask, int32_t value) {
-	return ((int32_t)(this->flags & (uint32_t)mask)) == value;
+	return (this->flags & mask) == value;
 }
 
 bool MemberName::testAllFlags(int32_t mask) {
@@ -620,7 +464,7 @@ bool MemberName::testAnyFlags(int32_t mask) {
 }
 
 bool MemberName::isMethodHandleInvoke() {
-	int32_t bits = (int32_t)(MemberName::MH_INVOKE_MODS & (uint32_t)~$Modifier::PUBLIC);
+	int32_t bits = MemberName::MH_INVOKE_MODS & ~$Modifier::PUBLIC;
 	int32_t negs = $Modifier::STATIC;
 	$load($MethodHandle);
 	if (testFlags(bits | negs, bits) && this->clazz == $MethodHandle::class$) {
@@ -635,38 +479,29 @@ bool MemberName::isMethodHandleInvokeName($String* name) {
 		$var($String, s15088$, name);
 		int32_t tmp15088$ = -1;
 		switch ($nc(s15088$)->hashCode()) {
-		case (int32_t)0xB9724478:
-			{
-				if (s15088$->equals("invoke"_s)) {
-					tmp15088$ = 0;
-				}
-				break;
+		case (int32_t)0xb9724478:
+			if (s15088$->equals("invoke"_s)) {
+				tmp15088$ = 0;
 			}
+			break;
 		case 0x38222167:
-			{
-				if (s15088$->equals("invokeExact"_s)) {
-					tmp15088$ = 1;
-				}
-				break;
+			if (s15088$->equals("invokeExact"_s)) {
+				tmp15088$ = 1;
 			}
+			break;
 		}
 		switch (tmp15088$) {
 		case 0:
-			{}
 		case 1:
-			{
-				return true;
-			}
+			return true;
 		default:
-			{
-				return false;
-			}
+			return false;
 		}
 	}
 }
 
 bool MemberName::isVarHandleMethodInvoke() {
-	int32_t bits = (int32_t)(MemberName::MH_INVOKE_MODS & (uint32_t)~$Modifier::PUBLIC);
+	int32_t bits = MemberName::MH_INVOKE_MODS & ~$Modifier::PUBLIC;
 	int32_t negs = $Modifier::STATIC;
 	$load($VarHandle);
 	if (testFlags(bits | negs, bits) && this->clazz == $VarHandle::class$) {
@@ -778,7 +613,7 @@ bool MemberName::isAccessibleFrom($Class* lookupClass) {
 }
 
 bool MemberName::refersTo($Class* declc, $String* n) {
-	return this->clazz == declc && $nc($(getName()))->equals(n);
+	return this->clazz == declc && $$nc(getName())->equals(n);
 }
 
 void MemberName::init($Class* defClass, $String* name, Object$* type, int32_t flags) {
@@ -806,13 +641,13 @@ void MemberName::expandFromVM() {
 
 int32_t MemberName::flagsMods(int32_t flags, int32_t mods, int8_t refKind) {
 	$init(MemberName);
-	if (!MemberName::$assertionsDisabled && !(((int32_t)(flags & (uint32_t)MemberName::RECOGNIZED_MODIFIERS)) == 0)) {
+	if (!MemberName::$assertionsDisabled && !((flags & MemberName::RECOGNIZED_MODIFIERS) == 0)) {
 		$throwNew($AssertionError);
 	}
-	if (!MemberName::$assertionsDisabled && !(((int32_t)(mods & (uint32_t)~MemberName::RECOGNIZED_MODIFIERS)) == 0)) {
+	if (!MemberName::$assertionsDisabled && !((mods & ~MemberName::RECOGNIZED_MODIFIERS) == 0)) {
 		$throwNew($AssertionError);
 	}
-	if (!MemberName::$assertionsDisabled && !(((int32_t)(refKind & (uint32_t)~15)) == 0)) {
+	if (!MemberName::$assertionsDisabled && !((refKind & ~0x0f) == 0)) {
 		$throwNew($AssertionError);
 	}
 	return (flags | mods) | (refKind << 24);
@@ -823,7 +658,7 @@ void MemberName::init$($Method* m) {
 }
 
 void MemberName::init$($Method* m, bool wantSpecial) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(m);
 	$MethodHandleNatives::init(this, m);
 	if (this->clazz == nullptr) {
@@ -832,7 +667,7 @@ void MemberName::init$($Method* m, bool wantSpecial) {
 		if (var$0 && isMethodHandleInvokeName($(m->getName()))) {
 			$Class* var$1 = m->getReturnType();
 			$var($MethodType, type, $MethodType::methodType(var$1, $(m->getParameterTypes())));
-			int32_t flags = flagsMods(MemberName::IS_METHOD, m->getModifiers(), (int8_t)5);
+			int32_t flags = flagsMods(MemberName::IS_METHOD, m->getModifiers(), 5);
 			init($MethodHandle::class$, $(m->getName()), type, flags);
 			if (isMethodHandleInvoke()) {
 				return;
@@ -843,7 +678,7 @@ void MemberName::init$($Method* m, bool wantSpecial) {
 		if (var$2 && isVarHandleMethodInvokeName($(m->getName()))) {
 			$Class* var$3 = m->getReturnType();
 			$var($MethodType, type, $MethodType::methodType(var$3, $(m->getParameterTypes())));
-			int32_t flags = flagsMods(MemberName::IS_METHOD, m->getModifiers(), (int8_t)5);
+			int32_t flags = flagsMods(MemberName::IS_METHOD, m->getModifiers(), 5);
 			init($VarHandle::class$, $(m->getName()), type, flags);
 			if (isVarHandleMethodInvoke()) {
 				return;
@@ -857,81 +692,65 @@ void MemberName::init$($Method* m, bool wantSpecial) {
 	$set(this, name, m->getName());
 	if (this->type == nullptr) {
 		$set(this, type, $new($ObjectArray, {
-			$of(m->getReturnType()),
-			$($of(m->getParameterTypes()))
+			m->getReturnType(),
+			$(m->getParameterTypes())
 		}));
 	}
 	if (wantSpecial) {
 		if (isAbstract()) {
 			$throwNew($AbstractMethodError, $(this->toString()));
 		}
-		if (getReferenceKind() == (int8_t)5) {
-			changeReferenceKind((int8_t)7, (int8_t)5);
-		} else if (getReferenceKind() == (int8_t)9) {
-			changeReferenceKind((int8_t)7, (int8_t)9);
+		if (getReferenceKind() == 5) {
+			changeReferenceKind(7, 5);
+		} else if (getReferenceKind() == 9) {
+			changeReferenceKind(7, 9);
 		}
 	}
 }
 
 MemberName* MemberName::asSpecial() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (getReferenceKind()) {
 	case 7:
-		{
-			return this;
-		}
+		return this;
 	case 5:
-		{
-			return $nc($($cast(MemberName, clone())))->changeReferenceKind((int8_t)7, (int8_t)5);
-		}
+		return $$sure(MemberName, clone())->changeReferenceKind(7, 5);
 	case 9:
-		{
-			return $nc($($cast(MemberName, clone())))->changeReferenceKind((int8_t)7, (int8_t)9);
-		}
+		return $$sure(MemberName, clone())->changeReferenceKind(7, 9);
 	case 8:
-		{
-			return $nc($($cast(MemberName, clone())))->changeReferenceKind((int8_t)7, (int8_t)8);
-		}
+		return $$sure(MemberName, clone())->changeReferenceKind(7, 8);
 	}
 	$throwNew($IllegalArgumentException, $(this->toString()));
 }
 
 MemberName* MemberName::asConstructor() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (getReferenceKind()) {
 	case 7:
-		{
-			return $nc($($cast(MemberName, clone())))->changeReferenceKind((int8_t)8, (int8_t)7);
-		}
+		return $$sure(MemberName, clone())->changeReferenceKind(8, 7);
 	case 8:
-		{
-			return this;
-		}
+		return this;
 	}
 	$throwNew($IllegalArgumentException, $(this->toString()));
 }
 
 MemberName* MemberName::asNormalOriginal() {
-	$useLocalCurrentObjectStackCache();
-	int8_t normalVirtual = $nc(this->clazz)->isInterface() ? (int8_t)9 : (int8_t)5;
+	$useLocalObjectStack();
+	int8_t normalVirtual = $nc(this->clazz)->isInterface() ? 9 : 5;
 	int8_t refKind = getReferenceKind();
 	int8_t newRefKind = refKind;
 	$var(MemberName, result, this);
 	switch (refKind) {
 	case 9:
-		{}
 	case 5:
-		{}
 	case 7:
-		{
-			newRefKind = normalVirtual;
-			break;
-		}
+		newRefKind = normalVirtual;
+		break;
 	}
 	if (newRefKind == refKind) {
 		return this;
 	}
-	$assign(result, $nc($($cast(MemberName, clone())))->changeReferenceKind(newRefKind, refKind));
+	$assign(result, $$sure(MemberName, clone())->changeReferenceKind(newRefKind, refKind));
 	if (!MemberName::$assertionsDisabled && !(this->referenceKindIsConsistentWith($nc(result)->getReferenceKind()))) {
 		$throwNew($AssertionError);
 	}
@@ -946,10 +765,9 @@ void MemberName::init$($Constructor* ctor) {
 	}
 	$set(this, name, MemberName::CONSTRUCTOR_NAME);
 	if (this->type == nullptr) {
-		$init($Void);
 		$set(this, type, $new($ObjectArray, {
-			$of($Void::TYPE),
-			$($of(ctor->getParameterTypes()))
+			$Void::TYPE,
+			$(ctor->getParameterTypes())
 		}));
 	}
 }
@@ -966,8 +784,9 @@ void MemberName::init$($Field* fld, bool makeSetter) {
 	}
 	$set(this, name, fld->getName());
 	$set(this, type, fld->getType());
+	;
 	int8_t refKind = this->getReferenceKind();
-	if (!MemberName::$assertionsDisabled && !(refKind == (isStatic() ? (int8_t)2 : (int8_t)1))) {
+	if (!MemberName::$assertionsDisabled && !(refKind == (isStatic() ? 2 : 1))) {
 		$throwNew($AssertionError);
 	}
 	if (makeSetter) {
@@ -988,17 +807,16 @@ MemberName* MemberName::asSetter() {
 	if (!MemberName::$assertionsDisabled && !($MethodHandleNatives::refKindIsGetter(refKind))) {
 		$throwNew($AssertionError);
 	}
+	;
 	int8_t setterRefKind = (int8_t)(refKind + ((int8_t)3 - (int8_t)1));
-	return $nc($($cast(MemberName, clone())))->changeReferenceKind(setterRefKind, refKind);
+	return $$sure(MemberName, clone())->changeReferenceKind(setterRefKind, refKind);
 }
 
 void MemberName::init$($Class* type) {
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$Class* var$0 = $nc(type)->getDeclaringClass();
 	$var($String, var$1, type->getSimpleName());
-	$var($Object, var$2, $of(type));
-	init(var$0, var$1, var$2, flagsMods(MemberName::IS_TYPE, type->getModifiers(), (int8_t)0));
+	init(var$0, var$1, type, flagsMods(MemberName::IS_TYPE, type->getModifiers(), 0));
 	initResolved(true);
 }
 
@@ -1010,10 +828,10 @@ MemberName* MemberName::makeMethodHandleInvoke($String* name, $MethodType* type)
 MemberName* MemberName::makeMethodHandleInvoke($String* name, $MethodType* type, int32_t mods) {
 	$init(MemberName);
 	$load($MethodHandle);
-	$var(MemberName, mem, $new(MemberName, $MethodHandle::class$, name, type, (int8_t)5));
+	$var(MemberName, mem, $new(MemberName, $MethodHandle::class$, name, type, 5));
 	mem->flags |= mods;
 	if (!MemberName::$assertionsDisabled && !(mem->isMethodHandleInvoke())) {
-		$throwNew($AssertionError, $of(mem));
+		$throwNew($AssertionError, mem);
 	}
 	return mem;
 }
@@ -1026,10 +844,10 @@ MemberName* MemberName::makeVarHandleMethodInvoke($String* name, $MethodType* ty
 MemberName* MemberName::makeVarHandleMethodInvoke($String* name, $MethodType* type, int32_t mods) {
 	$init(MemberName);
 	$load($VarHandle);
-	$var(MemberName, mem, $new(MemberName, $VarHandle::class$, name, type, (int8_t)5));
+	$var(MemberName, mem, $new(MemberName, $VarHandle::class$, name, type, 5));
 	mem->flags |= mods;
 	if (!MemberName::$assertionsDisabled && !(mem->isVarHandleMethodInvoke())) {
-		$throwNew($AssertionError, $of(mem));
+		$throwNew($AssertionError, mem);
 	}
 	return mem;
 }
@@ -1041,13 +859,13 @@ $Object* MemberName::clone() {
 	try {
 		return $of($cast(MemberName, $Member::clone()));
 	} catch ($CloneNotSupportedException& ex) {
-		$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(ex))));
+		$throw($($MethodHandleStatics::newInternalError(ex)));
 	}
 	$shouldNotReachHere();
 }
 
 MemberName* MemberName::getDefinition() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isResolved()) {
 		$throwNew($IllegalStateException, $$str({"must be resolved: "_s, this}));
 	}
@@ -1060,18 +878,18 @@ MemberName* MemberName::getDefinition() {
 	$set(res, name, nullptr);
 	$set(res, resolution, res);
 	res->expandFromVM();
-	if (!MemberName::$assertionsDisabled && !($nc($(res->getName()))->equals($(this->getName())))) {
+	if (!MemberName::$assertionsDisabled && !($$nc(res->getName())->equals($(this->getName())))) {
 		$throwNew($AssertionError);
 	}
 	return res;
 }
 
 int32_t MemberName::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $Objects::hash($$new($ObjectArray, {
-		$of(this->clazz),
-		$of($$new($Byte, getReferenceKind())),
-		$of(this->name),
+		this->clazz,
+		$$new($Byte, getReferenceKind()),
+		this->name,
 		$(getType())
 	}));
 }
@@ -1081,7 +899,7 @@ bool MemberName::equals(Object$* that) {
 }
 
 bool MemberName::equals(MemberName* that) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this == that) {
 		return true;
 	}
@@ -1114,7 +932,7 @@ void MemberName::init$($Class* defClass, $String* name, $MethodType* type, int8_
 }
 
 void MemberName::init$(int8_t refKind, $Class* defClass, $String* name, Object$* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t kindFlags = 0;
 	if ($MethodHandleNatives::refKindIsField(refKind)) {
 		kindFlags = MemberName::IS_FIELD;
@@ -1126,9 +944,9 @@ void MemberName::init$(int8_t refKind, $Class* defClass, $String* name, Object$*
 		if (!($instanceOf($MethodType, type))) {
 			$throw($($MethodHandleStatics::newIllegalArgumentException("not a method type"_s)));
 		}
-	} else if (refKind == (int8_t)8) {
+	} else if (refKind == 8) {
 		kindFlags = MemberName::IS_CONSTRUCTOR;
-		if (!($instanceOf($MethodType, type)) || !$nc(MemberName::CONSTRUCTOR_NAME)->equals(name)) {
+		if (!($instanceOf($MethodType, type)) || !MemberName::CONSTRUCTOR_NAME->equals(name)) {
 			$throw($($MethodHandleStatics::newIllegalArgumentException("not a constructor type or name"_s)));
 		}
 	} else {
@@ -1159,13 +977,13 @@ void MemberName::initResolved(bool isResolved) {
 }
 
 void MemberName::checkForTypeAlias($Class* refc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isInvocable()) {
 		$var($MethodType, type, nullptr);
 		if ($instanceOf($MethodType, this->type)) {
 			$assign(type, $cast($MethodType, this->type));
 		} else {
-			$set(this, type, ($assign(type, getMethodType())));
+			$set(this, type, $assign(type, getMethodType()));
 		}
 		if ($nc(type)->erase() == type) {
 			return;
@@ -1179,7 +997,7 @@ void MemberName::checkForTypeAlias($Class* refc) {
 		if ($instanceOf($Class, this->type)) {
 			type = $cast($Class, this->type);
 		} else {
-			$set(this, type, (type = getFieldType()));
+			$set(this, type, type = getFieldType());
 		}
 		if ($VerifyAccess::isTypeVisible(type, refc)) {
 			return;
@@ -1189,9 +1007,9 @@ void MemberName::checkForTypeAlias($Class* refc) {
 }
 
 $String* MemberName::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isType()) {
-		return $nc($of(this->type))->toString();
+		return $nc(this->type)->toString();
 	}
 	$var($StringBuilder, buf, $new($StringBuilder));
 	if (getDeclaringClass() != nullptr) {
@@ -1208,7 +1026,7 @@ $String* MemberName::toString() {
 		buf->append(type == nullptr ? "(*)*"_s : $(getName(type)));
 	}
 	int8_t refKind = getReferenceKind();
-	if (refKind != (int8_t)0) {
+	if (refKind != 0) {
 		buf->append(u'/');
 		buf->append($($MethodHandleNatives::refKindName(refKind)));
 	}
@@ -1218,13 +1036,13 @@ $String* MemberName::toString() {
 $String* MemberName::getName(Object$* obj) {
 	$init(MemberName);
 	if ($instanceOf($Class, obj)) {
-		return $nc(($cast($Class, obj)))->getName();
+		return $cast($Class, obj)->getName();
 	}
 	return $String::valueOf(obj);
 }
 
 $IllegalAccessException* MemberName::makeAccessException($String* message$renamed, Object$* from$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, from, from$renamed);
 	$var($String, message, message$renamed);
 	$assign(message, $str({message, ": "_s, $(toString())}));
@@ -1246,15 +1064,19 @@ $IllegalAccessException* MemberName::makeAccessException($String* message$rename
 					$assign(m, $nc(lookup->lookupClass())->getModule());
 					plc = lookup->previousLookupClass();
 				} else {
-					$assign(m, $nc(($cast($Class, from)))->getModule());
+					$assign(m, $cast($Class, from)->getModule());
 					plc = nullptr;
 				}
 			}
 			$plusAssign(message, $$str({", from "_s, from, " ("_s, m, ")"_s}));
 			if (plc != nullptr) {
-				$var($String, var$2, $$str({", previous lookup "_s, $(plc->getName()), " ("_s}));
-				$var($String, var$1, $$concat(var$2, $(plc->getModule())));
-				$plusAssign(message, $$concat(var$1, ")"_s));
+				$var($StringBuilder, var$1, $new($StringBuilder));
+				var$1->append(", previous lookup "_s);
+				var$1->append($(plc->getName()));
+				var$1->append(" ("_s);
+				var$1->append($(plc->getModule()));
+				var$1->append(")"_s);
+				$plusAssign(message, $$str(var$1));
 			}
 		}
 	}
@@ -1274,9 +1096,12 @@ $String* MemberName::message() {
 }
 
 $ReflectiveOperationException* MemberName::makeAccessException() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$(this->message()), ": "_s}));
-	$var($String, message, $concat(var$0, $(toString())));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(this->message()));
+	var$0->append(": "_s);
+	var$0->append($(toString()));
+	$var($String, message, $str(var$0));
 	$var($ReflectiveOperationException, ex, nullptr);
 	if (isResolved() || !($instanceOf($NoSuchMethodError, this->resolution) || $instanceOf($NoSuchFieldError, this->resolution))) {
 		$assign(ex, $new($IllegalAccessException, message));
@@ -1299,7 +1124,7 @@ $MemberName$Factory* MemberName::getFactory() {
 	return $MemberName$Factory::INSTANCE;
 }
 
-void clinit$MemberName($Class* class$) {
+void MemberName::clinit$($Class* clazz) {
 	$assignStatic(MemberName::CONSTRUCTOR_NAME, "<init>"_s);
 	MemberName::$assertionsDisabled = !MemberName::class$->desiredAssertionStatus();
 }
@@ -1308,7 +1133,148 @@ MemberName::MemberName() {
 }
 
 $Class* MemberName::load$($String* name, bool initialize) {
-	$loadClass(MemberName, name, initialize, &_MemberName_ClassInfo_, clinit$MemberName, allocate$MemberName);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MemberName, $assertionsDisabled)},
+		{"clazz", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(MemberName, clazz)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MemberName, name)},
+		{"type", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(MemberName, type)},
+		{"flags", "I", nullptr, $PRIVATE, $field(MemberName, flags)},
+		{"method", "Ljava/lang/invoke/ResolvedMethodName;", nullptr, $PRIVATE, $field(MemberName, method)},
+		{"resolution", "Ljava/lang/Object;", nullptr, 0, $field(MemberName, resolution)},
+		{"MH_INVOKE_MODS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MemberName, MH_INVOKE_MODS)},
+		{"BRIDGE", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, BRIDGE)},
+		{"VARARGS", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, VARARGS)},
+		{"SYNTHETIC", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, SYNTHETIC)},
+		{"ANNOTATION", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, ANNOTATION)},
+		{"ENUM", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, ENUM)},
+		{"CONSTRUCTOR_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(MemberName, CONSTRUCTOR_NAME)},
+		{"RECOGNIZED_MODIFIERS", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, RECOGNIZED_MODIFIERS)},
+		{"IS_METHOD", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, IS_METHOD)},
+		{"IS_CONSTRUCTOR", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, IS_CONSTRUCTOR)},
+		{"IS_FIELD", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, IS_FIELD)},
+		{"IS_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, IS_TYPE)},
+		{"CALLER_SENSITIVE", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, CALLER_SENSITIVE)},
+		{"TRUSTED_FINAL", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, TRUSTED_FINAL)},
+		{"ALL_ACCESS", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, ALL_ACCESS)},
+		{"ALL_KINDS", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, ALL_KINDS)},
+		{"IS_INVOCABLE", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, IS_INVOCABLE)},
+		{"IS_FIELD_OR_METHOD", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, IS_FIELD_OR_METHOD)},
+		{"SEARCH_ALL_SUPERS", "I", nullptr, $STATIC | $FINAL, $constField(MemberName, SEARCH_ALL_SUPERS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/reflect/Method;)V", nullptr, $PUBLIC, $method(MemberName, init$, void, $Method*)},
+		{"<init>", "(Ljava/lang/reflect/Method;Z)V", nullptr, $PUBLIC, $method(MemberName, init$, void, $Method*, bool)},
+		{"<init>", "(Ljava/lang/reflect/Constructor;)V", "(Ljava/lang/reflect/Constructor<*>;)V", $PUBLIC, $method(MemberName, init$, void, $Constructor*)},
+		{"<init>", "(Ljava/lang/reflect/Field;)V", nullptr, $PUBLIC, $method(MemberName, init$, void, $Field*)},
+		{"<init>", "(Ljava/lang/reflect/Field;Z)V", nullptr, $PUBLIC, $method(MemberName, init$, void, $Field*, bool)},
+		{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC, $method(MemberName, init$, void, $Class*)},
+		{"<init>", "()V", nullptr, 0, $method(MemberName, init$, void)},
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;B)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;B)V", $PUBLIC, $method(MemberName, init$, void, $Class*, $String*, $Class*, int8_t)},
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/invoke/MethodType;B)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/invoke/MethodType;B)V", $PUBLIC, $method(MemberName, init$, void, $Class*, $String*, $MethodType*, int8_t)},
+		{"<init>", "(BLjava/lang/Class;Ljava/lang/String;Ljava/lang/Object;)V", "(BLjava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Object;)V", $PUBLIC, $method(MemberName, init$, void, int8_t, $Class*, $String*, Object$*)},
+		{"asConstructor", "()Ljava/lang/invoke/MemberName;", nullptr, $PUBLIC, $method(MemberName, asConstructor, MemberName*)},
+		{"asNormalOriginal", "()Ljava/lang/invoke/MemberName;", nullptr, $PUBLIC, $method(MemberName, asNormalOriginal, MemberName*)},
+		{"asSetter", "()Ljava/lang/invoke/MemberName;", nullptr, $PUBLIC, $method(MemberName, asSetter, MemberName*)},
+		{"asSpecial", "()Ljava/lang/invoke/MemberName;", nullptr, $PUBLIC, $method(MemberName, asSpecial, MemberName*)},
+		{"canBeStaticallyBound", "()Z", nullptr, $PUBLIC, $method(MemberName, canBeStaticallyBound, bool)},
+		{"changeReferenceKind", "(BB)Ljava/lang/invoke/MemberName;", nullptr, $PRIVATE, $method(MemberName, changeReferenceKind, MemberName*, int8_t, int8_t)},
+		{"checkForTypeAlias", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", 0, $method(MemberName, checkForTypeAlias, void, $Class*)},
+		{"clone", "()Ljava/lang/invoke/MemberName;", nullptr, $PROTECTED, $virtualMethod(MemberName, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MemberName, equals, bool, Object$*)},
+		{"equals", "(Ljava/lang/invoke/MemberName;)Z", nullptr, $PUBLIC, $method(MemberName, equals, bool, MemberName*)},
+		{"expandFromVM", "()V", nullptr, $PRIVATE, $method(MemberName, expandFromVM, void)},
+		{"flagsMods", "(IIB)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MemberName, flagsMods, int32_t, int32_t, int32_t, int8_t)},
+		{"getClassLoader", "()Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $method(MemberName, getClassLoader, $ClassLoader*)},
+		{"getDeclaringClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(MemberName, getDeclaringClass, $Class*)},
+		{"getDefinition", "()Ljava/lang/invoke/MemberName;", nullptr, $PUBLIC, $method(MemberName, getDefinition, MemberName*)},
+		{"getFactory", "()Ljava/lang/invoke/MemberName$Factory;", nullptr, $STATIC, $staticMethod(MemberName, getFactory, $MemberName$Factory*)},
+		{"getFieldType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(MemberName, getFieldType, $Class*)},
+		{"getInvocationType", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $method(MemberName, getInvocationType, $MethodType*)},
+		{"getMethodDescriptor", "()Ljava/lang/String;", nullptr, 0, $method(MemberName, getMethodDescriptor, $String*)},
+		{"getMethodOrFieldType", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $method(MemberName, getMethodOrFieldType, $MethodType*)},
+		{"getMethodType", "()Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $method(MemberName, getMethodType, $MethodType*)},
+		{"getModifiers", "()I", nullptr, $PUBLIC, $virtualMethod(MemberName, getModifiers, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MemberName, getName, $String*)},
+		{"getName", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MemberName, getName, $String*, Object$*)},
+		{"getParameterTypes", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $method(MemberName, getParameterTypes, $ClassArray*)},
+		{"getReferenceKind", "()B", nullptr, $PUBLIC, $method(MemberName, getReferenceKind, int8_t)},
+		{"getReturnType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(MemberName, getReturnType, $Class*)},
+		{"getSignature", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(MemberName, getSignature, $String*)},
+		{"getType", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(MemberName, getType, $Object*)},
+		{"hasReceiverTypeDispatch", "()Z", nullptr, $PUBLIC, $method(MemberName, hasReceiverTypeDispatch, bool)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MemberName, hashCode, int32_t)},
+		{"init", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Object;I)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Object;I)V", $PRIVATE, $method(MemberName, init, void, $Class*, $String*, Object$*, int32_t)},
+		{"initResolved", "(Z)V", nullptr, 0, $method(MemberName, initResolved, void, bool)},
+		{"isAbstract", "()Z", nullptr, $PUBLIC, $method(MemberName, isAbstract, bool)},
+		{"isAccessibleFrom", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC, $method(MemberName, isAccessibleFrom, bool, $Class*)},
+		{"isBridge", "()Z", nullptr, $PUBLIC, $method(MemberName, isBridge, bool)},
+		{"isCallerSensitive", "()Z", nullptr, $PUBLIC, $method(MemberName, isCallerSensitive, bool)},
+		{"isConstructor", "()Z", nullptr, $PUBLIC, $method(MemberName, isConstructor, bool)},
+		{"isField", "()Z", nullptr, $PUBLIC, $method(MemberName, isField, bool)},
+		{"isFieldOrMethod", "()Z", nullptr, $PUBLIC, $method(MemberName, isFieldOrMethod, bool)},
+		{"isFinal", "()Z", nullptr, $PUBLIC, $method(MemberName, isFinal, bool)},
+		{"isGetter", "()Z", nullptr, $PUBLIC, $method(MemberName, isGetter, bool)},
+		{"isInvocable", "()Z", nullptr, $PUBLIC, $method(MemberName, isInvocable, bool)},
+		{"isMethod", "()Z", nullptr, $PUBLIC, $method(MemberName, isMethod, bool)},
+		{"isMethodHandleInvoke", "()Z", nullptr, $PUBLIC, $method(MemberName, isMethodHandleInvoke, bool)},
+		{"isMethodHandleInvokeName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MemberName, isMethodHandleInvokeName, bool, $String*)},
+		{"isNative", "()Z", nullptr, $PUBLIC, $method(MemberName, isNative, bool)},
+		{"isObjectPublicMethod", "()Z", nullptr, $PRIVATE, $method(MemberName, isObjectPublicMethod, bool)},
+		{"isPackage", "()Z", nullptr, $PUBLIC, $method(MemberName, isPackage, bool)},
+		{"isPrivate", "()Z", nullptr, $PUBLIC, $method(MemberName, isPrivate, bool)},
+		{"isProtected", "()Z", nullptr, $PUBLIC, $method(MemberName, isProtected, bool)},
+		{"isPublic", "()Z", nullptr, $PUBLIC, $method(MemberName, isPublic, bool)},
+		{"isResolved", "()Z", nullptr, $PUBLIC, $method(MemberName, isResolved, bool)},
+		{"isSetter", "()Z", nullptr, $PUBLIC, $method(MemberName, isSetter, bool)},
+		{"isStatic", "()Z", nullptr, $PUBLIC, $method(MemberName, isStatic, bool)},
+		{"isSynthetic", "()Z", nullptr, $PUBLIC, $virtualMethod(MemberName, isSynthetic, bool)},
+		{"isTrustedFinalField", "()Z", nullptr, $PUBLIC, $method(MemberName, isTrustedFinalField, bool)},
+		{"isType", "()Z", nullptr, $PUBLIC, $method(MemberName, isType, bool)},
+		{"isVarHandleMethodInvoke", "()Z", nullptr, $PUBLIC, $method(MemberName, isVarHandleMethodInvoke, bool)},
+		{"isVarHandleMethodInvokeName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MemberName, isVarHandleMethodInvokeName, bool, $String*)},
+		{"isVarargs", "()Z", nullptr, $PUBLIC, $method(MemberName, isVarargs, bool)},
+		{"isVolatile", "()Z", nullptr, $PUBLIC, $method(MemberName, isVolatile, bool)},
+		{"makeAccessException", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/IllegalAccessException;", nullptr, $PUBLIC, $method(MemberName, makeAccessException, $IllegalAccessException*, $String*, Object$*)},
+		{"makeAccessException", "()Ljava/lang/ReflectiveOperationException;", nullptr, $PUBLIC, $method(MemberName, makeAccessException, $ReflectiveOperationException*)},
+		{"makeMethodHandleInvoke", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MemberName;", nullptr, $STATIC, $staticMethod(MemberName, makeMethodHandleInvoke, MemberName*, $String*, $MethodType*)},
+		{"makeMethodHandleInvoke", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;I)Ljava/lang/invoke/MemberName;", nullptr, $STATIC, $staticMethod(MemberName, makeMethodHandleInvoke, MemberName*, $String*, $MethodType*, int32_t)},
+		{"makeVarHandleMethodInvoke", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/MemberName;", nullptr, $STATIC, $staticMethod(MemberName, makeVarHandleMethodInvoke, MemberName*, $String*, $MethodType*)},
+		{"makeVarHandleMethodInvoke", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;I)Ljava/lang/invoke/MemberName;", nullptr, $STATIC, $staticMethod(MemberName, makeVarHandleMethodInvoke, MemberName*, $String*, $MethodType*, int32_t)},
+		{"message", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(MemberName, message, $String*)},
+		{"referenceKindIsConsistent", "()Z", nullptr, $PRIVATE, $method(MemberName, referenceKindIsConsistent, bool)},
+		{"referenceKindIsConsistentWith", "(I)Z", nullptr, 0, $method(MemberName, referenceKindIsConsistentWith, bool, int32_t)},
+		{"refersTo", "(Ljava/lang/Class;Ljava/lang/String;)Z", "(Ljava/lang/Class<*>;Ljava/lang/String;)Z", $PUBLIC, $method(MemberName, refersTo, bool, $Class*, $String*)},
+		{"staticIsConsistent", "()Z", nullptr, $PRIVATE, $method(MemberName, staticIsConsistent, bool)},
+		{"testAllFlags", "(I)Z", nullptr, $PRIVATE, $method(MemberName, testAllFlags, bool, int32_t)},
+		{"testAnyFlags", "(I)Z", nullptr, $PRIVATE, $method(MemberName, testAnyFlags, bool, int32_t)},
+		{"testFlags", "(II)Z", nullptr, $PRIVATE, $method(MemberName, testFlags, bool, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MemberName, toString, $String*)},
+		{"vminfoIsConsistent", "()Z", nullptr, $PRIVATE, $method(MemberName, vminfoIsConsistent, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.MemberName$Factory", "java.lang.invoke.MemberName", "Factory", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.invoke.MemberName",
+		"java.lang.Object",
+		"java.lang.reflect.Member,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.MemberName$Factory"
+	};
+	$loadClass(MemberName, name, initialize, &classInfo$$, MemberName::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MemberName));
+	});
 	return class$;
 }
 

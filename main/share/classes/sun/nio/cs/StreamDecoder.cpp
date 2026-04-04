@@ -1,5 +1,4 @@
 #include <sun/nio/cs/StreamDecoder.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/Reader.h>
@@ -48,59 +47,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$FieldInfo _StreamDecoder_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(StreamDecoder, $assertionsDisabled)},
-	{"MIN_BYTE_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StreamDecoder, MIN_BYTE_BUFFER_SIZE)},
-	{"DEFAULT_BYTE_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StreamDecoder, DEFAULT_BYTE_BUFFER_SIZE)},
-	{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(StreamDecoder, closed)},
-	{"haveLeftoverChar", "Z", nullptr, $PRIVATE, $field(StreamDecoder, haveLeftoverChar)},
-	{"leftoverChar", "C", nullptr, $PRIVATE, $field(StreamDecoder, leftoverChar)},
-	{"cs", "Ljava/nio/charset/Charset;", nullptr, $PRIVATE | $FINAL, $field(StreamDecoder, cs)},
-	{"decoder", "Ljava/nio/charset/CharsetDecoder;", nullptr, $PRIVATE | $FINAL, $field(StreamDecoder, decoder)},
-	{"bb", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $FINAL, $field(StreamDecoder, bb)},
-	{"in", "Ljava/io/InputStream;", nullptr, $PRIVATE | $FINAL, $field(StreamDecoder, in)},
-	{"ch", "Ljava/nio/channels/ReadableByteChannel;", nullptr, $PRIVATE | $FINAL, $field(StreamDecoder, ch)},
-	{}
-};
-
-$MethodInfo _StreamDecoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Ljava/lang/Object;Ljava/nio/charset/Charset;)V", nullptr, 0, $method(StreamDecoder, init$, void, $InputStream*, Object$*, $Charset*)},
-	{"<init>", "(Ljava/io/InputStream;Ljava/lang/Object;Ljava/nio/charset/CharsetDecoder;)V", nullptr, 0, $method(StreamDecoder, init$, void, $InputStream*, Object$*, $CharsetDecoder*)},
-	{"<init>", "(Ljava/nio/channels/ReadableByteChannel;Ljava/nio/charset/CharsetDecoder;I)V", nullptr, 0, $method(StreamDecoder, init$, void, $ReadableByteChannel*, $CharsetDecoder*, int32_t)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(StreamDecoder, close, void), "java.io.IOException"},
-	{"encodingName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(StreamDecoder, encodingName, $String*)},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(StreamDecoder, ensureOpen, void), "java.io.IOException"},
-	{"forDecoder", "(Ljava/nio/channels/ReadableByteChannel;Ljava/nio/charset/CharsetDecoder;I)Lsun/nio/cs/StreamDecoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamDecoder, forDecoder, StreamDecoder*, $ReadableByteChannel*, $CharsetDecoder*, int32_t)},
-	{"forInputStreamReader", "(Ljava/io/InputStream;Ljava/lang/Object;Ljava/lang/String;)Lsun/nio/cs/StreamDecoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamDecoder, forInputStreamReader, StreamDecoder*, $InputStream*, Object$*, $String*), "java.io.UnsupportedEncodingException"},
-	{"forInputStreamReader", "(Ljava/io/InputStream;Ljava/lang/Object;Ljava/nio/charset/Charset;)Lsun/nio/cs/StreamDecoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamDecoder, forInputStreamReader, StreamDecoder*, $InputStream*, Object$*, $Charset*)},
-	{"forInputStreamReader", "(Ljava/io/InputStream;Ljava/lang/Object;Ljava/nio/charset/CharsetDecoder;)Lsun/nio/cs/StreamDecoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamDecoder, forInputStreamReader, StreamDecoder*, $InputStream*, Object$*, $CharsetDecoder*)},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamDecoder, getEncoding, $String*)},
-	{"implClose", "()V", nullptr, 0, $virtualMethod(StreamDecoder, implClose, void), "java.io.IOException"},
-	{"implRead", "([CII)I", nullptr, 0, $virtualMethod(StreamDecoder, implRead, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"implReady", "()Z", nullptr, 0, $virtualMethod(StreamDecoder, implReady, bool)},
-	{"inReady", "()Z", nullptr, $PRIVATE, $method(StreamDecoder, inReady, bool)},
-	{"isOpen", "()Z", nullptr, $PRIVATE, $method(StreamDecoder, isOpen, bool)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(StreamDecoder, read, int32_t), "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(StreamDecoder, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"read0", "()I", nullptr, $PRIVATE, $method(StreamDecoder, read0, int32_t), "java.io.IOException"},
-	{"readBytes", "()I", nullptr, $PRIVATE, $method(StreamDecoder, readBytes, int32_t), "java.io.IOException"},
-	{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(StreamDecoder, ready, bool), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _StreamDecoder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.StreamDecoder",
-	"java.io.Reader",
-	nullptr,
-	_StreamDecoder_FieldInfo_,
-	_StreamDecoder_MethodInfo_
-};
-
-$Object* allocate$StreamDecoder($Class* clazz) {
-	return $of($alloc(StreamDecoder));
-}
-
 bool StreamDecoder::$assertionsDisabled = false;
 
 void StreamDecoder::ensureOpen() {
@@ -111,10 +57,10 @@ void StreamDecoder::ensureOpen() {
 
 StreamDecoder* StreamDecoder::forInputStreamReader($InputStream* in, Object$* lock, $String* charsetName) {
 	$init(StreamDecoder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, csn, charsetName);
 	if (csn == nullptr) {
-		$assign(csn, $nc($($Charset::defaultCharset()))->name());
+		$assign(csn, $$nc($Charset::defaultCharset())->name());
 	}
 	try {
 		return $new(StreamDecoder, in, lock, $($Charset::forName(csn)));
@@ -162,25 +108,17 @@ int32_t StreamDecoder::read0() {
 		int32_t n = read(cb, 0, 2);
 		switch (n) {
 		case -1:
-			{
-				return -1;
-			}
+			return -1;
 		case 2:
-			{
-				this->leftoverChar = cb->get(1);
-				this->haveLeftoverChar = true;
-			}
+			this->leftoverChar = cb->get(1);
+			this->haveLeftoverChar = true;
 		case 1:
-			{
-				return cb->get(0);
-			}
+			return cb->get(0);
 		default:
-			{
-				if (!StreamDecoder::$assertionsDisabled) {
-					$throwNew($AssertionError, n);
-				}
-				return -1;
+			if (!StreamDecoder::$assertionsDisabled) {
+				$throwNew($AssertionError, n);
 			}
+			return -1;
 		}
 	}
 }
@@ -231,18 +169,16 @@ void StreamDecoder::close() {
 		if (this->closed) {
 			return;
 		}
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				implClose();
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				this->closed = true;
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			implClose();
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			this->closed = true;
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -252,9 +188,9 @@ bool StreamDecoder::isOpen() {
 }
 
 void StreamDecoder::init$($InputStream* in, Object$* lock, $Charset* cs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($CodingErrorAction);
-	StreamDecoder::init$(in, lock, $($nc($($nc($($nc(cs)->newDecoder()))->onMalformedInput($CodingErrorAction::REPLACE)))->onUnmappableCharacter($CodingErrorAction::REPLACE)));
+	StreamDecoder::init$(in, lock, $($$nc($$nc($nc(cs)->newDecoder())->onMalformedInput($CodingErrorAction::REPLACE))->onUnmappableCharacter($CodingErrorAction::REPLACE)));
 }
 
 void StreamDecoder::init$($InputStream* in, Object$* lock, $CharsetDecoder* dec) {
@@ -280,55 +216,53 @@ void StreamDecoder::init$($ReadableByteChannel* ch, $CharsetDecoder* dec, int32_
 }
 
 int32_t StreamDecoder::readBytes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->bb)->compact();
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			if (this->ch != nullptr) {
-				int32_t n = $nc(this->ch)->read(this->bb);
-				if (n < 0) {
-					var$2 = n;
-					return$1 = true;
-					goto $finally;
-				}
-			} else {
-				int32_t lim = $nc(this->bb)->limit();
-				int32_t pos = $nc(this->bb)->position();
-				if (!StreamDecoder::$assertionsDisabled && !(pos <= lim)) {
-					$throwNew($AssertionError);
-				}
-				int32_t rem = (pos <= lim ? lim - pos : 0);
-				$var($bytes, var$3, $cast($bytes, $nc(this->bb)->array()));
-				int32_t n = $nc(this->in)->read(var$3, $nc(this->bb)->arrayOffset() + pos, rem);
-				if (n < 0) {
-					var$2 = n;
-					return$1 = true;
-					goto $finally;
-				}
-				if (n == 0) {
-					$throwNew($IOException, "Underlying input stream returned zero bytes"_s);
-				}
-				if (!StreamDecoder::$assertionsDisabled && !(n <= rem)) {
-					$throwNew($AssertionError, $of($$str({"n = "_s, $$str(n), ", rem = "_s, $$str(rem)})));
-				}
-				$nc(this->bb)->position(pos + n);
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		if (this->ch != nullptr) {
+			int32_t n = this->ch->read(this->bb);
+			if (n < 0) {
+				var$2 = n;
+				return$1 = true;
+				goto $finally;
 			}
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			$nc(this->bb)->flip();
+		} else {
+			int32_t lim = this->bb->limit();
+			int32_t pos = this->bb->position();
+			if (!StreamDecoder::$assertionsDisabled && !(pos <= lim)) {
+				$throwNew($AssertionError);
+			}
+			int32_t rem = (pos <= lim ? lim - pos : 0);
+			$var($bytes, var$3, $cast($bytes, this->bb->array()));
+			int32_t n = $nc(this->in)->read(var$3, this->bb->arrayOffset() + pos, rem);
+			if (n < 0) {
+				var$2 = n;
+				return$1 = true;
+				goto $finally;
+			}
+			if (n == 0) {
+				$throwNew($IOException, "Underlying input stream returned zero bytes"_s);
+			}
+			if (!StreamDecoder::$assertionsDisabled && !(n <= rem)) {
+				$throwNew($AssertionError, $$of($str({"n = "_s, $$str(n), ", rem = "_s, $$str(rem)})));
+			}
+			this->bb->position(pos + n);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		this->bb->flip();
 	}
-	int32_t rem = $nc(this->bb)->remaining();
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
+	}
+	int32_t rem = this->bb->remaining();
 	if (!StreamDecoder::$assertionsDisabled && !(rem != 0)) {
 		$throwNew($AssertionError, rem);
 	}
@@ -336,7 +270,7 @@ int32_t StreamDecoder::readBytes() {
 }
 
 int32_t StreamDecoder::implRead($chars* cbuf, int32_t off, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!StreamDecoder::$assertionsDisabled && !(end - off > 1)) {
 		$throwNew($AssertionError);
 	}
@@ -354,28 +288,28 @@ int32_t StreamDecoder::implRead($chars* cbuf, int32_t off, int32_t end) {
 			if (!$nc(cb)->hasRemaining()) {
 				break;
 			}
-			bool var$0 = ($nc(cb)->position() > 0);
+			bool var$0 = cb->position() > 0;
 			if (var$0 && !inReady()) {
 				break;
 			}
 			int32_t n = readBytes();
 			if (n < 0) {
 				eof = true;
-				bool var$1 = ($nc(cb)->position() == 0);
+				bool var$1 = cb->position() == 0;
 				if (var$1 && (!$nc(this->bb)->hasRemaining())) {
 					break;
 				}
-				$nc(this->decoder)->reset();
+				this->decoder->reset();
 			}
 			continue;
 		}
-		if ($nc(cr)->isOverflow()) {
+		if (cr->isOverflow()) {
 			if (!StreamDecoder::$assertionsDisabled && !($nc(cb)->position() > 0)) {
 				$throwNew($AssertionError);
 			}
 			break;
 		}
-		$nc(cr)->throwException();
+		cr->throwException();
 	}
 	if (eof) {
 		$nc(this->decoder)->reset();
@@ -388,16 +322,16 @@ int32_t StreamDecoder::implRead($chars* cbuf, int32_t off, int32_t end) {
 			$throwNew($AssertionError);
 		}
 	}
-	return $nc(cb)->position();
+	return cb->position();
 }
 
 $String* StreamDecoder::encodingName() {
-	return (($instanceOf($HistoricallyNamedCharset, this->cs)) ? $nc(($cast($HistoricallyNamedCharset, this->cs)))->historicalName() : $nc(this->cs)->name());
+	return (($instanceOf($HistoricallyNamedCharset, this->cs)) ? $cast($HistoricallyNamedCharset, this->cs)->historicalName() : $nc(this->cs)->name());
 }
 
 bool StreamDecoder::inReady() {
 	try {
-		return (((this->in != nullptr) && ($nc(this->in)->available() > 0)) || ($instanceOf($FileChannel, this->ch)));
+		return (((this->in != nullptr) && (this->in->available() > 0)) || ($instanceOf($FileChannel, this->ch)));
 	} catch ($IOException& x) {
 		return false;
 	}
@@ -411,13 +345,13 @@ bool StreamDecoder::implReady() {
 
 void StreamDecoder::implClose() {
 	if (this->ch != nullptr) {
-		$nc(this->ch)->close();
+		this->ch->close();
 	} else {
 		$nc(this->in)->close();
 	}
 }
 
-void clinit$StreamDecoder($Class* class$) {
+void StreamDecoder::clinit$($Class* clazz) {
 	StreamDecoder::$assertionsDisabled = !StreamDecoder::class$->desiredAssertionStatus();
 }
 
@@ -425,7 +359,55 @@ StreamDecoder::StreamDecoder() {
 }
 
 $Class* StreamDecoder::load$($String* name, bool initialize) {
-	$loadClass(StreamDecoder, name, initialize, &_StreamDecoder_ClassInfo_, clinit$StreamDecoder, allocate$StreamDecoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(StreamDecoder, $assertionsDisabled)},
+		{"MIN_BYTE_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StreamDecoder, MIN_BYTE_BUFFER_SIZE)},
+		{"DEFAULT_BYTE_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StreamDecoder, DEFAULT_BYTE_BUFFER_SIZE)},
+		{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(StreamDecoder, closed)},
+		{"haveLeftoverChar", "Z", nullptr, $PRIVATE, $field(StreamDecoder, haveLeftoverChar)},
+		{"leftoverChar", "C", nullptr, $PRIVATE, $field(StreamDecoder, leftoverChar)},
+		{"cs", "Ljava/nio/charset/Charset;", nullptr, $PRIVATE | $FINAL, $field(StreamDecoder, cs)},
+		{"decoder", "Ljava/nio/charset/CharsetDecoder;", nullptr, $PRIVATE | $FINAL, $field(StreamDecoder, decoder)},
+		{"bb", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $FINAL, $field(StreamDecoder, bb)},
+		{"in", "Ljava/io/InputStream;", nullptr, $PRIVATE | $FINAL, $field(StreamDecoder, in)},
+		{"ch", "Ljava/nio/channels/ReadableByteChannel;", nullptr, $PRIVATE | $FINAL, $field(StreamDecoder, ch)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;Ljava/lang/Object;Ljava/nio/charset/Charset;)V", nullptr, 0, $method(StreamDecoder, init$, void, $InputStream*, Object$*, $Charset*)},
+		{"<init>", "(Ljava/io/InputStream;Ljava/lang/Object;Ljava/nio/charset/CharsetDecoder;)V", nullptr, 0, $method(StreamDecoder, init$, void, $InputStream*, Object$*, $CharsetDecoder*)},
+		{"<init>", "(Ljava/nio/channels/ReadableByteChannel;Ljava/nio/charset/CharsetDecoder;I)V", nullptr, 0, $method(StreamDecoder, init$, void, $ReadableByteChannel*, $CharsetDecoder*, int32_t)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(StreamDecoder, close, void), "java.io.IOException"},
+		{"encodingName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(StreamDecoder, encodingName, $String*)},
+		{"ensureOpen", "()V", nullptr, $PRIVATE, $method(StreamDecoder, ensureOpen, void), "java.io.IOException"},
+		{"forDecoder", "(Ljava/nio/channels/ReadableByteChannel;Ljava/nio/charset/CharsetDecoder;I)Lsun/nio/cs/StreamDecoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamDecoder, forDecoder, StreamDecoder*, $ReadableByteChannel*, $CharsetDecoder*, int32_t)},
+		{"forInputStreamReader", "(Ljava/io/InputStream;Ljava/lang/Object;Ljava/lang/String;)Lsun/nio/cs/StreamDecoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamDecoder, forInputStreamReader, StreamDecoder*, $InputStream*, Object$*, $String*), "java.io.UnsupportedEncodingException"},
+		{"forInputStreamReader", "(Ljava/io/InputStream;Ljava/lang/Object;Ljava/nio/charset/Charset;)Lsun/nio/cs/StreamDecoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamDecoder, forInputStreamReader, StreamDecoder*, $InputStream*, Object$*, $Charset*)},
+		{"forInputStreamReader", "(Ljava/io/InputStream;Ljava/lang/Object;Ljava/nio/charset/CharsetDecoder;)Lsun/nio/cs/StreamDecoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(StreamDecoder, forInputStreamReader, StreamDecoder*, $InputStream*, Object$*, $CharsetDecoder*)},
+		{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamDecoder, getEncoding, $String*)},
+		{"implClose", "()V", nullptr, 0, $virtualMethod(StreamDecoder, implClose, void), "java.io.IOException"},
+		{"implRead", "([CII)I", nullptr, 0, $virtualMethod(StreamDecoder, implRead, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"implReady", "()Z", nullptr, 0, $virtualMethod(StreamDecoder, implReady, bool)},
+		{"inReady", "()Z", nullptr, $PRIVATE, $method(StreamDecoder, inReady, bool)},
+		{"isOpen", "()Z", nullptr, $PRIVATE, $method(StreamDecoder, isOpen, bool)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(StreamDecoder, read, int32_t), "java.io.IOException"},
+		{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(StreamDecoder, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"read0", "()I", nullptr, $PRIVATE, $method(StreamDecoder, read0, int32_t), "java.io.IOException"},
+		{"readBytes", "()I", nullptr, $PRIVATE, $method(StreamDecoder, readBytes, int32_t), "java.io.IOException"},
+		{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(StreamDecoder, ready, bool), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.StreamDecoder",
+		"java.io.Reader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StreamDecoder, name, initialize, &classInfo$$, StreamDecoder::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StreamDecoder));
+	});
 	return class$;
 }
 

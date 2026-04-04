@@ -97,6 +97,7 @@ class $import X509CertSelector : public ::java::security::cert::CertSelector {
 	$class(X509CertSelector, 0, ::java::security::cert::CertSelector)
 public:
 	X509CertSelector();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addPathToName(int32_t type, $String* name);
 	virtual void addPathToName(int32_t type, $bytes* name);

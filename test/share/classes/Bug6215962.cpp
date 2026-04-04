@@ -1,5 +1,4 @@
 #include <Bug6215962.h>
-
 #include <java/text/ChoiceFormat.h>
 #include <java/text/DateFormatSymbols.h>
 #include <java/text/MessageFormat.h>
@@ -18,31 +17,6 @@ using $DateFormatSymbols = ::java::text::DateFormatSymbols;
 using $MessageFormat = ::java::text::MessageFormat;
 using $Locale = ::java::util::Locale;
 
-$MethodInfo _Bug6215962_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug6215962, init$, void)},
-	{"check", "(Ljava/text/MessageFormat;Ljava/text/MessageFormat;Z)V", nullptr, $STATIC, $staticMethod(Bug6215962, check, void, $MessageFormat*, $MessageFormat*, bool)},
-	{"check", "(Ljava/text/ChoiceFormat;Ljava/text/ChoiceFormat;Z)V", nullptr, $STATIC, $staticMethod(Bug6215962, check, void, $ChoiceFormat*, $ChoiceFormat*, bool)},
-	{"check", "(Ljava/text/DateFormatSymbols;Ljava/text/DateFormatSymbols;Z)V", nullptr, $STATIC, $staticMethod(Bug6215962, check, void, $DateFormatSymbols*, $DateFormatSymbols*, bool)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug6215962, main, void, $StringArray*)},
-	{"testChoiceFormat", "()V", nullptr, $STATIC, $staticMethod(Bug6215962, testChoiceFormat, void)},
-	{"testDateFormatSymbols", "()V", nullptr, $STATIC, $staticMethod(Bug6215962, testDateFormatSymbols, void)},
-	{"testMessageFormat", "()V", nullptr, $STATIC, $staticMethod(Bug6215962, testMessageFormat, void)},
-	{}
-};
-
-$ClassInfo _Bug6215962_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Bug6215962",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Bug6215962_MethodInfo_
-};
-
-$Object* allocate$Bug6215962($Class* clazz) {
-	return $of($alloc(Bug6215962));
-}
-
 void Bug6215962::init$() {
 }
 
@@ -53,7 +27,7 @@ void Bug6215962::main($StringArray* args) {
 }
 
 void Bug6215962::testMessageFormat() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MessageFormat, mf1, $new($MessageFormat, "{0}"_s, nullptr));
 	$var($MessageFormat, mf2, $new($MessageFormat, "{0}"_s, nullptr));
 	check(mf1, mf2, true);
@@ -81,7 +55,7 @@ void Bug6215962::testMessageFormat() {
 }
 
 void Bug6215962::check($MessageFormat* f1, $MessageFormat* f2, bool expected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool got = $nc(f1)->equals(f2);
 	if (got != expected) {
 		$throwNew($RuntimeException, $$str({"Test failed for MessageFormat.equals(). Got: "_s, $$str(got), ", Expected: "_s, $$str(expected)}));
@@ -89,24 +63,24 @@ void Bug6215962::check($MessageFormat* f1, $MessageFormat* f2, bool expected) {
 }
 
 void Bug6215962::testChoiceFormat() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, limits0, $new($doubles, {
-		(double)0,
-		(double)1,
-		(double)2,
-		(double)3,
-		(double)4,
-		(double)5,
-		(double)6
+		0,
+		1,
+		2,
+		3,
+		4,
+		5,
+		6
 	}));
 	$var($doubles, limits1, $new($doubles, {
-		(double)1,
-		(double)2,
-		(double)3,
-		(double)4,
-		(double)5,
-		(double)6,
-		(double)7
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7
 	}));
 	$var($StringArray, monthNames0, $new($StringArray, {
 		"Sun"_s,
@@ -136,7 +110,7 @@ void Bug6215962::testChoiceFormat() {
 }
 
 void Bug6215962::check($ChoiceFormat* f1, $ChoiceFormat* f2, bool expected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool got = $nc(f1)->equals(f2);
 	if (got != expected) {
 		$throwNew($RuntimeException, $$str({"Test failed for ChoiceFormat.equals(). Got: "_s, $$str(got), ", Expected: "_s, $$str(expected)}));
@@ -144,7 +118,7 @@ void Bug6215962::check($ChoiceFormat* f1, $ChoiceFormat* f2, bool expected) {
 }
 
 void Bug6215962::testDateFormatSymbols() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DateFormatSymbols, dfs1, $new($DateFormatSymbols));
 	$var($DateFormatSymbols, dfs2, $new($DateFormatSymbols));
 	check(dfs1, dfs2, true);
@@ -172,7 +146,7 @@ void Bug6215962::testDateFormatSymbols() {
 }
 
 void Bug6215962::check($DateFormatSymbols* dfs1, $DateFormatSymbols* dfs2, bool expected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool got = $nc(dfs1)->equals(dfs2);
 	if (got != expected) {
 		$throwNew($RuntimeException, $$str({"Test failed for DateFormatSymbols.equals(). Got: "_s, $$str(got), ", Expected: "_s, $$str(expected)}));
@@ -183,7 +157,28 @@ Bug6215962::Bug6215962() {
 }
 
 $Class* Bug6215962::load$($String* name, bool initialize) {
-	$loadClass(Bug6215962, name, initialize, &_Bug6215962_ClassInfo_, allocate$Bug6215962);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Bug6215962, init$, void)},
+		{"check", "(Ljava/text/MessageFormat;Ljava/text/MessageFormat;Z)V", nullptr, $STATIC, $staticMethod(Bug6215962, check, void, $MessageFormat*, $MessageFormat*, bool)},
+		{"check", "(Ljava/text/ChoiceFormat;Ljava/text/ChoiceFormat;Z)V", nullptr, $STATIC, $staticMethod(Bug6215962, check, void, $ChoiceFormat*, $ChoiceFormat*, bool)},
+		{"check", "(Ljava/text/DateFormatSymbols;Ljava/text/DateFormatSymbols;Z)V", nullptr, $STATIC, $staticMethod(Bug6215962, check, void, $DateFormatSymbols*, $DateFormatSymbols*, bool)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug6215962, main, void, $StringArray*)},
+		{"testChoiceFormat", "()V", nullptr, $STATIC, $staticMethod(Bug6215962, testChoiceFormat, void)},
+		{"testDateFormatSymbols", "()V", nullptr, $STATIC, $staticMethod(Bug6215962, testDateFormatSymbols, void)},
+		{"testMessageFormat", "()V", nullptr, $STATIC, $staticMethod(Bug6215962, testMessageFormat, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Bug6215962",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Bug6215962, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Bug6215962);
+	});
 	return class$;
 }
 

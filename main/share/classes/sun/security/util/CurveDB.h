@@ -49,6 +49,7 @@ class $export CurveDB : public ::java::lang::Object {
 	$class(CurveDB, 0, ::java::lang::Object)
 public:
 	CurveDB();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void add(::sun::security::util::KnownOIDs* o, int32_t type, $String* sfield, $String* a, $String* b, $String* x, $String* y, $String* n, int32_t h);
 	static ::java::math::BigInteger* bi($String* s);

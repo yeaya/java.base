@@ -36,6 +36,7 @@ class $export SwitchBootstraps : public ::java::lang::Object {
 	$class(SwitchBootstraps, 0, ::java::lang::Object)
 public:
 	SwitchBootstraps();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Object* convertEnumConstants(::java::lang::invoke::MethodHandles$Lookup* lookup, $Class* enumClassTemplate, Object$* label);
 	static int32_t doEnumSwitch(::java::lang::Enum* target, int32_t startIndex, $ObjectArray* labels);

@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberEnumArrayDef.h>
-
 #include <UniTest/Stooge.h>
 #include <jcpp.h>
 
@@ -12,49 +11,42 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$NamedAttribute SingleMemberEnumArrayDef_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _SingleMemberEnumArrayDef_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", SingleMemberEnumArrayDef_Attribute_var$0},
-	{}
-};
-
-$Attribute SingleMemberEnumArrayDef_Attribute_var$1[] = {
-	{'e', "LUniTest/Stooge; LARRY"},
-	{'-'}
-};
-
-$Attribute _SingleMemberEnumArrayDef_DefaultValue_value0 = {
-	'[', SingleMemberEnumArrayDef_Attribute_var$1
-};
-
-$MethodInfo _SingleMemberEnumArrayDef_MethodInfo_[] = {
-	{"value", "()[LUniTest/Stooge;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberEnumArrayDef, value, $StoogeArray*), nullptr, &_SingleMemberEnumArrayDef_DefaultValue_value0},
-	{}
-};
-
-$ClassInfo _SingleMemberEnumArrayDef_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"UniTest.SingleMemberEnumArrayDef",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_SingleMemberEnumArrayDef_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberEnumArrayDef_Annotations_
-};
-
-$Object* allocate$SingleMemberEnumArrayDef($Class* clazz) {
-	return $of($alloc(SingleMemberEnumArrayDef));
-}
-
 $Class* SingleMemberEnumArrayDef::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberEnumArrayDef, name, initialize, &_SingleMemberEnumArrayDef_ClassInfo_, allocate$SingleMemberEnumArrayDef);
+	$Attribute $attribute[] = {
+		{'e', "LUniTest/Stooge; LARRY"},
+		{'-'}
+	};
+
+	$Attribute valuedefaultValue$$ = {
+		'[', $attribute
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()[LUniTest/Stooge;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberEnumArrayDef, value, $StoogeArray*), nullptr, &valuedefaultValue$$},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"UniTest.SingleMemberEnumArrayDef",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberEnumArrayDef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberEnumArrayDef);
+	});
 	return class$;
 }
 

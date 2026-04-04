@@ -1,45 +1,14 @@
 #include <Trim.h>
-
-#include <java/lang/CharSequence.h>
 #include <java/lang/StringBuffer.h>
 #include <java/util/Random.h>
 #include <jcpp.h>
 
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $Random = ::java::util::Random;
-
-$FieldInfo _Trim_FieldInfo_[] = {
-	{"generator", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC, $staticField(Trim, generator)},
-	{}
-};
-
-$MethodInfo _Trim_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Trim, init$, void)},
-	{"bash", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Trim, bash, void), "java.lang.Exception"},
-	{"capacityCheck", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Trim, capacityCheck, void)},
-	{"generateTestBuffer", "(II)Ljava/lang/StringBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(Trim, generateTestBuffer, $StringBuffer*, int32_t, int32_t)},
-	{"getRandomIndex", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Trim, getRandomIndex, int32_t, int32_t, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Trim, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Trim_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Trim",
-	"java.lang.Object",
-	nullptr,
-	_Trim_FieldInfo_,
-	_Trim_MethodInfo_
-};
-
-$Object* allocate$Trim($Class* clazz) {
-	return $of($alloc(Trim));
-}
 
 $Random* Trim::generator = nullptr;
 
@@ -53,12 +22,12 @@ void Trim::main($StringArray* args) {
 
 void Trim::bash() {
 	$init(Trim);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < 1000; ++i) {
 		$var($StringBuffer, sb1, generateTestBuffer(0, 100));
-		$var($StringBuffer, sb2, $new($StringBuffer, static_cast<$CharSequence*>(sb1)));
+		$var($StringBuffer, sb2, $new($StringBuffer, sb1));
 		$nc(sb1)->trimToSize();
-		if (!$nc($(sb1->toString()))->equals($(sb2->toString()))) {
+		if (!$(sb1->toString())->equals($(sb2->toString()))) {
 			$throwNew($RuntimeException, "trim mutated stringbuffer contents"_s);
 		}
 		$var($StringBuffer, sb3, generateTestBuffer(0, 100));
@@ -69,19 +38,19 @@ void Trim::bash() {
 		} else {
 			sb2->trimToSize();
 		}
-		if (!$nc($(sb1->toString()))->equals($(sb2->toString()))) {
+		if (!$(sb1->toString())->equals($(sb2->toString()))) {
 			$throwNew($RuntimeException, "trim mutated stringbuffer contents"_s);
 		}
 		$assign(sb3, $new($StringBuffer, 100));
 		sb3->append("a"_s);
 		sb1->append(sb3);
 		sb2->append(sb3);
-		if ($nc(Trim::generator)->nextInt(2) == 0) {
+		if (Trim::generator->nextInt(2) == 0) {
 			sb1->trimToSize();
 		} else {
 			sb2->trimToSize();
 		}
-		if (!$nc($(sb1->toString()))->equals($(sb2->toString()))) {
+		if (!$(sb1->toString())->equals($(sb2->toString()))) {
 			$throwNew($RuntimeException, "trim mutated stringbuffer contents"_s);
 		}
 	}
@@ -89,10 +58,10 @@ void Trim::bash() {
 
 void Trim::capacityCheck() {
 	$init(Trim);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < 100; ++i) {
 		int32_t sizeNeeded = $nc(Trim::generator)->nextInt(1000) + 1;
-		int32_t sizeExtra = $nc(Trim::generator)->nextInt(100) + 1;
+		int32_t sizeExtra = Trim::generator->nextInt(100) + 1;
 		$var($StringBuffer, sb, $new($StringBuffer, sizeNeeded + sizeExtra));
 		$var($StringBuffer, sb2, generateTestBuffer(sizeNeeded, sizeNeeded));
 		if ($nc(sb2)->length() != sizeNeeded) {
@@ -130,7 +99,7 @@ $StringBuffer* Trim::generateTestBuffer(int32_t min, int32_t max) {
 	return aNewStringBuffer;
 }
 
-void clinit$Trim($Class* class$) {
+void Trim::clinit$($Class* clazz) {
 	$assignStatic(Trim::generator, $new($Random));
 }
 
@@ -138,7 +107,30 @@ Trim::Trim() {
 }
 
 $Class* Trim::load$($String* name, bool initialize) {
-	$loadClass(Trim, name, initialize, &_Trim_ClassInfo_, clinit$Trim, allocate$Trim);
+	$FieldInfo fieldInfos$$[] = {
+		{"generator", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC, $staticField(Trim, generator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Trim, init$, void)},
+		{"bash", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Trim, bash, void), "java.lang.Exception"},
+		{"capacityCheck", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Trim, capacityCheck, void)},
+		{"generateTestBuffer", "(II)Ljava/lang/StringBuffer;", nullptr, $PRIVATE | $STATIC, $staticMethod(Trim, generateTestBuffer, $StringBuffer*, int32_t, int32_t)},
+		{"getRandomIndex", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Trim, getRandomIndex, int32_t, int32_t, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Trim, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Trim",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Trim, name, initialize, &classInfo$$, Trim::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Trim);
+	});
 	return class$;
 }
 

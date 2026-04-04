@@ -1,5 +1,4 @@
 #include <sun/security/ssl/Finished$FinishedMessage.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/nio/ByteBuffer.h>
@@ -45,7 +44,6 @@ using $HandshakeOutStream = ::sun::security::ssl::HandshakeOutStream;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 using $Utilities = ::sun::security::ssl::Utilities;
 using $HexDumpEncoder = ::sun::security::util::HexDumpEncoder;
 
@@ -53,63 +51,22 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _Finished$FinishedMessage_FieldInfo_[] = {
-	{"verifyData", "[B", nullptr, $PRIVATE | $FINAL, $field(Finished$FinishedMessage, verifyData)},
-	{}
-};
-
-$MethodInfo _Finished$FinishedMessage_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(Finished$FinishedMessage, init$, void, $HandshakeContext*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(Finished$FinishedMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
-	{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(Finished$FinishedMessage, handshakeType, $SSLHandshake*)},
-	{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(Finished$FinishedMessage, messageLength, int32_t)},
-	{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(Finished$FinishedMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Finished$FinishedMessage, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Finished$FinishedMessage_InnerClassesInfo_[] = {
-	{"sun.security.ssl.Finished$FinishedMessage", "sun.security.ssl.Finished", "FinishedMessage", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Finished$FinishedMessage_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.Finished$FinishedMessage",
-	"sun.security.ssl.SSLHandshake$HandshakeMessage",
-	nullptr,
-	_Finished$FinishedMessage_FieldInfo_,
-	_Finished$FinishedMessage_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Finished$FinishedMessage_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.Finished"
-};
-
-$Object* allocate$Finished$FinishedMessage($Class* clazz) {
-	return $of($alloc(Finished$FinishedMessage));
-}
-
 void Finished$FinishedMessage::init$($HandshakeContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SSLHandshake$HandshakeMessage::init$(context);
 	$Finished$VerifyDataScheme* vds = $Finished$VerifyDataScheme::valueOf($nc(context)->negotiatedProtocol);
 	$var($bytes, vd, nullptr);
 	try {
-		$assign(vd, $nc(vds)->createVerifyData(context, false));
+		$assign(vd, vds->createVerifyData(context, false));
 	} catch ($IOException& ioe) {
 		$init($Alert);
-		$throw($($nc($nc(context)->conContext)->fatal($Alert::ILLEGAL_PARAMETER, "Failed to generate verify_data"_s, ioe)));
+		$throw($($nc(context->conContext)->fatal($Alert::ILLEGAL_PARAMETER, "Failed to generate verify_data"_s, ioe)));
 	}
 	$set(this, verifyData, vd);
 }
 
 void Finished$FinishedMessage::init$($HandshakeContext* context, $ByteBuffer* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SSLHandshake$HandshakeMessage::init$(context);
 	int32_t verifyDataLen = 12;
 	$init($ProtocolVersion);
@@ -120,21 +77,21 @@ void Finished$FinishedMessage::init$($HandshakeContext* context, $ByteBuffer* m)
 	}
 	if ($nc(m)->remaining() != verifyDataLen) {
 		$init($Alert);
-		$throw($($nc($nc(context)->conContext)->fatal($Alert::DECODE_ERROR, $$str({"Inappropriate finished message: need "_s, $$str(verifyDataLen), " but remaining "_s, $$str(m->remaining()), " bytes verify_data"_s}))));
+		$throw($($nc(context->conContext)->fatal($Alert::DECODE_ERROR, $$str({"Inappropriate finished message: need "_s, $$str(verifyDataLen), " but remaining "_s, $$str(m->remaining()), " bytes verify_data"_s}))));
 	}
 	$set(this, verifyData, $new($bytes, verifyDataLen));
-	$nc(m)->get(this->verifyData);
-	$Finished$VerifyDataScheme* vd = $Finished$VerifyDataScheme::valueOf($nc(context)->negotiatedProtocol);
+	m->get(this->verifyData);
+	$Finished$VerifyDataScheme* vd = $Finished$VerifyDataScheme::valueOf(context->negotiatedProtocol);
 	$var($bytes, myVerifyData, nullptr);
 	try {
-		$assign(myVerifyData, $nc(vd)->createVerifyData(context, true));
+		$assign(myVerifyData, vd->createVerifyData(context, true));
 	} catch ($IOException& ioe) {
 		$init($Alert);
-		$throw($($nc($nc(context)->conContext)->fatal($Alert::ILLEGAL_PARAMETER, "Failed to generate verify_data"_s, ioe)));
+		$throw($($nc(context->conContext)->fatal($Alert::ILLEGAL_PARAMETER, "Failed to generate verify_data"_s, ioe)));
 	}
 	if (!$MessageDigest::isEqual(myVerifyData, this->verifyData)) {
 		$init($Alert);
-		$throw($($nc($nc(context)->conContext)->fatal($Alert::DECRYPT_ERROR, "The Finished message cannot be verified."_s)));
+		$throw($($nc(context->conContext)->fatal($Alert::DECRYPT_ERROR, "The Finished message cannot be verified."_s)));
 	}
 }
 
@@ -152,11 +109,11 @@ void Finished$FinishedMessage::send($HandshakeOutStream* hos) {
 }
 
 $String* Finished$FinishedMessage::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"Finished\": \'{\'\n  \"verify data\": \'{\'\n{0}\n  \'}\'\'}\'"_s, $Locale::ENGLISH));
 	$var($HexDumpEncoder, hexEncoder, $new($HexDumpEncoder));
-	$var($ObjectArray, messageFields, $new($ObjectArray, {$($of($Utilities::indent($(hexEncoder->encode(this->verifyData)), "    "_s)))}));
+	$var($ObjectArray, messageFields, $new($ObjectArray, {$($Utilities::indent($(hexEncoder->encode(this->verifyData)), "    "_s))}));
 	return messageFormat->format(messageFields);
 }
 
@@ -164,7 +121,42 @@ Finished$FinishedMessage::Finished$FinishedMessage() {
 }
 
 $Class* Finished$FinishedMessage::load$($String* name, bool initialize) {
-	$loadClass(Finished$FinishedMessage, name, initialize, &_Finished$FinishedMessage_ClassInfo_, allocate$Finished$FinishedMessage);
+	$FieldInfo fieldInfos$$[] = {
+		{"verifyData", "[B", nullptr, $PRIVATE | $FINAL, $field(Finished$FinishedMessage, verifyData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;)V", nullptr, 0, $method(Finished$FinishedMessage, init$, void, $HandshakeContext*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(Finished$FinishedMessage, init$, void, $HandshakeContext*, $ByteBuffer*), "java.io.IOException"},
+		{"handshakeType", "()Lsun/security/ssl/SSLHandshake;", nullptr, $PUBLIC, $virtualMethod(Finished$FinishedMessage, handshakeType, $SSLHandshake*)},
+		{"messageLength", "()I", nullptr, $PUBLIC, $virtualMethod(Finished$FinishedMessage, messageLength, int32_t)},
+		{"send", "(Lsun/security/ssl/HandshakeOutStream;)V", nullptr, $PUBLIC, $virtualMethod(Finished$FinishedMessage, send, void, $HandshakeOutStream*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Finished$FinishedMessage, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.Finished$FinishedMessage", "sun.security.ssl.Finished", "FinishedMessage", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLHandshake$HandshakeMessage", "sun.security.ssl.SSLHandshake", "HandshakeMessage", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.Finished$FinishedMessage",
+		"sun.security.ssl.SSLHandshake$HandshakeMessage",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.Finished"
+	};
+	$loadClass(Finished$FinishedMessage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Finished$FinishedMessage);
+	});
 	return class$;
 }
 

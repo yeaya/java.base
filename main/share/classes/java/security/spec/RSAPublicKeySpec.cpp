@@ -1,5 +1,4 @@
 #include <java/security/spec/RSAPublicKeySpec.h>
-
 #include <java/math/BigInteger.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <jcpp.h>
@@ -13,35 +12,6 @@ using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 namespace java {
 	namespace security {
 		namespace spec {
-
-$FieldInfo _RSAPublicKeySpec_FieldInfo_[] = {
-	{"modulus", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(RSAPublicKeySpec, modulus)},
-	{"publicExponent", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(RSAPublicKeySpec, publicExponent)},
-	{"params", "Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PRIVATE | $FINAL, $field(RSAPublicKeySpec, params)},
-	{}
-};
-
-$MethodInfo _RSAPublicKeySpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(RSAPublicKeySpec, init$, void, $BigInteger*, $BigInteger*)},
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $method(RSAPublicKeySpec, init$, void, $BigInteger*, $BigInteger*, $AlgorithmParameterSpec*)},
-	{"getModulus", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAPublicKeySpec, getModulus, $BigInteger*)},
-	{"getParams", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC, $virtualMethod(RSAPublicKeySpec, getParams, $AlgorithmParameterSpec*)},
-	{"getPublicExponent", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAPublicKeySpec, getPublicExponent, $BigInteger*)},
-	{}
-};
-
-$ClassInfo _RSAPublicKeySpec_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.spec.RSAPublicKeySpec",
-	"java.lang.Object",
-	"java.security.spec.KeySpec",
-	_RSAPublicKeySpec_FieldInfo_,
-	_RSAPublicKeySpec_MethodInfo_
-};
-
-$Object* allocate$RSAPublicKeySpec($Class* clazz) {
-	return $of($alloc(RSAPublicKeySpec));
-}
 
 void RSAPublicKeySpec::init$($BigInteger* modulus, $BigInteger* publicExponent) {
 	RSAPublicKeySpec::init$(modulus, publicExponent, nullptr);
@@ -69,7 +39,31 @@ RSAPublicKeySpec::RSAPublicKeySpec() {
 }
 
 $Class* RSAPublicKeySpec::load$($String* name, bool initialize) {
-	$loadClass(RSAPublicKeySpec, name, initialize, &_RSAPublicKeySpec_ClassInfo_, allocate$RSAPublicKeySpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"modulus", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(RSAPublicKeySpec, modulus)},
+		{"publicExponent", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(RSAPublicKeySpec, publicExponent)},
+		{"params", "Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PRIVATE | $FINAL, $field(RSAPublicKeySpec, params)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(RSAPublicKeySpec, init$, void, $BigInteger*, $BigInteger*)},
+		{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $method(RSAPublicKeySpec, init$, void, $BigInteger*, $BigInteger*, $AlgorithmParameterSpec*)},
+		{"getModulus", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAPublicKeySpec, getModulus, $BigInteger*)},
+		{"getParams", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC, $virtualMethod(RSAPublicKeySpec, getParams, $AlgorithmParameterSpec*)},
+		{"getPublicExponent", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAPublicKeySpec, getPublicExponent, $BigInteger*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.spec.RSAPublicKeySpec",
+		"java.lang.Object",
+		"java.security.spec.KeySpec",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RSAPublicKeySpec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RSAPublicKeySpec);
+	});
 	return class$;
 }
 

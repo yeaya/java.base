@@ -1,5 +1,4 @@
 #include <sun/security/provider/NativePRNG$NonBlocking.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/security/SecureRandomSpi.h>
 #include <sun/security/provider/NativePRNG$RandomIO.h>
@@ -23,46 +22,6 @@ using $NativePRNG$Variant = ::sun::security::provider::NativePRNG$Variant;
 namespace sun {
 	namespace security {
 		namespace provider {
-
-$FieldInfo _NativePRNG$NonBlocking_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativePRNG$NonBlocking, serialVersionUID)},
-	{"INSTANCE", "Lsun/security/provider/NativePRNG$RandomIO;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativePRNG$NonBlocking, INSTANCE)},
-	{}
-};
-
-$MethodInfo _NativePRNG$NonBlocking_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NativePRNG$NonBlocking, init$, void)},
-	{"engineGenerateSeed", "(I)[B", nullptr, $PROTECTED, $virtualMethod(NativePRNG$NonBlocking, engineGenerateSeed, $bytes*, int32_t)},
-	{"engineNextBytes", "([B)V", nullptr, $PROTECTED, $virtualMethod(NativePRNG$NonBlocking, engineNextBytes, void, $bytes*)},
-	{"engineSetSeed", "([B)V", nullptr, $PROTECTED, $virtualMethod(NativePRNG$NonBlocking, engineSetSeed, void, $bytes*)},
-	{"isAvailable", "()Z", nullptr, $STATIC, $staticMethod(NativePRNG$NonBlocking, isAvailable, bool)},
-	{}
-};
-
-$InnerClassInfo _NativePRNG$NonBlocking_InnerClassesInfo_[] = {
-	{"sun.security.provider.NativePRNG$NonBlocking", "sun.security.provider.NativePRNG", "NonBlocking", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _NativePRNG$NonBlocking_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.provider.NativePRNG$NonBlocking",
-	"java.security.SecureRandomSpi",
-	nullptr,
-	_NativePRNG$NonBlocking_FieldInfo_,
-	_NativePRNG$NonBlocking_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NativePRNG$NonBlocking_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.NativePRNG"
-};
-
-$Object* allocate$NativePRNG$NonBlocking($Class* clazz) {
-	return $of($alloc(NativePRNG$NonBlocking));
-}
 
 $NativePRNG$RandomIO* NativePRNG$NonBlocking::INSTANCE = nullptr;
 
@@ -90,7 +49,7 @@ $bytes* NativePRNG$NonBlocking::engineGenerateSeed(int32_t numBytes) {
 	return $nc(NativePRNG$NonBlocking::INSTANCE)->implGenerateSeed(numBytes);
 }
 
-void clinit$NativePRNG$NonBlocking($Class* class$) {
+void NativePRNG$NonBlocking::clinit$($Class* clazz) {
 	$init($NativePRNG$Variant);
 	$assignStatic(NativePRNG$NonBlocking::INSTANCE, $NativePRNG::initIO($NativePRNG$Variant::NONBLOCKING));
 }
@@ -99,7 +58,41 @@ NativePRNG$NonBlocking::NativePRNG$NonBlocking() {
 }
 
 $Class* NativePRNG$NonBlocking::load$($String* name, bool initialize) {
-	$loadClass(NativePRNG$NonBlocking, name, initialize, &_NativePRNG$NonBlocking_ClassInfo_, clinit$NativePRNG$NonBlocking, allocate$NativePRNG$NonBlocking);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativePRNG$NonBlocking, serialVersionUID)},
+		{"INSTANCE", "Lsun/security/provider/NativePRNG$RandomIO;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativePRNG$NonBlocking, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NativePRNG$NonBlocking, init$, void)},
+		{"engineGenerateSeed", "(I)[B", nullptr, $PROTECTED, $virtualMethod(NativePRNG$NonBlocking, engineGenerateSeed, $bytes*, int32_t)},
+		{"engineNextBytes", "([B)V", nullptr, $PROTECTED, $virtualMethod(NativePRNG$NonBlocking, engineNextBytes, void, $bytes*)},
+		{"engineSetSeed", "([B)V", nullptr, $PROTECTED, $virtualMethod(NativePRNG$NonBlocking, engineSetSeed, void, $bytes*)},
+		{"isAvailable", "()Z", nullptr, $STATIC, $staticMethod(NativePRNG$NonBlocking, isAvailable, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.NativePRNG$NonBlocking", "sun.security.provider.NativePRNG", "NonBlocking", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.provider.NativePRNG$NonBlocking",
+		"java.security.SecureRandomSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.NativePRNG"
+	};
+	$loadClass(NativePRNG$NonBlocking, name, initialize, &classInfo$$, NativePRNG$NonBlocking::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NativePRNG$NonBlocking);
+	});
 	return class$;
 }
 

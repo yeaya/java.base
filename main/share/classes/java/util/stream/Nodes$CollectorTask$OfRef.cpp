@@ -1,5 +1,4 @@
 #include <java/util/stream/Nodes$CollectorTask$OfRef.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -46,35 +45,31 @@ public:
 		$set(this, generator, generator);
 	}
 	virtual $Object* apply(int64_t s) override {
-		 return $of(Nodes$CollectorTask$OfRef::lambda$new$0(generator, s));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0>());
+		 return Nodes$CollectorTask$OfRef::lambda$new$0(generator, s);
 	}
 	$IntFunction* generator = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0::fieldInfos[2] = {
-	{"generator", "Ljava/util/function/IntFunction;", nullptr, $PUBLIC, $field(Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0, generator)},
-	{}
-};
-$MethodInfo Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/IntFunction;)V", nullptr, $PUBLIC, $method(Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0, init$, void, $IntFunction*)},
-	{"apply", "(J)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0, apply, $Object*, int64_t)},
-	{}
-};
-$ClassInfo Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.stream.Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0",
-	"java.lang.Object",
-	"java.util.function.LongFunction",
-	fieldInfos,
-	methodInfos
 };
 $Class* Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
-	$loadClass(Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"generator", "Ljava/util/function/IntFunction;", nullptr, $PUBLIC, $field(Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0, generator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/IntFunction;)V", nullptr, $PUBLIC, $method(Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0, init$, void, $IntFunction*)},
+		{"apply", "(J)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0, apply, $Object*, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.stream.Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0",
+		"java.lang.Object",
+		"java.util.function.LongFunction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0);
+	});
 	return class$;
 }
 $Class* Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0::class$ = nullptr;
@@ -85,78 +80,38 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* left, Object$* right) override {
-		 return $of($new($Nodes$ConcNode, $cast($Node, left), $cast($Node, right)));
+		 return $new($Nodes$ConcNode, $cast($Node, left), $cast($Node, right));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1, apply, $Object*, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.stream.Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1",
-	"java.lang.Object",
-	"java.util.function.BinaryOperator",
-	nullptr,
-	methodInfos
 };
 $Class* Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1::load$($String* name, bool initialize) {
-	$loadClass(Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1, apply, $Object*, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.stream.Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1",
+		"java.lang.Object",
+		"java.util.function.BinaryOperator",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1);
+	});
 	return class$;
 }
 $Class* Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1::class$ = nullptr;
 
-$MethodInfo _Nodes$CollectorTask$OfRef_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/function/IntFunction;Ljava/util/Spliterator;)V", "(Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/function/IntFunction<[TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(Nodes$CollectorTask$OfRef, init$, void, $PipelineHelper*, $IntFunction*, $Spliterator*)},
-	{"doLeaf", "()Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$CollectorTask$OfRef, doLeaf, $Object*)},
-	{"lambda$new$0", "(Ljava/util/function/IntFunction;J)Ljava/util/stream/Node$Builder;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Nodes$CollectorTask$OfRef, lambda$new$0, $Node$Builder*, $IntFunction*, int64_t)},
-	{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/AbstractTask;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$CollectorTask$OfRef, makeChild, $Nodes$CollectorTask*, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _Nodes$CollectorTask$OfRef_InnerClassesInfo_[] = {
-	{"java.util.stream.Nodes$CollectorTask", "java.util.stream.Nodes", "CollectorTask", $PRIVATE | $STATIC},
-	{"java.util.stream.Nodes$CollectorTask$OfRef", "java.util.stream.Nodes$CollectorTask", "OfRef", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.stream.Node$Builder", "java.util.stream.Node", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Nodes$CollectorTask$OfRef_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.Nodes$CollectorTask$OfRef",
-	"java.util.stream.Nodes$CollectorTask",
-	nullptr,
-	nullptr,
-	_Nodes$CollectorTask$OfRef_MethodInfo_,
-	"<P_IN:Ljava/lang/Object;P_OUT:Ljava/lang/Object;>Ljava/util/stream/Nodes$CollectorTask<TP_IN;TP_OUT;Ljava/util/stream/Node<TP_OUT;>;Ljava/util/stream/Node$Builder<TP_OUT;>;>;",
-	nullptr,
-	_Nodes$CollectorTask$OfRef_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Nodes"
-};
-
-$Object* allocate$Nodes$CollectorTask$OfRef($Class* clazz) {
-	return $of($alloc(Nodes$CollectorTask$OfRef));
-}
-
 void Nodes$CollectorTask$OfRef::init$($PipelineHelper* helper, $IntFunction* generator, $Spliterator* spliterator) {
-	$useLocalCurrentObjectStackCache();
-	$var($PipelineHelper, var$0, helper);
-	$var($Spliterator, var$1, spliterator);
-	$var($LongFunction, var$2, static_cast<$LongFunction*>($new(Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0, generator)));
-	$Nodes$CollectorTask::init$(var$0, var$1, var$2, static_cast<$BinaryOperator*>($$new(Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1)));
+	$useLocalObjectStack();
+	$var($LongFunction, var$0, $new(Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0, generator));
+	$Nodes$CollectorTask::init$(helper, spliterator, var$0, $$new(Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1));
 }
 
 $Object* Nodes$CollectorTask$OfRef::doLeaf() {
-	return $of($Nodes$CollectorTask::doLeaf());
+	return $Nodes$CollectorTask::doLeaf();
 }
 
 $Nodes$CollectorTask* Nodes$CollectorTask$OfRef::makeChild($Spliterator* spliterator) {
@@ -173,14 +128,44 @@ Nodes$CollectorTask$OfRef::Nodes$CollectorTask$OfRef() {
 
 $Class* Nodes$CollectorTask$OfRef::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0::classInfo$.name)) {
+		if (name->equals("java.util.stream.Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0")) {
 			return Nodes$CollectorTask$OfRef$$Lambda$lambda$new$0::load$(name, initialize);
 		}
-		if (name->equals(Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1::classInfo$.name)) {
+		if (name->equals("java.util.stream.Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1")) {
 			return Nodes$CollectorTask$OfRef$$Lambda$ConcNode$1::load$(name, initialize);
 		}
 	}
-	$loadClass(Nodes$CollectorTask$OfRef, name, initialize, &_Nodes$CollectorTask$OfRef_ClassInfo_, allocate$Nodes$CollectorTask$OfRef);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/function/IntFunction;Ljava/util/Spliterator;)V", "(Ljava/util/stream/PipelineHelper<TP_OUT;>;Ljava/util/function/IntFunction<[TP_OUT;>;Ljava/util/Spliterator<TP_IN;>;)V", 0, $method(Nodes$CollectorTask$OfRef, init$, void, $PipelineHelper*, $IntFunction*, $Spliterator*)},
+		{"doLeaf", "()Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$CollectorTask$OfRef, doLeaf, $Object*)},
+		{"lambda$new$0", "(Ljava/util/function/IntFunction;J)Ljava/util/stream/Node$Builder;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Nodes$CollectorTask$OfRef, lambda$new$0, $Node$Builder*, $IntFunction*, int64_t)},
+		{"makeChild", "(Ljava/util/Spliterator;)Ljava/util/stream/AbstractTask;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$CollectorTask$OfRef, makeChild, $Nodes$CollectorTask*, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Nodes$CollectorTask", "java.util.stream.Nodes", "CollectorTask", $PRIVATE | $STATIC},
+		{"java.util.stream.Nodes$CollectorTask$OfRef", "java.util.stream.Nodes$CollectorTask", "OfRef", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.stream.Node$Builder", "java.util.stream.Node", "Builder", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.Nodes$CollectorTask$OfRef",
+		"java.util.stream.Nodes$CollectorTask",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<P_IN:Ljava/lang/Object;P_OUT:Ljava/lang/Object;>Ljava/util/stream/Nodes$CollectorTask<TP_IN;TP_OUT;Ljava/util/stream/Node<TP_OUT;>;Ljava/util/stream/Node$Builder<TP_OUT;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Nodes"
+	};
+	$loadClass(Nodes$CollectorTask$OfRef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Nodes$CollectorTask$OfRef));
+	});
 	return class$;
 }
 

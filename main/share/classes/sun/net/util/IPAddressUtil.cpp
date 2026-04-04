@@ -1,5 +1,4 @@
 #include <sun/net/util/IPAddressUtil.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
@@ -68,7 +67,6 @@ using $List = ::java::util::List;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
-using $Stream = ::java::util::stream::Stream;
 
 namespace sun {
 	namespace net {
@@ -80,29 +78,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* k) override {
-		 return $of(IPAddressUtil::lambda$toScopedAddress$0($cast($InetAddress, k)));
+		 return IPAddressUtil::lambda$toScopedAddress$0($cast($InetAddress, k));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<IPAddressUtil$$Lambda$lambda$toScopedAddress$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo IPAddressUtil$$Lambda$lambda$toScopedAddress$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IPAddressUtil$$Lambda$lambda$toScopedAddress$0, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IPAddressUtil$$Lambda$lambda$toScopedAddress$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo IPAddressUtil$$Lambda$lambda$toScopedAddress$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.net.util.IPAddressUtil$$Lambda$lambda$toScopedAddress$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* IPAddressUtil$$Lambda$lambda$toScopedAddress$0::load$($String* name, bool initialize) {
-	$loadClass(IPAddressUtil$$Lambda$lambda$toScopedAddress$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IPAddressUtil$$Lambda$lambda$toScopedAddress$0, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IPAddressUtil$$Lambda$lambda$toScopedAddress$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.net.util.IPAddressUtil$$Lambda$lambda$toScopedAddress$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(IPAddressUtil$$Lambda$lambda$toScopedAddress$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IPAddressUtil$$Lambda$lambda$toScopedAddress$0);
+	});
 	return class$;
 }
 $Class* IPAddressUtil$$Lambda$lambda$toScopedAddress$0::class$ = nullptr;
@@ -114,35 +109,31 @@ public:
 		$set(this, address, address);
 	}
 	virtual $Object* run() override {
-		 return $of(IPAddressUtil::lambda$findScopedAddress$2(address));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1>());
+		 return IPAddressUtil::lambda$findScopedAddress$2(address);
 	}
 	$InetAddress* address = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1::fieldInfos[2] = {
-	{"address", "Ljava/net/InetAddress;", nullptr, $PUBLIC, $field(IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1, address)},
-	{}
-};
-$MethodInfo IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1::methodInfos[3] = {
-	{"<init>", "(Ljava/net/InetAddress;)V", nullptr, $PUBLIC, $method(IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1, init$, void, $InetAddress*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1, run, $Object*)},
-	{}
-};
-$ClassInfo IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.net.util.IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1::load$($String* name, bool initialize) {
-	$loadClass(IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"address", "Ljava/net/InetAddress;", nullptr, $PUBLIC, $field(IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1, address)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/InetAddress;)V", nullptr, $PUBLIC, $method(IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1, init$, void, $InetAddress*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.net.util.IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1);
+	});
 	return class$;
 }
 $Class* IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1::class$ = nullptr;
@@ -153,29 +144,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* inst$) override {
-		 return $of($sure($NetworkInterface, inst$)->inetAddresses());
+		 return $sure($NetworkInterface, inst$)->inetAddresses();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<IPAddressUtil$$Lambda$inetAddresses$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo IPAddressUtil$$Lambda$inetAddresses$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IPAddressUtil$$Lambda$inetAddresses$2, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IPAddressUtil$$Lambda$inetAddresses$2, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo IPAddressUtil$$Lambda$inetAddresses$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.net.util.IPAddressUtil$$Lambda$inetAddresses$2",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* IPAddressUtil$$Lambda$inetAddresses$2::load$($String* name, bool initialize) {
-	$loadClass(IPAddressUtil$$Lambda$inetAddresses$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IPAddressUtil$$Lambda$inetAddresses$2, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IPAddressUtil$$Lambda$inetAddresses$2, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.net.util.IPAddressUtil$$Lambda$inetAddresses$2",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(IPAddressUtil$$Lambda$inetAddresses$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IPAddressUtil$$Lambda$inetAddresses$2);
+	});
 	return class$;
 }
 $Class* IPAddressUtil$$Lambda$inetAddresses$2::class$ = nullptr;
@@ -189,101 +177,32 @@ public:
 	virtual bool test(Object$* a) override {
 		 return IPAddressUtil::lambda$findScopedAddress$1(address, $cast($InetAddress, a));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3>());
-	}
 	$InetAddress* address = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3::fieldInfos[2] = {
-	{"address", "Ljava/net/InetAddress;", nullptr, $PUBLIC, $field(IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3, address)},
-	{}
-};
-$MethodInfo IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3::methodInfos[3] = {
-	{"<init>", "(Ljava/net/InetAddress;)V", nullptr, $PUBLIC, $method(IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3, init$, void, $InetAddress*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3, test, bool, Object$*)},
-	{}
-};
-$ClassInfo IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.net.util.IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3::load$($String* name, bool initialize) {
-	$loadClass(IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"address", "Ljava/net/InetAddress;", nullptr, $PUBLIC, $field(IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3, address)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/InetAddress;)V", nullptr, $PUBLIC, $method(IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3, init$, void, $InetAddress*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.net.util.IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3);
+	});
 	return class$;
 }
 $Class* IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3::class$ = nullptr;
-
-$FieldInfo _IPAddressUtil_FieldInfo_[] = {
-	{"INADDR4SZ", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, INADDR4SZ)},
-	{"INADDR16SZ", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, INADDR16SZ)},
-	{"INT16SZ", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, INT16SZ)},
-	{"cache", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/net/InetAddress;Ljava/net/InetAddress;>;", $PRIVATE | $STATIC | $FINAL, $staticField(IPAddressUtil, cache)},
-	{"L_IPV6_DELIMS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, L_IPV6_DELIMS)},
-	{"H_IPV6_DELIMS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, H_IPV6_DELIMS)},
-	{"L_GEN_DELIMS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, L_GEN_DELIMS)},
-	{"H_GEN_DELIMS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, H_GEN_DELIMS)},
-	{"L_AUTH_DELIMS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, L_AUTH_DELIMS)},
-	{"H_AUTH_DELIMS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, H_AUTH_DELIMS)},
-	{"L_COLON", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, L_COLON)},
-	{"H_COLON", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, H_COLON)},
-	{"L_SLASH", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, L_SLASH)},
-	{"H_SLASH", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, H_SLASH)},
-	{"L_BACKSLASH", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, L_BACKSLASH)},
-	{"H_BACKSLASH", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, H_BACKSLASH)},
-	{"L_NON_PRINTABLE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, L_NON_PRINTABLE)},
-	{"H_NON_PRINTABLE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, H_NON_PRINTABLE)},
-	{"L_EXCLUDE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, L_EXCLUDE)},
-	{"H_EXCLUDE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, H_EXCLUDE)},
-	{"OTHERS", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IPAddressUtil, OTHERS)},
-	{}
-};
-
-$MethodInfo _IPAddressUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IPAddressUtil, init$, void)},
-	{"checkAuth", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(IPAddressUtil, checkAuth, $String*, $String*)},
-	{"checkAuthority", "(Ljava/net/URL;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, checkAuthority, $String*, $URL*)},
-	{"checkExternalForm", "(Ljava/net/URL;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, checkExternalForm, $String*, $URL*)},
-	{"checkHost", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(IPAddressUtil, checkHost, $String*, $String*)},
-	{"checkHostString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, checkHostString, $String*, $String*)},
-	{"checkUserInfo", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(IPAddressUtil, checkUserInfo, $String*, $String*)},
-	{"convertFromIPv4MappedAddress", "([B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, convertFromIPv4MappedAddress, $bytes*, $bytes*)},
-	{"describeChar", "(C)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(IPAddressUtil, describeChar, $String*, char16_t)},
-	{"findScopedAddress", "(Ljava/net/InetAddress;)Ljava/net/InetAddress;", nullptr, $PRIVATE | $STATIC, $staticMethod(IPAddressUtil, findScopedAddress, $InetAddress*, $InetAddress*)},
-	{"isIPv4LiteralAddress", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, isIPv4LiteralAddress, bool, $String*)},
-	{"isIPv4MappedAddress", "([B)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(IPAddressUtil, isIPv4MappedAddress, bool, $bytes*)},
-	{"isIPv6LiteralAddress", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, isIPv6LiteralAddress, bool, $String*)},
-	{"lambda$findScopedAddress$1", "(Ljava/net/InetAddress;Ljava/net/InetAddress;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IPAddressUtil, lambda$findScopedAddress$1, bool, $InetAddress*, $InetAddress*)},
-	{"lambda$findScopedAddress$2", "(Ljava/net/InetAddress;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IPAddressUtil, lambda$findScopedAddress$2, $List*, $InetAddress*), "java.lang.Exception"},
-	{"lambda$toScopedAddress$0", "(Ljava/net/InetAddress;)Ljava/net/InetAddress;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IPAddressUtil, lambda$toScopedAddress$0, $InetAddress*, $InetAddress*)},
-	{"match", "(CJJ)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, match, bool, char16_t, int64_t, int64_t)},
-	{"scan", "(Ljava/lang/String;JJ)I", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, scan, int32_t, $String*, int64_t, int64_t)},
-	{"scan", "(Ljava/lang/String;JJ[C)I", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, scan, int32_t, $String*, int64_t, int64_t, $chars*)},
-	{"textToNumericFormatV4", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, textToNumericFormatV4, $bytes*, $String*)},
-	{"textToNumericFormatV6", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, textToNumericFormatV6, $bytes*, $String*)},
-	{"toScopedAddress", "(Ljava/net/InetAddress;)Ljava/net/InetAddress;", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, toScopedAddress, $InetAddress*, $InetAddress*), "java.net.SocketException"},
-	{"toScopedAddress", "(Ljava/net/InetSocketAddress;)Ljava/net/InetSocketAddress;", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, toScopedAddress, $InetSocketAddress*, $InetSocketAddress*), "java.net.SocketException"},
-	{}
-};
-
-$ClassInfo _IPAddressUtil_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.util.IPAddressUtil",
-	"java.lang.Object",
-	nullptr,
-	_IPAddressUtil_FieldInfo_,
-	_IPAddressUtil_MethodInfo_
-};
-
-$Object* allocate$IPAddressUtil($Class* clazz) {
-	return $of($alloc(IPAddressUtil));
-}
 
 $ConcurrentHashMap* IPAddressUtil::cache = nullptr;
 $chars* IPAddressUtil::OTHERS = nullptr;
@@ -307,7 +226,7 @@ $bytes* IPAddressUtil::textToNumericFormatV4($String* src) {
 			if (newOctet || tmpValue < 0 || tmpValue > 255 || currByte == 3) {
 				return nullptr;
 			}
-			res->set(currByte++, (int8_t)((int64_t)(tmpValue & (uint64_t)(int64_t)255)));
+			res->set(currByte++, (int8_t)(tmpValue & 0xff));
 			tmpValue = 0;
 			newOctet = true;
 		} else {
@@ -325,28 +244,20 @@ $bytes* IPAddressUtil::textToNumericFormatV4($String* src) {
 	}
 	switch (currByte) {
 	case 0:
-		{
-			res->set(0, (int8_t)((int64_t)((tmpValue >> 24) & (uint64_t)(int64_t)255)));
-		}
+		res->set(0, (int8_t)((tmpValue >> 24) & 0xff));
 	case 1:
-		{
-			res->set(1, (int8_t)((int64_t)((tmpValue >> 16) & (uint64_t)(int64_t)255)));
-		}
+		res->set(1, (int8_t)((tmpValue >> 16) & 0xff));
 	case 2:
-		{
-			res->set(2, (int8_t)((int64_t)((tmpValue >> 8) & (uint64_t)(int64_t)255)));
-		}
+		res->set(2, (int8_t)((tmpValue >> 8) & 0xff));
 	case 3:
-		{
-			res->set(3, (int8_t)((int64_t)((tmpValue >> 0) & (uint64_t)(int64_t)255)));
-		}
+		res->set(3, (int8_t)((tmpValue >> 0) & 0xff));
 	}
 	return res;
 }
 
 $bytes* IPAddressUtil::textToNumericFormatV6($String* src) {
 	$init(IPAddressUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(src)->length() < 2) {
 		return nullptr;
 	}
@@ -354,10 +265,10 @@ $bytes* IPAddressUtil::textToNumericFormatV6($String* src) {
 	char16_t ch = 0;
 	bool saw_xdigit = false;
 	int32_t val = 0;
-	$var($chars, srcb, $nc(src)->toCharArray());
+	$var($chars, srcb, src->toCharArray());
 	$var($bytes, dst, $new($bytes, IPAddressUtil::INADDR16SZ));
 	int32_t srcb_length = srcb->length;
-	int32_t pc = src->indexOf((int32_t)u'%');
+	int32_t pc = src->indexOf(u'%');
 	if (pc == srcb_length - 1) {
 		return nullptr;
 	}
@@ -381,7 +292,7 @@ $bytes* IPAddressUtil::textToNumericFormatV6($String* src) {
 		if (chval != -1) {
 			val <<= 4;
 			val |= chval;
-			if (val > 0x0000FFFF) {
+			if (val > 0x0000ffff) {
 				return nullptr;
 			}
 			saw_xdigit = true;
@@ -401,8 +312,8 @@ $bytes* IPAddressUtil::textToNumericFormatV6($String* src) {
 			if (j + IPAddressUtil::INT16SZ > IPAddressUtil::INADDR16SZ) {
 				return nullptr;
 			}
-			dst->set(j++, (int8_t)((int32_t)((val >> 8) & (uint32_t)255)));
-			dst->set(j++, (int8_t)((int32_t)(val & (uint32_t)255)));
+			dst->set(j++, (int8_t)((val >> 8) & 0xff));
+			dst->set(j++, (int8_t)(val & 0xff));
 			saw_xdigit = false;
 			val = 0;
 			continue;
@@ -411,7 +322,7 @@ $bytes* IPAddressUtil::textToNumericFormatV6($String* src) {
 			$var($String, ia4, src->substring(curtok, srcb_length));
 			int32_t dot_count = 0;
 			int32_t index = 0;
-			while ((index = ia4->indexOf((int32_t)u'.', index)) != -1) {
+			while ((index = ia4->indexOf(u'.', index)) != -1) {
 				++dot_count;
 				++index;
 			}
@@ -434,8 +345,8 @@ $bytes* IPAddressUtil::textToNumericFormatV6($String* src) {
 		if (j + IPAddressUtil::INT16SZ > IPAddressUtil::INADDR16SZ) {
 			return nullptr;
 		}
-		dst->set(j++, (int8_t)((int32_t)((val >> 8) & (uint32_t)255)));
-		dst->set(j++, (int8_t)((int32_t)(val & (uint32_t)255)));
+		dst->set(j++, (int8_t)((val >> 8) & 0xff));
+		dst->set(j++, (int8_t)(val & 0xff));
 	}
 	if (colonp != -1) {
 		int32_t n = j - colonp;
@@ -444,7 +355,7 @@ $bytes* IPAddressUtil::textToNumericFormatV6($String* src) {
 		}
 		for (i = 1; i <= n; ++i) {
 			dst->set(IPAddressUtil::INADDR16SZ - i, dst->get(colonp + n - i));
-			dst->set(colonp + n - i, (int8_t)0);
+			dst->set(colonp + n - i, 0);
 		}
 		j = IPAddressUtil::INADDR16SZ;
 	}
@@ -484,7 +395,7 @@ bool IPAddressUtil::isIPv4MappedAddress($bytes* addr) {
 	if ($nc(addr)->length < IPAddressUtil::INADDR16SZ) {
 		return false;
 	}
-	if (($nc(addr)->get(0) == 0) && (addr->get(1) == 0) && (addr->get(2) == 0) && (addr->get(3) == 0) && (addr->get(4) == 0) && (addr->get(5) == 0) && (addr->get(6) == 0) && (addr->get(7) == 0) && (addr->get(8) == 0) && (addr->get(9) == 0) && (addr->get(10) == (int8_t)255) && (addr->get(11) == (int8_t)255)) {
+	if ((addr->get(0) == 0) && (addr->get(1) == 0) && (addr->get(2) == 0) && (addr->get(3) == 0) && (addr->get(4) == 0) && (addr->get(5) == 0) && (addr->get(6) == 0) && (addr->get(7) == 0) && (addr->get(8) == 0) && (addr->get(9) == 0) && (addr->get(10) == (int8_t)255) && (addr->get(11) == (int8_t)255)) {
 		return true;
 	}
 	return false;
@@ -492,14 +403,14 @@ bool IPAddressUtil::isIPv4MappedAddress($bytes* addr) {
 
 $InetAddress* IPAddressUtil::toScopedAddress($InetAddress* address) {
 	$init(IPAddressUtil);
-	$useLocalCurrentObjectStackCache();
-	bool var$0 = $instanceOf($Inet6Address, address) && $nc(address)->isLinkLocalAddress();
-	if (var$0 && $nc(($cast($Inet6Address, address)))->getScopeId() == 0) {
+	$useLocalObjectStack();
+	bool var$0 = $instanceOf($Inet6Address, address) && address->isLinkLocalAddress();
+	if (var$0 && $cast($Inet6Address, address)->getScopeId() == 0) {
 		$var($InetAddress, cached, nullptr);
 		try {
-			$assign(cached, $cast($InetAddress, $nc(IPAddressUtil::cache)->computeIfAbsent(address, static_cast<$Function*>($$new(IPAddressUtil$$Lambda$lambda$toScopedAddress$0)))));
+			$assign(cached, $cast($InetAddress, IPAddressUtil::cache->computeIfAbsent(address, $$new(IPAddressUtil$$Lambda$lambda$toScopedAddress$0))));
 		} catch ($UncheckedIOException& e) {
-			$throw($cast($SocketException, $($cast($IOException, e->getCause()))));
+			$throw($$cast($SocketException, $cast($IOException, e->getCause())));
 		}
 		return cached != nullptr ? cached : address;
 	} else {
@@ -509,7 +420,7 @@ $InetAddress* IPAddressUtil::toScopedAddress($InetAddress* address) {
 
 $InetSocketAddress* IPAddressUtil::toScopedAddress($InetSocketAddress* address) {
 	$init(IPAddressUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetAddress, addr, nullptr);
 	$var($InetAddress, orig, $nc(address)->getAddress());
 	if (($assign(addr, toScopedAddress(orig))) == orig) {
@@ -521,9 +432,9 @@ $InetSocketAddress* IPAddressUtil::toScopedAddress($InetSocketAddress* address) 
 
 $InetAddress* IPAddressUtil::findScopedAddress($InetAddress* address) {
 	$init(IPAddressUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($PrivilegedExceptionAction, pa, static_cast<$PrivilegedExceptionAction*>($new(IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1, address)));
+	$var($PrivilegedExceptionAction, pa, $new(IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1, address));
 	$var($List, result, nullptr);
 	try {
 		$assign(result, $cast($List, $AccessController::doPrivileged(pa)));
@@ -544,10 +455,10 @@ $InetAddress* IPAddressUtil::findScopedAddress($InetAddress* address) {
 bool IPAddressUtil::match(char16_t c, int64_t lowMask, int64_t highMask) {
 	$init(IPAddressUtil);
 	if (c < 64) {
-		return ((int64_t)(($sl((int64_t)1, c)) & (uint64_t)lowMask)) != 0;
+		return (($sl((int64_t)1, c)) & lowMask) != 0;
 	}
 	if (c < 128) {
-		return ((int64_t)(($sl((int64_t)1, c - 64)) & (uint64_t)highMask)) != 0;
+		return (($sl((int64_t)1, c - 64)) & highMask) != 0;
 	}
 	return false;
 }
@@ -556,7 +467,7 @@ int32_t IPAddressUtil::scan($String* s, int64_t lowMask, int64_t highMask) {
 	$init(IPAddressUtil);
 	int32_t i = -1;
 	int32_t len = 0;
-	if (s == nullptr || (len = $nc(s)->length()) == 0) {
+	if (s == nullptr || (len = s->length()) == 0) {
 		return -1;
 	}
 	bool match = false;
@@ -566,6 +477,7 @@ int32_t IPAddressUtil::scan($String* s, int64_t lowMask, int64_t highMask) {
 			break;
 		}
 		{
+			;
 		}
 	}
 	if (match) {
@@ -578,7 +490,7 @@ int32_t IPAddressUtil::scan($String* s, int64_t lowMask, int64_t highMask, $char
 	$init(IPAddressUtil);
 	int32_t i = -1;
 	int32_t len = 0;
-	if (s == nullptr || (len = $nc(s)->length()) == 0) {
+	if (s == nullptr || (len = s->length()) == 0) {
 		return -1;
 	}
 	bool match = false;
@@ -604,7 +516,7 @@ int32_t IPAddressUtil::scan($String* s, int64_t lowMask, int64_t highMask, $char
 
 $String* IPAddressUtil::describeChar(char16_t c) {
 	$init(IPAddressUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (c < 32 || c == 127) {
 		if (c == u'\n') {
 			return "LF"_s;
@@ -622,7 +534,7 @@ $String* IPAddressUtil::describeChar(char16_t c) {
 
 $String* IPAddressUtil::checkUserInfo($String* str) {
 	$init(IPAddressUtil);
-	int32_t index = scan(str, (int64_t)(IPAddressUtil::L_EXCLUDE & (uint64_t)~IPAddressUtil::L_COLON), (int64_t)(IPAddressUtil::H_EXCLUDE & (uint64_t)~IPAddressUtil::H_COLON));
+	int32_t index = scan(str, IPAddressUtil::L_EXCLUDE & ~IPAddressUtil::L_COLON, IPAddressUtil::H_EXCLUDE & ~IPAddressUtil::H_COLON);
 	if (index >= 0) {
 		return $str({"Illegal character found in user-info: "_s, $(describeChar($nc(str)->charAt(index)))});
 	}
@@ -631,14 +543,14 @@ $String* IPAddressUtil::checkUserInfo($String* str) {
 
 $String* IPAddressUtil::checkHost($String* str$renamed) {
 	$init(IPAddressUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, str$renamed);
 	int32_t index = 0;
 	bool var$0 = $nc(str)->startsWith("["_s);
 	if (var$0 && str->endsWith("]"_s)) {
 		$assign(str, str->substring(1, str->length() - 1));
 		if (isIPv6LiteralAddress(str)) {
-			index = str->indexOf((int32_t)u'%');
+			index = str->indexOf(u'%');
 			if (index >= 0) {
 				index = scan($assign(str, str->substring(index)), IPAddressUtil::L_NON_PRINTABLE | IPAddressUtil::L_IPV6_DELIMS, IPAddressUtil::H_NON_PRINTABLE | IPAddressUtil::H_IPV6_DELIMS);
 				if (index >= 0) {
@@ -659,7 +571,7 @@ $String* IPAddressUtil::checkHost($String* str$renamed) {
 
 $String* IPAddressUtil::checkAuth($String* str) {
 	$init(IPAddressUtil);
-	int32_t index = scan(str, (int64_t)(IPAddressUtil::L_EXCLUDE & (uint64_t)~IPAddressUtil::L_AUTH_DELIMS), (int64_t)(IPAddressUtil::H_EXCLUDE & (uint64_t)~IPAddressUtil::H_AUTH_DELIMS));
+	int32_t index = scan(str, IPAddressUtil::L_EXCLUDE & ~IPAddressUtil::L_AUTH_DELIMS, IPAddressUtil::H_EXCLUDE & ~IPAddressUtil::H_AUTH_DELIMS);
 	if (index >= 0) {
 		return $str({"Illegal character found in authority: "_s, $(describeChar($nc(str)->charAt(index)))});
 	}
@@ -668,7 +580,7 @@ $String* IPAddressUtil::checkAuth($String* str) {
 
 $String* IPAddressUtil::checkAuthority($URL* url) {
 	$init(IPAddressUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, nullptr);
 	$var($String, u, nullptr);
 	$var($String, h, nullptr);
@@ -678,18 +590,18 @@ $String* IPAddressUtil::checkAuthority($URL* url) {
 	if (($assign(s, checkUserInfo($assign(u, $nc(url)->getUserInfo())))) != nullptr) {
 		return s;
 	}
-	if (($assign(s, checkHost($assign(h, $nc(url)->getHost())))) != nullptr) {
+	if (($assign(s, checkHost($assign(h, url->getHost())))) != nullptr) {
 		return s;
 	}
 	if (h == nullptr && u == nullptr) {
-		return checkAuth($($nc(url)->getAuthority()));
+		return checkAuth($(url->getAuthority()));
 	}
 	return nullptr;
 }
 
 $String* IPAddressUtil::checkExternalForm($URL* url) {
 	$init(IPAddressUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, nullptr);
 	if (url == nullptr) {
 		return nullptr;
@@ -698,7 +610,7 @@ $String* IPAddressUtil::checkExternalForm($URL* url) {
 	if (index >= 0) {
 		return $str({"Illegal character found in authority: "_s, $(describeChar($nc(s)->charAt(index)))});
 	}
-	if (($assign(s, checkHostString($($nc(url)->getHost())))) != nullptr) {
+	if (($assign(s, checkHostString($(url->getHost())))) != nullptr) {
 		return s;
 	}
 	return nullptr;
@@ -718,14 +630,14 @@ $String* IPAddressUtil::checkHostString($String* host) {
 
 $List* IPAddressUtil::lambda$findScopedAddress$2($InetAddress* address) {
 	$init(IPAddressUtil);
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($($nc($($NetworkInterface::networkInterfaces()))->flatMap(static_cast<$Function*>($$new(IPAddressUtil$$Lambda$inetAddresses$2)))))->filter(static_cast<$Predicate*>($$new(IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3, address)))))->toList();
+	$useLocalObjectStack();
+	return $$nc($$nc($$nc($NetworkInterface::networkInterfaces())->flatMap($$new(IPAddressUtil$$Lambda$inetAddresses$2)))->filter($$new(IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3, address)))->toList();
 }
 
 bool IPAddressUtil::lambda$findScopedAddress$1($InetAddress* address, $InetAddress* a) {
 	$init(IPAddressUtil);
 	bool var$0 = ($instanceOf($Inet6Address, a)) && $nc(address)->equals(a);
-	return var$0 && $nc(($cast($Inet6Address, a)))->getScopeId() != 0;
+	return var$0 && $cast($Inet6Address, a)->getScopeId() != 0;
 }
 
 $InetAddress* IPAddressUtil::lambda$toScopedAddress$0($InetAddress* k) {
@@ -733,26 +645,26 @@ $InetAddress* IPAddressUtil::lambda$toScopedAddress$0($InetAddress* k) {
 	return findScopedAddress(k);
 }
 
-void clinit$IPAddressUtil($Class* class$) {
+void IPAddressUtil::clinit$($Class* clazz) {
 	$assignStatic(IPAddressUtil::cache, $new($ConcurrentHashMap));
 	$assignStatic(IPAddressUtil::OTHERS, $new($chars, {
-		(char16_t)8263,
-		(char16_t)8264,
-		(char16_t)8265,
-		(char16_t)8448,
-		(char16_t)8449,
-		(char16_t)8453,
-		(char16_t)8454,
-		(char16_t)10868,
-		(char16_t)0x0000FE55,
-		(char16_t)0x0000FE56,
-		(char16_t)0x0000FE5F,
-		(char16_t)0x0000FE6B,
-		(char16_t)0x0000FF03,
-		(char16_t)0x0000FF0F,
-		(char16_t)0x0000FF1A,
-		(char16_t)0x0000FF1F,
-		(char16_t)0x0000FF20
+		0x00002047,
+		0x00002048,
+		0x00002049,
+		0x00002100,
+		0x00002101,
+		0x00002105,
+		0x00002106,
+		0x00002a74,
+		0x0000fe55,
+		0x0000fe56,
+		0x0000fe5f,
+		0x0000fe6b,
+		0x0000ff03,
+		0x0000ff0f,
+		0x0000ff1a,
+		0x0000ff1f,
+		0x0000ff20
 	}));
 }
 
@@ -761,20 +673,80 @@ IPAddressUtil::IPAddressUtil() {
 
 $Class* IPAddressUtil::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(IPAddressUtil$$Lambda$lambda$toScopedAddress$0::classInfo$.name)) {
+		if (name->equals("sun.net.util.IPAddressUtil$$Lambda$lambda$toScopedAddress$0")) {
 			return IPAddressUtil$$Lambda$lambda$toScopedAddress$0::load$(name, initialize);
 		}
-		if (name->equals(IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1::classInfo$.name)) {
+		if (name->equals("sun.net.util.IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1")) {
 			return IPAddressUtil$$Lambda$lambda$findScopedAddress$2$1::load$(name, initialize);
 		}
-		if (name->equals(IPAddressUtil$$Lambda$inetAddresses$2::classInfo$.name)) {
+		if (name->equals("sun.net.util.IPAddressUtil$$Lambda$inetAddresses$2")) {
 			return IPAddressUtil$$Lambda$inetAddresses$2::load$(name, initialize);
 		}
-		if (name->equals(IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3::classInfo$.name)) {
+		if (name->equals("sun.net.util.IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3")) {
 			return IPAddressUtil$$Lambda$lambda$findScopedAddress$1$3::load$(name, initialize);
 		}
 	}
-	$loadClass(IPAddressUtil, name, initialize, &_IPAddressUtil_ClassInfo_, clinit$IPAddressUtil, allocate$IPAddressUtil);
+	$FieldInfo fieldInfos$$[] = {
+		{"INADDR4SZ", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, INADDR4SZ)},
+		{"INADDR16SZ", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, INADDR16SZ)},
+		{"INT16SZ", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, INT16SZ)},
+		{"cache", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/net/InetAddress;Ljava/net/InetAddress;>;", $PRIVATE | $STATIC | $FINAL, $staticField(IPAddressUtil, cache)},
+		{"L_IPV6_DELIMS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, L_IPV6_DELIMS)},
+		{"H_IPV6_DELIMS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, H_IPV6_DELIMS)},
+		{"L_GEN_DELIMS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, L_GEN_DELIMS)},
+		{"H_GEN_DELIMS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, H_GEN_DELIMS)},
+		{"L_AUTH_DELIMS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, L_AUTH_DELIMS)},
+		{"H_AUTH_DELIMS", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, H_AUTH_DELIMS)},
+		{"L_COLON", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, L_COLON)},
+		{"H_COLON", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, H_COLON)},
+		{"L_SLASH", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, L_SLASH)},
+		{"H_SLASH", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, H_SLASH)},
+		{"L_BACKSLASH", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, L_BACKSLASH)},
+		{"H_BACKSLASH", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, H_BACKSLASH)},
+		{"L_NON_PRINTABLE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, L_NON_PRINTABLE)},
+		{"H_NON_PRINTABLE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, H_NON_PRINTABLE)},
+		{"L_EXCLUDE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, L_EXCLUDE)},
+		{"H_EXCLUDE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IPAddressUtil, H_EXCLUDE)},
+		{"OTHERS", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IPAddressUtil, OTHERS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IPAddressUtil, init$, void)},
+		{"checkAuth", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(IPAddressUtil, checkAuth, $String*, $String*)},
+		{"checkAuthority", "(Ljava/net/URL;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, checkAuthority, $String*, $URL*)},
+		{"checkExternalForm", "(Ljava/net/URL;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, checkExternalForm, $String*, $URL*)},
+		{"checkHost", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(IPAddressUtil, checkHost, $String*, $String*)},
+		{"checkHostString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, checkHostString, $String*, $String*)},
+		{"checkUserInfo", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(IPAddressUtil, checkUserInfo, $String*, $String*)},
+		{"convertFromIPv4MappedAddress", "([B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, convertFromIPv4MappedAddress, $bytes*, $bytes*)},
+		{"describeChar", "(C)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(IPAddressUtil, describeChar, $String*, char16_t)},
+		{"findScopedAddress", "(Ljava/net/InetAddress;)Ljava/net/InetAddress;", nullptr, $PRIVATE | $STATIC, $staticMethod(IPAddressUtil, findScopedAddress, $InetAddress*, $InetAddress*)},
+		{"isIPv4LiteralAddress", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, isIPv4LiteralAddress, bool, $String*)},
+		{"isIPv4MappedAddress", "([B)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(IPAddressUtil, isIPv4MappedAddress, bool, $bytes*)},
+		{"isIPv6LiteralAddress", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, isIPv6LiteralAddress, bool, $String*)},
+		{"lambda$findScopedAddress$1", "(Ljava/net/InetAddress;Ljava/net/InetAddress;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IPAddressUtil, lambda$findScopedAddress$1, bool, $InetAddress*, $InetAddress*)},
+		{"lambda$findScopedAddress$2", "(Ljava/net/InetAddress;)Ljava/util/List;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IPAddressUtil, lambda$findScopedAddress$2, $List*, $InetAddress*), "java.lang.Exception"},
+		{"lambda$toScopedAddress$0", "(Ljava/net/InetAddress;)Ljava/net/InetAddress;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(IPAddressUtil, lambda$toScopedAddress$0, $InetAddress*, $InetAddress*)},
+		{"match", "(CJJ)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, match, bool, char16_t, int64_t, int64_t)},
+		{"scan", "(Ljava/lang/String;JJ)I", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, scan, int32_t, $String*, int64_t, int64_t)},
+		{"scan", "(Ljava/lang/String;JJ[C)I", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, scan, int32_t, $String*, int64_t, int64_t, $chars*)},
+		{"textToNumericFormatV4", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, textToNumericFormatV4, $bytes*, $String*)},
+		{"textToNumericFormatV6", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, textToNumericFormatV6, $bytes*, $String*)},
+		{"toScopedAddress", "(Ljava/net/InetAddress;)Ljava/net/InetAddress;", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, toScopedAddress, $InetAddress*, $InetAddress*), "java.net.SocketException"},
+		{"toScopedAddress", "(Ljava/net/InetSocketAddress;)Ljava/net/InetSocketAddress;", nullptr, $PUBLIC | $STATIC, $staticMethod(IPAddressUtil, toScopedAddress, $InetSocketAddress*, $InetSocketAddress*), "java.net.SocketException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.util.IPAddressUtil",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IPAddressUtil, name, initialize, &classInfo$$, IPAddressUtil::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(IPAddressUtil);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/vm/annotation/ForceInline.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -12,47 +11,40 @@ namespace jdk {
 		namespace vm {
 			namespace annotation {
 
-$Attribute ForceInline_Attribute_var$1[] = {
-	{'e', "Ljava/lang/annotation/ElementType; METHOD"},
-	{'e', "Ljava/lang/annotation/ElementType; CONSTRUCTOR"},
-	{'-'}
-};
-
-$NamedAttribute ForceInline_Attribute_var$0[] = {
-	{"value", '[', ForceInline_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute ForceInline_Attribute_var$2[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _ForceInline_Annotations_[] = {
-	{"Ljava/lang/annotation/Target;", ForceInline_Attribute_var$0},
-	{"Ljava/lang/annotation/Retention;", ForceInline_Attribute_var$2},
-	{}
-};
-
-$ClassInfo _ForceInline_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"jdk.internal.vm.annotation.ForceInline",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_ForceInline_Annotations_
-};
-
-$Object* allocate$ForceInline($Class* clazz) {
-	return $of($alloc(ForceInline));
-}
-
 $Class* ForceInline::load$($String* name, bool initialize) {
-	$loadClass(ForceInline, name, initialize, &_ForceInline_ClassInfo_, allocate$ForceInline);
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; METHOD"},
+		{'e', "Ljava/lang/annotation/ElementType; CONSTRUCTOR"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"jdk.internal.vm.annotation.ForceInline",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(ForceInline, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ForceInline);
+	});
 	return class$;
 }
 

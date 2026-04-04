@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/text/BidiBase$ImpTabPair.h>
-
 #include <jdk/internal/icu/text/BidiBase.h>
 #include <jcpp.h>
 
@@ -16,42 +15,6 @@ namespace jdk {
 		namespace icu {
 			namespace text {
 
-$FieldInfo _BidiBase$ImpTabPair_FieldInfo_[] = {
-	{"imptab", "[[[B", nullptr, 0, $field(BidiBase$ImpTabPair, imptab)},
-	{"impact", "[[S", nullptr, 0, $field(BidiBase$ImpTabPair, impact)},
-	{}
-};
-
-$MethodInfo _BidiBase$ImpTabPair_MethodInfo_[] = {
-	{"<init>", "([[B[[B[S[S)V", nullptr, 0, $method(BidiBase$ImpTabPair, init$, void, $byteArray2*, $byteArray2*, $shorts*, $shorts*)},
-	{}
-};
-
-$InnerClassInfo _BidiBase$ImpTabPair_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.text.BidiBase$ImpTabPair", "jdk.internal.icu.text.BidiBase", "ImpTabPair", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BidiBase$ImpTabPair_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.icu.text.BidiBase$ImpTabPair",
-	"java.lang.Object",
-	nullptr,
-	_BidiBase$ImpTabPair_FieldInfo_,
-	_BidiBase$ImpTabPair_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BidiBase$ImpTabPair_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.text.BidiBase"
-};
-
-$Object* allocate$BidiBase$ImpTabPair($Class* clazz) {
-	return $of($alloc(BidiBase$ImpTabPair));
-}
-
 void BidiBase$ImpTabPair::init$($byteArray2* table1, $byteArray2* table2, $shorts* act1, $shorts* act2) {
 	$set(this, imptab, $new($byteArray3, {
 		table1,
@@ -67,7 +30,37 @@ BidiBase$ImpTabPair::BidiBase$ImpTabPair() {
 }
 
 $Class* BidiBase$ImpTabPair::load$($String* name, bool initialize) {
-	$loadClass(BidiBase$ImpTabPair, name, initialize, &_BidiBase$ImpTabPair_ClassInfo_, allocate$BidiBase$ImpTabPair);
+	$FieldInfo fieldInfos$$[] = {
+		{"imptab", "[[[B", nullptr, 0, $field(BidiBase$ImpTabPair, imptab)},
+		{"impact", "[[S", nullptr, 0, $field(BidiBase$ImpTabPair, impact)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([[B[[B[S[S)V", nullptr, 0, $method(BidiBase$ImpTabPair, init$, void, $byteArray2*, $byteArray2*, $shorts*, $shorts*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.text.BidiBase$ImpTabPair", "jdk.internal.icu.text.BidiBase", "ImpTabPair", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.icu.text.BidiBase$ImpTabPair",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.text.BidiBase"
+	};
+	$loadClass(BidiBase$ImpTabPair, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BidiBase$ImpTabPair);
+	});
 	return class$;
 }
 

@@ -12,6 +12,7 @@ class $export MaxPathLength : public ::java::lang::Object {
 	$class(MaxPathLength, 0, ::java::lang::Object)
 public:
 	MaxPathLength();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* getNextName($String* fName);
 	static void main($StringArray* args);

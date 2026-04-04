@@ -1,5 +1,4 @@
 #include <ManyFiles.h>
-
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
 #include <java/util/ArrayList.h>
@@ -18,33 +17,6 @@ using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 
-$FieldInfo _ManyFiles_FieldInfo_[] = {
-	{"count", "I", nullptr, $STATIC, $staticField(ManyFiles, count)},
-	{"files", "Ljava/util/List;", nullptr, $STATIC, $staticField(ManyFiles, files)},
-	{"streams", "Ljava/util/List;", nullptr, $STATIC, $staticField(ManyFiles, streams)},
-	{"NUM_FILES", "I", nullptr, $STATIC, $staticField(ManyFiles, NUM_FILES)},
-	{}
-};
-
-$MethodInfo _ManyFiles_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ManyFiles, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ManyFiles, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ManyFiles_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ManyFiles",
-	"java.lang.Object",
-	nullptr,
-	_ManyFiles_FieldInfo_,
-	_ManyFiles_MethodInfo_
-};
-
-$Object* allocate$ManyFiles($Class* clazz) {
-	return $of($alloc(ManyFiles));
-}
-
 int32_t ManyFiles::count = 0;
 $List* ManyFiles::files = nullptr;
 $List* ManyFiles::streams = nullptr;
@@ -55,14 +27,16 @@ void ManyFiles::init$() {
 
 void ManyFiles::main($StringArray* args) {
 	$init(ManyFiles);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, osName, $System::getProperty("os.name"_s));
 	if ($nc(osName)->startsWith("Linux"_s)) {
 		return;
 	}
 	for (int32_t n = 0; n < ManyFiles::NUM_FILES; ++n) {
-		$var($String, var$0, "file"_s);
-		$var($File, f, $new($File, $$concat(var$0, $$str(ManyFiles::count++))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("file"_s);
+		var$0->append(ManyFiles::count++);
+		$var($File, f, $new($File, $$str(var$0)));
 		$nc(ManyFiles::files)->add(f);
 		$nc(ManyFiles::streams)->add($$new($FileOutputStream, f));
 	}
@@ -78,7 +52,7 @@ void ManyFiles::main($StringArray* args) {
 	}
 }
 
-void clinit$ManyFiles($Class* class$) {
+void ManyFiles::clinit$($Class* clazz) {
 	$assignStatic(ManyFiles::files, $new($ArrayList));
 	$assignStatic(ManyFiles::streams, $new($ArrayList));
 	ManyFiles::NUM_FILES = 2050;
@@ -88,7 +62,29 @@ ManyFiles::ManyFiles() {
 }
 
 $Class* ManyFiles::load$($String* name, bool initialize) {
-	$loadClass(ManyFiles, name, initialize, &_ManyFiles_ClassInfo_, clinit$ManyFiles, allocate$ManyFiles);
+	$FieldInfo fieldInfos$$[] = {
+		{"count", "I", nullptr, $STATIC, $staticField(ManyFiles, count)},
+		{"files", "Ljava/util/List;", nullptr, $STATIC, $staticField(ManyFiles, files)},
+		{"streams", "Ljava/util/List;", nullptr, $STATIC, $staticField(ManyFiles, streams)},
+		{"NUM_FILES", "I", nullptr, $STATIC, $staticField(ManyFiles, NUM_FILES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ManyFiles, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ManyFiles, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ManyFiles",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ManyFiles, name, initialize, &classInfo$$, ManyFiles::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ManyFiles);
+	});
 	return class$;
 }
 

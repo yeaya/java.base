@@ -1,5 +1,4 @@
 #include <java/security/cert/CertPathValidatorException$BasicReason.h>
-
 #include <java/lang/Enum.h>
 #include <java/security/cert/CertPathValidatorException.h>
 #include <jcpp.h>
@@ -22,57 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace security {
 		namespace cert {
-
-$FieldInfo _CertPathValidatorException$BasicReason_FieldInfo_[] = {
-	{"UNSPECIFIED", "Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertPathValidatorException$BasicReason, UNSPECIFIED)},
-	{"EXPIRED", "Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertPathValidatorException$BasicReason, EXPIRED)},
-	{"NOT_YET_VALID", "Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertPathValidatorException$BasicReason, NOT_YET_VALID)},
-	{"REVOKED", "Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertPathValidatorException$BasicReason, REVOKED)},
-	{"UNDETERMINED_REVOCATION_STATUS", "Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertPathValidatorException$BasicReason, UNDETERMINED_REVOCATION_STATUS)},
-	{"INVALID_SIGNATURE", "Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertPathValidatorException$BasicReason, INVALID_SIGNATURE)},
-	{"ALGORITHM_CONSTRAINED", "Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertPathValidatorException$BasicReason, ALGORITHM_CONSTRAINED)},
-	{"$VALUES", "[Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CertPathValidatorException$BasicReason, $VALUES)},
-	{}
-};
-
-$MethodInfo _CertPathValidatorException$BasicReason_MethodInfo_[] = {
-	{"$values", "()[Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CertPathValidatorException$BasicReason, $values, $CertPathValidatorException$BasicReasonArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CertPathValidatorException$BasicReason, init$, void, $String*, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertPathValidatorException$BasicReason, valueOf, CertPathValidatorException$BasicReason*, $String*)},
-	{"values", "()[Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertPathValidatorException$BasicReason, values, $CertPathValidatorException$BasicReasonArray*)},
-	{}
-};
-
-$InnerClassInfo _CertPathValidatorException$BasicReason_InnerClassesInfo_[] = {
-	{"java.security.cert.CertPathValidatorException$BasicReason", "java.security.cert.CertPathValidatorException", "BasicReason", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"java.security.cert.CertPathValidatorException$Reason", "java.security.cert.CertPathValidatorException", "Reason", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CertPathValidatorException$BasicReason_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.security.cert.CertPathValidatorException$BasicReason",
-	"java.lang.Enum",
-	"java.security.cert.CertPathValidatorException$Reason",
-	_CertPathValidatorException$BasicReason_FieldInfo_,
-	_CertPathValidatorException$BasicReason_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/security/cert/CertPathValidatorException$BasicReason;>;Ljava/security/cert/CertPathValidatorException$Reason;",
-	nullptr,
-	_CertPathValidatorException$BasicReason_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.cert.CertPathValidatorException"
-};
-
-$Object* allocate$CertPathValidatorException$BasicReason($Class* clazz) {
-	return $of($alloc(CertPathValidatorException$BasicReason));
-}
 
 $String* CertPathValidatorException$BasicReason::toString() {
 	 return this->$Enum::toString();
@@ -130,7 +78,7 @@ void CertPathValidatorException$BasicReason::init$($String* $enum$name, int32_t 
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$CertPathValidatorException$BasicReason($Class* class$) {
+void CertPathValidatorException$BasicReason::clinit$($Class* clazz) {
 	$assignStatic(CertPathValidatorException$BasicReason::UNSPECIFIED, $new(CertPathValidatorException$BasicReason, "UNSPECIFIED"_s, 0));
 	$assignStatic(CertPathValidatorException$BasicReason::EXPIRED, $new(CertPathValidatorException$BasicReason, "EXPIRED"_s, 1));
 	$assignStatic(CertPathValidatorException$BasicReason::NOT_YET_VALID, $new(CertPathValidatorException$BasicReason, "NOT_YET_VALID"_s, 2));
@@ -145,7 +93,52 @@ CertPathValidatorException$BasicReason::CertPathValidatorException$BasicReason()
 }
 
 $Class* CertPathValidatorException$BasicReason::load$($String* name, bool initialize) {
-	$loadClass(CertPathValidatorException$BasicReason, name, initialize, &_CertPathValidatorException$BasicReason_ClassInfo_, clinit$CertPathValidatorException$BasicReason, allocate$CertPathValidatorException$BasicReason);
+	$FieldInfo fieldInfos$$[] = {
+		{"UNSPECIFIED", "Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertPathValidatorException$BasicReason, UNSPECIFIED)},
+		{"EXPIRED", "Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertPathValidatorException$BasicReason, EXPIRED)},
+		{"NOT_YET_VALID", "Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertPathValidatorException$BasicReason, NOT_YET_VALID)},
+		{"REVOKED", "Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertPathValidatorException$BasicReason, REVOKED)},
+		{"UNDETERMINED_REVOCATION_STATUS", "Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertPathValidatorException$BasicReason, UNDETERMINED_REVOCATION_STATUS)},
+		{"INVALID_SIGNATURE", "Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertPathValidatorException$BasicReason, INVALID_SIGNATURE)},
+		{"ALGORITHM_CONSTRAINED", "Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CertPathValidatorException$BasicReason, ALGORITHM_CONSTRAINED)},
+		{"$VALUES", "[Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CertPathValidatorException$BasicReason, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CertPathValidatorException$BasicReason, $values, $CertPathValidatorException$BasicReasonArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CertPathValidatorException$BasicReason, init$, void, $String*, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueOf", "(Ljava/lang/String;)Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertPathValidatorException$BasicReason, valueOf, CertPathValidatorException$BasicReason*, $String*)},
+		{"values", "()[Ljava/security/cert/CertPathValidatorException$BasicReason;", nullptr, $PUBLIC | $STATIC, $staticMethod(CertPathValidatorException$BasicReason, values, $CertPathValidatorException$BasicReasonArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.cert.CertPathValidatorException$BasicReason", "java.security.cert.CertPathValidatorException", "BasicReason", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"java.security.cert.CertPathValidatorException$Reason", "java.security.cert.CertPathValidatorException", "Reason", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.security.cert.CertPathValidatorException$BasicReason",
+		"java.lang.Enum",
+		"java.security.cert.CertPathValidatorException$Reason",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/security/cert/CertPathValidatorException$BasicReason;>;Ljava/security/cert/CertPathValidatorException$Reason;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.cert.CertPathValidatorException"
+	};
+	$loadClass(CertPathValidatorException$BasicReason, name, initialize, &classInfo$$, CertPathValidatorException$BasicReason::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CertPathValidatorException$BasicReason));
+	});
 	return class$;
 }
 

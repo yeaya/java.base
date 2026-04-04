@@ -1,5 +1,4 @@
 #include <sun/nio/fs/AbstractPoller.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Runnable.h>
@@ -11,7 +10,6 @@
 #include <java/nio/file/WatchEvent$Modifier.h>
 #include <java/nio/file/WatchKey.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/HashSet.h>
 #include <java/util/LinkedList.h>
 #include <java/util/Set.h>
@@ -48,7 +46,6 @@ using $StandardWatchEventKinds = ::java::nio::file::StandardWatchEventKinds;
 using $WatchEvent$Kind = ::java::nio::file::WatchEvent$Kind;
 using $WatchKey = ::java::nio::file::WatchKey;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $HashSet = ::java::util::HashSet;
 using $LinkedList = ::java::util::LinkedList;
 using $Set = ::java::util::Set;
@@ -61,77 +58,27 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _AbstractPoller_FieldInfo_[] = {
-	{"requestList", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Lsun/nio/fs/AbstractPoller$Request;>;", $PRIVATE | $FINAL, $field(AbstractPoller, requestList)},
-	{"shutdown", "Z", nullptr, $PRIVATE, $field(AbstractPoller, shutdown)},
-	{}
-};
-
-$MethodInfo _AbstractPoller_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractPoller, init$, void)},
-	{"cancel", "(Ljava/nio/file/WatchKey;)V", nullptr, $FINAL, $method(AbstractPoller, cancel, void, $WatchKey*)},
-	{"close", "()V", nullptr, $FINAL, $method(AbstractPoller, close, void), "java.io.IOException"},
-	{"implCancelKey", "(Ljava/nio/file/WatchKey;)V", nullptr, $ABSTRACT, $virtualMethod(AbstractPoller, implCancelKey, void, $WatchKey*)},
-	{"implCloseAll", "()V", nullptr, $ABSTRACT, $virtualMethod(AbstractPoller, implCloseAll, void)},
-	{"implRegister", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/lang/Object;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/WatchEvent$Kind<*>;>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/lang/Object;", $TRANSIENT | $ABSTRACT, $virtualMethod(AbstractPoller, implRegister, $Object*, $Path*, $Set*, $WatchEvent$ModifierArray*)},
-	{"invoke", "(Lsun/nio/fs/AbstractPoller$RequestType;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $TRANSIENT, $method(AbstractPoller, invoke, $Object*, $AbstractPoller$RequestType*, $ObjectArray*), "java.io.IOException"},
-	{"processRequests", "()Z", nullptr, 0, $virtualMethod(AbstractPoller, processRequests, bool)},
-	{"register", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $FINAL | $TRANSIENT, $method(AbstractPoller, register$, $WatchKey*, $Path*, $WatchEvent$KindArray*, $WatchEvent$ModifierArray*), "java.io.IOException"},
-	{"start", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractPoller, start, void)},
-	{"wakeup", "()V", nullptr, $ABSTRACT, $virtualMethod(AbstractPoller, wakeup, void), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _AbstractPoller_InnerClassesInfo_[] = {
-	{"sun.nio.fs.AbstractPoller$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"sun.nio.fs.AbstractPoller$Request", "sun.nio.fs.AbstractPoller", "Request", $PRIVATE | $STATIC},
-	{"sun.nio.fs.AbstractPoller$RequestType", "sun.nio.fs.AbstractPoller", "RequestType", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{"sun.nio.fs.AbstractPoller$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AbstractPoller_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.nio.fs.AbstractPoller",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_AbstractPoller_FieldInfo_,
-	_AbstractPoller_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractPoller_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.AbstractPoller$2,sun.nio.fs.AbstractPoller$Request,sun.nio.fs.AbstractPoller$RequestType,sun.nio.fs.AbstractPoller$1"
-};
-
-$Object* allocate$AbstractPoller($Class* clazz) {
-	return $of($alloc(AbstractPoller));
-}
-
 void AbstractPoller::init$() {
 	$set(this, requestList, $new($LinkedList));
 	this->shutdown = false;
 }
 
 void AbstractPoller::start() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Runnable, thisRunnable, this);
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($AbstractPoller$1, this, thisRunnable)));
+	$AccessController::doPrivileged($$new($AbstractPoller$1, this, thisRunnable));
 }
 
 $WatchKey* AbstractPoller::register$($Path* dir, $WatchEvent$KindArray* events, $WatchEvent$ModifierArray* modifiers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (dir == nullptr) {
 		$throwNew($NullPointerException);
 	}
 	$var($Set, eventSet, $new($HashSet, $nc(events)->length));
 	{
 		$var($WatchEvent$KindArray, arr$, events);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($WatchEvent$Kind, event, arr$->get(i$));
 			{
 				$init($StandardWatchEventKinds);
@@ -154,19 +101,19 @@ $WatchKey* AbstractPoller::register$($Path* dir, $WatchEvent$KindArray* events, 
 	}
 	$init($AbstractPoller$RequestType);
 	return $cast($WatchKey, invoke($AbstractPoller$RequestType::REGISTER, $$new($ObjectArray, {
-		$of(dir),
-		$of(eventSet),
-		$of(modifiers)
+		dir,
+		eventSet,
+		modifiers
 	})));
 }
 
 void AbstractPoller::cancel($WatchKey* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($AbstractPoller$RequestType);
-		invoke($AbstractPoller$RequestType::CANCEL, $$new($ObjectArray, {$of(key)}));
+		invoke($AbstractPoller$RequestType::CANCEL, $$new($ObjectArray, {key}));
 	} catch ($IOException& x) {
-		$throwNew($AssertionError, $($of(x->getMessage())));
+		$throwNew($AssertionError, $$of(x->getMessage()));
 	}
 }
 
@@ -176,13 +123,13 @@ void AbstractPoller::close() {
 }
 
 $Object* AbstractPoller::invoke($AbstractPoller$RequestType* type, $ObjectArray* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractPoller$Request, req, $new($AbstractPoller$Request, type, params));
 	$synchronized(this->requestList) {
 		if (this->shutdown) {
 			$throwNew($ClosedWatchServiceException);
 		}
-		$nc(this->requestList)->add(req);
+		this->requestList->add(req);
 		wakeup();
 	}
 	$var($Object, result, req->awaitResult());
@@ -192,54 +139,46 @@ $Object* AbstractPoller::invoke($AbstractPoller$RequestType* type, $ObjectArray*
 	if ($instanceOf($IOException, result)) {
 		$throw($cast($IOException, result));
 	}
-	return $of(result);
+	return result;
 }
 
 bool AbstractPoller::processRequests() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->requestList) {
 		$var($AbstractPoller$Request, req, nullptr);
-		while (($assign(req, $cast($AbstractPoller$Request, $nc(this->requestList)->poll()))) != nullptr) {
+		while (($assign(req, $cast($AbstractPoller$Request, this->requestList->poll()))) != nullptr) {
 			if (this->shutdown) {
 				$nc(req)->release($$new($ClosedWatchServiceException));
 				continue;
 			}
 			$init($AbstractPoller$2);
-			switch ($nc($AbstractPoller$2::$SwitchMap$sun$nio$fs$AbstractPoller$RequestType)->get($nc(($($nc(req)->type())))->ordinal())) {
+			switch ($nc($AbstractPoller$2::$SwitchMap$sun$nio$fs$AbstractPoller$RequestType)->get(($$nc($nc(req)->type()))->ordinal())) {
 			case 1:
 				{
-					{
-						$var($ObjectArray, params, req->parameters());
-						$var($Path, path, $cast($Path, $nc(params)->get(0)));
-						$var($Set, events, $cast($Set, params->get(1)));
-						$var($WatchEvent$ModifierArray, modifiers, $cast($WatchEvent$ModifierArray, params->get(2)));
-						req->release($(implRegister(path, events, modifiers)));
-						break;
-					}
+					$var($ObjectArray, params, req->parameters());
+					$var($Path, path, $cast($Path, $nc(params)->get(0)));
+					$var($Set, events, $cast($Set, params->get(1)));
+					$var($WatchEvent$ModifierArray, modifiers, $cast($WatchEvent$ModifierArray, params->get(2)));
+					req->release($(implRegister(path, events, modifiers)));
+					break;
 				}
 			case 2:
 				{
-					{
-						$var($ObjectArray, params, req->parameters());
-						$var($WatchKey, key, $cast($WatchKey, $nc(params)->get(0)));
-						implCancelKey(key);
-						req->release(nullptr);
-						break;
-					}
+					$var($ObjectArray, params, req->parameters());
+					$var($WatchKey, key, $cast($WatchKey, $nc(params)->get(0)));
+					implCancelKey(key);
+					req->release(nullptr);
+					break;
 				}
 			case 3:
 				{
-					{
-						implCloseAll();
-						req->release(nullptr);
-						this->shutdown = true;
-						break;
-					}
+					implCloseAll();
+					req->release(nullptr);
+					this->shutdown = true;
+					break;
 				}
 			default:
-				{
-					req->release($$new($IOException, "request not recognized"_s));
-				}
+				req->release($$new($IOException, "request not recognized"_s));
 			}
 		}
 	}
@@ -250,7 +189,49 @@ AbstractPoller::AbstractPoller() {
 }
 
 $Class* AbstractPoller::load$($String* name, bool initialize) {
-	$loadClass(AbstractPoller, name, initialize, &_AbstractPoller_ClassInfo_, allocate$AbstractPoller);
+	$FieldInfo fieldInfos$$[] = {
+		{"requestList", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Lsun/nio/fs/AbstractPoller$Request;>;", $PRIVATE | $FINAL, $field(AbstractPoller, requestList)},
+		{"shutdown", "Z", nullptr, $PRIVATE, $field(AbstractPoller, shutdown)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractPoller, init$, void)},
+		{"cancel", "(Ljava/nio/file/WatchKey;)V", nullptr, $FINAL, $method(AbstractPoller, cancel, void, $WatchKey*)},
+		{"close", "()V", nullptr, $FINAL, $method(AbstractPoller, close, void), "java.io.IOException"},
+		{"implCancelKey", "(Ljava/nio/file/WatchKey;)V", nullptr, $ABSTRACT, $virtualMethod(AbstractPoller, implCancelKey, void, $WatchKey*)},
+		{"implCloseAll", "()V", nullptr, $ABSTRACT, $virtualMethod(AbstractPoller, implCloseAll, void)},
+		{"implRegister", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/lang/Object;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/WatchEvent$Kind<*>;>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/lang/Object;", $TRANSIENT | $ABSTRACT, $virtualMethod(AbstractPoller, implRegister, $Object*, $Path*, $Set*, $WatchEvent$ModifierArray*)},
+		{"invoke", "(Lsun/nio/fs/AbstractPoller$RequestType;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $TRANSIENT, $method(AbstractPoller, invoke, $Object*, $AbstractPoller$RequestType*, $ObjectArray*), "java.io.IOException"},
+		{"processRequests", "()Z", nullptr, 0, $virtualMethod(AbstractPoller, processRequests, bool)},
+		{"register", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/Path;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $FINAL | $TRANSIENT, $method(AbstractPoller, register$, $WatchKey*, $Path*, $WatchEvent$KindArray*, $WatchEvent$ModifierArray*), "java.io.IOException"},
+		{"start", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractPoller, start, void)},
+		{"wakeup", "()V", nullptr, $ABSTRACT, $virtualMethod(AbstractPoller, wakeup, void), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.AbstractPoller$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"sun.nio.fs.AbstractPoller$Request", "sun.nio.fs.AbstractPoller", "Request", $PRIVATE | $STATIC},
+		{"sun.nio.fs.AbstractPoller$RequestType", "sun.nio.fs.AbstractPoller", "RequestType", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{"sun.nio.fs.AbstractPoller$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.nio.fs.AbstractPoller",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.AbstractPoller$2,sun.nio.fs.AbstractPoller$Request,sun.nio.fs.AbstractPoller$RequestType,sun.nio.fs.AbstractPoller$1"
+	};
+	$loadClass(AbstractPoller, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractPoller);
+	});
 	return class$;
 }
 

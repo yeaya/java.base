@@ -1,5 +1,4 @@
 #include <java/util/PriorityQueue$PriorityQueueSpliterator.h>
-
 #include <java/util/ConcurrentModificationException.h>
 #include <java/util/PriorityQueue.h>
 #include <java/util/Spliterator.h>
@@ -22,50 +21,6 @@ using $Consumer = ::java::util::function::Consumer;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _PriorityQueue$PriorityQueueSpliterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/PriorityQueue;", nullptr, $FINAL | $SYNTHETIC, $field(PriorityQueue$PriorityQueueSpliterator, this$0)},
-	{"index", "I", nullptr, $PRIVATE, $field(PriorityQueue$PriorityQueueSpliterator, index)},
-	{"fence", "I", nullptr, $PRIVATE, $field(PriorityQueue$PriorityQueueSpliterator, fence)},
-	{"expectedModCount", "I", nullptr, $PRIVATE, $field(PriorityQueue$PriorityQueueSpliterator, expectedModCount)},
-	{}
-};
-
-$MethodInfo _PriorityQueue$PriorityQueueSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/PriorityQueue;III)V", nullptr, 0, $method(PriorityQueue$PriorityQueueSpliterator, init$, void, $PriorityQueue*, int32_t, int32_t, int32_t)},
-	{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(PriorityQueue$PriorityQueueSpliterator, characteristics, int32_t)},
-	{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(PriorityQueue$PriorityQueueSpliterator, estimateSize, int64_t)},
-	{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(PriorityQueue$PriorityQueueSpliterator, forEachRemaining, void, $Consumer*)},
-	{"getFence", "()I", nullptr, $PRIVATE, $method(PriorityQueue$PriorityQueueSpliterator, getFence, int32_t)},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC, $virtualMethod(PriorityQueue$PriorityQueueSpliterator, tryAdvance, bool, $Consumer*)},
-	{"trySplit", "()Ljava/util/PriorityQueue$PriorityQueueSpliterator;", "()Ljava/util/PriorityQueue<TE;>.PriorityQueueSpliterator;", $PUBLIC, $virtualMethod(PriorityQueue$PriorityQueueSpliterator, trySplit, PriorityQueue$PriorityQueueSpliterator*)},
-	{}
-};
-
-$InnerClassInfo _PriorityQueue$PriorityQueueSpliterator_InnerClassesInfo_[] = {
-	{"java.util.PriorityQueue$PriorityQueueSpliterator", "java.util.PriorityQueue", "PriorityQueueSpliterator", $FINAL},
-	{}
-};
-
-$ClassInfo _PriorityQueue$PriorityQueueSpliterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.PriorityQueue$PriorityQueueSpliterator",
-	"java.lang.Object",
-	"java.util.Spliterator",
-	_PriorityQueue$PriorityQueueSpliterator_FieldInfo_,
-	_PriorityQueue$PriorityQueueSpliterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Spliterator<TE;>;",
-	nullptr,
-	_PriorityQueue$PriorityQueueSpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.PriorityQueue"
-};
-
-$Object* allocate$PriorityQueue$PriorityQueueSpliterator($Class* clazz) {
-	return $of($alloc(PriorityQueue$PriorityQueueSpliterator));
-}
 
 void PriorityQueue$PriorityQueueSpliterator::init$($PriorityQueue* this$0, int32_t origin, int32_t fence, int32_t expectedModCount) {
 	$set(this, this$0, this$0);
@@ -91,7 +46,7 @@ PriorityQueue$PriorityQueueSpliterator* PriorityQueue$PriorityQueueSpliterator::
 }
 
 void PriorityQueue$PriorityQueueSpliterator::forEachRemaining($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (action == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -147,7 +102,45 @@ PriorityQueue$PriorityQueueSpliterator::PriorityQueue$PriorityQueueSpliterator()
 }
 
 $Class* PriorityQueue$PriorityQueueSpliterator::load$($String* name, bool initialize) {
-	$loadClass(PriorityQueue$PriorityQueueSpliterator, name, initialize, &_PriorityQueue$PriorityQueueSpliterator_ClassInfo_, allocate$PriorityQueue$PriorityQueueSpliterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/PriorityQueue;", nullptr, $FINAL | $SYNTHETIC, $field(PriorityQueue$PriorityQueueSpliterator, this$0)},
+		{"index", "I", nullptr, $PRIVATE, $field(PriorityQueue$PriorityQueueSpliterator, index)},
+		{"fence", "I", nullptr, $PRIVATE, $field(PriorityQueue$PriorityQueueSpliterator, fence)},
+		{"expectedModCount", "I", nullptr, $PRIVATE, $field(PriorityQueue$PriorityQueueSpliterator, expectedModCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/PriorityQueue;III)V", nullptr, 0, $method(PriorityQueue$PriorityQueueSpliterator, init$, void, $PriorityQueue*, int32_t, int32_t, int32_t)},
+		{"characteristics", "()I", nullptr, $PUBLIC, $virtualMethod(PriorityQueue$PriorityQueueSpliterator, characteristics, int32_t)},
+		{"estimateSize", "()J", nullptr, $PUBLIC, $virtualMethod(PriorityQueue$PriorityQueueSpliterator, estimateSize, int64_t)},
+		{"forEachRemaining", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(PriorityQueue$PriorityQueueSpliterator, forEachRemaining, void, $Consumer*)},
+		{"getFence", "()I", nullptr, $PRIVATE, $method(PriorityQueue$PriorityQueueSpliterator, getFence, int32_t)},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-TE;>;)Z", $PUBLIC, $virtualMethod(PriorityQueue$PriorityQueueSpliterator, tryAdvance, bool, $Consumer*)},
+		{"trySplit", "()Ljava/util/PriorityQueue$PriorityQueueSpliterator;", "()Ljava/util/PriorityQueue<TE;>.PriorityQueueSpliterator;", $PUBLIC, $virtualMethod(PriorityQueue$PriorityQueueSpliterator, trySplit, PriorityQueue$PriorityQueueSpliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.PriorityQueue$PriorityQueueSpliterator", "java.util.PriorityQueue", "PriorityQueueSpliterator", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.PriorityQueue$PriorityQueueSpliterator",
+		"java.lang.Object",
+		"java.util.Spliterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Spliterator<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.PriorityQueue"
+	};
+	$loadClass(PriorityQueue$PriorityQueueSpliterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PriorityQueue$PriorityQueueSpliterator);
+	});
 	return class$;
 }
 

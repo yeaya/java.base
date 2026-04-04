@@ -1,5 +1,4 @@
 #include <jdk/internal/loader/BuiltinClassLoader$1.h>
-
 #include <java/net/URL.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Iterator.h>
@@ -15,7 +14,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 using $Enumeration = ::java::util::Enumeration;
-using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $BuiltinClassLoader = ::jdk::internal::loader::BuiltinClassLoader;
@@ -23,54 +21,6 @@ using $BuiltinClassLoader = ::jdk::internal::loader::BuiltinClassLoader;
 namespace jdk {
 	namespace internal {
 		namespace loader {
-
-$FieldInfo _BuiltinClassLoader$1_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/loader/BuiltinClassLoader;", nullptr, $FINAL | $SYNTHETIC, $field(BuiltinClassLoader$1, this$0)},
-	{"val$e", "Ljava/util/Enumeration;", nullptr, $FINAL | $SYNTHETIC, $field(BuiltinClassLoader$1, val$e)},
-	{"val$checked", "Ljava/util/List;", nullptr, $FINAL | $SYNTHETIC, $field(BuiltinClassLoader$1, val$checked)},
-	{"iterator", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/net/URL;>;", $FINAL, $field(BuiltinClassLoader$1, iterator)},
-	{"next", "Ljava/net/URL;", nullptr, 0, $field(BuiltinClassLoader$1, next)},
-	{}
-};
-
-$MethodInfo _BuiltinClassLoader$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/loader/BuiltinClassLoader;Ljava/util/List;Ljava/util/Enumeration;)V", nullptr, 0, $method(BuiltinClassLoader$1, init$, void, $BuiltinClassLoader*, $List*, $Enumeration*)},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(BuiltinClassLoader$1, hasMoreElements, bool)},
-	{"hasNext", "()Z", nullptr, $PRIVATE, $method(BuiltinClassLoader$1, hasNext, bool)},
-	{"nextElement", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(BuiltinClassLoader$1, nextElement, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _BuiltinClassLoader$1_EnclosingMethodInfo_ = {
-	"jdk.internal.loader.BuiltinClassLoader",
-	"findResources",
-	"(Ljava/lang/String;)Ljava/util/Enumeration;"
-};
-
-$InnerClassInfo _BuiltinClassLoader$1_InnerClassesInfo_[] = {
-	{"jdk.internal.loader.BuiltinClassLoader$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BuiltinClassLoader$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.loader.BuiltinClassLoader$1",
-	"java.lang.Object",
-	"java.util.Enumeration",
-	_BuiltinClassLoader$1_FieldInfo_,
-	_BuiltinClassLoader$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/net/URL;>;",
-	&_BuiltinClassLoader$1_EnclosingMethodInfo_,
-	_BuiltinClassLoader$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.loader.BuiltinClassLoader"
-};
-
-$Object* allocate$BuiltinClassLoader$1($Class* clazz) {
-	return $of($alloc(BuiltinClassLoader$1));
-}
 
 void BuiltinClassLoader$1::init$($BuiltinClassLoader* this$0, $List* val$checked, $Enumeration* val$e) {
 	$set(this, this$0, this$0);
@@ -80,15 +30,15 @@ void BuiltinClassLoader$1::init$($BuiltinClassLoader* this$0, $List* val$checked
 }
 
 bool BuiltinClassLoader$1::hasNext() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->next != nullptr) {
 		return true;
 	} else if ($nc(this->iterator)->hasNext()) {
-		$set(this, next, $cast($URL, $nc(this->iterator)->next()));
+		$set(this, next, $cast($URL, this->iterator->next()));
 		return true;
 	} else {
 		while ($nc(this->val$e)->hasMoreElements() && this->next == nullptr) {
-			$set(this, next, $BuiltinClassLoader::checkURL($cast($URL, $($nc(this->val$e)->nextElement()))));
+			$set(this, next, $BuiltinClassLoader::checkURL($$cast($URL, this->val$e->nextElement())));
 		}
 		return this->next != nullptr;
 	}
@@ -102,7 +52,7 @@ $Object* BuiltinClassLoader$1::nextElement() {
 	if (hasNext()) {
 		$var($URL, result, this->next);
 		$set(this, next, nullptr);
-		return $of(result);
+		return result;
 	} else {
 		$throwNew($NoSuchElementException);
 	}
@@ -112,7 +62,48 @@ BuiltinClassLoader$1::BuiltinClassLoader$1() {
 }
 
 $Class* BuiltinClassLoader$1::load$($String* name, bool initialize) {
-	$loadClass(BuiltinClassLoader$1, name, initialize, &_BuiltinClassLoader$1_ClassInfo_, allocate$BuiltinClassLoader$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/loader/BuiltinClassLoader;", nullptr, $FINAL | $SYNTHETIC, $field(BuiltinClassLoader$1, this$0)},
+		{"val$e", "Ljava/util/Enumeration;", nullptr, $FINAL | $SYNTHETIC, $field(BuiltinClassLoader$1, val$e)},
+		{"val$checked", "Ljava/util/List;", nullptr, $FINAL | $SYNTHETIC, $field(BuiltinClassLoader$1, val$checked)},
+		{"iterator", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/net/URL;>;", $FINAL, $field(BuiltinClassLoader$1, iterator)},
+		{"next", "Ljava/net/URL;", nullptr, 0, $field(BuiltinClassLoader$1, next)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/loader/BuiltinClassLoader;Ljava/util/List;Ljava/util/Enumeration;)V", nullptr, 0, $method(BuiltinClassLoader$1, init$, void, $BuiltinClassLoader*, $List*, $Enumeration*)},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(BuiltinClassLoader$1, hasMoreElements, bool)},
+		{"hasNext", "()Z", nullptr, $PRIVATE, $method(BuiltinClassLoader$1, hasNext, bool)},
+		{"nextElement", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(BuiltinClassLoader$1, nextElement, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.loader.BuiltinClassLoader",
+		"findResources",
+		"(Ljava/lang/String;)Ljava/util/Enumeration;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.loader.BuiltinClassLoader$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.loader.BuiltinClassLoader$1",
+		"java.lang.Object",
+		"java.util.Enumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/net/URL;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.loader.BuiltinClassLoader"
+	};
+	$loadClass(BuiltinClassLoader$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BuiltinClassLoader$1);
+	});
 	return class$;
 }
 

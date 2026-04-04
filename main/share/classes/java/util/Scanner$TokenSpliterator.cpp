@@ -1,5 +1,4 @@
 #include <java/util/Scanner$TokenSpliterator.h>
-
 #include <java/util/ConcurrentModificationException.h>
 #include <java/util/Scanner.h>
 #include <java/util/Spliterator.h>
@@ -25,44 +24,6 @@ using $Consumer = ::java::util::function::Consumer;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Scanner$TokenSpliterator_FieldInfo_[] = {
-	{"this$0", "Ljava/util/Scanner;", nullptr, $FINAL | $SYNTHETIC, $field(Scanner$TokenSpliterator, this$0)},
-	{"expectedCount", "I", nullptr, 0, $field(Scanner$TokenSpliterator, expectedCount)},
-	{}
-};
-
-$MethodInfo _Scanner$TokenSpliterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Scanner;)V", nullptr, 0, $method(Scanner$TokenSpliterator, init$, void, $Scanner*)},
-	{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(Scanner$TokenSpliterator, tryAdvance, bool, $Consumer*)},
-	{}
-};
-
-$InnerClassInfo _Scanner$TokenSpliterator_InnerClassesInfo_[] = {
-	{"java.util.Scanner$TokenSpliterator", "java.util.Scanner", "TokenSpliterator", 0},
-	{"java.util.Spliterators$AbstractSpliterator", "java.util.Spliterators", "AbstractSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Scanner$TokenSpliterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Scanner$TokenSpliterator",
-	"java.util.Spliterators$AbstractSpliterator",
-	nullptr,
-	_Scanner$TokenSpliterator_FieldInfo_,
-	_Scanner$TokenSpliterator_MethodInfo_,
-	"Ljava/util/Spliterators$AbstractSpliterator<Ljava/lang/String;>;",
-	nullptr,
-	_Scanner$TokenSpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Scanner"
-};
-
-$Object* allocate$Scanner$TokenSpliterator($Class* clazz) {
-	return $of($alloc(Scanner$TokenSpliterator));
-}
 
 void Scanner$TokenSpliterator::init$($Scanner* this$0) {
 	$set(this, this$0, this$0);
@@ -92,7 +53,39 @@ Scanner$TokenSpliterator::Scanner$TokenSpliterator() {
 }
 
 $Class* Scanner$TokenSpliterator::load$($String* name, bool initialize) {
-	$loadClass(Scanner$TokenSpliterator, name, initialize, &_Scanner$TokenSpliterator_ClassInfo_, allocate$Scanner$TokenSpliterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/Scanner;", nullptr, $FINAL | $SYNTHETIC, $field(Scanner$TokenSpliterator, this$0)},
+		{"expectedCount", "I", nullptr, 0, $field(Scanner$TokenSpliterator, expectedCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Scanner;)V", nullptr, 0, $method(Scanner$TokenSpliterator, init$, void, $Scanner*)},
+		{"tryAdvance", "(Ljava/util/function/Consumer;)Z", "(Ljava/util/function/Consumer<-Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(Scanner$TokenSpliterator, tryAdvance, bool, $Consumer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Scanner$TokenSpliterator", "java.util.Scanner", "TokenSpliterator", 0},
+		{"java.util.Spliterators$AbstractSpliterator", "java.util.Spliterators", "AbstractSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Scanner$TokenSpliterator",
+		"java.util.Spliterators$AbstractSpliterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/Spliterators$AbstractSpliterator<Ljava/lang/String;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Scanner"
+	};
+	$loadClass(Scanner$TokenSpliterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Scanner$TokenSpliterator);
+	});
 	return class$;
 }
 

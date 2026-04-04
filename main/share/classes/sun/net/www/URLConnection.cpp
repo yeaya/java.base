@@ -1,5 +1,4 @@
 #include <sun/net/www/URLConnection.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/lang/IllegalStateException.h>
@@ -29,51 +28,6 @@ using $MessageHeader = ::sun::net::www::MessageHeader;
 namespace sun {
 	namespace net {
 		namespace www {
-
-$FieldInfo _URLConnection_FieldInfo_[] = {
-	{"contentType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(URLConnection, contentType)},
-	{"contentLength", "I", nullptr, $PRIVATE, $field(URLConnection, contentLength)},
-	{"properties", "Lsun/net/www/MessageHeader;", nullptr, $PROTECTED, $field(URLConnection, properties)},
-	{"headerFields", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", 0, $field(URLConnection, headerFields)},
-	{"proxiedHosts", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Void;>;", $PRIVATE | $STATIC, $staticField(URLConnection, proxiedHosts)},
-	{}
-};
-
-$MethodInfo _URLConnection_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $method(URLConnection, init$, void, $URL*)},
-	{"addRequestProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, addRequestProperty, void, $String*, $String*)},
-	{"canCache", "()Z", nullptr, $PUBLIC, $virtualMethod(URLConnection, canCache, bool)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(URLConnection, close, void)},
-	{"getContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(URLConnection, getContentLength, int32_t)},
-	{"getContentType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getContentType, $String*)},
-	{"getHeaderField", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getHeaderField, $String*, $String*)},
-	{"getHeaderField", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getHeaderField, $String*, int32_t)},
-	{"getHeaderFieldKey", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getHeaderFieldKey, $String*, int32_t)},
-	{"getHeaderFields", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(URLConnection, getHeaderFields, $Map*)},
-	{"getProperties", "()Lsun/net/www/MessageHeader;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getProperties, $MessageHeader*)},
-	{"getRequestProperties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(URLConnection, getRequestProperties, $Map*)},
-	{"getRequestProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getRequestProperty, $String*, $String*)},
-	{"isProxiedHost", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(URLConnection, isProxiedHost, bool, $String*)},
-	{"setContentLength", "(I)V", nullptr, $PROTECTED, $virtualMethod(URLConnection, setContentLength, void, int32_t)},
-	{"setContentType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, setContentType, void, $String*)},
-	{"setProperties", "(Lsun/net/www/MessageHeader;)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, setProperties, void, $MessageHeader*)},
-	{"setProxiedHost", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(URLConnection, setProxiedHost, void, $String*)},
-	{"setRequestProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, setRequestProperty, void, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _URLConnection_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.net.www.URLConnection",
-	"java.net.URLConnection",
-	nullptr,
-	_URLConnection_FieldInfo_,
-	_URLConnection_MethodInfo_
-};
-
-$Object* allocate$URLConnection($Class* clazz) {
-	return $of($alloc(URLConnection));
-}
 
 $HashMap* URLConnection::proxiedHosts = nullptr;
 
@@ -130,7 +84,7 @@ $String* URLConnection::getHeaderField($String* name) {
 	} catch ($Exception& e) {
 		return nullptr;
 	}
-	return this->properties == nullptr ? ($String*)nullptr : $nc(this->properties)->findValue(name);
+	return this->properties == nullptr ? ($String*)nullptr : this->properties->findValue(name);
 }
 
 $Map* URLConnection::getHeaderFields() {
@@ -140,7 +94,7 @@ $Map* URLConnection::getHeaderFields() {
 			if (this->properties == nullptr) {
 				$set(this, headerFields, $URLConnection::getHeaderFields());
 			} else {
-				$set(this, headerFields, $nc(this->properties)->getHeaders());
+				$set(this, headerFields, this->properties->getHeaders());
 			}
 		} catch ($IOException& e) {
 			return $URLConnection::getHeaderFields();
@@ -156,7 +110,7 @@ $String* URLConnection::getHeaderFieldKey(int32_t n) {
 		return nullptr;
 	}
 	$var($MessageHeader, props, this->properties);
-	return props == nullptr ? ($String*)nullptr : $nc(props)->getKey(n);
+	return props == nullptr ? ($String*)nullptr : props->getKey(n);
 }
 
 $String* URLConnection::getHeaderField(int32_t n) {
@@ -166,11 +120,11 @@ $String* URLConnection::getHeaderField(int32_t n) {
 		return nullptr;
 	}
 	$var($MessageHeader, props, this->properties);
-	return props == nullptr ? ($String*)nullptr : $nc(props)->getValue(n);
+	return props == nullptr ? ($String*)nullptr : props->getValue(n);
 }
 
 $String* URLConnection::getContentType() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->contentType == nullptr) {
 		$set(this, contentType, getHeaderField("content-type"_s));
 	}
@@ -182,12 +136,12 @@ $String* URLConnection::getContentType() {
 		}
 		$var($String, ce, $nc(this->properties)->findValue("content-encoding"_s));
 		if (ct == nullptr) {
-			$assign(ct, $nc(this->properties)->findValue("content-type"_s));
+			$assign(ct, this->properties->findValue("content-type"_s));
 			if (ct == nullptr) {
-				if ($nc($($nc(this->url)->getFile()))->endsWith("/"_s)) {
+				if ($$nc($nc(this->url)->getFile())->endsWith("/"_s)) {
 					$assign(ct, "text/html"_s);
 				} else {
-					$assign(ct, guessContentTypeFromName($($nc(this->url)->getFile())));
+					$assign(ct, guessContentTypeFromName($(this->url->getFile())));
 				}
 			}
 		}
@@ -196,7 +150,7 @@ $String* URLConnection::getContentType() {
 			bool var$1 = ce != nullptr;
 			if (var$1) {
 				bool var$3 = ce->equalsIgnoreCase("7bit"_s);
-				bool var$2 = var$3 || $nc(ce)->equalsIgnoreCase("8bit"_s);
+				bool var$2 = var$3 || ce->equalsIgnoreCase("8bit"_s);
 				var$1 = !(var$2 || ce->equalsIgnoreCase("binary"_s));
 			}
 			var$0 = var$1;
@@ -237,7 +191,7 @@ void URLConnection::setContentLength(int32_t length) {
 }
 
 bool URLConnection::canCache() {
-	return $nc($($nc(this->url)->getFile()))->indexOf((int32_t)u'?') < 0;
+	return $$nc($nc(this->url)->getFile())->indexOf(u'?') < 0;
 }
 
 void URLConnection::close() {
@@ -245,22 +199,20 @@ void URLConnection::close() {
 }
 
 void URLConnection::setProxiedHost($String* host) {
-	$load(URLConnection);
+	$init(URLConnection);
 	$synchronized(class$) {
-		$init(URLConnection);
 		$nc(URLConnection::proxiedHosts)->put($($nc(host)->toLowerCase()), nullptr);
 	}
 }
 
 bool URLConnection::isProxiedHost($String* host) {
-	$load(URLConnection);
+	$init(URLConnection);
 	$synchronized(class$) {
-		$init(URLConnection);
 		return $nc(URLConnection::proxiedHosts)->containsKey($($nc(host)->toLowerCase()));
 	}
 }
 
-void clinit$URLConnection($Class* class$) {
+void URLConnection::clinit$($Class* clazz) {
 	$assignStatic(URLConnection::proxiedHosts, $new($HashMap));
 }
 
@@ -268,7 +220,47 @@ URLConnection::URLConnection() {
 }
 
 $Class* URLConnection::load$($String* name, bool initialize) {
-	$loadClass(URLConnection, name, initialize, &_URLConnection_ClassInfo_, clinit$URLConnection, allocate$URLConnection);
+	$FieldInfo fieldInfos$$[] = {
+		{"contentType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(URLConnection, contentType)},
+		{"contentLength", "I", nullptr, $PRIVATE, $field(URLConnection, contentLength)},
+		{"properties", "Lsun/net/www/MessageHeader;", nullptr, $PROTECTED, $field(URLConnection, properties)},
+		{"headerFields", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", 0, $field(URLConnection, headerFields)},
+		{"proxiedHosts", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Void;>;", $PRIVATE | $STATIC, $staticField(URLConnection, proxiedHosts)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $method(URLConnection, init$, void, $URL*)},
+		{"addRequestProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, addRequestProperty, void, $String*, $String*)},
+		{"canCache", "()Z", nullptr, $PUBLIC, $virtualMethod(URLConnection, canCache, bool)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(URLConnection, close, void)},
+		{"getContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(URLConnection, getContentLength, int32_t)},
+		{"getContentType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getContentType, $String*)},
+		{"getHeaderField", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getHeaderField, $String*, $String*)},
+		{"getHeaderField", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getHeaderField, $String*, int32_t)},
+		{"getHeaderFieldKey", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getHeaderFieldKey, $String*, int32_t)},
+		{"getHeaderFields", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(URLConnection, getHeaderFields, $Map*)},
+		{"getProperties", "()Lsun/net/www/MessageHeader;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getProperties, $MessageHeader*)},
+		{"getRequestProperties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(URLConnection, getRequestProperties, $Map*)},
+		{"getRequestProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLConnection, getRequestProperty, $String*, $String*)},
+		{"isProxiedHost", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(URLConnection, isProxiedHost, bool, $String*)},
+		{"setContentLength", "(I)V", nullptr, $PROTECTED, $virtualMethod(URLConnection, setContentLength, void, int32_t)},
+		{"setContentType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, setContentType, void, $String*)},
+		{"setProperties", "(Lsun/net/www/MessageHeader;)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, setProperties, void, $MessageHeader*)},
+		{"setProxiedHost", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(URLConnection, setProxiedHost, void, $String*)},
+		{"setRequestProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URLConnection, setRequestProperty, void, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.net.www.URLConnection",
+		"java.net.URLConnection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(URLConnection, name, initialize, &classInfo$$, URLConnection::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(URLConnection);
+	});
 	return class$;
 }
 

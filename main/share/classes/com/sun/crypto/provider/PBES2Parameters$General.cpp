@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/PBES2Parameters$General.h>
-
 #include <com/sun/crypto/provider/PBES2Parameters.h>
 #include <jcpp.h>
 
@@ -13,36 +12,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$MethodInfo _PBES2Parameters$General_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PBES2Parameters$General, init$, void), "java.security.NoSuchAlgorithmException"},
-	{}
-};
-
-$InnerClassInfo _PBES2Parameters$General_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.PBES2Parameters$General", "com.sun.crypto.provider.PBES2Parameters", "General", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PBES2Parameters$General_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.PBES2Parameters$General",
-	"com.sun.crypto.provider.PBES2Parameters",
-	nullptr,
-	nullptr,
-	_PBES2Parameters$General_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PBES2Parameters$General_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.PBES2Parameters"
-};
-
-$Object* allocate$PBES2Parameters$General($Class* clazz) {
-	return $of($alloc(PBES2Parameters$General));
-}
-
 void PBES2Parameters$General::init$() {
 	$PBES2Parameters::init$();
 }
@@ -51,7 +20,32 @@ PBES2Parameters$General::PBES2Parameters$General() {
 }
 
 $Class* PBES2Parameters$General::load$($String* name, bool initialize) {
-	$loadClass(PBES2Parameters$General, name, initialize, &_PBES2Parameters$General_ClassInfo_, allocate$PBES2Parameters$General);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PBES2Parameters$General, init$, void), "java.security.NoSuchAlgorithmException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.PBES2Parameters$General", "com.sun.crypto.provider.PBES2Parameters", "General", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.PBES2Parameters$General",
+		"com.sun.crypto.provider.PBES2Parameters",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.PBES2Parameters"
+	};
+	$loadClass(PBES2Parameters$General, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PBES2Parameters$General);
+	});
 	return class$;
 }
 

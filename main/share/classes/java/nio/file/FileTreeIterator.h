@@ -31,6 +31,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::file::Path* start, int32_t maxDepth, $Array<::java::nio::file::FileVisitOption>* options);
 	virtual void close() override;
 	void fetchNextIfNeeded();

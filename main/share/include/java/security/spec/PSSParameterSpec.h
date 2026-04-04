@@ -18,6 +18,7 @@ class $import PSSParameterSpec : public ::java::security::spec::AlgorithmParamet
 	$class(PSSParameterSpec, 0, ::java::security::spec::AlgorithmParameterSpec)
 public:
 	PSSParameterSpec();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* mdName, $String* mgfName, ::java::security::spec::AlgorithmParameterSpec* mgfSpec, int32_t saltLen, int32_t trailerField);
 	void init$(int32_t saltLen);

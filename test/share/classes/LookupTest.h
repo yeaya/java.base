@@ -25,6 +25,7 @@ class $export LookupTest : public ::java::lang::Object {
 	$class(LookupTest, 0, ::java::lang::Object)
 public:
 	LookupTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addMappingToHostsFile($String* host, $String* addr, $String* hostsFileName, bool append);
 	static void main($StringArray* args);

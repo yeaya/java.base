@@ -1,5 +1,4 @@
 #include <Fill4BufferedInputStream$Source.h>
-
 #include <Fill4BufferedInputStream.h>
 #include <java/io/InputStream.h>
 #include <jcpp.h>
@@ -13,49 +12,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$FieldInfo _Fill4BufferedInputStream$Source_FieldInfo_[] = {
-	{"shortFall", "I", nullptr, 0, $field(Fill4BufferedInputStream$Source, shortFall)},
-	{"next", "B", nullptr, 0, $field(Fill4BufferedInputStream$Source, next)},
-	{}
-};
-
-$MethodInfo _Fill4BufferedInputStream$Source_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(Fill4BufferedInputStream$Source, init$, void, int32_t)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(Fill4BufferedInputStream$Source, available, int32_t)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Fill4BufferedInputStream$Source, close, void), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(Fill4BufferedInputStream$Source, read, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(Fill4BufferedInputStream$Source, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Fill4BufferedInputStream$Source_InnerClassesInfo_[] = {
-	{"Fill4BufferedInputStream$Source", "Fill4BufferedInputStream", "Source", $STATIC},
-	{}
-};
-
-$ClassInfo _Fill4BufferedInputStream$Source_ClassInfo_ = {
-	$ACC_SUPER,
-	"Fill4BufferedInputStream$Source",
-	"java.io.InputStream",
-	nullptr,
-	_Fill4BufferedInputStream$Source_FieldInfo_,
-	_Fill4BufferedInputStream$Source_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Fill4BufferedInputStream$Source_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Fill4BufferedInputStream"
-};
-
-$Object* allocate$Fill4BufferedInputStream$Source($Class* clazz) {
-	return $of($alloc(Fill4BufferedInputStream$Source));
-}
-
 void Fill4BufferedInputStream$Source::init$(int32_t shortFall) {
 	$InputStream::init$();
-	this->next = (int8_t)0;
+	this->next = 0;
 	this->shortFall = shortFall;
 }
 
@@ -82,7 +41,41 @@ Fill4BufferedInputStream$Source::Fill4BufferedInputStream$Source() {
 }
 
 $Class* Fill4BufferedInputStream$Source::load$($String* name, bool initialize) {
-	$loadClass(Fill4BufferedInputStream$Source, name, initialize, &_Fill4BufferedInputStream$Source_ClassInfo_, allocate$Fill4BufferedInputStream$Source);
+	$FieldInfo fieldInfos$$[] = {
+		{"shortFall", "I", nullptr, 0, $field(Fill4BufferedInputStream$Source, shortFall)},
+		{"next", "B", nullptr, 0, $field(Fill4BufferedInputStream$Source, next)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(Fill4BufferedInputStream$Source, init$, void, int32_t)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(Fill4BufferedInputStream$Source, available, int32_t)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Fill4BufferedInputStream$Source, close, void), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(Fill4BufferedInputStream$Source, read, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(Fill4BufferedInputStream$Source, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Fill4BufferedInputStream$Source", "Fill4BufferedInputStream", "Source", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Fill4BufferedInputStream$Source",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Fill4BufferedInputStream"
+	};
+	$loadClass(Fill4BufferedInputStream$Source, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Fill4BufferedInputStream$Source);
+	});
 	return class$;
 }
 

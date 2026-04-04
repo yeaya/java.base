@@ -1,5 +1,4 @@
 #include <java/lang/ProcessHandleImpl$Info.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/ProcessHandle$Info.h>
 #include <java/lang/ProcessHandleImpl.h>
@@ -24,69 +23,15 @@ using $Optional = ::java::util::Optional;
 namespace java {
 	namespace lang {
 
-$FieldInfo _ProcessHandleImpl$Info_FieldInfo_[] = {
-	{"command", "Ljava/lang/String;", nullptr, 0, $field(ProcessHandleImpl$Info, command$)},
-	{"commandLine", "Ljava/lang/String;", nullptr, 0, $field(ProcessHandleImpl$Info, commandLine$)},
-	{"arguments", "[Ljava/lang/String;", nullptr, 0, $field(ProcessHandleImpl$Info, arguments$)},
-	{"startTime", "J", nullptr, 0, $field(ProcessHandleImpl$Info, startTime)},
-	{"totalTime", "J", nullptr, 0, $field(ProcessHandleImpl$Info, totalTime)},
-	{"user", "Ljava/lang/String;", nullptr, 0, $field(ProcessHandleImpl$Info, user$)},
-	{}
-};
-
-$MethodInfo _ProcessHandleImpl$Info_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ProcessHandleImpl$Info, init$, void)},
-	{"arguments", "()Ljava/util/Optional;", "()Ljava/util/Optional<[Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ProcessHandleImpl$Info, arguments, $Optional*)},
-	{"command", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ProcessHandleImpl$Info, command, $Optional*)},
-	{"commandLine", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ProcessHandleImpl$Info, commandLine, $Optional*)},
-	{"info", "(JJ)Ljava/lang/ProcessHandle$Info;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessHandleImpl$Info, info, $ProcessHandle$Info*, int64_t, int64_t)},
-	{"info0", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(ProcessHandleImpl$Info, info0, void, int64_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ProcessHandleImpl$Info, initIDs, void)},
-	{"startInstant", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Instant;>;", $PUBLIC, $virtualMethod(ProcessHandleImpl$Info, startInstant, $Optional*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessHandleImpl$Info, toString, $String*)},
-	{"totalCpuDuration", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC, $virtualMethod(ProcessHandleImpl$Info, totalCpuDuration, $Optional*)},
-	{"user", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ProcessHandleImpl$Info, user, $Optional*)},
-	{}
-};
-
-#define _METHOD_INDEX_info0 5
-#define _METHOD_INDEX_initIDs 6
-
-$InnerClassInfo _ProcessHandleImpl$Info_InnerClassesInfo_[] = {
-	{"java.lang.ProcessHandleImpl$Info", "java.lang.ProcessHandleImpl", "Info", $STATIC},
-	{"java.lang.ProcessHandle$Info", "java.lang.ProcessHandle", "Info", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ProcessHandleImpl$Info_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.ProcessHandleImpl$Info",
-	"java.lang.Object",
-	"java.lang.ProcessHandle$Info",
-	_ProcessHandleImpl$Info_FieldInfo_,
-	_ProcessHandleImpl$Info_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ProcessHandleImpl$Info_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.ProcessHandleImpl"
-};
-
-$Object* allocate$ProcessHandleImpl$Info($Class* clazz) {
-	return $of($alloc(ProcessHandleImpl$Info));
-}
-
 void ProcessHandleImpl$Info::initIDs() {
 	$init(ProcessHandleImpl$Info);
-	$prepareNativeStatic(ProcessHandleImpl$Info, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void ProcessHandleImpl$Info::info0(int64_t pid) {
-	$prepareNative(ProcessHandleImpl$Info, info0, void, int64_t pid);
+	$prepareNative(info0, void, int64_t pid);
 	$invokeNative(pid);
 	$finishNative();
 }
@@ -119,9 +64,9 @@ $Optional* ProcessHandleImpl$Info::command() {
 }
 
 $Optional* ProcessHandleImpl$Info::commandLine() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->command$ != nullptr && this->arguments$ != nullptr) {
-		return $Optional::of($$str({this->command$, " "_s, $($String::join(static_cast<$CharSequence*>(" "_s), $fcast($CharSequenceArray, this->arguments$)))}));
+		return $Optional::of($$str({this->command$, " "_s, $($String::join(" "_s, $cast($CharSequenceArray, this->arguments$)))}));
 	} else {
 		return $Optional::ofNullable(this->commandLine$);
 	}
@@ -144,12 +89,12 @@ $Optional* ProcessHandleImpl$Info::user() {
 }
 
 $String* ProcessHandleImpl$Info::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder, 60));
 	sb->append(u'[');
 	if (this->user$ != nullptr) {
 		sb->append("user: "_s);
-		sb->append($($of(user())));
+		sb->append($(user()));
 	}
 	if (this->command$ != nullptr) {
 		if (sb->length() != 0) {
@@ -158,7 +103,7 @@ $String* ProcessHandleImpl$Info::toString() {
 		sb->append("cmd: "_s);
 		sb->append(this->command$);
 	}
-	if (this->arguments$ != nullptr && $nc(this->arguments$)->length > 0) {
+	if (this->arguments$ != nullptr && this->arguments$->length > 0) {
 		if (sb->length() != 0) {
 			sb->append(", "_s);
 		}
@@ -177,20 +122,20 @@ $String* ProcessHandleImpl$Info::toString() {
 			sb->append(", "_s);
 		}
 		sb->append("startTime: "_s);
-		sb->append($($of(startInstant())));
+		sb->append($(startInstant()));
 	}
 	if (this->totalTime != -1) {
 		if (sb->length() != 0) {
 			sb->append(", "_s);
 		}
 		sb->append("totalTime: "_s);
-		sb->append($($nc($(totalCpuDuration()))->toString()));
+		sb->append($($$nc(totalCpuDuration())->toString()));
 	}
 	sb->append(u']');
 	return sb->toString();
 }
 
-void clinit$ProcessHandleImpl$Info($Class* class$) {
+void ProcessHandleImpl$Info::clinit$($Class* clazz) {
 	{
 		ProcessHandleImpl$Info::initIDs();
 	}
@@ -200,7 +145,52 @@ ProcessHandleImpl$Info::ProcessHandleImpl$Info() {
 }
 
 $Class* ProcessHandleImpl$Info::load$($String* name, bool initialize) {
-	$loadClass(ProcessHandleImpl$Info, name, initialize, &_ProcessHandleImpl$Info_ClassInfo_, clinit$ProcessHandleImpl$Info, allocate$ProcessHandleImpl$Info);
+	$FieldInfo fieldInfos$$[] = {
+		{"command", "Ljava/lang/String;", nullptr, 0, $field(ProcessHandleImpl$Info, command$)},
+		{"commandLine", "Ljava/lang/String;", nullptr, 0, $field(ProcessHandleImpl$Info, commandLine$)},
+		{"arguments", "[Ljava/lang/String;", nullptr, 0, $field(ProcessHandleImpl$Info, arguments$)},
+		{"startTime", "J", nullptr, 0, $field(ProcessHandleImpl$Info, startTime)},
+		{"totalTime", "J", nullptr, 0, $field(ProcessHandleImpl$Info, totalTime)},
+		{"user", "Ljava/lang/String;", nullptr, 0, $field(ProcessHandleImpl$Info, user$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ProcessHandleImpl$Info, init$, void)},
+		{"arguments", "()Ljava/util/Optional;", "()Ljava/util/Optional<[Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ProcessHandleImpl$Info, arguments, $Optional*)},
+		{"command", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ProcessHandleImpl$Info, command, $Optional*)},
+		{"commandLine", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ProcessHandleImpl$Info, commandLine, $Optional*)},
+		{"info", "(JJ)Ljava/lang/ProcessHandle$Info;", nullptr, $PUBLIC | $STATIC, $staticMethod(ProcessHandleImpl$Info, info, $ProcessHandle$Info*, int64_t, int64_t)},
+		{"info0", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(ProcessHandleImpl$Info, info0, void, int64_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ProcessHandleImpl$Info, initIDs, void)},
+		{"startInstant", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Instant;>;", $PUBLIC, $virtualMethod(ProcessHandleImpl$Info, startInstant, $Optional*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessHandleImpl$Info, toString, $String*)},
+		{"totalCpuDuration", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC, $virtualMethod(ProcessHandleImpl$Info, totalCpuDuration, $Optional*)},
+		{"user", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ProcessHandleImpl$Info, user, $Optional*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ProcessHandleImpl$Info", "java.lang.ProcessHandleImpl", "Info", $STATIC},
+		{"java.lang.ProcessHandle$Info", "java.lang.ProcessHandle", "Info", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.ProcessHandleImpl$Info",
+		"java.lang.Object",
+		"java.lang.ProcessHandle$Info",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.ProcessHandleImpl"
+	};
+	$loadClass(ProcessHandleImpl$Info, name, initialize, &classInfo$$, ProcessHandleImpl$Info::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ProcessHandleImpl$Info);
+	});
 	return class$;
 }
 

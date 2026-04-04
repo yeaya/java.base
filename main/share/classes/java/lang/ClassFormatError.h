@@ -14,10 +14,13 @@ public:
 	ClassFormatError();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x8B25BE211482F575;
+	static const int64_t serialVersionUID = (int64_t)0x8b25be211482f575;
 	ClassFormatError(const ClassFormatError& e);
 	virtual void throw$() override;
-	inline ClassFormatError* operator ->() {
+	inline ClassFormatError* operator ->() const {
+		return (ClassFormatError*)throwing$;
+	}
+	inline operator ClassFormatError*() const {
 		return (ClassFormatError*)throwing$;
 	}
 };

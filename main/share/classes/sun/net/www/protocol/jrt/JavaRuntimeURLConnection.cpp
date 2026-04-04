@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/jrt/JavaRuntimeURLConnection.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/Serializable.h>
@@ -65,93 +64,45 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of($ImageReaderFactory::getImageReader());
+		 return $ImageReaderFactory::getImageReader();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavaRuntimeURLConnection$$Lambda$getImageReader>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavaRuntimeURLConnection$$Lambda$getImageReader::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavaRuntimeURLConnection$$Lambda$getImageReader, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection$$Lambda$getImageReader, run, $Object*)},
-	{}
-};
-$ClassInfo JavaRuntimeURLConnection$$Lambda$getImageReader::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.net.www.protocol.jrt.JavaRuntimeURLConnection$$Lambda$getImageReader",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* JavaRuntimeURLConnection$$Lambda$getImageReader::load$($String* name, bool initialize) {
-	$loadClass(JavaRuntimeURLConnection$$Lambda$getImageReader, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavaRuntimeURLConnection$$Lambda$getImageReader, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection$$Lambda$getImageReader, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.net.www.protocol.jrt.JavaRuntimeURLConnection$$Lambda$getImageReader",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavaRuntimeURLConnection$$Lambda$getImageReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavaRuntimeURLConnection$$Lambda$getImageReader);
+	});
 	return class$;
 }
 $Class* JavaRuntimeURLConnection$$Lambda$getImageReader::class$ = nullptr;
 
-$FieldInfo _JavaRuntimeURLConnection_FieldInfo_[] = {
-	{"reader", "Ljdk/internal/jimage/ImageReader;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavaRuntimeURLConnection, reader)},
-	{"module", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JavaRuntimeURLConnection, module)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JavaRuntimeURLConnection, name)},
-	{"resource", "Ljdk/internal/loader/Resource;", nullptr, $PRIVATE | $VOLATILE, $field(JavaRuntimeURLConnection, resource)},
-	{}
-};
-
-$MethodInfo _JavaRuntimeURLConnection_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;)V", nullptr, 0, $method(JavaRuntimeURLConnection, init$, void, $URL*), "java.io.IOException"},
-	{"connect", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JavaRuntimeURLConnection, connect, void), "java.io.IOException"},
-	{"findResource", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/loader/Resource;", nullptr, $PRIVATE | $STATIC, $staticMethod(JavaRuntimeURLConnection, findResource, $Resource*, $String*, $String*)},
-	{"getContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection, getContentLength, int32_t)},
-	{"getContentLengthLong", "()J", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection, getContentLengthLong, int64_t)},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection, getInputStream, $InputStream*), "java.io.IOException"},
-	{"getPermission", "()Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection, getPermission, $Permission*)},
-	{"toJrtURL", "(Ljava/lang/String;Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(JavaRuntimeURLConnection, toJrtURL, $URL*, $String*, $String*)},
-	{"toJrtURL", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(JavaRuntimeURLConnection, toJrtURL, $URL*, $String*)},
-	{}
-};
-
-$InnerClassInfo _JavaRuntimeURLConnection_InnerClassesInfo_[] = {
-	{"sun.net.www.protocol.jrt.JavaRuntimeURLConnection$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JavaRuntimeURLConnection_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.www.protocol.jrt.JavaRuntimeURLConnection",
-	"sun.net.www.URLConnection",
-	nullptr,
-	_JavaRuntimeURLConnection_FieldInfo_,
-	_JavaRuntimeURLConnection_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavaRuntimeURLConnection_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.net.www.protocol.jrt.JavaRuntimeURLConnection$1"
-};
-
-$Object* allocate$JavaRuntimeURLConnection($Class* clazz) {
-	return $of($alloc(JavaRuntimeURLConnection));
-}
-
 $ImageReader* JavaRuntimeURLConnection::reader = nullptr;
 
 void JavaRuntimeURLConnection::init$($URL* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$URLConnection::init$(url);
 	$var($String, path, $nc(url)->getPath());
 	bool var$0 = $nc(path)->isEmpty();
-	if (var$0 || $nc(path)->charAt(0) != u'/') {
+	if (var$0 || path->charAt(0) != u'/') {
 		$throwNew($MalformedURLException, $$str({url, " missing path or /"_s}));
 	}
-	if ($nc(path)->length() == 1) {
+	if (path->length() == 1) {
 		$set(this, module, nullptr);
 		$set(this, name, nullptr);
 	} else {
-		int32_t pos = path->indexOf((int32_t)u'/', 1);
+		int32_t pos = path->indexOf(u'/', 1);
 		if (pos == -1) {
 			$set(this, module, path->substring(1));
 			$set(this, name, nullptr);
@@ -175,7 +126,7 @@ $Resource* JavaRuntimeURLConnection::findResource($String* module, $String* name
 
 void JavaRuntimeURLConnection::connect() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (!this->connected) {
 			if (this->name == nullptr) {
 				$var($String, s, (this->module == nullptr) ? ""_s : this->module);
@@ -219,7 +170,7 @@ $URL* JavaRuntimeURLConnection::toJrtURL($String* module, $String* name) {
 	try {
 		return $new($URL, $$str({"jrt:/"_s, module, "/"_s, name}));
 	} catch ($MalformedURLException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
@@ -229,12 +180,12 @@ $URL* JavaRuntimeURLConnection::toJrtURL($String* module) {
 	try {
 		return $new($URL, $$str({"jrt:/"_s, module}));
 	} catch ($MalformedURLException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
 
-void clinit$JavaRuntimeURLConnection($Class* class$) {
+void JavaRuntimeURLConnection::clinit$($Class* class$) {
 }
 
 JavaRuntimeURLConnection::JavaRuntimeURLConnection() {
@@ -242,11 +193,50 @@ JavaRuntimeURLConnection::JavaRuntimeURLConnection() {
 
 $Class* JavaRuntimeURLConnection::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JavaRuntimeURLConnection$$Lambda$getImageReader::classInfo$.name)) {
+		if (name->equals("sun.net.www.protocol.jrt.JavaRuntimeURLConnection$$Lambda$getImageReader")) {
 			return JavaRuntimeURLConnection$$Lambda$getImageReader::load$(name, initialize);
 		}
 	}
-	$loadClass(JavaRuntimeURLConnection, name, initialize, &_JavaRuntimeURLConnection_ClassInfo_, clinit$JavaRuntimeURLConnection, allocate$JavaRuntimeURLConnection);
+	$FieldInfo fieldInfos$$[] = {
+		{"reader", "Ljdk/internal/jimage/ImageReader;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JavaRuntimeURLConnection, reader)},
+		{"module", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JavaRuntimeURLConnection, module)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(JavaRuntimeURLConnection, name)},
+		{"resource", "Ljdk/internal/loader/Resource;", nullptr, $PRIVATE | $VOLATILE, $field(JavaRuntimeURLConnection, resource)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/URL;)V", nullptr, 0, $method(JavaRuntimeURLConnection, init$, void, $URL*), "java.io.IOException"},
+		{"connect", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JavaRuntimeURLConnection, connect, void), "java.io.IOException"},
+		{"findResource", "(Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/loader/Resource;", nullptr, $PRIVATE | $STATIC, $staticMethod(JavaRuntimeURLConnection, findResource, $Resource*, $String*, $String*)},
+		{"getContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection, getContentLength, int32_t)},
+		{"getContentLengthLong", "()J", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection, getContentLengthLong, int64_t)},
+		{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection, getInputStream, $InputStream*), "java.io.IOException"},
+		{"getPermission", "()Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(JavaRuntimeURLConnection, getPermission, $Permission*)},
+		{"toJrtURL", "(Ljava/lang/String;Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(JavaRuntimeURLConnection, toJrtURL, $URL*, $String*, $String*)},
+		{"toJrtURL", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(JavaRuntimeURLConnection, toJrtURL, $URL*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.www.protocol.jrt.JavaRuntimeURLConnection$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.www.protocol.jrt.JavaRuntimeURLConnection",
+		"sun.net.www.URLConnection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.net.www.protocol.jrt.JavaRuntimeURLConnection$1"
+	};
+	$loadClass(JavaRuntimeURLConnection, name, initialize, &classInfo$$, JavaRuntimeURLConnection::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JavaRuntimeURLConnection);
+	});
 	return class$;
 }
 

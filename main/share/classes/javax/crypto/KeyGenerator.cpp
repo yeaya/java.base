@@ -1,5 +1,4 @@
 #include <javax/crypto/KeyGenerator.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/NoSuchAlgorithmException.h>
@@ -36,7 +35,6 @@ using $Provider = ::java::security::Provider;
 using $Provider$Service = ::java::security::Provider$Service;
 using $SecureRandom = ::java::security::SecureRandom;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
-using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $JceSecurity = ::javax::crypto::JceSecurity;
@@ -50,74 +48,22 @@ using $Debug = ::sun::security::util::Debug;
 namespace javax {
 	namespace crypto {
 
-$FieldInfo _KeyGenerator_FieldInfo_[] = {
-	{"pdebug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyGenerator, pdebug)},
-	{"skipDebug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyGenerator, skipDebug)},
-	{"I_NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KeyGenerator, I_NONE)},
-	{"I_RANDOM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KeyGenerator, I_RANDOM)},
-	{"I_PARAMS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KeyGenerator, I_PARAMS)},
-	{"I_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KeyGenerator, I_SIZE)},
-	{"provider", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(KeyGenerator, provider)},
-	{"spi", "Ljavax/crypto/KeyGeneratorSpi;", nullptr, $PRIVATE | $VOLATILE, $field(KeyGenerator, spi)},
-	{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(KeyGenerator, algorithm)},
-	{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(KeyGenerator, lock)},
-	{"serviceIterator", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/security/Provider$Service;>;", $PRIVATE, $field(KeyGenerator, serviceIterator)},
-	{"initType", "I", nullptr, $PRIVATE, $field(KeyGenerator, initType)},
-	{"initKeySize", "I", nullptr, $PRIVATE, $field(KeyGenerator, initKeySize)},
-	{"initParams", "Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PRIVATE, $field(KeyGenerator, initParams)},
-	{"initRandom", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(KeyGenerator, initRandom)},
-	{}
-};
-
-$MethodInfo _KeyGenerator_MethodInfo_[] = {
-	{"<init>", "(Ljavax/crypto/KeyGeneratorSpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(KeyGenerator, init$, void, $KeyGeneratorSpi*, $Provider*, $String*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(KeyGenerator, init$, void, $String*), "java.security.NoSuchAlgorithmException"},
-	{"disableFailover", "()V", nullptr, 0, $virtualMethod(KeyGenerator, disableFailover, void)},
-	{"generateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC | $FINAL, $method(KeyGenerator, generateKey, $SecretKey*)},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(KeyGenerator, getAlgorithm, $String*)},
-	{"getInstance", "(Ljava/lang/String;)Ljavax/crypto/KeyGenerator;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyGenerator, getInstance, KeyGenerator*, $String*), "java.security.NoSuchAlgorithmException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/crypto/KeyGenerator;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyGenerator, getInstance, KeyGenerator*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljavax/crypto/KeyGenerator;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyGenerator, getInstance, KeyGenerator*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(KeyGenerator, getProvider, $Provider*)},
-	{"getProviderName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(KeyGenerator, getProviderName, $String*)},
-	{"init", "(Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $FINAL, $method(KeyGenerator, init, void, $SecureRandom*)},
-	{"init", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC | $FINAL, $method(KeyGenerator, init, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"init", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $FINAL, $method(KeyGenerator, init, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
-	{"init", "(I)V", nullptr, $PUBLIC | $FINAL, $method(KeyGenerator, init, void, int32_t)},
-	{"init", "(ILjava/security/SecureRandom;)V", nullptr, $PUBLIC | $FINAL, $method(KeyGenerator, init, void, int32_t, $SecureRandom*)},
-	{"nextSpi", "(Ljavax/crypto/KeyGeneratorSpi;Z)Ljavax/crypto/KeyGeneratorSpi;", nullptr, $PRIVATE, $method(KeyGenerator, nextSpi, $KeyGeneratorSpi*, $KeyGeneratorSpi*, bool)},
-	{}
-};
-
-$ClassInfo _KeyGenerator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.crypto.KeyGenerator",
-	"java.lang.Object",
-	nullptr,
-	_KeyGenerator_FieldInfo_,
-	_KeyGenerator_MethodInfo_
-};
-
-$Object* allocate$KeyGenerator($Class* clazz) {
-	return $of($alloc(KeyGenerator));
-}
-
 $Debug* KeyGenerator::pdebug = nullptr;
 bool KeyGenerator::skipDebug = false;
 
 void KeyGenerator::init$($KeyGeneratorSpi* keyGenSpi, $Provider* provider, $String* algorithm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, lock, $new($Object));
 	$set(this, spi, keyGenSpi);
 	$set(this, provider, provider);
 	$set(this, algorithm, algorithm);
 	if (!KeyGenerator::skipDebug && KeyGenerator::pdebug != nullptr) {
-		$nc(KeyGenerator::pdebug)->println($$str({"KeyGenerator."_s, algorithm, " algorithm from: "_s, $(getProviderName())}));
+		KeyGenerator::pdebug->println($$str({"KeyGenerator."_s, algorithm, " algorithm from: "_s, $(getProviderName())}));
 	}
 }
 
 void KeyGenerator::init$($String* algorithm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, lock, $new($Object));
 	$set(this, algorithm, algorithm);
 	$var($List, list, $GetInstance::getServices("KeyGenerator"_s, algorithm));
@@ -127,12 +73,12 @@ void KeyGenerator::init$($String* algorithm) {
 		$throwNew($NoSuchAlgorithmException, $$str({algorithm, " KeyGenerator not available"_s}));
 	}
 	if (!KeyGenerator::skipDebug && KeyGenerator::pdebug != nullptr) {
-		$nc(KeyGenerator::pdebug)->println($$str({"KeyGenerator."_s, algorithm, " algorithm from: "_s, $(getProviderName())}));
+		KeyGenerator::pdebug->println($$str({"KeyGenerator."_s, algorithm, " algorithm from: "_s, $(getProviderName())}));
 	}
 }
 
 $String* KeyGenerator::getProviderName() {
-	return (this->provider == nullptr) ? "(no provider)"_s : $nc(this->provider)->getName();
+	return (this->provider == nullptr) ? "(no provider)"_s : this->provider->getName();
 }
 
 $String* KeyGenerator::getAlgorithm() {
@@ -141,24 +87,24 @@ $String* KeyGenerator::getAlgorithm() {
 
 KeyGenerator* KeyGenerator::getInstance($String* algorithm) {
 	$init(KeyGenerator);
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
 	return $new(KeyGenerator, algorithm);
 }
 
 KeyGenerator* KeyGenerator::getInstance($String* algorithm, $String* provider) {
 	$init(KeyGenerator);
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
 	$load($KeyGeneratorSpi);
 	$var($GetInstance$Instance, instance, $JceSecurity::getInstance("KeyGenerator"_s, $KeyGeneratorSpi::class$, algorithm, provider));
-	return $new(KeyGenerator, $cast($KeyGeneratorSpi, $nc(instance)->impl), instance->provider, algorithm);
+	return $new(KeyGenerator, $cast($KeyGeneratorSpi, $nc(instance)->impl), $nc(instance)->provider, algorithm);
 }
 
 KeyGenerator* KeyGenerator::getInstance($String* algorithm, $Provider* provider) {
 	$init(KeyGenerator);
-	$Objects::requireNonNull($of(algorithm), "null algorithm name"_s);
+	$Objects::requireNonNull(algorithm, "null algorithm name"_s);
 	$load($KeyGeneratorSpi);
 	$var($GetInstance$Instance, instance, $JceSecurity::getInstance("KeyGenerator"_s, $KeyGeneratorSpi::class$, algorithm, provider));
-	return $new(KeyGenerator, $cast($KeyGeneratorSpi, $nc(instance)->impl), instance->provider, algorithm);
+	return $new(KeyGenerator, $cast($KeyGeneratorSpi, $nc(instance)->impl), $nc(instance)->provider, algorithm);
 }
 
 $Provider* KeyGenerator::getProvider() {
@@ -169,7 +115,7 @@ $Provider* KeyGenerator::getProvider() {
 }
 
 $KeyGeneratorSpi* KeyGenerator::nextSpi($KeyGeneratorSpi* oldSpi, bool reinit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->lock) {
 		if ((oldSpi != nullptr) && (oldSpi != this->spi)) {
 			return this->spi;
@@ -178,12 +124,12 @@ $KeyGeneratorSpi* KeyGenerator::nextSpi($KeyGeneratorSpi* oldSpi, bool reinit) {
 			return nullptr;
 		}
 		while ($nc(this->serviceIterator)->hasNext()) {
-			$var($Provider$Service, s, $cast($Provider$Service, $nc(this->serviceIterator)->next()));
+			$var($Provider$Service, s, $cast($Provider$Service, this->serviceIterator->next()));
 			if ($JceSecurity::canUseProvider($($nc(s)->getProvider())) == false) {
 				continue;
 			}
 			try {
-				$var($Object, inst, $nc(s)->newInstance(nullptr));
+				$var($Object, inst, s->newInstance(nullptr));
 				if ($instanceOf($KeyGeneratorSpi, inst) == false) {
 					continue;
 				}
@@ -196,7 +142,7 @@ $KeyGeneratorSpi* KeyGenerator::nextSpi($KeyGeneratorSpi* oldSpi, bool reinit) {
 					} else if (this->initType == KeyGenerator::I_RANDOM) {
 						$nc(spi)->engineInit(this->initRandom);
 					} else if (this->initType != KeyGenerator::I_NONE) {
-						$throwNew($AssertionError, $of($$str({"KeyGenerator initType: "_s, $$str(this->initType)})));
+						$throwNew($AssertionError, $$of($str({"KeyGenerator initType: "_s, $$str(this->initType)})));
 					}
 				}
 				$set(this, provider, s->getProvider());
@@ -218,7 +164,7 @@ void KeyGenerator::disableFailover() {
 }
 
 void KeyGenerator::init($SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->serviceIterator == nullptr) {
 		$nc(this->spi)->engineInit(random);
 		return;
@@ -248,7 +194,7 @@ void KeyGenerator::init($AlgorithmParameterSpec* params) {
 }
 
 void KeyGenerator::init($AlgorithmParameterSpec* params, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->serviceIterator == nullptr) {
 		$nc(this->spi)->engineInit(params, random);
 		return;
@@ -284,7 +230,7 @@ void KeyGenerator::init(int32_t keysize) {
 }
 
 void KeyGenerator::init(int32_t keysize, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->serviceIterator == nullptr) {
 		$nc(this->spi)->engineInit(keysize, random);
 		return;
@@ -310,7 +256,7 @@ void KeyGenerator::init(int32_t keysize, $SecureRandom* random) {
 }
 
 $SecretKey* KeyGenerator::generateKey() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->serviceIterator == nullptr) {
 		return $nc(this->spi)->engineGenerateKey();
 	}
@@ -330,7 +276,7 @@ $SecretKey* KeyGenerator::generateKey() {
 	$shouldNotReachHere();
 }
 
-void clinit$KeyGenerator($Class* class$) {
+void KeyGenerator::clinit$($Class* clazz) {
 	$assignStatic(KeyGenerator::pdebug, $Debug::getInstance("provider"_s, "Provider"_s));
 	bool var$0 = $Debug::isOn("engine="_s);
 	KeyGenerator::skipDebug = var$0 && !$Debug::isOn("keygenerator"_s);
@@ -340,7 +286,54 @@ KeyGenerator::KeyGenerator() {
 }
 
 $Class* KeyGenerator::load$($String* name, bool initialize) {
-	$loadClass(KeyGenerator, name, initialize, &_KeyGenerator_ClassInfo_, clinit$KeyGenerator, allocate$KeyGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"pdebug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyGenerator, pdebug)},
+		{"skipDebug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyGenerator, skipDebug)},
+		{"I_NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KeyGenerator, I_NONE)},
+		{"I_RANDOM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KeyGenerator, I_RANDOM)},
+		{"I_PARAMS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KeyGenerator, I_PARAMS)},
+		{"I_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KeyGenerator, I_SIZE)},
+		{"provider", "Ljava/security/Provider;", nullptr, $PRIVATE, $field(KeyGenerator, provider)},
+		{"spi", "Ljavax/crypto/KeyGeneratorSpi;", nullptr, $PRIVATE | $VOLATILE, $field(KeyGenerator, spi)},
+		{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(KeyGenerator, algorithm)},
+		{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(KeyGenerator, lock)},
+		{"serviceIterator", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/security/Provider$Service;>;", $PRIVATE, $field(KeyGenerator, serviceIterator)},
+		{"initType", "I", nullptr, $PRIVATE, $field(KeyGenerator, initType)},
+		{"initKeySize", "I", nullptr, $PRIVATE, $field(KeyGenerator, initKeySize)},
+		{"initParams", "Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PRIVATE, $field(KeyGenerator, initParams)},
+		{"initRandom", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(KeyGenerator, initRandom)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/crypto/KeyGeneratorSpi;Ljava/security/Provider;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(KeyGenerator, init$, void, $KeyGeneratorSpi*, $Provider*, $String*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(KeyGenerator, init$, void, $String*), "java.security.NoSuchAlgorithmException"},
+		{"disableFailover", "()V", nullptr, 0, $virtualMethod(KeyGenerator, disableFailover, void)},
+		{"generateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC | $FINAL, $method(KeyGenerator, generateKey, $SecretKey*)},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(KeyGenerator, getAlgorithm, $String*)},
+		{"getInstance", "(Ljava/lang/String;)Ljavax/crypto/KeyGenerator;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyGenerator, getInstance, KeyGenerator*, $String*), "java.security.NoSuchAlgorithmException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/String;)Ljavax/crypto/KeyGenerator;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyGenerator, getInstance, KeyGenerator*, $String*, $String*), "java.security.NoSuchAlgorithmException,java.security.NoSuchProviderException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/security/Provider;)Ljavax/crypto/KeyGenerator;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(KeyGenerator, getInstance, KeyGenerator*, $String*, $Provider*), "java.security.NoSuchAlgorithmException"},
+		{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(KeyGenerator, getProvider, $Provider*)},
+		{"getProviderName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(KeyGenerator, getProviderName, $String*)},
+		{"init", "(Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $FINAL, $method(KeyGenerator, init, void, $SecureRandom*)},
+		{"init", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC | $FINAL, $method(KeyGenerator, init, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"init", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PUBLIC | $FINAL, $method(KeyGenerator, init, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
+		{"init", "(I)V", nullptr, $PUBLIC | $FINAL, $method(KeyGenerator, init, void, int32_t)},
+		{"init", "(ILjava/security/SecureRandom;)V", nullptr, $PUBLIC | $FINAL, $method(KeyGenerator, init, void, int32_t, $SecureRandom*)},
+		{"nextSpi", "(Ljavax/crypto/KeyGeneratorSpi;Z)Ljavax/crypto/KeyGeneratorSpi;", nullptr, $PRIVATE, $method(KeyGenerator, nextSpi, $KeyGeneratorSpi*, $KeyGeneratorSpi*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.crypto.KeyGenerator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KeyGenerator, name, initialize, &classInfo$$, KeyGenerator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyGenerator);
+	});
 	return class$;
 }
 

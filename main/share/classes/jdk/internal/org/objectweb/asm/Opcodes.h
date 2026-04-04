@@ -463,6 +463,7 @@ namespace jdk {
 class $export Opcodes : public ::java::lang::Object {
 	$interface(Opcodes, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	static const int32_t ASM4 = 262144; // 4 << 16 | 0 << 8
 	static const int32_t ASM5 = 327680; // 5 << 16 | 0 << 8
 	static const int32_t ASM6 = 393216; // 6 << 16 | 0 << 8
@@ -488,7 +489,7 @@ public:
 	static const int32_t V15 = 59; // 0 << 16 | 59
 	static const int32_t V16 = 60; // 0 << 16 | 60
 	static const int32_t V17 = 61; // 0 << 16 | 61
-	static const int32_t V_PREVIEW = 0xFFFF0000;
+	static const int32_t V_PREVIEW = 0xffff0000;
 	static const int32_t ACC_PUBLIC = 1;
 	static const int32_t ACC_PRIVATE = 2;
 	static const int32_t ACC_PROTECTED = 4;

@@ -1,5 +1,4 @@
 #include <java/util/zip/ZipFile$ZipFileInputStream.h>
-
 #include <java/io/InputStream.h>
 #include <java/util/Set.h>
 #include <java/util/zip/ZipException.h>
@@ -17,63 +16,13 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Set = ::java::util::Set;
 using $ZipException = ::java::util::zip::ZipException;
 using $ZipFile = ::java::util::zip::ZipFile;
-using $ZipFile$Source = ::java::util::zip::ZipFile$Source;
 using $ZipUtils = ::java::util::zip::ZipUtils;
 
 namespace java {
 	namespace util {
 		namespace zip {
-
-$FieldInfo _ZipFile$ZipFileInputStream_FieldInfo_[] = {
-	{"this$0", "Ljava/util/zip/ZipFile;", nullptr, $FINAL | $SYNTHETIC, $field(ZipFile$ZipFileInputStream, this$0)},
-	{"closeRequested", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ZipFile$ZipFileInputStream, closeRequested)},
-	{"pos", "J", nullptr, $PRIVATE, $field(ZipFile$ZipFileInputStream, pos)},
-	{"startingPos", "J", nullptr, $PRIVATE, $field(ZipFile$ZipFileInputStream, startingPos)},
-	{"rem", "J", nullptr, $PROTECTED, $field(ZipFile$ZipFileInputStream, rem)},
-	{"size", "J", nullptr, $PROTECTED, $field(ZipFile$ZipFileInputStream, size$)},
-	{}
-};
-
-$MethodInfo _ZipFile$ZipFileInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/zip/ZipFile;[BI)V", nullptr, 0, $method(ZipFile$ZipFileInputStream, init$, void, $ZipFile*, $bytes*, int32_t)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ZipFile$ZipFileInputStream, available, int32_t)},
-	{"checkZIP64", "([BI)V", nullptr, $PRIVATE, $method(ZipFile$ZipFileInputStream, checkZIP64, void, $bytes*, int32_t)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ZipFile$ZipFileInputStream, close, void)},
-	{"initDataOffset", "()J", nullptr, $PRIVATE, $method(ZipFile$ZipFileInputStream, initDataOffset, int64_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ZipFile$ZipFileInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ZipFile$ZipFileInputStream, read, int32_t), "java.io.IOException"},
-	{"size", "()J", nullptr, $PUBLIC, $virtualMethod(ZipFile$ZipFileInputStream, size, int64_t)},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(ZipFile$ZipFileInputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ZipFile$ZipFileInputStream_InnerClassesInfo_[] = {
-	{"java.util.zip.ZipFile$ZipFileInputStream", "java.util.zip.ZipFile", "ZipFileInputStream", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ZipFile$ZipFileInputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.zip.ZipFile$ZipFileInputStream",
-	"java.io.InputStream",
-	nullptr,
-	_ZipFile$ZipFileInputStream_FieldInfo_,
-	_ZipFile$ZipFileInputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ZipFile$ZipFileInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.zip.ZipFile"
-};
-
-$Object* allocate$ZipFile$ZipFileInputStream($Class* clazz) {
-	return $of($alloc(ZipFile$ZipFileInputStream));
-}
 
 void ZipFile$ZipFileInputStream::init$($ZipFile* this$0, $bytes* cen, int32_t cenpos) {
 	$set(this, this$0, this$0);
@@ -81,7 +30,7 @@ void ZipFile$ZipFileInputStream::init$($ZipFile* this$0, $bytes* cen, int32_t ce
 	this->rem = $ZipUtils::CENSIZ(cen, cenpos);
 	this->size$ = $ZipUtils::CENLEN(cen, cenpos);
 	this->pos = $ZipUtils::CENOFF(cen, cenpos);
-	if (this->rem == (int64_t)0x00000000FFFFFFFF || this->size$ == (int64_t)0x00000000FFFFFFFF || this->pos == (int64_t)0x00000000FFFFFFFF) {
+	if (this->rem == (int64_t)0x00000000ffffffff || this->size$ == (int64_t)0x00000000ffffffff || this->pos == (int64_t)0x00000000ffffffff) {
 		checkZIP64(cen, cenpos);
 	}
 	this->pos = -(this->pos + $nc($nc(this$0->res)->zsrc)->locpos);
@@ -98,7 +47,7 @@ void ZipFile$ZipFileInputStream::checkZIP64($bytes* cen, int32_t cenpos) {
 			break;
 		}
 		if (tag == 1) {
-			if (this->size$ == (int64_t)0x00000000FFFFFFFF) {
+			if (this->size$ == (int64_t)0x00000000ffffffff) {
 				if (sz < 8 || (off + 8) > end) {
 					break;
 				}
@@ -106,7 +55,7 @@ void ZipFile$ZipFileInputStream::checkZIP64($bytes* cen, int32_t cenpos) {
 				sz -= 8;
 				off += 8;
 			}
-			if (this->rem == (int64_t)0x00000000FFFFFFFF) {
+			if (this->rem == (int64_t)0x00000000ffffffff) {
 				if (sz < 8 || (off + 8) > end) {
 					break;
 				}
@@ -114,7 +63,7 @@ void ZipFile$ZipFileInputStream::checkZIP64($bytes* cen, int32_t cenpos) {
 				sz -= 8;
 				off += 8;
 			}
-			if (this->pos == (int64_t)0x00000000FFFFFFFF) {
+			if (this->pos == (int64_t)0x00000000ffffffff) {
 				if (sz < 8 || (off + 8) > end) {
 					break;
 				}
@@ -136,7 +85,7 @@ int64_t ZipFile$ZipFileInputStream::initDataOffset() {
 		if (len != 30) {
 			$throwNew($ZipException, "ZipFile error reading zip file"_s);
 		}
-		if ($ZipUtils::LOCSIG(loc) != (int64_t)67324752) {
+		if ($ZipUtils::LOCSIG(loc) != 67324752) {
 			$throwNew($ZipException, "ZipFile invalid LOC header (bad signature)"_s);
 		}
 		int32_t var$0 = 30 + $ZipUtils::LOCNAM(loc);
@@ -174,7 +123,7 @@ int32_t ZipFile$ZipFileInputStream::read($bytes* b, int32_t off, int32_t len) {
 int32_t ZipFile$ZipFileInputStream::read() {
 	$var($bytes, b, $new($bytes, 1));
 	if (read(b, 0, 1) == 1) {
-		return (int32_t)(b->get(0) & (uint32_t)255);
+		return b->get(0) & 0xff;
 	} else {
 		return -1;
 	}
@@ -215,7 +164,7 @@ void ZipFile$ZipFileInputStream::close() {
 	this->closeRequested = true;
 	this->rem = 0;
 	$synchronized($nc(this->this$0->res)->istreams) {
-		$nc($nc(this->this$0->res)->istreams)->remove(this);
+		this->this$0->res->istreams->remove(this);
 	}
 }
 
@@ -223,7 +172,49 @@ ZipFile$ZipFileInputStream::ZipFile$ZipFileInputStream() {
 }
 
 $Class* ZipFile$ZipFileInputStream::load$($String* name, bool initialize) {
-	$loadClass(ZipFile$ZipFileInputStream, name, initialize, &_ZipFile$ZipFileInputStream_ClassInfo_, allocate$ZipFile$ZipFileInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/zip/ZipFile;", nullptr, $FINAL | $SYNTHETIC, $field(ZipFile$ZipFileInputStream, this$0)},
+		{"closeRequested", "Z", nullptr, $PRIVATE | $VOLATILE, $field(ZipFile$ZipFileInputStream, closeRequested)},
+		{"pos", "J", nullptr, $PRIVATE, $field(ZipFile$ZipFileInputStream, pos)},
+		{"startingPos", "J", nullptr, $PRIVATE, $field(ZipFile$ZipFileInputStream, startingPos)},
+		{"rem", "J", nullptr, $PROTECTED, $field(ZipFile$ZipFileInputStream, rem)},
+		{"size", "J", nullptr, $PROTECTED, $field(ZipFile$ZipFileInputStream, size$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/zip/ZipFile;[BI)V", nullptr, 0, $method(ZipFile$ZipFileInputStream, init$, void, $ZipFile*, $bytes*, int32_t)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ZipFile$ZipFileInputStream, available, int32_t)},
+		{"checkZIP64", "([BI)V", nullptr, $PRIVATE, $method(ZipFile$ZipFileInputStream, checkZIP64, void, $bytes*, int32_t)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ZipFile$ZipFileInputStream, close, void)},
+		{"initDataOffset", "()J", nullptr, $PRIVATE, $method(ZipFile$ZipFileInputStream, initDataOffset, int64_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ZipFile$ZipFileInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ZipFile$ZipFileInputStream, read, int32_t), "java.io.IOException"},
+		{"size", "()J", nullptr, $PUBLIC, $virtualMethod(ZipFile$ZipFileInputStream, size, int64_t)},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(ZipFile$ZipFileInputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.zip.ZipFile$ZipFileInputStream", "java.util.zip.ZipFile", "ZipFileInputStream", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.zip.ZipFile$ZipFileInputStream",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.zip.ZipFile"
+	};
+	$loadClass(ZipFile$ZipFileInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ZipFile$ZipFileInputStream);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/provider/AbstractDrbg$SeederHolder.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -9,7 +8,6 @@
 #include <java/security/DrbgParameters$Capability.h>
 #include <java/security/DrbgParameters$Instantiation.h>
 #include <java/security/DrbgParameters.h>
-#include <java/security/SecureRandomParameters.h>
 #include <sun/security/provider/AbstractDrbg.h>
 #include <sun/security/provider/EntropySource.h>
 #include <sun/security/provider/HashDrbg.h>
@@ -28,7 +26,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $DrbgParameters = ::java::security::DrbgParameters;
 using $DrbgParameters$Capability = ::java::security::DrbgParameters$Capability;
-using $SecureRandomParameters = ::java::security::SecureRandomParameters;
 using $AbstractDrbg = ::sun::security::provider::AbstractDrbg;
 using $EntropySource = ::sun::security::provider::EntropySource;
 using $HashDrbg = ::sun::security::provider::HashDrbg;
@@ -48,73 +45,32 @@ public:
 	virtual $bytes* getEntropy(int32_t entropy, int32_t minLen, int32_t maxLen, bool pr) override {
 		 return AbstractDrbg$SeederHolder::lambda$static$0(first, entropy, minLen, maxLen, pr);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AbstractDrbg$SeederHolder$$Lambda$lambda$static$0>());
-	}
 	$HashDrbg* first = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo AbstractDrbg$SeederHolder$$Lambda$lambda$static$0::fieldInfos[2] = {
-	{"first", "Lsun/security/provider/HashDrbg;", nullptr, $PUBLIC, $field(AbstractDrbg$SeederHolder$$Lambda$lambda$static$0, first)},
-	{}
-};
-$MethodInfo AbstractDrbg$SeederHolder$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "(Lsun/security/provider/HashDrbg;)V", nullptr, $PUBLIC, $method(AbstractDrbg$SeederHolder$$Lambda$lambda$static$0, init$, void, $HashDrbg*)},
-	{"getEntropy", "(IIIZ)[B", nullptr, $PUBLIC, $virtualMethod(AbstractDrbg$SeederHolder$$Lambda$lambda$static$0, getEntropy, $bytes*, int32_t, int32_t, int32_t, bool)},
-	{}
-};
-$ClassInfo AbstractDrbg$SeederHolder$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.security.provider.AbstractDrbg$SeederHolder$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"sun.security.provider.EntropySource",
-	fieldInfos,
-	methodInfos
 };
 $Class* AbstractDrbg$SeederHolder$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(AbstractDrbg$SeederHolder$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"first", "Lsun/security/provider/HashDrbg;", nullptr, $PUBLIC, $field(AbstractDrbg$SeederHolder$$Lambda$lambda$static$0, first)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/provider/HashDrbg;)V", nullptr, $PUBLIC, $method(AbstractDrbg$SeederHolder$$Lambda$lambda$static$0, init$, void, $HashDrbg*)},
+		{"getEntropy", "(IIIZ)[B", nullptr, $PUBLIC, $virtualMethod(AbstractDrbg$SeederHolder$$Lambda$lambda$static$0, getEntropy, $bytes*, int32_t, int32_t, int32_t, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.security.provider.AbstractDrbg$SeederHolder$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"sun.security.provider.EntropySource",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractDrbg$SeederHolder$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractDrbg$SeederHolder$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* AbstractDrbg$SeederHolder$$Lambda$lambda$static$0::class$ = nullptr;
-
-$FieldInfo _AbstractDrbg$SeederHolder_FieldInfo_[] = {
-	{"prseeder", "Lsun/security/provider/EntropySource;", nullptr, $STATIC | $FINAL, $staticField(AbstractDrbg$SeederHolder, prseeder)},
-	{"seeder", "Lsun/security/provider/EntropySource;", nullptr, $STATIC | $FINAL, $staticField(AbstractDrbg$SeederHolder, seeder)},
-	{}
-};
-
-$MethodInfo _AbstractDrbg$SeederHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(AbstractDrbg$SeederHolder, init$, void)},
-	{"lambda$static$0", "(Lsun/security/provider/HashDrbg;IIIZ)[B", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AbstractDrbg$SeederHolder, lambda$static$0, $bytes*, $HashDrbg*, int32_t, int32_t, int32_t, bool)},
-	{}
-};
-
-$InnerClassInfo _AbstractDrbg$SeederHolder_InnerClassesInfo_[] = {
-	{"sun.security.provider.AbstractDrbg$SeederHolder", "sun.security.provider.AbstractDrbg", "SeederHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AbstractDrbg$SeederHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.provider.AbstractDrbg$SeederHolder",
-	"java.lang.Object",
-	nullptr,
-	_AbstractDrbg$SeederHolder_FieldInfo_,
-	_AbstractDrbg$SeederHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractDrbg$SeederHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.AbstractDrbg"
-};
-
-$Object* allocate$AbstractDrbg$SeederHolder($Class* clazz) {
-	return $of($alloc(AbstractDrbg$SeederHolder));
-}
 
 $EntropySource* AbstractDrbg$SeederHolder::prseeder = nullptr;
 $EntropySource* AbstractDrbg$SeederHolder::seeder = nullptr;
@@ -132,14 +88,14 @@ $bytes* AbstractDrbg$SeederHolder::lambda$static$0($HashDrbg* first, int32_t ent
 	return result;
 }
 
-void clinit$AbstractDrbg$SeederHolder($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void AbstractDrbg$SeederHolder::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$init($AbstractDrbg);
 		$assignStatic(AbstractDrbg$SeederHolder::prseeder, $AbstractDrbg::defaultES);
 		$init($DrbgParameters$Capability);
 		$var($HashDrbg, first, $new($HashDrbg, $$new($MoreDrbgParameters, AbstractDrbg$SeederHolder::prseeder, nullptr, "SHA-256"_s, nullptr, false, $($DrbgParameters::instantiation(256, $DrbgParameters$Capability::NONE, $($SeedGenerator::getSystemEntropy()))))));
-		$assignStatic(AbstractDrbg$SeederHolder::seeder, static_cast<$EntropySource*>($new(AbstractDrbg$SeederHolder$$Lambda$lambda$static$0, first)));
+		$assignStatic(AbstractDrbg$SeederHolder::seeder, $new(AbstractDrbg$SeederHolder$$Lambda$lambda$static$0, first));
 	}
 }
 
@@ -148,11 +104,42 @@ AbstractDrbg$SeederHolder::AbstractDrbg$SeederHolder() {
 
 $Class* AbstractDrbg$SeederHolder::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(AbstractDrbg$SeederHolder$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("sun.security.provider.AbstractDrbg$SeederHolder$$Lambda$lambda$static$0")) {
 			return AbstractDrbg$SeederHolder$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(AbstractDrbg$SeederHolder, name, initialize, &_AbstractDrbg$SeederHolder_ClassInfo_, clinit$AbstractDrbg$SeederHolder, allocate$AbstractDrbg$SeederHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"prseeder", "Lsun/security/provider/EntropySource;", nullptr, $STATIC | $FINAL, $staticField(AbstractDrbg$SeederHolder, prseeder)},
+		{"seeder", "Lsun/security/provider/EntropySource;", nullptr, $STATIC | $FINAL, $staticField(AbstractDrbg$SeederHolder, seeder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(AbstractDrbg$SeederHolder, init$, void)},
+		{"lambda$static$0", "(Lsun/security/provider/HashDrbg;IIIZ)[B", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AbstractDrbg$SeederHolder, lambda$static$0, $bytes*, $HashDrbg*, int32_t, int32_t, int32_t, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.AbstractDrbg$SeederHolder", "sun.security.provider.AbstractDrbg", "SeederHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.provider.AbstractDrbg$SeederHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.AbstractDrbg"
+	};
+	$loadClass(AbstractDrbg$SeederHolder, name, initialize, &classInfo$$, AbstractDrbg$SeederHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractDrbg$SeederHolder);
+	});
 	return class$;
 }
 

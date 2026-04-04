@@ -1,5 +1,4 @@
 #include <java/net/SocketTimeoutException.h>
-
 #include <java/io/InterruptedIOException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace net {
-
-$FieldInfo _SocketTimeoutException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SocketTimeoutException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SocketTimeoutException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SocketTimeoutException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SocketTimeoutException, init$, void)},
-	{}
-};
-
-$ClassInfo _SocketTimeoutException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.net.SocketTimeoutException",
-	"java.io.InterruptedIOException",
-	nullptr,
-	_SocketTimeoutException_FieldInfo_,
-	_SocketTimeoutException_MethodInfo_
-};
-
-$Object* allocate$SocketTimeoutException($Class* clazz) {
-	return $of($alloc(SocketTimeoutException));
-}
 
 void SocketTimeoutException::init$($String* msg) {
 	$InterruptedIOException::init$(msg);
@@ -54,7 +29,26 @@ void SocketTimeoutException::throw$() {
 }
 
 $Class* SocketTimeoutException::load$($String* name, bool initialize) {
-	$loadClass(SocketTimeoutException, name, initialize, &_SocketTimeoutException_ClassInfo_, allocate$SocketTimeoutException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SocketTimeoutException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SocketTimeoutException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SocketTimeoutException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.net.SocketTimeoutException",
+		"java.io.InterruptedIOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SocketTimeoutException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketTimeoutException);
+	});
 	return class$;
 }
 

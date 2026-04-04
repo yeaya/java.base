@@ -1,31 +1,10 @@
 #include <Available.h>
-
 #include <java/io/InputStream.h>
 #include <jcpp.h>
 
-using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-
-$MethodInfo _Available_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Available, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Available, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Available_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Available",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Available_MethodInfo_
-};
-
-$Object* allocate$Available($Class* clazz) {
-	return $of($alloc(Available));
-}
 
 void Available::init$() {
 }
@@ -41,7 +20,22 @@ Available::Available() {
 }
 
 $Class* Available::load$($String* name, bool initialize) {
-	$loadClass(Available, name, initialize, &_Available_ClassInfo_, allocate$Available);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Available, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Available, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Available",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Available, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Available);
+	});
 	return class$;
 }
 

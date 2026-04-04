@@ -1,5 +1,4 @@
 #include <sun/reflect/generics/tree/LongSignature.h>
-
 #include <sun/reflect/generics/visitor/TypeTreeVisitor.h>
 #include <jcpp.h>
 
@@ -12,31 +11,6 @@ namespace sun {
 	namespace reflect {
 		namespace generics {
 			namespace tree {
-
-$FieldInfo _LongSignature_FieldInfo_[] = {
-	{"singleton", "Lsun/reflect/generics/tree/LongSignature;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LongSignature, singleton)},
-	{}
-};
-
-$MethodInfo _LongSignature_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(LongSignature, init$, void)},
-	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(LongSignature, accept, void, $TypeTreeVisitor*)},
-	{"make", "()Lsun/reflect/generics/tree/LongSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(LongSignature, make, LongSignature*)},
-	{}
-};
-
-$ClassInfo _LongSignature_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.reflect.generics.tree.LongSignature",
-	"java.lang.Object",
-	"sun.reflect.generics.tree.BaseType",
-	_LongSignature_FieldInfo_,
-	_LongSignature_MethodInfo_
-};
-
-$Object* allocate$LongSignature($Class* clazz) {
-	return $of($alloc(LongSignature));
-}
 
 LongSignature* LongSignature::singleton = nullptr;
 
@@ -52,7 +26,7 @@ void LongSignature::accept($TypeTreeVisitor* v) {
 	$nc(v)->visitLongSignature(this);
 }
 
-void clinit$LongSignature($Class* class$) {
+void LongSignature::clinit$($Class* clazz) {
 	$assignStatic(LongSignature::singleton, $new(LongSignature));
 }
 
@@ -60,7 +34,27 @@ LongSignature::LongSignature() {
 }
 
 $Class* LongSignature::load$($String* name, bool initialize) {
-	$loadClass(LongSignature, name, initialize, &_LongSignature_ClassInfo_, clinit$LongSignature, allocate$LongSignature);
+	$FieldInfo fieldInfos$$[] = {
+		{"singleton", "Lsun/reflect/generics/tree/LongSignature;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LongSignature, singleton)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(LongSignature, init$, void)},
+		{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(LongSignature, accept, void, $TypeTreeVisitor*)},
+		{"make", "()Lsun/reflect/generics/tree/LongSignature;", nullptr, $PUBLIC | $STATIC, $staticMethod(LongSignature, make, LongSignature*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.reflect.generics.tree.LongSignature",
+		"java.lang.Object",
+		"sun.reflect.generics.tree.BaseType",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LongSignature, name, initialize, &classInfo$$, LongSignature::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LongSignature);
+	});
 	return class$;
 }
 

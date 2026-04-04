@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/tree/analysis/SmallSet.h>
-
 #include <java/util/AbstractSet.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
@@ -24,46 +23,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace tree {
 						namespace analysis {
-
-$FieldInfo _SmallSet_FieldInfo_[] = {
-	{"element1", "Ljava/lang/Object;", "TT;", $PRIVATE | $FINAL, $field(SmallSet, element1)},
-	{"element2", "Ljava/lang/Object;", "TT;", $PRIVATE | $FINAL, $field(SmallSet, element2)},
-	{}
-};
-
-$MethodInfo _SmallSet_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SmallSet, init$, void)},
-	{"<init>", "(Ljava/lang/Object;)V", "(TT;)V", 0, $method(SmallSet, init$, void, Object$*)},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TT;)V", $PRIVATE, $method(SmallSet, init$, void, Object$*, Object$*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TT;>;", $PUBLIC, $virtualMethod(SmallSet, iterator, $Iterator*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(SmallSet, size, int32_t)},
-	{"union", "(Ljdk/internal/org/objectweb/asm/tree/analysis/SmallSet;)Ljava/util/Set;", "(Ljdk/internal/org/objectweb/asm/tree/analysis/SmallSet<TT;>;)Ljava/util/Set<TT;>;", 0, $method(SmallSet, union$, $Set*, SmallSet*)},
-	{}
-};
-
-$InnerClassInfo _SmallSet_InnerClassesInfo_[] = {
-	{"jdk.internal.org.objectweb.asm.tree.analysis.SmallSet$IteratorImpl", "jdk.internal.org.objectweb.asm.tree.analysis.SmallSet", "IteratorImpl", $STATIC},
-	{}
-};
-
-$ClassInfo _SmallSet_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.tree.analysis.SmallSet",
-	"java.util.AbstractSet",
-	nullptr,
-	_SmallSet_FieldInfo_,
-	_SmallSet_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/util/AbstractSet<TT;>;",
-	nullptr,
-	_SmallSet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.org.objectweb.asm.tree.analysis.SmallSet$IteratorImpl"
-};
-
-$Object* allocate$SmallSet($Class* clazz) {
-	return $of($alloc(SmallSet));
-}
 
 void SmallSet::init$() {
 	$AbstractSet::init$();
@@ -98,16 +57,16 @@ int32_t SmallSet::size() {
 }
 
 $Set* SmallSet::union$(SmallSet* otherSet) {
-	if (($equals($nc(otherSet)->element1, this->element1) && $equals(otherSet->element2, this->element2)) || ($equals($nc(otherSet)->element1, this->element2) && $equals(otherSet->element2, this->element1))) {
+	if (($equals($nc(otherSet)->element1, this->element1) && $equals(otherSet->element2, this->element2)) || ($equals(otherSet->element1, this->element2) && $equals(otherSet->element2, this->element1))) {
 		return this;
 	}
-	if ($nc(otherSet)->element1 == nullptr) {
+	if (otherSet->element1 == nullptr) {
 		return this;
 	}
 	if (this->element1 == nullptr) {
 		return otherSet;
 	}
-	if ($nc(otherSet)->element2 == nullptr) {
+	if (otherSet->element2 == nullptr) {
 		if (this->element2 == nullptr) {
 			return $new(SmallSet, this->element1, otherSet->element1);
 		}
@@ -115,7 +74,7 @@ $Set* SmallSet::union$(SmallSet* otherSet) {
 			return this;
 		}
 	}
-	if (this->element2 == nullptr && ($equals(this->element1, $nc(otherSet)->element1) || $equals(this->element1, $nc(otherSet)->element2))) {
+	if (this->element2 == nullptr && ($equals(this->element1, otherSet->element1) || $equals(this->element1, otherSet->element2))) {
 		return otherSet;
 	}
 	$var($HashSet, result, $new($HashSet, 4));
@@ -123,8 +82,8 @@ $Set* SmallSet::union$(SmallSet* otherSet) {
 	if (this->element2 != nullptr) {
 		result->add(this->element2);
 	}
-	result->add($nc(otherSet)->element1);
-	if ($nc(otherSet)->element2 != nullptr) {
+	result->add(otherSet->element1);
+	if (otherSet->element2 != nullptr) {
 		result->add(otherSet->element2);
 	}
 	return result;
@@ -134,7 +93,41 @@ SmallSet::SmallSet() {
 }
 
 $Class* SmallSet::load$($String* name, bool initialize) {
-	$loadClass(SmallSet, name, initialize, &_SmallSet_ClassInfo_, allocate$SmallSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"element1", "Ljava/lang/Object;", "TT;", $PRIVATE | $FINAL, $field(SmallSet, element1)},
+		{"element2", "Ljava/lang/Object;", "TT;", $PRIVATE | $FINAL, $field(SmallSet, element2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SmallSet, init$, void)},
+		{"<init>", "(Ljava/lang/Object;)V", "(TT;)V", 0, $method(SmallSet, init$, void, Object$*)},
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TT;)V", $PRIVATE, $method(SmallSet, init$, void, Object$*, Object$*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TT;>;", $PUBLIC, $virtualMethod(SmallSet, iterator, $Iterator*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(SmallSet, size, int32_t)},
+		{"union", "(Ljdk/internal/org/objectweb/asm/tree/analysis/SmallSet;)Ljava/util/Set;", "(Ljdk/internal/org/objectweb/asm/tree/analysis/SmallSet<TT;>;)Ljava/util/Set<TT;>;", 0, $method(SmallSet, union$, $Set*, SmallSet*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.org.objectweb.asm.tree.analysis.SmallSet$IteratorImpl", "jdk.internal.org.objectweb.asm.tree.analysis.SmallSet", "IteratorImpl", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.tree.analysis.SmallSet",
+		"java.util.AbstractSet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/util/AbstractSet<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.org.objectweb.asm.tree.analysis.SmallSet$IteratorImpl"
+	};
+	$loadClass(SmallSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SmallSet));
+	});
 	return class$;
 }
 

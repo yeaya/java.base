@@ -1,5 +1,4 @@
 #include <java/security/spec/ECFieldFp.h>
-
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
@@ -12,33 +11,6 @@ using $BigInteger = ::java::math::BigInteger;
 namespace java {
 	namespace security {
 		namespace spec {
-
-$FieldInfo _ECFieldFp_FieldInfo_[] = {
-	{"p", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(ECFieldFp, p)},
-	{}
-};
-
-$MethodInfo _ECFieldFp_MethodInfo_[] = {
-	{"<init>", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(ECFieldFp, init$, void, $BigInteger*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ECFieldFp, equals, bool, Object$*)},
-	{"getFieldSize", "()I", nullptr, $PUBLIC, $virtualMethod(ECFieldFp, getFieldSize, int32_t)},
-	{"getP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(ECFieldFp, getP, $BigInteger*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ECFieldFp, hashCode, int32_t)},
-	{}
-};
-
-$ClassInfo _ECFieldFp_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.spec.ECFieldFp",
-	"java.lang.Object",
-	"java.security.spec.ECField",
-	_ECFieldFp_FieldInfo_,
-	_ECFieldFp_MethodInfo_
-};
-
-$Object* allocate$ECFieldFp($Class* clazz) {
-	return $of($alloc(ECFieldFp));
-}
 
 void ECFieldFp::init$($BigInteger* p) {
 	if ($nc(p)->signum() != 1) {
@@ -77,7 +49,29 @@ ECFieldFp::ECFieldFp() {
 }
 
 $Class* ECFieldFp::load$($String* name, bool initialize) {
-	$loadClass(ECFieldFp, name, initialize, &_ECFieldFp_ClassInfo_, allocate$ECFieldFp);
+	$FieldInfo fieldInfos$$[] = {
+		{"p", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(ECFieldFp, p)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(ECFieldFp, init$, void, $BigInteger*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ECFieldFp, equals, bool, Object$*)},
+		{"getFieldSize", "()I", nullptr, $PUBLIC, $virtualMethod(ECFieldFp, getFieldSize, int32_t)},
+		{"getP", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(ECFieldFp, getP, $BigInteger*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ECFieldFp, hashCode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.spec.ECFieldFp",
+		"java.lang.Object",
+		"java.security.spec.ECField",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ECFieldFp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ECFieldFp);
+	});
 	return class$;
 }
 

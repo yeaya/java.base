@@ -30,6 +30,7 @@ class $import HKSCS$Decoder : public ::sun::nio::cs::DoubleByte$Decoder {
 public:
 	HKSCS$Decoder();
 	using ::sun::nio::cs::DoubleByte$Decoder::decode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs, ::sun::nio::cs::DoubleByte$Decoder* big5Dec, $Array<char16_t, 2>* b2cBmp, $Array<char16_t, 2>* b2cSupp);
 	virtual int32_t decode($bytes* src, int32_t sp, int32_t len, $chars* dst) override;
 	virtual ::java::nio::charset::CoderResult* decodeArrayLoop(::java::nio::ByteBuffer* src, ::java::nio::CharBuffer* dst) override;

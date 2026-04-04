@@ -1,5 +1,4 @@
 #include <java/io/ObjectInputFilter$Config$RejectUndecidedFilter.h>
-
 #include <java/io/ObjectInputFilter$Config$RejectUndecidedFilter$SerialInfo.h>
 #include <java/io/ObjectInputFilter$Config.h>
 #include <java/io/ObjectInputFilter$FilterInfo.h>
@@ -26,52 +25,13 @@ using $Objects = ::java::util::Objects;
 namespace java {
 	namespace io {
 
-$FieldInfo _ObjectInputFilter$Config$RejectUndecidedFilter_FieldInfo_[] = {
-	{"filter", "Ljava/io/ObjectInputFilter;", nullptr, $PRIVATE | $FINAL, $field(ObjectInputFilter$Config$RejectUndecidedFilter, filter)},
-	{}
-};
-
-$MethodInfo _ObjectInputFilter$Config$RejectUndecidedFilter_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/ObjectInputFilter;)V", nullptr, $PRIVATE, $method(ObjectInputFilter$Config$RejectUndecidedFilter, init$, void, $ObjectInputFilter*)},
-	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$RejectUndecidedFilter, checkInput, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$RejectUndecidedFilter, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _ObjectInputFilter$Config$RejectUndecidedFilter_InnerClassesInfo_[] = {
-	{"java.io.ObjectInputFilter$Config", "java.io.ObjectInputFilter", "Config", $PUBLIC | $STATIC | $FINAL},
-	{"java.io.ObjectInputFilter$Config$RejectUndecidedFilter", "java.io.ObjectInputFilter$Config", "RejectUndecidedFilter", $PRIVATE | $STATIC},
-	{"java.io.ObjectInputFilter$Config$RejectUndecidedFilter$SerialInfo", "java.io.ObjectInputFilter$Config$RejectUndecidedFilter", "SerialInfo", $STATIC},
-	{}
-};
-
-$ClassInfo _ObjectInputFilter$Config$RejectUndecidedFilter_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.io.ObjectInputFilter$Config$RejectUndecidedFilter",
-	"java.lang.Object",
-	"java.io.ObjectInputFilter",
-	_ObjectInputFilter$Config$RejectUndecidedFilter_FieldInfo_,
-	_ObjectInputFilter$Config$RejectUndecidedFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ObjectInputFilter$Config$RejectUndecidedFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.io.ObjectInputFilter"
-};
-
-$Object* allocate$ObjectInputFilter$Config$RejectUndecidedFilter($Class* clazz) {
-	return $of($alloc(ObjectInputFilter$Config$RejectUndecidedFilter));
-}
-
 void ObjectInputFilter$Config$RejectUndecidedFilter::init$($ObjectInputFilter* filter) {
-	$set(this, filter, $cast($ObjectInputFilter, $Objects::requireNonNull($of(filter), "filter"_s)));
+	$set(this, filter, $cast($ObjectInputFilter, $Objects::requireNonNull(filter, "filter"_s)));
 }
 
 $ObjectInputFilter$Status* ObjectInputFilter$Config$RejectUndecidedFilter::checkInput($ObjectInputFilter$FilterInfo* info) {
-	$useLocalCurrentObjectStackCache();
-	$ObjectInputFilter$Status* status = $cast($ObjectInputFilter$Status, $Objects::requireNonNull($($of($nc(this->filter)->checkInput(info))), "status"_s));
+	$useLocalObjectStack();
+	$ObjectInputFilter$Status* status = $cast($ObjectInputFilter$Status, $Objects::requireNonNull($($nc(this->filter)->checkInput(info)), "status"_s));
 	$Class* clazz = $nc(info)->serialClass();
 	$init($ObjectInputFilter$Status);
 	if (clazz == nullptr || !$ObjectInputFilter$Status::UNDECIDED->equals(status)) {
@@ -84,18 +44,18 @@ $ObjectInputFilter$Status* ObjectInputFilter$Config$RejectUndecidedFilter::check
 		status = $ObjectInputFilter$Status::UNDECIDED;
 	} else {
 		$var($ObjectInputFilter$FilterInfo, clazzInfo, $new($ObjectInputFilter$Config$RejectUndecidedFilter$SerialInfo, info, clazz));
-		$ObjectInputFilter$Status* clazzStatus = $nc(this->filter)->checkInput(clazzInfo);
+		$ObjectInputFilter$Status* clazzStatus = this->filter->checkInput(clazzInfo);
 		$ObjectInputFilter$Config::traceFilter("RejectUndecidedFilter Array Component type {0} class: {1}, filter: {2}"_s, $$new($ObjectArray, {
-			$of(clazzStatus),
-			$of(clazz),
-			$of(this)
+			clazzStatus,
+			clazz,
+			this
 		}));
 		status = ($ObjectInputFilter$Status::ALLOWED->equals(clazzStatus)) ? $ObjectInputFilter$Status::ALLOWED : $ObjectInputFilter$Status::REJECTED;
 	}
 	$ObjectInputFilter$Config::traceFilter("RejectUndecidedFilter {0} class: {1}, filter: {2}"_s, $$new($ObjectArray, {
-		$of(status),
-		$of(info->serialClass()),
-		$of(this)
+		status,
+		info->serialClass(),
+		this
 	}));
 	return status;
 }
@@ -108,7 +68,40 @@ ObjectInputFilter$Config$RejectUndecidedFilter::ObjectInputFilter$Config$RejectU
 }
 
 $Class* ObjectInputFilter$Config$RejectUndecidedFilter::load$($String* name, bool initialize) {
-	$loadClass(ObjectInputFilter$Config$RejectUndecidedFilter, name, initialize, &_ObjectInputFilter$Config$RejectUndecidedFilter_ClassInfo_, allocate$ObjectInputFilter$Config$RejectUndecidedFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"filter", "Ljava/io/ObjectInputFilter;", nullptr, $PRIVATE | $FINAL, $field(ObjectInputFilter$Config$RejectUndecidedFilter, filter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/ObjectInputFilter;)V", nullptr, $PRIVATE, $method(ObjectInputFilter$Config$RejectUndecidedFilter, init$, void, $ObjectInputFilter*)},
+		{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$RejectUndecidedFilter, checkInput, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectInputFilter$Config$RejectUndecidedFilter, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.ObjectInputFilter$Config", "java.io.ObjectInputFilter", "Config", $PUBLIC | $STATIC | $FINAL},
+		{"java.io.ObjectInputFilter$Config$RejectUndecidedFilter", "java.io.ObjectInputFilter$Config", "RejectUndecidedFilter", $PRIVATE | $STATIC},
+		{"java.io.ObjectInputFilter$Config$RejectUndecidedFilter$SerialInfo", "java.io.ObjectInputFilter$Config$RejectUndecidedFilter", "SerialInfo", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.io.ObjectInputFilter$Config$RejectUndecidedFilter",
+		"java.lang.Object",
+		"java.io.ObjectInputFilter",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.io.ObjectInputFilter"
+	};
+	$loadClass(ObjectInputFilter$Config$RejectUndecidedFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectInputFilter$Config$RejectUndecidedFilter);
+	});
 	return class$;
 }
 

@@ -40,6 +40,7 @@ class $export CertificateVersion : public ::sun::security::x509::CertAttrSet {
 	$class(CertificateVersion, 0, ::sun::security::x509::CertAttrSet)
 public:
 	CertificateVersion();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t version);
 	void init$(::sun::security::util::DerInputStream* in);

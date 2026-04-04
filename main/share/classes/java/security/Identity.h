@@ -52,7 +52,7 @@ public:
 	virtual void setPublicKey(::java::security::PublicKey* key);
 	virtual $String* toString() override;
 	virtual $String* toString(bool detailed);
-	static const int64_t serialVersionUID = (int64_t)0x321904F09F5E92D3;
+	static const int64_t serialVersionUID = (int64_t)0x321904f09f5e92d3;
 	$String* name = nullptr;
 	::java::security::PublicKey* publicKey = nullptr;
 	$String* info = nullptr;

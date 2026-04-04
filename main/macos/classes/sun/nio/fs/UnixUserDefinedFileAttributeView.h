@@ -46,6 +46,7 @@ class UnixUserDefinedFileAttributeView : public ::sun::nio::fs::AbstractUserDefi
 	$class(UnixUserDefinedFileAttributeView, 0, ::sun::nio::fs::AbstractUserDefinedFileAttributeView)
 public:
 	UnixUserDefinedFileAttributeView();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::nio::fs::UnixPath* file, bool followLinks);
 	static ::java::util::List* asList(int64_t address, int32_t size);
 	static void copyExtendedAttribute(int32_t ofd, $bytes* name, int32_t nfd);

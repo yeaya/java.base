@@ -1,5 +1,4 @@
 #include <java/nio/file/StandardOpenOption.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -23,48 +22,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _StandardOpenOption_FieldInfo_[] = {
-	{"READ", "Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardOpenOption, READ)},
-	{"WRITE", "Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardOpenOption, WRITE)},
-	{"APPEND", "Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardOpenOption, APPEND)},
-	{"TRUNCATE_EXISTING", "Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardOpenOption, TRUNCATE_EXISTING)},
-	{"CREATE", "Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardOpenOption, CREATE)},
-	{"CREATE_NEW", "Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardOpenOption, CREATE_NEW)},
-	{"DELETE_ON_CLOSE", "Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardOpenOption, DELETE_ON_CLOSE)},
-	{"SPARSE", "Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardOpenOption, SPARSE)},
-	{"SYNC", "Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardOpenOption, SYNC)},
-	{"DSYNC", "Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardOpenOption, DSYNC)},
-	{"$VALUES", "[Ljava/nio/file/StandardOpenOption;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(StandardOpenOption, $VALUES)},
-	{}
-};
-
-$MethodInfo _StandardOpenOption_MethodInfo_[] = {
-	{"$values", "()[Ljava/nio/file/StandardOpenOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StandardOpenOption, $values, $StandardOpenOptionArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StandardOpenOption, init$, void, $String*, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardOpenOption, valueOf, StandardOpenOption*, $String*)},
-	{"values", "()[Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardOpenOption, values, $StandardOpenOptionArray*)},
-	{}
-};
-
-$ClassInfo _StandardOpenOption_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.nio.file.StandardOpenOption",
-	"java.lang.Enum",
-	"java.nio.file.OpenOption",
-	_StandardOpenOption_FieldInfo_,
-	_StandardOpenOption_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/nio/file/StandardOpenOption;>;Ljava/nio/file/OpenOption;"
-};
-
-$Object* allocate$StandardOpenOption($Class* clazz) {
-	return $of($alloc(StandardOpenOption));
-}
 
 $String* StandardOpenOption::toString() {
 	 return this->$Enum::toString();
@@ -128,7 +85,7 @@ void StandardOpenOption::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$StandardOpenOption($Class* class$) {
+void StandardOpenOption::clinit$($Class* clazz) {
 	$assignStatic(StandardOpenOption::READ, $new(StandardOpenOption, "READ"_s, 0));
 	$assignStatic(StandardOpenOption::WRITE, $new(StandardOpenOption, "WRITE"_s, 1));
 	$assignStatic(StandardOpenOption::APPEND, $new(StandardOpenOption, "APPEND"_s, 2));
@@ -146,7 +103,44 @@ StandardOpenOption::StandardOpenOption() {
 }
 
 $Class* StandardOpenOption::load$($String* name, bool initialize) {
-	$loadClass(StandardOpenOption, name, initialize, &_StandardOpenOption_ClassInfo_, clinit$StandardOpenOption, allocate$StandardOpenOption);
+	$FieldInfo fieldInfos$$[] = {
+		{"READ", "Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardOpenOption, READ)},
+		{"WRITE", "Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardOpenOption, WRITE)},
+		{"APPEND", "Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardOpenOption, APPEND)},
+		{"TRUNCATE_EXISTING", "Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardOpenOption, TRUNCATE_EXISTING)},
+		{"CREATE", "Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardOpenOption, CREATE)},
+		{"CREATE_NEW", "Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardOpenOption, CREATE_NEW)},
+		{"DELETE_ON_CLOSE", "Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardOpenOption, DELETE_ON_CLOSE)},
+		{"SPARSE", "Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardOpenOption, SPARSE)},
+		{"SYNC", "Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardOpenOption, SYNC)},
+		{"DSYNC", "Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StandardOpenOption, DSYNC)},
+		{"$VALUES", "[Ljava/nio/file/StandardOpenOption;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(StandardOpenOption, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/nio/file/StandardOpenOption;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StandardOpenOption, $values, $StandardOpenOptionArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StandardOpenOption, init$, void, $String*, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueOf", "(Ljava/lang/String;)Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardOpenOption, valueOf, StandardOpenOption*, $String*)},
+		{"values", "()[Ljava/nio/file/StandardOpenOption;", nullptr, $PUBLIC | $STATIC, $staticMethod(StandardOpenOption, values, $StandardOpenOptionArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.nio.file.StandardOpenOption",
+		"java.lang.Enum",
+		"java.nio.file.OpenOption",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/nio/file/StandardOpenOption;>;Ljava/nio/file/OpenOption;"
+	};
+	$loadClass(StandardOpenOption, name, initialize, &classInfo$$, StandardOpenOption::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StandardOpenOption));
+	});
 	return class$;
 }
 

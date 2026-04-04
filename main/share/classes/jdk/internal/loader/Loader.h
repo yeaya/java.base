@@ -61,6 +61,7 @@ class $export Loader : public ::java::security::SecureClassLoader {
 public:
 	Loader();
 	using ::java::security::SecureClassLoader::defineClass;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::module::ResolvedModule* resolvedModule, ::jdk::internal::loader::LoaderPool* pool, ::java::lang::ClassLoader* parent);
 	void init$(::java::util::Collection* modules, ::java::lang::ClassLoader* parent);
 	::java::lang::module::ModuleReader* createModuleReader(::java::lang::module::ModuleReference* mref);

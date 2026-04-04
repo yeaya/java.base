@@ -33,7 +33,7 @@ public:
 	void init($String* name);
 	virtual ::java::security::PermissionCollection* newPermissionCollection() override;
 	void readObject(::java::io::ObjectInputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0x57250BDCCF4EA67A;
+	static const int64_t serialVersionUID = (int64_t)0x57250bdccf4ea67a;
 	bool wildcard = false;
 	$String* path = nullptr;
 	bool exitVM = false;

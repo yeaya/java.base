@@ -1,5 +1,4 @@
 #include <jdk/internal/vm/vector/VectorSupport$ShuffleToVectorOperation.h>
-
 #include <jdk/internal/vm/vector/VectorSupport.h>
 #include <jcpp.h>
 
@@ -12,38 +11,33 @@ namespace jdk {
 		namespace vm {
 			namespace vector {
 
-$MethodInfo _VectorSupport$ShuffleToVectorOperation_MethodInfo_[] = {
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TSh;)TVM;", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$ShuffleToVectorOperation, apply, $Object*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _VectorSupport$ShuffleToVectorOperation_InnerClassesInfo_[] = {
-	{"jdk.internal.vm.vector.VectorSupport$ShuffleToVectorOperation", "jdk.internal.vm.vector.VectorSupport", "ShuffleToVectorOperation", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _VectorSupport$ShuffleToVectorOperation_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.vm.vector.VectorSupport$ShuffleToVectorOperation",
-	nullptr,
-	nullptr,
-	nullptr,
-	_VectorSupport$ShuffleToVectorOperation_MethodInfo_,
-	"<VM:Ljava/lang/Object;Sh:Ljava/lang/Object;E:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_VectorSupport$ShuffleToVectorOperation_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.vm.vector.VectorSupport"
-};
-
-$Object* allocate$VectorSupport$ShuffleToVectorOperation($Class* clazz) {
-	return $of($alloc(VectorSupport$ShuffleToVectorOperation));
-}
-
 $Class* VectorSupport$ShuffleToVectorOperation::load$($String* name, bool initialize) {
-	$loadClass(VectorSupport$ShuffleToVectorOperation, name, initialize, &_VectorSupport$ShuffleToVectorOperation_ClassInfo_, allocate$VectorSupport$ShuffleToVectorOperation);
+	$MethodInfo methodInfos$$[] = {
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TSh;)TVM;", $PUBLIC | $ABSTRACT, $virtualMethod(VectorSupport$ShuffleToVectorOperation, apply, $Object*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.vm.vector.VectorSupport$ShuffleToVectorOperation", "jdk.internal.vm.vector.VectorSupport", "ShuffleToVectorOperation", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.vm.vector.VectorSupport$ShuffleToVectorOperation",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<VM:Ljava/lang/Object;Sh:Ljava/lang/Object;E:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.vm.vector.VectorSupport"
+	};
+	$loadClass(VectorSupport$ShuffleToVectorOperation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VectorSupport$ShuffleToVectorOperation);
+	});
 	return class$;
 }
 

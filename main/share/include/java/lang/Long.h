@@ -48,11 +48,12 @@ namespace java {
 	namespace lang {
 
 class $import Long : public ::java::lang::Number, public ::java::lang::Comparable, public ::java::lang::constant::Constable, public ::java::lang::constant::ConstantDesc {
-	$class(Long, 0, ::java::lang::Number, ::java::lang::Comparable, ::java::lang::constant::Constable, ::java::lang::constant::ConstantDesc)
+	$class(Long, $PREINIT, ::java::lang::Number, ::java::lang::Comparable, ::java::lang::constant::Constable, ::java::lang::constant::ConstantDesc)
 public:
 	Long();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t value);
 	void init$($String* s);
 	static int32_t bitCount(int64_t i);
@@ -115,12 +116,12 @@ public:
 	static ::java::lang::Long* valueOf($String* s);
 	static ::java::lang::Long* valueOf(int64_t l);
 	static const int64_t MIN_VALUE = (int64_t)0x8000000000000000;
-	static const int64_t MAX_VALUE = (int64_t)0x7FFFFFFFFFFFFFFF;
+	static const int64_t MAX_VALUE = (int64_t)0x7fffffffffffffff;
 	static $Class* TYPE;
 	int64_t value = 0;
 	static const int32_t SIZE = 64;
 	static const int32_t BYTES = 8; // SIZE / Byte.SIZE
-	static const int64_t serialVersionUID = (int64_t)0x3B8BE490CC8F23DF;
+	static const int64_t serialVersionUID = (int64_t)0x3b8be490cc8f23df;
 };
 
 	} // lang

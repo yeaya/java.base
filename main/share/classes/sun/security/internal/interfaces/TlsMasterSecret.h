@@ -15,7 +15,7 @@ class $export TlsMasterSecret : public ::javax::crypto::SecretKey {
 public:
 	virtual int32_t getMajorVersion() {return 0;}
 	virtual int32_t getMinorVersion() {return 0;}
-	static const int64_t serialVersionUID = (int64_t)0xF9978A8B51751C73;
+	static const int64_t serialVersionUID = (int64_t)0xf9978a8b51751c73;
 };
 
 			} // interfaces

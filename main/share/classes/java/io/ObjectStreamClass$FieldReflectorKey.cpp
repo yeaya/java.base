@@ -1,5 +1,4 @@
 #include <java/io/ObjectStreamClass$FieldReflectorKey.h>
-
 #include <java/io/ObjectStreamClass.h>
 #include <java/io/ObjectStreamField.h>
 #include <java/lang/ref/Reference.h>
@@ -21,58 +20,15 @@ using $Arrays = ::java::util::Arrays;
 namespace java {
 	namespace io {
 
-$FieldInfo _ObjectStreamClass$FieldReflectorKey_FieldInfo_[] = {
-	{"sigs", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ObjectStreamClass$FieldReflectorKey, sigs)},
-	{"hash", "I", nullptr, $PRIVATE | $FINAL, $field(ObjectStreamClass$FieldReflectorKey, hash)},
-	{"nullClass", "Z", nullptr, $PRIVATE | $FINAL, $field(ObjectStreamClass$FieldReflectorKey, nullClass)},
-	{}
-};
-
-$MethodInfo _ObjectStreamClass$FieldReflectorKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;[Ljava/io/ObjectStreamField;Ljava/lang/ref/ReferenceQueue;)V", "(Ljava/lang/Class<*>;[Ljava/io/ObjectStreamField;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Class<*>;>;)V", 0, $method(ObjectStreamClass$FieldReflectorKey, init$, void, $Class*, $ObjectStreamFieldArray*, $ReferenceQueue*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$FieldReflectorKey, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$FieldReflectorKey, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ObjectStreamClass$FieldReflectorKey_InnerClassesInfo_[] = {
-	{"java.io.ObjectStreamClass$FieldReflectorKey", "java.io.ObjectStreamClass", "FieldReflectorKey", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ObjectStreamClass$FieldReflectorKey_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.io.ObjectStreamClass$FieldReflectorKey",
-	"java.lang.ref.WeakReference",
-	nullptr,
-	_ObjectStreamClass$FieldReflectorKey_FieldInfo_,
-	_ObjectStreamClass$FieldReflectorKey_MethodInfo_,
-	"Ljava/lang/ref/WeakReference<Ljava/lang/Class<*>;>;",
-	nullptr,
-	_ObjectStreamClass$FieldReflectorKey_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.io.ObjectStreamClass"
-};
-
-$Object* allocate$ObjectStreamClass$FieldReflectorKey($Class* clazz) {
-	return $of($alloc(ObjectStreamClass$FieldReflectorKey));
-}
-
 void ObjectStreamClass$FieldReflectorKey::init$($Class* cl, $ObjectStreamFieldArray* fields, $ReferenceQueue* queue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$WeakReference::init$(cl, queue);
 	this->nullClass = (cl == nullptr);
 	$set(this, sigs, $new($StringArray, 2 * $nc(fields)->length));
-	{
-		int32_t i = 0;
-		int32_t j = 0;
-		for (; i < fields->length; ++i) {
-			$var($ObjectStreamField, f, fields->get(i));
-			$nc(this->sigs)->set(j++, $($nc(f)->getName()));
-			$nc(this->sigs)->set(j++, $(f->getSignature()));
-		}
+	for (int32_t i = 0, j = 0; i < fields->length; ++i) {
+		$var($ObjectStreamField, f, fields->get(i));
+		this->sigs->set(j++, $($nc(f)->getName()));
+		this->sigs->set(j++, $(f->getSignature()));
 	}
 	int32_t var$0 = $System::identityHashCode(cl);
 	this->hash = var$0 + $Arrays::hashCode(this->sigs);
@@ -99,11 +55,11 @@ bool ObjectStreamClass$FieldReflectorKey::equals(Object$* obj) {
 			if (this->nullClass) {
 				var$2 = $nc(other)->nullClass;
 			} else {
-				bool var$3 = ((referent = $cast($Class, get())) != nullptr);
-				var$2 = var$3 && (other->refersTo(referent));
+				bool var$3 = (referent = $cast($Class, get())) != nullptr;
+				var$2 = var$3 && ($nc(other)->refersTo(referent));
 			}
-			bool var$1 = (var$2);
-			return var$1 && $Arrays::equals(this->sigs, other->sigs);
+			bool var$1 = var$2;
+			return var$1 && $Arrays::equals(this->sigs, $nc(other)->sigs);
 		} else {
 			return false;
 		}
@@ -114,7 +70,40 @@ ObjectStreamClass$FieldReflectorKey::ObjectStreamClass$FieldReflectorKey() {
 }
 
 $Class* ObjectStreamClass$FieldReflectorKey::load$($String* name, bool initialize) {
-	$loadClass(ObjectStreamClass$FieldReflectorKey, name, initialize, &_ObjectStreamClass$FieldReflectorKey_ClassInfo_, allocate$ObjectStreamClass$FieldReflectorKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"sigs", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ObjectStreamClass$FieldReflectorKey, sigs)},
+		{"hash", "I", nullptr, $PRIVATE | $FINAL, $field(ObjectStreamClass$FieldReflectorKey, hash)},
+		{"nullClass", "Z", nullptr, $PRIVATE | $FINAL, $field(ObjectStreamClass$FieldReflectorKey, nullClass)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;[Ljava/io/ObjectStreamField;Ljava/lang/ref/ReferenceQueue;)V", "(Ljava/lang/Class<*>;[Ljava/io/ObjectStreamField;Ljava/lang/ref/ReferenceQueue<Ljava/lang/Class<*>;>;)V", 0, $method(ObjectStreamClass$FieldReflectorKey, init$, void, $Class*, $ObjectStreamFieldArray*, $ReferenceQueue*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$FieldReflectorKey, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$FieldReflectorKey, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.ObjectStreamClass$FieldReflectorKey", "java.io.ObjectStreamClass", "FieldReflectorKey", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.io.ObjectStreamClass$FieldReflectorKey",
+		"java.lang.ref.WeakReference",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/ref/WeakReference<Ljava/lang/Class<*>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.io.ObjectStreamClass"
+	};
+	$loadClass(ObjectStreamClass$FieldReflectorKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectStreamClass$FieldReflectorKey);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLStringizer.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <sun/security/ssl/HandshakeContext.h>
 #include <jcpp.h>
@@ -13,26 +12,22 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SSLStringizer_MethodInfo_[] = {
-	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
-	{}
-};
-
-$ClassInfo _SSLStringizer_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"sun.security.ssl.SSLStringizer",
-	nullptr,
-	nullptr,
-	nullptr,
-	_SSLStringizer_MethodInfo_
-};
-
-$Object* allocate$SSLStringizer($Class* clazz) {
-	return $of($alloc(SSLStringizer));
-}
-
 $Class* SSLStringizer::load$($String* name, bool initialize) {
-	$loadClass(SSLStringizer, name, initialize, &_SSLStringizer_ClassInfo_, allocate$SSLStringizer);
+	$MethodInfo methodInfos$$[] = {
+		{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"sun.security.ssl.SSLStringizer",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SSLStringizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLStringizer);
+	});
 	return class$;
 }
 

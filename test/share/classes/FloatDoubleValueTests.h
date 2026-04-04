@@ -29,7 +29,7 @@ public:
 	static const int64_t two2the24 = 8388608; // 1L << 23
 	static const int64_t two2the53 = 4503599627370496; // 1L << 52
 	static const int64_t maxFltLong = 2147483392; // (long)(Integer.MAX_VALUE & ~(255))
-	static const int64_t maxDblLong = 0x7FFFFFFFFFFFF800; // Long.MAX_VALUE & ~(2047L)
+	static const int64_t maxDblLong = 0x7ffffffffffff800; // Long.MAX_VALUE & ~(2047L)
 };
 
 #endif // _FloatDoubleValueTests_h_

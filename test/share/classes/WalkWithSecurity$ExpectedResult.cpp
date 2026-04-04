@@ -1,5 +1,4 @@
 #include <WalkWithSecurity$ExpectedResult.h>
-
 #include <WalkWithSecurity.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -14,47 +13,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _WalkWithSecurity$ExpectedResult_FieldInfo_[] = {
-	{"PASS", "LWalkWithSecurity$ExpectedResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WalkWithSecurity$ExpectedResult, PASS)},
-	{"FAIL", "LWalkWithSecurity$ExpectedResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WalkWithSecurity$ExpectedResult, FAIL)},
-	{"TOP_ONLY", "LWalkWithSecurity$ExpectedResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WalkWithSecurity$ExpectedResult, TOP_ONLY)},
-	{"$VALUES", "[LWalkWithSecurity$ExpectedResult;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(WalkWithSecurity$ExpectedResult, $VALUES)},
-	{}
-};
-
-$MethodInfo _WalkWithSecurity$ExpectedResult_MethodInfo_[] = {
-	{"$values", "()[LWalkWithSecurity$ExpectedResult;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WalkWithSecurity$ExpectedResult, $values, $WalkWithSecurity$ExpectedResultArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(WalkWithSecurity$ExpectedResult, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)LWalkWithSecurity$ExpectedResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(WalkWithSecurity$ExpectedResult, valueOf, WalkWithSecurity$ExpectedResult*, $String*)},
-	{"values", "()[LWalkWithSecurity$ExpectedResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(WalkWithSecurity$ExpectedResult, values, $WalkWithSecurity$ExpectedResultArray*)},
-	{}
-};
-
-$InnerClassInfo _WalkWithSecurity$ExpectedResult_InnerClassesInfo_[] = {
-	{"WalkWithSecurity$ExpectedResult", "WalkWithSecurity", "ExpectedResult", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _WalkWithSecurity$ExpectedResult_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"WalkWithSecurity$ExpectedResult",
-	"java.lang.Enum",
-	nullptr,
-	_WalkWithSecurity$ExpectedResult_FieldInfo_,
-	_WalkWithSecurity$ExpectedResult_MethodInfo_,
-	"Ljava/lang/Enum<LWalkWithSecurity$ExpectedResult;>;",
-	nullptr,
-	_WalkWithSecurity$ExpectedResult_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"WalkWithSecurity"
-};
-
-$Object* allocate$WalkWithSecurity$ExpectedResult($Class* clazz) {
-	return $of($alloc(WalkWithSecurity$ExpectedResult));
-}
 
 WalkWithSecurity$ExpectedResult* WalkWithSecurity$ExpectedResult::PASS = nullptr;
 WalkWithSecurity$ExpectedResult* WalkWithSecurity$ExpectedResult::FAIL = nullptr;
@@ -84,7 +42,7 @@ void WalkWithSecurity$ExpectedResult::init$($String* $enum$name, int32_t $enum$o
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$WalkWithSecurity$ExpectedResult($Class* class$) {
+void WalkWithSecurity$ExpectedResult::clinit$($Class* clazz) {
 	$assignStatic(WalkWithSecurity$ExpectedResult::PASS, $new(WalkWithSecurity$ExpectedResult, "PASS"_s, 0));
 	$assignStatic(WalkWithSecurity$ExpectedResult::FAIL, $new(WalkWithSecurity$ExpectedResult, "FAIL"_s, 1));
 	$assignStatic(WalkWithSecurity$ExpectedResult::TOP_ONLY, $new(WalkWithSecurity$ExpectedResult, "TOP_ONLY"_s, 2));
@@ -95,7 +53,42 @@ WalkWithSecurity$ExpectedResult::WalkWithSecurity$ExpectedResult() {
 }
 
 $Class* WalkWithSecurity$ExpectedResult::load$($String* name, bool initialize) {
-	$loadClass(WalkWithSecurity$ExpectedResult, name, initialize, &_WalkWithSecurity$ExpectedResult_ClassInfo_, clinit$WalkWithSecurity$ExpectedResult, allocate$WalkWithSecurity$ExpectedResult);
+	$FieldInfo fieldInfos$$[] = {
+		{"PASS", "LWalkWithSecurity$ExpectedResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WalkWithSecurity$ExpectedResult, PASS)},
+		{"FAIL", "LWalkWithSecurity$ExpectedResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WalkWithSecurity$ExpectedResult, FAIL)},
+		{"TOP_ONLY", "LWalkWithSecurity$ExpectedResult;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(WalkWithSecurity$ExpectedResult, TOP_ONLY)},
+		{"$VALUES", "[LWalkWithSecurity$ExpectedResult;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(WalkWithSecurity$ExpectedResult, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[LWalkWithSecurity$ExpectedResult;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WalkWithSecurity$ExpectedResult, $values, $WalkWithSecurity$ExpectedResultArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(WalkWithSecurity$ExpectedResult, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)LWalkWithSecurity$ExpectedResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(WalkWithSecurity$ExpectedResult, valueOf, WalkWithSecurity$ExpectedResult*, $String*)},
+		{"values", "()[LWalkWithSecurity$ExpectedResult;", nullptr, $PUBLIC | $STATIC, $staticMethod(WalkWithSecurity$ExpectedResult, values, $WalkWithSecurity$ExpectedResultArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"WalkWithSecurity$ExpectedResult", "WalkWithSecurity", "ExpectedResult", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"WalkWithSecurity$ExpectedResult",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<LWalkWithSecurity$ExpectedResult;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"WalkWithSecurity"
+	};
+	$loadClass(WalkWithSecurity$ExpectedResult, name, initialize, &classInfo$$, WalkWithSecurity$ExpectedResult::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WalkWithSecurity$ExpectedResult));
+	});
 	return class$;
 }
 

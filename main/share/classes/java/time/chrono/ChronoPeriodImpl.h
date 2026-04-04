@@ -50,6 +50,7 @@ public:
 	ChronoPeriodImpl();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::time::chrono::Chronology* chrono, int32_t years, int32_t months, int32_t days);
 	virtual ::java::time::temporal::Temporal* addTo(::java::time::temporal::Temporal* temporal) override;
 	virtual bool equals(Object$* obj) override;
@@ -72,7 +73,7 @@ public:
 	void validateChrono(::java::time::temporal::TemporalAccessor* temporal);
 	void writeExternal(::java::io::DataOutput* out);
 	$Object* writeReplace();
-	static const int64_t serialVersionUID = (int64_t)0x0000000D5C8C11B1;
+	static const int64_t serialVersionUID = (int64_t)0x0000000d5c8c11b1;
 	static ::java::util::List* SUPPORTED_UNITS;
 	::java::time::chrono::Chronology* chrono = nullptr;
 	int32_t years = 0;

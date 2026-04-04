@@ -30,6 +30,7 @@ class WindowsUriSupport : public ::java::lang::Object {
 	$class(WindowsUriSupport, 0, ::java::lang::Object)
 public:
 	WindowsUriSupport();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::nio::fs::WindowsPath* fromUri(::sun::nio::fs::WindowsFileSystem* fs, ::java::net::URI* uri);
 	static ::java::net::URI* toUri($String* path, bool isUnc, bool addSlash);

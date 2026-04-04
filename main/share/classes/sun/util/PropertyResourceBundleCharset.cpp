@@ -1,5 +1,4 @@
 #include <sun/util/PropertyResourceBundleCharset.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
@@ -20,44 +19,6 @@ using $PropertyResourceBundleCharset$PropertiesFileDecoder = ::sun::util::Proper
 
 namespace sun {
 	namespace util {
-
-$FieldInfo _PropertyResourceBundleCharset_FieldInfo_[] = {
-	{"strictUTF8", "Z", nullptr, $PRIVATE, $field(PropertyResourceBundleCharset, strictUTF8)},
-	{}
-};
-
-$MethodInfo _PropertyResourceBundleCharset_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(PropertyResourceBundleCharset, init$, void, bool)},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PropertyResourceBundleCharset, init$, void, $String*, $StringArray*)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(PropertyResourceBundleCharset, contains, bool, $Charset*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(PropertyResourceBundleCharset, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(PropertyResourceBundleCharset, newEncoder, $CharsetEncoder*)},
-	{}
-};
-
-$InnerClassInfo _PropertyResourceBundleCharset_InnerClassesInfo_[] = {
-	{"sun.util.PropertyResourceBundleCharset$PropertiesFileDecoder", "sun.util.PropertyResourceBundleCharset", "PropertiesFileDecoder", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _PropertyResourceBundleCharset_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.PropertyResourceBundleCharset",
-	"java.nio.charset.Charset",
-	nullptr,
-	_PropertyResourceBundleCharset_FieldInfo_,
-	_PropertyResourceBundleCharset_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PropertyResourceBundleCharset_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.util.PropertyResourceBundleCharset$PropertiesFileDecoder"
-};
-
-$Object* allocate$PropertyResourceBundleCharset($Class* clazz) {
-	return $of($alloc(PropertyResourceBundleCharset));
-}
 
 void PropertyResourceBundleCharset::init$(bool strictUTF8) {
 	PropertyResourceBundleCharset::init$($(PropertyResourceBundleCharset::class$->getCanonicalName()), nullptr);
@@ -86,7 +47,39 @@ PropertyResourceBundleCharset::PropertyResourceBundleCharset() {
 }
 
 $Class* PropertyResourceBundleCharset::load$($String* name, bool initialize) {
-	$loadClass(PropertyResourceBundleCharset, name, initialize, &_PropertyResourceBundleCharset_ClassInfo_, allocate$PropertyResourceBundleCharset);
+	$FieldInfo fieldInfos$$[] = {
+		{"strictUTF8", "Z", nullptr, $PRIVATE, $field(PropertyResourceBundleCharset, strictUTF8)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(PropertyResourceBundleCharset, init$, void, bool)},
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PropertyResourceBundleCharset, init$, void, $String*, $StringArray*)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(PropertyResourceBundleCharset, contains, bool, $Charset*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(PropertyResourceBundleCharset, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(PropertyResourceBundleCharset, newEncoder, $CharsetEncoder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.PropertyResourceBundleCharset$PropertiesFileDecoder", "sun.util.PropertyResourceBundleCharset", "PropertiesFileDecoder", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.PropertyResourceBundleCharset",
+		"java.nio.charset.Charset",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.util.PropertyResourceBundleCharset$PropertiesFileDecoder"
+	};
+	$loadClass(PropertyResourceBundleCharset, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PropertyResourceBundleCharset);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/ComparableTimSort.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Comparable.h>
 #include <java/lang/Math.h>
@@ -21,54 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace util {
 
-$FieldInfo _ComparableTimSort_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ComparableTimSort, $assertionsDisabled)},
-	{"MIN_MERGE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ComparableTimSort, MIN_MERGE)},
-	{"a", "[Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(ComparableTimSort, a)},
-	{"MIN_GALLOP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ComparableTimSort, MIN_GALLOP)},
-	{"minGallop", "I", nullptr, $PRIVATE, $field(ComparableTimSort, minGallop)},
-	{"INITIAL_TMP_STORAGE_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ComparableTimSort, INITIAL_TMP_STORAGE_LENGTH)},
-	{"tmp", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(ComparableTimSort, tmp)},
-	{"tmpBase", "I", nullptr, $PRIVATE, $field(ComparableTimSort, tmpBase)},
-	{"tmpLen", "I", nullptr, $PRIVATE, $field(ComparableTimSort, tmpLen)},
-	{"stackSize", "I", nullptr, $PRIVATE, $field(ComparableTimSort, stackSize)},
-	{"runBase", "[I", nullptr, $PRIVATE | $FINAL, $field(ComparableTimSort, runBase)},
-	{"runLen", "[I", nullptr, $PRIVATE | $FINAL, $field(ComparableTimSort, runLen)},
-	{}
-};
-
-$MethodInfo _ComparableTimSort_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/Object;[Ljava/lang/Object;II)V", nullptr, $PRIVATE, $method(ComparableTimSort, init$, void, $ObjectArray*, $ObjectArray*, int32_t, int32_t)},
-	{"binarySort", "([Ljava/lang/Object;III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ComparableTimSort, binarySort, void, $ObjectArray*, int32_t, int32_t, int32_t)},
-	{"countRunAndMakeAscending", "([Ljava/lang/Object;II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ComparableTimSort, countRunAndMakeAscending, int32_t, $ObjectArray*, int32_t, int32_t)},
-	{"ensureCapacity", "(I)[Ljava/lang/Object;", nullptr, $PRIVATE, $method(ComparableTimSort, ensureCapacity, $ObjectArray*, int32_t)},
-	{"gallopLeft", "(Ljava/lang/Comparable;[Ljava/lang/Object;III)I", "(Ljava/lang/Comparable<Ljava/lang/Object;>;[Ljava/lang/Object;III)I", $PRIVATE | $STATIC, $staticMethod(ComparableTimSort, gallopLeft, int32_t, $Comparable*, $ObjectArray*, int32_t, int32_t, int32_t)},
-	{"gallopRight", "(Ljava/lang/Comparable;[Ljava/lang/Object;III)I", "(Ljava/lang/Comparable<Ljava/lang/Object;>;[Ljava/lang/Object;III)I", $PRIVATE | $STATIC, $staticMethod(ComparableTimSort, gallopRight, int32_t, $Comparable*, $ObjectArray*, int32_t, int32_t, int32_t)},
-	{"mergeAt", "(I)V", nullptr, $PRIVATE, $method(ComparableTimSort, mergeAt, void, int32_t)},
-	{"mergeCollapse", "()V", nullptr, $PRIVATE, $method(ComparableTimSort, mergeCollapse, void)},
-	{"mergeForceCollapse", "()V", nullptr, $PRIVATE, $method(ComparableTimSort, mergeForceCollapse, void)},
-	{"mergeHi", "(IIII)V", nullptr, $PRIVATE, $method(ComparableTimSort, mergeHi, void, int32_t, int32_t, int32_t, int32_t)},
-	{"mergeLo", "(IIII)V", nullptr, $PRIVATE, $method(ComparableTimSort, mergeLo, void, int32_t, int32_t, int32_t, int32_t)},
-	{"minRunLength", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ComparableTimSort, minRunLength, int32_t, int32_t)},
-	{"pushRun", "(II)V", nullptr, $PRIVATE, $method(ComparableTimSort, pushRun, void, int32_t, int32_t)},
-	{"reverseRange", "([Ljava/lang/Object;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ComparableTimSort, reverseRange, void, $ObjectArray*, int32_t, int32_t)},
-	{"sort", "([Ljava/lang/Object;II[Ljava/lang/Object;II)V", nullptr, $STATIC, $staticMethod(ComparableTimSort, sort, void, $ObjectArray*, int32_t, int32_t, $ObjectArray*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _ComparableTimSort_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.ComparableTimSort",
-	"java.lang.Object",
-	nullptr,
-	_ComparableTimSort_FieldInfo_,
-	_ComparableTimSort_MethodInfo_
-};
-
-$Object* allocate$ComparableTimSort($Class* clazz) {
-	return $of($alloc(ComparableTimSort));
-}
-
 bool ComparableTimSort::$assertionsDisabled = false;
 
 void ComparableTimSort::init$($ObjectArray* a, $ObjectArray* work, int32_t workBase, int32_t workLen) {
@@ -77,7 +28,7 @@ void ComparableTimSort::init$($ObjectArray* a, $ObjectArray* work, int32_t workB
 	$set(this, a, a);
 	int32_t len = $nc(a)->length;
 	int32_t tlen = (len < 2 * ComparableTimSort::INITIAL_TMP_STORAGE_LENGTH) ? (int32_t)((uint32_t)len >> 1) : ComparableTimSort::INITIAL_TMP_STORAGE_LENGTH;
-	if (work == nullptr || workLen < tlen || workBase + tlen > $nc(work)->length) {
+	if (work == nullptr || workLen < tlen || workBase + tlen > work->length) {
 		$set(this, tmp, $new($ObjectArray, tlen));
 		this->tmpBase = 0;
 		this->tmpLen = tlen;
@@ -86,7 +37,7 @@ void ComparableTimSort::init$($ObjectArray* a, $ObjectArray* work, int32_t workB
 		this->tmpBase = workBase;
 		this->tmpLen = workLen;
 	}
-	int32_t stackLen = (len < 120 ? 5 : len < 1542 ? 10 : len < 0x0001D16F ? 24 : 49);
+	int32_t stackLen = (len < 120 ? 5 : len < 1542 ? 10 : len < 0x0001d16f ? 24 : 49);
 	$set(this, runBase, $new($ints, stackLen));
 	$set(this, runLen, $new($ints, stackLen));
 }
@@ -130,7 +81,7 @@ void ComparableTimSort::sort($ObjectArray* a, int32_t lo, int32_t hi, $ObjectArr
 
 void ComparableTimSort::binarySort($ObjectArray* a, int32_t lo, int32_t hi, int32_t start) {
 	$init(ComparableTimSort);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!ComparableTimSort::$assertionsDisabled && !(lo <= start && start <= hi)) {
 		$throwNew($AssertionError);
 	}
@@ -158,18 +109,12 @@ void ComparableTimSort::binarySort($ObjectArray* a, int32_t lo, int32_t hi, int3
 		int32_t n = start - left;
 		switch (n) {
 		case 2:
-			{
-				a->set(left + 2, a->get(left + 1));
-			}
+			a->set(left + 2, a->get(left + 1));
 		case 1:
-			{
-				a->set(left + 1, a->get(left));
-				break;
-			}
+			a->set(left + 1, a->get(left));
+			break;
 		default:
-			{
-				$System::arraycopy(a, left, a, left + 1, n);
-			}
+			$System::arraycopy(a, left, a, left + 1, n);
 		}
 		a->set(left, pivot);
 	}
@@ -184,13 +129,13 @@ int32_t ComparableTimSort::countRunAndMakeAscending($ObjectArray* a, int32_t lo,
 	if (runHi == hi) {
 		return 1;
 	}
-	if ($nc(($cast($Comparable, $nc(a)->get(runHi++))))->compareTo(a->get(lo)) < 0) {
-		while (runHi < hi && $nc(($cast($Comparable, a->get(runHi))))->compareTo(a->get(runHi - 1)) < 0) {
+	if ($nc($cast($Comparable, $nc(a)->get(runHi++)))->compareTo($nc(a)->get(lo)) < 0) {
+		while (runHi < hi && $nc($cast($Comparable, a->get(runHi)))->compareTo(a->get(runHi - 1)) < 0) {
 			++runHi;
 		}
 		reverseRange(a, lo, runHi);
 	} else {
-		while (runHi < hi && $nc(($cast($Comparable, a->get(runHi))))->compareTo(a->get(runHi - 1)) >= 0) {
+		while (runHi < hi && $nc($cast($Comparable, a->get(runHi)))->compareTo(a->get(runHi - 1)) >= 0) {
 			++runHi;
 		}
 	}
@@ -199,7 +144,7 @@ int32_t ComparableTimSort::countRunAndMakeAscending($ObjectArray* a, int32_t lo,
 
 void ComparableTimSort::reverseRange($ObjectArray* a, int32_t lo, int32_t hi) {
 	$init(ComparableTimSort);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	--hi;
 	while (lo < hi) {
 		$var($Object0, t, $nc(a)->get(lo));
@@ -215,7 +160,7 @@ int32_t ComparableTimSort::minRunLength(int32_t n) {
 	}
 	int32_t r = 0;
 	while (n >= ComparableTimSort::MIN_MERGE) {
-		r |= ((int32_t)(n & (uint32_t)1));
+		r |= (n & 1);
 		n >>= 1;
 	}
 	return n + r;
@@ -230,11 +175,11 @@ void ComparableTimSort::pushRun(int32_t runBase, int32_t runLen) {
 void ComparableTimSort::mergeCollapse() {
 	while (this->stackSize > 1) {
 		int32_t n = this->stackSize - 2;
-		if (n > 0 && $nc(this->runLen)->get(n - 1) <= $nc(this->runLen)->get(n) + $nc(this->runLen)->get(n + 1) || n > 1 && $nc(this->runLen)->get(n - 2) <= $nc(this->runLen)->get(n) + $nc(this->runLen)->get(n - 1)) {
-			if ($nc(this->runLen)->get(n - 1) < $nc(this->runLen)->get(n + 1)) {
+		if (n > 0 && this->runLen->get(n - 1) <= this->runLen->get(n) + this->runLen->get(n + 1) || n > 1 && this->runLen->get(n - 2) <= this->runLen->get(n) + this->runLen->get(n - 1)) {
+			if (this->runLen->get(n - 1) < this->runLen->get(n + 1)) {
 				--n;
 			}
-		} else if (n < 0 || $nc(this->runLen)->get(n) > $nc(this->runLen)->get(n + 1)) {
+		} else if (n < 0 || this->runLen->get(n) > this->runLen->get(n + 1)) {
 			break;
 		}
 		mergeAt(n);
@@ -244,7 +189,7 @@ void ComparableTimSort::mergeCollapse() {
 void ComparableTimSort::mergeForceCollapse() {
 	while (this->stackSize > 1) {
 		int32_t n = this->stackSize - 2;
-		if (n > 0 && $nc(this->runLen)->get(n - 1) < $nc(this->runLen)->get(n + 1)) {
+		if (n > 0 && this->runLen->get(n - 1) < this->runLen->get(n + 1)) {
 			--n;
 		}
 		mergeAt(n);
@@ -261,20 +206,20 @@ void ComparableTimSort::mergeAt(int32_t i) {
 	if (!ComparableTimSort::$assertionsDisabled && !(i == this->stackSize - 2 || i == this->stackSize - 3)) {
 		$throwNew($AssertionError);
 	}
-	int32_t base1 = $nc(this->runBase)->get(i);
-	int32_t len1 = $nc(this->runLen)->get(i);
-	int32_t base2 = $nc(this->runBase)->get(i + 1);
-	int32_t len2 = $nc(this->runLen)->get(i + 1);
+	int32_t base1 = this->runBase->get(i);
+	int32_t len1 = this->runLen->get(i);
+	int32_t base2 = this->runBase->get(i + 1);
+	int32_t len2 = this->runLen->get(i + 1);
 	if (!ComparableTimSort::$assertionsDisabled && !(len1 > 0 && len2 > 0)) {
 		$throwNew($AssertionError);
 	}
 	if (!ComparableTimSort::$assertionsDisabled && !(base1 + len1 == base2)) {
 		$throwNew($AssertionError);
 	}
-	$nc(this->runLen)->set(i, len1 + len2);
+	this->runLen->set(i, len1 + len2);
 	if (i == this->stackSize - 3) {
-		$nc(this->runBase)->set(i + 1, $nc(this->runBase)->get(i + 2));
-		$nc(this->runLen)->set(i + 1, $nc(this->runLen)->get(i + 2));
+		this->runBase->set(i + 1, this->runBase->get(i + 2));
+		this->runLen->set(i + 1, this->runLen->get(i + 2));
 	}
 	--this->stackSize;
 	int32_t k = gallopRight($cast($Comparable, $nc(this->a)->get(base2)), this->a, base1, len1, 0);
@@ -286,7 +231,7 @@ void ComparableTimSort::mergeAt(int32_t i) {
 	if (len1 == 0) {
 		return;
 	}
-	len2 = gallopLeft($cast($Comparable, $nc(this->a)->get(base1 + len1 - 1)), this->a, base2, len2, len2 - 1);
+	len2 = gallopLeft($cast($Comparable, this->a->get(base1 + len1 - 1)), this->a, base2, len2, len2 - 1);
 	if (!ComparableTimSort::$assertionsDisabled && !(len2 >= 0)) {
 		$throwNew($AssertionError);
 	}
@@ -309,7 +254,7 @@ int32_t ComparableTimSort::gallopLeft($Comparable* key, $ObjectArray* a, int32_t
 	int32_t ofs = 1;
 	if ($nc(key)->compareTo($nc(a)->get(base + hint)) > 0) {
 		int32_t maxOfs = len - hint;
-		while (ofs < maxOfs && key->compareTo($nc(a)->get(base + hint + ofs)) > 0) {
+		while (ofs < maxOfs && key->compareTo(a->get(base + hint + ofs)) > 0) {
 			lastOfs = ofs;
 			ofs = (ofs << 1) + 1;
 			if (ofs <= 0) {
@@ -323,7 +268,7 @@ int32_t ComparableTimSort::gallopLeft($Comparable* key, $ObjectArray* a, int32_t
 		ofs += hint;
 	} else {
 		int32_t maxOfs = hint + 1;
-		while (ofs < maxOfs && key->compareTo($nc(a)->get(base + hint - ofs)) <= 0) {
+		while (ofs < maxOfs && key->compareTo(a->get(base + hint - ofs)) <= 0) {
 			lastOfs = ofs;
 			ofs = (ofs << 1) + 1;
 			if (ofs <= 0) {
@@ -343,7 +288,7 @@ int32_t ComparableTimSort::gallopLeft($Comparable* key, $ObjectArray* a, int32_t
 	++lastOfs;
 	while (lastOfs < ofs) {
 		int32_t m = lastOfs + ((int32_t)((uint32_t)(ofs - lastOfs) >> 1));
-		if ($nc(key)->compareTo($nc(a)->get(base + m)) > 0) {
+		if (key->compareTo(a->get(base + m)) > 0) {
 			lastOfs = m + 1;
 		} else {
 			ofs = m;
@@ -364,7 +309,7 @@ int32_t ComparableTimSort::gallopRight($Comparable* key, $ObjectArray* a, int32_
 	int32_t lastOfs = 0;
 	if ($nc(key)->compareTo($nc(a)->get(base + hint)) < 0) {
 		int32_t maxOfs = hint + 1;
-		while (ofs < maxOfs && key->compareTo($nc(a)->get(base + hint - ofs)) < 0) {
+		while (ofs < maxOfs && key->compareTo(a->get(base + hint - ofs)) < 0) {
 			lastOfs = ofs;
 			ofs = (ofs << 1) + 1;
 			if (ofs <= 0) {
@@ -379,7 +324,7 @@ int32_t ComparableTimSort::gallopRight($Comparable* key, $ObjectArray* a, int32_
 		ofs = hint - tmp;
 	} else {
 		int32_t maxOfs = len - hint;
-		while (ofs < maxOfs && key->compareTo($nc(a)->get(base + hint + ofs)) >= 0) {
+		while (ofs < maxOfs && key->compareTo(a->get(base + hint + ofs)) >= 0) {
 			lastOfs = ofs;
 			ofs = (ofs << 1) + 1;
 			if (ofs <= 0) {
@@ -398,7 +343,7 @@ int32_t ComparableTimSort::gallopRight($Comparable* key, $ObjectArray* a, int32_
 	++lastOfs;
 	while (lastOfs < ofs) {
 		int32_t m = lastOfs + ((int32_t)((uint32_t)(ofs - lastOfs) >> 1));
-		if ($nc(key)->compareTo($nc(a)->get(base + m)) < 0) {
+		if (key->compareTo(a->get(base + m)) < 0) {
 			ofs = m;
 		} else {
 			lastOfs = m + 1;
@@ -411,7 +356,7 @@ int32_t ComparableTimSort::gallopRight($Comparable* key, $ObjectArray* a, int32_
 }
 
 void ComparableTimSort::mergeLo(int32_t base1, int32_t len1, int32_t base2, int32_t len2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!ComparableTimSort::$assertionsDisabled && !(len1 > 0 && len2 > 0 && base1 + len1 == base2)) {
 		$throwNew($AssertionError);
 	}
@@ -421,7 +366,7 @@ void ComparableTimSort::mergeLo(int32_t base1, int32_t len1, int32_t base2, int3
 	int32_t cursor2 = base2;
 	int32_t dest = base1;
 	$System::arraycopy(a, base1, tmp, cursor1, len1);
-	$nc(a)->set(dest++, a->get(cursor2++));
+	$nc(a)->set(dest++, $nc(a)->get(cursor2++));
 	if (--len2 == 0) {
 		$System::arraycopy(tmp, cursor1, a, dest, len1);
 		return;
@@ -440,7 +385,7 @@ void ComparableTimSort::mergeLo(int32_t base1, int32_t len1, int32_t base2, int3
 			if (!ComparableTimSort::$assertionsDisabled && !(len1 > 1 && len2 > 0)) {
 				$throwNew($AssertionError);
 			}
-			if ($nc(($cast($Comparable, a->get(cursor2))))->compareTo($nc(tmp)->get(cursor1)) < 0) {
+			if ($nc($cast($Comparable, a->get(cursor2)))->compareTo($nc(tmp)->get(cursor1)) < 0) {
 				a->set(dest++, a->get(cursor2++));
 				++count2;
 				count1 = 0;
@@ -449,7 +394,7 @@ void ComparableTimSort::mergeLo(int32_t base1, int32_t len1, int32_t base2, int3
 					break;
 				}
 			} else {
-				a->set(dest++, $nc(tmp)->get(cursor1++));
+				a->set(dest++, tmp->get(cursor1++));
 				++count1;
 				count2 = 0;
 				if (--len1 == 1) {
@@ -458,10 +403,10 @@ void ComparableTimSort::mergeLo(int32_t base1, int32_t len1, int32_t base2, int3
 				}
 			}
 		} while ((count1 | count2) < minGallop);
-
 		if (outer$break) {
 			break;
-		}		do {
+		}
+		do {
 			if (!ComparableTimSort::$assertionsDisabled && !(len1 > 1 && len2 > 0)) {
 				$throwNew($AssertionError);
 			}
@@ -492,17 +437,17 @@ void ComparableTimSort::mergeLo(int32_t base1, int32_t len1, int32_t base2, int3
 					break;
 				}
 			}
-			a->set(dest++, $nc(tmp)->get(cursor1++));
+			a->set(dest++, tmp->get(cursor1++));
 			if (--len1 == 1) {
 				outer$break = true;
 				break;
 			}
 			--minGallop;
 		} while ((count1 >= ComparableTimSort::MIN_GALLOP) | (count2 >= ComparableTimSort::MIN_GALLOP));
-
 		if (outer$break) {
 			break;
-		}		if (minGallop < 0) {
+		}
+		if (minGallop < 0) {
 			minGallop = 0;
 		}
 		minGallop += 2;
@@ -528,7 +473,7 @@ void ComparableTimSort::mergeLo(int32_t base1, int32_t len1, int32_t base2, int3
 }
 
 void ComparableTimSort::mergeHi(int32_t base1, int32_t len1, int32_t base2, int32_t len2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!ComparableTimSort::$assertionsDisabled && !(len1 > 0 && len2 > 0 && base1 + len1 == base2)) {
 		$throwNew($AssertionError);
 	}
@@ -539,7 +484,7 @@ void ComparableTimSort::mergeHi(int32_t base1, int32_t len1, int32_t base2, int3
 	int32_t cursor1 = base1 + len1 - 1;
 	int32_t cursor2 = tmpBase + len2 - 1;
 	int32_t dest = base2 + len2 - 1;
-	$nc(a)->set(dest--, a->get(cursor1--));
+	$nc(a)->set(dest--, $nc(a)->get(cursor1--));
 	if (--len1 == 0) {
 		$System::arraycopy(tmp, tmpBase, a, dest - (len2 - 1), len2);
 		return;
@@ -560,7 +505,7 @@ void ComparableTimSort::mergeHi(int32_t base1, int32_t len1, int32_t base2, int3
 			if (!ComparableTimSort::$assertionsDisabled && !(len1 > 0 && len2 > 1)) {
 				$throwNew($AssertionError);
 			}
-			if ($nc(($cast($Comparable, $nc(tmp)->get(cursor2))))->compareTo(a->get(cursor1)) < 0) {
+			if ($nc($cast($Comparable, $nc(tmp)->get(cursor2)))->compareTo(a->get(cursor1)) < 0) {
 				a->set(dest--, a->get(cursor1--));
 				++count1;
 				count2 = 0;
@@ -578,10 +523,10 @@ void ComparableTimSort::mergeHi(int32_t base1, int32_t len1, int32_t base2, int3
 				}
 			}
 		} while ((count1 | count2) < minGallop);
-
 		if (outer$break) {
 			break;
-		}		do {
+		}
+		do {
 			if (!ComparableTimSort::$assertionsDisabled && !(len1 > 0 && len2 > 1)) {
 				$throwNew($AssertionError);
 			}
@@ -596,7 +541,7 @@ void ComparableTimSort::mergeHi(int32_t base1, int32_t len1, int32_t base2, int3
 					break;
 				}
 			}
-			a->set(dest--, $nc(tmp)->get(cursor2--));
+			a->set(dest--, tmp->get(cursor2--));
 			if (--len2 == 1) {
 				outer$break = true;
 				break;
@@ -619,10 +564,10 @@ void ComparableTimSort::mergeHi(int32_t base1, int32_t len1, int32_t base2, int3
 			}
 			--minGallop;
 		} while ((count1 >= ComparableTimSort::MIN_GALLOP) | (count2 >= ComparableTimSort::MIN_GALLOP));
-
 		if (outer$break) {
 			break;
-		}		if (minGallop < 0) {
+		}
+		if (minGallop < 0) {
 			minGallop = 0;
 		}
 		minGallop += 2;
@@ -666,7 +611,7 @@ $ObjectArray* ComparableTimSort::ensureCapacity(int32_t minCapacity) {
 	return this->tmp;
 }
 
-void clinit$ComparableTimSort($Class* class$) {
+void ComparableTimSort::clinit$($Class* clazz) {
 	ComparableTimSort::$assertionsDisabled = !ComparableTimSort::class$->desiredAssertionStatus();
 }
 
@@ -674,7 +619,50 @@ ComparableTimSort::ComparableTimSort() {
 }
 
 $Class* ComparableTimSort::load$($String* name, bool initialize) {
-	$loadClass(ComparableTimSort, name, initialize, &_ComparableTimSort_ClassInfo_, clinit$ComparableTimSort, allocate$ComparableTimSort);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ComparableTimSort, $assertionsDisabled)},
+		{"MIN_MERGE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ComparableTimSort, MIN_MERGE)},
+		{"a", "[Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(ComparableTimSort, a)},
+		{"MIN_GALLOP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ComparableTimSort, MIN_GALLOP)},
+		{"minGallop", "I", nullptr, $PRIVATE, $field(ComparableTimSort, minGallop)},
+		{"INITIAL_TMP_STORAGE_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ComparableTimSort, INITIAL_TMP_STORAGE_LENGTH)},
+		{"tmp", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(ComparableTimSort, tmp)},
+		{"tmpBase", "I", nullptr, $PRIVATE, $field(ComparableTimSort, tmpBase)},
+		{"tmpLen", "I", nullptr, $PRIVATE, $field(ComparableTimSort, tmpLen)},
+		{"stackSize", "I", nullptr, $PRIVATE, $field(ComparableTimSort, stackSize)},
+		{"runBase", "[I", nullptr, $PRIVATE | $FINAL, $field(ComparableTimSort, runBase)},
+		{"runLen", "[I", nullptr, $PRIVATE | $FINAL, $field(ComparableTimSort, runLen)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/lang/Object;[Ljava/lang/Object;II)V", nullptr, $PRIVATE, $method(ComparableTimSort, init$, void, $ObjectArray*, $ObjectArray*, int32_t, int32_t)},
+		{"binarySort", "([Ljava/lang/Object;III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ComparableTimSort, binarySort, void, $ObjectArray*, int32_t, int32_t, int32_t)},
+		{"countRunAndMakeAscending", "([Ljava/lang/Object;II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ComparableTimSort, countRunAndMakeAscending, int32_t, $ObjectArray*, int32_t, int32_t)},
+		{"ensureCapacity", "(I)[Ljava/lang/Object;", nullptr, $PRIVATE, $method(ComparableTimSort, ensureCapacity, $ObjectArray*, int32_t)},
+		{"gallopLeft", "(Ljava/lang/Comparable;[Ljava/lang/Object;III)I", "(Ljava/lang/Comparable<Ljava/lang/Object;>;[Ljava/lang/Object;III)I", $PRIVATE | $STATIC, $staticMethod(ComparableTimSort, gallopLeft, int32_t, $Comparable*, $ObjectArray*, int32_t, int32_t, int32_t)},
+		{"gallopRight", "(Ljava/lang/Comparable;[Ljava/lang/Object;III)I", "(Ljava/lang/Comparable<Ljava/lang/Object;>;[Ljava/lang/Object;III)I", $PRIVATE | $STATIC, $staticMethod(ComparableTimSort, gallopRight, int32_t, $Comparable*, $ObjectArray*, int32_t, int32_t, int32_t)},
+		{"mergeAt", "(I)V", nullptr, $PRIVATE, $method(ComparableTimSort, mergeAt, void, int32_t)},
+		{"mergeCollapse", "()V", nullptr, $PRIVATE, $method(ComparableTimSort, mergeCollapse, void)},
+		{"mergeForceCollapse", "()V", nullptr, $PRIVATE, $method(ComparableTimSort, mergeForceCollapse, void)},
+		{"mergeHi", "(IIII)V", nullptr, $PRIVATE, $method(ComparableTimSort, mergeHi, void, int32_t, int32_t, int32_t, int32_t)},
+		{"mergeLo", "(IIII)V", nullptr, $PRIVATE, $method(ComparableTimSort, mergeLo, void, int32_t, int32_t, int32_t, int32_t)},
+		{"minRunLength", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ComparableTimSort, minRunLength, int32_t, int32_t)},
+		{"pushRun", "(II)V", nullptr, $PRIVATE, $method(ComparableTimSort, pushRun, void, int32_t, int32_t)},
+		{"reverseRange", "([Ljava/lang/Object;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ComparableTimSort, reverseRange, void, $ObjectArray*, int32_t, int32_t)},
+		{"sort", "([Ljava/lang/Object;II[Ljava/lang/Object;II)V", nullptr, $STATIC, $staticMethod(ComparableTimSort, sort, void, $ObjectArray*, int32_t, int32_t, $ObjectArray*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.ComparableTimSort",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ComparableTimSort, name, initialize, &classInfo$$, ComparableTimSort::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ComparableTimSort);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/net/ssl/SSLContextSpi.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/net/Socket.h>
@@ -32,34 +31,6 @@ namespace javax {
 	namespace net {
 		namespace ssl {
 
-$MethodInfo _SSLContextSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SSLContextSpi, init$, void)},
-	{"engineCreateSSLEngine", "()Ljavax/net/ssl/SSLEngine;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SSLContextSpi, engineCreateSSLEngine, $SSLEngine*)},
-	{"engineCreateSSLEngine", "(Ljava/lang/String;I)Ljavax/net/ssl/SSLEngine;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SSLContextSpi, engineCreateSSLEngine, $SSLEngine*, $String*, int32_t)},
-	{"engineGetClientSessionContext", "()Ljavax/net/ssl/SSLSessionContext;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SSLContextSpi, engineGetClientSessionContext, $SSLSessionContext*)},
-	{"engineGetDefaultSSLParameters", "()Ljavax/net/ssl/SSLParameters;", nullptr, $PROTECTED, $virtualMethod(SSLContextSpi, engineGetDefaultSSLParameters, $SSLParameters*)},
-	{"engineGetServerSessionContext", "()Ljavax/net/ssl/SSLSessionContext;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SSLContextSpi, engineGetServerSessionContext, $SSLSessionContext*)},
-	{"engineGetServerSocketFactory", "()Ljavax/net/ssl/SSLServerSocketFactory;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SSLContextSpi, engineGetServerSocketFactory, $SSLServerSocketFactory*)},
-	{"engineGetSocketFactory", "()Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SSLContextSpi, engineGetSocketFactory, $SSLSocketFactory*)},
-	{"engineGetSupportedSSLParameters", "()Ljavax/net/ssl/SSLParameters;", nullptr, $PROTECTED, $virtualMethod(SSLContextSpi, engineGetSupportedSSLParameters, $SSLParameters*)},
-	{"engineInit", "([Ljavax/net/ssl/KeyManager;[Ljavax/net/ssl/TrustManager;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SSLContextSpi, engineInit, void, $KeyManagerArray*, $TrustManagerArray*, $SecureRandom*), "java.security.KeyManagementException"},
-	{"getDefaultSocket", "()Ljavax/net/ssl/SSLSocket;", nullptr, $PRIVATE, $method(SSLContextSpi, getDefaultSocket, $SSLSocket*)},
-	{}
-};
-
-$ClassInfo _SSLContextSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.net.ssl.SSLContextSpi",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SSLContextSpi_MethodInfo_
-};
-
-$Object* allocate$SSLContextSpi($Class* clazz) {
-	return $of($alloc(SSLContextSpi));
-}
-
 void SSLContextSpi::init$() {
 }
 
@@ -79,7 +50,7 @@ $SSLParameters* SSLContextSpi::engineGetDefaultSSLParameters() {
 }
 
 $SSLParameters* SSLContextSpi::engineGetSupportedSSLParameters() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SSLSocket, socket, getDefaultSocket());
 	$var($SSLParameters, params, $nc(socket)->getSSLParameters());
 	$nc(params)->setCipherSuites($(socket->getSupportedCipherSuites()));
@@ -91,7 +62,31 @@ SSLContextSpi::SSLContextSpi() {
 }
 
 $Class* SSLContextSpi::load$($String* name, bool initialize) {
-	$loadClass(SSLContextSpi, name, initialize, &_SSLContextSpi_ClassInfo_, allocate$SSLContextSpi);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SSLContextSpi, init$, void)},
+		{"engineCreateSSLEngine", "()Ljavax/net/ssl/SSLEngine;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SSLContextSpi, engineCreateSSLEngine, $SSLEngine*)},
+		{"engineCreateSSLEngine", "(Ljava/lang/String;I)Ljavax/net/ssl/SSLEngine;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SSLContextSpi, engineCreateSSLEngine, $SSLEngine*, $String*, int32_t)},
+		{"engineGetClientSessionContext", "()Ljavax/net/ssl/SSLSessionContext;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SSLContextSpi, engineGetClientSessionContext, $SSLSessionContext*)},
+		{"engineGetDefaultSSLParameters", "()Ljavax/net/ssl/SSLParameters;", nullptr, $PROTECTED, $virtualMethod(SSLContextSpi, engineGetDefaultSSLParameters, $SSLParameters*)},
+		{"engineGetServerSessionContext", "()Ljavax/net/ssl/SSLSessionContext;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SSLContextSpi, engineGetServerSessionContext, $SSLSessionContext*)},
+		{"engineGetServerSocketFactory", "()Ljavax/net/ssl/SSLServerSocketFactory;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SSLContextSpi, engineGetServerSocketFactory, $SSLServerSocketFactory*)},
+		{"engineGetSocketFactory", "()Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SSLContextSpi, engineGetSocketFactory, $SSLSocketFactory*)},
+		{"engineGetSupportedSSLParameters", "()Ljavax/net/ssl/SSLParameters;", nullptr, $PROTECTED, $virtualMethod(SSLContextSpi, engineGetSupportedSSLParameters, $SSLParameters*)},
+		{"engineInit", "([Ljavax/net/ssl/KeyManager;[Ljavax/net/ssl/TrustManager;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SSLContextSpi, engineInit, void, $KeyManagerArray*, $TrustManagerArray*, $SecureRandom*), "java.security.KeyManagementException"},
+		{"getDefaultSocket", "()Ljavax/net/ssl/SSLSocket;", nullptr, $PRIVATE, $method(SSLContextSpi, getDefaultSocket, $SSLSocket*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.net.ssl.SSLContextSpi",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SSLContextSpi, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLContextSpi);
+	});
 	return class$;
 }
 

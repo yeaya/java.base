@@ -1,5 +1,4 @@
 #include <sun/util/locale/BaseLocale$Cache.h>
-
 #include <sun/util/locale/BaseLocale$Key.h>
 #include <sun/util/locale/BaseLocale.h>
 #include <sun/util/locale/LocaleObjectCache.h>
@@ -19,46 +18,6 @@ namespace sun {
 	namespace util {
 		namespace locale {
 
-$FieldInfo _BaseLocale$Cache_FieldInfo_[] = {
-	{"CACHE", "Lsun/util/locale/BaseLocale$Cache;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BaseLocale$Cache, CACHE)},
-	{}
-};
-
-$MethodInfo _BaseLocale$Cache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BaseLocale$Cache, init$, void)},
-	{"createObject", "(Lsun/util/locale/BaseLocale$Key;)Lsun/util/locale/BaseLocale;", nullptr, $PROTECTED, $virtualMethod(BaseLocale$Cache, createObject, $BaseLocale*, $BaseLocale$Key*)},
-	{"createObject", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(BaseLocale$Cache, createObject, $Object*, Object$*)},
-	{"normalizeKey", "(Lsun/util/locale/BaseLocale$Key;)Lsun/util/locale/BaseLocale$Key;", nullptr, $PROTECTED, $virtualMethod(BaseLocale$Cache, normalizeKey, $BaseLocale$Key*, $BaseLocale$Key*)},
-	{"normalizeKey", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(BaseLocale$Cache, normalizeKey, $Object*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _BaseLocale$Cache_InnerClassesInfo_[] = {
-	{"sun.util.locale.BaseLocale$Cache", "sun.util.locale.BaseLocale", "Cache", $PRIVATE | $STATIC},
-	{"sun.util.locale.BaseLocale$Key", "sun.util.locale.BaseLocale", "Key", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _BaseLocale$Cache_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.locale.BaseLocale$Cache",
-	"sun.util.locale.LocaleObjectCache",
-	nullptr,
-	_BaseLocale$Cache_FieldInfo_,
-	_BaseLocale$Cache_MethodInfo_,
-	"Lsun/util/locale/LocaleObjectCache<Lsun/util/locale/BaseLocale$Key;Lsun/util/locale/BaseLocale;>;",
-	nullptr,
-	_BaseLocale$Cache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.BaseLocale"
-};
-
-$Object* allocate$BaseLocale$Cache($Class* clazz) {
-	return $of($alloc(BaseLocale$Cache));
-}
-
 BaseLocale$Cache* BaseLocale$Cache::CACHE = nullptr;
 
 void BaseLocale$Cache::init$() {
@@ -70,18 +29,18 @@ $BaseLocale$Key* BaseLocale$Cache::normalizeKey($BaseLocale$Key* key) {
 }
 
 $BaseLocale* BaseLocale$Cache::createObject($BaseLocale$Key* key) {
-	return $nc($($BaseLocale$Key::normalize(key)))->getBaseLocale();
+	return $$nc($BaseLocale$Key::normalize(key))->getBaseLocale();
 }
 
 $Object* BaseLocale$Cache::normalizeKey(Object$* key) {
-	return $of(this->normalizeKey($cast($BaseLocale$Key, key)));
+	return this->normalizeKey($cast($BaseLocale$Key, key));
 }
 
 $Object* BaseLocale$Cache::createObject(Object$* key) {
-	return $of(this->createObject($cast($BaseLocale$Key, key)));
+	return this->createObject($cast($BaseLocale$Key, key));
 }
 
-void clinit$BaseLocale$Cache($Class* class$) {
+void BaseLocale$Cache::clinit$($Class* clazz) {
 	$assignStatic(BaseLocale$Cache::CACHE, $new(BaseLocale$Cache));
 }
 
@@ -89,7 +48,41 @@ BaseLocale$Cache::BaseLocale$Cache() {
 }
 
 $Class* BaseLocale$Cache::load$($String* name, bool initialize) {
-	$loadClass(BaseLocale$Cache, name, initialize, &_BaseLocale$Cache_ClassInfo_, clinit$BaseLocale$Cache, allocate$BaseLocale$Cache);
+	$FieldInfo fieldInfos$$[] = {
+		{"CACHE", "Lsun/util/locale/BaseLocale$Cache;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BaseLocale$Cache, CACHE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BaseLocale$Cache, init$, void)},
+		{"createObject", "(Lsun/util/locale/BaseLocale$Key;)Lsun/util/locale/BaseLocale;", nullptr, $PROTECTED, $virtualMethod(BaseLocale$Cache, createObject, $BaseLocale*, $BaseLocale$Key*)},
+		{"createObject", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(BaseLocale$Cache, createObject, $Object*, Object$*)},
+		{"normalizeKey", "(Lsun/util/locale/BaseLocale$Key;)Lsun/util/locale/BaseLocale$Key;", nullptr, $PROTECTED, $virtualMethod(BaseLocale$Cache, normalizeKey, $BaseLocale$Key*, $BaseLocale$Key*)},
+		{"normalizeKey", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(BaseLocale$Cache, normalizeKey, $Object*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.BaseLocale$Cache", "sun.util.locale.BaseLocale", "Cache", $PRIVATE | $STATIC},
+		{"sun.util.locale.BaseLocale$Key", "sun.util.locale.BaseLocale", "Key", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.locale.BaseLocale$Cache",
+		"sun.util.locale.LocaleObjectCache",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lsun/util/locale/LocaleObjectCache<Lsun/util/locale/BaseLocale$Key;Lsun/util/locale/BaseLocale;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.BaseLocale"
+	};
+	$loadClass(BaseLocale$Cache, name, initialize, &classInfo$$, BaseLocale$Cache::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BaseLocale$Cache);
+	});
 	return class$;
 }
 

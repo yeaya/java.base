@@ -1,5 +1,4 @@
 #include <javax/net/ssl/SSLServerSocketFactory.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <javax/net/ServerSocketFactory.h>
@@ -22,38 +21,6 @@ namespace javax {
 	namespace net {
 		namespace ssl {
 
-$MethodInfo _SSLServerSocketFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(SSLServerSocketFactory, init$, void)},
-	{"getDefault", "()Ljavax/net/ServerSocketFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLServerSocketFactory, getDefault, $ServerSocketFactory*)},
-	{"getDefaultCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLServerSocketFactory, getDefaultCipherSuites, $StringArray*)},
-	{"getSupportedCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLServerSocketFactory, getSupportedCipherSuites, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _SSLServerSocketFactory_InnerClassesInfo_[] = {
-	{"javax.net.ssl.SSLServerSocketFactory$DefaultFactoryHolder", "javax.net.ssl.SSLServerSocketFactory", "DefaultFactoryHolder", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SSLServerSocketFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.net.ssl.SSLServerSocketFactory",
-	"javax.net.ServerSocketFactory",
-	nullptr,
-	nullptr,
-	_SSLServerSocketFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLServerSocketFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.net.ssl.SSLServerSocketFactory$DefaultFactoryHolder"
-};
-
-$Object* allocate$SSLServerSocketFactory($Class* clazz) {
-	return $of($alloc(SSLServerSocketFactory));
-}
-
 void SSLServerSocketFactory::init$() {
 	$ServerSocketFactory::init$();
 }
@@ -65,7 +32,7 @@ $ServerSocketFactory* SSLServerSocketFactory::getDefault() {
 		return $SSLServerSocketFactory$DefaultFactoryHolder::defaultFactory;
 	}
 	try {
-		return $nc($($SSLContext::getDefault()))->getServerSocketFactory();
+		return $$nc($SSLContext::getDefault())->getServerSocketFactory();
 	} catch ($NoSuchAlgorithmException& e) {
 		return $new($DefaultSSLServerSocketFactory, e);
 	} catch ($UnsupportedOperationException& e) {
@@ -78,7 +45,34 @@ SSLServerSocketFactory::SSLServerSocketFactory() {
 }
 
 $Class* SSLServerSocketFactory::load$($String* name, bool initialize) {
-	$loadClass(SSLServerSocketFactory, name, initialize, &_SSLServerSocketFactory_ClassInfo_, allocate$SSLServerSocketFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(SSLServerSocketFactory, init$, void)},
+		{"getDefault", "()Ljavax/net/ServerSocketFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLServerSocketFactory, getDefault, $ServerSocketFactory*)},
+		{"getDefaultCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLServerSocketFactory, getDefaultCipherSuites, $StringArray*)},
+		{"getSupportedCipherSuites", "()[Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLServerSocketFactory, getSupportedCipherSuites, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.net.ssl.SSLServerSocketFactory$DefaultFactoryHolder", "javax.net.ssl.SSLServerSocketFactory", "DefaultFactoryHolder", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.net.ssl.SSLServerSocketFactory",
+		"javax.net.ServerSocketFactory",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.net.ssl.SSLServerSocketFactory$DefaultFactoryHolder"
+	};
+	$loadClass(SSLServerSocketFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLServerSocketFactory);
+	});
 	return class$;
 }
 

@@ -13,6 +13,7 @@ class JsseJce$EcAvailability : public ::java::lang::Object {
 	$class(JsseJce$EcAvailability, 0, ::java::lang::Object)
 public:
 	JsseJce$EcAvailability();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool isAvailable;
 };

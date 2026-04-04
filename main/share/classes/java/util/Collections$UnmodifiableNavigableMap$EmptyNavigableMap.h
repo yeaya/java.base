@@ -24,7 +24,7 @@ public:
 	$Object* readResolve();
 	using ::java::util::Collections$UnmodifiableNavigableMap::subMap;
 	using ::java::util::Collections$UnmodifiableNavigableMap::tailMap;
-	static const int64_t serialVersionUID = (int64_t)0xE0EC54FE7D1C0D6C;
+	static const int64_t serialVersionUID = (int64_t)0xe0ec54fe7d1c0d6c;
 };
 
 	} // util

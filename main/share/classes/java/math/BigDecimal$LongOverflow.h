@@ -24,6 +24,7 @@ class BigDecimal$LongOverflow : public ::java::lang::Object {
 	$class(BigDecimal$LongOverflow, 0, ::java::lang::Object)
 public:
 	BigDecimal$LongOverflow();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void check(::java::math::BigDecimal* num);
 	static ::java::math::BigInteger* LONGMIN;

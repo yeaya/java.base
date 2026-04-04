@@ -1,5 +1,4 @@
 #include <java/lang/invoke/SwitchPoint.h>
-
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MutableCallSite.h>
@@ -20,35 +19,6 @@ using $MutableCallSite = ::java::lang::invoke::MutableCallSite;
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$FieldInfo _SwitchPoint_FieldInfo_[] = {
-	{"K_true", "Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwitchPoint, K_true)},
-	{"K_false", "Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwitchPoint, K_false)},
-	{"mcs", "Ljava/lang/invoke/MutableCallSite;", nullptr, $PRIVATE | $FINAL, $field(SwitchPoint, mcs)},
-	{"mcsInvoker", "Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $FINAL, $field(SwitchPoint, mcsInvoker)},
-	{}
-};
-
-$MethodInfo _SwitchPoint_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SwitchPoint, init$, void)},
-	{"guardWithTest", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(SwitchPoint, guardWithTest, $MethodHandle*, $MethodHandle*, $MethodHandle*)},
-	{"hasBeenInvalidated", "()Z", nullptr, $PUBLIC, $virtualMethod(SwitchPoint, hasBeenInvalidated, bool)},
-	{"invalidateAll", "([Ljava/lang/invoke/SwitchPoint;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwitchPoint, invalidateAll, void, $SwitchPointArray*)},
-	{}
-};
-
-$ClassInfo _SwitchPoint_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.invoke.SwitchPoint",
-	"java.lang.Object",
-	nullptr,
-	_SwitchPoint_FieldInfo_,
-	_SwitchPoint_MethodInfo_
-};
-
-$Object* allocate$SwitchPoint($Class* clazz) {
-	return $of($alloc(SwitchPoint));
-}
 
 $MethodHandle* SwitchPoint::K_true = nullptr;
 $MethodHandle* SwitchPoint::K_false = nullptr;
@@ -71,11 +41,11 @@ $MethodHandle* SwitchPoint::guardWithTest($MethodHandle* target, $MethodHandle* 
 
 void SwitchPoint::invalidateAll($SwitchPointArray* switchPoints) {
 	$init(SwitchPoint);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(switchPoints)->length == 0) {
 		return;
 	}
-	$var($MutableCallSiteArray, sites, $new($MutableCallSiteArray, $nc(switchPoints)->length));
+	$var($MutableCallSiteArray, sites, $new($MutableCallSiteArray, switchPoints->length));
 	for (int32_t i = 0; i < switchPoints->length; ++i) {
 		$var(SwitchPoint, spt, switchPoints->get(i));
 		if (spt == nullptr) {
@@ -87,9 +57,8 @@ void SwitchPoint::invalidateAll($SwitchPointArray* switchPoints) {
 	$MutableCallSite::syncAll(sites);
 }
 
-void clinit$SwitchPoint($Class* class$) {
-	$useLocalCurrentObjectStackCache();
-	$init($Boolean);
+void SwitchPoint::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(SwitchPoint::K_true, $MethodHandles::constant($Boolean::TYPE, $($Boolean::valueOf(true))));
 	$assignStatic(SwitchPoint::K_false, $MethodHandles::constant($Boolean::TYPE, $($Boolean::valueOf(false))));
 }
@@ -98,7 +67,31 @@ SwitchPoint::SwitchPoint() {
 }
 
 $Class* SwitchPoint::load$($String* name, bool initialize) {
-	$loadClass(SwitchPoint, name, initialize, &_SwitchPoint_ClassInfo_, clinit$SwitchPoint, allocate$SwitchPoint);
+	$FieldInfo fieldInfos$$[] = {
+		{"K_true", "Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwitchPoint, K_true)},
+		{"K_false", "Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwitchPoint, K_false)},
+		{"mcs", "Ljava/lang/invoke/MutableCallSite;", nullptr, $PRIVATE | $FINAL, $field(SwitchPoint, mcs)},
+		{"mcsInvoker", "Ljava/lang/invoke/MethodHandle;", nullptr, $PRIVATE | $FINAL, $field(SwitchPoint, mcsInvoker)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SwitchPoint, init$, void)},
+		{"guardWithTest", "(Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(SwitchPoint, guardWithTest, $MethodHandle*, $MethodHandle*, $MethodHandle*)},
+		{"hasBeenInvalidated", "()Z", nullptr, $PUBLIC, $virtualMethod(SwitchPoint, hasBeenInvalidated, bool)},
+		{"invalidateAll", "([Ljava/lang/invoke/SwitchPoint;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwitchPoint, invalidateAll, void, $SwitchPointArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.invoke.SwitchPoint",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SwitchPoint, name, initialize, &classInfo$$, SwitchPoint::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SwitchPoint);
+	});
 	return class$;
 }
 

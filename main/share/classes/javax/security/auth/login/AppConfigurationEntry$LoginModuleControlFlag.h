@@ -23,6 +23,7 @@ class $export AppConfigurationEntry$LoginModuleControlFlag : public ::java::lang
 	$class(AppConfigurationEntry$LoginModuleControlFlag, 0, ::java::lang::Object)
 public:
 	AppConfigurationEntry$LoginModuleControlFlag();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* controlFlag);
 	virtual $String* toString() override;
 	$String* controlFlag = nullptr;

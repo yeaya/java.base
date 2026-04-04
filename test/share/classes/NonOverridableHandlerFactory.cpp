@@ -1,52 +1,17 @@
 #include <NonOverridableHandlerFactory.h>
-
 #include <NonOverridableHandlerFactory$NonOverridableHandler.h>
 #include <java/net/URL.h>
 #include <java/net/URLConnection.h>
 #include <java/net/URLStreamHandler.h>
-#include <java/net/URLStreamHandlerFactory.h>
 #include <jcpp.h>
 
 using $NonOverridableHandlerFactory$NonOverridableHandler = ::NonOverridableHandlerFactory$NonOverridableHandler;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $URL = ::java::net::URL;
 using $URLStreamHandler = ::java::net::URLStreamHandler;
-using $URLStreamHandlerFactory = ::java::net::URLStreamHandlerFactory;
-
-$MethodInfo _NonOverridableHandlerFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NonOverridableHandlerFactory, init$, void)},
-	{"createURLStreamHandler", "(Ljava/lang/String;)Ljava/net/URLStreamHandler;", nullptr, $PUBLIC, $virtualMethod(NonOverridableHandlerFactory, createURLStreamHandler, $URLStreamHandler*, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NonOverridableHandlerFactory, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _NonOverridableHandlerFactory_InnerClassesInfo_[] = {
-	{"NonOverridableHandlerFactory$NonOverridableHandler", "NonOverridableHandlerFactory", "NonOverridableHandler", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _NonOverridableHandlerFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NonOverridableHandlerFactory",
-	"java.lang.Object",
-	"java.net.URLStreamHandlerFactory",
-	nullptr,
-	_NonOverridableHandlerFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NonOverridableHandlerFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"NonOverridableHandlerFactory$NonOverridableHandler"
-};
-
-$Object* allocate$NonOverridableHandlerFactory($Class* clazz) {
-	return $of($alloc(NonOverridableHandlerFactory));
-}
 
 void NonOverridableHandlerFactory::init$() {
 }
@@ -57,16 +22,14 @@ $URLStreamHandler* NonOverridableHandlerFactory::createURLStreamHandler($String*
 
 void NonOverridableHandlerFactory::main($StringArray* args) {
 	$init(NonOverridableHandlerFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$URL::setURLStreamHandlerFactory($$new(NonOverridableHandlerFactory));
 	{
 		$var($StringArray, arr$, $new($StringArray, {
 			"file"_s,
 			"jrt"_s
 		}));
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, protocol, arr$->get(i$));
 			{
 				$var($String, urlString, $str({protocol, ":///test/somefile"_s}));
@@ -87,7 +50,33 @@ NonOverridableHandlerFactory::NonOverridableHandlerFactory() {
 }
 
 $Class* NonOverridableHandlerFactory::load$($String* name, bool initialize) {
-	$loadClass(NonOverridableHandlerFactory, name, initialize, &_NonOverridableHandlerFactory_ClassInfo_, allocate$NonOverridableHandlerFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NonOverridableHandlerFactory, init$, void)},
+		{"createURLStreamHandler", "(Ljava/lang/String;)Ljava/net/URLStreamHandler;", nullptr, $PUBLIC, $virtualMethod(NonOverridableHandlerFactory, createURLStreamHandler, $URLStreamHandler*, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NonOverridableHandlerFactory, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"NonOverridableHandlerFactory$NonOverridableHandler", "NonOverridableHandlerFactory", "NonOverridableHandler", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NonOverridableHandlerFactory",
+		"java.lang.Object",
+		"java.net.URLStreamHandlerFactory",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"NonOverridableHandlerFactory$NonOverridableHandler"
+	};
+	$loadClass(NonOverridableHandlerFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NonOverridableHandlerFactory);
+	});
 	return class$;
 }
 

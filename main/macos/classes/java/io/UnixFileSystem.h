@@ -21,6 +21,7 @@ class UnixFileSystem : public ::java::io::FileSystem {
 public:
 	UnixFileSystem();
 	using ::java::io::FileSystem::hashCode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* canonicalize($String* path) override;
 	$String* canonicalize0($String* path);

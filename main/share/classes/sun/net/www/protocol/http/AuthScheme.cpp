@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/http/AuthScheme.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -21,39 +20,6 @@ namespace sun {
 		namespace www {
 			namespace protocol {
 				namespace http {
-
-$FieldInfo _AuthScheme_FieldInfo_[] = {
-	{"BASIC", "Lsun/net/www/protocol/http/AuthScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AuthScheme, BASIC)},
-	{"DIGEST", "Lsun/net/www/protocol/http/AuthScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AuthScheme, DIGEST)},
-	{"NTLM", "Lsun/net/www/protocol/http/AuthScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AuthScheme, NTLM)},
-	{"NEGOTIATE", "Lsun/net/www/protocol/http/AuthScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AuthScheme, NEGOTIATE)},
-	{"KERBEROS", "Lsun/net/www/protocol/http/AuthScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AuthScheme, KERBEROS)},
-	{"UNKNOWN", "Lsun/net/www/protocol/http/AuthScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AuthScheme, UNKNOWN)},
-	{"$VALUES", "[Lsun/net/www/protocol/http/AuthScheme;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(AuthScheme, $VALUES)},
-	{}
-};
-
-$MethodInfo _AuthScheme_MethodInfo_[] = {
-	{"$values", "()[Lsun/net/www/protocol/http/AuthScheme;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AuthScheme, $values, $AuthSchemeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AuthScheme, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/net/www/protocol/http/AuthScheme;", nullptr, $PUBLIC | $STATIC, $staticMethod(AuthScheme, valueOf, AuthScheme*, $String*)},
-	{"values", "()[Lsun/net/www/protocol/http/AuthScheme;", nullptr, $PUBLIC | $STATIC, $staticMethod(AuthScheme, values, $AuthSchemeArray*)},
-	{}
-};
-
-$ClassInfo _AuthScheme_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"sun.net.www.protocol.http.AuthScheme",
-	"java.lang.Enum",
-	nullptr,
-	_AuthScheme_FieldInfo_,
-	_AuthScheme_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/net/www/protocol/http/AuthScheme;>;"
-};
-
-$Object* allocate$AuthScheme($Class* clazz) {
-	return $of($alloc(AuthScheme));
-}
 
 AuthScheme* AuthScheme::BASIC = nullptr;
 AuthScheme* AuthScheme::DIGEST = nullptr;
@@ -89,7 +55,7 @@ void AuthScheme::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$AuthScheme($Class* class$) {
+void AuthScheme::clinit$($Class* clazz) {
 	$assignStatic(AuthScheme::BASIC, $new(AuthScheme, "BASIC"_s, 0));
 	$assignStatic(AuthScheme::DIGEST, $new(AuthScheme, "DIGEST"_s, 1));
 	$assignStatic(AuthScheme::NTLM, $new(AuthScheme, "NTLM"_s, 2));
@@ -103,7 +69,35 @@ AuthScheme::AuthScheme() {
 }
 
 $Class* AuthScheme::load$($String* name, bool initialize) {
-	$loadClass(AuthScheme, name, initialize, &_AuthScheme_ClassInfo_, clinit$AuthScheme, allocate$AuthScheme);
+	$FieldInfo fieldInfos$$[] = {
+		{"BASIC", "Lsun/net/www/protocol/http/AuthScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AuthScheme, BASIC)},
+		{"DIGEST", "Lsun/net/www/protocol/http/AuthScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AuthScheme, DIGEST)},
+		{"NTLM", "Lsun/net/www/protocol/http/AuthScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AuthScheme, NTLM)},
+		{"NEGOTIATE", "Lsun/net/www/protocol/http/AuthScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AuthScheme, NEGOTIATE)},
+		{"KERBEROS", "Lsun/net/www/protocol/http/AuthScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AuthScheme, KERBEROS)},
+		{"UNKNOWN", "Lsun/net/www/protocol/http/AuthScheme;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AuthScheme, UNKNOWN)},
+		{"$VALUES", "[Lsun/net/www/protocol/http/AuthScheme;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(AuthScheme, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/net/www/protocol/http/AuthScheme;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AuthScheme, $values, $AuthSchemeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AuthScheme, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/net/www/protocol/http/AuthScheme;", nullptr, $PUBLIC | $STATIC, $staticMethod(AuthScheme, valueOf, AuthScheme*, $String*)},
+		{"values", "()[Lsun/net/www/protocol/http/AuthScheme;", nullptr, $PUBLIC | $STATIC, $staticMethod(AuthScheme, values, $AuthSchemeArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"sun.net.www.protocol.http.AuthScheme",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/net/www/protocol/http/AuthScheme;>;"
+	};
+	$loadClass(AuthScheme, name, initialize, &classInfo$$, AuthScheme::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AuthScheme));
+	});
 	return class$;
 }
 

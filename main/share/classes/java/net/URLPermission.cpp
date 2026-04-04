@@ -1,5 +1,4 @@
 #include <java/net/URLPermission.h>
-
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/lang/CharSequence.h>
@@ -18,7 +17,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URLPermission$Authority = ::java::net::URLPermission$Authority;
 using $Permission = ::java::security::Permission;
@@ -29,59 +27,6 @@ using $List = ::java::util::List;
 namespace java {
 	namespace net {
 
-$FieldInfo _URLPermission_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URLPermission, serialVersionUID)},
-	{"scheme", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(URLPermission, scheme)},
-	{"ssp", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(URLPermission, ssp)},
-	{"path", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(URLPermission, path)},
-	{"methods", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $TRANSIENT, $field(URLPermission, methods)},
-	{"requestHeaders", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $TRANSIENT, $field(URLPermission, requestHeaders)},
-	{"authority", "Ljava/net/URLPermission$Authority;", nullptr, $PRIVATE | $TRANSIENT, $field(URLPermission, authority)},
-	{"actions", "Ljava/lang/String;", nullptr, $PRIVATE, $field(URLPermission, actions$)},
-	{}
-};
-
-$MethodInfo _URLPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(URLPermission, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(URLPermission, init$, void, $String*)},
-	{"actions", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(URLPermission, actions, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(URLPermission, equals, bool, Object$*)},
-	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLPermission, getActions, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(URLPermission, hashCode, int32_t)},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(URLPermission, implies, bool, $Permission*)},
-	{"init", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(URLPermission, init, void, $String*)},
-	{"normalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(URLPermission, normalize, $String*, $String*)},
-	{"normalizeHeaders", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $method(URLPermission, normalizeHeaders, $List*, $String*)},
-	{"normalizeMethods", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $method(URLPermission, normalizeMethods, $List*, $String*)},
-	{"parseURI", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(URLPermission, parseURI, void, $String*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(URLPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{}
-};
-
-$InnerClassInfo _URLPermission_InnerClassesInfo_[] = {
-	{"java.net.URLPermission$Authority", "java.net.URLPermission", "Authority", $STATIC},
-	{}
-};
-
-$ClassInfo _URLPermission_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.net.URLPermission",
-	"java.security.Permission",
-	nullptr,
-	_URLPermission_FieldInfo_,
-	_URLPermission_MethodInfo_,
-	nullptr,
-	nullptr,
-	_URLPermission_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.net.URLPermission$Authority"
-};
-
-$Object* allocate$URLPermission($Class* clazz) {
-	return $of($alloc(URLPermission));
-}
-
 void URLPermission::init$($String* url, $String* actions) {
 	$Permission::init$($(normalize(url)));
 	init(actions);
@@ -90,11 +35,11 @@ void URLPermission::init$($String* url, $String* actions) {
 $String* URLPermission::normalize($String* url$renamed) {
 	$init(URLPermission);
 	$var($String, url, url$renamed);
-	int32_t index = $nc(url)->indexOf((int32_t)u'?');
+	int32_t index = $nc(url)->indexOf(u'?');
 	if (index >= 0) {
 		$assign(url, url->substring(0, index));
 	} else {
-		index = url->indexOf((int32_t)u'#');
+		index = url->indexOf(u'#');
 		if (index >= 0) {
 			$assign(url, url->substring(0, index));
 		}
@@ -103,10 +48,10 @@ $String* URLPermission::normalize($String* url$renamed) {
 }
 
 void URLPermission::init($String* actions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	parseURI($(getName()));
-	int32_t colon = $nc(actions)->indexOf((int32_t)u':');
-	if (actions->lastIndexOf((int32_t)u':') != colon) {
+	int32_t colon = $nc(actions)->indexOf(u':');
+	if (actions->lastIndexOf(u':') != colon) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid actions string: \""_s, actions, "\""_s}));
 	}
 	$var($String, methods, nullptr);
@@ -136,7 +81,7 @@ $String* URLPermission::getActions() {
 }
 
 bool URLPermission::implies($Permission* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(URLPermission, that, nullptr);
 	bool var$0 = $instanceOf(URLPermission, p);
 	if (var$0) {
@@ -150,8 +95,8 @@ bool URLPermission::implies($Permission* p) {
 	if (var$1 && !$nc($nc(that)->methods)->isEmpty()) {
 		return false;
 	}
-	bool var$3 = !$nc(this->methods)->isEmpty();
-	bool var$2 = var$3 && !$nc(($cast($String, $($nc(this->methods)->get(0)))))->equals("*"_s);
+	bool var$3 = !this->methods->isEmpty();
+	bool var$2 = var$3 && !$$sure($String, this->methods->get(0))->equals("*"_s);
 	if (var$2 && $Collections::indexOfSubList(this->methods, $nc(that)->methods) == -1) {
 		return false;
 	}
@@ -159,8 +104,8 @@ bool URLPermission::implies($Permission* p) {
 	if (var$4 && !$nc($nc(that)->requestHeaders)->isEmpty()) {
 		return false;
 	}
-	bool var$6 = !$nc(this->requestHeaders)->isEmpty();
-	bool var$5 = var$6 && !$nc(($cast($String, $($nc(this->requestHeaders)->get(0)))))->equals("*"_s);
+	bool var$6 = !this->requestHeaders->isEmpty();
+	bool var$5 = var$6 && !$$sure($String, this->requestHeaders->get(0))->equals("*"_s);
 	if (var$5 && $Collections::indexOfSubList(this->requestHeaders, $nc(that)->requestHeaders) == -1) {
 		return false;
 	}
@@ -170,26 +115,26 @@ bool URLPermission::implies($Permission* p) {
 	if ($nc(this->ssp)->equals("*"_s)) {
 		return true;
 	}
-	if (!$nc(this->authority)->implies($nc(that)->authority)) {
+	if (!$nc(this->authority)->implies(that->authority)) {
 		return false;
 	}
 	if (this->path == nullptr) {
-		return $nc(that)->path == nullptr;
+		return that->path == nullptr;
 	}
-	if ($nc(that)->path == nullptr) {
+	if (that->path == nullptr) {
 		return false;
 	}
 	if ($nc(this->path)->endsWith("/-"_s)) {
-		$var($String, thisprefix, $nc(this->path)->substring(0, $nc(this->path)->length() - 1));
-		return $nc($nc(that)->path)->startsWith(thisprefix);
+		$var($String, thisprefix, this->path->substring(0, this->path->length() - 1));
+		return $nc(that->path)->startsWith(thisprefix);
 	}
-	if ($nc(this->path)->endsWith("/*"_s)) {
-		$var($String, thisprefix, $nc(this->path)->substring(0, $nc(this->path)->length() - 1));
-		if (!$nc($nc(that)->path)->startsWith(thisprefix)) {
+	if (this->path->endsWith("/*"_s)) {
+		$var($String, thisprefix, this->path->substring(0, this->path->length() - 1));
+		if (!$nc(that->path)->startsWith(thisprefix)) {
 			return false;
 		}
-		$var($String, thatsuffix, $nc($nc(that)->path)->substring(thisprefix->length()));
-		if (thatsuffix->indexOf((int32_t)u'/') != -1) {
+		$var($String, thatsuffix, that->path->substring(thisprefix->length()));
+		if (thatsuffix->indexOf(u'/') != -1) {
 			return false;
 		}
 		if (thatsuffix->equals("-"_s)) {
@@ -197,11 +142,11 @@ bool URLPermission::implies($Permission* p) {
 		}
 		return true;
 	}
-	return $nc(this->path)->equals($nc(that)->path);
+	return this->path->equals(that->path);
 }
 
 bool URLPermission::equals(Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(URLPermission, that, nullptr);
 	bool var$0 = $instanceOf(URLPermission, p);
 	if (var$0) {
@@ -214,35 +159,35 @@ bool URLPermission::equals(Object$* p) {
 	if (!$nc(this->scheme)->equals($nc(that)->scheme)) {
 		return false;
 	}
-	if (!$nc($(this->getActions()))->equals($($nc(that)->getActions()))) {
+	if (!$$nc(this->getActions())->equals($(that->getActions()))) {
 		return false;
 	}
-	if (!$nc(this->authority)->equals($nc(that)->authority)) {
+	if (!$nc(this->authority)->equals(that->authority)) {
 		return false;
 	}
 	if (this->path != nullptr) {
-		return $nc(this->path)->equals($nc(that)->path);
+		return this->path->equals(that->path);
 	} else {
-		return $nc(that)->path == nullptr;
+		return that->path == nullptr;
 	}
 }
 
 int32_t URLPermission::hashCode() {
-	int32_t var$2 = $nc($(getActions()))->hashCode();
+	int32_t var$2 = $$nc(getActions())->hashCode();
 	int32_t var$1 = var$2 + $nc(this->scheme)->hashCode();
 	int32_t var$0 = var$1 + $nc(this->authority)->hashCode();
-	return var$0 + (this->path == nullptr ? 0 : $nc(this->path)->hashCode());
+	return var$0 + (this->path == nullptr ? 0 : this->path->hashCode());
 }
 
 $List* URLPermission::normalizeMethods($String* methods) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, l, $new($ArrayList));
 	$var($StringBuilder, b, $new($StringBuilder));
 	for (int32_t i = 0; i < $nc(methods)->length(); ++i) {
 		char16_t c = methods->charAt(i);
 		if (c == u',') {
 			$var($String, s, b->toString());
-			if (!$nc(s)->isEmpty()) {
+			if (!s->isEmpty()) {
 				l->add(s);
 			}
 			$assign(b, $new($StringBuilder));
@@ -256,14 +201,14 @@ $List* URLPermission::normalizeMethods($String* methods) {
 		}
 	}
 	$var($String, s, b->toString());
-	if (!$nc(s)->isEmpty()) {
+	if (!s->isEmpty()) {
 		l->add(s);
 	}
 	return l;
 }
 
 $List* URLPermission::normalizeHeaders($String* headers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, l, $new($ArrayList));
 	$var($StringBuilder, b, $new($StringBuilder));
 	bool capitalizeNext = true;
@@ -282,7 +227,7 @@ $List* URLPermission::normalizeHeaders($String* headers) {
 			b->append(c);
 		} else if (c == u',') {
 			$var($String, s, b->toString());
-			if (!$nc(s)->isEmpty()) {
+			if (!s->isEmpty()) {
 				l->add(s);
 			}
 			$assign(b, $new($StringBuilder));
@@ -293,30 +238,30 @@ $List* URLPermission::normalizeHeaders($String* headers) {
 		}
 	}
 	$var($String, s, b->toString());
-	if (!$nc(s)->isEmpty()) {
+	if (!s->isEmpty()) {
 		l->add(s);
 	}
 	return l;
 }
 
 void URLPermission::parseURI($String* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = $nc(url)->length();
-	int32_t delim = url->indexOf((int32_t)u':');
+	int32_t delim = url->indexOf(u':');
 	if (delim == -1 || delim + 1 == len) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid URL string: \""_s, url, "\""_s}));
 	}
 	$set(this, scheme, $(url->substring(0, delim))->toLowerCase());
 	$set(this, ssp, url->substring(delim + 1));
 	if (!$nc(this->ssp)->startsWith("//"_s)) {
-		if (!$nc(this->ssp)->equals("*"_s)) {
+		if (!this->ssp->equals("*"_s)) {
 			$throwNew($IllegalArgumentException, $$str({"Invalid URL string: \""_s, url, "\""_s}));
 		}
 		$set(this, authority, $new($URLPermission$Authority, this->scheme, "*"_s));
 		return;
 	}
-	$var($String, authpath, $nc(this->ssp)->substring(2));
-	delim = authpath->indexOf((int32_t)u'/');
+	$var($String, authpath, this->ssp->substring(2));
+	delim = authpath->indexOf(u'/');
 	$var($String, auth, nullptr);
 	if (delim == -1) {
 		$set(this, path, ""_s);
@@ -329,15 +274,18 @@ void URLPermission::parseURI($String* url) {
 }
 
 $String* URLPermission::actions() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$($String::join(static_cast<$CharSequence*>(","_s), static_cast<$Iterable*>(this->methods))), ":"_s}));
-	return $concat(var$0, $($String::join(static_cast<$CharSequence*>(","_s), static_cast<$Iterable*>(this->requestHeaders))));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($String::join(","_s, this->methods)));
+	var$0->append(":"_s);
+	var$0->append($($String::join(","_s, this->requestHeaders)));
+	return $str(var$0);
 }
 
 void URLPermission::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, fields, $nc(s)->readFields());
-	$var($String, actions, $cast($String, $nc(fields)->get("actions"_s, ($Object*)nullptr)));
+	$var($String, actions, $cast($String, $nc(fields)->get("actions"_s, nullptr)));
 	init(actions);
 }
 
@@ -345,7 +293,54 @@ URLPermission::URLPermission() {
 }
 
 $Class* URLPermission::load$($String* name, bool initialize) {
-	$loadClass(URLPermission, name, initialize, &_URLPermission_ClassInfo_, allocate$URLPermission);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URLPermission, serialVersionUID)},
+		{"scheme", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(URLPermission, scheme)},
+		{"ssp", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(URLPermission, ssp)},
+		{"path", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(URLPermission, path)},
+		{"methods", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $TRANSIENT, $field(URLPermission, methods)},
+		{"requestHeaders", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $TRANSIENT, $field(URLPermission, requestHeaders)},
+		{"authority", "Ljava/net/URLPermission$Authority;", nullptr, $PRIVATE | $TRANSIENT, $field(URLPermission, authority)},
+		{"actions", "Ljava/lang/String;", nullptr, $PRIVATE, $field(URLPermission, actions$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(URLPermission, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(URLPermission, init$, void, $String*)},
+		{"actions", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(URLPermission, actions, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(URLPermission, equals, bool, Object$*)},
+		{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URLPermission, getActions, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(URLPermission, hashCode, int32_t)},
+		{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(URLPermission, implies, bool, $Permission*)},
+		{"init", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(URLPermission, init, void, $String*)},
+		{"normalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(URLPermission, normalize, $String*, $String*)},
+		{"normalizeHeaders", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $method(URLPermission, normalizeHeaders, $List*, $String*)},
+		{"normalizeMethods", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $method(URLPermission, normalizeMethods, $List*, $String*)},
+		{"parseURI", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(URLPermission, parseURI, void, $String*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(URLPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.URLPermission$Authority", "java.net.URLPermission", "Authority", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.net.URLPermission",
+		"java.security.Permission",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.net.URLPermission$Authority"
+	};
+	$loadClass(URLPermission, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(URLPermission));
+	});
 	return class$;
 }
 

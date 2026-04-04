@@ -1,5 +1,4 @@
 #include <java/nio/charset/Charset$2.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/spi/CharsetProvider.h>
 #include <java/util/Iterator.h>
@@ -18,72 +17,63 @@ namespace java {
 	namespace nio {
 		namespace charset {
 
-$FieldInfo _Charset$2_FieldInfo_[] = {
-	{"val$charsetName", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(Charset$2, val$charsetName)},
-	{}
-};
-
-$MethodInfo _Charset$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(Charset$2, init$, void, $String*)},
-	{"run", "()Ljava/nio/charset/Charset;", nullptr, $PUBLIC, $virtualMethod(Charset$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Charset$2_EnclosingMethodInfo_ = {
-	"java.nio.charset.Charset",
-	"lookupViaProviders",
-	"(Ljava/lang/String;)Ljava/nio/charset/Charset;"
-};
-
-$InnerClassInfo _Charset$2_InnerClassesInfo_[] = {
-	{"java.nio.charset.Charset$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Charset$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.charset.Charset$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_Charset$2_FieldInfo_,
-	_Charset$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/nio/charset/Charset;>;",
-	&_Charset$2_EnclosingMethodInfo_,
-	_Charset$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.nio.charset.Charset"
-};
-
-$Object* allocate$Charset$2($Class* clazz) {
-	return $of($alloc(Charset$2));
-}
-
 void Charset$2::init$($String* val$charsetName) {
 	$set(this, val$charsetName, val$charsetName);
 }
 
 $Object* Charset$2::run() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i, $Charset::providers());
-		for (; $nc(i)->hasNext();) {
-			$var($CharsetProvider, cp, $cast($CharsetProvider, i->next()));
-			$var($Charset, cs, $nc(cp)->charsetForName(this->val$charsetName));
-			if (cs != nullptr) {
-				return $of(cs);
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i, $Charset::providers());
+	for (; $nc(i)->hasNext();) {
+		$var($CharsetProvider, cp, $cast($CharsetProvider, i->next()));
+		$var($Charset, cs, $nc(cp)->charsetForName(this->val$charsetName));
+		if (cs != nullptr) {
+			return cs;
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 Charset$2::Charset$2() {
 }
 
 $Class* Charset$2::load$($String* name, bool initialize) {
-	$loadClass(Charset$2, name, initialize, &_Charset$2_ClassInfo_, allocate$Charset$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$charsetName", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(Charset$2, val$charsetName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(Charset$2, init$, void, $String*)},
+		{"run", "()Ljava/nio/charset/Charset;", nullptr, $PUBLIC, $virtualMethod(Charset$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.nio.charset.Charset",
+		"lookupViaProviders",
+		"(Ljava/lang/String;)Ljava/nio/charset/Charset;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.charset.Charset$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.charset.Charset$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/nio/charset/Charset;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.nio.charset.Charset"
+	};
+	$loadClass(Charset$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Charset$2);
+	});
 	return class$;
 }
 

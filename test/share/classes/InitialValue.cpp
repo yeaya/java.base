@@ -1,8 +1,6 @@
 #include <InitialValue.h>
-
 #include <InitialValue$MyLocal.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/ThreadLocal.h>
 #include <jcpp.h>
 
@@ -12,46 +10,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ThreadLocal = ::java::lang::ThreadLocal;
-
-$FieldInfo _InitialValue_FieldInfo_[] = {
-	{"other", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljava/lang/String;>;", $STATIC, $staticField(InitialValue, other)},
-	{"passed", "Z", nullptr, $STATIC, $staticField(InitialValue, passed)},
-	{}
-};
-
-$MethodInfo _InitialValue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InitialValue, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InitialValue, main, void, $StringArray*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(InitialValue, run, void)},
-	{}
-};
-
-$InnerClassInfo _InitialValue_InnerClassesInfo_[] = {
-	{"InitialValue$MyLocal", "InitialValue", "MyLocal", $PUBLIC},
-	{}
-};
-
-$ClassInfo _InitialValue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"InitialValue",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_InitialValue_FieldInfo_,
-	_InitialValue_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InitialValue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"InitialValue$MyLocal"
-};
-
-$Object* allocate$InitialValue($Class* clazz) {
-	return $of($alloc(InitialValue));
-}
 
 $ThreadLocal* InitialValue::other = nullptr;
 bool InitialValue::passed = false;
@@ -60,7 +20,7 @@ void InitialValue::init$() {
 }
 
 void InitialValue::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InitialValue$MyLocal, l, $new($InitialValue$MyLocal, this));
 	$var($String, s1, $cast($String, l->get()));
 	$var($String, s2, $cast($String, $nc(InitialValue::other)->get()));
@@ -71,8 +31,8 @@ void InitialValue::run() {
 
 void InitialValue::main($StringArray* args) {
 	$init(InitialValue);
-	$useLocalCurrentObjectStackCache();
-	$var($Thread, t, $new($Thread, static_cast<$Runnable*>($$new(InitialValue))));
+	$useLocalObjectStack();
+	$var($Thread, t, $new($Thread, $$new(InitialValue)));
 	t->start();
 	try {
 		t->join();
@@ -88,7 +48,38 @@ InitialValue::InitialValue() {
 }
 
 $Class* InitialValue::load$($String* name, bool initialize) {
-	$loadClass(InitialValue, name, initialize, &_InitialValue_ClassInfo_, allocate$InitialValue);
+	$FieldInfo fieldInfos$$[] = {
+		{"other", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljava/lang/String;>;", $STATIC, $staticField(InitialValue, other)},
+		{"passed", "Z", nullptr, $STATIC, $staticField(InitialValue, passed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InitialValue, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(InitialValue, main, void, $StringArray*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(InitialValue, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"InitialValue$MyLocal", "InitialValue", "MyLocal", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"InitialValue",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"InitialValue$MyLocal"
+	};
+	$loadClass(InitialValue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InitialValue);
+	});
 	return class$;
 }
 

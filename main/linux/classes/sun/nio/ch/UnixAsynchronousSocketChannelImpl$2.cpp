@@ -1,5 +1,4 @@
 #include <sun/nio/ch/UnixAsynchronousSocketChannelImpl$2.h>
-
 #include <java/nio/channels/AsynchronousChannel.h>
 #include <java/nio/channels/CompletionHandler.h>
 #include <java/nio/channels/InterruptedByTimeoutException.h>
@@ -14,7 +13,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AsynchronousChannel = ::java::nio::channels::AsynchronousChannel;
 using $CompletionHandler = ::java::nio::channels::CompletionHandler;
 using $InterruptedByTimeoutException = ::java::nio::channels::InterruptedByTimeoutException;
 using $Invoker = ::sun::nio::ch::Invoker;
@@ -25,54 +23,12 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _UnixAsynchronousSocketChannelImpl$2_FieldInfo_[] = {
-	{"this$0", "Lsun/nio/ch/UnixAsynchronousSocketChannelImpl;", nullptr, $FINAL | $SYNTHETIC, $field(UnixAsynchronousSocketChannelImpl$2, this$0)},
-	{}
-};
-
-$MethodInfo _UnixAsynchronousSocketChannelImpl$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/UnixAsynchronousSocketChannelImpl;)V", nullptr, 0, $method(UnixAsynchronousSocketChannelImpl$2, init$, void, $UnixAsynchronousSocketChannelImpl*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(UnixAsynchronousSocketChannelImpl$2, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _UnixAsynchronousSocketChannelImpl$2_EnclosingMethodInfo_ = {
-	"sun.nio.ch.UnixAsynchronousSocketChannelImpl",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _UnixAsynchronousSocketChannelImpl$2_InnerClassesInfo_[] = {
-	{"sun.nio.ch.UnixAsynchronousSocketChannelImpl$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _UnixAsynchronousSocketChannelImpl$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.UnixAsynchronousSocketChannelImpl$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_UnixAsynchronousSocketChannelImpl$2_FieldInfo_,
-	_UnixAsynchronousSocketChannelImpl$2_MethodInfo_,
-	nullptr,
-	&_UnixAsynchronousSocketChannelImpl$2_EnclosingMethodInfo_,
-	_UnixAsynchronousSocketChannelImpl$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.UnixAsynchronousSocketChannelImpl"
-};
-
-$Object* allocate$UnixAsynchronousSocketChannelImpl$2($Class* clazz) {
-	return $of($alloc(UnixAsynchronousSocketChannelImpl$2));
-}
-
 void UnixAsynchronousSocketChannelImpl$2::init$($UnixAsynchronousSocketChannelImpl* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void UnixAsynchronousSocketChannelImpl$2::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CompletionHandler, handler, nullptr);
 	$var($Object, att, nullptr);
 	$var($PendingFuture, future, nullptr);
@@ -88,7 +44,7 @@ void UnixAsynchronousSocketChannelImpl$2::run() {
 	this->this$0->enableWriting(true);
 	$var($Exception, exc, $new($InterruptedByTimeoutException));
 	if (handler != nullptr) {
-		$Invoker::invokeIndirectly(static_cast<$AsynchronousChannel*>(this->this$0), handler, att, ($Object*)nullptr, static_cast<$Throwable*>(exc));
+		$Invoker::invokeIndirectly(this->this$0, handler, att, nullptr, exc);
 	} else {
 		$nc(future)->setFailure(exc);
 	}
@@ -98,7 +54,42 @@ UnixAsynchronousSocketChannelImpl$2::UnixAsynchronousSocketChannelImpl$2() {
 }
 
 $Class* UnixAsynchronousSocketChannelImpl$2::load$($String* name, bool initialize) {
-	$loadClass(UnixAsynchronousSocketChannelImpl$2, name, initialize, &_UnixAsynchronousSocketChannelImpl$2_ClassInfo_, allocate$UnixAsynchronousSocketChannelImpl$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/nio/ch/UnixAsynchronousSocketChannelImpl;", nullptr, $FINAL | $SYNTHETIC, $field(UnixAsynchronousSocketChannelImpl$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/ch/UnixAsynchronousSocketChannelImpl;)V", nullptr, 0, $method(UnixAsynchronousSocketChannelImpl$2, init$, void, $UnixAsynchronousSocketChannelImpl*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(UnixAsynchronousSocketChannelImpl$2, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.nio.ch.UnixAsynchronousSocketChannelImpl",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.UnixAsynchronousSocketChannelImpl$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.UnixAsynchronousSocketChannelImpl$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.UnixAsynchronousSocketChannelImpl"
+	};
+	$loadClass(UnixAsynchronousSocketChannelImpl$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnixAsynchronousSocketChannelImpl$2);
+	});
 	return class$;
 }
 

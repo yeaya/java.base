@@ -1,5 +1,4 @@
 #include <java/util/Formatter$FormatString.h>
-
 #include <java/util/Formatter.h>
 #include <java/util/Locale.h>
 #include <jcpp.h>
@@ -12,44 +11,39 @@ using $Locale = ::java::util::Locale;
 namespace java {
 	namespace util {
 
-$MethodInfo _Formatter$FormatString_MethodInfo_[] = {
-	{"index", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Formatter$FormatString, index, int32_t)},
-	{"print", "(Ljava/lang/Object;Ljava/util/Locale;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Formatter$FormatString, print, void, Object$*, $Locale*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$InnerClassInfo _Formatter$FormatString_InnerClassesInfo_[] = {
-	{"java.util.Formatter$FormatString", "java.util.Formatter", "FormatString", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Formatter$FormatString_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"java.util.Formatter$FormatString",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Formatter$FormatString_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Formatter$FormatString_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Formatter"
-};
-
-$Object* allocate$Formatter$FormatString($Class* clazz) {
-	return $of($alloc(Formatter$FormatString));
-}
-
 $String* Formatter$FormatString::toString() {
 	 return this->$Object::toString();
 }
 
 $Class* Formatter$FormatString::load$($String* name, bool initialize) {
-	$loadClass(Formatter$FormatString, name, initialize, &_Formatter$FormatString_ClassInfo_, allocate$Formatter$FormatString);
+	$MethodInfo methodInfos$$[] = {
+		{"index", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Formatter$FormatString, index, int32_t)},
+		{"print", "(Ljava/lang/Object;Ljava/util/Locale;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Formatter$FormatString, print, void, Object$*, $Locale*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Formatter$FormatString", "java.util.Formatter", "FormatString", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"java.util.Formatter$FormatString",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Formatter"
+	};
+	$loadClass(Formatter$FormatString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Formatter$FormatString);
+	});
 	return class$;
 }
 

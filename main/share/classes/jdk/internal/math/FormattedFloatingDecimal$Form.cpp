@@ -1,5 +1,4 @@
 #include <jdk/internal/math/FormattedFloatingDecimal$Form.h>
-
 #include <java/lang/Enum.h>
 #include <jdk/internal/math/FormattedFloatingDecimal.h>
 #include <jcpp.h>
@@ -19,48 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace jdk {
 	namespace internal {
 		namespace math {
-
-$FieldInfo _FormattedFloatingDecimal$Form_FieldInfo_[] = {
-	{"SCIENTIFIC", "Ljdk/internal/math/FormattedFloatingDecimal$Form;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FormattedFloatingDecimal$Form, SCIENTIFIC)},
-	{"COMPATIBLE", "Ljdk/internal/math/FormattedFloatingDecimal$Form;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FormattedFloatingDecimal$Form, COMPATIBLE)},
-	{"DECIMAL_FLOAT", "Ljdk/internal/math/FormattedFloatingDecimal$Form;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FormattedFloatingDecimal$Form, DECIMAL_FLOAT)},
-	{"GENERAL", "Ljdk/internal/math/FormattedFloatingDecimal$Form;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FormattedFloatingDecimal$Form, GENERAL)},
-	{"$VALUES", "[Ljdk/internal/math/FormattedFloatingDecimal$Form;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(FormattedFloatingDecimal$Form, $VALUES)},
-	{}
-};
-
-$MethodInfo _FormattedFloatingDecimal$Form_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/math/FormattedFloatingDecimal$Form;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FormattedFloatingDecimal$Form, $values, $FormattedFloatingDecimal$FormArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(FormattedFloatingDecimal$Form, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/math/FormattedFloatingDecimal$Form;", nullptr, $PUBLIC | $STATIC, $staticMethod(FormattedFloatingDecimal$Form, valueOf, FormattedFloatingDecimal$Form*, $String*)},
-	{"values", "()[Ljdk/internal/math/FormattedFloatingDecimal$Form;", nullptr, $PUBLIC | $STATIC, $staticMethod(FormattedFloatingDecimal$Form, values, $FormattedFloatingDecimal$FormArray*)},
-	{}
-};
-
-$InnerClassInfo _FormattedFloatingDecimal$Form_InnerClassesInfo_[] = {
-	{"jdk.internal.math.FormattedFloatingDecimal$Form", "jdk.internal.math.FormattedFloatingDecimal", "Form", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _FormattedFloatingDecimal$Form_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"jdk.internal.math.FormattedFloatingDecimal$Form",
-	"java.lang.Enum",
-	nullptr,
-	_FormattedFloatingDecimal$Form_FieldInfo_,
-	_FormattedFloatingDecimal$Form_MethodInfo_,
-	"Ljava/lang/Enum<Ljdk/internal/math/FormattedFloatingDecimal$Form;>;",
-	nullptr,
-	_FormattedFloatingDecimal$Form_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.math.FormattedFloatingDecimal"
-};
-
-$Object* allocate$FormattedFloatingDecimal$Form($Class* clazz) {
-	return $of($alloc(FormattedFloatingDecimal$Form));
-}
 
 FormattedFloatingDecimal$Form* FormattedFloatingDecimal$Form::SCIENTIFIC = nullptr;
 FormattedFloatingDecimal$Form* FormattedFloatingDecimal$Form::COMPATIBLE = nullptr;
@@ -92,7 +49,7 @@ void FormattedFloatingDecimal$Form::init$($String* $enum$name, int32_t $enum$ord
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$FormattedFloatingDecimal$Form($Class* class$) {
+void FormattedFloatingDecimal$Form::clinit$($Class* clazz) {
 	$assignStatic(FormattedFloatingDecimal$Form::SCIENTIFIC, $new(FormattedFloatingDecimal$Form, "SCIENTIFIC"_s, 0));
 	$assignStatic(FormattedFloatingDecimal$Form::COMPATIBLE, $new(FormattedFloatingDecimal$Form, "COMPATIBLE"_s, 1));
 	$assignStatic(FormattedFloatingDecimal$Form::DECIMAL_FLOAT, $new(FormattedFloatingDecimal$Form, "DECIMAL_FLOAT"_s, 2));
@@ -104,7 +61,43 @@ FormattedFloatingDecimal$Form::FormattedFloatingDecimal$Form() {
 }
 
 $Class* FormattedFloatingDecimal$Form::load$($String* name, bool initialize) {
-	$loadClass(FormattedFloatingDecimal$Form, name, initialize, &_FormattedFloatingDecimal$Form_ClassInfo_, clinit$FormattedFloatingDecimal$Form, allocate$FormattedFloatingDecimal$Form);
+	$FieldInfo fieldInfos$$[] = {
+		{"SCIENTIFIC", "Ljdk/internal/math/FormattedFloatingDecimal$Form;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FormattedFloatingDecimal$Form, SCIENTIFIC)},
+		{"COMPATIBLE", "Ljdk/internal/math/FormattedFloatingDecimal$Form;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FormattedFloatingDecimal$Form, COMPATIBLE)},
+		{"DECIMAL_FLOAT", "Ljdk/internal/math/FormattedFloatingDecimal$Form;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FormattedFloatingDecimal$Form, DECIMAL_FLOAT)},
+		{"GENERAL", "Ljdk/internal/math/FormattedFloatingDecimal$Form;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(FormattedFloatingDecimal$Form, GENERAL)},
+		{"$VALUES", "[Ljdk/internal/math/FormattedFloatingDecimal$Form;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(FormattedFloatingDecimal$Form, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljdk/internal/math/FormattedFloatingDecimal$Form;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FormattedFloatingDecimal$Form, $values, $FormattedFloatingDecimal$FormArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(FormattedFloatingDecimal$Form, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljdk/internal/math/FormattedFloatingDecimal$Form;", nullptr, $PUBLIC | $STATIC, $staticMethod(FormattedFloatingDecimal$Form, valueOf, FormattedFloatingDecimal$Form*, $String*)},
+		{"values", "()[Ljdk/internal/math/FormattedFloatingDecimal$Form;", nullptr, $PUBLIC | $STATIC, $staticMethod(FormattedFloatingDecimal$Form, values, $FormattedFloatingDecimal$FormArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.math.FormattedFloatingDecimal$Form", "jdk.internal.math.FormattedFloatingDecimal", "Form", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"jdk.internal.math.FormattedFloatingDecimal$Form",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljdk/internal/math/FormattedFloatingDecimal$Form;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.math.FormattedFloatingDecimal"
+	};
+	$loadClass(FormattedFloatingDecimal$Form, name, initialize, &classInfo$$, FormattedFloatingDecimal$Form::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FormattedFloatingDecimal$Form));
+	});
 	return class$;
 }
 

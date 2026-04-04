@@ -1,5 +1,4 @@
 #include <test/java/lang/invoke/MethodTypeSecurityManager.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/RuntimePermission.h>
@@ -9,7 +8,6 @@
 #include <java/security/Permission.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
@@ -27,32 +25,6 @@ namespace test {
 		namespace lang {
 			namespace invoke {
 
-$FieldInfo _MethodTypeSecurityManager_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MethodTypeSecurityManager, $assertionsDisabled)},
-	{"hasClassLoaderAccess", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MethodTypeSecurityManager, hasClassLoaderAccess)},
-	{}
-};
-
-$MethodInfo _MethodTypeSecurityManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodTypeSecurityManager, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MethodTypeSecurityManager, main, void, $StringArray*), "java.lang.Throwable"},
-	{"throwACC", "(Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodTypeSecurityManager, throwACC, void, $String*, $ClassLoader*)},
-	{}
-};
-
-$ClassInfo _MethodTypeSecurityManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"test.java.lang.invoke.MethodTypeSecurityManager",
-	"java.lang.Object",
-	nullptr,
-	_MethodTypeSecurityManager_FieldInfo_,
-	_MethodTypeSecurityManager_MethodInfo_
-};
-
-$Object* allocate$MethodTypeSecurityManager($Class* clazz) {
-	return $of($alloc(MethodTypeSecurityManager));
-}
-
 bool MethodTypeSecurityManager::$assertionsDisabled = false;
 bool MethodTypeSecurityManager::hasClassLoaderAccess = false;
 
@@ -61,7 +33,7 @@ void MethodTypeSecurityManager::init$() {
 
 void MethodTypeSecurityManager::main($StringArray* args) {
 	$init(MethodTypeSecurityManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ClassLoader, platformLoader, $ClassLoader::getPlatformClassLoader());
 	$var($ClassLoader, appLoader, $ClassLoader::getSystemClassLoader());
@@ -79,7 +51,7 @@ void MethodTypeSecurityManager::main($StringArray* args) {
 
 void MethodTypeSecurityManager::throwACC($String* desc, $ClassLoader* loader) {
 	$init(MethodTypeSecurityManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$MethodType::fromMethodDescriptorString(desc, loader);
 		$throwNew($RuntimeException, "should never leak JDK internal class"_s);
@@ -93,42 +65,32 @@ void MethodTypeSecurityManager::throwACC($String* desc, $ClassLoader* loader) {
 			$var($String, s3149$, $nc(perm)->getName());
 			int32_t tmp3149$ = -1;
 			switch ($nc(s3149$)->hashCode()) {
-			case (int32_t)0xA0BF1275:
-				{
-					if (s3149$->equals("getClassLoader"_s)) {
-						tmp3149$ = 0;
-					}
-					break;
+			case (int32_t)0xa0bf1275:
+				if (s3149$->equals("getClassLoader"_s)) {
+					tmp3149$ = 0;
 				}
-			case (int32_t)0xCF34445F:
-				{
-					if (s3149$->equals("accessClassInPackage.jdk.internal.misc"_s)) {
-						tmp3149$ = 1;
-					}
-					break;
+				break;
+			case (int32_t)0xcf34445f:
+				if (s3149$->equals("accessClassInPackage.jdk.internal.misc"_s)) {
+					tmp3149$ = 1;
 				}
+				break;
 			}
 			switch (tmp3149$) {
 			case 0:
-				{
-					if (!MethodTypeSecurityManager::hasClassLoaderAccess) {
-						break;
-					}
-				}
-			case 1:
-				{
+				if (!MethodTypeSecurityManager::hasClassLoaderAccess) {
 					break;
 				}
+			case 1:
+				break;
 			default:
-				{
-					$throw(e);
-				}
+				$throw(e);
 			}
 		}
 	}
 }
 
-void clinit$MethodTypeSecurityManager($Class* class$) {
+void MethodTypeSecurityManager::clinit$($Class* clazz) {
 	MethodTypeSecurityManager::$assertionsDisabled = !MethodTypeSecurityManager::class$->desiredAssertionStatus();
 }
 
@@ -136,7 +98,28 @@ MethodTypeSecurityManager::MethodTypeSecurityManager() {
 }
 
 $Class* MethodTypeSecurityManager::load$($String* name, bool initialize) {
-	$loadClass(MethodTypeSecurityManager, name, initialize, &_MethodTypeSecurityManager_ClassInfo_, clinit$MethodTypeSecurityManager, allocate$MethodTypeSecurityManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MethodTypeSecurityManager, $assertionsDisabled)},
+		{"hasClassLoaderAccess", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MethodTypeSecurityManager, hasClassLoaderAccess)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MethodTypeSecurityManager, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MethodTypeSecurityManager, main, void, $StringArray*), "java.lang.Throwable"},
+		{"throwACC", "(Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodTypeSecurityManager, throwACC, void, $String*, $ClassLoader*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"test.java.lang.invoke.MethodTypeSecurityManager",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MethodTypeSecurityManager, name, initialize, &classInfo$$, MethodTypeSecurityManager::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodTypeSecurityManager);
+	});
 	return class$;
 }
 

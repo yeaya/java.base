@@ -1,5 +1,4 @@
 #include <TestProvider$TestPath.h>
-
 #include <TestProvider$TestFileSystem.h>
 #include <TestProvider$TestPath$1.h>
 #include <TestProvider.h>
@@ -33,76 +32,7 @@ using $FileSystem = ::java::nio::file::FileSystem;
 using $Path = ::java::nio::file::Path;
 using $WatchKey = ::java::nio::file::WatchKey;
 using $WatchService = ::java::nio::file::WatchService;
-using $FileSystemProvider = ::java::nio::file::spi::FileSystemProvider;
 using $Iterator = ::java::util::Iterator;
-
-$FieldInfo _TestProvider$TestPath_FieldInfo_[] = {
-	{"fs", "LTestProvider$TestFileSystem;", nullptr, $PRIVATE | $FINAL, $field(TestProvider$TestPath, fs)},
-	{"delegate", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $FINAL, $field(TestProvider$TestPath, delegate)},
-	{}
-};
-
-$MethodInfo _TestProvider$TestPath_MethodInfo_[] = {
-	{"<init>", "(LTestProvider$TestFileSystem;Ljava/nio/file/Path;)V", nullptr, 0, $method(TestProvider$TestPath, init$, void, $TestProvider$TestFileSystem*, $Path*)},
-	{"compareTo", "(Ljava/nio/file/Path;)I", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, compareTo, int32_t, $Path*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TestProvider$TestPath, compareTo, int32_t, Object$*)},
-	{"endsWith", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, endsWith, bool, $Path*)},
-	{"endsWith", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, endsWith, bool, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, equals, bool, Object$*)},
-	{"getFileName", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, getFileName, $Path*)},
-	{"getFileSystem", "()Ljava/nio/file/FileSystem;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, getFileSystem, $FileSystem*)},
-	{"getName", "(I)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, getName, $Path*, int32_t)},
-	{"getNameCount", "()I", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, getNameCount, int32_t)},
-	{"getParent", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, getParent, $Path*)},
-	{"getRoot", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, getRoot, $Path*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, hashCode, int32_t)},
-	{"isAbsolute", "()Z", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, isAbsolute, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(TestProvider$TestPath, iterator, $Iterator*)},
-	{"normalize", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, normalize, $Path*)},
-	{"register", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider$TestPath, register$, $WatchKey*, $WatchService*, $WatchEvent$KindArray*, $WatchEvent$ModifierArray*)},
-	{"register", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind<*>;)Ljava/nio/file/WatchKey;", $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider$TestPath, register$, $WatchKey*, $WatchService*, $WatchEvent$KindArray*)},
-	{"relativize", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, relativize, $Path*, $Path*)},
-	{"resolve", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, resolve, $Path*, $Path*)},
-	{"resolve", "(Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, resolve, $Path*, $String*)},
-	{"resolveSibling", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, resolveSibling, $Path*, $Path*)},
-	{"resolveSibling", "(Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, resolveSibling, $Path*, $String*)},
-	{"startsWith", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, startsWith, bool, $Path*)},
-	{"startsWith", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, startsWith, bool, $String*)},
-	{"subpath", "(II)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, subpath, $Path*, int32_t, int32_t)},
-	{"toAbsolutePath", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, toAbsolutePath, $Path*)},
-	{"toFile", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, toFile, $File*)},
-	{"toRealPath", "([Ljava/nio/file/LinkOption;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider$TestPath, toRealPath, $Path*, $LinkOptionArray*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, toString, $String*)},
-	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, toUri, $URI*)},
-	{"unwrap", "()Ljava/nio/file/Path;", nullptr, 0, $virtualMethod(TestProvider$TestPath, unwrap, $Path*)},
-	{}
-};
-
-$InnerClassInfo _TestProvider$TestPath_InnerClassesInfo_[] = {
-	{"TestProvider$TestPath", "TestProvider", "TestPath", $STATIC},
-	{"TestProvider$TestPath$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TestProvider$TestPath_ClassInfo_ = {
-	$ACC_SUPER,
-	"TestProvider$TestPath",
-	"java.lang.Object",
-	"java.nio.file.Path",
-	_TestProvider$TestPath_FieldInfo_,
-	_TestProvider$TestPath_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestProvider$TestPath_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestProvider"
-};
-
-$Object* allocate$TestProvider$TestPath($Class* clazz) {
-	return $of($alloc(TestProvider$TestPath));
-}
 
 void TestProvider$TestPath::init$($TestProvider$TestFileSystem* fs, $Path* delegate) {
 	$set(this, fs, fs);
@@ -166,7 +96,7 @@ $Path* TestProvider$TestPath::normalize() {
 }
 
 $Path* TestProvider$TestPath::resolve($Path* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $nc(this->fs)->wrap($($nc(this->delegate)->resolve($($nc(this->fs)->unwrap(other)))));
 }
 
@@ -175,7 +105,7 @@ $Path* TestProvider$TestPath::resolve($String* other) {
 }
 
 $Path* TestProvider$TestPath::resolveSibling($Path* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $nc(this->fs)->wrap($($nc(this->delegate)->resolveSibling($($nc(this->fs)->unwrap(other)))));
 }
 
@@ -184,7 +114,7 @@ $Path* TestProvider$TestPath::resolveSibling($String* other) {
 }
 
 $Path* TestProvider$TestPath::relativize($Path* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $nc(this->fs)->wrap($($nc(this->delegate)->relativize($($nc(this->fs)->unwrap(other)))));
 }
 
@@ -204,9 +134,9 @@ $String* TestProvider$TestPath::toString() {
 }
 
 $URI* TestProvider$TestPath::toUri() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, ssp, $nc($($nc(this->delegate)->toUri()))->getSchemeSpecificPart());
-	return $URI::create($$str({$($nc($($nc(this->fs)->provider()))->getScheme()), ":"_s, ssp}));
+	$useLocalObjectStack();
+	$var($String, ssp, $$nc($nc(this->delegate)->toUri())->getSchemeSpecificPart());
+	return $URI::create($$str({$($$nc($nc(this->fs)->provider())->getScheme()), ":"_s, ssp}));
 }
 
 $Path* TestProvider$TestPath::toAbsolutePath() {
@@ -248,7 +178,69 @@ TestProvider$TestPath::TestProvider$TestPath() {
 }
 
 $Class* TestProvider$TestPath::load$($String* name, bool initialize) {
-	$loadClass(TestProvider$TestPath, name, initialize, &_TestProvider$TestPath_ClassInfo_, allocate$TestProvider$TestPath);
+	$FieldInfo fieldInfos$$[] = {
+		{"fs", "LTestProvider$TestFileSystem;", nullptr, $PRIVATE | $FINAL, $field(TestProvider$TestPath, fs)},
+		{"delegate", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $FINAL, $field(TestProvider$TestPath, delegate)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTestProvider$TestFileSystem;Ljava/nio/file/Path;)V", nullptr, 0, $method(TestProvider$TestPath, init$, void, $TestProvider$TestFileSystem*, $Path*)},
+		{"compareTo", "(Ljava/nio/file/Path;)I", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, compareTo, int32_t, $Path*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TestProvider$TestPath, compareTo, int32_t, Object$*)},
+		{"endsWith", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, endsWith, bool, $Path*)},
+		{"endsWith", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, endsWith, bool, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, equals, bool, Object$*)},
+		{"getFileName", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, getFileName, $Path*)},
+		{"getFileSystem", "()Ljava/nio/file/FileSystem;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, getFileSystem, $FileSystem*)},
+		{"getName", "(I)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, getName, $Path*, int32_t)},
+		{"getNameCount", "()I", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, getNameCount, int32_t)},
+		{"getParent", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, getParent, $Path*)},
+		{"getRoot", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, getRoot, $Path*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, hashCode, int32_t)},
+		{"isAbsolute", "()Z", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, isAbsolute, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(TestProvider$TestPath, iterator, $Iterator*)},
+		{"normalize", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, normalize, $Path*)},
+		{"register", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind<*>;[Ljava/nio/file/WatchEvent$Modifier;)Ljava/nio/file/WatchKey;", $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider$TestPath, register$, $WatchKey*, $WatchService*, $WatchEvent$KindArray*, $WatchEvent$ModifierArray*)},
+		{"register", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind;)Ljava/nio/file/WatchKey;", "(Ljava/nio/file/WatchService;[Ljava/nio/file/WatchEvent$Kind<*>;)Ljava/nio/file/WatchKey;", $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider$TestPath, register$, $WatchKey*, $WatchService*, $WatchEvent$KindArray*)},
+		{"relativize", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, relativize, $Path*, $Path*)},
+		{"resolve", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, resolve, $Path*, $Path*)},
+		{"resolve", "(Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, resolve, $Path*, $String*)},
+		{"resolveSibling", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, resolveSibling, $Path*, $Path*)},
+		{"resolveSibling", "(Ljava/lang/String;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, resolveSibling, $Path*, $String*)},
+		{"startsWith", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, startsWith, bool, $Path*)},
+		{"startsWith", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, startsWith, bool, $String*)},
+		{"subpath", "(II)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, subpath, $Path*, int32_t, int32_t)},
+		{"toAbsolutePath", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, toAbsolutePath, $Path*)},
+		{"toFile", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, toFile, $File*)},
+		{"toRealPath", "([Ljava/nio/file/LinkOption;)Ljava/nio/file/Path;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider$TestPath, toRealPath, $Path*, $LinkOptionArray*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, toString, $String*)},
+		{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(TestProvider$TestPath, toUri, $URI*)},
+		{"unwrap", "()Ljava/nio/file/Path;", nullptr, 0, $virtualMethod(TestProvider$TestPath, unwrap, $Path*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestProvider$TestPath", "TestProvider", "TestPath", $STATIC},
+		{"TestProvider$TestPath$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TestProvider$TestPath",
+		"java.lang.Object",
+		"java.nio.file.Path",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestProvider"
+	};
+	$loadClass(TestProvider$TestPath, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TestProvider$TestPath));
+	});
 	return class$;
 }
 

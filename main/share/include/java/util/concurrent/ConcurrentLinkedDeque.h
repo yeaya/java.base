@@ -75,6 +75,7 @@ public:
 	virtual bool equals(Object$* o) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::util::Collection* c);
 	virtual bool add(Object$* e) override;
@@ -142,7 +143,7 @@ public:
 	void updateHead();
 	void updateTail();
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0x0C29535D4A608822;
+	static const int64_t serialVersionUID = (int64_t)0x0c29535d4a608822;
 	$volatile(::java::util::concurrent::ConcurrentLinkedDeque$Node*) head = nullptr;
 	$volatile(::java::util::concurrent::ConcurrentLinkedDeque$Node*) tail = nullptr;
 	static ::java::util::concurrent::ConcurrentLinkedDeque$Node* PREV_TERMINATOR;

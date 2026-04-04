@@ -15,10 +15,13 @@ public:
 	JarException();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x635CA48583F88729;
+	static const int64_t serialVersionUID = (int64_t)0x635ca48583f88729;
 	JarException(const JarException& e);
 	virtual void throw$() override;
-	inline JarException* operator ->() {
+	inline JarException* operator ->() const {
+		return (JarException*)throwing$;
+	}
+	inline operator JarException*() const {
 		return (JarException*)throwing$;
 	}
 };

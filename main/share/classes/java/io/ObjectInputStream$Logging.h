@@ -18,6 +18,7 @@ class ObjectInputStream$Logging : public ::java::lang::Object {
 	$class(ObjectInputStream$Logging, 0, ::java::lang::Object)
 public:
 	ObjectInputStream$Logging();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::System$Logger* filterLogger;
 };

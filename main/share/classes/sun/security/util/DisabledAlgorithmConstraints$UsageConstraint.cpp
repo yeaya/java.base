@@ -1,8 +1,6 @@
 #include <sun/security/util/DisabledAlgorithmConstraints$UsageConstraint.h>
-
 #include <java/security/cert/CertPath.h>
 #include <java/security/cert/CertPathValidatorException$BasicReason.h>
-#include <java/security/cert/CertPathValidatorException$Reason.h>
 #include <java/security/cert/CertPathValidatorException.h>
 #include <sun/security/util/ConstraintsParameters.h>
 #include <sun/security/util/Debug.h>
@@ -26,7 +24,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $CertPath = ::java::security::cert::CertPath;
 using $CertPathValidatorException = ::java::security::cert::CertPathValidatorException;
 using $CertPathValidatorException$BasicReason = ::java::security::cert::CertPathValidatorException$BasicReason;
-using $CertPathValidatorException$Reason = ::java::security::cert::CertPathValidatorException$Reason;
 using $ConstraintsParameters = ::sun::security::util::ConstraintsParameters;
 using $Debug = ::sun::security::util::Debug;
 using $DisabledAlgorithmConstraints = ::sun::security::util::DisabledAlgorithmConstraints;
@@ -37,43 +34,6 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$FieldInfo _DisabledAlgorithmConstraints$UsageConstraint_FieldInfo_[] = {
-	{"usages", "[Ljava/lang/String;", nullptr, 0, $field(DisabledAlgorithmConstraints$UsageConstraint, usages)},
-	{}
-};
-
-$MethodInfo _DisabledAlgorithmConstraints$UsageConstraint_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, 0, $method(DisabledAlgorithmConstraints$UsageConstraint, init$, void, $String*, $StringArray*)},
-	{"permits", "(Lsun/security/util/ConstraintsParameters;)V", nullptr, $PUBLIC, $virtualMethod(DisabledAlgorithmConstraints$UsageConstraint, permits, void, $ConstraintsParameters*), "java.security.cert.CertPathValidatorException"},
-	{}
-};
-
-$InnerClassInfo _DisabledAlgorithmConstraints$UsageConstraint_InnerClassesInfo_[] = {
-	{"sun.security.util.DisabledAlgorithmConstraints$UsageConstraint", "sun.security.util.DisabledAlgorithmConstraints", "UsageConstraint", $PRIVATE | $STATIC},
-	{"sun.security.util.DisabledAlgorithmConstraints$Constraint", "sun.security.util.DisabledAlgorithmConstraints", "Constraint", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DisabledAlgorithmConstraints$UsageConstraint_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.util.DisabledAlgorithmConstraints$UsageConstraint",
-	"sun.security.util.DisabledAlgorithmConstraints$Constraint",
-	nullptr,
-	_DisabledAlgorithmConstraints$UsageConstraint_FieldInfo_,
-	_DisabledAlgorithmConstraints$UsageConstraint_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DisabledAlgorithmConstraints$UsageConstraint_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.util.DisabledAlgorithmConstraints"
-};
-
-$Object* allocate$DisabledAlgorithmConstraints$UsageConstraint($Class* clazz) {
-	return $of($alloc(DisabledAlgorithmConstraints$UsageConstraint));
-}
-
 void DisabledAlgorithmConstraints$UsageConstraint::init$($String* algorithm, $StringArray* usages) {
 	$DisabledAlgorithmConstraints$Constraint::init$();
 	$set(this, algorithm, algorithm);
@@ -81,13 +41,11 @@ void DisabledAlgorithmConstraints$UsageConstraint::init$($String* algorithm, $St
 }
 
 void DisabledAlgorithmConstraints$UsageConstraint::permits($ConstraintsParameters* cp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, variant, $nc(cp)->getVariant());
 	{
 		$var($StringArray, arr$, this->usages);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, usage, arr$->get(i$));
 			{
 				bool match = false;
@@ -95,56 +53,46 @@ void DisabledAlgorithmConstraints$UsageConstraint::permits($ConstraintsParameter
 					$var($String, s30881$, $nc(usage)->toLowerCase());
 					int32_t tmp30881$ = -1;
 					switch (s30881$->hashCode()) {
-					case (int32_t)0x8F7007FE:
-						{
-							if (s30881$->equals("tlsserver"_s)) {
-								tmp30881$ = 0;
-							}
-							break;
+					case (int32_t)0x8f7007fe:
+						if (s30881$->equals("tlsserver"_s)) {
+							tmp30881$ = 0;
 						}
-					case 0x7480CC86:
-						{
-							if (s30881$->equals("tlsclient"_s)) {
-								tmp30881$ = 1;
-							}
-							break;
+						break;
+					case 0x7480cc86:
+						if (s30881$->equals("tlsclient"_s)) {
+							tmp30881$ = 1;
 						}
-					case 0x402E857F:
-						{
-							if (s30881$->equals("signedjar"_s)) {
-								tmp30881$ = 2;
-							}
-							break;
+						break;
+					case 0x402e857f:
+						if (s30881$->equals("signedjar"_s)) {
+							tmp30881$ = 2;
 						}
+						break;
 					}
 					switch (tmp30881$) {
 					case 0:
-						{
-							$init($Validator);
-							match = $nc(variant)->equals($Validator::VAR_TLS_SERVER);
-							break;
-						}
+						$init($Validator);
+						match = $nc(variant)->equals($Validator::VAR_TLS_SERVER);
+						break;
 					case 1:
-						{
-							$init($Validator);
-							match = $nc(variant)->equals($Validator::VAR_TLS_CLIENT);
-							break;
-						}
+						$init($Validator);
+						match = $nc(variant)->equals($Validator::VAR_TLS_CLIENT);
+						break;
 					case 2:
 						{
 							$init($Validator);
 							bool var$1 = $nc(variant)->equals($Validator::VAR_PLUGIN_CODE_SIGNING);
-							bool var$0 = var$1 || $nc(variant)->equals($Validator::VAR_CODE_SIGNING);
-							match = var$0 || $nc(variant)->equals($Validator::VAR_TSA_SERVER);
+							bool var$0 = var$1 || variant->equals($Validator::VAR_CODE_SIGNING);
+							match = var$0 || variant->equals($Validator::VAR_TSA_SERVER);
 							break;
 						}
 					}
 				}
 				$init($DisabledAlgorithmConstraints);
 				if ($DisabledAlgorithmConstraints::debug != nullptr) {
-					$nc($DisabledAlgorithmConstraints::debug)->println($$str({"Checking if usage constraint \""_s, usage, "\" matches \""_s, $(cp->getVariant()), "\""_s}));
+					$DisabledAlgorithmConstraints::debug->println($$str({"Checking if usage constraint \""_s, usage, "\" matches \""_s, $(cp->getVariant()), "\""_s}));
 					if ($Debug::isVerbose()) {
-						($$new($Exception))->printStackTrace($($nc($DisabledAlgorithmConstraints::debug)->getPrintStream()));
+						($$new($Exception))->printStackTrace($($DisabledAlgorithmConstraints::debug->getPrintStream()));
 					}
 				}
 				if (match) {
@@ -163,7 +111,38 @@ DisabledAlgorithmConstraints$UsageConstraint::DisabledAlgorithmConstraints$Usage
 }
 
 $Class* DisabledAlgorithmConstraints$UsageConstraint::load$($String* name, bool initialize) {
-	$loadClass(DisabledAlgorithmConstraints$UsageConstraint, name, initialize, &_DisabledAlgorithmConstraints$UsageConstraint_ClassInfo_, allocate$DisabledAlgorithmConstraints$UsageConstraint);
+	$FieldInfo fieldInfos$$[] = {
+		{"usages", "[Ljava/lang/String;", nullptr, 0, $field(DisabledAlgorithmConstraints$UsageConstraint, usages)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, 0, $method(DisabledAlgorithmConstraints$UsageConstraint, init$, void, $String*, $StringArray*)},
+		{"permits", "(Lsun/security/util/ConstraintsParameters;)V", nullptr, $PUBLIC, $virtualMethod(DisabledAlgorithmConstraints$UsageConstraint, permits, void, $ConstraintsParameters*), "java.security.cert.CertPathValidatorException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.DisabledAlgorithmConstraints$UsageConstraint", "sun.security.util.DisabledAlgorithmConstraints", "UsageConstraint", $PRIVATE | $STATIC},
+		{"sun.security.util.DisabledAlgorithmConstraints$Constraint", "sun.security.util.DisabledAlgorithmConstraints", "Constraint", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.util.DisabledAlgorithmConstraints$UsageConstraint",
+		"sun.security.util.DisabledAlgorithmConstraints$Constraint",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.util.DisabledAlgorithmConstraints"
+	};
+	$loadClass(DisabledAlgorithmConstraints$UsageConstraint, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DisabledAlgorithmConstraints$UsageConstraint);
+	});
 	return class$;
 }
 

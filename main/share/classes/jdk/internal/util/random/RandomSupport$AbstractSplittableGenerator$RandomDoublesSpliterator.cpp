@@ -1,5 +1,4 @@
 #include <jdk/internal/util/random/RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator.h>
-
 #include <java/util/Objects.h>
 #include <java/util/Spliterator$OfDouble.h>
 #include <java/util/function/DoubleConsumer.h>
@@ -26,58 +25,6 @@ namespace jdk {
 	namespace internal {
 		namespace util {
 			namespace random {
-
-$FieldInfo _RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator_FieldInfo_[] = {
-	{"generatingGenerator", "Ljava/util/random/RandomGenerator$SplittableGenerator;", nullptr, $FINAL, $field(RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator, generatingGenerator)},
-	{"origin", "D", nullptr, $FINAL, $field(RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator, origin)},
-	{"bound", "D", nullptr, $FINAL, $field(RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator, bound)},
-	{}
-};
-
-$MethodInfo _RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator_MethodInfo_[] = {
-	{"*characteristics", "()I", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*estimateSize", "()J", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/random/RandomGenerator$SplittableGenerator;JJDD)V", nullptr, 0, $method(RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator, init$, void, $RandomGenerator$SplittableGenerator*, int64_t, int64_t, double, double)},
-	{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator, forEachRemaining, void, $DoubleConsumer*)},
-	{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator, forEachRemaining, void, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator, tryAdvance, bool, $DoubleConsumer*)},
-	{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator, tryAdvance, bool, Object$*)},
-	{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator, trySplit, $Spliterator$OfDouble*)},
-	{}
-};
-
-$InnerClassInfo _RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator_InnerClassesInfo_[] = {
-	{"jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator", "jdk.internal.util.random.RandomSupport", "AbstractSplittableGenerator", $PUBLIC | $STATIC | $ABSTRACT},
-	{"jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator", "jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator", "RandomDoublesSpliterator", $STATIC},
-	{"jdk.internal.util.random.RandomSupport$RandomSpliterator", "jdk.internal.util.random.RandomSupport", "RandomSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.util.Spliterator$OfDouble", "java.util.Spliterator", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator",
-	"jdk.internal.util.random.RandomSupport$RandomSpliterator",
-	"java.util.Spliterator$OfDouble",
-	_RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator_FieldInfo_,
-	_RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.util.random.RandomSupport"
-};
-
-$Object* allocate$RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator($Class* clazz) {
-	return $of($alloc(RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator));
-}
 
 int64_t RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator::estimateSize() {
 	 return this->$RandomSupport$RandomSpliterator::estimateSize();
@@ -164,7 +111,53 @@ RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator::RandomSuppor
 }
 
 $Class* RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator::load$($String* name, bool initialize) {
-	$loadClass(RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator, name, initialize, &_RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator_ClassInfo_, allocate$RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"generatingGenerator", "Ljava/util/random/RandomGenerator$SplittableGenerator;", nullptr, $FINAL, $field(RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator, generatingGenerator)},
+		{"origin", "D", nullptr, $FINAL, $field(RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator, origin)},
+		{"bound", "D", nullptr, $FINAL, $field(RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator, bound)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*characteristics", "()I", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*estimateSize", "()J", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/random/RandomGenerator$SplittableGenerator;JJDD)V", nullptr, 0, $method(RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator, init$, void, $RandomGenerator$SplittableGenerator*, int64_t, int64_t, double, double)},
+		{"forEachRemaining", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator, forEachRemaining, void, $DoubleConsumer*)},
+		{"forEachRemaining", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator, forEachRemaining, void, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"tryAdvance", "(Ljava/util/function/DoubleConsumer;)Z", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator, tryAdvance, bool, $DoubleConsumer*)},
+		{"tryAdvance", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator, tryAdvance, bool, Object$*)},
+		{"trySplit", "()Ljava/util/Spliterator$OfDouble;", nullptr, $PUBLIC, $virtualMethod(RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator, trySplit, $Spliterator$OfDouble*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator", "jdk.internal.util.random.RandomSupport", "AbstractSplittableGenerator", $PUBLIC | $STATIC | $ABSTRACT},
+		{"jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator", "jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator", "RandomDoublesSpliterator", $STATIC},
+		{"jdk.internal.util.random.RandomSupport$RandomSpliterator", "jdk.internal.util.random.RandomSupport", "RandomSpliterator", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.util.Spliterator$OfDouble", "java.util.Spliterator", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.util.random.RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator",
+		"jdk.internal.util.random.RandomSupport$RandomSpliterator",
+		"java.util.Spliterator$OfDouble",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.util.random.RandomSupport"
+	};
+	$loadClass(RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RandomSupport$AbstractSplittableGenerator$RandomDoublesSpliterator));
+	});
 	return class$;
 }
 

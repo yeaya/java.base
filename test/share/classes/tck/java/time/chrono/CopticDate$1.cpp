@@ -1,5 +1,4 @@
 #include <tck/java/time/chrono/CopticDate$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/time/temporal/ChronoField.h>
 #include <java/time/temporal/ChronoUnit.h>
@@ -39,127 +38,90 @@ namespace tck {
 		namespace time {
 			namespace chrono {
 
-$FieldInfo _CopticDate$1_FieldInfo_[] = {
-	{"$SwitchMap$java$time$temporal$ChronoUnit", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CopticDate$1, $SwitchMap$java$time$temporal$ChronoUnit)},
-	{"$SwitchMap$java$time$temporal$ChronoField", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CopticDate$1, $SwitchMap$java$time$temporal$ChronoField)},
-	{}
-};
-
-$EnclosingMethodInfo _CopticDate$1_EnclosingMethodInfo_ = {
-	"tck.java.time.chrono.CopticDate",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _CopticDate$1_InnerClassesInfo_[] = {
-	{"tck.java.time.chrono.CopticDate$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _CopticDate$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"tck.java.time.chrono.CopticDate$1",
-	"java.lang.Object",
-	nullptr,
-	_CopticDate$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_CopticDate$1_EnclosingMethodInfo_,
-	_CopticDate$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"tck.java.time.chrono.CopticDate"
-};
-
-$Object* allocate$CopticDate$1($Class* clazz) {
-	return $of($alloc(CopticDate$1));
-}
-
 $ints* CopticDate$1::$SwitchMap$java$time$temporal$ChronoUnit = nullptr;
 $ints* CopticDate$1::$SwitchMap$java$time$temporal$ChronoField = nullptr;
 
-void clinit$CopticDate$1($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void CopticDate$1::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(CopticDate$1::$SwitchMap$java$time$temporal$ChronoUnit, $new($ints, $($ChronoUnit::values())->length));
 	{
 		try {
-			$nc(CopticDate$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::DAYS->ordinal(), 1);
+			CopticDate$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::DAYS->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CopticDate$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::WEEKS->ordinal(), 2);
+			CopticDate$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::WEEKS->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CopticDate$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::MONTHS->ordinal(), 3);
+			CopticDate$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::MONTHS->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CopticDate$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::YEARS->ordinal(), 4);
+			CopticDate$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::YEARS->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CopticDate$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::DECADES->ordinal(), 5);
+			CopticDate$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::DECADES->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CopticDate$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::CENTURIES->ordinal(), 6);
+			CopticDate$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::CENTURIES->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CopticDate$1::$SwitchMap$java$time$temporal$ChronoUnit)->set($ChronoUnit::MILLENNIA->ordinal(), 7);
+			CopticDate$1::$SwitchMap$java$time$temporal$ChronoUnit->set($ChronoUnit::MILLENNIA->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(CopticDate$1::$SwitchMap$java$time$temporal$ChronoField, $new($ints, $($ChronoField::values())->length));
 	{
 		try {
-			$nc(CopticDate$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::DAY_OF_MONTH->ordinal(), 1);
+			CopticDate$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::DAY_OF_MONTH->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CopticDate$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::DAY_OF_YEAR->ordinal(), 2);
+			CopticDate$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::DAY_OF_YEAR->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CopticDate$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::ALIGNED_WEEK_OF_MONTH->ordinal(), 3);
+			CopticDate$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::ALIGNED_WEEK_OF_MONTH->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CopticDate$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::YEAR->ordinal(), 4);
+			CopticDate$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::YEAR->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CopticDate$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::YEAR_OF_ERA->ordinal(), 5);
+			CopticDate$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::YEAR_OF_ERA->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CopticDate$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::DAY_OF_WEEK->ordinal(), 6);
+			CopticDate$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::DAY_OF_WEEK->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CopticDate$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::ALIGNED_DAY_OF_WEEK_IN_MONTH->ordinal(), 7);
+			CopticDate$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::ALIGNED_DAY_OF_WEEK_IN_MONTH->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CopticDate$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::ALIGNED_DAY_OF_WEEK_IN_YEAR->ordinal(), 8);
+			CopticDate$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::ALIGNED_DAY_OF_WEEK_IN_YEAR->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CopticDate$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::EPOCH_DAY->ordinal(), 9);
+			CopticDate$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::EPOCH_DAY->ordinal(), 9);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CopticDate$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::ALIGNED_WEEK_OF_YEAR->ordinal(), 10);
+			CopticDate$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::ALIGNED_WEEK_OF_YEAR->ordinal(), 10);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CopticDate$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::MONTH_OF_YEAR->ordinal(), 11);
+			CopticDate$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::MONTH_OF_YEAR->ordinal(), 11);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CopticDate$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::ERA->ordinal(), 12);
+			CopticDate$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::ERA->ordinal(), 12);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -169,7 +131,38 @@ CopticDate$1::CopticDate$1() {
 }
 
 $Class* CopticDate$1::load$($String* name, bool initialize) {
-	$loadClass(CopticDate$1, name, initialize, &_CopticDate$1_ClassInfo_, clinit$CopticDate$1, allocate$CopticDate$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$time$temporal$ChronoUnit", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CopticDate$1, $SwitchMap$java$time$temporal$ChronoUnit)},
+		{"$SwitchMap$java$time$temporal$ChronoField", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CopticDate$1, $SwitchMap$java$time$temporal$ChronoField)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"tck.java.time.chrono.CopticDate",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"tck.java.time.chrono.CopticDate$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"tck.java.time.chrono.CopticDate$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"tck.java.time.chrono.CopticDate"
+	};
+	$loadClass(CopticDate$1, name, initialize, &classInfo$$, CopticDate$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CopticDate$1);
+	});
 	return class$;
 }
 

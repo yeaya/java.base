@@ -1,5 +1,4 @@
 #include <e1/E1.h>
-
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <jcpp.h>
@@ -10,25 +9,6 @@ using $MethodHandles = ::java::lang::invoke::MethodHandles;
 using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 
 namespace e1 {
-
-$MethodInfo _E1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(E1, init$, void)},
-	{"lookup", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC, $staticMethod(E1, lookup, $MethodHandles$Lookup*)},
-	{}
-};
-
-$ClassInfo _E1_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"e1.E1",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_E1_MethodInfo_
-};
-
-$Object* allocate$E1($Class* clazz) {
-	return $of($alloc(E1));
-}
 
 void E1::init$() {
 }
@@ -43,7 +23,22 @@ E1::E1() {
 }
 
 $Class* E1::load$($String* name, bool initialize) {
-	$loadClass(E1, name, initialize, &_E1_ClassInfo_, allocate$E1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(E1, init$, void)},
+		{"lookup", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PUBLIC | $STATIC, $staticMethod(E1, lookup, $MethodHandles$Lookup*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"e1.E1",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(E1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(E1);
+	});
 	return class$;
 }
 

@@ -70,8 +70,8 @@ public:
 	::java::io::InputStream* input = nullptr;
 	$chars* buf = nullptr;
 	int32_t peekc = 0;
-	static const int32_t NEED_CHAR = 0x7FFFFFFF; // Integer.MAX_VALUE
-	static const int32_t SKIP_LF = 0x7FFFFFFE; // Integer.MAX_VALUE - 1
+	static const int32_t NEED_CHAR = 0x7fffffff; // Integer.MAX_VALUE
+	static const int32_t SKIP_LF = 0x7ffffffe; // Integer.MAX_VALUE - 1
 	bool pushedBack = false;
 	bool forceLower = false;
 	int32_t LINENO = 0;

@@ -1,5 +1,4 @@
 #include <jdk/internal/vm/annotation/Contended.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -13,56 +12,48 @@ namespace jdk {
 		namespace vm {
 			namespace annotation {
 
-$NamedAttribute Contended_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$Attribute Contended_Attribute_var$2[] = {
-	{'e', "Ljava/lang/annotation/ElementType; FIELD"},
-	{'e', "Ljava/lang/annotation/ElementType; TYPE"},
-	{'-'}
-};
-
-$NamedAttribute Contended_Attribute_var$1[] = {
-	{"value", '[', Contended_Attribute_var$2},
-	{}
-};
-
-$CompoundAttribute _Contended_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", Contended_Attribute_var$0},
-	{"Ljava/lang/annotation/Target;", Contended_Attribute_var$1},
-	{}
-};
-
-$Attribute _Contended_DefaultValue_value0 = {
-	's', ""
-};
-
-$MethodInfo _Contended_MethodInfo_[] = {
-	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Contended, value, $String*), nullptr, &_Contended_DefaultValue_value0},
-	{}
-};
-
-$ClassInfo _Contended_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"jdk.internal.vm.annotation.Contended",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_Contended_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Contended_Annotations_
-};
-
-$Object* allocate$Contended($Class* clazz) {
-	return $of($alloc(Contended));
-}
-
 $Class* Contended::load$($String* name, bool initialize) {
-	$loadClass(Contended, name, initialize, &_Contended_ClassInfo_, allocate$Contended);
+
+	$Attribute valuedefaultValue$$ = {
+		's', ""
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Contended, value, $String*), nullptr, &valuedefaultValue$$},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; FIELD"},
+		{'e', "Ljava/lang/annotation/ElementType; TYPE"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"jdk.internal.vm.annotation.Contended",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Contended, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Contended);
+	});
 	return class$;
 }
 

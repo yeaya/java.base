@@ -1,5 +1,4 @@
 #include <java/lang/Math2/ExactArithTests.h>
-
 #include <java/lang/Math.h>
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
@@ -8,7 +7,6 @@
 #undef MIN_VALUE
 #undef ONE
 
-using $PrintStream = ::java::io::PrintStream;
 using $ArithmeticException = ::java::lang::ArithmeticException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -23,40 +21,6 @@ namespace java {
 	namespace lang {
 		namespace Math2 {
 
-$FieldInfo _ExactArithTests_FieldInfo_[] = {
-	{"errors", "I", nullptr, $PRIVATE | $STATIC, $staticField(ExactArithTests, errors)},
-	{}
-};
-
-$MethodInfo _ExactArithTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExactArithTests, init$, void)},
-	{"checkResult", "(Ljava/lang/String;JJJLjava/math/BigInteger;)V", nullptr, $STATIC, $staticMethod(ExactArithTests, checkResult, void, $String*, int64_t, int64_t, int64_t, $BigInteger*)},
-	{"fail", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ExactArithTests, fail, void, $String*)},
-	{"inLongRange", "(Ljava/math/BigInteger;)Z", nullptr, $STATIC, $staticMethod(ExactArithTests, inLongRange, bool, $BigInteger*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExactArithTests, main, void, $StringArray*)},
-	{"testIntegerExact", "()V", nullptr, $STATIC, $staticMethod(ExactArithTests, testIntegerExact, void)},
-	{"testIntegerExact", "(II)V", nullptr, $STATIC, $staticMethod(ExactArithTests, testIntegerExact, void, int32_t, int32_t)},
-	{"testLongExact", "()V", nullptr, $STATIC, $staticMethod(ExactArithTests, testLongExact, void)},
-	{"testLongExact", "(JJ)V", nullptr, $STATIC, $staticMethod(ExactArithTests, testLongExact, void, int64_t, int64_t)},
-	{"testLongExactTwice", "(JJ)V", nullptr, $STATIC, $staticMethod(ExactArithTests, testLongExactTwice, void, int64_t, int64_t)},
-	{"testLongIntExact", "()V", nullptr, $STATIC, $staticMethod(ExactArithTests, testLongIntExact, void)},
-	{"testLongIntExact", "(JI)V", nullptr, $STATIC, $staticMethod(ExactArithTests, testLongIntExact, void, int64_t, int32_t)},
-	{}
-};
-
-$ClassInfo _ExactArithTests_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.Math2.ExactArithTests",
-	"java.lang.Object",
-	nullptr,
-	_ExactArithTests_FieldInfo_,
-	_ExactArithTests_MethodInfo_
-};
-
-$Object* allocate$ExactArithTests($Class* clazz) {
-	return $of($alloc(ExactArithTests));
-}
-
 int32_t ExactArithTests::errors = 0;
 
 void ExactArithTests::init$() {
@@ -64,7 +28,7 @@ void ExactArithTests::init$() {
 
 void ExactArithTests::main($StringArray* args) {
 	$init(ExactArithTests);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	testIntegerExact();
 	testLongExact();
 	testLongIntExact();
@@ -100,7 +64,7 @@ void ExactArithTests::testIntegerExact() {
 
 void ExactArithTests::testIntegerExact(int32_t x, int32_t y) {
 	$init(ExactArithTests);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		int32_t sum = $Math::addExact(x, y);
 		int64_t sum2 = (int64_t)x + (int64_t)y;
@@ -218,12 +182,12 @@ void ExactArithTests::testLongExactTwice(int64_t x, int64_t y) {
 
 void ExactArithTests::testLongExact(int64_t x, int64_t y) {
 	$init(ExactArithTests);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BigInteger, resultBig, nullptr);
 	$var($BigInteger, xBig, $BigInteger::valueOf(x));
 	$var($BigInteger, yBig, $BigInteger::valueOf(y));
 	try {
-		$assign(resultBig, $nc(xBig)->add(yBig));
+		$assign(resultBig, xBig->add(yBig));
 		int64_t sum = $Math::addExact(x, y);
 		checkResult("long Math.addExact"_s, x, y, sum, resultBig);
 	} catch ($ArithmeticException& ex) {
@@ -232,7 +196,7 @@ void ExactArithTests::testLongExact(int64_t x, int64_t y) {
 		}
 	}
 	try {
-		$assign(resultBig, $nc(xBig)->subtract(yBig));
+		$assign(resultBig, xBig->subtract(yBig));
 		int64_t diff = $Math::subtractExact(x, y);
 		checkResult("long Math.subtractExact"_s, x, y, diff, resultBig);
 	} catch ($ArithmeticException& ex) {
@@ -241,7 +205,7 @@ void ExactArithTests::testLongExact(int64_t x, int64_t y) {
 		}
 	}
 	try {
-		$assign(resultBig, $nc(xBig)->multiply(yBig));
+		$assign(resultBig, xBig->multiply(yBig));
 		int64_t product = $Math::multiplyExact(x, y);
 		checkResult("long Math.multiplyExact"_s, x, y, product, resultBig);
 	} catch ($ArithmeticException& ex) {
@@ -250,7 +214,7 @@ void ExactArithTests::testLongExact(int64_t x, int64_t y) {
 		}
 	}
 	try {
-		$assign(resultBig, $nc(xBig)->add($BigInteger::ONE));
+		$assign(resultBig, xBig->add($BigInteger::ONE));
 		int64_t inc = $Math::incrementExact(x);
 		checkResult("long Math.incrementExact"_s, x, 1, inc, resultBig);
 	} catch ($ArithmeticException& ex) {
@@ -259,7 +223,7 @@ void ExactArithTests::testLongExact(int64_t x, int64_t y) {
 		}
 	}
 	try {
-		$assign(resultBig, $nc(xBig)->subtract($BigInteger::ONE));
+		$assign(resultBig, xBig->subtract($BigInteger::ONE));
 		int64_t dec = $Math::decrementExact(x);
 		checkResult("long Math.decrementExact"_s, x, 1, dec, resultBig);
 	} catch ($ArithmeticException& ex) {
@@ -268,7 +232,7 @@ void ExactArithTests::testLongExact(int64_t x, int64_t y) {
 		}
 	}
 	try {
-		$assign(resultBig, $nc(xBig)->negate());
+		$assign(resultBig, xBig->negate());
 		int64_t dec = $Math::negateExact(x);
 		checkResult("long Math.negateExact"_s, x, 0, dec, resultBig);
 	} catch ($ArithmeticException& ex) {
@@ -290,11 +254,11 @@ void ExactArithTests::testLongExact(int64_t x, int64_t y) {
 
 void ExactArithTests::checkResult($String* message, int64_t x, int64_t y, int64_t result, $BigInteger* expected) {
 	$init(ExactArithTests);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BigInteger, resultBig, $BigInteger::valueOf(result));
 	if (!inLongRange(expected)) {
 		fail($$str({"FAIL: "_s, message, "("_s, $$str(x), ", "_s, $$str(y), ") = "_s, $$str(result), "; expected an arithmetic exception: "_s}));
-	} else if (!$nc(resultBig)->equals(expected)) {
+	} else if (!resultBig->equals(expected)) {
 		fail($$str({"FAIL: "_s, message, "("_s, $$str(x), ", "_s, $$str(y), ") = "_s, $$str(result), "; expected "_s, expected}));
 	}
 }
@@ -333,12 +297,12 @@ void ExactArithTests::testLongIntExact() {
 
 void ExactArithTests::testLongIntExact(int64_t x, int32_t y) {
 	$init(ExactArithTests);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BigInteger, resultBig, nullptr);
 	$var($BigInteger, xBig, $BigInteger::valueOf(x));
-	$var($BigInteger, yBig, $BigInteger::valueOf((int64_t)y));
+	$var($BigInteger, yBig, $BigInteger::valueOf(y));
 	try {
-		$assign(resultBig, $nc(xBig)->multiply(yBig));
+		$assign(resultBig, xBig->multiply(yBig));
 		int64_t product = $Math::multiplyExact(x, y);
 		checkResult("long Math.multiplyExact"_s, x, y, product, resultBig);
 	} catch ($ArithmeticException& ex) {
@@ -348,7 +312,7 @@ void ExactArithTests::testLongIntExact(int64_t x, int32_t y) {
 	}
 }
 
-void clinit$ExactArithTests($Class* class$) {
+void ExactArithTests::clinit$($Class* clazz) {
 	ExactArithTests::errors = 0;
 }
 
@@ -356,7 +320,36 @@ ExactArithTests::ExactArithTests() {
 }
 
 $Class* ExactArithTests::load$($String* name, bool initialize) {
-	$loadClass(ExactArithTests, name, initialize, &_ExactArithTests_ClassInfo_, clinit$ExactArithTests, allocate$ExactArithTests);
+	$FieldInfo fieldInfos$$[] = {
+		{"errors", "I", nullptr, $PRIVATE | $STATIC, $staticField(ExactArithTests, errors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExactArithTests, init$, void)},
+		{"checkResult", "(Ljava/lang/String;JJJLjava/math/BigInteger;)V", nullptr, $STATIC, $staticMethod(ExactArithTests, checkResult, void, $String*, int64_t, int64_t, int64_t, $BigInteger*)},
+		{"fail", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(ExactArithTests, fail, void, $String*)},
+		{"inLongRange", "(Ljava/math/BigInteger;)Z", nullptr, $STATIC, $staticMethod(ExactArithTests, inLongRange, bool, $BigInteger*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExactArithTests, main, void, $StringArray*)},
+		{"testIntegerExact", "()V", nullptr, $STATIC, $staticMethod(ExactArithTests, testIntegerExact, void)},
+		{"testIntegerExact", "(II)V", nullptr, $STATIC, $staticMethod(ExactArithTests, testIntegerExact, void, int32_t, int32_t)},
+		{"testLongExact", "()V", nullptr, $STATIC, $staticMethod(ExactArithTests, testLongExact, void)},
+		{"testLongExact", "(JJ)V", nullptr, $STATIC, $staticMethod(ExactArithTests, testLongExact, void, int64_t, int64_t)},
+		{"testLongExactTwice", "(JJ)V", nullptr, $STATIC, $staticMethod(ExactArithTests, testLongExactTwice, void, int64_t, int64_t)},
+		{"testLongIntExact", "()V", nullptr, $STATIC, $staticMethod(ExactArithTests, testLongIntExact, void)},
+		{"testLongIntExact", "(JI)V", nullptr, $STATIC, $staticMethod(ExactArithTests, testLongIntExact, void, int64_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.Math2.ExactArithTests",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ExactArithTests, name, initialize, &classInfo$$, ExactArithTests::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ExactArithTests);
+	});
 	return class$;
 }
 

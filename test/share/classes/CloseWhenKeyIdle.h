@@ -9,6 +9,7 @@ class $export CloseWhenKeyIdle : public ::java::lang::Object {
 	$class(CloseWhenKeyIdle, 0, ::java::lang::Object)
 public:
 	CloseWhenKeyIdle();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $volatile(bool) wakeupDone;

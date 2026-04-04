@@ -53,6 +53,7 @@ public:
 	KeyStoreDelegator();
 	using ::java::security::KeyStoreSpi::engineStore;
 	using ::java::security::KeyStoreSpi::engineLoad;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* primaryType, $Class* primaryKeyStore, $String* secondaryType, $Class* secondaryKeyStore);
 	virtual ::java::util::Enumeration* engineAliases() override;
 	virtual bool engineContainsAlias($String* alias) override;

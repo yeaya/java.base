@@ -1,5 +1,4 @@
 #include <IllegalAccessInInvoke.h>
-
 #include <Foo.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/NoSuchMethodException.h>
@@ -15,31 +14,12 @@ using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Method = ::java::lang::reflect::Method;
 
-$MethodInfo _IllegalAccessInInvoke_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalAccessInInvoke, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IllegalAccessInInvoke, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _IllegalAccessInInvoke_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"IllegalAccessInInvoke",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_IllegalAccessInInvoke_MethodInfo_
-};
-
-$Object* allocate$IllegalAccessInInvoke($Class* clazz) {
-	return $of($alloc(IllegalAccessInInvoke));
-}
-
 void IllegalAccessInInvoke::init$() {
 }
 
 void IllegalAccessInInvoke::main($StringArray* argv) {
+	$useLocalObjectStack();
 	$load(IllegalAccessInInvoke);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$var($ClassArray, argTypes, $new($ClassArray, 0));
 	$var($ObjectArray, args, $new($ObjectArray, 0));
@@ -67,7 +47,22 @@ IllegalAccessInInvoke::IllegalAccessInInvoke() {
 }
 
 $Class* IllegalAccessInInvoke::load$($String* name, bool initialize) {
-	$loadClass(IllegalAccessInInvoke, name, initialize, &_IllegalAccessInInvoke_ClassInfo_, allocate$IllegalAccessInInvoke);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalAccessInInvoke, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IllegalAccessInInvoke, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"IllegalAccessInInvoke",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(IllegalAccessInInvoke, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IllegalAccessInInvoke);
+	});
 	return class$;
 }
 

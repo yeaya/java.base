@@ -52,6 +52,7 @@ public:
 	using ::java::lang::invoke::VarHandle::getAndBitwiseXorAcquire;
 	using ::java::lang::invoke::VarHandle::getAndBitwiseXorRelease;
 	using ::java::lang::invoke::VarHandle::accessModeTypeUncached;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t abase, int32_t ashift);
 	void init$(int32_t abase, int32_t ashift, bool exact);
 	virtual ::java::lang::invoke::MethodType* accessModeTypeUncached(::java::lang::invoke::VarHandle$AccessType* at) override;

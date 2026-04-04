@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLCipher$T11BlockReadCipherGenerator.h>
-
 #include <java/security/Key.h>
 #include <java/security/SecureRandom.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
@@ -26,39 +25,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SSLCipher$T11BlockReadCipherGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLCipher$T11BlockReadCipherGenerator, init$, void)},
-	{"createCipher", "(Lsun/security/ssl/SSLCipher;Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)Lsun/security/ssl/SSLCipher$SSLReadCipher;", nullptr, $PUBLIC, $virtualMethod(SSLCipher$T11BlockReadCipherGenerator, createCipher, $SSLCipher$SSLReadCipher*, $SSLCipher*, $Authenticator*, $ProtocolVersion*, $String*, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.GeneralSecurityException"},
-	{}
-};
-
-$InnerClassInfo _SSLCipher$T11BlockReadCipherGenerator_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLCipher$T11BlockReadCipherGenerator", "sun.security.ssl.SSLCipher", "T11BlockReadCipherGenerator", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLCipher$ReadCipherGenerator", "sun.security.ssl.SSLCipher", "ReadCipherGenerator", $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.security.ssl.SSLCipher$T11BlockReadCipherGenerator$BlockReadCipher", "sun.security.ssl.SSLCipher$T11BlockReadCipherGenerator", "BlockReadCipher", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SSLCipher$T11BlockReadCipherGenerator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLCipher$T11BlockReadCipherGenerator",
-	"java.lang.Object",
-	"sun.security.ssl.SSLCipher$ReadCipherGenerator",
-	nullptr,
-	_SSLCipher$T11BlockReadCipherGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLCipher$T11BlockReadCipherGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLCipher"
-};
-
-$Object* allocate$SSLCipher$T11BlockReadCipherGenerator($Class* clazz) {
-	return $of($alloc(SSLCipher$T11BlockReadCipherGenerator));
-}
-
 void SSLCipher$T11BlockReadCipherGenerator::init$() {
 }
 
@@ -70,7 +36,35 @@ SSLCipher$T11BlockReadCipherGenerator::SSLCipher$T11BlockReadCipherGenerator() {
 }
 
 $Class* SSLCipher$T11BlockReadCipherGenerator::load$($String* name, bool initialize) {
-	$loadClass(SSLCipher$T11BlockReadCipherGenerator, name, initialize, &_SSLCipher$T11BlockReadCipherGenerator_ClassInfo_, allocate$SSLCipher$T11BlockReadCipherGenerator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SSLCipher$T11BlockReadCipherGenerator, init$, void)},
+		{"createCipher", "(Lsun/security/ssl/SSLCipher;Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;Ljava/lang/String;Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)Lsun/security/ssl/SSLCipher$SSLReadCipher;", nullptr, $PUBLIC, $virtualMethod(SSLCipher$T11BlockReadCipherGenerator, createCipher, $SSLCipher$SSLReadCipher*, $SSLCipher*, $Authenticator*, $ProtocolVersion*, $String*, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.GeneralSecurityException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLCipher$T11BlockReadCipherGenerator", "sun.security.ssl.SSLCipher", "T11BlockReadCipherGenerator", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLCipher$ReadCipherGenerator", "sun.security.ssl.SSLCipher", "ReadCipherGenerator", $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.security.ssl.SSLCipher$T11BlockReadCipherGenerator$BlockReadCipher", "sun.security.ssl.SSLCipher$T11BlockReadCipherGenerator", "BlockReadCipher", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLCipher$T11BlockReadCipherGenerator",
+		"java.lang.Object",
+		"sun.security.ssl.SSLCipher$ReadCipherGenerator",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLCipher"
+	};
+	$loadClass(SSLCipher$T11BlockReadCipherGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLCipher$T11BlockReadCipherGenerator);
+	});
 	return class$;
 }
 

@@ -51,6 +51,7 @@ class $export ConfigFile$Spi : public ::javax::security::auth::login::Configurat
 	$class(ConfigFile$Spi, 0, ::javax::security::auth::login::ConfigurationSpi)
 public:
 	ConfigFile$Spi();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::net::URI* uri);
 	void init$(::javax::security::auth::login::Configuration$Parameters* params);

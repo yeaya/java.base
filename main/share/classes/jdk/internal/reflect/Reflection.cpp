@@ -1,5 +1,4 @@
 #include <jdk/internal/reflect/Reflection.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/IllegalCallerException.h>
@@ -11,7 +10,6 @@
 #include <java/lang/reflect/Member.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
-#include <java/util/Collection.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <java/util/Objects.h>
@@ -48,13 +46,10 @@ using $Field = ::java::lang::reflect::Field;
 using $Member = ::java::lang::reflect::Member;
 using $Method = ::java::lang::reflect::Method;
 using $Modifier = ::java::lang::reflect::Modifier;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
 using $Set = ::java::util::Set;
-using $JavaLangAccess = ::jdk::internal::access::JavaLangAccess;
-using $JavaLangReflectAccess = ::jdk::internal::access::JavaLangReflectAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $VM = ::jdk::internal::misc::VM;
 using $CallerSensitive = ::jdk::internal::reflect::CallerSensitive;
@@ -75,67 +70,6 @@ $String* forLambdaClass($String* className) {
 		return ::java::lang::Machine::getLambdaHoder(className);
 	}
 	return className;
-}
-
-$CompoundAttribute _Reflection_MethodAnnotations_getCallerClass7[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Reflection_MethodAnnotations_getClassAccessFlags8[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$FieldInfo _Reflection_FieldInfo_[] = {
-	{"fieldFilterMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/util/Set<Ljava/lang/String;>;>;", $PRIVATE | $STATIC | $VOLATILE, $staticField(Reflection, fieldFilterMap)},
-	{"methodFilterMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/util/Set<Ljava/lang/String;>;>;", $PRIVATE | $STATIC | $VOLATILE, $staticField(Reflection, methodFilterMap)},
-	{"WILDCARD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Reflection, WILDCARD)},
-	{"ALL_MEMBERS", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Reflection, ALL_MEMBERS)},
-	{}
-};
-
-$MethodInfo _Reflection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Reflection, init$, void)},
-	{"areNestMates", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC | $NATIVE, $staticMethod(Reflection, areNestMates, bool, $Class*, $Class*)},
-	{"ensureMemberAccess", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;I)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;I)V", $PUBLIC | $STATIC, $staticMethod(Reflection, ensureMemberAccess, void, $Class*, $Class*, $Class*, int32_t), "java.lang.IllegalAccessException"},
-	{"ensureNativeAccess", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $staticMethod(Reflection, ensureNativeAccess, void, $Class*)},
-	{"filter", "([Ljava/lang/reflect/Member;Ljava/util/Set;)[Ljava/lang/reflect/Member;", "([Ljava/lang/reflect/Member;Ljava/util/Set<Ljava/lang/String;>;)[Ljava/lang/reflect/Member;", $PRIVATE | $STATIC, $staticMethod(Reflection, filter, $MemberArray*, $MemberArray*, $Set*)},
-	{"filterFields", "(Ljava/lang/Class;[Ljava/lang/reflect/Field;)[Ljava/lang/reflect/Field;", "(Ljava/lang/Class<*>;[Ljava/lang/reflect/Field;)[Ljava/lang/reflect/Field;", $PUBLIC | $STATIC, $staticMethod(Reflection, filterFields, $FieldArray*, $Class*, $FieldArray*)},
-	{"filterMethods", "(Ljava/lang/Class;[Ljava/lang/reflect/Method;)[Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;[Ljava/lang/reflect/Method;)[Ljava/lang/reflect/Method;", $PUBLIC | $STATIC, $staticMethod(Reflection, filterMethods, $MethodArray*, $Class*, $MethodArray*)},
-	{"getCallerClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $STATIC | $NATIVE, $staticMethod(Reflection, getCallerClass, $Class*), nullptr, nullptr, _Reflection_MethodAnnotations_getCallerClass7},
-	{"getClassAccessFlags", "(Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;)I", $PUBLIC | $STATIC | $NATIVE, $staticMethod(Reflection, getClassAccessFlags, int32_t, $Class*), nullptr, nullptr, _Reflection_MethodAnnotations_getClassAccessFlags8},
-	{"isCallerSensitive", "(Ljava/lang/reflect/Method;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Reflection, isCallerSensitive, bool, $Method*)},
-	{"isSameClassPackage", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(Reflection, isSameClassPackage, bool, $Class*, $Class*)},
-	{"isSubclassOf", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $STATIC, $staticMethod(Reflection, isSubclassOf, bool, $Class*, $Class*)},
-	{"isTrustedFinalField", "(Ljava/lang/reflect/Field;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Reflection, isTrustedFinalField, bool, $Field*)},
-	{"newIllegalAccessException", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;I)Ljava/lang/IllegalAccessException;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;I)Ljava/lang/IllegalAccessException;", $PUBLIC | $STATIC, $staticMethod(Reflection, newIllegalAccessException, $IllegalAccessException*, $Class*, $Class*, $Class*, int32_t)},
-	{"newIllegalAccessException", "(Ljava/lang/Class;I)Ljava/lang/IllegalAccessException;", "(Ljava/lang/Class<*>;I)Ljava/lang/IllegalAccessException;", $PRIVATE | $STATIC, $staticMethod(Reflection, newIllegalAccessException, $IllegalAccessException*, $Class*, int32_t)},
-	{"registerFieldsToFilter", "(Ljava/lang/Class;Ljava/util/Set;)V", "(Ljava/lang/Class<*>;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Reflection, registerFieldsToFilter, void, $Class*, $Set*)},
-	{"registerFilter", "(Ljava/util/Map;Ljava/lang/Class;Ljava/util/Set;)Ljava/util/Map;", "(Ljava/util/Map<Ljava/lang/Class<*>;Ljava/util/Set<Ljava/lang/String;>;>;Ljava/lang/Class<*>;Ljava/util/Set<Ljava/lang/String;>;)Ljava/util/Map<Ljava/lang/Class<*>;Ljava/util/Set<Ljava/lang/String;>;>;", $PRIVATE | $STATIC, $staticMethod(Reflection, registerFilter, $Map*, $Map*, $Class*, $Set*)},
-	{"registerMethodsToFilter", "(Ljava/lang/Class;Ljava/util/Set;)V", "(Ljava/lang/Class<*>;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Reflection, registerMethodsToFilter, void, $Class*, $Set*)},
-	{"verifyMemberAccess", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;I)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;I)Z", $PUBLIC | $STATIC, $staticMethod(Reflection, verifyMemberAccess, bool, $Class*, $Class*, $Class*, int32_t)},
-	{"verifyModuleAccess", "(Ljava/lang/Module;Ljava/lang/Class;)Z", "(Ljava/lang/Module;Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(Reflection, verifyModuleAccess, bool, $Module*, $Class*)},
-	{"verifyPublicMemberAccess", "(Ljava/lang/Class;I)Z", "(Ljava/lang/Class<*>;I)Z", $PUBLIC | $STATIC, $staticMethod(Reflection, verifyPublicMemberAccess, bool, $Class*, int32_t)},
-	{}
-};
-
-#define _METHOD_INDEX_areNestMates 1
-#define _METHOD_INDEX_getCallerClass 7
-#define _METHOD_INDEX_getClassAccessFlags 8
-
-$ClassInfo _Reflection_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.reflect.Reflection",
-	"java.lang.Object",
-	nullptr,
-	_Reflection_FieldInfo_,
-	_Reflection_MethodInfo_
-};
-
-$Object* allocate$Reflection($Class* clazz) {
-	return $of($alloc(Reflection));
 }
 
 $volatile($Map*) Reflection::fieldFilterMap = nullptr;
@@ -171,9 +105,9 @@ void Reflection::ensureMemberAccess($Class* currentClass, $Class* memberClass, $
 
 void Reflection::ensureNativeAccess($Class* currentClass) {
 	$init(Reflection);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Module, module, $nc(currentClass)->getModule());
-	if (!$nc($($SharedSecrets::getJavaLangAccess()))->isEnableNativeAccess(module)) {
+	if (!$$nc($SharedSecrets::getJavaLangAccess())->isEnableNativeAccess(module)) {
 		$throwNew($IllegalCallerException, $$str({"Illegal native access from: "_s, module}));
 	}
 }
@@ -239,7 +173,7 @@ bool Reflection::verifyMemberAccess($Class* currentClass, $Class* memberClass, $
 
 bool Reflection::verifyPublicMemberAccess($Class* memberClass, int32_t modifiers) {
 	$init(Reflection);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Module, m, $nc(memberClass)->getModule());
 	bool var$1 = $Modifier::isPublic(modifiers);
 	bool var$0 = var$1 && $nc(m)->isExported($(memberClass->getPackageName()));
@@ -248,7 +182,7 @@ bool Reflection::verifyPublicMemberAccess($Class* memberClass, int32_t modifiers
 
 bool Reflection::verifyModuleAccess($Module* currentModule, $Class* memberClass) {
 	$init(Reflection);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Module, memberModule, $nc(memberClass)->getModule());
 	if (currentModule == memberModule) {
 		return true;
@@ -260,13 +194,13 @@ bool Reflection::verifyModuleAccess($Module* currentModule, $Class* memberClass)
 
 bool Reflection::isSameClassPackage($Class* c1, $Class* c2) {
 	$init(Reflection);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if ($nc(c1)->getClassLoader() != $nc(c2)->getClassLoader()) {
 		return false;
 	}
-	$var($Object, var$0, $of($nc(c1)->getPackageName()));
-	return $Objects::equals(var$0, $($nc(c2)->getPackageName()));
+	$var($Object, var$0, c1->getPackageName());
+	return $Objects::equals(var$0, $(c2->getPackageName()));
 }
 
 bool Reflection::isSubclassOf($Class* queryClass, $Class* ofClass) {
@@ -281,24 +215,22 @@ bool Reflection::isSubclassOf($Class* queryClass, $Class* ofClass) {
 }
 
 void Reflection::registerFieldsToFilter($Class* containingClass, $Set* fieldNames) {
-	$load(Reflection);
+	$init(Reflection);
 	$synchronized(class$) {
-		$init(Reflection);
 		$assignStatic(Reflection::fieldFilterMap, registerFilter(Reflection::fieldFilterMap, containingClass, fieldNames));
 	}
 }
 
 void Reflection::registerMethodsToFilter($Class* containingClass, $Set* methodNames) {
-	$load(Reflection);
+	$init(Reflection);
 	$synchronized(class$) {
-		$init(Reflection);
 		$assignStatic(Reflection::methodFilterMap, registerFilter(Reflection::methodFilterMap, containingClass, methodNames));
 	}
 }
 
 $Map* Reflection::registerFilter($Map* map$renamed, $Class* containingClass, $Set* names) {
 	$init(Reflection);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, map, map$renamed);
 	if ($nc(map)->get(containingClass) != nullptr) {
 		$throwNew($IllegalArgumentException, $$str({"Filter already registered: "_s, containingClass}));
@@ -313,7 +245,7 @@ $FieldArray* Reflection::filterFields($Class* containingClass, $FieldArray* fiel
 	if (Reflection::fieldFilterMap == nullptr) {
 		return fields;
 	}
-	return $fcast($FieldArray, filter($fcast($MemberArray, fields), $cast($Set, $($nc(Reflection::fieldFilterMap)->get(containingClass)))));
+	return $cast($FieldArray, filter($cast($MemberArray, fields), $$cast($Set, $nc(Reflection::fieldFilterMap)->get(containingClass))));
 }
 
 $MethodArray* Reflection::filterMethods($Class* containingClass, $MethodArray* methods) {
@@ -321,30 +253,26 @@ $MethodArray* Reflection::filterMethods($Class* containingClass, $MethodArray* m
 	if (Reflection::methodFilterMap == nullptr) {
 		return methods;
 	}
-	return $fcast($MethodArray, filter($fcast($MemberArray, methods), $cast($Set, $($nc(Reflection::methodFilterMap)->get(containingClass)))));
+	return $cast($MethodArray, filter($cast($MemberArray, methods), $$cast($Set, $nc(Reflection::methodFilterMap)->get(containingClass))));
 }
 
 $MemberArray* Reflection::filter($MemberArray* members, $Set* filteredNames) {
 	$init(Reflection);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((filteredNames == nullptr) || ($nc(members)->length == 0)) {
 		return members;
 	}
-	$Class* memberType = $nc($of($nc(members)->get(0)))->getClass();
+	$Class* memberType = $nc($nc(members)->get(0))->getClass();
 	if ($nc(filteredNames)->contains(Reflection::WILDCARD)) {
 		return $cast($MemberArray, $1Array::newInstance(memberType, 0));
 	}
 	int32_t numNewMembers = 0;
 	{
 		$var($MemberArray, arr$, members);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Member, member, arr$->get(i$));
-			{
-				if (!$nc(filteredNames)->contains($($nc(member)->getName()))) {
-					++numNewMembers;
-				}
+			if (!filteredNames->contains($($nc(member)->getName()))) {
+				++numNewMembers;
 			}
 		}
 	}
@@ -352,14 +280,10 @@ $MemberArray* Reflection::filter($MemberArray* members, $Set* filteredNames) {
 	int32_t destIdx = 0;
 	{
 		$var($MemberArray, arr$, members);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Member, member, arr$->get(i$));
-			{
-				if (!$nc(filteredNames)->contains($($nc(member)->getName()))) {
-					newMembers->set(destIdx++, member);
-				}
+			if (!filteredNames->contains($($nc(member)->getName()))) {
+				newMembers->set(destIdx++, member);
 			}
 		}
 	}
@@ -379,12 +303,12 @@ bool Reflection::isCallerSensitive($Method* m) {
 
 bool Reflection::isTrustedFinalField($Field* field) {
 	$init(Reflection);
-	return $nc($($SharedSecrets::getJavaLangReflectAccess()))->isTrustedFinalField(field);
+	return $$nc($SharedSecrets::getJavaLangReflectAccess())->isTrustedFinalField(field);
 }
 
 $IllegalAccessException* Reflection::newIllegalAccessException($Class* currentClass, $Class* memberClass, $Class* targetClass, int32_t modifiers) {
 	$init(Reflection);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (currentClass == nullptr) {
 		return newIllegalAccessException(memberClass, modifiers);
 	}
@@ -400,10 +324,15 @@ $IllegalAccessException* Reflection::newIllegalAccessException($Class* currentCl
 	}
 	$var($String, memberPackageName, memberClass->getPackageName());
 	$var($String, msg, $str({currentClass, currentSuffix, " cannot access "_s}));
-	if ($nc(m2)->isExported(memberPackageName, m1)) {
-		$var($String, var$1, $$str({"a member of "_s, memberClass, memberSuffix, " with modifiers \""_s}));
-		$var($String, var$0, $$concat(var$1, $($Modifier::toString(modifiers))));
-		$plusAssign(msg, $$concat(var$0, "\""_s));
+	if (m2->isExported(memberPackageName, m1)) {
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("a member of "_s);
+		var$0->append(memberClass);
+		var$0->append(memberSuffix);
+		var$0->append(" with modifiers \""_s);
+		var$0->append($($Modifier::toString(modifiers)));
+		var$0->append("\""_s);
+		$plusAssign(msg, $$str(var$0));
 	} else {
 		$plusAssign(msg, $$str({memberClass, memberSuffix, " because "_s, m2, " does not export "_s, memberPackageName}));
 		if (m2->isNamed()) {
@@ -415,7 +344,7 @@ $IllegalAccessException* Reflection::newIllegalAccessException($Class* currentCl
 
 $IllegalAccessException* Reflection::newIllegalAccessException($Class* memberClass, int32_t modifiers) {
 	$init(Reflection);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, memberSuffix, ""_s);
 	$var($Module, m2, $nc(memberClass)->getModule());
 	if ($nc(m2)->isNamed()) {
@@ -423,10 +352,15 @@ $IllegalAccessException* Reflection::newIllegalAccessException($Class* memberCla
 	}
 	$var($String, memberPackageName, memberClass->getPackageName());
 	$var($String, msg, "JNI attached native thread (null caller frame) cannot access "_s);
-	if ($nc(m2)->isExported(memberPackageName)) {
-		$var($String, var$1, $$str({"a member of "_s, memberClass, memberSuffix, " with modifiers \""_s}));
-		$var($String, var$0, $$concat(var$1, $($Modifier::toString(modifiers))));
-		$plusAssign(msg, $$concat(var$0, "\""_s));
+	if (m2->isExported(memberPackageName)) {
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("a member of "_s);
+		var$0->append(memberClass);
+		var$0->append(memberSuffix);
+		var$0->append(" with modifiers \""_s);
+		var$0->append($($Modifier::toString(modifiers)));
+		var$0->append("\""_s);
+		$plusAssign(msg, $$str(var$0));
 	} else {
 		$plusAssign(msg, $$str({memberClass, memberSuffix, " because "_s, m2, " does not export "_s, memberPackageName}));
 	}
@@ -447,35 +381,35 @@ bool Reflection::areNestMates($Class* currentClass, $Class* memberClass) {
 	return curreentClassName->equals(memberClassName);
 }
 
-void clinit$Reflection($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Reflection::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Reflection::WILDCARD, "*"_s);
-	$assignStatic(Reflection::ALL_MEMBERS, $Set::of($of(Reflection::WILDCARD)));
+	$assignStatic(Reflection::ALL_MEMBERS, $Set::of(Reflection::WILDCARD));
 	{
-		$var($Object, var$0, $of(Reflection::class$));
-		$var($Object, var$1, $of(Reflection::ALL_MEMBERS));
+		$var($Object, var$0, Reflection::class$);
+		$var($Object, var$1, Reflection::ALL_MEMBERS);
 		$load($AccessibleObject);
-		$var($Object, var$2, $of($AccessibleObject::class$));
-		$var($Object, var$3, $of(Reflection::ALL_MEMBERS));
-		$var($Object, var$4, $of($Class::class$));
-		$var($Object, var$5, $of($Set::of("classLoader"_s, "classData"_s)));
+		$var($Object, var$2, $AccessibleObject::class$);
+		$var($Object, var$3, Reflection::ALL_MEMBERS);
+		$var($Object, var$4, $Class::class$);
+		$var($Object, var$5, $Set::of("classLoader"_s, "classData"_s));
 		$load($ClassLoader);
-		$var($Object, var$6, $of($ClassLoader::class$));
-		$var($Object, var$7, $of(Reflection::ALL_MEMBERS));
+		$var($Object, var$6, $ClassLoader::class$);
+		$var($Object, var$7, Reflection::ALL_MEMBERS);
 		$load($Constructor);
-		$var($Object, var$8, $of($Constructor::class$));
-		$var($Object, var$9, $of(Reflection::ALL_MEMBERS));
+		$var($Object, var$8, $Constructor::class$);
+		$var($Object, var$9, Reflection::ALL_MEMBERS);
 		$load($Field);
-		$var($Object, var$10, $of($Field::class$));
-		$var($Object, var$11, $of(Reflection::ALL_MEMBERS));
+		$var($Object, var$10, $Field::class$);
+		$var($Object, var$11, Reflection::ALL_MEMBERS);
 		$load($Method);
-		$var($Object, var$12, $of($Method::class$));
-		$var($Object, var$13, $of(Reflection::ALL_MEMBERS));
+		$var($Object, var$12, $Method::class$);
+		$var($Object, var$13, Reflection::ALL_MEMBERS);
 		$load($Module);
-		$var($Object, var$14, $of($Module::class$));
-		$var($Object, var$15, $of(Reflection::ALL_MEMBERS));
-		$var($Object, var$16, $of($System::class$));
-		$assignStatic(Reflection::fieldFilterMap, $Map::of(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, var$10, var$11, var$12, var$13, var$14, var$15, var$16, $($Set::of($of("security"_s)))));
+		$var($Object, var$14, $Module::class$);
+		$var($Object, var$15, Reflection::ALL_MEMBERS);
+		$var($Object, var$16, $System::class$);
+		$assignStatic(Reflection::fieldFilterMap, $Map::of(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, var$10, var$11, var$12, var$13, var$14, var$15, var$16, $($Set::of("security"_s))));
 		$assignStatic(Reflection::methodFilterMap, $Map::of());
 	}
 }
@@ -484,7 +418,57 @@ Reflection::Reflection() {
 }
 
 $Class* Reflection::load$($String* name, bool initialize) {
-	$loadClass(Reflection, name, initialize, &_Reflection_ClassInfo_, clinit$Reflection, allocate$Reflection);
+	$FieldInfo fieldInfos$$[] = {
+		{"fieldFilterMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/util/Set<Ljava/lang/String;>;>;", $PRIVATE | $STATIC | $VOLATILE, $staticField(Reflection, fieldFilterMap)},
+		{"methodFilterMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/util/Set<Ljava/lang/String;>;>;", $PRIVATE | $STATIC | $VOLATILE, $staticField(Reflection, methodFilterMap)},
+		{"WILDCARD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Reflection, WILDCARD)},
+		{"ALL_MEMBERS", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Reflection, ALL_MEMBERS)},
+		{}
+	};
+	$CompoundAttribute getCallerClassmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute getClassAccessFlagsmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Reflection, init$, void)},
+		{"areNestMates", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC | $NATIVE, $staticMethod(Reflection, areNestMates, bool, $Class*, $Class*)},
+		{"ensureMemberAccess", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;I)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;I)V", $PUBLIC | $STATIC, $staticMethod(Reflection, ensureMemberAccess, void, $Class*, $Class*, $Class*, int32_t), "java.lang.IllegalAccessException"},
+		{"ensureNativeAccess", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $staticMethod(Reflection, ensureNativeAccess, void, $Class*)},
+		{"filter", "([Ljava/lang/reflect/Member;Ljava/util/Set;)[Ljava/lang/reflect/Member;", "([Ljava/lang/reflect/Member;Ljava/util/Set<Ljava/lang/String;>;)[Ljava/lang/reflect/Member;", $PRIVATE | $STATIC, $staticMethod(Reflection, filter, $MemberArray*, $MemberArray*, $Set*)},
+		{"filterFields", "(Ljava/lang/Class;[Ljava/lang/reflect/Field;)[Ljava/lang/reflect/Field;", "(Ljava/lang/Class<*>;[Ljava/lang/reflect/Field;)[Ljava/lang/reflect/Field;", $PUBLIC | $STATIC, $staticMethod(Reflection, filterFields, $FieldArray*, $Class*, $FieldArray*)},
+		{"filterMethods", "(Ljava/lang/Class;[Ljava/lang/reflect/Method;)[Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;[Ljava/lang/reflect/Method;)[Ljava/lang/reflect/Method;", $PUBLIC | $STATIC, $staticMethod(Reflection, filterMethods, $MethodArray*, $Class*, $MethodArray*)},
+		{"getCallerClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $STATIC | $NATIVE, $staticMethod(Reflection, getCallerClass, $Class*), nullptr, nullptr, getCallerClassmethodAnnotations$$},
+		{"getClassAccessFlags", "(Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;)I", $PUBLIC | $STATIC | $NATIVE, $staticMethod(Reflection, getClassAccessFlags, int32_t, $Class*), nullptr, nullptr, getClassAccessFlagsmethodAnnotations$$},
+		{"isCallerSensitive", "(Ljava/lang/reflect/Method;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Reflection, isCallerSensitive, bool, $Method*)},
+		{"isSameClassPackage", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(Reflection, isSameClassPackage, bool, $Class*, $Class*)},
+		{"isSubclassOf", "(Ljava/lang/Class;Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;)Z", $STATIC, $staticMethod(Reflection, isSubclassOf, bool, $Class*, $Class*)},
+		{"isTrustedFinalField", "(Ljava/lang/reflect/Field;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Reflection, isTrustedFinalField, bool, $Field*)},
+		{"newIllegalAccessException", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;I)Ljava/lang/IllegalAccessException;", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;I)Ljava/lang/IllegalAccessException;", $PUBLIC | $STATIC, $staticMethod(Reflection, newIllegalAccessException, $IllegalAccessException*, $Class*, $Class*, $Class*, int32_t)},
+		{"newIllegalAccessException", "(Ljava/lang/Class;I)Ljava/lang/IllegalAccessException;", "(Ljava/lang/Class<*>;I)Ljava/lang/IllegalAccessException;", $PRIVATE | $STATIC, $staticMethod(Reflection, newIllegalAccessException, $IllegalAccessException*, $Class*, int32_t)},
+		{"registerFieldsToFilter", "(Ljava/lang/Class;Ljava/util/Set;)V", "(Ljava/lang/Class<*>;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Reflection, registerFieldsToFilter, void, $Class*, $Set*)},
+		{"registerFilter", "(Ljava/util/Map;Ljava/lang/Class;Ljava/util/Set;)Ljava/util/Map;", "(Ljava/util/Map<Ljava/lang/Class<*>;Ljava/util/Set<Ljava/lang/String;>;>;Ljava/lang/Class<*>;Ljava/util/Set<Ljava/lang/String;>;)Ljava/util/Map<Ljava/lang/Class<*>;Ljava/util/Set<Ljava/lang/String;>;>;", $PRIVATE | $STATIC, $staticMethod(Reflection, registerFilter, $Map*, $Map*, $Class*, $Set*)},
+		{"registerMethodsToFilter", "(Ljava/lang/Class;Ljava/util/Set;)V", "(Ljava/lang/Class<*>;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Reflection, registerMethodsToFilter, void, $Class*, $Set*)},
+		{"verifyMemberAccess", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;I)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;I)Z", $PUBLIC | $STATIC, $staticMethod(Reflection, verifyMemberAccess, bool, $Class*, $Class*, $Class*, int32_t)},
+		{"verifyModuleAccess", "(Ljava/lang/Module;Ljava/lang/Class;)Z", "(Ljava/lang/Module;Ljava/lang/Class<*>;)Z", $PUBLIC | $STATIC, $staticMethod(Reflection, verifyModuleAccess, bool, $Module*, $Class*)},
+		{"verifyPublicMemberAccess", "(Ljava/lang/Class;I)Z", "(Ljava/lang/Class<*>;I)Z", $PUBLIC | $STATIC, $staticMethod(Reflection, verifyPublicMemberAccess, bool, $Class*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.reflect.Reflection",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Reflection, name, initialize, &classInfo$$, Reflection::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Reflection);
+	});
 	return class$;
 }
 

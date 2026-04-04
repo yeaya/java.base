@@ -1,5 +1,4 @@
 #include <common/TestMe.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -10,52 +9,46 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace common {
 
-$NamedAttribute TestMe_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _TestMe_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", TestMe_Attribute_var$0},
-	{}
-};
-
-$Attribute _TestMe_DefaultValue_canonical0 = {
-	's', ""
-};
-
-$Attribute _TestMe_DefaultValue_hasCanonical3 = {
-	'Z', "true"
-};
-
-$MethodInfo _TestMe_MethodInfo_[] = {
-	{"canonical", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestMe, canonical, $String*), nullptr, &_TestMe_DefaultValue_canonical0},
-	{"desc", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestMe, desc, $String*)},
-	{"encl", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestMe, encl, $String*)},
-	{"hasCanonical", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestMe, hasCanonical, bool), nullptr, &_TestMe_DefaultValue_hasCanonical3},
-	{"simple", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestMe, simple, $String*)},
-	{}
-};
-
-$ClassInfo _TestMe_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"common.TestMe",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_TestMe_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_TestMe_Annotations_
-};
-
-$Object* allocate$TestMe($Class* clazz) {
-	return $of($alloc(TestMe));
-}
-
 $Class* TestMe::load$($String* name, bool initialize) {
-	$loadClass(TestMe, name, initialize, &_TestMe_ClassInfo_, allocate$TestMe);
+
+	$Attribute canonicaldefaultValue$$ = {
+		's', ""
+	};
+
+	$Attribute hasCanonicaldefaultValue$$ = {
+		'Z', "true"
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"canonical", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestMe, canonical, $String*), nullptr, &canonicaldefaultValue$$},
+		{"desc", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestMe, desc, $String*)},
+		{"encl", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestMe, encl, $String*)},
+		{"hasCanonical", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestMe, hasCanonical, bool), nullptr, &hasCanonicaldefaultValue$$},
+		{"simple", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestMe, simple, $String*)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"common.TestMe",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(TestMe, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestMe);
+	});
 	return class$;
 }
 

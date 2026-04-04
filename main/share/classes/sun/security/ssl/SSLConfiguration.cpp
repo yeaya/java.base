@@ -1,8 +1,6 @@
 #include <sun/security/ssl/SSLConfiguration.h>
-
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
-#include <java/lang/Enum.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/AlgorithmConstraints.h>
@@ -46,11 +44,9 @@ using $SSLExtensionArray = $Array<::sun::security::ssl::SSLExtension>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;
 using $Cloneable = ::java::lang::Cloneable;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
 using $AlgorithmConstraints = ::java::security::AlgorithmConstraints;
@@ -86,81 +82,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SSLConfiguration_FieldInfo_[] = {
-	{"userSpecifiedAlgorithmConstraints", "Ljava/security/AlgorithmConstraints;", nullptr, 0, $field(SSLConfiguration, userSpecifiedAlgorithmConstraints)},
-	{"enabledProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $field(SSLConfiguration, enabledProtocols)},
-	{"enabledCipherSuites", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $field(SSLConfiguration, enabledCipherSuites)},
-	{"clientAuthType", "Lsun/security/ssl/ClientAuthType;", nullptr, 0, $field(SSLConfiguration, clientAuthType)},
-	{"identificationProtocol", "Ljava/lang/String;", nullptr, 0, $field(SSLConfiguration, identificationProtocol)},
-	{"serverNames", "Ljava/util/List;", "Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;", 0, $field(SSLConfiguration, serverNames)},
-	{"sniMatchers", "Ljava/util/Collection;", "Ljava/util/Collection<Ljavax/net/ssl/SNIMatcher;>;", 0, $field(SSLConfiguration, sniMatchers)},
-	{"applicationProtocols", "[Ljava/lang/String;", nullptr, 0, $field(SSLConfiguration, applicationProtocols)},
-	{"preferLocalCipherSuites", "Z", nullptr, 0, $field(SSLConfiguration, preferLocalCipherSuites)},
-	{"enableRetransmissions", "Z", nullptr, 0, $field(SSLConfiguration, enableRetransmissions)},
-	{"maximumPacketSize", "I", nullptr, 0, $field(SSLConfiguration, maximumPacketSize)},
-	{"signatureSchemes", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/SignatureScheme;>;", 0, $field(SSLConfiguration, signatureSchemes)},
-	{"maximumProtocolVersion", "Lsun/security/ssl/ProtocolVersion;", nullptr, 0, $field(SSLConfiguration, maximumProtocolVersion)},
-	{"isClientMode", "Z", nullptr, 0, $field(SSLConfiguration, isClientMode)},
-	{"enableSessionCreation", "Z", nullptr, 0, $field(SSLConfiguration, enableSessionCreation)},
-	{"socketAPSelector", "Ljava/util/function/BiFunction;", "Ljava/util/function/BiFunction<Ljavax/net/ssl/SSLSocket;Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;>;", 0, $field(SSLConfiguration, socketAPSelector)},
-	{"engineAPSelector", "Ljava/util/function/BiFunction;", "Ljava/util/function/BiFunction<Ljavax/net/ssl/SSLEngine;Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;>;", 0, $field(SSLConfiguration, engineAPSelector)},
-	{"handshakeListeners", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljavax/net/ssl/HandshakeCompletedListener;Ljava/security/AccessControlContext;>;", 0, $field(SSLConfiguration, handshakeListeners)},
-	{"noSniExtension", "Z", nullptr, 0, $field(SSLConfiguration, noSniExtension)},
-	{"noSniMatcher", "Z", nullptr, 0, $field(SSLConfiguration, noSniMatcher)},
-	{"useExtendedMasterSecret", "Z", nullptr, $STATIC | $FINAL, $staticField(SSLConfiguration, useExtendedMasterSecret)},
-	{"allowLegacyResumption", "Z", nullptr, $STATIC | $FINAL, $staticField(SSLConfiguration, allowLegacyResumption)},
-	{"allowLegacyMasterSecret", "Z", nullptr, $STATIC | $FINAL, $staticField(SSLConfiguration, allowLegacyMasterSecret)},
-	{"useCompatibilityMode", "Z", nullptr, $STATIC | $FINAL, $staticField(SSLConfiguration, useCompatibilityMode)},
-	{"acknowledgeCloseNotify", "Z", nullptr, $STATIC | $FINAL, $staticField(SSLConfiguration, acknowledgeCloseNotify)},
-	{"maxHandshakeMessageSize", "I", nullptr, $STATIC | $FINAL, $staticField(SSLConfiguration, maxHandshakeMessageSize)},
-	{"maxCertificateChainLength", "I", nullptr, $STATIC | $FINAL, $staticField(SSLConfiguration, maxCertificateChainLength)},
-	{}
-};
-
-$MethodInfo _SSLConfiguration_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/SSLContextImpl;Z)V", nullptr, 0, $method(SSLConfiguration, init$, void, $SSLContextImpl*, bool)},
-	{"addHandshakeCompletedListener", "(Ljavax/net/ssl/HandshakeCompletedListener;)V", nullptr, 0, $method(SSLConfiguration, addHandshakeCompletedListener, void, $HandshakeCompletedListener*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SSLConfiguration, clone, $Object*)},
-	{"getCustomizedSignatureScheme", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Lsun/security/ssl/SignatureScheme;>;", $PRIVATE | $STATIC, $staticMethod(SSLConfiguration, getCustomizedSignatureScheme, $List*, $String*)},
-	{"getEnabledExtensions", "(Lsun/security/ssl/SSLHandshake;)[Lsun/security/ssl/SSLExtension;", nullptr, 0, $method(SSLConfiguration, getEnabledExtensions, $SSLExtensionArray*, $SSLHandshake*)},
-	{"getEnabledExtensions", "(Lsun/security/ssl/SSLHandshake;Lsun/security/ssl/ProtocolVersion;)[Lsun/security/ssl/SSLExtension;", nullptr, 0, $method(SSLConfiguration, getEnabledExtensions, $SSLExtensionArray*, $SSLHandshake*, $ProtocolVersion*)},
-	{"getEnabledExtensions", "(Lsun/security/ssl/SSLHandshake;Ljava/util/List;)[Lsun/security/ssl/SSLExtension;", "(Lsun/security/ssl/SSLHandshake;Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;)[Lsun/security/ssl/SSLExtension;", 0, $method(SSLConfiguration, getEnabledExtensions, $SSLExtensionArray*, $SSLHandshake*, $List*)},
-	{"getExclusiveExtensions", "(Lsun/security/ssl/SSLHandshake;Ljava/util/List;)[Lsun/security/ssl/SSLExtension;", "(Lsun/security/ssl/SSLHandshake;Ljava/util/List<Lsun/security/ssl/SSLExtension;>;)[Lsun/security/ssl/SSLExtension;", 0, $method(SSLConfiguration, getExclusiveExtensions, $SSLExtensionArray*, $SSLHandshake*, $List*)},
-	{"getSSLParameters", "()Ljavax/net/ssl/SSLParameters;", nullptr, 0, $method(SSLConfiguration, getSSLParameters, $SSLParameters*)},
-	{"isAvailable", "(Lsun/security/ssl/SSLExtension;)Z", nullptr, 0, $method(SSLConfiguration, isAvailable, bool, $SSLExtension*)},
-	{"isAvailable", "(Lsun/security/ssl/SSLExtension;Lsun/security/ssl/ProtocolVersion;)Z", nullptr, 0, $method(SSLConfiguration, isAvailable, bool, $SSLExtension*, $ProtocolVersion*)},
-	{"removeHandshakeCompletedListener", "(Ljavax/net/ssl/HandshakeCompletedListener;)V", nullptr, 0, $method(SSLConfiguration, removeHandshakeCompletedListener, void, $HandshakeCompletedListener*)},
-	{"setSSLParameters", "(Ljavax/net/ssl/SSLParameters;)V", nullptr, 0, $method(SSLConfiguration, setSSLParameters, void, $SSLParameters*)},
-	{"toggleClientMode", "()V", nullptr, 0, $method(SSLConfiguration, toggleClientMode, void)},
-	{}
-};
-
-$InnerClassInfo _SSLConfiguration_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLConfiguration$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"sun.security.ssl.SSLConfiguration$CustomizedServerSignatureSchemes", "sun.security.ssl.SSLConfiguration", "CustomizedServerSignatureSchemes", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLConfiguration$CustomizedClientSignatureSchemes", "sun.security.ssl.SSLConfiguration", "CustomizedClientSignatureSchemes", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SSLConfiguration_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLConfiguration",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_SSLConfiguration_FieldInfo_,
-	_SSLConfiguration_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLConfiguration_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLConfiguration$1,sun.security.ssl.SSLConfiguration$CustomizedServerSignatureSchemes,sun.security.ssl.SSLConfiguration$CustomizedClientSignatureSchemes"
-};
-
-$Object* allocate$SSLConfiguration($Class* clazz) {
-	return $of($alloc(SSLConfiguration));
-}
-
 bool SSLConfiguration::useExtendedMasterSecret = false;
 bool SSLConfiguration::allowLegacyResumption = false;
 bool SSLConfiguration::allowLegacyMasterSecret = false;
@@ -192,10 +113,8 @@ void SSLConfiguration::init$($SSLContextImpl* sslContext, bool isClientMode) {
 		$var($Iterator, i$, $nc(this->enabledProtocols)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$ProtocolVersion* pv = $cast($ProtocolVersion, i$->next());
-			{
-				if ($nc(pv)->compareTo(static_cast<$Enum*>(this->maximumProtocolVersion)) > 0) {
-					$set(this, maximumProtocolVersion, pv);
-				}
+			if ($nc(pv)->compareTo(this->maximumProtocolVersion) > 0) {
+				$set(this, maximumProtocolVersion, pv);
 			}
 		}
 	}
@@ -209,7 +128,7 @@ void SSLConfiguration::init$($SSLContextImpl* sslContext, bool isClientMode) {
 }
 
 $SSLParameters* SSLConfiguration::getSSLParameters() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SSLParameters, params, $new($SSLParameters));
 	params->setAlgorithmConstraints(this->userSpecifiedAlgorithmConstraints);
 	params->setProtocols($($ProtocolVersion::toStringArray(this->enabledProtocols)));
@@ -217,19 +136,13 @@ $SSLParameters* SSLConfiguration::getSSLParameters() {
 	$init($SSLConfiguration$1);
 	switch ($nc($SSLConfiguration$1::$SwitchMap$sun$security$ssl$ClientAuthType)->get($nc((this->clientAuthType))->ordinal())) {
 	case 1:
-		{
-			params->setNeedClientAuth(true);
-			break;
-		}
+		params->setNeedClientAuth(true);
+		break;
 	case 2:
-		{
-			params->setWantClientAuth(true);
-			break;
-		}
+		params->setWantClientAuth(true);
+		break;
 	default:
-		{
-			params->setWantClientAuth(false);
-		}
+		params->setWantClientAuth(false);
 	}
 	params->setEndpointIdentificationAlgorithm(this->identificationProtocol);
 	if ($nc(this->serverNames)->isEmpty() && !this->noSniExtension) {
@@ -250,7 +163,7 @@ $SSLParameters* SSLConfiguration::getSSLParameters() {
 }
 
 void SSLConfiguration::setSSLParameters($SSLParameters* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AlgorithmConstraints, ac, $nc(params)->getAlgorithmConstraints());
 	if (ac != nullptr) {
 		$set(this, userSpecifiedAlgorithmConstraints, ac);
@@ -267,10 +180,8 @@ void SSLConfiguration::setSSLParameters($SSLParameters* params) {
 			$var($Iterator, i$, $nc(this->enabledProtocols)->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$ProtocolVersion* pv = $cast($ProtocolVersion, i$->next());
-				{
-					if ($nc(pv)->compareTo(static_cast<$Enum*>(this->maximumProtocolVersion)) > 0) {
-						$set(this, maximumProtocolVersion, pv);
-					}
+				if ($nc(pv)->compareTo(this->maximumProtocolVersion) > 0) {
+					$set(this, maximumProtocolVersion, pv);
 				}
 			}
 		}
@@ -322,24 +233,20 @@ void SSLConfiguration::removeHandshakeCompletedListener($HandshakeCompletedListe
 	if ($nc(this->handshakeListeners)->remove(listener) == nullptr) {
 		$throwNew($IllegalArgumentException, "listener not registered"_s);
 	}
-	if ($nc(this->handshakeListeners)->isEmpty()) {
+	if (this->handshakeListeners->isEmpty()) {
 		$set(this, handshakeListeners, nullptr);
 	}
 }
 
 bool SSLConfiguration::isAvailable($SSLExtension* extension) {
-	{
-		$var($Iterator, i$, $nc(this->enabledProtocols)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$ProtocolVersion* protocolVersion = $cast($ProtocolVersion, i$->next());
-			{
-				if ($nc(extension)->isAvailable(protocolVersion)) {
-					$init($SSLExtension$ClientExtensions);
-					$init($SSLExtension$ServerExtensions);
-					if (this->isClientMode ? $nc($SSLExtension$ClientExtensions::defaults)->contains(extension) : $nc($SSLExtension$ServerExtensions::defaults)->contains(extension)) {
-						return true;
-					}
-				}
+	$var($Iterator, i$, $nc(this->enabledProtocols)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$ProtocolVersion* protocolVersion = $cast($ProtocolVersion, i$->next());
+		if ($nc(extension)->isAvailable(protocolVersion)) {
+			$init($SSLExtension$ClientExtensions);
+			$init($SSLExtension$ServerExtensions);
+			if (this->isClientMode ? $nc($SSLExtension$ClientExtensions::defaults)->contains(extension) : $nc($SSLExtension$ServerExtensions::defaults)->contains(extension)) {
+				return true;
 			}
 		}
 	}
@@ -354,83 +261,71 @@ bool SSLConfiguration::isAvailable($SSLExtension* extension, $ProtocolVersion* p
 }
 
 $SSLExtensionArray* SSLConfiguration::getEnabledExtensions($SSLHandshake* handshakeType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, extensions, $new($ArrayList));
 	{
 		$var($SSLExtensionArray, arr$, $SSLExtension::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$SSLExtension* extension = arr$->get(i$);
-			{
-				if ($nc(extension)->handshakeType == handshakeType) {
-					if (isAvailable(extension)) {
-						extensions->add(extension);
-					}
+			if ($nc(extension)->handshakeType == handshakeType) {
+				if (isAvailable(extension)) {
+					extensions->add(extension);
 				}
 			}
 		}
 	}
-	return $fcast($SSLExtensionArray, extensions->toArray($$new($SSLExtensionArray, 0)));
+	return $cast($SSLExtensionArray, extensions->toArray($$new($SSLExtensionArray, 0)));
 }
 
 $SSLExtensionArray* SSLConfiguration::getExclusiveExtensions($SSLHandshake* handshakeType, $List* excluded) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, extensions, $new($ArrayList));
 	{
 		$var($SSLExtensionArray, arr$, $SSLExtension::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$SSLExtension* extension = arr$->get(i$);
-			{
-				if ($nc(extension)->handshakeType == handshakeType) {
-					bool var$0 = isAvailable(extension);
-					if (var$0 && !$nc(excluded)->contains(extension)) {
-						extensions->add(extension);
-					}
+			if ($nc(extension)->handshakeType == handshakeType) {
+				bool var$0 = isAvailable(extension);
+				if (var$0 && !$nc(excluded)->contains(extension)) {
+					extensions->add(extension);
 				}
 			}
 		}
 	}
-	return $fcast($SSLExtensionArray, extensions->toArray($$new($SSLExtensionArray, 0)));
+	return $cast($SSLExtensionArray, extensions->toArray($$new($SSLExtensionArray, 0)));
 }
 
 $SSLExtensionArray* SSLConfiguration::getEnabledExtensions($SSLHandshake* handshakeType, $ProtocolVersion* protocolVersion) {
-	return getEnabledExtensions(handshakeType, $($List::of($of(protocolVersion))));
+	return getEnabledExtensions(handshakeType, $($List::of(protocolVersion)));
 }
 
 $SSLExtensionArray* SSLConfiguration::getEnabledExtensions($SSLHandshake* handshakeType, $List* activeProtocols) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, extensions, $new($ArrayList));
 	{
 		$var($SSLExtensionArray, arr$, $SSLExtension::values());
-		int32_t len$ = $nc(arr$)->length;
+		int32_t len$ = arr$->length;
 		int32_t i$ = 0;
 		for (; i$ < len$; ++i$) {
 			$SSLExtension* extension = arr$->get(i$);
-			{
-				if ($nc(extension)->handshakeType == handshakeType) {
-					if (!isAvailable(extension)) {
-						continue;
-					}
-					{
-						$var($Iterator, i$, $nc(activeProtocols)->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$ProtocolVersion* protocolVersion = $cast($ProtocolVersion, i$->next());
-							{
-								if (extension->isAvailable(protocolVersion)) {
-									extensions->add(extension);
-									break;
-								}
-							}
+			if ($nc(extension)->handshakeType == handshakeType) {
+				if (!isAvailable(extension)) {
+					continue;
+				}
+				{
+					$var($Iterator, i$, $nc(activeProtocols)->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$ProtocolVersion* protocolVersion = $cast($ProtocolVersion, i$->next());
+						if (extension->isAvailable(protocolVersion)) {
+							extensions->add(extension);
+							break;
 						}
 					}
 				}
 			}
 		}
 	}
-	return $fcast($SSLExtensionArray, extensions->toArray($$new($SSLExtensionArray, 0)));
+	return $cast($SSLExtensionArray, extensions->toArray($$new($SSLExtensionArray, 0)));
 }
 
 void SSLConfiguration::toggleClientMode() {
@@ -444,17 +339,17 @@ $Object* SSLConfiguration::clone() {
 	try {
 		$var(SSLConfiguration, config, $cast(SSLConfiguration, $Cloneable::clone()));
 		if (this->handshakeListeners != nullptr) {
-			$set($nc(config), handshakeListeners, $cast($HashMap, $nc(this->handshakeListeners)->clone()));
+			$set($nc(config), handshakeListeners, $cast($HashMap, this->handshakeListeners->clone()));
 		}
-		return $of(config);
+		return config;
 	} catch ($CloneNotSupportedException& cnse) {
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $List* SSLConfiguration::getCustomizedSignatureScheme($String* propertyName) {
 	$init(SSLConfiguration);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, property, $GetPropertyAction::privilegedGetProperty(propertyName));
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,sslctx"_s)) {
@@ -478,10 +373,8 @@ $List* SSLConfiguration::getCustomizedSignatureScheme($String* propertyName) {
 			$SignatureScheme* scheme = $SignatureScheme::nameOf(signatureSchemeNames->get(i));
 			if (scheme != nullptr && scheme->isAvailable) {
 				signatureSchemes->add(scheme);
-			} else {
-				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,sslctx"_s)) {
-					$SSLLogger::fine($$str({"The current installed providers do not support signature scheme: "_s, signatureSchemeNames->get(i)}), $$new($ObjectArray, 0));
-				}
+			} else if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,sslctx"_s)) {
+				$SSLLogger::fine($$str({"The current installed providers do not support signature scheme: "_s, signatureSchemeNames->get(i)}), $$new($ObjectArray, 0));
 			}
 		}
 		return signatureSchemes;
@@ -489,14 +382,14 @@ $List* SSLConfiguration::getCustomizedSignatureScheme($String* propertyName) {
 	return $Collections::emptyList();
 }
 
-void clinit$SSLConfiguration($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void SSLConfiguration::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	SSLConfiguration::allowLegacyResumption = $Utilities::getBooleanProperty("jdk.tls.allowLegacyResumption"_s, true);
 	SSLConfiguration::allowLegacyMasterSecret = $Utilities::getBooleanProperty("jdk.tls.allowLegacyMasterSecret"_s, true);
 	SSLConfiguration::useCompatibilityMode = $Utilities::getBooleanProperty("jdk.tls.client.useCompatibilityMode"_s, true);
 	SSLConfiguration::acknowledgeCloseNotify = $Utilities::getBooleanProperty("jdk.tls.acknowledgeCloseNotify"_s, false);
-	SSLConfiguration::maxHandshakeMessageSize = $nc($($GetIntegerAction::privilegedGetProperty("jdk.tls.maxHandshakeMessageSize"_s, 32768)))->intValue();
-	SSLConfiguration::maxCertificateChainLength = $nc($($GetIntegerAction::privilegedGetProperty("jdk.tls.maxCertificateChainLength"_s, 10)))->intValue();
+	SSLConfiguration::maxHandshakeMessageSize = $$nc($GetIntegerAction::privilegedGetProperty("jdk.tls.maxHandshakeMessageSize"_s, 0x00008000))->intValue();
+	SSLConfiguration::maxCertificateChainLength = $$nc($GetIntegerAction::privilegedGetProperty("jdk.tls.maxCertificateChainLength"_s, 10))->intValue();
 	{
 		bool supportExtendedMasterSecret = $Utilities::getBooleanProperty("jdk.tls.useExtendedMasterSecret"_s, true);
 		if (supportExtendedMasterSecret) {
@@ -514,7 +407,76 @@ SSLConfiguration::SSLConfiguration() {
 }
 
 $Class* SSLConfiguration::load$($String* name, bool initialize) {
-	$loadClass(SSLConfiguration, name, initialize, &_SSLConfiguration_ClassInfo_, clinit$SSLConfiguration, allocate$SSLConfiguration);
+	$FieldInfo fieldInfos$$[] = {
+		{"userSpecifiedAlgorithmConstraints", "Ljava/security/AlgorithmConstraints;", nullptr, 0, $field(SSLConfiguration, userSpecifiedAlgorithmConstraints)},
+		{"enabledProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;", 0, $field(SSLConfiguration, enabledProtocols)},
+		{"enabledCipherSuites", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/CipherSuite;>;", 0, $field(SSLConfiguration, enabledCipherSuites)},
+		{"clientAuthType", "Lsun/security/ssl/ClientAuthType;", nullptr, 0, $field(SSLConfiguration, clientAuthType)},
+		{"identificationProtocol", "Ljava/lang/String;", nullptr, 0, $field(SSLConfiguration, identificationProtocol)},
+		{"serverNames", "Ljava/util/List;", "Ljava/util/List<Ljavax/net/ssl/SNIServerName;>;", 0, $field(SSLConfiguration, serverNames)},
+		{"sniMatchers", "Ljava/util/Collection;", "Ljava/util/Collection<Ljavax/net/ssl/SNIMatcher;>;", 0, $field(SSLConfiguration, sniMatchers)},
+		{"applicationProtocols", "[Ljava/lang/String;", nullptr, 0, $field(SSLConfiguration, applicationProtocols)},
+		{"preferLocalCipherSuites", "Z", nullptr, 0, $field(SSLConfiguration, preferLocalCipherSuites)},
+		{"enableRetransmissions", "Z", nullptr, 0, $field(SSLConfiguration, enableRetransmissions)},
+		{"maximumPacketSize", "I", nullptr, 0, $field(SSLConfiguration, maximumPacketSize)},
+		{"signatureSchemes", "Ljava/util/List;", "Ljava/util/List<Lsun/security/ssl/SignatureScheme;>;", 0, $field(SSLConfiguration, signatureSchemes)},
+		{"maximumProtocolVersion", "Lsun/security/ssl/ProtocolVersion;", nullptr, 0, $field(SSLConfiguration, maximumProtocolVersion)},
+		{"isClientMode", "Z", nullptr, 0, $field(SSLConfiguration, isClientMode)},
+		{"enableSessionCreation", "Z", nullptr, 0, $field(SSLConfiguration, enableSessionCreation)},
+		{"socketAPSelector", "Ljava/util/function/BiFunction;", "Ljava/util/function/BiFunction<Ljavax/net/ssl/SSLSocket;Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;>;", 0, $field(SSLConfiguration, socketAPSelector)},
+		{"engineAPSelector", "Ljava/util/function/BiFunction;", "Ljava/util/function/BiFunction<Ljavax/net/ssl/SSLEngine;Ljava/util/List<Ljava/lang/String;>;Ljava/lang/String;>;", 0, $field(SSLConfiguration, engineAPSelector)},
+		{"handshakeListeners", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljavax/net/ssl/HandshakeCompletedListener;Ljava/security/AccessControlContext;>;", 0, $field(SSLConfiguration, handshakeListeners)},
+		{"noSniExtension", "Z", nullptr, 0, $field(SSLConfiguration, noSniExtension)},
+		{"noSniMatcher", "Z", nullptr, 0, $field(SSLConfiguration, noSniMatcher)},
+		{"useExtendedMasterSecret", "Z", nullptr, $STATIC | $FINAL, $staticField(SSLConfiguration, useExtendedMasterSecret)},
+		{"allowLegacyResumption", "Z", nullptr, $STATIC | $FINAL, $staticField(SSLConfiguration, allowLegacyResumption)},
+		{"allowLegacyMasterSecret", "Z", nullptr, $STATIC | $FINAL, $staticField(SSLConfiguration, allowLegacyMasterSecret)},
+		{"useCompatibilityMode", "Z", nullptr, $STATIC | $FINAL, $staticField(SSLConfiguration, useCompatibilityMode)},
+		{"acknowledgeCloseNotify", "Z", nullptr, $STATIC | $FINAL, $staticField(SSLConfiguration, acknowledgeCloseNotify)},
+		{"maxHandshakeMessageSize", "I", nullptr, $STATIC | $FINAL, $staticField(SSLConfiguration, maxHandshakeMessageSize)},
+		{"maxCertificateChainLength", "I", nullptr, $STATIC | $FINAL, $staticField(SSLConfiguration, maxCertificateChainLength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/SSLContextImpl;Z)V", nullptr, 0, $method(SSLConfiguration, init$, void, $SSLContextImpl*, bool)},
+		{"addHandshakeCompletedListener", "(Ljavax/net/ssl/HandshakeCompletedListener;)V", nullptr, 0, $method(SSLConfiguration, addHandshakeCompletedListener, void, $HandshakeCompletedListener*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SSLConfiguration, clone, $Object*)},
+		{"getCustomizedSignatureScheme", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Lsun/security/ssl/SignatureScheme;>;", $PRIVATE | $STATIC, $staticMethod(SSLConfiguration, getCustomizedSignatureScheme, $List*, $String*)},
+		{"getEnabledExtensions", "(Lsun/security/ssl/SSLHandshake;)[Lsun/security/ssl/SSLExtension;", nullptr, 0, $method(SSLConfiguration, getEnabledExtensions, $SSLExtensionArray*, $SSLHandshake*)},
+		{"getEnabledExtensions", "(Lsun/security/ssl/SSLHandshake;Lsun/security/ssl/ProtocolVersion;)[Lsun/security/ssl/SSLExtension;", nullptr, 0, $method(SSLConfiguration, getEnabledExtensions, $SSLExtensionArray*, $SSLHandshake*, $ProtocolVersion*)},
+		{"getEnabledExtensions", "(Lsun/security/ssl/SSLHandshake;Ljava/util/List;)[Lsun/security/ssl/SSLExtension;", "(Lsun/security/ssl/SSLHandshake;Ljava/util/List<Lsun/security/ssl/ProtocolVersion;>;)[Lsun/security/ssl/SSLExtension;", 0, $method(SSLConfiguration, getEnabledExtensions, $SSLExtensionArray*, $SSLHandshake*, $List*)},
+		{"getExclusiveExtensions", "(Lsun/security/ssl/SSLHandshake;Ljava/util/List;)[Lsun/security/ssl/SSLExtension;", "(Lsun/security/ssl/SSLHandshake;Ljava/util/List<Lsun/security/ssl/SSLExtension;>;)[Lsun/security/ssl/SSLExtension;", 0, $method(SSLConfiguration, getExclusiveExtensions, $SSLExtensionArray*, $SSLHandshake*, $List*)},
+		{"getSSLParameters", "()Ljavax/net/ssl/SSLParameters;", nullptr, 0, $method(SSLConfiguration, getSSLParameters, $SSLParameters*)},
+		{"isAvailable", "(Lsun/security/ssl/SSLExtension;)Z", nullptr, 0, $method(SSLConfiguration, isAvailable, bool, $SSLExtension*)},
+		{"isAvailable", "(Lsun/security/ssl/SSLExtension;Lsun/security/ssl/ProtocolVersion;)Z", nullptr, 0, $method(SSLConfiguration, isAvailable, bool, $SSLExtension*, $ProtocolVersion*)},
+		{"removeHandshakeCompletedListener", "(Ljavax/net/ssl/HandshakeCompletedListener;)V", nullptr, 0, $method(SSLConfiguration, removeHandshakeCompletedListener, void, $HandshakeCompletedListener*)},
+		{"setSSLParameters", "(Ljavax/net/ssl/SSLParameters;)V", nullptr, 0, $method(SSLConfiguration, setSSLParameters, void, $SSLParameters*)},
+		{"toggleClientMode", "()V", nullptr, 0, $method(SSLConfiguration, toggleClientMode, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLConfiguration$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"sun.security.ssl.SSLConfiguration$CustomizedServerSignatureSchemes", "sun.security.ssl.SSLConfiguration", "CustomizedServerSignatureSchemes", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLConfiguration$CustomizedClientSignatureSchemes", "sun.security.ssl.SSLConfiguration", "CustomizedClientSignatureSchemes", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLConfiguration",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLConfiguration$1,sun.security.ssl.SSLConfiguration$CustomizedServerSignatureSchemes,sun.security.ssl.SSLConfiguration$CustomizedClientSignatureSchemes"
+	};
+	$loadClass(SSLConfiguration, name, initialize, &classInfo$$, SSLConfiguration::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLConfiguration);
+	});
 	return class$;
 }
 

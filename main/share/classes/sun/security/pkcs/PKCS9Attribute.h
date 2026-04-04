@@ -73,6 +73,7 @@ class $export PKCS9Attribute : public ::sun::security::util::DerEncoder {
 	$class(PKCS9Attribute, 0, ::sun::security::util::DerEncoder)
 public:
 	PKCS9Attribute();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::util::ObjectIdentifier* oid, Object$* value);
 	void init$(::sun::security::util::DerValue* derVal);
 	virtual void derEncode(::java::io::OutputStream* out) override;

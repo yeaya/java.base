@@ -1,5 +1,4 @@
 #include <java/lang/reflect/Array.h>
-
 #include <jcpp.h>
 
 using namespace ::java::lang;
@@ -11,79 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace lang {
 		namespace reflect {
-
-$CompoundAttribute _Array_MethodAnnotations_getLength8[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Array_MethodAnnotations_newArray12[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$MethodInfo _Array_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Array, init$, void)},
-	{"get", "(Ljava/lang/Object;I)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, get, $Object*, Object$*, int32_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
-	{"getBoolean", "(Ljava/lang/Object;I)Z", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, getBoolean, bool, Object$*, int32_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
-	{"getByte", "(Ljava/lang/Object;I)B", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, getByte, int8_t, Object$*, int32_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
-	{"getChar", "(Ljava/lang/Object;I)C", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, getChar, char16_t, Object$*, int32_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
-	{"getDouble", "(Ljava/lang/Object;I)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, getDouble, double, Object$*, int32_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
-	{"getFloat", "(Ljava/lang/Object;I)F", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, getFloat, float, Object$*, int32_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
-	{"getInt", "(Ljava/lang/Object;I)I", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, getInt, int32_t, Object$*, int32_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
-	{"getLength", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, getLength, int32_t, Object$*), "java.lang.IllegalArgumentException", nullptr, _Array_MethodAnnotations_getLength8},
-	{"getLong", "(Ljava/lang/Object;I)J", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, getLong, int64_t, Object$*, int32_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
-	{"getShort", "(Ljava/lang/Object;I)S", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, getShort, int16_t, Object$*, int32_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
-	{"multiNewArray", "(Ljava/lang/Class;[I)Ljava/lang/Object;", "(Ljava/lang/Class<*>;[I)Ljava/lang/Object;", $PRIVATE | $STATIC | $NATIVE, $staticMethod(Array, multiNewArray, $Object*, $Class*, $ints*), "java.lang.IllegalArgumentException,java.lang.NegativeArraySizeException"},
-	{"newArray", "(Ljava/lang/Class;I)Ljava/lang/Object;", "(Ljava/lang/Class<*>;I)Ljava/lang/Object;", $PRIVATE | $STATIC | $NATIVE, $staticMethod(Array, newArray, $Object*, $Class*, int32_t), "java.lang.NegativeArraySizeException", nullptr, _Array_MethodAnnotations_newArray12},
-	{"newInstance", "(Ljava/lang/Class;I)Ljava/lang/Object;", "(Ljava/lang/Class<*>;I)Ljava/lang/Object;", $PUBLIC | $STATIC, $staticMethod(Array, newInstance, $Object*, $Class*, int32_t), "java.lang.NegativeArraySizeException"},
-	{"newInstance", "(Ljava/lang/Class;[I)Ljava/lang/Object;", "(Ljava/lang/Class<*>;[I)Ljava/lang/Object;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Array, newInstance, $Object*, $Class*, $ints*), "java.lang.IllegalArgumentException,java.lang.NegativeArraySizeException"},
-	{"set", "(Ljava/lang/Object;ILjava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, set, void, Object$*, int32_t, Object$*), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
-	{"setBoolean", "(Ljava/lang/Object;IZ)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, setBoolean, void, Object$*, int32_t, bool), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
-	{"setByte", "(Ljava/lang/Object;IB)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, setByte, void, Object$*, int32_t, int8_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
-	{"setChar", "(Ljava/lang/Object;IC)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, setChar, void, Object$*, int32_t, char16_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
-	{"setDouble", "(Ljava/lang/Object;ID)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, setDouble, void, Object$*, int32_t, double), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
-	{"setFloat", "(Ljava/lang/Object;IF)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, setFloat, void, Object$*, int32_t, float), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
-	{"setInt", "(Ljava/lang/Object;II)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, setInt, void, Object$*, int32_t, int32_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
-	{"setLong", "(Ljava/lang/Object;IJ)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, setLong, void, Object$*, int32_t, int64_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
-	{"setShort", "(Ljava/lang/Object;IS)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, setShort, void, Object$*, int32_t, int16_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
-	{}
-};
-
-#define _METHOD_INDEX_get 1
-#define _METHOD_INDEX_getBoolean 2
-#define _METHOD_INDEX_getByte 3
-#define _METHOD_INDEX_getChar 4
-#define _METHOD_INDEX_getDouble 5
-#define _METHOD_INDEX_getFloat 6
-#define _METHOD_INDEX_getInt 7
-#define _METHOD_INDEX_getLength 8
-#define _METHOD_INDEX_getLong 9
-#define _METHOD_INDEX_getShort 10
-#define _METHOD_INDEX_multiNewArray 11
-#define _METHOD_INDEX_newArray 12
-#define _METHOD_INDEX_set 15
-#define _METHOD_INDEX_setBoolean 16
-#define _METHOD_INDEX_setByte 17
-#define _METHOD_INDEX_setChar 18
-#define _METHOD_INDEX_setDouble 19
-#define _METHOD_INDEX_setFloat 20
-#define _METHOD_INDEX_setInt 21
-#define _METHOD_INDEX_setLong 22
-#define _METHOD_INDEX_setShort 23
-
-$ClassInfo _Array_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.lang.reflect.Array",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Array_MethodInfo_
-};
-
-$Object* allocate$Array($Class* clazz) {
-	return $of($alloc(Array));
-}
 
 void Array::init$() {
 }
@@ -185,7 +111,52 @@ Array::Array() {
 }
 
 $Class* Array::load$($String* name, bool initialize) {
-	$loadClass(Array, name, initialize, &_Array_ClassInfo_, allocate$Array);
+	$CompoundAttribute getLengthmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute newArraymethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Array, init$, void)},
+		{"get", "(Ljava/lang/Object;I)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, get, $Object*, Object$*, int32_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
+		{"getBoolean", "(Ljava/lang/Object;I)Z", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, getBoolean, bool, Object$*, int32_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
+		{"getByte", "(Ljava/lang/Object;I)B", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, getByte, int8_t, Object$*, int32_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
+		{"getChar", "(Ljava/lang/Object;I)C", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, getChar, char16_t, Object$*, int32_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
+		{"getDouble", "(Ljava/lang/Object;I)D", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, getDouble, double, Object$*, int32_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
+		{"getFloat", "(Ljava/lang/Object;I)F", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, getFloat, float, Object$*, int32_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
+		{"getInt", "(Ljava/lang/Object;I)I", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, getInt, int32_t, Object$*, int32_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
+		{"getLength", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, getLength, int32_t, Object$*), "java.lang.IllegalArgumentException", nullptr, getLengthmethodAnnotations$$},
+		{"getLong", "(Ljava/lang/Object;I)J", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, getLong, int64_t, Object$*, int32_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
+		{"getShort", "(Ljava/lang/Object;I)S", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, getShort, int16_t, Object$*, int32_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
+		{"multiNewArray", "(Ljava/lang/Class;[I)Ljava/lang/Object;", "(Ljava/lang/Class<*>;[I)Ljava/lang/Object;", $PRIVATE | $STATIC | $NATIVE, $staticMethod(Array, multiNewArray, $Object*, $Class*, $ints*), "java.lang.IllegalArgumentException,java.lang.NegativeArraySizeException"},
+		{"newArray", "(Ljava/lang/Class;I)Ljava/lang/Object;", "(Ljava/lang/Class<*>;I)Ljava/lang/Object;", $PRIVATE | $STATIC | $NATIVE, $staticMethod(Array, newArray, $Object*, $Class*, int32_t), "java.lang.NegativeArraySizeException", nullptr, newArraymethodAnnotations$$},
+		{"newInstance", "(Ljava/lang/Class;I)Ljava/lang/Object;", "(Ljava/lang/Class<*>;I)Ljava/lang/Object;", $PUBLIC | $STATIC, $staticMethod(Array, newInstance, $Object*, $Class*, int32_t), "java.lang.NegativeArraySizeException"},
+		{"newInstance", "(Ljava/lang/Class;[I)Ljava/lang/Object;", "(Ljava/lang/Class<*>;[I)Ljava/lang/Object;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Array, newInstance, $Object*, $Class*, $ints*), "java.lang.IllegalArgumentException,java.lang.NegativeArraySizeException"},
+		{"set", "(Ljava/lang/Object;ILjava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, set, void, Object$*, int32_t, Object$*), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
+		{"setBoolean", "(Ljava/lang/Object;IZ)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, setBoolean, void, Object$*, int32_t, bool), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
+		{"setByte", "(Ljava/lang/Object;IB)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, setByte, void, Object$*, int32_t, int8_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
+		{"setChar", "(Ljava/lang/Object;IC)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, setChar, void, Object$*, int32_t, char16_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
+		{"setDouble", "(Ljava/lang/Object;ID)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, setDouble, void, Object$*, int32_t, double), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
+		{"setFloat", "(Ljava/lang/Object;IF)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, setFloat, void, Object$*, int32_t, float), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
+		{"setInt", "(Ljava/lang/Object;II)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, setInt, void, Object$*, int32_t, int32_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
+		{"setLong", "(Ljava/lang/Object;IJ)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, setLong, void, Object$*, int32_t, int64_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
+		{"setShort", "(Ljava/lang/Object;IS)V", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(Array, setShort, void, Object$*, int32_t, int16_t), "java.lang.IllegalArgumentException,java.lang.ArrayIndexOutOfBoundsException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.lang.reflect.Array",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Array, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Array);
+	});
 	return class$;
 }
 

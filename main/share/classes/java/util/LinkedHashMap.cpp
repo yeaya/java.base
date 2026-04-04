@@ -1,5 +1,4 @@
 #include <java/util/LinkedHashMap.h>
-
 #include <java/io/ObjectOutputStream.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/Collection.h>
@@ -43,77 +42,6 @@ using $BiFunction = ::java::util::function::BiFunction;
 namespace java {
 	namespace util {
 
-$FieldInfo _LinkedHashMap_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinkedHashMap, serialVersionUID)},
-	{"head", "Ljava/util/LinkedHashMap$Entry;", "Ljava/util/LinkedHashMap$Entry<TK;TV;>;", $TRANSIENT, $field(LinkedHashMap, head)},
-	{"tail", "Ljava/util/LinkedHashMap$Entry;", "Ljava/util/LinkedHashMap$Entry<TK;TV;>;", $TRANSIENT, $field(LinkedHashMap, tail)},
-	{"accessOrder", "Z", nullptr, $FINAL, $field(LinkedHashMap, accessOrder)},
-	{}
-};
-
-$MethodInfo _LinkedHashMap_MethodInfo_[] = {
-	{"<init>", "(IF)V", nullptr, $PUBLIC, $method(LinkedHashMap, init$, void, int32_t, float)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(LinkedHashMap, init$, void, int32_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LinkedHashMap, init$, void)},
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<+TK;+TV;>;)V", $PUBLIC, $method(LinkedHashMap, init$, void, $Map*)},
-	{"<init>", "(IFZ)V", nullptr, $PUBLIC, $method(LinkedHashMap, init$, void, int32_t, float, bool)},
-	{"afterNodeAccess", "(Ljava/util/HashMap$Node;)V", "(Ljava/util/HashMap$Node<TK;TV;>;)V", 0, $virtualMethod(LinkedHashMap, afterNodeAccess, void, $HashMap$Node*)},
-	{"afterNodeInsertion", "(Z)V", nullptr, 0, $virtualMethod(LinkedHashMap, afterNodeInsertion, void, bool)},
-	{"afterNodeRemoval", "(Ljava/util/HashMap$Node;)V", "(Ljava/util/HashMap$Node<TK;TV;>;)V", 0, $virtualMethod(LinkedHashMap, afterNodeRemoval, void, $HashMap$Node*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(LinkedHashMap, clear, void)},
-	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LinkedHashMap, containsValue, bool, Object$*)},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(LinkedHashMap, entrySet, $Set*)},
-	{"forEach", "(Ljava/util/function/BiConsumer;)V", "(Ljava/util/function/BiConsumer<-TK;-TV;>;)V", $PUBLIC, $virtualMethod(LinkedHashMap, forEach, void, $BiConsumer*)},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(LinkedHashMap, get, $Object*, Object$*)},
-	{"getOrDefault", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;TV;)TV;", $PUBLIC, $virtualMethod(LinkedHashMap, getOrDefault, $Object*, Object$*, Object$*)},
-	{"internalWriteEntries", "(Ljava/io/ObjectOutputStream;)V", nullptr, 0, $virtualMethod(LinkedHashMap, internalWriteEntries, void, $ObjectOutputStream*), "java.io.IOException"},
-	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<TK;>;", $PUBLIC, $virtualMethod(LinkedHashMap, keySet, $Set*)},
-	{"keysToArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $FINAL, $virtualMethod(LinkedHashMap, keysToArray, $ObjectArray*, $ObjectArray*)},
-	{"linkNodeLast", "(Ljava/util/LinkedHashMap$Entry;)V", "(Ljava/util/LinkedHashMap$Entry<TK;TV;>;)V", $PRIVATE, $method(LinkedHashMap, linkNodeLast, void, $LinkedHashMap$Entry*)},
-	{"newNode", "(ILjava/lang/Object;Ljava/lang/Object;Ljava/util/HashMap$Node;)Ljava/util/HashMap$Node;", "(ITK;TV;Ljava/util/HashMap$Node<TK;TV;>;)Ljava/util/HashMap$Node<TK;TV;>;", 0, $virtualMethod(LinkedHashMap, newNode, $HashMap$Node*, int32_t, Object$*, Object$*, $HashMap$Node*)},
-	{"newTreeNode", "(ILjava/lang/Object;Ljava/lang/Object;Ljava/util/HashMap$Node;)Ljava/util/HashMap$TreeNode;", "(ITK;TV;Ljava/util/HashMap$Node<TK;TV;>;)Ljava/util/HashMap$TreeNode<TK;TV;>;", 0, $virtualMethod(LinkedHashMap, newTreeNode, $HashMap$TreeNode*, int32_t, Object$*, Object$*, $HashMap$Node*)},
-	{"reinitialize", "()V", nullptr, 0, $virtualMethod(LinkedHashMap, reinitialize, void)},
-	{"removeEldestEntry", "(Ljava/util/Map$Entry;)Z", "(Ljava/util/Map$Entry<TK;TV;>;)Z", $PROTECTED, $virtualMethod(LinkedHashMap, removeEldestEntry, bool, $Map$Entry*)},
-	{"replaceAll", "(Ljava/util/function/BiFunction;)V", "(Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)V", $PUBLIC, $virtualMethod(LinkedHashMap, replaceAll, void, $BiFunction*)},
-	{"replacementNode", "(Ljava/util/HashMap$Node;Ljava/util/HashMap$Node;)Ljava/util/HashMap$Node;", "(Ljava/util/HashMap$Node<TK;TV;>;Ljava/util/HashMap$Node<TK;TV;>;)Ljava/util/HashMap$Node<TK;TV;>;", 0, $virtualMethod(LinkedHashMap, replacementNode, $HashMap$Node*, $HashMap$Node*, $HashMap$Node*)},
-	{"replacementTreeNode", "(Ljava/util/HashMap$Node;Ljava/util/HashMap$Node;)Ljava/util/HashMap$TreeNode;", "(Ljava/util/HashMap$Node<TK;TV;>;Ljava/util/HashMap$Node<TK;TV;>;)Ljava/util/HashMap$TreeNode<TK;TV;>;", 0, $virtualMethod(LinkedHashMap, replacementTreeNode, $HashMap$TreeNode*, $HashMap$Node*, $HashMap$Node*)},
-	{"transferLinks", "(Ljava/util/LinkedHashMap$Entry;Ljava/util/LinkedHashMap$Entry;)V", "(Ljava/util/LinkedHashMap$Entry<TK;TV;>;Ljava/util/LinkedHashMap$Entry<TK;TV;>;)V", $PRIVATE, $method(LinkedHashMap, transferLinks, void, $LinkedHashMap$Entry*, $LinkedHashMap$Entry*)},
-	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<TV;>;", $PUBLIC, $virtualMethod(LinkedHashMap, values, $Collection*)},
-	{"valuesToArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $FINAL, $virtualMethod(LinkedHashMap, valuesToArray, $ObjectArray*, $ObjectArray*)},
-	{}
-};
-
-$InnerClassInfo _LinkedHashMap_InnerClassesInfo_[] = {
-	{"java.util.LinkedHashMap$LinkedEntryIterator", "java.util.LinkedHashMap", "LinkedEntryIterator", $FINAL},
-	{"java.util.LinkedHashMap$LinkedValueIterator", "java.util.LinkedHashMap", "LinkedValueIterator", $FINAL},
-	{"java.util.LinkedHashMap$LinkedKeyIterator", "java.util.LinkedHashMap", "LinkedKeyIterator", $FINAL},
-	{"java.util.LinkedHashMap$LinkedHashIterator", "java.util.LinkedHashMap", "LinkedHashIterator", $ABSTRACT},
-	{"java.util.LinkedHashMap$LinkedEntrySet", "java.util.LinkedHashMap", "LinkedEntrySet", $FINAL},
-	{"java.util.LinkedHashMap$LinkedValues", "java.util.LinkedHashMap", "LinkedValues", $FINAL},
-	{"java.util.LinkedHashMap$LinkedKeySet", "java.util.LinkedHashMap", "LinkedKeySet", $FINAL},
-	{"java.util.LinkedHashMap$Entry", "java.util.LinkedHashMap", "Entry", $STATIC},
-	{}
-};
-
-$ClassInfo _LinkedHashMap_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.LinkedHashMap",
-	"java.util.HashMap",
-	nullptr,
-	_LinkedHashMap_FieldInfo_,
-	_LinkedHashMap_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/HashMap<TK;TV;>;Ljava/util/Map<TK;TV;>;",
-	nullptr,
-	_LinkedHashMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.LinkedHashMap$LinkedEntryIterator,java.util.LinkedHashMap$LinkedValueIterator,java.util.LinkedHashMap$LinkedKeyIterator,java.util.LinkedHashMap$LinkedHashIterator,java.util.LinkedHashMap$LinkedEntrySet,java.util.LinkedHashMap$LinkedValues,java.util.LinkedHashMap$LinkedKeySet,java.util.LinkedHashMap$Entry"
-};
-
-$Object* allocate$LinkedHashMap($Class* clazz) {
-	return $of($alloc(LinkedHashMap));
-}
-
 void LinkedHashMap::linkNodeLast($LinkedHashMap$Entry* p) {
 	$var($LinkedHashMap$Entry, last, this->tail);
 	$set(this, tail, p);
@@ -121,29 +49,29 @@ void LinkedHashMap::linkNodeLast($LinkedHashMap$Entry* p) {
 		$set(this, head, p);
 	} else {
 		$set($nc(p), before, last);
-		$set($nc(last), after, p);
+		$set(last, after, p);
 	}
 }
 
 void LinkedHashMap::transferLinks($LinkedHashMap$Entry* src, $LinkedHashMap$Entry* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedHashMap$Entry, b, $set($nc(dst), before, $nc(src)->before));
 	$var($LinkedHashMap$Entry, a, $set(dst, after, src->after));
 	if (b == nullptr) {
 		$set(this, head, dst);
 	} else {
-		$set($nc(b), after, dst);
+		$set(b, after, dst);
 	}
 	if (a == nullptr) {
 		$set(this, tail, dst);
 	} else {
-		$set($nc(a), before, dst);
+		$set(a, before, dst);
 	}
 }
 
 void LinkedHashMap::reinitialize() {
 	$HashMap::reinitialize();
-	$set(this, head, ($set(this, tail, nullptr)));
+	$set(this, head, $set(this, tail, nullptr));
 }
 
 $HashMap$Node* LinkedHashMap::newNode(int32_t hash, Object$* key, Object$* value, $HashMap$Node* e) {
@@ -153,9 +81,9 @@ $HashMap$Node* LinkedHashMap::newNode(int32_t hash, Object$* key, Object$* value
 }
 
 $HashMap$Node* LinkedHashMap::replacementNode($HashMap$Node* p, $HashMap$Node* next) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedHashMap$Entry, q, $cast($LinkedHashMap$Entry, p));
-	$var($LinkedHashMap$Entry, t, $new($LinkedHashMap$Entry, $nc(q)->hash, q->key, q->value, next));
+	$var($LinkedHashMap$Entry, t, $new($LinkedHashMap$Entry, $nc(q)->hash, $nc(q)->key, $nc(q)->value, next));
 	transferLinks(q, t);
 	return t;
 }
@@ -167,33 +95,33 @@ $HashMap$TreeNode* LinkedHashMap::newTreeNode(int32_t hash, Object$* key, Object
 }
 
 $HashMap$TreeNode* LinkedHashMap::replacementTreeNode($HashMap$Node* p, $HashMap$Node* next) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedHashMap$Entry, q, $cast($LinkedHashMap$Entry, p));
-	$var($HashMap$TreeNode, t, $new($HashMap$TreeNode, $nc(q)->hash, q->key, q->value, next));
+	$var($HashMap$TreeNode, t, $new($HashMap$TreeNode, $nc(q)->hash, $nc(q)->key, $nc(q)->value, next));
 	transferLinks(q, t);
 	return t;
 }
 
 void LinkedHashMap::afterNodeRemoval($HashMap$Node* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedHashMap$Entry, p, $cast($LinkedHashMap$Entry, e));
 	$var($LinkedHashMap$Entry, b, $nc(p)->before);
 	$var($LinkedHashMap$Entry, a, p->after);
-	$set(p, before, ($set(p, after, nullptr)));
+	$set(p, before, $set(p, after, nullptr));
 	if (b == nullptr) {
 		$set(this, head, a);
 	} else {
-		$set($nc(b), after, a);
+		$set(b, after, a);
 	}
 	if (a == nullptr) {
 		$set(this, tail, b);
 	} else {
-		$set($nc(a), before, b);
+		$set(a, before, b);
 	}
 }
 
 void LinkedHashMap::afterNodeInsertion(bool evict) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedHashMap$Entry, first, nullptr);
 	bool var$0 = evict && ($assign(first, this->head)) != nullptr;
 	if (var$0 && removeEldestEntry(first)) {
@@ -203,7 +131,7 @@ void LinkedHashMap::afterNodeInsertion(bool evict) {
 }
 
 void LinkedHashMap::afterNodeAccess($HashMap$Node* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedHashMap$Entry, last, nullptr);
 	if (this->accessOrder && !$equals($assign(last, this->tail), e)) {
 		$var($LinkedHashMap$Entry, p, $cast($LinkedHashMap$Entry, e));
@@ -213,7 +141,7 @@ void LinkedHashMap::afterNodeAccess($HashMap$Node* e) {
 		if (b == nullptr) {
 			$set(this, head, a);
 		} else {
-			$set($nc(b), after, a);
+			$set(b, after, a);
 		}
 		if (a != nullptr) {
 			$set(a, before, b);
@@ -224,7 +152,7 @@ void LinkedHashMap::afterNodeAccess($HashMap$Node* e) {
 			$set(this, head, p);
 		} else {
 			$set(p, before, last);
-			$set($nc(last), after, p);
+			$set(last, after, p);
 		}
 		$set(this, tail, p);
 		++this->modCount;
@@ -232,12 +160,10 @@ void LinkedHashMap::afterNodeAccess($HashMap$Node* e) {
 }
 
 void LinkedHashMap::internalWriteEntries($ObjectOutputStream* s) {
-	{
-		$var($LinkedHashMap$Entry, e, this->head);
-		for (; e != nullptr; $assign(e, $nc(e)->after)) {
-			$nc(s)->writeObject(e->key);
-			s->writeObject(e->value);
-		}
+	$var($LinkedHashMap$Entry, e, this->head);
+	for (; e != nullptr; $assign(e, e->after)) {
+		$nc(s)->writeObject(e->key);
+		s->writeObject(e->value);
 	}
 }
 
@@ -268,14 +194,12 @@ void LinkedHashMap::init$(int32_t initialCapacity, float loadFactor, bool access
 }
 
 bool LinkedHashMap::containsValue(Object$* value) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($LinkedHashMap$Entry, e, this->head);
-		for (; e != nullptr; $assign(e, $nc(e)->after)) {
-			$var($Object, v, e->value);
-			if ($equals(v, value) || (value != nullptr && $of(value)->equals(v))) {
-				return true;
-			}
+	$useLocalObjectStack();
+	$var($LinkedHashMap$Entry, e, this->head);
+	for (; e != nullptr; $assign(e, e->after)) {
+		$var($Object, v, e->value);
+		if ($equals(v, value) || (value != nullptr && $of(value)->equals(v))) {
+			return true;
 		}
 	}
 	return false;
@@ -284,12 +208,12 @@ bool LinkedHashMap::containsValue(Object$* value) {
 $Object* LinkedHashMap::get(Object$* key) {
 	$var($HashMap$Node, e, nullptr);
 	if (($assign(e, getNode(key))) == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	if (this->accessOrder) {
 		afterNodeAccess(e);
 	}
-	return $of($nc(e)->value);
+	return $nc(e)->value;
 }
 
 $Object* LinkedHashMap::getOrDefault(Object$* key, Object$* defaultValue) {
@@ -300,12 +224,12 @@ $Object* LinkedHashMap::getOrDefault(Object$* key, Object$* defaultValue) {
 	if (this->accessOrder) {
 		afterNodeAccess(e);
 	}
-	return $of($nc(e)->value);
+	return $nc(e)->value;
 }
 
 void LinkedHashMap::clear() {
 	$HashMap::clear();
-	$set(this, head, ($set(this, tail, nullptr)));
+	$set(this, head, $set(this, tail, nullptr));
 }
 
 bool LinkedHashMap::removeEldestEntry($Map$Entry* eldest) {
@@ -322,12 +246,12 @@ $Set* LinkedHashMap::keySet() {
 }
 
 $ObjectArray* LinkedHashMap::keysToArray($ObjectArray* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, r, a);
 	int32_t idx = 0;
 	{
 		$var($LinkedHashMap$Entry, e, this->head);
-		for (; e != nullptr; $assign(e, $nc(e)->after)) {
+		for (; e != nullptr; $assign(e, e->after)) {
 			$nc(r)->set(idx++, e->key);
 		}
 	}
@@ -335,12 +259,12 @@ $ObjectArray* LinkedHashMap::keysToArray($ObjectArray* a) {
 }
 
 $ObjectArray* LinkedHashMap::valuesToArray($ObjectArray* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, r, a);
 	int32_t idx = 0;
 	{
 		$var($LinkedHashMap$Entry, e, this->head);
-		for (; e != nullptr; $assign(e, $nc(e)->after)) {
+		for (; e != nullptr; $assign(e, e->after)) {
 			$nc(r)->set(idx++, e->value);
 		}
 	}
@@ -368,7 +292,7 @@ void LinkedHashMap::forEach($BiConsumer* action) {
 	int32_t mc = this->modCount;
 	{
 		$var($LinkedHashMap$Entry, e, this->head);
-		for (; e != nullptr; $assign(e, $nc(e)->after)) {
+		for (; e != nullptr; $assign(e, e->after)) {
 			$nc(action)->accept(e->key, e->value);
 		}
 	}
@@ -384,7 +308,7 @@ void LinkedHashMap::replaceAll($BiFunction* function) {
 	int32_t mc = this->modCount;
 	{
 		$var($LinkedHashMap$Entry, e, this->head);
-		for (; e != nullptr; $assign(e, $nc(e)->after)) {
+		for (; e != nullptr; $assign(e, e->after)) {
 			$set(e, value, $nc(function)->apply(e->key, e->value));
 		}
 	}
@@ -397,7 +321,72 @@ LinkedHashMap::LinkedHashMap() {
 }
 
 $Class* LinkedHashMap::load$($String* name, bool initialize) {
-	$loadClass(LinkedHashMap, name, initialize, &_LinkedHashMap_ClassInfo_, allocate$LinkedHashMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LinkedHashMap, serialVersionUID)},
+		{"head", "Ljava/util/LinkedHashMap$Entry;", "Ljava/util/LinkedHashMap$Entry<TK;TV;>;", $TRANSIENT, $field(LinkedHashMap, head)},
+		{"tail", "Ljava/util/LinkedHashMap$Entry;", "Ljava/util/LinkedHashMap$Entry<TK;TV;>;", $TRANSIENT, $field(LinkedHashMap, tail)},
+		{"accessOrder", "Z", nullptr, $FINAL, $field(LinkedHashMap, accessOrder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IF)V", nullptr, $PUBLIC, $method(LinkedHashMap, init$, void, int32_t, float)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(LinkedHashMap, init$, void, int32_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LinkedHashMap, init$, void)},
+		{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<+TK;+TV;>;)V", $PUBLIC, $method(LinkedHashMap, init$, void, $Map*)},
+		{"<init>", "(IFZ)V", nullptr, $PUBLIC, $method(LinkedHashMap, init$, void, int32_t, float, bool)},
+		{"afterNodeAccess", "(Ljava/util/HashMap$Node;)V", "(Ljava/util/HashMap$Node<TK;TV;>;)V", 0, $virtualMethod(LinkedHashMap, afterNodeAccess, void, $HashMap$Node*)},
+		{"afterNodeInsertion", "(Z)V", nullptr, 0, $virtualMethod(LinkedHashMap, afterNodeInsertion, void, bool)},
+		{"afterNodeRemoval", "(Ljava/util/HashMap$Node;)V", "(Ljava/util/HashMap$Node<TK;TV;>;)V", 0, $virtualMethod(LinkedHashMap, afterNodeRemoval, void, $HashMap$Node*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(LinkedHashMap, clear, void)},
+		{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LinkedHashMap, containsValue, bool, Object$*)},
+		{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(LinkedHashMap, entrySet, $Set*)},
+		{"forEach", "(Ljava/util/function/BiConsumer;)V", "(Ljava/util/function/BiConsumer<-TK;-TV;>;)V", $PUBLIC, $virtualMethod(LinkedHashMap, forEach, void, $BiConsumer*)},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(LinkedHashMap, get, $Object*, Object$*)},
+		{"getOrDefault", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;TV;)TV;", $PUBLIC, $virtualMethod(LinkedHashMap, getOrDefault, $Object*, Object$*, Object$*)},
+		{"internalWriteEntries", "(Ljava/io/ObjectOutputStream;)V", nullptr, 0, $virtualMethod(LinkedHashMap, internalWriteEntries, void, $ObjectOutputStream*), "java.io.IOException"},
+		{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<TK;>;", $PUBLIC, $virtualMethod(LinkedHashMap, keySet, $Set*)},
+		{"keysToArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $FINAL, $virtualMethod(LinkedHashMap, keysToArray, $ObjectArray*, $ObjectArray*)},
+		{"linkNodeLast", "(Ljava/util/LinkedHashMap$Entry;)V", "(Ljava/util/LinkedHashMap$Entry<TK;TV;>;)V", $PRIVATE, $method(LinkedHashMap, linkNodeLast, void, $LinkedHashMap$Entry*)},
+		{"newNode", "(ILjava/lang/Object;Ljava/lang/Object;Ljava/util/HashMap$Node;)Ljava/util/HashMap$Node;", "(ITK;TV;Ljava/util/HashMap$Node<TK;TV;>;)Ljava/util/HashMap$Node<TK;TV;>;", 0, $virtualMethod(LinkedHashMap, newNode, $HashMap$Node*, int32_t, Object$*, Object$*, $HashMap$Node*)},
+		{"newTreeNode", "(ILjava/lang/Object;Ljava/lang/Object;Ljava/util/HashMap$Node;)Ljava/util/HashMap$TreeNode;", "(ITK;TV;Ljava/util/HashMap$Node<TK;TV;>;)Ljava/util/HashMap$TreeNode<TK;TV;>;", 0, $virtualMethod(LinkedHashMap, newTreeNode, $HashMap$TreeNode*, int32_t, Object$*, Object$*, $HashMap$Node*)},
+		{"reinitialize", "()V", nullptr, 0, $virtualMethod(LinkedHashMap, reinitialize, void)},
+		{"removeEldestEntry", "(Ljava/util/Map$Entry;)Z", "(Ljava/util/Map$Entry<TK;TV;>;)Z", $PROTECTED, $virtualMethod(LinkedHashMap, removeEldestEntry, bool, $Map$Entry*)},
+		{"replaceAll", "(Ljava/util/function/BiFunction;)V", "(Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)V", $PUBLIC, $virtualMethod(LinkedHashMap, replaceAll, void, $BiFunction*)},
+		{"replacementNode", "(Ljava/util/HashMap$Node;Ljava/util/HashMap$Node;)Ljava/util/HashMap$Node;", "(Ljava/util/HashMap$Node<TK;TV;>;Ljava/util/HashMap$Node<TK;TV;>;)Ljava/util/HashMap$Node<TK;TV;>;", 0, $virtualMethod(LinkedHashMap, replacementNode, $HashMap$Node*, $HashMap$Node*, $HashMap$Node*)},
+		{"replacementTreeNode", "(Ljava/util/HashMap$Node;Ljava/util/HashMap$Node;)Ljava/util/HashMap$TreeNode;", "(Ljava/util/HashMap$Node<TK;TV;>;Ljava/util/HashMap$Node<TK;TV;>;)Ljava/util/HashMap$TreeNode<TK;TV;>;", 0, $virtualMethod(LinkedHashMap, replacementTreeNode, $HashMap$TreeNode*, $HashMap$Node*, $HashMap$Node*)},
+		{"transferLinks", "(Ljava/util/LinkedHashMap$Entry;Ljava/util/LinkedHashMap$Entry;)V", "(Ljava/util/LinkedHashMap$Entry<TK;TV;>;Ljava/util/LinkedHashMap$Entry<TK;TV;>;)V", $PRIVATE, $method(LinkedHashMap, transferLinks, void, $LinkedHashMap$Entry*, $LinkedHashMap$Entry*)},
+		{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<TV;>;", $PUBLIC, $virtualMethod(LinkedHashMap, values, $Collection*)},
+		{"valuesToArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $FINAL, $virtualMethod(LinkedHashMap, valuesToArray, $ObjectArray*, $ObjectArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.LinkedHashMap$LinkedEntryIterator", "java.util.LinkedHashMap", "LinkedEntryIterator", $FINAL},
+		{"java.util.LinkedHashMap$LinkedValueIterator", "java.util.LinkedHashMap", "LinkedValueIterator", $FINAL},
+		{"java.util.LinkedHashMap$LinkedKeyIterator", "java.util.LinkedHashMap", "LinkedKeyIterator", $FINAL},
+		{"java.util.LinkedHashMap$LinkedHashIterator", "java.util.LinkedHashMap", "LinkedHashIterator", $ABSTRACT},
+		{"java.util.LinkedHashMap$LinkedEntrySet", "java.util.LinkedHashMap", "LinkedEntrySet", $FINAL},
+		{"java.util.LinkedHashMap$LinkedValues", "java.util.LinkedHashMap", "LinkedValues", $FINAL},
+		{"java.util.LinkedHashMap$LinkedKeySet", "java.util.LinkedHashMap", "LinkedKeySet", $FINAL},
+		{"java.util.LinkedHashMap$Entry", "java.util.LinkedHashMap", "Entry", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.LinkedHashMap",
+		"java.util.HashMap",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/HashMap<TK;TV;>;Ljava/util/Map<TK;TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.LinkedHashMap$LinkedEntryIterator,java.util.LinkedHashMap$LinkedValueIterator,java.util.LinkedHashMap$LinkedKeyIterator,java.util.LinkedHashMap$LinkedHashIterator,java.util.LinkedHashMap$LinkedEntrySet,java.util.LinkedHashMap$LinkedValues,java.util.LinkedHashMap$LinkedKeySet,java.util.LinkedHashMap$Entry"
+	};
+	$loadClass(LinkedHashMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LinkedHashMap));
+	});
 	return class$;
 }
 

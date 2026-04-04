@@ -1,5 +1,4 @@
 #include <NegateTests.h>
-
 #include <java/math/BigDecimal.h>
 #include <java/math/MathContext.h>
 #include <java/math/RoundingMode.h>
@@ -10,7 +9,6 @@
 
 using $BigDecimalArray = $Array<::java::math::BigDecimal>;
 using $BigDecimalArray2 = $Array<::java::math::BigDecimal, 2>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
@@ -18,65 +16,40 @@ using $BigDecimal = ::java::math::BigDecimal;
 using $MathContext = ::java::math::MathContext;
 using $RoundingMode = ::java::math::RoundingMode;
 
-$MethodInfo _NegateTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NegateTests, init$, void)},
-	{"absThenRound", "(Ljava/math/BigDecimal;Ljava/math/MathContext;)Ljava/math/BigDecimal;", nullptr, $STATIC, $staticMethod(NegateTests, absThenRound, $BigDecimal*, $BigDecimal*, $MathContext*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NegateTests, main, void, $StringArray*)},
-	{"negateTest", "([[Ljava/math/BigDecimal;Ljava/math/MathContext;)I", nullptr, $STATIC, $staticMethod(NegateTests, negateTest, int32_t, $BigDecimalArray2*, $MathContext*)},
-	{"negateTests", "()I", nullptr, $STATIC, $staticMethod(NegateTests, negateTests, int32_t)},
-	{"negateThenRound", "(Ljava/math/BigDecimal;Ljava/math/MathContext;)Ljava/math/BigDecimal;", nullptr, $STATIC, $staticMethod(NegateTests, negateThenRound, $BigDecimal*, $BigDecimal*, $MathContext*)},
-	{}
-};
-
-$ClassInfo _NegateTests_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NegateTests",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_NegateTests_MethodInfo_
-};
-
-$Object* allocate$NegateTests($Class* clazz) {
-	return $of($alloc(NegateTests));
-}
-
 void NegateTests::init$() {
 }
 
 $BigDecimal* NegateTests::negateThenRound($BigDecimal* bd, $MathContext* mc) {
-	return $nc($($nc(bd)->negate()))->plus(mc);
+	return $($nc(bd)->negate())->plus(mc);
 }
 
 $BigDecimal* NegateTests::absThenRound($BigDecimal* bd, $MathContext* mc) {
-	return $nc($($nc(bd)->abs()))->plus(mc);
+	return $($nc(bd)->abs())->plus(mc);
 }
 
 int32_t NegateTests::negateTest($BigDecimalArray2* testCases, $MathContext* mc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	{
 		$var($BigDecimalArray2, arr$, testCases);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($BigDecimalArray, testCase, arr$->get(i$));
 			{
 				$var($BigDecimal, bd, $nc(testCase)->get(0));
 				$var($BigDecimal, neg1, $nc(bd)->negate(mc));
 				$var($BigDecimal, neg2, negateThenRound(bd, mc));
 				$var($BigDecimal, expected, testCase->get(1));
-				if (!$nc(neg1)->equals(expected)) {
+				if (!neg1->equals(expected)) {
 					++failures;
 					$nc($System::err)->println($$str({"("_s, bd, ").negate("_s, mc, ") => "_s, neg1, " != expected "_s, expected}));
 				}
-				if (!$nc(neg1)->equals(neg2)) {
+				if (!neg1->equals(neg2)) {
 					++failures;
 					$nc($System::err)->println($$str({"("_s, bd, ").negate("_s, mc, ")  => "_s, neg1, " != ntr "_s, neg2}));
 				}
 				$var($BigDecimal, abs, bd->abs(mc));
 				$var($BigDecimal, expectedAbs, absThenRound(bd, mc));
-				if (!$nc(abs)->equals(expectedAbs)) {
+				if (!abs->equals(expectedAbs)) {
 					++failures;
 					$nc($System::err)->println($$str({"("_s, bd, ").abs("_s, mc, ")  => "_s, abs, " != atr "_s, expectedAbs}));
 				}
@@ -87,7 +60,7 @@ int32_t NegateTests::negateTest($BigDecimalArray2* testCases, $MathContext* mc) 
 }
 
 int32_t NegateTests::negateTests() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	$var($BigDecimalArray2, testCasesCeiling, $new($BigDecimalArray2, {
 		$$new($BigDecimalArray, {
@@ -116,7 +89,7 @@ int32_t NegateTests::negateTests() {
 }
 
 void NegateTests::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t failures = 0;
 	failures += negateTests();
 	if (failures > 0) {
@@ -128,7 +101,26 @@ NegateTests::NegateTests() {
 }
 
 $Class* NegateTests::load$($String* name, bool initialize) {
-	$loadClass(NegateTests, name, initialize, &_NegateTests_ClassInfo_, allocate$NegateTests);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NegateTests, init$, void)},
+		{"absThenRound", "(Ljava/math/BigDecimal;Ljava/math/MathContext;)Ljava/math/BigDecimal;", nullptr, $STATIC, $staticMethod(NegateTests, absThenRound, $BigDecimal*, $BigDecimal*, $MathContext*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NegateTests, main, void, $StringArray*)},
+		{"negateTest", "([[Ljava/math/BigDecimal;Ljava/math/MathContext;)I", nullptr, $STATIC, $staticMethod(NegateTests, negateTest, int32_t, $BigDecimalArray2*, $MathContext*)},
+		{"negateTests", "()I", nullptr, $STATIC, $staticMethod(NegateTests, negateTests, int32_t)},
+		{"negateThenRound", "(Ljava/math/BigDecimal;Ljava/math/MathContext;)Ljava/math/BigDecimal;", nullptr, $STATIC, $staticMethod(NegateTests, negateThenRound, $BigDecimal*, $BigDecimal*, $MathContext*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NegateTests",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NegateTests, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NegateTests);
+	});
 	return class$;
 }
 

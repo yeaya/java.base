@@ -1,5 +1,4 @@
 #include <java/util/EnumMap$KeySet.h>
-
 #include <java/util/AbstractSet.h>
 #include <java/util/EnumMap$KeyIterator.h>
 #include <java/util/EnumMap.h>
@@ -17,46 +16,6 @@ using $Iterator = ::java::util::Iterator;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _EnumMap$KeySet_FieldInfo_[] = {
-	{"this$0", "Ljava/util/EnumMap;", nullptr, $FINAL | $SYNTHETIC, $field(EnumMap$KeySet, this$0)},
-	{}
-};
-
-$MethodInfo _EnumMap$KeySet_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/EnumMap;)V", nullptr, $PRIVATE, $method(EnumMap$KeySet, init$, void, $EnumMap*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(EnumMap$KeySet, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EnumMap$KeySet, contains, bool, Object$*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TK;>;", $PUBLIC, $virtualMethod(EnumMap$KeySet, iterator, $Iterator*)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EnumMap$KeySet, remove, bool, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(EnumMap$KeySet, size, int32_t)},
-	{}
-};
-
-$InnerClassInfo _EnumMap$KeySet_InnerClassesInfo_[] = {
-	{"java.util.EnumMap$KeySet", "java.util.EnumMap", "KeySet", $PRIVATE},
-	{}
-};
-
-$ClassInfo _EnumMap$KeySet_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.EnumMap$KeySet",
-	"java.util.AbstractSet",
-	nullptr,
-	_EnumMap$KeySet_FieldInfo_,
-	_EnumMap$KeySet_MethodInfo_,
-	"Ljava/util/AbstractSet<TK;>;",
-	nullptr,
-	_EnumMap$KeySet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.EnumMap"
-};
-
-$Object* allocate$EnumMap$KeySet($Class* clazz) {
-	return $of($alloc(EnumMap$KeySet));
-}
 
 void EnumMap$KeySet::init$($EnumMap* this$0) {
 	$set(this, this$0, this$0);
@@ -89,7 +48,41 @@ EnumMap$KeySet::EnumMap$KeySet() {
 }
 
 $Class* EnumMap$KeySet::load$($String* name, bool initialize) {
-	$loadClass(EnumMap$KeySet, name, initialize, &_EnumMap$KeySet_ClassInfo_, allocate$EnumMap$KeySet);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/EnumMap;", nullptr, $FINAL | $SYNTHETIC, $field(EnumMap$KeySet, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/EnumMap;)V", nullptr, $PRIVATE, $method(EnumMap$KeySet, init$, void, $EnumMap*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(EnumMap$KeySet, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EnumMap$KeySet, contains, bool, Object$*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TK;>;", $PUBLIC, $virtualMethod(EnumMap$KeySet, iterator, $Iterator*)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(EnumMap$KeySet, remove, bool, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(EnumMap$KeySet, size, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.EnumMap$KeySet", "java.util.EnumMap", "KeySet", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.EnumMap$KeySet",
+		"java.util.AbstractSet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractSet<TK;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.EnumMap"
+	};
+	$loadClass(EnumMap$KeySet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(EnumMap$KeySet));
+	});
 	return class$;
 }
 

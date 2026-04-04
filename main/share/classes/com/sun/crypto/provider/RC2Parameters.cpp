@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/RC2Parameters.h>
-
 #include <java/io/IOException.h>
 #include <java/security/AlgorithmParametersSpi.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
@@ -22,7 +21,6 @@ using $AlgorithmParametersSpi = ::java::security::AlgorithmParametersSpi;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $InvalidParameterSpecException = ::java::security::spec::InvalidParameterSpecException;
 using $RC2ParameterSpec = ::javax::crypto::spec::RC2ParameterSpec;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $HexDumpEncoder = ::sun::security::util::HexDumpEncoder;
@@ -31,39 +29,6 @@ namespace com {
 	namespace sun {
 		namespace crypto {
 			namespace provider {
-
-$FieldInfo _RC2Parameters_FieldInfo_[] = {
-	{"EKB_TABLE", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RC2Parameters, EKB_TABLE)},
-	{"iv", "[B", nullptr, $PRIVATE, $field(RC2Parameters, iv)},
-	{"version", "I", nullptr, $PRIVATE, $field(RC2Parameters, version)},
-	{"effectiveKeySize", "I", nullptr, $PRIVATE, $field(RC2Parameters, effectiveKeySize)},
-	{}
-};
-
-$MethodInfo _RC2Parameters_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RC2Parameters, init$, void)},
-	{"engineGetEncoded", "()[B", nullptr, $PROTECTED, $virtualMethod(RC2Parameters, engineGetEncoded, $bytes*), "java.io.IOException"},
-	{"engineGetEncoded", "(Ljava/lang/String;)[B", nullptr, $PROTECTED, $virtualMethod(RC2Parameters, engineGetEncoded, $bytes*, $String*), "java.io.IOException"},
-	{"engineGetParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", $PROTECTED, $virtualMethod(RC2Parameters, engineGetParameterSpec, $AlgorithmParameterSpec*, $Class*), "java.security.spec.InvalidParameterSpecException"},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(RC2Parameters, engineInit, void, $AlgorithmParameterSpec*), "java.security.spec.InvalidParameterSpecException"},
-	{"engineInit", "([B)V", nullptr, $PROTECTED, $virtualMethod(RC2Parameters, engineInit, void, $bytes*), "java.io.IOException"},
-	{"engineInit", "([BLjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(RC2Parameters, engineInit, void, $bytes*, $String*), "java.io.IOException"},
-	{"engineToString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(RC2Parameters, engineToString, $String*)},
-	{}
-};
-
-$ClassInfo _RC2Parameters_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.RC2Parameters",
-	"java.security.AlgorithmParametersSpi",
-	nullptr,
-	_RC2Parameters_FieldInfo_,
-	_RC2Parameters_MethodInfo_
-};
-
-$Object* allocate$RC2Parameters($Class* clazz) {
-	return $of($alloc(RC2Parameters));
-}
 
 $ints* RC2Parameters::EKB_TABLE = nullptr;
 
@@ -84,7 +49,7 @@ void RC2Parameters::engineInit($AlgorithmParameterSpec* paramSpec) {
 			$throwNew($InvalidParameterSpecException, "RC2 effective key size must be between 1 and 1024 bits"_s);
 		}
 		if (this->effectiveKeySize < 256) {
-			this->version = $nc(RC2Parameters::EKB_TABLE)->get(this->effectiveKeySize);
+			this->version = RC2Parameters::EKB_TABLE->get(this->effectiveKeySize);
 		} else {
 			this->version = this->effectiveKeySize;
 		}
@@ -93,25 +58,25 @@ void RC2Parameters::engineInit($AlgorithmParameterSpec* paramSpec) {
 }
 
 void RC2Parameters::engineInit($bytes* encoded) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerValue, val, $new($DerValue, encoded));
 	if (val->tag == $DerValue::tag_Sequence) {
 		$nc(val->data$)->reset();
-		this->version = $nc(val->data$)->getInteger();
+		this->version = val->data$->getInteger();
 		if (this->version < 0 || this->version > 1024) {
 			$throwNew($IOException, $$str({"RC2 parameter parsing error: version number out of legal range (0-1024): "_s, $$str(this->version)}));
 		}
 		if (this->version > 255) {
 			this->effectiveKeySize = this->version;
 		} else {
-			for (int32_t i = 0; i < $nc(RC2Parameters::EKB_TABLE)->length; ++i) {
-				if (this->version == $nc(RC2Parameters::EKB_TABLE)->get(i)) {
+			for (int32_t i = 0; i < RC2Parameters::EKB_TABLE->length; ++i) {
+				if (this->version == RC2Parameters::EKB_TABLE->get(i)) {
 					this->effectiveKeySize = i;
 					break;
 				}
 			}
 		}
-		$set(this, iv, $nc(val->data$)->getOctetString());
+		$set(this, iv, val->data$->getOctetString());
 	} else {
 		$nc(val->data$)->reset();
 		$set(this, iv, val->getOctetString());
@@ -119,7 +84,7 @@ void RC2Parameters::engineInit($bytes* encoded) {
 		this->effectiveKeySize = 0;
 	}
 	if ($nc(this->iv)->length != 8) {
-		$throwNew($IOException, $$str({"RC2 parameter parsing error: iv length must be 8 bits, actual: "_s, $$str($nc(this->iv)->length)}));
+		$throwNew($IOException, $$str({"RC2 parameter parsing error: iv length must be 8 bits, actual: "_s, $$str(this->iv->length)}));
 	}
 	if ($nc(val->data$)->available() != 0) {
 		$throwNew($IOException, "RC2 parameter parsing error: extra data"_s);
@@ -131,17 +96,17 @@ void RC2Parameters::engineInit($bytes* encoded, $String* decodingMethod) {
 }
 
 $AlgorithmParameterSpec* RC2Parameters::engineGetParameterSpec($Class* paramSpec) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($RC2ParameterSpec);
 	if ($RC2ParameterSpec::class$->isAssignableFrom(paramSpec)) {
-		return $cast($AlgorithmParameterSpec, $nc(paramSpec)->cast((this->iv == nullptr ? $of($$new($RC2ParameterSpec, this->effectiveKeySize)) : $of($$new($RC2ParameterSpec, this->effectiveKeySize, this->iv)))));
+		return $cast($AlgorithmParameterSpec, $nc(paramSpec)->cast((this->iv == nullptr ? $$new($RC2ParameterSpec, this->effectiveKeySize) : $$new($RC2ParameterSpec, this->effectiveKeySize, this->iv))));
 	} else {
 		$throwNew($InvalidParameterSpecException, "Inappropriate parameter specification"_s);
 	}
 }
 
 $bytes* RC2Parameters::engineGetEncoded() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, out, $new($DerOutputStream));
 	$var($DerOutputStream, bytes, $new($DerOutputStream));
 	if (this->effectiveKeySize != 0) {
@@ -159,7 +124,7 @@ $bytes* RC2Parameters::engineGetEncoded($String* encodingMethod) {
 }
 
 $String* RC2Parameters::engineToString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, LINE_SEP, $System::lineSeparator());
 	$var($HexDumpEncoder, encoder, $new($HexDumpEncoder));
 	$var($StringBuilder, sb, $new($StringBuilder, $$str({LINE_SEP, "    iv:"_s, LINE_SEP, "["_s, $(encoder->encodeBuffer(this->iv)), "]"_s})));
@@ -169,7 +134,7 @@ $String* RC2Parameters::engineToString() {
 	return sb->toString();
 }
 
-void clinit$RC2Parameters($Class* class$) {
+void RC2Parameters::clinit$($Class* clazz) {
 	$assignStatic(RC2Parameters::EKB_TABLE, $new($ints, {
 		189,
 		86,
@@ -434,7 +399,35 @@ RC2Parameters::RC2Parameters() {
 }
 
 $Class* RC2Parameters::load$($String* name, bool initialize) {
-	$loadClass(RC2Parameters, name, initialize, &_RC2Parameters_ClassInfo_, clinit$RC2Parameters, allocate$RC2Parameters);
+	$FieldInfo fieldInfos$$[] = {
+		{"EKB_TABLE", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RC2Parameters, EKB_TABLE)},
+		{"iv", "[B", nullptr, $PRIVATE, $field(RC2Parameters, iv)},
+		{"version", "I", nullptr, $PRIVATE, $field(RC2Parameters, version)},
+		{"effectiveKeySize", "I", nullptr, $PRIVATE, $field(RC2Parameters, effectiveKeySize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RC2Parameters, init$, void)},
+		{"engineGetEncoded", "()[B", nullptr, $PROTECTED, $virtualMethod(RC2Parameters, engineGetEncoded, $bytes*), "java.io.IOException"},
+		{"engineGetEncoded", "(Ljava/lang/String;)[B", nullptr, $PROTECTED, $virtualMethod(RC2Parameters, engineGetEncoded, $bytes*, $String*), "java.io.IOException"},
+		{"engineGetParameterSpec", "(Ljava/lang/Class;)Ljava/security/spec/AlgorithmParameterSpec;", "<T::Ljava/security/spec/AlgorithmParameterSpec;>(Ljava/lang/Class<TT;>;)TT;", $PROTECTED, $virtualMethod(RC2Parameters, engineGetParameterSpec, $AlgorithmParameterSpec*, $Class*), "java.security.spec.InvalidParameterSpecException"},
+		{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(RC2Parameters, engineInit, void, $AlgorithmParameterSpec*), "java.security.spec.InvalidParameterSpecException"},
+		{"engineInit", "([B)V", nullptr, $PROTECTED, $virtualMethod(RC2Parameters, engineInit, void, $bytes*), "java.io.IOException"},
+		{"engineInit", "([BLjava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(RC2Parameters, engineInit, void, $bytes*, $String*), "java.io.IOException"},
+		{"engineToString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(RC2Parameters, engineToString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.RC2Parameters",
+		"java.security.AlgorithmParametersSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RC2Parameters, name, initialize, &classInfo$$, RC2Parameters::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RC2Parameters);
+	});
 	return class$;
 }
 

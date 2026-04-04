@@ -1,5 +1,4 @@
 #include <java/net/SocksSocketImpl$3.h>
-
 #include <java/net/ProxySelector.h>
 #include <java/net/SocksSocketImpl.h>
 #include <jcpp.h>
@@ -15,61 +14,54 @@ using $SocksSocketImpl = ::java::net::SocksSocketImpl;
 namespace java {
 	namespace net {
 
-$FieldInfo _SocksSocketImpl$3_FieldInfo_[] = {
-	{"this$0", "Ljava/net/SocksSocketImpl;", nullptr, $FINAL | $SYNTHETIC, $field(SocksSocketImpl$3, this$0)},
-	{}
-};
-
-$MethodInfo _SocksSocketImpl$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/SocksSocketImpl;)V", nullptr, 0, $method(SocksSocketImpl$3, init$, void, $SocksSocketImpl*)},
-	{"run", "()Ljava/net/ProxySelector;", nullptr, $PUBLIC, $virtualMethod(SocksSocketImpl$3, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _SocksSocketImpl$3_EnclosingMethodInfo_ = {
-	"java.net.SocksSocketImpl",
-	"connect",
-	"(Ljava/net/SocketAddress;I)V"
-};
-
-$InnerClassInfo _SocksSocketImpl$3_InnerClassesInfo_[] = {
-	{"java.net.SocksSocketImpl$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SocksSocketImpl$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.SocksSocketImpl$3",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_SocksSocketImpl$3_FieldInfo_,
-	_SocksSocketImpl$3_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/net/ProxySelector;>;",
-	&_SocksSocketImpl$3_EnclosingMethodInfo_,
-	_SocksSocketImpl$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.SocksSocketImpl"
-};
-
-$Object* allocate$SocksSocketImpl$3($Class* clazz) {
-	return $of($alloc(SocksSocketImpl$3));
-}
-
 void SocksSocketImpl$3::init$($SocksSocketImpl* this$0) {
 	$set(this, this$0, this$0);
 }
 
 $Object* SocksSocketImpl$3::run() {
-	return $of($ProxySelector::getDefault());
+	return $ProxySelector::getDefault();
 }
 
 SocksSocketImpl$3::SocksSocketImpl$3() {
 }
 
 $Class* SocksSocketImpl$3::load$($String* name, bool initialize) {
-	$loadClass(SocksSocketImpl$3, name, initialize, &_SocksSocketImpl$3_ClassInfo_, allocate$SocksSocketImpl$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/net/SocksSocketImpl;", nullptr, $FINAL | $SYNTHETIC, $field(SocksSocketImpl$3, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/SocksSocketImpl;)V", nullptr, 0, $method(SocksSocketImpl$3, init$, void, $SocksSocketImpl*)},
+		{"run", "()Ljava/net/ProxySelector;", nullptr, $PUBLIC, $virtualMethod(SocksSocketImpl$3, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.net.SocksSocketImpl",
+		"connect",
+		"(Ljava/net/SocketAddress;I)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.SocksSocketImpl$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.SocksSocketImpl$3",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/net/ProxySelector;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.SocksSocketImpl"
+	};
+	$loadClass(SocksSocketImpl$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SocksSocketImpl$3);
+	});
 	return class$;
 }
 

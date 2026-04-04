@@ -12,6 +12,7 @@ class Class$EnclosingMethodInfo : public ::java::lang::Object {
 	$class(Class$EnclosingMethodInfo, 0, ::java::lang::Object)
 public:
 	Class$EnclosingMethodInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($ObjectArray* enclosingInfo);
 	$String* getDescriptor();
 	$Class* getEnclosingClass();

@@ -1,41 +1,17 @@
 #include <IsAbsolute.h>
-
 #include <java/io/File.h>
 #include <jcpp.h>
 
 using $File = ::java::io::File;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _IsAbsolute_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IsAbsolute, init$, void)},
-	{"ck", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsAbsolute, ck, void, $String*, bool), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IsAbsolute, main, void, $StringArray*), "java.lang.Exception"},
-	{"testUnix", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsAbsolute, testUnix, void), "java.lang.Exception"},
-	{"testWin32", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsAbsolute, testWin32, void), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _IsAbsolute_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"IsAbsolute",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_IsAbsolute_MethodInfo_
-};
-
-$Object* allocate$IsAbsolute($Class* clazz) {
-	return $of($alloc(IsAbsolute));
-}
 
 void IsAbsolute::init$() {
 }
 
 void IsAbsolute::ck($String* path, bool ans) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, f, $new($File, path));
 	bool x = f->isAbsolute();
 	if (x != ans) {
@@ -74,7 +50,25 @@ IsAbsolute::IsAbsolute() {
 }
 
 $Class* IsAbsolute::load$($String* name, bool initialize) {
-	$loadClass(IsAbsolute, name, initialize, &_IsAbsolute_ClassInfo_, allocate$IsAbsolute);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IsAbsolute, init$, void)},
+		{"ck", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsAbsolute, ck, void, $String*, bool), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IsAbsolute, main, void, $StringArray*), "java.lang.Exception"},
+		{"testUnix", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsAbsolute, testUnix, void), "java.lang.Exception"},
+		{"testWin32", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(IsAbsolute, testWin32, void), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"IsAbsolute",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(IsAbsolute, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IsAbsolute);
+	});
 	return class$;
 }
 

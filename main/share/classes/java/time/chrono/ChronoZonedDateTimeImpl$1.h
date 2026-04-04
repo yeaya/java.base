@@ -13,6 +13,7 @@ class ChronoZonedDateTimeImpl$1 : public ::java::lang::Object {
 	$class(ChronoZonedDateTimeImpl$1, 0, ::java::lang::Object)
 public:
 	ChronoZonedDateTimeImpl$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$time$temporal$ChronoField;
 };
 

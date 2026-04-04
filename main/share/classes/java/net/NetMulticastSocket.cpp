@@ -1,5 +1,4 @@
 #include <java/net/NetMulticastSocket.h>
-
 #include <java/io/IOException.h>
 #include <java/io/UncheckedIOException.h>
 #include <java/lang/SecurityException.h>
@@ -22,7 +21,6 @@
 #include <java/net/SocketOptions.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedActionException.h>
-#include <java/security/PrivilegedExceptionAction.h>
 #include <java/util/Collections.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Objects.h>
@@ -75,7 +73,6 @@ using $SocketOption = ::java::net::SocketOption;
 using $SocketOptions = ::java::net::SocketOptions;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Collections = ::java::util::Collections;
 using $Enumeration = ::java::util::Enumeration;
 using $Objects = ::java::util::Objects;
@@ -83,155 +80,6 @@ using $Set = ::java::util::Set;
 
 namespace java {
 	namespace net {
-
-$CompoundAttribute _NetMulticastSocket_MethodAnnotations_getInterface13[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _NetMulticastSocket_MethodAnnotations_getLoopbackMode17[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _NetMulticastSocket_MethodAnnotations_getTTL26[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _NetMulticastSocket_MethodAnnotations_joinGroup32[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _NetMulticastSocket_MethodAnnotations_leaveGroup34[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _NetMulticastSocket_MethodAnnotations_send38[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _NetMulticastSocket_MethodAnnotations_setInterface40[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _NetMulticastSocket_MethodAnnotations_setLoopbackMode41[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _NetMulticastSocket_MethodAnnotations_setTTL48[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _NetMulticastSocket_FieldInfo_[] = {
-	{"bound", "Z", nullptr, $PRIVATE, $field(NetMulticastSocket, bound)},
-	{"closed", "Z", nullptr, $PRIVATE, $field(NetMulticastSocket, closed)},
-	{"created", "Z", nullptr, $PRIVATE | $VOLATILE, $field(NetMulticastSocket, created)},
-	{"closeLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(NetMulticastSocket, closeLock)},
-	{"impl", "Ljava/net/DatagramSocketImpl;", nullptr, $PRIVATE | $FINAL, $field(NetMulticastSocket, impl)},
-	{"oldImpl", "Z", nullptr, $PRIVATE | $FINAL, $field(NetMulticastSocket, oldImpl)},
-	{"explicitFilter", "Z", nullptr, $PRIVATE, $field(NetMulticastSocket, explicitFilter)},
-	{"bytesLeftToFilter", "I", nullptr, $PRIVATE, $field(NetMulticastSocket, bytesLeftToFilter)},
-	{"ST_NOT_CONNECTED", "I", nullptr, $STATIC | $FINAL, $constField(NetMulticastSocket, ST_NOT_CONNECTED)},
-	{"ST_CONNECTED", "I", nullptr, $STATIC | $FINAL, $constField(NetMulticastSocket, ST_CONNECTED)},
-	{"ST_CONNECTED_NO_IMPL", "I", nullptr, $STATIC | $FINAL, $constField(NetMulticastSocket, ST_CONNECTED_NO_IMPL)},
-	{"connectState", "I", nullptr, 0, $field(NetMulticastSocket, connectState)},
-	{"connectedAddress", "Ljava/net/InetAddress;", nullptr, 0, $field(NetMulticastSocket, connectedAddress)},
-	{"connectedPort", "I", nullptr, 0, $field(NetMulticastSocket, connectedPort)},
-	{"options", "Ljava/util/Set;", "Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE | $VOLATILE, $field(NetMulticastSocket, options)},
-	{"optionsLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(NetMulticastSocket, optionsLock)},
-	{"interfaceSet", "Z", nullptr, $PRIVATE, $field(NetMulticastSocket, interfaceSet)},
-	{"ttlLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(NetMulticastSocket, ttlLock)},
-	{"infLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(NetMulticastSocket, infLock)},
-	{"infAddress", "Ljava/net/InetAddress;", nullptr, $PRIVATE, $field(NetMulticastSocket, infAddress)},
-	{}
-};
-
-$MethodInfo _NetMulticastSocket_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/DatagramSocketImpl;)V", nullptr, 0, $method(NetMulticastSocket, init$, void, $DatagramSocketImpl*)},
-	{"bind", "(Ljava/net/SocketAddress;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, bind, void, $SocketAddress*), "java.net.SocketException"},
-	{"checkAddress", "(Ljava/net/InetAddress;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(NetMulticastSocket, checkAddress, void, $InetAddress*, $String*)},
-	{"checkFiltering", "(Ljava/net/DatagramPacket;)Z", nullptr, $PRIVATE, $method(NetMulticastSocket, checkFiltering, bool, $DatagramPacket*), "java.net.SocketException"},
-	{"checkOldImpl", "(Ljava/net/DatagramSocketImpl;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NetMulticastSocket, checkOldImpl, bool, $DatagramSocketImpl*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, close, void)},
-	{"connect", "(Ljava/net/InetAddress;I)V", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, connect, void, $InetAddress*, int32_t)},
-	{"connect", "(Ljava/net/SocketAddress;)V", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, connect, void, $SocketAddress*), "java.net.SocketException"},
-	{"connectInternal", "(Ljava/net/InetAddress;I)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(NetMulticastSocket, connectInternal, void, $InetAddress*, int32_t), "java.net.SocketException"},
-	{"disconnect", "()V", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, disconnect, void)},
-	{"getBroadcast", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, getBroadcast, bool), "java.net.SocketException"},
-	{"getImpl", "()Ljava/net/DatagramSocketImpl;", nullptr, $FINAL, $method(NetMulticastSocket, getImpl, $DatagramSocketImpl*), "java.net.SocketException"},
-	{"getInetAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, getInetAddress, $InetAddress*)},
-	{"getInterface", "()Ljava/net/InetAddress;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(NetMulticastSocket, getInterface, $InetAddress*), "java.net.SocketException", nullptr, _NetMulticastSocket_MethodAnnotations_getInterface13},
-	{"getLocalAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, getLocalAddress, $InetAddress*)},
-	{"getLocalPort", "()I", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, getLocalPort, int32_t)},
-	{"getLocalSocketAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, getLocalSocketAddress, $SocketAddress*)},
-	{"getLoopbackMode", "()Z", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(NetMulticastSocket, getLoopbackMode, bool), "java.net.SocketException", nullptr, _NetMulticastSocket_MethodAnnotations_getLoopbackMode17},
-	{"getNetworkInterface", "()Ljava/net/NetworkInterface;", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, getNetworkInterface, $NetworkInterface*), "java.net.SocketException"},
-	{"getOption", "(Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;)TT;", $PUBLIC, $virtualMethod(NetMulticastSocket, getOption, $Object*, $SocketOption*), "java.io.IOException"},
-	{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, getPort, int32_t)},
-	{"getReceiveBufferSize", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, getReceiveBufferSize, int32_t), "java.net.SocketException"},
-	{"getRemoteSocketAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, getRemoteSocketAddress, $SocketAddress*)},
-	{"getReuseAddress", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, getReuseAddress, bool), "java.net.SocketException"},
-	{"getSendBufferSize", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, getSendBufferSize, int32_t), "java.net.SocketException"},
-	{"getSoTimeout", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, getSoTimeout, int32_t), "java.net.SocketException"},
-	{"getTTL", "()B", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(NetMulticastSocket, getTTL, int8_t), "java.io.IOException", nullptr, _NetMulticastSocket_MethodAnnotations_getTTL26},
-	{"getTimeToLive", "()I", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, getTimeToLive, int32_t), "java.io.IOException"},
-	{"getTrafficClass", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, getTrafficClass, int32_t), "java.net.SocketException"},
-	{"isBound", "()Z", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, isBound, bool)},
-	{"isClosed", "()Z", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, isClosed, bool)},
-	{"isConnected", "()Z", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, isConnected, bool)},
-	{"joinGroup", "(Ljava/net/InetAddress;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(NetMulticastSocket, joinGroup, void, $InetAddress*), "java.io.IOException", nullptr, _NetMulticastSocket_MethodAnnotations_joinGroup32},
-	{"joinGroup", "(Ljava/net/SocketAddress;Ljava/net/NetworkInterface;)V", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, joinGroup, void, $SocketAddress*, $NetworkInterface*), "java.io.IOException"},
-	{"leaveGroup", "(Ljava/net/InetAddress;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(NetMulticastSocket, leaveGroup, void, $InetAddress*), "java.io.IOException", nullptr, _NetMulticastSocket_MethodAnnotations_leaveGroup34},
-	{"leaveGroup", "(Ljava/net/SocketAddress;Ljava/net/NetworkInterface;)V", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, leaveGroup, void, $SocketAddress*, $NetworkInterface*), "java.io.IOException"},
-	{"receive", "(Ljava/net/DatagramPacket;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, receive, void, $DatagramPacket*), "java.io.IOException"},
-	{"send", "(Ljava/net/DatagramPacket;)V", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, send, void, $DatagramPacket*), "java.io.IOException"},
-	{"send", "(Ljava/net/DatagramPacket;B)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(NetMulticastSocket, send, void, $DatagramPacket*, int8_t), "java.io.IOException", nullptr, _NetMulticastSocket_MethodAnnotations_send38},
-	{"setBroadcast", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, setBroadcast, void, bool), "java.net.SocketException"},
-	{"setInterface", "(Ljava/net/InetAddress;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(NetMulticastSocket, setInterface, void, $InetAddress*), "java.net.SocketException", nullptr, _NetMulticastSocket_MethodAnnotations_setInterface40},
-	{"setLoopbackMode", "(Z)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(NetMulticastSocket, setLoopbackMode, void, bool), "java.net.SocketException", nullptr, _NetMulticastSocket_MethodAnnotations_setLoopbackMode41},
-	{"setNetworkInterface", "(Ljava/net/NetworkInterface;)V", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, setNetworkInterface, void, $NetworkInterface*), "java.net.SocketException"},
-	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/net/DatagramSocket;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)Ljava/net/DatagramSocket;", $PUBLIC, $virtualMethod(NetMulticastSocket, setOption, $DatagramSocket*, $SocketOption*, Object$*), "java.io.IOException"},
-	{"setReceiveBufferSize", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, setReceiveBufferSize, void, int32_t), "java.net.SocketException"},
-	{"setReuseAddress", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, setReuseAddress, void, bool), "java.net.SocketException"},
-	{"setSendBufferSize", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, setSendBufferSize, void, int32_t), "java.net.SocketException"},
-	{"setSoTimeout", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, setSoTimeout, void, int32_t), "java.net.SocketException"},
-	{"setTTL", "(B)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(NetMulticastSocket, setTTL, void, int8_t), "java.io.IOException", nullptr, _NetMulticastSocket_MethodAnnotations_setTTL48},
-	{"setTimeToLive", "(I)V", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, setTimeToLive, void, int32_t), "java.io.IOException"},
-	{"setTrafficClass", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, setTrafficClass, void, int32_t), "java.net.SocketException"},
-	{"supportedOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PUBLIC, $virtualMethod(NetMulticastSocket, supportedOptions, $Set*)},
-	{}
-};
-
-$InnerClassInfo _NetMulticastSocket_InnerClassesInfo_[] = {
-	{"java.net.NetMulticastSocket$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NetMulticastSocket_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.net.NetMulticastSocket",
-	"java.net.MulticastSocket",
-	nullptr,
-	_NetMulticastSocket_FieldInfo_,
-	_NetMulticastSocket_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NetMulticastSocket_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.net.NetMulticastSocket$1"
-};
-
-$Object* allocate$NetMulticastSocket($Class* clazz) {
-	return $of($alloc(NetMulticastSocket));
-}
 
 void NetMulticastSocket::init$($DatagramSocketImpl* impl) {
 	$MulticastSocket::init$(($MulticastSocket*)nullptr);
@@ -252,8 +100,8 @@ void NetMulticastSocket::init$($DatagramSocketImpl* impl) {
 
 void NetMulticastSocket::connectInternal($InetAddress* address, int32_t port) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		if (port < 0 || port > 0x0000FFFF) {
+		$useLocalObjectStack();
+		if (port < 0 || port > 0x0000ffff) {
 			$throwNew($IllegalArgumentException, $$str({"connect: "_s, $$str(port)}));
 		}
 		if (address == nullptr) {
@@ -278,13 +126,13 @@ void NetMulticastSocket::connectInternal($InetAddress* address, int32_t port) {
 		if (!isBound()) {
 			bind($$new($InetSocketAddress, 0));
 		}
-		if (this->oldImpl || ($instanceOf($AbstractPlainDatagramSocketImpl, this->impl) && $nc(($cast($AbstractPlainDatagramSocketImpl, this->impl)))->nativeConnectDisabled())) {
+		if (this->oldImpl || ($instanceOf($AbstractPlainDatagramSocketImpl, this->impl) && $cast($AbstractPlainDatagramSocketImpl, this->impl)->nativeConnectDisabled())) {
 			this->connectState = NetMulticastSocket::ST_CONNECTED_NO_IMPL;
 		} else {
 			try {
-				$nc($(getImpl()))->connect(address, port);
+				$$nc(getImpl())->connect(address, port);
 				this->connectState = NetMulticastSocket::ST_CONNECTED;
-				int32_t avail = $nc($(getImpl()))->dataAvailable();
+				int32_t avail = $$nc(getImpl())->dataAvailable();
 				if (avail == -1) {
 					$throwNew($SocketException);
 				}
@@ -305,7 +153,7 @@ bool NetMulticastSocket::checkOldImpl($DatagramSocketImpl* impl) {
 	$init(NetMulticastSocket);
 	$beforeCallerSensitive();
 	try {
-		$AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($NetMulticastSocket$1, impl)));
+		$AccessController::doPrivileged($$new($NetMulticastSocket$1, impl));
 		return false;
 	} catch ($PrivilegedActionException& e) {
 		return true;
@@ -327,7 +175,7 @@ $DatagramSocketImpl* NetMulticastSocket::getImpl() {
 
 void NetMulticastSocket::bind($SocketAddress* addr$renamed) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($SocketAddress, addr, addr$renamed);
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
@@ -350,7 +198,7 @@ void NetMulticastSocket::bind($SocketAddress* addr$renamed) {
 		if ($nc(epoint)->isUnresolved()) {
 			$throwNew($SocketException, "Unresolved address"_s);
 		}
-		$var($InetAddress, iaddr, $nc(epoint)->getAddress());
+		$var($InetAddress, iaddr, epoint->getAddress());
 		int32_t port = epoint->getPort();
 		checkAddress(iaddr, "bind"_s);
 		$var($SecurityManager, sec, $System::getSecurityManager());
@@ -358,9 +206,9 @@ void NetMulticastSocket::bind($SocketAddress* addr$renamed) {
 			sec->checkListen(port);
 		}
 		try {
-			$nc($(getImpl()))->bind(port, iaddr);
+			$$nc(getImpl())->bind(port, iaddr);
 		} catch ($SocketException& e) {
-			$nc($(getImpl()))->close();
+			$$nc(getImpl())->close();
 			$throw(e);
 		}
 		this->bound = true;
@@ -386,7 +234,7 @@ void NetMulticastSocket::connect($InetAddress* address, int32_t port) {
 }
 
 void NetMulticastSocket::connect($SocketAddress* addr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (addr == nullptr) {
 		$throwNew($IllegalArgumentException, "Address can\'t be null"_s);
 	}
@@ -402,7 +250,7 @@ void NetMulticastSocket::connect($SocketAddress* addr) {
 	if ($nc(epoint)->isUnresolved()) {
 		$throwNew($SocketException, "Unresolved address"_s);
 	}
-	$var($InetAddress, var$1, $nc(epoint)->getAddress());
+	$var($InetAddress, var$1, epoint->getAddress());
 	connectInternal(var$1, epoint->getPort());
 }
 
@@ -457,19 +305,19 @@ $SocketAddress* NetMulticastSocket::getLocalSocketAddress() {
 }
 
 void NetMulticastSocket::send($DatagramPacket* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(p) {
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
-		$var($InetAddress, packetAddress, $nc(p)->getAddress());
+		$var($InetAddress, packetAddress, p->getAddress());
 		int32_t packetPort = p->getPort();
 		checkAddress(packetAddress, "send"_s);
 		if (this->connectState == NetMulticastSocket::ST_NOT_CONNECTED) {
 			if (packetAddress == nullptr) {
 				$throwNew($IllegalArgumentException, "Address not set"_s);
 			}
-			if (packetPort < 0 || packetPort > 0x0000FFFF) {
+			if (packetPort < 0 || packetPort > 0x0000ffff) {
 				$throwNew($IllegalArgumentException, $$str({"port out of range: "_s, $$str(packetPort)}));
 			}
 			$var($SecurityManager, security, $System::getSecurityManager());
@@ -486,19 +334,19 @@ void NetMulticastSocket::send($DatagramPacket* p) {
 		} else if (packetAddress == nullptr) {
 			p->setAddress(this->connectedAddress);
 			p->setPort(this->connectedPort);
-		} else if ((!$nc(packetAddress)->equals(this->connectedAddress)) || packetPort != this->connectedPort) {
+		} else if ((!packetAddress->equals(this->connectedAddress)) || packetPort != this->connectedPort) {
 			$throwNew($IllegalArgumentException, "connected address and packet address differ"_s);
 		}
 		if (!isBound()) {
 			bind($$new($InetSocketAddress, 0));
 		}
-		$nc($(getImpl()))->send(p);
+		$$nc(getImpl())->send(p);
 	}
 }
 
 void NetMulticastSocket::receive($DatagramPacket* p) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$synchronized(p) {
 			if (!isBound()) {
 				bind($$new($InetSocketAddress, 0));
@@ -511,11 +359,11 @@ void NetMulticastSocket::receive($DatagramPacket* p) {
 						int32_t peekPort = 0;
 						if (!this->oldImpl) {
 							$var($DatagramPacket, peekPacket, $new($DatagramPacket, $$new($bytes, 1), 1));
-							peekPort = $nc($(getImpl()))->peekData(peekPacket);
-							$assign(peekAd, $nc($(peekPacket->getAddress()))->getHostAddress());
+							peekPort = $$nc(getImpl())->peekData(peekPacket);
+							$assign(peekAd, $$nc(peekPacket->getAddress())->getHostAddress());
 						} else {
 							$var($InetAddress, adr, $new($InetAddress));
-							peekPort = $nc($(getImpl()))->peek(adr);
+							peekPort = $$nc(getImpl())->peek(adr);
 							$assign(peekAd, adr->getHostAddress());
 						}
 						try {
@@ -523,7 +371,7 @@ void NetMulticastSocket::receive($DatagramPacket* p) {
 							break;
 						} catch ($SecurityException& se) {
 							$var($DatagramPacket, tmp, $new($DatagramPacket, $$new($bytes, 1), 1));
-							$nc($(getImpl()))->receive(tmp);
+							$$nc(getImpl())->receive(tmp);
 							continue;
 						}
 					}
@@ -537,15 +385,15 @@ void NetMulticastSocket::receive($DatagramPacket* p) {
 					int32_t peekPort = -1;
 					if (!this->oldImpl) {
 						$var($DatagramPacket, peekPacket, $new($DatagramPacket, $$new($bytes, 1), 1));
-						peekPort = $nc($(getImpl()))->peekData(peekPacket);
+						peekPort = $$nc(getImpl())->peekData(peekPacket);
 						$assign(peekAddress, peekPacket->getAddress());
 					} else {
 						$assign(peekAddress, $new($InetAddress));
-						peekPort = $nc($(getImpl()))->peek(peekAddress);
+						peekPort = $$nc(getImpl())->peek(peekAddress);
 					}
 					if ((!$nc(this->connectedAddress)->equals(peekAddress)) || (this->connectedPort != peekPort)) {
 						$assign(tmp, $new($DatagramPacket, $$new($bytes, 1024), 1024));
-						$nc($(getImpl()))->receive(tmp);
+						$$nc(getImpl())->receive(tmp);
 						if (this->explicitFilter) {
 							if (checkFiltering(tmp)) {
 								stop = true;
@@ -556,7 +404,7 @@ void NetMulticastSocket::receive($DatagramPacket* p) {
 					}
 				}
 			}
-			$nc($(getImpl()))->receive(p);
+			$$nc(getImpl())->receive(p);
 			if (this->explicitFilter && tmp == nullptr) {
 				checkFiltering(p);
 			}
@@ -566,7 +414,7 @@ void NetMulticastSocket::receive($DatagramPacket* p) {
 
 bool NetMulticastSocket::checkFiltering($DatagramPacket* p) {
 	this->bytesLeftToFilter -= $nc(p)->getLength();
-	if (this->bytesLeftToFilter <= 0 || $nc($(getImpl()))->dataAvailable() <= 0) {
+	if (this->bytesLeftToFilter <= 0 || $$nc(getImpl())->dataAvailable() <= 0) {
 		this->explicitFilter = false;
 		return true;
 	}
@@ -574,13 +422,13 @@ bool NetMulticastSocket::checkFiltering($DatagramPacket* p) {
 }
 
 $InetAddress* NetMulticastSocket::getLocalAddress() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isClosed()) {
 		return nullptr;
 	}
 	$var($InetAddress, in, nullptr);
 	try {
-		$assign(in, $cast($InetAddress, $nc($(getImpl()))->getOption($SocketOptions::SO_BINDADDR)));
+		$assign(in, $cast($InetAddress, $$nc(getImpl())->getOption($SocketOptions::SO_BINDADDR)));
 		if ($nc(in)->isAnyLocalAddress()) {
 			$assign(in, $InetAddress::anyLocalAddress());
 		}
@@ -599,7 +447,7 @@ int32_t NetMulticastSocket::getLocalPort() {
 		return -1;
 	}
 	try {
-		return $nc($(getImpl()))->getLocalPort();
+		return $$nc(getImpl())->getLocalPort();
 	} catch ($Exception& e) {
 		return 0;
 	}
@@ -608,29 +456,29 @@ int32_t NetMulticastSocket::getLocalPort() {
 
 void NetMulticastSocket::setSoTimeout(int32_t timeout) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
 		if (timeout < 0) {
 			$throwNew($IllegalArgumentException, "timeout < 0"_s);
 		}
-		$nc($(getImpl()))->setOption($SocketOptions::SO_TIMEOUT, $($Integer::valueOf(timeout)));
+		$$nc(getImpl())->setOption($SocketOptions::SO_TIMEOUT, $($Integer::valueOf(timeout)));
 	}
 }
 
 int32_t NetMulticastSocket::getSoTimeout() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
 		if (getImpl() == nullptr) {
 			return 0;
 		}
-		$var($Object, o, $nc($(getImpl()))->getOption($SocketOptions::SO_TIMEOUT));
+		$var($Object, o, $$nc(getImpl())->getOption($SocketOptions::SO_TIMEOUT));
 		if ($instanceOf($Integer, o)) {
-			return $nc(($cast($Integer, o)))->intValue();
+			return $cast($Integer, o)->intValue();
 		} else {
 			return 0;
 		}
@@ -639,27 +487,27 @@ int32_t NetMulticastSocket::getSoTimeout() {
 
 void NetMulticastSocket::setSendBufferSize(int32_t size) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (!(size > 0)) {
 			$throwNew($IllegalArgumentException, "negative send size"_s);
 		}
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
-		$nc($(getImpl()))->setOption($SocketOptions::SO_SNDBUF, $($Integer::valueOf(size)));
+		$$nc(getImpl())->setOption($SocketOptions::SO_SNDBUF, $($Integer::valueOf(size)));
 	}
 }
 
 int32_t NetMulticastSocket::getSendBufferSize() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
 		int32_t result = 0;
-		$var($Object, o, $nc($(getImpl()))->getOption($SocketOptions::SO_SNDBUF));
+		$var($Object, o, $$nc(getImpl())->getOption($SocketOptions::SO_SNDBUF));
 		if ($instanceOf($Integer, o)) {
-			result = $nc(($cast($Integer, o)))->intValue();
+			result = $cast($Integer, o)->intValue();
 		}
 		return result;
 	}
@@ -667,27 +515,27 @@ int32_t NetMulticastSocket::getSendBufferSize() {
 
 void NetMulticastSocket::setReceiveBufferSize(int32_t size) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (size <= 0) {
 			$throwNew($IllegalArgumentException, "invalid receive size"_s);
 		}
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
-		$nc($(getImpl()))->setOption($SocketOptions::SO_RCVBUF, $($Integer::valueOf(size)));
+		$$nc(getImpl())->setOption($SocketOptions::SO_RCVBUF, $($Integer::valueOf(size)));
 	}
 }
 
 int32_t NetMulticastSocket::getReceiveBufferSize() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
 		int32_t result = 0;
-		$var($Object, o, $nc($(getImpl()))->getOption($SocketOptions::SO_RCVBUF));
+		$var($Object, o, $$nc(getImpl())->getOption($SocketOptions::SO_RCVBUF));
 		if ($instanceOf($Integer, o)) {
-			result = $nc(($cast($Integer, o)))->intValue();
+			result = $cast($Integer, o)->intValue();
 		}
 		return result;
 	}
@@ -695,52 +543,52 @@ int32_t NetMulticastSocket::getReceiveBufferSize() {
 
 void NetMulticastSocket::setReuseAddress(bool on) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
 		if (this->oldImpl) {
-			$nc($(getImpl()))->setOption($SocketOptions::SO_REUSEADDR, $($Integer::valueOf(on ? -1 : 0)));
+			$$nc(getImpl())->setOption($SocketOptions::SO_REUSEADDR, $($Integer::valueOf(on ? -1 : 0)));
 		} else {
-			$nc($(getImpl()))->setOption($SocketOptions::SO_REUSEADDR, $($Boolean::valueOf(on)));
+			$$nc(getImpl())->setOption($SocketOptions::SO_REUSEADDR, $($Boolean::valueOf(on)));
 		}
 	}
 }
 
 bool NetMulticastSocket::getReuseAddress() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
-		$var($Object, o, $nc($(getImpl()))->getOption($SocketOptions::SO_REUSEADDR));
-		return $nc(($cast($Boolean, o)))->booleanValue();
+		$var($Object, o, $$nc(getImpl())->getOption($SocketOptions::SO_REUSEADDR));
+		return $nc($cast($Boolean, o))->booleanValue();
 	}
 }
 
 void NetMulticastSocket::setBroadcast(bool on) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
-		$nc($(getImpl()))->setOption($SocketOptions::SO_BROADCAST, $($Boolean::valueOf(on)));
+		$$nc(getImpl())->setOption($SocketOptions::SO_BROADCAST, $($Boolean::valueOf(on)));
 	}
 }
 
 bool NetMulticastSocket::getBroadcast() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
-		return $nc((($cast($Boolean, $($nc($(getImpl()))->getOption($SocketOptions::SO_BROADCAST))))))->booleanValue();
+		return $$cast($Boolean, $$nc(getImpl())->getOption($SocketOptions::SO_BROADCAST))->booleanValue();
 	}
 }
 
 void NetMulticastSocket::setTrafficClass(int32_t tc) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (tc < 0 || tc > 255) {
 			$throwNew($IllegalArgumentException, "tc is not in range 0 -- 255"_s);
 		}
@@ -748,7 +596,7 @@ void NetMulticastSocket::setTrafficClass(int32_t tc) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
 		try {
-			$nc($(getImpl()))->setOption($SocketOptions::IP_TOS, $($Integer::valueOf(tc)));
+			$$nc(getImpl())->setOption($SocketOptions::IP_TOS, $($Integer::valueOf(tc)));
 		} catch ($SocketException& se) {
 			if (!isConnected()) {
 				$throw(se);
@@ -759,11 +607,11 @@ void NetMulticastSocket::setTrafficClass(int32_t tc) {
 
 int32_t NetMulticastSocket::getTrafficClass() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (isClosed()) {
 			$throwNew($SocketException, "Socket is closed"_s);
 		}
-		return $nc((($cast($Integer, $($nc($(getImpl()))->getOption($SocketOptions::IP_TOS))))))->intValue();
+		return $$cast($Integer, $$nc(getImpl())->getOption($SocketOptions::IP_TOS))->intValue();
 	}
 }
 
@@ -788,7 +636,7 @@ $DatagramSocket* NetMulticastSocket::setOption($SocketOption* name, Object$* val
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
-	$nc($(getImpl()))->setOption(name, value);
+	$$nc(getImpl())->setOption(name, value);
 	return this;
 }
 
@@ -797,11 +645,11 @@ $Object* NetMulticastSocket::getOption($SocketOption* name) {
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
-	return $of($nc($(getImpl()))->getOption(name));
+	return $$nc(getImpl())->getOption(name);
 }
 
 $Set* NetMulticastSocket::supportedOptions() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, options, this->options);
 	if (options != nullptr) {
 		return options;
@@ -825,7 +673,7 @@ void NetMulticastSocket::setTTL(int8_t ttl) {
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
-	$nc($(getImpl()))->setTTL(ttl);
+	$$nc(getImpl())->setTTL(ttl);
 }
 
 void NetMulticastSocket::setTimeToLive(int32_t ttl) {
@@ -835,25 +683,25 @@ void NetMulticastSocket::setTimeToLive(int32_t ttl) {
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
-	$nc($(getImpl()))->setTimeToLive(ttl);
+	$$nc(getImpl())->setTimeToLive(ttl);
 }
 
 int8_t NetMulticastSocket::getTTL() {
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
-	return $nc($(getImpl()))->getTTL();
+	return $$nc(getImpl())->getTTL();
 }
 
 int32_t NetMulticastSocket::getTimeToLive() {
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
-	return $nc($(getImpl()))->getTimeToLive();
+	return $$nc(getImpl())->getTimeToLive();
 }
 
 void NetMulticastSocket::joinGroup($InetAddress* mcastaddr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
@@ -869,11 +717,11 @@ void NetMulticastSocket::joinGroup($InetAddress* mcastaddr) {
 	if (!this->interfaceSet && defaultInterface != nullptr) {
 		setNetworkInterface(defaultInterface);
 	}
-	$nc($(getImpl()))->join(mcastaddr);
+	$$nc(getImpl())->join(mcastaddr);
 }
 
 void NetMulticastSocket::leaveGroup($InetAddress* mcastaddr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
@@ -885,11 +733,11 @@ void NetMulticastSocket::leaveGroup($InetAddress* mcastaddr) {
 	if (!$nc(mcastaddr)->isMulticastAddress()) {
 		$throwNew($SocketException, "Not a multicast address"_s);
 	}
-	$nc($(getImpl()))->leave(mcastaddr);
+	$$nc(getImpl())->leave(mcastaddr);
 }
 
 void NetMulticastSocket::joinGroup($SocketAddress* mcastaddr, $NetworkInterface* netIf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
@@ -908,16 +756,16 @@ void NetMulticastSocket::joinGroup($SocketAddress* mcastaddr, $NetworkInterface*
 	checkAddress($($nc(addr)->getAddress()), "joinGroup"_s);
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
-		security->checkMulticast($($nc(addr)->getAddress()));
+		security->checkMulticast($(addr->getAddress()));
 	}
-	if (!$nc($($nc(addr)->getAddress()))->isMulticastAddress()) {
+	if (!$$nc(addr->getAddress())->isMulticastAddress()) {
 		$throwNew($SocketException, "Not a multicast address"_s);
 	}
-	$nc($(getImpl()))->joinGroup(mcastaddr, netIf);
+	$$nc(getImpl())->joinGroup(mcastaddr, netIf);
 }
 
 void NetMulticastSocket::leaveGroup($SocketAddress* mcastaddr, $NetworkInterface* netIf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
@@ -936,12 +784,12 @@ void NetMulticastSocket::leaveGroup($SocketAddress* mcastaddr, $NetworkInterface
 	checkAddress($($nc(addr)->getAddress()), "leaveGroup"_s);
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
-		security->checkMulticast($($nc(addr)->getAddress()));
+		security->checkMulticast($(addr->getAddress()));
 	}
-	if (!$nc($($nc(addr)->getAddress()))->isMulticastAddress()) {
+	if (!$$nc(addr->getAddress())->isMulticastAddress()) {
 		$throwNew($SocketException, "Not a multicast address"_s);
 	}
-	$nc($(getImpl()))->leaveGroup(mcastaddr, netIf);
+	$$nc(getImpl())->leaveGroup(mcastaddr, netIf);
 }
 
 void NetMulticastSocket::setInterface($InetAddress* inf) {
@@ -950,19 +798,19 @@ void NetMulticastSocket::setInterface($InetAddress* inf) {
 	}
 	checkAddress(inf, "setInterface"_s);
 	$synchronized(this->infLock) {
-		$nc($(getImpl()))->setOption($SocketOptions::IP_MULTICAST_IF, inf);
+		$$nc(getImpl())->setOption($SocketOptions::IP_MULTICAST_IF, inf);
 		$set(this, infAddress, inf);
 		this->interfaceSet = true;
 	}
 }
 
 $InetAddress* NetMulticastSocket::getInterface() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
 	$synchronized(this->infLock) {
-		$var($InetAddress, ia, $cast($InetAddress, $nc($(getImpl()))->getOption($SocketOptions::IP_MULTICAST_IF)));
+		$var($InetAddress, ia, $cast($InetAddress, $$nc(getImpl())->getOption($SocketOptions::IP_MULTICAST_IF)));
 		if (this->infAddress == nullptr) {
 			return ia;
 		}
@@ -989,15 +837,15 @@ $InetAddress* NetMulticastSocket::getInterface() {
 
 void NetMulticastSocket::setNetworkInterface($NetworkInterface* netIf) {
 	$synchronized(this->infLock) {
-		$nc($(getImpl()))->setOption($SocketOptions::IP_MULTICAST_IF2, netIf);
+		$$nc(getImpl())->setOption($SocketOptions::IP_MULTICAST_IF2, netIf);
 		$set(this, infAddress, nullptr);
 		this->interfaceSet = true;
 	}
 }
 
 $NetworkInterface* NetMulticastSocket::getNetworkInterface() {
-	$useLocalCurrentObjectStackCache();
-	$var($NetworkInterface, ni, $cast($NetworkInterface, $nc($(getImpl()))->getOption($SocketOptions::IP_MULTICAST_IF2)));
+	$useLocalObjectStack();
+	$var($NetworkInterface, ni, $cast($NetworkInterface, $$nc(getImpl())->getOption($SocketOptions::IP_MULTICAST_IF2)));
 	if (ni == nullptr) {
 		$var($InetAddressArray, addrs, $new($InetAddressArray, 1));
 		addrs->set(0, $($InetAddress::anyLocalAddress()));
@@ -1008,23 +856,23 @@ $NetworkInterface* NetMulticastSocket::getNetworkInterface() {
 }
 
 void NetMulticastSocket::setLoopbackMode(bool disable) {
-	$useLocalCurrentObjectStackCache();
-	$nc($(getImpl()))->setOption($SocketOptions::IP_MULTICAST_LOOP, $($Boolean::valueOf(disable)));
+	$useLocalObjectStack();
+	$$nc(getImpl())->setOption($SocketOptions::IP_MULTICAST_LOOP, $($Boolean::valueOf(disable)));
 }
 
 bool NetMulticastSocket::getLoopbackMode() {
-	$useLocalCurrentObjectStackCache();
-	return $nc(($cast($Boolean, $($nc($(getImpl()))->getOption($SocketOptions::IP_MULTICAST_LOOP)))))->booleanValue();
+	$useLocalObjectStack();
+	return $$sure($Boolean, $$nc(getImpl())->getOption($SocketOptions::IP_MULTICAST_LOOP))->booleanValue();
 }
 
 void NetMulticastSocket::send($DatagramPacket* p, int8_t ttl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isClosed()) {
 		$throwNew($SocketException, "Socket is closed"_s);
 	}
 	$synchronized(this->ttlLock) {
 		$synchronized(p) {
-			$var($InetAddress, packetAddress, $nc(p)->getAddress());
+			$var($InetAddress, packetAddress, p->getAddress());
 			checkAddress(packetAddress, "send"_s);
 			if (this->connectState == NetMulticastSocket::ST_NOT_CONNECTED) {
 				if (packetAddress == nullptr) {
@@ -1043,32 +891,30 @@ void NetMulticastSocket::send($DatagramPacket* p, int8_t ttl) {
 				p->setAddress(this->connectedAddress);
 				p->setPort(this->connectedPort);
 			} else {
-				bool var$2 = (!$nc(packetAddress)->equals(this->connectedAddress));
-				if (var$2 || p->getPort() != this->connectedPort) {
+				bool var$1 = !packetAddress->equals(this->connectedAddress);
+				if (var$1 || p->getPort() != this->connectedPort) {
 					$throwNew($IllegalArgumentException, "connected address and packet address differ"_s);
 				}
 			}
 			int8_t dttl = getTTL();
-			{
-				$var($Throwable, var$3, nullptr);
-				try {
-					if (ttl != dttl) {
-						$nc($(getImpl()))->setTTL(ttl);
-					}
-					if (p->getPort() == 0) {
-						$throwNew($SocketException, "Can\'t send to port 0"_s);
-					}
-					$nc($(getImpl()))->send(p);
-				} catch ($Throwable& var$4) {
-					$assign(var$3, var$4);
-				} /*finally*/ {
-					if (ttl != dttl) {
-						$nc($(getImpl()))->setTTL(dttl);
-					}
+			$var($Throwable, var$2, nullptr);
+			try {
+				if (ttl != dttl) {
+					$$nc(getImpl())->setTTL(ttl);
 				}
-				if (var$3 != nullptr) {
-					$throw(var$3);
+				if (p->getPort() == 0) {
+					$throwNew($SocketException, "Can\'t send to port 0"_s);
 				}
+				$$nc(getImpl())->send(p);
+			} catch ($Throwable& var$3) {
+				$assign(var$2, var$3);
+			} /*finally*/ {
+				if (ttl != dttl) {
+					$$nc(getImpl())->setTTL(dttl);
+				}
+			}
+			if (var$2 != nullptr) {
+				$throw(var$2);
 			}
 		}
 	}
@@ -1078,7 +924,141 @@ NetMulticastSocket::NetMulticastSocket() {
 }
 
 $Class* NetMulticastSocket::load$($String* name, bool initialize) {
-	$loadClass(NetMulticastSocket, name, initialize, &_NetMulticastSocket_ClassInfo_, allocate$NetMulticastSocket);
+	$FieldInfo fieldInfos$$[] = {
+		{"bound", "Z", nullptr, $PRIVATE, $field(NetMulticastSocket, bound)},
+		{"closed", "Z", nullptr, $PRIVATE, $field(NetMulticastSocket, closed)},
+		{"created", "Z", nullptr, $PRIVATE | $VOLATILE, $field(NetMulticastSocket, created)},
+		{"closeLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(NetMulticastSocket, closeLock)},
+		{"impl", "Ljava/net/DatagramSocketImpl;", nullptr, $PRIVATE | $FINAL, $field(NetMulticastSocket, impl)},
+		{"oldImpl", "Z", nullptr, $PRIVATE | $FINAL, $field(NetMulticastSocket, oldImpl)},
+		{"explicitFilter", "Z", nullptr, $PRIVATE, $field(NetMulticastSocket, explicitFilter)},
+		{"bytesLeftToFilter", "I", nullptr, $PRIVATE, $field(NetMulticastSocket, bytesLeftToFilter)},
+		{"ST_NOT_CONNECTED", "I", nullptr, $STATIC | $FINAL, $constField(NetMulticastSocket, ST_NOT_CONNECTED)},
+		{"ST_CONNECTED", "I", nullptr, $STATIC | $FINAL, $constField(NetMulticastSocket, ST_CONNECTED)},
+		{"ST_CONNECTED_NO_IMPL", "I", nullptr, $STATIC | $FINAL, $constField(NetMulticastSocket, ST_CONNECTED_NO_IMPL)},
+		{"connectState", "I", nullptr, 0, $field(NetMulticastSocket, connectState)},
+		{"connectedAddress", "Ljava/net/InetAddress;", nullptr, 0, $field(NetMulticastSocket, connectedAddress)},
+		{"connectedPort", "I", nullptr, 0, $field(NetMulticastSocket, connectedPort)},
+		{"options", "Ljava/util/Set;", "Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PRIVATE | $VOLATILE, $field(NetMulticastSocket, options)},
+		{"optionsLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(NetMulticastSocket, optionsLock)},
+		{"interfaceSet", "Z", nullptr, $PRIVATE, $field(NetMulticastSocket, interfaceSet)},
+		{"ttlLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(NetMulticastSocket, ttlLock)},
+		{"infLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(NetMulticastSocket, infLock)},
+		{"infAddress", "Ljava/net/InetAddress;", nullptr, $PRIVATE, $field(NetMulticastSocket, infAddress)},
+		{}
+	};
+	$CompoundAttribute getInterfacemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getLoopbackModemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getTTLmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute joinGroupmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute leaveGroupmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute sendmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setInterfacemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setLoopbackModemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setTTLmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/DatagramSocketImpl;)V", nullptr, 0, $method(NetMulticastSocket, init$, void, $DatagramSocketImpl*)},
+		{"bind", "(Ljava/net/SocketAddress;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, bind, void, $SocketAddress*), "java.net.SocketException"},
+		{"checkAddress", "(Ljava/net/InetAddress;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(NetMulticastSocket, checkAddress, void, $InetAddress*, $String*)},
+		{"checkFiltering", "(Ljava/net/DatagramPacket;)Z", nullptr, $PRIVATE, $method(NetMulticastSocket, checkFiltering, bool, $DatagramPacket*), "java.net.SocketException"},
+		{"checkOldImpl", "(Ljava/net/DatagramSocketImpl;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NetMulticastSocket, checkOldImpl, bool, $DatagramSocketImpl*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, close, void)},
+		{"connect", "(Ljava/net/InetAddress;I)V", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, connect, void, $InetAddress*, int32_t)},
+		{"connect", "(Ljava/net/SocketAddress;)V", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, connect, void, $SocketAddress*), "java.net.SocketException"},
+		{"connectInternal", "(Ljava/net/InetAddress;I)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(NetMulticastSocket, connectInternal, void, $InetAddress*, int32_t), "java.net.SocketException"},
+		{"disconnect", "()V", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, disconnect, void)},
+		{"getBroadcast", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, getBroadcast, bool), "java.net.SocketException"},
+		{"getImpl", "()Ljava/net/DatagramSocketImpl;", nullptr, $FINAL, $method(NetMulticastSocket, getImpl, $DatagramSocketImpl*), "java.net.SocketException"},
+		{"getInetAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, getInetAddress, $InetAddress*)},
+		{"getInterface", "()Ljava/net/InetAddress;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(NetMulticastSocket, getInterface, $InetAddress*), "java.net.SocketException", nullptr, getInterfacemethodAnnotations$$},
+		{"getLocalAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, getLocalAddress, $InetAddress*)},
+		{"getLocalPort", "()I", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, getLocalPort, int32_t)},
+		{"getLocalSocketAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, getLocalSocketAddress, $SocketAddress*)},
+		{"getLoopbackMode", "()Z", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(NetMulticastSocket, getLoopbackMode, bool), "java.net.SocketException", nullptr, getLoopbackModemethodAnnotations$$},
+		{"getNetworkInterface", "()Ljava/net/NetworkInterface;", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, getNetworkInterface, $NetworkInterface*), "java.net.SocketException"},
+		{"getOption", "(Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;)TT;", $PUBLIC, $virtualMethod(NetMulticastSocket, getOption, $Object*, $SocketOption*), "java.io.IOException"},
+		{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, getPort, int32_t)},
+		{"getReceiveBufferSize", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, getReceiveBufferSize, int32_t), "java.net.SocketException"},
+		{"getRemoteSocketAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, getRemoteSocketAddress, $SocketAddress*)},
+		{"getReuseAddress", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, getReuseAddress, bool), "java.net.SocketException"},
+		{"getSendBufferSize", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, getSendBufferSize, int32_t), "java.net.SocketException"},
+		{"getSoTimeout", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, getSoTimeout, int32_t), "java.net.SocketException"},
+		{"getTTL", "()B", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(NetMulticastSocket, getTTL, int8_t), "java.io.IOException", nullptr, getTTLmethodAnnotations$$},
+		{"getTimeToLive", "()I", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, getTimeToLive, int32_t), "java.io.IOException"},
+		{"getTrafficClass", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, getTrafficClass, int32_t), "java.net.SocketException"},
+		{"isBound", "()Z", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, isBound, bool)},
+		{"isClosed", "()Z", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, isClosed, bool)},
+		{"isConnected", "()Z", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, isConnected, bool)},
+		{"joinGroup", "(Ljava/net/InetAddress;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(NetMulticastSocket, joinGroup, void, $InetAddress*), "java.io.IOException", nullptr, joinGroupmethodAnnotations$$},
+		{"joinGroup", "(Ljava/net/SocketAddress;Ljava/net/NetworkInterface;)V", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, joinGroup, void, $SocketAddress*, $NetworkInterface*), "java.io.IOException"},
+		{"leaveGroup", "(Ljava/net/InetAddress;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(NetMulticastSocket, leaveGroup, void, $InetAddress*), "java.io.IOException", nullptr, leaveGroupmethodAnnotations$$},
+		{"leaveGroup", "(Ljava/net/SocketAddress;Ljava/net/NetworkInterface;)V", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, leaveGroup, void, $SocketAddress*, $NetworkInterface*), "java.io.IOException"},
+		{"receive", "(Ljava/net/DatagramPacket;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, receive, void, $DatagramPacket*), "java.io.IOException"},
+		{"send", "(Ljava/net/DatagramPacket;)V", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, send, void, $DatagramPacket*), "java.io.IOException"},
+		{"send", "(Ljava/net/DatagramPacket;B)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(NetMulticastSocket, send, void, $DatagramPacket*, int8_t), "java.io.IOException", nullptr, sendmethodAnnotations$$$1},
+		{"setBroadcast", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, setBroadcast, void, bool), "java.net.SocketException"},
+		{"setInterface", "(Ljava/net/InetAddress;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(NetMulticastSocket, setInterface, void, $InetAddress*), "java.net.SocketException", nullptr, setInterfacemethodAnnotations$$},
+		{"setLoopbackMode", "(Z)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(NetMulticastSocket, setLoopbackMode, void, bool), "java.net.SocketException", nullptr, setLoopbackModemethodAnnotations$$},
+		{"setNetworkInterface", "(Ljava/net/NetworkInterface;)V", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, setNetworkInterface, void, $NetworkInterface*), "java.net.SocketException"},
+		{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)Ljava/net/DatagramSocket;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)Ljava/net/DatagramSocket;", $PUBLIC, $virtualMethod(NetMulticastSocket, setOption, $DatagramSocket*, $SocketOption*, Object$*), "java.io.IOException"},
+		{"setReceiveBufferSize", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, setReceiveBufferSize, void, int32_t), "java.net.SocketException"},
+		{"setReuseAddress", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, setReuseAddress, void, bool), "java.net.SocketException"},
+		{"setSendBufferSize", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, setSendBufferSize, void, int32_t), "java.net.SocketException"},
+		{"setSoTimeout", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, setSoTimeout, void, int32_t), "java.net.SocketException"},
+		{"setTTL", "(B)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(NetMulticastSocket, setTTL, void, int8_t), "java.io.IOException", nullptr, setTTLmethodAnnotations$$},
+		{"setTimeToLive", "(I)V", nullptr, $PUBLIC, $virtualMethod(NetMulticastSocket, setTimeToLive, void, int32_t), "java.io.IOException"},
+		{"setTrafficClass", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NetMulticastSocket, setTrafficClass, void, int32_t), "java.net.SocketException"},
+		{"supportedOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PUBLIC, $virtualMethod(NetMulticastSocket, supportedOptions, $Set*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.NetMulticastSocket$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.net.NetMulticastSocket",
+		"java.net.MulticastSocket",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.net.NetMulticastSocket$1"
+	};
+	$loadClass(NetMulticastSocket, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NetMulticastSocket);
+	});
 	return class$;
 }
 

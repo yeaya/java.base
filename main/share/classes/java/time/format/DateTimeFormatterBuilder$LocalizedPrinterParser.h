@@ -52,6 +52,7 @@ class $export DateTimeFormatterBuilder$LocalizedPrinterParser : public ::java::t
 	$class(DateTimeFormatterBuilder$LocalizedPrinterParser, 0, ::java::time::format::DateTimeFormatterBuilder$DateTimePrinterParser)
 public:
 	DateTimeFormatterBuilder$LocalizedPrinterParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::time::format::FormatStyle* dateStyle, ::java::time::format::FormatStyle* timeStyle);
 	virtual bool format(::java::time::format::DateTimePrintContext* context, ::java::lang::StringBuilder* buf) override;
 	::java::time::format::DateTimeFormatter* formatter(::java::util::Locale* locale, ::java::time::chrono::Chronology* chrono);

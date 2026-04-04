@@ -1,5 +1,4 @@
 #include <UniTest/Son.h>
-
 #include <UniTest/Dad.h>
 #include <jcpp.h>
 
@@ -10,33 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace UniTest {
 
-$CompoundAttribute _Son_Annotations_[] = {
-	{"LUniTest/Bar;", nullptr},
-	{}
-};
-
-$MethodInfo _Son_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Son, init$, void)},
-	{}
-};
-
-$ClassInfo _Son_ClassInfo_ = {
-	$ACC_SUPER,
-	"UniTest.Son",
-	"UniTest.Dad",
-	nullptr,
-	nullptr,
-	_Son_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Son_Annotations_
-};
-
-$Object* allocate$Son($Class* clazz) {
-	return $of($alloc(Son));
-}
-
 void Son::init$() {
 	$Dad::init$();
 }
@@ -45,7 +17,29 @@ Son::Son() {
 }
 
 $Class* Son::load$($String* name, bool initialize) {
-	$loadClass(Son, name, initialize, &_Son_ClassInfo_, allocate$Son);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Son, init$, void)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LUniTest/Bar;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"UniTest.Son",
+		"UniTest.Dad",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Son, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Son);
+	});
 	return class$;
 }
 

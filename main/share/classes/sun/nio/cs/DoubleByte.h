@@ -16,6 +16,7 @@ class $export DoubleByte : public ::java::lang::Object {
 	$class(DoubleByte, 0, ::java::lang::Object)
 public:
 	DoubleByte();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $chars* B2C_UNMAPPABLE;
 };

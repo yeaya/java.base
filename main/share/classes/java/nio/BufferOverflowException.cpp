@@ -1,5 +1,4 @@
 #include <java/nio/BufferOverflowException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,29 +8,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 
 namespace java {
 	namespace nio {
-
-$FieldInfo _BufferOverflowException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferOverflowException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _BufferOverflowException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BufferOverflowException, init$, void)},
-	{}
-};
-
-$ClassInfo _BufferOverflowException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.BufferOverflowException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_BufferOverflowException_FieldInfo_,
-	_BufferOverflowException_MethodInfo_
-};
-
-$Object* allocate$BufferOverflowException($Class* clazz) {
-	return $of($alloc(BufferOverflowException));
-}
 
 void BufferOverflowException::init$() {
 	$RuntimeException::init$();
@@ -48,7 +24,25 @@ void BufferOverflowException::throw$() {
 }
 
 $Class* BufferOverflowException::load$($String* name, bool initialize) {
-	$loadClass(BufferOverflowException, name, initialize, &_BufferOverflowException_ClassInfo_, allocate$BufferOverflowException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferOverflowException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BufferOverflowException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.BufferOverflowException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BufferOverflowException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BufferOverflowException);
+	});
 	return class$;
 }
 

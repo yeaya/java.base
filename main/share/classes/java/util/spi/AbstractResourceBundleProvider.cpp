@@ -1,5 +1,4 @@
 #include <java/util/spi/AbstractResourceBundleProvider.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/Serializable.h>
@@ -47,7 +46,6 @@ using $Module = ::java::lang::Module;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Locale = ::java::util::Locale;
 using $PropertyResourceBundle = ::java::util::PropertyResourceBundle;
@@ -72,35 +70,31 @@ public:
 	virtual $Object* run() override {
 		 return $of(AbstractResourceBundleProvider::lambda$loadResourceBundle$0(module, bundleName));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0>());
-	}
 	$Module* module = nullptr;
 	$String* bundleName = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0::fieldInfos[3] = {
-	{"module", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0, module)},
-	{"bundleName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0, bundleName)},
-	{}
-};
-$MethodInfo AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0, init$, void, $Module*, $String*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0, run, $Object*)},
-	{}
-};
-$ClassInfo AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.spi.AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0::load$($String* name, bool initialize) {
-	$loadClass(AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"module", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0, module)},
+		{"bundleName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0, bundleName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0, init$, void, $Module*, $String*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.spi.AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0);
+	});
 	return class$;
 }
 $Class* AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0::class$ = nullptr;
@@ -113,75 +107,36 @@ public:
 		$set(this, resourceName, resourceName);
 	}
 	virtual $Object* run() override {
-		 return $of(AbstractResourceBundleProvider::lambda$loadPropertyResourceBundle$1(module, resourceName));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1>());
+		 return AbstractResourceBundleProvider::lambda$loadPropertyResourceBundle$1(module, resourceName);
 	}
 	$Module* module = nullptr;
 	$String* resourceName = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1::fieldInfos[3] = {
-	{"module", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1, module)},
-	{"resourceName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1, resourceName)},
-	{}
-};
-$MethodInfo AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1, init$, void, $Module*, $String*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1, run, $Object*)},
-	{}
-};
-$ClassInfo AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.spi.AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1::load$($String* name, bool initialize) {
-	$loadClass(AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"module", "Ljava/lang/Module;", nullptr, $PUBLIC, $field(AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1, module)},
+		{"resourceName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1, resourceName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Module;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1, init$, void, $Module*, $String*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.spi.AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1);
+	});
 	return class$;
 }
 $Class* AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1::class$ = nullptr;
-
-$FieldInfo _AbstractResourceBundleProvider_FieldInfo_[] = {
-	{"RB_ACCESS", "Ljdk/internal/access/JavaUtilResourceBundleAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractResourceBundleProvider, RB_ACCESS)},
-	{"FORMAT_CLASS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractResourceBundleProvider, FORMAT_CLASS)},
-	{"FORMAT_PROPERTIES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractResourceBundleProvider, FORMAT_PROPERTIES)},
-	{"formats", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(AbstractResourceBundleProvider, formats)},
-	{}
-};
-
-$MethodInfo _AbstractResourceBundleProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractResourceBundleProvider, init$, void)},
-	{"<init>", "([Ljava/lang/String;)V", nullptr, $PROTECTED | $TRANSIENT, $method(AbstractResourceBundleProvider, init$, void, $StringArray*)},
-	{"getBundle", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(AbstractResourceBundleProvider, getBundle, $ResourceBundle*, $String*, $Locale*)},
-	{"getBundle0", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE, $method(AbstractResourceBundleProvider, getBundle0, $ResourceBundle*, $Module*, $String*)},
-	{"lambda$loadPropertyResourceBundle$1", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AbstractResourceBundleProvider, lambda$loadPropertyResourceBundle$1, $InputStream*, $Module*, $String*)},
-	{"lambda$loadResourceBundle$0", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AbstractResourceBundleProvider, lambda$loadResourceBundle$0, $Class*, $Module*, $String*)},
-	{"loadPropertyResourceBundle", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractResourceBundleProvider, loadPropertyResourceBundle, $ResourceBundle*, $Module*, $String*), "java.io.IOException"},
-	{"loadResourceBundle", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractResourceBundleProvider, loadResourceBundle, $ResourceBundle*, $Module*, $String*)},
-	{"toBundleName", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AbstractResourceBundleProvider, toBundleName, $String*, $String*, $Locale*)},
-	{"toResourceName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractResourceBundleProvider, toResourceName, $String*, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _AbstractResourceBundleProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.util.spi.AbstractResourceBundleProvider",
-	"java.lang.Object",
-	"java.util.spi.ResourceBundleProvider",
-	_AbstractResourceBundleProvider_FieldInfo_,
-	_AbstractResourceBundleProvider_MethodInfo_
-};
-
-$Object* allocate$AbstractResourceBundleProvider($Class* clazz) {
-	return $of($alloc(AbstractResourceBundleProvider));
-}
 
 $JavaUtilResourceBundleAccess* AbstractResourceBundleProvider::RB_ACCESS = nullptr;
 $String* AbstractResourceBundleProvider::FORMAT_CLASS = nullptr;
@@ -192,20 +147,18 @@ void AbstractResourceBundleProvider::init$() {
 }
 
 void AbstractResourceBundleProvider::init$($StringArray* formats) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, formats, $cast($StringArray, $nc(formats)->clone()));
-	if ($nc(this->formats)->length == 0) {
+	if (this->formats->length == 0) {
 		$throwNew($IllegalArgumentException, "empty formats"_s);
 	}
 	{
 		$var($StringArray, arr$, this->formats);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, f, arr$->get(i$));
 			{
-				bool var$0 = !$nc(AbstractResourceBundleProvider::FORMAT_CLASS)->equals(f);
-				if (var$0 && !$nc(AbstractResourceBundleProvider::FORMAT_PROPERTIES)->equals(f)) {
+				bool var$0 = !AbstractResourceBundleProvider::FORMAT_CLASS->equals(f);
+				if (var$0 && !AbstractResourceBundleProvider::FORMAT_PROPERTIES->equals(f)) {
 					$throwNew($IllegalArgumentException, f);
 				}
 			}
@@ -215,12 +168,12 @@ void AbstractResourceBundleProvider::init$($StringArray* formats) {
 
 $String* AbstractResourceBundleProvider::toBundleName($String* baseName, $Locale* locale) {
 	$init($ResourceBundle$Control);
-	return $nc($($ResourceBundle$Control::getControl($ResourceBundle$Control::FORMAT_DEFAULT)))->toBundleName(baseName, locale);
+	return $$nc($ResourceBundle$Control::getControl($ResourceBundle$Control::FORMAT_DEFAULT))->toBundleName(baseName, locale);
 }
 
 $ResourceBundle* AbstractResourceBundleProvider::getBundle($String* baseName, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
-	$var($Module, module, $of(this)->getClass()->getModule());
+	$useLocalObjectStack();
+	$var($Module, module, this->getClass()->getModule());
 	$var($String, bundleName, toBundleName(baseName, locale));
 	$var($ResourceBundle, bundle, getBundle0(module, bundleName));
 	if (bundle == nullptr) {
@@ -233,27 +186,23 @@ $ResourceBundle* AbstractResourceBundleProvider::getBundle($String* baseName, $L
 }
 
 $ResourceBundle* AbstractResourceBundleProvider::getBundle0($Module* module, $String* bundleName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ResourceBundle, bundle, nullptr);
 	{
 		$var($StringArray, arr$, this->formats);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, format, arr$->get(i$));
-			{
-				try {
-					if ($nc(AbstractResourceBundleProvider::FORMAT_CLASS)->equals(format)) {
-						$assign(bundle, loadResourceBundle(module, bundleName));
-					} else if ($nc(AbstractResourceBundleProvider::FORMAT_PROPERTIES)->equals(format)) {
-						$assign(bundle, loadPropertyResourceBundle(module, bundleName));
-					}
-					if (bundle != nullptr) {
-						break;
-					}
-				} catch ($IOException& e) {
-					$throwNew($UncheckedIOException, e);
+			try {
+				if (AbstractResourceBundleProvider::FORMAT_CLASS->equals(format)) {
+					$assign(bundle, loadResourceBundle(module, bundleName));
+				} else if (AbstractResourceBundleProvider::FORMAT_PROPERTIES->equals(format)) {
+					$assign(bundle, loadPropertyResourceBundle(module, bundleName));
 				}
+				if (bundle != nullptr) {
+					break;
+				}
+			} catch ($IOException& e) {
+				$throwNew($UncheckedIOException, e);
 			}
 		}
 	}
@@ -262,11 +211,11 @@ $ResourceBundle* AbstractResourceBundleProvider::getBundle0($Module* module, $St
 
 $ResourceBundle* AbstractResourceBundleProvider::loadResourceBundle($Module* module, $String* bundleName) {
 	$init(AbstractResourceBundleProvider);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0, module, bundleName)));
+	$var($PrivilegedAction, pa, $new(AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0, module, bundleName));
 	$init($SecurityConstants);
-	$Class* c = $cast($Class, $AccessController::doPrivileged(pa, ($AccessControlContext*)nullptr, $$new($PermissionArray, {static_cast<$Permission*>($SecurityConstants::GET_CLASSLOADER_PERMISSION)})));
+	$Class* c = $cast($Class, $AccessController::doPrivileged(pa, nullptr, $$new($PermissionArray, {$SecurityConstants::GET_CLASSLOADER_PERMISSION})));
 	$load($ResourceBundle);
 	if (c != nullptr && $ResourceBundle::class$->isAssignableFrom(c)) {
 		$Class* bundleClass = c;
@@ -277,69 +226,67 @@ $ResourceBundle* AbstractResourceBundleProvider::loadResourceBundle($Module* mod
 
 $ResourceBundle* AbstractResourceBundleProvider::loadPropertyResourceBundle($Module* module, $String* bundleName) {
 	$init(AbstractResourceBundleProvider);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, resourceName, toResourceName(bundleName, "properties"_s));
 	if (resourceName == nullptr) {
 		return nullptr;
 	}
-	$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1, module, resourceName)));
+	$var($PrivilegedAction, pa, $new(AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1, module, resourceName));
 	try {
 		$var($InputStream, stream, $cast($InputStream, $AccessController::doPrivileged(pa)));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($ResourceBundle, var$2, nullptr);
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		$var($ResourceBundle, var$2, nullptr);
+		bool return$1 = false;
+		try {
 			try {
-				try {
-					if (stream != nullptr) {
-						$assign(var$2, $new($PropertyResourceBundle, stream));
-						return$1 = true;
-						goto $finally;
-					} else {
-						$assign(var$2, nullptr);
-						return$1 = true;
-						goto $finally;
-					}
-				} catch ($Throwable& t$) {
-					if (stream != nullptr) {
-						try {
-							stream->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
 				if (stream != nullptr) {
-					stream->close();
+					$assign(var$2, $new($PropertyResourceBundle, stream));
+					return$1 = true;
+					goto $finally;
+				} else {
+					$assign(var$2, nullptr);
+					return$1 = true;
+					goto $finally;
 				}
+			} catch ($Throwable& t$) {
+				if (stream != nullptr) {
+					try {
+						stream->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			if (stream != nullptr) {
+				stream->close();
 			}
 		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
+		}
 	} catch ($UncheckedIOException& e) {
-		$throw($($cast($IOException, e->getCause())));
+		$throw($$cast($IOException, e->getCause()));
 	}
 	$shouldNotReachHere();
 }
 
 $String* AbstractResourceBundleProvider::toResourceName($String* bundleName, $String* suffix) {
 	$init(AbstractResourceBundleProvider);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(bundleName)->contains("://"_s)) {
 		return nullptr;
 	}
-	int32_t var$0 = $nc(bundleName)->length() + 1;
+	int32_t var$0 = bundleName->length() + 1;
 	$var($StringBuilder, sb, $new($StringBuilder, var$0 + $nc(suffix)->length()));
-	sb->append($($nc(bundleName)->replace(u'.', u'/')))->append(u'.')->append(suffix);
+	sb->append($(bundleName->replace(u'.', u'/')))->append(u'.')->append(suffix);
 	return sb->toString();
 }
 
@@ -360,7 +307,7 @@ $Class* AbstractResourceBundleProvider::lambda$loadResourceBundle$0($Module* mod
 	return $Class::forName(module, bundleName);
 }
 
-void clinit$AbstractResourceBundleProvider($Class* class$) {
+void AbstractResourceBundleProvider::clinit$($Class* clazz) {
 	$assignStatic(AbstractResourceBundleProvider::FORMAT_CLASS, "java.class"_s);
 	$assignStatic(AbstractResourceBundleProvider::FORMAT_PROPERTIES, "java.properties"_s);
 	$assignStatic(AbstractResourceBundleProvider::RB_ACCESS, $SharedSecrets::getJavaUtilResourceBundleAccess());
@@ -371,14 +318,44 @@ AbstractResourceBundleProvider::AbstractResourceBundleProvider() {
 
 $Class* AbstractResourceBundleProvider::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0::classInfo$.name)) {
+		if (name->equals("java.util.spi.AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0")) {
 			return AbstractResourceBundleProvider$$Lambda$lambda$loadResourceBundle$0::load$(name, initialize);
 		}
-		if (name->equals(AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1::classInfo$.name)) {
+		if (name->equals("java.util.spi.AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1")) {
 			return AbstractResourceBundleProvider$$Lambda$lambda$loadPropertyResourceBundle$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(AbstractResourceBundleProvider, name, initialize, &_AbstractResourceBundleProvider_ClassInfo_, clinit$AbstractResourceBundleProvider, allocate$AbstractResourceBundleProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"RB_ACCESS", "Ljdk/internal/access/JavaUtilResourceBundleAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractResourceBundleProvider, RB_ACCESS)},
+		{"FORMAT_CLASS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractResourceBundleProvider, FORMAT_CLASS)},
+		{"FORMAT_PROPERTIES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractResourceBundleProvider, FORMAT_PROPERTIES)},
+		{"formats", "[Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(AbstractResourceBundleProvider, formats)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractResourceBundleProvider, init$, void)},
+		{"<init>", "([Ljava/lang/String;)V", nullptr, $PROTECTED | $TRANSIENT, $method(AbstractResourceBundleProvider, init$, void, $StringArray*)},
+		{"getBundle", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;", nullptr, $PUBLIC, $virtualMethod(AbstractResourceBundleProvider, getBundle, $ResourceBundle*, $String*, $Locale*)},
+		{"getBundle0", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE, $method(AbstractResourceBundleProvider, getBundle0, $ResourceBundle*, $Module*, $String*)},
+		{"lambda$loadPropertyResourceBundle$1", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AbstractResourceBundleProvider, lambda$loadPropertyResourceBundle$1, $InputStream*, $Module*, $String*)},
+		{"lambda$loadResourceBundle$0", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/lang/Class;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AbstractResourceBundleProvider, lambda$loadResourceBundle$0, $Class*, $Module*, $String*)},
+		{"loadPropertyResourceBundle", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractResourceBundleProvider, loadPropertyResourceBundle, $ResourceBundle*, $Module*, $String*), "java.io.IOException"},
+		{"loadResourceBundle", "(Ljava/lang/Module;Ljava/lang/String;)Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractResourceBundleProvider, loadResourceBundle, $ResourceBundle*, $Module*, $String*)},
+		{"toBundleName", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AbstractResourceBundleProvider, toBundleName, $String*, $String*, $Locale*)},
+		{"toResourceName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractResourceBundleProvider, toResourceName, $String*, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.util.spi.AbstractResourceBundleProvider",
+		"java.lang.Object",
+		"java.util.spi.ResourceBundleProvider",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractResourceBundleProvider, name, initialize, &classInfo$$, AbstractResourceBundleProvider::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractResourceBundleProvider);
+	});
 	return class$;
 }
 

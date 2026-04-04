@@ -37,6 +37,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::SocketImpl* delegate);
 	void init$(::java::net::Proxy* proxy, ::java::net::SocketImpl* delegate);
 	virtual void accept(::java::net::SocketImpl* s) override;

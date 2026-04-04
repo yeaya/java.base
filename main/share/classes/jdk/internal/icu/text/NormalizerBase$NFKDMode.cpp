@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/text/NormalizerBase$NFKDMode.h>
-
 #include <jdk/internal/icu/text/Normalizer2.h>
 #include <jdk/internal/icu/text/NormalizerBase$Mode.h>
 #include <jdk/internal/icu/text/NormalizerBase$ModeImpl.h>
@@ -23,38 +22,6 @@ namespace jdk {
 		namespace icu {
 			namespace text {
 
-$MethodInfo _NormalizerBase$NFKDMode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(NormalizerBase$NFKDMode, init$, void)},
-	{"getNormalizer2", "(I)Ljdk/internal/icu/text/Normalizer2;", nullptr, $PROTECTED, $virtualMethod(NormalizerBase$NFKDMode, getNormalizer2, $Normalizer2*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _NormalizerBase$NFKDMode_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.text.NormalizerBase$NFKDMode", "jdk.internal.icu.text.NormalizerBase", "NFKDMode", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.icu.text.NormalizerBase$Mode", "jdk.internal.icu.text.NormalizerBase", "Mode", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _NormalizerBase$NFKDMode_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.icu.text.NormalizerBase$NFKDMode",
-	"jdk.internal.icu.text.NormalizerBase$Mode",
-	nullptr,
-	nullptr,
-	_NormalizerBase$NFKDMode_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NormalizerBase$NFKDMode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.text.NormalizerBase"
-};
-
-$Object* allocate$NormalizerBase$NFKDMode($Class* clazz) {
-	return $of($alloc(NormalizerBase$NFKDMode));
-}
-
 void NormalizerBase$NFKDMode::init$() {
 	$NormalizerBase$Mode::init$();
 }
@@ -62,14 +29,41 @@ void NormalizerBase$NFKDMode::init$() {
 $Normalizer2* NormalizerBase$NFKDMode::getNormalizer2(int32_t options) {
 	$init($NormalizerBase$NFKD32ModeImpl);
 	$init($NormalizerBase$NFKDModeImpl);
-	return ((int32_t)(options & (uint32_t)32)) != 0 ? $nc($NormalizerBase$NFKD32ModeImpl::INSTANCE)->normalizer2 : $nc($NormalizerBase$NFKDModeImpl::INSTANCE)->normalizer2;
+	return (options & 0x20) != 0 ? $nc($NormalizerBase$NFKD32ModeImpl::INSTANCE)->normalizer2 : $nc($NormalizerBase$NFKDModeImpl::INSTANCE)->normalizer2;
 }
 
 NormalizerBase$NFKDMode::NormalizerBase$NFKDMode() {
 }
 
 $Class* NormalizerBase$NFKDMode::load$($String* name, bool initialize) {
-	$loadClass(NormalizerBase$NFKDMode, name, initialize, &_NormalizerBase$NFKDMode_ClassInfo_, allocate$NormalizerBase$NFKDMode);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(NormalizerBase$NFKDMode, init$, void)},
+		{"getNormalizer2", "(I)Ljdk/internal/icu/text/Normalizer2;", nullptr, $PROTECTED, $virtualMethod(NormalizerBase$NFKDMode, getNormalizer2, $Normalizer2*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.text.NormalizerBase$NFKDMode", "jdk.internal.icu.text.NormalizerBase", "NFKDMode", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.icu.text.NormalizerBase$Mode", "jdk.internal.icu.text.NormalizerBase", "Mode", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.icu.text.NormalizerBase$NFKDMode",
+		"jdk.internal.icu.text.NormalizerBase$Mode",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.text.NormalizerBase"
+	};
+	$loadClass(NormalizerBase$NFKDMode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NormalizerBase$NFKDMode);
+	});
 	return class$;
 }
 

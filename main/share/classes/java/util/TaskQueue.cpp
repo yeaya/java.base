@@ -1,5 +1,4 @@
 #include <java/util/TaskQueue.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/util/Arrays.h>
 #include <java/util/TimerTask.h>
@@ -16,43 +15,6 @@ using $TimerTask = ::java::util::TimerTask;
 namespace java {
 	namespace util {
 
-$FieldInfo _TaskQueue_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TaskQueue, $assertionsDisabled)},
-	{"queue", "[Ljava/util/TimerTask;", nullptr, $PRIVATE, $field(TaskQueue, queue)},
-	{"size", "I", nullptr, $PRIVATE, $field(TaskQueue, size$)},
-	{}
-};
-
-$MethodInfo _TaskQueue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TaskQueue, init$, void)},
-	{"add", "(Ljava/util/TimerTask;)V", nullptr, 0, $virtualMethod(TaskQueue, add, void, $TimerTask*)},
-	{"clear", "()V", nullptr, 0, $virtualMethod(TaskQueue, clear, void)},
-	{"fixDown", "(I)V", nullptr, $PRIVATE, $method(TaskQueue, fixDown, void, int32_t)},
-	{"fixUp", "(I)V", nullptr, $PRIVATE, $method(TaskQueue, fixUp, void, int32_t)},
-	{"get", "(I)Ljava/util/TimerTask;", nullptr, 0, $virtualMethod(TaskQueue, get, $TimerTask*, int32_t)},
-	{"getMin", "()Ljava/util/TimerTask;", nullptr, 0, $virtualMethod(TaskQueue, getMin, $TimerTask*)},
-	{"heapify", "()V", nullptr, 0, $virtualMethod(TaskQueue, heapify, void)},
-	{"isEmpty", "()Z", nullptr, 0, $virtualMethod(TaskQueue, isEmpty, bool)},
-	{"quickRemove", "(I)V", nullptr, 0, $virtualMethod(TaskQueue, quickRemove, void, int32_t)},
-	{"removeMin", "()V", nullptr, 0, $virtualMethod(TaskQueue, removeMin, void)},
-	{"rescheduleMin", "(J)V", nullptr, 0, $virtualMethod(TaskQueue, rescheduleMin, void, int64_t)},
-	{"size", "()I", nullptr, 0, $virtualMethod(TaskQueue, size, int32_t)},
-	{}
-};
-
-$ClassInfo _TaskQueue_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.TaskQueue",
-	"java.lang.Object",
-	nullptr,
-	_TaskQueue_FieldInfo_,
-	_TaskQueue_MethodInfo_
-};
-
-$Object* allocate$TaskQueue($Class* clazz) {
-	return $of($alloc(TaskQueue));
-}
-
 bool TaskQueue::$assertionsDisabled = false;
 
 void TaskQueue::init$() {
@@ -66,9 +28,9 @@ int32_t TaskQueue::size() {
 
 void TaskQueue::add($TimerTask* task) {
 	if (this->size$ + 1 == $nc(this->queue)->length) {
-		$set(this, queue, $fcast($TimerTaskArray, $Arrays::copyOf(this->queue, 2 * $nc(this->queue)->length)));
+		$set(this, queue, $cast($TimerTaskArray, $Arrays::copyOf(this->queue, 2 * this->queue->length)));
 	}
-	$nc(this->queue)->set(++this->size$, task);
+	this->queue->set(++this->size$, task);
 	fixUp(this->size$);
 }
 
@@ -82,7 +44,7 @@ $TimerTask* TaskQueue::get(int32_t i) {
 
 void TaskQueue::removeMin() {
 	$nc(this->queue)->set(1, $nc(this->queue)->get(this->size$));
-	$nc(this->queue)->set(this->size$--, nullptr);
+	this->queue->set(this->size$--, nullptr);
 	fixDown(1);
 }
 
@@ -91,7 +53,7 @@ void TaskQueue::quickRemove(int32_t i) {
 		$throwNew($AssertionError);
 	}
 	$nc(this->queue)->set(i, $nc(this->queue)->get(this->size$));
-	$nc(this->queue)->set(this->size$--, nullptr);
+	this->queue->set(this->size$--, nullptr);
 }
 
 void TaskQueue::rescheduleMin(int64_t newTime) {
@@ -111,21 +73,21 @@ void TaskQueue::clear() {
 }
 
 void TaskQueue::fixUp(int32_t k) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (k > 1) {
 		int32_t j = k >> 1;
 		if ($nc($nc(this->queue)->get(j))->nextExecutionTime <= $nc($nc(this->queue)->get(k))->nextExecutionTime) {
 			break;
 		}
-		$var($TimerTask, tmp, $nc(this->queue)->get(j));
-		$nc(this->queue)->set(j, $nc(this->queue)->get(k));
-		$nc(this->queue)->set(k, tmp);
+		$var($TimerTask, tmp, this->queue->get(j));
+		this->queue->set(j, this->queue->get(k));
+		this->queue->set(k, tmp);
 		k = j;
 	}
 }
 
 void TaskQueue::fixDown(int32_t k) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t j = 0;
 	while (true) {
 		bool var$0 = (j = k << 1) <= this->size$;
@@ -139,9 +101,9 @@ void TaskQueue::fixDown(int32_t k) {
 			if ($nc($nc(this->queue)->get(k))->nextExecutionTime <= $nc($nc(this->queue)->get(j))->nextExecutionTime) {
 				break;
 			}
-			$var($TimerTask, tmp, $nc(this->queue)->get(j));
-			$nc(this->queue)->set(j, $nc(this->queue)->get(k));
-			$nc(this->queue)->set(k, tmp);
+			$var($TimerTask, tmp, this->queue->get(j));
+			this->queue->set(j, this->queue->get(k));
+			this->queue->set(k, tmp);
 			k = j;
 		}
 	}
@@ -153,7 +115,7 @@ void TaskQueue::heapify() {
 	}
 }
 
-void clinit$TaskQueue($Class* class$) {
+void TaskQueue::clinit$($Class* clazz) {
 	TaskQueue::$assertionsDisabled = !TaskQueue::class$->desiredAssertionStatus();
 }
 
@@ -161,7 +123,39 @@ TaskQueue::TaskQueue() {
 }
 
 $Class* TaskQueue::load$($String* name, bool initialize) {
-	$loadClass(TaskQueue, name, initialize, &_TaskQueue_ClassInfo_, clinit$TaskQueue, allocate$TaskQueue);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TaskQueue, $assertionsDisabled)},
+		{"queue", "[Ljava/util/TimerTask;", nullptr, $PRIVATE, $field(TaskQueue, queue)},
+		{"size", "I", nullptr, $PRIVATE, $field(TaskQueue, size$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TaskQueue, init$, void)},
+		{"add", "(Ljava/util/TimerTask;)V", nullptr, 0, $virtualMethod(TaskQueue, add, void, $TimerTask*)},
+		{"clear", "()V", nullptr, 0, $virtualMethod(TaskQueue, clear, void)},
+		{"fixDown", "(I)V", nullptr, $PRIVATE, $method(TaskQueue, fixDown, void, int32_t)},
+		{"fixUp", "(I)V", nullptr, $PRIVATE, $method(TaskQueue, fixUp, void, int32_t)},
+		{"get", "(I)Ljava/util/TimerTask;", nullptr, 0, $virtualMethod(TaskQueue, get, $TimerTask*, int32_t)},
+		{"getMin", "()Ljava/util/TimerTask;", nullptr, 0, $virtualMethod(TaskQueue, getMin, $TimerTask*)},
+		{"heapify", "()V", nullptr, 0, $virtualMethod(TaskQueue, heapify, void)},
+		{"isEmpty", "()Z", nullptr, 0, $virtualMethod(TaskQueue, isEmpty, bool)},
+		{"quickRemove", "(I)V", nullptr, 0, $virtualMethod(TaskQueue, quickRemove, void, int32_t)},
+		{"removeMin", "()V", nullptr, 0, $virtualMethod(TaskQueue, removeMin, void)},
+		{"rescheduleMin", "(J)V", nullptr, 0, $virtualMethod(TaskQueue, rescheduleMin, void, int64_t)},
+		{"size", "()I", nullptr, 0, $virtualMethod(TaskQueue, size, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.TaskQueue",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TaskQueue, name, initialize, &classInfo$$, TaskQueue::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TaskQueue);
+	});
 	return class$;
 }
 

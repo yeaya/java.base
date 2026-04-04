@@ -1,5 +1,4 @@
 #include <sun/reflect/annotation/AnnotatedTypeFactory$AnnotatedTypeVariableImpl.h>
-
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/reflect/AnnotatedElement.h>
 #include <java/lang/reflect/AnnotatedType.h>
@@ -30,53 +29,6 @@ using $TypeAnnotation$LocationInfo = ::sun::reflect::annotation::TypeAnnotation$
 namespace sun {
 	namespace reflect {
 		namespace annotation {
-
-$MethodInfo _AnnotatedTypeFactory$AnnotatedTypeVariableImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
-	{"*getAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
-	{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
-	{"*getDeclaredAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
-	{"*getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
-	{"*getDeclaredAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
-	{"*getType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/lang/reflect/TypeVariable;Lsun/reflect/annotation/TypeAnnotation$LocationInfo;[Lsun/reflect/annotation/TypeAnnotation;[Lsun/reflect/annotation/TypeAnnotation;Ljava/lang/reflect/AnnotatedElement;)V", "(Ljava/lang/reflect/TypeVariable<*>;Lsun/reflect/annotation/TypeAnnotation$LocationInfo;[Lsun/reflect/annotation/TypeAnnotation;[Lsun/reflect/annotation/TypeAnnotation;Ljava/lang/reflect/AnnotatedElement;)V", 0, $method(AnnotatedTypeFactory$AnnotatedTypeVariableImpl, init$, void, $TypeVariable*, $TypeAnnotation$LocationInfo*, $TypeAnnotationArray*, $TypeAnnotationArray*, $AnnotatedElement*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedTypeVariableImpl, equals, bool, Object$*)},
-	{"getAnnotatedBounds", "()[Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedTypeVariableImpl, getAnnotatedBounds, $AnnotatedTypeArray*)},
-	{"getAnnotatedOwnerType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedTypeVariableImpl, getAnnotatedOwnerType, $AnnotatedType*)},
-	{"getTypeVariable", "()Ljava/lang/reflect/TypeVariable;", "()Ljava/lang/reflect/TypeVariable<*>;", $PRIVATE, $method(AnnotatedTypeFactory$AnnotatedTypeVariableImpl, getTypeVariable, $TypeVariable*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*isAnnotationPresent", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$InnerClassInfo _AnnotatedTypeFactory$AnnotatedTypeVariableImpl_InnerClassesInfo_[] = {
-	{"sun.reflect.annotation.AnnotatedTypeFactory$AnnotatedTypeVariableImpl", "sun.reflect.annotation.AnnotatedTypeFactory", "AnnotatedTypeVariableImpl", $PRIVATE | $STATIC | $FINAL},
-	{"sun.reflect.annotation.AnnotatedTypeFactory$AnnotatedTypeBaseImpl", "sun.reflect.annotation.AnnotatedTypeFactory", "AnnotatedTypeBaseImpl", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AnnotatedTypeFactory$AnnotatedTypeVariableImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.reflect.annotation.AnnotatedTypeFactory$AnnotatedTypeVariableImpl",
-	"sun.reflect.annotation.AnnotatedTypeFactory$AnnotatedTypeBaseImpl",
-	"java.lang.reflect.AnnotatedTypeVariable",
-	nullptr,
-	_AnnotatedTypeFactory$AnnotatedTypeVariableImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AnnotatedTypeFactory$AnnotatedTypeVariableImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.reflect.annotation.AnnotatedTypeFactory"
-};
-
-$Object* allocate$AnnotatedTypeFactory$AnnotatedTypeVariableImpl($Class* clazz) {
-	return $of($alloc(AnnotatedTypeFactory$AnnotatedTypeVariableImpl));
-}
 
 $AnnotationArray* AnnotatedTypeFactory$AnnotatedTypeVariableImpl::getAnnotations() {
 	 return this->$AnnotatedTypeFactory$AnnotatedTypeBaseImpl::getAnnotations();
@@ -131,7 +83,7 @@ void AnnotatedTypeFactory$AnnotatedTypeVariableImpl::init$($TypeVariable* type, 
 }
 
 $AnnotatedTypeArray* AnnotatedTypeFactory$AnnotatedTypeVariableImpl::getAnnotatedBounds() {
-	return $nc($(getTypeVariable()))->getAnnotatedBounds();
+	return $$nc(getTypeVariable())->getAnnotatedBounds();
 }
 
 $AnnotatedType* AnnotatedTypeFactory$AnnotatedTypeVariableImpl::getAnnotatedOwnerType() {
@@ -155,7 +107,49 @@ AnnotatedTypeFactory$AnnotatedTypeVariableImpl::AnnotatedTypeFactory$AnnotatedTy
 }
 
 $Class* AnnotatedTypeFactory$AnnotatedTypeVariableImpl::load$($String* name, bool initialize) {
-	$loadClass(AnnotatedTypeFactory$AnnotatedTypeVariableImpl, name, initialize, &_AnnotatedTypeFactory$AnnotatedTypeVariableImpl_ClassInfo_, allocate$AnnotatedTypeFactory$AnnotatedTypeVariableImpl);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
+		{"*getAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
+		{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
+		{"*getDeclaredAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
+		{"*getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
+		{"*getDeclaredAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC | $FINAL},
+		{"*getType", "()Ljava/lang/reflect/Type;", nullptr, $PUBLIC | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/lang/reflect/TypeVariable;Lsun/reflect/annotation/TypeAnnotation$LocationInfo;[Lsun/reflect/annotation/TypeAnnotation;[Lsun/reflect/annotation/TypeAnnotation;Ljava/lang/reflect/AnnotatedElement;)V", "(Ljava/lang/reflect/TypeVariable<*>;Lsun/reflect/annotation/TypeAnnotation$LocationInfo;[Lsun/reflect/annotation/TypeAnnotation;[Lsun/reflect/annotation/TypeAnnotation;Ljava/lang/reflect/AnnotatedElement;)V", 0, $method(AnnotatedTypeFactory$AnnotatedTypeVariableImpl, init$, void, $TypeVariable*, $TypeAnnotation$LocationInfo*, $TypeAnnotationArray*, $TypeAnnotationArray*, $AnnotatedElement*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedTypeVariableImpl, equals, bool, Object$*)},
+		{"getAnnotatedBounds", "()[Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedTypeVariableImpl, getAnnotatedBounds, $AnnotatedTypeArray*)},
+		{"getAnnotatedOwnerType", "()Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $virtualMethod(AnnotatedTypeFactory$AnnotatedTypeVariableImpl, getAnnotatedOwnerType, $AnnotatedType*)},
+		{"getTypeVariable", "()Ljava/lang/reflect/TypeVariable;", "()Ljava/lang/reflect/TypeVariable<*>;", $PRIVATE, $method(AnnotatedTypeFactory$AnnotatedTypeVariableImpl, getTypeVariable, $TypeVariable*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*isAnnotationPresent", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.reflect.annotation.AnnotatedTypeFactory$AnnotatedTypeVariableImpl", "sun.reflect.annotation.AnnotatedTypeFactory", "AnnotatedTypeVariableImpl", $PRIVATE | $STATIC | $FINAL},
+		{"sun.reflect.annotation.AnnotatedTypeFactory$AnnotatedTypeBaseImpl", "sun.reflect.annotation.AnnotatedTypeFactory", "AnnotatedTypeBaseImpl", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.reflect.annotation.AnnotatedTypeFactory$AnnotatedTypeVariableImpl",
+		"sun.reflect.annotation.AnnotatedTypeFactory$AnnotatedTypeBaseImpl",
+		"java.lang.reflect.AnnotatedTypeVariable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.reflect.annotation.AnnotatedTypeFactory"
+	};
+	$loadClass(AnnotatedTypeFactory$AnnotatedTypeVariableImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AnnotatedTypeFactory$AnnotatedTypeVariableImpl));
+	});
 	return class$;
 }
 

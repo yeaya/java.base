@@ -30,6 +30,7 @@ public:
 	UUID();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($bytes* data);
 	void init$(int64_t mostSigBits, int64_t leastSigBits);
 	int32_t clockSequence();
@@ -50,7 +51,7 @@ public:
 	int32_t variant();
 	int32_t version();
 	static bool $assertionsDisabled;
-	static const int64_t serialVersionUID = (int64_t)0xBC9903F7986D852F;
+	static const int64_t serialVersionUID = (int64_t)0xbc9903f7986d852f;
 	int64_t mostSigBits = 0;
 	int64_t leastSigBits = 0;
 	static ::jdk::internal::access::JavaLangAccess* jla;

@@ -36,6 +36,7 @@ class $export LegacyAlgorithmConstraints : public ::sun::security::util::Abstrac
 	$class(LegacyAlgorithmConstraints, 0, ::sun::security::util::AbstractAlgorithmConstraints)
 public:
 	LegacyAlgorithmConstraints();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* propertyName, ::sun::security::util::AlgorithmDecomposer* decomposer);
 	virtual bool permits(::java::util::Set* primitives, $String* algorithm, ::java::security::AlgorithmParameters* parameters) override;
 	virtual bool permits(::java::util::Set* primitives, ::java::security::Key* key) override;

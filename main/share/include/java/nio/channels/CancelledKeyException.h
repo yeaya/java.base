@@ -14,10 +14,13 @@ class $import CancelledKeyException : public ::java::lang::IllegalStateException
 public:
 	CancelledKeyException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x8AE6167A21767044;
+	static const int64_t serialVersionUID = (int64_t)0x8ae6167a21767044;
 	CancelledKeyException(const CancelledKeyException& e);
 	virtual void throw$() override;
-	inline CancelledKeyException* operator ->() {
+	inline CancelledKeyException* operator ->() const {
+		return (CancelledKeyException*)throwing$;
+	}
+	inline operator CancelledKeyException*() const {
 		return (CancelledKeyException*)throwing$;
 	}
 };

@@ -35,6 +35,7 @@ public:
 	DualStackPlainDatagramSocketImpl();
 	using ::java::net::AbstractPlainDatagramSocketImpl::join;
 	using ::java::net::AbstractPlainDatagramSocketImpl::leave;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool exclBind);
 	virtual void bind0(int32_t lport, ::java::net::InetAddress* laddr) override;
 	int32_t checkAndReturnNativeFD();

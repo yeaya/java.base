@@ -47,6 +47,7 @@ public:
 	virtual void finalize() override;
 	virtual void forEach(::java::util::function::Consumer* consumer) override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void accept(int32_t i) override;
 	virtual $Object* asPrimitiveArray() override;

@@ -14,10 +14,13 @@ class $import IllegalSelectorException : public ::java::lang::IllegalArgumentExc
 public:
 	IllegalSelectorException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x8B56BD744BE4A2E5;
+	static const int64_t serialVersionUID = (int64_t)0x8b56bd744be4a2e5;
 	IllegalSelectorException(const IllegalSelectorException& e);
 	virtual void throw$() override;
-	inline IllegalSelectorException* operator ->() {
+	inline IllegalSelectorException* operator ->() const {
+		return (IllegalSelectorException*)throwing$;
+	}
+	inline operator IllegalSelectorException*() const {
 		return (IllegalSelectorException*)throwing$;
 	}
 };

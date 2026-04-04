@@ -1,5 +1,4 @@
 #include <TestType4.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -8,51 +7,43 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
-$NamedAttribute TestType4_Attribute_var$0[] = {
-	{"value", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _TestType4_MethodAnnotations_anotherValue0[] = {
-	{"LExpectedIsDefault;", TestType4_Attribute_var$0},
-	{}
-};
-
-$Attribute _TestType4_DefaultValue_anotherValue0 = {
-	's', ""
-};
-
-$NamedAttribute TestType4_Attribute_var$1[] = {
-	{"value", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _TestType4_MethodAnnotations_value1[] = {
-	{"LExpectedIsDefault;", TestType4_Attribute_var$1},
-	{}
-};
-
-$MethodInfo _TestType4_MethodInfo_[] = {
-	{"anotherValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestType4, anotherValue, $String*), nullptr, &_TestType4_DefaultValue_anotherValue0, _TestType4_MethodAnnotations_anotherValue0},
-	{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestType4, value, $String*), nullptr, nullptr, _TestType4_MethodAnnotations_value1},
-	{}
-};
-
-$ClassInfo _TestType4_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"TestType4",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_TestType4_MethodInfo_
-};
-
-$Object* allocate$TestType4($Class* clazz) {
-	return $of($alloc(TestType4));
-}
-
 $Class* TestType4::load$($String* name, bool initialize) {
-	$loadClass(TestType4, name, initialize, &_TestType4_ClassInfo_, allocate$TestType4);
+	$NamedAttribute anotherValuemethodAnnotations$$$namedAttribute[] = {
+		{"value", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute anotherValuemethodAnnotations$$[] = {
+		{"LExpectedIsDefault;", anotherValuemethodAnnotations$$$namedAttribute},
+		{}
+	};
+
+	$Attribute anotherValuedefaultValue$$ = {
+		's', ""
+	};
+	$NamedAttribute valuemethodAnnotations$$$namedAttribute[] = {
+		{"value", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute valuemethodAnnotations$$[] = {
+		{"LExpectedIsDefault;", valuemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"anotherValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestType4, anotherValue, $String*), nullptr, &anotherValuedefaultValue$$, anotherValuemethodAnnotations$$},
+		{"value", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TestType4, value, $String*), nullptr, nullptr, valuemethodAnnotations$$},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"TestType4",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestType4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestType4);
+	});
 	return class$;
 }
 

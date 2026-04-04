@@ -1,5 +1,4 @@
 #include <sun/nio/cs/UTF_32BE_BOM.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -28,28 +27,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$MethodInfo _UTF_32BE_BOM_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UTF_32BE_BOM, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(UTF_32BE_BOM, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UTF_32BE_BOM, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(UTF_32BE_BOM, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(UTF_32BE_BOM, newEncoder, $CharsetEncoder*)},
-	{}
-};
-
-$ClassInfo _UTF_32BE_BOM_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.UTF_32BE_BOM",
-	"sun.nio.cs.Unicode",
-	nullptr,
-	nullptr,
-	_UTF_32BE_BOM_MethodInfo_
-};
-
-$Object* allocate$UTF_32BE_BOM($Class* clazz) {
-	return $of($alloc(UTF_32BE_BOM));
-}
-
 void UTF_32BE_BOM::init$() {
 	$Unicode::init$("X-UTF-32BE-BOM"_s, $($StandardCharsets::aliases_UTF_32BE_BOM()));
 }
@@ -74,7 +51,25 @@ UTF_32BE_BOM::UTF_32BE_BOM() {
 }
 
 $Class* UTF_32BE_BOM::load$($String* name, bool initialize) {
-	$loadClass(UTF_32BE_BOM, name, initialize, &_UTF_32BE_BOM_ClassInfo_, allocate$UTF_32BE_BOM);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UTF_32BE_BOM, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(UTF_32BE_BOM, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UTF_32BE_BOM, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(UTF_32BE_BOM, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(UTF_32BE_BOM, newEncoder, $CharsetEncoder*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.UTF_32BE_BOM",
+		"sun.nio.cs.Unicode",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UTF_32BE_BOM, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UTF_32BE_BOM));
+	});
 	return class$;
 }
 

@@ -9,6 +9,7 @@ class $export ParameterCheck : public ::java::lang::Object {
 	$class(ParameterCheck, 0, ::java::lang::Object)
 public:
 	ParameterCheck();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void doTest($String* method);
 	static void main($StringArray* argv);

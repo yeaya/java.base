@@ -1,5 +1,4 @@
 #include <sun/security/x509/X500Name.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/InternalError.h>
@@ -10,7 +9,6 @@
 #include <java/security/PrivilegedExceptionAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
@@ -61,7 +59,6 @@ using $AccessController = ::java::security::AccessController;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
@@ -80,131 +77,6 @@ using $X500Name$1 = ::sun::security::x509::X500Name$1;
 namespace sun {
 	namespace security {
 		namespace x509 {
-
-$CompoundAttribute _X500Name_MethodAnnotations_emit16[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _X500Name_FieldInfo_[] = {
-	{"dn", "Ljava/lang/String;", nullptr, $PRIVATE, $field(X500Name, dn)},
-	{"rfc1779Dn", "Ljava/lang/String;", nullptr, $PRIVATE, $field(X500Name, rfc1779Dn)},
-	{"rfc2253Dn", "Ljava/lang/String;", nullptr, $PRIVATE, $field(X500Name, rfc2253Dn)},
-	{"canonicalDn", "Ljava/lang/String;", nullptr, $PRIVATE, $field(X500Name, canonicalDn)},
-	{"names", "[Lsun/security/x509/RDN;", nullptr, $PRIVATE, $field(X500Name, names)},
-	{"x500Principal", "Ljavax/security/auth/x500/X500Principal;", nullptr, $PRIVATE, $field(X500Name, x500Principal)},
-	{"encoded", "[B", nullptr, $PRIVATE, $field(X500Name, encoded)},
-	{"rdnList", "Ljava/util/List;", "Ljava/util/List<Lsun/security/x509/RDN;>;", $PRIVATE | $VOLATILE, $field(X500Name, rdnList)},
-	{"allAvaList", "Ljava/util/List;", "Ljava/util/List<Lsun/security/x509/AVA;>;", $PRIVATE | $VOLATILE, $field(X500Name, allAvaList)},
-	{"commonName_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, commonName_oid)},
-	{"SURNAME_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, SURNAME_OID)},
-	{"SERIALNUMBER_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, SERIALNUMBER_OID)},
-	{"countryName_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, countryName_oid)},
-	{"localityName_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, localityName_oid)},
-	{"stateName_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, stateName_oid)},
-	{"streetAddress_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, streetAddress_oid)},
-	{"orgName_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, orgName_oid)},
-	{"orgUnitName_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, orgUnitName_oid)},
-	{"title_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, title_oid)},
-	{"GIVENNAME_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, GIVENNAME_OID)},
-	{"INITIALS_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, INITIALS_OID)},
-	{"GENERATIONQUALIFIER_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, GENERATIONQUALIFIER_OID)},
-	{"DNQUALIFIER_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, DNQUALIFIER_OID)},
-	{"ipAddress_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, ipAddress_oid)},
-	{"DOMAIN_COMPONENT_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, DOMAIN_COMPONENT_OID)},
-	{"userid_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, userid_oid)},
-	{"principalConstructor", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<Ljavax/security/auth/x500/X500Principal;>;", $PRIVATE | $STATIC | $FINAL, $staticField(X500Name, principalConstructor)},
-	{"principalField", "Ljava/lang/reflect/Field;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(X500Name, principalField)},
-	{}
-};
-
-$MethodInfo _X500Name_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(X500Name, init$, void, $String*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC, $method(X500Name, init$, void, $String*, $Map*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(X500Name, init$, void, $String*, $String*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(X500Name, init$, void, $String*, $String*, $String*, $String*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(X500Name, init$, void, $String*, $String*, $String*, $String*, $String*, $String*), "java.io.IOException"},
-	{"<init>", "([Lsun/security/x509/RDN;)V", nullptr, $PUBLIC, $method(X500Name, init$, void, $RDNArray*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(X500Name, init$, void, $DerValue*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(X500Name, init$, void, $DerInputStream*), "java.io.IOException"},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(X500Name, init$, void, $bytes*), "java.io.IOException"},
-	{"allAvas", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/x509/AVA;>;", $PUBLIC, $virtualMethod(X500Name, allAvas, $List*)},
-	{"asX500Name", "(Ljavax/security/auth/x500/X500Principal;)Lsun/security/x509/X500Name;", nullptr, $PUBLIC | $STATIC, $staticMethod(X500Name, asX500Name, X500Name*, $X500Principal*)},
-	{"asX500Principal", "()Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC, $virtualMethod(X500Name, asX500Principal, $X500Principal*)},
-	{"avaSize", "()I", nullptr, $PUBLIC, $virtualMethod(X500Name, avaSize, int32_t)},
-	{"commonAncestor", "(Lsun/security/x509/X500Name;)Lsun/security/x509/X500Name;", nullptr, $PUBLIC, $virtualMethod(X500Name, commonAncestor, X500Name*, X500Name*)},
-	{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC, $virtualMethod(X500Name, constrains, int32_t, $GeneralNameInterface*), "java.lang.UnsupportedOperationException"},
-	{"countQuotes", "(Ljava/lang/String;II)I", nullptr, $STATIC, $staticMethod(X500Name, countQuotes, int32_t, $String*, int32_t, int32_t)},
-	{"emit", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(X500Name, emit, void, $DerOutputStream*), "java.io.IOException", nullptr, _X500Name_MethodAnnotations_emit16},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(X500Name, encode, void, $DerOutputStream*), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(X500Name, equals, bool, Object$*)},
-	{"escaped", "(IILjava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(X500Name, escaped, bool, int32_t, int32_t, $String*)},
-	{"findAttribute", "(Lsun/security/util/ObjectIdentifier;)Lsun/security/util/DerValue;", nullptr, $PRIVATE, $method(X500Name, findAttribute, $DerValue*, $ObjectIdentifier*)},
-	{"findMostSpecificAttribute", "(Lsun/security/util/ObjectIdentifier;)Lsun/security/util/DerValue;", nullptr, $PUBLIC, $virtualMethod(X500Name, findMostSpecificAttribute, $DerValue*, $ObjectIdentifier*)},
-	{"generateDN", "()V", nullptr, $PRIVATE, $method(X500Name, generateDN, void)},
-	{"generateRFC1779DN", "(Ljava/util/Map;)Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PRIVATE, $method(X500Name, generateRFC1779DN, $String*, $Map*)},
-	{"generateRFC2253DN", "(Ljava/util/Map;)Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PRIVATE, $method(X500Name, generateRFC2253DN, $String*, $Map*)},
-	{"getCommonName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getCommonName, $String*), "java.io.IOException"},
-	{"getCountry", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getCountry, $String*), "java.io.IOException"},
-	{"getDNQualifier", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getDNQualifier, $String*), "java.io.IOException"},
-	{"getDomain", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getDomain, $String*), "java.io.IOException"},
-	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(X500Name, getEncoded, $bytes*), "java.io.IOException"},
-	{"getEncodedInternal", "()[B", nullptr, $PUBLIC, $virtualMethod(X500Name, getEncodedInternal, $bytes*), "java.io.IOException"},
-	{"getGeneration", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getGeneration, $String*), "java.io.IOException"},
-	{"getGivenName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getGivenName, $String*), "java.io.IOException"},
-	{"getIP", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getIP, $String*), "java.io.IOException"},
-	{"getInitials", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getInitials, $String*), "java.io.IOException"},
-	{"getLocality", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getLocality, $String*), "java.io.IOException"},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getName, $String*)},
-	{"getOrganization", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getOrganization, $String*), "java.io.IOException"},
-	{"getOrganizationalUnit", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getOrganizationalUnit, $String*), "java.io.IOException"},
-	{"getRFC1779Name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getRFC1779Name, $String*)},
-	{"getRFC1779Name", "(Ljava/util/Map;)Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(X500Name, getRFC1779Name, $String*, $Map*), "java.lang.IllegalArgumentException"},
-	{"getRFC2253CanonicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getRFC2253CanonicalName, $String*)},
-	{"getRFC2253Name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getRFC2253Name, $String*)},
-	{"getRFC2253Name", "(Ljava/util/Map;)Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(X500Name, getRFC2253Name, $String*, $Map*)},
-	{"getState", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getState, $String*), "java.io.IOException"},
-	{"getString", "(Lsun/security/util/DerValue;)Ljava/lang/String;", nullptr, $PRIVATE, $method(X500Name, getString, $String*, $DerValue*), "java.io.IOException"},
-	{"getSurname", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getSurname, $String*), "java.io.IOException"},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(X500Name, getType, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(X500Name, hashCode, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(X500Name, isEmpty, bool)},
-	{"isWithinSubtree", "(Lsun/security/x509/X500Name;)Z", nullptr, $PRIVATE, $method(X500Name, isWithinSubtree, bool, X500Name*)},
-	{"parseDER", "(Lsun/security/util/DerInputStream;)V", nullptr, $PRIVATE, $method(X500Name, parseDER, void, $DerInputStream*), "java.io.IOException"},
-	{"parseDN", "(Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(X500Name, parseDN, void, $String*, $Map*), "java.io.IOException"},
-	{"parseRFC2253DN", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(X500Name, parseRFC2253DN, void, $String*), "java.io.IOException"},
-	{"rdns", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/x509/RDN;>;", $PUBLIC, $virtualMethod(X500Name, rdns, $List*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(X500Name, size, int32_t)},
-	{"subtreeDepth", "()I", nullptr, $PUBLIC, $virtualMethod(X500Name, subtreeDepth, int32_t), "java.lang.UnsupportedOperationException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _X500Name_InnerClassesInfo_[] = {
-	{"sun.security.x509.X500Name$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _X500Name_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.X500Name",
-	"java.lang.Object",
-	"sun.security.x509.GeneralNameInterface,java.security.Principal",
-	_X500Name_FieldInfo_,
-	_X500Name_MethodInfo_,
-	nullptr,
-	nullptr,
-	_X500Name_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.x509.X500Name$1"
-};
-
-$Object* allocate$X500Name($Class* clazz) {
-	return $of($alloc(X500Name));
-}
 
 $Object* X500Name::clone() {
 	 return this->$GeneralNameInterface::clone();
@@ -243,7 +115,7 @@ void X500Name::init$($String* dname, $Map* keywordMap) {
 }
 
 void X500Name::init$($String* dname, $String* format) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (dname == nullptr) {
 		$throwNew($NullPointerException, "Name must not be null"_s);
 	}
@@ -257,42 +129,42 @@ void X500Name::init$($String* dname, $String* format) {
 }
 
 void X500Name::init$($String* commonName, $String* organizationUnit, $String* organizationName, $String* country) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, names, $new($RDNArray, 4));
-	$nc(this->names)->set(3, $$new($RDN, 1));
-	$nc($nc($nc(this->names)->get(3))->assertion)->set(0, $$new($AVA, X500Name::commonName_oid, $$new($DerValue, commonName)));
-	$nc(this->names)->set(2, $$new($RDN, 1));
-	$nc($nc($nc(this->names)->get(2))->assertion)->set(0, $$new($AVA, X500Name::orgUnitName_oid, $$new($DerValue, organizationUnit)));
-	$nc(this->names)->set(1, $$new($RDN, 1));
-	$nc($nc($nc(this->names)->get(1))->assertion)->set(0, $$new($AVA, X500Name::orgName_oid, $$new($DerValue, organizationName)));
-	$nc(this->names)->set(0, $$new($RDN, 1));
-	$nc($nc($nc(this->names)->get(0))->assertion)->set(0, $$new($AVA, X500Name::countryName_oid, $$new($DerValue, country)));
+	this->names->set(3, $$new($RDN, 1));
+	$nc($nc(this->names->get(3))->assertion)->set(0, $$new($AVA, X500Name::commonName_oid, $$new($DerValue, commonName)));
+	this->names->set(2, $$new($RDN, 1));
+	$nc(this->names->get(2))->assertion->set(0, $$new($AVA, X500Name::orgUnitName_oid, $$new($DerValue, organizationUnit)));
+	this->names->set(1, $$new($RDN, 1));
+	$nc(this->names->get(1))->assertion->set(0, $$new($AVA, X500Name::orgName_oid, $$new($DerValue, organizationName)));
+	this->names->set(0, $$new($RDN, 1));
+	$nc(this->names->get(0))->assertion->set(0, $$new($AVA, X500Name::countryName_oid, $$new($DerValue, country)));
 }
 
 void X500Name::init$($String* commonName, $String* organizationUnit, $String* organizationName, $String* localityName, $String* stateName, $String* country) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, names, $new($RDNArray, 6));
-	$nc(this->names)->set(5, $$new($RDN, 1));
-	$nc($nc($nc(this->names)->get(5))->assertion)->set(0, $$new($AVA, X500Name::commonName_oid, $$new($DerValue, commonName)));
-	$nc(this->names)->set(4, $$new($RDN, 1));
-	$nc($nc($nc(this->names)->get(4))->assertion)->set(0, $$new($AVA, X500Name::orgUnitName_oid, $$new($DerValue, organizationUnit)));
-	$nc(this->names)->set(3, $$new($RDN, 1));
-	$nc($nc($nc(this->names)->get(3))->assertion)->set(0, $$new($AVA, X500Name::orgName_oid, $$new($DerValue, organizationName)));
-	$nc(this->names)->set(2, $$new($RDN, 1));
-	$nc($nc($nc(this->names)->get(2))->assertion)->set(0, $$new($AVA, X500Name::localityName_oid, $$new($DerValue, localityName)));
-	$nc(this->names)->set(1, $$new($RDN, 1));
-	$nc($nc($nc(this->names)->get(1))->assertion)->set(0, $$new($AVA, X500Name::stateName_oid, $$new($DerValue, stateName)));
-	$nc(this->names)->set(0, $$new($RDN, 1));
-	$nc($nc($nc(this->names)->get(0))->assertion)->set(0, $$new($AVA, X500Name::countryName_oid, $$new($DerValue, country)));
+	this->names->set(5, $$new($RDN, 1));
+	$nc($nc(this->names->get(5))->assertion)->set(0, $$new($AVA, X500Name::commonName_oid, $$new($DerValue, commonName)));
+	this->names->set(4, $$new($RDN, 1));
+	$nc(this->names->get(4))->assertion->set(0, $$new($AVA, X500Name::orgUnitName_oid, $$new($DerValue, organizationUnit)));
+	this->names->set(3, $$new($RDN, 1));
+	$nc(this->names->get(3))->assertion->set(0, $$new($AVA, X500Name::orgName_oid, $$new($DerValue, organizationName)));
+	this->names->set(2, $$new($RDN, 1));
+	$nc(this->names->get(2))->assertion->set(0, $$new($AVA, X500Name::localityName_oid, $$new($DerValue, localityName)));
+	this->names->set(1, $$new($RDN, 1));
+	$nc(this->names->get(1))->assertion->set(0, $$new($AVA, X500Name::stateName_oid, $$new($DerValue, stateName)));
+	this->names->set(0, $$new($RDN, 1));
+	$nc(this->names->get(0))->assertion->set(0, $$new($AVA, X500Name::countryName_oid, $$new($DerValue, country)));
 }
 
 void X500Name::init$($RDNArray* rdnArray) {
 	if (rdnArray == nullptr) {
 		$set(this, names, $new($RDNArray, 0));
 	} else {
-		$set(this, names, $cast($RDNArray, $nc(rdnArray)->clone()));
-		for (int32_t i = 0; i < $nc(this->names)->length; ++i) {
-			if ($nc(this->names)->get(i) == nullptr) {
+		$set(this, names, $cast($RDNArray, rdnArray->clone()));
+		for (int32_t i = 0; i < this->names->length; ++i) {
+			if (this->names->get(i) == nullptr) {
 				$throwNew($IOException, "Cannot create an X500Name"_s);
 			}
 		}
@@ -313,7 +185,7 @@ void X500Name::init$($bytes* name) {
 }
 
 $List* X500Name::rdns() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, list, this->rdnList);
 	if (list == nullptr) {
 		$assign(list, $Collections::unmodifiableList($($Arrays::asList(this->names))));
@@ -327,12 +199,12 @@ int32_t X500Name::size() {
 }
 
 $List* X500Name::allAvas() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, list, this->allAvaList);
 	if (list == nullptr) {
 		$assign(list, $new($ArrayList));
 		for (int32_t i = 0; i < $nc(this->names)->length; ++i) {
-			list->addAll($($nc($nc(this->names)->get(i))->avas()));
+			list->addAll($($nc(this->names->get(i))->avas()));
 		}
 		$assign(list, $Collections::unmodifiableList(list));
 		$set(this, allAvaList, list);
@@ -341,13 +213,13 @@ $List* X500Name::allAvas() {
 }
 
 int32_t X500Name::avaSize() {
-	return $nc($(allAvas()))->size();
+	return $$nc(allAvas())->size();
 }
 
 bool X500Name::isEmpty() {
 	int32_t n = $nc(this->names)->length;
 	for (int32_t i = 0; i < n; ++i) {
-		if ($nc($nc($nc(this->names)->get(i))->assertion)->length != 0) {
+		if ($nc($nc(this->names->get(i))->assertion)->length != 0) {
 			return false;
 		}
 	}
@@ -355,11 +227,11 @@ bool X500Name::isEmpty() {
 }
 
 int32_t X500Name::hashCode() {
-	return $nc($(getRFC2253CanonicalName()))->hashCode();
+	return $$nc(getRFC2253CanonicalName())->hashCode();
 }
 
 bool X500Name::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -368,26 +240,26 @@ bool X500Name::equals(Object$* obj) {
 	}
 	$var(X500Name, other, $cast(X500Name, obj));
 	if ((this->canonicalDn != nullptr) && ($nc(other)->canonicalDn != nullptr)) {
-		return $nc(this->canonicalDn)->equals(other->canonicalDn);
+		return this->canonicalDn->equals(other->canonicalDn);
 	}
 	int32_t n = $nc(this->names)->length;
 	if (n != $nc($nc(other)->names)->length) {
 		return false;
 	}
 	for (int32_t i = 0; i < n; ++i) {
-		$var($RDN, r1, $nc(this->names)->get(i));
-		$var($RDN, r2, $nc($nc(other)->names)->get(i));
+		$var($RDN, r1, this->names->get(i));
+		$var($RDN, r2, other->names->get(i));
 		if ($nc($nc(r1)->assertion)->length != $nc($nc(r2)->assertion)->length) {
 			return false;
 		}
 	}
 	$var($String, thisCanonical, this->getRFC2253CanonicalName());
-	$var($String, otherCanonical, $nc(other)->getRFC2253CanonicalName());
+	$var($String, otherCanonical, other->getRFC2253CanonicalName());
 	return $nc(thisCanonical)->equals(otherCanonical);
 }
 
 $String* X500Name::getString($DerValue* attribute) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (attribute == nullptr) {
 		return nullptr;
 	}
@@ -508,19 +380,19 @@ $String* X500Name::getRFC2253Name($Map* oidMap) {
 }
 
 $String* X500Name::generateRFC2253DN($Map* oidMap) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->names)->length == 0) {
 		return ""_s;
 	}
 	$var($StringJoiner, sj, $new($StringJoiner, ","_s));
-	for (int32_t i = $nc(this->names)->length - 1; i >= 0; --i) {
-		sj->add($($nc($nc(this->names)->get(i))->toRFC2253String(oidMap)));
+	for (int32_t i = this->names->length - 1; i >= 0; --i) {
+		sj->add($($nc(this->names->get(i))->toRFC2253String(oidMap)));
 	}
 	return sj->toString();
 }
 
 $String* X500Name::getRFC2253CanonicalName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->canonicalDn != nullptr) {
 		return this->canonicalDn;
 	}
@@ -529,8 +401,8 @@ $String* X500Name::getRFC2253CanonicalName() {
 		return this->canonicalDn;
 	}
 	$var($StringJoiner, sj, $new($StringJoiner, ","_s));
-	for (int32_t i = $nc(this->names)->length - 1; i >= 0; --i) {
-		sj->add($($nc($nc(this->names)->get(i))->toRFC2253String(true)));
+	for (int32_t i = this->names->length - 1; i >= 0; --i) {
+		sj->add($($nc(this->names->get(i))->toRFC2253String(true)));
 	}
 	$set(this, canonicalDn, sj->toString());
 	return this->canonicalDn;
@@ -541,10 +413,10 @@ $String* X500Name::getName() {
 }
 
 $DerValue* X500Name::findAttribute($ObjectIdentifier* attribute) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->names != nullptr) {
-		for (int32_t i = 0; i < $nc(this->names)->length; ++i) {
-			$var($DerValue, value, $nc($nc(this->names)->get(i))->findAttribute(attribute));
+		for (int32_t i = 0; i < this->names->length; ++i) {
+			$var($DerValue, value, $nc(this->names->get(i))->findAttribute(attribute));
 			if (value != nullptr) {
 				return value;
 			}
@@ -554,10 +426,10 @@ $DerValue* X500Name::findAttribute($ObjectIdentifier* attribute) {
 }
 
 $DerValue* X500Name::findMostSpecificAttribute($ObjectIdentifier* attribute) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->names != nullptr) {
-		for (int32_t i = $nc(this->names)->length - 1; i >= 0; --i) {
-			$var($DerValue, value, $nc($nc(this->names)->get(i))->findAttribute(attribute));
+		for (int32_t i = this->names->length - 1; i >= 0; --i) {
+			$var($DerValue, value, $nc(this->names->get(i))->findAttribute(attribute));
 			if (value != nullptr) {
 				return value;
 			}
@@ -567,7 +439,7 @@ $DerValue* X500Name::findMostSpecificAttribute($ObjectIdentifier* attribute) {
 }
 
 void X500Name::parseDER($DerInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerValueArray, nameseq, nullptr);
 	$var($bytes, derBytes, $nc(in)->toByteArray());
 	try {
@@ -584,9 +456,9 @@ void X500Name::parseDER($DerInputStream* in) {
 	if (nameseq == nullptr) {
 		$set(this, names, $new($RDNArray, 0));
 	} else {
-		$set(this, names, $new($RDNArray, $nc(nameseq)->length));
+		$set(this, names, $new($RDNArray, nameseq->length));
 		for (int32_t i = 0; i < nameseq->length; ++i) {
-			$nc(this->names)->set(i, $$new($RDN, nameseq->get(i)));
+			this->names->set(i, $$new($RDN, nameseq->get(i)));
 		}
 	}
 }
@@ -598,18 +470,18 @@ void X500Name::emit($DerOutputStream* out) {
 void X500Name::encode($DerOutputStream* out) {
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	for (int32_t i = 0; i < $nc(this->names)->length; ++i) {
-		$nc($nc(this->names)->get(i))->encode(tmp);
+		$nc(this->names->get(i))->encode(tmp);
 	}
 	$nc(out)->write($DerValue::tag_Sequence, tmp);
 }
 
 $bytes* X500Name::getEncodedInternal() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->encoded == nullptr) {
 		$var($DerOutputStream, out, $new($DerOutputStream));
 		$var($DerOutputStream, tmp, $new($DerOutputStream));
 		for (int32_t i = 0; i < $nc(this->names)->length; ++i) {
-			$nc($nc(this->names)->get(i))->encode(tmp);
+			$nc(this->names->get(i))->encode(tmp);
 		}
 		out->write($DerValue::tag_Sequence, tmp);
 		$set(this, encoded, out->toByteArray());
@@ -618,12 +490,12 @@ $bytes* X500Name::getEncodedInternal() {
 }
 
 $bytes* X500Name::getEncoded() {
-	return $cast($bytes, $nc($(getEncodedInternal()))->clone());
+	return $cast($bytes, $$nc(getEncodedInternal())->clone());
 }
 
 void X500Name::parseDN($String* input, $Map* keywordMap) {
-	$useLocalCurrentObjectStackCache();
-	if (input == nullptr || $nc(input)->isEmpty()) {
+	$useLocalObjectStack();
+	if (input == nullptr || input->isEmpty()) {
 		$set(this, names, $new($RDNArray, 0));
 		return;
 	}
@@ -634,8 +506,8 @@ void X500Name::parseDN($String* input, $Map* keywordMap) {
 	int32_t quoteCount = 0;
 	$var($String, dnString, input);
 	int32_t searchOffset = 0;
-	int32_t nextComma = $nc(dnString)->indexOf((int32_t)u',');
-	int32_t nextSemiColon = dnString->indexOf((int32_t)u';');
+	int32_t nextComma = $nc(dnString)->indexOf(u',');
+	int32_t nextSemiColon = dnString->indexOf(u';');
 	while (nextComma >= 0 || nextSemiColon >= 0) {
 		if (nextSemiColon < 0) {
 			rdnEnd = nextComma;
@@ -653,18 +525,18 @@ void X500Name::parseDN($String* input, $Map* keywordMap) {
 			quoteCount = 0;
 		}
 		searchOffset = rdnEnd + 1;
-		nextComma = dnString->indexOf((int32_t)u',', searchOffset);
-		nextSemiColon = dnString->indexOf((int32_t)u';', searchOffset);
+		nextComma = dnString->indexOf(u',', searchOffset);
+		nextSemiColon = dnString->indexOf(u';', searchOffset);
 	}
 	$assign(rdnString, dnString->substring(dnOffset));
 	$var($RDN, rdn, $new($RDN, rdnString, keywordMap));
 	dnVector->add(rdn);
 	$Collections::reverse(dnVector);
-	$set(this, names, $fcast($RDNArray, dnVector->toArray($$new($RDNArray, dnVector->size()))));
+	$set(this, names, $cast($RDNArray, dnVector->toArray($$new($RDNArray, dnVector->size()))));
 }
 
 void X500Name::parseRFC2253DN($String* dnString) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(dnString)->isEmpty()) {
 		$set(this, names, $new($RDNArray, 0));
 		return;
@@ -673,7 +545,7 @@ void X500Name::parseRFC2253DN($String* dnString) {
 	int32_t dnOffset = 0;
 	$var($String, rdnString, nullptr);
 	int32_t searchOffset = 0;
-	int32_t rdnEnd = $nc(dnString)->indexOf((int32_t)u',');
+	int32_t rdnEnd = dnString->indexOf(u',');
 	while (rdnEnd >= 0) {
 		if (rdnEnd > 0 && !escaped(rdnEnd, searchOffset, dnString)) {
 			$assign(rdnString, dnString->substring(dnOffset, rdnEnd));
@@ -682,23 +554,23 @@ void X500Name::parseRFC2253DN($String* dnString) {
 			dnOffset = rdnEnd + 1;
 		}
 		searchOffset = rdnEnd + 1;
-		rdnEnd = dnString->indexOf((int32_t)u',', searchOffset);
+		rdnEnd = dnString->indexOf(u',', searchOffset);
 	}
 	$assign(rdnString, dnString->substring(dnOffset));
 	$var($RDN, rdn, $new($RDN, rdnString, "RFC2253"_s));
 	dnVector->add(rdn);
 	$Collections::reverse(dnVector);
-	$set(this, names, $fcast($RDNArray, dnVector->toArray($$new($RDNArray, dnVector->size()))));
+	$set(this, names, $cast($RDNArray, dnVector->toArray($$new($RDNArray, dnVector->size()))));
 }
 
 int32_t X500Name::countQuotes($String* string, int32_t from, int32_t to) {
 	$init(X500Name);
 	int32_t count = 0;
 	for (int32_t i = from; i < to; ++i) {
-		bool var$0 = ($nc(string)->charAt(i) == u'\"' && i == from);
+		bool var$0 = $nc(string)->charAt(i) == u'\"' && i == from;
 		if (!var$0) {
-			bool var$1 = $nc(string)->charAt(i) == u'\"';
-			var$0 = (var$1 && string->charAt(i - 1) != u'\\');
+			bool var$1 = string->charAt(i) == u'\"';
+			var$0 = var$1 && string->charAt(i - 1) != u'\\';
 		}
 		if (var$0) {
 			++count;
@@ -712,12 +584,12 @@ bool X500Name::escaped(int32_t rdnEnd, int32_t searchOffset, $String* dnString) 
 	if (rdnEnd == 1 && $nc(dnString)->charAt(rdnEnd - 1) == u'\\') {
 		return true;
 	} else {
-		bool var$1 = rdnEnd > 1 && dnString->charAt(rdnEnd - 1) == u'\\';
-		if (var$1 && dnString->charAt(rdnEnd - 2) != u'\\') {
+		bool var$0 = rdnEnd > 1 && $nc(dnString)->charAt(rdnEnd - 1) == u'\\';
+		if (var$0 && dnString->charAt(rdnEnd - 2) != u'\\') {
 			return true;
 		} else {
-			bool var$3 = rdnEnd > 1 && dnString->charAt(rdnEnd - 1) == u'\\';
-			if (var$3 && dnString->charAt(rdnEnd - 2) == u'\\') {
+			bool var$1 = rdnEnd > 1 && $nc(dnString)->charAt(rdnEnd - 1) == u'\\';
+			if (var$1 && dnString->charAt(rdnEnd - 2) == u'\\') {
 				int32_t count = 0;
 				--rdnEnd;
 				while (rdnEnd >= searchOffset) {
@@ -735,9 +607,9 @@ bool X500Name::escaped(int32_t rdnEnd, int32_t searchOffset, $String* dnString) 
 }
 
 void X500Name::generateDN() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->names)->length == 1) {
-		$set(this, dn, $nc($nc(this->names)->get(0))->toString());
+		$set(this, dn, $nc(this->names->get(0))->toString());
 		return;
 	}
 	if (this->names == nullptr) {
@@ -745,23 +617,23 @@ void X500Name::generateDN() {
 		return;
 	}
 	$var($StringJoiner, sj, $new($StringJoiner, ", "_s));
-	for (int32_t i = $nc(this->names)->length - 1; i >= 0; --i) {
-		sj->add($($nc($nc(this->names)->get(i))->toString()));
+	for (int32_t i = this->names->length - 1; i >= 0; --i) {
+		sj->add($($nc(this->names->get(i))->toString()));
 	}
 	$set(this, dn, sj->toString());
 }
 
 $String* X500Name::generateRFC1779DN($Map* oidMap) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->names)->length == 1) {
-		return $nc($nc(this->names)->get(0))->toRFC1779String(oidMap);
+		return $nc(this->names->get(0))->toRFC1779String(oidMap);
 	}
 	if (this->names == nullptr) {
 		return ""_s;
 	}
 	$var($StringJoiner, sj, $new($StringJoiner, ", "_s));
-	for (int32_t i = $nc(this->names)->length - 1; i >= 0; --i) {
-		sj->add($($nc($nc(this->names)->get(i))->toRFC1779String(oidMap)));
+	for (int32_t i = this->names->length - 1; i >= 0; --i) {
+		sj->add($($nc(this->names->get(i))->toRFC1779String(oidMap)));
 	}
 	return sj->toString();
 }
@@ -770,7 +642,7 @@ int32_t X500Name::constrains($GeneralNameInterface* inputName) {
 	int32_t constraintType = 0;
 	if (inputName == nullptr) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
-	} else if ($nc(inputName)->getType() != $GeneralNameInterface::NAME_DIRECTORY) {
+	} else if (inputName->getType() != $GeneralNameInterface::NAME_DIRECTORY) {
 		constraintType = $GeneralNameInterface::NAME_DIFF_TYPE;
 	} else {
 		$var(X500Name, inputX500, $cast(X500Name, inputName));
@@ -804,11 +676,11 @@ bool X500Name::isWithinSubtree(X500Name* other) {
 	if ($nc(this->names)->length == 0) {
 		return false;
 	}
-	if ($nc(this->names)->length < $nc($nc(other)->names)->length) {
+	if ($nc(this->names)->length < other->names->length) {
 		return false;
 	}
-	for (int32_t i = 0; i < $nc($nc(other)->names)->length; ++i) {
-		if (!$nc($nc(this->names)->get(i))->equals($nc(other->names)->get(i))) {
+	for (int32_t i = 0; i < other->names->length; ++i) {
+		if (!$nc(this->names->get(i))->equals(other->names->get(i))) {
 			return false;
 		}
 	}
@@ -820,7 +692,7 @@ int32_t X500Name::subtreeDepth() {
 }
 
 X500Name* X500Name::commonAncestor(X500Name* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (other == nullptr) {
 		return nullptr;
 	}
@@ -832,7 +704,7 @@ X500Name* X500Name::commonAncestor(X500Name* other) {
 	int32_t minLen = (thisLen < otherLen) ? thisLen : otherLen;
 	int32_t i = 0;
 	for (; i < minLen; ++i) {
-		if (!$nc($nc(this->names)->get(i))->equals($nc(other->names)->get(i))) {
+		if (!$nc($nc(this->names)->get(i))->equals(other->names->get(i))) {
 			if (i == 0) {
 				return nullptr;
 			} else {
@@ -857,7 +729,7 @@ $X500Principal* X500Name::asX500Principal() {
 	$beforeCallerSensitive();
 	if (this->x500Principal == nullptr) {
 		try {
-			$var($ObjectArray, args, $new($ObjectArray, {$of(this)}));
+			$var($ObjectArray, args, $new($ObjectArray, {this}));
 			$set(this, x500Principal, $cast($X500Principal, $nc(X500Name::principalConstructor)->newInstance(args)));
 		} catch ($Exception& e) {
 			$throwNew($RuntimeException, "Unexpected exception"_s, e);
@@ -879,8 +751,8 @@ X500Name* X500Name::asX500Name($X500Principal* p) {
 	$shouldNotReachHere();
 }
 
-void clinit$X500Name($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void X500Name::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$init($KnownOIDs);
 	$assignStatic(X500Name::commonName_oid, $ObjectIdentifier::of($KnownOIDs::CommonName));
@@ -917,7 +789,125 @@ X500Name::X500Name() {
 }
 
 $Class* X500Name::load$($String* name, bool initialize) {
-	$loadClass(X500Name, name, initialize, &_X500Name_ClassInfo_, clinit$X500Name, allocate$X500Name);
+	$FieldInfo fieldInfos$$[] = {
+		{"dn", "Ljava/lang/String;", nullptr, $PRIVATE, $field(X500Name, dn)},
+		{"rfc1779Dn", "Ljava/lang/String;", nullptr, $PRIVATE, $field(X500Name, rfc1779Dn)},
+		{"rfc2253Dn", "Ljava/lang/String;", nullptr, $PRIVATE, $field(X500Name, rfc2253Dn)},
+		{"canonicalDn", "Ljava/lang/String;", nullptr, $PRIVATE, $field(X500Name, canonicalDn)},
+		{"names", "[Lsun/security/x509/RDN;", nullptr, $PRIVATE, $field(X500Name, names)},
+		{"x500Principal", "Ljavax/security/auth/x500/X500Principal;", nullptr, $PRIVATE, $field(X500Name, x500Principal)},
+		{"encoded", "[B", nullptr, $PRIVATE, $field(X500Name, encoded)},
+		{"rdnList", "Ljava/util/List;", "Ljava/util/List<Lsun/security/x509/RDN;>;", $PRIVATE | $VOLATILE, $field(X500Name, rdnList)},
+		{"allAvaList", "Ljava/util/List;", "Ljava/util/List<Lsun/security/x509/AVA;>;", $PRIVATE | $VOLATILE, $field(X500Name, allAvaList)},
+		{"commonName_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, commonName_oid)},
+		{"SURNAME_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, SURNAME_OID)},
+		{"SERIALNUMBER_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, SERIALNUMBER_OID)},
+		{"countryName_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, countryName_oid)},
+		{"localityName_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, localityName_oid)},
+		{"stateName_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, stateName_oid)},
+		{"streetAddress_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, streetAddress_oid)},
+		{"orgName_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, orgName_oid)},
+		{"orgUnitName_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, orgUnitName_oid)},
+		{"title_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, title_oid)},
+		{"GIVENNAME_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, GIVENNAME_OID)},
+		{"INITIALS_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, INITIALS_OID)},
+		{"GENERATIONQUALIFIER_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, GENERATIONQUALIFIER_OID)},
+		{"DNQUALIFIER_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, DNQUALIFIER_OID)},
+		{"ipAddress_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, ipAddress_oid)},
+		{"DOMAIN_COMPONENT_OID", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, DOMAIN_COMPONENT_OID)},
+		{"userid_oid", "Lsun/security/util/ObjectIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(X500Name, userid_oid)},
+		{"principalConstructor", "Ljava/lang/reflect/Constructor;", "Ljava/lang/reflect/Constructor<Ljavax/security/auth/x500/X500Principal;>;", $PRIVATE | $STATIC | $FINAL, $staticField(X500Name, principalConstructor)},
+		{"principalField", "Ljava/lang/reflect/Field;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(X500Name, principalField)},
+		{}
+	};
+	$CompoundAttribute emitmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(X500Name, init$, void, $String*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC, $method(X500Name, init$, void, $String*, $Map*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(X500Name, init$, void, $String*, $String*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(X500Name, init$, void, $String*, $String*, $String*, $String*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(X500Name, init$, void, $String*, $String*, $String*, $String*, $String*, $String*), "java.io.IOException"},
+		{"<init>", "([Lsun/security/x509/RDN;)V", nullptr, $PUBLIC, $method(X500Name, init$, void, $RDNArray*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(X500Name, init$, void, $DerValue*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(X500Name, init$, void, $DerInputStream*), "java.io.IOException"},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(X500Name, init$, void, $bytes*), "java.io.IOException"},
+		{"allAvas", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/x509/AVA;>;", $PUBLIC, $virtualMethod(X500Name, allAvas, $List*)},
+		{"asX500Name", "(Ljavax/security/auth/x500/X500Principal;)Lsun/security/x509/X500Name;", nullptr, $PUBLIC | $STATIC, $staticMethod(X500Name, asX500Name, X500Name*, $X500Principal*)},
+		{"asX500Principal", "()Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC, $virtualMethod(X500Name, asX500Principal, $X500Principal*)},
+		{"avaSize", "()I", nullptr, $PUBLIC, $virtualMethod(X500Name, avaSize, int32_t)},
+		{"commonAncestor", "(Lsun/security/x509/X500Name;)Lsun/security/x509/X500Name;", nullptr, $PUBLIC, $virtualMethod(X500Name, commonAncestor, X500Name*, X500Name*)},
+		{"constrains", "(Lsun/security/x509/GeneralNameInterface;)I", nullptr, $PUBLIC, $virtualMethod(X500Name, constrains, int32_t, $GeneralNameInterface*), "java.lang.UnsupportedOperationException"},
+		{"countQuotes", "(Ljava/lang/String;II)I", nullptr, $STATIC, $staticMethod(X500Name, countQuotes, int32_t, $String*, int32_t, int32_t)},
+		{"emit", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(X500Name, emit, void, $DerOutputStream*), "java.io.IOException", nullptr, emitmethodAnnotations$$},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(X500Name, encode, void, $DerOutputStream*), "java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(X500Name, equals, bool, Object$*)},
+		{"escaped", "(IILjava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(X500Name, escaped, bool, int32_t, int32_t, $String*)},
+		{"findAttribute", "(Lsun/security/util/ObjectIdentifier;)Lsun/security/util/DerValue;", nullptr, $PRIVATE, $method(X500Name, findAttribute, $DerValue*, $ObjectIdentifier*)},
+		{"findMostSpecificAttribute", "(Lsun/security/util/ObjectIdentifier;)Lsun/security/util/DerValue;", nullptr, $PUBLIC, $virtualMethod(X500Name, findMostSpecificAttribute, $DerValue*, $ObjectIdentifier*)},
+		{"generateDN", "()V", nullptr, $PRIVATE, $method(X500Name, generateDN, void)},
+		{"generateRFC1779DN", "(Ljava/util/Map;)Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PRIVATE, $method(X500Name, generateRFC1779DN, $String*, $Map*)},
+		{"generateRFC2253DN", "(Ljava/util/Map;)Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PRIVATE, $method(X500Name, generateRFC2253DN, $String*, $Map*)},
+		{"getCommonName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getCommonName, $String*), "java.io.IOException"},
+		{"getCountry", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getCountry, $String*), "java.io.IOException"},
+		{"getDNQualifier", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getDNQualifier, $String*), "java.io.IOException"},
+		{"getDomain", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getDomain, $String*), "java.io.IOException"},
+		{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(X500Name, getEncoded, $bytes*), "java.io.IOException"},
+		{"getEncodedInternal", "()[B", nullptr, $PUBLIC, $virtualMethod(X500Name, getEncodedInternal, $bytes*), "java.io.IOException"},
+		{"getGeneration", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getGeneration, $String*), "java.io.IOException"},
+		{"getGivenName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getGivenName, $String*), "java.io.IOException"},
+		{"getIP", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getIP, $String*), "java.io.IOException"},
+		{"getInitials", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getInitials, $String*), "java.io.IOException"},
+		{"getLocality", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getLocality, $String*), "java.io.IOException"},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getName, $String*)},
+		{"getOrganization", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getOrganization, $String*), "java.io.IOException"},
+		{"getOrganizationalUnit", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getOrganizationalUnit, $String*), "java.io.IOException"},
+		{"getRFC1779Name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getRFC1779Name, $String*)},
+		{"getRFC1779Name", "(Ljava/util/Map;)Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(X500Name, getRFC1779Name, $String*, $Map*), "java.lang.IllegalArgumentException"},
+		{"getRFC2253CanonicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getRFC2253CanonicalName, $String*)},
+		{"getRFC2253Name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getRFC2253Name, $String*)},
+		{"getRFC2253Name", "(Ljava/util/Map;)Ljava/lang/String;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(X500Name, getRFC2253Name, $String*, $Map*)},
+		{"getState", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getState, $String*), "java.io.IOException"},
+		{"getString", "(Lsun/security/util/DerValue;)Ljava/lang/String;", nullptr, $PRIVATE, $method(X500Name, getString, $String*, $DerValue*), "java.io.IOException"},
+		{"getSurname", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, getSurname, $String*), "java.io.IOException"},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(X500Name, getType, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(X500Name, hashCode, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(X500Name, isEmpty, bool)},
+		{"isWithinSubtree", "(Lsun/security/x509/X500Name;)Z", nullptr, $PRIVATE, $method(X500Name, isWithinSubtree, bool, X500Name*)},
+		{"parseDER", "(Lsun/security/util/DerInputStream;)V", nullptr, $PRIVATE, $method(X500Name, parseDER, void, $DerInputStream*), "java.io.IOException"},
+		{"parseDN", "(Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(X500Name, parseDN, void, $String*, $Map*), "java.io.IOException"},
+		{"parseRFC2253DN", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(X500Name, parseRFC2253DN, void, $String*), "java.io.IOException"},
+		{"rdns", "()Ljava/util/List;", "()Ljava/util/List<Lsun/security/x509/RDN;>;", $PUBLIC, $virtualMethod(X500Name, rdns, $List*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(X500Name, size, int32_t)},
+		{"subtreeDepth", "()I", nullptr, $PUBLIC, $virtualMethod(X500Name, subtreeDepth, int32_t), "java.lang.UnsupportedOperationException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X500Name, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.x509.X500Name$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.X500Name",
+		"java.lang.Object",
+		"sun.security.x509.GeneralNameInterface,java.security.Principal",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.x509.X500Name$1"
+	};
+	$loadClass(X500Name, name, initialize, &classInfo$$, X500Name::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(X500Name));
+	});
 	return class$;
 }
 

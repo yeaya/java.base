@@ -1,5 +1,4 @@
 #include <SwapMicroBenchmark$Job.h>
-
 #include <SwapMicroBenchmark.h>
 #include <jcpp.h>
 
@@ -7,43 +6,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _SwapMicroBenchmark$Job_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SwapMicroBenchmark$Job, name$)},
-	{}
-};
-
-$MethodInfo _SwapMicroBenchmark$Job_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SwapMicroBenchmark$Job, init$, void, $String*)},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SwapMicroBenchmark$Job, name, $String*)},
-	{"work", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SwapMicroBenchmark$Job, work, void), "java.lang.Throwable"},
-	{}
-};
-
-$InnerClassInfo _SwapMicroBenchmark$Job_InnerClassesInfo_[] = {
-	{"SwapMicroBenchmark$Job", "SwapMicroBenchmark", "Job", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SwapMicroBenchmark$Job_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"SwapMicroBenchmark$Job",
-	"java.lang.Object",
-	nullptr,
-	_SwapMicroBenchmark$Job_FieldInfo_,
-	_SwapMicroBenchmark$Job_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SwapMicroBenchmark$Job_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"SwapMicroBenchmark"
-};
-
-$Object* allocate$SwapMicroBenchmark$Job($Class* clazz) {
-	return $of($alloc(SwapMicroBenchmark$Job));
-}
 
 void SwapMicroBenchmark$Job::init$($String* name) {
 	$set(this, name$, name);
@@ -57,7 +19,38 @@ SwapMicroBenchmark$Job::SwapMicroBenchmark$Job() {
 }
 
 $Class* SwapMicroBenchmark$Job::load$($String* name, bool initialize) {
-	$loadClass(SwapMicroBenchmark$Job, name, initialize, &_SwapMicroBenchmark$Job_ClassInfo_, allocate$SwapMicroBenchmark$Job);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SwapMicroBenchmark$Job, name$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SwapMicroBenchmark$Job, init$, void, $String*)},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SwapMicroBenchmark$Job, name, $String*)},
+		{"work", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SwapMicroBenchmark$Job, work, void), "java.lang.Throwable"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"SwapMicroBenchmark$Job", "SwapMicroBenchmark", "Job", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"SwapMicroBenchmark$Job",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"SwapMicroBenchmark"
+	};
+	$loadClass(SwapMicroBenchmark$Job, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SwapMicroBenchmark$Job);
+	});
 	return class$;
 }
 

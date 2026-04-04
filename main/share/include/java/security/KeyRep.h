@@ -24,9 +24,10 @@ class $import KeyRep : public ::java::io::Serializable {
 	$class(KeyRep, 0, ::java::io::Serializable)
 public:
 	KeyRep();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::KeyRep$Type* type, $String* algorithm, $String* format, $bytes* encoded);
 	virtual $Object* readResolve();
-	static const int64_t serialVersionUID = (int64_t)0xBDF94FB3889AA543;
+	static const int64_t serialVersionUID = (int64_t)0xbdf94fb3889aa543;
 	static $String* PKCS8;
 	static $String* X509;
 	static $String* RAW;

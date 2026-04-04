@@ -1,5 +1,4 @@
 #include <java/lang/invoke/MethodHandleImpl$1.h>
-
 #include <java/lang/invoke/GenerateJLIClassesHelper.h>
 #include <java/lang/invoke/MemberName.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -36,58 +35,6 @@ using $NativeEntryPoint = ::jdk::internal::invoke::NativeEntryPoint;
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$MethodInfo _MethodHandleImpl$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MethodHandleImpl$1, init$, void)},
-	{"collectCoordinates", "(Ljava/lang/invoke/VarHandle;ILjava/lang/invoke/MethodHandle;)Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$1, collectCoordinates, $VarHandle*, $VarHandle*, int32_t, $MethodHandle*)},
-	{"dropCoordinates", "(Ljava/lang/invoke/VarHandle;I[Ljava/lang/Class;)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/invoke/VarHandle;I[Ljava/lang/Class<*>;)Ljava/lang/invoke/VarHandle;", $PUBLIC | $TRANSIENT, $virtualMethod(MethodHandleImpl$1, dropCoordinates, $VarHandle*, $VarHandle*, int32_t, $ClassArray*)},
-	{"ensureCustomized", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$1, ensureCustomized, void, $MethodHandle*)},
-	{"filterCoordinates", "(Ljava/lang/invoke/VarHandle;I[Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(MethodHandleImpl$1, filterCoordinates, $VarHandle*, $VarHandle*, int32_t, $MethodHandleArray*)},
-	{"filterValue", "(Ljava/lang/invoke/VarHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$1, filterValue, $VarHandle*, $VarHandle*, $MethodHandle*, $MethodHandle*)},
-	{"generateHolderClasses", "(Ljava/util/stream/Stream;)Ljava/util/Map;", "(Ljava/util/stream/Stream<Ljava/lang/String;>;)Ljava/util/Map<Ljava/lang/String;[B>;", $PUBLIC, $virtualMethod(MethodHandleImpl$1, generateHolderClasses, $Map*, $Stream*)},
-	{"getDeclaringClass", "(Ljava/lang/Object;)Ljava/lang/Class;", "(Ljava/lang/Object;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(MethodHandleImpl$1, getDeclaringClass, $Class*, Object$*)},
-	{"getMethodDescriptor", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$1, getMethodDescriptor, $String*, Object$*)},
-	{"getMethodType", "(Ljava/lang/Object;)Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$1, getMethodType, $MethodType*, Object$*)},
-	{"getName", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$1, getName, $String*, Object$*)},
-	{"insertCoordinates", "(Ljava/lang/invoke/VarHandle;I[Ljava/lang/Object;)Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(MethodHandleImpl$1, insertCoordinates, $VarHandle*, $VarHandle*, int32_t, $ObjectArray*)},
-	{"isNative", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$1, isNative, bool, Object$*)},
-	{"memoryAccessVarHandle", "(Ljava/lang/Class;ZJLjava/nio/ByteOrder;)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/Class<*>;ZJLjava/nio/ByteOrder;)Ljava/lang/invoke/VarHandle;", $PUBLIC, $virtualMethod(MethodHandleImpl$1, memoryAccessVarHandle, $VarHandle*, $Class*, bool, int64_t, $ByteOrder*)},
-	{"nativeMethodHandle", "(Ljdk/internal/invoke/NativeEntryPoint;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$1, nativeMethodHandle, $MethodHandle*, $NativeEntryPoint*, $MethodHandle*)},
-	{"newMemberName", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$1, newMemberName, $Object*)},
-	{"permuteCoordinates", "(Ljava/lang/invoke/VarHandle;Ljava/util/List;[I)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/invoke/VarHandle;Ljava/util/List<Ljava/lang/Class<*>;>;[I)Ljava/lang/invoke/VarHandle;", $PUBLIC | $TRANSIENT, $virtualMethod(MethodHandleImpl$1, permuteCoordinates, $VarHandle*, $VarHandle*, $List*, $ints*)},
-	{}
-};
-
-$EnclosingMethodInfo _MethodHandleImpl$1_EnclosingMethodInfo_ = {
-	"java.lang.invoke.MethodHandleImpl",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _MethodHandleImpl$1_InnerClassesInfo_[] = {
-	{"java.lang.invoke.MethodHandleImpl$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MethodHandleImpl$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.MethodHandleImpl$1",
-	"java.lang.Object",
-	"jdk.internal.access.JavaLangInvokeAccess",
-	nullptr,
-	_MethodHandleImpl$1_MethodInfo_,
-	nullptr,
-	&_MethodHandleImpl$1_EnclosingMethodInfo_,
-	_MethodHandleImpl$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.MethodHandleImpl"
-};
-
-$Object* allocate$MethodHandleImpl$1($Class* clazz) {
-	return $of($alloc(MethodHandleImpl$1));
-}
 
 void MethodHandleImpl$1::init$() {
 }
@@ -165,7 +112,53 @@ MethodHandleImpl$1::MethodHandleImpl$1() {
 }
 
 $Class* MethodHandleImpl$1::load$($String* name, bool initialize) {
-	$loadClass(MethodHandleImpl$1, name, initialize, &_MethodHandleImpl$1_ClassInfo_, allocate$MethodHandleImpl$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MethodHandleImpl$1, init$, void)},
+		{"collectCoordinates", "(Ljava/lang/invoke/VarHandle;ILjava/lang/invoke/MethodHandle;)Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$1, collectCoordinates, $VarHandle*, $VarHandle*, int32_t, $MethodHandle*)},
+		{"dropCoordinates", "(Ljava/lang/invoke/VarHandle;I[Ljava/lang/Class;)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/invoke/VarHandle;I[Ljava/lang/Class<*>;)Ljava/lang/invoke/VarHandle;", $PUBLIC | $TRANSIENT, $virtualMethod(MethodHandleImpl$1, dropCoordinates, $VarHandle*, $VarHandle*, int32_t, $ClassArray*)},
+		{"ensureCustomized", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$1, ensureCustomized, void, $MethodHandle*)},
+		{"filterCoordinates", "(Ljava/lang/invoke/VarHandle;I[Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(MethodHandleImpl$1, filterCoordinates, $VarHandle*, $VarHandle*, int32_t, $MethodHandleArray*)},
+		{"filterValue", "(Ljava/lang/invoke/VarHandle;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$1, filterValue, $VarHandle*, $VarHandle*, $MethodHandle*, $MethodHandle*)},
+		{"generateHolderClasses", "(Ljava/util/stream/Stream;)Ljava/util/Map;", "(Ljava/util/stream/Stream<Ljava/lang/String;>;)Ljava/util/Map<Ljava/lang/String;[B>;", $PUBLIC, $virtualMethod(MethodHandleImpl$1, generateHolderClasses, $Map*, $Stream*)},
+		{"getDeclaringClass", "(Ljava/lang/Object;)Ljava/lang/Class;", "(Ljava/lang/Object;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(MethodHandleImpl$1, getDeclaringClass, $Class*, Object$*)},
+		{"getMethodDescriptor", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$1, getMethodDescriptor, $String*, Object$*)},
+		{"getMethodType", "(Ljava/lang/Object;)Ljava/lang/invoke/MethodType;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$1, getMethodType, $MethodType*, Object$*)},
+		{"getName", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$1, getName, $String*, Object$*)},
+		{"insertCoordinates", "(Ljava/lang/invoke/VarHandle;I[Ljava/lang/Object;)Ljava/lang/invoke/VarHandle;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(MethodHandleImpl$1, insertCoordinates, $VarHandle*, $VarHandle*, int32_t, $ObjectArray*)},
+		{"isNative", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$1, isNative, bool, Object$*)},
+		{"memoryAccessVarHandle", "(Ljava/lang/Class;ZJLjava/nio/ByteOrder;)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/Class<*>;ZJLjava/nio/ByteOrder;)Ljava/lang/invoke/VarHandle;", $PUBLIC, $virtualMethod(MethodHandleImpl$1, memoryAccessVarHandle, $VarHandle*, $Class*, bool, int64_t, $ByteOrder*)},
+		{"nativeMethodHandle", "(Ljdk/internal/invoke/NativeEntryPoint;Ljava/lang/invoke/MethodHandle;)Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$1, nativeMethodHandle, $MethodHandle*, $NativeEntryPoint*, $MethodHandle*)},
+		{"newMemberName", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MethodHandleImpl$1, newMemberName, $Object*)},
+		{"permuteCoordinates", "(Ljava/lang/invoke/VarHandle;Ljava/util/List;[I)Ljava/lang/invoke/VarHandle;", "(Ljava/lang/invoke/VarHandle;Ljava/util/List<Ljava/lang/Class<*>;>;[I)Ljava/lang/invoke/VarHandle;", $PUBLIC | $TRANSIENT, $virtualMethod(MethodHandleImpl$1, permuteCoordinates, $VarHandle*, $VarHandle*, $List*, $ints*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.invoke.MethodHandleImpl",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.MethodHandleImpl$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.MethodHandleImpl$1",
+		"java.lang.Object",
+		"jdk.internal.access.JavaLangInvokeAccess",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.MethodHandleImpl"
+	};
+	$loadClass(MethodHandleImpl$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodHandleImpl$1);
+	});
 	return class$;
 }
 

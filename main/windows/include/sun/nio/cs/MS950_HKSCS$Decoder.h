@@ -30,6 +30,7 @@ class $import MS950_HKSCS$Decoder : public ::sun::nio::cs::HKSCS$Decoder {
 public:
 	MS950_HKSCS$Decoder();
 	using ::sun::nio::cs::HKSCS$Decoder::decode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	static ::sun::nio::cs::DoubleByte$Decoder* ms950;
 	static $Array<char16_t, 2>* b2cBmp;

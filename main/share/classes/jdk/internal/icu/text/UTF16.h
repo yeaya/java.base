@@ -76,19 +76,19 @@ public:
 	static $String* toString(int32_t ch);
 	static $String* valueOf(int32_t char32);
 	static const int32_t CODEPOINT_MIN_VALUE = 0;
-	static const int32_t CODEPOINT_MAX_VALUE = 0x0010FFFF;
+	static const int32_t CODEPOINT_MAX_VALUE = 0x0010ffff;
 	static const int32_t SUPPLEMENTARY_MIN_VALUE = 0x00010000;
-	static const int32_t LEAD_SURROGATE_MIN_VALUE = 0x0000D800;
-	static const int32_t TRAIL_SURROGATE_MIN_VALUE = 0x0000DC00;
-	static const int32_t LEAD_SURROGATE_MAX_VALUE = 0x0000DBFF;
-	static const int32_t TRAIL_SURROGATE_MAX_VALUE = 0x0000DFFF;
+	static const int32_t LEAD_SURROGATE_MIN_VALUE = 0x0000d800;
+	static const int32_t TRAIL_SURROGATE_MIN_VALUE = 0x0000dc00;
+	static const int32_t LEAD_SURROGATE_MAX_VALUE = 0x0000dbff;
+	static const int32_t TRAIL_SURROGATE_MAX_VALUE = 0x0000dfff;
 	static const int32_t SURROGATE_MIN_VALUE = LEAD_SURROGATE_MIN_VALUE;
 	static const int32_t LEAD_SURROGATE_BITMASK = (-1024);
 	static const int32_t TRAIL_SURROGATE_BITMASK = (-1024);
 	static const int32_t SURROGATE_BITMASK = (-2048);
-	static const int32_t LEAD_SURROGATE_BITS = 0x0000D800;
-	static const int32_t TRAIL_SURROGATE_BITS = 0x0000DC00;
-	static const int32_t SURROGATE_BITS = 0x0000D800;
+	static const int32_t LEAD_SURROGATE_BITS = 0x0000d800;
+	static const int32_t TRAIL_SURROGATE_BITS = 0x0000dc00;
+	static const int32_t SURROGATE_BITS = 0x0000d800;
 	static const int32_t LEAD_SURROGATE_SHIFT_ = 10;
 	static const int32_t TRAIL_SURROGATE_MASK_ = 1023;
 	static const int32_t LEAD_SURROGATE_OFFSET_ = 55232; // LEAD_SURROGATE_MIN_VALUE - (SUPPLEMENTARY_MIN_VALUE >> LEAD_SURROGATE_SHIFT_)

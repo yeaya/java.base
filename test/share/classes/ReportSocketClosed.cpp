@@ -1,5 +1,4 @@
 #include <ReportSocketClosed.h>
-
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
@@ -14,36 +13,17 @@ using $DatagramSocket = ::java::net::DatagramSocket;
 using $InetAddress = ::java::net::InetAddress;
 using $SocketException = ::java::net::SocketException;
 
-$MethodInfo _ReportSocketClosed_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ReportSocketClosed, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReportSocketClosed, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ReportSocketClosed_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ReportSocketClosed",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ReportSocketClosed_MethodInfo_
-};
-
-$Object* allocate$ReportSocketClosed($Class* clazz) {
-	return $of($alloc(ReportSocketClosed));
-}
-
 void ReportSocketClosed::init$() {
 }
 
 void ReportSocketClosed::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DatagramSocket, soc, nullptr);
 	$var($InetAddress, sin, nullptr);
 	$var($bytes, array, $new($bytes, {
-		(int8_t)21,
-		(int8_t)22,
-		(int8_t)23
+		21,
+		22,
+		23
 	}));
 	try {
 		$assign(soc, $new($DatagramSocket, 0));
@@ -67,7 +47,22 @@ ReportSocketClosed::ReportSocketClosed() {
 }
 
 $Class* ReportSocketClosed::load$($String* name, bool initialize) {
-	$loadClass(ReportSocketClosed, name, initialize, &_ReportSocketClosed_ClassInfo_, allocate$ReportSocketClosed);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ReportSocketClosed, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ReportSocketClosed, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ReportSocketClosed",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ReportSocketClosed, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReportSocketClosed);
+	});
 	return class$;
 }
 

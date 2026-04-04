@@ -1,5 +1,4 @@
 #include <java/lang/Appendable.h>
-
 #include <java/lang/CharSequence.h>
 #include <jcpp.h>
 
@@ -10,28 +9,24 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace lang {
 
-$MethodInfo _Appendable_MethodInfo_[] = {
-	{"append", "(Ljava/lang/CharSequence;)Ljava/lang/Appendable;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Appendable, append, Appendable*, $CharSequence*), "java.io.IOException"},
-	{"append", "(Ljava/lang/CharSequence;II)Ljava/lang/Appendable;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Appendable, append, Appendable*, $CharSequence*, int32_t, int32_t), "java.io.IOException"},
-	{"append", "(C)Ljava/lang/Appendable;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Appendable, append, Appendable*, char16_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _Appendable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.lang.Appendable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Appendable_MethodInfo_
-};
-
-$Object* allocate$Appendable($Class* clazz) {
-	return $of($alloc(Appendable));
-}
-
 $Class* Appendable::load$($String* name, bool initialize) {
-	$loadClass(Appendable, name, initialize, &_Appendable_ClassInfo_, allocate$Appendable);
+	$MethodInfo methodInfos$$[] = {
+		{"append", "(Ljava/lang/CharSequence;)Ljava/lang/Appendable;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Appendable, append, Appendable*, $CharSequence*), "java.io.IOException"},
+		{"append", "(Ljava/lang/CharSequence;II)Ljava/lang/Appendable;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Appendable, append, Appendable*, $CharSequence*, int32_t, int32_t), "java.io.IOException"},
+		{"append", "(C)Ljava/lang/Appendable;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Appendable, append, Appendable*, char16_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.lang.Appendable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Appendable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Appendable);
+	});
 	return class$;
 }
 

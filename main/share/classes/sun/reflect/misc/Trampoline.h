@@ -21,6 +21,7 @@ class Trampoline : public ::java::lang::Object {
 	$class(Trampoline, 0, ::java::lang::Object)
 public:
 	Trampoline();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void ensureInvocableMethod(::java::lang::reflect::Method* m);
 	static $Object* invoke(::java::lang::reflect::Method* m, Object$* obj, $ObjectArray* params);

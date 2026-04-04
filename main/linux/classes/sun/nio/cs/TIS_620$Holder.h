@@ -13,6 +13,7 @@ class TIS_620$Holder : public ::java::lang::Object {
 	$class(TIS_620$Holder, 0, ::java::lang::Object)
 public:
 	TIS_620$Holder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* b2cTable;
 	static $chars* b2c;

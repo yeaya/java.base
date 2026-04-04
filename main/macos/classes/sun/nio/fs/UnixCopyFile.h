@@ -31,6 +31,7 @@ class UnixCopyFile : public ::java::lang::Object {
 	$class(UnixCopyFile, 0, ::java::lang::Object)
 public:
 	UnixCopyFile();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void copy(::sun::nio::fs::UnixPath* source, ::sun::nio::fs::UnixPath* target, $Array<::java::nio::file::CopyOption>* options);
 	static void copyDirectory(::sun::nio::fs::UnixPath* source, ::sun::nio::fs::UnixFileAttributes* attrs, ::sun::nio::fs::UnixPath* target, ::sun::nio::fs::UnixCopyFile$Flags* flags);

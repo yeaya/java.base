@@ -1,5 +1,4 @@
 #include <Bash.h>
-
 #include <Bash$TestReference.h>
 #include <jcpp.h>
 
@@ -7,53 +6,16 @@
 #undef NUM_BLOCKS
 
 using $Bash$TestReference = ::Bash$TestReference;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$FieldInfo _Bash_FieldInfo_[] = {
-	{"NUM_BLOCKS", "I", nullptr, $STATIC | $FINAL, $constField(Bash, NUM_BLOCKS)},
-	{"BLOCK_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(Bash, BLOCK_SIZE)},
-	{}
-};
-
-$MethodInfo _Bash_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Bash, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bash, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _Bash_InnerClassesInfo_[] = {
-	{"Bash$TestReference", "Bash", "TestReference", $STATIC},
-	{}
-};
-
-$ClassInfo _Bash_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Bash",
-	"java.lang.Object",
-	nullptr,
-	_Bash_FieldInfo_,
-	_Bash_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Bash_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"Bash$TestReference"
-};
-
-$Object* allocate$Bash($Class* clazz) {
-	return $of($alloc(Bash));
-}
-
 void Bash::init$() {
 }
 
 void Bash::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < Bash::NUM_BLOCKS; ++i) {
 		$var($Bash$TestReference, ref, $new($Bash$TestReference, $$new($bytes, Bash::BLOCK_SIZE)));
 	}
@@ -62,7 +24,7 @@ void Bash::main($StringArray* args) {
 	{
 		$init($Bash$TestReference);
 		$var($Bash$TestReference, r, $Bash$TestReference::head);
-		for (; r != nullptr; $assign(r, $nc(r)->next)) {
+		for (; r != nullptr; $assign(r, r->next)) {
 			if (r->get() == nullptr) {
 				++emptyCount;
 			} else {
@@ -77,7 +39,37 @@ Bash::Bash() {
 }
 
 $Class* Bash::load$($String* name, bool initialize) {
-	$loadClass(Bash, name, initialize, &_Bash_ClassInfo_, allocate$Bash);
+	$FieldInfo fieldInfos$$[] = {
+		{"NUM_BLOCKS", "I", nullptr, $STATIC | $FINAL, $constField(Bash, NUM_BLOCKS)},
+		{"BLOCK_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(Bash, BLOCK_SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Bash, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bash, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Bash$TestReference", "Bash", "TestReference", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Bash",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"Bash$TestReference"
+	};
+	$loadClass(Bash, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Bash);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/ResourceBundle$CacheKeyReference.h>
-
 #include <java/util/ResourceBundle$CacheKey.h>
 #include <java/util/ResourceBundle.h>
 #include <jcpp.h>
@@ -12,38 +11,33 @@ using $ResourceBundle$CacheKey = ::java::util::ResourceBundle$CacheKey;
 namespace java {
 	namespace util {
 
-$MethodInfo _ResourceBundle$CacheKeyReference_MethodInfo_[] = {
-	{"getCacheKey", "()Ljava/util/ResourceBundle$CacheKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResourceBundle$CacheKeyReference, getCacheKey, $ResourceBundle$CacheKey*)},
-	{}
-};
-
-$InnerClassInfo _ResourceBundle$CacheKeyReference_InnerClassesInfo_[] = {
-	{"java.util.ResourceBundle$CacheKeyReference", "java.util.ResourceBundle", "CacheKeyReference", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ResourceBundle$CacheKeyReference_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"java.util.ResourceBundle$CacheKeyReference",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ResourceBundle$CacheKeyReference_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ResourceBundle$CacheKeyReference_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.ResourceBundle"
-};
-
-$Object* allocate$ResourceBundle$CacheKeyReference($Class* clazz) {
-	return $of($alloc(ResourceBundle$CacheKeyReference));
-}
-
 $Class* ResourceBundle$CacheKeyReference::load$($String* name, bool initialize) {
-	$loadClass(ResourceBundle$CacheKeyReference, name, initialize, &_ResourceBundle$CacheKeyReference_ClassInfo_, allocate$ResourceBundle$CacheKeyReference);
+	$MethodInfo methodInfos$$[] = {
+		{"getCacheKey", "()Ljava/util/ResourceBundle$CacheKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResourceBundle$CacheKeyReference, getCacheKey, $ResourceBundle$CacheKey*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ResourceBundle$CacheKeyReference", "java.util.ResourceBundle", "CacheKeyReference", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"java.util.ResourceBundle$CacheKeyReference",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.ResourceBundle"
+	};
+	$loadClass(ResourceBundle$CacheKeyReference, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourceBundle$CacheKeyReference);
+	});
 	return class$;
 }
 

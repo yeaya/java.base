@@ -18,6 +18,7 @@ class Byte$ByteCache : public ::java::lang::Object {
 	$class(Byte$ByteCache, 0, ::java::lang::Object)
 public:
 	Byte$ByteCache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Array<::java::lang::Byte>* cache;
 	static $Array<::java::lang::Byte>* archivedCache;

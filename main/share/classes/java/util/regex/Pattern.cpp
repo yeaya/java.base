@@ -1,5 +1,4 @@
 #include <java/util/regex/Pattern.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
@@ -150,7 +149,6 @@ using $Arrays = ::java::util::Arrays;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
-using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
@@ -234,33 +232,29 @@ public:
 	virtual void accept(Object$* s) override {
 		Pattern::lambda$normalizeSlice$0(dst, $cast($String, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Pattern$$Lambda$lambda$normalizeSlice$0>());
-	}
 	$StringBuilder* dst = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Pattern$$Lambda$lambda$normalizeSlice$0::fieldInfos[2] = {
-	{"dst", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(Pattern$$Lambda$lambda$normalizeSlice$0, dst)},
-	{}
-};
-$MethodInfo Pattern$$Lambda$lambda$normalizeSlice$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$normalizeSlice$0, init$, void, $StringBuilder*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$normalizeSlice$0, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Pattern$$Lambda$lambda$normalizeSlice$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.regex.Pattern$$Lambda$lambda$normalizeSlice$0",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Pattern$$Lambda$lambda$normalizeSlice$0::load$($String* name, bool initialize) {
-	$loadClass(Pattern$$Lambda$lambda$normalizeSlice$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"dst", "Ljava/lang/StringBuilder;", nullptr, $PUBLIC, $field(Pattern$$Lambda$lambda$normalizeSlice$0, dst)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/StringBuilder;)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$normalizeSlice$0, init$, void, $StringBuilder*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$normalizeSlice$0, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.regex.Pattern$$Lambda$lambda$normalizeSlice$0",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Pattern$$Lambda$lambda$normalizeSlice$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$$Lambda$lambda$normalizeSlice$0);
+	});
 	return class$;
 }
 $Class* Pattern$$Lambda$lambda$normalizeSlice$0::class$ = nullptr;
@@ -273,27 +267,24 @@ public:
 	virtual bool is(int32_t cp) override {
 		 return Pattern::lambda$VertWS$1(cp);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Pattern$$Lambda$lambda$VertWS$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Pattern$$Lambda$lambda$VertWS$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$VertWS$1$1, init$, void)},
-	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$VertWS$1$1, is, bool, int32_t)},
-	{}
-};
-$ClassInfo Pattern$$Lambda$lambda$VertWS$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.regex.Pattern$$Lambda$lambda$VertWS$1$1",
-	"java.lang.Object",
-	"java.util.regex.Pattern$BmpCharPredicate",
-	nullptr,
-	methodInfos
 };
 $Class* Pattern$$Lambda$lambda$VertWS$1$1::load$($String* name, bool initialize) {
-	$loadClass(Pattern$$Lambda$lambda$VertWS$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$VertWS$1$1, init$, void)},
+		{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$VertWS$1$1, is, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.regex.Pattern$$Lambda$lambda$VertWS$1$1",
+		"java.lang.Object",
+		"java.util.regex.Pattern$BmpCharPredicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Pattern$$Lambda$lambda$VertWS$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$$Lambda$lambda$VertWS$1$1);
+	});
 	return class$;
 }
 $Class* Pattern$$Lambda$lambda$VertWS$1$1::class$ = nullptr;
@@ -306,27 +297,24 @@ public:
 	virtual bool is(int32_t cp) override {
 		 return Pattern::lambda$HorizWS$2(cp);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Pattern$$Lambda$lambda$HorizWS$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Pattern$$Lambda$lambda$HorizWS$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$HorizWS$2$2, init$, void)},
-	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$HorizWS$2$2, is, bool, int32_t)},
-	{}
-};
-$ClassInfo Pattern$$Lambda$lambda$HorizWS$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.regex.Pattern$$Lambda$lambda$HorizWS$2$2",
-	"java.lang.Object",
-	"java.util.regex.Pattern$BmpCharPredicate",
-	nullptr,
-	methodInfos
 };
 $Class* Pattern$$Lambda$lambda$HorizWS$2$2::load$($String* name, bool initialize) {
-	$loadClass(Pattern$$Lambda$lambda$HorizWS$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$HorizWS$2$2, init$, void)},
+		{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$HorizWS$2$2, is, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.regex.Pattern$$Lambda$lambda$HorizWS$2$2",
+		"java.lang.Object",
+		"java.util.regex.Pattern$BmpCharPredicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Pattern$$Lambda$lambda$HorizWS$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$$Lambda$lambda$HorizWS$2$2);
+	});
 	return class$;
 }
 $Class* Pattern$$Lambda$lambda$HorizWS$2$2::class$ = nullptr;
@@ -339,27 +327,24 @@ public:
 	virtual bool is(int32_t ch) override {
 		 return Pattern::lambda$ALL$3(ch);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Pattern$$Lambda$lambda$ALL$3$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Pattern$$Lambda$lambda$ALL$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$ALL$3$3, init$, void)},
-	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$ALL$3$3, is, bool, int32_t)},
-	{}
-};
-$ClassInfo Pattern$$Lambda$lambda$ALL$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.regex.Pattern$$Lambda$lambda$ALL$3$3",
-	"java.lang.Object",
-	"java.util.regex.Pattern$CharPredicate",
-	nullptr,
-	methodInfos
 };
 $Class* Pattern$$Lambda$lambda$ALL$3$3::load$($String* name, bool initialize) {
-	$loadClass(Pattern$$Lambda$lambda$ALL$3$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$ALL$3$3, init$, void)},
+		{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$ALL$3$3, is, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.regex.Pattern$$Lambda$lambda$ALL$3$3",
+		"java.lang.Object",
+		"java.util.regex.Pattern$CharPredicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Pattern$$Lambda$lambda$ALL$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$$Lambda$lambda$ALL$3$3);
+	});
 	return class$;
 }
 $Class* Pattern$$Lambda$lambda$ALL$3$3::class$ = nullptr;
@@ -372,27 +357,24 @@ public:
 	virtual bool is(int32_t ch) override {
 		 return Pattern::lambda$DOT$4(ch);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Pattern$$Lambda$lambda$DOT$4$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Pattern$$Lambda$lambda$DOT$4$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$DOT$4$4, init$, void)},
-	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$DOT$4$4, is, bool, int32_t)},
-	{}
-};
-$ClassInfo Pattern$$Lambda$lambda$DOT$4$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.regex.Pattern$$Lambda$lambda$DOT$4$4",
-	"java.lang.Object",
-	"java.util.regex.Pattern$CharPredicate",
-	nullptr,
-	methodInfos
 };
 $Class* Pattern$$Lambda$lambda$DOT$4$4::load$($String* name, bool initialize) {
-	$loadClass(Pattern$$Lambda$lambda$DOT$4$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$DOT$4$4, init$, void)},
+		{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$DOT$4$4, is, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.regex.Pattern$$Lambda$lambda$DOT$4$4",
+		"java.lang.Object",
+		"java.util.regex.Pattern$CharPredicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Pattern$$Lambda$lambda$DOT$4$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$$Lambda$lambda$DOT$4$4);
+	});
 	return class$;
 }
 $Class* Pattern$$Lambda$lambda$DOT$4$4::class$ = nullptr;
@@ -405,27 +387,24 @@ public:
 	virtual bool is(int32_t ch) override {
 		 return Pattern::lambda$UNIXDOT$5(ch);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Pattern$$Lambda$lambda$UNIXDOT$5$5>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Pattern$$Lambda$lambda$UNIXDOT$5$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$UNIXDOT$5$5, init$, void)},
-	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$UNIXDOT$5$5, is, bool, int32_t)},
-	{}
-};
-$ClassInfo Pattern$$Lambda$lambda$UNIXDOT$5$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.regex.Pattern$$Lambda$lambda$UNIXDOT$5$5",
-	"java.lang.Object",
-	"java.util.regex.Pattern$CharPredicate",
-	nullptr,
-	methodInfos
 };
 $Class* Pattern$$Lambda$lambda$UNIXDOT$5$5::load$($String* name, bool initialize) {
-	$loadClass(Pattern$$Lambda$lambda$UNIXDOT$5$5, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$UNIXDOT$5$5, init$, void)},
+		{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$UNIXDOT$5$5, is, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.regex.Pattern$$Lambda$lambda$UNIXDOT$5$5",
+		"java.lang.Object",
+		"java.util.regex.Pattern$CharPredicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Pattern$$Lambda$lambda$UNIXDOT$5$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$$Lambda$lambda$UNIXDOT$5$5);
+	});
 	return class$;
 }
 $Class* Pattern$$Lambda$lambda$UNIXDOT$5$5::class$ = nullptr;
@@ -439,33 +418,29 @@ public:
 	virtual bool is(int32_t ch) override {
 		 return Pattern::lambda$SingleS$6(c, ch);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Pattern$$Lambda$lambda$SingleS$6$6>());
-	}
 	int32_t c = 0;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Pattern$$Lambda$lambda$SingleS$6$6::fieldInfos[2] = {
-	{"c", "I", nullptr, $PUBLIC, $field(Pattern$$Lambda$lambda$SingleS$6$6, c)},
-	{}
-};
-$MethodInfo Pattern$$Lambda$lambda$SingleS$6$6::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$SingleS$6$6, init$, void, int32_t)},
-	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$SingleS$6$6, is, bool, int32_t)},
-	{}
-};
-$ClassInfo Pattern$$Lambda$lambda$SingleS$6$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.regex.Pattern$$Lambda$lambda$SingleS$6$6",
-	"java.lang.Object",
-	"java.util.regex.Pattern$BmpCharPredicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Pattern$$Lambda$lambda$SingleS$6$6::load$($String* name, bool initialize) {
-	$loadClass(Pattern$$Lambda$lambda$SingleS$6$6, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"c", "I", nullptr, $PUBLIC, $field(Pattern$$Lambda$lambda$SingleS$6$6, c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$SingleS$6$6, init$, void, int32_t)},
+		{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$SingleS$6$6, is, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.regex.Pattern$$Lambda$lambda$SingleS$6$6",
+		"java.lang.Object",
+		"java.util.regex.Pattern$BmpCharPredicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Pattern$$Lambda$lambda$SingleS$6$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$$Lambda$lambda$SingleS$6$6);
+	});
 	return class$;
 }
 $Class* Pattern$$Lambda$lambda$SingleS$6$6::class$ = nullptr;
@@ -480,35 +455,31 @@ public:
 	virtual bool is(int32_t ch) override {
 		 return Pattern::lambda$SingleI$8(lower, upper, ch);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Pattern$$Lambda$lambda$SingleI$8$7>());
-	}
 	int32_t lower = 0;
 	int32_t upper = 0;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Pattern$$Lambda$lambda$SingleI$8$7::fieldInfos[3] = {
-	{"lower", "I", nullptr, $PUBLIC, $field(Pattern$$Lambda$lambda$SingleI$8$7, lower)},
-	{"upper", "I", nullptr, $PUBLIC, $field(Pattern$$Lambda$lambda$SingleI$8$7, upper)},
-	{}
-};
-$MethodInfo Pattern$$Lambda$lambda$SingleI$8$7::methodInfos[3] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$SingleI$8$7, init$, void, int32_t, int32_t)},
-	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$SingleI$8$7, is, bool, int32_t)},
-	{}
-};
-$ClassInfo Pattern$$Lambda$lambda$SingleI$8$7::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.regex.Pattern$$Lambda$lambda$SingleI$8$7",
-	"java.lang.Object",
-	"java.util.regex.Pattern$BmpCharPredicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Pattern$$Lambda$lambda$SingleI$8$7::load$($String* name, bool initialize) {
-	$loadClass(Pattern$$Lambda$lambda$SingleI$8$7, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"lower", "I", nullptr, $PUBLIC, $field(Pattern$$Lambda$lambda$SingleI$8$7, lower)},
+		{"upper", "I", nullptr, $PUBLIC, $field(Pattern$$Lambda$lambda$SingleI$8$7, upper)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$SingleI$8$7, init$, void, int32_t, int32_t)},
+		{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$SingleI$8$7, is, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.regex.Pattern$$Lambda$lambda$SingleI$8$7",
+		"java.lang.Object",
+		"java.util.regex.Pattern$BmpCharPredicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Pattern$$Lambda$lambda$SingleI$8$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$$Lambda$lambda$SingleI$8$7);
+	});
 	return class$;
 }
 $Class* Pattern$$Lambda$lambda$SingleI$8$7::class$ = nullptr;
@@ -522,33 +493,29 @@ public:
 	virtual bool is(int32_t ch) override {
 		 return Pattern::lambda$SingleU$9(lower, ch);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Pattern$$Lambda$lambda$SingleU$9$8>());
-	}
 	int32_t lower = 0;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Pattern$$Lambda$lambda$SingleU$9$8::fieldInfos[2] = {
-	{"lower", "I", nullptr, $PUBLIC, $field(Pattern$$Lambda$lambda$SingleU$9$8, lower)},
-	{}
-};
-$MethodInfo Pattern$$Lambda$lambda$SingleU$9$8::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$SingleU$9$8, init$, void, int32_t)},
-	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$SingleU$9$8, is, bool, int32_t)},
-	{}
-};
-$ClassInfo Pattern$$Lambda$lambda$SingleU$9$8::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.regex.Pattern$$Lambda$lambda$SingleU$9$8",
-	"java.lang.Object",
-	"java.util.regex.Pattern$CharPredicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Pattern$$Lambda$lambda$SingleU$9$8::load$($String* name, bool initialize) {
-	$loadClass(Pattern$$Lambda$lambda$SingleU$9$8, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"lower", "I", nullptr, $PUBLIC, $field(Pattern$$Lambda$lambda$SingleU$9$8, lower)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$SingleU$9$8, init$, void, int32_t)},
+		{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$SingleU$9$8, is, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.regex.Pattern$$Lambda$lambda$SingleU$9$8",
+		"java.lang.Object",
+		"java.util.regex.Pattern$CharPredicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Pattern$$Lambda$lambda$SingleU$9$8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$$Lambda$lambda$SingleU$9$8);
+	});
 	return class$;
 }
 $Class* Pattern$$Lambda$lambda$SingleU$9$8::class$ = nullptr;
@@ -563,35 +530,31 @@ public:
 	virtual bool is(int32_t ch) override {
 		 return Pattern::lambda$Range$10(lower, upper, ch);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Pattern$$Lambda$lambda$Range$10$9>());
-	}
 	int32_t lower = 0;
 	int32_t upper = 0;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Pattern$$Lambda$lambda$Range$10$9::fieldInfos[3] = {
-	{"lower", "I", nullptr, $PUBLIC, $field(Pattern$$Lambda$lambda$Range$10$9, lower)},
-	{"upper", "I", nullptr, $PUBLIC, $field(Pattern$$Lambda$lambda$Range$10$9, upper)},
-	{}
-};
-$MethodInfo Pattern$$Lambda$lambda$Range$10$9::methodInfos[3] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$Range$10$9, init$, void, int32_t, int32_t)},
-	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$Range$10$9, is, bool, int32_t)},
-	{}
-};
-$ClassInfo Pattern$$Lambda$lambda$Range$10$9::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.regex.Pattern$$Lambda$lambda$Range$10$9",
-	"java.lang.Object",
-	"java.util.regex.Pattern$BmpCharPredicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Pattern$$Lambda$lambda$Range$10$9::load$($String* name, bool initialize) {
-	$loadClass(Pattern$$Lambda$lambda$Range$10$9, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"lower", "I", nullptr, $PUBLIC, $field(Pattern$$Lambda$lambda$Range$10$9, lower)},
+		{"upper", "I", nullptr, $PUBLIC, $field(Pattern$$Lambda$lambda$Range$10$9, upper)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$Range$10$9, init$, void, int32_t, int32_t)},
+		{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$Range$10$9, is, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.regex.Pattern$$Lambda$lambda$Range$10$9",
+		"java.lang.Object",
+		"java.util.regex.Pattern$BmpCharPredicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Pattern$$Lambda$lambda$Range$10$9, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$$Lambda$lambda$Range$10$9);
+	});
 	return class$;
 }
 $Class* Pattern$$Lambda$lambda$Range$10$9::class$ = nullptr;
@@ -606,35 +569,31 @@ public:
 	virtual bool is(int32_t ch) override {
 		 return Pattern::lambda$CIRange$12(lower, upper, ch);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Pattern$$Lambda$lambda$CIRange$12$10>());
-	}
 	int32_t lower = 0;
 	int32_t upper = 0;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Pattern$$Lambda$lambda$CIRange$12$10::fieldInfos[3] = {
-	{"lower", "I", nullptr, $PUBLIC, $field(Pattern$$Lambda$lambda$CIRange$12$10, lower)},
-	{"upper", "I", nullptr, $PUBLIC, $field(Pattern$$Lambda$lambda$CIRange$12$10, upper)},
-	{}
-};
-$MethodInfo Pattern$$Lambda$lambda$CIRange$12$10::methodInfos[3] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$CIRange$12$10, init$, void, int32_t, int32_t)},
-	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$CIRange$12$10, is, bool, int32_t)},
-	{}
-};
-$ClassInfo Pattern$$Lambda$lambda$CIRange$12$10::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.regex.Pattern$$Lambda$lambda$CIRange$12$10",
-	"java.lang.Object",
-	"java.util.regex.Pattern$CharPredicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Pattern$$Lambda$lambda$CIRange$12$10::load$($String* name, bool initialize) {
-	$loadClass(Pattern$$Lambda$lambda$CIRange$12$10, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"lower", "I", nullptr, $PUBLIC, $field(Pattern$$Lambda$lambda$CIRange$12$10, lower)},
+		{"upper", "I", nullptr, $PUBLIC, $field(Pattern$$Lambda$lambda$CIRange$12$10, upper)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$CIRange$12$10, init$, void, int32_t, int32_t)},
+		{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$CIRange$12$10, is, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.regex.Pattern$$Lambda$lambda$CIRange$12$10",
+		"java.lang.Object",
+		"java.util.regex.Pattern$CharPredicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Pattern$$Lambda$lambda$CIRange$12$10, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$$Lambda$lambda$CIRange$12$10);
+	});
 	return class$;
 }
 $Class* Pattern$$Lambda$lambda$CIRange$12$10::class$ = nullptr;
@@ -649,35 +608,31 @@ public:
 	virtual bool is(int32_t ch) override {
 		 return Pattern::lambda$CIRangeU$13(lower, upper, ch);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Pattern$$Lambda$lambda$CIRangeU$13$11>());
-	}
 	int32_t lower = 0;
 	int32_t upper = 0;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Pattern$$Lambda$lambda$CIRangeU$13$11::fieldInfos[3] = {
-	{"lower", "I", nullptr, $PUBLIC, $field(Pattern$$Lambda$lambda$CIRangeU$13$11, lower)},
-	{"upper", "I", nullptr, $PUBLIC, $field(Pattern$$Lambda$lambda$CIRangeU$13$11, upper)},
-	{}
-};
-$MethodInfo Pattern$$Lambda$lambda$CIRangeU$13$11::methodInfos[3] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$CIRangeU$13$11, init$, void, int32_t, int32_t)},
-	{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$CIRangeU$13$11, is, bool, int32_t)},
-	{}
-};
-$ClassInfo Pattern$$Lambda$lambda$CIRangeU$13$11::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.regex.Pattern$$Lambda$lambda$CIRangeU$13$11",
-	"java.lang.Object",
-	"java.util.regex.Pattern$CharPredicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Pattern$$Lambda$lambda$CIRangeU$13$11::load$($String* name, bool initialize) {
-	$loadClass(Pattern$$Lambda$lambda$CIRangeU$13$11, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"lower", "I", nullptr, $PUBLIC, $field(Pattern$$Lambda$lambda$CIRangeU$13$11, lower)},
+		{"upper", "I", nullptr, $PUBLIC, $field(Pattern$$Lambda$lambda$CIRangeU$13$11, upper)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$CIRangeU$13$11, init$, void, int32_t, int32_t)},
+		{"is", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$CIRangeU$13$11, is, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.regex.Pattern$$Lambda$lambda$CIRangeU$13$11",
+		"java.lang.Object",
+		"java.util.regex.Pattern$CharPredicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Pattern$$Lambda$lambda$CIRangeU$13$11, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$$Lambda$lambda$CIRangeU$13$11);
+	});
 	return class$;
 }
 $Class* Pattern$$Lambda$lambda$CIRangeU$13$11::class$ = nullptr;
@@ -691,33 +646,29 @@ public:
 	virtual bool test(Object$* s) override {
 		 return $nc(inst$)->lambda$asPredicate$14($cast($String, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Pattern$$Lambda$lambda$asPredicate$14$12>());
-	}
 	Pattern* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Pattern$$Lambda$lambda$asPredicate$14$12::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Pattern$$Lambda$lambda$asPredicate$14$12, inst$)},
-	{}
-};
-$MethodInfo Pattern$$Lambda$lambda$asPredicate$14$12::methodInfos[3] = {
-	{"<init>", "(Ljava/util/regex/Pattern;)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$asPredicate$14$12, init$, void, Pattern*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$asPredicate$14$12, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Pattern$$Lambda$lambda$asPredicate$14$12::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.regex.Pattern$$Lambda$lambda$asPredicate$14$12",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Pattern$$Lambda$lambda$asPredicate$14$12::load$($String* name, bool initialize) {
-	$loadClass(Pattern$$Lambda$lambda$asPredicate$14$12, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Pattern$$Lambda$lambda$asPredicate$14$12, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/regex/Pattern;)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$asPredicate$14$12, init$, void, Pattern*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$asPredicate$14$12, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.regex.Pattern$$Lambda$lambda$asPredicate$14$12",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Pattern$$Lambda$lambda$asPredicate$14$12, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$$Lambda$lambda$asPredicate$14$12);
+	});
 	return class$;
 }
 $Class* Pattern$$Lambda$lambda$asPredicate$14$12::class$ = nullptr;
@@ -731,260 +682,32 @@ public:
 	virtual bool test(Object$* s) override {
 		 return $nc(inst$)->lambda$asMatchPredicate$15($cast($String, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Pattern$$Lambda$lambda$asMatchPredicate$15$13>());
-	}
 	Pattern* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Pattern$$Lambda$lambda$asMatchPredicate$15$13::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Pattern$$Lambda$lambda$asMatchPredicate$15$13, inst$)},
-	{}
-};
-$MethodInfo Pattern$$Lambda$lambda$asMatchPredicate$15$13::methodInfos[3] = {
-	{"<init>", "(Ljava/util/regex/Pattern;)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$asMatchPredicate$15$13, init$, void, Pattern*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$asMatchPredicate$15$13, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Pattern$$Lambda$lambda$asMatchPredicate$15$13::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.regex.Pattern$$Lambda$lambda$asMatchPredicate$15$13",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Pattern$$Lambda$lambda$asMatchPredicate$15$13::load$($String* name, bool initialize) {
-	$loadClass(Pattern$$Lambda$lambda$asMatchPredicate$15$13, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Pattern$$Lambda$lambda$asMatchPredicate$15$13, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/regex/Pattern;)V", nullptr, $PUBLIC, $method(Pattern$$Lambda$lambda$asMatchPredicate$15$13, init$, void, Pattern*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Pattern$$Lambda$lambda$asMatchPredicate$15$13, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.regex.Pattern$$Lambda$lambda$asMatchPredicate$15$13",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Pattern$$Lambda$lambda$asMatchPredicate$15$13, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$$Lambda$lambda$asMatchPredicate$15$13);
+	});
 	return class$;
 }
 $Class* Pattern$$Lambda$lambda$asMatchPredicate$15$13::class$ = nullptr;
-
-$FieldInfo _Pattern_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Pattern, $assertionsDisabled)},
-	{"UNIX_LINES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Pattern, UNIX_LINES)},
-	{"CASE_INSENSITIVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Pattern, CASE_INSENSITIVE)},
-	{"COMMENTS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Pattern, COMMENTS)},
-	{"MULTILINE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Pattern, MULTILINE)},
-	{"LITERAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Pattern, LITERAL)},
-	{"DOTALL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Pattern, DOTALL)},
-	{"UNICODE_CASE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Pattern, UNICODE_CASE)},
-	{"CANON_EQ", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Pattern, CANON_EQ)},
-	{"UNICODE_CHARACTER_CLASS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Pattern, UNICODE_CHARACTER_CLASS)},
-	{"ALL_FLAGS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Pattern, ALL_FLAGS)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Pattern, serialVersionUID)},
-	{"pattern", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Pattern, pattern$)},
-	{"flags", "I", nullptr, $PRIVATE, $field(Pattern, flags$)},
-	{"flags0", "I", nullptr, $PRIVATE | $TRANSIENT, $field(Pattern, flags0)},
-	{"compiled", "Z", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(Pattern, compiled)},
-	{"normalizedPattern", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(Pattern, normalizedPattern)},
-	{"root", "Ljava/util/regex/Pattern$Node;", nullptr, $TRANSIENT, $field(Pattern, root)},
-	{"matchRoot", "Ljava/util/regex/Pattern$Node;", nullptr, $TRANSIENT, $field(Pattern, matchRoot)},
-	{"buffer", "[I", nullptr, $TRANSIENT, $field(Pattern, buffer)},
-	{"predicate", "Ljava/util/regex/Pattern$CharPredicate;", nullptr, $TRANSIENT, $field(Pattern, predicate)},
-	{"namedGroups", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $VOLATILE | $TRANSIENT, $field(Pattern, namedGroups$)},
-	{"groupNodes", "[Ljava/util/regex/Pattern$GroupHead;", nullptr, $TRANSIENT, $field(Pattern, groupNodes)},
-	{"topClosureNodes", "Ljava/util/List;", "Ljava/util/List<Ljava/util/regex/Pattern$Node;>;", $TRANSIENT, $field(Pattern, topClosureNodes)},
-	{"localTCNCount", "I", nullptr, $TRANSIENT, $field(Pattern, localTCNCount)},
-	{"hasGroupRef", "Z", nullptr, $TRANSIENT, $field(Pattern, hasGroupRef)},
-	{"temp", "[I", nullptr, $PRIVATE | $TRANSIENT, $field(Pattern, temp)},
-	{"capturingGroupCount", "I", nullptr, $TRANSIENT, $field(Pattern, capturingGroupCount)},
-	{"localCount", "I", nullptr, $TRANSIENT, $field(Pattern, localCount)},
-	{"cursor", "I", nullptr, $PRIVATE | $TRANSIENT, $field(Pattern, cursor$)},
-	{"patternLength", "I", nullptr, $PRIVATE | $TRANSIENT, $field(Pattern, patternLength)},
-	{"hasSupplementary", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(Pattern, hasSupplementary)},
-	{"MAX_REPS", "I", nullptr, $STATIC | $FINAL, $constField(Pattern, MAX_REPS)},
-	{"accept", "Ljava/util/regex/Pattern$Node;", nullptr, $STATIC | $FINAL, $staticField(Pattern, accept$)},
-	{"lastAccept", "Ljava/util/regex/Pattern$Node;", nullptr, $STATIC | $FINAL, $staticField(Pattern, lastAccept)},
-	{}
-};
-
-$MethodInfo _Pattern_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Pattern, init$, void, $String*, int32_t)},
-	{"ALL", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, ALL, $Pattern$CharPredicate*)},
-	{"CIRange", "(II)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, CIRange, $Pattern$CharPredicate*, int32_t, int32_t)},
-	{"CIRangeU", "(II)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, CIRangeU, $Pattern$CharPredicate*, int32_t, int32_t)},
-	{"DOT", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, DOT, $Pattern$CharPredicate*)},
-	{"HorizWS", "()Ljava/util/regex/Pattern$BmpCharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, HorizWS, $Pattern$BmpCharPredicate*)},
-	{"N", "()I", nullptr, $PRIVATE, $method(Pattern, N, int32_t)},
-	{"Range", "(II)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, Range, $Pattern$CharPredicate*, int32_t, int32_t)},
-	{"RemoveQEQuoting", "()V", nullptr, $PRIVATE, $method(Pattern, RemoveQEQuoting, void)},
-	{"Single", "(I)Ljava/util/regex/Pattern$BmpCharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, Single, $Pattern$BmpCharPredicate*, int32_t)},
-	{"SingleI", "(II)Ljava/util/regex/Pattern$BmpCharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, SingleI, $Pattern$BmpCharPredicate*, int32_t, int32_t)},
-	{"SingleS", "(I)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, SingleS, $Pattern$CharPredicate*, int32_t)},
-	{"SingleU", "(I)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, SingleU, $Pattern$CharPredicate*, int32_t)},
-	{"UNIXDOT", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, UNIXDOT, $Pattern$CharPredicate*)},
-	{"VertWS", "()Ljava/util/regex/Pattern$BmpCharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, VertWS, $Pattern$BmpCharPredicate*)},
-	{"accept", "(ILjava/lang/String;)V", nullptr, $PRIVATE, $method(Pattern, accept, void, int32_t, $String*)},
-	{"addFlag", "()V", nullptr, $PRIVATE, $method(Pattern, addFlag, void)},
-	{"append", "(II)V", nullptr, $PRIVATE, $method(Pattern, append, void, int32_t, int32_t)},
-	{"asMatchPredicate", "()Ljava/util/function/Predicate;", "()Ljava/util/function/Predicate<Ljava/lang/String;>;", $PUBLIC, $method(Pattern, asMatchPredicate, $Predicate*)},
-	{"asPredicate", "()Ljava/util/function/Predicate;", "()Ljava/util/function/Predicate<Ljava/lang/String;>;", $PUBLIC, $method(Pattern, asPredicate, $Predicate*)},
-	{"atom", "()Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, atom, $Pattern$Node*)},
-	{"bitsOrSingle", "(Ljava/util/regex/Pattern$BitClass;I)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE, $method(Pattern, bitsOrSingle, $Pattern$CharPredicate*, $Pattern$BitClass*, int32_t)},
-	{"c", "()I", nullptr, $PRIVATE, $method(Pattern, c, int32_t)},
-	{"clazz", "(Z)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE, $method(Pattern, clazz, $Pattern$CharPredicate*, bool)},
-	{"closure", "(Ljava/util/regex/Pattern$Node;)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, closure, $Pattern$Node*, $Pattern$Node*)},
-	{"compile", "(Ljava/lang/String;)Ljava/util/regex/Pattern;", nullptr, $PUBLIC | $STATIC, $staticMethod(Pattern, compile, Pattern*, $String*)},
-	{"compile", "(Ljava/lang/String;I)Ljava/util/regex/Pattern;", nullptr, $PUBLIC | $STATIC, $staticMethod(Pattern, compile, Pattern*, $String*, int32_t)},
-	{"compile", "()V", nullptr, $PRIVATE, $method(Pattern, compile, void)},
-	{"composeOneStep", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Pattern, composeOneStep, $String*, $String*)},
-	{"countChars", "(Ljava/lang/CharSequence;II)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(Pattern, countChars, int32_t, $CharSequence*, int32_t, int32_t)},
-	{"countCodePoints", "(Ljava/lang/CharSequence;)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(Pattern, countCodePoints, int32_t, $CharSequence*)},
-	{"createGroup", "(Z)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, createGroup, $Pattern$Node*, bool)},
-	{"curly", "(Ljava/util/regex/Pattern$Node;I)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, curly, $Pattern$Node*, $Pattern$Node*, int32_t)},
-	{"cursor", "()I", nullptr, $PRIVATE, $method(Pattern, cursor, int32_t)},
-	{"error", "(Ljava/lang/String;)Ljava/util/regex/PatternSyntaxException;", nullptr, $PRIVATE, $method(Pattern, error, $PatternSyntaxException*, $String*)},
-	{"escape", "(ZZZ)I", nullptr, $PRIVATE, $method(Pattern, escape, int32_t, bool, bool, bool)},
-	{"expr", "(Ljava/util/regex/Pattern$Node;)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, expr, $Pattern$Node*, $Pattern$Node*)},
-	{"family", "(ZZ)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE, $method(Pattern, family, $Pattern$CharPredicate*, bool, bool)},
-	{"findSupplementary", "(II)Z", nullptr, $PRIVATE, $method(Pattern, findSupplementary, bool, int32_t, int32_t)},
-	{"flags", "()I", nullptr, $PUBLIC, $method(Pattern, flags, int32_t)},
-	{"getClass", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Pattern, getClass, int32_t, int32_t)},
-	{"group0", "()Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, group0, $Pattern$Node*)},
-	{"groupname", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(Pattern, groupname, $String*, int32_t)},
-	{"has", "(I)Z", nullptr, $PRIVATE, $method(Pattern, has, bool, int32_t)},
-	{"hasBaseCharacter", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Pattern, hasBaseCharacter, bool, $Matcher*, int32_t, $CharSequence*)},
-	{"inRange", "(III)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Pattern, inRange, bool, int32_t, int32_t, int32_t)},
-	{"isLineSeparator", "(I)Z", nullptr, $PRIVATE, $method(Pattern, isLineSeparator, bool, int32_t)},
-	{"isSupplementary", "(I)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(Pattern, isSupplementary, bool, int32_t)},
-	{"lambda$ALL$3", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$ALL$3, bool, int32_t)},
-	{"lambda$CIRange$12", "(III)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$CIRange$12, bool, int32_t, int32_t, int32_t)},
-	{"lambda$CIRangeU$13", "(III)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$CIRangeU$13, bool, int32_t, int32_t, int32_t)},
-	{"lambda$DOT$4", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$DOT$4, bool, int32_t)},
-	{"lambda$HorizWS$2", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$HorizWS$2, bool, int32_t)},
-	{"lambda$Range$10", "(III)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$Range$10, bool, int32_t, int32_t, int32_t)},
-	{"lambda$SingleI$8", "(III)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$SingleI$8, bool, int32_t, int32_t, int32_t)},
-	{"lambda$SingleS$6", "(II)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$SingleS$6, bool, int32_t, int32_t)},
-	{"lambda$SingleU$9", "(II)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$SingleU$9, bool, int32_t, int32_t)},
-	{"lambda$UNIXDOT$5", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$UNIXDOT$5, bool, int32_t)},
-	{"lambda$VertWS$1", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$VertWS$1, bool, int32_t)},
-	{"lambda$asMatchPredicate$15", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Pattern, lambda$asMatchPredicate$15, bool, $String*)},
-	{"lambda$asPredicate$14", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Pattern, lambda$asPredicate$14, bool, $String*)},
-	{"lambda$normalizeSlice$0", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$normalizeSlice$0, void, $StringBuilder*, $String*)},
-	{"mark", "(I)V", nullptr, $PRIVATE, $method(Pattern, mark, void, int32_t)},
-	{"matcher", "(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;", nullptr, $PUBLIC, $method(Pattern, matcher, $Matcher*, $CharSequence*)},
-	{"matches", "(Ljava/lang/String;Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Pattern, matches, bool, $String*, $CharSequence*)},
-	{"namedGroups", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", 0, $method(Pattern, namedGroups, $Map*)},
-	{"newCharProperty", "(Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharProperty;", nullptr, $PRIVATE, $method(Pattern, newCharProperty, $Pattern$CharProperty*, $Pattern$CharPredicate*)},
-	{"newSlice", "([IIZ)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, newSlice, $Pattern$Node*, $ints*, int32_t, bool)},
-	{"next", "()I", nullptr, $PRIVATE, $method(Pattern, next, int32_t)},
-	{"nextEscaped", "()I", nullptr, $PRIVATE, $method(Pattern, nextEscaped, int32_t)},
-	{"normalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Pattern, normalize, $String*, $String*)},
-	{"normalizeClazz", "(Ljava/lang/String;IILjava/lang/StringBuilder;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pattern, normalizeClazz, void, $String*, int32_t, int32_t, $StringBuilder*)},
-	{"normalizeSlice", "(Ljava/lang/String;IILjava/lang/StringBuilder;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pattern, normalizeSlice, void, $String*, int32_t, int32_t, $StringBuilder*)},
-	{"o", "()I", nullptr, $PRIVATE, $method(Pattern, o, int32_t)},
-	{"parsePastLine", "()I", nullptr, $PRIVATE, $method(Pattern, parsePastLine, int32_t)},
-	{"parsePastWhitespace", "(I)I", nullptr, $PRIVATE, $method(Pattern, parsePastWhitespace, int32_t, int32_t)},
-	{"pattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Pattern, pattern, $String*)},
-	{"peek", "()I", nullptr, $PRIVATE, $method(Pattern, peek, int32_t)},
-	{"peekPastLine", "()I", nullptr, $PRIVATE, $method(Pattern, peekPastLine, int32_t)},
-	{"peekPastWhitespace", "(I)I", nullptr, $PRIVATE, $method(Pattern, peekPastWhitespace, int32_t, int32_t)},
-	{"produceEquivalentAlternation", "(Ljava/lang/String;Ljava/util/Set;)V", "(Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE | $STATIC, $staticMethod(Pattern, produceEquivalentAlternation, void, $String*, $Set*)},
-	{"producePermutations", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Pattern, producePermutations, $StringArray*, $String*)},
-	{"qtype", "()Ljava/util/regex/Pattern$Qtype;", nullptr, $PRIVATE, $method(Pattern, qtype, $Pattern$Qtype*)},
-	{"quote", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Pattern, quote, $String*, $String*)},
-	{"range", "(Ljava/util/regex/Pattern$BitClass;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE, $method(Pattern, range, $Pattern$CharPredicate*, $Pattern$BitClass*)},
-	{"read", "()I", nullptr, $PRIVATE, $method(Pattern, read, int32_t)},
-	{"readEscaped", "()I", nullptr, $PRIVATE, $method(Pattern, readEscaped, int32_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Pattern, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"ref", "(I)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, ref, $Pattern$Node*, int32_t)},
-	{"sequence", "(Ljava/util/regex/Pattern$Node;)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, sequence, $Pattern$Node*, $Pattern$Node*)},
-	{"setcursor", "(I)V", nullptr, $PRIVATE, $method(Pattern, setcursor, void, int32_t)},
-	{"single", "(I)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE, $method(Pattern, single, $Pattern$CharPredicate*, int32_t)},
-	{"skip", "()I", nullptr, $PRIVATE, $method(Pattern, skip, int32_t)},
-	{"split", "(Ljava/lang/CharSequence;I)[Ljava/lang/String;", nullptr, $PUBLIC, $method(Pattern, split, $StringArray*, $CharSequence*, int32_t)},
-	{"split", "(Ljava/lang/CharSequence;)[Ljava/lang/String;", nullptr, $PUBLIC, $method(Pattern, split, $StringArray*, $CharSequence*)},
-	{"splitAsStream", "(Ljava/lang/CharSequence;)Ljava/util/stream/Stream;", "(Ljava/lang/CharSequence;)Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC, $method(Pattern, splitAsStream, $Stream*, $CharSequence*)},
-	{"subFlag", "()V", nullptr, $PRIVATE, $method(Pattern, subFlag, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Pattern, toString, $String*)},
-	{"u", "()I", nullptr, $PRIVATE, $method(Pattern, u, int32_t)},
-	{"unread", "()V", nullptr, $PRIVATE, $method(Pattern, unread, void)},
-	{"uxxxx", "()I", nullptr, $PRIVATE, $method(Pattern, uxxxx, int32_t)},
-	{"x", "()I", nullptr, $PRIVATE, $method(Pattern, x, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Pattern_InnerClassesInfo_[] = {
-	{"java.util.regex.Pattern$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"java.util.regex.Pattern$BmpCharPredicate", "java.util.regex.Pattern", "BmpCharPredicate", $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.regex.Pattern$CharPredicate", "java.util.regex.Pattern", "CharPredicate", $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.regex.Pattern$BnMS", "java.util.regex.Pattern", "BnMS", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$BnM", "java.util.regex.Pattern", "BnM", $STATIC},
-	{"java.util.regex.Pattern$Bound", "java.util.regex.Pattern", "Bound", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$NotBehindS", "java.util.regex.Pattern", "NotBehindS", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$NotBehind", "java.util.regex.Pattern", "NotBehind", $STATIC},
-	{"java.util.regex.Pattern$BehindS", "java.util.regex.Pattern", "BehindS", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$Behind", "java.util.regex.Pattern", "Behind", $STATIC},
-	{"java.util.regex.Pattern$LookBehindEndNode", "java.util.regex.Pattern", "LookBehindEndNode", $STATIC},
-	{"java.util.regex.Pattern$Neg", "java.util.regex.Pattern", "Neg", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$Pos", "java.util.regex.Pattern", "Pos", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$First", "java.util.regex.Pattern", "First", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$CIBackRef", "java.util.regex.Pattern", "CIBackRef", $STATIC},
-	{"java.util.regex.Pattern$BackRef", "java.util.regex.Pattern", "BackRef", $STATIC},
-	{"java.util.regex.Pattern$LazyLoop", "java.util.regex.Pattern", "LazyLoop", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$Loop", "java.util.regex.Pattern", "Loop", $STATIC},
-	{"java.util.regex.Pattern$Prolog", "java.util.regex.Pattern", "Prolog", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$GroupTail", "java.util.regex.Pattern", "GroupTail", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$GroupHead", "java.util.regex.Pattern", "GroupHead", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$Branch", "java.util.regex.Pattern", "Branch", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$BranchConn", "java.util.regex.Pattern", "BranchConn", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$GroupCurly", "java.util.regex.Pattern", "GroupCurly", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$Curly", "java.util.regex.Pattern", "Curly", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$BmpCharPropertyGreedy", "java.util.regex.Pattern", "BmpCharPropertyGreedy", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$CharPropertyGreedy", "java.util.regex.Pattern", "CharPropertyGreedy", $STATIC},
-	{"java.util.regex.Pattern$Ques", "java.util.regex.Pattern", "Ques", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$SliceUS", "java.util.regex.Pattern", "SliceUS", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$SliceIS", "java.util.regex.Pattern", "SliceIS", $STATIC},
-	{"java.util.regex.Pattern$SliceS", "java.util.regex.Pattern", "SliceS", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$SliceU", "java.util.regex.Pattern", "SliceU", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$SliceI", "java.util.regex.Pattern", "SliceI", $STATIC},
-	{"java.util.regex.Pattern$Slice", "java.util.regex.Pattern", "Slice", $STATIC},
-	{"java.util.regex.Pattern$SliceNode", "java.util.regex.Pattern", "SliceNode", $STATIC},
-	{"java.util.regex.Pattern$GraphemeBound", "java.util.regex.Pattern", "GraphemeBound", $STATIC},
-	{"java.util.regex.Pattern$XGrapheme", "java.util.regex.Pattern", "XGrapheme", $STATIC},
-	{"java.util.regex.Pattern$NFCCharProperty", "java.util.regex.Pattern", "NFCCharProperty", $PRIVATE | $STATIC},
-	{"java.util.regex.Pattern$BmpCharProperty", "java.util.regex.Pattern", "BmpCharProperty", $PRIVATE | $STATIC},
-	{"java.util.regex.Pattern$CharProperty", "java.util.regex.Pattern", "CharProperty", $STATIC},
-	{"java.util.regex.Pattern$LineEnding", "java.util.regex.Pattern", "LineEnding", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$UnixDollar", "java.util.regex.Pattern", "UnixDollar", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$Dollar", "java.util.regex.Pattern", "Dollar", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$LastMatch", "java.util.regex.Pattern", "LastMatch", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$UnixCaret", "java.util.regex.Pattern", "UnixCaret", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$Caret", "java.util.regex.Pattern", "Caret", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$End", "java.util.regex.Pattern", "End", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$Begin", "java.util.regex.Pattern", "Begin", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$StartS", "java.util.regex.Pattern", "StartS", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$Start", "java.util.regex.Pattern", "Start", $STATIC},
-	{"java.util.regex.Pattern$LastNode", "java.util.regex.Pattern", "LastNode", $STATIC},
-	{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
-	{"java.util.regex.Pattern$BitClass", "java.util.regex.Pattern", "BitClass", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$Qtype", "java.util.regex.Pattern", "Qtype", $STATIC | $FINAL | $ENUM},
-	{"java.util.regex.Pattern$TreeInfo", "java.util.regex.Pattern", "TreeInfo", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$1MatcherIterator", nullptr, "MatcherIterator", 0},
-	{}
-};
-
-$ClassInfo _Pattern_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.util.regex.Pattern",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_Pattern_FieldInfo_,
-	_Pattern_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pattern_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.regex.Pattern$1,java.util.regex.Pattern$BmpCharPredicate,java.util.regex.Pattern$CharPredicate,java.util.regex.Pattern$BnMS,java.util.regex.Pattern$BnM,java.util.regex.Pattern$Bound,java.util.regex.Pattern$NotBehindS,java.util.regex.Pattern$NotBehind,java.util.regex.Pattern$BehindS,java.util.regex.Pattern$Behind,java.util.regex.Pattern$LookBehindEndNode,java.util.regex.Pattern$Neg,java.util.regex.Pattern$Pos,java.util.regex.Pattern$First,java.util.regex.Pattern$CIBackRef,java.util.regex.Pattern$BackRef,java.util.regex.Pattern$LazyLoop,java.util.regex.Pattern$Loop,java.util.regex.Pattern$Prolog,java.util.regex.Pattern$GroupTail,java.util.regex.Pattern$GroupHead,java.util.regex.Pattern$Branch,java.util.regex.Pattern$BranchConn,java.util.regex.Pattern$GroupCurly,java.util.regex.Pattern$Curly,java.util.regex.Pattern$BmpCharPropertyGreedy,java.util.regex.Pattern$CharPropertyGreedy,java.util.regex.Pattern$Ques,java.util.regex.Pattern$SliceUS,java.util.regex.Pattern$SliceIS,java.util.regex.Pattern$SliceS,java.util.regex.Pattern$SliceU,java.util.regex.Pattern$SliceI,java.util.regex.Pattern$Slice,java.util.regex.Pattern$SliceNode,java.util.regex.Pattern$GraphemeBound,java.util.regex.Pattern$XGrapheme,java.util.regex.Pattern$NFCCharProperty,java.util.regex.Pattern$BmpCharProperty,java.util.regex.Pattern$CharProperty,java.util.regex.Pattern$LineEnding,java.util.regex.Pattern$UnixDollar,java.util.regex.Pattern$Dollar,java.util.regex.Pattern$LastMatch,java.util.regex.Pattern$UnixCaret,java.util.regex.Pattern$Caret,java.util.regex.Pattern$End,java.util.regex.Pattern$Begin,java.util.regex.Pattern$StartS,java.util.regex.Pattern$Start,java.util.regex.Pattern$LastNode,java.util.regex.Pattern$Node,java.util.regex.Pattern$BitClass,java.util.regex.Pattern$Qtype,java.util.regex.Pattern$TreeInfo,java.util.regex.Pattern$1MatcherIterator"
-};
-
-$Object* allocate$Pattern($Class* clazz) {
-	return $of($alloc(Pattern));
-}
 
 bool Pattern::$assertionsDisabled = false;
 $Pattern$Node* Pattern::accept$ = nullptr;
@@ -1026,14 +749,14 @@ int32_t Pattern::flags() {
 
 bool Pattern::matches($String* regex, $CharSequence* input) {
 	$init(Pattern);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(Pattern, p, Pattern::compile(regex));
 	$var($Matcher, m, $nc(p)->matcher(input));
 	return $nc(m)->matches();
 }
 
 $StringArray* Pattern::split($CharSequence* input, int32_t limit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t index = 0;
 	bool matchLimited = limit > 0;
 	$var($ArrayList, matchList, $new($ArrayList));
@@ -1048,11 +771,11 @@ $StringArray* Pattern::split($CharSequence* input, int32_t limit) {
 			if (var$0) {
 				continue;
 			}
-			$var($String, match, $nc($($nc(input)->subSequence(index, m->start())))->toString());
+			$var($String, match, $$nc($nc(input)->subSequence(index, m->start()))->toString());
 			matchList->add(match);
 			index = m->end();
 		} else if (matchList->size() == limit - 1) {
-			$var($String, match, $nc($($nc(input)->subSequence(index, input->length())))->toString());
+			$var($String, match, $$nc($nc(input)->subSequence(index, $nc(input)->length()))->toString());
 			matchList->add(match);
 			index = m->end();
 		}
@@ -1061,16 +784,16 @@ $StringArray* Pattern::split($CharSequence* input, int32_t limit) {
 		return $new($StringArray, {$($nc(input)->toString())});
 	}
 	if (!matchLimited || matchList->size() < limit) {
-		matchList->add($($nc($($nc(input)->subSequence(index, input->length())))->toString()));
+		matchList->add($($$nc($nc(input)->subSequence(index, $nc(input)->length()))->toString()));
 	}
 	int32_t resultSize = matchList->size();
 	if (limit == 0) {
-		while (resultSize > 0 && $nc(($cast($String, $(matchList->get(resultSize - 1)))))->isEmpty()) {
+		while (resultSize > 0 && $$sure($String, matchList->get(resultSize - 1))->isEmpty()) {
 			--resultSize;
 		}
 	}
 	$var($StringArray, result, $new($StringArray, resultSize));
-	return $fcast($StringArray, $nc($(matchList->subList(0, resultSize)))->toArray(result));
+	return $cast($StringArray, $$nc(matchList->subList(0, resultSize))->toArray(result));
 }
 
 $StringArray* Pattern::split($CharSequence* input) {
@@ -1089,10 +812,10 @@ $String* Pattern::quote($String* s) {
 	sb->append("\\Q"_s);
 	int32_t current = 0;
 	do {
-		sb->append(static_cast<$CharSequence*>(s), current, slashEIndex)->append("\\E\\\\E\\Q"_s);
+		sb->append(s, current, slashEIndex)->append("\\E\\\\E\\Q"_s);
 		current = slashEIndex + 2;
 	} while ((slashEIndex = s->indexOf("\\E"_s, current)) != -1);
-	return sb->append(static_cast<$CharSequence*>(s), current, s->length())->append("\\E"_s)->toString();
+	return sb->append(s, current, s->length())->append("\\E"_s)->toString();
 }
 
 void Pattern::readObject($ObjectInputStream* s) {
@@ -1109,13 +832,13 @@ void Pattern::readObject($ObjectInputStream* s) {
 }
 
 void Pattern::init$($String* p, int32_t f) {
-	$useLocalCurrentObjectStackCache();
-	if (((int32_t)(f & (uint32_t)~Pattern::ALL_FLAGS)) != 0) {
+	$useLocalObjectStack();
+	if ((f & ~Pattern::ALL_FLAGS) != 0) {
 		$throwNew($IllegalArgumentException, $$str({"Unknown flag 0x"_s, $($Integer::toHexString(f))}));
 	}
 	$set(this, pattern$, p);
 	this->flags$ = f;
-	if (((int32_t)(this->flags$ & (uint32_t)Pattern::UNICODE_CHARACTER_CLASS)) != 0) {
+	if ((this->flags$ & Pattern::UNICODE_CHARACTER_CLASS) != 0) {
 		this->flags$ |= Pattern::UNICODE_CASE;
 	}
 	this->flags0 = this->flags$;
@@ -1138,14 +861,14 @@ $String* Pattern::normalize($String* pattern) {
 	$init(Pattern);
 	int32_t plen = $nc(pattern)->length();
 	$var($StringBuilder, pbuf, $new($StringBuilder, plen));
-	char16_t last = (char16_t)0;
+	char16_t last = 0;
 	int32_t lastStart = 0;
-	char16_t cc = (char16_t)0;
+	char16_t cc = 0;
 	for (int32_t i = 0; i < plen;) {
 		char16_t c = pattern->charAt(i);
 		if (cc == 0 && c == u'\\' && i + 1 < plen && pattern->charAt(i + 1) == u'\\') {
 			i += 2;
-			last = (char16_t)0;
+			last = 0;
 			continue;
 		}
 		if (c == u'[' && last != u'\\') {
@@ -1177,21 +900,21 @@ $String* Pattern::normalize($String* pattern) {
 
 void Pattern::normalizeSlice($String* src, int32_t off, int32_t limit, $StringBuilder* dst) {
 	$init(Pattern);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = $nc(src)->length();
 	int32_t off0 = off;
 	while (off < limit && $ASCII::isAscii(src->charAt(off))) {
 		++off;
 	}
 	if (off == limit) {
-		$nc(dst)->append(static_cast<$CharSequence*>(src), off0, limit);
+		$nc(dst)->append(src, off0, limit);
 		return;
 	}
 	--off;
 	if (off < off0) {
 		off = off0;
 	} else {
-		$nc(dst)->append(static_cast<$CharSequence*>(src), off0, off);
+		$nc(dst)->append(src, off0, off);
 	}
 	while (off < limit) {
 		int32_t ch0 = src->codePointAt(off);
@@ -1206,7 +929,7 @@ void Pattern::normalizeSlice($String* src, int32_t off, int32_t limit, $StringBu
 		$init($Normalizer$Form);
 		$var($String, nfd, $Normalizer::normalize(seq, $Normalizer$Form::NFD));
 		off = j;
-		if ($nc(nfd)->codePointCount(0, nfd->length()) > 1) {
+		if ($nc(nfd)->codePointCount(0, $nc(nfd)->length()) > 1) {
 			ch0 = nfd->codePointAt(0);
 			ch1 = nfd->codePointAt($Character::charCount(ch0));
 			if ($Character::getType(ch1) == $Character::NON_SPACING_MARK) {
@@ -1214,7 +937,7 @@ void Pattern::normalizeSlice($String* src, int32_t off, int32_t limit, $StringBu
 				altns->add(seq);
 				produceEquivalentAlternation(nfd, altns);
 				$nc(dst)->append("(?:"_s);
-				altns->forEach(static_cast<$Consumer*>($$new(Pattern$$Lambda$lambda$normalizeSlice$0, dst)));
+				altns->forEach($$new(Pattern$$Lambda$lambda$normalizeSlice$0, dst));
 				int32_t var$0 = dst->length() - 1;
 				dst->delete$(var$0, dst->length());
 				dst->append(")"_s);
@@ -1223,7 +946,7 @@ void Pattern::normalizeSlice($String* src, int32_t off, int32_t limit, $StringBu
 		}
 		$var($String, nfc, $Normalizer::normalize(seq, $Normalizer$Form::NFC));
 		bool var$1 = !seq->equals(nfc);
-		if (var$1 && !$nc(nfd)->equals(nfc)) {
+		if (var$1 && !nfd->equals(nfc)) {
 			$nc(dst)->append($$str({"(?:"_s, seq, "|"_s, nfd, "|"_s, nfc, ")"_s}));
 		} else if (!seq->equals(nfd)) {
 			$nc(dst)->append($$str({"(?:"_s, seq, "|"_s, nfd, ")"_s}));
@@ -1235,20 +958,20 @@ void Pattern::normalizeSlice($String* src, int32_t off, int32_t limit, $StringBu
 
 void Pattern::normalizeClazz($String* src, int32_t off, int32_t limit, $StringBuilder* dst) {
 	$init(Pattern);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Normalizer$Form);
 	$nc(dst)->append($($Normalizer::normalize($($nc(src)->substring(off, limit)), $Normalizer$Form::NFC)));
 }
 
 void Pattern::produceEquivalentAlternation($String* src, $Set* dst) {
 	$init(Pattern);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = countChars(src, 0, 1);
 	if ($nc(src)->length() == len) {
 		$nc(dst)->add(src);
 		return;
 	}
-	$var($String, base, $nc(src)->substring(0, len));
+	$var($String, base, src->substring(0, len));
 	$var($String, combiningMarks, src->substring(len));
 	$var($StringArray, perms, producePermutations(combiningMarks));
 	for (int32_t x = 0; x < $nc(perms)->length; ++x) {
@@ -1263,15 +986,15 @@ void Pattern::produceEquivalentAlternation($String* src, $Set* dst) {
 
 $StringArray* Pattern::producePermutations($String* input) {
 	$init(Pattern);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(input)->length();
 	if (var$0 == countChars(input, 0, 1)) {
 		return $new($StringArray, {input});
 	}
-	int32_t var$1 = $nc(input)->length();
+	int32_t var$1 = input->length();
 	if (var$1 == countChars(input, 0, 2)) {
-		int32_t c0 = $Character::codePointAt(static_cast<$CharSequence*>(input), 0);
-		int32_t c1 = $Character::codePointAt(static_cast<$CharSequence*>(input), $Character::charCount(c0));
+		int32_t c0 = $Character::codePointAt(input, 0);
+		int32_t c1 = $Character::codePointAt(input, $Character::charCount(c0));
 		int32_t var$2 = getClass(c1);
 		if (var$2 == getClass(c0)) {
 			return $new($StringArray, {input});
@@ -1291,45 +1014,35 @@ $StringArray* Pattern::producePermutations($String* input) {
 	}
 	$var($StringArray, temp, $new($StringArray, length));
 	$var($ints, combClass, $new($ints, nCodePoints));
-	{
-		int32_t x = 0;
-		int32_t i = 0;
-		for (; x < nCodePoints; ++x) {
-			int32_t c = $Character::codePointAt(static_cast<$CharSequence*>(input), i);
-			combClass->set(x, getClass(c));
-			i += $Character::charCount(c);
-		}
+	for (int32_t x = 0, i = 0; x < nCodePoints; ++x) {
+		int32_t c = $Character::codePointAt(input, i);
+		combClass->set(x, getClass(c));
+		i += $Character::charCount(c);
 	}
 	int32_t index = 0;
 	int32_t len = 0;
 	bool loop$continue = false;
-	{
-		int32_t x = 0;
-		int32_t offset = 0;
-		for (; x < nCodePoints; ++x, offset += len) {
-			len = countChars(input, offset, 1);
-			for (int32_t y = x - 1; y >= 0; --y) {
-				if (combClass->get(y) == combClass->get(x)) {
-					loop$continue = true;
-					break;
-				}
+	for (int32_t x = 0, offset = 0; x < nCodePoints; ++x, offset += len) {
+		len = countChars(input, offset, 1);
+		for (int32_t y = x - 1; y >= 0; --y) {
+			if (combClass->get(y) == combClass->get(x)) {
+				loop$continue = true;
+				break;
 			}
-			if (loop$continue) {
-				loop$continue = false;
-				continue;
-			}
-			$var($StringBuilder, sb, $new($StringBuilder, input));
-			$var($String, otherChars, $nc(sb->delete$(offset, offset + len))->toString());
-			$var($StringArray, subResult, producePermutations(otherChars));
-			$var($String, prefix, $nc(input)->substring(offset, offset + len));
-			{
-				$var($StringArray, arr$, subResult);
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$var($String, sre, arr$->get(i$));
-					temp->set(index++, $$str({prefix, sre}));
-				}
+		}
+		if (loop$continue) {
+			loop$continue = false;
+			continue;
+		}
+		$var($StringBuilder, sb, $new($StringBuilder, input));
+		$var($String, otherChars, $nc(sb->delete$(offset, offset + len))->toString());
+		$var($StringArray, subResult, producePermutations(otherChars));
+		$var($String, prefix, input->substring(offset, offset + len));
+		{
+			$var($StringArray, arr$, subResult);
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+				$var($String, sre, arr$->get(i$));
+				temp->set(index++, $$str({prefix, sre}));
 			}
 		}
 	}
@@ -1345,7 +1058,7 @@ int32_t Pattern::getClass(int32_t c) {
 
 $String* Pattern::composeOneStep($String* input) {
 	$init(Pattern);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = countChars(input, 0, 2);
 	$var($String, firstTwoCharacters, $nc(input)->substring(0, len));
 	$init($Normalizer$Form);
@@ -1364,7 +1077,7 @@ void Pattern::RemoveQEQuoting() {
 	while (i < pLen - 1) {
 		if ($nc(this->temp)->get(i) != u'\\') {
 			i += 1;
-		} else if ($nc(this->temp)->get(i + 1) != u'Q') {
+		} else if (this->temp->get(i + 1) != u'Q') {
 			i += 2;
 		} else {
 			break;
@@ -1418,7 +1131,7 @@ void Pattern::RemoveQEQuoting() {
 		} else {
 			newtemp->set(j++, c);
 			if (i != pLen) {
-				newtemp->set(j++, $nc(this->temp)->get(i++));
+				newtemp->set(j++, this->temp->get(i++));
 			}
 		}
 		beginQuote = false;
@@ -1428,7 +1141,7 @@ void Pattern::RemoveQEQuoting() {
 }
 
 void Pattern::compile() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = has(Pattern::CANON_EQ);
 	if (var$0 && !has(Pattern::LITERAL)) {
 		$set(this, normalizedPattern, normalize(this->pattern$));
@@ -1471,23 +1184,19 @@ void Pattern::compile() {
 	if ($instanceOf($Pattern$Slice, this->matchRoot)) {
 		$set(this, root, $Pattern$BnM::optimize(this->matchRoot));
 		if (this->root == this->matchRoot) {
-			$set(this, root, this->hasSupplementary ? static_cast<$Pattern$Node*>($new($Pattern$StartS, this->matchRoot)) : static_cast<$Pattern$Node*>($new($Pattern$Start, this->matchRoot)));
+			$set(this, root, this->hasSupplementary ? $cast($Pattern$Node, $new($Pattern$StartS, this->matchRoot)) : $cast($Pattern$Node, $new($Pattern$Start, this->matchRoot)));
 		}
 	} else if ($instanceOf($Pattern$Begin, this->matchRoot) || $instanceOf($Pattern$First, this->matchRoot)) {
 		$set(this, root, this->matchRoot);
 	} else {
-		$set(this, root, this->hasSupplementary ? static_cast<$Pattern$Node*>($new($Pattern$StartS, this->matchRoot)) : static_cast<$Pattern$Node*>($new($Pattern$Start, this->matchRoot)));
+		$set(this, root, this->hasSupplementary ? $cast($Pattern$Node, $new($Pattern$StartS, this->matchRoot)) : $cast($Pattern$Node, $new($Pattern$Start, this->matchRoot)));
 	}
 	if (!this->hasGroupRef) {
-		{
-			$var($Iterator, i$, $nc(this->topClosureNodes)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Pattern$Node, node, $cast($Pattern$Node, i$->next()));
-				{
-					if ($instanceOf($Pattern$Loop, node)) {
-						$nc(($cast($Pattern$Loop, node)))->posIndex = this->localTCNCount++;
-					}
-				}
+		$var($Iterator, i$, $nc(this->topClosureNodes)->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Pattern$Node, node, $cast($Pattern$Node, i$->next()));
+			if ($instanceOf($Pattern$Loop, node)) {
+				$cast($Pattern$Loop, node)->posIndex = this->localTCNCount++;
 			}
 		}
 	}
@@ -1502,13 +1211,13 @@ void Pattern::compile() {
 $Map* Pattern::namedGroups() {
 	$var($Map, groups, this->namedGroups$);
 	if (groups == nullptr) {
-		$set(this, namedGroups$, ($assign(groups, $new($HashMap, 2))));
+		$set(this, namedGroups$, $assign(groups, $new($HashMap, 2)));
 	}
 	return groups;
 }
 
 bool Pattern::has(int32_t f) {
-	return ((int32_t)(this->flags0 & (uint32_t)f)) != 0;
+	return (this->flags0 & f) != 0;
 }
 
 void Pattern::accept(int32_t ch, $String* s) {
@@ -1586,11 +1295,11 @@ int32_t Pattern::parsePastWhitespace(int32_t ch) {
 int32_t Pattern::parsePastLine() {
 	int32_t ch = $nc(this->temp)->get(this->cursor$++);
 	while (ch != 0 && !isLineSeparator(ch)) {
-		ch = $nc(this->temp)->get(this->cursor$++);
+		ch = this->temp->get(this->cursor$++);
 	}
 	if (ch == 0 && this->cursor$ > this->patternLength) {
 		this->cursor$ = this->patternLength;
-		ch = $nc(this->temp)->get(this->cursor$++);
+		ch = this->temp->get(this->cursor$++);
 	}
 	return ch;
 }
@@ -1598,11 +1307,11 @@ int32_t Pattern::parsePastLine() {
 int32_t Pattern::peekPastLine() {
 	int32_t ch = $nc(this->temp)->get(++this->cursor$);
 	while (ch != 0 && !isLineSeparator(ch)) {
-		ch = $nc(this->temp)->get(++this->cursor$);
+		ch = this->temp->get(++this->cursor$);
 	}
 	if (ch == 0 && this->cursor$ > this->patternLength) {
 		this->cursor$ = this->patternLength;
-		ch = $nc(this->temp)->get(this->cursor$);
+		ch = this->temp->get(this->cursor$);
 	}
 	return ch;
 }
@@ -1645,7 +1354,7 @@ bool Pattern::isSupplementary(int32_t ch) {
 }
 
 $Pattern$Node* Pattern::expr($Pattern$Node* end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Pattern$Node, prev, nullptr);
 	$var($Pattern$Node, firstTail, nullptr);
 	$var($Pattern$Branch, branch, nullptr);
@@ -1674,7 +1383,7 @@ $Pattern$Node* Pattern::expr($Pattern$Node* end) {
 				} else {
 					$set($nc(firstTail), next, branchConn);
 				}
-				$assign(prev, ($assign(branch, $new($Pattern$Branch, prev, node, branchConn))));
+				$assign(prev, $assign(branch, $new($Pattern$Branch, prev, node, branchConn)));
 			}
 		}
 		if (peek() != u'|') {
@@ -1685,7 +1394,7 @@ $Pattern$Node* Pattern::expr($Pattern$Node* end) {
 }
 
 $Pattern$Node* Pattern::sequence($Pattern$Node* end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Pattern$Node, head, nullptr);
 	$var($Pattern$Node, tail, nullptr);
 	$var($Pattern$Node, node, nullptr);
@@ -1694,19 +1403,17 @@ $Pattern$Node* Pattern::sequence($Pattern$Node* end) {
 		int32_t ch = peek();
 		switch (ch) {
 		case u'(':
-			{
-				$assign(node, group0());
-				if (node == nullptr) {
-					continue;
-				}
-				if (head == nullptr) {
-					$assign(head, node);
-				} else {
-					$set($nc(tail), next, node);
-				}
-				$assign(tail, this->root);
+			$assign(node, group0());
+			if (node == nullptr) {
 				continue;
 			}
+			if (head == nullptr) {
+				$assign(head, node);
+			} else {
+				$set($nc(tail), next, node);
+			}
+			$assign(tail, this->root);
+			continue;
 		case u'[':
 			{
 				bool var$0 = has(Pattern::CANON_EQ);
@@ -1718,107 +1425,85 @@ $Pattern$Node* Pattern::sequence($Pattern$Node* end) {
 				break;
 			}
 		case u'\\':
-			{
-				ch = nextEscaped();
-				if (ch == u'p' || ch == u'P') {
-					bool oneLetter = true;
-					bool comp = (ch == u'P');
-					ch = next();
-					if (ch != u'{') {
-						unread();
-					} else {
-						oneLetter = false;
-					}
-					bool var$1 = has(Pattern::CANON_EQ);
-					if (var$1 && !has(Pattern::LITERAL)) {
-						$assign(node, $new($Pattern$NFCCharProperty, $(family(oneLetter, comp))));
-					} else {
-						$assign(node, newCharProperty($(family(oneLetter, comp))));
-					}
-				} else {
+			ch = nextEscaped();
+			if (ch == u'p' || ch == u'P') {
+				bool oneLetter = true;
+				bool comp = (ch == u'P');
+				ch = next();
+				if (ch != u'{') {
 					unread();
-					$assign(node, atom());
+				} else {
+					oneLetter = false;
 				}
-				break;
+				bool var$1 = has(Pattern::CANON_EQ);
+				if (var$1 && !has(Pattern::LITERAL)) {
+					$assign(node, $new($Pattern$NFCCharProperty, $(family(oneLetter, comp))));
+				} else {
+					$assign(node, newCharProperty($(family(oneLetter, comp))));
+				}
+			} else {
+				unread();
+				$assign(node, atom());
 			}
+			break;
 		case u'^':
-			{
-				next();
-				if (has(Pattern::MULTILINE)) {
-					if (has(Pattern::UNIX_LINES)) {
-						$assign(node, $new($Pattern$UnixCaret));
-					} else {
-						$assign(node, $new($Pattern$Caret));
-					}
-				} else {
-					$assign(node, $new($Pattern$Begin));
-				}
-				break;
-			}
-		case u'$':
-			{
-				next();
+			next();
+			if (has(Pattern::MULTILINE)) {
 				if (has(Pattern::UNIX_LINES)) {
-					$assign(node, $new($Pattern$UnixDollar, has(Pattern::MULTILINE)));
+					$assign(node, $new($Pattern$UnixCaret));
 				} else {
-					$assign(node, $new($Pattern$Dollar, has(Pattern::MULTILINE)));
+					$assign(node, $new($Pattern$Caret));
 				}
-				break;
+			} else {
+				$assign(node, $new($Pattern$Begin));
 			}
+			break;
+		case u'$':
+			next();
+			if (has(Pattern::UNIX_LINES)) {
+				$assign(node, $new($Pattern$UnixDollar, has(Pattern::MULTILINE)));
+			} else {
+				$assign(node, $new($Pattern$Dollar, has(Pattern::MULTILINE)));
+			}
+			break;
 		case u'.':
-			{
-				next();
-				if (has(Pattern::DOTALL)) {
-					$assign(node, $new($Pattern$CharProperty, $(ALL())));
-				} else if (has(Pattern::UNIX_LINES)) {
-					$assign(node, $new($Pattern$CharProperty, $(UNIXDOT())));
-				} else {
-					$assign(node, $new($Pattern$CharProperty, $(DOT())));
-				}
-				break;
+			next();
+			if (has(Pattern::DOTALL)) {
+				$assign(node, $new($Pattern$CharProperty, $(ALL())));
+			} else if (has(Pattern::UNIX_LINES)) {
+				$assign(node, $new($Pattern$CharProperty, $(UNIXDOT())));
+			} else {
+				$assign(node, $new($Pattern$CharProperty, $(DOT())));
 			}
+			break;
 		case u'|':
-			{}
 		case u')':
-			{
+			LOOP$break = true;
+			break;
+		case u']':
+		case u'}':
+			$assign(node, atom());
+			break;
+		case u'?':
+		case u'*':
+		case u'+':
+			next();
+			$throw($(error($$str({"Dangling meta character \'"_s, $$str(((char16_t)ch)), "\'"_s}))));
+		case 0:
+			if (this->cursor$ >= this->patternLength) {
 				LOOP$break = true;
 				break;
 			}
-		case u']':
-			{}
-		case u'}':
-			{
-				$assign(node, atom());
-				break;
-			}
-		case u'?':
-			{}
-		case u'*':
-			{}
-		case u'+':
-			{
-				next();
-				$throw($(error($$str({"Dangling meta character \'"_s, $$str(((char16_t)ch)), "\'"_s}))));
-			}
-		case 0:
-			{
-				if (this->cursor$ >= this->patternLength) {
-					LOOP$break = true;
-					break;
-				}
-			}
 		default:
-			{
-				$assign(node, atom());
-				break;
-			}
+			$assign(node, atom());
+			break;
 		}
-
 		if (LOOP$break) {
 			break;
-		}		$assign(node, closure(node));
+		}
+		$assign(node, closure(node));
 		if (head == nullptr) {
-			$assign(head, ($assign(tail, node)));
+			$assign(head, $assign(tail, node));
 		} else {
 			$set($nc(tail), next, node);
 			$assign(tail, node);
@@ -1833,7 +1518,7 @@ $Pattern$Node* Pattern::sequence($Pattern$Node* end) {
 }
 
 $Pattern$Node* Pattern::atom() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t first = 0;
 	int32_t prev = -1;
 	bool hasSupplementary = false;
@@ -1841,93 +1526,74 @@ $Pattern$Node* Pattern::atom() {
 	for (;;) {
 		switch (ch) {
 		case u'*':
-			{}
 		case u'+':
-			{}
 		case u'?':
-			{}
 		case u'{':
-			{
-				if (first > 1) {
-					this->cursor$ = prev;
-					--first;
-				}
-				break;
-			}
-		case u'$':
-			{}
-		case u'.':
-			{}
-		case u'^':
-			{}
-		case u'(':
-			{}
-		case u'[':
-			{}
-		case u'|':
-			{}
-		case u')':
-			{
-				break;
-			}
-		case u'\\':
-			{
-				ch = nextEscaped();
-				if (ch == u'p' || ch == u'P') {
-					if (first > 0) {
-						unread();
-						break;
-					} else {
-						bool comp = (ch == u'P');
-						bool oneLetter = true;
-						ch = next();
-						if (ch != u'{') {
-							unread();
-						} else {
-							oneLetter = false;
-						}
-						bool var$0 = has(Pattern::CANON_EQ);
-						if (var$0 && !has(Pattern::LITERAL)) {
-							return $new($Pattern$NFCCharProperty, $(family(oneLetter, comp)));
-						} else {
-							return newCharProperty($(family(oneLetter, comp)));
-						}
-					}
-				}
-				unread();
-				prev = this->cursor$;
-				ch = escape(false, first == 0, false);
-				if (ch >= 0) {
-					append(ch, first);
-					++first;
-					if (isSupplementary(ch)) {
-						hasSupplementary = true;
-					}
-					ch = peek();
-					continue;
-				} else if (first == 0) {
-					return this->root;
-				}
+			if (first > 1) {
 				this->cursor$ = prev;
-				break;
+				--first;
 			}
-		case 0:
-			{
-				if (this->cursor$ >= this->patternLength) {
+			break;
+		case u'$':
+		case u'.':
+		case u'^':
+		case u'(':
+		case u'[':
+		case u'|':
+		case u')':
+			break;
+		case u'\\':
+			ch = nextEscaped();
+			if (ch == u'p' || ch == u'P') {
+				if (first > 0) {
+					unread();
 					break;
+				} else {
+					bool comp = (ch == u'P');
+					bool oneLetter = true;
+					ch = next();
+					if (ch != u'{') {
+						unread();
+					} else {
+						oneLetter = false;
+					}
+					bool var$0 = has(Pattern::CANON_EQ);
+					if (var$0 && !has(Pattern::LITERAL)) {
+						return $new($Pattern$NFCCharProperty, $(family(oneLetter, comp)));
+					} else {
+						return newCharProperty($(family(oneLetter, comp)));
+					}
 				}
 			}
-		default:
-			{
-				prev = this->cursor$;
+			unread();
+			prev = this->cursor$;
+			ch = escape(false, first == 0, false);
+			if (ch >= 0) {
 				append(ch, first);
 				++first;
 				if (isSupplementary(ch)) {
 					hasSupplementary = true;
 				}
-				ch = next();
+				ch = peek();
 				continue;
+			} else if (first == 0) {
+				return this->root;
 			}
+			this->cursor$ = prev;
+			break;
+		case 0:
+			if (this->cursor$ >= this->patternLength) {
+				break;
+			}
+		default:
+			prev = this->cursor$;
+			append(ch, first);
+			++first;
+			if (isSupplementary(ch)) {
+				hasSupplementary = true;
+			}
+			ch = next();
+			continue;
 		}
 		break;
 	}
@@ -1944,7 +1610,7 @@ void Pattern::append(int32_t ch, int32_t index) {
 		len = $ArraysSupport::newLength(len, 1 + index - len, len);
 		$set(this, buffer, $Arrays::copyOf(this->buffer, len));
 	}
-	$nc(this->buffer)->set(index, ch);
+	this->buffer->set(index, ch);
 }
 
 $Pattern$Node* Pattern::ref(int32_t refNum) {
@@ -1953,41 +1619,28 @@ $Pattern$Node* Pattern::ref(int32_t refNum) {
 		int32_t ch = peek();
 		switch (ch) {
 		case u'0':
-			{}
 		case u'1':
-			{}
 		case u'2':
-			{}
 		case u'3':
-			{}
 		case u'4':
-			{}
 		case u'5':
-			{}
 		case u'6':
-			{}
 		case u'7':
-			{}
 		case u'8':
-			{}
 		case u'9':
 			{
-				{
-					int32_t newRefNum = (refNum * 10) + (ch - u'0');
-					if (this->capturingGroupCount - 1 < newRefNum) {
-						done = true;
-						break;
-					}
-					refNum = newRefNum;
-					read();
+				int32_t newRefNum = (refNum * 10) + (ch - u'0');
+				if (this->capturingGroupCount - 1 < newRefNum) {
+					done = true;
+					break;
 				}
-				break;
+				refNum = newRefNum;
+				read();
 			}
+			break;
 		default:
-			{
-				done = true;
-				break;
-			}
+			done = true;
+			break;
 		}
 	}
 	this->hasGroupRef = true;
@@ -1999,386 +1652,280 @@ $Pattern$Node* Pattern::ref(int32_t refNum) {
 }
 
 int32_t Pattern::escape(bool inclass, bool create, bool isrange) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t ch = skip();
 	{
-		$var($String, name, nullptr)
+		$var($String, name, nullptr);
 		switch (ch) {
 		case u'0':
-			{
-				return o();
-			}
+			return o();
 		case u'1':
-			{}
 		case u'2':
-			{}
 		case u'3':
-			{}
 		case u'4':
-			{}
 		case u'5':
-			{}
 		case u'6':
-			{}
 		case u'7':
-			{}
 		case u'8':
-			{}
 		case u'9':
-			{
-				if (inclass) {
-					break;
-				}
-				if (create) {
-					$set(this, root, ref((ch - u'0')));
-				}
-				return -1;
+			if (inclass) {
+				break;
 			}
+			if (create) {
+				$set(this, root, ref((ch - u'0')));
+			}
+			return -1;
 		case u'A':
-			{
-				if (inclass) {
-					break;
-				}
-				if (create) {
-					$set(this, root, $new($Pattern$Begin));
-				}
-				return -1;
+			if (inclass) {
+				break;
 			}
+			if (create) {
+				$set(this, root, $new($Pattern$Begin));
+			}
+			return -1;
 		case u'B':
-			{
-				if (inclass) {
-					break;
-				}
-				if (create) {
-					$init($Pattern$Bound);
-					$set(this, root, $new($Pattern$Bound, $Pattern$Bound::NONE, has(Pattern::UNICODE_CHARACTER_CLASS)));
-				}
-				return -1;
+			if (inclass) {
+				break;
 			}
+			if (create) {
+				$init($Pattern$Bound);
+				$set(this, root, $new($Pattern$Bound, $Pattern$Bound::NONE, has(Pattern::UNICODE_CHARACTER_CLASS)));
+			}
+			return -1;
 		case u'C':
-			{
-				break;
-			}
+			break;
 		case u'D':
-			{
-				if (create) {
-					$set(this, predicate, has(Pattern::UNICODE_CHARACTER_CLASS) ? $CharPredicates::DIGIT() : static_cast<$Pattern$CharPredicate*>($CharPredicates::ASCII_DIGIT()));
-					$set(this, predicate, $nc(this->predicate)->negate());
-					if (!inclass) {
-						$set(this, root, newCharProperty(this->predicate));
-					}
+			if (create) {
+				$set(this, predicate, has(Pattern::UNICODE_CHARACTER_CLASS) ? $CharPredicates::DIGIT() : $cast($Pattern$CharPredicate, $CharPredicates::ASCII_DIGIT()));
+				$set(this, predicate, $nc(this->predicate)->negate());
+				if (!inclass) {
+					$set(this, root, newCharProperty(this->predicate));
 				}
-				return -1;
 			}
+			return -1;
 		case u'E':
-			{}
 		case u'F':
-			{
-				break;
-			}
+			break;
 		case u'G':
-			{
-				if (inclass) {
-					break;
-				}
-				if (create) {
-					$set(this, root, $new($Pattern$LastMatch));
-				}
-				return -1;
+			if (inclass) {
+				break;
 			}
+			if (create) {
+				$set(this, root, $new($Pattern$LastMatch));
+			}
+			return -1;
 		case u'H':
-			{
-				if (create) {
-					$set(this, predicate, $nc($(HorizWS()))->negate());
-					if (!inclass) {
-						$set(this, root, newCharProperty(this->predicate));
-					}
+			if (create) {
+				$set(this, predicate, $$nc(HorizWS())->negate());
+				if (!inclass) {
+					$set(this, root, newCharProperty(this->predicate));
 				}
-				return -1;
 			}
+			return -1;
 		case u'I':
-			{}
 		case u'J':
-			{}
 		case u'K':
-			{}
 		case u'L':
-			{}
 		case u'M':
-			{
-				break;
-			}
+			break;
 		case u'N':
-			{
-				return N();
-			}
+			return N();
 		case u'O':
-			{}
 		case u'P':
-			{}
 		case u'Q':
-			{
-				break;
-			}
+			break;
 		case u'R':
-			{
-				if (inclass) {
-					break;
-				}
-				if (create) {
-					$set(this, root, $new($Pattern$LineEnding));
-				}
-				return -1;
+			if (inclass) {
+				break;
 			}
+			if (create) {
+				$set(this, root, $new($Pattern$LineEnding));
+			}
+			return -1;
 		case u'S':
-			{
-				if (create) {
-					$set(this, predicate, has(Pattern::UNICODE_CHARACTER_CLASS) ? $CharPredicates::WHITE_SPACE() : static_cast<$Pattern$CharPredicate*>($CharPredicates::ASCII_SPACE()));
-					$set(this, predicate, $nc(this->predicate)->negate());
-					if (!inclass) {
-						$set(this, root, newCharProperty(this->predicate));
-					}
+			if (create) {
+				$set(this, predicate, has(Pattern::UNICODE_CHARACTER_CLASS) ? $CharPredicates::WHITE_SPACE() : $cast($Pattern$CharPredicate, $CharPredicates::ASCII_SPACE()));
+				$set(this, predicate, $nc(this->predicate)->negate());
+				if (!inclass) {
+					$set(this, root, newCharProperty(this->predicate));
 				}
-				return -1;
 			}
+			return -1;
 		case u'T':
-			{}
 		case u'U':
-			{
-				break;
-			}
+			break;
 		case u'V':
-			{
-				if (create) {
-					$set(this, predicate, $nc($(VertWS()))->negate());
-					if (!inclass) {
-						$set(this, root, newCharProperty(this->predicate));
-					}
+			if (create) {
+				$set(this, predicate, $$nc(VertWS())->negate());
+				if (!inclass) {
+					$set(this, root, newCharProperty(this->predicate));
 				}
-				return -1;
 			}
+			return -1;
 		case u'W':
-			{
-				if (create) {
-					$set(this, predicate, has(Pattern::UNICODE_CHARACTER_CLASS) ? $CharPredicates::WORD() : static_cast<$Pattern$CharPredicate*>($CharPredicates::ASCII_WORD()));
-					$set(this, predicate, $nc(this->predicate)->negate());
-					if (!inclass) {
-						$set(this, root, newCharProperty(this->predicate));
-					}
+			if (create) {
+				$set(this, predicate, has(Pattern::UNICODE_CHARACTER_CLASS) ? $CharPredicates::WORD() : $cast($Pattern$CharPredicate, $CharPredicates::ASCII_WORD()));
+				$set(this, predicate, $nc(this->predicate)->negate());
+				if (!inclass) {
+					$set(this, root, newCharProperty(this->predicate));
 				}
-				return -1;
 			}
+			return -1;
 		case u'X':
-			{
-				if (inclass) {
-					break;
-				}
-				if (create) {
-					$set(this, root, $new($Pattern$XGrapheme));
-				}
-				return -1;
+			if (inclass) {
+				break;
 			}
+			if (create) {
+				$set(this, root, $new($Pattern$XGrapheme));
+			}
+			return -1;
 		case u'Y':
-			{
-				break;
-			}
+			break;
 		case u'Z':
-			{
-				if (inclass) {
-					break;
-				}
-				if (create) {
-					if (has(Pattern::UNIX_LINES)) {
-						$set(this, root, $new($Pattern$UnixDollar, false));
-					} else {
-						$set(this, root, $new($Pattern$Dollar, false));
-					}
-				}
-				return -1;
+			if (inclass) {
+				break;
 			}
+			if (create) {
+				if (has(Pattern::UNIX_LINES)) {
+					$set(this, root, $new($Pattern$UnixDollar, false));
+				} else {
+					$set(this, root, $new($Pattern$Dollar, false));
+				}
+			}
+			return -1;
 		case u'a':
-			{
-				return (char16_t)0x7;
-			}
+			return (char16_t)0x07;
 		case u'b':
-			{
-				if (inclass) {
-					break;
-				}
-				if (create) {
-					if (peek() == u'{') {
-						if (skip() == u'g') {
-							if (read() == u'}') {
-								$set(this, root, $new($Pattern$GraphemeBound));
-								return -1;
-							}
-							break;
+			if (inclass) {
+				break;
+			}
+			if (create) {
+				if (peek() == u'{') {
+					if (skip() == u'g') {
+						if (read() == u'}') {
+							$set(this, root, $new($Pattern$GraphemeBound));
+							return -1;
 						}
-						unread();
-						unread();
+						break;
 					}
-					$init($Pattern$Bound);
-					$set(this, root, $new($Pattern$Bound, $Pattern$Bound::BOTH, has(Pattern::UNICODE_CHARACTER_CLASS)));
+					unread();
+					unread();
 				}
-				return -1;
+				$init($Pattern$Bound);
+				$set(this, root, $new($Pattern$Bound, $Pattern$Bound::BOTH, has(Pattern::UNICODE_CHARACTER_CLASS)));
 			}
+			return -1;
 		case u'c':
-			{
-				return c();
-			}
+			return c();
 		case u'd':
-			{
-				if (create) {
-					$set(this, predicate, has(Pattern::UNICODE_CHARACTER_CLASS) ? $CharPredicates::DIGIT() : static_cast<$Pattern$CharPredicate*>($CharPredicates::ASCII_DIGIT()));
-					if (!inclass) {
-						$set(this, root, newCharProperty(this->predicate));
-					}
+			if (create) {
+				$set(this, predicate, has(Pattern::UNICODE_CHARACTER_CLASS) ? $CharPredicates::DIGIT() : $cast($Pattern$CharPredicate, $CharPredicates::ASCII_DIGIT()));
+				if (!inclass) {
+					$set(this, root, newCharProperty(this->predicate));
 				}
-				return -1;
 			}
+			return -1;
 		case u'e':
-			{
-				return (char16_t)0x1B;
-			}
+			return (char16_t)0x1b;
 		case u'f':
-			{
-				return u'\f';
-			}
+			return u'\f';
 		case u'g':
-			{
-				break;
-			}
+			break;
 		case u'h':
-			{
-				if (create) {
-					$set(this, predicate, HorizWS());
-					if (!inclass) {
-						$set(this, root, newCharProperty(this->predicate));
-					}
+			if (create) {
+				$set(this, predicate, HorizWS());
+				if (!inclass) {
+					$set(this, root, newCharProperty(this->predicate));
 				}
-				return -1;
 			}
+			return -1;
 		case u'i':
-			{}
 		case u'j':
-			{
-				break;
-			}
+			break;
 		case u'k':
-			{
-				if (inclass) {
-					break;
-				}
-				if (read() != u'<') {
-					$throw($(error("\\k is not followed by \'<\' for named capturing group"_s)));
-				}
-				$assign(name, groupname(read()));
-				if (!$nc($(namedGroups()))->containsKey(name)) {
-					$throw($(error($$str({"named capturing group <"_s, name, "> does not exist"_s}))));
-				}
-				if (create) {
-					this->hasGroupRef = true;
-					if (has(Pattern::CASE_INSENSITIVE)) {
-						int32_t var$0 = $nc(($cast($Integer, $($nc($(namedGroups()))->get(name)))))->intValue();
-						$set(this, root, $new($Pattern$CIBackRef, var$0, has(Pattern::UNICODE_CASE)));
-					} else {
-						$set(this, root, $new($Pattern$BackRef, $nc(($cast($Integer, $($nc($(namedGroups()))->get(name)))))->intValue()));
-					}
-				}
-				return -1;
+			if (inclass) {
+				break;
 			}
+			if (read() != u'<') {
+				$throw($(error("\\k is not followed by \'<\' for named capturing group"_s)));
+			}
+			$assign(name, groupname(read()));
+			if (!$$nc(namedGroups())->containsKey(name)) {
+				$throw($(error($$str({"named capturing group <"_s, name, "> does not exist"_s}))));
+			}
+			if (create) {
+				this->hasGroupRef = true;
+				if (has(Pattern::CASE_INSENSITIVE)) {
+					int32_t var$0 = $$sure($Integer, $$nc(namedGroups())->get(name))->intValue();
+					$set(this, root, $new($Pattern$CIBackRef, var$0, has(Pattern::UNICODE_CASE)));
+				} else {
+					$set(this, root, $new($Pattern$BackRef, $$sure($Integer, $$nc(namedGroups())->get(name))->intValue()));
+				}
+			}
+			return -1;
 		case u'l':
-			{}
 		case u'm':
-			{
-				break;
-			}
+			break;
 		case u'n':
-			{
-				return u'\n';
-			}
+			return u'\n';
 		case u'o':
-			{}
 		case u'p':
-			{}
 		case u'q':
-			{
-				break;
-			}
+			break;
 		case u'r':
-			{
-				return u'\r';
-			}
+			return u'\r';
 		case u's':
-			{
-				if (create) {
-					$set(this, predicate, has(Pattern::UNICODE_CHARACTER_CLASS) ? $CharPredicates::WHITE_SPACE() : static_cast<$Pattern$CharPredicate*>($CharPredicates::ASCII_SPACE()));
-					if (!inclass) {
-						$set(this, root, newCharProperty(this->predicate));
-					}
+			if (create) {
+				$set(this, predicate, has(Pattern::UNICODE_CHARACTER_CLASS) ? $CharPredicates::WHITE_SPACE() : $cast($Pattern$CharPredicate, $CharPredicates::ASCII_SPACE()));
+				if (!inclass) {
+					$set(this, root, newCharProperty(this->predicate));
 				}
-				return -1;
 			}
+			return -1;
 		case u't':
-			{
-				return u'\t';
-			}
+			return u'\t';
 		case u'u':
-			{
-				return u();
-			}
+			return u();
 		case u'v':
-			{
-				if (isrange) {
-					return (char16_t)0xB;
-				}
-				if (create) {
-					$set(this, predicate, VertWS());
-					if (!inclass) {
-						$set(this, root, newCharProperty(this->predicate));
-					}
-				}
-				return -1;
+			if (isrange) {
+				return (char16_t)0x0b;
 			}
+			if (create) {
+				$set(this, predicate, VertWS());
+				if (!inclass) {
+					$set(this, root, newCharProperty(this->predicate));
+				}
+			}
+			return -1;
 		case u'w':
-			{
-				if (create) {
-					$set(this, predicate, has(Pattern::UNICODE_CHARACTER_CLASS) ? $CharPredicates::WORD() : static_cast<$Pattern$CharPredicate*>($CharPredicates::ASCII_WORD()));
-					if (!inclass) {
-						$set(this, root, newCharProperty(this->predicate));
-					}
+			if (create) {
+				$set(this, predicate, has(Pattern::UNICODE_CHARACTER_CLASS) ? $CharPredicates::WORD() : $cast($Pattern$CharPredicate, $CharPredicates::ASCII_WORD()));
+				if (!inclass) {
+					$set(this, root, newCharProperty(this->predicate));
 				}
-				return -1;
 			}
+			return -1;
 		case u'x':
-			{
-				return x();
-			}
+			return x();
 		case u'y':
-			{
+			break;
+		case u'z':
+			if (inclass) {
 				break;
 			}
-		case u'z':
-			{
-				if (inclass) {
-					break;
-				}
-				if (create) {
-					$set(this, root, $new($Pattern$End));
-				}
-				return -1;
+			if (create) {
+				$set(this, root, $new($Pattern$End));
 			}
+			return -1;
 		default:
-			{
-				return ch;
-			}
+			return ch;
 		}
 	}
 	$throw($(error("Illegal/unsupported escape sequence"_s)));
 }
 
 $Pattern$CharPredicate* Pattern::clazz(bool consume) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Pattern$CharPredicate, prev, nullptr);
 	$var($Pattern$CharPredicate, curr, nullptr);
 	$var($Pattern$BitClass, bits, $new($Pattern$BitClass));
@@ -2392,94 +1939,84 @@ $Pattern$CharPredicate* Pattern::clazz(bool consume) {
 	for (;;) {
 		switch (ch) {
 		case u'[':
-			{
-				$assign(curr, clazz(true));
-				if (prev == nullptr) {
-					$assign(prev, curr);
-				} else {
-					$assign(prev, $nc(prev)->union$(curr));
-				}
-				ch = peek();
-				continue;
+			$assign(curr, clazz(true));
+			if (prev == nullptr) {
+				$assign(prev, curr);
+			} else {
+				$assign(prev, prev->union$(curr));
 			}
+			ch = peek();
+			continue;
 		case u'&':
-			{
+			ch = next();
+			if (ch == u'&') {
 				ch = next();
-				if (ch == u'&') {
-					ch = next();
-					$var($Pattern$CharPredicate, right, nullptr);
-					while (ch != u']' && ch != u'&') {
-						if (ch == u'[') {
-							if (right == nullptr) {
-								$assign(right, clazz(true));
-							} else {
-								$assign(right, $nc(right)->union$($(clazz(true))));
-							}
-						} else {
-							unread();
-							if (right == nullptr) {
-								$assign(right, clazz(false));
-							} else {
-								$assign(right, $nc(right)->union$($(clazz(false))));
-							}
-						}
-						ch = peek();
-					}
-					if (hasBits) {
-						if (prev == nullptr) {
-							$assign(prev, ($assign(curr, bits)));
-						} else {
-							$assign(prev, $nc(prev)->union$(bits));
-						}
-						hasBits = false;
-					}
-					if (right != nullptr) {
-						$assign(curr, right);
-					}
-					if (prev == nullptr) {
+				$var($Pattern$CharPredicate, right, nullptr);
+				while (ch != u']' && ch != u'&') {
+					if (ch == u'[') {
 						if (right == nullptr) {
-							$throw($(error("Bad class syntax"_s)));
+							$assign(right, clazz(true));
 						} else {
-							$assign(prev, right);
+							$assign(right, right->union$($(clazz(true))));
 						}
 					} else {
-						$assign(prev, $nc(prev)->and$(curr));
+						unread();
+						if (right == nullptr) {
+							$assign(right, clazz(false));
+						} else {
+							$assign(right, right->union$($(clazz(false))));
+						}
+					}
+					ch = peek();
+				}
+				if (hasBits) {
+					if (prev == nullptr) {
+						$assign(prev, $assign(curr, bits));
+					} else {
+						$assign(prev, prev->union$(bits));
+					}
+					hasBits = false;
+				}
+				if (right != nullptr) {
+					$assign(curr, right);
+				}
+				if (prev == nullptr) {
+					if (right == nullptr) {
+						$throw($(error("Bad class syntax"_s)));
+					} else {
+						$assign(prev, right);
 					}
 				} else {
-					unread();
-					break;
+					$assign(prev, prev->and$(curr));
 				}
-				continue;
+			} else {
+				unread();
+				break;
 			}
+			continue;
 		case 0:
-			{
-				if (this->cursor$ >= this->patternLength) {
-					$throw($(error("Unclosed character class"_s)));
-				}
-				break;
+			if (this->cursor$ >= this->patternLength) {
+				$throw($(error("Unclosed character class"_s)));
 			}
+			break;
 		case u']':
-			{
-				if (prev != nullptr || hasBits) {
-					if (consume) {
-						next();
-					}
-					if (prev == nullptr) {
-						$assign(prev, bits);
-					} else if (hasBits) {
-						$assign(prev, $nc(prev)->union$(bits));
-					}
-					if (isNeg) {
-						return $nc(prev)->negate();
-					}
-					return prev;
+			if (prev != nullptr || hasBits) {
+				if (consume) {
+					next();
 				}
-				break;
+				if (prev == nullptr) {
+					$assign(prev, bits);
+				} else if (hasBits) {
+					$assign(prev, prev->union$(bits));
+				}
+				if (isNeg) {
+					return $nc(prev)->negate();
+				}
+				return prev;
 			}
+			break;
 		default:
-			{
-				break;
-			}
+			break;
 		}
 		$assign(curr, range(bits));
 		if (curr == nullptr) {
@@ -2487,7 +2024,7 @@ $Pattern$CharPredicate* Pattern::clazz(bool consume) {
 		} else if (prev == nullptr) {
 			$assign(prev, curr);
 		} else if (prev != curr) {
-			$assign(prev, $nc(prev)->union$(curr));
+			$assign(prev, prev->union$(curr));
 		}
 		ch = peek();
 	}
@@ -2531,7 +2068,7 @@ $Pattern$CharPredicate* Pattern::single(int32_t ch) {
 }
 
 $Pattern$CharPredicate* Pattern::range($Pattern$BitClass* bits) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t ch = peek();
 	if (ch == u'\\') {
 		ch = nextEscaped();
@@ -2589,7 +2126,7 @@ $Pattern$CharPredicate* Pattern::range($Pattern$BitClass* bits) {
 }
 
 $Pattern$CharPredicate* Pattern::family(bool singleLetter, bool isComplement) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	next();
 	$var($String, name, nullptr);
 	$var($Pattern$CharPredicate, p, nullptr);
@@ -2616,7 +2153,7 @@ $Pattern$CharPredicate* Pattern::family(bool singleLetter, bool isComplement) {
 		}
 		$assign(name, $new($String, this->temp, i, j - i - 1));
 	}
-	int32_t i = $nc(name)->indexOf((int32_t)u'=');
+	int32_t i = $nc(name)->indexOf(u'=');
 	if (i != -1) {
 		$var($String, value, name->substring(i + 1));
 		$init($Locale);
@@ -2626,74 +2163,51 @@ $Pattern$CharPredicate* Pattern::family(bool singleLetter, bool isComplement) {
 			int32_t tmp116648$ = -1;
 			switch (s116648$->hashCode()) {
 			case 3664:
-				{
-					if (s116648$->equals("sc"_s)) {
-						tmp116648$ = 0;
-					}
-					break;
+				if (s116648$->equals("sc"_s)) {
+					tmp116648$ = 0;
 				}
-			case (int32_t)0xC9E5D0CB:
-				{
-					if (s116648$->equals("script"_s)) {
-						tmp116648$ = 1;
-					}
-					break;
+				break;
+			case (int32_t)0xc9e5d0cb:
+				if (s116648$->equals("script"_s)) {
+					tmp116648$ = 1;
 				}
-			case 0x00017D61:
-				{
-					if (s116648$->equals("blk"_s)) {
-						tmp116648$ = 2;
-					}
-					break;
+				break;
+			case 0x00017d61:
+				if (s116648$->equals("blk"_s)) {
+					tmp116648$ = 2;
 				}
-			case 0x0597C48D:
-				{
-					if (s116648$->equals("block"_s)) {
-						tmp116648$ = 3;
-					}
-					break;
+				break;
+			case 0x0597c48d:
+				if (s116648$->equals("block"_s)) {
+					tmp116648$ = 3;
 				}
+				break;
 			case 3292:
-				{
-					if (s116648$->equals("gc"_s)) {
-						tmp116648$ = 4;
-					}
-					break;
+				if (s116648$->equals("gc"_s)) {
+					tmp116648$ = 4;
 				}
-			case 0x4B666A75:
-				{
-					if (s116648$->equals("general_category"_s)) {
-						tmp116648$ = 5;
-					}
-					break;
+				break;
+			case 0x4b666a75:
+				if (s116648$->equals("general_category"_s)) {
+					tmp116648$ = 5;
 				}
+				break;
 			}
 			switch (tmp116648$) {
 			case 0:
-				{}
 			case 1:
-				{
-					$assign(p, $CharPredicates::forUnicodeScript(value));
-					break;
-				}
+				$assign(p, $CharPredicates::forUnicodeScript(value));
+				break;
 			case 2:
-				{}
 			case 3:
-				{
-					$assign(p, $CharPredicates::forUnicodeBlock(value));
-					break;
-				}
+				$assign(p, $CharPredicates::forUnicodeBlock(value));
+				break;
 			case 4:
-				{}
 			case 5:
-				{
-					$assign(p, $CharPredicates::forProperty(value, has(Pattern::CASE_INSENSITIVE)));
-					break;
-				}
+				$assign(p, $CharPredicates::forProperty(value, has(Pattern::CASE_INSENSITIVE)));
+				break;
 			default:
-				{
-					break;
-				}
+				break;
 			}
 		}
 		if (p == nullptr) {
@@ -2743,7 +2257,7 @@ $Pattern$CharProperty* Pattern::newCharProperty($Pattern$CharPredicate* p) {
 }
 
 $String* Pattern::groupname(int32_t ch) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	if (!$ASCII::isAlpha(ch)) {
 		$throw($(error("capturing group name does not start with a Latin letter"_s)));
@@ -2758,7 +2272,7 @@ $String* Pattern::groupname(int32_t ch) {
 }
 
 $Pattern$Node* Pattern::group0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool capturingGroup = false;
 	$var($Pattern$Node, head, nullptr);
 	$var($Pattern$Node, tail, nullptr);
@@ -2771,103 +2285,89 @@ $Pattern$Node* Pattern::group0() {
 		switch (ch) {
 		case u':':
 			{
-				{
-					$assign(head, createGroup(true));
-					$assign(tail, this->root);
-					$set($nc(head), next, expr(tail));
-				}
-				break;
+				$assign(head, createGroup(true));
+				$assign(tail, this->root);
+				$set($nc(head), next, expr(tail));
 			}
+			break;
 		case u'=':
-			{}
 		case u'!':
 			{
-				{
-					$assign(head, createGroup(true));
-					$assign(tail, this->root);
-					$set($nc(head), next, expr(tail));
-					if (ch == u'=') {
-						$assign(head, ($assign(tail, $new($Pattern$Pos, head))));
-					} else {
-						$assign(head, ($assign(tail, $new($Pattern$Neg, head))));
-					}
+				$assign(head, createGroup(true));
+				$assign(tail, this->root);
+				$set($nc(head), next, expr(tail));
+				if (ch == u'=') {
+					$assign(head, $assign(tail, $new($Pattern$Pos, head)));
+				} else {
+					$assign(head, $assign(tail, $new($Pattern$Neg, head)));
 				}
-				break;
 			}
+			break;
 		case u'>':
 			{
-				{
-					$assign(head, createGroup(true));
-					$assign(tail, this->root);
-					$set($nc(head), next, expr(tail));
-					$init($Pattern$Qtype);
-					$assign(head, ($assign(tail, $new($Pattern$Ques, head, $Pattern$Qtype::INDEPENDENT))));
-				}
-				break;
+				$assign(head, createGroup(true));
+				$assign(tail, this->root);
+				$set($nc(head), next, expr(tail));
+				$init($Pattern$Qtype);
+				$assign(head, $assign(tail, $new($Pattern$Ques, head, $Pattern$Qtype::INDEPENDENT)));
 			}
+			break;
 		case u'<':
 			{
-				{
-					ch = read();
-					if (ch != u'=' && ch != u'!') {
-						$var($String, name, groupname(ch));
-						if ($nc($(namedGroups()))->containsKey(name)) {
-							$throw($(error($$str({"Named capturing group <"_s, name, "> is already defined"_s}))));
-						}
-						capturingGroup = true;
-						$assign(head, createGroup(false));
-						$assign(tail, this->root);
-						$nc($(namedGroups()))->put(name, $($Integer::valueOf(this->capturingGroupCount - 1)));
-						$set($nc(head), next, expr(tail));
-						break;
+				ch = read();
+				if (ch != u'=' && ch != u'!') {
+					$var($String, name, groupname(ch));
+					if ($$nc(namedGroups())->containsKey(name)) {
+						$throw($(error($$str({"Named capturing group <"_s, name, "> is already defined"_s}))));
 					}
-					int32_t start = this->cursor$;
-					$assign(head, createGroup(true));
+					capturingGroup = true;
+					$assign(head, createGroup(false));
 					$assign(tail, this->root);
+					$$nc(namedGroups())->put(name, $($Integer::valueOf(this->capturingGroupCount - 1)));
 					$set($nc(head), next, expr(tail));
-					$init($Pattern$LookBehindEndNode);
-					$set($nc(tail), next, $Pattern$LookBehindEndNode::INSTANCE);
-					$var($Pattern$TreeInfo, info, $new($Pattern$TreeInfo));
-					head->study(info);
-					if (info->maxValid == false) {
-						$throw($(error("Look-behind group does not have an obvious maximum length"_s)));
-					}
-					bool hasSupplementary = findSupplementary(start, this->patternLength);
-					if (ch == u'=') {
-						$assign(head, ($assign(tail, hasSupplementary ? static_cast<$Pattern$Node*>($new($Pattern$BehindS, head, info->maxLength, info->minLength)) : static_cast<$Pattern$Node*>($new($Pattern$Behind, head, info->maxLength, info->minLength)))));
-					} else {
-						$assign(head, ($assign(tail, hasSupplementary ? static_cast<$Pattern$Node*>($new($Pattern$NotBehindS, head, info->maxLength, info->minLength)) : static_cast<$Pattern$Node*>($new($Pattern$NotBehind, head, info->maxLength, info->minLength)))));
-					}
-					if (saveTCNCount < $nc(this->topClosureNodes)->size()) {
-						$nc($($nc(this->topClosureNodes)->subList(saveTCNCount, $nc(this->topClosureNodes)->size())))->clear();
-					}
+					break;
 				}
-				break;
+				int32_t start = this->cursor$;
+				$assign(head, createGroup(true));
+				$assign(tail, this->root);
+				$set($nc(head), next, expr(tail));
+				$init($Pattern$LookBehindEndNode);
+				$set($nc(tail), next, $Pattern$LookBehindEndNode::INSTANCE);
+				$var($Pattern$TreeInfo, info, $new($Pattern$TreeInfo));
+				head->study(info);
+				if (info->maxValid == false) {
+					$throw($(error("Look-behind group does not have an obvious maximum length"_s)));
+				}
+				bool hasSupplementary = findSupplementary(start, this->patternLength);
+				if (ch == u'=') {
+					$assign(head, $assign(tail, hasSupplementary ? $cast($Pattern$Node, $new($Pattern$BehindS, head, info->maxLength, info->minLength)) : $cast($Pattern$Node, $new($Pattern$Behind, head, info->maxLength, info->minLength))));
+				} else {
+					$assign(head, $assign(tail, hasSupplementary ? $cast($Pattern$Node, $new($Pattern$NotBehindS, head, info->maxLength, info->minLength)) : $cast($Pattern$Node, $new($Pattern$NotBehind, head, info->maxLength, info->minLength))));
+				}
+				if (saveTCNCount < $nc(this->topClosureNodes)->size()) {
+					$$nc(this->topClosureNodes->subList(saveTCNCount, this->topClosureNodes->size()))->clear();
+				}
 			}
+			break;
 		case u'$':
-			{}
 		case u'@':
-			{
-				$throw($(error("Unknown group type"_s)));
-			}
+			$throw($(error("Unknown group type"_s)));
 		default:
 			{
-				{
-					unread();
-					addFlag();
-					ch = read();
-					if (ch == u')') {
-						return nullptr;
-					}
-					if (ch != u':') {
-						$throw($(error("Unknown inline modifier"_s)));
-					}
-					$assign(head, createGroup(true));
-					$assign(tail, this->root);
-					$set($nc(head), next, expr(tail));
+				unread();
+				addFlag();
+				ch = read();
+				if (ch == u')') {
+					return nullptr;
 				}
-				break;
+				if (ch != u':') {
+					$throw($(error("Unknown inline modifier"_s)));
+				}
+				$assign(head, createGroup(true));
+				$assign(tail, this->root);
+				$set($nc(head), next, expr(tail));
 			}
+			break;
 		}
 	} else {
 		capturingGroup = true;
@@ -2887,7 +2387,7 @@ $Pattern$Node* Pattern::group0() {
 		return node;
 	}
 	if (saveTCNCount < $nc(this->topClosureNodes)->size()) {
-		$nc($($nc(this->topClosureNodes)->subList(saveTCNCount, $nc(this->topClosureNodes)->size())))->clear();
+		$$nc(this->topClosureNodes->subList(saveTCNCount, this->topClosureNodes->size()))->clear();
 	}
 	{
 		$var($Pattern$Ques, ques, nullptr);
@@ -2905,7 +2405,7 @@ $Pattern$Node* Pattern::group0() {
 			}
 			$set($nc(tail), next, $new($Pattern$BranchConn));
 			$assign(tail, tail->next);
-			if ($nc(ques)->type == $Pattern$Qtype::GREEDY) {
+			if (ques->type == $Pattern$Qtype::GREEDY) {
 				$assign(head, $new($Pattern$Branch, head, nullptr, tail));
 			} else {
 				$assign(head, $new($Pattern$Branch, nullptr, head, tail));
@@ -2913,12 +2413,12 @@ $Pattern$Node* Pattern::group0() {
 			$set(this, root, tail);
 			return head;
 		} else {
-			bool var$2 = $instanceOf($Pattern$Curly, node);
-			if (var$2) {
+			bool var$1 = $instanceOf($Pattern$Curly, node);
+			if (var$1) {
 				$assign(curly, $cast($Pattern$Curly, node));
-				var$2 = true;
+				var$1 = true;
 			}
-			if (var$2) {
+			if (var$1) {
 				$init($Pattern$Qtype);
 				if ($nc(curly)->type == $Pattern$Qtype::POSSESSIVE) {
 					$set(this, root, node);
@@ -2927,12 +2427,12 @@ $Pattern$Node* Pattern::group0() {
 				$var($Pattern$TreeInfo, info, $new($Pattern$TreeInfo));
 				if ($nc(head)->study(info)) {
 					$var($Pattern$GroupTail, temp, $cast($Pattern$GroupTail, tail));
-					$assign(head, ($set(this, root, $new($Pattern$GroupCurly, head->next, $nc(curly)->cmin, curly->cmax, curly->type, $nc(($cast($Pattern$GroupTail, tail)))->localIndex, $nc(($cast($Pattern$GroupTail, tail)))->groupIndex, capturingGroup))));
+					$assign(head, $set(this, root, $new($Pattern$GroupCurly, head->next, curly->cmin, curly->cmax, curly->type, $nc($cast($Pattern$GroupTail, tail))->localIndex, $nc($cast($Pattern$GroupTail, tail))->groupIndex, capturingGroup)));
 					return head;
 				} else {
-					int32_t temp = $nc(($cast($Pattern$GroupHead, head)))->localIndex;
+					int32_t temp = $cast($Pattern$GroupHead, head)->localIndex;
 					$var($Pattern$Loop, loop, nullptr);
-					if ($nc(curly)->type == $Pattern$Qtype::GREEDY) {
+					if (curly->type == $Pattern$Qtype::GREEDY) {
 						$assign(loop, $new($Pattern$Loop, this->localCount, temp));
 						if (curly->cmax == Pattern::MAX_REPS) {
 							$nc(this->topClosureNodes)->add(loop);
@@ -2942,7 +2442,7 @@ $Pattern$Node* Pattern::group0() {
 					}
 					$var($Pattern$Prolog, prolog, $new($Pattern$Prolog, loop));
 					this->localCount += 1;
-					$nc(loop)->cmin = $nc(curly)->cmin;
+					$nc(loop)->cmin = curly->cmin;
 					loop->cmax = curly->cmax;
 					$set(loop, body, head);
 					$set($nc(tail), next, loop);
@@ -2975,54 +2475,34 @@ void Pattern::addFlag() {
 	for (;;) {
 		switch (ch) {
 		case u'i':
-			{
-				this->flags0 |= Pattern::CASE_INSENSITIVE;
-				break;
-			}
+			this->flags0 |= Pattern::CASE_INSENSITIVE;
+			break;
 		case u'm':
-			{
-				this->flags0 |= Pattern::MULTILINE;
-				break;
-			}
+			this->flags0 |= Pattern::MULTILINE;
+			break;
 		case u's':
-			{
-				this->flags0 |= Pattern::DOTALL;
-				break;
-			}
+			this->flags0 |= Pattern::DOTALL;
+			break;
 		case u'd':
-			{
-				this->flags0 |= Pattern::UNIX_LINES;
-				break;
-			}
+			this->flags0 |= Pattern::UNIX_LINES;
+			break;
 		case u'u':
-			{
-				this->flags0 |= Pattern::UNICODE_CASE;
-				break;
-			}
+			this->flags0 |= Pattern::UNICODE_CASE;
+			break;
 		case u'c':
-			{
-				this->flags0 |= Pattern::CANON_EQ;
-				break;
-			}
+			this->flags0 |= Pattern::CANON_EQ;
+			break;
 		case u'x':
-			{
-				this->flags0 |= Pattern::COMMENTS;
-				break;
-			}
+			this->flags0 |= Pattern::COMMENTS;
+			break;
 		case u'U':
-			{
-				this->flags0 |= (Pattern::UNICODE_CHARACTER_CLASS | Pattern::UNICODE_CASE);
-				break;
-			}
+			this->flags0 |= (Pattern::UNICODE_CHARACTER_CLASS | Pattern::UNICODE_CASE);
+			break;
 		case u'-':
-			{
-				ch = next();
-				subFlag();
-			}
+			ch = next();
+			subFlag();
 		default:
-			{
-				return;
-			}
+			return;
 		}
 		ch = next();
 	}
@@ -3033,49 +2513,31 @@ void Pattern::subFlag() {
 	for (;;) {
 		switch (ch) {
 		case u'i':
-			{
-				this->flags0 &= (uint32_t)~Pattern::CASE_INSENSITIVE;
-				break;
-			}
+			this->flags0 &= (uint32_t)~Pattern::CASE_INSENSITIVE;
+			break;
 		case u'm':
-			{
-				this->flags0 &= (uint32_t)~Pattern::MULTILINE;
-				break;
-			}
+			this->flags0 &= (uint32_t)~Pattern::MULTILINE;
+			break;
 		case u's':
-			{
-				this->flags0 &= (uint32_t)~Pattern::DOTALL;
-				break;
-			}
+			this->flags0 &= (uint32_t)~Pattern::DOTALL;
+			break;
 		case u'd':
-			{
-				this->flags0 &= (uint32_t)~Pattern::UNIX_LINES;
-				break;
-			}
+			this->flags0 &= (uint32_t)~Pattern::UNIX_LINES;
+			break;
 		case u'u':
-			{
-				this->flags0 &= (uint32_t)~Pattern::UNICODE_CASE;
-				break;
-			}
+			this->flags0 &= (uint32_t)~Pattern::UNICODE_CASE;
+			break;
 		case u'c':
-			{
-				this->flags0 &= (uint32_t)~Pattern::CANON_EQ;
-				break;
-			}
+			this->flags0 &= (uint32_t)~Pattern::CANON_EQ;
+			break;
 		case u'x':
-			{
-				this->flags0 &= (uint32_t)~Pattern::COMMENTS;
-				break;
-			}
+			this->flags0 &= (uint32_t)~Pattern::COMMENTS;
+			break;
 		case u'U':
-			{
-				this->flags0 &= (uint32_t)~(Pattern::UNICODE_CHARACTER_CLASS | Pattern::UNICODE_CASE);
-				break;
-			}
+			this->flags0 &= (uint32_t)~(Pattern::UNICODE_CHARACTER_CLASS | Pattern::UNICODE_CASE);
+			break;
 		default:
-			{
-				return;
-			}
+			return;
 		}
 		ch = next();
 	}
@@ -3110,71 +2572,61 @@ $Pattern$Node* Pattern::curly($Pattern$Node* prev, int32_t cmin) {
 }
 
 $Pattern$Node* Pattern::closure($Pattern$Node* prev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t ch = peek();
 	switch (ch) {
 	case u'?':
-		{
-			return $new($Pattern$Ques, prev, $(qtype()));
-		}
+		return $new($Pattern$Ques, prev, $(qtype()));
 	case u'*':
-		{
-			return curly(prev, 0);
-		}
+		return curly(prev, 0);
 	case u'+':
-		{
-			return curly(prev, 1);
-		}
+		return curly(prev, 1);
 	case u'{':
-		{
-			ch = skip();
-			if ($ASCII::isDigit(ch)) {
-				int32_t cmin = 0;
-				int32_t cmax = 0;
-				try {
-					do {
-						cmin = $Math::addExact($Math::multiplyExact(cmin, 10), ch - u'0');
-					} while ($ASCII::isDigit(ch = read()));
-					if (ch == u',') {
-						ch = read();
-						if (ch == u'}') {
-							unread();
-							return curly(prev, cmin);
-						} else {
-							cmax = 0;
-							while ($ASCII::isDigit(ch)) {
-								cmax = $Math::addExact($Math::multiplyExact(cmax, 10), ch - u'0');
-								ch = read();
-							}
-						}
+		ch = skip();
+		if ($ASCII::isDigit(ch)) {
+			int32_t cmin = 0;
+			int32_t cmax = 0;
+			try {
+				do {
+					cmin = $Math::addExact($Math::multiplyExact(cmin, 10), ch - u'0');
+				} while ($ASCII::isDigit(ch = read()));
+				if (ch == u',') {
+					ch = read();
+					if (ch == u'}') {
+						unread();
+						return curly(prev, cmin);
 					} else {
-						cmax = cmin;
+						cmax = 0;
+						while ($ASCII::isDigit(ch)) {
+							cmax = $Math::addExact($Math::multiplyExact(cmax, 10), ch - u'0');
+							ch = read();
+						}
 					}
-				} catch ($ArithmeticException& ae) {
-					$throw($(error("Illegal repetition range"_s)));
+				} else {
+					cmax = cmin;
 				}
-				if (ch != u'}') {
-					$throw($(error("Unclosed counted closure"_s)));
-				}
-				if (cmax < cmin) {
-					$throw($(error("Illegal repetition range"_s)));
-				}
-				unread();
-				return (cmin == 0 && cmax == 1) ? static_cast<$Pattern$Node*>($new($Pattern$Ques, prev, $(qtype()))) : static_cast<$Pattern$Node*>($new($Pattern$Curly, prev, cmin, cmax, $(qtype())));
-			} else {
-				$throw($(error("Illegal repetition"_s)));
+			} catch ($ArithmeticException& ae) {
+				$throw($(error("Illegal repetition range"_s)));
 			}
+			if (ch != u'}') {
+				$throw($(error("Unclosed counted closure"_s)));
+			}
+			if (cmax < cmin) {
+				$throw($(error("Illegal repetition range"_s)));
+			}
+			unread();
+			return (cmin == 0 && cmax == 1) ? $cast($Pattern$Node, $new($Pattern$Ques, prev, $(qtype()))) : $cast($Pattern$Node, $new($Pattern$Curly, prev, cmin, cmax, $(qtype())));
+		} else {
+			$throw($(error("Illegal repetition"_s)));
 		}
 	default:
-		{
-			return prev;
-		}
+		return prev;
 	}
 }
 
 int32_t Pattern::c() {
 	if (this->cursor$ < this->patternLength) {
-		return read() ^ 64;
+		return read() ^ 0x40;
 	}
 	$throw($(error("Illegal control escape sequence"_s)));
 }
@@ -3198,7 +2650,7 @@ int32_t Pattern::o() {
 }
 
 int32_t Pattern::x() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = read();
 	if ($ASCII::isHexDigit(n)) {
 		int32_t m = read();
@@ -3231,7 +2683,7 @@ void Pattern::setcursor(int32_t pos) {
 }
 
 int32_t Pattern::uxxxx() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = 0;
 	for (int32_t i = 0; i < 4; ++i) {
 		int32_t ch = read();
@@ -3260,7 +2712,7 @@ int32_t Pattern::u() {
 }
 
 int32_t Pattern::N() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (read() == u'{') {
 		int32_t i = this->cursor$;
 		while (read() != u'}') {
@@ -3282,7 +2734,7 @@ int32_t Pattern::N() {
 int32_t Pattern::countChars($CharSequence* seq, int32_t index, int32_t lengthInCodePoints) {
 	$init(Pattern);
 	if (lengthInCodePoints == 1 && !$Character::isHighSurrogate($nc(seq)->charAt(index))) {
-		if (!Pattern::$assertionsDisabled && !(index >= 0 && index < $nc(seq)->length())) {
+		if (!Pattern::$assertionsDisabled && !(index >= 0 && index < seq->length())) {
 			$throwNew($AssertionError);
 		}
 		return 1;
@@ -3341,22 +2793,22 @@ $Pattern$Node* Pattern::newSlice($ints* buf, int32_t count, bool hasSupplementar
 			for (int32_t i = 0; i < count; ++i) {
 				tmp->set(i, $Character::toLowerCase($Character::toUpperCase($nc(buf)->get(i))));
 			}
-			return hasSupplementary ? static_cast<$Pattern$Node*>($new($Pattern$SliceUS, tmp)) : static_cast<$Pattern$Node*>($new($Pattern$SliceU, tmp));
+			return hasSupplementary ? $cast($Pattern$Node, $new($Pattern$SliceUS, tmp)) : $cast($Pattern$Node, $new($Pattern$SliceU, tmp));
 		}
 		for (int32_t i = 0; i < count; ++i) {
 			tmp->set(i, $ASCII::toLower($nc(buf)->get(i)));
 		}
-		return hasSupplementary ? static_cast<$Pattern$Node*>($new($Pattern$SliceIS, tmp)) : static_cast<$Pattern$Node*>($new($Pattern$SliceI, tmp));
+		return hasSupplementary ? $cast($Pattern$Node, $new($Pattern$SliceIS, tmp)) : $cast($Pattern$Node, $new($Pattern$SliceI, tmp));
 	}
 	for (int32_t i = 0; i < count; ++i) {
 		tmp->set(i, $nc(buf)->get(i));
 	}
-	return hasSupplementary ? static_cast<$Pattern$Node*>($new($Pattern$SliceS, tmp)) : static_cast<$Pattern$Node*>($new($Pattern$Slice, tmp));
+	return hasSupplementary ? $cast($Pattern$Node, $new($Pattern$SliceS, tmp)) : $cast($Pattern$Node, $new($Pattern$Slice, tmp));
 }
 
 bool Pattern::hasBaseCharacter($Matcher* matcher, int32_t i, $CharSequence* seq) {
 	$init(Pattern);
-	int32_t start = (!$nc(matcher)->transparentBounds) ? $nc(matcher)->from : 0;
+	int32_t start = (!$nc(matcher)->transparentBounds) ? matcher->from : 0;
 	for (int32_t x = i; x >= start; --x) {
 		int32_t ch = $Character::codePointAt(seq, x);
 		if ($Character::isLetterOrDigit(ch)) {
@@ -3372,47 +2824,47 @@ bool Pattern::hasBaseCharacter($Matcher* matcher, int32_t i, $CharSequence* seq)
 
 $Pattern$BmpCharPredicate* Pattern::VertWS() {
 	$init(Pattern);
-	return static_cast<$Pattern$BmpCharPredicate*>($new(Pattern$$Lambda$lambda$VertWS$1$1));
+	return $new(Pattern$$Lambda$lambda$VertWS$1$1);
 }
 
 $Pattern$BmpCharPredicate* Pattern::HorizWS() {
 	$init(Pattern);
-	return static_cast<$Pattern$BmpCharPredicate*>($new(Pattern$$Lambda$lambda$HorizWS$2$2));
+	return $new(Pattern$$Lambda$lambda$HorizWS$2$2);
 }
 
 $Pattern$CharPredicate* Pattern::ALL() {
 	$init(Pattern);
-	return static_cast<$Pattern$CharPredicate*>($new(Pattern$$Lambda$lambda$ALL$3$3));
+	return $new(Pattern$$Lambda$lambda$ALL$3$3);
 }
 
 $Pattern$CharPredicate* Pattern::DOT() {
 	$init(Pattern);
-	return static_cast<$Pattern$CharPredicate*>($new(Pattern$$Lambda$lambda$DOT$4$4));
+	return $new(Pattern$$Lambda$lambda$DOT$4$4);
 }
 
 $Pattern$CharPredicate* Pattern::UNIXDOT() {
 	$init(Pattern);
-	return static_cast<$Pattern$CharPredicate*>($new(Pattern$$Lambda$lambda$UNIXDOT$5$5));
+	return $new(Pattern$$Lambda$lambda$UNIXDOT$5$5);
 }
 
 $Pattern$CharPredicate* Pattern::SingleS(int32_t c) {
 	$init(Pattern);
-	return static_cast<$Pattern$CharPredicate*>($new(Pattern$$Lambda$lambda$SingleS$6$6, c));
+	return $new(Pattern$$Lambda$lambda$SingleS$6$6, c);
 }
 
 $Pattern$BmpCharPredicate* Pattern::Single(int32_t c) {
 	$init(Pattern);
-	return static_cast<$Pattern$BmpCharPredicate*>($new(Pattern$$Lambda$lambda$SingleS$6$6, c));
+	return $new(Pattern$$Lambda$lambda$SingleS$6$6, c);
 }
 
 $Pattern$BmpCharPredicate* Pattern::SingleI(int32_t lower, int32_t upper) {
 	$init(Pattern);
-	return static_cast<$Pattern$BmpCharPredicate*>($new(Pattern$$Lambda$lambda$SingleI$8$7, lower, upper));
+	return $new(Pattern$$Lambda$lambda$SingleI$8$7, lower, upper);
 }
 
 $Pattern$CharPredicate* Pattern::SingleU(int32_t lower) {
 	$init(Pattern);
-	return static_cast<$Pattern$CharPredicate*>($new(Pattern$$Lambda$lambda$SingleU$9$8, lower));
+	return $new(Pattern$$Lambda$lambda$SingleU$9$8, lower);
 }
 
 bool Pattern::inRange(int32_t lower, int32_t ch, int32_t upper) {
@@ -3423,42 +2875,42 @@ bool Pattern::inRange(int32_t lower, int32_t ch, int32_t upper) {
 $Pattern$CharPredicate* Pattern::Range(int32_t lower, int32_t upper) {
 	$init(Pattern);
 	if (upper < $Character::MIN_HIGH_SURROGATE || lower > $Character::MAX_LOW_SURROGATE && upper < $Character::MIN_SUPPLEMENTARY_CODE_POINT) {
-		return (static_cast<$Pattern$BmpCharPredicate*>($new(Pattern$$Lambda$lambda$Range$10$9, lower, upper)));
+		return ($cast($Pattern$BmpCharPredicate, $new(Pattern$$Lambda$lambda$Range$10$9, lower, upper)));
 	}
-	return static_cast<$Pattern$CharPredicate*>($new(Pattern$$Lambda$lambda$Range$10$9, lower, upper));
+	return $new(Pattern$$Lambda$lambda$Range$10$9, lower, upper);
 }
 
 $Pattern$CharPredicate* Pattern::CIRange(int32_t lower, int32_t upper) {
 	$init(Pattern);
-	return static_cast<$Pattern$CharPredicate*>($new(Pattern$$Lambda$lambda$CIRange$12$10, lower, upper));
+	return $new(Pattern$$Lambda$lambda$CIRange$12$10, lower, upper);
 }
 
 $Pattern$CharPredicate* Pattern::CIRangeU(int32_t lower, int32_t upper) {
 	$init(Pattern);
-	return static_cast<$Pattern$CharPredicate*>($new(Pattern$$Lambda$lambda$CIRangeU$13$11, lower, upper));
+	return $new(Pattern$$Lambda$lambda$CIRangeU$13$11, lower, upper);
 }
 
 $Predicate* Pattern::asPredicate() {
-	return static_cast<$Predicate*>($new(Pattern$$Lambda$lambda$asPredicate$14$12, this));
+	return $new(Pattern$$Lambda$lambda$asPredicate$14$12, this);
 }
 
 $Predicate* Pattern::asMatchPredicate() {
-	return static_cast<$Predicate*>($new(Pattern$$Lambda$lambda$asMatchPredicate$15$13, this));
+	return $new(Pattern$$Lambda$lambda$asMatchPredicate$15$13, this);
 }
 
 $Stream* Pattern::splitAsStream($CharSequence* input) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 	}
-	return $StreamSupport::stream($($Spliterators::spliteratorUnknownSize(static_cast<$Iterator*>($$new($Pattern$1MatcherIterator, this, input)), $Spliterator::ORDERED | $Spliterator::NONNULL)), false);
+	return $StreamSupport::stream($($Spliterators::spliteratorUnknownSize($$new($Pattern$1MatcherIterator, this, input), $Spliterator::ORDERED | $Spliterator::NONNULL)), false);
 }
 
 bool Pattern::lambda$asMatchPredicate$15($String* s) {
-	return $nc($(matcher(s)))->matches();
+	return $$nc(matcher(s))->matches();
 }
 
 bool Pattern::lambda$asPredicate$14($String* s) {
-	return $nc($(matcher(s)))->find();
+	return $$nc(matcher(s))->find();
 }
 
 bool Pattern::lambda$CIRangeU$13(int32_t lower, int32_t upper, int32_t ch) {
@@ -3478,7 +2930,7 @@ bool Pattern::lambda$CIRange$12(int32_t lower, int32_t upper, int32_t ch) {
 		bool var$1 = $ASCII::isAscii(ch);
 		if (var$1) {
 			bool var$2 = inRange(lower, $ASCII::toUpper(ch), upper);
-			var$1 = (var$2 || inRange(lower, $ASCII::toLower(ch), upper));
+			var$1 = var$2 || inRange(lower, $ASCII::toLower(ch), upper);
 		}
 		var$0 = var$1;
 	}
@@ -3535,7 +2987,7 @@ void Pattern::lambda$normalizeSlice$0($StringBuilder* dst, $String* s) {
 	$nc(dst)->append(s)->append(u'|');
 }
 
-void clinit$Pattern($Class* class$) {
+void Pattern::clinit$($Class* clazz) {
 	Pattern::$assertionsDisabled = !Pattern::class$->desiredAssertionStatus();
 	$assignStatic(Pattern::accept$, $new($Pattern$Node));
 	$assignStatic(Pattern::lastAccept, $new($Pattern$LastNode));
@@ -3546,50 +2998,268 @@ Pattern::Pattern() {
 
 $Class* Pattern::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Pattern$$Lambda$lambda$normalizeSlice$0::classInfo$.name)) {
+		if (name->equals("java.util.regex.Pattern$$Lambda$lambda$normalizeSlice$0")) {
 			return Pattern$$Lambda$lambda$normalizeSlice$0::load$(name, initialize);
 		}
-		if (name->equals(Pattern$$Lambda$lambda$VertWS$1$1::classInfo$.name)) {
+		if (name->equals("java.util.regex.Pattern$$Lambda$lambda$VertWS$1$1")) {
 			return Pattern$$Lambda$lambda$VertWS$1$1::load$(name, initialize);
 		}
-		if (name->equals(Pattern$$Lambda$lambda$HorizWS$2$2::classInfo$.name)) {
+		if (name->equals("java.util.regex.Pattern$$Lambda$lambda$HorizWS$2$2")) {
 			return Pattern$$Lambda$lambda$HorizWS$2$2::load$(name, initialize);
 		}
-		if (name->equals(Pattern$$Lambda$lambda$ALL$3$3::classInfo$.name)) {
+		if (name->equals("java.util.regex.Pattern$$Lambda$lambda$ALL$3$3")) {
 			return Pattern$$Lambda$lambda$ALL$3$3::load$(name, initialize);
 		}
-		if (name->equals(Pattern$$Lambda$lambda$DOT$4$4::classInfo$.name)) {
+		if (name->equals("java.util.regex.Pattern$$Lambda$lambda$DOT$4$4")) {
 			return Pattern$$Lambda$lambda$DOT$4$4::load$(name, initialize);
 		}
-		if (name->equals(Pattern$$Lambda$lambda$UNIXDOT$5$5::classInfo$.name)) {
+		if (name->equals("java.util.regex.Pattern$$Lambda$lambda$UNIXDOT$5$5")) {
 			return Pattern$$Lambda$lambda$UNIXDOT$5$5::load$(name, initialize);
 		}
-		if (name->equals(Pattern$$Lambda$lambda$SingleS$6$6::classInfo$.name)) {
+		if (name->equals("java.util.regex.Pattern$$Lambda$lambda$SingleS$6$6")) {
 			return Pattern$$Lambda$lambda$SingleS$6$6::load$(name, initialize);
 		}
-		if (name->equals(Pattern$$Lambda$lambda$SingleI$8$7::classInfo$.name)) {
+		if (name->equals("java.util.regex.Pattern$$Lambda$lambda$SingleI$8$7")) {
 			return Pattern$$Lambda$lambda$SingleI$8$7::load$(name, initialize);
 		}
-		if (name->equals(Pattern$$Lambda$lambda$SingleU$9$8::classInfo$.name)) {
+		if (name->equals("java.util.regex.Pattern$$Lambda$lambda$SingleU$9$8")) {
 			return Pattern$$Lambda$lambda$SingleU$9$8::load$(name, initialize);
 		}
-		if (name->equals(Pattern$$Lambda$lambda$Range$10$9::classInfo$.name)) {
+		if (name->equals("java.util.regex.Pattern$$Lambda$lambda$Range$10$9")) {
 			return Pattern$$Lambda$lambda$Range$10$9::load$(name, initialize);
 		}
-		if (name->equals(Pattern$$Lambda$lambda$CIRange$12$10::classInfo$.name)) {
+		if (name->equals("java.util.regex.Pattern$$Lambda$lambda$CIRange$12$10")) {
 			return Pattern$$Lambda$lambda$CIRange$12$10::load$(name, initialize);
 		}
-		if (name->equals(Pattern$$Lambda$lambda$CIRangeU$13$11::classInfo$.name)) {
+		if (name->equals("java.util.regex.Pattern$$Lambda$lambda$CIRangeU$13$11")) {
 			return Pattern$$Lambda$lambda$CIRangeU$13$11::load$(name, initialize);
 		}
-		if (name->equals(Pattern$$Lambda$lambda$asPredicate$14$12::classInfo$.name)) {
+		if (name->equals("java.util.regex.Pattern$$Lambda$lambda$asPredicate$14$12")) {
 			return Pattern$$Lambda$lambda$asPredicate$14$12::load$(name, initialize);
 		}
-		if (name->equals(Pattern$$Lambda$lambda$asMatchPredicate$15$13::classInfo$.name)) {
+		if (name->equals("java.util.regex.Pattern$$Lambda$lambda$asMatchPredicate$15$13")) {
 			return Pattern$$Lambda$lambda$asMatchPredicate$15$13::load$(name, initialize);
 		}
 	}
-	$loadClass(Pattern, name, initialize, &_Pattern_ClassInfo_, clinit$Pattern, allocate$Pattern);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Pattern, $assertionsDisabled)},
+		{"UNIX_LINES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Pattern, UNIX_LINES)},
+		{"CASE_INSENSITIVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Pattern, CASE_INSENSITIVE)},
+		{"COMMENTS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Pattern, COMMENTS)},
+		{"MULTILINE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Pattern, MULTILINE)},
+		{"LITERAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Pattern, LITERAL)},
+		{"DOTALL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Pattern, DOTALL)},
+		{"UNICODE_CASE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Pattern, UNICODE_CASE)},
+		{"CANON_EQ", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Pattern, CANON_EQ)},
+		{"UNICODE_CHARACTER_CLASS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Pattern, UNICODE_CHARACTER_CLASS)},
+		{"ALL_FLAGS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Pattern, ALL_FLAGS)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Pattern, serialVersionUID)},
+		{"pattern", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Pattern, pattern$)},
+		{"flags", "I", nullptr, $PRIVATE, $field(Pattern, flags$)},
+		{"flags0", "I", nullptr, $PRIVATE | $TRANSIENT, $field(Pattern, flags0)},
+		{"compiled", "Z", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(Pattern, compiled)},
+		{"normalizedPattern", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(Pattern, normalizedPattern)},
+		{"root", "Ljava/util/regex/Pattern$Node;", nullptr, $TRANSIENT, $field(Pattern, root)},
+		{"matchRoot", "Ljava/util/regex/Pattern$Node;", nullptr, $TRANSIENT, $field(Pattern, matchRoot)},
+		{"buffer", "[I", nullptr, $TRANSIENT, $field(Pattern, buffer)},
+		{"predicate", "Ljava/util/regex/Pattern$CharPredicate;", nullptr, $TRANSIENT, $field(Pattern, predicate)},
+		{"namedGroups", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $VOLATILE | $TRANSIENT, $field(Pattern, namedGroups$)},
+		{"groupNodes", "[Ljava/util/regex/Pattern$GroupHead;", nullptr, $TRANSIENT, $field(Pattern, groupNodes)},
+		{"topClosureNodes", "Ljava/util/List;", "Ljava/util/List<Ljava/util/regex/Pattern$Node;>;", $TRANSIENT, $field(Pattern, topClosureNodes)},
+		{"localTCNCount", "I", nullptr, $TRANSIENT, $field(Pattern, localTCNCount)},
+		{"hasGroupRef", "Z", nullptr, $TRANSIENT, $field(Pattern, hasGroupRef)},
+		{"temp", "[I", nullptr, $PRIVATE | $TRANSIENT, $field(Pattern, temp)},
+		{"capturingGroupCount", "I", nullptr, $TRANSIENT, $field(Pattern, capturingGroupCount)},
+		{"localCount", "I", nullptr, $TRANSIENT, $field(Pattern, localCount)},
+		{"cursor", "I", nullptr, $PRIVATE | $TRANSIENT, $field(Pattern, cursor$)},
+		{"patternLength", "I", nullptr, $PRIVATE | $TRANSIENT, $field(Pattern, patternLength)},
+		{"hasSupplementary", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(Pattern, hasSupplementary)},
+		{"MAX_REPS", "I", nullptr, $STATIC | $FINAL, $constField(Pattern, MAX_REPS)},
+		{"accept", "Ljava/util/regex/Pattern$Node;", nullptr, $STATIC | $FINAL, $staticField(Pattern, accept$)},
+		{"lastAccept", "Ljava/util/regex/Pattern$Node;", nullptr, $STATIC | $FINAL, $staticField(Pattern, lastAccept)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Pattern, init$, void, $String*, int32_t)},
+		{"ALL", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, ALL, $Pattern$CharPredicate*)},
+		{"CIRange", "(II)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, CIRange, $Pattern$CharPredicate*, int32_t, int32_t)},
+		{"CIRangeU", "(II)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, CIRangeU, $Pattern$CharPredicate*, int32_t, int32_t)},
+		{"DOT", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, DOT, $Pattern$CharPredicate*)},
+		{"HorizWS", "()Ljava/util/regex/Pattern$BmpCharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, HorizWS, $Pattern$BmpCharPredicate*)},
+		{"N", "()I", nullptr, $PRIVATE, $method(Pattern, N, int32_t)},
+		{"Range", "(II)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, Range, $Pattern$CharPredicate*, int32_t, int32_t)},
+		{"RemoveQEQuoting", "()V", nullptr, $PRIVATE, $method(Pattern, RemoveQEQuoting, void)},
+		{"Single", "(I)Ljava/util/regex/Pattern$BmpCharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, Single, $Pattern$BmpCharPredicate*, int32_t)},
+		{"SingleI", "(II)Ljava/util/regex/Pattern$BmpCharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, SingleI, $Pattern$BmpCharPredicate*, int32_t, int32_t)},
+		{"SingleS", "(I)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, SingleS, $Pattern$CharPredicate*, int32_t)},
+		{"SingleU", "(I)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, SingleU, $Pattern$CharPredicate*, int32_t)},
+		{"UNIXDOT", "()Ljava/util/regex/Pattern$CharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, UNIXDOT, $Pattern$CharPredicate*)},
+		{"VertWS", "()Ljava/util/regex/Pattern$BmpCharPredicate;", nullptr, $STATIC, $staticMethod(Pattern, VertWS, $Pattern$BmpCharPredicate*)},
+		{"accept", "(ILjava/lang/String;)V", nullptr, $PRIVATE, $method(Pattern, accept, void, int32_t, $String*)},
+		{"addFlag", "()V", nullptr, $PRIVATE, $method(Pattern, addFlag, void)},
+		{"append", "(II)V", nullptr, $PRIVATE, $method(Pattern, append, void, int32_t, int32_t)},
+		{"asMatchPredicate", "()Ljava/util/function/Predicate;", "()Ljava/util/function/Predicate<Ljava/lang/String;>;", $PUBLIC, $method(Pattern, asMatchPredicate, $Predicate*)},
+		{"asPredicate", "()Ljava/util/function/Predicate;", "()Ljava/util/function/Predicate<Ljava/lang/String;>;", $PUBLIC, $method(Pattern, asPredicate, $Predicate*)},
+		{"atom", "()Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, atom, $Pattern$Node*)},
+		{"bitsOrSingle", "(Ljava/util/regex/Pattern$BitClass;I)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE, $method(Pattern, bitsOrSingle, $Pattern$CharPredicate*, $Pattern$BitClass*, int32_t)},
+		{"c", "()I", nullptr, $PRIVATE, $method(Pattern, c, int32_t)},
+		{"clazz", "(Z)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE, $method(Pattern, clazz, $Pattern$CharPredicate*, bool)},
+		{"closure", "(Ljava/util/regex/Pattern$Node;)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, closure, $Pattern$Node*, $Pattern$Node*)},
+		{"compile", "(Ljava/lang/String;)Ljava/util/regex/Pattern;", nullptr, $PUBLIC | $STATIC, $staticMethod(Pattern, compile, Pattern*, $String*)},
+		{"compile", "(Ljava/lang/String;I)Ljava/util/regex/Pattern;", nullptr, $PUBLIC | $STATIC, $staticMethod(Pattern, compile, Pattern*, $String*, int32_t)},
+		{"compile", "()V", nullptr, $PRIVATE, $method(Pattern, compile, void)},
+		{"composeOneStep", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Pattern, composeOneStep, $String*, $String*)},
+		{"countChars", "(Ljava/lang/CharSequence;II)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(Pattern, countChars, int32_t, $CharSequence*, int32_t, int32_t)},
+		{"countCodePoints", "(Ljava/lang/CharSequence;)I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(Pattern, countCodePoints, int32_t, $CharSequence*)},
+		{"createGroup", "(Z)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, createGroup, $Pattern$Node*, bool)},
+		{"curly", "(Ljava/util/regex/Pattern$Node;I)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, curly, $Pattern$Node*, $Pattern$Node*, int32_t)},
+		{"cursor", "()I", nullptr, $PRIVATE, $method(Pattern, cursor, int32_t)},
+		{"error", "(Ljava/lang/String;)Ljava/util/regex/PatternSyntaxException;", nullptr, $PRIVATE, $method(Pattern, error, $PatternSyntaxException*, $String*)},
+		{"escape", "(ZZZ)I", nullptr, $PRIVATE, $method(Pattern, escape, int32_t, bool, bool, bool)},
+		{"expr", "(Ljava/util/regex/Pattern$Node;)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, expr, $Pattern$Node*, $Pattern$Node*)},
+		{"family", "(ZZ)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE, $method(Pattern, family, $Pattern$CharPredicate*, bool, bool)},
+		{"findSupplementary", "(II)Z", nullptr, $PRIVATE, $method(Pattern, findSupplementary, bool, int32_t, int32_t)},
+		{"flags", "()I", nullptr, $PUBLIC, $method(Pattern, flags, int32_t)},
+		{"getClass", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Pattern, getClass, int32_t, int32_t)},
+		{"group0", "()Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, group0, $Pattern$Node*)},
+		{"groupname", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(Pattern, groupname, $String*, int32_t)},
+		{"has", "(I)Z", nullptr, $PRIVATE, $method(Pattern, has, bool, int32_t)},
+		{"hasBaseCharacter", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Pattern, hasBaseCharacter, bool, $Matcher*, int32_t, $CharSequence*)},
+		{"inRange", "(III)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Pattern, inRange, bool, int32_t, int32_t, int32_t)},
+		{"isLineSeparator", "(I)Z", nullptr, $PRIVATE, $method(Pattern, isLineSeparator, bool, int32_t)},
+		{"isSupplementary", "(I)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(Pattern, isSupplementary, bool, int32_t)},
+		{"lambda$ALL$3", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$ALL$3, bool, int32_t)},
+		{"lambda$CIRange$12", "(III)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$CIRange$12, bool, int32_t, int32_t, int32_t)},
+		{"lambda$CIRangeU$13", "(III)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$CIRangeU$13, bool, int32_t, int32_t, int32_t)},
+		{"lambda$DOT$4", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$DOT$4, bool, int32_t)},
+		{"lambda$HorizWS$2", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$HorizWS$2, bool, int32_t)},
+		{"lambda$Range$10", "(III)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$Range$10, bool, int32_t, int32_t, int32_t)},
+		{"lambda$SingleI$8", "(III)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$SingleI$8, bool, int32_t, int32_t, int32_t)},
+		{"lambda$SingleS$6", "(II)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$SingleS$6, bool, int32_t, int32_t)},
+		{"lambda$SingleU$9", "(II)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$SingleU$9, bool, int32_t, int32_t)},
+		{"lambda$UNIXDOT$5", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$UNIXDOT$5, bool, int32_t)},
+		{"lambda$VertWS$1", "(I)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$VertWS$1, bool, int32_t)},
+		{"lambda$asMatchPredicate$15", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Pattern, lambda$asMatchPredicate$15, bool, $String*)},
+		{"lambda$asPredicate$14", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Pattern, lambda$asPredicate$14, bool, $String*)},
+		{"lambda$normalizeSlice$0", "(Ljava/lang/StringBuilder;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Pattern, lambda$normalizeSlice$0, void, $StringBuilder*, $String*)},
+		{"mark", "(I)V", nullptr, $PRIVATE, $method(Pattern, mark, void, int32_t)},
+		{"matcher", "(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;", nullptr, $PUBLIC, $method(Pattern, matcher, $Matcher*, $CharSequence*)},
+		{"matches", "(Ljava/lang/String;Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Pattern, matches, bool, $String*, $CharSequence*)},
+		{"namedGroups", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", 0, $method(Pattern, namedGroups, $Map*)},
+		{"newCharProperty", "(Ljava/util/regex/Pattern$CharPredicate;)Ljava/util/regex/Pattern$CharProperty;", nullptr, $PRIVATE, $method(Pattern, newCharProperty, $Pattern$CharProperty*, $Pattern$CharPredicate*)},
+		{"newSlice", "([IIZ)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, newSlice, $Pattern$Node*, $ints*, int32_t, bool)},
+		{"next", "()I", nullptr, $PRIVATE, $method(Pattern, next, int32_t)},
+		{"nextEscaped", "()I", nullptr, $PRIVATE, $method(Pattern, nextEscaped, int32_t)},
+		{"normalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Pattern, normalize, $String*, $String*)},
+		{"normalizeClazz", "(Ljava/lang/String;IILjava/lang/StringBuilder;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pattern, normalizeClazz, void, $String*, int32_t, int32_t, $StringBuilder*)},
+		{"normalizeSlice", "(Ljava/lang/String;IILjava/lang/StringBuilder;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Pattern, normalizeSlice, void, $String*, int32_t, int32_t, $StringBuilder*)},
+		{"o", "()I", nullptr, $PRIVATE, $method(Pattern, o, int32_t)},
+		{"parsePastLine", "()I", nullptr, $PRIVATE, $method(Pattern, parsePastLine, int32_t)},
+		{"parsePastWhitespace", "(I)I", nullptr, $PRIVATE, $method(Pattern, parsePastWhitespace, int32_t, int32_t)},
+		{"pattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Pattern, pattern, $String*)},
+		{"peek", "()I", nullptr, $PRIVATE, $method(Pattern, peek, int32_t)},
+		{"peekPastLine", "()I", nullptr, $PRIVATE, $method(Pattern, peekPastLine, int32_t)},
+		{"peekPastWhitespace", "(I)I", nullptr, $PRIVATE, $method(Pattern, peekPastWhitespace, int32_t, int32_t)},
+		{"produceEquivalentAlternation", "(Ljava/lang/String;Ljava/util/Set;)V", "(Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE | $STATIC, $staticMethod(Pattern, produceEquivalentAlternation, void, $String*, $Set*)},
+		{"producePermutations", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Pattern, producePermutations, $StringArray*, $String*)},
+		{"qtype", "()Ljava/util/regex/Pattern$Qtype;", nullptr, $PRIVATE, $method(Pattern, qtype, $Pattern$Qtype*)},
+		{"quote", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Pattern, quote, $String*, $String*)},
+		{"range", "(Ljava/util/regex/Pattern$BitClass;)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE, $method(Pattern, range, $Pattern$CharPredicate*, $Pattern$BitClass*)},
+		{"read", "()I", nullptr, $PRIVATE, $method(Pattern, read, int32_t)},
+		{"readEscaped", "()I", nullptr, $PRIVATE, $method(Pattern, readEscaped, int32_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Pattern, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"ref", "(I)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, ref, $Pattern$Node*, int32_t)},
+		{"sequence", "(Ljava/util/regex/Pattern$Node;)Ljava/util/regex/Pattern$Node;", nullptr, $PRIVATE, $method(Pattern, sequence, $Pattern$Node*, $Pattern$Node*)},
+		{"setcursor", "(I)V", nullptr, $PRIVATE, $method(Pattern, setcursor, void, int32_t)},
+		{"single", "(I)Ljava/util/regex/Pattern$CharPredicate;", nullptr, $PRIVATE, $method(Pattern, single, $Pattern$CharPredicate*, int32_t)},
+		{"skip", "()I", nullptr, $PRIVATE, $method(Pattern, skip, int32_t)},
+		{"split", "(Ljava/lang/CharSequence;I)[Ljava/lang/String;", nullptr, $PUBLIC, $method(Pattern, split, $StringArray*, $CharSequence*, int32_t)},
+		{"split", "(Ljava/lang/CharSequence;)[Ljava/lang/String;", nullptr, $PUBLIC, $method(Pattern, split, $StringArray*, $CharSequence*)},
+		{"splitAsStream", "(Ljava/lang/CharSequence;)Ljava/util/stream/Stream;", "(Ljava/lang/CharSequence;)Ljava/util/stream/Stream<Ljava/lang/String;>;", $PUBLIC, $method(Pattern, splitAsStream, $Stream*, $CharSequence*)},
+		{"subFlag", "()V", nullptr, $PRIVATE, $method(Pattern, subFlag, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Pattern, toString, $String*)},
+		{"u", "()I", nullptr, $PRIVATE, $method(Pattern, u, int32_t)},
+		{"unread", "()V", nullptr, $PRIVATE, $method(Pattern, unread, void)},
+		{"uxxxx", "()I", nullptr, $PRIVATE, $method(Pattern, uxxxx, int32_t)},
+		{"x", "()I", nullptr, $PRIVATE, $method(Pattern, x, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Pattern$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"java.util.regex.Pattern$BmpCharPredicate", "java.util.regex.Pattern", "BmpCharPredicate", $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.regex.Pattern$CharPredicate", "java.util.regex.Pattern", "CharPredicate", $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.regex.Pattern$BnMS", "java.util.regex.Pattern", "BnMS", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$BnM", "java.util.regex.Pattern", "BnM", $STATIC},
+		{"java.util.regex.Pattern$Bound", "java.util.regex.Pattern", "Bound", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$NotBehindS", "java.util.regex.Pattern", "NotBehindS", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$NotBehind", "java.util.regex.Pattern", "NotBehind", $STATIC},
+		{"java.util.regex.Pattern$BehindS", "java.util.regex.Pattern", "BehindS", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$Behind", "java.util.regex.Pattern", "Behind", $STATIC},
+		{"java.util.regex.Pattern$LookBehindEndNode", "java.util.regex.Pattern", "LookBehindEndNode", $STATIC},
+		{"java.util.regex.Pattern$Neg", "java.util.regex.Pattern", "Neg", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$Pos", "java.util.regex.Pattern", "Pos", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$First", "java.util.regex.Pattern", "First", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$CIBackRef", "java.util.regex.Pattern", "CIBackRef", $STATIC},
+		{"java.util.regex.Pattern$BackRef", "java.util.regex.Pattern", "BackRef", $STATIC},
+		{"java.util.regex.Pattern$LazyLoop", "java.util.regex.Pattern", "LazyLoop", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$Loop", "java.util.regex.Pattern", "Loop", $STATIC},
+		{"java.util.regex.Pattern$Prolog", "java.util.regex.Pattern", "Prolog", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$GroupTail", "java.util.regex.Pattern", "GroupTail", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$GroupHead", "java.util.regex.Pattern", "GroupHead", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$Branch", "java.util.regex.Pattern", "Branch", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$BranchConn", "java.util.regex.Pattern", "BranchConn", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$GroupCurly", "java.util.regex.Pattern", "GroupCurly", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$Curly", "java.util.regex.Pattern", "Curly", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$BmpCharPropertyGreedy", "java.util.regex.Pattern", "BmpCharPropertyGreedy", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$CharPropertyGreedy", "java.util.regex.Pattern", "CharPropertyGreedy", $STATIC},
+		{"java.util.regex.Pattern$Ques", "java.util.regex.Pattern", "Ques", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$SliceUS", "java.util.regex.Pattern", "SliceUS", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$SliceIS", "java.util.regex.Pattern", "SliceIS", $STATIC},
+		{"java.util.regex.Pattern$SliceS", "java.util.regex.Pattern", "SliceS", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$SliceU", "java.util.regex.Pattern", "SliceU", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$SliceI", "java.util.regex.Pattern", "SliceI", $STATIC},
+		{"java.util.regex.Pattern$Slice", "java.util.regex.Pattern", "Slice", $STATIC},
+		{"java.util.regex.Pattern$SliceNode", "java.util.regex.Pattern", "SliceNode", $STATIC},
+		{"java.util.regex.Pattern$GraphemeBound", "java.util.regex.Pattern", "GraphemeBound", $STATIC},
+		{"java.util.regex.Pattern$XGrapheme", "java.util.regex.Pattern", "XGrapheme", $STATIC},
+		{"java.util.regex.Pattern$NFCCharProperty", "java.util.regex.Pattern", "NFCCharProperty", $PRIVATE | $STATIC},
+		{"java.util.regex.Pattern$BmpCharProperty", "java.util.regex.Pattern", "BmpCharProperty", $PRIVATE | $STATIC},
+		{"java.util.regex.Pattern$CharProperty", "java.util.regex.Pattern", "CharProperty", $STATIC},
+		{"java.util.regex.Pattern$LineEnding", "java.util.regex.Pattern", "LineEnding", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$UnixDollar", "java.util.regex.Pattern", "UnixDollar", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$Dollar", "java.util.regex.Pattern", "Dollar", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$LastMatch", "java.util.regex.Pattern", "LastMatch", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$UnixCaret", "java.util.regex.Pattern", "UnixCaret", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$Caret", "java.util.regex.Pattern", "Caret", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$End", "java.util.regex.Pattern", "End", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$Begin", "java.util.regex.Pattern", "Begin", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$StartS", "java.util.regex.Pattern", "StartS", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$Start", "java.util.regex.Pattern", "Start", $STATIC},
+		{"java.util.regex.Pattern$LastNode", "java.util.regex.Pattern", "LastNode", $STATIC},
+		{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
+		{"java.util.regex.Pattern$BitClass", "java.util.regex.Pattern", "BitClass", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$Qtype", "java.util.regex.Pattern", "Qtype", $STATIC | $FINAL | $ENUM},
+		{"java.util.regex.Pattern$TreeInfo", "java.util.regex.Pattern", "TreeInfo", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$1MatcherIterator", nullptr, "MatcherIterator", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.util.regex.Pattern",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.regex.Pattern$1,java.util.regex.Pattern$BmpCharPredicate,java.util.regex.Pattern$CharPredicate,java.util.regex.Pattern$BnMS,java.util.regex.Pattern$BnM,java.util.regex.Pattern$Bound,java.util.regex.Pattern$NotBehindS,java.util.regex.Pattern$NotBehind,java.util.regex.Pattern$BehindS,java.util.regex.Pattern$Behind,java.util.regex.Pattern$LookBehindEndNode,java.util.regex.Pattern$Neg,java.util.regex.Pattern$Pos,java.util.regex.Pattern$First,java.util.regex.Pattern$CIBackRef,java.util.regex.Pattern$BackRef,java.util.regex.Pattern$LazyLoop,java.util.regex.Pattern$Loop,java.util.regex.Pattern$Prolog,java.util.regex.Pattern$GroupTail,java.util.regex.Pattern$GroupHead,java.util.regex.Pattern$Branch,java.util.regex.Pattern$BranchConn,java.util.regex.Pattern$GroupCurly,java.util.regex.Pattern$Curly,java.util.regex.Pattern$BmpCharPropertyGreedy,java.util.regex.Pattern$CharPropertyGreedy,java.util.regex.Pattern$Ques,java.util.regex.Pattern$SliceUS,java.util.regex.Pattern$SliceIS,java.util.regex.Pattern$SliceS,java.util.regex.Pattern$SliceU,java.util.regex.Pattern$SliceI,java.util.regex.Pattern$Slice,java.util.regex.Pattern$SliceNode,java.util.regex.Pattern$GraphemeBound,java.util.regex.Pattern$XGrapheme,java.util.regex.Pattern$NFCCharProperty,java.util.regex.Pattern$BmpCharProperty,java.util.regex.Pattern$CharProperty,java.util.regex.Pattern$LineEnding,java.util.regex.Pattern$UnixDollar,java.util.regex.Pattern$Dollar,java.util.regex.Pattern$LastMatch,java.util.regex.Pattern$UnixCaret,java.util.regex.Pattern$Caret,java.util.regex.Pattern$End,java.util.regex.Pattern$Begin,java.util.regex.Pattern$StartS,java.util.regex.Pattern$Start,java.util.regex.Pattern$LastNode,java.util.regex.Pattern$Node,java.util.regex.Pattern$BitClass,java.util.regex.Pattern$Qtype,java.util.regex.Pattern$TreeInfo,java.util.regex.Pattern$1MatcherIterator"
+	};
+	$loadClass(Pattern, name, initialize, &classInfo$$, Pattern::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern);
+	});
 	return class$;
 }
 

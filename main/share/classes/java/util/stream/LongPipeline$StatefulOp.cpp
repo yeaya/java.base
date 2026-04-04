@@ -1,5 +1,4 @@
 #include <java/util/stream/LongPipeline$StatefulOp.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/util/Iterator.h>
 #include <java/util/PrimitiveIterator$OfLong.h>
@@ -36,49 +35,6 @@ using $StreamShape = ::java::util::stream::StreamShape;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _LongPipeline$StatefulOp_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LongPipeline$StatefulOp, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _LongPipeline$StatefulOp_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;I)V", "(Ljava/util/stream/AbstractPipeline<*TE_IN;*>;Ljava/util/stream/StreamShape;I)V", 0, $method(LongPipeline$StatefulOp, init$, void, $AbstractPipeline*, $StreamShape*, int32_t)},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LongPipeline$StatefulOp, iterator, $Iterator*)},
-	{"lazySpliterator", "(Ljava/util/function/Supplier;)Ljava/util/Spliterator;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(LongPipeline$StatefulOp, lazySpliterator, $Spliterator*, $Supplier*)},
-	{"opEvaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", nullptr, $ABSTRACT},
-	{"opIsStateful", "()Z", nullptr, $FINAL, $virtualMethod(LongPipeline$StatefulOp, opIsStateful, bool)},
-	{"parallel", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LongPipeline$StatefulOp, parallel, $BaseStream*)},
-	{"sequential", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LongPipeline$StatefulOp, sequential, $BaseStream*)},
-	{"spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LongPipeline$StatefulOp, spliterator, $Spliterator*)},
-	{"unordered", "()Ljava/util/stream/BaseStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LongPipeline$StatefulOp, unordered, $BaseStream*)},
-	{}
-};
-
-$InnerClassInfo _LongPipeline$StatefulOp_InnerClassesInfo_[] = {
-	{"java.util.stream.LongPipeline$StatefulOp", "java.util.stream.LongPipeline", "StatefulOp", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _LongPipeline$StatefulOp_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.stream.LongPipeline$StatefulOp",
-	"java.util.stream.LongPipeline",
-	nullptr,
-	_LongPipeline$StatefulOp_FieldInfo_,
-	_LongPipeline$StatefulOp_MethodInfo_,
-	"<E_IN:Ljava/lang/Object;>Ljava/util/stream/LongPipeline<TE_IN;>;",
-	nullptr,
-	_LongPipeline$StatefulOp_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.LongPipeline"
-};
-
-$Object* allocate$LongPipeline$StatefulOp($Class* clazz) {
-	return $of($alloc(LongPipeline$StatefulOp));
-}
 
 $Node* LongPipeline$StatefulOp::opEvaluateParallel($PipelineHelper* helper, $Spliterator* spliterator, $IntFunction* generator) {
 	 return this->$LongPipeline::opEvaluateParallel(helper, spliterator, generator);
@@ -121,7 +77,7 @@ $Spliterator* LongPipeline$StatefulOp::lazySpliterator($Supplier* supplier) {
 	return $LongPipeline::lazySpliterator(supplier);
 }
 
-void clinit$LongPipeline$StatefulOp($Class* class$) {
+void LongPipeline$StatefulOp::clinit$($Class* clazz) {
 	$load($LongPipeline);
 	LongPipeline$StatefulOp::$assertionsDisabled = !$LongPipeline::class$->desiredAssertionStatus();
 }
@@ -130,7 +86,44 @@ LongPipeline$StatefulOp::LongPipeline$StatefulOp() {
 }
 
 $Class* LongPipeline$StatefulOp::load$($String* name, bool initialize) {
-	$loadClass(LongPipeline$StatefulOp, name, initialize, &_LongPipeline$StatefulOp_ClassInfo_, clinit$LongPipeline$StatefulOp, allocate$LongPipeline$StatefulOp);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LongPipeline$StatefulOp, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/AbstractPipeline;Ljava/util/stream/StreamShape;I)V", "(Ljava/util/stream/AbstractPipeline<*TE_IN;*>;Ljava/util/stream/StreamShape;I)V", 0, $method(LongPipeline$StatefulOp, init$, void, $AbstractPipeline*, $StreamShape*, int32_t)},
+		{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LongPipeline$StatefulOp, iterator, $Iterator*)},
+		{"lazySpliterator", "(Ljava/util/function/Supplier;)Ljava/util/Spliterator;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(LongPipeline$StatefulOp, lazySpliterator, $Spliterator*, $Supplier*)},
+		{"opEvaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/function/IntFunction;)Ljava/util/stream/Node;", nullptr, $ABSTRACT},
+		{"opIsStateful", "()Z", nullptr, $FINAL, $virtualMethod(LongPipeline$StatefulOp, opIsStateful, bool)},
+		{"parallel", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LongPipeline$StatefulOp, parallel, $BaseStream*)},
+		{"sequential", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LongPipeline$StatefulOp, sequential, $BaseStream*)},
+		{"spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LongPipeline$StatefulOp, spliterator, $Spliterator*)},
+		{"unordered", "()Ljava/util/stream/BaseStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LongPipeline$StatefulOp, unordered, $BaseStream*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.LongPipeline$StatefulOp", "java.util.stream.LongPipeline", "StatefulOp", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.stream.LongPipeline$StatefulOp",
+		"java.util.stream.LongPipeline",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<E_IN:Ljava/lang/Object;>Ljava/util/stream/LongPipeline<TE_IN;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.LongPipeline"
+	};
+	$loadClass(LongPipeline$StatefulOp, name, initialize, &classInfo$$, LongPipeline$StatefulOp::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LongPipeline$StatefulOp));
+	});
 	return class$;
 }
 

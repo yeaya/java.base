@@ -38,6 +38,7 @@ class PermissionsHash : public ::java::security::PermissionCollection {
 	$class(PermissionsHash, 0, ::java::security::PermissionCollection)
 public:
 	PermissionsHash();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void add(::java::security::Permission* permission) override;
 	virtual ::java::util::Enumeration* elements() override;
@@ -45,7 +46,7 @@ public:
 	void readObject(::java::io::ObjectInputStream* in);
 	void writeObject(::java::io::ObjectOutputStream* out);
 	::java::util::concurrent::ConcurrentHashMap* permsMap = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x8A2665B4A63D5D40;
+	static const int64_t serialVersionUID = (int64_t)0x8a2665b4a63d5d40;
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
 };
 

@@ -1,5 +1,4 @@
 #include <java/nio/BufferMismatch.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/ByteOrder.h>
 #include <java/nio/CharBuffer.h>
@@ -41,36 +40,6 @@ using $ArraysSupport = ::jdk::internal::util::ArraysSupport;
 namespace java {
 	namespace nio {
 
-$FieldInfo _BufferMismatch_FieldInfo_[] = {
-	{"SCOPED_MEMORY_ACCESS", "Ljdk/internal/misc/ScopedMemoryAccess;", nullptr, $STATIC | $FINAL, $staticField(BufferMismatch, SCOPED_MEMORY_ACCESS)},
-	{}
-};
-
-$MethodInfo _BufferMismatch_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(BufferMismatch, init$, void)},
-	{"mismatch", "(Ljava/nio/ByteBuffer;ILjava/nio/ByteBuffer;II)I", nullptr, $STATIC, $staticMethod(BufferMismatch, mismatch, int32_t, $ByteBuffer*, int32_t, $ByteBuffer*, int32_t, int32_t)},
-	{"mismatch", "(Ljava/nio/CharBuffer;ILjava/nio/CharBuffer;II)I", nullptr, $STATIC, $staticMethod(BufferMismatch, mismatch, int32_t, $CharBuffer*, int32_t, $CharBuffer*, int32_t, int32_t)},
-	{"mismatch", "(Ljava/nio/ShortBuffer;ILjava/nio/ShortBuffer;II)I", nullptr, $STATIC, $staticMethod(BufferMismatch, mismatch, int32_t, $ShortBuffer*, int32_t, $ShortBuffer*, int32_t, int32_t)},
-	{"mismatch", "(Ljava/nio/IntBuffer;ILjava/nio/IntBuffer;II)I", nullptr, $STATIC, $staticMethod(BufferMismatch, mismatch, int32_t, $IntBuffer*, int32_t, $IntBuffer*, int32_t, int32_t)},
-	{"mismatch", "(Ljava/nio/FloatBuffer;ILjava/nio/FloatBuffer;II)I", nullptr, $STATIC, $staticMethod(BufferMismatch, mismatch, int32_t, $FloatBuffer*, int32_t, $FloatBuffer*, int32_t, int32_t)},
-	{"mismatch", "(Ljava/nio/LongBuffer;ILjava/nio/LongBuffer;II)I", nullptr, $STATIC, $staticMethod(BufferMismatch, mismatch, int32_t, $LongBuffer*, int32_t, $LongBuffer*, int32_t, int32_t)},
-	{"mismatch", "(Ljava/nio/DoubleBuffer;ILjava/nio/DoubleBuffer;II)I", nullptr, $STATIC, $staticMethod(BufferMismatch, mismatch, int32_t, $DoubleBuffer*, int32_t, $DoubleBuffer*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _BufferMismatch_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.nio.BufferMismatch",
-	"java.lang.Object",
-	nullptr,
-	_BufferMismatch_FieldInfo_,
-	_BufferMismatch_MethodInfo_
-};
-
-$Object* allocate$BufferMismatch($Class* clazz) {
-	return $of($alloc(BufferMismatch));
-}
-
 $ScopedMemoryAccess* BufferMismatch::SCOPED_MEMORY_ACCESS = nullptr;
 
 void BufferMismatch::init$() {
@@ -78,15 +47,15 @@ void BufferMismatch::init$() {
 
 int32_t BufferMismatch::mismatch($ByteBuffer* a, int32_t aOff, $ByteBuffer* b, int32_t bOff, int32_t length) {
 	$init(BufferMismatch);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	if (length > 7) {
 		int8_t var$0 = $nc(a)->get(aOff);
 		if (var$0 != $nc(b)->get(bOff)) {
 			return 0;
 		}
-		$var($ScopedMemoryAccess$Scope, var$1, $nc(a)->scope());
-		$var($ScopedMemoryAccess$Scope, var$2, $nc(b)->scope());
+		$var($ScopedMemoryAccess$Scope, var$1, a->scope());
+		$var($ScopedMemoryAccess$Scope, var$2, b->scope());
 		$var($Object, var$3, a->base());
 		int64_t var$4 = a->address + aOff;
 		$init($ArraysSupport);
@@ -107,15 +76,15 @@ int32_t BufferMismatch::mismatch($ByteBuffer* a, int32_t aOff, $ByteBuffer* b, i
 
 int32_t BufferMismatch::mismatch($CharBuffer* a, int32_t aOff, $CharBuffer* b, int32_t bOff, int32_t length) {
 	$init(BufferMismatch);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	bool var$2 = length > 3;
 	if (var$2) {
 		var$2 = $nc(a)->charRegionOrder() == $nc(b)->charRegionOrder();
 	}
 	bool var$1 = var$2;
-	bool var$0 = var$1 && a->charRegionOrder() != nullptr;
-	if (var$0 && b->charRegionOrder() != nullptr) {
+	bool var$0 = var$1 && $nc(a)->charRegionOrder() != nullptr;
+	if (var$0 && $nc(b)->charRegionOrder() != nullptr) {
 		char16_t var$3 = a->get(aOff);
 		if (var$3 != b->get(bOff)) {
 			return 0;
@@ -142,15 +111,15 @@ int32_t BufferMismatch::mismatch($CharBuffer* a, int32_t aOff, $CharBuffer* b, i
 
 int32_t BufferMismatch::mismatch($ShortBuffer* a, int32_t aOff, $ShortBuffer* b, int32_t bOff, int32_t length) {
 	$init(BufferMismatch);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	bool var$0 = length > 3;
 	if (var$0) {
 		var$0 = $nc(a)->order() == $nc(b)->order();
 	}
 	if (var$0) {
-		int16_t var$1 = a->get(aOff);
-		if (var$1 != b->get(bOff)) {
+		int16_t var$1 = $nc(a)->get(aOff);
+		if (var$1 != $nc(b)->get(bOff)) {
 			return 0;
 		}
 		$var($ScopedMemoryAccess$Scope, var$2, a->scope());
@@ -175,15 +144,15 @@ int32_t BufferMismatch::mismatch($ShortBuffer* a, int32_t aOff, $ShortBuffer* b,
 
 int32_t BufferMismatch::mismatch($IntBuffer* a, int32_t aOff, $IntBuffer* b, int32_t bOff, int32_t length) {
 	$init(BufferMismatch);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	bool var$0 = length > 1;
 	if (var$0) {
 		var$0 = $nc(a)->order() == $nc(b)->order();
 	}
 	if (var$0) {
-		int32_t var$1 = a->get(aOff);
-		if (var$1 != b->get(bOff)) {
+		int32_t var$1 = $nc(a)->get(aOff);
+		if (var$1 != $nc(b)->get(bOff)) {
 			return 0;
 		}
 		$var($ScopedMemoryAccess$Scope, var$2, a->scope());
@@ -208,15 +177,15 @@ int32_t BufferMismatch::mismatch($IntBuffer* a, int32_t aOff, $IntBuffer* b, int
 
 int32_t BufferMismatch::mismatch($FloatBuffer* a, int32_t aOff, $FloatBuffer* b, int32_t bOff, int32_t length) {
 	$init(BufferMismatch);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	bool var$0 = length > 1;
 	if (var$0) {
 		var$0 = $nc(a)->order() == $nc(b)->order();
 	}
 	if (var$0) {
-		int32_t var$1 = $Float::floatToRawIntBits(a->get(aOff));
-		if (var$1 == $Float::floatToRawIntBits(b->get(bOff))) {
+		int32_t var$1 = $Float::floatToRawIntBits($nc(a)->get(aOff));
+		if (var$1 == $Float::floatToRawIntBits($nc(b)->get(bOff))) {
 			$var($ScopedMemoryAccess$Scope, var$2, a->scope());
 			$var($ScopedMemoryAccess$Scope, var$3, b->scope());
 			$var($Object, var$4, a->base());
@@ -230,7 +199,7 @@ int32_t BufferMismatch::mismatch($FloatBuffer* a, int32_t aOff, $FloatBuffer* b,
 			bool var$6 = av != bv;
 			if (var$6) {
 				bool var$7 = !$Float::isNaN(av);
-				var$6 = (var$7 || !$Float::isNaN(bv));
+				var$6 = var$7 || !$Float::isNaN(bv);
 			}
 			if (var$6) {
 				return i;
@@ -246,7 +215,7 @@ int32_t BufferMismatch::mismatch($FloatBuffer* a, int32_t aOff, $FloatBuffer* b,
 		bool var$8 = av != bv;
 		if (var$8) {
 			bool var$9 = !$Float::isNaN(av);
-			var$8 = (var$9 || !$Float::isNaN(bv));
+			var$8 = var$9 || !$Float::isNaN(bv);
 		}
 		if (var$8) {
 			return i;
@@ -257,15 +226,15 @@ int32_t BufferMismatch::mismatch($FloatBuffer* a, int32_t aOff, $FloatBuffer* b,
 
 int32_t BufferMismatch::mismatch($LongBuffer* a, int32_t aOff, $LongBuffer* b, int32_t bOff, int32_t length) {
 	$init(BufferMismatch);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	bool var$0 = length > 0;
 	if (var$0) {
 		var$0 = $nc(a)->order() == $nc(b)->order();
 	}
 	if (var$0) {
-		int64_t var$1 = a->get(aOff);
-		if (var$1 != b->get(bOff)) {
+		int64_t var$1 = $nc(a)->get(aOff);
+		if (var$1 != $nc(b)->get(bOff)) {
 			return 0;
 		}
 		$var($ScopedMemoryAccess$Scope, var$2, a->scope());
@@ -287,15 +256,15 @@ int32_t BufferMismatch::mismatch($LongBuffer* a, int32_t aOff, $LongBuffer* b, i
 
 int32_t BufferMismatch::mismatch($DoubleBuffer* a, int32_t aOff, $DoubleBuffer* b, int32_t bOff, int32_t length) {
 	$init(BufferMismatch);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	bool var$0 = length > 0;
 	if (var$0) {
 		var$0 = $nc(a)->order() == $nc(b)->order();
 	}
 	if (var$0) {
-		int64_t var$1 = $Double::doubleToRawLongBits(a->get(aOff));
-		if (var$1 == $Double::doubleToRawLongBits(b->get(bOff))) {
+		int64_t var$1 = $Double::doubleToRawLongBits($nc(a)->get(aOff));
+		if (var$1 == $Double::doubleToRawLongBits($nc(b)->get(bOff))) {
 			$var($ScopedMemoryAccess$Scope, var$2, a->scope());
 			$var($ScopedMemoryAccess$Scope, var$3, b->scope());
 			$var($Object, var$4, a->base());
@@ -309,7 +278,7 @@ int32_t BufferMismatch::mismatch($DoubleBuffer* a, int32_t aOff, $DoubleBuffer* 
 			bool var$6 = av != bv;
 			if (var$6) {
 				bool var$7 = !$Double::isNaN(av);
-				var$6 = (var$7 || !$Double::isNaN(bv));
+				var$6 = var$7 || !$Double::isNaN(bv);
 			}
 			if (var$6) {
 				return i;
@@ -325,7 +294,7 @@ int32_t BufferMismatch::mismatch($DoubleBuffer* a, int32_t aOff, $DoubleBuffer* 
 		bool var$8 = av != bv;
 		if (var$8) {
 			bool var$9 = !$Double::isNaN(av);
-			var$8 = (var$9 || !$Double::isNaN(bv));
+			var$8 = var$9 || !$Double::isNaN(bv);
 		}
 		if (var$8) {
 			return i;
@@ -334,7 +303,7 @@ int32_t BufferMismatch::mismatch($DoubleBuffer* a, int32_t aOff, $DoubleBuffer* 
 	return -1;
 }
 
-void clinit$BufferMismatch($Class* class$) {
+void BufferMismatch::clinit$($Class* clazz) {
 	$assignStatic(BufferMismatch::SCOPED_MEMORY_ACCESS, $ScopedMemoryAccess::getScopedMemoryAccess());
 }
 
@@ -342,7 +311,32 @@ BufferMismatch::BufferMismatch() {
 }
 
 $Class* BufferMismatch::load$($String* name, bool initialize) {
-	$loadClass(BufferMismatch, name, initialize, &_BufferMismatch_ClassInfo_, clinit$BufferMismatch, allocate$BufferMismatch);
+	$FieldInfo fieldInfos$$[] = {
+		{"SCOPED_MEMORY_ACCESS", "Ljdk/internal/misc/ScopedMemoryAccess;", nullptr, $STATIC | $FINAL, $staticField(BufferMismatch, SCOPED_MEMORY_ACCESS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(BufferMismatch, init$, void)},
+		{"mismatch", "(Ljava/nio/ByteBuffer;ILjava/nio/ByteBuffer;II)I", nullptr, $STATIC, $staticMethod(BufferMismatch, mismatch, int32_t, $ByteBuffer*, int32_t, $ByteBuffer*, int32_t, int32_t)},
+		{"mismatch", "(Ljava/nio/CharBuffer;ILjava/nio/CharBuffer;II)I", nullptr, $STATIC, $staticMethod(BufferMismatch, mismatch, int32_t, $CharBuffer*, int32_t, $CharBuffer*, int32_t, int32_t)},
+		{"mismatch", "(Ljava/nio/ShortBuffer;ILjava/nio/ShortBuffer;II)I", nullptr, $STATIC, $staticMethod(BufferMismatch, mismatch, int32_t, $ShortBuffer*, int32_t, $ShortBuffer*, int32_t, int32_t)},
+		{"mismatch", "(Ljava/nio/IntBuffer;ILjava/nio/IntBuffer;II)I", nullptr, $STATIC, $staticMethod(BufferMismatch, mismatch, int32_t, $IntBuffer*, int32_t, $IntBuffer*, int32_t, int32_t)},
+		{"mismatch", "(Ljava/nio/FloatBuffer;ILjava/nio/FloatBuffer;II)I", nullptr, $STATIC, $staticMethod(BufferMismatch, mismatch, int32_t, $FloatBuffer*, int32_t, $FloatBuffer*, int32_t, int32_t)},
+		{"mismatch", "(Ljava/nio/LongBuffer;ILjava/nio/LongBuffer;II)I", nullptr, $STATIC, $staticMethod(BufferMismatch, mismatch, int32_t, $LongBuffer*, int32_t, $LongBuffer*, int32_t, int32_t)},
+		{"mismatch", "(Ljava/nio/DoubleBuffer;ILjava/nio/DoubleBuffer;II)I", nullptr, $STATIC, $staticMethod(BufferMismatch, mismatch, int32_t, $DoubleBuffer*, int32_t, $DoubleBuffer*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.nio.BufferMismatch",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BufferMismatch, name, initialize, &classInfo$$, BufferMismatch::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BufferMismatch);
+	});
 	return class$;
 }
 

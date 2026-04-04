@@ -1,8 +1,6 @@
 #include <sun/security/action/GetBooleanAction.h>
-
 #include <java/lang/SecurityManager.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <jcpp.h>
 
 using $Boolean = ::java::lang::Boolean;
@@ -10,37 +8,10 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 
 namespace sun {
 	namespace security {
 		namespace action {
-
-$FieldInfo _GetBooleanAction_FieldInfo_[] = {
-	{"theProp", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GetBooleanAction, theProp)},
-	{}
-};
-
-$MethodInfo _GetBooleanAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(GetBooleanAction, init$, void, $String*)},
-	{"privilegedGetProperty", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(GetBooleanAction, privilegedGetProperty, bool, $String*)},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(GetBooleanAction, run, $Object*)},
-	{}
-};
-
-$ClassInfo _GetBooleanAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.action.GetBooleanAction",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_GetBooleanAction_FieldInfo_,
-	_GetBooleanAction_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;"
-};
-
-$Object* allocate$GetBooleanAction($Class* clazz) {
-	return $of($alloc(GetBooleanAction));
-}
 
 void GetBooleanAction::init$($String* theProp) {
 	$set(this, theProp, theProp);
@@ -52,12 +23,12 @@ $Object* GetBooleanAction::run() {
 
 bool GetBooleanAction::privilegedGetProperty($String* theProp) {
 	$init(GetBooleanAction);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if ($System::getSecurityManager() == nullptr) {
 		return $Boolean::getBoolean(theProp);
 	} else {
-		return $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(GetBooleanAction, theProp)))))))->booleanValue();
+		return $$sure($Boolean, $AccessController::doPrivileged($$new(GetBooleanAction, theProp)))->booleanValue();
 	}
 }
 
@@ -65,7 +36,28 @@ GetBooleanAction::GetBooleanAction() {
 }
 
 $Class* GetBooleanAction::load$($String* name, bool initialize) {
-	$loadClass(GetBooleanAction, name, initialize, &_GetBooleanAction_ClassInfo_, allocate$GetBooleanAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"theProp", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GetBooleanAction, theProp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(GetBooleanAction, init$, void, $String*)},
+		{"privilegedGetProperty", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(GetBooleanAction, privilegedGetProperty, bool, $String*)},
+		{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(GetBooleanAction, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.action.GetBooleanAction",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;"
+	};
+	$loadClass(GetBooleanAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GetBooleanAction);
+	});
 	return class$;
 }
 

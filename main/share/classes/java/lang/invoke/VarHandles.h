@@ -51,6 +51,7 @@ class VarHandles : public ::java::lang::Object {
 	$class(VarHandles, 0, ::java::lang::Object)
 public:
 	VarHandles();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::invoke::VarHandle* byteArrayViewHandle($Class* viewArrayClass, bool be);
 	static ::java::lang::invoke::VarHandle* collectCoordinates(::java::lang::invoke::VarHandle* target, int32_t pos, ::java::lang::invoke::MethodHandle* filter);

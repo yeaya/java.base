@@ -35,6 +35,7 @@ class $export SynchronousQueue$TransferQueue : public ::java::util::concurrent::
 	$class(SynchronousQueue$TransferQueue, 0, ::java::util::concurrent::SynchronousQueue$Transferer)
 public:
 	SynchronousQueue$TransferQueue();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void advanceHead(::java::util::concurrent::SynchronousQueue$TransferQueue$QNode* h, ::java::util::concurrent::SynchronousQueue$TransferQueue$QNode* nh);
 	void advanceTail(::java::util::concurrent::SynchronousQueue$TransferQueue$QNode* t, ::java::util::concurrent::SynchronousQueue$TransferQueue$QNode* nt);

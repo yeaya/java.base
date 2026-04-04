@@ -23,6 +23,7 @@ class Finished : public ::java::lang::Object {
 	$class(Finished, 0, ::java::lang::Object)
 public:
 	Finished();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void recordEvent(::sun::security::ssl::SSLSessionImpl* session);
 	static ::sun::security::ssl::SSLConsumer* t12HandshakeConsumer;

@@ -1,5 +1,4 @@
 #include <java/util/stream/FindOps$FindOp.h>
-
 #include <java/util/Spliterator.h>
 #include <java/util/concurrent/ForkJoinTask.h>
 #include <java/util/function/Predicate.h>
@@ -26,7 +25,6 @@ using $Predicate = ::java::util::function::Predicate;
 using $Supplier = ::java::util::function::Supplier;
 using $FindOps$FindTask = ::java::util::stream::FindOps$FindTask;
 using $PipelineHelper = ::java::util::stream::PipelineHelper;
-using $Sink = ::java::util::stream::Sink;
 using $StreamOpFlag = ::java::util::stream::StreamOpFlag;
 using $StreamShape = ::java::util::stream::StreamShape;
 using $TerminalSink = ::java::util::stream::TerminalSink;
@@ -34,49 +32,6 @@ using $TerminalSink = ::java::util::stream::TerminalSink;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _FindOps$FindOp_FieldInfo_[] = {
-	{"shape", "Ljava/util/stream/StreamShape;", nullptr, $PRIVATE | $FINAL, $field(FindOps$FindOp, shape)},
-	{"opFlags", "I", nullptr, $FINAL, $field(FindOps$FindOp, opFlags)},
-	{"emptyValue", "Ljava/lang/Object;", "TO;", $FINAL, $field(FindOps$FindOp, emptyValue)},
-	{"presentPredicate", "Ljava/util/function/Predicate;", "Ljava/util/function/Predicate<TO;>;", $FINAL, $field(FindOps$FindOp, presentPredicate)},
-	{"sinkSupplier", "Ljava/util/function/Supplier;", "Ljava/util/function/Supplier<Ljava/util/stream/TerminalSink<TT;TO;>;>;", $FINAL, $field(FindOps$FindOp, sinkSupplier)},
-	{}
-};
-
-$MethodInfo _FindOps$FindOp_MethodInfo_[] = {
-	{"<init>", "(ZLjava/util/stream/StreamShape;Ljava/lang/Object;Ljava/util/function/Predicate;Ljava/util/function/Supplier;)V", "(ZLjava/util/stream/StreamShape;TO;Ljava/util/function/Predicate<TO;>;Ljava/util/function/Supplier<Ljava/util/stream/TerminalSink<TT;TO;>;>;)V", 0, $method(FindOps$FindOp, init$, void, bool, $StreamShape*, Object$*, $Predicate*, $Supplier*)},
-	{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TP_IN;>;)TO;", $PUBLIC, $virtualMethod(FindOps$FindOp, evaluateParallel, $Object*, $PipelineHelper*, $Spliterator*)},
-	{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", "<S:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TS;>;)TO;", $PUBLIC, $virtualMethod(FindOps$FindOp, evaluateSequential, $Object*, $PipelineHelper*, $Spliterator*)},
-	{"getOpFlags", "()I", nullptr, $PUBLIC, $virtualMethod(FindOps$FindOp, getOpFlags, int32_t)},
-	{"inputShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC, $virtualMethod(FindOps$FindOp, inputShape, $StreamShape*)},
-	{}
-};
-
-$InnerClassInfo _FindOps$FindOp_InnerClassesInfo_[] = {
-	{"java.util.stream.FindOps$FindOp", "java.util.stream.FindOps", "FindOp", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _FindOps$FindOp_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.FindOps$FindOp",
-	"java.lang.Object",
-	"java.util.stream.TerminalOp",
-	_FindOps$FindOp_FieldInfo_,
-	_FindOps$FindOp_MethodInfo_,
-	"<T:Ljava/lang/Object;O:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/stream/TerminalOp<TT;TO;>;",
-	nullptr,
-	_FindOps$FindOp_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.FindOps"
-};
-
-$Object* allocate$FindOps$FindOp($Class* clazz) {
-	return $of($alloc(FindOps$FindOp));
-}
 
 void FindOps$FindOp::init$(bool mustFindFirst, $StreamShape* shape, Object$* emptyValue, $Predicate* presentPredicate, $Supplier* sinkSupplier) {
 	$init($StreamOpFlag);
@@ -96,22 +51,59 @@ $StreamShape* FindOps$FindOp::inputShape() {
 }
 
 $Object* FindOps$FindOp::evaluateSequential($PipelineHelper* helper, $Spliterator* spliterator) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, result, $nc(($cast($TerminalSink, $($nc(helper)->wrapAndCopyInto($cast($TerminalSink, $($nc(this->sinkSupplier)->get())), spliterator)))))->get());
-	return $of(result != nullptr ? result : this->emptyValue);
+	$useLocalObjectStack();
+	$var($Object, result, $$sure($TerminalSink, $nc(helper)->wrapAndCopyInto($$cast($TerminalSink, $nc(this->sinkSupplier)->get()), spliterator))->get());
+	return result != nullptr ? result : this->emptyValue;
 }
 
 $Object* FindOps$FindOp::evaluateParallel($PipelineHelper* helper, $Spliterator* spliterator) {
 	$init($StreamOpFlag);
 	bool mustFindFirst = $StreamOpFlag::ORDERED->isKnown($nc(helper)->getStreamAndOpFlags());
-	return $of($$new($FindOps$FindTask, this, mustFindFirst, helper, spliterator)->invoke());
+	return $$new($FindOps$FindTask, this, mustFindFirst, helper, spliterator)->invoke();
 }
 
 FindOps$FindOp::FindOps$FindOp() {
 }
 
 $Class* FindOps$FindOp::load$($String* name, bool initialize) {
-	$loadClass(FindOps$FindOp, name, initialize, &_FindOps$FindOp_ClassInfo_, allocate$FindOps$FindOp);
+	$FieldInfo fieldInfos$$[] = {
+		{"shape", "Ljava/util/stream/StreamShape;", nullptr, $PRIVATE | $FINAL, $field(FindOps$FindOp, shape)},
+		{"opFlags", "I", nullptr, $FINAL, $field(FindOps$FindOp, opFlags)},
+		{"emptyValue", "Ljava/lang/Object;", "TO;", $FINAL, $field(FindOps$FindOp, emptyValue)},
+		{"presentPredicate", "Ljava/util/function/Predicate;", "Ljava/util/function/Predicate<TO;>;", $FINAL, $field(FindOps$FindOp, presentPredicate)},
+		{"sinkSupplier", "Ljava/util/function/Supplier;", "Ljava/util/function/Supplier<Ljava/util/stream/TerminalSink<TT;TO;>;>;", $FINAL, $field(FindOps$FindOp, sinkSupplier)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZLjava/util/stream/StreamShape;Ljava/lang/Object;Ljava/util/function/Predicate;Ljava/util/function/Supplier;)V", "(ZLjava/util/stream/StreamShape;TO;Ljava/util/function/Predicate<TO;>;Ljava/util/function/Supplier<Ljava/util/stream/TerminalSink<TT;TO;>;>;)V", 0, $method(FindOps$FindOp, init$, void, bool, $StreamShape*, Object$*, $Predicate*, $Supplier*)},
+		{"evaluateParallel", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", "<P_IN:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TP_IN;>;)TO;", $PUBLIC, $virtualMethod(FindOps$FindOp, evaluateParallel, $Object*, $PipelineHelper*, $Spliterator*)},
+		{"evaluateSequential", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;)Ljava/lang/Object;", "<S:Ljava/lang/Object;>(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TS;>;)TO;", $PUBLIC, $virtualMethod(FindOps$FindOp, evaluateSequential, $Object*, $PipelineHelper*, $Spliterator*)},
+		{"getOpFlags", "()I", nullptr, $PUBLIC, $virtualMethod(FindOps$FindOp, getOpFlags, int32_t)},
+		{"inputShape", "()Ljava/util/stream/StreamShape;", nullptr, $PUBLIC, $virtualMethod(FindOps$FindOp, inputShape, $StreamShape*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.FindOps$FindOp", "java.util.stream.FindOps", "FindOp", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.FindOps$FindOp",
+		"java.lang.Object",
+		"java.util.stream.TerminalOp",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;O:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/stream/TerminalOp<TT;TO;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.FindOps"
+	};
+	$loadClass(FindOps$FindOp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FindOps$FindOp);
+	});
 	return class$;
 }
 

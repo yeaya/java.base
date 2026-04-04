@@ -1,5 +1,4 @@
 #include <sun/nio/ch/KQueuePort.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/InternalError.h>
@@ -52,55 +51,6 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _KQueuePort_FieldInfo_[] = {
-	{"MAX_KEVENTS_TO_POLL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KQueuePort, MAX_KEVENTS_TO_POLL)},
-	{"kqfd", "I", nullptr, $PRIVATE | $FINAL, $field(KQueuePort, kqfd)},
-	{"address", "J", nullptr, $PRIVATE | $FINAL, $field(KQueuePort, address)},
-	{"closed", "Z", nullptr, $PRIVATE, $field(KQueuePort, closed)},
-	{"sp", "[I", nullptr, $PRIVATE | $FINAL, $field(KQueuePort, sp)},
-	{"wakeupCount", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $FINAL, $field(KQueuePort, wakeupCount)},
-	{"queue", "Ljava/util/concurrent/ArrayBlockingQueue;", "Ljava/util/concurrent/ArrayBlockingQueue<Lsun/nio/ch/KQueuePort$Event;>;", $PRIVATE | $FINAL, $field(KQueuePort, queue)},
-	{"NEED_TO_POLL", "Lsun/nio/ch/KQueuePort$Event;", nullptr, $PRIVATE | $FINAL, $field(KQueuePort, NEED_TO_POLL)},
-	{"EXECUTE_TASK_OR_SHUTDOWN", "Lsun/nio/ch/KQueuePort$Event;", nullptr, $PRIVATE | $FINAL, $field(KQueuePort, EXECUTE_TASK_OR_SHUTDOWN)},
-	{}
-};
-
-$MethodInfo _KQueuePort_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/spi/AsynchronousChannelProvider;Lsun/nio/ch/ThreadPool;)V", nullptr, 0, $method(KQueuePort, init$, void, $AsynchronousChannelProvider*, $ThreadPool*), "java.io.IOException"},
-	{"executeOnHandlerTask", "(Ljava/lang/Runnable;)V", nullptr, 0, $virtualMethod(KQueuePort, executeOnHandlerTask, void, $Runnable*)},
-	{"implClose", "()V", nullptr, $PRIVATE, $method(KQueuePort, implClose, void)},
-	{"shutdownHandlerTasks", "()V", nullptr, 0, $virtualMethod(KQueuePort, shutdownHandlerTasks, void)},
-	{"start", "()Lsun/nio/ch/KQueuePort;", nullptr, 0, $method(KQueuePort, start, KQueuePort*)},
-	{"startPoll", "(II)V", nullptr, 0, $virtualMethod(KQueuePort, startPoll, void, int32_t, int32_t)},
-	{"wakeup", "()V", nullptr, $PRIVATE, $method(KQueuePort, wakeup, void)},
-	{}
-};
-
-$InnerClassInfo _KQueuePort_InnerClassesInfo_[] = {
-	{"sun.nio.ch.KQueuePort$EventHandlerTask", "sun.nio.ch.KQueuePort", "EventHandlerTask", $PRIVATE},
-	{"sun.nio.ch.KQueuePort$Event", "sun.nio.ch.KQueuePort", "Event", $STATIC},
-	{}
-};
-
-$ClassInfo _KQueuePort_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.nio.ch.KQueuePort",
-	"sun.nio.ch.Port",
-	nullptr,
-	_KQueuePort_FieldInfo_,
-	_KQueuePort_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KQueuePort_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.KQueuePort$EventHandlerTask,sun.nio.ch.KQueuePort$Event"
-};
-
-$Object* allocate$KQueuePort($Class* clazz) {
-	return $of($alloc(KQueuePort));
-}
-
 void KQueuePort::init$($AsynchronousChannelProvider* provider, $ThreadPool* pool) {
 	$Port::init$(provider, pool);
 	$set(this, wakeupCount, $new($AtomicInteger));
@@ -121,7 +71,7 @@ void KQueuePort::init$($AsynchronousChannelProvider* provider, $ThreadPool* pool
 	}
 	$KQueue::register$(this->kqfd, $nc(this->sp)->get(0), -1, 1);
 	$set(this, queue, $new($ArrayBlockingQueue, KQueuePort::MAX_KEVENTS_TO_POLL));
-	$nc(this->queue)->offer(this->NEED_TO_POLL);
+	this->queue->offer(this->NEED_TO_POLL);
 }
 
 KQueuePort* KQueuePort::start() {
@@ -152,7 +102,7 @@ void KQueuePort::implClose() {
 }
 
 void KQueuePort::wakeup() {
-	if ($nc(this->wakeupCount)->incrementAndGet() == 1) {
+	if (this->wakeupCount->incrementAndGet() == 1) {
 		try {
 			$IOUtil::write1($nc(this->sp)->get(1), (int8_t)0);
 		} catch ($IOException& x) {
@@ -183,14 +133,14 @@ void KQueuePort::shutdownHandlerTasks() {
 }
 
 void KQueuePort::startPoll(int32_t fd, int32_t events) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t err = 0;
-	int32_t flags = (1 | 16);
+	int32_t flags = (1 | 0x10);
 	$init($Net);
-	if (((int32_t)(events & (uint32_t)(int32_t)$Net::POLLIN)) > 0) {
+	if ((events & $Net::POLLIN) > 0) {
 		err = $KQueue::register$(this->kqfd, fd, -1, flags);
 	}
-	if (err == 0 && ((int32_t)(events & (uint32_t)(int32_t)$Net::POLLOUT)) > 0) {
+	if (err == 0 && (events & $Net::POLLOUT) > 0) {
 		err = $KQueue::register$(this->kqfd, fd, -2, flags);
 	}
 	if (err != 0) {
@@ -202,7 +152,50 @@ KQueuePort::KQueuePort() {
 }
 
 $Class* KQueuePort::load$($String* name, bool initialize) {
-	$loadClass(KQueuePort, name, initialize, &_KQueuePort_ClassInfo_, allocate$KQueuePort);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_KEVENTS_TO_POLL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KQueuePort, MAX_KEVENTS_TO_POLL)},
+		{"kqfd", "I", nullptr, $PRIVATE | $FINAL, $field(KQueuePort, kqfd)},
+		{"address", "J", nullptr, $PRIVATE | $FINAL, $field(KQueuePort, address)},
+		{"closed", "Z", nullptr, $PRIVATE, $field(KQueuePort, closed)},
+		{"sp", "[I", nullptr, $PRIVATE | $FINAL, $field(KQueuePort, sp)},
+		{"wakeupCount", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $FINAL, $field(KQueuePort, wakeupCount)},
+		{"queue", "Ljava/util/concurrent/ArrayBlockingQueue;", "Ljava/util/concurrent/ArrayBlockingQueue<Lsun/nio/ch/KQueuePort$Event;>;", $PRIVATE | $FINAL, $field(KQueuePort, queue)},
+		{"NEED_TO_POLL", "Lsun/nio/ch/KQueuePort$Event;", nullptr, $PRIVATE | $FINAL, $field(KQueuePort, NEED_TO_POLL)},
+		{"EXECUTE_TASK_OR_SHUTDOWN", "Lsun/nio/ch/KQueuePort$Event;", nullptr, $PRIVATE | $FINAL, $field(KQueuePort, EXECUTE_TASK_OR_SHUTDOWN)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/spi/AsynchronousChannelProvider;Lsun/nio/ch/ThreadPool;)V", nullptr, 0, $method(KQueuePort, init$, void, $AsynchronousChannelProvider*, $ThreadPool*), "java.io.IOException"},
+		{"executeOnHandlerTask", "(Ljava/lang/Runnable;)V", nullptr, 0, $virtualMethod(KQueuePort, executeOnHandlerTask, void, $Runnable*)},
+		{"implClose", "()V", nullptr, $PRIVATE, $method(KQueuePort, implClose, void)},
+		{"shutdownHandlerTasks", "()V", nullptr, 0, $virtualMethod(KQueuePort, shutdownHandlerTasks, void)},
+		{"start", "()Lsun/nio/ch/KQueuePort;", nullptr, 0, $method(KQueuePort, start, KQueuePort*)},
+		{"startPoll", "(II)V", nullptr, 0, $virtualMethod(KQueuePort, startPoll, void, int32_t, int32_t)},
+		{"wakeup", "()V", nullptr, $PRIVATE, $method(KQueuePort, wakeup, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.KQueuePort$EventHandlerTask", "sun.nio.ch.KQueuePort", "EventHandlerTask", $PRIVATE},
+		{"sun.nio.ch.KQueuePort$Event", "sun.nio.ch.KQueuePort", "Event", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.nio.ch.KQueuePort",
+		"sun.nio.ch.Port",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.KQueuePort$EventHandlerTask,sun.nio.ch.KQueuePort$Event"
+	};
+	$loadClass(KQueuePort, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(KQueuePort));
+	});
 	return class$;
 }
 

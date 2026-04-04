@@ -1,5 +1,4 @@
 #include <sun/nio/fs/WindowsSecurity.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/invoke/CallSite.h>
@@ -39,81 +38,38 @@ public:
 	virtual void drop() override {
 		WindowsSecurity::lambda$enablePrivilege$0(token, stopImpersontating, needToRevert, pLuid);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WindowsSecurity$$Lambda$lambda$enablePrivilege$0>());
-	}
 	int64_t token = 0;
 	bool stopImpersontating = false;
 	bool needToRevert = false;
 	int64_t pLuid = 0;
-	static $FieldInfo fieldInfos[5];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo WindowsSecurity$$Lambda$lambda$enablePrivilege$0::fieldInfos[5] = {
-	{"token", "J", nullptr, $PUBLIC, $field(WindowsSecurity$$Lambda$lambda$enablePrivilege$0, token)},
-	{"stopImpersontating", "Z", nullptr, $PUBLIC, $field(WindowsSecurity$$Lambda$lambda$enablePrivilege$0, stopImpersontating)},
-	{"needToRevert", "Z", nullptr, $PUBLIC, $field(WindowsSecurity$$Lambda$lambda$enablePrivilege$0, needToRevert)},
-	{"pLuid", "J", nullptr, $PUBLIC, $field(WindowsSecurity$$Lambda$lambda$enablePrivilege$0, pLuid)},
-	{}
-};
-$MethodInfo WindowsSecurity$$Lambda$lambda$enablePrivilege$0::methodInfos[3] = {
-	{"<init>", "(JZZJ)V", nullptr, $PUBLIC, $method(WindowsSecurity$$Lambda$lambda$enablePrivilege$0, init$, void, int64_t, bool, bool, int64_t)},
-	{"drop", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsSecurity$$Lambda$lambda$enablePrivilege$0, drop, void)},
-	{}
-};
-$ClassInfo WindowsSecurity$$Lambda$lambda$enablePrivilege$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.nio.fs.WindowsSecurity$$Lambda$lambda$enablePrivilege$0",
-	"java.lang.Object",
-	"sun.nio.fs.WindowsSecurity$Privilege",
-	fieldInfos,
-	methodInfos
 };
 $Class* WindowsSecurity$$Lambda$lambda$enablePrivilege$0::load$($String* name, bool initialize) {
-	$loadClass(WindowsSecurity$$Lambda$lambda$enablePrivilege$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"token", "J", nullptr, $PUBLIC, $field(WindowsSecurity$$Lambda$lambda$enablePrivilege$0, token)},
+		{"stopImpersontating", "Z", nullptr, $PUBLIC, $field(WindowsSecurity$$Lambda$lambda$enablePrivilege$0, stopImpersontating)},
+		{"needToRevert", "Z", nullptr, $PUBLIC, $field(WindowsSecurity$$Lambda$lambda$enablePrivilege$0, needToRevert)},
+		{"pLuid", "J", nullptr, $PUBLIC, $field(WindowsSecurity$$Lambda$lambda$enablePrivilege$0, pLuid)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JZZJ)V", nullptr, $PUBLIC, $method(WindowsSecurity$$Lambda$lambda$enablePrivilege$0, init$, void, int64_t, bool, bool, int64_t)},
+		{"drop", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsSecurity$$Lambda$lambda$enablePrivilege$0, drop, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.nio.fs.WindowsSecurity$$Lambda$lambda$enablePrivilege$0",
+		"java.lang.Object",
+		"sun.nio.fs.WindowsSecurity$Privilege",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WindowsSecurity$$Lambda$lambda$enablePrivilege$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsSecurity$$Lambda$lambda$enablePrivilege$0);
+	});
 	return class$;
 }
 $Class* WindowsSecurity$$Lambda$lambda$enablePrivilege$0::class$ = nullptr;
-
-$FieldInfo _WindowsSecurity_FieldInfo_[] = {
-	{"processTokenWithDuplicateAccess", "J", nullptr, $STATIC | $FINAL, $staticField(WindowsSecurity, processTokenWithDuplicateAccess)},
-	{"processTokenWithQueryAccess", "J", nullptr, $STATIC | $FINAL, $staticField(WindowsSecurity, processTokenWithQueryAccess)},
-	{}
-};
-
-$MethodInfo _WindowsSecurity_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsSecurity, init$, void)},
-	{"checkAccessMask", "(JIIIII)Z", nullptr, $STATIC, $staticMethod(WindowsSecurity, checkAccessMask, bool, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t), "sun.nio.fs.WindowsException"},
-	{"enablePrivilege", "(Ljava/lang/String;)Lsun/nio/fs/WindowsSecurity$Privilege;", nullptr, $STATIC, $staticMethod(WindowsSecurity, enablePrivilege, $WindowsSecurity$Privilege*, $String*)},
-	{"lambda$enablePrivilege$0", "(JZZJ)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsSecurity, lambda$enablePrivilege$0, void, int64_t, bool, bool, int64_t)},
-	{"openProcessToken", "(I)J", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsSecurity, openProcessToken, int64_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _WindowsSecurity_InnerClassesInfo_[] = {
-	{"sun.nio.fs.WindowsSecurity$Privilege", "sun.nio.fs.WindowsSecurity", "Privilege", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _WindowsSecurity_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.WindowsSecurity",
-	"java.lang.Object",
-	nullptr,
-	_WindowsSecurity_FieldInfo_,
-	_WindowsSecurity_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsSecurity_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.WindowsSecurity$Privilege"
-};
-
-$Object* allocate$WindowsSecurity($Class* clazz) {
-	return $of($alloc(WindowsSecurity));
-}
 
 int64_t WindowsSecurity::processTokenWithDuplicateAccess = 0;
 int64_t WindowsSecurity::processTokenWithQueryAccess = 0;
@@ -144,12 +100,12 @@ $WindowsSecurity$Privilege* WindowsSecurity::enablePrivilege($String* priv) {
 	bool elevated = false;
 	try {
 		hToken = $WindowsNativeDispatcher::OpenThreadToken($WindowsNativeDispatcher::GetCurrentThread(), 32, false);
-		if (hToken == (int64_t)0 && WindowsSecurity::processTokenWithDuplicateAccess != (int64_t)0) {
-			hToken = $WindowsNativeDispatcher::DuplicateTokenEx(WindowsSecurity::processTokenWithDuplicateAccess, (32 | 4));
+		if (hToken == 0 && WindowsSecurity::processTokenWithDuplicateAccess != 0) {
+			hToken = $WindowsNativeDispatcher::DuplicateTokenEx(WindowsSecurity::processTokenWithDuplicateAccess, (0x20 | 4));
 			$WindowsNativeDispatcher::SetThreadToken(0, hToken);
 			impersontating = true;
 		}
-		if (hToken != (int64_t)0) {
+		if (hToken != 0) {
 			$WindowsNativeDispatcher::AdjustTokenPrivileges(hToken, pLuid, 2);
 			elevated = true;
 		}
@@ -158,30 +114,28 @@ $WindowsSecurity$Privilege* WindowsSecurity::enablePrivilege($String* priv) {
 	int64_t token = hToken;
 	bool stopImpersontating = impersontating;
 	bool needToRevert = elevated;
-	return static_cast<$WindowsSecurity$Privilege*>($new(WindowsSecurity$$Lambda$lambda$enablePrivilege$0, token, stopImpersontating, needToRevert, pLuid));
+	return $new(WindowsSecurity$$Lambda$lambda$enablePrivilege$0, token, stopImpersontating, needToRevert, pLuid);
 }
 
 bool WindowsSecurity::checkAccessMask(int64_t securityInfo, int32_t accessMask, int32_t genericRead, int32_t genericWrite, int32_t genericExecute, int32_t genericAll) {
 	$init(WindowsSecurity);
 	int32_t privileges = 8;
 	int64_t hToken = $WindowsNativeDispatcher::OpenThreadToken($WindowsNativeDispatcher::GetCurrentThread(), privileges, false);
-	if (hToken == (int64_t)0 && WindowsSecurity::processTokenWithDuplicateAccess != (int64_t)0) {
+	if (hToken == 0 && WindowsSecurity::processTokenWithDuplicateAccess != 0) {
 		hToken = $WindowsNativeDispatcher::DuplicateTokenEx(WindowsSecurity::processTokenWithDuplicateAccess, privileges);
 	}
 	bool hasRight = false;
-	if (hToken != (int64_t)0) {
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				hasRight = $WindowsNativeDispatcher::AccessCheck(hToken, securityInfo, accessMask, genericRead, genericWrite, genericExecute, genericAll);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$WindowsNativeDispatcher::CloseHandle(hToken);
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+	if (hToken != 0) {
+		$var($Throwable, var$0, nullptr);
+		try {
+			hasRight = $WindowsNativeDispatcher::AccessCheck(hToken, securityInfo, accessMask, genericRead, genericWrite, genericExecute, genericAll);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$WindowsNativeDispatcher::CloseHandle(hToken);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	return hasRight;
@@ -189,45 +143,41 @@ bool WindowsSecurity::checkAccessMask(int64_t securityInfo, int32_t accessMask, 
 
 void WindowsSecurity::lambda$enablePrivilege$0(int64_t token, bool stopImpersontating, bool needToRevert, int64_t pLuid) {
 	$init(WindowsSecurity);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (token != (int64_t)0) {
-				{
-					$var($Throwable, var$1, nullptr);
-					try {
-						try {
-							if (stopImpersontating) {
-								$WindowsNativeDispatcher::SetThreadToken(0, 0);
-							} else if (needToRevert) {
-								$WindowsNativeDispatcher::AdjustTokenPrivileges(token, pLuid, 0);
-							}
-						} catch ($WindowsException& x) {
-							$throwNew($AssertionError, $of(x));
-						}
-					} catch ($Throwable& var$2) {
-						$assign(var$1, var$2);
-					} /*finally*/ {
-						$WindowsNativeDispatcher::CloseHandle(token);
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (token != 0) {
+			$var($Throwable, var$1, nullptr);
+			try {
+				try {
+					if (stopImpersontating) {
+						$WindowsNativeDispatcher::SetThreadToken(0, 0);
+					} else if (needToRevert) {
+						$WindowsNativeDispatcher::AdjustTokenPrivileges(token, pLuid, 0);
 					}
-					if (var$1 != nullptr) {
-						$throw(var$1);
-					}
+				} catch ($WindowsException& x) {
+					$throwNew($AssertionError, $of(x));
 				}
+			} catch ($Throwable& var$2) {
+				$assign(var$1, var$2);
+			} /*finally*/ {
+				$WindowsNativeDispatcher::CloseHandle(token);
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} /*finally*/ {
-			$WindowsNativeDispatcher::LocalFree(pLuid);
+			if (var$1 != nullptr) {
+				$throw(var$1);
+			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		$WindowsNativeDispatcher::LocalFree(pLuid);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
-void clinit$WindowsSecurity($Class* class$) {
+void WindowsSecurity::clinit$($Class* clazz) {
 	WindowsSecurity::processTokenWithDuplicateAccess = WindowsSecurity::openProcessToken(2);
 	WindowsSecurity::processTokenWithQueryAccess = WindowsSecurity::openProcessToken(8);
 }
@@ -237,11 +187,44 @@ WindowsSecurity::WindowsSecurity() {
 
 $Class* WindowsSecurity::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(WindowsSecurity$$Lambda$lambda$enablePrivilege$0::classInfo$.name)) {
+		if (name->equals("sun.nio.fs.WindowsSecurity$$Lambda$lambda$enablePrivilege$0")) {
 			return WindowsSecurity$$Lambda$lambda$enablePrivilege$0::load$(name, initialize);
 		}
 	}
-	$loadClass(WindowsSecurity, name, initialize, &_WindowsSecurity_ClassInfo_, clinit$WindowsSecurity, allocate$WindowsSecurity);
+	$FieldInfo fieldInfos$$[] = {
+		{"processTokenWithDuplicateAccess", "J", nullptr, $STATIC | $FINAL, $staticField(WindowsSecurity, processTokenWithDuplicateAccess)},
+		{"processTokenWithQueryAccess", "J", nullptr, $STATIC | $FINAL, $staticField(WindowsSecurity, processTokenWithQueryAccess)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsSecurity, init$, void)},
+		{"checkAccessMask", "(JIIIII)Z", nullptr, $STATIC, $staticMethod(WindowsSecurity, checkAccessMask, bool, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t), "sun.nio.fs.WindowsException"},
+		{"enablePrivilege", "(Ljava/lang/String;)Lsun/nio/fs/WindowsSecurity$Privilege;", nullptr, $STATIC, $staticMethod(WindowsSecurity, enablePrivilege, $WindowsSecurity$Privilege*, $String*)},
+		{"lambda$enablePrivilege$0", "(JZZJ)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WindowsSecurity, lambda$enablePrivilege$0, void, int64_t, bool, bool, int64_t)},
+		{"openProcessToken", "(I)J", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsSecurity, openProcessToken, int64_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.WindowsSecurity$Privilege", "sun.nio.fs.WindowsSecurity", "Privilege", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.WindowsSecurity",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.WindowsSecurity$Privilege"
+	};
+	$loadClass(WindowsSecurity, name, initialize, &classInfo$$, WindowsSecurity::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsSecurity);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/concurrent/locks/ReentrantReadWriteLock$Sync.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/lang/Error.h>
 #include <java/lang/IllegalMonitorStateException.h>
@@ -36,102 +35,6 @@ namespace java {
 		namespace concurrent {
 			namespace locks {
 
-$CompoundAttribute _ReentrantReadWriteLock$Sync_MethodAnnotations_tryAcquire14[] = {
-	{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ReentrantReadWriteLock$Sync_MethodAnnotations_tryAcquireShared15[] = {
-	{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ReentrantReadWriteLock$Sync_MethodAnnotations_tryReadLock16[] = {
-	{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ReentrantReadWriteLock$Sync_MethodAnnotations_tryRelease17[] = {
-	{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ReentrantReadWriteLock$Sync_MethodAnnotations_tryReleaseShared18[] = {
-	{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ReentrantReadWriteLock$Sync_MethodAnnotations_tryWriteLock19[] = {
-	{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
-	{}
-};
-
-$FieldInfo _ReentrantReadWriteLock$Sync_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ReentrantReadWriteLock$Sync, serialVersionUID)},
-	{"SHARED_SHIFT", "I", nullptr, $STATIC | $FINAL, $constField(ReentrantReadWriteLock$Sync, SHARED_SHIFT)},
-	{"SHARED_UNIT", "I", nullptr, $STATIC | $FINAL, $constField(ReentrantReadWriteLock$Sync, SHARED_UNIT)},
-	{"MAX_COUNT", "I", nullptr, $STATIC | $FINAL, $constField(ReentrantReadWriteLock$Sync, MAX_COUNT)},
-	{"EXCLUSIVE_MASK", "I", nullptr, $STATIC | $FINAL, $constField(ReentrantReadWriteLock$Sync, EXCLUSIVE_MASK)},
-	{"readHolds", "Ljava/util/concurrent/locks/ReentrantReadWriteLock$Sync$ThreadLocalHoldCounter;", nullptr, $PRIVATE | $TRANSIENT, $field(ReentrantReadWriteLock$Sync, readHolds)},
-	{"cachedHoldCounter", "Ljava/util/concurrent/locks/ReentrantReadWriteLock$Sync$HoldCounter;", nullptr, $PRIVATE | $TRANSIENT, $field(ReentrantReadWriteLock$Sync, cachedHoldCounter)},
-	{"firstReader", "Ljava/lang/Thread;", nullptr, $PRIVATE | $TRANSIENT, $field(ReentrantReadWriteLock$Sync, firstReader)},
-	{"firstReaderHoldCount", "I", nullptr, $PRIVATE | $TRANSIENT, $field(ReentrantReadWriteLock$Sync, firstReaderHoldCount)},
-	{}
-};
-
-$MethodInfo _ReentrantReadWriteLock$Sync_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ReentrantReadWriteLock$Sync, init$, void)},
-	{"exclusiveCount", "(I)I", nullptr, $STATIC, $staticMethod(ReentrantReadWriteLock$Sync, exclusiveCount, int32_t, int32_t)},
-	{"fullTryAcquireShared", "(Ljava/lang/Thread;)I", nullptr, $FINAL, $method(ReentrantReadWriteLock$Sync, fullTryAcquireShared, int32_t, $Thread*)},
-	{"getCount", "()I", nullptr, $FINAL, $method(ReentrantReadWriteLock$Sync, getCount, int32_t)},
-	{"getOwner", "()Ljava/lang/Thread;", nullptr, $FINAL, $method(ReentrantReadWriteLock$Sync, getOwner, $Thread*)},
-	{"getReadHoldCount", "()I", nullptr, $FINAL, $method(ReentrantReadWriteLock$Sync, getReadHoldCount, int32_t)},
-	{"getReadLockCount", "()I", nullptr, $FINAL, $method(ReentrantReadWriteLock$Sync, getReadLockCount, int32_t)},
-	{"getWriteHoldCount", "()I", nullptr, $FINAL, $method(ReentrantReadWriteLock$Sync, getWriteHoldCount, int32_t)},
-	{"isHeldExclusively", "()Z", nullptr, $PROTECTED | $FINAL, $virtualMethod(ReentrantReadWriteLock$Sync, isHeldExclusively, bool)},
-	{"isWriteLocked", "()Z", nullptr, $FINAL, $method(ReentrantReadWriteLock$Sync, isWriteLocked, bool)},
-	{"newCondition", "()Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$ConditionObject;", nullptr, $FINAL, $method(ReentrantReadWriteLock$Sync, newCondition, $AbstractQueuedSynchronizer$ConditionObject*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ReentrantReadWriteLock$Sync, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"readerShouldBlock", "()Z", nullptr, $ABSTRACT, $virtualMethod(ReentrantReadWriteLock$Sync, readerShouldBlock, bool)},
-	{"sharedCount", "(I)I", nullptr, $STATIC, $staticMethod(ReentrantReadWriteLock$Sync, sharedCount, int32_t, int32_t)},
-	{"tryAcquire", "(I)Z", nullptr, $PROTECTED | $FINAL, $virtualMethod(ReentrantReadWriteLock$Sync, tryAcquire, bool, int32_t), nullptr, nullptr, _ReentrantReadWriteLock$Sync_MethodAnnotations_tryAcquire14},
-	{"tryAcquireShared", "(I)I", nullptr, $PROTECTED | $FINAL, $virtualMethod(ReentrantReadWriteLock$Sync, tryAcquireShared, int32_t, int32_t), nullptr, nullptr, _ReentrantReadWriteLock$Sync_MethodAnnotations_tryAcquireShared15},
-	{"tryReadLock", "()Z", nullptr, $FINAL, $method(ReentrantReadWriteLock$Sync, tryReadLock, bool), nullptr, nullptr, _ReentrantReadWriteLock$Sync_MethodAnnotations_tryReadLock16},
-	{"tryRelease", "(I)Z", nullptr, $PROTECTED | $FINAL, $virtualMethod(ReentrantReadWriteLock$Sync, tryRelease, bool, int32_t), nullptr, nullptr, _ReentrantReadWriteLock$Sync_MethodAnnotations_tryRelease17},
-	{"tryReleaseShared", "(I)Z", nullptr, $PROTECTED | $FINAL, $virtualMethod(ReentrantReadWriteLock$Sync, tryReleaseShared, bool, int32_t), nullptr, nullptr, _ReentrantReadWriteLock$Sync_MethodAnnotations_tryReleaseShared18},
-	{"tryWriteLock", "()Z", nullptr, $FINAL, $method(ReentrantReadWriteLock$Sync, tryWriteLock, bool), nullptr, nullptr, _ReentrantReadWriteLock$Sync_MethodAnnotations_tryWriteLock19},
-	{"unmatchedUnlockException", "()Ljava/lang/IllegalMonitorStateException;", nullptr, $PRIVATE | $STATIC, $staticMethod(ReentrantReadWriteLock$Sync, unmatchedUnlockException, $IllegalMonitorStateException*)},
-	{"writerShouldBlock", "()Z", nullptr, $ABSTRACT, $virtualMethod(ReentrantReadWriteLock$Sync, writerShouldBlock, bool)},
-	{}
-};
-
-$InnerClassInfo _ReentrantReadWriteLock$Sync_InnerClassesInfo_[] = {
-	{"java.util.concurrent.locks.ReentrantReadWriteLock$Sync", "java.util.concurrent.locks.ReentrantReadWriteLock", "Sync", $STATIC | $ABSTRACT},
-	{"java.util.concurrent.locks.ReentrantReadWriteLock$Sync$ThreadLocalHoldCounter", "java.util.concurrent.locks.ReentrantReadWriteLock$Sync", "ThreadLocalHoldCounter", $STATIC | $FINAL},
-	{"java.util.concurrent.locks.ReentrantReadWriteLock$Sync$HoldCounter", "java.util.concurrent.locks.ReentrantReadWriteLock$Sync", "HoldCounter", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ReentrantReadWriteLock$Sync_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.concurrent.locks.ReentrantReadWriteLock$Sync",
-	"java.util.concurrent.locks.AbstractQueuedSynchronizer",
-	nullptr,
-	_ReentrantReadWriteLock$Sync_FieldInfo_,
-	_ReentrantReadWriteLock$Sync_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ReentrantReadWriteLock$Sync_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.locks.ReentrantReadWriteLock"
-};
-
-$Object* allocate$ReentrantReadWriteLock$Sync($Class* clazz) {
-	return $of($alloc(ReentrantReadWriteLock$Sync));
-}
-
 int32_t ReentrantReadWriteLock$Sync::sharedCount(int32_t c) {
 	$init(ReentrantReadWriteLock$Sync);
 	return $usr(c, ReentrantReadWriteLock$Sync::SHARED_SHIFT);
@@ -139,7 +42,7 @@ int32_t ReentrantReadWriteLock$Sync::sharedCount(int32_t c) {
 
 int32_t ReentrantReadWriteLock$Sync::exclusiveCount(int32_t c) {
 	$init(ReentrantReadWriteLock$Sync);
-	return (int32_t)(c & (uint32_t)ReentrantReadWriteLock$Sync::EXCLUSIVE_MASK);
+	return c & ReentrantReadWriteLock$Sync::EXCLUSIVE_MASK;
 }
 
 void ReentrantReadWriteLock$Sync::init$() {
@@ -184,7 +87,7 @@ bool ReentrantReadWriteLock$Sync::tryAcquire(int32_t acquires) {
 }
 
 bool ReentrantReadWriteLock$Sync::tryReleaseShared(int32_t unused) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Thread, current, $Thread::currentThread());
 	if (this->firstReader == current) {
 		if (this->firstReaderHoldCount == 1) {
@@ -194,7 +97,7 @@ bool ReentrantReadWriteLock$Sync::tryReleaseShared(int32_t unused) {
 		}
 	} else {
 		$var($ReentrantReadWriteLock$Sync$HoldCounter, rh, this->cachedHoldCounter);
-		if (rh == nullptr || $nc(rh)->tid != $LockSupport::getThreadId(current)) {
+		if (rh == nullptr || rh->tid != $LockSupport::getThreadId(current)) {
 			$assign(rh, $cast($ReentrantReadWriteLock$Sync$HoldCounter, $nc(this->readHolds)->get()));
 		}
 		int32_t count = $nc(rh)->count;
@@ -221,7 +124,7 @@ $IllegalMonitorStateException* ReentrantReadWriteLock$Sync::unmatchedUnlockExcep
 }
 
 int32_t ReentrantReadWriteLock$Sync::tryAcquireShared(int32_t unused) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Thread, current, $Thread::currentThread());
 	int32_t c = getState();
 	bool var$0 = exclusiveCount(c) != 0;
@@ -238,8 +141,8 @@ int32_t ReentrantReadWriteLock$Sync::tryAcquireShared(int32_t unused) {
 			++this->firstReaderHoldCount;
 		} else {
 			$var($ReentrantReadWriteLock$Sync$HoldCounter, rh, this->cachedHoldCounter);
-			if (rh == nullptr || $nc(rh)->tid != $LockSupport::getThreadId(current)) {
-				$set(this, cachedHoldCounter, ($assign(rh, $cast($ReentrantReadWriteLock$Sync$HoldCounter, $nc(this->readHolds)->get()))));
+			if (rh == nullptr || rh->tid != $LockSupport::getThreadId(current)) {
+				$set(this, cachedHoldCounter, $assign(rh, $cast($ReentrantReadWriteLock$Sync$HoldCounter, $nc(this->readHolds)->get())));
 			} else if (rh->count == 0) {
 				$nc(this->readHolds)->set(rh);
 			}
@@ -263,10 +166,10 @@ int32_t ReentrantReadWriteLock$Sync::fullTryAcquireShared($Thread* current) {
 			} else {
 				if (rh == nullptr) {
 					$assign(rh, this->cachedHoldCounter);
-					if (rh == nullptr || $nc(rh)->tid != $LockSupport::getThreadId(current)) {
+					if (rh == nullptr || rh->tid != $LockSupport::getThreadId(current)) {
 						$assign(rh, $cast($ReentrantReadWriteLock$Sync$HoldCounter, $nc(this->readHolds)->get()));
 						if ($nc(rh)->count == 0) {
-							$nc(this->readHolds)->remove();
+							this->readHolds->remove();
 						}
 					}
 				}
@@ -288,7 +191,7 @@ int32_t ReentrantReadWriteLock$Sync::fullTryAcquireShared($Thread* current) {
 				if (rh == nullptr) {
 					$assign(rh, this->cachedHoldCounter);
 				}
-				if (rh == nullptr || $nc(rh)->tid != $LockSupport::getThreadId(current)) {
+				if (rh == nullptr || rh->tid != $LockSupport::getThreadId(current)) {
 					$assign(rh, $cast($ReentrantReadWriteLock$Sync$HoldCounter, $nc(this->readHolds)->get()));
 				} else if (rh->count == 0) {
 					$nc(this->readHolds)->set(rh);
@@ -321,7 +224,7 @@ bool ReentrantReadWriteLock$Sync::tryWriteLock() {
 }
 
 bool ReentrantReadWriteLock$Sync::tryReadLock() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Thread, current, $Thread::currentThread());
 	for (;;) {
 		int32_t c = getState();
@@ -341,8 +244,8 @@ bool ReentrantReadWriteLock$Sync::tryReadLock() {
 				++this->firstReaderHoldCount;
 			} else {
 				$var($ReentrantReadWriteLock$Sync$HoldCounter, rh, this->cachedHoldCounter);
-				if (rh == nullptr || $nc(rh)->tid != $LockSupport::getThreadId(current)) {
-					$set(this, cachedHoldCounter, ($assign(rh, $cast($ReentrantReadWriteLock$Sync$HoldCounter, $nc(this->readHolds)->get()))));
+				if (rh == nullptr || rh->tid != $LockSupport::getThreadId(current)) {
+					$set(this, cachedHoldCounter, $assign(rh, $cast($ReentrantReadWriteLock$Sync$HoldCounter, $nc(this->readHolds)->get())));
 				} else if (rh->count == 0) {
 					$nc(this->readHolds)->set(rh);
 				}
@@ -378,7 +281,7 @@ int32_t ReentrantReadWriteLock$Sync::getWriteHoldCount() {
 }
 
 int32_t ReentrantReadWriteLock$Sync::getReadHoldCount() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getReadLockCount() == 0) {
 		return 0;
 	}
@@ -390,9 +293,9 @@ int32_t ReentrantReadWriteLock$Sync::getReadHoldCount() {
 	if (rh != nullptr && rh->tid == $LockSupport::getThreadId(current)) {
 		return rh->count;
 	}
-	int32_t count = $nc(($cast($ReentrantReadWriteLock$Sync$HoldCounter, $($nc(this->readHolds)->get()))))->count;
+	int32_t count = $nc(($$cast($ReentrantReadWriteLock$Sync$HoldCounter, $nc(this->readHolds)->get())))->count;
 	if (count == 0) {
-		$nc(this->readHolds)->remove();
+		this->readHolds->remove();
 	}
 	return count;
 }
@@ -411,7 +314,91 @@ ReentrantReadWriteLock$Sync::ReentrantReadWriteLock$Sync() {
 }
 
 $Class* ReentrantReadWriteLock$Sync::load$($String* name, bool initialize) {
-	$loadClass(ReentrantReadWriteLock$Sync, name, initialize, &_ReentrantReadWriteLock$Sync_ClassInfo_, allocate$ReentrantReadWriteLock$Sync);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ReentrantReadWriteLock$Sync, serialVersionUID)},
+		{"SHARED_SHIFT", "I", nullptr, $STATIC | $FINAL, $constField(ReentrantReadWriteLock$Sync, SHARED_SHIFT)},
+		{"SHARED_UNIT", "I", nullptr, $STATIC | $FINAL, $constField(ReentrantReadWriteLock$Sync, SHARED_UNIT)},
+		{"MAX_COUNT", "I", nullptr, $STATIC | $FINAL, $constField(ReentrantReadWriteLock$Sync, MAX_COUNT)},
+		{"EXCLUSIVE_MASK", "I", nullptr, $STATIC | $FINAL, $constField(ReentrantReadWriteLock$Sync, EXCLUSIVE_MASK)},
+		{"readHolds", "Ljava/util/concurrent/locks/ReentrantReadWriteLock$Sync$ThreadLocalHoldCounter;", nullptr, $PRIVATE | $TRANSIENT, $field(ReentrantReadWriteLock$Sync, readHolds)},
+		{"cachedHoldCounter", "Ljava/util/concurrent/locks/ReentrantReadWriteLock$Sync$HoldCounter;", nullptr, $PRIVATE | $TRANSIENT, $field(ReentrantReadWriteLock$Sync, cachedHoldCounter)},
+		{"firstReader", "Ljava/lang/Thread;", nullptr, $PRIVATE | $TRANSIENT, $field(ReentrantReadWriteLock$Sync, firstReader)},
+		{"firstReaderHoldCount", "I", nullptr, $PRIVATE | $TRANSIENT, $field(ReentrantReadWriteLock$Sync, firstReaderHoldCount)},
+		{}
+	};
+	$CompoundAttribute tryAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
+		{}
+	};
+	$CompoundAttribute tryAcquireSharedmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
+		{}
+	};
+	$CompoundAttribute tryReadLockmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
+		{}
+	};
+	$CompoundAttribute tryReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
+		{}
+	};
+	$CompoundAttribute tryReleaseSharedmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
+		{}
+	};
+	$CompoundAttribute tryWriteLockmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ReservedStackAccess;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ReentrantReadWriteLock$Sync, init$, void)},
+		{"exclusiveCount", "(I)I", nullptr, $STATIC, $staticMethod(ReentrantReadWriteLock$Sync, exclusiveCount, int32_t, int32_t)},
+		{"fullTryAcquireShared", "(Ljava/lang/Thread;)I", nullptr, $FINAL, $method(ReentrantReadWriteLock$Sync, fullTryAcquireShared, int32_t, $Thread*)},
+		{"getCount", "()I", nullptr, $FINAL, $method(ReentrantReadWriteLock$Sync, getCount, int32_t)},
+		{"getOwner", "()Ljava/lang/Thread;", nullptr, $FINAL, $method(ReentrantReadWriteLock$Sync, getOwner, $Thread*)},
+		{"getReadHoldCount", "()I", nullptr, $FINAL, $method(ReentrantReadWriteLock$Sync, getReadHoldCount, int32_t)},
+		{"getReadLockCount", "()I", nullptr, $FINAL, $method(ReentrantReadWriteLock$Sync, getReadLockCount, int32_t)},
+		{"getWriteHoldCount", "()I", nullptr, $FINAL, $method(ReentrantReadWriteLock$Sync, getWriteHoldCount, int32_t)},
+		{"isHeldExclusively", "()Z", nullptr, $PROTECTED | $FINAL, $virtualMethod(ReentrantReadWriteLock$Sync, isHeldExclusively, bool)},
+		{"isWriteLocked", "()Z", nullptr, $FINAL, $method(ReentrantReadWriteLock$Sync, isWriteLocked, bool)},
+		{"newCondition", "()Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$ConditionObject;", nullptr, $FINAL, $method(ReentrantReadWriteLock$Sync, newCondition, $AbstractQueuedSynchronizer$ConditionObject*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ReentrantReadWriteLock$Sync, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"readerShouldBlock", "()Z", nullptr, $ABSTRACT, $virtualMethod(ReentrantReadWriteLock$Sync, readerShouldBlock, bool)},
+		{"sharedCount", "(I)I", nullptr, $STATIC, $staticMethod(ReentrantReadWriteLock$Sync, sharedCount, int32_t, int32_t)},
+		{"tryAcquire", "(I)Z", nullptr, $PROTECTED | $FINAL, $virtualMethod(ReentrantReadWriteLock$Sync, tryAcquire, bool, int32_t), nullptr, nullptr, tryAcquiremethodAnnotations$$},
+		{"tryAcquireShared", "(I)I", nullptr, $PROTECTED | $FINAL, $virtualMethod(ReentrantReadWriteLock$Sync, tryAcquireShared, int32_t, int32_t), nullptr, nullptr, tryAcquireSharedmethodAnnotations$$},
+		{"tryReadLock", "()Z", nullptr, $FINAL, $method(ReentrantReadWriteLock$Sync, tryReadLock, bool), nullptr, nullptr, tryReadLockmethodAnnotations$$},
+		{"tryRelease", "(I)Z", nullptr, $PROTECTED | $FINAL, $virtualMethod(ReentrantReadWriteLock$Sync, tryRelease, bool, int32_t), nullptr, nullptr, tryReleasemethodAnnotations$$},
+		{"tryReleaseShared", "(I)Z", nullptr, $PROTECTED | $FINAL, $virtualMethod(ReentrantReadWriteLock$Sync, tryReleaseShared, bool, int32_t), nullptr, nullptr, tryReleaseSharedmethodAnnotations$$},
+		{"tryWriteLock", "()Z", nullptr, $FINAL, $method(ReentrantReadWriteLock$Sync, tryWriteLock, bool), nullptr, nullptr, tryWriteLockmethodAnnotations$$},
+		{"unmatchedUnlockException", "()Ljava/lang/IllegalMonitorStateException;", nullptr, $PRIVATE | $STATIC, $staticMethod(ReentrantReadWriteLock$Sync, unmatchedUnlockException, $IllegalMonitorStateException*)},
+		{"writerShouldBlock", "()Z", nullptr, $ABSTRACT, $virtualMethod(ReentrantReadWriteLock$Sync, writerShouldBlock, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.locks.ReentrantReadWriteLock$Sync", "java.util.concurrent.locks.ReentrantReadWriteLock", "Sync", $STATIC | $ABSTRACT},
+		{"java.util.concurrent.locks.ReentrantReadWriteLock$Sync$ThreadLocalHoldCounter", "java.util.concurrent.locks.ReentrantReadWriteLock$Sync", "ThreadLocalHoldCounter", $STATIC | $FINAL},
+		{"java.util.concurrent.locks.ReentrantReadWriteLock$Sync$HoldCounter", "java.util.concurrent.locks.ReentrantReadWriteLock$Sync", "HoldCounter", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.concurrent.locks.ReentrantReadWriteLock$Sync",
+		"java.util.concurrent.locks.AbstractQueuedSynchronizer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.locks.ReentrantReadWriteLock"
+	};
+	$loadClass(ReentrantReadWriteLock$Sync, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReentrantReadWriteLock$Sync);
+	});
 	return class$;
 }
 

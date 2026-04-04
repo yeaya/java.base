@@ -17,6 +17,7 @@ class $export Cleanup : public ::java::lang::Thread {
 	$class(Cleanup, 0, ::java::lang::Thread)
 public:
 	Cleanup();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	virtual void run() override;

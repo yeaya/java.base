@@ -1,5 +1,4 @@
 #include <AnEnum.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -12,47 +11,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-
-$NamedAttribute AnEnum_Attribute_var$0[] = {
-	{"value", 's', "final enum AnEnum"},
-	{}
-};
-
-$CompoundAttribute _AnEnum_Annotations_[] = {
-	{"LExpectedGenericString;", AnEnum_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _AnEnum_FieldInfo_[] = {
-	{"FOO", "LAnEnum;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AnEnum, FOO)},
-	{"$VALUES", "[LAnEnum;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(AnEnum, $VALUES)},
-	{}
-};
-
-$MethodInfo _AnEnum_MethodInfo_[] = {
-	{"$values", "()[LAnEnum;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AnEnum, $values, $AnEnumArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AnEnum, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)LAnEnum;", nullptr, $PUBLIC | $STATIC, $staticMethod(AnEnum, valueOf, AnEnum*, $String*)},
-	{"values", "()[LAnEnum;", nullptr, $PUBLIC | $STATIC, $staticMethod(AnEnum, values, $AnEnumArray*)},
-	{}
-};
-
-$ClassInfo _AnEnum_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"AnEnum",
-	"java.lang.Enum",
-	nullptr,
-	_AnEnum_FieldInfo_,
-	_AnEnum_MethodInfo_,
-	"Ljava/lang/Enum<LAnEnum;>;",
-	nullptr,
-	nullptr,
-	_AnEnum_Annotations_
-};
-
-$Object* allocate$AnEnum($Class* clazz) {
-	return $of($alloc(AnEnum));
-}
 
 AnEnum* AnEnum::FOO = nullptr;
 $AnEnumArray* AnEnum::$VALUES = nullptr;
@@ -76,7 +34,7 @@ void AnEnum::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$AnEnum($Class* class$) {
+void AnEnum::clinit$($Class* clazz) {
 	$assignStatic(AnEnum::FOO, $new(AnEnum, "FOO"_s, 0));
 	$assignStatic(AnEnum::$VALUES, AnEnum::$values());
 }
@@ -85,7 +43,41 @@ AnEnum::AnEnum() {
 }
 
 $Class* AnEnum::load$($String* name, bool initialize) {
-	$loadClass(AnEnum, name, initialize, &_AnEnum_ClassInfo_, clinit$AnEnum, allocate$AnEnum);
+	$FieldInfo fieldInfos$$[] = {
+		{"FOO", "LAnEnum;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AnEnum, FOO)},
+		{"$VALUES", "[LAnEnum;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(AnEnum, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[LAnEnum;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AnEnum, $values, $AnEnumArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AnEnum, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)LAnEnum;", nullptr, $PUBLIC | $STATIC, $staticMethod(AnEnum, valueOf, AnEnum*, $String*)},
+		{"values", "()[LAnEnum;", nullptr, $PUBLIC | $STATIC, $staticMethod(AnEnum, values, $AnEnumArray*)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 's', "final enum AnEnum"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LExpectedGenericString;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"AnEnum",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<LAnEnum;>;",
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(AnEnum, name, initialize, &classInfo$$, AnEnum::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AnEnum));
+	});
 	return class$;
 }
 

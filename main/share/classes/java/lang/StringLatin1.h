@@ -27,6 +27,7 @@ public:
 	StringLatin1();
 	using ::java::lang::Object::hashCode;
 	using ::java::lang::Object::equals;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool canEncode(int32_t cp);
 	static char16_t charAt($bytes* value, int32_t index);

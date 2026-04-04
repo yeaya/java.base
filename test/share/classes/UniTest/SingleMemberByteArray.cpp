@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberByteArray.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,40 +8,34 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$NamedAttribute SingleMemberByteArray_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _SingleMemberByteArray_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", SingleMemberByteArray_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _SingleMemberByteArray_MethodInfo_[] = {
-	{"value", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberByteArray, value, $bytes*)},
-	{}
-};
-
-$ClassInfo _SingleMemberByteArray_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"UniTest.SingleMemberByteArray",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_SingleMemberByteArray_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberByteArray_Annotations_
-};
-
-$Object* allocate$SingleMemberByteArray($Class* clazz) {
-	return $of($alloc(SingleMemberByteArray));
-}
-
 $Class* SingleMemberByteArray::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberByteArray, name, initialize, &_SingleMemberByteArray_ClassInfo_, allocate$SingleMemberByteArray);
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberByteArray, value, $bytes*)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"UniTest.SingleMemberByteArray",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberByteArray, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberByteArray);
+	});
 	return class$;
 }
 

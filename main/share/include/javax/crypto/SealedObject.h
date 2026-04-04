@@ -29,6 +29,7 @@ class $import SealedObject : public ::java::io::Serializable {
 	$class(SealedObject, 0, ::java::io::Serializable)
 public:
 	SealedObject();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::Serializable* object, ::javax::crypto::Cipher* c);
 	void init$(::javax::crypto::SealedObject* so);
 	$String* getAlgorithm();
@@ -39,7 +40,7 @@ public:
 	static ::java::io::ObjectInputStream* lambda$static$0(::javax::crypto::SealedObject* obj, ::javax::crypto::Cipher* c);
 	void readObject(::java::io::ObjectInputStream* s);
 	$Object* unseal(::java::security::Key* key, $String* provider);
-	static const int64_t serialVersionUID = (int64_t)0x3E363DA6C3B75470;
+	static const int64_t serialVersionUID = (int64_t)0x3e363da6c3b75470;
 	$bytes* encryptedContent = nullptr;
 	$String* sealAlg = nullptr;
 	$String* paramsAlg = nullptr;

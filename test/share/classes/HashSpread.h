@@ -20,6 +20,7 @@ class $export HashSpread : public ::java::lang::Object {
 	$class(HashSpread, 0, ::java::lang::Object)
 public:
 	HashSpread();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::java::net::InetAddress* randomIPv6Adress();

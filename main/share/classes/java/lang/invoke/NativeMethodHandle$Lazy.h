@@ -21,6 +21,7 @@ class NativeMethodHandle$Lazy : public ::java::lang::Object {
 	$class(NativeMethodHandle$Lazy, 0, ::java::lang::Object)
 public:
 	NativeMethodHandle$Lazy();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool $assertionsDisabled;
 	static ::java::lang::invoke::LambdaForm$NamedFunction* NF_internalNativeEntryPoint;

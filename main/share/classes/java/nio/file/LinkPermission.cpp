@@ -1,5 +1,4 @@
 #include <java/nio/file/LinkPermission.h>
-
 #include <java/security/BasicPermission.h>
 #include <jcpp.h>
 
@@ -12,31 +11,6 @@ using $BasicPermission = ::java::security::BasicPermission;
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _LinkPermission_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(LinkPermission, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _LinkPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LinkPermission, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LinkPermission, init$, void, $String*, $String*)},
-	{"checkName", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LinkPermission, checkName, void, $String*)},
-	{}
-};
-
-$ClassInfo _LinkPermission_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.nio.file.LinkPermission",
-	"java.security.BasicPermission",
-	nullptr,
-	_LinkPermission_FieldInfo_,
-	_LinkPermission_MethodInfo_
-};
-
-$Object* allocate$LinkPermission($Class* clazz) {
-	return $of($alloc(LinkPermission));
-}
 
 void LinkPermission::checkName($String* name) {
 	bool var$0 = !$nc(name)->equals("hard"_s);
@@ -62,7 +36,27 @@ LinkPermission::LinkPermission() {
 }
 
 $Class* LinkPermission::load$($String* name, bool initialize) {
-	$loadClass(LinkPermission, name, initialize, &_LinkPermission_ClassInfo_, allocate$LinkPermission);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(LinkPermission, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LinkPermission, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LinkPermission, init$, void, $String*, $String*)},
+		{"checkName", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LinkPermission, checkName, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.nio.file.LinkPermission",
+		"java.security.BasicPermission",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LinkPermission, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LinkPermission));
+	});
 	return class$;
 }
 

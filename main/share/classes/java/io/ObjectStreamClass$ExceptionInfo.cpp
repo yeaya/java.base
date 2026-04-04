@@ -1,5 +1,4 @@
 #include <java/io/ObjectStreamClass$ExceptionInfo.h>
-
 #include <java/io/InvalidClassException.h>
 #include <java/io/ObjectStreamClass.h>
 #include <jcpp.h>
@@ -12,43 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _ObjectStreamClass$ExceptionInfo_FieldInfo_[] = {
-	{"className", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ObjectStreamClass$ExceptionInfo, className)},
-	{"message", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ObjectStreamClass$ExceptionInfo, message)},
-	{}
-};
-
-$MethodInfo _ObjectStreamClass$ExceptionInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(ObjectStreamClass$ExceptionInfo, init$, void, $String*, $String*)},
-	{"newInvalidClassException", "()Ljava/io/InvalidClassException;", nullptr, 0, $virtualMethod(ObjectStreamClass$ExceptionInfo, newInvalidClassException, $InvalidClassException*)},
-	{}
-};
-
-$InnerClassInfo _ObjectStreamClass$ExceptionInfo_InnerClassesInfo_[] = {
-	{"java.io.ObjectStreamClass$ExceptionInfo", "java.io.ObjectStreamClass", "ExceptionInfo", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ObjectStreamClass$ExceptionInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.io.ObjectStreamClass$ExceptionInfo",
-	"java.lang.Object",
-	nullptr,
-	_ObjectStreamClass$ExceptionInfo_FieldInfo_,
-	_ObjectStreamClass$ExceptionInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ObjectStreamClass$ExceptionInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.io.ObjectStreamClass"
-};
-
-$Object* allocate$ObjectStreamClass$ExceptionInfo($Class* clazz) {
-	return $of($alloc(ObjectStreamClass$ExceptionInfo));
-}
 
 void ObjectStreamClass$ExceptionInfo::init$($String* cn, $String* msg) {
 	$set(this, className, cn);
@@ -63,7 +25,38 @@ ObjectStreamClass$ExceptionInfo::ObjectStreamClass$ExceptionInfo() {
 }
 
 $Class* ObjectStreamClass$ExceptionInfo::load$($String* name, bool initialize) {
-	$loadClass(ObjectStreamClass$ExceptionInfo, name, initialize, &_ObjectStreamClass$ExceptionInfo_ClassInfo_, allocate$ObjectStreamClass$ExceptionInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"className", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ObjectStreamClass$ExceptionInfo, className)},
+		{"message", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ObjectStreamClass$ExceptionInfo, message)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(ObjectStreamClass$ExceptionInfo, init$, void, $String*, $String*)},
+		{"newInvalidClassException", "()Ljava/io/InvalidClassException;", nullptr, 0, $virtualMethod(ObjectStreamClass$ExceptionInfo, newInvalidClassException, $InvalidClassException*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.ObjectStreamClass$ExceptionInfo", "java.io.ObjectStreamClass", "ExceptionInfo", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.io.ObjectStreamClass$ExceptionInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.io.ObjectStreamClass"
+	};
+	$loadClass(ObjectStreamClass$ExceptionInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectStreamClass$ExceptionInfo);
+	});
 	return class$;
 }
 

@@ -19,6 +19,7 @@ class AsynchronousServerSocketChannelImpl$DefaultOptionsHolder : public ::java::
 	$class(AsynchronousServerSocketChannelImpl$DefaultOptionsHolder, 0, ::java::lang::Object)
 public:
 	AsynchronousServerSocketChannelImpl$DefaultOptionsHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Set* defaultOptions();
 	static ::java::util::Set* defaultOptions$;

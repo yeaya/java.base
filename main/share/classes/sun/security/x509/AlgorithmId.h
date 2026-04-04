@@ -51,6 +51,7 @@ public:
 	AlgorithmId();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::sun::security::util::ObjectIdentifier* oid);
 	void init$(::sun::security::util::ObjectIdentifier* oid, ::java::security::AlgorithmParameters* algparams);
@@ -78,7 +79,7 @@ public:
 	virtual $String* paramsToString();
 	static ::sun::security::x509::AlgorithmId* parse(::sun::security::util::DerValue* val);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x640067C6D62263E5;
+	static const int64_t serialVersionUID = (int64_t)0x640067c6d62263e5;
 	::sun::security::util::ObjectIdentifier* algid = nullptr;
 	::java::security::AlgorithmParameters* algParams = nullptr;
 	$bytes* encodedParams = nullptr;

@@ -22,6 +22,7 @@ class $export CollatorUtilities : public ::java::lang::Object {
 	$class(CollatorUtilities, 0, ::java::lang::Object)
 public:
 	CollatorUtilities();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t toLegacyMode(::jdk::internal::icu::text::NormalizerBase$Mode* mode);
 	static ::jdk::internal::icu::text::NormalizerBase$Mode* toNormalizerMode(int32_t mode);

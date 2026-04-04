@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/ChaCha20Cipher.h>
-
 #include <com/sun/crypto/provider/ChaCha20Cipher$ChaChaEngine.h>
 #include <com/sun/crypto/provider/ChaCha20Cipher$EngineAEADDec.h>
 #include <com/sun/crypto/provider/ChaCha20Cipher$EngineAEADEnc.h>
@@ -53,7 +52,6 @@
 #undef UNWRAP_MODE
 #undef WRAP_MODE
 
-using $ChaCha20Cipher$ChaChaEngine = ::com::sun::crypto::provider::ChaCha20Cipher$ChaChaEngine;
 using $ChaCha20Cipher$EngineAEADDec = ::com::sun::crypto::provider::ChaCha20Cipher$EngineAEADDec;
 using $ChaCha20Cipher$EngineAEADEnc = ::com::sun::crypto::provider::ChaCha20Cipher$EngineAEADEnc;
 using $ChaCha20Cipher$EngineStreamOnly = ::com::sun::crypto::provider::ChaCha20Cipher$EngineStreamOnly;
@@ -61,7 +59,6 @@ using $Poly1305 = ::com::sun::crypto::provider::Poly1305;
 using $IOException = ::java::io::IOException;
 using $ArithmeticException = ::java::lang::ArithmeticException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -76,7 +73,6 @@ using $VarHandle = ::java::lang::invoke::VarHandle;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ByteOrder = ::java::nio::ByteOrder;
 using $AlgorithmParameters = ::java::security::AlgorithmParameters;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
 using $Key = ::java::security::Key;
@@ -100,108 +96,6 @@ namespace com {
 	namespace sun {
 		namespace crypto {
 			namespace provider {
-
-$FieldInfo _ChaCha20Cipher_FieldInfo_[] = {
-	{"MODE_NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChaCha20Cipher, MODE_NONE)},
-	{"MODE_AEAD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChaCha20Cipher, MODE_AEAD)},
-	{"STATE_CONST_0", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChaCha20Cipher, STATE_CONST_0)},
-	{"STATE_CONST_1", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChaCha20Cipher, STATE_CONST_1)},
-	{"STATE_CONST_2", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChaCha20Cipher, STATE_CONST_2)},
-	{"STATE_CONST_3", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChaCha20Cipher, STATE_CONST_3)},
-	{"KEYSTREAM_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChaCha20Cipher, KEYSTREAM_SIZE)},
-	{"KS_SIZE_INTS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChaCha20Cipher, KS_SIZE_INTS)},
-	{"CIPHERBUF_BASE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChaCha20Cipher, CIPHERBUF_BASE)},
-	{"initialized", "Z", nullptr, $PRIVATE, $field(ChaCha20Cipher, initialized)},
-	{"mode", "I", nullptr, $PROTECTED, $field(ChaCha20Cipher, mode)},
-	{"direction", "I", nullptr, $PRIVATE, $field(ChaCha20Cipher, direction)},
-	{"aadDone", "Z", nullptr, $PRIVATE, $field(ChaCha20Cipher, aadDone)},
-	{"keyBytes", "[B", nullptr, $PRIVATE, $field(ChaCha20Cipher, keyBytes)},
-	{"nonce", "[B", nullptr, $PRIVATE, $field(ChaCha20Cipher, nonce)},
-	{"MAX_UINT32", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChaCha20Cipher, MAX_UINT32)},
-	{"finalCounterValue", "J", nullptr, $PRIVATE, $field(ChaCha20Cipher, finalCounterValue)},
-	{"counter", "J", nullptr, $PRIVATE, $field(ChaCha20Cipher, counter)},
-	{"startState", "[I", nullptr, $PRIVATE | $FINAL, $field(ChaCha20Cipher, startState)},
-	{"keyStream", "[B", nullptr, $PRIVATE | $FINAL, $field(ChaCha20Cipher, keyStream)},
-	{"keyStrOffset", "I", nullptr, $PRIVATE, $field(ChaCha20Cipher, keyStrOffset)},
-	{"TAG_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChaCha20Cipher, TAG_LENGTH)},
-	{"aadLen", "J", nullptr, $PRIVATE, $field(ChaCha20Cipher, aadLen)},
-	{"dataLen", "J", nullptr, $PRIVATE, $field(ChaCha20Cipher, dataLen)},
-	{"padBuf", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ChaCha20Cipher, padBuf)},
-	{"lenBuf", "[B", nullptr, $PRIVATE | $FINAL, $field(ChaCha20Cipher, lenBuf)},
-	{"authAlgName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(ChaCha20Cipher, authAlgName)},
-	{"authenticator", "Lcom/sun/crypto/provider/Poly1305;", nullptr, $PRIVATE, $field(ChaCha20Cipher, authenticator)},
-	{"engine", "Lcom/sun/crypto/provider/ChaCha20Cipher$ChaChaEngine;", nullptr, $PRIVATE, $field(ChaCha20Cipher, engine)},
-	{"asIntLittleEndian", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ChaCha20Cipher, asIntLittleEndian)},
-	{"asLongLittleEndian", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ChaCha20Cipher, asLongLittleEndian)},
-	{"asLongView", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ChaCha20Cipher, asLongView)},
-	{}
-};
-
-$MethodInfo _ChaCha20Cipher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(ChaCha20Cipher, init$, void)},
-	{"authFinalizeData", "([BII[BI)V", nullptr, $PRIVATE, $method(ChaCha20Cipher, authFinalizeData, void, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
-	{"authPad16", "(J)V", nullptr, $PRIVATE, $method(ChaCha20Cipher, authPad16, void, int64_t)},
-	{"authUpdate", "([BII)I", nullptr, $PRIVATE, $method(ChaCha20Cipher, authUpdate, int32_t, $bytes*, int32_t, int32_t)},
-	{"authWriteLengths", "(JJ[B)V", nullptr, $PRIVATE, $method(ChaCha20Cipher, authWriteLengths, void, int64_t, int64_t, $bytes*)},
-	{"chaCha20Block", "([IJ[B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ChaCha20Cipher, chaCha20Block, void, $ints*, int64_t, $bytes*)},
-	{"chaCha20Transform", "([BII[BI)V", nullptr, $PRIVATE, $method(ChaCha20Cipher, chaCha20Transform, void, $bytes*, int32_t, int32_t, $bytes*, int32_t), "java.security.KeyException"},
-	{"checkKeyAndNonce", "([B[B)V", nullptr, $PRIVATE, $method(ChaCha20Cipher, checkKeyAndNonce, void, $bytes*, $bytes*), "java.security.InvalidKeyException"},
-	{"createRandomNonce", "(Ljava/security/SecureRandom;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(ChaCha20Cipher, createRandomNonce, $bytes*, $SecureRandom*)},
-	{"engineDoFinal", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineDoFinal, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.AEADBadTagException"},
-	{"engineDoFinal", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineDoFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException,javax.crypto.AEADBadTagException"},
-	{"engineGetBlockSize", "()I", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineGetBlockSize, int32_t)},
-	{"engineGetIV", "()[B", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineGetIV, $bytes*)},
-	{"engineGetKeySize", "(Ljava/security/Key;)I", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineGetKeySize, int32_t, $Key*), "java.security.InvalidKeyException"},
-	{"engineGetOutputSize", "(I)I", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineGetOutputSize, int32_t, int32_t)},
-	{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineGetParameters, $AlgorithmParameters*)},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineInit, void, int32_t, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineInit, void, int32_t, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineInit, void, int32_t, $Key*, $AlgorithmParameters*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"engineSetMode", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineSetMode, void, $String*), "java.security.NoSuchAlgorithmException"},
-	{"engineSetPadding", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineSetPadding, void, $String*), "javax.crypto.NoSuchPaddingException"},
-	{"engineUnwrap", "([BLjava/lang/String;I)Ljava/security/Key;", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineUnwrap, $Key*, $bytes*, $String*, int32_t), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
-	{"engineUpdate", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineUpdate, $bytes*, $bytes*, int32_t, int32_t)},
-	{"engineUpdate", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
-	{"engineUpdateAAD", "([BII)V", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineUpdateAAD, void, $bytes*, int32_t, int32_t)},
-	{"engineUpdateAAD", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineUpdateAAD, void, $ByteBuffer*)},
-	{"engineWrap", "(Ljava/security/Key;)[B", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineWrap, $bytes*, $Key*), "javax.crypto.IllegalBlockSizeException,java.security.InvalidKeyException"},
-	{"generateKeystream", "()V", nullptr, $PRIVATE, $method(ChaCha20Cipher, generateKeystream, void)},
-	{"getEncodedKey", "(Ljava/security/Key;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(ChaCha20Cipher, getEncodedKey, $bytes*, $Key*), "java.security.InvalidKeyException"},
-	{"init", "(ILjava/security/Key;[B)V", nullptr, $PRIVATE, $method(ChaCha20Cipher, init, void, int32_t, $Key*, $bytes*), "java.security.InvalidKeyException"},
-	{"initAuthenticator", "()V", nullptr, $PRIVATE, $method(ChaCha20Cipher, initAuthenticator, void), "java.security.InvalidKeyException"},
-	{"setInitialState", "()V", nullptr, $PRIVATE, $method(ChaCha20Cipher, setInitialState, void), "java.security.InvalidKeyException"},
-	{"xor", "([BI[BI[BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ChaCha20Cipher, xor$, void, $bytes*, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ChaCha20Cipher_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.ChaCha20Cipher$ChaCha20Poly1305", "com.sun.crypto.provider.ChaCha20Cipher", "ChaCha20Poly1305", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.ChaCha20Cipher$ChaCha20Only", "com.sun.crypto.provider.ChaCha20Cipher", "ChaCha20Only", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.ChaCha20Cipher$EngineAEADDec", "com.sun.crypto.provider.ChaCha20Cipher", "EngineAEADDec", $PRIVATE | $FINAL},
-	{"com.sun.crypto.provider.ChaCha20Cipher$EngineAEADEnc", "com.sun.crypto.provider.ChaCha20Cipher", "EngineAEADEnc", $PRIVATE | $FINAL},
-	{"com.sun.crypto.provider.ChaCha20Cipher$EngineStreamOnly", "com.sun.crypto.provider.ChaCha20Cipher", "EngineStreamOnly", $PRIVATE | $FINAL},
-	{"com.sun.crypto.provider.ChaCha20Cipher$ChaChaEngine", "com.sun.crypto.provider.ChaCha20Cipher", "ChaChaEngine", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ChaCha20Cipher_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.crypto.provider.ChaCha20Cipher",
-	"javax.crypto.CipherSpi",
-	nullptr,
-	_ChaCha20Cipher_FieldInfo_,
-	_ChaCha20Cipher_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ChaCha20Cipher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.ChaCha20Cipher$ChaCha20Poly1305,com.sun.crypto.provider.ChaCha20Cipher$ChaCha20Only,com.sun.crypto.provider.ChaCha20Cipher$EngineAEADDec,com.sun.crypto.provider.ChaCha20Cipher$EngineAEADEnc,com.sun.crypto.provider.ChaCha20Cipher$EngineStreamOnly,com.sun.crypto.provider.ChaCha20Cipher$ChaChaEngine"
-};
-
-$Object* allocate$ChaCha20Cipher($Class* clazz) {
-	return $of($alloc(ChaCha20Cipher));
-}
 
 $bytes* ChaCha20Cipher::padBuf = nullptr;
 $VarHandle* ChaCha20Cipher::asIntLittleEndian = nullptr;
@@ -237,11 +131,11 @@ int32_t ChaCha20Cipher::engineGetOutputSize(int32_t inputLen) {
 }
 
 $bytes* ChaCha20Cipher::engineGetIV() {
-	return (this->nonce != nullptr) ? $cast($bytes, $nc(this->nonce)->clone()) : ($bytes*)nullptr;
+	return (this->nonce != nullptr) ? $cast($bytes, this->nonce->clone()) : ($bytes*)nullptr;
 }
 
 $AlgorithmParameters* ChaCha20Cipher::engineGetParameters() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AlgorithmParameters, params, nullptr);
 	if (this->mode == ChaCha20Cipher::MODE_AEAD) {
 		$var($bytes, nonceData, (this->initialized || this->nonce != nullptr) ? this->nonce : createRandomNonce(nullptr));
@@ -249,9 +143,9 @@ $AlgorithmParameters* ChaCha20Cipher::engineGetParameters() {
 			$assign(params, $AlgorithmParameters::getInstance("ChaCha20-Poly1305"_s));
 			$nc(params)->init(($($$new($DerValue, $DerValue::tag_OctetString, nonceData)->toByteArray())));
 		} catch ($NoSuchAlgorithmException& exc) {
-			$throwNew($RuntimeException, static_cast<$Throwable*>(exc));
+			$throwNew($RuntimeException, exc);
 		} catch ($IOException& exc) {
-			$throwNew($RuntimeException, static_cast<$Throwable*>(exc));
+			$throwNew($RuntimeException, exc);
 		}
 	}
 	return params;
@@ -268,82 +162,70 @@ void ChaCha20Cipher::engineInit(int32_t opmode, $Key* key, $SecureRandom* random
 }
 
 void ChaCha20Cipher::engineInit(int32_t opmode, $Key* key, $AlgorithmParameterSpec* params, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (params == nullptr) {
 		engineInit(opmode, key, random);
 		return;
 	}
 	$var($bytes, newNonce, nullptr);
 	{
-		$var($ChaCha20ParameterSpec, chaParams, nullptr)
-		$var($IvParameterSpec, ivParams, nullptr)
+		$var($ChaCha20ParameterSpec, chaParams, nullptr);
+		$var($IvParameterSpec, ivParams, nullptr);
 		switch (this->mode) {
 		case ChaCha20Cipher::MODE_NONE:
-			{
-				if (!($instanceOf($ChaCha20ParameterSpec, params))) {
-					$throwNew($InvalidAlgorithmParameterException, "ChaCha20 algorithm requires ChaCha20ParameterSpec"_s);
-				}
-				$assign(chaParams, $cast($ChaCha20ParameterSpec, params));
-				$assign(newNonce, $nc(chaParams)->getNonce());
-				this->counter = (int64_t)(((int64_t)$nc(chaParams)->getCounter()) & (uint64_t)(int64_t)0x00000000FFFFFFFF);
-				break;
+			if (!($instanceOf($ChaCha20ParameterSpec, params))) {
+				$throwNew($InvalidAlgorithmParameterException, "ChaCha20 algorithm requires ChaCha20ParameterSpec"_s);
 			}
+			$assign(chaParams, $cast($ChaCha20ParameterSpec, params));
+			$assign(newNonce, $nc(chaParams)->getNonce());
+			this->counter = ((int64_t)chaParams->getCounter()) & (int64_t)0xffffffff;
+			break;
 		case ChaCha20Cipher::MODE_AEAD:
-			{
-				if (!($instanceOf($IvParameterSpec, params))) {
-					$throwNew($InvalidAlgorithmParameterException, "ChaCha20-Poly1305 requires IvParameterSpec"_s);
-				}
-				$assign(ivParams, $cast($IvParameterSpec, params));
-				$assign(newNonce, $nc(ivParams)->getIV());
-				if ($nc(newNonce)->length != 12) {
-					$throwNew($InvalidAlgorithmParameterException, "ChaCha20-Poly1305 nonce must be 12 bytes in length"_s);
-				}
-				break;
+			if (!($instanceOf($IvParameterSpec, params))) {
+				$throwNew($InvalidAlgorithmParameterException, "ChaCha20-Poly1305 requires IvParameterSpec"_s);
 			}
+			$assign(ivParams, $cast($IvParameterSpec, params));
+			$assign(newNonce, $nc(ivParams)->getIV());
+			if ($nc(newNonce)->length != 12) {
+				$throwNew($InvalidAlgorithmParameterException, "ChaCha20-Poly1305 nonce must be 12 bytes in length"_s);
+			}
+			break;
 		default:
-			{
-				$throwNew($RuntimeException, "ChaCha20 in unsupported mode"_s);
-			}
+			$throwNew($RuntimeException, "ChaCha20 in unsupported mode"_s);
 		}
 	}
 	init(opmode, key, newNonce);
 }
 
 void ChaCha20Cipher::engineInit(int32_t opmode, $Key* key, $AlgorithmParameters* params, $SecureRandom* random) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (params == nullptr) {
 		engineInit(opmode, key, random);
 		return;
 	}
 	$var($bytes, newNonce, nullptr);
 	{
-		$var($String, paramAlg, nullptr)
+		$var($String, paramAlg, nullptr);
 		switch (this->mode) {
 		case ChaCha20Cipher::MODE_NONE:
-			{
-				$throwNew($InvalidAlgorithmParameterException, "AlgorithmParameters not supported"_s);
-			}
+			$throwNew($InvalidAlgorithmParameterException, "AlgorithmParameters not supported"_s);
 		case ChaCha20Cipher::MODE_AEAD:
-			{
-				$assign(paramAlg, $nc(params)->getAlgorithm());
-				if (!$nc(paramAlg)->equalsIgnoreCase("ChaCha20-Poly1305"_s)) {
-					$throwNew($InvalidAlgorithmParameterException, $$str({"Invalid parameter type: "_s, paramAlg}));
-				}
-				try {
-					$var($DerValue, dv, $new($DerValue, $(params->getEncoded())));
-					$assign(newNonce, dv->getOctetString());
-					if ($nc(newNonce)->length != 12) {
-						$throwNew($InvalidAlgorithmParameterException, "ChaCha20-Poly1305 nonce must be 12 bytes in length"_s);
-					}
-				} catch ($IOException& ioe) {
-					$throwNew($InvalidAlgorithmParameterException, static_cast<$Throwable*>(ioe));
-				}
-				break;
+			$assign(paramAlg, $nc(params)->getAlgorithm());
+			if (!$nc(paramAlg)->equalsIgnoreCase("ChaCha20-Poly1305"_s)) {
+				$throwNew($InvalidAlgorithmParameterException, $$str({"Invalid parameter type: "_s, paramAlg}));
 			}
+			try {
+				$var($DerValue, dv, $new($DerValue, $(params->getEncoded())));
+				$assign(newNonce, dv->getOctetString());
+				if ($nc(newNonce)->length != 12) {
+					$throwNew($InvalidAlgorithmParameterException, "ChaCha20-Poly1305 nonce must be 12 bytes in length"_s);
+				}
+			} catch ($IOException& ioe) {
+				$throwNew($InvalidAlgorithmParameterException, ioe);
+			}
+			break;
 		default:
-			{
-				$throwNew($RuntimeException, $$str({"Invalid mode: "_s, $$str(this->mode)}));
-			}
+			$throwNew($RuntimeException, $$str({"Invalid mode: "_s, $$str(this->mode)}));
 		}
 	}
 	if (newNonce == nullptr) {
@@ -389,7 +271,7 @@ void ChaCha20Cipher::engineUpdateAAD($ByteBuffer* src) {
 
 $bytes* ChaCha20Cipher::createRandomNonce($SecureRandom* random) {
 	$init(ChaCha20Cipher);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, newNonce, $new($bytes, 12));
 	$var($SecureRandom, rand, (random != nullptr) ? random : $new($SecureRandom));
 	$nc(rand)->nextBytes(newNonce);
@@ -436,12 +318,12 @@ void ChaCha20Cipher::checkKeyAndNonce($bytes* newKeyBytes, $bytes* newNonce) {
 
 $bytes* ChaCha20Cipher::getEncodedKey($Key* key) {
 	$init(ChaCha20Cipher);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ("RAW"_s->equals($($nc(key)->getFormat())) == false) {
 		$throwNew($InvalidKeyException, "Key encoding format must be RAW"_s);
 	}
-	$var($bytes, encodedKey, $nc(key)->getEncoded());
-	if (encodedKey == nullptr || $nc(encodedKey)->length != 32) {
+	$var($bytes, encodedKey, key->getEncoded());
+	if (encodedKey == nullptr || encodedKey->length != 32) {
 		if (encodedKey != nullptr) {
 			$Arrays::fill(encodedKey, (int8_t)0);
 		}
@@ -453,11 +335,11 @@ $bytes* ChaCha20Cipher::getEncodedKey($Key* key) {
 $bytes* ChaCha20Cipher::engineUpdate($bytes* in, int32_t inOfs, int32_t inLen) {
 	$var($bytes, out, $new($bytes, $nc(this->engine)->getOutputSize(inLen, false)));
 	try {
-		$nc(this->engine)->doUpdate(in, inOfs, inLen, out, 0);
+		this->engine->doUpdate(in, inOfs, inLen, out, 0);
 	} catch ($ShortBufferException& exc) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(exc));
+		$throwNew($RuntimeException, exc);
 	} catch ($KeyException& exc) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(exc));
+		$throwNew($RuntimeException, exc);
 	}
 	return out;
 }
@@ -467,54 +349,50 @@ int32_t ChaCha20Cipher::engineUpdate($bytes* in, int32_t inOfs, int32_t inLen, $
 	try {
 		bytesUpdated = $nc(this->engine)->doUpdate(in, inOfs, inLen, out, outOfs);
 	} catch ($KeyException& ke) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(ke));
+		$throwNew($RuntimeException, ke);
 	}
 	return bytesUpdated;
 }
 
 $bytes* ChaCha20Cipher::engineDoFinal($bytes* in, int32_t inOfs, int32_t inLen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, output, $new($bytes, $nc(this->engine)->getOutputSize(inLen, true)));
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$nc(this->engine)->doFinal(in, inOfs, inLen, output, 0);
-			} catch ($ShortBufferException& exc) {
-				$throwNew($RuntimeException, static_cast<$Throwable*>(exc));
-			} catch ($KeyException& exc) {
-				$throwNew($RuntimeException, static_cast<$Throwable*>(exc));
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			this->initialized = false;
+			this->engine->doFinal(in, inOfs, inLen, output, 0);
+		} catch ($ShortBufferException& exc) {
+			$throwNew($RuntimeException, exc);
+		} catch ($KeyException& exc) {
+			$throwNew($RuntimeException, exc);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->initialized = false;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return output;
 }
 
 int32_t ChaCha20Cipher::engineDoFinal($bytes* in, int32_t inOfs, int32_t inLen, $bytes* out, int32_t outOfs) {
 	int32_t bytesUpdated = 0;
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				bytesUpdated = $nc(this->engine)->doFinal(in, inOfs, inLen, out, outOfs);
-			} catch ($KeyException& ke) {
-				$throwNew($RuntimeException, static_cast<$Throwable*>(ke));
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			this->initialized = false;
+			bytesUpdated = $nc(this->engine)->doFinal(in, inOfs, inLen, out, outOfs);
+		} catch ($KeyException& ke) {
+			$throwNew($RuntimeException, ke);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->initialized = false;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return bytesUpdated;
 }
@@ -536,16 +414,16 @@ int32_t ChaCha20Cipher::engineGetKeySize($Key* key) {
 }
 
 void ChaCha20Cipher::setInitialState() {
-	$nc(this->startState)->set(0, ChaCha20Cipher::STATE_CONST_0);
-	$nc(this->startState)->set(1, ChaCha20Cipher::STATE_CONST_1);
-	$nc(this->startState)->set(2, ChaCha20Cipher::STATE_CONST_2);
-	$nc(this->startState)->set(3, ChaCha20Cipher::STATE_CONST_3);
+	this->startState->set(0, ChaCha20Cipher::STATE_CONST_0);
+	this->startState->set(1, ChaCha20Cipher::STATE_CONST_1);
+	this->startState->set(2, ChaCha20Cipher::STATE_CONST_2);
+	this->startState->set(3, ChaCha20Cipher::STATE_CONST_3);
 	for (int32_t i = 0; i < 32; i += 4) {
-		$nc(this->startState)->set((i / 4) + 4, ((((int32_t)($nc(this->keyBytes)->get(i) & (uint32_t)255)) | ((int32_t)(($nc(this->keyBytes)->get(i + 1) << 8) & (uint32_t)0x0000FF00))) | ((int32_t)(($nc(this->keyBytes)->get(i + 2) << 16) & (uint32_t)0x00FF0000))) | ((int32_t)(($nc(this->keyBytes)->get(i + 3) << 24) & (uint32_t)(int32_t)0xFF000000)));
+		this->startState->set((i / 4) + 4, ((($nc(this->keyBytes)->get(i) & 0xff) | (($nc(this->keyBytes)->get(i + 1) << 8) & 0xff00)) | (($nc(this->keyBytes)->get(i + 2) << 16) & 0x00ff0000)) | (($nc(this->keyBytes)->get(i + 3) << 24) & (int32_t)0xff000000));
 	}
-	$nc(this->startState)->set(12, 0);
+	this->startState->set(12, 0);
 	for (int32_t i = 0; i < 12; i += 4) {
-		$nc(this->startState)->set((i / 4) + 13, ((((int32_t)($nc(this->nonce)->get(i) & (uint32_t)255)) | ((int32_t)(($nc(this->nonce)->get(i + 1) << 8) & (uint32_t)0x0000FF00))) | ((int32_t)(($nc(this->nonce)->get(i + 2) << 16) & (uint32_t)0x00FF0000))) | ((int32_t)(($nc(this->nonce)->get(i + 3) << 24) & (uint32_t)(int32_t)0xFF000000)));
+		this->startState->set((i / 4) + 13, ((($nc(this->nonce)->get(i) & 0xff) | (($nc(this->nonce)->get(i + 1) << 8) & 0xff00)) | (($nc(this->nonce)->get(i + 2) << 16) & 0x00ff0000)) | (($nc(this->nonce)->get(i + 3) << 24) & (int32_t)0xff000000));
 	}
 }
 
@@ -556,7 +434,7 @@ void ChaCha20Cipher::generateKeystream() {
 
 void ChaCha20Cipher::chaCha20Block($ints* initState, int64_t counter, $bytes* result) {
 	$init(ChaCha20Cipher);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t ws00 = ChaCha20Cipher::STATE_CONST_0;
 	int32_t ws01 = ChaCha20Cipher::STATE_CONST_1;
 	int32_t ws02 = ChaCha20Cipher::STATE_CONST_2;
@@ -639,33 +517,33 @@ void ChaCha20Cipher::chaCha20Block($ints* initState, int64_t counter, $bytes* re
 		ws09 += ws14;
 		ws04 = $Integer::rotateLeft(ws04 ^ ws09, 7);
 	}
-	$nc(ChaCha20Cipher::asIntLittleEndian)->set($$new($ObjectArray, {$of(result), $$of(0), $$of((ws00 + ChaCha20Cipher::STATE_CONST_0))}));
-	$nc(ChaCha20Cipher::asIntLittleEndian)->set($$new($ObjectArray, {$of(result), $$of(4), $$of((ws01 + ChaCha20Cipher::STATE_CONST_1))}));
-	$nc(ChaCha20Cipher::asIntLittleEndian)->set($$new($ObjectArray, {$of(result), $$of(8), $$of((ws02 + ChaCha20Cipher::STATE_CONST_2))}));
-	$nc(ChaCha20Cipher::asIntLittleEndian)->set($$new($ObjectArray, {$of(result), $$of(12), $$of((ws03 + ChaCha20Cipher::STATE_CONST_3))}));
-	$nc(ChaCha20Cipher::asIntLittleEndian)->set($$new($ObjectArray, {$of(result), $$of(16), $$of((ws04 + initState->get(4)))}));
-	$nc(ChaCha20Cipher::asIntLittleEndian)->set($$new($ObjectArray, {$of(result), $$of(20), $$of((ws05 + initState->get(5)))}));
-	$nc(ChaCha20Cipher::asIntLittleEndian)->set($$new($ObjectArray, {$of(result), $$of(24), $$of((ws06 + initState->get(6)))}));
-	$nc(ChaCha20Cipher::asIntLittleEndian)->set($$new($ObjectArray, {$of(result), $$of(28), $$of((ws07 + initState->get(7)))}));
-	$nc(ChaCha20Cipher::asIntLittleEndian)->set($$new($ObjectArray, {$of(result), $$of(32), $$of((ws08 + initState->get(8)))}));
-	$nc(ChaCha20Cipher::asIntLittleEndian)->set($$new($ObjectArray, {$of(result), $$of(36), $$of((ws09 + initState->get(9)))}));
-	$nc(ChaCha20Cipher::asIntLittleEndian)->set($$new($ObjectArray, {$of(result), $$of(40), $$of((ws10 + initState->get(10)))}));
-	$nc(ChaCha20Cipher::asIntLittleEndian)->set($$new($ObjectArray, {$of(result), $$of(44), $$of((ws11 + initState->get(11)))}));
-	$nc(ChaCha20Cipher::asIntLittleEndian)->set($$new($ObjectArray, {$of(result), $$of(48), $$of((ws12 + (int32_t)counter))}));
-	$nc(ChaCha20Cipher::asIntLittleEndian)->set($$new($ObjectArray, {$of(result), $$of(52), $$of((ws13 + initState->get(13)))}));
-	$nc(ChaCha20Cipher::asIntLittleEndian)->set($$new($ObjectArray, {$of(result), $$of(56), $$of((ws14 + initState->get(14)))}));
-	$nc(ChaCha20Cipher::asIntLittleEndian)->set($$new($ObjectArray, {$of(result), $$of(60), $$of((ws15 + initState->get(15)))}));
+	$nc(ChaCha20Cipher::asIntLittleEndian)->set($$new($ObjectArray, {result, $$of(0), $$of(ws00 + ChaCha20Cipher::STATE_CONST_0)}));
+	ChaCha20Cipher::asIntLittleEndian->set($$new($ObjectArray, {result, $$of(4), $$of(ws01 + ChaCha20Cipher::STATE_CONST_1)}));
+	ChaCha20Cipher::asIntLittleEndian->set($$new($ObjectArray, {result, $$of(8), $$of(ws02 + ChaCha20Cipher::STATE_CONST_2)}));
+	ChaCha20Cipher::asIntLittleEndian->set($$new($ObjectArray, {result, $$of(12), $$of(ws03 + ChaCha20Cipher::STATE_CONST_3)}));
+	ChaCha20Cipher::asIntLittleEndian->set($$new($ObjectArray, {result, $$of(16), $$of(ws04 + initState->get(4))}));
+	ChaCha20Cipher::asIntLittleEndian->set($$new($ObjectArray, {result, $$of(20), $$of(ws05 + initState->get(5))}));
+	ChaCha20Cipher::asIntLittleEndian->set($$new($ObjectArray, {result, $$of(24), $$of(ws06 + initState->get(6))}));
+	ChaCha20Cipher::asIntLittleEndian->set($$new($ObjectArray, {result, $$of(28), $$of(ws07 + initState->get(7))}));
+	ChaCha20Cipher::asIntLittleEndian->set($$new($ObjectArray, {result, $$of(32), $$of(ws08 + initState->get(8))}));
+	ChaCha20Cipher::asIntLittleEndian->set($$new($ObjectArray, {result, $$of(36), $$of(ws09 + initState->get(9))}));
+	ChaCha20Cipher::asIntLittleEndian->set($$new($ObjectArray, {result, $$of(40), $$of(ws10 + initState->get(10))}));
+	ChaCha20Cipher::asIntLittleEndian->set($$new($ObjectArray, {result, $$of(44), $$of(ws11 + initState->get(11))}));
+	ChaCha20Cipher::asIntLittleEndian->set($$new($ObjectArray, {result, $$of(48), $$of(ws12 + (int32_t)counter)}));
+	ChaCha20Cipher::asIntLittleEndian->set($$new($ObjectArray, {result, $$of(52), $$of(ws13 + initState->get(13))}));
+	ChaCha20Cipher::asIntLittleEndian->set($$new($ObjectArray, {result, $$of(56), $$of(ws14 + initState->get(14))}));
+	ChaCha20Cipher::asIntLittleEndian->set($$new($ObjectArray, {result, $$of(60), $$of(ws15 + initState->get(15))}));
 }
 
 void ChaCha20Cipher::chaCha20Transform($bytes* in, int32_t inOff, int32_t inLen, $bytes* out, int32_t outOff) {
 	int32_t remainingData = inLen;
 	while (remainingData > 0) {
-		int32_t ksRemain = $nc(this->keyStream)->length - this->keyStrOffset;
+		int32_t ksRemain = this->keyStream->length - this->keyStrOffset;
 		if (ksRemain <= 0) {
 			if (this->counter <= this->finalCounterValue) {
 				generateKeystream();
 				this->keyStrOffset = 0;
-				ksRemain = $nc(this->keyStream)->length;
+				ksRemain = this->keyStream->length;
 			} else {
 				$throwNew($KeyException, "Counter exhausted.  Reinitialize with new key and/or nonce"_s);
 			}
@@ -681,11 +559,11 @@ void ChaCha20Cipher::chaCha20Transform($bytes* in, int32_t inOff, int32_t inLen,
 
 void ChaCha20Cipher::xor$($bytes* in1, int32_t off1, $bytes* in2, int32_t off2, $bytes* out, int32_t outOff, int32_t len) {
 	$init(ChaCha20Cipher);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (len >= 8) {
-		int64_t v1 = $longValue($nc(ChaCha20Cipher::asLongView)->get($$new($ObjectArray, {$of(in1), $$of(off1)})));
-		int64_t v2 = $longValue($nc(ChaCha20Cipher::asLongView)->get($$new($ObjectArray, {$of(in2), $$of(off2)})));
-		$nc(ChaCha20Cipher::asLongView)->set($$new($ObjectArray, {$of(out), $$of(outOff), $$of((v1 ^ v2))}));
+		int64_t v1 = $longValue($nc(ChaCha20Cipher::asLongView)->get($$new($ObjectArray, {in1, $$of(off1)})));
+		int64_t v2 = $longValue(ChaCha20Cipher::asLongView->get($$new($ObjectArray, {in2, $$of(off2)})));
+		ChaCha20Cipher::asLongView->set($$new($ObjectArray, {out, $$of(outOff), $$of(v1 ^ v2)}));
 		off1 += 8;
 		off2 += 8;
 		outOff += 8;
@@ -701,11 +579,11 @@ void ChaCha20Cipher::xor$($bytes* in1, int32_t off1, $bytes* in2, int32_t off2, 
 }
 
 void ChaCha20Cipher::initAuthenticator() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, authenticator, $new($Poly1305));
 	$var($bytes, serializedKey, $new($bytes, ChaCha20Cipher::KEYSTREAM_SIZE));
 	chaCha20Block(this->startState, 0, serializedKey);
-	$nc(this->authenticator)->engineInit($$new($SecretKeySpec, serializedKey, 0, 32, this->authAlgName), nullptr);
+	this->authenticator->engineInit($$new($SecretKeySpec, serializedKey, 0, 32, this->authAlgName), nullptr);
 	this->aadLen = 0;
 	this->dataLen = 0;
 }
@@ -722,30 +600,28 @@ void ChaCha20Cipher::authFinalizeData($bytes* data, int32_t dataOff, int32_t len
 	}
 	authPad16(this->dataLen);
 	authWriteLengths(this->aadLen, this->dataLen, this->lenBuf);
-	$nc(this->authenticator)->engineUpdate(this->lenBuf, 0, $nc(this->lenBuf)->length);
-	$var($bytes, tag, $nc(this->authenticator)->engineDoFinal());
+	$nc(this->authenticator)->engineUpdate(this->lenBuf, 0, this->lenBuf->length);
+	$var($bytes, tag, this->authenticator->engineDoFinal());
 	$Objects::checkFromIndexSize(outOff, $nc(tag)->length, $nc(out)->length);
-	$System::arraycopy(tag, 0, out, outOff, $nc(tag)->length);
+	$System::arraycopy(tag, 0, out, outOff, tag->length);
 	this->aadLen = 0;
 	this->dataLen = 0;
 }
 
 void ChaCha20Cipher::authPad16(int64_t dataLen) {
-	$nc(this->authenticator)->engineUpdate(ChaCha20Cipher::padBuf, 0, (int32_t)((ChaCha20Cipher::TAG_LENGTH - ((int32_t)((int32_t)dataLen & (uint32_t)15))) & (uint32_t)15));
+	$nc(this->authenticator)->engineUpdate(ChaCha20Cipher::padBuf, 0, (ChaCha20Cipher::TAG_LENGTH - ((int32_t)dataLen & 0x0f)) & 0x0f);
 }
 
 void ChaCha20Cipher::authWriteLengths(int64_t aLen, int64_t dLen, $bytes* buf) {
-	$useLocalCurrentObjectStackCache();
-	$nc(ChaCha20Cipher::asLongLittleEndian)->set($$new($ObjectArray, {$of(buf), $$of(0), $$of(aLen)}));
-	$nc(ChaCha20Cipher::asLongLittleEndian)->set($$new($ObjectArray, {$of(buf), $$of($Long::BYTES), $$of(dLen)}));
+	$useLocalObjectStack();
+	$nc(ChaCha20Cipher::asLongLittleEndian)->set($$new($ObjectArray, {buf, $$of(0), $$of(aLen)}));
+	ChaCha20Cipher::asLongLittleEndian->set($$new($ObjectArray, {buf, $$of($Long::BYTES), $$of(dLen)}));
 }
 
-void clinit$ChaCha20Cipher($Class* class$) {
+void ChaCha20Cipher::clinit$($Class* clazz) {
 	$assignStatic(ChaCha20Cipher::padBuf, $new($bytes, ChaCha20Cipher::TAG_LENGTH));
-	$load($ints);
 	$init($ByteOrder);
 	$assignStatic(ChaCha20Cipher::asIntLittleEndian, $MethodHandles::byteArrayViewVarHandle($getClass($ints), $ByteOrder::LITTLE_ENDIAN));
-	$load($longs);
 	$assignStatic(ChaCha20Cipher::asLongLittleEndian, $MethodHandles::byteArrayViewVarHandle($getClass($longs), $ByteOrder::LITTLE_ENDIAN));
 	$assignStatic(ChaCha20Cipher::asLongView, $MethodHandles::byteArrayViewVarHandle($getClass($longs), $($ByteOrder::nativeOrder())));
 }
@@ -754,7 +630,103 @@ ChaCha20Cipher::ChaCha20Cipher() {
 }
 
 $Class* ChaCha20Cipher::load$($String* name, bool initialize) {
-	$loadClass(ChaCha20Cipher, name, initialize, &_ChaCha20Cipher_ClassInfo_, clinit$ChaCha20Cipher, allocate$ChaCha20Cipher);
+	$FieldInfo fieldInfos$$[] = {
+		{"MODE_NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChaCha20Cipher, MODE_NONE)},
+		{"MODE_AEAD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChaCha20Cipher, MODE_AEAD)},
+		{"STATE_CONST_0", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChaCha20Cipher, STATE_CONST_0)},
+		{"STATE_CONST_1", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChaCha20Cipher, STATE_CONST_1)},
+		{"STATE_CONST_2", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChaCha20Cipher, STATE_CONST_2)},
+		{"STATE_CONST_3", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChaCha20Cipher, STATE_CONST_3)},
+		{"KEYSTREAM_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChaCha20Cipher, KEYSTREAM_SIZE)},
+		{"KS_SIZE_INTS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChaCha20Cipher, KS_SIZE_INTS)},
+		{"CIPHERBUF_BASE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChaCha20Cipher, CIPHERBUF_BASE)},
+		{"initialized", "Z", nullptr, $PRIVATE, $field(ChaCha20Cipher, initialized)},
+		{"mode", "I", nullptr, $PROTECTED, $field(ChaCha20Cipher, mode)},
+		{"direction", "I", nullptr, $PRIVATE, $field(ChaCha20Cipher, direction)},
+		{"aadDone", "Z", nullptr, $PRIVATE, $field(ChaCha20Cipher, aadDone)},
+		{"keyBytes", "[B", nullptr, $PRIVATE, $field(ChaCha20Cipher, keyBytes)},
+		{"nonce", "[B", nullptr, $PRIVATE, $field(ChaCha20Cipher, nonce)},
+		{"MAX_UINT32", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChaCha20Cipher, MAX_UINT32)},
+		{"finalCounterValue", "J", nullptr, $PRIVATE, $field(ChaCha20Cipher, finalCounterValue)},
+		{"counter", "J", nullptr, $PRIVATE, $field(ChaCha20Cipher, counter)},
+		{"startState", "[I", nullptr, $PRIVATE | $FINAL, $field(ChaCha20Cipher, startState)},
+		{"keyStream", "[B", nullptr, $PRIVATE | $FINAL, $field(ChaCha20Cipher, keyStream)},
+		{"keyStrOffset", "I", nullptr, $PRIVATE, $field(ChaCha20Cipher, keyStrOffset)},
+		{"TAG_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChaCha20Cipher, TAG_LENGTH)},
+		{"aadLen", "J", nullptr, $PRIVATE, $field(ChaCha20Cipher, aadLen)},
+		{"dataLen", "J", nullptr, $PRIVATE, $field(ChaCha20Cipher, dataLen)},
+		{"padBuf", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ChaCha20Cipher, padBuf)},
+		{"lenBuf", "[B", nullptr, $PRIVATE | $FINAL, $field(ChaCha20Cipher, lenBuf)},
+		{"authAlgName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(ChaCha20Cipher, authAlgName)},
+		{"authenticator", "Lcom/sun/crypto/provider/Poly1305;", nullptr, $PRIVATE, $field(ChaCha20Cipher, authenticator)},
+		{"engine", "Lcom/sun/crypto/provider/ChaCha20Cipher$ChaChaEngine;", nullptr, $PRIVATE, $field(ChaCha20Cipher, engine)},
+		{"asIntLittleEndian", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ChaCha20Cipher, asIntLittleEndian)},
+		{"asLongLittleEndian", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ChaCha20Cipher, asLongLittleEndian)},
+		{"asLongView", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ChaCha20Cipher, asLongView)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(ChaCha20Cipher, init$, void)},
+		{"authFinalizeData", "([BII[BI)V", nullptr, $PRIVATE, $method(ChaCha20Cipher, authFinalizeData, void, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
+		{"authPad16", "(J)V", nullptr, $PRIVATE, $method(ChaCha20Cipher, authPad16, void, int64_t)},
+		{"authUpdate", "([BII)I", nullptr, $PRIVATE, $method(ChaCha20Cipher, authUpdate, int32_t, $bytes*, int32_t, int32_t)},
+		{"authWriteLengths", "(JJ[B)V", nullptr, $PRIVATE, $method(ChaCha20Cipher, authWriteLengths, void, int64_t, int64_t, $bytes*)},
+		{"chaCha20Block", "([IJ[B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ChaCha20Cipher, chaCha20Block, void, $ints*, int64_t, $bytes*)},
+		{"chaCha20Transform", "([BII[BI)V", nullptr, $PRIVATE, $method(ChaCha20Cipher, chaCha20Transform, void, $bytes*, int32_t, int32_t, $bytes*, int32_t), "java.security.KeyException"},
+		{"checkKeyAndNonce", "([B[B)V", nullptr, $PRIVATE, $method(ChaCha20Cipher, checkKeyAndNonce, void, $bytes*, $bytes*), "java.security.InvalidKeyException"},
+		{"createRandomNonce", "(Ljava/security/SecureRandom;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(ChaCha20Cipher, createRandomNonce, $bytes*, $SecureRandom*)},
+		{"engineDoFinal", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineDoFinal, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.AEADBadTagException"},
+		{"engineDoFinal", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineDoFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException,javax.crypto.AEADBadTagException"},
+		{"engineGetBlockSize", "()I", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineGetBlockSize, int32_t)},
+		{"engineGetIV", "()[B", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineGetIV, $bytes*)},
+		{"engineGetKeySize", "(Ljava/security/Key;)I", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineGetKeySize, int32_t, $Key*), "java.security.InvalidKeyException"},
+		{"engineGetOutputSize", "(I)I", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineGetOutputSize, int32_t, int32_t)},
+		{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineGetParameters, $AlgorithmParameters*)},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineInit, void, int32_t, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineInit, void, int32_t, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineInit, void, int32_t, $Key*, $AlgorithmParameters*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"engineSetMode", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineSetMode, void, $String*), "java.security.NoSuchAlgorithmException"},
+		{"engineSetPadding", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineSetPadding, void, $String*), "javax.crypto.NoSuchPaddingException"},
+		{"engineUnwrap", "([BLjava/lang/String;I)Ljava/security/Key;", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineUnwrap, $Key*, $bytes*, $String*, int32_t), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
+		{"engineUpdate", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineUpdate, $bytes*, $bytes*, int32_t, int32_t)},
+		{"engineUpdate", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
+		{"engineUpdateAAD", "([BII)V", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineUpdateAAD, void, $bytes*, int32_t, int32_t)},
+		{"engineUpdateAAD", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineUpdateAAD, void, $ByteBuffer*)},
+		{"engineWrap", "(Ljava/security/Key;)[B", nullptr, $PROTECTED, $virtualMethod(ChaCha20Cipher, engineWrap, $bytes*, $Key*), "javax.crypto.IllegalBlockSizeException,java.security.InvalidKeyException"},
+		{"generateKeystream", "()V", nullptr, $PRIVATE, $method(ChaCha20Cipher, generateKeystream, void)},
+		{"getEncodedKey", "(Ljava/security/Key;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(ChaCha20Cipher, getEncodedKey, $bytes*, $Key*), "java.security.InvalidKeyException"},
+		{"init", "(ILjava/security/Key;[B)V", nullptr, $PRIVATE, $method(ChaCha20Cipher, init, void, int32_t, $Key*, $bytes*), "java.security.InvalidKeyException"},
+		{"initAuthenticator", "()V", nullptr, $PRIVATE, $method(ChaCha20Cipher, initAuthenticator, void), "java.security.InvalidKeyException"},
+		{"setInitialState", "()V", nullptr, $PRIVATE, $method(ChaCha20Cipher, setInitialState, void), "java.security.InvalidKeyException"},
+		{"xor", "([BI[BI[BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ChaCha20Cipher, xor$, void, $bytes*, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.ChaCha20Cipher$ChaCha20Poly1305", "com.sun.crypto.provider.ChaCha20Cipher", "ChaCha20Poly1305", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.ChaCha20Cipher$ChaCha20Only", "com.sun.crypto.provider.ChaCha20Cipher", "ChaCha20Only", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.ChaCha20Cipher$EngineAEADDec", "com.sun.crypto.provider.ChaCha20Cipher", "EngineAEADDec", $PRIVATE | $FINAL},
+		{"com.sun.crypto.provider.ChaCha20Cipher$EngineAEADEnc", "com.sun.crypto.provider.ChaCha20Cipher", "EngineAEADEnc", $PRIVATE | $FINAL},
+		{"com.sun.crypto.provider.ChaCha20Cipher$EngineStreamOnly", "com.sun.crypto.provider.ChaCha20Cipher", "EngineStreamOnly", $PRIVATE | $FINAL},
+		{"com.sun.crypto.provider.ChaCha20Cipher$ChaChaEngine", "com.sun.crypto.provider.ChaCha20Cipher", "ChaChaEngine", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.crypto.provider.ChaCha20Cipher",
+		"javax.crypto.CipherSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.ChaCha20Cipher$ChaCha20Poly1305,com.sun.crypto.provider.ChaCha20Cipher$ChaCha20Only,com.sun.crypto.provider.ChaCha20Cipher$EngineAEADDec,com.sun.crypto.provider.ChaCha20Cipher$EngineAEADEnc,com.sun.crypto.provider.ChaCha20Cipher$EngineStreamOnly,com.sun.crypto.provider.ChaCha20Cipher$ChaChaEngine"
+	};
+	$loadClass(ChaCha20Cipher, name, initialize, &classInfo$$, ChaCha20Cipher::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ChaCha20Cipher);
+	});
 	return class$;
 }
 

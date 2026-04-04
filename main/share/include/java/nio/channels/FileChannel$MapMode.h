@@ -20,6 +20,7 @@ class $import FileChannel$MapMode : public ::java::lang::Object {
 	$class(FileChannel$MapMode, 0, ::java::lang::Object)
 public:
 	FileChannel$MapMode();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	virtual $String* toString() override;
 	static ::java::nio::channels::FileChannel$MapMode* READ_ONLY;

@@ -19,6 +19,7 @@ class $import DESKeySpec : public ::java::security::spec::KeySpec {
 	$class(DESKeySpec, 0, ::java::security::spec::KeySpec)
 public:
 	DESKeySpec();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($bytes* key);
 	void init$($bytes* key, int32_t offset);
 	virtual $bytes* getKey();

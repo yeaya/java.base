@@ -1,5 +1,4 @@
 #include <java/time/format/TextStyle.h>
-
 #include <java/lang/Enum.h>
 #include <java/util/Calendar.h>
 #include <jcpp.h>
@@ -25,46 +24,6 @@ using $Calendar = ::java::util::Calendar;
 namespace java {
 	namespace time {
 		namespace format {
-
-$FieldInfo _TextStyle_FieldInfo_[] = {
-	{"FULL", "Ljava/time/format/TextStyle;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TextStyle, FULL)},
-	{"FULL_STANDALONE", "Ljava/time/format/TextStyle;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TextStyle, FULL_STANDALONE)},
-	{"SHORT", "Ljava/time/format/TextStyle;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TextStyle, SHORT)},
-	{"SHORT_STANDALONE", "Ljava/time/format/TextStyle;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TextStyle, SHORT_STANDALONE)},
-	{"NARROW", "Ljava/time/format/TextStyle;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TextStyle, NARROW)},
-	{"NARROW_STANDALONE", "Ljava/time/format/TextStyle;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TextStyle, NARROW_STANDALONE)},
-	{"$VALUES", "[Ljava/time/format/TextStyle;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TextStyle, $VALUES)},
-	{"calendarStyle", "I", nullptr, $PRIVATE | $FINAL, $field(TextStyle, calendarStyle)},
-	{"zoneNameStyleIndex", "I", nullptr, $PRIVATE | $FINAL, $field(TextStyle, zoneNameStyleIndex$)},
-	{}
-};
-
-$MethodInfo _TextStyle_MethodInfo_[] = {
-	{"$values", "()[Ljava/time/format/TextStyle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TextStyle, $values, $TextStyleArray*)},
-	{"<init>", "(Ljava/lang/String;III)V", "(II)V", $PRIVATE, $method(TextStyle, init$, void, $String*, int32_t, int32_t, int32_t)},
-	{"asNormal", "()Ljava/time/format/TextStyle;", nullptr, $PUBLIC, $method(TextStyle, asNormal, TextStyle*)},
-	{"asStandalone", "()Ljava/time/format/TextStyle;", nullptr, $PUBLIC, $method(TextStyle, asStandalone, TextStyle*)},
-	{"isStandalone", "()Z", nullptr, $PUBLIC, $method(TextStyle, isStandalone, bool)},
-	{"toCalendarStyle", "()I", nullptr, 0, $method(TextStyle, toCalendarStyle, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/time/format/TextStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(TextStyle, valueOf, TextStyle*, $String*)},
-	{"values", "()[Ljava/time/format/TextStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(TextStyle, values, $TextStyleArray*)},
-	{"zoneNameStyleIndex", "()I", nullptr, 0, $method(TextStyle, zoneNameStyleIndex, int32_t)},
-	{}
-};
-
-$ClassInfo _TextStyle_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.time.format.TextStyle",
-	"java.lang.Enum",
-	nullptr,
-	_TextStyle_FieldInfo_,
-	_TextStyle_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/time/format/TextStyle;>;"
-};
-
-$Object* allocate$TextStyle($Class* clazz) {
-	return $of($alloc(TextStyle));
-}
 
 TextStyle* TextStyle::FULL = nullptr;
 TextStyle* TextStyle::FULL_STANDALONE = nullptr;
@@ -103,7 +62,7 @@ void TextStyle::init$($String* $enum$name, int32_t $enum$ordinal, int32_t calend
 }
 
 bool TextStyle::isStandalone() {
-	return ((int32_t)(ordinal() & (uint32_t)1)) == 1;
+	return (ordinal() & 1) == 1;
 }
 
 TextStyle* TextStyle::asStandalone() {
@@ -111,7 +70,7 @@ TextStyle* TextStyle::asStandalone() {
 }
 
 TextStyle* TextStyle::asNormal() {
-	return $(TextStyle::values())->get((int32_t)(ordinal() & (uint32_t)~1));
+	return $(TextStyle::values())->get(ordinal() & ~1);
 }
 
 int32_t TextStyle::toCalendarStyle() {
@@ -122,7 +81,7 @@ int32_t TextStyle::zoneNameStyleIndex() {
 	return this->zoneNameStyleIndex$;
 }
 
-void clinit$TextStyle($Class* class$) {
+void TextStyle::clinit$($Class* clazz) {
 	$assignStatic(TextStyle::FULL, $new(TextStyle, "FULL"_s, 0, $Calendar::LONG_FORMAT, 0));
 	$assignStatic(TextStyle::FULL_STANDALONE, $new(TextStyle, "FULL_STANDALONE"_s, 1, $Calendar::LONG_STANDALONE, 0));
 	$assignStatic(TextStyle::SHORT, $new(TextStyle, "SHORT"_s, 2, $Calendar::SHORT_FORMAT, 1));
@@ -136,7 +95,42 @@ TextStyle::TextStyle() {
 }
 
 $Class* TextStyle::load$($String* name, bool initialize) {
-	$loadClass(TextStyle, name, initialize, &_TextStyle_ClassInfo_, clinit$TextStyle, allocate$TextStyle);
+	$FieldInfo fieldInfos$$[] = {
+		{"FULL", "Ljava/time/format/TextStyle;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TextStyle, FULL)},
+		{"FULL_STANDALONE", "Ljava/time/format/TextStyle;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TextStyle, FULL_STANDALONE)},
+		{"SHORT", "Ljava/time/format/TextStyle;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TextStyle, SHORT)},
+		{"SHORT_STANDALONE", "Ljava/time/format/TextStyle;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TextStyle, SHORT_STANDALONE)},
+		{"NARROW", "Ljava/time/format/TextStyle;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TextStyle, NARROW)},
+		{"NARROW_STANDALONE", "Ljava/time/format/TextStyle;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TextStyle, NARROW_STANDALONE)},
+		{"$VALUES", "[Ljava/time/format/TextStyle;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TextStyle, $VALUES)},
+		{"calendarStyle", "I", nullptr, $PRIVATE | $FINAL, $field(TextStyle, calendarStyle)},
+		{"zoneNameStyleIndex", "I", nullptr, $PRIVATE | $FINAL, $field(TextStyle, zoneNameStyleIndex$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/time/format/TextStyle;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TextStyle, $values, $TextStyleArray*)},
+		{"<init>", "(Ljava/lang/String;III)V", "(II)V", $PRIVATE, $method(TextStyle, init$, void, $String*, int32_t, int32_t, int32_t)},
+		{"asNormal", "()Ljava/time/format/TextStyle;", nullptr, $PUBLIC, $method(TextStyle, asNormal, TextStyle*)},
+		{"asStandalone", "()Ljava/time/format/TextStyle;", nullptr, $PUBLIC, $method(TextStyle, asStandalone, TextStyle*)},
+		{"isStandalone", "()Z", nullptr, $PUBLIC, $method(TextStyle, isStandalone, bool)},
+		{"toCalendarStyle", "()I", nullptr, 0, $method(TextStyle, toCalendarStyle, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/time/format/TextStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(TextStyle, valueOf, TextStyle*, $String*)},
+		{"values", "()[Ljava/time/format/TextStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(TextStyle, values, $TextStyleArray*)},
+		{"zoneNameStyleIndex", "()I", nullptr, 0, $method(TextStyle, zoneNameStyleIndex, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.time.format.TextStyle",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/time/format/TextStyle;>;"
+	};
+	$loadClass(TextStyle, name, initialize, &classInfo$$, TextStyle::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TextStyle));
+	});
 	return class$;
 }
 

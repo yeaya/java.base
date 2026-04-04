@@ -25,6 +25,7 @@ class $export Basic4Appendable : public ::java::lang::Object {
 	$class(Basic4Appendable, 0, ::java::lang::Object)
 public:
 	Basic4Appendable();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void ck($String* s, $String* exp, $String* got);
 	static void fail($Throwable* ex);

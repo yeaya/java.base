@@ -50,6 +50,7 @@ class $export ClassLoaders : public ::java::lang::Object {
 	$class(ClassLoaders, $PRELOAD, ::java::lang::Object)
 public:
 	ClassLoaders();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::ClassLoader* appClassLoader();
 	static ::jdk::internal::loader::BuiltinClassLoader* bootLoader();

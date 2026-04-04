@@ -1,12 +1,9 @@
 #include <java/net/URI$Parser.h>
-
-#include <java/lang/CharSequence.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
 #include <jcpp.h>
 
-using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -19,68 +16,6 @@ using $URISyntaxException = ::java::net::URISyntaxException;
 
 namespace java {
 	namespace net {
-
-$FieldInfo _URI$Parser_FieldInfo_[] = {
-	{"this$0", "Ljava/net/URI;", nullptr, $FINAL | $SYNTHETIC, $field(URI$Parser, this$0)},
-	{"input", "Ljava/lang/String;", nullptr, $PRIVATE, $field(URI$Parser, input)},
-	{"requireServerAuthority", "Z", nullptr, $PRIVATE, $field(URI$Parser, requireServerAuthority)},
-	{"ipv6byteCount", "I", nullptr, $PRIVATE, $field(URI$Parser, ipv6byteCount)},
-	{}
-};
-
-$MethodInfo _URI$Parser_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URI;Ljava/lang/String;)V", nullptr, 0, $method(URI$Parser, init$, void, $URI*, $String*)},
-	{"at", "(IIC)Z", nullptr, $PRIVATE, $method(URI$Parser, at, bool, int32_t, int32_t, char16_t)},
-	{"at", "(IILjava/lang/String;)Z", nullptr, $PRIVATE, $method(URI$Parser, at, bool, int32_t, int32_t, $String*)},
-	{"checkChar", "(IJJLjava/lang/String;)V", nullptr, $PRIVATE, $method(URI$Parser, checkChar, void, int32_t, int64_t, int64_t, $String*), "java.net.URISyntaxException"},
-	{"checkChars", "(IIJJLjava/lang/String;)V", nullptr, $PRIVATE, $method(URI$Parser, checkChars, void, int32_t, int32_t, int64_t, int64_t, $String*), "java.net.URISyntaxException"},
-	{"fail", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(URI$Parser, fail, void, $String*), "java.net.URISyntaxException"},
-	{"fail", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(URI$Parser, fail, void, $String*, int32_t), "java.net.URISyntaxException"},
-	{"failExpecting", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(URI$Parser, failExpecting, void, $String*, int32_t), "java.net.URISyntaxException"},
-	{"parse", "(Z)V", nullptr, 0, $virtualMethod(URI$Parser, parse, void, bool), "java.net.URISyntaxException"},
-	{"parseAuthority", "(II)I", nullptr, $PRIVATE, $method(URI$Parser, parseAuthority, int32_t, int32_t, int32_t), "java.net.URISyntaxException"},
-	{"parseHierarchical", "(II)I", nullptr, $PRIVATE, $method(URI$Parser, parseHierarchical, int32_t, int32_t, int32_t), "java.net.URISyntaxException"},
-	{"parseHostname", "(II)I", nullptr, $PRIVATE, $method(URI$Parser, parseHostname, int32_t, int32_t, int32_t), "java.net.URISyntaxException"},
-	{"parseIPv4Address", "(II)I", nullptr, $PRIVATE, $method(URI$Parser, parseIPv4Address, int32_t, int32_t, int32_t)},
-	{"parseIPv6Reference", "(II)I", nullptr, $PRIVATE, $method(URI$Parser, parseIPv6Reference, int32_t, int32_t, int32_t), "java.net.URISyntaxException"},
-	{"parseServer", "(II)I", nullptr, $PRIVATE, $method(URI$Parser, parseServer, int32_t, int32_t, int32_t), "java.net.URISyntaxException"},
-	{"scan", "(IIC)I", nullptr, $PRIVATE, $method(URI$Parser, scan, int32_t, int32_t, int32_t, char16_t)},
-	{"scan", "(IILjava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE, $method(URI$Parser, scan, int32_t, int32_t, int32_t, $String*, $String*)},
-	{"scan", "(IILjava/lang/String;)I", nullptr, $PRIVATE, $method(URI$Parser, scan, int32_t, int32_t, int32_t, $String*)},
-	{"scan", "(IIJJ)I", nullptr, $PRIVATE, $method(URI$Parser, scan, int32_t, int32_t, int32_t, int64_t, int64_t), "java.net.URISyntaxException"},
-	{"scanByte", "(II)I", nullptr, $PRIVATE, $method(URI$Parser, scanByte, int32_t, int32_t, int32_t), "java.net.URISyntaxException"},
-	{"scanEscape", "(IIC)I", nullptr, $PRIVATE, $method(URI$Parser, scanEscape, int32_t, int32_t, int32_t, char16_t), "java.net.URISyntaxException"},
-	{"scanHexPost", "(II)I", nullptr, $PRIVATE, $method(URI$Parser, scanHexPost, int32_t, int32_t, int32_t), "java.net.URISyntaxException"},
-	{"scanHexSeq", "(II)I", nullptr, $PRIVATE, $method(URI$Parser, scanHexSeq, int32_t, int32_t, int32_t), "java.net.URISyntaxException"},
-	{"scanIPv4Address", "(IIZ)I", nullptr, $PRIVATE, $method(URI$Parser, scanIPv4Address, int32_t, int32_t, int32_t, bool), "java.net.URISyntaxException"},
-	{"takeIPv4Address", "(IILjava/lang/String;)I", nullptr, $PRIVATE, $method(URI$Parser, takeIPv4Address, int32_t, int32_t, int32_t, $String*), "java.net.URISyntaxException"},
-	{}
-};
-
-$InnerClassInfo _URI$Parser_InnerClassesInfo_[] = {
-	{"java.net.URI$Parser", "java.net.URI", "Parser", $PRIVATE},
-	{}
-};
-
-$ClassInfo _URI$Parser_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.URI$Parser",
-	"java.lang.Object",
-	nullptr,
-	_URI$Parser_FieldInfo_,
-	_URI$Parser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_URI$Parser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.URI"
-};
-
-$Object* allocate$URI$Parser($Class* clazz) {
-	return $of($alloc(URI$Parser));
-}
 
 void URI$Parser::init$($URI* this$0, $String* s) {
 	$set(this, this$0, this$0);
@@ -134,10 +69,10 @@ int32_t URI$Parser::scan(int32_t start, int32_t end, $String* err, $String* stop
 	int32_t p = start;
 	while (p < end) {
 		char16_t c = $nc(this->input)->charAt(p);
-		if ($nc(err)->indexOf((int32_t)c) >= 0) {
+		if ($nc(err)->indexOf(c) >= 0) {
 			return -1;
 		}
-		if ($nc(stop)->indexOf((int32_t)c) >= 0) {
+		if ($nc(stop)->indexOf(c) >= 0) {
 			break;
 		}
 		++p;
@@ -149,7 +84,7 @@ int32_t URI$Parser::scan(int32_t start, int32_t end, $String* stop) {
 	int32_t p = start;
 	while (p < end) {
 		char16_t c = $nc(this->input)->charAt(p);
-		if ($nc(stop)->indexOf((int32_t)c) >= 0) {
+		if ($nc(stop)->indexOf(c) >= 0) {
 			break;
 		}
 		++p;
@@ -161,14 +96,14 @@ int32_t URI$Parser::scanEscape(int32_t start, int32_t n, char16_t first) {
 	int32_t p = start;
 	char16_t c = first;
 	if (c == u'%') {
-		bool var$0 = (p + 3 <= n) && $URI::match($nc(this->input)->charAt(p + 1), 0x03FF000000000000, 0x0000007E0000007E);
-		if (var$0 && $URI::match($nc(this->input)->charAt(p + 2), 0x03FF000000000000, 0x0000007E0000007E)) {
+		bool var$0 = (p + 3 <= n) && $URI::match($nc(this->input)->charAt(p + 1), (int64_t)0x03ff000000000000, (int64_t)0x0000007e0000007e);
+		if (var$0 && $URI::match(this->input->charAt(p + 2), (int64_t)0x03ff000000000000, (int64_t)0x0000007e0000007e)) {
 			return p + 3;
 		}
 		fail("Malformed escape pair"_s, p);
 	} else {
-		bool var$2 = (c > 128) && !$Character::isSpaceChar(c);
-		if (var$2 && !$Character::isISOControl(c)) {
+		bool var$1 = (c > 128) && !$Character::isSpaceChar(c);
+		if (var$1 && !$Character::isISOControl(c)) {
 			return p + 1;
 		}
 	}
@@ -183,7 +118,7 @@ int32_t URI$Parser::scan(int32_t start, int32_t n, int64_t lowMask, int64_t high
 			++p;
 			continue;
 		}
-		if (((int64_t)(lowMask & (uint64_t)(int64_t)1)) != 0) {
+		if ((lowMask & (int64_t)1) != 0) {
 			int32_t q = scanEscape(p, n, c);
 			if (q > p) {
 				p = q;
@@ -214,9 +149,9 @@ void URI$Parser::parse(bool rsa) {
 		if (p == 0) {
 			failExpecting("scheme name"_s, 0);
 		}
-		checkChar(0, 0, 0x07FFFFFE07FFFFFE, "scheme name"_s);
-		checkChars(1, p, 0x03FF680000000000, 0x07FFFFFE07FFFFFE, "scheme name"_s);
-		$set(this->this$0, scheme, $nc(this->input)->substring(0, p));
+		checkChar(0, 0, (int64_t)0x07fffffe07fffffe, "scheme name"_s);
+		checkChars(1, p, (int64_t)0x03ff680000000000, (int64_t)0x07fffffe07fffffe, "scheme name"_s);
+		$set(this->this$0, scheme, this->input->substring(0, p));
 		++p;
 		if (at(p, n, u'/')) {
 			p = parseHierarchical(p, n);
@@ -225,16 +160,16 @@ void URI$Parser::parse(bool rsa) {
 			if (q <= p) {
 				failExpecting("scheme-specific part"_s, p);
 			}
-			checkChars(p, q, 0xAFFFFFD200000001, 0x47FFFFFEAFFFFFFF, "opaque part"_s);
-			$set(this->this$0, schemeSpecificPart, $nc(this->input)->substring(p, q));
+			checkChars(p, q, (int64_t)0xafffffd200000001, (int64_t)0x47fffffeafffffff, "opaque part"_s);
+			$set(this->this$0, schemeSpecificPart, this->input->substring(p, q));
 			p = q;
 		}
 	} else {
 		p = parseHierarchical(0, n);
 	}
 	if (at(p, n, u'#')) {
-		checkChars(p + 1, n, 0xAFFFFFD200000001, 0x47FFFFFEAFFFFFFF, "fragment"_s);
-		$set(this->this$0, fragment, $nc(this->input)->substring(p + 1, n));
+		checkChars(p + 1, n, (int64_t)0xafffffd200000001, (int64_t)0x47fffffeafffffff, "fragment"_s);
+		$set(this->this$0, fragment, this->input->substring(p + 1, n));
 		p = n;
 	}
 	if (p < n) {
@@ -256,14 +191,14 @@ int32_t URI$Parser::parseHierarchical(int32_t start, int32_t n) {
 		}
 	}
 	int32_t q = scan(p, n, "?#"_s);
-	checkChars(p, q, 0x2FFFFFD200000001, 0x47FFFFFE87FFFFFF, "path"_s);
+	checkChars(p, q, (int64_t)0x2fffffd200000001, (int64_t)0x47fffffe87ffffff, "path"_s);
 	$set(this->this$0, path, $nc(this->input)->substring(p, q));
 	p = q;
 	if (at(p, n, u'?')) {
 		++p;
 		q = scan(p, n, "#"_s);
-		checkChars(p, q, 0xAFFFFFD200000001, 0x47FFFFFEAFFFFFFF, "query"_s);
-		$set(this->this$0, query, $nc(this->input)->substring(p, q));
+		checkChars(p, q, (int64_t)0xafffffd200000001, (int64_t)0x47fffffeafffffff, "query"_s);
+		$set(this->this$0, query, this->input->substring(p, q));
 		p = q;
 	}
 	return p;
@@ -276,11 +211,11 @@ int32_t URI$Parser::parseAuthority(int32_t start, int32_t n) {
 	bool serverChars = false;
 	bool regChars = false;
 	if (scan(p, n, "]"_s) > p) {
-		serverChars = (scan(p, n, (int64_t)0x2FFF7FF200000001, (int64_t)0x47FFFFFEAFFFFFFF) == n);
+		serverChars = (scan(p, n, (int64_t)0x2fff7ff200000001, (int64_t)0x47fffffeafffffff) == n);
 	} else {
-		serverChars = (scan(p, n, (int64_t)0x2FFF7FD200000001, (int64_t)0x47FFFFFEAFFFFFFF) == n);
+		serverChars = (scan(p, n, (int64_t)0x2fff7fd200000001, (int64_t)0x47fffffeafffffff) == n);
 	}
-	regChars = (scan(p, n, (int64_t)0x2FFF7FD200000001, (int64_t)0x47FFFFFE87FFFFFF) == n);
+	regChars = (scan(p, n, (int64_t)0x2fff7fd200000001, (int64_t)0x47fffffe87ffffff) == n);
 	if (regChars && !serverChars) {
 		$set(this->this$0, authority, $nc(this->input)->substring(p, n));
 		return n;
@@ -321,7 +256,7 @@ int32_t URI$Parser::parseServer(int32_t start, int32_t n) {
 	int32_t q = 0;
 	q = scan(p, n, "/?#"_s, "@"_s);
 	if ((q >= p) && at(q, n, u'@')) {
-		checkChars(p, q, 0x2FFF7FD200000001, 0x47FFFFFE87FFFFFE, "user info"_s);
+		checkChars(p, q, (int64_t)0x2fff7fd200000001, (int64_t)0x47fffffe87fffffe, "user info"_s);
 		$set(this->this$0, userInfo, $nc(this->input)->substring(p, q));
 		p = q + 1;
 	}
@@ -335,7 +270,7 @@ int32_t URI$Parser::parseServer(int32_t start, int32_t n) {
 				if (r + 1 == q) {
 					fail("scope id expected"_s);
 				}
-				checkChars(r + 1, q, 0x03FF400000000000, 0x07FFFFFE87FFFFFE, "scope id"_s);
+				checkChars(r + 1, q, (int64_t)0x03ff400000000000, (int64_t)0x07fffffe87fffffe, "scope id"_s);
 			} else {
 				parseIPv6Reference(p, q);
 			}
@@ -355,7 +290,7 @@ int32_t URI$Parser::parseServer(int32_t start, int32_t n) {
 		++p;
 		q = scan(p, n, "/"_s);
 		if (q > p) {
-			checkChars(p, q, 0x03FF000000000000, 0, "port number"_s);
+			checkChars(p, q, (int64_t)0x03ff000000000000, 0, "port number"_s);
 			try {
 				this->this$0->port = $Integer::parseInt(this->input, p, q, 10);
 			} catch ($NumberFormatException& x) {
@@ -372,7 +307,7 @@ int32_t URI$Parser::parseServer(int32_t start, int32_t n) {
 
 int32_t URI$Parser::scanByte(int32_t start, int32_t n) {
 	int32_t p = start;
-	int32_t q = scan(p, n, (int64_t)0x03FF000000000000, (int64_t)0);
+	int32_t q = scan(p, n, (int64_t)0x03ff000000000000, 0);
 	if (q <= p) {
 		return q;
 	}
@@ -385,7 +320,7 @@ int32_t URI$Parser::scanByte(int32_t start, int32_t n) {
 int32_t URI$Parser::scanIPv4Address(int32_t start, int32_t n, bool strict) {
 	int32_t p = start;
 	int32_t q = 0;
-	int32_t m = scan(p, n, (int64_t)0x03FF000000000000 | (int64_t)0x0000400000000000, (int64_t)0 | (int64_t)0);
+	int32_t m = scan(p, n, (int64_t)0x03ff000000000000 | (int64_t)0x0000400000000000, (int64_t)0 | (int64_t)0);
 	if ((m <= p) || (strict && (m != n))) {
 		return -1;
 	}
@@ -460,14 +395,14 @@ int32_t URI$Parser::parseHostname(int32_t start, int32_t n) {
 	int32_t q = 0;
 	int32_t l = -1;
 	do {
-		q = scan(p, n, (int64_t)0x03FF000000000000, (int64_t)0x07FFFFFE07FFFFFE);
+		q = scan(p, n, (int64_t)0x03ff000000000000, (int64_t)0x07fffffe07fffffe);
 		if (q <= p) {
 			break;
 		}
 		l = p;
 		if (q > p) {
 			p = q;
-			q = scan(p, n, (int64_t)0x03FF000000000000 | (int64_t)0x0000200000000000, (int64_t)0x07FFFFFE07FFFFFE | (int64_t)0);
+			q = scan(p, n, (int64_t)0x03ff000000000000 | (int64_t)0x0000200000000000, (int64_t)0x07fffffe07fffffe | (int64_t)0);
 			if (q > p) {
 				if ($nc(this->input)->charAt(q - 1) == u'-') {
 					fail("Illegal character in hostname"_s, q - 1);
@@ -487,7 +422,7 @@ int32_t URI$Parser::parseHostname(int32_t start, int32_t n) {
 	if (l < 0) {
 		failExpecting("hostname"_s, start);
 	}
-	if (l > start && !$URI::match($nc(this->input)->charAt(l), 0, 0x07FFFFFE07FFFFFE)) {
+	if (l > start && !$URI::match($nc(this->input)->charAt(l), 0, (int64_t)0x07fffffe07fffffe)) {
 		fail("Illegal character in hostname"_s, l);
 	}
 	$set(this->this$0, host, $nc(this->input)->substring(start, p));
@@ -551,7 +486,7 @@ int32_t URI$Parser::scanHexPost(int32_t start, int32_t n) {
 int32_t URI$Parser::scanHexSeq(int32_t start, int32_t n) {
 	int32_t p = start;
 	int32_t q = 0;
-	q = scan(p, n, (int64_t)0x03FF000000000000, (int64_t)0x0000007E0000007E);
+	q = scan(p, n, (int64_t)0x03ff000000000000, (int64_t)0x0000007e0000007e);
 	if (q <= p) {
 		return -1;
 	}
@@ -571,7 +506,7 @@ int32_t URI$Parser::scanHexSeq(int32_t start, int32_t n) {
 			break;
 		}
 		++p;
-		q = scan(p, n, (int64_t)0x03FF000000000000, (int64_t)0x0000007E0000007E);
+		q = scan(p, n, (int64_t)0x03ff000000000000, (int64_t)0x0000007e0000007e);
 		if (q <= p) {
 			failExpecting("digits for an IPv6 address"_s, p);
 		}
@@ -592,7 +527,63 @@ URI$Parser::URI$Parser() {
 }
 
 $Class* URI$Parser::load$($String* name, bool initialize) {
-	$loadClass(URI$Parser, name, initialize, &_URI$Parser_ClassInfo_, allocate$URI$Parser);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/net/URI;", nullptr, $FINAL | $SYNTHETIC, $field(URI$Parser, this$0)},
+		{"input", "Ljava/lang/String;", nullptr, $PRIVATE, $field(URI$Parser, input)},
+		{"requireServerAuthority", "Z", nullptr, $PRIVATE, $field(URI$Parser, requireServerAuthority)},
+		{"ipv6byteCount", "I", nullptr, $PRIVATE, $field(URI$Parser, ipv6byteCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/URI;Ljava/lang/String;)V", nullptr, 0, $method(URI$Parser, init$, void, $URI*, $String*)},
+		{"at", "(IIC)Z", nullptr, $PRIVATE, $method(URI$Parser, at, bool, int32_t, int32_t, char16_t)},
+		{"at", "(IILjava/lang/String;)Z", nullptr, $PRIVATE, $method(URI$Parser, at, bool, int32_t, int32_t, $String*)},
+		{"checkChar", "(IJJLjava/lang/String;)V", nullptr, $PRIVATE, $method(URI$Parser, checkChar, void, int32_t, int64_t, int64_t, $String*), "java.net.URISyntaxException"},
+		{"checkChars", "(IIJJLjava/lang/String;)V", nullptr, $PRIVATE, $method(URI$Parser, checkChars, void, int32_t, int32_t, int64_t, int64_t, $String*), "java.net.URISyntaxException"},
+		{"fail", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(URI$Parser, fail, void, $String*), "java.net.URISyntaxException"},
+		{"fail", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(URI$Parser, fail, void, $String*, int32_t), "java.net.URISyntaxException"},
+		{"failExpecting", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(URI$Parser, failExpecting, void, $String*, int32_t), "java.net.URISyntaxException"},
+		{"parse", "(Z)V", nullptr, 0, $virtualMethod(URI$Parser, parse, void, bool), "java.net.URISyntaxException"},
+		{"parseAuthority", "(II)I", nullptr, $PRIVATE, $method(URI$Parser, parseAuthority, int32_t, int32_t, int32_t), "java.net.URISyntaxException"},
+		{"parseHierarchical", "(II)I", nullptr, $PRIVATE, $method(URI$Parser, parseHierarchical, int32_t, int32_t, int32_t), "java.net.URISyntaxException"},
+		{"parseHostname", "(II)I", nullptr, $PRIVATE, $method(URI$Parser, parseHostname, int32_t, int32_t, int32_t), "java.net.URISyntaxException"},
+		{"parseIPv4Address", "(II)I", nullptr, $PRIVATE, $method(URI$Parser, parseIPv4Address, int32_t, int32_t, int32_t)},
+		{"parseIPv6Reference", "(II)I", nullptr, $PRIVATE, $method(URI$Parser, parseIPv6Reference, int32_t, int32_t, int32_t), "java.net.URISyntaxException"},
+		{"parseServer", "(II)I", nullptr, $PRIVATE, $method(URI$Parser, parseServer, int32_t, int32_t, int32_t), "java.net.URISyntaxException"},
+		{"scan", "(IIC)I", nullptr, $PRIVATE, $method(URI$Parser, scan, int32_t, int32_t, int32_t, char16_t)},
+		{"scan", "(IILjava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE, $method(URI$Parser, scan, int32_t, int32_t, int32_t, $String*, $String*)},
+		{"scan", "(IILjava/lang/String;)I", nullptr, $PRIVATE, $method(URI$Parser, scan, int32_t, int32_t, int32_t, $String*)},
+		{"scan", "(IIJJ)I", nullptr, $PRIVATE, $method(URI$Parser, scan, int32_t, int32_t, int32_t, int64_t, int64_t), "java.net.URISyntaxException"},
+		{"scanByte", "(II)I", nullptr, $PRIVATE, $method(URI$Parser, scanByte, int32_t, int32_t, int32_t), "java.net.URISyntaxException"},
+		{"scanEscape", "(IIC)I", nullptr, $PRIVATE, $method(URI$Parser, scanEscape, int32_t, int32_t, int32_t, char16_t), "java.net.URISyntaxException"},
+		{"scanHexPost", "(II)I", nullptr, $PRIVATE, $method(URI$Parser, scanHexPost, int32_t, int32_t, int32_t), "java.net.URISyntaxException"},
+		{"scanHexSeq", "(II)I", nullptr, $PRIVATE, $method(URI$Parser, scanHexSeq, int32_t, int32_t, int32_t), "java.net.URISyntaxException"},
+		{"scanIPv4Address", "(IIZ)I", nullptr, $PRIVATE, $method(URI$Parser, scanIPv4Address, int32_t, int32_t, int32_t, bool), "java.net.URISyntaxException"},
+		{"takeIPv4Address", "(IILjava/lang/String;)I", nullptr, $PRIVATE, $method(URI$Parser, takeIPv4Address, int32_t, int32_t, int32_t, $String*), "java.net.URISyntaxException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.URI$Parser", "java.net.URI", "Parser", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.URI$Parser",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.URI"
+	};
+	$loadClass(URI$Parser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(URI$Parser);
+	});
 	return class$;
 }
 

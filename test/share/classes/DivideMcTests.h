@@ -9,6 +9,7 @@ class $export DivideMcTests : public ::java::lang::Object {
 	$class(DivideMcTests, 0, ::java::lang::Object)
 public:
 	DivideMcTests();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void initResults1();
 	static void initResults2();

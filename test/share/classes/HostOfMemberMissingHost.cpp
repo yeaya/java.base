@@ -1,39 +1,9 @@
 #include <HostOfMemberMissingHost.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _HostOfMemberMissingHost_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HostOfMemberMissingHost, init$, void)},
-	{}
-};
-
-$InnerClassInfo _HostOfMemberMissingHost_InnerClassesInfo_[] = {
-	{"HostOfMemberMissingHost$MemberMissingHost", "HostOfMemberMissingHost", "MemberMissingHost", $STATIC},
-	{}
-};
-
-$ClassInfo _HostOfMemberMissingHost_ClassInfo_ = {
-	$ACC_SUPER,
-	"HostOfMemberMissingHost",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HostOfMemberMissingHost_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HostOfMemberMissingHost_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HostOfMemberMissingHost$MemberMissingHost"
-};
-
-$Object* allocate$HostOfMemberMissingHost($Class* clazz) {
-	return $of($alloc(HostOfMemberMissingHost));
-}
 
 void HostOfMemberMissingHost::init$() {
 }
@@ -42,7 +12,31 @@ HostOfMemberMissingHost::HostOfMemberMissingHost() {
 }
 
 $Class* HostOfMemberMissingHost::load$($String* name, bool initialize) {
-	$loadClass(HostOfMemberMissingHost, name, initialize, &_HostOfMemberMissingHost_ClassInfo_, allocate$HostOfMemberMissingHost);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HostOfMemberMissingHost, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HostOfMemberMissingHost$MemberMissingHost", "HostOfMemberMissingHost", "MemberMissingHost", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HostOfMemberMissingHost",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HostOfMemberMissingHost$MemberMissingHost"
+	};
+	$loadClass(HostOfMemberMissingHost, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HostOfMemberMissingHost);
+	});
 	return class$;
 }
 

@@ -1,11 +1,9 @@
 #include <sun/reflect/generics/reflectiveObjects/LazyReflectiveObjectGenerator.h>
-
 #include <java/lang/reflect/Type.h>
 #include <sun/reflect/generics/factory/GenericsFactory.h>
 #include <sun/reflect/generics/tree/FieldTypeSignature.h>
 #include <sun/reflect/generics/tree/TypeTree.h>
 #include <sun/reflect/generics/visitor/Reifier.h>
-#include <sun/reflect/generics/visitor/TypeTreeVisitor.h>
 #include <jcpp.h>
 
 using $TypeArray = $Array<::java::lang::reflect::Type>;
@@ -15,40 +13,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Type = ::java::lang::reflect::Type;
 using $GenericsFactory = ::sun::reflect::generics::factory::GenericsFactory;
-using $FieldTypeSignature = ::sun::reflect::generics::tree::FieldTypeSignature;
 using $Reifier = ::sun::reflect::generics::visitor::Reifier;
-using $TypeTreeVisitor = ::sun::reflect::generics::visitor::TypeTreeVisitor;
 
 namespace sun {
 	namespace reflect {
 		namespace generics {
 			namespace reflectiveObjects {
-
-$FieldInfo _LazyReflectiveObjectGenerator_FieldInfo_[] = {
-	{"factory", "Lsun/reflect/generics/factory/GenericsFactory;", nullptr, $PRIVATE | $FINAL, $field(LazyReflectiveObjectGenerator, factory)},
-	{}
-};
-
-$MethodInfo _LazyReflectiveObjectGenerator_MethodInfo_[] = {
-	{"<init>", "(Lsun/reflect/generics/factory/GenericsFactory;)V", nullptr, $PROTECTED, $method(LazyReflectiveObjectGenerator, init$, void, $GenericsFactory*)},
-	{"getFactory", "()Lsun/reflect/generics/factory/GenericsFactory;", nullptr, $PRIVATE, $method(LazyReflectiveObjectGenerator, getFactory, $GenericsFactory*)},
-	{"getReifier", "()Lsun/reflect/generics/visitor/Reifier;", nullptr, $PROTECTED, $virtualMethod(LazyReflectiveObjectGenerator, getReifier, $Reifier*)},
-	{"reifyBounds", "([Lsun/reflect/generics/tree/FieldTypeSignature;)[Ljava/lang/reflect/Type;", nullptr, 0, $virtualMethod(LazyReflectiveObjectGenerator, reifyBounds, $TypeArray*, $FieldTypeSignatureArray*)},
-	{}
-};
-
-$ClassInfo _LazyReflectiveObjectGenerator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.reflect.generics.reflectiveObjects.LazyReflectiveObjectGenerator",
-	"java.lang.Object",
-	nullptr,
-	_LazyReflectiveObjectGenerator_FieldInfo_,
-	_LazyReflectiveObjectGenerator_MethodInfo_
-};
-
-$Object* allocate$LazyReflectiveObjectGenerator($Class* clazz) {
-	return $of($alloc(LazyReflectiveObjectGenerator));
-}
 
 void LazyReflectiveObjectGenerator::init$($GenericsFactory* f) {
 	$set(this, factory, f);
@@ -63,13 +33,13 @@ $Reifier* LazyReflectiveObjectGenerator::getReifier() {
 }
 
 $TypeArray* LazyReflectiveObjectGenerator::reifyBounds($FieldTypeSignatureArray* boundASTs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = $nc(boundASTs)->length;
 	$var($TypeArray, bounds, $new($TypeArray, length));
 	for (int32_t i = 0; i < length; ++i) {
 		$var($Reifier, r, getReifier());
 		$nc(boundASTs->get(i))->accept(r);
-		bounds->set(i, $($cast($Type, $nc(r)->getResult())));
+		bounds->set(i, $$cast($Type, $nc(r)->getResult()));
 	}
 	return bounds;
 }
@@ -78,7 +48,28 @@ LazyReflectiveObjectGenerator::LazyReflectiveObjectGenerator() {
 }
 
 $Class* LazyReflectiveObjectGenerator::load$($String* name, bool initialize) {
-	$loadClass(LazyReflectiveObjectGenerator, name, initialize, &_LazyReflectiveObjectGenerator_ClassInfo_, allocate$LazyReflectiveObjectGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"factory", "Lsun/reflect/generics/factory/GenericsFactory;", nullptr, $PRIVATE | $FINAL, $field(LazyReflectiveObjectGenerator, factory)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/reflect/generics/factory/GenericsFactory;)V", nullptr, $PROTECTED, $method(LazyReflectiveObjectGenerator, init$, void, $GenericsFactory*)},
+		{"getFactory", "()Lsun/reflect/generics/factory/GenericsFactory;", nullptr, $PRIVATE, $method(LazyReflectiveObjectGenerator, getFactory, $GenericsFactory*)},
+		{"getReifier", "()Lsun/reflect/generics/visitor/Reifier;", nullptr, $PROTECTED, $virtualMethod(LazyReflectiveObjectGenerator, getReifier, $Reifier*)},
+		{"reifyBounds", "([Lsun/reflect/generics/tree/FieldTypeSignature;)[Ljava/lang/reflect/Type;", nullptr, 0, $virtualMethod(LazyReflectiveObjectGenerator, reifyBounds, $TypeArray*, $FieldTypeSignatureArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.reflect.generics.reflectiveObjects.LazyReflectiveObjectGenerator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LazyReflectiveObjectGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LazyReflectiveObjectGenerator);
+	});
 	return class$;
 }
 

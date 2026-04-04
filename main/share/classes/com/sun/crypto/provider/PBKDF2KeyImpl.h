@@ -42,7 +42,7 @@ public:
 	virtual int32_t hashCode() override;
 	static void lambda$new$0($bytes* k, $chars* p);
 	$Object* writeReplace();
-	static const int64_t serialVersionUID = (int64_t)0xE0FC269148183943;
+	static const int64_t serialVersionUID = (int64_t)0xe0fc269148183943;
 	$chars* passwd = nullptr;
 	$bytes* salt = nullptr;
 	int32_t iterCount = 0;

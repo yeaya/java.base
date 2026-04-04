@@ -76,6 +76,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, ::util::MemberFactory$Kind* kind, $String* name, $ClassArray* parameterTypes);
 	virtual ::java::lang::reflect::AccessibleObject* apply($Class* declaringClass);
 	virtual $Object* apply(Object$* declaringClass) override;

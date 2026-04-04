@@ -15,7 +15,7 @@ public:
 	AuthPermission();
 	void init$($String* name);
 	void init$($String* name, $String* actions);
-	static const int64_t serialVersionUID = (int64_t)0x50932AD66DA4D0E6;
+	static const int64_t serialVersionUID = (int64_t)0x50932ad66da4d0e6;
 };
 
 		} // auth

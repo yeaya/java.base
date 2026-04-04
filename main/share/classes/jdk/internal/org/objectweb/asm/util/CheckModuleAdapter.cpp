@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/util/CheckModuleAdapter.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <jdk/internal/org/objectweb/asm/ModuleVisitor.h>
@@ -35,57 +34,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace util {
 
-$FieldInfo _CheckModuleAdapter_FieldInfo_[] = {
-	{"isOpen", "Z", nullptr, $PRIVATE | $FINAL, $field(CheckModuleAdapter, isOpen)},
-	{"requiredModules", "Ljdk/internal/org/objectweb/asm/util/CheckModuleAdapter$NameSet;", nullptr, $PRIVATE | $FINAL, $field(CheckModuleAdapter, requiredModules)},
-	{"exportedPackages", "Ljdk/internal/org/objectweb/asm/util/CheckModuleAdapter$NameSet;", nullptr, $PRIVATE | $FINAL, $field(CheckModuleAdapter, exportedPackages)},
-	{"openedPackages", "Ljdk/internal/org/objectweb/asm/util/CheckModuleAdapter$NameSet;", nullptr, $PRIVATE | $FINAL, $field(CheckModuleAdapter, openedPackages)},
-	{"usedServices", "Ljdk/internal/org/objectweb/asm/util/CheckModuleAdapter$NameSet;", nullptr, $PRIVATE | $FINAL, $field(CheckModuleAdapter, usedServices)},
-	{"providedServices", "Ljdk/internal/org/objectweb/asm/util/CheckModuleAdapter$NameSet;", nullptr, $PRIVATE | $FINAL, $field(CheckModuleAdapter, providedServices)},
-	{"classVersion", "I", nullptr, 0, $field(CheckModuleAdapter, classVersion)},
-	{"visitEndCalled", "Z", nullptr, $PRIVATE, $field(CheckModuleAdapter, visitEndCalled)},
-	{}
-};
-
-$MethodInfo _CheckModuleAdapter_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;Z)V", nullptr, $PUBLIC, $method(CheckModuleAdapter, init$, void, $ModuleVisitor*, bool)},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/ModuleVisitor;Z)V", nullptr, $PROTECTED, $method(CheckModuleAdapter, init$, void, int32_t, $ModuleVisitor*, bool)},
-	{"checkVisitEndNotCalled", "()V", nullptr, $PRIVATE, $method(CheckModuleAdapter, checkVisitEndNotCalled, void)},
-	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(CheckModuleAdapter, visitEnd, void)},
-	{"visitExport", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(CheckModuleAdapter, visitExport, void, $String*, int32_t, $StringArray*)},
-	{"visitMainClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckModuleAdapter, visitMainClass, void, $String*)},
-	{"visitOpen", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(CheckModuleAdapter, visitOpen, void, $String*, int32_t, $StringArray*)},
-	{"visitPackage", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckModuleAdapter, visitPackage, void, $String*)},
-	{"visitProvide", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(CheckModuleAdapter, visitProvide, void, $String*, $StringArray*)},
-	{"visitRequire", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckModuleAdapter, visitRequire, void, $String*, int32_t, $String*)},
-	{"visitUse", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckModuleAdapter, visitUse, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _CheckModuleAdapter_InnerClassesInfo_[] = {
-	{"jdk.internal.org.objectweb.asm.util.CheckModuleAdapter$NameSet", "jdk.internal.org.objectweb.asm.util.CheckModuleAdapter", "NameSet", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _CheckModuleAdapter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.util.CheckModuleAdapter",
-	"jdk.internal.org.objectweb.asm.ModuleVisitor",
-	nullptr,
-	_CheckModuleAdapter_FieldInfo_,
-	_CheckModuleAdapter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CheckModuleAdapter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.org.objectweb.asm.util.CheckModuleAdapter$NameSet"
-};
-
-$Object* allocate$CheckModuleAdapter($Class* clazz) {
-	return $of($alloc(CheckModuleAdapter));
-}
-
 void CheckModuleAdapter::init$($ModuleVisitor* moduleVisitor, bool isOpen) {
 	CheckModuleAdapter::init$($Opcodes::ASM8, moduleVisitor, isOpen);
 	if ($of(this)->getClass() != CheckModuleAdapter::class$) {
@@ -114,33 +62,29 @@ void CheckModuleAdapter::visitPackage($String* packaze) {
 }
 
 void CheckModuleAdapter::visitRequire($String* module, int32_t access, $String* version) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkVisitEndNotCalled();
 	$CheckClassAdapter::checkFullyQualifiedName($Opcodes::V9, module, "required module"_s);
 	$nc(this->requiredModules)->checkNameNotAlreadyDeclared(module);
 	$CheckClassAdapter::checkAccess(access, (($Opcodes::ACC_STATIC_PHASE | $Opcodes::ACC_TRANSITIVE) | $Opcodes::ACC_SYNTHETIC) | $Opcodes::ACC_MANDATED);
-	if (this->classVersion >= $Opcodes::V10 && $nc(module)->equals("java.base"_s) && ((int32_t)(access & (uint32_t)($Opcodes::ACC_STATIC_PHASE | $Opcodes::ACC_TRANSITIVE))) != 0) {
+	if (this->classVersion >= $Opcodes::V10 && $nc(module)->equals("java.base"_s) && (access & ($Opcodes::ACC_STATIC_PHASE | $Opcodes::ACC_TRANSITIVE)) != 0) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid access flags: "_s, $$str(access), " java.base can not be declared ACC_TRANSITIVE or ACC_STATIC_PHASE"_s}));
 	}
 	$ModuleVisitor::visitRequire(module, access, version);
 }
 
 void CheckModuleAdapter::visitExport($String* packaze, int32_t access, $StringArray* modules) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkVisitEndNotCalled();
 	$CheckMethodAdapter::checkInternalName($Opcodes::V9, packaze, "package name"_s);
 	$nc(this->exportedPackages)->checkNameNotAlreadyDeclared(packaze);
 	$CheckClassAdapter::checkAccess(access, $Opcodes::ACC_SYNTHETIC | $Opcodes::ACC_MANDATED);
 	if (modules != nullptr) {
-		{
-			$var($StringArray, arr$, modules);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($String, module, arr$->get(i$));
-				{
-					$CheckClassAdapter::checkFullyQualifiedName($Opcodes::V9, module, "module export to"_s);
-				}
+		$var($StringArray, arr$, modules);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($String, module, arr$->get(i$));
+			{
+				$CheckClassAdapter::checkFullyQualifiedName($Opcodes::V9, module, "module export to"_s);
 			}
 		}
 	}
@@ -148,7 +92,7 @@ void CheckModuleAdapter::visitExport($String* packaze, int32_t access, $StringAr
 }
 
 void CheckModuleAdapter::visitOpen($String* packaze, int32_t access, $StringArray* modules) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkVisitEndNotCalled();
 	if (this->isOpen) {
 		$throwNew($UnsupportedOperationException, "An open module can not use open directive"_s);
@@ -157,15 +101,11 @@ void CheckModuleAdapter::visitOpen($String* packaze, int32_t access, $StringArra
 	$nc(this->openedPackages)->checkNameNotAlreadyDeclared(packaze);
 	$CheckClassAdapter::checkAccess(access, $Opcodes::ACC_SYNTHETIC | $Opcodes::ACC_MANDATED);
 	if (modules != nullptr) {
-		{
-			$var($StringArray, arr$, modules);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($String, module, arr$->get(i$));
-				{
-					$CheckClassAdapter::checkFullyQualifiedName($Opcodes::V9, module, "module open to"_s);
-				}
+		$var($StringArray, arr$, modules);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($String, module, arr$->get(i$));
+			{
+				$CheckClassAdapter::checkFullyQualifiedName($Opcodes::V9, module, "module open to"_s);
 			}
 		}
 	}
@@ -180,18 +120,16 @@ void CheckModuleAdapter::visitUse($String* service) {
 }
 
 void CheckModuleAdapter::visitProvide($String* service, $StringArray* providers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkVisitEndNotCalled();
 	$CheckMethodAdapter::checkInternalName($Opcodes::V9, service, "service"_s);
 	$nc(this->providedServices)->checkNameNotAlreadyDeclared(service);
-	if (providers == nullptr || $nc(providers)->length == 0) {
+	if (providers == nullptr || providers->length == 0) {
 		$throwNew($IllegalArgumentException, "Providers cannot be null or empty"_s);
 	}
 	{
 		$var($StringArray, arr$, providers);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, provider, arr$->get(i$));
 			{
 				$CheckMethodAdapter::checkInternalName($Opcodes::V9, provider, "provider"_s);
@@ -217,7 +155,52 @@ CheckModuleAdapter::CheckModuleAdapter() {
 }
 
 $Class* CheckModuleAdapter::load$($String* name, bool initialize) {
-	$loadClass(CheckModuleAdapter, name, initialize, &_CheckModuleAdapter_ClassInfo_, allocate$CheckModuleAdapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"isOpen", "Z", nullptr, $PRIVATE | $FINAL, $field(CheckModuleAdapter, isOpen)},
+		{"requiredModules", "Ljdk/internal/org/objectweb/asm/util/CheckModuleAdapter$NameSet;", nullptr, $PRIVATE | $FINAL, $field(CheckModuleAdapter, requiredModules)},
+		{"exportedPackages", "Ljdk/internal/org/objectweb/asm/util/CheckModuleAdapter$NameSet;", nullptr, $PRIVATE | $FINAL, $field(CheckModuleAdapter, exportedPackages)},
+		{"openedPackages", "Ljdk/internal/org/objectweb/asm/util/CheckModuleAdapter$NameSet;", nullptr, $PRIVATE | $FINAL, $field(CheckModuleAdapter, openedPackages)},
+		{"usedServices", "Ljdk/internal/org/objectweb/asm/util/CheckModuleAdapter$NameSet;", nullptr, $PRIVATE | $FINAL, $field(CheckModuleAdapter, usedServices)},
+		{"providedServices", "Ljdk/internal/org/objectweb/asm/util/CheckModuleAdapter$NameSet;", nullptr, $PRIVATE | $FINAL, $field(CheckModuleAdapter, providedServices)},
+		{"classVersion", "I", nullptr, 0, $field(CheckModuleAdapter, classVersion)},
+		{"visitEndCalled", "Z", nullptr, $PRIVATE, $field(CheckModuleAdapter, visitEndCalled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;Z)V", nullptr, $PUBLIC, $method(CheckModuleAdapter, init$, void, $ModuleVisitor*, bool)},
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/ModuleVisitor;Z)V", nullptr, $PROTECTED, $method(CheckModuleAdapter, init$, void, int32_t, $ModuleVisitor*, bool)},
+		{"checkVisitEndNotCalled", "()V", nullptr, $PRIVATE, $method(CheckModuleAdapter, checkVisitEndNotCalled, void)},
+		{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(CheckModuleAdapter, visitEnd, void)},
+		{"visitExport", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(CheckModuleAdapter, visitExport, void, $String*, int32_t, $StringArray*)},
+		{"visitMainClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckModuleAdapter, visitMainClass, void, $String*)},
+		{"visitOpen", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(CheckModuleAdapter, visitOpen, void, $String*, int32_t, $StringArray*)},
+		{"visitPackage", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckModuleAdapter, visitPackage, void, $String*)},
+		{"visitProvide", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(CheckModuleAdapter, visitProvide, void, $String*, $StringArray*)},
+		{"visitRequire", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckModuleAdapter, visitRequire, void, $String*, int32_t, $String*)},
+		{"visitUse", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckModuleAdapter, visitUse, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.org.objectweb.asm.util.CheckModuleAdapter$NameSet", "jdk.internal.org.objectweb.asm.util.CheckModuleAdapter", "NameSet", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.util.CheckModuleAdapter",
+		"jdk.internal.org.objectweb.asm.ModuleVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.org.objectweb.asm.util.CheckModuleAdapter$NameSet"
+	};
+	$loadClass(CheckModuleAdapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CheckModuleAdapter);
+	});
 	return class$;
 }
 

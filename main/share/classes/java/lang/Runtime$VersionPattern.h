@@ -43,6 +43,7 @@ class Runtime$VersionPattern : public ::java::lang::Object {
 	$class(Runtime$VersionPattern, 0, ::java::lang::Object)
 public:
 	Runtime$VersionPattern();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* VNUM;
 	static $String* PRE;

@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/util/TraceModuleVisitor.h>
-
 #include <jdk/internal/org/objectweb/asm/ModuleVisitor.h>
 #include <jdk/internal/org/objectweb/asm/Opcodes.h>
 #include <jdk/internal/org/objectweb/asm/util/Printer.h>
@@ -20,38 +19,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 					namespace util {
-
-$FieldInfo _TraceModuleVisitor_FieldInfo_[] = {
-	{"p", "Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC | $FINAL, $field(TraceModuleVisitor, p)},
-	{}
-};
-
-$MethodInfo _TraceModuleVisitor_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/util/Printer;)V", nullptr, $PUBLIC, $method(TraceModuleVisitor, init$, void, $Printer*)},
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;Ljdk/internal/org/objectweb/asm/util/Printer;)V", nullptr, $PUBLIC, $method(TraceModuleVisitor, init$, void, $ModuleVisitor*, $Printer*)},
-	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(TraceModuleVisitor, visitEnd, void)},
-	{"visitExport", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(TraceModuleVisitor, visitExport, void, $String*, int32_t, $StringArray*)},
-	{"visitMainClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TraceModuleVisitor, visitMainClass, void, $String*)},
-	{"visitOpen", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(TraceModuleVisitor, visitOpen, void, $String*, int32_t, $StringArray*)},
-	{"visitPackage", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TraceModuleVisitor, visitPackage, void, $String*)},
-	{"visitProvide", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(TraceModuleVisitor, visitProvide, void, $String*, $StringArray*)},
-	{"visitRequire", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TraceModuleVisitor, visitRequire, void, $String*, int32_t, $String*)},
-	{"visitUse", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TraceModuleVisitor, visitUse, void, $String*)},
-	{}
-};
-
-$ClassInfo _TraceModuleVisitor_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.util.TraceModuleVisitor",
-	"jdk.internal.org.objectweb.asm.ModuleVisitor",
-	nullptr,
-	_TraceModuleVisitor_FieldInfo_,
-	_TraceModuleVisitor_MethodInfo_
-};
-
-$Object* allocate$TraceModuleVisitor($Class* clazz) {
-	return $of($alloc(TraceModuleVisitor));
-}
 
 void TraceModuleVisitor::init$($Printer* printer) {
 	TraceModuleVisitor::init$(nullptr, printer);
@@ -106,7 +73,34 @@ TraceModuleVisitor::TraceModuleVisitor() {
 }
 
 $Class* TraceModuleVisitor::load$($String* name, bool initialize) {
-	$loadClass(TraceModuleVisitor, name, initialize, &_TraceModuleVisitor_ClassInfo_, allocate$TraceModuleVisitor);
+	$FieldInfo fieldInfos$$[] = {
+		{"p", "Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC | $FINAL, $field(TraceModuleVisitor, p)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/util/Printer;)V", nullptr, $PUBLIC, $method(TraceModuleVisitor, init$, void, $Printer*)},
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;Ljdk/internal/org/objectweb/asm/util/Printer;)V", nullptr, $PUBLIC, $method(TraceModuleVisitor, init$, void, $ModuleVisitor*, $Printer*)},
+		{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(TraceModuleVisitor, visitEnd, void)},
+		{"visitExport", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(TraceModuleVisitor, visitExport, void, $String*, int32_t, $StringArray*)},
+		{"visitMainClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TraceModuleVisitor, visitMainClass, void, $String*)},
+		{"visitOpen", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(TraceModuleVisitor, visitOpen, void, $String*, int32_t, $StringArray*)},
+		{"visitPackage", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TraceModuleVisitor, visitPackage, void, $String*)},
+		{"visitProvide", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(TraceModuleVisitor, visitProvide, void, $String*, $StringArray*)},
+		{"visitRequire", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TraceModuleVisitor, visitRequire, void, $String*, int32_t, $String*)},
+		{"visitUse", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TraceModuleVisitor, visitUse, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.util.TraceModuleVisitor",
+		"jdk.internal.org.objectweb.asm.ModuleVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TraceModuleVisitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TraceModuleVisitor);
+	});
 	return class$;
 }
 

@@ -50,6 +50,7 @@ class $export Mac : public ::java::lang::Cloneable {
 	$class(Mac, 0, ::java::lang::Cloneable)
 public:
 	Mac();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::crypto::MacSpi* macSpi, ::java::security::Provider* provider, $String* algorithm);
 	void init$(::java::security::Provider$Service* s, ::java::util::Iterator* t, $String* algorithm);
 	virtual void chooseFirstProvider();

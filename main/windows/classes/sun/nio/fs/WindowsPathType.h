@@ -26,6 +26,7 @@ class WindowsPathType : public ::java::lang::Enum {
 public:
 	WindowsPathType();
 	static $Array<::sun::nio::fs::WindowsPathType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::nio::fs::WindowsPathType* valueOf($String* name);
 	static $Array<::sun::nio::fs::WindowsPathType>* values();

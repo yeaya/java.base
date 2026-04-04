@@ -1,5 +1,4 @@
 #include <java/time/LocalDate.h>
-
 #include <java/io/DataInput.h>
 #include <java/io/DataOutput.h>
 #include <java/io/InvalidObjectException.h>
@@ -150,27 +149,24 @@ public:
 	virtual $Object* queryFrom($TemporalAccessor* temporal) override {
 		 return $of(LocalDate::from(temporal));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LocalDate$$Lambda$from>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo LocalDate$$Lambda$from::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocalDate$$Lambda$from, init$, void)},
-	{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LocalDate$$Lambda$from, queryFrom, $Object*, $TemporalAccessor*)},
-	{}
-};
-$ClassInfo LocalDate$$Lambda$from::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.time.LocalDate$$Lambda$from",
-	"java.lang.Object",
-	"java.time.temporal.TemporalQuery",
-	nullptr,
-	methodInfos
 };
 $Class* LocalDate$$Lambda$from::load$($String* name, bool initialize) {
-	$loadClass(LocalDate$$Lambda$from, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocalDate$$Lambda$from, init$, void)},
+		{"queryFrom", "(Ljava/time/temporal/TemporalAccessor;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LocalDate$$Lambda$from, queryFrom, $Object*, $TemporalAccessor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.time.LocalDate$$Lambda$from",
+		"java.lang.Object",
+		"java.time.temporal.TemporalQuery",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocalDate$$Lambda$from, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocalDate$$Lambda$from);
+	});
 	return class$;
 }
 $Class* LocalDate$$Lambda$from::class$ = nullptr;
@@ -183,27 +179,24 @@ public:
 	virtual $Object* apply(int64_t epochDay) override {
 		 return $of(LocalDate::ofEpochDay(epochDay));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LocalDate$$Lambda$ofEpochDay$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo LocalDate$$Lambda$ofEpochDay$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocalDate$$Lambda$ofEpochDay$1, init$, void)},
-	{"apply", "(J)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LocalDate$$Lambda$ofEpochDay$1, apply, $Object*, int64_t)},
-	{}
-};
-$ClassInfo LocalDate$$Lambda$ofEpochDay$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.time.LocalDate$$Lambda$ofEpochDay$1",
-	"java.lang.Object",
-	"java.util.function.LongFunction",
-	nullptr,
-	methodInfos
 };
 $Class* LocalDate$$Lambda$ofEpochDay$1::load$($String* name, bool initialize) {
-	$loadClass(LocalDate$$Lambda$ofEpochDay$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocalDate$$Lambda$ofEpochDay$1, init$, void)},
+		{"apply", "(J)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LocalDate$$Lambda$ofEpochDay$1, apply, $Object*, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.time.LocalDate$$Lambda$ofEpochDay$1",
+		"java.lang.Object",
+		"java.util.function.LongFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocalDate$$Lambda$ofEpochDay$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocalDate$$Lambda$ofEpochDay$1);
+	});
 	return class$;
 }
 $Class* LocalDate$$Lambda$ofEpochDay$1::class$ = nullptr;
@@ -218,35 +211,31 @@ public:
 	virtual $Object* apply(int64_t n) override {
 		 return $of(LocalDate::lambda$datesUntil$0(start, days, n));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LocalDate$$Lambda$lambda$datesUntil$0$2>());
-	}
 	int64_t start = 0;
 	int64_t days = 0;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LocalDate$$Lambda$lambda$datesUntil$0$2::fieldInfos[3] = {
-	{"start", "J", nullptr, $PUBLIC, $field(LocalDate$$Lambda$lambda$datesUntil$0$2, start)},
-	{"days", "J", nullptr, $PUBLIC, $field(LocalDate$$Lambda$lambda$datesUntil$0$2, days)},
-	{}
-};
-$MethodInfo LocalDate$$Lambda$lambda$datesUntil$0$2::methodInfos[3] = {
-	{"<init>", "(JJ)V", nullptr, $PUBLIC, $method(LocalDate$$Lambda$lambda$datesUntil$0$2, init$, void, int64_t, int64_t)},
-	{"apply", "(J)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LocalDate$$Lambda$lambda$datesUntil$0$2, apply, $Object*, int64_t)},
-	{}
-};
-$ClassInfo LocalDate$$Lambda$lambda$datesUntil$0$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.time.LocalDate$$Lambda$lambda$datesUntil$0$2",
-	"java.lang.Object",
-	"java.util.function.LongFunction",
-	fieldInfos,
-	methodInfos
 };
 $Class* LocalDate$$Lambda$lambda$datesUntil$0$2::load$($String* name, bool initialize) {
-	$loadClass(LocalDate$$Lambda$lambda$datesUntil$0$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"start", "J", nullptr, $PUBLIC, $field(LocalDate$$Lambda$lambda$datesUntil$0$2, start)},
+		{"days", "J", nullptr, $PUBLIC, $field(LocalDate$$Lambda$lambda$datesUntil$0$2, days)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JJ)V", nullptr, $PUBLIC, $method(LocalDate$$Lambda$lambda$datesUntil$0$2, init$, void, int64_t, int64_t)},
+		{"apply", "(J)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LocalDate$$Lambda$lambda$datesUntil$0$2, apply, $Object*, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.time.LocalDate$$Lambda$lambda$datesUntil$0$2",
+		"java.lang.Object",
+		"java.util.function.LongFunction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LocalDate$$Lambda$lambda$datesUntil$0$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocalDate$$Lambda$lambda$datesUntil$0$2);
+	});
 	return class$;
 }
 $Class* LocalDate$$Lambda$lambda$datesUntil$0$2::class$ = nullptr;
@@ -262,171 +251,36 @@ public:
 	virtual $Object* apply(int64_t n) override {
 		 return $of($nc(inst$)->lambda$datesUntil$1(months, days, n));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LocalDate$$Lambda$lambda$datesUntil$1$3>());
-	}
 	LocalDate* inst$ = nullptr;
 	int64_t months = 0;
 	int64_t days = 0;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LocalDate$$Lambda$lambda$datesUntil$1$3::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LocalDate$$Lambda$lambda$datesUntil$1$3, inst$)},
-	{"months", "J", nullptr, $PUBLIC, $field(LocalDate$$Lambda$lambda$datesUntil$1$3, months)},
-	{"days", "J", nullptr, $PUBLIC, $field(LocalDate$$Lambda$lambda$datesUntil$1$3, days)},
-	{}
-};
-$MethodInfo LocalDate$$Lambda$lambda$datesUntil$1$3::methodInfos[3] = {
-	{"<init>", "(Ljava/time/LocalDate;JJ)V", nullptr, $PUBLIC, $method(LocalDate$$Lambda$lambda$datesUntil$1$3, init$, void, LocalDate*, int64_t, int64_t)},
-	{"apply", "(J)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LocalDate$$Lambda$lambda$datesUntil$1$3, apply, $Object*, int64_t)},
-	{}
-};
-$ClassInfo LocalDate$$Lambda$lambda$datesUntil$1$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.time.LocalDate$$Lambda$lambda$datesUntil$1$3",
-	"java.lang.Object",
-	"java.util.function.LongFunction",
-	fieldInfos,
-	methodInfos
 };
 $Class* LocalDate$$Lambda$lambda$datesUntil$1$3::load$($String* name, bool initialize) {
-	$loadClass(LocalDate$$Lambda$lambda$datesUntil$1$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LocalDate$$Lambda$lambda$datesUntil$1$3, inst$)},
+		{"months", "J", nullptr, $PUBLIC, $field(LocalDate$$Lambda$lambda$datesUntil$1$3, months)},
+		{"days", "J", nullptr, $PUBLIC, $field(LocalDate$$Lambda$lambda$datesUntil$1$3, days)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/time/LocalDate;JJ)V", nullptr, $PUBLIC, $method(LocalDate$$Lambda$lambda$datesUntil$1$3, init$, void, LocalDate*, int64_t, int64_t)},
+		{"apply", "(J)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LocalDate$$Lambda$lambda$datesUntil$1$3, apply, $Object*, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.time.LocalDate$$Lambda$lambda$datesUntil$1$3",
+		"java.lang.Object",
+		"java.util.function.LongFunction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LocalDate$$Lambda$lambda$datesUntil$1$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocalDate$$Lambda$lambda$datesUntil$1$3);
+	});
 	return class$;
 }
 $Class* LocalDate$$Lambda$lambda$datesUntil$1$3::class$ = nullptr;
-
-$CompoundAttribute _LocalDate_Annotations_[] = {
-	{"Ljdk/internal/ValueBased;", nullptr},
-	{}
-};
-
-$FieldInfo _LocalDate_FieldInfo_[] = {
-	{"MIN", "Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LocalDate, MIN)},
-	{"MAX", "Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LocalDate, MAX)},
-	{"EPOCH", "Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LocalDate, EPOCH)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LocalDate, serialVersionUID)},
-	{"DAYS_PER_CYCLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LocalDate, DAYS_PER_CYCLE)},
-	{"DAYS_0000_TO_1970", "J", nullptr, $STATIC | $FINAL, $constField(LocalDate, DAYS_0000_TO_1970)},
-	{"year", "I", nullptr, $PRIVATE | $FINAL, $field(LocalDate, year)},
-	{"month", "S", nullptr, $PRIVATE | $FINAL, $field(LocalDate, month)},
-	{"day", "S", nullptr, $PRIVATE | $FINAL, $field(LocalDate, day)},
-	{}
-};
-
-$MethodInfo _LocalDate_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(III)V", nullptr, $PRIVATE, $method(LocalDate, init$, void, int32_t, int32_t, int32_t)},
-	{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(LocalDate, adjustInto, $Temporal*, $Temporal*)},
-	{"atStartOfDay", "()Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $method(LocalDate, atStartOfDay, $LocalDateTime*)},
-	{"atStartOfDay", "(Ljava/time/ZoneId;)Ljava/time/ZonedDateTime;", nullptr, $PUBLIC, $method(LocalDate, atStartOfDay, $ZonedDateTime*, $ZoneId*)},
-	{"atTime", "(Ljava/time/LocalTime;)Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $virtualMethod(LocalDate, atTime, $ChronoLocalDateTime*, $LocalTime*)},
-	{"atTime", "(II)Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $method(LocalDate, atTime, $LocalDateTime*, int32_t, int32_t)},
-	{"atTime", "(III)Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $method(LocalDate, atTime, $LocalDateTime*, int32_t, int32_t, int32_t)},
-	{"atTime", "(IIII)Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $method(LocalDate, atTime, $LocalDateTime*, int32_t, int32_t, int32_t, int32_t)},
-	{"atTime", "(Ljava/time/OffsetTime;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(LocalDate, atTime, $OffsetDateTime*, $OffsetTime*)},
-	{"compareTo", "(Ljava/time/chrono/ChronoLocalDate;)I", nullptr, $PUBLIC, $virtualMethod(LocalDate, compareTo, int32_t, $ChronoLocalDate*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LocalDate, compareTo, int32_t, Object$*)},
-	{"compareTo0", "(Ljava/time/LocalDate;)I", nullptr, 0, $method(LocalDate, compareTo0, int32_t, LocalDate*)},
-	{"create", "(III)Ljava/time/LocalDate;", nullptr, $PRIVATE | $STATIC, $staticMethod(LocalDate, create, LocalDate*, int32_t, int32_t, int32_t)},
-	{"datesUntil", "(Ljava/time/LocalDate;)Ljava/util/stream/Stream;", "(Ljava/time/LocalDate;)Ljava/util/stream/Stream<Ljava/time/LocalDate;>;", $PUBLIC, $method(LocalDate, datesUntil, $Stream*, LocalDate*)},
-	{"datesUntil", "(Ljava/time/LocalDate;Ljava/time/Period;)Ljava/util/stream/Stream;", "(Ljava/time/LocalDate;Ljava/time/Period;)Ljava/util/stream/Stream<Ljava/time/LocalDate;>;", $PUBLIC, $method(LocalDate, datesUntil, $Stream*, LocalDate*, $Period*)},
-	{"daysUntil", "(Ljava/time/LocalDate;)J", nullptr, 0, $method(LocalDate, daysUntil, int64_t, LocalDate*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LocalDate, equals, bool, Object$*)},
-	{"format", "(Ljava/time/format/DateTimeFormatter;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocalDate, format, $String*, $DateTimeFormatter*)},
-	{"from", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalDate, from, LocalDate*, $TemporalAccessor*)},
-	{"get", "(Ljava/time/temporal/TemporalField;)I", nullptr, $PUBLIC, $virtualMethod(LocalDate, get, int32_t, $TemporalField*)},
-	{"get0", "(Ljava/time/temporal/TemporalField;)I", nullptr, $PRIVATE, $method(LocalDate, get0, int32_t, $TemporalField*)},
-	{"getChronology", "()Ljava/time/chrono/IsoChronology;", nullptr, $PUBLIC, $virtualMethod(LocalDate, getChronology, $Chronology*)},
-	{"getDayOfMonth", "()I", nullptr, $PUBLIC, $method(LocalDate, getDayOfMonth, int32_t)},
-	{"getDayOfWeek", "()Ljava/time/DayOfWeek;", nullptr, $PUBLIC, $method(LocalDate, getDayOfWeek, $DayOfWeek*)},
-	{"getDayOfYear", "()I", nullptr, $PUBLIC, $method(LocalDate, getDayOfYear, int32_t)},
-	{"getEra", "()Ljava/time/chrono/IsoEra;", nullptr, $PUBLIC, $virtualMethod(LocalDate, getEra, $Era*)},
-	{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $virtualMethod(LocalDate, getLong, int64_t, $TemporalField*)},
-	{"getMonth", "()Ljava/time/Month;", nullptr, $PUBLIC, $method(LocalDate, getMonth, $Month*)},
-	{"getMonthValue", "()I", nullptr, $PUBLIC, $method(LocalDate, getMonthValue, int32_t)},
-	{"getProlepticMonth", "()J", nullptr, $PRIVATE, $method(LocalDate, getProlepticMonth, int64_t)},
-	{"getYear", "()I", nullptr, $PUBLIC, $method(LocalDate, getYear, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LocalDate, hashCode, int32_t)},
-	{"isAfter", "(Ljava/time/chrono/ChronoLocalDate;)Z", nullptr, $PUBLIC, $virtualMethod(LocalDate, isAfter, bool, $ChronoLocalDate*)},
-	{"isBefore", "(Ljava/time/chrono/ChronoLocalDate;)Z", nullptr, $PUBLIC, $virtualMethod(LocalDate, isBefore, bool, $ChronoLocalDate*)},
-	{"isEqual", "(Ljava/time/chrono/ChronoLocalDate;)Z", nullptr, $PUBLIC, $virtualMethod(LocalDate, isEqual, bool, $ChronoLocalDate*)},
-	{"isLeapYear", "()Z", nullptr, $PUBLIC, $virtualMethod(LocalDate, isLeapYear, bool)},
-	{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC, $virtualMethod(LocalDate, isSupported, bool, $TemporalField*)},
-	{"isSupported", "(Ljava/time/temporal/TemporalUnit;)Z", nullptr, $PUBLIC, $virtualMethod(LocalDate, isSupported, bool, $TemporalUnit*)},
-	{"lambda$datesUntil$0", "(JJJ)Ljava/time/LocalDate;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LocalDate, lambda$datesUntil$0, LocalDate*, int64_t, int64_t, int64_t)},
-	{"lambda$datesUntil$1", "(JJJ)Ljava/time/LocalDate;", nullptr, $PRIVATE | $SYNTHETIC, $method(LocalDate, lambda$datesUntil$1, LocalDate*, int64_t, int64_t, int64_t)},
-	{"lengthOfMonth", "()I", nullptr, $PUBLIC, $virtualMethod(LocalDate, lengthOfMonth, int32_t)},
-	{"lengthOfYear", "()I", nullptr, $PUBLIC, $virtualMethod(LocalDate, lengthOfYear, int32_t)},
-	{"minus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(LocalDate, minus, LocalDate*, $TemporalAmount*)},
-	{"minus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(LocalDate, minus, LocalDate*, int64_t, $TemporalUnit*)},
-	{"minusDays", "(J)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(LocalDate, minusDays, LocalDate*, int64_t)},
-	{"minusMonths", "(J)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(LocalDate, minusMonths, LocalDate*, int64_t)},
-	{"minusWeeks", "(J)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(LocalDate, minusWeeks, LocalDate*, int64_t)},
-	{"minusYears", "(J)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(LocalDate, minusYears, LocalDate*, int64_t)},
-	{"monthsUntil", "(Ljava/time/LocalDate;)J", nullptr, $PRIVATE, $method(LocalDate, monthsUntil, int64_t, LocalDate*)},
-	{"now", "()Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalDate, now, LocalDate*)},
-	{"now", "(Ljava/time/ZoneId;)Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalDate, now, LocalDate*, $ZoneId*)},
-	{"now", "(Ljava/time/Clock;)Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalDate, now, LocalDate*, $Clock*)},
-	{"of", "(ILjava/time/Month;I)Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalDate, of, LocalDate*, int32_t, $Month*, int32_t)},
-	{"of", "(III)Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalDate, of, LocalDate*, int32_t, int32_t, int32_t)},
-	{"ofEpochDay", "(J)Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalDate, ofEpochDay, LocalDate*, int64_t)},
-	{"ofInstant", "(Ljava/time/Instant;Ljava/time/ZoneId;)Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalDate, ofInstant, LocalDate*, $Instant*, $ZoneId*)},
-	{"ofYearDay", "(II)Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalDate, ofYearDay, LocalDate*, int32_t, int32_t)},
-	{"parse", "(Ljava/lang/CharSequence;)Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalDate, parse, LocalDate*, $CharSequence*)},
-	{"parse", "(Ljava/lang/CharSequence;Ljava/time/format/DateTimeFormatter;)Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalDate, parse, LocalDate*, $CharSequence*, $DateTimeFormatter*)},
-	{"plus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(LocalDate, plus, LocalDate*, $TemporalAmount*)},
-	{"plus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(LocalDate, plus, LocalDate*, int64_t, $TemporalUnit*)},
-	{"plusDays", "(J)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(LocalDate, plusDays, LocalDate*, int64_t)},
-	{"plusMonths", "(J)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(LocalDate, plusMonths, LocalDate*, int64_t)},
-	{"plusWeeks", "(J)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(LocalDate, plusWeeks, LocalDate*, int64_t)},
-	{"plusYears", "(J)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(LocalDate, plusYears, LocalDate*, int64_t)},
-	{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC, $virtualMethod(LocalDate, query, $Object*, $TemporalQuery*)},
-	{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(LocalDate, range, $ValueRange*, $TemporalField*)},
-	{"readExternal", "(Ljava/io/DataInput;)Ljava/time/LocalDate;", nullptr, $STATIC, $staticMethod(LocalDate, readExternal, LocalDate*, $DataInput*), "java.io.IOException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(LocalDate, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
-	{"resolvePreviousValid", "(III)Ljava/time/LocalDate;", nullptr, $PRIVATE | $STATIC, $staticMethod(LocalDate, resolvePreviousValid, LocalDate*, int32_t, int32_t, int32_t)},
-	{"toEpochDay", "()J", nullptr, $PUBLIC, $virtualMethod(LocalDate, toEpochDay, int64_t)},
-	{"toEpochSecond", "(Ljava/time/LocalTime;Ljava/time/ZoneOffset;)J", nullptr, $PUBLIC, $method(LocalDate, toEpochSecond, int64_t, $LocalTime*, $ZoneOffset*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocalDate, toString, $String*)},
-	{"until", "(Ljava/time/temporal/Temporal;Ljava/time/temporal/TemporalUnit;)J", nullptr, $PUBLIC, $virtualMethod(LocalDate, until, int64_t, $Temporal*, $TemporalUnit*)},
-	{"until", "(Ljava/time/chrono/ChronoLocalDate;)Ljava/time/Period;", nullptr, $PUBLIC, $virtualMethod(LocalDate, until, $ChronoPeriod*, $ChronoLocalDate*)},
-	{"with", "(Ljava/time/temporal/TemporalAdjuster;)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(LocalDate, with, LocalDate*, $TemporalAdjuster*)},
-	{"with", "(Ljava/time/temporal/TemporalField;J)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(LocalDate, with, LocalDate*, $TemporalField*, int64_t)},
-	{"withDayOfMonth", "(I)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(LocalDate, withDayOfMonth, LocalDate*, int32_t)},
-	{"withDayOfYear", "(I)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(LocalDate, withDayOfYear, LocalDate*, int32_t)},
-	{"withMonth", "(I)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(LocalDate, withMonth, LocalDate*, int32_t)},
-	{"withYear", "(I)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(LocalDate, withYear, LocalDate*, int32_t)},
-	{"writeExternal", "(Ljava/io/DataOutput;)V", nullptr, 0, $method(LocalDate, writeExternal, void, $DataOutput*), "java.io.IOException"},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(LocalDate, writeReplace, $Object*)},
-	{}
-};
-
-$InnerClassInfo _LocalDate_InnerClassesInfo_[] = {
-	{"java.time.LocalDate$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _LocalDate_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.time.LocalDate",
-	"java.lang.Object",
-	"java.time.chrono.ChronoLocalDate,java.io.Serializable",
-	_LocalDate_FieldInfo_,
-	_LocalDate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LocalDate_InnerClassesInfo_,
-	_LocalDate_Annotations_,
-	nullptr,
-	"java.time.LocalDate$1"
-};
-
-$Object* allocate$LocalDate($Class* clazz) {
-	return $of($alloc(LocalDate));
-}
 
 $Object* LocalDate::clone() {
 	 return this->$ChronoLocalDate::clone();
@@ -452,8 +306,8 @@ LocalDate* LocalDate::now($ZoneId* zone) {
 
 LocalDate* LocalDate::now($Clock* clock) {
 	$init(LocalDate);
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(clock), "clock"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(clock, "clock"_s);
 	$var($Instant, now, $nc(clock)->instant());
 	return ofInstant(now, $(clock->getZone()));
 }
@@ -462,7 +316,7 @@ LocalDate* LocalDate::of(int32_t year, $Month* month, int32_t dayOfMonth) {
 	$init(LocalDate);
 	$init($ChronoField);
 	$ChronoField::YEAR->checkValidValue(year);
-	$Objects::requireNonNull($of(month), "month"_s);
+	$Objects::requireNonNull(month, "month"_s);
 	$ChronoField::DAY_OF_MONTH->checkValidValue(dayOfMonth);
 	return create(year, $nc(month)->getValue(), dayOfMonth);
 }
@@ -478,7 +332,7 @@ LocalDate* LocalDate::of(int32_t year, int32_t month, int32_t dayOfMonth) {
 
 LocalDate* LocalDate::ofYearDay(int32_t year, int32_t dayOfYear) {
 	$init(LocalDate);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoField);
 	$ChronoField::YEAR->checkValidValue(year);
 	$ChronoField::DAY_OF_YEAR->checkValidValue(dayOfYear);
@@ -493,15 +347,15 @@ LocalDate* LocalDate::ofYearDay(int32_t year, int32_t dayOfYear) {
 	if (dayOfYear > monthEnd) {
 		moy = moy->plus(1);
 	}
-	int32_t dom = dayOfYear - moy->firstDayOfYear(leap) + 1;
+	int32_t dom = dayOfYear - $nc(moy)->firstDayOfYear(leap) + 1;
 	return $new(LocalDate, year, moy->getValue(), dom);
 }
 
 LocalDate* LocalDate::ofInstant($Instant* instant, $ZoneId* zone) {
 	$init(LocalDate);
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(instant), "instant"_s);
-	$Objects::requireNonNull($of(zone), "zone"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(instant, "instant"_s);
+	$Objects::requireNonNull(zone, "zone"_s);
 	$var($ZoneRules, rules, $nc(zone)->getRules());
 	$var($ZoneOffset, offset, $nc(rules)->getOffset(instant));
 	int64_t var$0 = $nc(instant)->getEpochSecond();
@@ -540,12 +394,16 @@ LocalDate* LocalDate::ofEpochDay(int64_t epochDay) {
 
 LocalDate* LocalDate::from($TemporalAccessor* temporal) {
 	$init(LocalDate);
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(temporal), "temporal"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(temporal, "temporal"_s);
 	$var(LocalDate, date, $cast(LocalDate, $nc(temporal)->query($($TemporalQueries::localDate()))));
 	if (date == nullptr) {
-		$var($String, var$0, $$str({"Unable to obtain LocalDate from TemporalAccessor: "_s, temporal, " of type "_s}));
-		$throwNew($DateTimeException, $$concat(var$0, $($of(temporal)->getClass()->getName())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Unable to obtain LocalDate from TemporalAccessor: "_s);
+		var$0->append(temporal);
+		var$0->append(" of type "_s);
+		var$0->append($($of(temporal)->getClass()->getName()));
+		$throwNew($DateTimeException, $$str(var$0));
 	}
 	return date;
 }
@@ -558,39 +416,32 @@ LocalDate* LocalDate::parse($CharSequence* text) {
 
 LocalDate* LocalDate::parse($CharSequence* text, $DateTimeFormatter* formatter) {
 	$init(LocalDate);
-	$Objects::requireNonNull($of(formatter), "formatter"_s);
-	return $cast(LocalDate, $nc(formatter)->parse(text, static_cast<$TemporalQuery*>($$new(LocalDate$$Lambda$from))));
+	$Objects::requireNonNull(formatter, "formatter"_s);
+	return $cast(LocalDate, $nc(formatter)->parse(text, $$new(LocalDate$$Lambda$from)));
 }
 
 LocalDate* LocalDate::create(int32_t year, int32_t month, int32_t dayOfMonth) {
 	$init(LocalDate);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (dayOfMonth > 28) {
 		int32_t dom = 31;
 		switch (month) {
 		case 2:
-			{
-				$init($IsoChronology);
-				dom = ($nc($IsoChronology::INSTANCE)->isLeapYear(year) ? 29 : 28);
-				break;
-			}
+			$init($IsoChronology);
+			dom = ($nc($IsoChronology::INSTANCE)->isLeapYear(year) ? 29 : 28);
+			break;
 		case 4:
-			{}
 		case 6:
-			{}
 		case 9:
-			{}
 		case 11:
-			{
-				dom = 30;
-				break;
-			}
+			dom = 30;
+			break;
 		}
 		if (dayOfMonth > dom) {
 			if (dayOfMonth == 29) {
 				$throwNew($DateTimeException, $$str({"Invalid date \'February 29\' as \'"_s, $$str(year), "\' is not a leap year"_s}));
 			} else {
-				$throwNew($DateTimeException, $$str({"Invalid date \'"_s, $($nc($($Month::of(month)))->name()), " "_s, $$str(dayOfMonth), "\'"_s}));
+				$throwNew($DateTimeException, $$str({"Invalid date \'"_s, $($$nc($Month::of(month))->name()), " "_s, $$str(dayOfMonth), "\'"_s}));
 			}
 		}
 	}
@@ -601,22 +452,15 @@ LocalDate* LocalDate::resolvePreviousValid(int32_t year, int32_t month, int32_t 
 	$init(LocalDate);
 	switch (month) {
 	case 2:
-		{
-			$init($IsoChronology);
-			day = $Math::min(day, $nc($IsoChronology::INSTANCE)->isLeapYear(year) ? 29 : 28);
-			break;
-		}
+		$init($IsoChronology);
+		day = $Math::min(day, $nc($IsoChronology::INSTANCE)->isLeapYear(year) ? 29 : 28);
+		break;
 	case 4:
-		{}
 	case 6:
-		{}
 	case 9:
-		{}
 	case 11:
-		{
-			day = $Math::min(day, 30);
-			break;
-		}
+		day = $Math::min(day, 30);
+		break;
 	}
 	return $new(LocalDate, year, month, day);
 }
@@ -648,13 +492,9 @@ $ValueRange* LocalDate::range($TemporalField* field) {
 				$init($LocalDate$1);
 				switch ($nc($LocalDate$1::$SwitchMap$java$time$temporal$ChronoField)->get((chronoField)->ordinal())) {
 				case 1:
-					{
-						return $ValueRange::of(1, lengthOfMonth());
-					}
+					return $ValueRange::of(1, lengthOfMonth());
 				case 2:
-					{
-						return $ValueRange::of(1, lengthOfYear());
-					}
+					return $ValueRange::of(1, lengthOfYear());
 				case 3:
 					{
 						$init($Month);
@@ -662,9 +502,7 @@ $ValueRange* LocalDate::range($TemporalField* field) {
 						return $ValueRange::of(1, var$1 && isLeapYear() == false ? 4 : 5);
 					}
 				case 4:
-					{
-						return (getYear() <= 0 ? $ValueRange::of(1, $Year::MAX_VALUE + 1) : $ValueRange::of(1, $Year::MAX_VALUE));
-					}
+					return (getYear() <= 0 ? $ValueRange::of(1, $Year::MAX_VALUE + 1) : $ValueRange::of(1, $Year::MAX_VALUE));
 				}
 				return $nc(field)->range();
 			}
@@ -696,61 +534,35 @@ int64_t LocalDate::getLong($TemporalField* field) {
 }
 
 int32_t LocalDate::get0($TemporalField* field) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($LocalDate$1);
-	switch ($nc($LocalDate$1::$SwitchMap$java$time$temporal$ChronoField)->get($nc(($cast($ChronoField, field)))->ordinal())) {
+	switch ($nc($LocalDate$1::$SwitchMap$java$time$temporal$ChronoField)->get($nc($cast($ChronoField, field))->ordinal())) {
 	case 5:
-		{
-			return $nc($(getDayOfWeek()))->getValue();
-		}
+		return $$nc(getDayOfWeek())->getValue();
 	case 6:
-		{
-			return ((this->day - 1) % 7) + 1;
-		}
+		return ((this->day - 1) % 7) + 1;
 	case 7:
-		{
-			return ((getDayOfYear() - 1) % 7) + 1;
-		}
+		return ((getDayOfYear() - 1) % 7) + 1;
 	case 1:
-		{
-			return this->day;
-		}
+		return this->day;
 	case 2:
-		{
-			return getDayOfYear();
-		}
+		return getDayOfYear();
 	case 8:
-		{
-			$throwNew($UnsupportedTemporalTypeException, "Invalid field \'EpochDay\' for get() method, use getLong() instead"_s);
-		}
+		$throwNew($UnsupportedTemporalTypeException, "Invalid field \'EpochDay\' for get() method, use getLong() instead"_s);
 	case 3:
-		{
-			return ((this->day - 1) / 7) + 1;
-		}
+		return ((this->day - 1) / 7) + 1;
 	case 9:
-		{
-			return ((getDayOfYear() - 1) / 7) + 1;
-		}
+		return ((getDayOfYear() - 1) / 7) + 1;
 	case 10:
-		{
-			return this->month;
-		}
+		return this->month;
 	case 11:
-		{
-			$throwNew($UnsupportedTemporalTypeException, "Invalid field \'ProlepticMonth\' for get() method, use getLong() instead"_s);
-		}
+		$throwNew($UnsupportedTemporalTypeException, "Invalid field \'ProlepticMonth\' for get() method, use getLong() instead"_s);
 	case 4:
-		{
-			return (this->year >= 1 ? this->year : 1 - this->year);
-		}
+		return (this->year >= 1 ? this->year : 1 - this->year);
 	case 12:
-		{
-			return this->year;
-		}
+		return this->year;
 	case 13:
-		{
-			return (this->year >= 1 ? 1 : 0);
-		}
+		return (this->year >= 1 ? 1 : 0);
 	}
 	$throwNew($UnsupportedTemporalTypeException, $$str({"Unsupported field: "_s, field}));
 }
@@ -766,7 +578,7 @@ $Chronology* LocalDate::getChronology() {
 
 $Era* LocalDate::getEra() {
 	$init($IsoEra);
-	return ((getYear() >= 1 ? $IsoEra::CE : $IsoEra::BCE));
+	return (getYear() >= 1 ? $IsoEra::CE : $IsoEra::BCE);
 }
 
 int32_t LocalDate::getYear() {
@@ -786,7 +598,7 @@ int32_t LocalDate::getDayOfMonth() {
 }
 
 int32_t LocalDate::getDayOfYear() {
-	return $nc($(getMonth()))->firstDayOfYear(isLeapYear()) + this->day - 1;
+	return $$nc(getMonth())->firstDayOfYear(isLeapYear()) + this->day - 1;
 }
 
 $DayOfWeek* LocalDate::getDayOfWeek() {
@@ -802,23 +614,14 @@ bool LocalDate::isLeapYear() {
 int32_t LocalDate::lengthOfMonth() {
 	switch (this->month) {
 	case 2:
-		{
-			return (isLeapYear() ? 29 : 28);
-		}
+		return (isLeapYear() ? 29 : 28);
 	case 4:
-		{}
 	case 6:
-		{}
 	case 9:
-		{}
 	case 11:
-		{
-			return 30;
-		}
+		return 30;
 	default:
-		{
-			return 31;
-		}
+		return 31;
 	}
 }
 
@@ -834,7 +637,7 @@ LocalDate* LocalDate::with($TemporalAdjuster* adjuster) {
 }
 
 LocalDate* LocalDate::with($TemporalField* field, int64_t newValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$ChronoField* chronoField = nullptr;
 		bool var$0 = $instanceOf($ChronoField, field);
@@ -847,57 +650,31 @@ LocalDate* LocalDate::with($TemporalField* field, int64_t newValue) {
 			$init($LocalDate$1);
 			switch ($nc($LocalDate$1::$SwitchMap$java$time$temporal$ChronoField)->get((chronoField)->ordinal())) {
 			case 5:
-				{
-					return plusDays(newValue - $nc($(getDayOfWeek()))->getValue());
-				}
+				return plusDays(newValue - $$nc(getDayOfWeek())->getValue());
 			case 6:
-				{
-					return plusDays(newValue - getLong($ChronoField::ALIGNED_DAY_OF_WEEK_IN_MONTH));
-				}
+				return plusDays(newValue - getLong($ChronoField::ALIGNED_DAY_OF_WEEK_IN_MONTH));
 			case 7:
-				{
-					return plusDays(newValue - getLong($ChronoField::ALIGNED_DAY_OF_WEEK_IN_YEAR));
-				}
+				return plusDays(newValue - getLong($ChronoField::ALIGNED_DAY_OF_WEEK_IN_YEAR));
 			case 1:
-				{
-					return withDayOfMonth((int32_t)newValue);
-				}
+				return withDayOfMonth((int32_t)newValue);
 			case 2:
-				{
-					return withDayOfYear((int32_t)newValue);
-				}
+				return withDayOfYear((int32_t)newValue);
 			case 8:
-				{
-					return LocalDate::ofEpochDay(newValue);
-				}
+				return LocalDate::ofEpochDay(newValue);
 			case 3:
-				{
-					return plusWeeks(newValue - getLong($ChronoField::ALIGNED_WEEK_OF_MONTH));
-				}
+				return plusWeeks(newValue - getLong($ChronoField::ALIGNED_WEEK_OF_MONTH));
 			case 9:
-				{
-					return plusWeeks(newValue - getLong($ChronoField::ALIGNED_WEEK_OF_YEAR));
-				}
+				return plusWeeks(newValue - getLong($ChronoField::ALIGNED_WEEK_OF_YEAR));
 			case 10:
-				{
-					return withMonth((int32_t)newValue);
-				}
+				return withMonth((int32_t)newValue);
 			case 11:
-				{
-					return plusMonths(newValue - getProlepticMonth());
-				}
+				return plusMonths(newValue - getProlepticMonth());
 			case 4:
-				{
-					return withYear((int32_t)(this->year >= 1 ? newValue : 1 - newValue));
-				}
+				return withYear((int32_t)(this->year >= 1 ? newValue : 1 - newValue));
 			case 12:
-				{
-					return withYear((int32_t)newValue);
-				}
+				return withYear((int32_t)newValue);
 			case 13:
-				{
-					return (getLong($ChronoField::ERA) == newValue ? this : withYear(1 - this->year));
-				}
+				return (getLong($ChronoField::ERA) == newValue ? this : withYear(1 - this->year));
 			}
 			$throwNew($UnsupportedTemporalTypeException, $$str({"Unsupported field: "_s, field}));
 		}
@@ -927,7 +704,7 @@ LocalDate* LocalDate::withDayOfMonth(int32_t dayOfMonth) {
 	if (this->day == dayOfMonth) {
 		return this;
 	}
-	return of(this->year, (int32_t)this->month, dayOfMonth);
+	return of(this->year, this->month, dayOfMonth);
 }
 
 LocalDate* LocalDate::withDayOfYear(int32_t dayOfYear) {
@@ -938,7 +715,7 @@ LocalDate* LocalDate::withDayOfYear(int32_t dayOfYear) {
 }
 
 LocalDate* LocalDate::plus($TemporalAmount* amountToAdd) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Period, periodToAdd, nullptr);
 		bool var$0 = $instanceOf($Period, amountToAdd);
@@ -947,10 +724,10 @@ LocalDate* LocalDate::plus($TemporalAmount* amountToAdd) {
 			var$0 = true;
 		}
 		if (var$0) {
-			return $nc($(plusMonths($nc(periodToAdd)->toTotalMonths())))->plusDays($nc(periodToAdd)->getDays());
+			return $$nc(plusMonths($nc(periodToAdd)->toTotalMonths()))->plusDays($nc(periodToAdd)->getDays());
 		}
 	}
-	$Objects::requireNonNull($of(amountToAdd), "amountToAdd"_s);
+	$Objects::requireNonNull(amountToAdd, "amountToAdd"_s);
 	return $cast(LocalDate, $nc(amountToAdd)->addTo(this));
 }
 
@@ -966,38 +743,22 @@ LocalDate* LocalDate::plus(int64_t amountToAdd, $TemporalUnit* unit) {
 			$init($LocalDate$1);
 			switch ($nc($LocalDate$1::$SwitchMap$java$time$temporal$ChronoUnit)->get($nc((chronoUnit))->ordinal())) {
 			case 1:
-				{
-					return plusDays(amountToAdd);
-				}
+				return plusDays(amountToAdd);
 			case 2:
-				{
-					return plusWeeks(amountToAdd);
-				}
+				return plusWeeks(amountToAdd);
 			case 3:
-				{
-					return plusMonths(amountToAdd);
-				}
+				return plusMonths(amountToAdd);
 			case 4:
-				{
-					return plusYears(amountToAdd);
-				}
+				return plusYears(amountToAdd);
 			case 5:
-				{
-					return plusYears($Math::multiplyExact(amountToAdd, 10));
-				}
+				return plusYears($Math::multiplyExact(amountToAdd, 10));
 			case 6:
-				{
-					return plusYears($Math::multiplyExact(amountToAdd, 100));
-				}
+				return plusYears($Math::multiplyExact(amountToAdd, 100));
 			case 7:
-				{
-					return plusYears($Math::multiplyExact(amountToAdd, 1000));
-				}
+				return plusYears($Math::multiplyExact(amountToAdd, 1000));
 			case 8:
-				{
-					$init($ChronoField);
-					return with($ChronoField::ERA, $Math::addExact(getLong($ChronoField::ERA), amountToAdd));
-				}
+				$init($ChronoField);
+				return with($ChronoField::ERA, $Math::addExact(getLong($ChronoField::ERA), amountToAdd));
 			}
 			$throwNew($UnsupportedTemporalTypeException, $$str({"Unsupported unit: "_s, unit}));
 		}
@@ -1056,7 +817,7 @@ LocalDate* LocalDate::plusDays(int64_t daysToAdd) {
 }
 
 LocalDate* LocalDate::minus($TemporalAmount* amountToSubtract) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Period, periodToSubtract, nullptr);
 		bool var$0 = $instanceOf($Period, amountToSubtract);
@@ -1065,38 +826,38 @@ LocalDate* LocalDate::minus($TemporalAmount* amountToSubtract) {
 			var$0 = true;
 		}
 		if (var$0) {
-			return $nc($(minusMonths($nc(periodToSubtract)->toTotalMonths())))->minusDays($nc(periodToSubtract)->getDays());
+			return $$nc(minusMonths($nc(periodToSubtract)->toTotalMonths()))->minusDays($nc(periodToSubtract)->getDays());
 		}
 	}
-	$Objects::requireNonNull($of(amountToSubtract), "amountToSubtract"_s);
+	$Objects::requireNonNull(amountToSubtract, "amountToSubtract"_s);
 	return $cast(LocalDate, $nc(amountToSubtract)->subtractFrom(this));
 }
 
 LocalDate* LocalDate::minus(int64_t amountToSubtract, $TemporalUnit* unit) {
-	return (amountToSubtract == $Long::MIN_VALUE ? $nc($(plus($Long::MAX_VALUE, unit)))->plus(1, unit) : plus(-amountToSubtract, unit));
+	return (amountToSubtract == $Long::MIN_VALUE ? $$nc(plus($Long::MAX_VALUE, unit))->plus(1, unit) : plus(-amountToSubtract, unit));
 }
 
 LocalDate* LocalDate::minusYears(int64_t yearsToSubtract) {
-	return (yearsToSubtract == $Long::MIN_VALUE ? $nc($(plusYears($Long::MAX_VALUE)))->plusYears(1) : plusYears(-yearsToSubtract));
+	return (yearsToSubtract == $Long::MIN_VALUE ? $$nc(plusYears($Long::MAX_VALUE))->plusYears(1) : plusYears(-yearsToSubtract));
 }
 
 LocalDate* LocalDate::minusMonths(int64_t monthsToSubtract) {
-	return (monthsToSubtract == $Long::MIN_VALUE ? $nc($(plusMonths($Long::MAX_VALUE)))->plusMonths(1) : plusMonths(-monthsToSubtract));
+	return (monthsToSubtract == $Long::MIN_VALUE ? $$nc(plusMonths($Long::MAX_VALUE))->plusMonths(1) : plusMonths(-monthsToSubtract));
 }
 
 LocalDate* LocalDate::minusWeeks(int64_t weeksToSubtract) {
-	return (weeksToSubtract == $Long::MIN_VALUE ? $nc($(plusWeeks($Long::MAX_VALUE)))->plusWeeks(1) : plusWeeks(-weeksToSubtract));
+	return (weeksToSubtract == $Long::MIN_VALUE ? $$nc(plusWeeks($Long::MAX_VALUE))->plusWeeks(1) : plusWeeks(-weeksToSubtract));
 }
 
 LocalDate* LocalDate::minusDays(int64_t daysToSubtract) {
-	return (daysToSubtract == $Long::MIN_VALUE ? $nc($(plusDays($Long::MAX_VALUE)))->plusDays(1) : plusDays(-daysToSubtract));
+	return (daysToSubtract == $Long::MIN_VALUE ? $$nc(plusDays($Long::MAX_VALUE))->plusDays(1) : plusDays(-daysToSubtract));
 }
 
 $Object* LocalDate::query($TemporalQuery* query) {
 	if (query == $TemporalQueries::localDate()) {
-		return $of($of(this));
+		return $of(this);
 	}
-	return $of($ChronoLocalDate::query(query));
+	return $ChronoLocalDate::query(query);
 }
 
 $Temporal* LocalDate::adjustInto($Temporal* temporal) {
@@ -1104,39 +865,25 @@ $Temporal* LocalDate::adjustInto($Temporal* temporal) {
 }
 
 int64_t LocalDate::until($Temporal* endExclusive, $TemporalUnit* unit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(LocalDate, end, LocalDate::from(endExclusive));
 	if ($instanceOf($ChronoUnit, unit)) {
 		$init($LocalDate$1);
-		switch ($nc($LocalDate$1::$SwitchMap$java$time$temporal$ChronoUnit)->get($nc(($cast($ChronoUnit, unit)))->ordinal())) {
+		switch ($nc($LocalDate$1::$SwitchMap$java$time$temporal$ChronoUnit)->get($cast($ChronoUnit, unit)->ordinal())) {
 		case 1:
-			{
-				return daysUntil(end);
-			}
+			return daysUntil(end);
 		case 2:
-			{
-				return daysUntil(end) / 7;
-			}
+			return daysUntil(end) / 7;
 		case 3:
-			{
-				return monthsUntil(end);
-			}
+			return monthsUntil(end);
 		case 4:
-			{
-				return monthsUntil(end) / 12;
-			}
+			return monthsUntil(end) / 12;
 		case 5:
-			{
-				return monthsUntil(end) / 120;
-			}
+			return monthsUntil(end) / 120;
 		case 6:
-			{
-				return monthsUntil(end) / 1200;
-			}
+			return monthsUntil(end) / 1200;
 		case 7:
-			{
-				return monthsUntil(end) / 12000;
-			}
+			return monthsUntil(end) / 12000;
 		case 8:
 			{
 				$init($ChronoField);
@@ -1163,7 +910,7 @@ int64_t LocalDate::monthsUntil(LocalDate* end) {
 }
 
 $ChronoPeriod* LocalDate::until($ChronoLocalDate* endDateExclusive) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(LocalDate, end, LocalDate::from(endDateExclusive));
 	int64_t var$0 = $nc(end)->getProlepticMonth();
 	int64_t totalMonths = var$0 - this->getProlepticMonth();
@@ -1183,24 +930,24 @@ $ChronoPeriod* LocalDate::until($ChronoLocalDate* endDateExclusive) {
 }
 
 $Stream* LocalDate::datesUntil(LocalDate* endExclusive) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t end = $nc(endExclusive)->toEpochDay();
 	int64_t start = toEpochDay();
 	if (end < start) {
 		$throwNew($IllegalArgumentException, $$str({endExclusive, " < "_s, this}));
 	}
-	return $nc($($LongStream::range(start, end)))->mapToObj(static_cast<$LongFunction*>($$new(LocalDate$$Lambda$ofEpochDay$1)));
+	return $$nc($LongStream::range(start, end))->mapToObj($$new(LocalDate$$Lambda$ofEpochDay$1));
 }
 
 $Stream* LocalDate::datesUntil(LocalDate* endExclusive, $Period* step) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(step)->isZero()) {
 		$throwNew($IllegalArgumentException, "step is zero"_s);
 	}
 	int64_t end = $nc(endExclusive)->toEpochDay();
 	int64_t start = toEpochDay();
 	int64_t until = end - start;
-	int64_t months = $nc(step)->toTotalMonths();
+	int64_t months = step->toTotalMonths();
 	int64_t days = step->getDays();
 	if ((months < 0 && days > 0) || (months > 0 && days < 0)) {
 		$throwNew($IllegalArgumentException, "period months and days are of opposite sign"_s);
@@ -1214,9 +961,9 @@ $Stream* LocalDate::datesUntil(LocalDate* endExclusive, $Period* step) {
 	}
 	if (months == 0) {
 		int64_t steps = $div((until - sign), days);
-		return $nc($($LongStream::rangeClosed(0, steps)))->mapToObj(static_cast<$LongFunction*>($$new(LocalDate$$Lambda$lambda$datesUntil$0$2, start, days)));
+		return $$nc($LongStream::rangeClosed(0, steps))->mapToObj($$new(LocalDate$$Lambda$lambda$datesUntil$0$2, start, days));
 	}
-	int64_t steps = $div(until * 1600, (months * 0x0000BE3B + days * 1600)) + 1;
+	int64_t steps = $div(until * 1600, (months * 0x0000be3b + days * 1600)) + 1;
 	int64_t addMonths = months * steps;
 	int64_t addDays = days * steps;
 	int64_t var$0 = 0;
@@ -1228,19 +975,19 @@ $Stream* LocalDate::datesUntil(LocalDate* endExclusive, $Period* step) {
 		var$0 = var$2 - $nc(LocalDate::MIN)->getProlepticMonth();
 	}
 	int64_t maxAddMonths = var$0;
-	if (addMonths * sign > maxAddMonths || ($nc($(plusMonths(addMonths)))->toEpochDay() + addDays) * sign >= end * sign) {
+	if (addMonths * sign > maxAddMonths || ($$nc(plusMonths(addMonths))->toEpochDay() + addDays) * sign >= end * sign) {
 		--steps;
 		addMonths -= months;
 		addDays -= days;
-		if (addMonths * sign > maxAddMonths || ($nc($(plusMonths(addMonths)))->toEpochDay() + addDays) * sign >= end * sign) {
+		if (addMonths * sign > maxAddMonths || ($$nc(plusMonths(addMonths))->toEpochDay() + addDays) * sign >= end * sign) {
 			--steps;
 		}
 	}
-	return $nc($($LongStream::rangeClosed(0, steps)))->mapToObj(static_cast<$LongFunction*>($$new(LocalDate$$Lambda$lambda$datesUntil$1$3, this, months, days)));
+	return $$nc($LongStream::rangeClosed(0, steps))->mapToObj($$new(LocalDate$$Lambda$lambda$datesUntil$1$3, this, months, days));
 }
 
 $String* LocalDate::format($DateTimeFormatter* formatter) {
-	$Objects::requireNonNull($of(formatter), "formatter"_s);
+	$Objects::requireNonNull(formatter, "formatter"_s);
 	return $nc(formatter)->format(this);
 }
 
@@ -1261,9 +1008,9 @@ $LocalDateTime* LocalDate::atTime(int32_t hour, int32_t minute, int32_t second, 
 }
 
 $OffsetDateTime* LocalDate::atTime($OffsetTime* time) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LocalDateTime, var$0, $LocalDateTime::of(this, $($nc(time)->toLocalTime())));
-	return $OffsetDateTime::of(var$0, $($nc(time)->getOffset()));
+	return $OffsetDateTime::of(var$0, $(time->getOffset()));
 }
 
 $LocalDateTime* LocalDate::atStartOfDay() {
@@ -1272,8 +1019,8 @@ $LocalDateTime* LocalDate::atStartOfDay() {
 }
 
 $ZonedDateTime* LocalDate::atStartOfDay($ZoneId* zone) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(zone), "zone"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(zone, "zone"_s);
 	$init($LocalTime);
 	$var($LocalDateTime, ldt, $cast($LocalDateTime, atTime($LocalTime::MIDNIGHT)));
 	if (!($instanceOf($ZoneOffset, zone))) {
@@ -1308,8 +1055,8 @@ int64_t LocalDate::toEpochDay() {
 }
 
 int64_t LocalDate::toEpochSecond($LocalTime* time, $ZoneOffset* offset) {
-	$Objects::requireNonNull($of(time), "time"_s);
-	$Objects::requireNonNull($of(offset), "offset"_s);
+	$Objects::requireNonNull(time, "time"_s);
+	$Objects::requireNonNull(offset, "offset"_s);
 	int64_t var$0 = toEpochDay() * 0x00015180;
 	int64_t secs = var$0 + $nc(time)->toSecondOfDay();
 	secs -= $nc(offset)->getTotalSeconds();
@@ -1369,7 +1116,7 @@ int32_t LocalDate::hashCode() {
 	int32_t yearValue = this->year;
 	int32_t monthValue = this->month;
 	int32_t dayValue = this->day;
-	return ((int32_t)(yearValue & (uint32_t)-2048)) ^ ((yearValue << 11) + (monthValue << 6) + (dayValue));
+	return (yearValue & -2048) ^ ((yearValue << 11) + (monthValue << 6) + (dayValue));
 }
 
 $String* LocalDate::toString() {
@@ -1394,7 +1141,7 @@ $String* LocalDate::toString() {
 }
 
 $Object* LocalDate::writeReplace() {
-	return $of($new($Ser, $Ser::LOCAL_DATE_TYPE, this));
+	return $new($Ser, $Ser::LOCAL_DATE_TYPE, this);
 }
 
 void LocalDate::readObject($ObjectInputStream* s) {
@@ -1420,7 +1167,7 @@ int32_t LocalDate::compareTo(Object$* other) {
 }
 
 LocalDate* LocalDate::lambda$datesUntil$1(int64_t months, int64_t days, int64_t n) {
-	return $nc($(this->plusMonths(months * n)))->plusDays(days * n);
+	return $$nc(this->plusMonths(months * n))->plusDays(days * n);
 }
 
 LocalDate* LocalDate::lambda$datesUntil$0(int64_t start, int64_t days, int64_t n) {
@@ -1428,7 +1175,7 @@ LocalDate* LocalDate::lambda$datesUntil$0(int64_t start, int64_t days, int64_t n
 	return LocalDate::ofEpochDay(start + n * days);
 }
 
-void clinit$LocalDate($Class* class$) {
+void LocalDate::clinit$($Class* clazz) {
 	$assignStatic(LocalDate::MIN, LocalDate::of($Year::MIN_VALUE, 1, 1));
 	$assignStatic(LocalDate::MAX, LocalDate::of($Year::MAX_VALUE, 12, 31));
 	$assignStatic(LocalDate::EPOCH, LocalDate::of(1970, 1, 1));
@@ -1439,20 +1186,144 @@ LocalDate::LocalDate() {
 
 $Class* LocalDate::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(LocalDate$$Lambda$from::classInfo$.name)) {
+		if (name->equals("java.time.LocalDate$$Lambda$from")) {
 			return LocalDate$$Lambda$from::load$(name, initialize);
 		}
-		if (name->equals(LocalDate$$Lambda$ofEpochDay$1::classInfo$.name)) {
+		if (name->equals("java.time.LocalDate$$Lambda$ofEpochDay$1")) {
 			return LocalDate$$Lambda$ofEpochDay$1::load$(name, initialize);
 		}
-		if (name->equals(LocalDate$$Lambda$lambda$datesUntil$0$2::classInfo$.name)) {
+		if (name->equals("java.time.LocalDate$$Lambda$lambda$datesUntil$0$2")) {
 			return LocalDate$$Lambda$lambda$datesUntil$0$2::load$(name, initialize);
 		}
-		if (name->equals(LocalDate$$Lambda$lambda$datesUntil$1$3::classInfo$.name)) {
+		if (name->equals("java.time.LocalDate$$Lambda$lambda$datesUntil$1$3")) {
 			return LocalDate$$Lambda$lambda$datesUntil$1$3::load$(name, initialize);
 		}
 	}
-	$loadClass(LocalDate, name, initialize, &_LocalDate_ClassInfo_, clinit$LocalDate, allocate$LocalDate);
+	$FieldInfo fieldInfos$$[] = {
+		{"MIN", "Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LocalDate, MIN)},
+		{"MAX", "Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LocalDate, MAX)},
+		{"EPOCH", "Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LocalDate, EPOCH)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LocalDate, serialVersionUID)},
+		{"DAYS_PER_CYCLE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LocalDate, DAYS_PER_CYCLE)},
+		{"DAYS_0000_TO_1970", "J", nullptr, $STATIC | $FINAL, $constField(LocalDate, DAYS_0000_TO_1970)},
+		{"year", "I", nullptr, $PRIVATE | $FINAL, $field(LocalDate, year)},
+		{"month", "S", nullptr, $PRIVATE | $FINAL, $field(LocalDate, month)},
+		{"day", "S", nullptr, $PRIVATE | $FINAL, $field(LocalDate, day)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(III)V", nullptr, $PRIVATE, $method(LocalDate, init$, void, int32_t, int32_t, int32_t)},
+		{"adjustInto", "(Ljava/time/temporal/Temporal;)Ljava/time/temporal/Temporal;", nullptr, $PUBLIC, $virtualMethod(LocalDate, adjustInto, $Temporal*, $Temporal*)},
+		{"atStartOfDay", "()Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $method(LocalDate, atStartOfDay, $LocalDateTime*)},
+		{"atStartOfDay", "(Ljava/time/ZoneId;)Ljava/time/ZonedDateTime;", nullptr, $PUBLIC, $method(LocalDate, atStartOfDay, $ZonedDateTime*, $ZoneId*)},
+		{"atTime", "(Ljava/time/LocalTime;)Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $virtualMethod(LocalDate, atTime, $ChronoLocalDateTime*, $LocalTime*)},
+		{"atTime", "(II)Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $method(LocalDate, atTime, $LocalDateTime*, int32_t, int32_t)},
+		{"atTime", "(III)Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $method(LocalDate, atTime, $LocalDateTime*, int32_t, int32_t, int32_t)},
+		{"atTime", "(IIII)Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $method(LocalDate, atTime, $LocalDateTime*, int32_t, int32_t, int32_t, int32_t)},
+		{"atTime", "(Ljava/time/OffsetTime;)Ljava/time/OffsetDateTime;", nullptr, $PUBLIC, $method(LocalDate, atTime, $OffsetDateTime*, $OffsetTime*)},
+		{"compareTo", "(Ljava/time/chrono/ChronoLocalDate;)I", nullptr, $PUBLIC, $virtualMethod(LocalDate, compareTo, int32_t, $ChronoLocalDate*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LocalDate, compareTo, int32_t, Object$*)},
+		{"compareTo0", "(Ljava/time/LocalDate;)I", nullptr, 0, $method(LocalDate, compareTo0, int32_t, LocalDate*)},
+		{"create", "(III)Ljava/time/LocalDate;", nullptr, $PRIVATE | $STATIC, $staticMethod(LocalDate, create, LocalDate*, int32_t, int32_t, int32_t)},
+		{"datesUntil", "(Ljava/time/LocalDate;)Ljava/util/stream/Stream;", "(Ljava/time/LocalDate;)Ljava/util/stream/Stream<Ljava/time/LocalDate;>;", $PUBLIC, $method(LocalDate, datesUntil, $Stream*, LocalDate*)},
+		{"datesUntil", "(Ljava/time/LocalDate;Ljava/time/Period;)Ljava/util/stream/Stream;", "(Ljava/time/LocalDate;Ljava/time/Period;)Ljava/util/stream/Stream<Ljava/time/LocalDate;>;", $PUBLIC, $method(LocalDate, datesUntil, $Stream*, LocalDate*, $Period*)},
+		{"daysUntil", "(Ljava/time/LocalDate;)J", nullptr, 0, $method(LocalDate, daysUntil, int64_t, LocalDate*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LocalDate, equals, bool, Object$*)},
+		{"format", "(Ljava/time/format/DateTimeFormatter;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocalDate, format, $String*, $DateTimeFormatter*)},
+		{"from", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalDate, from, LocalDate*, $TemporalAccessor*)},
+		{"get", "(Ljava/time/temporal/TemporalField;)I", nullptr, $PUBLIC, $virtualMethod(LocalDate, get, int32_t, $TemporalField*)},
+		{"get0", "(Ljava/time/temporal/TemporalField;)I", nullptr, $PRIVATE, $method(LocalDate, get0, int32_t, $TemporalField*)},
+		{"getChronology", "()Ljava/time/chrono/IsoChronology;", nullptr, $PUBLIC, $virtualMethod(LocalDate, getChronology, $Chronology*)},
+		{"getDayOfMonth", "()I", nullptr, $PUBLIC, $method(LocalDate, getDayOfMonth, int32_t)},
+		{"getDayOfWeek", "()Ljava/time/DayOfWeek;", nullptr, $PUBLIC, $method(LocalDate, getDayOfWeek, $DayOfWeek*)},
+		{"getDayOfYear", "()I", nullptr, $PUBLIC, $method(LocalDate, getDayOfYear, int32_t)},
+		{"getEra", "()Ljava/time/chrono/IsoEra;", nullptr, $PUBLIC, $virtualMethod(LocalDate, getEra, $Era*)},
+		{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $virtualMethod(LocalDate, getLong, int64_t, $TemporalField*)},
+		{"getMonth", "()Ljava/time/Month;", nullptr, $PUBLIC, $method(LocalDate, getMonth, $Month*)},
+		{"getMonthValue", "()I", nullptr, $PUBLIC, $method(LocalDate, getMonthValue, int32_t)},
+		{"getProlepticMonth", "()J", nullptr, $PRIVATE, $method(LocalDate, getProlepticMonth, int64_t)},
+		{"getYear", "()I", nullptr, $PUBLIC, $method(LocalDate, getYear, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LocalDate, hashCode, int32_t)},
+		{"isAfter", "(Ljava/time/chrono/ChronoLocalDate;)Z", nullptr, $PUBLIC, $virtualMethod(LocalDate, isAfter, bool, $ChronoLocalDate*)},
+		{"isBefore", "(Ljava/time/chrono/ChronoLocalDate;)Z", nullptr, $PUBLIC, $virtualMethod(LocalDate, isBefore, bool, $ChronoLocalDate*)},
+		{"isEqual", "(Ljava/time/chrono/ChronoLocalDate;)Z", nullptr, $PUBLIC, $virtualMethod(LocalDate, isEqual, bool, $ChronoLocalDate*)},
+		{"isLeapYear", "()Z", nullptr, $PUBLIC, $virtualMethod(LocalDate, isLeapYear, bool)},
+		{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC, $virtualMethod(LocalDate, isSupported, bool, $TemporalField*)},
+		{"isSupported", "(Ljava/time/temporal/TemporalUnit;)Z", nullptr, $PUBLIC, $virtualMethod(LocalDate, isSupported, bool, $TemporalUnit*)},
+		{"lambda$datesUntil$0", "(JJJ)Ljava/time/LocalDate;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LocalDate, lambda$datesUntil$0, LocalDate*, int64_t, int64_t, int64_t)},
+		{"lambda$datesUntil$1", "(JJJ)Ljava/time/LocalDate;", nullptr, $PRIVATE | $SYNTHETIC, $method(LocalDate, lambda$datesUntil$1, LocalDate*, int64_t, int64_t, int64_t)},
+		{"lengthOfMonth", "()I", nullptr, $PUBLIC, $virtualMethod(LocalDate, lengthOfMonth, int32_t)},
+		{"lengthOfYear", "()I", nullptr, $PUBLIC, $virtualMethod(LocalDate, lengthOfYear, int32_t)},
+		{"minus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(LocalDate, minus, LocalDate*, $TemporalAmount*)},
+		{"minus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(LocalDate, minus, LocalDate*, int64_t, $TemporalUnit*)},
+		{"minusDays", "(J)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(LocalDate, minusDays, LocalDate*, int64_t)},
+		{"minusMonths", "(J)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(LocalDate, minusMonths, LocalDate*, int64_t)},
+		{"minusWeeks", "(J)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(LocalDate, minusWeeks, LocalDate*, int64_t)},
+		{"minusYears", "(J)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(LocalDate, minusYears, LocalDate*, int64_t)},
+		{"monthsUntil", "(Ljava/time/LocalDate;)J", nullptr, $PRIVATE, $method(LocalDate, monthsUntil, int64_t, LocalDate*)},
+		{"now", "()Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalDate, now, LocalDate*)},
+		{"now", "(Ljava/time/ZoneId;)Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalDate, now, LocalDate*, $ZoneId*)},
+		{"now", "(Ljava/time/Clock;)Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalDate, now, LocalDate*, $Clock*)},
+		{"of", "(ILjava/time/Month;I)Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalDate, of, LocalDate*, int32_t, $Month*, int32_t)},
+		{"of", "(III)Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalDate, of, LocalDate*, int32_t, int32_t, int32_t)},
+		{"ofEpochDay", "(J)Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalDate, ofEpochDay, LocalDate*, int64_t)},
+		{"ofInstant", "(Ljava/time/Instant;Ljava/time/ZoneId;)Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalDate, ofInstant, LocalDate*, $Instant*, $ZoneId*)},
+		{"ofYearDay", "(II)Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalDate, ofYearDay, LocalDate*, int32_t, int32_t)},
+		{"parse", "(Ljava/lang/CharSequence;)Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalDate, parse, LocalDate*, $CharSequence*)},
+		{"parse", "(Ljava/lang/CharSequence;Ljava/time/format/DateTimeFormatter;)Ljava/time/LocalDate;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocalDate, parse, LocalDate*, $CharSequence*, $DateTimeFormatter*)},
+		{"plus", "(Ljava/time/temporal/TemporalAmount;)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(LocalDate, plus, LocalDate*, $TemporalAmount*)},
+		{"plus", "(JLjava/time/temporal/TemporalUnit;)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(LocalDate, plus, LocalDate*, int64_t, $TemporalUnit*)},
+		{"plusDays", "(J)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(LocalDate, plusDays, LocalDate*, int64_t)},
+		{"plusMonths", "(J)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(LocalDate, plusMonths, LocalDate*, int64_t)},
+		{"plusWeeks", "(J)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(LocalDate, plusWeeks, LocalDate*, int64_t)},
+		{"plusYears", "(J)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(LocalDate, plusYears, LocalDate*, int64_t)},
+		{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC, $virtualMethod(LocalDate, query, $Object*, $TemporalQuery*)},
+		{"range", "(Ljava/time/temporal/TemporalField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(LocalDate, range, $ValueRange*, $TemporalField*)},
+		{"readExternal", "(Ljava/io/DataInput;)Ljava/time/LocalDate;", nullptr, $STATIC, $staticMethod(LocalDate, readExternal, LocalDate*, $DataInput*), "java.io.IOException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(LocalDate, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
+		{"resolvePreviousValid", "(III)Ljava/time/LocalDate;", nullptr, $PRIVATE | $STATIC, $staticMethod(LocalDate, resolvePreviousValid, LocalDate*, int32_t, int32_t, int32_t)},
+		{"toEpochDay", "()J", nullptr, $PUBLIC, $virtualMethod(LocalDate, toEpochDay, int64_t)},
+		{"toEpochSecond", "(Ljava/time/LocalTime;Ljava/time/ZoneOffset;)J", nullptr, $PUBLIC, $method(LocalDate, toEpochSecond, int64_t, $LocalTime*, $ZoneOffset*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LocalDate, toString, $String*)},
+		{"until", "(Ljava/time/temporal/Temporal;Ljava/time/temporal/TemporalUnit;)J", nullptr, $PUBLIC, $virtualMethod(LocalDate, until, int64_t, $Temporal*, $TemporalUnit*)},
+		{"until", "(Ljava/time/chrono/ChronoLocalDate;)Ljava/time/Period;", nullptr, $PUBLIC, $virtualMethod(LocalDate, until, $ChronoPeriod*, $ChronoLocalDate*)},
+		{"with", "(Ljava/time/temporal/TemporalAdjuster;)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(LocalDate, with, LocalDate*, $TemporalAdjuster*)},
+		{"with", "(Ljava/time/temporal/TemporalField;J)Ljava/time/LocalDate;", nullptr, $PUBLIC, $virtualMethod(LocalDate, with, LocalDate*, $TemporalField*, int64_t)},
+		{"withDayOfMonth", "(I)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(LocalDate, withDayOfMonth, LocalDate*, int32_t)},
+		{"withDayOfYear", "(I)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(LocalDate, withDayOfYear, LocalDate*, int32_t)},
+		{"withMonth", "(I)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(LocalDate, withMonth, LocalDate*, int32_t)},
+		{"withYear", "(I)Ljava/time/LocalDate;", nullptr, $PUBLIC, $method(LocalDate, withYear, LocalDate*, int32_t)},
+		{"writeExternal", "(Ljava/io/DataOutput;)V", nullptr, 0, $method(LocalDate, writeExternal, void, $DataOutput*), "java.io.IOException"},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(LocalDate, writeReplace, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.LocalDate$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/ValueBased;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.time.LocalDate",
+		"java.lang.Object",
+		"java.time.chrono.ChronoLocalDate,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"java.time.LocalDate$1"
+	};
+	$loadClass(LocalDate, name, initialize, &classInfo$$, LocalDate::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LocalDate));
+	});
 	return class$;
 }
 

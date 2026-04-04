@@ -29,6 +29,7 @@ class $import CalendarDataUtility : public ::java::lang::Object {
 	$class(CalendarDataUtility, 0, ::java::lang::Object)
 public:
 	CalendarDataUtility();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Locale* findRegionOverride(::java::util::Locale* l);
 	static $String* normalizeCalendarType($String* requestID);

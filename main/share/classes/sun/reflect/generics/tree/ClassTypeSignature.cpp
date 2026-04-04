@@ -1,5 +1,4 @@
 #include <sun/reflect/generics/tree/ClassTypeSignature.h>
-
 #include <java/util/List.h>
 #include <sun/reflect/generics/visitor/TypeTreeVisitor.h>
 #include <jcpp.h>
@@ -14,32 +13,6 @@ namespace sun {
 	namespace reflect {
 		namespace generics {
 			namespace tree {
-
-$FieldInfo _ClassTypeSignature_FieldInfo_[] = {
-	{"path", "Ljava/util/List;", "Ljava/util/List<Lsun/reflect/generics/tree/SimpleClassTypeSignature;>;", $PRIVATE | $FINAL, $field(ClassTypeSignature, path)},
-	{}
-};
-
-$MethodInfo _ClassTypeSignature_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lsun/reflect/generics/tree/SimpleClassTypeSignature;>;)V", $PRIVATE, $method(ClassTypeSignature, init$, void, $List*)},
-	{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(ClassTypeSignature, accept, void, $TypeTreeVisitor*)},
-	{"getPath", "()Ljava/util/List;", "()Ljava/util/List<Lsun/reflect/generics/tree/SimpleClassTypeSignature;>;", $PUBLIC, $virtualMethod(ClassTypeSignature, getPath, $List*)},
-	{"make", "(Ljava/util/List;)Lsun/reflect/generics/tree/ClassTypeSignature;", "(Ljava/util/List<Lsun/reflect/generics/tree/SimpleClassTypeSignature;>;)Lsun/reflect/generics/tree/ClassTypeSignature;", $PUBLIC | $STATIC, $staticMethod(ClassTypeSignature, make, ClassTypeSignature*, $List*)},
-	{}
-};
-
-$ClassInfo _ClassTypeSignature_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.reflect.generics.tree.ClassTypeSignature",
-	"java.lang.Object",
-	"sun.reflect.generics.tree.FieldTypeSignature",
-	_ClassTypeSignature_FieldInfo_,
-	_ClassTypeSignature_MethodInfo_
-};
-
-$Object* allocate$ClassTypeSignature($Class* clazz) {
-	return $of($alloc(ClassTypeSignature));
-}
 
 void ClassTypeSignature::init$($List* p) {
 	$set(this, path, p);
@@ -62,7 +35,28 @@ ClassTypeSignature::ClassTypeSignature() {
 }
 
 $Class* ClassTypeSignature::load$($String* name, bool initialize) {
-	$loadClass(ClassTypeSignature, name, initialize, &_ClassTypeSignature_ClassInfo_, allocate$ClassTypeSignature);
+	$FieldInfo fieldInfos$$[] = {
+		{"path", "Ljava/util/List;", "Ljava/util/List<Lsun/reflect/generics/tree/SimpleClassTypeSignature;>;", $PRIVATE | $FINAL, $field(ClassTypeSignature, path)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Lsun/reflect/generics/tree/SimpleClassTypeSignature;>;)V", $PRIVATE, $method(ClassTypeSignature, init$, void, $List*)},
+		{"accept", "(Lsun/reflect/generics/visitor/TypeTreeVisitor;)V", "(Lsun/reflect/generics/visitor/TypeTreeVisitor<*>;)V", $PUBLIC, $virtualMethod(ClassTypeSignature, accept, void, $TypeTreeVisitor*)},
+		{"getPath", "()Ljava/util/List;", "()Ljava/util/List<Lsun/reflect/generics/tree/SimpleClassTypeSignature;>;", $PUBLIC, $virtualMethod(ClassTypeSignature, getPath, $List*)},
+		{"make", "(Ljava/util/List;)Lsun/reflect/generics/tree/ClassTypeSignature;", "(Ljava/util/List<Lsun/reflect/generics/tree/SimpleClassTypeSignature;>;)Lsun/reflect/generics/tree/ClassTypeSignature;", $PUBLIC | $STATIC, $staticMethod(ClassTypeSignature, make, ClassTypeSignature*, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.reflect.generics.tree.ClassTypeSignature",
+		"java.lang.Object",
+		"sun.reflect.generics.tree.FieldTypeSignature",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClassTypeSignature, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ClassTypeSignature));
+	});
 	return class$;
 }
 

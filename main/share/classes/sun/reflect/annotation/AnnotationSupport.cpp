@@ -1,5 +1,4 @@
 #include <sun/reflect/annotation/AnnotationSupport.h>
-
 #include <java/lang/ClassCastException.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/SecurityManager.h>
@@ -14,10 +13,8 @@
 #include <java/lang/reflect/Modifier.h>
 #include <java/lang/reflect/Proxy.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
@@ -51,15 +48,12 @@ using $Method = ::java::lang::reflect::Method;
 using $Modifier = ::java::lang::reflect::Modifier;
 using $Proxy = ::java::lang::reflect::Proxy;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
-using $Set = ::java::util::Set;
 using $JavaLangAccess = ::jdk::internal::access::JavaLangAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $ReflectionFactory = ::jdk::internal::reflect::ReflectionFactory;
@@ -70,47 +64,6 @@ namespace sun {
 	namespace reflect {
 		namespace annotation {
 
-$FieldInfo _AnnotationSupport_FieldInfo_[] = {
-	{"LANG_ACCESS", "Ljdk/internal/access/JavaLangAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AnnotationSupport, LANG_ACCESS)},
-	{}
-};
-
-$MethodInfo _AnnotationSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AnnotationSupport, init$, void)},
-	{"checkTypes", "([Ljava/lang/annotation/Annotation;Ljava/lang/annotation/Annotation;Ljava/lang/Class;)V", "<A::Ljava/lang/annotation/Annotation;>([TA;Ljava/lang/annotation/Annotation;Ljava/lang/Class<TA;>;)V", $PRIVATE | $STATIC, $staticMethod(AnnotationSupport, checkTypes, void, $AnnotationArray*, $Annotation*, $Class*)},
-	{"containerBeforeContainee", "(Ljava/util/Map;Ljava/lang/Class;)Z", "<A::Ljava/lang/annotation/Annotation;>(Ljava/util/Map<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/annotation/Annotation;>;Ljava/lang/Class<TA;>;)Z", $PRIVATE | $STATIC, $staticMethod(AnnotationSupport, containerBeforeContainee, bool, $Map*, $Class*)},
-	{"getAssociatedAnnotations", "(Ljava/util/Map;Ljava/lang/Class;Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/util/Map<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/annotation/Annotation;>;Ljava/lang/Class<*>;Ljava/lang/Class<TA;>;)[TA;", $PUBLIC | $STATIC, $staticMethod(AnnotationSupport, getAssociatedAnnotations, $AnnotationArray*, $Map*, $Class*, $Class*)},
-	{"getDirectlyAndIndirectlyPresent", "(Ljava/util/Map;Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/util/Map<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/annotation/Annotation;>;Ljava/lang/Class<TA;>;)[TA;", $PUBLIC | $STATIC, $staticMethod(AnnotationSupport, getDirectlyAndIndirectlyPresent, $AnnotationArray*, $Map*, $Class*)},
-	{"getIndirectlyPresent", "(Ljava/util/Map;Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/util/Map<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/annotation/Annotation;>;Ljava/lang/Class<TA;>;)[TA;", $PRIVATE | $STATIC, $staticMethod(AnnotationSupport, getIndirectlyPresent, $AnnotationArray*, $Map*, $Class*)},
-	{"getValueArray", "(Ljava/lang/annotation/Annotation;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/annotation/Annotation;)[TA;", $PRIVATE | $STATIC, $staticMethod(AnnotationSupport, getValueArray, $AnnotationArray*, $Annotation*)},
-	{"invalidContainerException", "(Ljava/lang/annotation/Annotation;Ljava/lang/Throwable;)Ljava/lang/annotation/AnnotationFormatError;", nullptr, $PRIVATE | $STATIC, $staticMethod(AnnotationSupport, invalidContainerException, $AnnotationFormatError*, $Annotation*, $Throwable*)},
-	{}
-};
-
-$InnerClassInfo _AnnotationSupport_InnerClassesInfo_[] = {
-	{"sun.reflect.annotation.AnnotationSupport$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AnnotationSupport_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.reflect.annotation.AnnotationSupport",
-	"java.lang.Object",
-	nullptr,
-	_AnnotationSupport_FieldInfo_,
-	_AnnotationSupport_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AnnotationSupport_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.reflect.annotation.AnnotationSupport$1"
-};
-
-$Object* allocate$AnnotationSupport($Class* clazz) {
-	return $of($alloc(AnnotationSupport));
-}
-
 $JavaLangAccess* AnnotationSupport::LANG_ACCESS = nullptr;
 
 void AnnotationSupport::init$() {
@@ -118,7 +71,7 @@ void AnnotationSupport::init$() {
 
 $AnnotationArray* AnnotationSupport::getDirectlyAndIndirectlyPresent($Map* annotations, $Class* annoClass) {
 	$init(AnnotationSupport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, result, $new($ArrayList));
 	$var($Annotation, direct, $cast($Annotation, $nc(annotations)->get(annoClass)));
 	if (direct != nullptr) {
@@ -130,12 +83,12 @@ $AnnotationArray* AnnotationSupport::getDirectlyAndIndirectlyPresent($Map* annot
 		result->addAll((indirectFirst ? 0 : 1), $($Arrays::asList(indirect)));
 	}
 	$var($AnnotationArray, arr, $cast($AnnotationArray, $1Array::newInstance(annoClass, result->size())));
-	return $fcast($AnnotationArray, result->toArray(arr));
+	return $cast($AnnotationArray, result->toArray(arr));
 }
 
 $AnnotationArray* AnnotationSupport::getIndirectlyPresent($Map* annotations, $Class* annoClass) {
 	$init(AnnotationSupport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Repeatable);
 	$var($Repeatable, repeatable, $cast($Repeatable, $nc(annoClass)->getDeclaredAnnotation($Repeatable::class$)));
 	if (repeatable == nullptr) {
@@ -153,11 +106,11 @@ $AnnotationArray* AnnotationSupport::getIndirectlyPresent($Map* annotations, $Cl
 
 bool AnnotationSupport::containerBeforeContainee($Map* annotations, $Class* annoClass) {
 	$init(AnnotationSupport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Repeatable);
-	$Class* containerClass = $nc(($cast($Repeatable, $($nc(annoClass)->getDeclaredAnnotation($Repeatable::class$)))))->value();
+	$Class* containerClass = $$sure($Repeatable, $nc(annoClass)->getDeclaredAnnotation($Repeatable::class$))->value();
 	{
-		$var($Iterator, i$, $nc($($nc(annotations)->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(annotations)->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$Class* c = $cast($Class, i$->next());
 			{
@@ -175,10 +128,10 @@ bool AnnotationSupport::containerBeforeContainee($Map* annotations, $Class* anno
 
 $AnnotationArray* AnnotationSupport::getAssociatedAnnotations($Map* declaredAnnotations, $Class* decl, $Class* annoClass) {
 	$init(AnnotationSupport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(decl);
 	$var($AnnotationArray, result, getDirectlyAndIndirectlyPresent(declaredAnnotations, annoClass));
-	if ($nc($($AnnotationType::getInstance(annoClass)))->isInherited()) {
+	if ($$nc($AnnotationType::getInstance(annoClass))->isInherited()) {
 		$Class* superDecl = decl->getSuperclass();
 		while ($nc(result)->length == 0 && superDecl != nullptr) {
 			$assign(result, getDirectlyAndIndirectlyPresent($($nc(AnnotationSupport::LANG_ACCESS)->getDeclaredAnnotationMap(superDecl)), annoClass));
@@ -190,7 +143,7 @@ $AnnotationArray* AnnotationSupport::getAssociatedAnnotations($Map* declaredAnno
 
 $AnnotationArray* AnnotationSupport::getValueArray($Annotation* container) {
 	$init(AnnotationSupport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		$Class* containerClass = $nc(container)->annotationType();
@@ -198,7 +151,7 @@ $AnnotationArray* AnnotationSupport::getValueArray($Annotation* container) {
 		if (annoType == nullptr) {
 			$throw($(invalidContainerException(container, nullptr)));
 		}
-		$var($Method, m, $cast($Method, $nc($($nc(annoType)->members()))->get("value"_s)));
+		$var($Method, m, $cast($Method, $$nc($nc(annoType)->members())->get("value"_s)));
 		if (m == nullptr) {
 			$throw($(invalidContainerException(container, nullptr)));
 		}
@@ -219,11 +172,11 @@ $AnnotationArray* AnnotationSupport::getValueArray($Annotation* container) {
 				$throwNew($UnsupportedOperationException, "Unsupported value member."_s);
 			}
 			$var($Method, toInvoke, nullptr);
-			if (!$Modifier::isPublic($nc(iface)->getModifiers())) {
+			if (!$Modifier::isPublic(iface->getModifiers())) {
 				if ($System::getSecurityManager() != nullptr) {
-					$assign(toInvoke, $cast($Method, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($AnnotationSupport$1, m)))));
+					$assign(toInvoke, $cast($Method, $AccessController::doPrivileged($$new($AnnotationSupport$1, m))));
 				} else {
-					$assign(toInvoke, $nc($($ReflectionFactory::getReflectionFactory()))->leafCopyMethod(m));
+					$assign(toInvoke, $$nc($ReflectionFactory::getReflectionFactory())->leafCopyMethod(m));
 					$nc(toInvoke)->setAccessible(true);
 				}
 			} else {
@@ -251,26 +204,20 @@ $AnnotationFormatError* AnnotationSupport::invalidContainerException($Annotation
 
 void AnnotationSupport::checkTypes($AnnotationArray* annotations, $Annotation* container, $Class* annoClass) {
 	$init(AnnotationSupport);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($AnnotationArray, arr$, annotations);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($Annotation, a, arr$->get(i$));
-			{
-				if (!$nc(annoClass)->isInstance(a)) {
-					$throwNew($AnnotationFormatError, $($String::format("%s is an invalid container for repeating annotations of type: %s"_s, $$new($ObjectArray, {
-						$of(container),
-						$of(annoClass)
-					}))));
-				}
-			}
+	$useLocalObjectStack();
+	$var($AnnotationArray, arr$, annotations);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($Annotation, a, arr$->get(i$));
+		if (!$nc(annoClass)->isInstance(a)) {
+			$throwNew($AnnotationFormatError, $($String::format("%s is an invalid container for repeating annotations of type: %s"_s, $$new($ObjectArray, {
+				container,
+				annoClass
+			}))));
 		}
 	}
 }
 
-void clinit$AnnotationSupport($Class* class$) {
+void AnnotationSupport::clinit$($Class* clazz) {
 	$assignStatic(AnnotationSupport::LANG_ACCESS, $SharedSecrets::getJavaLangAccess());
 }
 
@@ -278,7 +225,42 @@ AnnotationSupport::AnnotationSupport() {
 }
 
 $Class* AnnotationSupport::load$($String* name, bool initialize) {
-	$loadClass(AnnotationSupport, name, initialize, &_AnnotationSupport_ClassInfo_, clinit$AnnotationSupport, allocate$AnnotationSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"LANG_ACCESS", "Ljdk/internal/access/JavaLangAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AnnotationSupport, LANG_ACCESS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AnnotationSupport, init$, void)},
+		{"checkTypes", "([Ljava/lang/annotation/Annotation;Ljava/lang/annotation/Annotation;Ljava/lang/Class;)V", "<A::Ljava/lang/annotation/Annotation;>([TA;Ljava/lang/annotation/Annotation;Ljava/lang/Class<TA;>;)V", $PRIVATE | $STATIC, $staticMethod(AnnotationSupport, checkTypes, void, $AnnotationArray*, $Annotation*, $Class*)},
+		{"containerBeforeContainee", "(Ljava/util/Map;Ljava/lang/Class;)Z", "<A::Ljava/lang/annotation/Annotation;>(Ljava/util/Map<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/annotation/Annotation;>;Ljava/lang/Class<TA;>;)Z", $PRIVATE | $STATIC, $staticMethod(AnnotationSupport, containerBeforeContainee, bool, $Map*, $Class*)},
+		{"getAssociatedAnnotations", "(Ljava/util/Map;Ljava/lang/Class;Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/util/Map<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/annotation/Annotation;>;Ljava/lang/Class<*>;Ljava/lang/Class<TA;>;)[TA;", $PUBLIC | $STATIC, $staticMethod(AnnotationSupport, getAssociatedAnnotations, $AnnotationArray*, $Map*, $Class*, $Class*)},
+		{"getDirectlyAndIndirectlyPresent", "(Ljava/util/Map;Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/util/Map<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/annotation/Annotation;>;Ljava/lang/Class<TA;>;)[TA;", $PUBLIC | $STATIC, $staticMethod(AnnotationSupport, getDirectlyAndIndirectlyPresent, $AnnotationArray*, $Map*, $Class*)},
+		{"getIndirectlyPresent", "(Ljava/util/Map;Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/util/Map<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/annotation/Annotation;>;Ljava/lang/Class<TA;>;)[TA;", $PRIVATE | $STATIC, $staticMethod(AnnotationSupport, getIndirectlyPresent, $AnnotationArray*, $Map*, $Class*)},
+		{"getValueArray", "(Ljava/lang/annotation/Annotation;)[Ljava/lang/annotation/Annotation;", "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/annotation/Annotation;)[TA;", $PRIVATE | $STATIC, $staticMethod(AnnotationSupport, getValueArray, $AnnotationArray*, $Annotation*)},
+		{"invalidContainerException", "(Ljava/lang/annotation/Annotation;Ljava/lang/Throwable;)Ljava/lang/annotation/AnnotationFormatError;", nullptr, $PRIVATE | $STATIC, $staticMethod(AnnotationSupport, invalidContainerException, $AnnotationFormatError*, $Annotation*, $Throwable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.reflect.annotation.AnnotationSupport$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.reflect.annotation.AnnotationSupport",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.reflect.annotation.AnnotationSupport$1"
+	};
+	$loadClass(AnnotationSupport, name, initialize, &classInfo$$, AnnotationSupport::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AnnotationSupport);
+	});
 	return class$;
 }
 

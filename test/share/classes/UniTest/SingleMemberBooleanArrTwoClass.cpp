@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberBooleanArrTwoClass.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -10,44 +9,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$Attribute SingleMemberBooleanArrTwoClass_Attribute_var$1[] = {
-	{'Z', "true"},
-	{'Z', "false"},
-	{'-'}
-};
-
-$NamedAttribute SingleMemberBooleanArrTwoClass_Attribute_var$0[] = {
-	{"value", '[', SingleMemberBooleanArrTwoClass_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _SingleMemberBooleanArrTwoClass_Annotations_[] = {
-	{"LUniTest/SingleMemberBooleanArray;", SingleMemberBooleanArrTwoClass_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _SingleMemberBooleanArrTwoClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SingleMemberBooleanArrTwoClass, init$, void)},
-	{}
-};
-
-$ClassInfo _SingleMemberBooleanArrTwoClass_ClassInfo_ = {
-	$ACC_SUPER,
-	"UniTest.SingleMemberBooleanArrTwoClass",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SingleMemberBooleanArrTwoClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberBooleanArrTwoClass_Annotations_
-};
-
-$Object* allocate$SingleMemberBooleanArrTwoClass($Class* clazz) {
-	return $of($alloc(SingleMemberBooleanArrTwoClass));
-}
-
 void SingleMemberBooleanArrTwoClass::init$() {
 }
 
@@ -55,7 +16,38 @@ SingleMemberBooleanArrTwoClass::SingleMemberBooleanArrTwoClass() {
 }
 
 $Class* SingleMemberBooleanArrTwoClass::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberBooleanArrTwoClass, name, initialize, &_SingleMemberBooleanArrTwoClass_ClassInfo_, allocate$SingleMemberBooleanArrTwoClass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SingleMemberBooleanArrTwoClass, init$, void)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'Z', "true"},
+		{'Z', "false"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LUniTest/SingleMemberBooleanArray;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"UniTest.SingleMemberBooleanArrTwoClass",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberBooleanArrTwoClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberBooleanArrTwoClass);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/Locale$FilteringMode.h>
-
 #include <java/lang/Enum.h>
 #include <java/util/Locale.h>
 #include <jcpp.h>
@@ -19,49 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Locale$FilteringMode_FieldInfo_[] = {
-	{"AUTOSELECT_FILTERING", "Ljava/util/Locale$FilteringMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Locale$FilteringMode, AUTOSELECT_FILTERING)},
-	{"EXTENDED_FILTERING", "Ljava/util/Locale$FilteringMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Locale$FilteringMode, EXTENDED_FILTERING)},
-	{"IGNORE_EXTENDED_RANGES", "Ljava/util/Locale$FilteringMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Locale$FilteringMode, IGNORE_EXTENDED_RANGES)},
-	{"MAP_EXTENDED_RANGES", "Ljava/util/Locale$FilteringMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Locale$FilteringMode, MAP_EXTENDED_RANGES)},
-	{"REJECT_EXTENDED_RANGES", "Ljava/util/Locale$FilteringMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Locale$FilteringMode, REJECT_EXTENDED_RANGES)},
-	{"$VALUES", "[Ljava/util/Locale$FilteringMode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Locale$FilteringMode, $VALUES)},
-	{}
-};
-
-$MethodInfo _Locale$FilteringMode_MethodInfo_[] = {
-	{"$values", "()[Ljava/util/Locale$FilteringMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Locale$FilteringMode, $values, $Locale$FilteringModeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Locale$FilteringMode, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/util/Locale$FilteringMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Locale$FilteringMode, valueOf, Locale$FilteringMode*, $String*)},
-	{"values", "()[Ljava/util/Locale$FilteringMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Locale$FilteringMode, values, $Locale$FilteringModeArray*)},
-	{}
-};
-
-$InnerClassInfo _Locale$FilteringMode_InnerClassesInfo_[] = {
-	{"java.util.Locale$FilteringMode", "java.util.Locale", "FilteringMode", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Locale$FilteringMode_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.util.Locale$FilteringMode",
-	"java.lang.Enum",
-	nullptr,
-	_Locale$FilteringMode_FieldInfo_,
-	_Locale$FilteringMode_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/util/Locale$FilteringMode;>;",
-	nullptr,
-	_Locale$FilteringMode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Locale"
-};
-
-$Object* allocate$Locale$FilteringMode($Class* clazz) {
-	return $of($alloc(Locale$FilteringMode));
-}
 
 Locale$FilteringMode* Locale$FilteringMode::AUTOSELECT_FILTERING = nullptr;
 Locale$FilteringMode* Locale$FilteringMode::EXTENDED_FILTERING = nullptr;
@@ -95,7 +51,7 @@ void Locale$FilteringMode::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Locale$FilteringMode($Class* class$) {
+void Locale$FilteringMode::clinit$($Class* clazz) {
 	$assignStatic(Locale$FilteringMode::AUTOSELECT_FILTERING, $new(Locale$FilteringMode, "AUTOSELECT_FILTERING"_s, 0));
 	$assignStatic(Locale$FilteringMode::EXTENDED_FILTERING, $new(Locale$FilteringMode, "EXTENDED_FILTERING"_s, 1));
 	$assignStatic(Locale$FilteringMode::IGNORE_EXTENDED_RANGES, $new(Locale$FilteringMode, "IGNORE_EXTENDED_RANGES"_s, 2));
@@ -108,7 +64,44 @@ Locale$FilteringMode::Locale$FilteringMode() {
 }
 
 $Class* Locale$FilteringMode::load$($String* name, bool initialize) {
-	$loadClass(Locale$FilteringMode, name, initialize, &_Locale$FilteringMode_ClassInfo_, clinit$Locale$FilteringMode, allocate$Locale$FilteringMode);
+	$FieldInfo fieldInfos$$[] = {
+		{"AUTOSELECT_FILTERING", "Ljava/util/Locale$FilteringMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Locale$FilteringMode, AUTOSELECT_FILTERING)},
+		{"EXTENDED_FILTERING", "Ljava/util/Locale$FilteringMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Locale$FilteringMode, EXTENDED_FILTERING)},
+		{"IGNORE_EXTENDED_RANGES", "Ljava/util/Locale$FilteringMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Locale$FilteringMode, IGNORE_EXTENDED_RANGES)},
+		{"MAP_EXTENDED_RANGES", "Ljava/util/Locale$FilteringMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Locale$FilteringMode, MAP_EXTENDED_RANGES)},
+		{"REJECT_EXTENDED_RANGES", "Ljava/util/Locale$FilteringMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Locale$FilteringMode, REJECT_EXTENDED_RANGES)},
+		{"$VALUES", "[Ljava/util/Locale$FilteringMode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Locale$FilteringMode, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/util/Locale$FilteringMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Locale$FilteringMode, $values, $Locale$FilteringModeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Locale$FilteringMode, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/util/Locale$FilteringMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Locale$FilteringMode, valueOf, Locale$FilteringMode*, $String*)},
+		{"values", "()[Ljava/util/Locale$FilteringMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(Locale$FilteringMode, values, $Locale$FilteringModeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Locale$FilteringMode", "java.util.Locale", "FilteringMode", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.util.Locale$FilteringMode",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/util/Locale$FilteringMode;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Locale"
+	};
+	$loadClass(Locale$FilteringMode, name, initialize, &classInfo$$, Locale$FilteringMode::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Locale$FilteringMode));
+	});
 	return class$;
 }
 

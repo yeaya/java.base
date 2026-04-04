@@ -14,10 +14,13 @@ class $import ShutdownChannelGroupException : public ::java::lang::IllegalStateE
 public:
 	ShutdownChannelGroupException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xC9D2E90EFF931A53;
+	static const int64_t serialVersionUID = (int64_t)0xc9d2e90eff931a53;
 	ShutdownChannelGroupException(const ShutdownChannelGroupException& e);
 	virtual void throw$() override;
-	inline ShutdownChannelGroupException* operator ->() {
+	inline ShutdownChannelGroupException* operator ->() const {
+		return (ShutdownChannelGroupException*)throwing$;
+	}
+	inline operator ShutdownChannelGroupException*() const {
 		return (ShutdownChannelGroupException*)throwing$;
 	}
 };

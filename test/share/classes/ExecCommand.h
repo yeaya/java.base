@@ -14,6 +14,7 @@ class $export ExecCommand : public ::java::lang::Object {
 	$class(ExecCommand, 0, ::java::lang::Object)
 public:
 	ExecCommand();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkOut($String* path);
 	static void deleteOut($String* path);

@@ -43,6 +43,7 @@ class $import ValidatorException : public ::java::security::cert::CertificateExc
 	$class(ValidatorException, 0, ::java::security::cert::CertificateException)
 public:
 	ValidatorException();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* msg);
 	void init$($String* msg, $Throwable* cause);
 	void init$(Object$* type);
@@ -52,7 +53,7 @@ public:
 	void init$($String* msg, Object$* type, ::java::security::cert::X509Certificate* cert, $Throwable* cause);
 	virtual ::java::security::cert::X509Certificate* getErrorCertificate();
 	virtual $Object* getErrorType();
-	static const int64_t serialVersionUID = (int64_t)0xD8A160ED39461445;
+	static const int64_t serialVersionUID = (int64_t)0xd8a160ed39461445;
 	static $Object* T_NO_TRUST_ANCHOR;
 	static $Object* T_EE_EXTENSIONS;
 	static $Object* T_CA_EXTENSIONS;
@@ -65,7 +66,10 @@ public:
 	::java::security::cert::X509Certificate* cert = nullptr;
 	ValidatorException(const ValidatorException& e);
 	virtual void throw$() override;
-	inline ValidatorException* operator ->() {
+	inline ValidatorException* operator ->() const {
+		return (ValidatorException*)throwing$;
+	}
+	inline operator ValidatorException*() const {
 		return (ValidatorException*)throwing$;
 	}
 };

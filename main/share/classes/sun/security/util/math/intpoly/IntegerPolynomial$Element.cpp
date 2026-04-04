@@ -1,5 +1,4 @@
 #include <sun/security/util/math/intpoly/IntegerPolynomial$Element.h>
-
 #include <java/lang/Math.h>
 #include <java/math/BigInteger.h>
 #include <sun/security/util/math/ImmutableIntegerModuloP.h>
@@ -32,58 +31,6 @@ namespace sun {
 			namespace math {
 				namespace intpoly {
 
-$FieldInfo _IntegerPolynomial$Element_FieldInfo_[] = {
-	{"this$0", "Lsun/security/util/math/intpoly/IntegerPolynomial;", nullptr, $FINAL | $SYNTHETIC, $field(IntegerPolynomial$Element, this$0)},
-	{"limbs", "[J", nullptr, $PROTECTED, $field(IntegerPolynomial$Element, limbs)},
-	{"numAdds", "I", nullptr, $PROTECTED, $field(IntegerPolynomial$Element, numAdds)},
-	{}
-};
-
-$MethodInfo _IntegerPolynomial$Element_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/util/math/intpoly/IntegerPolynomial;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(IntegerPolynomial$Element, init$, void, $IntegerPolynomial*, $BigInteger*)},
-	{"<init>", "(Lsun/security/util/math/intpoly/IntegerPolynomial;Z)V", nullptr, $PUBLIC, $method(IntegerPolynomial$Element, init$, void, $IntegerPolynomial*, bool)},
-	{"<init>", "(Lsun/security/util/math/intpoly/IntegerPolynomial;[JI)V", nullptr, $PRIVATE, $method(IntegerPolynomial$Element, init$, void, $IntegerPolynomial*, $longs*, int32_t)},
-	{"add", "(Lsun/security/util/math/IntegerModuloP;)Lsun/security/util/math/intpoly/IntegerPolynomial$ImmutableElement;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial$Element, add, $ImmutableIntegerModuloP*, $IntegerModuloP*)},
-	{"addModPowerTwo", "(Lsun/security/util/math/IntegerModuloP;[B)V", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial$Element, addModPowerTwo, void, $IntegerModuloP*, $bytes*)},
-	{"additiveInverse", "()Lsun/security/util/math/intpoly/IntegerPolynomial$ImmutableElement;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial$Element, additiveInverse, $ImmutableIntegerModuloP*)},
-	{"asBigInteger", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial$Element, asBigInteger, $BigInteger*)},
-	{"asByteArray", "([B)V", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial$Element, asByteArray, void, $bytes*)},
-	{"cloneLow", "([J)[J", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial$Element, cloneLow, $longs*, $longs*)},
-	{"copyLow", "([J[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial$Element, copyLow, void, $longs*, $longs*)},
-	{"getField", "()Lsun/security/util/math/IntegerFieldModuloP;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial$Element, getField, $IntegerFieldModuloP*)},
-	{"isSummand", "()Z", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial$Element, isSummand, bool)},
-	{"multiply", "(Lsun/security/util/math/IntegerModuloP;)Lsun/security/util/math/intpoly/IntegerPolynomial$ImmutableElement;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial$Element, multiply, $ImmutableIntegerModuloP*, $IntegerModuloP*)},
-	{"mutable", "()Lsun/security/util/math/intpoly/IntegerPolynomial$MutableElement;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial$Element, mutable$, $MutableIntegerModuloP*)},
-	{"setValue", "(Ljava/math/BigInteger;)V", nullptr, $PRIVATE, $method(IntegerPolynomial$Element, setValue, void, $BigInteger*)},
-	{"square", "()Lsun/security/util/math/intpoly/IntegerPolynomial$ImmutableElement;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial$Element, square, $ImmutableIntegerModuloP*)},
-	{}
-};
-
-$InnerClassInfo _IntegerPolynomial$Element_InnerClassesInfo_[] = {
-	{"sun.security.util.math.intpoly.IntegerPolynomial$Element", "sun.security.util.math.intpoly.IntegerPolynomial", "Element", $PRIVATE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _IntegerPolynomial$Element_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.security.util.math.intpoly.IntegerPolynomial$Element",
-	"java.lang.Object",
-	"sun.security.util.math.IntegerModuloP",
-	_IntegerPolynomial$Element_FieldInfo_,
-	_IntegerPolynomial$Element_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IntegerPolynomial$Element_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.util.math.intpoly.IntegerPolynomial"
-};
-
-$Object* allocate$IntegerPolynomial$Element($Class* clazz) {
-	return $of($alloc(IntegerPolynomial$Element));
-}
-
 void IntegerPolynomial$Element::init$($IntegerPolynomial* this$0, $BigInteger* v) {
 	$set(this, this$0, this$0);
 	$set(this, limbs, $new($longs, this$0->numLimbs));
@@ -93,7 +40,7 @@ void IntegerPolynomial$Element::init$($IntegerPolynomial* this$0, $BigInteger* v
 void IntegerPolynomial$Element::init$($IntegerPolynomial* this$0, bool v) {
 	$set(this, this$0, this$0);
 	$set(this, limbs, $new($longs, this$0->numLimbs));
-	$nc(this->limbs)->set(0, v ? (int64_t)1 : (int64_t)0);
+	this->limbs->set(0, v ? 1 : 0);
 	this->numAdds = 0;
 }
 
@@ -117,7 +64,7 @@ $BigInteger* IntegerPolynomial$Element::asBigInteger() {
 }
 
 $MutableIntegerModuloP* IntegerPolynomial$Element::mutable$() {
-	return $new($IntegerPolynomial$MutableElement, this->this$0, $cast($longs, $($nc(this->limbs)->clone())), this->numAdds);
+	return $new($IntegerPolynomial$MutableElement, this->this$0, $$cast($longs, $nc(this->limbs)->clone()), this->numAdds);
 }
 
 bool IntegerPolynomial$Element::isSummand() {
@@ -125,25 +72,25 @@ bool IntegerPolynomial$Element::isSummand() {
 }
 
 $ImmutableIntegerModuloP* IntegerPolynomial$Element::add($IntegerModuloP* genB) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(IntegerPolynomial$Element, b, $cast(IntegerPolynomial$Element, genB));
 	bool var$0 = isSummand();
 	if (!(var$0 && $nc(b)->isSummand())) {
 		$throwNew($ArithmeticException, "Not a valid summand"_s);
 	}
 	$var($longs, newLimbs, $new($longs, $nc(this->limbs)->length));
-	for (int32_t i = 0; i < $nc(this->limbs)->length; ++i) {
-		newLimbs->set(i, $nc(this->limbs)->get(i) + $nc($nc(b)->limbs)->get(i));
+	for (int32_t i = 0; i < this->limbs->length; ++i) {
+		newLimbs->set(i, this->limbs->get(i) + $nc($nc(b)->limbs)->get(i));
 	}
 	int32_t newNumAdds = $Math::max(this->numAdds, $nc(b)->numAdds) + 1;
 	return $new($IntegerPolynomial$ImmutableElement, this->this$0, newLimbs, newNumAdds);
 }
 
 $ImmutableIntegerModuloP* IntegerPolynomial$Element::additiveInverse() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($longs, newLimbs, $new($longs, $nc(this->limbs)->length));
-	for (int32_t i = 0; i < $nc(this->limbs)->length; ++i) {
-		newLimbs->set(i, -$nc(this->limbs)->get(i));
+	for (int32_t i = 0; i < this->limbs->length; ++i) {
+		newLimbs->set(i, -this->limbs->get(i));
 	}
 	$var($IntegerPolynomial$ImmutableElement, result, $new($IntegerPolynomial$ImmutableElement, this->this$0, newLimbs, this->numAdds));
 	return result;
@@ -160,7 +107,7 @@ void IntegerPolynomial$Element::copyLow($longs* limbs, $longs* out) {
 }
 
 $ImmutableIntegerModuloP* IntegerPolynomial$Element::multiply($IntegerModuloP* genB) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(IntegerPolynomial$Element, b, $cast(IntegerPolynomial$Element, genB));
 	$var($longs, newLimbs, $new($longs, $nc(this->limbs)->length));
 	this->this$0->mult(this->limbs, $nc(b)->limbs, newLimbs);
@@ -193,7 +140,53 @@ IntegerPolynomial$Element::IntegerPolynomial$Element() {
 }
 
 $Class* IntegerPolynomial$Element::load$($String* name, bool initialize) {
-	$loadClass(IntegerPolynomial$Element, name, initialize, &_IntegerPolynomial$Element_ClassInfo_, allocate$IntegerPolynomial$Element);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/security/util/math/intpoly/IntegerPolynomial;", nullptr, $FINAL | $SYNTHETIC, $field(IntegerPolynomial$Element, this$0)},
+		{"limbs", "[J", nullptr, $PROTECTED, $field(IntegerPolynomial$Element, limbs)},
+		{"numAdds", "I", nullptr, $PROTECTED, $field(IntegerPolynomial$Element, numAdds)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/util/math/intpoly/IntegerPolynomial;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(IntegerPolynomial$Element, init$, void, $IntegerPolynomial*, $BigInteger*)},
+		{"<init>", "(Lsun/security/util/math/intpoly/IntegerPolynomial;Z)V", nullptr, $PUBLIC, $method(IntegerPolynomial$Element, init$, void, $IntegerPolynomial*, bool)},
+		{"<init>", "(Lsun/security/util/math/intpoly/IntegerPolynomial;[JI)V", nullptr, $PRIVATE, $method(IntegerPolynomial$Element, init$, void, $IntegerPolynomial*, $longs*, int32_t)},
+		{"add", "(Lsun/security/util/math/IntegerModuloP;)Lsun/security/util/math/intpoly/IntegerPolynomial$ImmutableElement;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial$Element, add, $ImmutableIntegerModuloP*, $IntegerModuloP*)},
+		{"addModPowerTwo", "(Lsun/security/util/math/IntegerModuloP;[B)V", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial$Element, addModPowerTwo, void, $IntegerModuloP*, $bytes*)},
+		{"additiveInverse", "()Lsun/security/util/math/intpoly/IntegerPolynomial$ImmutableElement;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial$Element, additiveInverse, $ImmutableIntegerModuloP*)},
+		{"asBigInteger", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial$Element, asBigInteger, $BigInteger*)},
+		{"asByteArray", "([B)V", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial$Element, asByteArray, void, $bytes*)},
+		{"cloneLow", "([J)[J", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial$Element, cloneLow, $longs*, $longs*)},
+		{"copyLow", "([J[J)V", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial$Element, copyLow, void, $longs*, $longs*)},
+		{"getField", "()Lsun/security/util/math/IntegerFieldModuloP;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial$Element, getField, $IntegerFieldModuloP*)},
+		{"isSummand", "()Z", nullptr, $PROTECTED, $virtualMethod(IntegerPolynomial$Element, isSummand, bool)},
+		{"multiply", "(Lsun/security/util/math/IntegerModuloP;)Lsun/security/util/math/intpoly/IntegerPolynomial$ImmutableElement;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial$Element, multiply, $ImmutableIntegerModuloP*, $IntegerModuloP*)},
+		{"mutable", "()Lsun/security/util/math/intpoly/IntegerPolynomial$MutableElement;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial$Element, mutable$, $MutableIntegerModuloP*)},
+		{"setValue", "(Ljava/math/BigInteger;)V", nullptr, $PRIVATE, $method(IntegerPolynomial$Element, setValue, void, $BigInteger*)},
+		{"square", "()Lsun/security/util/math/intpoly/IntegerPolynomial$ImmutableElement;", nullptr, $PUBLIC, $virtualMethod(IntegerPolynomial$Element, square, $ImmutableIntegerModuloP*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.math.intpoly.IntegerPolynomial$Element", "sun.security.util.math.intpoly.IntegerPolynomial", "Element", $PRIVATE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.security.util.math.intpoly.IntegerPolynomial$Element",
+		"java.lang.Object",
+		"sun.security.util.math.IntegerModuloP",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.util.math.intpoly.IntegerPolynomial"
+	};
+	$loadClass(IntegerPolynomial$Element, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntegerPolynomial$Element);
+	});
 	return class$;
 }
 

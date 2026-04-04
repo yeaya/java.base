@@ -26,6 +26,7 @@ class $export PrintPattern : public ::java::lang::Object {
 	$class(PrintPattern, 0, ::java::lang::Object)
 public:
 	PrintPattern();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void print(::java::util::regex::Pattern$Node* node, $String* text, int32_t depth);

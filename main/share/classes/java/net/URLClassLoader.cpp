@@ -1,5 +1,4 @@
 #include <java/net/URLClassLoader.h>
-
 #include <java/io/Closeable.h>
 #include <java/io/File.h>
 #include <java/io/FilePermission.h>
@@ -30,9 +29,7 @@
 #include <java/security/CodeSource.h>
 #include <java/security/Permission.h>
 #include <java/security/PermissionCollection.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/PrivilegedActionException.h>
-#include <java/security/PrivilegedExceptionAction.h>
 #include <java/security/SecureClassLoader.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Iterator.h>
@@ -100,9 +97,7 @@ using $AccessController = ::java::security::AccessController;
 using $CodeSource = ::java::security::CodeSource;
 using $Permission = ::java::security::Permission;
 using $PermissionCollection = ::java::security::PermissionCollection;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $SecureClassLoader = ::java::security::SecureClassLoader;
 using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
@@ -114,7 +109,6 @@ using $Attributes = ::java::util::jar::Attributes;
 using $Attributes$Name = ::java::util::jar::Attributes$Name;
 using $JarFile = ::java::util::jar::JarFile;
 using $Manifest = ::java::util::jar::Manifest;
-using $JavaUtilJarAccess = ::jdk::internal::access::JavaUtilJarAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $Resource = ::jdk::internal::loader::Resource;
 using $URLClassPath = ::jdk::internal::loader::URLClassPath;
@@ -125,72 +119,6 @@ using $SecurityConstants = ::sun::security::util::SecurityConstants;
 
 namespace java {
 	namespace net {
-
-$FieldInfo _URLClassLoader_FieldInfo_[] = {
-	{"ucp", "Ljdk/internal/loader/URLClassPath;", nullptr, $PRIVATE | $FINAL, $field(URLClassLoader, ucp)},
-	{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(URLClassLoader, acc)},
-	{"closeables", "Ljava/util/WeakHashMap;", "Ljava/util/WeakHashMap<Ljava/io/Closeable;Ljava/lang/Void;>;", $PRIVATE, $field(URLClassLoader, closeables)},
-	{}
-};
-
-$MethodInfo _URLClassLoader_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "([Ljava/net/URL;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(URLClassLoader, init$, void, $URLArray*, $ClassLoader*)},
-	{"<init>", "(Ljava/lang/String;[Ljava/net/URL;Ljava/lang/ClassLoader;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(URLClassLoader, init$, void, $String*, $URLArray*, $ClassLoader*, $AccessControlContext*)},
-	{"<init>", "([Ljava/net/URL;)V", nullptr, $PUBLIC, $method(URLClassLoader, init$, void, $URLArray*)},
-	{"<init>", "([Ljava/net/URL;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(URLClassLoader, init$, void, $URLArray*, $AccessControlContext*)},
-	{"<init>", "([Ljava/net/URL;Ljava/lang/ClassLoader;Ljava/net/URLStreamHandlerFactory;)V", nullptr, $PUBLIC, $method(URLClassLoader, init$, void, $URLArray*, $ClassLoader*, $URLStreamHandlerFactory*)},
-	{"<init>", "(Ljava/lang/String;[Ljava/net/URL;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(URLClassLoader, init$, void, $String*, $URLArray*, $ClassLoader*)},
-	{"<init>", "(Ljava/lang/String;[Ljava/net/URL;Ljava/lang/ClassLoader;Ljava/net/URLStreamHandlerFactory;)V", nullptr, $PUBLIC, $method(URLClassLoader, init$, void, $String*, $URLArray*, $ClassLoader*, $URLStreamHandlerFactory*)},
-	{"addURL", "(Ljava/net/URL;)V", nullptr, $PROTECTED, $virtualMethod(URLClassLoader, addURL, void, $URL*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(URLClassLoader, close, void), "java.io.IOException"},
-	{"defineClass", "(Ljava/lang/String;Ljdk/internal/loader/Resource;)Ljava/lang/Class;", "(Ljava/lang/String;Ljdk/internal/loader/Resource;)Ljava/lang/Class<*>;", $PRIVATE, $method(URLClassLoader, defineClass, $Class*, $String*, $Resource*), "java.io.IOException"},
-	{"definePackage", "(Ljava/lang/String;Ljava/util/jar/Manifest;Ljava/net/URL;)Ljava/lang/Package;", nullptr, $PROTECTED, $virtualMethod(URLClassLoader, definePackage, $Package*, $String*, $Manifest*, $URL*)},
-	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(URLClassLoader, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
-	{"findResource", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(URLClassLoader, findResource, $URL*, $String*)},
-	{"findResources", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljava/net/URL;>;", $PUBLIC, $virtualMethod(URLClassLoader, findResources, $Enumeration*, $String*), "java.io.IOException"},
-	{"getAndVerifyPackage", "(Ljava/lang/String;Ljava/util/jar/Manifest;Ljava/net/URL;)Ljava/lang/Package;", nullptr, $PRIVATE, $method(URLClassLoader, getAndVerifyPackage, $Package*, $String*, $Manifest*, $URL*)},
-	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED, $virtualMethod(URLClassLoader, getPermissions, $PermissionCollection*, $CodeSource*)},
-	{"getResourceAsStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(URLClassLoader, getResourceAsStream, $InputStream*, $String*)},
-	{"getURLs", "()[Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(URLClassLoader, getURLs, $URLArray*)},
-	{"isSealed", "(Ljava/lang/String;Ljava/util/jar/Manifest;)Z", nullptr, $PRIVATE, $method(URLClassLoader, isSealed, bool, $String*, $Manifest*)},
-	{"newInstance", "([Ljava/net/URL;Ljava/lang/ClassLoader;)Ljava/net/URLClassLoader;", nullptr, $PUBLIC | $STATIC, $staticMethod(URLClassLoader, newInstance, URLClassLoader*, $URLArray*, $ClassLoader*)},
-	{"newInstance", "([Ljava/net/URL;)Ljava/net/URLClassLoader;", nullptr, $PUBLIC | $STATIC, $staticMethod(URLClassLoader, newInstance, URLClassLoader*, $URLArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _URLClassLoader_InnerClassesInfo_[] = {
-	{"java.net.URLClassLoader$6", nullptr, nullptr, 0},
-	{"java.net.URLClassLoader$5", nullptr, nullptr, 0},
-	{"java.net.URLClassLoader$4", nullptr, nullptr, 0},
-	{"java.net.URLClassLoader$3", nullptr, nullptr, 0},
-	{"java.net.URLClassLoader$2", nullptr, nullptr, 0},
-	{"java.net.URLClassLoader$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _URLClassLoader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.net.URLClassLoader",
-	"java.security.SecureClassLoader",
-	"java.io.Closeable",
-	_URLClassLoader_FieldInfo_,
-	_URLClassLoader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_URLClassLoader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.net.URLClassLoader$6,java.net.URLClassLoader$5,java.net.URLClassLoader$4,java.net.URLClassLoader$3,java.net.URLClassLoader$3$1,java.net.URLClassLoader$2,java.net.URLClassLoader$1"
-};
-
-$Object* allocate$URLClassLoader($Class* clazz) {
-	return $of($alloc(URLClassLoader));
-}
 
 int32_t URLClassLoader::hashCode() {
 	 return this->$SecureClassLoader::hashCode();
@@ -262,7 +190,7 @@ void URLClassLoader::init$($String* name, $URLArray* urls, $ClassLoader* parent,
 }
 
 $InputStream* URLClassLoader::getResourceAsStream($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(name);
 	$var($URL, url, getResource(name));
 	try {
@@ -281,13 +209,13 @@ $InputStream* URLClassLoader::getResourceAsStream($String* name) {
 			if (var$0) {
 				$var($JarFile, jar, $nc(juc)->getJarFile());
 				$synchronized(this->closeables) {
-					if (!$nc(this->closeables)->containsKey(jar)) {
-						$nc(this->closeables)->put(jar, nullptr);
+					if (!this->closeables->containsKey(jar)) {
+						this->closeables->put(jar, nullptr);
 					}
 				}
 			} else if ($instanceOf($FileURLConnection, urlc)) {
 				$synchronized(this->closeables) {
-					$nc(this->closeables)->put(is, nullptr);
+					this->closeables->put(is, nullptr);
 				}
 			}
 		}
@@ -299,33 +227,31 @@ $InputStream* URLClassLoader::getResourceAsStream($String* name) {
 }
 
 void URLClassLoader::close() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, security, $System::getSecurityManager());
 	if (security != nullptr) {
 		security->checkPermission($$new($RuntimePermission, "closeClassLoader"_s));
 	}
 	$var($List, errors, $nc(this->ucp)->closeLoaders());
 	$synchronized(this->closeables) {
-		$var($Set, keys, $nc(this->closeables)->keySet());
+		$var($Set, keys, this->closeables->keySet());
 		{
 			$var($Iterator, i$, $nc(keys)->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Closeable, c, $cast($Closeable, i$->next()));
-				{
-					try {
-						$nc(c)->close();
-					} catch ($IOException& ioex) {
-						$nc(errors)->add(ioex);
-					}
+				try {
+					$nc(c)->close();
+				} catch ($IOException& ioex) {
+					$nc(errors)->add(ioex);
 				}
 			}
 		}
-		$nc(this->closeables)->clear();
+		this->closeables->clear();
 	}
 	if ($nc(errors)->isEmpty()) {
 		return;
 	}
-	$var($IOException, firstex, $cast($IOException, $nc(errors)->remove(0)));
+	$var($IOException, firstex, $cast($IOException, errors->remove(0)));
 	{
 		$var($Iterator, i$, errors->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -347,13 +273,13 @@ $URLArray* URLClassLoader::getURLs() {
 }
 
 $Class* URLClassLoader::findClass($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Class* result = nullptr;
 	try {
-		result = $cast($Class, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($URLClassLoader$1, this, name)), this->acc));
+		result = $cast($Class, $AccessController::doPrivileged($$new($URLClassLoader$1, this, name), this->acc));
 	} catch ($PrivilegedActionException& pae) {
-		$throw($cast($ClassNotFoundException, $(pae->getException())));
+		$throw($$cast($ClassNotFoundException, pae->getException()));
 	}
 	if (result == nullptr) {
 		$throwNew($ClassNotFoundException, name);
@@ -362,7 +288,7 @@ $Class* URLClassLoader::findClass($String* name) {
 }
 
 $Package* URLClassLoader::getAndVerifyPackage($String* pkgname, $Manifest* man, $URL* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Package, pkg, getDefinedPackage(pkgname));
 	if (pkg != nullptr) {
 		if (pkg->isSealed()) {
@@ -377,9 +303,9 @@ $Package* URLClassLoader::getAndVerifyPackage($String* pkgname, $Manifest* man, 
 }
 
 $Class* URLClassLoader::defineClass($String* name, $Resource* res) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t t0 = $System::nanoTime();
-	int32_t i = $nc(name)->lastIndexOf((int32_t)u'.');
+	int32_t i = $nc(name)->lastIndexOf(u'.');
 	$var($URL, url, $nc(res)->getCodeSourceURL());
 	if (i != -1) {
 		$var($String, pkgname, name->substring(0, i));
@@ -393,7 +319,7 @@ $Class* URLClassLoader::defineClass($String* name, $Resource* res) {
 				}
 			} catch ($IllegalArgumentException& iae) {
 				if (getAndVerifyPackage(pkgname, man, url) == nullptr) {
-					$throwNew($AssertionError, $of($$str({"Cannot find package "_s, pkgname})));
+					$throwNew($AssertionError, $$of($str({"Cannot find package "_s, pkgname})));
 				}
 			}
 		}
@@ -402,19 +328,19 @@ $Class* URLClassLoader::defineClass($String* name, $Resource* res) {
 	if (bb != nullptr) {
 		$var($CodeSignerArray, signers, res->getCodeSigners());
 		$var($CodeSource, cs, $new($CodeSource, url, signers));
-		$nc($($PerfCounter::getReadClassBytesTime()))->addElapsedTimeFrom(t0);
+		$$nc($PerfCounter::getReadClassBytesTime())->addElapsedTimeFrom(t0);
 		return defineClass(name, bb, cs);
 	} else {
 		$var($bytes, b, res->getBytes());
 		$var($CodeSignerArray, signers, res->getCodeSigners());
 		$var($CodeSource, cs, $new($CodeSource, url, signers));
-		$nc($($PerfCounter::getReadClassBytesTime()))->addElapsedTimeFrom(t0);
+		$$nc($PerfCounter::getReadClassBytesTime())->addElapsedTimeFrom(t0);
 		return defineClass(name, b, 0, $nc(b)->length, cs);
 	}
 }
 
 $Package* URLClassLoader::definePackage($String* name, $Manifest* man, $URL* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, specTitle, nullptr);
 	$var($String, specVersion, nullptr);
 	$var($String, specVendor, nullptr);
@@ -423,7 +349,7 @@ $Package* URLClassLoader::definePackage($String* name, $Manifest* man, $URL* url
 	$var($String, implVendor, nullptr);
 	$var($String, sealed, nullptr);
 	$var($URL, sealBase, nullptr);
-	$var($Attributes, attr, $nc($($SharedSecrets::javaUtilJarAccess()))->getTrustedAttributes(man, $($($nc(name)->replace(u'.', u'/'))->concat("/"_s))));
+	$var($Attributes, attr, $$nc($SharedSecrets::javaUtilJarAccess())->getTrustedAttributes(man, $($($nc(name)->replace(u'.', u'/'))->concat("/"_s))));
 	if (attr != nullptr) {
 		$init($Attributes$Name);
 		$assign(specTitle, attr->getValue($Attributes$Name::SPECIFICATION_TITLE));
@@ -472,8 +398,8 @@ $Package* URLClassLoader::definePackage($String* name, $Manifest* man, $URL* url
 }
 
 bool URLClassLoader::isSealed($String* name, $Manifest* man) {
-	$useLocalCurrentObjectStackCache();
-	$var($Attributes, attr, $nc($($SharedSecrets::javaUtilJarAccess()))->getTrustedAttributes(man, $($($nc(name)->replace(u'.', u'/'))->concat("/"_s))));
+	$useLocalObjectStack();
+	$var($Attributes, attr, $$nc($SharedSecrets::javaUtilJarAccess())->getTrustedAttributes(man, $($($nc(name)->replace(u'.', u'/'))->concat("/"_s))));
 	$var($String, sealed, nullptr);
 	if (attr != nullptr) {
 		$init($Attributes$Name);
@@ -489,9 +415,9 @@ bool URLClassLoader::isSealed($String* name, $Manifest* man) {
 }
 
 $URL* URLClassLoader::findResource($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($URL, url, $cast($URL, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($URLClassLoader$2, this, name)), this->acc)));
+	$var($URL, url, $cast($URL, $AccessController::doPrivileged($$new($URLClassLoader$2, this, name), this->acc)));
 	return url != nullptr ? $URLClassPath::checkURL(url) : ($URL*)nullptr;
 }
 
@@ -501,7 +427,7 @@ $Enumeration* URLClassLoader::findResources($String* name) {
 }
 
 $PermissionCollection* URLClassLoader::getPermissions($CodeSource* codesource) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($PermissionCollection, perms, $SecureClassLoader::getPermissions(codesource));
 	$var($URL, url, $nc(codesource)->getLocation());
@@ -515,16 +441,16 @@ $PermissionCollection* URLClassLoader::getPermissions($CodeSource* codesource) {
 		$assign(urlConnection, nullptr);
 	}
 	if ($instanceOf($FilePermission, p)) {
-		$var($String, path, $nc(p)->getName());
+		$var($String, path, p->getName());
 		$init($File);
 		if ($nc(path)->endsWith($File::separator)) {
 			$plusAssign(path, "-"_s);
 			$init($SecurityConstants);
 			$assign(p, $new($FilePermission, path, $SecurityConstants::FILE_READ_ACTION));
 		}
-	} else if ((p == nullptr) && ($nc($($nc(url)->getProtocol()))->equals("file"_s))) {
+	} else if ((p == nullptr) && ($$nc($nc(url)->getProtocol())->equals("file"_s))) {
 		$init($File);
-		$var($String, path, $nc($(url->getFile()))->replace(u'/', $File::separatorChar));
+		$var($String, path, $$nc(url->getFile())->replace(u'/', $File::separatorChar));
 		$assign(path, $ParseUtil::decode(path));
 		if ($nc(path)->endsWith($File::separator)) {
 			$plusAssign(path, "-"_s);
@@ -534,9 +460,9 @@ $PermissionCollection* URLClassLoader::getPermissions($CodeSource* codesource) {
 	} else {
 		$var($URL, locUrl, url);
 		if ($instanceOf($JarURLConnection, urlConnection)) {
-			$assign(locUrl, $nc(($cast($JarURLConnection, urlConnection)))->getJarFileURL());
+			$assign(locUrl, $cast($JarURLConnection, urlConnection)->getJarFileURL());
 		}
-		$var($String, host, locUrl->getHost());
+		$var($String, host, $nc(locUrl)->getHost());
 		if (host != nullptr && !host->isEmpty()) {
 			$init($SecurityConstants);
 			$assign(p, $new($SocketPermission, host, $SecurityConstants::SOCKET_CONNECT_ACCEPT_ACTION));
@@ -546,7 +472,7 @@ $PermissionCollection* URLClassLoader::getPermissions($CodeSource* codesource) {
 		$var($SecurityManager, sm, $System::getSecurityManager());
 		if (sm != nullptr) {
 			$var($Permission, fp, p);
-			$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($URLClassLoader$4, this, sm, fp)), this->acc);
+			$AccessController::doPrivileged($$new($URLClassLoader$4, this, sm, fp), this->acc);
 		}
 		$nc(perms)->add(p);
 	}
@@ -555,23 +481,23 @@ $PermissionCollection* URLClassLoader::getPermissions($CodeSource* codesource) {
 
 URLClassLoader* URLClassLoader::newInstance($URLArray* urls, $ClassLoader* parent) {
 	$init(URLClassLoader);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($AccessControlContext, acc, $AccessController::getContext());
-	$var(URLClassLoader, ucl, $cast(URLClassLoader, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($URLClassLoader$5, urls, parent, acc)))));
+	$var(URLClassLoader, ucl, $cast(URLClassLoader, $AccessController::doPrivileged($$new($URLClassLoader$5, urls, parent, acc))));
 	return ucl;
 }
 
 URLClassLoader* URLClassLoader::newInstance($URLArray* urls) {
 	$init(URLClassLoader);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($AccessControlContext, acc, $AccessController::getContext());
-	$var(URLClassLoader, ucl, $cast(URLClassLoader, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($URLClassLoader$6, urls, acc)))));
+	$var(URLClassLoader, ucl, $cast(URLClassLoader, $AccessController::doPrivileged($$new($URLClassLoader$6, urls, acc))));
 	return ucl;
 }
 
-void clinit$URLClassLoader($Class* class$) {
+void URLClassLoader::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
 		$ClassLoader::registerAsParallelCapable();
@@ -582,7 +508,67 @@ URLClassLoader::URLClassLoader() {
 }
 
 $Class* URLClassLoader::load$($String* name, bool initialize) {
-	$loadClass(URLClassLoader, name, initialize, &_URLClassLoader_ClassInfo_, clinit$URLClassLoader, allocate$URLClassLoader);
+	$FieldInfo fieldInfos$$[] = {
+		{"ucp", "Ljdk/internal/loader/URLClassPath;", nullptr, $PRIVATE | $FINAL, $field(URLClassLoader, ucp)},
+		{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(URLClassLoader, acc)},
+		{"closeables", "Ljava/util/WeakHashMap;", "Ljava/util/WeakHashMap<Ljava/io/Closeable;Ljava/lang/Void;>;", $PRIVATE, $field(URLClassLoader, closeables)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "([Ljava/net/URL;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(URLClassLoader, init$, void, $URLArray*, $ClassLoader*)},
+		{"<init>", "(Ljava/lang/String;[Ljava/net/URL;Ljava/lang/ClassLoader;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(URLClassLoader, init$, void, $String*, $URLArray*, $ClassLoader*, $AccessControlContext*)},
+		{"<init>", "([Ljava/net/URL;)V", nullptr, $PUBLIC, $method(URLClassLoader, init$, void, $URLArray*)},
+		{"<init>", "([Ljava/net/URL;Ljava/security/AccessControlContext;)V", nullptr, 0, $method(URLClassLoader, init$, void, $URLArray*, $AccessControlContext*)},
+		{"<init>", "([Ljava/net/URL;Ljava/lang/ClassLoader;Ljava/net/URLStreamHandlerFactory;)V", nullptr, $PUBLIC, $method(URLClassLoader, init$, void, $URLArray*, $ClassLoader*, $URLStreamHandlerFactory*)},
+		{"<init>", "(Ljava/lang/String;[Ljava/net/URL;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(URLClassLoader, init$, void, $String*, $URLArray*, $ClassLoader*)},
+		{"<init>", "(Ljava/lang/String;[Ljava/net/URL;Ljava/lang/ClassLoader;Ljava/net/URLStreamHandlerFactory;)V", nullptr, $PUBLIC, $method(URLClassLoader, init$, void, $String*, $URLArray*, $ClassLoader*, $URLStreamHandlerFactory*)},
+		{"addURL", "(Ljava/net/URL;)V", nullptr, $PROTECTED, $virtualMethod(URLClassLoader, addURL, void, $URL*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(URLClassLoader, close, void), "java.io.IOException"},
+		{"defineClass", "(Ljava/lang/String;Ljdk/internal/loader/Resource;)Ljava/lang/Class;", "(Ljava/lang/String;Ljdk/internal/loader/Resource;)Ljava/lang/Class<*>;", $PRIVATE, $method(URLClassLoader, defineClass, $Class*, $String*, $Resource*), "java.io.IOException"},
+		{"definePackage", "(Ljava/lang/String;Ljava/util/jar/Manifest;Ljava/net/URL;)Ljava/lang/Package;", nullptr, $PROTECTED, $virtualMethod(URLClassLoader, definePackage, $Package*, $String*, $Manifest*, $URL*)},
+		{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(URLClassLoader, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+		{"findResource", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(URLClassLoader, findResource, $URL*, $String*)},
+		{"findResources", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljava/net/URL;>;", $PUBLIC, $virtualMethod(URLClassLoader, findResources, $Enumeration*, $String*), "java.io.IOException"},
+		{"getAndVerifyPackage", "(Ljava/lang/String;Ljava/util/jar/Manifest;Ljava/net/URL;)Ljava/lang/Package;", nullptr, $PRIVATE, $method(URLClassLoader, getAndVerifyPackage, $Package*, $String*, $Manifest*, $URL*)},
+		{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PROTECTED, $virtualMethod(URLClassLoader, getPermissions, $PermissionCollection*, $CodeSource*)},
+		{"getResourceAsStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(URLClassLoader, getResourceAsStream, $InputStream*, $String*)},
+		{"getURLs", "()[Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(URLClassLoader, getURLs, $URLArray*)},
+		{"isSealed", "(Ljava/lang/String;Ljava/util/jar/Manifest;)Z", nullptr, $PRIVATE, $method(URLClassLoader, isSealed, bool, $String*, $Manifest*)},
+		{"newInstance", "([Ljava/net/URL;Ljava/lang/ClassLoader;)Ljava/net/URLClassLoader;", nullptr, $PUBLIC | $STATIC, $staticMethod(URLClassLoader, newInstance, URLClassLoader*, $URLArray*, $ClassLoader*)},
+		{"newInstance", "([Ljava/net/URL;)Ljava/net/URLClassLoader;", nullptr, $PUBLIC | $STATIC, $staticMethod(URLClassLoader, newInstance, URLClassLoader*, $URLArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.URLClassLoader$6", nullptr, nullptr, 0},
+		{"java.net.URLClassLoader$5", nullptr, nullptr, 0},
+		{"java.net.URLClassLoader$4", nullptr, nullptr, 0},
+		{"java.net.URLClassLoader$3", nullptr, nullptr, 0},
+		{"java.net.URLClassLoader$2", nullptr, nullptr, 0},
+		{"java.net.URLClassLoader$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.net.URLClassLoader",
+		"java.security.SecureClassLoader",
+		"java.io.Closeable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.net.URLClassLoader$6,java.net.URLClassLoader$5,java.net.URLClassLoader$4,java.net.URLClassLoader$3,java.net.URLClassLoader$3$1,java.net.URLClassLoader$2,java.net.URLClassLoader$1"
+	};
+	$loadClass(URLClassLoader, name, initialize, &classInfo$$, URLClassLoader::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(URLClassLoader));
+	});
 	return class$;
 }
 

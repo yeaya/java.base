@@ -23,6 +23,7 @@ class Collections$EmptyIterator : public ::java::util::Iterator {
 	$class(Collections$EmptyIterator, 0, ::java::util::Iterator)
 public:
 	Collections$EmptyIterator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void forEachRemaining(::java::util::function::Consumer* action) override;
 	virtual bool hasNext() override;

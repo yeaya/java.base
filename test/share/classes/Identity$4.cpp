@@ -1,10 +1,8 @@
 #include <Identity$4.h>
-
 #include <Identity.h>
 #include <java/lang/ThreadLocal.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/AsynchronousSocketChannel.h>
-#include <java/nio/channels/CompletionHandler.h>
 #include <java/util/Random.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <java/util/concurrent/atomic/AtomicInteger.h>
@@ -18,60 +16,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ThreadLocal = ::java::lang::ThreadLocal;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $AsynchronousSocketChannel = ::java::nio::channels::AsynchronousSocketChannel;
-using $CompletionHandler = ::java::nio::channels::CompletionHandler;
-using $Random = ::java::util::Random;
-using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
-
-$FieldInfo _Identity$4_FieldInfo_[] = {
-	{"val$channels", "[Ljava/nio/channels/AsynchronousSocketChannel;", nullptr, $FINAL | $SYNTHETIC, $field(Identity$4, val$channels)},
-	{"val$groupCount", "I", nullptr, $FINAL | $SYNTHETIC, $field(Identity$4, val$groupCount)},
-	{"val$writeCount", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $FINAL | $SYNTHETIC, $field(Identity$4, val$writeCount)},
-	{}
-};
-
-$MethodInfo _Identity$4_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/atomic/AtomicInteger;I[Ljava/nio/channels/AsynchronousSocketChannel;)V", "()V", 0, $method(Identity$4, init$, void, $AtomicInteger*, int32_t, $AsynchronousSocketChannelArray*)},
-	{"completed", "(Ljava/lang/Integer;Ljava/lang/Integer;)V", nullptr, $PUBLIC, $virtualMethod(Identity$4, completed, void, $Integer*, $Integer*)},
-	{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Identity$4, completed, void, Object$*, Object$*)},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Integer;)V", nullptr, $PUBLIC, $virtualMethod(Identity$4, failed, void, $Throwable*, $Integer*)},
-	{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Identity$4, failed, void, $Throwable*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _Identity$4_EnclosingMethodInfo_ = {
-	"Identity",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _Identity$4_InnerClassesInfo_[] = {
-	{"Identity$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Identity$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"Identity$4",
-	"java.lang.Object",
-	"java.nio.channels.CompletionHandler",
-	_Identity$4_FieldInfo_,
-	_Identity$4_MethodInfo_,
-	"Ljava/lang/Object;Ljava/nio/channels/CompletionHandler<Ljava/lang/Integer;Ljava/lang/Integer;>;",
-	&_Identity$4_EnclosingMethodInfo_,
-	_Identity$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Identity"
-};
-
-$Object* allocate$Identity$4($Class* clazz) {
-	return $of($alloc(Identity$4));
-}
 
 void Identity$4::init$($AtomicInteger* val$writeCount, int32_t val$groupCount, $AsynchronousSocketChannelArray* val$channels) {
 	$set(this, val$writeCount, val$writeCount);
@@ -80,12 +26,12 @@ void Identity$4::init$($AtomicInteger* val$writeCount, int32_t val$groupCount, $
 }
 
 void Identity$4::completed($Integer* bytesWritten, $Integer* groupId) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(bytesWritten)->intValue() != 1) {
 		$Identity::fail("Expected 1 byte to be written"_s);
 	}
 	$init($Identity);
-	if (!$nc(($cast($Integer, $($nc($Identity::myGroup)->get()))))->equals(groupId)) {
+	if (!$$sure($Integer, $nc($Identity::myGroup)->get())->equals(groupId)) {
 		$Identity::fail("Handler invoked by thread with the wrong identity"_s);
 	}
 	if ($nc(this->val$writeCount)->decrementAndGet() > 0) {
@@ -113,7 +59,47 @@ Identity$4::Identity$4() {
 }
 
 $Class* Identity$4::load$($String* name, bool initialize) {
-	$loadClass(Identity$4, name, initialize, &_Identity$4_ClassInfo_, allocate$Identity$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$channels", "[Ljava/nio/channels/AsynchronousSocketChannel;", nullptr, $FINAL | $SYNTHETIC, $field(Identity$4, val$channels)},
+		{"val$groupCount", "I", nullptr, $FINAL | $SYNTHETIC, $field(Identity$4, val$groupCount)},
+		{"val$writeCount", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $FINAL | $SYNTHETIC, $field(Identity$4, val$writeCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/atomic/AtomicInteger;I[Ljava/nio/channels/AsynchronousSocketChannel;)V", "()V", 0, $method(Identity$4, init$, void, $AtomicInteger*, int32_t, $AsynchronousSocketChannelArray*)},
+		{"completed", "(Ljava/lang/Integer;Ljava/lang/Integer;)V", nullptr, $PUBLIC, $virtualMethod(Identity$4, completed, void, $Integer*, $Integer*)},
+		{"completed", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Identity$4, completed, void, Object$*, Object$*)},
+		{"failed", "(Ljava/lang/Throwable;Ljava/lang/Integer;)V", nullptr, $PUBLIC, $virtualMethod(Identity$4, failed, void, $Throwable*, $Integer*)},
+		{"failed", "(Ljava/lang/Throwable;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Identity$4, failed, void, $Throwable*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"Identity",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Identity$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Identity$4",
+		"java.lang.Object",
+		"java.nio.channels.CompletionHandler",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/nio/channels/CompletionHandler<Ljava/lang/Integer;Ljava/lang/Integer;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Identity"
+	};
+	$loadClass(Identity$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Identity$4);
+	});
 	return class$;
 }
 

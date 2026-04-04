@@ -1,5 +1,4 @@
 #include <java/util/Currency.h>
-
 #include <java/io/DataInputStream.h>
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -8,9 +7,7 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Currency$1.h>
 #include <java/util/Currency$CurrencyNameGetter.h>
 #include <java/util/Currency$CurrencyProperty.h>
@@ -36,7 +33,6 @@
 #include <java/util/stream/Collectors.h>
 #include <java/util/stream/Stream.h>
 #include <sun/util/locale/provider/CalendarDataUtility.h>
-#include <sun/util/locale/provider/LocaleServiceProviderPool$LocalizedObjectGetter.h>
 #include <sun/util/locale/provider/LocaleServiceProviderPool.h>
 #include <jcpp.h>
 
@@ -75,9 +71,7 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Currency$1 = ::java::util::Currency$1;
 using $Currency$CurrencyNameGetter = ::java::util::Currency$CurrencyNameGetter;
 using $Currency$CurrencyProperty = ::java::util::Currency$CurrencyProperty;
@@ -103,7 +97,6 @@ using $Collectors = ::java::util::stream::Collectors;
 using $Stream = ::java::util::stream::Stream;
 using $CalendarDataUtility = ::sun::util::locale::provider::CalendarDataUtility;
 using $LocaleServiceProviderPool = ::sun::util::locale::provider::LocaleServiceProviderPool;
-using $LocaleServiceProviderPool$LocalizedObjectGetter = ::sun::util::locale::provider::LocaleServiceProviderPool$LocalizedObjectGetter;
 
 namespace java {
 	namespace util {
@@ -116,37 +109,33 @@ public:
 		$set(this, pattern, pattern);
 	}
 	virtual $Object* apply(Object$* k) override {
-		 return $of(Currency::lambda$getValidCurrencyData$0(props, pattern, $cast($String, k)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Currency$$Lambda$lambda$getValidCurrencyData$0>());
+		 return Currency::lambda$getValidCurrencyData$0(props, pattern, $cast($String, k));
 	}
 	$Properties* props = nullptr;
 	$Pattern* pattern = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Currency$$Lambda$lambda$getValidCurrencyData$0::fieldInfos[3] = {
-	{"props", "Ljava/util/Properties;", nullptr, $PUBLIC, $field(Currency$$Lambda$lambda$getValidCurrencyData$0, props)},
-	{"pattern", "Ljava/util/regex/Pattern;", nullptr, $PUBLIC, $field(Currency$$Lambda$lambda$getValidCurrencyData$0, pattern)},
-	{}
-};
-$MethodInfo Currency$$Lambda$lambda$getValidCurrencyData$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Properties;Ljava/util/regex/Pattern;)V", nullptr, $PUBLIC, $method(Currency$$Lambda$lambda$getValidCurrencyData$0, init$, void, $Properties*, $Pattern*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Currency$$Lambda$lambda$getValidCurrencyData$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Currency$$Lambda$lambda$getValidCurrencyData$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Currency$$Lambda$lambda$getValidCurrencyData$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* Currency$$Lambda$lambda$getValidCurrencyData$0::load$($String* name, bool initialize) {
-	$loadClass(Currency$$Lambda$lambda$getValidCurrencyData$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"props", "Ljava/util/Properties;", nullptr, $PUBLIC, $field(Currency$$Lambda$lambda$getValidCurrencyData$0, props)},
+		{"pattern", "Ljava/util/regex/Pattern;", nullptr, $PUBLIC, $field(Currency$$Lambda$lambda$getValidCurrencyData$0, pattern)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Properties;Ljava/util/regex/Pattern;)V", nullptr, $PUBLIC, $method(Currency$$Lambda$lambda$getValidCurrencyData$0, init$, void, $Properties*, $Pattern*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Currency$$Lambda$lambda$getValidCurrencyData$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Currency$$Lambda$lambda$getValidCurrencyData$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Currency$$Lambda$lambda$getValidCurrencyData$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Currency$$Lambda$lambda$getValidCurrencyData$0);
+	});
 	return class$;
 }
 $Class* Currency$$Lambda$lambda$getValidCurrencyData$0::class$ = nullptr;
@@ -157,29 +146,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* o) override {
-		 return $of(Currency::lambda$getValidCurrencyData$1($cast($Optional, o)));
+		 return Currency::lambda$getValidCurrencyData$1($cast($Optional, o));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Currency$$Lambda$lambda$getValidCurrencyData$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Currency$$Lambda$lambda$getValidCurrencyData$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Currency$$Lambda$lambda$getValidCurrencyData$1$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Currency$$Lambda$lambda$getValidCurrencyData$1$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Currency$$Lambda$lambda$getValidCurrencyData$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Currency$$Lambda$lambda$getValidCurrencyData$1$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Currency$$Lambda$lambda$getValidCurrencyData$1$1::load$($String* name, bool initialize) {
-	$loadClass(Currency$$Lambda$lambda$getValidCurrencyData$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Currency$$Lambda$lambda$getValidCurrencyData$1$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Currency$$Lambda$lambda$getValidCurrencyData$1$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Currency$$Lambda$lambda$getValidCurrencyData$1$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Currency$$Lambda$lambda$getValidCurrencyData$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Currency$$Lambda$lambda$getValidCurrencyData$1$1);
+	});
 	return class$;
 }
 $Class* Currency$$Lambda$lambda$getValidCurrencyData$1$1::class$ = nullptr;
@@ -192,27 +178,24 @@ public:
 	virtual $Object* apply(Object$* entry) override {
 		 return $of(Currency::lambda$getValidCurrencyData$2($cast($Currency$CurrencyProperty, entry)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Currency$$Lambda$lambda$getValidCurrencyData$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Currency$$Lambda$lambda$getValidCurrencyData$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Currency$$Lambda$lambda$getValidCurrencyData$2$2, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Currency$$Lambda$lambda$getValidCurrencyData$2$2, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Currency$$Lambda$lambda$getValidCurrencyData$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Currency$$Lambda$lambda$getValidCurrencyData$2$2",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Currency$$Lambda$lambda$getValidCurrencyData$2$2::load$($String* name, bool initialize) {
-	$loadClass(Currency$$Lambda$lambda$getValidCurrencyData$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Currency$$Lambda$lambda$getValidCurrencyData$2$2, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Currency$$Lambda$lambda$getValidCurrencyData$2$2, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Currency$$Lambda$lambda$getValidCurrencyData$2$2",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Currency$$Lambda$lambda$getValidCurrencyData$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Currency$$Lambda$lambda$getValidCurrencyData$2$2);
+	});
 	return class$;
 }
 $Class* Currency$$Lambda$lambda$getValidCurrencyData$2$2::class$ = nullptr;
@@ -226,33 +209,29 @@ public:
 	virtual void accept(Object$* curCode, Object$* list) override {
 		Currency::lambda$getValidCurrencyData$4(propertyEntries, $cast($String, curCode), $cast($List, list));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Currency$$Lambda$lambda$getValidCurrencyData$4$3>());
-	}
 	$List* propertyEntries = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Currency$$Lambda$lambda$getValidCurrencyData$4$3::fieldInfos[2] = {
-	{"propertyEntries", "Ljava/util/List;", nullptr, $PUBLIC, $field(Currency$$Lambda$lambda$getValidCurrencyData$4$3, propertyEntries)},
-	{}
-};
-$MethodInfo Currency$$Lambda$lambda$getValidCurrencyData$4$3::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(Currency$$Lambda$lambda$getValidCurrencyData$4$3, init$, void, $List*)},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Currency$$Lambda$lambda$getValidCurrencyData$4$3, accept, void, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Currency$$Lambda$lambda$getValidCurrencyData$4$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Currency$$Lambda$lambda$getValidCurrencyData$4$3",
-	"java.lang.Object",
-	"java.util.function.BiConsumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Currency$$Lambda$lambda$getValidCurrencyData$4$3::load$($String* name, bool initialize) {
-	$loadClass(Currency$$Lambda$lambda$getValidCurrencyData$4$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"propertyEntries", "Ljava/util/List;", nullptr, $PUBLIC, $field(Currency$$Lambda$lambda$getValidCurrencyData$4$3, propertyEntries)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(Currency$$Lambda$lambda$getValidCurrencyData$4$3, init$, void, $List*)},
+		{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Currency$$Lambda$lambda$getValidCurrencyData$4$3, accept, void, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Currency$$Lambda$lambda$getValidCurrencyData$4$3",
+		"java.lang.Object",
+		"java.util.function.BiConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Currency$$Lambda$lambda$getValidCurrencyData$4$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Currency$$Lambda$lambda$getValidCurrencyData$4$3);
+	});
 	return class$;
 }
 $Class* Currency$$Lambda$lambda$getValidCurrencyData$4$3::class$ = nullptr;
@@ -265,123 +244,27 @@ public:
 	virtual void accept(Object$* prop) override {
 		Currency::lambda$getValidCurrencyData$3($cast($Currency$CurrencyProperty, prop));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Currency$$Lambda$lambda$getValidCurrencyData$3$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Currency$$Lambda$lambda$getValidCurrencyData$3$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Currency$$Lambda$lambda$getValidCurrencyData$3$4, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Currency$$Lambda$lambda$getValidCurrencyData$3$4, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Currency$$Lambda$lambda$getValidCurrencyData$3$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Currency$$Lambda$lambda$getValidCurrencyData$3$4",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	nullptr,
-	methodInfos
 };
 $Class* Currency$$Lambda$lambda$getValidCurrencyData$3$4::load$($String* name, bool initialize) {
-	$loadClass(Currency$$Lambda$lambda$getValidCurrencyData$3$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Currency$$Lambda$lambda$getValidCurrencyData$3$4, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Currency$$Lambda$lambda$getValidCurrencyData$3$4, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Currency$$Lambda$lambda$getValidCurrencyData$3$4",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Currency$$Lambda$lambda$getValidCurrencyData$3$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Currency$$Lambda$lambda$getValidCurrencyData$3$4);
+	});
 	return class$;
 }
 $Class* Currency$$Lambda$lambda$getValidCurrencyData$3$4::class$ = nullptr;
-
-$FieldInfo _Currency_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, serialVersionUID)},
-	{"currencyCode", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Currency, currencyCode)},
-	{"defaultFractionDigits", "I", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(Currency, defaultFractionDigits)},
-	{"numericCode", "I", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(Currency, numericCode)},
-	{"instances", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/lang/String;Ljava/util/Currency;>;", $PRIVATE | $STATIC, $staticField(Currency, instances)},
-	{"available", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljava/util/Currency;>;", $PRIVATE | $STATIC, $staticField(Currency, available)},
-	{"formatVersion", "I", nullptr, $STATIC, $staticField(Currency, formatVersion)},
-	{"dataVersion", "I", nullptr, $STATIC, $staticField(Currency, dataVersion)},
-	{"mainTable", "[I", nullptr, $STATIC, $staticField(Currency, mainTable)},
-	{"specialCasesList", "Ljava/util/List;", "Ljava/util/List<Ljava/util/Currency$SpecialCaseEntry;>;", $STATIC, $staticField(Currency, specialCasesList)},
-	{"otherCurrenciesList", "Ljava/util/List;", "Ljava/util/List<Ljava/util/Currency$OtherCurrencyEntry;>;", $STATIC, $staticField(Currency, otherCurrenciesList)},
-	{"MAGIC_NUMBER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, MAGIC_NUMBER)},
-	{"A_TO_Z", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, A_TO_Z)},
-	{"INVALID_COUNTRY_ENTRY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, INVALID_COUNTRY_ENTRY)},
-	{"COUNTRY_WITHOUT_CURRENCY_ENTRY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, COUNTRY_WITHOUT_CURRENCY_ENTRY)},
-	{"SIMPLE_CASE_COUNTRY_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, SIMPLE_CASE_COUNTRY_MASK)},
-	{"SIMPLE_CASE_COUNTRY_FINAL_CHAR_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, SIMPLE_CASE_COUNTRY_FINAL_CHAR_MASK)},
-	{"SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_MASK)},
-	{"SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_SHIFT)},
-	{"SIMPLE_CASE_COUNTRY_MAX_DEFAULT_DIGITS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, SIMPLE_CASE_COUNTRY_MAX_DEFAULT_DIGITS)},
-	{"SPECIAL_CASE_COUNTRY_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, SPECIAL_CASE_COUNTRY_MASK)},
-	{"SPECIAL_CASE_COUNTRY_INDEX_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, SPECIAL_CASE_COUNTRY_INDEX_MASK)},
-	{"SPECIAL_CASE_COUNTRY_INDEX_DELTA", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, SPECIAL_CASE_COUNTRY_INDEX_DELTA)},
-	{"COUNTRY_TYPE_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, COUNTRY_TYPE_MASK)},
-	{"NUMERIC_CODE_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, NUMERIC_CODE_MASK)},
-	{"NUMERIC_CODE_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, NUMERIC_CODE_SHIFT)},
-	{"VALID_FORMAT_VERSION", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, VALID_FORMAT_VERSION)},
-	{"SYMBOL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, SYMBOL)},
-	{"DISPLAYNAME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, DISPLAYNAME)},
-	{}
-};
-
-$MethodInfo _Currency_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;II)V", nullptr, $PRIVATE, $method(Currency, init$, void, $String*, int32_t, int32_t)},
-	{"getAvailableCurrencies", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Currency;>;", $PUBLIC | $STATIC, $staticMethod(Currency, getAvailableCurrencies, $Set*)},
-	{"getCurrencyCode", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Currency, getCurrencyCode, $String*)},
-	{"getDefaultFractionDigits", "()I", nullptr, $PUBLIC, $method(Currency, getDefaultFractionDigits, int32_t)},
-	{"getDisplayName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Currency, getDisplayName, $String*)},
-	{"getDisplayName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Currency, getDisplayName, $String*, $Locale*)},
-	{"getInstance", "(Ljava/lang/String;)Ljava/util/Currency;", nullptr, $PUBLIC | $STATIC, $staticMethod(Currency, getInstance, Currency*, $String*)},
-	{"getInstance", "(Ljava/lang/String;II)Ljava/util/Currency;", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency, getInstance, Currency*, $String*, int32_t, int32_t)},
-	{"getInstance", "(Ljava/util/Locale;)Ljava/util/Currency;", nullptr, $PUBLIC | $STATIC, $staticMethod(Currency, getInstance, Currency*, $Locale*)},
-	{"getMainTableEntry", "(CC)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency, getMainTableEntry, int32_t, char16_t, char16_t)},
-	{"getNumericCode", "()I", nullptr, $PUBLIC, $method(Currency, getNumericCode, int32_t)},
-	{"getNumericCodeAsString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Currency, getNumericCodeAsString, $String*)},
-	{"getSymbol", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Currency, getSymbol, $String*)},
-	{"getSymbol", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Currency, getSymbol, $String*, $Locale*)},
-	{"getValidCurrencyData", "(Ljava/util/Properties;Ljava/util/regex/Pattern;)Ljava/util/List;", "(Ljava/util/Properties;Ljava/util/regex/Pattern;)Ljava/util/List<Ljava/util/Currency$CurrencyProperty;>;", $PRIVATE | $STATIC, $staticMethod(Currency, getValidCurrencyData, $List*, $Properties*, $Pattern*)},
-	{"lambda$getValidCurrencyData$0", "(Ljava/util/Properties;Ljava/util/regex/Pattern;Ljava/lang/String;)Ljava/util/Optional;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Currency, lambda$getValidCurrencyData$0, $Optional*, $Properties*, $Pattern*, $String*)},
-	{"lambda$getValidCurrencyData$1", "(Ljava/util/Optional;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Currency, lambda$getValidCurrencyData$1, $Stream*, $Optional*)},
-	{"lambda$getValidCurrencyData$2", "(Ljava/util/Currency$CurrencyProperty;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Currency, lambda$getValidCurrencyData$2, $String*, $Currency$CurrencyProperty*)},
-	{"lambda$getValidCurrencyData$3", "(Ljava/util/Currency$CurrencyProperty;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Currency, lambda$getValidCurrencyData$3, void, $Currency$CurrencyProperty*)},
-	{"lambda$getValidCurrencyData$4", "(Ljava/util/List;Ljava/lang/String;Ljava/util/List;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Currency, lambda$getValidCurrencyData$4, void, $List*, $String*, $List*)},
-	{"readIntArray", "(Ljava/io/DataInputStream;I)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency, readIntArray, $ints*, $DataInputStream*, int32_t), "java.io.IOException"},
-	{"readOtherCurrencies", "(Ljava/io/DataInputStream;I)Ljava/util/List;", "(Ljava/io/DataInputStream;I)Ljava/util/List<Ljava/util/Currency$OtherCurrencyEntry;>;", $PRIVATE | $STATIC, $staticMethod(Currency, readOtherCurrencies, $List*, $DataInputStream*, int32_t), "java.io.IOException"},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Currency, readResolve, $Object*)},
-	{"readSpecialCases", "(Ljava/io/DataInputStream;I)Ljava/util/List;", "(Ljava/io/DataInputStream;I)Ljava/util/List<Ljava/util/Currency$SpecialCaseEntry;>;", $PRIVATE | $STATIC, $staticMethod(Currency, readSpecialCases, $List*, $DataInputStream*, int32_t), "java.io.IOException"},
-	{"replaceCurrencyData", "(Ljava/util/Currency$CurrencyProperty;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency, replaceCurrencyData, void, $Currency$CurrencyProperty*)},
-	{"setMainTableEntry", "(CCI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency, setMainTableEntry, void, char16_t, char16_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Currency, toString, $String*)},
-	{"updateMainTableEntry", "(Ljava/lang/String;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency, updateMainTableEntry, void, $String*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Currency_InnerClassesInfo_[] = {
-	{"java.util.Currency$CurrencyProperty", "java.util.Currency", "CurrencyProperty", $PRIVATE | $STATIC},
-	{"java.util.Currency$OtherCurrencyEntry", "java.util.Currency", "OtherCurrencyEntry", $PRIVATE | $STATIC},
-	{"java.util.Currency$SpecialCaseEntry", "java.util.Currency", "SpecialCaseEntry", $PRIVATE | $STATIC},
-	{"java.util.Currency$CurrencyNameGetter", "java.util.Currency", "CurrencyNameGetter", $PRIVATE | $STATIC},
-	{"java.util.Currency$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Currency_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.util.Currency",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_Currency_FieldInfo_,
-	_Currency_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Currency_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.Currency$CurrencyProperty,java.util.Currency$OtherCurrencyEntry,java.util.Currency$SpecialCaseEntry,java.util.Currency$CurrencyNameGetter,java.util.Currency$1"
-};
-
-$Object* allocate$Currency($Class* clazz) {
-	return $of($alloc(Currency));
-}
 
 $ConcurrentMap* Currency::instances = nullptr;
 $HashSet* Currency::available = nullptr;
@@ -404,7 +287,7 @@ Currency* Currency::getInstance($String* currencyCode) {
 
 Currency* Currency::getInstance($String* currencyCode, int32_t defaultFractionDigits, int32_t numericCode) {
 	$init(Currency);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(Currency, instance, $cast(Currency, $nc(Currency::instances)->get(currencyCode)));
 	if (instance != nullptr) {
 		return instance;
@@ -414,12 +297,12 @@ Currency* Currency::getInstance($String* currencyCode, int32_t defaultFractionDi
 		if ($nc(currencyCode)->length() != 3) {
 			$throwNew($IllegalArgumentException);
 		}
-		char16_t char1 = $nc(currencyCode)->charAt(0);
+		char16_t char1 = currencyCode->charAt(0);
 		char16_t char2 = currencyCode->charAt(1);
 		int32_t tableEntry = getMainTableEntry(char1, char2);
-		if (((int32_t)(tableEntry & (uint32_t)Currency::COUNTRY_TYPE_MASK)) == Currency::SIMPLE_CASE_COUNTRY_MASK && tableEntry != Currency::INVALID_COUNTRY_ENTRY && currencyCode->charAt(2) - u'A' == ((int32_t)(tableEntry & (uint32_t)Currency::SIMPLE_CASE_COUNTRY_FINAL_CHAR_MASK))) {
-			defaultFractionDigits = $sr((int32_t)(tableEntry & (uint32_t)Currency::SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_MASK), Currency::SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_SHIFT);
-			numericCode = $sr((int32_t)(tableEntry & (uint32_t)Currency::NUMERIC_CODE_MASK), Currency::NUMERIC_CODE_SHIFT);
+		if ((tableEntry & Currency::COUNTRY_TYPE_MASK) == Currency::SIMPLE_CASE_COUNTRY_MASK && tableEntry != Currency::INVALID_COUNTRY_ENTRY && currencyCode->charAt(2) - u'A' == (tableEntry & Currency::SIMPLE_CASE_COUNTRY_FINAL_CHAR_MASK)) {
+			defaultFractionDigits = $sr(tableEntry & Currency::SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_MASK, Currency::SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_SHIFT);
+			numericCode = $sr(tableEntry & Currency::NUMERIC_CODE_MASK, Currency::NUMERIC_CODE_SHIFT);
 			found = true;
 		} else {
 			$var($ints, fractionAndNumericCode, $Currency$SpecialCaseEntry::findEntry(currencyCode));
@@ -439,13 +322,13 @@ Currency* Currency::getInstance($String* currencyCode, int32_t defaultFractionDi
 		}
 	}
 	$var(Currency, currencyVal, $new(Currency, currencyCode, defaultFractionDigits, numericCode));
-	$assign(instance, $cast(Currency, $nc(Currency::instances)->putIfAbsent(currencyCode, currencyVal)));
+	$assign(instance, $cast(Currency, Currency::instances->putIfAbsent(currencyCode, currencyVal)));
 	return (instance != nullptr ? instance : currencyVal);
 }
 
 Currency* Currency::getInstance($Locale* locale) {
 	$init(Currency);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, override$, $nc(locale)->getUnicodeLocaleType("cu"_s));
 	if (override$ != nullptr) {
 		try {
@@ -453,17 +336,17 @@ Currency* Currency::getInstance($Locale* locale) {
 		} catch ($IllegalArgumentException& iae) {
 		}
 	}
-	$var($String, country, $nc($($CalendarDataUtility::findRegionOverride(locale)))->getCountry());
-	if (country == nullptr || !$nc(country)->matches("^[a-zA-Z]{2}$"_s)) {
+	$var($String, country, $$nc($CalendarDataUtility::findRegionOverride(locale))->getCountry());
+	if (country == nullptr || !country->matches("^[a-zA-Z]{2}$"_s)) {
 		$throwNew($IllegalArgumentException);
 	}
 	char16_t char1 = $nc(country)->charAt(0);
 	char16_t char2 = country->charAt(1);
 	int32_t tableEntry = getMainTableEntry(char1, char2);
-	if (((int32_t)(tableEntry & (uint32_t)Currency::COUNTRY_TYPE_MASK)) == Currency::SIMPLE_CASE_COUNTRY_MASK && tableEntry != Currency::INVALID_COUNTRY_ENTRY) {
-		char16_t finalChar = (char16_t)(((int32_t)(tableEntry & (uint32_t)Currency::SIMPLE_CASE_COUNTRY_FINAL_CHAR_MASK)) + u'A');
-		int32_t defaultFractionDigits = $sr((int32_t)(tableEntry & (uint32_t)Currency::SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_MASK), Currency::SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_SHIFT);
-		int32_t numericCode = $sr((int32_t)(tableEntry & (uint32_t)Currency::NUMERIC_CODE_MASK), Currency::NUMERIC_CODE_SHIFT);
+	if ((tableEntry & Currency::COUNTRY_TYPE_MASK) == Currency::SIMPLE_CASE_COUNTRY_MASK && tableEntry != Currency::INVALID_COUNTRY_ENTRY) {
+		char16_t finalChar = (char16_t)((tableEntry & Currency::SIMPLE_CASE_COUNTRY_FINAL_CHAR_MASK) + u'A');
+		int32_t defaultFractionDigits = $sr(tableEntry & Currency::SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_MASK, Currency::SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_SHIFT);
+		int32_t numericCode = $sr(tableEntry & Currency::NUMERIC_CODE_MASK, Currency::NUMERIC_CODE_SHIFT);
 		$var($StringBuilder, sb, $new($StringBuilder, country));
 		sb->append(finalChar);
 		return getInstance($(sb->toString()), defaultFractionDigits, numericCode);
@@ -476,7 +359,7 @@ Currency* Currency::getInstance($Locale* locale) {
 		} else {
 			int32_t index = $Currency$SpecialCaseEntry::toIndex(tableEntry);
 			$var($Currency$SpecialCaseEntry, scEntry, $cast($Currency$SpecialCaseEntry, $nc(Currency::specialCasesList)->get(index)));
-			if ($nc(scEntry)->cutOverTime == $Long::MAX_VALUE || $System::currentTimeMillis() < $nc(scEntry)->cutOverTime) {
+			if ($nc(scEntry)->cutOverTime == $Long::MAX_VALUE || $System::currentTimeMillis() < scEntry->cutOverTime) {
 				return getInstance(scEntry->oldCurrency, scEntry->oldCurrencyFraction, scEntry->oldCurrencyNumericCode);
 			} else {
 				return getInstance(scEntry->newCurrency, scEntry->newCurrencyFraction, scEntry->newCurrencyNumericCode);
@@ -487,29 +370,29 @@ Currency* Currency::getInstance($Locale* locale) {
 
 $Set* Currency::getAvailableCurrencies() {
 	$init(Currency);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(Currency::class$) {
 		if (Currency::available == nullptr) {
 			$assignStatic(Currency::available, $new($HashSet, 256));
 			for (char16_t c1 = u'A'; c1 <= u'Z'; ++c1) {
 				for (char16_t c2 = u'A'; c2 <= u'Z'; ++c2) {
 					int32_t tableEntry = getMainTableEntry(c1, c2);
-					if (((int32_t)(tableEntry & (uint32_t)Currency::COUNTRY_TYPE_MASK)) == Currency::SIMPLE_CASE_COUNTRY_MASK && tableEntry != Currency::INVALID_COUNTRY_ENTRY) {
-						char16_t finalChar = (char16_t)(((int32_t)(tableEntry & (uint32_t)Currency::SIMPLE_CASE_COUNTRY_FINAL_CHAR_MASK)) + u'A');
-						int32_t defaultFractionDigits = $sr((int32_t)(tableEntry & (uint32_t)Currency::SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_MASK), Currency::SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_SHIFT);
-						int32_t numericCode = $sr((int32_t)(tableEntry & (uint32_t)Currency::NUMERIC_CODE_MASK), Currency::NUMERIC_CODE_SHIFT);
+					if ((tableEntry & Currency::COUNTRY_TYPE_MASK) == Currency::SIMPLE_CASE_COUNTRY_MASK && tableEntry != Currency::INVALID_COUNTRY_ENTRY) {
+						char16_t finalChar = (char16_t)((tableEntry & Currency::SIMPLE_CASE_COUNTRY_FINAL_CHAR_MASK) + u'A');
+						int32_t defaultFractionDigits = $sr(tableEntry & Currency::SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_MASK, Currency::SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_SHIFT);
+						int32_t numericCode = $sr(tableEntry & Currency::NUMERIC_CODE_MASK, Currency::NUMERIC_CODE_SHIFT);
 						$var($StringBuilder, sb, $new($StringBuilder));
 						sb->append(c1);
 						sb->append(c2);
 						sb->append(finalChar);
-						$nc(Currency::available)->add($(getInstance($(sb->toString()), defaultFractionDigits, numericCode)));
-					} else if (((int32_t)(tableEntry & (uint32_t)Currency::COUNTRY_TYPE_MASK)) == Currency::SPECIAL_CASE_COUNTRY_MASK && tableEntry != Currency::INVALID_COUNTRY_ENTRY && tableEntry != Currency::COUNTRY_WITHOUT_CURRENCY_ENTRY) {
+						Currency::available->add($(getInstance($(sb->toString()), defaultFractionDigits, numericCode)));
+					} else if ((tableEntry & Currency::COUNTRY_TYPE_MASK) == Currency::SPECIAL_CASE_COUNTRY_MASK && tableEntry != Currency::INVALID_COUNTRY_ENTRY && tableEntry != Currency::COUNTRY_WITHOUT_CURRENCY_ENTRY) {
 						int32_t index = $Currency$SpecialCaseEntry::toIndex(tableEntry);
 						$var($Currency$SpecialCaseEntry, scEntry, $cast($Currency$SpecialCaseEntry, $nc(Currency::specialCasesList)->get(index)));
-						if ($nc(scEntry)->cutOverTime == $Long::MAX_VALUE || $System::currentTimeMillis() < $nc(scEntry)->cutOverTime) {
-							$nc(Currency::available)->add($(getInstance(scEntry->oldCurrency, scEntry->oldCurrencyFraction, scEntry->oldCurrencyNumericCode)));
+						if ($nc(scEntry)->cutOverTime == $Long::MAX_VALUE || $System::currentTimeMillis() < scEntry->cutOverTime) {
+							Currency::available->add($(getInstance(scEntry->oldCurrency, scEntry->oldCurrencyFraction, scEntry->oldCurrencyNumericCode)));
 						} else {
-							$nc(Currency::available)->add($(getInstance(scEntry->newCurrency, scEntry->newCurrencyFraction, scEntry->newCurrencyNumericCode)));
+							Currency::available->add($(getInstance(scEntry->newCurrency, scEntry->newCurrencyFraction, scEntry->newCurrencyNumericCode)));
 						}
 					}
 				}
@@ -519,7 +402,7 @@ $Set* Currency::getAvailableCurrencies() {
 				for (; $nc(i$)->hasNext();) {
 					$var($Currency$OtherCurrencyEntry, entry, $cast($Currency$OtherCurrencyEntry, i$->next()));
 					{
-						$nc(Currency::available)->add($(getInstance($nc(entry)->currencyCode)));
+						Currency::available->add($(getInstance($nc(entry)->currencyCode)));
 					}
 				}
 			}
@@ -539,13 +422,13 @@ $String* Currency::getSymbol() {
 }
 
 $String* Currency::getSymbol($Locale* locale$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, locale, locale$renamed);
 	$load($CurrencyNameProvider);
 	$var($LocaleServiceProviderPool, pool, $LocaleServiceProviderPool::getPool($CurrencyNameProvider::class$));
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$init($Currency$CurrencyNameGetter);
-	$var($String, symbol, $cast($String, $nc(pool)->getLocalizedObject($Currency$CurrencyNameGetter::INSTANCE, locale, this->currencyCode, $$new($ObjectArray, {$($of($Integer::valueOf(Currency::SYMBOL)))}))));
+	$var($String, symbol, $cast($String, $nc(pool)->getLocalizedObject($Currency$CurrencyNameGetter::INSTANCE, locale, this->currencyCode, $$new($ObjectArray, {$($Integer::valueOf(Currency::SYMBOL))}))));
 	if (symbol != nullptr) {
 		return symbol;
 	}
@@ -578,11 +461,11 @@ $String* Currency::getDisplayName() {
 }
 
 $String* Currency::getDisplayName($Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($CurrencyNameProvider);
 	$var($LocaleServiceProviderPool, pool, $LocaleServiceProviderPool::getPool($CurrencyNameProvider::class$));
 	$init($Currency$CurrencyNameGetter);
-	$var($String, result, $cast($String, $nc(pool)->getLocalizedObject($Currency$CurrencyNameGetter::INSTANCE, locale, this->currencyCode, $$new($ObjectArray, {$($of($Integer::valueOf(Currency::DISPLAYNAME)))}))));
+	$var($String, result, $cast($String, $nc(pool)->getLocalizedObject($Currency$CurrencyNameGetter::INSTANCE, locale, this->currencyCode, $$new($ObjectArray, {$($Integer::valueOf(Currency::DISPLAYNAME))}))));
 	if (result != nullptr) {
 		return result;
 	}
@@ -594,7 +477,7 @@ $String* Currency::toString() {
 }
 
 $Object* Currency::readResolve() {
-	return $of(getInstance(this->currencyCode));
+	return getInstance(this->currencyCode);
 }
 
 int32_t Currency::getMainTableEntry(char16_t char1, char16_t char2) {
@@ -624,7 +507,7 @@ $ints* Currency::readIntArray($DataInputStream* dis, int32_t count) {
 
 $List* Currency::readSpecialCases($DataInputStream* dis, int32_t count) {
 	$init(Currency);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, list, $new($ArrayList, count));
 	int64_t cutOverTime = 0;
 	$var($String, oldCurrency, nullptr);
@@ -649,7 +532,7 @@ $List* Currency::readSpecialCases($DataInputStream* dis, int32_t count) {
 
 $List* Currency::readOtherCurrencies($DataInputStream* dis, int32_t count) {
 	$init(Currency);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, list, $new($ArrayList, count));
 	$var($String, currencyCode, nullptr);
 	int32_t fraction = 0;
@@ -666,17 +549,17 @@ $List* Currency::readOtherCurrencies($DataInputStream* dis, int32_t count) {
 
 $List* Currency::getValidCurrencyData($Properties* props, $Pattern* pattern) {
 	$init(Currency);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, keys, $nc(props)->stringPropertyNames());
 	$var($List, propertyEntries, $new($ArrayList));
-	$var($Map, currencyCodeGroup, $cast($Map, $nc($($nc($($nc($($nc(keys)->stream()))->map(static_cast<$Function*>($$new(Currency$$Lambda$lambda$getValidCurrencyData$0, props, pattern)))))->flatMap(static_cast<$Function*>($$new(Currency$$Lambda$lambda$getValidCurrencyData$1$1)))))->collect($($Collectors::groupingBy(static_cast<$Function*>($$new(Currency$$Lambda$lambda$getValidCurrencyData$2$2)))))));
-	$nc(currencyCodeGroup)->forEach(static_cast<$BiConsumer*>($$new(Currency$$Lambda$lambda$getValidCurrencyData$4$3, propertyEntries)));
+	$var($Map, currencyCodeGroup, $cast($Map, $$nc($$nc($$nc($nc(keys)->stream())->map($$new(Currency$$Lambda$lambda$getValidCurrencyData$0, props, pattern)))->flatMap($$new(Currency$$Lambda$lambda$getValidCurrencyData$1$1)))->collect($($Collectors::groupingBy($$new(Currency$$Lambda$lambda$getValidCurrencyData$2$2))))));
+	$nc(currencyCodeGroup)->forEach($$new(Currency$$Lambda$lambda$getValidCurrencyData$4$3, propertyEntries));
 	return propertyEntries;
 }
 
 void Currency::replaceCurrencyData($Currency$CurrencyProperty* prop) {
 	$init(Currency);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, ctry, $nc(prop)->country);
 	$var($String, code, prop->currencyCode);
 	int32_t numeric = prop->numericCode;
@@ -691,7 +574,7 @@ void Currency::replaceCurrencyData($Currency$CurrencyProperty* prop) {
 			$var($Currency$OtherCurrencyEntry, oe, $Currency$OtherCurrencyEntry::findEntry(code));
 			if (oe != nullptr) {
 				int32_t oIndex = $nc(Currency::otherCurrenciesList)->indexOf(oe);
-				$nc(Currency::otherCurrenciesList)->set(oIndex, $$new($Currency$OtherCurrencyEntry, code, fraction, numeric));
+				Currency::otherCurrenciesList->set(oIndex, $$new($Currency$OtherCurrencyEntry, code, fraction, numeric));
 			}
 		}
 	}
@@ -700,15 +583,15 @@ void Currency::replaceCurrencyData($Currency$CurrencyProperty* prop) {
 		char16_t var$2 = $nc(ctry)->charAt(0);
 		bool var$1 = var$2 != $nc(code)->charAt(0);
 		if (!var$1) {
-			char16_t var$3 = $nc(ctry)->charAt(1);
-			var$1 = var$3 != $nc(code)->charAt(1);
+			char16_t var$3 = ctry->charAt(1);
+			var$1 = var$3 != code->charAt(1);
 		}
-		var$0 = (var$1);
+		var$0 = var$1;
 	}
 	if (var$0) {
 		if (scCurrencyCodeIndex == -1) {
 			$nc(Currency::specialCasesList)->add($$new($Currency$SpecialCaseEntry, code, fraction, numeric));
-			index = $nc(Currency::specialCasesList)->size() - 1;
+			index = Currency::specialCasesList->size() - 1;
 		} else {
 			index = scCurrencyCodeIndex;
 		}
@@ -728,9 +611,9 @@ void Currency::updateMainTableEntry($String* code, int32_t fraction, int32_t num
 	char16_t var$0 = $nc(code)->charAt(0);
 	int32_t tableEntry = getMainTableEntry(var$0, code->charAt(1));
 	int32_t entry = $sl(numeric, Currency::NUMERIC_CODE_SHIFT);
-	if (((int32_t)(tableEntry & (uint32_t)Currency::COUNTRY_TYPE_MASK)) == Currency::SIMPLE_CASE_COUNTRY_MASK && tableEntry != Currency::INVALID_COUNTRY_ENTRY && $nc(code)->charAt(2) - u'A' == ((int32_t)(tableEntry & (uint32_t)Currency::SIMPLE_CASE_COUNTRY_FINAL_CHAR_MASK))) {
-		int32_t numericCode = $sr((int32_t)(tableEntry & (uint32_t)Currency::NUMERIC_CODE_MASK), Currency::NUMERIC_CODE_SHIFT);
-		int32_t defaultFractionDigits = $sr((int32_t)(tableEntry & (uint32_t)Currency::SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_MASK), Currency::SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_SHIFT);
+	if ((tableEntry & Currency::COUNTRY_TYPE_MASK) == Currency::SIMPLE_CASE_COUNTRY_MASK && tableEntry != Currency::INVALID_COUNTRY_ENTRY && code->charAt(2) - u'A' == (tableEntry & Currency::SIMPLE_CASE_COUNTRY_FINAL_CHAR_MASK)) {
+		int32_t numericCode = $sr(tableEntry & Currency::NUMERIC_CODE_MASK, Currency::NUMERIC_CODE_SHIFT);
+		int32_t defaultFractionDigits = $sr(tableEntry & Currency::SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_MASK, Currency::SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_SHIFT);
 		if (numeric != numericCode || fraction != defaultFractionDigits) {
 			entry |= ($sl(fraction, Currency::SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_SHIFT)) | (code->charAt(2) - u'A');
 			char16_t var$1 = code->charAt(0);
@@ -743,7 +626,7 @@ void Currency::lambda$getValidCurrencyData$4($List* propertyEntries, $String* cu
 	$init(Currency);
 	bool inconsistent = $Currency$CurrencyProperty::containsInconsistentInstances(list);
 	if (inconsistent) {
-		$nc(list)->forEach(static_cast<$Consumer*>($$new(Currency$$Lambda$lambda$getValidCurrencyData$3$4)));
+		$nc(list)->forEach($$new(Currency$$Lambda$lambda$getValidCurrencyData$3$4));
 	} else {
 		$nc(propertyEntries)->addAll(list);
 	}
@@ -766,17 +649,17 @@ $Stream* Currency::lambda$getValidCurrencyData$1($Optional* o) {
 
 $Optional* Currency::lambda$getValidCurrencyData$0($Properties* props, $Pattern* pattern, $String* k) {
 	$init(Currency);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($String, var$0, $nc(k)->toUpperCase($Locale::ROOT));
-	return $Currency$CurrencyProperty::getValidEntry(var$0, $($nc($($nc(props)->getProperty(k)))->toUpperCase($Locale::ROOT)), pattern);
+	return $Currency$CurrencyProperty::getValidEntry(var$0, $($$nc($nc(props)->getProperty(k))->toUpperCase($Locale::ROOT)), pattern);
 }
 
-void clinit$Currency($Class* class$) {
+void Currency::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	$assignStatic(Currency::instances, $new($ConcurrentHashMap, 7));
 	{
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Currency$1)));
+		$AccessController::doPrivileged($$new($Currency$1));
 	}
 }
 
@@ -785,23 +668,110 @@ Currency::Currency() {
 
 $Class* Currency::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Currency$$Lambda$lambda$getValidCurrencyData$0::classInfo$.name)) {
+		if (name->equals("java.util.Currency$$Lambda$lambda$getValidCurrencyData$0")) {
 			return Currency$$Lambda$lambda$getValidCurrencyData$0::load$(name, initialize);
 		}
-		if (name->equals(Currency$$Lambda$lambda$getValidCurrencyData$1$1::classInfo$.name)) {
+		if (name->equals("java.util.Currency$$Lambda$lambda$getValidCurrencyData$1$1")) {
 			return Currency$$Lambda$lambda$getValidCurrencyData$1$1::load$(name, initialize);
 		}
-		if (name->equals(Currency$$Lambda$lambda$getValidCurrencyData$2$2::classInfo$.name)) {
+		if (name->equals("java.util.Currency$$Lambda$lambda$getValidCurrencyData$2$2")) {
 			return Currency$$Lambda$lambda$getValidCurrencyData$2$2::load$(name, initialize);
 		}
-		if (name->equals(Currency$$Lambda$lambda$getValidCurrencyData$4$3::classInfo$.name)) {
+		if (name->equals("java.util.Currency$$Lambda$lambda$getValidCurrencyData$4$3")) {
 			return Currency$$Lambda$lambda$getValidCurrencyData$4$3::load$(name, initialize);
 		}
-		if (name->equals(Currency$$Lambda$lambda$getValidCurrencyData$3$4::classInfo$.name)) {
+		if (name->equals("java.util.Currency$$Lambda$lambda$getValidCurrencyData$3$4")) {
 			return Currency$$Lambda$lambda$getValidCurrencyData$3$4::load$(name, initialize);
 		}
 	}
-	$loadClass(Currency, name, initialize, &_Currency_ClassInfo_, clinit$Currency, allocate$Currency);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, serialVersionUID)},
+		{"currencyCode", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Currency, currencyCode)},
+		{"defaultFractionDigits", "I", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(Currency, defaultFractionDigits)},
+		{"numericCode", "I", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(Currency, numericCode)},
+		{"instances", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/lang/String;Ljava/util/Currency;>;", $PRIVATE | $STATIC, $staticField(Currency, instances)},
+		{"available", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljava/util/Currency;>;", $PRIVATE | $STATIC, $staticField(Currency, available)},
+		{"formatVersion", "I", nullptr, $STATIC, $staticField(Currency, formatVersion)},
+		{"dataVersion", "I", nullptr, $STATIC, $staticField(Currency, dataVersion)},
+		{"mainTable", "[I", nullptr, $STATIC, $staticField(Currency, mainTable)},
+		{"specialCasesList", "Ljava/util/List;", "Ljava/util/List<Ljava/util/Currency$SpecialCaseEntry;>;", $STATIC, $staticField(Currency, specialCasesList)},
+		{"otherCurrenciesList", "Ljava/util/List;", "Ljava/util/List<Ljava/util/Currency$OtherCurrencyEntry;>;", $STATIC, $staticField(Currency, otherCurrenciesList)},
+		{"MAGIC_NUMBER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, MAGIC_NUMBER)},
+		{"A_TO_Z", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, A_TO_Z)},
+		{"INVALID_COUNTRY_ENTRY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, INVALID_COUNTRY_ENTRY)},
+		{"COUNTRY_WITHOUT_CURRENCY_ENTRY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, COUNTRY_WITHOUT_CURRENCY_ENTRY)},
+		{"SIMPLE_CASE_COUNTRY_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, SIMPLE_CASE_COUNTRY_MASK)},
+		{"SIMPLE_CASE_COUNTRY_FINAL_CHAR_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, SIMPLE_CASE_COUNTRY_FINAL_CHAR_MASK)},
+		{"SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_MASK)},
+		{"SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_SHIFT)},
+		{"SIMPLE_CASE_COUNTRY_MAX_DEFAULT_DIGITS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, SIMPLE_CASE_COUNTRY_MAX_DEFAULT_DIGITS)},
+		{"SPECIAL_CASE_COUNTRY_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, SPECIAL_CASE_COUNTRY_MASK)},
+		{"SPECIAL_CASE_COUNTRY_INDEX_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, SPECIAL_CASE_COUNTRY_INDEX_MASK)},
+		{"SPECIAL_CASE_COUNTRY_INDEX_DELTA", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, SPECIAL_CASE_COUNTRY_INDEX_DELTA)},
+		{"COUNTRY_TYPE_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, COUNTRY_TYPE_MASK)},
+		{"NUMERIC_CODE_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, NUMERIC_CODE_MASK)},
+		{"NUMERIC_CODE_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, NUMERIC_CODE_SHIFT)},
+		{"VALID_FORMAT_VERSION", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, VALID_FORMAT_VERSION)},
+		{"SYMBOL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, SYMBOL)},
+		{"DISPLAYNAME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Currency, DISPLAYNAME)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;II)V", nullptr, $PRIVATE, $method(Currency, init$, void, $String*, int32_t, int32_t)},
+		{"getAvailableCurrencies", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Currency;>;", $PUBLIC | $STATIC, $staticMethod(Currency, getAvailableCurrencies, $Set*)},
+		{"getCurrencyCode", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Currency, getCurrencyCode, $String*)},
+		{"getDefaultFractionDigits", "()I", nullptr, $PUBLIC, $method(Currency, getDefaultFractionDigits, int32_t)},
+		{"getDisplayName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Currency, getDisplayName, $String*)},
+		{"getDisplayName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Currency, getDisplayName, $String*, $Locale*)},
+		{"getInstance", "(Ljava/lang/String;)Ljava/util/Currency;", nullptr, $PUBLIC | $STATIC, $staticMethod(Currency, getInstance, Currency*, $String*)},
+		{"getInstance", "(Ljava/lang/String;II)Ljava/util/Currency;", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency, getInstance, Currency*, $String*, int32_t, int32_t)},
+		{"getInstance", "(Ljava/util/Locale;)Ljava/util/Currency;", nullptr, $PUBLIC | $STATIC, $staticMethod(Currency, getInstance, Currency*, $Locale*)},
+		{"getMainTableEntry", "(CC)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency, getMainTableEntry, int32_t, char16_t, char16_t)},
+		{"getNumericCode", "()I", nullptr, $PUBLIC, $method(Currency, getNumericCode, int32_t)},
+		{"getNumericCodeAsString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Currency, getNumericCodeAsString, $String*)},
+		{"getSymbol", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Currency, getSymbol, $String*)},
+		{"getSymbol", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Currency, getSymbol, $String*, $Locale*)},
+		{"getValidCurrencyData", "(Ljava/util/Properties;Ljava/util/regex/Pattern;)Ljava/util/List;", "(Ljava/util/Properties;Ljava/util/regex/Pattern;)Ljava/util/List<Ljava/util/Currency$CurrencyProperty;>;", $PRIVATE | $STATIC, $staticMethod(Currency, getValidCurrencyData, $List*, $Properties*, $Pattern*)},
+		{"lambda$getValidCurrencyData$0", "(Ljava/util/Properties;Ljava/util/regex/Pattern;Ljava/lang/String;)Ljava/util/Optional;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Currency, lambda$getValidCurrencyData$0, $Optional*, $Properties*, $Pattern*, $String*)},
+		{"lambda$getValidCurrencyData$1", "(Ljava/util/Optional;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Currency, lambda$getValidCurrencyData$1, $Stream*, $Optional*)},
+		{"lambda$getValidCurrencyData$2", "(Ljava/util/Currency$CurrencyProperty;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Currency, lambda$getValidCurrencyData$2, $String*, $Currency$CurrencyProperty*)},
+		{"lambda$getValidCurrencyData$3", "(Ljava/util/Currency$CurrencyProperty;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Currency, lambda$getValidCurrencyData$3, void, $Currency$CurrencyProperty*)},
+		{"lambda$getValidCurrencyData$4", "(Ljava/util/List;Ljava/lang/String;Ljava/util/List;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Currency, lambda$getValidCurrencyData$4, void, $List*, $String*, $List*)},
+		{"readIntArray", "(Ljava/io/DataInputStream;I)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency, readIntArray, $ints*, $DataInputStream*, int32_t), "java.io.IOException"},
+		{"readOtherCurrencies", "(Ljava/io/DataInputStream;I)Ljava/util/List;", "(Ljava/io/DataInputStream;I)Ljava/util/List<Ljava/util/Currency$OtherCurrencyEntry;>;", $PRIVATE | $STATIC, $staticMethod(Currency, readOtherCurrencies, $List*, $DataInputStream*, int32_t), "java.io.IOException"},
+		{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Currency, readResolve, $Object*)},
+		{"readSpecialCases", "(Ljava/io/DataInputStream;I)Ljava/util/List;", "(Ljava/io/DataInputStream;I)Ljava/util/List<Ljava/util/Currency$SpecialCaseEntry;>;", $PRIVATE | $STATIC, $staticMethod(Currency, readSpecialCases, $List*, $DataInputStream*, int32_t), "java.io.IOException"},
+		{"replaceCurrencyData", "(Ljava/util/Currency$CurrencyProperty;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency, replaceCurrencyData, void, $Currency$CurrencyProperty*)},
+		{"setMainTableEntry", "(CCI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency, setMainTableEntry, void, char16_t, char16_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Currency, toString, $String*)},
+		{"updateMainTableEntry", "(Ljava/lang/String;II)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency, updateMainTableEntry, void, $String*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Currency$CurrencyProperty", "java.util.Currency", "CurrencyProperty", $PRIVATE | $STATIC},
+		{"java.util.Currency$OtherCurrencyEntry", "java.util.Currency", "OtherCurrencyEntry", $PRIVATE | $STATIC},
+		{"java.util.Currency$SpecialCaseEntry", "java.util.Currency", "SpecialCaseEntry", $PRIVATE | $STATIC},
+		{"java.util.Currency$CurrencyNameGetter", "java.util.Currency", "CurrencyNameGetter", $PRIVATE | $STATIC},
+		{"java.util.Currency$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.util.Currency",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.Currency$CurrencyProperty,java.util.Currency$OtherCurrencyEntry,java.util.Currency$SpecialCaseEntry,java.util.Currency$CurrencyNameGetter,java.util.Currency$1"
+	};
+	$loadClass(Currency, name, initialize, &classInfo$$, Currency::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Currency);
+	});
 	return class$;
 }
 

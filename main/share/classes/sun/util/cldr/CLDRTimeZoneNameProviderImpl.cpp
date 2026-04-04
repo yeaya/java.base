@@ -1,5 +1,4 @@
 #include <sun/util/cldr/CLDRTimeZoneNameProviderImpl.h>
-
 #include <java/text/MessageFormat.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
@@ -45,7 +44,6 @@ using $Arrays = ::java::util::Arrays;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $Objects = ::java::util::Objects;
-using $Optional = ::java::util::Optional;
 using $ResourceBundle = ::java::util::ResourceBundle;
 using $Set = ::java::util::Set;
 using $TimeZone = ::java::util::TimeZone;
@@ -62,56 +60,6 @@ namespace sun {
 	namespace util {
 		namespace cldr {
 
-$FieldInfo _CLDRTimeZoneNameProviderImpl_FieldInfo_[] = {
-	{"NO_INHERITANCE_MARKER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CLDRTimeZoneNameProviderImpl, NO_INHERITANCE_MARKER)},
-	{"INDEX_TZID", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CLDRTimeZoneNameProviderImpl, INDEX_TZID)},
-	{"INDEX_STD_LONG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CLDRTimeZoneNameProviderImpl, INDEX_STD_LONG)},
-	{"INDEX_STD_SHORT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CLDRTimeZoneNameProviderImpl, INDEX_STD_SHORT)},
-	{"INDEX_DST_LONG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CLDRTimeZoneNameProviderImpl, INDEX_DST_LONG)},
-	{"INDEX_DST_SHORT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CLDRTimeZoneNameProviderImpl, INDEX_DST_SHORT)},
-	{"INDEX_GEN_LONG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CLDRTimeZoneNameProviderImpl, INDEX_GEN_LONG)},
-	{"INDEX_GEN_SHORT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CLDRTimeZoneNameProviderImpl, INDEX_GEN_SHORT)},
-	{}
-};
-
-$MethodInfo _CLDRTimeZoneNameProviderImpl_MethodInfo_[] = {
-	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(CLDRTimeZoneNameProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
-	{"deriveFallbackName", "([Ljava/lang/String;ILjava/util/Locale;Z)V", nullptr, $PRIVATE, $method(CLDRTimeZoneNameProviderImpl, deriveFallbackName, void, $StringArray*, int32_t, $Locale*, bool)},
-	{"deriveFallbackNames", "([Ljava/lang/String;Ljava/util/Locale;)V", nullptr, $PRIVATE, $method(CLDRTimeZoneNameProviderImpl, deriveFallbackNames, void, $StringArray*, $Locale*)},
-	{"exists", "([Ljava/lang/String;I)Z", nullptr, $PRIVATE, $method(CLDRTimeZoneNameProviderImpl, exists, bool, $StringArray*, int32_t)},
-	{"getDisplayNameArray", "(Ljava/lang/String;Ljava/util/Locale;)[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(CLDRTimeZoneNameProviderImpl, getDisplayNameArray, $StringArray*, $String*, $Locale*)},
-	{"getZoneStrings", "(Ljava/util/Locale;)[[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(CLDRTimeZoneNameProviderImpl, getZoneStrings, $StringArray2*, $Locale*)},
-	{"mapChineseLocale", "(Ljava/util/Locale;)Ljava/util/Locale;", nullptr, $PRIVATE, $method(CLDRTimeZoneNameProviderImpl, mapChineseLocale, $Locale*, $Locale*)},
-	{"regionFormatFallback", "([Ljava/lang/String;ILjava/util/Locale;)Z", nullptr, $PRIVATE, $method(CLDRTimeZoneNameProviderImpl, regionFormatFallback, bool, $StringArray*, int32_t, $Locale*)},
-	{"toGMTFormat", "(Ljava/lang/String;ZLjava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(CLDRTimeZoneNameProviderImpl, toGMTFormat, $String*, $String*, bool, $Locale*)},
-	{"typeFallback", "([Ljava/lang/String;I)Z", nullptr, $PRIVATE, $method(CLDRTimeZoneNameProviderImpl, typeFallback, bool, $StringArray*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CLDRTimeZoneNameProviderImpl_InnerClassesInfo_[] = {
-	{"sun.util.cldr.CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS", "sun.util.cldr.CLDRTimeZoneNameProviderImpl", "AVAILABLE_IDS", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _CLDRTimeZoneNameProviderImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.cldr.CLDRTimeZoneNameProviderImpl",
-	"sun.util.locale.provider.TimeZoneNameProviderImpl",
-	nullptr,
-	_CLDRTimeZoneNameProviderImpl_FieldInfo_,
-	_CLDRTimeZoneNameProviderImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CLDRTimeZoneNameProviderImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.util.cldr.CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS"
-};
-
-$Object* allocate$CLDRTimeZoneNameProviderImpl($Class* clazz) {
-	return $of($alloc(CLDRTimeZoneNameProviderImpl));
-}
-
 $String* CLDRTimeZoneNameProviderImpl::NO_INHERITANCE_MARKER = nullptr;
 
 void CLDRTimeZoneNameProviderImpl::init$($LocaleProviderAdapter$Type* type, $Set* langtags) {
@@ -119,10 +67,10 @@ void CLDRTimeZoneNameProviderImpl::init$($LocaleProviderAdapter$Type* type, $Set
 }
 
 $StringArray* CLDRTimeZoneNameProviderImpl::getDisplayNameArray($String* id, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, namesSuper, $TimeZoneNameProviderImpl::getDisplayNameArray(id, locale));
 	if (namesSuper == nullptr) {
-		$assign(namesSuper, $TimeZoneNameProviderImpl::getDisplayNameArray($cast($String, $($nc($($TimeZoneNameUtility::canonicalTZID(id)))->orElse(id))), locale));
+		$assign(namesSuper, $TimeZoneNameProviderImpl::getDisplayNameArray($$cast($String, $$nc($TimeZoneNameUtility::canonicalTZID(id))->orElse(id)), locale));
 	}
 	if (namesSuper != nullptr) {
 		namesSuper->set(CLDRTimeZoneNameProviderImpl::INDEX_TZID, id);
@@ -132,42 +80,32 @@ $StringArray* CLDRTimeZoneNameProviderImpl::getDisplayNameArray($String* id, $Lo
 				int32_t tmp3536$ = -1;
 				switch ($nc(s3536$)->hashCode()) {
 				case 0:
-					{
-						if (s3536$->equals(""_s)) {
-							tmp3536$ = 0;
-						}
-						break;
+					if (s3536$->equals(""_s)) {
+						tmp3536$ = 0;
 					}
-				case 0x0083F565:
-					{
-						if (s3536$->equals(u"∅∅∅"_s)) {
-							tmp3536$ = 1;
-						}
-						break;
+					break;
+				case 0x0083f565:
+					if (s3536$->equals(u"∅∅∅"_s)) {
+						tmp3536$ = 1;
 					}
+					break;
 				}
 				switch (tmp3536$) {
 				case 0:
-					{
-						deriveFallbackName(namesSuper, i, locale, !$nc($($TimeZone::getTimeZone(id)))->useDaylightTime());
-						break;
-					}
+					deriveFallbackName(namesSuper, i, locale, !$$nc($TimeZone::getTimeZone(id))->useDaylightTime());
+					break;
 				case 1:
-					{
-						namesSuper->set(i, $(toGMTFormat(id, i == CLDRTimeZoneNameProviderImpl::INDEX_DST_LONG || i == CLDRTimeZoneNameProviderImpl::INDEX_DST_SHORT, locale)));
-						break;
-					}
+					namesSuper->set(i, $(toGMTFormat(id, i == CLDRTimeZoneNameProviderImpl::INDEX_DST_LONG || i == CLDRTimeZoneNameProviderImpl::INDEX_DST_SHORT, locale)));
+					break;
 				default:
-					{
-						break;
-					}
+					break;
 				}
 			}
 		}
 		return namesSuper;
 	} else {
 		$init($CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS);
-		if ($Arrays::binarySearch($CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS::INSTANCE, $of(id)) >= 0) {
+		if ($Arrays::binarySearch($CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS::INSTANCE, id) >= 0) {
 			$var($StringArray, names, $new($StringArray, CLDRTimeZoneNameProviderImpl::INDEX_GEN_SHORT + 1));
 			names->set(CLDRTimeZoneNameProviderImpl::INDEX_TZID, id);
 			deriveFallbackNames(names, locale);
@@ -186,14 +124,14 @@ $StringArray2* CLDRTimeZoneNameProviderImpl::getZoneStrings($Locale* locale) {
 }
 
 void CLDRTimeZoneNameProviderImpl::deriveFallbackNames($StringArray* names, $Locale* locale) {
-	bool noDST = !$nc($($TimeZone::getTimeZone($nc(names)->get(0))))->useDaylightTime();
+	bool noDST = !$$nc($TimeZone::getTimeZone($nc(names)->get(0)))->useDaylightTime();
 	for (int32_t i = CLDRTimeZoneNameProviderImpl::INDEX_STD_LONG; i <= CLDRTimeZoneNameProviderImpl::INDEX_GEN_SHORT; ++i) {
 		deriveFallbackName(names, i, locale, noDST);
 	}
 }
 
 void CLDRTimeZoneNameProviderImpl::deriveFallbackName($StringArray* names, int32_t index, $Locale* locale, bool noDST) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, id, $nc(names)->get(CLDRTimeZoneNameProviderImpl::INDEX_TZID));
 	if (exists(names, index)) {
 		if ($nc(names->get(index))->equals(CLDRTimeZoneNameProviderImpl::NO_INHERITANCE_MARKER)) {
@@ -215,8 +153,8 @@ void CLDRTimeZoneNameProviderImpl::deriveFallbackName($StringArray* names, int32
 		}
 	}
 	$init($LocaleProviderAdapter$Type);
-	if ($nc($($LocaleProviderAdapter::getAdapterPreference()))->contains($LocaleProviderAdapter$Type::JRE)) {
-		$var($StringArray, compatNames, $cast($StringArray, $nc($($nc($($LocaleProviderAdapter::forJRE()))->getLocaleResources($(mapChineseLocale(locale)))))->getTimeZoneNames(id)));
+	if ($$nc($LocaleProviderAdapter::getAdapterPreference())->contains($LocaleProviderAdapter$Type::JRE)) {
+		$var($StringArray, compatNames, $cast($StringArray, $$nc($$nc($LocaleProviderAdapter::forJRE())->getLocaleResources($(mapChineseLocale(locale))))->getTimeZoneNames(id)));
 		if (compatNames != nullptr) {
 			for (int32_t i = CLDRTimeZoneNameProviderImpl::INDEX_STD_LONG; i <= CLDRTimeZoneNameProviderImpl::INDEX_GEN_SHORT; ++i) {
 				if (i == index || !exists(names, i)) {
@@ -233,95 +171,68 @@ void CLDRTimeZoneNameProviderImpl::deriveFallbackName($StringArray* names, int32
 		return;
 	}
 	names->set(index, $(toGMTFormat(id, index == CLDRTimeZoneNameProviderImpl::INDEX_DST_LONG || index == CLDRTimeZoneNameProviderImpl::INDEX_DST_SHORT, locale)));
-	bool var$0 = (exists(names, CLDRTimeZoneNameProviderImpl::INDEX_STD_LONG));
+	bool var$0 = exists(names, CLDRTimeZoneNameProviderImpl::INDEX_STD_LONG);
 	if (var$0) {
 		bool var$2 = $nc(id)->startsWith("Etc/"_s);
-		bool var$1 = var$2 || $nc(id)->startsWith("GMT"_s);
-		var$0 = (var$1 || $nc(id)->startsWith("Greenwich"_s));
+		bool var$1 = var$2 || id->startsWith("GMT"_s);
+		var$0 = var$1 || id->startsWith("Greenwich"_s);
 	}
 	if (var$0) {
-		{
-			$var($String, s7718$, id);
-			int32_t tmp7718$ = -1;
-			switch (s7718$->hashCode()) {
-			case 0x0D89A913:
-				{
-					if (s7718$->equals("Etc/GMT"_s)) {
-						tmp7718$ = 0;
-					}
-					break;
-				}
-			case (int32_t)0xD1C3B5F6:
-				{
-					if (s7718$->equals("Etc/GMT-0"_s)) {
-						tmp7718$ = 1;
-					}
-					break;
-				}
-			case (int32_t)0xD1C3B5B8:
-				{
-					if (s7718$->equals("Etc/GMT+0"_s)) {
-						tmp7718$ = 2;
-					}
-					break;
-				}
-			case (int32_t)0xA3AB797D:
-				{
-					if (s7718$->equals("Etc/GMT0"_s)) {
-						tmp7718$ = 3;
-					}
-					break;
-				}
-			case 0x040CC613:
-				{
-					if (s7718$->equals("GMT+0"_s)) {
-						tmp7718$ = 4;
-					}
-					break;
-				}
-			case 0x040CC651:
-				{
-					if (s7718$->equals("GMT-0"_s)) {
-						tmp7718$ = 5;
-					}
-					break;
-				}
-			case 0x002171C2:
-				{
-					if (s7718$->equals("GMT0"_s)) {
-						tmp7718$ = 6;
-					}
-					break;
-				}
-			case (int32_t)0xF2B5641A:
-				{
-					if (s7718$->equals("Greenwich"_s)) {
-						tmp7718$ = 7;
-					}
-					break;
-				}
+		$var($String, s7718$, id);
+		int32_t tmp7718$ = -1;
+		switch ($nc(s7718$)->hashCode()) {
+		case 0x0d89a913:
+			if (s7718$->equals("Etc/GMT"_s)) {
+				tmp7718$ = 0;
 			}
-			switch (tmp7718$) {
-			case 0:
-				{}
-			case 1:
-				{}
-			case 2:
-				{}
-			case 3:
-				{}
-			case 4:
-				{}
-			case 5:
-				{}
-			case 6:
-				{}
-			case 7:
-				{
-					names->set(CLDRTimeZoneNameProviderImpl::INDEX_DST_LONG, names->set(CLDRTimeZoneNameProviderImpl::INDEX_GEN_LONG, names->get(CLDRTimeZoneNameProviderImpl::INDEX_STD_LONG)));
-					break;
-				}
+			break;
+		case (int32_t)0xd1c3b5f6:
+			if (s7718$->equals("Etc/GMT-0"_s)) {
+				tmp7718$ = 1;
 			}
+			break;
+		case (int32_t)0xd1c3b5b8:
+			if (s7718$->equals("Etc/GMT+0"_s)) {
+				tmp7718$ = 2;
+			}
+			break;
+		case (int32_t)0xa3ab797d:
+			if (s7718$->equals("Etc/GMT0"_s)) {
+				tmp7718$ = 3;
+			}
+			break;
+		case 0x040cc613:
+			if (s7718$->equals("GMT+0"_s)) {
+				tmp7718$ = 4;
+			}
+			break;
+		case 0x040cc651:
+			if (s7718$->equals("GMT-0"_s)) {
+				tmp7718$ = 5;
+			}
+			break;
+		case 0x002171c2:
+			if (s7718$->equals("GMT0"_s)) {
+				tmp7718$ = 6;
+			}
+			break;
+		case (int32_t)0xf2b5641a:
+			if (s7718$->equals("Greenwich"_s)) {
+				tmp7718$ = 7;
+			}
+			break;
+		}
+		switch (tmp7718$) {
+		case 0:
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+		case 6:
+		case 7:
+			names->set(CLDRTimeZoneNameProviderImpl::INDEX_DST_LONG, names->set(CLDRTimeZoneNameProviderImpl::INDEX_GEN_LONG, names->get(CLDRTimeZoneNameProviderImpl::INDEX_STD_LONG)));
+			break;
 		}
 	}
 }
@@ -329,7 +240,7 @@ void CLDRTimeZoneNameProviderImpl::deriveFallbackName($StringArray* names, int32
 bool CLDRTimeZoneNameProviderImpl::exists($StringArray* names, int32_t index) {
 	bool var$1 = $Objects::nonNull(names);
 	bool var$0 = var$1 && $Objects::nonNull($nc(names)->get(index));
-	return var$0 && !$nc($nc(names)->get(index))->isEmpty();
+	return var$0 && !$nc(names->get(index))->isEmpty();
 }
 
 bool CLDRTimeZoneNameProviderImpl::typeFallback($StringArray* names, int32_t index) {
@@ -342,7 +253,7 @@ bool CLDRTimeZoneNameProviderImpl::typeFallback($StringArray* names, int32_t ind
 		int32_t stdIndex = CLDRTimeZoneNameProviderImpl::INDEX_STD_SHORT - index % 2;
 		bool var$3 = !exists(names, index);
 		bool var$2 = var$3 && exists(names, stdIndex);
-		if (var$2 && !$nc(names->get(stdIndex))->startsWith("GMT"_s)) {
+		if (var$2 && !$nc($nc(names)->get(stdIndex))->startsWith("GMT"_s)) {
 			names->set(index, names->get(stdIndex));
 		}
 	}
@@ -350,16 +261,16 @@ bool CLDRTimeZoneNameProviderImpl::typeFallback($StringArray* names, int32_t ind
 }
 
 bool CLDRTimeZoneNameProviderImpl::regionFormatFallback($StringArray* names, int32_t index, $Locale* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, id, $nc(names)->get(CLDRTimeZoneNameProviderImpl::INDEX_TZID));
 	$init($LocaleProviderAdapter$Type);
-	$var($LocaleResources, lr, $nc($($LocaleProviderAdapter::forType($LocaleProviderAdapter$Type::CLDR)))->getLocaleResources(l));
+	$var($LocaleResources, lr, $$nc($LocaleProviderAdapter::forType($LocaleProviderAdapter$Type::CLDR))->getLocaleResources(l));
 	$var($ResourceBundle, fd, $nc(lr)->getJavaTimeFormatData());
-	$assign(id, $cast($String, $nc($($TimeZoneNameUtility::canonicalTZID(id)))->orElse(id)));
+	$assign(id, $cast($String, $$nc($TimeZoneNameUtility::canonicalTZID(id))->orElse(id)));
 	$var($String, rgn, $cast($String, lr->getTimeZoneNames($$str({"timezone.excity."_s, id}))));
 	bool var$0 = rgn == nullptr && !$nc(id)->startsWith("Etc"_s);
 	if (var$0 && !id->startsWith("SystemV"_s)) {
-		int32_t slash = id->lastIndexOf((int32_t)u'/');
+		int32_t slash = id->lastIndexOf(u'/');
 		if (slash > 0) {
 			$assign(rgn, $(id->substring(slash + 1))->replaceAll("_"_s, " "_s));
 		}
@@ -368,35 +279,29 @@ bool CLDRTimeZoneNameProviderImpl::regionFormatFallback($StringArray* names, int
 		$var($String, fmt, ""_s);
 		switch (index) {
 		case CLDRTimeZoneNameProviderImpl::INDEX_STD_LONG:
-			{
-				$assign(fmt, $nc(fd)->getString("timezone.regionFormat.standard"_s));
-				break;
-			}
+			$assign(fmt, $nc(fd)->getString("timezone.regionFormat.standard"_s));
+			break;
 		case CLDRTimeZoneNameProviderImpl::INDEX_DST_LONG:
-			{
-				$assign(fmt, $nc(fd)->getString("timezone.regionFormat.daylight"_s));
-				break;
-			}
+			$assign(fmt, $nc(fd)->getString("timezone.regionFormat.daylight"_s));
+			break;
 		case CLDRTimeZoneNameProviderImpl::INDEX_GEN_LONG:
-			{
-				$assign(fmt, $nc(fd)->getString("timezone.regionFormat"_s));
-				break;
-			}
+			$assign(fmt, $nc(fd)->getString("timezone.regionFormat"_s));
+			break;
 		}
-		if (!fmt->isEmpty()) {
-			names->set(index, $($MessageFormat::format(fmt, $$new($ObjectArray, {$of(rgn)}))));
+		if (!$nc(fmt)->isEmpty()) {
+			names->set(index, $($MessageFormat::format(fmt, $$new($ObjectArray, {rgn}))));
 		}
 	}
 	return exists(names, index);
 }
 
 $String* CLDRTimeZoneNameProviderImpl::toGMTFormat($String* id, bool daylight, $Locale* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TimeZone, tz, $ZoneInfoFile::getZoneInfo(id));
 	int32_t var$0 = $nc(tz)->getRawOffset();
-	int32_t offset = (var$0 + (daylight ? tz->getDSTSavings() : 0)) / 0x0000EA60;
+	int32_t offset = (var$0 + (daylight ? tz->getDSTSavings() : 0)) / 60000;
 	$init($LocaleProviderAdapter$Type);
-	$var($LocaleResources, lr, $nc($($LocaleProviderAdapter::forType($LocaleProviderAdapter$Type::CLDR)))->getLocaleResources(l));
+	$var($LocaleResources, lr, $$nc($LocaleProviderAdapter::forType($LocaleProviderAdapter$Type::CLDR))->getLocaleResources(l));
 	$var($ResourceBundle, fd, $nc(lr)->getJavaTimeFormatData());
 	if (offset == 0) {
 		return $nc(fd)->getString("timezone.gmtZeroFormat"_s);
@@ -404,128 +309,94 @@ $String* CLDRTimeZoneNameProviderImpl::toGMTFormat($String* id, bool daylight, $
 		$var($String, gmtFormat, $nc(fd)->getString("timezone.gmtFormat"_s));
 		$var($String, hourFormat, fd->getString("timezone.hourFormat"_s));
 		if (offset > 0) {
-			$assign(hourFormat, $nc(hourFormat)->substring(0, hourFormat->indexOf(";"_s)));
+			$assign(hourFormat, $nc(hourFormat)->substring(0, $nc(hourFormat)->indexOf(";"_s)));
 		} else {
-			$assign(hourFormat, $nc(hourFormat)->substring(hourFormat->indexOf(";"_s) + 1));
+			$assign(hourFormat, $nc(hourFormat)->substring($nc(hourFormat)->indexOf(";"_s) + 1));
 			offset = -offset;
 		}
 		$assign(hourFormat, $($nc(hourFormat)->replaceFirst("H+"_s, "\\%1\\$02d"_s))->replaceFirst("m+"_s, "\\%2\\$02d"_s));
-		return $MessageFormat::format(gmtFormat, $$new($ObjectArray, {$($of($String::format(l, hourFormat, $$new($ObjectArray, {
-			$($of($Integer::valueOf(offset / 60))),
-			$($of($Integer::valueOf(offset % 60)))
-		}))))}));
+		return $MessageFormat::format(gmtFormat, $$new($ObjectArray, {$($String::format(l, hourFormat, $$new($ObjectArray, {
+			$($Integer::valueOf(offset / 60)),
+			$($Integer::valueOf(offset % 60))
+		})))}));
 	}
 }
 
 $Locale* CLDRTimeZoneNameProviderImpl::mapChineseLocale($Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(locale)->getLanguage() == "zh"_s) {
-		{
-			$var($String, s11534$, locale->getScript());
-			int32_t tmp11534$ = -1;
-			switch ($nc(s11534$)->hashCode()) {
-			case 0x0022349E:
-				{
-					if (s11534$->equals("Hans"_s)) {
-						tmp11534$ = 0;
-					}
-					break;
-				}
-			case 0x0022349F:
-				{
-					if (s11534$->equals("Hant"_s)) {
-						tmp11534$ = 1;
-					}
-					break;
-				}
-			case 0:
-				{
-					if (s11534$->equals(""_s)) {
-						tmp11534$ = 2;
-					}
-					break;
-				}
+		$var($String, s11534$, locale->getScript());
+		int32_t tmp11534$ = -1;
+		switch ($nc(s11534$)->hashCode()) {
+		case 0x0022349e:
+			if (s11534$->equals("Hans"_s)) {
+				tmp11534$ = 0;
 			}
-			switch (tmp11534$) {
-			case 0:
-				{
-					return $Locale::CHINA;
+			break;
+		case 0x0022349f:
+			if (s11534$->equals("Hant"_s)) {
+				tmp11534$ = 1;
+			}
+			break;
+		case 0:
+			if (s11534$->equals(""_s)) {
+				tmp11534$ = 2;
+			}
+			break;
+		}
+		switch (tmp11534$) {
+		case 0:
+			return $Locale::CHINA;
+		case 1:
+			return $Locale::TAIWAN;
+		case 2:
+			{
+				$var($String, s11809$, locale->getCountry());
+				int32_t tmp11809$ = -1;
+				switch ($nc(s11809$)->hashCode()) {
+				case 0:
+					if (s11809$->equals(""_s)) {
+						tmp11809$ = 0;
+					}
+					break;
+				case 2155:
+					if (s11809$->equals("CN"_s)) {
+						tmp11809$ = 1;
+					}
+					break;
+				case 2644:
+					if (s11809$->equals("SG"_s)) {
+						tmp11809$ = 2;
+					}
+					break;
+				case 2307:
+					if (s11809$->equals("HK"_s)) {
+						tmp11809$ = 3;
+					}
+					break;
+				case 2466:
+					if (s11809$->equals("MO"_s)) {
+						tmp11809$ = 4;
+					}
+					break;
+				case 2691:
+					if (s11809$->equals("TW"_s)) {
+						tmp11809$ = 5;
+					}
+					break;
 				}
-			case 1:
-				{
+				switch (tmp11809$) {
+				case 0:
+				case 1:
+				case 2:
+					return $Locale::CHINA;
+				case 3:
+				case 4:
+				case 5:
 					return $Locale::TAIWAN;
 				}
-			case 2:
-				{
-					{
-						$var($String, s11809$, locale->getCountry());
-						int32_t tmp11809$ = -1;
-						switch ($nc(s11809$)->hashCode()) {
-						case 0:
-							{
-								if (s11809$->equals(""_s)) {
-									tmp11809$ = 0;
-								}
-								break;
-							}
-						case 2155:
-							{
-								if (s11809$->equals("CN"_s)) {
-									tmp11809$ = 1;
-								}
-								break;
-							}
-						case 2644:
-							{
-								if (s11809$->equals("SG"_s)) {
-									tmp11809$ = 2;
-								}
-								break;
-							}
-						case 2307:
-							{
-								if (s11809$->equals("HK"_s)) {
-									tmp11809$ = 3;
-								}
-								break;
-							}
-						case 2466:
-							{
-								if (s11809$->equals("MO"_s)) {
-									tmp11809$ = 4;
-								}
-								break;
-							}
-						case 2691:
-							{
-								if (s11809$->equals("TW"_s)) {
-									tmp11809$ = 5;
-								}
-								break;
-							}
-						}
-						switch (tmp11809$) {
-						case 0:
-							{}
-						case 1:
-							{}
-						case 2:
-							{
-								return $Locale::CHINA;
-							}
-						case 3:
-							{}
-						case 4:
-							{}
-						case 5:
-							{
-								return $Locale::TAIWAN;
-							}
-						}
-					}
-					break;
-				}
 			}
+			break;
 		}
 	}
 	return locale;
@@ -534,12 +405,56 @@ $Locale* CLDRTimeZoneNameProviderImpl::mapChineseLocale($Locale* locale) {
 CLDRTimeZoneNameProviderImpl::CLDRTimeZoneNameProviderImpl() {
 }
 
-void clinit$CLDRTimeZoneNameProviderImpl($Class* class$) {
+void CLDRTimeZoneNameProviderImpl::clinit$($Class* clazz) {
 	$assignStatic(CLDRTimeZoneNameProviderImpl::NO_INHERITANCE_MARKER, u"∅∅∅"_s);
 }
 
 $Class* CLDRTimeZoneNameProviderImpl::load$($String* name, bool initialize) {
-	$loadClass(CLDRTimeZoneNameProviderImpl, name, initialize, &_CLDRTimeZoneNameProviderImpl_ClassInfo_, clinit$CLDRTimeZoneNameProviderImpl, allocate$CLDRTimeZoneNameProviderImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"NO_INHERITANCE_MARKER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CLDRTimeZoneNameProviderImpl, NO_INHERITANCE_MARKER)},
+		{"INDEX_TZID", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CLDRTimeZoneNameProviderImpl, INDEX_TZID)},
+		{"INDEX_STD_LONG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CLDRTimeZoneNameProviderImpl, INDEX_STD_LONG)},
+		{"INDEX_STD_SHORT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CLDRTimeZoneNameProviderImpl, INDEX_STD_SHORT)},
+		{"INDEX_DST_LONG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CLDRTimeZoneNameProviderImpl, INDEX_DST_LONG)},
+		{"INDEX_DST_SHORT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CLDRTimeZoneNameProviderImpl, INDEX_DST_SHORT)},
+		{"INDEX_GEN_LONG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CLDRTimeZoneNameProviderImpl, INDEX_GEN_LONG)},
+		{"INDEX_GEN_SHORT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CLDRTimeZoneNameProviderImpl, INDEX_GEN_SHORT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(CLDRTimeZoneNameProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
+		{"deriveFallbackName", "([Ljava/lang/String;ILjava/util/Locale;Z)V", nullptr, $PRIVATE, $method(CLDRTimeZoneNameProviderImpl, deriveFallbackName, void, $StringArray*, int32_t, $Locale*, bool)},
+		{"deriveFallbackNames", "([Ljava/lang/String;Ljava/util/Locale;)V", nullptr, $PRIVATE, $method(CLDRTimeZoneNameProviderImpl, deriveFallbackNames, void, $StringArray*, $Locale*)},
+		{"exists", "([Ljava/lang/String;I)Z", nullptr, $PRIVATE, $method(CLDRTimeZoneNameProviderImpl, exists, bool, $StringArray*, int32_t)},
+		{"getDisplayNameArray", "(Ljava/lang/String;Ljava/util/Locale;)[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(CLDRTimeZoneNameProviderImpl, getDisplayNameArray, $StringArray*, $String*, $Locale*)},
+		{"getZoneStrings", "(Ljava/util/Locale;)[[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(CLDRTimeZoneNameProviderImpl, getZoneStrings, $StringArray2*, $Locale*)},
+		{"mapChineseLocale", "(Ljava/util/Locale;)Ljava/util/Locale;", nullptr, $PRIVATE, $method(CLDRTimeZoneNameProviderImpl, mapChineseLocale, $Locale*, $Locale*)},
+		{"regionFormatFallback", "([Ljava/lang/String;ILjava/util/Locale;)Z", nullptr, $PRIVATE, $method(CLDRTimeZoneNameProviderImpl, regionFormatFallback, bool, $StringArray*, int32_t, $Locale*)},
+		{"toGMTFormat", "(Ljava/lang/String;ZLjava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(CLDRTimeZoneNameProviderImpl, toGMTFormat, $String*, $String*, bool, $Locale*)},
+		{"typeFallback", "([Ljava/lang/String;I)Z", nullptr, $PRIVATE, $method(CLDRTimeZoneNameProviderImpl, typeFallback, bool, $StringArray*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.cldr.CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS", "sun.util.cldr.CLDRTimeZoneNameProviderImpl", "AVAILABLE_IDS", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.cldr.CLDRTimeZoneNameProviderImpl",
+		"sun.util.locale.provider.TimeZoneNameProviderImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.util.cldr.CLDRTimeZoneNameProviderImpl$AVAILABLE_IDS"
+	};
+	$loadClass(CLDRTimeZoneNameProviderImpl, name, initialize, &classInfo$$, CLDRTimeZoneNameProviderImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CLDRTimeZoneNameProviderImpl);
+	});
 	return class$;
 }
 

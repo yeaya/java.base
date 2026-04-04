@@ -18,6 +18,7 @@ class $export MetafactoryArgValidationTest$C : public ::java::lang::Runnable {
 	$class(MetafactoryArgValidationTest$C, 0, ::java::lang::Runnable)
 public:
 	MetafactoryArgValidationTest$C();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::invoke::MethodHandle* getFieldMH();
 	static ::java::lang::invoke::MethodHandle* getStaticMH();

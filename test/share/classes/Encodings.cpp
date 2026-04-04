@@ -1,48 +1,20 @@
 #include <Encodings.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/ByteArrayOutputStream.h>
-#include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
 #include <java/nio/charset/Charset.h>
 #include <jcpp.h>
 
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
-using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
-using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Charset = ::java::nio::charset::Charset;
-
-$MethodInfo _Encodings_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Encodings, init$, void)},
-	{"equals", "([B[B)Z", nullptr, $STATIC, $staticMethod(Encodings, equals, bool, $bytes*, $bytes*)},
-	{"go", "(Ljava/lang/String;Ljava/lang/String;[BZ)V", nullptr, $STATIC, $staticMethod(Encodings, go, void, $String*, $String*, $bytes*, bool), "java.lang.Exception"},
-	{"go", "(Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC, $staticMethod(Encodings, go, void, $String*, $String*, $bytes*), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Encodings, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Encodings_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Encodings",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Encodings_MethodInfo_
-};
-
-$Object* allocate$Encodings($Class* clazz) {
-	return $of($alloc(Encodings));
-}
 
 void Encodings::init$() {
 }
@@ -51,8 +23,8 @@ bool Encodings::equals($bytes* a, $bytes* b) {
 	if ($nc(a)->length != $nc(b)->length) {
 		return false;
 	}
-	for (int32_t i = 0; i < $nc(a)->length; ++i) {
-		if (a->get(i) != $nc(b)->get(i)) {
+	for (int32_t i = 0; i < a->length; ++i) {
+		if (a->get(i) != b->get(i)) {
 			return false;
 		}
 	}
@@ -60,7 +32,7 @@ bool Encodings::equals($bytes* a, $bytes* b) {
 }
 
 void Encodings::go($String* enc, $String* str, $bytes* bytes, bool bidir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Charset, charset, $Charset::forName(enc));
 	if (!($$new($String, bytes, enc)->equals(str))) {
 		$throwNew($Exception, $$str({enc, ": String constructor failed"_s}));
@@ -71,7 +43,7 @@ void Encodings::go($String* enc, $String* str, $bytes* bytes, bool bidir) {
 	$var($String, start, $nc(str)->substring(0, 2));
 	$var($String, end, str->substring(2));
 	bool var$0 = $nc(enc)->equals("UTF-16BE"_s);
-	if (var$0 || $nc(enc)->equals("UTF-16LE"_s)) {
+	if (var$0 || enc->equals("UTF-16LE"_s)) {
 		if (!($$new($String, bytes, 0, 4, charset)->equals(start))) {
 			$throwNew($Exception, $$str({charset, ": String constructor failed"_s}));
 		}
@@ -91,7 +63,7 @@ void Encodings::go($String* enc, $String* str, $bytes* bytes, bool bidir) {
 		}
 	}
 	$var($ByteArrayInputStream, bi, $new($ByteArrayInputStream, bytes));
-	$var($InputStreamReader, r, $new($InputStreamReader, static_cast<$InputStream*>(bi), enc));
+	$var($InputStreamReader, r, $new($InputStreamReader, bi, enc));
 	$var($String, inEnc, r->getEncoding());
 	int32_t n = str->length();
 	$var($chars, cs, $new($chars, n));
@@ -117,7 +89,7 @@ void Encodings::go($String* enc, $String* str, $bytes* bytes, bool bidir) {
 	if (!equals(bs, bytes)) {
 		$throwNew($Exception, $$str({charset, ": String.getBytes failed"_s}));
 	}
-	if ($nc($($nc(charset)->name()))->equals("UTF-16BE"_s)) {
+	if ($$nc($nc(charset)->name())->equals("UTF-16BE"_s)) {
 		$var($String, s, $new($String, bytes, charset));
 		$var($bytes, bb, s->getBytes($($Charset::forName("UTF-16LE"_s))));
 		if ($nc(bytes)->length != bb->length) {
@@ -135,7 +107,7 @@ void Encodings::go($String* enc, $String* str, $bytes* bytes, bool bidir) {
 		}
 	}
 	$var($ByteArrayOutputStream, bo, $new($ByteArrayOutputStream));
-	$var($OutputStreamWriter, w, $new($OutputStreamWriter, static_cast<$OutputStream*>(bo), enc));
+	$var($OutputStreamWriter, w, $new($OutputStreamWriter, bo, enc));
 	$var($String, outEnc, w->getEncoding());
 	w->write(str);
 	w->close();
@@ -151,7 +123,7 @@ void Encodings::go($String* enc, $String* str, $bytes* bytes) {
 }
 
 void Encodings::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	go("US-ASCII"_s, "abc"_s, $$new($bytes, {
 		(int8_t)u'a',
 		(int8_t)u'b',
@@ -170,50 +142,50 @@ void Encodings::main($StringArray* args) {
 	go("ISO-8859-1"_s, u"abÇ"_s, $$new($bytes, {
 		(int8_t)u'a',
 		(int8_t)u'b',
-		(int8_t)(char16_t)0xC7
+		(int8_t)(char16_t)0xc7
 	}));
 	go("UTF-8"_s, u"abḉ"_s, $$new($bytes, {
 		(int8_t)u'a',
 		(int8_t)u'b',
-		(int8_t)(224 | ((int32_t)(15 & (uint32_t)(7689 >> 12)))),
-		(int8_t)(128 | ((int32_t)(63 & (uint32_t)(7689 >> 6)))),
-		(int8_t)(128 | ((int32_t)(63 & (uint32_t)7689)))
+		(int8_t)(0xe0 | (0x0f & (7689 >> 12))),
+		(int8_t)(0x80 | (0x3f & (7689 >> 6))),
+		(int8_t)(0x80 | (0x3f & 0x1e09))
 	}));
 	go("UTF-16BE"_s, u"abḉ"_s, $$new($bytes, {
-		(int8_t)0,
+		0,
 		(int8_t)u'a',
-		(int8_t)0,
+		0,
 		(int8_t)u'b',
-		(int8_t)30,
-		(int8_t)9
+		30,
+		9
 	}));
 	go("UTF-16LE"_s, u"abḉ"_s, $$new($bytes, {
 		(int8_t)u'a',
-		(int8_t)0,
+		0,
 		(int8_t)u'b',
-		(int8_t)0,
-		(int8_t)9,
-		(int8_t)30
+		0,
+		9,
+		30
 	}));
 	go("UTF-16"_s, u"abḉ"_s, $$new($bytes, {
 		(int8_t)254,
 		(int8_t)255,
-		(int8_t)0,
+		0,
 		(int8_t)u'a',
-		(int8_t)0,
+		0,
 		(int8_t)u'b',
-		(int8_t)30,
-		(int8_t)9
+		30,
+		9
 	}));
 	go("UTF-16"_s, u"abḉ"_s, $$new($bytes, {
 		(int8_t)255,
 		(int8_t)254,
 		(int8_t)u'a',
-		(int8_t)0,
+		0,
 		(int8_t)u'b',
-		(int8_t)0,
-		(int8_t)9,
-		(int8_t)30
+		0,
+		9,
+		30
 	}), false);
 }
 
@@ -221,7 +193,25 @@ Encodings::Encodings() {
 }
 
 $Class* Encodings::load$($String* name, bool initialize) {
-	$loadClass(Encodings, name, initialize, &_Encodings_ClassInfo_, allocate$Encodings);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Encodings, init$, void)},
+		{"equals", "([B[B)Z", nullptr, $STATIC, $staticMethod(Encodings, equals, bool, $bytes*, $bytes*)},
+		{"go", "(Ljava/lang/String;Ljava/lang/String;[BZ)V", nullptr, $STATIC, $staticMethod(Encodings, go, void, $String*, $String*, $bytes*, bool), "java.lang.Exception"},
+		{"go", "(Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $STATIC, $staticMethod(Encodings, go, void, $String*, $String*, $bytes*), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Encodings, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Encodings",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Encodings, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Encodings);
+	});
 	return class$;
 }
 

@@ -43,6 +43,7 @@ class $export AdaptorCloseAndInterrupt : public ::java::lang::Object {
 	$class(AdaptorCloseAndInterrupt, 0, ::java::lang::Object)
 public:
 	AdaptorCloseAndInterrupt();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::nio::channels::ServerSocketChannel* listener);
 	void init$(::java::nio::channels::DatagramChannel* listener);

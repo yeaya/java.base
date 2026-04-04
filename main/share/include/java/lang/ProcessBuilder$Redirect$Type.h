@@ -25,6 +25,7 @@ class $import ProcessBuilder$Redirect$Type : public ::java::lang::Enum {
 public:
 	ProcessBuilder$Redirect$Type();
 	static $Array<::java::lang::ProcessBuilder$Redirect$Type>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::lang::ProcessBuilder$Redirect$Type* valueOf($String* name);
 	static $Array<::java::lang::ProcessBuilder$Redirect$Type>* values();

@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/https/HttpsClient.h>
-
 #include <java/io/BufferedOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
@@ -26,7 +25,6 @@
 #include <java/util/StringTokenizer.h>
 #include <java/util/Vector.h>
 #include <javax/net/ssl/HandshakeCompletedEvent.h>
-#include <javax/net/ssl/HandshakeCompletedListener.h>
 #include <javax/net/ssl/HostnameVerifier.h>
 #include <javax/net/ssl/SNIHostName.h>
 #include <javax/net/ssl/SSLParameters.h>
@@ -59,7 +57,6 @@
 using $CertificateArray = $Array<::java::security::cert::Certificate>;
 using $BufferedOutputStream = ::java::io::BufferedOutputStream;
 using $IOException = ::java::io::IOException;
-using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $UnsupportedEncodingException = ::java::io::UnsupportedEncodingException;
 using $AbstractMethodError = ::java::lang::AbstractMethodError;
@@ -85,7 +82,6 @@ using $Objects = ::java::util::Objects;
 using $StringTokenizer = ::java::util::StringTokenizer;
 using $Vector = ::java::util::Vector;
 using $HandshakeCompletedEvent = ::javax::net::ssl::HandshakeCompletedEvent;
-using $HandshakeCompletedListener = ::javax::net::ssl::HandshakeCompletedListener;
 using $HostnameVerifier = ::javax::net::ssl::HostnameVerifier;
 using $SNIHostName = ::javax::net::ssl::SNIHostName;
 using $SSLParameters = ::javax::net::ssl::SSLParameters;
@@ -95,7 +91,6 @@ using $SSLSocket = ::javax::net::ssl::SSLSocket;
 using $SSLSocketFactory = ::javax::net::ssl::SSLSocketFactory;
 using $NetworkClient = ::sun::net::NetworkClient;
 using $HttpClient = ::sun::net::www::http::HttpClient;
-using $KeepAliveCache = ::sun::net::www::http::KeepAliveCache;
 using $AuthenticatorKeys = ::sun::net::www::protocol::http::AuthenticatorKeys;
 using $HttpURLConnection = ::sun::net::www::protocol::http::HttpURLConnection;
 using $HttpURLConnection$TunnelState = ::sun::net::www::protocol::http::HttpURLConnection$TunnelState;
@@ -110,70 +105,6 @@ namespace sun {
 		namespace www {
 			namespace protocol {
 				namespace https {
-
-$FieldInfo _HttpsClient_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(HttpsClient, $assertionsDisabled)},
-	{"httpsPortNumber", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HttpsClient, httpsPortNumber)},
-	{"defaultHVCanonicalName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HttpsClient, defaultHVCanonicalName)},
-	{"hv", "Ljavax/net/ssl/HostnameVerifier;", nullptr, $PRIVATE, $field(HttpsClient, hv)},
-	{"sslSocketFactory", "Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PRIVATE, $field(HttpsClient, sslSocketFactory)},
-	{"session", "Ljavax/net/ssl/SSLSession;", nullptr, $PRIVATE, $field(HttpsClient, session)},
-	{}
-};
-
-$MethodInfo _HttpsClient_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;)V", nullptr, $PRIVATE, $method(HttpsClient, init$, void, $SSLSocketFactory*, $URL*), "java.io.IOException"},
-	{"<init>", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljava/lang/String;I)V", nullptr, 0, $method(HttpsClient, init$, void, $SSLSocketFactory*, $URL*, $String*, int32_t), "java.io.IOException"},
-	{"<init>", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljava/lang/String;II)V", nullptr, 0, $method(HttpsClient, init$, void, $SSLSocketFactory*, $URL*, $String*, int32_t, int32_t), "java.io.IOException"},
-	{"<init>", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljava/net/Proxy;I)V", nullptr, 0, $method(HttpsClient, init$, void, $SSLSocketFactory*, $URL*, $Proxy*, int32_t), "java.io.IOException"},
-	{"New", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljavax/net/ssl/HostnameVerifier;Lsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $STATIC, $staticMethod(HttpsClient, New, $HttpClient*, $SSLSocketFactory*, $URL*, $HostnameVerifier*, $HttpURLConnection*), "java.io.IOException"},
-	{"New", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljavax/net/ssl/HostnameVerifier;ZLsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $STATIC, $staticMethod(HttpsClient, New, $HttpClient*, $SSLSocketFactory*, $URL*, $HostnameVerifier*, bool, $HttpURLConnection*), "java.io.IOException"},
-	{"New", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljavax/net/ssl/HostnameVerifier;Ljava/lang/String;ILsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $STATIC, $staticMethod(HttpsClient, New, $HttpClient*, $SSLSocketFactory*, $URL*, $HostnameVerifier*, $String*, int32_t, $HttpURLConnection*), "java.io.IOException"},
-	{"New", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljavax/net/ssl/HostnameVerifier;Ljava/lang/String;IZLsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $STATIC, $staticMethod(HttpsClient, New, $HttpClient*, $SSLSocketFactory*, $URL*, $HostnameVerifier*, $String*, int32_t, bool, $HttpURLConnection*), "java.io.IOException"},
-	{"New", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljavax/net/ssl/HostnameVerifier;Ljava/lang/String;IZILsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $STATIC, $staticMethod(HttpsClient, New, $HttpClient*, $SSLSocketFactory*, $URL*, $HostnameVerifier*, $String*, int32_t, bool, int32_t, $HttpURLConnection*), "java.io.IOException"},
-	{"New", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljavax/net/ssl/HostnameVerifier;Ljava/net/Proxy;ZILsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $STATIC, $staticMethod(HttpsClient, New, $HttpClient*, $SSLSocketFactory*, $URL*, $HostnameVerifier*, $Proxy*, bool, int32_t, $HttpURLConnection*), "java.io.IOException"},
-	{"afterConnect", "()V", nullptr, $PUBLIC, $virtualMethod(HttpsClient, afterConnect, void), "java.io.IOException,java.net.UnknownHostException"},
-	{"checkURLSpoofing", "(Ljavax/net/ssl/HostnameVerifier;)V", nullptr, $PRIVATE, $method(HttpsClient, checkURLSpoofing, void, $HostnameVerifier*), "java.io.IOException"},
-	{"closeIdleConnection", "()V", nullptr, $PUBLIC, $virtualMethod(HttpsClient, closeIdleConnection, void)},
-	{"createSocket", "()Ljava/net/Socket;", nullptr, $PROTECTED, $virtualMethod(HttpsClient, createSocket, $Socket*), "java.io.IOException"},
-	{"getCipherSuite", "()Ljava/lang/String;", nullptr, 0, $method(HttpsClient, getCipherSuite, $String*)},
-	{"getCipherSuites", "()[Ljava/lang/String;", nullptr, $PRIVATE, $method(HttpsClient, getCipherSuites, $StringArray*)},
-	{"getDefaultPort", "()I", nullptr, $PROTECTED, $virtualMethod(HttpsClient, getDefaultPort, int32_t)},
-	{"getLocalCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $method(HttpsClient, getLocalCertificates, $CertificateArray*)},
-	{"getLocalPrincipal", "()Ljava/security/Principal;", nullptr, 0, $method(HttpsClient, getLocalPrincipal, $Principal*)},
-	{"getPeerPrincipal", "()Ljava/security/Principal;", nullptr, 0, $method(HttpsClient, getPeerPrincipal, $Principal*), "javax.net.ssl.SSLPeerUnverifiedException"},
-	{"getProtocols", "()[Ljava/lang/String;", nullptr, $PRIVATE, $method(HttpsClient, getProtocols, $StringArray*)},
-	{"getProxyHostUsed", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsClient, getProxyHostUsed, $String*)},
-	{"getProxyPortUsed", "()I", nullptr, $PUBLIC, $virtualMethod(HttpsClient, getProxyPortUsed, int32_t)},
-	{"getSSLSession", "()Ljavax/net/ssl/SSLSession;", nullptr, 0, $method(HttpsClient, getSSLSession, $SSLSession*)},
-	{"getSSLSocketFactory", "()Ljavax/net/ssl/SSLSocketFactory;", nullptr, 0, $method(HttpsClient, getSSLSocketFactory, $SSLSocketFactory*)},
-	{"getServerCertificates", "()[Ljava/security/cert/Certificate;", nullptr, 0, $method(HttpsClient, getServerCertificates, $CertificateArray*), "javax.net.ssl.SSLPeerUnverifiedException"},
-	{"getUserAgent", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(HttpsClient, getUserAgent, $String*)},
-	{"handshakeCompleted", "(Ljavax/net/ssl/HandshakeCompletedEvent;)V", nullptr, $PUBLIC, $virtualMethod(HttpsClient, handshakeCompleted, void, $HandshakeCompletedEvent*)},
-	{"needsTunneling", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpsClient, needsTunneling, bool)},
-	{"putInKeepAliveCache", "()V", nullptr, $PROTECTED, $virtualMethod(HttpsClient, putInKeepAliveCache, void)},
-	{"setHostnameVerifier", "(Ljavax/net/ssl/HostnameVerifier;)V", nullptr, 0, $method(HttpsClient, setHostnameVerifier, void, $HostnameVerifier*)},
-	{"setSSLSocketFactory", "(Ljavax/net/ssl/SSLSocketFactory;)V", nullptr, 0, $method(HttpsClient, setSSLSocketFactory, void, $SSLSocketFactory*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _HttpsClient_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.net.www.protocol.https.HttpsClient",
-	"sun.net.www.http.HttpClient",
-	"javax.net.ssl.HandshakeCompletedListener",
-	_HttpsClient_FieldInfo_,
-	_HttpsClient_MethodInfo_
-};
-
-$Object* allocate$HttpsClient($Class* clazz) {
-	return $of($alloc(HttpsClient));
-}
 
 $String* HttpsClient::toString() {
 	 return this->$HttpClient::toString();
@@ -203,10 +134,10 @@ int32_t HttpsClient::getDefaultPort() {
 }
 
 $StringArray* HttpsClient::getCipherSuites() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, ciphers, nullptr);
 	$var($String, cipherString, $GetPropertyAction::privilegedGetProperty("https.cipherSuites"_s));
-	if (cipherString == nullptr || $nc(cipherString)->isEmpty()) {
+	if (cipherString == nullptr || cipherString->isEmpty()) {
 		$assign(ciphers, nullptr);
 	} else {
 		$var($StringTokenizer, tokenizer, nullptr);
@@ -217,17 +148,17 @@ $StringArray* HttpsClient::getCipherSuites() {
 		}
 		$assign(ciphers, $new($StringArray, v->size()));
 		for (int32_t i = 0; i < ciphers->length; ++i) {
-			ciphers->set(i, $cast($String, $(v->elementAt(i))));
+			ciphers->set(i, $$cast($String, v->elementAt(i)));
 		}
 	}
 	return ciphers;
 }
 
 $StringArray* HttpsClient::getProtocols() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, protocols, nullptr);
 	$var($String, protocolString, $GetPropertyAction::privilegedGetProperty("https.protocols"_s));
-	if (protocolString == nullptr || $nc(protocolString)->isEmpty()) {
+	if (protocolString == nullptr || protocolString->isEmpty()) {
 		$assign(protocols, nullptr);
 	} else {
 		$var($StringTokenizer, tokenizer, nullptr);
@@ -238,7 +169,7 @@ $StringArray* HttpsClient::getProtocols() {
 		}
 		$assign(protocols, $new($StringArray, v->size()));
 		for (int32_t i = 0; i < protocols->length; ++i) {
-			protocols->set(i, $cast($String, $(v->elementAt(i))));
+			protocols->set(i, $$cast($String, v->elementAt(i)));
 		}
 	}
 	return protocols;
@@ -246,7 +177,7 @@ $StringArray* HttpsClient::getProtocols() {
 
 $String* HttpsClient::getUserAgent() {
 	$var($String, userAgent, $GetPropertyAction::privilegedGetProperty("https.agent"_s));
-	if (userAgent == nullptr || $nc(userAgent)->isEmpty()) {
+	if (userAgent == nullptr || userAgent->isEmpty()) {
 		$assign(userAgent, "JSSE"_s);
 	}
 	return userAgent;
@@ -265,7 +196,7 @@ void HttpsClient::init$($SSLSocketFactory* sf, $URL* url, $String* proxyHost, in
 }
 
 void HttpsClient::init$($SSLSocketFactory* sf, $URL* url, $Proxy* proxy, int32_t connectTimeout) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$HttpClient::init$();
 	$var($PlatformLogger, logger, $HttpURLConnection::getHttpLogger());
 	$init($PlatformLogger$Level);
@@ -312,7 +243,7 @@ $HttpClient* HttpsClient::New($SSLSocketFactory* sf, $URL* url, $HostnameVerifie
 
 $HttpClient* HttpsClient::New($SSLSocketFactory* sf, $URL* url, $HostnameVerifier* hv, $Proxy* p$renamed, bool useCache, int32_t connectTimeout, $HttpURLConnection* httpuc) {
 	$init(HttpsClient);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Proxy, p, p$renamed);
 	if (p == nullptr) {
 		$init($Proxy);
@@ -335,54 +266,50 @@ $HttpClient* HttpsClient::New($SSLSocketFactory* sf, $URL* url, $HostnameVerifie
 		}
 		if (ret != nullptr) {
 			$init($AuthenticatorKeys);
-			$var($String, ak, httpuc == nullptr ? $AuthenticatorKeys::DEFAULT : $nc(httpuc)->getAuthenticatorKey());
+			$var($String, ak, httpuc == nullptr ? $AuthenticatorKeys::DEFAULT : httpuc->getAuthenticatorKey());
 			$init($Proxy);
-			bool var$1 = ((ret->proxy != nullptr && $nc(ret->proxy)->equals(p)) || (ret->proxy == nullptr && p == $Proxy::NO_PROXY));
+			bool var$1 = (ret->proxy != nullptr && ret->proxy->equals(p)) || (ret->proxy == nullptr && p == $Proxy::NO_PROXY);
 			bool compatible = var$1 && $Objects::equals($(ret->getAuthenticatorKey()), ak);
 			if (compatible) {
 				ret->lock();
-				{
-					$var($Throwable, var$2, nullptr);
-					try {
-						ret->cachedHttpClient = true;
-						if (!HttpsClient::$assertionsDisabled && !ret->inCache) {
-							$throwNew($AssertionError);
-						}
-						ret->inCache = false;
-						if (httpuc != nullptr && ret->needsTunneling()) {
-							$init($HttpURLConnection$TunnelState);
-							httpuc->setTunnelState($HttpURLConnection$TunnelState::TUNNELING);
-						}
-						if ($nc(logger)->isLoggable($PlatformLogger$Level::FINEST)) {
-							logger->finest($$str({"KeepAlive stream retrieved from the cache, "_s, ret}));
-						}
-					} catch ($Throwable& var$3) {
-						$assign(var$2, var$3);
-					} /*finally*/ {
-						ret->unlock();
+				$var($Throwable, var$2, nullptr);
+				try {
+					ret->cachedHttpClient = true;
+					if (!HttpsClient::$assertionsDisabled && !ret->inCache) {
+						$throwNew($AssertionError);
 					}
-					if (var$2 != nullptr) {
-						$throw(var$2);
+					ret->inCache = false;
+					if (httpuc != nullptr && ret->needsTunneling()) {
+						$init($HttpURLConnection$TunnelState);
+						httpuc->setTunnelState($HttpURLConnection$TunnelState::TUNNELING);
 					}
+					if (logger->isLoggable($PlatformLogger$Level::FINEST)) {
+						logger->finest($$str({"KeepAlive stream retrieved from the cache, "_s, ret}));
+					}
+				} catch ($Throwable& var$3) {
+					$assign(var$2, var$3);
+				} /*finally*/ {
+					ret->unlock();
+				}
+				if (var$2 != nullptr) {
+					$throw(var$2);
 				}
 			} else {
 				ret->lock();
-				{
-					$var($Throwable, var$4, nullptr);
-					try {
-						if ($nc(logger)->isLoggable($PlatformLogger$Level::FINEST)) {
-							logger->finest($$str({"Not returning this connection to cache: "_s, ret}));
-						}
-						ret->inCache = false;
-						ret->closeServer();
-					} catch ($Throwable& var$5) {
-						$assign(var$4, var$5);
-					} /*finally*/ {
-						ret->unlock();
+				$var($Throwable, var$4, nullptr);
+				try {
+					if (logger->isLoggable($PlatformLogger$Level::FINEST)) {
+						logger->finest($$str({"Not returning this connection to cache: "_s, ret}));
 					}
-					if (var$4 != nullptr) {
-						$throw(var$4);
-					}
+					ret->inCache = false;
+					ret->closeServer();
+				} catch ($Throwable& var$5) {
+					$assign(var$4, var$5);
+				} /*finally*/ {
+					ret->unlock();
+				}
+				if (var$4 != nullptr) {
+					$throw(var$4);
 				}
 				$assign(ret, nullptr);
 			}
@@ -397,15 +324,15 @@ $HttpClient* HttpsClient::New($SSLSocketFactory* sf, $URL* url, $HostnameVerifie
 		$var($SecurityManager, security, $System::getSecurityManager());
 		if (security != nullptr) {
 			$init($Proxy);
-			if ($nc(ret)->proxy == $Proxy::NO_PROXY || $nc(ret)->proxy == nullptr) {
-				$var($String, var$6, $nc($($InetAddress::getByName($($nc(url)->getHost()))))->getHostAddress());
-				security->checkConnect(var$6, $nc(url)->getPort());
+			if (ret->proxy == $Proxy::NO_PROXY || ret->proxy == nullptr) {
+				$var($String, var$6, $$nc($InetAddress::getByName($($nc(url)->getHost())))->getHostAddress());
+				security->checkConnect(var$6, url->getPort());
 			} else {
 				$var($String, var$7, $nc(url)->getHost());
 				security->checkConnect(var$7, url->getPort());
 			}
 		}
-		$set($nc(ret), url, url);
+		$set(ret, url, url);
 	}
 	$nc(ret)->setHostnameVerifier(hv);
 	return ret;
@@ -439,12 +366,12 @@ $Socket* HttpsClient::createSocket() {
 
 bool HttpsClient::needsTunneling() {
 	$init($Proxy$Type);
-	bool var$0 = this->proxy != nullptr && $nc(this->proxy)->type() != $Proxy$Type::DIRECT;
-	return (var$0 && $nc(this->proxy)->type() != $Proxy$Type::SOCKS);
+	bool var$0 = this->proxy != nullptr && this->proxy->type() != $Proxy$Type::DIRECT;
+	return (var$0 && this->proxy->type() != $Proxy$Type::SOCKS);
 }
 
 void HttpsClient::afterConnect() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isCachedConnection()) {
 		$var($SSLSocket, s, nullptr);
 		$var($SSLSocketFactory, factory, this->sslSocketFactory);
@@ -454,7 +381,7 @@ void HttpsClient::afterConnect() {
 			} else {
 				$assign(s, $cast($SSLSocket, this->serverSocket));
 				if ($instanceOf($SSLSocketImpl, s)) {
-					$nc(($cast($SSLSocketImpl, s)))->setHost(this->host);
+					$cast($SSLSocketImpl, s)->setHost(this->host);
 				}
 			}
 		} catch ($IOException& ex) {
@@ -474,7 +401,7 @@ void HttpsClient::afterConnect() {
 		}
 		$nc(s)->addHandshakeCompletedListener(this);
 		bool needToCheckSpoofing = true;
-		$var($String, identification, $nc($(s->getSSLParameters()))->getEndpointIdentificationAlgorithm());
+		$var($String, identification, $$nc(s->getSSLParameters())->getEndpointIdentificationAlgorithm());
 		if (identification != nullptr && identification->length() != 0) {
 			if (identification->equalsIgnoreCase("HTTPS"_s)) {
 				needToCheckSpoofing = false;
@@ -482,7 +409,7 @@ void HttpsClient::afterConnect() {
 		} else {
 			bool isDefaultHostnameVerifier = false;
 			if (this->hv != nullptr) {
-				$var($String, canonicalName, $nc($of(this->hv))->getClass()->getCanonicalName());
+				$var($String, canonicalName, this->hv->getClass()->getCanonicalName());
 				if (canonicalName != nullptr && canonicalName->equalsIgnoreCase(HttpsClient::defaultHVCanonicalName)) {
 					isDefaultHostnameVerifier = true;
 				}
@@ -493,7 +420,7 @@ void HttpsClient::afterConnect() {
 				$var($SSLParameters, paramaters, s->getSSLParameters());
 				$nc(paramaters)->setEndpointIdentificationAlgorithm("HTTPS"_s);
 				if (!($instanceOf($SSLSocketImpl, s))) {
-					paramaters->setServerNames($($List::of($of($$new($SNIHostName, this->host)))));
+					paramaters->setServerNames($($List::of($$new($SNIHostName, this->host))));
 				}
 				s->setSSLParameters(paramaters);
 				needToCheckSpoofing = false;
@@ -504,7 +431,7 @@ void HttpsClient::afterConnect() {
 		$set(this, serverSocket, s);
 		try {
 			$init($NetworkClient);
-			$set(this, serverOutput, $new($PrintStream, static_cast<$OutputStream*>($$new($BufferedOutputStream, $($nc(this->serverSocket)->getOutputStream()))), false, $NetworkClient::encoding));
+			$set(this, serverOutput, $new($PrintStream, $$new($BufferedOutputStream, $(this->serverSocket->getOutputStream())), false, $NetworkClient::encoding));
 		} catch ($UnsupportedEncodingException& e) {
 			$init($NetworkClient);
 			$throwNew($InternalError, $$str({$NetworkClient::encoding, " encoding not found"_s}));
@@ -513,12 +440,12 @@ void HttpsClient::afterConnect() {
 			checkURLSpoofing(this->hv);
 		}
 	} else {
-		$set(this, session, $nc(($cast($SSLSocket, this->serverSocket)))->getSession());
+		$set(this, session, $nc($cast($SSLSocket, this->serverSocket))->getSession());
 	}
 }
 
 void HttpsClient::checkURLSpoofing($HostnameVerifier* hostnameVerifier) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, host, $nc(this->url)->getHost());
 	bool var$0 = host != nullptr && host->startsWith("["_s);
 	if (var$0 && host->endsWith("]"_s)) {
@@ -528,7 +455,7 @@ void HttpsClient::checkURLSpoofing($HostnameVerifier* hostnameVerifier) {
 	$var($String, cipher, $nc(this->session)->getCipherSuite());
 	try {
 		$var($HostnameChecker, checker, $HostnameChecker::getInstance($HostnameChecker::TYPE_TLS));
-		$assign(peerCerts, $nc(this->session)->getPeerCertificates());
+		$assign(peerCerts, this->session->getPeerCertificates());
 		$var($X509Certificate, peerCert, nullptr);
 		if ($instanceOf($X509Certificate, $nc(peerCerts)->get(0))) {
 			$assign(peerCert, $cast($X509Certificate, peerCerts->get(0)));
@@ -546,8 +473,8 @@ void HttpsClient::checkURLSpoofing($HostnameVerifier* hostnameVerifier) {
 		return;
 	}
 	$nc(this->serverSocket)->close();
-	$nc(this->session)->invalidate();
-	$throwNew($IOException, $$str({"HTTPS hostname wrong:  should be <"_s, $($nc(this->url)->getHost()), ">"_s}));
+	this->session->invalidate();
+	$throwNew($IOException, $$str({"HTTPS hostname wrong:  should be <"_s, $(this->url->getHost()), ">"_s}));
 }
 
 void HttpsClient::putInKeepAliveCache() {
@@ -583,19 +510,19 @@ $CertificateArray* HttpsClient::getServerCertificates() {
 }
 
 $Principal* HttpsClient::getPeerPrincipal() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Principal, principal, nullptr);
 	try {
 		$assign(principal, $nc(this->session)->getPeerPrincipal());
 	} catch ($AbstractMethodError& e) {
 		$var($CertificateArray, certs, $nc(this->session)->getPeerCertificates());
-		$assign(principal, $nc(($cast($X509Certificate, $nc(certs)->get(0))))->getSubjectX500Principal());
+		$assign(principal, $nc($cast($X509Certificate, $nc(certs)->get(0)))->getSubjectX500Principal());
 	}
 	return principal;
 }
 
 $Principal* HttpsClient::getLocalPrincipal() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Principal, principal, nullptr);
 	try {
 		$assign(principal, $nc(this->session)->getLocalPrincipal());
@@ -603,7 +530,7 @@ $Principal* HttpsClient::getLocalPrincipal() {
 		$assign(principal, nullptr);
 		$var($CertificateArray, certs, $nc(this->session)->getLocalCertificates());
 		if (certs != nullptr) {
-			$assign(principal, $nc(($cast($X509Certificate, certs->get(0))))->getSubjectX500Principal());
+			$assign(principal, $nc($cast($X509Certificate, certs->get(0)))->getSubjectX500Principal());
 		}
 	}
 	return principal;
@@ -627,11 +554,11 @@ $String* HttpsClient::getProxyHostUsed() {
 
 int32_t HttpsClient::getProxyPortUsed() {
 	$init($Proxy$Type);
-	bool var$0 = this->proxy == nullptr || $nc(this->proxy)->type() == $Proxy$Type::DIRECT;
-	return (var$0 || $nc(this->proxy)->type() == $Proxy$Type::SOCKS) ? -1 : $nc(($cast($InetSocketAddress, $($nc(this->proxy)->address()))))->getPort();
+	bool var$0 = this->proxy == nullptr || this->proxy->type() == $Proxy$Type::DIRECT;
+	return (var$0 || this->proxy->type() == $Proxy$Type::SOCKS) ? -1 : $$sure($InetSocketAddress, this->proxy->address())->getPort();
 }
 
-void clinit$HttpsClient($Class* class$) {
+void HttpsClient::clinit$($Class* clazz) {
 	$assignStatic(HttpsClient::defaultHVCanonicalName, "javax.net.ssl.HttpsURLConnection.DefaultHostnameVerifier"_s);
 	HttpsClient::$assertionsDisabled = !HttpsClient::class$->desiredAssertionStatus();
 }
@@ -640,7 +567,66 @@ HttpsClient::HttpsClient() {
 }
 
 $Class* HttpsClient::load$($String* name, bool initialize) {
-	$loadClass(HttpsClient, name, initialize, &_HttpsClient_ClassInfo_, clinit$HttpsClient, allocate$HttpsClient);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(HttpsClient, $assertionsDisabled)},
+		{"httpsPortNumber", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HttpsClient, httpsPortNumber)},
+		{"defaultHVCanonicalName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HttpsClient, defaultHVCanonicalName)},
+		{"hv", "Ljavax/net/ssl/HostnameVerifier;", nullptr, $PRIVATE, $field(HttpsClient, hv)},
+		{"sslSocketFactory", "Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PRIVATE, $field(HttpsClient, sslSocketFactory)},
+		{"session", "Ljavax/net/ssl/SSLSession;", nullptr, $PRIVATE, $field(HttpsClient, session)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;)V", nullptr, $PRIVATE, $method(HttpsClient, init$, void, $SSLSocketFactory*, $URL*), "java.io.IOException"},
+		{"<init>", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljava/lang/String;I)V", nullptr, 0, $method(HttpsClient, init$, void, $SSLSocketFactory*, $URL*, $String*, int32_t), "java.io.IOException"},
+		{"<init>", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljava/lang/String;II)V", nullptr, 0, $method(HttpsClient, init$, void, $SSLSocketFactory*, $URL*, $String*, int32_t, int32_t), "java.io.IOException"},
+		{"<init>", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljava/net/Proxy;I)V", nullptr, 0, $method(HttpsClient, init$, void, $SSLSocketFactory*, $URL*, $Proxy*, int32_t), "java.io.IOException"},
+		{"New", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljavax/net/ssl/HostnameVerifier;Lsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $STATIC, $staticMethod(HttpsClient, New, $HttpClient*, $SSLSocketFactory*, $URL*, $HostnameVerifier*, $HttpURLConnection*), "java.io.IOException"},
+		{"New", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljavax/net/ssl/HostnameVerifier;ZLsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $STATIC, $staticMethod(HttpsClient, New, $HttpClient*, $SSLSocketFactory*, $URL*, $HostnameVerifier*, bool, $HttpURLConnection*), "java.io.IOException"},
+		{"New", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljavax/net/ssl/HostnameVerifier;Ljava/lang/String;ILsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $STATIC, $staticMethod(HttpsClient, New, $HttpClient*, $SSLSocketFactory*, $URL*, $HostnameVerifier*, $String*, int32_t, $HttpURLConnection*), "java.io.IOException"},
+		{"New", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljavax/net/ssl/HostnameVerifier;Ljava/lang/String;IZLsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $STATIC, $staticMethod(HttpsClient, New, $HttpClient*, $SSLSocketFactory*, $URL*, $HostnameVerifier*, $String*, int32_t, bool, $HttpURLConnection*), "java.io.IOException"},
+		{"New", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljavax/net/ssl/HostnameVerifier;Ljava/lang/String;IZILsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $STATIC, $staticMethod(HttpsClient, New, $HttpClient*, $SSLSocketFactory*, $URL*, $HostnameVerifier*, $String*, int32_t, bool, int32_t, $HttpURLConnection*), "java.io.IOException"},
+		{"New", "(Ljavax/net/ssl/SSLSocketFactory;Ljava/net/URL;Ljavax/net/ssl/HostnameVerifier;Ljava/net/Proxy;ZILsun/net/www/protocol/http/HttpURLConnection;)Lsun/net/www/http/HttpClient;", nullptr, $STATIC, $staticMethod(HttpsClient, New, $HttpClient*, $SSLSocketFactory*, $URL*, $HostnameVerifier*, $Proxy*, bool, int32_t, $HttpURLConnection*), "java.io.IOException"},
+		{"afterConnect", "()V", nullptr, $PUBLIC, $virtualMethod(HttpsClient, afterConnect, void), "java.io.IOException,java.net.UnknownHostException"},
+		{"checkURLSpoofing", "(Ljavax/net/ssl/HostnameVerifier;)V", nullptr, $PRIVATE, $method(HttpsClient, checkURLSpoofing, void, $HostnameVerifier*), "java.io.IOException"},
+		{"closeIdleConnection", "()V", nullptr, $PUBLIC, $virtualMethod(HttpsClient, closeIdleConnection, void)},
+		{"createSocket", "()Ljava/net/Socket;", nullptr, $PROTECTED, $virtualMethod(HttpsClient, createSocket, $Socket*), "java.io.IOException"},
+		{"getCipherSuite", "()Ljava/lang/String;", nullptr, 0, $method(HttpsClient, getCipherSuite, $String*)},
+		{"getCipherSuites", "()[Ljava/lang/String;", nullptr, $PRIVATE, $method(HttpsClient, getCipherSuites, $StringArray*)},
+		{"getDefaultPort", "()I", nullptr, $PROTECTED, $virtualMethod(HttpsClient, getDefaultPort, int32_t)},
+		{"getLocalCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $method(HttpsClient, getLocalCertificates, $CertificateArray*)},
+		{"getLocalPrincipal", "()Ljava/security/Principal;", nullptr, 0, $method(HttpsClient, getLocalPrincipal, $Principal*)},
+		{"getPeerPrincipal", "()Ljava/security/Principal;", nullptr, 0, $method(HttpsClient, getPeerPrincipal, $Principal*), "javax.net.ssl.SSLPeerUnverifiedException"},
+		{"getProtocols", "()[Ljava/lang/String;", nullptr, $PRIVATE, $method(HttpsClient, getProtocols, $StringArray*)},
+		{"getProxyHostUsed", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsClient, getProxyHostUsed, $String*)},
+		{"getProxyPortUsed", "()I", nullptr, $PUBLIC, $virtualMethod(HttpsClient, getProxyPortUsed, int32_t)},
+		{"getSSLSession", "()Ljavax/net/ssl/SSLSession;", nullptr, 0, $method(HttpsClient, getSSLSession, $SSLSession*)},
+		{"getSSLSocketFactory", "()Ljavax/net/ssl/SSLSocketFactory;", nullptr, 0, $method(HttpsClient, getSSLSocketFactory, $SSLSocketFactory*)},
+		{"getServerCertificates", "()[Ljava/security/cert/Certificate;", nullptr, 0, $method(HttpsClient, getServerCertificates, $CertificateArray*), "javax.net.ssl.SSLPeerUnverifiedException"},
+		{"getUserAgent", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(HttpsClient, getUserAgent, $String*)},
+		{"handshakeCompleted", "(Ljavax/net/ssl/HandshakeCompletedEvent;)V", nullptr, $PUBLIC, $virtualMethod(HttpsClient, handshakeCompleted, void, $HandshakeCompletedEvent*)},
+		{"needsTunneling", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpsClient, needsTunneling, bool)},
+		{"putInKeepAliveCache", "()V", nullptr, $PROTECTED, $virtualMethod(HttpsClient, putInKeepAliveCache, void)},
+		{"setHostnameVerifier", "(Ljavax/net/ssl/HostnameVerifier;)V", nullptr, 0, $method(HttpsClient, setHostnameVerifier, void, $HostnameVerifier*)},
+		{"setSSLSocketFactory", "(Ljavax/net/ssl/SSLSocketFactory;)V", nullptr, 0, $method(HttpsClient, setSSLSocketFactory, void, $SSLSocketFactory*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.net.www.protocol.https.HttpsClient",
+		"sun.net.www.http.HttpClient",
+		"javax.net.ssl.HandshakeCompletedListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpsClient, name, initialize, &classInfo$$, HttpsClient::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HttpsClient));
+	});
 	return class$;
 }
 

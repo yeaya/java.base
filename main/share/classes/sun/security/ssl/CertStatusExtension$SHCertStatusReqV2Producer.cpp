@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CertStatusExtension$SHCertStatusReqV2Producer.h>
-
 #include <java/util/Map.h>
 #include <sun/security/ssl/CertStatusExtension$CertStatusRequestV2Spec.h>
 #include <sun/security/ssl/CertStatusExtension.h>
@@ -18,7 +17,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 using $CertStatusExtension$CertStatusRequestV2Spec = ::sun::security::ssl::CertStatusExtension$CertStatusRequestV2Spec;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
@@ -30,48 +28,17 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _CertStatusExtension$SHCertStatusReqV2Producer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CertStatusExtension$SHCertStatusReqV2Producer, init$, void)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(CertStatusExtension$SHCertStatusReqV2Producer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _CertStatusExtension$SHCertStatusReqV2Producer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertStatusExtension$SHCertStatusReqV2Producer", "sun.security.ssl.CertStatusExtension", "SHCertStatusReqV2Producer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CertStatusExtension$SHCertStatusReqV2Producer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CertStatusExtension$SHCertStatusReqV2Producer",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeProducer",
-	nullptr,
-	_CertStatusExtension$SHCertStatusReqV2Producer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CertStatusExtension$SHCertStatusReqV2Producer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertStatusExtension"
-};
-
-$Object* allocate$CertStatusExtension$SHCertStatusReqV2Producer($Class* clazz) {
-	return $of($alloc(CertStatusExtension$SHCertStatusReqV2Producer));
-}
-
 void CertStatusExtension$SHCertStatusReqV2Producer::init$() {
 }
 
 $bytes* CertStatusExtension$SHCertStatusReqV2Producer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
-	if (($nc(shc)->stapleParams == nullptr) || ($nc($nc(shc)->stapleParams)->statusRespExt != $SSLExtension::CH_STATUS_REQUEST_V2)) {
+	if (($nc(shc)->stapleParams == nullptr) || (shc->stapleParams->statusRespExt != $SSLExtension::CH_STATUS_REQUEST_V2)) {
 		return nullptr;
 	}
-	$var($CertStatusExtension$CertStatusRequestV2Spec, spec, $cast($CertStatusExtension$CertStatusRequestV2Spec, $nc($nc(shc)->handshakeExtensions)->get($SSLExtension::CH_STATUS_REQUEST_V2)));
+	$var($CertStatusExtension$CertStatusRequestV2Spec, spec, $cast($CertStatusExtension$CertStatusRequestV2Spec, $nc(shc->handshakeExtensions)->get($SSLExtension::CH_STATUS_REQUEST_V2)));
 	if (spec == nullptr) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
@@ -88,7 +55,7 @@ $bytes* CertStatusExtension$SHCertStatusReqV2Producer::produce($ConnectionContex
 	}
 	$var($bytes, extData, $new($bytes, 0));
 	$init($CertStatusExtension$CertStatusRequestV2Spec);
-	$nc(shc->handshakeExtensions)->put($SSLExtension::SH_STATUS_REQUEST_V2, $CertStatusExtension$CertStatusRequestV2Spec::DEFAULT);
+	shc->handshakeExtensions->put($SSLExtension::SH_STATUS_REQUEST_V2, $CertStatusExtension$CertStatusRequestV2Spec::DEFAULT);
 	return extData;
 }
 
@@ -96,7 +63,33 @@ CertStatusExtension$SHCertStatusReqV2Producer::CertStatusExtension$SHCertStatusR
 }
 
 $Class* CertStatusExtension$SHCertStatusReqV2Producer::load$($String* name, bool initialize) {
-	$loadClass(CertStatusExtension$SHCertStatusReqV2Producer, name, initialize, &_CertStatusExtension$SHCertStatusReqV2Producer_ClassInfo_, allocate$CertStatusExtension$SHCertStatusReqV2Producer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CertStatusExtension$SHCertStatusReqV2Producer, init$, void)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(CertStatusExtension$SHCertStatusReqV2Producer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertStatusExtension$SHCertStatusReqV2Producer", "sun.security.ssl.CertStatusExtension", "SHCertStatusReqV2Producer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CertStatusExtension$SHCertStatusReqV2Producer",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeProducer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertStatusExtension"
+	};
+	$loadClass(CertStatusExtension$SHCertStatusReqV2Producer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertStatusExtension$SHCertStatusReqV2Producer);
+	});
 	return class$;
 }
 

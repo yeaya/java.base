@@ -1,5 +1,4 @@
 #include <java/time/format/Parsed.h>
-
 #include <java/lang/Math.h>
 #include <java/time/DateTimeException.h>
 #include <java/time/Instant.h>
@@ -21,7 +20,6 @@
 #include <java/time/temporal/TemporalQueries.h>
 #include <java/time/temporal/TemporalQuery.h>
 #include <java/time/temporal/UnsupportedTemporalTypeException.h>
-#include <java/util/Collection.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
 #include <java/util/Map$Entry.h>
@@ -69,20 +67,15 @@ using $ZoneOffset = ::java::time::ZoneOffset;
 using $ChronoLocalDate = ::java::time::chrono::ChronoLocalDate;
 using $ChronoLocalDateTime = ::java::time::chrono::ChronoLocalDateTime;
 using $ChronoZonedDateTime = ::java::time::chrono::ChronoZonedDateTime;
-using $Chronology = ::java::time::chrono::Chronology;
-using $DateTimeFormatterBuilder$DayPeriod = ::java::time::format::DateTimeFormatterBuilder$DayPeriod;
 using $ResolverStyle = ::java::time::format::ResolverStyle;
 using $ChronoField = ::java::time::temporal::ChronoField;
 using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
-using $TemporalAmount = ::java::time::temporal::TemporalAmount;
 using $TemporalField = ::java::time::temporal::TemporalField;
 using $TemporalQueries = ::java::time::temporal::TemporalQueries;
 using $TemporalQuery = ::java::time::temporal::TemporalQuery;
 using $UnsupportedTemporalTypeException = ::java::time::temporal::UnsupportedTemporalTypeException;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
-using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Objects = ::java::util::Objects;
 using $Set = ::java::util::Set;
@@ -90,58 +83,6 @@ using $Set = ::java::util::Set;
 namespace java {
 	namespace time {
 		namespace format {
-
-$FieldInfo _Parsed_FieldInfo_[] = {
-	{"fieldValues", "Ljava/util/Map;", "Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;", $FINAL, $field(Parsed, fieldValues)},
-	{"zone", "Ljava/time/ZoneId;", nullptr, 0, $field(Parsed, zone)},
-	{"chrono", "Ljava/time/chrono/Chronology;", nullptr, 0, $field(Parsed, chrono)},
-	{"leapSecond", "Z", nullptr, 0, $field(Parsed, leapSecond)},
-	{"resolverStyle", "Ljava/time/format/ResolverStyle;", nullptr, $PRIVATE, $field(Parsed, resolverStyle)},
-	{"date", "Ljava/time/chrono/ChronoLocalDate;", nullptr, $PRIVATE, $field(Parsed, date)},
-	{"time", "Ljava/time/LocalTime;", nullptr, $PRIVATE, $field(Parsed, time)},
-	{"excessDays", "Ljava/time/Period;", nullptr, 0, $field(Parsed, excessDays)},
-	{"dayPeriod", "Ljava/time/format/DateTimeFormatterBuilder$DayPeriod;", nullptr, 0, $field(Parsed, dayPeriod)},
-	{}
-};
-
-$MethodInfo _Parsed_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Parsed, init$, void)},
-	{"copy", "()Ljava/time/format/Parsed;", nullptr, 0, $method(Parsed, copy, Parsed*)},
-	{"crossCheck", "()V", nullptr, $PRIVATE, $method(Parsed, crossCheck, void)},
-	{"crossCheck", "(Ljava/time/temporal/TemporalAccessor;)V", nullptr, $PRIVATE, $method(Parsed, crossCheck, void, $TemporalAccessor*)},
-	{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $virtualMethod(Parsed, getLong, int64_t, $TemporalField*)},
-	{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC, $virtualMethod(Parsed, isSupported, bool, $TemporalField*)},
-	{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC, $virtualMethod(Parsed, query, $Object*, $TemporalQuery*)},
-	{"resolve", "(Ljava/time/format/ResolverStyle;Ljava/util/Set;)Ljava/time/temporal/TemporalAccessor;", "(Ljava/time/format/ResolverStyle;Ljava/util/Set<Ljava/time/temporal/TemporalField;>;)Ljava/time/temporal/TemporalAccessor;", 0, $method(Parsed, resolve, $TemporalAccessor*, $ResolverStyle*, $Set*)},
-	{"resolveDateFields", "()V", nullptr, $PRIVATE, $method(Parsed, resolveDateFields, void)},
-	{"resolveFields", "()V", nullptr, $PRIVATE, $method(Parsed, resolveFields, void)},
-	{"resolveFractional", "()V", nullptr, $PRIVATE, $method(Parsed, resolveFractional, void)},
-	{"resolveInstant", "()V", nullptr, $PRIVATE, $method(Parsed, resolveInstant, void)},
-	{"resolveInstantFields", "()V", nullptr, $PRIVATE, $method(Parsed, resolveInstantFields, void)},
-	{"resolveInstantFields0", "(Ljava/time/ZoneId;)V", nullptr, $PRIVATE, $method(Parsed, resolveInstantFields0, void, $ZoneId*)},
-	{"resolvePeriod", "()V", nullptr, $PRIVATE, $method(Parsed, resolvePeriod, void)},
-	{"resolveTime", "(JJJJ)V", nullptr, $PRIVATE, $method(Parsed, resolveTime, void, int64_t, int64_t, int64_t, int64_t)},
-	{"resolveTimeFields", "()V", nullptr, $PRIVATE, $method(Parsed, resolveTimeFields, void)},
-	{"resolveTimeLenient", "()V", nullptr, $PRIVATE, $method(Parsed, resolveTimeLenient, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Parsed, toString, $String*)},
-	{"updateCheckConflict", "(Ljava/time/temporal/TemporalField;Ljava/time/temporal/TemporalField;Ljava/lang/Long;)V", nullptr, $PRIVATE, $method(Parsed, updateCheckConflict, void, $TemporalField*, $TemporalField*, $Long*)},
-	{"updateCheckConflict", "(Ljava/time/chrono/ChronoLocalDate;)V", nullptr, $PRIVATE, $method(Parsed, updateCheckConflict, void, $ChronoLocalDate*)},
-	{"updateCheckConflict", "(Ljava/time/LocalTime;Ljava/time/Period;)V", nullptr, $PRIVATE, $method(Parsed, updateCheckConflict, void, $LocalTime*, $Period*)},
-	{}
-};
-
-$ClassInfo _Parsed_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.time.format.Parsed",
-	"java.lang.Object",
-	"java.time.temporal.TemporalAccessor",
-	_Parsed_FieldInfo_,
-	_Parsed_MethodInfo_
-};
-
-$Object* allocate$Parsed($Class* clazz) {
-	return $of($alloc(Parsed));
-}
 
 void Parsed::init$() {
 	$set(this, fieldValues, $new($HashMap));
@@ -160,26 +101,26 @@ Parsed* Parsed::copy() {
 }
 
 bool Parsed::isSupported($TemporalField* field) {
-	bool var$1 = $nc(this->fieldValues)->containsKey(field);
-	bool var$0 = var$1 || (this->date != nullptr && $nc(this->date)->isSupported(field));
-	if (var$0 || (this->time != nullptr && $nc(this->time)->isSupported(field))) {
+	bool var$1 = this->fieldValues->containsKey(field);
+	bool var$0 = var$1 || (this->date != nullptr && this->date->isSupported(field));
+	if (var$0 || (this->time != nullptr && this->time->isSupported(field))) {
 		return true;
 	}
 	return field != nullptr && (!($instanceOf($ChronoField, field))) && field->isSupportedBy(this);
 }
 
 int64_t Parsed::getLong($TemporalField* field) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(field), "field"_s);
-	$var($Long, value, $cast($Long, $nc(this->fieldValues)->get(field)));
+	$useLocalObjectStack();
+	$Objects::requireNonNull(field, "field"_s);
+	$var($Long, value, $cast($Long, this->fieldValues->get(field)));
 	if (value != nullptr) {
 		return value->longValue();
 	}
-	if (this->date != nullptr && $nc(this->date)->isSupported(field)) {
-		return $nc(this->date)->getLong(field);
+	if (this->date != nullptr && this->date->isSupported(field)) {
+		return this->date->getLong(field);
 	}
-	if (this->time != nullptr && $nc(this->time)->isSupported(field)) {
-		return $nc(this->time)->getLong(field);
+	if (this->time != nullptr && this->time->isSupported(field)) {
+		return this->time->getLong(field);
 	}
 	if ($instanceOf($ChronoField, field)) {
 		$throwNew($UnsupportedTemporalTypeException, $$str({"Unsupported field: "_s, field}));
@@ -189,34 +130,34 @@ int64_t Parsed::getLong($TemporalField* field) {
 
 $Object* Parsed::query($TemporalQuery* query) {
 	if (query == $TemporalQueries::zoneId()) {
-		return $of($of(this->zone));
+		return $of(this->zone);
 	} else if (query == $TemporalQueries::chronology()) {
-		return $of($of(this->chrono));
+		return $of(this->chrono);
 	} else if (query == $TemporalQueries::localDate()) {
-		return $of($of((this->date != nullptr ? $LocalDate::from(this->date) : ($LocalDate*)nullptr)));
+		return $of((this->date != nullptr ? $LocalDate::from(this->date) : ($LocalDate*)nullptr));
 	} else if (query == $TemporalQueries::localTime()) {
-		return $of($of(this->time));
+		return $of(this->time);
 	} else if (query == $TemporalQueries::offset()) {
 		$init($ChronoField);
-		$var($Long, offsetSecs, $cast($Long, $nc(this->fieldValues)->get($ChronoField::OFFSET_SECONDS)));
+		$var($Long, offsetSecs, $cast($Long, this->fieldValues->get($ChronoField::OFFSET_SECONDS)));
 		if (offsetSecs != nullptr) {
-			return $of($of($ZoneOffset::ofTotalSeconds(offsetSecs->intValue())));
+			return $of($ZoneOffset::ofTotalSeconds(offsetSecs->intValue()));
 		}
 		if ($instanceOf($ZoneOffset, this->zone)) {
-			return $of($of(this->zone));
+			return $of(this->zone);
 		}
-		return $of($nc(query)->queryFrom(this));
+		return $nc(query)->queryFrom(this);
 	} else if (query == $TemporalQueries::zone()) {
-		return $of($nc(query)->queryFrom(this));
+		return $nc(query)->queryFrom(this);
 	} else if (query == $TemporalQueries::precision()) {
-		return $of(nullptr);
+		return nullptr;
 	}
-	return $of($nc(query)->queryFrom(this));
+	return $nc(query)->queryFrom(this);
 }
 
 $TemporalAccessor* Parsed::resolve($ResolverStyle* resolverStyle, $Set* resolverFields) {
 	if (resolverFields != nullptr) {
-		$nc($($nc(this->fieldValues)->keySet()))->retainAll(resolverFields);
+		$$nc(this->fieldValues->keySet())->retainAll(resolverFields);
 	}
 	$set(this, resolverStyle, resolverStyle);
 	resolveFields();
@@ -229,79 +170,77 @@ $TemporalAccessor* Parsed::resolve($ResolverStyle* resolverStyle, $Set* resolver
 }
 
 void Parsed::resolveFields() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	resolveInstantFields();
 	resolveDateFields();
 	resolveTimeFields();
-	if ($nc(this->fieldValues)->size() > 0) {
+	if (this->fieldValues->size() > 0) {
 		int32_t changedCount = 0;
 		bool outer$continue = false;
 		while (changedCount < 50) {
-			{
-				$var($Iterator, i$, $nc($($nc(this->fieldValues)->entrySet()))->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-					{
-						$var($TemporalField, targetField, $cast($TemporalField, $nc(entry)->getKey()));
-						$var($TemporalAccessor, resolvedObject, $nc(targetField)->resolve(this->fieldValues, this, this->resolverStyle));
-						if (resolvedObject != nullptr) {
-							{
-								$var($ChronoZonedDateTime, czdt, nullptr);
-								bool var$0 = $instanceOf($ChronoZonedDateTime, resolvedObject);
-								if (var$0) {
-									$assign(czdt, $cast($ChronoZonedDateTime, resolvedObject));
-									var$0 = true;
-								}
-								if (var$0) {
-									if (this->zone == nullptr) {
-										$set(this, zone, $nc(czdt)->getZone());
-									} else if ($nc(this->zone)->equals($($nc(czdt)->getZone())) == false) {
-										$throwNew($DateTimeException, $$str({"ChronoZonedDateTime must use the effective parsed zone: "_s, this->zone}));
-									}
-									$assign(resolvedObject, $nc(czdt)->toLocalDateTime());
-								}
+			$var($Iterator, i$, $$nc(this->fieldValues->entrySet())->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
+				{
+					$var($TemporalField, targetField, $cast($TemporalField, $nc(entry)->getKey()));
+					$var($TemporalAccessor, resolvedObject, $nc(targetField)->resolve(this->fieldValues, this, this->resolverStyle));
+					if (resolvedObject != nullptr) {
+						{
+							$var($ChronoZonedDateTime, czdt, nullptr);
+							bool var$0 = $instanceOf($ChronoZonedDateTime, resolvedObject);
+							if (var$0) {
+								$assign(czdt, $cast($ChronoZonedDateTime, resolvedObject));
+								var$0 = true;
 							}
-							{
-								$var($ChronoLocalDateTime, cldt, nullptr);
-								bool var$1 = $instanceOf($ChronoLocalDateTime, resolvedObject);
-								if (var$1) {
-									$assign(cldt, $cast($ChronoLocalDateTime, resolvedObject));
-									var$1 = true;
+							if (var$0) {
+								if (this->zone == nullptr) {
+									$set(this, zone, $nc(czdt)->getZone());
+								} else if (this->zone->equals($($nc(czdt)->getZone())) == false) {
+									$throwNew($DateTimeException, $$str({"ChronoZonedDateTime must use the effective parsed zone: "_s, this->zone}));
 								}
-								if (var$1) {
-									$init($Period);
-									updateCheckConflict($($nc(cldt)->toLocalTime()), $Period::ZERO);
-									updateCheckConflict($($nc(cldt)->toLocalDate()));
-									++changedCount;
-									outer$continue = true;
-									break;
-								}
+								$assign(resolvedObject, $nc(czdt)->toLocalDateTime());
 							}
-							if ($instanceOf($ChronoLocalDate, resolvedObject)) {
-								updateCheckConflict($cast($ChronoLocalDate, resolvedObject));
-								++changedCount;
-								outer$continue = true;
-								break;
+						}
+						{
+							$var($ChronoLocalDateTime, cldt, nullptr);
+							bool var$1 = $instanceOf($ChronoLocalDateTime, resolvedObject);
+							if (var$1) {
+								$assign(cldt, $cast($ChronoLocalDateTime, resolvedObject));
+								var$1 = true;
 							}
-							if ($instanceOf($LocalTime, resolvedObject)) {
+							if (var$1) {
 								$init($Period);
-								updateCheckConflict($cast($LocalTime, resolvedObject), $Period::ZERO);
+								updateCheckConflict($($nc(cldt)->toLocalTime()), $Period::ZERO);
+								updateCheckConflict($(cldt->toLocalDate()));
 								++changedCount;
 								outer$continue = true;
 								break;
 							}
-							$throwNew($DateTimeException, "Method resolve() can only return ChronoZonedDateTime, ChronoLocalDateTime, ChronoLocalDate or LocalTime"_s);
-						} else if ($nc(this->fieldValues)->containsKey(targetField) == false) {
+						}
+						if ($instanceOf($ChronoLocalDate, resolvedObject)) {
+							updateCheckConflict($cast($ChronoLocalDate, resolvedObject));
 							++changedCount;
 							outer$continue = true;
 							break;
 						}
+						if ($instanceOf($LocalTime, resolvedObject)) {
+							$init($Period);
+							updateCheckConflict($cast($LocalTime, resolvedObject), $Period::ZERO);
+							++changedCount;
+							outer$continue = true;
+							break;
+						}
+						$throwNew($DateTimeException, "Method resolve() can only return ChronoZonedDateTime, ChronoLocalDateTime, ChronoLocalDate or LocalTime"_s);
+					} else if (this->fieldValues->containsKey(targetField) == false) {
+						++changedCount;
+						outer$continue = true;
+						break;
 					}
 				}
-				if (outer$continue) {
-					outer$continue = false;
-					continue;
-				}
+			}
+			if (outer$continue) {
+				outer$continue = false;
+				continue;
 			}
 			break;
 		}
@@ -317,8 +256,8 @@ void Parsed::resolveFields() {
 }
 
 void Parsed::updateCheckConflict($TemporalField* targetField, $TemporalField* changeField, $Long* changeValue) {
-	$useLocalCurrentObjectStackCache();
-	$var($Long, old, $cast($Long, $nc(this->fieldValues)->put(changeField, changeValue)));
+	$useLocalObjectStack();
+	$var($Long, old, $cast($Long, this->fieldValues->put(changeField, changeValue)));
 	bool var$0 = old != nullptr;
 	if (var$0) {
 		int64_t var$1 = old->longValue();
@@ -330,13 +269,13 @@ void Parsed::updateCheckConflict($TemporalField* targetField, $TemporalField* ch
 }
 
 void Parsed::resolveInstantFields() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoField);
-	if ($nc(this->fieldValues)->containsKey($ChronoField::INSTANT_SECONDS)) {
+	if (this->fieldValues->containsKey($ChronoField::INSTANT_SECONDS)) {
 		if (this->zone != nullptr) {
 			resolveInstantFields0(this->zone);
 		} else {
-			$var($Long, offsetSecs, $cast($Long, $nc(this->fieldValues)->get($ChronoField::OFFSET_SECONDS)));
+			$var($Long, offsetSecs, $cast($Long, this->fieldValues->get($ChronoField::OFFSET_SECONDS)));
 			if (offsetSecs != nullptr) {
 				$var($ZoneOffset, offset, $ZoneOffset::ofTotalSeconds(offsetSecs->intValue()));
 				resolveInstantFields0(offset);
@@ -346,12 +285,12 @@ void Parsed::resolveInstantFields() {
 }
 
 void Parsed::resolveInstantFields0($ZoneId* selectedZone) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoField);
-	$var($Instant, instant, $Instant::ofEpochSecond($nc(($cast($Long, $($nc(this->fieldValues)->remove($ChronoField::INSTANT_SECONDS)))))->longValue()));
+	$var($Instant, instant, $Instant::ofEpochSecond($$sure($Long, this->fieldValues->remove($ChronoField::INSTANT_SECONDS))->longValue()));
 	$var($ChronoZonedDateTime, zdt, $nc(this->chrono)->zonedDateTime(instant, selectedZone));
 	updateCheckConflict($($nc(zdt)->toLocalDate()));
-	updateCheckConflict($ChronoField::INSTANT_SECONDS, $ChronoField::SECOND_OF_DAY, $($Long::valueOf((int64_t)$nc($($nc(zdt)->toLocalTime()))->toSecondOfDay())));
+	updateCheckConflict($ChronoField::INSTANT_SECONDS, $ChronoField::SECOND_OF_DAY, $($Long::valueOf((int64_t)$$nc(zdt->toLocalTime())->toSecondOfDay())));
 }
 
 void Parsed::resolveDateFields() {
@@ -359,9 +298,9 @@ void Parsed::resolveDateFields() {
 }
 
 void Parsed::updateCheckConflict($ChronoLocalDate* cld) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->date != nullptr) {
-		if (cld != nullptr && $nc(this->date)->equals(cld) == false) {
+		if (cld != nullptr && this->date->equals(cld) == false) {
 			$throwNew($DateTimeException, $$str({"Conflict found: Fields resolved to two different dates: "_s, this->date, " "_s, cld}));
 		}
 	} else if (cld != nullptr) {
@@ -373,28 +312,28 @@ void Parsed::updateCheckConflict($ChronoLocalDate* cld) {
 }
 
 void Parsed::resolveTimeFields() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ChronoField);
-	if ($nc(this->fieldValues)->containsKey($ChronoField::CLOCK_HOUR_OF_DAY)) {
-		int64_t ch = $nc(($cast($Long, $($nc(this->fieldValues)->remove($ChronoField::CLOCK_HOUR_OF_DAY)))))->longValue();
+	if (this->fieldValues->containsKey($ChronoField::CLOCK_HOUR_OF_DAY)) {
+		int64_t ch = $$sure($Long, this->fieldValues->remove($ChronoField::CLOCK_HOUR_OF_DAY))->longValue();
 		$init($ResolverStyle);
 		if (this->resolverStyle == $ResolverStyle::STRICT || (this->resolverStyle == $ResolverStyle::SMART && ch != 0)) {
 			$ChronoField::CLOCK_HOUR_OF_DAY->checkValidValue(ch);
 		}
-		updateCheckConflict($ChronoField::CLOCK_HOUR_OF_DAY, $ChronoField::HOUR_OF_DAY, $($Long::valueOf(ch == 24 ? (int64_t)0 : ch)));
+		updateCheckConflict($ChronoField::CLOCK_HOUR_OF_DAY, $ChronoField::HOUR_OF_DAY, $($Long::valueOf(ch == 24 ? 0 : ch)));
 	}
-	if ($nc(this->fieldValues)->containsKey($ChronoField::CLOCK_HOUR_OF_AMPM)) {
-		int64_t ch = $nc(($cast($Long, $($nc(this->fieldValues)->remove($ChronoField::CLOCK_HOUR_OF_AMPM)))))->longValue();
+	if (this->fieldValues->containsKey($ChronoField::CLOCK_HOUR_OF_AMPM)) {
+		int64_t ch = $$sure($Long, this->fieldValues->remove($ChronoField::CLOCK_HOUR_OF_AMPM))->longValue();
 		$init($ResolverStyle);
 		if (this->resolverStyle == $ResolverStyle::STRICT || (this->resolverStyle == $ResolverStyle::SMART && ch != 0)) {
 			$ChronoField::CLOCK_HOUR_OF_AMPM->checkValidValue(ch);
 		}
-		updateCheckConflict($ChronoField::CLOCK_HOUR_OF_AMPM, $ChronoField::HOUR_OF_AMPM, $($Long::valueOf(ch == 12 ? (int64_t)0 : ch)));
+		updateCheckConflict($ChronoField::CLOCK_HOUR_OF_AMPM, $ChronoField::HOUR_OF_AMPM, $($Long::valueOf(ch == 12 ? 0 : ch)));
 	}
-	bool var$0 = $nc(this->fieldValues)->containsKey($ChronoField::AMPM_OF_DAY);
-	if (var$0 && $nc(this->fieldValues)->containsKey($ChronoField::HOUR_OF_AMPM)) {
-		int64_t ap = $nc(($cast($Long, $($nc(this->fieldValues)->remove($ChronoField::AMPM_OF_DAY)))))->longValue();
-		int64_t hap = $nc(($cast($Long, $($nc(this->fieldValues)->remove($ChronoField::HOUR_OF_AMPM)))))->longValue();
+	bool var$0 = this->fieldValues->containsKey($ChronoField::AMPM_OF_DAY);
+	if (var$0 && this->fieldValues->containsKey($ChronoField::HOUR_OF_AMPM)) {
+		int64_t ap = $$sure($Long, this->fieldValues->remove($ChronoField::AMPM_OF_DAY))->longValue();
+		int64_t hap = $$sure($Long, this->fieldValues->remove($ChronoField::HOUR_OF_AMPM))->longValue();
 		$init($ResolverStyle);
 		if (this->resolverStyle == $ResolverStyle::LENIENT) {
 			updateCheckConflict($ChronoField::AMPM_OF_DAY, $ChronoField::HOUR_OF_DAY, $($Long::valueOf($Math::addExact($Math::multiplyExact(ap, 12), hap))));
@@ -404,19 +343,19 @@ void Parsed::resolveTimeFields() {
 			updateCheckConflict($ChronoField::AMPM_OF_DAY, $ChronoField::HOUR_OF_DAY, $($Long::valueOf(ap * 12 + hap)));
 		}
 	}
-	if ($nc(this->fieldValues)->containsKey($ChronoField::NANO_OF_DAY)) {
-		int64_t nod = $nc(($cast($Long, $($nc(this->fieldValues)->remove($ChronoField::NANO_OF_DAY)))))->longValue();
+	if (this->fieldValues->containsKey($ChronoField::NANO_OF_DAY)) {
+		int64_t nod = $$sure($Long, this->fieldValues->remove($ChronoField::NANO_OF_DAY))->longValue();
 		$init($ResolverStyle);
 		if (this->resolverStyle != $ResolverStyle::LENIENT) {
 			$ChronoField::NANO_OF_DAY->checkValidValue(nod);
 		}
-		updateCheckConflict($ChronoField::NANO_OF_DAY, $ChronoField::HOUR_OF_DAY, $($Long::valueOf($div(nod, (int64_t)0x0000034630B8A000))));
-		updateCheckConflict($ChronoField::NANO_OF_DAY, $ChronoField::MINUTE_OF_HOUR, $($Long::valueOf(($div(nod, (int64_t)0x0000000DF8475800)) % 60)));
+		updateCheckConflict($ChronoField::NANO_OF_DAY, $ChronoField::HOUR_OF_DAY, $($Long::valueOf($div(nod, (int64_t)3600000000000))));
+		updateCheckConflict($ChronoField::NANO_OF_DAY, $ChronoField::MINUTE_OF_HOUR, $($Long::valueOf(($div(nod, (int64_t)60000000000)) % 60)));
 		updateCheckConflict($ChronoField::NANO_OF_DAY, $ChronoField::SECOND_OF_MINUTE, $($Long::valueOf(($div(nod, (int64_t)1000000000)) % 60)));
 		updateCheckConflict($ChronoField::NANO_OF_DAY, $ChronoField::NANO_OF_SECOND, $($Long::valueOf($mod(nod, (int64_t)1000000000))));
 	}
-	if ($nc(this->fieldValues)->containsKey($ChronoField::MICRO_OF_DAY)) {
-		int64_t cod = $nc(($cast($Long, $($nc(this->fieldValues)->remove($ChronoField::MICRO_OF_DAY)))))->longValue();
+	if (this->fieldValues->containsKey($ChronoField::MICRO_OF_DAY)) {
+		int64_t cod = $$sure($Long, this->fieldValues->remove($ChronoField::MICRO_OF_DAY))->longValue();
 		$init($ResolverStyle);
 		if (this->resolverStyle != $ResolverStyle::LENIENT) {
 			$ChronoField::MICRO_OF_DAY->checkValidValue(cod);
@@ -424,8 +363,8 @@ void Parsed::resolveTimeFields() {
 		updateCheckConflict($ChronoField::MICRO_OF_DAY, $ChronoField::SECOND_OF_DAY, $($Long::valueOf($div(cod, (int64_t)1000000))));
 		updateCheckConflict($ChronoField::MICRO_OF_DAY, $ChronoField::MICRO_OF_SECOND, $($Long::valueOf($mod(cod, (int64_t)1000000))));
 	}
-	if ($nc(this->fieldValues)->containsKey($ChronoField::MILLI_OF_DAY)) {
-		int64_t lod = $nc(($cast($Long, $($nc(this->fieldValues)->remove($ChronoField::MILLI_OF_DAY)))))->longValue();
+	if (this->fieldValues->containsKey($ChronoField::MILLI_OF_DAY)) {
+		int64_t lod = $$sure($Long, this->fieldValues->remove($ChronoField::MILLI_OF_DAY))->longValue();
 		$init($ResolverStyle);
 		if (this->resolverStyle != $ResolverStyle::LENIENT) {
 			$ChronoField::MILLI_OF_DAY->checkValidValue(lod);
@@ -433,8 +372,8 @@ void Parsed::resolveTimeFields() {
 		updateCheckConflict($ChronoField::MILLI_OF_DAY, $ChronoField::SECOND_OF_DAY, $($Long::valueOf(lod / 1000)));
 		updateCheckConflict($ChronoField::MILLI_OF_DAY, $ChronoField::MILLI_OF_SECOND, $($Long::valueOf(lod % 1000)));
 	}
-	if ($nc(this->fieldValues)->containsKey($ChronoField::SECOND_OF_DAY)) {
-		int64_t sod = $nc(($cast($Long, $($nc(this->fieldValues)->remove($ChronoField::SECOND_OF_DAY)))))->longValue();
+	if (this->fieldValues->containsKey($ChronoField::SECOND_OF_DAY)) {
+		int64_t sod = $$sure($Long, this->fieldValues->remove($ChronoField::SECOND_OF_DAY))->longValue();
 		$init($ResolverStyle);
 		if (this->resolverStyle != $ResolverStyle::LENIENT) {
 			$ChronoField::SECOND_OF_DAY->checkValidValue(sod);
@@ -443,8 +382,8 @@ void Parsed::resolveTimeFields() {
 		updateCheckConflict($ChronoField::SECOND_OF_DAY, $ChronoField::MINUTE_OF_HOUR, $($Long::valueOf((sod / 60) % 60)));
 		updateCheckConflict($ChronoField::SECOND_OF_DAY, $ChronoField::SECOND_OF_MINUTE, $($Long::valueOf(sod % 60)));
 	}
-	if ($nc(this->fieldValues)->containsKey($ChronoField::MINUTE_OF_DAY)) {
-		int64_t mod = $nc(($cast($Long, $($nc(this->fieldValues)->remove($ChronoField::MINUTE_OF_DAY)))))->longValue();
+	if (this->fieldValues->containsKey($ChronoField::MINUTE_OF_DAY)) {
+		int64_t mod = $$sure($Long, this->fieldValues->remove($ChronoField::MINUTE_OF_DAY))->longValue();
 		$init($ResolverStyle);
 		if (this->resolverStyle != $ResolverStyle::LENIENT) {
 			$ChronoField::MINUTE_OF_DAY->checkValidValue(mod);
@@ -452,131 +391,125 @@ void Parsed::resolveTimeFields() {
 		updateCheckConflict($ChronoField::MINUTE_OF_DAY, $ChronoField::HOUR_OF_DAY, $($Long::valueOf(mod / 60)));
 		updateCheckConflict($ChronoField::MINUTE_OF_DAY, $ChronoField::MINUTE_OF_HOUR, $($Long::valueOf(mod % 60)));
 	}
-	if ($nc(this->fieldValues)->containsKey($ChronoField::NANO_OF_SECOND)) {
-		int64_t nos = $nc(($cast($Long, $($nc(this->fieldValues)->get($ChronoField::NANO_OF_SECOND)))))->longValue();
+	if (this->fieldValues->containsKey($ChronoField::NANO_OF_SECOND)) {
+		int64_t nos = $$sure($Long, this->fieldValues->get($ChronoField::NANO_OF_SECOND))->longValue();
 		$init($ResolverStyle);
 		if (this->resolverStyle != $ResolverStyle::LENIENT) {
 			$ChronoField::NANO_OF_SECOND->checkValidValue(nos);
 		}
-		if ($nc(this->fieldValues)->containsKey($ChronoField::MICRO_OF_SECOND)) {
-			int64_t cos = $nc(($cast($Long, $($nc(this->fieldValues)->remove($ChronoField::MICRO_OF_SECOND)))))->longValue();
+		if (this->fieldValues->containsKey($ChronoField::MICRO_OF_SECOND)) {
+			int64_t cos = $$sure($Long, this->fieldValues->remove($ChronoField::MICRO_OF_SECOND))->longValue();
 			if (this->resolverStyle != $ResolverStyle::LENIENT) {
 				$ChronoField::MICRO_OF_SECOND->checkValidValue(cos);
 			}
 			nos = cos * 1000 + (nos % 1000);
 			updateCheckConflict($ChronoField::MICRO_OF_SECOND, $ChronoField::NANO_OF_SECOND, $($Long::valueOf(nos)));
 		}
-		if ($nc(this->fieldValues)->containsKey($ChronoField::MILLI_OF_SECOND)) {
-			int64_t los = $nc(($cast($Long, $($nc(this->fieldValues)->remove($ChronoField::MILLI_OF_SECOND)))))->longValue();
+		if (this->fieldValues->containsKey($ChronoField::MILLI_OF_SECOND)) {
+			int64_t los = $$sure($Long, this->fieldValues->remove($ChronoField::MILLI_OF_SECOND))->longValue();
 			if (this->resolverStyle != $ResolverStyle::LENIENT) {
 				$ChronoField::MILLI_OF_SECOND->checkValidValue(los);
 			}
 			updateCheckConflict($ChronoField::MILLI_OF_SECOND, $ChronoField::NANO_OF_SECOND, $($Long::valueOf(los * (int64_t)1000000 + ($mod(nos, (int64_t)1000000)))));
 		}
 	}
-	if (this->dayPeriod != nullptr && $nc(this->fieldValues)->containsKey($ChronoField::HOUR_OF_AMPM)) {
-		int64_t hoap = $nc(($cast($Long, $($nc(this->fieldValues)->remove($ChronoField::HOUR_OF_AMPM)))))->longValue();
+	if (this->dayPeriod != nullptr && this->fieldValues->containsKey($ChronoField::HOUR_OF_AMPM)) {
+		int64_t hoap = $$sure($Long, this->fieldValues->remove($ChronoField::HOUR_OF_AMPM))->longValue();
 		$init($ResolverStyle);
 		if (this->resolverStyle != $ResolverStyle::LENIENT) {
 			$ChronoField::HOUR_OF_AMPM->checkValidValue(hoap);
 		}
-		$var($Long, mohObj, $cast($Long, $nc(this->fieldValues)->get($ChronoField::MINUTE_OF_HOUR)));
-		int64_t moh = mohObj != nullptr ? $Math::floorMod($nc(mohObj)->longValue(), 60) : 0;
-		int64_t excessHours = $nc(this->dayPeriod)->includes(($Math::floorMod(hoap, 12) + 12) * 60 + moh) ? 12 : 0;
+		$var($Long, mohObj, $cast($Long, this->fieldValues->get($ChronoField::MINUTE_OF_HOUR)));
+		int64_t moh = mohObj != nullptr ? $Math::floorMod(mohObj->longValue(), 60) : 0;
+		int64_t excessHours = this->dayPeriod->includes(($Math::floorMod(hoap, 12) + 12) * 60 + moh) ? 12 : 0;
 		int64_t hod = $Math::addExact(hoap, excessHours);
 		updateCheckConflict($ChronoField::HOUR_OF_AMPM, $ChronoField::HOUR_OF_DAY, $($Long::valueOf(hod)));
 		$set(this, dayPeriod, nullptr);
 	}
-	bool var$3 = $nc(this->fieldValues)->containsKey($ChronoField::HOUR_OF_DAY);
-	bool var$2 = var$3 && $nc(this->fieldValues)->containsKey($ChronoField::MINUTE_OF_HOUR);
-	bool var$1 = var$2 && $nc(this->fieldValues)->containsKey($ChronoField::SECOND_OF_MINUTE);
-	if (var$1 && $nc(this->fieldValues)->containsKey($ChronoField::NANO_OF_SECOND)) {
-		int64_t hod = $nc(($cast($Long, $($nc(this->fieldValues)->remove($ChronoField::HOUR_OF_DAY)))))->longValue();
-		int64_t moh = $nc(($cast($Long, $($nc(this->fieldValues)->remove($ChronoField::MINUTE_OF_HOUR)))))->longValue();
-		int64_t som = $nc(($cast($Long, $($nc(this->fieldValues)->remove($ChronoField::SECOND_OF_MINUTE)))))->longValue();
-		int64_t nos = $nc(($cast($Long, $($nc(this->fieldValues)->remove($ChronoField::NANO_OF_SECOND)))))->longValue();
+	bool var$3 = this->fieldValues->containsKey($ChronoField::HOUR_OF_DAY);
+	bool var$2 = var$3 && this->fieldValues->containsKey($ChronoField::MINUTE_OF_HOUR);
+	bool var$1 = var$2 && this->fieldValues->containsKey($ChronoField::SECOND_OF_MINUTE);
+	if (var$1 && this->fieldValues->containsKey($ChronoField::NANO_OF_SECOND)) {
+		int64_t hod = $$sure($Long, this->fieldValues->remove($ChronoField::HOUR_OF_DAY))->longValue();
+		int64_t moh = $$sure($Long, this->fieldValues->remove($ChronoField::MINUTE_OF_HOUR))->longValue();
+		int64_t som = $$sure($Long, this->fieldValues->remove($ChronoField::SECOND_OF_MINUTE))->longValue();
+		int64_t nos = $$sure($Long, this->fieldValues->remove($ChronoField::NANO_OF_SECOND))->longValue();
 		resolveTime(hod, moh, som, nos);
 	}
 }
 
 void Parsed::resolveTimeLenient() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->time == nullptr) {
 		$init($ChronoField);
-		if ($nc(this->fieldValues)->containsKey($ChronoField::MILLI_OF_SECOND)) {
-			int64_t los = $nc(($cast($Long, $($nc(this->fieldValues)->remove($ChronoField::MILLI_OF_SECOND)))))->longValue();
-			if ($nc(this->fieldValues)->containsKey($ChronoField::MICRO_OF_SECOND)) {
-				int64_t cos = los * 1000 + ($nc(($cast($Long, $($nc(this->fieldValues)->get($ChronoField::MICRO_OF_SECOND)))))->longValue() % 1000);
+		if (this->fieldValues->containsKey($ChronoField::MILLI_OF_SECOND)) {
+			int64_t los = $$sure($Long, this->fieldValues->remove($ChronoField::MILLI_OF_SECOND))->longValue();
+			if (this->fieldValues->containsKey($ChronoField::MICRO_OF_SECOND)) {
+				int64_t cos = los * 1000 + ($$sure($Long, this->fieldValues->get($ChronoField::MICRO_OF_SECOND))->longValue() % 1000);
 				updateCheckConflict($ChronoField::MILLI_OF_SECOND, $ChronoField::MICRO_OF_SECOND, $($Long::valueOf(cos)));
-				$nc(this->fieldValues)->remove($ChronoField::MICRO_OF_SECOND);
-				$nc(this->fieldValues)->put($ChronoField::NANO_OF_SECOND, $($Long::valueOf(cos * (int64_t)1000)));
+				this->fieldValues->remove($ChronoField::MICRO_OF_SECOND);
+				this->fieldValues->put($ChronoField::NANO_OF_SECOND, $($Long::valueOf(cos * (int64_t)1000)));
 			} else {
-				$nc(this->fieldValues)->put($ChronoField::NANO_OF_SECOND, $($Long::valueOf(los * (int64_t)1000000)));
+				this->fieldValues->put($ChronoField::NANO_OF_SECOND, $($Long::valueOf(los * (int64_t)1000000)));
 			}
-		} else {
-			if ($nc(this->fieldValues)->containsKey($ChronoField::MICRO_OF_SECOND)) {
-				int64_t cos = $nc(($cast($Long, $($nc(this->fieldValues)->remove($ChronoField::MICRO_OF_SECOND)))))->longValue();
-				$nc(this->fieldValues)->put($ChronoField::NANO_OF_SECOND, $($Long::valueOf(cos * (int64_t)1000)));
-			}
+		} else if (this->fieldValues->containsKey($ChronoField::MICRO_OF_SECOND)) {
+			int64_t cos = $$sure($Long, this->fieldValues->remove($ChronoField::MICRO_OF_SECOND))->longValue();
+			this->fieldValues->put($ChronoField::NANO_OF_SECOND, $($Long::valueOf(cos * (int64_t)1000)));
 		}
-		bool var$2 = !$nc(this->fieldValues)->containsKey($ChronoField::HOUR_OF_DAY);
-		bool var$1 = var$2 && !$nc(this->fieldValues)->containsKey($ChronoField::MINUTE_OF_HOUR);
-		bool var$0 = var$1 && !$nc(this->fieldValues)->containsKey($ChronoField::SECOND_OF_MINUTE);
+		bool var$2 = !this->fieldValues->containsKey($ChronoField::HOUR_OF_DAY);
+		bool var$1 = var$2 && !this->fieldValues->containsKey($ChronoField::MINUTE_OF_HOUR);
+		bool var$0 = var$1 && !this->fieldValues->containsKey($ChronoField::SECOND_OF_MINUTE);
 		$init($ResolverStyle);
-		if (var$0 && !$nc(this->fieldValues)->containsKey($ChronoField::NANO_OF_SECOND) && this->resolverStyle != $ResolverStyle::STRICT) {
+		if (var$0 && !this->fieldValues->containsKey($ChronoField::NANO_OF_SECOND) && this->resolverStyle != $ResolverStyle::STRICT) {
 			if (this->dayPeriod != nullptr) {
-				int64_t midpoint = $nc(this->dayPeriod)->mid();
+				int64_t midpoint = this->dayPeriod->mid();
 				resolveTime(midpoint / 60, midpoint % 60, 0, 0);
 				$set(this, dayPeriod, nullptr);
-			} else {
-				if ($nc(this->fieldValues)->containsKey($ChronoField::AMPM_OF_DAY)) {
-					int64_t ap = $nc(($cast($Long, $($nc(this->fieldValues)->remove($ChronoField::AMPM_OF_DAY)))))->longValue();
-					if (this->resolverStyle == $ResolverStyle::LENIENT) {
-						resolveTime($Math::addExact($Math::multiplyExact(ap, 12), (int64_t)6), 0, 0, 0);
-					} else {
-						$ChronoField::AMPM_OF_DAY->checkValidValue(ap);
-						resolveTime(ap * 12 + 6, 0, 0, 0);
-					}
+			} else if (this->fieldValues->containsKey($ChronoField::AMPM_OF_DAY)) {
+				int64_t ap = $$sure($Long, this->fieldValues->remove($ChronoField::AMPM_OF_DAY))->longValue();
+				if (this->resolverStyle == $ResolverStyle::LENIENT) {
+					resolveTime($Math::addExact($Math::multiplyExact(ap, 12), (int64_t)6), 0, 0, 0);
+				} else {
+					$ChronoField::AMPM_OF_DAY->checkValidValue(ap);
+					resolveTime(ap * 12 + 6, 0, 0, 0);
 				}
 			}
 		}
-		$var($Long, hod, $cast($Long, $nc(this->fieldValues)->get($ChronoField::HOUR_OF_DAY)));
+		$var($Long, hod, $cast($Long, this->fieldValues->get($ChronoField::HOUR_OF_DAY)));
 		if (hod != nullptr) {
-			$var($Long, moh, $cast($Long, $nc(this->fieldValues)->get($ChronoField::MINUTE_OF_HOUR)));
-			$var($Long, som, $cast($Long, $nc(this->fieldValues)->get($ChronoField::SECOND_OF_MINUTE)));
-			$var($Long, nos, $cast($Long, $nc(this->fieldValues)->get($ChronoField::NANO_OF_SECOND)));
+			$var($Long, moh, $cast($Long, this->fieldValues->get($ChronoField::MINUTE_OF_HOUR)));
+			$var($Long, som, $cast($Long, this->fieldValues->get($ChronoField::SECOND_OF_MINUTE)));
+			$var($Long, nos, $cast($Long, this->fieldValues->get($ChronoField::NANO_OF_SECOND)));
 			if ((moh == nullptr && (som != nullptr || nos != nullptr)) || (moh != nullptr && som == nullptr && nos != nullptr)) {
 				return;
 			}
-			int64_t mohVal = (moh != nullptr ? $nc(moh)->longValue() : (int64_t)0);
-			int64_t somVal = (som != nullptr ? $nc(som)->longValue() : (int64_t)0);
-			int64_t nosVal = (nos != nullptr ? $nc(nos)->longValue() : (int64_t)0);
+			int64_t mohVal = (moh != nullptr ? moh->longValue() : 0);
+			int64_t somVal = (som != nullptr ? som->longValue() : 0);
+			int64_t nosVal = (nos != nullptr ? nos->longValue() : 0);
 			if (this->dayPeriod != nullptr && this->resolverStyle != $ResolverStyle::LENIENT) {
-				if (!$nc(this->dayPeriod)->includes(hod->longValue() * 60 + mohVal)) {
+				if (!this->dayPeriod->includes(hod->longValue() * 60 + mohVal)) {
 					$throwNew($DateTimeException, $$str({$("Conflict found: Resolved time %02d:%02d"_s->formatted($$new($ObjectArray, {
-						$of(hod),
-						$($of($Long::valueOf(mohVal)))
+						hod,
+						$($Long::valueOf(mohVal))
 					}))), " conflicts with "_s, this->dayPeriod}));
 				}
 			}
 			resolveTime(hod->longValue(), mohVal, somVal, nosVal);
-			$nc(this->fieldValues)->remove($ChronoField::HOUR_OF_DAY);
-			$nc(this->fieldValues)->remove($ChronoField::MINUTE_OF_HOUR);
-			$nc(this->fieldValues)->remove($ChronoField::SECOND_OF_MINUTE);
-			$nc(this->fieldValues)->remove($ChronoField::NANO_OF_SECOND);
+			this->fieldValues->remove($ChronoField::HOUR_OF_DAY);
+			this->fieldValues->remove($ChronoField::MINUTE_OF_HOUR);
+			this->fieldValues->remove($ChronoField::SECOND_OF_MINUTE);
+			this->fieldValues->remove($ChronoField::NANO_OF_SECOND);
 		}
 	}
 	$init($ResolverStyle);
-	if (this->resolverStyle != $ResolverStyle::LENIENT && $nc(this->fieldValues)->size() > 0) {
-		{
-			$var($Iterator, i$, $nc($($nc(this->fieldValues)->entrySet()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-				{
-					$var($TemporalField, field, $cast($TemporalField, $nc(entry)->getKey()));
-					if ($instanceOf($ChronoField, field) && $nc(field)->isTimeBased()) {
-						$nc(($cast($ChronoField, field)))->checkValidValue($nc(($cast($Long, $(entry->getValue()))))->longValue());
-					}
+	if (this->resolverStyle != $ResolverStyle::LENIENT && this->fieldValues->size() > 0) {
+		$var($Iterator, i$, $$nc(this->fieldValues->entrySet())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
+			{
+				$var($TemporalField, field, $cast($TemporalField, $nc(entry)->getKey()));
+				if ($instanceOf($ChronoField, field) && field->isTimeBased()) {
+					$cast($ChronoField, field)->checkValidValue($$sure($Long, entry->getValue())->longValue());
 				}
 			}
 		}
@@ -584,15 +517,15 @@ void Parsed::resolveTimeLenient() {
 }
 
 void Parsed::resolveTime(int64_t hod, int64_t moh, int64_t som, int64_t nos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ResolverStyle);
 	if (this->resolverStyle == $ResolverStyle::LENIENT) {
-		int64_t totalNanos = $Math::multiplyExact(hod, (int64_t)0x0000034630B8A000);
-		totalNanos = $Math::addExact(totalNanos, $Math::multiplyExact(moh, (int64_t)0x0000000DF8475800));
+		int64_t totalNanos = $Math::multiplyExact(hod, (int64_t)3600000000000);
+		totalNanos = $Math::addExact(totalNanos, $Math::multiplyExact(moh, (int64_t)60000000000));
 		totalNanos = $Math::addExact(totalNanos, $Math::multiplyExact(som, (int64_t)1000000000));
 		totalNanos = $Math::addExact(totalNanos, nos);
-		int32_t excessDays = (int32_t)$Math::floorDiv(totalNanos, (int64_t)0x00004E94914F0000);
-		int64_t nod = $Math::floorMod(totalNanos, (int64_t)0x00004E94914F0000);
+		int32_t excessDays = (int32_t)$Math::floorDiv(totalNanos, (int64_t)86400000000000);
+		int64_t nod = $Math::floorMod(totalNanos, (int64_t)86400000000000);
 		$var($LocalTime, var$0, $LocalTime::ofNanoOfDay(nod));
 		updateCheckConflict(var$0, $($Period::ofDays(excessDays)));
 	} else {
@@ -613,60 +546,59 @@ void Parsed::resolveTime(int64_t hod, int64_t moh, int64_t som, int64_t nos) {
 
 void Parsed::resolvePeriod() {
 	if (this->date != nullptr && this->time != nullptr && $nc(this->excessDays)->isZero() == false) {
-		$set(this, date, $nc(this->date)->plus(this->excessDays));
-		$init($Period);
+		$set(this, date, this->date->plus(this->excessDays));
 		$set(this, excessDays, $Period::ZERO);
 	}
 }
 
 void Parsed::resolveFractional() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = this->time == nullptr;
 	if (var$0) {
 		$init($ChronoField);
-		bool var$2 = $nc(this->fieldValues)->containsKey($ChronoField::INSTANT_SECONDS);
-		bool var$1 = var$2 || $nc(this->fieldValues)->containsKey($ChronoField::SECOND_OF_DAY);
-		var$0 = (var$1 || $nc(this->fieldValues)->containsKey($ChronoField::SECOND_OF_MINUTE));
+		bool var$2 = this->fieldValues->containsKey($ChronoField::INSTANT_SECONDS);
+		bool var$1 = var$2 || this->fieldValues->containsKey($ChronoField::SECOND_OF_DAY);
+		var$0 = var$1 || this->fieldValues->containsKey($ChronoField::SECOND_OF_MINUTE);
 	}
 	if (var$0) {
 		$init($ChronoField);
-		if ($nc(this->fieldValues)->containsKey($ChronoField::NANO_OF_SECOND)) {
-			int64_t nos = $nc(($cast($Long, $($nc(this->fieldValues)->get($ChronoField::NANO_OF_SECOND)))))->longValue();
-			$nc(this->fieldValues)->put($ChronoField::MICRO_OF_SECOND, $($Long::valueOf(nos / 1000)));
-			$nc(this->fieldValues)->put($ChronoField::MILLI_OF_SECOND, $($Long::valueOf(nos / 0x000F4240)));
+		if (this->fieldValues->containsKey($ChronoField::NANO_OF_SECOND)) {
+			int64_t nos = $$sure($Long, this->fieldValues->get($ChronoField::NANO_OF_SECOND))->longValue();
+			this->fieldValues->put($ChronoField::MICRO_OF_SECOND, $($Long::valueOf(nos / 1000)));
+			this->fieldValues->put($ChronoField::MILLI_OF_SECOND, $($Long::valueOf(nos / 1000000)));
 		} else {
-			$nc(this->fieldValues)->put($ChronoField::NANO_OF_SECOND, $($Long::valueOf((int64_t)0)));
-			$nc(this->fieldValues)->put($ChronoField::MICRO_OF_SECOND, $($Long::valueOf((int64_t)0)));
-			$nc(this->fieldValues)->put($ChronoField::MILLI_OF_SECOND, $($Long::valueOf((int64_t)0)));
+			this->fieldValues->put($ChronoField::NANO_OF_SECOND, $($Long::valueOf((int64_t)0)));
+			this->fieldValues->put($ChronoField::MICRO_OF_SECOND, $($Long::valueOf((int64_t)0)));
+			this->fieldValues->put($ChronoField::MILLI_OF_SECOND, $($Long::valueOf((int64_t)0)));
 		}
 	}
 }
 
 void Parsed::resolveInstant() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->date != nullptr && this->time != nullptr) {
 		$init($ChronoField);
-		$var($Long, offsetSecs, $cast($Long, $nc(this->fieldValues)->get($ChronoField::OFFSET_SECONDS)));
+		$var($Long, offsetSecs, $cast($Long, this->fieldValues->get($ChronoField::OFFSET_SECONDS)));
 		if (offsetSecs != nullptr) {
 			$var($ZoneOffset, offset, $ZoneOffset::ofTotalSeconds(offsetSecs->intValue()));
-			int64_t instant = $nc($($nc($($nc(this->date)->atTime(this->time)))->atZone(offset)))->toEpochSecond();
-			$nc(this->fieldValues)->put($ChronoField::INSTANT_SECONDS, $($Long::valueOf(instant)));
+			int64_t instant = $$nc($$nc(this->date->atTime(this->time))->atZone(offset))->toEpochSecond();
+			this->fieldValues->put($ChronoField::INSTANT_SECONDS, $($Long::valueOf(instant)));
 		} else if (this->zone != nullptr) {
-			int64_t instant = $nc($($nc($($nc(this->date)->atTime(this->time)))->atZone(this->zone)))->toEpochSecond();
-			$nc(this->fieldValues)->put($ChronoField::INSTANT_SECONDS, $($Long::valueOf(instant)));
+			int64_t instant = $$nc($$nc($nc(this->date)->atTime(this->time))->atZone(this->zone))->toEpochSecond();
+			this->fieldValues->put($ChronoField::INSTANT_SECONDS, $($Long::valueOf(instant)));
 		}
 	}
 }
 
 void Parsed::updateCheckConflict($LocalTime* timeToSet, $Period* periodToSet) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->time != nullptr) {
-		if ($nc(this->time)->equals(timeToSet) == false) {
+		if (this->time->equals(timeToSet) == false) {
 			$throwNew($DateTimeException, $$str({"Conflict found: Fields resolved to different times: "_s, this->time, " "_s, timeToSet}));
 		}
 		bool var$1 = $nc(this->excessDays)->isZero() == false;
 		bool var$0 = var$1 && $nc(periodToSet)->isZero() == false;
-		if (var$0 && $nc(this->excessDays)->equals(periodToSet) == false) {
+		if (var$0 && this->excessDays->equals(periodToSet) == false) {
 			$throwNew($DateTimeException, $$str({"Conflict found: Fields resolved to different excess periods: "_s, this->excessDays, " "_s, periodToSet}));
 		} else {
 			$set(this, excessDays, periodToSet);
@@ -683,51 +615,49 @@ void Parsed::crossCheck() {
 	}
 	if (this->time != nullptr) {
 		crossCheck(this->time);
-		if (this->date != nullptr && $nc(this->fieldValues)->size() > 0) {
-			crossCheck($($nc(this->date)->atTime(this->time)));
+		if (this->date != nullptr && this->fieldValues->size() > 0) {
+			crossCheck($(this->date->atTime(this->time)));
 		}
 	}
 }
 
 void Parsed::crossCheck($TemporalAccessor* target) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, it, $nc($($nc(this->fieldValues)->entrySet()))->iterator());
-		for (; $nc(it)->hasNext();) {
-			$var($Map$Entry, entry, $cast($Map$Entry, it->next()));
-			$var($TemporalField, field, $cast($TemporalField, $nc(entry)->getKey()));
-			if ($nc(target)->isSupported(field)) {
-				int64_t val1 = 0;
-				try {
-					val1 = target->getLong(field);
-				} catch ($RuntimeException& ex) {
-					continue;
-				}
-				int64_t val2 = $nc(($cast($Long, $(entry->getValue()))))->longValue();
-				if (val1 != val2) {
-					$throwNew($DateTimeException, $$str({"Conflict found: Field "_s, field, " "_s, $$str(val1), " differs from "_s, field, " "_s, $$str(val2), " derived from "_s, target}));
-				}
-				it->remove();
+	$useLocalObjectStack();
+	$var($Iterator, it, $$nc(this->fieldValues->entrySet())->iterator());
+	for (; $nc(it)->hasNext();) {
+		$var($Map$Entry, entry, $cast($Map$Entry, it->next()));
+		$var($TemporalField, field, $cast($TemporalField, $nc(entry)->getKey()));
+		if ($nc(target)->isSupported(field)) {
+			int64_t val1 = 0;
+			try {
+				val1 = target->getLong(field);
+			} catch ($RuntimeException& ex) {
+				continue;
 			}
+			int64_t val2 = $$sure($Long, entry->getValue())->longValue();
+			if (val1 != val2) {
+				$throwNew($DateTimeException, $$str({"Conflict found: Field "_s, field, " "_s, $$str(val1), " differs from "_s, field, " "_s, $$str(val2), " derived from "_s, target}));
+			}
+			it->remove();
 		}
 	}
 }
 
 $String* Parsed::toString() {
 	$var($StringBuilder, buf, $new($StringBuilder, 64));
-	buf->append($of(this->fieldValues))->append(u',')->append($of(this->chrono));
+	buf->append(this->fieldValues)->append(u',')->append(this->chrono);
 	if (this->zone != nullptr) {
-		buf->append(u',')->append($of(this->zone));
+		buf->append(u',')->append(this->zone);
 	}
 	if (this->date != nullptr || this->time != nullptr) {
 		buf->append(" resolved to "_s);
 		if (this->date != nullptr) {
-			buf->append($of(this->date));
+			buf->append(this->date);
 			if (this->time != nullptr) {
-				buf->append(u'T')->append($of(this->time));
+				buf->append(u'T')->append(this->time);
 			}
 		} else {
-			buf->append($of(this->time));
+			buf->append(this->time);
 		}
 	}
 	return buf->toString();
@@ -737,7 +667,54 @@ Parsed::Parsed() {
 }
 
 $Class* Parsed::load$($String* name, bool initialize) {
-	$loadClass(Parsed, name, initialize, &_Parsed_ClassInfo_, allocate$Parsed);
+	$FieldInfo fieldInfos$$[] = {
+		{"fieldValues", "Ljava/util/Map;", "Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;", $FINAL, $field(Parsed, fieldValues)},
+		{"zone", "Ljava/time/ZoneId;", nullptr, 0, $field(Parsed, zone)},
+		{"chrono", "Ljava/time/chrono/Chronology;", nullptr, 0, $field(Parsed, chrono)},
+		{"leapSecond", "Z", nullptr, 0, $field(Parsed, leapSecond)},
+		{"resolverStyle", "Ljava/time/format/ResolverStyle;", nullptr, $PRIVATE, $field(Parsed, resolverStyle)},
+		{"date", "Ljava/time/chrono/ChronoLocalDate;", nullptr, $PRIVATE, $field(Parsed, date)},
+		{"time", "Ljava/time/LocalTime;", nullptr, $PRIVATE, $field(Parsed, time)},
+		{"excessDays", "Ljava/time/Period;", nullptr, 0, $field(Parsed, excessDays)},
+		{"dayPeriod", "Ljava/time/format/DateTimeFormatterBuilder$DayPeriod;", nullptr, 0, $field(Parsed, dayPeriod)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Parsed, init$, void)},
+		{"copy", "()Ljava/time/format/Parsed;", nullptr, 0, $method(Parsed, copy, Parsed*)},
+		{"crossCheck", "()V", nullptr, $PRIVATE, $method(Parsed, crossCheck, void)},
+		{"crossCheck", "(Ljava/time/temporal/TemporalAccessor;)V", nullptr, $PRIVATE, $method(Parsed, crossCheck, void, $TemporalAccessor*)},
+		{"getLong", "(Ljava/time/temporal/TemporalField;)J", nullptr, $PUBLIC, $virtualMethod(Parsed, getLong, int64_t, $TemporalField*)},
+		{"isSupported", "(Ljava/time/temporal/TemporalField;)Z", nullptr, $PUBLIC, $virtualMethod(Parsed, isSupported, bool, $TemporalField*)},
+		{"query", "(Ljava/time/temporal/TemporalQuery;)Ljava/lang/Object;", "<R:Ljava/lang/Object;>(Ljava/time/temporal/TemporalQuery<TR;>;)TR;", $PUBLIC, $virtualMethod(Parsed, query, $Object*, $TemporalQuery*)},
+		{"resolve", "(Ljava/time/format/ResolverStyle;Ljava/util/Set;)Ljava/time/temporal/TemporalAccessor;", "(Ljava/time/format/ResolverStyle;Ljava/util/Set<Ljava/time/temporal/TemporalField;>;)Ljava/time/temporal/TemporalAccessor;", 0, $method(Parsed, resolve, $TemporalAccessor*, $ResolverStyle*, $Set*)},
+		{"resolveDateFields", "()V", nullptr, $PRIVATE, $method(Parsed, resolveDateFields, void)},
+		{"resolveFields", "()V", nullptr, $PRIVATE, $method(Parsed, resolveFields, void)},
+		{"resolveFractional", "()V", nullptr, $PRIVATE, $method(Parsed, resolveFractional, void)},
+		{"resolveInstant", "()V", nullptr, $PRIVATE, $method(Parsed, resolveInstant, void)},
+		{"resolveInstantFields", "()V", nullptr, $PRIVATE, $method(Parsed, resolveInstantFields, void)},
+		{"resolveInstantFields0", "(Ljava/time/ZoneId;)V", nullptr, $PRIVATE, $method(Parsed, resolveInstantFields0, void, $ZoneId*)},
+		{"resolvePeriod", "()V", nullptr, $PRIVATE, $method(Parsed, resolvePeriod, void)},
+		{"resolveTime", "(JJJJ)V", nullptr, $PRIVATE, $method(Parsed, resolveTime, void, int64_t, int64_t, int64_t, int64_t)},
+		{"resolveTimeFields", "()V", nullptr, $PRIVATE, $method(Parsed, resolveTimeFields, void)},
+		{"resolveTimeLenient", "()V", nullptr, $PRIVATE, $method(Parsed, resolveTimeLenient, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Parsed, toString, $String*)},
+		{"updateCheckConflict", "(Ljava/time/temporal/TemporalField;Ljava/time/temporal/TemporalField;Ljava/lang/Long;)V", nullptr, $PRIVATE, $method(Parsed, updateCheckConflict, void, $TemporalField*, $TemporalField*, $Long*)},
+		{"updateCheckConflict", "(Ljava/time/chrono/ChronoLocalDate;)V", nullptr, $PRIVATE, $method(Parsed, updateCheckConflict, void, $ChronoLocalDate*)},
+		{"updateCheckConflict", "(Ljava/time/LocalTime;Ljava/time/Period;)V", nullptr, $PRIVATE, $method(Parsed, updateCheckConflict, void, $LocalTime*, $Period*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.time.format.Parsed",
+		"java.lang.Object",
+		"java.time.temporal.TemporalAccessor",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Parsed, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Parsed);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/stream/LongPipeline$2$1.h>
-
 #include <java/util/stream/LongPipeline$2.h>
 #include <java/util/stream/Sink$ChainedLong.h>
 #include <java/util/stream/Sink.h>
@@ -18,50 +17,6 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$FieldInfo _LongPipeline$2$1_FieldInfo_[] = {
-	{"this$1", "Ljava/util/stream/LongPipeline$2;", nullptr, $FINAL | $SYNTHETIC, $field(LongPipeline$2$1, this$1)},
-	{}
-};
-
-$MethodInfo _LongPipeline$2$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/LongPipeline$2;Ljava/util/stream/Sink;)V", nullptr, 0, $method(LongPipeline$2$1, init$, void, $LongPipeline$2*, $Sink*)},
-	{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(LongPipeline$2$1, accept, void, int64_t)},
-	{}
-};
-
-$EnclosingMethodInfo _LongPipeline$2$1_EnclosingMethodInfo_ = {
-	"java.util.stream.LongPipeline$2",
-	"opWrapSink",
-	"(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;"
-};
-
-$InnerClassInfo _LongPipeline$2$1_InnerClassesInfo_[] = {
-	{"java.util.stream.LongPipeline$2", nullptr, nullptr, 0},
-	{"java.util.stream.LongPipeline$2$1", nullptr, nullptr, 0},
-	{"java.util.stream.Sink$ChainedLong", "java.util.stream.Sink", "ChainedLong", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _LongPipeline$2$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.LongPipeline$2$1",
-	"java.util.stream.Sink$ChainedLong",
-	nullptr,
-	_LongPipeline$2$1_FieldInfo_,
-	_LongPipeline$2$1_MethodInfo_,
-	"Ljava/util/stream/Sink$ChainedLong<Ljava/lang/Double;>;",
-	&_LongPipeline$2$1_EnclosingMethodInfo_,
-	_LongPipeline$2$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.LongPipeline"
-};
-
-$Object* allocate$LongPipeline$2$1($Class* clazz) {
-	return $of($alloc(LongPipeline$2$1));
-}
-
 void LongPipeline$2$1::init$($LongPipeline$2* this$1, $Sink* downstream) {
 	$set(this, this$1, this$1);
 	$Sink$ChainedLong::init$(downstream);
@@ -75,7 +30,44 @@ LongPipeline$2$1::LongPipeline$2$1() {
 }
 
 $Class* LongPipeline$2$1::load$($String* name, bool initialize) {
-	$loadClass(LongPipeline$2$1, name, initialize, &_LongPipeline$2$1_ClassInfo_, allocate$LongPipeline$2$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljava/util/stream/LongPipeline$2;", nullptr, $FINAL | $SYNTHETIC, $field(LongPipeline$2$1, this$1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/LongPipeline$2;Ljava/util/stream/Sink;)V", nullptr, 0, $method(LongPipeline$2$1, init$, void, $LongPipeline$2*, $Sink*)},
+		{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(LongPipeline$2$1, accept, void, int64_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.LongPipeline$2",
+		"opWrapSink",
+		"(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.LongPipeline$2", nullptr, nullptr, 0},
+		{"java.util.stream.LongPipeline$2$1", nullptr, nullptr, 0},
+		{"java.util.stream.Sink$ChainedLong", "java.util.stream.Sink", "ChainedLong", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.LongPipeline$2$1",
+		"java.util.stream.Sink$ChainedLong",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/Sink$ChainedLong<Ljava/lang/Double;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.LongPipeline"
+	};
+	$loadClass(LongPipeline$2$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LongPipeline$2$1));
+	});
 	return class$;
 }
 

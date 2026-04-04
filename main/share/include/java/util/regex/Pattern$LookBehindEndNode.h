@@ -29,6 +29,7 @@ class $import Pattern$LookBehindEndNode : public ::java::util::regex::Pattern$No
 	$class(Pattern$LookBehindEndNode, 0, ::java::util::regex::Pattern$Node)
 public:
 	Pattern$LookBehindEndNode();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool match(::java::util::regex::Matcher* matcher, int32_t i, ::java::lang::CharSequence* seq) override;
 	static ::java::util::regex::Pattern$LookBehindEndNode* INSTANCE;

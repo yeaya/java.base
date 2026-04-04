@@ -43,6 +43,7 @@ class $import RuleBasedBreakIterator : public ::java::text::BreakIterator {
 	$class(RuleBasedBreakIterator, 0, ::java::text::BreakIterator)
 public:
 	RuleBasedBreakIterator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* ruleFile, $bytes* ruleData);
 	static void checkOffset(int32_t offset, ::java::text::CharacterIterator* text);
 	virtual $Object* clone() override;

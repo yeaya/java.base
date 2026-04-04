@@ -1,5 +1,4 @@
 #include <sun/security/provider/certpath/ResponderId.h>
-
 #include <java/io/IOException.h>
 #include <java/security/PublicKey.h>
 #include <java/util/Arrays.h>
@@ -33,56 +32,6 @@ namespace sun {
 		namespace provider {
 			namespace certpath {
 
-$FieldInfo _ResponderId_FieldInfo_[] = {
-	{"type", "Lsun/security/provider/certpath/ResponderId$Type;", nullptr, $PRIVATE, $field(ResponderId, type)},
-	{"responderName", "Ljavax/security/auth/x500/X500Principal;", nullptr, $PRIVATE, $field(ResponderId, responderName)},
-	{"responderKeyId", "Lsun/security/x509/KeyIdentifier;", nullptr, $PRIVATE, $field(ResponderId, responderKeyId)},
-	{"encodedRid", "[B", nullptr, $PRIVATE, $field(ResponderId, encodedRid)},
-	{}
-};
-
-$MethodInfo _ResponderId_MethodInfo_[] = {
-	{"<init>", "(Ljavax/security/auth/x500/X500Principal;)V", nullptr, $PUBLIC, $method(ResponderId, init$, void, $X500Principal*), "java.io.IOException"},
-	{"<init>", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $method(ResponderId, init$, void, $PublicKey*), "java.io.IOException"},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(ResponderId, init$, void, $bytes*), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ResponderId, equals, bool, Object$*)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC, $method(ResponderId, getEncoded, $bytes*)},
-	{"getKeyIdentifier", "()Lsun/security/x509/KeyIdentifier;", nullptr, $PUBLIC, $method(ResponderId, getKeyIdentifier, $KeyIdentifier*)},
-	{"getResponderName", "()Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC, $method(ResponderId, getResponderName, $X500Principal*)},
-	{"getType", "()Lsun/security/provider/certpath/ResponderId$Type;", nullptr, $PUBLIC, $method(ResponderId, getType, $ResponderId$Type*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ResponderId, hashCode, int32_t)},
-	{"keyIdToBytes", "()[B", nullptr, $PRIVATE, $method(ResponderId, keyIdToBytes, $bytes*), "java.io.IOException"},
-	{"length", "()I", nullptr, $PUBLIC, $method(ResponderId, length, int32_t)},
-	{"principalToBytes", "()[B", nullptr, $PRIVATE, $method(ResponderId, principalToBytes, $bytes*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResponderId, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _ResponderId_InnerClassesInfo_[] = {
-	{"sun.security.provider.certpath.ResponderId$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"sun.security.provider.certpath.ResponderId$Type", "sun.security.provider.certpath.ResponderId", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _ResponderId_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.provider.certpath.ResponderId",
-	"java.lang.Object",
-	nullptr,
-	_ResponderId_FieldInfo_,
-	_ResponderId_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ResponderId_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.provider.certpath.ResponderId$1,sun.security.provider.certpath.ResponderId$Type"
-};
-
-$Object* allocate$ResponderId($Class* clazz) {
-	return $of($alloc(ResponderId));
-}
-
 void ResponderId::init$($X500Principal* subjectName) {
 	$set(this, responderName, subjectName);
 	$set(this, responderKeyId, nullptr);
@@ -100,7 +49,7 @@ void ResponderId::init$($PublicKey* pubKey) {
 }
 
 void ResponderId::init$($bytes* encodedData) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerValue, outer, $new($DerValue, encodedData));
 	$init($ResponderId$Type);
 	bool var$0 = outer->isContextSpecific((int8_t)$ResponderId$Type::BY_NAME->value());
@@ -109,8 +58,8 @@ void ResponderId::init$($bytes* encodedData) {
 		$set(this, encodedRid, principalToBytes());
 		$set(this, type, $ResponderId$Type::BY_NAME);
 	} else {
-		bool var$2 = outer->isContextSpecific((int8_t)$ResponderId$Type::BY_KEY->value());
-		if (var$2 && outer->isConstructed()) {
+		bool var$1 = outer->isContextSpecific((int8_t)$ResponderId$Type::BY_KEY->value());
+		if (var$1 && outer->isConstructed()) {
 			$set(this, responderKeyId, $new($KeyIdentifier, $$new($DerValue, $(outer->getDataBytes()))));
 			$set(this, encodedRid, keyIdToBytes());
 			$set(this, type, $ResponderId$Type::BY_KEY);
@@ -141,7 +90,7 @@ $KeyIdentifier* ResponderId::getKeyIdentifier() {
 }
 
 bool ResponderId::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (obj == nullptr) {
 		return false;
 	}
@@ -150,7 +99,7 @@ bool ResponderId::equals(Object$* obj) {
 	}
 	if ($instanceOf(ResponderId, obj)) {
 		$var(ResponderId, respObj, $cast(ResponderId, obj));
-		return $Arrays::equals(this->encodedRid, $($nc(respObj)->getEncoded()));
+		return $Arrays::equals(this->encodedRid, $(respObj->getEncoded()));
 	}
 	return false;
 }
@@ -160,41 +109,35 @@ int32_t ResponderId::hashCode() {
 }
 
 $String* ResponderId::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	$init($ResponderId$1);
 	switch ($nc($ResponderId$1::$SwitchMap$sun$security$provider$certpath$ResponderId$Type)->get($nc((this->type))->ordinal())) {
 	case 1:
-		{
-			sb->append($of(this->type))->append(": "_s)->append($of(this->responderName));
-			break;
-		}
+		sb->append(this->type)->append(": "_s)->append(this->responderName);
+		break;
 	case 2:
 		{
-			sb->append($of(this->type))->append(": "_s);
+			sb->append(this->type)->append(": "_s);
 			{
 				$var($bytes, arr$, $nc(this->responderKeyId)->getIdentifier());
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
+				for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 					int8_t keyIdByte = arr$->get(i$);
 					{
-						sb->append($($String::format("%02X"_s, $$new($ObjectArray, {$($of($Byte::valueOf(keyIdByte)))}))));
+						sb->append($($String::format("%02X"_s, $$new($ObjectArray, {$($Byte::valueOf(keyIdByte))}))));
 					}
 				}
 			}
 			break;
 		}
 	default:
-		{
-			sb->append("Unknown ResponderId Type: "_s)->append($of(this->type));
-		}
+		sb->append("Unknown ResponderId Type: "_s)->append(this->type);
 	}
 	return sb->toString();
 }
 
 $bytes* ResponderId::principalToBytes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ResponderId$Type);
 	int8_t var$0 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)$ResponderId$Type::BY_NAME->value());
 	$var($DerValue, dv, $new($DerValue, var$0, $($nc(this->responderName)->getEncoded())));
@@ -202,7 +145,7 @@ $bytes* ResponderId::principalToBytes() {
 }
 
 $bytes* ResponderId::keyIdToBytes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerValue, inner, $new($DerValue, $DerValue::tag_OctetString, $($nc(this->responderKeyId)->getIdentifier())));
 	$init($ResponderId$Type);
 	int8_t var$0 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)$ResponderId$Type::BY_KEY->value());
@@ -214,7 +157,51 @@ ResponderId::ResponderId() {
 }
 
 $Class* ResponderId::load$($String* name, bool initialize) {
-	$loadClass(ResponderId, name, initialize, &_ResponderId_ClassInfo_, allocate$ResponderId);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Lsun/security/provider/certpath/ResponderId$Type;", nullptr, $PRIVATE, $field(ResponderId, type)},
+		{"responderName", "Ljavax/security/auth/x500/X500Principal;", nullptr, $PRIVATE, $field(ResponderId, responderName)},
+		{"responderKeyId", "Lsun/security/x509/KeyIdentifier;", nullptr, $PRIVATE, $field(ResponderId, responderKeyId)},
+		{"encodedRid", "[B", nullptr, $PRIVATE, $field(ResponderId, encodedRid)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/security/auth/x500/X500Principal;)V", nullptr, $PUBLIC, $method(ResponderId, init$, void, $X500Principal*), "java.io.IOException"},
+		{"<init>", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $method(ResponderId, init$, void, $PublicKey*), "java.io.IOException"},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(ResponderId, init$, void, $bytes*), "java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ResponderId, equals, bool, Object$*)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC, $method(ResponderId, getEncoded, $bytes*)},
+		{"getKeyIdentifier", "()Lsun/security/x509/KeyIdentifier;", nullptr, $PUBLIC, $method(ResponderId, getKeyIdentifier, $KeyIdentifier*)},
+		{"getResponderName", "()Ljavax/security/auth/x500/X500Principal;", nullptr, $PUBLIC, $method(ResponderId, getResponderName, $X500Principal*)},
+		{"getType", "()Lsun/security/provider/certpath/ResponderId$Type;", nullptr, $PUBLIC, $method(ResponderId, getType, $ResponderId$Type*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ResponderId, hashCode, int32_t)},
+		{"keyIdToBytes", "()[B", nullptr, $PRIVATE, $method(ResponderId, keyIdToBytes, $bytes*), "java.io.IOException"},
+		{"length", "()I", nullptr, $PUBLIC, $method(ResponderId, length, int32_t)},
+		{"principalToBytes", "()[B", nullptr, $PRIVATE, $method(ResponderId, principalToBytes, $bytes*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResponderId, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.certpath.ResponderId$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"sun.security.provider.certpath.ResponderId$Type", "sun.security.provider.certpath.ResponderId", "Type", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.provider.certpath.ResponderId",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.provider.certpath.ResponderId$1,sun.security.provider.certpath.ResponderId$Type"
+	};
+	$loadClass(ResponderId, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponderId);
+	});
 	return class$;
 }
 

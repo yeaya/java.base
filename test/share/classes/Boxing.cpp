@@ -1,9 +1,7 @@
 #include <Boxing.h>
-
 #include <Boxing$Test.h>
 #include <Boxing$TestHandler.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/reflect/InvocationHandler.h>
 #include <java/lang/reflect/Proxy.h>
 #include <java/util/Random.h>
 #include <jcpp.h>
@@ -12,61 +10,13 @@
 
 using $Boxing$Test = ::Boxing$Test;
 using $Boxing$TestHandler = ::Boxing$TestHandler;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $InvocationHandler = ::java::lang::reflect::InvocationHandler;
 using $Proxy = ::java::lang::reflect::Proxy;
 using $Random = ::java::util::Random;
-
-$FieldInfo _Boxing_FieldInfo_[] = {
-	{"REPS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Boxing, REPS)},
-	{"b", "B", nullptr, $PRIVATE, $field(Boxing, b)},
-	{"c", "C", nullptr, $PRIVATE, $field(Boxing, c)},
-	{"d", "D", nullptr, $PRIVATE, $field(Boxing, d)},
-	{"f", "F", nullptr, $PRIVATE, $field(Boxing, f)},
-	{"i", "I", nullptr, $PRIVATE, $field(Boxing, i)},
-	{"j", "J", nullptr, $PRIVATE, $field(Boxing, j)},
-	{"s", "S", nullptr, $PRIVATE, $field(Boxing, s)},
-	{"z", "Z", nullptr, $PRIVATE, $field(Boxing, z)},
-	{}
-};
-
-$MethodInfo _Boxing_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Boxing, init$, void)},
-	{"identityToString", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Boxing, identityToString, $String*, Object$*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Boxing, main, void, $StringArray*)},
-	{"run", "()V", nullptr, $PRIVATE, $method(Boxing, run, void)},
-	{}
-};
-
-$InnerClassInfo _Boxing_InnerClassesInfo_[] = {
-	{"Boxing$TestHandler", "Boxing", "TestHandler", $PRIVATE},
-	{"Boxing$Test", "Boxing", "Test", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Boxing_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Boxing",
-	"java.lang.Object",
-	nullptr,
-	_Boxing_FieldInfo_,
-	_Boxing_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Boxing_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"Boxing$TestHandler,Boxing$Test"
-};
-
-$Object* allocate$Boxing($Class* clazz) {
-	return $of($alloc(Boxing));
-}
 
 void Boxing::init$() {
 }
@@ -77,13 +27,13 @@ void Boxing::main($StringArray* args) {
 }
 
 void Boxing::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Random, random, $new($Random, 42));
 	$load($Boxing$Test);
 	$var($ClassLoader, var$0, $Boxing$Test::class$->getClassLoader());
 	$var($ClassArray, var$1, $new($ClassArray, {$Boxing$Test::class$}));
-	$var($Boxing$Test, proxy, $cast($Boxing$Test, $Proxy::newProxyInstance(var$0, var$1, static_cast<$InvocationHandler*>($$new($Boxing$TestHandler, this)))));
+	$var($Boxing$Test, proxy, $cast($Boxing$Test, $Proxy::newProxyInstance(var$0, var$1, $$new($Boxing$TestHandler, this))));
 	for (int32_t rep = 0; rep < Boxing::REPS; ++rep) {
 		this->b = (int8_t)random->nextInt();
 		this->c = (char16_t)random->nextInt();
@@ -98,16 +48,59 @@ void Boxing::run() {
 }
 
 $String* Boxing::identityToString(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$($nc($of(obj))->toString()), "@"_s}));
-	return $concat(var$0, $$str($System::identityHashCode(obj)));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($nc($of(obj))->toString()));
+	var$0->append("@"_s);
+	var$0->append($System::identityHashCode(obj));
+	return $str(var$0);
 }
 
 Boxing::Boxing() {
 }
 
 $Class* Boxing::load$($String* name, bool initialize) {
-	$loadClass(Boxing, name, initialize, &_Boxing_ClassInfo_, allocate$Boxing);
+	$FieldInfo fieldInfos$$[] = {
+		{"REPS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Boxing, REPS)},
+		{"b", "B", nullptr, $PRIVATE, $field(Boxing, b)},
+		{"c", "C", nullptr, $PRIVATE, $field(Boxing, c)},
+		{"d", "D", nullptr, $PRIVATE, $field(Boxing, d)},
+		{"f", "F", nullptr, $PRIVATE, $field(Boxing, f)},
+		{"i", "I", nullptr, $PRIVATE, $field(Boxing, i)},
+		{"j", "J", nullptr, $PRIVATE, $field(Boxing, j)},
+		{"s", "S", nullptr, $PRIVATE, $field(Boxing, s)},
+		{"z", "Z", nullptr, $PRIVATE, $field(Boxing, z)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Boxing, init$, void)},
+		{"identityToString", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Boxing, identityToString, $String*, Object$*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Boxing, main, void, $StringArray*)},
+		{"run", "()V", nullptr, $PRIVATE, $method(Boxing, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Boxing$TestHandler", "Boxing", "TestHandler", $PRIVATE},
+		{"Boxing$Test", "Boxing", "Test", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Boxing",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"Boxing$TestHandler,Boxing$Test"
+	};
+	$loadClass(Boxing, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Boxing);
+	});
 	return class$;
 }
 

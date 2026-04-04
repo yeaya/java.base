@@ -1,5 +1,4 @@
 #include <java.base.test.h>
-
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
@@ -5059,6 +5058,8 @@ const char* _java$base$test_args_[] = {
 	"java.base/java.lang=ALL-UNNAMED",
 	"--add-opens",
 	"java.base/java.io=ALL-UNNAMED",
+	"--add-opens",
+	"java.base/java.lang.ref=ALL-UNNAMED",
 	nullptr
 };
 

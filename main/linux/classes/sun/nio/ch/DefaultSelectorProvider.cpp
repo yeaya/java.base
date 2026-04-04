@@ -1,5 +1,4 @@
 #include <sun/nio/ch/DefaultSelectorProvider.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -34,56 +33,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of($new($EPollSelectorProvider));
+		 return $new($EPollSelectorProvider);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DefaultSelectorProvider$$Lambda$EPollSelectorProvider>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo DefaultSelectorProvider$$Lambda$EPollSelectorProvider::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultSelectorProvider$$Lambda$EPollSelectorProvider, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultSelectorProvider$$Lambda$EPollSelectorProvider, run, $Object*)},
-	{}
-};
-$ClassInfo DefaultSelectorProvider$$Lambda$EPollSelectorProvider::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.nio.ch.DefaultSelectorProvider$$Lambda$EPollSelectorProvider",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* DefaultSelectorProvider$$Lambda$EPollSelectorProvider::load$($String* name, bool initialize) {
-	$loadClass(DefaultSelectorProvider$$Lambda$EPollSelectorProvider, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultSelectorProvider$$Lambda$EPollSelectorProvider, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultSelectorProvider$$Lambda$EPollSelectorProvider, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.nio.ch.DefaultSelectorProvider$$Lambda$EPollSelectorProvider",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DefaultSelectorProvider$$Lambda$EPollSelectorProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultSelectorProvider$$Lambda$EPollSelectorProvider);
+	});
 	return class$;
 }
 $Class* DefaultSelectorProvider$$Lambda$EPollSelectorProvider::class$ = nullptr;
-
-$FieldInfo _DefaultSelectorProvider_FieldInfo_[] = {
-	{"INSTANCE", "Lsun/nio/ch/SelectorProviderImpl;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultSelectorProvider, INSTANCE)},
-	{}
-};
-
-$MethodInfo _DefaultSelectorProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DefaultSelectorProvider, init$, void)},
-	{"get", "()Lsun/nio/ch/SelectorProviderImpl;", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultSelectorProvider, get, $SelectorProviderImpl*)},
-	{}
-};
-
-$ClassInfo _DefaultSelectorProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.ch.DefaultSelectorProvider",
-	"java.lang.Object",
-	nullptr,
-	_DefaultSelectorProvider_FieldInfo_,
-	_DefaultSelectorProvider_MethodInfo_
-};
-
-$Object* allocate$DefaultSelectorProvider($Class* clazz) {
-	return $of($alloc(DefaultSelectorProvider));
-}
 
 $SelectorProviderImpl* DefaultSelectorProvider::INSTANCE = nullptr;
 
@@ -95,10 +67,10 @@ $SelectorProviderImpl* DefaultSelectorProvider::get() {
 	return DefaultSelectorProvider::INSTANCE;
 }
 
-void clinit$DefaultSelectorProvider($Class* class$) {
+void DefaultSelectorProvider::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
-		$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(DefaultSelectorProvider$$Lambda$EPollSelectorProvider)));
+		$var($PrivilegedAction, pa, $new(DefaultSelectorProvider$$Lambda$EPollSelectorProvider));
 		$assignStatic(DefaultSelectorProvider::INSTANCE, $cast($SelectorProviderImpl, $AccessController::doPrivileged(pa)));
 	}
 }
@@ -108,11 +80,30 @@ DefaultSelectorProvider::DefaultSelectorProvider() {
 
 $Class* DefaultSelectorProvider::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DefaultSelectorProvider$$Lambda$EPollSelectorProvider::classInfo$.name)) {
+		if (name->equals("sun.nio.ch.DefaultSelectorProvider$$Lambda$EPollSelectorProvider")) {
 			return DefaultSelectorProvider$$Lambda$EPollSelectorProvider::load$(name, initialize);
 		}
 	}
-	$loadClass(DefaultSelectorProvider, name, initialize, &_DefaultSelectorProvider_ClassInfo_, clinit$DefaultSelectorProvider, allocate$DefaultSelectorProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Lsun/nio/ch/SelectorProviderImpl;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultSelectorProvider, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DefaultSelectorProvider, init$, void)},
+		{"get", "()Lsun/nio/ch/SelectorProviderImpl;", nullptr, $PUBLIC | $STATIC, $staticMethod(DefaultSelectorProvider, get, $SelectorProviderImpl*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.ch.DefaultSelectorProvider",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DefaultSelectorProvider, name, initialize, &classInfo$$, DefaultSelectorProvider::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultSelectorProvider);
+	});
 	return class$;
 }
 

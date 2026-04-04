@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/CollatorProviderImpl.h>
-
 #include <java/lang/InternalError.h>
 #include <java/text/Collator.h>
 #include <java/text/ParseException.h>
@@ -31,45 +30,11 @@ using $Set = ::java::util::Set;
 using $CollationRules = ::sun::util::locale::provider::CollationRules;
 using $LocaleProviderAdapter = ::sun::util::locale::provider::LocaleProviderAdapter;
 using $LocaleProviderAdapter$Type = ::sun::util::locale::provider::LocaleProviderAdapter$Type;
-using $LocaleResources = ::sun::util::locale::provider::LocaleResources;
 
 namespace sun {
 	namespace util {
 		namespace locale {
 			namespace provider {
-
-$FieldInfo _CollatorProviderImpl_FieldInfo_[] = {
-	{"type", "Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PRIVATE | $FINAL, $field(CollatorProviderImpl, type)},
-	{"langtags", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(CollatorProviderImpl, langtags)},
-	{}
-};
-
-$MethodInfo _CollatorProviderImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(CollatorProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
-	{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CollatorProviderImpl, getAvailableLanguageTags, $Set*)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(CollatorProviderImpl, getAvailableLocales, $LocaleArray*)},
-	{"getInstance", "(Ljava/util/Locale;)Ljava/text/Collator;", nullptr, $PUBLIC, $virtualMethod(CollatorProviderImpl, getInstance, $Collator*, $Locale*)},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(CollatorProviderImpl, isSupportedLocale, bool, $Locale*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _CollatorProviderImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.locale.provider.CollatorProviderImpl",
-	"java.text.spi.CollatorProvider",
-	"sun.util.locale.provider.AvailableLanguageTags",
-	_CollatorProviderImpl_FieldInfo_,
-	_CollatorProviderImpl_MethodInfo_
-};
-
-$Object* allocate$CollatorProviderImpl($Class* clazz) {
-	return $of($alloc(CollatorProviderImpl));
-}
 
 int32_t CollatorProviderImpl::hashCode() {
 	 return this->$CollatorProvider::hashCode();
@@ -102,16 +67,16 @@ $LocaleArray* CollatorProviderImpl::getAvailableLocales() {
 }
 
 bool CollatorProviderImpl::isSupportedLocale($Locale* locale) {
-	return $nc($($LocaleProviderAdapter::forType(this->type)))->isSupportedProviderLocale(locale, this->langtags);
+	return $$nc($LocaleProviderAdapter::forType(this->type))->isSupportedProviderLocale(locale, this->langtags);
 }
 
 $Collator* CollatorProviderImpl::getInstance($Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (locale == nullptr) {
 		$throwNew($NullPointerException);
 	}
 	$var($Collator, result, nullptr);
-	$var($String, colString, $nc($($nc($($LocaleProviderAdapter::forType(this->type)))->getLocaleResources(locale)))->getCollationData());
+	$var($String, colString, $$nc($$nc($LocaleProviderAdapter::forType(this->type))->getLocaleResources(locale))->getCollationData());
 	try {
 		$init($CollationRules);
 		$assign(result, $new($RuleBasedCollator, $$str({$CollationRules::DEFAULTRULES, colString})));
@@ -120,7 +85,7 @@ $Collator* CollatorProviderImpl::getInstance($Locale* locale) {
 			$init($CollationRules);
 			$assign(result, $new($RuleBasedCollator, $CollationRules::DEFAULTRULES));
 		} catch ($ParseException& bar) {
-			$throwNew($InternalError, static_cast<$Throwable*>(bar));
+			$throwNew($InternalError, bar);
 		}
 	}
 	$nc(result)->setDecomposition($Collator::NO_DECOMPOSITION);
@@ -135,7 +100,35 @@ CollatorProviderImpl::CollatorProviderImpl() {
 }
 
 $Class* CollatorProviderImpl::load$($String* name, bool initialize) {
-	$loadClass(CollatorProviderImpl, name, initialize, &_CollatorProviderImpl_ClassInfo_, allocate$CollatorProviderImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PRIVATE | $FINAL, $field(CollatorProviderImpl, type)},
+		{"langtags", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(CollatorProviderImpl, langtags)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set;)V", "(Lsun/util/locale/provider/LocaleProviderAdapter$Type;Ljava/util/Set<Ljava/lang/String;>;)V", $PUBLIC, $method(CollatorProviderImpl, init$, void, $LocaleProviderAdapter$Type*, $Set*)},
+		{"getAvailableLanguageTags", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CollatorProviderImpl, getAvailableLanguageTags, $Set*)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(CollatorProviderImpl, getAvailableLocales, $LocaleArray*)},
+		{"getInstance", "(Ljava/util/Locale;)Ljava/text/Collator;", nullptr, $PUBLIC, $virtualMethod(CollatorProviderImpl, getInstance, $Collator*, $Locale*)},
+		{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(CollatorProviderImpl, isSupportedLocale, bool, $Locale*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.locale.provider.CollatorProviderImpl",
+		"java.text.spi.CollatorProvider",
+		"sun.util.locale.provider.AvailableLanguageTags",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CollatorProviderImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CollatorProviderImpl));
+	});
 	return class$;
 }
 

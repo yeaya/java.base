@@ -1,5 +1,4 @@
 #include <MultipleConnect.h>
-
 #include <java/io/IOException.h>
 #include <java/io/PipedInputStream.h>
 #include <java/io/PipedOutputStream.h>
@@ -12,30 +11,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _MultipleConnect_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MultipleConnect, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MultipleConnect, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _MultipleConnect_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MultipleConnect",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_MultipleConnect_MethodInfo_
-};
-
-$Object* allocate$MultipleConnect($Class* clazz) {
-	return $of($alloc(MultipleConnect));
-}
-
 void MultipleConnect::init$() {
 }
 
 void MultipleConnect::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PipedOutputStream, os, $new($PipedOutputStream));
 	$var($PipedOutputStream, os2, $new($PipedOutputStream));
 	$var($PipedInputStream, is, $new($PipedInputStream));
@@ -51,7 +31,22 @@ MultipleConnect::MultipleConnect() {
 }
 
 $Class* MultipleConnect::load$($String* name, bool initialize) {
-	$loadClass(MultipleConnect, name, initialize, &_MultipleConnect_ClassInfo_, allocate$MultipleConnect);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MultipleConnect, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MultipleConnect, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MultipleConnect",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MultipleConnect, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultipleConnect);
+	});
 	return class$;
 }
 

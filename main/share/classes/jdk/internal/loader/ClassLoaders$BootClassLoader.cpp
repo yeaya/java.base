@@ -1,5 +1,4 @@
 #include <jdk/internal/loader/ClassLoaders$BootClassLoader.h>
-
 #include <jdk/internal/access/JavaLangAccess.h>
 #include <jdk/internal/loader/BuiltinClassLoader.h>
 #include <jdk/internal/loader/ClassLoaders.h>
@@ -15,37 +14,6 @@ using $URLClassPath = ::jdk::internal::loader::URLClassPath;
 namespace jdk {
 	namespace internal {
 		namespace loader {
-
-$MethodInfo _ClassLoaders$BootClassLoader_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/loader/URLClassPath;)V", nullptr, 0, $method(ClassLoaders$BootClassLoader, init$, void, $URLClassPath*)},
-	{"loadClassOrNull", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(ClassLoaders$BootClassLoader, loadClassOrNull, $Class*, $String*, bool)},
-	{}
-};
-
-$InnerClassInfo _ClassLoaders$BootClassLoader_InnerClassesInfo_[] = {
-	{"jdk.internal.loader.ClassLoaders$BootClassLoader", "jdk.internal.loader.ClassLoaders", "BootClassLoader", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ClassLoaders$BootClassLoader_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.loader.ClassLoaders$BootClassLoader",
-	"jdk.internal.loader.BuiltinClassLoader",
-	nullptr,
-	nullptr,
-	_ClassLoaders$BootClassLoader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassLoaders$BootClassLoader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.loader.ClassLoaders"
-};
-
-$Object* allocate$ClassLoaders$BootClassLoader($Class* clazz) {
-	return $of($alloc(ClassLoaders$BootClassLoader));
-}
 
 void ClassLoaders$BootClassLoader::init$($URLClassPath* bcp) {
 	$BuiltinClassLoader::init$(nullptr, nullptr, bcp);
@@ -64,7 +32,33 @@ ClassLoaders$BootClassLoader::ClassLoaders$BootClassLoader() {
 }
 
 $Class* ClassLoaders$BootClassLoader::load$($String* name, bool initialize) {
-	$loadClass(ClassLoaders$BootClassLoader, name, initialize, &_ClassLoaders$BootClassLoader_ClassInfo_, allocate$ClassLoaders$BootClassLoader);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/loader/URLClassPath;)V", nullptr, 0, $method(ClassLoaders$BootClassLoader, init$, void, $URLClassPath*)},
+		{"loadClassOrNull", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(ClassLoaders$BootClassLoader, loadClassOrNull, $Class*, $String*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.loader.ClassLoaders$BootClassLoader", "jdk.internal.loader.ClassLoaders", "BootClassLoader", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.loader.ClassLoaders$BootClassLoader",
+		"jdk.internal.loader.BuiltinClassLoader",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.loader.ClassLoaders"
+	};
+	$loadClass(ClassLoaders$BootClassLoader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassLoaders$BootClassLoader);
+	});
 	return class$;
 }
 

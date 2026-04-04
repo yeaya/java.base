@@ -31,6 +31,7 @@ class DHPrivateKey : public ::javax::crypto::interfaces::DHPrivateKey {
 	$class(DHPrivateKey, 0, ::javax::crypto::interfaces::DHPrivateKey)
 public:
 	DHPrivateKey();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::math::BigInteger* x, ::java::math::BigInteger* p, ::java::math::BigInteger* g);
 	void init$(::java::math::BigInteger* x, ::java::math::BigInteger* p, ::java::math::BigInteger* g, int32_t l);
 	void init$($bytes* encodedKey);
@@ -44,7 +45,7 @@ public:
 	virtual int32_t hashCode() override;
 	void parseKeyBits();
 	$Object* writeReplace();
-	static const int64_t serialVersionUID = (int64_t)0x68FDF9C8D4775C16;
+	static const int64_t serialVersionUID = (int64_t)0x68fdf9c8d4775c16;
 	static ::java::math::BigInteger* PKCS8_VERSION;
 	::java::math::BigInteger* x = nullptr;
 	$bytes* key = nullptr;

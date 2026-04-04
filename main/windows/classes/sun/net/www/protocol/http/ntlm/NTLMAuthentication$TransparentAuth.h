@@ -25,6 +25,7 @@ class NTLMAuthentication$TransparentAuth : public ::java::lang::Enum {
 public:
 	NTLMAuthentication$TransparentAuth();
 	static $Array<::sun::net::www::protocol::http::ntlm::NTLMAuthentication$TransparentAuth>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::net::www::protocol::http::ntlm::NTLMAuthentication$TransparentAuth* valueOf($String* name);
 	static $Array<::sun::net::www::protocol::http::ntlm::NTLMAuthentication$TransparentAuth>* values();

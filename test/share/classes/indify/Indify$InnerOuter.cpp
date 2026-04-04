@@ -1,5 +1,4 @@
 #include <indify/Indify$InnerOuter.h>
-
 #include <indify/Indify$Outer.h>
 #include <indify/Indify.h>
 #include <java/lang/AssertionError.h>
@@ -14,51 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace indify {
-
-$FieldInfo _Indify$InnerOuter_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Indify$InnerOuter, $assertionsDisabled)},
-	{"outer", "Lindify/Indify$Outer;", nullptr, $PUBLIC, $field(Indify$InnerOuter, outer$)},
-	{}
-};
-
-$MethodInfo _Indify$InnerOuter_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Indify$InnerOuter, init$, void)},
-	{"linkOuter", "(Lindify/Indify$Outer;)V", nullptr, $PUBLIC, $virtualMethod(Indify$InnerOuter, linkOuter, void, $Indify$Outer*)},
-	{"outer", "()Lindify/Indify$Outer;", nullptr, $PUBLIC, $virtualMethod(Indify$InnerOuter, outer, $Indify$Outer*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Indify$InnerOuter_InnerClassesInfo_[] = {
-	{"indify.Indify$InnerOuter", "indify.Indify", "InnerOuter", $PUBLIC | $STATIC | $ABSTRACT},
-	{"indify.Indify$Outer", "indify.Indify", "Outer", $PUBLIC | $STATIC | $ABSTRACT},
-	{"indify.Indify$Inner", "indify.Indify", "Inner", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Indify$InnerOuter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"indify.Indify$InnerOuter",
-	"indify.Indify$Outer",
-	"indify.Indify$Inner",
-	_Indify$InnerOuter_FieldInfo_,
-	_Indify$InnerOuter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Indify$InnerOuter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"indify.Indify"
-};
-
-$Object* allocate$Indify$InnerOuter($Class* clazz) {
-	return $of($alloc(Indify$InnerOuter));
-}
 
 int32_t Indify$InnerOuter::hashCode() {
 	 return this->$Indify$Outer::hashCode();
@@ -97,7 +51,7 @@ void Indify$InnerOuter::linkOuter($Indify$Outer* o) {
 	$set(this, outer$, o);
 }
 
-void clinit$Indify$InnerOuter($Class* class$) {
+void Indify$InnerOuter::clinit$($Class* clazz) {
 	$load($Indify);
 	Indify$InnerOuter::$assertionsDisabled = !$Indify::class$->desiredAssertionStatus();
 }
@@ -106,7 +60,46 @@ Indify$InnerOuter::Indify$InnerOuter() {
 }
 
 $Class* Indify$InnerOuter::load$($String* name, bool initialize) {
-	$loadClass(Indify$InnerOuter, name, initialize, &_Indify$InnerOuter_ClassInfo_, clinit$Indify$InnerOuter, allocate$Indify$InnerOuter);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Indify$InnerOuter, $assertionsDisabled)},
+		{"outer", "Lindify/Indify$Outer;", nullptr, $PUBLIC, $field(Indify$InnerOuter, outer$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Indify$InnerOuter, init$, void)},
+		{"linkOuter", "(Lindify/Indify$Outer;)V", nullptr, $PUBLIC, $virtualMethod(Indify$InnerOuter, linkOuter, void, $Indify$Outer*)},
+		{"outer", "()Lindify/Indify$Outer;", nullptr, $PUBLIC, $virtualMethod(Indify$InnerOuter, outer, $Indify$Outer*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"indify.Indify$InnerOuter", "indify.Indify", "InnerOuter", $PUBLIC | $STATIC | $ABSTRACT},
+		{"indify.Indify$Outer", "indify.Indify", "Outer", $PUBLIC | $STATIC | $ABSTRACT},
+		{"indify.Indify$Inner", "indify.Indify", "Inner", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"indify.Indify$InnerOuter",
+		"indify.Indify$Outer",
+		"indify.Indify$Inner",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"indify.Indify"
+	};
+	$loadClass(Indify$InnerOuter, name, initialize, &classInfo$$, Indify$InnerOuter::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Indify$InnerOuter));
+	});
 	return class$;
 }
 

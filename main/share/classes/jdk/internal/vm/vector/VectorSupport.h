@@ -157,6 +157,7 @@ class $export VectorSupport : public ::java::lang::Object {
 	$class(VectorSupport, 0, ::java::lang::Object)
 public:
 	VectorSupport();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Object* binaryOp(int32_t oprId, $Class* vmClass, $Class* elementType, int32_t length, Object$* vm1, Object$* vm2, ::java::util::function::BiFunction* defaultImpl);
 	static ::jdk::internal::vm::vector::VectorSupport$Vector* blend($Class* vectorClass, $Class* maskClass, $Class* elementType, int32_t length, ::jdk::internal::vm::vector::VectorSupport$Vector* v1, ::jdk::internal::vm::vector::VectorSupport$Vector* v2, ::jdk::internal::vm::vector::VectorSupport$VectorMask* m, ::jdk::internal::vm::vector::VectorSupport$VectorBlendOp* defaultImpl);

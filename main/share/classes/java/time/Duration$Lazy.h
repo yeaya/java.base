@@ -23,6 +23,7 @@ class Duration$Lazy : public ::java::lang::Object {
 	$class(Duration$Lazy, 0, ::java::lang::Object)
 public:
 	Duration$Lazy();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::regex::Pattern* PATTERN;
 };

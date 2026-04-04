@@ -1,6 +1,4 @@
 #include <javax/net/ssl/SNIHostName$SNIHostNameMatcher.h>
-
-#include <java/lang/CharSequence.h>
 #include <java/net/IDN.h>
 #include <java/util/regex/Matcher.h>
 #include <java/util/regex/Pattern.h>
@@ -13,7 +11,6 @@
 #undef CASE_INSENSITIVE
 #undef SNI_HOST_NAME
 
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -21,7 +18,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $IDN = ::java::net::IDN;
-using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
 using $SNIHostName = ::javax::net::ssl::SNIHostName;
 using $SNIMatcher = ::javax::net::ssl::SNIMatcher;
@@ -32,49 +28,13 @@ namespace javax {
 	namespace net {
 		namespace ssl {
 
-$FieldInfo _SNIHostName$SNIHostNameMatcher_FieldInfo_[] = {
-	{"pattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $FINAL, $field(SNIHostName$SNIHostNameMatcher, pattern)},
-	{}
-};
-
-$MethodInfo _SNIHostName$SNIHostNameMatcher_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(SNIHostName$SNIHostNameMatcher, init$, void, $String*)},
-	{"matches", "(Ljavax/net/ssl/SNIServerName;)Z", nullptr, $PUBLIC, $virtualMethod(SNIHostName$SNIHostNameMatcher, matches, bool, $SNIServerName*)},
-	{}
-};
-
-$InnerClassInfo _SNIHostName$SNIHostNameMatcher_InnerClassesInfo_[] = {
-	{"javax.net.ssl.SNIHostName$SNIHostNameMatcher", "javax.net.ssl.SNIHostName", "SNIHostNameMatcher", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SNIHostName$SNIHostNameMatcher_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.net.ssl.SNIHostName$SNIHostNameMatcher",
-	"javax.net.ssl.SNIMatcher",
-	nullptr,
-	_SNIHostName$SNIHostNameMatcher_FieldInfo_,
-	_SNIHostName$SNIHostNameMatcher_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SNIHostName$SNIHostNameMatcher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.net.ssl.SNIHostName"
-};
-
-$Object* allocate$SNIHostName$SNIHostNameMatcher($Class* clazz) {
-	return $of($alloc(SNIHostName$SNIHostNameMatcher));
-}
-
 void SNIHostName$SNIHostNameMatcher::init$($String* regex) {
 	$SNIMatcher::init$($StandardConstants::SNI_HOST_NAME);
 	$set(this, pattern, $Pattern::compile(regex, $Pattern::CASE_INSENSITIVE));
 }
 
 bool SNIHostName$SNIHostNameMatcher::matches($SNIServerName* serverName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (serverName == nullptr) {
 		$throwNew($NullPointerException, "The SNIServerName argument cannot be null"_s);
 	}
@@ -84,7 +44,7 @@ bool SNIHostName$SNIHostNameMatcher::matches($SNIServerName* serverName) {
 			$throwNew($IllegalArgumentException, "The server name type is not host_name"_s);
 		}
 		try {
-			$assign(hostname, $new($SNIHostName, $($nc(serverName)->getEncoded())));
+			$assign(hostname, $new($SNIHostName, $(serverName->getEncoded())));
 		} catch ($NullPointerException& e) {
 			return false;
 		} catch ($IllegalArgumentException& e) {
@@ -94,17 +54,47 @@ bool SNIHostName$SNIHostNameMatcher::matches($SNIServerName* serverName) {
 		$assign(hostname, $cast($SNIHostName, serverName));
 	}
 	$var($String, asciiName, $nc(hostname)->getAsciiName());
-	if ($nc($($nc(this->pattern)->matcher(asciiName)))->matches()) {
+	if ($$nc($nc(this->pattern)->matcher(asciiName))->matches()) {
 		return true;
 	}
-	return $nc($($nc(this->pattern)->matcher($($IDN::toUnicode(asciiName)))))->matches();
+	return $$nc(this->pattern->matcher($($IDN::toUnicode(asciiName))))->matches();
 }
 
 SNIHostName$SNIHostNameMatcher::SNIHostName$SNIHostNameMatcher() {
 }
 
 $Class* SNIHostName$SNIHostNameMatcher::load$($String* name, bool initialize) {
-	$loadClass(SNIHostName$SNIHostNameMatcher, name, initialize, &_SNIHostName$SNIHostNameMatcher_ClassInfo_, allocate$SNIHostName$SNIHostNameMatcher);
+	$FieldInfo fieldInfos$$[] = {
+		{"pattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $FINAL, $field(SNIHostName$SNIHostNameMatcher, pattern)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(SNIHostName$SNIHostNameMatcher, init$, void, $String*)},
+		{"matches", "(Ljavax/net/ssl/SNIServerName;)Z", nullptr, $PUBLIC, $virtualMethod(SNIHostName$SNIHostNameMatcher, matches, bool, $SNIServerName*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.net.ssl.SNIHostName$SNIHostNameMatcher", "javax.net.ssl.SNIHostName", "SNIHostNameMatcher", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.net.ssl.SNIHostName$SNIHostNameMatcher",
+		"javax.net.ssl.SNIMatcher",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.net.ssl.SNIHostName"
+	};
+	$loadClass(SNIHostName$SNIHostNameMatcher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SNIHostName$SNIHostNameMatcher);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/concurrent/ConcurrentHashMap$ValueIterator.h>
-
 #include <java/util/NoSuchElementException.h>
 #include <java/util/concurrent/ConcurrentHashMap$BaseIterator.h>
 #include <java/util/concurrent/ConcurrentHashMap$Node.h>
@@ -20,47 +19,6 @@ using $ConcurrentHashMap$Traverser = ::java::util::concurrent::ConcurrentHashMap
 namespace java {
 	namespace util {
 		namespace concurrent {
-
-$MethodInfo _ConcurrentHashMap$ValueIterator_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hasMoreElements", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"*hasNext", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "([Ljava/util/concurrent/ConcurrentHashMap$Node;IIILjava/util/concurrent/ConcurrentHashMap;)V", "([Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;IIILjava/util/concurrent/ConcurrentHashMap<TK;TV;>;)V", 0, $method(ConcurrentHashMap$ValueIterator, init$, void, $ConcurrentHashMap$NodeArray*, int32_t, int32_t, int32_t, $ConcurrentHashMap*)},
-	{"next", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$ValueIterator, next, $Object*)},
-	{"nextElement", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$ValueIterator, nextElement, $Object*)},
-	{"*remove", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _ConcurrentHashMap$ValueIterator_InnerClassesInfo_[] = {
-	{"java.util.concurrent.ConcurrentHashMap$ValueIterator", "java.util.concurrent.ConcurrentHashMap", "ValueIterator", $STATIC | $FINAL},
-	{"java.util.concurrent.ConcurrentHashMap$BaseIterator", "java.util.concurrent.ConcurrentHashMap", "BaseIterator", $STATIC},
-	{}
-};
-
-$ClassInfo _ConcurrentHashMap$ValueIterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.ConcurrentHashMap$ValueIterator",
-	"java.util.concurrent.ConcurrentHashMap$BaseIterator",
-	"java.util.Iterator,java.util.Enumeration",
-	nullptr,
-	_ConcurrentHashMap$ValueIterator_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/concurrent/ConcurrentHashMap$BaseIterator<TK;TV;>;Ljava/util/Iterator<TV;>;Ljava/util/Enumeration<TV;>;",
-	nullptr,
-	_ConcurrentHashMap$ValueIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.ConcurrentHashMap"
-};
-
-$Object* allocate$ConcurrentHashMap$ValueIterator($Class* clazz) {
-	return $of($alloc(ConcurrentHashMap$ValueIterator));
-}
 
 bool ConcurrentHashMap$ValueIterator::hasNext() {
 	 return this->$ConcurrentHashMap$BaseIterator::hasNext();
@@ -99,7 +57,7 @@ void ConcurrentHashMap$ValueIterator::init$($ConcurrentHashMap$NodeArray* tab, i
 }
 
 $Object* ConcurrentHashMap$ValueIterator::next() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentHashMap$Node, p, nullptr);
 	if (($assign(p, this->$ConcurrentHashMap$Traverser::next)) == nullptr) {
 		$throwNew($NoSuchElementException);
@@ -107,18 +65,54 @@ $Object* ConcurrentHashMap$ValueIterator::next() {
 	$var($Object, v, $nc(p)->val);
 	$set(this, lastReturned, p);
 	advance();
-	return $of(v);
+	return v;
 }
 
 $Object* ConcurrentHashMap$ValueIterator::nextElement() {
-	return $of(next());
+	return next();
 }
 
 ConcurrentHashMap$ValueIterator::ConcurrentHashMap$ValueIterator() {
 }
 
 $Class* ConcurrentHashMap$ValueIterator::load$($String* name, bool initialize) {
-	$loadClass(ConcurrentHashMap$ValueIterator, name, initialize, &_ConcurrentHashMap$ValueIterator_ClassInfo_, allocate$ConcurrentHashMap$ValueIterator);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hasMoreElements", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"*hasNext", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "([Ljava/util/concurrent/ConcurrentHashMap$Node;IIILjava/util/concurrent/ConcurrentHashMap;)V", "([Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;IIILjava/util/concurrent/ConcurrentHashMap<TK;TV;>;)V", 0, $method(ConcurrentHashMap$ValueIterator, init$, void, $ConcurrentHashMap$NodeArray*, int32_t, int32_t, int32_t, $ConcurrentHashMap*)},
+		{"next", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$ValueIterator, next, $Object*)},
+		{"nextElement", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $FINAL, $virtualMethod(ConcurrentHashMap$ValueIterator, nextElement, $Object*)},
+		{"*remove", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.ConcurrentHashMap$ValueIterator", "java.util.concurrent.ConcurrentHashMap", "ValueIterator", $STATIC | $FINAL},
+		{"java.util.concurrent.ConcurrentHashMap$BaseIterator", "java.util.concurrent.ConcurrentHashMap", "BaseIterator", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.ConcurrentHashMap$ValueIterator",
+		"java.util.concurrent.ConcurrentHashMap$BaseIterator",
+		"java.util.Iterator,java.util.Enumeration",
+		nullptr,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/concurrent/ConcurrentHashMap$BaseIterator<TK;TV;>;Ljava/util/Iterator<TV;>;Ljava/util/Enumeration<TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.ConcurrentHashMap"
+	};
+	$loadClass(ConcurrentHashMap$ValueIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ConcurrentHashMap$ValueIterator));
+	});
 	return class$;
 }
 

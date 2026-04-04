@@ -1,5 +1,4 @@
 #include <java/util/stream/ReduceOps$15.h>
-
 #include <java/util/function/DoubleBinaryOperator.h>
 #include <java/util/stream/ReduceOps$12ReducingSink.h>
 #include <java/util/stream/ReduceOps$AccumulatingSink.h>
@@ -23,50 +22,6 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$FieldInfo _ReduceOps$15_FieldInfo_[] = {
-	{"val$operator", "Ljava/util/function/DoubleBinaryOperator;", nullptr, $FINAL | $SYNTHETIC, $field(ReduceOps$15, val$operator)},
-	{}
-};
-
-$MethodInfo _ReduceOps$15_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/StreamShape;Ljava/util/function/DoubleBinaryOperator;)V", nullptr, 0, $method(ReduceOps$15, init$, void, $StreamShape*, $DoubleBinaryOperator*)},
-	{"makeSink", "()Ljava/util/stream/ReduceOps$12ReducingSink;", nullptr, $PUBLIC, $virtualMethod(ReduceOps$15, makeSink, $ReduceOps$AccumulatingSink*)},
-	{}
-};
-
-$EnclosingMethodInfo _ReduceOps$15_EnclosingMethodInfo_ = {
-	"java.util.stream.ReduceOps",
-	"makeDouble",
-	"(Ljava/util/function/DoubleBinaryOperator;)Ljava/util/stream/TerminalOp;"
-};
-
-$InnerClassInfo _ReduceOps$15_InnerClassesInfo_[] = {
-	{"java.util.stream.ReduceOps$15", nullptr, nullptr, 0},
-	{"java.util.stream.ReduceOps$ReduceOp", "java.util.stream.ReduceOps", "ReduceOp", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.stream.ReduceOps$12ReducingSink", nullptr, "ReducingSink", 0},
-	{}
-};
-
-$ClassInfo _ReduceOps$15_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.ReduceOps$15",
-	"java.util.stream.ReduceOps$ReduceOp",
-	nullptr,
-	_ReduceOps$15_FieldInfo_,
-	_ReduceOps$15_MethodInfo_,
-	"Ljava/util/stream/ReduceOps$ReduceOp<Ljava/lang/Double;Ljava/util/OptionalDouble;Ljava/util/stream/ReduceOps$12ReducingSink;>;",
-	&_ReduceOps$15_EnclosingMethodInfo_,
-	_ReduceOps$15_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.ReduceOps"
-};
-
-$Object* allocate$ReduceOps$15($Class* clazz) {
-	return $of($alloc(ReduceOps$15));
-}
-
 void ReduceOps$15::init$($StreamShape* shape, $DoubleBinaryOperator* val$operator) {
 	$set(this, val$operator, val$operator);
 	$ReduceOps$ReduceOp::init$(shape);
@@ -80,7 +35,44 @@ ReduceOps$15::ReduceOps$15() {
 }
 
 $Class* ReduceOps$15::load$($String* name, bool initialize) {
-	$loadClass(ReduceOps$15, name, initialize, &_ReduceOps$15_ClassInfo_, allocate$ReduceOps$15);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$operator", "Ljava/util/function/DoubleBinaryOperator;", nullptr, $FINAL | $SYNTHETIC, $field(ReduceOps$15, val$operator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/StreamShape;Ljava/util/function/DoubleBinaryOperator;)V", nullptr, 0, $method(ReduceOps$15, init$, void, $StreamShape*, $DoubleBinaryOperator*)},
+		{"makeSink", "()Ljava/util/stream/ReduceOps$12ReducingSink;", nullptr, $PUBLIC, $virtualMethod(ReduceOps$15, makeSink, $ReduceOps$AccumulatingSink*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.ReduceOps",
+		"makeDouble",
+		"(Ljava/util/function/DoubleBinaryOperator;)Ljava/util/stream/TerminalOp;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.ReduceOps$15", nullptr, nullptr, 0},
+		{"java.util.stream.ReduceOps$ReduceOp", "java.util.stream.ReduceOps", "ReduceOp", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.stream.ReduceOps$12ReducingSink", nullptr, "ReducingSink", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.ReduceOps$15",
+		"java.util.stream.ReduceOps$ReduceOp",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/ReduceOps$ReduceOp<Ljava/lang/Double;Ljava/util/OptionalDouble;Ljava/util/stream/ReduceOps$12ReducingSink;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.ReduceOps"
+	};
+	$loadClass(ReduceOps$15, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReduceOps$15);
+	});
 	return class$;
 }
 

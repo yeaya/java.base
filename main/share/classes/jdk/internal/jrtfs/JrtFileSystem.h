@@ -100,6 +100,7 @@ class JrtFileSystem : public ::java::nio::file::FileSystem {
 	$class(JrtFileSystem, 0, ::java::nio::file::FileSystem)
 public:
 	JrtFileSystem();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::jrtfs::JrtFileSystemProvider* provider, ::java::util::Map* env);
 	virtual ::jdk::internal::jimage::ImageReader$Node* checkNode(::jdk::internal::jrtfs::JrtPath* path);
 	static void checkOptions(::java::util::Set* options);

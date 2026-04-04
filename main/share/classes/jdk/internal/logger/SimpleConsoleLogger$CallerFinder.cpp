@@ -1,5 +1,4 @@
 #include <jdk/internal/logger/SimpleConsoleLogger$CallerFinder.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/StackWalker$StackFrame.h>
 #include <java/lang/StackWalker.h>
@@ -12,7 +11,6 @@
 #include <java/security/PrivilegedAction.h>
 #include <java/util/Optional.h>
 #include <java/util/function/Function.h>
-#include <java/util/function/Predicate.h>
 #include <java/util/stream/Stream.h>
 #include <jdk/internal/logger/SimpleConsoleLogger$CallerFinder$1.h>
 #include <jdk/internal/logger/SimpleConsoleLogger$Formatting.h>
@@ -33,7 +31,6 @@ using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Optional = ::java::util::Optional;
 using $Function = ::java::util::function::Function;
-using $Predicate = ::java::util::function::Predicate;
 using $Stream = ::java::util::stream::Stream;
 using $SimpleConsoleLogger$CallerFinder$1 = ::jdk::internal::logger::SimpleConsoleLogger$CallerFinder$1;
 using $SimpleConsoleLogger$Formatting = ::jdk::internal::logger::SimpleConsoleLogger$Formatting;
@@ -49,81 +46,34 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of($nc(inst$)->lambda$get$0($cast($Stream, s)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0>());
+		 return $nc(inst$)->lambda$get$0($cast($Stream, s));
 	}
 	SimpleConsoleLogger$CallerFinder* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0, inst$)},
-	{}
-};
-$MethodInfo SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/logger/SimpleConsoleLogger$CallerFinder;)V", nullptr, $PUBLIC, $method(SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0, init$, void, SimpleConsoleLogger$CallerFinder*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.logger.SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0::load$($String* name, bool initialize) {
-	$loadClass(SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/logger/SimpleConsoleLogger$CallerFinder;)V", nullptr, $PUBLIC, $method(SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0, init$, void, SimpleConsoleLogger$CallerFinder*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.logger.SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0);
+	});
 	return class$;
 }
 $Class* SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0::class$ = nullptr;
-
-$FieldInfo _SimpleConsoleLogger$CallerFinder_FieldInfo_[] = {
-	{"WALKER", "Ljava/lang/StackWalker;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SimpleConsoleLogger$CallerFinder, WALKER)},
-	{"lookingForLogger", "Z", nullptr, $PRIVATE, $field(SimpleConsoleLogger$CallerFinder, lookingForLogger)},
-	{}
-};
-
-$MethodInfo _SimpleConsoleLogger$CallerFinder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SimpleConsoleLogger$CallerFinder, init$, void)},
-	{"get", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/StackWalker$StackFrame;>;", 0, $method(SimpleConsoleLogger$CallerFinder, get, $Optional*)},
-	{"isLoggerImplFrame", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(SimpleConsoleLogger$CallerFinder, isLoggerImplFrame, bool, $String*)},
-	{"lambda$get$0", "(Ljava/util/stream/Stream;)Ljava/util/Optional;", nullptr, $PRIVATE | $SYNTHETIC, $method(SimpleConsoleLogger$CallerFinder, lambda$get$0, $Optional*, $Stream*)},
-	{"test", "(Ljava/lang/StackWalker$StackFrame;)Z", nullptr, $PUBLIC, $method(SimpleConsoleLogger$CallerFinder, test, bool, $StackWalker$StackFrame*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SimpleConsoleLogger$CallerFinder, test, bool, Object$*)},
-	{}
-};
-
-$InnerClassInfo _SimpleConsoleLogger$CallerFinder_InnerClassesInfo_[] = {
-	{"jdk.internal.logger.SimpleConsoleLogger$CallerFinder", "jdk.internal.logger.SimpleConsoleLogger", "CallerFinder", $STATIC | $FINAL},
-	{"jdk.internal.logger.SimpleConsoleLogger$CallerFinder$1", nullptr, nullptr, 0},
-	{"java.lang.StackWalker$StackFrame", "java.lang.StackWalker", "StackFrame", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SimpleConsoleLogger$CallerFinder_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.logger.SimpleConsoleLogger$CallerFinder",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	_SimpleConsoleLogger$CallerFinder_FieldInfo_,
-	_SimpleConsoleLogger$CallerFinder_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/function/Predicate<Ljava/lang/StackWalker$StackFrame;>;",
-	nullptr,
-	_SimpleConsoleLogger$CallerFinder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.logger.SimpleConsoleLogger"
-};
-
-$Object* allocate$SimpleConsoleLogger$CallerFinder($Class* clazz) {
-	return $of($alloc(SimpleConsoleLogger$CallerFinder));
-}
 
 $StackWalker* SimpleConsoleLogger$CallerFinder::WALKER = nullptr;
 
@@ -133,7 +83,7 @@ void SimpleConsoleLogger$CallerFinder::init$() {
 
 $Optional* SimpleConsoleLogger$CallerFinder::get() {
 	$beforeCallerSensitive();
-	return $cast($Optional, $nc(SimpleConsoleLogger$CallerFinder::WALKER)->walk(static_cast<$Function*>($$new(SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0, this))));
+	return $cast($Optional, $nc(SimpleConsoleLogger$CallerFinder::WALKER)->walk($$new(SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0, this)));
 }
 
 bool SimpleConsoleLogger$CallerFinder::test($StackWalker$StackFrame* t) {
@@ -147,7 +97,7 @@ bool SimpleConsoleLogger$CallerFinder::test($StackWalker$StackFrame* t) {
 
 bool SimpleConsoleLogger$CallerFinder::isLoggerImplFrame($String* cname) {
 	bool var$0 = $nc(cname)->equals("sun.util.logging.PlatformLogger"_s);
-	return (var$0 || $nc(cname)->equals("jdk.internal.logger.SimpleConsoleLogger"_s));
+	return (var$0 || cname->equals("jdk.internal.logger.SimpleConsoleLogger"_s));
 }
 
 bool SimpleConsoleLogger$CallerFinder::test(Object$* t) {
@@ -155,10 +105,10 @@ bool SimpleConsoleLogger$CallerFinder::test(Object$* t) {
 }
 
 $Optional* SimpleConsoleLogger$CallerFinder::lambda$get$0($Stream* s) {
-	return $nc($($nc(s)->filter(this)))->findFirst();
+	return $$nc($nc(s)->filter(this))->findFirst();
 }
 
-void clinit$SimpleConsoleLogger$CallerFinder($Class* class$) {
+void SimpleConsoleLogger$CallerFinder::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
 		$var($PrivilegedAction, action, $new($SimpleConsoleLogger$CallerFinder$1));
@@ -171,11 +121,48 @@ SimpleConsoleLogger$CallerFinder::SimpleConsoleLogger$CallerFinder() {
 
 $Class* SimpleConsoleLogger$CallerFinder::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.logger.SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0")) {
 			return SimpleConsoleLogger$CallerFinder$$Lambda$lambda$get$0::load$(name, initialize);
 		}
 	}
-	$loadClass(SimpleConsoleLogger$CallerFinder, name, initialize, &_SimpleConsoleLogger$CallerFinder_ClassInfo_, clinit$SimpleConsoleLogger$CallerFinder, allocate$SimpleConsoleLogger$CallerFinder);
+	$FieldInfo fieldInfos$$[] = {
+		{"WALKER", "Ljava/lang/StackWalker;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SimpleConsoleLogger$CallerFinder, WALKER)},
+		{"lookingForLogger", "Z", nullptr, $PRIVATE, $field(SimpleConsoleLogger$CallerFinder, lookingForLogger)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SimpleConsoleLogger$CallerFinder, init$, void)},
+		{"get", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/StackWalker$StackFrame;>;", 0, $method(SimpleConsoleLogger$CallerFinder, get, $Optional*)},
+		{"isLoggerImplFrame", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(SimpleConsoleLogger$CallerFinder, isLoggerImplFrame, bool, $String*)},
+		{"lambda$get$0", "(Ljava/util/stream/Stream;)Ljava/util/Optional;", nullptr, $PRIVATE | $SYNTHETIC, $method(SimpleConsoleLogger$CallerFinder, lambda$get$0, $Optional*, $Stream*)},
+		{"test", "(Ljava/lang/StackWalker$StackFrame;)Z", nullptr, $PUBLIC, $method(SimpleConsoleLogger$CallerFinder, test, bool, $StackWalker$StackFrame*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SimpleConsoleLogger$CallerFinder, test, bool, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.logger.SimpleConsoleLogger$CallerFinder", "jdk.internal.logger.SimpleConsoleLogger", "CallerFinder", $STATIC | $FINAL},
+		{"jdk.internal.logger.SimpleConsoleLogger$CallerFinder$1", nullptr, nullptr, 0},
+		{"java.lang.StackWalker$StackFrame", "java.lang.StackWalker", "StackFrame", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.logger.SimpleConsoleLogger$CallerFinder",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/function/Predicate<Ljava/lang/StackWalker$StackFrame;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.logger.SimpleConsoleLogger"
+	};
+	$loadClass(SimpleConsoleLogger$CallerFinder, name, initialize, &classInfo$$, SimpleConsoleLogger$CallerFinder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SimpleConsoleLogger$CallerFinder);
+	});
 	return class$;
 }
 

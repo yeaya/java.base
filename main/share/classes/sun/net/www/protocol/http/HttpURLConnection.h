@@ -123,6 +123,7 @@ class $export HttpURLConnection : public ::java::net::HttpURLConnection {
 	$class(HttpURLConnection, 0, ::java::net::HttpURLConnection)
 public:
 	HttpURLConnection();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::URL* u, ::sun::net::www::protocol::http::Handler* handler);
 	void init$(::java::net::URL* u, $String* host, int32_t port);
 	void init$(::java::net::URL* u, ::java::net::Proxy* p);

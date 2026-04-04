@@ -1,5 +1,4 @@
 #include <sun/security/ssl/PreSharedKeyExtension$SHPreSharedKeyProducer.h>
-
 #include <java/util/Map.h>
 #include <sun/security/ssl/ConnectionContext.h>
 #include <sun/security/ssl/PreSharedKeyExtension$SHPreSharedKeySpec.h>
@@ -14,7 +13,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $PreSharedKeyExtension$SHPreSharedKeySpec = ::sun::security::ssl::PreSharedKeyExtension$SHPreSharedKeySpec;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
@@ -25,42 +23,11 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _PreSharedKeyExtension$SHPreSharedKeyProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(PreSharedKeyExtension$SHPreSharedKeyProducer, init$, void)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(PreSharedKeyExtension$SHPreSharedKeyProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _PreSharedKeyExtension$SHPreSharedKeyProducer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeyProducer", "sun.security.ssl.PreSharedKeyExtension", "SHPreSharedKeyProducer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PreSharedKeyExtension$SHPreSharedKeyProducer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeyProducer",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeProducer",
-	nullptr,
-	_PreSharedKeyExtension$SHPreSharedKeyProducer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PreSharedKeyExtension$SHPreSharedKeyProducer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.PreSharedKeyExtension"
-};
-
-$Object* allocate$PreSharedKeyExtension$SHPreSharedKeyProducer($Class* clazz) {
-	return $of($alloc(PreSharedKeyExtension$SHPreSharedKeyProducer));
-}
-
 void PreSharedKeyExtension$SHPreSharedKeyProducer::init$() {
 }
 
 $bytes* PreSharedKeyExtension$SHPreSharedKeyProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	$var($PreSharedKeyExtension$SHPreSharedKeySpec, psk, $cast($PreSharedKeyExtension$SHPreSharedKeySpec, $nc($nc(shc)->handshakeExtensions)->get($SSLExtension::SH_PRE_SHARED_KEY)));
@@ -74,7 +41,33 @@ PreSharedKeyExtension$SHPreSharedKeyProducer::PreSharedKeyExtension$SHPreSharedK
 }
 
 $Class* PreSharedKeyExtension$SHPreSharedKeyProducer::load$($String* name, bool initialize) {
-	$loadClass(PreSharedKeyExtension$SHPreSharedKeyProducer, name, initialize, &_PreSharedKeyExtension$SHPreSharedKeyProducer_ClassInfo_, allocate$PreSharedKeyExtension$SHPreSharedKeyProducer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(PreSharedKeyExtension$SHPreSharedKeyProducer, init$, void)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(PreSharedKeyExtension$SHPreSharedKeyProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeyProducer", "sun.security.ssl.PreSharedKeyExtension", "SHPreSharedKeyProducer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.PreSharedKeyExtension$SHPreSharedKeyProducer",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeProducer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.PreSharedKeyExtension"
+	};
+	$loadClass(PreSharedKeyExtension$SHPreSharedKeyProducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PreSharedKeyExtension$SHPreSharedKeyProducer);
+	});
 	return class$;
 }
 

@@ -18,6 +18,7 @@ class $export GetDefinedPackage$TestClassLoader : public ::java::lang::ClassLoad
 	$class(GetDefinedPackage$TestClassLoader, 0, ::java::lang::ClassLoader)
 public:
 	GetDefinedPackage$TestClassLoader();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::java::lang::ClassLoader::definePackage;
 	void init$();
 	virtual ::java::lang::Package* definePackage($String* name);

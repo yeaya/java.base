@@ -1,5 +1,4 @@
 #include <sun/security/timestamp/HttpTimestamper.h>
-
 #include <java/io/BufferedInputStream.h>
 #include <java/io/DataOutputStream.h>
 #include <java/io/EOFException.h>
@@ -33,9 +32,7 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HttpURLConnection = ::java::net::HttpURLConnection;
 using $URI = ::java::net::URI;
-using $URL = ::java::net::URL;
 using $Iterator = ::java::util::Iterator;
-using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Set = ::java::util::Set;
 using $TSRequest = ::sun::security::timestamp::TSRequest;
@@ -46,142 +43,109 @@ namespace sun {
 	namespace security {
 		namespace timestamp {
 
-$FieldInfo _HttpTimestamper_FieldInfo_[] = {
-	{"CONNECT_TIMEOUT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HttpTimestamper, CONNECT_TIMEOUT)},
-	{"TS_QUERY_MIME_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HttpTimestamper, TS_QUERY_MIME_TYPE)},
-	{"TS_REPLY_MIME_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HttpTimestamper, TS_REPLY_MIME_TYPE)},
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HttpTimestamper, debug)},
-	{"tsaURI", "Ljava/net/URI;", nullptr, $PRIVATE, $field(HttpTimestamper, tsaURI)},
-	{}
-};
-
-$MethodInfo _HttpTimestamper_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $method(HttpTimestamper, init$, void, $URI*)},
-	{"generateTimestamp", "(Lsun/security/timestamp/TSRequest;)Lsun/security/timestamp/TSResponse;", nullptr, $PUBLIC, $virtualMethod(HttpTimestamper, generateTimestamp, $TSResponse*, $TSRequest*), "java.io.IOException"},
-	{"verifyMimeType", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpTimestamper, verifyMimeType, void, $String*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _HttpTimestamper_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.timestamp.HttpTimestamper",
-	"java.lang.Object",
-	"sun.security.timestamp.Timestamper",
-	_HttpTimestamper_FieldInfo_,
-	_HttpTimestamper_MethodInfo_
-};
-
-$Object* allocate$HttpTimestamper($Class* clazz) {
-	return $of($alloc(HttpTimestamper));
-}
-
 $String* HttpTimestamper::TS_QUERY_MIME_TYPE = nullptr;
 $String* HttpTimestamper::TS_REPLY_MIME_TYPE = nullptr;
 $Debug* HttpTimestamper::debug = nullptr;
 
 void HttpTimestamper::init$($URI* tsaURI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, tsaURI, nullptr);
-	bool var$0 = !$nc($($nc(tsaURI)->getScheme()))->equalsIgnoreCase("http"_s);
-	if (var$0 && !$nc($(tsaURI->getScheme()))->equalsIgnoreCase("https"_s)) {
+	bool var$0 = !$$nc($nc(tsaURI)->getScheme())->equalsIgnoreCase("http"_s);
+	if (var$0 && !$$nc(tsaURI->getScheme())->equalsIgnoreCase("https"_s)) {
 		$throwNew($IllegalArgumentException, "TSA must be an HTTP or HTTPS URI"_s);
 	}
 	$set(this, tsaURI, tsaURI);
 }
 
 $TSResponse* HttpTimestamper::generateTimestamp($TSRequest* tsQuery) {
-	$useLocalCurrentObjectStackCache();
-	$var($HttpURLConnection, connection, $cast($HttpURLConnection, $nc($($nc(this->tsaURI)->toURL()))->openConnection()));
+	$useLocalObjectStack();
+	$var($HttpURLConnection, connection, $cast($HttpURLConnection, $$nc($nc(this->tsaURI)->toURL())->openConnection()));
 	$nc(connection)->setDoOutput(true);
 	connection->setUseCaches(false);
 	connection->setRequestProperty("Content-Type"_s, HttpTimestamper::TS_QUERY_MIME_TYPE);
 	connection->setRequestMethod("POST"_s);
 	connection->setConnectTimeout(HttpTimestamper::CONNECT_TIMEOUT);
 	if (HttpTimestamper::debug != nullptr) {
-		$var($Set, headers, $nc($(connection->getRequestProperties()))->entrySet());
-		$nc(HttpTimestamper::debug)->println($$str({$(connection->getRequestMethod()), " "_s, this->tsaURI, " HTTP/1.1"_s}));
+		$var($Set, headers, $$nc(connection->getRequestProperties())->entrySet());
+		HttpTimestamper::debug->println($$str({$(connection->getRequestMethod()), " "_s, this->tsaURI, " HTTP/1.1"_s}));
 		{
 			$var($Iterator, i$, $nc(headers)->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 				{
-					$nc(HttpTimestamper::debug)->println($$str({"  "_s, e}));
+					HttpTimestamper::debug->println($$str({"  "_s, e}));
 				}
 			}
 		}
-		$nc(HttpTimestamper::debug)->println();
+		HttpTimestamper::debug->println();
 	}
 	connection->connect();
 	$var($DataOutputStream, output, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$assign(output, $new($DataOutputStream, $(connection->getOutputStream())));
-			$var($bytes, request, $nc(tsQuery)->encode());
-			output->write(request, 0, $nc(request)->length);
-			output->flush();
-			if (HttpTimestamper::debug != nullptr) {
-				$nc(HttpTimestamper::debug)->println($$str({"sent timestamp query (length="_s, $$str($nc(request)->length), ")"_s}));
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (output != nullptr) {
-				output->close();
-			}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$assign(output, $new($DataOutputStream, $(connection->getOutputStream())));
+		$var($bytes, request, $nc(tsQuery)->encode());
+		output->write(request, 0, $nc(request)->length);
+		output->flush();
+		if (HttpTimestamper::debug != nullptr) {
+			HttpTimestamper::debug->println($$str({"sent timestamp query (length="_s, $$str(request->length), ")"_s}));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (output != nullptr) {
+			output->close();
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	$var($BufferedInputStream, input, nullptr);
 	$var($bytes, replyBuffer, nullptr);
-	{
-		$var($Throwable, var$2, nullptr);
-		try {
-			$assign(input, $new($BufferedInputStream, $(connection->getInputStream())));
-			if (HttpTimestamper::debug != nullptr) {
-				$var($String, header, connection->getHeaderField(0));
-				$nc(HttpTimestamper::debug)->println(header);
-				int32_t i = 1;
-				while (($assign(header, connection->getHeaderField(i))) != nullptr) {
-					$var($String, key, connection->getHeaderFieldKey(i));
-					$nc(HttpTimestamper::debug)->println($$str({"  "_s, ((key == nullptr) ? ""_s : $$str({key, ": "_s})), header}));
-					++i;
-				}
-				$nc(HttpTimestamper::debug)->println();
+	$var($Throwable, var$2, nullptr);
+	try {
+		$assign(input, $new($BufferedInputStream, $(connection->getInputStream())));
+		if (HttpTimestamper::debug != nullptr) {
+			$var($String, header, connection->getHeaderField(0));
+			HttpTimestamper::debug->println(header);
+			int32_t i = 1;
+			while (($assign(header, connection->getHeaderField(i))) != nullptr) {
+				$var($String, key, connection->getHeaderFieldKey(i));
+				HttpTimestamper::debug->println($$str({"  "_s, ((key == nullptr) ? ""_s : $$str({key, ": "_s})), header}));
+				++i;
 			}
-			verifyMimeType($(connection->getContentType()));
-			int32_t clen = connection->getContentLength();
-			$assign(replyBuffer, input->readAllBytes());
-			if (clen != -1 && $nc(replyBuffer)->length != clen) {
-				$throwNew($EOFException, $$str({"Expected:"_s, $$str(clen), ", read:"_s, $$str(replyBuffer->length)}));
-			}
-			if (HttpTimestamper::debug != nullptr) {
-				$nc(HttpTimestamper::debug)->println($$str({"received timestamp response (length="_s, $$str($nc(replyBuffer)->length), ")"_s}));
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$2, var$3);
-		} /*finally*/ {
-			if (input != nullptr) {
-				input->close();
-			}
+			HttpTimestamper::debug->println();
 		}
-		if (var$2 != nullptr) {
-			$throw(var$2);
+		verifyMimeType($(connection->getContentType()));
+		int32_t clen = connection->getContentLength();
+		$assign(replyBuffer, input->readAllBytes());
+		if (clen != -1 && $nc(replyBuffer)->length != clen) {
+			$throwNew($EOFException, $$str({"Expected:"_s, $$str(clen), ", read:"_s, $$str(replyBuffer->length)}));
 		}
+		if (HttpTimestamper::debug != nullptr) {
+			HttpTimestamper::debug->println($$str({"received timestamp response (length="_s, $$str($nc(replyBuffer)->length), ")"_s}));
+		}
+	} catch ($Throwable& var$3) {
+		$assign(var$2, var$3);
+	} /*finally*/ {
+		if (input != nullptr) {
+			input->close();
+		}
+	}
+	if (var$2 != nullptr) {
+		$throw(var$2);
 	}
 	return $new($TSResponse, replyBuffer);
 }
 
 void HttpTimestamper::verifyMimeType($String* contentType) {
 	$init(HttpTimestamper);
-	if (!$nc(HttpTimestamper::TS_REPLY_MIME_TYPE)->equalsIgnoreCase(contentType)) {
+	if (!HttpTimestamper::TS_REPLY_MIME_TYPE->equalsIgnoreCase(contentType)) {
 		$throwNew($IOException, $$str({"MIME Content-Type is not "_s, HttpTimestamper::TS_REPLY_MIME_TYPE}));
 	}
 }
 
-void clinit$HttpTimestamper($Class* class$) {
+void HttpTimestamper::clinit$($Class* clazz) {
 	$assignStatic(HttpTimestamper::TS_QUERY_MIME_TYPE, "application/timestamp-query"_s);
 	$assignStatic(HttpTimestamper::TS_REPLY_MIME_TYPE, "application/timestamp-reply"_s);
 	$assignStatic(HttpTimestamper::debug, $Debug::getInstance("ts"_s));
@@ -191,7 +155,31 @@ HttpTimestamper::HttpTimestamper() {
 }
 
 $Class* HttpTimestamper::load$($String* name, bool initialize) {
-	$loadClass(HttpTimestamper, name, initialize, &_HttpTimestamper_ClassInfo_, clinit$HttpTimestamper, allocate$HttpTimestamper);
+	$FieldInfo fieldInfos$$[] = {
+		{"CONNECT_TIMEOUT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HttpTimestamper, CONNECT_TIMEOUT)},
+		{"TS_QUERY_MIME_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HttpTimestamper, TS_QUERY_MIME_TYPE)},
+		{"TS_REPLY_MIME_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HttpTimestamper, TS_REPLY_MIME_TYPE)},
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HttpTimestamper, debug)},
+		{"tsaURI", "Ljava/net/URI;", nullptr, $PRIVATE, $field(HttpTimestamper, tsaURI)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $method(HttpTimestamper, init$, void, $URI*)},
+		{"generateTimestamp", "(Lsun/security/timestamp/TSRequest;)Lsun/security/timestamp/TSResponse;", nullptr, $PUBLIC, $virtualMethod(HttpTimestamper, generateTimestamp, $TSResponse*, $TSRequest*), "java.io.IOException"},
+		{"verifyMimeType", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(HttpTimestamper, verifyMimeType, void, $String*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.timestamp.HttpTimestamper",
+		"java.lang.Object",
+		"sun.security.timestamp.Timestamper",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpTimestamper, name, initialize, &classInfo$$, HttpTimestamper::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpTimestamper);
+	});
 	return class$;
 }
 

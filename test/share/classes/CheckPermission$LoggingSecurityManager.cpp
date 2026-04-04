@@ -1,5 +1,4 @@
 #include <CheckPermission$LoggingSecurityManager.h>
-
 #include <CheckPermission$Checks.h>
 #include <CheckPermission$FileOperation.h>
 #include <CheckPermission.h>
@@ -22,48 +21,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $ThreadLocal = ::java::lang::ThreadLocal;
 using $Permission = ::java::security::Permission;
-using $List = ::java::util::List;
-using $Set = ::java::util::Set;
-
-$MethodInfo _CheckPermission$LoggingSecurityManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CheckPermission$LoggingSecurityManager, init$, void)},
-	{"checkDelete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckPermission$LoggingSecurityManager, checkDelete, void, $String*)},
-	{"checkExec", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckPermission$LoggingSecurityManager, checkExec, void, $String*)},
-	{"checkFileOperation", "(LCheckPermission$FileOperation;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(CheckPermission$LoggingSecurityManager, checkFileOperation, void, $CheckPermission$FileOperation*, $String*)},
-	{"checkPermission", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(CheckPermission$LoggingSecurityManager, checkPermission, void, $Permission*)},
-	{"checkPropertyAccess", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckPermission$LoggingSecurityManager, checkPropertyAccess, void, $String*)},
-	{"checkRead", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckPermission$LoggingSecurityManager, checkRead, void, $String*)},
-	{"checkWrite", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckPermission$LoggingSecurityManager, checkWrite, void, $String*)},
-	{"install", "()V", nullptr, $STATIC, $staticMethod(CheckPermission$LoggingSecurityManager, install, void)},
-	{}
-};
-
-$InnerClassInfo _CheckPermission$LoggingSecurityManager_InnerClassesInfo_[] = {
-	{"CheckPermission$LoggingSecurityManager", "CheckPermission", "LoggingSecurityManager", $STATIC},
-	{}
-};
-
-$ClassInfo _CheckPermission$LoggingSecurityManager_ClassInfo_ = {
-	$ACC_SUPER,
-	"CheckPermission$LoggingSecurityManager",
-	"java.lang.SecurityManager",
-	nullptr,
-	nullptr,
-	_CheckPermission$LoggingSecurityManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CheckPermission$LoggingSecurityManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"CheckPermission"
-};
-
-$Object* allocate$CheckPermission$LoggingSecurityManager($Class* clazz) {
-	return $of($alloc(CheckPermission$LoggingSecurityManager));
-}
 
 void CheckPermission$LoggingSecurityManager::init$() {
 	$SecurityManager::init$();
@@ -104,20 +62,20 @@ void CheckPermission$LoggingSecurityManager::checkExec($String* file) {
 }
 
 void CheckPermission$LoggingSecurityManager::checkPermission($Permission* perm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($CheckPermission);
 	$var($CheckPermission$Checks, checks, $cast($CheckPermission$Checks, $nc($CheckPermission::myChecks)->get()));
 	if (checks != nullptr) {
-		$nc($(checks->permissionsChecked()))->add(perm);
+		$$nc(checks->permissionsChecked())->add(perm);
 	}
 }
 
 void CheckPermission$LoggingSecurityManager::checkPropertyAccess($String* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($CheckPermission);
 	$var($CheckPermission$Checks, checks, $cast($CheckPermission$Checks, $nc($CheckPermission::myChecks)->get()));
 	if (checks != nullptr) {
-		$nc($(checks->propertiesChecked()))->add(key);
+		$$nc(checks->propertiesChecked())->add(key);
 	}
 }
 
@@ -125,7 +83,40 @@ CheckPermission$LoggingSecurityManager::CheckPermission$LoggingSecurityManager()
 }
 
 $Class* CheckPermission$LoggingSecurityManager::load$($String* name, bool initialize) {
-	$loadClass(CheckPermission$LoggingSecurityManager, name, initialize, &_CheckPermission$LoggingSecurityManager_ClassInfo_, allocate$CheckPermission$LoggingSecurityManager);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CheckPermission$LoggingSecurityManager, init$, void)},
+		{"checkDelete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckPermission$LoggingSecurityManager, checkDelete, void, $String*)},
+		{"checkExec", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckPermission$LoggingSecurityManager, checkExec, void, $String*)},
+		{"checkFileOperation", "(LCheckPermission$FileOperation;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(CheckPermission$LoggingSecurityManager, checkFileOperation, void, $CheckPermission$FileOperation*, $String*)},
+		{"checkPermission", "(Ljava/security/Permission;)V", nullptr, $PUBLIC, $virtualMethod(CheckPermission$LoggingSecurityManager, checkPermission, void, $Permission*)},
+		{"checkPropertyAccess", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckPermission$LoggingSecurityManager, checkPropertyAccess, void, $String*)},
+		{"checkRead", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckPermission$LoggingSecurityManager, checkRead, void, $String*)},
+		{"checkWrite", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CheckPermission$LoggingSecurityManager, checkWrite, void, $String*)},
+		{"install", "()V", nullptr, $STATIC, $staticMethod(CheckPermission$LoggingSecurityManager, install, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"CheckPermission$LoggingSecurityManager", "CheckPermission", "LoggingSecurityManager", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"CheckPermission$LoggingSecurityManager",
+		"java.lang.SecurityManager",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"CheckPermission"
+	};
+	$loadClass(CheckPermission$LoggingSecurityManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CheckPermission$LoggingSecurityManager);
+	});
 	return class$;
 }
 

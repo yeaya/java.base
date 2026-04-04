@@ -1,5 +1,4 @@
 #include <java/util/TreeMap$NavigableSubMap$EntrySetView.h>
-
 #include <java/util/AbstractSet.h>
 #include <java/util/Iterator.h>
 #include <java/util/Map$Entry.h>
@@ -22,49 +21,6 @@ using $TreeMap$NavigableSubMap = ::java::util::TreeMap$NavigableSubMap;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _TreeMap$NavigableSubMap$EntrySetView_FieldInfo_[] = {
-	{"this$0", "Ljava/util/TreeMap$NavigableSubMap;", nullptr, $FINAL | $SYNTHETIC, $field(TreeMap$NavigableSubMap$EntrySetView, this$0)},
-	{"size", "I", nullptr, $PRIVATE | $TRANSIENT, $field(TreeMap$NavigableSubMap$EntrySetView, size$)},
-	{"sizeModCount", "I", nullptr, $PRIVATE | $TRANSIENT, $field(TreeMap$NavigableSubMap$EntrySetView, sizeModCount)},
-	{}
-};
-
-$MethodInfo _TreeMap$NavigableSubMap$EntrySetView_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/TreeMap$NavigableSubMap;)V", nullptr, 0, $method(TreeMap$NavigableSubMap$EntrySetView, init$, void, $TreeMap$NavigableSubMap*)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeMap$NavigableSubMap$EntrySetView, contains, bool, Object$*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(TreeMap$NavigableSubMap$EntrySetView, isEmpty, bool)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeMap$NavigableSubMap$EntrySetView, remove, bool, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(TreeMap$NavigableSubMap$EntrySetView, size, int32_t)},
-	{}
-};
-
-$InnerClassInfo _TreeMap$NavigableSubMap$EntrySetView_InnerClassesInfo_[] = {
-	{"java.util.TreeMap$NavigableSubMap", "java.util.TreeMap", "NavigableSubMap", $STATIC | $ABSTRACT},
-	{"java.util.TreeMap$NavigableSubMap$EntrySetView", "java.util.TreeMap$NavigableSubMap", "EntrySetView", $ABSTRACT},
-	{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TreeMap$NavigableSubMap$EntrySetView_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.TreeMap$NavigableSubMap$EntrySetView",
-	"java.util.AbstractSet",
-	nullptr,
-	_TreeMap$NavigableSubMap$EntrySetView_FieldInfo_,
-	_TreeMap$NavigableSubMap$EntrySetView_MethodInfo_,
-	"Ljava/util/AbstractSet<Ljava/util/Map$Entry<TK;TV;>;>;",
-	nullptr,
-	_TreeMap$NavigableSubMap$EntrySetView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.TreeMap"
-};
-
-$Object* allocate$TreeMap$NavigableSubMap$EntrySetView($Class* clazz) {
-	return $of($alloc(TreeMap$NavigableSubMap$EntrySetView));
-}
 
 void TreeMap$NavigableSubMap$EntrySetView::init$($TreeMap$NavigableSubMap* this$0) {
 	$set(this, this$0, this$0);
@@ -90,11 +46,11 @@ int32_t TreeMap$NavigableSubMap$EntrySetView::size() {
 
 bool TreeMap$NavigableSubMap$EntrySetView::isEmpty() {
 	$var($TreeMap$Entry, n, this->this$0->absLowest());
-	return n == nullptr || this->this$0->tooHigh($nc(n)->key);
+	return n == nullptr || this->this$0->tooHigh(n->key);
 }
 
 bool TreeMap$NavigableSubMap$EntrySetView::contains(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map$Entry, entry, nullptr);
 	bool var$0 = $instanceOf($Map$Entry, o);
 	if (var$0) {
@@ -118,7 +74,7 @@ bool TreeMap$NavigableSubMap$EntrySetView::contains(Object$* o) {
 }
 
 bool TreeMap$NavigableSubMap$EntrySetView::remove(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map$Entry, entry, nullptr);
 	bool var$0 = $instanceOf($Map$Entry, o);
 	if (var$0) {
@@ -139,7 +95,7 @@ bool TreeMap$NavigableSubMap$EntrySetView::remove(Object$* o) {
 		var$1 = $TreeMap::valEquals(var$2, $(entry->getValue()));
 	}
 	if (var$1) {
-		$nc(this->this$0->m)->deleteEntry(node);
+		this->this$0->m->deleteEntry(node);
 		return true;
 	}
 	return false;
@@ -149,7 +105,44 @@ TreeMap$NavigableSubMap$EntrySetView::TreeMap$NavigableSubMap$EntrySetView() {
 }
 
 $Class* TreeMap$NavigableSubMap$EntrySetView::load$($String* name, bool initialize) {
-	$loadClass(TreeMap$NavigableSubMap$EntrySetView, name, initialize, &_TreeMap$NavigableSubMap$EntrySetView_ClassInfo_, allocate$TreeMap$NavigableSubMap$EntrySetView);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/TreeMap$NavigableSubMap;", nullptr, $FINAL | $SYNTHETIC, $field(TreeMap$NavigableSubMap$EntrySetView, this$0)},
+		{"size", "I", nullptr, $PRIVATE | $TRANSIENT, $field(TreeMap$NavigableSubMap$EntrySetView, size$)},
+		{"sizeModCount", "I", nullptr, $PRIVATE | $TRANSIENT, $field(TreeMap$NavigableSubMap$EntrySetView, sizeModCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/TreeMap$NavigableSubMap;)V", nullptr, 0, $method(TreeMap$NavigableSubMap$EntrySetView, init$, void, $TreeMap$NavigableSubMap*)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeMap$NavigableSubMap$EntrySetView, contains, bool, Object$*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(TreeMap$NavigableSubMap$EntrySetView, isEmpty, bool)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TreeMap$NavigableSubMap$EntrySetView, remove, bool, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(TreeMap$NavigableSubMap$EntrySetView, size, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.TreeMap$NavigableSubMap", "java.util.TreeMap", "NavigableSubMap", $STATIC | $ABSTRACT},
+		{"java.util.TreeMap$NavigableSubMap$EntrySetView", "java.util.TreeMap$NavigableSubMap", "EntrySetView", $ABSTRACT},
+		{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.TreeMap$NavigableSubMap$EntrySetView",
+		"java.util.AbstractSet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractSet<Ljava/util/Map$Entry<TK;TV;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.TreeMap"
+	};
+	$loadClass(TreeMap$NavigableSubMap$EntrySetView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TreeMap$NavigableSubMap$EntrySetView));
+	});
 	return class$;
 }
 

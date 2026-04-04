@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/PBKDF2KeyImpl$1.h>
-
 #include <com/sun/crypto/provider/PBKDF2KeyImpl.h>
 #include <java/security/Key.h>
 #include <java/security/MessageDigest.h>
@@ -27,54 +26,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _PBKDF2KeyImpl$1_FieldInfo_[] = {
-	{"val$password", "[B", nullptr, $FINAL | $SYNTHETIC, $field(PBKDF2KeyImpl$1, val$password)},
-	{"val$prf", "Ljavax/crypto/Mac;", nullptr, $FINAL | $SYNTHETIC, $field(PBKDF2KeyImpl$1, val$prf)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PBKDF2KeyImpl$1, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PBKDF2KeyImpl$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/crypto/Mac;[B)V", "()V", 0, $method(PBKDF2KeyImpl$1, init$, void, $Mac*, $bytes*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PBKDF2KeyImpl$1, equals, bool, Object$*)},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PBKDF2KeyImpl$1, getAlgorithm, $String*)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(PBKDF2KeyImpl$1, getEncoded, $bytes*)},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PBKDF2KeyImpl$1, getFormat, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PBKDF2KeyImpl$1, hashCode, int32_t)},
-	{}
-};
-
-$EnclosingMethodInfo _PBKDF2KeyImpl$1_EnclosingMethodInfo_ = {
-	"com.sun.crypto.provider.PBKDF2KeyImpl",
-	"deriveKey",
-	"(Ljavax/crypto/Mac;[B[BII)[B"
-};
-
-$InnerClassInfo _PBKDF2KeyImpl$1_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.PBKDF2KeyImpl$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PBKDF2KeyImpl$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.crypto.provider.PBKDF2KeyImpl$1",
-	"java.lang.Object",
-	"javax.crypto.SecretKey",
-	_PBKDF2KeyImpl$1_FieldInfo_,
-	_PBKDF2KeyImpl$1_MethodInfo_,
-	nullptr,
-	&_PBKDF2KeyImpl$1_EnclosingMethodInfo_,
-	_PBKDF2KeyImpl$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.PBKDF2KeyImpl"
-};
-
-$Object* allocate$PBKDF2KeyImpl$1($Class* clazz) {
-	return $of($alloc(PBKDF2KeyImpl$1));
-}
-
 void PBKDF2KeyImpl$1::init$($Mac* val$prf, $bytes* val$password) {
 	$set(this, val$prf, val$prf);
 	$set(this, val$password, val$password);
@@ -93,14 +44,14 @@ $bytes* PBKDF2KeyImpl$1::getEncoded() {
 }
 
 int32_t PBKDF2KeyImpl$1::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $Arrays::hashCode(this->val$password) * 41;
 	$init($Locale);
-	return var$0 + $($nc($($nc(this->val$prf)->getAlgorithm()))->toLowerCase($Locale::ENGLISH))->hashCode();
+	return var$0 + $($$nc($nc(this->val$prf)->getAlgorithm())->toLowerCase($Locale::ENGLISH))->hashCode();
 }
 
 bool PBKDF2KeyImpl$1::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -108,15 +59,56 @@ bool PBKDF2KeyImpl$1::equals(Object$* obj) {
 		return false;
 	}
 	$var($SecretKey, sk, $cast($SecretKey, obj));
-	bool var$0 = $nc($($nc(this->val$prf)->getAlgorithm()))->equalsIgnoreCase($($nc(sk)->getAlgorithm()));
-	return var$0 && $MessageDigest::isEqual(this->val$password, $($nc(sk)->getEncoded()));
+	bool var$0 = $$nc($nc(this->val$prf)->getAlgorithm())->equalsIgnoreCase($(sk->getAlgorithm()));
+	return var$0 && $MessageDigest::isEqual(this->val$password, $(sk->getEncoded()));
 }
 
 PBKDF2KeyImpl$1::PBKDF2KeyImpl$1() {
 }
 
 $Class* PBKDF2KeyImpl$1::load$($String* name, bool initialize) {
-	$loadClass(PBKDF2KeyImpl$1, name, initialize, &_PBKDF2KeyImpl$1_ClassInfo_, allocate$PBKDF2KeyImpl$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$password", "[B", nullptr, $FINAL | $SYNTHETIC, $field(PBKDF2KeyImpl$1, val$password)},
+		{"val$prf", "Ljavax/crypto/Mac;", nullptr, $FINAL | $SYNTHETIC, $field(PBKDF2KeyImpl$1, val$prf)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PBKDF2KeyImpl$1, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/crypto/Mac;[B)V", "()V", 0, $method(PBKDF2KeyImpl$1, init$, void, $Mac*, $bytes*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PBKDF2KeyImpl$1, equals, bool, Object$*)},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PBKDF2KeyImpl$1, getAlgorithm, $String*)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC, $virtualMethod(PBKDF2KeyImpl$1, getEncoded, $bytes*)},
+		{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PBKDF2KeyImpl$1, getFormat, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PBKDF2KeyImpl$1, hashCode, int32_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.crypto.provider.PBKDF2KeyImpl",
+		"deriveKey",
+		"(Ljavax/crypto/Mac;[B[BII)[B"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.PBKDF2KeyImpl$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.crypto.provider.PBKDF2KeyImpl$1",
+		"java.lang.Object",
+		"javax.crypto.SecretKey",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.PBKDF2KeyImpl"
+	};
+	$loadClass(PBKDF2KeyImpl$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PBKDF2KeyImpl$1));
+	});
 	return class$;
 }
 

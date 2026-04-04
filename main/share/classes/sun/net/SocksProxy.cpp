@@ -1,5 +1,4 @@
 #include <sun/net/SocksProxy.h>
-
 #include <java/net/Proxy$Type.h>
 #include <java/net/Proxy.h>
 #include <java/net/SocketAddress.h>
@@ -16,31 +15,6 @@ using $SocketAddress = ::java::net::SocketAddress;
 
 namespace sun {
 	namespace net {
-
-$FieldInfo _SocksProxy_FieldInfo_[] = {
-	{"version", "I", nullptr, $PRIVATE | $FINAL, $field(SocksProxy, version)},
-	{}
-};
-
-$MethodInfo _SocksProxy_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/SocketAddress;I)V", nullptr, $PRIVATE, $method(SocksProxy, init$, void, $SocketAddress*, int32_t)},
-	{"create", "(Ljava/net/SocketAddress;I)Lsun/net/SocksProxy;", nullptr, $PUBLIC | $STATIC, $staticMethod(SocksProxy, create, SocksProxy*, $SocketAddress*, int32_t)},
-	{"protocolVersion", "()I", nullptr, $PUBLIC, $method(SocksProxy, protocolVersion, int32_t)},
-	{}
-};
-
-$ClassInfo _SocksProxy_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.net.SocksProxy",
-	"java.net.Proxy",
-	nullptr,
-	_SocksProxy_FieldInfo_,
-	_SocksProxy_MethodInfo_
-};
-
-$Object* allocate$SocksProxy($Class* clazz) {
-	return $of($alloc(SocksProxy));
-}
 
 void SocksProxy::init$($SocketAddress* addr, int32_t version) {
 	$init($Proxy$Type);
@@ -61,7 +35,27 @@ SocksProxy::SocksProxy() {
 }
 
 $Class* SocksProxy::load$($String* name, bool initialize) {
-	$loadClass(SocksProxy, name, initialize, &_SocksProxy_ClassInfo_, allocate$SocksProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"version", "I", nullptr, $PRIVATE | $FINAL, $field(SocksProxy, version)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/SocketAddress;I)V", nullptr, $PRIVATE, $method(SocksProxy, init$, void, $SocketAddress*, int32_t)},
+		{"create", "(Ljava/net/SocketAddress;I)Lsun/net/SocksProxy;", nullptr, $PUBLIC | $STATIC, $staticMethod(SocksProxy, create, SocksProxy*, $SocketAddress*, int32_t)},
+		{"protocolVersion", "()I", nullptr, $PUBLIC, $method(SocksProxy, protocolVersion, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.net.SocksProxy",
+		"java.net.Proxy",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SocksProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SocksProxy);
+	});
 	return class$;
 }
 

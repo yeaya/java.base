@@ -1,16 +1,13 @@
 #include <sun/security/ssl/StatusResponseManager.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/InterruptedException.h>
 #include <java/math/BigInteger.h>
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/cert/Extension.h>
 #include <java/security/cert/X509Certificate.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Date.h>
 #include <java/util/HashMap.h>
@@ -21,7 +18,6 @@
 #include <java/util/concurrent/AbstractExecutorService.h>
 #include <java/util/concurrent/ExecutionException.h>
 #include <java/util/concurrent/Future.h>
-#include <java/util/concurrent/RejectedExecutionHandler.h>
 #include <java/util/concurrent/ScheduledThreadPoolExecutor.h>
 #include <java/util/concurrent/ThreadFactory.h>
 #include <java/util/concurrent/ThreadPoolExecutor$DiscardPolicy.h>
@@ -67,7 +63,6 @@ using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $CertStatusExtension$CertStatusRequestArray = $Array<::sun::security::ssl::CertStatusExtension$CertStatusRequest>;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
@@ -76,11 +71,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Extension = ::java::security::cert::Extension;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Date = ::java::util::Date;
 using $HashMap = ::java::util::HashMap;
@@ -90,7 +83,6 @@ using $Map = ::java::util::Map;
 using $Objects = ::java::util::Objects;
 using $ExecutionException = ::java::util::concurrent::ExecutionException;
 using $Future = ::java::util::concurrent::Future;
-using $RejectedExecutionHandler = ::java::util::concurrent::RejectedExecutionHandler;
 using $ScheduledThreadPoolExecutor = ::java::util::concurrent::ScheduledThreadPoolExecutor;
 using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 using $ThreadPoolExecutor$DiscardPolicy = ::java::util::concurrent::ThreadPoolExecutor$DiscardPolicy;
@@ -105,8 +97,6 @@ using $CertStatusExtension$CertStatusRequestSpec = ::sun::security::ssl::CertSta
 using $CertStatusExtension$CertStatusRequestType = ::sun::security::ssl::CertStatusExtension$CertStatusRequestType;
 using $CertStatusExtension$CertStatusRequestV2Spec = ::sun::security::ssl::CertStatusExtension$CertStatusRequestV2Spec;
 using $CertStatusExtension$OCSPStatusRequest = ::sun::security::ssl::CertStatusExtension$OCSPStatusRequest;
-using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $SSLPossession = ::sun::security::ssl::SSLPossession;
@@ -118,7 +108,6 @@ using $StatusResponseManager$StaplingParameters = ::sun::security::ssl::StatusRe
 using $StatusResponseManager$StatusInfo = ::sun::security::ssl::StatusResponseManager$StatusInfo;
 using $X509Authentication$X509Possession = ::sun::security::ssl::X509Authentication$X509Possession;
 using $Cache = ::sun::security::util::Cache;
-using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 using $PKIXExtensions = ::sun::security::x509::PKIXExtensions;
 using $SerialNumber = ::sun::security::x509::SerialNumber;
 
@@ -126,72 +115,12 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _StatusResponseManager_FieldInfo_[] = {
-	{"DEFAULT_CORE_THREADS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StatusResponseManager, DEFAULT_CORE_THREADS)},
-	{"DEFAULT_CACHE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StatusResponseManager, DEFAULT_CACHE_SIZE)},
-	{"DEFAULT_CACHE_LIFETIME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StatusResponseManager, DEFAULT_CACHE_LIFETIME)},
-	{"threadMgr", "Ljava/util/concurrent/ScheduledThreadPoolExecutor;", nullptr, $PRIVATE | $FINAL, $field(StatusResponseManager, threadMgr)},
-	{"responseCache", "Lsun/security/util/Cache;", "Lsun/security/util/Cache<Lsun/security/provider/certpath/CertId;Lsun/security/ssl/StatusResponseManager$ResponseCacheEntry;>;", $PRIVATE | $FINAL, $field(StatusResponseManager, responseCache)},
-	{"defaultResponder", "Ljava/net/URI;", nullptr, $PRIVATE | $FINAL, $field(StatusResponseManager, defaultResponder)},
-	{"respOverride", "Z", nullptr, $PRIVATE | $FINAL, $field(StatusResponseManager, respOverride)},
-	{"cacheCapacity", "I", nullptr, $PRIVATE | $FINAL, $field(StatusResponseManager, cacheCapacity)},
-	{"cacheLifetime", "I", nullptr, $PRIVATE | $FINAL, $field(StatusResponseManager, cacheLifetime)},
-	{"ignoreExtensions", "Z", nullptr, $PRIVATE | $FINAL, $field(StatusResponseManager, ignoreExtensions)},
-	{}
-};
-
-$MethodInfo _StatusResponseManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(StatusResponseManager, init$, void)},
-	{"clear", "()V", nullptr, 0, $method(StatusResponseManager, clear, void)},
-	{"get", "(Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;Lsun/security/ssl/CertStatusExtension$CertStatusRequest;[Ljava/security/cert/X509Certificate;JLjava/util/concurrent/TimeUnit;)Ljava/util/Map;", "(Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;Lsun/security/ssl/CertStatusExtension$CertStatusRequest;[Ljava/security/cert/X509Certificate;JLjava/util/concurrent/TimeUnit;)Ljava/util/Map<Ljava/security/cert/X509Certificate;[B>;", 0, $method(StatusResponseManager, get, $Map*, $CertStatusExtension$CertStatusRequestType*, $CertStatusExtension$CertStatusRequest*, $X509CertificateArray*, int64_t, $TimeUnit*)},
-	{"getCacheCapacity", "()I", nullptr, 0, $method(StatusResponseManager, getCacheCapacity, int32_t)},
-	{"getCacheLifetime", "()I", nullptr, 0, $method(StatusResponseManager, getCacheLifetime, int32_t)},
-	{"getDefaultResponder", "()Ljava/net/URI;", nullptr, 0, $method(StatusResponseManager, getDefaultResponder, $URI*)},
-	{"getFromCache", "(Lsun/security/provider/certpath/CertId;Lsun/security/ssl/CertStatusExtension$OCSPStatusRequest;)Lsun/security/ssl/StatusResponseManager$ResponseCacheEntry;", nullptr, $PRIVATE, $method(StatusResponseManager, getFromCache, $StatusResponseManager$ResponseCacheEntry*, $CertId*, $CertStatusExtension$OCSPStatusRequest*)},
-	{"getIgnoreExtensions", "()Z", nullptr, 0, $method(StatusResponseManager, getIgnoreExtensions, bool)},
-	{"getURI", "(Ljava/security/cert/X509Certificate;)Ljava/net/URI;", nullptr, 0, $method(StatusResponseManager, getURI, $URI*, $X509Certificate*)},
-	{"getURIOverride", "()Z", nullptr, 0, $method(StatusResponseManager, getURIOverride, bool)},
-	{"processStapling", "(Lsun/security/ssl/ServerHandshakeContext;)Lsun/security/ssl/StatusResponseManager$StaplingParameters;", nullptr, $STATIC | $FINAL, $staticMethod(StatusResponseManager, processStapling, $StatusResponseManager$StaplingParameters*, $ServerHandshakeContext*)},
-	{"shutdown", "()V", nullptr, 0, $method(StatusResponseManager, shutdown, void)},
-	{"size", "()I", nullptr, 0, $method(StatusResponseManager, size, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StatusResponseManager, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _StatusResponseManager_InnerClassesInfo_[] = {
-	{"sun.security.ssl.StatusResponseManager$StaplingParameters", "sun.security.ssl.StatusResponseManager", "StaplingParameters", $STATIC | $FINAL},
-	{"sun.security.ssl.StatusResponseManager$OCSPFetchCall", "sun.security.ssl.StatusResponseManager", "OCSPFetchCall", 0},
-	{"sun.security.ssl.StatusResponseManager$ResponseCacheEntry", "sun.security.ssl.StatusResponseManager", "ResponseCacheEntry", $STATIC},
-	{"sun.security.ssl.StatusResponseManager$StatusInfo", "sun.security.ssl.StatusResponseManager", "StatusInfo", 0},
-	{"sun.security.ssl.StatusResponseManager$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _StatusResponseManager_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.StatusResponseManager",
-	"java.lang.Object",
-	nullptr,
-	_StatusResponseManager_FieldInfo_,
-	_StatusResponseManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StatusResponseManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.StatusResponseManager$StaplingParameters,sun.security.ssl.StatusResponseManager$OCSPFetchCall,sun.security.ssl.StatusResponseManager$ResponseCacheEntry,sun.security.ssl.StatusResponseManager$StatusInfo,sun.security.ssl.StatusResponseManager$1"
-};
-
-$Object* allocate$StatusResponseManager($Class* clazz) {
-	return $of($alloc(StatusResponseManager));
-}
-
 void StatusResponseManager::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	int32_t cap = $nc(($cast($Integer, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetIntegerAction, "jdk.tls.stapling.cacheSize"_s, StatusResponseManager::DEFAULT_CACHE_SIZE)))))))->intValue();
+	int32_t cap = $$sure($Integer, $AccessController::doPrivileged($$new($GetIntegerAction, "jdk.tls.stapling.cacheSize"_s, StatusResponseManager::DEFAULT_CACHE_SIZE)))->intValue();
 	this->cacheCapacity = cap > 0 ? cap : 0;
-	int32_t life = $nc(($cast($Integer, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetIntegerAction, "jdk.tls.stapling.cacheLifetime"_s, StatusResponseManager::DEFAULT_CACHE_LIFETIME)))))))->intValue();
+	int32_t life = $$sure($Integer, $AccessController::doPrivileged($$new($GetIntegerAction, "jdk.tls.stapling.cacheLifetime"_s, StatusResponseManager::DEFAULT_CACHE_LIFETIME)))->intValue();
 	this->cacheLifetime = life > 0 ? life : 0;
 	$var($String, uriStr, $GetPropertyAction::privilegedGetProperty("jdk.tls.stapling.responderURI"_s));
 	$var($URI, tmpURI, nullptr);
@@ -203,14 +132,13 @@ void StatusResponseManager::init$() {
 	$set(this, defaultResponder, tmpURI);
 	this->respOverride = $GetBooleanAction::privilegedGetProperty("jdk.tls.stapling.responderOverride"_s);
 	this->ignoreExtensions = $GetBooleanAction::privilegedGetProperty("jdk.tls.stapling.ignoreExtensions"_s);
-	int32_t var$0 = StatusResponseManager::DEFAULT_CORE_THREADS;
-	$var($ThreadFactory, var$1, static_cast<$ThreadFactory*>($new($StatusResponseManager$1, this)));
-	$set(this, threadMgr, $new($ScheduledThreadPoolExecutor, var$0, var$1, $$new($ThreadPoolExecutor$DiscardPolicy)));
-	$nc(this->threadMgr)->setExecuteExistingDelayedTasksAfterShutdownPolicy(false);
-	$nc(this->threadMgr)->setContinueExistingPeriodicTasksAfterShutdownPolicy(false);
+	$var($ThreadFactory, var$0, $new($StatusResponseManager$1, this));
+	$set(this, threadMgr, $new($ScheduledThreadPoolExecutor, StatusResponseManager::DEFAULT_CORE_THREADS, var$0, $$new($ThreadPoolExecutor$DiscardPolicy)));
+	this->threadMgr->setExecuteExistingDelayedTasksAfterShutdownPolicy(false);
+	this->threadMgr->setContinueExistingPeriodicTasksAfterShutdownPolicy(false);
 	$init($TimeUnit);
-	$nc(this->threadMgr)->setKeepAliveTime(5000, $TimeUnit::MILLISECONDS);
-	$nc(this->threadMgr)->allowCoreThreadTimeOut(true);
+	this->threadMgr->setKeepAliveTime(5000, $TimeUnit::MILLISECONDS);
+	this->threadMgr->allowCoreThreadTimeOut(true);
 	$set(this, responseCache, $Cache::newSoftMemoryCache(this->cacheCapacity, this->cacheLifetime));
 }
 
@@ -247,7 +175,7 @@ int32_t StatusResponseManager::size() {
 }
 
 $URI* StatusResponseManager::getURI($X509Certificate* cert) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(cert);
 	$init($PKIXExtensions);
 	if (cert->getExtensionValue($($nc($PKIXExtensions::OCSPNoCheck_Id)->toString())) != nullptr) {
@@ -269,16 +197,16 @@ $URI* StatusResponseManager::getURI($X509Certificate* cert) {
 }
 
 void StatusResponseManager::shutdown() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
-		$SSLLogger::fine($$str({"Shutting down "_s, $$str($nc(this->threadMgr)->getActiveCount()), " active threads"_s}), $$new($ObjectArray, 0));
+		$SSLLogger::fine($$str({"Shutting down "_s, $$str(this->threadMgr->getActiveCount()), " active threads"_s}), $$new($ObjectArray, 0));
 	}
-	$nc(this->threadMgr)->shutdown();
+	this->threadMgr->shutdown();
 }
 
 $Map* StatusResponseManager::get($CertStatusExtension$CertStatusRequestType* type, $CertStatusExtension$CertStatusRequest* request, $X509CertificateArray* chain, int64_t delay, $TimeUnit* unit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, responseMap, $new($HashMap));
 	$var($List, requestList, $new($ArrayList));
 	$init($SSLLogger);
@@ -292,48 +220,44 @@ $Map* StatusResponseManager::get($CertStatusExtension$CertStatusRequestType* typ
 	if (type == $CertStatusExtension$CertStatusRequestType::OCSP) {
 		try {
 			$var($CertStatusExtension$OCSPStatusRequest, ocspReq, $cast($CertStatusExtension$OCSPStatusRequest, request));
-			$var($CertId, cid, $new($CertId, $nc(chain)->get(1), $$new($SerialNumber, $($nc(chain->get(0))->getSerialNumber()))));
+			$var($CertId, cid, $new($CertId, chain->get(1), $$new($SerialNumber, $($nc(chain->get(0))->getSerialNumber()))));
 			$var($StatusResponseManager$ResponseCacheEntry, cacheEntry, getFromCache(cid, ocspReq));
 			if (cacheEntry != nullptr) {
-				responseMap->put($nc(chain)->get(0), cacheEntry->ocspBytes);
+				responseMap->put(chain->get(0), cacheEntry->ocspBytes);
 			} else {
-				$var($StatusResponseManager$StatusInfo, sInfo, $new($StatusResponseManager$StatusInfo, this, $nc(chain)->get(0), cid));
+				$var($StatusResponseManager$StatusInfo, sInfo, $new($StatusResponseManager$StatusInfo, this, chain->get(0), cid));
 				requestList->add($$new($StatusResponseManager$OCSPFetchCall, this, sInfo, ocspReq));
 			}
 		} catch ($IOException& exc) {
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
-				$SSLLogger::fine("Exception during CertId creation: "_s, $$new($ObjectArray, {$of(exc)}));
+				$SSLLogger::fine("Exception during CertId creation: "_s, $$new($ObjectArray, {exc}));
 			}
 		}
-	} else {
-		if (type == $CertStatusExtension$CertStatusRequestType::OCSP_MULTI) {
-			$var($CertStatusExtension$OCSPStatusRequest, ocspReq, $cast($CertStatusExtension$OCSPStatusRequest, request));
-			int32_t ctr = 0;
-			for (ctr = 0; ctr < $nc(chain)->length - 1; ++ctr) {
-				try {
-					$var($CertId, cid, $new($CertId, chain->get(ctr + 1), $$new($SerialNumber, $($nc(chain->get(ctr))->getSerialNumber()))));
-					$var($StatusResponseManager$ResponseCacheEntry, cacheEntry, getFromCache(cid, ocspReq));
-					if (cacheEntry != nullptr) {
-						responseMap->put(chain->get(ctr), cacheEntry->ocspBytes);
-					} else {
-						$var($StatusResponseManager$StatusInfo, sInfo, $new($StatusResponseManager$StatusInfo, this, chain->get(ctr), cid));
-						requestList->add($$new($StatusResponseManager$OCSPFetchCall, this, sInfo, ocspReq));
-					}
-				} catch ($IOException& exc) {
-					if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
-						$SSLLogger::fine("Exception during CertId creation: "_s, $$new($ObjectArray, {$of(exc)}));
-					}
+	} else if (type == $CertStatusExtension$CertStatusRequestType::OCSP_MULTI) {
+		$var($CertStatusExtension$OCSPStatusRequest, ocspReq, $cast($CertStatusExtension$OCSPStatusRequest, request));
+		int32_t ctr = 0;
+		for (ctr = 0; ctr < chain->length - 1; ++ctr) {
+			try {
+				$var($CertId, cid, $new($CertId, chain->get(ctr + 1), $$new($SerialNumber, $($nc(chain->get(ctr))->getSerialNumber()))));
+				$var($StatusResponseManager$ResponseCacheEntry, cacheEntry, getFromCache(cid, ocspReq));
+				if (cacheEntry != nullptr) {
+					responseMap->put(chain->get(ctr), cacheEntry->ocspBytes);
+				} else {
+					$var($StatusResponseManager$StatusInfo, sInfo, $new($StatusResponseManager$StatusInfo, this, chain->get(ctr), cid));
+					requestList->add($$new($StatusResponseManager$OCSPFetchCall, this, sInfo, ocspReq));
+				}
+			} catch ($IOException& exc) {
+				if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
+					$SSLLogger::fine("Exception during CertId creation: "_s, $$new($ObjectArray, {exc}));
 				}
 			}
-		} else {
-			if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
-				$SSLLogger::fine($$str({"Unsupported status request type: "_s, type}), $$new($ObjectArray, 0));
-			}
 		}
+	} else if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
+		$SSLLogger::fine($$str({"Unsupported status request type: "_s, type}), $$new($ObjectArray, 0));
 	}
 	if (!requestList->isEmpty()) {
 		try {
-			$var($List, resultList, $nc(this->threadMgr)->invokeAll(requestList, delay, unit));
+			$var($List, resultList, this->threadMgr->invokeAll(requestList, delay, unit));
 			{
 				$var($Iterator, i$, $nc(resultList)->iterator());
 				for (; $nc(i$)->hasNext();) {
@@ -342,30 +266,26 @@ $Map* StatusResponseManager::get($CertStatusExtension$CertStatusRequestType* typ
 						if (!$nc(task)->isDone()) {
 							continue;
 						}
-						if (!$nc(task)->isCancelled()) {
+						if (!task->isCancelled()) {
 							$var($StatusResponseManager$StatusInfo, info, $cast($StatusResponseManager$StatusInfo, task->get()));
 							if (info != nullptr && info->responseData != nullptr) {
-								responseMap->put(info->cert, $nc(info->responseData)->ocspBytes);
-							} else {
-								if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
-									$SSLLogger::fine("Completed task had no response data"_s, $$new($ObjectArray, 0));
-								}
+								responseMap->put(info->cert, info->responseData->ocspBytes);
+							} else if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
+								$SSLLogger::fine("Completed task had no response data"_s, $$new($ObjectArray, 0));
 							}
-						} else {
-							if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
-								$SSLLogger::fine("Found cancelled task"_s, $$new($ObjectArray, 0));
-							}
+						} else if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
+							$SSLLogger::fine("Found cancelled task"_s, $$new($ObjectArray, 0));
 						}
 					}
 				}
 			}
 		} catch ($InterruptedException& exc) {
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
-				$SSLLogger::fine("Exception when getting data: "_s, $$new($ObjectArray, {$of(exc)}));
+				$SSLLogger::fine("Exception when getting data: "_s, $$new($ObjectArray, {exc}));
 			}
 		} catch ($ExecutionException& exc) {
 			if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
-				$SSLLogger::fine("Exception when getting data: "_s, $$new($ObjectArray, {$of(exc)}));
+				$SSLLogger::fine("Exception when getting data: "_s, $$new($ObjectArray, {exc}));
 			}
 		}
 	}
@@ -373,25 +293,23 @@ $Map* StatusResponseManager::get($CertStatusExtension$CertStatusRequestType* typ
 }
 
 $StatusResponseManager$ResponseCacheEntry* StatusResponseManager::getFromCache($CertId* cid, $CertStatusExtension$OCSPStatusRequest* ocspRequest) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Iterator, i$, $nc($nc(ocspRequest)->extensions)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Extension, ext, $cast($Extension, i$->next()));
-			{
-				$init($PKIXExtensions);
-				if ($nc($($nc(ext)->getId()))->equals($($nc($PKIXExtensions::OCSPNonce_Id)->toString()))) {
-					$init($SSLLogger);
-					if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
-						$SSLLogger::fine("Nonce extension found, skipping cache check"_s, $$new($ObjectArray, 0));
-					}
-					return nullptr;
+			$init($PKIXExtensions);
+			if ($$nc($nc(ext)->getId())->equals($($nc($PKIXExtensions::OCSPNonce_Id)->toString()))) {
+				$init($SSLLogger);
+				if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
+					$SSLLogger::fine("Nonce extension found, skipping cache check"_s, $$new($ObjectArray, 0));
 				}
+				return nullptr;
 			}
 		}
 	}
 	$var($StatusResponseManager$ResponseCacheEntry, respEntry, $cast($StatusResponseManager$ResponseCacheEntry, $nc(this->responseCache)->get(cid)));
-	if (respEntry != nullptr && respEntry->nextUpdate != nullptr && $nc(respEntry->nextUpdate)->before($$new($Date))) {
+	if (respEntry != nullptr && respEntry->nextUpdate != nullptr && respEntry->nextUpdate->before($$new($Date))) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("respmgr"_s)) {
 			$SSLLogger::fine("nextUpdate threshold exceeded, purging from cache"_s, $$new($ObjectArray, 0));
@@ -407,7 +325,7 @@ $StatusResponseManager$ResponseCacheEntry* StatusResponseManager::getFromCache($
 
 $String* StatusResponseManager::toString() {
 	$var($StringBuilder, sb, $new($StringBuilder, "StatusResponseManager: "_s));
-	sb->append("Core threads: "_s)->append($nc(this->threadMgr)->getCorePoolSize());
+	sb->append("Core threads: "_s)->append(this->threadMgr->getCorePoolSize());
 	sb->append(", Cache timeout: "_s);
 	if (this->cacheLifetime > 0) {
 		sb->append(this->cacheLifetime)->append(" seconds"_s);
@@ -422,7 +340,7 @@ $String* StatusResponseManager::toString() {
 	}
 	sb->append(", Default URI: "_s);
 	if (this->defaultResponder != nullptr) {
-		sb->append($of(this->defaultResponder));
+		sb->append(this->defaultResponder);
 	} else {
 		sb->append("NONE"_s);
 	}
@@ -430,20 +348,20 @@ $String* StatusResponseManager::toString() {
 }
 
 $StatusResponseManager$StaplingParameters* StatusResponseManager::processStapling($ServerHandshakeContext* shc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StatusResponseManager$StaplingParameters, params, nullptr);
 	$SSLExtension* ext = nullptr;
 	$CertStatusExtension$CertStatusRequestType* type = nullptr;
 	$var($CertStatusExtension$CertStatusRequest, req, nullptr);
 	$var($Map, responses, nullptr);
-	if (!$nc($nc(shc)->sslContext)->isStaplingEnabled(false) || $nc(shc)->isResumption) {
+	if (!$nc($nc(shc)->sslContext)->isStaplingEnabled(false) || shc->isResumption) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 			$SSLLogger::fine("Staping disabled or is a resumed session"_s, $$new($ObjectArray, 0));
 		}
 		return nullptr;
 	}
-	$var($Map, exts, $nc(shc)->handshakeExtensions);
+	$var($Map, exts, shc->handshakeExtensions);
 	$init($SSLExtension);
 	$var($CertStatusExtension$CertStatusRequestSpec, statReq, $cast($CertStatusExtension$CertStatusRequestSpec, $nc(exts)->get($SSLExtension::CH_STATUS_REQUEST)));
 	$var($CertStatusExtension$CertStatusRequestV2Spec, statReqV2, $cast($CertStatusExtension$CertStatusRequestV2Spec, exts->get($SSLExtension::CH_STATUS_REQUEST_V2)));
@@ -457,32 +375,28 @@ $StatusResponseManager$StaplingParameters* StatusResponseManager::processStaplin
 		int32_t ocspMultiIdx = -1;
 		$var($CertStatusExtension$CertStatusRequestArray, reqItems, statReqV2->certStatusRequests);
 		for (int32_t pos = 0; (pos < $nc(reqItems)->length && (ocspIdx == -1 || ocspMultiIdx == -1)); ++pos) {
-			$var($CertStatusExtension$CertStatusRequest, item, $nc(reqItems)->get(pos));
+			$var($CertStatusExtension$CertStatusRequest, item, reqItems->get(pos));
 			$CertStatusExtension$CertStatusRequestType* curType = $CertStatusExtension$CertStatusRequestType::valueOf($nc(item)->statusType);
 			if (ocspIdx < 0 && curType == $CertStatusExtension$CertStatusRequestType::OCSP) {
 				$var($CertStatusExtension$OCSPStatusRequest, ocspReq, $cast($CertStatusExtension$OCSPStatusRequest, item));
-				if ($nc($nc(ocspReq)->responderIds)->isEmpty()) {
+				if ($nc(ocspReq->responderIds)->isEmpty()) {
 					ocspIdx = pos;
 				}
-			} else {
-				if (ocspMultiIdx < 0 && curType == $CertStatusExtension$CertStatusRequestType::OCSP_MULTI) {
-					$var($CertStatusExtension$OCSPStatusRequest, ocspReq, $cast($CertStatusExtension$OCSPStatusRequest, item));
-					if ($nc($nc(ocspReq)->responderIds)->isEmpty()) {
-						ocspMultiIdx = pos;
-					}
+			} else if (ocspMultiIdx < 0 && curType == $CertStatusExtension$CertStatusRequestType::OCSP_MULTI) {
+				$var($CertStatusExtension$OCSPStatusRequest, ocspReq, $cast($CertStatusExtension$OCSPStatusRequest, item));
+				if ($nc(ocspReq->responderIds)->isEmpty()) {
+					ocspMultiIdx = pos;
 				}
 			}
 		}
 		if (ocspMultiIdx >= 0) {
-			$assign(req, $nc(reqItems)->get(ocspMultiIdx));
+			$assign(req, reqItems->get(ocspMultiIdx));
 			type = $CertStatusExtension$CertStatusRequestType::valueOf($nc(req)->statusType);
 		} else if (ocspIdx >= 0) {
-			$assign(req, $nc(reqItems)->get(ocspIdx));
+			$assign(req, reqItems->get(ocspIdx));
 			type = $CertStatusExtension$CertStatusRequestType::valueOf($nc(req)->statusType);
-		} else {
-			if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-				$SSLLogger::finest("Warning: No suitable request found in the status_request_v2 extension."_s, $$new($ObjectArray, 0));
-			}
+		} else if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
+			$SSLLogger::finest("Warning: No suitable request found in the status_request_v2 extension."_s, $$new($ObjectArray, 0));
 		}
 	}
 	if ((statReq != nullptr) && (ext == nullptr || type == nullptr || req == nullptr)) {
@@ -491,15 +405,13 @@ $StatusResponseManager$StaplingParameters* StatusResponseManager::processStaplin
 			$SSLLogger::fine("SH Processing status_request extension"_s, $$new($ObjectArray, 0));
 		}
 		ext = $SSLExtension::CH_STATUS_REQUEST;
-		type = $CertStatusExtension$CertStatusRequestType::valueOf($nc($nc(statReq)->statusRequest)->statusType);
+		type = $CertStatusExtension$CertStatusRequestType::valueOf($nc(statReq->statusRequest)->statusType);
 		if (type == $CertStatusExtension$CertStatusRequestType::OCSP) {
-			$var($CertStatusExtension$OCSPStatusRequest, ocspReq, $cast($CertStatusExtension$OCSPStatusRequest, $nc(statReq)->statusRequest));
+			$var($CertStatusExtension$OCSPStatusRequest, ocspReq, $cast($CertStatusExtension$OCSPStatusRequest, statReq->statusRequest));
 			if ($nc($nc(ocspReq)->responderIds)->isEmpty()) {
 				$assign(req, ocspReq);
-			} else {
-				if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-					$SSLLogger::finest("Warning: No suitable request found in the status_request extension."_s, $$new($ObjectArray, 0));
-				}
+			} else if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
+				$SSLLogger::finest("Warning: No suitable request found in the status_request extension."_s, $$new($ObjectArray, 0));
 			}
 		}
 	}
@@ -515,11 +427,9 @@ $StatusResponseManager$StaplingParameters* StatusResponseManager::processStaplin
 		$var($Iterator, i$, $nc(shc->handshakePossessions)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($SSLPossession, possession, $cast($SSLPossession, i$->next()));
-			{
-				if ($instanceOf($X509Authentication$X509Possession, possession)) {
-					$assign(x509Possession, $cast($X509Authentication$X509Possession, possession));
-					break;
-				}
+			if ($instanceOf($X509Authentication$X509Possession, possession)) {
+				$assign(x509Possession, $cast($X509Authentication$X509Possession, possession));
+				break;
 			}
 		}
 	}
@@ -531,7 +441,7 @@ $StatusResponseManager$StaplingParameters* StatusResponseManager::processStaplin
 		return nullptr;
 	}
 	$var($X509CertificateArray, certs, $nc(x509Possession)->popCerts);
-	$var(StatusResponseManager, statRespMgr, $nc(shc->sslContext)->getStatusResponseManager());
+	$var(StatusResponseManager, statRespMgr, shc->sslContext->getStatusResponseManager());
 	if (statRespMgr != nullptr) {
 		$init($CertStatusExtension$CertStatusRequestType);
 		$CertStatusExtension$CertStatusRequestType* fetchType = $nc(shc->negotiatedProtocol)->useTLS13PlusSpec() ? $CertStatusExtension$CertStatusRequestType::OCSP_MULTI : type;
@@ -544,7 +454,7 @@ $StatusResponseManager$StaplingParameters* StatusResponseManager::processStaplin
 			}
 			if (type == $CertStatusExtension$CertStatusRequestType::OCSP) {
 				$var($bytes, respDER, $cast($bytes, responses->get($nc(certs)->get(0))));
-				if (respDER == nullptr || $nc(respDER)->length <= 0) {
+				if (respDER == nullptr || respDER->length <= 0) {
 					if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 						$SSLLogger::finest("Warning: Null or zero-length response found for leaf certificate. Stapling is disabled."_s, $$new($ObjectArray, 0));
 					}
@@ -572,7 +482,61 @@ StatusResponseManager::StatusResponseManager() {
 }
 
 $Class* StatusResponseManager::load$($String* name, bool initialize) {
-	$loadClass(StatusResponseManager, name, initialize, &_StatusResponseManager_ClassInfo_, allocate$StatusResponseManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_CORE_THREADS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StatusResponseManager, DEFAULT_CORE_THREADS)},
+		{"DEFAULT_CACHE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StatusResponseManager, DEFAULT_CACHE_SIZE)},
+		{"DEFAULT_CACHE_LIFETIME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StatusResponseManager, DEFAULT_CACHE_LIFETIME)},
+		{"threadMgr", "Ljava/util/concurrent/ScheduledThreadPoolExecutor;", nullptr, $PRIVATE | $FINAL, $field(StatusResponseManager, threadMgr)},
+		{"responseCache", "Lsun/security/util/Cache;", "Lsun/security/util/Cache<Lsun/security/provider/certpath/CertId;Lsun/security/ssl/StatusResponseManager$ResponseCacheEntry;>;", $PRIVATE | $FINAL, $field(StatusResponseManager, responseCache)},
+		{"defaultResponder", "Ljava/net/URI;", nullptr, $PRIVATE | $FINAL, $field(StatusResponseManager, defaultResponder)},
+		{"respOverride", "Z", nullptr, $PRIVATE | $FINAL, $field(StatusResponseManager, respOverride)},
+		{"cacheCapacity", "I", nullptr, $PRIVATE | $FINAL, $field(StatusResponseManager, cacheCapacity)},
+		{"cacheLifetime", "I", nullptr, $PRIVATE | $FINAL, $field(StatusResponseManager, cacheLifetime)},
+		{"ignoreExtensions", "Z", nullptr, $PRIVATE | $FINAL, $field(StatusResponseManager, ignoreExtensions)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(StatusResponseManager, init$, void)},
+		{"clear", "()V", nullptr, 0, $method(StatusResponseManager, clear, void)},
+		{"get", "(Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;Lsun/security/ssl/CertStatusExtension$CertStatusRequest;[Ljava/security/cert/X509Certificate;JLjava/util/concurrent/TimeUnit;)Ljava/util/Map;", "(Lsun/security/ssl/CertStatusExtension$CertStatusRequestType;Lsun/security/ssl/CertStatusExtension$CertStatusRequest;[Ljava/security/cert/X509Certificate;JLjava/util/concurrent/TimeUnit;)Ljava/util/Map<Ljava/security/cert/X509Certificate;[B>;", 0, $method(StatusResponseManager, get, $Map*, $CertStatusExtension$CertStatusRequestType*, $CertStatusExtension$CertStatusRequest*, $X509CertificateArray*, int64_t, $TimeUnit*)},
+		{"getCacheCapacity", "()I", nullptr, 0, $method(StatusResponseManager, getCacheCapacity, int32_t)},
+		{"getCacheLifetime", "()I", nullptr, 0, $method(StatusResponseManager, getCacheLifetime, int32_t)},
+		{"getDefaultResponder", "()Ljava/net/URI;", nullptr, 0, $method(StatusResponseManager, getDefaultResponder, $URI*)},
+		{"getFromCache", "(Lsun/security/provider/certpath/CertId;Lsun/security/ssl/CertStatusExtension$OCSPStatusRequest;)Lsun/security/ssl/StatusResponseManager$ResponseCacheEntry;", nullptr, $PRIVATE, $method(StatusResponseManager, getFromCache, $StatusResponseManager$ResponseCacheEntry*, $CertId*, $CertStatusExtension$OCSPStatusRequest*)},
+		{"getIgnoreExtensions", "()Z", nullptr, 0, $method(StatusResponseManager, getIgnoreExtensions, bool)},
+		{"getURI", "(Ljava/security/cert/X509Certificate;)Ljava/net/URI;", nullptr, 0, $method(StatusResponseManager, getURI, $URI*, $X509Certificate*)},
+		{"getURIOverride", "()Z", nullptr, 0, $method(StatusResponseManager, getURIOverride, bool)},
+		{"processStapling", "(Lsun/security/ssl/ServerHandshakeContext;)Lsun/security/ssl/StatusResponseManager$StaplingParameters;", nullptr, $STATIC | $FINAL, $staticMethod(StatusResponseManager, processStapling, $StatusResponseManager$StaplingParameters*, $ServerHandshakeContext*)},
+		{"shutdown", "()V", nullptr, 0, $method(StatusResponseManager, shutdown, void)},
+		{"size", "()I", nullptr, 0, $method(StatusResponseManager, size, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StatusResponseManager, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.StatusResponseManager$StaplingParameters", "sun.security.ssl.StatusResponseManager", "StaplingParameters", $STATIC | $FINAL},
+		{"sun.security.ssl.StatusResponseManager$OCSPFetchCall", "sun.security.ssl.StatusResponseManager", "OCSPFetchCall", 0},
+		{"sun.security.ssl.StatusResponseManager$ResponseCacheEntry", "sun.security.ssl.StatusResponseManager", "ResponseCacheEntry", $STATIC},
+		{"sun.security.ssl.StatusResponseManager$StatusInfo", "sun.security.ssl.StatusResponseManager", "StatusInfo", 0},
+		{"sun.security.ssl.StatusResponseManager$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.StatusResponseManager",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.StatusResponseManager$StaplingParameters,sun.security.ssl.StatusResponseManager$OCSPFetchCall,sun.security.ssl.StatusResponseManager$ResponseCacheEntry,sun.security.ssl.StatusResponseManager$StatusInfo,sun.security.ssl.StatusResponseManager$1"
+	};
+	$loadClass(StatusResponseManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StatusResponseManager);
+	});
 	return class$;
 }
 

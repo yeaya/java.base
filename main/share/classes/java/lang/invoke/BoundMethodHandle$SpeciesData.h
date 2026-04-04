@@ -29,6 +29,7 @@ class BoundMethodHandle$SpeciesData : public ::java::lang::invoke::ClassSpeciali
 	$class(BoundMethodHandle$SpeciesData, 0, ::java::lang::invoke::ClassSpecializer$SpeciesData)
 public:
 	BoundMethodHandle$SpeciesData();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::BoundMethodHandle$Specializer* outer, $String* key);
 	virtual $String* deriveClassName() override;
 	::java::util::List* deriveFieldTypes($String* key);

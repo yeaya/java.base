@@ -1,5 +1,4 @@
 #include <sun/nio/ch/DummySocketImpl.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/lang/InternalError.h>
@@ -26,46 +25,6 @@ using $Set = ::java::util::Set;
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$MethodInfo _DummySocketImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DummySocketImpl, init$, void)},
-	{"accept", "(Ljava/net/SocketImpl;)V", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, accept, void, $SocketImpl*)},
-	{"available", "()I", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, available, int32_t)},
-	{"bind", "(Ljava/net/InetAddress;I)V", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, bind, void, $InetAddress*, int32_t)},
-	{"close", "()V", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, close, void)},
-	{"connect", "(Ljava/net/SocketAddress;I)V", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, connect, void, $SocketAddress*, int32_t)},
-	{"connect", "(Ljava/lang/String;I)V", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, connect, void, $String*, int32_t)},
-	{"connect", "(Ljava/net/InetAddress;I)V", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, connect, void, $InetAddress*, int32_t)},
-	{"create", "()Ljava/net/SocketImpl;", nullptr, $STATIC, $staticMethod(DummySocketImpl, create, $SocketImpl*)},
-	{"create", "(Z)V", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, create, void, bool)},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, getInputStream, $InputStream*)},
-	{"getOption", "(Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;)TT;", $PROTECTED, $virtualMethod(DummySocketImpl, getOption, $Object*, $SocketOption*)},
-	{"getOption", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DummySocketImpl, getOption, $Object*, int32_t)},
-	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, getOutputStream, $OutputStream*)},
-	{"listen", "(I)V", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, listen, void, int32_t)},
-	{"sendUrgentData", "(I)V", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, sendUrgentData, void, int32_t)},
-	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)V", $PROTECTED, $virtualMethod(DummySocketImpl, setOption, void, $SocketOption*, Object$*)},
-	{"setOption", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DummySocketImpl, setOption, void, int32_t, Object$*)},
-	{"shouldNotGetHere", "()Ljava/lang/Object;", "<T:Ljava/lang/Object;>()TT;", $PRIVATE | $STATIC, $staticMethod(DummySocketImpl, shouldNotGetHere, $Object*)},
-	{"shutdownInput", "()V", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, shutdownInput, void)},
-	{"shutdownOutput", "()V", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, shutdownOutput, void)},
-	{"supportedOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PROTECTED, $virtualMethod(DummySocketImpl, supportedOptions, $Set*)},
-	{"supportsUrgentData", "()Z", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, supportsUrgentData, bool)},
-	{}
-};
-
-$ClassInfo _DummySocketImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.DummySocketImpl",
-	"java.net.SocketImpl",
-	nullptr,
-	nullptr,
-	_DummySocketImpl_MethodInfo_
-};
-
-$Object* allocate$DummySocketImpl($Class* clazz) {
-	return $of($alloc(DummySocketImpl));
-}
 
 void DummySocketImpl::init$() {
 	$SocketImpl::init$();
@@ -119,7 +78,7 @@ $OutputStream* DummySocketImpl::getOutputStream() {
 }
 
 int32_t DummySocketImpl::available() {
-	return $nc(($cast($Integer, $(shouldNotGetHere()))))->intValue();
+	return $$sure($Integer, shouldNotGetHere())->intValue();
 }
 
 void DummySocketImpl::close() {
@@ -135,7 +94,7 @@ void DummySocketImpl::setOption($SocketOption* opt, Object$* value) {
 }
 
 $Object* DummySocketImpl::getOption($SocketOption* opt) {
-	return $of(shouldNotGetHere());
+	return shouldNotGetHere();
 }
 
 void DummySocketImpl::setOption(int32_t opt, Object$* value) {
@@ -143,7 +102,7 @@ void DummySocketImpl::setOption(int32_t opt, Object$* value) {
 }
 
 $Object* DummySocketImpl::getOption(int32_t opt) {
-	return $of(shouldNotGetHere());
+	return shouldNotGetHere();
 }
 
 void DummySocketImpl::shutdownInput() {
@@ -155,7 +114,7 @@ void DummySocketImpl::shutdownOutput() {
 }
 
 bool DummySocketImpl::supportsUrgentData() {
-	return $nc(($cast($Boolean, $(shouldNotGetHere()))))->booleanValue();
+	return $$sure($Boolean, shouldNotGetHere())->booleanValue();
 }
 
 void DummySocketImpl::sendUrgentData(int32_t data) {
@@ -166,7 +125,43 @@ DummySocketImpl::DummySocketImpl() {
 }
 
 $Class* DummySocketImpl::load$($String* name, bool initialize) {
-	$loadClass(DummySocketImpl, name, initialize, &_DummySocketImpl_ClassInfo_, allocate$DummySocketImpl);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DummySocketImpl, init$, void)},
+		{"accept", "(Ljava/net/SocketImpl;)V", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, accept, void, $SocketImpl*)},
+		{"available", "()I", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, available, int32_t)},
+		{"bind", "(Ljava/net/InetAddress;I)V", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, bind, void, $InetAddress*, int32_t)},
+		{"close", "()V", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, close, void)},
+		{"connect", "(Ljava/net/SocketAddress;I)V", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, connect, void, $SocketAddress*, int32_t)},
+		{"connect", "(Ljava/lang/String;I)V", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, connect, void, $String*, int32_t)},
+		{"connect", "(Ljava/net/InetAddress;I)V", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, connect, void, $InetAddress*, int32_t)},
+		{"create", "()Ljava/net/SocketImpl;", nullptr, $STATIC, $staticMethod(DummySocketImpl, create, $SocketImpl*)},
+		{"create", "(Z)V", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, create, void, bool)},
+		{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, getInputStream, $InputStream*)},
+		{"getOption", "(Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;)TT;", $PROTECTED, $virtualMethod(DummySocketImpl, getOption, $Object*, $SocketOption*)},
+		{"getOption", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DummySocketImpl, getOption, $Object*, int32_t)},
+		{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, getOutputStream, $OutputStream*)},
+		{"listen", "(I)V", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, listen, void, int32_t)},
+		{"sendUrgentData", "(I)V", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, sendUrgentData, void, int32_t)},
+		{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)V", $PROTECTED, $virtualMethod(DummySocketImpl, setOption, void, $SocketOption*, Object$*)},
+		{"setOption", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DummySocketImpl, setOption, void, int32_t, Object$*)},
+		{"shouldNotGetHere", "()Ljava/lang/Object;", "<T:Ljava/lang/Object;>()TT;", $PRIVATE | $STATIC, $staticMethod(DummySocketImpl, shouldNotGetHere, $Object*)},
+		{"shutdownInput", "()V", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, shutdownInput, void)},
+		{"shutdownOutput", "()V", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, shutdownOutput, void)},
+		{"supportedOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PROTECTED, $virtualMethod(DummySocketImpl, supportedOptions, $Set*)},
+		{"supportsUrgentData", "()Z", nullptr, $PROTECTED, $virtualMethod(DummySocketImpl, supportsUrgentData, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.DummySocketImpl",
+		"java.net.SocketImpl",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DummySocketImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DummySocketImpl);
+	});
 	return class$;
 }
 

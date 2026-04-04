@@ -36,7 +36,7 @@ public:
 	void initializeParams();
 	virtual $String* paramsToString() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x2FB34F0818292A2E;
+	static const int64_t serialVersionUID = (int64_t)0x2fb34f0818292a2e;
 	::java::math::BigInteger* p = nullptr;
 	::java::math::BigInteger* q = nullptr;
 	::java::math::BigInteger* g = nullptr;

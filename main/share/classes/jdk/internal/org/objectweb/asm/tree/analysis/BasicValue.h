@@ -44,6 +44,7 @@ class BasicValue : public ::jdk::internal::org::objectweb::asm$::tree::analysis:
 	$class(BasicValue, 0, ::jdk::internal::org::objectweb::asm$::tree::analysis::Value)
 public:
 	BasicValue();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::org::objectweb::asm$::Type* type);
 	virtual bool equals(Object$* value) override;
 	virtual int32_t getSize() override;

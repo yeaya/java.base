@@ -34,6 +34,7 @@ class KeyProtector : public ::java::lang::Object {
 	$class(KeyProtector, 0, ::java::lang::Object)
 public:
 	KeyProtector();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($bytes* passwordBytes);
 	$bytes* protect(::java::security::Key* key);
 	::java::security::Key* recover(::sun::security::pkcs::EncryptedPrivateKeyInfo* encrInfo);

@@ -75,6 +75,7 @@ class $export Test4URI : public ::java::lang::Object {
 	$class(Test4URI, 0, ::java::lang::Object)
 public:
 	Test4URI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* s);
 	void init$($String* s, $String* u, $String* h, int32_t n, $String* p, $String* q, $String* f);
 	void init$($String* s, $String* a, $String* p, $String* q, $String* f);

@@ -20,6 +20,7 @@ class $export CodingErrorAction : public ::java::lang::Object {
 	$class(CodingErrorAction, $PRELOAD, ::java::lang::Object)
 public:
 	CodingErrorAction();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	virtual $String* toString() override;
 	$String* name = nullptr;

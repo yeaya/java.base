@@ -33,7 +33,7 @@ public:
 	void readObject(::java::io::ObjectInputStream* s);
 	void sign(::java::security::PrivateKey* signingKey, ::java::security::Signature* signingEngine);
 	bool verify(::java::security::PublicKey* verificationKey, ::java::security::Signature* verificationEngine);
-	static const int64_t serialVersionUID = (int64_t)0x09FFBD682A3CD5FF;
+	static const int64_t serialVersionUID = (int64_t)0x09ffbd682a3cd5ff;
 	$bytes* content = nullptr;
 	$bytes* signature = nullptr;
 	$String* thealgorithm = nullptr;

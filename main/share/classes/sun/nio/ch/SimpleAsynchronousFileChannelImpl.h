@@ -51,6 +51,7 @@ class $export SimpleAsynchronousFileChannelImpl : public ::sun::nio::ch::Asynchr
 	$class(SimpleAsynchronousFileChannelImpl, 0, ::sun::nio::ch::AsynchronousFileChannelImpl)
 public:
 	SimpleAsynchronousFileChannelImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::FileDescriptor* fdObj, bool reading, bool writing, ::java::util::concurrent::ExecutorService* executor);
 	virtual void close() override;
 	virtual void force(bool metaData) override;

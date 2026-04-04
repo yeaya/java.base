@@ -18,6 +18,7 @@ class $export Declared : public ::java::lang::Enum {
 public:
 	Declared();
 	static $Array<::helper::Declared>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::helper::Declared* valueOf($String* name);
 	static $Array<::helper::Declared>* values();

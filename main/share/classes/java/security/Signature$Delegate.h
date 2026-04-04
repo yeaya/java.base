@@ -55,6 +55,7 @@ class Signature$Delegate : public ::java::security::Signature {
 	$class(Signature$Delegate, 0, ::java::security::Signature)
 public:
 	Signature$Delegate();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::SignatureSpi* sigSpi, $String* algorithm);
 	void init$(::java::security::Provider$Service* service, ::java::util::Iterator* iterator, $String* algorithm);
 	virtual void chooseFirstProvider() override;

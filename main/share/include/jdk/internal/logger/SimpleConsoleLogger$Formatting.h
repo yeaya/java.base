@@ -35,6 +35,7 @@ class $import SimpleConsoleLogger$Formatting : public ::java::lang::Object {
 	$class(SimpleConsoleLogger$Formatting, 0, ::java::lang::Object)
 public:
 	SimpleConsoleLogger$Formatting();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* formatMessage($String* format, $ObjectArray* parameters);
 	static $String* getSimpleFormat($String* key, ::java::util::function::Function* defaultPropertyGetter);

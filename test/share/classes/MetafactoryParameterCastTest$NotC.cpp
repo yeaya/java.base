@@ -1,5 +1,4 @@
 #include <MetafactoryParameterCastTest$NotC.h>
-
 #include <MetafactoryParameterCastTest$B.h>
 #include <MetafactoryParameterCastTest.h>
 #include <jcpp.h>
@@ -9,37 +8,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _MetafactoryParameterCastTest$NotC_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetafactoryParameterCastTest$NotC, init$, void)},
-	{}
-};
-
-$InnerClassInfo _MetafactoryParameterCastTest$NotC_InnerClassesInfo_[] = {
-	{"MetafactoryParameterCastTest$NotC", "MetafactoryParameterCastTest", "NotC", $PUBLIC | $STATIC},
-	{"MetafactoryParameterCastTest$B", "MetafactoryParameterCastTest", "B", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MetafactoryParameterCastTest$NotC_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MetafactoryParameterCastTest$NotC",
-	"MetafactoryParameterCastTest$B",
-	nullptr,
-	nullptr,
-	_MetafactoryParameterCastTest$NotC_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetafactoryParameterCastTest$NotC_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"MetafactoryParameterCastTest"
-};
-
-$Object* allocate$MetafactoryParameterCastTest$NotC($Class* clazz) {
-	return $of($alloc(MetafactoryParameterCastTest$NotC));
-}
-
 void MetafactoryParameterCastTest$NotC::init$() {
 	$MetafactoryParameterCastTest$B::init$();
 }
@@ -48,7 +16,33 @@ MetafactoryParameterCastTest$NotC::MetafactoryParameterCastTest$NotC() {
 }
 
 $Class* MetafactoryParameterCastTest$NotC::load$($String* name, bool initialize) {
-	$loadClass(MetafactoryParameterCastTest$NotC, name, initialize, &_MetafactoryParameterCastTest$NotC_ClassInfo_, allocate$MetafactoryParameterCastTest$NotC);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetafactoryParameterCastTest$NotC, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"MetafactoryParameterCastTest$NotC", "MetafactoryParameterCastTest", "NotC", $PUBLIC | $STATIC},
+		{"MetafactoryParameterCastTest$B", "MetafactoryParameterCastTest", "B", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MetafactoryParameterCastTest$NotC",
+		"MetafactoryParameterCastTest$B",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"MetafactoryParameterCastTest"
+	};
+	$loadClass(MetafactoryParameterCastTest$NotC, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetafactoryParameterCastTest$NotC);
+	});
 	return class$;
 }
 

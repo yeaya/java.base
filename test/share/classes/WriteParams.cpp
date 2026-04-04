@@ -1,5 +1,4 @@
 #include <WriteParams.h>
-
 #include <java/io/BufferedWriter.h>
 #include <java/io/CharArrayWriter.h>
 #include <java/io/OutputStream.h>
@@ -17,7 +16,6 @@
 using $charArray2 = $Array<char16_t, 2>;
 using $BufferedWriter = ::java::io::BufferedWriter;
 using $CharArrayWriter = ::java::io::CharArrayWriter;
-using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
 using $PipedReader = ::java::io::PipedReader;
 using $PipedWriter = ::java::io::PipedWriter;
@@ -30,32 +28,6 @@ using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-
-$FieldInfo _WriteParams_FieldInfo_[] = {
-	{"values", "[I", nullptr, $STATIC, $staticField(WriteParams, values)},
-	{"b", "[[C", nullptr, $STATIC, $staticField(WriteParams, b)},
-	{}
-};
-
-$MethodInfo _WriteParams_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WriteParams, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WriteParams, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "(Ljava/io/Writer;)V", nullptr, $STATIC, $staticMethod(WriteParams, test, void, $Writer*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _WriteParams_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"WriteParams",
-	"java.lang.Object",
-	nullptr,
-	_WriteParams_FieldInfo_,
-	_WriteParams_MethodInfo_
-};
-
-$Object* allocate$WriteParams($Class* clazz) {
-	return $of($alloc(WriteParams));
-}
 
 $ints* WriteParams::values = nullptr;
 $charArray2* WriteParams::b = nullptr;
@@ -72,12 +44,12 @@ void WriteParams::test($Writer* wtr) {
 	bool indexOutBnd = false;
 	for (i = 0; i < $nc(WriteParams::b)->length; ++i) {
 		for (j = 0; j < $nc(WriteParams::values)->length; ++j) {
-			for (k = 0; k < $nc(WriteParams::values)->length; ++k) {
-				nullPtr = ($nc(WriteParams::b)->get(i) == nullptr);
-				int32_t bufLen = nullPtr ? 0 : $nc($nc(WriteParams::b)->get(i))->length;
-				indexOutBnd = (($nc(WriteParams::values)->get(j) + $nc(WriteParams::values)->get(k)) < 0) || ($nc(WriteParams::values)->get(j) < 0) || ($nc(WriteParams::values)->get(j) > bufLen) || ($nc(WriteParams::values)->get(k) < 0) || (($nc(WriteParams::values)->get(j) + $nc(WriteParams::values)->get(k)) > bufLen);
+			for (k = 0; k < WriteParams::values->length; ++k) {
+				nullPtr = (WriteParams::b->get(i) == nullptr);
+				int32_t bufLen = nullPtr ? 0 : $nc(WriteParams::b->get(i))->length;
+				indexOutBnd = ((WriteParams::values->get(j) + WriteParams::values->get(k)) < 0) || (WriteParams::values->get(j) < 0) || (WriteParams::values->get(j) > bufLen) || (WriteParams::values->get(k) < 0) || ((WriteParams::values->get(j) + WriteParams::values->get(k)) > bufLen);
 				try {
-					$nc(wtr)->write($nc(WriteParams::b)->get(i), $nc(WriteParams::values)->get(j), $nc(WriteParams::values)->get(k));
+					$nc(wtr)->write(WriteParams::b->get(i), WriteParams::values->get(j), WriteParams::values->get(k));
 				} catch ($NullPointerException& e) {
 					if (!nullPtr) {
 						$throwNew($Exception, "should not throw NullPointerException"_s);
@@ -99,7 +71,7 @@ void WriteParams::test($Writer* wtr) {
 
 void WriteParams::main($StringArray* args) {
 	$init(WriteParams);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringWriter, sw, $new($StringWriter));
 	test(sw);
 	test($$new($BufferedWriter, sw));
@@ -108,7 +80,7 @@ void WriteParams::main($StringArray* args) {
 	test($$new($PipedWriter, $$new($PipedReader)));
 }
 
-void clinit$WriteParams($Class* class$) {
+void WriteParams::clinit$($Class* clazz) {
 	$assignStatic(WriteParams::values, $new($ints, {
 		$Integer::MIN_VALUE,
 		-1,
@@ -122,7 +94,7 @@ void clinit$WriteParams($Class* class$) {
 		$Integer::MAX_VALUE
 	}));
 	$assignStatic(WriteParams::b, $new($charArray2, {
-		($chars*)nullptr,
+		nullptr,
 		$$new($chars, 32)
 	}));
 }
@@ -131,7 +103,28 @@ WriteParams::WriteParams() {
 }
 
 $Class* WriteParams::load$($String* name, bool initialize) {
-	$loadClass(WriteParams, name, initialize, &_WriteParams_ClassInfo_, clinit$WriteParams, allocate$WriteParams);
+	$FieldInfo fieldInfos$$[] = {
+		{"values", "[I", nullptr, $STATIC, $staticField(WriteParams, values)},
+		{"b", "[[C", nullptr, $STATIC, $staticField(WriteParams, b)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WriteParams, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WriteParams, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "(Ljava/io/Writer;)V", nullptr, $STATIC, $staticMethod(WriteParams, test, void, $Writer*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"WriteParams",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WriteParams, name, initialize, &classInfo$$, WriteParams::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WriteParams);
+	});
 	return class$;
 }
 

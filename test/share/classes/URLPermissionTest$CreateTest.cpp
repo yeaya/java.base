@@ -1,5 +1,4 @@
 #include <URLPermissionTest$CreateTest.h>
-
 #include <URLPermissionTest$Test.h>
 #include <URLPermissionTest.h>
 #include <java/net/URLPermission.h>
@@ -12,43 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URLPermission = ::java::net::URLPermission;
-
-$FieldInfo _URLPermissionTest$CreateTest_FieldInfo_[] = {
-	{"arg", "Ljava/lang/String;", nullptr, 0, $field(URLPermissionTest$CreateTest, arg)},
-	{}
-};
-
-$MethodInfo _URLPermissionTest$CreateTest_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(URLPermissionTest$CreateTest, init$, void, $String*)},
-	{"execute", "()Z", nullptr, 0, $virtualMethod(URLPermissionTest$CreateTest, execute, bool)},
-	{}
-};
-
-$InnerClassInfo _URLPermissionTest$CreateTest_InnerClassesInfo_[] = {
-	{"URLPermissionTest$CreateTest", "URLPermissionTest", "CreateTest", $STATIC},
-	{"URLPermissionTest$Test", "URLPermissionTest", "Test", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _URLPermissionTest$CreateTest_ClassInfo_ = {
-	$ACC_SUPER,
-	"URLPermissionTest$CreateTest",
-	"URLPermissionTest$Test",
-	nullptr,
-	_URLPermissionTest$CreateTest_FieldInfo_,
-	_URLPermissionTest$CreateTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_URLPermissionTest$CreateTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"URLPermissionTest"
-};
-
-$Object* allocate$URLPermissionTest$CreateTest($Class* clazz) {
-	return $of($alloc(URLPermissionTest$CreateTest));
-}
 
 void URLPermissionTest$CreateTest::init$($String* arg) {
 	$URLPermissionTest$Test::init$();
@@ -69,7 +31,38 @@ URLPermissionTest$CreateTest::URLPermissionTest$CreateTest() {
 }
 
 $Class* URLPermissionTest$CreateTest::load$($String* name, bool initialize) {
-	$loadClass(URLPermissionTest$CreateTest, name, initialize, &_URLPermissionTest$CreateTest_ClassInfo_, allocate$URLPermissionTest$CreateTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"arg", "Ljava/lang/String;", nullptr, 0, $field(URLPermissionTest$CreateTest, arg)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(URLPermissionTest$CreateTest, init$, void, $String*)},
+		{"execute", "()Z", nullptr, 0, $virtualMethod(URLPermissionTest$CreateTest, execute, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"URLPermissionTest$CreateTest", "URLPermissionTest", "CreateTest", $STATIC},
+		{"URLPermissionTest$Test", "URLPermissionTest", "Test", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"URLPermissionTest$CreateTest",
+		"URLPermissionTest$Test",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"URLPermissionTest"
+	};
+	$loadClass(URLPermissionTest$CreateTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(URLPermissionTest$CreateTest);
+	});
 	return class$;
 }
 

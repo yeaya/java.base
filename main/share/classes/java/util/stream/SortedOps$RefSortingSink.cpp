@@ -1,5 +1,4 @@
 #include <java/util/stream/SortedOps$RefSortingSink.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -48,75 +47,32 @@ public:
 	virtual void accept(Object$* t) override {
 		$nc(inst$)->accept(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SortedOps$RefSortingSink$$Lambda$accept>());
-	}
 	$Consumer* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SortedOps$RefSortingSink$$Lambda$accept::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SortedOps$RefSortingSink$$Lambda$accept, inst$)},
-	{}
-};
-$MethodInfo SortedOps$RefSortingSink$$Lambda$accept::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(SortedOps$RefSortingSink$$Lambda$accept, init$, void, $Consumer*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SortedOps$RefSortingSink$$Lambda$accept, accept, void, Object$*)},
-	{}
-};
-$ClassInfo SortedOps$RefSortingSink$$Lambda$accept::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.stream.SortedOps$RefSortingSink$$Lambda$accept",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* SortedOps$RefSortingSink$$Lambda$accept::load$($String* name, bool initialize) {
-	$loadClass(SortedOps$RefSortingSink$$Lambda$accept, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SortedOps$RefSortingSink$$Lambda$accept, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(SortedOps$RefSortingSink$$Lambda$accept, init$, void, $Consumer*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SortedOps$RefSortingSink$$Lambda$accept, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.stream.SortedOps$RefSortingSink$$Lambda$accept",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SortedOps$RefSortingSink$$Lambda$accept, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SortedOps$RefSortingSink$$Lambda$accept);
+	});
 	return class$;
 }
 $Class* SortedOps$RefSortingSink$$Lambda$accept::class$ = nullptr;
-
-$FieldInfo _SortedOps$RefSortingSink_FieldInfo_[] = {
-	{"list", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<TT;>;", $PRIVATE, $field(SortedOps$RefSortingSink, list)},
-	{}
-};
-
-$MethodInfo _SortedOps$RefSortingSink_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/Sink;Ljava/util/Comparator;)V", "(Ljava/util/stream/Sink<-TT;>;Ljava/util/Comparator<-TT;>;)V", 0, $method(SortedOps$RefSortingSink, init$, void, $Sink*, $Comparator*)},
-	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(SortedOps$RefSortingSink, accept, void, Object$*)},
-	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(SortedOps$RefSortingSink, begin, void, int64_t)},
-	{"end", "()V", nullptr, $PUBLIC, $virtualMethod(SortedOps$RefSortingSink, end, void)},
-	{}
-};
-
-$InnerClassInfo _SortedOps$RefSortingSink_InnerClassesInfo_[] = {
-	{"java.util.stream.SortedOps$RefSortingSink", "java.util.stream.SortedOps", "RefSortingSink", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.stream.SortedOps$AbstractRefSortingSink", "java.util.stream.SortedOps", "AbstractRefSortingSink", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SortedOps$RefSortingSink_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.SortedOps$RefSortingSink",
-	"java.util.stream.SortedOps$AbstractRefSortingSink",
-	nullptr,
-	_SortedOps$RefSortingSink_FieldInfo_,
-	_SortedOps$RefSortingSink_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/util/stream/SortedOps$AbstractRefSortingSink<TT;>;",
-	nullptr,
-	_SortedOps$RefSortingSink_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.SortedOps"
-};
-
-$Object* allocate$SortedOps$RefSortingSink($Class* clazz) {
-	return $of($alloc(SortedOps$RefSortingSink));
-}
 
 void SortedOps$RefSortingSink::init$($Sink* sink, $Comparator* comparator) {
 	$SortedOps$AbstractRefSortingSink::init$(sink, comparator);
@@ -131,26 +87,24 @@ void SortedOps$RefSortingSink::begin(int64_t size) {
 }
 
 void SortedOps$RefSortingSink::end() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->list)->sort(this->comparator);
-	$nc(this->downstream)->begin($nc(this->list)->size());
+	$nc(this->downstream)->begin(this->list->size());
 	if (!this->cancellationRequestedCalled) {
-		$nc(this->list)->forEach(static_cast<$Consumer*>($$new(SortedOps$RefSortingSink$$Lambda$accept, static_cast<$Sink*>($nc(this->downstream)))));
+		$nc(this->list)->forEach($$new(SortedOps$RefSortingSink$$Lambda$accept, this->downstream));
 	} else {
-		{
-			$var($Iterator, i$, $nc(this->list)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Object, t, i$->next());
-				{
-					if ($nc(this->downstream)->cancellationRequested()) {
-						break;
-					}
-					$nc(this->downstream)->accept(t);
+		$var($Iterator, i$, $nc(this->list)->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Object, t, i$->next());
+			{
+				if (this->downstream->cancellationRequested()) {
+					break;
 				}
+				this->downstream->accept(t);
 			}
 		}
 	}
-	$nc(this->downstream)->end();
+	this->downstream->end();
 	$set(this, list, nullptr);
 }
 
@@ -163,11 +117,44 @@ SortedOps$RefSortingSink::SortedOps$RefSortingSink() {
 
 $Class* SortedOps$RefSortingSink::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SortedOps$RefSortingSink$$Lambda$accept::classInfo$.name)) {
+		if (name->equals("java.util.stream.SortedOps$RefSortingSink$$Lambda$accept")) {
 			return SortedOps$RefSortingSink$$Lambda$accept::load$(name, initialize);
 		}
 	}
-	$loadClass(SortedOps$RefSortingSink, name, initialize, &_SortedOps$RefSortingSink_ClassInfo_, allocate$SortedOps$RefSortingSink);
+	$FieldInfo fieldInfos$$[] = {
+		{"list", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<TT;>;", $PRIVATE, $field(SortedOps$RefSortingSink, list)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/Sink;Ljava/util/Comparator;)V", "(Ljava/util/stream/Sink<-TT;>;Ljava/util/Comparator<-TT;>;)V", 0, $method(SortedOps$RefSortingSink, init$, void, $Sink*, $Comparator*)},
+		{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(SortedOps$RefSortingSink, accept, void, Object$*)},
+		{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(SortedOps$RefSortingSink, begin, void, int64_t)},
+		{"end", "()V", nullptr, $PUBLIC, $virtualMethod(SortedOps$RefSortingSink, end, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.SortedOps$RefSortingSink", "java.util.stream.SortedOps", "RefSortingSink", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.stream.SortedOps$AbstractRefSortingSink", "java.util.stream.SortedOps", "AbstractRefSortingSink", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.SortedOps$RefSortingSink",
+		"java.util.stream.SortedOps$AbstractRefSortingSink",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/util/stream/SortedOps$AbstractRefSortingSink<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.SortedOps"
+	};
+	$loadClass(SortedOps$RefSortingSink, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SortedOps$RefSortingSink);
+	});
 	return class$;
 }
 

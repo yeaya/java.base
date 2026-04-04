@@ -1,5 +1,4 @@
 #include <sun/security/rsa/RSAPrivateKeyImpl.h>
-
 #include <java/io/IOException.h>
 #include <java/math/BigInteger.h>
 #include <java/security/InvalidKeyException.h>
@@ -35,46 +34,6 @@ namespace sun {
 	namespace security {
 		namespace rsa {
 
-$FieldInfo _RSAPrivateKeyImpl_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RSAPrivateKeyImpl, serialVersionUID)},
-	{"n", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(RSAPrivateKeyImpl, n)},
-	{"d", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(RSAPrivateKeyImpl, d)},
-	{"type", "Lsun/security/rsa/RSAUtil$KeyType;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(RSAPrivateKeyImpl, type)},
-	{"keyParams", "Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(RSAPrivateKeyImpl, keyParams)},
-	{}
-};
-
-$MethodInfo _RSAPrivateKeyImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*destroy", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getEncoded", "()[B", nullptr, $PUBLIC},
-	{"*getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Lsun/security/rsa/RSAUtil$KeyType;Ljava/security/spec/AlgorithmParameterSpec;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, 0, $method(RSAPrivateKeyImpl, init$, void, $RSAUtil$KeyType*, $AlgorithmParameterSpec*, $BigInteger*, $BigInteger*), "java.security.InvalidKeyException"},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateKeyImpl, getAlgorithm, $String*)},
-	{"getModulus", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateKeyImpl, getModulus, $BigInteger*)},
-	{"getParams", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateKeyImpl, getParams, $AlgorithmParameterSpec*)},
-	{"getPrivateExponent", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateKeyImpl, getPrivateExponent, $BigInteger*)},
-	{"*isDestroyed", "()Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateKeyImpl, toString, $String*)},
-	{}
-};
-
-$ClassInfo _RSAPrivateKeyImpl_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.rsa.RSAPrivateKeyImpl",
-	"sun.security.pkcs.PKCS8Key",
-	"java.security.interfaces.RSAPrivateKey",
-	_RSAPrivateKeyImpl_FieldInfo_,
-	_RSAPrivateKeyImpl_MethodInfo_
-};
-
-$Object* allocate$RSAPrivateKeyImpl($Class* clazz) {
-	return $of($alloc(RSAPrivateKeyImpl));
-}
-
 $bytes* RSAPrivateKeyImpl::getEncoded() {
 	 return this->$PKCS8Key::getEncoded();
 }
@@ -108,7 +67,7 @@ bool RSAPrivateKeyImpl::isDestroyed() {
 }
 
 void RSAPrivateKeyImpl::init$($RSAUtil$KeyType* type, $AlgorithmParameterSpec* keyParams, $BigInteger* n, $BigInteger* d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$PKCS8Key::init$();
 	$RSAKeyFactory::checkRSAProviderKeyLengths($nc(n)->bitLength(), nullptr);
 	$set(this, n, n);
@@ -116,14 +75,14 @@ void RSAPrivateKeyImpl::init$($RSAUtil$KeyType* type, $AlgorithmParameterSpec* k
 	try {
 		$set(this, algid, $RSAUtil::createAlgorithmId(type, keyParams));
 	} catch ($ProviderException& pe) {
-		$throwNew($InvalidKeyException, static_cast<$Throwable*>(pe));
+		$throwNew($InvalidKeyException, pe);
 	}
 	$set(this, type, type);
 	$set(this, keyParams, keyParams);
 	try {
-		$var($bytes, nbytes, $nc(n)->toByteArray());
+		$var($bytes, nbytes, n->toByteArray());
 		$var($bytes, dbytes, $nc(d)->toByteArray());
-		$var($DerOutputStream, out, $new($DerOutputStream, $nc(nbytes)->length + $nc(dbytes)->length + 50));
+		$var($DerOutputStream, out, $new($DerOutputStream, nbytes->length + dbytes->length + 50));
 		out->putInteger(0);
 		out->putInteger(nbytes);
 		$Arrays::fill(nbytes, (int8_t)0);
@@ -139,7 +98,7 @@ void RSAPrivateKeyImpl::init$($RSAUtil$KeyType* type, $AlgorithmParameterSpec* k
 		$set(this, key, $nc(val)->toByteArray());
 		val->clear();
 	} catch ($IOException& exc) {
-		$throwNew($InvalidKeyException, static_cast<$Throwable*>(exc));
+		$throwNew($InvalidKeyException, exc);
 	}
 }
 
@@ -167,7 +126,42 @@ RSAPrivateKeyImpl::RSAPrivateKeyImpl() {
 }
 
 $Class* RSAPrivateKeyImpl::load$($String* name, bool initialize) {
-	$loadClass(RSAPrivateKeyImpl, name, initialize, &_RSAPrivateKeyImpl_ClassInfo_, allocate$RSAPrivateKeyImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RSAPrivateKeyImpl, serialVersionUID)},
+		{"n", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(RSAPrivateKeyImpl, n)},
+		{"d", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $FINAL, $field(RSAPrivateKeyImpl, d)},
+		{"type", "Lsun/security/rsa/RSAUtil$KeyType;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(RSAPrivateKeyImpl, type)},
+		{"keyParams", "Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(RSAPrivateKeyImpl, keyParams)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*destroy", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getEncoded", "()[B", nullptr, $PUBLIC},
+		{"*getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Lsun/security/rsa/RSAUtil$KeyType;Ljava/security/spec/AlgorithmParameterSpec;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, 0, $method(RSAPrivateKeyImpl, init$, void, $RSAUtil$KeyType*, $AlgorithmParameterSpec*, $BigInteger*, $BigInteger*), "java.security.InvalidKeyException"},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateKeyImpl, getAlgorithm, $String*)},
+		{"getModulus", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateKeyImpl, getModulus, $BigInteger*)},
+		{"getParams", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateKeyImpl, getParams, $AlgorithmParameterSpec*)},
+		{"getPrivateExponent", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateKeyImpl, getPrivateExponent, $BigInteger*)},
+		{"*isDestroyed", "()Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RSAPrivateKeyImpl, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.rsa.RSAPrivateKeyImpl",
+		"sun.security.pkcs.PKCS8Key",
+		"java.security.interfaces.RSAPrivateKey",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RSAPrivateKeyImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RSAPrivateKeyImpl));
+	});
 	return class$;
 }
 

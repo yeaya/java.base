@@ -24,6 +24,7 @@ class $export Read : public ::java::lang::Object {
 	$class(Read, 0, ::java::lang::Object)
 public:
 	Read();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void initTestFile(::java::io::File* blah);
 	static void main($StringArray* args);

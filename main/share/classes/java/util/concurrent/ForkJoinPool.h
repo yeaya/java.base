@@ -140,6 +140,7 @@ class $export ForkJoinPool : public ::java::util::concurrent::AbstractExecutorSe
 	$class(ForkJoinPool, 0, ::java::util::concurrent::AbstractExecutorService)
 public:
 	ForkJoinPool();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t parallelism);
 	void init$(int32_t parallelism, ::java::util::concurrent::ForkJoinPool$ForkJoinWorkerThreadFactory* factory, ::java::lang::Thread$UncaughtExceptionHandler* handler, bool asyncMode);
@@ -220,7 +221,7 @@ public:
 	void uncompensate();
 	static void unmanagedBlock(::java::util::concurrent::ForkJoinPool$ManagedBlocker* blocker);
 	static const int32_t SWIDTH = 16;
-	static const int32_t SMASK = 0x0000FFFF;
+	static const int32_t SMASK = 0x0000ffff;
 	static const int32_t MAX_CAP = 32767;
 	static const int32_t UNSIGNALLED = 0x80000000; // 1 << 31
 	static const int32_t SS_SEQ = 65536; // 1 << 16
@@ -242,7 +243,7 @@ public:
 	static const int64_t DEFAULT_KEEPALIVE = (int64_t)60000;
 	static const int64_t TIMEOUT_SLOP = (int64_t)20;
 	static const int32_t DEFAULT_COMMON_MAX_SPARES = 256;
-	static const int64_t SP_MASK = (int64_t)0x00000000FFFFFFFF;
+	static const int64_t SP_MASK = (int64_t)0x00000000ffffffff;
 	static const int64_t UC_MASK = ~SP_MASK;
 	static const int32_t RC_SHIFT = 48;
 	static const int64_t RC_UNIT = 281474976710656; // 1L << RC_SHIFT

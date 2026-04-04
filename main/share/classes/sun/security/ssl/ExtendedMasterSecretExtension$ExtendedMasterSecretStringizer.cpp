@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/ByteBuffer.h>
 #include <sun/security/ssl/ExtendedMasterSecretExtension$ExtendedMasterSecretSpec.h>
@@ -19,37 +18,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer, init$, void)},
-	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer", "sun.security.ssl.ExtendedMasterSecretExtension", "ExtendedMasterSecretStringizer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLStringizer",
-	nullptr,
-	_ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ExtendedMasterSecretExtension"
-};
-
-$Object* allocate$ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer($Class* clazz) {
-	return $of($alloc(ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer));
-}
-
 void ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer::init$() {
 }
 
@@ -66,7 +34,33 @@ ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer::ExtendedMasterSecr
 }
 
 $Class* ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer::load$($String* name, bool initialize) {
-	$loadClass(ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer, name, initialize, &_ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer_ClassInfo_, allocate$ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer, init$, void)},
+		{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer", "sun.security.ssl.ExtendedMasterSecretExtension", "ExtendedMasterSecretStringizer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLStringizer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ExtendedMasterSecretExtension"
+	};
+	$loadClass(ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer);
+	});
 	return class$;
 }
 

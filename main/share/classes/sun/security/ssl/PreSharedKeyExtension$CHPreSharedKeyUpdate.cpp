@@ -1,5 +1,4 @@
 #include <sun/security/ssl/PreSharedKeyExtension$CHPreSharedKeyUpdate.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
@@ -26,8 +25,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $Alert = ::sun::security::ssl::Alert;
 using $ClientHello$ClientHelloMessage = ::sun::security::ssl::ClientHello$ClientHelloMessage;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
@@ -38,55 +35,23 @@ using $PreSharedKeyExtension$SHPreSharedKeySpec = ::sun::security::ssl::PreShare
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _PreSharedKeyExtension$CHPreSharedKeyUpdate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(PreSharedKeyExtension$CHPreSharedKeyUpdate, init$, void)},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(PreSharedKeyExtension$CHPreSharedKeyUpdate, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _PreSharedKeyExtension$CHPreSharedKeyUpdate_InnerClassesInfo_[] = {
-	{"sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyUpdate", "sun.security.ssl.PreSharedKeyExtension", "CHPreSharedKeyUpdate", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PreSharedKeyExtension$CHPreSharedKeyUpdate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyUpdate",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeConsumer",
-	nullptr,
-	_PreSharedKeyExtension$CHPreSharedKeyUpdate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PreSharedKeyExtension$CHPreSharedKeyUpdate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.PreSharedKeyExtension"
-};
-
-$Object* allocate$PreSharedKeyExtension$CHPreSharedKeyUpdate($Class* clazz) {
-	return $of($alloc(PreSharedKeyExtension$CHPreSharedKeyUpdate));
-}
-
 void PreSharedKeyExtension$CHPreSharedKeyUpdate::init$() {
 }
 
 void PreSharedKeyExtension$CHPreSharedKeyUpdate::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
-	if (!$nc(shc)->isResumption || $nc(shc)->resumingSession == nullptr) {
+	if (!$nc(shc)->isResumption || shc->resumingSession == nullptr) {
 		return;
 	}
 	$init($SSLExtension);
-	$var($PreSharedKeyExtension$CHPreSharedKeySpec, chPsk, $cast($PreSharedKeyExtension$CHPreSharedKeySpec, $nc($nc(shc)->handshakeExtensions)->get($SSLExtension::CH_PRE_SHARED_KEY)));
-	$var($PreSharedKeyExtension$SHPreSharedKeySpec, shPsk, $cast($PreSharedKeyExtension$SHPreSharedKeySpec, $nc(shc->handshakeExtensions)->get($SSLExtension::SH_PRE_SHARED_KEY)));
+	$var($PreSharedKeyExtension$CHPreSharedKeySpec, chPsk, $cast($PreSharedKeyExtension$CHPreSharedKeySpec, $nc(shc->handshakeExtensions)->get($SSLExtension::CH_PRE_SHARED_KEY)));
+	$var($PreSharedKeyExtension$SHPreSharedKeySpec, shPsk, $cast($PreSharedKeyExtension$SHPreSharedKeySpec, shc->handshakeExtensions->get($SSLExtension::SH_PRE_SHARED_KEY)));
 	if (chPsk == nullptr || shPsk == nullptr) {
 		$init($Alert);
 		$throw($($nc(shc->conContext)->fatal($Alert::INTERNAL_ERROR, "Required extensions are unavailable"_s)));
@@ -107,7 +72,33 @@ PreSharedKeyExtension$CHPreSharedKeyUpdate::PreSharedKeyExtension$CHPreSharedKey
 }
 
 $Class* PreSharedKeyExtension$CHPreSharedKeyUpdate::load$($String* name, bool initialize) {
-	$loadClass(PreSharedKeyExtension$CHPreSharedKeyUpdate, name, initialize, &_PreSharedKeyExtension$CHPreSharedKeyUpdate_ClassInfo_, allocate$PreSharedKeyExtension$CHPreSharedKeyUpdate);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(PreSharedKeyExtension$CHPreSharedKeyUpdate, init$, void)},
+		{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(PreSharedKeyExtension$CHPreSharedKeyUpdate, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyUpdate", "sun.security.ssl.PreSharedKeyExtension", "CHPreSharedKeyUpdate", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.PreSharedKeyExtension$CHPreSharedKeyUpdate",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeConsumer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.PreSharedKeyExtension"
+	};
+	$loadClass(PreSharedKeyExtension$CHPreSharedKeyUpdate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PreSharedKeyExtension$CHPreSharedKeyUpdate);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/SymbolTable.h>
-
 #include <jdk/internal/org/objectweb/asm/ByteVector.h>
 #include <jdk/internal/org/objectweb/asm/ClassReader.h>
 #include <jdk/internal/org/objectweb/asm/ClassWriter.h>
@@ -69,110 +68,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 
-$FieldInfo _SymbolTable_FieldInfo_[] = {
-	{"classWriter", "Ljdk/internal/org/objectweb/asm/ClassWriter;", nullptr, $FINAL, $field(SymbolTable, classWriter)},
-	{"sourceClassReader", "Ljdk/internal/org/objectweb/asm/ClassReader;", nullptr, $PRIVATE | $FINAL, $field(SymbolTable, sourceClassReader)},
-	{"majorVersion", "I", nullptr, $PRIVATE, $field(SymbolTable, majorVersion)},
-	{"className", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SymbolTable, className)},
-	{"entryCount", "I", nullptr, $PRIVATE, $field(SymbolTable, entryCount)},
-	{"entries", "[Ljdk/internal/org/objectweb/asm/SymbolTable$Entry;", nullptr, $PRIVATE, $field(SymbolTable, entries)},
-	{"constantPoolCount", "I", nullptr, $PRIVATE, $field(SymbolTable, constantPoolCount)},
-	{"constantPool", "Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PRIVATE, $field(SymbolTable, constantPool)},
-	{"bootstrapMethodCount", "I", nullptr, $PRIVATE, $field(SymbolTable, bootstrapMethodCount)},
-	{"bootstrapMethods", "Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PRIVATE, $field(SymbolTable, bootstrapMethods)},
-	{"typeCount", "I", nullptr, $PRIVATE, $field(SymbolTable, typeCount)},
-	{"typeTable", "[Ljdk/internal/org/objectweb/asm/SymbolTable$Entry;", nullptr, $PRIVATE, $field(SymbolTable, typeTable)},
-	{}
-};
-
-$MethodInfo _SymbolTable_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/ClassWriter;)V", nullptr, 0, $method(SymbolTable, init$, void, $ClassWriter*)},
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/ClassWriter;Ljdk/internal/org/objectweb/asm/ClassReader;)V", nullptr, 0, $method(SymbolTable, init$, void, $ClassWriter*, $ClassReader*)},
-	{"add", "(Ljdk/internal/org/objectweb/asm/SymbolTable$Entry;)V", nullptr, $PRIVATE, $method(SymbolTable, add, void, $SymbolTable$Entry*)},
-	{"addBootstrapMethod", "(Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, $TRANSIENT, $method(SymbolTable, addBootstrapMethod, $Symbol*, $Handle*, $ObjectArray*)},
-	{"addBootstrapMethod", "(III)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, $PRIVATE, $method(SymbolTable, addBootstrapMethod, $Symbol*, int32_t, int32_t, int32_t)},
-	{"addConstant", "(Ljava/lang/Object;)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, addConstant, $Symbol*, Object$*)},
-	{"addConstantClass", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, addConstantClass, $Symbol*, $String*)},
-	{"addConstantDouble", "(D)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, addConstantDouble, $Symbol*, double)},
-	{"addConstantDynamic", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, $TRANSIENT, $method(SymbolTable, addConstantDynamic, $Symbol*, $String*, $String*, $Handle*, $ObjectArray*)},
-	{"addConstantDynamicOrInvokeDynamicReference", "(ILjava/lang/String;Ljava/lang/String;I)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, $PRIVATE, $method(SymbolTable, addConstantDynamicOrInvokeDynamicReference, $Symbol*, int32_t, $String*, $String*, int32_t)},
-	{"addConstantDynamicOrInvokeDynamicReference", "(IILjava/lang/String;Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(SymbolTable, addConstantDynamicOrInvokeDynamicReference, void, int32_t, int32_t, $String*, $String*, int32_t)},
-	{"addConstantFieldref", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, addConstantFieldref, $Symbol*, $String*, $String*, $String*)},
-	{"addConstantFloat", "(F)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, addConstantFloat, $Symbol*, float)},
-	{"addConstantInteger", "(I)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, addConstantInteger, $Symbol*, int32_t)},
-	{"addConstantIntegerOrFloat", "(II)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, $PRIVATE, $method(SymbolTable, addConstantIntegerOrFloat, $Symbol*, int32_t, int32_t)},
-	{"addConstantIntegerOrFloat", "(III)V", nullptr, $PRIVATE, $method(SymbolTable, addConstantIntegerOrFloat, void, int32_t, int32_t, int32_t)},
-	{"addConstantInvokeDynamic", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, $TRANSIENT, $method(SymbolTable, addConstantInvokeDynamic, $Symbol*, $String*, $String*, $Handle*, $ObjectArray*)},
-	{"addConstantLong", "(J)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, addConstantLong, $Symbol*, int64_t)},
-	{"addConstantLongOrDouble", "(IJ)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, $PRIVATE, $method(SymbolTable, addConstantLongOrDouble, $Symbol*, int32_t, int64_t)},
-	{"addConstantLongOrDouble", "(IIJ)V", nullptr, $PRIVATE, $method(SymbolTable, addConstantLongOrDouble, void, int32_t, int32_t, int64_t)},
-	{"addConstantMemberReference", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/SymbolTable$Entry;", nullptr, $PRIVATE, $method(SymbolTable, addConstantMemberReference, $SymbolTable$Entry*, int32_t, $String*, $String*, $String*)},
-	{"addConstantMemberReference", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SymbolTable, addConstantMemberReference, void, int32_t, int32_t, $String*, $String*, $String*)},
-	{"addConstantMethodHandle", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, addConstantMethodHandle, $Symbol*, int32_t, $String*, $String*, $String*, bool)},
-	{"addConstantMethodHandle", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SymbolTable, addConstantMethodHandle, void, int32_t, int32_t, $String*, $String*, $String*)},
-	{"addConstantMethodType", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, addConstantMethodType, $Symbol*, $String*)},
-	{"addConstantMethodref", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, addConstantMethodref, $Symbol*, $String*, $String*, $String*, bool)},
-	{"addConstantModule", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, addConstantModule, $Symbol*, $String*)},
-	{"addConstantNameAndType", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, 0, $method(SymbolTable, addConstantNameAndType, int32_t, $String*, $String*)},
-	{"addConstantNameAndType", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SymbolTable, addConstantNameAndType, void, int32_t, $String*, $String*)},
-	{"addConstantPackage", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, addConstantPackage, $Symbol*, $String*)},
-	{"addConstantString", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, addConstantString, $Symbol*, $String*)},
-	{"addConstantUtf8", "(Ljava/lang/String;)I", nullptr, 0, $method(SymbolTable, addConstantUtf8, int32_t, $String*)},
-	{"addConstantUtf8", "(ILjava/lang/String;)V", nullptr, $PRIVATE, $method(SymbolTable, addConstantUtf8, void, int32_t, $String*)},
-	{"addConstantUtf8Reference", "(ILjava/lang/String;)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, $PRIVATE, $method(SymbolTable, addConstantUtf8Reference, $Symbol*, int32_t, $String*)},
-	{"addConstantUtf8Reference", "(IILjava/lang/String;)V", nullptr, $PRIVATE, $method(SymbolTable, addConstantUtf8Reference, void, int32_t, int32_t, $String*)},
-	{"addMergedType", "(II)I", nullptr, 0, $method(SymbolTable, addMergedType, int32_t, int32_t, int32_t)},
-	{"addType", "(Ljava/lang/String;)I", nullptr, 0, $method(SymbolTable, addType, int32_t, $String*)},
-	{"addTypeInternal", "(Ljdk/internal/org/objectweb/asm/SymbolTable$Entry;)I", nullptr, $PRIVATE, $method(SymbolTable, addTypeInternal, int32_t, $SymbolTable$Entry*)},
-	{"addUninitializedType", "(Ljava/lang/String;I)I", nullptr, 0, $method(SymbolTable, addUninitializedType, int32_t, $String*, int32_t)},
-	{"computeBootstrapMethodsSize", "()I", nullptr, 0, $method(SymbolTable, computeBootstrapMethodsSize, int32_t)},
-	{"copyBootstrapMethods", "(Ljdk/internal/org/objectweb/asm/ClassReader;[C)V", nullptr, $PRIVATE, $method(SymbolTable, copyBootstrapMethods, void, $ClassReader*, $chars*)},
-	{"get", "(I)Ljdk/internal/org/objectweb/asm/SymbolTable$Entry;", nullptr, $PRIVATE, $method(SymbolTable, get, $SymbolTable$Entry*, int32_t)},
-	{"getClassName", "()Ljava/lang/String;", nullptr, 0, $method(SymbolTable, getClassName, $String*)},
-	{"getConstantPoolCount", "()I", nullptr, 0, $method(SymbolTable, getConstantPoolCount, int32_t)},
-	{"getConstantPoolLength", "()I", nullptr, 0, $method(SymbolTable, getConstantPoolLength, int32_t)},
-	{"getMajorVersion", "()I", nullptr, 0, $method(SymbolTable, getMajorVersion, int32_t)},
-	{"getSource", "()Ljdk/internal/org/objectweb/asm/ClassReader;", nullptr, 0, $method(SymbolTable, getSource, $ClassReader*)},
-	{"getType", "(I)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, getType, $Symbol*, int32_t)},
-	{"hash", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SymbolTable, hash, int32_t, int32_t, int32_t)},
-	{"hash", "(IJ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SymbolTable, hash, int32_t, int32_t, int64_t)},
-	{"hash", "(ILjava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SymbolTable, hash, int32_t, int32_t, $String*)},
-	{"hash", "(ILjava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SymbolTable, hash, int32_t, int32_t, $String*, int32_t)},
-	{"hash", "(ILjava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SymbolTable, hash, int32_t, int32_t, $String*, $String*)},
-	{"hash", "(ILjava/lang/String;Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SymbolTable, hash, int32_t, int32_t, $String*, $String*, int32_t)},
-	{"hash", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SymbolTable, hash, int32_t, int32_t, $String*, $String*, $String*)},
-	{"hash", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SymbolTable, hash, int32_t, int32_t, $String*, $String*, $String*, int32_t)},
-	{"put", "(Ljdk/internal/org/objectweb/asm/SymbolTable$Entry;)Ljdk/internal/org/objectweb/asm/SymbolTable$Entry;", nullptr, $PRIVATE, $method(SymbolTable, put, $SymbolTable$Entry*, $SymbolTable$Entry*)},
-	{"putBootstrapMethods", "(Ljdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, 0, $method(SymbolTable, putBootstrapMethods, void, $ByteVector*)},
-	{"putConstantPool", "(Ljdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, 0, $method(SymbolTable, putConstantPool, void, $ByteVector*)},
-	{"setMajorVersionAndClassName", "(ILjava/lang/String;)I", nullptr, 0, $method(SymbolTable, setMajorVersionAndClassName, int32_t, int32_t, $String*)},
-	{}
-};
-
-$InnerClassInfo _SymbolTable_InnerClassesInfo_[] = {
-	{"jdk.internal.org.objectweb.asm.SymbolTable$Entry", "jdk.internal.org.objectweb.asm.SymbolTable", "Entry", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SymbolTable_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.SymbolTable",
-	"java.lang.Object",
-	nullptr,
-	_SymbolTable_FieldInfo_,
-	_SymbolTable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SymbolTable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.org.objectweb.asm.SymbolTable$Entry"
-};
-
-$Object* allocate$SymbolTable($Class* clazz) {
-	return $of($alloc(SymbolTable));
-}
-
 void SymbolTable::init$($ClassWriter* classWriter) {
 	$set(this, classWriter, classWriter);
 	$set(this, sourceClassReader, nullptr);
@@ -182,7 +77,7 @@ void SymbolTable::init$($ClassWriter* classWriter) {
 }
 
 void SymbolTable::init$($ClassWriter* classWriter, $ClassReader* classReader) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, classWriter, classWriter);
 	$set(this, sourceClassReader, classReader);
 	$var($bytes, inputBytes, $nc(classReader)->classFileBuffer);
@@ -190,7 +85,7 @@ void SymbolTable::init$($ClassWriter* classWriter, $ClassReader* classReader) {
 	int32_t constantPoolLength = classReader->header - constantPoolOffset;
 	this->constantPoolCount = classReader->getItemCount();
 	$set(this, constantPool, $new($ByteVector, constantPoolLength));
-	$nc(this->constantPool)->putByteArray(inputBytes, constantPoolOffset, constantPoolLength);
+	this->constantPool->putByteArray(inputBytes, constantPoolOffset, constantPoolLength);
 	$set(this, entries, $new($SymbolTable$EntryArray, this->constantPoolCount * 2));
 	$var($chars, charBuffer, $new($chars, classReader->getMaxStringLength()));
 	bool hasBootstrapMethods = false;
@@ -203,86 +98,61 @@ void SymbolTable::init$($ClassWriter* classWriter, $ClassReader* classReader) {
 			int32_t memberRefItemOffset = 0;
 			switch (itemTag) {
 			case $Symbol::CONSTANT_FIELDREF_TAG:
-				{}
 			case $Symbol::CONSTANT_METHODREF_TAG:
-				{}
 			case $Symbol::CONSTANT_INTERFACE_METHODREF_TAG:
 				{
 					nameAndTypeItemOffset = classReader->getItem(classReader->readUnsignedShort(itemOffset + 2));
-					int32_t var$0 = itemIndex;
-					int32_t var$1 = itemTag;
-					$var($String, var$2, classReader->readClass(itemOffset, charBuffer));
-					$var($String, var$3, classReader->readUTF8(nameAndTypeItemOffset, charBuffer));
-					addConstantMemberReference(var$0, var$1, var$2, var$3, $(classReader->readUTF8(nameAndTypeItemOffset + 2, charBuffer)));
+					$var($String, var$0, classReader->readClass(itemOffset, charBuffer));
+					$var($String, var$1, classReader->readUTF8(nameAndTypeItemOffset, charBuffer));
+					addConstantMemberReference(itemIndex, itemTag, var$0, var$1, $(classReader->readUTF8(nameAndTypeItemOffset + 2, charBuffer)));
 					break;
 				}
 			case $Symbol::CONSTANT_INTEGER_TAG:
-				{}
 			case $Symbol::CONSTANT_FLOAT_TAG:
-				{
-					addConstantIntegerOrFloat(itemIndex, itemTag, classReader->readInt(itemOffset));
-					break;
-				}
+				addConstantIntegerOrFloat(itemIndex, itemTag, classReader->readInt(itemOffset));
+				break;
 			case $Symbol::CONSTANT_NAME_AND_TYPE_TAG:
 				{
-					int32_t var$4 = itemIndex;
-					$var($String, var$5, classReader->readUTF8(itemOffset, charBuffer));
-					addConstantNameAndType(var$4, var$5, $(classReader->readUTF8(itemOffset + 2, charBuffer)));
+					$var($String, var$2, classReader->readUTF8(itemOffset, charBuffer));
+					addConstantNameAndType(itemIndex, var$2, $(classReader->readUTF8(itemOffset + 2, charBuffer)));
 					break;
 				}
 			case $Symbol::CONSTANT_LONG_TAG:
-				{}
 			case $Symbol::CONSTANT_DOUBLE_TAG:
-				{
-					addConstantLongOrDouble(itemIndex, itemTag, classReader->readLong(itemOffset));
-					break;
-				}
+				addConstantLongOrDouble(itemIndex, itemTag, classReader->readLong(itemOffset));
+				break;
 			case $Symbol::CONSTANT_UTF8_TAG:
-				{
-					addConstantUtf8(itemIndex, $(classReader->readUtf(itemIndex, charBuffer)));
-					break;
-				}
+				addConstantUtf8(itemIndex, $(classReader->readUtf(itemIndex, charBuffer)));
+				break;
 			case $Symbol::CONSTANT_METHOD_HANDLE_TAG:
 				{
 					memberRefItemOffset = classReader->getItem(classReader->readUnsignedShort(itemOffset + 1));
 					nameAndTypeItemOffset = classReader->getItem(classReader->readUnsignedShort(memberRefItemOffset + 2));
-					int32_t var$6 = itemIndex;
-					int32_t var$7 = classReader->readByte(itemOffset);
-					$var($String, var$8, classReader->readClass(memberRefItemOffset, charBuffer));
-					$var($String, var$9, classReader->readUTF8(nameAndTypeItemOffset, charBuffer));
-					addConstantMethodHandle(var$6, var$7, var$8, var$9, $(classReader->readUTF8(nameAndTypeItemOffset + 2, charBuffer)));
+					int32_t var$3 = classReader->readByte(itemOffset);
+					$var($String, var$4, classReader->readClass(memberRefItemOffset, charBuffer));
+					$var($String, var$5, classReader->readUTF8(nameAndTypeItemOffset, charBuffer));
+					addConstantMethodHandle(itemIndex, var$3, var$4, var$5, $(classReader->readUTF8(nameAndTypeItemOffset + 2, charBuffer)));
 					break;
 				}
 			case $Symbol::CONSTANT_DYNAMIC_TAG:
-				{}
 			case $Symbol::CONSTANT_INVOKE_DYNAMIC_TAG:
 				{
 					hasBootstrapMethods = true;
 					nameAndTypeItemOffset = classReader->getItem(classReader->readUnsignedShort(itemOffset + 2));
-					int32_t var$10 = itemTag;
-					int32_t var$11 = itemIndex;
-					$var($String, var$12, classReader->readUTF8(nameAndTypeItemOffset, charBuffer));
-					$var($String, var$13, classReader->readUTF8(nameAndTypeItemOffset + 2, charBuffer));
-					addConstantDynamicOrInvokeDynamicReference(var$10, var$11, var$12, var$13, classReader->readUnsignedShort(itemOffset));
+					$var($String, var$6, classReader->readUTF8(nameAndTypeItemOffset, charBuffer));
+					$var($String, var$7, classReader->readUTF8(nameAndTypeItemOffset + 2, charBuffer));
+					addConstantDynamicOrInvokeDynamicReference(itemTag, itemIndex, var$6, var$7, classReader->readUnsignedShort(itemOffset));
 					break;
 				}
 			case $Symbol::CONSTANT_STRING_TAG:
-				{}
 			case $Symbol::CONSTANT_CLASS_TAG:
-				{}
 			case $Symbol::CONSTANT_METHOD_TYPE_TAG:
-				{}
 			case $Symbol::CONSTANT_MODULE_TAG:
-				{}
 			case $Symbol::CONSTANT_PACKAGE_TAG:
-				{
-					addConstantUtf8Reference(itemIndex, itemTag, $(classReader->readUTF8(itemOffset, charBuffer)));
-					break;
-				}
+				addConstantUtf8Reference(itemIndex, itemTag, $(classReader->readUTF8(itemOffset, charBuffer)));
+				break;
 			default:
-				{
-					$throwNew($IllegalArgumentException);
-				}
+				$throwNew($IllegalArgumentException);
 			}
 		}
 		itemIndex += (itemTag == $Symbol::CONSTANT_LONG_TAG || itemTag == $Symbol::CONSTANT_DOUBLE_TAG) ? 2 : 1;
@@ -293,7 +163,7 @@ void SymbolTable::init$($ClassWriter* classWriter, $ClassReader* classReader) {
 }
 
 void SymbolTable::copyBootstrapMethods($ClassReader* classReader, $chars* charBuffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, inputBytes, $nc(classReader)->classFileBuffer);
 	int32_t currentAttributeOffset = classReader->getFirstAttributeOffset();
 	for (int32_t i = classReader->readUnsignedShort(currentAttributeOffset - 2); i > 0; --i) {
@@ -309,7 +179,7 @@ void SymbolTable::copyBootstrapMethods($ClassReader* classReader, $chars* charBu
 		int32_t bootstrapMethodsOffset = currentAttributeOffset + 8;
 		int32_t bootstrapMethodsLength = classReader->readInt(currentAttributeOffset + 2) - 2;
 		$set(this, bootstrapMethods, $new($ByteVector, bootstrapMethodsLength));
-		$nc(this->bootstrapMethods)->putByteArray(inputBytes, bootstrapMethodsOffset, bootstrapMethodsLength);
+		this->bootstrapMethods->putByteArray(inputBytes, bootstrapMethodsOffset, bootstrapMethodsLength);
 		int32_t currentOffset = bootstrapMethodsOffset;
 		for (int32_t i = 0; i < this->bootstrapMethodCount; ++i) {
 			int32_t offset = currentOffset - bootstrapMethodsOffset;
@@ -317,13 +187,13 @@ void SymbolTable::copyBootstrapMethods($ClassReader* classReader, $chars* charBu
 			currentOffset += 2;
 			int32_t numBootstrapArguments = classReader->readUnsignedShort(currentOffset);
 			currentOffset += 2;
-			int32_t hashCode = $nc($of($(classReader->readConst(bootstrapMethodRef, charBuffer))))->hashCode();
+			int32_t hashCode = $$nc(classReader->readConst(bootstrapMethodRef, charBuffer))->hashCode();
 			while (numBootstrapArguments-- > 0) {
 				int32_t bootstrapArgument = classReader->readUnsignedShort(currentOffset);
 				currentOffset += 2;
-				hashCode ^= $nc($of($(classReader->readConst(bootstrapArgument, charBuffer))))->hashCode();
+				hashCode ^= $$nc(classReader->readConst(bootstrapArgument, charBuffer))->hashCode();
 			}
-			add($$new($SymbolTable$Entry, i, $Symbol::BOOTSTRAP_METHOD_TAG, (int64_t)offset, (int32_t)(hashCode & (uint32_t)0x7FFFFFFF)));
+			add($$new($SymbolTable$Entry, i, $Symbol::BOOTSTRAP_METHOD_TAG, offset, hashCode & 0x7fffffff));
 		}
 	}
 }
@@ -355,24 +225,24 @@ int32_t SymbolTable::getConstantPoolLength() {
 }
 
 void SymbolTable::putConstantPool($ByteVector* output) {
-	$nc($($nc(output)->putShort(this->constantPoolCount)))->putByteArray($nc(this->constantPool)->data, 0, $nc(this->constantPool)->length);
+	$$nc($nc(output)->putShort(this->constantPoolCount))->putByteArray($nc(this->constantPool)->data, 0, $nc(this->constantPool)->length);
 }
 
 int32_t SymbolTable::computeBootstrapMethodsSize() {
 	if (this->bootstrapMethods != nullptr) {
 		$init($Constants);
 		addConstantUtf8($Constants::BOOTSTRAP_METHODS);
-		return 8 + $nc(this->bootstrapMethods)->length;
+		return 8 + this->bootstrapMethods->length;
 	} else {
 		return 0;
 	}
 }
 
 void SymbolTable::putBootstrapMethods($ByteVector* output) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->bootstrapMethods != nullptr) {
 		$init($Constants);
-		$nc($($nc($($nc($($nc(output)->putShort(addConstantUtf8($Constants::BOOTSTRAP_METHODS))))->putInt($nc(this->bootstrapMethods)->length + 2)))->putShort(this->bootstrapMethodCount)))->putByteArray($nc(this->bootstrapMethods)->data, 0, $nc(this->bootstrapMethods)->length);
+		$$nc($$nc($$nc($nc(output)->putShort(addConstantUtf8($Constants::BOOTSTRAP_METHODS)))->putInt(this->bootstrapMethods->length + 2))->putShort(this->bootstrapMethodCount))->putByteArray(this->bootstrapMethods->data, 0, this->bootstrapMethods->length);
 	}
 }
 
@@ -381,13 +251,13 @@ $SymbolTable$Entry* SymbolTable::get(int32_t hashCode) {
 }
 
 $SymbolTable$Entry* SymbolTable::put($SymbolTable$Entry* entry) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->entryCount > ($nc(this->entries)->length * 3) / 4) {
-		int32_t currentCapacity = $nc(this->entries)->length;
+		int32_t currentCapacity = this->entries->length;
 		int32_t newCapacity = currentCapacity * 2 + 1;
 		$var($SymbolTable$EntryArray, newEntries, $new($SymbolTable$EntryArray, newCapacity));
 		for (int32_t i = currentCapacity - 1; i >= 0; --i) {
-			$var($SymbolTable$Entry, currentEntry, $nc(this->entries)->get(i));
+			$var($SymbolTable$Entry, currentEntry, this->entries->get(i));
 			while (currentEntry != nullptr) {
 				int32_t newCurrentEntryIndex = $mod(currentEntry->hashCode$, newCapacity);
 				$var($SymbolTable$Entry, nextEntry, currentEntry->next);
@@ -399,41 +269,41 @@ $SymbolTable$Entry* SymbolTable::put($SymbolTable$Entry* entry) {
 		$set(this, entries, newEntries);
 	}
 	++this->entryCount;
-	int32_t index = $mod($nc(entry)->hashCode$, $nc(this->entries)->length);
-	$set(entry, next, $nc(this->entries)->get(index));
-	return $nc(this->entries)->set(index, entry);
+	int32_t index = $mod($nc(entry)->hashCode$, this->entries->length);
+	$set(entry, next, this->entries->get(index));
+	return this->entries->set(index, entry);
 }
 
 void SymbolTable::add($SymbolTable$Entry* entry) {
 	++this->entryCount;
 	int32_t index = $mod($nc(entry)->hashCode$, $nc(this->entries)->length);
-	$set(entry, next, $nc(this->entries)->get(index));
-	$nc(this->entries)->set(index, entry);
+	$set(entry, next, this->entries->get(index));
+	this->entries->set(index, entry);
 }
 
 $Symbol* SymbolTable::addConstant(Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Integer, value)) {
-		return addConstantInteger($nc(($cast($Integer, value)))->intValue());
+		return addConstantInteger($cast($Integer, value)->intValue());
 	} else if ($instanceOf($Byte, value)) {
-		return addConstantInteger($nc(($cast($Byte, value)))->intValue());
+		return addConstantInteger($cast($Byte, value)->intValue());
 	} else if ($instanceOf($Character, value)) {
-		return addConstantInteger($nc(($cast($Character, value)))->charValue());
+		return addConstantInteger($cast($Character, value)->charValue());
 	} else if ($instanceOf($Short, value)) {
-		return addConstantInteger($nc(($cast($Short, value)))->intValue());
+		return addConstantInteger($cast($Short, value)->intValue());
 	} else if ($instanceOf($Boolean, value)) {
-		return addConstantInteger($nc(($cast($Boolean, value)))->booleanValue() ? 1 : 0);
+		return addConstantInteger($cast($Boolean, value)->booleanValue() ? 1 : 0);
 	} else if ($instanceOf($Float, value)) {
-		return addConstantFloat($nc(($cast($Float, value)))->floatValue());
+		return addConstantFloat($cast($Float, value)->floatValue());
 	} else if ($instanceOf($Long, value)) {
-		return addConstantLong($nc(($cast($Long, value)))->longValue());
+		return addConstantLong($cast($Long, value)->longValue());
 	} else if ($instanceOf($Double, value)) {
-		return addConstantDouble($nc(($cast($Double, value)))->doubleValue());
+		return addConstantDouble($cast($Double, value)->doubleValue());
 	} else if ($instanceOf($String, value)) {
 		return addConstantString($cast($String, value));
 	} else if ($instanceOf($Type, value)) {
 		$var($Type, type, $cast($Type, value));
-		int32_t typeSort = $nc(type)->getSort();
+		int32_t typeSort = type->getSort();
 		if (typeSort == $Type::OBJECT) {
 			return addConstantClass($(type->getInternalName()));
 		} else if (typeSort == $Type::METHOD) {
@@ -443,14 +313,14 @@ $Symbol* SymbolTable::addConstant(Object$* value) {
 		}
 	} else if ($instanceOf($Handle, value)) {
 		$var($Handle, handle, $cast($Handle, value));
-		int32_t var$0 = $nc(handle)->getTag();
+		int32_t var$0 = handle->getTag();
 		$var($String, var$1, handle->getOwner());
 		$var($String, var$2, handle->getName());
 		$var($String, var$3, handle->getDesc());
 		return addConstantMethodHandle(var$0, var$1, var$2, var$3, handle->isInterface());
 	} else if ($instanceOf($ConstantDynamic, value)) {
 		$var($ConstantDynamic, constantDynamic, $cast($ConstantDynamic, value));
-		$var($String, var$4, $nc(constantDynamic)->getName());
+		$var($String, var$4, constantDynamic->getName());
 		$var($String, var$5, constantDynamic->getDescriptor());
 		$var($Handle, var$6, constantDynamic->getBootstrapMethod());
 		return addConstantDynamic(var$4, var$5, var$6, $(constantDynamic->getBootstrapMethodArgumentsUnsafe()));
@@ -473,7 +343,7 @@ $Symbol* SymbolTable::addConstantMethodref($String* owner, $String* name, $Strin
 }
 
 $SymbolTable$Entry* SymbolTable::addConstantMemberReference(int32_t tag, $String* owner, $String* name, $String* descriptor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t hashCode = hash(tag, owner, name, descriptor);
 	$var($SymbolTable$Entry, entry, get(hashCode));
 	while (entry != nullptr) {
@@ -484,9 +354,8 @@ $SymbolTable$Entry* SymbolTable::addConstantMemberReference(int32_t tag, $String
 		}
 		$assign(entry, entry->next);
 	}
-	int32_t var$2 = tag;
-	int32_t var$3 = $nc($(addConstantClass(owner)))->index;
-	$nc(this->constantPool)->put122(var$2, var$3, addConstantNameAndType(name, descriptor));
+	int32_t var$2 = $nc($(addConstantClass(owner)))->index;
+	$nc(this->constantPool)->put122(tag, var$2, addConstantNameAndType(name, descriptor));
 	return put($$new($SymbolTable$Entry, this->constantPoolCount++, tag, owner, name, descriptor, 0, hashCode));
 }
 
@@ -507,7 +376,7 @@ $Symbol* SymbolTable::addConstantFloat(float value) {
 }
 
 $Symbol* SymbolTable::addConstantIntegerOrFloat(int32_t tag, int32_t value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t hashCode = hash(tag, value);
 	$var($SymbolTable$Entry, entry, get(hashCode));
 	while (entry != nullptr) {
@@ -516,12 +385,12 @@ $Symbol* SymbolTable::addConstantIntegerOrFloat(int32_t tag, int32_t value) {
 		}
 		$assign(entry, entry->next);
 	}
-	$nc($($nc(this->constantPool)->putByte(tag)))->putInt(value);
-	return put($$new($SymbolTable$Entry, this->constantPoolCount++, tag, (int64_t)value, hashCode));
+	$$nc($nc(this->constantPool)->putByte(tag))->putInt(value);
+	return put($$new($SymbolTable$Entry, this->constantPoolCount++, tag, value, hashCode));
 }
 
 void SymbolTable::addConstantIntegerOrFloat(int32_t index, int32_t tag, int32_t value) {
-	add($$new($SymbolTable$Entry, index, tag, (int64_t)value, hash(tag, value)));
+	add($$new($SymbolTable$Entry, index, tag, value, hash(tag, value)));
 }
 
 $Symbol* SymbolTable::addConstantLong(int64_t value) {
@@ -533,7 +402,7 @@ $Symbol* SymbolTable::addConstantDouble(double value) {
 }
 
 $Symbol* SymbolTable::addConstantLongOrDouble(int32_t tag, int64_t value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t hashCode = hash(tag, value);
 	$var($SymbolTable$Entry, entry, get(hashCode));
 	while (entry != nullptr) {
@@ -543,7 +412,7 @@ $Symbol* SymbolTable::addConstantLongOrDouble(int32_t tag, int64_t value) {
 		$assign(entry, entry->next);
 	}
 	int32_t index = this->constantPoolCount;
-	$nc($($nc(this->constantPool)->putByte(tag)))->putLong(value);
+	$$nc($nc(this->constantPool)->putByte(tag))->putLong(value);
 	this->constantPoolCount += 2;
 	return put($$new($SymbolTable$Entry, index, tag, value, hashCode));
 }
@@ -553,7 +422,7 @@ void SymbolTable::addConstantLongOrDouble(int32_t index, int32_t tag, int64_t va
 }
 
 int32_t SymbolTable::addConstantNameAndType($String* name, $String* descriptor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t tag = $Symbol::CONSTANT_NAME_AND_TYPE_TAG;
 	int32_t hashCode = hash(tag, name, descriptor);
 	$var($SymbolTable$Entry, entry, get(hashCode));
@@ -564,9 +433,8 @@ int32_t SymbolTable::addConstantNameAndType($String* name, $String* descriptor) 
 		}
 		$assign(entry, entry->next);
 	}
-	int32_t var$1 = tag;
-	int32_t var$2 = addConstantUtf8(name);
-	$nc(this->constantPool)->put122(var$1, var$2, addConstantUtf8(descriptor));
+	int32_t var$1 = addConstantUtf8(name);
+	$nc(this->constantPool)->put122(tag, var$1, addConstantUtf8(descriptor));
 	return $nc($(put($$new($SymbolTable$Entry, this->constantPoolCount++, tag, name, descriptor, hashCode))))->index;
 }
 
@@ -576,7 +444,7 @@ void SymbolTable::addConstantNameAndType(int32_t index, $String* name, $String* 
 }
 
 int32_t SymbolTable::addConstantUtf8($String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t hashCode = hash($Symbol::CONSTANT_UTF8_TAG, value);
 	$var($SymbolTable$Entry, entry, get(hashCode));
 	while (entry != nullptr) {
@@ -585,7 +453,7 @@ int32_t SymbolTable::addConstantUtf8($String* value) {
 		}
 		$assign(entry, entry->next);
 	}
-	$nc($($nc(this->constantPool)->putByte($Symbol::CONSTANT_UTF8_TAG)))->putUTF8(value);
+	$$nc($nc(this->constantPool)->putByte($Symbol::CONSTANT_UTF8_TAG))->putUTF8(value);
 	return $nc($(put($$new($SymbolTable$Entry, this->constantPoolCount++, $Symbol::CONSTANT_UTF8_TAG, value, hashCode))))->index;
 }
 
@@ -594,7 +462,7 @@ void SymbolTable::addConstantUtf8(int32_t index, $String* value) {
 }
 
 $Symbol* SymbolTable::addConstantMethodHandle(int32_t referenceKind, $String* owner, $String* name, $String* descriptor, bool isInterface) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t tag = $Symbol::CONSTANT_METHOD_HANDLE_TAG;
 	int32_t hashCode = hash(tag, owner, name, descriptor, referenceKind);
 	$var($SymbolTable$Entry, entry, get(hashCode));
@@ -635,7 +503,7 @@ $Symbol* SymbolTable::addConstantInvokeDynamic($String* name, $String* descripto
 }
 
 $Symbol* SymbolTable::addConstantDynamicOrInvokeDynamicReference(int32_t tag, $String* name, $String* descriptor, int32_t bootstrapMethodIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t hashCode = hash(tag, name, descriptor, bootstrapMethodIndex);
 	$var($SymbolTable$Entry, entry, get(hashCode));
 	while (entry != nullptr) {
@@ -663,7 +531,7 @@ $Symbol* SymbolTable::addConstantPackage($String* packageName) {
 }
 
 $Symbol* SymbolTable::addConstantUtf8Reference(int32_t tag, $String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t hashCode = hash(tag, value);
 	$var($SymbolTable$Entry, entry, get(hashCode));
 	while (entry != nullptr) {
@@ -681,10 +549,10 @@ void SymbolTable::addConstantUtf8Reference(int32_t index, int32_t tag, $String* 
 }
 
 $Symbol* SymbolTable::addBootstrapMethod($Handle* bootstrapMethodHandle, $ObjectArray* bootstrapMethodArguments) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteVector, bootstrapMethodsAttribute, this->bootstrapMethods);
 	if (bootstrapMethodsAttribute == nullptr) {
-		$assign(bootstrapMethodsAttribute, ($set(this, bootstrapMethods, $new($ByteVector))));
+		$assign(bootstrapMethodsAttribute, $set(this, bootstrapMethods, $new($ByteVector)));
 	}
 	int32_t numBootstrapArguments = $nc(bootstrapMethodArguments)->length;
 	$var($ints, bootstrapMethodArgumentIndexes, $new($ints, numBootstrapArguments));
@@ -702,24 +570,22 @@ $Symbol* SymbolTable::addBootstrapMethod($Handle* bootstrapMethodHandle, $Object
 		bootstrapMethodsAttribute->putShort(bootstrapMethodArgumentIndexes->get(i));
 	}
 	int32_t bootstrapMethodlength = bootstrapMethodsAttribute->length - bootstrapMethodOffset;
-	int32_t hashCode = $nc(bootstrapMethodHandle)->hashCode();
+	int32_t hashCode = bootstrapMethodHandle->hashCode();
 	{
 		$var($ObjectArray, arr$, bootstrapMethodArguments);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Object0, bootstrapMethodArgument, arr$->get(i$));
 			{
-				hashCode ^= $nc($of(bootstrapMethodArgument))->hashCode();
+				hashCode ^= $nc(bootstrapMethodArgument)->hashCode();
 			}
 		}
 	}
-	hashCode &= (uint32_t)0x7FFFFFFF;
+	hashCode &= (uint32_t)0x7fffffff;
 	return addBootstrapMethod(bootstrapMethodOffset, bootstrapMethodlength, hashCode);
 }
 
 $Symbol* SymbolTable::addBootstrapMethod(int32_t offset, int32_t length, int32_t hashCode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, bootstrapMethodsData, $nc(this->bootstrapMethods)->data);
 	$var($SymbolTable$Entry, entry, get(hashCode));
 	while (entry != nullptr) {
@@ -727,19 +593,19 @@ $Symbol* SymbolTable::addBootstrapMethod(int32_t offset, int32_t length, int32_t
 			int32_t otherOffset = (int32_t)entry->data;
 			bool isSameBootstrapMethod = true;
 			for (int32_t i = 0; i < length; ++i) {
-				if ($nc(bootstrapMethodsData)->get(offset + i) != bootstrapMethodsData->get(otherOffset + i)) {
+				if ($nc(bootstrapMethodsData)->get(offset + i) != $nc(bootstrapMethodsData)->get(otherOffset + i)) {
 					isSameBootstrapMethod = false;
 					break;
 				}
 			}
 			if (isSameBootstrapMethod) {
-				$nc(this->bootstrapMethods)->length = offset;
+				this->bootstrapMethods->length = offset;
 				return entry;
 			}
 		}
 		$assign(entry, entry->next);
 	}
-	return put($$new($SymbolTable$Entry, this->bootstrapMethodCount++, $Symbol::BOOTSTRAP_METHOD_TAG, (int64_t)offset, hashCode));
+	return put($$new($SymbolTable$Entry, this->bootstrapMethodCount++, $Symbol::BOOTSTRAP_METHOD_TAG, offset, hashCode));
 }
 
 $Symbol* SymbolTable::getType(int32_t typeIndex) {
@@ -747,7 +613,7 @@ $Symbol* SymbolTable::getType(int32_t typeIndex) {
 }
 
 int32_t SymbolTable::addType($String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t hashCode = hash($Symbol::TYPE_TAG, value);
 	$var($SymbolTable$Entry, entry, get(hashCode));
 	while (entry != nullptr) {
@@ -760,7 +626,7 @@ int32_t SymbolTable::addType($String* value) {
 }
 
 int32_t SymbolTable::addUninitializedType($String* value, int32_t bytecodeOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t hashCode = hash($Symbol::UNINITIALIZED_TYPE_TAG, value, bytecodeOffset);
 	$var($SymbolTable$Entry, entry, get(hashCode));
 	while (entry != nullptr) {
@@ -769,11 +635,11 @@ int32_t SymbolTable::addUninitializedType($String* value, int32_t bytecodeOffset
 		}
 		$assign(entry, entry->next);
 	}
-	return addTypeInternal($$new($SymbolTable$Entry, this->typeCount, $Symbol::UNINITIALIZED_TYPE_TAG, value, (int64_t)bytecodeOffset, hashCode));
+	return addTypeInternal($$new($SymbolTable$Entry, this->typeCount, $Symbol::UNINITIALIZED_TYPE_TAG, value, bytecodeOffset, hashCode));
 }
 
 int32_t SymbolTable::addMergedType(int32_t typeTableIndex1, int32_t typeTableIndex2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t data = typeTableIndex1 < typeTableIndex2 ? typeTableIndex1 | (((int64_t)typeTableIndex2) << 32) : typeTableIndex2 | (((int64_t)typeTableIndex1) << 32);
 	int32_t hashCode = hash($Symbol::MERGED_TYPE_TAG, typeTableIndex1 + typeTableIndex2);
 	$var($SymbolTable$Entry, entry, get(hashCode));
@@ -784,85 +650,183 @@ int32_t SymbolTable::addMergedType(int32_t typeTableIndex1, int32_t typeTableInd
 		$assign(entry, entry->next);
 	}
 	$var($String, type1, $nc($nc(this->typeTable)->get(typeTableIndex1))->value);
-	$var($String, type2, $nc($nc(this->typeTable)->get(typeTableIndex2))->value);
+	$var($String, type2, $nc(this->typeTable->get(typeTableIndex2))->value);
 	int32_t commonSuperTypeIndex = addType($($nc(this->classWriter)->getCommonSuperClass(type1, type2)));
 	$nc($(put($$new($SymbolTable$Entry, this->typeCount, $Symbol::MERGED_TYPE_TAG, data, hashCode))))->info = commonSuperTypeIndex;
 	return commonSuperTypeIndex;
 }
 
 int32_t SymbolTable::addTypeInternal($SymbolTable$Entry* entry) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->typeTable == nullptr) {
 		$set(this, typeTable, $new($SymbolTable$EntryArray, 16));
 	}
 	if (this->typeCount == $nc(this->typeTable)->length) {
-		$var($SymbolTable$EntryArray, newTypeTable, $new($SymbolTable$EntryArray, 2 * $nc(this->typeTable)->length));
-		$System::arraycopy(this->typeTable, 0, newTypeTable, 0, $nc(this->typeTable)->length);
+		$var($SymbolTable$EntryArray, newTypeTable, $new($SymbolTable$EntryArray, 2 * this->typeTable->length));
+		$System::arraycopy(this->typeTable, 0, newTypeTable, 0, this->typeTable->length);
 		$set(this, typeTable, newTypeTable);
 	}
-	$nc(this->typeTable)->set(this->typeCount++, entry);
+	this->typeTable->set(this->typeCount++, entry);
 	return $nc($(put(entry)))->index;
 }
 
 int32_t SymbolTable::hash(int32_t tag, int32_t value) {
-	return (int32_t)(0x7FFFFFFF & (uint32_t)(tag + value));
+	return 0x7fffffff & (tag + value);
 }
 
 int32_t SymbolTable::hash(int32_t tag, int64_t value) {
-	return (int32_t)(0x7FFFFFFF & (uint32_t)(tag + (int32_t)value + (int32_t)((int64_t)((uint64_t)value >> 32))));
+	return 0x7fffffff & (tag + (int32_t)value + (int32_t)((int64_t)((uint64_t)value >> 32)));
 }
 
 int32_t SymbolTable::hash(int32_t tag, $String* value) {
-	return (int32_t)(0x7FFFFFFF & (uint32_t)(tag + $nc(value)->hashCode()));
+	return 0x7fffffff & (tag + $nc(value)->hashCode());
 }
 
 int32_t SymbolTable::hash(int32_t tag, $String* value1, int32_t value2) {
-	return (int32_t)(0x7FFFFFFF & (uint32_t)(tag + $nc(value1)->hashCode() + value2));
+	return 0x7fffffff & (tag + $nc(value1)->hashCode() + value2);
 }
 
 int32_t SymbolTable::hash(int32_t tag, $String* value1, $String* value2) {
-	int32_t var$0 = 0x7FFFFFFF;
+	int32_t var$0 = 0x7fffffff;
 	int32_t var$2 = tag;
 	int32_t var$4 = $nc(value1)->hashCode();
 	int32_t var$3 = var$4 * $nc(value2)->hashCode();
 	int32_t var$1 = (var$2 + var$3);
-	return (int32_t)(var$0 & var$1);
+	return var$0 & var$1;
 }
 
 int32_t SymbolTable::hash(int32_t tag, $String* value1, $String* value2, int32_t value3) {
-	int32_t var$0 = 0x7FFFFFFF;
+	int32_t var$0 = 0x7fffffff;
 	int32_t var$2 = tag;
 	int32_t var$4 = $nc(value1)->hashCode();
 	int32_t var$3 = var$4 * $nc(value2)->hashCode() * (value3 + 1);
 	int32_t var$1 = (var$2 + var$3);
-	return (int32_t)(var$0 & var$1);
+	return var$0 & var$1;
 }
 
 int32_t SymbolTable::hash(int32_t tag, $String* value1, $String* value2, $String* value3) {
-	int32_t var$0 = 0x7FFFFFFF;
+	int32_t var$0 = 0x7fffffff;
 	int32_t var$2 = tag;
 	int32_t var$5 = $nc(value1)->hashCode();
 	int32_t var$4 = var$5 * $nc(value2)->hashCode();
 	int32_t var$3 = var$4 * $nc(value3)->hashCode();
 	int32_t var$1 = (var$2 + var$3);
-	return (int32_t)(var$0 & var$1);
+	return var$0 & var$1;
 }
 
 int32_t SymbolTable::hash(int32_t tag, $String* value1, $String* value2, $String* value3, int32_t value4) {
-	int32_t var$0 = 0x7FFFFFFF;
+	int32_t var$0 = 0x7fffffff;
 	int32_t var$2 = tag;
 	int32_t var$5 = $nc(value1)->hashCode();
 	int32_t var$4 = var$5 * $nc(value2)->hashCode();
 	int32_t var$3 = var$4 * $nc(value3)->hashCode() * value4;
 	int32_t var$1 = (var$2 + var$3);
-	return (int32_t)(var$0 & var$1);
+	return var$0 & var$1;
 }
 
 SymbolTable::SymbolTable() {
 }
 
 $Class* SymbolTable::load$($String* name, bool initialize) {
-	$loadClass(SymbolTable, name, initialize, &_SymbolTable_ClassInfo_, allocate$SymbolTable);
+	$FieldInfo fieldInfos$$[] = {
+		{"classWriter", "Ljdk/internal/org/objectweb/asm/ClassWriter;", nullptr, $FINAL, $field(SymbolTable, classWriter)},
+		{"sourceClassReader", "Ljdk/internal/org/objectweb/asm/ClassReader;", nullptr, $PRIVATE | $FINAL, $field(SymbolTable, sourceClassReader)},
+		{"majorVersion", "I", nullptr, $PRIVATE, $field(SymbolTable, majorVersion)},
+		{"className", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SymbolTable, className)},
+		{"entryCount", "I", nullptr, $PRIVATE, $field(SymbolTable, entryCount)},
+		{"entries", "[Ljdk/internal/org/objectweb/asm/SymbolTable$Entry;", nullptr, $PRIVATE, $field(SymbolTable, entries)},
+		{"constantPoolCount", "I", nullptr, $PRIVATE, $field(SymbolTable, constantPoolCount)},
+		{"constantPool", "Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PRIVATE, $field(SymbolTable, constantPool)},
+		{"bootstrapMethodCount", "I", nullptr, $PRIVATE, $field(SymbolTable, bootstrapMethodCount)},
+		{"bootstrapMethods", "Ljdk/internal/org/objectweb/asm/ByteVector;", nullptr, $PRIVATE, $field(SymbolTable, bootstrapMethods)},
+		{"typeCount", "I", nullptr, $PRIVATE, $field(SymbolTable, typeCount)},
+		{"typeTable", "[Ljdk/internal/org/objectweb/asm/SymbolTable$Entry;", nullptr, $PRIVATE, $field(SymbolTable, typeTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/ClassWriter;)V", nullptr, 0, $method(SymbolTable, init$, void, $ClassWriter*)},
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/ClassWriter;Ljdk/internal/org/objectweb/asm/ClassReader;)V", nullptr, 0, $method(SymbolTable, init$, void, $ClassWriter*, $ClassReader*)},
+		{"add", "(Ljdk/internal/org/objectweb/asm/SymbolTable$Entry;)V", nullptr, $PRIVATE, $method(SymbolTable, add, void, $SymbolTable$Entry*)},
+		{"addBootstrapMethod", "(Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, $TRANSIENT, $method(SymbolTable, addBootstrapMethod, $Symbol*, $Handle*, $ObjectArray*)},
+		{"addBootstrapMethod", "(III)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, $PRIVATE, $method(SymbolTable, addBootstrapMethod, $Symbol*, int32_t, int32_t, int32_t)},
+		{"addConstant", "(Ljava/lang/Object;)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, addConstant, $Symbol*, Object$*)},
+		{"addConstantClass", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, addConstantClass, $Symbol*, $String*)},
+		{"addConstantDouble", "(D)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, addConstantDouble, $Symbol*, double)},
+		{"addConstantDynamic", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, $TRANSIENT, $method(SymbolTable, addConstantDynamic, $Symbol*, $String*, $String*, $Handle*, $ObjectArray*)},
+		{"addConstantDynamicOrInvokeDynamicReference", "(ILjava/lang/String;Ljava/lang/String;I)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, $PRIVATE, $method(SymbolTable, addConstantDynamicOrInvokeDynamicReference, $Symbol*, int32_t, $String*, $String*, int32_t)},
+		{"addConstantDynamicOrInvokeDynamicReference", "(IILjava/lang/String;Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(SymbolTable, addConstantDynamicOrInvokeDynamicReference, void, int32_t, int32_t, $String*, $String*, int32_t)},
+		{"addConstantFieldref", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, addConstantFieldref, $Symbol*, $String*, $String*, $String*)},
+		{"addConstantFloat", "(F)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, addConstantFloat, $Symbol*, float)},
+		{"addConstantInteger", "(I)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, addConstantInteger, $Symbol*, int32_t)},
+		{"addConstantIntegerOrFloat", "(II)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, $PRIVATE, $method(SymbolTable, addConstantIntegerOrFloat, $Symbol*, int32_t, int32_t)},
+		{"addConstantIntegerOrFloat", "(III)V", nullptr, $PRIVATE, $method(SymbolTable, addConstantIntegerOrFloat, void, int32_t, int32_t, int32_t)},
+		{"addConstantInvokeDynamic", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, $TRANSIENT, $method(SymbolTable, addConstantInvokeDynamic, $Symbol*, $String*, $String*, $Handle*, $ObjectArray*)},
+		{"addConstantLong", "(J)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, addConstantLong, $Symbol*, int64_t)},
+		{"addConstantLongOrDouble", "(IJ)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, $PRIVATE, $method(SymbolTable, addConstantLongOrDouble, $Symbol*, int32_t, int64_t)},
+		{"addConstantLongOrDouble", "(IIJ)V", nullptr, $PRIVATE, $method(SymbolTable, addConstantLongOrDouble, void, int32_t, int32_t, int64_t)},
+		{"addConstantMemberReference", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/SymbolTable$Entry;", nullptr, $PRIVATE, $method(SymbolTable, addConstantMemberReference, $SymbolTable$Entry*, int32_t, $String*, $String*, $String*)},
+		{"addConstantMemberReference", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SymbolTable, addConstantMemberReference, void, int32_t, int32_t, $String*, $String*, $String*)},
+		{"addConstantMethodHandle", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, addConstantMethodHandle, $Symbol*, int32_t, $String*, $String*, $String*, bool)},
+		{"addConstantMethodHandle", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SymbolTable, addConstantMethodHandle, void, int32_t, int32_t, $String*, $String*, $String*)},
+		{"addConstantMethodType", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, addConstantMethodType, $Symbol*, $String*)},
+		{"addConstantMethodref", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, addConstantMethodref, $Symbol*, $String*, $String*, $String*, bool)},
+		{"addConstantModule", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, addConstantModule, $Symbol*, $String*)},
+		{"addConstantNameAndType", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, 0, $method(SymbolTable, addConstantNameAndType, int32_t, $String*, $String*)},
+		{"addConstantNameAndType", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SymbolTable, addConstantNameAndType, void, int32_t, $String*, $String*)},
+		{"addConstantPackage", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, addConstantPackage, $Symbol*, $String*)},
+		{"addConstantString", "(Ljava/lang/String;)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, addConstantString, $Symbol*, $String*)},
+		{"addConstantUtf8", "(Ljava/lang/String;)I", nullptr, 0, $method(SymbolTable, addConstantUtf8, int32_t, $String*)},
+		{"addConstantUtf8", "(ILjava/lang/String;)V", nullptr, $PRIVATE, $method(SymbolTable, addConstantUtf8, void, int32_t, $String*)},
+		{"addConstantUtf8Reference", "(ILjava/lang/String;)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, $PRIVATE, $method(SymbolTable, addConstantUtf8Reference, $Symbol*, int32_t, $String*)},
+		{"addConstantUtf8Reference", "(IILjava/lang/String;)V", nullptr, $PRIVATE, $method(SymbolTable, addConstantUtf8Reference, void, int32_t, int32_t, $String*)},
+		{"addMergedType", "(II)I", nullptr, 0, $method(SymbolTable, addMergedType, int32_t, int32_t, int32_t)},
+		{"addType", "(Ljava/lang/String;)I", nullptr, 0, $method(SymbolTable, addType, int32_t, $String*)},
+		{"addTypeInternal", "(Ljdk/internal/org/objectweb/asm/SymbolTable$Entry;)I", nullptr, $PRIVATE, $method(SymbolTable, addTypeInternal, int32_t, $SymbolTable$Entry*)},
+		{"addUninitializedType", "(Ljava/lang/String;I)I", nullptr, 0, $method(SymbolTable, addUninitializedType, int32_t, $String*, int32_t)},
+		{"computeBootstrapMethodsSize", "()I", nullptr, 0, $method(SymbolTable, computeBootstrapMethodsSize, int32_t)},
+		{"copyBootstrapMethods", "(Ljdk/internal/org/objectweb/asm/ClassReader;[C)V", nullptr, $PRIVATE, $method(SymbolTable, copyBootstrapMethods, void, $ClassReader*, $chars*)},
+		{"get", "(I)Ljdk/internal/org/objectweb/asm/SymbolTable$Entry;", nullptr, $PRIVATE, $method(SymbolTable, get, $SymbolTable$Entry*, int32_t)},
+		{"getClassName", "()Ljava/lang/String;", nullptr, 0, $method(SymbolTable, getClassName, $String*)},
+		{"getConstantPoolCount", "()I", nullptr, 0, $method(SymbolTable, getConstantPoolCount, int32_t)},
+		{"getConstantPoolLength", "()I", nullptr, 0, $method(SymbolTable, getConstantPoolLength, int32_t)},
+		{"getMajorVersion", "()I", nullptr, 0, $method(SymbolTable, getMajorVersion, int32_t)},
+		{"getSource", "()Ljdk/internal/org/objectweb/asm/ClassReader;", nullptr, 0, $method(SymbolTable, getSource, $ClassReader*)},
+		{"getType", "(I)Ljdk/internal/org/objectweb/asm/Symbol;", nullptr, 0, $method(SymbolTable, getType, $Symbol*, int32_t)},
+		{"hash", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SymbolTable, hash, int32_t, int32_t, int32_t)},
+		{"hash", "(IJ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SymbolTable, hash, int32_t, int32_t, int64_t)},
+		{"hash", "(ILjava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SymbolTable, hash, int32_t, int32_t, $String*)},
+		{"hash", "(ILjava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SymbolTable, hash, int32_t, int32_t, $String*, int32_t)},
+		{"hash", "(ILjava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SymbolTable, hash, int32_t, int32_t, $String*, $String*)},
+		{"hash", "(ILjava/lang/String;Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SymbolTable, hash, int32_t, int32_t, $String*, $String*, int32_t)},
+		{"hash", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SymbolTable, hash, int32_t, int32_t, $String*, $String*, $String*)},
+		{"hash", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SymbolTable, hash, int32_t, int32_t, $String*, $String*, $String*, int32_t)},
+		{"put", "(Ljdk/internal/org/objectweb/asm/SymbolTable$Entry;)Ljdk/internal/org/objectweb/asm/SymbolTable$Entry;", nullptr, $PRIVATE, $method(SymbolTable, put, $SymbolTable$Entry*, $SymbolTable$Entry*)},
+		{"putBootstrapMethods", "(Ljdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, 0, $method(SymbolTable, putBootstrapMethods, void, $ByteVector*)},
+		{"putConstantPool", "(Ljdk/internal/org/objectweb/asm/ByteVector;)V", nullptr, 0, $method(SymbolTable, putConstantPool, void, $ByteVector*)},
+		{"setMajorVersionAndClassName", "(ILjava/lang/String;)I", nullptr, 0, $method(SymbolTable, setMajorVersionAndClassName, int32_t, int32_t, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.org.objectweb.asm.SymbolTable$Entry", "jdk.internal.org.objectweb.asm.SymbolTable", "Entry", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.SymbolTable",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.org.objectweb.asm.SymbolTable$Entry"
+	};
+	$loadClass(SymbolTable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SymbolTable);
+	});
 	return class$;
 }
 

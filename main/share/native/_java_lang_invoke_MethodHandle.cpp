@@ -54,6 +54,31 @@ using ::jdk::internal::misc::Unsafe;
 #include "jvm.h"
 #include "TimeZone_md.h"
 
+Object* unsafeSet(Object$* inst, int64_t offset, $Class* type, Object* value) {
+	if (type->isPrimitive()) {
+		if (type == Integer::TYPE) {
+			Unsafe::theUnsafe->putInt(inst, offset, $intValue(value));
+		} else if (type == Boolean::TYPE) {
+			Unsafe::theUnsafe->putBoolean(inst, offset, $booleanValue(value));
+		} else if (type == Byte::TYPE) {
+			Unsafe::theUnsafe->putByte(inst, offset, $byteValue(value));
+		} else if (type == Short::TYPE) {
+			Unsafe::theUnsafe->putShort(inst, offset, $shortValue(value));
+		} else if (type == Character::TYPE) {
+			Unsafe::theUnsafe->putChar(inst, offset, $charValue(value));
+		} else if (type == Long::TYPE) {
+			Unsafe::theUnsafe->putLong(inst, offset, $longValue(value));
+		} else if (type == Float::TYPE) {
+			Unsafe::theUnsafe->putFloat(inst, offset, $floatValue(value));
+		} else if (type == Double::TYPE) {
+			Unsafe::theUnsafe->putDouble(inst, offset, $doubleValue(value));
+		}
+	} else {
+		Unsafe::theUnsafe->putObject(inst, offset, value);
+	}
+	return Void::VOID$;
+}
+
 Object* unsafeGet(Object$* inst, int64_t offset, $Class* type) {
 	if (type->isPrimitive()) {
 		if (type == Integer::TYPE) {
@@ -76,6 +101,23 @@ Object* unsafeGet(Object$* inst, int64_t offset, $Class* type) {
 		$shouldNotReachHere();
 	} else {
 		return Unsafe::theUnsafe->getObject(inst, offset);
+	}
+}
+
+Object* handleAccessorInvoke(DirectMethodHandle$Accessor* dmha, $ObjectArray* args) {
+	$nc(args);
+	if (args->length == 2) {
+		return unsafeSet(args->get(0), dmha->fieldOffset, dmha->fieldType, args->get(1));
+	} else {
+		return unsafeGet(args->get(0), dmha->fieldOffset, dmha->fieldType);
+	}
+}
+
+Object* handleStaticAccessorInvoke(DirectMethodHandle$StaticAccessor* dmhsa, $ObjectArray* args) {
+	if (args != nullptr && args->length == 2) {
+		return unsafeSet(nullptr, dmhsa->staticOffset, dmhsa->fieldType, args->get(1));
+	} else {
+		return unsafeGet(nullptr, dmhsa->staticOffset, dmhsa->fieldType);
 	}
 }
 
@@ -125,139 +167,49 @@ Object* _Java_java_lang_invoke_MethodHandle_invoke(::java::lang::invoke::MethodH
 	Class* thisClazz = $of(this__)->getClass();
 	if (thisClazz == DirectMethodHandle$Accessor::class$) {
 		DirectMethodHandle$Accessor* dmha = $cast(DirectMethodHandle$Accessor, this__);
-		return unsafeGet(args->get(0), dmha->fieldOffset, dmha->fieldType);
+		return handleAccessorInvoke(dmha, args);
 	}
 	if (thisClazz == DirectMethodHandle$StaticAccessor::class$) {
 		DirectMethodHandle$StaticAccessor* dmhsa = $cast(DirectMethodHandle$StaticAccessor, this__);
-		return unsafeGet(nullptr, dmhsa->staticOffset, dmhsa->fieldType);
+		return handleStaticAccessorInvoke(dmhsa, args);
 	}
 	if ($instanceOf<DirectMethodHandle>(this__)) {
 		DirectMethodHandle* dmh = $cast(DirectMethodHandle, this__);
 		return invokeBasic0(dmh->member, args);
-
-		//$var(DirectMethodHandle, dmh, $cast<DirectMethodHandle>(this__));
-		//if (dmh->member__->method__->vmtarget->getClass() == Method::class$) {
-		//	Method* method = _scast<Method>(dmh->member__->method__->vmtarget);
-		//	method->override__ = true;
-		//	if (method->isStatic()) {
-		//		$return (method->invoke(nullptr, args));
-		//	} else {
-		//		$var(ObjectArray, args0, $new< ObjectArray>(args->length - 1));
-		//		args0->setRegion(0, args0->length, args->begin() + 1);
-		//		$return (method->invoke(args->get(0), args0));
-		//	}
-		//}
-		//if (dmh->member__->method__->vmtarget->getClass() == Constructor::class$) {
-		//	Constructor* constructor = _scast<Constructor>(dmh->member__->method__->vmtarget);
-		//	constructor->override__ = true;
-		//	$return (constructor->newInstance(args));
-		//}
 	}
 	if ($instanceOf<BoundMethodHandle>(this__)) {
 		$var($ObjectArray, args2, makeArgs(this__, args));
-		// if (args != nullptr) {
-		// 	$assign(args2, $new<$ObjectArray>(args->length + 1));
-		// 	args2->setArray(1, args, 0, args->length);
-		// } else {
-		// 	$assign(args2, $new<$ObjectArray>(1));
-		// }
-		// args2->set(0, this__);
-
 		return invokeBasic0(this__->form->vmentry, args2);
-
-		//$var(BoundMethodHandle, bmh, $cast<BoundMethodHandle>(this__));
-		//$var(Object, arg0, bmh->arg(0));
-		//$var(::java::lang::invoke::MethodHandle, mh, $cast<::java::lang::invoke::MethodHandle>(arg0));
-		//if (mh != nullptr) {
-		//	int32_t count = bmh->fieldCount();
-		//	$var(ObjectArray, args2, $new<ObjectArray>(count - 1 + args->length));
-		//	for (int32_t i = 1; i < count; i++) {
-		//		$var(Object, arg, bmh->arg(i));
-		//		args2->set(i - 1, arg);
-		//		//	arg->toString();
-		//	}
-		//	for (int32_t i = 0; i < args->length; i++) {
-		//		$var(Object, arg, args->get(i));
-		//		args2->set(i + count - 1, arg);
-		//	}
-		//	$return (_Java_java_lang_invoke_MethodHandle_invoke(mh, args2));
-		//}
-		//else {
-		////	Class* clazz = arg0->getClass();
-		//	$return (arg0);
-		//}
-
+	}
+	if ($instanceOf<DelegatingMethodHandle>(this__)) {
+		DelegatingMethodHandle* dmh = $cast(DelegatingMethodHandle, this__);
+		MethodHandle* target = dmh->getTarget();
+		return ($Object*)target->invokeBasic(args);
+	}
+	if ($instanceOf(MethodHandle, this__)) {
+		MethodHandle* mh = $cast(MethodHandle, this__);
+		return ($Object*)mh->invokeBasic(args);
 	}
 	$throwNew(UnsupportedOperationException, "_Java_java_lang_invoke_MethodHandle_invoke"_s);
-//	return nullptr;
 }
 
 Object* _Java_java_lang_invoke_MethodHandle_invokeBasic(::java::lang::invoke::MethodHandle* this__, $ObjectArray* args) {
 	Class* thisClazz = $of(this__)->getClass();
 	if (thisClazz == DirectMethodHandle$Accessor::class$) {
 		DirectMethodHandle$Accessor* dmha = $cast(DirectMethodHandle$Accessor, this__);
-		return unsafeGet(args->get(0), dmha->fieldOffset, dmha->fieldType);
+		return handleAccessorInvoke(dmha, args);
 	}
 	if (thisClazz == DirectMethodHandle$StaticAccessor::class$) {
 		DirectMethodHandle$StaticAccessor* dmhsa = $cast(DirectMethodHandle$StaticAccessor, this__);
-		return unsafeGet(nullptr, dmhsa->staticOffset, dmhsa->fieldType);
+		return handleStaticAccessorInvoke(dmhsa, args);
 	}
 	if ($instanceOf<DirectMethodHandle>(this__)) {
 		DirectMethodHandle* dmh = $cast(DirectMethodHandle, this__);
 		return invokeBasic0(dmh->member, args);
-		//if (dmh->member__->method__->vmtarget->getClass() == Method::class$) {
-		//	Method* method = _scast<Method>(dmh->member__->method__->vmtarget);
-		//	if (!method->override__) {
-		//		method->override__ = true;
-		//	}
-		//	if (method->isStatic()) {
-		//		$return (method->invoke(nullptr, args));
-		//	} else {
-		//		$var(ObjectArray, args0, $new< ObjectArray>(args->length - 1));
-		//		args0->setRegion(0, args0->length, args->begin() + 1);
-		//		$return (method->invoke(args->get(0), args0));
-		//	}
-		//}
-		//if (dmh->member__->method__->vmtarget->getClass() == Constructor::class$) {
-		//	Constructor* constructor = _scast<Constructor>(dmh->member__->method__->vmtarget);
-		//	constructor->override__ = true;
-		//	$return (constructor->newInstance(args));
-		//}
 	}
 	if ($instanceOf<BoundMethodHandle>(this__)) {
-		// $var($ObjectArray, args2, $new<$ObjectArray>(args->length + 1));
-		// args2->set(0, this__);
-		// args2->setArray(1, args, 0, args->length);
-
 		$var($ObjectArray, args2, makeArgs(this__, args));
-
 		return invokeBasic0(this__->form->vmentry, args2);
-
-		//$var(Method, method, this__->form->vmentry__->method__->vmtarget);
-
-		////bmh->form->interpretWithArguments(args);
-		//method->override__ = true;
-		//$var(ObjectArray, args, $new<ObjectArray>(args->length + 1));
-		//args->set(0, this__);//->speciesData());
-		//for (int32_t i = 0; i < args->length; i++) {
-		//	args->set(i + 1, args->get(i));
-		//}
-		//return method->invoke(nullptr, args);
-
-		//$var(BoundMethodHandle, bmh, $cast<BoundMethodHandle>(this__));
-		//$var(::java::lang::invoke::MethodHandle, mh, bmh->arg(0));
-		//int32_t count = bmh->fieldCount();
-		//$var(ObjectArray, args2, $new<ObjectArray>(count - 1 + args->length));
-		//for (int32_t i = 1; i < count; i++) {
-		//	$var(Object, arg, bmh->arg(i));
-		//	args2->set(i - 1, arg);
-		//	//	arg->toString();
-		//}
-		//for (int32_t i = 0; i < args->length; i++) {
-		//	$var(Object, arg, args->get(i));
-		//	args2->set(i + count - 1, arg);
-		//}
-		//$return (_Java_java_lang_invoke_MethodHandle_invokeBasic(mh, args2));
 	}
 	if ($instanceOf<DelegatingMethodHandle>(this__)) {
 		DelegatingMethodHandle* dmh = $cast(DelegatingMethodHandle, this__);
@@ -336,11 +288,11 @@ Object* _Java_java_lang_invoke_MethodHandle_invokeExact(::java::lang::invoke::Me
 	checkArgsType(this__->type$, args);
 	if (thisClazz == DirectMethodHandle$Accessor::class$) {
 		DirectMethodHandle$Accessor* dmha = $cast(DirectMethodHandle$Accessor, this__);
-		return unsafeGet(args->get(0), dmha->fieldOffset, dmha->fieldType);
+		return handleAccessorInvoke(dmha, args);
 	}
 	if (thisClazz == DirectMethodHandle$StaticAccessor::class$) {
 		DirectMethodHandle$StaticAccessor* dmhsa = $cast(DirectMethodHandle$StaticAccessor, this__);
-		return unsafeGet(nullptr, dmhsa->staticOffset, dmhsa->fieldType);
+		return handleStaticAccessorInvoke(dmhsa, args);
 	}
 	if ($instanceOf<DirectMethodHandle>(this__)) {
 		DirectMethodHandle* dmh = $cast(DirectMethodHandle, this__);
@@ -356,6 +308,11 @@ Object* _Java_java_lang_invoke_MethodHandle_invokeExact(::java::lang::invoke::Me
 		// args2->setArray(1, args, 0, args->length);
 		$var($ObjectArray, args2, makeArgs(this__, args));
 		return invokeBasic0(this__->form->vmentry, args2);
+	}
+	if ($instanceOf<DelegatingMethodHandle>(this__)) {
+		DelegatingMethodHandle* dmh = $cast(DelegatingMethodHandle, this__);
+		MethodHandle* target = dmh->getTarget();
+		return ($Object*)target->invokeBasic(args);
 	}
 	if ($instanceOf<DelegatingMethodHandle>(this__)) {
 		DelegatingMethodHandle* dmh = $cast<DelegatingMethodHandle>(this__);

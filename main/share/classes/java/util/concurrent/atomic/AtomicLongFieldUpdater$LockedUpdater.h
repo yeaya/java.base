@@ -30,6 +30,7 @@ class AtomicLongFieldUpdater$LockedUpdater : public ::java::util::concurrent::at
 	$class(AtomicLongFieldUpdater$LockedUpdater, 0, ::java::util::concurrent::atomic::AtomicLongFieldUpdater)
 public:
 	AtomicLongFieldUpdater$LockedUpdater();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Class* tclass, $String* fieldName, $Class* caller);
 	void accessCheck(Object$* obj);
 	::java::lang::RuntimeException* accessCheckException(Object$* obj);

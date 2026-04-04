@@ -35,6 +35,7 @@ class Indify$Logic : public ::java::lang::Object {
 	$class(Indify$Logic, 0, ::java::lang::Object)
 public:
 	Indify$Logic();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::indify::Indify* this$0, ::indify::Indify$ClassFile* cf);
 	virtual ::java::util::List* bootstrapMethodSpecifiers(bool createIfNotFound);
 	virtual bool findPatternMethods();

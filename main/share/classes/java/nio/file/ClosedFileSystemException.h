@@ -14,10 +14,13 @@ class $export ClosedFileSystemException : public ::java::lang::IllegalStateExcep
 public:
 	ClosedFileSystemException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x8EC7C48FFCE40A30;
+	static const int64_t serialVersionUID = (int64_t)0x8ec7c48ffce40a30;
 	ClosedFileSystemException(const ClosedFileSystemException& e);
 	virtual void throw$() override;
-	inline ClosedFileSystemException* operator ->() {
+	inline ClosedFileSystemException* operator ->() const {
+		return (ClosedFileSystemException*)throwing$;
+	}
+	inline operator ClosedFileSystemException*() const {
 		return (ClosedFileSystemException*)throwing$;
 	}
 };

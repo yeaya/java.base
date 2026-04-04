@@ -1,5 +1,4 @@
 #include <java/security/spec/RSAOtherPrimeInfo.h>
-
 #include <java/math/BigInteger.h>
 #include <jcpp.h>
 
@@ -12,34 +11,6 @@ using $BigInteger = ::java::math::BigInteger;
 namespace java {
 	namespace security {
 		namespace spec {
-
-$FieldInfo _RSAOtherPrimeInfo_FieldInfo_[] = {
-	{"prime", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(RSAOtherPrimeInfo, prime)},
-	{"primeExponent", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(RSAOtherPrimeInfo, primeExponent)},
-	{"crtCoefficient", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(RSAOtherPrimeInfo, crtCoefficient)},
-	{}
-};
-
-$MethodInfo _RSAOtherPrimeInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(RSAOtherPrimeInfo, init$, void, $BigInteger*, $BigInteger*, $BigInteger*)},
-	{"getCrtCoefficient", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $FINAL, $method(RSAOtherPrimeInfo, getCrtCoefficient, $BigInteger*)},
-	{"getExponent", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $FINAL, $method(RSAOtherPrimeInfo, getExponent, $BigInteger*)},
-	{"getPrime", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $FINAL, $method(RSAOtherPrimeInfo, getPrime, $BigInteger*)},
-	{}
-};
-
-$ClassInfo _RSAOtherPrimeInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.spec.RSAOtherPrimeInfo",
-	"java.lang.Object",
-	nullptr,
-	_RSAOtherPrimeInfo_FieldInfo_,
-	_RSAOtherPrimeInfo_MethodInfo_
-};
-
-$Object* allocate$RSAOtherPrimeInfo($Class* clazz) {
-	return $of($alloc(RSAOtherPrimeInfo));
-}
 
 void RSAOtherPrimeInfo::init$($BigInteger* prime, $BigInteger* primeExponent, $BigInteger* crtCoefficient) {
 	if (prime == nullptr) {
@@ -72,7 +43,30 @@ RSAOtherPrimeInfo::RSAOtherPrimeInfo() {
 }
 
 $Class* RSAOtherPrimeInfo::load$($String* name, bool initialize) {
-	$loadClass(RSAOtherPrimeInfo, name, initialize, &_RSAOtherPrimeInfo_ClassInfo_, allocate$RSAOtherPrimeInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"prime", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(RSAOtherPrimeInfo, prime)},
+		{"primeExponent", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(RSAOtherPrimeInfo, primeExponent)},
+		{"crtCoefficient", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(RSAOtherPrimeInfo, crtCoefficient)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(RSAOtherPrimeInfo, init$, void, $BigInteger*, $BigInteger*, $BigInteger*)},
+		{"getCrtCoefficient", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $FINAL, $method(RSAOtherPrimeInfo, getCrtCoefficient, $BigInteger*)},
+		{"getExponent", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $FINAL, $method(RSAOtherPrimeInfo, getExponent, $BigInteger*)},
+		{"getPrime", "()Ljava/math/BigInteger;", nullptr, $PUBLIC | $FINAL, $method(RSAOtherPrimeInfo, getPrime, $BigInteger*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.spec.RSAOtherPrimeInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RSAOtherPrimeInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RSAOtherPrimeInfo);
+	});
 	return class$;
 }
 

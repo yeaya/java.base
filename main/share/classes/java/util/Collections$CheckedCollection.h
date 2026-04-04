@@ -67,7 +67,7 @@ public:
 	virtual $String* toString() override;
 	virtual $Object* typeCheck(Object$* o);
 	$ObjectArray* zeroLengthElementArray();
-	static const int64_t serialVersionUID = (int64_t)0x15E96DFD18E6CC6F;
+	static const int64_t serialVersionUID = (int64_t)0x15e96dfd18e6cc6f;
 	::java::util::Collection* c = nullptr;
 	$Class* type = nullptr;
 	$ObjectArray* zeroLengthElementArray$ = nullptr;

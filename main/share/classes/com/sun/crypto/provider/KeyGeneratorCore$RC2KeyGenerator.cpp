@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/KeyGeneratorCore$RC2KeyGenerator.h>
-
 #include <com/sun/crypto/provider/KeyGeneratorCore.h>
 #include <java/security/InvalidParameterException.h>
 #include <java/security/SecureRandom.h>
@@ -24,74 +23,68 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _KeyGeneratorCore$RC2KeyGenerator_FieldInfo_[] = {
-	{"core", "Lcom/sun/crypto/provider/KeyGeneratorCore;", nullptr, $PRIVATE | $FINAL, $field(KeyGeneratorCore$RC2KeyGenerator, core)},
-	{}
-};
-
-$MethodInfo _KeyGeneratorCore$RC2KeyGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyGeneratorCore$RC2KeyGenerator, init$, void)},
-	{"engineGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(KeyGeneratorCore$RC2KeyGenerator, engineGenerateKey, $SecretKey*)},
-	{"engineInit", "(Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(KeyGeneratorCore$RC2KeyGenerator, engineInit, void, $SecureRandom*)},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(KeyGeneratorCore$RC2KeyGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
-	{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(KeyGeneratorCore$RC2KeyGenerator, engineInit, void, int32_t, $SecureRandom*)},
-	{}
-};
-
-$InnerClassInfo _KeyGeneratorCore$RC2KeyGenerator_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.KeyGeneratorCore$RC2KeyGenerator", "com.sun.crypto.provider.KeyGeneratorCore", "RC2KeyGenerator", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _KeyGeneratorCore$RC2KeyGenerator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.KeyGeneratorCore$RC2KeyGenerator",
-	"javax.crypto.KeyGeneratorSpi",
-	nullptr,
-	_KeyGeneratorCore$RC2KeyGenerator_FieldInfo_,
-	_KeyGeneratorCore$RC2KeyGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeyGeneratorCore$RC2KeyGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.KeyGeneratorCore"
-};
-
-$Object* allocate$KeyGeneratorCore$RC2KeyGenerator($Class* clazz) {
-	return $of($alloc(KeyGeneratorCore$RC2KeyGenerator));
-}
-
 void KeyGeneratorCore$RC2KeyGenerator::init$() {
 	$KeyGeneratorSpi::init$();
 	$set(this, core, $new($KeyGeneratorCore, "RC2"_s, 128));
 }
 
 void KeyGeneratorCore$RC2KeyGenerator::engineInit($SecureRandom* random) {
-	$nc(this->core)->implInit(random);
+	this->core->implInit(random);
 }
 
 void KeyGeneratorCore$RC2KeyGenerator::engineInit($AlgorithmParameterSpec* params, $SecureRandom* random) {
-	$nc(this->core)->implInit(params, random);
+	this->core->implInit(params, random);
 }
 
 void KeyGeneratorCore$RC2KeyGenerator::engineInit(int32_t keySize, $SecureRandom* random) {
 	if ((keySize < 40) || (keySize > 1024)) {
 		$throwNew($InvalidParameterException, "Key length for RC2 must be between 40 and 1024 bits"_s);
 	}
-	$nc(this->core)->implInit(keySize, random);
+	this->core->implInit(keySize, random);
 }
 
 $SecretKey* KeyGeneratorCore$RC2KeyGenerator::engineGenerateKey() {
-	return $nc(this->core)->implGenerateKey();
+	return this->core->implGenerateKey();
 }
 
 KeyGeneratorCore$RC2KeyGenerator::KeyGeneratorCore$RC2KeyGenerator() {
 }
 
 $Class* KeyGeneratorCore$RC2KeyGenerator::load$($String* name, bool initialize) {
-	$loadClass(KeyGeneratorCore$RC2KeyGenerator, name, initialize, &_KeyGeneratorCore$RC2KeyGenerator_ClassInfo_, allocate$KeyGeneratorCore$RC2KeyGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"core", "Lcom/sun/crypto/provider/KeyGeneratorCore;", nullptr, $PRIVATE | $FINAL, $field(KeyGeneratorCore$RC2KeyGenerator, core)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(KeyGeneratorCore$RC2KeyGenerator, init$, void)},
+		{"engineGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(KeyGeneratorCore$RC2KeyGenerator, engineGenerateKey, $SecretKey*)},
+		{"engineInit", "(Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(KeyGeneratorCore$RC2KeyGenerator, engineInit, void, $SecureRandom*)},
+		{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(KeyGeneratorCore$RC2KeyGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
+		{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(KeyGeneratorCore$RC2KeyGenerator, engineInit, void, int32_t, $SecureRandom*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.KeyGeneratorCore$RC2KeyGenerator", "com.sun.crypto.provider.KeyGeneratorCore", "RC2KeyGenerator", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.KeyGeneratorCore$RC2KeyGenerator",
+		"javax.crypto.KeyGeneratorSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.KeyGeneratorCore"
+	};
+	$loadClass(KeyGeneratorCore$RC2KeyGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyGeneratorCore$RC2KeyGenerator);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <NoSender.h>
-
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/SocketAddress.h>
@@ -11,38 +10,18 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $DatagramSocket = ::java::net::DatagramSocket;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $SocketAddress = ::java::net::SocketAddress;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $DatagramChannel = ::java::nio::channels::DatagramChannel;
 
-$MethodInfo _NoSender_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NoSender, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NoSender, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _NoSender_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NoSender",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_NoSender_MethodInfo_
-};
-
-$Object* allocate$NoSender($Class* clazz) {
-	return $of($alloc(NoSender));
-}
-
 void NoSender::init$() {
 }
 
 void NoSender::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DatagramChannel, dc, $DatagramChannel::open());
-	$nc($($nc(dc)->socket()))->bind($$new($InetSocketAddress, 0));
+	$$nc($nc(dc)->socket())->bind($$new($InetSocketAddress, 0));
 	dc->configureBlocking(false);
 	$var($ByteBuffer, buf1, $ByteBuffer::allocateDirect(256));
 	$var($SocketAddress, sa1, dc->receive(buf1));
@@ -56,7 +35,22 @@ NoSender::NoSender() {
 }
 
 $Class* NoSender::load$($String* name, bool initialize) {
-	$loadClass(NoSender, name, initialize, &_NoSender_ClassInfo_, allocate$NoSender);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NoSender, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NoSender, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NoSender",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NoSender, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NoSender);
+	});
 	return class$;
 }
 

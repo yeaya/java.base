@@ -46,6 +46,7 @@ class $import ArraysSupport : public ::java::lang::Object {
 	$class(ArraysSupport, 0, ::java::lang::Object)
 public:
 	ArraysSupport();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t exactLog2(int32_t scale);
 	static int32_t hugeLength(int32_t oldLength, int32_t minGrowth);
@@ -78,7 +79,7 @@ public:
 	static int32_t LOG2_ARRAY_FLOAT_INDEX_SCALE;
 	static int32_t LOG2_ARRAY_DOUBLE_INDEX_SCALE;
 	static int32_t LOG2_BYTE_BIT_SIZE;
-	static const int32_t SOFT_MAX_ARRAY_LENGTH = 0x7FFFFFF7; // Integer.MAX_VALUE - 8
+	static const int32_t SOFT_MAX_ARRAY_LENGTH = 0x7ffffff7; // Integer.MAX_VALUE - 8
 };
 
 		} // util

@@ -10,6 +10,7 @@ class $export CollationKeyTestImpl : public ::java::text::CollationKey {
 	$class(CollationKeyTestImpl, 0, ::java::text::CollationKey)
 public:
 	CollationKeyTestImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* str);
 	void InsertionSort($Array<::java::text::CollationKey>* keys);
 	virtual int32_t compareTo(::java::text::CollationKey* target) override;

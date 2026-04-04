@@ -1,5 +1,4 @@
 #include <javax/net/ssl/SSLSocketFactory$1.h>
-
 #include <java/security/Security.h>
 #include <javax/net/ssl/SSLSocketFactory.h>
 #include <jcpp.h>
@@ -14,48 +13,6 @@ using $Security = ::java::security::Security;
 namespace javax {
 	namespace net {
 		namespace ssl {
-
-$FieldInfo _SSLSocketFactory$1_FieldInfo_[] = {
-	{"val$name", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(SSLSocketFactory$1, val$name)},
-	{}
-};
-
-$MethodInfo _SSLSocketFactory$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(SSLSocketFactory$1, init$, void, $String*)},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLSocketFactory$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _SSLSocketFactory$1_EnclosingMethodInfo_ = {
-	"javax.net.ssl.SSLSocketFactory",
-	"getSecurityProperty",
-	"(Ljava/lang/String;)Ljava/lang/String;"
-};
-
-$InnerClassInfo _SSLSocketFactory$1_InnerClassesInfo_[] = {
-	{"javax.net.ssl.SSLSocketFactory$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SSLSocketFactory$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.net.ssl.SSLSocketFactory$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_SSLSocketFactory$1_FieldInfo_,
-	_SSLSocketFactory$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
-	&_SSLSocketFactory$1_EnclosingMethodInfo_,
-	_SSLSocketFactory$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.net.ssl.SSLSocketFactory"
-};
-
-$Object* allocate$SSLSocketFactory$1($Class* clazz) {
-	return $of($alloc(SSLSocketFactory$1));
-}
 
 void SSLSocketFactory$1::init$($String* val$name) {
 	$set(this, val$name, val$name);
@@ -76,7 +33,42 @@ SSLSocketFactory$1::SSLSocketFactory$1() {
 }
 
 $Class* SSLSocketFactory$1::load$($String* name, bool initialize) {
-	$loadClass(SSLSocketFactory$1, name, initialize, &_SSLSocketFactory$1_ClassInfo_, allocate$SSLSocketFactory$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$name", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(SSLSocketFactory$1, val$name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(SSLSocketFactory$1, init$, void, $String*)},
+		{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLSocketFactory$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.net.ssl.SSLSocketFactory",
+		"getSecurityProperty",
+		"(Ljava/lang/String;)Ljava/lang/String;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.net.ssl.SSLSocketFactory$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.net.ssl.SSLSocketFactory$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.net.ssl.SSLSocketFactory"
+	};
+	$loadClass(SSLSocketFactory$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLSocketFactory$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <ExtendedFileInputStream.h>
-
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <jcpp.h>
@@ -9,24 +8,6 @@ using $FileInputStream = ::java::io::FileInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _ExtendedFileInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/File;)V", nullptr, 0, $method(ExtendedFileInputStream, init$, void, $File*), "java.io.FileNotFoundException"},
-	{}
-};
-
-$ClassInfo _ExtendedFileInputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"ExtendedFileInputStream",
-	"java.io.FileInputStream",
-	nullptr,
-	nullptr,
-	_ExtendedFileInputStream_MethodInfo_
-};
-
-$Object* allocate$ExtendedFileInputStream($Class* clazz) {
-	return $of($alloc(ExtendedFileInputStream));
-}
-
 void ExtendedFileInputStream::init$($File* file) {
 	$FileInputStream::init$(file);
 }
@@ -35,7 +16,21 @@ ExtendedFileInputStream::ExtendedFileInputStream() {
 }
 
 $Class* ExtendedFileInputStream::load$($String* name, bool initialize) {
-	$loadClass(ExtendedFileInputStream, name, initialize, &_ExtendedFileInputStream_ClassInfo_, allocate$ExtendedFileInputStream);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/File;)V", nullptr, 0, $method(ExtendedFileInputStream, init$, void, $File*), "java.io.FileNotFoundException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"ExtendedFileInputStream",
+		"java.io.FileInputStream",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ExtendedFileInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExtendedFileInputStream);
+	});
 	return class$;
 }
 

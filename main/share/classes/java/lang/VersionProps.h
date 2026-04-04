@@ -43,6 +43,7 @@ class VersionProps : public ::java::lang::Object {
 	$class(VersionProps, $PRELOAD, ::java::lang::Object)
 public:
 	VersionProps();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Optional* build();
 	static void init(::java::util::Map* props);

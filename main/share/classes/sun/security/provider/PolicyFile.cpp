@@ -1,12 +1,10 @@
 #include <sun/security/provider/PolicyFile.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/File.h>
 #include <java/io/FilePermission.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/Reader.h>
 #include <java/lang/ClassCastException.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
@@ -35,7 +33,6 @@
 #include <java/security/Permissions.h>
 #include <java/security/Policy.h>
 #include <java/security/Principal.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/ProtectionDomain.h>
 #include <java/security/SecurityPermission.h>
 #include <java/security/UnresolvedPermission.h>
@@ -45,7 +42,6 @@
 #include <java/util/AbstractSequentialList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Enumeration.h>
 #include <java/util/HashSet.h>
@@ -107,8 +103,6 @@ using $FilePermission = ::java::io::FilePermission;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
-using $PrintStream = ::java::io::PrintStream;
-using $Reader = ::java::io::Reader;
 using $Boolean = ::java::lang::Boolean;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -143,7 +137,6 @@ using $PermissionCollection = ::java::security::PermissionCollection;
 using $Permissions = ::java::security::Permissions;
 using $Policy = ::java::security::Policy;
 using $Principal = ::java::security::Principal;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
 using $SecurityPermission = ::java::security::SecurityPermission;
 using $UnresolvedPermission = ::java::security::UnresolvedPermission;
@@ -152,14 +145,11 @@ using $X509Certificate = ::java::security::cert::X509Certificate;
 using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Enumeration = ::java::util::Enumeration;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
-using $LinkedList = ::java::util::LinkedList;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $PropertyPermission = ::java::util::PropertyPermission;
 using $Set = ::java::util::Set;
 using $StringTokenizer = ::java::util::StringTokenizer;
@@ -196,98 +186,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$FieldInfo _PolicyFile_FieldInfo_[] = {
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PolicyFile, debug)},
-	{"SELF", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PolicyFile, SELF)},
-	{"X500PRINCIPAL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PolicyFile, X500PRINCIPAL)},
-	{"POLICY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PolicyFile, POLICY)},
-	{"POLICY_URL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PolicyFile, POLICY_URL)},
-	{"DEFAULT_CACHE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PolicyFile, DEFAULT_CACHE_SIZE)},
-	{"policyInfo", "Lsun/security/provider/PolicyFile$PolicyInfo;", nullptr, $PRIVATE | $VOLATILE, $field(PolicyFile, policyInfo)},
-	{"expandProperties", "Z", nullptr, $PRIVATE, $field(PolicyFile, expandProperties)},
-	{"allowSystemProperties", "Z", nullptr, $PRIVATE, $field(PolicyFile, allowSystemProperties)},
-	{"notUtf8", "Z", nullptr, $PRIVATE, $field(PolicyFile, notUtf8)},
-	{"url", "Ljava/net/URL;", nullptr, $PRIVATE, $field(PolicyFile, url)},
-	{"PARAMS0", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(PolicyFile, PARAMS0)},
-	{"PARAMS1", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(PolicyFile, PARAMS1)},
-	{"PARAMS2", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(PolicyFile, PARAMS2)},
-	{"badPolicyURLs", "Ljava/util/Set;", "Ljava/util/Set<Ljava/net/URL;>;", $PRIVATE | $STATIC, $staticField(PolicyFile, badPolicyURLs)},
-	{"builtInFS", "Ljava/nio/file/FileSystem;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PolicyFile, builtInFS)},
-	{}
-};
-
-$MethodInfo _PolicyFile_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PolicyFile, init$, void)},
-	{"<init>", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $method(PolicyFile, init$, void, $URL*)},
-	{"addGrantEntry", "(Lsun/security/provider/PolicyParser$GrantEntry;Ljava/security/KeyStore;Lsun/security/provider/PolicyFile$PolicyInfo;)V", nullptr, $PRIVATE, $method(PolicyFile, addGrantEntry, void, $PolicyParser$GrantEntry*, $KeyStore*, $PolicyFile$PolicyInfo*)},
-	{"addPermissions", "(Ljava/security/Permissions;Ljava/security/CodeSource;[Ljava/security/Principal;Lsun/security/provider/PolicyFile$PolicyEntry;)V", nullptr, $PRIVATE, $method(PolicyFile, addPermissions, void, $Permissions*, $CodeSource*, $PrincipalArray*, $PolicyFile$PolicyEntry*)},
-	{"addPerms", "(Ljava/security/Permissions;[Ljava/security/Principal;Lsun/security/provider/PolicyFile$PolicyEntry;)V", nullptr, $PRIVATE, $method(PolicyFile, addPerms, void, $Permissions*, $PrincipalArray*, $PolicyFile$PolicyEntry*)},
-	{"canonPath", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(PolicyFile, canonPath, $String*, $String*), "java.io.IOException"},
-	{"canonicalizeCodebase", "(Ljava/security/CodeSource;Z)Ljava/security/CodeSource;", nullptr, $PRIVATE, $method(PolicyFile, canonicalizeCodebase, $CodeSource*, $CodeSource*, bool)},
-	{"expandPermissionName", "(Lsun/security/provider/PolicyParser$PermissionEntry;Ljava/security/KeyStore;)V", nullptr, $PRIVATE, $method(PolicyFile, expandPermissionName, void, $PolicyParser$PermissionEntry*, $KeyStore*), "java.lang.Exception"},
-	{"expandSelf", "(Lsun/security/provider/PolicyFile$SelfPermission;Ljava/util/List;[Ljava/security/Principal;Ljava/security/Permissions;)V", "(Lsun/security/provider/PolicyFile$SelfPermission;Ljava/util/List<Lsun/security/provider/PolicyParser$PrincipalEntry;>;[Ljava/security/Principal;Ljava/security/Permissions;)V", $PRIVATE, $method(PolicyFile, expandSelf, void, $PolicyFile$SelfPermission*, $List*, $PrincipalArray*, $Permissions*)},
-	{"getCertificates", "(Ljava/security/KeyStore;Ljava/lang/String;Lsun/security/provider/PolicyFile$PolicyInfo;)[Ljava/security/cert/Certificate;", nullptr, $PRIVATE, $method(PolicyFile, getCertificates, $CertificateArray*, $KeyStore*, $String*, $PolicyFile$PolicyInfo*)},
-	{"getCodeSource", "(Lsun/security/provider/PolicyParser$GrantEntry;Ljava/security/KeyStore;Lsun/security/provider/PolicyFile$PolicyInfo;)Ljava/security/CodeSource;", nullptr, $PRIVATE, $method(PolicyFile, getCodeSource, $CodeSource*, $PolicyParser$GrantEntry*, $KeyStore*, $PolicyFile$PolicyInfo*), "java.net.MalformedURLException"},
-	{"getDN", "(Ljava/lang/String;Ljava/security/KeyStore;)Ljava/lang/String;", nullptr, $PRIVATE, $method(PolicyFile, getDN, $String*, $String*, $KeyStore*)},
-	{"getInputStreamReader", "(Ljava/io/InputStream;)Ljava/io/InputStreamReader;", nullptr, $PRIVATE, $method(PolicyFile, getInputStreamReader, $InputStreamReader*, $InputStream*)},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/security/Permission;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(PolicyFile, getInstance, $Permission*, $String*, $String*, $String*), "java.lang.ClassNotFoundException,java.lang.InstantiationException,java.lang.IllegalAccessException,java.lang.NoSuchMethodException,java.lang.reflect.InvocationTargetException"},
-	{"getKnownPermission", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)Ljava/security/Permission;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/String;)Ljava/security/Permission;", $PRIVATE | $STATIC, $staticMethod(PolicyFile, getKnownPermission, $Permission*, $Class*, $String*, $String*)},
-	{"getKnownPrincipal", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/security/Principal;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/security/Principal;", $PRIVATE | $STATIC, $staticMethod(PolicyFile, getKnownPrincipal, $Principal*, $Class*, $String*)},
-	{"getPermissions", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(PolicyFile, getPermissions, $PermissionCollection*, $ProtectionDomain*)},
-	{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(PolicyFile, getPermissions, $PermissionCollection*, $CodeSource*)},
-	{"getPermissions", "(Ljava/security/Permissions;Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PRIVATE, $method(PolicyFile, getPermissions, $PermissionCollection*, $Permissions*, $ProtectionDomain*)},
-	{"getPermissions", "(Ljava/security/Permissions;Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PRIVATE, $method(PolicyFile, getPermissions, $PermissionCollection*, $Permissions*, $CodeSource*)},
-	{"getPermissions", "(Ljava/security/Permissions;Ljava/security/CodeSource;[Ljava/security/Principal;)Ljava/security/Permissions;", nullptr, $PRIVATE, $method(PolicyFile, getPermissions, $Permissions*, $Permissions*, $CodeSource*, $PrincipalArray*)},
-	{"getPrincipalInfo", "(Lsun/security/provider/PolicyParser$PrincipalEntry;[Ljava/security/Principal;)[[Ljava/lang/String;", nullptr, $PRIVATE, $method(PolicyFile, getPrincipalInfo, $StringArray2*, $PolicyParser$PrincipalEntry*, $PrincipalArray*)},
-	{"getSignerCertificates", "(Ljava/security/CodeSource;)[Ljava/security/cert/Certificate;", nullptr, $PROTECTED, $virtualMethod(PolicyFile, getSignerCertificates, $CertificateArray*, $CodeSource*)},
-	{"implies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(PolicyFile, implies, bool, $ProtectionDomain*, $Permission*)},
-	{"init", "(Ljava/net/URL;)V", nullptr, $PRIVATE, $method(PolicyFile, init, void, $URL*)},
-	{"init", "(Ljava/net/URL;Lsun/security/provider/PolicyFile$PolicyInfo;)Z", nullptr, $PRIVATE, $method(PolicyFile, init, bool, $URL*, $PolicyFile$PolicyInfo*)},
-	{"initDefaultPolicy", "(Lsun/security/provider/PolicyFile$PolicyInfo;)V", nullptr, $PRIVATE, $method(PolicyFile, initDefaultPolicy, void, $PolicyFile$PolicyInfo*)},
-	{"initPolicyFile", "(Lsun/security/provider/PolicyFile$PolicyInfo;Ljava/net/URL;)V", nullptr, $PRIVATE, $method(PolicyFile, initPolicyFile, void, $PolicyFile$PolicyInfo*, $URL*)},
-	{"initPolicyFile", "(Ljava/lang/String;Ljava/lang/String;Lsun/security/provider/PolicyFile$PolicyInfo;)Z", nullptr, $PRIVATE, $method(PolicyFile, initPolicyFile, bool, $String*, $String*, $PolicyFile$PolicyInfo*)},
-	{"initStaticPolicy", "(Lsun/security/provider/PolicyFile$PolicyInfo;)V", nullptr, $PRIVATE, $method(PolicyFile, initStaticPolicy, void, $PolicyFile$PolicyInfo*)},
-	{"printPD", "(Ljava/security/ProtectionDomain;)Ljava/lang/String;", nullptr, $PRIVATE, $method(PolicyFile, printPD, $String*, $ProtectionDomain*)},
-	{"refresh", "()V", nullptr, $PUBLIC, $virtualMethod(PolicyFile, refresh, void)},
-	{"replacePrincipals", "(Ljava/util/List;Ljava/security/KeyStore;)Z", "(Ljava/util/List<Lsun/security/provider/PolicyParser$PrincipalEntry;>;Ljava/security/KeyStore;)Z", $PRIVATE, $method(PolicyFile, replacePrincipals, bool, $List*, $KeyStore*)},
-	{"wildcardPrincipalNameImplies", "(Ljava/lang/String;[Ljava/security/Principal;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(PolicyFile, wildcardPrincipalNameImplies, bool, $String*, $PrincipalArray*)},
-	{}
-};
-
-$InnerClassInfo _PolicyFile_InnerClassesInfo_[] = {
-	{"sun.security.provider.PolicyFile$PolicyInfo", "sun.security.provider.PolicyFile", "PolicyInfo", $PRIVATE | $STATIC},
-	{"sun.security.provider.PolicyFile$SelfPermission", "sun.security.provider.PolicyFile", "SelfPermission", $PRIVATE | $STATIC},
-	{"sun.security.provider.PolicyFile$PolicyEntry", "sun.security.provider.PolicyFile", "PolicyEntry", $PRIVATE | $STATIC},
-	{"sun.security.provider.PolicyFile$8", nullptr, nullptr, 0},
-	{"sun.security.provider.PolicyFile$7", nullptr, nullptr, 0},
-	{"sun.security.provider.PolicyFile$6", nullptr, nullptr, 0},
-	{"sun.security.provider.PolicyFile$5", nullptr, nullptr, 0},
-	{"sun.security.provider.PolicyFile$4", nullptr, nullptr, 0},
-	{"sun.security.provider.PolicyFile$3", nullptr, nullptr, 0},
-	{"sun.security.provider.PolicyFile$2", nullptr, nullptr, 0},
-	{"sun.security.provider.PolicyFile$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PolicyFile_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.provider.PolicyFile",
-	"java.security.Policy",
-	nullptr,
-	_PolicyFile_FieldInfo_,
-	_PolicyFile_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PolicyFile_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.provider.PolicyFile$PolicyInfo,sun.security.provider.PolicyFile$SelfPermission,sun.security.provider.PolicyFile$PolicyEntry,sun.security.provider.PolicyFile$8,sun.security.provider.PolicyFile$7,sun.security.provider.PolicyFile$6,sun.security.provider.PolicyFile$5,sun.security.provider.PolicyFile$4,sun.security.provider.PolicyFile$3,sun.security.provider.PolicyFile$2,sun.security.provider.PolicyFile$1"
-};
-
-$Object* allocate$PolicyFile($Class* clazz) {
-	return $of($alloc(PolicyFile));
-}
-
 $Debug* PolicyFile::debug = nullptr;
 $String* PolicyFile::SELF = nullptr;
 $String* PolicyFile::X500PRINCIPAL = nullptr;
@@ -317,9 +215,9 @@ void PolicyFile::init$($URL* url) {
 }
 
 void PolicyFile::init($URL* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($String, numCacheStr, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($PolicyFile$1, this)))));
+	$var($String, numCacheStr, $cast($String, $AccessController::doPrivileged($$new($PolicyFile$1, this))));
 	int32_t numCaches = 0;
 	if (numCacheStr != nullptr) {
 		try {
@@ -336,14 +234,14 @@ void PolicyFile::init($URL* url) {
 }
 
 void PolicyFile::initPolicyFile($PolicyFile$PolicyInfo* newInfo, $URL* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($PolicyFile$2, this, newInfo)));
+	$AccessController::doPrivileged($$new($PolicyFile$2, this, newInfo));
 	if (url != nullptr) {
 		if (PolicyFile::debug != nullptr) {
-			$nc(PolicyFile::debug)->println($$str({"reading "_s, url}));
+			PolicyFile::debug->println($$str({"reading "_s, url}));
 		}
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($PolicyFile$3, this, url, newInfo)));
+		$AccessController::doPrivileged($$new($PolicyFile$3, this, url, newInfo));
 	} else {
 		bool loaded_one = initPolicyFile(PolicyFile::POLICY, PolicyFile::POLICY_URL, newInfo);
 		if (!loaded_one) {
@@ -353,9 +251,9 @@ void PolicyFile::initPolicyFile($PolicyFile$PolicyInfo* newInfo, $URL* url) {
 }
 
 bool PolicyFile::initPolicyFile($String* propname, $String* urlname, $PolicyFile$PolicyInfo* newInfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	bool loadedPolicy = $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($PolicyFile$4, this, propname, newInfo, urlname)))))))->booleanValue();
+	bool loadedPolicy = $$sure($Boolean, $AccessController::doPrivileged($$new($PolicyFile$4, this, propname, newInfo, urlname)))->booleanValue();
 	return loadedPolicy;
 }
 
@@ -407,73 +305,70 @@ void PolicyFile::initDefaultPolicy($PolicyFile$PolicyInfo* newInfo) {
 }
 
 bool PolicyFile::init($URL* policy, $PolicyFile$PolicyInfo* newInfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(PolicyFile::badPolicyURLs)->contains(policy)) {
 		if (PolicyFile::debug != nullptr) {
-			$nc(PolicyFile::debug)->println($$str({"skipping bad policy file: "_s, policy}));
+			PolicyFile::debug->println($$str({"skipping bad policy file: "_s, policy}));
 		}
 		return false;
 	}
 	try {
 		$var($InputStreamReader, isr, getInputStreamReader($($PolicyUtil::getInputStream(policy))));
-		{
-			$var($Throwable, var$0, nullptr);
-			bool var$2 = false;
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		bool var$2 = false;
+		bool return$1 = false;
+		try {
 			try {
+				$var($PolicyParser, pp, $new($PolicyParser, this->expandProperties));
+				pp->read(isr);
+				$var($KeyStore, keyStore, nullptr);
 				try {
-					$var($PolicyParser, pp, $new($PolicyParser, this->expandProperties));
-					pp->read(isr);
-					$var($KeyStore, keyStore, nullptr);
-					try {
-						$var($URL, var$3, policy);
-						$var($String, var$4, pp->getKeyStoreUrl());
-						$var($String, var$5, pp->getKeyStoreType());
-						$var($String, var$6, pp->getKeyStoreProvider());
-						$assign(keyStore, $PolicyUtil::getKeyStore(var$3, var$4, var$5, var$6, $(pp->getStorePassURL()), PolicyFile::debug));
-					} catch ($Exception& e) {
-						if (PolicyFile::debug != nullptr) {
-							$nc(PolicyFile::debug)->println("Debug info only. Ignoring exception."_s);
-							e->printStackTrace();
-						}
+					$var($String, var$3, pp->getKeyStoreUrl());
+					$var($String, var$4, pp->getKeyStoreType());
+					$var($String, var$5, pp->getKeyStoreProvider());
+					$assign(keyStore, $PolicyUtil::getKeyStore(policy, var$3, var$4, var$5, $(pp->getStorePassURL()), PolicyFile::debug));
+				} catch ($Exception& e) {
+					if (PolicyFile::debug != nullptr) {
+						PolicyFile::debug->println("Debug info only. Ignoring exception."_s);
+						e->printStackTrace();
 					}
-					$var($Enumeration, enum_, pp->grantElements());
-					while ($nc(enum_)->hasMoreElements()) {
-						$var($PolicyParser$GrantEntry, ge, $cast($PolicyParser$GrantEntry, enum_->nextElement()));
-						addGrantEntry(ge, keyStore, newInfo);
-					}
-					var$2 = true;
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& t$) {
-					if (isr != nullptr) {
-						try {
-							isr->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
 				}
-			} catch ($Throwable& var$7) {
-				$assign(var$0, var$7);
-			} $finally: {
+				$var($Enumeration, enum_, pp->grantElements());
+				while ($nc(enum_)->hasMoreElements()) {
+					$var($PolicyParser$GrantEntry, ge, $cast($PolicyParser$GrantEntry, enum_->nextElement()));
+					addGrantEntry(ge, keyStore, newInfo);
+				}
+				var$2 = true;
+				return$1 = true;
+				goto $finally;
+			} catch ($Throwable& t$) {
 				if (isr != nullptr) {
-					isr->close();
+					try {
+						isr->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
+		} catch ($Throwable& var$6) {
+			$assign(var$0, var$6);
+		} $finally: {
+			if (isr != nullptr) {
+				isr->close();
 			}
 		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
+		}
 	} catch ($PolicyParser$ParsingException& pe) {
-		$nc(PolicyFile::badPolicyURLs)->add(policy);
+		PolicyFile::badPolicyURLs->add(policy);
 		$var($ObjectArray, source, $new($ObjectArray, {
-			$of(policy),
-			$($of(pe->getNonlocalizedMessage()))
+			policy,
+			$(pe->getNonlocalizedMessage())
 		}));
 		$nc($System::err)->println($($LocalizedMessage::getNonlocalized($$str({PolicyFile::POLICY, ".error.parsing.policy.message"_s}), source)));
 		if (PolicyFile::debug != nullptr) {
@@ -481,8 +376,8 @@ bool PolicyFile::init($URL* policy, $PolicyFile$PolicyInfo* newInfo) {
 		}
 	} catch ($Exception& e) {
 		if (PolicyFile::debug != nullptr) {
-			$nc(PolicyFile::debug)->println($$str({"error parsing "_s, policy}));
-			$nc(PolicyFile::debug)->println($(e->toString()));
+			PolicyFile::debug->println($$str({"error parsing "_s, policy}));
+			PolicyFile::debug->println($(e->toString()));
 			e->printStackTrace();
 		}
 	}
@@ -497,25 +392,25 @@ $InputStreamReader* PolicyFile::getInputStreamReader($InputStream* is) {
 void PolicyFile::initStaticPolicy($PolicyFile$PolicyInfo* newInfo) {
 	$beforeCallerSensitive();
 	if (PolicyFile::debug != nullptr) {
-		$nc(PolicyFile::debug)->println("Initializing with static permissions"_s);
+		PolicyFile::debug->println("Initializing with static permissions"_s);
 	}
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($PolicyFile$5, this, newInfo)));
+	$AccessController::doPrivileged($$new($PolicyFile$5, this, newInfo));
 }
 
 $CodeSource* PolicyFile::getCodeSource($PolicyParser$GrantEntry* ge, $KeyStore* keyStore, $PolicyFile$PolicyInfo* newInfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CertificateArray, certs, nullptr);
 	if ($nc(ge)->signedBy != nullptr) {
 		$assign(certs, getCertificates(keyStore, ge->signedBy, newInfo));
 		if (certs == nullptr) {
 			if (PolicyFile::debug != nullptr) {
-				$nc(PolicyFile::debug)->println($$str({"  -- No certs for alias \'"_s, ge->signedBy, "\' - ignoring entry"_s}));
+				PolicyFile::debug->println($$str({"  -- No certs for alias \'"_s, ge->signedBy, "\' - ignoring entry"_s}));
 			}
 			return nullptr;
 		}
 	}
 	$var($URL, location, nullptr);
-	if ($nc(ge)->codeBase != nullptr) {
+	if (ge->codeBase != nullptr) {
 		$assign(location, $new($URL, ge->codeBase));
 	} else {
 		$assign(location, nullptr);
@@ -524,19 +419,17 @@ $CodeSource* PolicyFile::getCodeSource($PolicyParser$GrantEntry* ge, $KeyStore* 
 }
 
 void PolicyFile::addGrantEntry($PolicyParser$GrantEntry* ge, $KeyStore* keyStore, $PolicyFile$PolicyInfo* newInfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (PolicyFile::debug != nullptr) {
-		$nc(PolicyFile::debug)->println("Adding policy entry: "_s);
-		$nc(PolicyFile::debug)->println($$str({"  signedBy "_s, $nc(ge)->signedBy}));
-		$nc(PolicyFile::debug)->println($$str({"  codeBase "_s, $nc(ge)->codeBase}));
-		if ($nc(ge)->principals != nullptr) {
-			{
-				$var($Iterator, i$, $nc(ge->principals)->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($PolicyParser$PrincipalEntry, pppe, $cast($PolicyParser$PrincipalEntry, i$->next()));
-					{
-						$nc(PolicyFile::debug)->println($$str({"  "_s, $($nc(pppe)->toString())}));
-					}
+		PolicyFile::debug->println("Adding policy entry: "_s);
+		PolicyFile::debug->println($$str({"  signedBy "_s, $nc(ge)->signedBy}));
+		PolicyFile::debug->println($$str({"  codeBase "_s, ge->codeBase}));
+		if (ge->principals != nullptr) {
+			$var($Iterator, i$, ge->principals->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($PolicyParser$PrincipalEntry, pppe, $cast($PolicyParser$PrincipalEntry, i$->next()));
+				{
+					PolicyFile::debug->println($$str({"  "_s, $($nc(pppe)->toString())}));
 				}
 			}
 		}
@@ -549,8 +442,8 @@ void PolicyFile::addGrantEntry($PolicyParser$GrantEntry* ge, $KeyStore* keyStore
 		if (replacePrincipals($nc(ge)->principals, keyStore) == false) {
 			return;
 		}
-		$var($PolicyFile$PolicyEntry, entry, $new($PolicyFile$PolicyEntry, codesource, $nc(ge)->principals));
-		$var($Enumeration, enum_, $nc(ge)->permissionElements());
+		$var($PolicyFile$PolicyEntry, entry, $new($PolicyFile$PolicyEntry, codesource, ge->principals));
+		$var($Enumeration, enum_, ge->permissionElements());
 		while ($nc(enum_)->hasMoreElements()) {
 			$var($PolicyParser$PermissionEntry, pe, $cast($PolicyParser$PermissionEntry, enum_->nextElement()));
 			try {
@@ -558,9 +451,9 @@ void PolicyFile::addGrantEntry($PolicyParser$GrantEntry* ge, $KeyStore* keyStore
 				$var($Permission, perm, nullptr);
 				bool var$0 = $nc($nc(pe)->permission)->equals("javax.security.auth.PrivateCredentialPermission"_s);
 				if (var$0 && $nc(pe->name)->endsWith(" self"_s)) {
-					$set(pe, name, $str({$($nc(pe->name)->substring(0, $nc(pe->name)->indexOf("self"_s))), PolicyFile::SELF}));
+					$set(pe, name, $str({$(pe->name->substring(0, pe->name->indexOf("self"_s))), PolicyFile::SELF}));
 				}
-				if ($nc(pe)->name != nullptr && $nc(pe->name)->indexOf(PolicyFile::SELF) != -1) {
+				if (pe->name != nullptr && pe->name->indexOf(PolicyFile::SELF) != -1) {
 					$var($CertificateArray, certs, nullptr);
 					if (pe->signedBy != nullptr) {
 						$assign(certs, getCertificates(keyStore, pe->signedBy, newInfo));
@@ -573,7 +466,7 @@ void PolicyFile::addGrantEntry($PolicyParser$GrantEntry* ge, $KeyStore* keyStore
 				}
 				entry->add(perm);
 				if (PolicyFile::debug != nullptr) {
-					$nc(PolicyFile::debug)->println($$str({"  "_s, perm}));
+					PolicyFile::debug->println($$str({"  "_s, perm}));
 				}
 			} catch ($ClassNotFoundException& cnfe) {
 				$var($CertificateArray, certs, nullptr);
@@ -582,40 +475,40 @@ void PolicyFile::addGrantEntry($PolicyParser$GrantEntry* ge, $KeyStore* keyStore
 				} else {
 					$assign(certs, nullptr);
 				}
-				if (certs != nullptr || $nc(pe)->signedBy == nullptr) {
+				if (certs != nullptr || pe->signedBy == nullptr) {
 					$var($Permission, perm, $new($UnresolvedPermission, pe->permission, pe->name, pe->action, certs));
 					entry->add(perm);
 					if (PolicyFile::debug != nullptr) {
-						$nc(PolicyFile::debug)->println($$str({"  "_s, perm}));
+						PolicyFile::debug->println($$str({"  "_s, perm}));
 					}
 				}
 			} catch ($InvocationTargetException& ite) {
 				$var($ObjectArray, source, $new($ObjectArray, {
-					$of($nc(pe)->permission),
-					$($of($nc($(ite->getCause()))->toString()))
+					$nc(pe)->permission,
+					$($$nc(ite->getCause())->toString())
 				}));
 				$nc($System::err)->println($($LocalizedMessage::getNonlocalized($$str({PolicyFile::POLICY, ".error.adding.Permission.perm.message"_s}), source)));
 			} catch ($Exception& e) {
 				$var($ObjectArray, source, $new($ObjectArray, {
-					$of($nc(pe)->permission),
-					$($of(e->toString()))
+					$nc(pe)->permission,
+					$(e->toString())
 				}));
 				$nc($System::err)->println($($LocalizedMessage::getNonlocalized($$str({PolicyFile::POLICY, ".error.adding.Permission.perm.message"_s}), source)));
 			}
 		}
 		$nc($nc(newInfo)->policyEntries)->add(entry);
 	} catch ($Exception& e) {
-		$var($ObjectArray, source, $new($ObjectArray, {$($of(e->toString()))}));
+		$var($ObjectArray, source, $new($ObjectArray, {$(e->toString())}));
 		$nc($System::err)->println($($LocalizedMessage::getNonlocalized($$str({PolicyFile::POLICY, ".error.adding.Entry.message"_s}), source)));
 	}
 	if (PolicyFile::debug != nullptr) {
-		$nc(PolicyFile::debug)->println();
+		PolicyFile::debug->println();
 	}
 }
 
 $Permission* PolicyFile::getInstance($String* type, $String* name, $String* actions) {
 	$init(PolicyFile);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Class* pc = $Class::forName(type, false, nullptr);
 	$var($Permission, answer, getKnownPermission(pc, name, actions));
@@ -628,36 +521,36 @@ $Permission* PolicyFile::getInstance($String* type, $String* name, $String* acti
 	}
 	if (name == nullptr && actions == nullptr) {
 		try {
-			$var($Constructor, c, $nc(pc)->getConstructor(PolicyFile::PARAMS0));
+			$var($Constructor, c, pc->getConstructor(PolicyFile::PARAMS0));
 			return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, 0)));
 		} catch ($NoSuchMethodException& ne) {
 			try {
-				$var($Constructor, c, $nc(pc)->getConstructor(PolicyFile::PARAMS1));
-				return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {$of(name)})));
+				$var($Constructor, c, pc->getConstructor(PolicyFile::PARAMS1));
+				return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {name})));
 			} catch ($NoSuchMethodException& ne1) {
-				$var($Constructor, c, $nc(pc)->getConstructor(PolicyFile::PARAMS2));
+				$var($Constructor, c, pc->getConstructor(PolicyFile::PARAMS2));
 				return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {
-					$of(name),
-					$of(actions)
+					name,
+					actions
 				})));
 			}
 		}
 	} else if (name != nullptr && actions == nullptr) {
 		try {
-			$var($Constructor, c, $nc(pc)->getConstructor(PolicyFile::PARAMS1));
-			return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {$of(name)})));
+			$var($Constructor, c, pc->getConstructor(PolicyFile::PARAMS1));
+			return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {name})));
 		} catch ($NoSuchMethodException& ne) {
-			$var($Constructor, c, $nc(pc)->getConstructor(PolicyFile::PARAMS2));
+			$var($Constructor, c, pc->getConstructor(PolicyFile::PARAMS2));
 			return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {
-				$of(name),
-				$of(actions)
+				name,
+				actions
 			})));
 		}
 	} else {
-		$var($Constructor, c, $nc(pc)->getConstructor(PolicyFile::PARAMS2));
+		$var($Constructor, c, pc->getConstructor(PolicyFile::PARAMS2));
 		return $cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {
-			$of(name),
-			$of(actions)
+			name,
+			actions
 		})));
 	}
 }
@@ -714,24 +607,24 @@ $Principal* PolicyFile::getKnownPrincipal($Class* claz, $String* name) {
 }
 
 $CertificateArray* PolicyFile::getCertificates($KeyStore* keyStore, $String* aliases, $PolicyFile$PolicyInfo* newInfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, vcerts, nullptr);
 	$var($StringTokenizer, st, $new($StringTokenizer, aliases, ","_s));
 	int32_t n = 0;
 	while (st->hasMoreTokens()) {
-		$var($String, alias, $nc($(st->nextToken()))->trim());
+		$var($String, alias, $$nc(st->nextToken())->trim());
 		++n;
 		$var($Certificate, cert, nullptr);
 		$synchronized($nc(newInfo)->aliasMapping) {
-			$assign(cert, $cast($Certificate, $nc(newInfo->aliasMapping)->get(alias)));
+			$assign(cert, $cast($Certificate, newInfo->aliasMapping->get(alias)));
 			if (cert == nullptr && keyStore != nullptr) {
 				try {
 					$assign(cert, keyStore->getCertificate(alias));
 				} catch ($KeyStoreException& kse) {
 				}
 				if (cert != nullptr) {
-					$nc(newInfo->aliasMapping)->put(alias, cert);
-					$nc(newInfo->aliasMapping)->put(cert, alias);
+					newInfo->aliasMapping->put(alias, cert);
+					newInfo->aliasMapping->put(cert, alias);
 				}
 			}
 		}
@@ -756,7 +649,7 @@ void PolicyFile::refresh() {
 }
 
 bool PolicyFile::implies($ProtectionDomain* pd, $Permission* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavaSecurityAccess$ProtectionDomainCache, pdMap, $nc(this->policyInfo)->getPdMapping());
 	$var($PermissionCollection, pc, $nc(pdMap)->get(pd));
 	if (pc != nullptr) {
@@ -771,7 +664,7 @@ bool PolicyFile::implies($ProtectionDomain* pd, $Permission* p) {
 }
 
 $PermissionCollection* PolicyFile::getPermissions($ProtectionDomain* domain) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Permissions, perms, $new($Permissions));
 	if (domain == nullptr) {
 		return perms;
@@ -782,7 +675,7 @@ $PermissionCollection* PolicyFile::getPermissions($ProtectionDomain* domain) {
 		$synchronized(pc) {
 			$var($Enumeration, e, pc->elements());
 			while ($nc(e)->hasMoreElements()) {
-				perms->add($($FilePermCompat::newPermPlusAltPath($cast($Permission, $(e->nextElement())))));
+				perms->add($($FilePermCompat::newPermPlusAltPath($$cast($Permission, e->nextElement()))));
 			}
 		}
 	}
@@ -794,31 +687,31 @@ $PermissionCollection* PolicyFile::getPermissions($CodeSource* codesource) {
 }
 
 $PermissionCollection* PolicyFile::getPermissions($Permissions* perms, $ProtectionDomain* pd) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (PolicyFile::debug != nullptr) {
-		$nc(PolicyFile::debug)->println($$str({"getPermissions:\n\t"_s, $(printPD(pd))}));
+		PolicyFile::debug->println($$str({"getPermissions:\n\t"_s, $(printPD(pd))}));
 	}
 	$var($CodeSource, cs, $nc(pd)->getCodeSource());
 	if (cs == nullptr) {
 		return perms;
 	}
-	$var($CodeSource, canonCodeSource, $cast($CodeSource, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($PolicyFile$6, this, cs)))));
+	$var($CodeSource, canonCodeSource, $cast($CodeSource, $AccessController::doPrivileged($$new($PolicyFile$6, this, cs))));
 	return getPermissions(perms, canonCodeSource, $(pd->getPrincipals()));
 }
 
 $PermissionCollection* PolicyFile::getPermissions($Permissions* perms, $CodeSource* cs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (cs == nullptr) {
 		return perms;
 	}
-	$var($CodeSource, canonCodeSource, $cast($CodeSource, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($PolicyFile$7, this, cs)))));
+	$var($CodeSource, canonCodeSource, $cast($CodeSource, $AccessController::doPrivileged($$new($PolicyFile$7, this, cs))));
 	return getPermissions(perms, canonCodeSource, nullptr);
 }
 
 $Permissions* PolicyFile::getPermissions($Permissions* perms, $CodeSource* cs, $PrincipalArray* principals) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Iterator, i$, $nc($nc(this->policyInfo)->policyEntries)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -832,15 +725,15 @@ $Permissions* PolicyFile::getPermissions($Permissions* perms, $CodeSource* cs, $
 }
 
 void PolicyFile::addPermissions($Permissions* perms, $CodeSource* cs, $PrincipalArray* principals, $PolicyFile$PolicyEntry* entry) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (PolicyFile::debug != nullptr) {
-		$nc(PolicyFile::debug)->println($$str({"evaluate codesources:\n\tPolicy CodeSource: "_s, $($nc(entry)->getCodeSource()), "\n\tActive CodeSource: "_s, cs}));
+		PolicyFile::debug->println($$str({"evaluate codesources:\n\tPolicy CodeSource: "_s, $($nc(entry)->getCodeSource()), "\n\tActive CodeSource: "_s, cs}));
 	}
-	$var($Boolean, imp, $cast($Boolean, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($PolicyFile$8, this, entry, cs)))));
+	$var($Boolean, imp, $cast($Boolean, $AccessController::doPrivileged($$new($PolicyFile$8, this, entry, cs))));
 	if (!$nc(imp)->booleanValue()) {
 		if (PolicyFile::debug != nullptr) {
-			$nc(PolicyFile::debug)->println("evaluation (codesource) failed"_s);
+			PolicyFile::debug->println("evaluation (codesource) failed"_s);
 		}
 		return;
 	}
@@ -849,21 +742,21 @@ void PolicyFile::addPermissions($Permissions* perms, $CodeSource* cs, $Principal
 		$var($List, accPs, $new($ArrayList));
 		if (principals != nullptr) {
 			for (int32_t i = 0; i < principals->length; ++i) {
-				$var($String, var$0, $nc($of(principals->get(i)))->getClass()->getName());
+				$var($String, var$0, $nc(principals->get(i))->getClass()->getName());
 				accPs->add($$new($PolicyParser$PrincipalEntry, var$0, $($nc(principals->get(i))->getName())));
 			}
 		}
-		$nc(PolicyFile::debug)->println($$str({"evaluate principals:\n\tPolicy Principals: "_s, entryPs, "\n\tActive Principals: "_s, accPs}));
+		PolicyFile::debug->println($$str({"evaluate principals:\n\tPolicy Principals: "_s, entryPs, "\n\tActive Principals: "_s, accPs}));
 	}
-	if (entryPs == nullptr || $nc(entryPs)->isEmpty()) {
+	if (entryPs == nullptr || entryPs->isEmpty()) {
 		addPerms(perms, principals, entry);
 		if (PolicyFile::debug != nullptr) {
-			$nc(PolicyFile::debug)->println("evaluation (codesource/principals) passed"_s);
+			PolicyFile::debug->println("evaluation (codesource/principals) passed"_s);
 		}
 		return;
-	} else if (principals == nullptr || $nc(principals)->length == 0) {
+	} else if (principals == nullptr || principals->length == 0) {
 		if (PolicyFile::debug != nullptr) {
-			$nc(PolicyFile::debug)->println("evaluation (principals) failed"_s);
+			PolicyFile::debug->println("evaluation (principals) failed"_s);
 		}
 		return;
 	}
@@ -875,36 +768,36 @@ void PolicyFile::addPermissions($Permissions* perms, $CodeSource* cs, $Principal
 				if ($nc(pppe)->isWildcardClass()) {
 					continue;
 				}
-				if ($nc(pppe)->isWildcardName()) {
+				if (pppe->isWildcardName()) {
 					if (wildcardPrincipalNameImplies(pppe->principalClass, principals)) {
 						continue;
 					}
 					if (PolicyFile::debug != nullptr) {
-						$nc(PolicyFile::debug)->println("evaluation (principal name wildcard) failed"_s);
+						PolicyFile::debug->println("evaluation (principal name wildcard) failed"_s);
 					}
 					return;
 				}
-				$var($Set, pSet, $new($HashSet, $(static_cast<$Collection*>($Arrays::asList(principals)))));
+				$var($Set, pSet, $new($HashSet, $($Arrays::asList(principals))));
 				$init($Collections);
 				$var($Subject, subject, $new($Subject, true, pSet, $Collections::EMPTY_SET, $Collections::EMPTY_SET));
 				try {
 					$var($ClassLoader, cl, $($Thread::currentThread())->getContextClassLoader());
-					$Class* pClass = $Class::forName($nc(pppe)->principalClass, false, cl);
-					$var($Principal, p, getKnownPrincipal(pClass, $nc(pppe)->principalName));
+					$Class* pClass = $Class::forName(pppe->principalClass, false, cl);
+					$var($Principal, p, getKnownPrincipal(pClass, pppe->principalName));
 					if (p == nullptr) {
 						$load($Principal);
 						if (!$Principal::class$->isAssignableFrom(pClass)) {
-							$throwNew($ClassCastException, $$str({$nc(pppe)->principalClass, " is not a Principal"_s}));
+							$throwNew($ClassCastException, $$str({pppe->principalClass, " is not a Principal"_s}));
 						}
-						$var($Constructor, c, $nc(pClass)->getConstructor(PolicyFile::PARAMS1));
-						$assign(p, $cast($Principal, $nc(c)->newInstance($$new($ObjectArray, {$of($nc(pppe)->principalName)}))));
+						$var($Constructor, c, pClass->getConstructor(PolicyFile::PARAMS1));
+						$assign(p, $cast($Principal, $nc(c)->newInstance($$new($ObjectArray, {pppe->principalName}))));
 					}
 					if (PolicyFile::debug != nullptr) {
-						$nc(PolicyFile::debug)->println($$str({"found Principal "_s, $($nc($of(p))->getClass()->getName())}));
+						PolicyFile::debug->println($$str({"found Principal "_s, $($nc(p)->getClass()->getName())}));
 					}
 					if (!$nc(p)->implies(subject)) {
 						if (PolicyFile::debug != nullptr) {
-							$nc(PolicyFile::debug)->println("evaluation (principal implies) failed"_s);
+							PolicyFile::debug->println("evaluation (principal implies) failed"_s);
 						}
 						return;
 					}
@@ -912,9 +805,9 @@ void PolicyFile::addPermissions($Permissions* perms, $CodeSource* cs, $Principal
 					if (PolicyFile::debug != nullptr) {
 						e->printStackTrace();
 					}
-					if (!$nc(pppe)->implies(subject)) {
+					if (!pppe->implies(subject)) {
 						if (PolicyFile::debug != nullptr) {
-							$nc(PolicyFile::debug)->println("evaluation (default principal implies) failed"_s);
+							PolicyFile::debug->println("evaluation (default principal implies) failed"_s);
 						}
 						return;
 					}
@@ -923,36 +816,30 @@ void PolicyFile::addPermissions($Permissions* perms, $CodeSource* cs, $Principal
 		}
 	}
 	if (PolicyFile::debug != nullptr) {
-		$nc(PolicyFile::debug)->println("evaluation (codesource/principals) passed"_s);
+		PolicyFile::debug->println("evaluation (codesource/principals) passed"_s);
 	}
 	addPerms(perms, principals, entry);
 }
 
 bool PolicyFile::wildcardPrincipalNameImplies($String* principalClass, $PrincipalArray* principals) {
 	$init(PolicyFile);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($PrincipalArray, arr$, principals);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($Principal, p, arr$->get(i$));
-			{
-				if ($nc(principalClass)->equals($($nc($of(p))->getClass()->getName()))) {
-					return true;
-				}
-			}
+	$useLocalObjectStack();
+	$var($PrincipalArray, arr$, principals);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($Principal, p, arr$->get(i$));
+		if ($nc(principalClass)->equals($($nc(p)->getClass()->getName()))) {
+			return true;
 		}
 	}
 	return false;
 }
 
 void PolicyFile::addPerms($Permissions* perms, $PrincipalArray* accPs, $PolicyFile$PolicyEntry* entry) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc($nc(entry)->permissions)->size(); ++i) {
-		$var($Permission, p, $cast($Permission, $nc(entry->permissions)->get(i)));
+		$var($Permission, p, $cast($Permission, entry->permissions->get(i)));
 		if (PolicyFile::debug != nullptr) {
-			$nc(PolicyFile::debug)->println($$str({"  granting "_s, p}));
+			PolicyFile::debug->println($$str({"  granting "_s, p}));
 		}
 		if ($instanceOf($PolicyFile$SelfPermission, p)) {
 			expandSelf($cast($PolicyFile$SelfPermission, p), $(entry->getPrincipals()), accPs, perms);
@@ -963,21 +850,25 @@ void PolicyFile::addPerms($Permissions* perms, $PrincipalArray* accPs, $PolicyFi
 }
 
 void PolicyFile::expandSelf($PolicyFile$SelfPermission* sp, $List* entryPs, $PrincipalArray* pdp, $Permissions* perms) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	if (entryPs == nullptr || $nc(entryPs)->isEmpty()) {
+	if (entryPs == nullptr || entryPs->isEmpty()) {
 		if (PolicyFile::debug != nullptr) {
-			$var($String, var$1, $$str({"Ignoring permission "_s, $($nc(sp)->getSelfType()), " with target name ("_s}));
-			$var($String, var$0, $$concat(var$1, $(sp->getSelfName())));
-			$nc(PolicyFile::debug)->println($$concat(var$0, ").  No Principal(s) specified in the grant clause.  SELF-based target names are only valid in the context of a Principal-based grant entry."_s));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("Ignoring permission "_s);
+			var$0->append($($nc(sp)->getSelfType()));
+			var$0->append(" with target name ("_s);
+			var$0->append($(sp->getSelfName()));
+			var$0->append(").  No Principal(s) specified in the grant clause.  SELF-based target names are only valid in the context of a Principal-based grant entry."_s);
+			PolicyFile::debug->println($$str(var$0));
 		}
 		return;
 	}
 	int32_t startIndex = 0;
 	int32_t v = 0;
 	$var($StringBuilder, sb, $new($StringBuilder));
-	while ((v = $nc($($nc(sp)->getSelfName()))->indexOf(PolicyFile::SELF, startIndex)) != -1) {
-		sb->append($($nc($(sp->getSelfName()))->substring(startIndex, v)));
+	while ((v = $$nc($nc(sp)->getSelfName())->indexOf(PolicyFile::SELF, startIndex)) != -1) {
+		sb->append($($$nc(sp->getSelfName())->substring(startIndex, v)));
 		$var($Iterator, pli, $nc(entryPs)->iterator());
 		while ($nc(pli)->hasNext()) {
 			$var($PolicyParser$PrincipalEntry, pppe, $cast($PolicyParser$PrincipalEntry, pli->next()));
@@ -992,70 +883,74 @@ void PolicyFile::expandSelf($PolicyFile$SelfPermission* sp, $List* entryPs, $Pri
 				sb->append(", "_s);
 			}
 		}
-		startIndex = v + $nc(PolicyFile::SELF)->length();
+		startIndex = v + PolicyFile::SELF->length();
 	}
-	sb->append($($nc($($nc(sp)->getSelfName()))->substring(startIndex)));
+	sb->append($($$nc(sp->getSelfName())->substring(startIndex)));
 	if (PolicyFile::debug != nullptr) {
-		$var($String, var$2, $$str({"  expanded:\n\t"_s, $($nc(sp)->getSelfName()), "\n  into:\n\t"_s}));
-		$nc(PolicyFile::debug)->println($$concat(var$2, $(sb->toString())));
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append("  expanded:\n\t"_s);
+		var$1->append($(sp->getSelfName()));
+		var$1->append("\n  into:\n\t"_s);
+		var$1->append($(sb->toString()));
+		PolicyFile::debug->println($$str(var$1));
 	}
 	try {
-		$var($String, var$3, $nc(sp)->getSelfType());
-		$var($String, var$4, sb->toString());
-		$nc(perms)->add($($FilePermCompat::newPermPlusAltPath($(getInstance(var$3, var$4, $(sp->getSelfActions()))))));
+		$var($String, var$2, sp->getSelfType());
+		$var($String, var$3, sb->toString());
+		$nc(perms)->add($($FilePermCompat::newPermPlusAltPath($(getInstance(var$2, var$3, $(sp->getSelfActions()))))));
 	} catch ($ClassNotFoundException& cnfe) {
 		$Class* pc = nullptr;
 		$synchronized(perms) {
-			$var($Enumeration, e, $nc(perms)->elements());
+			$var($Enumeration, e, perms->elements());
 			while ($nc(e)->hasMoreElements()) {
 				$var($Permission, pElement, $cast($Permission, e->nextElement()));
-				if ($nc($($nc($of(pElement))->getClass()->getName()))->equals($($nc(sp)->getSelfType()))) {
+				if ($$nc($nc($of(pElement))->getClass()->getName())->equals($(sp->getSelfType()))) {
 					pc = $of(pElement)->getClass();
 					break;
 				}
 			}
 		}
 		if (pc == nullptr) {
-			$var($String, var$5, $nc(sp)->getSelfType());
-			$var($String, var$6, sb->toString());
-			$var($String, var$7, sp->getSelfActions());
-			$nc(perms)->add($$new($UnresolvedPermission, var$5, var$6, var$7, $(sp->getCerts())));
+			$var($String, var$4, sp->getSelfType());
+			$var($String, var$5, sb->toString());
+			$var($String, var$6, sp->getSelfActions());
+			perms->add($$new($UnresolvedPermission, var$4, var$5, var$6, $(sp->getCerts())));
 		} else {
 			try {
 				$var($Constructor, c, nullptr);
-				if ($nc(sp)->getSelfActions() == nullptr) {
+				if (sp->getSelfActions() == nullptr) {
 					try {
-						$assign(c, $nc(pc)->getConstructor(PolicyFile::PARAMS1));
-						$nc(perms)->add($cast($Permission, $($nc(c)->newInstance($$new($ObjectArray, {$($of(sb->toString()))})))));
+						$assign(c, pc->getConstructor(PolicyFile::PARAMS1));
+						perms->add($$cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {$(sb->toString())}))));
 					} catch ($NoSuchMethodException& ne) {
-						$assign(c, $nc(pc)->getConstructor(PolicyFile::PARAMS2));
-						$nc(perms)->add($cast($Permission, $($nc(c)->newInstance($$new($ObjectArray, {
-							$($of(sb->toString())),
-							$($of(sp->getSelfActions()))
-						})))));
+						$assign(c, pc->getConstructor(PolicyFile::PARAMS2));
+						perms->add($$cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {
+							$(sb->toString()),
+							$(sp->getSelfActions())
+						}))));
 					}
 				} else {
-					$assign(c, $nc(pc)->getConstructor(PolicyFile::PARAMS2));
-					$nc(perms)->add($cast($Permission, $($nc(c)->newInstance($$new($ObjectArray, {
-						$($of(sb->toString())),
-						$($of(sp->getSelfActions()))
-					})))));
+					$assign(c, pc->getConstructor(PolicyFile::PARAMS2));
+					perms->add($$cast($Permission, $nc(c)->newInstance($$new($ObjectArray, {
+						$(sb->toString()),
+						$(sp->getSelfActions())
+					}))));
 				}
 			} catch ($Exception& nme) {
 				if (PolicyFile::debug != nullptr) {
-					$nc(PolicyFile::debug)->println($$str({"self entry expansion  instantiation failed: "_s, $(nme->toString())}));
+					PolicyFile::debug->println($$str({"self entry expansion  instantiation failed: "_s, $(nme->toString())}));
 				}
 			}
 		}
 	} catch ($Exception& e) {
 		if (PolicyFile::debug != nullptr) {
-			$nc(PolicyFile::debug)->println($(e->toString()));
+			PolicyFile::debug->println($(e->toString()));
 		}
 	}
 }
 
 $StringArray2* PolicyFile::getPrincipalInfo($PolicyParser$PrincipalEntry* pe, $PrincipalArray* pdp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !$nc(pe)->isWildcardClass();
 	if (var$0 && !pe->isWildcardName()) {
 		$var($StringArray2, info, $new($StringArray2, 1, 2));
@@ -1063,11 +958,11 @@ $StringArray2* PolicyFile::getPrincipalInfo($PolicyParser$PrincipalEntry* pe, $P
 		$nc(info->get(0))->set(1, pe->principalName);
 		return info;
 	} else {
-		bool var$2 = !pe->isWildcardClass();
-		if (var$2 && pe->isWildcardName()) {
+		bool var$1 = !pe->isWildcardClass();
+		if (var$1 && pe->isWildcardName()) {
 			$var($List, plist, $new($ArrayList));
 			for (int32_t i = 0; i < $nc(pdp)->length; ++i) {
-				if ($nc(pe->principalClass)->equals($($nc($of(pdp->get(i)))->getClass()->getName()))) {
+				if ($nc(pe->principalClass)->equals($($nc(pdp->get(i))->getClass()->getName()))) {
 					plist->add(pdp->get(i));
 				}
 			}
@@ -1078,7 +973,7 @@ $StringArray2* PolicyFile::getPrincipalInfo($PolicyParser$PrincipalEntry* pe, $P
 				for (; $nc(i$)->hasNext();) {
 					$var($Principal, p, $cast($Principal, i$->next()));
 					{
-						$nc(info->get(i))->set(0, $($nc($of(p))->getClass()->getName()));
+						$nc(info->get(i))->set(0, $($nc(p)->getClass()->getName()));
 						$nc(info->get(i))->set(1, $(p->getName()));
 						++i;
 					}
@@ -1088,7 +983,7 @@ $StringArray2* PolicyFile::getPrincipalInfo($PolicyParser$PrincipalEntry* pe, $P
 		} else {
 			$var($StringArray2, info, $new($StringArray2, $nc(pdp)->length, 2));
 			for (int32_t i = 0; i < pdp->length; ++i) {
-				$nc(info->get(i))->set(0, $($nc($of(pdp->get(i)))->getClass()->getName()));
+				$nc(info->get(i))->set(0, $($nc(pdp->get(i))->getClass()->getName()));
 				$nc(info->get(i))->set(1, $($nc(pdp->get(i))->getName()));
 			}
 			return info;
@@ -1097,33 +992,33 @@ $StringArray2* PolicyFile::getPrincipalInfo($PolicyParser$PrincipalEntry* pe, $P
 }
 
 $CertificateArray* PolicyFile::getSignerCertificates($CodeSource* cs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CertificateArray, certs, nullptr);
 	if (($assign(certs, $nc(cs)->getCertificates())) == nullptr) {
 		return nullptr;
 	}
 	for (int32_t i = 0; i < $nc(certs)->length; ++i) {
 		if (!($instanceOf($X509Certificate, certs->get(i)))) {
-			return $nc(cs)->getCertificates();
+			return cs->getCertificates();
 		}
 	}
 	int32_t i = 0;
 	int32_t count = 0;
-	while (i < $nc(certs)->length) {
+	while (i < certs->length) {
 		++count;
-		while (((i + 1) < certs->length) && $nc($($nc(($cast($X509Certificate, certs->get(i))))->getIssuerX500Principal()))->equals($($nc(($cast($X509Certificate, certs->get(i + 1))))->getSubjectX500Principal()))) {
+		while (((i + 1) < certs->length) && $$nc($nc($cast($X509Certificate, certs->get(i)))->getIssuerX500Principal())->equals($($nc($cast($X509Certificate, certs->get(i + 1)))->getSubjectX500Principal()))) {
 			++i;
 		}
 		++i;
 	}
-	if (count == $nc(certs)->length) {
+	if (count == certs->length) {
 		return certs;
 	}
 	$var($List, userCertList, $new($ArrayList));
 	i = 0;
-	while (i < $nc(certs)->length) {
+	while (i < certs->length) {
 		userCertList->add(certs->get(i));
-		while (((i + 1) < certs->length) && $nc($($nc(($cast($X509Certificate, certs->get(i))))->getIssuerX500Principal()))->equals($($nc(($cast($X509Certificate, certs->get(i + 1))))->getSubjectX500Principal()))) {
+		while (((i + 1) < certs->length) && $$nc($nc($cast($X509Certificate, certs->get(i)))->getIssuerX500Principal())->equals($($nc($cast($X509Certificate, certs->get(i + 1)))->getSubjectX500Principal()))) {
 			++i;
 		}
 		++i;
@@ -1134,12 +1029,12 @@ $CertificateArray* PolicyFile::getSignerCertificates($CodeSource* cs) {
 }
 
 $CodeSource* PolicyFile::canonicalizeCodebase($CodeSource* cs, bool extractSignerCerts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, path, nullptr);
 	$var($CodeSource, canonCs, cs);
 	$var($URL, u, $nc(cs)->getLocation());
 	if (u != nullptr) {
-		if ($nc($(u->getProtocol()))->equals("jar"_s)) {
+		if ($$nc(u->getProtocol())->equals("jar"_s)) {
 			$var($String, spec, u->getFile());
 			int32_t separator = $nc(spec)->indexOf("!/"_s);
 			if (separator != -1) {
@@ -1149,15 +1044,15 @@ $CodeSource* PolicyFile::canonicalizeCodebase($CodeSource* cs, bool extractSigne
 				}
 			}
 		}
-		if ($nc($(u->getProtocol()))->equals("file"_s)) {
+		if ($$nc(u->getProtocol())->equals("file"_s)) {
 			bool isLocalFile = false;
 			$var($String, host, u->getHost());
-			bool var$1 = host == nullptr || $nc(host)->isEmpty();
-			bool var$0 = var$1 || $nc(host)->equals("~"_s);
-			isLocalFile = (var$0 || $nc(host)->equalsIgnoreCase("localhost"_s));
+			bool var$1 = host == nullptr || host->isEmpty();
+			bool var$0 = var$1 || host->equals("~"_s);
+			isLocalFile = (var$0 || host->equalsIgnoreCase("localhost"_s));
 			if (isLocalFile) {
 				$init($File);
-				$assign(path, $nc($(u->getFile()))->replace(u'/', $File::separatorChar));
+				$assign(path, $$nc(u->getFile())->replace(u'/', $File::separatorChar));
 				$assign(path, $ParseUtil::decode(path));
 			}
 		}
@@ -1187,27 +1082,30 @@ $CodeSource* PolicyFile::canonicalizeCodebase($CodeSource* cs, bool extractSigne
 
 $String* PolicyFile::canonPath($String* path$renamed) {
 	$init(PolicyFile);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, path, path$renamed);
 	if ($nc(path)->endsWith("*"_s)) {
 		$assign(path, $str({$(path->substring(0, path->length() - 1)), "-"_s}));
 		$assign(path, $$new($File, path)->getCanonicalPath());
-		return $str({$($nc(path)->substring(0, path->length() - 1)), "*"_s});
+		return $str({$($nc(path)->substring(0, $nc(path)->length() - 1)), "*"_s});
 	} else {
 		return $$new($File, path)->getCanonicalPath();
 	}
 }
 
 $String* PolicyFile::printPD($ProtectionDomain* pd) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrincipalArray, principals, $nc(pd)->getPrincipals());
 	$var($String, pals, "<no principals>"_s);
 	if (principals != nullptr && principals->length > 0) {
 		$var($StringBuilder, palBuf, $new($StringBuilder, "(principals "_s));
 		for (int32_t i = 0; i < principals->length; ++i) {
-			$var($String, var$1, $$str({$($nc($of(principals->get(i)))->getClass()->getName()), " \""_s}));
-			$var($String, var$0, $$concat(var$1, $($nc(principals->get(i))->getName())));
-			palBuf->append($$concat(var$0, "\""_s));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append($($nc(principals->get(i))->getClass()->getName()));
+			var$0->append(" \""_s);
+			var$0->append($($nc(principals->get(i))->getName()));
+			var$0->append("\""_s);
+			palBuf->append($$str(var$0));
 			if (i < principals->length - 1) {
 				palBuf->append(", "_s);
 			} else {
@@ -1216,33 +1114,35 @@ $String* PolicyFile::printPD($ProtectionDomain* pd) {
 		}
 		$assign(pals, palBuf->toString());
 	}
-	$var($String, var$4, $$str({"PD CodeSource: "_s, $(pd->getCodeSource()), "\n\tPD ClassLoader: "_s}));
-	$var($String, var$3, $$concat(var$4, $(pd->getClassLoader())));
-	$var($String, var$2, $$concat(var$3, "\n\tPD Principals: "_s));
-	return $concat(var$2, pals);
+	$var($StringBuilder, var$1, $new($StringBuilder));
+	var$1->append("PD CodeSource: "_s);
+	var$1->append($(pd->getCodeSource()));
+	var$1->append("\n\tPD ClassLoader: "_s);
+	var$1->append($(pd->getClassLoader()));
+	var$1->append("\n\tPD Principals: "_s);
+	var$1->append(pals);
+	return $str(var$1);
 }
 
 bool PolicyFile::replacePrincipals($List* principals, $KeyStore* keystore) {
-	$useLocalCurrentObjectStackCache();
-	if (principals == nullptr || $nc(principals)->isEmpty() || keystore == nullptr) {
+	$useLocalObjectStack();
+	if (principals == nullptr || principals->isEmpty() || keystore == nullptr) {
 		return true;
 	}
 	{
 		$var($Iterator, i$, $nc(principals)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($PolicyParser$PrincipalEntry, pppe, $cast($PolicyParser$PrincipalEntry, i$->next()));
-			{
-				if ($nc(pppe)->isReplaceName()) {
-					$var($String, name, nullptr);
-					if (($assign(name, getDN(pppe->principalName, keystore))) == nullptr) {
-						return false;
-					}
-					if (PolicyFile::debug != nullptr) {
-						$nc(PolicyFile::debug)->println($$str({"  Replacing \""_s, pppe->principalName, "\" with "_s, PolicyFile::X500PRINCIPAL, "/\""_s, name, "\""_s}));
-					}
-					$set(pppe, principalClass, PolicyFile::X500PRINCIPAL);
-					$set(pppe, principalName, name);
+			if ($nc(pppe)->isReplaceName()) {
+				$var($String, name, nullptr);
+				if (($assign(name, getDN(pppe->principalName, keystore))) == nullptr) {
+					return false;
 				}
+				if (PolicyFile::debug != nullptr) {
+					PolicyFile::debug->println($$str({"  Replacing \""_s, pppe->principalName, "\" with "_s, PolicyFile::X500PRINCIPAL, "/\""_s, name, "\""_s}));
+				}
+				$set(pppe, principalClass, PolicyFile::X500PRINCIPAL);
+				$set(pppe, principalName, name);
 			}
 		}
 	}
@@ -1250,79 +1150,79 @@ bool PolicyFile::replacePrincipals($List* principals, $KeyStore* keystore) {
 }
 
 void PolicyFile::expandPermissionName($PolicyParser$PermissionEntry* pe, $KeyStore* keystore) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(pe)->name == nullptr || $nc($nc(pe)->name)->indexOf("${{"_s, 0) == -1) {
+	$useLocalObjectStack();
+	if ($nc(pe)->name == nullptr || pe->name->indexOf("${{"_s, 0) == -1) {
 		return;
 	}
 	int32_t startIndex = 0;
 	int32_t b = 0;
 	int32_t e = 0;
 	$var($StringBuilder, sb, $new($StringBuilder));
-	while ((b = $nc($nc(pe)->name)->indexOf("${{"_s, startIndex)) != -1) {
-		e = $nc(pe->name)->indexOf("}}"_s, b);
+	while ((b = $nc(pe->name)->indexOf("${{"_s, startIndex)) != -1) {
+		e = pe->name->indexOf("}}"_s, b);
 		if (e < 1) {
 			break;
 		}
-		sb->append($($nc(pe->name)->substring(startIndex, b)));
-		$var($String, value, $nc(pe->name)->substring(b + 3, e));
+		sb->append($(pe->name->substring(startIndex, b)));
+		$var($String, value, pe->name->substring(b + 3, e));
 		int32_t colonIndex = 0;
 		$var($String, prefix, value);
 		$var($String, suffix, nullptr);
-		if ((colonIndex = value->indexOf((int32_t)u':')) != -1) {
+		if ((colonIndex = value->indexOf(u':')) != -1) {
 			$assign(prefix, value->substring(0, colonIndex));
 		}
 		if (prefix->equalsIgnoreCase("self"_s)) {
-			sb->append($($nc(pe->name)->substring(b, e + 2)));
+			sb->append($(pe->name->substring(b, e + 2)));
 			startIndex = e + 2;
 			continue;
 		} else if (prefix->equalsIgnoreCase("alias"_s)) {
 			if (colonIndex == -1) {
-				$var($ObjectArray, source, $new($ObjectArray, {$of(pe->name)}));
+				$var($ObjectArray, source, $new($ObjectArray, {pe->name}));
 				$throwNew($Exception, $($LocalizedMessage::getNonlocalized("alias.name.not.provided.pe.name."_s, source)));
 			}
 			$assign(suffix, value->substring(colonIndex + 1));
 			if (($assign(suffix, getDN(suffix, keystore))) == nullptr) {
-				$var($ObjectArray, source, $new($ObjectArray, {$($of(value->substring(colonIndex + 1)))}));
+				$var($ObjectArray, source, $new($ObjectArray, {$(value->substring(colonIndex + 1))}));
 				$throwNew($Exception, $($LocalizedMessage::getNonlocalized("unable.to.perform.substitution.on.alias.suffix"_s, source)));
 			}
 			sb->append($$str({PolicyFile::X500PRINCIPAL, " \""_s, suffix, "\""_s}));
 			startIndex = e + 2;
 		} else {
-			$var($ObjectArray, source, $new($ObjectArray, {$of(prefix)}));
+			$var($ObjectArray, source, $new($ObjectArray, {prefix}));
 			$throwNew($Exception, $($LocalizedMessage::getNonlocalized("substitution.value.prefix.unsupported"_s, source)));
 		}
 	}
-	sb->append($($nc($nc(pe)->name)->substring(startIndex)));
+	sb->append($(pe->name->substring(startIndex)));
 	if (PolicyFile::debug != nullptr) {
-		$nc(PolicyFile::debug)->println($$str({"  Permission name expanded from:\n\t"_s, $nc(pe)->name, "\nto\n\t"_s, $(sb->toString())}));
+		PolicyFile::debug->println($$str({"  Permission name expanded from:\n\t"_s, pe->name, "\nto\n\t"_s, $(sb->toString())}));
 	}
-	$set($nc(pe), name, sb->toString());
+	$set(pe, name, sb->toString());
 }
 
 $String* PolicyFile::getDN($String* alias, $KeyStore* keystore) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Certificate, cert, nullptr);
 	try {
 		$assign(cert, $nc(keystore)->getCertificate(alias));
 	} catch ($Exception& e) {
 		if (PolicyFile::debug != nullptr) {
-			$nc(PolicyFile::debug)->println($$str({"  Error retrieving certificate for \'"_s, alias, "\': "_s, $(e->toString())}));
+			PolicyFile::debug->println($$str({"  Error retrieving certificate for \'"_s, alias, "\': "_s, $(e->toString())}));
 		}
 		return nullptr;
 	}
 	if (cert == nullptr || !($instanceOf($X509Certificate, cert))) {
 		if (PolicyFile::debug != nullptr) {
-			$nc(PolicyFile::debug)->println($$str({"  -- No certificate for \'"_s, alias, "\' - ignoring entry"_s}));
+			PolicyFile::debug->println($$str({"  -- No certificate for \'"_s, alias, "\' - ignoring entry"_s}));
 		}
 		return nullptr;
 	} else {
 		$var($X509Certificate, x509Cert, $cast($X509Certificate, cert));
-		$var($X500Principal, p, $new($X500Principal, $($nc($($nc(x509Cert)->getSubjectX500Principal()))->toString())));
+		$var($X500Principal, p, $new($X500Principal, $($$nc(x509Cert->getSubjectX500Principal())->toString())));
 		return p->getName();
 	}
 }
 
-void clinit$PolicyFile($Class* class$) {
+void PolicyFile::clinit$($Class* clazz) {
 	$assignStatic(PolicyFile::SELF, "${{self}}"_s);
 	$assignStatic(PolicyFile::X500PRINCIPAL, "javax.security.auth.x500.X500Principal"_s);
 	$assignStatic(PolicyFile::POLICY, "java.security.policy"_s);
@@ -1334,7 +1234,7 @@ void clinit$PolicyFile($Class* class$) {
 		$String::class$,
 		$String::class$
 	}));
-	$assignStatic(PolicyFile::badPolicyURLs, $Collections::newSetFromMap(static_cast<$Map*>(static_cast<$AbstractMap*>($$new($ConcurrentHashMap)))));
+	$assignStatic(PolicyFile::badPolicyURLs, $Collections::newSetFromMap($$cast($AbstractMap, $new($ConcurrentHashMap))));
 	$assignStatic(PolicyFile::builtInFS, $DefaultFileSystemProvider::theFileSystem());
 }
 
@@ -1342,7 +1242,93 @@ PolicyFile::PolicyFile() {
 }
 
 $Class* PolicyFile::load$($String* name, bool initialize) {
-	$loadClass(PolicyFile, name, initialize, &_PolicyFile_ClassInfo_, clinit$PolicyFile, allocate$PolicyFile);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PolicyFile, debug)},
+		{"SELF", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PolicyFile, SELF)},
+		{"X500PRINCIPAL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PolicyFile, X500PRINCIPAL)},
+		{"POLICY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PolicyFile, POLICY)},
+		{"POLICY_URL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PolicyFile, POLICY_URL)},
+		{"DEFAULT_CACHE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PolicyFile, DEFAULT_CACHE_SIZE)},
+		{"policyInfo", "Lsun/security/provider/PolicyFile$PolicyInfo;", nullptr, $PRIVATE | $VOLATILE, $field(PolicyFile, policyInfo)},
+		{"expandProperties", "Z", nullptr, $PRIVATE, $field(PolicyFile, expandProperties)},
+		{"allowSystemProperties", "Z", nullptr, $PRIVATE, $field(PolicyFile, allowSystemProperties)},
+		{"notUtf8", "Z", nullptr, $PRIVATE, $field(PolicyFile, notUtf8)},
+		{"url", "Ljava/net/URL;", nullptr, $PRIVATE, $field(PolicyFile, url)},
+		{"PARAMS0", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(PolicyFile, PARAMS0)},
+		{"PARAMS1", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(PolicyFile, PARAMS1)},
+		{"PARAMS2", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(PolicyFile, PARAMS2)},
+		{"badPolicyURLs", "Ljava/util/Set;", "Ljava/util/Set<Ljava/net/URL;>;", $PRIVATE | $STATIC, $staticField(PolicyFile, badPolicyURLs)},
+		{"builtInFS", "Ljava/nio/file/FileSystem;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PolicyFile, builtInFS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PolicyFile, init$, void)},
+		{"<init>", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $method(PolicyFile, init$, void, $URL*)},
+		{"addGrantEntry", "(Lsun/security/provider/PolicyParser$GrantEntry;Ljava/security/KeyStore;Lsun/security/provider/PolicyFile$PolicyInfo;)V", nullptr, $PRIVATE, $method(PolicyFile, addGrantEntry, void, $PolicyParser$GrantEntry*, $KeyStore*, $PolicyFile$PolicyInfo*)},
+		{"addPermissions", "(Ljava/security/Permissions;Ljava/security/CodeSource;[Ljava/security/Principal;Lsun/security/provider/PolicyFile$PolicyEntry;)V", nullptr, $PRIVATE, $method(PolicyFile, addPermissions, void, $Permissions*, $CodeSource*, $PrincipalArray*, $PolicyFile$PolicyEntry*)},
+		{"addPerms", "(Ljava/security/Permissions;[Ljava/security/Principal;Lsun/security/provider/PolicyFile$PolicyEntry;)V", nullptr, $PRIVATE, $method(PolicyFile, addPerms, void, $Permissions*, $PrincipalArray*, $PolicyFile$PolicyEntry*)},
+		{"canonPath", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(PolicyFile, canonPath, $String*, $String*), "java.io.IOException"},
+		{"canonicalizeCodebase", "(Ljava/security/CodeSource;Z)Ljava/security/CodeSource;", nullptr, $PRIVATE, $method(PolicyFile, canonicalizeCodebase, $CodeSource*, $CodeSource*, bool)},
+		{"expandPermissionName", "(Lsun/security/provider/PolicyParser$PermissionEntry;Ljava/security/KeyStore;)V", nullptr, $PRIVATE, $method(PolicyFile, expandPermissionName, void, $PolicyParser$PermissionEntry*, $KeyStore*), "java.lang.Exception"},
+		{"expandSelf", "(Lsun/security/provider/PolicyFile$SelfPermission;Ljava/util/List;[Ljava/security/Principal;Ljava/security/Permissions;)V", "(Lsun/security/provider/PolicyFile$SelfPermission;Ljava/util/List<Lsun/security/provider/PolicyParser$PrincipalEntry;>;[Ljava/security/Principal;Ljava/security/Permissions;)V", $PRIVATE, $method(PolicyFile, expandSelf, void, $PolicyFile$SelfPermission*, $List*, $PrincipalArray*, $Permissions*)},
+		{"getCertificates", "(Ljava/security/KeyStore;Ljava/lang/String;Lsun/security/provider/PolicyFile$PolicyInfo;)[Ljava/security/cert/Certificate;", nullptr, $PRIVATE, $method(PolicyFile, getCertificates, $CertificateArray*, $KeyStore*, $String*, $PolicyFile$PolicyInfo*)},
+		{"getCodeSource", "(Lsun/security/provider/PolicyParser$GrantEntry;Ljava/security/KeyStore;Lsun/security/provider/PolicyFile$PolicyInfo;)Ljava/security/CodeSource;", nullptr, $PRIVATE, $method(PolicyFile, getCodeSource, $CodeSource*, $PolicyParser$GrantEntry*, $KeyStore*, $PolicyFile$PolicyInfo*), "java.net.MalformedURLException"},
+		{"getDN", "(Ljava/lang/String;Ljava/security/KeyStore;)Ljava/lang/String;", nullptr, $PRIVATE, $method(PolicyFile, getDN, $String*, $String*, $KeyStore*)},
+		{"getInputStreamReader", "(Ljava/io/InputStream;)Ljava/io/InputStreamReader;", nullptr, $PRIVATE, $method(PolicyFile, getInputStreamReader, $InputStreamReader*, $InputStream*)},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/security/Permission;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(PolicyFile, getInstance, $Permission*, $String*, $String*, $String*), "java.lang.ClassNotFoundException,java.lang.InstantiationException,java.lang.IllegalAccessException,java.lang.NoSuchMethodException,java.lang.reflect.InvocationTargetException"},
+		{"getKnownPermission", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/String;)Ljava/security/Permission;", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/String;)Ljava/security/Permission;", $PRIVATE | $STATIC, $staticMethod(PolicyFile, getKnownPermission, $Permission*, $Class*, $String*, $String*)},
+		{"getKnownPrincipal", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/security/Principal;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/security/Principal;", $PRIVATE | $STATIC, $staticMethod(PolicyFile, getKnownPrincipal, $Principal*, $Class*, $String*)},
+		{"getPermissions", "(Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(PolicyFile, getPermissions, $PermissionCollection*, $ProtectionDomain*)},
+		{"getPermissions", "(Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(PolicyFile, getPermissions, $PermissionCollection*, $CodeSource*)},
+		{"getPermissions", "(Ljava/security/Permissions;Ljava/security/ProtectionDomain;)Ljava/security/PermissionCollection;", nullptr, $PRIVATE, $method(PolicyFile, getPermissions, $PermissionCollection*, $Permissions*, $ProtectionDomain*)},
+		{"getPermissions", "(Ljava/security/Permissions;Ljava/security/CodeSource;)Ljava/security/PermissionCollection;", nullptr, $PRIVATE, $method(PolicyFile, getPermissions, $PermissionCollection*, $Permissions*, $CodeSource*)},
+		{"getPermissions", "(Ljava/security/Permissions;Ljava/security/CodeSource;[Ljava/security/Principal;)Ljava/security/Permissions;", nullptr, $PRIVATE, $method(PolicyFile, getPermissions, $Permissions*, $Permissions*, $CodeSource*, $PrincipalArray*)},
+		{"getPrincipalInfo", "(Lsun/security/provider/PolicyParser$PrincipalEntry;[Ljava/security/Principal;)[[Ljava/lang/String;", nullptr, $PRIVATE, $method(PolicyFile, getPrincipalInfo, $StringArray2*, $PolicyParser$PrincipalEntry*, $PrincipalArray*)},
+		{"getSignerCertificates", "(Ljava/security/CodeSource;)[Ljava/security/cert/Certificate;", nullptr, $PROTECTED, $virtualMethod(PolicyFile, getSignerCertificates, $CertificateArray*, $CodeSource*)},
+		{"implies", "(Ljava/security/ProtectionDomain;Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(PolicyFile, implies, bool, $ProtectionDomain*, $Permission*)},
+		{"init", "(Ljava/net/URL;)V", nullptr, $PRIVATE, $method(PolicyFile, init, void, $URL*)},
+		{"init", "(Ljava/net/URL;Lsun/security/provider/PolicyFile$PolicyInfo;)Z", nullptr, $PRIVATE, $method(PolicyFile, init, bool, $URL*, $PolicyFile$PolicyInfo*)},
+		{"initDefaultPolicy", "(Lsun/security/provider/PolicyFile$PolicyInfo;)V", nullptr, $PRIVATE, $method(PolicyFile, initDefaultPolicy, void, $PolicyFile$PolicyInfo*)},
+		{"initPolicyFile", "(Lsun/security/provider/PolicyFile$PolicyInfo;Ljava/net/URL;)V", nullptr, $PRIVATE, $method(PolicyFile, initPolicyFile, void, $PolicyFile$PolicyInfo*, $URL*)},
+		{"initPolicyFile", "(Ljava/lang/String;Ljava/lang/String;Lsun/security/provider/PolicyFile$PolicyInfo;)Z", nullptr, $PRIVATE, $method(PolicyFile, initPolicyFile, bool, $String*, $String*, $PolicyFile$PolicyInfo*)},
+		{"initStaticPolicy", "(Lsun/security/provider/PolicyFile$PolicyInfo;)V", nullptr, $PRIVATE, $method(PolicyFile, initStaticPolicy, void, $PolicyFile$PolicyInfo*)},
+		{"printPD", "(Ljava/security/ProtectionDomain;)Ljava/lang/String;", nullptr, $PRIVATE, $method(PolicyFile, printPD, $String*, $ProtectionDomain*)},
+		{"refresh", "()V", nullptr, $PUBLIC, $virtualMethod(PolicyFile, refresh, void)},
+		{"replacePrincipals", "(Ljava/util/List;Ljava/security/KeyStore;)Z", "(Ljava/util/List<Lsun/security/provider/PolicyParser$PrincipalEntry;>;Ljava/security/KeyStore;)Z", $PRIVATE, $method(PolicyFile, replacePrincipals, bool, $List*, $KeyStore*)},
+		{"wildcardPrincipalNameImplies", "(Ljava/lang/String;[Ljava/security/Principal;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(PolicyFile, wildcardPrincipalNameImplies, bool, $String*, $PrincipalArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.PolicyFile$PolicyInfo", "sun.security.provider.PolicyFile", "PolicyInfo", $PRIVATE | $STATIC},
+		{"sun.security.provider.PolicyFile$SelfPermission", "sun.security.provider.PolicyFile", "SelfPermission", $PRIVATE | $STATIC},
+		{"sun.security.provider.PolicyFile$PolicyEntry", "sun.security.provider.PolicyFile", "PolicyEntry", $PRIVATE | $STATIC},
+		{"sun.security.provider.PolicyFile$8", nullptr, nullptr, 0},
+		{"sun.security.provider.PolicyFile$7", nullptr, nullptr, 0},
+		{"sun.security.provider.PolicyFile$6", nullptr, nullptr, 0},
+		{"sun.security.provider.PolicyFile$5", nullptr, nullptr, 0},
+		{"sun.security.provider.PolicyFile$4", nullptr, nullptr, 0},
+		{"sun.security.provider.PolicyFile$3", nullptr, nullptr, 0},
+		{"sun.security.provider.PolicyFile$2", nullptr, nullptr, 0},
+		{"sun.security.provider.PolicyFile$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.provider.PolicyFile",
+		"java.security.Policy",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.provider.PolicyFile$PolicyInfo,sun.security.provider.PolicyFile$SelfPermission,sun.security.provider.PolicyFile$PolicyEntry,sun.security.provider.PolicyFile$8,sun.security.provider.PolicyFile$7,sun.security.provider.PolicyFile$6,sun.security.provider.PolicyFile$5,sun.security.provider.PolicyFile$4,sun.security.provider.PolicyFile$3,sun.security.provider.PolicyFile$2,sun.security.provider.PolicyFile$1"
+	};
+	$loadClass(PolicyFile, name, initialize, &classInfo$$, PolicyFile::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PolicyFile);
+	});
 	return class$;
 }
 

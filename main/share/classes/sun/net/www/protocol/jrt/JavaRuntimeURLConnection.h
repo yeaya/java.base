@@ -45,6 +45,7 @@ class JavaRuntimeURLConnection : public ::sun::net::www::URLConnection {
 	$class(JavaRuntimeURLConnection, 0, ::sun::net::www::URLConnection)
 public:
 	JavaRuntimeURLConnection();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::URL* url);
 	virtual void connect() override;
 	static ::jdk::internal::loader::Resource* findResource($String* module, $String* name);

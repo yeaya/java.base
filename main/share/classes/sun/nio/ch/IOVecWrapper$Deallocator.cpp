@@ -1,5 +1,4 @@
 #include <sun/nio/ch/IOVecWrapper$Deallocator.h>
-
 #include <sun/nio/ch/AllocatedNativeObject.h>
 #include <sun/nio/ch/IOVecWrapper.h>
 #include <jcpp.h>
@@ -14,42 +13,6 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _IOVecWrapper$Deallocator_FieldInfo_[] = {
-	{"obj", "Lsun/nio/ch/AllocatedNativeObject;", nullptr, $PRIVATE | $FINAL, $field(IOVecWrapper$Deallocator, obj)},
-	{}
-};
-
-$MethodInfo _IOVecWrapper$Deallocator_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/ch/AllocatedNativeObject;)V", nullptr, 0, $method(IOVecWrapper$Deallocator, init$, void, $AllocatedNativeObject*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(IOVecWrapper$Deallocator, run, void)},
-	{}
-};
-
-$InnerClassInfo _IOVecWrapper$Deallocator_InnerClassesInfo_[] = {
-	{"sun.nio.ch.IOVecWrapper$Deallocator", "sun.nio.ch.IOVecWrapper", "Deallocator", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _IOVecWrapper$Deallocator_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.IOVecWrapper$Deallocator",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_IOVecWrapper$Deallocator_FieldInfo_,
-	_IOVecWrapper$Deallocator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IOVecWrapper$Deallocator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.IOVecWrapper"
-};
-
-$Object* allocate$IOVecWrapper$Deallocator($Class* clazz) {
-	return $of($alloc(IOVecWrapper$Deallocator));
-}
-
 void IOVecWrapper$Deallocator::init$($AllocatedNativeObject* obj) {
 	$set(this, obj, obj);
 }
@@ -62,7 +25,37 @@ IOVecWrapper$Deallocator::IOVecWrapper$Deallocator() {
 }
 
 $Class* IOVecWrapper$Deallocator::load$($String* name, bool initialize) {
-	$loadClass(IOVecWrapper$Deallocator, name, initialize, &_IOVecWrapper$Deallocator_ClassInfo_, allocate$IOVecWrapper$Deallocator);
+	$FieldInfo fieldInfos$$[] = {
+		{"obj", "Lsun/nio/ch/AllocatedNativeObject;", nullptr, $PRIVATE | $FINAL, $field(IOVecWrapper$Deallocator, obj)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/ch/AllocatedNativeObject;)V", nullptr, 0, $method(IOVecWrapper$Deallocator, init$, void, $AllocatedNativeObject*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(IOVecWrapper$Deallocator, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.IOVecWrapper$Deallocator", "sun.nio.ch.IOVecWrapper", "Deallocator", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.IOVecWrapper$Deallocator",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.IOVecWrapper"
+	};
+	$loadClass(IOVecWrapper$Deallocator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IOVecWrapper$Deallocator);
+	});
 	return class$;
 }
 

@@ -74,6 +74,7 @@ class $import Signature : public ::java::security::SignatureSpi {
 	$class(Signature, 0, ::java::security::SignatureSpi)
 public:
 	Signature();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* algorithm);
 	virtual void chooseFirstProvider();
 	virtual $Object* clone() override;

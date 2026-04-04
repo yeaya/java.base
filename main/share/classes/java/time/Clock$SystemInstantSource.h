@@ -27,6 +27,7 @@ public:
 	Clock$SystemInstantSource();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool equals(Object$* obj) override;
 	virtual int32_t hashCode() override;
@@ -35,7 +36,7 @@ public:
 	$Object* readResolve();
 	virtual $String* toString() override;
 	virtual ::java::time::Clock* withZone(::java::time::ZoneId* zone) override;
-	static const int64_t serialVersionUID = (int64_t)0x000002F09A08CC2C;
+	static const int64_t serialVersionUID = (int64_t)0x000002f09a08cc2c;
 	static ::java::time::Clock$SystemInstantSource* INSTANCE;
 };
 

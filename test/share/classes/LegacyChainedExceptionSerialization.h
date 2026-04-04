@@ -37,6 +37,7 @@ class $export LegacyChainedExceptionSerialization : public ::java::lang::Object 
 	$class(LegacyChainedExceptionSerialization, 0, ::java::lang::Object)
 public:
 	LegacyChainedExceptionSerialization();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Throwable* deserialize($String* ser);
 	static void main($StringArray* args);

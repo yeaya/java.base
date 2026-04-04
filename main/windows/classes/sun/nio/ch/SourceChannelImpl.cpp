@@ -1,5 +1,4 @@
 #include <sun/nio/ch/SourceChannelImpl.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/lang/Error.h>
 #include <java/lang/IndexOutOfBoundsException.h>
@@ -45,56 +44,6 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _SourceChannelImpl_FieldInfo_[] = {
-	{"sc", "Ljava/nio/channels/SocketChannel;", nullptr, $PRIVATE | $FINAL, $field(SourceChannelImpl, sc)},
-	{}
-};
-
-$MethodInfo _SourceChannelImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*close", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;Ljava/nio/channels/SocketChannel;)V", nullptr, 0, $method(SourceChannelImpl, init$, void, $SelectorProvider*, $SocketChannel*)},
-	{"getFD", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC, $virtualMethod(SourceChannelImpl, getFD, $FileDescriptor*)},
-	{"getFDVal", "()I", nullptr, $PUBLIC, $virtualMethod(SourceChannelImpl, getFDVal, int32_t)},
-	{"implCloseSelectableChannel", "()V", nullptr, $PROTECTED, $virtualMethod(SourceChannelImpl, implCloseSelectableChannel, void), "java.io.IOException"},
-	{"implConfigureBlocking", "(Z)V", nullptr, $PROTECTED, $virtualMethod(SourceChannelImpl, implConfigureBlocking, void, bool), "java.io.IOException"},
-	{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"kill", "()V", nullptr, $PUBLIC, $virtualMethod(SourceChannelImpl, kill, void), "java.io.IOException"},
-	{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(SourceChannelImpl, read, int32_t, $ByteBuffer*), "java.io.IOException"},
-	{"read", "([Ljava/nio/ByteBuffer;II)J", nullptr, $PUBLIC, $virtualMethod(SourceChannelImpl, read, int64_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
-	{"read", "([Ljava/nio/ByteBuffer;)J", nullptr, $PUBLIC, $virtualMethod(SourceChannelImpl, read, int64_t, $ByteBufferArray*), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"translateAndSetReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC, $virtualMethod(SourceChannelImpl, translateAndSetReadyOps, bool, int32_t, $SelectionKeyImpl*)},
-	{"translateAndUpdateReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC, $virtualMethod(SourceChannelImpl, translateAndUpdateReadyOps, bool, int32_t, $SelectionKeyImpl*)},
-	{"translateInterestOps", "(I)I", nullptr, $PUBLIC, $virtualMethod(SourceChannelImpl, translateInterestOps, int32_t, int32_t)},
-	{"translateReadyOps", "(IILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC, $virtualMethod(SourceChannelImpl, translateReadyOps, bool, int32_t, int32_t, $SelectionKeyImpl*)},
-	{}
-};
-
-$InnerClassInfo _SourceChannelImpl_InnerClassesInfo_[] = {
-	{"java.nio.channels.Pipe$SourceChannel", "java.nio.channels.Pipe", "SourceChannel", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SourceChannelImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.SourceChannelImpl",
-	"java.nio.channels.Pipe$SourceChannel",
-	"sun.nio.ch.SelChImpl",
-	_SourceChannelImpl_FieldInfo_,
-	_SourceChannelImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SourceChannelImpl_InnerClassesInfo_
-};
-
-$Object* allocate$SourceChannelImpl($Class* clazz) {
-	return $of($alloc(SourceChannelImpl));
-}
-
 void SourceChannelImpl::close() {
 	this->$Pipe$SourceChannel::close();
 }
@@ -124,11 +73,11 @@ void SourceChannelImpl::finalize() {
 }
 
 $FileDescriptor* SourceChannelImpl::getFD() {
-	return $nc(($cast($SocketChannelImpl, this->sc)))->getFD();
+	return $nc($cast($SocketChannelImpl, this->sc))->getFD();
 }
 
 int32_t SourceChannelImpl::getFDVal() {
-	return $nc(($cast($SocketChannelImpl, this->sc)))->getFDVal();
+	return $nc($cast($SocketChannelImpl, this->sc))->getFDVal();
 }
 
 void SourceChannelImpl::init$($SelectorProvider* sp, $SocketChannel* sc) {
@@ -155,19 +104,19 @@ bool SourceChannelImpl::translateReadyOps(int32_t ops, int32_t initialOps, $Sele
 	int32_t oldOps = ski->nioReadyOps();
 	int32_t newOps = initialOps;
 	$init($Net);
-	if (((int32_t)(ops & (uint32_t)(int32_t)$Net::POLLNVAL)) != 0) {
+	if ((ops & $Net::POLLNVAL) != 0) {
 		$throwNew($Error, "POLLNVAL detected"_s);
 	}
-	if (((int32_t)(ops & (uint32_t)($Net::POLLERR | $Net::POLLHUP))) != 0) {
+	if ((ops & ($Net::POLLERR | $Net::POLLHUP)) != 0) {
 		newOps = intOps;
 		ski->nioReadyOps(newOps);
-		return ((int32_t)(newOps & (uint32_t)~oldOps)) != 0;
+		return (newOps & ~oldOps) != 0;
 	}
-	if ((((int32_t)(ops & (uint32_t)(int32_t)$Net::POLLIN)) != 0) && (((int32_t)(intOps & (uint32_t)$SelectionKey::OP_READ)) != 0)) {
+	if (((ops & $Net::POLLIN) != 0) && ((intOps & $SelectionKey::OP_READ) != 0)) {
 		newOps |= $SelectionKey::OP_READ;
 	}
 	ski->nioReadyOps(newOps);
-	return ((int32_t)(newOps & (uint32_t)~oldOps)) != 0;
+	return (newOps & ~oldOps) != 0;
 }
 
 bool SourceChannelImpl::translateAndUpdateReadyOps(int32_t ops, $SelectionKeyImpl* ski) {
@@ -180,7 +129,7 @@ bool SourceChannelImpl::translateAndSetReadyOps(int32_t ops, $SelectionKeyImpl* 
 
 int32_t SourceChannelImpl::translateInterestOps(int32_t ops) {
 	int32_t newOps = 0;
-	if (((int32_t)(ops & (uint32_t)$SelectionKey::OP_READ)) != 0) {
+	if ((ops & $SelectionKey::OP_READ) != 0) {
 		$init($Net);
 		newOps |= $Net::POLLIN;
 	}
@@ -224,7 +173,51 @@ SourceChannelImpl::SourceChannelImpl() {
 }
 
 $Class* SourceChannelImpl::load$($String* name, bool initialize) {
-	$loadClass(SourceChannelImpl, name, initialize, &_SourceChannelImpl_ClassInfo_, allocate$SourceChannelImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"sc", "Ljava/nio/channels/SocketChannel;", nullptr, $PRIVATE | $FINAL, $field(SourceChannelImpl, sc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*close", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;Ljava/nio/channels/SocketChannel;)V", nullptr, 0, $method(SourceChannelImpl, init$, void, $SelectorProvider*, $SocketChannel*)},
+		{"getFD", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC, $virtualMethod(SourceChannelImpl, getFD, $FileDescriptor*)},
+		{"getFDVal", "()I", nullptr, $PUBLIC, $virtualMethod(SourceChannelImpl, getFDVal, int32_t)},
+		{"implCloseSelectableChannel", "()V", nullptr, $PROTECTED, $virtualMethod(SourceChannelImpl, implCloseSelectableChannel, void), "java.io.IOException"},
+		{"implConfigureBlocking", "(Z)V", nullptr, $PROTECTED, $virtualMethod(SourceChannelImpl, implConfigureBlocking, void, bool), "java.io.IOException"},
+		{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"kill", "()V", nullptr, $PUBLIC, $virtualMethod(SourceChannelImpl, kill, void), "java.io.IOException"},
+		{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(SourceChannelImpl, read, int32_t, $ByteBuffer*), "java.io.IOException"},
+		{"read", "([Ljava/nio/ByteBuffer;II)J", nullptr, $PUBLIC, $virtualMethod(SourceChannelImpl, read, int64_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
+		{"read", "([Ljava/nio/ByteBuffer;)J", nullptr, $PUBLIC, $virtualMethod(SourceChannelImpl, read, int64_t, $ByteBufferArray*), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"translateAndSetReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC, $virtualMethod(SourceChannelImpl, translateAndSetReadyOps, bool, int32_t, $SelectionKeyImpl*)},
+		{"translateAndUpdateReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC, $virtualMethod(SourceChannelImpl, translateAndUpdateReadyOps, bool, int32_t, $SelectionKeyImpl*)},
+		{"translateInterestOps", "(I)I", nullptr, $PUBLIC, $virtualMethod(SourceChannelImpl, translateInterestOps, int32_t, int32_t)},
+		{"translateReadyOps", "(IILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC, $virtualMethod(SourceChannelImpl, translateReadyOps, bool, int32_t, int32_t, $SelectionKeyImpl*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.channels.Pipe$SourceChannel", "java.nio.channels.Pipe", "SourceChannel", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.SourceChannelImpl",
+		"java.nio.channels.Pipe$SourceChannel",
+		"sun.nio.ch.SelChImpl",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(SourceChannelImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SourceChannelImpl));
+	});
 	return class$;
 }
 

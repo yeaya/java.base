@@ -26,6 +26,7 @@ class WindowsPathParser : public ::java::lang::Object {
 	$class(WindowsPathParser, 0, ::java::lang::Object)
 public:
 	WindowsPathParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool isInvalidPathChar(char16_t ch);
 	static bool isLetter(char16_t c);

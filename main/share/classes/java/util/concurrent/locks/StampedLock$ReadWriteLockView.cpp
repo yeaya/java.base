@@ -1,5 +1,4 @@
 #include <java/util/concurrent/locks/StampedLock$ReadWriteLockView.h>
-
 #include <java/util/concurrent/locks/Lock.h>
 #include <java/util/concurrent/locks/StampedLock.h>
 #include <jcpp.h>
@@ -15,43 +14,6 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 			namespace locks {
-
-$FieldInfo _StampedLock$ReadWriteLockView_FieldInfo_[] = {
-	{"this$0", "Ljava/util/concurrent/locks/StampedLock;", nullptr, $FINAL | $SYNTHETIC, $field(StampedLock$ReadWriteLockView, this$0)},
-	{}
-};
-
-$MethodInfo _StampedLock$ReadWriteLockView_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/locks/StampedLock;)V", nullptr, 0, $method(StampedLock$ReadWriteLockView, init$, void, $StampedLock*)},
-	{"readLock", "()Ljava/util/concurrent/locks/Lock;", nullptr, $PUBLIC, $virtualMethod(StampedLock$ReadWriteLockView, readLock, $Lock*)},
-	{"writeLock", "()Ljava/util/concurrent/locks/Lock;", nullptr, $PUBLIC, $virtualMethod(StampedLock$ReadWriteLockView, writeLock, $Lock*)},
-	{}
-};
-
-$InnerClassInfo _StampedLock$ReadWriteLockView_InnerClassesInfo_[] = {
-	{"java.util.concurrent.locks.StampedLock$ReadWriteLockView", "java.util.concurrent.locks.StampedLock", "ReadWriteLockView", $FINAL},
-	{}
-};
-
-$ClassInfo _StampedLock$ReadWriteLockView_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.locks.StampedLock$ReadWriteLockView",
-	"java.lang.Object",
-	"java.util.concurrent.locks.ReadWriteLock",
-	_StampedLock$ReadWriteLockView_FieldInfo_,
-	_StampedLock$ReadWriteLockView_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StampedLock$ReadWriteLockView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.locks.StampedLock"
-};
-
-$Object* allocate$StampedLock$ReadWriteLockView($Class* clazz) {
-	return $of($alloc(StampedLock$ReadWriteLockView));
-}
 
 void StampedLock$ReadWriteLockView::init$($StampedLock* this$0) {
 	$set(this, this$0, this$0);
@@ -69,7 +31,38 @@ StampedLock$ReadWriteLockView::StampedLock$ReadWriteLockView() {
 }
 
 $Class* StampedLock$ReadWriteLockView::load$($String* name, bool initialize) {
-	$loadClass(StampedLock$ReadWriteLockView, name, initialize, &_StampedLock$ReadWriteLockView_ClassInfo_, allocate$StampedLock$ReadWriteLockView);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/concurrent/locks/StampedLock;", nullptr, $FINAL | $SYNTHETIC, $field(StampedLock$ReadWriteLockView, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/locks/StampedLock;)V", nullptr, 0, $method(StampedLock$ReadWriteLockView, init$, void, $StampedLock*)},
+		{"readLock", "()Ljava/util/concurrent/locks/Lock;", nullptr, $PUBLIC, $virtualMethod(StampedLock$ReadWriteLockView, readLock, $Lock*)},
+		{"writeLock", "()Ljava/util/concurrent/locks/Lock;", nullptr, $PUBLIC, $virtualMethod(StampedLock$ReadWriteLockView, writeLock, $Lock*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.locks.StampedLock$ReadWriteLockView", "java.util.concurrent.locks.StampedLock", "ReadWriteLockView", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.locks.StampedLock$ReadWriteLockView",
+		"java.lang.Object",
+		"java.util.concurrent.locks.ReadWriteLock",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.locks.StampedLock"
+	};
+	$loadClass(StampedLock$ReadWriteLockView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StampedLock$ReadWriteLockView);
+	});
 	return class$;
 }
 

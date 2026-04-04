@@ -1,5 +1,4 @@
 #include <sun/reflect/generics/reflectiveObjects/TypeVariableImpl.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/annotation/AnnotationFormatError.h>
@@ -58,51 +57,6 @@ namespace sun {
 		namespace generics {
 			namespace reflectiveObjects {
 
-$FieldInfo _TypeVariableImpl_FieldInfo_[] = {
-	{"genericDeclaration", "Ljava/lang/reflect/GenericDeclaration;", "TD;", $PRIVATE | $FINAL, $field(TypeVariableImpl, genericDeclaration)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(TypeVariableImpl, name)},
-	{"bounds", "[Ljava/lang/Object;", nullptr, $PRIVATE | $VOLATILE, $field(TypeVariableImpl, bounds)},
-	{"EMPTY_ANNOTATION_ARRAY", "[Ljava/lang/annotation/Annotation;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TypeVariableImpl, EMPTY_ANNOTATION_ARRAY)},
-	{}
-};
-
-$MethodInfo _TypeVariableImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/reflect/GenericDeclaration;Ljava/lang/String;[Lsun/reflect/generics/tree/FieldTypeSignature;Lsun/reflect/generics/factory/GenericsFactory;)V", "(TD;Ljava/lang/String;[Lsun/reflect/generics/tree/FieldTypeSignature;Lsun/reflect/generics/factory/GenericsFactory;)V", $PRIVATE, $method(TypeVariableImpl, init$, void, $GenericDeclaration*, $String*, $FieldTypeSignatureArray*, $GenericsFactory*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TypeVariableImpl, equals, bool, Object$*)},
-	{"getAnnotatedBounds", "()[Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $virtualMethod(TypeVariableImpl, getAnnotatedBounds, $AnnotatedTypeArray*)},
-	{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(TypeVariableImpl, getAnnotation, $Annotation*, $Class*)},
-	{"getAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(TypeVariableImpl, getAnnotations, $AnnotationArray*)},
-	{"getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(TypeVariableImpl, getAnnotationsByType, $AnnotationArray*, $Class*)},
-	{"getBounds", "()[Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $virtualMethod(TypeVariableImpl, getBounds, $TypeArray*)},
-	{"getDeclaredAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(TypeVariableImpl, getDeclaredAnnotation, $Annotation*, $Class*)},
-	{"getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(TypeVariableImpl, getDeclaredAnnotations, $AnnotationArray*)},
-	{"getDeclaredAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(TypeVariableImpl, getDeclaredAnnotationsByType, $AnnotationArray*, $Class*)},
-	{"getGenericDeclaration", "()Ljava/lang/reflect/GenericDeclaration;", "()TD;", $PUBLIC, $virtualMethod(TypeVariableImpl, getGenericDeclaration, $GenericDeclaration*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeVariableImpl, getName, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TypeVariableImpl, hashCode, int32_t)},
-	{"make", "(Ljava/lang/reflect/GenericDeclaration;Ljava/lang/String;[Lsun/reflect/generics/tree/FieldTypeSignature;Lsun/reflect/generics/factory/GenericsFactory;)Lsun/reflect/generics/reflectiveObjects/TypeVariableImpl;", "<T::Ljava/lang/reflect/GenericDeclaration;>(TT;Ljava/lang/String;[Lsun/reflect/generics/tree/FieldTypeSignature;Lsun/reflect/generics/factory/GenericsFactory;)Lsun/reflect/generics/reflectiveObjects/TypeVariableImpl<TT;>;", $PUBLIC | $STATIC, $staticMethod(TypeVariableImpl, make, TypeVariableImpl*, $GenericDeclaration*, $String*, $FieldTypeSignatureArray*, $GenericsFactory*)},
-	{"mapAnnotations", "([Ljava/lang/annotation/Annotation;)Ljava/util/Map;", "([Ljava/lang/annotation/Annotation;)Ljava/util/Map<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/annotation/Annotation;>;", $PRIVATE | $STATIC, $staticMethod(TypeVariableImpl, mapAnnotations, $Map*, $AnnotationArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeVariableImpl, toString, $String*)},
-	{"typeVarIndex", "()I", nullptr, $PRIVATE, $method(TypeVariableImpl, typeVarIndex, int32_t)},
-	{}
-};
-
-$ClassInfo _TypeVariableImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.reflect.generics.reflectiveObjects.TypeVariableImpl",
-	"sun.reflect.generics.reflectiveObjects.LazyReflectiveObjectGenerator",
-	"java.lang.reflect.TypeVariable",
-	_TypeVariableImpl_FieldInfo_,
-	_TypeVariableImpl_MethodInfo_,
-	"<D::Ljava/lang/reflect/GenericDeclaration;>Lsun/reflect/generics/reflectiveObjects/LazyReflectiveObjectGenerator;Ljava/lang/reflect/TypeVariable<TD;>;"
-};
-
-$Object* allocate$TypeVariableImpl($Class* clazz) {
-	return $of($alloc(TypeVariableImpl));
-}
-
 $Object* TypeVariableImpl::clone() {
 	 return this->$LazyReflectiveObjectGenerator::clone();
 }
@@ -122,9 +76,9 @@ void TypeVariableImpl::init$($GenericDeclaration* decl, $String* n, $FieldTypeSi
 
 TypeVariableImpl* TypeVariableImpl::make($GenericDeclaration* decl, $String* name, $FieldTypeSignatureArray* bs, $GenericsFactory* f) {
 	$init(TypeVariableImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!(($instanceOf($Class, decl)) || ($instanceOf($Method, decl)) || ($instanceOf($Constructor, decl)))) {
-		$throwNew($AssertionError, $of($$str({"Unexpected kind of GenericDeclaration"_s, $($nc($of(decl))->getClass()->toString())})));
+		$throwNew($AssertionError, $$of($str({"Unexpected kind of GenericDeclaration"_s, $($nc($of(decl))->getClass()->toString())})));
 	}
 	return $new(TypeVariableImpl, decl, name, bs, f);
 }
@@ -132,7 +86,7 @@ TypeVariableImpl* TypeVariableImpl::make($GenericDeclaration* decl, $String* nam
 $TypeArray* TypeVariableImpl::getBounds() {
 	$var($ObjectArray, value, this->bounds);
 	if ($instanceOf($FieldTypeSignatureArray, value)) {
-		$assign(value, reifyBounds($fcast($FieldTypeSignatureArray, value)));
+		$assign(value, reifyBounds($cast($FieldTypeSignatureArray, value)));
 		$set(this, bounds, value);
 	}
 	return $cast($TypeArray, $nc(value)->clone());
@@ -158,8 +112,8 @@ $String* TypeVariableImpl::toString() {
 }
 
 bool TypeVariableImpl::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
-	if ($instanceOf($TypeVariable, o) && $nc($of(o))->getClass() == TypeVariableImpl::class$) {
+	$useLocalObjectStack();
+	if ($instanceOf($TypeVariable, o) && $of(o)->getClass() == TypeVariableImpl::class$) {
 		$var($TypeVariable, that, $cast($TypeVariable, o));
 		$var($GenericDeclaration, thatDecl, that->getGenericDeclaration());
 		$var($String, thatName, that->getName());
@@ -171,14 +125,14 @@ bool TypeVariableImpl::equals(Object$* o) {
 }
 
 int32_t TypeVariableImpl::hashCode() {
-	int32_t var$0 = $nc($of(this->genericDeclaration))->hashCode();
+	int32_t var$0 = $nc(this->genericDeclaration)->hashCode();
 	return var$0 ^ $nc(this->name)->hashCode();
 }
 
 $Annotation* TypeVariableImpl::getAnnotation($Class* annotationClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(annotationClass);
-	return $cast($Annotation, $nc($(mapAnnotations($(getAnnotations()))))->get(annotationClass));
+	return $cast($Annotation, $$nc(mapAnnotations($(getAnnotations())))->get(annotationClass));
 }
 
 $Annotation* TypeVariableImpl::getDeclaredAnnotation($Class* annotationClass) {
@@ -187,7 +141,7 @@ $Annotation* TypeVariableImpl::getDeclaredAnnotation($Class* annotationClass) {
 }
 
 $AnnotationArray* TypeVariableImpl::getAnnotationsByType($Class* annotationClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(annotationClass);
 	return $AnnotationSupport::getDirectlyAndIndirectlyPresent($(mapAnnotations($(getAnnotations()))), annotationClass);
 }
@@ -210,21 +164,19 @@ $AnnotationArray* TypeVariableImpl::getDeclaredAnnotations() {
 }
 
 $AnnotatedTypeArray* TypeVariableImpl::getAnnotatedBounds() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TypeArray, var$0, getBounds());
 	$var($GenericDeclaration, var$1, getGenericDeclaration());
 	return $TypeAnnotationParser::parseAnnotatedBounds(var$0, var$1, typeVarIndex());
 }
 
 int32_t TypeVariableImpl::typeVarIndex() {
-	$useLocalCurrentObjectStackCache();
-	$var($TypeVariableArray, tVars, $nc($(getGenericDeclaration()))->getTypeParameters());
+	$useLocalObjectStack();
+	$var($TypeVariableArray, tVars, $$nc(getGenericDeclaration())->getTypeParameters());
 	int32_t i = -1;
 	{
 		$var($TypeVariableArray, arr$, tVars);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($TypeVariable, v, arr$->get(i$));
 			{
 				++i;
@@ -239,13 +191,11 @@ int32_t TypeVariableImpl::typeVarIndex() {
 
 $Map* TypeVariableImpl::mapAnnotations($AnnotationArray* annos) {
 	$init(TypeVariableImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, result, $new($LinkedHashMap));
 	{
 		$var($AnnotationArray, arr$, annos);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Annotation, a, arr$->get(i$));
 			{
 				$Class* klass = $nc(a)->annotationType();
@@ -262,7 +212,7 @@ $Map* TypeVariableImpl::mapAnnotations($AnnotationArray* annos) {
 	return result;
 }
 
-void clinit$TypeVariableImpl($Class* class$) {
+void TypeVariableImpl::clinit$($Class* clazz) {
 	$assignStatic(TypeVariableImpl::EMPTY_ANNOTATION_ARRAY, $new($AnnotationArray, 0));
 }
 
@@ -270,7 +220,47 @@ TypeVariableImpl::TypeVariableImpl() {
 }
 
 $Class* TypeVariableImpl::load$($String* name, bool initialize) {
-	$loadClass(TypeVariableImpl, name, initialize, &_TypeVariableImpl_ClassInfo_, clinit$TypeVariableImpl, allocate$TypeVariableImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"genericDeclaration", "Ljava/lang/reflect/GenericDeclaration;", "TD;", $PRIVATE | $FINAL, $field(TypeVariableImpl, genericDeclaration)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(TypeVariableImpl, name)},
+		{"bounds", "[Ljava/lang/Object;", nullptr, $PRIVATE | $VOLATILE, $field(TypeVariableImpl, bounds)},
+		{"EMPTY_ANNOTATION_ARRAY", "[Ljava/lang/annotation/Annotation;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TypeVariableImpl, EMPTY_ANNOTATION_ARRAY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/reflect/GenericDeclaration;Ljava/lang/String;[Lsun/reflect/generics/tree/FieldTypeSignature;Lsun/reflect/generics/factory/GenericsFactory;)V", "(TD;Ljava/lang/String;[Lsun/reflect/generics/tree/FieldTypeSignature;Lsun/reflect/generics/factory/GenericsFactory;)V", $PRIVATE, $method(TypeVariableImpl, init$, void, $GenericDeclaration*, $String*, $FieldTypeSignatureArray*, $GenericsFactory*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TypeVariableImpl, equals, bool, Object$*)},
+		{"getAnnotatedBounds", "()[Ljava/lang/reflect/AnnotatedType;", nullptr, $PUBLIC, $virtualMethod(TypeVariableImpl, getAnnotatedBounds, $AnnotatedTypeArray*)},
+		{"getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(TypeVariableImpl, getAnnotation, $Annotation*, $Class*)},
+		{"getAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(TypeVariableImpl, getAnnotations, $AnnotationArray*)},
+		{"getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(TypeVariableImpl, getAnnotationsByType, $AnnotationArray*, $Class*)},
+		{"getBounds", "()[Ljava/lang/reflect/Type;", nullptr, $PUBLIC, $virtualMethod(TypeVariableImpl, getBounds, $TypeArray*)},
+		{"getDeclaredAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(TypeVariableImpl, getDeclaredAnnotation, $Annotation*, $Class*)},
+		{"getDeclaredAnnotations", "()[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC, $virtualMethod(TypeVariableImpl, getDeclaredAnnotations, $AnnotationArray*)},
+		{"getDeclaredAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", "<T::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(TypeVariableImpl, getDeclaredAnnotationsByType, $AnnotationArray*, $Class*)},
+		{"getGenericDeclaration", "()Ljava/lang/reflect/GenericDeclaration;", "()TD;", $PUBLIC, $virtualMethod(TypeVariableImpl, getGenericDeclaration, $GenericDeclaration*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeVariableImpl, getName, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TypeVariableImpl, hashCode, int32_t)},
+		{"make", "(Ljava/lang/reflect/GenericDeclaration;Ljava/lang/String;[Lsun/reflect/generics/tree/FieldTypeSignature;Lsun/reflect/generics/factory/GenericsFactory;)Lsun/reflect/generics/reflectiveObjects/TypeVariableImpl;", "<T::Ljava/lang/reflect/GenericDeclaration;>(TT;Ljava/lang/String;[Lsun/reflect/generics/tree/FieldTypeSignature;Lsun/reflect/generics/factory/GenericsFactory;)Lsun/reflect/generics/reflectiveObjects/TypeVariableImpl<TT;>;", $PUBLIC | $STATIC, $staticMethod(TypeVariableImpl, make, TypeVariableImpl*, $GenericDeclaration*, $String*, $FieldTypeSignatureArray*, $GenericsFactory*)},
+		{"mapAnnotations", "([Ljava/lang/annotation/Annotation;)Ljava/util/Map;", "([Ljava/lang/annotation/Annotation;)Ljava/util/Map<Ljava/lang/Class<+Ljava/lang/annotation/Annotation;>;Ljava/lang/annotation/Annotation;>;", $PRIVATE | $STATIC, $staticMethod(TypeVariableImpl, mapAnnotations, $Map*, $AnnotationArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TypeVariableImpl, toString, $String*)},
+		{"typeVarIndex", "()I", nullptr, $PRIVATE, $method(TypeVariableImpl, typeVarIndex, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.reflect.generics.reflectiveObjects.TypeVariableImpl",
+		"sun.reflect.generics.reflectiveObjects.LazyReflectiveObjectGenerator",
+		"java.lang.reflect.TypeVariable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<D::Ljava/lang/reflect/GenericDeclaration;>Lsun/reflect/generics/reflectiveObjects/LazyReflectiveObjectGenerator;Ljava/lang/reflect/TypeVariable<TD;>;"
+	};
+	$loadClass(TypeVariableImpl, name, initialize, &classInfo$$, TypeVariableImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TypeVariableImpl));
+	});
 	return class$;
 }
 

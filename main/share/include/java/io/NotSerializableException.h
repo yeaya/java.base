@@ -14,10 +14,13 @@ public:
 	NotSerializableException();
 	void init$($String* classname);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x28567800E7861635;
+	static const int64_t serialVersionUID = (int64_t)0x28567800e7861635;
 	NotSerializableException(const NotSerializableException& e);
 	virtual void throw$() override;
-	inline NotSerializableException* operator ->() {
+	inline NotSerializableException* operator ->() const {
+		return (NotSerializableException*)throwing$;
+	}
+	inline operator NotSerializableException*() const {
 		return (NotSerializableException*)throwing$;
 	}
 };

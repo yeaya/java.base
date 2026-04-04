@@ -15,6 +15,7 @@ class $export Mkdir : public ::java::lang::Object {
 	$class(Mkdir, 0, ::java::lang::Object)
 public:
 	Mkdir();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::java::io::File* a;

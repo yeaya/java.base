@@ -19,6 +19,7 @@ namespace java {
 class TestHelpers$TestInterface : public ::java::lang::Object {
 	$interface(TestHelpers$TestInterface, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual int32_t m(int32_t x);
 	int32_t pm(int32_t x);
 	static int32_t psm(int32_t x);

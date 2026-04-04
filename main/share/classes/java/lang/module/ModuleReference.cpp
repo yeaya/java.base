@@ -1,5 +1,4 @@
 #include <java/lang/module/ModuleReference.h>
-
 #include <java/lang/module/ModuleDescriptor.h>
 #include <java/lang/module/ModuleReader.h>
 #include <java/net/URI.h>
@@ -20,33 +19,6 @@ namespace java {
 	namespace lang {
 		namespace module {
 
-$FieldInfo _ModuleReference_FieldInfo_[] = {
-	{"descriptor", "Ljava/lang/module/ModuleDescriptor;", nullptr, $PRIVATE | $FINAL, $field(ModuleReference, descriptor$)},
-	{"location", "Ljava/net/URI;", nullptr, $PRIVATE | $FINAL, $field(ModuleReference, location$)},
-	{}
-};
-
-$MethodInfo _ModuleReference_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/module/ModuleDescriptor;Ljava/net/URI;)V", nullptr, $PROTECTED, $method(ModuleReference, init$, void, $ModuleDescriptor*, $URI*)},
-	{"descriptor", "()Ljava/lang/module/ModuleDescriptor;", nullptr, $PUBLIC | $FINAL, $method(ModuleReference, descriptor, $ModuleDescriptor*)},
-	{"location", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/URI;>;", $PUBLIC | $FINAL, $method(ModuleReference, location, $Optional*)},
-	{"open", "()Ljava/lang/module/ModuleReader;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleReference, open, $ModuleReader*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ModuleReference_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.lang.module.ModuleReference",
-	"java.lang.Object",
-	nullptr,
-	_ModuleReference_FieldInfo_,
-	_ModuleReference_MethodInfo_
-};
-
-$Object* allocate$ModuleReference($Class* clazz) {
-	return $of($alloc(ModuleReference));
-}
-
 void ModuleReference::init$($ModuleDescriptor* descriptor, $URI* location) {
 	$set(this, descriptor$, $cast($ModuleDescriptor, $Objects::requireNonNull(descriptor)));
 	$set(this, location$, location);
@@ -64,7 +36,29 @@ ModuleReference::ModuleReference() {
 }
 
 $Class* ModuleReference::load$($String* name, bool initialize) {
-	$loadClass(ModuleReference, name, initialize, &_ModuleReference_ClassInfo_, allocate$ModuleReference);
+	$FieldInfo fieldInfos$$[] = {
+		{"descriptor", "Ljava/lang/module/ModuleDescriptor;", nullptr, $PRIVATE | $FINAL, $field(ModuleReference, descriptor$)},
+		{"location", "Ljava/net/URI;", nullptr, $PRIVATE | $FINAL, $field(ModuleReference, location$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/module/ModuleDescriptor;Ljava/net/URI;)V", nullptr, $PROTECTED, $method(ModuleReference, init$, void, $ModuleDescriptor*, $URI*)},
+		{"descriptor", "()Ljava/lang/module/ModuleDescriptor;", nullptr, $PUBLIC | $FINAL, $method(ModuleReference, descriptor, $ModuleDescriptor*)},
+		{"location", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/URI;>;", $PUBLIC | $FINAL, $method(ModuleReference, location, $Optional*)},
+		{"open", "()Ljava/lang/module/ModuleReader;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleReference, open, $ModuleReader*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.lang.module.ModuleReference",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModuleReference, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleReference);
+	});
 	return class$;
 }
 

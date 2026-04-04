@@ -1,5 +1,4 @@
 #include <sun/security/util/ECKeySizeParameterSpec.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,30 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace security {
 		namespace util {
-
-$FieldInfo _ECKeySizeParameterSpec_FieldInfo_[] = {
-	{"keySize", "I", nullptr, $PRIVATE, $field(ECKeySizeParameterSpec, keySize)},
-	{}
-};
-
-$MethodInfo _ECKeySizeParameterSpec_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ECKeySizeParameterSpec, init$, void, int32_t)},
-	{"getKeySize", "()I", nullptr, $PUBLIC, $virtualMethod(ECKeySizeParameterSpec, getKeySize, int32_t)},
-	{}
-};
-
-$ClassInfo _ECKeySizeParameterSpec_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.ECKeySizeParameterSpec",
-	"java.lang.Object",
-	"java.security.spec.AlgorithmParameterSpec",
-	_ECKeySizeParameterSpec_FieldInfo_,
-	_ECKeySizeParameterSpec_MethodInfo_
-};
-
-$Object* allocate$ECKeySizeParameterSpec($Class* clazz) {
-	return $of($alloc(ECKeySizeParameterSpec));
-}
 
 void ECKeySizeParameterSpec::init$(int32_t keySize) {
 	this->keySize = keySize;
@@ -46,7 +21,26 @@ ECKeySizeParameterSpec::ECKeySizeParameterSpec() {
 }
 
 $Class* ECKeySizeParameterSpec::load$($String* name, bool initialize) {
-	$loadClass(ECKeySizeParameterSpec, name, initialize, &_ECKeySizeParameterSpec_ClassInfo_, allocate$ECKeySizeParameterSpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"keySize", "I", nullptr, $PRIVATE, $field(ECKeySizeParameterSpec, keySize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(ECKeySizeParameterSpec, init$, void, int32_t)},
+		{"getKeySize", "()I", nullptr, $PUBLIC, $virtualMethod(ECKeySizeParameterSpec, getKeySize, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.ECKeySizeParameterSpec",
+		"java.lang.Object",
+		"java.security.spec.AlgorithmParameterSpec",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ECKeySizeParameterSpec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ECKeySizeParameterSpec);
+	});
 	return class$;
 }
 

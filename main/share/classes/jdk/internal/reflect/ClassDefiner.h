@@ -29,6 +29,7 @@ class ClassDefiner : public ::java::lang::Object {
 	$class(ClassDefiner, 0, ::java::lang::Object)
 public:
 	ClassDefiner();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Class* defineClass($String* name, $bytes* bytes, int32_t off, int32_t len, ::java::lang::ClassLoader* parentClassLoader);
 	static ::jdk::internal::access::JavaLangAccess* JLA;

@@ -41,6 +41,7 @@ class LanguageTag : public ::java::lang::Object {
 	$class(LanguageTag, 0, ::java::lang::Object)
 public:
 	LanguageTag();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* canonicalizeExtension($String* s);
 	static $String* canonicalizeExtensionSingleton($String* s);

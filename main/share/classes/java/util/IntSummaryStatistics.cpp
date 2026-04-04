@@ -1,5 +1,4 @@
 #include <java/util/IntSummaryStatistics.h>
-
 #include <java/lang/Math.h>
 #include <jcpp.h>
 
@@ -18,41 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace util {
 
-$FieldInfo _IntSummaryStatistics_FieldInfo_[] = {
-	{"count", "J", nullptr, $PRIVATE, $field(IntSummaryStatistics, count)},
-	{"sum", "J", nullptr, $PRIVATE, $field(IntSummaryStatistics, sum)},
-	{"min", "I", nullptr, $PRIVATE, $field(IntSummaryStatistics, min)},
-	{"max", "I", nullptr, $PRIVATE, $field(IntSummaryStatistics, max)},
-	{}
-};
-
-$MethodInfo _IntSummaryStatistics_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IntSummaryStatistics, init$, void)},
-	{"<init>", "(JIIJ)V", nullptr, $PUBLIC, $method(IntSummaryStatistics, init$, void, int64_t, int32_t, int32_t, int64_t), "java.lang.IllegalArgumentException"},
-	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(IntSummaryStatistics, accept, void, int32_t)},
-	{"combine", "(Ljava/util/IntSummaryStatistics;)V", nullptr, $PUBLIC, $virtualMethod(IntSummaryStatistics, combine, void, IntSummaryStatistics*)},
-	{"getAverage", "()D", nullptr, $PUBLIC | $FINAL, $method(IntSummaryStatistics, getAverage, double)},
-	{"getCount", "()J", nullptr, $PUBLIC | $FINAL, $method(IntSummaryStatistics, getCount, int64_t)},
-	{"getMax", "()I", nullptr, $PUBLIC | $FINAL, $method(IntSummaryStatistics, getMax, int32_t)},
-	{"getMin", "()I", nullptr, $PUBLIC | $FINAL, $method(IntSummaryStatistics, getMin, int32_t)},
-	{"getSum", "()J", nullptr, $PUBLIC | $FINAL, $method(IntSummaryStatistics, getSum, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IntSummaryStatistics, toString, $String*)},
-	{}
-};
-
-$ClassInfo _IntSummaryStatistics_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.IntSummaryStatistics",
-	"java.lang.Object",
-	"java.util.function.IntConsumer",
-	_IntSummaryStatistics_FieldInfo_,
-	_IntSummaryStatistics_MethodInfo_
-};
-
-$Object* allocate$IntSummaryStatistics($Class* clazz) {
-	return $of($alloc(IntSummaryStatistics));
-}
-
 void IntSummaryStatistics::init$() {
 	this->min = $Integer::MAX_VALUE;
 	this->max = $Integer::MIN_VALUE;
@@ -61,9 +25,9 @@ void IntSummaryStatistics::init$() {
 void IntSummaryStatistics::init$(int64_t count, int32_t min, int32_t max, int64_t sum) {
 	this->min = $Integer::MAX_VALUE;
 	this->max = $Integer::MIN_VALUE;
-	if (count < (int64_t)0) {
+	if (count < 0) {
 		$throwNew($IllegalArgumentException, "Negative count value"_s);
-	} else if (count > (int64_t)0) {
+	} else if (count > 0) {
 		if (min > max) {
 			$throwNew($IllegalArgumentException, "Minimum greater than maximum"_s);
 		}
@@ -116,14 +80,14 @@ double IntSummaryStatistics::getAverage() {
 }
 
 $String* IntSummaryStatistics::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("%s{count=%d, sum=%d, min=%d, average=%f, max=%d}"_s, $$new($ObjectArray, {
-		$($of($of(this)->getClass()->getSimpleName())),
-		$($of($Long::valueOf(getCount()))),
-		$($of($Long::valueOf(getSum()))),
-		$($of($Integer::valueOf(getMin()))),
-		$($of($Double::valueOf(getAverage()))),
-		$($of($Integer::valueOf(getMax())))
+		$(this->getClass()->getSimpleName()),
+		$($Long::valueOf(getCount())),
+		$($Long::valueOf(getSum())),
+		$($Integer::valueOf(getMin())),
+		$($Double::valueOf(getAverage())),
+		$($Integer::valueOf(getMax()))
 	}));
 }
 
@@ -131,7 +95,37 @@ IntSummaryStatistics::IntSummaryStatistics() {
 }
 
 $Class* IntSummaryStatistics::load$($String* name, bool initialize) {
-	$loadClass(IntSummaryStatistics, name, initialize, &_IntSummaryStatistics_ClassInfo_, allocate$IntSummaryStatistics);
+	$FieldInfo fieldInfos$$[] = {
+		{"count", "J", nullptr, $PRIVATE, $field(IntSummaryStatistics, count)},
+		{"sum", "J", nullptr, $PRIVATE, $field(IntSummaryStatistics, sum)},
+		{"min", "I", nullptr, $PRIVATE, $field(IntSummaryStatistics, min)},
+		{"max", "I", nullptr, $PRIVATE, $field(IntSummaryStatistics, max)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IntSummaryStatistics, init$, void)},
+		{"<init>", "(JIIJ)V", nullptr, $PUBLIC, $method(IntSummaryStatistics, init$, void, int64_t, int32_t, int32_t, int64_t), "java.lang.IllegalArgumentException"},
+		{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(IntSummaryStatistics, accept, void, int32_t)},
+		{"combine", "(Ljava/util/IntSummaryStatistics;)V", nullptr, $PUBLIC, $virtualMethod(IntSummaryStatistics, combine, void, IntSummaryStatistics*)},
+		{"getAverage", "()D", nullptr, $PUBLIC | $FINAL, $method(IntSummaryStatistics, getAverage, double)},
+		{"getCount", "()J", nullptr, $PUBLIC | $FINAL, $method(IntSummaryStatistics, getCount, int64_t)},
+		{"getMax", "()I", nullptr, $PUBLIC | $FINAL, $method(IntSummaryStatistics, getMax, int32_t)},
+		{"getMin", "()I", nullptr, $PUBLIC | $FINAL, $method(IntSummaryStatistics, getMin, int32_t)},
+		{"getSum", "()J", nullptr, $PUBLIC | $FINAL, $method(IntSummaryStatistics, getSum, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IntSummaryStatistics, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.IntSummaryStatistics",
+		"java.lang.Object",
+		"java.util.function.IntConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IntSummaryStatistics, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntSummaryStatistics);
+	});
 	return class$;
 }
 

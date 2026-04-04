@@ -1,5 +1,4 @@
 #include <sun/security/jca/ProviderConfig$2.h>
-
 #include <java/security/Provider.h>
 #include <sun/security/jca/ProviderConfig.h>
 #include <sun/security/util/Debug.h>
@@ -13,53 +12,10 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Provider = ::java::security::Provider;
 using $ProviderConfig = ::sun::security::jca::ProviderConfig;
-using $Debug = ::sun::security::util::Debug;
 
 namespace sun {
 	namespace security {
 		namespace jca {
-
-$FieldInfo _ProviderConfig$2_FieldInfo_[] = {
-	{"this$0", "Lsun/security/jca/ProviderConfig;", nullptr, $FINAL | $SYNTHETIC, $field(ProviderConfig$2, this$0)},
-	{}
-};
-
-$MethodInfo _ProviderConfig$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jca/ProviderConfig;)V", nullptr, 0, $method(ProviderConfig$2, init$, void, $ProviderConfig*)},
-	{"run", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(ProviderConfig$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _ProviderConfig$2_EnclosingMethodInfo_ = {
-	"sun.security.jca.ProviderConfig",
-	"getProvider",
-	"()Ljava/security/Provider;"
-};
-
-$InnerClassInfo _ProviderConfig$2_InnerClassesInfo_[] = {
-	{"sun.security.jca.ProviderConfig$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ProviderConfig$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.jca.ProviderConfig$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_ProviderConfig$2_FieldInfo_,
-	_ProviderConfig$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/security/Provider;>;",
-	&_ProviderConfig$2_EnclosingMethodInfo_,
-	_ProviderConfig$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.jca.ProviderConfig"
-};
-
-$Object* allocate$ProviderConfig$2($Class* clazz) {
-	return $of($alloc(ProviderConfig$2));
-}
 
 void ProviderConfig$2::init$($ProviderConfig* this$0) {
 	$set(this, this$0, this$0);
@@ -71,18 +27,18 @@ $Object* ProviderConfig$2::run() {
 		$Class* c = $Class::forName("apple.security.AppleProvider"_s);
 		$load($Provider);
 		if ($Provider::class$->isAssignableFrom(c)) {
-			$var($Object, tmp, $nc(c)->newInstance());
+			$var($Object, tmp, c->newInstance());
 			return $of($cast($Provider, tmp));
 		} else {
-			return $of(nullptr);
+			return nullptr;
 		}
 	} catch ($Exception& ex) {
 		$init($ProviderConfig);
 		if ($ProviderConfig::debug != nullptr) {
-			$nc($ProviderConfig::debug)->println("Error loading provider Apple"_s);
+			$ProviderConfig::debug->println("Error loading provider Apple"_s);
 			ex->printStackTrace();
 		}
-		return $of(nullptr);
+		return nullptr;
 	}
 	$shouldNotReachHere();
 }
@@ -91,7 +47,42 @@ ProviderConfig$2::ProviderConfig$2() {
 }
 
 $Class* ProviderConfig$2::load$($String* name, bool initialize) {
-	$loadClass(ProviderConfig$2, name, initialize, &_ProviderConfig$2_ClassInfo_, allocate$ProviderConfig$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/security/jca/ProviderConfig;", nullptr, $FINAL | $SYNTHETIC, $field(ProviderConfig$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/jca/ProviderConfig;)V", nullptr, 0, $method(ProviderConfig$2, init$, void, $ProviderConfig*)},
+		{"run", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(ProviderConfig$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.jca.ProviderConfig",
+		"getProvider",
+		"()Ljava/security/Provider;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jca.ProviderConfig$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.jca.ProviderConfig$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/security/Provider;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.jca.ProviderConfig"
+	};
+	$loadClass(ProviderConfig$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProviderConfig$2);
+	});
 	return class$;
 }
 

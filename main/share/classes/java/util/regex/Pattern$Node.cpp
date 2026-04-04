@@ -1,5 +1,4 @@
 #include <java/util/regex/Pattern$Node.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/util/regex/Matcher.h>
 #include <java/util/regex/Pattern$TreeInfo.h>
@@ -19,43 +18,6 @@ namespace java {
 	namespace util {
 		namespace regex {
 
-$FieldInfo _Pattern$Node_FieldInfo_[] = {
-	{"next", "Ljava/util/regex/Pattern$Node;", nullptr, 0, $field(Pattern$Node, next)},
-	{}
-};
-
-$MethodInfo _Pattern$Node_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Pattern$Node, init$, void)},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$Node, match, bool, $Matcher*, int32_t, $CharSequence*)},
-	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$Node, study, bool, $Pattern$TreeInfo*)},
-	{}
-};
-
-$InnerClassInfo _Pattern$Node_InnerClassesInfo_[] = {
-	{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
-	{}
-};
-
-$ClassInfo _Pattern$Node_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.regex.Pattern$Node",
-	"java.lang.Object",
-	nullptr,
-	_Pattern$Node_FieldInfo_,
-	_Pattern$Node_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pattern$Node_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.regex.Pattern"
-};
-
-$Object* allocate$Pattern$Node($Class* clazz) {
-	return $of($alloc(Pattern$Node));
-}
-
 void Pattern$Node::init$() {
 	$init($Pattern);
 	$set(this, next, $Pattern::accept$);
@@ -64,13 +26,13 @@ void Pattern$Node::init$() {
 bool Pattern$Node::match($Matcher* matcher, int32_t i, $CharSequence* seq) {
 	$nc(matcher)->last = i;
 	$nc(matcher->groups)->set(0, matcher->first);
-	$nc(matcher->groups)->set(1, matcher->last);
+	matcher->groups->set(1, matcher->last);
 	return true;
 }
 
 bool Pattern$Node::study($Pattern$TreeInfo* info) {
 	if (this->next != nullptr) {
-		return $nc(this->next)->study(info);
+		return this->next->study(info);
 	} else {
 		return $nc(info)->deterministic;
 	}
@@ -80,7 +42,38 @@ Pattern$Node::Pattern$Node() {
 }
 
 $Class* Pattern$Node::load$($String* name, bool initialize) {
-	$loadClass(Pattern$Node, name, initialize, &_Pattern$Node_ClassInfo_, allocate$Pattern$Node);
+	$FieldInfo fieldInfos$$[] = {
+		{"next", "Ljava/util/regex/Pattern$Node;", nullptr, 0, $field(Pattern$Node, next)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Pattern$Node, init$, void)},
+		{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$Node, match, bool, $Matcher*, int32_t, $CharSequence*)},
+		{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$Node, study, bool, $Pattern$TreeInfo*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.regex.Pattern$Node",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.regex.Pattern"
+	};
+	$loadClass(Pattern$Node, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$Node);
+	});
 	return class$;
 }
 

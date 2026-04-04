@@ -70,6 +70,7 @@ class $export CheckMethodAdapter : public ::jdk::internal::org::objectweb::asm$:
 	$class(CheckMethodAdapter, 0, ::jdk::internal::org::objectweb::asm$::MethodVisitor)
 public:
 	CheckMethodAdapter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::org::objectweb::asm$::MethodVisitor* methodvisitor);
 	void init$(::jdk::internal::org::objectweb::asm$::MethodVisitor* methodVisitor, ::java::util::Map* labelInsnIndices);
 	void init$(int32_t api, ::jdk::internal::org::objectweb::asm$::MethodVisitor* methodVisitor, ::java::util::Map* labelInsnIndices);

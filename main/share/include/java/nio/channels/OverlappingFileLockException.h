@@ -14,10 +14,13 @@ class $import OverlappingFileLockException : public ::java::lang::IllegalStateEx
 public:
 	OverlappingFileLockException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x1C6B4A4A35F15E11;
+	static const int64_t serialVersionUID = (int64_t)0x1c6b4a4a35f15e11;
 	OverlappingFileLockException(const OverlappingFileLockException& e);
 	virtual void throw$() override;
-	inline OverlappingFileLockException* operator ->() {
+	inline OverlappingFileLockException* operator ->() const {
+		return (OverlappingFileLockException*)throwing$;
+	}
+	inline operator OverlappingFileLockException*() const {
 		return (OverlappingFileLockException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <java/util/concurrent/locks/AbstractQueuedSynchronizer$ConditionNode.h>
-
 #include <java/util/concurrent/locks/AbstractQueuedSynchronizer$Node.h>
 #include <java/util/concurrent/locks/AbstractQueuedSynchronizer.h>
 #include <java/util/concurrent/locks/LockSupport.h>
@@ -16,50 +15,6 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 			namespace locks {
-
-$FieldInfo _AbstractQueuedSynchronizer$ConditionNode_FieldInfo_[] = {
-	{"nextWaiter", "Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$ConditionNode;", nullptr, 0, $field(AbstractQueuedSynchronizer$ConditionNode, nextWaiter)},
-	{}
-};
-
-$MethodInfo _AbstractQueuedSynchronizer$ConditionNode_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(AbstractQueuedSynchronizer$ConditionNode, init$, void)},
-	{"block", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractQueuedSynchronizer$ConditionNode, block, bool)},
-	{"isReleasable", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractQueuedSynchronizer$ConditionNode, isReleasable, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AbstractQueuedSynchronizer$ConditionNode_InnerClassesInfo_[] = {
-	{"java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode", "java.util.concurrent.locks.AbstractQueuedSynchronizer", "ConditionNode", $STATIC | $FINAL},
-	{"java.util.concurrent.locks.AbstractQueuedSynchronizer$Node", "java.util.concurrent.locks.AbstractQueuedSynchronizer", "Node", $STATIC | $ABSTRACT},
-	{"java.util.concurrent.ForkJoinPool$ManagedBlocker", "java.util.concurrent.ForkJoinPool", "ManagedBlocker", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AbstractQueuedSynchronizer$ConditionNode_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode",
-	"java.util.concurrent.locks.AbstractQueuedSynchronizer$Node",
-	"java.util.concurrent.ForkJoinPool$ManagedBlocker",
-	_AbstractQueuedSynchronizer$ConditionNode_FieldInfo_,
-	_AbstractQueuedSynchronizer$ConditionNode_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractQueuedSynchronizer$ConditionNode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.locks.AbstractQueuedSynchronizer"
-};
-
-$Object* allocate$AbstractQueuedSynchronizer$ConditionNode($Class* clazz) {
-	return $of($alloc(AbstractQueuedSynchronizer$ConditionNode));
-}
 
 int32_t AbstractQueuedSynchronizer$ConditionNode::hashCode() {
 	 return this->$AbstractQueuedSynchronizer$Node::hashCode();
@@ -100,7 +55,45 @@ AbstractQueuedSynchronizer$ConditionNode::AbstractQueuedSynchronizer$ConditionNo
 }
 
 $Class* AbstractQueuedSynchronizer$ConditionNode::load$($String* name, bool initialize) {
-	$loadClass(AbstractQueuedSynchronizer$ConditionNode, name, initialize, &_AbstractQueuedSynchronizer$ConditionNode_ClassInfo_, allocate$AbstractQueuedSynchronizer$ConditionNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"nextWaiter", "Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$ConditionNode;", nullptr, 0, $field(AbstractQueuedSynchronizer$ConditionNode, nextWaiter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(AbstractQueuedSynchronizer$ConditionNode, init$, void)},
+		{"block", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractQueuedSynchronizer$ConditionNode, block, bool)},
+		{"isReleasable", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractQueuedSynchronizer$ConditionNode, isReleasable, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode", "java.util.concurrent.locks.AbstractQueuedSynchronizer", "ConditionNode", $STATIC | $FINAL},
+		{"java.util.concurrent.locks.AbstractQueuedSynchronizer$Node", "java.util.concurrent.locks.AbstractQueuedSynchronizer", "Node", $STATIC | $ABSTRACT},
+		{"java.util.concurrent.ForkJoinPool$ManagedBlocker", "java.util.concurrent.ForkJoinPool", "ManagedBlocker", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode",
+		"java.util.concurrent.locks.AbstractQueuedSynchronizer$Node",
+		"java.util.concurrent.ForkJoinPool$ManagedBlocker",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.locks.AbstractQueuedSynchronizer"
+	};
+	$loadClass(AbstractQueuedSynchronizer$ConditionNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractQueuedSynchronizer$ConditionNode));
+	});
 	return class$;
 }
 

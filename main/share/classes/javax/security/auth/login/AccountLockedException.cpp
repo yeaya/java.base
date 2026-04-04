@@ -1,5 +1,4 @@
 #include <javax/security/auth/login/AccountLockedException.h>
-
 #include <javax/security/auth/login/AccountException.h>
 #include <jcpp.h>
 
@@ -12,30 +11,6 @@ namespace javax {
 	namespace security {
 		namespace auth {
 			namespace login {
-
-$FieldInfo _AccountLockedException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AccountLockedException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AccountLockedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AccountLockedException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AccountLockedException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _AccountLockedException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.security.auth.login.AccountLockedException",
-	"javax.security.auth.login.AccountException",
-	nullptr,
-	_AccountLockedException_FieldInfo_,
-	_AccountLockedException_MethodInfo_
-};
-
-$Object* allocate$AccountLockedException($Class* clazz) {
-	return $of($alloc(AccountLockedException));
-}
 
 void AccountLockedException::init$() {
 	$AccountException::init$();
@@ -56,7 +31,26 @@ void AccountLockedException::throw$() {
 }
 
 $Class* AccountLockedException::load$($String* name, bool initialize) {
-	$loadClass(AccountLockedException, name, initialize, &_AccountLockedException_ClassInfo_, allocate$AccountLockedException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AccountLockedException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AccountLockedException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AccountLockedException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.security.auth.login.AccountLockedException",
+		"javax.security.auth.login.AccountException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AccountLockedException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AccountLockedException);
+	});
 	return class$;
 }
 

@@ -21,6 +21,7 @@ class StackStreamFactory$WalkerState : public ::java::lang::Enum {
 public:
 	StackStreamFactory$WalkerState();
 	static $Array<::java::lang::StackStreamFactory$WalkerState>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::lang::StackStreamFactory$WalkerState* valueOf($String* name);
 	static $Array<::java::lang::StackStreamFactory$WalkerState>* values();

@@ -33,6 +33,7 @@ class $import SynchronousQueue$TransferStack$SNode : public ::java::util::concur
 	$class(SynchronousQueue$TransferStack$SNode, 0, ::java::util::concurrent::ForkJoinPool$ManagedBlocker)
 public:
 	SynchronousQueue$TransferStack$SNode();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* item);
 	virtual bool block() override;
 	bool casNext(::java::util::concurrent::SynchronousQueue$TransferStack$SNode* cmp, ::java::util::concurrent::SynchronousQueue$TransferStack$SNode* val);

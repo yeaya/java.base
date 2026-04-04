@@ -23,6 +23,7 @@ class $export ReadIntoReadOnlyBuffer : public ::java::lang::Object {
 	$class(ReadIntoReadOnlyBuffer, 0, ::java::lang::Object)
 public:
 	ReadIntoReadOnlyBuffer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void read(::java::io::Reader* r, ::java::nio::CharBuffer* b);

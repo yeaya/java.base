@@ -29,6 +29,7 @@ class ServerHello : public ::java::lang::Object {
 	$class(ServerHello, 0, ::java::lang::Object)
 public:
 	ServerHello();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void setUpPskKD(::sun::security::ssl::HandshakeContext* hc, ::javax::crypto::SecretKey* psk);
 	static ::sun::security::ssl::SSLConsumer* handshakeConsumer;

@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/https/HttpsURLConnectionImpl.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/net/Authenticator.h>
@@ -16,7 +15,6 @@
 #include <javax/net/ssl/HttpsURLConnection.h>
 #include <javax/net/ssl/SSLSession.h>
 #include <sun/net/util/IPAddressUtil.h>
-#include <sun/net/www/protocol/http/Handler.h>
 #include <sun/net/www/protocol/http/HttpURLConnection.h>
 #include <sun/net/www/protocol/https/DelegateHttpsURLConnection.h>
 #include <sun/net/www/protocol/https/Handler.h>
@@ -38,7 +36,6 @@ using $Map = ::java::util::Map;
 using $Optional = ::java::util::Optional;
 using $HttpsURLConnection = ::javax::net::ssl::HttpsURLConnection;
 using $IPAddressUtil = ::sun::net::util::IPAddressUtil;
-using $1Handler = ::sun::net::www::protocol::http::Handler;
 using $DelegateHttpsURLConnection = ::sun::net::www::protocol::https::DelegateHttpsURLConnection;
 using $Handler = ::sun::net::www::protocol::https::Handler;
 
@@ -48,109 +45,15 @@ namespace sun {
 			namespace protocol {
 				namespace https {
 
-$FieldInfo _HttpsURLConnectionImpl_FieldInfo_[] = {
-	{"delegate", "Lsun/net/www/protocol/https/DelegateHttpsURLConnection;", nullptr, $PRIVATE | $FINAL, $field(HttpsURLConnectionImpl, delegate)},
-	{}
-};
-
-$MethodInfo _HttpsURLConnectionImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;Lsun/net/www/protocol/https/Handler;)V", nullptr, 0, $method(HttpsURLConnectionImpl, init$, void, $URL*, $Handler*), "java.io.IOException"},
-	{"<init>", "(Ljava/net/URL;Ljava/net/Proxy;Lsun/net/www/protocol/https/Handler;)V", nullptr, 0, $method(HttpsURLConnectionImpl, init$, void, $URL*, $Proxy*, $Handler*), "java.io.IOException"},
-	{"addRequestProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, addRequestProperty, void, $String*, $String*)},
-	{"checkURL", "(Ljava/net/URL;)Ljava/net/URL;", nullptr, $STATIC, $staticMethod(HttpsURLConnectionImpl, checkURL, $URL*, $URL*), "java.io.IOException"},
-	{"connect", "()V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, connect, void), "java.io.IOException"},
-	{"disconnect", "()V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, disconnect, void)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, equals, bool, Object$*)},
-	{"getAllowUserInteraction", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getAllowUserInteraction, bool)},
-	{"getCipherSuite", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getCipherSuite, $String*)},
-	{"getConnectTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getConnectTimeout, int32_t)},
-	{"getContent", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getContent, $Object*), "java.io.IOException"},
-	{"getContent", "([Ljava/lang/Class;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getContent, $Object*, $ClassArray*), "java.io.IOException"},
-	{"getContentEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getContentEncoding, $String*)},
-	{"getContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getContentLength, int32_t)},
-	{"getContentLengthLong", "()J", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getContentLengthLong, int64_t)},
-	{"getContentType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getContentType, $String*)},
-	{"getDate", "()J", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getDate, int64_t)},
-	{"getDefaultUseCaches", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getDefaultUseCaches, bool)},
-	{"getDoInput", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getDoInput, bool)},
-	{"getDoOutput", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getDoOutput, bool)},
-	{"getErrorStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getErrorStream, $InputStream*)},
-	{"getExpiration", "()J", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getExpiration, int64_t)},
-	{"getHeaderField", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getHeaderField, $String*, $String*)},
-	{"getHeaderField", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getHeaderField, $String*, int32_t)},
-	{"getHeaderFieldDate", "(Ljava/lang/String;J)J", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getHeaderFieldDate, int64_t, $String*, int64_t)},
-	{"getHeaderFieldInt", "(Ljava/lang/String;I)I", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getHeaderFieldInt, int32_t, $String*, int32_t)},
-	{"getHeaderFieldKey", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getHeaderFieldKey, $String*, int32_t)},
-	{"getHeaderFieldLong", "(Ljava/lang/String;J)J", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getHeaderFieldLong, int64_t, $String*, int64_t)},
-	{"getHeaderFields", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getHeaderFields, $Map*)},
-	{"getIfModifiedSince", "()J", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getIfModifiedSince, int64_t)},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getInputStream, $InputStream*), "java.io.IOException"},
-	{"getInstanceFollowRedirects", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getInstanceFollowRedirects, bool)},
-	{"getLastModified", "()J", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getLastModified, int64_t)},
-	{"getLocalCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getLocalCertificates, $CertificateArray*)},
-	{"getLocalPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getLocalPrincipal, $Principal*)},
-	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getOutputStream, $OutputStream*), "java.io.IOException"},
-	{"getPeerPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getPeerPrincipal, $Principal*), "javax.net.ssl.SSLPeerUnverifiedException"},
-	{"getPermission", "()Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getPermission, $Permission*), "java.io.IOException"},
-	{"getReadTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getReadTimeout, int32_t)},
-	{"getRequestMethod", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getRequestMethod, $String*)},
-	{"getRequestProperties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getRequestProperties, $Map*)},
-	{"getRequestProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getRequestProperty, $String*, $String*)},
-	{"getResponseCode", "()I", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getResponseCode, int32_t), "java.io.IOException"},
-	{"getResponseMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getResponseMessage, $String*), "java.io.IOException"},
-	{"getSSLSession", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljavax/net/ssl/SSLSession;>;", $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getSSLSession, $Optional*)},
-	{"getServerCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getServerCertificates, $CertificateArray*), "javax.net.ssl.SSLPeerUnverifiedException"},
-	{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getURL, $URL*)},
-	{"getUseCaches", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getUseCaches, bool)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, hashCode, int32_t)},
-	{"isConnected", "()Z", nullptr, $PROTECTED, $virtualMethod(HttpsURLConnectionImpl, isConnected, bool)},
-	{"setAllowUserInteraction", "(Z)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setAllowUserInteraction, void, bool)},
-	{"setAuthenticator", "(Ljava/net/Authenticator;)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setAuthenticator, void, $Authenticator*)},
-	{"setChunkedStreamingMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setChunkedStreamingMode, void, int32_t)},
-	{"setConnectTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setConnectTimeout, void, int32_t)},
-	{"setConnected", "(Z)V", nullptr, $PROTECTED, $virtualMethod(HttpsURLConnectionImpl, setConnected, void, bool)},
-	{"setDefaultUseCaches", "(Z)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setDefaultUseCaches, void, bool)},
-	{"setDoInput", "(Z)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setDoInput, void, bool)},
-	{"setDoOutput", "(Z)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setDoOutput, void, bool)},
-	{"setFixedLengthStreamingMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setFixedLengthStreamingMode, void, int32_t)},
-	{"setFixedLengthStreamingMode", "(J)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setFixedLengthStreamingMode, void, int64_t)},
-	{"setIfModifiedSince", "(J)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setIfModifiedSince, void, int64_t)},
-	{"setInstanceFollowRedirects", "(Z)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setInstanceFollowRedirects, void, bool)},
-	{"setNewClient", "(Ljava/net/URL;)V", nullptr, $PROTECTED, $virtualMethod(HttpsURLConnectionImpl, setNewClient, void, $URL*), "java.io.IOException"},
-	{"setNewClient", "(Ljava/net/URL;Z)V", nullptr, $PROTECTED, $virtualMethod(HttpsURLConnectionImpl, setNewClient, void, $URL*, bool), "java.io.IOException"},
-	{"setProxiedClient", "(Ljava/net/URL;Ljava/lang/String;I)V", nullptr, $PROTECTED, $virtualMethod(HttpsURLConnectionImpl, setProxiedClient, void, $URL*, $String*, int32_t), "java.io.IOException"},
-	{"setProxiedClient", "(Ljava/net/URL;Ljava/lang/String;IZ)V", nullptr, $PROTECTED, $virtualMethod(HttpsURLConnectionImpl, setProxiedClient, void, $URL*, $String*, int32_t, bool), "java.io.IOException"},
-	{"setReadTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setReadTimeout, void, int32_t)},
-	{"setRequestMethod", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setRequestMethod, void, $String*), "java.net.ProtocolException"},
-	{"setRequestProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setRequestProperty, void, $String*, $String*)},
-	{"setUseCaches", "(Z)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setUseCaches, void, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, toString, $String*)},
-	{"usingProxy", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, usingProxy, bool)},
-	{}
-};
-
-$ClassInfo _HttpsURLConnectionImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.www.protocol.https.HttpsURLConnectionImpl",
-	"javax.net.ssl.HttpsURLConnection",
-	nullptr,
-	_HttpsURLConnectionImpl_FieldInfo_,
-	_HttpsURLConnectionImpl_MethodInfo_
-};
-
-$Object* allocate$HttpsURLConnectionImpl($Class* clazz) {
-	return $of($alloc(HttpsURLConnectionImpl));
-}
-
 void HttpsURLConnectionImpl::init$($URL* u, $Handler* handler) {
 	HttpsURLConnectionImpl::init$(u, nullptr, handler);
 }
 
 $URL* HttpsURLConnectionImpl::checkURL($URL* u) {
 	$init(HttpsURLConnectionImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (u != nullptr) {
-		if ($nc($(u->toExternalForm()))->indexOf((int32_t)u'\n') > -1) {
+		if ($$nc(u->toExternalForm())->indexOf(u'\n') > -1) {
 			$throwNew($MalformedURLException, "Illegal character in URL"_s);
 		}
 	}
@@ -339,11 +242,11 @@ int64_t HttpsURLConnectionImpl::getHeaderFieldLong($String* name, int64_t Defaul
 }
 
 $Object* HttpsURLConnectionImpl::getContent() {
-	return $of($nc(this->delegate)->getContent());
+	return $nc(this->delegate)->getContent();
 }
 
 $Object* HttpsURLConnectionImpl::getContent($ClassArray* classes) {
-	return $of($nc(this->delegate)->getContent(classes));
+	return $nc(this->delegate)->getContent(classes);
 }
 
 $String* HttpsURLConnectionImpl::toString() {
@@ -399,11 +302,11 @@ void HttpsURLConnectionImpl::setDefaultUseCaches(bool defaultusecaches) {
 }
 
 bool HttpsURLConnectionImpl::equals(Object$* obj) {
-	return $equals(this, obj) || (($instanceOf(HttpsURLConnectionImpl, obj)) && $nc($of(this->delegate))->equals($nc(($cast(HttpsURLConnectionImpl, obj)))->delegate));
+	return $equals(this, obj) || (($instanceOf(HttpsURLConnectionImpl, obj)) && $nc(this->delegate)->equals($cast(HttpsURLConnectionImpl, obj)->delegate));
 }
 
 int32_t HttpsURLConnectionImpl::hashCode() {
-	return $nc($of(this->delegate))->hashCode();
+	return $nc(this->delegate)->hashCode();
 }
 
 void HttpsURLConnectionImpl::setConnectTimeout(int32_t timeout) {
@@ -446,7 +349,96 @@ HttpsURLConnectionImpl::HttpsURLConnectionImpl() {
 }
 
 $Class* HttpsURLConnectionImpl::load$($String* name, bool initialize) {
-	$loadClass(HttpsURLConnectionImpl, name, initialize, &_HttpsURLConnectionImpl_ClassInfo_, allocate$HttpsURLConnectionImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"delegate", "Lsun/net/www/protocol/https/DelegateHttpsURLConnection;", nullptr, $PRIVATE | $FINAL, $field(HttpsURLConnectionImpl, delegate)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/URL;Lsun/net/www/protocol/https/Handler;)V", nullptr, 0, $method(HttpsURLConnectionImpl, init$, void, $URL*, $Handler*), "java.io.IOException"},
+		{"<init>", "(Ljava/net/URL;Ljava/net/Proxy;Lsun/net/www/protocol/https/Handler;)V", nullptr, 0, $method(HttpsURLConnectionImpl, init$, void, $URL*, $Proxy*, $Handler*), "java.io.IOException"},
+		{"addRequestProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, addRequestProperty, void, $String*, $String*)},
+		{"checkURL", "(Ljava/net/URL;)Ljava/net/URL;", nullptr, $STATIC, $staticMethod(HttpsURLConnectionImpl, checkURL, $URL*, $URL*), "java.io.IOException"},
+		{"connect", "()V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, connect, void), "java.io.IOException"},
+		{"disconnect", "()V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, disconnect, void)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, equals, bool, Object$*)},
+		{"getAllowUserInteraction", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getAllowUserInteraction, bool)},
+		{"getCipherSuite", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getCipherSuite, $String*)},
+		{"getConnectTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getConnectTimeout, int32_t)},
+		{"getContent", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getContent, $Object*), "java.io.IOException"},
+		{"getContent", "([Ljava/lang/Class;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getContent, $Object*, $ClassArray*), "java.io.IOException"},
+		{"getContentEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getContentEncoding, $String*)},
+		{"getContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getContentLength, int32_t)},
+		{"getContentLengthLong", "()J", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getContentLengthLong, int64_t)},
+		{"getContentType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getContentType, $String*)},
+		{"getDate", "()J", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getDate, int64_t)},
+		{"getDefaultUseCaches", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getDefaultUseCaches, bool)},
+		{"getDoInput", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getDoInput, bool)},
+		{"getDoOutput", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getDoOutput, bool)},
+		{"getErrorStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getErrorStream, $InputStream*)},
+		{"getExpiration", "()J", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getExpiration, int64_t)},
+		{"getHeaderField", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getHeaderField, $String*, $String*)},
+		{"getHeaderField", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getHeaderField, $String*, int32_t)},
+		{"getHeaderFieldDate", "(Ljava/lang/String;J)J", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getHeaderFieldDate, int64_t, $String*, int64_t)},
+		{"getHeaderFieldInt", "(Ljava/lang/String;I)I", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getHeaderFieldInt, int32_t, $String*, int32_t)},
+		{"getHeaderFieldKey", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getHeaderFieldKey, $String*, int32_t)},
+		{"getHeaderFieldLong", "(Ljava/lang/String;J)J", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getHeaderFieldLong, int64_t, $String*, int64_t)},
+		{"getHeaderFields", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getHeaderFields, $Map*)},
+		{"getIfModifiedSince", "()J", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getIfModifiedSince, int64_t)},
+		{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getInputStream, $InputStream*), "java.io.IOException"},
+		{"getInstanceFollowRedirects", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getInstanceFollowRedirects, bool)},
+		{"getLastModified", "()J", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getLastModified, int64_t)},
+		{"getLocalCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getLocalCertificates, $CertificateArray*)},
+		{"getLocalPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getLocalPrincipal, $Principal*)},
+		{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getOutputStream, $OutputStream*), "java.io.IOException"},
+		{"getPeerPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getPeerPrincipal, $Principal*), "javax.net.ssl.SSLPeerUnverifiedException"},
+		{"getPermission", "()Ljava/security/Permission;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getPermission, $Permission*), "java.io.IOException"},
+		{"getReadTimeout", "()I", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getReadTimeout, int32_t)},
+		{"getRequestMethod", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getRequestMethod, $String*)},
+		{"getRequestProperties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getRequestProperties, $Map*)},
+		{"getRequestProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getRequestProperty, $String*, $String*)},
+		{"getResponseCode", "()I", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getResponseCode, int32_t), "java.io.IOException"},
+		{"getResponseMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getResponseMessage, $String*), "java.io.IOException"},
+		{"getSSLSession", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljavax/net/ssl/SSLSession;>;", $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getSSLSession, $Optional*)},
+		{"getServerCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getServerCertificates, $CertificateArray*), "javax.net.ssl.SSLPeerUnverifiedException"},
+		{"getURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getURL, $URL*)},
+		{"getUseCaches", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, getUseCaches, bool)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, hashCode, int32_t)},
+		{"isConnected", "()Z", nullptr, $PROTECTED, $virtualMethod(HttpsURLConnectionImpl, isConnected, bool)},
+		{"setAllowUserInteraction", "(Z)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setAllowUserInteraction, void, bool)},
+		{"setAuthenticator", "(Ljava/net/Authenticator;)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setAuthenticator, void, $Authenticator*)},
+		{"setChunkedStreamingMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setChunkedStreamingMode, void, int32_t)},
+		{"setConnectTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setConnectTimeout, void, int32_t)},
+		{"setConnected", "(Z)V", nullptr, $PROTECTED, $virtualMethod(HttpsURLConnectionImpl, setConnected, void, bool)},
+		{"setDefaultUseCaches", "(Z)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setDefaultUseCaches, void, bool)},
+		{"setDoInput", "(Z)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setDoInput, void, bool)},
+		{"setDoOutput", "(Z)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setDoOutput, void, bool)},
+		{"setFixedLengthStreamingMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setFixedLengthStreamingMode, void, int32_t)},
+		{"setFixedLengthStreamingMode", "(J)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setFixedLengthStreamingMode, void, int64_t)},
+		{"setIfModifiedSince", "(J)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setIfModifiedSince, void, int64_t)},
+		{"setInstanceFollowRedirects", "(Z)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setInstanceFollowRedirects, void, bool)},
+		{"setNewClient", "(Ljava/net/URL;)V", nullptr, $PROTECTED, $virtualMethod(HttpsURLConnectionImpl, setNewClient, void, $URL*), "java.io.IOException"},
+		{"setNewClient", "(Ljava/net/URL;Z)V", nullptr, $PROTECTED, $virtualMethod(HttpsURLConnectionImpl, setNewClient, void, $URL*, bool), "java.io.IOException"},
+		{"setProxiedClient", "(Ljava/net/URL;Ljava/lang/String;I)V", nullptr, $PROTECTED, $virtualMethod(HttpsURLConnectionImpl, setProxiedClient, void, $URL*, $String*, int32_t), "java.io.IOException"},
+		{"setProxiedClient", "(Ljava/net/URL;Ljava/lang/String;IZ)V", nullptr, $PROTECTED, $virtualMethod(HttpsURLConnectionImpl, setProxiedClient, void, $URL*, $String*, int32_t, bool), "java.io.IOException"},
+		{"setReadTimeout", "(I)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setReadTimeout, void, int32_t)},
+		{"setRequestMethod", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setRequestMethod, void, $String*), "java.net.ProtocolException"},
+		{"setRequestProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setRequestProperty, void, $String*, $String*)},
+		{"setUseCaches", "(Z)V", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, setUseCaches, void, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, toString, $String*)},
+		{"usingProxy", "()Z", nullptr, $PUBLIC, $virtualMethod(HttpsURLConnectionImpl, usingProxy, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.www.protocol.https.HttpsURLConnectionImpl",
+		"javax.net.ssl.HttpsURLConnection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpsURLConnectionImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpsURLConnectionImpl);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <anotherpkg/MethodSupplierOuter$MethodSupplier.h>
-
 #include <anotherpkg/MethodSupplierOuter.h>
 #include <jcpp.h>
 
@@ -8,37 +7,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace anotherpkg {
-
-$MethodInfo _MethodSupplierOuter$MethodSupplier_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodSupplierOuter$MethodSupplier, init$, void)},
-	{"m", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodSupplierOuter$MethodSupplier, m, $String*)},
-	{}
-};
-
-$InnerClassInfo _MethodSupplierOuter$MethodSupplier_InnerClassesInfo_[] = {
-	{"anotherpkg.MethodSupplierOuter$MethodSupplier", "anotherpkg.MethodSupplierOuter", "MethodSupplier", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MethodSupplierOuter$MethodSupplier_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"anotherpkg.MethodSupplierOuter$MethodSupplier",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_MethodSupplierOuter$MethodSupplier_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MethodSupplierOuter$MethodSupplier_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"anotherpkg.MethodSupplierOuter"
-};
-
-$Object* allocate$MethodSupplierOuter$MethodSupplier($Class* clazz) {
-	return $of($alloc(MethodSupplierOuter$MethodSupplier));
-}
 
 void MethodSupplierOuter$MethodSupplier::init$() {
 }
@@ -51,7 +19,33 @@ MethodSupplierOuter$MethodSupplier::MethodSupplierOuter$MethodSupplier() {
 }
 
 $Class* MethodSupplierOuter$MethodSupplier::load$($String* name, bool initialize) {
-	$loadClass(MethodSupplierOuter$MethodSupplier, name, initialize, &_MethodSupplierOuter$MethodSupplier_ClassInfo_, allocate$MethodSupplierOuter$MethodSupplier);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MethodSupplierOuter$MethodSupplier, init$, void)},
+		{"m", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodSupplierOuter$MethodSupplier, m, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"anotherpkg.MethodSupplierOuter$MethodSupplier", "anotherpkg.MethodSupplierOuter", "MethodSupplier", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"anotherpkg.MethodSupplierOuter$MethodSupplier",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"anotherpkg.MethodSupplierOuter"
+	};
+	$loadClass(MethodSupplierOuter$MethodSupplier, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodSupplierOuter$MethodSupplier);
+	});
 	return class$;
 }
 

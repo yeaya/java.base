@@ -1,5 +1,4 @@
 #include <java/util/InputMismatchException.h>
-
 #include <java/util/NoSuchElementException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _InputMismatchException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InputMismatchException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InputMismatchException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InputMismatchException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InputMismatchException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _InputMismatchException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.InputMismatchException",
-	"java.util.NoSuchElementException",
-	nullptr,
-	_InputMismatchException_FieldInfo_,
-	_InputMismatchException_MethodInfo_
-};
-
-$Object* allocate$InputMismatchException($Class* clazz) {
-	return $of($alloc(InputMismatchException));
-}
 
 void InputMismatchException::init$() {
 	$NoSuchElementException::init$();
@@ -54,7 +29,26 @@ void InputMismatchException::throw$() {
 }
 
 $Class* InputMismatchException::load$($String* name, bool initialize) {
-	$loadClass(InputMismatchException, name, initialize, &_InputMismatchException_ClassInfo_, allocate$InputMismatchException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InputMismatchException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InputMismatchException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InputMismatchException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.InputMismatchException",
+		"java.util.NoSuchElementException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InputMismatchException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InputMismatchException);
+	});
 	return class$;
 }
 

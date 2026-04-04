@@ -34,6 +34,7 @@ class $import MimeTable : public ::java::net::FileNameMap {
 	$class(MimeTable, 0, ::java::net::FileNameMap)
 public:
 	MimeTable();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void add(::sun::net::www::MimeEntry* m);
 	virtual ::java::util::Enumeration* elements();

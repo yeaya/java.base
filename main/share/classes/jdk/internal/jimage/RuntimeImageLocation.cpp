@@ -1,5 +1,4 @@
 #include <jdk/internal/jimage/RuntimeImageLocation.h>
-
 #include <jdk/internal/jimage/ImageLocation.h>
 #include <jdk/internal/jimage/ImageStrings.h>
 #include <jcpp.h>
@@ -13,43 +12,6 @@ using $ImageStrings = ::jdk::internal::jimage::ImageStrings;
 namespace jdk {
 	namespace internal {
 		namespace jimage {
-
-$FieldInfo _RuntimeImageLocation_FieldInfo_[] = {
-	{"location", "J", nullptr, $PUBLIC, $field(RuntimeImageLocation, location)},
-	{"size", "J", nullptr, $PUBLIC, $field(RuntimeImageLocation, size)},
-	{"module", "Ljava/lang/String;", nullptr, $PUBLIC, $field(RuntimeImageLocation, module)},
-	{"parent", "Ljava/lang/String;", nullptr, $PUBLIC, $field(RuntimeImageLocation, parent)},
-	{"base", "Ljava/lang/String;", nullptr, $PUBLIC, $field(RuntimeImageLocation, base)},
-	{"extension", "Ljava/lang/String;", nullptr, $PUBLIC, $field(RuntimeImageLocation, extension)},
-	{"children", "[Ljava/lang/String;", nullptr, $PUBLIC, $field(RuntimeImageLocation, children)},
-	{}
-};
-
-$MethodInfo _RuntimeImageLocation_MethodInfo_[] = {
-	{"<init>", "([JLjdk/internal/jimage/ImageStrings;)V", nullptr, $PUBLIC, $method(RuntimeImageLocation, init$, void, $longs*, $ImageStrings*)},
-	{"buildName", "(ZZZ)Ljava/lang/String;", nullptr, 0, $virtualMethod(RuntimeImageLocation, buildName, $String*, bool, bool, bool)},
-	{"getBase", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImageLocation, getBase, $String*)},
-	{"getCompressedSize", "()J", nullptr, $PUBLIC, $virtualMethod(RuntimeImageLocation, getCompressedSize, int64_t)},
-	{"getExtension", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImageLocation, getExtension, $String*)},
-	{"getFullName", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImageLocation, getFullName, $String*, bool)},
-	{"getModule", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImageLocation, getModule, $String*)},
-	{"getParent", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImageLocation, getParent, $String*)},
-	{"getUncompressedSize", "()J", nullptr, $PUBLIC, $virtualMethod(RuntimeImageLocation, getUncompressedSize, int64_t)},
-	{}
-};
-
-$ClassInfo _RuntimeImageLocation_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.jimage.RuntimeImageLocation",
-	"jdk.internal.jimage.ImageLocation",
-	nullptr,
-	_RuntimeImageLocation_FieldInfo_,
-	_RuntimeImageLocation_MethodInfo_
-};
-
-$Object* allocate$RuntimeImageLocation($Class* clazz) {
-	return $of($alloc(RuntimeImageLocation));
-}
 
 void RuntimeImageLocation::init$($longs* attributes, $ImageStrings* strings) {
 	$ImageLocation::init$(attributes, strings);
@@ -65,7 +27,7 @@ int64_t RuntimeImageLocation::getUncompressedSize() {
 }
 
 $String* RuntimeImageLocation::getFullName(bool modulesPrefix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, builder, $new($StringBuilder));
 	if (this->module != nullptr) {
 		if (modulesPrefix) {
@@ -80,7 +42,7 @@ $String* RuntimeImageLocation::getFullName(bool modulesPrefix) {
 		builder->append(u'/');
 	}
 	builder->append($(getBase()));
-	if (this->extension != nullptr && !$nc(this->extension)->isEmpty()) {
+	if (this->extension != nullptr && !this->extension->isEmpty()) {
 		builder->append(u'.');
 		builder->append(this->extension);
 	}
@@ -92,7 +54,7 @@ $String* RuntimeImageLocation::getModule() {
 }
 
 $String* RuntimeImageLocation::buildName(bool includeModule, bool includeParent, bool includeName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, builder, $new($StringBuilder));
 	if (includeModule && getModuleOffset() != 0) {
 		builder->append("/modules/"_s);
@@ -131,7 +93,39 @@ RuntimeImageLocation::RuntimeImageLocation() {
 }
 
 $Class* RuntimeImageLocation::load$($String* name, bool initialize) {
-	$loadClass(RuntimeImageLocation, name, initialize, &_RuntimeImageLocation_ClassInfo_, allocate$RuntimeImageLocation);
+	$FieldInfo fieldInfos$$[] = {
+		{"location", "J", nullptr, $PUBLIC, $field(RuntimeImageLocation, location)},
+		{"size", "J", nullptr, $PUBLIC, $field(RuntimeImageLocation, size)},
+		{"module", "Ljava/lang/String;", nullptr, $PUBLIC, $field(RuntimeImageLocation, module)},
+		{"parent", "Ljava/lang/String;", nullptr, $PUBLIC, $field(RuntimeImageLocation, parent)},
+		{"base", "Ljava/lang/String;", nullptr, $PUBLIC, $field(RuntimeImageLocation, base)},
+		{"extension", "Ljava/lang/String;", nullptr, $PUBLIC, $field(RuntimeImageLocation, extension)},
+		{"children", "[Ljava/lang/String;", nullptr, $PUBLIC, $field(RuntimeImageLocation, children)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([JLjdk/internal/jimage/ImageStrings;)V", nullptr, $PUBLIC, $method(RuntimeImageLocation, init$, void, $longs*, $ImageStrings*)},
+		{"buildName", "(ZZZ)Ljava/lang/String;", nullptr, 0, $virtualMethod(RuntimeImageLocation, buildName, $String*, bool, bool, bool)},
+		{"getBase", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImageLocation, getBase, $String*)},
+		{"getCompressedSize", "()J", nullptr, $PUBLIC, $virtualMethod(RuntimeImageLocation, getCompressedSize, int64_t)},
+		{"getExtension", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImageLocation, getExtension, $String*)},
+		{"getFullName", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImageLocation, getFullName, $String*, bool)},
+		{"getModule", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImageLocation, getModule, $String*)},
+		{"getParent", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RuntimeImageLocation, getParent, $String*)},
+		{"getUncompressedSize", "()J", nullptr, $PUBLIC, $virtualMethod(RuntimeImageLocation, getUncompressedSize, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.jimage.RuntimeImageLocation",
+		"jdk.internal.jimage.ImageLocation",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RuntimeImageLocation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RuntimeImageLocation);
+	});
 	return class$;
 }
 

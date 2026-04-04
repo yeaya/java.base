@@ -1,5 +1,4 @@
 #include <java/lang/constant/Constable.h>
-
 #include <java/util/Optional.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace lang {
 		namespace constant {
 
-$MethodInfo _Constable_MethodInfo_[] = {
-	{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<+Ljava/lang/constant/ConstantDesc;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Constable, describeConstable, $Optional*)},
-	{}
-};
-
-$ClassInfo _Constable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.lang.constant.Constable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Constable_MethodInfo_
-};
-
-$Object* allocate$Constable($Class* clazz) {
-	return $of($alloc(Constable));
-}
-
 $Class* Constable::load$($String* name, bool initialize) {
-	$loadClass(Constable, name, initialize, &_Constable_ClassInfo_, allocate$Constable);
+	$MethodInfo methodInfos$$[] = {
+		{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<+Ljava/lang/constant/ConstantDesc;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Constable, describeConstable, $Optional*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.lang.constant.Constable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Constable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Constable);
+	});
 	return class$;
 }
 

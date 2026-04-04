@@ -24,12 +24,13 @@ class CryptoAllPermission : public ::javax::crypto::CryptoPermission {
 	$class(CryptoAllPermission, 0, ::javax::crypto::CryptoPermission)
 public:
 	CryptoAllPermission();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool equals(Object$* obj) override;
 	virtual int32_t hashCode() override;
 	virtual bool implies(::java::security::Permission* p) override;
 	virtual ::java::security::PermissionCollection* newPermissionCollection() override;
-	static const int64_t serialVersionUID = (int64_t)0xB9B020B17247EA50;
+	static const int64_t serialVersionUID = (int64_t)0xb9b020b17247ea50;
 	static $String* ALG_NAME;
 	static ::javax::crypto::CryptoAllPermission* INSTANCE;
 };

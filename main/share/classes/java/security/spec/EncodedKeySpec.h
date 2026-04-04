@@ -14,6 +14,7 @@ class $export EncodedKeySpec : public ::java::security::spec::KeySpec {
 	$class(EncodedKeySpec, 0, ::java::security::spec::KeySpec)
 public:
 	EncodedKeySpec();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($bytes* encodedKey);
 	void init$($bytes* encodedKey, $String* algorithm);
 	virtual void clear();

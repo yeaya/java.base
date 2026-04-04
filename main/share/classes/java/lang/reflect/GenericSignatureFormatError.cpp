@@ -1,5 +1,4 @@
 #include <java/lang/reflect/GenericSignatureFormatError.h>
-
 #include <java/lang/ClassFormatError.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace lang {
 		namespace reflect {
-
-$FieldInfo _GenericSignatureFormatError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GenericSignatureFormatError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _GenericSignatureFormatError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GenericSignatureFormatError, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(GenericSignatureFormatError, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _GenericSignatureFormatError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.reflect.GenericSignatureFormatError",
-	"java.lang.ClassFormatError",
-	nullptr,
-	_GenericSignatureFormatError_FieldInfo_,
-	_GenericSignatureFormatError_MethodInfo_
-};
-
-$Object* allocate$GenericSignatureFormatError($Class* clazz) {
-	return $of($alloc(GenericSignatureFormatError));
-}
 
 void GenericSignatureFormatError::init$() {
 	$ClassFormatError::init$();
@@ -55,7 +30,26 @@ void GenericSignatureFormatError::throw$() {
 }
 
 $Class* GenericSignatureFormatError::load$($String* name, bool initialize) {
-	$loadClass(GenericSignatureFormatError, name, initialize, &_GenericSignatureFormatError_ClassInfo_, allocate$GenericSignatureFormatError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GenericSignatureFormatError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GenericSignatureFormatError, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(GenericSignatureFormatError, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.reflect.GenericSignatureFormatError",
+		"java.lang.ClassFormatError",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GenericSignatureFormatError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GenericSignatureFormatError);
+	});
 	return class$;
 }
 

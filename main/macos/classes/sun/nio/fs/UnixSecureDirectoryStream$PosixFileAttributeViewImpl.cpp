@@ -1,10 +1,8 @@
 #include <sun/nio/fs/UnixSecureDirectoryStream$PosixFileAttributeViewImpl.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
 #include <java/nio/file/ClosedDirectoryStreamException.h>
-#include <java/nio/file/Path.h>
 #include <java/nio/file/ProviderMismatchException.h>
 #include <java/nio/file/attribute/BasicFileAttributes.h>
 #include <java/nio/file/attribute/FileTime.h>
@@ -34,17 +32,13 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $ClosedDirectoryStreamException = ::java::nio::file::ClosedDirectoryStreamException;
-using $Path = ::java::nio::file::Path;
 using $ProviderMismatchException = ::java::nio::file::ProviderMismatchException;
 using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;
 using $FileTime = ::java::nio::file::attribute::FileTime;
 using $GroupPrincipal = ::java::nio::file::attribute::GroupPrincipal;
 using $PosixFileAttributes = ::java::nio::file::attribute::PosixFileAttributes;
 using $UserPrincipal = ::java::nio::file::attribute::UserPrincipal;
-using $Permission = ::java::security::Permission;
 using $Set = ::java::util::Set;
-using $Lock = ::java::util::concurrent::locks::Lock;
-using $UnixDirectoryStream = ::sun::nio::fs::UnixDirectoryStream;
 using $UnixException = ::sun::nio::fs::UnixException;
 using $UnixFileAttributes = ::sun::nio::fs::UnixFileAttributes;
 using $UnixFileModeAttribute = ::sun::nio::fs::UnixFileModeAttribute;
@@ -58,56 +52,6 @@ using $UnixUserPrincipals$User = ::sun::nio::fs::UnixUserPrincipals$User;
 namespace sun {
 	namespace nio {
 		namespace fs {
-
-$FieldInfo _UnixSecureDirectoryStream$PosixFileAttributeViewImpl_FieldInfo_[] = {
-	{"this$0", "Lsun/nio/fs/UnixSecureDirectoryStream;", nullptr, $FINAL | $SYNTHETIC, $field(UnixSecureDirectoryStream$PosixFileAttributeViewImpl, this$0)},
-	{}
-};
-
-$MethodInfo _UnixSecureDirectoryStream$PosixFileAttributeViewImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/nio/fs/UnixSecureDirectoryStream;Lsun/nio/fs/UnixPath;Z)V", nullptr, 0, $method(UnixSecureDirectoryStream$PosixFileAttributeViewImpl, init$, void, $UnixSecureDirectoryStream*, $UnixPath*, bool)},
-	{"checkWriteAndUserAccess", "()V", nullptr, $PRIVATE, $method(UnixSecureDirectoryStream$PosixFileAttributeViewImpl, checkWriteAndUserAccess, void)},
-	{"getOwner", "()Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC, $virtualMethod(UnixSecureDirectoryStream$PosixFileAttributeViewImpl, getOwner, $UserPrincipal*), "java.io.IOException"},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixSecureDirectoryStream$PosixFileAttributeViewImpl, name, $String*)},
-	{"readAttributes", "()Ljava/nio/file/attribute/PosixFileAttributes;", nullptr, $PUBLIC, $virtualMethod(UnixSecureDirectoryStream$PosixFileAttributeViewImpl, readAttributes, $BasicFileAttributes*), "java.io.IOException"},
-	{"setGroup", "(Ljava/nio/file/attribute/GroupPrincipal;)V", nullptr, $PUBLIC, $virtualMethod(UnixSecureDirectoryStream$PosixFileAttributeViewImpl, setGroup, void, $GroupPrincipal*), "java.io.IOException"},
-	{"setOwner", "(Ljava/nio/file/attribute/UserPrincipal;)V", nullptr, $PUBLIC, $virtualMethod(UnixSecureDirectoryStream$PosixFileAttributeViewImpl, setOwner, void, $UserPrincipal*), "java.io.IOException"},
-	{"setOwners", "(II)V", nullptr, $PRIVATE, $method(UnixSecureDirectoryStream$PosixFileAttributeViewImpl, setOwners, void, int32_t, int32_t), "java.io.IOException"},
-	{"setPermissions", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;)V", $PUBLIC, $virtualMethod(UnixSecureDirectoryStream$PosixFileAttributeViewImpl, setPermissions, void, $Set*), "java.io.IOException"},
-	{"*setTimes", "(Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;)V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _UnixSecureDirectoryStream$PosixFileAttributeViewImpl_InnerClassesInfo_[] = {
-	{"sun.nio.fs.UnixSecureDirectoryStream$PosixFileAttributeViewImpl", "sun.nio.fs.UnixSecureDirectoryStream", "PosixFileAttributeViewImpl", $PRIVATE},
-	{"sun.nio.fs.UnixSecureDirectoryStream$BasicFileAttributeViewImpl", "sun.nio.fs.UnixSecureDirectoryStream", "BasicFileAttributeViewImpl", $PRIVATE},
-	{}
-};
-
-$ClassInfo _UnixSecureDirectoryStream$PosixFileAttributeViewImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.UnixSecureDirectoryStream$PosixFileAttributeViewImpl",
-	"sun.nio.fs.UnixSecureDirectoryStream$BasicFileAttributeViewImpl",
-	"java.nio.file.attribute.PosixFileAttributeView",
-	_UnixSecureDirectoryStream$PosixFileAttributeViewImpl_FieldInfo_,
-	_UnixSecureDirectoryStream$PosixFileAttributeViewImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UnixSecureDirectoryStream$PosixFileAttributeViewImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.UnixSecureDirectoryStream"
-};
-
-$Object* allocate$UnixSecureDirectoryStream$PosixFileAttributeViewImpl($Class* clazz) {
-	return $of($alloc(UnixSecureDirectoryStream$PosixFileAttributeViewImpl));
-}
 
 void UnixSecureDirectoryStream$PosixFileAttributeViewImpl::setTimes($FileTime* lastModifiedTime, $FileTime* lastAccessTime, $FileTime* createTime) {
 	this->$UnixSecureDirectoryStream$BasicFileAttributeViewImpl::setTimes(lastModifiedTime, lastAccessTime, createTime);
@@ -139,7 +83,7 @@ void UnixSecureDirectoryStream$PosixFileAttributeViewImpl::init$($UnixSecureDire
 }
 
 void UnixSecureDirectoryStream$PosixFileAttributeViewImpl::checkWriteAndUserAccess() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		$UnixSecureDirectoryStream$BasicFileAttributeViewImpl::checkWriteAccess();
@@ -152,135 +96,125 @@ $String* UnixSecureDirectoryStream$PosixFileAttributeViewImpl::name() {
 }
 
 $BasicFileAttributes* UnixSecureDirectoryStream$PosixFileAttributeViewImpl::readAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		if (this->file == nullptr) {
-			$nc($($nc(this->this$0->ds)->directory()))->checkRead();
+			$$nc($nc(this->this$0->ds)->directory())->checkRead();
 		} else {
-			$nc($($nc($($nc(this->this$0->ds)->directory()))->resolve(static_cast<$Path*>(this->file))))->checkRead();
+			$$nc($$nc($nc(this->this$0->ds)->directory())->resolve(this->file))->checkRead();
 		}
 		sm->checkPermission($$new($RuntimePermission, "accessUserInformation"_s));
 	}
-	$nc($($nc(this->this$0->ds)->readLock()))->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($BasicFileAttributes, var$2, nullptr);
-		bool return$1 = false;
+	$$nc($nc(this->this$0->ds)->readLock())->lock();
+	$var($Throwable, var$0, nullptr);
+	$var($BasicFileAttributes, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		if (!this->this$0->ds->isOpen()) {
+			$throwNew($ClosedDirectoryStreamException);
+		}
 		try {
-			if (!$nc(this->this$0->ds)->isOpen()) {
-				$throwNew($ClosedDirectoryStreamException);
-			}
-			try {
-				$var($UnixFileAttributes, attrs, (this->file == nullptr) ? $UnixFileAttributes::get(this->this$0->dfd) : $UnixFileAttributes::get(this->this$0->dfd, this->file, this->followLinks));
-				$assign(var$2, attrs);
-				return$1 = true;
-				goto $finally;
-			} catch ($UnixException& x) {
-				x->rethrowAsIOException(this->file);
-				$assign(var$2, nullptr);
-				return$1 = true;
-				goto $finally;
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc($($nc(this->this$0->ds)->readLock()))->unlock();
+			$var($UnixFileAttributes, attrs, (this->file == nullptr) ? $UnixFileAttributes::get(this->this$0->dfd) : $UnixFileAttributes::get(this->this$0->dfd, this->file, this->followLinks));
+			$assign(var$2, attrs);
+			return$1 = true;
+			goto $finally;
+		} catch ($UnixException& x) {
+			x->rethrowAsIOException(this->file);
+			$assign(var$2, nullptr);
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$$nc(this->this$0->ds->readLock())->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void UnixSecureDirectoryStream$PosixFileAttributeViewImpl::setPermissions($Set* perms) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkWriteAndUserAccess();
-	$nc($($nc(this->this$0->ds)->readLock()))->lock();
-	{
-		$var($Throwable, var$0, nullptr);
+	$$nc($nc(this->this$0->ds)->readLock())->lock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (!this->this$0->ds->isOpen()) {
+			$throwNew($ClosedDirectoryStreamException);
+		}
+		int32_t fd = (this->file == nullptr) ? this->this$0->dfd : open();
+		$var($Throwable, var$1, nullptr);
 		try {
-			if (!$nc(this->this$0->ds)->isOpen()) {
-				$throwNew($ClosedDirectoryStreamException);
+			try {
+				$UnixNativeDispatcher::fchmod(fd, $UnixFileModeAttribute::toUnixMode(perms));
+			} catch ($UnixException& x) {
+				x->rethrowAsIOException(this->file);
 			}
-			int32_t fd = (this->file == nullptr) ? this->this$0->dfd : open();
-			{
-				$var($Throwable, var$1, nullptr);
-				try {
-					try {
-						$UnixNativeDispatcher::fchmod(fd, $UnixFileModeAttribute::toUnixMode(perms));
-					} catch ($UnixException& x) {
-						x->rethrowAsIOException(this->file);
-					}
-				} catch ($Throwable& var$2) {
-					$assign(var$1, var$2);
-				} /*finally*/ {
-					if (this->file != nullptr && fd >= 0) {
-						$UnixNativeDispatcher::close(fd);
-					}
-				}
-				if (var$1 != nullptr) {
-					$throw(var$1);
-				}
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
+		} catch ($Throwable& var$2) {
+			$assign(var$1, var$2);
 		} /*finally*/ {
-			$nc($($nc(this->this$0->ds)->readLock()))->unlock();
+			if (this->file != nullptr && fd >= 0) {
+				$UnixNativeDispatcher::close(fd);
+			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (var$1 != nullptr) {
+			$throw(var$1);
 		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		$$nc(this->this$0->ds->readLock())->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void UnixSecureDirectoryStream$PosixFileAttributeViewImpl::setOwners(int32_t uid, int32_t gid) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkWriteAndUserAccess();
-	$nc($($nc(this->this$0->ds)->readLock()))->lock();
-	{
-		$var($Throwable, var$0, nullptr);
+	$$nc($nc(this->this$0->ds)->readLock())->lock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (!this->this$0->ds->isOpen()) {
+			$throwNew($ClosedDirectoryStreamException);
+		}
+		int32_t fd = (this->file == nullptr) ? this->this$0->dfd : open();
+		$var($Throwable, var$1, nullptr);
 		try {
-			if (!$nc(this->this$0->ds)->isOpen()) {
-				$throwNew($ClosedDirectoryStreamException);
+			try {
+				$UnixNativeDispatcher::fchown(fd, uid, gid);
+			} catch ($UnixException& x) {
+				x->rethrowAsIOException(this->file);
 			}
-			int32_t fd = (this->file == nullptr) ? this->this$0->dfd : open();
-			{
-				$var($Throwable, var$1, nullptr);
-				try {
-					try {
-						$UnixNativeDispatcher::fchown(fd, uid, gid);
-					} catch ($UnixException& x) {
-						x->rethrowAsIOException(this->file);
-					}
-				} catch ($Throwable& var$2) {
-					$assign(var$1, var$2);
-				} /*finally*/ {
-					if (this->file != nullptr && fd >= 0) {
-						$UnixNativeDispatcher::close(fd);
-					}
-				}
-				if (var$1 != nullptr) {
-					$throw(var$1);
-				}
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
+		} catch ($Throwable& var$2) {
+			$assign(var$1, var$2);
 		} /*finally*/ {
-			$nc($($nc(this->this$0->ds)->readLock()))->unlock();
+			if (this->file != nullptr && fd >= 0) {
+				$UnixNativeDispatcher::close(fd);
+			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (var$1 != nullptr) {
+			$throw(var$1);
 		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		$$nc(this->this$0->ds->readLock())->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 $UserPrincipal* UnixSecureDirectoryStream$PosixFileAttributeViewImpl::getOwner() {
-	return $nc($($cast($PosixFileAttributes, readAttributes())))->owner();
+	return $$sure($PosixFileAttributes, readAttributes())->owner();
 }
 
 void UnixSecureDirectoryStream$PosixFileAttributeViewImpl::setOwner($UserPrincipal* owner) {
@@ -290,7 +224,7 @@ void UnixSecureDirectoryStream$PosixFileAttributeViewImpl::setOwner($UserPrincip
 	if ($instanceOf($UnixUserPrincipals$Group, owner)) {
 		$throwNew($IOException, "\'owner\' parameter can\'t be a group"_s);
 	}
-	int32_t uid = $nc(($cast($UnixUserPrincipals$User, owner)))->uid();
+	int32_t uid = $nc($cast($UnixUserPrincipals$User, owner))->uid();
 	setOwners(uid, -1);
 }
 
@@ -298,7 +232,7 @@ void UnixSecureDirectoryStream$PosixFileAttributeViewImpl::setGroup($GroupPrinci
 	if (!($instanceOf($UnixUserPrincipals$Group, group))) {
 		$throwNew($ProviderMismatchException);
 	}
-	int32_t gid = $nc(($cast($UnixUserPrincipals$Group, group)))->gid();
+	int32_t gid = $nc($cast($UnixUserPrincipals$Group, group))->gid();
 	setOwners(-1, gid);
 }
 
@@ -306,7 +240,51 @@ UnixSecureDirectoryStream$PosixFileAttributeViewImpl::UnixSecureDirectoryStream$
 }
 
 $Class* UnixSecureDirectoryStream$PosixFileAttributeViewImpl::load$($String* name, bool initialize) {
-	$loadClass(UnixSecureDirectoryStream$PosixFileAttributeViewImpl, name, initialize, &_UnixSecureDirectoryStream$PosixFileAttributeViewImpl_ClassInfo_, allocate$UnixSecureDirectoryStream$PosixFileAttributeViewImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/nio/fs/UnixSecureDirectoryStream;", nullptr, $FINAL | $SYNTHETIC, $field(UnixSecureDirectoryStream$PosixFileAttributeViewImpl, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/nio/fs/UnixSecureDirectoryStream;Lsun/nio/fs/UnixPath;Z)V", nullptr, 0, $method(UnixSecureDirectoryStream$PosixFileAttributeViewImpl, init$, void, $UnixSecureDirectoryStream*, $UnixPath*, bool)},
+		{"checkWriteAndUserAccess", "()V", nullptr, $PRIVATE, $method(UnixSecureDirectoryStream$PosixFileAttributeViewImpl, checkWriteAndUserAccess, void)},
+		{"getOwner", "()Ljava/nio/file/attribute/UserPrincipal;", nullptr, $PUBLIC, $virtualMethod(UnixSecureDirectoryStream$PosixFileAttributeViewImpl, getOwner, $UserPrincipal*), "java.io.IOException"},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnixSecureDirectoryStream$PosixFileAttributeViewImpl, name, $String*)},
+		{"readAttributes", "()Ljava/nio/file/attribute/PosixFileAttributes;", nullptr, $PUBLIC, $virtualMethod(UnixSecureDirectoryStream$PosixFileAttributeViewImpl, readAttributes, $BasicFileAttributes*), "java.io.IOException"},
+		{"setGroup", "(Ljava/nio/file/attribute/GroupPrincipal;)V", nullptr, $PUBLIC, $virtualMethod(UnixSecureDirectoryStream$PosixFileAttributeViewImpl, setGroup, void, $GroupPrincipal*), "java.io.IOException"},
+		{"setOwner", "(Ljava/nio/file/attribute/UserPrincipal;)V", nullptr, $PUBLIC, $virtualMethod(UnixSecureDirectoryStream$PosixFileAttributeViewImpl, setOwner, void, $UserPrincipal*), "java.io.IOException"},
+		{"setOwners", "(II)V", nullptr, $PRIVATE, $method(UnixSecureDirectoryStream$PosixFileAttributeViewImpl, setOwners, void, int32_t, int32_t), "java.io.IOException"},
+		{"setPermissions", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;)V", $PUBLIC, $virtualMethod(UnixSecureDirectoryStream$PosixFileAttributeViewImpl, setPermissions, void, $Set*), "java.io.IOException"},
+		{"*setTimes", "(Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;Ljava/nio/file/attribute/FileTime;)V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.UnixSecureDirectoryStream$PosixFileAttributeViewImpl", "sun.nio.fs.UnixSecureDirectoryStream", "PosixFileAttributeViewImpl", $PRIVATE},
+		{"sun.nio.fs.UnixSecureDirectoryStream$BasicFileAttributeViewImpl", "sun.nio.fs.UnixSecureDirectoryStream", "BasicFileAttributeViewImpl", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.UnixSecureDirectoryStream$PosixFileAttributeViewImpl",
+		"sun.nio.fs.UnixSecureDirectoryStream$BasicFileAttributeViewImpl",
+		"java.nio.file.attribute.PosixFileAttributeView",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.UnixSecureDirectoryStream"
+	};
+	$loadClass(UnixSecureDirectoryStream$PosixFileAttributeViewImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UnixSecureDirectoryStream$PosixFileAttributeViewImpl));
+	});
 	return class$;
 }
 

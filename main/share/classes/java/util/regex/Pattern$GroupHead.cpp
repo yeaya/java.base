@@ -1,5 +1,4 @@
 #include <java/util/regex/Pattern$GroupHead.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/util/regex/Matcher.h>
 #include <java/util/regex/Pattern$GroupTail.h>
@@ -19,44 +18,6 @@ namespace java {
 	namespace util {
 		namespace regex {
 
-$FieldInfo _Pattern$GroupHead_FieldInfo_[] = {
-	{"localIndex", "I", nullptr, 0, $field(Pattern$GroupHead, localIndex)},
-	{"tail", "Ljava/util/regex/Pattern$GroupTail;", nullptr, 0, $field(Pattern$GroupHead, tail)},
-	{}
-};
-
-$MethodInfo _Pattern$GroupHead_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(Pattern$GroupHead, init$, void, int32_t)},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$GroupHead, match, bool, $Matcher*, int32_t, $CharSequence*)},
-	{}
-};
-
-$InnerClassInfo _Pattern$GroupHead_InnerClassesInfo_[] = {
-	{"java.util.regex.Pattern$GroupHead", "java.util.regex.Pattern", "GroupHead", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
-	{}
-};
-
-$ClassInfo _Pattern$GroupHead_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.regex.Pattern$GroupHead",
-	"java.util.regex.Pattern$Node",
-	nullptr,
-	_Pattern$GroupHead_FieldInfo_,
-	_Pattern$GroupHead_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pattern$GroupHead_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.regex.Pattern"
-};
-
-$Object* allocate$Pattern$GroupHead($Class* clazz) {
-	return $of($alloc(Pattern$GroupHead));
-}
-
 void Pattern$GroupHead::init$(int32_t localCount) {
 	$Pattern$Node::init$();
 	this->localIndex = localCount;
@@ -64,7 +25,7 @@ void Pattern$GroupHead::init$(int32_t localCount) {
 
 bool Pattern$GroupHead::match($Matcher* matcher, int32_t i, $CharSequence* seq) {
 	int32_t save = $nc($nc(matcher)->locals)->get(this->localIndex);
-	$nc(matcher->locals)->set(this->localIndex, i);
+	matcher->locals->set(this->localIndex, i);
 	bool ret = $nc(this->next)->match(matcher, i, seq);
 	$nc(matcher->locals)->set(this->localIndex, save);
 	return ret;
@@ -74,7 +35,39 @@ Pattern$GroupHead::Pattern$GroupHead() {
 }
 
 $Class* Pattern$GroupHead::load$($String* name, bool initialize) {
-	$loadClass(Pattern$GroupHead, name, initialize, &_Pattern$GroupHead_ClassInfo_, allocate$Pattern$GroupHead);
+	$FieldInfo fieldInfos$$[] = {
+		{"localIndex", "I", nullptr, 0, $field(Pattern$GroupHead, localIndex)},
+		{"tail", "Ljava/util/regex/Pattern$GroupTail;", nullptr, 0, $field(Pattern$GroupHead, tail)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(Pattern$GroupHead, init$, void, int32_t)},
+		{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$GroupHead, match, bool, $Matcher*, int32_t, $CharSequence*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Pattern$GroupHead", "java.util.regex.Pattern", "GroupHead", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.regex.Pattern$GroupHead",
+		"java.util.regex.Pattern$Node",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.regex.Pattern"
+	};
+	$loadClass(Pattern$GroupHead, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$GroupHead);
+	});
 	return class$;
 }
 

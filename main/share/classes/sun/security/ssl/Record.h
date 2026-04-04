@@ -25,6 +25,7 @@ namespace sun {
 class Record : public ::java::lang::Object {
 	$interface(Record, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	static $bytes* getBytes16(::java::nio::ByteBuffer* m);
 	static $bytes* getBytes24(::java::nio::ByteBuffer* m);
 	static $bytes* getBytes8(::java::nio::ByteBuffer* m);

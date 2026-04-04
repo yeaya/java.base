@@ -1,5 +1,4 @@
 #include <CustomColors.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -13,41 +12,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ParameterAnnotation = ::java::lang::ParameterAnnotation;
-
-$ParameterAnnotation _CustomColors_MethodParamAnnotations_init$1[] = {
-	{"LMarker;", nullptr, 2},
-	{}
-};
-
-$FieldInfo _CustomColors_FieldInfo_[] = {
-	{"FUCHSIA", "LCustomColors;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CustomColors, FUCHSIA)},
-	{"MULBERRY", "LCustomColors;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CustomColors, MULBERRY)},
-	{"$VALUES", "[LCustomColors;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CustomColors, $VALUES)},
-	{}
-};
-
-$MethodInfo _CustomColors_MethodInfo_[] = {
-	{"$values", "()[LCustomColors;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CustomColors, $values, $CustomColorsArray*)},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(CustomColors, init$, void, $String*, int32_t, int32_t), nullptr, nullptr, nullptr, nullptr, _CustomColors_MethodParamAnnotations_init$1},
-	{"<init>", "(Ljava/lang/String;ID)V", "(D)V", $PRIVATE, $method(CustomColors, init$, void, $String*, int32_t, double)},
-	{"valueOf", "(Ljava/lang/String;)LCustomColors;", nullptr, $PUBLIC | $STATIC, $staticMethod(CustomColors, valueOf, CustomColors*, $String*)},
-	{"values", "()[LCustomColors;", nullptr, $PUBLIC | $STATIC, $staticMethod(CustomColors, values, $CustomColorsArray*)},
-	{}
-};
-
-$ClassInfo _CustomColors_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"CustomColors",
-	"java.lang.Enum",
-	nullptr,
-	_CustomColors_FieldInfo_,
-	_CustomColors_MethodInfo_,
-	"Ljava/lang/Enum<LCustomColors;>;"
-};
-
-$Object* allocate$CustomColors($Class* clazz) {
-	return $of($alloc(CustomColors));
-}
 
 CustomColors* CustomColors::FUCHSIA = nullptr;
 CustomColors* CustomColors::MULBERRY = nullptr;
@@ -79,7 +43,7 @@ void CustomColors::init$($String* $enum$name, int32_t $enum$ordinal, double arg)
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$CustomColors($Class* class$) {
+void CustomColors::clinit$($Class* clazz) {
 	$assignStatic(CustomColors::FUCHSIA, $new(CustomColors, "FUCHSIA"_s, 0, 5));
 	$assignStatic(CustomColors::MULBERRY, $new(CustomColors, "MULBERRY"_s, 1, 6.0));
 	$assignStatic(CustomColors::$VALUES, CustomColors::$values());
@@ -89,7 +53,36 @@ CustomColors::CustomColors() {
 }
 
 $Class* CustomColors::load$($String* name, bool initialize) {
-	$loadClass(CustomColors, name, initialize, &_CustomColors_ClassInfo_, clinit$CustomColors, allocate$CustomColors);
+	$FieldInfo fieldInfos$$[] = {
+		{"FUCHSIA", "LCustomColors;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CustomColors, FUCHSIA)},
+		{"MULBERRY", "LCustomColors;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CustomColors, MULBERRY)},
+		{"$VALUES", "[LCustomColors;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CustomColors, $VALUES)},
+		{}
+	};
+	$ParameterAnnotation init$methodParamAnnotations$$[] = {
+		{"LMarker;", nullptr, 2},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[LCustomColors;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CustomColors, $values, $CustomColorsArray*)},
+		{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(CustomColors, init$, void, $String*, int32_t, int32_t), nullptr, nullptr, nullptr, nullptr, init$methodParamAnnotations$$},
+		{"<init>", "(Ljava/lang/String;ID)V", "(D)V", $PRIVATE, $method(CustomColors, init$, void, $String*, int32_t, double)},
+		{"valueOf", "(Ljava/lang/String;)LCustomColors;", nullptr, $PUBLIC | $STATIC, $staticMethod(CustomColors, valueOf, CustomColors*, $String*)},
+		{"values", "()[LCustomColors;", nullptr, $PUBLIC | $STATIC, $staticMethod(CustomColors, values, $CustomColorsArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"CustomColors",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<LCustomColors;>;"
+	};
+	$loadClass(CustomColors, name, initialize, &classInfo$$, CustomColors::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CustomColors));
+	});
 	return class$;
 }
 

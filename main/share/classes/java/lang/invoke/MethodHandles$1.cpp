@@ -1,5 +1,4 @@
 #include <java/lang/invoke/MethodHandles$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/lang/invoke/MethodHandles.h>
 #include <sun/invoke/util/Wrapper.h>
@@ -21,61 +20,25 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$FieldInfo _MethodHandles$1_FieldInfo_[] = {
-	{"$SwitchMap$sun$invoke$util$Wrapper", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MethodHandles$1, $SwitchMap$sun$invoke$util$Wrapper)},
-	{}
-};
-
-$EnclosingMethodInfo _MethodHandles$1_EnclosingMethodInfo_ = {
-	"java.lang.invoke.MethodHandles",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _MethodHandles$1_InnerClassesInfo_[] = {
-	{"java.lang.invoke.MethodHandles$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _MethodHandles$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"java.lang.invoke.MethodHandles$1",
-	"java.lang.Object",
-	nullptr,
-	_MethodHandles$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_MethodHandles$1_EnclosingMethodInfo_,
-	_MethodHandles$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.MethodHandles"
-};
-
-$Object* allocate$MethodHandles$1($Class* clazz) {
-	return $of($alloc(MethodHandles$1));
-}
-
 $ints* MethodHandles$1::$SwitchMap$sun$invoke$util$Wrapper = nullptr;
 
-void clinit$MethodHandles$1($Class* class$) {
+void MethodHandles$1::clinit$($Class* clazz) {
 	$assignStatic(MethodHandles$1::$SwitchMap$sun$invoke$util$Wrapper, $new($ints, $($Wrapper::values())->length));
 	{
 		try {
-			$nc(MethodHandles$1::$SwitchMap$sun$invoke$util$Wrapper)->set($Wrapper::INT->ordinal(), 1);
+			MethodHandles$1::$SwitchMap$sun$invoke$util$Wrapper->set($Wrapper::INT->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(MethodHandles$1::$SwitchMap$sun$invoke$util$Wrapper)->set($Wrapper::LONG->ordinal(), 2);
+			MethodHandles$1::$SwitchMap$sun$invoke$util$Wrapper->set($Wrapper::LONG->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(MethodHandles$1::$SwitchMap$sun$invoke$util$Wrapper)->set($Wrapper::FLOAT->ordinal(), 3);
+			MethodHandles$1::$SwitchMap$sun$invoke$util$Wrapper->set($Wrapper::FLOAT->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(MethodHandles$1::$SwitchMap$sun$invoke$util$Wrapper)->set($Wrapper::DOUBLE->ordinal(), 4);
+			MethodHandles$1::$SwitchMap$sun$invoke$util$Wrapper->set($Wrapper::DOUBLE->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -85,7 +48,37 @@ MethodHandles$1::MethodHandles$1() {
 }
 
 $Class* MethodHandles$1::load$($String* name, bool initialize) {
-	$loadClass(MethodHandles$1, name, initialize, &_MethodHandles$1_ClassInfo_, clinit$MethodHandles$1, allocate$MethodHandles$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$sun$invoke$util$Wrapper", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(MethodHandles$1, $SwitchMap$sun$invoke$util$Wrapper)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.invoke.MethodHandles",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.MethodHandles$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"java.lang.invoke.MethodHandles$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.MethodHandles"
+	};
+	$loadClass(MethodHandles$1, name, initialize, &classInfo$$, MethodHandles$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodHandles$1);
+	});
 	return class$;
 }
 

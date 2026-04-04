@@ -1,5 +1,4 @@
 #include <sun/nio/ch/WindowsAsynchronousSocketChannelImpl$ReadTask.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/InternalError.h>
@@ -43,74 +42,17 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $AsynchronousCloseException = ::java::nio::channels::AsynchronousCloseException;
 using $ClosedChannelException = ::java::nio::channels::ClosedChannelException;
 using $InterruptedByTimeoutException = ::java::nio::channels::InterruptedByTimeoutException;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $DirectBuffer = ::sun::nio::ch::DirectBuffer;
 using $IOStatus = ::sun::nio::ch::IOStatus;
 using $IOUtil = ::sun::nio::ch::IOUtil;
 using $Invoker = ::sun::nio::ch::Invoker;
 using $PendingFuture = ::sun::nio::ch::PendingFuture;
-using $PendingIoCache = ::sun::nio::ch::PendingIoCache;
 using $Util = ::sun::nio::ch::Util;
 using $WindowsAsynchronousSocketChannelImpl = ::sun::nio::ch::WindowsAsynchronousSocketChannelImpl;
 
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _WindowsAsynchronousSocketChannelImpl$ReadTask_FieldInfo_[] = {
-	{"this$0", "Lsun/nio/ch/WindowsAsynchronousSocketChannelImpl;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsAsynchronousSocketChannelImpl$ReadTask, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(WindowsAsynchronousSocketChannelImpl$ReadTask, $assertionsDisabled)},
-	{"bufs", "[Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $FINAL, $field(WindowsAsynchronousSocketChannelImpl$ReadTask, bufs)},
-	{"numBufs", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsAsynchronousSocketChannelImpl$ReadTask, numBufs)},
-	{"scatteringRead", "Z", nullptr, $PRIVATE | $FINAL, $field(WindowsAsynchronousSocketChannelImpl$ReadTask, scatteringRead)},
-	{"result", "Lsun/nio/ch/PendingFuture;", "Lsun/nio/ch/PendingFuture<TV;TA;>;", $PRIVATE | $FINAL, $field(WindowsAsynchronousSocketChannelImpl$ReadTask, result)},
-	{"shadow", "[Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(WindowsAsynchronousSocketChannelImpl$ReadTask, shadow)},
-	{"scopeHandleReleasers", "Ljava/lang/Runnable;", nullptr, $PRIVATE, $field(WindowsAsynchronousSocketChannelImpl$ReadTask, scopeHandleReleasers)},
-	{}
-};
-
-$MethodInfo _WindowsAsynchronousSocketChannelImpl$ReadTask_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/nio/ch/WindowsAsynchronousSocketChannelImpl;[Ljava/nio/ByteBuffer;ZLsun/nio/ch/PendingFuture;)V", "([Ljava/nio/ByteBuffer;ZLsun/nio/ch/PendingFuture<TV;TA;>;)V", 0, $method(WindowsAsynchronousSocketChannelImpl$ReadTask, init$, void, $WindowsAsynchronousSocketChannelImpl*, $ByteBufferArray*, bool, $PendingFuture*)},
-	{"completed", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousSocketChannelImpl$ReadTask, completed, void, int32_t, bool)},
-	{"failed", "(ILjava/io/IOException;)V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousSocketChannelImpl$ReadTask, failed, void, int32_t, $IOException*)},
-	{"prepareBuffers", "()V", nullptr, 0, $virtualMethod(WindowsAsynchronousSocketChannelImpl$ReadTask, prepareBuffers, void)},
-	{"releaseBuffers", "()V", nullptr, 0, $virtualMethod(WindowsAsynchronousSocketChannelImpl$ReadTask, releaseBuffers, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousSocketChannelImpl$ReadTask, run, void)},
-	{"timeout", "()V", nullptr, 0, $virtualMethod(WindowsAsynchronousSocketChannelImpl$ReadTask, timeout, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateBuffers", "(I)V", nullptr, 0, $virtualMethod(WindowsAsynchronousSocketChannelImpl$ReadTask, updateBuffers, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _WindowsAsynchronousSocketChannelImpl$ReadTask_InnerClassesInfo_[] = {
-	{"sun.nio.ch.WindowsAsynchronousSocketChannelImpl$ReadTask", "sun.nio.ch.WindowsAsynchronousSocketChannelImpl", "ReadTask", $PRIVATE},
-	{"sun.nio.ch.Iocp$ResultHandler", "sun.nio.ch.Iocp", "ResultHandler", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _WindowsAsynchronousSocketChannelImpl$ReadTask_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.WindowsAsynchronousSocketChannelImpl$ReadTask",
-	"java.lang.Object",
-	"java.lang.Runnable,sun.nio.ch.Iocp$ResultHandler",
-	_WindowsAsynchronousSocketChannelImpl$ReadTask_FieldInfo_,
-	_WindowsAsynchronousSocketChannelImpl$ReadTask_MethodInfo_,
-	"<V:Ljava/lang/Object;A:Ljava/lang/Object;>Ljava/lang/Object;Ljava/lang/Runnable;Lsun/nio/ch/Iocp$ResultHandler;",
-	nullptr,
-	_WindowsAsynchronousSocketChannelImpl$ReadTask_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.WindowsAsynchronousSocketChannelImpl"
-};
-
-$Object* allocate$WindowsAsynchronousSocketChannelImpl$ReadTask($Class* clazz) {
-	return $of($alloc(WindowsAsynchronousSocketChannelImpl$ReadTask));
-}
 
 int32_t WindowsAsynchronousSocketChannelImpl$ReadTask::hashCode() {
 	 return this->$Runnable::hashCode();
@@ -137,13 +79,13 @@ bool WindowsAsynchronousSocketChannelImpl$ReadTask::$assertionsDisabled = false;
 void WindowsAsynchronousSocketChannelImpl$ReadTask::init$($WindowsAsynchronousSocketChannelImpl* this$0, $ByteBufferArray* bufs, bool scatteringRead, $PendingFuture* result) {
 	$set(this, this$0, this$0);
 	$set(this, bufs, bufs);
-	this->numBufs = ($nc(bufs)->length > 16) ? 16 : $nc(bufs)->length;
+	this->numBufs = ($nc(bufs)->length > 16) ? 16 : bufs->length;
 	this->scatteringRead = scatteringRead;
 	$set(this, result, result);
 }
 
 void WindowsAsynchronousSocketChannelImpl$ReadTask::prepareBuffers() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, scopeHandleReleasers, $IOUtil::acquireScopes(this->bufs));
 	$set(this, shadow, $new($ByteBufferArray, this->numBufs));
 	int64_t address = this->this$0->readBufferArray;
@@ -164,15 +106,14 @@ void WindowsAsynchronousSocketChannelImpl$ReadTask::prepareBuffers() {
 			$nc(this->shadow)->set(i, dst);
 			a = $IOUtil::bufferAddress(dst) + pos;
 		}
-		$init($WindowsAsynchronousSocketChannelImpl);
 		$nc($WindowsAsynchronousSocketChannelImpl::unsafe)->putAddress(address + $WindowsAsynchronousSocketChannelImpl::OFFSETOF_BUF, a);
-		$nc($WindowsAsynchronousSocketChannelImpl::unsafe)->putInt(address + 0, rem);
+		$WindowsAsynchronousSocketChannelImpl::unsafe->putInt(address + 0, rem);
 		address += $WindowsAsynchronousSocketChannelImpl::SIZEOF_WSABUF;
 	}
 }
 
 void WindowsAsynchronousSocketChannelImpl$ReadTask::updateBuffers(int32_t bytesRead) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < this->numBufs; ++i) {
 		$var($ByteBuffer, nextBuffer, $nc(this->shadow)->get(i));
 		int32_t pos = $nc(nextBuffer)->position();
@@ -202,7 +143,7 @@ void WindowsAsynchronousSocketChannelImpl$ReadTask::updateBuffers(int32_t bytesR
 		if (!($instanceOf($DirectBuffer, $nc(this->bufs)->get(i)))) {
 			$nc($nc(this->shadow)->get(i))->flip();
 			try {
-				$nc($nc(this->bufs)->get(i))->put($nc(this->shadow)->get(i));
+				$nc(this->bufs->get(i))->put($nc(this->shadow)->get(i));
 			} catch ($BufferOverflowException& x) {
 			}
 		}
@@ -219,70 +160,68 @@ void WindowsAsynchronousSocketChannelImpl$ReadTask::releaseBuffers() {
 }
 
 void WindowsAsynchronousSocketChannelImpl$ReadTask::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t overlapped = 0;
 	bool prepared = false;
 	bool pending = false;
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				this->this$0->begin();
-				prepareBuffers();
-				prepared = true;
-				overlapped = $nc(this->this$0->ioCache)->add(this->result);
-				int32_t n = $WindowsAsynchronousSocketChannelImpl::read0(this->this$0->handle$, this->numBufs, this->this$0->readBufferArray, overlapped);
-				if (n == $IOStatus::UNAVAILABLE) {
-					pending = true;
-					return$1 = true;
-					goto $finally;
-				}
-				if (n == $IOStatus::EOF) {
-					this->this$0->enableReading();
-					if (this->scatteringRead) {
-						$nc(this->result)->setResult($of($($Long::valueOf((int64_t)-1))));
-					} else {
-						$nc(this->result)->setResult($of($($Integer::valueOf(-1))));
-					}
-				} else {
-					$throwNew($InternalError, "Read completed immediately"_s);
-				}
-			} catch ($Throwable& x) {
+			this->this$0->begin();
+			prepareBuffers();
+			prepared = true;
+			overlapped = $nc(this->this$0->ioCache)->add(this->result);
+			int32_t n = $WindowsAsynchronousSocketChannelImpl::read0(this->this$0->handle$, this->numBufs, this->this$0->readBufferArray, overlapped);
+			if (n == $IOStatus::UNAVAILABLE) {
+				pending = true;
+				return$1 = true;
+				goto $finally;
+			}
+			if (n == $IOStatus::EOF) {
 				this->this$0->enableReading();
-				if ($instanceOf($ClosedChannelException, x)) {
-					$assign(x, $new($AsynchronousCloseException));
+				if (this->scatteringRead) {
+					$nc(this->result)->setResult($$of($Long::valueOf(-1)));
+				} else {
+					$nc(this->result)->setResult($$of($Integer::valueOf(-1)));
 				}
-				if (!($instanceOf($IOException, x))) {
-					$assign(x, $new($IOException, $cast($Throwable, x)));
-				}
-				$nc(this->result)->setFailure(x);
+			} else {
+				$throwNew($InternalError, "Read completed immediately"_s);
 			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			if (!pending) {
-				if (overlapped != (int64_t)0) {
-					$nc(this->this$0->ioCache)->remove(overlapped);
-				}
-				if (prepared) {
-					releaseBuffers();
-				}
+		} catch ($Throwable& x) {
+			this->this$0->enableReading();
+			if ($instanceOf($ClosedChannelException, x)) {
+				$assign(x, $new($AsynchronousCloseException));
 			}
-			this->this$0->end();
+			if (!($instanceOf($IOException, x))) {
+				$assign(x, $new($IOException, x));
+			}
+			$nc(this->result)->setFailure(x);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		if (!pending) {
+			if (overlapped != 0) {
+				$nc(this->this$0->ioCache)->remove(overlapped);
+			}
+			if (prepared) {
+				releaseBuffers();
+			}
 		}
-		if (return$1) {
-			return;
-		}
+		this->this$0->end();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 	$Invoker::invoke(this->result);
 }
 
 void WindowsAsynchronousSocketChannelImpl$ReadTask::completed(int32_t bytesTransferred, bool canInvokeDirect) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (bytesTransferred == 0) {
 		bytesTransferred = -1;
 	} else {
@@ -290,14 +229,14 @@ void WindowsAsynchronousSocketChannelImpl$ReadTask::completed(int32_t bytesTrans
 	}
 	releaseBuffers();
 	$synchronized(this->result) {
-		if ($nc(this->result)->isDone()) {
+		if (this->result->isDone()) {
 			return;
 		}
 		this->this$0->enableReading();
 		if (this->scatteringRead) {
-			$nc(this->result)->setResult($of($($Long::valueOf((int64_t)bytesTransferred))));
+			this->result->setResult($$of($Long::valueOf(bytesTransferred)));
 		} else {
-			$nc(this->result)->setResult($of($($Integer::valueOf(bytesTransferred))));
+			this->result->setResult($$of($Integer::valueOf(bytesTransferred)));
 		}
 	}
 	if (canInvokeDirect) {
@@ -314,27 +253,27 @@ void WindowsAsynchronousSocketChannelImpl$ReadTask::failed(int32_t error, $IOExc
 		$assign(x, $new($AsynchronousCloseException));
 	}
 	$synchronized(this->result) {
-		if ($nc(this->result)->isDone()) {
+		if (this->result->isDone()) {
 			return;
 		}
 		this->this$0->enableReading();
-		$nc(this->result)->setFailure(x);
+		this->result->setFailure(x);
 	}
 	$Invoker::invoke(this->result);
 }
 
 void WindowsAsynchronousSocketChannelImpl$ReadTask::timeout() {
 	$synchronized(this->result) {
-		if ($nc(this->result)->isDone()) {
+		if (this->result->isDone()) {
 			return;
 		}
 		this->this$0->enableReading(true);
-		$nc(this->result)->setFailure($$new($InterruptedByTimeoutException));
+		this->result->setFailure($$new($InterruptedByTimeoutException));
 	}
 	$Invoker::invoke(this->result);
 }
 
-void clinit$WindowsAsynchronousSocketChannelImpl$ReadTask($Class* class$) {
+void WindowsAsynchronousSocketChannelImpl$ReadTask::clinit$($Class* clazz) {
 	$load($WindowsAsynchronousSocketChannelImpl);
 	WindowsAsynchronousSocketChannelImpl$ReadTask::$assertionsDisabled = !$WindowsAsynchronousSocketChannelImpl::class$->desiredAssertionStatus();
 }
@@ -343,7 +282,56 @@ WindowsAsynchronousSocketChannelImpl$ReadTask::WindowsAsynchronousSocketChannelI
 }
 
 $Class* WindowsAsynchronousSocketChannelImpl$ReadTask::load$($String* name, bool initialize) {
-	$loadClass(WindowsAsynchronousSocketChannelImpl$ReadTask, name, initialize, &_WindowsAsynchronousSocketChannelImpl$ReadTask_ClassInfo_, clinit$WindowsAsynchronousSocketChannelImpl$ReadTask, allocate$WindowsAsynchronousSocketChannelImpl$ReadTask);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/nio/ch/WindowsAsynchronousSocketChannelImpl;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsAsynchronousSocketChannelImpl$ReadTask, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(WindowsAsynchronousSocketChannelImpl$ReadTask, $assertionsDisabled)},
+		{"bufs", "[Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $FINAL, $field(WindowsAsynchronousSocketChannelImpl$ReadTask, bufs)},
+		{"numBufs", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsAsynchronousSocketChannelImpl$ReadTask, numBufs)},
+		{"scatteringRead", "Z", nullptr, $PRIVATE | $FINAL, $field(WindowsAsynchronousSocketChannelImpl$ReadTask, scatteringRead)},
+		{"result", "Lsun/nio/ch/PendingFuture;", "Lsun/nio/ch/PendingFuture<TV;TA;>;", $PRIVATE | $FINAL, $field(WindowsAsynchronousSocketChannelImpl$ReadTask, result)},
+		{"shadow", "[Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(WindowsAsynchronousSocketChannelImpl$ReadTask, shadow)},
+		{"scopeHandleReleasers", "Ljava/lang/Runnable;", nullptr, $PRIVATE, $field(WindowsAsynchronousSocketChannelImpl$ReadTask, scopeHandleReleasers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/nio/ch/WindowsAsynchronousSocketChannelImpl;[Ljava/nio/ByteBuffer;ZLsun/nio/ch/PendingFuture;)V", "([Ljava/nio/ByteBuffer;ZLsun/nio/ch/PendingFuture<TV;TA;>;)V", 0, $method(WindowsAsynchronousSocketChannelImpl$ReadTask, init$, void, $WindowsAsynchronousSocketChannelImpl*, $ByteBufferArray*, bool, $PendingFuture*)},
+		{"completed", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousSocketChannelImpl$ReadTask, completed, void, int32_t, bool)},
+		{"failed", "(ILjava/io/IOException;)V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousSocketChannelImpl$ReadTask, failed, void, int32_t, $IOException*)},
+		{"prepareBuffers", "()V", nullptr, 0, $virtualMethod(WindowsAsynchronousSocketChannelImpl$ReadTask, prepareBuffers, void)},
+		{"releaseBuffers", "()V", nullptr, 0, $virtualMethod(WindowsAsynchronousSocketChannelImpl$ReadTask, releaseBuffers, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousSocketChannelImpl$ReadTask, run, void)},
+		{"timeout", "()V", nullptr, 0, $virtualMethod(WindowsAsynchronousSocketChannelImpl$ReadTask, timeout, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateBuffers", "(I)V", nullptr, 0, $virtualMethod(WindowsAsynchronousSocketChannelImpl$ReadTask, updateBuffers, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.WindowsAsynchronousSocketChannelImpl$ReadTask", "sun.nio.ch.WindowsAsynchronousSocketChannelImpl", "ReadTask", $PRIVATE},
+		{"sun.nio.ch.Iocp$ResultHandler", "sun.nio.ch.Iocp", "ResultHandler", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.WindowsAsynchronousSocketChannelImpl$ReadTask",
+		"java.lang.Object",
+		"java.lang.Runnable,sun.nio.ch.Iocp$ResultHandler",
+		fieldInfos$$,
+		methodInfos$$,
+		"<V:Ljava/lang/Object;A:Ljava/lang/Object;>Ljava/lang/Object;Ljava/lang/Runnable;Lsun/nio/ch/Iocp$ResultHandler;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.WindowsAsynchronousSocketChannelImpl"
+	};
+	$loadClass(WindowsAsynchronousSocketChannelImpl$ReadTask, name, initialize, &classInfo$$, WindowsAsynchronousSocketChannelImpl$ReadTask::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsAsynchronousSocketChannelImpl$ReadTask));
+	});
 	return class$;
 }
 

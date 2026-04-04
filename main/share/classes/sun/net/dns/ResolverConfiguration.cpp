@@ -1,5 +1,4 @@
 #include <sun/net/dns/ResolverConfiguration.h>
-
 #include <java/util/List.h>
 #include <sun/net/dns/ResolverConfiguration$Options.h>
 #include <sun/net/dns/ResolverConfigurationImpl.h>
@@ -17,45 +16,6 @@ namespace sun {
 	namespace net {
 		namespace dns {
 
-$FieldInfo _ResolverConfiguration_FieldInfo_[] = {
-	{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResolverConfiguration, lock)},
-	{"provider", "Lsun/net/dns/ResolverConfiguration;", nullptr, $PRIVATE | $STATIC, $staticField(ResolverConfiguration, provider)},
-	{}
-};
-
-$MethodInfo _ResolverConfiguration_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(ResolverConfiguration, init$, void)},
-	{"nameservers", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ResolverConfiguration, nameservers, $List*)},
-	{"open", "()Lsun/net/dns/ResolverConfiguration;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResolverConfiguration, open, ResolverConfiguration*)},
-	{"options", "()Lsun/net/dns/ResolverConfiguration$Options;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResolverConfiguration, options, $ResolverConfiguration$Options*)},
-	{"searchlist", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ResolverConfiguration, searchlist, $List*)},
-	{}
-};
-
-$InnerClassInfo _ResolverConfiguration_InnerClassesInfo_[] = {
-	{"sun.net.dns.ResolverConfiguration$Options", "sun.net.dns.ResolverConfiguration", "Options", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ResolverConfiguration_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.net.dns.ResolverConfiguration",
-	"java.lang.Object",
-	nullptr,
-	_ResolverConfiguration_FieldInfo_,
-	_ResolverConfiguration_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ResolverConfiguration_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.net.dns.ResolverConfiguration$Options"
-};
-
-$Object* allocate$ResolverConfiguration($Class* clazz) {
-	return $of($alloc(ResolverConfiguration));
-}
-
 $Object* ResolverConfiguration::lock = nullptr;
 ResolverConfiguration* ResolverConfiguration::provider = nullptr;
 
@@ -72,7 +32,7 @@ ResolverConfiguration* ResolverConfiguration::open() {
 	}
 }
 
-void clinit$ResolverConfiguration($Class* class$) {
+void ResolverConfiguration::clinit$($Class* clazz) {
 	$assignStatic(ResolverConfiguration::lock, $new($Object));
 }
 
@@ -80,7 +40,40 @@ ResolverConfiguration::ResolverConfiguration() {
 }
 
 $Class* ResolverConfiguration::load$($String* name, bool initialize) {
-	$loadClass(ResolverConfiguration, name, initialize, &_ResolverConfiguration_ClassInfo_, clinit$ResolverConfiguration, allocate$ResolverConfiguration);
+	$FieldInfo fieldInfos$$[] = {
+		{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ResolverConfiguration, lock)},
+		{"provider", "Lsun/net/dns/ResolverConfiguration;", nullptr, $PRIVATE | $STATIC, $staticField(ResolverConfiguration, provider)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(ResolverConfiguration, init$, void)},
+		{"nameservers", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ResolverConfiguration, nameservers, $List*)},
+		{"open", "()Lsun/net/dns/ResolverConfiguration;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResolverConfiguration, open, ResolverConfiguration*)},
+		{"options", "()Lsun/net/dns/ResolverConfiguration$Options;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResolverConfiguration, options, $ResolverConfiguration$Options*)},
+		{"searchlist", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ResolverConfiguration, searchlist, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.dns.ResolverConfiguration$Options", "sun.net.dns.ResolverConfiguration", "Options", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.net.dns.ResolverConfiguration",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.net.dns.ResolverConfiguration$Options"
+	};
+	$loadClass(ResolverConfiguration, name, initialize, &classInfo$$, ResolverConfiguration::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ResolverConfiguration);
+	});
 	return class$;
 }
 

@@ -48,8 +48,8 @@ public:
 	static const int32_t JAMO_L_BASE = 4352;
 	static const int32_t JAMO_V_BASE = 4449;
 	static const int32_t JAMO_T_BASE = 4519;
-	static const int32_t HANGUL_BASE = 0x0000AC00;
-	static const int32_t HANGUL_END = 0x0000D7A3;
+	static const int32_t HANGUL_BASE = 0x0000ac00;
+	static const int32_t HANGUL_END = 0x0000d7a3;
 	static const int32_t JAMO_L_COUNT = 19;
 	static const int32_t JAMO_V_COUNT = 21;
 	static const int32_t JAMO_T_COUNT = 28;

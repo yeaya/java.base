@@ -35,7 +35,7 @@ namespace java {
 	namespace lang {
 
 class $export Enum : public ::java::lang::constant::Constable, public ::java::lang::Comparable, public ::java::io::Serializable {
-	$class(Enum, $PRELOAD | $NO_CLASS_INIT, ::java::lang::constant::Constable, ::java::lang::Comparable, ::java::io::Serializable)
+	$class(Enum, $PRELOAD | $PREINIT | $NO_CLASS_INIT, ::java::lang::constant::Constable, ::java::lang::Comparable, ::java::io::Serializable)
 public:
 	Enum();
 	void init$($String* name, int32_t ordinal);

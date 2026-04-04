@@ -34,6 +34,7 @@ class $import OAEPParameters : public ::java::security::AlgorithmParametersSpi {
 	$class(OAEPParameters, 0, ::java::security::AlgorithmParametersSpi)
 public:
 	OAEPParameters();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $bytes* engineGetEncoded() override;
 	virtual $bytes* engineGetEncoded($String* encodingMethod) override;

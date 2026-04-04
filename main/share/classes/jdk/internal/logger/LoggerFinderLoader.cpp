@@ -1,5 +1,4 @@
 #include <jdk/internal/logger/LoggerFinderLoader.h>
-
 #include <java/io/FilePermission.h>
 #include <java/io/Serializable.h>
 #include <java/lang/ClassLoader.h>
@@ -84,29 +83,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(LoggerFinderLoader::lambda$findLoggerFinderProviders$0());
+		 return LoggerFinderLoader::lambda$findLoggerFinderProviders$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LoggerFinderLoader$$Lambda$lambda$findLoggerFinderProviders$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo LoggerFinderLoader$$Lambda$lambda$findLoggerFinderProviders$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LoggerFinderLoader$$Lambda$lambda$findLoggerFinderProviders$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LoggerFinderLoader$$Lambda$lambda$findLoggerFinderProviders$0, run, $Object*)},
-	{}
-};
-$ClassInfo LoggerFinderLoader$$Lambda$lambda$findLoggerFinderProviders$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.logger.LoggerFinderLoader$$Lambda$lambda$findLoggerFinderProviders$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* LoggerFinderLoader$$Lambda$lambda$findLoggerFinderProviders$0::load$($String* name, bool initialize) {
-	$loadClass(LoggerFinderLoader$$Lambda$lambda$findLoggerFinderProviders$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LoggerFinderLoader$$Lambda$lambda$findLoggerFinderProviders$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LoggerFinderLoader$$Lambda$lambda$findLoggerFinderProviders$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.logger.LoggerFinderLoader$$Lambda$lambda$findLoggerFinderProviders$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LoggerFinderLoader$$Lambda$lambda$findLoggerFinderProviders$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LoggerFinderLoader$$Lambda$lambda$findLoggerFinderProviders$0);
+	});
 	return class$;
 }
 $Class* LoggerFinderLoader$$Lambda$lambda$findLoggerFinderProviders$0::class$ = nullptr;
@@ -117,79 +113,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(LoggerFinderLoader::lambda$loadDefaultImplementation$1());
+		 return LoggerFinderLoader::lambda$loadDefaultImplementation$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LoggerFinderLoader$$Lambda$lambda$loadDefaultImplementation$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo LoggerFinderLoader$$Lambda$lambda$loadDefaultImplementation$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LoggerFinderLoader$$Lambda$lambda$loadDefaultImplementation$1$1, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LoggerFinderLoader$$Lambda$lambda$loadDefaultImplementation$1$1, run, $Object*)},
-	{}
-};
-$ClassInfo LoggerFinderLoader$$Lambda$lambda$loadDefaultImplementation$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.logger.LoggerFinderLoader$$Lambda$lambda$loadDefaultImplementation$1$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* LoggerFinderLoader$$Lambda$lambda$loadDefaultImplementation$1$1::load$($String* name, bool initialize) {
-	$loadClass(LoggerFinderLoader$$Lambda$lambda$loadDefaultImplementation$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LoggerFinderLoader$$Lambda$lambda$loadDefaultImplementation$1$1, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LoggerFinderLoader$$Lambda$lambda$loadDefaultImplementation$1$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.logger.LoggerFinderLoader$$Lambda$lambda$loadDefaultImplementation$1$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LoggerFinderLoader$$Lambda$lambda$loadDefaultImplementation$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LoggerFinderLoader$$Lambda$lambda$loadDefaultImplementation$1$1);
+	});
 	return class$;
 }
 $Class* LoggerFinderLoader$$Lambda$lambda$loadDefaultImplementation$1$1::class$ = nullptr;
-
-$FieldInfo _LoggerFinderLoader_FieldInfo_[] = {
-	{"service", "Ljava/lang/System$LoggerFinder;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(LoggerFinderLoader, service$)},
-	{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LoggerFinderLoader, lock)},
-	{"CLASSLOADER_PERMISSION", "Ljava/security/Permission;", nullptr, $STATIC | $FINAL, $staticField(LoggerFinderLoader, CLASSLOADER_PERMISSION)},
-	{"READ_PERMISSION", "Ljava/security/Permission;", nullptr, $STATIC | $FINAL, $staticField(LoggerFinderLoader, READ_PERMISSION)},
-	{"LOGGERFINDER_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LoggerFinderLoader, LOGGERFINDER_PERMISSION)},
-	{}
-};
-
-$MethodInfo _LoggerFinderLoader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(LoggerFinderLoader, init$, void)},
-	{"configurationErrorPolicy", "()Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoggerFinderLoader, configurationErrorPolicy, $LoggerFinderLoader$ErrorPolicy*)},
-	{"ensureSingletonProvider", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(LoggerFinderLoader, ensureSingletonProvider, bool)},
-	{"findLoggerFinderProviders", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/System$LoggerFinder;>;", $PRIVATE | $STATIC, $staticMethod(LoggerFinderLoader, findLoggerFinderProviders, $Iterator*)},
-	{"getLoggerFinder", "()Ljava/lang/System$LoggerFinder;", nullptr, $PUBLIC | $STATIC, $staticMethod(LoggerFinderLoader, getLoggerFinder, $System$LoggerFinder*)},
-	{"lambda$findLoggerFinderProviders$0", "()Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LoggerFinderLoader, lambda$findLoggerFinderProviders$0, $Iterator*)},
-	{"lambda$loadDefaultImplementation$1", "()Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LoggerFinderLoader, lambda$loadDefaultImplementation$1, $Iterator*)},
-	{"loadDefaultImplementation", "()Ljava/lang/System$LoggerFinder;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoggerFinderLoader, loadDefaultImplementation, $System$LoggerFinder*)},
-	{"loadLoggerFinder", "()Ljava/lang/System$LoggerFinder;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoggerFinderLoader, loadLoggerFinder, $System$LoggerFinder*)},
-	{"service", "()Ljava/lang/System$LoggerFinder;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoggerFinderLoader, service, $System$LoggerFinder*)},
-	{}
-};
-
-$InnerClassInfo _LoggerFinderLoader_InnerClassesInfo_[] = {
-	{"jdk.internal.logger.LoggerFinderLoader$ErrorPolicy", "jdk.internal.logger.LoggerFinderLoader", "ErrorPolicy", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _LoggerFinderLoader_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.logger.LoggerFinderLoader",
-	"java.lang.Object",
-	nullptr,
-	_LoggerFinderLoader_FieldInfo_,
-	_LoggerFinderLoader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LoggerFinderLoader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.logger.LoggerFinderLoader$ErrorPolicy"
-};
-
-$Object* allocate$LoggerFinderLoader($Class* clazz) {
-	return $of($alloc(LoggerFinderLoader));
-}
 
 $volatile($System$LoggerFinder*) LoggerFinderLoader::service$ = nullptr;
 $Object* LoggerFinderLoader::lock = nullptr;
@@ -218,9 +164,9 @@ $System$LoggerFinder* LoggerFinderLoader::service() {
 
 $LoggerFinderLoader$ErrorPolicy* LoggerFinderLoader::configurationErrorPolicy() {
 	$init(LoggerFinderLoader);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, errorPolicy, $GetPropertyAction::privilegedGetProperty("jdk.logger.finder.error"_s));
-	if (errorPolicy == nullptr || $nc(errorPolicy)->isEmpty()) {
+	if (errorPolicy == nullptr || errorPolicy->isEmpty()) {
 		$init($LoggerFinderLoader$ErrorPolicy);
 		return $LoggerFinderLoader$ErrorPolicy::WARNING;
 	}
@@ -241,16 +187,16 @@ bool LoggerFinderLoader::ensureSingletonProvider() {
 
 $Iterator* LoggerFinderLoader::findLoggerFinderProviders() {
 	$init(LoggerFinderLoader);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Iterator, iterator, nullptr);
 	if ($System::getSecurityManager() == nullptr) {
 		$load($System$LoggerFinder);
-		$assign(iterator, $nc($($ServiceLoader::load($System$LoggerFinder::class$, $($ClassLoader::getSystemClassLoader()))))->iterator());
+		$assign(iterator, $$nc($ServiceLoader::load($System$LoggerFinder::class$, $($ClassLoader::getSystemClassLoader())))->iterator());
 	} else {
-		$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(LoggerFinderLoader$$Lambda$lambda$findLoggerFinderProviders$0)));
-		$assign(iterator, $cast($Iterator, $AccessController::doPrivileged(pa, ($AccessControlContext*)nullptr, $$new($PermissionArray, {
-			static_cast<$Permission*>(LoggerFinderLoader::LOGGERFINDER_PERMISSION),
+		$var($PrivilegedAction, pa, $new(LoggerFinderLoader$$Lambda$lambda$findLoggerFinderProviders$0));
+		$assign(iterator, $cast($Iterator, $AccessController::doPrivileged(pa, nullptr, $$new($PermissionArray, {
+			LoggerFinderLoader::LOGGERFINDER_PERMISSION,
 			LoggerFinderLoader::CLASSLOADER_PERMISSION,
 			LoggerFinderLoader::READ_PERMISSION
 		}))));
@@ -260,7 +206,7 @@ $Iterator* LoggerFinderLoader::findLoggerFinderProviders() {
 
 $System$LoggerFinder* LoggerFinderLoader::loadLoggerFinder() {
 	$init(LoggerFinderLoader);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($System$LoggerFinder, result, nullptr);
 	try {
 		$var($Iterator, iterator, findLoggerFinderProviders());
@@ -274,7 +220,7 @@ $System$LoggerFinder* LoggerFinderLoader::loadLoggerFinder() {
 			$assign(result, loadDefaultImplementation());
 		}
 	} catch ($Error& x) {
-		$assignStatic(LoggerFinderLoader::service$, ($assign(result, $new($DefaultLoggerFinder))));
+		$assignStatic(LoggerFinderLoader::service$, $assign(result, $new($DefaultLoggerFinder)));
 		$LoggerFinderLoader$ErrorPolicy* errorPolicy = configurationErrorPolicy();
 		$init($LoggerFinderLoader$ErrorPolicy);
 		if (errorPolicy == $LoggerFinderLoader$ErrorPolicy::ERROR) {
@@ -283,18 +229,16 @@ $System$LoggerFinder* LoggerFinderLoader::loadLoggerFinder() {
 			} else {
 				$throwNew($ServiceConfigurationError, "Failed to instantiate LoggerFinder provider; Using default."_s, x);
 			}
-		} else {
-			if (errorPolicy != $LoggerFinderLoader$ErrorPolicy::QUIET) {
-				$var($SimpleConsoleLogger, logger, $new($SimpleConsoleLogger, "jdk.internal.logger"_s, false));
-				$init($System$Logger$Level);
-				logger->log($System$Logger$Level::WARNING, "Failed to instantiate LoggerFinder provider; Using default."_s);
-				if (errorPolicy == $LoggerFinderLoader$ErrorPolicy::DEBUG) {
-					logger->log($System$Logger$Level::WARNING, "Exception raised trying to instantiate LoggerFinder"_s, $cast($Throwable, x));
-				}
+		} else if (errorPolicy != $LoggerFinderLoader$ErrorPolicy::QUIET) {
+			$var($SimpleConsoleLogger, logger, $new($SimpleConsoleLogger, "jdk.internal.logger"_s, false));
+			$init($System$Logger$Level);
+			logger->log($System$Logger$Level::WARNING, "Failed to instantiate LoggerFinder provider; Using default."_s);
+			if (errorPolicy == $LoggerFinderLoader$ErrorPolicy::DEBUG) {
+				logger->log($System$Logger$Level::WARNING, "Exception raised trying to instantiate LoggerFinder"_s, x);
 			}
 		}
 	} catch ($RuntimeException& x) {
-		$assignStatic(LoggerFinderLoader::service$, ($assign(result, $new($DefaultLoggerFinder))));
+		$assignStatic(LoggerFinderLoader::service$, $assign(result, $new($DefaultLoggerFinder)));
 		$LoggerFinderLoader$ErrorPolicy* errorPolicy = configurationErrorPolicy();
 		$init($LoggerFinderLoader$ErrorPolicy);
 		if (errorPolicy == $LoggerFinderLoader$ErrorPolicy::ERROR) {
@@ -303,14 +247,12 @@ $System$LoggerFinder* LoggerFinderLoader::loadLoggerFinder() {
 			} else {
 				$throwNew($ServiceConfigurationError, "Failed to instantiate LoggerFinder provider; Using default."_s, x);
 			}
-		} else {
-			if (errorPolicy != $LoggerFinderLoader$ErrorPolicy::QUIET) {
-				$var($SimpleConsoleLogger, logger, $new($SimpleConsoleLogger, "jdk.internal.logger"_s, false));
-				$init($System$Logger$Level);
-				logger->log($System$Logger$Level::WARNING, "Failed to instantiate LoggerFinder provider; Using default."_s);
-				if (errorPolicy == $LoggerFinderLoader$ErrorPolicy::DEBUG) {
-					logger->log($System$Logger$Level::WARNING, "Exception raised trying to instantiate LoggerFinder"_s, $cast($Throwable, x));
-				}
+		} else if (errorPolicy != $LoggerFinderLoader$ErrorPolicy::QUIET) {
+			$var($SimpleConsoleLogger, logger, $new($SimpleConsoleLogger, "jdk.internal.logger"_s, false));
+			$init($System$Logger$Level);
+			logger->log($System$Logger$Level::WARNING, "Failed to instantiate LoggerFinder provider; Using default."_s);
+			if (errorPolicy == $LoggerFinderLoader$ErrorPolicy::DEBUG) {
+				logger->log($System$Logger$Level::WARNING, "Exception raised trying to instantiate LoggerFinder"_s, x);
 			}
 		}
 	}
@@ -319,17 +261,17 @@ $System$LoggerFinder* LoggerFinderLoader::loadLoggerFinder() {
 
 $System$LoggerFinder* LoggerFinderLoader::loadDefaultImplementation() {
 	$init(LoggerFinderLoader);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	$var($Iterator, iterator, nullptr);
 	if (sm == nullptr) {
 		$load($DefaultLoggerFinder);
-		$assign(iterator, $nc($($ServiceLoader::loadInstalled($DefaultLoggerFinder::class$)))->iterator());
+		$assign(iterator, $$nc($ServiceLoader::loadInstalled($DefaultLoggerFinder::class$))->iterator());
 	} else {
-		$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(LoggerFinderLoader$$Lambda$lambda$loadDefaultImplementation$1$1)));
-		$assign(iterator, $cast($Iterator, $AccessController::doPrivileged(pa, ($AccessControlContext*)nullptr, $$new($PermissionArray, {
-			static_cast<$Permission*>(LoggerFinderLoader::LOGGERFINDER_PERMISSION),
+		$var($PrivilegedAction, pa, $new(LoggerFinderLoader$$Lambda$lambda$loadDefaultImplementation$1$1));
+		$assign(iterator, $cast($Iterator, $AccessController::doPrivileged(pa, nullptr, $$new($PermissionArray, {
+			LoggerFinderLoader::LOGGERFINDER_PERMISSION,
 			LoggerFinderLoader::CLASSLOADER_PERMISSION,
 			LoggerFinderLoader::READ_PERMISSION
 		}))));
@@ -361,18 +303,18 @@ $Iterator* LoggerFinderLoader::lambda$loadDefaultImplementation$1() {
 	$init(LoggerFinderLoader);
 	$beforeCallerSensitive();
 	$load($DefaultLoggerFinder);
-	return $nc($($ServiceLoader::loadInstalled($DefaultLoggerFinder::class$)))->iterator();
+	return $$nc($ServiceLoader::loadInstalled($DefaultLoggerFinder::class$))->iterator();
 }
 
 $Iterator* LoggerFinderLoader::lambda$findLoggerFinderProviders$0() {
 	$init(LoggerFinderLoader);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$load($System$LoggerFinder);
-	return $nc($($ServiceLoader::load($System$LoggerFinder::class$, $($ClassLoader::getSystemClassLoader()))))->iterator();
+	return $$nc($ServiceLoader::load($System$LoggerFinder::class$, $($ClassLoader::getSystemClassLoader())))->iterator();
 }
 
-void clinit$LoggerFinderLoader($Class* class$) {
+void LoggerFinderLoader::clinit$($Class* clazz) {
 	$assignStatic(LoggerFinderLoader::lock, $new($ints, 0));
 	$init($SecurityConstants);
 	$assignStatic(LoggerFinderLoader::CLASSLOADER_PERMISSION, $SecurityConstants::GET_CLASSLOADER_PERMISSION);
@@ -385,14 +327,55 @@ LoggerFinderLoader::LoggerFinderLoader() {
 
 $Class* LoggerFinderLoader::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(LoggerFinderLoader$$Lambda$lambda$findLoggerFinderProviders$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.logger.LoggerFinderLoader$$Lambda$lambda$findLoggerFinderProviders$0")) {
 			return LoggerFinderLoader$$Lambda$lambda$findLoggerFinderProviders$0::load$(name, initialize);
 		}
-		if (name->equals(LoggerFinderLoader$$Lambda$lambda$loadDefaultImplementation$1$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.logger.LoggerFinderLoader$$Lambda$lambda$loadDefaultImplementation$1$1")) {
 			return LoggerFinderLoader$$Lambda$lambda$loadDefaultImplementation$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(LoggerFinderLoader, name, initialize, &_LoggerFinderLoader_ClassInfo_, clinit$LoggerFinderLoader, allocate$LoggerFinderLoader);
+	$FieldInfo fieldInfos$$[] = {
+		{"service", "Ljava/lang/System$LoggerFinder;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(LoggerFinderLoader, service$)},
+		{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LoggerFinderLoader, lock)},
+		{"CLASSLOADER_PERMISSION", "Ljava/security/Permission;", nullptr, $STATIC | $FINAL, $staticField(LoggerFinderLoader, CLASSLOADER_PERMISSION)},
+		{"READ_PERMISSION", "Ljava/security/Permission;", nullptr, $STATIC | $FINAL, $staticField(LoggerFinderLoader, READ_PERMISSION)},
+		{"LOGGERFINDER_PERMISSION", "Ljava/lang/RuntimePermission;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LoggerFinderLoader, LOGGERFINDER_PERMISSION)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(LoggerFinderLoader, init$, void)},
+		{"configurationErrorPolicy", "()Ljdk/internal/logger/LoggerFinderLoader$ErrorPolicy;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoggerFinderLoader, configurationErrorPolicy, $LoggerFinderLoader$ErrorPolicy*)},
+		{"ensureSingletonProvider", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(LoggerFinderLoader, ensureSingletonProvider, bool)},
+		{"findLoggerFinderProviders", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/System$LoggerFinder;>;", $PRIVATE | $STATIC, $staticMethod(LoggerFinderLoader, findLoggerFinderProviders, $Iterator*)},
+		{"getLoggerFinder", "()Ljava/lang/System$LoggerFinder;", nullptr, $PUBLIC | $STATIC, $staticMethod(LoggerFinderLoader, getLoggerFinder, $System$LoggerFinder*)},
+		{"lambda$findLoggerFinderProviders$0", "()Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LoggerFinderLoader, lambda$findLoggerFinderProviders$0, $Iterator*)},
+		{"lambda$loadDefaultImplementation$1", "()Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LoggerFinderLoader, lambda$loadDefaultImplementation$1, $Iterator*)},
+		{"loadDefaultImplementation", "()Ljava/lang/System$LoggerFinder;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoggerFinderLoader, loadDefaultImplementation, $System$LoggerFinder*)},
+		{"loadLoggerFinder", "()Ljava/lang/System$LoggerFinder;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoggerFinderLoader, loadLoggerFinder, $System$LoggerFinder*)},
+		{"service", "()Ljava/lang/System$LoggerFinder;", nullptr, $PRIVATE | $STATIC, $staticMethod(LoggerFinderLoader, service, $System$LoggerFinder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.logger.LoggerFinderLoader$ErrorPolicy", "jdk.internal.logger.LoggerFinderLoader", "ErrorPolicy", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.logger.LoggerFinderLoader",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.logger.LoggerFinderLoader$ErrorPolicy"
+	};
+	$loadClass(LoggerFinderLoader, name, initialize, &classInfo$$, LoggerFinderLoader::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LoggerFinderLoader);
+	});
 	return class$;
 }
 

@@ -24,6 +24,7 @@ class MaxFragExtension : public ::java::lang::Object {
 	$class(MaxFragExtension, 0, ::java::lang::Object)
 public:
 	MaxFragExtension();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::HandshakeProducer* chNetworkProducer;
 	static ::sun::security::ssl::SSLExtension$ExtensionConsumer* chOnLoadConsumer;

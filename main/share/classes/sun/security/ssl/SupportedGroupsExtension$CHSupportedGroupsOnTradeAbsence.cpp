@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence.h>
-
 #include <java/util/Map.h>
 #include <javax/net/ssl/SSLException.h>
 #include <sun/security/ssl/Alert.h>
@@ -18,55 +17,21 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 using $Alert = ::sun::security::ssl::Alert;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $ServerHandshakeContext = ::sun::security::ssl::ServerHandshakeContext;
-using $TransportContext = ::sun::security::ssl::TransportContext;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence, init$, void)},
-	{"absent", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence, absent, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence", "sun.security.ssl.SupportedGroupsExtension", "CHSupportedGroupsOnTradeAbsence", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeAbsence",
-	nullptr,
-	_SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SupportedGroupsExtension"
-};
-
-$Object* allocate$SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence($Class* clazz) {
-	return $of($alloc(SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence));
-}
-
 void SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence::init$() {
 }
 
 void SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence::absent($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	bool var$0 = $nc($nc(shc)->negotiatedProtocol)->useTLS13PlusSpec();
 	$init($SSLExtension);
@@ -80,7 +45,33 @@ SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence::SupportedGroupsExtensi
 }
 
 $Class* SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence::load$($String* name, bool initialize) {
-	$loadClass(SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence, name, initialize, &_SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence_ClassInfo_, allocate$SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence, init$, void)},
+		{"absent", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC, $virtualMethod(SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence, absent, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence", "sun.security.ssl.SupportedGroupsExtension", "CHSupportedGroupsOnTradeAbsence", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeAbsence",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SupportedGroupsExtension"
+	};
+	$loadClass(SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SupportedGroupsExtension$CHSupportedGroupsOnTradeAbsence);
+	});
 	return class$;
 }
 

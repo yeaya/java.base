@@ -1,5 +1,4 @@
 #include <javax/crypto/IllegalBlockSizeException.h>
-
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 
 namespace javax {
 	namespace crypto {
-
-$FieldInfo _IllegalBlockSizeException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalBlockSizeException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _IllegalBlockSizeException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalBlockSizeException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalBlockSizeException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _IllegalBlockSizeException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.crypto.IllegalBlockSizeException",
-	"java.security.GeneralSecurityException",
-	nullptr,
-	_IllegalBlockSizeException_FieldInfo_,
-	_IllegalBlockSizeException_MethodInfo_
-};
-
-$Object* allocate$IllegalBlockSizeException($Class* clazz) {
-	return $of($alloc(IllegalBlockSizeException));
-}
 
 void IllegalBlockSizeException::init$() {
 	$GeneralSecurityException::init$();
@@ -54,7 +29,26 @@ void IllegalBlockSizeException::throw$() {
 }
 
 $Class* IllegalBlockSizeException::load$($String* name, bool initialize) {
-	$loadClass(IllegalBlockSizeException, name, initialize, &_IllegalBlockSizeException_ClassInfo_, allocate$IllegalBlockSizeException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalBlockSizeException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalBlockSizeException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalBlockSizeException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.crypto.IllegalBlockSizeException",
+		"java.security.GeneralSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IllegalBlockSizeException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IllegalBlockSizeException);
+	});
 	return class$;
 }
 

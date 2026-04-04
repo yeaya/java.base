@@ -13,6 +13,7 @@ class UnixChannelFactory$1 : public ::java::lang::Object {
 	$class(UnixChannelFactory$1, 0, ::java::lang::Object)
 public:
 	UnixChannelFactory$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$nio$file$StandardOpenOption;
 };
 

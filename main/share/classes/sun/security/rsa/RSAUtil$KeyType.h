@@ -28,6 +28,7 @@ class $export RSAUtil$KeyType : public ::java::lang::Enum {
 public:
 	RSAUtil$KeyType();
 	static $Array<::sun::security::rsa::RSAUtil$KeyType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* keyAlgo, ::sun::security::util::ObjectIdentifier* oid, $Class* paramSpecCls);
 	static ::sun::security::rsa::RSAUtil$KeyType* lookup($String* name);
 	static ::sun::security::rsa::RSAUtil$KeyType* valueOf($String* name);

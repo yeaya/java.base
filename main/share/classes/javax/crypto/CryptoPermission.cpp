@@ -1,5 +1,4 @@
 #include <javax/crypto/CryptoPermission.h>
-
 #include <java/security/Permission.h>
 #include <java/security/PermissionCollection.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
@@ -26,54 +25,6 @@ using $RC5ParameterSpec = ::javax::crypto::spec::RC5ParameterSpec;
 
 namespace javax {
 	namespace crypto {
-
-$FieldInfo _CryptoPermission_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CryptoPermission, serialVersionUID)},
-	{"alg", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CryptoPermission, alg)},
-	{"maxKeySize", "I", nullptr, $PRIVATE, $field(CryptoPermission, maxKeySize)},
-	{"exemptionMechanism", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CryptoPermission, exemptionMechanism)},
-	{"algParamSpec", "Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PRIVATE, $field(CryptoPermission, algParamSpec)},
-	{"checkParam", "Z", nullptr, $PRIVATE, $field(CryptoPermission, checkParam)},
-	{"ALG_NAME_WILDCARD", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(CryptoPermission, ALG_NAME_WILDCARD)},
-	{}
-};
-
-$MethodInfo _CryptoPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(CryptoPermission, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(CryptoPermission, init$, void, $String*, int32_t)},
-	{"<init>", "(Ljava/lang/String;ILjava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(CryptoPermission, init$, void, $String*, int32_t, $AlgorithmParameterSpec*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(CryptoPermission, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, 0, $method(CryptoPermission, init$, void, $String*, int32_t, $String*)},
-	{"<init>", "(Ljava/lang/String;ILjava/security/spec/AlgorithmParameterSpec;Ljava/lang/String;)V", nullptr, 0, $method(CryptoPermission, init$, void, $String*, int32_t, $AlgorithmParameterSpec*, $String*)},
-	{"equalObjects", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE, $method(CryptoPermission, equalObjects, bool, Object$*, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CryptoPermission, equals, bool, Object$*)},
-	{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CryptoPermission, getActions, $String*)},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $FINAL, $method(CryptoPermission, getAlgorithm, $String*)},
-	{"getAlgorithmParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $FINAL, $method(CryptoPermission, getAlgorithmParameterSpec, $AlgorithmParameterSpec*)},
-	{"getCheckParam", "()Z", nullptr, $FINAL, $method(CryptoPermission, getCheckParam, bool)},
-	{"getExemptionMechanism", "()Ljava/lang/String;", nullptr, $FINAL, $method(CryptoPermission, getExemptionMechanism, $String*)},
-	{"getMaxKeySize", "()I", nullptr, $FINAL, $method(CryptoPermission, getMaxKeySize, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(CryptoPermission, hashCode, int32_t)},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(CryptoPermission, implies, bool, $Permission*)},
-	{"impliesExemptionMechanism", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(CryptoPermission, impliesExemptionMechanism, bool, $String*)},
-	{"impliesParameterSpec", "(ZLjava/security/spec/AlgorithmParameterSpec;)Z", nullptr, $PRIVATE, $method(CryptoPermission, impliesParameterSpec, bool, bool, $AlgorithmParameterSpec*)},
-	{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(CryptoPermission, newPermissionCollection, $PermissionCollection*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CryptoPermission, toString, $String*)},
-	{}
-};
-
-$ClassInfo _CryptoPermission_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.crypto.CryptoPermission",
-	"java.security.Permission",
-	nullptr,
-	_CryptoPermission_FieldInfo_,
-	_CryptoPermission_MethodInfo_
-};
-
-$Object* allocate$CryptoPermission($Class* clazz) {
-	return $of($alloc(CryptoPermission));
-}
 
 $String* CryptoPermission::ALG_NAME_WILDCARD = nullptr;
 
@@ -147,11 +98,11 @@ bool CryptoPermission::implies($Permission* p) {
 		return false;
 	}
 	$var(CryptoPermission, cp, $cast(CryptoPermission, p));
-	bool var$0 = (!$nc(this->alg)->equalsIgnoreCase($nc(cp)->alg));
-	if (var$0 && (!$nc(this->alg)->equalsIgnoreCase(CryptoPermission::ALG_NAME_WILDCARD))) {
+	bool var$0 = !$nc(this->alg)->equalsIgnoreCase($nc(cp)->alg);
+	if (var$0 && (!this->alg->equalsIgnoreCase(CryptoPermission::ALG_NAME_WILDCARD))) {
 		return false;
 	}
-	if ($nc(cp)->maxKeySize <= this->maxKeySize) {
+	if (cp->maxKeySize <= this->maxKeySize) {
 		if (!impliesParameterSpec(cp->checkParam, cp->algParamSpec)) {
 			return false;
 		}
@@ -170,27 +121,27 @@ bool CryptoPermission::equals(Object$* obj) {
 		return false;
 	}
 	$var(CryptoPermission, that, $cast(CryptoPermission, obj));
-	if (!($nc(this->alg)->equalsIgnoreCase($nc(that)->alg)) || (this->maxKeySize != $nc(that)->maxKeySize)) {
+	if (!($nc(this->alg)->equalsIgnoreCase($nc(that)->alg)) || (this->maxKeySize != that->maxKeySize)) {
 		return false;
 	}
-	if (this->checkParam != $nc(that)->checkParam) {
+	if (this->checkParam != that->checkParam) {
 		return false;
 	}
-	bool var$0 = equalObjects(this->exemptionMechanism, $nc(that)->exemptionMechanism);
-	return (var$0 && equalObjects(this->algParamSpec, $nc(that)->algParamSpec));
+	bool var$0 = equalObjects(this->exemptionMechanism, that->exemptionMechanism);
+	return (var$0 && equalObjects(this->algParamSpec, that->algParamSpec));
 }
 
 int32_t CryptoPermission::hashCode() {
 	int32_t retval = $nc(this->alg)->hashCode();
 	retval ^= this->maxKeySize;
 	if (this->exemptionMechanism != nullptr) {
-		retval ^= $nc(this->exemptionMechanism)->hashCode();
+		retval ^= this->exemptionMechanism->hashCode();
 	}
 	if (this->checkParam) {
 		retval ^= 100;
 	}
 	if (this->algParamSpec != nullptr) {
-		retval ^= $nc($of(this->algParamSpec))->hashCode();
+		retval ^= this->algParamSpec->hashCode();
 	}
 	return retval;
 }
@@ -224,14 +175,14 @@ $AlgorithmParameterSpec* CryptoPermission::getAlgorithmParameterSpec() {
 }
 
 $String* CryptoPermission::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder, 100));
 	buf->append($$str({"(CryptoPermission "_s, this->alg, " "_s, $$str(this->maxKeySize)}));
 	if (this->algParamSpec != nullptr) {
 		if ($instanceOf($RC2ParameterSpec, this->algParamSpec)) {
-			buf->append($$str({" , effective "_s, $$str($nc(($cast($RC2ParameterSpec, this->algParamSpec)))->getEffectiveKeyBits())}));
+			buf->append($$str({" , effective "_s, $$str($cast($RC2ParameterSpec, this->algParamSpec)->getEffectiveKeyBits())}));
 		} else if ($instanceOf($RC5ParameterSpec, this->algParamSpec)) {
-			buf->append($$str({" , rounds "_s, $$str($nc(($cast($RC5ParameterSpec, this->algParamSpec)))->getRounds())}));
+			buf->append($$str({" , rounds "_s, $$str($cast($RC5ParameterSpec, this->algParamSpec)->getRounds())}));
 		}
 	}
 	if (this->exemptionMechanism != nullptr) {
@@ -261,28 +212,28 @@ bool CryptoPermission::impliesParameterSpec(bool checkParam, $AlgorithmParameter
 		} else if (this->algParamSpec == nullptr) {
 			return false;
 		}
-		if ($nc($of(this->algParamSpec))->getClass() != $nc($of(algParamSpec))->getClass()) {
+		if ($nc(this->algParamSpec)->getClass() != $nc($of(algParamSpec))->getClass()) {
 			return false;
 		}
 		if ($instanceOf($RC2ParameterSpec, algParamSpec)) {
-			int32_t var$0 = $nc(($cast($RC2ParameterSpec, algParamSpec)))->getEffectiveKeyBits();
-			if (var$0 <= $nc((($cast($RC2ParameterSpec, this->algParamSpec))))->getEffectiveKeyBits()) {
+			int32_t var$0 = $cast($RC2ParameterSpec, algParamSpec)->getEffectiveKeyBits();
+			if (var$0 <= $cast($RC2ParameterSpec, this->algParamSpec)->getEffectiveKeyBits()) {
 				return true;
 			}
 		}
 		if ($instanceOf($RC5ParameterSpec, algParamSpec)) {
-			int32_t var$1 = $nc(($cast($RC5ParameterSpec, algParamSpec)))->getRounds();
-			if (var$1 <= $nc(($cast($RC5ParameterSpec, this->algParamSpec)))->getRounds()) {
+			int32_t var$1 = $cast($RC5ParameterSpec, algParamSpec)->getRounds();
+			if (var$1 <= $cast($RC5ParameterSpec, this->algParamSpec)->getRounds()) {
 				return true;
 			}
 		}
 		if ($instanceOf($PBEParameterSpec, algParamSpec)) {
-			int32_t var$2 = $nc(($cast($PBEParameterSpec, algParamSpec)))->getIterationCount();
-			if (var$2 <= $nc(($cast($PBEParameterSpec, this->algParamSpec)))->getIterationCount()) {
+			int32_t var$2 = $cast($PBEParameterSpec, algParamSpec)->getIterationCount();
+			if (var$2 <= $cast($PBEParameterSpec, this->algParamSpec)->getIterationCount()) {
 				return true;
 			}
 		}
-		if ($nc($of(this->algParamSpec))->equals(algParamSpec)) {
+		if (this->algParamSpec->equals(algParamSpec)) {
 			return true;
 		}
 		return false;
@@ -303,12 +254,55 @@ bool CryptoPermission::equalObjects(Object$* obj1, Object$* obj2) {
 CryptoPermission::CryptoPermission() {
 }
 
-void clinit$CryptoPermission($Class* class$) {
+void CryptoPermission::clinit$($Class* clazz) {
 	$assignStatic(CryptoPermission::ALG_NAME_WILDCARD, "*"_s);
 }
 
 $Class* CryptoPermission::load$($String* name, bool initialize) {
-	$loadClass(CryptoPermission, name, initialize, &_CryptoPermission_ClassInfo_, clinit$CryptoPermission, allocate$CryptoPermission);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CryptoPermission, serialVersionUID)},
+		{"alg", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CryptoPermission, alg)},
+		{"maxKeySize", "I", nullptr, $PRIVATE, $field(CryptoPermission, maxKeySize)},
+		{"exemptionMechanism", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CryptoPermission, exemptionMechanism)},
+		{"algParamSpec", "Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PRIVATE, $field(CryptoPermission, algParamSpec)},
+		{"checkParam", "Z", nullptr, $PRIVATE, $field(CryptoPermission, checkParam)},
+		{"ALG_NAME_WILDCARD", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(CryptoPermission, ALG_NAME_WILDCARD)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(CryptoPermission, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(CryptoPermission, init$, void, $String*, int32_t)},
+		{"<init>", "(Ljava/lang/String;ILjava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(CryptoPermission, init$, void, $String*, int32_t, $AlgorithmParameterSpec*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(CryptoPermission, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, 0, $method(CryptoPermission, init$, void, $String*, int32_t, $String*)},
+		{"<init>", "(Ljava/lang/String;ILjava/security/spec/AlgorithmParameterSpec;Ljava/lang/String;)V", nullptr, 0, $method(CryptoPermission, init$, void, $String*, int32_t, $AlgorithmParameterSpec*, $String*)},
+		{"equalObjects", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PRIVATE, $method(CryptoPermission, equalObjects, bool, Object$*, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CryptoPermission, equals, bool, Object$*)},
+		{"getActions", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CryptoPermission, getActions, $String*)},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $FINAL, $method(CryptoPermission, getAlgorithm, $String*)},
+		{"getAlgorithmParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $FINAL, $method(CryptoPermission, getAlgorithmParameterSpec, $AlgorithmParameterSpec*)},
+		{"getCheckParam", "()Z", nullptr, $FINAL, $method(CryptoPermission, getCheckParam, bool)},
+		{"getExemptionMechanism", "()Ljava/lang/String;", nullptr, $FINAL, $method(CryptoPermission, getExemptionMechanism, $String*)},
+		{"getMaxKeySize", "()I", nullptr, $FINAL, $method(CryptoPermission, getMaxKeySize, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(CryptoPermission, hashCode, int32_t)},
+		{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(CryptoPermission, implies, bool, $Permission*)},
+		{"impliesExemptionMechanism", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(CryptoPermission, impliesExemptionMechanism, bool, $String*)},
+		{"impliesParameterSpec", "(ZLjava/security/spec/AlgorithmParameterSpec;)Z", nullptr, $PRIVATE, $method(CryptoPermission, impliesParameterSpec, bool, bool, $AlgorithmParameterSpec*)},
+		{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(CryptoPermission, newPermissionCollection, $PermissionCollection*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CryptoPermission, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.crypto.CryptoPermission",
+		"java.security.Permission",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CryptoPermission, name, initialize, &classInfo$$, CryptoPermission::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CryptoPermission));
+	});
 	return class$;
 }
 

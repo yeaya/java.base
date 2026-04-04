@@ -39,6 +39,7 @@ class WindowsAclFileAttributeView : public ::sun::nio::fs::AbstractAclFileAttrib
 	$class(WindowsAclFileAttributeView, 0, ::sun::nio::fs::AbstractAclFileAttributeView)
 public:
 	WindowsAclFileAttributeView();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::nio::fs::WindowsPath* file, bool followLinks);
 	void checkAccess(::sun::nio::fs::WindowsPath* file, bool checkRead, bool checkWrite);
 	virtual ::java::util::List* getAcl() override;

@@ -1,5 +1,4 @@
 #include <java/util/zip/CheckedInputStream.h>
-
 #include <java/io/FilterInputStream.h>
 #include <java/io/InputStream.h>
 #include <java/util/zip/Checksum.h>
@@ -15,33 +14,6 @@ using $Checksum = ::java::util::zip::Checksum;
 namespace java {
 	namespace util {
 		namespace zip {
-
-$FieldInfo _CheckedInputStream_FieldInfo_[] = {
-	{"cksum", "Ljava/util/zip/Checksum;", nullptr, $PRIVATE, $field(CheckedInputStream, cksum)},
-	{}
-};
-
-$MethodInfo _CheckedInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Ljava/util/zip/Checksum;)V", nullptr, $PUBLIC, $method(CheckedInputStream, init$, void, $InputStream*, $Checksum*)},
-	{"getChecksum", "()Ljava/util/zip/Checksum;", nullptr, $PUBLIC, $virtualMethod(CheckedInputStream, getChecksum, $Checksum*)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(CheckedInputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(CheckedInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(CheckedInputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _CheckedInputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.zip.CheckedInputStream",
-	"java.io.FilterInputStream",
-	nullptr,
-	_CheckedInputStream_FieldInfo_,
-	_CheckedInputStream_MethodInfo_
-};
-
-$Object* allocate$CheckedInputStream($Class* clazz) {
-	return $of($alloc(CheckedInputStream));
-}
 
 void CheckedInputStream::init$($InputStream* in, $Checksum* cksum) {
 	$FilterInputStream::init$(in);
@@ -86,7 +58,29 @@ CheckedInputStream::CheckedInputStream() {
 }
 
 $Class* CheckedInputStream::load$($String* name, bool initialize) {
-	$loadClass(CheckedInputStream, name, initialize, &_CheckedInputStream_ClassInfo_, allocate$CheckedInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"cksum", "Ljava/util/zip/Checksum;", nullptr, $PRIVATE, $field(CheckedInputStream, cksum)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;Ljava/util/zip/Checksum;)V", nullptr, $PUBLIC, $method(CheckedInputStream, init$, void, $InputStream*, $Checksum*)},
+		{"getChecksum", "()Ljava/util/zip/Checksum;", nullptr, $PUBLIC, $virtualMethod(CheckedInputStream, getChecksum, $Checksum*)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(CheckedInputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(CheckedInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(CheckedInputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.zip.CheckedInputStream",
+		"java.io.FilterInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CheckedInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CheckedInputStream);
+	});
 	return class$;
 }
 

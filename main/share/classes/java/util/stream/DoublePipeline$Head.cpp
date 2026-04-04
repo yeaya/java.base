@@ -1,5 +1,4 @@
 #include <java/util/stream/DoublePipeline$Head.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/Iterator.h>
 #include <java/util/PrimitiveIterator$OfDouble.h>
@@ -20,7 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $Iterator = ::java::util::Iterator;
 using $Spliterator = ::java::util::Spliterator;
-using $Spliterator$OfDouble = ::java::util::Spliterator$OfDouble;
 using $DoubleConsumer = ::java::util::function::DoubleConsumer;
 using $Supplier = ::java::util::function::Supplier;
 using $BaseStream = ::java::util::stream::BaseStream;
@@ -31,47 +29,6 @@ using $Sink = ::java::util::stream::Sink;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$MethodInfo _DoublePipeline$Head_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/function/Supplier;IZ)V", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator<Ljava/lang/Double;>;>;IZ)V", 0, $method(DoublePipeline$Head, init$, void, $Supplier*, int32_t, bool)},
-	{"<init>", "(Ljava/util/Spliterator;IZ)V", "(Ljava/util/Spliterator<Ljava/lang/Double;>;IZ)V", 0, $method(DoublePipeline$Head, init$, void, $Spliterator*, int32_t, bool)},
-	{"forEach", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $virtualMethod(DoublePipeline$Head, forEach, void, $DoubleConsumer*)},
-	{"forEachOrdered", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $virtualMethod(DoublePipeline$Head, forEachOrdered, void, $DoubleConsumer*)},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoublePipeline$Head, iterator, $Iterator*)},
-	{"lazySpliterator", "(Ljava/util/function/Supplier;)Ljava/util/Spliterator;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(DoublePipeline$Head, lazySpliterator, $Spliterator*, $Supplier*)},
-	{"opIsStateful", "()Z", nullptr, $FINAL, $virtualMethod(DoublePipeline$Head, opIsStateful, bool)},
-	{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<Ljava/lang/Double;>;)Ljava/util/stream/Sink<TE_IN;>;", $FINAL, $virtualMethod(DoublePipeline$Head, opWrapSink, $Sink*, int32_t, $Sink*)},
-	{"parallel", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoublePipeline$Head, parallel, $BaseStream*)},
-	{"sequential", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoublePipeline$Head, sequential, $BaseStream*)},
-	{"spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoublePipeline$Head, spliterator, $Spliterator*)},
-	{"unordered", "()Ljava/util/stream/BaseStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoublePipeline$Head, unordered, $BaseStream*)},
-	{}
-};
-
-$InnerClassInfo _DoublePipeline$Head_InnerClassesInfo_[] = {
-	{"java.util.stream.DoublePipeline$Head", "java.util.stream.DoublePipeline", "Head", $STATIC},
-	{}
-};
-
-$ClassInfo _DoublePipeline$Head_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.DoublePipeline$Head",
-	"java.util.stream.DoublePipeline",
-	nullptr,
-	nullptr,
-	_DoublePipeline$Head_MethodInfo_,
-	"<E_IN:Ljava/lang/Object;>Ljava/util/stream/DoublePipeline<TE_IN;>;",
-	nullptr,
-	_DoublePipeline$Head_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.DoublePipeline"
-};
-
-$Object* allocate$DoublePipeline$Head($Class* clazz) {
-	return $of($alloc(DoublePipeline$Head));
-}
 
 void DoublePipeline$Head::init$($Supplier* source, int32_t sourceFlags, bool parallel) {
 	$DoublePipeline::init$(source, sourceFlags, parallel);
@@ -92,18 +49,18 @@ $Sink* DoublePipeline$Head::opWrapSink(int32_t flags, $Sink* sink) {
 }
 
 void DoublePipeline$Head::forEach($DoubleConsumer* consumer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isParallel()) {
-		$nc($($DoublePipeline::adapt($(sourceStageSpliterator()))))->forEachRemaining(consumer);
+		$$nc($DoublePipeline::adapt($(sourceStageSpliterator())))->forEachRemaining(consumer);
 	} else {
 		$DoublePipeline::forEach(consumer);
 	}
 }
 
 void DoublePipeline$Head::forEachOrdered($DoubleConsumer* consumer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isParallel()) {
-		$nc($($DoublePipeline::adapt($(sourceStageSpliterator()))))->forEachRemaining(consumer);
+		$$nc($DoublePipeline::adapt($(sourceStageSpliterator())))->forEachRemaining(consumer);
 	} else {
 		$DoublePipeline::forEachOrdered(consumer);
 	}
@@ -137,7 +94,43 @@ DoublePipeline$Head::DoublePipeline$Head() {
 }
 
 $Class* DoublePipeline$Head::load$($String* name, bool initialize) {
-	$loadClass(DoublePipeline$Head, name, initialize, &_DoublePipeline$Head_ClassInfo_, allocate$DoublePipeline$Head);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/Supplier;IZ)V", "(Ljava/util/function/Supplier<+Ljava/util/Spliterator<Ljava/lang/Double;>;>;IZ)V", 0, $method(DoublePipeline$Head, init$, void, $Supplier*, int32_t, bool)},
+		{"<init>", "(Ljava/util/Spliterator;IZ)V", "(Ljava/util/Spliterator<Ljava/lang/Double;>;IZ)V", 0, $method(DoublePipeline$Head, init$, void, $Spliterator*, int32_t, bool)},
+		{"forEach", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $virtualMethod(DoublePipeline$Head, forEach, void, $DoubleConsumer*)},
+		{"forEachOrdered", "(Ljava/util/function/DoubleConsumer;)V", nullptr, $PUBLIC, $virtualMethod(DoublePipeline$Head, forEachOrdered, void, $DoubleConsumer*)},
+		{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoublePipeline$Head, iterator, $Iterator*)},
+		{"lazySpliterator", "(Ljava/util/function/Supplier;)Ljava/util/Spliterator;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(DoublePipeline$Head, lazySpliterator, $Spliterator*, $Supplier*)},
+		{"opIsStateful", "()Z", nullptr, $FINAL, $virtualMethod(DoublePipeline$Head, opIsStateful, bool)},
+		{"opWrapSink", "(ILjava/util/stream/Sink;)Ljava/util/stream/Sink;", "(ILjava/util/stream/Sink<Ljava/lang/Double;>;)Ljava/util/stream/Sink<TE_IN;>;", $FINAL, $virtualMethod(DoublePipeline$Head, opWrapSink, $Sink*, int32_t, $Sink*)},
+		{"parallel", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoublePipeline$Head, parallel, $BaseStream*)},
+		{"sequential", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoublePipeline$Head, sequential, $BaseStream*)},
+		{"spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoublePipeline$Head, spliterator, $Spliterator*)},
+		{"unordered", "()Ljava/util/stream/BaseStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DoublePipeline$Head, unordered, $BaseStream*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.DoublePipeline$Head", "java.util.stream.DoublePipeline", "Head", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.DoublePipeline$Head",
+		"java.util.stream.DoublePipeline",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<E_IN:Ljava/lang/Object;>Ljava/util/stream/DoublePipeline<TE_IN;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.DoublePipeline"
+	};
+	$loadClass(DoublePipeline$Head, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DoublePipeline$Head));
+	});
 	return class$;
 }
 

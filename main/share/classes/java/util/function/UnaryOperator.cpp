@@ -1,5 +1,4 @@
 #include <java/util/function/UnaryOperator.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -26,62 +25,31 @@ public:
 	virtual $Object* apply(Object$* t) override {
 		 return UnaryOperator::lambda$identity$0(t);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<UnaryOperator$$Lambda$lambda$identity$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo UnaryOperator$$Lambda$lambda$identity$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UnaryOperator$$Lambda$lambda$identity$0, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnaryOperator$$Lambda$lambda$identity$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo UnaryOperator$$Lambda$lambda$identity$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.function.UnaryOperator$$Lambda$lambda$identity$0",
-	"java.lang.Object",
-	"java.util.function.UnaryOperator",
-	nullptr,
-	methodInfos
 };
 $Class* UnaryOperator$$Lambda$lambda$identity$0::load$($String* name, bool initialize) {
-	$loadClass(UnaryOperator$$Lambda$lambda$identity$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UnaryOperator$$Lambda$lambda$identity$0, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnaryOperator$$Lambda$lambda$identity$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.function.UnaryOperator$$Lambda$lambda$identity$0",
+		"java.lang.Object",
+		"java.util.function.UnaryOperator",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UnaryOperator$$Lambda$lambda$identity$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnaryOperator$$Lambda$lambda$identity$0);
+	});
 	return class$;
 }
 $Class* UnaryOperator$$Lambda$lambda$identity$0::class$ = nullptr;
 
-$CompoundAttribute _UnaryOperator_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _UnaryOperator_MethodInfo_[] = {
-	{"identity", "()Ljava/util/function/UnaryOperator;", "<T:Ljava/lang/Object;>()Ljava/util/function/UnaryOperator<TT;>;", $PUBLIC | $STATIC, $staticMethod(UnaryOperator, identity, UnaryOperator*)},
-	{"lambda$identity$0", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnaryOperator, lambda$identity$0, $Object*, Object$*)},
-	{}
-};
-
-$ClassInfo _UnaryOperator_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.function.UnaryOperator",
-	nullptr,
-	"java.util.function.Function",
-	nullptr,
-	_UnaryOperator_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/function/Function<TT;TT;>;",
-	nullptr,
-	nullptr,
-	_UnaryOperator_Annotations_
-};
-
-$Object* allocate$UnaryOperator($Class* clazz) {
-	return $of($alloc(UnaryOperator));
-}
-
 UnaryOperator* UnaryOperator::identity() {
 	$init(UnaryOperator);
-	return static_cast<UnaryOperator*>($new(UnaryOperator$$Lambda$lambda$identity$0));
+	return $new(UnaryOperator$$Lambda$lambda$identity$0);
 }
 
 $Object* UnaryOperator::lambda$identity$0(Object$* t) {
@@ -91,11 +59,34 @@ $Object* UnaryOperator::lambda$identity$0(Object$* t) {
 
 $Class* UnaryOperator::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(UnaryOperator$$Lambda$lambda$identity$0::classInfo$.name)) {
+		if (name->equals("java.util.function.UnaryOperator$$Lambda$lambda$identity$0")) {
 			return UnaryOperator$$Lambda$lambda$identity$0::load$(name, initialize);
 		}
 	}
-	$loadClass(UnaryOperator, name, initialize, &_UnaryOperator_ClassInfo_, allocate$UnaryOperator);
+	$MethodInfo methodInfos$$[] = {
+		{"identity", "()Ljava/util/function/UnaryOperator;", "<T:Ljava/lang/Object;>()Ljava/util/function/UnaryOperator<TT;>;", $PUBLIC | $STATIC, $staticMethod(UnaryOperator, identity, UnaryOperator*)},
+		{"lambda$identity$0", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnaryOperator, lambda$identity$0, $Object*, Object$*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.function.UnaryOperator",
+		nullptr,
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/function/Function<TT;TT;>;",
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(UnaryOperator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnaryOperator);
+	});
 	return class$;
 }
 

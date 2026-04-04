@@ -23,6 +23,7 @@ class $import FloatingDecimal$BinaryToASCIIBuffer : public ::jdk::internal::math
 	$class(FloatingDecimal$BinaryToASCIIBuffer, 0, ::jdk::internal::math::FloatingDecimal$BinaryToASCIIConverter)
 public:
 	FloatingDecimal$BinaryToASCIIBuffer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(bool isNegative, $chars* digits);
 	virtual void appendTo(::java::lang::Appendable* buf) override;

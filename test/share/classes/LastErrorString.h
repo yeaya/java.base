@@ -20,6 +20,7 @@ class $export LastErrorString : public ::java::lang::Object {
 	$class(LastErrorString, 0, ::java::lang::Object)
 public:
 	LastErrorString();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void go();
 	static void main($StringArray* args);

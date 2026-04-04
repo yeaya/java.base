@@ -1,8 +1,6 @@
 #include <jdk/internal/org/objectweb/asm/commons/TryCatchBlockSorter.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/Collections.h>
-#include <java/util/Comparator.h>
 #include <java/util/List.h>
 #include <jdk/internal/org/objectweb/asm/MethodVisitor.h>
 #include <jdk/internal/org/objectweb/asm/Opcodes.h>
@@ -18,8 +16,6 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Collections = ::java::util::Collections;
-using $Comparator = ::java::util::Comparator;
-using $List = ::java::util::List;
 using $MethodVisitor = ::jdk::internal::org::objectweb::asm$::MethodVisitor;
 using $Opcodes = ::jdk::internal::org::objectweb::asm$::Opcodes;
 using $TryCatchBlockSorter$1 = ::jdk::internal::org::objectweb::asm$::commons::TryCatchBlockSorter$1;
@@ -32,37 +28,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 					namespace commons {
-
-$MethodInfo _TryCatchBlockSorter_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TryCatchBlockSorter, init$, void, $MethodVisitor*, int32_t, $String*, $String*, $String*, $StringArray*)},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/MethodVisitor;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PROTECTED, $method(TryCatchBlockSorter, init$, void, int32_t, $MethodVisitor*, int32_t, $String*, $String*, $String*, $StringArray*)},
-	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(TryCatchBlockSorter, visitEnd, void)},
-	{}
-};
-
-$InnerClassInfo _TryCatchBlockSorter_InnerClassesInfo_[] = {
-	{"jdk.internal.org.objectweb.asm.commons.TryCatchBlockSorter$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TryCatchBlockSorter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.commons.TryCatchBlockSorter",
-	"jdk.internal.org.objectweb.asm.tree.MethodNode",
-	nullptr,
-	nullptr,
-	_TryCatchBlockSorter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TryCatchBlockSorter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.org.objectweb.asm.commons.TryCatchBlockSorter$1"
-};
-
-$Object* allocate$TryCatchBlockSorter($Class* clazz) {
-	return $of($alloc(TryCatchBlockSorter));
-}
 
 void TryCatchBlockSorter::init$($MethodVisitor* methodVisitor, int32_t access, $String* name, $String* descriptor, $String* signature, $StringArray* exceptions) {
 	TryCatchBlockSorter::init$($Opcodes::ASM8, methodVisitor, access, name, descriptor, signature, exceptions);
@@ -77,10 +42,10 @@ void TryCatchBlockSorter::init$(int32_t api, $MethodVisitor* methodVisitor, int3
 }
 
 void TryCatchBlockSorter::visitEnd() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Collections::sort(this->tryCatchBlocks, $$new($TryCatchBlockSorter$1, this));
 	for (int32_t i = 0; i < $nc(this->tryCatchBlocks)->size(); ++i) {
-		$nc(($cast($TryCatchBlockNode, $($nc(this->tryCatchBlocks)->get(i)))))->updateIndex(i);
+		$$sure($TryCatchBlockNode, this->tryCatchBlocks->get(i))->updateIndex(i);
 	}
 	if (this->mv != nullptr) {
 		accept(this->mv);
@@ -91,7 +56,33 @@ TryCatchBlockSorter::TryCatchBlockSorter() {
 }
 
 $Class* TryCatchBlockSorter::load$($String* name, bool initialize) {
-	$loadClass(TryCatchBlockSorter, name, initialize, &_TryCatchBlockSorter_ClassInfo_, allocate$TryCatchBlockSorter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TryCatchBlockSorter, init$, void, $MethodVisitor*, int32_t, $String*, $String*, $String*, $StringArray*)},
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/MethodVisitor;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PROTECTED, $method(TryCatchBlockSorter, init$, void, int32_t, $MethodVisitor*, int32_t, $String*, $String*, $String*, $StringArray*)},
+		{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(TryCatchBlockSorter, visitEnd, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.org.objectweb.asm.commons.TryCatchBlockSorter$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.commons.TryCatchBlockSorter",
+		"jdk.internal.org.objectweb.asm.tree.MethodNode",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.org.objectweb.asm.commons.TryCatchBlockSorter$1"
+	};
+	$loadClass(TryCatchBlockSorter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TryCatchBlockSorter);
+	});
 	return class$;
 }
 

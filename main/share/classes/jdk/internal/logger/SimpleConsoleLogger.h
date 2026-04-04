@@ -59,6 +59,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, bool usePlatformLevel);
 	virtual ::sun::util::logging::PlatformLogger$Level* defaultPlatformLevel();
 	::sun::util::logging::PlatformLogger$Level* effectiveLevel();

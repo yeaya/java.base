@@ -30,6 +30,7 @@ class $export StringJoiner : public ::java::lang::Object {
 	$class(StringJoiner, 0, ::java::lang::Object)
 public:
 	StringJoiner();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::CharSequence* delimiter);
 	void init$(::java::lang::CharSequence* delimiter, ::java::lang::CharSequence* prefix, ::java::lang::CharSequence* suffix);
 	::java::util::StringJoiner* add(::java::lang::CharSequence* newElement);

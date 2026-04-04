@@ -1,5 +1,4 @@
 #include <sun/security/provider/PolicyParser$ParsingException.h>
-
 #include <java/security/GeneralSecurityException.h>
 #include <sun/security/provider/PolicyParser.h>
 #include <sun/security/util/LocalizedMessage.h>
@@ -17,48 +16,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$FieldInfo _PolicyParser$ParsingException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PolicyParser$ParsingException, serialVersionUID)},
-	{"i18nMessage", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PolicyParser$ParsingException, i18nMessage)},
-	{"localizedMsg", "Lsun/security/util/LocalizedMessage;", nullptr, $PRIVATE, $field(PolicyParser$ParsingException, localizedMsg)},
-	{"source", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(PolicyParser$ParsingException, source)},
-	{}
-};
-
-$MethodInfo _PolicyParser$ParsingException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PolicyParser$ParsingException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Lsun/security/util/LocalizedMessage;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(PolicyParser$ParsingException, init$, void, $String*, $LocalizedMessage*, $ObjectArray*)},
-	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(PolicyParser$ParsingException, init$, void, int32_t, $String*)},
-	{"<init>", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PolicyParser$ParsingException, init$, void, int32_t, $String*, $String*)},
-	{"getNonlocalizedMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyParser$ParsingException, getNonlocalizedMessage, $String*)},
-	{}
-};
-
-$InnerClassInfo _PolicyParser$ParsingException_InnerClassesInfo_[] = {
-	{"sun.security.provider.PolicyParser$ParsingException", "sun.security.provider.PolicyParser", "ParsingException", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _PolicyParser$ParsingException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.provider.PolicyParser$ParsingException",
-	"java.security.GeneralSecurityException",
-	nullptr,
-	_PolicyParser$ParsingException_FieldInfo_,
-	_PolicyParser$ParsingException_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PolicyParser$ParsingException_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.PolicyParser"
-};
-
-$Object* allocate$PolicyParser$ParsingException($Class* clazz) {
-	return $of($alloc(PolicyParser$ParsingException));
-}
-
 void PolicyParser$ParsingException::init$($String* msg) {
 	$GeneralSecurityException::init$(msg);
 	$set(this, i18nMessage, msg);
@@ -71,23 +28,23 @@ void PolicyParser$ParsingException::init$($String* msg, $LocalizedMessage* local
 }
 
 void PolicyParser$ParsingException::init$(int32_t line, $String* msg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$GeneralSecurityException::init$($$str({"line "_s, $$str(line), ": "_s, msg}));
 	$set(this, localizedMsg, $new($LocalizedMessage, "line.number.msg"_s));
 	$set(this, source, $new($ObjectArray, {
-		$($of($Integer::valueOf(line))),
-		$of(msg)
+		$($Integer::valueOf(line)),
+		msg
 	}));
 }
 
 void PolicyParser$ParsingException::init$(int32_t line, $String* expect, $String* actual) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$GeneralSecurityException::init$($$str({"line "_s, $$str(line), ": expected ["_s, expect, "], found ["_s, actual, "]"_s}));
 	$set(this, localizedMsg, $new($LocalizedMessage, "line.number.expected.expect.found.actual."_s));
 	$set(this, source, $new($ObjectArray, {
-		$($of($Integer::valueOf(line))),
-		$of(expect),
-		$of(actual)
+		$($Integer::valueOf(line)),
+		expect,
+		actual
 	}));
 }
 
@@ -106,7 +63,43 @@ void PolicyParser$ParsingException::throw$() {
 }
 
 $Class* PolicyParser$ParsingException::load$($String* name, bool initialize) {
-	$loadClass(PolicyParser$ParsingException, name, initialize, &_PolicyParser$ParsingException_ClassInfo_, allocate$PolicyParser$ParsingException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PolicyParser$ParsingException, serialVersionUID)},
+		{"i18nMessage", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PolicyParser$ParsingException, i18nMessage)},
+		{"localizedMsg", "Lsun/security/util/LocalizedMessage;", nullptr, $PRIVATE, $field(PolicyParser$ParsingException, localizedMsg)},
+		{"source", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(PolicyParser$ParsingException, source)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PolicyParser$ParsingException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Lsun/security/util/LocalizedMessage;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(PolicyParser$ParsingException, init$, void, $String*, $LocalizedMessage*, $ObjectArray*)},
+		{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(PolicyParser$ParsingException, init$, void, int32_t, $String*)},
+		{"<init>", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PolicyParser$ParsingException, init$, void, int32_t, $String*, $String*)},
+		{"getNonlocalizedMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PolicyParser$ParsingException, getNonlocalizedMessage, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.PolicyParser$ParsingException", "sun.security.provider.PolicyParser", "ParsingException", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.provider.PolicyParser$ParsingException",
+		"java.security.GeneralSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.PolicyParser"
+	};
+	$loadClass(PolicyParser$ParsingException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PolicyParser$ParsingException);
+	});
 	return class$;
 }
 

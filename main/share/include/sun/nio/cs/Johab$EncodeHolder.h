@@ -13,6 +13,7 @@ class $import Johab$EncodeHolder : public ::java::lang::Object {
 	$class(Johab$EncodeHolder, 0, ::java::lang::Object)
 public:
 	Johab$EncodeHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $chars* c2b;
 	static $chars* c2bIndex;

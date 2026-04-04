@@ -1,5 +1,4 @@
 #include <java/io/ObjectStreamClass$5.h>
-
 #include <java/io/ObjectStreamClass$MemberSignature.h>
 #include <java/io/ObjectStreamClass.h>
 #include <jcpp.h>
@@ -13,52 +12,13 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace io {
 
-$MethodInfo _ObjectStreamClass$5_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ObjectStreamClass$5, init$, void)},
-	{"compare", "(Ljava/io/ObjectStreamClass$MemberSignature;Ljava/io/ObjectStreamClass$MemberSignature;)I", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$5, compare, int32_t, $ObjectStreamClass$MemberSignature*, $ObjectStreamClass$MemberSignature*)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ObjectStreamClass$5, compare, int32_t, Object$*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _ObjectStreamClass$5_EnclosingMethodInfo_ = {
-	"java.io.ObjectStreamClass",
-	"computeDefaultSUID",
-	"(Ljava/lang/Class;)J"
-};
-
-$InnerClassInfo _ObjectStreamClass$5_InnerClassesInfo_[] = {
-	{"java.io.ObjectStreamClass$5", nullptr, nullptr, 0},
-	{"java.io.ObjectStreamClass$MemberSignature", "java.io.ObjectStreamClass", "MemberSignature", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ObjectStreamClass$5_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.io.ObjectStreamClass$5",
-	"java.lang.Object",
-	"java.util.Comparator",
-	nullptr,
-	_ObjectStreamClass$5_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Comparator<Ljava/io/ObjectStreamClass$MemberSignature;>;",
-	&_ObjectStreamClass$5_EnclosingMethodInfo_,
-	_ObjectStreamClass$5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.io.ObjectStreamClass"
-};
-
-$Object* allocate$ObjectStreamClass$5($Class* clazz) {
-	return $of($alloc(ObjectStreamClass$5));
-}
-
 void ObjectStreamClass$5::init$() {
 }
 
 int32_t ObjectStreamClass$5::compare($ObjectStreamClass$MemberSignature* ms1, $ObjectStreamClass$MemberSignature* ms2) {
 	int32_t comp = $nc($nc(ms1)->name)->compareTo($nc(ms2)->name);
 	if (comp == 0) {
-		comp = $nc(ms1->signature)->compareTo($nc(ms2)->signature);
+		comp = $nc(ms1->signature)->compareTo(ms2->signature);
 	}
 	return comp;
 }
@@ -71,7 +31,40 @@ ObjectStreamClass$5::ObjectStreamClass$5() {
 }
 
 $Class* ObjectStreamClass$5::load$($String* name, bool initialize) {
-	$loadClass(ObjectStreamClass$5, name, initialize, &_ObjectStreamClass$5_ClassInfo_, allocate$ObjectStreamClass$5);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ObjectStreamClass$5, init$, void)},
+		{"compare", "(Ljava/io/ObjectStreamClass$MemberSignature;Ljava/io/ObjectStreamClass$MemberSignature;)I", nullptr, $PUBLIC, $virtualMethod(ObjectStreamClass$5, compare, int32_t, $ObjectStreamClass$MemberSignature*, $ObjectStreamClass$MemberSignature*)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ObjectStreamClass$5, compare, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.io.ObjectStreamClass",
+		"computeDefaultSUID",
+		"(Ljava/lang/Class;)J"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.io.ObjectStreamClass$5", nullptr, nullptr, 0},
+		{"java.io.ObjectStreamClass$MemberSignature", "java.io.ObjectStreamClass", "MemberSignature", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.io.ObjectStreamClass$5",
+		"java.lang.Object",
+		"java.util.Comparator",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Comparator<Ljava/io/ObjectStreamClass$MemberSignature;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.io.ObjectStreamClass"
+	};
+	$loadClass(ObjectStreamClass$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectStreamClass$5);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <SpecialTempFile.h>
-
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <java/nio/file/Files.h>
@@ -11,7 +10,6 @@
 using $FileAttributeArray = $Array<::java::nio::file::attribute::FileAttribute>;
 using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
@@ -19,37 +17,17 @@ using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 
-$MethodInfo _SpecialTempFile_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SpecialTempFile, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SpecialTempFile, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SpecialTempFile, test, void, $String*, $StringArray*, $StringArray*, bool), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _SpecialTempFile_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"SpecialTempFile",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SpecialTempFile_MethodInfo_
-};
-
-$Object* allocate$SpecialTempFile($Class* clazz) {
-	return $of($alloc(SpecialTempFile));
-}
-
 void SpecialTempFile::init$() {
 }
 
 void SpecialTempFile::test($String* name, $StringArray* prefix, $StringArray* suffix, bool exceptionExpected) {
-	$useLocalCurrentObjectStackCache();
-	if (prefix == nullptr || suffix == nullptr || $nc(prefix)->length != $nc(suffix)->length) {
+	$useLocalObjectStack();
+	if (prefix == nullptr || suffix == nullptr || prefix->length != suffix->length) {
 		return;
 	}
 	$var($String, exceptionMsg, "Unable to create temporary file"_s);
 	$var($StringArray, dirs, $new($StringArray, {
-		($String*)nullptr,
+		nullptr,
 		"."_s
 	}));
 	$var($Path, testPath, $Paths::get($($System::getProperty("test.dir"_s, "."_s)), $$new($StringArray, 0)));
@@ -58,21 +36,19 @@ void SpecialTempFile::test($String* name, $StringArray* prefix, $StringArray* su
 		$var($File, f, nullptr);
 		{
 			$var($StringArray, arr$, dirs);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, dir, arr$->get(i$));
 				{
 					$var($Path, tempDir, $Files::createTempDirectory(testPath, dir, $$new($FileAttributeArray, 0)));
 					$nc($System::out)->println($$str({"In test "_s, name, ", creating temp file with prefix, "_s, prefix->get(i), ", suffix, "_s, $nc(suffix)->get(i), ", in dir, "_s, tempDir}));
 					try {
-						$assign(f, $File::createTempFile(prefix->get(i), $nc(suffix)->get(i), $($nc(tempDir)->toFile())));
+						$assign(f, $File::createTempFile(prefix->get(i), suffix->get(i), $($nc(tempDir)->toFile())));
 					} catch ($IOException& e) {
 						if (exceptionExpected) {
-							if ($nc($(e->getMessage()))->startsWith(exceptionMsg)) {
+							if ($$nc(e->getMessage())->startsWith(exceptionMsg)) {
 								exceptionThrown = true;
 							} else {
-								$nc($System::out)->println($$str({"Wrong error message:"_s, $(e->getMessage())}));
+								$System::out->println($$str({"Wrong error message:"_s, $(e->getMessage())}));
 							}
 						} else {
 							$throw(e);
@@ -88,7 +64,7 @@ void SpecialTempFile::test($String* name, $StringArray* prefix, $StringArray* su
 }
 
 void SpecialTempFile::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, "SpecialTempFile"_s);
 	$var($StringArray, nulPre, $new($StringArray, {$$str({name, $cstr({'\0'})})}));
 	$var($StringArray, nulSuf, $new($StringArray, {".test"_s}));
@@ -113,7 +89,7 @@ void SpecialTempFile::main($StringArray* args) {
 		"///..///.."_s
 	}));
 	test("SlashedName"_s, slashPre, slashSuf, true);
-	if (!$nc($($System::getProperty("os.name"_s)))->startsWith("Windows"_s)) {
+	if (!$$nc($System::getProperty("os.name"_s))->startsWith("Windows"_s)) {
 		return;
 	}
 	$var($StringArray, resvPre, $new($StringArray, {
@@ -131,7 +107,23 @@ SpecialTempFile::SpecialTempFile() {
 }
 
 $Class* SpecialTempFile::load$($String* name, bool initialize) {
-	$loadClass(SpecialTempFile, name, initialize, &_SpecialTempFile_ClassInfo_, allocate$SpecialTempFile);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SpecialTempFile, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SpecialTempFile, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SpecialTempFile, test, void, $String*, $StringArray*, $StringArray*, bool), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"SpecialTempFile",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SpecialTempFile, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SpecialTempFile);
+	});
 	return class$;
 }
 

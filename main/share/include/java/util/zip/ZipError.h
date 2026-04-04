@@ -14,10 +14,13 @@ class $import ZipError : public ::java::lang::InternalError {
 public:
 	ZipError();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x0BD9EC4D91D7499B;
+	static const int64_t serialVersionUID = (int64_t)0x0bd9ec4d91d7499b;
 	ZipError(const ZipError& e);
 	virtual void throw$() override;
-	inline ZipError* operator ->() {
+	inline ZipError* operator ->() const {
+		return (ZipError*)throwing$;
+	}
+	inline operator ZipError*() const {
 		return (ZipError*)throwing$;
 	}
 };

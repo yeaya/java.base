@@ -47,6 +47,7 @@ class DigestAuthentication : public ::sun::net::www::protocol::http::Authenticat
 	$class(DigestAuthentication, 0, ::sun::net::www::protocol::http::AuthenticationInfo)
 public:
 	DigestAuthentication();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool isProxy, ::java::net::URL* url, $String* realm, $String* authMethod, ::java::net::PasswordAuthentication* pw, ::sun::net::www::protocol::http::DigestAuthentication$Parameters* params, $String* authenticatorKey);
 	void init$(bool isProxy, $String* host, int32_t port, $String* realm, $String* authMethod, ::java::net::PasswordAuthentication* pw, ::sun::net::www::protocol::http::DigestAuthentication$Parameters* params, $String* authenticatorKey);
 	virtual void checkResponse($String* header, $String* method, ::java::net::URL* url);

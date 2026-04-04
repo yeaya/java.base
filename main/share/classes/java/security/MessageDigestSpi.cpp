@@ -1,5 +1,4 @@
 #include <java/security/MessageDigestSpi.h>
-
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
 #include <java/lang/Math.h>
@@ -21,37 +20,6 @@ using $JCAUtil = ::sun::security::jca::JCAUtil;
 namespace java {
 	namespace security {
 
-$FieldInfo _MessageDigestSpi_FieldInfo_[] = {
-	{"tempArray", "[B", nullptr, $PRIVATE, $field(MessageDigestSpi, tempArray)},
-	{}
-};
-
-$MethodInfo _MessageDigestSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MessageDigestSpi, init$, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MessageDigestSpi, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"engineDigest", "()[B", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(MessageDigestSpi, engineDigest, $bytes*)},
-	{"engineDigest", "([BII)I", nullptr, $PROTECTED, $virtualMethod(MessageDigestSpi, engineDigest, int32_t, $bytes*, int32_t, int32_t), "java.security.DigestException"},
-	{"engineGetDigestLength", "()I", nullptr, $PROTECTED, $virtualMethod(MessageDigestSpi, engineGetDigestLength, int32_t)},
-	{"engineReset", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(MessageDigestSpi, engineReset, void)},
-	{"engineUpdate", "(B)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(MessageDigestSpi, engineUpdate, void, int8_t)},
-	{"engineUpdate", "([BII)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(MessageDigestSpi, engineUpdate, void, $bytes*, int32_t, int32_t)},
-	{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED, $virtualMethod(MessageDigestSpi, engineUpdate, void, $ByteBuffer*)},
-	{}
-};
-
-$ClassInfo _MessageDigestSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.security.MessageDigestSpi",
-	"java.lang.Object",
-	nullptr,
-	_MessageDigestSpi_FieldInfo_,
-	_MessageDigestSpi_MethodInfo_
-};
-
-$Object* allocate$MessageDigestSpi($Class* clazz) {
-	return $of($alloc(MessageDigestSpi));
-}
-
 void MessageDigestSpi::init$() {
 }
 
@@ -63,7 +31,7 @@ void MessageDigestSpi::engineUpdate($ByteBuffer* input) {
 	if ($nc(input)->hasRemaining() == false) {
 		return;
 	}
-	if ($nc(input)->hasArray()) {
+	if (input->hasArray()) {
 		$var($bytes, b, $cast($bytes, input->array()));
 		int32_t ofs = input->arrayOffset();
 		int32_t pos = input->position();
@@ -73,7 +41,7 @@ void MessageDigestSpi::engineUpdate($ByteBuffer* input) {
 	} else {
 		int32_t len = input->remaining();
 		int32_t n = $JCAUtil::getTempArraySize(len);
-		if ((this->tempArray == nullptr) || (n > $nc(this->tempArray)->length)) {
+		if ((this->tempArray == nullptr) || (n > this->tempArray->length)) {
 			$set(this, tempArray, $new($bytes, n));
 		}
 		while (len > 0) {
@@ -90,16 +58,16 @@ int32_t MessageDigestSpi::engineDigest($bytes* buf, int32_t offset, int32_t len)
 	if (len < $nc(digest)->length) {
 		$throwNew($DigestException, "partial digests not returned"_s);
 	}
-	if ($nc(buf)->length - offset < $nc(digest)->length) {
+	if ($nc(buf)->length - offset < digest->length) {
 		$throwNew($DigestException, "insufficient space in the output buffer to store the digest"_s);
 	}
-	$System::arraycopy(digest, 0, buf, offset, $nc(digest)->length);
-	return $nc(digest)->length;
+	$System::arraycopy(digest, 0, buf, offset, digest->length);
+	return digest->length;
 }
 
 $Object* MessageDigestSpi::clone() {
 	if ($instanceOf($Cloneable, this)) {
-		return $of($Object::clone());
+		return $Object::clone();
 	} else {
 		$throwNew($CloneNotSupportedException);
 	}
@@ -109,7 +77,33 @@ MessageDigestSpi::MessageDigestSpi() {
 }
 
 $Class* MessageDigestSpi::load$($String* name, bool initialize) {
-	$loadClass(MessageDigestSpi, name, initialize, &_MessageDigestSpi_ClassInfo_, allocate$MessageDigestSpi);
+	$FieldInfo fieldInfos$$[] = {
+		{"tempArray", "[B", nullptr, $PRIVATE, $field(MessageDigestSpi, tempArray)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MessageDigestSpi, init$, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MessageDigestSpi, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"engineDigest", "()[B", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(MessageDigestSpi, engineDigest, $bytes*)},
+		{"engineDigest", "([BII)I", nullptr, $PROTECTED, $virtualMethod(MessageDigestSpi, engineDigest, int32_t, $bytes*, int32_t, int32_t), "java.security.DigestException"},
+		{"engineGetDigestLength", "()I", nullptr, $PROTECTED, $virtualMethod(MessageDigestSpi, engineGetDigestLength, int32_t)},
+		{"engineReset", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(MessageDigestSpi, engineReset, void)},
+		{"engineUpdate", "(B)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(MessageDigestSpi, engineUpdate, void, int8_t)},
+		{"engineUpdate", "([BII)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(MessageDigestSpi, engineUpdate, void, $bytes*, int32_t, int32_t)},
+		{"engineUpdate", "(Ljava/nio/ByteBuffer;)V", nullptr, $PROTECTED, $virtualMethod(MessageDigestSpi, engineUpdate, void, $ByteBuffer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.security.MessageDigestSpi",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MessageDigestSpi, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MessageDigestSpi);
+	});
 	return class$;
 }
 

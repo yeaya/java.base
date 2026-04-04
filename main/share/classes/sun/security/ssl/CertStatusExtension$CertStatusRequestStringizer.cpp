@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CertStatusExtension$CertStatusRequestStringizer.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/ByteBuffer.h>
 #include <sun/security/ssl/CertStatusExtension$CertStatusRequestSpec.h>
@@ -19,37 +18,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _CertStatusExtension$CertStatusRequestStringizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CertStatusExtension$CertStatusRequestStringizer, init$, void)},
-	{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertStatusExtension$CertStatusRequestStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _CertStatusExtension$CertStatusRequestStringizer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertStatusExtension$CertStatusRequestStringizer", "sun.security.ssl.CertStatusExtension", "CertStatusRequestStringizer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CertStatusExtension$CertStatusRequestStringizer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CertStatusExtension$CertStatusRequestStringizer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLStringizer",
-	nullptr,
-	_CertStatusExtension$CertStatusRequestStringizer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CertStatusExtension$CertStatusRequestStringizer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertStatusExtension"
-};
-
-$Object* allocate$CertStatusExtension$CertStatusRequestStringizer($Class* clazz) {
-	return $of($alloc(CertStatusExtension$CertStatusRequestStringizer));
-}
-
 void CertStatusExtension$CertStatusRequestStringizer::init$() {
 }
 
@@ -66,7 +34,33 @@ CertStatusExtension$CertStatusRequestStringizer::CertStatusExtension$CertStatusR
 }
 
 $Class* CertStatusExtension$CertStatusRequestStringizer::load$($String* name, bool initialize) {
-	$loadClass(CertStatusExtension$CertStatusRequestStringizer, name, initialize, &_CertStatusExtension$CertStatusRequestStringizer_ClassInfo_, allocate$CertStatusExtension$CertStatusRequestStringizer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CertStatusExtension$CertStatusRequestStringizer, init$, void)},
+		{"toString", "(Lsun/security/ssl/HandshakeContext;Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertStatusExtension$CertStatusRequestStringizer, toString, $String*, $HandshakeContext*, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertStatusExtension$CertStatusRequestStringizer", "sun.security.ssl.CertStatusExtension", "CertStatusRequestStringizer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CertStatusExtension$CertStatusRequestStringizer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLStringizer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertStatusExtension"
+	};
+	$loadClass(CertStatusExtension$CertStatusRequestStringizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertStatusExtension$CertStatusRequestStringizer);
+	});
 	return class$;
 }
 

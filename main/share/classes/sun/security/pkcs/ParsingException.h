@@ -15,10 +15,13 @@ public:
 	ParsingException();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0xA8570920151A5005;
+	static const int64_t serialVersionUID = (int64_t)0xa8570920151a5005;
 	ParsingException(const ParsingException& e);
 	virtual void throw$() override;
-	inline ParsingException* operator ->() {
+	inline ParsingException* operator ->() const {
+		return (ParsingException*)throwing$;
+	}
+	inline operator ParsingException*() const {
 		return (ParsingException*)throwing$;
 	}
 };

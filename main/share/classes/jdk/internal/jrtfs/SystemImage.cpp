@@ -1,5 +1,4 @@
 #include <jdk/internal/jrtfs/SystemImage.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/invoke/CallSite.h>
@@ -54,7 +53,6 @@ using $Paths = ::java::nio::file::Paths;
 using $AccessController = ::java::security::AccessController;
 using $CodeSource = ::java::security::CodeSource;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $ProtectionDomain = ::java::security::ProtectionDomain;
 using $ImageReader$Node = ::jdk::internal::jimage::ImageReader$Node;
 using $SystemImage$2 = ::jdk::internal::jrtfs::SystemImage$2;
 
@@ -70,73 +68,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(SystemImage::findHome());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SystemImage$$Lambda$findHome>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SystemImage$$Lambda$findHome::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SystemImage$$Lambda$findHome, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SystemImage$$Lambda$findHome, run, $Object*)},
-	{}
-};
-$ClassInfo SystemImage$$Lambda$findHome::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.jrtfs.SystemImage$$Lambda$findHome",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* SystemImage$$Lambda$findHome::load$($String* name, bool initialize) {
-	$loadClass(SystemImage$$Lambda$findHome, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SystemImage$$Lambda$findHome, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SystemImage$$Lambda$findHome, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.jrtfs.SystemImage$$Lambda$findHome",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SystemImage$$Lambda$findHome, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SystemImage$$Lambda$findHome);
+	});
 	return class$;
 }
 $Class* SystemImage$$Lambda$findHome::class$ = nullptr;
-
-$FieldInfo _SystemImage_FieldInfo_[] = {
-	{"RUNTIME_HOME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SystemImage, RUNTIME_HOME)},
-	{"moduleImageFile", "Ljava/nio/file/Path;", nullptr, $STATIC | $FINAL, $staticField(SystemImage, moduleImageFile)},
-	{"modulesImageExists", "Z", nullptr, $STATIC | $FINAL, $staticField(SystemImage, modulesImageExists)},
-	{"explodedModulesDir", "Ljava/nio/file/Path;", nullptr, $STATIC | $FINAL, $staticField(SystemImage, explodedModulesDir)},
-	{}
-};
-
-$MethodInfo _SystemImage_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SystemImage, init$, void)},
-	{"close", "()V", nullptr, $ABSTRACT, $virtualMethod(SystemImage, close, void), "java.io.IOException"},
-	{"findHome", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SystemImage, findHome, $String*)},
-	{"findNode", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, $ABSTRACT, $virtualMethod(SystemImage, findNode, $ImageReader$Node*, $String*), "java.io.IOException"},
-	{"getResource", "(Ljdk/internal/jimage/ImageReader$Node;)[B", nullptr, $ABSTRACT, $virtualMethod(SystemImage, getResource, $bytes*, $ImageReader$Node*), "java.io.IOException"},
-	{"open", "()Ljdk/internal/jrtfs/SystemImage;", nullptr, $STATIC, $staticMethod(SystemImage, open, SystemImage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _SystemImage_InnerClassesInfo_[] = {
-	{"jdk.internal.jrtfs.SystemImage$2", nullptr, nullptr, 0},
-	{"jdk.internal.jrtfs.SystemImage$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SystemImage_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"jdk.internal.jrtfs.SystemImage",
-	"java.lang.Object",
-	nullptr,
-	_SystemImage_FieldInfo_,
-	_SystemImage_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SystemImage_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.jrtfs.SystemImage$2,jdk.internal.jrtfs.SystemImage$1"
-};
-
-$Object* allocate$SystemImage($Class* clazz) {
-	return $of($alloc(SystemImage));
-}
 
 $String* SystemImage::RUNTIME_HOME = nullptr;
 $Path* SystemImage::moduleImageFile = nullptr;
@@ -156,32 +108,32 @@ SystemImage* SystemImage::open() {
 
 $String* SystemImage::findHome() {
 	$init(SystemImage);
-	$useLocalCurrentObjectStackCache();
-	$var($CodeSource, cs, $nc($(SystemImage::class$->getProtectionDomain()))->getCodeSource());
+	$useLocalObjectStack();
+	$var($CodeSource, cs, $$nc(SystemImage::class$->getProtectionDomain())->getCodeSource());
 	if (cs == nullptr) {
 		return $System::getProperty("java.home"_s);
 	}
 	$var($URL, url, $nc(cs)->getLocation());
-	if (!$nc($($nc(url)->getProtocol()))->equalsIgnoreCase("file"_s)) {
+	if (!$$nc($nc(url)->getProtocol())->equalsIgnoreCase("file"_s)) {
 		$throwNew($InternalError, $$str({url, " loaded in unexpected way"_s}));
 	}
 	try {
-		$var($Path, lib, $nc($($Paths::get($($nc(url)->toURI()))))->getParent());
-		if (!$nc($($nc($($nc(lib)->getFileName()))->toString()))->equals("lib"_s)) {
+		$var($Path, lib, $$nc($Paths::get($(url->toURI())))->getParent());
+		if (!$$nc($$nc($nc(lib)->getFileName())->toString())->equals("lib"_s)) {
 			$throwNew($InternalError, $$str({url, " unexpected path"_s}));
 		}
-		return $nc($($nc(lib)->getParent()))->toString();
+		return $$nc(lib->getParent())->toString();
 	} catch ($URISyntaxException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
 
-void clinit$SystemImage($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void SystemImage::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	{
-		$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(SystemImage$$Lambda$findHome)));
+		$var($PrivilegedAction, pa, $new(SystemImage$$Lambda$findHome));
 		$assignStatic(SystemImage::RUNTIME_HOME, $cast($String, $AccessController::doPrivileged(pa)));
 		$var($FileSystem, fs, $FileSystems::getDefault());
 		$assignStatic(SystemImage::moduleImageFile, $nc(fs)->getPath(SystemImage::RUNTIME_HOME, $$new($StringArray, {
@@ -189,7 +141,7 @@ void clinit$SystemImage($Class* class$) {
 			"modules"_s
 		})));
 		$assignStatic(SystemImage::explodedModulesDir, fs->getPath(SystemImage::RUNTIME_HOME, $$new($StringArray, {"modules"_s})));
-		SystemImage::modulesImageExists = $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($SystemImage$2)))))))->booleanValue();
+		SystemImage::modulesImageExists = $$sure($Boolean, $AccessController::doPrivileged($$new($SystemImage$2)))->booleanValue();
 	}
 }
 
@@ -198,11 +150,48 @@ SystemImage::SystemImage() {
 
 $Class* SystemImage::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SystemImage$$Lambda$findHome::classInfo$.name)) {
+		if (name->equals("jdk.internal.jrtfs.SystemImage$$Lambda$findHome")) {
 			return SystemImage$$Lambda$findHome::load$(name, initialize);
 		}
 	}
-	$loadClass(SystemImage, name, initialize, &_SystemImage_ClassInfo_, clinit$SystemImage, allocate$SystemImage);
+	$FieldInfo fieldInfos$$[] = {
+		{"RUNTIME_HOME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(SystemImage, RUNTIME_HOME)},
+		{"moduleImageFile", "Ljava/nio/file/Path;", nullptr, $STATIC | $FINAL, $staticField(SystemImage, moduleImageFile)},
+		{"modulesImageExists", "Z", nullptr, $STATIC | $FINAL, $staticField(SystemImage, modulesImageExists)},
+		{"explodedModulesDir", "Ljava/nio/file/Path;", nullptr, $STATIC | $FINAL, $staticField(SystemImage, explodedModulesDir)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SystemImage, init$, void)},
+		{"close", "()V", nullptr, $ABSTRACT, $virtualMethod(SystemImage, close, void), "java.io.IOException"},
+		{"findHome", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SystemImage, findHome, $String*)},
+		{"findNode", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, $ABSTRACT, $virtualMethod(SystemImage, findNode, $ImageReader$Node*, $String*), "java.io.IOException"},
+		{"getResource", "(Ljdk/internal/jimage/ImageReader$Node;)[B", nullptr, $ABSTRACT, $virtualMethod(SystemImage, getResource, $bytes*, $ImageReader$Node*), "java.io.IOException"},
+		{"open", "()Ljdk/internal/jrtfs/SystemImage;", nullptr, $STATIC, $staticMethod(SystemImage, open, SystemImage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.jrtfs.SystemImage$2", nullptr, nullptr, 0},
+		{"jdk.internal.jrtfs.SystemImage$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"jdk.internal.jrtfs.SystemImage",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.jrtfs.SystemImage$2,jdk.internal.jrtfs.SystemImage$1"
+	};
+	$loadClass(SystemImage, name, initialize, &classInfo$$, SystemImage::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SystemImage);
+	});
 	return class$;
 }
 

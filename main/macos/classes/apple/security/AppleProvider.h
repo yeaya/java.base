@@ -18,6 +18,7 @@ class AppleProvider : public ::java::security::Provider {
 	$class(AppleProvider, 0, ::java::security::Provider)
 public:
 	AppleProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::java::security::Provider::getProperty;
 	void init$();
 	static void access$000(::apple::security::AppleProvider* x0, ::java::security::Provider$Service* x1);

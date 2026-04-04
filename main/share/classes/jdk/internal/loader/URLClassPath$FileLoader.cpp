@@ -1,5 +1,4 @@
 #include <jdk/internal/loader/URLClassPath$FileLoader.h>
-
 #include <java/io/File.h>
 #include <java/net/URL.h>
 #include <jdk/internal/loader/Resource.h>
@@ -26,50 +25,11 @@ namespace jdk {
 	namespace internal {
 		namespace loader {
 
-$FieldInfo _URLClassPath$FileLoader_FieldInfo_[] = {
-	{"dir", "Ljava/io/File;", nullptr, $PRIVATE, $field(URLClassPath$FileLoader, dir)},
-	{}
-};
-
-$MethodInfo _URLClassPath$FileLoader_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;)V", nullptr, $PRIVATE, $method(URLClassPath$FileLoader, init$, void, $URL*), "java.io.IOException"},
-	{"findResource", "(Ljava/lang/String;Z)Ljava/net/URL;", nullptr, 0, $virtualMethod(URLClassPath$FileLoader, findResource, $URL*, $String*, bool)},
-	{"getResource", "(Ljava/lang/String;Z)Ljdk/internal/loader/Resource;", nullptr, 0, $virtualMethod(URLClassPath$FileLoader, getResource, $Resource*, $String*, bool)},
-	{}
-};
-
-$InnerClassInfo _URLClassPath$FileLoader_InnerClassesInfo_[] = {
-	{"jdk.internal.loader.URLClassPath$FileLoader", "jdk.internal.loader.URLClassPath", "FileLoader", $PRIVATE | $STATIC},
-	{"jdk.internal.loader.URLClassPath$Loader", "jdk.internal.loader.URLClassPath", "Loader", $PRIVATE | $STATIC},
-	{"jdk.internal.loader.URLClassPath$FileLoader$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _URLClassPath$FileLoader_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.loader.URLClassPath$FileLoader",
-	"jdk.internal.loader.URLClassPath$Loader",
-	nullptr,
-	_URLClassPath$FileLoader_FieldInfo_,
-	_URLClassPath$FileLoader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_URLClassPath$FileLoader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.loader.URLClassPath"
-};
-
-$Object* allocate$URLClassPath$FileLoader($Class* clazz) {
-	return $of($alloc(URLClassPath$FileLoader));
-}
-
 void URLClassPath$FileLoader::init$($URL* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$URLClassPath$Loader::init$(url);
 	$init($File);
-	$var($String, path, $nc($($nc(url)->getFile()))->replace(u'/', $File::separatorChar));
+	$var($String, path, $$nc($nc(url)->getFile())->replace(u'/', $File::separatorChar));
 	$assign(path, $ParseUtil::decode(path));
 	$set(this, dir, ($$new($File, path))->getCanonicalFile());
 }
@@ -83,13 +43,13 @@ $URL* URLClassPath$FileLoader::findResource($String* name, bool check) {
 }
 
 $Resource* URLClassPath$FileLoader::getResource($String* name, bool check) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URL, url, nullptr);
 	try {
 		$var($URL, normalizedBase, $new($URL, $(getBaseURL()), "."_s));
 		$var($URL, var$0, getBaseURL());
 		$assign(url, $new($URL, var$0, $($ParseUtil::encodePath(name, false))));
-		if ($nc($(url->getFile()))->startsWith($(normalizedBase->getFile())) == false) {
+		if ($$nc(url->getFile())->startsWith($(normalizedBase->getFile())) == false) {
 			return nullptr;
 		}
 		if (check) {
@@ -99,7 +59,7 @@ $Resource* URLClassPath$FileLoader::getResource($String* name, bool check) {
 		if ($nc(name)->indexOf(".."_s) != -1) {
 			$init($File);
 			$assign(file, ($$new($File, this->dir, $(name->replace(u'/', $File::separatorChar))))->getCanonicalFile());
-			if (!($nc(($($nc(file)->getPath())))->startsWith($($nc(this->dir)->getPath())))) {
+			if (!(($$nc($nc(file)->getPath()))->startsWith($($nc(this->dir)->getPath())))) {
 				return nullptr;
 			}
 		} else {
@@ -119,7 +79,40 @@ URLClassPath$FileLoader::URLClassPath$FileLoader() {
 }
 
 $Class* URLClassPath$FileLoader::load$($String* name, bool initialize) {
-	$loadClass(URLClassPath$FileLoader, name, initialize, &_URLClassPath$FileLoader_ClassInfo_, allocate$URLClassPath$FileLoader);
+	$FieldInfo fieldInfos$$[] = {
+		{"dir", "Ljava/io/File;", nullptr, $PRIVATE, $field(URLClassPath$FileLoader, dir)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/URL;)V", nullptr, $PRIVATE, $method(URLClassPath$FileLoader, init$, void, $URL*), "java.io.IOException"},
+		{"findResource", "(Ljava/lang/String;Z)Ljava/net/URL;", nullptr, 0, $virtualMethod(URLClassPath$FileLoader, findResource, $URL*, $String*, bool)},
+		{"getResource", "(Ljava/lang/String;Z)Ljdk/internal/loader/Resource;", nullptr, 0, $virtualMethod(URLClassPath$FileLoader, getResource, $Resource*, $String*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.loader.URLClassPath$FileLoader", "jdk.internal.loader.URLClassPath", "FileLoader", $PRIVATE | $STATIC},
+		{"jdk.internal.loader.URLClassPath$Loader", "jdk.internal.loader.URLClassPath", "Loader", $PRIVATE | $STATIC},
+		{"jdk.internal.loader.URLClassPath$FileLoader$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.loader.URLClassPath$FileLoader",
+		"jdk.internal.loader.URLClassPath$Loader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.loader.URLClassPath"
+	};
+	$loadClass(URLClassPath$FileLoader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(URLClassPath$FileLoader);
+	});
 	return class$;
 }
 

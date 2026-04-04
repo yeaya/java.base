@@ -15,6 +15,7 @@ class $export WriteParams : public ::java::lang::Object {
 	$class(WriteParams, 0, ::java::lang::Object)
 public:
 	WriteParams();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void test(::java::io::Writer* wtr);

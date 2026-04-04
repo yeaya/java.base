@@ -1,5 +1,4 @@
 #include <java/io/OutputStreamWriter.h>
-
 #include <java/io/OutputStream.h>
 #include <java/io/Writer.h>
 #include <java/lang/CharSequence.h>
@@ -24,52 +23,17 @@ using $StreamEncoder = ::sun::nio::cs::StreamEncoder;
 namespace java {
 	namespace io {
 
-$FieldInfo _OutputStreamWriter_FieldInfo_[] = {
-	{"se", "Lsun/nio/cs/StreamEncoder;", nullptr, $PRIVATE | $FINAL, $field(OutputStreamWriter, se)},
-	{}
-};
-
-$MethodInfo _OutputStreamWriter_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(OutputStreamWriter, init$, void, $OutputStream*, $String*), "java.io.UnsupportedEncodingException"},
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(OutputStreamWriter, init$, void, $OutputStream*)},
-	{"<init>", "(Ljava/io/OutputStream;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(OutputStreamWriter, init$, void, $OutputStream*, $Charset*)},
-	{"<init>", "(Ljava/io/OutputStream;Ljava/nio/charset/CharsetEncoder;)V", nullptr, $PUBLIC, $method(OutputStreamWriter, init$, void, $OutputStream*, $CharsetEncoder*)},
-	{"append", "(Ljava/lang/CharSequence;II)Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(OutputStreamWriter, append, $Writer*, $CharSequence*, int32_t, int32_t), "java.io.IOException"},
-	{"append", "(Ljava/lang/CharSequence;)Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(OutputStreamWriter, append, $Writer*, $CharSequence*), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(OutputStreamWriter, close, void), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(OutputStreamWriter, flush, void), "java.io.IOException"},
-	{"flushBuffer", "()V", nullptr, 0, $virtualMethod(OutputStreamWriter, flushBuffer, void), "java.io.IOException"},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OutputStreamWriter, getEncoding, $String*)},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(OutputStreamWriter, write, void, int32_t), "java.io.IOException"},
-	{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(OutputStreamWriter, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(OutputStreamWriter, write, void, $String*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _OutputStreamWriter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.OutputStreamWriter",
-	"java.io.Writer",
-	nullptr,
-	_OutputStreamWriter_FieldInfo_,
-	_OutputStreamWriter_MethodInfo_
-};
-
-$Object* allocate$OutputStreamWriter($Class* clazz) {
-	return $of($alloc(OutputStreamWriter));
-}
-
 void OutputStreamWriter::init$($OutputStream* out, $String* charsetName) {
 	$Writer::init$(out);
 	if (charsetName == nullptr) {
 		$throwNew($NullPointerException, "charsetName"_s);
 	}
-	$set(this, se, $StreamEncoder::forOutputStreamWriter(out, $of(this), charsetName));
+	$set(this, se, $StreamEncoder::forOutputStreamWriter(out, this, charsetName));
 }
 
 void OutputStreamWriter::init$($OutputStream* out) {
 	$Writer::init$(out);
-	$set(this, se, $StreamEncoder::forOutputStreamWriter(out, $of(this), $($Charset::defaultCharset())));
+	$set(this, se, $StreamEncoder::forOutputStreamWriter(out, this, $($Charset::defaultCharset())));
 }
 
 void OutputStreamWriter::init$($OutputStream* out, $Charset* cs) {
@@ -77,7 +41,7 @@ void OutputStreamWriter::init$($OutputStream* out, $Charset* cs) {
 	if (cs == nullptr) {
 		$throwNew($NullPointerException, "charset"_s);
 	}
-	$set(this, se, $StreamEncoder::forOutputStreamWriter(out, $of(this), cs));
+	$set(this, se, $StreamEncoder::forOutputStreamWriter(out, this, cs));
 }
 
 void OutputStreamWriter::init$($OutputStream* out, $CharsetEncoder* enc) {
@@ -85,7 +49,7 @@ void OutputStreamWriter::init$($OutputStream* out, $CharsetEncoder* enc) {
 	if (enc == nullptr) {
 		$throwNew($NullPointerException, "charset encoder"_s);
 	}
-	$set(this, se, $StreamEncoder::forOutputStreamWriter(out, $of(this), enc));
+	$set(this, se, $StreamEncoder::forOutputStreamWriter(out, this, enc));
 }
 
 $String* OutputStreamWriter::getEncoding() {
@@ -109,7 +73,7 @@ void OutputStreamWriter::write($String* str, int32_t off, int32_t len) {
 }
 
 $Writer* OutputStreamWriter::append($CharSequence* csq$renamed, int32_t start, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CharSequence, csq, csq$renamed);
 	if (csq == nullptr) {
 		$assign(csq, "null"_s);
@@ -121,7 +85,7 @@ $Writer* OutputStreamWriter::append($CharSequence* csq) {
 	if ($instanceOf($CharBuffer, csq)) {
 		$nc(this->se)->write($cast($CharBuffer, csq));
 	} else {
-		$nc(this->se)->write($($String::valueOf($of(csq))));
+		$nc(this->se)->write($($String::valueOf(csq)));
 	}
 	return this;
 }
@@ -138,7 +102,37 @@ OutputStreamWriter::OutputStreamWriter() {
 }
 
 $Class* OutputStreamWriter::load$($String* name, bool initialize) {
-	$loadClass(OutputStreamWriter, name, initialize, &_OutputStreamWriter_ClassInfo_, allocate$OutputStreamWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"se", "Lsun/nio/cs/StreamEncoder;", nullptr, $PRIVATE | $FINAL, $field(OutputStreamWriter, se)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/OutputStream;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(OutputStreamWriter, init$, void, $OutputStream*, $String*), "java.io.UnsupportedEncodingException"},
+		{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(OutputStreamWriter, init$, void, $OutputStream*)},
+		{"<init>", "(Ljava/io/OutputStream;Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(OutputStreamWriter, init$, void, $OutputStream*, $Charset*)},
+		{"<init>", "(Ljava/io/OutputStream;Ljava/nio/charset/CharsetEncoder;)V", nullptr, $PUBLIC, $method(OutputStreamWriter, init$, void, $OutputStream*, $CharsetEncoder*)},
+		{"append", "(Ljava/lang/CharSequence;II)Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(OutputStreamWriter, append, $Writer*, $CharSequence*, int32_t, int32_t), "java.io.IOException"},
+		{"append", "(Ljava/lang/CharSequence;)Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(OutputStreamWriter, append, $Writer*, $CharSequence*), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(OutputStreamWriter, close, void), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(OutputStreamWriter, flush, void), "java.io.IOException"},
+		{"flushBuffer", "()V", nullptr, 0, $virtualMethod(OutputStreamWriter, flushBuffer, void), "java.io.IOException"},
+		{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OutputStreamWriter, getEncoding, $String*)},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(OutputStreamWriter, write, void, int32_t), "java.io.IOException"},
+		{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(OutputStreamWriter, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(OutputStreamWriter, write, void, $String*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.OutputStreamWriter",
+		"java.io.Writer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OutputStreamWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(OutputStreamWriter));
+	});
 	return class$;
 }
 

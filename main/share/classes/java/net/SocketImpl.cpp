@@ -1,5 +1,4 @@
 #include <java/net/SocketImpl.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -61,95 +60,35 @@ public:
 	virtual $Object* run() override {
 		 return $of(SocketImpl::lambda$usePlainSocketImpl$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SocketImpl$$Lambda$lambda$usePlainSocketImpl$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SocketImpl$$Lambda$lambda$usePlainSocketImpl$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SocketImpl$$Lambda$lambda$usePlainSocketImpl$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SocketImpl$$Lambda$lambda$usePlainSocketImpl$0, run, $Object*)},
-	{}
-};
-$ClassInfo SocketImpl$$Lambda$lambda$usePlainSocketImpl$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.net.SocketImpl$$Lambda$lambda$usePlainSocketImpl$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* SocketImpl$$Lambda$lambda$usePlainSocketImpl$0::load$($String* name, bool initialize) {
-	$loadClass(SocketImpl$$Lambda$lambda$usePlainSocketImpl$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SocketImpl$$Lambda$lambda$usePlainSocketImpl$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SocketImpl$$Lambda$lambda$usePlainSocketImpl$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.net.SocketImpl$$Lambda$lambda$usePlainSocketImpl$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SocketImpl$$Lambda$lambda$usePlainSocketImpl$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketImpl$$Lambda$lambda$usePlainSocketImpl$0);
+	});
 	return class$;
 }
 $Class* SocketImpl$$Lambda$lambda$usePlainSocketImpl$0::class$ = nullptr;
-
-$FieldInfo _SocketImpl_FieldInfo_[] = {
-	{"USE_PLAINSOCKETIMPL", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SocketImpl, USE_PLAINSOCKETIMPL)},
-	{"fd", "Ljava/io/FileDescriptor;", nullptr, $PROTECTED, $field(SocketImpl, fd)},
-	{"address", "Ljava/net/InetAddress;", nullptr, $PROTECTED, $field(SocketImpl, address)},
-	{"port", "I", nullptr, $PROTECTED, $field(SocketImpl, port)},
-	{"localport", "I", nullptr, $PROTECTED, $field(SocketImpl, localport)},
-	{}
-};
-
-$MethodInfo _SocketImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SocketImpl, init$, void)},
-	{"accept", "(Ljava/net/SocketImpl;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketImpl, accept, void, SocketImpl*), "java.io.IOException"},
-	{"available", "()I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketImpl, available, int32_t), "java.io.IOException"},
-	{"bind", "(Ljava/net/InetAddress;I)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketImpl, bind, void, $InetAddress*, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketImpl, close, void), "java.io.IOException"},
-	{"closeQuietly", "()V", nullptr, 0, $virtualMethod(SocketImpl, closeQuietly, void)},
-	{"connect", "(Ljava/lang/String;I)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketImpl, connect, void, $String*, int32_t), "java.io.IOException"},
-	{"connect", "(Ljava/net/InetAddress;I)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketImpl, connect, void, $InetAddress*, int32_t), "java.io.IOException"},
-	{"connect", "(Ljava/net/SocketAddress;I)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketImpl, connect, void, $SocketAddress*, int32_t), "java.io.IOException"},
-	{"copyOptionsTo", "(Ljava/net/SocketImpl;)V", nullptr, 0, $virtualMethod(SocketImpl, copyOptionsTo, void, SocketImpl*)},
-	{"create", "(Z)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketImpl, create, void, bool), "java.io.IOException"},
-	{"createPlatformSocketImpl", "(Z)Ljava/net/SocketImpl;", "<S:Ljava/net/SocketImpl;:Lsun/net/PlatformSocketImpl;>(Z)TS;", $STATIC, $staticMethod(SocketImpl, createPlatformSocketImpl, SocketImpl*, bool)},
-	{"getFileDescriptor", "()Ljava/io/FileDescriptor;", nullptr, $PROTECTED, $virtualMethod(SocketImpl, getFileDescriptor, $FileDescriptor*)},
-	{"getInetAddress", "()Ljava/net/InetAddress;", nullptr, $PROTECTED, $virtualMethod(SocketImpl, getInetAddress, $InetAddress*)},
-	{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketImpl, getInputStream, $InputStream*), "java.io.IOException"},
-	{"getLocalPort", "()I", nullptr, $PROTECTED, $virtualMethod(SocketImpl, getLocalPort, int32_t)},
-	{"getOption", "(Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;)TT;", $PROTECTED, $virtualMethod(SocketImpl, getOption, $Object*, $SocketOption*), "java.io.IOException"},
-	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketImpl, getOutputStream, $OutputStream*), "java.io.IOException"},
-	{"getPort", "()I", nullptr, $PROTECTED, $virtualMethod(SocketImpl, getPort, int32_t)},
-	{"lambda$usePlainSocketImpl$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SocketImpl, lambda$usePlainSocketImpl$0, $String*)},
-	{"listen", "(I)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketImpl, listen, void, int32_t), "java.io.IOException"},
-	{"reset", "()V", nullptr, 0, $virtualMethod(SocketImpl, reset, void)},
-	{"sendUrgentData", "(I)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketImpl, sendUrgentData, void, int32_t), "java.io.IOException"},
-	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)V", $PROTECTED, $virtualMethod(SocketImpl, setOption, void, $SocketOption*, Object$*), "java.io.IOException"},
-	{"setPerformancePreferences", "(III)V", nullptr, $PROTECTED, $virtualMethod(SocketImpl, setPerformancePreferences, void, int32_t, int32_t, int32_t)},
-	{"shutdownInput", "()V", nullptr, $PROTECTED, $virtualMethod(SocketImpl, shutdownInput, void), "java.io.IOException"},
-	{"shutdownOutput", "()V", nullptr, $PROTECTED, $virtualMethod(SocketImpl, shutdownOutput, void), "java.io.IOException"},
-	{"supportedOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PROTECTED, $virtualMethod(SocketImpl, supportedOptions, $Set*)},
-	{"supportsUrgentData", "()Z", nullptr, $PROTECTED, $virtualMethod(SocketImpl, supportsUrgentData, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SocketImpl, toString, $String*)},
-	{"usePlainSocketImpl", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SocketImpl, usePlainSocketImpl, bool)},
-	{}
-};
-
-$ClassInfo _SocketImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.net.SocketImpl",
-	"java.lang.Object",
-	"java.net.SocketOptions",
-	_SocketImpl_FieldInfo_,
-	_SocketImpl_MethodInfo_
-};
-
-$Object* allocate$SocketImpl($Class* clazz) {
-	return $of($alloc(SocketImpl));
-}
 
 bool SocketImpl::USE_PLAINSOCKETIMPL = false;
 
 bool SocketImpl::usePlainSocketImpl() {
 	$init(SocketImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(SocketImpl$$Lambda$lambda$usePlainSocketImpl$0)));
+	$var($PrivilegedAction, pa, $new(SocketImpl$$Lambda$lambda$usePlainSocketImpl$0));
 	$var($String, s, $cast($String, $AccessController::doPrivileged(pa)));
 	return (s != nullptr) && !s->equalsIgnoreCase("false"_s);
 }
@@ -157,9 +96,9 @@ bool SocketImpl::usePlainSocketImpl() {
 SocketImpl* SocketImpl::createPlatformSocketImpl(bool server) {
 	$init(SocketImpl);
 	if (SocketImpl::USE_PLAINSOCKETIMPL) {
-		return static_cast<SocketImpl*>($new($PlainSocketImpl, server));
+		return $cast(SocketImpl, $new($PlainSocketImpl, server));
 	} else {
-		return static_cast<SocketImpl*>($new($NioSocketImpl, server));
+		return $cast(SocketImpl, $new($NioSocketImpl, server));
 	}
 }
 
@@ -202,12 +141,16 @@ int32_t SocketImpl::getLocalPort() {
 }
 
 $String* SocketImpl::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$3, $$str({"Socket[addr="_s, $(getInetAddress()), ",port="_s}));
-	$var($String, var$2, $$concat(var$3, $$str(getPort())));
-	$var($String, var$1, $$concat(var$2, ",localport="_s));
-	$var($String, var$0, $$concat(var$1, $$str(getLocalPort())));
-	return $concat(var$0, "]"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("Socket[addr="_s);
+	var$0->append($(getInetAddress()));
+	var$0->append(",port="_s);
+	var$0->append(getPort());
+	var$0->append(",localport="_s);
+	var$0->append(getLocalPort());
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 void SocketImpl::reset() {
@@ -250,7 +193,7 @@ $String* SocketImpl::lambda$usePlainSocketImpl$0() {
 	return $NetProperties::get("jdk.net.usePlainSocketImpl"_s);
 }
 
-void clinit$SocketImpl($Class* class$) {
+void SocketImpl::clinit$($Class* clazz) {
 	SocketImpl::USE_PLAINSOCKETIMPL = SocketImpl::usePlainSocketImpl();
 }
 
@@ -259,11 +202,63 @@ SocketImpl::SocketImpl() {
 
 $Class* SocketImpl::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SocketImpl$$Lambda$lambda$usePlainSocketImpl$0::classInfo$.name)) {
+		if (name->equals("java.net.SocketImpl$$Lambda$lambda$usePlainSocketImpl$0")) {
 			return SocketImpl$$Lambda$lambda$usePlainSocketImpl$0::load$(name, initialize);
 		}
 	}
-	$loadClass(SocketImpl, name, initialize, &_SocketImpl_ClassInfo_, clinit$SocketImpl, allocate$SocketImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"USE_PLAINSOCKETIMPL", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SocketImpl, USE_PLAINSOCKETIMPL)},
+		{"fd", "Ljava/io/FileDescriptor;", nullptr, $PROTECTED, $field(SocketImpl, fd)},
+		{"address", "Ljava/net/InetAddress;", nullptr, $PROTECTED, $field(SocketImpl, address)},
+		{"port", "I", nullptr, $PROTECTED, $field(SocketImpl, port)},
+		{"localport", "I", nullptr, $PROTECTED, $field(SocketImpl, localport)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SocketImpl, init$, void)},
+		{"accept", "(Ljava/net/SocketImpl;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketImpl, accept, void, SocketImpl*), "java.io.IOException"},
+		{"available", "()I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketImpl, available, int32_t), "java.io.IOException"},
+		{"bind", "(Ljava/net/InetAddress;I)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketImpl, bind, void, $InetAddress*, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketImpl, close, void), "java.io.IOException"},
+		{"closeQuietly", "()V", nullptr, 0, $virtualMethod(SocketImpl, closeQuietly, void)},
+		{"connect", "(Ljava/lang/String;I)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketImpl, connect, void, $String*, int32_t), "java.io.IOException"},
+		{"connect", "(Ljava/net/InetAddress;I)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketImpl, connect, void, $InetAddress*, int32_t), "java.io.IOException"},
+		{"connect", "(Ljava/net/SocketAddress;I)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketImpl, connect, void, $SocketAddress*, int32_t), "java.io.IOException"},
+		{"copyOptionsTo", "(Ljava/net/SocketImpl;)V", nullptr, 0, $virtualMethod(SocketImpl, copyOptionsTo, void, SocketImpl*)},
+		{"create", "(Z)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketImpl, create, void, bool), "java.io.IOException"},
+		{"createPlatformSocketImpl", "(Z)Ljava/net/SocketImpl;", "<S:Ljava/net/SocketImpl;:Lsun/net/PlatformSocketImpl;>(Z)TS;", $STATIC, $staticMethod(SocketImpl, createPlatformSocketImpl, SocketImpl*, bool)},
+		{"getFileDescriptor", "()Ljava/io/FileDescriptor;", nullptr, $PROTECTED, $virtualMethod(SocketImpl, getFileDescriptor, $FileDescriptor*)},
+		{"getInetAddress", "()Ljava/net/InetAddress;", nullptr, $PROTECTED, $virtualMethod(SocketImpl, getInetAddress, $InetAddress*)},
+		{"getInputStream", "()Ljava/io/InputStream;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketImpl, getInputStream, $InputStream*), "java.io.IOException"},
+		{"getLocalPort", "()I", nullptr, $PROTECTED, $virtualMethod(SocketImpl, getLocalPort, int32_t)},
+		{"getOption", "(Ljava/net/SocketOption;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;)TT;", $PROTECTED, $virtualMethod(SocketImpl, getOption, $Object*, $SocketOption*), "java.io.IOException"},
+		{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketImpl, getOutputStream, $OutputStream*), "java.io.IOException"},
+		{"getPort", "()I", nullptr, $PROTECTED, $virtualMethod(SocketImpl, getPort, int32_t)},
+		{"lambda$usePlainSocketImpl$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SocketImpl, lambda$usePlainSocketImpl$0, $String*)},
+		{"listen", "(I)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketImpl, listen, void, int32_t), "java.io.IOException"},
+		{"reset", "()V", nullptr, 0, $virtualMethod(SocketImpl, reset, void)},
+		{"sendUrgentData", "(I)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketImpl, sendUrgentData, void, int32_t), "java.io.IOException"},
+		{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)V", $PROTECTED, $virtualMethod(SocketImpl, setOption, void, $SocketOption*, Object$*), "java.io.IOException"},
+		{"setPerformancePreferences", "(III)V", nullptr, $PROTECTED, $virtualMethod(SocketImpl, setPerformancePreferences, void, int32_t, int32_t, int32_t)},
+		{"shutdownInput", "()V", nullptr, $PROTECTED, $virtualMethod(SocketImpl, shutdownInput, void), "java.io.IOException"},
+		{"shutdownOutput", "()V", nullptr, $PROTECTED, $virtualMethod(SocketImpl, shutdownOutput, void), "java.io.IOException"},
+		{"supportedOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/SocketOption<*>;>;", $PROTECTED, $virtualMethod(SocketImpl, supportedOptions, $Set*)},
+		{"supportsUrgentData", "()Z", nullptr, $PROTECTED, $virtualMethod(SocketImpl, supportsUrgentData, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SocketImpl, toString, $String*)},
+		{"usePlainSocketImpl", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SocketImpl, usePlainSocketImpl, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.net.SocketImpl",
+		"java.lang.Object",
+		"java.net.SocketOptions",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SocketImpl, name, initialize, &classInfo$$, SocketImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketImpl);
+	});
 	return class$;
 }
 

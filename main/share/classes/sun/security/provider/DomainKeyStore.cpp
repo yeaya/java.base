@@ -1,12 +1,10 @@
 #include <sun/security/provider/DomainKeyStore.h>
-
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
 #include <java/io/OutputStream.h>
-#include <java/io/Reader.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/net/MalformedURLException.h>
@@ -65,7 +63,6 @@ using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
 using $OutputStream = ::java::io::OutputStream;
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -101,7 +98,6 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $DomainKeyStore$1 = ::sun::security::provider::DomainKeyStore$1;
 using $DomainKeyStore$KeyStoreBuilderComponents = ::sun::security::provider::DomainKeyStore$KeyStoreBuilderComponents;
 using $PolicyParser = ::sun::security::provider::PolicyParser;
@@ -113,75 +109,6 @@ using $PolicyUtil = ::sun::security::util::PolicyUtil;
 namespace sun {
 	namespace security {
 		namespace provider {
-
-$FieldInfo _DomainKeyStore_FieldInfo_[] = {
-	{"ENTRY_NAME_SEPARATOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DomainKeyStore, ENTRY_NAME_SEPARATOR)},
-	{"KEYSTORE_PROVIDER_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DomainKeyStore, KEYSTORE_PROVIDER_NAME)},
-	{"KEYSTORE_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DomainKeyStore, KEYSTORE_TYPE)},
-	{"KEYSTORE_URI", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DomainKeyStore, KEYSTORE_URI)},
-	{"KEYSTORE_PASSWORD_ENV", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DomainKeyStore, KEYSTORE_PASSWORD_ENV)},
-	{"REGEX_META", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DomainKeyStore, REGEX_META)},
-	{"DEFAULT_STREAM_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DomainKeyStore, DEFAULT_STREAM_PREFIX)},
-	{"streamCounter", "I", nullptr, $PRIVATE, $field(DomainKeyStore, streamCounter)},
-	{"entryNameSeparator", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DomainKeyStore, entryNameSeparator)},
-	{"entryNameSeparatorRegEx", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DomainKeyStore, entryNameSeparatorRegEx)},
-	{"DEFAULT_KEYSTORE_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DomainKeyStore, DEFAULT_KEYSTORE_TYPE)},
-	{"keystores", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/security/KeyStore;>;", $PRIVATE | $FINAL, $field(DomainKeyStore, keystores)},
-	{}
-};
-
-$MethodInfo _DomainKeyStore_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DomainKeyStore, init$, void)},
-	{"convertAlias", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $ABSTRACT, $virtualMethod(DomainKeyStore, convertAlias, $String*, $String*)},
-	{"engineAliases", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(DomainKeyStore, engineAliases, $Enumeration*)},
-	{"engineContainsAlias", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineContainsAlias, bool, $String*)},
-	{"engineDeleteEntry", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineDeleteEntry, void, $String*), "java.security.KeyStoreException"},
-	{"engineGetCertificate", "(Ljava/lang/String;)Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineGetCertificate, $Certificate*, $String*)},
-	{"engineGetCertificateAlias", "(Ljava/security/cert/Certificate;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineGetCertificateAlias, $String*, $Certificate*)},
-	{"engineGetCertificateChain", "(Ljava/lang/String;)[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineGetCertificateChain, $CertificateArray*, $String*)},
-	{"engineGetCreationDate", "(Ljava/lang/String;)Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineGetCreationDate, $Date*, $String*)},
-	{"engineGetKey", "(Ljava/lang/String;[C)Ljava/security/Key;", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineGetKey, $Key*, $String*, $chars*), "java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
-	{"engineIsCertificateEntry", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineIsCertificateEntry, bool, $String*)},
-	{"engineIsKeyEntry", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineIsKeyEntry, bool, $String*)},
-	{"engineLoad", "(Ljava/io/InputStream;[C)V", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineLoad, void, $InputStream*, $chars*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
-	{"engineLoad", "(Ljava/security/KeyStore$LoadStoreParameter;)V", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineLoad, void, $KeyStore$LoadStoreParameter*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
-	{"engineSetCertificateEntry", "(Ljava/lang/String;Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineSetCertificateEntry, void, $String*, $Certificate*), "java.security.KeyStoreException"},
-	{"engineSetKeyEntry", "(Ljava/lang/String;Ljava/security/Key;[C[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineSetKeyEntry, void, $String*, $Key*, $chars*, $CertificateArray*), "java.security.KeyStoreException"},
-	{"engineSetKeyEntry", "(Ljava/lang/String;[B[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineSetKeyEntry, void, $String*, $bytes*, $CertificateArray*), "java.security.KeyStoreException"},
-	{"engineSize", "()I", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineSize, int32_t)},
-	{"engineStore", "(Ljava/io/OutputStream;[C)V", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineStore, void, $OutputStream*, $chars*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
-	{"engineStore", "(Ljava/security/KeyStore$LoadStoreParameter;)V", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineStore, void, $KeyStore$LoadStoreParameter*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
-	{"getBuilders", "(Ljava/net/URI;Ljava/util/Map;)Ljava/util/List;", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;>;)Ljava/util/List<Lsun/security/provider/DomainKeyStore$KeyStoreBuilderComponents;>;", $PRIVATE, $method(DomainKeyStore, getBuilders, $List*, $URI*, $Map*), "java.io.IOException"},
-	{"getKeystoreForWriting", "(Ljava/lang/String;)Ljava/util/AbstractMap$SimpleEntry;", "(Ljava/lang/String;)Ljava/util/AbstractMap$SimpleEntry<Ljava/lang/String;Ljava/util/AbstractMap$SimpleEntry<Ljava/lang/String;Ljava/security/KeyStore;>;>;", $PRIVATE, $method(DomainKeyStore, getKeystoreForWriting, $AbstractMap$SimpleEntry*, $String*)},
-	{"getKeystoresForReading", "(Ljava/lang/String;)Ljava/util/AbstractMap$SimpleEntry;", "(Ljava/lang/String;)Ljava/util/AbstractMap$SimpleEntry<Ljava/lang/String;Ljava/util/Collection<Ljava/security/KeyStore;>;>;", $PRIVATE, $method(DomainKeyStore, getKeystoresForReading, $AbstractMap$SimpleEntry*, $String*)},
-	{}
-};
-
-$InnerClassInfo _DomainKeyStore_InnerClassesInfo_[] = {
-	{"sun.security.provider.DomainKeyStore$KeyStoreBuilderComponents", "sun.security.provider.DomainKeyStore", "KeyStoreBuilderComponents", $STATIC},
-	{"sun.security.provider.DomainKeyStore$DKS", "sun.security.provider.DomainKeyStore", "DKS", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.DomainKeyStore$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DomainKeyStore_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.security.provider.DomainKeyStore",
-	"java.security.KeyStoreSpi",
-	nullptr,
-	_DomainKeyStore_FieldInfo_,
-	_DomainKeyStore_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DomainKeyStore_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.provider.DomainKeyStore$KeyStoreBuilderComponents,sun.security.provider.DomainKeyStore$DKS,sun.security.provider.DomainKeyStore$1"
-};
-
-$Object* allocate$DomainKeyStore($Class* clazz) {
-	return $of($alloc(DomainKeyStore));
-}
 
 $String* DomainKeyStore::ENTRY_NAME_SEPARATOR = nullptr;
 $String* DomainKeyStore::KEYSTORE_PROVIDER_NAME = nullptr;
@@ -201,13 +128,13 @@ void DomainKeyStore::init$() {
 }
 
 $Key* DomainKeyStore::engineGetKey($String* alias, $chars* password) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractMap$SimpleEntry, pair, getKeystoresForReading(alias));
 	$var($Key, key, nullptr);
 	try {
 		$var($String, entryAlias, $cast($String, $nc(pair)->getKey()));
 		{
-			$var($Iterator, i$, $nc(($cast($Collection, $(pair->getValue()))))->iterator());
+			$var($Iterator, i$, $$sure($Collection, pair->getValue())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($KeyStore, keystore, $cast($KeyStore, i$->next()));
 				{
@@ -219,19 +146,19 @@ $Key* DomainKeyStore::engineGetKey($String* alias, $chars* password) {
 			}
 		}
 	} catch ($KeyStoreException& e) {
-		$throwNew($IllegalStateException, static_cast<$Throwable*>(e));
+		$throwNew($IllegalStateException, e);
 	}
 	return key;
 }
 
 $CertificateArray* DomainKeyStore::engineGetCertificateChain($String* alias) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractMap$SimpleEntry, pair, getKeystoresForReading(alias));
 	$var($CertificateArray, chain, nullptr);
 	try {
 		$var($String, entryAlias, $cast($String, $nc(pair)->getKey()));
 		{
-			$var($Iterator, i$, $nc(($cast($Collection, $(pair->getValue()))))->iterator());
+			$var($Iterator, i$, $$sure($Collection, pair->getValue())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($KeyStore, keystore, $cast($KeyStore, i$->next()));
 				{
@@ -243,19 +170,19 @@ $CertificateArray* DomainKeyStore::engineGetCertificateChain($String* alias) {
 			}
 		}
 	} catch ($KeyStoreException& e) {
-		$throwNew($IllegalStateException, static_cast<$Throwable*>(e));
+		$throwNew($IllegalStateException, e);
 	}
 	return chain;
 }
 
 $Certificate* DomainKeyStore::engineGetCertificate($String* alias) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractMap$SimpleEntry, pair, getKeystoresForReading(alias));
 	$var($Certificate, cert, nullptr);
 	try {
 		$var($String, entryAlias, $cast($String, $nc(pair)->getKey()));
 		{
-			$var($Iterator, i$, $nc(($cast($Collection, $(pair->getValue()))))->iterator());
+			$var($Iterator, i$, $$sure($Collection, pair->getValue())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($KeyStore, keystore, $cast($KeyStore, i$->next()));
 				{
@@ -267,19 +194,19 @@ $Certificate* DomainKeyStore::engineGetCertificate($String* alias) {
 			}
 		}
 	} catch ($KeyStoreException& e) {
-		$throwNew($IllegalStateException, static_cast<$Throwable*>(e));
+		$throwNew($IllegalStateException, e);
 	}
 	return cert;
 }
 
 $Date* DomainKeyStore::engineGetCreationDate($String* alias) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractMap$SimpleEntry, pair, getKeystoresForReading(alias));
 	$var($Date, date, nullptr);
 	try {
 		$var($String, entryAlias, $cast($String, $nc(pair)->getKey()));
 		{
-			$var($Iterator, i$, $nc(($cast($Collection, $(pair->getValue()))))->iterator());
+			$var($Iterator, i$, $$sure($Collection, pair->getValue())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($KeyStore, keystore, $cast($KeyStore, i$->next()));
 				{
@@ -291,165 +218,157 @@ $Date* DomainKeyStore::engineGetCreationDate($String* alias) {
 			}
 		}
 	} catch ($KeyStoreException& e) {
-		$throwNew($IllegalStateException, static_cast<$Throwable*>(e));
+		$throwNew($IllegalStateException, e);
 	}
 	return date;
 }
 
 void DomainKeyStore::engineSetKeyEntry($String* alias, $Key* key, $chars* password, $CertificateArray* chain) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractMap$SimpleEntry, pair, getKeystoreForWriting(alias));
 	if (pair == nullptr) {
 		$throwNew($KeyStoreException, $$str({"Error setting key entry for \'"_s, alias, "\'"_s}));
 	}
 	$var($String, entryAlias, $cast($String, $nc(pair)->getKey()));
 	$var($Map$Entry, keystore, $cast($Map$Entry, pair->getValue()));
-	$nc(($cast($KeyStore, $($nc(keystore)->getValue()))))->setKeyEntry(entryAlias, key, password, chain);
+	$$sure($KeyStore, $nc(keystore)->getValue())->setKeyEntry(entryAlias, key, password, chain);
 }
 
 void DomainKeyStore::engineSetKeyEntry($String* alias, $bytes* key, $CertificateArray* chain) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractMap$SimpleEntry, pair, getKeystoreForWriting(alias));
 	if (pair == nullptr) {
 		$throwNew($KeyStoreException, $$str({"Error setting protected key entry for \'"_s, alias, "\'"_s}));
 	}
 	$var($String, entryAlias, $cast($String, $nc(pair)->getKey()));
 	$var($Map$Entry, keystore, $cast($Map$Entry, pair->getValue()));
-	$nc(($cast($KeyStore, $($nc(keystore)->getValue()))))->setKeyEntry(entryAlias, key, chain);
+	$$sure($KeyStore, $nc(keystore)->getValue())->setKeyEntry(entryAlias, key, chain);
 }
 
 void DomainKeyStore::engineSetCertificateEntry($String* alias, $Certificate* cert) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractMap$SimpleEntry, pair, getKeystoreForWriting(alias));
 	if (pair == nullptr) {
 		$throwNew($KeyStoreException, $$str({"Error setting certificate entry for \'"_s, alias, "\'"_s}));
 	}
 	$var($String, entryAlias, $cast($String, $nc(pair)->getKey()));
 	$var($Map$Entry, keystore, $cast($Map$Entry, pair->getValue()));
-	$nc(($cast($KeyStore, $($nc(keystore)->getValue()))))->setCertificateEntry(entryAlias, cert);
+	$$sure($KeyStore, $nc(keystore)->getValue())->setCertificateEntry(entryAlias, cert);
 }
 
 void DomainKeyStore::engineDeleteEntry($String* alias) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractMap$SimpleEntry, pair, getKeystoreForWriting(alias));
 	if (pair == nullptr) {
 		$throwNew($KeyStoreException, $$str({"Error deleting entry for \'"_s, alias, "\'"_s}));
 	}
 	$var($String, entryAlias, $cast($String, $nc(pair)->getKey()));
 	$var($Map$Entry, keystore, $cast($Map$Entry, pair->getValue()));
-	$nc(($cast($KeyStore, $($nc(keystore)->getValue()))))->deleteEntry(entryAlias);
+	$$sure($KeyStore, $nc(keystore)->getValue())->deleteEntry(entryAlias);
 }
 
 $Enumeration* DomainKeyStore::engineAliases() {
-	$useLocalCurrentObjectStackCache();
-	$var($Iterator, iterator, $nc($($nc(this->keystores)->entrySet()))->iterator());
+	$useLocalObjectStack();
+	$var($Iterator, iterator, $$nc(this->keystores->entrySet())->iterator());
 	return $new($DomainKeyStore$1, this, iterator);
 }
 
 bool DomainKeyStore::engineContainsAlias($String* alias) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractMap$SimpleEntry, pair, getKeystoresForReading(alias));
 	try {
 		$var($String, entryAlias, $cast($String, $nc(pair)->getKey()));
 		{
-			$var($Iterator, i$, $nc(($cast($Collection, $(pair->getValue()))))->iterator());
+			$var($Iterator, i$, $$sure($Collection, pair->getValue())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($KeyStore, keystore, $cast($KeyStore, i$->next()));
-				{
-					if ($nc(keystore)->containsAlias(entryAlias)) {
-						return true;
-					}
+				if ($nc(keystore)->containsAlias(entryAlias)) {
+					return true;
 				}
 			}
 		}
 	} catch ($KeyStoreException& e) {
-		$throwNew($IllegalStateException, static_cast<$Throwable*>(e));
+		$throwNew($IllegalStateException, e);
 	}
 	return false;
 }
 
 int32_t DomainKeyStore::engineSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = 0;
 	try {
-		{
-			$var($Iterator, i$, $nc($($nc(this->keystores)->values()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($KeyStore, keystore, $cast($KeyStore, i$->next()));
-				{
-					size += $nc(keystore)->size();
-				}
+		$var($Iterator, i$, $$nc(this->keystores->values())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($KeyStore, keystore, $cast($KeyStore, i$->next()));
+			{
+				size += $nc(keystore)->size();
 			}
 		}
 	} catch ($KeyStoreException& e) {
-		$throwNew($IllegalStateException, static_cast<$Throwable*>(e));
+		$throwNew($IllegalStateException, e);
 	}
 	return size;
 }
 
 bool DomainKeyStore::engineIsKeyEntry($String* alias) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractMap$SimpleEntry, pair, getKeystoresForReading(alias));
 	try {
 		$var($String, entryAlias, $cast($String, $nc(pair)->getKey()));
 		{
-			$var($Iterator, i$, $nc(($cast($Collection, $(pair->getValue()))))->iterator());
+			$var($Iterator, i$, $$sure($Collection, pair->getValue())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($KeyStore, keystore, $cast($KeyStore, i$->next()));
-				{
-					if ($nc(keystore)->isKeyEntry(entryAlias)) {
-						return true;
-					}
+				if ($nc(keystore)->isKeyEntry(entryAlias)) {
+					return true;
 				}
 			}
 		}
 	} catch ($KeyStoreException& e) {
-		$throwNew($IllegalStateException, static_cast<$Throwable*>(e));
+		$throwNew($IllegalStateException, e);
 	}
 	return false;
 }
 
 bool DomainKeyStore::engineIsCertificateEntry($String* alias) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractMap$SimpleEntry, pair, getKeystoresForReading(alias));
 	try {
 		$var($String, entryAlias, $cast($String, $nc(pair)->getKey()));
 		{
-			$var($Iterator, i$, $nc(($cast($Collection, $(pair->getValue()))))->iterator());
+			$var($Iterator, i$, $$sure($Collection, pair->getValue())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($KeyStore, keystore, $cast($KeyStore, i$->next()));
-				{
-					if ($nc(keystore)->isCertificateEntry(entryAlias)) {
-						return true;
-					}
+				if ($nc(keystore)->isCertificateEntry(entryAlias)) {
+					return true;
 				}
 			}
 		}
 	} catch ($KeyStoreException& e) {
-		$throwNew($IllegalStateException, static_cast<$Throwable*>(e));
+		$throwNew($IllegalStateException, e);
 	}
 	return false;
 }
 
 $AbstractMap$SimpleEntry* DomainKeyStore::getKeystoresForReading($String* alias) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, splits, $nc(alias)->split(this->entryNameSeparatorRegEx, 2));
 	if (splits->length == 2) {
-		$var($KeyStore, keystore, $cast($KeyStore, $nc(this->keystores)->get(splits->get(0))));
+		$var($KeyStore, keystore, $cast($KeyStore, this->keystores->get(splits->get(0))));
 		if (keystore != nullptr) {
-			return $new($AbstractMap$SimpleEntry, splits->get(1), static_cast<$Collection*>($($Collections::singleton(keystore))));
+			return $new($AbstractMap$SimpleEntry, splits->get(1), $$cast($Collection, $Collections::singleton(keystore)));
 		}
 	} else if (splits->length == 1) {
-		return $new($AbstractMap$SimpleEntry, alias, $($nc(this->keystores)->values()));
+		return $new($AbstractMap$SimpleEntry, alias, $(this->keystores->values()));
 	}
-	return $new($AbstractMap$SimpleEntry, ""_s, static_cast<$Collection*>($($Collections::emptyList())));
+	return $new($AbstractMap$SimpleEntry, ""_s, $$cast($Collection, $Collections::emptyList()));
 }
 
 $AbstractMap$SimpleEntry* DomainKeyStore::getKeystoreForWriting($String* alias) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, splits, $nc(alias)->split(this->entryNameSeparator, 2));
 	if (splits->length == 2) {
-		$var($KeyStore, keystore, $cast($KeyStore, $nc(this->keystores)->get(splits->get(0))));
+		$var($KeyStore, keystore, $cast($KeyStore, this->keystores->get(splits->get(0))));
 		if (keystore != nullptr) {
 			return $new($AbstractMap$SimpleEntry, splits->get(1), $$new($AbstractMap$SimpleEntry, splits->get(0), keystore));
 		}
@@ -458,86 +377,80 @@ $AbstractMap$SimpleEntry* DomainKeyStore::getKeystoreForWriting($String* alias) 
 }
 
 $String* DomainKeyStore::engineGetCertificateAlias($Certificate* cert) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($String, alias, nullptr);
 		{
-			$var($Iterator, i$, $nc($($nc(this->keystores)->values()))->iterator());
+			$var($Iterator, i$, $$nc(this->keystores->values())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($KeyStore, keystore, $cast($KeyStore, i$->next()));
-				{
-					if (($assign(alias, $nc(keystore)->getCertificateAlias(cert))) != nullptr) {
-						break;
-					}
+				if (($assign(alias, $nc(keystore)->getCertificateAlias(cert))) != nullptr) {
+					break;
 				}
 			}
 		}
 		return alias;
 	} catch ($KeyStoreException& e) {
-		$throwNew($IllegalStateException, static_cast<$Throwable*>(e));
+		$throwNew($IllegalStateException, e);
 	}
 	$shouldNotReachHere();
 }
 
 void DomainKeyStore::engineStore($OutputStream* stream, $chars* password) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		if ($nc(this->keystores)->size() == 1) {
-			$nc(($cast($KeyStore, $($nc($($nc($($nc(this->keystores)->values()))->iterator()))->next()))))->store(stream, password);
+		if (this->keystores->size() == 1) {
+			$$sure($KeyStore, $$nc($$nc(this->keystores->values())->iterator())->next())->store(stream, password);
 			return;
 		}
 	} catch ($KeyStoreException& e) {
-		$throwNew($IllegalStateException, static_cast<$Throwable*>(e));
+		$throwNew($IllegalStateException, e);
 	}
 	$throwNew($UnsupportedOperationException, "This keystore must be stored using a DomainLoadStoreParameter"_s);
 }
 
 void DomainKeyStore::engineStore($KeyStore$LoadStoreParameter* param) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($DomainLoadStoreParameter, param)) {
 		$var($DomainLoadStoreParameter, domainParameter, $cast($DomainLoadStoreParameter, param));
-		$var($URI, var$0, $nc(domainParameter)->getConfiguration());
+		$var($URI, var$0, domainParameter->getConfiguration());
 		$var($List, builders, getBuilders(var$0, $(domainParameter->getProtectionParams())));
 		{
 			$var($Iterator, i$, $nc(builders)->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($DomainKeyStore$KeyStoreBuilderComponents, builder, $cast($DomainKeyStore$KeyStoreBuilderComponents, i$->next()));
-				{
-					try {
-						$var($KeyStore$ProtectionParameter, pp, $nc(builder)->protection);
-						if (!($instanceOf($KeyStore$PasswordProtection, pp))) {
-							$throwNew($KeyStoreException, static_cast<$Throwable*>($$new($IllegalArgumentException, "ProtectionParameter must be a KeyStore.PasswordProtection"_s)));
-						}
-						$var($chars, password, $nc(($cast($KeyStore$PasswordProtection, builder->protection)))->getPassword());
-						$var($KeyStore, keystore, $cast($KeyStore, $nc(this->keystores)->get(builder->name)));
-						{
-							$var($FileOutputStream, stream, $new($FileOutputStream, builder->file));
-							{
-								$var($Throwable, var$1, nullptr);
-								try {
-									try {
-										$nc(keystore)->store(stream, password);
-									} catch ($Throwable& t$) {
-										try {
-											stream->close();
-										} catch ($Throwable& x2) {
-											t$->addSuppressed(x2);
-										}
-										$throw(t$);
-									}
-								} catch ($Throwable& var$2) {
-									$assign(var$1, var$2);
-								} /*finally*/ {
-									stream->close();
-								}
-								if (var$1 != nullptr) {
-									$throw(var$1);
-								}
-							}
-						}
-					} catch ($KeyStoreException& e) {
-						$throwNew($IOException, static_cast<$Throwable*>(e));
+				try {
+					$var($KeyStore$ProtectionParameter, pp, $nc(builder)->protection);
+					if (!($instanceOf($KeyStore$PasswordProtection, pp))) {
+						$throwNew($KeyStoreException, $$new($IllegalArgumentException, "ProtectionParameter must be a KeyStore.PasswordProtection"_s));
 					}
+					$var($chars, password, $nc($cast($KeyStore$PasswordProtection, builder->protection))->getPassword());
+					$var($KeyStore, keystore, $cast($KeyStore, this->keystores->get(builder->name)));
+					{
+						$var($FileOutputStream, stream, $new($FileOutputStream, builder->file));
+						$var($Throwable, var$1, nullptr);
+						try {
+							try {
+								$nc(keystore)->store(stream, password);
+							} catch ($Throwable& t$) {
+								try {
+									stream->close();
+								} catch ($Throwable& x2) {
+									t$->addSuppressed(x2);
+								}
+								$throw(t$);
+							}
+						} catch ($Throwable& var$2) {
+							$assign(var$1, var$2);
+						} /*finally*/ {
+							stream->close();
+						}
+						if (var$1 != nullptr) {
+							$throw(var$1);
+						}
+					}
+				} catch ($KeyStoreException& e) {
+					$throwNew($IOException, e);
 				}
 			}
 		}
@@ -547,7 +460,7 @@ void DomainKeyStore::engineStore($KeyStore$LoadStoreParameter* param) {
 }
 
 void DomainKeyStore::engineLoad($InputStream* stream, $chars* password) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($KeyStore, keystore, nullptr);
 		try {
@@ -561,34 +474,34 @@ void DomainKeyStore::engineLoad($InputStream* stream, $chars* password) {
 				$throw(e);
 			}
 		}
-		$var($String, var$0, DomainKeyStore::DEFAULT_STREAM_PREFIX);
-		$var($String, keystoreName, $concat(var$0, $$str(this->streamCounter++)));
-		$nc(this->keystores)->put(keystoreName, keystore);
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append(DomainKeyStore::DEFAULT_STREAM_PREFIX);
+		var$0->append(this->streamCounter++);
+		$var($String, keystoreName, $str(var$0));
+		this->keystores->put(keystoreName, keystore);
 	} catch ($Exception& e) {
 		$throwNew($UnsupportedOperationException, "This keystore must be loaded using a DomainLoadStoreParameter"_s);
 	}
 }
 
 void DomainKeyStore::engineLoad($KeyStore$LoadStoreParameter* param) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($DomainLoadStoreParameter, param)) {
 		$var($DomainLoadStoreParameter, domainParameter, $cast($DomainLoadStoreParameter, param));
-		$var($URI, var$0, $nc(domainParameter)->getConfiguration());
+		$var($URI, var$0, domainParameter->getConfiguration());
 		$var($List, builders, getBuilders(var$0, $(domainParameter->getProtectionParams())));
 		{
 			$var($Iterator, i$, $nc(builders)->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($DomainKeyStore$KeyStoreBuilderComponents, builder, $cast($DomainKeyStore$KeyStoreBuilderComponents, i$->next()));
-				{
-					try {
-						if ($nc(builder)->file != nullptr) {
-							$nc(this->keystores)->put(builder->name, $($nc($($KeyStore$Builder::newInstance(builder->type, builder->provider, builder->file, builder->protection)))->getKeyStore()));
-						} else {
-							$nc(this->keystores)->put(builder->name, $($nc($($KeyStore$Builder::newInstance(builder->type, builder->provider, builder->protection)))->getKeyStore()));
-						}
-					} catch ($KeyStoreException& e) {
-						$throwNew($IOException, static_cast<$Throwable*>(e));
+				try {
+					if ($nc(builder)->file != nullptr) {
+						this->keystores->put(builder->name, $($$nc($KeyStore$Builder::newInstance(builder->type, builder->provider, builder->file, builder->protection))->getKeyStore()));
+					} else {
+						this->keystores->put(builder->name, $($$nc($KeyStore$Builder::newInstance(builder->type, builder->provider, builder->protection))->getKeyStore()));
 					}
+				} catch ($KeyStoreException& e) {
+					$throwNew($IOException, e);
 				}
 			}
 		}
@@ -598,7 +511,7 @@ void DomainKeyStore::engineLoad($KeyStore$LoadStoreParameter* param) {
 }
 
 $List* DomainKeyStore::getBuilders($URI* configuration, $Map* passwords) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PolicyParser, parser, $new($PolicyParser, true));
 	$var($Collection, domains, nullptr);
 	$var($List, builders, $new($ArrayList));
@@ -606,33 +519,31 @@ $List* DomainKeyStore::getBuilders($URI* configuration, $Map* passwords) {
 	try {
 		$init($StandardCharsets);
 		$var($InputStreamReader, configurationReader, $new($InputStreamReader, $($PolicyUtil::getInputStream($(configuration->toURL()))), $StandardCharsets::UTF_8));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				parser->read(configurationReader);
+				$assign(domains, parser->getDomainEntries());
+			} catch ($Throwable& t$) {
 				try {
-					parser->read(configurationReader);
-					$assign(domains, parser->getDomainEntries());
-				} catch ($Throwable& t$) {
-					try {
-						configurationReader->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+					configurationReader->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				configurationReader->close();
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			configurationReader->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} catch ($MalformedURLException& mue) {
-		$throwNew($IOException, static_cast<$Throwable*>(mue));
+		$throwNew($IOException, mue);
 	} catch ($PolicyParser$ParsingException& pe) {
-		$throwNew($IOException, static_cast<$Throwable*>(pe));
+		$throwNew($IOException, pe);
 	}
 	{
 		$var($Iterator, i$, $nc(domains)->iterator());
@@ -645,11 +556,11 @@ $List* DomainKeyStore::getBuilders($URI* configuration, $Map* passwords) {
 				}
 				if ($nc(domainProperties)->containsKey(DomainKeyStore::ENTRY_NAME_SEPARATOR)) {
 					$set(this, entryNameSeparator, $cast($String, domainProperties->get(DomainKeyStore::ENTRY_NAME_SEPARATOR)));
-					char16_t ch = (char16_t)0;
+					char16_t ch = 0;
 					$var($StringBuilder, s, $new($StringBuilder));
 					for (int32_t i = 0; i < $nc(this->entryNameSeparator)->length(); ++i) {
-						ch = $nc(this->entryNameSeparator)->charAt(i);
-						if ($nc(DomainKeyStore::REGEX_META)->indexOf((int32_t)ch) != -1) {
+						ch = this->entryNameSeparator->charAt(i);
+						if (DomainKeyStore::REGEX_META->indexOf(ch) != -1) {
 							s->append(u'\\');
 						}
 						s->append(ch);
@@ -720,7 +631,7 @@ $List* DomainKeyStore::getBuilders($URI* configuration, $Map* passwords) {
 	return builders;
 }
 
-void clinit$DomainKeyStore($Class* class$) {
+void DomainKeyStore::clinit$($Class* clazz) {
 	$assignStatic(DomainKeyStore::ENTRY_NAME_SEPARATOR, "entrynameseparator"_s);
 	$assignStatic(DomainKeyStore::KEYSTORE_PROVIDER_NAME, "keystoreprovidername"_s);
 	$assignStatic(DomainKeyStore::KEYSTORE_TYPE, "keystoretype"_s);
@@ -735,7 +646,70 @@ DomainKeyStore::DomainKeyStore() {
 }
 
 $Class* DomainKeyStore::load$($String* name, bool initialize) {
-	$loadClass(DomainKeyStore, name, initialize, &_DomainKeyStore_ClassInfo_, clinit$DomainKeyStore, allocate$DomainKeyStore);
+	$FieldInfo fieldInfos$$[] = {
+		{"ENTRY_NAME_SEPARATOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DomainKeyStore, ENTRY_NAME_SEPARATOR)},
+		{"KEYSTORE_PROVIDER_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DomainKeyStore, KEYSTORE_PROVIDER_NAME)},
+		{"KEYSTORE_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DomainKeyStore, KEYSTORE_TYPE)},
+		{"KEYSTORE_URI", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DomainKeyStore, KEYSTORE_URI)},
+		{"KEYSTORE_PASSWORD_ENV", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DomainKeyStore, KEYSTORE_PASSWORD_ENV)},
+		{"REGEX_META", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DomainKeyStore, REGEX_META)},
+		{"DEFAULT_STREAM_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DomainKeyStore, DEFAULT_STREAM_PREFIX)},
+		{"streamCounter", "I", nullptr, $PRIVATE, $field(DomainKeyStore, streamCounter)},
+		{"entryNameSeparator", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DomainKeyStore, entryNameSeparator)},
+		{"entryNameSeparatorRegEx", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DomainKeyStore, entryNameSeparatorRegEx)},
+		{"DEFAULT_KEYSTORE_TYPE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DomainKeyStore, DEFAULT_KEYSTORE_TYPE)},
+		{"keystores", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/security/KeyStore;>;", $PRIVATE | $FINAL, $field(DomainKeyStore, keystores)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DomainKeyStore, init$, void)},
+		{"convertAlias", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $ABSTRACT, $virtualMethod(DomainKeyStore, convertAlias, $String*, $String*)},
+		{"engineAliases", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(DomainKeyStore, engineAliases, $Enumeration*)},
+		{"engineContainsAlias", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineContainsAlias, bool, $String*)},
+		{"engineDeleteEntry", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineDeleteEntry, void, $String*), "java.security.KeyStoreException"},
+		{"engineGetCertificate", "(Ljava/lang/String;)Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineGetCertificate, $Certificate*, $String*)},
+		{"engineGetCertificateAlias", "(Ljava/security/cert/Certificate;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineGetCertificateAlias, $String*, $Certificate*)},
+		{"engineGetCertificateChain", "(Ljava/lang/String;)[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineGetCertificateChain, $CertificateArray*, $String*)},
+		{"engineGetCreationDate", "(Ljava/lang/String;)Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineGetCreationDate, $Date*, $String*)},
+		{"engineGetKey", "(Ljava/lang/String;[C)Ljava/security/Key;", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineGetKey, $Key*, $String*, $chars*), "java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
+		{"engineIsCertificateEntry", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineIsCertificateEntry, bool, $String*)},
+		{"engineIsKeyEntry", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineIsKeyEntry, bool, $String*)},
+		{"engineLoad", "(Ljava/io/InputStream;[C)V", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineLoad, void, $InputStream*, $chars*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
+		{"engineLoad", "(Ljava/security/KeyStore$LoadStoreParameter;)V", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineLoad, void, $KeyStore$LoadStoreParameter*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
+		{"engineSetCertificateEntry", "(Ljava/lang/String;Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineSetCertificateEntry, void, $String*, $Certificate*), "java.security.KeyStoreException"},
+		{"engineSetKeyEntry", "(Ljava/lang/String;Ljava/security/Key;[C[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineSetKeyEntry, void, $String*, $Key*, $chars*, $CertificateArray*), "java.security.KeyStoreException"},
+		{"engineSetKeyEntry", "(Ljava/lang/String;[B[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineSetKeyEntry, void, $String*, $bytes*, $CertificateArray*), "java.security.KeyStoreException"},
+		{"engineSize", "()I", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineSize, int32_t)},
+		{"engineStore", "(Ljava/io/OutputStream;[C)V", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineStore, void, $OutputStream*, $chars*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
+		{"engineStore", "(Ljava/security/KeyStore$LoadStoreParameter;)V", nullptr, $PUBLIC, $virtualMethod(DomainKeyStore, engineStore, void, $KeyStore$LoadStoreParameter*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
+		{"getBuilders", "(Ljava/net/URI;Ljava/util/Map;)Ljava/util/List;", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;>;)Ljava/util/List<Lsun/security/provider/DomainKeyStore$KeyStoreBuilderComponents;>;", $PRIVATE, $method(DomainKeyStore, getBuilders, $List*, $URI*, $Map*), "java.io.IOException"},
+		{"getKeystoreForWriting", "(Ljava/lang/String;)Ljava/util/AbstractMap$SimpleEntry;", "(Ljava/lang/String;)Ljava/util/AbstractMap$SimpleEntry<Ljava/lang/String;Ljava/util/AbstractMap$SimpleEntry<Ljava/lang/String;Ljava/security/KeyStore;>;>;", $PRIVATE, $method(DomainKeyStore, getKeystoreForWriting, $AbstractMap$SimpleEntry*, $String*)},
+		{"getKeystoresForReading", "(Ljava/lang/String;)Ljava/util/AbstractMap$SimpleEntry;", "(Ljava/lang/String;)Ljava/util/AbstractMap$SimpleEntry<Ljava/lang/String;Ljava/util/Collection<Ljava/security/KeyStore;>;>;", $PRIVATE, $method(DomainKeyStore, getKeystoresForReading, $AbstractMap$SimpleEntry*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.DomainKeyStore$KeyStoreBuilderComponents", "sun.security.provider.DomainKeyStore", "KeyStoreBuilderComponents", $STATIC},
+		{"sun.security.provider.DomainKeyStore$DKS", "sun.security.provider.DomainKeyStore", "DKS", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.DomainKeyStore$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.security.provider.DomainKeyStore",
+		"java.security.KeyStoreSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.provider.DomainKeyStore$KeyStoreBuilderComponents,sun.security.provider.DomainKeyStore$DKS,sun.security.provider.DomainKeyStore$1"
+	};
+	$loadClass(DomainKeyStore, name, initialize, &classInfo$$, DomainKeyStore::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DomainKeyStore);
+	});
 	return class$;
 }
 

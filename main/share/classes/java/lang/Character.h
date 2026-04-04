@@ -167,11 +167,12 @@ namespace java {
 	namespace lang {
 
 class $export Character : public ::java::io::Serializable, public ::java::lang::Comparable, public ::java::lang::constant::Constable {
-	$class(Character, 0, ::java::io::Serializable, ::java::lang::Comparable, ::java::lang::constant::Constable)
+	$class(Character, $PREINIT, ::java::io::Serializable, ::java::lang::Comparable, ::java::lang::constant::Constable)
 public:
 	Character();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(char16_t value);
 	static int32_t charCount(int32_t codePoint);
 	char16_t charValue();
@@ -339,9 +340,9 @@ public:
 	static const char16_t MAX_SURROGATE = MAX_LOW_SURROGATE;
 	static const int32_t MIN_SUPPLEMENTARY_CODE_POINT = 0x00010000;
 	static const int32_t MIN_CODE_POINT = 0;
-	static const int32_t MAX_CODE_POINT = 0x0010FFFF;
+	static const int32_t MAX_CODE_POINT = 0x0010ffff;
 	char16_t value = 0;
-	static const int64_t serialVersionUID = (int64_t)0x348B47D96B1A2678;
+	static const int64_t serialVersionUID = (int64_t)0x348b47d96b1a2678;
 	static const int32_t SIZE = 16;
 	static const int32_t BYTES = 2; // SIZE / Byte.SIZE
 };

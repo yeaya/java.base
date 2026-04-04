@@ -1,5 +1,4 @@
 #include <java/util/regex/Pattern$Neg.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/util/regex/Matcher.h>
 #include <java/util/regex/Pattern$Node.h>
@@ -18,43 +17,6 @@ namespace java {
 	namespace util {
 		namespace regex {
 
-$FieldInfo _Pattern$Neg_FieldInfo_[] = {
-	{"cond", "Ljava/util/regex/Pattern$Node;", nullptr, 0, $field(Pattern$Neg, cond)},
-	{}
-};
-
-$MethodInfo _Pattern$Neg_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/regex/Pattern$Node;)V", nullptr, 0, $method(Pattern$Neg, init$, void, $Pattern$Node*)},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$Neg, match, bool, $Matcher*, int32_t, $CharSequence*)},
-	{}
-};
-
-$InnerClassInfo _Pattern$Neg_InnerClassesInfo_[] = {
-	{"java.util.regex.Pattern$Neg", "java.util.regex.Pattern", "Neg", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
-	{}
-};
-
-$ClassInfo _Pattern$Neg_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.regex.Pattern$Neg",
-	"java.util.regex.Pattern$Node",
-	nullptr,
-	_Pattern$Neg_FieldInfo_,
-	_Pattern$Neg_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pattern$Neg_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.regex.Pattern"
-};
-
-$Object* allocate$Pattern$Neg($Class* clazz) {
-	return $of($alloc(Pattern$Neg));
-}
-
 void Pattern$Neg::init$($Pattern$Node* cond) {
 	$Pattern$Node::init$();
 	$set(this, cond, cond);
@@ -66,23 +28,21 @@ bool Pattern$Neg::match($Matcher* matcher, int32_t i, $CharSequence* seq) {
 	if (matcher->transparentBounds) {
 		matcher->to = matcher->getTextLength();
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (i < matcher->to) {
-				conditionMatched = !$nc(this->cond)->match(matcher, i, seq);
-			} else {
-				matcher->requireEnd$ = true;
-				conditionMatched = !$nc(this->cond)->match(matcher, i, seq);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			matcher->to = savedTo;
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (i < matcher->to) {
+			conditionMatched = !$nc(this->cond)->match(matcher, i, seq);
+		} else {
+			matcher->requireEnd$ = true;
+			conditionMatched = !$nc(this->cond)->match(matcher, i, seq);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		matcher->to = savedTo;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return conditionMatched && $nc(this->next)->match(matcher, i, seq);
 }
@@ -91,7 +51,38 @@ Pattern$Neg::Pattern$Neg() {
 }
 
 $Class* Pattern$Neg::load$($String* name, bool initialize) {
-	$loadClass(Pattern$Neg, name, initialize, &_Pattern$Neg_ClassInfo_, allocate$Pattern$Neg);
+	$FieldInfo fieldInfos$$[] = {
+		{"cond", "Ljava/util/regex/Pattern$Node;", nullptr, 0, $field(Pattern$Neg, cond)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/regex/Pattern$Node;)V", nullptr, 0, $method(Pattern$Neg, init$, void, $Pattern$Node*)},
+		{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$Neg, match, bool, $Matcher*, int32_t, $CharSequence*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Pattern$Neg", "java.util.regex.Pattern", "Neg", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.regex.Pattern$Neg",
+		"java.util.regex.Pattern$Node",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.regex.Pattern"
+	};
+	$loadClass(Pattern$Neg, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$Neg);
+	});
 	return class$;
 }
 

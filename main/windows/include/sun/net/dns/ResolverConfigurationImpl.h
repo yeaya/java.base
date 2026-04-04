@@ -30,6 +30,7 @@ class $import ResolverConfigurationImpl : public ::sun::net::dns::ResolverConfig
 	$class(ResolverConfigurationImpl, 0, ::sun::net::dns::ResolverConfiguration)
 public:
 	ResolverConfigurationImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::java::util::ArrayList* addressesToList($String* str);
 	static void init0();

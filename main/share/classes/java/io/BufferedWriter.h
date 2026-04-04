@@ -13,6 +13,7 @@ class $export BufferedWriter : public ::java::io::Writer {
 	$class(BufferedWriter, $PRELOAD, ::java::io::Writer)
 public:
 	BufferedWriter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::Writer* out);
 	void init$(::java::io::Writer* out, int32_t sz);
 	virtual void close() override;

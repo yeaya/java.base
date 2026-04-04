@@ -14,10 +14,13 @@ public:
 	StreamCorruptedException();
 	void init$($String* reason);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x7CAC02968639F3C2;
+	static const int64_t serialVersionUID = (int64_t)0x7cac02968639f3c2;
 	StreamCorruptedException(const StreamCorruptedException& e);
 	virtual void throw$() override;
-	inline StreamCorruptedException* operator ->() {
+	inline StreamCorruptedException* operator ->() const {
+		return (StreamCorruptedException*)throwing$;
+	}
+	inline operator StreamCorruptedException*() const {
 		return (StreamCorruptedException*)throwing$;
 	}
 };

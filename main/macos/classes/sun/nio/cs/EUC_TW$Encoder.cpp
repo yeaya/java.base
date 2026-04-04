@@ -1,5 +1,4 @@
 #include <sun/nio/cs/EUC_TW$Encoder.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/Math.h>
 #include <java/nio/ByteBuffer.h>
@@ -39,55 +38,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$FieldInfo _EUC_TW$Encoder_FieldInfo_[] = {
-	{"bb", "[B", nullptr, $PRIVATE, $field(EUC_TW$Encoder, bb)},
-	{"c2b", "[C", nullptr, $STATIC | $FINAL, $staticField(EUC_TW$Encoder, c2b)},
-	{"c2bIndex", "[C", nullptr, $STATIC | $FINAL, $staticField(EUC_TW$Encoder, c2bIndex)},
-	{"c2bSupp", "[C", nullptr, $STATIC | $FINAL, $staticField(EUC_TW$Encoder, c2bSupp)},
-	{"c2bSuppIndex", "[C", nullptr, $STATIC | $FINAL, $staticField(EUC_TW$Encoder, c2bSuppIndex)},
-	{"c2bPlane", "[B", nullptr, $STATIC | $FINAL, $staticField(EUC_TW$Encoder, c2bPlane)},
-	{}
-};
-
-$MethodInfo _EUC_TW$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(EUC_TW$Encoder, init$, void, $Charset*)},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(EUC_TW$Encoder, canEncode, bool, char16_t)},
-	{"canEncode", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC, $virtualMethod(EUC_TW$Encoder, canEncode, bool, $CharSequence*)},
-	{"encode", "(CC[B)I", nullptr, $STATIC, $staticMethod(EUC_TW$Encoder, encode, int32_t, char16_t, char16_t, $bytes*)},
-	{"encode", "(C[B)I", nullptr, $STATIC, $staticMethod(EUC_TW$Encoder, encode, int32_t, char16_t, $bytes*)},
-	{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(EUC_TW$Encoder, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(EUC_TW$Encoder, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(EUC_TW$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"toEUC", "(CC[B)I", nullptr, $PUBLIC, $virtualMethod(EUC_TW$Encoder, toEUC, int32_t, char16_t, char16_t, $bytes*)},
-	{"toEUC", "(C[B)I", nullptr, $PUBLIC, $virtualMethod(EUC_TW$Encoder, toEUC, int32_t, char16_t, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _EUC_TW$Encoder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.EUC_TW$Encoder", "sun.nio.cs.EUC_TW", "Encoder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _EUC_TW$Encoder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.EUC_TW$Encoder",
-	"java.nio.charset.CharsetEncoder",
-	nullptr,
-	_EUC_TW$Encoder_FieldInfo_,
-	_EUC_TW$Encoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_EUC_TW$Encoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.EUC_TW"
-};
-
-$Object* allocate$EUC_TW$Encoder($Class* clazz) {
-	return $of($alloc(EUC_TW$Encoder));
-}
-
 $chars* EUC_TW$Encoder::c2b = nullptr;
 $chars* EUC_TW$Encoder::c2bIndex = nullptr;
 $chars* EUC_TW$Encoder::c2bSupp = nullptr;
@@ -100,7 +50,7 @@ void EUC_TW$Encoder::init$($Charset* cs) {
 }
 
 bool EUC_TW$Encoder::canEncode(char16_t c) {
-	return (c <= (char16_t)0x7F || toEUC(c, this->bb) != -1);
+	return (c <= (char16_t)0x7f || toEUC(c, this->bb) != -1);
 }
 
 bool EUC_TW$Encoder::canEncode($CharSequence* cs) {
@@ -132,7 +82,7 @@ int32_t EUC_TW$Encoder::toEUC(char16_t c, $bytes* bb) {
 }
 
 $CoderResult* EUC_TW$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, sa, $cast($chars, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -145,149 +95,145 @@ $CoderResult* EUC_TW$Encoder::encodeArrayLoop($CharBuffer* src, $ByteBuffer* dst
 	int32_t dl = var$3 + dst->limit();
 	int32_t inSize = 0;
 	int32_t outSize = 0;
-	{
-		$var($Throwable, var$4, nullptr);
-		$var($CoderResult, var$6, nullptr);
-		bool return$5 = false;
-		try {
-			while (sp < sl) {
-				char16_t c = $nc(sa)->get(sp);
-				inSize = 1;
-				if (c < 128) {
-					$nc(this->bb)->set(0, (int8_t)c);
-					outSize = 1;
-				} else {
-					outSize = toEUC(c, this->bb);
-					if (outSize == -1) {
-						if ($Character::isHighSurrogate(c)) {
-							if ((sp + 1) == sl) {
-								$init($CoderResult);
-								$assign(var$6, $CoderResult::UNDERFLOW);
-								return$5 = true;
-								goto $finally;
-							}
-							if (!$Character::isLowSurrogate(sa->get(sp + 1))) {
-								$assign(var$6, $CoderResult::malformedForLength(1));
-								return$5 = true;
-								goto $finally;
-							}
-							outSize = toEUC(c, sa->get(sp + 1), this->bb);
-							inSize = 2;
-						} else if ($Character::isLowSurrogate(c)) {
+	$var($Throwable, var$4, nullptr);
+	$var($CoderResult, var$6, nullptr);
+	bool return$5 = false;
+	try {
+		while (sp < sl) {
+			char16_t c = $nc(sa)->get(sp);
+			inSize = 1;
+			if (c < 128) {
+				$nc(this->bb)->set(0, (int8_t)c);
+				outSize = 1;
+			} else {
+				outSize = toEUC(c, this->bb);
+				if (outSize == -1) {
+					if ($Character::isHighSurrogate(c)) {
+						if ((sp + 1) == sl) {
+							$init($CoderResult);
+							$assign(var$6, $CoderResult::UNDERFLOW);
+							return$5 = true;
+							goto $finally;
+						}
+						if (!$Character::isLowSurrogate(sa->get(sp + 1))) {
 							$assign(var$6, $CoderResult::malformedForLength(1));
 							return$5 = true;
 							goto $finally;
 						}
+						outSize = toEUC(c, sa->get(sp + 1), this->bb);
+						inSize = 2;
+					} else if ($Character::isLowSurrogate(c)) {
+						$assign(var$6, $CoderResult::malformedForLength(1));
+						return$5 = true;
+						goto $finally;
 					}
 				}
-				if (outSize == -1) {
-					$assign(var$6, $CoderResult::unmappableForLength(inSize));
-					return$5 = true;
-					goto $finally;
-				}
-				if (dl - dp < outSize) {
-					$init($CoderResult);
-					$assign(var$6, $CoderResult::OVERFLOW);
-					return$5 = true;
-					goto $finally;
-				}
-				for (int32_t i = 0; i < outSize; ++i) {
-					$nc(da)->set(dp++, $nc(this->bb)->get(i));
-				}
-				sp += inSize;
 			}
-			$init($CoderResult);
-			$assign(var$6, $CoderResult::UNDERFLOW);
-			return$5 = true;
-			goto $finally;
-		} catch ($Throwable& var$7) {
-			$assign(var$4, var$7);
-		} $finally: {
-			src->position(sp - src->arrayOffset());
-			dst->position(dp - dst->arrayOffset());
+			if (outSize == -1) {
+				$assign(var$6, $CoderResult::unmappableForLength(inSize));
+				return$5 = true;
+				goto $finally;
+			}
+			if (dl - dp < outSize) {
+				$init($CoderResult);
+				$assign(var$6, $CoderResult::OVERFLOW);
+				return$5 = true;
+				goto $finally;
+			}
+			for (int32_t i = 0; i < outSize; ++i) {
+				$nc(da)->set(dp++, $nc(this->bb)->get(i));
+			}
+			sp += inSize;
 		}
-		if (var$4 != nullptr) {
-			$throw(var$4);
-		}
-		if (return$5) {
-			return var$6;
-		}
+		$init($CoderResult);
+		$assign(var$6, $CoderResult::UNDERFLOW);
+		return$5 = true;
+		goto $finally;
+	} catch ($Throwable& var$7) {
+		$assign(var$4, var$7);
+	} $finally: {
+		src->position(sp - src->arrayOffset());
+		dst->position(dp - dst->arrayOffset());
+	}
+	if (var$4 != nullptr) {
+		$throw(var$4);
+	}
+	if (return$5) {
+		return var$6;
 	}
 	$shouldNotReachHere();
 }
 
 $CoderResult* EUC_TW$Encoder::encodeBufferLoop($CharBuffer* src, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t outSize = 0;
 	int32_t inSize = 0;
 	int32_t mark = $nc(src)->position();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($CoderResult, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			while (src->hasRemaining()) {
-				inSize = 1;
-				char16_t c = src->get();
-				if (c < 128) {
-					outSize = 1;
-					$nc(this->bb)->set(0, (int8_t)c);
-				} else {
-					outSize = toEUC(c, this->bb);
-					if (outSize == -1) {
-						if ($Character::isHighSurrogate(c)) {
-							if (!src->hasRemaining()) {
-								$init($CoderResult);
-								$assign(var$2, $CoderResult::UNDERFLOW);
-								return$1 = true;
-								goto $finally;
-							}
-							char16_t c2 = src->get();
-							if (!$Character::isLowSurrogate(c2)) {
-								$assign(var$2, $CoderResult::malformedForLength(1));
-								return$1 = true;
-								goto $finally;
-							}
-							outSize = toEUC(c, c2, this->bb);
-							inSize = 2;
-						} else if ($Character::isLowSurrogate(c)) {
+	$var($Throwable, var$0, nullptr);
+	$var($CoderResult, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		while (src->hasRemaining()) {
+			inSize = 1;
+			char16_t c = src->get();
+			if (c < 128) {
+				outSize = 1;
+				$nc(this->bb)->set(0, (int8_t)c);
+			} else {
+				outSize = toEUC(c, this->bb);
+				if (outSize == -1) {
+					if ($Character::isHighSurrogate(c)) {
+						if (!src->hasRemaining()) {
+							$init($CoderResult);
+							$assign(var$2, $CoderResult::UNDERFLOW);
+							return$1 = true;
+							goto $finally;
+						}
+						char16_t c2 = src->get();
+						if (!$Character::isLowSurrogate(c2)) {
 							$assign(var$2, $CoderResult::malformedForLength(1));
 							return$1 = true;
 							goto $finally;
 						}
+						outSize = toEUC(c, c2, this->bb);
+						inSize = 2;
+					} else if ($Character::isLowSurrogate(c)) {
+						$assign(var$2, $CoderResult::malformedForLength(1));
+						return$1 = true;
+						goto $finally;
 					}
 				}
-				if (outSize == -1) {
-					$assign(var$2, $CoderResult::unmappableForLength(inSize));
-					return$1 = true;
-					goto $finally;
-				}
-				if ($nc(dst)->remaining() < outSize) {
-					$init($CoderResult);
-					$assign(var$2, $CoderResult::OVERFLOW);
-					return$1 = true;
-					goto $finally;
-				}
-				for (int32_t i = 0; i < outSize; ++i) {
-					$nc(dst)->put($nc(this->bb)->get(i));
-				}
-				mark += inSize;
 			}
-			$init($CoderResult);
-			$assign(var$2, $CoderResult::UNDERFLOW);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			src->position(mark);
+			if (outSize == -1) {
+				$assign(var$2, $CoderResult::unmappableForLength(inSize));
+				return$1 = true;
+				goto $finally;
+			}
+			if ($nc(dst)->remaining() < outSize) {
+				$init($CoderResult);
+				$assign(var$2, $CoderResult::OVERFLOW);
+				return$1 = true;
+				goto $finally;
+			}
+			for (int32_t i = 0; i < outSize; ++i) {
+				dst->put($nc(this->bb)->get(i));
+			}
+			mark += inSize;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		$init($CoderResult);
+		$assign(var$2, $CoderResult::UNDERFLOW);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		src->position(mark);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -304,22 +250,22 @@ $CoderResult* EUC_TW$Encoder::encodeLoop($CharBuffer* src, $ByteBuffer* dst) {
 int32_t EUC_TW$Encoder::encode(char16_t hi, char16_t low, $bytes* bb) {
 	$init(EUC_TW$Encoder);
 	int32_t c = $Character::toCodePoint(hi, low);
-	if (((int32_t)(c & (uint32_t)0x000F0000)) != 0x00020000) {
+	if ((c & 0x000f0000) != 0x00020000) {
 		return -1;
 	}
 	c -= 0x00020000;
 	int32_t index = $nc(EUC_TW$Encoder::c2bSuppIndex)->get(c >> 8);
-	if (index == 0x0000FFFD) {
+	if (index == 0x0000fffd) {
 		return -1;
 	}
-	index = index + ((int32_t)(c & (uint32_t)255));
+	index = index + (c & 0xff);
 	int32_t db = $nc(EUC_TW$Encoder::c2bSupp)->get(index);
-	if (db == 0x0000FFFD) {
+	if (db == 0x0000fffd) {
 		return -1;
 	}
-	int32_t p = (int32_t)(($nc(EUC_TW$Encoder::c2bPlane)->get(index) >> 4) & (uint32_t)15);
+	int32_t p = ($nc(EUC_TW$Encoder::c2bPlane)->get(index) >> 4) & 0x0f;
 	$nc(bb)->set(0, (int8_t)142);
-	bb->set(1, (int8_t)(160 | p));
+	bb->set(1, (int8_t)(0xa0 | p));
 	bb->set(2, (int8_t)(db >> 8));
 	bb->set(3, (int8_t)db);
 	return 4;
@@ -328,30 +274,30 @@ int32_t EUC_TW$Encoder::encode(char16_t hi, char16_t low, $bytes* bb) {
 int32_t EUC_TW$Encoder::encode(char16_t c, $bytes* bb) {
 	$init(EUC_TW$Encoder);
 	int32_t index = $nc(EUC_TW$Encoder::c2bIndex)->get(c >> 8);
-	if (index == 0x0000FFFD) {
+	if (index == 0x0000fffd) {
 		return -1;
 	}
-	index = index + ((int32_t)(c & (uint32_t)255));
+	index = index + (c & 0xff);
 	int32_t db = $nc(EUC_TW$Encoder::c2b)->get(index);
-	if (db == 0x0000FFFD) {
+	if (db == 0x0000fffd) {
 		return -1;
 	}
-	int32_t p = (int32_t)($nc(EUC_TW$Encoder::c2bPlane)->get(index) & (uint32_t)15);
+	int32_t p = $nc(EUC_TW$Encoder::c2bPlane)->get(index) & 0x0f;
 	if (p == 0) {
 		$nc(bb)->set(0, (int8_t)(db >> 8));
 		bb->set(1, (int8_t)db);
 		return 2;
 	} else {
 		$nc(bb)->set(0, (int8_t)142);
-		bb->set(1, (int8_t)(160 | p));
+		bb->set(1, (int8_t)(0xa0 | p));
 		bb->set(2, (int8_t)(db >> 8));
 		bb->set(3, (int8_t)db);
 		return 4;
 	}
 }
 
-void clinit$EUC_TW$Encoder($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void EUC_TW$Encoder::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		int32_t b1Min = $EUC_TW$Decoder::b1Min;
 		int32_t b1Max = $EUC_TW$Decoder::b1Max;
@@ -367,8 +313,8 @@ void clinit$EUC_TW$Encoder($Class* class$) {
 		$var($chars, c2b0, $new($chars, $EUC_TWMapping::C2BSIZE));
 		$var($chars, c2bSupp0, $new($chars, $EUC_TWMapping::C2BSUPPSIZE));
 		$var($bytes, c2bPlane0, $new($bytes, $Math::max($EUC_TWMapping::C2BSIZE, $EUC_TWMapping::C2BSUPPSIZE)));
-		$Arrays::fill(c2b0, (char16_t)0x0000FFFD);
-		$Arrays::fill(c2bSupp0, (char16_t)0x0000FFFD);
+		$Arrays::fill(c2b0, (char16_t)0x0000fffd);
+		$Arrays::fill(c2bSupp0, (char16_t)0x0000fffd);
 		for (int32_t p = 0; p < $nc(b2c)->length; ++p) {
 			$var($String, db, b2c->get(p));
 			int32_t plane = p;
@@ -381,13 +327,13 @@ void clinit$EUC_TW$Encoder($Class* class$) {
 			for (int32_t b1 = b1Min; b1 <= b1Max; ++b1) {
 				for (int32_t b2 = b2Min; b2 <= b2Max; ++b2) {
 					char16_t c = $nc(db)->charAt(off);
-					if (c != (char16_t)0xFFFD) {
-						if (((int32_t)($nc(b2cIsSupp)->get(off) & (uint32_t)($sl(1, p)))) != 0) {
-							int32_t index = $nc(EUC_TW$Encoder::c2bSuppIndex)->get(c >> 8) + ((int32_t)(c & (uint32_t)255));
+					if (c != (char16_t)0xfffd) {
+						if (($nc(b2cIsSupp)->get(off) & ($sl(1, p))) != 0) {
+							int32_t index = $nc(EUC_TW$Encoder::c2bSuppIndex)->get(c >> 8) + (c & 0xff);
 							c2bSupp0->set(index, (char16_t)((b1 << 8) + b2));
 							(*c2bPlane0)[index] |= (int8_t)(plane << 4);
 						} else {
-							int32_t index = $nc(EUC_TW$Encoder::c2bIndex)->get(c >> 8) + ((int32_t)(c & (uint32_t)255));
+							int32_t index = $nc(EUC_TW$Encoder::c2bIndex)->get(c >> 8) + (c & 0xff);
 							c2b0->set(index, (char16_t)((b1 << 8) + b2));
 							(*c2bPlane0)[index] |= (int8_t)plane;
 						}
@@ -406,7 +352,50 @@ EUC_TW$Encoder::EUC_TW$Encoder() {
 }
 
 $Class* EUC_TW$Encoder::load$($String* name, bool initialize) {
-	$loadClass(EUC_TW$Encoder, name, initialize, &_EUC_TW$Encoder_ClassInfo_, clinit$EUC_TW$Encoder, allocate$EUC_TW$Encoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"bb", "[B", nullptr, $PRIVATE, $field(EUC_TW$Encoder, bb)},
+		{"c2b", "[C", nullptr, $STATIC | $FINAL, $staticField(EUC_TW$Encoder, c2b)},
+		{"c2bIndex", "[C", nullptr, $STATIC | $FINAL, $staticField(EUC_TW$Encoder, c2bIndex)},
+		{"c2bSupp", "[C", nullptr, $STATIC | $FINAL, $staticField(EUC_TW$Encoder, c2bSupp)},
+		{"c2bSuppIndex", "[C", nullptr, $STATIC | $FINAL, $staticField(EUC_TW$Encoder, c2bSuppIndex)},
+		{"c2bPlane", "[B", nullptr, $STATIC | $FINAL, $staticField(EUC_TW$Encoder, c2bPlane)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(EUC_TW$Encoder, init$, void, $Charset*)},
+		{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(EUC_TW$Encoder, canEncode, bool, char16_t)},
+		{"canEncode", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC, $virtualMethod(EUC_TW$Encoder, canEncode, bool, $CharSequence*)},
+		{"encode", "(CC[B)I", nullptr, $STATIC, $staticMethod(EUC_TW$Encoder, encode, int32_t, char16_t, char16_t, $bytes*)},
+		{"encode", "(C[B)I", nullptr, $STATIC, $staticMethod(EUC_TW$Encoder, encode, int32_t, char16_t, $bytes*)},
+		{"encodeArrayLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(EUC_TW$Encoder, encodeArrayLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"encodeBufferLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(EUC_TW$Encoder, encodeBufferLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(EUC_TW$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"toEUC", "(CC[B)I", nullptr, $PUBLIC, $virtualMethod(EUC_TW$Encoder, toEUC, int32_t, char16_t, char16_t, $bytes*)},
+		{"toEUC", "(C[B)I", nullptr, $PUBLIC, $virtualMethod(EUC_TW$Encoder, toEUC, int32_t, char16_t, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.EUC_TW$Encoder", "sun.nio.cs.EUC_TW", "Encoder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.EUC_TW$Encoder",
+		"java.nio.charset.CharsetEncoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.EUC_TW"
+	};
+	$loadClass(EUC_TW$Encoder, name, initialize, &classInfo$$, EUC_TW$Encoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(EUC_TW$Encoder);
+	});
 	return class$;
 }
 

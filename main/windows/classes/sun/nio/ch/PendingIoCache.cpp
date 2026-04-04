@@ -1,5 +1,4 @@
 #include <sun/nio/ch/PendingIoCache.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Runnable.h>
@@ -29,8 +28,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
-using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Groupable = ::sun::nio::ch::Groupable;
 using $Iocp = ::sun::nio::ch::Iocp;
@@ -41,53 +38,6 @@ using $PendingIoCache$1 = ::sun::nio::ch::PendingIoCache$1;
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _PendingIoCache_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PendingIoCache, $assertionsDisabled)},
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PendingIoCache, unsafe)},
-	{"addressSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PendingIoCache, addressSize)},
-	{"SIZEOF_OVERLAPPED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PendingIoCache, SIZEOF_OVERLAPPED)},
-	{"closed", "Z", nullptr, $PRIVATE, $field(PendingIoCache, closed)},
-	{"closePending", "Z", nullptr, $PRIVATE, $field(PendingIoCache, closePending)},
-	{"pendingIoMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Long;Lsun/nio/ch/PendingFuture;>;", $PRIVATE | $FINAL, $field(PendingIoCache, pendingIoMap)},
-	{"overlappedCache", "[J", nullptr, $PRIVATE, $field(PendingIoCache, overlappedCache)},
-	{"overlappedCacheCount", "I", nullptr, $PRIVATE, $field(PendingIoCache, overlappedCacheCount)},
-	{}
-};
-
-$MethodInfo _PendingIoCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(PendingIoCache, init$, void)},
-	{"add", "(Lsun/nio/ch/PendingFuture;)J", "(Lsun/nio/ch/PendingFuture<**>;)J", 0, $virtualMethod(PendingIoCache, add, int64_t, $PendingFuture*)},
-	{"clearPendingIoMap", "()V", nullptr, $PRIVATE, $method(PendingIoCache, clearPendingIoMap, void)},
-	{"close", "()V", nullptr, 0, $virtualMethod(PendingIoCache, close, void)},
-	{"dependsArch", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(PendingIoCache, dependsArch, int32_t, int32_t, int32_t)},
-	{"remove", "(J)Lsun/nio/ch/PendingFuture;", "<V:Ljava/lang/Object;A:Ljava/lang/Object;>(J)Lsun/nio/ch/PendingFuture<TV;TA;>;", 0, $virtualMethod(PendingIoCache, remove, $PendingFuture*, int64_t)},
-	{}
-};
-
-$InnerClassInfo _PendingIoCache_InnerClassesInfo_[] = {
-	{"sun.nio.ch.PendingIoCache$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PendingIoCache_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.PendingIoCache",
-	"java.lang.Object",
-	nullptr,
-	_PendingIoCache_FieldInfo_,
-	_PendingIoCache_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PendingIoCache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.PendingIoCache$1"
-};
-
-$Object* allocate$PendingIoCache($Class* clazz) {
-	return $of($alloc(PendingIoCache));
-}
 
 bool PendingIoCache::$assertionsDisabled = false;
 $Unsafe* PendingIoCache::unsafe = nullptr;
@@ -116,23 +66,23 @@ int64_t PendingIoCache::add($PendingFuture* result) {
 		} else {
 			ov = $nc(PendingIoCache::unsafe)->allocateMemory(PendingIoCache::SIZEOF_OVERLAPPED);
 		}
-		$nc(this->pendingIoMap)->put($($Long::valueOf(ov)), result);
+		this->pendingIoMap->put($($Long::valueOf(ov)), result);
 		return ov;
 	}
 }
 
 $PendingFuture* PendingIoCache::remove(int64_t overlapped) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this) {
-		$var($PendingFuture, res, $cast($PendingFuture, $nc(this->pendingIoMap)->remove($($Long::valueOf(overlapped)))));
+		$var($PendingFuture, res, $cast($PendingFuture, this->pendingIoMap->remove($($Long::valueOf(overlapped)))));
 		if (res != nullptr) {
 			if (this->overlappedCacheCount < $nc(this->overlappedCache)->length) {
-				$nc(this->overlappedCache)->set(this->overlappedCacheCount++, overlapped);
+				this->overlappedCache->set(this->overlappedCacheCount++, overlapped);
 			} else {
 				$nc(PendingIoCache::unsafe)->freeMemory(overlapped);
 			}
 			if (this->closePending) {
-				$of(this)->notifyAll();
+				this->notifyAll();
 			}
 		}
 		return res;
@@ -144,7 +94,7 @@ void PendingIoCache::close() {
 		if (this->closed) {
 			return;
 		}
-		if (!$nc(this->pendingIoMap)->isEmpty()) {
+		if (!this->pendingIoMap->isEmpty()) {
 			clearPendingIoMap();
 		}
 		while (this->overlappedCacheCount > 0) {
@@ -155,27 +105,27 @@ void PendingIoCache::close() {
 }
 
 void PendingIoCache::clearPendingIoMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!PendingIoCache::$assertionsDisabled && !$Thread::holdsLock(this)) {
 		$throwNew($AssertionError);
 	}
 	this->closePending = true;
 	try {
-		$of(this)->wait(50);
+		this->wait(50);
 	} catch ($InterruptedException& x) {
 		$($Thread::currentThread())->interrupt();
 	}
 	this->closePending = false;
-	if ($nc(this->pendingIoMap)->isEmpty()) {
+	if (this->pendingIoMap->isEmpty()) {
 		return;
 	}
 	{
-		$var($Iterator, i$, $nc($($nc(this->pendingIoMap)->keySet()))->iterator());
+		$var($Iterator, i$, $$nc(this->pendingIoMap->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Long, ov, $cast($Long, i$->next()));
 			{
-				$var($PendingFuture, result, $cast($PendingFuture, $nc(this->pendingIoMap)->get(ov)));
-				$var($Iocp, iocp, $cast($Iocp, $nc(($cast($Groupable, $($nc(result)->channel()))))->group()));
+				$var($PendingFuture, result, $cast($PendingFuture, this->pendingIoMap->get(ov)));
+				$var($Iocp, iocp, $cast($Iocp, $$sure($Groupable, $nc(result)->channel())->group()));
 				$nc(iocp)->makeStale(ov);
 				$var($Iocp$ResultHandler, rh, $cast($Iocp$ResultHandler, result->getContext()));
 				$var($Runnable, task, $new($PendingIoCache$1, this, rh));
@@ -183,10 +133,10 @@ void PendingIoCache::clearPendingIoMap() {
 			}
 		}
 	}
-	$nc(this->pendingIoMap)->clear();
+	this->pendingIoMap->clear();
 }
 
-void clinit$PendingIoCache($Class* class$) {
+void PendingIoCache::clinit$($Class* clazz) {
 	PendingIoCache::$assertionsDisabled = !PendingIoCache::class$->desiredAssertionStatus();
 	$assignStatic(PendingIoCache::unsafe, $Unsafe::getUnsafe());
 	PendingIoCache::addressSize = $nc(PendingIoCache::unsafe)->addressSize();
@@ -197,7 +147,48 @@ PendingIoCache::PendingIoCache() {
 }
 
 $Class* PendingIoCache::load$($String* name, bool initialize) {
-	$loadClass(PendingIoCache, name, initialize, &_PendingIoCache_ClassInfo_, clinit$PendingIoCache, allocate$PendingIoCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PendingIoCache, $assertionsDisabled)},
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PendingIoCache, unsafe)},
+		{"addressSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PendingIoCache, addressSize)},
+		{"SIZEOF_OVERLAPPED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PendingIoCache, SIZEOF_OVERLAPPED)},
+		{"closed", "Z", nullptr, $PRIVATE, $field(PendingIoCache, closed)},
+		{"closePending", "Z", nullptr, $PRIVATE, $field(PendingIoCache, closePending)},
+		{"pendingIoMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Long;Lsun/nio/ch/PendingFuture;>;", $PRIVATE | $FINAL, $field(PendingIoCache, pendingIoMap)},
+		{"overlappedCache", "[J", nullptr, $PRIVATE, $field(PendingIoCache, overlappedCache)},
+		{"overlappedCacheCount", "I", nullptr, $PRIVATE, $field(PendingIoCache, overlappedCacheCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(PendingIoCache, init$, void)},
+		{"add", "(Lsun/nio/ch/PendingFuture;)J", "(Lsun/nio/ch/PendingFuture<**>;)J", 0, $virtualMethod(PendingIoCache, add, int64_t, $PendingFuture*)},
+		{"clearPendingIoMap", "()V", nullptr, $PRIVATE, $method(PendingIoCache, clearPendingIoMap, void)},
+		{"close", "()V", nullptr, 0, $virtualMethod(PendingIoCache, close, void)},
+		{"dependsArch", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(PendingIoCache, dependsArch, int32_t, int32_t, int32_t)},
+		{"remove", "(J)Lsun/nio/ch/PendingFuture;", "<V:Ljava/lang/Object;A:Ljava/lang/Object;>(J)Lsun/nio/ch/PendingFuture<TV;TA;>;", 0, $virtualMethod(PendingIoCache, remove, $PendingFuture*, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.PendingIoCache$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.PendingIoCache",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.PendingIoCache$1"
+	};
+	$loadClass(PendingIoCache, name, initialize, &classInfo$$, PendingIoCache::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PendingIoCache);
+	});
 	return class$;
 }
 

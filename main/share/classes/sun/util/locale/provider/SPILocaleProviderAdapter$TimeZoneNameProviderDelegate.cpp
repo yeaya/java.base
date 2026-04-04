@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/SPILocaleProviderAdapter$TimeZoneNameProviderDelegate.h>
-
 #include <java/util/AbstractMap.h>
 #include <java/util/Locale.h>
 #include <java/util/Map.h>
@@ -29,52 +28,6 @@ namespace sun {
 		namespace locale {
 			namespace provider {
 
-$FieldInfo _SPILocaleProviderAdapter$TimeZoneNameProviderDelegate_FieldInfo_[] = {
-	{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/Locale;Ljava/util/spi/TimeZoneNameProvider;>;", $PRIVATE | $FINAL, $field(SPILocaleProviderAdapter$TimeZoneNameProviderDelegate, map)},
-	{}
-};
-
-$MethodInfo _SPILocaleProviderAdapter$TimeZoneNameProviderDelegate_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(SPILocaleProviderAdapter$TimeZoneNameProviderDelegate, init$, void)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$TimeZoneNameProviderDelegate, getAvailableLocales, $LocaleArray*)},
-	{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;Ljava/util/spi/TimeZoneNameProvider;>;", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$TimeZoneNameProviderDelegate, getDelegateMap, $Map*)},
-	{"getDisplayName", "(Ljava/lang/String;ZILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$TimeZoneNameProviderDelegate, getDisplayName, $String*, $String*, bool, int32_t, $Locale*)},
-	{"getGenericDisplayName", "(Ljava/lang/String;ILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$TimeZoneNameProviderDelegate, getGenericDisplayName, $String*, $String*, int32_t, $Locale*)},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$TimeZoneNameProviderDelegate, isSupportedLocale, bool, $Locale*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SPILocaleProviderAdapter$TimeZoneNameProviderDelegate_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.SPILocaleProviderAdapter$TimeZoneNameProviderDelegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "TimeZoneNameProviderDelegate", $STATIC},
-	{"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "Delegate", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SPILocaleProviderAdapter$TimeZoneNameProviderDelegate_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.locale.provider.SPILocaleProviderAdapter$TimeZoneNameProviderDelegate",
-	"java.util.spi.TimeZoneNameProvider",
-	"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate",
-	_SPILocaleProviderAdapter$TimeZoneNameProviderDelegate_FieldInfo_,
-	_SPILocaleProviderAdapter$TimeZoneNameProviderDelegate_MethodInfo_,
-	"Ljava/util/spi/TimeZoneNameProvider;Lsun/util/locale/provider/SPILocaleProviderAdapter$Delegate<Ljava/util/spi/TimeZoneNameProvider;>;",
-	nullptr,
-	_SPILocaleProviderAdapter$TimeZoneNameProviderDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.SPILocaleProviderAdapter"
-};
-
-$Object* allocate$SPILocaleProviderAdapter$TimeZoneNameProviderDelegate($Class* clazz) {
-	return $of($alloc(SPILocaleProviderAdapter$TimeZoneNameProviderDelegate));
-}
-
 int32_t SPILocaleProviderAdapter$TimeZoneNameProviderDelegate::hashCode() {
 	 return this->$TimeZoneNameProvider::hashCode();
 }
@@ -97,7 +50,7 @@ void SPILocaleProviderAdapter$TimeZoneNameProviderDelegate::finalize() {
 
 void SPILocaleProviderAdapter$TimeZoneNameProviderDelegate::init$() {
 	$TimeZoneNameProvider::init$();
-	$set(this, map, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
+	$set(this, map, $cast($AbstractMap, $new($ConcurrentHashMap)));
 }
 
 $Map* SPILocaleProviderAdapter$TimeZoneNameProviderDelegate::getDelegateMap() {
@@ -113,7 +66,7 @@ bool SPILocaleProviderAdapter$TimeZoneNameProviderDelegate::isSupportedLocale($L
 }
 
 $String* SPILocaleProviderAdapter$TimeZoneNameProviderDelegate::getDisplayName($String* ID, bool daylight, int32_t style, $Locale* locale$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($TimeZoneNameProvider, tznp, $cast($TimeZoneNameProvider, getImpl(locale)));
@@ -121,7 +74,7 @@ $String* SPILocaleProviderAdapter$TimeZoneNameProviderDelegate::getDisplayName($
 }
 
 $String* SPILocaleProviderAdapter$TimeZoneNameProviderDelegate::getGenericDisplayName($String* ID, int32_t style, $Locale* locale$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, locale, locale$renamed);
 	$assign(locale, $CalendarDataUtility::findRegionOverride(locale));
 	$var($TimeZoneNameProvider, tznp, $cast($TimeZoneNameProvider, getImpl(locale)));
@@ -132,7 +85,47 @@ SPILocaleProviderAdapter$TimeZoneNameProviderDelegate::SPILocaleProviderAdapter$
 }
 
 $Class* SPILocaleProviderAdapter$TimeZoneNameProviderDelegate::load$($String* name, bool initialize) {
-	$loadClass(SPILocaleProviderAdapter$TimeZoneNameProviderDelegate, name, initialize, &_SPILocaleProviderAdapter$TimeZoneNameProviderDelegate_ClassInfo_, allocate$SPILocaleProviderAdapter$TimeZoneNameProviderDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/Locale;Ljava/util/spi/TimeZoneNameProvider;>;", $PRIVATE | $FINAL, $field(SPILocaleProviderAdapter$TimeZoneNameProviderDelegate, map)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(SPILocaleProviderAdapter$TimeZoneNameProviderDelegate, init$, void)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$TimeZoneNameProviderDelegate, getAvailableLocales, $LocaleArray*)},
+		{"getDelegateMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/util/Locale;Ljava/util/spi/TimeZoneNameProvider;>;", $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$TimeZoneNameProviderDelegate, getDelegateMap, $Map*)},
+		{"getDisplayName", "(Ljava/lang/String;ZILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$TimeZoneNameProviderDelegate, getDisplayName, $String*, $String*, bool, int32_t, $Locale*)},
+		{"getGenericDisplayName", "(Ljava/lang/String;ILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$TimeZoneNameProviderDelegate, getGenericDisplayName, $String*, $String*, int32_t, $Locale*)},
+		{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(SPILocaleProviderAdapter$TimeZoneNameProviderDelegate, isSupportedLocale, bool, $Locale*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.SPILocaleProviderAdapter$TimeZoneNameProviderDelegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "TimeZoneNameProviderDelegate", $STATIC},
+		{"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate", "sun.util.locale.provider.SPILocaleProviderAdapter", "Delegate", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.locale.provider.SPILocaleProviderAdapter$TimeZoneNameProviderDelegate",
+		"java.util.spi.TimeZoneNameProvider",
+		"sun.util.locale.provider.SPILocaleProviderAdapter$Delegate",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/spi/TimeZoneNameProvider;Lsun/util/locale/provider/SPILocaleProviderAdapter$Delegate<Ljava/util/spi/TimeZoneNameProvider;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.SPILocaleProviderAdapter"
+	};
+	$loadClass(SPILocaleProviderAdapter$TimeZoneNameProviderDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SPILocaleProviderAdapter$TimeZoneNameProviderDelegate));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/jimage/decompressor/ZipDecompressor.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/util/zip/Inflater.h>
 #include <jdk/internal/jimage/decompressor/ResourceDecompressor$StringsProvider.h>
@@ -20,27 +19,6 @@ namespace jdk {
 		namespace jimage {
 			namespace decompressor {
 
-$MethodInfo _ZipDecompressor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ZipDecompressor, init$, void)},
-	{"decompress", "([BI)[B", nullptr, $STATIC, $staticMethod(ZipDecompressor, decompress, $bytes*, $bytes*, int32_t), "java.lang.Exception"},
-	{"decompress", "(Ljdk/internal/jimage/decompressor/ResourceDecompressor$StringsProvider;[BIJ)[B", nullptr, $PUBLIC, $virtualMethod(ZipDecompressor, decompress, $bytes*, $ResourceDecompressor$StringsProvider*, $bytes*, int32_t, int64_t), "java.lang.Exception"},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipDecompressor, getName, $String*)},
-	{}
-};
-
-$ClassInfo _ZipDecompressor_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.jimage.decompressor.ZipDecompressor",
-	"java.lang.Object",
-	"jdk.internal.jimage.decompressor.ResourceDecompressor",
-	nullptr,
-	_ZipDecompressor_MethodInfo_
-};
-
-$Object* allocate$ZipDecompressor($Class* clazz) {
-	return $of($alloc(ZipDecompressor));
-}
-
 void ZipDecompressor::init$() {
 }
 
@@ -51,10 +29,10 @@ $String* ZipDecompressor::getName() {
 
 $bytes* ZipDecompressor::decompress($bytes* bytesIn, int32_t offset) {
 	$init(ZipDecompressor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Inflater, inflater, $new($Inflater));
 	inflater->setInput(bytesIn, offset, $nc(bytesIn)->length - offset);
-	$var($ByteArrayOutputStream, stream, $new($ByteArrayOutputStream, $nc(bytesIn)->length - offset));
+	$var($ByteArrayOutputStream, stream, $new($ByteArrayOutputStream, bytesIn->length - offset));
 	$var($bytes, buffer, $new($bytes, 1024));
 	while (!inflater->finished()) {
 		int32_t count = inflater->inflate(buffer);
@@ -75,7 +53,24 @@ ZipDecompressor::ZipDecompressor() {
 }
 
 $Class* ZipDecompressor::load$($String* name, bool initialize) {
-	$loadClass(ZipDecompressor, name, initialize, &_ZipDecompressor_ClassInfo_, allocate$ZipDecompressor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ZipDecompressor, init$, void)},
+		{"decompress", "([BI)[B", nullptr, $STATIC, $staticMethod(ZipDecompressor, decompress, $bytes*, $bytes*, int32_t), "java.lang.Exception"},
+		{"decompress", "(Ljdk/internal/jimage/decompressor/ResourceDecompressor$StringsProvider;[BIJ)[B", nullptr, $PUBLIC, $virtualMethod(ZipDecompressor, decompress, $bytes*, $ResourceDecompressor$StringsProvider*, $bytes*, int32_t, int64_t), "java.lang.Exception"},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipDecompressor, getName, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.jimage.decompressor.ZipDecompressor",
+		"java.lang.Object",
+		"jdk.internal.jimage.decompressor.ResourceDecompressor",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ZipDecompressor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ZipDecompressor);
+	});
 	return class$;
 }
 

@@ -13,6 +13,7 @@ class DateTimeTextProvider$2 : public ::java::lang::Object {
 	$class(DateTimeTextProvider$2, 0, ::java::lang::Object)
 public:
 	DateTimeTextProvider$2();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$time$temporal$ChronoField;
 };
 

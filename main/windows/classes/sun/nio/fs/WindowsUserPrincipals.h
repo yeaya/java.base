@@ -23,6 +23,7 @@ class WindowsUserPrincipals : public ::java::lang::Object {
 	$class(WindowsUserPrincipals, 0, ::java::lang::Object)
 public:
 	WindowsUserPrincipals();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::nio::file::attribute::UserPrincipal* fromSid(int64_t sidAddress);
 	static ::java::nio::file::attribute::UserPrincipal* lookup($String* name);

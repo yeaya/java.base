@@ -38,6 +38,7 @@ public:
 	using ::java::util::AbstractList::addAll;
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t n, Object$* e);
 	virtual bool contains(Object$* obj) override;
 	virtual bool equals(Object$* o) override;
@@ -58,7 +59,7 @@ public:
 	virtual $ObjectArray* toArray($ObjectArray* a) override;
 	virtual $String* toString() override;
 	static bool $assertionsDisabled;
-	static const int64_t serialVersionUID = (int64_t)0x26033C45B17003F8;
+	static const int64_t serialVersionUID = (int64_t)0x26033c45b17003f8;
 	int32_t n = 0;
 	$Object* element = nullptr;
 };

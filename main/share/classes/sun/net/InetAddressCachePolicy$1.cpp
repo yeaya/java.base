@@ -1,5 +1,4 @@
 #include <sun/net/InetAddressCachePolicy$1.h>
-
 #include <java/lang/NumberFormatException.h>
 #include <java/security/Security.h>
 #include <sun/net/InetAddressCachePolicy.h>
@@ -16,48 +15,11 @@ using $Security = ::java::security::Security;
 namespace sun {
 	namespace net {
 
-$MethodInfo _InetAddressCachePolicy$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(InetAddressCachePolicy$1, init$, void)},
-	{"run", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(InetAddressCachePolicy$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _InetAddressCachePolicy$1_EnclosingMethodInfo_ = {
-	"sun.net.InetAddressCachePolicy",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _InetAddressCachePolicy$1_InnerClassesInfo_[] = {
-	{"sun.net.InetAddressCachePolicy$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _InetAddressCachePolicy$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.InetAddressCachePolicy$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_InetAddressCachePolicy$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Integer;>;",
-	&_InetAddressCachePolicy$1_EnclosingMethodInfo_,
-	_InetAddressCachePolicy$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.InetAddressCachePolicy"
-};
-
-$Object* allocate$InetAddressCachePolicy$1($Class* clazz) {
-	return $of($alloc(InetAddressCachePolicy$1));
-}
-
 void InetAddressCachePolicy$1::init$() {
 }
 
 $Object* InetAddressCachePolicy$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($String, tmpString, $Security::getProperty("networkaddress.cache.ttl"_s));
 		if (tmpString != nullptr) {
@@ -72,14 +34,45 @@ $Object* InetAddressCachePolicy$1::run() {
 		}
 	} catch ($NumberFormatException& ignored) {
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 InetAddressCachePolicy$1::InetAddressCachePolicy$1() {
 }
 
 $Class* InetAddressCachePolicy$1::load$($String* name, bool initialize) {
-	$loadClass(InetAddressCachePolicy$1, name, initialize, &_InetAddressCachePolicy$1_ClassInfo_, allocate$InetAddressCachePolicy$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(InetAddressCachePolicy$1, init$, void)},
+		{"run", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(InetAddressCachePolicy$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.net.InetAddressCachePolicy",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.InetAddressCachePolicy$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.InetAddressCachePolicy$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Integer;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.InetAddressCachePolicy"
+	};
+	$loadClass(InetAddressCachePolicy$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InetAddressCachePolicy$1);
+	});
 	return class$;
 }
 

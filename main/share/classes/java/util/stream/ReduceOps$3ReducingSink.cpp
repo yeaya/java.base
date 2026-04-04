@@ -1,5 +1,4 @@
 #include <java/util/stream/ReduceOps$3ReducingSink.h>
-
 #include <java/util/function/BiConsumer.h>
 #include <java/util/function/BinaryOperator.h>
 #include <java/util/function/Supplier.h>
@@ -22,61 +21,6 @@ using $ReduceOps$Box = ::java::util::stream::ReduceOps$Box;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _ReduceOps$3ReducingSink_FieldInfo_[] = {
-	{"val$combiner", "Ljava/util/function/BinaryOperator;", nullptr, $FINAL | $SYNTHETIC, $field(ReduceOps$3ReducingSink, val$combiner)},
-	{"val$accumulator", "Ljava/util/function/BiConsumer;", nullptr, $FINAL | $SYNTHETIC, $field(ReduceOps$3ReducingSink, val$accumulator)},
-	{"val$supplier", "Ljava/util/function/Supplier;", nullptr, $FINAL | $SYNTHETIC, $field(ReduceOps$3ReducingSink, val$supplier)},
-	{}
-};
-
-$MethodInfo _ReduceOps$3ReducingSink_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;)V", "()V", 0, $method(ReduceOps$3ReducingSink, init$, void, $Supplier*, $BiConsumer*, $BinaryOperator*)},
-	{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(ReduceOps$3ReducingSink, accept, void, Object$*)},
-	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(ReduceOps$3ReducingSink, begin, void, int64_t)},
-	{"combine", "(Ljava/util/stream/ReduceOps$3ReducingSink;)V", nullptr, $PUBLIC, $virtualMethod(ReduceOps$3ReducingSink, combine, void, ReduceOps$3ReducingSink*)},
-	{"combine", "(Ljava/util/stream/ReduceOps$AccumulatingSink;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ReduceOps$3ReducingSink, combine, void, $ReduceOps$AccumulatingSink*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$EnclosingMethodInfo _ReduceOps$3ReducingSink_EnclosingMethodInfo_ = {
-	"java.util.stream.ReduceOps",
-	"makeRef",
-	"(Ljava/util/stream/Collector;)Ljava/util/stream/TerminalOp;"
-};
-
-$InnerClassInfo _ReduceOps$3ReducingSink_InnerClassesInfo_[] = {
-	{"java.util.stream.ReduceOps$3ReducingSink", nullptr, "ReducingSink", 0},
-	{"java.util.stream.ReduceOps$Box", "java.util.stream.ReduceOps", "Box", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.stream.ReduceOps$AccumulatingSink", "java.util.stream.ReduceOps", "AccumulatingSink", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ReduceOps$3ReducingSink_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.ReduceOps$3ReducingSink",
-	"java.util.stream.ReduceOps$Box",
-	"java.util.stream.ReduceOps$AccumulatingSink",
-	_ReduceOps$3ReducingSink_FieldInfo_,
-	_ReduceOps$3ReducingSink_MethodInfo_,
-	"Ljava/util/stream/ReduceOps$Box<TI;>;Ljava/util/stream/ReduceOps$AccumulatingSink<TT;TI;Ljava/util/stream/ReduceOps$3ReducingSink;>;",
-	&_ReduceOps$3ReducingSink_EnclosingMethodInfo_,
-	_ReduceOps$3ReducingSink_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.ReduceOps"
-};
-
-$Object* allocate$ReduceOps$3ReducingSink($Class* clazz) {
-	return $of($alloc(ReduceOps$3ReducingSink));
-}
 
 $Object* ReduceOps$3ReducingSink::get() {
 	 return this->$ReduceOps$Box::get();
@@ -129,7 +73,55 @@ ReduceOps$3ReducingSink::ReduceOps$3ReducingSink() {
 }
 
 $Class* ReduceOps$3ReducingSink::load$($String* name, bool initialize) {
-	$loadClass(ReduceOps$3ReducingSink, name, initialize, &_ReduceOps$3ReducingSink_ClassInfo_, allocate$ReduceOps$3ReducingSink);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$combiner", "Ljava/util/function/BinaryOperator;", nullptr, $FINAL | $SYNTHETIC, $field(ReduceOps$3ReducingSink, val$combiner)},
+		{"val$accumulator", "Ljava/util/function/BiConsumer;", nullptr, $FINAL | $SYNTHETIC, $field(ReduceOps$3ReducingSink, val$accumulator)},
+		{"val$supplier", "Ljava/util/function/Supplier;", nullptr, $FINAL | $SYNTHETIC, $field(ReduceOps$3ReducingSink, val$supplier)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*get", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;)V", "()V", 0, $method(ReduceOps$3ReducingSink, init$, void, $Supplier*, $BiConsumer*, $BinaryOperator*)},
+		{"accept", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(ReduceOps$3ReducingSink, accept, void, Object$*)},
+		{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(ReduceOps$3ReducingSink, begin, void, int64_t)},
+		{"combine", "(Ljava/util/stream/ReduceOps$3ReducingSink;)V", nullptr, $PUBLIC, $virtualMethod(ReduceOps$3ReducingSink, combine, void, ReduceOps$3ReducingSink*)},
+		{"combine", "(Ljava/util/stream/ReduceOps$AccumulatingSink;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ReduceOps$3ReducingSink, combine, void, $ReduceOps$AccumulatingSink*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.ReduceOps",
+		"makeRef",
+		"(Ljava/util/stream/Collector;)Ljava/util/stream/TerminalOp;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.ReduceOps$3ReducingSink", nullptr, "ReducingSink", 0},
+		{"java.util.stream.ReduceOps$Box", "java.util.stream.ReduceOps", "Box", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.stream.ReduceOps$AccumulatingSink", "java.util.stream.ReduceOps", "AccumulatingSink", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.ReduceOps$3ReducingSink",
+		"java.util.stream.ReduceOps$Box",
+		"java.util.stream.ReduceOps$AccumulatingSink",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/ReduceOps$Box<TI;>;Ljava/util/stream/ReduceOps$AccumulatingSink<TT;TI;Ljava/util/stream/ReduceOps$3ReducingSink;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.ReduceOps"
+	};
+	$loadClass(ReduceOps$3ReducingSink, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ReduceOps$3ReducingSink));
+	});
 	return class$;
 }
 

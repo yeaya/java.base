@@ -1,5 +1,4 @@
 #include <java/security/NoSuchProviderException.h>
-
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _NoSuchProviderException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NoSuchProviderException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NoSuchProviderException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NoSuchProviderException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchProviderException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _NoSuchProviderException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.NoSuchProviderException",
-	"java.security.GeneralSecurityException",
-	nullptr,
-	_NoSuchProviderException_FieldInfo_,
-	_NoSuchProviderException_MethodInfo_
-};
-
-$Object* allocate$NoSuchProviderException($Class* clazz) {
-	return $of($alloc(NoSuchProviderException));
-}
 
 void NoSuchProviderException::init$() {
 	$GeneralSecurityException::init$();
@@ -54,7 +29,26 @@ void NoSuchProviderException::throw$() {
 }
 
 $Class* NoSuchProviderException::load$($String* name, bool initialize) {
-	$loadClass(NoSuchProviderException, name, initialize, &_NoSuchProviderException_ClassInfo_, allocate$NoSuchProviderException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NoSuchProviderException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NoSuchProviderException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchProviderException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.NoSuchProviderException",
+		"java.security.GeneralSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NoSuchProviderException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NoSuchProviderException);
+	});
 	return class$;
 }
 

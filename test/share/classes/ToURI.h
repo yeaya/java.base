@@ -15,6 +15,7 @@ class $export ToURI : public ::java::lang::Object {
 	$class(ToURI, 0, ::java::lang::Object)
 public:
 	ToURI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void go($String* fn);
 	static void main($StringArray* args);

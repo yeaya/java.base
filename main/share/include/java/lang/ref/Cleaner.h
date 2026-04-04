@@ -40,6 +40,7 @@ class $import Cleaner : public ::java::lang::Object {
 	$class(Cleaner, 0, ::java::lang::Object)
 public:
 	Cleaner();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::ref::Cleaner* create();
 	static ::java::lang::ref::Cleaner* create(::java::util::concurrent::ThreadFactory* threadFactory);

@@ -1,5 +1,4 @@
 #include <sun/security/x509/NetscapeCertTypeExtension$MapEntry.h>
-
 #include <sun/security/x509/NetscapeCertTypeExtension.h>
 #include <jcpp.h>
 
@@ -12,42 +11,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _NetscapeCertTypeExtension$MapEntry_FieldInfo_[] = {
-	{"mName", "Ljava/lang/String;", nullptr, 0, $field(NetscapeCertTypeExtension$MapEntry, mName)},
-	{"mPosition", "I", nullptr, 0, $field(NetscapeCertTypeExtension$MapEntry, mPosition)},
-	{}
-};
-
-$MethodInfo _NetscapeCertTypeExtension$MapEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(NetscapeCertTypeExtension$MapEntry, init$, void, $String*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _NetscapeCertTypeExtension$MapEntry_InnerClassesInfo_[] = {
-	{"sun.security.x509.NetscapeCertTypeExtension$MapEntry", "sun.security.x509.NetscapeCertTypeExtension", "MapEntry", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _NetscapeCertTypeExtension$MapEntry_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.x509.NetscapeCertTypeExtension$MapEntry",
-	"java.lang.Object",
-	nullptr,
-	_NetscapeCertTypeExtension$MapEntry_FieldInfo_,
-	_NetscapeCertTypeExtension$MapEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NetscapeCertTypeExtension$MapEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.x509.NetscapeCertTypeExtension"
-};
-
-$Object* allocate$NetscapeCertTypeExtension$MapEntry($Class* clazz) {
-	return $of($alloc(NetscapeCertTypeExtension$MapEntry));
-}
-
 void NetscapeCertTypeExtension$MapEntry::init$($String* name, int32_t position) {
 	$set(this, mName, name);
 	this->mPosition = position;
@@ -57,7 +20,37 @@ NetscapeCertTypeExtension$MapEntry::NetscapeCertTypeExtension$MapEntry() {
 }
 
 $Class* NetscapeCertTypeExtension$MapEntry::load$($String* name, bool initialize) {
-	$loadClass(NetscapeCertTypeExtension$MapEntry, name, initialize, &_NetscapeCertTypeExtension$MapEntry_ClassInfo_, allocate$NetscapeCertTypeExtension$MapEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"mName", "Ljava/lang/String;", nullptr, 0, $field(NetscapeCertTypeExtension$MapEntry, mName)},
+		{"mPosition", "I", nullptr, 0, $field(NetscapeCertTypeExtension$MapEntry, mPosition)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(NetscapeCertTypeExtension$MapEntry, init$, void, $String*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.x509.NetscapeCertTypeExtension$MapEntry", "sun.security.x509.NetscapeCertTypeExtension", "MapEntry", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.x509.NetscapeCertTypeExtension$MapEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.x509.NetscapeCertTypeExtension"
+	};
+	$loadClass(NetscapeCertTypeExtension$MapEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NetscapeCertTypeExtension$MapEntry);
+	});
 	return class$;
 }
 

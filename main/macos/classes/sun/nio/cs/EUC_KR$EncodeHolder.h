@@ -13,6 +13,7 @@ class $export EUC_KR$EncodeHolder : public ::java::lang::Object {
 	$class(EUC_KR$EncodeHolder, 0, ::java::lang::Object)
 public:
 	EUC_KR$EncodeHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $chars* c2b;
 	static $chars* c2bIndex;

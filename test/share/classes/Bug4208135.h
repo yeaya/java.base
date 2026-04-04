@@ -20,6 +20,7 @@ class $export Bug4208135 : public ::java::lang::Object {
 	$class(Bug4208135, 0, ::java::lang::Object)
 public:
 	Bug4208135();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkFormat(::java::lang::Number* num, $String* expected);
 	static void main($StringArray* args);

@@ -63,6 +63,7 @@ class $import Net : public ::java::lang::Object {
 	$class(Net, 0, ::java::lang::Object)
 public:
 	Net();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t accept(::java::io::FileDescriptor* fd, ::java::io::FileDescriptor* newfd, $Array<::java::net::InetSocketAddress>* isaa);
 	static ::java::net::Inet4Address* anyInet4Address(::java::net::NetworkInterface* interf);

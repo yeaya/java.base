@@ -15,6 +15,7 @@ class $export IsHidden : public ::java::lang::Object {
 	$class(IsHidden, 0, ::java::lang::Object)
 public:
 	IsHidden();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkHidden(::java::io::File* f);
 	static void ck($String* path, bool ans);

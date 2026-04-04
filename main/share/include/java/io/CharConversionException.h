@@ -14,10 +14,13 @@ public:
 	CharConversionException();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x878A631DD55C1369;
+	static const int64_t serialVersionUID = (int64_t)0x878a631dd55c1369;
 	CharConversionException(const CharConversionException& e);
 	virtual void throw$() override;
-	inline CharConversionException* operator ->() {
+	inline CharConversionException* operator ->() const {
+		return (CharConversionException*)throwing$;
+	}
+	inline operator CharConversionException*() const {
 		return (CharConversionException*)throwing$;
 	}
 };

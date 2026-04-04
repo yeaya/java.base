@@ -1,5 +1,4 @@
 #include <java/time/Clock.h>
-
 #include <java/lang/InternalError.h>
 #include <java/time/Clock$FixedClock.h>
 #include <java/time/Clock$OffsetClock.h>
@@ -39,62 +38,6 @@ using $VM = ::jdk::internal::misc::VM;
 namespace java {
 	namespace time {
 
-$FieldInfo _Clock_FieldInfo_[] = {
-	{"OFFSET_SEED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Clock, OFFSET_SEED)},
-	{"offset", "J", nullptr, $PRIVATE | $STATIC, $staticField(Clock, offset$)},
-	{}
-};
-
-$MethodInfo _Clock_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(Clock, init$, void)},
-	{"currentInstant", "()Ljava/time/Instant;", nullptr, $STATIC, $staticMethod(Clock, currentInstant, $Instant*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Clock, equals, bool, Object$*)},
-	{"fixed", "(Ljava/time/Instant;Ljava/time/ZoneId;)Ljava/time/Clock;", nullptr, $PUBLIC | $STATIC, $staticMethod(Clock, fixed, Clock*, $Instant*, $ZoneId*)},
-	{"getZone", "()Ljava/time/ZoneId;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Clock, getZone, $ZoneId*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Clock, hashCode, int32_t)},
-	{"instant", "()Ljava/time/Instant;", nullptr, $PUBLIC | $ABSTRACT},
-	{"millis", "()J", nullptr, $PUBLIC, $virtualMethod(Clock, millis, int64_t)},
-	{"offset", "(Ljava/time/Clock;Ljava/time/Duration;)Ljava/time/Clock;", nullptr, $PUBLIC | $STATIC, $staticMethod(Clock, offset, Clock*, Clock*, $Duration*)},
-	{"system", "(Ljava/time/ZoneId;)Ljava/time/Clock;", nullptr, $PUBLIC | $STATIC, $staticMethod(Clock, system, Clock*, $ZoneId*)},
-	{"systemDefaultZone", "()Ljava/time/Clock;", nullptr, $PUBLIC | $STATIC, $staticMethod(Clock, systemDefaultZone, Clock*)},
-	{"systemUTC", "()Ljava/time/Clock;", nullptr, $PUBLIC | $STATIC, $staticMethod(Clock, systemUTC, Clock*)},
-	{"tick", "(Ljava/time/Clock;Ljava/time/Duration;)Ljava/time/Clock;", nullptr, $PUBLIC | $STATIC, $staticMethod(Clock, tick, Clock*, Clock*, $Duration*)},
-	{"tickMillis", "(Ljava/time/ZoneId;)Ljava/time/Clock;", nullptr, $PUBLIC | $STATIC, $staticMethod(Clock, tickMillis, Clock*, $ZoneId*)},
-	{"tickMinutes", "(Ljava/time/ZoneId;)Ljava/time/Clock;", nullptr, $PUBLIC | $STATIC, $staticMethod(Clock, tickMinutes, Clock*, $ZoneId*)},
-	{"tickSeconds", "(Ljava/time/ZoneId;)Ljava/time/Clock;", nullptr, $PUBLIC | $STATIC, $staticMethod(Clock, tickSeconds, Clock*, $ZoneId*)},
-	{"withZone", "(Ljava/time/ZoneId;)Ljava/time/Clock;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Clock, withZone, Clock*, $ZoneId*)},
-	{}
-};
-
-$InnerClassInfo _Clock_InnerClassesInfo_[] = {
-	{"java.time.Clock$SourceClock", "java.time.Clock", "SourceClock", $STATIC | $FINAL},
-	{"java.time.Clock$TickClock", "java.time.Clock", "TickClock", $STATIC | $FINAL},
-	{"java.time.Clock$OffsetClock", "java.time.Clock", "OffsetClock", $STATIC | $FINAL},
-	{"java.time.Clock$FixedClock", "java.time.Clock", "FixedClock", $STATIC | $FINAL},
-	{"java.time.Clock$SystemClock", "java.time.Clock", "SystemClock", $STATIC | $FINAL},
-	{"java.time.Clock$SystemInstantSource", "java.time.Clock", "SystemInstantSource", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Clock_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.time.Clock",
-	"java.lang.Object",
-	"java.time.InstantSource",
-	_Clock_FieldInfo_,
-	_Clock_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Clock_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.time.Clock$SourceClock,java.time.Clock$TickClock,java.time.Clock$OffsetClock,java.time.Clock$FixedClock,java.time.Clock$SystemClock,java.time.Clock$SystemInstantSource"
-};
-
-$Object* allocate$Clock($Class* clazz) {
-	return $of($alloc(Clock));
-}
-
 int64_t Clock::OFFSET_SEED = 0;
 int64_t Clock::offset$ = 0;
 
@@ -111,7 +54,7 @@ Clock* Clock::systemDefaultZone() {
 
 Clock* Clock::system($ZoneId* zone) {
 	$init(Clock);
-	$Objects::requireNonNull($of(zone), "zone"_s);
+	$Objects::requireNonNull(zone, "zone"_s);
 	$init($ZoneOffset);
 	if ($equals(zone, $ZoneOffset::UTC)) {
 		$init($Clock$SystemClock);
@@ -132,19 +75,19 @@ Clock* Clock::tickSeconds($ZoneId* zone) {
 
 Clock* Clock::tickMinutes($ZoneId* zone) {
 	$init(Clock);
-	return $new($Clock$TickClock, $(system(zone)), 0x0000000DF8475800);
+	return $new($Clock$TickClock, $(system(zone)), (int64_t)60000000000);
 }
 
 Clock* Clock::tick(Clock* baseClock, $Duration* tickDuration) {
 	$init(Clock);
-	$Objects::requireNonNull($of(baseClock), "baseClock"_s);
-	$Objects::requireNonNull($of(tickDuration), "tickDuration"_s);
+	$Objects::requireNonNull(baseClock, "baseClock"_s);
+	$Objects::requireNonNull(tickDuration, "tickDuration"_s);
 	if ($nc(tickDuration)->isNegative()) {
 		$throwNew($IllegalArgumentException, "Tick duration must not be negative"_s);
 	}
-	int64_t tickNanos = $nc(tickDuration)->toNanos();
-	if (tickNanos % 0x000F4240 == 0) {
-	} else if ($mod(0x3B9ACA00, tickNanos) == 0) {
+	int64_t tickNanos = tickDuration->toNanos();
+	if (tickNanos % 1000000 == 0) {
+	} else if ($mod(1000000000, tickNanos) == 0) {
 	} else {
 		$throwNew($IllegalArgumentException, "Invalid tick duration"_s);
 	}
@@ -156,15 +99,15 @@ Clock* Clock::tick(Clock* baseClock, $Duration* tickDuration) {
 
 Clock* Clock::fixed($Instant* fixedInstant, $ZoneId* zone) {
 	$init(Clock);
-	$Objects::requireNonNull($of(fixedInstant), "fixedInstant"_s);
-	$Objects::requireNonNull($of(zone), "zone"_s);
+	$Objects::requireNonNull(fixedInstant, "fixedInstant"_s);
+	$Objects::requireNonNull(zone, "zone"_s);
 	return $new($Clock$FixedClock, fixedInstant, zone);
 }
 
 Clock* Clock::offset(Clock* baseClock, $Duration* offsetDuration) {
 	$init(Clock);
-	$Objects::requireNonNull($of(baseClock), "baseClock"_s);
-	$Objects::requireNonNull($of(offsetDuration), "offsetDuration"_s);
+	$Objects::requireNonNull(baseClock, "baseClock"_s);
+	$Objects::requireNonNull(offsetDuration, "offsetDuration"_s);
 	$init($Duration);
 	if ($nc(offsetDuration)->equals($Duration::ZERO)) {
 		return baseClock;
@@ -176,7 +119,7 @@ void Clock::init$() {
 }
 
 int64_t Clock::millis() {
-	return $nc($(instant()))->toEpochMilli();
+	return $$nc(instant())->toEpochMilli();
 }
 
 bool Clock::equals(Object$* obj) {
@@ -189,7 +132,7 @@ int32_t Clock::hashCode() {
 
 $Instant* Clock::currentInstant() {
 	$init(Clock);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t localOffset = Clock::offset$;
 	int64_t adjustment = $VM::getNanoTimeAdjustment(localOffset);
 	if (adjustment == -1) {
@@ -204,7 +147,7 @@ $Instant* Clock::currentInstant() {
 	return $Instant::ofEpochSecond(localOffset, adjustment);
 }
 
-void clinit$Clock($Class* class$) {
+void Clock::clinit$($Class* clazz) {
 	Clock::OFFSET_SEED = $System::currentTimeMillis() / 1000 - 1024;
 	Clock::offset$ = Clock::OFFSET_SEED;
 }
@@ -213,7 +156,57 @@ Clock::Clock() {
 }
 
 $Class* Clock::load$($String* name, bool initialize) {
-	$loadClass(Clock, name, initialize, &_Clock_ClassInfo_, clinit$Clock, allocate$Clock);
+	$FieldInfo fieldInfos$$[] = {
+		{"OFFSET_SEED", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Clock, OFFSET_SEED)},
+		{"offset", "J", nullptr, $PRIVATE | $STATIC, $staticField(Clock, offset$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(Clock, init$, void)},
+		{"currentInstant", "()Ljava/time/Instant;", nullptr, $STATIC, $staticMethod(Clock, currentInstant, $Instant*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Clock, equals, bool, Object$*)},
+		{"fixed", "(Ljava/time/Instant;Ljava/time/ZoneId;)Ljava/time/Clock;", nullptr, $PUBLIC | $STATIC, $staticMethod(Clock, fixed, Clock*, $Instant*, $ZoneId*)},
+		{"getZone", "()Ljava/time/ZoneId;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Clock, getZone, $ZoneId*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Clock, hashCode, int32_t)},
+		{"instant", "()Ljava/time/Instant;", nullptr, $PUBLIC | $ABSTRACT},
+		{"millis", "()J", nullptr, $PUBLIC, $virtualMethod(Clock, millis, int64_t)},
+		{"offset", "(Ljava/time/Clock;Ljava/time/Duration;)Ljava/time/Clock;", nullptr, $PUBLIC | $STATIC, $staticMethod(Clock, offset, Clock*, Clock*, $Duration*)},
+		{"system", "(Ljava/time/ZoneId;)Ljava/time/Clock;", nullptr, $PUBLIC | $STATIC, $staticMethod(Clock, system, Clock*, $ZoneId*)},
+		{"systemDefaultZone", "()Ljava/time/Clock;", nullptr, $PUBLIC | $STATIC, $staticMethod(Clock, systemDefaultZone, Clock*)},
+		{"systemUTC", "()Ljava/time/Clock;", nullptr, $PUBLIC | $STATIC, $staticMethod(Clock, systemUTC, Clock*)},
+		{"tick", "(Ljava/time/Clock;Ljava/time/Duration;)Ljava/time/Clock;", nullptr, $PUBLIC | $STATIC, $staticMethod(Clock, tick, Clock*, Clock*, $Duration*)},
+		{"tickMillis", "(Ljava/time/ZoneId;)Ljava/time/Clock;", nullptr, $PUBLIC | $STATIC, $staticMethod(Clock, tickMillis, Clock*, $ZoneId*)},
+		{"tickMinutes", "(Ljava/time/ZoneId;)Ljava/time/Clock;", nullptr, $PUBLIC | $STATIC, $staticMethod(Clock, tickMinutes, Clock*, $ZoneId*)},
+		{"tickSeconds", "(Ljava/time/ZoneId;)Ljava/time/Clock;", nullptr, $PUBLIC | $STATIC, $staticMethod(Clock, tickSeconds, Clock*, $ZoneId*)},
+		{"withZone", "(Ljava/time/ZoneId;)Ljava/time/Clock;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Clock, withZone, Clock*, $ZoneId*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.Clock$SourceClock", "java.time.Clock", "SourceClock", $STATIC | $FINAL},
+		{"java.time.Clock$TickClock", "java.time.Clock", "TickClock", $STATIC | $FINAL},
+		{"java.time.Clock$OffsetClock", "java.time.Clock", "OffsetClock", $STATIC | $FINAL},
+		{"java.time.Clock$FixedClock", "java.time.Clock", "FixedClock", $STATIC | $FINAL},
+		{"java.time.Clock$SystemClock", "java.time.Clock", "SystemClock", $STATIC | $FINAL},
+		{"java.time.Clock$SystemInstantSource", "java.time.Clock", "SystemInstantSource", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.time.Clock",
+		"java.lang.Object",
+		"java.time.InstantSource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.time.Clock$SourceClock,java.time.Clock$TickClock,java.time.Clock$OffsetClock,java.time.Clock$FixedClock,java.time.Clock$SystemClock,java.time.Clock$SystemInstantSource"
+	};
+	$loadClass(Clock, name, initialize, &classInfo$$, Clock::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Clock);
+	});
 	return class$;
 }
 

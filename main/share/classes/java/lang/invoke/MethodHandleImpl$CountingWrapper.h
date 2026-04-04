@@ -31,6 +31,7 @@ class MethodHandleImpl$CountingWrapper : public ::java::lang::invoke::Delegating
 	$class(MethodHandleImpl$CountingWrapper, 0, ::java::lang::invoke::DelegatingMethodHandle)
 public:
 	MethodHandleImpl$CountingWrapper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::MethodHandle* target, ::java::lang::invoke::LambdaForm* lform, ::java::util::function::Function* countingFromProducer, ::java::util::function::Function* nonCountingFormProducer, int32_t count);
 	virtual ::java::lang::invoke::MethodHandle* asTypeUncached(::java::lang::invoke::MethodType* newType) override;
 	virtual bool countDown();

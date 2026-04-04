@@ -1,5 +1,4 @@
 #include <sun/security/x509/CertificateSubjectName.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -34,44 +33,6 @@ namespace sun {
 	namespace security {
 		namespace x509 {
 
-$FieldInfo _CertificateSubjectName_FieldInfo_[] = {
-	{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateSubjectName, IDENT)},
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateSubjectName, NAME)},
-	{"DN_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateSubjectName, DN_NAME)},
-	{"DN_PRINCIPAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateSubjectName, DN_PRINCIPAL)},
-	{"dnName", "Lsun/security/x509/X500Name;", nullptr, $PRIVATE, $field(CertificateSubjectName, dnName)},
-	{"dnPrincipal", "Ljavax/security/auth/x500/X500Principal;", nullptr, $PRIVATE, $field(CertificateSubjectName, dnPrincipal)},
-	{}
-};
-
-$MethodInfo _CertificateSubjectName_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/x509/X500Name;)V", nullptr, $PUBLIC, $method(CertificateSubjectName, init$, void, $X500Name*)},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(CertificateSubjectName, init$, void, $DerInputStream*), "java.io.IOException"},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(CertificateSubjectName, init$, void, $InputStream*), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CertificateSubjectName, delete$, void, $String*), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateSubjectName, encode, void, $OutputStream*), "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CertificateSubjectName, get, $Object*, $String*), "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CertificateSubjectName, getElements, $Enumeration*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateSubjectName, getName, $String*)},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CertificateSubjectName, set, void, $String*, Object$*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateSubjectName, toString, $String*)},
-	{}
-};
-
-$ClassInfo _CertificateSubjectName_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.CertificateSubjectName",
-	"java.lang.Object",
-	"sun.security.x509.CertAttrSet",
-	_CertificateSubjectName_FieldInfo_,
-	_CertificateSubjectName_MethodInfo_,
-	"Ljava/lang/Object;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
-};
-
-$Object* allocate$CertificateSubjectName($Class* clazz) {
-	return $of($alloc(CertificateSubjectName));
-}
-
 $String* CertificateSubjectName::IDENT = nullptr;
 $String* CertificateSubjectName::NAME = nullptr;
 $String* CertificateSubjectName::DN_NAME = nullptr;
@@ -98,7 +59,7 @@ $String* CertificateSubjectName::toString() {
 }
 
 void CertificateSubjectName::encode($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	$nc(this->dnName)->encode(tmp);
 	$nc(out)->write($(tmp->toByteArray()));
@@ -118,10 +79,10 @@ void CertificateSubjectName::set($String* name, Object$* obj) {
 
 $Object* CertificateSubjectName::get($String* name) {
 	if ($nc(name)->equalsIgnoreCase(CertificateSubjectName::DN_NAME)) {
-		return $of((this->dnName));
+		return ($of(this->dnName));
 	} else if (name->equalsIgnoreCase(CertificateSubjectName::DN_PRINCIPAL)) {
 		if ((this->dnPrincipal == nullptr) && (this->dnName != nullptr)) {
-			$set(this, dnPrincipal, $nc(this->dnName)->asX500Principal());
+			$set(this, dnPrincipal, this->dnName->asX500Principal());
 		}
 		return $of(this->dnPrincipal);
 	} else {
@@ -151,7 +112,7 @@ $String* CertificateSubjectName::getName() {
 CertificateSubjectName::CertificateSubjectName() {
 }
 
-void clinit$CertificateSubjectName($Class* class$) {
+void CertificateSubjectName::clinit$($Class* clazz) {
 	$assignStatic(CertificateSubjectName::IDENT, "x509.info.subject"_s);
 	$assignStatic(CertificateSubjectName::NAME, "subject"_s);
 	$assignStatic(CertificateSubjectName::DN_NAME, "dname"_s);
@@ -159,7 +120,40 @@ void clinit$CertificateSubjectName($Class* class$) {
 }
 
 $Class* CertificateSubjectName::load$($String* name, bool initialize) {
-	$loadClass(CertificateSubjectName, name, initialize, &_CertificateSubjectName_ClassInfo_, clinit$CertificateSubjectName, allocate$CertificateSubjectName);
+	$FieldInfo fieldInfos$$[] = {
+		{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateSubjectName, IDENT)},
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateSubjectName, NAME)},
+		{"DN_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateSubjectName, DN_NAME)},
+		{"DN_PRINCIPAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CertificateSubjectName, DN_PRINCIPAL)},
+		{"dnName", "Lsun/security/x509/X500Name;", nullptr, $PRIVATE, $field(CertificateSubjectName, dnName)},
+		{"dnPrincipal", "Ljavax/security/auth/x500/X500Principal;", nullptr, $PRIVATE, $field(CertificateSubjectName, dnPrincipal)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/x509/X500Name;)V", nullptr, $PUBLIC, $method(CertificateSubjectName, init$, void, $X500Name*)},
+		{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(CertificateSubjectName, init$, void, $DerInputStream*), "java.io.IOException"},
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(CertificateSubjectName, init$, void, $InputStream*), "java.io.IOException"},
+		{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CertificateSubjectName, delete$, void, $String*), "java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(CertificateSubjectName, encode, void, $OutputStream*), "java.io.IOException"},
+		{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CertificateSubjectName, get, $Object*, $String*), "java.io.IOException"},
+		{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(CertificateSubjectName, getElements, $Enumeration*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateSubjectName, getName, $String*)},
+		{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CertificateSubjectName, set, void, $String*, Object$*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertificateSubjectName, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.CertificateSubjectName",
+		"java.lang.Object",
+		"sun.security.x509.CertAttrSet",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
+	};
+	$loadClass(CertificateSubjectName, name, initialize, &classInfo$$, CertificateSubjectName::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateSubjectName);
+	});
 	return class$;
 }
 

@@ -30,6 +30,7 @@ class $import JulianFields : public ::java::lang::Object {
 	$class(JulianFields, 0, ::java::lang::Object)
 public:
 	JulianFields();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static const int64_t JULIAN_DAY_OFFSET = (int64_t)2440588;
 	static ::java::time::temporal::TemporalField* JULIAN_DAY;

@@ -63,6 +63,7 @@ public:
 	virtual $Object* invokeAny(::java::util::Collection* tasks, int64_t timeout, ::java::util::concurrent::TimeUnit* unit) override;
 	virtual bool isShutdown() override;
 	virtual bool isTerminated() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t corePoolSize);
 	void init$(int32_t corePoolSize, ::java::util::concurrent::ThreadFactory* threadFactory);
 	void init$(int32_t corePoolSize, ::java::util::concurrent::RejectedExecutionHandler* handler);

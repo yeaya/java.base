@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/signature/SignatureReader.h>
-
 #include <jdk/internal/org/objectweb/asm/signature/SignatureVisitor.h>
 #include <jcpp.h>
 
@@ -16,38 +15,12 @@ namespace jdk {
 				namespace asm$ {
 					namespace signature {
 
-$FieldInfo _SignatureReader_FieldInfo_[] = {
-	{"signatureValue", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SignatureReader, signatureValue)},
-	{}
-};
-
-$MethodInfo _SignatureReader_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureReader, init$, void, $String*)},
-	{"accept", "(Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;)V", nullptr, $PUBLIC, $virtualMethod(SignatureReader, accept, void, $SignatureVisitor*)},
-	{"acceptType", "(Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;)V", nullptr, $PUBLIC, $virtualMethod(SignatureReader, acceptType, void, $SignatureVisitor*)},
-	{"parseType", "(Ljava/lang/String;ILjdk/internal/org/objectweb/asm/signature/SignatureVisitor;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SignatureReader, parseType, int32_t, $String*, int32_t, $SignatureVisitor*)},
-	{}
-};
-
-$ClassInfo _SignatureReader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.signature.SignatureReader",
-	"java.lang.Object",
-	nullptr,
-	_SignatureReader_FieldInfo_,
-	_SignatureReader_MethodInfo_
-};
-
-$Object* allocate$SignatureReader($Class* clazz) {
-	return $of($alloc(SignatureReader));
-}
-
 void SignatureReader::init$($String* signature) {
 	$set(this, signatureValue, signature);
 }
 
 void SignatureReader::accept($SignatureVisitor* signatureVistor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, signature, this->signatureValue);
 	int32_t length = $nc(signature)->length();
 	int32_t offset = 0;
@@ -55,7 +28,7 @@ void SignatureReader::accept($SignatureVisitor* signatureVistor) {
 	if (signature->charAt(0) == u'<') {
 		offset = 2;
 		do {
-			int32_t classBoundStartOffset = signature->indexOf((int32_t)u':', offset);
+			int32_t classBoundStartOffset = signature->indexOf(u':', offset);
 			$nc(signatureVistor)->visitFormalTypeParameter($(signature->substring(offset - 1, classBoundStartOffset)));
 			offset = classBoundStartOffset + 1;
 			currentChar = signature->charAt(offset);
@@ -76,12 +49,12 @@ void SignatureReader::accept($SignatureVisitor* signatureVistor) {
 		}
 		offset = parseType(signature, offset + 1, $($nc(signatureVistor)->visitReturnType()));
 		while (offset < length) {
-			offset = parseType(signature, offset + 1, $($nc(signatureVistor)->visitExceptionType()));
+			offset = parseType(signature, offset + 1, $(signatureVistor->visitExceptionType()));
 		}
 	} else {
 		offset = parseType(signature, offset, $($nc(signatureVistor)->visitSuperclass()));
 		while (offset < length) {
-			offset = parseType(signature, offset, $($nc(signatureVistor)->visitInterface()));
+			offset = parseType(signature, offset, $(signatureVistor->visitInterface()));
 		}
 	}
 }
@@ -91,7 +64,7 @@ void SignatureReader::acceptType($SignatureVisitor* signatureVisitor) {
 }
 
 int32_t SignatureReader::parseType($String* signature, int32_t startOffset, $SignatureVisitor* signatureVisitor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t offset = startOffset;
 	char16_t currentChar = $nc(signature)->charAt(offset++);
 	{
@@ -101,97 +74,72 @@ int32_t SignatureReader::parseType($String* signature, int32_t startOffset, $Sig
 		bool inner = false;
 		switch (currentChar) {
 		case u'Z':
-			{}
 		case u'C':
-			{}
 		case u'B':
-			{}
 		case u'S':
-			{}
 		case u'I':
-			{}
 		case u'F':
-			{}
 		case u'J':
-			{}
 		case u'D':
-			{}
 		case u'V':
-			{
-				$nc(signatureVisitor)->visitBaseType(currentChar);
-				return offset;
-			}
+			$nc(signatureVisitor)->visitBaseType(currentChar);
+			return offset;
 		case u'[':
-			{
-				return parseType(signature, offset, $($nc(signatureVisitor)->visitArrayType()));
-			}
+			return parseType(signature, offset, $($nc(signatureVisitor)->visitArrayType()));
 		case u'T':
-			{
-				endOffset = signature->indexOf((int32_t)u';', offset);
-				$nc(signatureVisitor)->visitTypeVariable($(signature->substring(offset, endOffset)));
-				return endOffset + 1;
-			}
+			endOffset = signature->indexOf(u';', offset);
+			$nc(signatureVisitor)->visitTypeVariable($(signature->substring(offset, endOffset)));
+			return endOffset + 1;
 		case u'L':
-			{
-				start = offset;
-				visited = false;
-				inner = false;
-				while (true) {
-					currentChar = signature->charAt(offset++);
-					if (currentChar == u'.' || currentChar == u';') {
-						if (!visited) {
-							$var($String, name, signature->substring(start, offset - 1));
-							if (inner) {
-								$nc(signatureVisitor)->visitInnerClassType(name);
-							} else {
-								$nc(signatureVisitor)->visitClassType(name);
-							}
-						}
-						if (currentChar == u';') {
-							$nc(signatureVisitor)->visitEnd();
-							break;
-						}
-						start = offset;
-						visited = false;
-						inner = true;
-					} else if (currentChar == u'<') {
+			start = offset;
+			visited = false;
+			inner = false;
+			while (true) {
+				currentChar = signature->charAt(offset++);
+				if (currentChar == u'.' || currentChar == u';') {
+					if (!visited) {
 						$var($String, name, signature->substring(start, offset - 1));
 						if (inner) {
 							$nc(signatureVisitor)->visitInnerClassType(name);
 						} else {
 							$nc(signatureVisitor)->visitClassType(name);
 						}
-						visited = true;
-						while ((currentChar = signature->charAt(offset)) != u'>') {
-							switch (currentChar) {
-							case u'*':
-								{
-									++offset;
-									$nc(signatureVisitor)->visitTypeArgument();
-									break;
-								}
-							case u'+':
-								{}
-							case u'-':
-								{
-									offset = parseType(signature, offset + 1, $($nc(signatureVisitor)->visitTypeArgument(currentChar)));
-									break;
-								}
-							default:
-								{
-									offset = parseType(signature, offset, $($nc(signatureVisitor)->visitTypeArgument(u'=')));
-									break;
-								}
-							}
+					}
+					if (currentChar == u';') {
+						$nc(signatureVisitor)->visitEnd();
+						break;
+					}
+					start = offset;
+					visited = false;
+					inner = true;
+				} else if (currentChar == u'<') {
+					$var($String, name, signature->substring(start, offset - 1));
+					if (inner) {
+						$nc(signatureVisitor)->visitInnerClassType(name);
+					} else {
+						$nc(signatureVisitor)->visitClassType(name);
+					}
+					visited = true;
+					while ((currentChar = signature->charAt(offset)) != u'>') {
+						switch (currentChar) {
+						case u'*':
+							++offset;
+							$nc(signatureVisitor)->visitTypeArgument();
+							break;
+						case u'+':
+						case u'-':
+							offset = parseType(signature, offset + 1, $($nc(signatureVisitor)->visitTypeArgument(currentChar)));
+							break;
+						default:
+							offset = parseType(signature, offset, $($nc(signatureVisitor)->visitTypeArgument(u'=')));
+							break;
 						}
 					}
 				}
-				return offset;
 			}
+			return offset;
 		default:
-			{
-				$throwNew($IllegalArgumentException);
-			}
+			$throwNew($IllegalArgumentException);
 		}
 	}
 }
@@ -200,7 +148,28 @@ SignatureReader::SignatureReader() {
 }
 
 $Class* SignatureReader::load$($String* name, bool initialize) {
-	$loadClass(SignatureReader, name, initialize, &_SignatureReader_ClassInfo_, allocate$SignatureReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"signatureValue", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SignatureReader, signatureValue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureReader, init$, void, $String*)},
+		{"accept", "(Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;)V", nullptr, $PUBLIC, $virtualMethod(SignatureReader, accept, void, $SignatureVisitor*)},
+		{"acceptType", "(Ljdk/internal/org/objectweb/asm/signature/SignatureVisitor;)V", nullptr, $PUBLIC, $virtualMethod(SignatureReader, acceptType, void, $SignatureVisitor*)},
+		{"parseType", "(Ljava/lang/String;ILjdk/internal/org/objectweb/asm/signature/SignatureVisitor;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(SignatureReader, parseType, int32_t, $String*, int32_t, $SignatureVisitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.signature.SignatureReader",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SignatureReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureReader);
+	});
 	return class$;
 }
 

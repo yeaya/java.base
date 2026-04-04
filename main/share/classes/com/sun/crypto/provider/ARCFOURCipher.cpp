@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/ARCFOURCipher.h>
-
 #include <com/sun/crypto/provider/ConstructKeys.h>
 #include <java/lang/Math.h>
 #include <java/security/AlgorithmParameters.h>
@@ -39,52 +38,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _ARCFOURCipher_FieldInfo_[] = {
-	{"S", "[I", nullptr, $PRIVATE | $FINAL, $field(ARCFOURCipher, S)},
-	{"is", "I", nullptr, $PRIVATE, $field(ARCFOURCipher, is)},
-	{"js", "I", nullptr, $PRIVATE, $field(ARCFOURCipher, js)},
-	{"lastKey", "[B", nullptr, $PRIVATE, $field(ARCFOURCipher, lastKey)},
-	{}
-};
-
-$MethodInfo _ARCFOURCipher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ARCFOURCipher, init$, void)},
-	{"crypt", "([BII[BI)V", nullptr, $PRIVATE, $method(ARCFOURCipher, crypt, void, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"engineDoFinal", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineDoFinal, $bytes*, $bytes*, int32_t, int32_t)},
-	{"engineDoFinal", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineDoFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
-	{"engineGetBlockSize", "()I", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineGetBlockSize, int32_t)},
-	{"engineGetIV", "()[B", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineGetIV, $bytes*)},
-	{"engineGetKeySize", "(Ljava/security/Key;)I", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineGetKeySize, int32_t, $Key*), "java.security.InvalidKeyException"},
-	{"engineGetOutputSize", "(I)I", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineGetOutputSize, int32_t, int32_t)},
-	{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineGetParameters, $AlgorithmParameters*)},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineInit, void, int32_t, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineInit, void, int32_t, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineInit, void, int32_t, $Key*, $AlgorithmParameters*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"engineSetMode", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineSetMode, void, $String*), "java.security.NoSuchAlgorithmException"},
-	{"engineSetPadding", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineSetPadding, void, $String*), "javax.crypto.NoSuchPaddingException"},
-	{"engineUnwrap", "([BLjava/lang/String;I)Ljava/security/Key;", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineUnwrap, $Key*, $bytes*, $String*, int32_t), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
-	{"engineUpdate", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineUpdate, $bytes*, $bytes*, int32_t, int32_t)},
-	{"engineUpdate", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
-	{"engineWrap", "(Ljava/security/Key;)[B", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineWrap, $bytes*, $Key*), "javax.crypto.IllegalBlockSizeException,java.security.InvalidKeyException"},
-	{"getEncodedKey", "(Ljava/security/Key;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(ARCFOURCipher, getEncodedKey, $bytes*, $Key*), "java.security.InvalidKeyException"},
-	{"init", "([B)V", nullptr, $PRIVATE, $method(ARCFOURCipher, init, void, $bytes*)},
-	{"init", "(ILjava/security/Key;)V", nullptr, $PRIVATE, $method(ARCFOURCipher, init, void, int32_t, $Key*), "java.security.InvalidKeyException"},
-	{}
-};
-
-$ClassInfo _ARCFOURCipher_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.ARCFOURCipher",
-	"javax.crypto.CipherSpi",
-	nullptr,
-	_ARCFOURCipher_FieldInfo_,
-	_ARCFOURCipher_MethodInfo_
-};
-
-$Object* allocate$ARCFOURCipher($Class* clazz) {
-	return $of($alloc(ARCFOURCipher));
-}
-
 void ARCFOURCipher::init$() {
 	$CipherSpi::init$();
 	$set(this, S, $new($ints, 256));
@@ -92,21 +45,16 @@ void ARCFOURCipher::init$() {
 
 void ARCFOURCipher::init($bytes* key) {
 	for (int32_t i = 0; i < 256; ++i) {
-		$nc(this->S)->set(i, i);
+		this->S->set(i, i);
 	}
-	{
-		int32_t i = 0;
-		int32_t j = 0;
-		int32_t ki = 0;
-		for (; i < 256; ++i) {
-			int32_t Si = $nc(this->S)->get(i);
-			j = (int32_t)((j + Si + $nc(key)->get(ki)) & (uint32_t)255);
-			$nc(this->S)->set(i, $nc(this->S)->get(j));
-			$nc(this->S)->set(j, Si);
-			++ki;
-			if (ki == key->length) {
-				ki = 0;
-			}
+	for (int32_t i = 0, j = 0, ki = 0; i < 256; ++i) {
+		int32_t Si = this->S->get(i);
+		j = (j + Si + $nc(key)->get(ki)) & 0xff;
+		this->S->set(i, this->S->get(j));
+		this->S->set(j, Si);
+		++ki;
+		if (ki == key->length) {
+			ki = 0;
 		}
 	}
 	this->is = 0;
@@ -118,13 +66,13 @@ void ARCFOURCipher::crypt($bytes* in, int32_t inOfs, int32_t inLen, $bytes* out,
 		init(this->lastKey);
 	}
 	while (inLen-- > 0) {
-		this->is = (int32_t)((this->is + 1) & (uint32_t)255);
-		int32_t Si = $nc(this->S)->get(this->is);
-		this->js = (int32_t)((this->js + Si) & (uint32_t)255);
-		int32_t Sj = $nc(this->S)->get(this->js);
-		$nc(this->S)->set(this->is, Sj);
-		$nc(this->S)->set(this->js, Si);
-		$nc(out)->set(outOfs++, (int8_t)($nc(in)->get(inOfs++) ^ $nc(this->S)->get((int32_t)((Si + Sj) & (uint32_t)255))));
+		this->is = (this->is + 1) & 0xff;
+		int32_t Si = this->S->get(this->is);
+		this->js = (this->js + Si) & 0xff;
+		int32_t Sj = this->S->get(this->js);
+		this->S->set(this->is, Sj);
+		this->S->set(this->js, Si);
+		$nc(out)->set(outOfs++, (int8_t)($nc(in)->get(inOfs++) ^ this->S->get((Si + Sj) & 0xff)));
 	}
 }
 
@@ -184,7 +132,7 @@ void ARCFOURCipher::init(int32_t opmode, $Key* key) {
 
 $bytes* ARCFOURCipher::getEncodedKey($Key* key) {
 	$init(ARCFOURCipher);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, keyAlg, $nc(key)->getAlgorithm());
 	bool var$0 = !$nc(keyAlg)->equals("RC4"_s);
 	if (var$0 && !keyAlg->equals("ARCFOUR"_s)) {
@@ -194,7 +142,7 @@ $bytes* ARCFOURCipher::getEncodedKey($Key* key) {
 		$throwNew($InvalidKeyException, "Key encoding format must be RAW"_s);
 	}
 	$var($bytes, encodedKey, key->getEncoded());
-	if (($nc(encodedKey)->length < 5) || ($nc(encodedKey)->length > 128)) {
+	if (($nc(encodedKey)->length < 5) || (encodedKey->length > 128)) {
 		$Arrays::fill(encodedKey, (int8_t)0);
 		$throwNew($InvalidKeyException, "Key length must be between 40 and 1024 bit"_s);
 	}
@@ -228,59 +176,55 @@ int32_t ARCFOURCipher::engineDoFinal($bytes* in, int32_t inOfs, int32_t inLen, $
 }
 
 $bytes* ARCFOURCipher::engineWrap($Key* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, encoded, $nc(key)->getEncoded());
-	if ((encoded == nullptr) || ($nc(encoded)->length == 0)) {
+	if ((encoded == nullptr) || (encoded->length == 0)) {
 		$throwNew($InvalidKeyException, "Could not obtain encoded key"_s);
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($bytes, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, engineDoFinal(encoded, 0, $nc(encoded)->length));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$Arrays::fill(encoded, (int8_t)0);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($bytes, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, engineDoFinal(encoded, 0, $nc(encoded)->length));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$Arrays::fill(encoded, (int8_t)0);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $Key* ARCFOURCipher::engineUnwrap($bytes* wrappedKey, $String* algorithm, int32_t type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, encoded, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Key, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(encoded, engineDoFinal(wrappedKey, 0, $nc(wrappedKey)->length));
-			$assign(var$2, $ConstructKeys::constructKey(encoded, algorithm, type));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			if (encoded != nullptr) {
-				$Arrays::fill(encoded, (int8_t)0);
-			}
+	$var($Throwable, var$0, nullptr);
+	$var($Key, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(encoded, engineDoFinal(wrappedKey, 0, $nc(wrappedKey)->length));
+		$assign(var$2, $ConstructKeys::constructKey(encoded, algorithm, type));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		if (encoded != nullptr) {
+			$Arrays::fill(encoded, (int8_t)0);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -295,7 +239,48 @@ ARCFOURCipher::ARCFOURCipher() {
 }
 
 $Class* ARCFOURCipher::load$($String* name, bool initialize) {
-	$loadClass(ARCFOURCipher, name, initialize, &_ARCFOURCipher_ClassInfo_, allocate$ARCFOURCipher);
+	$FieldInfo fieldInfos$$[] = {
+		{"S", "[I", nullptr, $PRIVATE | $FINAL, $field(ARCFOURCipher, S)},
+		{"is", "I", nullptr, $PRIVATE, $field(ARCFOURCipher, is)},
+		{"js", "I", nullptr, $PRIVATE, $field(ARCFOURCipher, js)},
+		{"lastKey", "[B", nullptr, $PRIVATE, $field(ARCFOURCipher, lastKey)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ARCFOURCipher, init$, void)},
+		{"crypt", "([BII[BI)V", nullptr, $PRIVATE, $method(ARCFOURCipher, crypt, void, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"engineDoFinal", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineDoFinal, $bytes*, $bytes*, int32_t, int32_t)},
+		{"engineDoFinal", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineDoFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
+		{"engineGetBlockSize", "()I", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineGetBlockSize, int32_t)},
+		{"engineGetIV", "()[B", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineGetIV, $bytes*)},
+		{"engineGetKeySize", "(Ljava/security/Key;)I", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineGetKeySize, int32_t, $Key*), "java.security.InvalidKeyException"},
+		{"engineGetOutputSize", "(I)I", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineGetOutputSize, int32_t, int32_t)},
+		{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineGetParameters, $AlgorithmParameters*)},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineInit, void, int32_t, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineInit, void, int32_t, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineInit, void, int32_t, $Key*, $AlgorithmParameters*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"engineSetMode", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineSetMode, void, $String*), "java.security.NoSuchAlgorithmException"},
+		{"engineSetPadding", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineSetPadding, void, $String*), "javax.crypto.NoSuchPaddingException"},
+		{"engineUnwrap", "([BLjava/lang/String;I)Ljava/security/Key;", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineUnwrap, $Key*, $bytes*, $String*, int32_t), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
+		{"engineUpdate", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineUpdate, $bytes*, $bytes*, int32_t, int32_t)},
+		{"engineUpdate", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
+		{"engineWrap", "(Ljava/security/Key;)[B", nullptr, $PROTECTED, $virtualMethod(ARCFOURCipher, engineWrap, $bytes*, $Key*), "javax.crypto.IllegalBlockSizeException,java.security.InvalidKeyException"},
+		{"getEncodedKey", "(Ljava/security/Key;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(ARCFOURCipher, getEncodedKey, $bytes*, $Key*), "java.security.InvalidKeyException"},
+		{"init", "([B)V", nullptr, $PRIVATE, $method(ARCFOURCipher, init, void, $bytes*)},
+		{"init", "(ILjava/security/Key;)V", nullptr, $PRIVATE, $method(ARCFOURCipher, init, void, int32_t, $Key*), "java.security.InvalidKeyException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.ARCFOURCipher",
+		"javax.crypto.CipherSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ARCFOURCipher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ARCFOURCipher);
+	});
 	return class$;
 }
 

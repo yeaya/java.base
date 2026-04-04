@@ -1,5 +1,4 @@
 #include <sun/security/util/AuthResources_zh_CN.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -13,30 +12,6 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$FieldInfo _AuthResources_zh_CN_FieldInfo_[] = {
-	{"contents", "[[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AuthResources_zh_CN, contents)},
-	{}
-};
-
-$MethodInfo _AuthResources_zh_CN_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AuthResources_zh_CN, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AuthResources_zh_CN, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _AuthResources_zh_CN_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.AuthResources_zh_CN",
-	"java.util.ListResourceBundle",
-	nullptr,
-	_AuthResources_zh_CN_FieldInfo_,
-	_AuthResources_zh_CN_MethodInfo_
-};
-
-$Object* allocate$AuthResources_zh_CN($Class* clazz) {
-	return $of($alloc(AuthResources_zh_CN));
-}
-
 $ObjectArray2* AuthResources_zh_CN::contents = nullptr;
 
 void AuthResources_zh_CN::init$() {
@@ -47,132 +22,132 @@ $ObjectArray2* AuthResources_zh_CN::getContents() {
 	return AuthResources_zh_CN::contents;
 }
 
-void clinit$AuthResources_zh_CN($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void AuthResources_zh_CN::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(AuthResources_zh_CN::contents, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("invalid.null.input.value"_s),
-			$of(u"无效的空输入: {0}"_s)
+			"invalid.null.input.value"_s,
+			u"无效的空输入: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NTDomainPrincipal.name"_s),
-			$of("NTDomainPrincipal: {0}"_s)
+			"NTDomainPrincipal.name"_s,
+			"NTDomainPrincipal: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NTNumericCredential.name"_s),
-			$of("NTNumericCredential: {0}"_s)
+			"NTNumericCredential.name"_s,
+			"NTNumericCredential: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Invalid.NTSid.value"_s),
-			$of(u"无效的 NTSid 值"_s)
+			"Invalid.NTSid.value"_s,
+			u"无效的 NTSid 值"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NTSid.name"_s),
-			$of("NTSid: {0}"_s)
+			"NTSid.name"_s,
+			"NTSid: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NTSidDomainPrincipal.name"_s),
-			$of("NTSidDomainPrincipal: {0}"_s)
+			"NTSidDomainPrincipal.name"_s,
+			"NTSidDomainPrincipal: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NTSidGroupPrincipal.name"_s),
-			$of("NTSidGroupPrincipal: {0}"_s)
+			"NTSidGroupPrincipal.name"_s,
+			"NTSidGroupPrincipal: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NTSidPrimaryGroupPrincipal.name"_s),
-			$of("NTSidPrimaryGroupPrincipal: {0}"_s)
+			"NTSidPrimaryGroupPrincipal.name"_s,
+			"NTSidPrimaryGroupPrincipal: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NTSidUserPrincipal.name"_s),
-			$of("NTSidUserPrincipal: {0}"_s)
+			"NTSidUserPrincipal.name"_s,
+			"NTSidUserPrincipal: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NTUserPrincipal.name"_s),
-			$of("NTUserPrincipal: {0}"_s)
+			"NTUserPrincipal.name"_s,
+			"NTUserPrincipal: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UnixNumericGroupPrincipal.Primary.Group.name"_s),
-			$of(u"UnixNumericGroupPrincipal [主组]: {0}"_s)
+			"UnixNumericGroupPrincipal.Primary.Group.name"_s,
+			u"UnixNumericGroupPrincipal [主组]: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UnixNumericGroupPrincipal.Supplementary.Group.name"_s),
-			$of(u"UnixNumericGroupPrincipal [补充组]: {0}"_s)
+			"UnixNumericGroupPrincipal.Supplementary.Group.name"_s,
+			u"UnixNumericGroupPrincipal [补充组]: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UnixNumericUserPrincipal.name"_s),
-			$of("UnixNumericUserPrincipal: {0}"_s)
+			"UnixNumericUserPrincipal.name"_s,
+			"UnixNumericUserPrincipal: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UnixPrincipal.name"_s),
-			$of("UnixPrincipal: {0}"_s)
+			"UnixPrincipal.name"_s,
+			"UnixPrincipal: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Unable.to.properly.expand.config"_s),
-			$of(u"无法正确扩展{0}"_s)
+			"Unable.to.properly.expand.config"_s,
+			u"无法正确扩展{0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("extra.config.No.such.file.or.directory."_s),
-			$of(u"{0} (没有这样的文件或目录)"_s)
+			"extra.config.No.such.file.or.directory."_s,
+			u"{0} (没有这样的文件或目录)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Configuration.Error.No.such.file.or.directory"_s),
-			$of(u"配置错误:\n\t没有此文件或目录"_s)
+			"Configuration.Error.No.such.file.or.directory"_s,
+			u"配置错误:\n\t没有此文件或目录"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Configuration.Error.Invalid.control.flag.flag"_s),
-			$of(u"配置错误: \n\t无效的控制标记, {0}"_s)
+			"Configuration.Error.Invalid.control.flag.flag"_s,
+			u"配置错误: \n\t无效的控制标记, {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Configuration.Error.Can.not.specify.multiple.entries.for.appName"_s),
-			$of(u"配置错误:\n\t无法指定{0}的多个条目"_s)
+			"Configuration.Error.Can.not.specify.multiple.entries.for.appName"_s,
+			u"配置错误:\n\t无法指定{0}的多个条目"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Configuration.Error.expected.expect.read.end.of.file."_s),
-			$of(u"配置错误: \n\t应为 [{0}], 读取的是 [文件结尾]"_s)
+			"Configuration.Error.expected.expect.read.end.of.file."_s,
+			u"配置错误: \n\t应为 [{0}], 读取的是 [文件结尾]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Configuration.Error.Line.line.expected.expect.found.value."_s),
-			$of(u"配置错误: \n\t行 {0}: 应为 [{1}], 找到 [{2}]"_s)
+			"Configuration.Error.Line.line.expected.expect.found.value."_s,
+			u"配置错误: \n\t行 {0}: 应为 [{1}], 找到 [{2}]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Configuration.Error.Line.line.expected.expect."_s),
-			$of(u"配置错误: \n\t行 {0}: 应为 [{1}]"_s)
+			"Configuration.Error.Line.line.expected.expect."_s,
+			u"配置错误: \n\t行 {0}: 应为 [{1}]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Configuration.Error.Line.line.system.property.value.expanded.to.empty.value"_s),
-			$of(u"配置错误: \n\t行 {0}: 系统属性 [{1}] 扩展到空值"_s)
+			"Configuration.Error.Line.line.system.property.value.expanded.to.empty.value"_s,
+			u"配置错误: \n\t行 {0}: 系统属性 [{1}] 扩展到空值"_s
 		}),
 		$$new($ObjectArray, {
-			$of("username."_s),
-			$of(u"用户名: "_s)
+			"username."_s,
+			u"用户名: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("password."_s),
-			$of(u"口令: "_s)
+			"password."_s,
+			u"口令: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Please.enter.keystore.information"_s),
-			$of(u"请输入密钥库信息"_s)
+			"Please.enter.keystore.information"_s,
+			u"请输入密钥库信息"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Keystore.alias."_s),
-			$of(u"密钥库别名: "_s)
+			"Keystore.alias."_s,
+			u"密钥库别名: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Keystore.password."_s),
-			$of(u"密钥库口令: "_s)
+			"Keystore.password."_s,
+			u"密钥库口令: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Private.key.password.optional."_s),
-			$of(u"私有密钥口令 (可选): "_s)
+			"Private.key.password.optional."_s,
+			u"私有密钥口令 (可选): "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kerberos.username.defUsername."_s),
-			$of(u"Kerberos 用户名 [{0}]: "_s)
+			"Kerberos.username.defUsername."_s,
+			u"Kerberos 用户名 [{0}]: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kerberos.password.for.username."_s),
-			$of(u"{0}的 Kerberos 口令: "_s)
+			"Kerberos.password.for.username."_s,
+			u"{0}的 Kerberos 口令: "_s
 		})
 	}));
 }
@@ -181,7 +156,26 @@ AuthResources_zh_CN::AuthResources_zh_CN() {
 }
 
 $Class* AuthResources_zh_CN::load$($String* name, bool initialize) {
-	$loadClass(AuthResources_zh_CN, name, initialize, &_AuthResources_zh_CN_ClassInfo_, clinit$AuthResources_zh_CN, allocate$AuthResources_zh_CN);
+	$FieldInfo fieldInfos$$[] = {
+		{"contents", "[[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AuthResources_zh_CN, contents)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AuthResources_zh_CN, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AuthResources_zh_CN, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.AuthResources_zh_CN",
+		"java.util.ListResourceBundle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AuthResources_zh_CN, name, initialize, &classInfo$$, AuthResources_zh_CN::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AuthResources_zh_CN);
+	});
 	return class$;
 }
 

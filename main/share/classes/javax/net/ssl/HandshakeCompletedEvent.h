@@ -51,7 +51,7 @@ public:
 	virtual ::java::security::Principal* getPeerPrincipal();
 	virtual ::javax::net::ssl::SSLSession* getSession();
 	virtual ::javax::net::ssl::SSLSocket* getSocket();
-	static const int64_t serialVersionUID = (int64_t)0x6DD7999712948132;
+	static const int64_t serialVersionUID = (int64_t)0x6dd7999712948132;
 	::javax::net::ssl::SSLSession* session = nullptr;
 };
 

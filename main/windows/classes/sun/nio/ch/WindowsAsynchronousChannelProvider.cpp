@@ -1,5 +1,4 @@
 #include <sun/nio/ch/WindowsAsynchronousChannelProvider.h>
-
 #include <java/nio/channels/AsynchronousChannelGroup.h>
 #include <java/nio/channels/AsynchronousServerSocketChannel.h>
 #include <java/nio/channels/AsynchronousSocketChannel.h>
@@ -32,35 +31,6 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _WindowsAsynchronousChannelProvider_FieldInfo_[] = {
-	{"defaultIocp", "Lsun/nio/ch/Iocp;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(WindowsAsynchronousChannelProvider, defaultIocp$)},
-	{}
-};
-
-$MethodInfo _WindowsAsynchronousChannelProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsAsynchronousChannelProvider, init$, void)},
-	{"defaultIocp", "()Lsun/nio/ch/Iocp;", nullptr, $PRIVATE, $method(WindowsAsynchronousChannelProvider, defaultIocp, $Iocp*), "java.io.IOException"},
-	{"openAsynchronousChannelGroup", "(ILjava/util/concurrent/ThreadFactory;)Ljava/nio/channels/AsynchronousChannelGroup;", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousChannelProvider, openAsynchronousChannelGroup, $AsynchronousChannelGroup*, int32_t, $ThreadFactory*), "java.io.IOException"},
-	{"openAsynchronousChannelGroup", "(Ljava/util/concurrent/ExecutorService;I)Ljava/nio/channels/AsynchronousChannelGroup;", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousChannelProvider, openAsynchronousChannelGroup, $AsynchronousChannelGroup*, $ExecutorService*, int32_t), "java.io.IOException"},
-	{"openAsynchronousServerSocketChannel", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousServerSocketChannel;", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousChannelProvider, openAsynchronousServerSocketChannel, $AsynchronousServerSocketChannel*, $AsynchronousChannelGroup*), "java.io.IOException"},
-	{"openAsynchronousSocketChannel", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousSocketChannel;", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousChannelProvider, openAsynchronousSocketChannel, $AsynchronousSocketChannel*, $AsynchronousChannelGroup*), "java.io.IOException"},
-	{"toIocp", "(Ljava/nio/channels/AsynchronousChannelGroup;)Lsun/nio/ch/Iocp;", nullptr, $PRIVATE, $method(WindowsAsynchronousChannelProvider, toIocp, $Iocp*, $AsynchronousChannelGroup*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _WindowsAsynchronousChannelProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.ch.WindowsAsynchronousChannelProvider",
-	"java.nio.channels.spi.AsynchronousChannelProvider",
-	nullptr,
-	_WindowsAsynchronousChannelProvider_FieldInfo_,
-	_WindowsAsynchronousChannelProvider_MethodInfo_
-};
-
-$Object* allocate$WindowsAsynchronousChannelProvider($Class* clazz) {
-	return $of($alloc(WindowsAsynchronousChannelProvider));
-}
-
 $volatile($Iocp*) WindowsAsynchronousChannelProvider::defaultIocp$ = nullptr;
 
 void WindowsAsynchronousChannelProvider::init$() {
@@ -68,7 +38,7 @@ void WindowsAsynchronousChannelProvider::init$() {
 }
 
 $Iocp* WindowsAsynchronousChannelProvider::defaultIocp() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (WindowsAsynchronousChannelProvider::defaultIocp$ == nullptr) {
 		$synchronized(WindowsAsynchronousChannelProvider::class$) {
 			if (WindowsAsynchronousChannelProvider::defaultIocp$ == nullptr) {
@@ -80,12 +50,12 @@ $Iocp* WindowsAsynchronousChannelProvider::defaultIocp() {
 }
 
 $AsynchronousChannelGroup* WindowsAsynchronousChannelProvider::openAsynchronousChannelGroup(int32_t nThreads, $ThreadFactory* factory) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $$new($Iocp, this, $($ThreadPool::create(nThreads, factory)))->start();
 }
 
 $AsynchronousChannelGroup* WindowsAsynchronousChannelProvider::openAsynchronousChannelGroup($ExecutorService* executor, int32_t initialSize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $$new($Iocp, this, $($ThreadPool::wrap(executor, initialSize)))->start();
 }
 
@@ -112,7 +82,31 @@ WindowsAsynchronousChannelProvider::WindowsAsynchronousChannelProvider() {
 }
 
 $Class* WindowsAsynchronousChannelProvider::load$($String* name, bool initialize) {
-	$loadClass(WindowsAsynchronousChannelProvider, name, initialize, &_WindowsAsynchronousChannelProvider_ClassInfo_, allocate$WindowsAsynchronousChannelProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultIocp", "Lsun/nio/ch/Iocp;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(WindowsAsynchronousChannelProvider, defaultIocp$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsAsynchronousChannelProvider, init$, void)},
+		{"defaultIocp", "()Lsun/nio/ch/Iocp;", nullptr, $PRIVATE, $method(WindowsAsynchronousChannelProvider, defaultIocp, $Iocp*), "java.io.IOException"},
+		{"openAsynchronousChannelGroup", "(ILjava/util/concurrent/ThreadFactory;)Ljava/nio/channels/AsynchronousChannelGroup;", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousChannelProvider, openAsynchronousChannelGroup, $AsynchronousChannelGroup*, int32_t, $ThreadFactory*), "java.io.IOException"},
+		{"openAsynchronousChannelGroup", "(Ljava/util/concurrent/ExecutorService;I)Ljava/nio/channels/AsynchronousChannelGroup;", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousChannelProvider, openAsynchronousChannelGroup, $AsynchronousChannelGroup*, $ExecutorService*, int32_t), "java.io.IOException"},
+		{"openAsynchronousServerSocketChannel", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousServerSocketChannel;", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousChannelProvider, openAsynchronousServerSocketChannel, $AsynchronousServerSocketChannel*, $AsynchronousChannelGroup*), "java.io.IOException"},
+		{"openAsynchronousSocketChannel", "(Ljava/nio/channels/AsynchronousChannelGroup;)Ljava/nio/channels/AsynchronousSocketChannel;", nullptr, $PUBLIC, $virtualMethod(WindowsAsynchronousChannelProvider, openAsynchronousSocketChannel, $AsynchronousSocketChannel*, $AsynchronousChannelGroup*), "java.io.IOException"},
+		{"toIocp", "(Ljava/nio/channels/AsynchronousChannelGroup;)Lsun/nio/ch/Iocp;", nullptr, $PRIVATE, $method(WindowsAsynchronousChannelProvider, toIocp, $Iocp*, $AsynchronousChannelGroup*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.ch.WindowsAsynchronousChannelProvider",
+		"java.nio.channels.spi.AsynchronousChannelProvider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WindowsAsynchronousChannelProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsAsynchronousChannelProvider);
+	});
 	return class$;
 }
 

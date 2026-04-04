@@ -20,6 +20,7 @@ class $export BasicTest : public ::java::lang::Object {
 	$class(BasicTest, 0, ::java::lang::Object)
 public:
 	BasicTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void test(::java::lang::invoke::MethodType* concatType);

@@ -1,5 +1,4 @@
 #include <StreamDrainer.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/InputStream.h>
 #include <jcpp.h>
@@ -11,32 +10,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$FieldInfo _StreamDrainer_FieldInfo_[] = {
-	{"is", "Ljava/io/InputStream;", nullptr, $PRIVATE | $FINAL, $field(StreamDrainer, is)},
-	{"os", "Ljava/io/ByteArrayOutputStream;", nullptr, $PRIVATE | $FINAL, $field(StreamDrainer, os)},
-	{}
-};
-
-$MethodInfo _StreamDrainer_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(StreamDrainer, init$, void, $InputStream*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(StreamDrainer, run, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamDrainer, toString, $String*)},
-	{}
-};
-
-$ClassInfo _StreamDrainer_ClassInfo_ = {
-	$ACC_SUPER,
-	"StreamDrainer",
-	"java.lang.Thread",
-	nullptr,
-	_StreamDrainer_FieldInfo_,
-	_StreamDrainer_MethodInfo_
-};
-
-$Object* allocate$StreamDrainer($Class* clazz) {
-	return $of($alloc(StreamDrainer));
-}
-
 void StreamDrainer::init$($InputStream* is) {
 	$Thread::init$();
 	$set(this, os, $new($ByteArrayOutputStream));
@@ -47,21 +20,42 @@ void StreamDrainer::run() {
 	try {
 		int32_t i = 0;
 		while ((i = $nc(this->is)->read()) >= 0) {
-			$nc(this->os)->write(i);
+			this->os->write(i);
 		}
 	} catch ($Exception& e) {
 	}
 }
 
 $String* StreamDrainer::toString() {
-	return $nc(this->os)->toString();
+	return this->os->toString();
 }
 
 StreamDrainer::StreamDrainer() {
 }
 
 $Class* StreamDrainer::load$($String* name, bool initialize) {
-	$loadClass(StreamDrainer, name, initialize, &_StreamDrainer_ClassInfo_, allocate$StreamDrainer);
+	$FieldInfo fieldInfos$$[] = {
+		{"is", "Ljava/io/InputStream;", nullptr, $PRIVATE | $FINAL, $field(StreamDrainer, is)},
+		{"os", "Ljava/io/ByteArrayOutputStream;", nullptr, $PRIVATE | $FINAL, $field(StreamDrainer, os)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(StreamDrainer, init$, void, $InputStream*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(StreamDrainer, run, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamDrainer, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"StreamDrainer",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StreamDrainer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StreamDrainer);
+	});
 	return class$;
 }
 

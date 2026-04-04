@@ -1,5 +1,4 @@
 #include <Fill4BufferedReader$Source.h>
-
 #include <Fill4BufferedReader.h>
 #include <java/io/Reader.h>
 #include <jcpp.h>
@@ -10,48 +9,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$FieldInfo _Fill4BufferedReader$Source_FieldInfo_[] = {
-	{"shortFall", "I", nullptr, 0, $field(Fill4BufferedReader$Source, shortFall)},
-	{"next", "C", nullptr, 0, $field(Fill4BufferedReader$Source, next)},
-	{}
-};
-
-$MethodInfo _Fill4BufferedReader$Source_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(Fill4BufferedReader$Source, init$, void, int32_t)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Fill4BufferedReader$Source, close, void), "java.io.IOException"},
-	{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(Fill4BufferedReader$Source, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(Fill4BufferedReader$Source, ready, bool)},
-	{}
-};
-
-$InnerClassInfo _Fill4BufferedReader$Source_InnerClassesInfo_[] = {
-	{"Fill4BufferedReader$Source", "Fill4BufferedReader", "Source", $STATIC},
-	{}
-};
-
-$ClassInfo _Fill4BufferedReader$Source_ClassInfo_ = {
-	$ACC_SUPER,
-	"Fill4BufferedReader$Source",
-	"java.io.Reader",
-	nullptr,
-	_Fill4BufferedReader$Source_FieldInfo_,
-	_Fill4BufferedReader$Source_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Fill4BufferedReader$Source_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Fill4BufferedReader"
-};
-
-$Object* allocate$Fill4BufferedReader$Source($Class* clazz) {
-	return $of($alloc(Fill4BufferedReader$Source));
-}
-
 void Fill4BufferedReader$Source::init$(int32_t shortFall) {
 	$Reader::init$();
-	this->next = (char16_t)0;
+	this->next = 0;
 	this->shortFall = shortFall;
 }
 
@@ -74,7 +34,40 @@ Fill4BufferedReader$Source::Fill4BufferedReader$Source() {
 }
 
 $Class* Fill4BufferedReader$Source::load$($String* name, bool initialize) {
-	$loadClass(Fill4BufferedReader$Source, name, initialize, &_Fill4BufferedReader$Source_ClassInfo_, allocate$Fill4BufferedReader$Source);
+	$FieldInfo fieldInfos$$[] = {
+		{"shortFall", "I", nullptr, 0, $field(Fill4BufferedReader$Source, shortFall)},
+		{"next", "C", nullptr, 0, $field(Fill4BufferedReader$Source, next)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(Fill4BufferedReader$Source, init$, void, int32_t)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Fill4BufferedReader$Source, close, void), "java.io.IOException"},
+		{"read", "([CII)I", nullptr, $PUBLIC, $virtualMethod(Fill4BufferedReader$Source, read, int32_t, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"ready", "()Z", nullptr, $PUBLIC, $virtualMethod(Fill4BufferedReader$Source, ready, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Fill4BufferedReader$Source", "Fill4BufferedReader", "Source", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Fill4BufferedReader$Source",
+		"java.io.Reader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Fill4BufferedReader"
+	};
+	$loadClass(Fill4BufferedReader$Source, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Fill4BufferedReader$Source));
+	});
 	return class$;
 }
 

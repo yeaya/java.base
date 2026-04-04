@@ -1,5 +1,4 @@
 #include <sun/nio/fs/UnixFileStore$FeatureStatus.h>
-
 #include <java/lang/Enum.h>
 #include <sun/nio/fs/UnixFileStore.h>
 #include <jcpp.h>
@@ -18,47 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace nio {
 		namespace fs {
-
-$FieldInfo _UnixFileStore$FeatureStatus_FieldInfo_[] = {
-	{"PRESENT", "Lsun/nio/fs/UnixFileStore$FeatureStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnixFileStore$FeatureStatus, PRESENT)},
-	{"NOT_PRESENT", "Lsun/nio/fs/UnixFileStore$FeatureStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnixFileStore$FeatureStatus, NOT_PRESENT)},
-	{"UNKNOWN", "Lsun/nio/fs/UnixFileStore$FeatureStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnixFileStore$FeatureStatus, UNKNOWN)},
-	{"$VALUES", "[Lsun/nio/fs/UnixFileStore$FeatureStatus;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(UnixFileStore$FeatureStatus, $VALUES)},
-	{}
-};
-
-$MethodInfo _UnixFileStore$FeatureStatus_MethodInfo_[] = {
-	{"$values", "()[Lsun/nio/fs/UnixFileStore$FeatureStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnixFileStore$FeatureStatus, $values, $UnixFileStore$FeatureStatusArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(UnixFileStore$FeatureStatus, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/nio/fs/UnixFileStore$FeatureStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnixFileStore$FeatureStatus, valueOf, UnixFileStore$FeatureStatus*, $String*)},
-	{"values", "()[Lsun/nio/fs/UnixFileStore$FeatureStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnixFileStore$FeatureStatus, values, $UnixFileStore$FeatureStatusArray*)},
-	{}
-};
-
-$InnerClassInfo _UnixFileStore$FeatureStatus_InnerClassesInfo_[] = {
-	{"sun.nio.fs.UnixFileStore$FeatureStatus", "sun.nio.fs.UnixFileStore", "FeatureStatus", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _UnixFileStore$FeatureStatus_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.nio.fs.UnixFileStore$FeatureStatus",
-	"java.lang.Enum",
-	nullptr,
-	_UnixFileStore$FeatureStatus_FieldInfo_,
-	_UnixFileStore$FeatureStatus_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/nio/fs/UnixFileStore$FeatureStatus;>;",
-	nullptr,
-	_UnixFileStore$FeatureStatus_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.UnixFileStore"
-};
-
-$Object* allocate$UnixFileStore$FeatureStatus($Class* clazz) {
-	return $of($alloc(UnixFileStore$FeatureStatus));
-}
 
 UnixFileStore$FeatureStatus* UnixFileStore$FeatureStatus::PRESENT = nullptr;
 UnixFileStore$FeatureStatus* UnixFileStore$FeatureStatus::NOT_PRESENT = nullptr;
@@ -88,7 +46,7 @@ void UnixFileStore$FeatureStatus::init$($String* $enum$name, int32_t $enum$ordin
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$UnixFileStore$FeatureStatus($Class* class$) {
+void UnixFileStore$FeatureStatus::clinit$($Class* clazz) {
 	$assignStatic(UnixFileStore$FeatureStatus::PRESENT, $new(UnixFileStore$FeatureStatus, "PRESENT"_s, 0));
 	$assignStatic(UnixFileStore$FeatureStatus::NOT_PRESENT, $new(UnixFileStore$FeatureStatus, "NOT_PRESENT"_s, 1));
 	$assignStatic(UnixFileStore$FeatureStatus::UNKNOWN, $new(UnixFileStore$FeatureStatus, "UNKNOWN"_s, 2));
@@ -99,7 +57,42 @@ UnixFileStore$FeatureStatus::UnixFileStore$FeatureStatus() {
 }
 
 $Class* UnixFileStore$FeatureStatus::load$($String* name, bool initialize) {
-	$loadClass(UnixFileStore$FeatureStatus, name, initialize, &_UnixFileStore$FeatureStatus_ClassInfo_, clinit$UnixFileStore$FeatureStatus, allocate$UnixFileStore$FeatureStatus);
+	$FieldInfo fieldInfos$$[] = {
+		{"PRESENT", "Lsun/nio/fs/UnixFileStore$FeatureStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnixFileStore$FeatureStatus, PRESENT)},
+		{"NOT_PRESENT", "Lsun/nio/fs/UnixFileStore$FeatureStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnixFileStore$FeatureStatus, NOT_PRESENT)},
+		{"UNKNOWN", "Lsun/nio/fs/UnixFileStore$FeatureStatus;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(UnixFileStore$FeatureStatus, UNKNOWN)},
+		{"$VALUES", "[Lsun/nio/fs/UnixFileStore$FeatureStatus;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(UnixFileStore$FeatureStatus, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/nio/fs/UnixFileStore$FeatureStatus;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnixFileStore$FeatureStatus, $values, $UnixFileStore$FeatureStatusArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(UnixFileStore$FeatureStatus, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/nio/fs/UnixFileStore$FeatureStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnixFileStore$FeatureStatus, valueOf, UnixFileStore$FeatureStatus*, $String*)},
+		{"values", "()[Lsun/nio/fs/UnixFileStore$FeatureStatus;", nullptr, $PUBLIC | $STATIC, $staticMethod(UnixFileStore$FeatureStatus, values, $UnixFileStore$FeatureStatusArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.UnixFileStore$FeatureStatus", "sun.nio.fs.UnixFileStore", "FeatureStatus", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.nio.fs.UnixFileStore$FeatureStatus",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/nio/fs/UnixFileStore$FeatureStatus;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.UnixFileStore"
+	};
+	$loadClass(UnixFileStore$FeatureStatus, name, initialize, &classInfo$$, UnixFileStore$FeatureStatus::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UnixFileStore$FeatureStatus));
+	});
 	return class$;
 }
 

@@ -36,6 +36,7 @@ class $export TraceSignatureVisitor : public ::jdk::internal::org::objectweb::as
 	$class(TraceSignatureVisitor, 0, ::jdk::internal::org::objectweb::asm$::signature::SignatureVisitor)
 public:
 	TraceSignatureVisitor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t accessFlags);
 	void init$(::java::lang::StringBuilder* stringBuilder);
 	void endFormals();

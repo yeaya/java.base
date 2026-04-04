@@ -1,12 +1,9 @@
 #include <jdk/internal/module/Checks.h>
-
-#include <java/lang/CharSequence.h>
 #include <java/util/Set.h>
 #include <jcpp.h>
 
 #undef RESERVED
 
-using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -18,39 +15,6 @@ namespace jdk {
 	namespace internal {
 		namespace module {
 
-$FieldInfo _Checks_FieldInfo_[] = {
-	{"RESERVED", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Checks, RESERVED)},
-	{}
-};
-
-$MethodInfo _Checks_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Checks, init$, void)},
-	{"isClassName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Checks, isClassName, bool, $String*)},
-	{"isJavaIdentifier", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Checks, isJavaIdentifier, bool, $String*)},
-	{"isPackageName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Checks, isPackageName, bool, $String*)},
-	{"isTypeName", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Checks, isTypeName, bool, $String*)},
-	{"requireModuleName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Checks, requireModuleName, $String*, $String*)},
-	{"requirePackageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Checks, requirePackageName, $String*, $String*)},
-	{"requireQualifiedClassName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Checks, requireQualifiedClassName, $String*, $String*, $String*)},
-	{"requireServiceProviderName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Checks, requireServiceProviderName, $String*, $String*)},
-	{"requireServiceTypeName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Checks, requireServiceTypeName, $String*, $String*)},
-	{"requireTypeName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Checks, requireTypeName, $String*, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _Checks_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.module.Checks",
-	"java.lang.Object",
-	nullptr,
-	_Checks_FieldInfo_,
-	_Checks_MethodInfo_
-};
-
-$Object* allocate$Checks($Class* clazz) {
-	return $of($alloc(Checks));
-}
-
 $Set* Checks::RESERVED = nullptr;
 
 void Checks::init$() {
@@ -58,20 +22,20 @@ void Checks::init$() {
 
 $String* Checks::requireModuleName($String* name) {
 	$init(Checks);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
 		$throwNew($IllegalArgumentException, "Null module name"_s);
 	}
 	int32_t next = 0;
 	int32_t off = 0;
-	while ((next = $nc(name)->indexOf((int32_t)u'.', off)) != -1) {
+	while ((next = $nc(name)->indexOf(u'.', off)) != -1) {
 		$var($String, id, name->substring(off, next));
 		if (!isJavaIdentifier(id)) {
 			$throwNew($IllegalArgumentException, $$str({name, ": Invalid module name: \'"_s, id, "\' is not a Java identifier"_s}));
 		}
 		off = next + 1;
 	}
-	$var($String, last, $nc(name)->substring(off));
+	$var($String, last, name->substring(off));
 	if (!isJavaIdentifier(last)) {
 		$throwNew($IllegalArgumentException, $$str({name, ": Invalid module name: \'"_s, last, "\' is not a Java identifier"_s}));
 	}
@@ -101,7 +65,7 @@ $String* Checks::requireServiceProviderName($String* name) {
 $String* Checks::requireQualifiedClassName($String* what, $String* name) {
 	$init(Checks);
 	requireTypeName(what, name);
-	if ($nc(name)->indexOf((int32_t)u'.') == -1) {
+	if ($nc(name)->indexOf(u'.') == -1) {
 		$throwNew($IllegalArgumentException, $$str({name, ": is not a qualified name of a Java class in a named package"_s}));
 	}
 	return name;
@@ -114,36 +78,36 @@ bool Checks::isClassName($String* name) {
 
 bool Checks::isTypeName($String* name) {
 	$init(Checks);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t next = 0;
 	int32_t off = 0;
-	while ((next = $nc(name)->indexOf((int32_t)u'.', off)) != -1) {
+	while ((next = $nc(name)->indexOf(u'.', off)) != -1) {
 		$var($String, id, name->substring(off, next));
 		if (!isJavaIdentifier(id)) {
 			return false;
 		}
 		off = next + 1;
 	}
-	$var($String, last, $nc(name)->substring(off));
+	$var($String, last, name->substring(off));
 	return isJavaIdentifier(last);
 }
 
 $String* Checks::requireTypeName($String* what, $String* name) {
 	$init(Checks);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
 		$throwNew($IllegalArgumentException, $$str({"Null "_s, what}));
 	}
 	int32_t next = 0;
 	int32_t off = 0;
-	while ((next = $nc(name)->indexOf((int32_t)u'.', off)) != -1) {
+	while ((next = $nc(name)->indexOf(u'.', off)) != -1) {
 		$var($String, id, name->substring(off, next));
 		if (!isJavaIdentifier(id)) {
 			$throwNew($IllegalArgumentException, $$str({name, ": Invalid "_s, what, ": \'"_s, id, "\' is not a Java identifier"_s}));
 		}
 		off = next + 1;
 	}
-	$var($String, last, $nc(name)->substring(off));
+	$var($String, last, name->substring(off));
 	if (!isJavaIdentifier(last)) {
 		$throwNew($IllegalArgumentException, $$str({name, ": Invalid "_s, what, ": \'"_s, last, "\' is not a Java identifier"_s}));
 	}
@@ -156,13 +120,13 @@ bool Checks::isJavaIdentifier($String* str) {
 	if (var$0 || $nc(Checks::RESERVED)->contains(str)) {
 		return false;
 	}
-	int32_t first = $Character::codePointAt(static_cast<$CharSequence*>(str), 0);
+	int32_t first = $Character::codePointAt(str, 0);
 	if (!$Character::isJavaIdentifierStart(first)) {
 		return false;
 	}
 	int32_t i = $Character::charCount(first);
-	while (i < $nc(str)->length()) {
-		int32_t cp = $Character::codePointAt(static_cast<$CharSequence*>(str), i);
+	while (i < str->length()) {
+		int32_t cp = $Character::codePointAt(str, i);
 		if (!$Character::isJavaIdentifierPart(cp)) {
 			return false;
 		}
@@ -171,7 +135,7 @@ bool Checks::isJavaIdentifier($String* str) {
 	return true;
 }
 
-void clinit$Checks($Class* class$) {
+void Checks::clinit$($Class* clazz) {
 	$assignStatic(Checks::RESERVED, $Set::of($$new($StringArray, {
 		"abstract"_s,
 		"assert"_s,
@@ -234,7 +198,35 @@ Checks::Checks() {
 }
 
 $Class* Checks::load$($String* name, bool initialize) {
-	$loadClass(Checks, name, initialize, &_Checks_ClassInfo_, clinit$Checks, allocate$Checks);
+	$FieldInfo fieldInfos$$[] = {
+		{"RESERVED", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Checks, RESERVED)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Checks, init$, void)},
+		{"isClassName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Checks, isClassName, bool, $String*)},
+		{"isJavaIdentifier", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Checks, isJavaIdentifier, bool, $String*)},
+		{"isPackageName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Checks, isPackageName, bool, $String*)},
+		{"isTypeName", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Checks, isTypeName, bool, $String*)},
+		{"requireModuleName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Checks, requireModuleName, $String*, $String*)},
+		{"requirePackageName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Checks, requirePackageName, $String*, $String*)},
+		{"requireQualifiedClassName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Checks, requireQualifiedClassName, $String*, $String*, $String*)},
+		{"requireServiceProviderName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Checks, requireServiceProviderName, $String*, $String*)},
+		{"requireServiceTypeName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Checks, requireServiceTypeName, $String*, $String*)},
+		{"requireTypeName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Checks, requireTypeName, $String*, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.module.Checks",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Checks, name, initialize, &classInfo$$, Checks::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Checks);
+	});
 	return class$;
 }
 

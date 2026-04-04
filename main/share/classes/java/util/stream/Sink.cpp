@@ -1,5 +1,4 @@
 #include <java/util/stream/Sink.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jcpp.h>
 
@@ -11,46 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$MethodInfo _Sink_MethodInfo_[] = {
-	{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(Sink, accept, void, int32_t)},
-	{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(Sink, accept, void, int64_t)},
-	{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(Sink, accept, void, double)},
-	{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(Sink, begin, void, int64_t)},
-	{"cancellationRequested", "()Z", nullptr, $PUBLIC, $virtualMethod(Sink, cancellationRequested, bool)},
-	{"end", "()V", nullptr, $PUBLIC, $virtualMethod(Sink, end, void)},
-	{}
-};
-
-$InnerClassInfo _Sink_InnerClassesInfo_[] = {
-	{"java.util.stream.Sink$ChainedDouble", "java.util.stream.Sink", "ChainedDouble", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.util.stream.Sink$ChainedLong", "java.util.stream.Sink", "ChainedLong", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.util.stream.Sink$ChainedInt", "java.util.stream.Sink", "ChainedInt", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.util.stream.Sink$ChainedReference", "java.util.stream.Sink", "ChainedReference", $PUBLIC | $STATIC | $ABSTRACT},
-	{"java.util.stream.Sink$OfDouble", "java.util.stream.Sink", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.stream.Sink$OfLong", "java.util.stream.Sink", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.stream.Sink$OfInt", "java.util.stream.Sink", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Sink_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"java.util.stream.Sink",
-	nullptr,
-	"java.util.function.Consumer",
-	nullptr,
-	_Sink_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/function/Consumer<TT;>;",
-	nullptr,
-	_Sink_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.stream.Sink$ChainedDouble,java.util.stream.Sink$ChainedLong,java.util.stream.Sink$ChainedInt,java.util.stream.Sink$ChainedReference,java.util.stream.Sink$OfDouble,java.util.stream.Sink$OfLong,java.util.stream.Sink$OfInt"
-};
-
-$Object* allocate$Sink($Class* clazz) {
-	return $of($alloc(Sink));
-}
 
 void Sink::begin(int64_t size) {
 }
@@ -75,7 +34,42 @@ void Sink::accept(double value) {
 }
 
 $Class* Sink::load$($String* name, bool initialize) {
-	$loadClass(Sink, name, initialize, &_Sink_ClassInfo_, allocate$Sink);
+	$MethodInfo methodInfos$$[] = {
+		{"accept", "(I)V", nullptr, $PUBLIC, $virtualMethod(Sink, accept, void, int32_t)},
+		{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(Sink, accept, void, int64_t)},
+		{"accept", "(D)V", nullptr, $PUBLIC, $virtualMethod(Sink, accept, void, double)},
+		{"begin", "(J)V", nullptr, $PUBLIC, $virtualMethod(Sink, begin, void, int64_t)},
+		{"cancellationRequested", "()Z", nullptr, $PUBLIC, $virtualMethod(Sink, cancellationRequested, bool)},
+		{"end", "()V", nullptr, $PUBLIC, $virtualMethod(Sink, end, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Sink$ChainedDouble", "java.util.stream.Sink", "ChainedDouble", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.util.stream.Sink$ChainedLong", "java.util.stream.Sink", "ChainedLong", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.util.stream.Sink$ChainedInt", "java.util.stream.Sink", "ChainedInt", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.util.stream.Sink$ChainedReference", "java.util.stream.Sink", "ChainedReference", $PUBLIC | $STATIC | $ABSTRACT},
+		{"java.util.stream.Sink$OfDouble", "java.util.stream.Sink", "OfDouble", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.stream.Sink$OfLong", "java.util.stream.Sink", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.stream.Sink$OfInt", "java.util.stream.Sink", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"java.util.stream.Sink",
+		nullptr,
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/function/Consumer<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.stream.Sink$ChainedDouble,java.util.stream.Sink$ChainedLong,java.util.stream.Sink$ChainedInt,java.util.stream.Sink$ChainedReference,java.util.stream.Sink$OfDouble,java.util.stream.Sink$OfLong,java.util.stream.Sink$OfInt"
+	};
+	$loadClass(Sink, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Sink);
+	});
 	return class$;
 }
 

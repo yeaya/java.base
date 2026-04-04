@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SessionTicketExtension.h>
-
 #include <java/lang/NumberFormatException.h>
 #include <java/security/SecureRandom.h>
 #include <sun/security/action/GetPropertyAction.h>
@@ -42,55 +41,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SessionTicketExtension_FieldInfo_[] = {
-	{"chNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(SessionTicketExtension, chNetworkProducer)},
-	{"chOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(SessionTicketExtension, chOnLoadConsumer)},
-	{"shNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(SessionTicketExtension, shNetworkProducer)},
-	{"shOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(SessionTicketExtension, shOnLoadConsumer)},
-	{"steStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(SessionTicketExtension, steStringizer)},
-	{"TIMEOUT_DEFAULT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SessionTicketExtension, TIMEOUT_DEFAULT)},
-	{"keyTimeout", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SessionTicketExtension, keyTimeout)},
-	{"currentKeyID", "I", nullptr, $PRIVATE | $STATIC, $staticField(SessionTicketExtension, currentKeyID)},
-	{"KEYLEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SessionTicketExtension, KEYLEN)},
-	{}
-};
-
-$MethodInfo _SessionTicketExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SessionTicketExtension, init$, void)},
-	{}
-};
-
-$InnerClassInfo _SessionTicketExtension_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SessionTicketExtension$T12SHSessionTicketConsumer", "sun.security.ssl.SessionTicketExtension", "T12SHSessionTicketConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SessionTicketExtension$T12SHSessionTicketProducer", "sun.security.ssl.SessionTicketExtension", "T12SHSessionTicketProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SessionTicketExtension$T12CHSessionTicketConsumer", "sun.security.ssl.SessionTicketExtension", "T12CHSessionTicketConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SessionTicketExtension$T12CHSessionTicketProducer", "sun.security.ssl.SessionTicketExtension", "T12CHSessionTicketProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SessionTicketExtension$SessionTicketStringizer", "sun.security.ssl.SessionTicketExtension", "SessionTicketStringizer", $STATIC | $FINAL},
-	{"sun.security.ssl.SessionTicketExtension$SessionTicketSpec", "sun.security.ssl.SessionTicketExtension", "SessionTicketSpec", $STATIC | $FINAL},
-	{"sun.security.ssl.SessionTicketExtension$KeyState", "sun.security.ssl.SessionTicketExtension", "KeyState", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SessionTicketExtension$StatelessKey", "sun.security.ssl.SessionTicketExtension", "StatelessKey", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _SessionTicketExtension_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SessionTicketExtension",
-	"java.lang.Object",
-	nullptr,
-	_SessionTicketExtension_FieldInfo_,
-	_SessionTicketExtension_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SessionTicketExtension_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SessionTicketExtension$T12SHSessionTicketConsumer,sun.security.ssl.SessionTicketExtension$T12SHSessionTicketProducer,sun.security.ssl.SessionTicketExtension$T12CHSessionTicketConsumer,sun.security.ssl.SessionTicketExtension$T12CHSessionTicketProducer,sun.security.ssl.SessionTicketExtension$SessionTicketStringizer,sun.security.ssl.SessionTicketExtension$SessionTicketSpec,sun.security.ssl.SessionTicketExtension$KeyState,sun.security.ssl.SessionTicketExtension$StatelessKey"
-};
-
-$Object* allocate$SessionTicketExtension($Class* clazz) {
-	return $of($alloc(SessionTicketExtension));
-}
-
 $HandshakeProducer* SessionTicketExtension::chNetworkProducer = nullptr;
 $SSLExtension$ExtensionConsumer* SessionTicketExtension::chOnLoadConsumer = nullptr;
 $HandshakeProducer* SessionTicketExtension::shNetworkProducer = nullptr;
@@ -102,8 +52,8 @@ int32_t SessionTicketExtension::currentKeyID = 0;
 void SessionTicketExtension::init$() {
 }
 
-void clinit$SessionTicketExtension($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void SessionTicketExtension::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(SessionTicketExtension::chNetworkProducer, $new($SessionTicketExtension$T12CHSessionTicketProducer));
 	$assignStatic(SessionTicketExtension::chOnLoadConsumer, $new($SessionTicketExtension$T12CHSessionTicketConsumer));
 	$assignStatic(SessionTicketExtension::shNetworkProducer, $new($SessionTicketExtension$T12SHSessionTicketProducer));
@@ -141,7 +91,50 @@ SessionTicketExtension::SessionTicketExtension() {
 }
 
 $Class* SessionTicketExtension::load$($String* name, bool initialize) {
-	$loadClass(SessionTicketExtension, name, initialize, &_SessionTicketExtension_ClassInfo_, clinit$SessionTicketExtension, allocate$SessionTicketExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"chNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(SessionTicketExtension, chNetworkProducer)},
+		{"chOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(SessionTicketExtension, chOnLoadConsumer)},
+		{"shNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(SessionTicketExtension, shNetworkProducer)},
+		{"shOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(SessionTicketExtension, shOnLoadConsumer)},
+		{"steStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(SessionTicketExtension, steStringizer)},
+		{"TIMEOUT_DEFAULT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SessionTicketExtension, TIMEOUT_DEFAULT)},
+		{"keyTimeout", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SessionTicketExtension, keyTimeout)},
+		{"currentKeyID", "I", nullptr, $PRIVATE | $STATIC, $staticField(SessionTicketExtension, currentKeyID)},
+		{"KEYLEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SessionTicketExtension, KEYLEN)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SessionTicketExtension, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SessionTicketExtension$T12SHSessionTicketConsumer", "sun.security.ssl.SessionTicketExtension", "T12SHSessionTicketConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SessionTicketExtension$T12SHSessionTicketProducer", "sun.security.ssl.SessionTicketExtension", "T12SHSessionTicketProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SessionTicketExtension$T12CHSessionTicketConsumer", "sun.security.ssl.SessionTicketExtension", "T12CHSessionTicketConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SessionTicketExtension$T12CHSessionTicketProducer", "sun.security.ssl.SessionTicketExtension", "T12CHSessionTicketProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SessionTicketExtension$SessionTicketStringizer", "sun.security.ssl.SessionTicketExtension", "SessionTicketStringizer", $STATIC | $FINAL},
+		{"sun.security.ssl.SessionTicketExtension$SessionTicketSpec", "sun.security.ssl.SessionTicketExtension", "SessionTicketSpec", $STATIC | $FINAL},
+		{"sun.security.ssl.SessionTicketExtension$KeyState", "sun.security.ssl.SessionTicketExtension", "KeyState", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SessionTicketExtension$StatelessKey", "sun.security.ssl.SessionTicketExtension", "StatelessKey", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SessionTicketExtension",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SessionTicketExtension$T12SHSessionTicketConsumer,sun.security.ssl.SessionTicketExtension$T12SHSessionTicketProducer,sun.security.ssl.SessionTicketExtension$T12CHSessionTicketConsumer,sun.security.ssl.SessionTicketExtension$T12CHSessionTicketProducer,sun.security.ssl.SessionTicketExtension$SessionTicketStringizer,sun.security.ssl.SessionTicketExtension$SessionTicketSpec,sun.security.ssl.SessionTicketExtension$KeyState,sun.security.ssl.SessionTicketExtension$StatelessKey"
+	};
+	$loadClass(SessionTicketExtension, name, initialize, &classInfo$$, SessionTicketExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SessionTicketExtension);
+	});
 	return class$;
 }
 

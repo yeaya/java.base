@@ -1,5 +1,4 @@
 #include <ChainedExceptions.h>
-
 #include <HighLevelException.h>
 #include <LowLevelException.h>
 #include <MidLevelException.h>
@@ -19,37 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $StackTraceElement = ::java::lang::StackTraceElement;
 
-$FieldInfo _ChainedExceptions_FieldInfo_[] = {
-	{"OUR_CLASS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ChainedExceptions, OUR_CLASS)},
-	{"OUR_FILE_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ChainedExceptions, OUR_FILE_NAME)},
-	{}
-};
-
-$MethodInfo _ChainedExceptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ChainedExceptions, init$, void)},
-	{"a", "()V", nullptr, $STATIC, $staticMethod(ChainedExceptions, a, void), "HighLevelException"},
-	{"b", "()V", nullptr, $STATIC, $staticMethod(ChainedExceptions, b, void), "MidLevelException"},
-	{"c", "()V", nullptr, $STATIC, $staticMethod(ChainedExceptions, c, void), "MidLevelException"},
-	{"check", "(Ljava/lang/Throwable;Ljava/lang/StackTraceElement;Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ChainedExceptions, check, void, $Throwable*, $StackTraceElement*, $String*, int32_t)},
-	{"d", "()V", nullptr, $STATIC, $staticMethod(ChainedExceptions, d, void), "LowLevelException"},
-	{"e", "()V", nullptr, $STATIC, $staticMethod(ChainedExceptions, e, void), "LowLevelException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ChainedExceptions, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _ChainedExceptions_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ChainedExceptions",
-	"java.lang.Object",
-	nullptr,
-	_ChainedExceptions_FieldInfo_,
-	_ChainedExceptions_MethodInfo_
-};
-
-$Object* allocate$ChainedExceptions($Class* clazz) {
-	return $of($alloc(ChainedExceptions));
-}
-
 $String* ChainedExceptions::OUR_CLASS = nullptr;
 $String* ChainedExceptions::OUR_FILE_NAME = nullptr;
 
@@ -58,7 +26,7 @@ void ChainedExceptions::init$() {
 
 void ChainedExceptions::main($StringArray* args) {
 	$init(ChainedExceptions);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		a();
 	} catch ($HighLevelException& e) {
@@ -71,21 +39,21 @@ void ChainedExceptions::main($StringArray* args) {
 		if ($nc(midTrace)->length - depthTrim != 4) {
 			$throwNew($RuntimeException, "Mid depth"_s);
 		}
-		check(mid, $nc(midTrace)->get(0), "c"_s, 58);
-		check(mid, $nc(midTrace)->get(1), "b"_s, 52);
-		check(mid, $nc(midTrace)->get(2), "a"_s, 46);
-		check(mid, $nc(midTrace)->get(3), "main"_s, 11);
+		check(mid, midTrace->get(0), "c"_s, 58);
+		check(mid, midTrace->get(1), "b"_s, 52);
+		check(mid, midTrace->get(2), "a"_s, 46);
+		check(mid, midTrace->get(3), "main"_s, 11);
 		$var($Throwable, low, mid->getCause());
 		$var($StackTraceElementArray, lowTrace, $nc(low)->getStackTrace());
 		if ($nc(lowTrace)->length - depthTrim != 6) {
 			$throwNew($RuntimeException, "Low depth"_s);
 		}
-		check(low, $nc(lowTrace)->get(0), "e"_s, 65);
-		check(low, $nc(lowTrace)->get(1), "d"_s, 62);
-		check(low, $nc(lowTrace)->get(2), "c"_s, 56);
-		check(low, $nc(lowTrace)->get(3), "b"_s, 52);
-		check(low, $nc(lowTrace)->get(4), "a"_s, 46);
-		check(low, $nc(lowTrace)->get(5), "main"_s, 11);
+		check(low, lowTrace->get(0), "e"_s, 65);
+		check(low, lowTrace->get(1), "d"_s, 62);
+		check(low, lowTrace->get(2), "c"_s, 56);
+		check(low, lowTrace->get(3), "b"_s, 52);
+		check(low, lowTrace->get(4), "a"_s, 46);
+		check(low, lowTrace->get(5), "main"_s, 11);
 		if (low->getCause() != nullptr) {
 			$throwNew($RuntimeException, "Low cause != null"_s);
 		}
@@ -127,22 +95,22 @@ void ChainedExceptions::e() {
 
 void ChainedExceptions::check($Throwable* t, $StackTraceElement* e, $String* methodName, int32_t n) {
 	$init(ChainedExceptions);
-	$useLocalCurrentObjectStackCache();
-	if (!$nc($($nc(e)->getClassName()))->equals(ChainedExceptions::OUR_CLASS)) {
+	$useLocalObjectStack();
+	if (!$$nc($nc(e)->getClassName())->equals(ChainedExceptions::OUR_CLASS)) {
 		$throwNew($RuntimeException, $$str({"Class: "_s, e}), t);
 	}
-	if (!$nc($($nc(e)->getMethodName()))->equals(methodName)) {
+	if (!$$nc(e->getMethodName())->equals(methodName)) {
 		$throwNew($RuntimeException, $$str({"Method name: "_s, e}), t);
 	}
-	if (!$nc($($nc(e)->getFileName()))->equals(ChainedExceptions::OUR_FILE_NAME)) {
+	if (!$$nc(e->getFileName())->equals(ChainedExceptions::OUR_FILE_NAME)) {
 		$throwNew($RuntimeException, $$str({"File name: "_s, e}), t);
 	}
-	if ($nc(e)->getLineNumber() != n) {
+	if (e->getLineNumber() != n) {
 		$throwNew($RuntimeException, $$str({"Line number: "_s, e}), t);
 	}
 }
 
-void clinit$ChainedExceptions($Class* class$) {
+void ChainedExceptions::clinit$($Class* clazz) {
 	$assignStatic(ChainedExceptions::OUR_FILE_NAME, "ChainedExceptions.java"_s);
 	$assignStatic(ChainedExceptions::OUR_CLASS, ChainedExceptions::class$->getName());
 }
@@ -151,7 +119,33 @@ ChainedExceptions::ChainedExceptions() {
 }
 
 $Class* ChainedExceptions::load$($String* name, bool initialize) {
-	$loadClass(ChainedExceptions, name, initialize, &_ChainedExceptions_ClassInfo_, clinit$ChainedExceptions, allocate$ChainedExceptions);
+	$FieldInfo fieldInfos$$[] = {
+		{"OUR_CLASS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ChainedExceptions, OUR_CLASS)},
+		{"OUR_FILE_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ChainedExceptions, OUR_FILE_NAME)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ChainedExceptions, init$, void)},
+		{"a", "()V", nullptr, $STATIC, $staticMethod(ChainedExceptions, a, void), "HighLevelException"},
+		{"b", "()V", nullptr, $STATIC, $staticMethod(ChainedExceptions, b, void), "MidLevelException"},
+		{"c", "()V", nullptr, $STATIC, $staticMethod(ChainedExceptions, c, void), "MidLevelException"},
+		{"check", "(Ljava/lang/Throwable;Ljava/lang/StackTraceElement;Ljava/lang/String;I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ChainedExceptions, check, void, $Throwable*, $StackTraceElement*, $String*, int32_t)},
+		{"d", "()V", nullptr, $STATIC, $staticMethod(ChainedExceptions, d, void), "LowLevelException"},
+		{"e", "()V", nullptr, $STATIC, $staticMethod(ChainedExceptions, e, void), "LowLevelException"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ChainedExceptions, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ChainedExceptions",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ChainedExceptions, name, initialize, &classInfo$$, ChainedExceptions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ChainedExceptions);
+	});
 	return class$;
 }
 

@@ -15,6 +15,7 @@ class $export Bug8072099 : public ::java::lang::Object {
 	$class(Bug8072099, 0, ::java::lang::Object)
 public:
 	Bug8072099();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void parseDateTimeInput(::java::text::SimpleDateFormat* format, $String* inputString);

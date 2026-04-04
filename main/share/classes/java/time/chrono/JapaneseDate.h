@@ -65,6 +65,7 @@ class $export JapaneseDate : public ::java::time::chrono::ChronoLocalDateImpl {
 public:
 	JapaneseDate();
 	using ::java::time::chrono::ChronoLocalDateImpl::isSupported;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::time::LocalDate* isoDate);
 	void init$(::java::time::chrono::JapaneseEra* era, int32_t year, ::java::time::LocalDate* isoDate);
 	virtual ::java::time::chrono::ChronoLocalDateTime* atTime(::java::time::LocalTime* localTime) override;
@@ -110,7 +111,7 @@ public:
 	::java::time::chrono::JapaneseDate* withYear(int32_t year);
 	void writeExternal(::java::io::DataOutput* out);
 	$Object* writeReplace();
-	static const int64_t serialVersionUID = (int64_t)0xFBC3422406CEF0FD;
+	static const int64_t serialVersionUID = (int64_t)0xfbc3422406cef0fd;
 	::java::time::LocalDate* isoDate = nullptr;
 	::java::time::chrono::JapaneseEra* era = nullptr;
 	int32_t yearOfEra = 0;

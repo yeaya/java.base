@@ -1,10 +1,8 @@
 #include <URLParsing.h>
-
 #include <java/io/BufferedReader.h>
 #include <java/io/File.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/Reader.h>
 #include <java/net/URL.h>
 #include <jcpp.h>
 
@@ -12,36 +10,16 @@ using $BufferedReader = ::java::io::BufferedReader;
 using $File = ::java::io::File;
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $URL = ::java::net::URL;
 
-$MethodInfo _URLParsing_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(URLParsing, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(URLParsing, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _URLParsing_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"URLParsing",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_URLParsing_MethodInfo_
-};
-
-$Object* allocate$URLParsing($Class* clazz) {
-	return $of($alloc(URLParsing));
-}
-
 void URLParsing::init$() {
 }
 
 void URLParsing::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, local, $new($File, $($System::getProperty("test.src"_s, "."_s)), "jars"_s));
 	$var($String, path, $str({"jar:file:"_s, $(local->getPath()), "/class_path_test.jar!/Foo.java"_s}));
 	$var($URL, aURL, $new($URL, path));
@@ -58,7 +36,22 @@ URLParsing::URLParsing() {
 }
 
 $Class* URLParsing::load$($String* name, bool initialize) {
-	$loadClass(URLParsing, name, initialize, &_URLParsing_ClassInfo_, allocate$URLParsing);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(URLParsing, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(URLParsing, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"URLParsing",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(URLParsing, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(URLParsing);
+	});
 	return class$;
 }
 

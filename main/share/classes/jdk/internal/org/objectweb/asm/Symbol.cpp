@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/Symbol.h>
-
 #include <jdk/internal/org/objectweb/asm/Type.h>
 #include <jcpp.h>
 
@@ -36,57 +35,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 
-$FieldInfo _Symbol_FieldInfo_[] = {
-	{"CONSTANT_CLASS_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_CLASS_TAG)},
-	{"CONSTANT_FIELDREF_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_FIELDREF_TAG)},
-	{"CONSTANT_METHODREF_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_METHODREF_TAG)},
-	{"CONSTANT_INTERFACE_METHODREF_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_INTERFACE_METHODREF_TAG)},
-	{"CONSTANT_STRING_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_STRING_TAG)},
-	{"CONSTANT_INTEGER_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_INTEGER_TAG)},
-	{"CONSTANT_FLOAT_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_FLOAT_TAG)},
-	{"CONSTANT_LONG_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_LONG_TAG)},
-	{"CONSTANT_DOUBLE_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_DOUBLE_TAG)},
-	{"CONSTANT_NAME_AND_TYPE_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_NAME_AND_TYPE_TAG)},
-	{"CONSTANT_UTF8_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_UTF8_TAG)},
-	{"CONSTANT_METHOD_HANDLE_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_METHOD_HANDLE_TAG)},
-	{"CONSTANT_METHOD_TYPE_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_METHOD_TYPE_TAG)},
-	{"CONSTANT_DYNAMIC_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_DYNAMIC_TAG)},
-	{"CONSTANT_INVOKE_DYNAMIC_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_INVOKE_DYNAMIC_TAG)},
-	{"CONSTANT_MODULE_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_MODULE_TAG)},
-	{"CONSTANT_PACKAGE_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_PACKAGE_TAG)},
-	{"BOOTSTRAP_METHOD_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, BOOTSTRAP_METHOD_TAG)},
-	{"TYPE_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, TYPE_TAG)},
-	{"UNINITIALIZED_TYPE_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, UNINITIALIZED_TYPE_TAG)},
-	{"MERGED_TYPE_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, MERGED_TYPE_TAG)},
-	{"index", "I", nullptr, $FINAL, $field(Symbol, index)},
-	{"tag", "I", nullptr, $FINAL, $field(Symbol, tag)},
-	{"owner", "Ljava/lang/String;", nullptr, $FINAL, $field(Symbol, owner)},
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(Symbol, name)},
-	{"value", "Ljava/lang/String;", nullptr, $FINAL, $field(Symbol, value)},
-	{"data", "J", nullptr, $FINAL, $field(Symbol, data)},
-	{"info", "I", nullptr, 0, $field(Symbol, info)},
-	{}
-};
-
-$MethodInfo _Symbol_MethodInfo_[] = {
-	{"<init>", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V", nullptr, 0, $method(Symbol, init$, void, int32_t, int32_t, $String*, $String*, $String*, int64_t)},
-	{"getArgumentsAndReturnSizes", "()I", nullptr, 0, $virtualMethod(Symbol, getArgumentsAndReturnSizes, int32_t)},
-	{}
-};
-
-$ClassInfo _Symbol_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"jdk.internal.org.objectweb.asm.Symbol",
-	"java.lang.Object",
-	nullptr,
-	_Symbol_FieldInfo_,
-	_Symbol_MethodInfo_
-};
-
-$Object* allocate$Symbol($Class* clazz) {
-	return $of($alloc(Symbol));
-}
-
 void Symbol::init$(int32_t index, int32_t tag, $String* owner, $String* name, $String* value, int64_t data) {
 	this->index = index;
 	this->tag = tag;
@@ -107,7 +55,53 @@ Symbol::Symbol() {
 }
 
 $Class* Symbol::load$($String* name, bool initialize) {
-	$loadClass(Symbol, name, initialize, &_Symbol_ClassInfo_, allocate$Symbol);
+	$FieldInfo fieldInfos$$[] = {
+		{"CONSTANT_CLASS_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_CLASS_TAG)},
+		{"CONSTANT_FIELDREF_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_FIELDREF_TAG)},
+		{"CONSTANT_METHODREF_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_METHODREF_TAG)},
+		{"CONSTANT_INTERFACE_METHODREF_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_INTERFACE_METHODREF_TAG)},
+		{"CONSTANT_STRING_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_STRING_TAG)},
+		{"CONSTANT_INTEGER_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_INTEGER_TAG)},
+		{"CONSTANT_FLOAT_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_FLOAT_TAG)},
+		{"CONSTANT_LONG_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_LONG_TAG)},
+		{"CONSTANT_DOUBLE_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_DOUBLE_TAG)},
+		{"CONSTANT_NAME_AND_TYPE_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_NAME_AND_TYPE_TAG)},
+		{"CONSTANT_UTF8_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_UTF8_TAG)},
+		{"CONSTANT_METHOD_HANDLE_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_METHOD_HANDLE_TAG)},
+		{"CONSTANT_METHOD_TYPE_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_METHOD_TYPE_TAG)},
+		{"CONSTANT_DYNAMIC_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_DYNAMIC_TAG)},
+		{"CONSTANT_INVOKE_DYNAMIC_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_INVOKE_DYNAMIC_TAG)},
+		{"CONSTANT_MODULE_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_MODULE_TAG)},
+		{"CONSTANT_PACKAGE_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, CONSTANT_PACKAGE_TAG)},
+		{"BOOTSTRAP_METHOD_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, BOOTSTRAP_METHOD_TAG)},
+		{"TYPE_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, TYPE_TAG)},
+		{"UNINITIALIZED_TYPE_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, UNINITIALIZED_TYPE_TAG)},
+		{"MERGED_TYPE_TAG", "I", nullptr, $STATIC | $FINAL, $constField(Symbol, MERGED_TYPE_TAG)},
+		{"index", "I", nullptr, $FINAL, $field(Symbol, index)},
+		{"tag", "I", nullptr, $FINAL, $field(Symbol, tag)},
+		{"owner", "Ljava/lang/String;", nullptr, $FINAL, $field(Symbol, owner)},
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(Symbol, name)},
+		{"value", "Ljava/lang/String;", nullptr, $FINAL, $field(Symbol, value)},
+		{"data", "J", nullptr, $FINAL, $field(Symbol, data)},
+		{"info", "I", nullptr, 0, $field(Symbol, info)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;J)V", nullptr, 0, $method(Symbol, init$, void, int32_t, int32_t, $String*, $String*, $String*, int64_t)},
+		{"getArgumentsAndReturnSizes", "()I", nullptr, 0, $virtualMethod(Symbol, getArgumentsAndReturnSizes, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"jdk.internal.org.objectweb.asm.Symbol",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Symbol, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Symbol);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/x509/IssuerAlternativeNameExtension.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/util/Enumeration.h>
@@ -28,7 +27,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $AttributeNameEnumeration = ::sun::security::x509::AttributeNameEnumeration;
@@ -40,48 +38,6 @@ using $PKIXExtensions = ::sun::security::x509::PKIXExtensions;
 namespace sun {
 	namespace security {
 		namespace x509 {
-
-$FieldInfo _IssuerAlternativeNameExtension_FieldInfo_[] = {
-	{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IssuerAlternativeNameExtension, IDENT)},
-	{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IssuerAlternativeNameExtension, NAME)},
-	{"ISSUER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IssuerAlternativeNameExtension, ISSUER_NAME)},
-	{"names", "Lsun/security/x509/GeneralNames;", nullptr, 0, $field(IssuerAlternativeNameExtension, names)},
-	{}
-};
-
-$MethodInfo _IssuerAlternativeNameExtension_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Lsun/security/x509/GeneralNames;)V", nullptr, $PUBLIC, $method(IssuerAlternativeNameExtension, init$, void, $GeneralNames*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/Boolean;Lsun/security/x509/GeneralNames;)V", nullptr, $PUBLIC, $method(IssuerAlternativeNameExtension, init$, void, $Boolean*, $GeneralNames*), "java.io.IOException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IssuerAlternativeNameExtension, init$, void)},
-	{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(IssuerAlternativeNameExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
-	{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(IssuerAlternativeNameExtension, delete$, void, $String*), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(IssuerAlternativeNameExtension, encode, void, $OutputStream*), "java.io.IOException"},
-	{"encodeThis", "()V", nullptr, $PRIVATE, $method(IssuerAlternativeNameExtension, encodeThis, void), "java.io.IOException"},
-	{"get", "(Ljava/lang/String;)Lsun/security/x509/GeneralNames;", nullptr, $PUBLIC, $virtualMethod(IssuerAlternativeNameExtension, get, $Object*, $String*), "java.io.IOException"},
-	{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(IssuerAlternativeNameExtension, getElements, $Enumeration*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IssuerAlternativeNameExtension, getName, $String*)},
-	{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(IssuerAlternativeNameExtension, set, void, $String*, Object$*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IssuerAlternativeNameExtension, toString, $String*)},
-	{}
-};
-
-$ClassInfo _IssuerAlternativeNameExtension_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.IssuerAlternativeNameExtension",
-	"sun.security.x509.Extension",
-	"sun.security.x509.CertAttrSet",
-	_IssuerAlternativeNameExtension_FieldInfo_,
-	_IssuerAlternativeNameExtension_MethodInfo_,
-	"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
-};
-
-$Object* allocate$IssuerAlternativeNameExtension($Class* clazz) {
-	return $of($alloc(IssuerAlternativeNameExtension));
-}
 
 int32_t IssuerAlternativeNameExtension::hashCode() {
 	 return this->$Extension::hashCode();
@@ -104,7 +60,7 @@ $String* IssuerAlternativeNameExtension::NAME = nullptr;
 $String* IssuerAlternativeNameExtension::ISSUER_NAME = nullptr;
 
 void IssuerAlternativeNameExtension::encodeThis() {
-	if (this->names == nullptr || $nc(this->names)->isEmpty()) {
+	if (this->names == nullptr || this->names->isEmpty()) {
 		$set(this, extensionValue, nullptr);
 		return;
 	}
@@ -158,19 +114,17 @@ void IssuerAlternativeNameExtension::init$($Boolean* critical, Object$* value) {
 }
 
 $String* IssuerAlternativeNameExtension::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($($Extension::toString()))->append("IssuerAlternativeName [\n"_s);
 	if (this->names == nullptr) {
 		sb->append("  null\n"_s);
 	} else {
-		{
-			$var($Iterator, i$, $nc($($nc(this->names)->names()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($GeneralName, name, $cast($GeneralName, i$->next()));
-				{
-					sb->append("  "_s)->append($of(name))->append(u'\n');
-				}
+		$var($Iterator, i$, $$nc(this->names->names())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($GeneralName, name, $cast($GeneralName, i$->next()));
+			{
+				sb->append("  "_s)->append(name)->append(u'\n');
 			}
 		}
 	}
@@ -179,7 +133,7 @@ $String* IssuerAlternativeNameExtension::toString() {
 }
 
 void IssuerAlternativeNameExtension::encode($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	if (this->extensionValue == nullptr) {
 		$init($PKIXExtensions);
@@ -205,7 +159,7 @@ void IssuerAlternativeNameExtension::set($String* name, Object$* obj) {
 
 $Object* IssuerAlternativeNameExtension::get($String* name) {
 	if ($nc(name)->equalsIgnoreCase(IssuerAlternativeNameExtension::ISSUER_NAME)) {
-		return $of((this->names));
+		return (this->names);
 	} else {
 		$throwNew($IOException, "Attribute name not recognized by CertAttrSet:IssuerAlternativeName."_s);
 	}
@@ -233,14 +187,51 @@ $String* IssuerAlternativeNameExtension::getName() {
 IssuerAlternativeNameExtension::IssuerAlternativeNameExtension() {
 }
 
-void clinit$IssuerAlternativeNameExtension($Class* class$) {
+void IssuerAlternativeNameExtension::clinit$($Class* clazz) {
 	$assignStatic(IssuerAlternativeNameExtension::IDENT, "x509.info.extensions.IssuerAlternativeName"_s);
 	$assignStatic(IssuerAlternativeNameExtension::NAME, "IssuerAlternativeName"_s);
 	$assignStatic(IssuerAlternativeNameExtension::ISSUER_NAME, "issuer_name"_s);
 }
 
 $Class* IssuerAlternativeNameExtension::load$($String* name, bool initialize) {
-	$loadClass(IssuerAlternativeNameExtension, name, initialize, &_IssuerAlternativeNameExtension_ClassInfo_, clinit$IssuerAlternativeNameExtension, allocate$IssuerAlternativeNameExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"IDENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IssuerAlternativeNameExtension, IDENT)},
+		{"NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IssuerAlternativeNameExtension, NAME)},
+		{"ISSUER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(IssuerAlternativeNameExtension, ISSUER_NAME)},
+		{"names", "Lsun/security/x509/GeneralNames;", nullptr, 0, $field(IssuerAlternativeNameExtension, names)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Lsun/security/x509/GeneralNames;)V", nullptr, $PUBLIC, $method(IssuerAlternativeNameExtension, init$, void, $GeneralNames*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/Boolean;Lsun/security/x509/GeneralNames;)V", nullptr, $PUBLIC, $method(IssuerAlternativeNameExtension, init$, void, $Boolean*, $GeneralNames*), "java.io.IOException"},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IssuerAlternativeNameExtension, init$, void)},
+		{"<init>", "(Ljava/lang/Boolean;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(IssuerAlternativeNameExtension, init$, void, $Boolean*, Object$*), "java.io.IOException"},
+		{"delete", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(IssuerAlternativeNameExtension, delete$, void, $String*), "java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(IssuerAlternativeNameExtension, encode, void, $OutputStream*), "java.io.IOException"},
+		{"encodeThis", "()V", nullptr, $PRIVATE, $method(IssuerAlternativeNameExtension, encodeThis, void), "java.io.IOException"},
+		{"get", "(Ljava/lang/String;)Lsun/security/x509/GeneralNames;", nullptr, $PUBLIC, $virtualMethod(IssuerAlternativeNameExtension, get, $Object*, $String*), "java.io.IOException"},
+		{"getElements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(IssuerAlternativeNameExtension, getElements, $Enumeration*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IssuerAlternativeNameExtension, getName, $String*)},
+		{"set", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(IssuerAlternativeNameExtension, set, void, $String*, Object$*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IssuerAlternativeNameExtension, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.IssuerAlternativeNameExtension",
+		"sun.security.x509.Extension",
+		"sun.security.x509.CertAttrSet",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lsun/security/x509/Extension;Lsun/security/x509/CertAttrSet<Ljava/lang/String;>;"
+	};
+	$loadClass(IssuerAlternativeNameExtension, name, initialize, &classInfo$$, IssuerAlternativeNameExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(IssuerAlternativeNameExtension));
+	});
 	return class$;
 }
 

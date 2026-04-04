@@ -1,5 +1,4 @@
 #include <sun/security/provider/NativePRNG.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,37 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace security {
 		namespace provider {
-
-$MethodInfo _NativePRNG_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NativePRNG, init$, void)},
-	{"isAvailable", "()Z", nullptr, $STATIC, $staticMethod(NativePRNG, isAvailable, bool)},
-	{}
-};
-
-$InnerClassInfo _NativePRNG_InnerClassesInfo_[] = {
-	{"sun.security.provider.NativePRNG$Blocking", "sun.security.provider.NativePRNG", "Blocking", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.NativePRNG$NonBlocking", "sun.security.provider.NativePRNG", "NonBlocking", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _NativePRNG_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.provider.NativePRNG",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_NativePRNG_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NativePRNG_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.provider.NativePRNG$Blocking,sun.security.provider.NativePRNG$NonBlocking"
-};
-
-$Object* allocate$NativePRNG($Class* clazz) {
-	return $of($alloc(NativePRNG));
-}
 
 void NativePRNG::init$() {
 }
@@ -52,7 +20,33 @@ NativePRNG::NativePRNG() {
 }
 
 $Class* NativePRNG::load$($String* name, bool initialize) {
-	$loadClass(NativePRNG, name, initialize, &_NativePRNG_ClassInfo_, allocate$NativePRNG);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NativePRNG, init$, void)},
+		{"isAvailable", "()Z", nullptr, $STATIC, $staticMethod(NativePRNG, isAvailable, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.NativePRNG$Blocking", "sun.security.provider.NativePRNG", "Blocking", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.NativePRNG$NonBlocking", "sun.security.provider.NativePRNG", "NonBlocking", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.provider.NativePRNG",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.provider.NativePRNG$Blocking,sun.security.provider.NativePRNG$NonBlocking"
+	};
+	$loadClass(NativePRNG, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NativePRNG);
+	});
 	return class$;
 }
 

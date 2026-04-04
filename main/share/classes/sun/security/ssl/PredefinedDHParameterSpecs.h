@@ -36,6 +36,7 @@ class PredefinedDHParameterSpecs : public ::java::lang::Object {
 	$class(PredefinedDHParameterSpecs, 0, ::java::lang::Object)
 public:
 	PredefinedDHParameterSpecs();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::math::BigInteger* p512;
 	static ::java::math::BigInteger* p768;

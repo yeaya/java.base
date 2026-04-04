@@ -1,5 +1,4 @@
 #include <tck/java/time/chrono/CopticChronology$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/time/temporal/ChronoField.h>
 #include <tck/java/time/chrono/CopticChronology.h>
@@ -24,69 +23,33 @@ namespace tck {
 		namespace time {
 			namespace chrono {
 
-$FieldInfo _CopticChronology$1_FieldInfo_[] = {
-	{"$SwitchMap$java$time$temporal$ChronoField", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CopticChronology$1, $SwitchMap$java$time$temporal$ChronoField)},
-	{}
-};
-
-$EnclosingMethodInfo _CopticChronology$1_EnclosingMethodInfo_ = {
-	"tck.java.time.chrono.CopticChronology",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _CopticChronology$1_InnerClassesInfo_[] = {
-	{"tck.java.time.chrono.CopticChronology$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _CopticChronology$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"tck.java.time.chrono.CopticChronology$1",
-	"java.lang.Object",
-	nullptr,
-	_CopticChronology$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_CopticChronology$1_EnclosingMethodInfo_,
-	_CopticChronology$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"tck.java.time.chrono.CopticChronology"
-};
-
-$Object* allocate$CopticChronology$1($Class* clazz) {
-	return $of($alloc(CopticChronology$1));
-}
-
 $ints* CopticChronology$1::$SwitchMap$java$time$temporal$ChronoField = nullptr;
 
-void clinit$CopticChronology$1($Class* class$) {
+void CopticChronology$1::clinit$($Class* clazz) {
 	$assignStatic(CopticChronology$1::$SwitchMap$java$time$temporal$ChronoField, $new($ints, $($ChronoField::values())->length));
 	{
 		try {
-			$nc(CopticChronology$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::DAY_OF_MONTH->ordinal(), 1);
+			CopticChronology$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::DAY_OF_MONTH->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CopticChronology$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::ALIGNED_WEEK_OF_MONTH->ordinal(), 2);
+			CopticChronology$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::ALIGNED_WEEK_OF_MONTH->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CopticChronology$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::MONTH_OF_YEAR->ordinal(), 3);
+			CopticChronology$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::MONTH_OF_YEAR->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CopticChronology$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::PROLEPTIC_MONTH->ordinal(), 4);
+			CopticChronology$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::PROLEPTIC_MONTH->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CopticChronology$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::YEAR_OF_ERA->ordinal(), 5);
+			CopticChronology$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::YEAR_OF_ERA->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CopticChronology$1::$SwitchMap$java$time$temporal$ChronoField)->set($ChronoField::YEAR->ordinal(), 6);
+			CopticChronology$1::$SwitchMap$java$time$temporal$ChronoField->set($ChronoField::YEAR->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -96,7 +59,37 @@ CopticChronology$1::CopticChronology$1() {
 }
 
 $Class* CopticChronology$1::load$($String* name, bool initialize) {
-	$loadClass(CopticChronology$1, name, initialize, &_CopticChronology$1_ClassInfo_, clinit$CopticChronology$1, allocate$CopticChronology$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$time$temporal$ChronoField", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CopticChronology$1, $SwitchMap$java$time$temporal$ChronoField)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"tck.java.time.chrono.CopticChronology",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"tck.java.time.chrono.CopticChronology$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"tck.java.time.chrono.CopticChronology$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"tck.java.time.chrono.CopticChronology"
+	};
+	$loadClass(CopticChronology$1, name, initialize, &classInfo$$, CopticChronology$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CopticChronology$1);
+	});
 	return class$;
 }
 

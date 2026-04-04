@@ -1,5 +1,4 @@
 #include <sun/nio/ch/FileChannelImpl$1.h>
-
 #include <sun/nio/ch/FileChannelImpl$DefaultUnmapper.h>
 #include <sun/nio/ch/FileChannelImpl.h>
 #include <jcpp.h>
@@ -13,47 +12,6 @@ using $FileChannelImpl$DefaultUnmapper = ::sun::nio::ch::FileChannelImpl$Default
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$MethodInfo _FileChannelImpl$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(FileChannelImpl$1, init$, void)},
-	{"getCount", "()J", nullptr, $PUBLIC, $virtualMethod(FileChannelImpl$1, getCount, int64_t)},
-	{"getMemoryUsed", "()J", nullptr, $PUBLIC, $virtualMethod(FileChannelImpl$1, getMemoryUsed, int64_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileChannelImpl$1, getName, $String*)},
-	{"getTotalCapacity", "()J", nullptr, $PUBLIC, $virtualMethod(FileChannelImpl$1, getTotalCapacity, int64_t)},
-	{}
-};
-
-$EnclosingMethodInfo _FileChannelImpl$1_EnclosingMethodInfo_ = {
-	"sun.nio.ch.FileChannelImpl",
-	"getMappedBufferPool",
-	"()Ljdk/internal/misc/VM$BufferPool;"
-};
-
-$InnerClassInfo _FileChannelImpl$1_InnerClassesInfo_[] = {
-	{"sun.nio.ch.FileChannelImpl$1", nullptr, nullptr, 0},
-	{"jdk.internal.misc.VM$BufferPool", "jdk.internal.misc.VM", "BufferPool", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _FileChannelImpl$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.FileChannelImpl$1",
-	"java.lang.Object",
-	"jdk.internal.misc.VM$BufferPool",
-	nullptr,
-	_FileChannelImpl$1_MethodInfo_,
-	nullptr,
-	&_FileChannelImpl$1_EnclosingMethodInfo_,
-	_FileChannelImpl$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.FileChannelImpl"
-};
-
-$Object* allocate$FileChannelImpl$1($Class* clazz) {
-	return $of($alloc(FileChannelImpl$1));
-}
 
 void FileChannelImpl$1::init$() {
 }
@@ -81,7 +39,42 @@ FileChannelImpl$1::FileChannelImpl$1() {
 }
 
 $Class* FileChannelImpl$1::load$($String* name, bool initialize) {
-	$loadClass(FileChannelImpl$1, name, initialize, &_FileChannelImpl$1_ClassInfo_, allocate$FileChannelImpl$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(FileChannelImpl$1, init$, void)},
+		{"getCount", "()J", nullptr, $PUBLIC, $virtualMethod(FileChannelImpl$1, getCount, int64_t)},
+		{"getMemoryUsed", "()J", nullptr, $PUBLIC, $virtualMethod(FileChannelImpl$1, getMemoryUsed, int64_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileChannelImpl$1, getName, $String*)},
+		{"getTotalCapacity", "()J", nullptr, $PUBLIC, $virtualMethod(FileChannelImpl$1, getTotalCapacity, int64_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.nio.ch.FileChannelImpl",
+		"getMappedBufferPool",
+		"()Ljdk/internal/misc/VM$BufferPool;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.FileChannelImpl$1", nullptr, nullptr, 0},
+		{"jdk.internal.misc.VM$BufferPool", "jdk.internal.misc.VM", "BufferPool", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.FileChannelImpl$1",
+		"java.lang.Object",
+		"jdk.internal.misc.VM$BufferPool",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.FileChannelImpl"
+	};
+	$loadClass(FileChannelImpl$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileChannelImpl$1);
+	});
 	return class$;
 }
 

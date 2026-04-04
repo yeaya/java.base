@@ -1,5 +1,4 @@
 #include <java/lang/InstantiationException.h>
-
 #include <java/lang/ReflectiveOperationException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _InstantiationException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InstantiationException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InstantiationException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InstantiationException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InstantiationException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _InstantiationException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.InstantiationException",
-	"java.lang.ReflectiveOperationException",
-	nullptr,
-	_InstantiationException_FieldInfo_,
-	_InstantiationException_MethodInfo_
-};
-
-$Object* allocate$InstantiationException($Class* clazz) {
-	return $of($alloc(InstantiationException));
-}
 
 void InstantiationException::init$() {
 	$ReflectiveOperationException::init$();
@@ -54,7 +29,26 @@ void InstantiationException::throw$() {
 }
 
 $Class* InstantiationException::load$($String* name, bool initialize) {
-	$loadClass(InstantiationException, name, initialize, &_InstantiationException_ClassInfo_, allocate$InstantiationException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InstantiationException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InstantiationException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InstantiationException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.InstantiationException",
+		"java.lang.ReflectiveOperationException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InstantiationException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InstantiationException);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/impl/UCharacterProperty$1.h>
-
 #include <jdk/internal/icu/impl/UBiDiProps.h>
 #include <jdk/internal/icu/impl/UCharacterProperty$BiDiIntProperty.h>
 #include <jdk/internal/icu/impl/UCharacterProperty$IntProperty.h>
@@ -22,49 +21,6 @@ namespace jdk {
 		namespace icu {
 			namespace impl {
 
-$FieldInfo _UCharacterProperty$1_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/icu/impl/UCharacterProperty;", nullptr, $FINAL | $SYNTHETIC, $field(UCharacterProperty$1, this$0)},
-	{}
-};
-
-$MethodInfo _UCharacterProperty$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/icu/impl/UCharacterProperty;)V", nullptr, 0, $method(UCharacterProperty$1, init$, void, $UCharacterProperty*)},
-	{"getValue", "(I)I", nullptr, 0, $virtualMethod(UCharacterProperty$1, getValue, int32_t, int32_t)},
-	{}
-};
-
-$EnclosingMethodInfo _UCharacterProperty$1_EnclosingMethodInfo_ = {
-	"jdk.internal.icu.impl.UCharacterProperty",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _UCharacterProperty$1_InnerClassesInfo_[] = {
-	{"jdk.internal.icu.impl.UCharacterProperty$1", nullptr, nullptr, 0},
-	{"jdk.internal.icu.impl.UCharacterProperty$BiDiIntProperty", "jdk.internal.icu.impl.UCharacterProperty", "BiDiIntProperty", $PRIVATE},
-	{}
-};
-
-$ClassInfo _UCharacterProperty$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.icu.impl.UCharacterProperty$1",
-	"jdk.internal.icu.impl.UCharacterProperty$BiDiIntProperty",
-	nullptr,
-	_UCharacterProperty$1_FieldInfo_,
-	_UCharacterProperty$1_MethodInfo_,
-	nullptr,
-	&_UCharacterProperty$1_EnclosingMethodInfo_,
-	_UCharacterProperty$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.icu.impl.UCharacterProperty"
-};
-
-$Object* allocate$UCharacterProperty$1($Class* clazz) {
-	return $of($alloc(UCharacterProperty$1));
-}
-
 void UCharacterProperty$1::init$($UCharacterProperty* this$0) {
 	$set(this, this$0, this$0);
 	$UCharacterProperty$BiDiIntProperty::init$(this$0);
@@ -79,7 +35,43 @@ UCharacterProperty$1::UCharacterProperty$1() {
 }
 
 $Class* UCharacterProperty$1::load$($String* name, bool initialize) {
-	$loadClass(UCharacterProperty$1, name, initialize, &_UCharacterProperty$1_ClassInfo_, allocate$UCharacterProperty$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/icu/impl/UCharacterProperty;", nullptr, $FINAL | $SYNTHETIC, $field(UCharacterProperty$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/icu/impl/UCharacterProperty;)V", nullptr, 0, $method(UCharacterProperty$1, init$, void, $UCharacterProperty*)},
+		{"getValue", "(I)I", nullptr, 0, $virtualMethod(UCharacterProperty$1, getValue, int32_t, int32_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.icu.impl.UCharacterProperty",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.icu.impl.UCharacterProperty$1", nullptr, nullptr, 0},
+		{"jdk.internal.icu.impl.UCharacterProperty$BiDiIntProperty", "jdk.internal.icu.impl.UCharacterProperty", "BiDiIntProperty", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.icu.impl.UCharacterProperty$1",
+		"jdk.internal.icu.impl.UCharacterProperty$BiDiIntProperty",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.icu.impl.UCharacterProperty"
+	};
+	$loadClass(UCharacterProperty$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UCharacterProperty$1);
+	});
 	return class$;
 }
 

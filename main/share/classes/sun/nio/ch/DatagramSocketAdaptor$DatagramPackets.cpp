@@ -1,5 +1,4 @@
 #include <sun/nio/ch/DatagramSocketAdaptor$DatagramPackets.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/ExceptionInInitializerError.h>
 #include <java/lang/invoke/CallSite.h>
@@ -45,71 +44,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(DatagramSocketAdaptor$DatagramPackets::lambda$static$0());
+		 return DatagramSocketAdaptor$DatagramPackets::lambda$static$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DatagramSocketAdaptor$DatagramPackets$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo DatagramSocketAdaptor$DatagramPackets$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DatagramSocketAdaptor$DatagramPackets$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor$DatagramPackets$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo DatagramSocketAdaptor$DatagramPackets$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.nio.ch.DatagramSocketAdaptor$DatagramPackets$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	nullptr,
-	methodInfos
 };
 $Class* DatagramSocketAdaptor$DatagramPackets$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(DatagramSocketAdaptor$DatagramPackets$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DatagramSocketAdaptor$DatagramPackets$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DatagramSocketAdaptor$DatagramPackets$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.nio.ch.DatagramSocketAdaptor$DatagramPackets$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DatagramSocketAdaptor$DatagramPackets$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DatagramSocketAdaptor$DatagramPackets$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* DatagramSocketAdaptor$DatagramPackets$$Lambda$lambda$static$0::class$ = nullptr;
-
-$FieldInfo _DatagramSocketAdaptor$DatagramPackets_FieldInfo_[] = {
-	{"LENGTH", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DatagramSocketAdaptor$DatagramPackets, LENGTH)},
-	{"BUF_LENGTH", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DatagramSocketAdaptor$DatagramPackets, BUF_LENGTH)},
-	{}
-};
-
-$MethodInfo _DatagramSocketAdaptor$DatagramPackets_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DatagramSocketAdaptor$DatagramPackets, init$, void)},
-	{"getBufLength", "(Ljava/net/DatagramPacket;)I", nullptr, $STATIC, $staticMethod(DatagramSocketAdaptor$DatagramPackets, getBufLength, int32_t, $DatagramPacket*)},
-	{"lambda$static$0", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DatagramSocketAdaptor$DatagramPackets, lambda$static$0, $MethodHandles$Lookup*), "java.lang.Exception"},
-	{"setLength", "(Ljava/net/DatagramPacket;I)V", nullptr, $STATIC, $staticMethod(DatagramSocketAdaptor$DatagramPackets, setLength, void, $DatagramPacket*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _DatagramSocketAdaptor$DatagramPackets_InnerClassesInfo_[] = {
-	{"sun.nio.ch.DatagramSocketAdaptor$DatagramPackets", "sun.nio.ch.DatagramSocketAdaptor", "DatagramPackets", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DatagramSocketAdaptor$DatagramPackets_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.DatagramSocketAdaptor$DatagramPackets",
-	"java.lang.Object",
-	nullptr,
-	_DatagramSocketAdaptor$DatagramPackets_FieldInfo_,
-	_DatagramSocketAdaptor$DatagramPackets_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DatagramSocketAdaptor$DatagramPackets_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.DatagramSocketAdaptor"
-};
-
-$Object* allocate$DatagramSocketAdaptor$DatagramPackets($Class* clazz) {
-	return $of($alloc(DatagramSocketAdaptor$DatagramPackets));
-}
 
 $VarHandle* DatagramSocketAdaptor$DatagramPackets::LENGTH = nullptr;
 $VarHandle* DatagramSocketAdaptor$DatagramPackets::BUF_LENGTH = nullptr;
@@ -120,14 +77,14 @@ void DatagramSocketAdaptor$DatagramPackets::init$() {
 void DatagramSocketAdaptor$DatagramPackets::setLength($DatagramPacket* p, int32_t value) {
 	$init(DatagramSocketAdaptor$DatagramPackets);
 	$synchronized(p) {
-		$nc(DatagramSocketAdaptor$DatagramPackets::LENGTH)->set($$new($ObjectArray, {$of(p), $$of(value)}));
+		$nc(DatagramSocketAdaptor$DatagramPackets::LENGTH)->set($$new($ObjectArray, {p, $$of(value)}));
 	}
 }
 
 int32_t DatagramSocketAdaptor$DatagramPackets::getBufLength($DatagramPacket* p) {
 	$init(DatagramSocketAdaptor$DatagramPackets);
 	$synchronized(p) {
-		return $intValue($nc(DatagramSocketAdaptor$DatagramPackets::BUF_LENGTH)->get($$new($ObjectArray, {$of(p)})));
+		return $intValue($nc(DatagramSocketAdaptor$DatagramPackets::BUF_LENGTH)->get($$new($ObjectArray, {p})));
 	}
 }
 
@@ -138,19 +95,18 @@ $MethodHandles$Lookup* DatagramSocketAdaptor$DatagramPackets::lambda$static$0() 
 	return $MethodHandles::privateLookupIn($DatagramPacket::class$, $($MethodHandles::lookup()));
 }
 
-void clinit$DatagramSocketAdaptor$DatagramPackets($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void DatagramSocketAdaptor$DatagramPackets::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	{
 		try {
-			$var($PrivilegedExceptionAction, pa, static_cast<$PrivilegedExceptionAction*>($new(DatagramSocketAdaptor$DatagramPackets$$Lambda$lambda$static$0)));
+			$var($PrivilegedExceptionAction, pa, $new(DatagramSocketAdaptor$DatagramPackets$$Lambda$lambda$static$0));
 			$var($MethodHandles$Lookup, l, $cast($MethodHandles$Lookup, $AccessController::doPrivileged(pa)));
 			$load($DatagramPacket);
-			$init($Integer);
 			$assignStatic(DatagramSocketAdaptor$DatagramPackets::LENGTH, $nc(l)->findVarHandle($DatagramPacket::class$, "length"_s, $Integer::TYPE));
 			$assignStatic(DatagramSocketAdaptor$DatagramPackets::BUF_LENGTH, l->findVarHandle($DatagramPacket::class$, "bufLength"_s, $Integer::TYPE));
 		} catch ($Exception& e) {
-			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
+			$throwNew($ExceptionInInitializerError, e);
 		}
 	}
 }
@@ -160,11 +116,44 @@ DatagramSocketAdaptor$DatagramPackets::DatagramSocketAdaptor$DatagramPackets() {
 
 $Class* DatagramSocketAdaptor$DatagramPackets::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DatagramSocketAdaptor$DatagramPackets$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("sun.nio.ch.DatagramSocketAdaptor$DatagramPackets$$Lambda$lambda$static$0")) {
 			return DatagramSocketAdaptor$DatagramPackets$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(DatagramSocketAdaptor$DatagramPackets, name, initialize, &_DatagramSocketAdaptor$DatagramPackets_ClassInfo_, clinit$DatagramSocketAdaptor$DatagramPackets, allocate$DatagramSocketAdaptor$DatagramPackets);
+	$FieldInfo fieldInfos$$[] = {
+		{"LENGTH", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DatagramSocketAdaptor$DatagramPackets, LENGTH)},
+		{"BUF_LENGTH", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DatagramSocketAdaptor$DatagramPackets, BUF_LENGTH)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DatagramSocketAdaptor$DatagramPackets, init$, void)},
+		{"getBufLength", "(Ljava/net/DatagramPacket;)I", nullptr, $STATIC, $staticMethod(DatagramSocketAdaptor$DatagramPackets, getBufLength, int32_t, $DatagramPacket*)},
+		{"lambda$static$0", "()Ljava/lang/invoke/MethodHandles$Lookup;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DatagramSocketAdaptor$DatagramPackets, lambda$static$0, $MethodHandles$Lookup*), "java.lang.Exception"},
+		{"setLength", "(Ljava/net/DatagramPacket;I)V", nullptr, $STATIC, $staticMethod(DatagramSocketAdaptor$DatagramPackets, setLength, void, $DatagramPacket*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.DatagramSocketAdaptor$DatagramPackets", "sun.nio.ch.DatagramSocketAdaptor", "DatagramPackets", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.DatagramSocketAdaptor$DatagramPackets",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.DatagramSocketAdaptor"
+	};
+	$loadClass(DatagramSocketAdaptor$DatagramPackets, name, initialize, &classInfo$$, DatagramSocketAdaptor$DatagramPackets::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DatagramSocketAdaptor$DatagramPackets);
+	});
 	return class$;
 }
 

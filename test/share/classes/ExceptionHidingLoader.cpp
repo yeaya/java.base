@@ -1,5 +1,4 @@
 #include <ExceptionHidingLoader.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <jcpp.h>
@@ -9,26 +8,6 @@ using $ClassLoader = ::java::lang::ClassLoader;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _ExceptionHidingLoader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExceptionHidingLoader, init$, void)},
-	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", nullptr, $PROTECTED, $virtualMethod(ExceptionHidingLoader, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExceptionHidingLoader, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ExceptionHidingLoader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ExceptionHidingLoader",
-	"java.lang.ClassLoader",
-	nullptr,
-	nullptr,
-	_ExceptionHidingLoader_MethodInfo_
-};
-
-$Object* allocate$ExceptionHidingLoader($Class* clazz) {
-	return $of($alloc(ExceptionHidingLoader));
-}
 
 void ExceptionHidingLoader::init$() {
 	$ClassLoader::init$();
@@ -56,7 +35,23 @@ ExceptionHidingLoader::ExceptionHidingLoader() {
 }
 
 $Class* ExceptionHidingLoader::load$($String* name, bool initialize) {
-	$loadClass(ExceptionHidingLoader, name, initialize, &_ExceptionHidingLoader_ClassInfo_, allocate$ExceptionHidingLoader);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExceptionHidingLoader, init$, void)},
+		{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", nullptr, $PROTECTED, $virtualMethod(ExceptionHidingLoader, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExceptionHidingLoader, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ExceptionHidingLoader",
+		"java.lang.ClassLoader",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ExceptionHidingLoader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExceptionHidingLoader);
+	});
 	return class$;
 }
 

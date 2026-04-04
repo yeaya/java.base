@@ -73,6 +73,7 @@ public:
 	using ::java::lang::invoke::MemoryAccessVarHandleBase::getAndBitwiseXorAcquire;
 	using ::java::lang::invoke::MemoryAccessVarHandleBase::getAndBitwiseXorRelease;
 	using ::java::lang::invoke::MemoryAccessVarHandleBase::accessModeTypeUncached;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool skipAlignmentMaskCheck, bool be, int64_t length, int64_t alignmentMask, bool exact);
 	virtual ::java::lang::invoke::MethodType* accessModeTypeUncached(::java::lang::invoke::VarHandle$AccessType* accessType) override;
 	static ::jdk::internal::access::foreign::MemorySegmentProxy* checkAddress(Object$* obb, int64_t offset, int64_t length, bool ro);

@@ -1,5 +1,4 @@
 #include <java/util/zip/InflaterInputStream.h>
-
 #include <java/io/EOFException.h>
 #include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
@@ -33,48 +32,6 @@ using $ZipException = ::java::util::zip::ZipException;
 namespace java {
 	namespace util {
 		namespace zip {
-
-$FieldInfo _InflaterInputStream_FieldInfo_[] = {
-	{"inf", "Ljava/util/zip/Inflater;", nullptr, $PROTECTED, $field(InflaterInputStream, inf)},
-	{"buf", "[B", nullptr, $PROTECTED, $field(InflaterInputStream, buf)},
-	{"len", "I", nullptr, $PROTECTED, $field(InflaterInputStream, len)},
-	{"closed", "Z", nullptr, $PRIVATE, $field(InflaterInputStream, closed)},
-	{"reachEOF", "Z", nullptr, $PRIVATE, $field(InflaterInputStream, reachEOF)},
-	{"usesDefaultInflater", "Z", nullptr, 0, $field(InflaterInputStream, usesDefaultInflater)},
-	{"singleByteBuf", "[B", nullptr, $PRIVATE, $field(InflaterInputStream, singleByteBuf)},
-	{"b", "[B", nullptr, $PRIVATE, $field(InflaterInputStream, b)},
-	{}
-};
-
-$MethodInfo _InflaterInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Ljava/util/zip/Inflater;I)V", nullptr, $PUBLIC, $method(InflaterInputStream, init$, void, $InputStream*, $Inflater*, int32_t)},
-	{"<init>", "(Ljava/io/InputStream;Ljava/util/zip/Inflater;)V", nullptr, $PUBLIC, $method(InflaterInputStream, init$, void, $InputStream*, $Inflater*)},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(InflaterInputStream, init$, void, $InputStream*)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(InflaterInputStream, available, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(InflaterInputStream, close, void), "java.io.IOException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(InflaterInputStream, ensureOpen, void), "java.io.IOException"},
-	{"fill", "()V", nullptr, $PROTECTED, $virtualMethod(InflaterInputStream, fill, void), "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InflaterInputStream, mark, void, int32_t)},
-	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(InflaterInputStream, markSupported, bool)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(InflaterInputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(InflaterInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InflaterInputStream, reset, void), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(InflaterInputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _InflaterInputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.zip.InflaterInputStream",
-	"java.io.FilterInputStream",
-	nullptr,
-	_InflaterInputStream_FieldInfo_,
-	_InflaterInputStream_MethodInfo_
-};
-
-$Object* allocate$InflaterInputStream($Class* clazz) {
-	return $of($alloc(InflaterInputStream));
-}
 
 void InflaterInputStream::ensureOpen() {
 	if (this->closed) {
@@ -116,7 +73,7 @@ int32_t InflaterInputStream::read($bytes* b, int32_t off, int32_t len) {
 	ensureOpen();
 	if (b == nullptr) {
 		$throwNew($NullPointerException);
-	} else if (off < 0 || len < 0 || len > $nc(b)->length - off) {
+	} else if (off < 0 || len < 0 || len > b->length - off) {
 		$throwNew($IndexOutOfBoundsException);
 	} else if (len == 0) {
 		return 0;
@@ -124,8 +81,8 @@ int32_t InflaterInputStream::read($bytes* b, int32_t off, int32_t len) {
 	try {
 		int32_t n = 0;
 		while ((n = $nc(this->inf)->inflate(b, off, len)) == 0) {
-			bool var$0 = $nc(this->inf)->finished();
-			if (var$0 || $nc(this->inf)->needsDictionary()) {
+			bool var$0 = this->inf->finished();
+			if (var$0 || this->inf->needsDictionary()) {
 				this->reachEOF = true;
 				return -1;
 			}
@@ -163,7 +120,7 @@ int64_t InflaterInputStream::skip(int64_t n) {
 	while (total < max) {
 		int32_t len = max - total;
 		if (len > $nc(this->b)->length) {
-			len = $nc(this->b)->length;
+			len = this->b->length;
 		}
 		len = read(this->b, 0, len);
 		if (len == -1) {
@@ -213,7 +170,44 @@ InflaterInputStream::InflaterInputStream() {
 }
 
 $Class* InflaterInputStream::load$($String* name, bool initialize) {
-	$loadClass(InflaterInputStream, name, initialize, &_InflaterInputStream_ClassInfo_, allocate$InflaterInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"inf", "Ljava/util/zip/Inflater;", nullptr, $PROTECTED, $field(InflaterInputStream, inf)},
+		{"buf", "[B", nullptr, $PROTECTED, $field(InflaterInputStream, buf)},
+		{"len", "I", nullptr, $PROTECTED, $field(InflaterInputStream, len)},
+		{"closed", "Z", nullptr, $PRIVATE, $field(InflaterInputStream, closed)},
+		{"reachEOF", "Z", nullptr, $PRIVATE, $field(InflaterInputStream, reachEOF)},
+		{"usesDefaultInflater", "Z", nullptr, 0, $field(InflaterInputStream, usesDefaultInflater)},
+		{"singleByteBuf", "[B", nullptr, $PRIVATE, $field(InflaterInputStream, singleByteBuf)},
+		{"b", "[B", nullptr, $PRIVATE, $field(InflaterInputStream, b)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;Ljava/util/zip/Inflater;I)V", nullptr, $PUBLIC, $method(InflaterInputStream, init$, void, $InputStream*, $Inflater*, int32_t)},
+		{"<init>", "(Ljava/io/InputStream;Ljava/util/zip/Inflater;)V", nullptr, $PUBLIC, $method(InflaterInputStream, init$, void, $InputStream*, $Inflater*)},
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(InflaterInputStream, init$, void, $InputStream*)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(InflaterInputStream, available, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(InflaterInputStream, close, void), "java.io.IOException"},
+		{"ensureOpen", "()V", nullptr, $PRIVATE, $method(InflaterInputStream, ensureOpen, void), "java.io.IOException"},
+		{"fill", "()V", nullptr, $PROTECTED, $virtualMethod(InflaterInputStream, fill, void), "java.io.IOException"},
+		{"mark", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InflaterInputStream, mark, void, int32_t)},
+		{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(InflaterInputStream, markSupported, bool)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(InflaterInputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(InflaterInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(InflaterInputStream, reset, void), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(InflaterInputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.zip.InflaterInputStream",
+		"java.io.FilterInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InflaterInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InflaterInputStream);
+	});
 	return class$;
 }
 

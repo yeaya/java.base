@@ -18,6 +18,7 @@ class UUID$Holder : public ::java::lang::Object {
 	$class(UUID$Holder, 0, ::java::lang::Object)
 public:
 	UUID$Holder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::security::SecureRandom* numberGenerator;
 };

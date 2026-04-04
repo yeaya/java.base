@@ -41,6 +41,7 @@ class ResourceBundle$ResourceBundleControlProviderHolder : public ::java::lang::
 	$class(ResourceBundle$ResourceBundleControlProviderHolder, 0, ::java::lang::Object)
 public:
 	ResourceBundle$ResourceBundleControlProviderHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::ResourceBundle$Control* getControl($String* baseName);
 	static ::java::util::stream::Stream* lambda$getControl$1($String* baseName, ::java::util::spi::ResourceBundleControlProvider* provider);

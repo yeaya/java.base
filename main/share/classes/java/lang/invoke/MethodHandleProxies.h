@@ -40,6 +40,7 @@ class $export MethodHandleProxies : public ::java::lang::Object {
 	$class(MethodHandleProxies, 0, ::java::lang::Object)
 public:
 	MethodHandleProxies();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Object* asInterfaceInstance($Class* intfc, ::java::lang::invoke::MethodHandle* target);
 	static ::sun::invoke::WrapperInstance* asWrapperInstance(Object$* x);

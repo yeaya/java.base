@@ -30,6 +30,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void decryptBlock($bytes* in, int32_t inOffset, $bytes* out, int32_t outOffset) override;
 	virtual void encryptBlock($bytes* in, int32_t inOffset, $bytes* out, int32_t outOffset) override;

@@ -1,5 +1,4 @@
 #include <java/lang/ClassLoader$1.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/SecurityManager.h>
 #include <jcpp.h>
@@ -15,50 +14,6 @@ using $SecurityManager = ::java::lang::SecurityManager;
 namespace java {
 	namespace lang {
 
-$FieldInfo _ClassLoader$1_FieldInfo_[] = {
-	{"this$0", "Ljava/lang/ClassLoader;", nullptr, $FINAL | $SYNTHETIC, $field(ClassLoader$1, this$0)},
-	{"val$packageName", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(ClassLoader$1, val$packageName)},
-	{"val$sm", "Ljava/lang/SecurityManager;", nullptr, $FINAL | $SYNTHETIC, $field(ClassLoader$1, val$sm)},
-	{}
-};
-
-$MethodInfo _ClassLoader$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;Ljava/lang/SecurityManager;Ljava/lang/String;)V", nullptr, 0, $method(ClassLoader$1, init$, void, $ClassLoader*, $SecurityManager*, $String*)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ClassLoader$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _ClassLoader$1_EnclosingMethodInfo_ = {
-	"java.lang.ClassLoader",
-	"checkPackageAccess",
-	"(Ljava/lang/Class;Ljava/security/ProtectionDomain;)V"
-};
-
-$InnerClassInfo _ClassLoader$1_InnerClassesInfo_[] = {
-	{"java.lang.ClassLoader$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ClassLoader$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.ClassLoader$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_ClassLoader$1_FieldInfo_,
-	_ClassLoader$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
-	&_ClassLoader$1_EnclosingMethodInfo_,
-	_ClassLoader$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.ClassLoader"
-};
-
-$Object* allocate$ClassLoader$1($Class* clazz) {
-	return $of($alloc(ClassLoader$1));
-}
-
 void ClassLoader$1::init$($ClassLoader* this$0, $SecurityManager* val$sm, $String* val$packageName) {
 	$set(this, this$0, this$0);
 	$set(this, val$sm, val$sm);
@@ -67,14 +22,51 @@ void ClassLoader$1::init$($ClassLoader* this$0, $SecurityManager* val$sm, $Strin
 
 $Object* ClassLoader$1::run() {
 	$nc(this->val$sm)->checkPackageAccess(this->val$packageName);
-	return $of(nullptr);
+	return nullptr;
 }
 
 ClassLoader$1::ClassLoader$1() {
 }
 
 $Class* ClassLoader$1::load$($String* name, bool initialize) {
-	$loadClass(ClassLoader$1, name, initialize, &_ClassLoader$1_ClassInfo_, allocate$ClassLoader$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/lang/ClassLoader;", nullptr, $FINAL | $SYNTHETIC, $field(ClassLoader$1, this$0)},
+		{"val$packageName", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(ClassLoader$1, val$packageName)},
+		{"val$sm", "Ljava/lang/SecurityManager;", nullptr, $FINAL | $SYNTHETIC, $field(ClassLoader$1, val$sm)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/ClassLoader;Ljava/lang/SecurityManager;Ljava/lang/String;)V", nullptr, 0, $method(ClassLoader$1, init$, void, $ClassLoader*, $SecurityManager*, $String*)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(ClassLoader$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.ClassLoader",
+		"checkPackageAccess",
+		"(Ljava/lang/Class;Ljava/security/ProtectionDomain;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ClassLoader$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.ClassLoader$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.ClassLoader"
+	};
+	$loadClass(ClassLoader$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassLoader$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/nio/HeapByteBufferR.h>
-
 #include <java/nio/Buffer.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/ByteBufferAsCharBufferRB.h>
@@ -58,68 +57,9 @@ using $ReadOnlyBufferException = ::java::nio::ReadOnlyBufferException;
 using $ShortBuffer = ::java::nio::ShortBuffer;
 using $Objects = ::java::util::Objects;
 using $MemorySegmentProxy = ::jdk::internal::access::foreign::MemorySegmentProxy;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace java {
 	namespace nio {
-
-$FieldInfo _HeapByteBufferR_FieldInfo_[] = {
-	{"ARRAY_BASE_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HeapByteBufferR, ARRAY_BASE_OFFSET)},
-	{"ARRAY_INDEX_SCALE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HeapByteBufferR, ARRAY_INDEX_SCALE)},
-	{}
-};
-
-$MethodInfo _HeapByteBufferR_MethodInfo_[] = {
-	{"<init>", "(IILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(HeapByteBufferR, init$, void, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"<init>", "([BIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(HeapByteBufferR, init$, void, $bytes*, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"<init>", "([BIIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, $PROTECTED, $method(HeapByteBufferR, init$, void, $bytes*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
-	{"_get", "(I)B", nullptr, 0, $virtualMethod(HeapByteBufferR, _get, int8_t, int32_t)},
-	{"_put", "(IB)V", nullptr, 0, $virtualMethod(HeapByteBufferR, _put, void, int32_t, int8_t)},
-	{"asCharBuffer", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, asCharBuffer, $CharBuffer*)},
-	{"asDoubleBuffer", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, asDoubleBuffer, $DoubleBuffer*)},
-	{"asFloatBuffer", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, asFloatBuffer, $FloatBuffer*)},
-	{"asIntBuffer", "()Ljava/nio/IntBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, asIntBuffer, $IntBuffer*)},
-	{"asLongBuffer", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, asLongBuffer, $LongBuffer*)},
-	{"asReadOnlyBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, asReadOnlyBuffer, $ByteBuffer*)},
-	{"asShortBuffer", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, asShortBuffer, $ShortBuffer*)},
-	{"compact", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, compact, $ByteBuffer*)},
-	{"duplicate", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, duplicate, $ByteBuffer*)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, isReadOnly, bool)},
-	{"put", "(B)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, put, $ByteBuffer*, int8_t)},
-	{"put", "(IB)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, put, $ByteBuffer*, int32_t, int8_t)},
-	{"put", "([BII)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, put, $ByteBuffer*, $bytes*, int32_t, int32_t)},
-	{"put", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, put, $ByteBuffer*, $ByteBuffer*)},
-	{"put", "(ILjava/nio/ByteBuffer;II)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, put, $ByteBuffer*, int32_t, $ByteBuffer*, int32_t, int32_t)},
-	{"put", "(I[BII)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, put, $ByteBuffer*, int32_t, $bytes*, int32_t, int32_t)},
-	{"putChar", "(C)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, putChar, $ByteBuffer*, char16_t)},
-	{"putChar", "(IC)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, putChar, $ByteBuffer*, int32_t, char16_t)},
-	{"putDouble", "(D)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, putDouble, $ByteBuffer*, double)},
-	{"putDouble", "(ID)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, putDouble, $ByteBuffer*, int32_t, double)},
-	{"putFloat", "(F)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, putFloat, $ByteBuffer*, float)},
-	{"putFloat", "(IF)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, putFloat, $ByteBuffer*, int32_t, float)},
-	{"putInt", "(I)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, putInt, $ByteBuffer*, int32_t)},
-	{"putInt", "(II)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, putInt, $ByteBuffer*, int32_t, int32_t)},
-	{"putLong", "(J)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, putLong, $ByteBuffer*, int64_t)},
-	{"putLong", "(IJ)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, putLong, $ByteBuffer*, int32_t, int64_t)},
-	{"putShort", "(S)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, putShort, $ByteBuffer*, int16_t)},
-	{"putShort", "(IS)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, putShort, $ByteBuffer*, int32_t, int16_t)},
-	{"slice", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, slice, $ByteBuffer*)},
-	{"slice", "(II)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, slice, $ByteBuffer*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _HeapByteBufferR_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.HeapByteBufferR",
-	"java.nio.HeapByteBuffer",
-	nullptr,
-	_HeapByteBufferR_FieldInfo_,
-	_HeapByteBufferR_MethodInfo_
-};
-
-$Object* allocate$HeapByteBufferR($Class* clazz) {
-	return $of($alloc(HeapByteBufferR));
-}
 
 int64_t HeapByteBufferR::ARRAY_BASE_OFFSET = 0;
 int64_t HeapByteBufferR::ARRAY_INDEX_SCALE = 0;
@@ -224,7 +164,7 @@ $CharBuffer* HeapByteBufferR::asCharBuffer() {
 	int32_t pos = position();
 	int32_t size = (limit() - pos) >> 1;
 	int64_t addr = this->address + pos;
-	return (this->bigEndian ? static_cast<$CharBuffer*>(($new($ByteBufferAsCharBufferRB, this, -1, 0, size, size, addr, this->segment))) : static_cast<$CharBuffer*>(($new($ByteBufferAsCharBufferRL, this, -1, 0, size, size, addr, this->segment))));
+	return (this->bigEndian ? $cast($CharBuffer, ($new($ByteBufferAsCharBufferRB, this, -1, 0, size, size, addr, this->segment))) : $cast($CharBuffer, ($new($ByteBufferAsCharBufferRL, this, -1, 0, size, size, addr, this->segment))));
 }
 
 $ByteBuffer* HeapByteBufferR::putShort(int16_t x) {
@@ -241,7 +181,7 @@ $ShortBuffer* HeapByteBufferR::asShortBuffer() {
 	int32_t pos = position();
 	int32_t size = (limit() - pos) >> 1;
 	int64_t addr = this->address + pos;
-	return (this->bigEndian ? static_cast<$ShortBuffer*>(($new($ByteBufferAsShortBufferRB, this, -1, 0, size, size, addr, this->segment))) : static_cast<$ShortBuffer*>(($new($ByteBufferAsShortBufferRL, this, -1, 0, size, size, addr, this->segment))));
+	return (this->bigEndian ? $cast($ShortBuffer, ($new($ByteBufferAsShortBufferRB, this, -1, 0, size, size, addr, this->segment))) : $cast($ShortBuffer, ($new($ByteBufferAsShortBufferRL, this, -1, 0, size, size, addr, this->segment))));
 }
 
 $ByteBuffer* HeapByteBufferR::putInt(int32_t x) {
@@ -258,7 +198,7 @@ $IntBuffer* HeapByteBufferR::asIntBuffer() {
 	int32_t pos = position();
 	int32_t size = (limit() - pos) >> 2;
 	int64_t addr = this->address + pos;
-	return (this->bigEndian ? static_cast<$IntBuffer*>(($new($ByteBufferAsIntBufferRB, this, -1, 0, size, size, addr, this->segment))) : static_cast<$IntBuffer*>(($new($ByteBufferAsIntBufferRL, this, -1, 0, size, size, addr, this->segment))));
+	return (this->bigEndian ? $cast($IntBuffer, ($new($ByteBufferAsIntBufferRB, this, -1, 0, size, size, addr, this->segment))) : $cast($IntBuffer, ($new($ByteBufferAsIntBufferRL, this, -1, 0, size, size, addr, this->segment))));
 }
 
 $ByteBuffer* HeapByteBufferR::putLong(int64_t x) {
@@ -275,7 +215,7 @@ $LongBuffer* HeapByteBufferR::asLongBuffer() {
 	int32_t pos = position();
 	int32_t size = (limit() - pos) >> 3;
 	int64_t addr = this->address + pos;
-	return (this->bigEndian ? static_cast<$LongBuffer*>(($new($ByteBufferAsLongBufferRB, this, -1, 0, size, size, addr, this->segment))) : static_cast<$LongBuffer*>(($new($ByteBufferAsLongBufferRL, this, -1, 0, size, size, addr, this->segment))));
+	return (this->bigEndian ? $cast($LongBuffer, ($new($ByteBufferAsLongBufferRB, this, -1, 0, size, size, addr, this->segment))) : $cast($LongBuffer, ($new($ByteBufferAsLongBufferRL, this, -1, 0, size, size, addr, this->segment))));
 }
 
 $ByteBuffer* HeapByteBufferR::putFloat(float x) {
@@ -292,7 +232,7 @@ $FloatBuffer* HeapByteBufferR::asFloatBuffer() {
 	int32_t pos = position();
 	int32_t size = (limit() - pos) >> 2;
 	int64_t addr = this->address + pos;
-	return (this->bigEndian ? static_cast<$FloatBuffer*>(($new($ByteBufferAsFloatBufferRB, this, -1, 0, size, size, addr, this->segment))) : static_cast<$FloatBuffer*>(($new($ByteBufferAsFloatBufferRL, this, -1, 0, size, size, addr, this->segment))));
+	return (this->bigEndian ? $cast($FloatBuffer, ($new($ByteBufferAsFloatBufferRB, this, -1, 0, size, size, addr, this->segment))) : $cast($FloatBuffer, ($new($ByteBufferAsFloatBufferRL, this, -1, 0, size, size, addr, this->segment))));
 }
 
 $ByteBuffer* HeapByteBufferR::putDouble(double x) {
@@ -309,21 +249,73 @@ $DoubleBuffer* HeapByteBufferR::asDoubleBuffer() {
 	int32_t pos = position();
 	int32_t size = (limit() - pos) >> 3;
 	int64_t addr = this->address + pos;
-	return (this->bigEndian ? static_cast<$DoubleBuffer*>(($new($ByteBufferAsDoubleBufferRB, this, -1, 0, size, size, addr, this->segment))) : static_cast<$DoubleBuffer*>(($new($ByteBufferAsDoubleBufferRL, this, -1, 0, size, size, addr, this->segment))));
+	return (this->bigEndian ? $cast($DoubleBuffer, ($new($ByteBufferAsDoubleBufferRB, this, -1, 0, size, size, addr, this->segment))) : $cast($DoubleBuffer, ($new($ByteBufferAsDoubleBufferRL, this, -1, 0, size, size, addr, this->segment))));
 }
 
-void clinit$HeapByteBufferR($Class* class$) {
+void HeapByteBufferR::clinit$($Class* clazz) {
 	$init($Buffer);
-	$load($bytes);
 	HeapByteBufferR::ARRAY_BASE_OFFSET = $nc($Buffer::UNSAFE)->arrayBaseOffset($getClass($bytes));
-	HeapByteBufferR::ARRAY_INDEX_SCALE = $nc($Buffer::UNSAFE)->arrayIndexScale($getClass($bytes));
+	HeapByteBufferR::ARRAY_INDEX_SCALE = $Buffer::UNSAFE->arrayIndexScale($getClass($bytes));
 }
 
 HeapByteBufferR::HeapByteBufferR() {
 }
 
 $Class* HeapByteBufferR::load$($String* name, bool initialize) {
-	$loadClass(HeapByteBufferR, name, initialize, &_HeapByteBufferR_ClassInfo_, clinit$HeapByteBufferR, allocate$HeapByteBufferR);
+	$FieldInfo fieldInfos$$[] = {
+		{"ARRAY_BASE_OFFSET", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HeapByteBufferR, ARRAY_BASE_OFFSET)},
+		{"ARRAY_INDEX_SCALE", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(HeapByteBufferR, ARRAY_INDEX_SCALE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(HeapByteBufferR, init$, void, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"<init>", "([BIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, 0, $method(HeapByteBufferR, init$, void, $bytes*, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"<init>", "([BIIIIILjdk/internal/access/foreign/MemorySegmentProxy;)V", nullptr, $PROTECTED, $method(HeapByteBufferR, init$, void, $bytes*, int32_t, int32_t, int32_t, int32_t, int32_t, $MemorySegmentProxy*)},
+		{"_get", "(I)B", nullptr, 0, $virtualMethod(HeapByteBufferR, _get, int8_t, int32_t)},
+		{"_put", "(IB)V", nullptr, 0, $virtualMethod(HeapByteBufferR, _put, void, int32_t, int8_t)},
+		{"asCharBuffer", "()Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, asCharBuffer, $CharBuffer*)},
+		{"asDoubleBuffer", "()Ljava/nio/DoubleBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, asDoubleBuffer, $DoubleBuffer*)},
+		{"asFloatBuffer", "()Ljava/nio/FloatBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, asFloatBuffer, $FloatBuffer*)},
+		{"asIntBuffer", "()Ljava/nio/IntBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, asIntBuffer, $IntBuffer*)},
+		{"asLongBuffer", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, asLongBuffer, $LongBuffer*)},
+		{"asReadOnlyBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, asReadOnlyBuffer, $ByteBuffer*)},
+		{"asShortBuffer", "()Ljava/nio/ShortBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, asShortBuffer, $ShortBuffer*)},
+		{"compact", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, compact, $ByteBuffer*)},
+		{"duplicate", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, duplicate, $ByteBuffer*)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, isReadOnly, bool)},
+		{"put", "(B)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, put, $ByteBuffer*, int8_t)},
+		{"put", "(IB)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, put, $ByteBuffer*, int32_t, int8_t)},
+		{"put", "([BII)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, put, $ByteBuffer*, $bytes*, int32_t, int32_t)},
+		{"put", "(Ljava/nio/ByteBuffer;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, put, $ByteBuffer*, $ByteBuffer*)},
+		{"put", "(ILjava/nio/ByteBuffer;II)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, put, $ByteBuffer*, int32_t, $ByteBuffer*, int32_t, int32_t)},
+		{"put", "(I[BII)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, put, $ByteBuffer*, int32_t, $bytes*, int32_t, int32_t)},
+		{"putChar", "(C)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, putChar, $ByteBuffer*, char16_t)},
+		{"putChar", "(IC)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, putChar, $ByteBuffer*, int32_t, char16_t)},
+		{"putDouble", "(D)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, putDouble, $ByteBuffer*, double)},
+		{"putDouble", "(ID)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, putDouble, $ByteBuffer*, int32_t, double)},
+		{"putFloat", "(F)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, putFloat, $ByteBuffer*, float)},
+		{"putFloat", "(IF)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, putFloat, $ByteBuffer*, int32_t, float)},
+		{"putInt", "(I)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, putInt, $ByteBuffer*, int32_t)},
+		{"putInt", "(II)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, putInt, $ByteBuffer*, int32_t, int32_t)},
+		{"putLong", "(J)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, putLong, $ByteBuffer*, int64_t)},
+		{"putLong", "(IJ)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, putLong, $ByteBuffer*, int32_t, int64_t)},
+		{"putShort", "(S)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, putShort, $ByteBuffer*, int16_t)},
+		{"putShort", "(IS)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, putShort, $ByteBuffer*, int32_t, int16_t)},
+		{"slice", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, slice, $ByteBuffer*)},
+		{"slice", "(II)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(HeapByteBufferR, slice, $ByteBuffer*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.HeapByteBufferR",
+		"java.nio.HeapByteBuffer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HeapByteBufferR, name, initialize, &classInfo$$, HeapByteBufferR::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HeapByteBufferR));
+	});
 	return class$;
 }
 

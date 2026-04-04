@@ -1,5 +1,4 @@
 #include <MulticastTTL.h>
-
 #include <java/io/IOException.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/InetAddress.h>
@@ -14,38 +13,19 @@ using $DatagramPacket = ::java::net::DatagramPacket;
 using $InetAddress = ::java::net::InetAddress;
 using $MulticastSocket = ::java::net::MulticastSocket;
 
-$MethodInfo _MulticastTTL_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MulticastTTL, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MulticastTTL, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _MulticastTTL_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MulticastTTL",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_MulticastTTL_MethodInfo_
-};
-
-$Object* allocate$MulticastTTL($Class* clazz) {
-	return $of($alloc(MulticastTTL));
-}
-
 void MulticastTTL::init$() {
 }
 
 void MulticastTTL::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MulticastSocket, soc, nullptr);
 	$var($DatagramPacket, pac, nullptr);
 	$var($InetAddress, sin, nullptr);
 	$var($bytes, array, $new($bytes, 0x00010001));
 	int32_t port = 0;
-	int8_t old_ttl = (int8_t)0;
-	int8_t new_ttl = (int8_t)64;
-	int8_t ttl = (int8_t)0;
+	int8_t old_ttl = 0;
+	int8_t new_ttl = 64;
+	int8_t ttl = 0;
 	$assign(sin, $InetAddress::getByName("224.80.80.80"_s));
 	$assign(soc, $new($MulticastSocket));
 	port = soc->getLocalPort();
@@ -67,7 +47,22 @@ MulticastTTL::MulticastTTL() {
 }
 
 $Class* MulticastTTL::load$($String* name, bool initialize) {
-	$loadClass(MulticastTTL, name, initialize, &_MulticastTTL_ClassInfo_, allocate$MulticastTTL);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MulticastTTL, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MulticastTTL, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MulticastTTL",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MulticastTTL, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MulticastTTL);
+	});
 	return class$;
 }
 

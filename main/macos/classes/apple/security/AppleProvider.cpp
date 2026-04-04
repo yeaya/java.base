@@ -1,8 +1,6 @@
 #include <apple/security/AppleProvider.h>
-
 #include <apple/security/AppleProvider$1.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/Provider$Service.h>
 #include <java/security/Provider.h>
 #include <sun/security/util/SecurityConstants.h>
@@ -16,49 +14,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Provider = ::java::security::Provider;
 using $Provider$Service = ::java::security::Provider$Service;
 using $SecurityConstants = ::sun::security::util::SecurityConstants;
 
 namespace apple {
 	namespace security {
-
-$FieldInfo _AppleProvider_FieldInfo_[] = {
-	{"info", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AppleProvider, info)},
-	{}
-};
-
-$MethodInfo _AppleProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AppleProvider, init$, void)},
-	{"access$000", "(Lapple/security/AppleProvider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AppleProvider, access$000, void, AppleProvider*, $Provider$Service*)},
-	{}
-};
-
-$InnerClassInfo _AppleProvider_InnerClassesInfo_[] = {
-	{"apple.security.AppleProvider$ProviderService", "apple.security.AppleProvider", "ProviderService", $PRIVATE | $STATIC | $FINAL},
-	{"apple.security.AppleProvider$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AppleProvider_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"apple.security.AppleProvider",
-	"java.security.Provider",
-	nullptr,
-	_AppleProvider_FieldInfo_,
-	_AppleProvider_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AppleProvider_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"apple.security.AppleProvider$ProviderService,apple.security.AppleProvider$1"
-};
-
-$Object* allocate$AppleProvider($Class* clazz) {
-	return $of($alloc(AppleProvider));
-}
 
 $String* AppleProvider::info = nullptr;
 
@@ -68,23 +29,53 @@ void AppleProvider::access$000(AppleProvider* x0, $Provider$Service* x1) {
 }
 
 void AppleProvider::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$init($SecurityConstants);
 	$Provider::init$("Apple"_s, $SecurityConstants::PROVIDER_VER, AppleProvider::info);
 	$var($Provider, p, this);
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($AppleProvider$1, this, p)));
+	$AccessController::doPrivileged($$new($AppleProvider$1, this, p));
 }
 
 AppleProvider::AppleProvider() {
 }
 
-void clinit$AppleProvider($Class* class$) {
+void AppleProvider::clinit$($Class* clazz) {
 	$assignStatic(AppleProvider::info, "Apple Provider"_s);
 }
 
 $Class* AppleProvider::load$($String* name, bool initialize) {
-	$loadClass(AppleProvider, name, initialize, &_AppleProvider_ClassInfo_, clinit$AppleProvider, allocate$AppleProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"info", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AppleProvider, info)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AppleProvider, init$, void)},
+		{"access$000", "(Lapple/security/AppleProvider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AppleProvider, access$000, void, AppleProvider*, $Provider$Service*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"apple.security.AppleProvider$ProviderService", "apple.security.AppleProvider", "ProviderService", $PRIVATE | $STATIC | $FINAL},
+		{"apple.security.AppleProvider$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"apple.security.AppleProvider",
+		"java.security.Provider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"apple.security.AppleProvider$ProviderService,apple.security.AppleProvider$1"
+	};
+	$loadClass(AppleProvider, name, initialize, &classInfo$$, AppleProvider::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AppleProvider));
+	});
 	return class$;
 }
 

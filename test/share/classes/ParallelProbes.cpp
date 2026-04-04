@@ -1,5 +1,4 @@
 #include <ParallelProbes.h>
-
 #include <ParallelProbes$1.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Runnable.h>
@@ -17,7 +16,6 @@
 using $ParallelProbes$1 = ::ParallelProbes$1;
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;
 using $FileAttributeArray = $Array<::java::nio::file::attribute::FileAttribute>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -31,49 +29,8 @@ using $Paths = ::java::nio::file::Paths;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 
-$FieldInfo _ParallelProbes_FieldInfo_[] = {
-	{"REPEATS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParallelProbes, REPEATS)},
-	{"numThreads", "I", nullptr, $PRIVATE, $field(ParallelProbes, numThreads)},
-	{"threads", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/Thread;>;", $PRIVATE, $field(ParallelProbes, threads)},
-	{}
-};
-
-$MethodInfo _ParallelProbes_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ParallelProbes, init$, void, int32_t)},
-	{"createRunnable", "(Ljava/nio/file/Path;)Ljava/lang/Runnable;", nullptr, $PRIVATE, $method(ParallelProbes, createRunnable, $Runnable*, $Path*)},
-	{"createTmpFile", "()Ljava/nio/file/Path;", nullptr, $PRIVATE, $method(ParallelProbes, createTmpFile, $Path*), "java.io.IOException"},
-	{"join", "()V", nullptr, $PUBLIC, $virtualMethod(ParallelProbes, join, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ParallelProbes, main, void, $StringArray*), "java.lang.Exception"},
-	{"start", "()V", nullptr, $PUBLIC, $virtualMethod(ParallelProbes, start, void), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ParallelProbes_InnerClassesInfo_[] = {
-	{"ParallelProbes$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ParallelProbes_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ParallelProbes",
-	"java.lang.Object",
-	nullptr,
-	_ParallelProbes_FieldInfo_,
-	_ParallelProbes_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ParallelProbes_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"ParallelProbes$1"
-};
-
-$Object* allocate$ParallelProbes($Class* clazz) {
-	return $of($alloc(ParallelProbes));
-}
-
 void ParallelProbes::init$(int32_t numThreads) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->numThreads = 0;
 	$nc($System::out)->println($$str({"Using <"_s, $$str(numThreads), "> threads."_s}));
 	this->numThreads = numThreads;
@@ -81,7 +38,7 @@ void ParallelProbes::init$(int32_t numThreads) {
 }
 
 $Path* ParallelProbes::createTmpFile() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, dir, $Paths::get($($System::getProperty("test.dir"_s, "."_s)), $$new($StringArray, 0)));
 	$var($Path, p, $Files::createTempFile(dir, "prefix"_s, ".json"_s, $$new($FileAttributeArray, 0)));
 	$Files::write(p, $("{\"test\"}"_s->getBytes()), $$new($OpenOptionArray, 0));
@@ -95,7 +52,7 @@ $Runnable* ParallelProbes::createRunnable($Path* p) {
 }
 
 void ParallelProbes::start() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < this->numThreads; ++i) {
 		$var($Path, p, createTmpFile());
 		$var($Runnable, r, createRunnable(p));
@@ -106,23 +63,19 @@ void ParallelProbes::start() {
 }
 
 void ParallelProbes::join() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(this->threads)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Thread, thread, $cast($Thread, i$->next()));
-			{
-				try {
-					$nc(thread)->join();
-				} catch ($InterruptedException& e) {
-				}
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(this->threads)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Thread, thread, $cast($Thread, i$->next()));
+		try {
+			$nc(thread)->join();
+		} catch ($InterruptedException& e) {
 		}
 	}
 }
 
 void ParallelProbes::main($StringArray* args) {
-	$var(ParallelProbes, probes, $new(ParallelProbes, $nc(args)->length < 1 ? 1 : $Integer::parseInt($nc(args)->get(0))));
+	$var(ParallelProbes, probes, $new(ParallelProbes, $nc(args)->length < 1 ? 1 : $Integer::parseInt(args->get(0))));
 	probes->start();
 	probes->join();
 }
@@ -131,7 +84,42 @@ ParallelProbes::ParallelProbes() {
 }
 
 $Class* ParallelProbes::load$($String* name, bool initialize) {
-	$loadClass(ParallelProbes, name, initialize, &_ParallelProbes_ClassInfo_, allocate$ParallelProbes);
+	$FieldInfo fieldInfos$$[] = {
+		{"REPEATS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ParallelProbes, REPEATS)},
+		{"numThreads", "I", nullptr, $PRIVATE, $field(ParallelProbes, numThreads)},
+		{"threads", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/Thread;>;", $PRIVATE, $field(ParallelProbes, threads)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(ParallelProbes, init$, void, int32_t)},
+		{"createRunnable", "(Ljava/nio/file/Path;)Ljava/lang/Runnable;", nullptr, $PRIVATE, $method(ParallelProbes, createRunnable, $Runnable*, $Path*)},
+		{"createTmpFile", "()Ljava/nio/file/Path;", nullptr, $PRIVATE, $method(ParallelProbes, createTmpFile, $Path*), "java.io.IOException"},
+		{"join", "()V", nullptr, $PUBLIC, $virtualMethod(ParallelProbes, join, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ParallelProbes, main, void, $StringArray*), "java.lang.Exception"},
+		{"start", "()V", nullptr, $PUBLIC, $virtualMethod(ParallelProbes, start, void), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ParallelProbes$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ParallelProbes",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"ParallelProbes$1"
+	};
+	$loadClass(ParallelProbes, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ParallelProbes);
+	});
 	return class$;
 }
 

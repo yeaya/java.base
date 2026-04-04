@@ -13,6 +13,7 @@ class ECDHKeyExchange$1 : public ::java::lang::Object {
 	$class(ECDHKeyExchange$1, 0, ::java::lang::Object)
 public:
 	ECDHKeyExchange$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$security$ssl$NamedGroup$NamedGroupSpec;
 };
 

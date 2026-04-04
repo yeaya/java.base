@@ -40,6 +40,7 @@ class $export AbstractSelectableChannel : public ::java::nio::channels::Selectab
 	$class(AbstractSelectableChannel, 0, ::java::nio::channels::SelectableChannel)
 public:
 	AbstractSelectableChannel();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::channels::spi::SelectorProvider* provider);
 	void addKey(::java::nio::channels::SelectionKey* k);
 	virtual $Object* blockingLock() override;

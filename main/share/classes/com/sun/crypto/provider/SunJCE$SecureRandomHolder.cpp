@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/SunJCE$SecureRandomHolder.h>
-
 #include <com/sun/crypto/provider/SunJCE.h>
 #include <java/security/SecureRandom.h>
 #include <jcpp.h>
@@ -17,47 +16,12 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _SunJCE$SecureRandomHolder_FieldInfo_[] = {
-	{"RANDOM", "Ljava/security/SecureRandom;", nullptr, $STATIC | $FINAL, $staticField(SunJCE$SecureRandomHolder, RANDOM)},
-	{}
-};
-
-$MethodInfo _SunJCE$SecureRandomHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SunJCE$SecureRandomHolder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _SunJCE$SecureRandomHolder_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.SunJCE$SecureRandomHolder", "com.sun.crypto.provider.SunJCE", "SecureRandomHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SunJCE$SecureRandomHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.crypto.provider.SunJCE$SecureRandomHolder",
-	"java.lang.Object",
-	nullptr,
-	_SunJCE$SecureRandomHolder_FieldInfo_,
-	_SunJCE$SecureRandomHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SunJCE$SecureRandomHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.SunJCE"
-};
-
-$Object* allocate$SunJCE$SecureRandomHolder($Class* clazz) {
-	return $of($alloc(SunJCE$SecureRandomHolder));
-}
-
 $SecureRandom* SunJCE$SecureRandomHolder::RANDOM = nullptr;
 
 void SunJCE$SecureRandomHolder::init$() {
 }
 
-void clinit$SunJCE$SecureRandomHolder($Class* class$) {
+void SunJCE$SecureRandomHolder::clinit$($Class* clazz) {
 	$assignStatic(SunJCE$SecureRandomHolder::RANDOM, $new($SecureRandom));
 }
 
@@ -65,7 +29,36 @@ SunJCE$SecureRandomHolder::SunJCE$SecureRandomHolder() {
 }
 
 $Class* SunJCE$SecureRandomHolder::load$($String* name, bool initialize) {
-	$loadClass(SunJCE$SecureRandomHolder, name, initialize, &_SunJCE$SecureRandomHolder_ClassInfo_, clinit$SunJCE$SecureRandomHolder, allocate$SunJCE$SecureRandomHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"RANDOM", "Ljava/security/SecureRandom;", nullptr, $STATIC | $FINAL, $staticField(SunJCE$SecureRandomHolder, RANDOM)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SunJCE$SecureRandomHolder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.SunJCE$SecureRandomHolder", "com.sun.crypto.provider.SunJCE", "SecureRandomHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.crypto.provider.SunJCE$SecureRandomHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.SunJCE"
+	};
+	$loadClass(SunJCE$SecureRandomHolder, name, initialize, &classInfo$$, SunJCE$SecureRandomHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SunJCE$SecureRandomHolder);
+	});
 	return class$;
 }
 

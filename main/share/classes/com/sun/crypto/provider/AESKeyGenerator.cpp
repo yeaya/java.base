@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/AESKeyGenerator.h>
-
 #include <com/sun/crypto/provider/AESCrypt.h>
 #include <com/sun/crypto/provider/SunJCE.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -31,34 +30,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _AESKeyGenerator_FieldInfo_[] = {
-	{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(AESKeyGenerator, random)},
-	{"keySize", "I", nullptr, $PRIVATE, $field(AESKeyGenerator, keySize)},
-	{}
-};
-
-$MethodInfo _AESKeyGenerator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AESKeyGenerator, init$, void)},
-	{"engineGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(AESKeyGenerator, engineGenerateKey, $SecretKey*)},
-	{"engineInit", "(Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(AESKeyGenerator, engineInit, void, $SecureRandom*)},
-	{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(AESKeyGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
-	{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(AESKeyGenerator, engineInit, void, int32_t, $SecureRandom*)},
-	{}
-};
-
-$ClassInfo _AESKeyGenerator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.AESKeyGenerator",
-	"javax.crypto.KeyGeneratorSpi",
-	nullptr,
-	_AESKeyGenerator_FieldInfo_,
-	_AESKeyGenerator_MethodInfo_
-};
-
-$Object* allocate$AESKeyGenerator($Class* clazz) {
-	return $of($alloc(AESKeyGenerator));
-}
-
 void AESKeyGenerator::init$() {
 	$KeyGeneratorSpi::init$();
 	$set(this, random, nullptr);
@@ -82,7 +53,7 @@ void AESKeyGenerator::engineInit(int32_t keysize, $SecureRandom* random) {
 }
 
 $SecretKey* AESKeyGenerator::engineGenerateKey() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecretKeySpec, aesKey, nullptr);
 	if (this->random == nullptr) {
 		$set(this, random, $SunJCE::getRandom());
@@ -98,7 +69,30 @@ AESKeyGenerator::AESKeyGenerator() {
 }
 
 $Class* AESKeyGenerator::load$($String* name, bool initialize) {
-	$loadClass(AESKeyGenerator, name, initialize, &_AESKeyGenerator_ClassInfo_, allocate$AESKeyGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"random", "Ljava/security/SecureRandom;", nullptr, $PRIVATE, $field(AESKeyGenerator, random)},
+		{"keySize", "I", nullptr, $PRIVATE, $field(AESKeyGenerator, keySize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AESKeyGenerator, init$, void)},
+		{"engineGenerateKey", "()Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(AESKeyGenerator, engineGenerateKey, $SecretKey*)},
+		{"engineInit", "(Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(AESKeyGenerator, engineInit, void, $SecureRandom*)},
+		{"engineInit", "(Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(AESKeyGenerator, engineInit, void, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidAlgorithmParameterException"},
+		{"engineInit", "(ILjava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(AESKeyGenerator, engineInit, void, int32_t, $SecureRandom*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.AESKeyGenerator",
+		"javax.crypto.KeyGeneratorSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AESKeyGenerator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AESKeyGenerator);
+	});
 	return class$;
 }
 

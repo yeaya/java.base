@@ -34,6 +34,7 @@ class PKIXMasterCertPathValidator : public ::java::lang::Object {
 	$class(PKIXMasterCertPathValidator, 0, ::java::lang::Object)
 public:
 	PKIXMasterCertPathValidator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void validate(::java::security::cert::CertPath* cpOriginal, ::java::util::List* reversedCertList, ::java::util::List* certPathCheckers);
 	static ::sun::security::util::Debug* debug;

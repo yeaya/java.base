@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/FallbackLocaleProviderAdapter.h>
-
 #include <java/util/Collections.h>
 #include <java/util/Locale.h>
 #include <java/util/Set.h>
@@ -21,40 +20,11 @@ using $Set = ::java::util::Set;
 using $JRELocaleProviderAdapter = ::sun::util::locale::provider::JRELocaleProviderAdapter;
 using $LocaleProviderAdapter$Type = ::sun::util::locale::provider::LocaleProviderAdapter$Type;
 using $LocaleResources = ::sun::util::locale::provider::LocaleResources;
-using $ResourceBundleBasedAdapter = ::sun::util::locale::provider::ResourceBundleBasedAdapter;
 
 namespace sun {
 	namespace util {
 		namespace locale {
 			namespace provider {
-
-$FieldInfo _FallbackLocaleProviderAdapter_FieldInfo_[] = {
-	{"rootTagSet", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(FallbackLocaleProviderAdapter, rootTagSet)},
-	{"rootLocaleResources", "Lsun/util/locale/provider/LocaleResources;", nullptr, $PRIVATE | $FINAL, $field(FallbackLocaleProviderAdapter, rootLocaleResources)},
-	{}
-};
-
-$MethodInfo _FallbackLocaleProviderAdapter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FallbackLocaleProviderAdapter, init$, void)},
-	{"createLanguageTagSet", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED, $virtualMethod(FallbackLocaleProviderAdapter, createLanguageTagSet, $Set*, $String*)},
-	{"getAdapterType", "()Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC, $virtualMethod(FallbackLocaleProviderAdapter, getAdapterType, $LocaleProviderAdapter$Type*)},
-	{"getLocaleResources", "(Ljava/util/Locale;)Lsun/util/locale/provider/LocaleResources;", nullptr, $PUBLIC, $virtualMethod(FallbackLocaleProviderAdapter, getLocaleResources, $LocaleResources*, $Locale*)},
-	{"isSupportedProviderLocale", "(Ljava/util/Locale;Ljava/util/Set;)Z", "(Ljava/util/Locale;Ljava/util/Set<Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(FallbackLocaleProviderAdapter, isSupportedProviderLocale, bool, $Locale*, $Set*)},
-	{}
-};
-
-$ClassInfo _FallbackLocaleProviderAdapter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.locale.provider.FallbackLocaleProviderAdapter",
-	"sun.util.locale.provider.JRELocaleProviderAdapter",
-	nullptr,
-	_FallbackLocaleProviderAdapter_FieldInfo_,
-	_FallbackLocaleProviderAdapter_MethodInfo_
-};
-
-$Object* allocate$FallbackLocaleProviderAdapter($Class* clazz) {
-	return $of($alloc(FallbackLocaleProviderAdapter));
-}
 
 $Set* FallbackLocaleProviderAdapter::rootTagSet = nullptr;
 
@@ -82,7 +52,7 @@ bool FallbackLocaleProviderAdapter::isSupportedProviderLocale($Locale* locale, $
 	return $nc($Locale::ROOT)->equals(locale);
 }
 
-void clinit$FallbackLocaleProviderAdapter($Class* class$) {
+void FallbackLocaleProviderAdapter::clinit$($Class* clazz) {
 	$init($Locale);
 	$assignStatic(FallbackLocaleProviderAdapter::rootTagSet, $Collections::singleton($($nc($Locale::ROOT)->toLanguageTag())));
 }
@@ -91,7 +61,30 @@ FallbackLocaleProviderAdapter::FallbackLocaleProviderAdapter() {
 }
 
 $Class* FallbackLocaleProviderAdapter::load$($String* name, bool initialize) {
-	$loadClass(FallbackLocaleProviderAdapter, name, initialize, &_FallbackLocaleProviderAdapter_ClassInfo_, clinit$FallbackLocaleProviderAdapter, allocate$FallbackLocaleProviderAdapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"rootTagSet", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(FallbackLocaleProviderAdapter, rootTagSet)},
+		{"rootLocaleResources", "Lsun/util/locale/provider/LocaleResources;", nullptr, $PRIVATE | $FINAL, $field(FallbackLocaleProviderAdapter, rootLocaleResources)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FallbackLocaleProviderAdapter, init$, void)},
+		{"createLanguageTagSet", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PROTECTED, $virtualMethod(FallbackLocaleProviderAdapter, createLanguageTagSet, $Set*, $String*)},
+		{"getAdapterType", "()Lsun/util/locale/provider/LocaleProviderAdapter$Type;", nullptr, $PUBLIC, $virtualMethod(FallbackLocaleProviderAdapter, getAdapterType, $LocaleProviderAdapter$Type*)},
+		{"getLocaleResources", "(Ljava/util/Locale;)Lsun/util/locale/provider/LocaleResources;", nullptr, $PUBLIC, $virtualMethod(FallbackLocaleProviderAdapter, getLocaleResources, $LocaleResources*, $Locale*)},
+		{"isSupportedProviderLocale", "(Ljava/util/Locale;Ljava/util/Set;)Z", "(Ljava/util/Locale;Ljava/util/Set<Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(FallbackLocaleProviderAdapter, isSupportedProviderLocale, bool, $Locale*, $Set*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.locale.provider.FallbackLocaleProviderAdapter",
+		"sun.util.locale.provider.JRELocaleProviderAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FallbackLocaleProviderAdapter, name, initialize, &classInfo$$, FallbackLocaleProviderAdapter::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FallbackLocaleProviderAdapter));
+	});
 	return class$;
 }
 

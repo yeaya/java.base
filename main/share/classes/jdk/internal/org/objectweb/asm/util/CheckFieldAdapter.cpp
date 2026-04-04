@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/util/CheckFieldAdapter.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <jdk/internal/org/objectweb/asm/AnnotationVisitor.h>
 #include <jdk/internal/org/objectweb/asm/Attribute.h>
@@ -38,35 +37,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace util {
 
-$FieldInfo _CheckFieldAdapter_FieldInfo_[] = {
-	{"visitEndCalled", "Z", nullptr, $PRIVATE, $field(CheckFieldAdapter, visitEndCalled)},
-	{}
-};
-
-$MethodInfo _CheckFieldAdapter_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/FieldVisitor;)V", nullptr, $PUBLIC, $method(CheckFieldAdapter, init$, void, $FieldVisitor*)},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/FieldVisitor;)V", nullptr, $PROTECTED, $method(CheckFieldAdapter, init$, void, int32_t, $FieldVisitor*)},
-	{"checkVisitEndNotCalled", "()V", nullptr, $PRIVATE, $method(CheckFieldAdapter, checkVisitEndNotCalled, void)},
-	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckFieldAdapter, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
-	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(CheckFieldAdapter, visitAttribute, void, $Attribute*)},
-	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(CheckFieldAdapter, visitEnd, void)},
-	{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckFieldAdapter, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
-	{}
-};
-
-$ClassInfo _CheckFieldAdapter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.util.CheckFieldAdapter",
-	"jdk.internal.org.objectweb.asm.FieldVisitor",
-	nullptr,
-	_CheckFieldAdapter_FieldInfo_,
-	_CheckFieldAdapter_MethodInfo_
-};
-
-$Object* allocate$CheckFieldAdapter($Class* clazz) {
-	return $of($alloc(CheckFieldAdapter));
-}
-
 void CheckFieldAdapter::init$($FieldVisitor* fieldVisitor) {
 	CheckFieldAdapter::init$($Opcodes::ASM8, fieldVisitor);
 	if ($of(this)->getClass() != CheckFieldAdapter::class$) {
@@ -85,7 +55,7 @@ $AnnotationVisitor* CheckFieldAdapter::visitAnnotation($String* descriptor, bool
 }
 
 $AnnotationVisitor* CheckFieldAdapter::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkVisitEndNotCalled();
 	int32_t sort = $$new($TypeReference, typeRef)->getSort();
 	if (sort != $TypeReference::FIELD) {
@@ -120,7 +90,31 @@ CheckFieldAdapter::CheckFieldAdapter() {
 }
 
 $Class* CheckFieldAdapter::load$($String* name, bool initialize) {
-	$loadClass(CheckFieldAdapter, name, initialize, &_CheckFieldAdapter_ClassInfo_, allocate$CheckFieldAdapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"visitEndCalled", "Z", nullptr, $PRIVATE, $field(CheckFieldAdapter, visitEndCalled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/FieldVisitor;)V", nullptr, $PUBLIC, $method(CheckFieldAdapter, init$, void, $FieldVisitor*)},
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/FieldVisitor;)V", nullptr, $PROTECTED, $method(CheckFieldAdapter, init$, void, int32_t, $FieldVisitor*)},
+		{"checkVisitEndNotCalled", "()V", nullptr, $PRIVATE, $method(CheckFieldAdapter, checkVisitEndNotCalled, void)},
+		{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckFieldAdapter, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
+		{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(CheckFieldAdapter, visitAttribute, void, $Attribute*)},
+		{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(CheckFieldAdapter, visitEnd, void)},
+		{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(CheckFieldAdapter, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.util.CheckFieldAdapter",
+		"jdk.internal.org.objectweb.asm.FieldVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CheckFieldAdapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CheckFieldAdapter);
+	});
 	return class$;
 }
 

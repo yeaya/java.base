@@ -1,5 +1,4 @@
 #include <java/lang/IllegalStateException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,32 +8,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _IllegalStateException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(IllegalStateException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _IllegalStateException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalStateException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalStateException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(IllegalStateException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(IllegalStateException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _IllegalStateException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.IllegalStateException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_IllegalStateException_FieldInfo_,
-	_IllegalStateException_MethodInfo_
-};
-
-$Object* allocate$IllegalStateException($Class* clazz) {
-	return $of($alloc(IllegalStateException));
-}
 
 void IllegalStateException::init$() {
 	$RuntimeException::init$();
@@ -63,7 +36,28 @@ void IllegalStateException::throw$() {
 }
 
 $Class* IllegalStateException::load$($String* name, bool initialize) {
-	$loadClass(IllegalStateException, name, initialize, &_IllegalStateException_ClassInfo_, allocate$IllegalStateException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(IllegalStateException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IllegalStateException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IllegalStateException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(IllegalStateException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(IllegalStateException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.IllegalStateException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IllegalStateException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IllegalStateException);
+	});
 	return class$;
 }
 

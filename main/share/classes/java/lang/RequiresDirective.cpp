@@ -19,12 +19,32 @@
  */
 
 #include <java/lang/RequiresDirective.h>
+#include <jcpp.h>
+#include <string.h>
 
 namespace java {
 	namespace lang {
 
 bool RequiresDirective::isEnd() {
 	return module == nullptr;
+}
+
+RequiresDirective* RequiresDirective::cloneArray(RequiresDirective* array) {
+	if (array == nullptr) {
+		return nullptr;
+	}
+	RequiresDirective* it = array;
+	int32_t count = 0;
+	for (; true; it++) {
+		if (it->isEnd()) {
+			break;
+		}
+		count++;
+	}
+	count++; // for end null
+	RequiresDirective* newArray = $allocRawStatic(RequiresDirective, count);
+	memcpy(newArray, array, sizeof(RequiresDirective) * count);
+	return newArray;
 }
 
 	} // lang

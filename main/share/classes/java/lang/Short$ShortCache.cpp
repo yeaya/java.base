@@ -1,5 +1,4 @@
 #include <java/lang/Short$ShortCache.h>
-
 #include <jdk/internal/misc/CDS.h>
 #include <jcpp.h>
 
@@ -14,56 +13,20 @@ using $CDS = ::jdk::internal::misc::CDS;
 namespace java {
 	namespace lang {
 
-$FieldInfo _Short$ShortCache_FieldInfo_[] = {
-	{"cache", "[Ljava/lang/Short;", nullptr, $STATIC | $FINAL, $staticField(Short$ShortCache, cache)},
-	{"archivedCache", "[Ljava/lang/Short;", nullptr, $STATIC, $staticField(Short$ShortCache, archivedCache)},
-	{}
-};
-
-$MethodInfo _Short$ShortCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Short$ShortCache, init$, void)},
-	{}
-};
-
-$InnerClassInfo _Short$ShortCache_InnerClassesInfo_[] = {
-	{"java.lang.Short$ShortCache", "java.lang.Short", "ShortCache", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Short$ShortCache_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.Short$ShortCache",
-	"java.lang.Object",
-	nullptr,
-	_Short$ShortCache_FieldInfo_,
-	_Short$ShortCache_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Short$ShortCache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.Short"
-};
-
-$Object* allocate$Short$ShortCache($Class* clazz) {
-	return $of($alloc(Short$ShortCache));
-}
-
 $ShortArray* Short$ShortCache::cache = nullptr;
 $ShortArray* Short$ShortCache::archivedCache = nullptr;
 
 void Short$ShortCache::init$() {
 }
 
-void clinit$Short$ShortCache($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Short$ShortCache::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		int32_t size = -(-128) + 127 + 1;
 		$CDS::initializeFromArchive(Short$ShortCache::class$);
-		if (Short$ShortCache::archivedCache == nullptr || $nc(Short$ShortCache::archivedCache)->length != size) {
+		if (Short$ShortCache::archivedCache == nullptr || Short$ShortCache::archivedCache->length != size) {
 			$var($ShortArray, c, $new($ShortArray, size));
-			int16_t value = (int16_t)-128;
+			int16_t value = -128;
 			for (int32_t i = 0; i < size; ++i) {
 				c->set(i, $$new($Short, value++));
 			}
@@ -77,7 +40,37 @@ Short$ShortCache::Short$ShortCache() {
 }
 
 $Class* Short$ShortCache::load$($String* name, bool initialize) {
-	$loadClass(Short$ShortCache, name, initialize, &_Short$ShortCache_ClassInfo_, clinit$Short$ShortCache, allocate$Short$ShortCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"cache", "[Ljava/lang/Short;", nullptr, $STATIC | $FINAL, $staticField(Short$ShortCache, cache)},
+		{"archivedCache", "[Ljava/lang/Short;", nullptr, $STATIC, $staticField(Short$ShortCache, archivedCache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Short$ShortCache, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Short$ShortCache", "java.lang.Short", "ShortCache", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.Short$ShortCache",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.Short"
+	};
+	$loadClass(Short$ShortCache, name, initialize, &classInfo$$, Short$ShortCache::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Short$ShortCache);
+	});
 	return class$;
 }
 

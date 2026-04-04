@@ -1,12 +1,10 @@
 #include <java/net/DefaultDatagramSocketImplFactory.h>
-
 #include <java/net/DatagramSocketImpl.h>
 #include <java/net/PlainDatagramSocketImpl.h>
 #include <java/net/SocketException.h>
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -19,30 +17,6 @@ using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 namespace java {
 	namespace net {
 
-$FieldInfo _DefaultDatagramSocketImplFactory_FieldInfo_[] = {
-	{"prefixImplClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $STATIC, $staticField(DefaultDatagramSocketImplFactory, prefixImplClass)},
-	{}
-};
-
-$MethodInfo _DefaultDatagramSocketImplFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DefaultDatagramSocketImplFactory, init$, void)},
-	{"createDatagramSocketImpl", "(Z)Ljava/net/DatagramSocketImpl;", nullptr, $STATIC, $staticMethod(DefaultDatagramSocketImplFactory, createDatagramSocketImpl, $DatagramSocketImpl*, bool), "java.net.SocketException"},
-	{}
-};
-
-$ClassInfo _DefaultDatagramSocketImplFactory_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.DefaultDatagramSocketImplFactory",
-	"java.lang.Object",
-	nullptr,
-	_DefaultDatagramSocketImplFactory_FieldInfo_,
-	_DefaultDatagramSocketImplFactory_MethodInfo_
-};
-
-$Object* allocate$DefaultDatagramSocketImplFactory($Class* clazz) {
-	return $of($alloc(DefaultDatagramSocketImplFactory));
-}
-
 $Class* DefaultDatagramSocketImplFactory::prefixImplClass = nullptr;
 
 void DefaultDatagramSocketImplFactory::init$() {
@@ -53,7 +27,7 @@ $DatagramSocketImpl* DefaultDatagramSocketImplFactory::createDatagramSocketImpl(
 	$beforeCallerSensitive();
 	if (DefaultDatagramSocketImplFactory::prefixImplClass != nullptr) {
 		try {
-			$var($DatagramSocketImpl, result, $cast($DatagramSocketImpl, $nc(DefaultDatagramSocketImplFactory::prefixImplClass)->newInstance()));
+			$var($DatagramSocketImpl, result, $cast($DatagramSocketImpl, DefaultDatagramSocketImplFactory::prefixImplClass->newInstance()));
 			return result;
 		} catch ($Exception& e) {
 			$throwNew($SocketException, "can\'t instantiate DatagramSocketImpl"_s);
@@ -63,8 +37,8 @@ $DatagramSocketImpl* DefaultDatagramSocketImplFactory::createDatagramSocketImpl(
 	}
 }
 
-void clinit$DefaultDatagramSocketImplFactory($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void DefaultDatagramSocketImplFactory::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$assignStatic(DefaultDatagramSocketImplFactory::prefixImplClass, nullptr);
 	{
@@ -84,7 +58,26 @@ DefaultDatagramSocketImplFactory::DefaultDatagramSocketImplFactory() {
 }
 
 $Class* DefaultDatagramSocketImplFactory::load$($String* name, bool initialize) {
-	$loadClass(DefaultDatagramSocketImplFactory, name, initialize, &_DefaultDatagramSocketImplFactory_ClassInfo_, clinit$DefaultDatagramSocketImplFactory, allocate$DefaultDatagramSocketImplFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"prefixImplClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $STATIC, $staticField(DefaultDatagramSocketImplFactory, prefixImplClass)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DefaultDatagramSocketImplFactory, init$, void)},
+		{"createDatagramSocketImpl", "(Z)Ljava/net/DatagramSocketImpl;", nullptr, $STATIC, $staticMethod(DefaultDatagramSocketImplFactory, createDatagramSocketImpl, $DatagramSocketImpl*, bool), "java.net.SocketException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.DefaultDatagramSocketImplFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DefaultDatagramSocketImplFactory, name, initialize, &classInfo$$, DefaultDatagramSocketImplFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultDatagramSocketImplFactory);
+	});
 	return class$;
 }
 

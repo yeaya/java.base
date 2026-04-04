@@ -81,6 +81,7 @@ class $export SignerInfo : public ::sun::security::util::DerEncoder {
 	$class(SignerInfo, 0, ::sun::security::util::DerEncoder)
 public:
 	SignerInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::x509::X500Name* issuerName, ::java::math::BigInteger* serial, ::sun::security::x509::AlgorithmId* digestAlgorithmId, ::sun::security::x509::AlgorithmId* digestEncryptionAlgorithmId, $bytes* encryptedDigest);
 	void init$(::sun::security::x509::X500Name* issuerName, ::java::math::BigInteger* serial, ::sun::security::x509::AlgorithmId* digestAlgorithmId, ::sun::security::pkcs::PKCS9Attributes* authenticatedAttributes, ::sun::security::x509::AlgorithmId* digestEncryptionAlgorithmId, $bytes* encryptedDigest, ::sun::security::pkcs::PKCS9Attributes* unauthenticatedAttributes);
 	void init$(::sun::security::util::DerInputStream* derin);

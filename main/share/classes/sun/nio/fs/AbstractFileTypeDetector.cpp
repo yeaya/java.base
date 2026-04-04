@@ -1,5 +1,4 @@
 #include <sun/nio/fs/AbstractFileTypeDetector.h>
-
 #include <java/net/FileNameMap.h>
 #include <java/net/URLConnection.h>
 #include <java/nio/file/Path.h>
@@ -24,35 +23,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _AbstractFileTypeDetector_FieldInfo_[] = {
-	{"TSPECIALS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractFileTypeDetector, TSPECIALS)},
-	{}
-};
-
-$MethodInfo _AbstractFileTypeDetector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractFileTypeDetector, init$, void)},
-	{"getExtension", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $method(AbstractFileTypeDetector, getExtension, $String*, $String*)},
-	{"implProbeContentType", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractFileTypeDetector, implProbeContentType, $String*, $Path*), "java.io.IOException"},
-	{"isTokenChar", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractFileTypeDetector, isTokenChar, bool, char16_t)},
-	{"isValidToken", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractFileTypeDetector, isValidToken, bool, $String*)},
-	{"parse", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractFileTypeDetector, parse, $String*, $String*)},
-	{"probeContentType", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractFileTypeDetector, probeContentType, $String*, $Path*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _AbstractFileTypeDetector_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.nio.fs.AbstractFileTypeDetector",
-	"java.nio.file.spi.FileTypeDetector",
-	nullptr,
-	_AbstractFileTypeDetector_FieldInfo_,
-	_AbstractFileTypeDetector_MethodInfo_
-};
-
-$Object* allocate$AbstractFileTypeDetector($Class* clazz) {
-	return $of($alloc(AbstractFileTypeDetector));
-}
-
 $String* AbstractFileTypeDetector::TSPECIALS = nullptr;
 
 void AbstractFileTypeDetector::init$() {
@@ -62,7 +32,7 @@ void AbstractFileTypeDetector::init$() {
 $String* AbstractFileTypeDetector::getExtension($String* name) {
 	$var($String, ext, ""_s);
 	if (name != nullptr && !name->isEmpty()) {
-		int32_t dot = name->indexOf((int32_t)u'.');
+		int32_t dot = name->indexOf(u'.');
 		if ((dot >= 0) && (dot < name->length() - 1)) {
 			$assign(ext, name->substring(dot + 1));
 		}
@@ -71,7 +41,7 @@ $String* AbstractFileTypeDetector::getExtension($String* name) {
 }
 
 $String* AbstractFileTypeDetector::probeContentType($Path* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (file == nullptr) {
 		$throwNew($NullPointerException, "\'file\' is null"_s);
 	}
@@ -88,9 +58,9 @@ $String* AbstractFileTypeDetector::probeContentType($Path* file) {
 
 $String* AbstractFileTypeDetector::parse($String* s) {
 	$init(AbstractFileTypeDetector);
-	$useLocalCurrentObjectStackCache();
-	int32_t slash = $nc(s)->indexOf((int32_t)u'/');
-	int32_t semicolon = s->indexOf((int32_t)u';');
+	$useLocalObjectStack();
+	int32_t slash = $nc(s)->indexOf(u'/');
+	int32_t semicolon = s->indexOf(u';');
 	if (slash < 0) {
 		return nullptr;
 	}
@@ -114,7 +84,7 @@ $String* AbstractFileTypeDetector::parse($String* s) {
 
 bool AbstractFileTypeDetector::isTokenChar(char16_t c) {
 	$init(AbstractFileTypeDetector);
-	return (c > 32) && (c < 127) && ($nc(AbstractFileTypeDetector::TSPECIALS)->indexOf((int32_t)c) < 0);
+	return (c > 32) && (c < 127) && (AbstractFileTypeDetector::TSPECIALS->indexOf(c) < 0);
 }
 
 bool AbstractFileTypeDetector::isValidToken($String* s) {
@@ -134,12 +104,36 @@ bool AbstractFileTypeDetector::isValidToken($String* s) {
 AbstractFileTypeDetector::AbstractFileTypeDetector() {
 }
 
-void clinit$AbstractFileTypeDetector($Class* class$) {
+void AbstractFileTypeDetector::clinit$($Class* clazz) {
 	$assignStatic(AbstractFileTypeDetector::TSPECIALS, "()<>@,;:/[]?=\\\""_s);
 }
 
 $Class* AbstractFileTypeDetector::load$($String* name, bool initialize) {
-	$loadClass(AbstractFileTypeDetector, name, initialize, &_AbstractFileTypeDetector_ClassInfo_, clinit$AbstractFileTypeDetector, allocate$AbstractFileTypeDetector);
+	$FieldInfo fieldInfos$$[] = {
+		{"TSPECIALS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractFileTypeDetector, TSPECIALS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractFileTypeDetector, init$, void)},
+		{"getExtension", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $method(AbstractFileTypeDetector, getExtension, $String*, $String*)},
+		{"implProbeContentType", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractFileTypeDetector, implProbeContentType, $String*, $Path*), "java.io.IOException"},
+		{"isTokenChar", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractFileTypeDetector, isTokenChar, bool, char16_t)},
+		{"isValidToken", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractFileTypeDetector, isValidToken, bool, $String*)},
+		{"parse", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(AbstractFileTypeDetector, parse, $String*, $String*)},
+		{"probeContentType", "(Ljava/nio/file/Path;)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractFileTypeDetector, probeContentType, $String*, $Path*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.nio.fs.AbstractFileTypeDetector",
+		"java.nio.file.spi.FileTypeDetector",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractFileTypeDetector, name, initialize, &classInfo$$, AbstractFileTypeDetector::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractFileTypeDetector);
+	});
 	return class$;
 }
 

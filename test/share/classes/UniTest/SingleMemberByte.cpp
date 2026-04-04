@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberByte.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,40 +8,34 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$NamedAttribute SingleMemberByte_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _SingleMemberByte_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", SingleMemberByte_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _SingleMemberByte_MethodInfo_[] = {
-	{"value", "()B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberByte, value, int8_t)},
-	{}
-};
-
-$ClassInfo _SingleMemberByte_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"UniTest.SingleMemberByte",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_SingleMemberByte_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberByte_Annotations_
-};
-
-$Object* allocate$SingleMemberByte($Class* clazz) {
-	return $of($alloc(SingleMemberByte));
-}
-
 $Class* SingleMemberByte::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberByte, name, initialize, &_SingleMemberByte_ClassInfo_, allocate$SingleMemberByte);
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberByte, value, int8_t)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"UniTest.SingleMemberByte",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberByte, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberByte);
+	});
 	return class$;
 }
 

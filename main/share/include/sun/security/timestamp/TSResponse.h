@@ -64,6 +64,7 @@ class $import TSResponse : public ::java::lang::Object {
 	$class(TSResponse, 0, ::java::lang::Object)
 public:
 	TSResponse();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($bytes* tsReply);
 	virtual $bytes* getEncodedToken();
 	virtual $String* getFailureCodeAsText();

@@ -1,9 +1,7 @@
 #include <sun/security/ssl/PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Map.h>
 #include <sun/security/ssl/ConnectionContext.h>
-#include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/PskKeyExchangeModesExtension$PskKeyExchangeMode.h>
 #include <sun/security/ssl/PskKeyExchangeModesExtension$PskKeyExchangeModesSpec.h>
 #include <sun/security/ssl/PskKeyExchangeModesExtension.h>
@@ -22,12 +20,9 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Map = ::java::util::Map;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $PskKeyExchangeModesExtension$PskKeyExchangeMode = ::sun::security::ssl::PskKeyExchangeModesExtension$PskKeyExchangeMode;
 using $PskKeyExchangeModesExtension$PskKeyExchangeModesSpec = ::sun::security::ssl::PskKeyExchangeModesExtension$PskKeyExchangeModesSpec;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
@@ -37,43 +32,11 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer, init$, void)},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*, $ByteBuffer*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer", "sun.security.ssl.PskKeyExchangeModesExtension", "PskKeyExchangeModesConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLExtension$ExtensionConsumer", "sun.security.ssl.SSLExtension", "ExtensionConsumer", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLExtension$ExtensionConsumer",
-	nullptr,
-	_PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.PskKeyExchangeModesExtension"
-};
-
-$Object* allocate$PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer($Class* clazz) {
-	return $of($alloc(PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer));
-}
-
 void PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer::init$() {
 }
 
 void PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer::consume($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message, $ByteBuffer* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	if (!$nc($nc(shc)->sslConfig)->isAvailable($SSLExtension::PSK_KEY_EXCHANGE_MODES)) {
@@ -88,7 +51,7 @@ void PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer::consume($Connecti
 		return;
 	}
 	$var($PskKeyExchangeModesExtension$PskKeyExchangeModesSpec, spec, $new($PskKeyExchangeModesExtension$PskKeyExchangeModesSpec, shc, buffer));
-	$nc($nc(shc)->handshakeExtensions)->put($SSLExtension::PSK_KEY_EXCHANGE_MODES, spec);
+	$nc(shc->handshakeExtensions)->put($SSLExtension::PSK_KEY_EXCHANGE_MODES, spec);
 	if (shc->isResumption) {
 		$init($PskKeyExchangeModesExtension$PskKeyExchangeMode);
 		if (!spec->contains($PskKeyExchangeModesExtension$PskKeyExchangeMode::PSK_DHE_KE)) {
@@ -106,7 +69,34 @@ PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer::PskKeyExchangeModesExt
 }
 
 $Class* PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer::load$($String* name, bool initialize) {
-	$loadClass(PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer, name, initialize, &_PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer_ClassInfo_, allocate$PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer, init$, void)},
+		{"consume", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer, consume, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*, $ByteBuffer*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer", "sun.security.ssl.PskKeyExchangeModesExtension", "PskKeyExchangeModesConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLExtension$ExtensionConsumer", "sun.security.ssl.SSLExtension", "ExtensionConsumer", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLExtension$ExtensionConsumer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.PskKeyExchangeModesExtension"
+	};
+	$loadClass(PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PskKeyExchangeModesExtension$PskKeyExchangeModesConsumer);
+	});
 	return class$;
 }
 

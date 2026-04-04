@@ -1,5 +1,4 @@
 #include <java/util/Currency$SpecialCaseEntry.h>
-
 #include <java/util/Currency.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -12,56 +11,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Currency = ::java::util::Currency;
-using $List = ::java::util::List;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Currency$SpecialCaseEntry_FieldInfo_[] = {
-	{"cutOverTime", "J", nullptr, $PRIVATE | $FINAL, $field(Currency$SpecialCaseEntry, cutOverTime)},
-	{"oldCurrency", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Currency$SpecialCaseEntry, oldCurrency)},
-	{"newCurrency", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Currency$SpecialCaseEntry, newCurrency)},
-	{"oldCurrencyFraction", "I", nullptr, $PRIVATE | $FINAL, $field(Currency$SpecialCaseEntry, oldCurrencyFraction)},
-	{"newCurrencyFraction", "I", nullptr, $PRIVATE | $FINAL, $field(Currency$SpecialCaseEntry, newCurrencyFraction)},
-	{"oldCurrencyNumericCode", "I", nullptr, $PRIVATE | $FINAL, $field(Currency$SpecialCaseEntry, oldCurrencyNumericCode)},
-	{"newCurrencyNumericCode", "I", nullptr, $PRIVATE | $FINAL, $field(Currency$SpecialCaseEntry, newCurrencyNumericCode)},
-	{}
-};
-
-$MethodInfo _Currency$SpecialCaseEntry_MethodInfo_[] = {
-	{"<init>", "(JLjava/lang/String;Ljava/lang/String;IIII)V", nullptr, $PRIVATE, $method(Currency$SpecialCaseEntry, init$, void, int64_t, $String*, $String*, int32_t, int32_t, int32_t, int32_t)},
-	{"<init>", "(Ljava/lang/String;II)V", nullptr, $PRIVATE, $method(Currency$SpecialCaseEntry, init$, void, $String*, int32_t, int32_t)},
-	{"currencyCodeIndex", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency$SpecialCaseEntry, currencyCodeIndex, int32_t, $String*)},
-	{"findEntry", "(Ljava/lang/String;)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency$SpecialCaseEntry, findEntry, $ints*, $String*)},
-	{"indexOf", "(Ljava/lang/String;II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency$SpecialCaseEntry, indexOf, int32_t, $String*, int32_t, int32_t)},
-	{"toIndex", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency$SpecialCaseEntry, toIndex, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Currency$SpecialCaseEntry_InnerClassesInfo_[] = {
-	{"java.util.Currency$SpecialCaseEntry", "java.util.Currency", "SpecialCaseEntry", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Currency$SpecialCaseEntry_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Currency$SpecialCaseEntry",
-	"java.lang.Object",
-	nullptr,
-	_Currency$SpecialCaseEntry_FieldInfo_,
-	_Currency$SpecialCaseEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Currency$SpecialCaseEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Currency"
-};
-
-$Object* allocate$Currency$SpecialCaseEntry($Class* clazz) {
-	return $of($alloc(Currency$SpecialCaseEntry));
-}
 
 void Currency$SpecialCaseEntry::init$(int64_t cutOverTime, $String* oldCurrency, $String* newCurrency, int32_t oldCurrencyFraction, int32_t newCurrencyFraction, int32_t oldCurrencyNumericCode, int32_t newCurrencyNumericCode) {
 	this->cutOverTime = cutOverTime;
@@ -78,11 +30,11 @@ void Currency$SpecialCaseEntry::init$($String* currencyCode, int32_t fraction, i
 }
 
 int32_t Currency$SpecialCaseEntry::indexOf($String* code, int32_t fraction, int32_t numeric) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Currency);
 	int32_t size = $nc($Currency::specialCasesList)->size();
 	for (int32_t index = 0; index < size; ++index) {
-		$var(Currency$SpecialCaseEntry, scEntry, $cast(Currency$SpecialCaseEntry, $nc($Currency::specialCasesList)->get(index)));
+		$var(Currency$SpecialCaseEntry, scEntry, $cast(Currency$SpecialCaseEntry, $Currency::specialCasesList->get(index)));
 		if ($nc($nc(scEntry)->oldCurrency)->equals(code) && scEntry->oldCurrencyFraction == fraction && scEntry->oldCurrencyNumericCode == numeric && scEntry->cutOverTime == $Long::MAX_VALUE) {
 			return index;
 		}
@@ -91,21 +43,21 @@ int32_t Currency$SpecialCaseEntry::indexOf($String* code, int32_t fraction, int3
 }
 
 $ints* Currency$SpecialCaseEntry::findEntry($String* code) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, fractionAndNumericCode, nullptr);
 	$init($Currency);
 	int32_t size = $nc($Currency::specialCasesList)->size();
 	for (int32_t index = 0; index < size; ++index) {
-		$var(Currency$SpecialCaseEntry, scEntry, $cast(Currency$SpecialCaseEntry, $nc($Currency::specialCasesList)->get(index)));
+		$var(Currency$SpecialCaseEntry, scEntry, $cast(Currency$SpecialCaseEntry, $Currency::specialCasesList->get(index)));
 		bool var$0 = $nc($nc(scEntry)->oldCurrency)->equals(code);
-		if (var$0 && (scEntry->cutOverTime == $Long::MAX_VALUE || $System::currentTimeMillis() < $nc(scEntry)->cutOverTime)) {
+		if (var$0 && (scEntry->cutOverTime == $Long::MAX_VALUE || $System::currentTimeMillis() < scEntry->cutOverTime)) {
 			$assign(fractionAndNumericCode, $new($ints, 2));
 			fractionAndNumericCode->set(0, scEntry->oldCurrencyFraction);
 			fractionAndNumericCode->set(1, scEntry->oldCurrencyNumericCode);
 			break;
 		} else {
-			bool var$2 = $nc(scEntry->newCurrency)->equals(code);
-			if (var$2 && $System::currentTimeMillis() >= scEntry->cutOverTime) {
+			bool var$1 = $nc(scEntry->newCurrency)->equals(code);
+			if (var$1 && $System::currentTimeMillis() >= scEntry->cutOverTime) {
 				$assign(fractionAndNumericCode, $new($ints, 2));
 				fractionAndNumericCode->set(0, scEntry->newCurrencyFraction);
 				fractionAndNumericCode->set(1, scEntry->newCurrencyNumericCode);
@@ -117,17 +69,17 @@ $ints* Currency$SpecialCaseEntry::findEntry($String* code) {
 }
 
 int32_t Currency$SpecialCaseEntry::currencyCodeIndex($String* code) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Currency);
 	int32_t size = $nc($Currency::specialCasesList)->size();
 	for (int32_t index = 0; index < size; ++index) {
-		$var(Currency$SpecialCaseEntry, scEntry, $cast(Currency$SpecialCaseEntry, $nc($Currency::specialCasesList)->get(index)));
+		$var(Currency$SpecialCaseEntry, scEntry, $cast(Currency$SpecialCaseEntry, $Currency::specialCasesList->get(index)));
 		bool var$0 = $nc($nc(scEntry)->oldCurrency)->equals(code);
-		if (var$0 && (scEntry->cutOverTime == $Long::MAX_VALUE || $System::currentTimeMillis() < $nc(scEntry)->cutOverTime)) {
+		if (var$0 && (scEntry->cutOverTime == $Long::MAX_VALUE || $System::currentTimeMillis() < scEntry->cutOverTime)) {
 			return index;
 		} else {
-			bool var$2 = $nc(scEntry->newCurrency)->equals(code);
-			if (var$2 && $System::currentTimeMillis() >= scEntry->cutOverTime) {
+			bool var$1 = $nc(scEntry->newCurrency)->equals(code);
+			if (var$1 && $System::currentTimeMillis() >= scEntry->cutOverTime) {
 				return index;
 			}
 		}
@@ -136,14 +88,54 @@ int32_t Currency$SpecialCaseEntry::currencyCodeIndex($String* code) {
 }
 
 int32_t Currency$SpecialCaseEntry::toIndex(int32_t tableEntry) {
-	return ((int32_t)(tableEntry & (uint32_t)31)) - 1;
+	return (tableEntry & 0x1f) - 1;
 }
 
 Currency$SpecialCaseEntry::Currency$SpecialCaseEntry() {
 }
 
 $Class* Currency$SpecialCaseEntry::load$($String* name, bool initialize) {
-	$loadClass(Currency$SpecialCaseEntry, name, initialize, &_Currency$SpecialCaseEntry_ClassInfo_, allocate$Currency$SpecialCaseEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"cutOverTime", "J", nullptr, $PRIVATE | $FINAL, $field(Currency$SpecialCaseEntry, cutOverTime)},
+		{"oldCurrency", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Currency$SpecialCaseEntry, oldCurrency)},
+		{"newCurrency", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Currency$SpecialCaseEntry, newCurrency)},
+		{"oldCurrencyFraction", "I", nullptr, $PRIVATE | $FINAL, $field(Currency$SpecialCaseEntry, oldCurrencyFraction)},
+		{"newCurrencyFraction", "I", nullptr, $PRIVATE | $FINAL, $field(Currency$SpecialCaseEntry, newCurrencyFraction)},
+		{"oldCurrencyNumericCode", "I", nullptr, $PRIVATE | $FINAL, $field(Currency$SpecialCaseEntry, oldCurrencyNumericCode)},
+		{"newCurrencyNumericCode", "I", nullptr, $PRIVATE | $FINAL, $field(Currency$SpecialCaseEntry, newCurrencyNumericCode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JLjava/lang/String;Ljava/lang/String;IIII)V", nullptr, $PRIVATE, $method(Currency$SpecialCaseEntry, init$, void, int64_t, $String*, $String*, int32_t, int32_t, int32_t, int32_t)},
+		{"<init>", "(Ljava/lang/String;II)V", nullptr, $PRIVATE, $method(Currency$SpecialCaseEntry, init$, void, $String*, int32_t, int32_t)},
+		{"currencyCodeIndex", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency$SpecialCaseEntry, currencyCodeIndex, int32_t, $String*)},
+		{"findEntry", "(Ljava/lang/String;)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency$SpecialCaseEntry, findEntry, $ints*, $String*)},
+		{"indexOf", "(Ljava/lang/String;II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency$SpecialCaseEntry, indexOf, int32_t, $String*, int32_t, int32_t)},
+		{"toIndex", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Currency$SpecialCaseEntry, toIndex, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Currency$SpecialCaseEntry", "java.util.Currency", "SpecialCaseEntry", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Currency$SpecialCaseEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Currency"
+	};
+	$loadClass(Currency$SpecialCaseEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Currency$SpecialCaseEntry);
+	});
 	return class$;
 }
 

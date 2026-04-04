@@ -1,5 +1,4 @@
 #include <java/lang/ProcessEnvironment$ExternalData.h>
-
 #include <java/lang/ProcessEnvironment.h>
 #include <jcpp.h>
 
@@ -11,46 +10,6 @@ using $ProcessEnvironment = ::java::lang::ProcessEnvironment;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _ProcessEnvironment$ExternalData_FieldInfo_[] = {
-	{"str", "Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $field(ProcessEnvironment$ExternalData, str)},
-	{"bytes", "[B", nullptr, $PROTECTED | $FINAL, $field(ProcessEnvironment$ExternalData, bytes)},
-	{}
-};
-
-$MethodInfo _ProcessEnvironment$ExternalData_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[B)V", nullptr, $PROTECTED, $method(ProcessEnvironment$ExternalData, init$, void, $String*, $bytes*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$ExternalData, equals, bool, Object$*)},
-	{"getBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$ExternalData, getBytes, $bytes*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$ExternalData, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$ExternalData, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _ProcessEnvironment$ExternalData_InnerClassesInfo_[] = {
-	{"java.lang.ProcessEnvironment$ExternalData", "java.lang.ProcessEnvironment", "ExternalData", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ProcessEnvironment$ExternalData_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.lang.ProcessEnvironment$ExternalData",
-	"java.lang.Object",
-	nullptr,
-	_ProcessEnvironment$ExternalData_FieldInfo_,
-	_ProcessEnvironment$ExternalData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ProcessEnvironment$ExternalData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.ProcessEnvironment"
-};
-
-$Object* allocate$ProcessEnvironment$ExternalData($Class* clazz) {
-	return $of($alloc(ProcessEnvironment$ExternalData));
-}
 
 void ProcessEnvironment$ExternalData::init$($String* str, $bytes* bytes) {
 	$set(this, str, str);
@@ -66,11 +25,11 @@ $String* ProcessEnvironment$ExternalData::toString() {
 }
 
 bool ProcessEnvironment$ExternalData::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $instanceOf(ProcessEnvironment$ExternalData, o);
 	if (var$0) {
 		$var($bytes, var$1, getBytes());
-		var$0 = $ProcessEnvironment::arrayEquals(var$1, $($nc(($cast(ProcessEnvironment$ExternalData, o)))->getBytes()));
+		var$0 = $ProcessEnvironment::arrayEquals(var$1, $($cast(ProcessEnvironment$ExternalData, o)->getBytes()));
 	}
 	return var$0;
 }
@@ -83,7 +42,41 @@ ProcessEnvironment$ExternalData::ProcessEnvironment$ExternalData() {
 }
 
 $Class* ProcessEnvironment$ExternalData::load$($String* name, bool initialize) {
-	$loadClass(ProcessEnvironment$ExternalData, name, initialize, &_ProcessEnvironment$ExternalData_ClassInfo_, allocate$ProcessEnvironment$ExternalData);
+	$FieldInfo fieldInfos$$[] = {
+		{"str", "Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $field(ProcessEnvironment$ExternalData, str)},
+		{"bytes", "[B", nullptr, $PROTECTED | $FINAL, $field(ProcessEnvironment$ExternalData, bytes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;[B)V", nullptr, $PROTECTED, $method(ProcessEnvironment$ExternalData, init$, void, $String*, $bytes*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$ExternalData, equals, bool, Object$*)},
+		{"getBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$ExternalData, getBytes, $bytes*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$ExternalData, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessEnvironment$ExternalData, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ProcessEnvironment$ExternalData", "java.lang.ProcessEnvironment", "ExternalData", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.lang.ProcessEnvironment$ExternalData",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.ProcessEnvironment"
+	};
+	$loadClass(ProcessEnvironment$ExternalData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProcessEnvironment$ExternalData);
+	});
 	return class$;
 }
 

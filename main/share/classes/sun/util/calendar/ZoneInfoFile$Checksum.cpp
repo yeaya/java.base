@@ -1,5 +1,4 @@
 #include <sun/util/calendar/ZoneInfoFile$Checksum.h>
-
 #include <java/util/zip/CRC32.h>
 #include <java/util/zip/Checksum.h>
 #include <sun/util/calendar/ZoneInfoFile.h>
@@ -13,38 +12,6 @@ using $CRC32 = ::java::util::zip::CRC32;
 namespace sun {
 	namespace util {
 		namespace calendar {
-
-$MethodInfo _ZoneInfoFile$Checksum_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ZoneInfoFile$Checksum, init$, void)},
-	{"update", "(I)V", nullptr, $PUBLIC, $virtualMethod(ZoneInfoFile$Checksum, update, void, int32_t)},
-	{"update", "(J)V", nullptr, 0, $virtualMethod(ZoneInfoFile$Checksum, update, void, int64_t)},
-	{}
-};
-
-$InnerClassInfo _ZoneInfoFile$Checksum_InnerClassesInfo_[] = {
-	{"sun.util.calendar.ZoneInfoFile$Checksum", "sun.util.calendar.ZoneInfoFile", "Checksum", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ZoneInfoFile$Checksum_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.calendar.ZoneInfoFile$Checksum",
-	"java.util.zip.CRC32",
-	nullptr,
-	nullptr,
-	_ZoneInfoFile$Checksum_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ZoneInfoFile$Checksum_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.calendar.ZoneInfoFile"
-};
-
-$Object* allocate$ZoneInfoFile$Checksum($Class* clazz) {
-	return $of($alloc(ZoneInfoFile$Checksum));
-}
 
 void ZoneInfoFile$Checksum::init$() {
 	$CRC32::init$();
@@ -76,7 +43,34 @@ ZoneInfoFile$Checksum::ZoneInfoFile$Checksum() {
 }
 
 $Class* ZoneInfoFile$Checksum::load$($String* name, bool initialize) {
-	$loadClass(ZoneInfoFile$Checksum, name, initialize, &_ZoneInfoFile$Checksum_ClassInfo_, allocate$ZoneInfoFile$Checksum);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ZoneInfoFile$Checksum, init$, void)},
+		{"update", "(I)V", nullptr, $PUBLIC, $virtualMethod(ZoneInfoFile$Checksum, update, void, int32_t)},
+		{"update", "(J)V", nullptr, 0, $virtualMethod(ZoneInfoFile$Checksum, update, void, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.calendar.ZoneInfoFile$Checksum", "sun.util.calendar.ZoneInfoFile", "Checksum", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.calendar.ZoneInfoFile$Checksum",
+		"java.util.zip.CRC32",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.calendar.ZoneInfoFile"
+	};
+	$loadClass(ZoneInfoFile$Checksum, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ZoneInfoFile$Checksum);
+	});
 	return class$;
 }
 

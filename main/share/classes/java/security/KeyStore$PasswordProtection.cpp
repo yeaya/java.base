@@ -1,5 +1,4 @@
 #include <java/security/KeyStore$PasswordProtection.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/security/KeyStore$ProtectionParameter.h>
 #include <java/security/KeyStore.h>
@@ -19,56 +18,6 @@ using $Arrays = ::java::util::Arrays;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _KeyStore$PasswordProtection_FieldInfo_[] = {
-	{"password", "[C", nullptr, $PRIVATE | $FINAL, $field(KeyStore$PasswordProtection, password)},
-	{"protectionAlgorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(KeyStore$PasswordProtection, protectionAlgorithm)},
-	{"protectionParameters", "Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PRIVATE | $FINAL, $field(KeyStore$PasswordProtection, protectionParameters)},
-	{"destroyed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(KeyStore$PasswordProtection, destroyed)},
-	{}
-};
-
-$MethodInfo _KeyStore$PasswordProtection_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "([C)V", nullptr, $PUBLIC, $method(KeyStore$PasswordProtection, init$, void, $chars*)},
-	{"<init>", "([CLjava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $method(KeyStore$PasswordProtection, init$, void, $chars*, $String*, $AlgorithmParameterSpec*)},
-	{"destroy", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(KeyStore$PasswordProtection, destroy, void), "javax.security.auth.DestroyFailedException"},
-	{"getPassword", "()[C", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(KeyStore$PasswordProtection, getPassword, $chars*)},
-	{"getProtectionAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyStore$PasswordProtection, getProtectionAlgorithm, $String*)},
-	{"getProtectionParameters", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC, $virtualMethod(KeyStore$PasswordProtection, getProtectionParameters, $AlgorithmParameterSpec*)},
-	{"isDestroyed", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(KeyStore$PasswordProtection, isDestroyed, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _KeyStore$PasswordProtection_InnerClassesInfo_[] = {
-	{"java.security.KeyStore$PasswordProtection", "java.security.KeyStore", "PasswordProtection", $PUBLIC | $STATIC},
-	{"java.security.KeyStore$ProtectionParameter", "java.security.KeyStore", "ProtectionParameter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _KeyStore$PasswordProtection_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.KeyStore$PasswordProtection",
-	"java.lang.Object",
-	"java.security.KeyStore$ProtectionParameter,javax.security.auth.Destroyable",
-	_KeyStore$PasswordProtection_FieldInfo_,
-	_KeyStore$PasswordProtection_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeyStore$PasswordProtection_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.KeyStore"
-};
-
-$Object* allocate$KeyStore$PasswordProtection($Class* clazz) {
-	return $of($alloc(KeyStore$PasswordProtection));
-}
 
 int32_t KeyStore$PasswordProtection::hashCode() {
 	 return this->$KeyStore$ProtectionParameter::hashCode();
@@ -91,7 +40,7 @@ void KeyStore$PasswordProtection::finalize() {
 }
 
 void KeyStore$PasswordProtection::init$($chars* password) {
-	$set(this, password, (password == nullptr) ? ($chars*)nullptr : $cast($chars, $nc(password)->clone()));
+	$set(this, password, (password == nullptr) ? ($chars*)nullptr : $cast($chars, password->clone()));
 	$set(this, protectionAlgorithm, nullptr);
 	$set(this, protectionParameters, nullptr);
 }
@@ -100,7 +49,7 @@ void KeyStore$PasswordProtection::init$($chars* password, $String* protectionAlg
 	if (protectionAlgorithm == nullptr) {
 		$throwNew($NullPointerException, "invalid null input"_s);
 	}
-	$set(this, password, (password == nullptr) ? ($chars*)nullptr : $cast($chars, $nc(password)->clone()));
+	$set(this, password, (password == nullptr) ? ($chars*)nullptr : $cast($chars, password->clone()));
 	$set(this, protectionAlgorithm, protectionAlgorithm);
 	$set(this, protectionParameters, protectionParameters);
 }
@@ -141,7 +90,51 @@ KeyStore$PasswordProtection::KeyStore$PasswordProtection() {
 }
 
 $Class* KeyStore$PasswordProtection::load$($String* name, bool initialize) {
-	$loadClass(KeyStore$PasswordProtection, name, initialize, &_KeyStore$PasswordProtection_ClassInfo_, allocate$KeyStore$PasswordProtection);
+	$FieldInfo fieldInfos$$[] = {
+		{"password", "[C", nullptr, $PRIVATE | $FINAL, $field(KeyStore$PasswordProtection, password)},
+		{"protectionAlgorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(KeyStore$PasswordProtection, protectionAlgorithm)},
+		{"protectionParameters", "Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PRIVATE | $FINAL, $field(KeyStore$PasswordProtection, protectionParameters)},
+		{"destroyed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(KeyStore$PasswordProtection, destroyed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "([C)V", nullptr, $PUBLIC, $method(KeyStore$PasswordProtection, init$, void, $chars*)},
+		{"<init>", "([CLjava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PUBLIC, $method(KeyStore$PasswordProtection, init$, void, $chars*, $String*, $AlgorithmParameterSpec*)},
+		{"destroy", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(KeyStore$PasswordProtection, destroy, void), "javax.security.auth.DestroyFailedException"},
+		{"getPassword", "()[C", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(KeyStore$PasswordProtection, getPassword, $chars*)},
+		{"getProtectionAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyStore$PasswordProtection, getProtectionAlgorithm, $String*)},
+		{"getProtectionParameters", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC, $virtualMethod(KeyStore$PasswordProtection, getProtectionParameters, $AlgorithmParameterSpec*)},
+		{"isDestroyed", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(KeyStore$PasswordProtection, isDestroyed, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.KeyStore$PasswordProtection", "java.security.KeyStore", "PasswordProtection", $PUBLIC | $STATIC},
+		{"java.security.KeyStore$ProtectionParameter", "java.security.KeyStore", "ProtectionParameter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.KeyStore$PasswordProtection",
+		"java.lang.Object",
+		"java.security.KeyStore$ProtectionParameter,javax.security.auth.Destroyable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.KeyStore"
+	};
+	$loadClass(KeyStore$PasswordProtection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(KeyStore$PasswordProtection));
+	});
 	return class$;
 }
 

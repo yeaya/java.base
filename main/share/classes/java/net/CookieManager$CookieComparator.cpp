@@ -1,5 +1,4 @@
 #include <java/net/CookieManager$CookieComparator.h>
-
 #include <java/net/CookieManager.h>
 #include <java/net/HttpCookie.h>
 #include <jcpp.h>
@@ -12,43 +11,11 @@ using $HttpCookie = ::java::net::HttpCookie;
 namespace java {
 	namespace net {
 
-$MethodInfo _CookieManager$CookieComparator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CookieManager$CookieComparator, init$, void)},
-	{"compare", "(Ljava/net/HttpCookie;Ljava/net/HttpCookie;)I", nullptr, $PUBLIC, $virtualMethod(CookieManager$CookieComparator, compare, int32_t, $HttpCookie*, $HttpCookie*)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CookieManager$CookieComparator, compare, int32_t, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _CookieManager$CookieComparator_InnerClassesInfo_[] = {
-	{"java.net.CookieManager$CookieComparator", "java.net.CookieManager", "CookieComparator", $STATIC},
-	{}
-};
-
-$ClassInfo _CookieManager$CookieComparator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.CookieManager$CookieComparator",
-	"java.lang.Object",
-	"java.util.Comparator",
-	nullptr,
-	_CookieManager$CookieComparator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Comparator<Ljava/net/HttpCookie;>;",
-	nullptr,
-	_CookieManager$CookieComparator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.CookieManager"
-};
-
-$Object* allocate$CookieManager$CookieComparator($Class* clazz) {
-	return $of($alloc(CookieManager$CookieComparator));
-}
-
 void CookieManager$CookieComparator::init$() {
 }
 
 int32_t CookieManager$CookieComparator::compare($HttpCookie* c1, $HttpCookie* c2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (c1 == c2) {
 		return 0;
 	}
@@ -89,7 +56,34 @@ CookieManager$CookieComparator::CookieManager$CookieComparator() {
 }
 
 $Class* CookieManager$CookieComparator::load$($String* name, bool initialize) {
-	$loadClass(CookieManager$CookieComparator, name, initialize, &_CookieManager$CookieComparator_ClassInfo_, allocate$CookieManager$CookieComparator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CookieManager$CookieComparator, init$, void)},
+		{"compare", "(Ljava/net/HttpCookie;Ljava/net/HttpCookie;)I", nullptr, $PUBLIC, $virtualMethod(CookieManager$CookieComparator, compare, int32_t, $HttpCookie*, $HttpCookie*)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CookieManager$CookieComparator, compare, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.CookieManager$CookieComparator", "java.net.CookieManager", "CookieComparator", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.CookieManager$CookieComparator",
+		"java.lang.Object",
+		"java.util.Comparator",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Comparator<Ljava/net/HttpCookie;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.CookieManager"
+	};
+	$loadClass(CookieManager$CookieComparator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CookieManager$CookieComparator);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/lang/ProcessImpl$ProcessPipeInputStream.h>
-
 #include <java/io/BufferedInputStream.h>
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/FileDescriptor.h>
@@ -30,46 +29,8 @@ using $Arrays = ::java::util::Arrays;
 namespace java {
 	namespace lang {
 
-$FieldInfo _ProcessImpl$ProcessPipeInputStream_FieldInfo_[] = {
-	{"closeLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(ProcessImpl$ProcessPipeInputStream, closeLock)},
-	{}
-};
-
-$MethodInfo _ProcessImpl$ProcessPipeInputStream_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(ProcessImpl$ProcessPipeInputStream, init$, void, int32_t)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessImpl$ProcessPipeInputStream, close, void), "java.io.IOException"},
-	{"drainInputStream", "(Ljava/io/InputStream;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessImpl$ProcessPipeInputStream, drainInputStream, $bytes*, $InputStream*), "java.io.IOException"},
-	{"processExited", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(ProcessImpl$ProcessPipeInputStream, processExited, void)},
-	{}
-};
-
-$InnerClassInfo _ProcessImpl$ProcessPipeInputStream_InnerClassesInfo_[] = {
-	{"java.lang.ProcessImpl$ProcessPipeInputStream", "java.lang.ProcessImpl", "ProcessPipeInputStream", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ProcessImpl$ProcessPipeInputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.ProcessImpl$ProcessPipeInputStream",
-	"java.io.BufferedInputStream",
-	nullptr,
-	_ProcessImpl$ProcessPipeInputStream_FieldInfo_,
-	_ProcessImpl$ProcessPipeInputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ProcessImpl$ProcessPipeInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.ProcessImpl"
-};
-
-$Object* allocate$ProcessImpl$ProcessPipeInputStream($Class* clazz) {
-	return $of($alloc(ProcessImpl$ProcessPipeInputStream));
-}
-
 void ProcessImpl$ProcessPipeInputStream::init$(int32_t fd) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BufferedInputStream::init$($$new($Process$PipeInputStream, $($ProcessImpl::newFileDescriptor(fd))));
 	$set(this, closeLock, $new($Object));
 }
@@ -83,12 +44,12 @@ $bytes* ProcessImpl$ProcessPipeInputStream::drainInputStream($InputStream* in) {
 		$assign(a, (a == nullptr) ? $new($bytes, j) : $Arrays::copyOf(a, n + j));
 		n += in->read(a, n, j);
 	}
-	return (a == nullptr || n == $nc(a)->length) ? a : $Arrays::copyOf(a, n);
+	return (a == nullptr || n == a->length) ? a : $Arrays::copyOf(a, n);
 }
 
 void ProcessImpl$ProcessPipeInputStream::processExited() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$synchronized(this->closeLock) {
 			try {
 				$var($InputStream, in, this->in);
@@ -96,7 +57,7 @@ void ProcessImpl$ProcessPipeInputStream::processExited() {
 					$var($bytes, stragglers, drainInputStream(in));
 					in->close();
 					$init($ProcessBuilder$NullInputStream);
-					$set(this, in, (stragglers == nullptr) ? static_cast<$InputStream*>($ProcessBuilder$NullInputStream::INSTANCE) : static_cast<$InputStream*>($new($ByteArrayInputStream, stragglers)));
+					$set(this, in, (stragglers == nullptr) ? $cast($InputStream, $ProcessBuilder$NullInputStream::INSTANCE) : $cast($InputStream, $new($ByteArrayInputStream, stragglers)));
 				}
 			} catch ($IOException& ignored) {
 			}
@@ -114,7 +75,39 @@ ProcessImpl$ProcessPipeInputStream::ProcessImpl$ProcessPipeInputStream() {
 }
 
 $Class* ProcessImpl$ProcessPipeInputStream::load$($String* name, bool initialize) {
-	$loadClass(ProcessImpl$ProcessPipeInputStream, name, initialize, &_ProcessImpl$ProcessPipeInputStream_ClassInfo_, allocate$ProcessImpl$ProcessPipeInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"closeLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(ProcessImpl$ProcessPipeInputStream, closeLock)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(ProcessImpl$ProcessPipeInputStream, init$, void, int32_t)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ProcessImpl$ProcessPipeInputStream, close, void), "java.io.IOException"},
+		{"drainInputStream", "(Ljava/io/InputStream;)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(ProcessImpl$ProcessPipeInputStream, drainInputStream, $bytes*, $InputStream*), "java.io.IOException"},
+		{"processExited", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(ProcessImpl$ProcessPipeInputStream, processExited, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ProcessImpl$ProcessPipeInputStream", "java.lang.ProcessImpl", "ProcessPipeInputStream", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.ProcessImpl$ProcessPipeInputStream",
+		"java.io.BufferedInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.ProcessImpl"
+	};
+	$loadClass(ProcessImpl$ProcessPipeInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProcessImpl$ProcessPipeInputStream);
+	});
 	return class$;
 }
 

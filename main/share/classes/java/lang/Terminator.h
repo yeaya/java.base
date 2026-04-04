@@ -20,6 +20,7 @@ class Terminator : public ::java::lang::Object {
 	$class(Terminator, $PRELOAD, ::java::lang::Object)
 public:
 	Terminator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void setup();
 	static void teardown();

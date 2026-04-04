@@ -1,5 +1,4 @@
 #include <sun/net/www/http/KeepAliveStreamCleaner$2.h>
-
 #include <sun/net/NetProperties.h>
 #include <sun/net/www/http/KeepAliveStreamCleaner.h>
 #include <jcpp.h>
@@ -18,43 +17,6 @@ namespace sun {
 		namespace www {
 			namespace http {
 
-$MethodInfo _KeepAliveStreamCleaner$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(KeepAliveStreamCleaner$2, init$, void)},
-	{"run", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(KeepAliveStreamCleaner$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _KeepAliveStreamCleaner$2_EnclosingMethodInfo_ = {
-	"sun.net.www.http.KeepAliveStreamCleaner",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _KeepAliveStreamCleaner$2_InnerClassesInfo_[] = {
-	{"sun.net.www.http.KeepAliveStreamCleaner$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _KeepAliveStreamCleaner$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.www.http.KeepAliveStreamCleaner$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_KeepAliveStreamCleaner$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Integer;>;",
-	&_KeepAliveStreamCleaner$2_EnclosingMethodInfo_,
-	_KeepAliveStreamCleaner$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.www.http.KeepAliveStreamCleaner"
-};
-
-$Object* allocate$KeepAliveStreamCleaner$2($Class* clazz) {
-	return $of($alloc(KeepAliveStreamCleaner$2));
-}
-
 void KeepAliveStreamCleaner$2::init$() {
 }
 
@@ -67,7 +29,38 @@ KeepAliveStreamCleaner$2::KeepAliveStreamCleaner$2() {
 }
 
 $Class* KeepAliveStreamCleaner$2::load$($String* name, bool initialize) {
-	$loadClass(KeepAliveStreamCleaner$2, name, initialize, &_KeepAliveStreamCleaner$2_ClassInfo_, allocate$KeepAliveStreamCleaner$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(KeepAliveStreamCleaner$2, init$, void)},
+		{"run", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(KeepAliveStreamCleaner$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.net.www.http.KeepAliveStreamCleaner",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.www.http.KeepAliveStreamCleaner$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.www.http.KeepAliveStreamCleaner$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Integer;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.www.http.KeepAliveStreamCleaner"
+	};
+	$loadClass(KeepAliveStreamCleaner$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeepAliveStreamCleaner$2);
+	});
 	return class$;
 }
 

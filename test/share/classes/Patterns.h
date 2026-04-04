@@ -15,6 +15,7 @@ class $export Patterns : public ::java::lang::Object {
 	$class(Patterns, 0, ::java::lang::Object)
 public:
 	Patterns();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void ckn($String* prefix, $String* suffix);
 	static void cky($String* prefix, $String* suffix);

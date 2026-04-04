@@ -24,6 +24,7 @@
 #include <java/io/DataOutputStream.h>
 #include <jdk/internal/reflect/ConstantPool.h>
 #include <jcpp.h>
+#include <string.h>
 
 namespace java {
 	namespace lang {
@@ -39,6 +40,31 @@ void ParameterAnnotation::encode(::java::io::DataOutputStream* os, ::jdk::intern
 
 void ParameterAnnotation::visit(::jdk::internal::reflect::ConstantPool* cp) {
 	CompoundAttribute::visit(cp);
+}
+
+ParameterAnnotation* ParameterAnnotation::cloneArray(ParameterAnnotation* array) {
+	if (array == nullptr) {
+		return nullptr;
+	}
+	ParameterAnnotation* it = array;
+	int32_t count = 0;
+	for (; true; it++) {
+		if (it->isEnd()) {
+			break;
+		}
+		count++;
+	}
+	count++; // for end null
+	ParameterAnnotation* newArray = $allocRawStatic(ParameterAnnotation, count);
+	memcpy(newArray, array, sizeof(ParameterAnnotation) * count);
+	it = newArray;
+	for (; true; it++) {
+		if (it->isEnd()) {
+			break;
+		}
+		it->cloneSelf();
+	}
+	return newArray;
 }
 
 	} // lang

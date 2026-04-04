@@ -1,5 +1,4 @@
 #include <java/util/Collections$UnmodifiableNavigableMap.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry.h>
@@ -43,97 +42,6 @@ using $Function = ::java::util::function::Function;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Collections$UnmodifiableNavigableMap_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$UnmodifiableNavigableMap, serialVersionUID)},
-	{"EMPTY_NAVIGABLE_MAP", "Ljava/util/Collections$UnmodifiableNavigableMap$EmptyNavigableMap;", "Ljava/util/Collections$UnmodifiableNavigableMap$EmptyNavigableMap<**>;", $PRIVATE | $STATIC | $FINAL, $staticField(Collections$UnmodifiableNavigableMap, EMPTY_NAVIGABLE_MAP)},
-	{"nm", "Ljava/util/NavigableMap;", "Ljava/util/NavigableMap<TK;+TV;>;", $PRIVATE | $FINAL, $field(Collections$UnmodifiableNavigableMap, nm)},
-	{}
-};
-
-$MethodInfo _Collections$UnmodifiableNavigableMap_MethodInfo_[] = {
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*comparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC},
-	{"*compute", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*computeIfAbsent", "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*computeIfPresent", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*entrySet", "()Ljava/util/Set;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*firstKey", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*forEach", "(Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC},
-	{"*get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getOrDefault", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"*headMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/util/NavigableMap;)V", "(Ljava/util/NavigableMap<TK;+TV;>;)V", 0, $method(Collections$UnmodifiableNavigableMap, init$, void, $NavigableMap*)},
-	{"ceilingEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, ceilingEntry, $Map$Entry*, Object$*)},
-	{"ceilingKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, ceilingKey, $Object*, Object$*)},
-	{"descendingKeySet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, descendingKeySet, $NavigableSet*)},
-	{"descendingMap", "()Ljava/util/NavigableMap;", "()Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, descendingMap, $NavigableMap*)},
-	{"firstEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, firstEntry, $Map$Entry*)},
-	{"floorEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, floorEntry, $Map$Entry*, Object$*)},
-	{"floorKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, floorKey, $Object*, Object$*)},
-	{"headMap", "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, headMap, $NavigableMap*, Object$*, bool)},
-	{"higherEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, higherEntry, $Map$Entry*, Object$*)},
-	{"higherKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, higherKey, $Object*, Object$*)},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"*keySet", "()Ljava/util/Set;", nullptr, $PUBLIC},
-	{"lastEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, lastEntry, $Map$Entry*)},
-	{"*lastKey", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"lowerEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, lowerEntry, $Map$Entry*, Object$*)},
-	{"lowerKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, lowerKey, $Object*, Object$*)},
-	{"*merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"navigableKeySet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, navigableKeySet, $NavigableSet*)},
-	{"pollFirstEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, pollFirstEntry, $Map$Entry*)},
-	{"pollLastEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, pollLastEntry, $Map$Entry*)},
-	{"*put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*putAll", "(Ljava/util/Map;)V", nullptr, $PUBLIC},
-	{"*putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*remove", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*replaceAll", "(Ljava/util/function/BiFunction;)V", nullptr, $PUBLIC},
-	{"*size", "()I", nullptr, $PUBLIC},
-	{"*subMap", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;", nullptr, $PUBLIC},
-	{"subMap", "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;ZTK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, subMap, $NavigableMap*, Object$*, bool, Object$*, bool)},
-	{"*tailMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", nullptr, $PUBLIC},
-	{"tailMap", "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, tailMap, $NavigableMap*, Object$*, bool)},
-	{"*values", "()Ljava/util/Collection;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Collections$UnmodifiableNavigableMap_InnerClassesInfo_[] = {
-	{"java.util.Collections$UnmodifiableNavigableMap", "java.util.Collections", "UnmodifiableNavigableMap", $STATIC},
-	{"java.util.Collections$UnmodifiableSortedMap", "java.util.Collections", "UnmodifiableSortedMap", $STATIC},
-	{"java.util.Collections$UnmodifiableNavigableMap$EmptyNavigableMap", "java.util.Collections$UnmodifiableNavigableMap", "EmptyNavigableMap", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Collections$UnmodifiableNavigableMap_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$UnmodifiableNavigableMap",
-	"java.util.Collections$UnmodifiableSortedMap",
-	"java.util.NavigableMap",
-	_Collections$UnmodifiableNavigableMap_FieldInfo_,
-	_Collections$UnmodifiableNavigableMap_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/Collections$UnmodifiableSortedMap<TK;TV;>;Ljava/util/NavigableMap<TK;TV;>;Ljava/io/Serializable;",
-	nullptr,
-	_Collections$UnmodifiableNavigableMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$UnmodifiableNavigableMap($Class* clazz) {
-	return $of($alloc(Collections$UnmodifiableNavigableMap));
-}
 
 $Comparator* Collections$UnmodifiableNavigableMap::comparator() {
 	 return this->$Collections$UnmodifiableSortedMap::comparator();
@@ -279,49 +187,49 @@ void Collections$UnmodifiableNavigableMap::init$($NavigableMap* m) {
 }
 
 $Object* Collections$UnmodifiableNavigableMap::lowerKey(Object$* key) {
-	return $of($nc(this->nm)->lowerKey(key));
+	return $nc(this->nm)->lowerKey(key);
 }
 
 $Object* Collections$UnmodifiableNavigableMap::floorKey(Object$* key) {
-	return $of($nc(this->nm)->floorKey(key));
+	return $nc(this->nm)->floorKey(key);
 }
 
 $Object* Collections$UnmodifiableNavigableMap::ceilingKey(Object$* key) {
-	return $of($nc(this->nm)->ceilingKey(key));
+	return $nc(this->nm)->ceilingKey(key);
 }
 
 $Object* Collections$UnmodifiableNavigableMap::higherKey(Object$* key) {
-	return $of($nc(this->nm)->higherKey(key));
+	return $nc(this->nm)->higherKey(key);
 }
 
 $Map$Entry* Collections$UnmodifiableNavigableMap::lowerEntry(Object$* key) {
 	$var($Map$Entry, lower, $nc(this->nm)->lowerEntry(key));
-	return (nullptr != lower) ? static_cast<$Map$Entry*>($new($Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry, lower)) : ($Map$Entry*)nullptr;
+	return (nullptr != lower) ? $cast($Map$Entry, $new($Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry, lower)) : ($Map$Entry*)nullptr;
 }
 
 $Map$Entry* Collections$UnmodifiableNavigableMap::floorEntry(Object$* key) {
 	$var($Map$Entry, floor, $nc(this->nm)->floorEntry(key));
-	return (nullptr != floor) ? static_cast<$Map$Entry*>($new($Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry, floor)) : ($Map$Entry*)nullptr;
+	return (nullptr != floor) ? $cast($Map$Entry, $new($Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry, floor)) : ($Map$Entry*)nullptr;
 }
 
 $Map$Entry* Collections$UnmodifiableNavigableMap::ceilingEntry(Object$* key) {
 	$var($Map$Entry, ceiling, $nc(this->nm)->ceilingEntry(key));
-	return (nullptr != ceiling) ? static_cast<$Map$Entry*>($new($Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry, ceiling)) : ($Map$Entry*)nullptr;
+	return (nullptr != ceiling) ? $cast($Map$Entry, $new($Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry, ceiling)) : ($Map$Entry*)nullptr;
 }
 
 $Map$Entry* Collections$UnmodifiableNavigableMap::higherEntry(Object$* key) {
 	$var($Map$Entry, higher, $nc(this->nm)->higherEntry(key));
-	return (nullptr != higher) ? static_cast<$Map$Entry*>($new($Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry, higher)) : ($Map$Entry*)nullptr;
+	return (nullptr != higher) ? $cast($Map$Entry, $new($Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry, higher)) : ($Map$Entry*)nullptr;
 }
 
 $Map$Entry* Collections$UnmodifiableNavigableMap::firstEntry() {
 	$var($Map$Entry, first, $nc(this->nm)->firstEntry());
-	return (nullptr != first) ? static_cast<$Map$Entry*>($new($Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry, first)) : ($Map$Entry*)nullptr;
+	return (nullptr != first) ? $cast($Map$Entry, $new($Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry, first)) : ($Map$Entry*)nullptr;
 }
 
 $Map$Entry* Collections$UnmodifiableNavigableMap::lastEntry() {
 	$var($Map$Entry, last, $nc(this->nm)->lastEntry());
-	return (nullptr != last) ? static_cast<$Map$Entry*>($new($Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry, last)) : ($Map$Entry*)nullptr;
+	return (nullptr != last) ? $cast($Map$Entry, $new($Collections$UnmodifiableMap$UnmodifiableEntrySet$UnmodifiableEntry, last)) : ($Map$Entry*)nullptr;
 }
 
 $Map$Entry* Collections$UnmodifiableNavigableMap::pollFirstEntry() {
@@ -358,7 +266,7 @@ $NavigableMap* Collections$UnmodifiableNavigableMap::tailMap(Object$* fromKey, b
 	return $Collections::unmodifiableNavigableMap($($nc(this->nm)->tailMap(fromKey, inclusive)));
 }
 
-void clinit$Collections$UnmodifiableNavigableMap($Class* class$) {
+void Collections$UnmodifiableNavigableMap::clinit$($Class* clazz) {
 	$assignStatic(Collections$UnmodifiableNavigableMap::EMPTY_NAVIGABLE_MAP, $new($Collections$UnmodifiableNavigableMap$EmptyNavigableMap));
 }
 
@@ -366,7 +274,92 @@ Collections$UnmodifiableNavigableMap::Collections$UnmodifiableNavigableMap() {
 }
 
 $Class* Collections$UnmodifiableNavigableMap::load$($String* name, bool initialize) {
-	$loadClass(Collections$UnmodifiableNavigableMap, name, initialize, &_Collections$UnmodifiableNavigableMap_ClassInfo_, clinit$Collections$UnmodifiableNavigableMap, allocate$Collections$UnmodifiableNavigableMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$UnmodifiableNavigableMap, serialVersionUID)},
+		{"EMPTY_NAVIGABLE_MAP", "Ljava/util/Collections$UnmodifiableNavigableMap$EmptyNavigableMap;", "Ljava/util/Collections$UnmodifiableNavigableMap$EmptyNavigableMap<**>;", $PRIVATE | $STATIC | $FINAL, $staticField(Collections$UnmodifiableNavigableMap, EMPTY_NAVIGABLE_MAP)},
+		{"nm", "Ljava/util/NavigableMap;", "Ljava/util/NavigableMap<TK;+TV;>;", $PRIVATE | $FINAL, $field(Collections$UnmodifiableNavigableMap, nm)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*comparator", "()Ljava/util/Comparator;", nullptr, $PUBLIC},
+		{"*compute", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*computeIfAbsent", "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*computeIfPresent", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*entrySet", "()Ljava/util/Set;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*firstKey", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*forEach", "(Ljava/util/function/BiConsumer;)V", nullptr, $PUBLIC},
+		{"*get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getOrDefault", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"*headMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/util/NavigableMap;)V", "(Ljava/util/NavigableMap<TK;+TV;>;)V", 0, $method(Collections$UnmodifiableNavigableMap, init$, void, $NavigableMap*)},
+		{"ceilingEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, ceilingEntry, $Map$Entry*, Object$*)},
+		{"ceilingKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, ceilingKey, $Object*, Object$*)},
+		{"descendingKeySet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, descendingKeySet, $NavigableSet*)},
+		{"descendingMap", "()Ljava/util/NavigableMap;", "()Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, descendingMap, $NavigableMap*)},
+		{"firstEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, firstEntry, $Map$Entry*)},
+		{"floorEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, floorEntry, $Map$Entry*, Object$*)},
+		{"floorKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, floorKey, $Object*, Object$*)},
+		{"headMap", "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, headMap, $NavigableMap*, Object$*, bool)},
+		{"higherEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, higherEntry, $Map$Entry*, Object$*)},
+		{"higherKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, higherKey, $Object*, Object$*)},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"*keySet", "()Ljava/util/Set;", nullptr, $PUBLIC},
+		{"lastEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, lastEntry, $Map$Entry*)},
+		{"*lastKey", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"lowerEntry", "(Ljava/lang/Object;)Ljava/util/Map$Entry;", "(TK;)Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, lowerEntry, $Map$Entry*, Object$*)},
+		{"lowerKey", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TK;)TK;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, lowerKey, $Object*, Object$*)},
+		{"*merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"navigableKeySet", "()Ljava/util/NavigableSet;", "()Ljava/util/NavigableSet<TK;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, navigableKeySet, $NavigableSet*)},
+		{"pollFirstEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, pollFirstEntry, $Map$Entry*)},
+		{"pollLastEntry", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, pollLastEntry, $Map$Entry*)},
+		{"*put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*putAll", "(Ljava/util/Map;)V", nullptr, $PUBLIC},
+		{"*putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*remove", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*replaceAll", "(Ljava/util/function/BiFunction;)V", nullptr, $PUBLIC},
+		{"*size", "()I", nullptr, $PUBLIC},
+		{"*subMap", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;", nullptr, $PUBLIC},
+		{"subMap", "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;ZTK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, subMap, $NavigableMap*, Object$*, bool, Object$*, bool)},
+		{"*tailMap", "(Ljava/lang/Object;)Ljava/util/SortedMap;", nullptr, $PUBLIC},
+		{"tailMap", "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", "(TK;Z)Ljava/util/NavigableMap<TK;TV;>;", $PUBLIC, $virtualMethod(Collections$UnmodifiableNavigableMap, tailMap, $NavigableMap*, Object$*, bool)},
+		{"*values", "()Ljava/util/Collection;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$UnmodifiableNavigableMap", "java.util.Collections", "UnmodifiableNavigableMap", $STATIC},
+		{"java.util.Collections$UnmodifiableSortedMap", "java.util.Collections", "UnmodifiableSortedMap", $STATIC},
+		{"java.util.Collections$UnmodifiableNavigableMap$EmptyNavigableMap", "java.util.Collections$UnmodifiableNavigableMap", "EmptyNavigableMap", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$UnmodifiableNavigableMap",
+		"java.util.Collections$UnmodifiableSortedMap",
+		"java.util.NavigableMap",
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/Collections$UnmodifiableSortedMap<TK;TV;>;Ljava/util/NavigableMap<TK;TV;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$UnmodifiableNavigableMap, name, initialize, &classInfo$$, Collections$UnmodifiableNavigableMap::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Collections$UnmodifiableNavigableMap));
+	});
 	return class$;
 }
 

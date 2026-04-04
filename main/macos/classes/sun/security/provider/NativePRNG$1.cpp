@@ -1,5 +1,4 @@
 #include <sun/security/provider/NativePRNG$1.h>
-
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <java/net/URL.h>
@@ -25,119 +24,66 @@ using $NativePRNG$2 = ::sun::security::provider::NativePRNG$2;
 using $NativePRNG$RandomIO = ::sun::security::provider::NativePRNG$RandomIO;
 using $NativePRNG$Variant = ::sun::security::provider::NativePRNG$Variant;
 using $SunEntries = ::sun::security::provider::SunEntries;
-using $Debug = ::sun::security::util::Debug;
 
 namespace sun {
 	namespace security {
 		namespace provider {
-
-$FieldInfo _NativePRNG$1_FieldInfo_[] = {
-	{"val$v", "Lsun/security/provider/NativePRNG$Variant;", nullptr, $FINAL | $SYNTHETIC, $field(NativePRNG$1, val$v)},
-	{}
-};
-
-$MethodInfo _NativePRNG$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/provider/NativePRNG$Variant;)V", nullptr, 0, $method(NativePRNG$1, init$, void, $NativePRNG$Variant*)},
-	{"run", "()Lsun/security/provider/NativePRNG$RandomIO;", nullptr, $PUBLIC, $virtualMethod(NativePRNG$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _NativePRNG$1_EnclosingMethodInfo_ = {
-	"sun.security.provider.NativePRNG",
-	"initIO",
-	"(Lsun/security/provider/NativePRNG$Variant;)Lsun/security/provider/NativePRNG$RandomIO;"
-};
-
-$InnerClassInfo _NativePRNG$1_InnerClassesInfo_[] = {
-	{"sun.security.provider.NativePRNG$1", nullptr, nullptr, 0},
-	{"sun.security.provider.NativePRNG$RandomIO", "sun.security.provider.NativePRNG", "RandomIO", $PRIVATE | $STATIC},
-	{"sun.security.provider.NativePRNG$Variant", "sun.security.provider.NativePRNG", "Variant", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _NativePRNG$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.provider.NativePRNG$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_NativePRNG$1_FieldInfo_,
-	_NativePRNG$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Lsun/security/provider/NativePRNG$RandomIO;>;",
-	&_NativePRNG$1_EnclosingMethodInfo_,
-	_NativePRNG$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.NativePRNG"
-};
-
-$Object* allocate$NativePRNG$1($Class* clazz) {
-	return $of($alloc(NativePRNG$1));
-}
 
 void NativePRNG$1::init$($NativePRNG$Variant* val$v) {
 	$set(this, val$v, val$v);
 }
 
 $Object* NativePRNG$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, seedFile, nullptr);
 	$var($File, nextFile, nullptr);
-	$init($NativePRNG$2);
 	{
-		$var($URL, egdUrl, nullptr)
-		$var($File, egdFile, nullptr)
+		$init($NativePRNG$2);
+		$var($URL, egdUrl, nullptr);
+		$var($File, egdFile, nullptr);
 		switch ($nc($NativePRNG$2::$SwitchMap$sun$security$provider$NativePRNG$Variant)->get(this->val$v->ordinal())) {
 		case 1:
-			{
-				$assign(egdFile, nullptr);
-				if (($assign(egdUrl, $NativePRNG::getEgdUrl())) != nullptr) {
-					try {
-						$assign(egdFile, $SunEntries::getDeviceFile(egdUrl));
-					} catch ($IOException& e) {
-					}
+			$assign(egdFile, nullptr);
+			if (($assign(egdUrl, $NativePRNG::getEgdUrl())) != nullptr) {
+				try {
+					$assign(egdFile, $SunEntries::getDeviceFile(egdUrl));
+				} catch ($IOException& e) {
 				}
-				if ((egdFile != nullptr) && egdFile->canRead()) {
-					$assign(seedFile, egdFile);
-				} else {
-					$assign(seedFile, $new($File, "/dev/random"_s));
-				}
-				$assign(nextFile, $new($File, "/dev/urandom"_s));
-				break;
 			}
-		case 2:
-			{
+			if ((egdFile != nullptr) && egdFile->canRead()) {
+				$assign(seedFile, egdFile);
+			} else {
 				$assign(seedFile, $new($File, "/dev/random"_s));
-				$assign(nextFile, $new($File, "/dev/random"_s));
-				break;
 			}
+			$assign(nextFile, $new($File, "/dev/urandom"_s));
+			break;
+		case 2:
+			$assign(seedFile, $new($File, "/dev/random"_s));
+			$assign(nextFile, $new($File, "/dev/random"_s));
+			break;
 		case 3:
-			{
-				$assign(seedFile, $new($File, "/dev/urandom"_s));
-				$assign(nextFile, $new($File, "/dev/urandom"_s));
-				break;
-			}
+			$assign(seedFile, $new($File, "/dev/urandom"_s));
+			$assign(nextFile, $new($File, "/dev/urandom"_s));
+			break;
 		default:
-			{
-				return $of(nullptr);
-			}
+			return nullptr;
 		}
 	}
 	$init($NativePRNG);
 	if ($NativePRNG::debug != nullptr) {
-		$nc($NativePRNG::debug)->println($$str({"NativePRNG."_s, this->val$v, " seedFile: "_s, seedFile, " nextFile: "_s, nextFile}));
+		$NativePRNG::debug->println($$str({"NativePRNG."_s, this->val$v, " seedFile: "_s, seedFile, " nextFile: "_s, nextFile}));
 	}
 	bool var$0 = !$nc(seedFile)->canRead();
 	if (var$0 || !$nc(nextFile)->canRead()) {
 		if ($NativePRNG::debug != nullptr) {
-			$nc($NativePRNG::debug)->println($$str({"NativePRNG."_s, this->val$v, " Couldn\'t read Files."_s}));
+			$NativePRNG::debug->println($$str({"NativePRNG."_s, this->val$v, " Couldn\'t read Files."_s}));
 		}
-		return $of(nullptr);
+		return nullptr;
 	}
 	try {
-		return $of($new($NativePRNG$RandomIO, seedFile, nextFile));
+		return $new($NativePRNG$RandomIO, seedFile, nextFile);
 	} catch ($Exception& e) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$shouldNotReachHere();
 }
@@ -146,7 +92,44 @@ NativePRNG$1::NativePRNG$1() {
 }
 
 $Class* NativePRNG$1::load$($String* name, bool initialize) {
-	$loadClass(NativePRNG$1, name, initialize, &_NativePRNG$1_ClassInfo_, allocate$NativePRNG$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$v", "Lsun/security/provider/NativePRNG$Variant;", nullptr, $FINAL | $SYNTHETIC, $field(NativePRNG$1, val$v)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/provider/NativePRNG$Variant;)V", nullptr, 0, $method(NativePRNG$1, init$, void, $NativePRNG$Variant*)},
+		{"run", "()Lsun/security/provider/NativePRNG$RandomIO;", nullptr, $PUBLIC, $virtualMethod(NativePRNG$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.provider.NativePRNG",
+		"initIO",
+		"(Lsun/security/provider/NativePRNG$Variant;)Lsun/security/provider/NativePRNG$RandomIO;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.NativePRNG$1", nullptr, nullptr, 0},
+		{"sun.security.provider.NativePRNG$RandomIO", "sun.security.provider.NativePRNG", "RandomIO", $PRIVATE | $STATIC},
+		{"sun.security.provider.NativePRNG$Variant", "sun.security.provider.NativePRNG", "Variant", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.provider.NativePRNG$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Lsun/security/provider/NativePRNG$RandomIO;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.NativePRNG"
+	};
+	$loadClass(NativePRNG$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NativePRNG$1);
+	});
 	return class$;
 }
 

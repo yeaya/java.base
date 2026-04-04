@@ -23,6 +23,7 @@
 #include <java/io/DataOutputStream.h>
 #include <jdk/internal/reflect/ConstantPool.h>
 #include <jcpp.h>
+#include <string.h>
 
 using ::java::io::DataOutputStream;
 
@@ -51,6 +52,24 @@ void InnerClassInfo::visit(::jdk::internal::reflect::ConstantPool* cp) {
 	//for (; field != nullptr; field++) {
 
 	//}
+}
+
+InnerClassInfo* InnerClassInfo::cloneArray(InnerClassInfo* array) {
+	if (array == nullptr) {
+		return nullptr;
+	}
+	InnerClassInfo* it = array;
+	int32_t count = 0;
+	for (; true; it++) {
+		if (it->isEnd()) {
+			break;
+		}
+		count++;
+	}
+	count++; // for end null
+	InnerClassInfo* newInnerClassInfos = $allocRawStatic(InnerClassInfo, count);
+	memcpy(newInnerClassInfos, array, sizeof(InnerClassInfo) * count);
+	return newInnerClassInfos;
 }
 
 	} // lang

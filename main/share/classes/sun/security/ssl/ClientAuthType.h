@@ -22,6 +22,7 @@ class ClientAuthType : public ::java::lang::Enum {
 public:
 	ClientAuthType();
 	static $Array<::sun::security::ssl::ClientAuthType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::security::ssl::ClientAuthType* valueOf($String* name);
 	static $Array<::sun::security::ssl::ClientAuthType>* values();

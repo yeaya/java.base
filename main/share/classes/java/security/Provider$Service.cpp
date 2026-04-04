@@ -1,5 +1,4 @@
 #include <java/security/Provider$Service.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/NoSuchMethodException.h>
@@ -14,7 +13,6 @@
 #include <java/security/Provider$UString.h>
 #include <java/security/Provider.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
@@ -48,86 +46,15 @@ using $Provider = ::java::security::Provider;
 using $Provider$EngineDescription = ::java::security::Provider$EngineDescription;
 using $Provider$UString = ::java::security::Provider$UString;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _Provider$Service_FieldInfo_[] = {
-	{"type", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Provider$Service, type)},
-	{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Provider$Service, algorithm)},
-	{"className", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Provider$Service, className)},
-	{"provider", "Ljava/security/Provider;", nullptr, $PRIVATE | $FINAL, $field(Provider$Service, provider)},
-	{"aliases", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(Provider$Service, aliases)},
-	{"attributes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/security/Provider$UString;Ljava/lang/String;>;", $PRIVATE, $field(Provider$Service, attributes)},
-	{"engineDescription", "Ljava/security/Provider$EngineDescription;", nullptr, $PRIVATE | $FINAL, $field(Provider$Service, engineDescription)},
-	{"classCache", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(Provider$Service, classCache)},
-	{"constructorCache", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(Provider$Service, constructorCache)},
-	{"hasKeyAttributes", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $VOLATILE, $field(Provider$Service, hasKeyAttributes$)},
-	{"supportedFormats", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(Provider$Service, supportedFormats)},
-	{"supportedClasses", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE, $field(Provider$Service, supportedClasses)},
-	{"registered", "Z", nullptr, $PRIVATE, $field(Provider$Service, registered)},
-	{"CLASS0", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(Provider$Service, CLASS0)},
-	{}
-};
-
-$MethodInfo _Provider$Service_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Provider$Service, init$, void, $Provider*, $String*, $String*)},
-	{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/Map;)V", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC, $method(Provider$Service, init$, void, $Provider*, $String*, $String*, $String*, $List*, $Map*)},
-	{"addAlias", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Provider$Service, addAlias, void, $String*)},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Provider$Service, addAttribute, void, $String*, $String*)},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Provider$Service, getAlgorithm, $String*)},
-	{"getAliases", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $FINAL, $method(Provider$Service, getAliases, $List*)},
-	{"getAttribute", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Provider$Service, getAttribute, $String*, $String*)},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Provider$Service, getClassName, $String*)},
-	{"getDefaultConstructor", "()Ljava/lang/reflect/Constructor;", "()Ljava/lang/reflect/Constructor<*>;", $PRIVATE, $method(Provider$Service, getDefaultConstructor, $Constructor*), "java.security.NoSuchAlgorithmException,java.lang.NoSuchMethodException"},
-	{"getImplClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE, $method(Provider$Service, getImplClass, $Class*), "java.security.NoSuchAlgorithmException"},
-	{"getKeyClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE, $method(Provider$Service, getKeyClass, $Class*, $String*)},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(Provider$Service, getProvider, $Provider*)},
-	{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Provider$Service, getType, $String*)},
-	{"hasKeyAttributes", "()Z", nullptr, $PRIVATE, $method(Provider$Service, hasKeyAttributes, bool)},
-	{"isValid", "()Z", nullptr, $PRIVATE, $method(Provider$Service, isValid, bool)},
-	{"newInstance", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Provider$Service, newInstance, $Object*, Object$*), "java.security.NoSuchAlgorithmException"},
-	{"newInstanceOf", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Provider$Service, newInstanceOf, $Object*), "java.lang.Exception"},
-	{"newInstanceUtil", "(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;Ljava/lang/Object;)Ljava/lang/Object;", $PRIVATE, $method(Provider$Service, newInstanceUtil, $Object*, $Class*, Object$*), "java.lang.Exception"},
-	{"supportsKeyClass", "(Ljava/security/Key;)Z", nullptr, $PRIVATE, $method(Provider$Service, supportsKeyClass, bool, $Key*)},
-	{"supportsKeyFormat", "(Ljava/security/Key;)Z", nullptr, $PRIVATE, $method(Provider$Service, supportsKeyFormat, bool, $Key*)},
-	{"supportsParameter", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Provider$Service, supportsParameter, bool, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Provider$Service, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Provider$Service_InnerClassesInfo_[] = {
-	{"java.security.Provider$Service", "java.security.Provider", "Service", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Provider$Service_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.Provider$Service",
-	"java.lang.Object",
-	nullptr,
-	_Provider$Service_FieldInfo_,
-	_Provider$Service_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Provider$Service_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.Provider"
-};
-
-$Object* allocate$Provider$Service($Class* clazz) {
-	return $of($alloc(Provider$Service));
-}
 
 $ClassArray* Provider$Service::CLASS0 = nullptr;
 
@@ -149,18 +76,18 @@ void Provider$Service::addAlias($String* alias) {
 	if ($nc(this->aliases)->isEmpty()) {
 		$set(this, aliases, $new($ArrayList, 2));
 	}
-	$nc(this->aliases)->add(alias);
+	this->aliases->add(alias);
 }
 
 void Provider$Service::addAttribute($String* type, $String* value) {
 	if ($nc(this->attributes)->isEmpty()) {
 		$set(this, attributes, $new($HashMap, 8));
 	}
-	$nc(this->attributes)->put($$new($Provider$UString, type), value);
+	this->attributes->put($$new($Provider$UString, type), value);
 }
 
 void Provider$Service::init$($Provider* provider, $String* type, $String* algorithm, $String* className, $List* aliases, $Map* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((provider == nullptr) || (type == nullptr) || (algorithm == nullptr) || (className == nullptr)) {
 		$throwNew($NullPointerException);
 	}
@@ -172,19 +99,19 @@ void Provider$Service::init$($Provider* provider, $String* type, $String* algori
 	if (aliases == nullptr) {
 		$set(this, aliases, $Collections::emptyList());
 	} else {
-		$set(this, aliases, $new($ArrayList, static_cast<$Collection*>(aliases)));
+		$set(this, aliases, $new($ArrayList, aliases));
 	}
 	if (attributes == nullptr) {
 		$set(this, attributes, $Collections::emptyMap());
 	} else {
 		$set(this, attributes, $new($HashMap));
 		{
-			$var($Iterator, i$, $nc($($nc(attributes)->entrySet()))->iterator());
+			$var($Iterator, i$, $$nc(attributes->entrySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 				{
-					$var($Object, var$0, $of($new($Provider$UString, $cast($String, $($nc(entry)->getKey())))));
-					$nc(this->attributes)->put(var$0, $cast($String, $($nc(entry)->getValue())));
+					$var($Object, var$0, $new($Provider$UString, $$cast($String, $nc(entry)->getKey())));
+					this->attributes->put(var$0, $$cast($String, entry->getValue()));
 				}
 			}
 		}
@@ -219,11 +146,11 @@ $String* Provider$Service::getAttribute($String* name) {
 }
 
 $Object* Provider$Service::newInstance(Object$* constructorParameter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (this->registered == false) {
 		if ($nc(this->provider)->getService(this->type, this->algorithm) != this) {
-			$throwNew($NoSuchAlgorithmException, $$str({"Service not registered with Provider "_s, $($nc(this->provider)->getName()), ": "_s, this}));
+			$throwNew($NoSuchAlgorithmException, $$str({"Service not registered with Provider "_s, $(this->provider->getName()), ": "_s, this}));
 		}
 		this->registered = true;
 	}
@@ -231,21 +158,21 @@ $Object* Provider$Service::newInstance(Object$* constructorParameter) {
 	try {
 		$var($Provider$EngineDescription, cap, this->engineDescription);
 		if (cap == nullptr) {
-			ctrParamClz = constructorParameter == nullptr ? ($Class*)nullptr : $nc($of(constructorParameter))->getClass();
+			ctrParamClz = constructorParameter == nullptr ? ($Class*)nullptr : $of(constructorParameter)->getClass();
 		} else {
-			ctrParamClz = $nc(cap)->constructorParameterClassName == nullptr ? ($Class*)nullptr : $Class::forName($nc(cap)->constructorParameterClassName);
+			ctrParamClz = cap->constructorParameterClassName == nullptr ? ($Class*)nullptr : $Class::forName(cap->constructorParameterClassName);
 			if (constructorParameter != nullptr) {
 				if (ctrParamClz == nullptr) {
 					$throwNew($InvalidParameterException, $$str({"constructorParameter not used with "_s, this->type, " engines"_s}));
 				} else {
 					$Class* argClass = $of(constructorParameter)->getClass();
-					if ($nc(ctrParamClz)->isAssignableFrom(argClass) == false) {
-						$throwNew($InvalidParameterException, $$str({"constructorParameter must be instanceof "_s, $($nc($nc(cap)->constructorParameterClassName)->replace(u'$', u'.')), " for engine type "_s, this->type}));
+					if (ctrParamClz->isAssignableFrom(argClass) == false) {
+						$throwNew($InvalidParameterException, $$str({"constructorParameter must be instanceof "_s, $($nc(cap->constructorParameterClassName)->replace(u'$', u'.')), " for engine type "_s, this->type}));
 					}
 				}
 			}
 		}
-		return $of(newInstanceUtil(ctrParamClz, constructorParameter));
+		return newInstanceUtil(ctrParamClz, constructorParameter);
 	} catch ($NoSuchAlgorithmException& e) {
 		$throw(e);
 	} catch ($InvocationTargetException& e) {
@@ -261,22 +188,22 @@ $Object* Provider$Service::newInstanceOf() {
 	$beforeCallerSensitive();
 	$var($Constructor, con, getDefaultConstructor());
 	$init($Provider);
-	return $of($nc(con)->newInstance($Provider::EMPTY));
+	return $nc(con)->newInstance($Provider::EMPTY);
 }
 
 $Object* Provider$Service::newInstanceUtil($Class* ctrParamClz, Object$* ctorParamObj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (ctrParamClz == nullptr) {
-		return $of(newInstanceOf());
+		return newInstanceOf();
 	} else {
 		try {
 			$var($Constructor, con, $nc(getImplClass())->getConstructor($$new($ClassArray, {ctrParamClz})));
-			return $of($nc(con)->newInstance($$new($ObjectArray, {ctorParamObj})));
+			return $nc(con)->newInstance($$new($ObjectArray, {ctorParamObj}));
 		} catch ($NoSuchMethodException& nsme) {
 			if (ctorParamObj == nullptr) {
 				try {
-					return $of(newInstanceOf());
+					return newInstanceOf();
 				} catch ($NoSuchMethodException& nsme2) {
 					nsme->addSuppressed(nsme2);
 					$throw(nsme);
@@ -290,7 +217,7 @@ $Object* Provider$Service::newInstanceUtil($Class* ctrParamClz, Object$* ctorPar
 }
 
 $Class* Provider$Service::getImplClass() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		$var($Object, cache, this->classCache);
@@ -322,10 +249,10 @@ $Class* Provider$Service::getImplClass() {
 			if (cl == nullptr) {
 				clazz = $Class::forName(this->className);
 			} else {
-				clazz = $nc(cl)->loadClass(this->className);
+				clazz = cl->loadClass(this->className);
 			}
 			if (!$Modifier::isPublic($nc(clazz)->getModifiers())) {
-				$throwNew($NoSuchAlgorithmException, $$str({"class configured for "_s, this->type, " (provider: "_s, $($nc(this->provider)->getName()), ") is not public."_s}));
+				$throwNew($NoSuchAlgorithmException, $$str({"class configured for "_s, this->type, " (provider: "_s, $(this->provider->getName()), ") is not public."_s}));
 			}
 			$set(this, classCache, (cl == nullptr) ? $of(clazz) : $of($new($WeakReference, clazz)));
 		}
@@ -337,7 +264,7 @@ $Class* Provider$Service::getImplClass() {
 }
 
 $Constructor* Provider$Service::getDefaultConstructor() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Object, cache, this->constructorCache);
 	{
@@ -372,7 +299,7 @@ $Constructor* Provider$Service::getDefaultConstructor() {
 }
 
 bool Provider$Service::supportsParameter(Object$* parameter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Provider$EngineDescription, cap, this->engineDescription);
 	if (cap == nullptr) {
 		return true;
@@ -400,7 +327,7 @@ bool Provider$Service::supportsParameter(Object$* parameter) {
 }
 
 bool Provider$Service::hasKeyAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Boolean, b, this->hasKeyAttributes$);
 	if (b == nullptr) {
 		$synchronized(this) {
@@ -417,9 +344,7 @@ bool Provider$Service::hasKeyAttributes() {
 					$var($List, classList, $new($ArrayList, classNames->length));
 					{
 						$var($StringArray, arr$, classNames);
-						int32_t len$ = arr$->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
+						for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 							$var($String, className, arr$->get(i$));
 							{
 								$Class* clazz = getKeyClass(className);
@@ -429,7 +354,7 @@ bool Provider$Service::hasKeyAttributes() {
 							}
 						}
 					}
-					$set(this, supportedClasses, $fcast($ClassArray, classList->toArray(Provider$Service::CLASS0)));
+					$set(this, supportedClasses, $cast($ClassArray, classList->toArray(Provider$Service::CLASS0)));
 				}
 				bool bool$ = (this->supportedFormats != nullptr) || (this->supportedClasses != nullptr);
 				$assign(b, $Boolean::valueOf(bool$));
@@ -457,7 +382,7 @@ $Class* Provider$Service::getKeyClass($String* name) {
 }
 
 bool Provider$Service::supportsKeyFormat($Key* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->supportedFormats == nullptr) {
 		return false;
 	}
@@ -467,14 +392,10 @@ bool Provider$Service::supportsKeyFormat($Key* key) {
 	}
 	{
 		$var($StringArray, arr$, this->supportedFormats);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, supportedFormat, arr$->get(i$));
-			{
-				if ($nc(supportedFormat)->equals(format)) {
-					return true;
-				}
+			if ($nc(supportedFormat)->equals(format)) {
+				return true;
 			}
 		}
 	}
@@ -488,14 +409,10 @@ bool Provider$Service::supportsKeyClass($Key* key) {
 	$Class* keyClass = $nc($of(key))->getClass();
 	{
 		$var($ClassArray, arr$, this->supportedClasses);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$Class* clazz = arr$->get(i$);
-			{
-				if ($nc(clazz)->isAssignableFrom(keyClass)) {
-					return true;
-				}
+			if ($nc(clazz)->isAssignableFrom(keyClass)) {
+				return true;
 			}
 		}
 	}
@@ -503,13 +420,13 @@ bool Provider$Service::supportsKeyClass($Key* key) {
 }
 
 $String* Provider$Service::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, aString, $nc(this->aliases)->isEmpty() ? ""_s : $str({"\r\n  aliases: "_s, $($nc($of(this->aliases))->toString())}));
-	$var($String, attrs, $nc(this->attributes)->isEmpty() ? ""_s : $str({"\r\n  attributes: "_s, $($nc($of(this->attributes))->toString())}));
+	$useLocalObjectStack();
+	$var($String, aString, $nc(this->aliases)->isEmpty() ? ""_s : $str({"\r\n  aliases: "_s, $(this->aliases->toString())}));
+	$var($String, attrs, $nc(this->attributes)->isEmpty() ? ""_s : $str({"\r\n  attributes: "_s, $(this->attributes->toString())}));
 	return $str({$($nc(this->provider)->getName()), ": "_s, this->type, "."_s, this->algorithm, " -> "_s, this->className, aString, attrs, "\r\n"_s});
 }
 
-void clinit$Provider$Service($Class* class$) {
+void Provider$Service::clinit$($Class* clazz) {
 	$assignStatic(Provider$Service::CLASS0, $new($ClassArray, 0));
 }
 
@@ -517,7 +434,70 @@ Provider$Service::Provider$Service() {
 }
 
 $Class* Provider$Service::load$($String* name, bool initialize) {
-	$loadClass(Provider$Service, name, initialize, &_Provider$Service_ClassInfo_, clinit$Provider$Service, allocate$Provider$Service);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Provider$Service, type)},
+		{"algorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Provider$Service, algorithm)},
+		{"className", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Provider$Service, className)},
+		{"provider", "Ljava/security/Provider;", nullptr, $PRIVATE | $FINAL, $field(Provider$Service, provider)},
+		{"aliases", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(Provider$Service, aliases)},
+		{"attributes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/security/Provider$UString;Ljava/lang/String;>;", $PRIVATE, $field(Provider$Service, attributes)},
+		{"engineDescription", "Ljava/security/Provider$EngineDescription;", nullptr, $PRIVATE | $FINAL, $field(Provider$Service, engineDescription)},
+		{"classCache", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(Provider$Service, classCache)},
+		{"constructorCache", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(Provider$Service, constructorCache)},
+		{"hasKeyAttributes", "Ljava/lang/Boolean;", nullptr, $PRIVATE | $VOLATILE, $field(Provider$Service, hasKeyAttributes$)},
+		{"supportedFormats", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(Provider$Service, supportedFormats)},
+		{"supportedClasses", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE, $field(Provider$Service, supportedClasses)},
+		{"registered", "Z", nullptr, $PRIVATE, $field(Provider$Service, registered)},
+		{"CLASS0", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(Provider$Service, CLASS0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Provider$Service, init$, void, $Provider*, $String*, $String*)},
+		{"<init>", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/Map;)V", "(Ljava/security/Provider;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC, $method(Provider$Service, init$, void, $Provider*, $String*, $String*, $String*, $List*, $Map*)},
+		{"addAlias", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Provider$Service, addAlias, void, $String*)},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Provider$Service, addAttribute, void, $String*, $String*)},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Provider$Service, getAlgorithm, $String*)},
+		{"getAliases", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $FINAL, $method(Provider$Service, getAliases, $List*)},
+		{"getAttribute", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Provider$Service, getAttribute, $String*, $String*)},
+		{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Provider$Service, getClassName, $String*)},
+		{"getDefaultConstructor", "()Ljava/lang/reflect/Constructor;", "()Ljava/lang/reflect/Constructor<*>;", $PRIVATE, $method(Provider$Service, getDefaultConstructor, $Constructor*), "java.security.NoSuchAlgorithmException,java.lang.NoSuchMethodException"},
+		{"getImplClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PRIVATE, $method(Provider$Service, getImplClass, $Class*), "java.security.NoSuchAlgorithmException"},
+		{"getKeyClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE, $method(Provider$Service, getKeyClass, $Class*, $String*)},
+		{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $method(Provider$Service, getProvider, $Provider*)},
+		{"getType", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Provider$Service, getType, $String*)},
+		{"hasKeyAttributes", "()Z", nullptr, $PRIVATE, $method(Provider$Service, hasKeyAttributes, bool)},
+		{"isValid", "()Z", nullptr, $PRIVATE, $method(Provider$Service, isValid, bool)},
+		{"newInstance", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Provider$Service, newInstance, $Object*, Object$*), "java.security.NoSuchAlgorithmException"},
+		{"newInstanceOf", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Provider$Service, newInstanceOf, $Object*), "java.lang.Exception"},
+		{"newInstanceUtil", "(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Class<*>;Ljava/lang/Object;)Ljava/lang/Object;", $PRIVATE, $method(Provider$Service, newInstanceUtil, $Object*, $Class*, Object$*), "java.lang.Exception"},
+		{"supportsKeyClass", "(Ljava/security/Key;)Z", nullptr, $PRIVATE, $method(Provider$Service, supportsKeyClass, bool, $Key*)},
+		{"supportsKeyFormat", "(Ljava/security/Key;)Z", nullptr, $PRIVATE, $method(Provider$Service, supportsKeyFormat, bool, $Key*)},
+		{"supportsParameter", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Provider$Service, supportsParameter, bool, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Provider$Service, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.Provider$Service", "java.security.Provider", "Service", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.Provider$Service",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.Provider"
+	};
+	$loadClass(Provider$Service, name, initialize, &classInfo$$, Provider$Service::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Provider$Service);
+	});
 	return class$;
 }
 

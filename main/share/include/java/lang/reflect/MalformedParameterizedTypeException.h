@@ -15,10 +15,13 @@ public:
 	MalformedParameterizedTypeException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0xB0F1C2DF78D5625C;
+	static const int64_t serialVersionUID = (int64_t)0xb0f1c2df78d5625c;
 	MalformedParameterizedTypeException(const MalformedParameterizedTypeException& e);
 	virtual void throw$() override;
-	inline MalformedParameterizedTypeException* operator ->() {
+	inline MalformedParameterizedTypeException* operator ->() const {
+		return (MalformedParameterizedTypeException*)throwing$;
+	}
+	inline operator MalformedParameterizedTypeException*() const {
 		return (MalformedParameterizedTypeException*)throwing$;
 	}
 };

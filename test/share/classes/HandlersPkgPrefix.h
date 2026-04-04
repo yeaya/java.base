@@ -23,6 +23,7 @@ class $export HandlersPkgPrefix : public ::java::lang::Object {
 	$class(HandlersPkgPrefix, 0, ::java::lang::Object)
 public:
 	HandlersPkgPrefix();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void lambda$static$0(::HandlersPkgPrefix$Result* r);
 	static void lambda$static$1(::HandlersPkgPrefix$Result* r);

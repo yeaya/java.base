@@ -147,6 +147,7 @@ class ZipUtils : public ::java::lang::Object {
 	$class(ZipUtils, 0, ::java::lang::Object)
 public:
 	ZipUtils();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t CENATT($bytes* b, int32_t pos);
 	static int64_t CENATX($bytes* b, int32_t pos);
@@ -212,10 +213,10 @@ public:
 	static int64_t overflowDosToJavaTime(int32_t year, int32_t month, int32_t day, int32_t hour, int32_t minute, int32_t second);
 	static ::java::nio::file::attribute::FileTime* unixTimeToFileTime(int64_t utime);
 	static ::java::nio::file::attribute::FileTime* winTimeToFileTime(int64_t wtime);
-	static const int64_t WINDOWS_EPOCH_IN_MICROSECONDS = (int64_t)0xFFD6A169B779C000;
+	static const int64_t WINDOWS_EPOCH_IN_MICROSECONDS = (int64_t)0xffd6a169b779c000;
 	static const int64_t WINDOWS_TIME_NOT_AVAILABLE = 0x8000000000000000; // Long.MIN_VALUE
 	static ::java::nio::ByteBuffer* defaultBuf;
-	static const int64_t UPPER_UNIXTIME_BOUND = 0x7FFFFFFF;
+	static const int64_t UPPER_UNIXTIME_BOUND = 0x7fffffff;
 	static const int32_t FILE_ATTRIBUTES_UNIX = 3;
 	static const int32_t VERSION_MADE_BY_BASE_UNIX = 768; // FILE_ATTRIBUTES_UNIX << 8
 	static const int64_t END_MAXLEN = 65557; // 65535 + 22

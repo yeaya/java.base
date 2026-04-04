@@ -27,6 +27,7 @@ class ProviderConfig$ProviderLoader : public ::java::lang::Object {
 	$class(ProviderConfig$ProviderLoader, 0, ::java::lang::Object)
 public:
 	ProviderConfig$ProviderLoader();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::java::security::Provider* legacyLoad($String* classname);
 	::java::security::Provider* load($String* pn);

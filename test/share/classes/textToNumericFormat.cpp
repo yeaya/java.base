@@ -1,5 +1,4 @@
 #include <textToNumericFormat.h>
-
 #include <java/net/InetAddress.h>
 #include <java/net/UnknownHostException.h>
 #include <java/util/ArrayList.h>
@@ -14,30 +13,11 @@ using $UnknownHostException = ::java::net::UnknownHostException;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 
-$MethodInfo _textToNumericFormat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(textToNumericFormat, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(textToNumericFormat, main, void, $StringArray*), "java.net.UnknownHostException"},
-	{}
-};
-
-$ClassInfo _textToNumericFormat_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"textToNumericFormat",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_textToNumericFormat_MethodInfo_
-};
-
-$Object* allocate$textToNumericFormat($Class* clazz) {
-	return $of($alloc(textToNumericFormat));
-}
-
 void textToNumericFormat::init$() {
 }
 
 void textToNumericFormat::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, goodList, $new($ArrayList));
 	$var($List, badList, $new($ArrayList));
 	$var($StringArray, goodAddrs, $new($StringArray, {
@@ -78,8 +58,10 @@ void textToNumericFormat::main($StringArray* args) {
 	}
 	bool var$0 = goodList->size() > 0;
 	if (var$0 || badList->size() > 0) {
-		$var($String, var$1, (goodList->size() > 0 ? ($$str({"Good address not parsed: "_s, goodList})) : ""_s));
-		$throwNew($RuntimeException, $$concat(var$1, (badList->size() > 0 ? ($$str({"Bad Address parsed: "_s, badList})) : ""_s)));
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append(goodList->size() > 0 ? ($$str({"Good address not parsed: "_s, goodList})) : ""_s);
+		var$1->append(badList->size() > 0 ? ($$str({"Bad Address parsed: "_s, badList})) : ""_s);
+		$throwNew($RuntimeException, $$str(var$1));
 	}
 }
 
@@ -87,7 +69,22 @@ textToNumericFormat::textToNumericFormat() {
 }
 
 $Class* textToNumericFormat::load$($String* name, bool initialize) {
-	$loadClass(textToNumericFormat, name, initialize, &_textToNumericFormat_ClassInfo_, allocate$textToNumericFormat);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(textToNumericFormat, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(textToNumericFormat, main, void, $StringArray*), "java.net.UnknownHostException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"textToNumericFormat",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(textToNumericFormat, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(textToNumericFormat);
+	});
 	return class$;
 }
 

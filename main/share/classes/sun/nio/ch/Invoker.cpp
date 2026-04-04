@@ -1,5 +1,4 @@
 #include <sun/nio/ch/Invoker.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/SecurityManager.h>
@@ -8,7 +7,6 @@
 #include <java/nio/channels/CompletionHandler.h>
 #include <java/nio/channels/ShutdownChannelGroupException.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/concurrent/Executor.h>
 #include <java/util/concurrent/RejectedExecutionException.h>
 #include <jdk/internal/misc/InnocuousThread.h>
@@ -34,7 +32,6 @@ using $AsynchronousChannel = ::java::nio::channels::AsynchronousChannel;
 using $CompletionHandler = ::java::nio::channels::CompletionHandler;
 using $ShutdownChannelGroupException = ::java::nio::channels::ShutdownChannelGroupException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Executor = ::java::util::concurrent::Executor;
 using $RejectedExecutionException = ::java::util::concurrent::RejectedExecutionException;
 using $InnocuousThread = ::jdk::internal::misc::InnocuousThread;
@@ -51,58 +48,6 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _Invoker_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Invoker, $assertionsDisabled)},
-	{"maxHandlerInvokeCount", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Invoker, maxHandlerInvokeCount)},
-	{"myGroupAndInvokeCount", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Lsun/nio/ch/Invoker$GroupAndInvokeCount;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Invoker, myGroupAndInvokeCount)},
-	{}
-};
-
-$MethodInfo _Invoker_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Invoker, init$, void)},
-	{"bindToGroup", "(Lsun/nio/ch/AsynchronousChannelGroupImpl;)V", nullptr, $STATIC, $staticMethod(Invoker, bindToGroup, void, $AsynchronousChannelGroupImpl*)},
-	{"getGroupAndInvokeCount", "()Lsun/nio/ch/Invoker$GroupAndInvokeCount;", nullptr, $STATIC, $staticMethod(Invoker, getGroupAndInvokeCount, $Invoker$GroupAndInvokeCount*)},
-	{"invoke", "(Ljava/nio/channels/AsynchronousChannel;Ljava/nio/channels/CompletionHandler;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V", "<V:Ljava/lang/Object;A:Ljava/lang/Object;>(Ljava/nio/channels/AsynchronousChannel;Ljava/nio/channels/CompletionHandler<TV;-TA;>;TA;TV;Ljava/lang/Throwable;)V", $STATIC, $staticMethod(Invoker, invoke, void, $AsynchronousChannel*, $CompletionHandler*, Object$*, Object$*, $Throwable*)},
-	{"invoke", "(Lsun/nio/ch/PendingFuture;)V", "<V:Ljava/lang/Object;A:Ljava/lang/Object;>(Lsun/nio/ch/PendingFuture<TV;TA;>;)V", $STATIC, $staticMethod(Invoker, invoke, void, $PendingFuture*)},
-	{"invokeDirect", "(Lsun/nio/ch/Invoker$GroupAndInvokeCount;Ljava/nio/channels/CompletionHandler;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V", "<V:Ljava/lang/Object;A:Ljava/lang/Object;>(Lsun/nio/ch/Invoker$GroupAndInvokeCount;Ljava/nio/channels/CompletionHandler<TV;-TA;>;TA;TV;Ljava/lang/Throwable;)V", $STATIC, $staticMethod(Invoker, invokeDirect, void, $Invoker$GroupAndInvokeCount*, $CompletionHandler*, Object$*, Object$*, $Throwable*)},
-	{"invokeIndirectly", "(Ljava/nio/channels/AsynchronousChannel;Ljava/nio/channels/CompletionHandler;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V", "<V:Ljava/lang/Object;A:Ljava/lang/Object;>(Ljava/nio/channels/AsynchronousChannel;Ljava/nio/channels/CompletionHandler<TV;-TA;>;TA;TV;Ljava/lang/Throwable;)V", $STATIC, $staticMethod(Invoker, invokeIndirectly, void, $AsynchronousChannel*, $CompletionHandler*, Object$*, Object$*, $Throwable*)},
-	{"invokeIndirectly", "(Ljava/nio/channels/CompletionHandler;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;Ljava/util/concurrent/Executor;)V", "<V:Ljava/lang/Object;A:Ljava/lang/Object;>(Ljava/nio/channels/CompletionHandler<TV;-TA;>;TA;TV;Ljava/lang/Throwable;Ljava/util/concurrent/Executor;)V", $STATIC, $staticMethod(Invoker, invokeIndirectly, void, $CompletionHandler*, Object$*, Object$*, $Throwable*, $Executor*)},
-	{"invokeIndirectly", "(Lsun/nio/ch/PendingFuture;)V", "<V:Ljava/lang/Object;A:Ljava/lang/Object;>(Lsun/nio/ch/PendingFuture<TV;TA;>;)V", $STATIC, $staticMethod(Invoker, invokeIndirectly, void, $PendingFuture*)},
-	{"invokeOnThreadInThreadPool", "(Lsun/nio/ch/Groupable;Ljava/lang/Runnable;)V", nullptr, $STATIC, $staticMethod(Invoker, invokeOnThreadInThreadPool, void, $Groupable*, $Runnable*)},
-	{"invokeUnchecked", "(Ljava/nio/channels/CompletionHandler;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V", "<V:Ljava/lang/Object;A:Ljava/lang/Object;>(Ljava/nio/channels/CompletionHandler<TV;-TA;>;TA;TV;Ljava/lang/Throwable;)V", $STATIC, $staticMethod(Invoker, invokeUnchecked, void, $CompletionHandler*, Object$*, Object$*, $Throwable*)},
-	{"invokeUnchecked", "(Lsun/nio/ch/PendingFuture;)V", "<V:Ljava/lang/Object;A:Ljava/lang/Object;>(Lsun/nio/ch/PendingFuture<TV;TA;>;)V", $STATIC, $staticMethod(Invoker, invokeUnchecked, void, $PendingFuture*)},
-	{"isBoundToAnyGroup", "()Z", nullptr, $STATIC, $staticMethod(Invoker, isBoundToAnyGroup, bool)},
-	{"mayInvokeDirect", "(Lsun/nio/ch/Invoker$GroupAndInvokeCount;Lsun/nio/ch/AsynchronousChannelGroupImpl;)Z", nullptr, $STATIC, $staticMethod(Invoker, mayInvokeDirect, bool, $Invoker$GroupAndInvokeCount*, $AsynchronousChannelGroupImpl*)},
-	{}
-};
-
-$InnerClassInfo _Invoker_InnerClassesInfo_[] = {
-	{"sun.nio.ch.Invoker$GroupAndInvokeCount", "sun.nio.ch.Invoker", "GroupAndInvokeCount", $STATIC},
-	{"sun.nio.ch.Invoker$3", nullptr, nullptr, 0},
-	{"sun.nio.ch.Invoker$2", nullptr, nullptr, 0},
-	{"sun.nio.ch.Invoker$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Invoker_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.Invoker",
-	"java.lang.Object",
-	nullptr,
-	_Invoker_FieldInfo_,
-	_Invoker_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Invoker_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.ch.Invoker$GroupAndInvokeCount,sun.nio.ch.Invoker$3,sun.nio.ch.Invoker$2,sun.nio.ch.Invoker$1"
-};
-
-$Object* allocate$Invoker($Class* clazz) {
-	return $of($alloc(Invoker));
-}
-
 bool Invoker::$assertionsDisabled = false;
 int32_t Invoker::maxHandlerInvokeCount = 0;
 $ThreadLocal* Invoker::myGroupAndInvokeCount = nullptr;
@@ -112,17 +57,17 @@ void Invoker::init$() {
 
 void Invoker::bindToGroup($AsynchronousChannelGroupImpl* group) {
 	$init(Invoker);
-	$nc(Invoker::myGroupAndInvokeCount)->set($$new($Invoker$GroupAndInvokeCount, group));
+	Invoker::myGroupAndInvokeCount->set($$new($Invoker$GroupAndInvokeCount, group));
 }
 
 $Invoker$GroupAndInvokeCount* Invoker::getGroupAndInvokeCount() {
 	$init(Invoker);
-	return $cast($Invoker$GroupAndInvokeCount, $nc(Invoker::myGroupAndInvokeCount)->get());
+	return $cast($Invoker$GroupAndInvokeCount, Invoker::myGroupAndInvokeCount->get());
 }
 
 bool Invoker::isBoundToAnyGroup() {
 	$init(Invoker);
-	return $nc(Invoker::myGroupAndInvokeCount)->get() != nullptr;
+	return Invoker::myGroupAndInvokeCount->get() != nullptr;
 }
 
 bool Invoker::mayInvokeDirect($Invoker$GroupAndInvokeCount* myGroupAndInvokeCount, $AsynchronousChannelGroupImpl* group) {
@@ -136,7 +81,7 @@ bool Invoker::mayInvokeDirect($Invoker$GroupAndInvokeCount* myGroupAndInvokeCoun
 
 void Invoker::invokeUnchecked($CompletionHandler* handler, Object$* attachment, Object$* value, $Throwable* exc) {
 	$init(Invoker);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (exc == nullptr) {
 		$nc(handler)->completed(value, attachment);
 	} else {
@@ -146,10 +91,10 @@ void Invoker::invokeUnchecked($CompletionHandler* handler, Object$* attachment, 
 	if ($System::getSecurityManager() != nullptr) {
 		$var($Thread, me, $Thread::currentThread());
 		if ($instanceOf($InnocuousThread, me)) {
-			$var($Invoker$GroupAndInvokeCount, thisGroupAndInvokeCount, $cast($Invoker$GroupAndInvokeCount, $nc(Invoker::myGroupAndInvokeCount)->get()));
-			$nc(($cast($InnocuousThread, me)))->eraseThreadLocals();
+			$var($Invoker$GroupAndInvokeCount, thisGroupAndInvokeCount, $cast($Invoker$GroupAndInvokeCount, Invoker::myGroupAndInvokeCount->get()));
+			$cast($InnocuousThread, me)->eraseThreadLocals();
 			if (thisGroupAndInvokeCount != nullptr) {
-				$nc(Invoker::myGroupAndInvokeCount)->set(thisGroupAndInvokeCount);
+				Invoker::myGroupAndInvokeCount->set(thisGroupAndInvokeCount);
 			}
 		}
 	}
@@ -165,9 +110,9 @@ void Invoker::invoke($AsynchronousChannel* channel, $CompletionHandler* handler,
 	$init(Invoker);
 	bool invokeDirect = false;
 	bool identityOkay = false;
-	$var($Invoker$GroupAndInvokeCount, thisGroupAndInvokeCount, $cast($Invoker$GroupAndInvokeCount, $nc(Invoker::myGroupAndInvokeCount)->get()));
+	$var($Invoker$GroupAndInvokeCount, thisGroupAndInvokeCount, $cast($Invoker$GroupAndInvokeCount, Invoker::myGroupAndInvokeCount->get()));
 	if (thisGroupAndInvokeCount != nullptr) {
-		if (thisGroupAndInvokeCount->group() == $nc(($cast($Groupable, channel)))->group()) {
+		if (thisGroupAndInvokeCount->group() == $nc($cast($Groupable, channel))->group()) {
 			identityOkay = true;
 		}
 		if (identityOkay && (thisGroupAndInvokeCount->invokeCount() < Invoker::maxHandlerInvokeCount)) {
@@ -191,9 +136,9 @@ void Invoker::invoke($AsynchronousChannel* channel, $CompletionHandler* handler,
 
 void Invoker::invokeIndirectly($AsynchronousChannel* channel, $CompletionHandler* handler, Object$* attachment, Object$* result, $Throwable* exc) {
 	$init(Invoker);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$nc($($nc(($cast($Groupable, channel)))->group()))->executeOnPooledThread($$new($Invoker$2, handler, attachment, result, exc));
+		$$nc($nc($cast($Groupable, channel))->group())->executeOnPooledThread($$new($Invoker$2, handler, attachment, result, exc));
 	} catch ($RejectedExecutionException& ree) {
 		$throwNew($ShutdownChannelGroupException);
 	}
@@ -210,14 +155,14 @@ void Invoker::invokeIndirectly($CompletionHandler* handler, Object$* attachment,
 
 void Invoker::invokeOnThreadInThreadPool($Groupable* channel, $Runnable* task) {
 	$init(Invoker);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool invokeDirect = false;
-	$var($Invoker$GroupAndInvokeCount, thisGroupAndInvokeCount, $cast($Invoker$GroupAndInvokeCount, $nc(Invoker::myGroupAndInvokeCount)->get()));
+	$var($Invoker$GroupAndInvokeCount, thisGroupAndInvokeCount, $cast($Invoker$GroupAndInvokeCount, Invoker::myGroupAndInvokeCount->get()));
 	$var($AsynchronousChannelGroupImpl, targetGroup, $nc(channel)->group());
 	if (thisGroupAndInvokeCount == nullptr) {
 		invokeDirect = false;
 	} else {
-		invokeDirect = ($nc(thisGroupAndInvokeCount)->group$ == targetGroup);
+		invokeDirect = (thisGroupAndInvokeCount->group$ == targetGroup);
 	}
 	try {
 		if (invokeDirect) {
@@ -232,56 +177,53 @@ void Invoker::invokeOnThreadInThreadPool($Groupable* channel, $Runnable* task) {
 
 void Invoker::invokeUnchecked($PendingFuture* future) {
 	$init(Invoker);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!Invoker::$assertionsDisabled && !$nc(future)->isDone()) {
 		$throwNew($AssertionError);
 	}
 	$var($CompletionHandler, handler, $nc(future)->handler());
 	if (handler != nullptr) {
-		$var($CompletionHandler, var$0, handler);
-		$var($Object, var$1, future->attachment());
-		$var($Object, var$2, future->value());
-		invokeUnchecked(var$0, var$1, var$2, $(future->exception()));
+		$var($Object, var$0, future->attachment());
+		$var($Object, var$1, future->value());
+		invokeUnchecked(handler, var$0, var$1, $(future->exception()));
 	}
 }
 
 void Invoker::invoke($PendingFuture* future) {
 	$init(Invoker);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!Invoker::$assertionsDisabled && !$nc(future)->isDone()) {
 		$throwNew($AssertionError);
 	}
 	$var($CompletionHandler, handler, $nc(future)->handler());
 	if (handler != nullptr) {
 		$var($AsynchronousChannel, var$0, future->channel());
-		$var($CompletionHandler, var$1, handler);
-		$var($Object, var$2, future->attachment());
-		$var($Object, var$3, future->value());
-		invoke(var$0, var$1, var$2, var$3, $(future->exception()));
+		$var($Object, var$1, future->attachment());
+		$var($Object, var$2, future->value());
+		invoke(var$0, handler, var$1, var$2, $(future->exception()));
 	}
 }
 
 void Invoker::invokeIndirectly($PendingFuture* future) {
 	$init(Invoker);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!Invoker::$assertionsDisabled && !$nc(future)->isDone()) {
 		$throwNew($AssertionError);
 	}
 	$var($CompletionHandler, handler, $nc(future)->handler());
 	if (handler != nullptr) {
 		$var($AsynchronousChannel, var$0, future->channel());
-		$var($CompletionHandler, var$1, handler);
-		$var($Object, var$2, future->attachment());
-		$var($Object, var$3, future->value());
-		invokeIndirectly(var$0, var$1, var$2, var$3, $(future->exception()));
+		$var($Object, var$1, future->attachment());
+		$var($Object, var$2, future->value());
+		invokeIndirectly(var$0, handler, var$1, var$2, $(future->exception()));
 	}
 }
 
-void clinit$Invoker($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Invoker::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	Invoker::$assertionsDisabled = !Invoker::class$->desiredAssertionStatus();
-	Invoker::maxHandlerInvokeCount = $nc(($cast($Integer, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetIntegerAction, "sun.nio.ch.maxCompletionHandlersOnStack"_s, 16)))))))->intValue();
+	Invoker::maxHandlerInvokeCount = $$sure($Integer, $AccessController::doPrivileged($$new($GetIntegerAction, "sun.nio.ch.maxCompletionHandlersOnStack"_s, 16)))->intValue();
 	$assignStatic(Invoker::myGroupAndInvokeCount, $new($Invoker$1));
 }
 
@@ -289,7 +231,53 @@ Invoker::Invoker() {
 }
 
 $Class* Invoker::load$($String* name, bool initialize) {
-	$loadClass(Invoker, name, initialize, &_Invoker_ClassInfo_, clinit$Invoker, allocate$Invoker);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Invoker, $assertionsDisabled)},
+		{"maxHandlerInvokeCount", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Invoker, maxHandlerInvokeCount)},
+		{"myGroupAndInvokeCount", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Lsun/nio/ch/Invoker$GroupAndInvokeCount;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Invoker, myGroupAndInvokeCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Invoker, init$, void)},
+		{"bindToGroup", "(Lsun/nio/ch/AsynchronousChannelGroupImpl;)V", nullptr, $STATIC, $staticMethod(Invoker, bindToGroup, void, $AsynchronousChannelGroupImpl*)},
+		{"getGroupAndInvokeCount", "()Lsun/nio/ch/Invoker$GroupAndInvokeCount;", nullptr, $STATIC, $staticMethod(Invoker, getGroupAndInvokeCount, $Invoker$GroupAndInvokeCount*)},
+		{"invoke", "(Ljava/nio/channels/AsynchronousChannel;Ljava/nio/channels/CompletionHandler;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V", "<V:Ljava/lang/Object;A:Ljava/lang/Object;>(Ljava/nio/channels/AsynchronousChannel;Ljava/nio/channels/CompletionHandler<TV;-TA;>;TA;TV;Ljava/lang/Throwable;)V", $STATIC, $staticMethod(Invoker, invoke, void, $AsynchronousChannel*, $CompletionHandler*, Object$*, Object$*, $Throwable*)},
+		{"invoke", "(Lsun/nio/ch/PendingFuture;)V", "<V:Ljava/lang/Object;A:Ljava/lang/Object;>(Lsun/nio/ch/PendingFuture<TV;TA;>;)V", $STATIC, $staticMethod(Invoker, invoke, void, $PendingFuture*)},
+		{"invokeDirect", "(Lsun/nio/ch/Invoker$GroupAndInvokeCount;Ljava/nio/channels/CompletionHandler;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V", "<V:Ljava/lang/Object;A:Ljava/lang/Object;>(Lsun/nio/ch/Invoker$GroupAndInvokeCount;Ljava/nio/channels/CompletionHandler<TV;-TA;>;TA;TV;Ljava/lang/Throwable;)V", $STATIC, $staticMethod(Invoker, invokeDirect, void, $Invoker$GroupAndInvokeCount*, $CompletionHandler*, Object$*, Object$*, $Throwable*)},
+		{"invokeIndirectly", "(Ljava/nio/channels/AsynchronousChannel;Ljava/nio/channels/CompletionHandler;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V", "<V:Ljava/lang/Object;A:Ljava/lang/Object;>(Ljava/nio/channels/AsynchronousChannel;Ljava/nio/channels/CompletionHandler<TV;-TA;>;TA;TV;Ljava/lang/Throwable;)V", $STATIC, $staticMethod(Invoker, invokeIndirectly, void, $AsynchronousChannel*, $CompletionHandler*, Object$*, Object$*, $Throwable*)},
+		{"invokeIndirectly", "(Ljava/nio/channels/CompletionHandler;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;Ljava/util/concurrent/Executor;)V", "<V:Ljava/lang/Object;A:Ljava/lang/Object;>(Ljava/nio/channels/CompletionHandler<TV;-TA;>;TA;TV;Ljava/lang/Throwable;Ljava/util/concurrent/Executor;)V", $STATIC, $staticMethod(Invoker, invokeIndirectly, void, $CompletionHandler*, Object$*, Object$*, $Throwable*, $Executor*)},
+		{"invokeIndirectly", "(Lsun/nio/ch/PendingFuture;)V", "<V:Ljava/lang/Object;A:Ljava/lang/Object;>(Lsun/nio/ch/PendingFuture<TV;TA;>;)V", $STATIC, $staticMethod(Invoker, invokeIndirectly, void, $PendingFuture*)},
+		{"invokeOnThreadInThreadPool", "(Lsun/nio/ch/Groupable;Ljava/lang/Runnable;)V", nullptr, $STATIC, $staticMethod(Invoker, invokeOnThreadInThreadPool, void, $Groupable*, $Runnable*)},
+		{"invokeUnchecked", "(Ljava/nio/channels/CompletionHandler;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Throwable;)V", "<V:Ljava/lang/Object;A:Ljava/lang/Object;>(Ljava/nio/channels/CompletionHandler<TV;-TA;>;TA;TV;Ljava/lang/Throwable;)V", $STATIC, $staticMethod(Invoker, invokeUnchecked, void, $CompletionHandler*, Object$*, Object$*, $Throwable*)},
+		{"invokeUnchecked", "(Lsun/nio/ch/PendingFuture;)V", "<V:Ljava/lang/Object;A:Ljava/lang/Object;>(Lsun/nio/ch/PendingFuture<TV;TA;>;)V", $STATIC, $staticMethod(Invoker, invokeUnchecked, void, $PendingFuture*)},
+		{"isBoundToAnyGroup", "()Z", nullptr, $STATIC, $staticMethod(Invoker, isBoundToAnyGroup, bool)},
+		{"mayInvokeDirect", "(Lsun/nio/ch/Invoker$GroupAndInvokeCount;Lsun/nio/ch/AsynchronousChannelGroupImpl;)Z", nullptr, $STATIC, $staticMethod(Invoker, mayInvokeDirect, bool, $Invoker$GroupAndInvokeCount*, $AsynchronousChannelGroupImpl*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.ch.Invoker$GroupAndInvokeCount", "sun.nio.ch.Invoker", "GroupAndInvokeCount", $STATIC},
+		{"sun.nio.ch.Invoker$3", nullptr, nullptr, 0},
+		{"sun.nio.ch.Invoker$2", nullptr, nullptr, 0},
+		{"sun.nio.ch.Invoker$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.Invoker",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.ch.Invoker$GroupAndInvokeCount,sun.nio.ch.Invoker$3,sun.nio.ch.Invoker$2,sun.nio.ch.Invoker$1"
+	};
+	$loadClass(Invoker, name, initialize, &classInfo$$, Invoker::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Invoker);
+	});
 	return class$;
 }
 

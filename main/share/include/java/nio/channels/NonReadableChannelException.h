@@ -14,10 +14,13 @@ class $import NonReadableChannelException : public ::java::lang::IllegalStateExc
 public:
 	NonReadableChannelException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xD39410261BA4CB96;
+	static const int64_t serialVersionUID = (int64_t)0xd39410261ba4cb96;
 	NonReadableChannelException(const NonReadableChannelException& e);
 	virtual void throw$() override;
-	inline NonReadableChannelException* operator ->() {
+	inline NonReadableChannelException* operator ->() const {
+		return (NonReadableChannelException*)throwing$;
+	}
+	inline operator NonReadableChannelException*() const {
 		return (NonReadableChannelException*)throwing$;
 	}
 };

@@ -42,6 +42,7 @@ class Utilities : public ::java::lang::Object {
 	$class(Utilities, 0, ::java::lang::Object)
 public:
 	Utilities();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::List* addToSNIServerNameList(::java::util::List* serverNames, $String* hostname);
 	static $String* byte16HexString(int32_t id);

@@ -73,6 +73,7 @@ class $export PropertiesDefaultHandler : public ::jdk::internal::org::xml::sax::
 	$class(PropertiesDefaultHandler, 0, ::jdk::internal::org::xml::sax::helpers::DefaultHandler)
 public:
 	PropertiesDefaultHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void characters($chars* ch, int32_t start, int32_t length) override;
 	virtual void endElement($String* uri, $String* localName, $String* qName) override;

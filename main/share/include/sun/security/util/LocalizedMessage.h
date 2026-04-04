@@ -24,6 +24,7 @@ class $import LocalizedMessage : public ::java::lang::Object {
 	$class(LocalizedMessage, 0, ::java::lang::Object)
 public:
 	LocalizedMessage();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* key);
 	virtual $String* formatLocalized($ObjectArray* arguments);
 	virtual $String* formatNonlocalized($ObjectArray* arguments);

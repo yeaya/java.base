@@ -30,6 +30,7 @@ class $export ResolverConfigurationImpl : public ::sun::net::dns::ResolverConfig
 	$class(ResolverConfigurationImpl, 0, ::sun::net::dns::ResolverConfiguration)
 public:
 	ResolverConfigurationImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* fallbackDomain0();
 	::java::util::LinkedList* getSearchList();
@@ -41,7 +42,7 @@ public:
 	static bool $assertionsDisabled;
 	static $Object* lock;
 	static int64_t lastRefresh;
-	static const int32_t TIMEOUT = 0x000493E0;
+	static const int32_t TIMEOUT = 0x000493e0;
 	::sun::net::dns::ResolverConfiguration$Options* opts = nullptr;
 	::java::util::LinkedList* searchlist$ = nullptr;
 	::java::util::LinkedList* nameservers$ = nullptr;

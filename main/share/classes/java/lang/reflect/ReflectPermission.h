@@ -15,7 +15,7 @@ public:
 	ReflectPermission();
 	void init$($String* name);
 	void init$($String* name, $String* actions);
-	static const int64_t serialVersionUID = (int64_t)0x66DF55209D4CF89D;
+	static const int64_t serialVersionUID = (int64_t)0x66df55209d4cf89d;
 };
 
 		} // reflect

@@ -1,5 +1,4 @@
 #include <p/two/Bar.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -8,37 +7,33 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace p {
 	namespace two {
 
-$MethodInfo _Bar_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Bar, init$, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Bar, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Bar_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"p.two.Bar",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Bar_MethodInfo_
-};
-
-$Object* allocate$Bar($Class* clazz) {
-	return $of($alloc(Bar));
-}
-
 void Bar::init$() {
 }
 
 $String* Bar::toString() {
-	return $of(this)->getClass()->getName();
+	return this->getClass()->getName();
 }
 
 Bar::Bar() {
 }
 
 $Class* Bar::load$($String* name, bool initialize) {
-	$loadClass(Bar, name, initialize, &_Bar_ClassInfo_, allocate$Bar);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Bar, init$, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Bar, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"p.two.Bar",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Bar, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Bar);
+	});
 	return class$;
 }
 

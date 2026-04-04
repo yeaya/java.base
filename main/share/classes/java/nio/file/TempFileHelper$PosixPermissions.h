@@ -23,6 +23,7 @@ class TempFileHelper$PosixPermissions : public ::java::lang::Object {
 	$class(TempFileHelper$PosixPermissions, 0, ::java::lang::Object)
 public:
 	TempFileHelper$PosixPermissions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::nio::file::attribute::FileAttribute* filePermissions;
 	static ::java::nio::file::attribute::FileAttribute* dirPermissions;

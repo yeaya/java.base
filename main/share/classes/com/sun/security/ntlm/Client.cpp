@@ -1,5 +1,4 @@
 #include <com/sun/security/ntlm/Client.h>
-
 #include <com/sun/security/ntlm/NTLM$Reader.h>
 #include <com/sun/security/ntlm/NTLM$Writer.h>
 #include <com/sun/security/ntlm/NTLM.h>
@@ -34,41 +33,8 @@ namespace com {
 		namespace security {
 			namespace ntlm {
 
-$FieldInfo _Client_FieldInfo_[] = {
-	{"hostname", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Client, hostname)},
-	{"username", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Client, username)},
-	{"domain", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Client, domain)},
-	{"pw1", "[B", nullptr, $PRIVATE, $field(Client, pw1)},
-	{"pw2", "[B", nullptr, $PRIVATE, $field(Client, pw2)},
-	{}
-};
-
-$MethodInfo _Client_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[C)V", nullptr, $PUBLIC, $method(Client, init$, void, $String*, $String*, $String*, $String*, $chars*), "com.sun.security.ntlm.NTLMException"},
-	{"debug", "([B)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Client, debug, void, $bytes*)},
-	{"debug", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Client, debug, void, $String*, $ObjectArray*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $method(Client, dispose, void)},
-	{"getDomain", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Client, getDomain, $String*)},
-	{"type1", "()[B", nullptr, $PUBLIC, $method(Client, type1, $bytes*)},
-	{"type3", "([B[B)[B", nullptr, $PUBLIC, $method(Client, type3, $bytes*, $bytes*, $bytes*), "com.sun.security.ntlm.NTLMException"},
-	{}
-};
-
-$ClassInfo _Client_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.security.ntlm.Client",
-	"com.sun.security.ntlm.NTLM",
-	nullptr,
-	_Client_FieldInfo_,
-	_Client_MethodInfo_
-};
-
-$Object* allocate$Client($Class* clazz) {
-	return $of($alloc(Client));
-}
-
 void Client::init$($String* version, $String* hostname, $String* username, $String* domain, $chars* password) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$NTLM::init$(version);
 	if (username == nullptr || password == nullptr) {
 		$throwNew($NTLMException, $NTLMException::PROTOCOL, "username/password cannot be null"_s);
@@ -79,16 +45,16 @@ void Client::init$($String* version, $String* hostname, $String* username, $Stri
 	$set(this, pw1, getP1(password));
 	$set(this, pw2, getP2(password));
 	debug("NTLM Client: (h,u,t,version(v)) = (%s,%s,%s,%s(%s))\n"_s, $$new($ObjectArray, {
-		$of(hostname),
-		$of(username),
-		$of(domain),
-		$of(version),
-		$($of(this->v->toString()))
+		hostname,
+		username,
+		domain,
+		version,
+		$(this->v->toString())
 	}));
 }
 
 $bytes* Client::type1() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NTLM$Writer, p, $new($NTLM$Writer, 1, 32));
 	int32_t flags = 0x00008207;
 	$init($Version);
@@ -102,7 +68,7 @@ $bytes* Client::type1() {
 }
 
 $bytes* Client::type3($bytes* type2, $bytes* nonce) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Version);
 	if (type2 == nullptr || (this->v != $Version::NTLM && nonce == nullptr)) {
 		$throwNew($NTLMException, $NTLMException::PROTOCOL, "type2 and nonce cannot be null"_s);
@@ -112,8 +78,8 @@ $bytes* Client::type3($bytes* type2, $bytes* nonce) {
 	$var($NTLM$Reader, r, $new($NTLM$Reader, type2));
 	$var($bytes, challenge, r->readBytes(24, 8));
 	int32_t inputFlags = r->readInt(20);
-	bool unicode = ((int32_t)(inputFlags & (uint32_t)1)) == 1;
-	int32_t flags = 0x00088200 | ((int32_t)(inputFlags & (uint32_t)3));
+	bool unicode = (inputFlags & 1) == 1;
+	int32_t flags = 0x00088200 | (inputFlags & 3);
 	$var($NTLM$Writer, p, $new($NTLM$Writer, 3, 64));
 	$var($bytes, lm, nullptr);
 	$var($bytes, ntlm, nullptr);
@@ -129,51 +95,49 @@ $bytes* Client::type3($bytes* type2, $bytes* nonce) {
 		if (this->writeNTLM) {
 			$assign(ntlm, calcResponse(nthash, challenge));
 		}
+	} else if (this->v == $Version::NTLM2) {
+		$var($bytes, nthash, calcNTHash(this->pw2));
+		$assign(lm, ntlm2LM(nonce));
+		$assign(ntlm, ntlm2NTLM(nthash, nonce, challenge));
 	} else {
-		if (this->v == $Version::NTLM2) {
-			$var($bytes, nthash, calcNTHash(this->pw2));
-			$assign(lm, ntlm2LM(nonce));
-			$assign(ntlm, ntlm2NTLM(nthash, nonce, challenge));
-		} else {
-			$var($bytes, nthash, calcNTHash(this->pw2));
-			if (this->writeLM) {
-				$init($Locale);
-				$assign(lm, calcV2(nthash, $$str({$($nc(this->username)->toUpperCase($Locale::US)), this->domain}), nonce, challenge));
+		$var($bytes, nthash, calcNTHash(this->pw2));
+		if (this->writeLM) {
+			$init($Locale);
+			$assign(lm, calcV2(nthash, $$str({$($nc(this->username)->toUpperCase($Locale::US)), this->domain}), nonce, challenge));
+		}
+		if (this->writeNTLM) {
+			$var($bytes, alist, ((inputFlags & 0x00800000) != 0) ? r->readSecurityBuffer(40) : $new($bytes, 0));
+			$var($bytes, blob, $new($bytes, 32 + $nc(alist)->length));
+			$System::arraycopy($$new($bytes, {
+				1,
+				1,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			}), 0, blob, 0, 8);
+			$var($bytes, time, $($($($BigInteger::valueOf($$new($Date)->getTime()))->add($$new($BigInteger, "11644473600000"_s)))->multiply($($BigInteger::valueOf(10000))))->toByteArray());
+			for (int32_t i = 0; i < time->length; ++i) {
+				blob->set(8 + time->length - i - 1, time->get(i));
 			}
-			if (this->writeNTLM) {
-				$var($bytes, alist, (((int32_t)(inputFlags & (uint32_t)0x00800000)) != 0) ? r->readSecurityBuffer(40) : $new($bytes, 0));
-				$var($bytes, blob, $new($bytes, 32 + $nc(alist)->length));
-				$System::arraycopy($$new($bytes, {
-					(int8_t)1,
-					(int8_t)1,
-					(int8_t)0,
-					(int8_t)0,
-					(int8_t)0,
-					(int8_t)0,
-					(int8_t)0,
-					(int8_t)0
-				}), 0, blob, 0, 8);
-				$var($bytes, time, $nc($($nc($($nc($($BigInteger::valueOf($$new($Date)->getTime())))->add($$new($BigInteger, "11644473600000"_s))))->multiply($($BigInteger::valueOf((int64_t)10000)))))->toByteArray());
-				for (int32_t i = 0; i < $nc(time)->length; ++i) {
-					blob->set(8 + time->length - i - 1, time->get(i));
-				}
-				$System::arraycopy(nonce, 0, blob, 16, 8);
-				$System::arraycopy($$new($bytes, {
-					(int8_t)0,
-					(int8_t)0,
-					(int8_t)0,
-					(int8_t)0
-				}), 0, blob, 24, 4);
-				$System::arraycopy(alist, 0, blob, 28, alist->length);
-				$System::arraycopy($$new($bytes, {
-					(int8_t)0,
-					(int8_t)0,
-					(int8_t)0,
-					(int8_t)0
-				}), 0, blob, 28 + alist->length, 4);
-				$init($Locale);
-				$assign(ntlm, calcV2(nthash, $$str({$($nc(this->username)->toUpperCase($Locale::US)), this->domain}), blob, challenge));
-			}
+			$System::arraycopy(nonce, 0, blob, 16, 8);
+			$System::arraycopy($$new($bytes, {
+				0,
+				0,
+				0,
+				0
+			}), 0, blob, 24, 4);
+			$System::arraycopy(alist, 0, blob, 28, alist->length);
+			$System::arraycopy($$new($bytes, {
+				0,
+				0,
+				0,
+				0
+			}), 0, blob, 28 + alist->length, 4);
+			$init($Locale);
+			$assign(ntlm, calcV2(nthash, $$str({$($nc(this->username)->toUpperCase($Locale::US)), this->domain}), blob, challenge));
 		}
 	}
 	p->writeSecurityBuffer(12, lm);
@@ -206,7 +170,35 @@ Client::Client() {
 }
 
 $Class* Client::load$($String* name, bool initialize) {
-	$loadClass(Client, name, initialize, &_Client_ClassInfo_, allocate$Client);
+	$FieldInfo fieldInfos$$[] = {
+		{"hostname", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Client, hostname)},
+		{"username", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Client, username)},
+		{"domain", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Client, domain)},
+		{"pw1", "[B", nullptr, $PRIVATE, $field(Client, pw1)},
+		{"pw2", "[B", nullptr, $PRIVATE, $field(Client, pw2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[C)V", nullptr, $PUBLIC, $method(Client, init$, void, $String*, $String*, $String*, $String*, $chars*), "com.sun.security.ntlm.NTLMException"},
+		{"debug", "([B)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Client, debug, void, $bytes*)},
+		{"debug", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Client, debug, void, $String*, $ObjectArray*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $method(Client, dispose, void)},
+		{"getDomain", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Client, getDomain, $String*)},
+		{"type1", "()[B", nullptr, $PUBLIC, $method(Client, type1, $bytes*)},
+		{"type3", "([B[B)[B", nullptr, $PUBLIC, $method(Client, type3, $bytes*, $bytes*, $bytes*), "com.sun.security.ntlm.NTLMException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.security.ntlm.Client",
+		"com.sun.security.ntlm.NTLM",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Client, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Client);
+	});
 	return class$;
 }
 

@@ -29,6 +29,7 @@ class MethodHandleImpl$TableSwitchCacheKey : public ::java::lang::Object {
 	$class(MethodHandleImpl$TableSwitchCacheKey, 0, ::java::lang::Object)
 public:
 	MethodHandleImpl$TableSwitchCacheKey();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::MethodType* basicType, int32_t numberOfCases);
 	virtual bool equals(Object$* o) override;
 	virtual int32_t hashCode() override;

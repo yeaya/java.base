@@ -49,6 +49,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* clone() override;
 	static $StringArray* getAvailableIDs(int32_t rawOffset);
@@ -89,7 +90,7 @@ public:
 	static const int32_t ONE_MINUTE = 60000; // 60 * 1000
 	static const int32_t ONE_HOUR = 3600000; // 60 * ONE_MINUTE
 	static const int32_t ONE_DAY = 86400000; // 24 * ONE_HOUR
-	static const int64_t serialVersionUID = (int64_t)0x31B3E9F57744ACA1;
+	static const int64_t serialVersionUID = (int64_t)0x31b3e9f57744aca1;
 	static ::java::util::TimeZone* NO_TIMEZONE;
 	$String* ID = nullptr;
 	::java::time::ZoneId* zoneId = nullptr;

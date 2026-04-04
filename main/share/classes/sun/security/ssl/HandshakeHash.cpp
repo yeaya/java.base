@@ -1,11 +1,8 @@
 #include <sun/security/ssl/HandshakeHash.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractSequentialList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
 #include <java/util/LinkedList.h>
@@ -24,7 +21,6 @@
 #undef HELLO_REQUEST
 #undef HELLO_VERIFY_REQUEST
 
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
@@ -32,10 +28,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $LinkedList = ::java::util::LinkedList;
 using $SecretKey = ::javax::crypto::SecretKey;
 using $CipherSuite = ::sun::security::ssl::CipherSuite;
@@ -44,76 +37,12 @@ using $HandshakeHash$S30HandshakeHash = ::sun::security::ssl::HandshakeHash$S30H
 using $HandshakeHash$T10HandshakeHash = ::sun::security::ssl::HandshakeHash$T10HandshakeHash;
 using $HandshakeHash$T12HandshakeHash = ::sun::security::ssl::HandshakeHash$T12HandshakeHash;
 using $HandshakeHash$T13HandshakeHash = ::sun::security::ssl::HandshakeHash$T13HandshakeHash;
-using $HandshakeHash$TranscriptHash = ::sun::security::ssl::HandshakeHash$TranscriptHash;
 using $ProtocolVersion = ::sun::security::ssl::ProtocolVersion;
 using $SSLHandshake = ::sun::security::ssl::SSLHandshake;
 
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _HandshakeHash_FieldInfo_[] = {
-	{"transcriptHash", "Lsun/security/ssl/HandshakeHash$TranscriptHash;", nullptr, $PRIVATE, $field(HandshakeHash, transcriptHash)},
-	{"reserves", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<[B>;", $PRIVATE, $field(HandshakeHash, reserves)},
-	{"hasBeenUsed", "Z", nullptr, $PRIVATE, $field(HandshakeHash, hasBeenUsed)},
-	{}
-};
-
-$MethodInfo _HandshakeHash_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HandshakeHash, init$, void)},
-	{"archived", "()[B", nullptr, 0, $method(HandshakeHash, archived, $bytes*)},
-	{"consume", "()V", nullptr, 0, $method(HandshakeHash, consume, void)},
-	{"copy", "()Lsun/security/ssl/HandshakeHash;", nullptr, 0, $method(HandshakeHash, copy, HandshakeHash*)},
-	{"deliver", "([B)V", nullptr, 0, $method(HandshakeHash, deliver, void, $bytes*)},
-	{"deliver", "([BII)V", nullptr, 0, $method(HandshakeHash, deliver, void, $bytes*, int32_t, int32_t)},
-	{"deliver", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(HandshakeHash, deliver, void, $ByteBuffer*)},
-	{"determine", "(Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/CipherSuite;)V", nullptr, 0, $method(HandshakeHash, determine, void, $ProtocolVersion*, $CipherSuite*)},
-	{"digest", "()[B", nullptr, 0, $method(HandshakeHash, digest, $bytes*)},
-	{"digest", "(Ljava/lang/String;)[B", nullptr, 0, $method(HandshakeHash, digest, $bytes*, $String*)},
-	{"digest", "(Ljava/lang/String;Ljavax/crypto/SecretKey;)[B", nullptr, 0, $method(HandshakeHash, digest, $bytes*, $String*, $SecretKey*)},
-	{"digest", "(ZLjavax/crypto/SecretKey;)[B", nullptr, 0, $method(HandshakeHash, digest, $bytes*, bool, $SecretKey*)},
-	{"finish", "()V", nullptr, 0, $method(HandshakeHash, finish, void)},
-	{"isHashable", "(B)Z", nullptr, $PUBLIC, $method(HandshakeHash, isHashable, bool, int8_t)},
-	{"push", "([B)V", nullptr, 0, $method(HandshakeHash, push, void, $bytes*)},
-	{"receive", "([B)V", nullptr, 0, $method(HandshakeHash, receive, void, $bytes*)},
-	{"receive", "(Ljava/nio/ByteBuffer;I)V", nullptr, 0, $method(HandshakeHash, receive, void, $ByteBuffer*, int32_t)},
-	{"receive", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(HandshakeHash, receive, void, $ByteBuffer*)},
-	{"removeLastReceived", "()[B", nullptr, 0, $method(HandshakeHash, removeLastReceived, $bytes*)},
-	{"update", "()V", nullptr, 0, $method(HandshakeHash, update, void)},
-	{"utilize", "()V", nullptr, 0, $method(HandshakeHash, utilize, void)},
-	{}
-};
-
-$InnerClassInfo _HandshakeHash_InnerClassesInfo_[] = {
-	{"sun.security.ssl.HandshakeHash$NonCloneableHash", "sun.security.ssl.HandshakeHash", "NonCloneableHash", $STATIC | $FINAL},
-	{"sun.security.ssl.HandshakeHash$CloneableHash", "sun.security.ssl.HandshakeHash", "CloneableHash", $STATIC | $FINAL},
-	{"sun.security.ssl.HandshakeHash$T13HandshakeHash", "sun.security.ssl.HandshakeHash", "T13HandshakeHash", $STATIC | $FINAL},
-	{"sun.security.ssl.HandshakeHash$T12HandshakeHash", "sun.security.ssl.HandshakeHash", "T12HandshakeHash", $STATIC | $FINAL},
-	{"sun.security.ssl.HandshakeHash$T10HandshakeHash", "sun.security.ssl.HandshakeHash", "T10HandshakeHash", $STATIC | $FINAL},
-	{"sun.security.ssl.HandshakeHash$S30HandshakeHash", "sun.security.ssl.HandshakeHash", "S30HandshakeHash", $STATIC | $FINAL},
-	{"sun.security.ssl.HandshakeHash$CacheOnlyHash", "sun.security.ssl.HandshakeHash", "CacheOnlyHash", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.HandshakeHash$TranscriptHash", "sun.security.ssl.HandshakeHash", "TranscriptHash", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _HandshakeHash_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.HandshakeHash",
-	"java.lang.Object",
-	nullptr,
-	_HandshakeHash_FieldInfo_,
-	_HandshakeHash_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HandshakeHash_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.HandshakeHash$NonCloneableHash,sun.security.ssl.HandshakeHash$CloneableHash,sun.security.ssl.HandshakeHash$T13HandshakeHash,sun.security.ssl.HandshakeHash$T12HandshakeHash,sun.security.ssl.HandshakeHash$T10HandshakeHash,sun.security.ssl.HandshakeHash$S30HandshakeHash,sun.security.ssl.HandshakeHash$CacheOnlyHash,sun.security.ssl.HandshakeHash$TranscriptHash"
-};
-
-$Object* allocate$HandshakeHash($Class* clazz) {
-	return $of($alloc(HandshakeHash));
-}
 
 void HandshakeHash::init$() {
 	$set(this, transcriptHash, $new($HandshakeHash$CacheOnlyHash));
@@ -122,7 +51,7 @@ void HandshakeHash::init$() {
 }
 
 void HandshakeHash::determine($ProtocolVersion* protocolVersion, $CipherSuite* cipherSuite) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($HandshakeHash$CacheOnlyHash, this->transcriptHash))) {
 		$throwNew($IllegalStateException, "Not expected instance of transcript hash"_s);
 	}
@@ -145,8 +74,8 @@ void HandshakeHash::determine($ProtocolVersion* protocolVersion, $CipherSuite* c
 HandshakeHash* HandshakeHash::copy() {
 	if ($instanceOf($HandshakeHash$CacheOnlyHash, this->transcriptHash)) {
 		$var(HandshakeHash, result, $new(HandshakeHash));
-		$set(result, transcriptHash, $nc(($cast($HandshakeHash$CacheOnlyHash, this->transcriptHash)))->copy());
-		$set(result, reserves, $new($LinkedList, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(static_cast<$AbstractSequentialList*>(this->reserves))))));
+		$set(result, transcriptHash, $cast($HandshakeHash$CacheOnlyHash, this->transcriptHash)->copy());
+		$set(result, reserves, $new($LinkedList, $cast($AbstractCollection, this->reserves)));
 		result->hasBeenUsed = this->hasBeenUsed;
 		return result;
 	} else {
@@ -159,12 +88,12 @@ void HandshakeHash::receive($bytes* input) {
 }
 
 void HandshakeHash::receive($ByteBuffer* input, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(input)->hasArray()) {
 		int32_t var$0 = input->position();
 		int32_t from = var$0 + input->arrayOffset();
 		int32_t to = from + length;
-		$nc(this->reserves)->add($($Arrays::copyOfRange($($cast($bytes, input->array())), from, to)));
+		$nc(this->reserves)->add($($Arrays::copyOfRange($$cast($bytes, input->array()), from, to)));
 	} else {
 		int32_t inPos = input->position();
 		$var($bytes, holder, $new($bytes, length));
@@ -197,7 +126,7 @@ void HandshakeHash::deliver($bytes* input, int32_t offset, int32_t length) {
 }
 
 void HandshakeHash::deliver($ByteBuffer* input) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	update();
 	if ($nc(input)->hasArray()) {
 		$var($bytes, var$0, $cast($bytes, input->array()));
@@ -218,7 +147,7 @@ void HandshakeHash::utilize() {
 		return;
 	}
 	if ($nc(this->reserves)->size() != 0) {
-		$var($bytes, holder, $cast($bytes, $nc(this->reserves)->remove()));
+		$var($bytes, holder, $cast($bytes, this->reserves->remove()));
 		$nc(this->transcriptHash)->update(holder, 0, $nc(holder)->length);
 		this->hasBeenUsed = true;
 	}
@@ -230,15 +159,15 @@ void HandshakeHash::consume() {
 		return;
 	}
 	if ($nc(this->reserves)->size() != 0) {
-		$var($bytes, holder, $cast($bytes, $nc(this->reserves)->remove()));
+		$var($bytes, holder, $cast($bytes, this->reserves->remove()));
 		$nc(this->transcriptHash)->update(holder, 0, $nc(holder)->length);
 	}
 }
 
 void HandshakeHash::update() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while ($nc(this->reserves)->size() != 0) {
-		$var($bytes, holder, $cast($bytes, $nc(this->reserves)->remove()));
+		$var($bytes, holder, $cast($bytes, this->reserves->remove()));
 		$nc(this->transcriptHash)->update(holder, 0, $nc(holder)->length);
 	}
 	this->hasBeenUsed = false;
@@ -282,7 +211,64 @@ HandshakeHash::HandshakeHash() {
 }
 
 $Class* HandshakeHash::load$($String* name, bool initialize) {
-	$loadClass(HandshakeHash, name, initialize, &_HandshakeHash_ClassInfo_, allocate$HandshakeHash);
+	$FieldInfo fieldInfos$$[] = {
+		{"transcriptHash", "Lsun/security/ssl/HandshakeHash$TranscriptHash;", nullptr, $PRIVATE, $field(HandshakeHash, transcriptHash)},
+		{"reserves", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<[B>;", $PRIVATE, $field(HandshakeHash, reserves)},
+		{"hasBeenUsed", "Z", nullptr, $PRIVATE, $field(HandshakeHash, hasBeenUsed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HandshakeHash, init$, void)},
+		{"archived", "()[B", nullptr, 0, $method(HandshakeHash, archived, $bytes*)},
+		{"consume", "()V", nullptr, 0, $method(HandshakeHash, consume, void)},
+		{"copy", "()Lsun/security/ssl/HandshakeHash;", nullptr, 0, $method(HandshakeHash, copy, HandshakeHash*)},
+		{"deliver", "([B)V", nullptr, 0, $method(HandshakeHash, deliver, void, $bytes*)},
+		{"deliver", "([BII)V", nullptr, 0, $method(HandshakeHash, deliver, void, $bytes*, int32_t, int32_t)},
+		{"deliver", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(HandshakeHash, deliver, void, $ByteBuffer*)},
+		{"determine", "(Lsun/security/ssl/ProtocolVersion;Lsun/security/ssl/CipherSuite;)V", nullptr, 0, $method(HandshakeHash, determine, void, $ProtocolVersion*, $CipherSuite*)},
+		{"digest", "()[B", nullptr, 0, $method(HandshakeHash, digest, $bytes*)},
+		{"digest", "(Ljava/lang/String;)[B", nullptr, 0, $method(HandshakeHash, digest, $bytes*, $String*)},
+		{"digest", "(Ljava/lang/String;Ljavax/crypto/SecretKey;)[B", nullptr, 0, $method(HandshakeHash, digest, $bytes*, $String*, $SecretKey*)},
+		{"digest", "(ZLjavax/crypto/SecretKey;)[B", nullptr, 0, $method(HandshakeHash, digest, $bytes*, bool, $SecretKey*)},
+		{"finish", "()V", nullptr, 0, $method(HandshakeHash, finish, void)},
+		{"isHashable", "(B)Z", nullptr, $PUBLIC, $method(HandshakeHash, isHashable, bool, int8_t)},
+		{"push", "([B)V", nullptr, 0, $method(HandshakeHash, push, void, $bytes*)},
+		{"receive", "([B)V", nullptr, 0, $method(HandshakeHash, receive, void, $bytes*)},
+		{"receive", "(Ljava/nio/ByteBuffer;I)V", nullptr, 0, $method(HandshakeHash, receive, void, $ByteBuffer*, int32_t)},
+		{"receive", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(HandshakeHash, receive, void, $ByteBuffer*)},
+		{"removeLastReceived", "()[B", nullptr, 0, $method(HandshakeHash, removeLastReceived, $bytes*)},
+		{"update", "()V", nullptr, 0, $method(HandshakeHash, update, void)},
+		{"utilize", "()V", nullptr, 0, $method(HandshakeHash, utilize, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.HandshakeHash$NonCloneableHash", "sun.security.ssl.HandshakeHash", "NonCloneableHash", $STATIC | $FINAL},
+		{"sun.security.ssl.HandshakeHash$CloneableHash", "sun.security.ssl.HandshakeHash", "CloneableHash", $STATIC | $FINAL},
+		{"sun.security.ssl.HandshakeHash$T13HandshakeHash", "sun.security.ssl.HandshakeHash", "T13HandshakeHash", $STATIC | $FINAL},
+		{"sun.security.ssl.HandshakeHash$T12HandshakeHash", "sun.security.ssl.HandshakeHash", "T12HandshakeHash", $STATIC | $FINAL},
+		{"sun.security.ssl.HandshakeHash$T10HandshakeHash", "sun.security.ssl.HandshakeHash", "T10HandshakeHash", $STATIC | $FINAL},
+		{"sun.security.ssl.HandshakeHash$S30HandshakeHash", "sun.security.ssl.HandshakeHash", "S30HandshakeHash", $STATIC | $FINAL},
+		{"sun.security.ssl.HandshakeHash$CacheOnlyHash", "sun.security.ssl.HandshakeHash", "CacheOnlyHash", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.HandshakeHash$TranscriptHash", "sun.security.ssl.HandshakeHash", "TranscriptHash", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.HandshakeHash",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.HandshakeHash$NonCloneableHash,sun.security.ssl.HandshakeHash$CloneableHash,sun.security.ssl.HandshakeHash$T13HandshakeHash,sun.security.ssl.HandshakeHash$T12HandshakeHash,sun.security.ssl.HandshakeHash$T10HandshakeHash,sun.security.ssl.HandshakeHash$S30HandshakeHash,sun.security.ssl.HandshakeHash$CacheOnlyHash,sun.security.ssl.HandshakeHash$TranscriptHash"
+	};
+	$loadClass(HandshakeHash, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HandshakeHash);
+	});
 	return class$;
 }
 

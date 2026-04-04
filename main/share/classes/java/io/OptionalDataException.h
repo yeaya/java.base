@@ -14,12 +14,15 @@ public:
 	OptionalDataException();
 	void init$(int32_t len);
 	void init$(bool end);
-	static const int64_t serialVersionUID = (int64_t)0x90D2C71B9FB43AA4;
+	static const int64_t serialVersionUID = (int64_t)0x90d2c71b9fb43aa4;
 	int32_t length = 0;
 	bool eof = false;
 	OptionalDataException(const OptionalDataException& e);
 	virtual void throw$() override;
-	inline OptionalDataException* operator ->() {
+	inline OptionalDataException* operator ->() const {
+		return (OptionalDataException*)throwing$;
+	}
+	inline operator OptionalDataException*() const {
 		return (OptionalDataException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/HandshakeAbsence.h>
-
 #include <sun/security/ssl/ConnectionContext.h>
 #include <sun/security/ssl/SSLHandshake$HandshakeMessage.h>
 #include <jcpp.h>
@@ -13,26 +12,22 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _HandshakeAbsence_MethodInfo_[] = {
-	{"absent", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HandshakeAbsence, absent, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _HandshakeAbsence_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"sun.security.ssl.HandshakeAbsence",
-	nullptr,
-	nullptr,
-	nullptr,
-	_HandshakeAbsence_MethodInfo_
-};
-
-$Object* allocate$HandshakeAbsence($Class* clazz) {
-	return $of($alloc(HandshakeAbsence));
-}
-
 $Class* HandshakeAbsence::load$($String* name, bool initialize) {
-	$loadClass(HandshakeAbsence, name, initialize, &_HandshakeAbsence_ClassInfo_, allocate$HandshakeAbsence);
+	$MethodInfo methodInfos$$[] = {
+		{"absent", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HandshakeAbsence, absent, void, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"sun.security.ssl.HandshakeAbsence",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HandshakeAbsence, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HandshakeAbsence);
+	});
 	return class$;
 }
 

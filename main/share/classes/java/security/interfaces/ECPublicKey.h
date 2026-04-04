@@ -27,7 +27,7 @@ public:
 	virtual ::java::security::spec::ECPoint* getW() {return nullptr;}
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xD1FECB679990CC46;
+	static const int64_t serialVersionUID = (int64_t)0xd1fecb679990cc46;
 };
 
 		} // interfaces

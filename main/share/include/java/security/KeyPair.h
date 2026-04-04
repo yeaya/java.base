@@ -22,7 +22,7 @@ public:
 	void init$(::java::security::PublicKey* publicKey, ::java::security::PrivateKey* privateKey);
 	::java::security::PrivateKey* getPrivate();
 	::java::security::PublicKey* getPublic();
-	static const int64_t serialVersionUID = (int64_t)0x97030C3AD2CD1293;
+	static const int64_t serialVersionUID = (int64_t)0x97030c3ad2cd1293;
 	::java::security::PrivateKey* privateKey = nullptr;
 	::java::security::PublicKey* publicKey = nullptr;
 };

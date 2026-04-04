@@ -24,6 +24,7 @@ class $export ByteSignature : public ::sun::reflect::generics::tree::BaseType {
 	$class(ByteSignature, 0, ::sun::reflect::generics::tree::BaseType)
 public:
 	ByteSignature();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void accept(::sun::reflect::generics::visitor::TypeTreeVisitor* v) override;
 	static ::sun::reflect::generics::tree::ByteSignature* make();

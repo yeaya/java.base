@@ -13,6 +13,7 @@ class SSLAlgorithmDecomposer$1 : public ::java::lang::Object {
 	$class(SSLAlgorithmDecomposer$1, 0, ::java::lang::Object)
 public:
 	SSLAlgorithmDecomposer$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$security$ssl$SSLCipher;
 	static $ints* $SwitchMap$sun$security$ssl$CipherSuite$KeyExchange;
 };

@@ -1,5 +1,4 @@
 #include <Regex.h>
-
 #include <java/lang/CharSequence.h>
 #include <jcpp.h>
 
@@ -7,29 +6,6 @@ using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _Regex_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Regex, init$, void)},
-	{"ck", "(ZZ)V", nullptr, $STATIC, $staticMethod(Regex, ck, void, bool, bool), "java.lang.Exception"},
-	{"ck", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Regex, ck, void, $String*, $String*), "java.lang.Exception"},
-	{"ck", "([Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Regex, ck, void, $StringArray*, $StringArray*), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Regex, main, void, $StringArray*), "java.lang.Exception"},
-	{"testLiteralReplacement", "()V", nullptr, $STATIC, $staticMethod(Regex, testLiteralReplacement, void), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Regex_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Regex",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Regex_MethodInfo_
-};
-
-$Object* allocate$Regex($Class* clazz) {
-	return $of($alloc(Regex));
-}
 
 void Regex::init$() {
 }
@@ -50,34 +26,34 @@ void Regex::ck($StringArray* x, $StringArray* ans) {
 	if ($nc(x)->length != $nc(ans)->length) {
 		$throwNew($Exception, "Test failed"_s);
 	}
-	for (int32_t i = 0; i < $nc(x)->length; ++i) {
-		if (!$nc(x->get(i))->equals($nc(ans)->get(i))) {
+	for (int32_t i = 0; i < x->length; ++i) {
+		if (!$nc(x->get(i))->equals(ans->get(i))) {
 			$throwNew($Exception, "Test failed"_s);
 		}
 	}
 }
 
 void Regex::testLiteralReplacement() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, data, "abcdefghi"_s);
-	$var($String, result, data->replace(static_cast<$CharSequence*>("def"_s), static_cast<$CharSequence*>("abc"_s)));
+	$var($String, result, data->replace("def"_s, "abc"_s));
 	if (!result->equals("abcabcghi"_s)) {
 		$throwNew($Exception, "Test failed"_s);
 	}
 	$assign(data, "abc(def)?ghi"_s);
-	$assign(result, data->replace(static_cast<$CharSequence*>("(def)?"_s), static_cast<$CharSequence*>("abc"_s)));
+	$assign(result, data->replace("(def)?"_s, "abc"_s));
 	if (!result->equals("abcabcghi"_s)) {
 		$throwNew($Exception, "Test failed"_s);
 	}
 	$assign(data, "abcdefghi"_s);
-	$assign(result, data->replace(static_cast<$CharSequence*>("def"_s), static_cast<$CharSequence*>("\\ab$c"_s)));
+	$assign(result, data->replace("def"_s, "\\ab$c"_s));
 	if (!result->equals("abc\\ab$cghi"_s)) {
 		$throwNew($Exception, "Test failed"_s);
 	}
 }
 
 void Regex::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, foo, "boo:and:foo"_s);
 	ck(foo->matches("b+"_s), false);
 	ck(foo->matches("o+"_s), false);
@@ -114,7 +90,26 @@ Regex::Regex() {
 }
 
 $Class* Regex::load$($String* name, bool initialize) {
-	$loadClass(Regex, name, initialize, &_Regex_ClassInfo_, allocate$Regex);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Regex, init$, void)},
+		{"ck", "(ZZ)V", nullptr, $STATIC, $staticMethod(Regex, ck, void, bool, bool), "java.lang.Exception"},
+		{"ck", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Regex, ck, void, $String*, $String*), "java.lang.Exception"},
+		{"ck", "([Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(Regex, ck, void, $StringArray*, $StringArray*), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Regex, main, void, $StringArray*), "java.lang.Exception"},
+		{"testLiteralReplacement", "()V", nullptr, $STATIC, $staticMethod(Regex, testLiteralReplacement, void), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Regex",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Regex, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Regex);
+	});
 	return class$;
 }
 

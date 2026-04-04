@@ -1,5 +1,4 @@
 #include <sun/nio/ch/SinkChannelImpl.h>
-
 #include <java/io/FileDescriptor.h>
 #include <java/lang/Error.h>
 #include <java/lang/IndexOutOfBoundsException.h>
@@ -47,58 +46,6 @@ using $Util = ::sun::nio::ch::Util;
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _SinkChannelImpl_FieldInfo_[] = {
-	{"sc", "Lsun/nio/ch/SocketChannelImpl;", nullptr, $PRIVATE | $FINAL, $field(SinkChannelImpl, sc)},
-	{}
-};
-
-$MethodInfo _SinkChannelImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*close", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;Ljava/nio/channels/SocketChannel;)V", nullptr, 0, $method(SinkChannelImpl, init$, void, $SelectorProvider*, $SocketChannel*)},
-	{"getFD", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC, $virtualMethod(SinkChannelImpl, getFD, $FileDescriptor*)},
-	{"getFDVal", "()I", nullptr, $PUBLIC, $virtualMethod(SinkChannelImpl, getFDVal, int32_t)},
-	{"implCloseSelectableChannel", "()V", nullptr, $PROTECTED, $virtualMethod(SinkChannelImpl, implCloseSelectableChannel, void), "java.io.IOException"},
-	{"implConfigureBlocking", "(Z)V", nullptr, $PROTECTED, $virtualMethod(SinkChannelImpl, implConfigureBlocking, void, bool), "java.io.IOException"},
-	{"isNetSocket", "()Z", nullptr, 0, $virtualMethod(SinkChannelImpl, isNetSocket, bool)},
-	{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"kill", "()V", nullptr, $PUBLIC, $virtualMethod(SinkChannelImpl, kill, void), "java.io.IOException"},
-	{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)V", 0, $virtualMethod(SinkChannelImpl, setOption, void, $SocketOption*, Object$*), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"translateAndSetReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC, $virtualMethod(SinkChannelImpl, translateAndSetReadyOps, bool, int32_t, $SelectionKeyImpl*)},
-	{"translateAndUpdateReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC, $virtualMethod(SinkChannelImpl, translateAndUpdateReadyOps, bool, int32_t, $SelectionKeyImpl*)},
-	{"translateInterestOps", "(I)I", nullptr, $PUBLIC, $virtualMethod(SinkChannelImpl, translateInterestOps, int32_t, int32_t)},
-	{"translateReadyOps", "(IILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC, $virtualMethod(SinkChannelImpl, translateReadyOps, bool, int32_t, int32_t, $SelectionKeyImpl*)},
-	{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(SinkChannelImpl, write, int32_t, $ByteBuffer*), "java.io.IOException"},
-	{"write", "([Ljava/nio/ByteBuffer;)J", nullptr, $PUBLIC, $virtualMethod(SinkChannelImpl, write, int64_t, $ByteBufferArray*), "java.io.IOException"},
-	{"write", "([Ljava/nio/ByteBuffer;II)J", nullptr, $PUBLIC, $virtualMethod(SinkChannelImpl, write, int64_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _SinkChannelImpl_InnerClassesInfo_[] = {
-	{"java.nio.channels.Pipe$SinkChannel", "java.nio.channels.Pipe", "SinkChannel", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SinkChannelImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.SinkChannelImpl",
-	"java.nio.channels.Pipe$SinkChannel",
-	"sun.nio.ch.SelChImpl",
-	_SinkChannelImpl_FieldInfo_,
-	_SinkChannelImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SinkChannelImpl_InnerClassesInfo_
-};
-
-$Object* allocate$SinkChannelImpl($Class* clazz) {
-	return $of($alloc(SinkChannelImpl));
-}
 
 void SinkChannelImpl::close() {
 	this->$Pipe$SinkChannel::close();
@@ -168,19 +115,19 @@ bool SinkChannelImpl::translateReadyOps(int32_t ops, int32_t initialOps, $Select
 	int32_t oldOps = ski->nioReadyOps();
 	int32_t newOps = initialOps;
 	$init($Net);
-	if (((int32_t)(ops & (uint32_t)(int32_t)$Net::POLLNVAL)) != 0) {
+	if ((ops & $Net::POLLNVAL) != 0) {
 		$throwNew($Error, "POLLNVAL detected"_s);
 	}
-	if (((int32_t)(ops & (uint32_t)($Net::POLLERR | $Net::POLLHUP))) != 0) {
+	if ((ops & ($Net::POLLERR | $Net::POLLHUP)) != 0) {
 		newOps = intOps;
 		ski->nioReadyOps(newOps);
-		return ((int32_t)(newOps & (uint32_t)~oldOps)) != 0;
+		return (newOps & ~oldOps) != 0;
 	}
-	if ((((int32_t)(ops & (uint32_t)(int32_t)$Net::POLLOUT)) != 0) && (((int32_t)(intOps & (uint32_t)$SelectionKey::OP_WRITE)) != 0)) {
+	if (((ops & $Net::POLLOUT) != 0) && ((intOps & $SelectionKey::OP_WRITE) != 0)) {
 		newOps |= $SelectionKey::OP_WRITE;
 	}
 	ski->nioReadyOps(newOps);
-	return ((int32_t)(newOps & (uint32_t)~oldOps)) != 0;
+	return (newOps & ~oldOps) != 0;
 }
 
 bool SinkChannelImpl::translateAndUpdateReadyOps(int32_t ops, $SelectionKeyImpl* ski) {
@@ -193,7 +140,7 @@ bool SinkChannelImpl::translateAndSetReadyOps(int32_t ops, $SelectionKeyImpl* sk
 
 int32_t SinkChannelImpl::translateInterestOps(int32_t ops) {
 	int32_t newOps = 0;
-	if (((int32_t)(ops & (uint32_t)$SelectionKey::OP_WRITE)) != 0) {
+	if ((ops & $SelectionKey::OP_WRITE) != 0) {
 		$init($Net);
 		newOps |= $Net::POLLOUT;
 	}
@@ -237,7 +184,53 @@ SinkChannelImpl::SinkChannelImpl() {
 }
 
 $Class* SinkChannelImpl::load$($String* name, bool initialize) {
-	$loadClass(SinkChannelImpl, name, initialize, &_SinkChannelImpl_ClassInfo_, allocate$SinkChannelImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"sc", "Lsun/nio/ch/SocketChannelImpl;", nullptr, $PRIVATE | $FINAL, $field(SinkChannelImpl, sc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*close", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/nio/channels/spi/SelectorProvider;Ljava/nio/channels/SocketChannel;)V", nullptr, 0, $method(SinkChannelImpl, init$, void, $SelectorProvider*, $SocketChannel*)},
+		{"getFD", "()Ljava/io/FileDescriptor;", nullptr, $PUBLIC, $virtualMethod(SinkChannelImpl, getFD, $FileDescriptor*)},
+		{"getFDVal", "()I", nullptr, $PUBLIC, $virtualMethod(SinkChannelImpl, getFDVal, int32_t)},
+		{"implCloseSelectableChannel", "()V", nullptr, $PROTECTED, $virtualMethod(SinkChannelImpl, implCloseSelectableChannel, void), "java.io.IOException"},
+		{"implConfigureBlocking", "(Z)V", nullptr, $PROTECTED, $virtualMethod(SinkChannelImpl, implConfigureBlocking, void, bool), "java.io.IOException"},
+		{"isNetSocket", "()Z", nullptr, 0, $virtualMethod(SinkChannelImpl, isNetSocket, bool)},
+		{"*isOpen", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"kill", "()V", nullptr, $PUBLIC, $virtualMethod(SinkChannelImpl, kill, void), "java.io.IOException"},
+		{"setOption", "(Ljava/net/SocketOption;Ljava/lang/Object;)V", "<T:Ljava/lang/Object;>(Ljava/net/SocketOption<TT;>;TT;)V", 0, $virtualMethod(SinkChannelImpl, setOption, void, $SocketOption*, Object$*), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"translateAndSetReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC, $virtualMethod(SinkChannelImpl, translateAndSetReadyOps, bool, int32_t, $SelectionKeyImpl*)},
+		{"translateAndUpdateReadyOps", "(ILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC, $virtualMethod(SinkChannelImpl, translateAndUpdateReadyOps, bool, int32_t, $SelectionKeyImpl*)},
+		{"translateInterestOps", "(I)I", nullptr, $PUBLIC, $virtualMethod(SinkChannelImpl, translateInterestOps, int32_t, int32_t)},
+		{"translateReadyOps", "(IILsun/nio/ch/SelectionKeyImpl;)Z", nullptr, $PUBLIC, $virtualMethod(SinkChannelImpl, translateReadyOps, bool, int32_t, int32_t, $SelectionKeyImpl*)},
+		{"write", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(SinkChannelImpl, write, int32_t, $ByteBuffer*), "java.io.IOException"},
+		{"write", "([Ljava/nio/ByteBuffer;)J", nullptr, $PUBLIC, $virtualMethod(SinkChannelImpl, write, int64_t, $ByteBufferArray*), "java.io.IOException"},
+		{"write", "([Ljava/nio/ByteBuffer;II)J", nullptr, $PUBLIC, $virtualMethod(SinkChannelImpl, write, int64_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.channels.Pipe$SinkChannel", "java.nio.channels.Pipe", "SinkChannel", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.SinkChannelImpl",
+		"java.nio.channels.Pipe$SinkChannel",
+		"sun.nio.ch.SelChImpl",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(SinkChannelImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SinkChannelImpl));
+	});
 	return class$;
 }
 

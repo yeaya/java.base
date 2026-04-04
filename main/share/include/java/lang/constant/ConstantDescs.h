@@ -57,6 +57,7 @@ class $import ConstantDescs : public ::java::lang::Object {
 	$class(ConstantDescs, 0, ::java::lang::Object)
 public:
 	ConstantDescs();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::constant::DirectMethodHandleDesc* ofCallsiteBootstrap(::java::lang::constant::ClassDesc* owner, $String* name, ::java::lang::constant::ClassDesc* returnType, $Array<::java::lang::constant::ClassDesc>* paramTypes);
 	static ::java::lang::constant::DirectMethodHandleDesc* ofConstantBootstrap(::java::lang::constant::ClassDesc* owner, $String* name, ::java::lang::constant::ClassDesc* returnType, $Array<::java::lang::constant::ClassDesc>* paramTypes);

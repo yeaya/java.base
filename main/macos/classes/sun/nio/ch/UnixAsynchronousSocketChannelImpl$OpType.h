@@ -22,6 +22,7 @@ class UnixAsynchronousSocketChannelImpl$OpType : public ::java::lang::Enum {
 public:
 	UnixAsynchronousSocketChannelImpl$OpType();
 	static $Array<::sun::nio::ch::UnixAsynchronousSocketChannelImpl$OpType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::nio::ch::UnixAsynchronousSocketChannelImpl$OpType* valueOf($String* name);
 	static $Array<::sun::nio::ch::UnixAsynchronousSocketChannelImpl$OpType>* values();

@@ -1,5 +1,4 @@
 #include <java/util/concurrent/ConcurrentHashMap$BulkTask.h>
-
 #include <java/util/concurrent/ConcurrentHashMap$ForwardingNode.h>
 #include <java/util/concurrent/ConcurrentHashMap$Node.h>
 #include <java/util/concurrent/ConcurrentHashMap$TableStack.h>
@@ -25,52 +24,6 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _ConcurrentHashMap$BulkTask_FieldInfo_[] = {
-	{"tab", "[Ljava/util/concurrent/ConcurrentHashMap$Node;", "[Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;", 0, $field(ConcurrentHashMap$BulkTask, tab)},
-	{"next", "Ljava/util/concurrent/ConcurrentHashMap$Node;", "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;", 0, $field(ConcurrentHashMap$BulkTask, next)},
-	{"stack", "Ljava/util/concurrent/ConcurrentHashMap$TableStack;", "Ljava/util/concurrent/ConcurrentHashMap$TableStack<TK;TV;>;", 0, $field(ConcurrentHashMap$BulkTask, stack)},
-	{"spare", "Ljava/util/concurrent/ConcurrentHashMap$TableStack;", "Ljava/util/concurrent/ConcurrentHashMap$TableStack<TK;TV;>;", 0, $field(ConcurrentHashMap$BulkTask, spare)},
-	{"index", "I", nullptr, 0, $field(ConcurrentHashMap$BulkTask, index)},
-	{"baseIndex", "I", nullptr, 0, $field(ConcurrentHashMap$BulkTask, baseIndex)},
-	{"baseLimit", "I", nullptr, 0, $field(ConcurrentHashMap$BulkTask, baseLimit)},
-	{"baseSize", "I", nullptr, $FINAL, $field(ConcurrentHashMap$BulkTask, baseSize)},
-	{"batch", "I", nullptr, 0, $field(ConcurrentHashMap$BulkTask, batch)},
-	{}
-};
-
-$MethodInfo _ConcurrentHashMap$BulkTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask;III[Ljava/util/concurrent/ConcurrentHashMap$Node;)V", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask<TK;TV;*>;III[Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;)V", 0, $method(ConcurrentHashMap$BulkTask, init$, void, ConcurrentHashMap$BulkTask*, int32_t, int32_t, int32_t, $ConcurrentHashMap$NodeArray*)},
-	{"advance", "()Ljava/util/concurrent/ConcurrentHashMap$Node;", "()Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;", $FINAL, $method(ConcurrentHashMap$BulkTask, advance, $ConcurrentHashMap$Node*)},
-	{"pushState", "([Ljava/util/concurrent/ConcurrentHashMap$Node;II)V", "([Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;II)V", $PRIVATE, $method(ConcurrentHashMap$BulkTask, pushState, void, $ConcurrentHashMap$NodeArray*, int32_t, int32_t)},
-	{"recoverState", "(I)V", nullptr, $PRIVATE, $method(ConcurrentHashMap$BulkTask, recoverState, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ConcurrentHashMap$BulkTask_InnerClassesInfo_[] = {
-	{"java.util.concurrent.ConcurrentHashMap$BulkTask", "java.util.concurrent.ConcurrentHashMap", "BulkTask", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ConcurrentHashMap$BulkTask_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.util.concurrent.ConcurrentHashMap$BulkTask",
-	"java.util.concurrent.CountedCompleter",
-	nullptr,
-	_ConcurrentHashMap$BulkTask_FieldInfo_,
-	_ConcurrentHashMap$BulkTask_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;R:Ljava/lang/Object;>Ljava/util/concurrent/CountedCompleter<TR;>;",
-	nullptr,
-	_ConcurrentHashMap$BulkTask_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.ConcurrentHashMap"
-};
-
-$Object* allocate$ConcurrentHashMap$BulkTask($Class* clazz) {
-	return $of($alloc(ConcurrentHashMap$BulkTask));
-}
-
 void ConcurrentHashMap$BulkTask::init$(ConcurrentHashMap$BulkTask* par, int32_t b, int32_t i, int32_t f, $ConcurrentHashMap$NodeArray* t) {
 	$CountedCompleter::init$(par);
 	this->batch = b;
@@ -81,12 +34,12 @@ void ConcurrentHashMap$BulkTask::init$(ConcurrentHashMap$BulkTask* par, int32_t 
 		this->baseSize = (this->baseLimit = $nc(t)->length);
 	} else {
 		this->baseLimit = f;
-		this->baseSize = $nc(par)->baseSize;
+		this->baseSize = par->baseSize;
 	}
 }
 
 $ConcurrentHashMap$Node* ConcurrentHashMap$BulkTask::advance() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentHashMap$Node, e, nullptr);
 	if (($assign(e, this->next)) != nullptr) {
 		$assign(e, $nc(e)->next);
@@ -105,12 +58,12 @@ $ConcurrentHashMap$Node* ConcurrentHashMap$BulkTask::advance() {
 		}
 		if (($assign(e, $ConcurrentHashMap::tabAt(t, i))) != nullptr && $nc(e)->hash < 0) {
 			if ($instanceOf($ConcurrentHashMap$ForwardingNode, e)) {
-				$set(this, tab, $nc(($cast($ConcurrentHashMap$ForwardingNode, e)))->nextTable);
+				$set(this, tab, $cast($ConcurrentHashMap$ForwardingNode, e)->nextTable);
 				$assign(e, nullptr);
 				pushState(t, i, n);
 				continue;
 			} else if ($instanceOf($ConcurrentHashMap$TreeBin, e)) {
-				$assign(e, $nc(($cast($ConcurrentHashMap$TreeBin, e)))->first);
+				$assign(e, $cast($ConcurrentHashMap$TreeBin, e)->first);
 			} else {
 				$assign(e, nullptr);
 			}
@@ -138,7 +91,7 @@ void ConcurrentHashMap$BulkTask::pushState($ConcurrentHashMap$NodeArray* t, int3
 }
 
 void ConcurrentHashMap$BulkTask::recoverState(int32_t n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentHashMap$TableStack, s, nullptr);
 	int32_t len = 0;
 	while (true) {
@@ -148,7 +101,7 @@ void ConcurrentHashMap$BulkTask::recoverState(int32_t n) {
 		}
 		{
 			n = len;
-			this->index = s->index;
+			this->index = $nc(s)->index;
 			$set(this, tab, s->tab);
 			$set(s, tab, nullptr);
 			$var($ConcurrentHashMap$TableStack, next, s->next);
@@ -166,7 +119,47 @@ ConcurrentHashMap$BulkTask::ConcurrentHashMap$BulkTask() {
 }
 
 $Class* ConcurrentHashMap$BulkTask::load$($String* name, bool initialize) {
-	$loadClass(ConcurrentHashMap$BulkTask, name, initialize, &_ConcurrentHashMap$BulkTask_ClassInfo_, allocate$ConcurrentHashMap$BulkTask);
+	$FieldInfo fieldInfos$$[] = {
+		{"tab", "[Ljava/util/concurrent/ConcurrentHashMap$Node;", "[Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;", 0, $field(ConcurrentHashMap$BulkTask, tab)},
+		{"next", "Ljava/util/concurrent/ConcurrentHashMap$Node;", "Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;", 0, $field(ConcurrentHashMap$BulkTask, next)},
+		{"stack", "Ljava/util/concurrent/ConcurrentHashMap$TableStack;", "Ljava/util/concurrent/ConcurrentHashMap$TableStack<TK;TV;>;", 0, $field(ConcurrentHashMap$BulkTask, stack)},
+		{"spare", "Ljava/util/concurrent/ConcurrentHashMap$TableStack;", "Ljava/util/concurrent/ConcurrentHashMap$TableStack<TK;TV;>;", 0, $field(ConcurrentHashMap$BulkTask, spare)},
+		{"index", "I", nullptr, 0, $field(ConcurrentHashMap$BulkTask, index)},
+		{"baseIndex", "I", nullptr, 0, $field(ConcurrentHashMap$BulkTask, baseIndex)},
+		{"baseLimit", "I", nullptr, 0, $field(ConcurrentHashMap$BulkTask, baseLimit)},
+		{"baseSize", "I", nullptr, $FINAL, $field(ConcurrentHashMap$BulkTask, baseSize)},
+		{"batch", "I", nullptr, 0, $field(ConcurrentHashMap$BulkTask, batch)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask;III[Ljava/util/concurrent/ConcurrentHashMap$Node;)V", "(Ljava/util/concurrent/ConcurrentHashMap$BulkTask<TK;TV;*>;III[Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;)V", 0, $method(ConcurrentHashMap$BulkTask, init$, void, ConcurrentHashMap$BulkTask*, int32_t, int32_t, int32_t, $ConcurrentHashMap$NodeArray*)},
+		{"advance", "()Ljava/util/concurrent/ConcurrentHashMap$Node;", "()Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;", $FINAL, $method(ConcurrentHashMap$BulkTask, advance, $ConcurrentHashMap$Node*)},
+		{"pushState", "([Ljava/util/concurrent/ConcurrentHashMap$Node;II)V", "([Ljava/util/concurrent/ConcurrentHashMap$Node<TK;TV;>;II)V", $PRIVATE, $method(ConcurrentHashMap$BulkTask, pushState, void, $ConcurrentHashMap$NodeArray*, int32_t, int32_t)},
+		{"recoverState", "(I)V", nullptr, $PRIVATE, $method(ConcurrentHashMap$BulkTask, recoverState, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.ConcurrentHashMap$BulkTask", "java.util.concurrent.ConcurrentHashMap", "BulkTask", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.util.concurrent.ConcurrentHashMap$BulkTask",
+		"java.util.concurrent.CountedCompleter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;R:Ljava/lang/Object;>Ljava/util/concurrent/CountedCompleter<TR;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.ConcurrentHashMap"
+	};
+	$loadClass(ConcurrentHashMap$BulkTask, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ConcurrentHashMap$BulkTask));
+	});
 	return class$;
 }
 

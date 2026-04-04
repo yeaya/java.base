@@ -34,6 +34,7 @@ class NativeMethodHandle : public ::java::lang::invoke::MethodHandle {
 	$class(NativeMethodHandle, 0, ::java::lang::invoke::MethodHandle)
 public:
 	NativeMethodHandle();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::MethodType* type, ::java::lang::invoke::LambdaForm* form, ::java::lang::invoke::MethodHandle* fallback, ::jdk::internal::invoke::NativeEntryPoint* nep);
 	static bool allTypesPrimitive(::java::lang::invoke::MethodType* type);
 	virtual ::java::lang::invoke::MethodHandle* copyWith(::java::lang::invoke::MethodType* mt, ::java::lang::invoke::LambdaForm* lf) override;

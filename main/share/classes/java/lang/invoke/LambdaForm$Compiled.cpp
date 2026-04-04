@@ -1,5 +1,4 @@
 #include <java/lang/invoke/LambdaForm$Compiled.h>
-
 #include <java/lang/invoke/LambdaForm.h>
 #include <jcpp.h>
 
@@ -13,54 +12,46 @@ namespace java {
 	namespace lang {
 		namespace invoke {
 
-$Attribute LambdaForm$Compiled_Attribute_var$1[] = {
-	{'e', "Ljava/lang/annotation/ElementType; METHOD"},
-	{'-'}
-};
-
-$NamedAttribute LambdaForm$Compiled_Attribute_var$0[] = {
-	{"value", '[', LambdaForm$Compiled_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute LambdaForm$Compiled_Attribute_var$2[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _LambdaForm$Compiled_Annotations_[] = {
-	{"Ljava/lang/annotation/Target;", LambdaForm$Compiled_Attribute_var$0},
-	{"Ljava/lang/annotation/Retention;", LambdaForm$Compiled_Attribute_var$2},
-	{}
-};
-
-$InnerClassInfo _LambdaForm$Compiled_InnerClassesInfo_[] = {
-	{"java.lang.invoke.LambdaForm$Compiled", "java.lang.invoke.LambdaForm", "Compiled", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
-	{}
-};
-
-$ClassInfo _LambdaForm$Compiled_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"java.lang.invoke.LambdaForm$Compiled",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_LambdaForm$Compiled_InnerClassesInfo_,
-	_LambdaForm$Compiled_Annotations_,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.LambdaForm"
-};
-
-$Object* allocate$LambdaForm$Compiled($Class* clazz) {
-	return $of($alloc(LambdaForm$Compiled));
-}
-
 $Class* LambdaForm$Compiled::load$($String* name, bool initialize) {
-	$loadClass(LambdaForm$Compiled, name, initialize, &_LambdaForm$Compiled_ClassInfo_, allocate$LambdaForm$Compiled);
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.LambdaForm$Compiled", "java.lang.invoke.LambdaForm", "Compiled", $STATIC | $INTERFACE | $ABSTRACT | $ANNOTATION},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; METHOD"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"java.lang.invoke.LambdaForm$Compiled",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.LambdaForm"
+	};
+	$loadClass(LambdaForm$Compiled, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaForm$Compiled);
+	});
 	return class$;
 }
 

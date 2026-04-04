@@ -16,6 +16,7 @@ class $export ValueOf4Enum : public ::java::lang::Object {
 	$class(ValueOf4Enum, 0, ::java::lang::Object)
 public:
 	ValueOf4Enum();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void test($Class* enumClass);

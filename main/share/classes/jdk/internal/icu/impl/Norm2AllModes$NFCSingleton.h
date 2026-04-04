@@ -27,6 +27,7 @@ class Norm2AllModes$NFCSingleton : public ::java::lang::Object {
 	$class(Norm2AllModes$NFCSingleton, 0, ::java::lang::Object)
 public:
 	Norm2AllModes$NFCSingleton();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::jdk::internal::icu::impl::Norm2AllModes$Norm2AllModesSingleton* INSTANCE;
 };

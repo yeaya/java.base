@@ -1,10 +1,8 @@
 #include <com/sun/crypto/provider/SunJCE.h>
-
 #include <com/sun/crypto/provider/SunJCE$1.h>
 #include <com/sun/crypto/provider/SunJCE$SecureRandomHolder.h>
 #include <java/lang/SecurityManager.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/Provider$Service.h>
 #include <java/security/Provider.h>
 #include <java/security/SecureRandom.h>
@@ -28,7 +26,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Provider = ::java::security::Provider;
 using $Provider$Service = ::java::security::Provider$Service;
 using $SecureRandom = ::java::security::SecureRandom;
@@ -42,50 +39,6 @@ namespace com {
 	namespace sun {
 		namespace crypto {
 			namespace provider {
-
-$FieldInfo _SunJCE_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SunJCE, serialVersionUID)},
-	{"info", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunJCE, info)},
-	{"debug", "Z", nullptr, $STATIC | $FINAL, $constField(SunJCE, debug)},
-	{"instance", "Lcom/sun/crypto/provider/SunJCE;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(SunJCE, instance)},
-	{}
-};
-
-$MethodInfo _SunJCE_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SunJCE, init$, void)},
-	{"getInstance", "()Lcom/sun/crypto/provider/SunJCE;", nullptr, $STATIC, $staticMethod(SunJCE, getInstance, SunJCE*)},
-	{"getRandom", "()Ljava/security/SecureRandom;", nullptr, $STATIC, $staticMethod(SunJCE, getRandom, $SecureRandom*)},
-	{"ps", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SunJCE, ps, void, $String*, $String*, $String*)},
-	{"ps", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/HashMap;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(SunJCE, ps, void, $String*, $String*, $String*, $List*, $HashMap*)},
-	{"psA", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(SunJCE, psA, void, $String*, $String*, $String*, $HashMap*)},
-	{"putEntries", "()V", nullptr, 0, $method(SunJCE, putEntries, void)},
-	{}
-};
-
-$InnerClassInfo _SunJCE_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.SunJCE$SecureRandomHolder", "com.sun.crypto.provider.SunJCE", "SecureRandomHolder", $PRIVATE | $STATIC},
-	{"com.sun.crypto.provider.SunJCE$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SunJCE_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.SunJCE",
-	"java.security.Provider",
-	nullptr,
-	_SunJCE_FieldInfo_,
-	_SunJCE_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SunJCE_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.SunJCE$SecureRandomHolder,com.sun.crypto.provider.SunJCE$1"
-};
-
-$Object* allocate$SunJCE($Class* clazz) {
-	return $of($alloc(SunJCE));
-}
 
 $String* SunJCE::info = nullptr;
 $volatile(SunJCE*) SunJCE::instance = nullptr;
@@ -105,7 +58,7 @@ void SunJCE::ps($String* type, $String* algo, $String* cn, $List* als, $HashMap*
 }
 
 void SunJCE::psA($String* type, $String* algo, $String* cn, $HashMap* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	putService($$new($Provider$Service, this, type, algo, cn, $($SecurityProviderConstants::getAliases(algo)), attrs));
 }
 
@@ -116,7 +69,7 @@ void SunJCE::init$() {
 	if ($System::getSecurityManager() == nullptr) {
 		putEntries();
 	} else {
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($SunJCE$1, this)));
+		$AccessController::doPrivileged($$new($SunJCE$1, this));
 	}
 	if (SunJCE::instance == nullptr) {
 		$assignStatic(SunJCE::instance, this);
@@ -124,7 +77,7 @@ void SunJCE::init$() {
 }
 
 void SunJCE::putEntries() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashMap, attrs, $new($HashMap, 3));
 	attrs->put("SupportedModes"_s, "ECB"_s);
 	attrs->put("SupportedPaddings"_s, "NOPADDING|PKCS1PADDING|OAEPPADDING|OAEPWITHMD5ANDMGF1PADDING|OAEPWITHSHA1ANDMGF1PADDING|OAEPWITHSHA-1ANDMGF1PADDING|OAEPWITHSHA-224ANDMGF1PADDING|OAEPWITHSHA-256ANDMGF1PADDING|OAEPWITHSHA-384ANDMGF1PADDING|OAEPWITHSHA-512ANDMGF1PADDING|OAEPWITHSHA-512/224ANDMGF1PADDING|OAEPWITHSHA-512/256ANDMGF1PADDING"_s);
@@ -318,8 +271,8 @@ void SunJCE::putEntries() {
 	ps("KeyGenerator"_s, "SunTlsPrf"_s, "com.sun.crypto.provider.TlsPrfGenerator$V10"_s);
 	ps("KeyGenerator"_s, "SunTls12Prf"_s, "com.sun.crypto.provider.TlsPrfGenerator$V12"_s);
 	ps("KeyGenerator"_s, "SunTlsMasterSecret"_s, "com.sun.crypto.provider.TlsMasterSecretGenerator"_s, $($List::of("SunTls12MasterSecret"_s, "SunTlsExtendedMasterSecret"_s)), nullptr);
-	ps("KeyGenerator"_s, "SunTlsKeyMaterial"_s, "com.sun.crypto.provider.TlsKeyMaterialGenerator"_s, $($List::of($of("SunTls12KeyMaterial"_s))), nullptr);
-	ps("KeyGenerator"_s, "SunTlsRsaPremasterSecret"_s, "com.sun.crypto.provider.TlsRsaPremasterSecretGenerator"_s, $($List::of($of("SunTls12RsaPremasterSecret"_s))), nullptr);
+	ps("KeyGenerator"_s, "SunTlsKeyMaterial"_s, "com.sun.crypto.provider.TlsKeyMaterialGenerator"_s, $($List::of("SunTls12KeyMaterial"_s)), nullptr);
+	ps("KeyGenerator"_s, "SunTlsRsaPremasterSecret"_s, "com.sun.crypto.provider.TlsRsaPremasterSecretGenerator"_s, $($List::of("SunTls12RsaPremasterSecret"_s)), nullptr);
 }
 
 SunJCE* SunJCE::getInstance() {
@@ -333,12 +286,50 @@ SunJCE* SunJCE::getInstance() {
 SunJCE::SunJCE() {
 }
 
-void clinit$SunJCE($Class* class$) {
+void SunJCE::clinit$($Class* clazz) {
 	$assignStatic(SunJCE::info, "SunJCE Provider (implements RSA, DES, Triple DES, AES, Blowfish, ARCFOUR, RC2, PBE, Diffie-Hellman, HMAC, ChaCha20)"_s);
 }
 
 $Class* SunJCE::load$($String* name, bool initialize) {
-	$loadClass(SunJCE, name, initialize, &_SunJCE_ClassInfo_, clinit$SunJCE, allocate$SunJCE);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SunJCE, serialVersionUID)},
+		{"info", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunJCE, info)},
+		{"debug", "Z", nullptr, $STATIC | $FINAL, $constField(SunJCE, debug)},
+		{"instance", "Lcom/sun/crypto/provider/SunJCE;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(SunJCE, instance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SunJCE, init$, void)},
+		{"getInstance", "()Lcom/sun/crypto/provider/SunJCE;", nullptr, $STATIC, $staticMethod(SunJCE, getInstance, SunJCE*)},
+		{"getRandom", "()Ljava/security/SecureRandom;", nullptr, $STATIC, $staticMethod(SunJCE, getRandom, $SecureRandom*)},
+		{"ps", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(SunJCE, ps, void, $String*, $String*, $String*)},
+		{"ps", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/HashMap;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(SunJCE, ps, void, $String*, $String*, $String*, $List*, $HashMap*)},
+		{"psA", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(SunJCE, psA, void, $String*, $String*, $String*, $HashMap*)},
+		{"putEntries", "()V", nullptr, 0, $method(SunJCE, putEntries, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.SunJCE$SecureRandomHolder", "com.sun.crypto.provider.SunJCE", "SecureRandomHolder", $PRIVATE | $STATIC},
+		{"com.sun.crypto.provider.SunJCE$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.SunJCE",
+		"java.security.Provider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.SunJCE$SecureRandomHolder,com.sun.crypto.provider.SunJCE$1"
+	};
+	$loadClass(SunJCE, name, initialize, &classInfo$$, SunJCE::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SunJCE));
+	});
 	return class$;
 }
 

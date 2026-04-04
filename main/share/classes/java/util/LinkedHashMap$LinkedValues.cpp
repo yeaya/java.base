@@ -1,5 +1,4 @@
 #include <java/util/LinkedHashMap$LinkedValues.h>
-
 #include <java/util/AbstractCollection.h>
 #include <java/util/Collection.h>
 #include <java/util/ConcurrentModificationException.h>
@@ -22,7 +21,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $Collection = ::java::util::Collection;
 using $ConcurrentModificationException = ::java::util::ConcurrentModificationException;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
@@ -35,49 +33,6 @@ using $Consumer = ::java::util::function::Consumer;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _LinkedHashMap$LinkedValues_FieldInfo_[] = {
-	{"this$0", "Ljava/util/LinkedHashMap;", nullptr, $FINAL | $SYNTHETIC, $field(LinkedHashMap$LinkedValues, this$0)},
-	{}
-};
-
-$MethodInfo _LinkedHashMap$LinkedValues_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/LinkedHashMap;)V", nullptr, 0, $method(LinkedHashMap$LinkedValues, init$, void, $LinkedHashMap*)},
-	{"clear", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedValues, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedValues, contains, bool, Object$*)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TV;>;)V", $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedValues, forEach, void, $Consumer*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TV;>;", $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedValues, iterator, $Iterator*)},
-	{"size", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedValues, size, int32_t)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TV;>;", $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedValues, spliterator, $Spliterator*)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LinkedHashMap$LinkedValues, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(LinkedHashMap$LinkedValues, toArray, $ObjectArray*, $ObjectArray*)},
-	{}
-};
-
-$InnerClassInfo _LinkedHashMap$LinkedValues_InnerClassesInfo_[] = {
-	{"java.util.LinkedHashMap$LinkedValues", "java.util.LinkedHashMap", "LinkedValues", $FINAL},
-	{}
-};
-
-$ClassInfo _LinkedHashMap$LinkedValues_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.LinkedHashMap$LinkedValues",
-	"java.util.AbstractCollection",
-	nullptr,
-	_LinkedHashMap$LinkedValues_FieldInfo_,
-	_LinkedHashMap$LinkedValues_MethodInfo_,
-	"Ljava/util/AbstractCollection<TV;>;",
-	nullptr,
-	_LinkedHashMap$LinkedValues_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.LinkedHashMap"
-};
-
-$Object* allocate$LinkedHashMap$LinkedValues($Class* clazz) {
-	return $of($alloc(LinkedHashMap$LinkedValues));
-}
 
 void LinkedHashMap$LinkedValues::init$($LinkedHashMap* this$0) {
 	$set(this, this$0, this$0);
@@ -101,7 +56,7 @@ bool LinkedHashMap$LinkedValues::contains(Object$* o) {
 }
 
 $Spliterator* LinkedHashMap$LinkedValues::spliterator() {
-	return $Spliterators::spliterator(static_cast<$Collection*>(this), $Spliterator::SIZED | $Spliterator::ORDERED);
+	return $Spliterators::spliterator(this, $Spliterator::SIZED | $Spliterator::ORDERED);
 }
 
 $ObjectArray* LinkedHashMap$LinkedValues::toArray() {
@@ -119,7 +74,7 @@ void LinkedHashMap$LinkedValues::forEach($Consumer* action) {
 	int32_t mc = this->this$0->modCount;
 	{
 		$var($LinkedHashMap$Entry, e, this->this$0->head);
-		for (; e != nullptr; $assign(e, $nc(e)->after)) {
+		for (; e != nullptr; $assign(e, e->after)) {
 			$nc(action)->accept(e->value);
 		}
 	}
@@ -132,7 +87,44 @@ LinkedHashMap$LinkedValues::LinkedHashMap$LinkedValues() {
 }
 
 $Class* LinkedHashMap$LinkedValues::load$($String* name, bool initialize) {
-	$loadClass(LinkedHashMap$LinkedValues, name, initialize, &_LinkedHashMap$LinkedValues_ClassInfo_, allocate$LinkedHashMap$LinkedValues);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/LinkedHashMap;", nullptr, $FINAL | $SYNTHETIC, $field(LinkedHashMap$LinkedValues, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/LinkedHashMap;)V", nullptr, 0, $method(LinkedHashMap$LinkedValues, init$, void, $LinkedHashMap*)},
+		{"clear", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedValues, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedValues, contains, bool, Object$*)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TV;>;)V", $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedValues, forEach, void, $Consumer*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TV;>;", $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedValues, iterator, $Iterator*)},
+		{"size", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedValues, size, int32_t)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TV;>;", $PUBLIC | $FINAL, $virtualMethod(LinkedHashMap$LinkedValues, spliterator, $Spliterator*)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LinkedHashMap$LinkedValues, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(LinkedHashMap$LinkedValues, toArray, $ObjectArray*, $ObjectArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.LinkedHashMap$LinkedValues", "java.util.LinkedHashMap", "LinkedValues", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.LinkedHashMap$LinkedValues",
+		"java.util.AbstractCollection",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractCollection<TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.LinkedHashMap"
+	};
+	$loadClass(LinkedHashMap$LinkedValues, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LinkedHashMap$LinkedValues);
+	});
 	return class$;
 }
 

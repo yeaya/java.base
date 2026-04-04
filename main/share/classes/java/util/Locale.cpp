@@ -1,5 +1,4 @@
 #include <java/util/Locale.h>
-
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream$PutField.h>
@@ -62,7 +61,6 @@
 #include <sun/util/locale/ParseStatus.h>
 #include <sun/util/locale/provider/LocaleProviderAdapter.h>
 #include <sun/util/locale/provider/LocaleResources.h>
-#include <sun/util/locale/provider/LocaleServiceProviderPool$LocalizedObjectGetter.h>
 #include <sun/util/locale/provider/LocaleServiceProviderPool.h>
 #include <sun/util/locale/provider/TimeZoneNameUtility.h>
 #include <jcpp.h>
@@ -133,7 +131,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $Permission = ::java::security::Permission;
 using $MessageFormat = ::java::text::MessageFormat;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
@@ -165,7 +162,6 @@ using $Consumer = ::java::util::function::Consumer;
 using $Function = ::java::util::function::Function;
 using $LocaleNameProvider = ::java::util::spi::LocaleNameProvider;
 using $Collectors = ::java::util::stream::Collectors;
-using $Stream = ::java::util::stream::Stream;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 using $BaseLocale = ::sun::util::locale::BaseLocale;
 using $InternalLocaleBuilder = ::sun::util::locale::InternalLocaleBuilder;
@@ -178,7 +174,6 @@ using $ParseStatus = ::sun::util::locale::ParseStatus;
 using $LocaleProviderAdapter = ::sun::util::locale::provider::LocaleProviderAdapter;
 using $LocaleResources = ::sun::util::locale::provider::LocaleResources;
 using $LocaleServiceProviderPool = ::sun::util::locale::provider::LocaleServiceProviderPool;
-using $LocaleServiceProviderPool$LocalizedObjectGetter = ::sun::util::locale::provider::LocaleServiceProviderPool$LocalizedObjectGetter;
 using $TimeZoneNameUtility = ::sun::util::locale::provider::TimeZoneNameUtility;
 
 namespace java {
@@ -194,35 +189,31 @@ public:
 	virtual $Object* apply(Object$* key) override {
 		 return $of($nc(inst$)->lambda$getDisplayName$0(inLocale, $cast($String, key)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Locale$$Lambda$lambda$getDisplayName$0>());
-	}
 	Locale* inst$ = nullptr;
 	Locale* inLocale = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Locale$$Lambda$lambda$getDisplayName$0::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Locale$$Lambda$lambda$getDisplayName$0, inst$)},
-	{"inLocale", "Ljava/util/Locale;", nullptr, $PUBLIC, $field(Locale$$Lambda$lambda$getDisplayName$0, inLocale)},
-	{}
-};
-$MethodInfo Locale$$Lambda$lambda$getDisplayName$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Locale;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(Locale$$Lambda$lambda$getDisplayName$0, init$, void, Locale*, Locale*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Locale$$Lambda$lambda$getDisplayName$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Locale$$Lambda$lambda$getDisplayName$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Locale$$Lambda$lambda$getDisplayName$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* Locale$$Lambda$lambda$getDisplayName$0::load$($String* name, bool initialize) {
-	$loadClass(Locale$$Lambda$lambda$getDisplayName$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Locale$$Lambda$lambda$getDisplayName$0, inst$)},
+		{"inLocale", "Ljava/util/Locale;", nullptr, $PUBLIC, $field(Locale$$Lambda$lambda$getDisplayName$0, inLocale)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Locale;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(Locale$$Lambda$lambda$getDisplayName$0, init$, void, Locale*, Locale*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Locale$$Lambda$lambda$getDisplayName$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Locale$$Lambda$lambda$getDisplayName$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Locale$$Lambda$lambda$getDisplayName$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Locale$$Lambda$lambda$getDisplayName$0);
+	});
 	return class$;
 }
 $Class* Locale$$Lambda$lambda$getDisplayName$0::class$ = nullptr;
@@ -236,33 +227,29 @@ public:
 	virtual void accept(Object$* e) override {
 		$nc(inst$)->add(e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Locale$$Lambda$add$1>());
-	}
 	$ArrayList* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Locale$$Lambda$add$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Locale$$Lambda$add$1, inst$)},
-	{}
-};
-$MethodInfo Locale$$Lambda$add$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/ArrayList;)V", nullptr, $PUBLIC, $method(Locale$$Lambda$add$1, init$, void, $ArrayList*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Locale$$Lambda$add$1, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Locale$$Lambda$add$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Locale$$Lambda$add$1",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Locale$$Lambda$add$1::load$($String* name, bool initialize) {
-	$loadClass(Locale$$Lambda$add$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Locale$$Lambda$add$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/ArrayList;)V", nullptr, $PUBLIC, $method(Locale$$Lambda$add$1, init$, void, $ArrayList*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Locale$$Lambda$add$1, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Locale$$Lambda$add$1",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Locale$$Lambda$add$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Locale$$Lambda$add$1);
+	});
 	return class$;
 }
 $Class* Locale$$Lambda$add$1::class$ = nullptr;
@@ -278,37 +265,33 @@ public:
 	virtual $Object* apply(Object$* key) override {
 		 return $of($nc(inst$)->lambda$getDisplayName$1(lr, inLocale, $cast($String, key)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Locale$$Lambda$lambda$getDisplayName$1$2>());
-	}
 	Locale* inst$ = nullptr;
 	$LocaleResources* lr = nullptr;
 	Locale* inLocale = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Locale$$Lambda$lambda$getDisplayName$1$2::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Locale$$Lambda$lambda$getDisplayName$1$2, inst$)},
-	{"lr", "Lsun/util/locale/provider/LocaleResources;", nullptr, $PUBLIC, $field(Locale$$Lambda$lambda$getDisplayName$1$2, lr)},
-	{"inLocale", "Ljava/util/Locale;", nullptr, $PUBLIC, $field(Locale$$Lambda$lambda$getDisplayName$1$2, inLocale)},
-	{}
-};
-$MethodInfo Locale$$Lambda$lambda$getDisplayName$1$2::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Locale;Lsun/util/locale/provider/LocaleResources;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(Locale$$Lambda$lambda$getDisplayName$1$2, init$, void, Locale*, $LocaleResources*, Locale*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Locale$$Lambda$lambda$getDisplayName$1$2, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Locale$$Lambda$lambda$getDisplayName$1$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Locale$$Lambda$lambda$getDisplayName$1$2",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* Locale$$Lambda$lambda$getDisplayName$1$2::load$($String* name, bool initialize) {
-	$loadClass(Locale$$Lambda$lambda$getDisplayName$1$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Locale$$Lambda$lambda$getDisplayName$1$2, inst$)},
+		{"lr", "Lsun/util/locale/provider/LocaleResources;", nullptr, $PUBLIC, $field(Locale$$Lambda$lambda$getDisplayName$1$2, lr)},
+		{"inLocale", "Ljava/util/Locale;", nullptr, $PUBLIC, $field(Locale$$Lambda$lambda$getDisplayName$1$2, inLocale)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Locale;Lsun/util/locale/provider/LocaleResources;Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(Locale$$Lambda$lambda$getDisplayName$1$2, init$, void, Locale*, $LocaleResources*, Locale*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Locale$$Lambda$lambda$getDisplayName$1$2, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Locale$$Lambda$lambda$getDisplayName$1$2",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Locale$$Lambda$lambda$getDisplayName$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Locale$$Lambda$lambda$getDisplayName$1$2);
+	});
 	return class$;
 }
 $Class* Locale$$Lambda$lambda$getDisplayName$1$2::class$ = nullptr;
@@ -322,33 +305,29 @@ public:
 	virtual $Object* apply(Object$* id) override {
 		 return $of(Locale::lambda$getDisplayKeyTypeExtensionString$2(inLocale, $cast($String, id)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Locale$$Lambda$lambda$getDisplayKeyTypeExtensionString$2$3>());
-	}
 	Locale* inLocale = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Locale$$Lambda$lambda$getDisplayKeyTypeExtensionString$2$3::fieldInfos[2] = {
-	{"inLocale", "Ljava/util/Locale;", nullptr, $PUBLIC, $field(Locale$$Lambda$lambda$getDisplayKeyTypeExtensionString$2$3, inLocale)},
-	{}
-};
-$MethodInfo Locale$$Lambda$lambda$getDisplayKeyTypeExtensionString$2$3::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(Locale$$Lambda$lambda$getDisplayKeyTypeExtensionString$2$3, init$, void, Locale*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Locale$$Lambda$lambda$getDisplayKeyTypeExtensionString$2$3, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Locale$$Lambda$lambda$getDisplayKeyTypeExtensionString$2$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Locale$$Lambda$lambda$getDisplayKeyTypeExtensionString$2$3",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* Locale$$Lambda$lambda$getDisplayKeyTypeExtensionString$2$3::load$($String* name, bool initialize) {
-	$loadClass(Locale$$Lambda$lambda$getDisplayKeyTypeExtensionString$2$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inLocale", "Ljava/util/Locale;", nullptr, $PUBLIC, $field(Locale$$Lambda$lambda$getDisplayKeyTypeExtensionString$2$3, inLocale)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(Locale$$Lambda$lambda$getDisplayKeyTypeExtensionString$2$3, init$, void, Locale*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Locale$$Lambda$lambda$getDisplayKeyTypeExtensionString$2$3, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Locale$$Lambda$lambda$getDisplayKeyTypeExtensionString$2$3",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Locale$$Lambda$lambda$getDisplayKeyTypeExtensionString$2$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Locale$$Lambda$lambda$getDisplayKeyTypeExtensionString$2$3);
+	});
 	return class$;
 }
 $Class* Locale$$Lambda$lambda$getDisplayKeyTypeExtensionString$2$3::class$ = nullptr;
@@ -362,194 +341,32 @@ public:
 	virtual $Object* apply(Object$* s1, Object$* s2) override {
 		 return $of(Locale::lambda$formatList$3(pattern, $cast($String, s1), $cast($String, s2)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Locale$$Lambda$lambda$formatList$3$4>());
-	}
 	$String* pattern = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Locale$$Lambda$lambda$formatList$3$4::fieldInfos[2] = {
-	{"pattern", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Locale$$Lambda$lambda$formatList$3$4, pattern)},
-	{}
-};
-$MethodInfo Locale$$Lambda$lambda$formatList$3$4::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Locale$$Lambda$lambda$formatList$3$4, init$, void, $String*)},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Locale$$Lambda$lambda$formatList$3$4, apply, $Object*, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Locale$$Lambda$lambda$formatList$3$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Locale$$Lambda$lambda$formatList$3$4",
-	"java.lang.Object",
-	"java.util.function.BinaryOperator",
-	fieldInfos,
-	methodInfos
 };
 $Class* Locale$$Lambda$lambda$formatList$3$4::load$($String* name, bool initialize) {
-	$loadClass(Locale$$Lambda$lambda$formatList$3$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"pattern", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Locale$$Lambda$lambda$formatList$3$4, pattern)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Locale$$Lambda$lambda$formatList$3$4, init$, void, $String*)},
+		{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Locale$$Lambda$lambda$formatList$3$4, apply, $Object*, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Locale$$Lambda$lambda$formatList$3$4",
+		"java.lang.Object",
+		"java.util.function.BinaryOperator",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Locale$$Lambda$lambda$formatList$3$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Locale$$Lambda$lambda$formatList$3$4);
+	});
 	return class$;
 }
 $Class* Locale$$Lambda$lambda$formatList$3$4::class$ = nullptr;
-
-$FieldInfo _Locale_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Locale, $assertionsDisabled)},
-	{"ENGLISH", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, ENGLISH)},
-	{"FRENCH", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, FRENCH)},
-	{"GERMAN", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, GERMAN)},
-	{"ITALIAN", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, ITALIAN)},
-	{"JAPANESE", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, JAPANESE)},
-	{"KOREAN", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, KOREAN)},
-	{"CHINESE", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, CHINESE)},
-	{"SIMPLIFIED_CHINESE", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, SIMPLIFIED_CHINESE)},
-	{"TRADITIONAL_CHINESE", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, TRADITIONAL_CHINESE)},
-	{"FRANCE", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, FRANCE)},
-	{"GERMANY", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, GERMANY)},
-	{"ITALY", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, ITALY)},
-	{"JAPAN", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, JAPAN)},
-	{"KOREA", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, KOREA)},
-	{"UK", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, UK)},
-	{"US", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, US)},
-	{"CANADA", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, CANADA)},
-	{"CANADA_FRENCH", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, CANADA_FRENCH)},
-	{"ROOT", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, ROOT)},
-	{"CONSTANT_LOCALES", "Ljava/util/Map;", "Ljava/util/Map<Lsun/util/locale/BaseLocale;Ljava/util/Locale;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Locale, CONSTANT_LOCALES)},
-	{"CHINA", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, CHINA)},
-	{"PRC", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, PRC)},
-	{"TAIWAN", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, TAIWAN)},
-	{"PRIVATE_USE_EXTENSION", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Locale, PRIVATE_USE_EXTENSION)},
-	{"UNICODE_LOCALE_EXTENSION", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Locale, UNICODE_LOCALE_EXTENSION)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Locale, serialVersionUID)},
-	{"DISPLAY_LANGUAGE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Locale, DISPLAY_LANGUAGE)},
-	{"DISPLAY_COUNTRY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Locale, DISPLAY_COUNTRY)},
-	{"DISPLAY_VARIANT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Locale, DISPLAY_VARIANT)},
-	{"DISPLAY_SCRIPT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Locale, DISPLAY_SCRIPT)},
-	{"DISPLAY_UEXT_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Locale, DISPLAY_UEXT_KEY)},
-	{"DISPLAY_UEXT_TYPE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Locale, DISPLAY_UEXT_TYPE)},
-	{"baseLocale", "Lsun/util/locale/BaseLocale;", nullptr, $PRIVATE | $TRANSIENT, $field(Locale, baseLocale)},
-	{"localeExtensions", "Lsun/util/locale/LocaleExtensions;", nullptr, $PRIVATE | $TRANSIENT, $field(Locale, localeExtensions)},
-	{"hashCodeValue", "I", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(Locale, hashCodeValue)},
-	{"defaultLocale", "Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Locale, defaultLocale)},
-	{"defaultDisplayLocale", "Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Locale, defaultDisplayLocale)},
-	{"defaultFormatLocale", "Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Locale, defaultFormatLocale)},
-	{"languageTag", "Ljava/lang/String;", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(Locale, languageTag)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Locale, serialPersistentFields)},
-	{"isoLanguages", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Locale, isoLanguages)},
-	{"isoCountries", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Locale, isoCountries)},
-	{}
-};
-
-$MethodInfo _Locale_MethodInfo_[] = {
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Lsun/util/locale/BaseLocale;Lsun/util/locale/LocaleExtensions;)V", nullptr, $PRIVATE, $method(Locale, init$, void, $BaseLocale*, $LocaleExtensions*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Locale, init$, void, $String*, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Locale, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Locale, init$, void, $String*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Locale, clone, $Object*)},
-	{"convertOldISOCodes", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Locale, convertOldISOCodes, $String*, $String*)},
-	{"createConstant", "(B)Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $staticMethod(Locale, createConstant, Locale*, int8_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Locale, equals, bool, Object$*)},
-	{"filter", "(Ljava/util/List;Ljava/util/Collection;Ljava/util/Locale$FilteringMode;)Ljava/util/List;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/util/Locale;>;Ljava/util/Locale$FilteringMode;)Ljava/util/List<Ljava/util/Locale;>;", $PUBLIC | $STATIC, $staticMethod(Locale, filter, $List*, $List*, $Collection*, $Locale$FilteringMode*)},
-	{"filter", "(Ljava/util/List;Ljava/util/Collection;)Ljava/util/List;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/util/Locale;>;)Ljava/util/List<Ljava/util/Locale;>;", $PUBLIC | $STATIC, $staticMethod(Locale, filter, $List*, $List*, $Collection*)},
-	{"filterTags", "(Ljava/util/List;Ljava/util/Collection;Ljava/util/Locale$FilteringMode;)Ljava/util/List;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/lang/String;>;Ljava/util/Locale$FilteringMode;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(Locale, filterTags, $List*, $List*, $Collection*, $Locale$FilteringMode*)},
-	{"filterTags", "(Ljava/util/List;Ljava/util/Collection;)Ljava/util/List;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(Locale, filterTags, $List*, $List*, $Collection*)},
-	{"forLanguageTag", "(Ljava/lang/String;)Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC, $staticMethod(Locale, forLanguageTag, Locale*, $String*)},
-	{"formatList", "([Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Locale, formatList, $String*, $StringArray*, $String*)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC, $staticMethod(Locale, getAvailableLocales, $LocaleArray*)},
-	{"getBaseLocale", "()Lsun/util/locale/BaseLocale;", nullptr, 0, $method(Locale, getBaseLocale, $BaseLocale*)},
-	{"getCompatibilityExtensions", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lsun/util/locale/LocaleExtensions;", nullptr, $PRIVATE | $STATIC, $staticMethod(Locale, getCompatibilityExtensions, $LocaleExtensions*, $String*, $String*, $String*, $String*)},
-	{"getCountry", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getCountry, $String*)},
-	{"getDefault", "()Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC, $staticMethod(Locale, getDefault, Locale*)},
-	{"getDefault", "(Ljava/util/Locale$Category;)Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC, $staticMethod(Locale, getDefault, Locale*, $Locale$Category*)},
-	{"getDefaultExtensions", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Lsun/util/locale/LocaleExtensions;>;", $PRIVATE | $STATIC, $staticMethod(Locale, getDefaultExtensions, $Optional*, $String*)},
-	{"getDisplayCountry", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Locale, getDisplayCountry, $String*)},
-	{"getDisplayCountry", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getDisplayCountry, $String*, Locale*)},
-	{"getDisplayKeyTypeExtensionString", "(Ljava/lang/String;Lsun/util/locale/provider/LocaleResources;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Locale, getDisplayKeyTypeExtensionString, $String*, $String*, $LocaleResources*, Locale*)},
-	{"getDisplayLanguage", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Locale, getDisplayLanguage, $String*)},
-	{"getDisplayLanguage", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getDisplayLanguage, $String*, Locale*)},
-	{"getDisplayLocale", "()Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(Locale, getDisplayLocale, Locale*)},
-	{"getDisplayName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Locale, getDisplayName, $String*)},
-	{"getDisplayName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getDisplayName, $String*, Locale*)},
-	{"getDisplayScript", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getDisplayScript, $String*)},
-	{"getDisplayScript", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getDisplayScript, $String*, Locale*)},
-	{"getDisplayString", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Locale;I)Ljava/lang/String;", nullptr, $PRIVATE, $method(Locale, getDisplayString, $String*, $String*, $String*, Locale*, int32_t)},
-	{"getDisplayVariant", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Locale, getDisplayVariant, $String*)},
-	{"getDisplayVariant", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getDisplayVariant, $String*, Locale*)},
-	{"getDisplayVariantArray", "(Ljava/util/Locale;)[Ljava/lang/String;", nullptr, $PRIVATE, $method(Locale, getDisplayVariantArray, $StringArray*, Locale*)},
-	{"getExtension", "(C)Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getExtension, $String*, char16_t)},
-	{"getExtensionKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Character;>;", $PUBLIC, $method(Locale, getExtensionKeys, $Set*)},
-	{"getFormatLocale", "()Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(Locale, getFormatLocale, Locale*)},
-	{"getISO2Table", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Locale, getISO2Table, $StringArray*, $String*)},
-	{"getISO3Code", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Locale, getISO3Code, $String*, $String*, $String*)},
-	{"getISO3Country", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getISO3Country, $String*), "java.util.MissingResourceException"},
-	{"getISO3Language", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getISO3Language, $String*), "java.util.MissingResourceException"},
-	{"getISOCountries", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Locale, getISOCountries, $StringArray*)},
-	{"getISOCountries", "(Ljava/util/Locale$IsoCountryCode;)Ljava/util/Set;", "(Ljava/util/Locale$IsoCountryCode;)Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(Locale, getISOCountries, $Set*, $Locale$IsoCountryCode*)},
-	{"getISOLanguages", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Locale, getISOLanguages, $StringArray*)},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Locale;", nullptr, $STATIC, $staticMethod(Locale, getInstance, Locale*, $String*, $String*, $String*)},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsun/util/locale/LocaleExtensions;)Ljava/util/Locale;", nullptr, $STATIC, $staticMethod(Locale, getInstance, Locale*, $String*, $String*, $String*, $String*, $LocaleExtensions*)},
-	{"getInstance", "(Lsun/util/locale/BaseLocale;Lsun/util/locale/LocaleExtensions;)Ljava/util/Locale;", nullptr, $STATIC, $staticMethod(Locale, getInstance, Locale*, $BaseLocale*, $LocaleExtensions*)},
-	{"getLanguage", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getLanguage, $String*)},
-	{"getLocaleExtensions", "()Lsun/util/locale/LocaleExtensions;", nullptr, 0, $method(Locale, getLocaleExtensions, $LocaleExtensions*)},
-	{"getScript", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getScript, $String*)},
-	{"getUnicodeLocaleAttributes", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $method(Locale, getUnicodeLocaleAttributes, $Set*)},
-	{"getUnicodeLocaleKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $method(Locale, getUnicodeLocaleKeys, $Set*)},
-	{"getUnicodeLocaleType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getUnicodeLocaleType, $String*, $String*)},
-	{"getVariant", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getVariant, $String*)},
-	{"hasExtensions", "()Z", nullptr, $PUBLIC, $method(Locale, hasExtensions, bool)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Locale, hashCode, int32_t)},
-	{"initDefault", "()Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $staticMethod(Locale, initDefault, Locale*)},
-	{"initDefault", "(Ljava/util/Locale$Category;)Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $staticMethod(Locale, initDefault, Locale*, $Locale$Category*)},
-	{"isUnicodeExtensionKey", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Locale, isUnicodeExtensionKey, bool, $String*)},
-	{"lambda$formatList$3", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Locale, lambda$formatList$3, $String*, $String*, $String*, $String*)},
-	{"lambda$getDisplayKeyTypeExtensionString$2", "(Ljava/util/Locale;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Locale, lambda$getDisplayKeyTypeExtensionString$2, $String*, Locale*, $String*)},
-	{"lambda$getDisplayName$0", "(Ljava/util/Locale;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(Locale, lambda$getDisplayName$0, $String*, Locale*, $String*)},
-	{"lambda$getDisplayName$1", "(Lsun/util/locale/provider/LocaleResources;Ljava/util/Locale;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(Locale, lambda$getDisplayName$1, $String*, $LocaleResources*, Locale*, $String*)},
-	{"lookup", "(Ljava/util/List;Ljava/util/Collection;)Ljava/util/Locale;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/util/Locale;>;)Ljava/util/Locale;", $PUBLIC | $STATIC, $staticMethod(Locale, lookup, Locale*, $List*, $Collection*)},
-	{"lookupTag", "(Ljava/util/List;Ljava/util/Collection;)Ljava/lang/String;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(Locale, lookupTag, $String*, $List*, $Collection*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Locale, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Locale, readResolve, $Object*), "java.io.ObjectStreamException"},
-	{"setDefault", "(Ljava/util/Locale;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Locale, setDefault, void, Locale*)},
-	{"setDefault", "(Ljava/util/Locale$Category;Ljava/util/Locale;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Locale, setDefault, void, $Locale$Category*, Locale*)},
-	{"stripExtensions", "()Ljava/util/Locale;", nullptr, $PUBLIC, $method(Locale, stripExtensions, Locale*)},
-	{"toLanguageTag", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, toLanguageTag, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Locale, toString, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Locale, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Locale_InnerClassesInfo_[] = {
-	{"java.util.Locale$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"java.util.Locale$LanguageRange", "java.util.Locale", "LanguageRange", $PUBLIC | $STATIC | $FINAL},
-	{"java.util.Locale$FilteringMode", "java.util.Locale", "FilteringMode", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"java.util.Locale$Builder", "java.util.Locale", "Builder", $PUBLIC | $STATIC | $FINAL},
-	{"java.util.Locale$Category", "java.util.Locale", "Category", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"java.util.Locale$LocaleNameGetter", "java.util.Locale", "LocaleNameGetter", $PRIVATE | $STATIC},
-	{"java.util.Locale$LocaleKey", "java.util.Locale", "LocaleKey", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.Locale$Cache", "java.util.Locale", "Cache", $PRIVATE | $STATIC},
-	{"java.util.Locale$IsoCountryCode", "java.util.Locale", "IsoCountryCode", $PUBLIC | $STATIC | $ABSTRACT | $ENUM},
-	{}
-};
-
-$ClassInfo _Locale_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.util.Locale",
-	"java.lang.Object",
-	"java.lang.Cloneable,java.io.Serializable",
-	_Locale_FieldInfo_,
-	_Locale_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Locale_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.Locale$1,java.util.Locale$LanguageRange,java.util.Locale$FilteringMode,java.util.Locale$Builder,java.util.Locale$Category,java.util.Locale$LocaleNameGetter,java.util.Locale$LocaleKey,java.util.Locale$Cache,java.util.Locale$IsoCountryCode,java.util.Locale$IsoCountryCode$3,java.util.Locale$IsoCountryCode$2,java.util.Locale$IsoCountryCode$1"
-};
-
-$Object* allocate$Locale($Class* clazz) {
-	return $of($alloc(Locale));
-}
 
 void Locale::finalize() {
 	this->$Cloneable::finalize();
@@ -588,11 +405,11 @@ $volatile($StringArray*) Locale::isoCountries = nullptr;
 
 Locale* Locale::createConstant(int8_t baseType) {
 	$init(Locale);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BaseLocale);
 	$var($BaseLocale, base, $nc($BaseLocale::constantBaseLocales)->get(baseType));
-	$var(Locale, locale, $new(Locale, base, ($LocaleExtensions*)nullptr));
-	$nc(Locale::CONSTANT_LOCALES)->put(base, locale);
+	$var(Locale, locale, $new(Locale, base, nullptr));
+	Locale::CONSTANT_LOCALES->put(base, locale);
 	return locale;
 }
 
@@ -624,7 +441,7 @@ Locale* Locale::getInstance($String* language, $String* country, $String* varian
 
 Locale* Locale::getInstance($String* language, $String* script, $String* country, $String* variant, $LocaleExtensions* extensions$renamed) {
 	$init(Locale);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LocaleExtensions, extensions, extensions$renamed);
 	if (language == nullptr || script == nullptr || country == nullptr || variant == nullptr) {
 		$throwNew($NullPointerException);
@@ -638,9 +455,9 @@ Locale* Locale::getInstance($String* language, $String* script, $String* country
 
 Locale* Locale::getInstance($BaseLocale* baseloc, $LocaleExtensions* extensions) {
 	$init(Locale);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (extensions == nullptr) {
-		$var(Locale, locale, $cast(Locale, $nc(Locale::CONSTANT_LOCALES)->get(baseloc)));
+		$var(Locale, locale, $cast(Locale, Locale::CONSTANT_LOCALES->get(baseloc)));
 		if (locale != nullptr) {
 			return locale;
 		}
@@ -660,7 +477,7 @@ Locale* Locale::getDefault() {
 
 Locale* Locale::getDefault($Locale$Category* category) {
 	$init(Locale);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(category);
 	$init($Locale$Category);
 	if (category == $Locale$Category::DISPLAY) {
@@ -682,26 +499,24 @@ Locale* Locale::getDefault($Locale$Category* category) {
 }
 
 Locale* Locale::getDisplayLocale() {
-	$load(Locale);
+	$init(Locale);
 	$synchronized(class$) {
-		$init(Locale);
 		$var(Locale, loc, Locale::defaultDisplayLocale);
 		if (loc == nullptr) {
 			$init($Locale$Category);
-			$assign(loc, ($assignStatic(Locale::defaultDisplayLocale, initDefault($Locale$Category::DISPLAY))));
+			$assign(loc, $assignStatic(Locale::defaultDisplayLocale, initDefault($Locale$Category::DISPLAY)));
 		}
 		return loc;
 	}
 }
 
 Locale* Locale::getFormatLocale() {
-	$load(Locale);
+	$init(Locale);
 	$synchronized(class$) {
-		$init(Locale);
 		$var(Locale, loc, Locale::defaultFormatLocale);
 		if (loc == nullptr) {
 			$init($Locale$Category);
-			$assign(loc, ($assignStatic(Locale::defaultFormatLocale, initDefault($Locale$Category::FORMAT))));
+			$assign(loc, $assignStatic(Locale::defaultFormatLocale, initDefault($Locale$Category::FORMAT)));
 		}
 		return loc;
 	}
@@ -709,7 +524,7 @@ Locale* Locale::getFormatLocale() {
 
 Locale* Locale::initDefault() {
 	$init(Locale);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, language, nullptr);
 	$var($String, region, nullptr);
 	$var($String, script, nullptr);
@@ -719,7 +534,7 @@ Locale* Locale::initDefault() {
 	$assign(language, $nc(props)->getProperty("user.language"_s, "en"_s));
 	$assign(region, props->getProperty("user.region"_s));
 	if (region != nullptr) {
-		int32_t i = region->indexOf((int32_t)u'_');
+		int32_t i = region->indexOf(u'_');
 		if (i >= 0) {
 			$assign(country, region->substring(0, i));
 			$assign(variant, region->substring(i + 1));
@@ -733,38 +548,37 @@ Locale* Locale::initDefault() {
 		$assign(country, props->getProperty("user.country"_s, ""_s));
 		$assign(variant, props->getProperty("user.variant"_s, ""_s));
 	}
-	return getInstance(language, script, country, variant, $cast($LocaleExtensions, $($nc($(getDefaultExtensions($(props->getProperty("user.extensions"_s, ""_s)))))->orElse(nullptr))));
+	return getInstance(language, script, country, variant, $$cast($LocaleExtensions, $$nc(getDefaultExtensions($(props->getProperty("user.extensions"_s, ""_s))))->orElse(nullptr)));
 }
 
 Locale* Locale::initDefault($Locale$Category* category) {
 	$init(Locale);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Properties, props, $GetPropertyAction::privilegedGetProperties());
 	$var($String, var$0, $nc(props)->getProperty($nc(category)->languageKey, $($nc(Locale::defaultLocale)->getLanguage())));
-	$var($String, var$1, props->getProperty($nc(category)->scriptKey, $($nc(Locale::defaultLocale)->getScript())));
-	$var($String, var$2, props->getProperty($nc(category)->countryKey, $($nc(Locale::defaultLocale)->getCountry())));
-	$var($String, var$3, props->getProperty($nc(category)->variantKey, $($nc(Locale::defaultLocale)->getVariant())));
-	return getInstance(var$0, var$1, var$2, var$3, $cast($LocaleExtensions, $($nc($(getDefaultExtensions($(props->getProperty($nc(category)->extensionsKey, ""_s)))))->orElse($($nc(Locale::defaultLocale)->getLocaleExtensions())))));
+	$var($String, var$1, props->getProperty(category->scriptKey, $($nc(Locale::defaultLocale)->getScript())));
+	$var($String, var$2, props->getProperty(category->countryKey, $($nc(Locale::defaultLocale)->getCountry())));
+	$var($String, var$3, props->getProperty(category->variantKey, $($nc(Locale::defaultLocale)->getVariant())));
+	return getInstance(var$0, var$1, var$2, var$3, $$cast($LocaleExtensions, $$nc(getDefaultExtensions($(props->getProperty(category->extensionsKey, ""_s))))->orElse($($nc(Locale::defaultLocale)->getLocaleExtensions()))));
 }
 
 $Optional* Locale::getDefaultExtensions($String* extensionsProp) {
 	$init(Locale);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($LocaleUtils::isEmpty(extensionsProp)) {
 		return $Optional::empty();
 	}
 	$var($LocaleExtensions, exts, nullptr);
 	try {
-		$assign(exts, $nc($($$new($InternalLocaleBuilder)->setExtensions(extensionsProp)))->getLocaleExtensions());
+		$assign(exts, $$nc($$new($InternalLocaleBuilder)->setExtensions(extensionsProp))->getLocaleExtensions());
 	} catch ($LocaleSyntaxException& e) {
 	}
 	return $Optional::ofNullable(exts);
 }
 
 void Locale::setDefault(Locale* newLocale) {
-	$load(Locale);
+	$init(Locale);
 	$synchronized(class$) {
-		$init(Locale);
 		$init($Locale$Category);
 		setDefault($Locale$Category::DISPLAY, newLocale);
 		setDefault($Locale$Category::FORMAT, newLocale);
@@ -773,10 +587,9 @@ void Locale::setDefault(Locale* newLocale) {
 }
 
 void Locale::setDefault($Locale$Category* category, Locale* newLocale) {
-	$load(Locale);
+	$init(Locale);
 	$synchronized(class$) {
-		$init(Locale);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (category == nullptr) {
 			$throwNew($NullPointerException, "Category cannot be NULL"_s);
 		}
@@ -790,20 +603,14 @@ void Locale::setDefault($Locale$Category* category, Locale* newLocale) {
 		$init($Locale$1);
 		switch ($nc($Locale$1::$SwitchMap$java$util$Locale$Category)->get($nc((category))->ordinal())) {
 		case 1:
-			{
-				$assignStatic(Locale::defaultDisplayLocale, newLocale);
-				break;
-			}
+			$assignStatic(Locale::defaultDisplayLocale, newLocale);
+			break;
 		case 2:
-			{
-				$assignStatic(Locale::defaultFormatLocale, newLocale);
-				break;
-			}
+			$assignStatic(Locale::defaultFormatLocale, newLocale);
+			break;
 		default:
-			{
-				if (!Locale::$assertionsDisabled) {
-					$throwNew($AssertionError, $of("Unknown Category"_s));
-				}
+			if (!Locale::$assertionsDisabled) {
+				$throwNew($AssertionError, $of("Unknown Category"_s));
 			}
 		}
 	}
@@ -844,15 +651,11 @@ $StringArray* Locale::getISOLanguages() {
 
 $StringArray* Locale::getISO2Table($String* table) {
 	$init(Locale);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = $nc(table)->length() / 5;
 	$var($StringArray, isoTable, $new($StringArray, len));
-	{
-		int32_t i = 0;
-		int32_t j = 0;
-		for (; i < len; ++i, j += 5) {
-			isoTable->set(i, $(table->substring(j, j + 2)));
-		}
+	for (int32_t i = 0, j = 0; i < len; ++i, j += 5) {
+		isoTable->set(i, $(table->substring(j, j + 2)));
 	}
 	return isoTable;
 }
@@ -882,7 +685,7 @@ Locale* Locale::stripExtensions() {
 }
 
 $String* Locale::getExtension(char16_t key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$LocaleExtensions::isValidKey(key)) {
 		$throwNew($IllegalArgumentException, $$str({"Ill-formed extension key: "_s, $$str(key)}));
 	}
@@ -926,12 +729,12 @@ $LocaleExtensions* Locale::getLocaleExtensions() {
 }
 
 $String* Locale::toString() {
-	$useLocalCurrentObjectStackCache();
-	bool l = !$nc($($nc(this->baseLocale)->getLanguage()))->isEmpty();
-	bool s = !$nc($($nc(this->baseLocale)->getScript()))->isEmpty();
-	bool r = !$nc($($nc(this->baseLocale)->getRegion()))->isEmpty();
-	bool v = !$nc($($nc(this->baseLocale)->getVariant()))->isEmpty();
-	bool e = this->localeExtensions != nullptr && !$nc($($nc(this->localeExtensions)->getID()))->isEmpty();
+	$useLocalObjectStack();
+	bool l = !$$nc($nc(this->baseLocale)->getLanguage())->isEmpty();
+	bool s = !$$nc($nc(this->baseLocale)->getScript())->isEmpty();
+	bool r = !$$nc($nc(this->baseLocale)->getRegion())->isEmpty();
+	bool v = !$$nc($nc(this->baseLocale)->getVariant())->isEmpty();
+	bool e = this->localeExtensions != nullptr && !$$nc(this->localeExtensions->getID())->isEmpty();
 	$var($StringBuilder, result, $new($StringBuilder, $($nc(this->baseLocale)->getLanguage())));
 	if (r || (l && (v || s || e))) {
 		result->append(u'_')->append($($nc(this->baseLocale)->getRegion()));
@@ -953,7 +756,7 @@ $String* Locale::toString() {
 }
 
 $String* Locale::toLanguageTag() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->languageTag != nullptr) {
 		return this->languageTag;
 	}
@@ -986,7 +789,7 @@ $String* Locale::toLanguageTag() {
 	}
 	$assign(subtags, tag->getExtensions());
 	{
-		$var($Iterator, i$, subtags->iterator());
+		$var($Iterator, i$, $nc(subtags)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, s, $cast($String, i$->next()));
 			{
@@ -1014,13 +817,13 @@ $String* Locale::toLanguageTag() {
 
 Locale* Locale::forLanguageTag($String* languageTag) {
 	$init(Locale);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LanguageTag, tag, $LanguageTag::parse(languageTag, nullptr));
 	$var($InternalLocaleBuilder, bldr, $new($InternalLocaleBuilder));
 	bldr->setLanguageTag(tag);
 	$var($BaseLocale, base, bldr->getBaseLocale());
 	$var($LocaleExtensions, exts, bldr->getLocaleExtensions());
-	if (exts == nullptr && !$nc($($nc(base)->getVariant()))->isEmpty()) {
+	if (exts == nullptr && !$$nc($nc(base)->getVariant())->isEmpty()) {
 		$var($String, var$0, base->getLanguage());
 		$var($String, var$1, base->getScript());
 		$var($String, var$2, base->getRegion());
@@ -1030,7 +833,7 @@ Locale* Locale::forLanguageTag($String* languageTag) {
 }
 
 $String* Locale::getISO3Language() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, lang, $nc(this->baseLocale)->getLanguage());
 	if ($nc(lang)->length() == 3) {
 		return lang;
@@ -1044,7 +847,7 @@ $String* Locale::getISO3Language() {
 }
 
 $String* Locale::getISO3Country() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($LocaleISOData);
 	$var($String, country3, getISO3Code($($nc(this->baseLocale)->getRegion()), $LocaleISOData::isoCountryTable));
 	if (country3 == nullptr) {
@@ -1103,7 +906,7 @@ $String* Locale::getDisplayCountry(Locale* inLocale) {
 }
 
 $String* Locale::getDisplayString($String* code, $String* cat, Locale* inLocale, int32_t type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(inLocale);
 	$Objects::requireNonNull(code);
 	if (code->isEmpty()) {
@@ -1114,9 +917,9 @@ $String* Locale::getDisplayString($String* code, $String* cat, Locale* inLocale,
 	$var($String, rbKey, type == Locale::DISPLAY_VARIANT ? $str({"%%"_s, code}) : code);
 	$init($Locale$LocaleNameGetter);
 	$var($String, result, $cast($String, $nc(pool)->getLocalizedObject($Locale$LocaleNameGetter::INSTANCE, inLocale, rbKey, $$new($ObjectArray, {
-		$($of($Integer::valueOf(type))),
-		$of(code),
-		$of(cat)
+		$($Integer::valueOf(type)),
+		code,
+		cat
 	}))));
 	return result != nullptr ? result : code;
 }
@@ -1127,11 +930,11 @@ $String* Locale::getDisplayVariant() {
 }
 
 $String* Locale::getDisplayVariant(Locale* inLocale) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc($($nc(this->baseLocale)->getVariant()))->isEmpty()) {
+	$useLocalObjectStack();
+	if ($$nc($nc(this->baseLocale)->getVariant())->isEmpty()) {
 		return ""_s;
 	}
-	$var($LocaleResources, lr, $nc($($LocaleProviderAdapter::getResourceBundleBased()))->getLocaleResources(inLocale));
+	$var($LocaleResources, lr, $$nc($LocaleProviderAdapter::getResourceBundleBased())->getLocaleResources(inLocale));
 	$var($StringArray, names, getDisplayVariantArray(inLocale));
 	return formatList(names, $($nc(lr)->getLocaleName("ListCompositionPattern"_s)));
 }
@@ -1142,8 +945,8 @@ $String* Locale::getDisplayName() {
 }
 
 $String* Locale::getDisplayName(Locale* inLocale) {
-	$useLocalCurrentObjectStackCache();
-	$var($LocaleResources, lr, $nc($($LocaleProviderAdapter::getResourceBundleBased()))->getLocaleResources(inLocale));
+	$useLocalObjectStack();
+	$var($LocaleResources, lr, $$nc($LocaleProviderAdapter::getResourceBundleBased())->getLocaleResources(inLocale));
 	$var($String, languageName, getDisplayLanguage(inLocale));
 	$var($String, scriptName, getDisplayScript(inLocale));
 	$var($String, countryName, getDisplayCountry(inLocale));
@@ -1162,7 +965,7 @@ $String* Locale::getDisplayName(Locale* inLocale) {
 		}
 	}
 	$var($ArrayList, names, $new($ArrayList, 4));
-	if (!$nc(languageName)->isEmpty()) {
+	if (!languageName->isEmpty()) {
 		names->add(languageName);
 	}
 	if (!$nc(scriptName)->isEmpty()) {
@@ -1175,16 +978,16 @@ $String* Locale::getDisplayName(Locale* inLocale) {
 		names->addAll($($Arrays::asList(variantNames)));
 	}
 	if (this->localeExtensions != nullptr) {
-		$nc($($nc($($nc($($nc(this->localeExtensions)->getUnicodeLocaleAttributes()))->stream()))->map(static_cast<$Function*>($$new(Locale$$Lambda$lambda$getDisplayName$0, this, inLocale)))))->forEach(static_cast<$Consumer*>($$new(Locale$$Lambda$add$1, static_cast<$ArrayList*>(names))));
-		$nc($($nc($($nc($($nc(this->localeExtensions)->getUnicodeLocaleKeys()))->stream()))->map(static_cast<$Function*>($$new(Locale$$Lambda$lambda$getDisplayName$1$2, this, lr, inLocale)))))->forEach(static_cast<$Consumer*>($$new(Locale$$Lambda$add$1, static_cast<$ArrayList*>(names))));
+		$$nc($$nc($$nc(this->localeExtensions->getUnicodeLocaleAttributes())->stream())->map($$new(Locale$$Lambda$lambda$getDisplayName$0, this, inLocale)))->forEach($$new(Locale$$Lambda$add$1, names));
+		$$nc($$nc($$nc($nc(this->localeExtensions)->getUnicodeLocaleKeys())->stream())->map($$new(Locale$$Lambda$lambda$getDisplayName$1$2, this, lr, inLocale)))->forEach($$new(Locale$$Lambda$add$1, names));
 	}
 	$assign(mainName, $cast($String, names->get(0)));
 	int32_t numNames = names->size();
-	$assign(qualifierNames, (numNames > 1) ? $fcast($StringArray, $nc($(names->subList(1, numNames)))->toArray($$new($StringArray, numNames - 1))) : $new($StringArray, 0));
+	$assign(qualifierNames, (numNames > 1) ? $cast($StringArray, $$nc(names->subList(1, numNames))->toArray($$new($StringArray, numNames - 1))) : $new($StringArray, 0));
 	$var($ObjectArray, displayNames, $new($ObjectArray, {
-		$($of($Integer::valueOf($nc(qualifierNames)->length != 0 ? 2 : 1))),
-		$of(mainName),
-		$nc(qualifierNames)->length != 0 ? $($of(formatList(qualifierNames, listCompositionPattern))) : ($Object*)nullptr
+		$($Integer::valueOf($nc(qualifierNames)->length != 0 ? 2 : 1)),
+		mainName,
+		qualifierNames->length != 0 ? $$of(formatList(qualifierNames, listCompositionPattern)) : ($Object*)nullptr
 	}));
 	if (displayNamePattern != nullptr) {
 		return $$new($MessageFormat, displayNamePattern)->format(displayNames);
@@ -1205,7 +1008,7 @@ $Object* Locale::clone() {
 		$var(Locale, that, $cast(Locale, $Cloneable::clone()));
 		return $of(that);
 	} catch ($CloneNotSupportedException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
@@ -1215,7 +1018,7 @@ int32_t Locale::hashCode() {
 	if (hc == 0) {
 		hc = $nc(this->baseLocale)->hashCode();
 		if (this->localeExtensions != nullptr) {
-			hc ^= $nc(this->localeExtensions)->hashCode();
+			hc ^= this->localeExtensions->hashCode();
 		}
 		this->hashCodeValue = hc;
 	}
@@ -1229,18 +1032,18 @@ bool Locale::equals(Object$* obj) {
 	if (!($instanceOf(Locale, obj))) {
 		return false;
 	}
-	$var($BaseLocale, otherBase, $nc(($cast(Locale, obj)))->baseLocale);
+	$var($BaseLocale, otherBase, $nc($cast(Locale, obj))->baseLocale);
 	if (!$nc(this->baseLocale)->equals(otherBase)) {
 		return false;
 	}
 	if (this->localeExtensions == nullptr) {
-		return ($cast(Locale, obj))->localeExtensions == nullptr;
+		return $cast(Locale, obj)->localeExtensions == nullptr;
 	}
-	return $nc(this->localeExtensions)->equals(($cast(Locale, obj))->localeExtensions);
+	return $nc(this->localeExtensions)->equals($cast(Locale, obj)->localeExtensions);
 }
 
 $StringArray* Locale::getDisplayVariantArray(Locale* inLocale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringTokenizer, tokenizer, $new($StringTokenizer, $($nc(this->baseLocale)->getVariant()), "_"_s));
 	$var($StringArray, names, $new($StringArray, tokenizer->countTokens()));
 	for (int32_t i = 0; i < names->length; ++i) {
@@ -1250,61 +1053,49 @@ $StringArray* Locale::getDisplayVariantArray(Locale* inLocale) {
 }
 
 $String* Locale::getDisplayKeyTypeExtensionString($String* key, $LocaleResources* lr, Locale* inLocale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, type, $nc(this->localeExtensions)->getUnicodeLocaleType(key));
 	$var($String, ret, getDisplayString(type, key, inLocale, Locale::DISPLAY_UEXT_TYPE));
-	if (ret == nullptr || $nc(ret)->equals(type)) {
+	if (ret == nullptr || ret->equals(type)) {
 		$var($String, displayType, type);
 		{
 			$var($String, s90616$, key);
 			int32_t tmp90616$ = -1;
 			switch ($nc(s90616$)->hashCode()) {
 			case 3186:
-				{
-					if (s90616$->equals("cu"_s)) {
-						tmp90616$ = 0;
-					}
-					break;
+				if (s90616$->equals("cu"_s)) {
+					tmp90616$ = 0;
 				}
+				break;
 			case 3637:
-				{
-					if (s90616$->equals("rg"_s)) {
-						tmp90616$ = 1;
-					}
-					break;
+				if (s90616$->equals("rg"_s)) {
+					tmp90616$ = 1;
 				}
+				break;
 			case 3718:
-				{
-					if (s90616$->equals("tz"_s)) {
-						tmp90616$ = 2;
-					}
-					break;
+				if (s90616$->equals("tz"_s)) {
+					tmp90616$ = 2;
 				}
+				break;
 			}
 			switch (tmp90616$) {
 			case 0:
-				{
-					$assign(displayType, $nc(lr)->getCurrencyName($($nc(type)->toLowerCase(Locale::ROOT))));
-					break;
-				}
+				$assign(displayType, $nc(lr)->getCurrencyName($($nc(type)->toLowerCase(Locale::ROOT))));
+				break;
 			case 1:
-				{
-					if (type != nullptr && type->matches("^[a-zA-Z]{2}[zZ]{4}$"_s)) {
-						$assign(displayType, $nc(lr)->getLocaleName($($(type->substring(0, 2))->toUpperCase(Locale::ROOT))));
-					}
-					break;
+				if (type != nullptr && type->matches("^[a-zA-Z]{2}[zZ]{4}$"_s)) {
+					$assign(displayType, $nc(lr)->getLocaleName($($(type->substring(0, 2))->toUpperCase(Locale::ROOT))));
 				}
+				break;
 			case 2:
-				{
-					$assign(displayType, $cast($String, $nc($($nc($($TimeZoneNameUtility::convertLDMLShortID(type)))->map(static_cast<$Function*>($$new(Locale$$Lambda$lambda$getDisplayKeyTypeExtensionString$2$3, inLocale)))))->orElse(type)));
-					break;
-				}
+				$assign(displayType, $cast($String, $$nc($$nc($TimeZoneNameUtility::convertLDMLShortID(type))->map($$new(Locale$$Lambda$lambda$getDisplayKeyTypeExtensionString$2$3, inLocale)))->orElse(type)));
+				break;
 			}
 		}
 		$var($String, var$0, $nc(lr)->getLocaleName("ListKeyTypePattern"_s));
 		$assign(ret, $MessageFormat::format(var$0, $$new($ObjectArray, {
-			$($of(getDisplayString(key, nullptr, inLocale, Locale::DISPLAY_UEXT_KEY))),
-			$($nc($($Optional::ofNullable(displayType)))->orElse(type))
+			$(getDisplayString(key, nullptr, inLocale, Locale::DISPLAY_UEXT_KEY)),
+			$($$nc($Optional::ofNullable(displayType))->orElse(type))
 		})));
 	}
 	return ret;
@@ -1312,58 +1103,51 @@ $String* Locale::getDisplayKeyTypeExtensionString($String* key, $LocaleResources
 
 $String* Locale::formatList($StringArray* stringList, $String* pattern) {
 	$init(Locale);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (pattern == nullptr) {
-		return $cast($String, $nc($($Arrays::stream(stringList)))->collect($($Collectors::joining(","_s))));
+		return $cast($String, $$nc($Arrays::stream(stringList))->collect($($Collectors::joining(","_s))));
 	}
-
-	$var($String, var$0, nullptr)
+	$var($String, var$0, nullptr);
 	switch ($nc(stringList)->length) {
 	case 0:
-		{
-			$assign(var$0, ""_s);
-			break;
-		}
+		$assign(var$0, ""_s);
+		break;
 	case 1:
-		{
-			$assign(var$0, stringList->get(0));
-			break;
-		}
+		$assign(var$0, stringList->get(0));
+		break;
 	default:
-		{
-			$assign(var$0, $cast($String, $nc($($Arrays::stream(stringList)))->reduce(""_s, static_cast<$BinaryOperator*>($$new(Locale$$Lambda$lambda$formatList$3$4, pattern)))));
-			break;
-		}
+		$assign(var$0, $cast($String, $$nc($Arrays::stream(stringList))->reduce(""_s, $$new(Locale$$Lambda$lambda$formatList$3$4, pattern))));
+		break;
 	}
 	return var$0;
 }
 
 bool Locale::isUnicodeExtensionKey($String* s) {
 	$init(Locale);
-	bool var$0 = ($nc(s)->length() == 2);
+	bool var$0 = $nc(s)->length() == 2;
 	return var$0 && $LocaleUtils::isAlphaNumericString(s);
 }
 
 void Locale::writeObject($ObjectOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectOutputStream$PutField, fields, $nc(out)->putFields());
-	$nc(fields)->put("language"_s, $($of($nc(this->baseLocale)->getLanguage())));
-	fields->put("script"_s, $($of($nc(this->baseLocale)->getScript())));
-	fields->put("country"_s, $($of($nc(this->baseLocale)->getRegion())));
-	fields->put("variant"_s, $($of($nc(this->baseLocale)->getVariant())));
-	fields->put("extensions"_s, this->localeExtensions == nullptr ? $of(""_s) : $($of($nc(this->localeExtensions)->getID())));
+	$nc(fields)->put("language"_s, $($nc(this->baseLocale)->getLanguage()));
+	fields->put("script"_s, $($nc(this->baseLocale)->getScript()));
+	fields->put("country"_s, $($nc(this->baseLocale)->getRegion()));
+	fields->put("variant"_s, $($nc(this->baseLocale)->getVariant()));
+	fields->put("extensions"_s, this->localeExtensions == nullptr ? ""_s : $(this->localeExtensions->getID()));
 	fields->put("hashcode"_s, -1);
 	out->writeFields();
 }
 
 void Locale::readObject($ObjectInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, fields, $nc(in)->readFields());
-	$var($String, language, $cast($String, $nc(fields)->get("language"_s, $of(""_s))));
-	$var($String, script, $cast($String, fields->get("script"_s, $of(""_s))));
-	$var($String, country, $cast($String, fields->get("country"_s, $of(""_s))));
-	$var($String, variant, $cast($String, fields->get("variant"_s, $of(""_s))));
-	$var($String, extStr, $cast($String, fields->get("extensions"_s, $of(""_s))));
+	$var($String, language, $cast($String, $nc(fields)->get("language"_s, ""_s)));
+	$var($String, script, $cast($String, fields->get("script"_s, ""_s)));
+	$var($String, country, $cast($String, fields->get("country"_s, ""_s)));
+	$var($String, variant, $cast($String, fields->get("variant"_s, ""_s)));
+	$var($String, extStr, $cast($String, fields->get("extensions"_s, ""_s)));
 	$set(this, baseLocale, $BaseLocale::getInstance($(convertOldISOCodes(language)), script, country, variant));
 	if (!$nc(extStr)->isEmpty()) {
 		try {
@@ -1379,17 +1163,17 @@ void Locale::readObject($ObjectInputStream* in) {
 }
 
 $Object* Locale::readResolve() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, $nc(this->baseLocale)->getLanguage());
-	$var($String, var$1, $nc(this->baseLocale)->getScript());
-	$var($String, var$2, $nc(this->baseLocale)->getRegion());
-	return $of(getInstance(var$0, var$1, var$2, $($nc(this->baseLocale)->getVariant()), this->localeExtensions));
+	$var($String, var$1, this->baseLocale->getScript());
+	$var($String, var$2, this->baseLocale->getRegion());
+	return $of(getInstance(var$0, var$1, var$2, $(this->baseLocale->getVariant()), this->localeExtensions));
 }
 
 $String* Locale::convertOldISOCodes($String* language) {
 	$init(Locale);
-	$useLocalCurrentObjectStackCache();
-	return $BaseLocale::convertOldISOCodes($($nc($($LocaleUtils::toLowerString(language)))->intern()));
+	$useLocalObjectStack();
+	return $BaseLocale::convertOldISOCodes($($$nc($LocaleUtils::toLowerString(language))->intern()));
 }
 
 $LocaleExtensions* Locale::getCompatibilityExtensions($String* language, $String* script, $String* country, $String* variant) {
@@ -1402,10 +1186,10 @@ $LocaleExtensions* Locale::getCompatibilityExtensions($String* language, $String
 		$init($LocaleExtensions);
 		$assign(extensions, $LocaleExtensions::CALENDAR_JAPANESE);
 	} else {
-		bool var$8 = $LocaleUtils::caseIgnoreMatch(language, "th"_s);
-		bool var$7 = var$8 && script->isEmpty();
-		bool var$6 = var$7 && $LocaleUtils::caseIgnoreMatch(country, "th"_s);
-		if (var$6 && "TH"_s->equals(variant)) {
+		bool var$5 = $LocaleUtils::caseIgnoreMatch(language, "th"_s);
+		bool var$4 = var$5 && $nc(script)->isEmpty();
+		bool var$3 = var$4 && $LocaleUtils::caseIgnoreMatch(country, "th"_s);
+		if (var$3 && "TH"_s->equals(variant)) {
 			$init($LocaleExtensions);
 			$assign(extensions, $LocaleExtensions::NUMBER_THAI);
 		}
@@ -1454,8 +1238,8 @@ $String* Locale::lambda$formatList$3($String* pattern, $String* s1, $String* s2)
 		return s1;
 	}
 	return $MessageFormat::format(pattern, $$new($ObjectArray, {
-		$of(s1),
-		$of(s2)
+		s1,
+		s2
 	}));
 }
 
@@ -1472,8 +1256,8 @@ $String* Locale::lambda$getDisplayName$0(Locale* inLocale, $String* key) {
 	return getDisplayString(key, nullptr, inLocale, Locale::DISPLAY_UEXT_KEY);
 }
 
-void clinit$Locale($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Locale::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	Locale::$assertionsDisabled = !Locale::class$->desiredAssertionStatus();
 	$assignStatic(Locale::CONSTANT_LOCALES, $new($HashMap));
 	{
@@ -1501,7 +1285,6 @@ void clinit$Locale($Class* class$) {
 	$assignStatic(Locale::PRC, Locale::SIMPLIFIED_CHINESE);
 	$assignStatic(Locale::TAIWAN, Locale::TRADITIONAL_CHINESE);
 	$assignStatic(Locale::defaultLocale, Locale::initDefault());
-	$init($Integer);
 	$assignStatic(Locale::serialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "language"_s, $String::class$),
 		$$new($ObjectStreamField, "country"_s, $String::class$),
@@ -1517,23 +1300,175 @@ Locale::Locale() {
 
 $Class* Locale::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Locale$$Lambda$lambda$getDisplayName$0::classInfo$.name)) {
+		if (name->equals("java.util.Locale$$Lambda$lambda$getDisplayName$0")) {
 			return Locale$$Lambda$lambda$getDisplayName$0::load$(name, initialize);
 		}
-		if (name->equals(Locale$$Lambda$add$1::classInfo$.name)) {
+		if (name->equals("java.util.Locale$$Lambda$add$1")) {
 			return Locale$$Lambda$add$1::load$(name, initialize);
 		}
-		if (name->equals(Locale$$Lambda$lambda$getDisplayName$1$2::classInfo$.name)) {
+		if (name->equals("java.util.Locale$$Lambda$lambda$getDisplayName$1$2")) {
 			return Locale$$Lambda$lambda$getDisplayName$1$2::load$(name, initialize);
 		}
-		if (name->equals(Locale$$Lambda$lambda$getDisplayKeyTypeExtensionString$2$3::classInfo$.name)) {
+		if (name->equals("java.util.Locale$$Lambda$lambda$getDisplayKeyTypeExtensionString$2$3")) {
 			return Locale$$Lambda$lambda$getDisplayKeyTypeExtensionString$2$3::load$(name, initialize);
 		}
-		if (name->equals(Locale$$Lambda$lambda$formatList$3$4::classInfo$.name)) {
+		if (name->equals("java.util.Locale$$Lambda$lambda$formatList$3$4")) {
 			return Locale$$Lambda$lambda$formatList$3$4::load$(name, initialize);
 		}
 	}
-	$loadClass(Locale, name, initialize, &_Locale_ClassInfo_, clinit$Locale, allocate$Locale);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Locale, $assertionsDisabled)},
+		{"ENGLISH", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, ENGLISH)},
+		{"FRENCH", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, FRENCH)},
+		{"GERMAN", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, GERMAN)},
+		{"ITALIAN", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, ITALIAN)},
+		{"JAPANESE", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, JAPANESE)},
+		{"KOREAN", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, KOREAN)},
+		{"CHINESE", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, CHINESE)},
+		{"SIMPLIFIED_CHINESE", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, SIMPLIFIED_CHINESE)},
+		{"TRADITIONAL_CHINESE", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, TRADITIONAL_CHINESE)},
+		{"FRANCE", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, FRANCE)},
+		{"GERMANY", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, GERMANY)},
+		{"ITALY", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, ITALY)},
+		{"JAPAN", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, JAPAN)},
+		{"KOREA", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, KOREA)},
+		{"UK", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, UK)},
+		{"US", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, US)},
+		{"CANADA", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, CANADA)},
+		{"CANADA_FRENCH", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, CANADA_FRENCH)},
+		{"ROOT", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, ROOT)},
+		{"CONSTANT_LOCALES", "Ljava/util/Map;", "Ljava/util/Map<Lsun/util/locale/BaseLocale;Ljava/util/Locale;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Locale, CONSTANT_LOCALES)},
+		{"CHINA", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, CHINA)},
+		{"PRC", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, PRC)},
+		{"TAIWAN", "Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Locale, TAIWAN)},
+		{"PRIVATE_USE_EXTENSION", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Locale, PRIVATE_USE_EXTENSION)},
+		{"UNICODE_LOCALE_EXTENSION", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Locale, UNICODE_LOCALE_EXTENSION)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Locale, serialVersionUID)},
+		{"DISPLAY_LANGUAGE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Locale, DISPLAY_LANGUAGE)},
+		{"DISPLAY_COUNTRY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Locale, DISPLAY_COUNTRY)},
+		{"DISPLAY_VARIANT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Locale, DISPLAY_VARIANT)},
+		{"DISPLAY_SCRIPT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Locale, DISPLAY_SCRIPT)},
+		{"DISPLAY_UEXT_KEY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Locale, DISPLAY_UEXT_KEY)},
+		{"DISPLAY_UEXT_TYPE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Locale, DISPLAY_UEXT_TYPE)},
+		{"baseLocale", "Lsun/util/locale/BaseLocale;", nullptr, $PRIVATE | $TRANSIENT, $field(Locale, baseLocale)},
+		{"localeExtensions", "Lsun/util/locale/LocaleExtensions;", nullptr, $PRIVATE | $TRANSIENT, $field(Locale, localeExtensions)},
+		{"hashCodeValue", "I", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(Locale, hashCodeValue)},
+		{"defaultLocale", "Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Locale, defaultLocale)},
+		{"defaultDisplayLocale", "Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Locale, defaultDisplayLocale)},
+		{"defaultFormatLocale", "Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Locale, defaultFormatLocale)},
+		{"languageTag", "Ljava/lang/String;", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(Locale, languageTag)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Locale, serialPersistentFields)},
+		{"isoLanguages", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Locale, isoLanguages)},
+		{"isoCountries", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Locale, isoCountries)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Lsun/util/locale/BaseLocale;Lsun/util/locale/LocaleExtensions;)V", nullptr, $PRIVATE, $method(Locale, init$, void, $BaseLocale*, $LocaleExtensions*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Locale, init$, void, $String*, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Locale, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Locale, init$, void, $String*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Locale, clone, $Object*)},
+		{"convertOldISOCodes", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Locale, convertOldISOCodes, $String*, $String*)},
+		{"createConstant", "(B)Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $staticMethod(Locale, createConstant, Locale*, int8_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Locale, equals, bool, Object$*)},
+		{"filter", "(Ljava/util/List;Ljava/util/Collection;Ljava/util/Locale$FilteringMode;)Ljava/util/List;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/util/Locale;>;Ljava/util/Locale$FilteringMode;)Ljava/util/List<Ljava/util/Locale;>;", $PUBLIC | $STATIC, $staticMethod(Locale, filter, $List*, $List*, $Collection*, $Locale$FilteringMode*)},
+		{"filter", "(Ljava/util/List;Ljava/util/Collection;)Ljava/util/List;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/util/Locale;>;)Ljava/util/List<Ljava/util/Locale;>;", $PUBLIC | $STATIC, $staticMethod(Locale, filter, $List*, $List*, $Collection*)},
+		{"filterTags", "(Ljava/util/List;Ljava/util/Collection;Ljava/util/Locale$FilteringMode;)Ljava/util/List;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/lang/String;>;Ljava/util/Locale$FilteringMode;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(Locale, filterTags, $List*, $List*, $Collection*, $Locale$FilteringMode*)},
+		{"filterTags", "(Ljava/util/List;Ljava/util/Collection;)Ljava/util/List;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(Locale, filterTags, $List*, $List*, $Collection*)},
+		{"forLanguageTag", "(Ljava/lang/String;)Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC, $staticMethod(Locale, forLanguageTag, Locale*, $String*)},
+		{"formatList", "([Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Locale, formatList, $String*, $StringArray*, $String*)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC, $staticMethod(Locale, getAvailableLocales, $LocaleArray*)},
+		{"getBaseLocale", "()Lsun/util/locale/BaseLocale;", nullptr, 0, $method(Locale, getBaseLocale, $BaseLocale*)},
+		{"getCompatibilityExtensions", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lsun/util/locale/LocaleExtensions;", nullptr, $PRIVATE | $STATIC, $staticMethod(Locale, getCompatibilityExtensions, $LocaleExtensions*, $String*, $String*, $String*, $String*)},
+		{"getCountry", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getCountry, $String*)},
+		{"getDefault", "()Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC, $staticMethod(Locale, getDefault, Locale*)},
+		{"getDefault", "(Ljava/util/Locale$Category;)Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC, $staticMethod(Locale, getDefault, Locale*, $Locale$Category*)},
+		{"getDefaultExtensions", "(Ljava/lang/String;)Ljava/util/Optional;", "(Ljava/lang/String;)Ljava/util/Optional<Lsun/util/locale/LocaleExtensions;>;", $PRIVATE | $STATIC, $staticMethod(Locale, getDefaultExtensions, $Optional*, $String*)},
+		{"getDisplayCountry", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Locale, getDisplayCountry, $String*)},
+		{"getDisplayCountry", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getDisplayCountry, $String*, Locale*)},
+		{"getDisplayKeyTypeExtensionString", "(Ljava/lang/String;Lsun/util/locale/provider/LocaleResources;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Locale, getDisplayKeyTypeExtensionString, $String*, $String*, $LocaleResources*, Locale*)},
+		{"getDisplayLanguage", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Locale, getDisplayLanguage, $String*)},
+		{"getDisplayLanguage", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getDisplayLanguage, $String*, Locale*)},
+		{"getDisplayLocale", "()Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(Locale, getDisplayLocale, Locale*)},
+		{"getDisplayName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Locale, getDisplayName, $String*)},
+		{"getDisplayName", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getDisplayName, $String*, Locale*)},
+		{"getDisplayScript", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getDisplayScript, $String*)},
+		{"getDisplayScript", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getDisplayScript, $String*, Locale*)},
+		{"getDisplayString", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Locale;I)Ljava/lang/String;", nullptr, $PRIVATE, $method(Locale, getDisplayString, $String*, $String*, $String*, Locale*, int32_t)},
+		{"getDisplayVariant", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(Locale, getDisplayVariant, $String*)},
+		{"getDisplayVariant", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getDisplayVariant, $String*, Locale*)},
+		{"getDisplayVariantArray", "(Ljava/util/Locale;)[Ljava/lang/String;", nullptr, $PRIVATE, $method(Locale, getDisplayVariantArray, $StringArray*, Locale*)},
+		{"getExtension", "(C)Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getExtension, $String*, char16_t)},
+		{"getExtensionKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Character;>;", $PUBLIC, $method(Locale, getExtensionKeys, $Set*)},
+		{"getFormatLocale", "()Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(Locale, getFormatLocale, Locale*)},
+		{"getISO2Table", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Locale, getISO2Table, $StringArray*, $String*)},
+		{"getISO3Code", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Locale, getISO3Code, $String*, $String*, $String*)},
+		{"getISO3Country", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getISO3Country, $String*), "java.util.MissingResourceException"},
+		{"getISO3Language", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getISO3Language, $String*), "java.util.MissingResourceException"},
+		{"getISOCountries", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Locale, getISOCountries, $StringArray*)},
+		{"getISOCountries", "(Ljava/util/Locale$IsoCountryCode;)Ljava/util/Set;", "(Ljava/util/Locale$IsoCountryCode;)Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(Locale, getISOCountries, $Set*, $Locale$IsoCountryCode*)},
+		{"getISOLanguages", "()[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Locale, getISOLanguages, $StringArray*)},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/Locale;", nullptr, $STATIC, $staticMethod(Locale, getInstance, Locale*, $String*, $String*, $String*)},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lsun/util/locale/LocaleExtensions;)Ljava/util/Locale;", nullptr, $STATIC, $staticMethod(Locale, getInstance, Locale*, $String*, $String*, $String*, $String*, $LocaleExtensions*)},
+		{"getInstance", "(Lsun/util/locale/BaseLocale;Lsun/util/locale/LocaleExtensions;)Ljava/util/Locale;", nullptr, $STATIC, $staticMethod(Locale, getInstance, Locale*, $BaseLocale*, $LocaleExtensions*)},
+		{"getLanguage", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getLanguage, $String*)},
+		{"getLocaleExtensions", "()Lsun/util/locale/LocaleExtensions;", nullptr, 0, $method(Locale, getLocaleExtensions, $LocaleExtensions*)},
+		{"getScript", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getScript, $String*)},
+		{"getUnicodeLocaleAttributes", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $method(Locale, getUnicodeLocaleAttributes, $Set*)},
+		{"getUnicodeLocaleKeys", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $method(Locale, getUnicodeLocaleKeys, $Set*)},
+		{"getUnicodeLocaleType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getUnicodeLocaleType, $String*, $String*)},
+		{"getVariant", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, getVariant, $String*)},
+		{"hasExtensions", "()Z", nullptr, $PUBLIC, $method(Locale, hasExtensions, bool)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Locale, hashCode, int32_t)},
+		{"initDefault", "()Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $staticMethod(Locale, initDefault, Locale*)},
+		{"initDefault", "(Ljava/util/Locale$Category;)Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $staticMethod(Locale, initDefault, Locale*, $Locale$Category*)},
+		{"isUnicodeExtensionKey", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Locale, isUnicodeExtensionKey, bool, $String*)},
+		{"lambda$formatList$3", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Locale, lambda$formatList$3, $String*, $String*, $String*, $String*)},
+		{"lambda$getDisplayKeyTypeExtensionString$2", "(Ljava/util/Locale;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Locale, lambda$getDisplayKeyTypeExtensionString$2, $String*, Locale*, $String*)},
+		{"lambda$getDisplayName$0", "(Ljava/util/Locale;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(Locale, lambda$getDisplayName$0, $String*, Locale*, $String*)},
+		{"lambda$getDisplayName$1", "(Lsun/util/locale/provider/LocaleResources;Ljava/util/Locale;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(Locale, lambda$getDisplayName$1, $String*, $LocaleResources*, Locale*, $String*)},
+		{"lookup", "(Ljava/util/List;Ljava/util/Collection;)Ljava/util/Locale;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/util/Locale;>;)Ljava/util/Locale;", $PUBLIC | $STATIC, $staticMethod(Locale, lookup, Locale*, $List*, $Collection*)},
+		{"lookupTag", "(Ljava/util/List;Ljava/util/Collection;)Ljava/lang/String;", "(Ljava/util/List<Ljava/util/Locale$LanguageRange;>;Ljava/util/Collection<Ljava/lang/String;>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(Locale, lookupTag, $String*, $List*, $Collection*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Locale, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(Locale, readResolve, $Object*), "java.io.ObjectStreamException"},
+		{"setDefault", "(Ljava/util/Locale;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Locale, setDefault, void, Locale*)},
+		{"setDefault", "(Ljava/util/Locale$Category;Ljava/util/Locale;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(Locale, setDefault, void, $Locale$Category*, Locale*)},
+		{"stripExtensions", "()Ljava/util/Locale;", nullptr, $PUBLIC, $method(Locale, stripExtensions, Locale*)},
+		{"toLanguageTag", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Locale, toLanguageTag, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Locale, toString, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Locale, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Locale$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"java.util.Locale$LanguageRange", "java.util.Locale", "LanguageRange", $PUBLIC | $STATIC | $FINAL},
+		{"java.util.Locale$FilteringMode", "java.util.Locale", "FilteringMode", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"java.util.Locale$Builder", "java.util.Locale", "Builder", $PUBLIC | $STATIC | $FINAL},
+		{"java.util.Locale$Category", "java.util.Locale", "Category", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"java.util.Locale$LocaleNameGetter", "java.util.Locale", "LocaleNameGetter", $PRIVATE | $STATIC},
+		{"java.util.Locale$LocaleKey", "java.util.Locale", "LocaleKey", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.Locale$Cache", "java.util.Locale", "Cache", $PRIVATE | $STATIC},
+		{"java.util.Locale$IsoCountryCode", "java.util.Locale", "IsoCountryCode", $PUBLIC | $STATIC | $ABSTRACT | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.util.Locale",
+		"java.lang.Object",
+		"java.lang.Cloneable,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.Locale$1,java.util.Locale$LanguageRange,java.util.Locale$FilteringMode,java.util.Locale$Builder,java.util.Locale$Category,java.util.Locale$LocaleNameGetter,java.util.Locale$LocaleKey,java.util.Locale$Cache,java.util.Locale$IsoCountryCode,java.util.Locale$IsoCountryCode$3,java.util.Locale$IsoCountryCode$2,java.util.Locale$IsoCountryCode$1"
+	};
+	$loadClass(Locale, name, initialize, &classInfo$$, Locale::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Locale));
+	});
 	return class$;
 }
 

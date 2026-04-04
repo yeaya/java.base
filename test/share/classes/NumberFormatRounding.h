@@ -18,6 +18,7 @@ class $export NumberFormatRounding : public ::java::lang::Object {
 	$class(NumberFormatRounding, 0, ::java::lang::Object)
 public:
 	NumberFormatRounding();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void basicTest();
 	static void main($StringArray* args);

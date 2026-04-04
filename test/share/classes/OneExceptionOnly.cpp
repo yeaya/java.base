@@ -1,5 +1,4 @@
 #include <OneExceptionOnly.h>
-
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
@@ -7,7 +6,6 @@
 #include <java/net/SocketTimeoutException.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $Integer = ::java::lang::Integer;
@@ -18,43 +16,23 @@ using $InetAddress = ::java::net::InetAddress;
 using $PortUnreachableException = ::java::net::PortUnreachableException;
 using $SocketTimeoutException = ::java::net::SocketTimeoutException;
 
-$MethodInfo _OneExceptionOnly_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(OneExceptionOnly, init$, void)},
-	{"doTest", "(Ljava/net/InetAddress;IZ)V", nullptr, $STATIC, $staticMethod(OneExceptionOnly, doTest, void, $InetAddress*, int32_t, bool), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OneExceptionOnly, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _OneExceptionOnly_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"OneExceptionOnly",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_OneExceptionOnly_MethodInfo_
-};
-
-$Object* allocate$OneExceptionOnly($Class* clazz) {
-	return $of($alloc(OneExceptionOnly));
-}
-
 void OneExceptionOnly::init$() {
 }
 
 void OneExceptionOnly::doTest($InetAddress* ia, int32_t port, bool testSend) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println(""_s);
-	$nc($System::out)->println("***"_s);
-	$nc($System::out)->println("Test Description:"_s);
-	$nc($System::out)->println("    - Send 10 datagrams to bad destination"_s);
-	$nc($System::out)->println("    - <wait a wee while>"_s);
+	$System::out->println("***"_s);
+	$System::out->println("Test Description:"_s);
+	$System::out->println("    - Send 10 datagrams to bad destination"_s);
+	$System::out->println("    - <wait a wee while>"_s);
 	if (testSend) {
-		$nc($System::out)->println("    - Send another datagram - should throw PUE or timeout"_s);
+		$System::out->println("    - Send another datagram - should throw PUE or timeout"_s);
 	} else {
-		$nc($System::out)->println("    - Receive another datagram - should throw PUE or timeout"_s);
+		$System::out->println("    - Receive another datagram - should throw PUE or timeout"_s);
 	}
-	$nc($System::out)->println("    - Receive another receive - a SocketTimeoutException expected"_s);
-	$nc($System::out)->println(""_s);
+	$System::out->println("    - Receive another receive - a SocketTimeoutException expected"_s);
+	$System::out->println(""_s);
 	$var($DatagramSocket, s1, $new($DatagramSocket));
 	s1->connect(ia, port);
 	$var($bytes, b, $new($bytes, 512));
@@ -72,7 +50,7 @@ void OneExceptionOnly::doTest($InetAddress* ia, int32_t port, bool testSend) {
 		}
 	}
 	if (outstanding < 1) {
-		$nc($System::out)->println("Insufficient exceptions outstanding - Test Skipped (Passed)."_s);
+		$System::out->println("Insufficient exceptions outstanding - Test Skipped (Passed)."_s);
 		s1->close();
 		return;
 	}
@@ -88,7 +66,7 @@ void OneExceptionOnly::doTest($InetAddress* ia, int32_t port, bool testSend) {
 		}
 	} catch ($PortUnreachableException& pue) {
 		gotPUE = true;
-		$nc($System::out)->println("Expected PortUnreachableException thrown - good!"_s);
+		$System::out->println("Expected PortUnreachableException thrown - good!"_s);
 	} catch ($SocketTimeoutException& exc) {
 	}
 	if (gotPUE) {
@@ -97,16 +75,16 @@ void OneExceptionOnly::doTest($InetAddress* ia, int32_t port, bool testSend) {
 		} catch ($PortUnreachableException& pue) {
 			$throwNew($Exception, "Unexpected PUE received - assumed that PUs would be consumed"_s);
 		} catch ($SocketTimeoutException& exc) {
-			$nc($System::out)->println("Expected SocketTimeoutException thrown - excellent! - Test Passed."_s);
+			$System::out->println("Expected SocketTimeoutException thrown - excellent! - Test Passed."_s);
 		}
 	} else {
-		$nc($System::out)->println("Expected PUE not thrown - packets probably discarded (Passed)."_s);
+		$System::out->println("Expected PUE not thrown - packets probably discarded (Passed)."_s);
 	}
 	s1->close();
 }
 
 void OneExceptionOnly::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetAddress, ia, nullptr);
 	int32_t port = 0;
 	if ($nc(args)->length >= 2) {
@@ -126,7 +104,23 @@ OneExceptionOnly::OneExceptionOnly() {
 }
 
 $Class* OneExceptionOnly::load$($String* name, bool initialize) {
-	$loadClass(OneExceptionOnly, name, initialize, &_OneExceptionOnly_ClassInfo_, allocate$OneExceptionOnly);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(OneExceptionOnly, init$, void)},
+		{"doTest", "(Ljava/net/InetAddress;IZ)V", nullptr, $STATIC, $staticMethod(OneExceptionOnly, doTest, void, $InetAddress*, int32_t, bool), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(OneExceptionOnly, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"OneExceptionOnly",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(OneExceptionOnly, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OneExceptionOnly);
+	});
 	return class$;
 }
 

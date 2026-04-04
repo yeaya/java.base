@@ -1,5 +1,4 @@
 #include <TestClassNested.h>
-
 #include <Outer$Inner.h>
 #include <jcpp.h>
 
@@ -8,47 +7,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $TypeAnnotation = ::java::lang::TypeAnnotation;
-
-$NamedAttribute TestClassNested_Attribute_var$0[] = {
-	{"value", 's', "array"},
-	{}
-};
-
-$NamedAttribute TestClassNested_Attribute_var$1[] = {
-	{"value", 's', "Inner"},
-	{}
-};
-
-$NamedAttribute TestClassNested_Attribute_var$2[] = {
-	{"value", 's', "Outer"},
-	{}
-};
-
-$TypeAnnotation _TestClassNested_MethodTypeAnnotations_foo1[] = {
-	{"LTypeAnno;", TestClassNested_Attribute_var$0, "METHOD_RETURN"},
-	{"LTypeAnno;", TestClassNested_Attribute_var$1, "METHOD_RETURN, location = (ARRAY,INNER_TYPE)"},
-	{"LTypeAnno;", TestClassNested_Attribute_var$2, "METHOD_RETURN, location = (ARRAY)"},
-	{}
-};
-
-$MethodInfo _TestClassNested_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TestClassNested, init$, void)},
-	{"foo", "()[LOuter$Inner;", nullptr, $PUBLIC, $virtualMethod(TestClassNested, foo, $Outer$InnerArray*), nullptr, nullptr, nullptr, _TestClassNested_MethodTypeAnnotations_foo1},
-	{}
-};
-
-$ClassInfo _TestClassNested_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"TestClassNested",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestClassNested_MethodInfo_
-};
-
-$Object* allocate$TestClassNested($Class* clazz) {
-	return $of($alloc(TestClassNested));
-}
 
 void TestClassNested::init$() {
 }
@@ -61,7 +19,40 @@ TestClassNested::TestClassNested() {
 }
 
 $Class* TestClassNested::load$($String* name, bool initialize) {
-	$loadClass(TestClassNested, name, initialize, &_TestClassNested_ClassInfo_, allocate$TestClassNested);
+	$NamedAttribute foomethodTypeAnnotations$$$namedAttribute[] = {
+		{"value", 's', "array"},
+		{}
+	};
+	$NamedAttribute foomethodTypeAnnotations$$$namedAttribute$1[] = {
+		{"value", 's', "Inner"},
+		{}
+	};
+	$NamedAttribute foomethodTypeAnnotations$$$namedAttribute$2[] = {
+		{"value", 's', "Outer"},
+		{}
+	};
+	$TypeAnnotation foomethodTypeAnnotations$$[] = {
+		{"LTypeAnno;", foomethodTypeAnnotations$$$namedAttribute, "METHOD_RETURN"},
+		{"LTypeAnno;", foomethodTypeAnnotations$$$namedAttribute$1, "METHOD_RETURN, location = (ARRAY,INNER_TYPE)"},
+		{"LTypeAnno;", foomethodTypeAnnotations$$$namedAttribute$2, "METHOD_RETURN, location = (ARRAY)"},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TestClassNested, init$, void)},
+		{"foo", "()[LOuter$Inner;", nullptr, $PUBLIC, $virtualMethod(TestClassNested, foo, $Outer$InnerArray*), nullptr, nullptr, nullptr, foomethodTypeAnnotations$$},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"TestClassNested",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestClassNested, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestClassNested);
+	});
 	return class$;
 }
 

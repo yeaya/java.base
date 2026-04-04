@@ -9,6 +9,7 @@ class $export WinCommand : public ::java::lang::Object {
 	$class(WinCommand, 0, ::java::lang::Object)
 public:
 	WinCommand();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkCD($StringArray* filespecs);
 	static void checkDir($String* dirname);

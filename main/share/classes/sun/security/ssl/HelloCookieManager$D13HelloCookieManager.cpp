@@ -1,5 +1,4 @@
 #include <sun/security/ssl/HelloCookieManager$D13HelloCookieManager.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/security/SecureRandom.h>
 #include <sun/security/ssl/ClientHello$ClientHelloMessage.h>
@@ -20,38 +19,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _HelloCookieManager$D13HelloCookieManager_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/SecureRandom;)V", nullptr, 0, $method(HelloCookieManager$D13HelloCookieManager, init$, void, $SecureRandom*)},
-	{"createCookie", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;)[B", nullptr, 0, $virtualMethod(HelloCookieManager$D13HelloCookieManager, createCookie, $bytes*, $ServerHandshakeContext*, $ClientHello$ClientHelloMessage*), "java.io.IOException"},
-	{"isCookieValid", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;[B)Z", nullptr, 0, $virtualMethod(HelloCookieManager$D13HelloCookieManager, isCookieValid, bool, $ServerHandshakeContext*, $ClientHello$ClientHelloMessage*, $bytes*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _HelloCookieManager$D13HelloCookieManager_InnerClassesInfo_[] = {
-	{"sun.security.ssl.HelloCookieManager$D13HelloCookieManager", "sun.security.ssl.HelloCookieManager", "D13HelloCookieManager", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _HelloCookieManager$D13HelloCookieManager_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.HelloCookieManager$D13HelloCookieManager",
-	"sun.security.ssl.HelloCookieManager",
-	nullptr,
-	nullptr,
-	_HelloCookieManager$D13HelloCookieManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HelloCookieManager$D13HelloCookieManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.HelloCookieManager"
-};
-
-$Object* allocate$HelloCookieManager$D13HelloCookieManager($Class* clazz) {
-	return $of($alloc(HelloCookieManager$D13HelloCookieManager));
-}
-
 void HelloCookieManager$D13HelloCookieManager::init$($SecureRandom* secureRandom) {
 	$HelloCookieManager::init$();
 }
@@ -70,7 +37,34 @@ HelloCookieManager$D13HelloCookieManager::HelloCookieManager$D13HelloCookieManag
 }
 
 $Class* HelloCookieManager$D13HelloCookieManager::load$($String* name, bool initialize) {
-	$loadClass(HelloCookieManager$D13HelloCookieManager, name, initialize, &_HelloCookieManager$D13HelloCookieManager_ClassInfo_, allocate$HelloCookieManager$D13HelloCookieManager);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/SecureRandom;)V", nullptr, 0, $method(HelloCookieManager$D13HelloCookieManager, init$, void, $SecureRandom*)},
+		{"createCookie", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;)[B", nullptr, 0, $virtualMethod(HelloCookieManager$D13HelloCookieManager, createCookie, $bytes*, $ServerHandshakeContext*, $ClientHello$ClientHelloMessage*), "java.io.IOException"},
+		{"isCookieValid", "(Lsun/security/ssl/ServerHandshakeContext;Lsun/security/ssl/ClientHello$ClientHelloMessage;[B)Z", nullptr, 0, $virtualMethod(HelloCookieManager$D13HelloCookieManager, isCookieValid, bool, $ServerHandshakeContext*, $ClientHello$ClientHelloMessage*, $bytes*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.HelloCookieManager$D13HelloCookieManager", "sun.security.ssl.HelloCookieManager", "D13HelloCookieManager", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.HelloCookieManager$D13HelloCookieManager",
+		"sun.security.ssl.HelloCookieManager",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.HelloCookieManager"
+	};
+	$loadClass(HelloCookieManager$D13HelloCookieManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HelloCookieManager$D13HelloCookieManager);
+	});
 	return class$;
 }
 

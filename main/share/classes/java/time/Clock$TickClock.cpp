@@ -1,5 +1,4 @@
 #include <java/time/Clock$TickClock.h>
-
 #include <java/lang/Math.h>
 #include <java/time/Clock.h>
 #include <java/time/Duration.h>
@@ -20,52 +19,6 @@ using $ZoneId = ::java::time::ZoneId;
 namespace java {
 	namespace time {
 
-$FieldInfo _Clock$TickClock_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Clock$TickClock, serialVersionUID)},
-	{"baseClock", "Ljava/time/Clock;", nullptr, $PRIVATE | $FINAL, $field(Clock$TickClock, baseClock)},
-	{"tickNanos", "J", nullptr, $PRIVATE | $FINAL, $field(Clock$TickClock, tickNanos)},
-	{}
-};
-
-$MethodInfo _Clock$TickClock_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/time/Clock;J)V", nullptr, 0, $method(Clock$TickClock, init$, void, $Clock*, int64_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Clock$TickClock, equals, bool, Object$*)},
-	{"getZone", "()Ljava/time/ZoneId;", nullptr, $PUBLIC, $virtualMethod(Clock$TickClock, getZone, $ZoneId*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Clock$TickClock, hashCode, int32_t)},
-	{"instant", "()Ljava/time/Instant;", nullptr, $PUBLIC, $virtualMethod(Clock$TickClock, instant, $Instant*)},
-	{"millis", "()J", nullptr, $PUBLIC, $virtualMethod(Clock$TickClock, millis, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Clock$TickClock, toString, $String*)},
-	{"withZone", "(Ljava/time/ZoneId;)Ljava/time/Clock;", nullptr, $PUBLIC, $virtualMethod(Clock$TickClock, withZone, $Clock*, $ZoneId*)},
-	{}
-};
-
-$InnerClassInfo _Clock$TickClock_InnerClassesInfo_[] = {
-	{"java.time.Clock$TickClock", "java.time.Clock", "TickClock", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Clock$TickClock_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.time.Clock$TickClock",
-	"java.time.Clock",
-	"java.io.Serializable",
-	_Clock$TickClock_FieldInfo_,
-	_Clock$TickClock_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Clock$TickClock_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.time.Clock"
-};
-
-$Object* allocate$Clock$TickClock($Class* clazz) {
-	return $of($alloc(Clock$TickClock));
-}
-
 $Object* Clock$TickClock::clone() {
 	 return this->$Clock::clone();
 }
@@ -85,11 +38,11 @@ $ZoneId* Clock$TickClock::getZone() {
 }
 
 $Clock* Clock$TickClock::withZone($ZoneId* zone) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(zone)->equals($($nc(this->baseClock)->getZone()))) {
 		return this;
 	}
-	return $new(Clock$TickClock, $($nc(this->baseClock)->withZone(zone)), this->tickNanos);
+	return $new(Clock$TickClock, $(this->baseClock->withZone(zone)), this->tickNanos);
 }
 
 int64_t Clock$TickClock::millis() {
@@ -98,7 +51,7 @@ int64_t Clock$TickClock::millis() {
 }
 
 $Instant* Clock$TickClock::instant() {
-	if ((this->tickNanos % 0x000F4240) == 0) {
+	if ((this->tickNanos % 1000000) == 0) {
 		int64_t millis = $nc(this->baseClock)->millis();
 		return $Instant::ofEpochMilli(millis - $Math::floorMod(millis, $div(this->tickNanos, (int64_t)1000000)));
 	}
@@ -115,7 +68,7 @@ bool Clock$TickClock::equals(Object$* obj) {
 		$assign(other, $cast(Clock$TickClock, obj));
 		var$2 = true;
 	}
-	bool var$1 = (var$2);
+	bool var$1 = var$2;
 	bool var$0 = var$1 && this->tickNanos == $nc(other)->tickNanos;
 	return var$0 && $nc(this->baseClock)->equals(other->baseClock);
 }
@@ -125,17 +78,61 @@ int32_t Clock$TickClock::hashCode() {
 }
 
 $String* Clock$TickClock::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({"TickClock["_s, this->baseClock, ","_s}));
-	$var($String, var$0, $$concat(var$1, $($Duration::ofNanos(this->tickNanos))));
-	return $concat(var$0, "]"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("TickClock["_s);
+	var$0->append(this->baseClock);
+	var$0->append(","_s);
+	var$0->append($($Duration::ofNanos(this->tickNanos)));
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 Clock$TickClock::Clock$TickClock() {
 }
 
 $Class* Clock$TickClock::load$($String* name, bool initialize) {
-	$loadClass(Clock$TickClock, name, initialize, &_Clock$TickClock_ClassInfo_, allocate$Clock$TickClock);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Clock$TickClock, serialVersionUID)},
+		{"baseClock", "Ljava/time/Clock;", nullptr, $PRIVATE | $FINAL, $field(Clock$TickClock, baseClock)},
+		{"tickNanos", "J", nullptr, $PRIVATE | $FINAL, $field(Clock$TickClock, tickNanos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/time/Clock;J)V", nullptr, 0, $method(Clock$TickClock, init$, void, $Clock*, int64_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Clock$TickClock, equals, bool, Object$*)},
+		{"getZone", "()Ljava/time/ZoneId;", nullptr, $PUBLIC, $virtualMethod(Clock$TickClock, getZone, $ZoneId*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Clock$TickClock, hashCode, int32_t)},
+		{"instant", "()Ljava/time/Instant;", nullptr, $PUBLIC, $virtualMethod(Clock$TickClock, instant, $Instant*)},
+		{"millis", "()J", nullptr, $PUBLIC, $virtualMethod(Clock$TickClock, millis, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Clock$TickClock, toString, $String*)},
+		{"withZone", "(Ljava/time/ZoneId;)Ljava/time/Clock;", nullptr, $PUBLIC, $virtualMethod(Clock$TickClock, withZone, $Clock*, $ZoneId*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.Clock$TickClock", "java.time.Clock", "TickClock", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.time.Clock$TickClock",
+		"java.time.Clock",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.time.Clock"
+	};
+	$loadClass(Clock$TickClock, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Clock$TickClock));
+	});
 	return class$;
 }
 

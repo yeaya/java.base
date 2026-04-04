@@ -94,6 +94,7 @@ class $import ModulePath : public ::java::lang::module::ModuleFinder {
 	$class(ModulePath, 0, ::java::lang::module::ModuleFinder)
 public:
 	ModulePath();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::Runtime$Version* version, bool isLinkPhase, ::jdk::internal::module::ModulePatcher* patcher, $Array<::java::nio::file::Path>* entries);
 	static $String* cleanModuleName($String* mn);
 	::java::lang::module::ModuleDescriptor* deriveModuleDescriptor(::java::util::jar::JarFile* jf);

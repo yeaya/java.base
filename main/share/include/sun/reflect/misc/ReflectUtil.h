@@ -31,6 +31,7 @@ class $import ReflectUtil : public ::java::lang::Object {
 	$class(ReflectUtil, 0, ::java::lang::Object)
 public:
 	ReflectUtil();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkPackageAccess($Class* clazz);
 	static void checkPackageAccess($String* name);

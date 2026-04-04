@@ -1,5 +1,4 @@
 #include <jdk/internal/module/ModuleInfo$Attributes.h>
-
 #include <java/lang/module/ModuleDescriptor.h>
 #include <jdk/internal/module/ModuleHashes.h>
 #include <jdk/internal/module/ModuleInfo.h>
@@ -19,48 +18,6 @@ using $ModuleTarget = ::jdk::internal::module::ModuleTarget;
 namespace jdk {
 	namespace internal {
 		namespace module {
-
-$FieldInfo _ModuleInfo$Attributes_FieldInfo_[] = {
-	{"descriptor", "Ljava/lang/module/ModuleDescriptor;", nullptr, $PRIVATE | $FINAL, $field(ModuleInfo$Attributes, descriptor$)},
-	{"target", "Ljdk/internal/module/ModuleTarget;", nullptr, $PRIVATE | $FINAL, $field(ModuleInfo$Attributes, target$)},
-	{"recordedHashes", "Ljdk/internal/module/ModuleHashes;", nullptr, $PRIVATE | $FINAL, $field(ModuleInfo$Attributes, recordedHashes$)},
-	{"moduleResolution", "Ljdk/internal/module/ModuleResolution;", nullptr, $PRIVATE | $FINAL, $field(ModuleInfo$Attributes, moduleResolution$)},
-	{}
-};
-
-$MethodInfo _ModuleInfo$Attributes_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/module/ModuleDescriptor;Ljdk/internal/module/ModuleTarget;Ljdk/internal/module/ModuleHashes;Ljdk/internal/module/ModuleResolution;)V", nullptr, 0, $method(ModuleInfo$Attributes, init$, void, $ModuleDescriptor*, $ModuleTarget*, $ModuleHashes*, $ModuleResolution*)},
-	{"descriptor", "()Ljava/lang/module/ModuleDescriptor;", nullptr, $PUBLIC, $method(ModuleInfo$Attributes, descriptor, $ModuleDescriptor*)},
-	{"moduleResolution", "()Ljdk/internal/module/ModuleResolution;", nullptr, $PUBLIC, $method(ModuleInfo$Attributes, moduleResolution, $ModuleResolution*)},
-	{"recordedHashes", "()Ljdk/internal/module/ModuleHashes;", nullptr, $PUBLIC, $method(ModuleInfo$Attributes, recordedHashes, $ModuleHashes*)},
-	{"target", "()Ljdk/internal/module/ModuleTarget;", nullptr, $PUBLIC, $method(ModuleInfo$Attributes, target, $ModuleTarget*)},
-	{}
-};
-
-$InnerClassInfo _ModuleInfo$Attributes_InnerClassesInfo_[] = {
-	{"jdk.internal.module.ModuleInfo$Attributes", "jdk.internal.module.ModuleInfo", "Attributes", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ModuleInfo$Attributes_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.module.ModuleInfo$Attributes",
-	"java.lang.Object",
-	nullptr,
-	_ModuleInfo$Attributes_FieldInfo_,
-	_ModuleInfo$Attributes_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ModuleInfo$Attributes_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.module.ModuleInfo"
-};
-
-$Object* allocate$ModuleInfo$Attributes($Class* clazz) {
-	return $of($alloc(ModuleInfo$Attributes));
-}
 
 void ModuleInfo$Attributes::init$($ModuleDescriptor* descriptor, $ModuleTarget* target, $ModuleHashes* recordedHashes, $ModuleResolution* moduleResolution) {
 	$set(this, descriptor$, descriptor);
@@ -89,7 +46,43 @@ ModuleInfo$Attributes::ModuleInfo$Attributes() {
 }
 
 $Class* ModuleInfo$Attributes::load$($String* name, bool initialize) {
-	$loadClass(ModuleInfo$Attributes, name, initialize, &_ModuleInfo$Attributes_ClassInfo_, allocate$ModuleInfo$Attributes);
+	$FieldInfo fieldInfos$$[] = {
+		{"descriptor", "Ljava/lang/module/ModuleDescriptor;", nullptr, $PRIVATE | $FINAL, $field(ModuleInfo$Attributes, descriptor$)},
+		{"target", "Ljdk/internal/module/ModuleTarget;", nullptr, $PRIVATE | $FINAL, $field(ModuleInfo$Attributes, target$)},
+		{"recordedHashes", "Ljdk/internal/module/ModuleHashes;", nullptr, $PRIVATE | $FINAL, $field(ModuleInfo$Attributes, recordedHashes$)},
+		{"moduleResolution", "Ljdk/internal/module/ModuleResolution;", nullptr, $PRIVATE | $FINAL, $field(ModuleInfo$Attributes, moduleResolution$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/module/ModuleDescriptor;Ljdk/internal/module/ModuleTarget;Ljdk/internal/module/ModuleHashes;Ljdk/internal/module/ModuleResolution;)V", nullptr, 0, $method(ModuleInfo$Attributes, init$, void, $ModuleDescriptor*, $ModuleTarget*, $ModuleHashes*, $ModuleResolution*)},
+		{"descriptor", "()Ljava/lang/module/ModuleDescriptor;", nullptr, $PUBLIC, $method(ModuleInfo$Attributes, descriptor, $ModuleDescriptor*)},
+		{"moduleResolution", "()Ljdk/internal/module/ModuleResolution;", nullptr, $PUBLIC, $method(ModuleInfo$Attributes, moduleResolution, $ModuleResolution*)},
+		{"recordedHashes", "()Ljdk/internal/module/ModuleHashes;", nullptr, $PUBLIC, $method(ModuleInfo$Attributes, recordedHashes, $ModuleHashes*)},
+		{"target", "()Ljdk/internal/module/ModuleTarget;", nullptr, $PUBLIC, $method(ModuleInfo$Attributes, target, $ModuleTarget*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.module.ModuleInfo$Attributes", "jdk.internal.module.ModuleInfo", "Attributes", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.module.ModuleInfo$Attributes",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.module.ModuleInfo"
+	};
+	$loadClass(ModuleInfo$Attributes, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleInfo$Attributes);
+	});
 	return class$;
 }
 

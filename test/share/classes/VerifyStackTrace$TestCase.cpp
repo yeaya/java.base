@@ -1,5 +1,4 @@
 #include <VerifyStackTrace$TestCase.h>
-
 #include <VerifyStackTrace.h>
 #include <java/lang/StackWalker.h>
 #include <jcpp.h>
@@ -9,40 +8,35 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StackWalker = ::java::lang::StackWalker;
 
-$MethodInfo _VerifyStackTrace$TestCase_MethodInfo_[] = {
-	{"description", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VerifyStackTrace$TestCase, description, $String*)},
-	{"expected", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VerifyStackTrace$TestCase, expected, $String*)},
-	{"walker", "()Ljava/lang/StackWalker;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VerifyStackTrace$TestCase, walker, $StackWalker*)},
-	{}
-};
-
-$InnerClassInfo _VerifyStackTrace$TestCase_InnerClassesInfo_[] = {
-	{"VerifyStackTrace$TestCase", "VerifyStackTrace", "TestCase", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _VerifyStackTrace$TestCase_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"VerifyStackTrace$TestCase",
-	nullptr,
-	nullptr,
-	nullptr,
-	_VerifyStackTrace$TestCase_MethodInfo_,
-	nullptr,
-	nullptr,
-	_VerifyStackTrace$TestCase_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"VerifyStackTrace"
-};
-
-$Object* allocate$VerifyStackTrace$TestCase($Class* clazz) {
-	return $of($alloc(VerifyStackTrace$TestCase));
-}
-
 $Class* VerifyStackTrace$TestCase::load$($String* name, bool initialize) {
-	$loadClass(VerifyStackTrace$TestCase, name, initialize, &_VerifyStackTrace$TestCase_ClassInfo_, allocate$VerifyStackTrace$TestCase);
+	$MethodInfo methodInfos$$[] = {
+		{"description", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VerifyStackTrace$TestCase, description, $String*)},
+		{"expected", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VerifyStackTrace$TestCase, expected, $String*)},
+		{"walker", "()Ljava/lang/StackWalker;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(VerifyStackTrace$TestCase, walker, $StackWalker*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"VerifyStackTrace$TestCase", "VerifyStackTrace", "TestCase", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"VerifyStackTrace$TestCase",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"VerifyStackTrace"
+	};
+	$loadClass(VerifyStackTrace$TestCase, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VerifyStackTrace$TestCase);
+	});
 	return class$;
 }
 

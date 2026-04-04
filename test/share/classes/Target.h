@@ -9,6 +9,7 @@ class Target : public ::java::lang::Object {
 	$class(Target, 0, ::java::lang::Object)
 public:
 	Target();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 };
 

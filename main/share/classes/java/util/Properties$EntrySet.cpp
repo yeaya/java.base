@@ -1,5 +1,4 @@
 #include <java/util/Properties$EntrySet.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/Collection.h>
 #include <java/util/Iterator.h>
@@ -20,59 +19,6 @@ using $Set = ::java::util::Set;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Properties$EntrySet_FieldInfo_[] = {
-	{"entrySet", "Ljava/util/Set;", "Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;>;", $PRIVATE, $field(Properties$EntrySet, entrySet)},
-	{}
-};
-
-$MethodInfo _Properties$EntrySet_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;>;)V", $PRIVATE, $method(Properties$EntrySet, init$, void, $Set*)},
-	{"add", "(Ljava/util/Map$Entry;)Z", "(Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;)Z", $PUBLIC, $virtualMethod(Properties$EntrySet, add, bool, $Map$Entry*)},
-	{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Properties$EntrySet, add, bool, Object$*)},
-	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;>;)Z", $PUBLIC, $virtualMethod(Properties$EntrySet, addAll, bool, $Collection*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Properties$EntrySet, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Properties$EntrySet, contains, bool, Object$*)},
-	{"containsAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Properties$EntrySet, containsAll, bool, $Collection*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Properties$EntrySet, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Properties$EntrySet, hashCode, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Properties$EntrySet, isEmpty, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;>;", $PUBLIC, $virtualMethod(Properties$EntrySet, iterator, $Iterator*)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Properties$EntrySet, remove, bool, Object$*)},
-	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Properties$EntrySet, removeAll, bool, $Collection*)},
-	{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Properties$EntrySet, retainAll, bool, $Collection*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Properties$EntrySet, size, int32_t)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Properties$EntrySet, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(Properties$EntrySet, toArray, $ObjectArray*, $ObjectArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Properties$EntrySet, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Properties$EntrySet_InnerClassesInfo_[] = {
-	{"java.util.Properties$EntrySet", "java.util.Properties", "EntrySet", $PRIVATE | $STATIC},
-	{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Properties$EntrySet_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Properties$EntrySet",
-	"java.lang.Object",
-	"java.util.Set",
-	_Properties$EntrySet_FieldInfo_,
-	_Properties$EntrySet_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;>;",
-	nullptr,
-	_Properties$EntrySet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Properties"
-};
-
-$Object* allocate$Properties$EntrySet($Class* clazz) {
-	return $of($alloc(Properties$EntrySet));
-}
 
 void Properties$EntrySet::init$($Set* entrySet) {
 	$set(this, entrySet, entrySet);
@@ -129,7 +75,7 @@ int32_t Properties$EntrySet::hashCode() {
 }
 
 $String* Properties$EntrySet::toString() {
-	return $nc($of(this->entrySet))->toString();
+	return $nc(this->entrySet)->toString();
 }
 
 bool Properties$EntrySet::removeAll($Collection* c) {
@@ -152,7 +98,54 @@ Properties$EntrySet::Properties$EntrySet() {
 }
 
 $Class* Properties$EntrySet::load$($String* name, bool initialize) {
-	$loadClass(Properties$EntrySet, name, initialize, &_Properties$EntrySet_ClassInfo_, allocate$Properties$EntrySet);
+	$FieldInfo fieldInfos$$[] = {
+		{"entrySet", "Ljava/util/Set;", "Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;>;", $PRIVATE, $field(Properties$EntrySet, entrySet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;>;)V", $PRIVATE, $method(Properties$EntrySet, init$, void, $Set*)},
+		{"add", "(Ljava/util/Map$Entry;)Z", "(Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;)Z", $PUBLIC, $virtualMethod(Properties$EntrySet, add, bool, $Map$Entry*)},
+		{"add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Properties$EntrySet, add, bool, Object$*)},
+		{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;>;)Z", $PUBLIC, $virtualMethod(Properties$EntrySet, addAll, bool, $Collection*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Properties$EntrySet, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Properties$EntrySet, contains, bool, Object$*)},
+		{"containsAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Properties$EntrySet, containsAll, bool, $Collection*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Properties$EntrySet, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Properties$EntrySet, hashCode, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Properties$EntrySet, isEmpty, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;>;", $PUBLIC, $virtualMethod(Properties$EntrySet, iterator, $Iterator*)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Properties$EntrySet, remove, bool, Object$*)},
+		{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Properties$EntrySet, removeAll, bool, $Collection*)},
+		{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(Properties$EntrySet, retainAll, bool, $Collection*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Properties$EntrySet, size, int32_t)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Properties$EntrySet, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(Properties$EntrySet, toArray, $ObjectArray*, $ObjectArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Properties$EntrySet, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Properties$EntrySet", "java.util.Properties", "EntrySet", $PRIVATE | $STATIC},
+		{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Properties$EntrySet",
+		"java.lang.Object",
+		"java.util.Set",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Properties"
+	};
+	$loadClass(Properties$EntrySet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Properties$EntrySet);
+	});
 	return class$;
 }
 

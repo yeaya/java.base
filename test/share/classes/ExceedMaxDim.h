@@ -18,6 +18,7 @@ class $export ExceedMaxDim : public ::java::lang::Object {
 	$class(ExceedMaxDim, 0, ::java::lang::Object)
 public:
 	ExceedMaxDim();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void assertFailForName($String* name, ::java::lang::ClassLoader* cl);
 	void assertSucceedForName($String* name, ::java::lang::ClassLoader* cl);

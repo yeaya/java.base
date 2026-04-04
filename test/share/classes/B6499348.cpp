@@ -1,5 +1,4 @@
 #include <B6499348.h>
-
 #include <java/io/Closeable.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/ServerSocket.h>
@@ -16,30 +15,11 @@ using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
 using $SocketAddress = ::java::net::SocketAddress;
 
-$MethodInfo _B6499348_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(B6499348, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B6499348, main, void, $StringArray*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _B6499348_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"B6499348",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_B6499348_MethodInfo_
-};
-
-$Object* allocate$B6499348($Class* clazz) {
-	return $of($alloc(B6499348));
-}
-
 void B6499348::init$() {
 }
 
 void B6499348::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Socket, s, $new($Socket));
 	$var($ServerSocket, ss, $new($ServerSocket));
 	$var($DatagramSocket, ds, $new($DatagramSocket, ($SocketAddress*)nullptr));
@@ -61,7 +41,22 @@ B6499348::B6499348() {
 }
 
 $Class* B6499348::load$($String* name, bool initialize) {
-	$loadClass(B6499348, name, initialize, &_B6499348_ClassInfo_, allocate$B6499348);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(B6499348, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B6499348, main, void, $StringArray*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"B6499348",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(B6499348, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(B6499348);
+	});
 	return class$;
 }
 

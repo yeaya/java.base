@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/AESCipher$OidImpl.h>
-
 #include <com/sun/crypto/provider/AESCipher.h>
 #include <java/security/GeneralSecurityException.h>
 #include <java/security/ProviderException.h>
@@ -17,36 +16,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$MethodInfo _AESCipher$OidImpl_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(AESCipher$OidImpl, init$, void, int32_t, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _AESCipher$OidImpl_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.AESCipher$OidImpl", "com.sun.crypto.provider.AESCipher", "OidImpl", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AESCipher$OidImpl_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.crypto.provider.AESCipher$OidImpl",
-	"com.sun.crypto.provider.AESCipher",
-	nullptr,
-	nullptr,
-	_AESCipher$OidImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AESCipher$OidImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.AESCipher"
-};
-
-$Object* allocate$AESCipher$OidImpl($Class* clazz) {
-	return $of($alloc(AESCipher$OidImpl));
-}
-
 void AESCipher$OidImpl::init$(int32_t keySize, $String* mode, $String* padding) {
 	$AESCipher::init$(keySize);
 	try {
@@ -63,7 +32,32 @@ AESCipher$OidImpl::AESCipher$OidImpl() {
 }
 
 $Class* AESCipher$OidImpl::load$($String* name, bool initialize) {
-	$loadClass(AESCipher$OidImpl, name, initialize, &_AESCipher$OidImpl_ClassInfo_, allocate$AESCipher$OidImpl);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(AESCipher$OidImpl, init$, void, int32_t, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.AESCipher$OidImpl", "com.sun.crypto.provider.AESCipher", "OidImpl", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.crypto.provider.AESCipher$OidImpl",
+		"com.sun.crypto.provider.AESCipher",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.AESCipher"
+	};
+	$loadClass(AESCipher$OidImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AESCipher$OidImpl);
+	});
 	return class$;
 }
 

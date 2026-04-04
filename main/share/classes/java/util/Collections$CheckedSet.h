@@ -39,7 +39,7 @@ public:
 	virtual $ObjectArray* toArray($ObjectArray* a) override;
 	virtual $ObjectArray* toArray(::java::util::function::IntFunction* f) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x41249BA27AD9FFAB;
+	static const int64_t serialVersionUID = (int64_t)0x41249ba27ad9ffab;
 };
 
 	} // util

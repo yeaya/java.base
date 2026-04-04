@@ -1,5 +1,4 @@
 #include <java/nio/file/FileSystemException.h>
-
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
@@ -11,36 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _FileSystemException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FileSystemException, serialVersionUID)},
-	{"file", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(FileSystemException, file)},
-	{"other", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(FileSystemException, other)},
-	{}
-};
-
-$MethodInfo _FileSystemException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileSystemException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileSystemException, init$, void, $String*, $String*, $String*)},
-	{"getFile", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileSystemException, getFile, $String*)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileSystemException, getMessage, $String*)},
-	{"getOtherFile", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileSystemException, getOtherFile, $String*)},
-	{"getReason", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileSystemException, getReason, $String*)},
-	{}
-};
-
-$ClassInfo _FileSystemException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.file.FileSystemException",
-	"java.io.IOException",
-	nullptr,
-	_FileSystemException_FieldInfo_,
-	_FileSystemException_MethodInfo_
-};
-
-$Object* allocate$FileSystemException($Class* clazz) {
-	return $of($alloc(FileSystemException));
-}
 
 void FileSystemException::init$($String* file) {
 	$IOException::init$(($String*)nullptr);
@@ -67,7 +36,7 @@ $String* FileSystemException::getReason() {
 }
 
 $String* FileSystemException::getMessage() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->file == nullptr && this->other == nullptr) {
 		return getReason();
 	}
@@ -97,7 +66,32 @@ void FileSystemException::throw$() {
 }
 
 $Class* FileSystemException::load$($String* name, bool initialize) {
-	$loadClass(FileSystemException, name, initialize, &_FileSystemException_ClassInfo_, allocate$FileSystemException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FileSystemException, serialVersionUID)},
+		{"file", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(FileSystemException, file)},
+		{"other", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(FileSystemException, other)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileSystemException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileSystemException, init$, void, $String*, $String*, $String*)},
+		{"getFile", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileSystemException, getFile, $String*)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileSystemException, getMessage, $String*)},
+		{"getOtherFile", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileSystemException, getOtherFile, $String*)},
+		{"getReason", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileSystemException, getReason, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.file.FileSystemException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FileSystemException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileSystemException);
+	});
 	return class$;
 }
 

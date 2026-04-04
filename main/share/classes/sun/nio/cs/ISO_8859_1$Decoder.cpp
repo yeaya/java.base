@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ISO_8859_1$Decoder.h>
-
 #include <java/lang/Math.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
@@ -33,44 +32,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 
-$FieldInfo _ISO_8859_1$Decoder_FieldInfo_[] = {
-	{"JLA", "Ljdk/internal/access/JavaLangAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ISO_8859_1$Decoder, JLA)},
-	{}
-};
-
-$MethodInfo _ISO_8859_1$Decoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(ISO_8859_1$Decoder, init$, void, $Charset*)},
-	{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO_8859_1$Decoder, decodeArrayLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
-	{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO_8859_1$Decoder, decodeBufferLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
-	{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(ISO_8859_1$Decoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
-	{}
-};
-
-$InnerClassInfo _ISO_8859_1$Decoder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ISO_8859_1$Decoder", "sun.nio.cs.ISO_8859_1", "Decoder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ISO_8859_1$Decoder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.ISO_8859_1$Decoder",
-	"java.nio.charset.CharsetDecoder",
-	nullptr,
-	_ISO_8859_1$Decoder_FieldInfo_,
-	_ISO_8859_1$Decoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ISO_8859_1$Decoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ISO_8859_1"
-};
-
-$Object* allocate$ISO_8859_1$Decoder($Class* clazz) {
-	return $of($alloc(ISO_8859_1$Decoder));
-}
-
 $JavaLangAccess* ISO_8859_1$Decoder::JLA = nullptr;
 
 void ISO_8859_1$Decoder::init$($Charset* cs) {
@@ -78,7 +39,7 @@ void ISO_8859_1$Decoder::init$($Charset* cs) {
 }
 
 $CoderResult* ISO_8859_1$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, sa, $cast($bytes, $nc(src)->array()));
 	int32_t soff = src->arrayOffset();
 	int32_t sp = soff + src->position();
@@ -102,39 +63,37 @@ $CoderResult* ISO_8859_1$Decoder::decodeArrayLoop($ByteBuffer* src, $CharBuffer*
 }
 
 $CoderResult* ISO_8859_1$Decoder::decodeBufferLoop($ByteBuffer* src, $CharBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mark = $nc(src)->position();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($CoderResult, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			while (src->hasRemaining()) {
-				int8_t b = src->get();
-				if (!$nc(dst)->hasRemaining()) {
-					$init($CoderResult);
-					$assign(var$2, $CoderResult::OVERFLOW);
-					return$1 = true;
-					goto $finally;
-				}
-				$nc(dst)->put((char16_t)((int32_t)(b & (uint32_t)255)));
-				++mark;
+	$var($Throwable, var$0, nullptr);
+	$var($CoderResult, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		while (src->hasRemaining()) {
+			int8_t b = src->get();
+			if (!$nc(dst)->hasRemaining()) {
+				$init($CoderResult);
+				$assign(var$2, $CoderResult::OVERFLOW);
+				return$1 = true;
+				goto $finally;
 			}
-			$init($CoderResult);
-			$assign(var$2, $CoderResult::UNDERFLOW);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			src->position(mark);
+			dst->put((char16_t)(b & 0xff));
+			++mark;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		$init($CoderResult);
+		$assign(var$2, $CoderResult::UNDERFLOW);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		src->position(mark);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -148,7 +107,7 @@ $CoderResult* ISO_8859_1$Decoder::decodeLoop($ByteBuffer* src, $CharBuffer* dst)
 	}
 }
 
-void clinit$ISO_8859_1$Decoder($Class* class$) {
+void ISO_8859_1$Decoder::clinit$($Class* clazz) {
 	$assignStatic(ISO_8859_1$Decoder::JLA, $SharedSecrets::getJavaLangAccess());
 }
 
@@ -156,7 +115,39 @@ ISO_8859_1$Decoder::ISO_8859_1$Decoder() {
 }
 
 $Class* ISO_8859_1$Decoder::load$($String* name, bool initialize) {
-	$loadClass(ISO_8859_1$Decoder, name, initialize, &_ISO_8859_1$Decoder_ClassInfo_, clinit$ISO_8859_1$Decoder, allocate$ISO_8859_1$Decoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"JLA", "Ljdk/internal/access/JavaLangAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ISO_8859_1$Decoder, JLA)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(ISO_8859_1$Decoder, init$, void, $Charset*)},
+		{"decodeArrayLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO_8859_1$Decoder, decodeArrayLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+		{"decodeBufferLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PRIVATE, $method(ISO_8859_1$Decoder, decodeBufferLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+		{"decodeLoop", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(ISO_8859_1$Decoder, decodeLoop, $CoderResult*, $ByteBuffer*, $CharBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ISO_8859_1$Decoder", "sun.nio.cs.ISO_8859_1", "Decoder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.ISO_8859_1$Decoder",
+		"java.nio.charset.CharsetDecoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ISO_8859_1"
+	};
+	$loadClass(ISO_8859_1$Decoder, name, initialize, &classInfo$$, ISO_8859_1$Decoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ISO_8859_1$Decoder);
+	});
 	return class$;
 }
 

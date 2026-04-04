@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/LocaleServiceProviderPool.h>
-
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
 #include <java/text/spi/BreakIteratorProvider.h>
@@ -10,7 +9,6 @@
 #include <java/text/spi/NumberFormatProvider.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/HashSet.h>
 #include <java/util/IllformedLocaleException.h>
@@ -47,7 +45,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $BreakIteratorProvider = ::java::text::spi::BreakIteratorProvider;
 using $CollatorProvider = ::java::text::spi::CollatorProvider;
@@ -57,7 +54,6 @@ using $DecimalFormatSymbolsProvider = ::java::text::spi::DecimalFormatSymbolsPro
 using $NumberFormatProvider = ::java::text::spi::NumberFormatProvider;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashSet = ::java::util::HashSet;
 using $IllformedLocaleException = ::java::util::IllformedLocaleException;
@@ -85,68 +81,17 @@ namespace sun {
 		namespace locale {
 			namespace provider {
 
-$FieldInfo _LocaleServiceProviderPool_FieldInfo_[] = {
-	{"poolOfPools", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/lang/Class<+Ljava/util/spi/LocaleServiceProvider;>;Lsun/util/locale/provider/LocaleServiceProviderPool;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LocaleServiceProviderPool, poolOfPools)},
-	{"providersCache", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/util/Locale;Ljava/util/List<Ljava/util/spi/LocaleServiceProvider;>;>;", $PRIVATE | $FINAL, $field(LocaleServiceProviderPool, providersCache)},
-	{"availableLocales", "Ljava/util/Set;", "Ljava/util/Set<Ljava/util/Locale;>;", $PRIVATE, $field(LocaleServiceProviderPool, availableLocales)},
-	{"providerClass", "Ljava/lang/Class;", "Ljava/lang/Class<+Ljava/util/spi/LocaleServiceProvider;>;", $PRIVATE | $FINAL, $field(LocaleServiceProviderPool, providerClass)},
-	{"spiClasses", "[Ljava/lang/Class;", "[Ljava/lang/Class<Ljava/util/spi/LocaleServiceProvider;>;", $STATIC | $FINAL, $staticField(LocaleServiceProviderPool, spiClasses)},
-	{"NULL_LIST", "Ljava/util/List;", "Ljava/util/List<Ljava/util/spi/LocaleServiceProvider;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LocaleServiceProviderPool, NULL_LIST)},
-	{}
-};
-
-$MethodInfo _LocaleServiceProviderPool_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<+Ljava/util/spi/LocaleServiceProvider;>;)V", $PRIVATE, $method(LocaleServiceProviderPool, init$, void, $Class*)},
-	{"findProviders", "(Ljava/util/Locale;Z)Ljava/util/List;", "(Ljava/util/Locale;Z)Ljava/util/List<Ljava/util/spi/LocaleServiceProvider;>;", $PRIVATE, $method(LocaleServiceProviderPool, findProviders, $List*, $Locale*, bool)},
-	{"getAllAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocaleServiceProviderPool, getAllAvailableLocales, $LocaleArray*)},
-	{"getAvailableLocaleSet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Locale;>;", $PRIVATE | $SYNCHRONIZED, $method(LocaleServiceProviderPool, getAvailableLocaleSet, $Set*)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $method(LocaleServiceProviderPool, getAvailableLocales, $LocaleArray*)},
-	{"getLocalizedObject", "(Lsun/util/locale/provider/LocaleServiceProviderPool$LocalizedObjectGetter;Ljava/util/Locale;[Ljava/lang/Object;)Ljava/lang/Object;", "<P:Ljava/util/spi/LocaleServiceProvider;S:Ljava/lang/Object;>(Lsun/util/locale/provider/LocaleServiceProviderPool$LocalizedObjectGetter<TP;TS;>;Ljava/util/Locale;[Ljava/lang/Object;)TS;", $PUBLIC | $TRANSIENT, $method(LocaleServiceProviderPool, getLocalizedObject, $Object*, $LocaleServiceProviderPool$LocalizedObjectGetter*, $Locale*, $ObjectArray*)},
-	{"getLocalizedObject", "(Lsun/util/locale/provider/LocaleServiceProviderPool$LocalizedObjectGetter;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", "<P:Ljava/util/spi/LocaleServiceProvider;S:Ljava/lang/Object;>(Lsun/util/locale/provider/LocaleServiceProviderPool$LocalizedObjectGetter<TP;TS;>;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)TS;", $PUBLIC | $TRANSIENT, $method(LocaleServiceProviderPool, getLocalizedObject, $Object*, $LocaleServiceProviderPool$LocalizedObjectGetter*, $Locale*, $String*, $ObjectArray*)},
-	{"getLocalizedObject", "(Lsun/util/locale/provider/LocaleServiceProviderPool$LocalizedObjectGetter;Ljava/util/Locale;Ljava/lang/Boolean;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", "<P:Ljava/util/spi/LocaleServiceProvider;S:Ljava/lang/Object;>(Lsun/util/locale/provider/LocaleServiceProviderPool$LocalizedObjectGetter<TP;TS;>;Ljava/util/Locale;Ljava/lang/Boolean;Ljava/lang/String;[Ljava/lang/Object;)TS;", $PUBLIC | $TRANSIENT, $method(LocaleServiceProviderPool, getLocalizedObject, $Object*, $LocaleServiceProviderPool$LocalizedObjectGetter*, $Locale*, $Boolean*, $String*, $ObjectArray*)},
-	{"getLocalizedObjectImpl", "(Lsun/util/locale/provider/LocaleServiceProviderPool$LocalizedObjectGetter;Ljava/util/Locale;ZLjava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", "<P:Ljava/util/spi/LocaleServiceProvider;S:Ljava/lang/Object;>(Lsun/util/locale/provider/LocaleServiceProviderPool$LocalizedObjectGetter<TP;TS;>;Ljava/util/Locale;ZLjava/lang/String;[Ljava/lang/Object;)TS;", $PRIVATE | $TRANSIENT, $method(LocaleServiceProviderPool, getLocalizedObjectImpl, $Object*, $LocaleServiceProviderPool$LocalizedObjectGetter*, $Locale*, bool, $String*, $ObjectArray*)},
-	{"getLookupLocale", "(Ljava/util/Locale;)Ljava/util/Locale;", nullptr, $STATIC, $staticMethod(LocaleServiceProviderPool, getLookupLocale, $Locale*, $Locale*)},
-	{"getLookupLocales", "(Ljava/util/Locale;)Ljava/util/List;", "(Ljava/util/Locale;)Ljava/util/List<Ljava/util/Locale;>;", $STATIC, $staticMethod(LocaleServiceProviderPool, getLookupLocales, $List*, $Locale*)},
-	{"getPool", "(Ljava/lang/Class;)Lsun/util/locale/provider/LocaleServiceProviderPool;", "(Ljava/lang/Class<+Ljava/util/spi/LocaleServiceProvider;>;)Lsun/util/locale/provider/LocaleServiceProviderPool;", $PUBLIC | $STATIC, $staticMethod(LocaleServiceProviderPool, getPool, LocaleServiceProviderPool*, $Class*)},
-	{}
-};
-
-$InnerClassInfo _LocaleServiceProviderPool_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.LocaleServiceProviderPool$LocalizedObjectGetter", "sun.util.locale.provider.LocaleServiceProviderPool", "LocalizedObjectGetter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.util.locale.provider.LocaleServiceProviderPool$AllAvailableLocales", "sun.util.locale.provider.LocaleServiceProviderPool", "AllAvailableLocales", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _LocaleServiceProviderPool_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.util.locale.provider.LocaleServiceProviderPool",
-	"java.lang.Object",
-	nullptr,
-	_LocaleServiceProviderPool_FieldInfo_,
-	_LocaleServiceProviderPool_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LocaleServiceProviderPool_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.LocaleServiceProviderPool$LocalizedObjectGetter,sun.util.locale.provider.LocaleServiceProviderPool$AllAvailableLocales"
-};
-
-$Object* allocate$LocaleServiceProviderPool($Class* clazz) {
-	return $of($alloc(LocaleServiceProviderPool));
-}
-
 $ConcurrentMap* LocaleServiceProviderPool::poolOfPools = nullptr;
 $ClassArray* LocaleServiceProviderPool::spiClasses = nullptr;
 $List* LocaleServiceProviderPool::NULL_LIST = nullptr;
 
 LocaleServiceProviderPool* LocaleServiceProviderPool::getPool($Class* providerClass) {
 	$init(LocaleServiceProviderPool);
-	$useLocalCurrentObjectStackCache();
-	$var(LocaleServiceProviderPool, pool, $cast(LocaleServiceProviderPool, $nc(LocaleServiceProviderPool::poolOfPools)->get(providerClass)));
+	$useLocalObjectStack();
+	$var(LocaleServiceProviderPool, pool, $cast(LocaleServiceProviderPool, LocaleServiceProviderPool::poolOfPools->get(providerClass)));
 	if (pool == nullptr) {
 		$var(LocaleServiceProviderPool, newPool, $new(LocaleServiceProviderPool, providerClass));
-		$assign(pool, $cast(LocaleServiceProviderPool, $nc(LocaleServiceProviderPool::poolOfPools)->putIfAbsent(providerClass, newPool)));
+		$assign(pool, $cast(LocaleServiceProviderPool, LocaleServiceProviderPool::poolOfPools->putIfAbsent(providerClass, newPool)));
 		if (pool == nullptr) {
 			$assign(pool, newPool);
 		}
@@ -167,10 +112,10 @@ $LocaleArray* LocaleServiceProviderPool::getAllAvailableLocales() {
 }
 
 $LocaleArray* LocaleServiceProviderPool::getAvailableLocales() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, locList, $new($HashSet));
 	locList->addAll($(getAvailableLocaleSet()));
-	locList->addAll($($Arrays::asList($($nc($($LocaleProviderAdapter::forJRE()))->getAvailableLocales()))));
+	locList->addAll($($Arrays::asList($($$nc($LocaleProviderAdapter::forJRE())->getAvailableLocales()))));
 	$var($LocaleArray, tmp, $new($LocaleArray, locList->size()));
 	locList->toArray(tmp);
 	return tmp;
@@ -178,11 +123,11 @@ $LocaleArray* LocaleServiceProviderPool::getAvailableLocales() {
 
 $Set* LocaleServiceProviderPool::getAvailableLocaleSet() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->availableLocales == nullptr) {
 			$set(this, availableLocales, $new($HashSet));
 			{
-				$var($Iterator, i$, $nc($($LocaleProviderAdapter::getAdapterPreference()))->iterator());
+				$var($Iterator, i$, $$nc($LocaleProviderAdapter::getAdapterPreference())->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$LocaleProviderAdapter$Type* type = $cast($LocaleProviderAdapter$Type, i$->next());
 					{
@@ -193,9 +138,7 @@ $Set* LocaleServiceProviderPool::getAvailableLocaleSet() {
 								$var($LocaleArray, locales, lsp->getAvailableLocales());
 								{
 									$var($LocaleArray, arr$, locales);
-									int32_t len$ = $nc(arr$)->length;
-									int32_t i$ = 0;
-									for (; i$ < len$; ++i$) {
+									for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 										$var($Locale, locale, arr$->get(i$));
 										{
 											$nc(this->availableLocales)->add($(getLookupLocale(locale)));
@@ -213,19 +156,19 @@ $Set* LocaleServiceProviderPool::getAvailableLocaleSet() {
 }
 
 $Object* LocaleServiceProviderPool::getLocalizedObject($LocaleServiceProviderPool$LocalizedObjectGetter* getter, $Locale* locale, $ObjectArray* params) {
-	return $of(getLocalizedObjectImpl(getter, locale, true, nullptr, params));
+	return getLocalizedObjectImpl(getter, locale, true, nullptr, params);
 }
 
 $Object* LocaleServiceProviderPool::getLocalizedObject($LocaleServiceProviderPool$LocalizedObjectGetter* getter, $Locale* locale, $String* key, $ObjectArray* params) {
-	return $of(getLocalizedObjectImpl(getter, locale, false, key, params));
+	return getLocalizedObjectImpl(getter, locale, false, key, params);
 }
 
 $Object* LocaleServiceProviderPool::getLocalizedObject($LocaleServiceProviderPool$LocalizedObjectGetter* getter, $Locale* locale, $Boolean* isObjectProvider, $String* key, $ObjectArray* params) {
-	return $of(getLocalizedObjectImpl(getter, locale, $nc(isObjectProvider)->booleanValue(), key, params));
+	return getLocalizedObjectImpl(getter, locale, $nc(isObjectProvider)->booleanValue(), key, params);
 }
 
 $Object* LocaleServiceProviderPool::getLocalizedObjectImpl($LocaleServiceProviderPool$LocalizedObjectGetter* getter, $Locale* locale, bool isObjectProvider, $String* key, $ObjectArray* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (locale == nullptr) {
 		$throwNew($NullPointerException);
@@ -238,16 +181,16 @@ $Object* LocaleServiceProviderPool::getLocalizedObjectImpl($LocaleServiceProvide
 			{
 				$var($Object, providersObj, nullptr);
 				{
-					$var($Iterator, i$, $nc($(findProviders(current, isObjectProvider)))->iterator());
+					$var($Iterator, i$, $$nc(findProviders(current, isObjectProvider))->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($LocaleServiceProvider, lsp, $cast($LocaleServiceProvider, i$->next()));
 						{
 							$assign(providersObj, $nc(getter)->getObject(lsp, locale, key, params));
 							if (providersObj != nullptr) {
-								return $of(providersObj);
+								return providersObj;
 							} else if (isObjectProvider) {
 								$init($System$Logger$Level);
-								$nc($($System::getLogger($(LocaleServiceProviderPool::class$->getCanonicalName()))))->log($System$Logger$Level::INFO, $$str({"A locale sensitive service object provider returned null, which should not happen. Provider: "_s, lsp, " Locale: "_s, locale}));
+								$$nc($System::getLogger($(LocaleServiceProviderPool::class$->getCanonicalName())))->log($System$Logger$Level::INFO, $$str({"A locale sensitive service object provider returned null, which should not happen. Provider: "_s, lsp, " Locale: "_s, locale}));
 							}
 						}
 					}
@@ -255,15 +198,15 @@ $Object* LocaleServiceProviderPool::getLocalizedObjectImpl($LocaleServiceProvide
 			}
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $List* LocaleServiceProviderPool::findProviders($Locale* locale, bool isObjectProvider) {
-	$useLocalCurrentObjectStackCache();
-	$var($List, providersList, $cast($List, $nc(this->providersCache)->get(locale)));
+	$useLocalObjectStack();
+	$var($List, providersList, $cast($List, this->providersCache->get(locale)));
 	if (providersList == nullptr) {
 		{
-			$var($Iterator, i$, $nc($($LocaleProviderAdapter::getAdapterPreference()))->iterator());
+			$var($Iterator, i$, $$nc($LocaleProviderAdapter::getAdapterPreference())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$LocaleProviderAdapter$Type* type = $cast($LocaleProviderAdapter$Type, i$->next());
 				{
@@ -288,7 +231,7 @@ $List* LocaleServiceProviderPool::findProviders($Locale* locale, bool isObjectPr
 		if (providersList == nullptr) {
 			$assign(providersList, LocaleServiceProviderPool::NULL_LIST);
 		}
-		$var($List, val, $cast($List, $nc(this->providersCache)->putIfAbsent(locale, providersList)));
+		$var($List, val, $cast($List, this->providersCache->putIfAbsent(locale, providersList)));
 		if (val != nullptr) {
 			$assign(providersList, val);
 		}
@@ -299,12 +242,12 @@ $List* LocaleServiceProviderPool::findProviders($Locale* locale, bool isObjectPr
 $List* LocaleServiceProviderPool::getLookupLocales($Locale* locale) {
 	$init(LocaleServiceProviderPool);
 	$init($ResourceBundle$Control);
-	return $nc($($ResourceBundle$Control::getNoFallbackControl($ResourceBundle$Control::FORMAT_DEFAULT)))->getCandidateLocales(""_s, locale);
+	return $$nc($ResourceBundle$Control::getNoFallbackControl($ResourceBundle$Control::FORMAT_DEFAULT))->getCandidateLocales(""_s, locale);
 }
 
 $Locale* LocaleServiceProviderPool::getLookupLocale($Locale* locale) {
 	$init(LocaleServiceProviderPool);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Locale, lookupLocale, locale);
 	bool var$1 = $nc(locale)->hasExtensions();
@@ -318,7 +261,7 @@ $Locale* LocaleServiceProviderPool::getLookupLocale($Locale* locale) {
 			$assign(lookupLocale, locbld->build());
 		} catch ($IllformedLocaleException& e) {
 			$init($System$Logger$Level);
-			$nc($($System::getLogger($(LocaleServiceProviderPool::class$->getCanonicalName()))))->log($System$Logger$Level::INFO, $$str({"A locale("_s, locale, ") has non-empty extensions, but has illformed fields."_s}));
+			$$nc($System::getLogger($(LocaleServiceProviderPool::class$->getCanonicalName())))->log($System$Logger$Level::INFO, $$str({"A locale("_s, locale, ") has non-empty extensions, but has illformed fields."_s}));
 			$var($String, var$2, locale->getLanguage());
 			$var($String, var$3, locale->getCountry());
 			$assign(lookupLocale, $new($Locale, var$2, var$3, $(locale->getVariant())));
@@ -327,7 +270,7 @@ $Locale* LocaleServiceProviderPool::getLookupLocale($Locale* locale) {
 	return lookupLocale;
 }
 
-void clinit$LocaleServiceProviderPool($Class* class$) {
+void LocaleServiceProviderPool::clinit$($Class* clazz) {
 	$assignStatic(LocaleServiceProviderPool::poolOfPools, $new($ConcurrentHashMap));
 	$load($BreakIteratorProvider);
 	$load($CollatorProvider);
@@ -358,7 +301,52 @@ LocaleServiceProviderPool::LocaleServiceProviderPool() {
 }
 
 $Class* LocaleServiceProviderPool::load$($String* name, bool initialize) {
-	$loadClass(LocaleServiceProviderPool, name, initialize, &_LocaleServiceProviderPool_ClassInfo_, clinit$LocaleServiceProviderPool, allocate$LocaleServiceProviderPool);
+	$FieldInfo fieldInfos$$[] = {
+		{"poolOfPools", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/lang/Class<+Ljava/util/spi/LocaleServiceProvider;>;Lsun/util/locale/provider/LocaleServiceProviderPool;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LocaleServiceProviderPool, poolOfPools)},
+		{"providersCache", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/util/Locale;Ljava/util/List<Ljava/util/spi/LocaleServiceProvider;>;>;", $PRIVATE | $FINAL, $field(LocaleServiceProviderPool, providersCache)},
+		{"availableLocales", "Ljava/util/Set;", "Ljava/util/Set<Ljava/util/Locale;>;", $PRIVATE, $field(LocaleServiceProviderPool, availableLocales)},
+		{"providerClass", "Ljava/lang/Class;", "Ljava/lang/Class<+Ljava/util/spi/LocaleServiceProvider;>;", $PRIVATE | $FINAL, $field(LocaleServiceProviderPool, providerClass)},
+		{"spiClasses", "[Ljava/lang/Class;", "[Ljava/lang/Class<Ljava/util/spi/LocaleServiceProvider;>;", $STATIC | $FINAL, $staticField(LocaleServiceProviderPool, spiClasses)},
+		{"NULL_LIST", "Ljava/util/List;", "Ljava/util/List<Ljava/util/spi/LocaleServiceProvider;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LocaleServiceProviderPool, NULL_LIST)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<+Ljava/util/spi/LocaleServiceProvider;>;)V", $PRIVATE, $method(LocaleServiceProviderPool, init$, void, $Class*)},
+		{"findProviders", "(Ljava/util/Locale;Z)Ljava/util/List;", "(Ljava/util/Locale;Z)Ljava/util/List<Ljava/util/spi/LocaleServiceProvider;>;", $PRIVATE, $method(LocaleServiceProviderPool, findProviders, $List*, $Locale*, bool)},
+		{"getAllAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC | $STATIC, $staticMethod(LocaleServiceProviderPool, getAllAvailableLocales, $LocaleArray*)},
+		{"getAvailableLocaleSet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Locale;>;", $PRIVATE | $SYNCHRONIZED, $method(LocaleServiceProviderPool, getAvailableLocaleSet, $Set*)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $method(LocaleServiceProviderPool, getAvailableLocales, $LocaleArray*)},
+		{"getLocalizedObject", "(Lsun/util/locale/provider/LocaleServiceProviderPool$LocalizedObjectGetter;Ljava/util/Locale;[Ljava/lang/Object;)Ljava/lang/Object;", "<P:Ljava/util/spi/LocaleServiceProvider;S:Ljava/lang/Object;>(Lsun/util/locale/provider/LocaleServiceProviderPool$LocalizedObjectGetter<TP;TS;>;Ljava/util/Locale;[Ljava/lang/Object;)TS;", $PUBLIC | $TRANSIENT, $method(LocaleServiceProviderPool, getLocalizedObject, $Object*, $LocaleServiceProviderPool$LocalizedObjectGetter*, $Locale*, $ObjectArray*)},
+		{"getLocalizedObject", "(Lsun/util/locale/provider/LocaleServiceProviderPool$LocalizedObjectGetter;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", "<P:Ljava/util/spi/LocaleServiceProvider;S:Ljava/lang/Object;>(Lsun/util/locale/provider/LocaleServiceProviderPool$LocalizedObjectGetter<TP;TS;>;Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)TS;", $PUBLIC | $TRANSIENT, $method(LocaleServiceProviderPool, getLocalizedObject, $Object*, $LocaleServiceProviderPool$LocalizedObjectGetter*, $Locale*, $String*, $ObjectArray*)},
+		{"getLocalizedObject", "(Lsun/util/locale/provider/LocaleServiceProviderPool$LocalizedObjectGetter;Ljava/util/Locale;Ljava/lang/Boolean;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", "<P:Ljava/util/spi/LocaleServiceProvider;S:Ljava/lang/Object;>(Lsun/util/locale/provider/LocaleServiceProviderPool$LocalizedObjectGetter<TP;TS;>;Ljava/util/Locale;Ljava/lang/Boolean;Ljava/lang/String;[Ljava/lang/Object;)TS;", $PUBLIC | $TRANSIENT, $method(LocaleServiceProviderPool, getLocalizedObject, $Object*, $LocaleServiceProviderPool$LocalizedObjectGetter*, $Locale*, $Boolean*, $String*, $ObjectArray*)},
+		{"getLocalizedObjectImpl", "(Lsun/util/locale/provider/LocaleServiceProviderPool$LocalizedObjectGetter;Ljava/util/Locale;ZLjava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;", "<P:Ljava/util/spi/LocaleServiceProvider;S:Ljava/lang/Object;>(Lsun/util/locale/provider/LocaleServiceProviderPool$LocalizedObjectGetter<TP;TS;>;Ljava/util/Locale;ZLjava/lang/String;[Ljava/lang/Object;)TS;", $PRIVATE | $TRANSIENT, $method(LocaleServiceProviderPool, getLocalizedObjectImpl, $Object*, $LocaleServiceProviderPool$LocalizedObjectGetter*, $Locale*, bool, $String*, $ObjectArray*)},
+		{"getLookupLocale", "(Ljava/util/Locale;)Ljava/util/Locale;", nullptr, $STATIC, $staticMethod(LocaleServiceProviderPool, getLookupLocale, $Locale*, $Locale*)},
+		{"getLookupLocales", "(Ljava/util/Locale;)Ljava/util/List;", "(Ljava/util/Locale;)Ljava/util/List<Ljava/util/Locale;>;", $STATIC, $staticMethod(LocaleServiceProviderPool, getLookupLocales, $List*, $Locale*)},
+		{"getPool", "(Ljava/lang/Class;)Lsun/util/locale/provider/LocaleServiceProviderPool;", "(Ljava/lang/Class<+Ljava/util/spi/LocaleServiceProvider;>;)Lsun/util/locale/provider/LocaleServiceProviderPool;", $PUBLIC | $STATIC, $staticMethod(LocaleServiceProviderPool, getPool, LocaleServiceProviderPool*, $Class*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.LocaleServiceProviderPool$LocalizedObjectGetter", "sun.util.locale.provider.LocaleServiceProviderPool", "LocalizedObjectGetter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.util.locale.provider.LocaleServiceProviderPool$AllAvailableLocales", "sun.util.locale.provider.LocaleServiceProviderPool", "AllAvailableLocales", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.util.locale.provider.LocaleServiceProviderPool",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.LocaleServiceProviderPool$LocalizedObjectGetter,sun.util.locale.provider.LocaleServiceProviderPool$AllAvailableLocales"
+	};
+	$loadClass(LocaleServiceProviderPool, name, initialize, &classInfo$$, LocaleServiceProviderPool::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleServiceProviderPool);
+	});
 	return class$;
 }
 

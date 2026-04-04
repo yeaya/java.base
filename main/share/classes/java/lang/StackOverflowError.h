@@ -14,10 +14,13 @@ public:
 	StackOverflowError();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x7779EF15877B2377;
+	static const int64_t serialVersionUID = (int64_t)0x7779ef15877b2377;
 	StackOverflowError(const StackOverflowError& e);
 	virtual void throw$() override;
-	inline StackOverflowError* operator ->() {
+	inline StackOverflowError* operator ->() const {
+		return (StackOverflowError*)throwing$;
+	}
+	inline operator StackOverflowError*() const {
 		return (StackOverflowError*)throwing$;
 	}
 };

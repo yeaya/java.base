@@ -1,5 +1,4 @@
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <jcpp.h>
 
@@ -11,31 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace lang {
 
-$FieldInfo _ArrayIndexOutOfBoundsException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArrayIndexOutOfBoundsException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ArrayIndexOutOfBoundsException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ArrayIndexOutOfBoundsException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ArrayIndexOutOfBoundsException, init$, void, $String*)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ArrayIndexOutOfBoundsException, init$, void, int32_t)},
-	{}
-};
-
-$ClassInfo _ArrayIndexOutOfBoundsException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.ArrayIndexOutOfBoundsException",
-	"java.lang.IndexOutOfBoundsException",
-	nullptr,
-	_ArrayIndexOutOfBoundsException_FieldInfo_,
-	_ArrayIndexOutOfBoundsException_MethodInfo_
-};
-
-$Object* allocate$ArrayIndexOutOfBoundsException($Class* clazz) {
-	return $of($alloc(ArrayIndexOutOfBoundsException));
-}
-
 void ArrayIndexOutOfBoundsException::init$() {
 	$IndexOutOfBoundsException::init$();
 }
@@ -45,7 +19,7 @@ void ArrayIndexOutOfBoundsException::init$($String* s) {
 }
 
 void ArrayIndexOutOfBoundsException::init$(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$IndexOutOfBoundsException::init$($$str({"Array index out of range: "_s, $$str(index)}));
 }
 
@@ -60,7 +34,27 @@ void ArrayIndexOutOfBoundsException::throw$() {
 }
 
 $Class* ArrayIndexOutOfBoundsException::load$($String* name, bool initialize) {
-	$loadClass(ArrayIndexOutOfBoundsException, name, initialize, &_ArrayIndexOutOfBoundsException_ClassInfo_, allocate$ArrayIndexOutOfBoundsException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArrayIndexOutOfBoundsException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ArrayIndexOutOfBoundsException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ArrayIndexOutOfBoundsException, init$, void, $String*)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(ArrayIndexOutOfBoundsException, init$, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.ArrayIndexOutOfBoundsException",
+		"java.lang.IndexOutOfBoundsException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ArrayIndexOutOfBoundsException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrayIndexOutOfBoundsException);
+	});
 	return class$;
 }
 

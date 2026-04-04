@@ -1,5 +1,4 @@
 #include <java/util/stream/MatchOps$3MatchSink.h>
-
 #include <java/util/function/Consumer.h>
 #include <java/util/function/LongPredicate.h>
 #include <java/util/stream/MatchOps$BooleanTerminalSink.h>
@@ -22,64 +21,6 @@ using $Sink$OfLong = ::java::util::stream::Sink$OfLong;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$FieldInfo _MatchOps$3MatchSink_FieldInfo_[] = {
-	{"val$predicate", "Ljava/util/function/LongPredicate;", nullptr, $FINAL | $SYNTHETIC, $field(MatchOps$3MatchSink, val$predicate)},
-	{"val$matchKind", "Ljava/util/stream/MatchOps$MatchKind;", nullptr, $FINAL | $SYNTHETIC, $field(MatchOps$3MatchSink, val$matchKind)},
-	{}
-};
-
-$MethodInfo _MatchOps$3MatchSink_MethodInfo_[] = {
-	{"*accept", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*accept", "(D)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*andThen", "(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*begin", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*cancellationRequested", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*end", "()V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/LongPredicate;)V", "()V", 0, $method(MatchOps$3MatchSink, init$, void, $MatchOps$MatchKind*, $LongPredicate*)},
-	{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(MatchOps$3MatchSink, accept, void, int64_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$EnclosingMethodInfo _MatchOps$3MatchSink_EnclosingMethodInfo_ = {
-	"java.util.stream.MatchOps",
-	"makeLong",
-	"(Ljava/util/function/LongPredicate;Ljava/util/stream/MatchOps$MatchKind;)Ljava/util/stream/TerminalOp;"
-};
-
-$InnerClassInfo _MatchOps$3MatchSink_InnerClassesInfo_[] = {
-	{"java.util.stream.MatchOps$3MatchSink", nullptr, "MatchSink", 0},
-	{"java.util.stream.MatchOps$BooleanTerminalSink", "java.util.stream.MatchOps", "BooleanTerminalSink", $PRIVATE | $STATIC | $ABSTRACT},
-	{"java.util.stream.Sink$OfLong", "java.util.stream.Sink", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.stream.MatchOps$MatchKind", "java.util.stream.MatchOps", "MatchKind", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _MatchOps$3MatchSink_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.MatchOps$3MatchSink",
-	"java.util.stream.MatchOps$BooleanTerminalSink",
-	"java.util.stream.Sink$OfLong",
-	_MatchOps$3MatchSink_FieldInfo_,
-	_MatchOps$3MatchSink_MethodInfo_,
-	"Ljava/util/stream/MatchOps$BooleanTerminalSink<Ljava/lang/Long;>;Ljava/util/stream/Sink$OfLong;",
-	&_MatchOps$3MatchSink_EnclosingMethodInfo_,
-	_MatchOps$3MatchSink_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.MatchOps"
-};
-
-$Object* allocate$MatchOps$3MatchSink($Class* clazz) {
-	return $of($alloc(MatchOps$3MatchSink));
-}
 
 bool MatchOps$3MatchSink::cancellationRequested() {
 	 return this->$MatchOps$BooleanTerminalSink::cancellationRequested();
@@ -146,7 +87,58 @@ MatchOps$3MatchSink::MatchOps$3MatchSink() {
 }
 
 $Class* MatchOps$3MatchSink::load$($String* name, bool initialize) {
-	$loadClass(MatchOps$3MatchSink, name, initialize, &_MatchOps$3MatchSink_ClassInfo_, allocate$MatchOps$3MatchSink);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$predicate", "Ljava/util/function/LongPredicate;", nullptr, $FINAL | $SYNTHETIC, $field(MatchOps$3MatchSink, val$predicate)},
+		{"val$matchKind", "Ljava/util/stream/MatchOps$MatchKind;", nullptr, $FINAL | $SYNTHETIC, $field(MatchOps$3MatchSink, val$matchKind)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*accept", "(I)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*accept", "(D)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*andThen", "(Ljava/util/function/Consumer;)Ljava/util/function/Consumer;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*begin", "(J)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*cancellationRequested", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*end", "()V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/stream/MatchOps$MatchKind;Ljava/util/function/LongPredicate;)V", "()V", 0, $method(MatchOps$3MatchSink, init$, void, $MatchOps$MatchKind*, $LongPredicate*)},
+		{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(MatchOps$3MatchSink, accept, void, int64_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.stream.MatchOps",
+		"makeLong",
+		"(Ljava/util/function/LongPredicate;Ljava/util/stream/MatchOps$MatchKind;)Ljava/util/stream/TerminalOp;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.MatchOps$3MatchSink", nullptr, "MatchSink", 0},
+		{"java.util.stream.MatchOps$BooleanTerminalSink", "java.util.stream.MatchOps", "BooleanTerminalSink", $PRIVATE | $STATIC | $ABSTRACT},
+		{"java.util.stream.Sink$OfLong", "java.util.stream.Sink", "OfLong", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.stream.MatchOps$MatchKind", "java.util.stream.MatchOps", "MatchKind", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.MatchOps$3MatchSink",
+		"java.util.stream.MatchOps$BooleanTerminalSink",
+		"java.util.stream.Sink$OfLong",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/stream/MatchOps$BooleanTerminalSink<Ljava/lang/Long;>;Ljava/util/stream/Sink$OfLong;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.MatchOps"
+	};
+	$loadClass(MatchOps$3MatchSink, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MatchOps$3MatchSink));
+	});
 	return class$;
 }
 

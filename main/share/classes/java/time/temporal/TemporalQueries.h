@@ -36,6 +36,7 @@ class $export TemporalQueries : public ::java::lang::Object {
 	$class(TemporalQueries, 0, ::java::lang::Object)
 public:
 	TemporalQueries();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::time::temporal::TemporalQuery* chronology();
 	static ::java::time::temporal::TemporalQuery* localDate();

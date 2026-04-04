@@ -38,6 +38,7 @@ class $export MathContext : public ::java::io::Serializable {
 	$class(MathContext, 0, ::java::io::Serializable)
 public:
 	MathContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t setPrecision);
 	void init$(int32_t setPrecision, ::java::math::RoundingMode* setRoundingMode);
 	void init$($String* val);
@@ -50,7 +51,7 @@ public:
 	static const int32_t DEFAULT_DIGITS = 9;
 	static ::java::math::RoundingMode* DEFAULT_ROUNDINGMODE;
 	static const int32_t MIN_DIGITS = 0;
-	static const int64_t serialVersionUID = (int64_t)0x4D6F25C81F7601FF;
+	static const int64_t serialVersionUID = (int64_t)0x4d6f25c81f7601ff;
 	static ::java::math::MathContext* UNLIMITED;
 	static ::java::math::MathContext* DECIMAL32;
 	static ::java::math::MathContext* DECIMAL64;

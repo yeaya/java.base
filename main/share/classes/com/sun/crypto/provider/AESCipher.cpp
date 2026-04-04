@@ -1,9 +1,7 @@
 #include <com/sun/crypto/provider/AESCipher.h>
-
 #include <com/sun/crypto/provider/AESConstants.h>
 #include <com/sun/crypto/provider/AESCrypt.h>
 #include <com/sun/crypto/provider/CipherCore.h>
-#include <com/sun/crypto/provider/SymmetricCipher.h>
 #include <java/lang/Math.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/AlgorithmParameters.h>
@@ -20,7 +18,6 @@
 using $AESConstants = ::com::sun::crypto::provider::AESConstants;
 using $AESCrypt = ::com::sun::crypto::provider::AESCrypt;
 using $CipherCore = ::com::sun::crypto::provider::CipherCore;
-using $SymmetricCipher = ::com::sun::crypto::provider::SymmetricCipher;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -40,75 +37,9 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _AESCipher_FieldInfo_[] = {
-	{"core", "Lcom/sun/crypto/provider/CipherCore;", nullptr, $PRIVATE, $field(AESCipher, core)},
-	{"fixedKeySize", "I", nullptr, $PRIVATE | $FINAL, $field(AESCipher, fixedKeySize)},
-	{}
-};
-
-$MethodInfo _AESCipher_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(AESCipher, init$, void, int32_t)},
-	{"checkKeySize", "(Ljava/security/Key;I)V", nullptr, $STATIC | $FINAL, $staticMethod(AESCipher, checkKeySize, void, $Key*, int32_t), "java.security.InvalidKeyException"},
-	{"engineDoFinal", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineDoFinal, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{"engineDoFinal", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineDoFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.ShortBufferException,javax.crypto.BadPaddingException"},
-	{"engineDoFinal", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineDoFinal, int32_t, $ByteBuffer*, $ByteBuffer*), "javax.crypto.ShortBufferException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
-	{"engineGetBlockSize", "()I", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineGetBlockSize, int32_t)},
-	{"engineGetIV", "()[B", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineGetIV, $bytes*)},
-	{"engineGetKeySize", "(Ljava/security/Key;)I", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineGetKeySize, int32_t, $Key*), "java.security.InvalidKeyException"},
-	{"engineGetOutputSize", "(I)I", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineGetOutputSize, int32_t, int32_t)},
-	{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineGetParameters, $AlgorithmParameters*)},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineInit, void, int32_t, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineInit, void, int32_t, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"engineInit", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineInit, void, int32_t, $Key*, $AlgorithmParameters*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
-	{"engineSetMode", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineSetMode, void, $String*), "java.security.NoSuchAlgorithmException"},
-	{"engineSetPadding", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineSetPadding, void, $String*), "javax.crypto.NoSuchPaddingException"},
-	{"engineUnwrap", "([BLjava/lang/String;I)Ljava/security/Key;", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineUnwrap, $Key*, $bytes*, $String*, int32_t), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
-	{"engineUpdate", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineUpdate, $bytes*, $bytes*, int32_t, int32_t)},
-	{"engineUpdate", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
-	{"engineWrap", "(Ljava/security/Key;)[B", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineWrap, $bytes*, $Key*), "javax.crypto.IllegalBlockSizeException,java.security.InvalidKeyException"},
-	{}
-};
-
-$InnerClassInfo _AESCipher_InnerClassesInfo_[] = {
-	{"com.sun.crypto.provider.AESCipher$AES256_CFB_NoPadding", "com.sun.crypto.provider.AESCipher", "AES256_CFB_NoPadding", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.AESCipher$AES192_CFB_NoPadding", "com.sun.crypto.provider.AESCipher", "AES192_CFB_NoPadding", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.AESCipher$AES128_CFB_NoPadding", "com.sun.crypto.provider.AESCipher", "AES128_CFB_NoPadding", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.AESCipher$AES256_OFB_NoPadding", "com.sun.crypto.provider.AESCipher", "AES256_OFB_NoPadding", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.AESCipher$AES192_OFB_NoPadding", "com.sun.crypto.provider.AESCipher", "AES192_OFB_NoPadding", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.AESCipher$AES128_OFB_NoPadding", "com.sun.crypto.provider.AESCipher", "AES128_OFB_NoPadding", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.AESCipher$AES256_CBC_NoPadding", "com.sun.crypto.provider.AESCipher", "AES256_CBC_NoPadding", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.AESCipher$AES192_CBC_NoPadding", "com.sun.crypto.provider.AESCipher", "AES192_CBC_NoPadding", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.AESCipher$AES128_CBC_NoPadding", "com.sun.crypto.provider.AESCipher", "AES128_CBC_NoPadding", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.AESCipher$AES256_ECB_NoPadding", "com.sun.crypto.provider.AESCipher", "AES256_ECB_NoPadding", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.AESCipher$AES192_ECB_NoPadding", "com.sun.crypto.provider.AESCipher", "AES192_ECB_NoPadding", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.AESCipher$AES128_ECB_NoPadding", "com.sun.crypto.provider.AESCipher", "AES128_ECB_NoPadding", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.crypto.provider.AESCipher$OidImpl", "com.sun.crypto.provider.AESCipher", "OidImpl", $STATIC | $ABSTRACT},
-	{"com.sun.crypto.provider.AESCipher$General", "com.sun.crypto.provider.AESCipher", "General", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _AESCipher_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.crypto.provider.AESCipher",
-	"javax.crypto.CipherSpi",
-	nullptr,
-	_AESCipher_FieldInfo_,
-	_AESCipher_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AESCipher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.crypto.provider.AESCipher$AES256_CFB_NoPadding,com.sun.crypto.provider.AESCipher$AES192_CFB_NoPadding,com.sun.crypto.provider.AESCipher$AES128_CFB_NoPadding,com.sun.crypto.provider.AESCipher$AES256_OFB_NoPadding,com.sun.crypto.provider.AESCipher$AES192_OFB_NoPadding,com.sun.crypto.provider.AESCipher$AES128_OFB_NoPadding,com.sun.crypto.provider.AESCipher$AES256_CBC_NoPadding,com.sun.crypto.provider.AESCipher$AES192_CBC_NoPadding,com.sun.crypto.provider.AESCipher$AES128_CBC_NoPadding,com.sun.crypto.provider.AESCipher$AES256_ECB_NoPadding,com.sun.crypto.provider.AESCipher$AES192_ECB_NoPadding,com.sun.crypto.provider.AESCipher$AES128_ECB_NoPadding,com.sun.crypto.provider.AESCipher$OidImpl,com.sun.crypto.provider.AESCipher$General"
-};
-
-$Object* allocate$AESCipher($Class* clazz) {
-	return $of($alloc(AESCipher));
-}
-
 void AESCipher::checkKeySize($Key* key, int32_t fixedKeySize) {
 	$init(AESCipher);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (fixedKeySize != -1) {
 		if (key == nullptr) {
 			$throwNew($InvalidKeyException, "The key must not be null"_s);
@@ -118,7 +49,7 @@ void AESCipher::checkKeySize($Key* key, int32_t fixedKeySize) {
 			$throwNew($InvalidKeyException, "Key encoding must not be null"_s);
 		} else {
 			$Arrays::fill(value, (int8_t)0);
-			if ($nc(value)->length != fixedKeySize) {
+			if (value->length != fixedKeySize) {
 				$throwNew($InvalidKeyException, $$str({"The key must be "_s, $$str(fixedKeySize), " bytes"_s}));
 			}
 		}
@@ -190,13 +121,13 @@ int32_t AESCipher::engineDoFinal($bytes* input, int32_t inputOffset, int32_t inp
 }
 
 int32_t AESCipher::engineGetKeySize($Key* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, encoded, $nc(key)->getEncoded());
 	$Arrays::fill(encoded, (int8_t)0);
 	if (!$AESCrypt::isKeySizeValid($nc(encoded)->length)) {
-		$throwNew($InvalidKeyException, $$str({"Invalid AES key length: "_s, $$str($nc(encoded)->length), " bytes"_s}));
+		$throwNew($InvalidKeyException, $$str({"Invalid AES key length: "_s, $$str(encoded->length), " bytes"_s}));
 	}
-	return $Math::multiplyExact($nc(encoded)->length, 8);
+	return $Math::multiplyExact(encoded->length, 8);
 }
 
 $bytes* AESCipher::engineWrap($Key* key) {
@@ -215,7 +146,67 @@ AESCipher::AESCipher() {
 }
 
 $Class* AESCipher::load$($String* name, bool initialize) {
-	$loadClass(AESCipher, name, initialize, &_AESCipher_ClassInfo_, allocate$AESCipher);
+	$FieldInfo fieldInfos$$[] = {
+		{"core", "Lcom/sun/crypto/provider/CipherCore;", nullptr, $PRIVATE, $field(AESCipher, core)},
+		{"fixedKeySize", "I", nullptr, $PRIVATE | $FINAL, $field(AESCipher, fixedKeySize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(AESCipher, init$, void, int32_t)},
+		{"checkKeySize", "(Ljava/security/Key;I)V", nullptr, $STATIC | $FINAL, $staticMethod(AESCipher, checkKeySize, void, $Key*, int32_t), "java.security.InvalidKeyException"},
+		{"engineDoFinal", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineDoFinal, $bytes*, $bytes*, int32_t, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+		{"engineDoFinal", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineDoFinal, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.IllegalBlockSizeException,javax.crypto.ShortBufferException,javax.crypto.BadPaddingException"},
+		{"engineDoFinal", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)I", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineDoFinal, int32_t, $ByteBuffer*, $ByteBuffer*), "javax.crypto.ShortBufferException,javax.crypto.IllegalBlockSizeException,javax.crypto.BadPaddingException"},
+		{"engineGetBlockSize", "()I", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineGetBlockSize, int32_t)},
+		{"engineGetIV", "()[B", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineGetIV, $bytes*)},
+		{"engineGetKeySize", "(Ljava/security/Key;)I", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineGetKeySize, int32_t, $Key*), "java.security.InvalidKeyException"},
+		{"engineGetOutputSize", "(I)I", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineGetOutputSize, int32_t, int32_t)},
+		{"engineGetParameters", "()Ljava/security/AlgorithmParameters;", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineGetParameters, $AlgorithmParameters*)},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineInit, void, int32_t, $Key*, $SecureRandom*), "java.security.InvalidKeyException"},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineInit, void, int32_t, $Key*, $AlgorithmParameterSpec*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"engineInit", "(ILjava/security/Key;Ljava/security/AlgorithmParameters;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineInit, void, int32_t, $Key*, $AlgorithmParameters*, $SecureRandom*), "java.security.InvalidKeyException,java.security.InvalidAlgorithmParameterException"},
+		{"engineSetMode", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineSetMode, void, $String*), "java.security.NoSuchAlgorithmException"},
+		{"engineSetPadding", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineSetPadding, void, $String*), "javax.crypto.NoSuchPaddingException"},
+		{"engineUnwrap", "([BLjava/lang/String;I)Ljava/security/Key;", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineUnwrap, $Key*, $bytes*, $String*, int32_t), "java.security.InvalidKeyException,java.security.NoSuchAlgorithmException"},
+		{"engineUpdate", "([BII)[B", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineUpdate, $bytes*, $bytes*, int32_t, int32_t)},
+		{"engineUpdate", "([BII[BI)I", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineUpdate, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t), "javax.crypto.ShortBufferException"},
+		{"engineWrap", "(Ljava/security/Key;)[B", nullptr, $PROTECTED, $virtualMethod(AESCipher, engineWrap, $bytes*, $Key*), "javax.crypto.IllegalBlockSizeException,java.security.InvalidKeyException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.crypto.provider.AESCipher$AES256_CFB_NoPadding", "com.sun.crypto.provider.AESCipher", "AES256_CFB_NoPadding", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.AESCipher$AES192_CFB_NoPadding", "com.sun.crypto.provider.AESCipher", "AES192_CFB_NoPadding", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.AESCipher$AES128_CFB_NoPadding", "com.sun.crypto.provider.AESCipher", "AES128_CFB_NoPadding", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.AESCipher$AES256_OFB_NoPadding", "com.sun.crypto.provider.AESCipher", "AES256_OFB_NoPadding", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.AESCipher$AES192_OFB_NoPadding", "com.sun.crypto.provider.AESCipher", "AES192_OFB_NoPadding", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.AESCipher$AES128_OFB_NoPadding", "com.sun.crypto.provider.AESCipher", "AES128_OFB_NoPadding", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.AESCipher$AES256_CBC_NoPadding", "com.sun.crypto.provider.AESCipher", "AES256_CBC_NoPadding", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.AESCipher$AES192_CBC_NoPadding", "com.sun.crypto.provider.AESCipher", "AES192_CBC_NoPadding", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.AESCipher$AES128_CBC_NoPadding", "com.sun.crypto.provider.AESCipher", "AES128_CBC_NoPadding", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.AESCipher$AES256_ECB_NoPadding", "com.sun.crypto.provider.AESCipher", "AES256_ECB_NoPadding", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.AESCipher$AES192_ECB_NoPadding", "com.sun.crypto.provider.AESCipher", "AES192_ECB_NoPadding", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.AESCipher$AES128_ECB_NoPadding", "com.sun.crypto.provider.AESCipher", "AES128_ECB_NoPadding", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.crypto.provider.AESCipher$OidImpl", "com.sun.crypto.provider.AESCipher", "OidImpl", $STATIC | $ABSTRACT},
+		{"com.sun.crypto.provider.AESCipher$General", "com.sun.crypto.provider.AESCipher", "General", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.crypto.provider.AESCipher",
+		"javax.crypto.CipherSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.crypto.provider.AESCipher$AES256_CFB_NoPadding,com.sun.crypto.provider.AESCipher$AES192_CFB_NoPadding,com.sun.crypto.provider.AESCipher$AES128_CFB_NoPadding,com.sun.crypto.provider.AESCipher$AES256_OFB_NoPadding,com.sun.crypto.provider.AESCipher$AES192_OFB_NoPadding,com.sun.crypto.provider.AESCipher$AES128_OFB_NoPadding,com.sun.crypto.provider.AESCipher$AES256_CBC_NoPadding,com.sun.crypto.provider.AESCipher$AES192_CBC_NoPadding,com.sun.crypto.provider.AESCipher$AES128_CBC_NoPadding,com.sun.crypto.provider.AESCipher$AES256_ECB_NoPadding,com.sun.crypto.provider.AESCipher$AES192_ECB_NoPadding,com.sun.crypto.provider.AESCipher$AES128_ECB_NoPadding,com.sun.crypto.provider.AESCipher$OidImpl,com.sun.crypto.provider.AESCipher$General"
+	};
+	$loadClass(AESCipher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AESCipher);
+	});
 	return class$;
 }
 

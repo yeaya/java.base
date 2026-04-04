@@ -20,6 +20,7 @@ class $export AppendCharSequence : public ::java::lang::Object {
 	$class(AppendCharSequence, 0, ::java::lang::Object)
 public:
 	AppendCharSequence();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void bash();
 	static void checkConstructor();

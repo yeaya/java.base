@@ -19,6 +19,7 @@ class ProcessHandleImpl$Info : public ::java::lang::ProcessHandle$Info {
 	$class(ProcessHandleImpl$Info, 0, ::java::lang::ProcessHandle$Info)
 public:
 	ProcessHandleImpl$Info();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::util::Optional* arguments() override;
 	virtual ::java::util::Optional* command() override;

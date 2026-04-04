@@ -1,5 +1,4 @@
 #include <sun/net/ftp/FtpProtocolException.h>
-
 #include <sun/net/ftp/FtpReplyCode.h>
 #include <jcpp.h>
 
@@ -14,32 +13,6 @@ using $FtpReplyCode = ::sun::net::ftp::FtpReplyCode;
 namespace sun {
 	namespace net {
 		namespace ftp {
-
-$FieldInfo _FtpProtocolException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FtpProtocolException, serialVersionUID)},
-	{"code", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PRIVATE | $FINAL, $field(FtpProtocolException, code)},
-	{}
-};
-
-$MethodInfo _FtpProtocolException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FtpProtocolException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Lsun/net/ftp/FtpReplyCode;)V", nullptr, $PUBLIC, $method(FtpProtocolException, init$, void, $String*, $FtpReplyCode*)},
-	{"getReplyCode", "()Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC, $virtualMethod(FtpProtocolException, getReplyCode, $FtpReplyCode*)},
-	{}
-};
-
-$ClassInfo _FtpProtocolException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.ftp.FtpProtocolException",
-	"java.lang.Exception",
-	nullptr,
-	_FtpProtocolException_FieldInfo_,
-	_FtpProtocolException_MethodInfo_
-};
-
-$Object* allocate$FtpProtocolException($Class* clazz) {
-	return $of($alloc(FtpProtocolException));
-}
 
 void FtpProtocolException::init$($String* detail) {
 	$Exception::init$(detail);
@@ -67,7 +40,28 @@ void FtpProtocolException::throw$() {
 }
 
 $Class* FtpProtocolException::load$($String* name, bool initialize) {
-	$loadClass(FtpProtocolException, name, initialize, &_FtpProtocolException_ClassInfo_, allocate$FtpProtocolException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FtpProtocolException, serialVersionUID)},
+		{"code", "Lsun/net/ftp/FtpReplyCode;", nullptr, $PRIVATE | $FINAL, $field(FtpProtocolException, code)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FtpProtocolException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Lsun/net/ftp/FtpReplyCode;)V", nullptr, $PUBLIC, $method(FtpProtocolException, init$, void, $String*, $FtpReplyCode*)},
+		{"getReplyCode", "()Lsun/net/ftp/FtpReplyCode;", nullptr, $PUBLIC, $virtualMethod(FtpProtocolException, getReplyCode, $FtpReplyCode*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.ftp.FtpProtocolException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FtpProtocolException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FtpProtocolException);
+	});
 	return class$;
 }
 

@@ -37,6 +37,7 @@ class $export ZoneOffsetTransitionRule : public ::java::io::Serializable {
 	$class(ZoneOffsetTransitionRule, 0, ::java::io::Serializable)
 public:
 	ZoneOffsetTransitionRule();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::time::Month* month, int32_t dayOfMonthIndicator, ::java::time::DayOfWeek* dayOfWeek, ::java::time::LocalTime* time, bool timeEndOfDay, ::java::time::zone::ZoneOffsetTransitionRule$TimeDefinition* timeDefinition, ::java::time::ZoneOffset* standardOffset, ::java::time::ZoneOffset* offsetBefore, ::java::time::ZoneOffset* offsetAfter);
 	::java::time::zone::ZoneOffsetTransition* createTransition(int32_t year);
 	virtual bool equals(Object$* otherRule) override;
@@ -57,7 +58,7 @@ public:
 	void writeExternal(::java::io::DataOutput* out);
 	$Object* writeReplace();
 	static bool $assertionsDisabled;
-	static const int64_t serialVersionUID = (int64_t)0x5F9ACF201199524B;
+	static const int64_t serialVersionUID = (int64_t)0x5f9acf201199524b;
 	::java::time::Month* month = nullptr;
 	int8_t dom = 0;
 	::java::time::DayOfWeek* dow = nullptr;

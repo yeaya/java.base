@@ -1,5 +1,4 @@
 #include <Shadow.h>
-
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ServerSocket.h>
@@ -24,35 +23,6 @@ using $SocketAddress = ::java::net::SocketAddress;
 using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 
-$FieldInfo _Shadow_FieldInfo_[] = {
-	{"log", "Ljava/io/PrintStream;", nullptr, $STATIC, $staticField(Shadow, log)},
-	{"problems", "I", nullptr, $PRIVATE | $STATIC, $staticField(Shadow, problems)},
-	{}
-};
-
-$MethodInfo _Shadow_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Shadow, init$, void)},
-	{"check", "(Ljava/net/Socket;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Shadow, check, void, $Socket*)},
-	{"dump", "(Ljava/net/ServerSocket;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Shadow, dump, void, $ServerSocket*)},
-	{"dump", "(Ljava/net/Socket;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Shadow, dump, void, $Socket*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Shadow, main, void, $StringArray*), "java.lang.Exception"},
-	{"problem", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Shadow, problem, void, $String*)},
-	{}
-};
-
-$ClassInfo _Shadow_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Shadow",
-	"java.lang.Object",
-	nullptr,
-	_Shadow_FieldInfo_,
-	_Shadow_MethodInfo_
-};
-
-$Object* allocate$Shadow($Class* clazz) {
-	return $of($alloc(Shadow));
-}
-
 $PrintStream* Shadow::log = nullptr;
 int32_t Shadow::problems = 0;
 
@@ -61,18 +31,18 @@ void Shadow::init$() {
 
 void Shadow::dump($ServerSocket* s) {
 	$init(Shadow);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(Shadow::log)->println($$str({"getInetAddress(): "_s, $($nc(s)->getInetAddress())}));
-	$nc(Shadow::log)->println($$str({"getLocalPort(): "_s, $$str($nc(s)->getLocalPort())}));
+	Shadow::log->println($$str({"getLocalPort(): "_s, $$str(s->getLocalPort())}));
 }
 
 void Shadow::dump($Socket* s) {
 	$init(Shadow);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(Shadow::log)->println($$str({"getInetAddress(): "_s, $($nc(s)->getInetAddress())}));
-	$nc(Shadow::log)->println($$str({"getPort(): "_s, $$str($nc(s)->getPort())}));
-	$nc(Shadow::log)->println($$str({"getLocalAddress(): "_s, $($nc(s)->getLocalAddress())}));
-	$nc(Shadow::log)->println($$str({"getLocalPort(): "_s, $$str($nc(s)->getLocalPort())}));
+	Shadow::log->println($$str({"getPort(): "_s, $$str(s->getPort())}));
+	Shadow::log->println($$str({"getLocalAddress(): "_s, $(s->getLocalAddress())}));
+	Shadow::log->println($$str({"getLocalPort(): "_s, $$str(s->getLocalPort())}));
 }
 
 void Shadow::problem($String* s) {
@@ -83,29 +53,29 @@ void Shadow::problem($String* s) {
 
 void Shadow::check($Socket* s) {
 	$init(Shadow);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(s)->getPort() == 0) {
 		problem("Socket has no port"_s);
 	}
-	if ($nc(s)->getLocalPort() == 0) {
+	if (s->getLocalPort() == 0) {
 		problem("Socket has no local port"_s);
 	}
-	if (!$nc($($nc(s)->getLocalAddress()))->equals($(s->getInetAddress()))) {
+	if (!$$nc(s->getLocalAddress())->equals($(s->getInetAddress()))) {
 		problem("Socket has wrong local address"_s);
 	}
 }
 
 void Shadow::main($StringArray* args) {
 	$init(Shadow);
-	$useLocalCurrentObjectStackCache();
-	bool useChannels = (($nc(args)->length == 0) || $nc($($Boolean::valueOf($nc(args)->get(0))))->booleanValue());
-	int32_t port = ($nc(args)->length > 1 ? $Integer::parseInt($nc(args)->get(1)) : -1);
+	$useLocalObjectStack();
+	bool useChannels = (($nc(args)->length == 0) || $($Boolean::valueOf(args->get(0)))->booleanValue());
+	int32_t port = (args->length > 1 ? $Integer::parseInt(args->get(1)) : -1);
 	$var($ServerSocket, serverSocket, nullptr);
 	if (useChannels) {
 		$var($ServerSocketChannel, serverSocketChannel, $ServerSocketChannel::open());
 		$nc(Shadow::log)->println($$str({"opened ServerSocketChannel: "_s, serverSocketChannel}));
 		$assign(serverSocket, $nc(serverSocketChannel)->socket());
-		$nc(Shadow::log)->println($$str({"associated ServerSocket: "_s, serverSocket}));
+		Shadow::log->println($$str({"associated ServerSocket: "_s, serverSocket}));
 	} else {
 		$assign(serverSocket, $new($ServerSocket));
 		$nc(Shadow::log)->println($$str({"opened ServerSocket: "_s, serverSocket}));
@@ -113,34 +83,34 @@ void Shadow::main($StringArray* args) {
 	$var($SocketAddress, bindAddr, $new($InetSocketAddress, (port == -1) ? 0 : port));
 	$nc(serverSocket)->bind(bindAddr);
 	$nc(Shadow::log)->println($$str({"bound ServerSocket: "_s, serverSocket}));
-	$nc(Shadow::log)->println();
+	Shadow::log->println();
 	$var($Socket, socket, nullptr);
 	if (useChannels) {
 		$var($SocketChannel, socketChannel, $SocketChannel::open());
-		$nc(Shadow::log)->println($$str({"opened SocketChannel: "_s, socketChannel}));
+		Shadow::log->println($$str({"opened SocketChannel: "_s, socketChannel}));
 		$assign(socket, $nc(socketChannel)->socket());
-		$nc(Shadow::log)->println($$str({"associated Socket: "_s, socket}));
+		Shadow::log->println($$str({"associated Socket: "_s, socket}));
 	} else {
 		$assign(socket, $new($Socket));
-		$nc(Shadow::log)->println($$str({"opened Socket: "_s, socket}));
+		Shadow::log->println($$str({"opened Socket: "_s, socket}));
 	}
 	$var($InetAddress, var$0, $InetAddress::getLoopbackAddress());
 	$var($SocketAddress, connectAddr, $new($InetSocketAddress, var$0, serverSocket->getLocalPort()));
 	$nc(socket)->connect(connectAddr);
-	$nc(Shadow::log)->println($$str({"connected Socket: "_s, socket}));
-	$nc(Shadow::log)->println();
+	Shadow::log->println($$str({"connected Socket: "_s, socket}));
+	Shadow::log->println();
 	$var($Socket, acceptedSocket, serverSocket->accept());
-	$nc(Shadow::log)->println($$str({"accepted Socket: "_s, acceptedSocket}));
-	$nc(Shadow::log)->println();
-	$nc(Shadow::log)->println("========================================"_s);
-	$nc(Shadow::log)->println("*** ServerSocket info: "_s);
+	Shadow::log->println($$str({"accepted Socket: "_s, acceptedSocket}));
+	Shadow::log->println();
+	Shadow::log->println("========================================"_s);
+	Shadow::log->println("*** ServerSocket info: "_s);
 	dump(serverSocket);
 	$nc(Shadow::log)->println();
-	$nc(Shadow::log)->println("*** client Socket info: "_s);
+	Shadow::log->println("*** client Socket info: "_s);
 	dump(socket);
 	check(socket);
 	$nc(Shadow::log)->println();
-	$nc(Shadow::log)->println("*** accepted Socket info: "_s);
+	Shadow::log->println("*** accepted Socket info: "_s);
 	dump(acceptedSocket);
 	check(acceptedSocket);
 	$nc(Shadow::log)->println();
@@ -149,7 +119,7 @@ void Shadow::main($StringArray* args) {
 	}
 }
 
-void clinit$Shadow($Class* class$) {
+void Shadow::clinit$($Class* clazz) {
 	$assignStatic(Shadow::log, $System::err);
 	Shadow::problems = 0;
 }
@@ -158,7 +128,31 @@ Shadow::Shadow() {
 }
 
 $Class* Shadow::load$($String* name, bool initialize) {
-	$loadClass(Shadow, name, initialize, &_Shadow_ClassInfo_, clinit$Shadow, allocate$Shadow);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Ljava/io/PrintStream;", nullptr, $STATIC, $staticField(Shadow, log)},
+		{"problems", "I", nullptr, $PRIVATE | $STATIC, $staticField(Shadow, problems)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Shadow, init$, void)},
+		{"check", "(Ljava/net/Socket;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Shadow, check, void, $Socket*)},
+		{"dump", "(Ljava/net/ServerSocket;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Shadow, dump, void, $ServerSocket*)},
+		{"dump", "(Ljava/net/Socket;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Shadow, dump, void, $Socket*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Shadow, main, void, $StringArray*), "java.lang.Exception"},
+		{"problem", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Shadow, problem, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Shadow",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Shadow, name, initialize, &classInfo$$, Shadow::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Shadow);
+	});
 	return class$;
 }
 

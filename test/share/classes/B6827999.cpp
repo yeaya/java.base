@@ -1,5 +1,4 @@
 #include <B6827999.h>
-
 #include <B6827999$MyURLClassLoader.h>
 #include <java/net/URL.h>
 #include <jcpp.h>
@@ -12,41 +11,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $URL = ::java::net::URL;
 
-$MethodInfo _B6827999_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(B6827999, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B6827999, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _B6827999_InnerClassesInfo_[] = {
-	{"B6827999$MyURLClassLoader", "B6827999", "MyURLClassLoader", $STATIC},
-	{}
-};
-
-$ClassInfo _B6827999_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"B6827999",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_B6827999_MethodInfo_,
-	nullptr,
-	nullptr,
-	_B6827999_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"B6827999$MyURLClassLoader"
-};
-
-$Object* allocate$B6827999($Class* clazz) {
-	return $of($alloc(B6827999));
-}
-
 void B6827999::init$() {
 }
 
 void B6827999::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URLArray, urls, $new($URLArray, {$$new($URL, "http://foobar.jar"_s)}));
 	$var($B6827999$MyURLClassLoader, ucl, $new($B6827999$MyURLClassLoader, urls));
 	ucl->addURL($$new($URL, "http://foo/bar.jar"_s));
@@ -65,7 +34,32 @@ B6827999::B6827999() {
 }
 
 $Class* B6827999::load$($String* name, bool initialize) {
-	$loadClass(B6827999, name, initialize, &_B6827999_ClassInfo_, allocate$B6827999);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(B6827999, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B6827999, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"B6827999$MyURLClassLoader", "B6827999", "MyURLClassLoader", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"B6827999",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"B6827999$MyURLClassLoader"
+	};
+	$loadClass(B6827999, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(B6827999);
+	});
 	return class$;
 }
 

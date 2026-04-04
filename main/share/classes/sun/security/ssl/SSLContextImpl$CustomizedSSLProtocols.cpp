@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLContextImpl$CustomizedSSLProtocols.h>
-
 #include <java/util/ArrayList.h>
 #include <sun/security/action/GetPropertyAction.h>
 #include <sun/security/ssl/ProtocolVersion.h>
@@ -22,46 +21,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _SSLContextImpl$CustomizedSSLProtocols_FieldInfo_[] = {
-	{"JDK_TLS_CLIENT_PROTOCOLS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$CustomizedSSLProtocols, JDK_TLS_CLIENT_PROTOCOLS)},
-	{"JDK_TLS_SERVER_PROTOCOLS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$CustomizedSSLProtocols, JDK_TLS_SERVER_PROTOCOLS)},
-	{"reservedException", "Ljava/lang/IllegalArgumentException;", nullptr, $STATIC, $staticField(SSLContextImpl$CustomizedSSLProtocols, reservedException)},
-	{"customizedClientProtocols", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/security/ssl/ProtocolVersion;>;", $STATIC | $FINAL, $staticField(SSLContextImpl$CustomizedSSLProtocols, customizedClientProtocols)},
-	{"customizedServerProtocols", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/security/ssl/ProtocolVersion;>;", $STATIC | $FINAL, $staticField(SSLContextImpl$CustomizedSSLProtocols, customizedServerProtocols)},
-	{}
-};
-
-$MethodInfo _SSLContextImpl$CustomizedSSLProtocols_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SSLContextImpl$CustomizedSSLProtocols, init$, void)},
-	{"populate", "(Ljava/lang/String;Ljava/util/ArrayList;)V", "(Ljava/lang/String;Ljava/util/ArrayList<Lsun/security/ssl/ProtocolVersion;>;)V", $PRIVATE | $STATIC, $staticMethod(SSLContextImpl$CustomizedSSLProtocols, populate, void, $String*, $ArrayList*)},
-	{}
-};
-
-$InnerClassInfo _SSLContextImpl$CustomizedSSLProtocols_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLContextImpl$CustomizedSSLProtocols", "sun.security.ssl.SSLContextImpl", "CustomizedSSLProtocols", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SSLContextImpl$CustomizedSSLProtocols_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.ssl.SSLContextImpl$CustomizedSSLProtocols",
-	"java.lang.Object",
-	nullptr,
-	_SSLContextImpl$CustomizedSSLProtocols_FieldInfo_,
-	_SSLContextImpl$CustomizedSSLProtocols_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLContextImpl$CustomizedSSLProtocols_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLContextImpl"
-};
-
-$Object* allocate$SSLContextImpl$CustomizedSSLProtocols($Class* clazz) {
-	return $of($alloc(SSLContextImpl$CustomizedSSLProtocols));
-}
-
 $String* SSLContextImpl$CustomizedSSLProtocols::JDK_TLS_CLIENT_PROTOCOLS = nullptr;
 $String* SSLContextImpl$CustomizedSSLProtocols::JDK_TLS_SERVER_PROTOCOLS = nullptr;
 $IllegalArgumentException* SSLContextImpl$CustomizedSSLProtocols::reservedException = nullptr;
@@ -73,7 +32,7 @@ void SSLContextImpl$CustomizedSSLProtocols::init$() {
 
 void SSLContextImpl$CustomizedSSLProtocols::populate($String* propname, $ArrayList* arrayList) {
 	$init(SSLContextImpl$CustomizedSSLProtocols);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, property, $GetPropertyAction::privilegedGetProperty(propname));
 	if (property == nullptr) {
 		return;
@@ -85,7 +44,7 @@ void SSLContextImpl$CustomizedSSLProtocols::populate($String* propname, $ArrayLi
 			$assign(property, property->substring(1, property->length() - 1));
 		}
 	}
-	if (!$nc(property)->isEmpty()) {
+	if (!property->isEmpty()) {
 		$var($StringArray, protocols, property->split(","_s));
 		for (int32_t i = 0; i < protocols->length; ++i) {
 			protocols->set(i, $($nc(protocols->get(i))->trim()));
@@ -100,7 +59,7 @@ void SSLContextImpl$CustomizedSSLProtocols::populate($String* propname, $ArrayLi
 	}
 }
 
-void clinit$SSLContextImpl$CustomizedSSLProtocols($Class* class$) {
+void SSLContextImpl$CustomizedSSLProtocols::clinit$($Class* clazz) {
 	$assignStatic(SSLContextImpl$CustomizedSSLProtocols::JDK_TLS_CLIENT_PROTOCOLS, "jdk.tls.client.protocols"_s);
 	$assignStatic(SSLContextImpl$CustomizedSSLProtocols::JDK_TLS_SERVER_PROTOCOLS, "jdk.tls.server.protocols"_s);
 	$assignStatic(SSLContextImpl$CustomizedSSLProtocols::reservedException, nullptr);
@@ -116,7 +75,41 @@ SSLContextImpl$CustomizedSSLProtocols::SSLContextImpl$CustomizedSSLProtocols() {
 }
 
 $Class* SSLContextImpl$CustomizedSSLProtocols::load$($String* name, bool initialize) {
-	$loadClass(SSLContextImpl$CustomizedSSLProtocols, name, initialize, &_SSLContextImpl$CustomizedSSLProtocols_ClassInfo_, clinit$SSLContextImpl$CustomizedSSLProtocols, allocate$SSLContextImpl$CustomizedSSLProtocols);
+	$FieldInfo fieldInfos$$[] = {
+		{"JDK_TLS_CLIENT_PROTOCOLS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$CustomizedSSLProtocols, JDK_TLS_CLIENT_PROTOCOLS)},
+		{"JDK_TLS_SERVER_PROTOCOLS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLContextImpl$CustomizedSSLProtocols, JDK_TLS_SERVER_PROTOCOLS)},
+		{"reservedException", "Ljava/lang/IllegalArgumentException;", nullptr, $STATIC, $staticField(SSLContextImpl$CustomizedSSLProtocols, reservedException)},
+		{"customizedClientProtocols", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/security/ssl/ProtocolVersion;>;", $STATIC | $FINAL, $staticField(SSLContextImpl$CustomizedSSLProtocols, customizedClientProtocols)},
+		{"customizedServerProtocols", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/security/ssl/ProtocolVersion;>;", $STATIC | $FINAL, $staticField(SSLContextImpl$CustomizedSSLProtocols, customizedServerProtocols)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SSLContextImpl$CustomizedSSLProtocols, init$, void)},
+		{"populate", "(Ljava/lang/String;Ljava/util/ArrayList;)V", "(Ljava/lang/String;Ljava/util/ArrayList<Lsun/security/ssl/ProtocolVersion;>;)V", $PRIVATE | $STATIC, $staticMethod(SSLContextImpl$CustomizedSSLProtocols, populate, void, $String*, $ArrayList*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLContextImpl$CustomizedSSLProtocols", "sun.security.ssl.SSLContextImpl", "CustomizedSSLProtocols", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.ssl.SSLContextImpl$CustomizedSSLProtocols",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLContextImpl"
+	};
+	$loadClass(SSLContextImpl$CustomizedSSLProtocols, name, initialize, &classInfo$$, SSLContextImpl$CustomizedSSLProtocols::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLContextImpl$CustomizedSSLProtocols);
+	});
 	return class$;
 }
 

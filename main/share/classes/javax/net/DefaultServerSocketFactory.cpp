@@ -1,5 +1,4 @@
 #include <javax/net/DefaultServerSocketFactory.h>
-
 #include <java/net/InetAddress.h>
 #include <java/net/ServerSocket.h>
 #include <javax/net/ServerSocketFactory.h>
@@ -13,28 +12,6 @@ using $ServerSocketFactory = ::javax::net::ServerSocketFactory;
 
 namespace javax {
 	namespace net {
-
-$MethodInfo _DefaultServerSocketFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DefaultServerSocketFactory, init$, void)},
-	{"createServerSocket", "()Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(DefaultServerSocketFactory, createServerSocket, $ServerSocket*), "java.io.IOException"},
-	{"createServerSocket", "(I)Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(DefaultServerSocketFactory, createServerSocket, $ServerSocket*, int32_t), "java.io.IOException"},
-	{"createServerSocket", "(II)Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(DefaultServerSocketFactory, createServerSocket, $ServerSocket*, int32_t, int32_t), "java.io.IOException"},
-	{"createServerSocket", "(IILjava/net/InetAddress;)Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(DefaultServerSocketFactory, createServerSocket, $ServerSocket*, int32_t, int32_t, $InetAddress*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _DefaultServerSocketFactory_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.net.DefaultServerSocketFactory",
-	"javax.net.ServerSocketFactory",
-	nullptr,
-	nullptr,
-	_DefaultServerSocketFactory_MethodInfo_
-};
-
-$Object* allocate$DefaultServerSocketFactory($Class* clazz) {
-	return $of($alloc(DefaultServerSocketFactory));
-}
 
 void DefaultServerSocketFactory::init$() {
 	$ServerSocketFactory::init$();
@@ -60,7 +37,25 @@ DefaultServerSocketFactory::DefaultServerSocketFactory() {
 }
 
 $Class* DefaultServerSocketFactory::load$($String* name, bool initialize) {
-	$loadClass(DefaultServerSocketFactory, name, initialize, &_DefaultServerSocketFactory_ClassInfo_, allocate$DefaultServerSocketFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DefaultServerSocketFactory, init$, void)},
+		{"createServerSocket", "()Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(DefaultServerSocketFactory, createServerSocket, $ServerSocket*), "java.io.IOException"},
+		{"createServerSocket", "(I)Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(DefaultServerSocketFactory, createServerSocket, $ServerSocket*, int32_t), "java.io.IOException"},
+		{"createServerSocket", "(II)Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(DefaultServerSocketFactory, createServerSocket, $ServerSocket*, int32_t, int32_t), "java.io.IOException"},
+		{"createServerSocket", "(IILjava/net/InetAddress;)Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(DefaultServerSocketFactory, createServerSocket, $ServerSocket*, int32_t, int32_t, $InetAddress*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.net.DefaultServerSocketFactory",
+		"javax.net.ServerSocketFactory",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DefaultServerSocketFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultServerSocketFactory);
+	});
 	return class$;
 }
 

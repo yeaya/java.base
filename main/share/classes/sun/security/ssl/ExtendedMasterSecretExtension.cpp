@@ -1,5 +1,4 @@
 #include <sun/security/ssl/ExtendedMasterSecretExtension.h>
-
 #include <sun/security/ssl/ExtendedMasterSecretExtension$CHExtendedMasterSecretAbsence.h>
 #include <sun/security/ssl/ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer.h>
 #include <sun/security/ssl/ExtendedMasterSecretExtension$CHExtendedMasterSecretProducer.h>
@@ -33,53 +32,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _ExtendedMasterSecretExtension_FieldInfo_[] = {
-	{"chNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(ExtendedMasterSecretExtension, chNetworkProducer)},
-	{"chOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(ExtendedMasterSecretExtension, chOnLoadConsumer)},
-	{"chOnLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(ExtendedMasterSecretExtension, chOnLoadAbsence)},
-	{"shNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(ExtendedMasterSecretExtension, shNetworkProducer)},
-	{"shOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(ExtendedMasterSecretExtension, shOnLoadConsumer)},
-	{"shOnLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(ExtendedMasterSecretExtension, shOnLoadAbsence)},
-	{"emsStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(ExtendedMasterSecretExtension, emsStringizer)},
-	{}
-};
-
-$MethodInfo _ExtendedMasterSecretExtension_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ExtendedMasterSecretExtension, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ExtendedMasterSecretExtension_InnerClassesInfo_[] = {
-	{"sun.security.ssl.ExtendedMasterSecretExtension$SHExtendedMasterSecretAbsence", "sun.security.ssl.ExtendedMasterSecretExtension", "SHExtendedMasterSecretAbsence", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ExtendedMasterSecretExtension$SHExtendedMasterSecretConsumer", "sun.security.ssl.ExtendedMasterSecretExtension", "SHExtendedMasterSecretConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer", "sun.security.ssl.ExtendedMasterSecretExtension", "SHExtendedMasterSecretProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ExtendedMasterSecretExtension$CHExtendedMasterSecretAbsence", "sun.security.ssl.ExtendedMasterSecretExtension", "CHExtendedMasterSecretAbsence", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer", "sun.security.ssl.ExtendedMasterSecretExtension", "CHExtendedMasterSecretConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ExtendedMasterSecretExtension$CHExtendedMasterSecretProducer", "sun.security.ssl.ExtendedMasterSecretExtension", "CHExtendedMasterSecretProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer", "sun.security.ssl.ExtendedMasterSecretExtension", "ExtendedMasterSecretStringizer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.ExtendedMasterSecretExtension$ExtendedMasterSecretSpec", "sun.security.ssl.ExtendedMasterSecretExtension", "ExtendedMasterSecretSpec", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ExtendedMasterSecretExtension_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.ExtendedMasterSecretExtension",
-	"java.lang.Object",
-	nullptr,
-	_ExtendedMasterSecretExtension_FieldInfo_,
-	_ExtendedMasterSecretExtension_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExtendedMasterSecretExtension_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.ExtendedMasterSecretExtension$SHExtendedMasterSecretAbsence,sun.security.ssl.ExtendedMasterSecretExtension$SHExtendedMasterSecretConsumer,sun.security.ssl.ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer,sun.security.ssl.ExtendedMasterSecretExtension$CHExtendedMasterSecretAbsence,sun.security.ssl.ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer,sun.security.ssl.ExtendedMasterSecretExtension$CHExtendedMasterSecretProducer,sun.security.ssl.ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer,sun.security.ssl.ExtendedMasterSecretExtension$ExtendedMasterSecretSpec"
-};
-
-$Object* allocate$ExtendedMasterSecretExtension($Class* clazz) {
-	return $of($alloc(ExtendedMasterSecretExtension));
-}
-
 $HandshakeProducer* ExtendedMasterSecretExtension::chNetworkProducer = nullptr;
 $SSLExtension$ExtensionConsumer* ExtendedMasterSecretExtension::chOnLoadConsumer = nullptr;
 $HandshakeAbsence* ExtendedMasterSecretExtension::chOnLoadAbsence = nullptr;
@@ -91,7 +43,7 @@ $SSLStringizer* ExtendedMasterSecretExtension::emsStringizer = nullptr;
 void ExtendedMasterSecretExtension::init$() {
 }
 
-void clinit$ExtendedMasterSecretExtension($Class* class$) {
+void ExtendedMasterSecretExtension::clinit$($Class* clazz) {
 	$assignStatic(ExtendedMasterSecretExtension::chNetworkProducer, $new($ExtendedMasterSecretExtension$CHExtendedMasterSecretProducer));
 	$assignStatic(ExtendedMasterSecretExtension::chOnLoadConsumer, $new($ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer));
 	$assignStatic(ExtendedMasterSecretExtension::chOnLoadAbsence, $new($ExtendedMasterSecretExtension$CHExtendedMasterSecretAbsence));
@@ -105,7 +57,48 @@ ExtendedMasterSecretExtension::ExtendedMasterSecretExtension() {
 }
 
 $Class* ExtendedMasterSecretExtension::load$($String* name, bool initialize) {
-	$loadClass(ExtendedMasterSecretExtension, name, initialize, &_ExtendedMasterSecretExtension_ClassInfo_, clinit$ExtendedMasterSecretExtension, allocate$ExtendedMasterSecretExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"chNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(ExtendedMasterSecretExtension, chNetworkProducer)},
+		{"chOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(ExtendedMasterSecretExtension, chOnLoadConsumer)},
+		{"chOnLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(ExtendedMasterSecretExtension, chOnLoadAbsence)},
+		{"shNetworkProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(ExtendedMasterSecretExtension, shNetworkProducer)},
+		{"shOnLoadConsumer", "Lsun/security/ssl/SSLExtension$ExtensionConsumer;", nullptr, $STATIC | $FINAL, $staticField(ExtendedMasterSecretExtension, shOnLoadConsumer)},
+		{"shOnLoadAbsence", "Lsun/security/ssl/HandshakeAbsence;", nullptr, $STATIC | $FINAL, $staticField(ExtendedMasterSecretExtension, shOnLoadAbsence)},
+		{"emsStringizer", "Lsun/security/ssl/SSLStringizer;", nullptr, $STATIC | $FINAL, $staticField(ExtendedMasterSecretExtension, emsStringizer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ExtendedMasterSecretExtension, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.ExtendedMasterSecretExtension$SHExtendedMasterSecretAbsence", "sun.security.ssl.ExtendedMasterSecretExtension", "SHExtendedMasterSecretAbsence", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ExtendedMasterSecretExtension$SHExtendedMasterSecretConsumer", "sun.security.ssl.ExtendedMasterSecretExtension", "SHExtendedMasterSecretConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer", "sun.security.ssl.ExtendedMasterSecretExtension", "SHExtendedMasterSecretProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ExtendedMasterSecretExtension$CHExtendedMasterSecretAbsence", "sun.security.ssl.ExtendedMasterSecretExtension", "CHExtendedMasterSecretAbsence", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer", "sun.security.ssl.ExtendedMasterSecretExtension", "CHExtendedMasterSecretConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ExtendedMasterSecretExtension$CHExtendedMasterSecretProducer", "sun.security.ssl.ExtendedMasterSecretExtension", "CHExtendedMasterSecretProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer", "sun.security.ssl.ExtendedMasterSecretExtension", "ExtendedMasterSecretStringizer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.ExtendedMasterSecretExtension$ExtendedMasterSecretSpec", "sun.security.ssl.ExtendedMasterSecretExtension", "ExtendedMasterSecretSpec", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.ExtendedMasterSecretExtension",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.ExtendedMasterSecretExtension$SHExtendedMasterSecretAbsence,sun.security.ssl.ExtendedMasterSecretExtension$SHExtendedMasterSecretConsumer,sun.security.ssl.ExtendedMasterSecretExtension$SHExtendedMasterSecretProducer,sun.security.ssl.ExtendedMasterSecretExtension$CHExtendedMasterSecretAbsence,sun.security.ssl.ExtendedMasterSecretExtension$CHExtendedMasterSecretConsumer,sun.security.ssl.ExtendedMasterSecretExtension$CHExtendedMasterSecretProducer,sun.security.ssl.ExtendedMasterSecretExtension$ExtendedMasterSecretStringizer,sun.security.ssl.ExtendedMasterSecretExtension$ExtendedMasterSecretSpec"
+	};
+	$loadClass(ExtendedMasterSecretExtension, name, initialize, &classInfo$$, ExtendedMasterSecretExtension::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ExtendedMasterSecretExtension);
+	});
 	return class$;
 }
 

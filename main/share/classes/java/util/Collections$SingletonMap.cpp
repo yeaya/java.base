@@ -1,5 +1,4 @@
 #include <java/util/Collections$SingletonMap.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/AbstractMap$SimpleImmutableEntry.h>
 #include <java/util/AbstractMap.h>
@@ -30,70 +29,6 @@ using $Function = ::java::util::function::Function;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Collections$SingletonMap_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$SingletonMap, serialVersionUID)},
-	{"k", "Ljava/lang/Object;", "TK;", $PRIVATE | $FINAL, $field(Collections$SingletonMap, k)},
-	{"v", "Ljava/lang/Object;", "TV;", $PRIVATE | $FINAL, $field(Collections$SingletonMap, v)},
-	{"keySet", "Ljava/util/Set;", "Ljava/util/Set<TK;>;", $PRIVATE | $TRANSIENT, $field(Collections$SingletonMap, keySet$)},
-	{"entrySet", "Ljava/util/Set;", "Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PRIVATE | $TRANSIENT, $field(Collections$SingletonMap, entrySet$)},
-	{"values", "Ljava/util/Collection;", "Ljava/util/Collection<TV;>;", $PRIVATE | $TRANSIENT, $field(Collections$SingletonMap, values$)},
-	{}
-};
-
-$MethodInfo _Collections$SingletonMap_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TK;TV;)V", 0, $method(Collections$SingletonMap, init$, void, Object$*, Object$*)},
-	{"compute", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)TV;", $PUBLIC, $virtualMethod(Collections$SingletonMap, compute, $Object*, Object$*, $BiFunction*)},
-	{"computeIfAbsent", "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", "(TK;Ljava/util/function/Function<-TK;+TV;>;)TV;", $PUBLIC, $virtualMethod(Collections$SingletonMap, computeIfAbsent, $Object*, Object$*, $Function*)},
-	{"computeIfPresent", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)TV;", $PUBLIC, $virtualMethod(Collections$SingletonMap, computeIfPresent, $Object*, Object$*, $BiFunction*)},
-	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$SingletonMap, containsKey, bool, Object$*)},
-	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$SingletonMap, containsValue, bool, Object$*)},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(Collections$SingletonMap, entrySet, $Set*)},
-	{"forEach", "(Ljava/util/function/BiConsumer;)V", "(Ljava/util/function/BiConsumer<-TK;-TV;>;)V", $PUBLIC, $virtualMethod(Collections$SingletonMap, forEach, void, $BiConsumer*)},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(Collections$SingletonMap, get, $Object*, Object$*)},
-	{"getOrDefault", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;TV;)TV;", $PUBLIC, $virtualMethod(Collections$SingletonMap, getOrDefault, $Object*, Object$*, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$SingletonMap, hashCode, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$SingletonMap, isEmpty, bool)},
-	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<TK;>;", $PUBLIC, $virtualMethod(Collections$SingletonMap, keySet, $Set*)},
-	{"merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;TV;Ljava/util/function/BiFunction<-TV;-TV;+TV;>;)TV;", $PUBLIC, $virtualMethod(Collections$SingletonMap, merge, $Object*, Object$*, Object$*, $BiFunction*)},
-	{"putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(Collections$SingletonMap, putIfAbsent, $Object*, Object$*, Object$*)},
-	{"remove", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$SingletonMap, remove, bool, Object$*, Object$*)},
-	{"replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", "(TK;TV;TV;)Z", $PUBLIC, $virtualMethod(Collections$SingletonMap, replace, bool, Object$*, Object$*, Object$*)},
-	{"replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(Collections$SingletonMap, replace, $Object*, Object$*, Object$*)},
-	{"replaceAll", "(Ljava/util/function/BiFunction;)V", "(Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)V", $PUBLIC, $virtualMethod(Collections$SingletonMap, replaceAll, void, $BiFunction*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$SingletonMap, size, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<TV;>;", $PUBLIC, $virtualMethod(Collections$SingletonMap, values, $Collection*)},
-	{}
-};
-
-$InnerClassInfo _Collections$SingletonMap_InnerClassesInfo_[] = {
-	{"java.util.Collections$SingletonMap", "java.util.Collections", "SingletonMap", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Collections$SingletonMap_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$SingletonMap",
-	"java.util.AbstractMap",
-	"java.io.Serializable",
-	_Collections$SingletonMap_FieldInfo_,
-	_Collections$SingletonMap_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/AbstractMap<TK;TV;>;Ljava/io/Serializable;",
-	nullptr,
-	_Collections$SingletonMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$SingletonMap($Class* clazz) {
-	return $of($alloc(Collections$SingletonMap));
-}
 
 bool Collections$SingletonMap::equals(Object$* o) {
 	 return this->$AbstractMap::equals(o);
@@ -134,7 +69,7 @@ bool Collections$SingletonMap::containsValue(Object$* value) {
 }
 
 $Object* Collections$SingletonMap::get(Object$* key) {
-	return $of(($Collections::eq(key, this->k) ? this->v : ($Object*)nullptr));
+	return ($Collections::eq(key, this->k) ? this->v : ($Object*)nullptr);
 }
 
 $Set* Collections$SingletonMap::keySet() {
@@ -159,7 +94,7 @@ $Collection* Collections$SingletonMap::values() {
 }
 
 $Object* Collections$SingletonMap::getOrDefault(Object$* key, Object$* defaultValue) {
-	return $of($Collections::eq(key, this->k) ? this->v : $of(defaultValue));
+	return $Collections::eq(key, this->k) ? this->v : $of(defaultValue);
 }
 
 void Collections$SingletonMap::forEach($BiConsumer* action) {
@@ -219,7 +154,65 @@ Collections$SingletonMap::Collections$SingletonMap() {
 }
 
 $Class* Collections$SingletonMap::load$($String* name, bool initialize) {
-	$loadClass(Collections$SingletonMap, name, initialize, &_Collections$SingletonMap_ClassInfo_, allocate$Collections$SingletonMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$SingletonMap, serialVersionUID)},
+		{"k", "Ljava/lang/Object;", "TK;", $PRIVATE | $FINAL, $field(Collections$SingletonMap, k)},
+		{"v", "Ljava/lang/Object;", "TV;", $PRIVATE | $FINAL, $field(Collections$SingletonMap, v)},
+		{"keySet", "Ljava/util/Set;", "Ljava/util/Set<TK;>;", $PRIVATE | $TRANSIENT, $field(Collections$SingletonMap, keySet$)},
+		{"entrySet", "Ljava/util/Set;", "Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PRIVATE | $TRANSIENT, $field(Collections$SingletonMap, entrySet$)},
+		{"values", "Ljava/util/Collection;", "Ljava/util/Collection<TV;>;", $PRIVATE | $TRANSIENT, $field(Collections$SingletonMap, values$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TK;TV;)V", 0, $method(Collections$SingletonMap, init$, void, Object$*, Object$*)},
+		{"compute", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)TV;", $PUBLIC, $virtualMethod(Collections$SingletonMap, compute, $Object*, Object$*, $BiFunction*)},
+		{"computeIfAbsent", "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", "(TK;Ljava/util/function/Function<-TK;+TV;>;)TV;", $PUBLIC, $virtualMethod(Collections$SingletonMap, computeIfAbsent, $Object*, Object$*, $Function*)},
+		{"computeIfPresent", "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)TV;", $PUBLIC, $virtualMethod(Collections$SingletonMap, computeIfPresent, $Object*, Object$*, $BiFunction*)},
+		{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$SingletonMap, containsKey, bool, Object$*)},
+		{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$SingletonMap, containsValue, bool, Object$*)},
+		{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(Collections$SingletonMap, entrySet, $Set*)},
+		{"forEach", "(Ljava/util/function/BiConsumer;)V", "(Ljava/util/function/BiConsumer<-TK;-TV;>;)V", $PUBLIC, $virtualMethod(Collections$SingletonMap, forEach, void, $BiConsumer*)},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(Collections$SingletonMap, get, $Object*, Object$*)},
+		{"getOrDefault", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;TV;)TV;", $PUBLIC, $virtualMethod(Collections$SingletonMap, getOrDefault, $Object*, Object$*, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$SingletonMap, hashCode, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Collections$SingletonMap, isEmpty, bool)},
+		{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<TK;>;", $PUBLIC, $virtualMethod(Collections$SingletonMap, keySet, $Set*)},
+		{"merge", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", "(TK;TV;Ljava/util/function/BiFunction<-TV;-TV;+TV;>;)TV;", $PUBLIC, $virtualMethod(Collections$SingletonMap, merge, $Object*, Object$*, Object$*, $BiFunction*)},
+		{"putIfAbsent", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(Collections$SingletonMap, putIfAbsent, $Object*, Object$*, Object$*)},
+		{"remove", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$SingletonMap, remove, bool, Object$*, Object$*)},
+		{"replace", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", "(TK;TV;TV;)Z", $PUBLIC, $virtualMethod(Collections$SingletonMap, replace, bool, Object$*, Object$*, Object$*)},
+		{"replace", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "(TK;TV;)TV;", $PUBLIC, $virtualMethod(Collections$SingletonMap, replace, $Object*, Object$*, Object$*)},
+		{"replaceAll", "(Ljava/util/function/BiFunction;)V", "(Ljava/util/function/BiFunction<-TK;-TV;+TV;>;)V", $PUBLIC, $virtualMethod(Collections$SingletonMap, replaceAll, void, $BiFunction*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$SingletonMap, size, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<TV;>;", $PUBLIC, $virtualMethod(Collections$SingletonMap, values, $Collection*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$SingletonMap", "java.util.Collections", "SingletonMap", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$SingletonMap",
+		"java.util.AbstractMap",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/AbstractMap<TK;TV;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$SingletonMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Collections$SingletonMap));
+	});
 	return class$;
 }
 

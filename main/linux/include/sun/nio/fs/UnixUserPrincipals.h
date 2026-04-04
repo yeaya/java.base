@@ -39,6 +39,7 @@ class $import UnixUserPrincipals : public ::java::lang::Object {
 	$class(UnixUserPrincipals, 0, ::java::lang::Object)
 public:
 	UnixUserPrincipals();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::nio::fs::UnixUserPrincipals$User* createSpecial($String* name);
 	static ::sun::nio::fs::UnixUserPrincipals$Group* fromGid(int32_t gid);

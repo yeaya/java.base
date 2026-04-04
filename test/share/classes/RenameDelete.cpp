@@ -1,40 +1,19 @@
 #include <RenameDelete.h>
-
 #include <java/io/File.h>
 #include <java/lang/StringBuffer.h>
 #include <jcpp.h>
 
 using $File = ::java::io::File;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $StringBuffer = ::java::lang::StringBuffer;
 
-$MethodInfo _RenameDelete_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RenameDelete, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RenameDelete, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _RenameDelete_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"RenameDelete",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_RenameDelete_MethodInfo_
-};
-
-$Object* allocate$RenameDelete($Class* clazz) {
-	return $of($alloc(RenameDelete));
-}
-
 void RenameDelete::init$() {
 }
 
 void RenameDelete::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool success = false;
 	$init($File);
 	if ($File::separatorChar != u'\\') {
@@ -54,15 +33,19 @@ void RenameDelete::main($StringArray* args) {
 		return;
 	}
 	$nc($System::err)->println($$str({"Create:"_s, $$str(f1->mkdir())}));
-	$var($String, var$1, $$str({"Exist as directory:"_s, $$str(f1->exists()), " "_s}));
-	$nc($System::err)->println($$concat(var$1, $$str(f1->isDirectory())));
+	$var($StringBuilder, var$1, $new($StringBuilder));
+	var$1->append("Exist as directory:"_s);
+	var$1->append(f1->exists());
+	var$1->append(" "_s);
+	var$1->append(f1->isDirectory());
+	$System::err->println($$str(var$1));
 	success = f1->renameTo(f2);
-	$nc($System::err)->println($$str({"Rename:"_s, $$str(success)}));
+	$System::err->println($$str({"Rename:"_s, $$str(success)}));
 	if (!success) {
 		$throwNew($RuntimeException, "File method rename did not function"_s);
 	}
 	success = f2->delete$();
-	$nc($System::err)->println($$str({"Delete:"_s, $$str(success)}));
+	$System::err->println($$str({"Delete:"_s, $$str(success)}));
 	if (!success) {
 		$throwNew($RuntimeException, "File method delete did not function"_s);
 	}
@@ -72,7 +55,22 @@ RenameDelete::RenameDelete() {
 }
 
 $Class* RenameDelete::load$($String* name, bool initialize) {
-	$loadClass(RenameDelete, name, initialize, &_RenameDelete_ClassInfo_, allocate$RenameDelete);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RenameDelete, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RenameDelete, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"RenameDelete",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RenameDelete, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RenameDelete);
+	});
 	return class$;
 }
 

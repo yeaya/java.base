@@ -1,5 +1,4 @@
 #include <sun/security/pkcs/SignerInfo.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/math/BigInteger.h>
@@ -37,7 +36,6 @@
 #include <sun/security/pkcs/ParsingException.h>
 #include <sun/security/provider/SHAKE256.h>
 #include <sun/security/timestamp/TimestampToken.h>
-#include <sun/security/util/ConstraintsParameters.h>
 #include <sun/security/util/Debug.h>
 #include <sun/security/util/DerInputStream.h>
 #include <sun/security/util/DerOutputStream.h>
@@ -94,11 +92,9 @@ using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Set = ::java::util::Set;
-using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $ContentInfo = ::sun::security::pkcs::ContentInfo;
 using $PKCS7 = ::sun::security::pkcs::PKCS7;
 using $PKCS9Attribute = ::sun::security::pkcs::PKCS9Attribute;
@@ -106,7 +102,6 @@ using $PKCS9Attributes = ::sun::security::pkcs::PKCS9Attributes;
 using $ParsingException = ::sun::security::pkcs::ParsingException;
 using $SHAKE256 = ::sun::security::provider::SHAKE256;
 using $TimestampToken = ::sun::security::timestamp::TimestampToken;
-using $ConstraintsParameters = ::sun::security::util::ConstraintsParameters;
 using $Debug = ::sun::security::util::Debug;
 using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
@@ -125,65 +120,6 @@ using $X500Name = ::sun::security::x509::X500Name;
 namespace sun {
 	namespace security {
 		namespace pkcs {
-
-$FieldInfo _SignerInfo_FieldInfo_[] = {
-	{"JAR_DISABLED_CHECK", "Lsun/security/util/DisabledAlgorithmConstraints;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SignerInfo, JAR_DISABLED_CHECK)},
-	{"version", "Ljava/math/BigInteger;", nullptr, 0, $field(SignerInfo, version)},
-	{"issuerName", "Lsun/security/x509/X500Name;", nullptr, 0, $field(SignerInfo, issuerName)},
-	{"certificateSerialNumber", "Ljava/math/BigInteger;", nullptr, 0, $field(SignerInfo, certificateSerialNumber)},
-	{"digestAlgorithmId", "Lsun/security/x509/AlgorithmId;", nullptr, 0, $field(SignerInfo, digestAlgorithmId)},
-	{"digestEncryptionAlgorithmId", "Lsun/security/x509/AlgorithmId;", nullptr, 0, $field(SignerInfo, digestEncryptionAlgorithmId)},
-	{"encryptedDigest", "[B", nullptr, 0, $field(SignerInfo, encryptedDigest)},
-	{"timestamp", "Ljava/security/Timestamp;", nullptr, 0, $field(SignerInfo, timestamp)},
-	{"hasTimestamp", "Z", nullptr, $PRIVATE, $field(SignerInfo, hasTimestamp)},
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SignerInfo, debug)},
-	{"authenticatedAttributes", "Lsun/security/pkcs/PKCS9Attributes;", nullptr, 0, $field(SignerInfo, authenticatedAttributes)},
-	{"unauthenticatedAttributes", "Lsun/security/pkcs/PKCS9Attributes;", nullptr, 0, $field(SignerInfo, unauthenticatedAttributes)},
-	{"algorithms", "Ljava/util/Map;", "Ljava/util/Map<Lsun/security/x509/AlgorithmId;Ljava/lang/String;>;", $PRIVATE, $field(SignerInfo, algorithms)},
-	{}
-};
-
-$MethodInfo _SignerInfo_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/x509/X500Name;Ljava/math/BigInteger;Lsun/security/x509/AlgorithmId;Lsun/security/x509/AlgorithmId;[B)V", nullptr, $PUBLIC, $method(SignerInfo, init$, void, $X500Name*, $BigInteger*, $AlgorithmId*, $AlgorithmId*, $bytes*)},
-	{"<init>", "(Lsun/security/x509/X500Name;Ljava/math/BigInteger;Lsun/security/x509/AlgorithmId;Lsun/security/pkcs/PKCS9Attributes;Lsun/security/x509/AlgorithmId;[BLsun/security/pkcs/PKCS9Attributes;)V", nullptr, $PUBLIC, $method(SignerInfo, init$, void, $X500Name*, $BigInteger*, $AlgorithmId*, $PKCS9Attributes*, $AlgorithmId*, $bytes*, $PKCS9Attributes*)},
-	{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(SignerInfo, init$, void, $DerInputStream*), "java.io.IOException,sun.security.pkcs.ParsingException"},
-	{"<init>", "(Lsun/security/util/DerInputStream;Z)V", nullptr, $PUBLIC, $method(SignerInfo, init$, void, $DerInputStream*, bool), "java.io.IOException,sun.security.pkcs.ParsingException"},
-	{"checkCMSAlgorithmProtection", "()V", nullptr, $PRIVATE, $method(SignerInfo, checkCMSAlgorithmProtection, void), "java.io.IOException"},
-	{"derEncode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(SignerInfo, derEncode, void, $OutputStream*), "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(SignerInfo, encode, void, $DerOutputStream*), "java.io.IOException"},
-	{"getAuthenticatedAttributes", "()Lsun/security/pkcs/PKCS9Attributes;", nullptr, $PUBLIC, $virtualMethod(SignerInfo, getAuthenticatedAttributes, $PKCS9Attributes*)},
-	{"getCertificate", "(Lsun/security/pkcs/PKCS7;)Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(SignerInfo, getCertificate, $X509Certificate*, $PKCS7*), "java.io.IOException"},
-	{"getCertificateChain", "(Lsun/security/pkcs/PKCS7;)Ljava/util/ArrayList;", "(Lsun/security/pkcs/PKCS7;)Ljava/util/ArrayList<Ljava/security/cert/X509Certificate;>;", $PUBLIC, $virtualMethod(SignerInfo, getCertificateChain, $ArrayList*, $PKCS7*), "java.io.IOException"},
-	{"getCertificateSerialNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(SignerInfo, getCertificateSerialNumber, $BigInteger*)},
-	{"getDigestAlgorithmId", "()Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC, $virtualMethod(SignerInfo, getDigestAlgorithmId, $AlgorithmId*)},
-	{"getDigestEncryptionAlgorithmId", "()Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC, $virtualMethod(SignerInfo, getDigestEncryptionAlgorithmId, $AlgorithmId*)},
-	{"getEncryptedDigest", "()[B", nullptr, $PUBLIC, $virtualMethod(SignerInfo, getEncryptedDigest, $bytes*)},
-	{"getIssuerName", "()Lsun/security/x509/X500Name;", nullptr, $PUBLIC, $virtualMethod(SignerInfo, getIssuerName, $X500Name*)},
-	{"getTimestamp", "()Ljava/security/Timestamp;", nullptr, $PUBLIC, $virtualMethod(SignerInfo, getTimestamp, $Timestamp*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.SignatureException,java.security.cert.CertificateException"},
-	{"getTsToken", "()Lsun/security/pkcs/PKCS7;", nullptr, $PUBLIC, $virtualMethod(SignerInfo, getTsToken, $PKCS7*), "java.io.IOException"},
-	{"getUnauthenticatedAttributes", "()Lsun/security/pkcs/PKCS9Attributes;", nullptr, $PUBLIC, $virtualMethod(SignerInfo, getUnauthenticatedAttributes, $PKCS9Attributes*)},
-	{"getVersion", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(SignerInfo, getVersion, $BigInteger*)},
-	{"makeSigAlg", "(Lsun/security/x509/AlgorithmId;Lsun/security/x509/AlgorithmId;Z)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignerInfo, makeSigAlg, $String*, $AlgorithmId*, $AlgorithmId*, bool), "java.security.NoSuchAlgorithmException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignerInfo, toString, $String*)},
-	{"verify", "(Lsun/security/pkcs/PKCS7;[B)Lsun/security/pkcs/SignerInfo;", nullptr, 0, $virtualMethod(SignerInfo, verify, SignerInfo*, $PKCS7*, $bytes*), "java.security.NoSuchAlgorithmException,java.security.SignatureException"},
-	{"verify", "(Lsun/security/pkcs/PKCS7;)Lsun/security/pkcs/SignerInfo;", nullptr, 0, $virtualMethod(SignerInfo, verify, SignerInfo*, $PKCS7*), "java.security.NoSuchAlgorithmException,java.security.SignatureException"},
-	{"verifyAlgorithms", "([Lsun/security/pkcs/SignerInfo;Lsun/security/util/JarConstraintsParameters;Ljava/lang/String;)Ljava/util/Set;", "([Lsun/security/pkcs/SignerInfo;Lsun/security/util/JarConstraintsParameters;Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(SignerInfo, verifyAlgorithms, $Set*, $SignerInfoArray*, $JarConstraintsParameters*, $String*), "java.security.SignatureException"},
-	{"verifyTimestamp", "(Lsun/security/timestamp/TimestampToken;)V", nullptr, $PRIVATE, $method(SignerInfo, verifyTimestamp, void, $TimestampToken*), "java.security.NoSuchAlgorithmException,java.security.SignatureException"},
-	{}
-};
-
-$ClassInfo _SignerInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.pkcs.SignerInfo",
-	"java.lang.Object",
-	"sun.security.util.DerEncoder",
-	_SignerInfo_FieldInfo_,
-	_SignerInfo_MethodInfo_
-};
-
-$Object* allocate$SignerInfo($Class* clazz) {
-	return $of($alloc(SignerInfo));
-}
 
 $DisabledAlgorithmConstraints* SignerInfo::JAR_DISABLED_CHECK = nullptr;
 $Debug* SignerInfo::debug = nullptr;
@@ -211,7 +147,7 @@ void SignerInfo::init$($DerInputStream* derin) {
 }
 
 void SignerInfo::init$($DerInputStream* derin, bool oldStyle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->hasTimestamp = true;
 	$set(this, algorithms, $new($HashMap));
 	$set(this, version, $nc(derin)->getBigInteger());
@@ -219,7 +155,7 @@ void SignerInfo::init$($DerInputStream* derin, bool oldStyle) {
 	if ($nc(issuerAndSerialNumber)->length != 2) {
 		$throwNew($ParsingException, "Invalid length for IssuerAndSerialNumber"_s);
 	}
-	$var($bytes, issuerBytes, $nc($nc(issuerAndSerialNumber)->get(0))->toByteArray());
+	$var($bytes, issuerBytes, $nc(issuerAndSerialNumber->get(0))->toByteArray());
 	$set(this, issuerName, $new($X500Name, $$new($DerValue, $DerValue::tag_Sequence, issuerBytes)));
 	$set(this, certificateSerialNumber, $nc(issuerAndSerialNumber->get(1))->getBigInteger());
 	$var($DerValue, tmp, derin->getDerValue());
@@ -235,8 +171,8 @@ void SignerInfo::init$($DerInputStream* derin, bool oldStyle) {
 	if (oldStyle) {
 		derin->getSet(0);
 	} else {
-		bool var$1 = derin->available() != 0;
-		if (var$1 && (int8_t)(derin->peekByte()) == (int8_t)161) {
+		bool var$0 = derin->available() != 0;
+		if (var$0 && (int8_t)(derin->peekByte()) == (int8_t)161) {
 			$set(this, unauthenticatedAttributes, $new($PKCS9Attributes, derin, true));
 		}
 	}
@@ -247,7 +183,7 @@ void SignerInfo::init$($DerInputStream* derin, bool oldStyle) {
 }
 
 void SignerInfo::checkCMSAlgorithmProtection() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->authenticatedAttributes == nullptr) {
 		return;
 	}
@@ -256,17 +192,17 @@ void SignerInfo::checkCMSAlgorithmProtection() {
 	if (ap == nullptr) {
 		return;
 	}
-	$var($DerValue, dv, $new($DerValue, $cast($bytes, $($nc(ap)->getValue()))));
+	$var($DerValue, dv, $new($DerValue, $$cast($bytes, $nc(ap)->getValue())));
 	$var($DerInputStream, data, dv->data());
 	$var($AlgorithmId, d, $AlgorithmId::parse($($nc(data)->getDerValue())));
-	$var($DerValue, ds, $nc(data)->getDerValue());
+	$var($DerValue, ds, data->getDerValue());
 	if (data->available() > 0) {
 		$throwNew($IOException, "Unknown field in CMSAlgorithmProtection"_s);
 	}
 	if (!$nc(ds)->isContextSpecific((int8_t)1)) {
 		$throwNew($IOException, "No signature algorithm in CMSAlgorithmProtection"_s);
 	}
-	$var($AlgorithmId, s, $AlgorithmId::parse($($nc(ds)->withTag($DerValue::tag_Sequence))));
+	$var($AlgorithmId, s, $AlgorithmId::parse($(ds->withTag($DerValue::tag_Sequence))));
 	bool var$0 = !$nc(s)->equals(this->digestEncryptionAlgorithmId);
 	if (var$0 || !$nc(d)->equals(this->digestAlgorithmId)) {
 		$throwNew($IOException, "CMSAlgorithmProtection check failed"_s);
@@ -278,7 +214,7 @@ void SignerInfo::encode($DerOutputStream* out) {
 }
 
 void SignerInfo::derEncode($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, seq, $new($DerOutputStream));
 	seq->putInteger(this->version);
 	$var($DerOutputStream, issuerAndSerialNumber, $new($DerOutputStream));
@@ -287,12 +223,12 @@ void SignerInfo::derEncode($OutputStream* out) {
 	seq->write($DerValue::tag_Sequence, issuerAndSerialNumber);
 	$nc(this->digestAlgorithmId)->encode(seq);
 	if (this->authenticatedAttributes != nullptr) {
-		$nc(this->authenticatedAttributes)->encode((int8_t)160, seq);
+		this->authenticatedAttributes->encode((int8_t)160, seq);
 	}
 	$nc(this->digestEncryptionAlgorithmId)->encode(seq);
 	seq->putOctetString(this->encryptedDigest);
 	if (this->unauthenticatedAttributes != nullptr) {
-		$nc(this->unauthenticatedAttributes)->encode((int8_t)161, seq);
+		this->unauthenticatedAttributes->encode((int8_t)161, seq);
 	}
 	$var($DerOutputStream, tmp, $new($DerOutputStream));
 	tmp->write($DerValue::tag_Sequence, seq);
@@ -304,7 +240,7 @@ $X509Certificate* SignerInfo::getCertificate($PKCS7* block) {
 }
 
 $ArrayList* SignerInfo::getCertificateChain($PKCS7* block) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($X509Certificate, userCert, nullptr);
 	$assign(userCert, $nc(block)->getCertificate(this->certificateSerialNumber, this->issuerName));
 	if (userCert == nullptr) {
@@ -313,7 +249,7 @@ $ArrayList* SignerInfo::getCertificateChain($PKCS7* block) {
 	$var($ArrayList, certList, $new($ArrayList));
 	certList->add(userCert);
 	$var($X509CertificateArray, pkcsCerts, block->getCertificates());
-	if (pkcsCerts == nullptr || $nc($($nc(userCert)->getSubjectX500Principal()))->equals($(userCert->getIssuerX500Principal()))) {
+	if (pkcsCerts == nullptr || $$nc($nc(userCert)->getSubjectX500Principal())->equals($($nc(userCert)->getIssuerX500Principal()))) {
 		return certList;
 	}
 	$var($Principal, issuer, $nc(userCert)->getIssuerX500Principal());
@@ -324,7 +260,7 @@ $ArrayList* SignerInfo::getCertificateChain($PKCS7* block) {
 		while (i < $nc(pkcsCerts)->length) {
 			if ($nc(issuer)->equals($($nc(pkcsCerts->get(i))->getSubjectX500Principal()))) {
 				certList->add(pkcsCerts->get(i));
-				if ($nc($($nc(pkcsCerts->get(i))->getSubjectX500Principal()))->equals($($nc(pkcsCerts->get(i))->getIssuerX500Principal()))) {
+				if ($$nc($nc(pkcsCerts->get(i))->getSubjectX500Principal())->equals($($nc(pkcsCerts->get(i))->getIssuerX500Principal()))) {
 					start = pkcsCerts->length;
 				} else {
 					$assign(issuer, $nc(pkcsCerts->get(i))->getIssuerX500Principal());
@@ -347,7 +283,7 @@ $ArrayList* SignerInfo::getCertificateChain($PKCS7* block) {
 }
 
 SignerInfo* SignerInfo::verify($PKCS7* block, $bytes* data$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, data, data$renamed);
 	try {
 		$var($Timestamp, timestamp, nullptr);
@@ -355,7 +291,7 @@ SignerInfo* SignerInfo::verify($PKCS7* block, $bytes* data$renamed) {
 			$assign(timestamp, getTimestamp());
 		} catch ($Exception& e) {
 			if (SignerInfo::debug != nullptr) {
-				$nc(SignerInfo::debug)->println($$str({"Unexpected exception while getting timestamp: "_s, e}));
+				SignerInfo::debug->println($$str({"Unexpected exception while getting timestamp: "_s, e}));
 			}
 		}
 		$var($ContentInfo, content, $nc(block)->getContentInfo());
@@ -369,8 +305,8 @@ SignerInfo* SignerInfo::verify($PKCS7* block, $bytes* data$renamed) {
 			$assign(dataSigned, data);
 		} else {
 			$init($PKCS9Attribute);
-			$var($ObjectIdentifier, contentType, $cast($ObjectIdentifier, $nc(this->authenticatedAttributes)->getAttributeValue($PKCS9Attribute::CONTENT_TYPE_OID)));
-			if (contentType == nullptr || !$nc(contentType)->equals($nc(content)->contentType)) {
+			$var($ObjectIdentifier, contentType, $cast($ObjectIdentifier, this->authenticatedAttributes->getAttributeValue($PKCS9Attribute::CONTENT_TYPE_OID)));
+			if (contentType == nullptr || !contentType->equals($nc(content)->contentType)) {
 				return nullptr;
 			}
 			$var($bytes, messageDigest, $cast($bytes, $nc(this->authenticatedAttributes)->getAttributeValue($PKCS9Attribute::MESSAGE_DIGEST_OID)));
@@ -379,7 +315,7 @@ SignerInfo* SignerInfo::verify($PKCS7* block, $bytes* data$renamed) {
 			}
 			$var($bytes, computedMessageDigest, nullptr);
 			bool var$0 = $nc(digestAlgName)->equals("SHAKE256"_s);
-			if (var$0 || $nc(digestAlgName)->equals("SHAKE256-LEN"_s)) {
+			if (var$0 || digestAlgName->equals("SHAKE256-LEN"_s)) {
 				if (digestAlgName->equals("SHAKE256-LEN"_s)) {
 					int32_t v = $$new($DerValue, $($nc(this->digestAlgorithmId)->getEncodedParams()))->getInteger();
 					if (v != 512) {
@@ -422,8 +358,8 @@ SignerInfo* SignerInfo::verify($PKCS7* block, $bytes* data$renamed) {
 				$throwNew($SignatureException, "Failed to parse keyUsage extension"_s);
 			}
 			$init($KeyUsageExtension);
-			bool digSigAllowed = $nc($($cast($Boolean, $nc(keyUsage)->get($KeyUsageExtension::DIGITAL_SIGNATURE))))->booleanValue();
-			bool nonRepuAllowed = $nc($($cast($Boolean, keyUsage->get($KeyUsageExtension::NON_REPUDIATION))))->booleanValue();
+			bool digSigAllowed = $$sure($Boolean, $nc(keyUsage)->get($KeyUsageExtension::DIGITAL_SIGNATURE))->booleanValue();
+			bool nonRepuAllowed = $$sure($Boolean, keyUsage->get($KeyUsageExtension::NON_REPUDIATION))->booleanValue();
 			if (!digSigAllowed && !nonRepuAllowed) {
 				$throwNew($SignatureException, "Key usage restricted: cannot be used for digital signatures"_s);
 			}
@@ -451,85 +387,71 @@ SignerInfo* SignerInfo::verify($PKCS7* block, $bytes* data$renamed) {
 
 $String* SignerInfo::makeSigAlg($AlgorithmId* digAlgId, $AlgorithmId* encAlgId, bool directSign) {
 	$init(SignerInfo);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, encAlg, $nc(encAlgId)->getName());
 	{
 		$var($String, s20057$, encAlg);
 		int32_t tmp20057$ = -1;
 		switch ($nc(s20057$)->hashCode()) {
-		case 0x69D3B2A4:
-			{
-				if (s20057$->equals("RSASSA-PSS"_s)) {
-					tmp20057$ = 0;
-				}
-				break;
+		case 0x69d3b2a4:
+			if (s20057$->equals("RSASSA-PSS"_s)) {
+				tmp20057$ = 0;
 			}
-		case (int32_t)0xEF8C129B:
-			{
-				if (s20057$->equals("Ed25519"_s)) {
-					tmp20057$ = 1;
-				}
-				break;
+			break;
+		case (int32_t)0xef8c129b:
+			if (s20057$->equals("Ed25519"_s)) {
+				tmp20057$ = 1;
 			}
-		case 0x03FA9499:
-			{
-				if (s20057$->equals("Ed448"_s)) {
-					tmp20057$ = 2;
-				}
-				break;
+			break;
+		case 0x03fa9499:
+			if (s20057$->equals("Ed448"_s)) {
+				tmp20057$ = 2;
 			}
+			break;
 		}
 		{
-			$var($PSSParameterSpec, spec, nullptr)
-			$var($String, digAlg, nullptr)
-			$var($String, keyAlg, nullptr)
+			$var($PSSParameterSpec, spec, nullptr);
+			$var($String, digAlg, nullptr);
+			$var($String, keyAlg, nullptr);
 			switch (tmp20057$) {
 			case 0:
-				{
-					$assign(spec, $cast($PSSParameterSpec, $SignatureUtil::getParamSpec(encAlg, $(encAlgId->getParameters()))));
-					if (!$nc($($AlgorithmId::get($($nc(spec)->getDigestAlgorithm()))))->equals(digAlgId)) {
-						$throwNew($NoSuchAlgorithmException, "Incompatible digest algorithm"_s);
-					}
-					return encAlg;
+				$assign(spec, $cast($PSSParameterSpec, $SignatureUtil::getParamSpec(encAlg, $(encAlgId->getParameters()))));
+				if (!$$nc($AlgorithmId::get($($nc(spec)->getDigestAlgorithm())))->equals(digAlgId)) {
+					$throwNew($NoSuchAlgorithmException, "Incompatible digest algorithm"_s);
 				}
+				return encAlg;
 			case 1:
-				{
+				$init($SignatureUtil$EdDSADigestAlgHolder);
+				if (!$nc(digAlgId)->equals($SignatureUtil$EdDSADigestAlgHolder::sha512)) {
+					$throwNew($NoSuchAlgorithmException, "Incompatible digest algorithm"_s);
+				}
+				return encAlg;
+			case 2:
+				if (directSign) {
 					$init($SignatureUtil$EdDSADigestAlgHolder);
-					if (!$nc(digAlgId)->equals($SignatureUtil$EdDSADigestAlgHolder::sha512)) {
+					if (!$nc(digAlgId)->equals($SignatureUtil$EdDSADigestAlgHolder::shake256)) {
 						$throwNew($NoSuchAlgorithmException, "Incompatible digest algorithm"_s);
 					}
-					return encAlg;
-				}
-			case 2:
-				{
-					if (directSign) {
-						$init($SignatureUtil$EdDSADigestAlgHolder);
-						if (!$nc(digAlgId)->equals($SignatureUtil$EdDSADigestAlgHolder::shake256)) {
-							$throwNew($NoSuchAlgorithmException, "Incompatible digest algorithm"_s);
-						}
-					} else {
-						$init($SignatureUtil$EdDSADigestAlgHolder);
-						if (!$nc(digAlgId)->equals($SignatureUtil$EdDSADigestAlgHolder::shake256$512)) {
-							$throwNew($NoSuchAlgorithmException, "Incompatible digest algorithm"_s);
-						}
+				} else {
+					$init($SignatureUtil$EdDSADigestAlgHolder);
+					if (!$nc(digAlgId)->equals($SignatureUtil$EdDSADigestAlgHolder::shake256$512)) {
+						$throwNew($NoSuchAlgorithmException, "Incompatible digest algorithm"_s);
 					}
-					return encAlg;
 				}
+				return encAlg;
 			default:
-				{
-					$assign(digAlg, $nc(digAlgId)->getName());
-					$assign(keyAlg, $SignatureUtil::extractKeyAlgFromDwithE(encAlg));
-					if (keyAlg == nullptr) {
-						$assign(keyAlg, encAlg);
-					}
-					if ($nc(digAlg)->startsWith("SHA-"_s)) {
-						$assign(digAlg, $str({"SHA"_s, $(digAlg->substring(4))}));
-					}
-					if ($nc(keyAlg)->equals("EC"_s)) {
-						$assign(keyAlg, "ECDSA"_s);
-					}
-					return $str({digAlg, "with"_s, keyAlg});
+				$assign(digAlg, $nc(digAlgId)->getName());
+				$assign(keyAlg, $SignatureUtil::extractKeyAlgFromDwithE(encAlg));
+				if (keyAlg == nullptr) {
+					$assign(keyAlg, encAlg);
 				}
+				if ($nc(digAlg)->startsWith("SHA-"_s)) {
+					$assign(digAlg, $str({"SHA"_s, $(digAlg->substring(4))}));
+				}
+				if ($nc(keyAlg)->equals("EC"_s)) {
+					$assign(keyAlg, "ECDSA"_s);
+				}
+				return $str({digAlg, "with"_s, keyAlg});
 			}
 		}
 	}
@@ -572,7 +494,7 @@ $PKCS9Attributes* SignerInfo::getUnauthenticatedAttributes() {
 }
 
 $PKCS7* SignerInfo::getTsToken() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->unauthenticatedAttributes == nullptr) {
 		return nullptr;
 	}
@@ -581,11 +503,11 @@ $PKCS7* SignerInfo::getTsToken() {
 	if (tsTokenAttr == nullptr) {
 		return nullptr;
 	}
-	return $new($PKCS7, $cast($bytes, $($nc(tsTokenAttr)->getValue())));
+	return $new($PKCS7, $$cast($bytes, $nc(tsTokenAttr)->getValue()));
 }
 
 $Timestamp* SignerInfo::getTimestamp() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->timestamp != nullptr || !this->hasTimestamp) {
 		return this->timestamp;
 	}
@@ -594,14 +516,14 @@ $Timestamp* SignerInfo::getTimestamp() {
 		this->hasTimestamp = false;
 		return nullptr;
 	}
-	$var($bytes, encTsTokenInfo, $nc($($nc(tsToken)->getContentInfo()))->getData());
+	$var($bytes, encTsTokenInfo, $$nc($nc(tsToken)->getContentInfo())->getData());
 	$var($SignerInfoArray, tsa, tsToken->verify(encTsTokenInfo));
-	if (tsa == nullptr || $nc(tsa)->length == 0) {
+	if (tsa == nullptr || tsa->length == 0) {
 		$throwNew($SignatureException, "Unable to verify timestamp"_s);
 	}
 	$var($ArrayList, chain, $nc($nc(tsa)->get(0))->getCertificateChain(tsToken));
 	$var($CertificateFactory, cf, $CertificateFactory::getInstance("X.509"_s));
-	$var($CertPath, tsaChain, $nc(cf)->generateCertPath(static_cast<$List*>(chain)));
+	$var($CertPath, tsaChain, $nc(cf)->generateCertPath(chain));
 	$var($TimestampToken, tsTokenInfo, $new($TimestampToken, encTsTokenInfo));
 	verifyTimestamp(tsTokenInfo);
 	$nc(this->algorithms)->putAll($nc(tsa->get(0))->algorithms);
@@ -610,26 +532,34 @@ $Timestamp* SignerInfo::getTimestamp() {
 }
 
 void SignerInfo::verifyTimestamp($TimestampToken* token) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AlgorithmId, digestAlgId, $nc(token)->getHashAlgorithm());
 	$nc(this->algorithms)->put(digestAlgId, "TimestampToken digestAlgorithm field"_s);
 	$var($MessageDigest, md, $MessageDigest::getInstance($($nc(digestAlgId)->getName())));
 	$var($bytes, var$0, token->getHashedMessage());
 	if (!$MessageDigest::isEqual(var$0, $($nc(md)->digest(this->encryptedDigest)))) {
-		$var($String, var$2, $$str({"Signature timestamp (#"_s, $(token->getSerialNumber()), ") generated on "_s}));
-		$var($String, var$1, $$concat(var$2, $(token->getDate())));
-		$throwNew($SignatureException, $$concat(var$1, " is inapplicable"_s));
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append("Signature timestamp (#"_s);
+		var$1->append($(token->getSerialNumber()));
+		var$1->append(") generated on "_s);
+		var$1->append($(token->getDate()));
+		var$1->append(" is inapplicable"_s);
+		$throwNew($SignatureException, $$str(var$1));
 	}
 	if (SignerInfo::debug != nullptr) {
-		$nc(SignerInfo::debug)->println();
-		$var($String, var$3, $$str({"Detected signature timestamp (#"_s, $(token->getSerialNumber()), ") generated on "_s}));
-		$nc(SignerInfo::debug)->println($$concat(var$3, $(token->getDate())));
-		$nc(SignerInfo::debug)->println();
+		SignerInfo::debug->println();
+		$var($StringBuilder, var$2, $new($StringBuilder));
+		var$2->append("Detected signature timestamp (#"_s);
+		var$2->append($(token->getSerialNumber()));
+		var$2->append(") generated on "_s);
+		var$2->append($(token->getDate()));
+		SignerInfo::debug->println($$str(var$2));
+		SignerInfo::debug->println();
 	}
 }
 
 $String* SignerInfo::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HexDumpEncoder, hexDump, $new($HexDumpEncoder));
 	$var($String, out, ""_s);
 	$plusAssign(out, $$str({"Signer Info for (issuer): "_s, this->issuerName, "\n"_s}));
@@ -649,13 +579,11 @@ $String* SignerInfo::toString() {
 
 $Set* SignerInfo::verifyAlgorithms($SignerInfoArray* infos, $JarConstraintsParameters* params, $String* name) {
 	$init(SignerInfo);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, algorithms, $new($HashMap));
 	{
 		$var($SignerInfoArray, arr$, infos);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var(SignerInfo, info, arr$->get(i$));
 			{
 				algorithms->putAll($nc(info)->algorithms);
@@ -664,26 +592,24 @@ $Set* SignerInfo::verifyAlgorithms($SignerInfoArray* infos, $JarConstraintsParam
 	}
 	$var($Set, enabledAlgorithms, $new($HashSet));
 	try {
-		{
-			$var($Iterator, i$, $nc($(algorithms->entrySet()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Map$Entry, algorithm, $cast($Map$Entry, i$->next()));
-				{
-					$nc(params)->setExtendedExceptionMsg(name, $cast($String, $($nc(algorithm)->getValue())));
-					$var($AlgorithmId, algId, $cast($AlgorithmId, $nc(algorithm)->getKey()));
-					$var($String, var$0, $nc(algId)->getName());
-					$nc(SignerInfo::JAR_DISABLED_CHECK)->permits(var$0, $(algId->getParameters()), static_cast<$ConstraintsParameters*>(params));
-					enabledAlgorithms->add($($nc(algId)->getName()));
-				}
+		$var($Iterator, i$, $$nc(algorithms->entrySet())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Map$Entry, algorithm, $cast($Map$Entry, i$->next()));
+			{
+				$nc(params)->setExtendedExceptionMsg(name, $$cast($String, $nc(algorithm)->getValue()));
+				$var($AlgorithmId, algId, $cast($AlgorithmId, algorithm->getKey()));
+				$var($String, var$0, $nc(algId)->getName());
+				$nc(SignerInfo::JAR_DISABLED_CHECK)->permits(var$0, $(algId->getParameters()), params);
+				enabledAlgorithms->add($(algId->getName()));
 			}
 		}
 	} catch ($CertPathValidatorException& e) {
-		$throwNew($SignatureException, static_cast<$Throwable*>(e));
+		$throwNew($SignatureException, e);
 	}
 	return enabledAlgorithms;
 }
 
-void clinit$SignerInfo($Class* class$) {
+void SignerInfo::clinit$($Class* clazz) {
 	$assignStatic(SignerInfo::JAR_DISABLED_CHECK, $DisabledAlgorithmConstraints::jarConstraints());
 	$assignStatic(SignerInfo::debug, $Debug::getInstance("jar"_s));
 }
@@ -692,7 +618,61 @@ SignerInfo::SignerInfo() {
 }
 
 $Class* SignerInfo::load$($String* name, bool initialize) {
-	$loadClass(SignerInfo, name, initialize, &_SignerInfo_ClassInfo_, clinit$SignerInfo, allocate$SignerInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"JAR_DISABLED_CHECK", "Lsun/security/util/DisabledAlgorithmConstraints;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SignerInfo, JAR_DISABLED_CHECK)},
+		{"version", "Ljava/math/BigInteger;", nullptr, 0, $field(SignerInfo, version)},
+		{"issuerName", "Lsun/security/x509/X500Name;", nullptr, 0, $field(SignerInfo, issuerName)},
+		{"certificateSerialNumber", "Ljava/math/BigInteger;", nullptr, 0, $field(SignerInfo, certificateSerialNumber)},
+		{"digestAlgorithmId", "Lsun/security/x509/AlgorithmId;", nullptr, 0, $field(SignerInfo, digestAlgorithmId)},
+		{"digestEncryptionAlgorithmId", "Lsun/security/x509/AlgorithmId;", nullptr, 0, $field(SignerInfo, digestEncryptionAlgorithmId)},
+		{"encryptedDigest", "[B", nullptr, 0, $field(SignerInfo, encryptedDigest)},
+		{"timestamp", "Ljava/security/Timestamp;", nullptr, 0, $field(SignerInfo, timestamp)},
+		{"hasTimestamp", "Z", nullptr, $PRIVATE, $field(SignerInfo, hasTimestamp)},
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SignerInfo, debug)},
+		{"authenticatedAttributes", "Lsun/security/pkcs/PKCS9Attributes;", nullptr, 0, $field(SignerInfo, authenticatedAttributes)},
+		{"unauthenticatedAttributes", "Lsun/security/pkcs/PKCS9Attributes;", nullptr, 0, $field(SignerInfo, unauthenticatedAttributes)},
+		{"algorithms", "Ljava/util/Map;", "Ljava/util/Map<Lsun/security/x509/AlgorithmId;Ljava/lang/String;>;", $PRIVATE, $field(SignerInfo, algorithms)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/x509/X500Name;Ljava/math/BigInteger;Lsun/security/x509/AlgorithmId;Lsun/security/x509/AlgorithmId;[B)V", nullptr, $PUBLIC, $method(SignerInfo, init$, void, $X500Name*, $BigInteger*, $AlgorithmId*, $AlgorithmId*, $bytes*)},
+		{"<init>", "(Lsun/security/x509/X500Name;Ljava/math/BigInteger;Lsun/security/x509/AlgorithmId;Lsun/security/pkcs/PKCS9Attributes;Lsun/security/x509/AlgorithmId;[BLsun/security/pkcs/PKCS9Attributes;)V", nullptr, $PUBLIC, $method(SignerInfo, init$, void, $X500Name*, $BigInteger*, $AlgorithmId*, $PKCS9Attributes*, $AlgorithmId*, $bytes*, $PKCS9Attributes*)},
+		{"<init>", "(Lsun/security/util/DerInputStream;)V", nullptr, $PUBLIC, $method(SignerInfo, init$, void, $DerInputStream*), "java.io.IOException,sun.security.pkcs.ParsingException"},
+		{"<init>", "(Lsun/security/util/DerInputStream;Z)V", nullptr, $PUBLIC, $method(SignerInfo, init$, void, $DerInputStream*, bool), "java.io.IOException,sun.security.pkcs.ParsingException"},
+		{"checkCMSAlgorithmProtection", "()V", nullptr, $PRIVATE, $method(SignerInfo, checkCMSAlgorithmProtection, void), "java.io.IOException"},
+		{"derEncode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(SignerInfo, derEncode, void, $OutputStream*), "java.io.IOException"},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(SignerInfo, encode, void, $DerOutputStream*), "java.io.IOException"},
+		{"getAuthenticatedAttributes", "()Lsun/security/pkcs/PKCS9Attributes;", nullptr, $PUBLIC, $virtualMethod(SignerInfo, getAuthenticatedAttributes, $PKCS9Attributes*)},
+		{"getCertificate", "(Lsun/security/pkcs/PKCS7;)Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(SignerInfo, getCertificate, $X509Certificate*, $PKCS7*), "java.io.IOException"},
+		{"getCertificateChain", "(Lsun/security/pkcs/PKCS7;)Ljava/util/ArrayList;", "(Lsun/security/pkcs/PKCS7;)Ljava/util/ArrayList<Ljava/security/cert/X509Certificate;>;", $PUBLIC, $virtualMethod(SignerInfo, getCertificateChain, $ArrayList*, $PKCS7*), "java.io.IOException"},
+		{"getCertificateSerialNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(SignerInfo, getCertificateSerialNumber, $BigInteger*)},
+		{"getDigestAlgorithmId", "()Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC, $virtualMethod(SignerInfo, getDigestAlgorithmId, $AlgorithmId*)},
+		{"getDigestEncryptionAlgorithmId", "()Lsun/security/x509/AlgorithmId;", nullptr, $PUBLIC, $virtualMethod(SignerInfo, getDigestEncryptionAlgorithmId, $AlgorithmId*)},
+		{"getEncryptedDigest", "()[B", nullptr, $PUBLIC, $virtualMethod(SignerInfo, getEncryptedDigest, $bytes*)},
+		{"getIssuerName", "()Lsun/security/x509/X500Name;", nullptr, $PUBLIC, $virtualMethod(SignerInfo, getIssuerName, $X500Name*)},
+		{"getTimestamp", "()Ljava/security/Timestamp;", nullptr, $PUBLIC, $virtualMethod(SignerInfo, getTimestamp, $Timestamp*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.SignatureException,java.security.cert.CertificateException"},
+		{"getTsToken", "()Lsun/security/pkcs/PKCS7;", nullptr, $PUBLIC, $virtualMethod(SignerInfo, getTsToken, $PKCS7*), "java.io.IOException"},
+		{"getUnauthenticatedAttributes", "()Lsun/security/pkcs/PKCS9Attributes;", nullptr, $PUBLIC, $virtualMethod(SignerInfo, getUnauthenticatedAttributes, $PKCS9Attributes*)},
+		{"getVersion", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(SignerInfo, getVersion, $BigInteger*)},
+		{"makeSigAlg", "(Lsun/security/x509/AlgorithmId;Lsun/security/x509/AlgorithmId;Z)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignerInfo, makeSigAlg, $String*, $AlgorithmId*, $AlgorithmId*, bool), "java.security.NoSuchAlgorithmException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignerInfo, toString, $String*)},
+		{"verify", "(Lsun/security/pkcs/PKCS7;[B)Lsun/security/pkcs/SignerInfo;", nullptr, 0, $virtualMethod(SignerInfo, verify, SignerInfo*, $PKCS7*, $bytes*), "java.security.NoSuchAlgorithmException,java.security.SignatureException"},
+		{"verify", "(Lsun/security/pkcs/PKCS7;)Lsun/security/pkcs/SignerInfo;", nullptr, 0, $virtualMethod(SignerInfo, verify, SignerInfo*, $PKCS7*), "java.security.NoSuchAlgorithmException,java.security.SignatureException"},
+		{"verifyAlgorithms", "([Lsun/security/pkcs/SignerInfo;Lsun/security/util/JarConstraintsParameters;Ljava/lang/String;)Ljava/util/Set;", "([Lsun/security/pkcs/SignerInfo;Lsun/security/util/JarConstraintsParameters;Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(SignerInfo, verifyAlgorithms, $Set*, $SignerInfoArray*, $JarConstraintsParameters*, $String*), "java.security.SignatureException"},
+		{"verifyTimestamp", "(Lsun/security/timestamp/TimestampToken;)V", nullptr, $PRIVATE, $method(SignerInfo, verifyTimestamp, void, $TimestampToken*), "java.security.NoSuchAlgorithmException,java.security.SignatureException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.pkcs.SignerInfo",
+		"java.lang.Object",
+		"sun.security.util.DerEncoder",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SignerInfo, name, initialize, &classInfo$$, SignerInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SignerInfo);
+	});
 	return class$;
 }
 

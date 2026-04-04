@@ -1,10 +1,8 @@
 #include <java/util/stream/SpinedBuffer$OfLong.h>
-
 #include <java/util/Arrays.h>
 #include <java/util/Iterator.h>
 #include <java/util/PrimitiveIterator$OfLong.h>
 #include <java/util/Spliterator$OfLong.h>
-#include <java/util/Spliterator$OfPrimitive.h>
 #include <java/util/Spliterator.h>
 #include <java/util/Spliterators.h>
 #include <java/util/function/Consumer.h>
@@ -27,7 +25,6 @@ using $Arrays = ::java::util::Arrays;
 using $Iterator = ::java::util::Iterator;
 using $Spliterator = ::java::util::Spliterator;
 using $Spliterator$OfLong = ::java::util::Spliterator$OfLong;
-using $Spliterator$OfPrimitive = ::java::util::Spliterator$OfPrimitive;
 using $Spliterators = ::java::util::Spliterators;
 using $Consumer = ::java::util::function::Consumer;
 using $LongConsumer = ::java::util::function::LongConsumer;
@@ -39,55 +36,6 @@ using $Tripwire = ::java::util::stream::Tripwire;
 namespace java {
 	namespace util {
 		namespace stream {
-
-$MethodInfo _SpinedBuffer$OfLong_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(SpinedBuffer$OfLong, init$, void)},
-	{"<init>", "(I)V", nullptr, 0, $method(SpinedBuffer$OfLong, init$, void, int32_t)},
-	{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$OfLong, accept, void, int64_t)},
-	{"arrayForEach", "([JIILjava/util/function/LongConsumer;)V", nullptr, $PROTECTED, $virtualMethod(SpinedBuffer$OfLong, arrayForEach, void, $longs*, int32_t, int32_t, $LongConsumer*)},
-	{"arrayForEach", "(Ljava/lang/Object;IILjava/lang/Object;)V", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(SpinedBuffer$OfLong, arrayForEach, void, Object$*, int32_t, int32_t, Object$*)},
-	{"arrayLength", "([J)I", nullptr, $PROTECTED, $virtualMethod(SpinedBuffer$OfLong, arrayLength, int32_t, $longs*)},
-	{"arrayLength", "(Ljava/lang/Object;)I", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(SpinedBuffer$OfLong, arrayLength, int32_t, Object$*)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/Long;>;)V", $PUBLIC, $virtualMethod(SpinedBuffer$OfLong, forEach, void, $Consumer*)},
-	{"get", "(J)J", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$OfLong, get, int64_t, int64_t)},
-	{"iterator", "()Ljava/util/PrimitiveIterator$OfLong;", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$OfLong, iterator, $Iterator*)},
-	{"newArray", "(I)[J", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$OfLong, newArray, $Object*, int32_t)},
-	{"newArrayArray", "(I)[[J", nullptr, $PROTECTED, $virtualMethod(SpinedBuffer$OfLong, newArrayArray, $ObjectArray*, int32_t)},
-	{"spliterator", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$OfLong, spliterator, $Spliterator*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$OfLong, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _SpinedBuffer$OfLong_InnerClassesInfo_[] = {
-	{"java.util.stream.SpinedBuffer$OfLong", "java.util.stream.SpinedBuffer", "OfLong", $STATIC},
-	{"java.util.stream.SpinedBuffer$OfPrimitive", "java.util.stream.SpinedBuffer", "OfPrimitive", $STATIC | $ABSTRACT},
-	{"java.util.stream.SpinedBuffer$OfLong$1Splitr", nullptr, "Splitr", 0},
-	{}
-};
-
-$ClassInfo _SpinedBuffer$OfLong_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.SpinedBuffer$OfLong",
-	"java.util.stream.SpinedBuffer$OfPrimitive",
-	"java.util.function.LongConsumer",
-	nullptr,
-	_SpinedBuffer$OfLong_MethodInfo_,
-	"Ljava/util/stream/SpinedBuffer$OfPrimitive<Ljava/lang/Long;[JLjava/util/function/LongConsumer;>;Ljava/util/function/LongConsumer;",
-	nullptr,
-	_SpinedBuffer$OfLong_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.SpinedBuffer"
-};
-
-$Object* allocate$SpinedBuffer$OfLong($Class* clazz) {
-	return $of($alloc(SpinedBuffer$OfLong));
-}
 
 int32_t SpinedBuffer$OfLong::hashCode() {
 	 return this->$SpinedBuffer$OfPrimitive::hashCode();
@@ -121,16 +69,16 @@ void SpinedBuffer$OfLong::forEach($Consumer* consumer) {
 		if ($Tripwire::ENABLED) {
 			$Tripwire::trip($of(this)->getClass(), "{0} calling SpinedBuffer.OfLong.forEach(Consumer)"_s);
 		}
-		$nc($($cast($Spliterator$OfLong, spliterator())))->forEachRemaining(consumer);
+		$$sure($Spliterator$OfLong, spliterator())->forEachRemaining(consumer);
 	}
 }
 
 $ObjectArray* SpinedBuffer$OfLong::newArrayArray(int32_t size) {
-	return static_cast<$ObjectArray*>(static_cast<$Object*>(static_cast<$longArray2*>($new($longArray2, size))));
+	return $new($longArray2, size);
 }
 
 $Object* SpinedBuffer$OfLong::newArray(int32_t size) {
-	return $of($new($longs, size));
+	return $new($longs, size);
 }
 
 int32_t SpinedBuffer$OfLong::arrayLength($longs* array) {
@@ -153,37 +101,37 @@ int64_t SpinedBuffer$OfLong::get(int64_t index) {
 	if (this->spineIndex == 0 && ch == 0) {
 		return $nc(($cast($longs, this->curChunk)))->get((int32_t)index);
 	} else {
-		return $nc($nc(($fcast($longArray2, this->spine)))->get(ch))->get((int32_t)(index - $nc(this->priorElementCount)->get(ch)));
+		return $nc($nc(($cast($longArray2, this->spine)))->get(ch))->get((int32_t)(index - $nc(this->priorElementCount)->get(ch)));
 	}
 }
 
 $Iterator* SpinedBuffer$OfLong::iterator() {
-	return $Spliterators::iterator($($cast($Spliterator$OfLong, spliterator())));
+	return $Spliterators::iterator($$cast($Spliterator$OfLong, spliterator()));
 }
 
 $Spliterator* SpinedBuffer$OfLong::spliterator() {
 	{
 	}
-	return static_cast<$Spliterator*>(static_cast<$Spliterator$OfPrimitive*>(static_cast<$SpinedBuffer$OfPrimitive$BaseSpliterator*>($new($SpinedBuffer$OfLong$1Splitr, this, 0, this->spineIndex, 0, this->elementIndex))));
+	return $cast($SpinedBuffer$OfPrimitive$BaseSpliterator, $new($SpinedBuffer$OfLong$1Splitr, this, 0, this->spineIndex, 0, this->elementIndex));
 }
 
 $String* SpinedBuffer$OfLong::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($longs, array, $cast($longs, asPrimitiveArray()));
 	if ($nc(array)->length < 200) {
 		return $String::format("%s[length=%d, chunks=%d]%s"_s, $$new($ObjectArray, {
-			$($of($of(this)->getClass()->getSimpleName())),
-			$($of($Integer::valueOf(array->length))),
-			$($of($Integer::valueOf(this->spineIndex))),
-			$($of($Arrays::toString(array)))
+			$($of(this)->getClass()->getSimpleName()),
+			$($Integer::valueOf(array->length)),
+			$($Integer::valueOf(this->spineIndex)),
+			$($Arrays::toString(array))
 		}));
 	} else {
 		$var($longs, array2, $Arrays::copyOf(array, 200));
 		return $String::format("%s[length=%d, chunks=%d]%s..."_s, $$new($ObjectArray, {
-			$($of($of(this)->getClass()->getSimpleName())),
-			$($of($Integer::valueOf(array->length))),
-			$($of($Integer::valueOf(this->spineIndex))),
-			$($of($Arrays::toString(array2)))
+			$($of(this)->getClass()->getSimpleName()),
+			$($Integer::valueOf(array->length)),
+			$($Integer::valueOf(this->spineIndex)),
+			$($Arrays::toString(array2))
 		}));
 	}
 }
@@ -200,7 +148,51 @@ SpinedBuffer$OfLong::SpinedBuffer$OfLong() {
 }
 
 $Class* SpinedBuffer$OfLong::load$($String* name, bool initialize) {
-	$loadClass(SpinedBuffer$OfLong, name, initialize, &_SpinedBuffer$OfLong_ClassInfo_, allocate$SpinedBuffer$OfLong);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(SpinedBuffer$OfLong, init$, void)},
+		{"<init>", "(I)V", nullptr, 0, $method(SpinedBuffer$OfLong, init$, void, int32_t)},
+		{"accept", "(J)V", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$OfLong, accept, void, int64_t)},
+		{"arrayForEach", "([JIILjava/util/function/LongConsumer;)V", nullptr, $PROTECTED, $virtualMethod(SpinedBuffer$OfLong, arrayForEach, void, $longs*, int32_t, int32_t, $LongConsumer*)},
+		{"arrayForEach", "(Ljava/lang/Object;IILjava/lang/Object;)V", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(SpinedBuffer$OfLong, arrayForEach, void, Object$*, int32_t, int32_t, Object$*)},
+		{"arrayLength", "([J)I", nullptr, $PROTECTED, $virtualMethod(SpinedBuffer$OfLong, arrayLength, int32_t, $longs*)},
+		{"arrayLength", "(Ljava/lang/Object;)I", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(SpinedBuffer$OfLong, arrayLength, int32_t, Object$*)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/Long;>;)V", $PUBLIC, $virtualMethod(SpinedBuffer$OfLong, forEach, void, $Consumer*)},
+		{"get", "(J)J", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$OfLong, get, int64_t, int64_t)},
+		{"iterator", "()Ljava/util/PrimitiveIterator$OfLong;", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$OfLong, iterator, $Iterator*)},
+		{"newArray", "(I)[J", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$OfLong, newArray, $Object*, int32_t)},
+		{"newArrayArray", "(I)[[J", nullptr, $PROTECTED, $virtualMethod(SpinedBuffer$OfLong, newArrayArray, $ObjectArray*, int32_t)},
+		{"spliterator", "()Ljava/util/Spliterator$OfLong;", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$OfLong, spliterator, $Spliterator*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SpinedBuffer$OfLong, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.SpinedBuffer$OfLong", "java.util.stream.SpinedBuffer", "OfLong", $STATIC},
+		{"java.util.stream.SpinedBuffer$OfPrimitive", "java.util.stream.SpinedBuffer", "OfPrimitive", $STATIC | $ABSTRACT},
+		{"java.util.stream.SpinedBuffer$OfLong$1Splitr", nullptr, "Splitr", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.SpinedBuffer$OfLong",
+		"java.util.stream.SpinedBuffer$OfPrimitive",
+		"java.util.function.LongConsumer",
+		nullptr,
+		methodInfos$$,
+		"Ljava/util/stream/SpinedBuffer$OfPrimitive<Ljava/lang/Long;[JLjava/util/function/LongConsumer;>;Ljava/util/function/LongConsumer;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.SpinedBuffer"
+	};
+	$loadClass(SpinedBuffer$OfLong, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SpinedBuffer$OfLong));
+	});
 	return class$;
 }
 

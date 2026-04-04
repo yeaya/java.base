@@ -49,6 +49,7 @@ class $export Throwable : public ::java::io::Serializable {
 	$class(Throwable, $PRELOAD | $PREINIT | $THROWABLE, ::java::io::Serializable)
 public:
 	Throwable();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* message);
 	void init$($String* message, $Throwable* cause);
@@ -76,7 +77,7 @@ public:
 	int32_t validateSuppressedExceptionsList(::java::util::List* deserSuppressedExceptions);
 	void writeObject(::java::io::ObjectOutputStream* s);
 	static bool $assertionsDisabled;
-	static const int64_t serialVersionUID = (int64_t)0xD5C635273977B8CB;
+	static const int64_t serialVersionUID = (int64_t)0xd5c635273977b8cb;
 	$Object* backtrace = nullptr;
 	$String* detailMessage = nullptr;
 	static $Array<::java::lang::StackTraceElement>* UNASSIGNED_STACK;
@@ -92,16 +93,11 @@ public:
 	static $Array<::java::lang::Throwable>* EMPTY_THROWABLE_ARRAY;
 	Throwable(const Throwable& e);
 	virtual void throw$();
-	inline Throwable* operator ->() {
+	inline Throwable* operator ->() const {
 		return (Throwable*)throwing$;
 	}
-	template<typename T, $enable_if($is_convertible(::java::lang::Throwable*, T*))>
-	inline operator T*() const {
-		return throwing$;
-	}
-	template<typename T, $enable_if(!$is_convertible(::java::lang::Throwable*, T*) && $is_base_of(::java::lang::Throwable, T))>
-	inline operator T*() const {
-		return dynamic_cast<T*>(throwing$);
+	inline operator Throwable*() const {
+		return (Throwable*)throwing$;
 	}
 	void setThrowing$(Throwable* throwing);
 	~Throwable();

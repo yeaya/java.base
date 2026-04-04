@@ -1,5 +1,4 @@
 #include <sun/security/util/KeyStoreDelegator.h>
-
 #include <java/io/BufferedInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -73,92 +72,37 @@ public:
 	virtual $Object* run() override {
 		 return $of(KeyStoreDelegator::lambda$new$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<KeyStoreDelegator$$Lambda$lambda$new$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo KeyStoreDelegator$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyStoreDelegator$$Lambda$lambda$new$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator$$Lambda$lambda$new$0, run, $Object*)},
-	{}
-};
-$ClassInfo KeyStoreDelegator$$Lambda$lambda$new$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.security.util.KeyStoreDelegator$$Lambda$lambda$new$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* KeyStoreDelegator$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
-	$loadClass(KeyStoreDelegator$$Lambda$lambda$new$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(KeyStoreDelegator$$Lambda$lambda$new$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator$$Lambda$lambda$new$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.security.util.KeyStoreDelegator$$Lambda$lambda$new$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(KeyStoreDelegator$$Lambda$lambda$new$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyStoreDelegator$$Lambda$lambda$new$0);
+	});
 	return class$;
 }
 $Class* KeyStoreDelegator$$Lambda$lambda$new$0::class$ = nullptr;
-
-$FieldInfo _KeyStoreDelegator_FieldInfo_[] = {
-	{"KEYSTORE_TYPE_COMPAT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyStoreDelegator, KEYSTORE_TYPE_COMPAT)},
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyStoreDelegator, debug)},
-	{"primaryType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KeyStoreDelegator, primaryType)},
-	{"secondaryType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KeyStoreDelegator, secondaryType)},
-	{"primaryKeyStore", "Ljava/lang/Class;", "Ljava/lang/Class<+Ljava/security/KeyStoreSpi;>;", $PRIVATE, $field(KeyStoreDelegator, primaryKeyStore)},
-	{"secondaryKeyStore", "Ljava/lang/Class;", "Ljava/lang/Class<+Ljava/security/KeyStoreSpi;>;", $PRIVATE, $field(KeyStoreDelegator, secondaryKeyStore)},
-	{"type", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KeyStoreDelegator, type)},
-	{"keystore", "Ljava/security/KeyStoreSpi;", nullptr, $PRIVATE, $field(KeyStoreDelegator, keystore)},
-	{"compatModeEnabled", "Z", nullptr, $PRIVATE, $field(KeyStoreDelegator, compatModeEnabled)},
-	{}
-};
-
-$MethodInfo _KeyStoreDelegator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/Class<+Ljava/security/KeyStoreSpi;>;Ljava/lang/String;Ljava/lang/Class<+Ljava/security/KeyStoreSpi;>;)V", $PUBLIC, $method(KeyStoreDelegator, init$, void, $String*, $Class*, $String*, $Class*)},
-	{"engineAliases", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(KeyStoreDelegator, engineAliases, $Enumeration*)},
-	{"engineContainsAlias", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineContainsAlias, bool, $String*)},
-	{"engineDeleteEntry", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineDeleteEntry, void, $String*), "java.security.KeyStoreException"},
-	{"engineEntryInstanceOf", "(Ljava/lang/String;Ljava/lang/Class;)Z", "(Ljava/lang/String;Ljava/lang/Class<+Ljava/security/KeyStore$Entry;>;)Z", $PUBLIC, $virtualMethod(KeyStoreDelegator, engineEntryInstanceOf, bool, $String*, $Class*)},
-	{"engineGetCertificate", "(Ljava/lang/String;)Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineGetCertificate, $Certificate*, $String*)},
-	{"engineGetCertificateAlias", "(Ljava/security/cert/Certificate;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineGetCertificateAlias, $String*, $Certificate*)},
-	{"engineGetCertificateChain", "(Ljava/lang/String;)[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineGetCertificateChain, $CertificateArray*, $String*)},
-	{"engineGetCreationDate", "(Ljava/lang/String;)Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineGetCreationDate, $Date*, $String*)},
-	{"engineGetEntry", "(Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Entry;", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineGetEntry, $KeyStore$Entry*, $String*, $KeyStore$ProtectionParameter*), "java.security.KeyStoreException,java.security.NoSuchAlgorithmException,java.security.UnrecoverableEntryException"},
-	{"engineGetKey", "(Ljava/lang/String;[C)Ljava/security/Key;", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineGetKey, $Key*, $String*, $chars*), "java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
-	{"engineIsCertificateEntry", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineIsCertificateEntry, bool, $String*)},
-	{"engineIsKeyEntry", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineIsKeyEntry, bool, $String*)},
-	{"engineLoad", "(Ljava/io/InputStream;[C)V", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineLoad, void, $InputStream*, $chars*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
-	{"engineProbe", "(Ljava/io/InputStream;)Z", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineProbe, bool, $InputStream*), "java.io.IOException"},
-	{"engineSetCertificateEntry", "(Ljava/lang/String;Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineSetCertificateEntry, void, $String*, $Certificate*), "java.security.KeyStoreException"},
-	{"engineSetEntry", "(Ljava/lang/String;Ljava/security/KeyStore$Entry;Ljava/security/KeyStore$ProtectionParameter;)V", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineSetEntry, void, $String*, $KeyStore$Entry*, $KeyStore$ProtectionParameter*), "java.security.KeyStoreException"},
-	{"engineSetKeyEntry", "(Ljava/lang/String;Ljava/security/Key;[C[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineSetKeyEntry, void, $String*, $Key*, $chars*, $CertificateArray*), "java.security.KeyStoreException"},
-	{"engineSetKeyEntry", "(Ljava/lang/String;[B[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineSetKeyEntry, void, $String*, $bytes*, $CertificateArray*), "java.security.KeyStoreException"},
-	{"engineSize", "()I", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineSize, int32_t)},
-	{"engineStore", "(Ljava/io/OutputStream;[C)V", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineStore, void, $OutputStream*, $chars*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
-	{"lambda$new$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(KeyStoreDelegator, lambda$new$0, $String*)},
-	{}
-};
-
-$ClassInfo _KeyStoreDelegator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.KeyStoreDelegator",
-	"java.security.KeyStoreSpi",
-	nullptr,
-	_KeyStoreDelegator_FieldInfo_,
-	_KeyStoreDelegator_MethodInfo_
-};
-
-$Object* allocate$KeyStoreDelegator($Class* clazz) {
-	return $of($alloc(KeyStoreDelegator));
-}
 
 $String* KeyStoreDelegator::KEYSTORE_TYPE_COMPAT = nullptr;
 $Debug* KeyStoreDelegator::debug = nullptr;
 
 void KeyStoreDelegator::init$($String* primaryType, $Class* primaryKeyStore, $String* secondaryType, $Class* secondaryKeyStore) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$KeyStoreSpi::init$();
 	this->compatModeEnabled = true;
-	$var($String, prop, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(KeyStoreDelegator$$Lambda$lambda$new$0)))));
+	$var($String, prop, $cast($String, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(KeyStoreDelegator$$Lambda$lambda$new$0)))));
 	this->compatModeEnabled = "true"_s->equalsIgnoreCase(prop);
 	if (this->compatModeEnabled) {
 		$set(this, primaryType, primaryType);
@@ -171,7 +115,7 @@ void KeyStoreDelegator::init$($String* primaryType, $Class* primaryKeyStore, $St
 		$set(this, primaryKeyStore, primaryKeyStore);
 		$set(this, secondaryKeyStore, nullptr);
 		if (KeyStoreDelegator::debug != nullptr) {
-			$nc(KeyStoreDelegator::debug)->println($$str({"WARNING: compatibility mode disabled for "_s, primaryType, " and "_s, secondaryType, " keystore types"_s}));
+			KeyStoreDelegator::debug->println($$str({"WARNING: compatibility mode disabled for "_s, primaryType, " and "_s, secondaryType, " keystore types"_s}));
 		}
 	}
 }
@@ -246,13 +190,13 @@ bool KeyStoreDelegator::engineEntryInstanceOf($String* alias, $Class* entryClass
 
 void KeyStoreDelegator::engineStore($OutputStream* stream, $chars* password) {
 	if (KeyStoreDelegator::debug != nullptr) {
-		$nc(KeyStoreDelegator::debug)->println($$str({"Storing keystore in "_s, this->type, " format"_s}));
+		KeyStoreDelegator::debug->println($$str({"Storing keystore in "_s, this->type, " format"_s}));
 	}
 	$nc(this->keystore)->engineStore(stream, password);
 }
 
 void KeyStoreDelegator::engineLoad($InputStream* stream, $chars* password) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (stream == nullptr) {
 		try {
@@ -263,7 +207,7 @@ void KeyStoreDelegator::engineLoad($InputStream* stream, $chars* password) {
 		}
 		$set(this, type, this->primaryType);
 		if (KeyStoreDelegator::debug != nullptr) {
-			$nc(KeyStoreDelegator::debug)->println($$str({"Creating a new keystore in "_s, this->type, " format"_s}));
+			KeyStoreDelegator::debug->println($$str({"Creating a new keystore in "_s, this->type, " format"_s}));
 		}
 		$nc(this->keystore)->engineLoad(stream, password);
 	} else {
@@ -288,7 +232,7 @@ void KeyStoreDelegator::engineLoad($InputStream* stream, $chars* password) {
 				$set(this, keystore, tmp);
 				$set(this, type, this->secondaryType);
 				if (KeyStoreDelegator::debug != nullptr) {
-					$nc(KeyStoreDelegator::debug)->println($$str({"WARNING: switching from "_s, this->primaryType, " to "_s, this->secondaryType, " keystore file format has altered the keystore security level"_s}));
+					KeyStoreDelegator::debug->println($$str({"WARNING: switching from "_s, this->primaryType, " to "_s, this->secondaryType, " keystore file format has altered the keystore security level"_s}));
 				}
 			} catch ($InstantiationException& e2) {
 			} catch ($IllegalAccessException& e2) {
@@ -334,37 +278,35 @@ void KeyStoreDelegator::engineLoad($InputStream* stream, $chars* password) {
 			}
 		}
 		if (KeyStoreDelegator::debug != nullptr) {
-			$nc(KeyStoreDelegator::debug)->println($$str({"Loaded a keystore in "_s, this->type, " format"_s}));
+			KeyStoreDelegator::debug->println($$str({"Loaded a keystore in "_s, this->type, " format"_s}));
 		}
 	}
 }
 
 bool KeyStoreDelegator::engineProbe($InputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	bool result = false;
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$var($KeyStoreSpi, tmp, $cast($KeyStoreSpi, $nc(this->primaryKeyStore)->newInstance()));
-				$set(this, keystore, tmp);
-				$set(this, type, this->primaryType);
-				result = $nc(this->keystore)->engineProbe(stream);
-			} catch ($Exception& e) {
-				$throwNew($IOException, static_cast<$Throwable*>(e));
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (result == false) {
-				$set(this, type, nullptr);
-				$set(this, keystore, nullptr);
-			}
+			$var($KeyStoreSpi, tmp, $cast($KeyStoreSpi, $nc(this->primaryKeyStore)->newInstance()));
+			$set(this, keystore, tmp);
+			$set(this, type, this->primaryType);
+			result = $nc(this->keystore)->engineProbe(stream);
+		} catch ($Exception& e) {
+			$throwNew($IOException, e);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (result == false) {
+			$set(this, type, nullptr);
+			$set(this, keystore, nullptr);
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return result;
 }
@@ -374,7 +316,7 @@ $String* KeyStoreDelegator::lambda$new$0() {
 	return $Security::getProperty(KeyStoreDelegator::KEYSTORE_TYPE_COMPAT);
 }
 
-void clinit$KeyStoreDelegator($Class* class$) {
+void KeyStoreDelegator::clinit$($Class* clazz) {
 	$assignStatic(KeyStoreDelegator::KEYSTORE_TYPE_COMPAT, "keystore.type.compat"_s);
 	$assignStatic(KeyStoreDelegator::debug, $Debug::getInstance("keystore"_s));
 }
@@ -384,11 +326,58 @@ KeyStoreDelegator::KeyStoreDelegator() {
 
 $Class* KeyStoreDelegator::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(KeyStoreDelegator$$Lambda$lambda$new$0::classInfo$.name)) {
+		if (name->equals("sun.security.util.KeyStoreDelegator$$Lambda$lambda$new$0")) {
 			return KeyStoreDelegator$$Lambda$lambda$new$0::load$(name, initialize);
 		}
 	}
-	$loadClass(KeyStoreDelegator, name, initialize, &_KeyStoreDelegator_ClassInfo_, clinit$KeyStoreDelegator, allocate$KeyStoreDelegator);
+	$FieldInfo fieldInfos$$[] = {
+		{"KEYSTORE_TYPE_COMPAT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyStoreDelegator, KEYSTORE_TYPE_COMPAT)},
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyStoreDelegator, debug)},
+		{"primaryType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KeyStoreDelegator, primaryType)},
+		{"secondaryType", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KeyStoreDelegator, secondaryType)},
+		{"primaryKeyStore", "Ljava/lang/Class;", "Ljava/lang/Class<+Ljava/security/KeyStoreSpi;>;", $PRIVATE, $field(KeyStoreDelegator, primaryKeyStore)},
+		{"secondaryKeyStore", "Ljava/lang/Class;", "Ljava/lang/Class<+Ljava/security/KeyStoreSpi;>;", $PRIVATE, $field(KeyStoreDelegator, secondaryKeyStore)},
+		{"type", "Ljava/lang/String;", nullptr, $PRIVATE, $field(KeyStoreDelegator, type)},
+		{"keystore", "Ljava/security/KeyStoreSpi;", nullptr, $PRIVATE, $field(KeyStoreDelegator, keystore)},
+		{"compatModeEnabled", "Z", nullptr, $PRIVATE, $field(KeyStoreDelegator, compatModeEnabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/Class<+Ljava/security/KeyStoreSpi;>;Ljava/lang/String;Ljava/lang/Class<+Ljava/security/KeyStoreSpi;>;)V", $PUBLIC, $method(KeyStoreDelegator, init$, void, $String*, $Class*, $String*, $Class*)},
+		{"engineAliases", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(KeyStoreDelegator, engineAliases, $Enumeration*)},
+		{"engineContainsAlias", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineContainsAlias, bool, $String*)},
+		{"engineDeleteEntry", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineDeleteEntry, void, $String*), "java.security.KeyStoreException"},
+		{"engineEntryInstanceOf", "(Ljava/lang/String;Ljava/lang/Class;)Z", "(Ljava/lang/String;Ljava/lang/Class<+Ljava/security/KeyStore$Entry;>;)Z", $PUBLIC, $virtualMethod(KeyStoreDelegator, engineEntryInstanceOf, bool, $String*, $Class*)},
+		{"engineGetCertificate", "(Ljava/lang/String;)Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineGetCertificate, $Certificate*, $String*)},
+		{"engineGetCertificateAlias", "(Ljava/security/cert/Certificate;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineGetCertificateAlias, $String*, $Certificate*)},
+		{"engineGetCertificateChain", "(Ljava/lang/String;)[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineGetCertificateChain, $CertificateArray*, $String*)},
+		{"engineGetCreationDate", "(Ljava/lang/String;)Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineGetCreationDate, $Date*, $String*)},
+		{"engineGetEntry", "(Ljava/lang/String;Ljava/security/KeyStore$ProtectionParameter;)Ljava/security/KeyStore$Entry;", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineGetEntry, $KeyStore$Entry*, $String*, $KeyStore$ProtectionParameter*), "java.security.KeyStoreException,java.security.NoSuchAlgorithmException,java.security.UnrecoverableEntryException"},
+		{"engineGetKey", "(Ljava/lang/String;[C)Ljava/security/Key;", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineGetKey, $Key*, $String*, $chars*), "java.security.NoSuchAlgorithmException,java.security.UnrecoverableKeyException"},
+		{"engineIsCertificateEntry", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineIsCertificateEntry, bool, $String*)},
+		{"engineIsKeyEntry", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineIsKeyEntry, bool, $String*)},
+		{"engineLoad", "(Ljava/io/InputStream;[C)V", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineLoad, void, $InputStream*, $chars*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
+		{"engineProbe", "(Ljava/io/InputStream;)Z", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineProbe, bool, $InputStream*), "java.io.IOException"},
+		{"engineSetCertificateEntry", "(Ljava/lang/String;Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineSetCertificateEntry, void, $String*, $Certificate*), "java.security.KeyStoreException"},
+		{"engineSetEntry", "(Ljava/lang/String;Ljava/security/KeyStore$Entry;Ljava/security/KeyStore$ProtectionParameter;)V", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineSetEntry, void, $String*, $KeyStore$Entry*, $KeyStore$ProtectionParameter*), "java.security.KeyStoreException"},
+		{"engineSetKeyEntry", "(Ljava/lang/String;Ljava/security/Key;[C[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineSetKeyEntry, void, $String*, $Key*, $chars*, $CertificateArray*), "java.security.KeyStoreException"},
+		{"engineSetKeyEntry", "(Ljava/lang/String;[B[Ljava/security/cert/Certificate;)V", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineSetKeyEntry, void, $String*, $bytes*, $CertificateArray*), "java.security.KeyStoreException"},
+		{"engineSize", "()I", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineSize, int32_t)},
+		{"engineStore", "(Ljava/io/OutputStream;[C)V", nullptr, $PUBLIC, $virtualMethod(KeyStoreDelegator, engineStore, void, $OutputStream*, $chars*), "java.io.IOException,java.security.NoSuchAlgorithmException,java.security.cert.CertificateException"},
+		{"lambda$new$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(KeyStoreDelegator, lambda$new$0, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.KeyStoreDelegator",
+		"java.security.KeyStoreSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KeyStoreDelegator, name, initialize, &classInfo$$, KeyStoreDelegator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyStoreDelegator);
+	});
 	return class$;
 }
 

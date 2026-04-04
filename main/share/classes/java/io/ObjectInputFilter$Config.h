@@ -44,6 +44,7 @@ class $export ObjectInputFilter$Config : public ::java::lang::Object {
 	$class(ObjectInputFilter$Config, 0, ::java::lang::Object)
 public:
 	ObjectInputFilter$Config();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::io::ObjectInputFilter* createFilter($String* pattern);
 	static ::java::io::ObjectInputFilter* createFilter2($String* pattern);

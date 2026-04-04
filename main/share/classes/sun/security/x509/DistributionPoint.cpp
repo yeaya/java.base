@@ -1,5 +1,4 @@
 #include <sun/security/x509/DistributionPoint.h>
-
 #include <java/io/IOException.h>
 #include <java/util/Arrays.h>
 #include <java/util/Objects.h>
@@ -35,7 +34,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
 using $Objects = ::java::util::Objects;
 using $BitArray = ::sun::security::util::BitArray;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $GeneralNames = ::sun::security::x509::GeneralNames;
@@ -44,58 +42,6 @@ using $RDN = ::sun::security::x509::RDN;
 namespace sun {
 	namespace security {
 		namespace x509 {
-
-$FieldInfo _DistributionPoint_FieldInfo_[] = {
-	{"KEY_COMPROMISE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DistributionPoint, KEY_COMPROMISE)},
-	{"CA_COMPROMISE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DistributionPoint, CA_COMPROMISE)},
-	{"AFFILIATION_CHANGED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DistributionPoint, AFFILIATION_CHANGED)},
-	{"SUPERSEDED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DistributionPoint, SUPERSEDED)},
-	{"CESSATION_OF_OPERATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DistributionPoint, CESSATION_OF_OPERATION)},
-	{"CERTIFICATE_HOLD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DistributionPoint, CERTIFICATE_HOLD)},
-	{"PRIVILEGE_WITHDRAWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DistributionPoint, PRIVILEGE_WITHDRAWN)},
-	{"AA_COMPROMISE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DistributionPoint, AA_COMPROMISE)},
-	{"REASON_STRINGS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DistributionPoint, REASON_STRINGS)},
-	{"TAG_DIST_PT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DistributionPoint, TAG_DIST_PT)},
-	{"TAG_REASONS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DistributionPoint, TAG_REASONS)},
-	{"TAG_ISSUER", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DistributionPoint, TAG_ISSUER)},
-	{"TAG_FULL_NAME", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DistributionPoint, TAG_FULL_NAME)},
-	{"TAG_REL_NAME", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DistributionPoint, TAG_REL_NAME)},
-	{"fullName", "Lsun/security/x509/GeneralNames;", nullptr, $PRIVATE, $field(DistributionPoint, fullName)},
-	{"relativeName", "Lsun/security/x509/RDN;", nullptr, $PRIVATE, $field(DistributionPoint, relativeName)},
-	{"reasonFlags", "[Z", nullptr, $PRIVATE, $field(DistributionPoint, reasonFlags)},
-	{"crlIssuer", "Lsun/security/x509/GeneralNames;", nullptr, $PRIVATE, $field(DistributionPoint, crlIssuer)},
-	{"hashCode", "I", nullptr, $PRIVATE | $VOLATILE, $field(DistributionPoint, hashCode$)},
-	{}
-};
-
-$MethodInfo _DistributionPoint_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/x509/GeneralNames;[ZLsun/security/x509/GeneralNames;)V", nullptr, $PUBLIC, $method(DistributionPoint, init$, void, $GeneralNames*, $booleans*, $GeneralNames*)},
-	{"<init>", "(Lsun/security/x509/RDN;[ZLsun/security/x509/GeneralNames;)V", nullptr, $PUBLIC, $method(DistributionPoint, init$, void, $RDN*, $booleans*, $GeneralNames*)},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(DistributionPoint, init$, void, $DerValue*), "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(DistributionPoint, encode, void, $DerOutputStream*), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DistributionPoint, equals, bool, Object$*)},
-	{"getCRLIssuer", "()Lsun/security/x509/GeneralNames;", nullptr, $PUBLIC, $virtualMethod(DistributionPoint, getCRLIssuer, $GeneralNames*)},
-	{"getFullName", "()Lsun/security/x509/GeneralNames;", nullptr, $PUBLIC, $virtualMethod(DistributionPoint, getFullName, $GeneralNames*)},
-	{"getReasonFlags", "()[Z", nullptr, $PUBLIC, $virtualMethod(DistributionPoint, getReasonFlags, $booleans*)},
-	{"getRelativeName", "()Lsun/security/x509/RDN;", nullptr, $PUBLIC, $virtualMethod(DistributionPoint, getRelativeName, $RDN*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DistributionPoint, hashCode, int32_t)},
-	{"reasonToString", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(DistributionPoint, reasonToString, $String*, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DistributionPoint, toString, $String*)},
-	{}
-};
-
-$ClassInfo _DistributionPoint_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.DistributionPoint",
-	"java.lang.Object",
-	nullptr,
-	_DistributionPoint_FieldInfo_,
-	_DistributionPoint_MethodInfo_
-};
-
-$Object* allocate$DistributionPoint($Class* clazz) {
-	return $of($alloc(DistributionPoint));
-}
 
 $StringArray* DistributionPoint::REASON_STRINGS = nullptr;
 
@@ -118,12 +64,12 @@ void DistributionPoint::init$($RDN* relativeName, $booleans* reasonFlags, $Gener
 }
 
 void DistributionPoint::init$($DerValue* val) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(val)->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "Invalid encoding of DistributionPoint."_s);
 	}
-	while (($nc(val)->data$ != nullptr) && ($nc(val->data$)->available() != 0)) {
-		$var($DerValue, opt, $nc(val->data$)->getDerValue());
+	while ((val->data$ != nullptr) && (val->data$->available() != 0)) {
+		$var($DerValue, opt, val->data$->getDerValue());
 		bool var$0 = $nc(opt)->isContextSpecific(DistributionPoint::TAG_DIST_PT);
 		if (var$0 && opt->isConstructed()) {
 			if ((this->fullName != nullptr) || (this->relativeName != nullptr)) {
@@ -135,8 +81,8 @@ void DistributionPoint::init$($DerValue* val) {
 				distPnt->resetTag($DerValue::tag_Sequence);
 				$set(this, fullName, $new($GeneralNames, distPnt));
 			} else {
-				bool var$3 = distPnt->isContextSpecific(DistributionPoint::TAG_REL_NAME);
-				if (var$3 && distPnt->isConstructed()) {
+				bool var$2 = distPnt->isContextSpecific(DistributionPoint::TAG_REL_NAME);
+				if (var$2 && distPnt->isConstructed()) {
 					distPnt->resetTag($DerValue::tag_Set);
 					$set(this, relativeName, $new($RDN, distPnt));
 				} else {
@@ -144,16 +90,16 @@ void DistributionPoint::init$($DerValue* val) {
 				}
 			}
 		} else {
-			bool var$5 = opt->isContextSpecific(DistributionPoint::TAG_REASONS);
-			if (var$5 && !opt->isConstructed()) {
+			bool var$3 = opt->isContextSpecific(DistributionPoint::TAG_REASONS);
+			if (var$3 && !opt->isConstructed()) {
 				if (this->reasonFlags != nullptr) {
 					$throwNew($IOException, "Duplicate Reasons in DistributionPoint."_s);
 				}
 				opt->resetTag($DerValue::tag_BitString);
-				$set(this, reasonFlags, $nc(($(opt->getUnalignedBitString())))->toBooleanArray());
+				$set(this, reasonFlags, ($$nc(opt->getUnalignedBitString()))->toBooleanArray());
 			} else {
-				bool var$7 = opt->isContextSpecific(DistributionPoint::TAG_ISSUER);
-				if (var$7 && opt->isConstructed()) {
+				bool var$4 = opt->isContextSpecific(DistributionPoint::TAG_ISSUER);
+				if (var$4 && opt->isConstructed()) {
 					if (this->crlIssuer != nullptr) {
 						$throwNew($IOException, "Duplicate CRLIssuer in DistributionPoint."_s);
 					}
@@ -187,17 +133,17 @@ $GeneralNames* DistributionPoint::getCRLIssuer() {
 }
 
 void DistributionPoint::encode($DerOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, tagged, $new($DerOutputStream));
 	if ((this->fullName != nullptr) || (this->relativeName != nullptr)) {
 		$var($DerOutputStream, distributionPoint, $new($DerOutputStream));
 		if (this->fullName != nullptr) {
 			$var($DerOutputStream, derOut, $new($DerOutputStream));
-			$nc(this->fullName)->encode(derOut);
+			this->fullName->encode(derOut);
 			distributionPoint->writeImplicit($DerValue::createTag($DerValue::TAG_CONTEXT, true, DistributionPoint::TAG_FULL_NAME), derOut);
 		} else if (this->relativeName != nullptr) {
 			$var($DerOutputStream, derOut, $new($DerOutputStream));
-			$nc(this->relativeName)->encode(derOut);
+			this->relativeName->encode(derOut);
 			distributionPoint->writeImplicit($DerValue::createTag($DerValue::TAG_CONTEXT, true, DistributionPoint::TAG_REL_NAME), derOut);
 		}
 		tagged->write($DerValue::createTag($DerValue::TAG_CONTEXT, true, DistributionPoint::TAG_DIST_PT), distributionPoint);
@@ -210,7 +156,7 @@ void DistributionPoint::encode($DerOutputStream* out) {
 	}
 	if (this->crlIssuer != nullptr) {
 		$var($DerOutputStream, issuer, $new($DerOutputStream));
-		$nc(this->crlIssuer)->encode(issuer);
+		this->crlIssuer->encode(issuer);
 		tagged->writeImplicit($DerValue::createTag($DerValue::TAG_CONTEXT, true, DistributionPoint::TAG_ISSUER), issuer);
 	}
 	$nc(out)->write($DerValue::tag_Sequence, tagged);
@@ -225,9 +171,9 @@ bool DistributionPoint::equals(Object$* obj) {
 	}
 	$var(DistributionPoint, other, $cast(DistributionPoint, obj));
 	bool var$2 = $Objects::equals(this->fullName, $nc(other)->fullName);
-	bool var$1 = var$2 && $Objects::equals(this->relativeName, $nc(other)->relativeName);
-	bool var$0 = var$1 && $Objects::equals(this->crlIssuer, $nc(other)->crlIssuer);
-	bool equal = var$0 && $Arrays::equals(this->reasonFlags, $nc(other)->reasonFlags);
+	bool var$1 = var$2 && $Objects::equals(this->relativeName, other->relativeName);
+	bool var$0 = var$1 && $Objects::equals(this->crlIssuer, other->crlIssuer);
+	bool equal = var$0 && $Arrays::equals(this->reasonFlags, other->reasonFlags);
 	return equal;
 }
 
@@ -236,17 +182,17 @@ int32_t DistributionPoint::hashCode() {
 	if (hash == 0) {
 		hash = 1;
 		if (this->fullName != nullptr) {
-			hash += $nc(this->fullName)->hashCode();
+			hash += this->fullName->hashCode();
 		}
 		if (this->relativeName != nullptr) {
-			hash += $nc(this->relativeName)->hashCode();
+			hash += this->relativeName->hashCode();
 		}
 		if (this->crlIssuer != nullptr) {
-			hash += $nc(this->crlIssuer)->hashCode();
+			hash += this->crlIssuer->hashCode();
 		}
 		if (this->reasonFlags != nullptr) {
-			for (int32_t i = 0; i < $nc(this->reasonFlags)->length; ++i) {
-				if ($nc(this->reasonFlags)->get(i)) {
+			for (int32_t i = 0; i < this->reasonFlags->length; ++i) {
+				if (this->reasonFlags->get(i)) {
 					hash += i;
 				}
 			}
@@ -258,40 +204,40 @@ int32_t DistributionPoint::hashCode() {
 
 $String* DistributionPoint::reasonToString(int32_t reason) {
 	$init(DistributionPoint);
-	if ((reason > 0) && (reason < $nc(DistributionPoint::REASON_STRINGS)->length)) {
-		return $nc(DistributionPoint::REASON_STRINGS)->get(reason);
+	if ((reason > 0) && (reason < DistributionPoint::REASON_STRINGS->length)) {
+		return DistributionPoint::REASON_STRINGS->get(reason);
 	}
 	return $str({"Unknown reason "_s, $$str(reason)});
 }
 
 $String* DistributionPoint::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("DistributionPoint:\n     "_s);
 	if (this->fullName != nullptr) {
-		sb->append($of(this->fullName));
+		sb->append(this->fullName);
 	}
 	if (this->relativeName != nullptr) {
-		sb->append($of(this->relativeName));
+		sb->append(this->relativeName);
 	}
 	sb->append(u'\n');
 	if (this->reasonFlags != nullptr) {
 		sb->append("   ReasonFlags:\n"_s);
-		for (int32_t i = 0; i < $nc(this->reasonFlags)->length; ++i) {
-			if ($nc(this->reasonFlags)->get(i)) {
+		for (int32_t i = 0; i < this->reasonFlags->length; ++i) {
+			if (this->reasonFlags->get(i)) {
 				sb->append("    "_s)->append($(reasonToString(i)))->append(u'\n');
 			}
 		}
 	}
 	if (this->crlIssuer != nullptr) {
-		sb->append("   CRLIssuer:"_s)->append($of(this->crlIssuer))->append(u'\n');
+		sb->append("   CRLIssuer:"_s)->append(this->crlIssuer)->append(u'\n');
 	}
 	return sb->toString();
 }
 
-void clinit$DistributionPoint($Class* class$) {
+void DistributionPoint::clinit$($Class* clazz) {
 	$assignStatic(DistributionPoint::REASON_STRINGS, $new($StringArray, {
-		($String*)nullptr,
+		nullptr,
 		"key compromise"_s,
 		"CA compromise"_s,
 		"affiliation changed"_s,
@@ -307,7 +253,54 @@ DistributionPoint::DistributionPoint() {
 }
 
 $Class* DistributionPoint::load$($String* name, bool initialize) {
-	$loadClass(DistributionPoint, name, initialize, &_DistributionPoint_ClassInfo_, clinit$DistributionPoint, allocate$DistributionPoint);
+	$FieldInfo fieldInfos$$[] = {
+		{"KEY_COMPROMISE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DistributionPoint, KEY_COMPROMISE)},
+		{"CA_COMPROMISE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DistributionPoint, CA_COMPROMISE)},
+		{"AFFILIATION_CHANGED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DistributionPoint, AFFILIATION_CHANGED)},
+		{"SUPERSEDED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DistributionPoint, SUPERSEDED)},
+		{"CESSATION_OF_OPERATION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DistributionPoint, CESSATION_OF_OPERATION)},
+		{"CERTIFICATE_HOLD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DistributionPoint, CERTIFICATE_HOLD)},
+		{"PRIVILEGE_WITHDRAWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DistributionPoint, PRIVILEGE_WITHDRAWN)},
+		{"AA_COMPROMISE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DistributionPoint, AA_COMPROMISE)},
+		{"REASON_STRINGS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DistributionPoint, REASON_STRINGS)},
+		{"TAG_DIST_PT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DistributionPoint, TAG_DIST_PT)},
+		{"TAG_REASONS", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DistributionPoint, TAG_REASONS)},
+		{"TAG_ISSUER", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DistributionPoint, TAG_ISSUER)},
+		{"TAG_FULL_NAME", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DistributionPoint, TAG_FULL_NAME)},
+		{"TAG_REL_NAME", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DistributionPoint, TAG_REL_NAME)},
+		{"fullName", "Lsun/security/x509/GeneralNames;", nullptr, $PRIVATE, $field(DistributionPoint, fullName)},
+		{"relativeName", "Lsun/security/x509/RDN;", nullptr, $PRIVATE, $field(DistributionPoint, relativeName)},
+		{"reasonFlags", "[Z", nullptr, $PRIVATE, $field(DistributionPoint, reasonFlags)},
+		{"crlIssuer", "Lsun/security/x509/GeneralNames;", nullptr, $PRIVATE, $field(DistributionPoint, crlIssuer)},
+		{"hashCode", "I", nullptr, $PRIVATE | $VOLATILE, $field(DistributionPoint, hashCode$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/x509/GeneralNames;[ZLsun/security/x509/GeneralNames;)V", nullptr, $PUBLIC, $method(DistributionPoint, init$, void, $GeneralNames*, $booleans*, $GeneralNames*)},
+		{"<init>", "(Lsun/security/x509/RDN;[ZLsun/security/x509/GeneralNames;)V", nullptr, $PUBLIC, $method(DistributionPoint, init$, void, $RDN*, $booleans*, $GeneralNames*)},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(DistributionPoint, init$, void, $DerValue*), "java.io.IOException"},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(DistributionPoint, encode, void, $DerOutputStream*), "java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DistributionPoint, equals, bool, Object$*)},
+		{"getCRLIssuer", "()Lsun/security/x509/GeneralNames;", nullptr, $PUBLIC, $virtualMethod(DistributionPoint, getCRLIssuer, $GeneralNames*)},
+		{"getFullName", "()Lsun/security/x509/GeneralNames;", nullptr, $PUBLIC, $virtualMethod(DistributionPoint, getFullName, $GeneralNames*)},
+		{"getReasonFlags", "()[Z", nullptr, $PUBLIC, $virtualMethod(DistributionPoint, getReasonFlags, $booleans*)},
+		{"getRelativeName", "()Lsun/security/x509/RDN;", nullptr, $PUBLIC, $virtualMethod(DistributionPoint, getRelativeName, $RDN*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DistributionPoint, hashCode, int32_t)},
+		{"reasonToString", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(DistributionPoint, reasonToString, $String*, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DistributionPoint, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.DistributionPoint",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DistributionPoint, name, initialize, &classInfo$$, DistributionPoint::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DistributionPoint);
+	});
 	return class$;
 }
 

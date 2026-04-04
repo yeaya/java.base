@@ -53,6 +53,7 @@ class $import VM : public ::java::lang::Object {
 	$class(VM, $PRELOAD, ::java::lang::Object)
 public:
 	VM();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addFinalRefCount(int32_t n);
 	static void awaitInitLevel(int32_t value);
@@ -96,7 +97,7 @@ public:
 	static bool pageAlignDirectMemory;
 	static int32_t classFileMajorVersion;
 	static int32_t classFileMinorVersion;
-	static const int32_t PREVIEW_MINOR_VERSION = 0x0000FFFF;
+	static const int32_t PREVIEW_MINOR_VERSION = 0x0000ffff;
 	static ::java::util::Map* savedProps;
 	static $volatile(int32_t) finalRefCount;
 	static $volatile(int32_t) peakFinalRefCount;

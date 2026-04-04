@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLTransport.h>
-
 #include <java/io/EOFException.h>
 #include <java/io/IOException.h>
 #include <java/io/InterruptedIOException.h>
@@ -46,10 +45,7 @@ using $BadPaddingException = ::javax::crypto::BadPaddingException;
 using $SSLHandshakeException = ::javax::net::ssl::SSLHandshakeException;
 using $Alert = ::sun::security::ssl::Alert;
 using $ContentType = ::sun::security::ssl::ContentType;
-using $InputRecord = ::sun::security::ssl::InputRecord;
-using $OutputRecord = ::sun::security::ssl::OutputRecord;
 using $Plaintext = ::sun::security::ssl::Plaintext;
-using $SSLContextImpl = ::sun::security::ssl::SSLContextImpl;
 using $SSLLogger = ::sun::security::ssl::SSLLogger;
 using $TransportContext = ::sun::security::ssl::TransportContext;
 
@@ -57,33 +53,11 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SSLTransport_MethodInfo_[] = {
-	{"decode", "(Lsun/security/ssl/TransportContext;[Ljava/nio/ByteBuffer;II[Ljava/nio/ByteBuffer;II)Lsun/security/ssl/Plaintext;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLTransport, decode, $Plaintext*, $TransportContext*, $ByteBufferArray*, int32_t, int32_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
-	{"getPeerHost", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLTransport, getPeerHost, $String*)},
-	{"getPeerPort", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLTransport, getPeerPort, int32_t)},
-	{"shutdown", "()V", nullptr, $PUBLIC, $virtualMethod(SSLTransport, shutdown, void), "java.io.IOException"},
-	{"useDelegatedTask", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLTransport, useDelegatedTask, bool)},
-	{}
-};
-
-$ClassInfo _SSLTransport_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"sun.security.ssl.SSLTransport",
-	nullptr,
-	nullptr,
-	nullptr,
-	_SSLTransport_MethodInfo_
-};
-
-$Object* allocate$SSLTransport($Class* clazz) {
-	return $of($alloc(SSLTransport));
-}
-
 void SSLTransport::shutdown() {
 }
 
 $Plaintext* SSLTransport::decode($TransportContext* context, $ByteBufferArray* srcs, int32_t srcsOffset, int32_t srcsLength, $ByteBufferArray* dsts, int32_t dstsOffset, int32_t dstsLength) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PlaintextArray, plaintexts, nullptr);
 	try {
 		$assign(plaintexts, $nc($nc(context)->inputRecord)->decode(srcs, srcsOffset, srcsLength));
@@ -96,17 +70,17 @@ $Plaintext* SSLTransport::decode($TransportContext* context, $ByteBufferArray* s
 			}
 		}
 		$init($Alert);
-		$throw($($nc(context)->fatal($Alert::UNEXPECTED_MESSAGE, static_cast<$Throwable*>(unsoe))));
+		$throw($(context->fatal($Alert::UNEXPECTED_MESSAGE, unsoe)));
 	} catch ($AEADBadTagException& bte) {
 		$init($Alert);
-		$throw($($nc(context)->fatal($Alert::BAD_RECORD_MAC, static_cast<$Throwable*>(bte))));
+		$throw($($nc(context)->fatal($Alert::BAD_RECORD_MAC, bte)));
 	} catch ($BadPaddingException& bpe) {
 		$init($Alert);
 		$Alert* alert = ($nc(context)->handshakeContext != nullptr) ? $Alert::HANDSHAKE_FAILURE : $Alert::BAD_RECORD_MAC;
-		$throw($($nc(context)->fatal(alert, static_cast<$Throwable*>(bpe))));
+		$throw($(context->fatal(alert, bpe)));
 	} catch ($SSLHandshakeException& she) {
 		$init($Alert);
-		$throw($($nc(context)->fatal($Alert::HANDSHAKE_FAILURE, static_cast<$Throwable*>(she))));
+		$throw($($nc(context)->fatal($Alert::HANDSHAKE_FAILURE, she)));
 	} catch ($EOFException& eofe) {
 		$throw(eofe);
 	} catch ($InterruptedIOException& se) {
@@ -115,9 +89,9 @@ $Plaintext* SSLTransport::decode($TransportContext* context, $ByteBufferArray* s
 		$throw(se);
 	} catch ($IOException& ioe) {
 		$init($Alert);
-		$throw($($nc(context)->fatal($Alert::UNEXPECTED_MESSAGE, static_cast<$Throwable*>(ioe))));
+		$throw($($nc(context)->fatal($Alert::UNEXPECTED_MESSAGE, ioe)));
 	}
-	if (plaintexts == nullptr || $nc(plaintexts)->length == 0) {
+	if (plaintexts == nullptr || plaintexts->length == 0) {
 		$init($Plaintext);
 		return $Plaintext::PLAINTEXT_NULL;
 	}
@@ -125,13 +99,11 @@ $Plaintext* SSLTransport::decode($TransportContext* context, $ByteBufferArray* s
 	$var($Plaintext, finalPlaintext, $Plaintext::PLAINTEXT_NULL);
 	{
 		$var($PlaintextArray, arr$, plaintexts);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Plaintext, plainText, arr$->get(i$));
 			{
 				if (plainText == $Plaintext::PLAINTEXT_NULL) {
-					if ($nc(context)->handshakeContext != nullptr && $nc($nc(context->handshakeContext)->sslConfig)->enableRetransmissions && $nc(context->sslContext)->isDTLS()) {
+					if ($nc(context)->handshakeContext != nullptr && $nc(context->handshakeContext->sslConfig)->enableRetransmissions && $nc(context->sslContext)->isDTLS()) {
 						$init($SSLLogger);
 						if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,verbose"_s)) {
 							$SSLLogger::finest("retransmited handshake flight"_s, $$new($ObjectArray, 0));
@@ -148,7 +120,7 @@ $Plaintext* SSLTransport::decode($TransportContext* context, $ByteBufferArray* s
 					$assign(plainText, $Plaintext::PLAINTEXT_NULL);
 				} else {
 					$init($ContentType);
-					if ($nc(plainText)->contentType == $ContentType::APPLICATION_DATA->id) {
+					if (plainText->contentType == $ContentType::APPLICATION_DATA->id) {
 						if (!$nc(context)->isNegotiated) {
 							$init($SSLLogger);
 							if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,verbose"_s)) {
@@ -172,7 +144,7 @@ $Plaintext* SSLTransport::decode($TransportContext* context, $ByteBufferArray* s
 							}
 							if (remains > 0) {
 								$init($Alert);
-								$throw($($nc(context)->fatal($Alert::INTERNAL_ERROR, "no sufficient room in the destination buffers"_s)));
+								$throw($(context->fatal($Alert::INTERNAL_ERROR, "no sufficient room in the destination buffers"_s)));
 							}
 						}
 					}
@@ -185,7 +157,25 @@ $Plaintext* SSLTransport::decode($TransportContext* context, $ByteBufferArray* s
 }
 
 $Class* SSLTransport::load$($String* name, bool initialize) {
-	$loadClass(SSLTransport, name, initialize, &_SSLTransport_ClassInfo_, allocate$SSLTransport);
+	$MethodInfo methodInfos$$[] = {
+		{"decode", "(Lsun/security/ssl/TransportContext;[Ljava/nio/ByteBuffer;II[Ljava/nio/ByteBuffer;II)Lsun/security/ssl/Plaintext;", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLTransport, decode, $Plaintext*, $TransportContext*, $ByteBufferArray*, int32_t, int32_t, $ByteBufferArray*, int32_t, int32_t), "java.io.IOException"},
+		{"getPeerHost", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLTransport, getPeerHost, $String*)},
+		{"getPeerPort", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLTransport, getPeerPort, int32_t)},
+		{"shutdown", "()V", nullptr, $PUBLIC, $virtualMethod(SSLTransport, shutdown, void), "java.io.IOException"},
+		{"useDelegatedTask", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SSLTransport, useDelegatedTask, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"sun.security.ssl.SSLTransport",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SSLTransport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLTransport);
+	});
 	return class$;
 }
 

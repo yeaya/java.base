@@ -27,6 +27,7 @@ class BootstrapMethodInvoker$VM_BSCI : public ::java::lang::invoke::AbstractCons
 public:
 	BootstrapMethodInvoker$VM_BSCI();
 	using ::java::lang::invoke::AbstractConstantGroup$BSCIWithCache::copyConstants;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::MethodHandle* bsm, $String* name, Object$* type, ::java::lang::invoke::MethodHandles$Lookup* lookup, $ints* indexInfo);
 	virtual int32_t copyConstants(int32_t start, int32_t end, $ObjectArray* buf, int32_t pos) override;
 	virtual $Object* fillCache(int32_t i) override;

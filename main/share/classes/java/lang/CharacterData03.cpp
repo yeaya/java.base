@@ -1,5 +1,4 @@
 #include <java/lang/CharacterData03.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharacterData.h>
 #include <jcpp.h>
@@ -24,56 +23,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace lang {
 
-$FieldInfo _CharacterData03_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CharacterData03, $assertionsDisabled)},
-	{"instance", "Ljava/lang/CharacterData;", nullptr, $STATIC | $FINAL, $staticField(CharacterData03, instance)},
-	{"X", "[C", nullptr, $STATIC | $FINAL, $staticField(CharacterData03, X)},
-	{"Y", "[C", nullptr, $STATIC | $FINAL, $staticField(CharacterData03, Y)},
-	{"A", "[I", nullptr, $STATIC | $FINAL, $staticField(CharacterData03, A)},
-	{"A_DATA", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(CharacterData03, A_DATA)},
-	{"B", "[C", nullptr, $STATIC | $FINAL, $staticField(CharacterData03, B)},
-	{}
-};
-
-$MethodInfo _CharacterData03_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CharacterData03, init$, void)},
-	{"digit", "(II)I", nullptr, 0, $virtualMethod(CharacterData03, digit, int32_t, int32_t, int32_t)},
-	{"getDirectionality", "(I)B", nullptr, 0, $virtualMethod(CharacterData03, getDirectionality, int8_t, int32_t)},
-	{"getNumericValue", "(I)I", nullptr, 0, $virtualMethod(CharacterData03, getNumericValue, int32_t, int32_t)},
-	{"getProperties", "(I)I", nullptr, 0, $virtualMethod(CharacterData03, getProperties, int32_t, int32_t)},
-	{"getPropertiesEx", "(I)I", nullptr, 0, $virtualMethod(CharacterData03, getPropertiesEx, int32_t, int32_t)},
-	{"getType", "(I)I", nullptr, 0, $virtualMethod(CharacterData03, getType, int32_t, int32_t)},
-	{"isDigit", "(I)Z", nullptr, 0, $virtualMethod(CharacterData03, isDigit, bool, int32_t)},
-	{"isIdentifierIgnorable", "(I)Z", nullptr, 0, $virtualMethod(CharacterData03, isIdentifierIgnorable, bool, int32_t)},
-	{"isIdeographic", "(I)Z", nullptr, 0, $virtualMethod(CharacterData03, isIdeographic, bool, int32_t)},
-	{"isJavaIdentifierPart", "(I)Z", nullptr, 0, $virtualMethod(CharacterData03, isJavaIdentifierPart, bool, int32_t)},
-	{"isJavaIdentifierStart", "(I)Z", nullptr, 0, $virtualMethod(CharacterData03, isJavaIdentifierStart, bool, int32_t)},
-	{"isLowerCase", "(I)Z", nullptr, 0, $virtualMethod(CharacterData03, isLowerCase, bool, int32_t)},
-	{"isMirrored", "(I)Z", nullptr, 0, $virtualMethod(CharacterData03, isMirrored, bool, int32_t)},
-	{"isOtherAlphabetic", "(I)Z", nullptr, 0, $virtualMethod(CharacterData03, isOtherAlphabetic, bool, int32_t)},
-	{"isUnicodeIdentifierPart", "(I)Z", nullptr, 0, $virtualMethod(CharacterData03, isUnicodeIdentifierPart, bool, int32_t)},
-	{"isUnicodeIdentifierStart", "(I)Z", nullptr, 0, $virtualMethod(CharacterData03, isUnicodeIdentifierStart, bool, int32_t)},
-	{"isUpperCase", "(I)Z", nullptr, 0, $virtualMethod(CharacterData03, isUpperCase, bool, int32_t)},
-	{"isWhitespace", "(I)Z", nullptr, 0, $virtualMethod(CharacterData03, isWhitespace, bool, int32_t)},
-	{"toLowerCase", "(I)I", nullptr, 0, $virtualMethod(CharacterData03, toLowerCase, int32_t, int32_t)},
-	{"toTitleCase", "(I)I", nullptr, 0, $virtualMethod(CharacterData03, toTitleCase, int32_t, int32_t)},
-	{"toUpperCase", "(I)I", nullptr, 0, $virtualMethod(CharacterData03, toUpperCase, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _CharacterData03_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.CharacterData03",
-	"java.lang.CharacterData",
-	nullptr,
-	_CharacterData03_FieldInfo_,
-	_CharacterData03_MethodInfo_
-};
-
-$Object* allocate$CharacterData03($Class* clazz) {
-	return $of($alloc(CharacterData03));
-}
-
 bool CharacterData03::$assertionsDisabled = false;
 $CharacterData* CharacterData03::instance = nullptr;
 $chars* CharacterData03::X = nullptr;
@@ -84,59 +33,59 @@ $chars* CharacterData03::B = nullptr;
 
 int32_t CharacterData03::getProperties(int32_t ch) {
 	char16_t offset = (char16_t)ch;
-	int32_t props = $nc(CharacterData03::A)->get($nc(CharacterData03::Y)->get($nc(CharacterData03::X)->get(offset >> 5) | ((int32_t)((offset >> 1) & (uint32_t)15))) | ((int32_t)(offset & (uint32_t)1)));
+	int32_t props = CharacterData03::A->get(CharacterData03::Y->get(CharacterData03::X->get(offset >> 5) | ((offset >> 1) & 0x0f)) | (offset & 1));
 	return props;
 }
 
 int32_t CharacterData03::getPropertiesEx(int32_t ch) {
 	char16_t offset = (char16_t)ch;
-	int32_t props = $nc(CharacterData03::B)->get($nc(CharacterData03::Y)->get($nc(CharacterData03::X)->get(offset >> 5) | ((int32_t)((offset >> 1) & (uint32_t)15))) | ((int32_t)(offset & (uint32_t)1)));
+	int32_t props = CharacterData03::B->get(CharacterData03::Y->get(CharacterData03::X->get(offset >> 5) | ((offset >> 1) & 0x0f)) | (offset & 1));
 	return props;
 }
 
 bool CharacterData03::isOtherAlphabetic(int32_t ch) {
 	int32_t props = getPropertiesEx(ch);
-	return ((int32_t)(props & (uint32_t)4)) != 0;
+	return (props & 4) != 0;
 }
 
 bool CharacterData03::isIdeographic(int32_t ch) {
 	int32_t props = getPropertiesEx(ch);
-	return ((int32_t)(props & (uint32_t)8)) != 0;
+	return (props & 8) != 0;
 }
 
 int32_t CharacterData03::getType(int32_t ch) {
 	int32_t props = getProperties(ch);
-	return ((int32_t)(props & (uint32_t)31));
+	return (props & 0x1f);
 }
 
 bool CharacterData03::isJavaIdentifierStart(int32_t ch) {
 	int32_t props = getProperties(ch);
-	return (((int32_t)(props & (uint32_t)28672)) >= 20480);
+	return ((props & 0x7000) >= 0x5000);
 }
 
 bool CharacterData03::isJavaIdentifierPart(int32_t ch) {
 	int32_t props = getProperties(ch);
-	return (((int32_t)(props & (uint32_t)12288)) != 0);
+	return ((props & 0x3000) != 0);
 }
 
 bool CharacterData03::isUnicodeIdentifierStart(int32_t ch) {
-	return ((int32_t)(getPropertiesEx(ch) & (uint32_t)16)) != 0;
+	return (getPropertiesEx(ch) & 0x10) != 0;
 }
 
 bool CharacterData03::isUnicodeIdentifierPart(int32_t ch) {
-	bool var$0 = ((int32_t)(getPropertiesEx(ch) & (uint32_t)32)) != 0;
+	bool var$0 = (getPropertiesEx(ch) & 0x20) != 0;
 	return var$0 || isIdentifierIgnorable(ch);
 }
 
 bool CharacterData03::isIdentifierIgnorable(int32_t ch) {
 	int32_t props = getProperties(ch);
-	return (((int32_t)(props & (uint32_t)28672)) == 4096);
+	return ((props & 0x7000) == 0x1000);
 }
 
 int32_t CharacterData03::toLowerCase(int32_t ch) {
 	int32_t mapChar = ch;
 	int32_t val = getProperties(ch);
-	if (((int32_t)(val & (uint32_t)0x00020000)) != 0) {
+	if ((val & 0x00020000) != 0) {
 		int32_t offset = $sr(val << 5, 5 + 18);
 		mapChar = ch + offset;
 	}
@@ -146,7 +95,7 @@ int32_t CharacterData03::toLowerCase(int32_t ch) {
 int32_t CharacterData03::toUpperCase(int32_t ch) {
 	int32_t mapChar = ch;
 	int32_t val = getProperties(ch);
-	if (((int32_t)(val & (uint32_t)0x00010000)) != 0) {
+	if ((val & 0x00010000) != 0) {
 		int32_t offset = $sr(val << 5, 5 + 18);
 		mapChar = ch - offset;
 	}
@@ -156,13 +105,13 @@ int32_t CharacterData03::toUpperCase(int32_t ch) {
 int32_t CharacterData03::toTitleCase(int32_t ch) {
 	int32_t mapChar = ch;
 	int32_t val = getProperties(ch);
-	if (((int32_t)(val & (uint32_t)32768)) != 0) {
-		if (((int32_t)(val & (uint32_t)0x00010000)) == 0) {
+	if ((val & 0x8000) != 0) {
+		if ((val & 0x00010000) == 0) {
 			mapChar = ch + 1;
-		} else if (((int32_t)(val & (uint32_t)0x00020000)) == 0) {
+		} else if ((val & 0x00020000) == 0) {
 			mapChar = ch - 1;
 		}
-	} else if (((int32_t)(val & (uint32_t)0x00010000)) != 0) {
+	} else if ((val & 0x00010000) != 0) {
 		mapChar = toUpperCase(ch);
 	}
 	return mapChar;
@@ -172,11 +121,11 @@ int32_t CharacterData03::digit(int32_t ch, int32_t radix) {
 	int32_t value = -1;
 	if (radix >= $Character::MIN_RADIX && radix <= $Character::MAX_RADIX) {
 		int32_t val = getProperties(ch);
-		int32_t kind = (int32_t)(val & (uint32_t)31);
+		int32_t kind = val & 0x1f;
 		if (kind == $Character::DECIMAL_DIGIT_NUMBER) {
-			value = (int32_t)((ch + (((int32_t)(val & (uint32_t)992)) >> 5)) & (uint32_t)31);
-		} else if (((int32_t)(val & (uint32_t)3072)) == 3072) {
-			value = ((int32_t)((ch + (((int32_t)(val & (uint32_t)992)) >> 5)) & (uint32_t)31)) + 10;
+			value = (ch + ((val & 0x03e0) >> 5)) & 0x1f;
+		} else if ((val & 0x0c00) == 0x0c00) {
+			value = ((ch + ((val & 0x03e0) >> 5)) & 0x1f) + 0x0a;
 		}
 	}
 	return (value < radix) ? value : -1;
@@ -186,7 +135,7 @@ int32_t CharacterData03::getNumericValue(int32_t ch) {
 	int32_t val = getProperties(ch);
 	int32_t retval = -1;
 	do {
-		int32_t var$0 = (int32_t)(val & (uint32_t)3072);
+		int32_t var$0 = val & 0x0c00;
 		if (var$0 == (0)) {
 			goto case$0;
 		}
@@ -202,56 +151,46 @@ int32_t CharacterData03::getNumericValue(int32_t ch) {
 		goto case$4;
 case$4:
 		// default
-		{
-		}
 case$0:
 		// (0)
-		{
-			retval = -1;
-			break;
-		}
+		retval = -1;
+		break;
 case$1:
 		// (1024)
-		{
-			retval = (int32_t)((ch + (((int32_t)(val & (uint32_t)992)) >> 5)) & (uint32_t)31);
-			break;
-		}
+		retval = (ch + ((val & 0x03e0) >> 5)) & 0x1f;
+		break;
 case$2:
 		// (2048)
-		{
-			retval = -2;
-			break;
-		}
+		retval = -2;
+		break;
 case$3:
 		// (3072)
-		{
-			retval = ((int32_t)((ch + (((int32_t)(val & (uint32_t)992)) >> 5)) & (uint32_t)31)) + 10;
-			break;
-		}
+		retval = ((ch + ((val & 0x03e0) >> 5)) & 0x1f) + 0x0a;
+		break;
 	} while (false);
 	return retval;
 }
 
 bool CharacterData03::isDigit(int32_t ch) {
 	int32_t props = getProperties(ch);
-	return ((int32_t)(props & (uint32_t)31)) == $Character::DECIMAL_DIGIT_NUMBER;
+	return (props & 0x1f) == $Character::DECIMAL_DIGIT_NUMBER;
 }
 
 bool CharacterData03::isLowerCase(int32_t ch) {
-	return ((int32_t)(getPropertiesEx(ch) & (uint32_t)1)) != 0;
+	return (getPropertiesEx(ch) & 1) != 0;
 }
 
 bool CharacterData03::isUpperCase(int32_t ch) {
-	return ((int32_t)(getPropertiesEx(ch) & (uint32_t)2)) != 0;
+	return (getPropertiesEx(ch) & 2) != 0;
 }
 
 bool CharacterData03::isWhitespace(int32_t ch) {
-	return ((int32_t)(getProperties(ch) & (uint32_t)28672)) == 16384;
+	return (getProperties(ch) & 0x7000) == 0x4000;
 }
 
 int8_t CharacterData03::getDirectionality(int32_t ch) {
 	int32_t val = getProperties(ch);
-	int8_t directionality = (int8_t)(((int32_t)(val & (uint32_t)0x78000000)) >> 27);
+	int8_t directionality = (int8_t)((val & 0x78000000) >> 0x1b);
 	if (directionality == 15) {
 		directionality = $Character::DIRECTIONALITY_UNDEFINED;
 	}
@@ -259,33 +198,31 @@ int8_t CharacterData03::getDirectionality(int32_t ch) {
 }
 
 bool CharacterData03::isMirrored(int32_t ch) {
-	return ((int32_t)(getProperties(ch) & (uint32_t)(int32_t)0x80000000)) != 0;
+	return (getProperties(ch) & (int32_t)0x80000000) != 0;
 }
 
 void CharacterData03::init$() {
 	$CharacterData::init$();
 }
 
-void clinit$CharacterData03($Class* class$) {
+void CharacterData03::clinit$($Class* clazz) {
 	$assignStatic(CharacterData03::A_DATA, $cstr({'\0', 0x7005, '\0', 0x7005, '\0', 0x7005, 0x7800, '\0', 0x7800, '\0', 0x7800, '\0'}));
 	CharacterData03::$assertionsDisabled = !CharacterData03::class$->desiredAssertionStatus();
 	$assignStatic(CharacterData03::instance, $new(CharacterData03));
 	$assignStatic(CharacterData03::X, ($cstr({'\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', 0x10, ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}))->toCharArray());
-	$assignStatic(CharacterData03::Y, ($cstr({'\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', 0x2, 0x4, 0x4, 0x4, 0x4, 0x4, 0x4, 0x4, 0x4, 0x4, 0x4, 0x4, 0x4, 0x4, 0x4, 0x4, 0x4, 0x4, 0x4, 0x4, 0x4, 0x4, 0x4, 0x4, 0x4, 0x4, 0x4}))->toCharArray());
+	$assignStatic(CharacterData03::Y, ($cstr({'\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', 0x02, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04, 0x04}))->toCharArray());
 	$assignStatic(CharacterData03::A, $new($ints, 6));
 	$assignStatic(CharacterData03::B, ($cstr({'8', '8', '8', '\0', '\0', '\0'}))->toCharArray());
 	{
-		{
-			$var($chars, data, $nc(CharacterData03::A_DATA)->toCharArray());
-			if (!CharacterData03::$assertionsDisabled && !(data->length == (6 * 2))) {
-				$throwNew($AssertionError);
-			}
-			int32_t i = 0;
-			int32_t j = 0;
-			while (i < (6 * 2)) {
-				int32_t entry = data->get(i++) << 16;
-				$nc(CharacterData03::A)->set(j++, entry | data->get(i++));
-			}
+		$var($chars, data, CharacterData03::A_DATA->toCharArray());
+		if (!CharacterData03::$assertionsDisabled && !(data->length == (6 * 2))) {
+			$throwNew($AssertionError);
+		}
+		int32_t i = 0;
+		int32_t j = 0;
+		while (i < (6 * 2)) {
+			int32_t entry = data->get(i++) << 16;
+			CharacterData03::A->set(j++, entry | data->get(i++));
 		}
 	}
 }
@@ -294,7 +231,52 @@ CharacterData03::CharacterData03() {
 }
 
 $Class* CharacterData03::load$($String* name, bool initialize) {
-	$loadClass(CharacterData03, name, initialize, &_CharacterData03_ClassInfo_, clinit$CharacterData03, allocate$CharacterData03);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CharacterData03, $assertionsDisabled)},
+		{"instance", "Ljava/lang/CharacterData;", nullptr, $STATIC | $FINAL, $staticField(CharacterData03, instance)},
+		{"X", "[C", nullptr, $STATIC | $FINAL, $staticField(CharacterData03, X)},
+		{"Y", "[C", nullptr, $STATIC | $FINAL, $staticField(CharacterData03, Y)},
+		{"A", "[I", nullptr, $STATIC | $FINAL, $staticField(CharacterData03, A)},
+		{"A_DATA", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(CharacterData03, A_DATA)},
+		{"B", "[C", nullptr, $STATIC | $FINAL, $staticField(CharacterData03, B)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CharacterData03, init$, void)},
+		{"digit", "(II)I", nullptr, 0, $virtualMethod(CharacterData03, digit, int32_t, int32_t, int32_t)},
+		{"getDirectionality", "(I)B", nullptr, 0, $virtualMethod(CharacterData03, getDirectionality, int8_t, int32_t)},
+		{"getNumericValue", "(I)I", nullptr, 0, $virtualMethod(CharacterData03, getNumericValue, int32_t, int32_t)},
+		{"getProperties", "(I)I", nullptr, 0, $virtualMethod(CharacterData03, getProperties, int32_t, int32_t)},
+		{"getPropertiesEx", "(I)I", nullptr, 0, $virtualMethod(CharacterData03, getPropertiesEx, int32_t, int32_t)},
+		{"getType", "(I)I", nullptr, 0, $virtualMethod(CharacterData03, getType, int32_t, int32_t)},
+		{"isDigit", "(I)Z", nullptr, 0, $virtualMethod(CharacterData03, isDigit, bool, int32_t)},
+		{"isIdentifierIgnorable", "(I)Z", nullptr, 0, $virtualMethod(CharacterData03, isIdentifierIgnorable, bool, int32_t)},
+		{"isIdeographic", "(I)Z", nullptr, 0, $virtualMethod(CharacterData03, isIdeographic, bool, int32_t)},
+		{"isJavaIdentifierPart", "(I)Z", nullptr, 0, $virtualMethod(CharacterData03, isJavaIdentifierPart, bool, int32_t)},
+		{"isJavaIdentifierStart", "(I)Z", nullptr, 0, $virtualMethod(CharacterData03, isJavaIdentifierStart, bool, int32_t)},
+		{"isLowerCase", "(I)Z", nullptr, 0, $virtualMethod(CharacterData03, isLowerCase, bool, int32_t)},
+		{"isMirrored", "(I)Z", nullptr, 0, $virtualMethod(CharacterData03, isMirrored, bool, int32_t)},
+		{"isOtherAlphabetic", "(I)Z", nullptr, 0, $virtualMethod(CharacterData03, isOtherAlphabetic, bool, int32_t)},
+		{"isUnicodeIdentifierPart", "(I)Z", nullptr, 0, $virtualMethod(CharacterData03, isUnicodeIdentifierPart, bool, int32_t)},
+		{"isUnicodeIdentifierStart", "(I)Z", nullptr, 0, $virtualMethod(CharacterData03, isUnicodeIdentifierStart, bool, int32_t)},
+		{"isUpperCase", "(I)Z", nullptr, 0, $virtualMethod(CharacterData03, isUpperCase, bool, int32_t)},
+		{"isWhitespace", "(I)Z", nullptr, 0, $virtualMethod(CharacterData03, isWhitespace, bool, int32_t)},
+		{"toLowerCase", "(I)I", nullptr, 0, $virtualMethod(CharacterData03, toLowerCase, int32_t, int32_t)},
+		{"toTitleCase", "(I)I", nullptr, 0, $virtualMethod(CharacterData03, toTitleCase, int32_t, int32_t)},
+		{"toUpperCase", "(I)I", nullptr, 0, $virtualMethod(CharacterData03, toUpperCase, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.CharacterData03",
+		"java.lang.CharacterData",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CharacterData03, name, initialize, &classInfo$$, CharacterData03::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CharacterData03);
+	});
 	return class$;
 }
 

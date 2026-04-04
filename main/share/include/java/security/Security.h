@@ -39,6 +39,7 @@ class $import Security : public ::java::lang::Object {
 	$class(Security, 0, ::java::lang::Object)
 public:
 	Security();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t addProvider(::java::security::Provider* provider);
 	static void check($String* directive);

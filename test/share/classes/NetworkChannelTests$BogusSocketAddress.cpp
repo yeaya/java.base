@@ -1,5 +1,4 @@
 #include <NetworkChannelTests$BogusSocketAddress.h>
-
 #include <NetworkChannelTests.h>
 #include <java/net/SocketAddress.h>
 #include <jcpp.h>
@@ -9,36 +8,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SocketAddress = ::java::net::SocketAddress;
 
-$MethodInfo _NetworkChannelTests$BogusSocketAddress_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(NetworkChannelTests$BogusSocketAddress, init$, void)},
-	{}
-};
-
-$InnerClassInfo _NetworkChannelTests$BogusSocketAddress_InnerClassesInfo_[] = {
-	{"NetworkChannelTests$BogusSocketAddress", "NetworkChannelTests", "BogusSocketAddress", $STATIC},
-	{}
-};
-
-$ClassInfo _NetworkChannelTests$BogusSocketAddress_ClassInfo_ = {
-	$ACC_SUPER,
-	"NetworkChannelTests$BogusSocketAddress",
-	"java.net.SocketAddress",
-	nullptr,
-	nullptr,
-	_NetworkChannelTests$BogusSocketAddress_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NetworkChannelTests$BogusSocketAddress_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"NetworkChannelTests"
-};
-
-$Object* allocate$NetworkChannelTests$BogusSocketAddress($Class* clazz) {
-	return $of($alloc(NetworkChannelTests$BogusSocketAddress));
-}
-
 void NetworkChannelTests$BogusSocketAddress::init$() {
 	$SocketAddress::init$();
 }
@@ -47,7 +16,32 @@ NetworkChannelTests$BogusSocketAddress::NetworkChannelTests$BogusSocketAddress()
 }
 
 $Class* NetworkChannelTests$BogusSocketAddress::load$($String* name, bool initialize) {
-	$loadClass(NetworkChannelTests$BogusSocketAddress, name, initialize, &_NetworkChannelTests$BogusSocketAddress_ClassInfo_, allocate$NetworkChannelTests$BogusSocketAddress);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(NetworkChannelTests$BogusSocketAddress, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"NetworkChannelTests$BogusSocketAddress", "NetworkChannelTests", "BogusSocketAddress", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"NetworkChannelTests$BogusSocketAddress",
+		"java.net.SocketAddress",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"NetworkChannelTests"
+	};
+	$loadClass(NetworkChannelTests$BogusSocketAddress, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NetworkChannelTests$BogusSocketAddress);
+	});
 	return class$;
 }
 

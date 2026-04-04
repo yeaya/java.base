@@ -1,5 +1,4 @@
 #include <sun/security/x509/GeneralSubtree.h>
-
 #include <java/io/IOException.h>
 #include <sun/security/util/DerInputStream.h>
 #include <sun/security/util/DerOutputStream.h>
@@ -16,7 +15,6 @@ using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 using $GeneralName = ::sun::security::x509::GeneralName;
@@ -24,43 +22,6 @@ using $GeneralName = ::sun::security::x509::GeneralName;
 namespace sun {
 	namespace security {
 		namespace x509 {
-
-$FieldInfo _GeneralSubtree_FieldInfo_[] = {
-	{"TAG_MIN", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GeneralSubtree, TAG_MIN)},
-	{"TAG_MAX", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GeneralSubtree, TAG_MAX)},
-	{"MIN_DEFAULT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GeneralSubtree, MIN_DEFAULT)},
-	{"name", "Lsun/security/x509/GeneralName;", nullptr, $PRIVATE, $field(GeneralSubtree, name)},
-	{"minimum", "I", nullptr, $PRIVATE, $field(GeneralSubtree, minimum)},
-	{"maximum", "I", nullptr, $PRIVATE, $field(GeneralSubtree, maximum)},
-	{"myhash", "I", nullptr, $PRIVATE, $field(GeneralSubtree, myhash)},
-	{}
-};
-
-$MethodInfo _GeneralSubtree_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/x509/GeneralName;II)V", nullptr, $PUBLIC, $method(GeneralSubtree, init$, void, $GeneralName*, int32_t, int32_t)},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(GeneralSubtree, init$, void, $DerValue*), "java.io.IOException"},
-	{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(GeneralSubtree, encode, void, $DerOutputStream*), "java.io.IOException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GeneralSubtree, equals, bool, Object$*)},
-	{"getMaximum", "()I", nullptr, $PUBLIC, $virtualMethod(GeneralSubtree, getMaximum, int32_t)},
-	{"getMinimum", "()I", nullptr, $PUBLIC, $virtualMethod(GeneralSubtree, getMinimum, int32_t)},
-	{"getName", "()Lsun/security/x509/GeneralName;", nullptr, $PUBLIC, $virtualMethod(GeneralSubtree, getName, $GeneralName*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GeneralSubtree, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GeneralSubtree, toString, $String*)},
-	{}
-};
-
-$ClassInfo _GeneralSubtree_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.x509.GeneralSubtree",
-	"java.lang.Object",
-	nullptr,
-	_GeneralSubtree_FieldInfo_,
-	_GeneralSubtree_MethodInfo_
-};
-
-$Object* allocate$GeneralSubtree($Class* clazz) {
-	return $of($alloc(GeneralSubtree));
-}
 
 void GeneralSubtree::init$($GeneralName* name, int32_t min, int32_t max) {
 	this->minimum = GeneralSubtree::MIN_DEFAULT;
@@ -72,23 +33,23 @@ void GeneralSubtree::init$($GeneralName* name, int32_t min, int32_t max) {
 }
 
 void GeneralSubtree::init$($DerValue* val) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->minimum = GeneralSubtree::MIN_DEFAULT;
 	this->maximum = -1;
 	this->myhash = -1;
 	if ($nc(val)->tag != $DerValue::tag_Sequence) {
 		$throwNew($IOException, "Invalid encoding for GeneralSubtree."_s);
 	}
-	$set(this, name, $new($GeneralName, $($nc($nc(val)->data$)->getDerValue()), true));
-	while ($nc($nc(val)->data$)->available() != 0) {
-		$var($DerValue, opt, $nc(val->data$)->getDerValue());
+	$set(this, name, $new($GeneralName, $($nc(val->data$)->getDerValue()), true));
+	while (val->data$->available() != 0) {
+		$var($DerValue, opt, val->data$->getDerValue());
 		bool var$0 = $nc(opt)->isContextSpecific(GeneralSubtree::TAG_MIN);
 		if (var$0 && !opt->isConstructed()) {
 			opt->resetTag($DerValue::tag_Integer);
 			this->minimum = opt->getInteger();
 		} else {
-			bool var$2 = opt->isContextSpecific(GeneralSubtree::TAG_MAX);
-			if (var$2 && !opt->isConstructed()) {
+			bool var$1 = opt->isContextSpecific(GeneralSubtree::TAG_MAX);
+			if (var$1 && !opt->isConstructed()) {
 				opt->resetTag($DerValue::tag_Integer);
 				this->maximum = opt->getInteger();
 			} else {
@@ -114,7 +75,7 @@ $String* GeneralSubtree::toString() {
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("\n   GeneralSubtree: ["_s)->append("\n    GeneralName: "_s);
 	if (this->name != nullptr) {
-		sb->append($of(this->name));
+		sb->append(this->name);
 	}
 	sb->append("\n    Minimum: "_s)->append(this->minimum)->append("\n    Maximum: "_s);
 	if (this->maximum == -1) {
@@ -135,13 +96,13 @@ bool GeneralSubtree::equals(Object$* other) {
 		if ($nc(otherGS)->name != nullptr) {
 			return false;
 		}
-	} else if (!($nc((this->name))->equals($nc(otherGS)->name))) {
+	} else if (!((this->name)->equals($nc(otherGS)->name))) {
 		return false;
 	}
 	if (this->minimum != $nc(otherGS)->minimum) {
 		return false;
 	}
-	if (this->maximum != $nc(otherGS)->maximum) {
+	if (this->maximum != otherGS->maximum) {
 		return false;
 	}
 	return true;
@@ -151,7 +112,7 @@ int32_t GeneralSubtree::hashCode() {
 	if (this->myhash == -1) {
 		this->myhash = 17;
 		if (this->name != nullptr) {
-			this->myhash = 37 * this->myhash + $nc(this->name)->hashCode();
+			this->myhash = 37 * this->myhash + this->name->hashCode();
 		}
 		if (this->minimum != GeneralSubtree::MIN_DEFAULT) {
 			this->myhash = 37 * this->myhash + this->minimum;
@@ -164,7 +125,7 @@ int32_t GeneralSubtree::hashCode() {
 }
 
 void GeneralSubtree::encode($DerOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, seq, $new($DerOutputStream));
 	$nc(this->name)->encode(seq);
 	if (this->minimum != GeneralSubtree::MIN_DEFAULT) {
@@ -184,7 +145,39 @@ GeneralSubtree::GeneralSubtree() {
 }
 
 $Class* GeneralSubtree::load$($String* name, bool initialize) {
-	$loadClass(GeneralSubtree, name, initialize, &_GeneralSubtree_ClassInfo_, allocate$GeneralSubtree);
+	$FieldInfo fieldInfos$$[] = {
+		{"TAG_MIN", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GeneralSubtree, TAG_MIN)},
+		{"TAG_MAX", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GeneralSubtree, TAG_MAX)},
+		{"MIN_DEFAULT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GeneralSubtree, MIN_DEFAULT)},
+		{"name", "Lsun/security/x509/GeneralName;", nullptr, $PRIVATE, $field(GeneralSubtree, name)},
+		{"minimum", "I", nullptr, $PRIVATE, $field(GeneralSubtree, minimum)},
+		{"maximum", "I", nullptr, $PRIVATE, $field(GeneralSubtree, maximum)},
+		{"myhash", "I", nullptr, $PRIVATE, $field(GeneralSubtree, myhash)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/x509/GeneralName;II)V", nullptr, $PUBLIC, $method(GeneralSubtree, init$, void, $GeneralName*, int32_t, int32_t)},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(GeneralSubtree, init$, void, $DerValue*), "java.io.IOException"},
+		{"encode", "(Lsun/security/util/DerOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(GeneralSubtree, encode, void, $DerOutputStream*), "java.io.IOException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GeneralSubtree, equals, bool, Object$*)},
+		{"getMaximum", "()I", nullptr, $PUBLIC, $virtualMethod(GeneralSubtree, getMaximum, int32_t)},
+		{"getMinimum", "()I", nullptr, $PUBLIC, $virtualMethod(GeneralSubtree, getMinimum, int32_t)},
+		{"getName", "()Lsun/security/x509/GeneralName;", nullptr, $PUBLIC, $virtualMethod(GeneralSubtree, getName, $GeneralName*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GeneralSubtree, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GeneralSubtree, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.x509.GeneralSubtree",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GeneralSubtree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GeneralSubtree);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/net/ProtocolException.h>
-
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace net {
-
-$FieldInfo _ProtocolException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProtocolException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ProtocolException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ProtocolException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ProtocolException, init$, void)},
-	{}
-};
-
-$ClassInfo _ProtocolException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.net.ProtocolException",
-	"java.io.IOException",
-	nullptr,
-	_ProtocolException_FieldInfo_,
-	_ProtocolException_MethodInfo_
-};
-
-$Object* allocate$ProtocolException($Class* clazz) {
-	return $of($alloc(ProtocolException));
-}
 
 void ProtocolException::init$($String* message) {
 	$IOException::init$(message);
@@ -54,7 +29,26 @@ void ProtocolException::throw$() {
 }
 
 $Class* ProtocolException::load$($String* name, bool initialize) {
-	$loadClass(ProtocolException, name, initialize, &_ProtocolException_ClassInfo_, allocate$ProtocolException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ProtocolException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ProtocolException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ProtocolException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.net.ProtocolException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ProtocolException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProtocolException);
+	});
 	return class$;
 }
 

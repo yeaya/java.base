@@ -21,6 +21,7 @@ class DontCareFieldPosition : public ::java::text::FieldPosition {
 	$class(DontCareFieldPosition, 0, ::java::text::FieldPosition)
 public:
 	DontCareFieldPosition();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::text::Format$FieldDelegate* getFieldDelegate() override;
 	static ::java::text::FieldPosition* INSTANCE;

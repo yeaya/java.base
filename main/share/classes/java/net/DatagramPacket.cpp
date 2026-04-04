@@ -1,5 +1,4 @@
 #include <java/net/DatagramPacket.h>
-
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/SocketAddress.h>
@@ -18,54 +17,6 @@ using $BootLoader = ::jdk::internal::loader::BootLoader;
 
 namespace java {
 	namespace net {
-
-$FieldInfo _DatagramPacket_FieldInfo_[] = {
-	{"buf", "[B", nullptr, 0, $field(DatagramPacket, buf)},
-	{"offset", "I", nullptr, 0, $field(DatagramPacket, offset)},
-	{"length", "I", nullptr, 0, $field(DatagramPacket, length)},
-	{"bufLength", "I", nullptr, 0, $field(DatagramPacket, bufLength)},
-	{"address", "Ljava/net/InetAddress;", nullptr, 0, $field(DatagramPacket, address)},
-	{"port", "I", nullptr, 0, $field(DatagramPacket, port)},
-	{}
-};
-
-$MethodInfo _DatagramPacket_MethodInfo_[] = {
-	{"<init>", "([BII)V", nullptr, $PUBLIC, $method(DatagramPacket, init$, void, $bytes*, int32_t, int32_t)},
-	{"<init>", "([BI)V", nullptr, $PUBLIC, $method(DatagramPacket, init$, void, $bytes*, int32_t)},
-	{"<init>", "([BIILjava/net/InetAddress;I)V", nullptr, $PUBLIC, $method(DatagramPacket, init$, void, $bytes*, int32_t, int32_t, $InetAddress*, int32_t)},
-	{"<init>", "([BIILjava/net/SocketAddress;)V", nullptr, $PUBLIC, $method(DatagramPacket, init$, void, $bytes*, int32_t, int32_t, $SocketAddress*)},
-	{"<init>", "([BILjava/net/InetAddress;I)V", nullptr, $PUBLIC, $method(DatagramPacket, init$, void, $bytes*, int32_t, $InetAddress*, int32_t)},
-	{"<init>", "([BILjava/net/SocketAddress;)V", nullptr, $PUBLIC, $method(DatagramPacket, init$, void, $bytes*, int32_t, $SocketAddress*)},
-	{"getAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DatagramPacket, getAddress, $InetAddress*)},
-	{"getData", "()[B", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DatagramPacket, getData, $bytes*)},
-	{"getLength", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DatagramPacket, getLength, int32_t)},
-	{"getOffset", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DatagramPacket, getOffset, int32_t)},
-	{"getPort", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DatagramPacket, getPort, int32_t)},
-	{"getSocketAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DatagramPacket, getSocketAddress, $SocketAddress*)},
-	{"init", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(DatagramPacket, init, void)},
-	{"setAddress", "(Ljava/net/InetAddress;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DatagramPacket, setAddress, void, $InetAddress*)},
-	{"setData", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DatagramPacket, setData, void, $bytes*, int32_t, int32_t)},
-	{"setData", "([B)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DatagramPacket, setData, void, $bytes*)},
-	{"setLength", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DatagramPacket, setLength, void, int32_t)},
-	{"setPort", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DatagramPacket, setPort, void, int32_t)},
-	{"setSocketAddress", "(Ljava/net/SocketAddress;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DatagramPacket, setSocketAddress, void, $SocketAddress*)},
-	{}
-};
-
-#define _METHOD_INDEX_init 12
-
-$ClassInfo _DatagramPacket_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.net.DatagramPacket",
-	"java.lang.Object",
-	nullptr,
-	_DatagramPacket_FieldInfo_,
-	_DatagramPacket_MethodInfo_
-};
-
-$Object* allocate$DatagramPacket($Class* clazz) {
-	return $of($alloc(DatagramPacket));
-}
 
 void DatagramPacket::init$($bytes* buf, int32_t offset, int32_t length) {
 	setData(buf, offset, length);
@@ -144,8 +95,8 @@ void DatagramPacket::setAddress($InetAddress* iaddr) {
 
 void DatagramPacket::setPort(int32_t iport) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		if (iport < 0 || iport > 0x0000FFFF) {
+		$useLocalObjectStack();
+		if (iport < 0 || iport > 0x0000ffff) {
 			$throwNew($IllegalArgumentException, $$str({"Port out of range:"_s, $$str(iport)}));
 		}
 		this->port = iport;
@@ -154,7 +105,7 @@ void DatagramPacket::setPort(int32_t iport) {
 
 void DatagramPacket::setSocketAddress($SocketAddress* address) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($InetSocketAddress, addr, nullptr);
 		bool var$0 = $instanceOf($InetSocketAddress, address);
 		if (var$0) {
@@ -167,8 +118,8 @@ void DatagramPacket::setSocketAddress($SocketAddress* address) {
 		if ($nc(addr)->isUnresolved()) {
 			$throwNew($IllegalArgumentException, "unresolved address"_s);
 		}
-		setAddress($($nc(addr)->getAddress()));
-		setPort($nc(addr)->getPort());
+		setAddress($(addr->getAddress()));
+		setPort(addr->getPort());
 	}
 }
 
@@ -203,12 +154,12 @@ void DatagramPacket::setLength(int32_t length) {
 
 void DatagramPacket::init() {
 	$init(DatagramPacket);
-	$prepareNativeStatic(DatagramPacket, init, void);
+	$prepareNativeStatic(init, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
-void clinit$DatagramPacket($Class* class$) {
+void DatagramPacket::clinit$($Class* clazz) {
 	{
 		$BootLoader::loadLibrary("net"_s);
 		DatagramPacket::init();
@@ -219,7 +170,48 @@ DatagramPacket::DatagramPacket() {
 }
 
 $Class* DatagramPacket::load$($String* name, bool initialize) {
-	$loadClass(DatagramPacket, name, initialize, &_DatagramPacket_ClassInfo_, clinit$DatagramPacket, allocate$DatagramPacket);
+	$FieldInfo fieldInfos$$[] = {
+		{"buf", "[B", nullptr, 0, $field(DatagramPacket, buf)},
+		{"offset", "I", nullptr, 0, $field(DatagramPacket, offset)},
+		{"length", "I", nullptr, 0, $field(DatagramPacket, length)},
+		{"bufLength", "I", nullptr, 0, $field(DatagramPacket, bufLength)},
+		{"address", "Ljava/net/InetAddress;", nullptr, 0, $field(DatagramPacket, address)},
+		{"port", "I", nullptr, 0, $field(DatagramPacket, port)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([BII)V", nullptr, $PUBLIC, $method(DatagramPacket, init$, void, $bytes*, int32_t, int32_t)},
+		{"<init>", "([BI)V", nullptr, $PUBLIC, $method(DatagramPacket, init$, void, $bytes*, int32_t)},
+		{"<init>", "([BIILjava/net/InetAddress;I)V", nullptr, $PUBLIC, $method(DatagramPacket, init$, void, $bytes*, int32_t, int32_t, $InetAddress*, int32_t)},
+		{"<init>", "([BIILjava/net/SocketAddress;)V", nullptr, $PUBLIC, $method(DatagramPacket, init$, void, $bytes*, int32_t, int32_t, $SocketAddress*)},
+		{"<init>", "([BILjava/net/InetAddress;I)V", nullptr, $PUBLIC, $method(DatagramPacket, init$, void, $bytes*, int32_t, $InetAddress*, int32_t)},
+		{"<init>", "([BILjava/net/SocketAddress;)V", nullptr, $PUBLIC, $method(DatagramPacket, init$, void, $bytes*, int32_t, $SocketAddress*)},
+		{"getAddress", "()Ljava/net/InetAddress;", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DatagramPacket, getAddress, $InetAddress*)},
+		{"getData", "()[B", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DatagramPacket, getData, $bytes*)},
+		{"getLength", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DatagramPacket, getLength, int32_t)},
+		{"getOffset", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DatagramPacket, getOffset, int32_t)},
+		{"getPort", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DatagramPacket, getPort, int32_t)},
+		{"getSocketAddress", "()Ljava/net/SocketAddress;", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DatagramPacket, getSocketAddress, $SocketAddress*)},
+		{"init", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(DatagramPacket, init, void)},
+		{"setAddress", "(Ljava/net/InetAddress;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DatagramPacket, setAddress, void, $InetAddress*)},
+		{"setData", "([BII)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DatagramPacket, setData, void, $bytes*, int32_t, int32_t)},
+		{"setData", "([B)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DatagramPacket, setData, void, $bytes*)},
+		{"setLength", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DatagramPacket, setLength, void, int32_t)},
+		{"setPort", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DatagramPacket, setPort, void, int32_t)},
+		{"setSocketAddress", "(Ljava/net/SocketAddress;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DatagramPacket, setSocketAddress, void, $SocketAddress*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.net.DatagramPacket",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DatagramPacket, name, initialize, &classInfo$$, DatagramPacket::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DatagramPacket);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/icu/util/VersionInfo.h>
-
 #include <java/util/HashMap.h>
 #include <jcpp.h>
 
@@ -20,48 +19,13 @@ namespace jdk {
 		namespace icu {
 			namespace util {
 
-$CompoundAttribute _VersionInfo_FieldAnnotations_ICU_DATA_VERSION_PATH[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _VersionInfo_FieldInfo_[] = {
-	{"ICU_DATA_VERSION_PATH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(VersionInfo, ICU_DATA_VERSION_PATH), _VersionInfo_FieldAnnotations_ICU_DATA_VERSION_PATH},
-	{"m_version_", "I", nullptr, $PRIVATE, $field(VersionInfo, m_version_)},
-	{"MAP_", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Integer;Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(VersionInfo, MAP_)},
-	{"INVALID_VERSION_NUMBER_", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionInfo, INVALID_VERSION_NUMBER_)},
-	{}
-};
-
-$MethodInfo _VersionInfo_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(VersionInfo, init$, void, int32_t)},
-	{"compareTo", "(Ljdk/internal/icu/util/VersionInfo;)I", nullptr, $PUBLIC, $method(VersionInfo, compareTo, int32_t, VersionInfo*)},
-	{"getInstance", "(Ljava/lang/String;)Ljdk/internal/icu/util/VersionInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(VersionInfo, getInstance, VersionInfo*, $String*)},
-	{"getInstance", "(IIII)Ljdk/internal/icu/util/VersionInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(VersionInfo, getInstance, VersionInfo*, int32_t, int32_t, int32_t, int32_t)},
-	{"getInt", "(IIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(VersionInfo, getInt, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _VersionInfo_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.icu.util.VersionInfo",
-	"java.lang.Object",
-	nullptr,
-	_VersionInfo_FieldInfo_,
-	_VersionInfo_MethodInfo_
-};
-
-$Object* allocate$VersionInfo($Class* clazz) {
-	return $of($alloc(VersionInfo));
-}
-
 $String* VersionInfo::ICU_DATA_VERSION_PATH = nullptr;
 $HashMap* VersionInfo::MAP_ = nullptr;
 $String* VersionInfo::INVALID_VERSION_NUMBER_ = nullptr;
 
 VersionInfo* VersionInfo::getInstance($String* version) {
 	$init(VersionInfo);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = $nc(version)->length();
 	$var($ints, array, $new($ints, {
 		0,
@@ -98,16 +62,16 @@ VersionInfo* VersionInfo::getInstance($String* version) {
 
 VersionInfo* VersionInfo::getInstance(int32_t major, int32_t minor, int32_t milli, int32_t micro) {
 	$init(VersionInfo);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (major < 0 || major > 255 || minor < 0 || minor > 255 || milli < 0 || milli > 255 || micro < 0 || micro > 255) {
 		$throwNew($IllegalArgumentException, VersionInfo::INVALID_VERSION_NUMBER_);
 	}
 	int32_t version = getInt(major, minor, milli, micro);
 	$var($Integer, key, $Integer::valueOf(version));
-	$var($Object, result, $nc(VersionInfo::MAP_)->get(key));
+	$var($Object, result, VersionInfo::MAP_->get(key));
 	if (result == nullptr) {
 		$assign(result, $new(VersionInfo, version));
-		$nc(VersionInfo::MAP_)->put(key, result);
+		VersionInfo::MAP_->put(key, result);
 	}
 	return $cast(VersionInfo, result);
 }
@@ -125,7 +89,7 @@ int32_t VersionInfo::getInt(int32_t major, int32_t minor, int32_t milli, int32_t
 	return (((major << 24) | (minor << 16)) | (milli << 8)) | micro;
 }
 
-void clinit$VersionInfo($Class* class$) {
+void VersionInfo::clinit$($Class* clazz) {
 	$assignStatic(VersionInfo::ICU_DATA_VERSION_PATH, "67b"_s);
 	$assignStatic(VersionInfo::INVALID_VERSION_NUMBER_, "Invalid version number: Version number may be negative or greater than 255"_s);
 	$assignStatic(VersionInfo::MAP_, $new($HashMap));
@@ -135,7 +99,36 @@ VersionInfo::VersionInfo() {
 }
 
 $Class* VersionInfo::load$($String* name, bool initialize) {
-	$loadClass(VersionInfo, name, initialize, &_VersionInfo_ClassInfo_, clinit$VersionInfo, allocate$VersionInfo);
+	$CompoundAttribute ICU_DATA_VERSION_PATHfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"ICU_DATA_VERSION_PATH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(VersionInfo, ICU_DATA_VERSION_PATH), ICU_DATA_VERSION_PATHfieldAnnotations$$},
+		{"m_version_", "I", nullptr, $PRIVATE, $field(VersionInfo, m_version_)},
+		{"MAP_", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Integer;Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(VersionInfo, MAP_)},
+		{"INVALID_VERSION_NUMBER_", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(VersionInfo, INVALID_VERSION_NUMBER_)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PRIVATE, $method(VersionInfo, init$, void, int32_t)},
+		{"compareTo", "(Ljdk/internal/icu/util/VersionInfo;)I", nullptr, $PUBLIC, $method(VersionInfo, compareTo, int32_t, VersionInfo*)},
+		{"getInstance", "(Ljava/lang/String;)Ljdk/internal/icu/util/VersionInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(VersionInfo, getInstance, VersionInfo*, $String*)},
+		{"getInstance", "(IIII)Ljdk/internal/icu/util/VersionInfo;", nullptr, $PUBLIC | $STATIC, $staticMethod(VersionInfo, getInstance, VersionInfo*, int32_t, int32_t, int32_t, int32_t)},
+		{"getInt", "(IIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(VersionInfo, getInt, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.icu.util.VersionInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(VersionInfo, name, initialize, &classInfo$$, VersionInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(VersionInfo);
+	});
 	return class$;
 }
 

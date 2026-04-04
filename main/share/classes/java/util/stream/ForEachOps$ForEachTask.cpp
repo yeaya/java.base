@@ -1,5 +1,4 @@
 #include <java/util/stream/ForEachOps$ForEachTask.h>
-
 #include <java/util/Spliterator.h>
 #include <java/util/concurrent/CountedCompleter.h>
 #include <java/util/concurrent/ForkJoinTask.h>
@@ -27,46 +26,6 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$FieldInfo _ForEachOps$ForEachTask_FieldInfo_[] = {
-	{"spliterator", "Ljava/util/Spliterator;", "Ljava/util/Spliterator<TS;>;", $PRIVATE, $field(ForEachOps$ForEachTask, spliterator)},
-	{"sink", "Ljava/util/stream/Sink;", "Ljava/util/stream/Sink<TS;>;", $PRIVATE | $FINAL, $field(ForEachOps$ForEachTask, sink)},
-	{"helper", "Ljava/util/stream/PipelineHelper;", "Ljava/util/stream/PipelineHelper<TT;>;", $PRIVATE | $FINAL, $field(ForEachOps$ForEachTask, helper)},
-	{"targetSize", "J", nullptr, $PRIVATE, $field(ForEachOps$ForEachTask, targetSize)},
-	{}
-};
-
-$MethodInfo _ForEachOps$ForEachTask_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/stream/Sink;)V", "(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TS;>;Ljava/util/stream/Sink<TS;>;)V", 0, $method(ForEachOps$ForEachTask, init$, void, $PipelineHelper*, $Spliterator*, $Sink*)},
-	{"<init>", "(Ljava/util/stream/ForEachOps$ForEachTask;Ljava/util/Spliterator;)V", "(Ljava/util/stream/ForEachOps$ForEachTask<TS;TT;>;Ljava/util/Spliterator<TS;>;)V", 0, $method(ForEachOps$ForEachTask, init$, void, ForEachOps$ForEachTask*, $Spliterator*)},
-	{"compute", "()V", nullptr, $PUBLIC, $virtualMethod(ForEachOps$ForEachTask, compute, void)},
-	{}
-};
-
-$InnerClassInfo _ForEachOps$ForEachTask_InnerClassesInfo_[] = {
-	{"java.util.stream.ForEachOps$ForEachTask", "java.util.stream.ForEachOps", "ForEachTask", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ForEachOps$ForEachTask_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.stream.ForEachOps$ForEachTask",
-	"java.util.concurrent.CountedCompleter",
-	nullptr,
-	_ForEachOps$ForEachTask_FieldInfo_,
-	_ForEachOps$ForEachTask_MethodInfo_,
-	"<S:Ljava/lang/Object;T:Ljava/lang/Object;>Ljava/util/concurrent/CountedCompleter<Ljava/lang/Void;>;",
-	nullptr,
-	_ForEachOps$ForEachTask_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.ForEachOps"
-};
-
-$Object* allocate$ForEachOps$ForEachTask($Class* clazz) {
-	return $of($alloc(ForEachOps$ForEachTask));
-}
-
 void ForEachOps$ForEachTask::init$($PipelineHelper* helper, $Spliterator* spliterator, $Sink* sink) {
 	$CountedCompleter::init$(nullptr);
 	$set(this, sink, sink);
@@ -84,12 +43,12 @@ void ForEachOps$ForEachTask::init$(ForEachOps$ForEachTask* parent, $Spliterator*
 }
 
 void ForEachOps$ForEachTask::compute() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Spliterator, rightSplit, this->spliterator);
 	$var($Spliterator, leftSplit, nullptr);
 	int64_t sizeEstimate = $nc(rightSplit)->estimateSize();
 	int64_t sizeThreshold = 0;
-	if ((sizeThreshold = this->targetSize) == (int64_t)0) {
+	if ((sizeThreshold = this->targetSize) == 0) {
 		this->targetSize = (sizeThreshold = $AbstractTask::suggestTargetSize(sizeEstimate));
 	}
 	$init($StreamOpFlag);
@@ -98,7 +57,7 @@ void ForEachOps$ForEachTask::compute() {
 	$var($Sink, taskSink, this->sink);
 	$var(ForEachOps$ForEachTask, task, this);
 	while (!isShortCircuit || !$nc(taskSink)->cancellationRequested()) {
-		if (sizeEstimate <= sizeThreshold || ($assign(leftSplit, rightSplit->trySplit())) == nullptr) {
+		if (sizeEstimate <= sizeThreshold || ($assign(leftSplit, $nc(rightSplit)->trySplit())) == nullptr) {
 			$nc($nc(task)->helper)->copyInto(taskSink, rightSplit);
 			break;
 		}
@@ -115,7 +74,7 @@ void ForEachOps$ForEachTask::compute() {
 			$assign(taskToFork, leftTask);
 		}
 		$nc(taskToFork)->fork();
-		sizeEstimate = rightSplit->estimateSize();
+		sizeEstimate = $nc(rightSplit)->estimateSize();
 	}
 	$set($nc(task), spliterator, nullptr);
 	task->propagateCompletion();
@@ -125,7 +84,41 @@ ForEachOps$ForEachTask::ForEachOps$ForEachTask() {
 }
 
 $Class* ForEachOps$ForEachTask::load$($String* name, bool initialize) {
-	$loadClass(ForEachOps$ForEachTask, name, initialize, &_ForEachOps$ForEachTask_ClassInfo_, allocate$ForEachOps$ForEachTask);
+	$FieldInfo fieldInfos$$[] = {
+		{"spliterator", "Ljava/util/Spliterator;", "Ljava/util/Spliterator<TS;>;", $PRIVATE, $field(ForEachOps$ForEachTask, spliterator)},
+		{"sink", "Ljava/util/stream/Sink;", "Ljava/util/stream/Sink<TS;>;", $PRIVATE | $FINAL, $field(ForEachOps$ForEachTask, sink)},
+		{"helper", "Ljava/util/stream/PipelineHelper;", "Ljava/util/stream/PipelineHelper<TT;>;", $PRIVATE | $FINAL, $field(ForEachOps$ForEachTask, helper)},
+		{"targetSize", "J", nullptr, $PRIVATE, $field(ForEachOps$ForEachTask, targetSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/PipelineHelper;Ljava/util/Spliterator;Ljava/util/stream/Sink;)V", "(Ljava/util/stream/PipelineHelper<TT;>;Ljava/util/Spliterator<TS;>;Ljava/util/stream/Sink<TS;>;)V", 0, $method(ForEachOps$ForEachTask, init$, void, $PipelineHelper*, $Spliterator*, $Sink*)},
+		{"<init>", "(Ljava/util/stream/ForEachOps$ForEachTask;Ljava/util/Spliterator;)V", "(Ljava/util/stream/ForEachOps$ForEachTask<TS;TT;>;Ljava/util/Spliterator<TS;>;)V", 0, $method(ForEachOps$ForEachTask, init$, void, ForEachOps$ForEachTask*, $Spliterator*)},
+		{"compute", "()V", nullptr, $PUBLIC, $virtualMethod(ForEachOps$ForEachTask, compute, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.ForEachOps$ForEachTask", "java.util.stream.ForEachOps", "ForEachTask", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.stream.ForEachOps$ForEachTask",
+		"java.util.concurrent.CountedCompleter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<S:Ljava/lang/Object;T:Ljava/lang/Object;>Ljava/util/concurrent/CountedCompleter<Ljava/lang/Void;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.ForEachOps"
+	};
+	$loadClass(ForEachOps$ForEachTask, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ForEachOps$ForEachTask));
+	});
 	return class$;
 }
 

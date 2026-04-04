@@ -32,7 +32,7 @@ public:
 	virtual ::java::util::List* subList(int32_t fromIndex, int32_t toIndex) override;
 	virtual $String* toString() override;
 	$Object* writeReplace();
-	static const int64_t serialVersionUID = (int64_t)0x153E0C6C865668D2;
+	static const int64_t serialVersionUID = (int64_t)0x153e0c6c865668d2;
 };
 
 	} // util

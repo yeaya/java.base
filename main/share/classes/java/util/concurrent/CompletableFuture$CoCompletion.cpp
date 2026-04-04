@@ -1,5 +1,4 @@
 #include <java/util/concurrent/CompletableFuture$CoCompletion.h>
-
 #include <java/util/concurrent/CompletableFuture$BiCompletion.h>
 #include <java/util/concurrent/CompletableFuture$Completion.h>
 #include <java/util/concurrent/CompletableFuture.h>
@@ -17,51 +16,13 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _CompletableFuture$CoCompletion_FieldInfo_[] = {
-	{"base", "Ljava/util/concurrent/CompletableFuture$BiCompletion;", "Ljava/util/concurrent/CompletableFuture$BiCompletion<***>;", 0, $field(CompletableFuture$CoCompletion, base)},
-	{}
-};
-
-$MethodInfo _CompletableFuture$CoCompletion_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/CompletableFuture$BiCompletion;)V", "(Ljava/util/concurrent/CompletableFuture$BiCompletion<***>;)V", 0, $method(CompletableFuture$CoCompletion, init$, void, $CompletableFuture$BiCompletion*)},
-	{"isLive", "()Z", nullptr, $FINAL, $virtualMethod(CompletableFuture$CoCompletion, isLive, bool)},
-	{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<*>;", $FINAL, $virtualMethod(CompletableFuture$CoCompletion, tryFire, $CompletableFuture*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CompletableFuture$CoCompletion_InnerClassesInfo_[] = {
-	{"java.util.concurrent.CompletableFuture$CoCompletion", "java.util.concurrent.CompletableFuture", "CoCompletion", $STATIC | $FINAL},
-	{"java.util.concurrent.CompletableFuture$Completion", "java.util.concurrent.CompletableFuture", "Completion", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CompletableFuture$CoCompletion_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.concurrent.CompletableFuture$CoCompletion",
-	"java.util.concurrent.CompletableFuture$Completion",
-	nullptr,
-	_CompletableFuture$CoCompletion_FieldInfo_,
-	_CompletableFuture$CoCompletion_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CompletableFuture$CoCompletion_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.CompletableFuture"
-};
-
-$Object* allocate$CompletableFuture$CoCompletion($Class* clazz) {
-	return $of($alloc(CompletableFuture$CoCompletion));
-}
-
 void CompletableFuture$CoCompletion::init$($CompletableFuture$BiCompletion* base) {
 	$CompletableFuture$Completion::init$();
 	$set(this, base, base);
 }
 
 $CompletableFuture* CompletableFuture$CoCompletion::tryFire(int32_t mode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CompletableFuture$BiCompletion, c, nullptr);
 	$var($CompletableFuture, d, nullptr);
 	bool var$0 = ($assign(c, this->base)) == nullptr;
@@ -82,7 +43,39 @@ CompletableFuture$CoCompletion::CompletableFuture$CoCompletion() {
 }
 
 $Class* CompletableFuture$CoCompletion::load$($String* name, bool initialize) {
-	$loadClass(CompletableFuture$CoCompletion, name, initialize, &_CompletableFuture$CoCompletion_ClassInfo_, allocate$CompletableFuture$CoCompletion);
+	$FieldInfo fieldInfos$$[] = {
+		{"base", "Ljava/util/concurrent/CompletableFuture$BiCompletion;", "Ljava/util/concurrent/CompletableFuture$BiCompletion<***>;", 0, $field(CompletableFuture$CoCompletion, base)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/CompletableFuture$BiCompletion;)V", "(Ljava/util/concurrent/CompletableFuture$BiCompletion<***>;)V", 0, $method(CompletableFuture$CoCompletion, init$, void, $CompletableFuture$BiCompletion*)},
+		{"isLive", "()Z", nullptr, $FINAL, $virtualMethod(CompletableFuture$CoCompletion, isLive, bool)},
+		{"tryFire", "(I)Ljava/util/concurrent/CompletableFuture;", "(I)Ljava/util/concurrent/CompletableFuture<*>;", $FINAL, $virtualMethod(CompletableFuture$CoCompletion, tryFire, $CompletableFuture*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.CompletableFuture$CoCompletion", "java.util.concurrent.CompletableFuture", "CoCompletion", $STATIC | $FINAL},
+		{"java.util.concurrent.CompletableFuture$Completion", "java.util.concurrent.CompletableFuture", "Completion", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.concurrent.CompletableFuture$CoCompletion",
+		"java.util.concurrent.CompletableFuture$Completion",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.CompletableFuture"
+	};
+	$loadClass(CompletableFuture$CoCompletion, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CompletableFuture$CoCompletion));
+	});
 	return class$;
 }
 

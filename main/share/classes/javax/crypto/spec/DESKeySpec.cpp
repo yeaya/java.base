@@ -1,5 +1,4 @@
 #include <javax/crypto/spec/DESKeySpec.h>
-
 #include <java/security/InvalidKeyException.h>
 #include <jcpp.h>
 
@@ -16,35 +15,6 @@ using $InvalidKeyException = ::java::security::InvalidKeyException;
 namespace javax {
 	namespace crypto {
 		namespace spec {
-
-$FieldInfo _DESKeySpec_FieldInfo_[] = {
-	{"DES_KEY_LEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DESKeySpec, DES_KEY_LEN)},
-	{"key", "[B", nullptr, $PRIVATE, $field(DESKeySpec, key)},
-	{"WEAK_KEYS", "[[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESKeySpec, WEAK_KEYS)},
-	{}
-};
-
-$MethodInfo _DESKeySpec_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(DESKeySpec, init$, void, $bytes*), "java.security.InvalidKeyException"},
-	{"<init>", "([BI)V", nullptr, $PUBLIC, $method(DESKeySpec, init$, void, $bytes*, int32_t), "java.security.InvalidKeyException"},
-	{"getKey", "()[B", nullptr, $PUBLIC, $virtualMethod(DESKeySpec, getKey, $bytes*)},
-	{"isParityAdjusted", "([BI)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DESKeySpec, isParityAdjusted, bool, $bytes*, int32_t), "java.security.InvalidKeyException"},
-	{"isWeak", "([BI)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DESKeySpec, isWeak, bool, $bytes*, int32_t), "java.security.InvalidKeyException"},
-	{}
-};
-
-$ClassInfo _DESKeySpec_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.crypto.spec.DESKeySpec",
-	"java.lang.Object",
-	"java.security.spec.KeySpec",
-	_DESKeySpec_FieldInfo_,
-	_DESKeySpec_MethodInfo_
-};
-
-$Object* allocate$DESKeySpec($Class* clazz) {
-	return $of($alloc(DESKeySpec));
-}
 
 $byteArray2* DESKeySpec::WEAK_KEYS = nullptr;
 
@@ -73,8 +43,8 @@ bool DESKeySpec::isParityAdjusted($bytes* key, int32_t offset) {
 		$throwNew($InvalidKeyException, "Wrong key size"_s);
 	}
 	for (int32_t i = 0; i < DESKeySpec::DES_KEY_LEN; ++i) {
-		int32_t k = $Integer::bitCount((int32_t)($nc(key)->get(offset++) & (uint32_t)255));
-		if (((int32_t)(k & (uint32_t)1)) == 0) {
+		int32_t k = $Integer::bitCount(key->get(offset++) & 0xff);
+		if ((k & 1) == 0) {
 			return false;
 		}
 	}
@@ -89,10 +59,10 @@ bool DESKeySpec::isWeak($bytes* key, int32_t offset) {
 	if ($nc(key)->length - offset < DESKeySpec::DES_KEY_LEN) {
 		$throwNew($InvalidKeyException, "Wrong key size"_s);
 	}
-	for (int32_t i = 0; i < $nc(DESKeySpec::WEAK_KEYS)->length; ++i) {
+	for (int32_t i = 0; i < DESKeySpec::WEAK_KEYS->length; ++i) {
 		bool found = true;
 		for (int32_t j = 0; j < DESKeySpec::DES_KEY_LEN && found == true; ++j) {
-			if ($nc($nc(DESKeySpec::WEAK_KEYS)->get(i))->get(j) != $nc(key)->get(j + offset)) {
+			if ($nc(DESKeySpec::WEAK_KEYS->get(i))->get(j) != key->get(j + offset)) {
 				found = false;
 			}
 		}
@@ -103,8 +73,8 @@ bool DESKeySpec::isWeak($bytes* key, int32_t offset) {
 	return false;
 }
 
-void clinit$DESKeySpec($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void DESKeySpec::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(DESKeySpec::WEAK_KEYS, $new($byteArray2, {
 		$$new($bytes, {
 			(int8_t)1,
@@ -273,7 +243,31 @@ DESKeySpec::DESKeySpec() {
 }
 
 $Class* DESKeySpec::load$($String* name, bool initialize) {
-	$loadClass(DESKeySpec, name, initialize, &_DESKeySpec_ClassInfo_, clinit$DESKeySpec, allocate$DESKeySpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"DES_KEY_LEN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DESKeySpec, DES_KEY_LEN)},
+		{"key", "[B", nullptr, $PRIVATE, $field(DESKeySpec, key)},
+		{"WEAK_KEYS", "[[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DESKeySpec, WEAK_KEYS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(DESKeySpec, init$, void, $bytes*), "java.security.InvalidKeyException"},
+		{"<init>", "([BI)V", nullptr, $PUBLIC, $method(DESKeySpec, init$, void, $bytes*, int32_t), "java.security.InvalidKeyException"},
+		{"getKey", "()[B", nullptr, $PUBLIC, $virtualMethod(DESKeySpec, getKey, $bytes*)},
+		{"isParityAdjusted", "([BI)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DESKeySpec, isParityAdjusted, bool, $bytes*, int32_t), "java.security.InvalidKeyException"},
+		{"isWeak", "([BI)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DESKeySpec, isWeak, bool, $bytes*, int32_t), "java.security.InvalidKeyException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.crypto.spec.DESKeySpec",
+		"java.lang.Object",
+		"java.security.spec.KeySpec",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DESKeySpec, name, initialize, &classInfo$$, DESKeySpec::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DESKeySpec);
+	});
 	return class$;
 }
 

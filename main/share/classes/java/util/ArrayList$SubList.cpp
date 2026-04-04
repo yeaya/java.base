@@ -1,5 +1,4 @@
 #include <java/util/ArrayList$SubList.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/util/AbstractList.h>
 #include <java/util/ArrayList$SubList$1.h>
@@ -40,78 +39,6 @@ using $UnaryOperator = ::java::util::function::UnaryOperator;
 namespace java {
 	namespace util {
 
-$FieldInfo _ArrayList$SubList_FieldInfo_[] = {
-	{"root", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<TE;>;", $PRIVATE | $FINAL, $field(ArrayList$SubList, root)},
-	{"parent", "Ljava/util/ArrayList$SubList;", "Ljava/util/ArrayList$SubList<TE;>;", $PRIVATE | $FINAL, $field(ArrayList$SubList, parent)},
-	{"offset", "I", nullptr, $PRIVATE | $FINAL, $field(ArrayList$SubList, offset)},
-	{"size", "I", nullptr, $PRIVATE, $field(ArrayList$SubList, size$)},
-	{}
-};
-
-$MethodInfo _ArrayList$SubList_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/util/ArrayList;II)V", "(Ljava/util/ArrayList<TE;>;II)V", $PUBLIC, $method(ArrayList$SubList, init$, void, $ArrayList*, int32_t, int32_t)},
-	{"<init>", "(Ljava/util/ArrayList$SubList;II)V", "(Ljava/util/ArrayList$SubList<TE;>;II)V", $PRIVATE, $method(ArrayList$SubList, init$, void, ArrayList$SubList*, int32_t, int32_t)},
-	{"add", "(ILjava/lang/Object;)V", "(ITE;)V", $PUBLIC, $virtualMethod(ArrayList$SubList, add, void, int32_t, Object$*)},
-	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(ArrayList$SubList, addAll, bool, $Collection*)},
-	{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(ArrayList$SubList, addAll, bool, int32_t, $Collection*)},
-	{"batchRemove", "(Ljava/util/Collection;Z)Z", "(Ljava/util/Collection<*>;Z)Z", $PRIVATE, $method(ArrayList$SubList, batchRemove, bool, $Collection*, bool)},
-	{"checkForComodification", "()V", nullptr, $PRIVATE, $method(ArrayList$SubList, checkForComodification, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList, contains, bool, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList, equals, bool, Object$*)},
-	{"get", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(ArrayList$SubList, get, $Object*, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList, hashCode, int32_t)},
-	{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList, indexOf, int32_t, Object$*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(ArrayList$SubList, iterator, $Iterator*)},
-	{"lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList, lastIndexOf, int32_t, Object$*)},
-	{"listIterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(ArrayList$SubList, listIterator, $ListIterator*, int32_t)},
-	{"outOfBoundsMsg", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(ArrayList$SubList, outOfBoundsMsg, $String*, int32_t)},
-	{"rangeCheckForAdd", "(I)V", nullptr, $PRIVATE, $method(ArrayList$SubList, rangeCheckForAdd, void, int32_t)},
-	{"remove", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(ArrayList$SubList, remove, $Object*, int32_t)},
-	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(ArrayList$SubList, removeAll, bool, $Collection*)},
-	{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(ArrayList$SubList, removeIf, bool, $Predicate*)},
-	{"removeRange", "(II)V", nullptr, $PROTECTED, $virtualMethod(ArrayList$SubList, removeRange, void, int32_t, int32_t)},
-	{"replaceAll", "(Ljava/util/function/UnaryOperator;)V", "(Ljava/util/function/UnaryOperator<TE;>;)V", $PUBLIC, $virtualMethod(ArrayList$SubList, replaceAll, void, $UnaryOperator*)},
-	{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(ArrayList$SubList, retainAll, bool, $Collection*)},
-	{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITE;)TE;", $PUBLIC, $virtualMethod(ArrayList$SubList, set, $Object*, int32_t, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList, size, int32_t)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(ArrayList$SubList, spliterator, $Spliterator*)},
-	{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(ArrayList$SubList, subList, $List*, int32_t, int32_t)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(ArrayList$SubList, toArray, $ObjectArray*, $ObjectArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateSizeAndModCount", "(I)V", nullptr, $PRIVATE, $method(ArrayList$SubList, updateSizeAndModCount, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ArrayList$SubList_InnerClassesInfo_[] = {
-	{"java.util.ArrayList$SubList", "java.util.ArrayList", "SubList", $PRIVATE | $STATIC},
-	{"java.util.ArrayList$SubList$2", nullptr, nullptr, 0},
-	{"java.util.ArrayList$SubList$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ArrayList$SubList_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.ArrayList$SubList",
-	"java.util.AbstractList",
-	"java.util.RandomAccess",
-	_ArrayList$SubList_FieldInfo_,
-	_ArrayList$SubList_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/AbstractList<TE;>;Ljava/util/RandomAccess;",
-	nullptr,
-	_ArrayList$SubList_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.ArrayList"
-};
-
-$Object* allocate$ArrayList$SubList($Class* clazz) {
-	return $of($alloc(ArrayList$SubList));
-}
-
 $String* ArrayList$SubList::toString() {
 	 return this->$AbstractList::toString();
 }
@@ -146,14 +73,14 @@ $Object* ArrayList$SubList::set(int32_t index, Object$* element) {
 	$Objects::checkIndex(index, this->size$);
 	checkForComodification();
 	$var($Object, oldValue, $nc(this->root)->elementData(this->offset + index));
-	$nc($nc(this->root)->elementData$)->set(this->offset + index, element);
-	return $of(oldValue);
+	$nc(this->root->elementData$)->set(this->offset + index, element);
+	return oldValue;
 }
 
 $Object* ArrayList$SubList::get(int32_t index) {
 	$Objects::checkIndex(index, this->size$);
 	checkForComodification();
-	return $of($nc(this->root)->elementData(this->offset + index));
+	return $nc(this->root)->elementData(this->offset + index);
 }
 
 int32_t ArrayList$SubList::size() {
@@ -173,7 +100,7 @@ $Object* ArrayList$SubList::remove(int32_t index) {
 	checkForComodification();
 	$var($Object, result, $nc(this->root)->remove(this->offset + index));
 	updateSizeAndModCount(-1);
-	return $of(result);
+	return result;
 }
 
 void ArrayList$SubList::removeRange(int32_t fromIndex, int32_t toIndex) {
@@ -213,9 +140,9 @@ bool ArrayList$SubList::retainAll($Collection* c) {
 bool ArrayList$SubList::batchRemove($Collection* c, bool complement) {
 	checkForComodification();
 	int32_t oldSize = $nc(this->root)->size$;
-	bool modified = $nc(this->root)->batchRemove(c, complement, this->offset, this->offset + this->size$);
+	bool modified = this->root->batchRemove(c, complement, this->offset, this->offset + this->size$);
 	if (modified) {
-		updateSizeAndModCount($nc(this->root)->size$ - oldSize);
+		updateSizeAndModCount(this->root->size$ - oldSize);
 	}
 	return modified;
 }
@@ -223,9 +150,9 @@ bool ArrayList$SubList::batchRemove($Collection* c, bool complement) {
 bool ArrayList$SubList::removeIf($Predicate* filter) {
 	checkForComodification();
 	int32_t oldSize = $nc(this->root)->size$;
-	bool modified = $nc(this->root)->removeIf(filter, this->offset, this->offset + this->size$);
+	bool modified = this->root->removeIf(filter, this->offset, this->offset + this->size$);
 	if (modified) {
-		updateSizeAndModCount($nc(this->root)->size$ - oldSize);
+		updateSizeAndModCount(this->root->size$ - oldSize);
 	}
 	return modified;
 }
@@ -241,7 +168,7 @@ $ObjectArray* ArrayList$SubList::toArray($ObjectArray* a) {
 		return $Arrays::copyOfRange($nc(this->root)->elementData$, this->offset, this->offset + this->size$, $of(a)->getClass());
 	}
 	$System::arraycopy($nc(this->root)->elementData$, this->offset, a, 0, this->size$);
-	if ($nc(a)->length > this->size$) {
+	if (a->length > this->size$) {
 		a->set(this->size$, nullptr);
 	}
 	return a;
@@ -303,7 +230,7 @@ void ArrayList$SubList::rangeCheckForAdd(int32_t index) {
 }
 
 $String* ArrayList$SubList::outOfBoundsMsg(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"Index: "_s, $$str(index), ", Size: "_s, $$str(this->size$)});
 }
 
@@ -316,7 +243,7 @@ void ArrayList$SubList::checkForComodification() {
 void ArrayList$SubList::updateSizeAndModCount(int32_t sizeChange) {
 	$var(ArrayList$SubList, slist, this);
 	do {
-		slist->size$ += sizeChange;
+		$nc(slist)->size$ += sizeChange;
 		slist->modCount = $nc(this->root)->modCount;
 		$assign(slist, slist->parent);
 	} while (slist != nullptr);
@@ -331,7 +258,73 @@ ArrayList$SubList::ArrayList$SubList() {
 }
 
 $Class* ArrayList$SubList::load$($String* name, bool initialize) {
-	$loadClass(ArrayList$SubList, name, initialize, &_ArrayList$SubList_ClassInfo_, allocate$ArrayList$SubList);
+	$FieldInfo fieldInfos$$[] = {
+		{"root", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<TE;>;", $PRIVATE | $FINAL, $field(ArrayList$SubList, root)},
+		{"parent", "Ljava/util/ArrayList$SubList;", "Ljava/util/ArrayList$SubList<TE;>;", $PRIVATE | $FINAL, $field(ArrayList$SubList, parent)},
+		{"offset", "I", nullptr, $PRIVATE | $FINAL, $field(ArrayList$SubList, offset)},
+		{"size", "I", nullptr, $PRIVATE, $field(ArrayList$SubList, size$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/util/ArrayList;II)V", "(Ljava/util/ArrayList<TE;>;II)V", $PUBLIC, $method(ArrayList$SubList, init$, void, $ArrayList*, int32_t, int32_t)},
+		{"<init>", "(Ljava/util/ArrayList$SubList;II)V", "(Ljava/util/ArrayList$SubList<TE;>;II)V", $PRIVATE, $method(ArrayList$SubList, init$, void, ArrayList$SubList*, int32_t, int32_t)},
+		{"add", "(ILjava/lang/Object;)V", "(ITE;)V", $PUBLIC, $virtualMethod(ArrayList$SubList, add, void, int32_t, Object$*)},
+		{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(ArrayList$SubList, addAll, bool, $Collection*)},
+		{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(ArrayList$SubList, addAll, bool, int32_t, $Collection*)},
+		{"batchRemove", "(Ljava/util/Collection;Z)Z", "(Ljava/util/Collection<*>;Z)Z", $PRIVATE, $method(ArrayList$SubList, batchRemove, bool, $Collection*, bool)},
+		{"checkForComodification", "()V", nullptr, $PRIVATE, $method(ArrayList$SubList, checkForComodification, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList, contains, bool, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList, equals, bool, Object$*)},
+		{"get", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(ArrayList$SubList, get, $Object*, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList, hashCode, int32_t)},
+		{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList, indexOf, int32_t, Object$*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(ArrayList$SubList, iterator, $Iterator*)},
+		{"lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList, lastIndexOf, int32_t, Object$*)},
+		{"listIterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(ArrayList$SubList, listIterator, $ListIterator*, int32_t)},
+		{"outOfBoundsMsg", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(ArrayList$SubList, outOfBoundsMsg, $String*, int32_t)},
+		{"rangeCheckForAdd", "(I)V", nullptr, $PRIVATE, $method(ArrayList$SubList, rangeCheckForAdd, void, int32_t)},
+		{"remove", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(ArrayList$SubList, remove, $Object*, int32_t)},
+		{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(ArrayList$SubList, removeAll, bool, $Collection*)},
+		{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(ArrayList$SubList, removeIf, bool, $Predicate*)},
+		{"removeRange", "(II)V", nullptr, $PROTECTED, $virtualMethod(ArrayList$SubList, removeRange, void, int32_t, int32_t)},
+		{"replaceAll", "(Ljava/util/function/UnaryOperator;)V", "(Ljava/util/function/UnaryOperator<TE;>;)V", $PUBLIC, $virtualMethod(ArrayList$SubList, replaceAll, void, $UnaryOperator*)},
+		{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(ArrayList$SubList, retainAll, bool, $Collection*)},
+		{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITE;)TE;", $PUBLIC, $virtualMethod(ArrayList$SubList, set, $Object*, int32_t, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList, size, int32_t)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(ArrayList$SubList, spliterator, $Spliterator*)},
+		{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(ArrayList$SubList, subList, $List*, int32_t, int32_t)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ArrayList$SubList, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(ArrayList$SubList, toArray, $ObjectArray*, $ObjectArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateSizeAndModCount", "(I)V", nullptr, $PRIVATE, $method(ArrayList$SubList, updateSizeAndModCount, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ArrayList$SubList", "java.util.ArrayList", "SubList", $PRIVATE | $STATIC},
+		{"java.util.ArrayList$SubList$2", nullptr, nullptr, 0},
+		{"java.util.ArrayList$SubList$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.ArrayList$SubList",
+		"java.util.AbstractList",
+		"java.util.RandomAccess",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/AbstractList<TE;>;Ljava/util/RandomAccess;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.ArrayList"
+	};
+	$loadClass(ArrayList$SubList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ArrayList$SubList));
+	});
 	return class$;
 }
 

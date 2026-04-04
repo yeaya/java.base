@@ -1,5 +1,4 @@
 #include <jdk/internal/loader/BuiltinClassLoader$4.h>
-
 #include <java/io/IOException.h>
 #include <jdk/internal/loader/BuiltinClassLoader.h>
 #include <jdk/internal/loader/Resource.h>
@@ -14,55 +13,10 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BuiltinClassLoader = ::jdk::internal::loader::BuiltinClassLoader;
 using $Resource = ::jdk::internal::loader::Resource;
-using $URLClassPath = ::jdk::internal::loader::URLClassPath;
 
 namespace jdk {
 	namespace internal {
 		namespace loader {
-
-$FieldInfo _BuiltinClassLoader$4_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/loader/BuiltinClassLoader;", nullptr, $FINAL | $SYNTHETIC, $field(BuiltinClassLoader$4, this$0)},
-	{"val$cn", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(BuiltinClassLoader$4, val$cn)},
-	{"val$path", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(BuiltinClassLoader$4, val$path)},
-	{}
-};
-
-$MethodInfo _BuiltinClassLoader$4_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/loader/BuiltinClassLoader;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(BuiltinClassLoader$4, init$, void, $BuiltinClassLoader*, $String*, $String*)},
-	{"run", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(BuiltinClassLoader$4, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _BuiltinClassLoader$4_EnclosingMethodInfo_ = {
-	"jdk.internal.loader.BuiltinClassLoader",
-	"findClassOnClassPathOrNull",
-	"(Ljava/lang/String;)Ljava/lang/Class;"
-};
-
-$InnerClassInfo _BuiltinClassLoader$4_InnerClassesInfo_[] = {
-	{"jdk.internal.loader.BuiltinClassLoader$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BuiltinClassLoader$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.loader.BuiltinClassLoader$4",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_BuiltinClassLoader$4_FieldInfo_,
-	_BuiltinClassLoader$4_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Class<*>;>;",
-	&_BuiltinClassLoader$4_EnclosingMethodInfo_,
-	_BuiltinClassLoader$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.loader.BuiltinClassLoader"
-};
-
-$Object* allocate$BuiltinClassLoader$4($Class* clazz) {
-	return $of($alloc(BuiltinClassLoader$4));
-}
 
 void BuiltinClassLoader$4::init$($BuiltinClassLoader* this$0, $String* val$path, $String* val$cn) {
 	$set(this, this$0, this$0);
@@ -78,14 +32,51 @@ $Object* BuiltinClassLoader$4::run() {
 		} catch ($IOException& ioe) {
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 BuiltinClassLoader$4::BuiltinClassLoader$4() {
 }
 
 $Class* BuiltinClassLoader$4::load$($String* name, bool initialize) {
-	$loadClass(BuiltinClassLoader$4, name, initialize, &_BuiltinClassLoader$4_ClassInfo_, allocate$BuiltinClassLoader$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/loader/BuiltinClassLoader;", nullptr, $FINAL | $SYNTHETIC, $field(BuiltinClassLoader$4, this$0)},
+		{"val$cn", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(BuiltinClassLoader$4, val$cn)},
+		{"val$path", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(BuiltinClassLoader$4, val$path)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/loader/BuiltinClassLoader;Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(BuiltinClassLoader$4, init$, void, $BuiltinClassLoader*, $String*, $String*)},
+		{"run", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(BuiltinClassLoader$4, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.loader.BuiltinClassLoader",
+		"findClassOnClassPathOrNull",
+		"(Ljava/lang/String;)Ljava/lang/Class;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.loader.BuiltinClassLoader$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.loader.BuiltinClassLoader$4",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Class<*>;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.loader.BuiltinClassLoader"
+	};
+	$loadClass(BuiltinClassLoader$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BuiltinClassLoader$4);
+	});
 	return class$;
 }
 

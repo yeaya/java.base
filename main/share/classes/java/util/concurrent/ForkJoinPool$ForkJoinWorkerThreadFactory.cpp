@@ -1,5 +1,4 @@
 #include <java/util/concurrent/ForkJoinPool$ForkJoinWorkerThreadFactory.h>
-
 #include <java/util/concurrent/ForkJoinPool.h>
 #include <java/util/concurrent/ForkJoinWorkerThread.h>
 #include <jcpp.h>
@@ -14,38 +13,33 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$MethodInfo _ForkJoinPool$ForkJoinWorkerThreadFactory_MethodInfo_[] = {
-	{"newThread", "(Ljava/util/concurrent/ForkJoinPool;)Ljava/util/concurrent/ForkJoinWorkerThread;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ForkJoinPool$ForkJoinWorkerThreadFactory, newThread, $ForkJoinWorkerThread*, $ForkJoinPool*)},
-	{}
-};
-
-$InnerClassInfo _ForkJoinPool$ForkJoinWorkerThreadFactory_InnerClassesInfo_[] = {
-	{"java.util.concurrent.ForkJoinPool$ForkJoinWorkerThreadFactory", "java.util.concurrent.ForkJoinPool", "ForkJoinWorkerThreadFactory", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ForkJoinPool$ForkJoinWorkerThreadFactory_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.concurrent.ForkJoinPool$ForkJoinWorkerThreadFactory",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ForkJoinPool$ForkJoinWorkerThreadFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ForkJoinPool$ForkJoinWorkerThreadFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.ForkJoinPool"
-};
-
-$Object* allocate$ForkJoinPool$ForkJoinWorkerThreadFactory($Class* clazz) {
-	return $of($alloc(ForkJoinPool$ForkJoinWorkerThreadFactory));
-}
-
 $Class* ForkJoinPool$ForkJoinWorkerThreadFactory::load$($String* name, bool initialize) {
-	$loadClass(ForkJoinPool$ForkJoinWorkerThreadFactory, name, initialize, &_ForkJoinPool$ForkJoinWorkerThreadFactory_ClassInfo_, allocate$ForkJoinPool$ForkJoinWorkerThreadFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"newThread", "(Ljava/util/concurrent/ForkJoinPool;)Ljava/util/concurrent/ForkJoinWorkerThread;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ForkJoinPool$ForkJoinWorkerThreadFactory, newThread, $ForkJoinWorkerThread*, $ForkJoinPool*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.ForkJoinPool$ForkJoinWorkerThreadFactory", "java.util.concurrent.ForkJoinPool", "ForkJoinWorkerThreadFactory", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.concurrent.ForkJoinPool$ForkJoinWorkerThreadFactory",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.ForkJoinPool"
+	};
+	$loadClass(ForkJoinPool$ForkJoinWorkerThreadFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ForkJoinPool$ForkJoinWorkerThreadFactory);
+	});
 	return class$;
 }
 

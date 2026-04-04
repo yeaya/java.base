@@ -60,7 +60,7 @@ public:
 	virtual $String* toString() override;
 	virtual ::java::util::Collection* values() override;
 	::java::util::TreeMap* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xA5818343A213C27F;
+	static const int64_t serialVersionUID = (int64_t)0xa5818343a213c27f;
 	bool fromStart = false;
 	bool toEnd = false;
 	$Object* fromKey = nullptr;

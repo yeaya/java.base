@@ -1,51 +1,22 @@
 #include <Concurrent.h>
-
-#include <java/lang/Runnable.h>
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
 #include <java/net/PortUnreachableException.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $DatagramPacket = ::java::net::DatagramPacket;
 using $DatagramSocket = ::java::net::DatagramSocket;
 using $InetAddress = ::java::net::InetAddress;
 using $PortUnreachableException = ::java::net::PortUnreachableException;
 
-$FieldInfo _Concurrent_FieldInfo_[] = {
-	{"s", "Ljava/net/DatagramSocket;", nullptr, 0, $field(Concurrent, s)},
-	{}
-};
-
-$MethodInfo _Concurrent_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/InetAddress;I)V", nullptr, 0, $method(Concurrent, init$, void, $InetAddress*, int32_t), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Concurrent, main, void, $StringArray*), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Concurrent, run, void)},
-	{}
-};
-
-$ClassInfo _Concurrent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Concurrent",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_Concurrent_FieldInfo_,
-	_Concurrent_MethodInfo_
-};
-
-$Object* allocate$Concurrent($Class* clazz) {
-	return $of($alloc(Concurrent));
-}
-
 void Concurrent::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($bytes, b, $new($bytes, 512));
 		$var($DatagramPacket, p, $new($DatagramPacket, b, b->length));
@@ -66,38 +37,38 @@ void Concurrent::run() {
 }
 
 void Concurrent::init$($InetAddress* ia, int32_t port) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println(""_s);
-	$nc($System::out)->println("***"_s);
-	$nc($System::out)->println("Test Description:"_s);
-	$nc($System::out)->println("    - Block reader thread on receive"_s);
-	$nc($System::out)->println("    - Send datagrams to bad destination with wee pauses"_s);
-	$nc($System::out)->println("    - Observe which thread gets the PUE"_s);
-	$nc($System::out)->println(""_s);
+	$System::out->println("***"_s);
+	$System::out->println("Test Description:"_s);
+	$System::out->println("    - Block reader thread on receive"_s);
+	$System::out->println("    - Send datagrams to bad destination with wee pauses"_s);
+	$System::out->println("    - Observe which thread gets the PUE"_s);
+	$System::out->println(""_s);
 	$set(this, s, $new($DatagramSocket));
-	$nc(this->s)->connect(ia, port);
-	$nc(this->s)->setSoTimeout(0x0000EA60);
-	$var($Thread, thr, $new($Thread, static_cast<$Runnable*>(this)));
+	this->s->connect(ia, port);
+	this->s->setSoTimeout(60000);
+	$var($Thread, thr, $new($Thread, this));
 	thr->start();
 	$($Thread::currentThread())->sleep(2000);
 	$var($bytes, b, $new($bytes, 512));
 	$var($DatagramPacket, p, $new($DatagramPacket, b, b->length));
 	for (int32_t i = 0; i < 10; ++i) {
 		try {
-			$nc($System::out)->println("Sending..."_s);
-			$nc(this->s)->send(p);
+			$System::out->println("Sending..."_s);
+			this->s->send(p);
 		} catch ($PortUnreachableException& e) {
-			$nc($System::out)->println("send threw PortUnreachableException"_s);
+			$System::out->println("send threw PortUnreachableException"_s);
 		}
 		$($Thread::currentThread())->sleep(100);
 	}
 	$($Thread::currentThread())->sleep(5000);
-	$nc(this->s)->close();
+	this->s->close();
 }
 
 void Concurrent::main($StringArray* args) {
 	$init(Concurrent);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetAddress, ia, nullptr);
 	int32_t port = 0;
 	if ($nc(args)->length >= 2) {
@@ -116,7 +87,27 @@ Concurrent::Concurrent() {
 }
 
 $Class* Concurrent::load$($String* name, bool initialize) {
-	$loadClass(Concurrent, name, initialize, &_Concurrent_ClassInfo_, allocate$Concurrent);
+	$FieldInfo fieldInfos$$[] = {
+		{"s", "Ljava/net/DatagramSocket;", nullptr, 0, $field(Concurrent, s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/InetAddress;I)V", nullptr, 0, $method(Concurrent, init$, void, $InetAddress*, int32_t), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Concurrent, main, void, $StringArray*), "java.lang.Exception"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Concurrent, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Concurrent",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Concurrent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Concurrent);
+	});
 	return class$;
 }
 

@@ -28,6 +28,7 @@ class NativeBuffer : public ::java::lang::AutoCloseable {
 	$class(NativeBuffer, 0, ::java::lang::AutoCloseable)
 public:
 	NativeBuffer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t size);
 	virtual int64_t address();
 	virtual void close() override;

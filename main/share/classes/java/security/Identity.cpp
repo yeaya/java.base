@@ -1,5 +1,4 @@
 #include <java/security/Identity.h>
-
 #include <java/lang/SecurityManager.h>
 #include <java/security/Certificate.h>
 #include <java/security/IdentityScope.h>
@@ -29,72 +28,6 @@ using $Vector = ::java::util::Vector;
 
 namespace java {
 	namespace security {
-
-$NamedAttribute Identity_Attribute_var$0[] = {
-	{"since", 's', "1.2"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _Identity_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", Identity_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _Identity_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Identity, serialVersionUID)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Identity, name)},
-	{"publicKey", "Ljava/security/PublicKey;", nullptr, $PRIVATE, $field(Identity, publicKey)},
-	{"info", "Ljava/lang/String;", nullptr, 0, $field(Identity, info)},
-	{"scope", "Ljava/security/IdentityScope;", nullptr, 0, $field(Identity, scope)},
-	{"certificates", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/security/Certificate;>;", 0, $field(Identity, certificates$)},
-	{}
-};
-
-$MethodInfo _Identity_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(Identity, init$, void)},
-	{"<init>", "(Ljava/lang/String;Ljava/security/IdentityScope;)V", nullptr, $PUBLIC, $method(Identity, init$, void, $String*, $IdentityScope*), "java.security.KeyManagementException"},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Identity, init$, void, $String*)},
-	{"addCertificate", "(Ljava/security/Certificate;)V", nullptr, $PUBLIC, $virtualMethod(Identity, addCertificate, void, $Certificate*), "java.security.KeyManagementException"},
-	{"certificates", "()[Ljava/security/Certificate;", nullptr, $PUBLIC, $virtualMethod(Identity, certificates, $CertificateArray*)},
-	{"check", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Identity, check, void, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Identity, equals, bool, Object$*)},
-	{"fullName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Identity, fullName, $String*)},
-	{"getInfo", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Identity, getInfo, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Identity, getName, $String*)},
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(Identity, getPublicKey, $PublicKey*)},
-	{"getScope", "()Ljava/security/IdentityScope;", nullptr, $PUBLIC | $FINAL, $method(Identity, getScope, $IdentityScope*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Identity, hashCode, int32_t)},
-	{"identityEquals", "(Ljava/security/Identity;)Z", nullptr, $PROTECTED, $virtualMethod(Identity, identityEquals, bool, Identity*)},
-	{"keyEquals", "(Ljava/security/PublicKey;Ljava/security/PublicKey;)Z", nullptr, $PRIVATE, $method(Identity, keyEquals, bool, $PublicKey*, $PublicKey*)},
-	{"printCertificates", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Identity, printCertificates, $String*)},
-	{"printKeys", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Identity, printKeys, $String*)},
-	{"removeCertificate", "(Ljava/security/Certificate;)V", nullptr, $PUBLIC, $virtualMethod(Identity, removeCertificate, void, $Certificate*), "java.security.KeyManagementException"},
-	{"setInfo", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Identity, setInfo, void, $String*)},
-	{"setPublicKey", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $virtualMethod(Identity, setPublicKey, void, $PublicKey*), "java.security.KeyManagementException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Identity, toString, $String*)},
-	{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Identity, toString, $String*, bool)},
-	{}
-};
-
-$ClassInfo _Identity_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.security.Identity",
-	"java.lang.Object",
-	"java.security.Principal,java.io.Serializable",
-	_Identity_FieldInfo_,
-	_Identity_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Identity_Annotations_
-};
-
-$Object* allocate$Identity($Class* clazz) {
-	return $of($alloc(Identity));
-}
 
 $Object* Identity::clone() {
 	 return this->$Principal::clone();
@@ -164,7 +97,7 @@ void Identity::addCertificate($Certificate* certificate) {
 }
 
 bool Identity::keyEquals($PublicKey* aKey, $PublicKey* anotherKey) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, aKeyFormat, $nc(aKey)->getFormat());
 	$var($String, anotherKeyFormat, $nc(anotherKey)->getFormat());
 	if ((aKeyFormat == nullptr) ^ (anotherKeyFormat == nullptr)) {
@@ -182,7 +115,7 @@ bool Identity::keyEquals($PublicKey* aKey, $PublicKey* anotherKey) {
 void Identity::removeCertificate($Certificate* certificate) {
 	check("removeIdentityCertificate"_s);
 	if (this->certificates$ != nullptr) {
-		$nc(this->certificates$)->removeElement(certificate);
+		this->certificates$->removeElement(certificate);
 	}
 }
 
@@ -192,12 +125,12 @@ $CertificateArray* Identity::certificates() {
 	}
 	int32_t len = $nc(this->certificates$)->size();
 	$var($CertificateArray, certs, $new($CertificateArray, len));
-	$nc(this->certificates$)->copyInto(certs);
+	this->certificates$->copyInto(certs);
 	return certs;
 }
 
 bool Identity::equals(Object$* identity) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(identity, this)) {
 		return true;
 	}
@@ -209,8 +142,8 @@ bool Identity::equals(Object$* identity) {
 	}
 	bool var$0 = var$1;
 	if (var$0) {
-		bool var$2 = $nc($(this->fullName()))->equals($($nc(other)->fullName()));
-		var$0 = (var$2 || identityEquals(other));
+		bool var$2 = $$nc(this->fullName())->equals($($nc(other)->fullName()));
+		var$0 = var$2 || identityEquals(other);
 	}
 	return var$0;
 }
@@ -219,11 +152,11 @@ bool Identity::identityEquals(Identity* identity) {
 	if (!$nc(this->name)->equalsIgnoreCase($nc(identity)->name)) {
 		return false;
 	}
-	if ((this->publicKey == nullptr) ^ ($nc(identity)->publicKey == nullptr)) {
+	if ((this->publicKey == nullptr) ^ (identity->publicKey == nullptr)) {
 		return false;
 	}
-	if (this->publicKey != nullptr && $nc(identity)->publicKey != nullptr) {
-		if (!$nc($of(this->publicKey))->equals(identity->publicKey)) {
+	if (this->publicKey != nullptr && identity->publicKey != nullptr) {
+		if (!this->publicKey->equals(identity->publicKey)) {
 			return false;
 		}
 	}
@@ -231,26 +164,26 @@ bool Identity::identityEquals(Identity* identity) {
 }
 
 $String* Identity::fullName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, parsable, this->name);
 	if (this->scope != nullptr) {
-		$plusAssign(parsable, $$str({"."_s, $($nc(this->scope)->getName())}));
+		$plusAssign(parsable, $$str({"."_s, $(this->scope->getName())}));
 	}
 	return parsable;
 }
 
 $String* Identity::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	check("printIdentity"_s);
 	$var($String, printable, this->name);
 	if (this->scope != nullptr) {
-		$plusAssign(printable, $$str({"["_s, $($nc(this->scope)->getName()), "]"_s}));
+		$plusAssign(printable, $$str({"["_s, $(this->scope->getName()), "]"_s}));
 	}
 	return printable;
 }
 
 $String* Identity::toString(bool detailed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, out, toString());
 	if (detailed) {
 		$plusAssign(out, "\n"_s);
@@ -276,7 +209,7 @@ $String* Identity::printKeys() {
 }
 
 $String* Identity::printCertificates() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, out, ""_s);
 	if (this->certificates$ == nullptr) {
 		return "\tno certificates"_s;
@@ -284,7 +217,7 @@ $String* Identity::printCertificates() {
 		$plusAssign(out, "\tcertificates: \n"_s);
 		int32_t i = 1;
 		{
-			$var($Iterator, i$, $nc(this->certificates$)->iterator());
+			$var($Iterator, i$, this->certificates$->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Certificate, cert, $cast($Certificate, i$->next()));
 				{
@@ -313,7 +246,66 @@ Identity::Identity() {
 }
 
 $Class* Identity::load$($String* name, bool initialize) {
-	$loadClass(Identity, name, initialize, &_Identity_ClassInfo_, allocate$Identity);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Identity, serialVersionUID)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Identity, name)},
+		{"publicKey", "Ljava/security/PublicKey;", nullptr, $PRIVATE, $field(Identity, publicKey)},
+		{"info", "Ljava/lang/String;", nullptr, 0, $field(Identity, info)},
+		{"scope", "Ljava/security/IdentityScope;", nullptr, 0, $field(Identity, scope)},
+		{"certificates", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/security/Certificate;>;", 0, $field(Identity, certificates$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(Identity, init$, void)},
+		{"<init>", "(Ljava/lang/String;Ljava/security/IdentityScope;)V", nullptr, $PUBLIC, $method(Identity, init$, void, $String*, $IdentityScope*), "java.security.KeyManagementException"},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Identity, init$, void, $String*)},
+		{"addCertificate", "(Ljava/security/Certificate;)V", nullptr, $PUBLIC, $virtualMethod(Identity, addCertificate, void, $Certificate*), "java.security.KeyManagementException"},
+		{"certificates", "()[Ljava/security/Certificate;", nullptr, $PUBLIC, $virtualMethod(Identity, certificates, $CertificateArray*)},
+		{"check", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Identity, check, void, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Identity, equals, bool, Object$*)},
+		{"fullName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Identity, fullName, $String*)},
+		{"getInfo", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Identity, getInfo, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Identity, getName, $String*)},
+		{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(Identity, getPublicKey, $PublicKey*)},
+		{"getScope", "()Ljava/security/IdentityScope;", nullptr, $PUBLIC | $FINAL, $method(Identity, getScope, $IdentityScope*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Identity, hashCode, int32_t)},
+		{"identityEquals", "(Ljava/security/Identity;)Z", nullptr, $PROTECTED, $virtualMethod(Identity, identityEquals, bool, Identity*)},
+		{"keyEquals", "(Ljava/security/PublicKey;Ljava/security/PublicKey;)Z", nullptr, $PRIVATE, $method(Identity, keyEquals, bool, $PublicKey*, $PublicKey*)},
+		{"printCertificates", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Identity, printCertificates, $String*)},
+		{"printKeys", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Identity, printKeys, $String*)},
+		{"removeCertificate", "(Ljava/security/Certificate;)V", nullptr, $PUBLIC, $virtualMethod(Identity, removeCertificate, void, $Certificate*), "java.security.KeyManagementException"},
+		{"setInfo", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Identity, setInfo, void, $String*)},
+		{"setPublicKey", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $virtualMethod(Identity, setPublicKey, void, $PublicKey*), "java.security.KeyManagementException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Identity, toString, $String*)},
+		{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Identity, toString, $String*, bool)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "1.2"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.security.Identity",
+		"java.lang.Object",
+		"java.security.Principal,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Identity, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Identity));
+	});
 	return class$;
 }
 

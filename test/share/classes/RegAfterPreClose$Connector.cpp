@@ -1,5 +1,4 @@
 #include <RegAfterPreClose$Connector.h>
-
 #include <RegAfterPreClose.h>
 #include <java/io/IOException.h>
 #include <java/lang/InterruptedException.h>
@@ -19,44 +18,7 @@ using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
-using $SocketAddress = ::java::net::SocketAddress;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
-
-$FieldInfo _RegAfterPreClose$Connector_FieldInfo_[] = {
-	{"sa", "Ljava/net/SocketAddress;", nullptr, $PRIVATE | $FINAL, $field(RegAfterPreClose$Connector, sa)},
-	{}
-};
-
-$MethodInfo _RegAfterPreClose$Connector_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(RegAfterPreClose$Connector, init$, void, int32_t), "java.io.IOException"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RegAfterPreClose$Connector, run, void)},
-	{}
-};
-
-$InnerClassInfo _RegAfterPreClose$Connector_InnerClassesInfo_[] = {
-	{"RegAfterPreClose$Connector", "RegAfterPreClose", "Connector", $STATIC},
-	{}
-};
-
-$ClassInfo _RegAfterPreClose$Connector_ClassInfo_ = {
-	$ACC_SUPER,
-	"RegAfterPreClose$Connector",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_RegAfterPreClose$Connector_FieldInfo_,
-	_RegAfterPreClose$Connector_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RegAfterPreClose$Connector_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"RegAfterPreClose"
-};
-
-$Object* allocate$RegAfterPreClose$Connector($Class* clazz) {
-	return $of($alloc(RegAfterPreClose$Connector));
-}
 
 void RegAfterPreClose$Connector::init$(int32_t port) {
 	$var($InetAddress, lh, $InetAddress::getLocalHost());
@@ -64,11 +26,11 @@ void RegAfterPreClose$Connector::init$(int32_t port) {
 }
 
 void RegAfterPreClose$Connector::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($RegAfterPreClose);
 	while (!$RegAfterPreClose::done) {
 		try {
-			$nc($($SocketChannel::open(this->sa)))->close();
+			$$nc($SocketChannel::open(this->sa))->close();
 		} catch ($IOException& x) {
 			try {
 				$Thread::sleep(10);
@@ -82,7 +44,37 @@ RegAfterPreClose$Connector::RegAfterPreClose$Connector() {
 }
 
 $Class* RegAfterPreClose$Connector::load$($String* name, bool initialize) {
-	$loadClass(RegAfterPreClose$Connector, name, initialize, &_RegAfterPreClose$Connector_ClassInfo_, allocate$RegAfterPreClose$Connector);
+	$FieldInfo fieldInfos$$[] = {
+		{"sa", "Ljava/net/SocketAddress;", nullptr, $PRIVATE | $FINAL, $field(RegAfterPreClose$Connector, sa)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(RegAfterPreClose$Connector, init$, void, int32_t), "java.io.IOException"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RegAfterPreClose$Connector, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"RegAfterPreClose$Connector", "RegAfterPreClose", "Connector", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"RegAfterPreClose$Connector",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"RegAfterPreClose"
+	};
+	$loadClass(RegAfterPreClose$Connector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RegAfterPreClose$Connector);
+	});
 	return class$;
 }
 

@@ -33,6 +33,7 @@ class SupportedGroupsExtension$SupportedGroups : public ::java::lang::Object {
 	$class(SupportedGroupsExtension$SupportedGroups, 0, ::java::lang::Object)
 public:
 	SupportedGroupsExtension$SupportedGroups();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::NamedGroup* getPreferredGroup(::sun::security::ssl::ProtocolVersion* negotiatedProtocol, ::java::security::AlgorithmConstraints* constraints, $Array<::sun::security::ssl::NamedGroup$NamedGroupSpec>* types, ::java::util::List* requestedNamedGroups);
 	static ::sun::security::ssl::NamedGroup* getPreferredGroup(::sun::security::ssl::ProtocolVersion* negotiatedProtocol, ::java::security::AlgorithmConstraints* constraints, $Array<::sun::security::ssl::NamedGroup$NamedGroupSpec>* types);

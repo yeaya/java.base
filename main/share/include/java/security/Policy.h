@@ -42,6 +42,7 @@ class $import Policy : public ::java::lang::Object {
 	$class(Policy, 0, ::java::lang::Object)
 public:
 	Policy();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void addStaticPerms(::java::security::PermissionCollection* perms, ::java::security::PermissionCollection* statics);
 	static void checkPermission($String* type);

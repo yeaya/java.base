@@ -1,5 +1,4 @@
 #include <sun/nio/fs/UnixCopyFile$Flags.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/nio/file/CopyOption.h>
 #include <java/nio/file/LinkOption.h>
@@ -26,70 +25,21 @@ using $CopyOption = ::java::nio::file::CopyOption;
 using $LinkOption = ::java::nio::file::LinkOption;
 using $StandardCopyOption = ::java::nio::file::StandardCopyOption;
 using $ExtendedOptions = ::sun::nio::fs::ExtendedOptions;
-using $ExtendedOptions$InternalOption = ::sun::nio::fs::ExtendedOptions$InternalOption;
 
 namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _UnixCopyFile$Flags_FieldInfo_[] = {
-	{"replaceExisting", "Z", nullptr, 0, $field(UnixCopyFile$Flags, replaceExisting)},
-	{"atomicMove", "Z", nullptr, 0, $field(UnixCopyFile$Flags, atomicMove)},
-	{"followLinks", "Z", nullptr, 0, $field(UnixCopyFile$Flags, followLinks)},
-	{"interruptible", "Z", nullptr, 0, $field(UnixCopyFile$Flags, interruptible)},
-	{"copyBasicAttributes", "Z", nullptr, 0, $field(UnixCopyFile$Flags, copyBasicAttributes)},
-	{"copyPosixAttributes", "Z", nullptr, 0, $field(UnixCopyFile$Flags, copyPosixAttributes)},
-	{"copyNonPosixAttributes", "Z", nullptr, 0, $field(UnixCopyFile$Flags, copyNonPosixAttributes)},
-	{"failIfUnableToCopyBasic", "Z", nullptr, 0, $field(UnixCopyFile$Flags, failIfUnableToCopyBasic)},
-	{"failIfUnableToCopyPosix", "Z", nullptr, 0, $field(UnixCopyFile$Flags, failIfUnableToCopyPosix)},
-	{"failIfUnableToCopyNonPosix", "Z", nullptr, 0, $field(UnixCopyFile$Flags, failIfUnableToCopyNonPosix)},
-	{}
-};
-
-$MethodInfo _UnixCopyFile$Flags_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(UnixCopyFile$Flags, init$, void)},
-	{"fromCopyOptions", "([Ljava/nio/file/CopyOption;)Lsun/nio/fs/UnixCopyFile$Flags;", nullptr, $STATIC | $TRANSIENT, $staticMethod(UnixCopyFile$Flags, fromCopyOptions, UnixCopyFile$Flags*, $CopyOptionArray*)},
-	{"fromMoveOptions", "([Ljava/nio/file/CopyOption;)Lsun/nio/fs/UnixCopyFile$Flags;", nullptr, $STATIC | $TRANSIENT, $staticMethod(UnixCopyFile$Flags, fromMoveOptions, UnixCopyFile$Flags*, $CopyOptionArray*)},
-	{}
-};
-
-$InnerClassInfo _UnixCopyFile$Flags_InnerClassesInfo_[] = {
-	{"sun.nio.fs.UnixCopyFile$Flags", "sun.nio.fs.UnixCopyFile", "Flags", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _UnixCopyFile$Flags_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.UnixCopyFile$Flags",
-	"java.lang.Object",
-	nullptr,
-	_UnixCopyFile$Flags_FieldInfo_,
-	_UnixCopyFile$Flags_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UnixCopyFile$Flags_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.UnixCopyFile"
-};
-
-$Object* allocate$UnixCopyFile$Flags($Class* clazz) {
-	return $of($alloc(UnixCopyFile$Flags));
-}
-
 void UnixCopyFile$Flags::init$() {
 }
 
 UnixCopyFile$Flags* UnixCopyFile$Flags::fromCopyOptions($CopyOptionArray* options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(UnixCopyFile$Flags, flags, $new(UnixCopyFile$Flags));
 	flags->followLinks = true;
 	{
 		$var($CopyOptionArray, arr$, options);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($CopyOption, option, arr$->get(i$));
 			{
 				$init($StandardCopyOption);
@@ -125,13 +75,11 @@ UnixCopyFile$Flags* UnixCopyFile$Flags::fromCopyOptions($CopyOptionArray* option
 }
 
 UnixCopyFile$Flags* UnixCopyFile$Flags::fromMoveOptions($CopyOptionArray* options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(UnixCopyFile$Flags, flags, $new(UnixCopyFile$Flags));
 	{
 		$var($CopyOptionArray, arr$, options);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($CopyOption, option, arr$->get(i$));
 			{
 				$init($StandardCopyOption);
@@ -165,7 +113,47 @@ UnixCopyFile$Flags::UnixCopyFile$Flags() {
 }
 
 $Class* UnixCopyFile$Flags::load$($String* name, bool initialize) {
-	$loadClass(UnixCopyFile$Flags, name, initialize, &_UnixCopyFile$Flags_ClassInfo_, allocate$UnixCopyFile$Flags);
+	$FieldInfo fieldInfos$$[] = {
+		{"replaceExisting", "Z", nullptr, 0, $field(UnixCopyFile$Flags, replaceExisting)},
+		{"atomicMove", "Z", nullptr, 0, $field(UnixCopyFile$Flags, atomicMove)},
+		{"followLinks", "Z", nullptr, 0, $field(UnixCopyFile$Flags, followLinks)},
+		{"interruptible", "Z", nullptr, 0, $field(UnixCopyFile$Flags, interruptible)},
+		{"copyBasicAttributes", "Z", nullptr, 0, $field(UnixCopyFile$Flags, copyBasicAttributes)},
+		{"copyPosixAttributes", "Z", nullptr, 0, $field(UnixCopyFile$Flags, copyPosixAttributes)},
+		{"copyNonPosixAttributes", "Z", nullptr, 0, $field(UnixCopyFile$Flags, copyNonPosixAttributes)},
+		{"failIfUnableToCopyBasic", "Z", nullptr, 0, $field(UnixCopyFile$Flags, failIfUnableToCopyBasic)},
+		{"failIfUnableToCopyPosix", "Z", nullptr, 0, $field(UnixCopyFile$Flags, failIfUnableToCopyPosix)},
+		{"failIfUnableToCopyNonPosix", "Z", nullptr, 0, $field(UnixCopyFile$Flags, failIfUnableToCopyNonPosix)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(UnixCopyFile$Flags, init$, void)},
+		{"fromCopyOptions", "([Ljava/nio/file/CopyOption;)Lsun/nio/fs/UnixCopyFile$Flags;", nullptr, $STATIC | $TRANSIENT, $staticMethod(UnixCopyFile$Flags, fromCopyOptions, UnixCopyFile$Flags*, $CopyOptionArray*)},
+		{"fromMoveOptions", "([Ljava/nio/file/CopyOption;)Lsun/nio/fs/UnixCopyFile$Flags;", nullptr, $STATIC | $TRANSIENT, $staticMethod(UnixCopyFile$Flags, fromMoveOptions, UnixCopyFile$Flags*, $CopyOptionArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.UnixCopyFile$Flags", "sun.nio.fs.UnixCopyFile", "Flags", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.UnixCopyFile$Flags",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.UnixCopyFile"
+	};
+	$loadClass(UnixCopyFile$Flags, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnixCopyFile$Flags);
+	});
 	return class$;
 }
 

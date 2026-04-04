@@ -50,6 +50,7 @@ class $export AVA : public ::sun::security::util::DerEncoder {
 	$class(AVA, 0, ::sun::security::util::DerEncoder)
 public:
 	AVA();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::util::ObjectIdentifier* type, ::sun::security::util::DerValue* val);
 	void init$(::java::io::Reader* in);
 	void init$(::java::io::Reader* in, ::java::util::Map* keywordMap);

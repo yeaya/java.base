@@ -1,5 +1,4 @@
 #include <AnotherSelectFdsLimit$WorkerThread.h>
-
 #include <AnotherSelectFdsLimit.h>
 #include <java/io/IOException.h>
 #include <java/io/UncheckedIOException.h>
@@ -16,67 +15,34 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ServerSocket = ::java::net::ServerSocket;
 using $SocketTimeoutException = ::java::net::SocketTimeoutException;
 
-$MethodInfo _AnotherSelectFdsLimit$WorkerThread_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AnotherSelectFdsLimit$WorkerThread, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AnotherSelectFdsLimit$WorkerThread, run, void)},
-	{}
-};
-
-$InnerClassInfo _AnotherSelectFdsLimit$WorkerThread_InnerClassesInfo_[] = {
-	{"AnotherSelectFdsLimit$WorkerThread", "AnotherSelectFdsLimit", "WorkerThread", $STATIC},
-	{}
-};
-
-$ClassInfo _AnotherSelectFdsLimit$WorkerThread_ClassInfo_ = {
-	$ACC_SUPER,
-	"AnotherSelectFdsLimit$WorkerThread",
-	"java.lang.Thread",
-	nullptr,
-	nullptr,
-	_AnotherSelectFdsLimit$WorkerThread_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AnotherSelectFdsLimit$WorkerThread_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"AnotherSelectFdsLimit"
-};
-
-$Object* allocate$AnotherSelectFdsLimit$WorkerThread($Class* clazz) {
-	return $of($alloc(AnotherSelectFdsLimit$WorkerThread));
-}
-
 void AnotherSelectFdsLimit$WorkerThread::init$() {
 	$Thread::init$();
 }
 
 void AnotherSelectFdsLimit$WorkerThread::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($ServerSocket, ss, $new($ServerSocket, 0));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				ss->setSoTimeout(2000);
+				ss->accept();
+			} catch ($Throwable& t$) {
 				try {
-					ss->setSoTimeout(2000);
-					ss->accept();
-				} catch ($Throwable& t$) {
-					try {
-						ss->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+					ss->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				ss->close();
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			ss->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} catch ($SocketTimeoutException& x) {
 	} catch ($IOException& x) {
@@ -88,7 +54,33 @@ AnotherSelectFdsLimit$WorkerThread::AnotherSelectFdsLimit$WorkerThread() {
 }
 
 $Class* AnotherSelectFdsLimit$WorkerThread::load$($String* name, bool initialize) {
-	$loadClass(AnotherSelectFdsLimit$WorkerThread, name, initialize, &_AnotherSelectFdsLimit$WorkerThread_ClassInfo_, allocate$AnotherSelectFdsLimit$WorkerThread);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AnotherSelectFdsLimit$WorkerThread, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(AnotherSelectFdsLimit$WorkerThread, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"AnotherSelectFdsLimit$WorkerThread", "AnotherSelectFdsLimit", "WorkerThread", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"AnotherSelectFdsLimit$WorkerThread",
+		"java.lang.Thread",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"AnotherSelectFdsLimit"
+	};
+	$loadClass(AnotherSelectFdsLimit$WorkerThread, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AnotherSelectFdsLimit$WorkerThread);
+	});
 	return class$;
 }
 

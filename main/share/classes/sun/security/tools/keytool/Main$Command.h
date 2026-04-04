@@ -69,6 +69,7 @@ class Main$Command : public ::java::lang::Enum {
 public:
 	Main$Command();
 	static $Array<::sun::security::tools::keytool::Main$Command>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* d, $Array<::sun::security::tools::keytool::Main$Option>* o);
 	virtual $String* getAltName();
 	static ::sun::security::tools::keytool::Main$Command* getCommand($String* cmd);

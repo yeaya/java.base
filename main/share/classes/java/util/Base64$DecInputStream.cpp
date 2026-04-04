@@ -1,5 +1,4 @@
 #include <java/util/Base64$DecInputStream.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/util/Base64.h>
@@ -18,56 +17,6 @@ using $Objects = ::java::util::Objects;
 namespace java {
 	namespace util {
 
-$FieldInfo _Base64$DecInputStream_FieldInfo_[] = {
-	{"is", "Ljava/io/InputStream;", nullptr, $PRIVATE | $FINAL, $field(Base64$DecInputStream, is)},
-	{"isMIME", "Z", nullptr, $PRIVATE | $FINAL, $field(Base64$DecInputStream, isMIME)},
-	{"base64", "[I", nullptr, $PRIVATE | $FINAL, $field(Base64$DecInputStream, base64)},
-	{"bits", "I", nullptr, $PRIVATE, $field(Base64$DecInputStream, bits)},
-	{"wpos", "I", nullptr, $PRIVATE, $field(Base64$DecInputStream, wpos)},
-	{"rpos", "I", nullptr, $PRIVATE, $field(Base64$DecInputStream, rpos)},
-	{"eof", "Z", nullptr, $PRIVATE, $field(Base64$DecInputStream, eof$)},
-	{"closed", "Z", nullptr, $PRIVATE, $field(Base64$DecInputStream, closed)},
-	{"sbBuf", "[B", nullptr, $PRIVATE, $field(Base64$DecInputStream, sbBuf)},
-	{}
-};
-
-$MethodInfo _Base64$DecInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;[IZ)V", nullptr, 0, $method(Base64$DecInputStream, init$, void, $InputStream*, $ints*, bool)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(Base64$DecInputStream, available, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Base64$DecInputStream, close, void), "java.io.IOException"},
-	{"eof", "([BIII)I", nullptr, $PRIVATE, $method(Base64$DecInputStream, eof, int32_t, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{"leftovers", "([BIII)I", nullptr, $PRIVATE, $method(Base64$DecInputStream, leftovers, int32_t, $bytes*, int32_t, int32_t, int32_t)},
-	{"padding", "([BIII)I", nullptr, $PRIVATE, $method(Base64$DecInputStream, padding, int32_t, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(Base64$DecInputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(Base64$DecInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Base64$DecInputStream_InnerClassesInfo_[] = {
-	{"java.util.Base64$DecInputStream", "java.util.Base64", "DecInputStream", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Base64$DecInputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Base64$DecInputStream",
-	"java.io.InputStream",
-	nullptr,
-	_Base64$DecInputStream_FieldInfo_,
-	_Base64$DecInputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Base64$DecInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Base64"
-};
-
-$Object* allocate$Base64$DecInputStream($Class* clazz) {
-	return $of($alloc(Base64$DecInputStream));
-}
-
 void Base64$DecInputStream::init$($InputStream* is, $ints* base64, bool isMIME) {
 	$InputStream::init$();
 	this->bits = 0;
@@ -82,7 +31,7 @@ void Base64$DecInputStream::init$($InputStream* is, $ints* base64, bool isMIME) 
 }
 
 int32_t Base64$DecInputStream::read() {
-	return read(this->sbBuf, 0, 1) == -1 ? -1 : (int32_t)($nc(this->sbBuf)->get(0) & (uint32_t)255);
+	return read(this->sbBuf, 0, 1) == -1 ? -1 : $nc(this->sbBuf)->get(0) & 0xff;
 }
 
 int32_t Base64$DecInputStream::leftovers($bytes* b, int32_t off, int32_t pos, int32_t limit) {
@@ -103,7 +52,7 @@ int32_t Base64$DecInputStream::eof($bytes* b, int32_t off, int32_t pos, int32_t 
 }
 
 int32_t Base64$DecInputStream::padding($bytes* b, int32_t off, int32_t pos, int32_t limit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->wpos >= 18 || this->wpos == 12 && $nc(this->is)->read() != u'=') {
 		$throwNew($IOException, $$str({"Illegal base64 ending sequence:"_s, $$str(this->wpos)}));
 	}
@@ -112,7 +61,7 @@ int32_t Base64$DecInputStream::padding($bytes* b, int32_t off, int32_t pos, int3
 }
 
 int32_t Base64$DecInputStream::read($bytes* b, int32_t off, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->closed) {
 		$throwNew($IOException, "Stream is closed"_s);
 	}
@@ -126,14 +75,14 @@ int32_t Base64$DecInputStream::read($bytes* b, int32_t off, int32_t len) {
 		return leftovers(b, off, pos, limit);
 	}
 	if (this->rpos == 16) {
-		$nc(b)->set(pos++, (int8_t)(this->bits >> 8));
+		b->set(pos++, (int8_t)(this->bits >> 8));
 		this->rpos = 8;
 		if (pos == limit) {
 			return len;
 		}
 	}
 	if (this->rpos == 8) {
-		$nc(b)->set(pos++, (int8_t)this->bits);
+		b->set(pos++, (int8_t)this->bits);
 		this->rpos = 0;
 		if (pos == limit) {
 			return len;
@@ -162,7 +111,7 @@ int32_t Base64$DecInputStream::read($bytes* b, int32_t off, int32_t len) {
 			continue;
 		}
 		if (limit - pos >= 3) {
-			$nc(b)->set(pos++, (int8_t)(this->bits >> 16));
+			b->set(pos++, (int8_t)(this->bits >> 16));
 			b->set(pos++, (int8_t)(this->bits >> 8));
 			b->set(pos++, (int8_t)this->bits);
 			this->bits = 0;
@@ -172,7 +121,7 @@ int32_t Base64$DecInputStream::read($bytes* b, int32_t off, int32_t len) {
 			}
 			continue;
 		}
-		$nc(b)->set(pos++, (int8_t)(this->bits >> 16));
+		b->set(pos++, (int8_t)(this->bits >> 16));
 		if (pos == limit) {
 			this->rpos = 16;
 			return len;
@@ -201,7 +150,51 @@ Base64$DecInputStream::Base64$DecInputStream() {
 }
 
 $Class* Base64$DecInputStream::load$($String* name, bool initialize) {
-	$loadClass(Base64$DecInputStream, name, initialize, &_Base64$DecInputStream_ClassInfo_, allocate$Base64$DecInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"is", "Ljava/io/InputStream;", nullptr, $PRIVATE | $FINAL, $field(Base64$DecInputStream, is)},
+		{"isMIME", "Z", nullptr, $PRIVATE | $FINAL, $field(Base64$DecInputStream, isMIME)},
+		{"base64", "[I", nullptr, $PRIVATE | $FINAL, $field(Base64$DecInputStream, base64)},
+		{"bits", "I", nullptr, $PRIVATE, $field(Base64$DecInputStream, bits)},
+		{"wpos", "I", nullptr, $PRIVATE, $field(Base64$DecInputStream, wpos)},
+		{"rpos", "I", nullptr, $PRIVATE, $field(Base64$DecInputStream, rpos)},
+		{"eof", "Z", nullptr, $PRIVATE, $field(Base64$DecInputStream, eof$)},
+		{"closed", "Z", nullptr, $PRIVATE, $field(Base64$DecInputStream, closed)},
+		{"sbBuf", "[B", nullptr, $PRIVATE, $field(Base64$DecInputStream, sbBuf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;[IZ)V", nullptr, 0, $method(Base64$DecInputStream, init$, void, $InputStream*, $ints*, bool)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(Base64$DecInputStream, available, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Base64$DecInputStream, close, void), "java.io.IOException"},
+		{"eof", "([BIII)I", nullptr, $PRIVATE, $method(Base64$DecInputStream, eof, int32_t, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{"leftovers", "([BIII)I", nullptr, $PRIVATE, $method(Base64$DecInputStream, leftovers, int32_t, $bytes*, int32_t, int32_t, int32_t)},
+		{"padding", "([BIII)I", nullptr, $PRIVATE, $method(Base64$DecInputStream, padding, int32_t, $bytes*, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(Base64$DecInputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(Base64$DecInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Base64$DecInputStream", "java.util.Base64", "DecInputStream", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Base64$DecInputStream",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Base64"
+	};
+	$loadClass(Base64$DecInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Base64$DecInputStream);
+	});
 	return class$;
 }
 

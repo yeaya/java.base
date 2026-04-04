@@ -28,6 +28,7 @@ namespace jdk {
 class $import XMLStreamWriter : public ::java::lang::Object {
 	$interface(XMLStreamWriter, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual void close() {}
 	virtual void flush() {}
 	virtual void writeAttribute($String* localName, $String* value) {}

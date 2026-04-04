@@ -1,5 +1,4 @@
 #include <sun/nio/ch/FileLockImpl.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/nio/channels/AsynchronousFileChannel.h>
 #include <java/nio/channels/Channel.h>
@@ -25,34 +24,6 @@ using $FileChannelImpl = ::sun::nio::ch::FileChannelImpl;
 namespace sun {
 	namespace nio {
 		namespace ch {
-
-$FieldInfo _FileLockImpl_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FileLockImpl, $assertionsDisabled)},
-	{"invalid", "Z", nullptr, $PRIVATE | $VOLATILE, $field(FileLockImpl, invalid)},
-	{}
-};
-
-$MethodInfo _FileLockImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/FileChannel;JJZ)V", nullptr, 0, $method(FileLockImpl, init$, void, $FileChannel*, int64_t, int64_t, bool)},
-	{"<init>", "(Ljava/nio/channels/AsynchronousFileChannel;JJZ)V", nullptr, 0, $method(FileLockImpl, init$, void, $AsynchronousFileChannel*, int64_t, int64_t, bool)},
-	{"invalidate", "()V", nullptr, 0, $virtualMethod(FileLockImpl, invalidate, void)},
-	{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(FileLockImpl, isValid, bool)},
-	{"release", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FileLockImpl, release, void), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _FileLockImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.ch.FileLockImpl",
-	"java.nio.channels.FileLock",
-	nullptr,
-	_FileLockImpl_FieldInfo_,
-	_FileLockImpl_MethodInfo_
-};
-
-$Object* allocate$FileLockImpl($Class* clazz) {
-	return $of($alloc(FileLockImpl));
-}
 
 bool FileLockImpl::$assertionsDisabled = false;
 
@@ -83,9 +54,9 @@ void FileLockImpl::release() {
 		}
 		if (isValid()) {
 			if ($instanceOf($FileChannelImpl, ch)) {
-				$nc(($cast($FileChannelImpl, ch)))->release(this);
+				$cast($FileChannelImpl, ch)->release(this);
 			} else if ($instanceOf($AsynchronousFileChannelImpl, ch)) {
-				$nc(($cast($AsynchronousFileChannelImpl, ch)))->release(this);
+				$cast($AsynchronousFileChannelImpl, ch)->release(this);
 			} else {
 				$throwNew($AssertionError);
 			}
@@ -94,7 +65,7 @@ void FileLockImpl::release() {
 	}
 }
 
-void clinit$FileLockImpl($Class* class$) {
+void FileLockImpl::clinit$($Class* clazz) {
 	FileLockImpl::$assertionsDisabled = !FileLockImpl::class$->desiredAssertionStatus();
 }
 
@@ -102,7 +73,30 @@ FileLockImpl::FileLockImpl() {
 }
 
 $Class* FileLockImpl::load$($String* name, bool initialize) {
-	$loadClass(FileLockImpl, name, initialize, &_FileLockImpl_ClassInfo_, clinit$FileLockImpl, allocate$FileLockImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FileLockImpl, $assertionsDisabled)},
+		{"invalid", "Z", nullptr, $PRIVATE | $VOLATILE, $field(FileLockImpl, invalid)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/FileChannel;JJZ)V", nullptr, 0, $method(FileLockImpl, init$, void, $FileChannel*, int64_t, int64_t, bool)},
+		{"<init>", "(Ljava/nio/channels/AsynchronousFileChannel;JJZ)V", nullptr, 0, $method(FileLockImpl, init$, void, $AsynchronousFileChannel*, int64_t, int64_t, bool)},
+		{"invalidate", "()V", nullptr, 0, $virtualMethod(FileLockImpl, invalidate, void)},
+		{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(FileLockImpl, isValid, bool)},
+		{"release", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FileLockImpl, release, void), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.ch.FileLockImpl",
+		"java.nio.channels.FileLock",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FileLockImpl, name, initialize, &classInfo$$, FileLockImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FileLockImpl);
+	});
 	return class$;
 }
 

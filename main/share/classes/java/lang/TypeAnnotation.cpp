@@ -26,8 +26,8 @@
 #include <jdk/internal/reflect/ConstantPool.h>
 #include <sun/reflect/annotation/TypeAnnotationParser.h>
 #include <java/lang/Util.h>
-
 #include <jcpp.h>
+#include <string.h>
 
 using ::java::io::DataOutputStream;
 using ::sun::reflect::annotation::TypeAnnotationParser;
@@ -226,6 +226,31 @@ void TypeAnnotation::encode(::java::io::DataOutputStream* os, ::jdk::internal::r
 
 void TypeAnnotation::visit(::jdk::internal::reflect::ConstantPool* cp) {
 	CompoundAttribute::visit(cp);
+}
+
+TypeAnnotation* TypeAnnotation::cloneArray(TypeAnnotation* array) {
+	if (array == nullptr) {
+		return nullptr;
+	}
+	TypeAnnotation* it = array;
+	int32_t count = 0;
+	for (; true; it++) {
+		if (it->isEnd()) {
+			break;
+		}
+		count++;
+	}
+	count++; // for end null
+	TypeAnnotation* newArray = $allocRawStatic(TypeAnnotation, count);
+	memcpy(newArray, array, sizeof(TypeAnnotation) * count);
+	it = newArray;
+	for (; true; it++) {
+		if (it->isEnd()) {
+			break;
+		}
+		it->cloneSelf();
+	}
+	return newArray;
 }
 
 	} // lang

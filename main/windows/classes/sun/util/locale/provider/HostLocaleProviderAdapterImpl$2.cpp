@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/HostLocaleProviderAdapterImpl$2.h>
-
 #include <java/lang/ref/SoftReference.h>
 #include <java/text/DateFormatSymbols.h>
 #include <java/text/spi/DateFormatSymbolsProvider.h>
@@ -18,52 +17,12 @@ using $SoftReference = ::java::lang::ref::SoftReference;
 using $DateFormatSymbols = ::java::text::DateFormatSymbols;
 using $DateFormatSymbolsProvider = ::java::text::spi::DateFormatSymbolsProvider;
 using $Locale = ::java::util::Locale;
-using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 using $HostLocaleProviderAdapterImpl = ::sun::util::locale::provider::HostLocaleProviderAdapterImpl;
 
 namespace sun {
 	namespace util {
 		namespace locale {
 			namespace provider {
-
-$MethodInfo _HostLocaleProviderAdapterImpl$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HostLocaleProviderAdapterImpl$2, init$, void)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$2, getAvailableLocales, $LocaleArray*)},
-	{"getInstance", "(Ljava/util/Locale;)Ljava/text/DateFormatSymbols;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$2, getInstance, $DateFormatSymbols*, $Locale*)},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$2, isSupportedLocale, bool, $Locale*)},
-	{}
-};
-
-$EnclosingMethodInfo _HostLocaleProviderAdapterImpl$2_EnclosingMethodInfo_ = {
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl",
-	"getDateFormatSymbolsProvider",
-	"()Ljava/text/spi/DateFormatSymbolsProvider;"
-};
-
-$InnerClassInfo _HostLocaleProviderAdapterImpl$2_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.HostLocaleProviderAdapterImpl$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HostLocaleProviderAdapterImpl$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl$2",
-	"java.text.spi.DateFormatSymbolsProvider",
-	nullptr,
-	nullptr,
-	_HostLocaleProviderAdapterImpl$2_MethodInfo_,
-	nullptr,
-	&_HostLocaleProviderAdapterImpl$2_EnclosingMethodInfo_,
-	_HostLocaleProviderAdapterImpl$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl"
-};
-
-$Object* allocate$HostLocaleProviderAdapterImpl$2($Class* clazz) {
-	return $of($alloc(HostLocaleProviderAdapterImpl$2));
-}
 
 void HostLocaleProviderAdapterImpl$2::init$() {
 	$DateFormatSymbolsProvider::init$();
@@ -78,13 +37,13 @@ bool HostLocaleProviderAdapterImpl$2::isSupportedLocale($Locale* locale) {
 }
 
 $DateFormatSymbols* HostLocaleProviderAdapterImpl$2::getInstance($Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DateFormatSymbols, dfs, nullptr);
 	$init($HostLocaleProviderAdapterImpl);
 	$var($SoftReference, ref, $cast($SoftReference, $nc($HostLocaleProviderAdapterImpl::dateFormatSymbolsCache)->get(locale)));
-	if (ref == nullptr || ($assign(dfs, $cast($DateFormatSymbols, $nc(ref)->get()))) == nullptr) {
+	if (ref == nullptr || ($assign(dfs, $cast($DateFormatSymbols, ref->get()))) == nullptr) {
 		$assign(dfs, $new($DateFormatSymbols, locale));
-		$var($String, langTag, $nc($($HostLocaleProviderAdapterImpl::removeExtensions(locale)))->toLanguageTag());
+		$var($String, langTag, $$nc($HostLocaleProviderAdapterImpl::removeExtensions(locale))->toLanguageTag());
 		dfs->setAmPmStrings($($HostLocaleProviderAdapterImpl::getAmPmStrings(langTag, $(dfs->getAmPmStrings()))));
 		dfs->setEras($($HostLocaleProviderAdapterImpl::getEras(langTag, $(dfs->getEras()))));
 		dfs->setMonths($($HostLocaleProviderAdapterImpl::getMonths(langTag, $(dfs->getMonths()))));
@@ -92,7 +51,7 @@ $DateFormatSymbols* HostLocaleProviderAdapterImpl$2::getInstance($Locale* locale
 		dfs->setWeekdays($($HostLocaleProviderAdapterImpl::getWeekdays(langTag, $(dfs->getWeekdays()))));
 		dfs->setShortWeekdays($($HostLocaleProviderAdapterImpl::getShortWeekdays(langTag, $(dfs->getShortWeekdays()))));
 		$assign(ref, $new($SoftReference, dfs));
-		$nc($HostLocaleProviderAdapterImpl::dateFormatSymbolsCache)->put(locale, ref);
+		$HostLocaleProviderAdapterImpl::dateFormatSymbolsCache->put(locale, ref);
 	}
 	return $cast($DateFormatSymbols, $nc(dfs)->clone());
 }
@@ -101,7 +60,40 @@ HostLocaleProviderAdapterImpl$2::HostLocaleProviderAdapterImpl$2() {
 }
 
 $Class* HostLocaleProviderAdapterImpl$2::load$($String* name, bool initialize) {
-	$loadClass(HostLocaleProviderAdapterImpl$2, name, initialize, &_HostLocaleProviderAdapterImpl$2_ClassInfo_, allocate$HostLocaleProviderAdapterImpl$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HostLocaleProviderAdapterImpl$2, init$, void)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$2, getAvailableLocales, $LocaleArray*)},
+		{"getInstance", "(Ljava/util/Locale;)Ljava/text/DateFormatSymbols;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$2, getInstance, $DateFormatSymbols*, $Locale*)},
+		{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$2, isSupportedLocale, bool, $Locale*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl",
+		"getDateFormatSymbolsProvider",
+		"()Ljava/text/spi/DateFormatSymbolsProvider;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.HostLocaleProviderAdapterImpl$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl$2",
+		"java.text.spi.DateFormatSymbolsProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl"
+	};
+	$loadClass(HostLocaleProviderAdapterImpl$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HostLocaleProviderAdapterImpl$2);
+	});
 	return class$;
 }
 

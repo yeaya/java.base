@@ -1,5 +1,4 @@
 #include <java/lang/ThreadGroup.h>
-
 #include <java/lang/IllegalThreadStateException.h>
 #include <java/lang/Math.h>
 #include <java/lang/SecurityManager.h>
@@ -30,184 +29,6 @@ using $Arrays = ::java::util::Arrays;
 namespace java {
 	namespace lang {
 
-$NamedAttribute ThreadGroup_Attribute_var$0[] = {
-	{"since", 's', "1.2"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _ThreadGroup_MethodAnnotations_allowThreadSuspension9[] = {
-	{"Ljava/lang/Deprecated;", ThreadGroup_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute ThreadGroup_Attribute_var$1[] = {
-	{"since", 's', "17"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _ThreadGroup_MethodAnnotations_checkAccess10[] = {
-	{"Ljava/lang/Deprecated;", ThreadGroup_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute ThreadGroup_Attribute_var$2[] = {
-	{"since", 's', "16"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _ThreadGroup_MethodAnnotations_destroy12[] = {
-	{"Ljava/lang/Deprecated;", ThreadGroup_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute ThreadGroup_Attribute_var$3[] = {
-	{"since", 's', "16"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _ThreadGroup_MethodAnnotations_isDaemon23[] = {
-	{"Ljava/lang/Deprecated;", ThreadGroup_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute ThreadGroup_Attribute_var$4[] = {
-	{"since", 's', "16"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _ThreadGroup_MethodAnnotations_isDestroyed24[] = {
-	{"Ljava/lang/Deprecated;", ThreadGroup_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute ThreadGroup_Attribute_var$5[] = {
-	{"since", 's', "1.2"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _ThreadGroup_MethodAnnotations_resume30[] = {
-	{"Ljava/lang/Deprecated;", ThreadGroup_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute ThreadGroup_Attribute_var$6[] = {
-	{"since", 's', "16"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _ThreadGroup_MethodAnnotations_setDaemon31[] = {
-	{"Ljava/lang/Deprecated;", ThreadGroup_Attribute_var$6},
-	{}
-};
-
-$NamedAttribute ThreadGroup_Attribute_var$7[] = {
-	{"since", 's', "1.2"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _ThreadGroup_MethodAnnotations_stop33[] = {
-	{"Ljava/lang/Deprecated;", ThreadGroup_Attribute_var$7},
-	{}
-};
-
-$NamedAttribute ThreadGroup_Attribute_var$8[] = {
-	{"since", 's', "1.2"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _ThreadGroup_MethodAnnotations_suspend35[] = {
-	{"Ljava/lang/Deprecated;", ThreadGroup_Attribute_var$8},
-	{}
-};
-
-$FieldInfo _ThreadGroup_FieldInfo_[] = {
-	{"parent", "Ljava/lang/ThreadGroup;", nullptr, $PRIVATE | $FINAL, $field(ThreadGroup, parent)},
-	{"name", "Ljava/lang/String;", nullptr, 0, $field(ThreadGroup, name)},
-	{"maxPriority", "I", nullptr, 0, $field(ThreadGroup, maxPriority)},
-	{"destroyed", "Z", nullptr, 0, $field(ThreadGroup, destroyed)},
-	{"daemon", "Z", nullptr, 0, $field(ThreadGroup, daemon)},
-	{"nUnstartedThreads", "I", nullptr, 0, $field(ThreadGroup, nUnstartedThreads)},
-	{"nthreads", "I", nullptr, 0, $field(ThreadGroup, nthreads)},
-	{"threads", "[Ljava/lang/Thread;", nullptr, 0, $field(ThreadGroup, threads)},
-	{"ngroups", "I", nullptr, 0, $field(ThreadGroup, ngroups)},
-	{"groups", "[Ljava/lang/ThreadGroup;", nullptr, 0, $field(ThreadGroup, groups)},
-	{}
-};
-
-$MethodInfo _ThreadGroup_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ThreadGroup, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ThreadGroup, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ThreadGroup, init$, void, ThreadGroup*, $String*)},
-	{"<init>", "(Ljava/lang/Void;Ljava/lang/ThreadGroup;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(ThreadGroup, init$, void, $Void*, ThreadGroup*, $String*)},
-	{"activeCount", "()I", nullptr, $PUBLIC, $virtualMethod(ThreadGroup, activeCount, int32_t)},
-	{"activeGroupCount", "()I", nullptr, $PUBLIC, $virtualMethod(ThreadGroup, activeGroupCount, int32_t)},
-	{"add", "(Ljava/lang/ThreadGroup;)V", nullptr, $PRIVATE | $FINAL, $method(ThreadGroup, add, void, ThreadGroup*)},
-	{"add", "(Ljava/lang/Thread;)V", nullptr, 0, $virtualMethod(ThreadGroup, add, void, $Thread*)},
-	{"addUnstarted", "()V", nullptr, 0, $virtualMethod(ThreadGroup, addUnstarted, void)},
-	{"allowThreadSuspension", "(Z)Z", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(ThreadGroup, allowThreadSuspension, bool, bool), nullptr, nullptr, _ThreadGroup_MethodAnnotations_allowThreadSuspension9},
-	{"checkAccess", "()V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(ThreadGroup, checkAccess, void), nullptr, nullptr, _ThreadGroup_MethodAnnotations_checkAccess10},
-	{"checkParentAccess", "(Ljava/lang/ThreadGroup;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $staticMethod(ThreadGroup, checkParentAccess, $Void*, ThreadGroup*)},
-	{"destroy", "()V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(ThreadGroup, destroy, void), nullptr, nullptr, _ThreadGroup_MethodAnnotations_destroy12},
-	{"enumerate", "([Ljava/lang/Thread;)I", nullptr, $PUBLIC, $virtualMethod(ThreadGroup, enumerate, int32_t, $ThreadArray*)},
-	{"enumerate", "([Ljava/lang/Thread;Z)I", nullptr, $PUBLIC, $virtualMethod(ThreadGroup, enumerate, int32_t, $ThreadArray*, bool)},
-	{"enumerate", "([Ljava/lang/Thread;IZ)I", nullptr, $PRIVATE, $method(ThreadGroup, enumerate, int32_t, $ThreadArray*, int32_t, bool)},
-	{"enumerate", "([Ljava/lang/ThreadGroup;)I", nullptr, $PUBLIC, $virtualMethod(ThreadGroup, enumerate, int32_t, $ThreadGroupArray*)},
-	{"enumerate", "([Ljava/lang/ThreadGroup;Z)I", nullptr, $PUBLIC, $virtualMethod(ThreadGroup, enumerate, int32_t, $ThreadGroupArray*, bool)},
-	{"enumerate", "([Ljava/lang/ThreadGroup;IZ)I", nullptr, $PRIVATE, $method(ThreadGroup, enumerate, int32_t, $ThreadGroupArray*, int32_t, bool)},
-	{"getMaxPriority", "()I", nullptr, $PUBLIC | $FINAL, $method(ThreadGroup, getMaxPriority, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(ThreadGroup, getName, $String*)},
-	{"getParent", "()Ljava/lang/ThreadGroup;", nullptr, $PUBLIC | $FINAL, $method(ThreadGroup, getParent, ThreadGroup*)},
-	{"interrupt", "()V", nullptr, $PUBLIC | $FINAL, $method(ThreadGroup, interrupt, void)},
-	{"isDaemon", "()Z", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(ThreadGroup, isDaemon, bool), nullptr, nullptr, _ThreadGroup_MethodAnnotations_isDaemon23},
-	{"isDestroyed", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(ThreadGroup, isDestroyed, bool), nullptr, nullptr, _ThreadGroup_MethodAnnotations_isDestroyed24},
-	{"list", "()V", nullptr, $PUBLIC, $virtualMethod(ThreadGroup, list, void)},
-	{"list", "(Ljava/io/PrintStream;I)V", nullptr, 0, $virtualMethod(ThreadGroup, list, void, $PrintStream*, int32_t)},
-	{"parentOf", "(Ljava/lang/ThreadGroup;)Z", nullptr, $PUBLIC | $FINAL, $method(ThreadGroup, parentOf, bool, ThreadGroup*)},
-	{"remove", "(Ljava/lang/ThreadGroup;)V", nullptr, $PRIVATE, $method(ThreadGroup, remove, void, ThreadGroup*)},
-	{"remove", "(Ljava/lang/Thread;)V", nullptr, $PRIVATE, $method(ThreadGroup, remove, void, $Thread*)},
-	{"resume", "()V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(ThreadGroup, resume, void), nullptr, nullptr, _ThreadGroup_MethodAnnotations_resume30},
-	{"setDaemon", "(Z)V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(ThreadGroup, setDaemon, void, bool), nullptr, nullptr, _ThreadGroup_MethodAnnotations_setDaemon31},
-	{"setMaxPriority", "(I)V", nullptr, $PUBLIC | $FINAL, $method(ThreadGroup, setMaxPriority, void, int32_t)},
-	{"stop", "()V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(ThreadGroup, stop, void), nullptr, nullptr, _ThreadGroup_MethodAnnotations_stop33},
-	{"stopOrSuspend", "(Z)Z", nullptr, $PRIVATE, $method(ThreadGroup, stopOrSuspend, bool, bool)},
-	{"suspend", "()V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(ThreadGroup, suspend, void), nullptr, nullptr, _ThreadGroup_MethodAnnotations_suspend35},
-	{"threadStartFailed", "(Ljava/lang/Thread;)V", nullptr, 0, $virtualMethod(ThreadGroup, threadStartFailed, void, $Thread*)},
-	{"threadTerminated", "(Ljava/lang/Thread;)V", nullptr, 0, $virtualMethod(ThreadGroup, threadTerminated, void, $Thread*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ThreadGroup, toString, $String*)},
-	{"uncaughtException", "(Ljava/lang/Thread;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ThreadGroup, uncaughtException, void, $Thread*, $Throwable*)},
-	{}
-};
-
-$InnerClassInfo _ThreadGroup_InnerClassesInfo_[] = {
-	{"java.lang.Thread$UncaughtExceptionHandler", "java.lang.Thread", "UncaughtExceptionHandler", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ThreadGroup_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.ThreadGroup",
-	"java.lang.Object",
-	"java.lang.Thread$UncaughtExceptionHandler",
-	_ThreadGroup_FieldInfo_,
-	_ThreadGroup_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ThreadGroup_InnerClassesInfo_
-};
-
-$Object* allocate$ThreadGroup($Class* clazz) {
-	return $of($alloc(ThreadGroup));
-}
-
 void ThreadGroup::init$() {
 	this->nUnstartedThreads = 0;
 	$set(this, name, "system"_s);
@@ -216,7 +37,7 @@ void ThreadGroup::init$() {
 }
 
 void ThreadGroup::init$($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ThreadGroup::init$($($($Thread::currentThread())->getThreadGroup()), name);
 }
 
@@ -245,7 +66,7 @@ $String* ThreadGroup::getName() {
 
 ThreadGroup* ThreadGroup::getParent() {
 	if (this->parent != nullptr) {
-		$nc(this->parent)->checkAccess();
+		this->parent->checkAccess();
 	}
 	return this->parent;
 }
@@ -277,10 +98,10 @@ void ThreadGroup::setMaxPriority(int32_t pri) {
 		if (pri < $Thread::MIN_PRIORITY || pri > $Thread::MAX_PRIORITY) {
 			return;
 		}
-		this->maxPriority = (this->parent != nullptr) ? $Math::min(pri, $nc(this->parent)->maxPriority) : pri;
+		this->maxPriority = (this->parent != nullptr) ? $Math::min(pri, this->parent->maxPriority) : pri;
 		ngroupsSnapshot = this->ngroups;
 		if (this->groups != nullptr) {
-			$assign(groupsSnapshot, $fcast($ThreadGroupArray, $Arrays::copyOf(this->groups, ngroupsSnapshot)));
+			$assign(groupsSnapshot, $cast($ThreadGroupArray, $Arrays::copyOf(this->groups, ngroupsSnapshot)));
 		} else {
 			$assign(groupsSnapshot, nullptr);
 		}
@@ -292,7 +113,7 @@ void ThreadGroup::setMaxPriority(int32_t pri) {
 
 bool ThreadGroup::parentOf(ThreadGroup* g$renamed) {
 	$var(ThreadGroup, g, g$renamed);
-	for (; g != nullptr; $assign(g, $nc(g)->parent)) {
+	for (; g != nullptr; $assign(g, g->parent)) {
 		if (g == this) {
 			return true;
 		}
@@ -318,7 +139,7 @@ int32_t ThreadGroup::activeCount() {
 		result = this->nthreads;
 		ngroupsSnapshot = this->ngroups;
 		if (this->groups != nullptr) {
-			$assign(groupsSnapshot, $fcast($ThreadGroupArray, $Arrays::copyOf(this->groups, ngroupsSnapshot)));
+			$assign(groupsSnapshot, $cast($ThreadGroupArray, $Arrays::copyOf(this->groups, ngroupsSnapshot)));
 		} else {
 			$assign(groupsSnapshot, nullptr);
 		}
@@ -352,13 +173,13 @@ int32_t ThreadGroup::enumerate($ThreadArray* list, int32_t n, bool recurse) {
 		}
 		for (int32_t i = 0; i < nt; ++i) {
 			if ($nc($nc(this->threads)->get(i))->isAlive()) {
-				$nc(list)->set(n++, $nc(this->threads)->get(i));
+				list->set(n++, this->threads->get(i));
 			}
 		}
 		if (recurse) {
 			ngroupsSnapshot = this->ngroups;
 			if (this->groups != nullptr) {
-				$assign(groupsSnapshot, $fcast($ThreadGroupArray, $Arrays::copyOf(this->groups, ngroupsSnapshot)));
+				$assign(groupsSnapshot, $cast($ThreadGroupArray, $Arrays::copyOf(this->groups, ngroupsSnapshot)));
 			} else {
 				$assign(groupsSnapshot, nullptr);
 			}
@@ -381,7 +202,7 @@ int32_t ThreadGroup::activeGroupCount() {
 		}
 		ngroupsSnapshot = this->ngroups;
 		if (this->groups != nullptr) {
-			$assign(groupsSnapshot, $fcast($ThreadGroupArray, $Arrays::copyOf(this->groups, ngroupsSnapshot)));
+			$assign(groupsSnapshot, $cast($ThreadGroupArray, $Arrays::copyOf(this->groups, ngroupsSnapshot)));
 		} else {
 			$assign(groupsSnapshot, nullptr);
 		}
@@ -421,7 +242,7 @@ int32_t ThreadGroup::enumerate($ThreadGroupArray* list, int32_t n, bool recurse)
 		if (recurse) {
 			ngroupsSnapshot = this->ngroups;
 			if (this->groups != nullptr) {
-				$assign(groupsSnapshot, $fcast($ThreadGroupArray, $Arrays::copyOf(this->groups, ngroupsSnapshot)));
+				$assign(groupsSnapshot, $cast($ThreadGroupArray, $Arrays::copyOf(this->groups, ngroupsSnapshot)));
 			} else {
 				$assign(groupsSnapshot, nullptr);
 			}
@@ -451,7 +272,7 @@ void ThreadGroup::interrupt() {
 		}
 		ngroupsSnapshot = this->ngroups;
 		if (this->groups != nullptr) {
-			$assign(groupsSnapshot, $fcast($ThreadGroupArray, $Arrays::copyOf(this->groups, ngroupsSnapshot)));
+			$assign(groupsSnapshot, $cast($ThreadGroupArray, $Arrays::copyOf(this->groups, ngroupsSnapshot)));
 		} else {
 			$assign(groupsSnapshot, nullptr);
 		}
@@ -468,7 +289,7 @@ void ThreadGroup::suspend() {
 }
 
 bool ThreadGroup::stopOrSuspend(bool suspend) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool suicide = false;
 	$var($Thread, us, $Thread::currentThread());
 	int32_t ngroupsSnapshot = 0;
@@ -479,14 +300,14 @@ bool ThreadGroup::stopOrSuspend(bool suspend) {
 			if ($nc(this->threads)->get(i) == us) {
 				suicide = true;
 			} else if (suspend) {
-				$nc($nc(this->threads)->get(i))->suspend();
+				$nc(this->threads->get(i))->suspend();
 			} else {
-				$nc($nc(this->threads)->get(i))->stop();
+				$nc(this->threads->get(i))->stop();
 			}
 		}
 		ngroupsSnapshot = this->ngroups;
 		if (this->groups != nullptr) {
-			$assign(groupsSnapshot, $fcast($ThreadGroupArray, $Arrays::copyOf(this->groups, ngroupsSnapshot)));
+			$assign(groupsSnapshot, $cast($ThreadGroupArray, $Arrays::copyOf(this->groups, ngroupsSnapshot)));
 		}
 	}
 	for (int32_t i = 0; i < ngroupsSnapshot; ++i) {
@@ -505,7 +326,7 @@ void ThreadGroup::resume() {
 		}
 		ngroupsSnapshot = this->ngroups;
 		if (this->groups != nullptr) {
-			$assign(groupsSnapshot, $fcast($ThreadGroupArray, $Arrays::copyOf(this->groups, ngroupsSnapshot)));
+			$assign(groupsSnapshot, $cast($ThreadGroupArray, $Arrays::copyOf(this->groups, ngroupsSnapshot)));
 		} else {
 			$assign(groupsSnapshot, nullptr);
 		}
@@ -525,7 +346,7 @@ void ThreadGroup::destroy() {
 		}
 		ngroupsSnapshot = this->ngroups;
 		if (this->groups != nullptr) {
-			$assign(groupsSnapshot, $fcast($ThreadGroupArray, $Arrays::copyOf(this->groups, ngroupsSnapshot)));
+			$assign(groupsSnapshot, $cast($ThreadGroupArray, $Arrays::copyOf(this->groups, ngroupsSnapshot)));
 		} else {
 			$assign(groupsSnapshot, nullptr);
 		}
@@ -541,7 +362,7 @@ void ThreadGroup::destroy() {
 		$nc($nc(groupsSnapshot)->get(i))->destroy();
 	}
 	if (this->parent != nullptr) {
-		$nc(this->parent)->remove(this);
+		this->parent->remove(this);
 	}
 }
 
@@ -552,8 +373,8 @@ void ThreadGroup::add(ThreadGroup* g) {
 		}
 		if (this->groups == nullptr) {
 			$set(this, groups, $new($ThreadGroupArray, 4));
-		} else if (this->ngroups == $nc(this->groups)->length) {
-			$set(this, groups, $fcast($ThreadGroupArray, $Arrays::copyOf(this->groups, this->ngroups * 2)));
+		} else if (this->ngroups == this->groups->length) {
+			$set(this, groups, $cast($ThreadGroupArray, $Arrays::copyOf(this->groups, this->ngroups * 2)));
 		}
 		$nc(this->groups)->set(this->ngroups, g);
 		++this->ngroups;
@@ -569,7 +390,7 @@ void ThreadGroup::remove(ThreadGroup* g) {
 			if ($nc(this->groups)->get(i) == g) {
 				this->ngroups -= 1;
 				$System::arraycopy(this->groups, i + 1, this->groups, i, this->ngroups - i);
-				$nc(this->groups)->set(this->ngroups, nullptr);
+				this->groups->set(this->ngroups, nullptr);
 				break;
 			}
 		}
@@ -598,8 +419,8 @@ void ThreadGroup::add($Thread* t) {
 		}
 		if (this->threads == nullptr) {
 			$set(this, threads, $new($ThreadArray, 4));
-		} else if (this->nthreads == $nc(this->threads)->length) {
-			$set(this, threads, $fcast($ThreadArray, $Arrays::copyOf(this->threads, this->nthreads * 2)));
+		} else if (this->nthreads == this->threads->length) {
+			$set(this, threads, $cast($ThreadArray, $Arrays::copyOf(this->threads, this->nthreads * 2)));
 		}
 		$nc(this->threads)->set(this->nthreads, t);
 		++this->nthreads;
@@ -634,7 +455,7 @@ void ThreadGroup::remove($Thread* t) {
 		for (int32_t i = 0; i < this->nthreads; ++i) {
 			if ($nc(this->threads)->get(i) == t) {
 				$System::arraycopy(this->threads, i + 1, this->threads, i, --this->nthreads - i);
-				$nc(this->threads)->set(this->nthreads, nullptr);
+				this->threads->set(this->nthreads, nullptr);
 				break;
 			}
 		}
@@ -652,17 +473,17 @@ void ThreadGroup::list($PrintStream* out, int32_t indent) {
 		for (int32_t j = 0; j < indent; ++j) {
 			$nc(out)->print(" "_s);
 		}
-		$nc(out)->println($of(this));
+		$nc(out)->println(this);
 		indent += 4;
 		for (int32_t i = 0; i < this->nthreads; ++i) {
 			for (int32_t j = 0; j < indent; ++j) {
 				out->print(" "_s);
 			}
-			out->println($of($nc(this->threads)->get(i)));
+			out->println($nc(this->threads)->get(i));
 		}
 		ngroupsSnapshot = this->ngroups;
 		if (this->groups != nullptr) {
-			$assign(groupsSnapshot, $fcast($ThreadGroupArray, $Arrays::copyOf(this->groups, ngroupsSnapshot)));
+			$assign(groupsSnapshot, $cast($ThreadGroupArray, $Arrays::copyOf(this->groups, ngroupsSnapshot)));
 		} else {
 			$assign(groupsSnapshot, nullptr);
 		}
@@ -673,9 +494,9 @@ void ThreadGroup::list($PrintStream* out, int32_t indent) {
 }
 
 void ThreadGroup::uncaughtException($Thread* t, $Throwable* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->parent != nullptr) {
-		$nc(this->parent)->uncaughtException(t, e);
+		this->parent->uncaughtException(t, e);
 	} else {
 		$var($Thread$UncaughtExceptionHandler, ueh, $Thread::getDefaultUncaughtExceptionHandler());
 		if (ueh != nullptr) {
@@ -692,19 +513,176 @@ bool ThreadGroup::allowThreadSuspension(bool b) {
 }
 
 $String* ThreadGroup::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$3, $$str({$($of(this)->getClass()->getName()), "[name="_s}));
-	$var($String, var$2, $$concat(var$3, $(getName())));
-	$var($String, var$1, $$concat(var$2, ",maxpri="_s));
-	$var($String, var$0, $$concat(var$1, $$str(this->maxPriority)));
-	return $concat(var$0, "]"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($of(this)->getClass()->getName()));
+	var$0->append("[name="_s);
+	var$0->append($(getName()));
+	var$0->append(",maxpri="_s);
+	var$0->append(this->maxPriority);
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 ThreadGroup::ThreadGroup() {
 }
 
 $Class* ThreadGroup::load$($String* name, bool initialize) {
-	$loadClass(ThreadGroup, name, initialize, &_ThreadGroup_ClassInfo_, allocate$ThreadGroup);
+	$FieldInfo fieldInfos$$[] = {
+		{"parent", "Ljava/lang/ThreadGroup;", nullptr, $PRIVATE | $FINAL, $field(ThreadGroup, parent)},
+		{"name", "Ljava/lang/String;", nullptr, 0, $field(ThreadGroup, name)},
+		{"maxPriority", "I", nullptr, 0, $field(ThreadGroup, maxPriority)},
+		{"destroyed", "Z", nullptr, 0, $field(ThreadGroup, destroyed)},
+		{"daemon", "Z", nullptr, 0, $field(ThreadGroup, daemon)},
+		{"nUnstartedThreads", "I", nullptr, 0, $field(ThreadGroup, nUnstartedThreads)},
+		{"nthreads", "I", nullptr, 0, $field(ThreadGroup, nthreads)},
+		{"threads", "[Ljava/lang/Thread;", nullptr, 0, $field(ThreadGroup, threads)},
+		{"ngroups", "I", nullptr, 0, $field(ThreadGroup, ngroups)},
+		{"groups", "[Ljava/lang/ThreadGroup;", nullptr, 0, $field(ThreadGroup, groups)},
+		{}
+	};
+	$NamedAttribute allowThreadSuspensionmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "1.2"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute allowThreadSuspensionmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", allowThreadSuspensionmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute checkAccessmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute checkAccessmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", checkAccessmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute destroymethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "16"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute destroymethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", destroymethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute isDaemonmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "16"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute isDaemonmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", isDaemonmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute isDestroyedmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "16"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute isDestroyedmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", isDestroyedmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute resumemethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "1.2"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute resumemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", resumemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setDaemonmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "16"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute setDaemonmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", setDaemonmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute stopmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "1.2"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute stopmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", stopmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute suspendmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "1.2"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute suspendmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", suspendmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ThreadGroup, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ThreadGroup, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/ThreadGroup;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ThreadGroup, init$, void, ThreadGroup*, $String*)},
+		{"<init>", "(Ljava/lang/Void;Ljava/lang/ThreadGroup;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(ThreadGroup, init$, void, $Void*, ThreadGroup*, $String*)},
+		{"activeCount", "()I", nullptr, $PUBLIC, $virtualMethod(ThreadGroup, activeCount, int32_t)},
+		{"activeGroupCount", "()I", nullptr, $PUBLIC, $virtualMethod(ThreadGroup, activeGroupCount, int32_t)},
+		{"add", "(Ljava/lang/ThreadGroup;)V", nullptr, $PRIVATE | $FINAL, $method(ThreadGroup, add, void, ThreadGroup*)},
+		{"add", "(Ljava/lang/Thread;)V", nullptr, 0, $virtualMethod(ThreadGroup, add, void, $Thread*)},
+		{"addUnstarted", "()V", nullptr, 0, $virtualMethod(ThreadGroup, addUnstarted, void)},
+		{"allowThreadSuspension", "(Z)Z", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(ThreadGroup, allowThreadSuspension, bool, bool), nullptr, nullptr, allowThreadSuspensionmethodAnnotations$$},
+		{"checkAccess", "()V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(ThreadGroup, checkAccess, void), nullptr, nullptr, checkAccessmethodAnnotations$$},
+		{"checkParentAccess", "(Ljava/lang/ThreadGroup;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC, $staticMethod(ThreadGroup, checkParentAccess, $Void*, ThreadGroup*)},
+		{"destroy", "()V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(ThreadGroup, destroy, void), nullptr, nullptr, destroymethodAnnotations$$},
+		{"enumerate", "([Ljava/lang/Thread;)I", nullptr, $PUBLIC, $virtualMethod(ThreadGroup, enumerate, int32_t, $ThreadArray*)},
+		{"enumerate", "([Ljava/lang/Thread;Z)I", nullptr, $PUBLIC, $virtualMethod(ThreadGroup, enumerate, int32_t, $ThreadArray*, bool)},
+		{"enumerate", "([Ljava/lang/Thread;IZ)I", nullptr, $PRIVATE, $method(ThreadGroup, enumerate, int32_t, $ThreadArray*, int32_t, bool)},
+		{"enumerate", "([Ljava/lang/ThreadGroup;)I", nullptr, $PUBLIC, $virtualMethod(ThreadGroup, enumerate, int32_t, $ThreadGroupArray*)},
+		{"enumerate", "([Ljava/lang/ThreadGroup;Z)I", nullptr, $PUBLIC, $virtualMethod(ThreadGroup, enumerate, int32_t, $ThreadGroupArray*, bool)},
+		{"enumerate", "([Ljava/lang/ThreadGroup;IZ)I", nullptr, $PRIVATE, $method(ThreadGroup, enumerate, int32_t, $ThreadGroupArray*, int32_t, bool)},
+		{"getMaxPriority", "()I", nullptr, $PUBLIC | $FINAL, $method(ThreadGroup, getMaxPriority, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(ThreadGroup, getName, $String*)},
+		{"getParent", "()Ljava/lang/ThreadGroup;", nullptr, $PUBLIC | $FINAL, $method(ThreadGroup, getParent, ThreadGroup*)},
+		{"interrupt", "()V", nullptr, $PUBLIC | $FINAL, $method(ThreadGroup, interrupt, void)},
+		{"isDaemon", "()Z", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(ThreadGroup, isDaemon, bool), nullptr, nullptr, isDaemonmethodAnnotations$$},
+		{"isDestroyed", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(ThreadGroup, isDestroyed, bool), nullptr, nullptr, isDestroyedmethodAnnotations$$},
+		{"list", "()V", nullptr, $PUBLIC, $virtualMethod(ThreadGroup, list, void)},
+		{"list", "(Ljava/io/PrintStream;I)V", nullptr, 0, $virtualMethod(ThreadGroup, list, void, $PrintStream*, int32_t)},
+		{"parentOf", "(Ljava/lang/ThreadGroup;)Z", nullptr, $PUBLIC | $FINAL, $method(ThreadGroup, parentOf, bool, ThreadGroup*)},
+		{"remove", "(Ljava/lang/ThreadGroup;)V", nullptr, $PRIVATE, $method(ThreadGroup, remove, void, ThreadGroup*)},
+		{"remove", "(Ljava/lang/Thread;)V", nullptr, $PRIVATE, $method(ThreadGroup, remove, void, $Thread*)},
+		{"resume", "()V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(ThreadGroup, resume, void), nullptr, nullptr, resumemethodAnnotations$$},
+		{"setDaemon", "(Z)V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(ThreadGroup, setDaemon, void, bool), nullptr, nullptr, setDaemonmethodAnnotations$$},
+		{"setMaxPriority", "(I)V", nullptr, $PUBLIC | $FINAL, $method(ThreadGroup, setMaxPriority, void, int32_t)},
+		{"stop", "()V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(ThreadGroup, stop, void), nullptr, nullptr, stopmethodAnnotations$$},
+		{"stopOrSuspend", "(Z)Z", nullptr, $PRIVATE, $method(ThreadGroup, stopOrSuspend, bool, bool)},
+		{"suspend", "()V", nullptr, $PUBLIC | $FINAL | $DEPRECATED, $method(ThreadGroup, suspend, void), nullptr, nullptr, suspendmethodAnnotations$$},
+		{"threadStartFailed", "(Ljava/lang/Thread;)V", nullptr, 0, $virtualMethod(ThreadGroup, threadStartFailed, void, $Thread*)},
+		{"threadTerminated", "(Ljava/lang/Thread;)V", nullptr, 0, $virtualMethod(ThreadGroup, threadTerminated, void, $Thread*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ThreadGroup, toString, $String*)},
+		{"uncaughtException", "(Ljava/lang/Thread;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ThreadGroup, uncaughtException, void, $Thread*, $Throwable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Thread$UncaughtExceptionHandler", "java.lang.Thread", "UncaughtExceptionHandler", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.ThreadGroup",
+		"java.lang.Object",
+		"java.lang.Thread$UncaughtExceptionHandler",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(ThreadGroup, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ThreadGroup);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/util/Random.h>
-
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream$PutField.h>
@@ -56,91 +55,6 @@ using $RandomSupport$AbstractSpliteratorGenerator = ::jdk::internal::util::rando
 namespace java {
 	namespace util {
 
-$NamedAttribute Random_Attribute_var$0[] = {
-	{"name", 's', "Random"},
-	{"i", 'I', "48"},
-	{"j", 'I', "0"},
-	{"k", 'I', "0"},
-	{"equidistribution", 'I', "0"},
-	{}
-};
-
-$CompoundAttribute _Random_Annotations_[] = {
-	{"Ljdk/internal/util/random/RandomSupport$RandomGeneratorProperties;", Random_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _Random_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Random, serialVersionUID)},
-	{"seed", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $FINAL, $field(Random, seed)},
-	{"multiplier", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Random, multiplier)},
-	{"addend", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Random, addend)},
-	{"mask", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Random, mask)},
-	{"DOUBLE_UNIT", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Random, DOUBLE_UNIT)},
-	{"seedUniquifier", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Random, seedUniquifier$)},
-	{"nextNextGaussian", "D", nullptr, $PRIVATE, $field(Random, nextNextGaussian)},
-	{"haveNextNextGaussian", "Z", nullptr, $PRIVATE, $field(Random, haveNextNextGaussian)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Random, serialPersistentFields)},
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Random, unsafe)},
-	{"seedOffset", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Random, seedOffset)},
-	{}
-};
-
-$MethodInfo _Random_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Random, init$, void)},
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(Random, init$, void, int64_t)},
-	{"doubles", "(J)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(Random, doubles, $DoubleStream*, int64_t)},
-	{"doubles", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(Random, doubles, $DoubleStream*)},
-	{"doubles", "(JDD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(Random, doubles, $DoubleStream*, int64_t, double, double)},
-	{"doubles", "(DD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(Random, doubles, $DoubleStream*, double, double)},
-	{"initialScramble", "(J)J", nullptr, $PRIVATE | $STATIC, $staticMethod(Random, initialScramble, int64_t, int64_t)},
-	{"ints", "(J)Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(Random, ints, $IntStream*, int64_t)},
-	{"ints", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(Random, ints, $IntStream*)},
-	{"ints", "(JII)Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(Random, ints, $IntStream*, int64_t, int32_t, int32_t)},
-	{"ints", "(II)Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(Random, ints, $IntStream*, int32_t, int32_t)},
-	{"longs", "(J)Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(Random, longs, $LongStream*, int64_t)},
-	{"longs", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(Random, longs, $LongStream*)},
-	{"longs", "(JJJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(Random, longs, $LongStream*, int64_t, int64_t, int64_t)},
-	{"longs", "(JJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(Random, longs, $LongStream*, int64_t, int64_t)},
-	{"next", "(I)I", nullptr, $PROTECTED, $virtualMethod(Random, next, int32_t, int32_t)},
-	{"nextBoolean", "()Z", nullptr, $PUBLIC, $virtualMethod(Random, nextBoolean, bool)},
-	{"nextBytes", "([B)V", nullptr, $PUBLIC, $virtualMethod(Random, nextBytes, void, $bytes*)},
-	{"nextDouble", "()D", nullptr, $PUBLIC, $virtualMethod(Random, nextDouble, double)},
-	{"nextFloat", "()F", nullptr, $PUBLIC, $virtualMethod(Random, nextFloat, float)},
-	{"nextGaussian", "()D", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Random, nextGaussian, double)},
-	{"nextInt", "()I", nullptr, $PUBLIC, $virtualMethod(Random, nextInt, int32_t)},
-	{"nextInt", "(I)I", nullptr, $PUBLIC, $virtualMethod(Random, nextInt, int32_t, int32_t)},
-	{"nextLong", "()J", nullptr, $PUBLIC, $virtualMethod(Random, nextLong, int64_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Random, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"resetSeed", "(J)V", nullptr, $PRIVATE, $method(Random, resetSeed, void, int64_t)},
-	{"seedUniquifier", "()J", nullptr, $PRIVATE | $STATIC, $staticMethod(Random, seedUniquifier, int64_t)},
-	{"setSeed", "(J)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Random, setSeed, void, int64_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Random, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _Random_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.Random",
-	"java.lang.Object",
-	"java.util.random.RandomGenerator,java.io.Serializable",
-	_Random_FieldInfo_,
-	_Random_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Random_Annotations_
-};
-
-$Object* allocate$Random($Class* clazz) {
-	return $of($alloc(Random));
-}
-
 int32_t Random::hashCode() {
 	 return this->$RandomGenerator::hashCode();
 }
@@ -175,9 +89,9 @@ void Random::init$() {
 int64_t Random::seedUniquifier() {
 	$init(Random);
 	for (;;) {
-		int64_t current = $nc(Random::seedUniquifier$)->get();
-		int64_t next = current * (int64_t)0x106689D45497FDB5;
-		if ($nc(Random::seedUniquifier$)->compareAndSet(current, next)) {
+		int64_t current = Random::seedUniquifier$->get();
+		int64_t next = current * (int64_t)0x106689d45497fdb5;
+		if (Random::seedUniquifier$->compareAndSet(current, next)) {
 			return next;
 		}
 	}
@@ -195,7 +109,7 @@ void Random::init$(int64_t seed) {
 
 int64_t Random::initialScramble(int64_t seed) {
 	$init(Random);
-	return (int64_t)((seed ^ Random::multiplier) & (uint64_t)Random::mask);
+	return (seed ^ Random::multiplier) & Random::mask;
 }
 
 void Random::setSeed(int64_t seed) {
@@ -211,23 +125,15 @@ int32_t Random::next(int32_t bits) {
 	$var($AtomicLong, seed, this->seed);
 	do {
 		oldseed = $nc(seed)->get();
-		nextseed = (int64_t)((oldseed * Random::multiplier + Random::addend) & (uint64_t)Random::mask);
+		nextseed = (oldseed * Random::multiplier + Random::addend) & Random::mask;
 	} while (!$nc(seed)->compareAndSet(oldseed, nextseed));
 	return (int32_t)($usr(nextseed, 48 - bits));
 }
 
 void Random::nextBytes($bytes* bytes) {
-	{
-		int32_t i = 0;
-		int32_t len = $nc(bytes)->length;
-		for (; i < len;) {
-			{
-				int32_t rnd = nextInt();
-				int32_t n = $Math::min(len - i, $div($Integer::SIZE, $Byte::SIZE));
-				for (; n-- > 0; rnd >>= $Byte::SIZE) {
-					bytes->set(i++, (int8_t)rnd);
-				}
-			}
+	for (int32_t i = 0, len = $nc(bytes)->length; i < len;) {
+		for (int32_t rnd = nextInt(), n = $Math::min(len - i, $div($Integer::SIZE, $Byte::SIZE)); n-- > 0; rnd >>= $Byte::SIZE) {
+			bytes->set(i++, (int8_t)rnd);
 		}
 	}
 }
@@ -242,17 +148,18 @@ int32_t Random::nextInt(int32_t bound) {
 	}
 	int32_t r = next(31);
 	int32_t m = bound - 1;
-	if (((int32_t)(bound & (uint32_t)m)) == 0) {
+	if ((bound & m) == 0) {
 		r = (int32_t)((bound * (int64_t)r) >> 31);
 	} else {
 		for (int32_t u = r; u - (r = $mod(u, bound)) + m < 0; u = next(31)) {
+			;
 		}
 	}
 	return r;
 }
 
 int64_t Random::nextLong() {
-	int64_t var$0 = ((int64_t)(next(32)) << 32);
+	int64_t var$0 = (int64_t)(next(32)) << 32;
 	return var$0 + next(32);
 }
 
@@ -265,7 +172,7 @@ float Random::nextFloat() {
 }
 
 double Random::nextDouble() {
-	int64_t var$0 = ((int64_t)(next(26)) << 27);
+	int64_t var$0 = (int64_t)(next(26)) << 27;
 	return (var$0 + next(27)) * Random::DOUBLE_UNIT;
 }
 
@@ -317,11 +224,11 @@ void Random::resetSeed(int64_t seedVal) {
 }
 
 $IntStream* Random::ints(int64_t streamSize) {
-	return $RandomSupport$AbstractSpliteratorGenerator::ints(static_cast<$RandomGenerator*>(this), streamSize);
+	return $RandomSupport$AbstractSpliteratorGenerator::ints(this, streamSize);
 }
 
 $IntStream* Random::ints() {
-	return $RandomSupport$AbstractSpliteratorGenerator::ints(static_cast<$RandomGenerator*>(this));
+	return $RandomSupport$AbstractSpliteratorGenerator::ints(this);
 }
 
 $IntStream* Random::ints(int64_t streamSize, int32_t randomNumberOrigin, int32_t randomNumberBound) {
@@ -329,15 +236,15 @@ $IntStream* Random::ints(int64_t streamSize, int32_t randomNumberOrigin, int32_t
 }
 
 $IntStream* Random::ints(int32_t randomNumberOrigin, int32_t randomNumberBound) {
-	return $RandomSupport$AbstractSpliteratorGenerator::ints(static_cast<$RandomGenerator*>(this), randomNumberOrigin, randomNumberBound);
+	return $RandomSupport$AbstractSpliteratorGenerator::ints(this, randomNumberOrigin, randomNumberBound);
 }
 
 $LongStream* Random::longs(int64_t streamSize) {
-	return $RandomSupport$AbstractSpliteratorGenerator::longs(static_cast<$RandomGenerator*>(this), streamSize);
+	return $RandomSupport$AbstractSpliteratorGenerator::longs(this, streamSize);
 }
 
 $LongStream* Random::longs() {
-	return $RandomSupport$AbstractSpliteratorGenerator::longs(static_cast<$RandomGenerator*>(this));
+	return $RandomSupport$AbstractSpliteratorGenerator::longs(this);
 }
 
 $LongStream* Random::longs(int64_t streamSize, int64_t randomNumberOrigin, int64_t randomNumberBound) {
@@ -345,15 +252,15 @@ $LongStream* Random::longs(int64_t streamSize, int64_t randomNumberOrigin, int64
 }
 
 $LongStream* Random::longs(int64_t randomNumberOrigin, int64_t randomNumberBound) {
-	return $RandomSupport$AbstractSpliteratorGenerator::longs(static_cast<$RandomGenerator*>(this), randomNumberOrigin, randomNumberBound);
+	return $RandomSupport$AbstractSpliteratorGenerator::longs(this, randomNumberOrigin, randomNumberBound);
 }
 
 $DoubleStream* Random::doubles(int64_t streamSize) {
-	return $RandomSupport$AbstractSpliteratorGenerator::doubles(static_cast<$RandomGenerator*>(this), streamSize);
+	return $RandomSupport$AbstractSpliteratorGenerator::doubles(this, streamSize);
 }
 
 $DoubleStream* Random::doubles() {
-	return $RandomSupport$AbstractSpliteratorGenerator::doubles(static_cast<$RandomGenerator*>(this));
+	return $RandomSupport$AbstractSpliteratorGenerator::doubles(this);
 }
 
 $DoubleStream* Random::doubles(int64_t streamSize, double randomNumberOrigin, double randomNumberBound) {
@@ -361,17 +268,14 @@ $DoubleStream* Random::doubles(int64_t streamSize, double randomNumberOrigin, do
 }
 
 $DoubleStream* Random::doubles(double randomNumberOrigin, double randomNumberBound) {
-	return $RandomSupport$AbstractSpliteratorGenerator::doubles(static_cast<$RandomGenerator*>(this), randomNumberOrigin, randomNumberBound);
+	return $RandomSupport$AbstractSpliteratorGenerator::doubles(this, randomNumberOrigin, randomNumberBound);
 }
 
-void clinit$Random($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Random::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	Random::DOUBLE_UNIT = 1.1102230246251565E-16;
 	$beforeCallerSensitive();
-	$assignStatic(Random::seedUniquifier$, $new($AtomicLong, 0x001ED8B55FAC9DEC));
-	$init($Long);
-	$init($Double);
-	$init($Boolean);
+	$assignStatic(Random::seedUniquifier$, $new($AtomicLong, (int64_t)0x001ed8b55fac9dec));
 	$assignStatic(Random::serialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "seed"_s, $Long::TYPE),
 		$$new($ObjectStreamField, "nextNextGaussian"_s, $Double::TYPE),
@@ -382,7 +286,7 @@ void clinit$Random($Class* class$) {
 		try {
 			Random::seedOffset = $nc(Random::unsafe)->objectFieldOffset($(Random::class$->getDeclaredField("seed"_s)));
 		} catch ($Exception& ex) {
-			$throwNew($Error, static_cast<$Throwable*>(ex));
+			$throwNew($Error, ex);
 		}
 	}
 }
@@ -391,7 +295,85 @@ Random::Random() {
 }
 
 $Class* Random::load$($String* name, bool initialize) {
-	$loadClass(Random, name, initialize, &_Random_ClassInfo_, clinit$Random, allocate$Random);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Random, serialVersionUID)},
+		{"seed", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $FINAL, $field(Random, seed)},
+		{"multiplier", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Random, multiplier)},
+		{"addend", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Random, addend)},
+		{"mask", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Random, mask)},
+		{"DOUBLE_UNIT", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Random, DOUBLE_UNIT)},
+		{"seedUniquifier", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Random, seedUniquifier$)},
+		{"nextNextGaussian", "D", nullptr, $PRIVATE, $field(Random, nextNextGaussian)},
+		{"haveNextNextGaussian", "Z", nullptr, $PRIVATE, $field(Random, haveNextNextGaussian)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Random, serialPersistentFields)},
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Random, unsafe)},
+		{"seedOffset", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Random, seedOffset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Random, init$, void)},
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(Random, init$, void, int64_t)},
+		{"doubles", "(J)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(Random, doubles, $DoubleStream*, int64_t)},
+		{"doubles", "()Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(Random, doubles, $DoubleStream*)},
+		{"doubles", "(JDD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(Random, doubles, $DoubleStream*, int64_t, double, double)},
+		{"doubles", "(DD)Ljava/util/stream/DoubleStream;", nullptr, $PUBLIC, $virtualMethod(Random, doubles, $DoubleStream*, double, double)},
+		{"initialScramble", "(J)J", nullptr, $PRIVATE | $STATIC, $staticMethod(Random, initialScramble, int64_t, int64_t)},
+		{"ints", "(J)Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(Random, ints, $IntStream*, int64_t)},
+		{"ints", "()Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(Random, ints, $IntStream*)},
+		{"ints", "(JII)Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(Random, ints, $IntStream*, int64_t, int32_t, int32_t)},
+		{"ints", "(II)Ljava/util/stream/IntStream;", nullptr, $PUBLIC, $virtualMethod(Random, ints, $IntStream*, int32_t, int32_t)},
+		{"longs", "(J)Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(Random, longs, $LongStream*, int64_t)},
+		{"longs", "()Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(Random, longs, $LongStream*)},
+		{"longs", "(JJJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(Random, longs, $LongStream*, int64_t, int64_t, int64_t)},
+		{"longs", "(JJ)Ljava/util/stream/LongStream;", nullptr, $PUBLIC, $virtualMethod(Random, longs, $LongStream*, int64_t, int64_t)},
+		{"next", "(I)I", nullptr, $PROTECTED, $virtualMethod(Random, next, int32_t, int32_t)},
+		{"nextBoolean", "()Z", nullptr, $PUBLIC, $virtualMethod(Random, nextBoolean, bool)},
+		{"nextBytes", "([B)V", nullptr, $PUBLIC, $virtualMethod(Random, nextBytes, void, $bytes*)},
+		{"nextDouble", "()D", nullptr, $PUBLIC, $virtualMethod(Random, nextDouble, double)},
+		{"nextFloat", "()F", nullptr, $PUBLIC, $virtualMethod(Random, nextFloat, float)},
+		{"nextGaussian", "()D", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Random, nextGaussian, double)},
+		{"nextInt", "()I", nullptr, $PUBLIC, $virtualMethod(Random, nextInt, int32_t)},
+		{"nextInt", "(I)I", nullptr, $PUBLIC, $virtualMethod(Random, nextInt, int32_t, int32_t)},
+		{"nextLong", "()J", nullptr, $PUBLIC, $virtualMethod(Random, nextLong, int64_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Random, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"resetSeed", "(J)V", nullptr, $PRIVATE, $method(Random, resetSeed, void, int64_t)},
+		{"seedUniquifier", "()J", nullptr, $PRIVATE | $STATIC, $staticMethod(Random, seedUniquifier, int64_t)},
+		{"setSeed", "(J)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Random, setSeed, void, int64_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Random, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"name", 's', "Random"},
+		{"i", 'I', "48"},
+		{"j", 'I', "0"},
+		{"k", 'I', "0"},
+		{"equidistribution", 'I', "0"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/util/random/RandomSupport$RandomGeneratorProperties;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.Random",
+		"java.lang.Object",
+		"java.util.random.RandomGenerator,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Random, name, initialize, &classInfo$$, Random::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Random));
+	});
 	return class$;
 }
 

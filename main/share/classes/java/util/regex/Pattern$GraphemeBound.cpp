@@ -1,5 +1,4 @@
 #include <java/util/regex/Pattern$GraphemeBound.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/util/regex/Grapheme.h>
 #include <java/util/regex/Matcher.h>
@@ -19,38 +18,6 @@ using $Pattern$Node = ::java::util::regex::Pattern$Node;
 namespace java {
 	namespace util {
 		namespace regex {
-
-$MethodInfo _Pattern$GraphemeBound_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Pattern$GraphemeBound, init$, void)},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$GraphemeBound, match, bool, $Matcher*, int32_t, $CharSequence*)},
-	{}
-};
-
-$InnerClassInfo _Pattern$GraphemeBound_InnerClassesInfo_[] = {
-	{"java.util.regex.Pattern$GraphemeBound", "java.util.regex.Pattern", "GraphemeBound", $STATIC},
-	{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
-	{}
-};
-
-$ClassInfo _Pattern$GraphemeBound_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.regex.Pattern$GraphemeBound",
-	"java.util.regex.Pattern$Node",
-	nullptr,
-	nullptr,
-	_Pattern$GraphemeBound_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pattern$GraphemeBound_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.regex.Pattern"
-};
-
-$Object* allocate$Pattern$GraphemeBound($Class* clazz) {
-	return $of($alloc(Pattern$GraphemeBound));
-}
 
 void Pattern$GraphemeBound::init$() {
 	$Pattern$Node::init$();
@@ -83,7 +50,34 @@ Pattern$GraphemeBound::Pattern$GraphemeBound() {
 }
 
 $Class* Pattern$GraphemeBound::load$($String* name, bool initialize) {
-	$loadClass(Pattern$GraphemeBound, name, initialize, &_Pattern$GraphemeBound_ClassInfo_, allocate$Pattern$GraphemeBound);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Pattern$GraphemeBound, init$, void)},
+		{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$GraphemeBound, match, bool, $Matcher*, int32_t, $CharSequence*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Pattern$GraphemeBound", "java.util.regex.Pattern", "GraphemeBound", $STATIC},
+		{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.regex.Pattern$GraphemeBound",
+		"java.util.regex.Pattern$Node",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.regex.Pattern"
+	};
+	$loadClass(Pattern$GraphemeBound, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$GraphemeBound);
+	});
 	return class$;
 }
 

@@ -38,6 +38,7 @@ class $export X509Certificate : public ::javax::security::cert::Certificate {
 	$class(X509Certificate, 0, ::javax::security::cert::Certificate)
 public:
 	X509Certificate();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void checkValidity() {}
 	virtual void checkValidity(::java::util::Date* date) {}

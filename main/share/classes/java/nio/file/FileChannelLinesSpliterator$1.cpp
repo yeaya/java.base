@@ -1,5 +1,4 @@
 #include <java/nio/file/FileChannelLinesSpliterator$1.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/FileChannel.h>
 #include <java/nio/channels/spi/AbstractInterruptibleChannel.h>
@@ -12,56 +11,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $FileChannel = ::java::nio::channels::FileChannel;
 using $FileChannelLinesSpliterator = ::java::nio::file::FileChannelLinesSpliterator;
 
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _FileChannelLinesSpliterator$1_FieldInfo_[] = {
-	{"this$0", "Ljava/nio/file/FileChannelLinesSpliterator;", nullptr, $FINAL | $SYNTHETIC, $field(FileChannelLinesSpliterator$1, this$0)},
-	{}
-};
-
-$MethodInfo _FileChannelLinesSpliterator$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/FileChannelLinesSpliterator;)V", nullptr, 0, $method(FileChannelLinesSpliterator$1, init$, void, $FileChannelLinesSpliterator*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FileChannelLinesSpliterator$1, close, void), "java.io.IOException"},
-	{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(FileChannelLinesSpliterator$1, isOpen, bool)},
-	{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(FileChannelLinesSpliterator$1, read, int32_t, $ByteBuffer*), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _FileChannelLinesSpliterator$1_EnclosingMethodInfo_ = {
-	"java.nio.file.FileChannelLinesSpliterator",
-	"getBufferedReader",
-	"()Ljava/io/BufferedReader;"
-};
-
-$InnerClassInfo _FileChannelLinesSpliterator$1_InnerClassesInfo_[] = {
-	{"java.nio.file.FileChannelLinesSpliterator$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FileChannelLinesSpliterator$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.nio.file.FileChannelLinesSpliterator$1",
-	"java.lang.Object",
-	"java.nio.channels.ReadableByteChannel",
-	_FileChannelLinesSpliterator$1_FieldInfo_,
-	_FileChannelLinesSpliterator$1_MethodInfo_,
-	nullptr,
-	&_FileChannelLinesSpliterator$1_EnclosingMethodInfo_,
-	_FileChannelLinesSpliterator$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.nio.file.FileChannelLinesSpliterator"
-};
-
-$Object* allocate$FileChannelLinesSpliterator$1($Class* clazz) {
-	return $of($alloc(FileChannelLinesSpliterator$1));
-}
 
 void FileChannelLinesSpliterator$1::init$($FileChannelLinesSpliterator* this$0) {
 	$set(this, this$0, this$0);
@@ -101,7 +55,44 @@ FileChannelLinesSpliterator$1::FileChannelLinesSpliterator$1() {
 }
 
 $Class* FileChannelLinesSpliterator$1::load$($String* name, bool initialize) {
-	$loadClass(FileChannelLinesSpliterator$1, name, initialize, &_FileChannelLinesSpliterator$1_ClassInfo_, allocate$FileChannelLinesSpliterator$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/nio/file/FileChannelLinesSpliterator;", nullptr, $FINAL | $SYNTHETIC, $field(FileChannelLinesSpliterator$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/FileChannelLinesSpliterator;)V", nullptr, 0, $method(FileChannelLinesSpliterator$1, init$, void, $FileChannelLinesSpliterator*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FileChannelLinesSpliterator$1, close, void), "java.io.IOException"},
+		{"isOpen", "()Z", nullptr, $PUBLIC, $virtualMethod(FileChannelLinesSpliterator$1, isOpen, bool)},
+		{"read", "(Ljava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(FileChannelLinesSpliterator$1, read, int32_t, $ByteBuffer*), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.nio.file.FileChannelLinesSpliterator",
+		"getBufferedReader",
+		"()Ljava/io/BufferedReader;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.file.FileChannelLinesSpliterator$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.nio.file.FileChannelLinesSpliterator$1",
+		"java.lang.Object",
+		"java.nio.channels.ReadableByteChannel",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.nio.file.FileChannelLinesSpliterator"
+	};
+	$loadClass(FileChannelLinesSpliterator$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileChannelLinesSpliterator$1);
+	});
 	return class$;
 }
 

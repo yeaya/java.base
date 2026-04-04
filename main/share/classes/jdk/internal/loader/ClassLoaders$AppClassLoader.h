@@ -45,6 +45,7 @@ class ClassLoaders$AppClassLoader : public ::jdk::internal::loader::BuiltinClass
 public:
 	ClassLoaders$AppClassLoader();
 	using ::jdk::internal::loader::BuiltinClassLoader::defineClass;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::loader::BuiltinClassLoader* parent, ::jdk::internal::loader::URLClassPath* ucp);
 	virtual void appendToClassPathForInstrumentation($String* path);
 	virtual ::java::lang::Package* defineOrCheckPackage($String* pn, ::java::util::jar::Manifest* man, ::java::net::URL* url) override;

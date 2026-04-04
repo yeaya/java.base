@@ -1,5 +1,4 @@
 #include <jdk/internal/jimage/decompressor/ResourceDecompressorFactory.h>
-
 #include <java/util/Properties.h>
 #include <jdk/internal/jimage/decompressor/ResourceDecompressor.h>
 #include <jcpp.h>
@@ -15,31 +14,6 @@ namespace jdk {
 		namespace jimage {
 			namespace decompressor {
 
-$FieldInfo _ResourceDecompressorFactory_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ResourceDecompressorFactory, name)},
-	{}
-};
-
-$MethodInfo _ResourceDecompressorFactory_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(ResourceDecompressorFactory, init$, void, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResourceDecompressorFactory, getName, $String*)},
-	{"newDecompressor", "(Ljava/util/Properties;)Ljdk/internal/jimage/decompressor/ResourceDecompressor;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResourceDecompressorFactory, newDecompressor, $ResourceDecompressor*, $Properties*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ResourceDecompressorFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"jdk.internal.jimage.decompressor.ResourceDecompressorFactory",
-	"java.lang.Object",
-	nullptr,
-	_ResourceDecompressorFactory_FieldInfo_,
-	_ResourceDecompressorFactory_MethodInfo_
-};
-
-$Object* allocate$ResourceDecompressorFactory($Class* clazz) {
-	return $of($alloc(ResourceDecompressorFactory));
-}
-
 void ResourceDecompressorFactory::init$($String* name) {
 	$set(this, name, name);
 }
@@ -52,7 +26,27 @@ ResourceDecompressorFactory::ResourceDecompressorFactory() {
 }
 
 $Class* ResourceDecompressorFactory::load$($String* name, bool initialize) {
-	$loadClass(ResourceDecompressorFactory, name, initialize, &_ResourceDecompressorFactory_ClassInfo_, allocate$ResourceDecompressorFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ResourceDecompressorFactory, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(ResourceDecompressorFactory, init$, void, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResourceDecompressorFactory, getName, $String*)},
+		{"newDecompressor", "(Ljava/util/Properties;)Ljdk/internal/jimage/decompressor/ResourceDecompressor;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResourceDecompressorFactory, newDecompressor, $ResourceDecompressor*, $Properties*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"jdk.internal.jimage.decompressor.ResourceDecompressorFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResourceDecompressorFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourceDecompressorFactory);
+	});
 	return class$;
 }
 

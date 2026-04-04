@@ -53,6 +53,7 @@ public:
 	DirectByteBufferR();
 	using ::java::nio::DirectByteBuffer::get;
 	using ::java::nio::DirectByteBuffer::limit;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t cap);
 	void init$(int32_t cap, int64_t addr, ::java::io::FileDescriptor* fd, ::java::lang::Runnable* unmapper, bool isSync, ::jdk::internal::access::foreign::MemorySegmentProxy* segment);
 	void init$(::sun::nio::ch::DirectBuffer* db, int32_t mark, int32_t pos, int32_t lim, int32_t cap, int32_t off, ::java::io::FileDescriptor* fd, bool isSync, ::jdk::internal::access::foreign::MemorySegmentProxy* segment);

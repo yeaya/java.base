@@ -1,5 +1,4 @@
 #include <java/lang/invoke/VarHandleByteArrayAsDoubles$ByteBufferHandle.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/invoke/MethodHandleStatics.h>
 #include <java/lang/invoke/MethodType.h>
@@ -9,7 +8,6 @@
 #include <java/lang/invoke/VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle.h>
 #include <java/lang/invoke/VarHandleByteArrayAsDoubles.h>
 #include <java/lang/invoke/VarHandleByteArrayBase.h>
-#include <java/nio/Buffer.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/ReadOnlyBufferException.h>
 #include <java/util/Objects.h>
@@ -47,199 +45,17 @@ using $VarHandle$AccessType = ::java::lang::invoke::VarHandle$AccessType;
 using $VarHandleByteArrayAsDoubles = ::java::lang::invoke::VarHandleByteArrayAsDoubles;
 using $VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle = ::java::lang::invoke::VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle;
 using $VarHandleByteArrayBase = ::java::lang::invoke::VarHandleByteArrayBase;
-using $Buffer = ::java::nio::Buffer;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ReadOnlyBufferException = ::java::nio::ReadOnlyBufferException;
 using $Objects = ::java::util::Objects;
 using $BiFunction = ::java::util::function::BiFunction;
-using $JavaNioAccess = ::jdk::internal::access::JavaNioAccess;
 using $MemorySegmentProxy = ::jdk::internal::access::foreign::MemorySegmentProxy;
-using $ScopedMemoryAccess = ::jdk::internal::misc::ScopedMemoryAccess;
 using $ScopedMemoryAccess$Scope = ::jdk::internal::misc::ScopedMemoryAccess$Scope;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Preconditions = ::jdk::internal::util::Preconditions;
 
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$CompoundAttribute _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_address3[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_compareAndExchange4[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_compareAndExchangeAcquire5[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_compareAndExchangeRelease6[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_compareAndSet7[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_get8[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_getAcquire9[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_getAndSet10[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_getAndSetAcquire11[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_getAndSetRelease12[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_getOpaque13[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_getVolatile14[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_index15[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_indexRO16[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_scope17[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_set18[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_setOpaque19[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_setRelease20[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_setVolatile21[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_weakCompareAndSet22[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_weakCompareAndSetAcquire23[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_weakCompareAndSetPlain24[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_weakCompareAndSetRelease25[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$FieldInfo _VarHandleByteArrayAsDoubles$ByteBufferHandle_FieldInfo_[] = {
-	{"FORM", "Ljava/lang/invoke/VarForm;", nullptr, $STATIC | $FINAL, $staticField(VarHandleByteArrayAsDoubles$ByteBufferHandle, FORM)},
-	{}
-};
-
-$MethodInfo _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, 0, $method(VarHandleByteArrayAsDoubles$ByteBufferHandle, init$, void, bool)},
-	{"<init>", "(ZZ)V", nullptr, $PRIVATE, $method(VarHandleByteArrayAsDoubles$ByteBufferHandle, init$, void, bool, bool)},
-	{"accessModeTypeUncached", "(Ljava/lang/invoke/VarHandle$AccessType;)Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $virtualMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, accessModeTypeUncached, $MethodType*, $VarHandle$AccessType*)},
-	{"address", "(Ljava/nio/ByteBuffer;I)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, address, int64_t, $ByteBuffer*, int32_t), nullptr, nullptr, _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_address3},
-	{"compareAndExchange", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IDD)D", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, compareAndExchange, double, $VarHandle*, Object$*, int32_t, double, double), nullptr, nullptr, _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_compareAndExchange4},
-	{"compareAndExchangeAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IDD)D", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, compareAndExchangeAcquire, double, $VarHandle*, Object$*, int32_t, double, double), nullptr, nullptr, _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_compareAndExchangeAcquire5},
-	{"compareAndExchangeRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IDD)D", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, compareAndExchangeRelease, double, $VarHandle*, Object$*, int32_t, double, double), nullptr, nullptr, _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_compareAndExchangeRelease6},
-	{"compareAndSet", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IDD)Z", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, compareAndSet, bool, $VarHandle*, Object$*, int32_t, double, double), nullptr, nullptr, _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_compareAndSet7},
-	{"get", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)D", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, get, double, $VarHandle*, Object$*, int32_t), nullptr, nullptr, _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_get8},
-	{"getAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)D", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, getAcquire, double, $VarHandle*, Object$*, int32_t), nullptr, nullptr, _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_getAcquire9},
-	{"getAndSet", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;ID)D", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, getAndSet, double, $VarHandle*, Object$*, int32_t, double), nullptr, nullptr, _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_getAndSet10},
-	{"getAndSetAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;ID)D", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, getAndSetAcquire, double, $VarHandle*, Object$*, int32_t, double), nullptr, nullptr, _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_getAndSetAcquire11},
-	{"getAndSetRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;ID)D", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, getAndSetRelease, double, $VarHandle*, Object$*, int32_t, double), nullptr, nullptr, _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_getAndSetRelease12},
-	{"getOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)D", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, getOpaque, double, $VarHandle*, Object$*, int32_t), nullptr, nullptr, _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_getOpaque13},
-	{"getVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)D", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, getVolatile, double, $VarHandle*, Object$*, int32_t), nullptr, nullptr, _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_getVolatile14},
-	{"index", "(Ljava/nio/ByteBuffer;I)I", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, index, int32_t, $ByteBuffer*, int32_t), nullptr, nullptr, _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_index15},
-	{"indexRO", "(Ljava/nio/ByteBuffer;I)I", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, indexRO, int32_t, $ByteBuffer*, int32_t), nullptr, nullptr, _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_indexRO16},
-	{"scope", "(Ljava/nio/ByteBuffer;)Ljdk/internal/misc/ScopedMemoryAccess$Scope;", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, scope, $ScopedMemoryAccess$Scope*, $ByteBuffer*), nullptr, nullptr, _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_scope17},
-	{"set", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;ID)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, set, void, $VarHandle*, Object$*, int32_t, double), nullptr, nullptr, _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_set18},
-	{"setOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;ID)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, setOpaque, void, $VarHandle*, Object$*, int32_t, double), nullptr, nullptr, _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_setOpaque19},
-	{"setRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;ID)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, setRelease, void, $VarHandle*, Object$*, int32_t, double), nullptr, nullptr, _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_setRelease20},
-	{"setVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;ID)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, setVolatile, void, $VarHandle*, Object$*, int32_t, double), nullptr, nullptr, _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_setVolatile21},
-	{"weakCompareAndSet", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IDD)Z", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, weakCompareAndSet, bool, $VarHandle*, Object$*, int32_t, double, double), nullptr, nullptr, _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_weakCompareAndSet22},
-	{"weakCompareAndSetAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IDD)Z", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, weakCompareAndSetAcquire, bool, $VarHandle*, Object$*, int32_t, double, double), nullptr, nullptr, _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_weakCompareAndSetAcquire23},
-	{"weakCompareAndSetPlain", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IDD)Z", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, weakCompareAndSetPlain, bool, $VarHandle*, Object$*, int32_t, double, double), nullptr, nullptr, _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_weakCompareAndSetPlain24},
-	{"weakCompareAndSetRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IDD)Z", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, weakCompareAndSetRelease, bool, $VarHandle*, Object$*, int32_t, double, double), nullptr, nullptr, _VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodAnnotations_weakCompareAndSetRelease25},
-	{"withInvokeBehavior", "()Ljava/lang/invoke/VarHandleByteArrayAsDoubles$ByteBufferHandle;", nullptr, $PUBLIC, $virtualMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, withInvokeBehavior, VarHandleByteArrayAsDoubles$ByteBufferHandle*)},
-	{"withInvokeExactBehavior", "()Ljava/lang/invoke/VarHandleByteArrayAsDoubles$ByteBufferHandle;", nullptr, $PUBLIC, $virtualMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, withInvokeExactBehavior, VarHandleByteArrayAsDoubles$ByteBufferHandle*)},
-	{}
-};
-
-$InnerClassInfo _VarHandleByteArrayAsDoubles$ByteBufferHandle_InnerClassesInfo_[] = {
-	{"java.lang.invoke.VarHandleByteArrayAsDoubles$ByteBufferHandle", "java.lang.invoke.VarHandleByteArrayAsDoubles", "ByteBufferHandle", $STATIC | $FINAL},
-	{"java.lang.invoke.VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle", "java.lang.invoke.VarHandleByteArrayAsDoubles", "ByteArrayViewVarHandle", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _VarHandleByteArrayAsDoubles$ByteBufferHandle_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.invoke.VarHandleByteArrayAsDoubles$ByteBufferHandle",
-	"java.lang.invoke.VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle",
-	nullptr,
-	_VarHandleByteArrayAsDoubles$ByteBufferHandle_FieldInfo_,
-	_VarHandleByteArrayAsDoubles$ByteBufferHandle_MethodInfo_,
-	nullptr,
-	nullptr,
-	_VarHandleByteArrayAsDoubles$ByteBufferHandle_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.VarHandleByteArrayAsDoubles"
-};
-
-$Object* allocate$VarHandleByteArrayAsDoubles$ByteBufferHandle($Class* clazz) {
-	return $of($alloc(VarHandleByteArrayAsDoubles$ByteBufferHandle));
-}
 
 $VarForm* VarHandleByteArrayAsDoubles$ByteBufferHandle::FORM = nullptr;
 
@@ -261,8 +77,6 @@ VarHandleByteArrayAsDoubles$ByteBufferHandle* VarHandleByteArrayAsDoubles$ByteBu
 
 $MethodType* VarHandleByteArrayAsDoubles$ByteBufferHandle::accessModeTypeUncached($VarHandle$AccessType* at) {
 	$load($ByteBuffer);
-	$init($Double);
-	$init($Integer);
 	return $nc(at)->accessModeType($ByteBuffer::class$, $Double::TYPE, $$new($ClassArray, {$Integer::TYPE}));
 }
 
@@ -272,14 +86,14 @@ int32_t VarHandleByteArrayAsDoubles$ByteBufferHandle::index($ByteBuffer* bb, int
 	$var($MemorySegmentProxy, segmentProxy, $nc($VarHandleByteArrayAsDoubles::NIO_ACCESS)->bufferSegment(bb));
 	$init($MethodHandleStatics);
 	$init($VarHandleByteArrayBase);
-	return $Preconditions::checkIndex(index, $nc($MethodHandleStatics::UNSAFE)->getInt(bb, $VarHandleByteArrayBase::BUFFER_LIMIT) - 7, ($BiFunction*)nullptr);
+	return $Preconditions::checkIndex(index, $nc($MethodHandleStatics::UNSAFE)->getInt(bb, $VarHandleByteArrayBase::BUFFER_LIMIT) - 7, nullptr);
 }
 
 $ScopedMemoryAccess$Scope* VarHandleByteArrayAsDoubles$ByteBufferHandle::scope($ByteBuffer* bb) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
 	$init($VarHandleByteArrayAsDoubles);
 	$var($MemorySegmentProxy, segmentProxy, $nc($VarHandleByteArrayAsDoubles::NIO_ACCESS)->bufferSegment(bb));
-	return segmentProxy != nullptr ? $nc(segmentProxy)->scope() : ($ScopedMemoryAccess$Scope*)nullptr;
+	return segmentProxy != nullptr ? segmentProxy->scope() : ($ScopedMemoryAccess$Scope*)nullptr;
 }
 
 int32_t VarHandleByteArrayAsDoubles$ByteBufferHandle::indexRO($ByteBuffer* bb, int32_t index) {
@@ -297,7 +111,7 @@ int64_t VarHandleByteArrayAsDoubles$ByteBufferHandle::address($ByteBuffer* bb, i
 	$init($MethodHandleStatics);
 	$init($VarHandleByteArrayBase);
 	int64_t address = ((int64_t)index) + $nc($MethodHandleStatics::UNSAFE)->getLong(bb, $VarHandleByteArrayBase::BUFFER_ADDRESS);
-	if (((int64_t)(address & (uint64_t)(int64_t)7)) != 0) {
+	if ((address & 7) != 0) {
 		$throw($($VarHandleByteArrayBase::newIllegalStateExceptionForMisalignedAccess(index)));
 	}
 	return address;
@@ -305,7 +119,7 @@ int64_t VarHandleByteArrayAsDoubles$ByteBufferHandle::address($ByteBuffer* bb, i
 
 double VarHandleByteArrayAsDoubles$ByteBufferHandle::get($VarHandle* ob, Object$* obb, int32_t index) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -313,14 +127,14 @@ double VarHandleByteArrayAsDoubles$ByteBufferHandle::get($VarHandle* ob, Object$
 	$init($MethodHandleStatics);
 	$init($VarHandleByteArrayBase);
 	$var($Object, var$1, $nc($MethodHandleStatics::UNSAFE)->getReference(bb, $VarHandleByteArrayBase::BYTE_BUFFER_HB));
-	int64_t var$2 = ((int64_t)VarHandleByteArrayAsDoubles$ByteBufferHandle::index(bb, index));
-	int64_t rawValue = $nc($VarHandleByteArrayAsDoubles::SCOPED_MEMORY_ACCESS)->getLongUnaligned(var$0, var$1, var$2 + $nc($MethodHandleStatics::UNSAFE)->getLong(bb, $VarHandleByteArrayBase::BUFFER_ADDRESS), $nc(handle)->be);
+	int64_t var$2 = (int64_t)VarHandleByteArrayAsDoubles$ByteBufferHandle::index(bb, index);
+	int64_t rawValue = $nc($VarHandleByteArrayAsDoubles::SCOPED_MEMORY_ACCESS)->getLongUnaligned(var$0, var$1, var$2 + $MethodHandleStatics::UNSAFE->getLong(bb, $VarHandleByteArrayBase::BUFFER_ADDRESS), $nc(handle)->be);
 	return $Double::longBitsToDouble(rawValue);
 }
 
 void VarHandleByteArrayAsDoubles$ByteBufferHandle::set($VarHandle* ob, Object$* obb, int32_t index, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -328,14 +142,14 @@ void VarHandleByteArrayAsDoubles$ByteBufferHandle::set($VarHandle* ob, Object$* 
 	$init($MethodHandleStatics);
 	$init($VarHandleByteArrayBase);
 	$var($Object, var$1, $nc($MethodHandleStatics::UNSAFE)->getReference(bb, $VarHandleByteArrayBase::BYTE_BUFFER_HB));
-	int64_t var$3 = ((int64_t)indexRO(bb, index));
-	int64_t var$2 = var$3 + $nc($MethodHandleStatics::UNSAFE)->getLong(bb, $VarHandleByteArrayBase::BUFFER_ADDRESS);
+	int64_t var$3 = (int64_t)indexRO(bb, index);
+	int64_t var$2 = var$3 + $MethodHandleStatics::UNSAFE->getLong(bb, $VarHandleByteArrayBase::BUFFER_ADDRESS);
 	$nc($VarHandleByteArrayAsDoubles::SCOPED_MEMORY_ACCESS)->putLongUnaligned(var$0, var$1, var$2, $Double::doubleToRawLongBits(value), $nc(handle)->be);
 }
 
 double VarHandleByteArrayAsDoubles$ByteBufferHandle::getVolatile($VarHandle* ob, Object$* obb, int32_t index) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -348,7 +162,7 @@ double VarHandleByteArrayAsDoubles$ByteBufferHandle::getVolatile($VarHandle* ob,
 
 void VarHandleByteArrayAsDoubles$ByteBufferHandle::setVolatile($VarHandle* ob, Object$* obb, int32_t index, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -362,7 +176,7 @@ void VarHandleByteArrayAsDoubles$ByteBufferHandle::setVolatile($VarHandle* ob, O
 
 double VarHandleByteArrayAsDoubles$ByteBufferHandle::getAcquire($VarHandle* ob, Object$* obb, int32_t index) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -375,7 +189,7 @@ double VarHandleByteArrayAsDoubles$ByteBufferHandle::getAcquire($VarHandle* ob, 
 
 void VarHandleByteArrayAsDoubles$ByteBufferHandle::setRelease($VarHandle* ob, Object$* obb, int32_t index, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -389,7 +203,7 @@ void VarHandleByteArrayAsDoubles$ByteBufferHandle::setRelease($VarHandle* ob, Ob
 
 double VarHandleByteArrayAsDoubles$ByteBufferHandle::getOpaque($VarHandle* ob, Object$* obb, int32_t index) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -402,7 +216,7 @@ double VarHandleByteArrayAsDoubles$ByteBufferHandle::getOpaque($VarHandle* ob, O
 
 void VarHandleByteArrayAsDoubles$ByteBufferHandle::setOpaque($VarHandle* ob, Object$* obb, int32_t index, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -416,7 +230,7 @@ void VarHandleByteArrayAsDoubles$ByteBufferHandle::setOpaque($VarHandle* ob, Obj
 
 bool VarHandleByteArrayAsDoubles$ByteBufferHandle::compareAndSet($VarHandle* ob, Object$* obb, int32_t index, double expected, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -426,12 +240,12 @@ bool VarHandleByteArrayAsDoubles$ByteBufferHandle::compareAndSet($VarHandle* ob,
 	$var($Object, var$1, $nc($MethodHandleStatics::UNSAFE)->getReference(bb, $VarHandleByteArrayBase::BYTE_BUFFER_HB));
 	int64_t var$2 = address(bb, indexRO(bb, index));
 	int64_t var$3 = $VarHandleByteArrayAsDoubles::convEndian($nc(handle)->be, expected);
-	return $nc($VarHandleByteArrayAsDoubles::SCOPED_MEMORY_ACCESS)->compareAndSetLong(var$0, var$1, var$2, var$3, $VarHandleByteArrayAsDoubles::convEndian($nc(handle)->be, value));
+	return $nc($VarHandleByteArrayAsDoubles::SCOPED_MEMORY_ACCESS)->compareAndSetLong(var$0, var$1, var$2, var$3, $VarHandleByteArrayAsDoubles::convEndian(handle->be, value));
 }
 
 double VarHandleByteArrayAsDoubles$ByteBufferHandle::compareAndExchange($VarHandle* ob, Object$* obb, int32_t index, double expected, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -440,13 +254,13 @@ double VarHandleByteArrayAsDoubles$ByteBufferHandle::compareAndExchange($VarHand
 	$init($VarHandleByteArrayBase);
 	$var($Object, var$1, $nc($MethodHandleStatics::UNSAFE)->getReference(bb, $VarHandleByteArrayBase::BYTE_BUFFER_HB));
 	int64_t var$2 = address(bb, indexRO(bb, index));
-	int64_t var$3 = $VarHandleByteArrayAsDoubles::convEndian(handle->be, expected);
+	int64_t var$3 = $VarHandleByteArrayAsDoubles::convEndian($nc(handle)->be, expected);
 	return $VarHandleByteArrayAsDoubles::convEndian($nc(handle)->be, $nc($VarHandleByteArrayAsDoubles::SCOPED_MEMORY_ACCESS)->compareAndExchangeLong(var$0, var$1, var$2, var$3, $VarHandleByteArrayAsDoubles::convEndian(handle->be, value)));
 }
 
 double VarHandleByteArrayAsDoubles$ByteBufferHandle::compareAndExchangeAcquire($VarHandle* ob, Object$* obb, int32_t index, double expected, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -455,13 +269,13 @@ double VarHandleByteArrayAsDoubles$ByteBufferHandle::compareAndExchangeAcquire($
 	$init($VarHandleByteArrayBase);
 	$var($Object, var$1, $nc($MethodHandleStatics::UNSAFE)->getReference(bb, $VarHandleByteArrayBase::BYTE_BUFFER_HB));
 	int64_t var$2 = address(bb, indexRO(bb, index));
-	int64_t var$3 = $VarHandleByteArrayAsDoubles::convEndian(handle->be, expected);
+	int64_t var$3 = $VarHandleByteArrayAsDoubles::convEndian($nc(handle)->be, expected);
 	return $VarHandleByteArrayAsDoubles::convEndian($nc(handle)->be, $nc($VarHandleByteArrayAsDoubles::SCOPED_MEMORY_ACCESS)->compareAndExchangeLongAcquire(var$0, var$1, var$2, var$3, $VarHandleByteArrayAsDoubles::convEndian(handle->be, value)));
 }
 
 double VarHandleByteArrayAsDoubles$ByteBufferHandle::compareAndExchangeRelease($VarHandle* ob, Object$* obb, int32_t index, double expected, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -470,13 +284,13 @@ double VarHandleByteArrayAsDoubles$ByteBufferHandle::compareAndExchangeRelease($
 	$init($VarHandleByteArrayBase);
 	$var($Object, var$1, $nc($MethodHandleStatics::UNSAFE)->getReference(bb, $VarHandleByteArrayBase::BYTE_BUFFER_HB));
 	int64_t var$2 = address(bb, indexRO(bb, index));
-	int64_t var$3 = $VarHandleByteArrayAsDoubles::convEndian(handle->be, expected);
+	int64_t var$3 = $VarHandleByteArrayAsDoubles::convEndian($nc(handle)->be, expected);
 	return $VarHandleByteArrayAsDoubles::convEndian($nc(handle)->be, $nc($VarHandleByteArrayAsDoubles::SCOPED_MEMORY_ACCESS)->compareAndExchangeLongRelease(var$0, var$1, var$2, var$3, $VarHandleByteArrayAsDoubles::convEndian(handle->be, value)));
 }
 
 bool VarHandleByteArrayAsDoubles$ByteBufferHandle::weakCompareAndSetPlain($VarHandle* ob, Object$* obb, int32_t index, double expected, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -486,12 +300,12 @@ bool VarHandleByteArrayAsDoubles$ByteBufferHandle::weakCompareAndSetPlain($VarHa
 	$var($Object, var$1, $nc($MethodHandleStatics::UNSAFE)->getReference(bb, $VarHandleByteArrayBase::BYTE_BUFFER_HB));
 	int64_t var$2 = address(bb, indexRO(bb, index));
 	int64_t var$3 = $VarHandleByteArrayAsDoubles::convEndian($nc(handle)->be, expected);
-	return $nc($VarHandleByteArrayAsDoubles::SCOPED_MEMORY_ACCESS)->weakCompareAndSetLongPlain(var$0, var$1, var$2, var$3, $VarHandleByteArrayAsDoubles::convEndian($nc(handle)->be, value));
+	return $nc($VarHandleByteArrayAsDoubles::SCOPED_MEMORY_ACCESS)->weakCompareAndSetLongPlain(var$0, var$1, var$2, var$3, $VarHandleByteArrayAsDoubles::convEndian(handle->be, value));
 }
 
 bool VarHandleByteArrayAsDoubles$ByteBufferHandle::weakCompareAndSet($VarHandle* ob, Object$* obb, int32_t index, double expected, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -501,12 +315,12 @@ bool VarHandleByteArrayAsDoubles$ByteBufferHandle::weakCompareAndSet($VarHandle*
 	$var($Object, var$1, $nc($MethodHandleStatics::UNSAFE)->getReference(bb, $VarHandleByteArrayBase::BYTE_BUFFER_HB));
 	int64_t var$2 = address(bb, indexRO(bb, index));
 	int64_t var$3 = $VarHandleByteArrayAsDoubles::convEndian($nc(handle)->be, expected);
-	return $nc($VarHandleByteArrayAsDoubles::SCOPED_MEMORY_ACCESS)->weakCompareAndSetLong(var$0, var$1, var$2, var$3, $VarHandleByteArrayAsDoubles::convEndian($nc(handle)->be, value));
+	return $nc($VarHandleByteArrayAsDoubles::SCOPED_MEMORY_ACCESS)->weakCompareAndSetLong(var$0, var$1, var$2, var$3, $VarHandleByteArrayAsDoubles::convEndian(handle->be, value));
 }
 
 bool VarHandleByteArrayAsDoubles$ByteBufferHandle::weakCompareAndSetAcquire($VarHandle* ob, Object$* obb, int32_t index, double expected, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -516,12 +330,12 @@ bool VarHandleByteArrayAsDoubles$ByteBufferHandle::weakCompareAndSetAcquire($Var
 	$var($Object, var$1, $nc($MethodHandleStatics::UNSAFE)->getReference(bb, $VarHandleByteArrayBase::BYTE_BUFFER_HB));
 	int64_t var$2 = address(bb, indexRO(bb, index));
 	int64_t var$3 = $VarHandleByteArrayAsDoubles::convEndian($nc(handle)->be, expected);
-	return $nc($VarHandleByteArrayAsDoubles::SCOPED_MEMORY_ACCESS)->weakCompareAndSetLongAcquire(var$0, var$1, var$2, var$3, $VarHandleByteArrayAsDoubles::convEndian($nc(handle)->be, value));
+	return $nc($VarHandleByteArrayAsDoubles::SCOPED_MEMORY_ACCESS)->weakCompareAndSetLongAcquire(var$0, var$1, var$2, var$3, $VarHandleByteArrayAsDoubles::convEndian(handle->be, value));
 }
 
 bool VarHandleByteArrayAsDoubles$ByteBufferHandle::weakCompareAndSetRelease($VarHandle* ob, Object$* obb, int32_t index, double expected, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -531,12 +345,12 @@ bool VarHandleByteArrayAsDoubles$ByteBufferHandle::weakCompareAndSetRelease($Var
 	$var($Object, var$1, $nc($MethodHandleStatics::UNSAFE)->getReference(bb, $VarHandleByteArrayBase::BYTE_BUFFER_HB));
 	int64_t var$2 = address(bb, indexRO(bb, index));
 	int64_t var$3 = $VarHandleByteArrayAsDoubles::convEndian($nc(handle)->be, expected);
-	return $nc($VarHandleByteArrayAsDoubles::SCOPED_MEMORY_ACCESS)->weakCompareAndSetLongRelease(var$0, var$1, var$2, var$3, $VarHandleByteArrayAsDoubles::convEndian($nc(handle)->be, value));
+	return $nc($VarHandleByteArrayAsDoubles::SCOPED_MEMORY_ACCESS)->weakCompareAndSetLongRelease(var$0, var$1, var$2, var$3, $VarHandleByteArrayAsDoubles::convEndian(handle->be, value));
 }
 
 double VarHandleByteArrayAsDoubles$ByteBufferHandle::getAndSet($VarHandle* ob, Object$* obb, int32_t index, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -545,12 +359,12 @@ double VarHandleByteArrayAsDoubles$ByteBufferHandle::getAndSet($VarHandle* ob, O
 	$init($VarHandleByteArrayBase);
 	$var($Object, var$1, $nc($MethodHandleStatics::UNSAFE)->getReference(bb, $VarHandleByteArrayBase::BYTE_BUFFER_HB));
 	int64_t var$2 = address(bb, indexRO(bb, index));
-	return $VarHandleByteArrayAsDoubles::convEndian($nc(handle)->be, $nc($VarHandleByteArrayAsDoubles::SCOPED_MEMORY_ACCESS)->getAndSetLong(var$0, var$1, var$2, $VarHandleByteArrayAsDoubles::convEndian(handle->be, value)));
+	return $VarHandleByteArrayAsDoubles::convEndian($nc(handle)->be, $nc($VarHandleByteArrayAsDoubles::SCOPED_MEMORY_ACCESS)->getAndSetLong(var$0, var$1, var$2, $VarHandleByteArrayAsDoubles::convEndian($nc(handle)->be, value)));
 }
 
 double VarHandleByteArrayAsDoubles$ByteBufferHandle::getAndSetAcquire($VarHandle* ob, Object$* obb, int32_t index, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -559,12 +373,12 @@ double VarHandleByteArrayAsDoubles$ByteBufferHandle::getAndSetAcquire($VarHandle
 	$init($VarHandleByteArrayBase);
 	$var($Object, var$1, $nc($MethodHandleStatics::UNSAFE)->getReference(bb, $VarHandleByteArrayBase::BYTE_BUFFER_HB));
 	int64_t var$2 = address(bb, indexRO(bb, index));
-	return $VarHandleByteArrayAsDoubles::convEndian($nc(handle)->be, $nc($VarHandleByteArrayAsDoubles::SCOPED_MEMORY_ACCESS)->getAndSetLongAcquire(var$0, var$1, var$2, $VarHandleByteArrayAsDoubles::convEndian(handle->be, value)));
+	return $VarHandleByteArrayAsDoubles::convEndian($nc(handle)->be, $nc($VarHandleByteArrayAsDoubles::SCOPED_MEMORY_ACCESS)->getAndSetLongAcquire(var$0, var$1, var$2, $VarHandleByteArrayAsDoubles::convEndian($nc(handle)->be, value)));
 }
 
 double VarHandleByteArrayAsDoubles$ByteBufferHandle::getAndSetRelease($VarHandle* ob, Object$* obb, int32_t index, double value) {
 	$init(VarHandleByteArrayAsDoubles$ByteBufferHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(VarHandleByteArrayAsDoubles$ByteBufferHandle, handle, $cast(VarHandleByteArrayAsDoubles$ByteBufferHandle, ob));
 	$var($ByteBuffer, bb, $cast($ByteBuffer, $Objects::requireNonNull(obb)));
 	$init($VarHandleByteArrayAsDoubles);
@@ -573,13 +387,11 @@ double VarHandleByteArrayAsDoubles$ByteBufferHandle::getAndSetRelease($VarHandle
 	$init($VarHandleByteArrayBase);
 	$var($Object, var$1, $nc($MethodHandleStatics::UNSAFE)->getReference(bb, $VarHandleByteArrayBase::BYTE_BUFFER_HB));
 	int64_t var$2 = address(bb, indexRO(bb, index));
-	return $VarHandleByteArrayAsDoubles::convEndian($nc(handle)->be, $nc($VarHandleByteArrayAsDoubles::SCOPED_MEMORY_ACCESS)->getAndSetLongRelease(var$0, var$1, var$2, $VarHandleByteArrayAsDoubles::convEndian(handle->be, value)));
+	return $VarHandleByteArrayAsDoubles::convEndian($nc(handle)->be, $nc($VarHandleByteArrayAsDoubles::SCOPED_MEMORY_ACCESS)->getAndSetLongRelease(var$0, var$1, var$2, $VarHandleByteArrayAsDoubles::convEndian($nc(handle)->be, value)));
 }
 
-void clinit$VarHandleByteArrayAsDoubles$ByteBufferHandle($Class* class$) {
+void VarHandleByteArrayAsDoubles$ByteBufferHandle::clinit$($Class* clazz) {
 	$load($ByteBuffer);
-	$init($Double);
-	$init($Integer);
 	$assignStatic(VarHandleByteArrayAsDoubles$ByteBufferHandle::FORM, $new($VarForm, VarHandleByteArrayAsDoubles$ByteBufferHandle::class$, $ByteBuffer::class$, $Double::TYPE, $$new($ClassArray, {$Integer::TYPE})));
 }
 
@@ -587,7 +399,156 @@ VarHandleByteArrayAsDoubles$ByteBufferHandle::VarHandleByteArrayAsDoubles$ByteBu
 }
 
 $Class* VarHandleByteArrayAsDoubles$ByteBufferHandle::load$($String* name, bool initialize) {
-	$loadClass(VarHandleByteArrayAsDoubles$ByteBufferHandle, name, initialize, &_VarHandleByteArrayAsDoubles$ByteBufferHandle_ClassInfo_, clinit$VarHandleByteArrayAsDoubles$ByteBufferHandle, allocate$VarHandleByteArrayAsDoubles$ByteBufferHandle);
+	$FieldInfo fieldInfos$$[] = {
+		{"FORM", "Ljava/lang/invoke/VarForm;", nullptr, $STATIC | $FINAL, $staticField(VarHandleByteArrayAsDoubles$ByteBufferHandle, FORM)},
+		{}
+	};
+	$CompoundAttribute addressmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute compareAndExchangemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute compareAndExchangeAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute compareAndExchangeReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute compareAndSetmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndSetmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndSetAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndSetReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getOpaquemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute indexmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute indexROmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute scopemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setOpaquemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute weakCompareAndSetmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute weakCompareAndSetAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute weakCompareAndSetPlainmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute weakCompareAndSetReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, 0, $method(VarHandleByteArrayAsDoubles$ByteBufferHandle, init$, void, bool)},
+		{"<init>", "(ZZ)V", nullptr, $PRIVATE, $method(VarHandleByteArrayAsDoubles$ByteBufferHandle, init$, void, bool, bool)},
+		{"accessModeTypeUncached", "(Ljava/lang/invoke/VarHandle$AccessType;)Ljava/lang/invoke/MethodType;", nullptr, $FINAL, $virtualMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, accessModeTypeUncached, $MethodType*, $VarHandle$AccessType*)},
+		{"address", "(Ljava/nio/ByteBuffer;I)J", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, address, int64_t, $ByteBuffer*, int32_t), nullptr, nullptr, addressmethodAnnotations$$},
+		{"compareAndExchange", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IDD)D", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, compareAndExchange, double, $VarHandle*, Object$*, int32_t, double, double), nullptr, nullptr, compareAndExchangemethodAnnotations$$},
+		{"compareAndExchangeAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IDD)D", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, compareAndExchangeAcquire, double, $VarHandle*, Object$*, int32_t, double, double), nullptr, nullptr, compareAndExchangeAcquiremethodAnnotations$$},
+		{"compareAndExchangeRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IDD)D", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, compareAndExchangeRelease, double, $VarHandle*, Object$*, int32_t, double, double), nullptr, nullptr, compareAndExchangeReleasemethodAnnotations$$},
+		{"compareAndSet", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IDD)Z", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, compareAndSet, bool, $VarHandle*, Object$*, int32_t, double, double), nullptr, nullptr, compareAndSetmethodAnnotations$$},
+		{"get", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)D", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, get, double, $VarHandle*, Object$*, int32_t), nullptr, nullptr, getmethodAnnotations$$},
+		{"getAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)D", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, getAcquire, double, $VarHandle*, Object$*, int32_t), nullptr, nullptr, getAcquiremethodAnnotations$$},
+		{"getAndSet", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;ID)D", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, getAndSet, double, $VarHandle*, Object$*, int32_t, double), nullptr, nullptr, getAndSetmethodAnnotations$$},
+		{"getAndSetAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;ID)D", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, getAndSetAcquire, double, $VarHandle*, Object$*, int32_t, double), nullptr, nullptr, getAndSetAcquiremethodAnnotations$$},
+		{"getAndSetRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;ID)D", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, getAndSetRelease, double, $VarHandle*, Object$*, int32_t, double), nullptr, nullptr, getAndSetReleasemethodAnnotations$$},
+		{"getOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)D", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, getOpaque, double, $VarHandle*, Object$*, int32_t), nullptr, nullptr, getOpaquemethodAnnotations$$},
+		{"getVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;I)D", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, getVolatile, double, $VarHandle*, Object$*, int32_t), nullptr, nullptr, getVolatilemethodAnnotations$$},
+		{"index", "(Ljava/nio/ByteBuffer;I)I", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, index, int32_t, $ByteBuffer*, int32_t), nullptr, nullptr, indexmethodAnnotations$$},
+		{"indexRO", "(Ljava/nio/ByteBuffer;I)I", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, indexRO, int32_t, $ByteBuffer*, int32_t), nullptr, nullptr, indexROmethodAnnotations$$},
+		{"scope", "(Ljava/nio/ByteBuffer;)Ljdk/internal/misc/ScopedMemoryAccess$Scope;", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, scope, $ScopedMemoryAccess$Scope*, $ByteBuffer*), nullptr, nullptr, scopemethodAnnotations$$},
+		{"set", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;ID)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, set, void, $VarHandle*, Object$*, int32_t, double), nullptr, nullptr, setmethodAnnotations$$},
+		{"setOpaque", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;ID)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, setOpaque, void, $VarHandle*, Object$*, int32_t, double), nullptr, nullptr, setOpaquemethodAnnotations$$},
+		{"setRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;ID)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, setRelease, void, $VarHandle*, Object$*, int32_t, double), nullptr, nullptr, setReleasemethodAnnotations$$},
+		{"setVolatile", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;ID)V", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, setVolatile, void, $VarHandle*, Object$*, int32_t, double), nullptr, nullptr, setVolatilemethodAnnotations$$},
+		{"weakCompareAndSet", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IDD)Z", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, weakCompareAndSet, bool, $VarHandle*, Object$*, int32_t, double, double), nullptr, nullptr, weakCompareAndSetmethodAnnotations$$},
+		{"weakCompareAndSetAcquire", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IDD)Z", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, weakCompareAndSetAcquire, bool, $VarHandle*, Object$*, int32_t, double, double), nullptr, nullptr, weakCompareAndSetAcquiremethodAnnotations$$},
+		{"weakCompareAndSetPlain", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IDD)Z", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, weakCompareAndSetPlain, bool, $VarHandle*, Object$*, int32_t, double, double), nullptr, nullptr, weakCompareAndSetPlainmethodAnnotations$$},
+		{"weakCompareAndSetRelease", "(Ljava/lang/invoke/VarHandle;Ljava/lang/Object;IDD)Z", nullptr, $STATIC, $staticMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, weakCompareAndSetRelease, bool, $VarHandle*, Object$*, int32_t, double, double), nullptr, nullptr, weakCompareAndSetReleasemethodAnnotations$$},
+		{"withInvokeBehavior", "()Ljava/lang/invoke/VarHandleByteArrayAsDoubles$ByteBufferHandle;", nullptr, $PUBLIC, $virtualMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, withInvokeBehavior, VarHandleByteArrayAsDoubles$ByteBufferHandle*)},
+		{"withInvokeExactBehavior", "()Ljava/lang/invoke/VarHandleByteArrayAsDoubles$ByteBufferHandle;", nullptr, $PUBLIC, $virtualMethod(VarHandleByteArrayAsDoubles$ByteBufferHandle, withInvokeExactBehavior, VarHandleByteArrayAsDoubles$ByteBufferHandle*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.VarHandleByteArrayAsDoubles$ByteBufferHandle", "java.lang.invoke.VarHandleByteArrayAsDoubles", "ByteBufferHandle", $STATIC | $FINAL},
+		{"java.lang.invoke.VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle", "java.lang.invoke.VarHandleByteArrayAsDoubles", "ByteArrayViewVarHandle", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.invoke.VarHandleByteArrayAsDoubles$ByteBufferHandle",
+		"java.lang.invoke.VarHandleByteArrayAsDoubles$ByteArrayViewVarHandle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.VarHandleByteArrayAsDoubles"
+	};
+	$loadClass(VarHandleByteArrayAsDoubles$ByteBufferHandle, name, initialize, &classInfo$$, VarHandleByteArrayAsDoubles$ByteBufferHandle::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(VarHandleByteArrayAsDoubles$ByteBufferHandle);
+	});
 	return class$;
 }
 

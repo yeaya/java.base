@@ -1,5 +1,4 @@
 #include <java/util/ImmutableCollections$MapN.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/lang/InternalError.h>
@@ -33,79 +32,15 @@ using $Set = ::java::util::Set;
 namespace java {
 	namespace util {
 
-$CompoundAttribute _ImmutableCollections$MapN_Annotations_[] = {
-	{"Ljdk/internal/ValueBased;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ImmutableCollections$MapN_FieldAnnotations_table[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ImmutableCollections$MapN_FieldAnnotations_size[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$FieldInfo _ImmutableCollections$MapN_FieldInfo_[] = {
-	{"table", "[Ljava/lang/Object;", nullptr, $FINAL, $field(ImmutableCollections$MapN, table), _ImmutableCollections$MapN_FieldAnnotations_table},
-	{"size", "I", nullptr, $FINAL, $field(ImmutableCollections$MapN, size$), _ImmutableCollections$MapN_FieldAnnotations_size},
-	{}
-};
-
-$MethodInfo _ImmutableCollections$MapN_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/Object;)V", nullptr, $TRANSIENT, $method(ImmutableCollections$MapN, init$, void, $ObjectArray*)},
-	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$MapN, containsKey, bool, Object$*)},
-	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$MapN, containsValue, bool, Object$*)},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(ImmutableCollections$MapN, entrySet, $Set*)},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(ImmutableCollections$MapN, get, $Object*, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$MapN, hashCode, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$MapN, isEmpty, bool)},
-	{"probe", "(Ljava/lang/Object;)I", nullptr, $PRIVATE, $method(ImmutableCollections$MapN, probe, int32_t, Object$*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ImmutableCollections$MapN, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$MapN, size, int32_t)},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(ImmutableCollections$MapN, writeReplace, $Object*)},
-	{}
-};
-
-$InnerClassInfo _ImmutableCollections$MapN_InnerClassesInfo_[] = {
-	{"java.util.ImmutableCollections$MapN", "java.util.ImmutableCollections", "MapN", $STATIC | $FINAL},
-	{"java.util.ImmutableCollections$AbstractImmutableMap", "java.util.ImmutableCollections", "AbstractImmutableMap", $STATIC | $ABSTRACT},
-	{"java.util.ImmutableCollections$MapN$MapNIterator", "java.util.ImmutableCollections$MapN", "MapNIterator", 0},
-	{"java.util.ImmutableCollections$MapN$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ImmutableCollections$MapN_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.ImmutableCollections$MapN",
-	"java.util.ImmutableCollections$AbstractImmutableMap",
-	nullptr,
-	_ImmutableCollections$MapN_FieldInfo_,
-	_ImmutableCollections$MapN_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/ImmutableCollections$AbstractImmutableMap<TK;TV;>;",
-	nullptr,
-	_ImmutableCollections$MapN_InnerClassesInfo_,
-	_ImmutableCollections$MapN_Annotations_,
-	nullptr,
-	nullptr,
-	"java.util.ImmutableCollections"
-};
-
-$Object* allocate$ImmutableCollections$MapN($Class* clazz) {
-	return $of($alloc(ImmutableCollections$MapN));
-}
-
 void ImmutableCollections$MapN::init$($ObjectArray* input) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ImmutableCollections$AbstractImmutableMap::init$();
-	if (((int32_t)($nc(input)->length & (uint32_t)1)) != 0) {
+	if (($nc(input)->length & 1) != 0) {
 		$throwNew($InternalError, "length is odd"_s);
 	}
-	this->size$ = $nc(input)->length >> 1;
+	this->size$ = input->length >> 1;
 	int32_t len = 2 * input->length;
-	len = (int32_t)((len + 1) & (uint32_t)~1);
+	len = (len + 1) & ~1;
 	$set(this, table, $new($ObjectArray, len));
 	for (int32_t i = 0; i < input->length; i += 2) {
 		$var($Object, k, $Objects::requireNonNull(input->get(i)));
@@ -115,8 +50,8 @@ void ImmutableCollections$MapN::init$($ObjectArray* input) {
 			$throwNew($IllegalArgumentException, $$str({"duplicate key: "_s, k}));
 		} else {
 			int32_t dest = -(idx + 1);
-			$nc(this->table)->set(dest, k);
-			$nc(this->table)->set(dest + 1, v);
+			this->table->set(dest, k);
+			this->table->set(dest + 1, v);
 		}
 	}
 }
@@ -127,10 +62,10 @@ bool ImmutableCollections$MapN::containsKey(Object$* o) {
 }
 
 bool ImmutableCollections$MapN::containsValue(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(o);
-	for (int32_t i = 1; i < $nc(this->table)->length; i += 2) {
-		$var($Object0, v, $nc(this->table)->get(i));
+	for (int32_t i = 1; i < this->table->length; i += 2) {
+		$var($Object0, v, this->table->get(i));
 		if (v != nullptr && $of(o)->equals(v)) {
 			return true;
 		}
@@ -139,13 +74,13 @@ bool ImmutableCollections$MapN::containsValue(Object$* o) {
 }
 
 int32_t ImmutableCollections$MapN::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t hash = 0;
-	for (int32_t i = 0; i < $nc(this->table)->length; i += 2) {
-		$var($Object0, k, $nc(this->table)->get(i));
+	for (int32_t i = 0; i < this->table->length; i += 2) {
+		$var($Object0, k, this->table->get(i));
 		if (k != nullptr) {
-			int32_t var$0 = $of(k)->hashCode();
-			hash += var$0 ^ $nc($of($nc(this->table)->get(i + 1)))->hashCode();
+			int32_t var$0 = k->hashCode();
+			hash += var$0 ^ $nc(this->table->get(i + 1))->hashCode();
 		}
 	}
 	return hash;
@@ -154,13 +89,13 @@ int32_t ImmutableCollections$MapN::hashCode() {
 $Object* ImmutableCollections$MapN::get(Object$* o) {
 	if (this->size$ == 0) {
 		$Objects::requireNonNull(o);
-		return $of(nullptr);
+		return nullptr;
 	}
 	int32_t i = probe(o);
 	if (i >= 0) {
-		return $of($nc(this->table)->get(i + 1));
+		return this->table->get(i + 1);
 	} else {
-		return $of(nullptr);
+		return nullptr;
 	}
 }
 
@@ -177,15 +112,15 @@ $Set* ImmutableCollections$MapN::entrySet() {
 }
 
 int32_t ImmutableCollections$MapN::probe(Object$* pk) {
-	$useLocalCurrentObjectStackCache();
-	int32_t idx = $Math::floorMod($nc($of(pk))->hashCode(), $nc(this->table)->length >> 1) << 1;
+	$useLocalObjectStack();
+	int32_t idx = $Math::floorMod($nc($of(pk))->hashCode(), this->table->length >> 1) << 1;
 	while (true) {
-		$var($Object, ek, $nc(this->table)->get(idx));
+		$var($Object, ek, this->table->get(idx));
 		if (ek == nullptr) {
 			return -idx - 1;
-		} else if ($nc($of(pk))->equals(ek)) {
+		} else if ($of(pk)->equals(ek)) {
 			return idx;
-		} else if ((idx += 2) == $nc(this->table)->length) {
+		} else if ((idx += 2) == this->table->length) {
 			idx = 0;
 		}
 	}
@@ -197,22 +132,77 @@ void ImmutableCollections$MapN::readObject($ObjectInputStream* in) {
 
 $Object* ImmutableCollections$MapN::writeReplace() {
 	$var($ObjectArray, array, $new($ObjectArray, 2 * this->size$));
-	int32_t len = $nc(this->table)->length;
+	int32_t len = this->table->length;
 	int32_t dest = 0;
 	for (int32_t i = 0; i < len; i += 2) {
-		if ($nc(this->table)->get(i) != nullptr) {
-			array->set(dest++, $nc(this->table)->get(i));
-			array->set(dest++, $nc(this->table)->get(i + 1));
+		if (this->table->get(i) != nullptr) {
+			array->set(dest++, this->table->get(i));
+			array->set(dest++, this->table->get(i + 1));
 		}
 	}
-	return $of($new($CollSer, $CollSer::IMM_MAP, array));
+	return $new($CollSer, $CollSer::IMM_MAP, array);
 }
 
 ImmutableCollections$MapN::ImmutableCollections$MapN() {
 }
 
 $Class* ImmutableCollections$MapN::load$($String* name, bool initialize) {
-	$loadClass(ImmutableCollections$MapN, name, initialize, &_ImmutableCollections$MapN_ClassInfo_, allocate$ImmutableCollections$MapN);
+	$CompoundAttribute tablefieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$CompoundAttribute sizefieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"table", "[Ljava/lang/Object;", nullptr, $FINAL, $field(ImmutableCollections$MapN, table), tablefieldAnnotations$$},
+		{"size", "I", nullptr, $FINAL, $field(ImmutableCollections$MapN, size$), sizefieldAnnotations$$},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/lang/Object;)V", nullptr, $TRANSIENT, $method(ImmutableCollections$MapN, init$, void, $ObjectArray*)},
+		{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$MapN, containsKey, bool, Object$*)},
+		{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$MapN, containsValue, bool, Object$*)},
+		{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<TK;TV;>;>;", $PUBLIC, $virtualMethod(ImmutableCollections$MapN, entrySet, $Set*)},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Object;)TV;", $PUBLIC, $virtualMethod(ImmutableCollections$MapN, get, $Object*, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$MapN, hashCode, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$MapN, isEmpty, bool)},
+		{"probe", "(Ljava/lang/Object;)I", nullptr, $PRIVATE, $method(ImmutableCollections$MapN, probe, int32_t, Object$*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ImmutableCollections$MapN, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableCollections$MapN, size, int32_t)},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(ImmutableCollections$MapN, writeReplace, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.ImmutableCollections$MapN", "java.util.ImmutableCollections", "MapN", $STATIC | $FINAL},
+		{"java.util.ImmutableCollections$AbstractImmutableMap", "java.util.ImmutableCollections", "AbstractImmutableMap", $STATIC | $ABSTRACT},
+		{"java.util.ImmutableCollections$MapN$MapNIterator", "java.util.ImmutableCollections$MapN", "MapNIterator", 0},
+		{"java.util.ImmutableCollections$MapN$1", nullptr, nullptr, 0},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/ValueBased;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.ImmutableCollections$MapN",
+		"java.util.ImmutableCollections$AbstractImmutableMap",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/util/ImmutableCollections$AbstractImmutableMap<TK;TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"java.util.ImmutableCollections"
+	};
+	$loadClass(ImmutableCollections$MapN, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ImmutableCollections$MapN));
+	});
 	return class$;
 }
 

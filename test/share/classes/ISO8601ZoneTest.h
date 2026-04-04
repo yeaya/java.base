@@ -18,6 +18,7 @@ class $export ISO8601ZoneTest : public ::java::lang::Object {
 	$class(ISO8601ZoneTest, 0, ::java::lang::Object)
 public:
 	ISO8601ZoneTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void badDataParsing($String* fmt, $String* text, int32_t expectedErrorIndex);
 	static void badFormat($String* fmt);

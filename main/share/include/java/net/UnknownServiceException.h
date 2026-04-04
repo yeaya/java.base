@@ -14,10 +14,13 @@ public:
 	UnknownServiceException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0xC6249E5941493EAC;
+	static const int64_t serialVersionUID = (int64_t)0xc6249e5941493eac;
 	UnknownServiceException(const UnknownServiceException& e);
 	virtual void throw$() override;
-	inline UnknownServiceException* operator ->() {
+	inline UnknownServiceException* operator ->() const {
+		return (UnknownServiceException*)throwing$;
+	}
+	inline operator UnknownServiceException*() const {
 		return (UnknownServiceException*)throwing$;
 	}
 };

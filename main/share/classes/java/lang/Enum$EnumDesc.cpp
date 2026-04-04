@@ -1,5 +1,4 @@
 #include <java/lang/Enum$EnumDesc.h>
-
 #include <java/lang/Enum.h>
 #include <java/lang/constant/ClassDesc.h>
 #include <java/lang/constant/ConstantDesc.h>
@@ -27,41 +26,8 @@ using $Objects = ::java::util::Objects;
 namespace java {
 	namespace lang {
 
-$MethodInfo _Enum$EnumDesc_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/constant/ClassDesc;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Enum$EnumDesc, init$, void, $ClassDesc*, $String*)},
-	{"of", "(Ljava/lang/constant/ClassDesc;Ljava/lang/String;)Ljava/lang/Enum$EnumDesc;", "<E:Ljava/lang/Enum<TE;>;>(Ljava/lang/constant/ClassDesc;Ljava/lang/String;)Ljava/lang/Enum$EnumDesc<TE;>;", $PUBLIC | $STATIC, $staticMethod(Enum$EnumDesc, of, Enum$EnumDesc*, $ClassDesc*, $String*)},
-	{"resolveConstantDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/Enum;", "(Ljava/lang/invoke/MethodHandles$Lookup;)TE;", $PUBLIC, $virtualMethod(Enum$EnumDesc, resolveConstantDesc, $Object*, $MethodHandles$Lookup*), "java.lang.ReflectiveOperationException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Enum$EnumDesc, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Enum$EnumDesc_InnerClassesInfo_[] = {
-	{"java.lang.Enum$EnumDesc", "java.lang.Enum", "EnumDesc", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Enum$EnumDesc_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.lang.Enum$EnumDesc",
-	"java.lang.constant.DynamicConstantDesc",
-	nullptr,
-	nullptr,
-	_Enum$EnumDesc_MethodInfo_,
-	"<E:Ljava/lang/Enum<TE;>;>Ljava/lang/constant/DynamicConstantDesc<TE;>;",
-	nullptr,
-	_Enum$EnumDesc_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.Enum"
-};
-
-$Object* allocate$Enum$EnumDesc($Class* clazz) {
-	return $of($alloc(Enum$EnumDesc));
-}
-
 void Enum$EnumDesc::init$($ClassDesc* constantClass, $String* constantName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ConstantDescs);
 	$var($DirectMethodHandleDesc, var$0, $ConstantDescs::BSM_ENUM_CONSTANT);
 	$var($String, var$1, $cast($String, $Objects::requireNonNull(constantName)));
@@ -74,16 +40,16 @@ Enum$EnumDesc* Enum$EnumDesc::of($ClassDesc* enumClass, $String* constantName) {
 }
 
 $Object* Enum$EnumDesc::resolveConstantDesc($MethodHandles$Lookup* lookup) {
-	$useLocalCurrentObjectStackCache();
-	$Class* var$0 = $cast($Class, $nc($(constantType()))->resolveConstantDesc(lookup));
+	$useLocalObjectStack();
+	$Class* var$0 = $cast($Class, $$nc(constantType())->resolveConstantDesc(lookup));
 	return $of($Enum::valueOf(var$0, $(constantName())));
 }
 
 $String* Enum$EnumDesc::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("EnumDesc[%s.%s]"_s, $$new($ObjectArray, {
-		$($of($nc($(constantType()))->displayName())),
-		$($of(constantName()))
+		$($$nc(constantType())->displayName()),
+		$(constantName())
 	}));
 }
 
@@ -91,7 +57,35 @@ Enum$EnumDesc::Enum$EnumDesc() {
 }
 
 $Class* Enum$EnumDesc::load$($String* name, bool initialize) {
-	$loadClass(Enum$EnumDesc, name, initialize, &_Enum$EnumDesc_ClassInfo_, allocate$Enum$EnumDesc);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/constant/ClassDesc;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Enum$EnumDesc, init$, void, $ClassDesc*, $String*)},
+		{"of", "(Ljava/lang/constant/ClassDesc;Ljava/lang/String;)Ljava/lang/Enum$EnumDesc;", "<E:Ljava/lang/Enum<TE;>;>(Ljava/lang/constant/ClassDesc;Ljava/lang/String;)Ljava/lang/Enum$EnumDesc<TE;>;", $PUBLIC | $STATIC, $staticMethod(Enum$EnumDesc, of, Enum$EnumDesc*, $ClassDesc*, $String*)},
+		{"resolveConstantDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/Enum;", "(Ljava/lang/invoke/MethodHandles$Lookup;)TE;", $PUBLIC, $virtualMethod(Enum$EnumDesc, resolveConstantDesc, $Object*, $MethodHandles$Lookup*), "java.lang.ReflectiveOperationException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Enum$EnumDesc, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Enum$EnumDesc", "java.lang.Enum", "EnumDesc", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.lang.Enum$EnumDesc",
+		"java.lang.constant.DynamicConstantDesc",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<E:Ljava/lang/Enum<TE;>;>Ljava/lang/constant/DynamicConstantDesc<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.Enum"
+	};
+	$loadClass(Enum$EnumDesc, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Enum$EnumDesc);
+	});
 	return class$;
 }
 

@@ -66,6 +66,7 @@ class DomainKeyStore : public ::java::security::KeyStoreSpi {
 public:
 	DomainKeyStore();
 	using ::java::security::KeyStoreSpi::engineLoad;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* convertAlias($String* alias) {return nullptr;}
 	virtual ::java::util::Enumeration* engineAliases() override;

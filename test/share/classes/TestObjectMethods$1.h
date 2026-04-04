@@ -9,6 +9,7 @@ class TestObjectMethods$1 : public ::java::lang::Object {
 	$class(TestObjectMethods$1, 0, ::java::lang::Object)
 public:
 	TestObjectMethods$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$TestObjectMethods$Relation;
 };
 

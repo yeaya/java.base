@@ -1,5 +1,4 @@
 #include <java/nio/file/FileAlreadyExistsException.h>
-
 #include <java/nio/file/FileSystemException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $FileSystemException = ::java::nio::file::FileSystemException;
 namespace java {
 	namespace nio {
 		namespace file {
-
-$FieldInfo _FileAlreadyExistsException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FileAlreadyExistsException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FileAlreadyExistsException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileAlreadyExistsException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileAlreadyExistsException, init$, void, $String*, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _FileAlreadyExistsException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.file.FileAlreadyExistsException",
-	"java.nio.file.FileSystemException",
-	nullptr,
-	_FileAlreadyExistsException_FieldInfo_,
-	_FileAlreadyExistsException_MethodInfo_
-};
-
-$Object* allocate$FileAlreadyExistsException($Class* clazz) {
-	return $of($alloc(FileAlreadyExistsException));
-}
 
 void FileAlreadyExistsException::init$($String* file) {
 	$FileSystemException::init$(file);
@@ -55,7 +30,26 @@ void FileAlreadyExistsException::throw$() {
 }
 
 $Class* FileAlreadyExistsException::load$($String* name, bool initialize) {
-	$loadClass(FileAlreadyExistsException, name, initialize, &_FileAlreadyExistsException_ClassInfo_, allocate$FileAlreadyExistsException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FileAlreadyExistsException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileAlreadyExistsException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FileAlreadyExistsException, init$, void, $String*, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.file.FileAlreadyExistsException",
+		"java.nio.file.FileSystemException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FileAlreadyExistsException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileAlreadyExistsException);
+	});
 	return class$;
 }
 

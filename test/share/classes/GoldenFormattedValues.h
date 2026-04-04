@@ -9,6 +9,7 @@ class GoldenFormattedValues : public ::java::lang::Object {
 	$class(GoldenFormattedValues, 0, ::java::lang::Object)
 public:
 	GoldenFormattedValues();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Array<int32_t, 2>* DecimalDigitsLocalizedFormattedValues;
 	static $Array<int32_t, 2>* DecimalGoldenFormattedValues;

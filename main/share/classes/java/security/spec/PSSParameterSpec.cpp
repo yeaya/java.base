@@ -1,5 +1,4 @@
 #include <java/security/spec/PSSParameterSpec.h>
-
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <java/security/spec/MGF1ParameterSpec.h>
 #include <java/util/Objects.h>
@@ -22,43 +21,6 @@ namespace java {
 	namespace security {
 		namespace spec {
 
-$FieldInfo _PSSParameterSpec_FieldInfo_[] = {
-	{"mdName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(PSSParameterSpec, mdName)},
-	{"mgfName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(PSSParameterSpec, mgfName)},
-	{"mgfSpec", "Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PRIVATE | $FINAL, $field(PSSParameterSpec, mgfSpec)},
-	{"saltLen", "I", nullptr, $PRIVATE | $FINAL, $field(PSSParameterSpec, saltLen)},
-	{"trailerField", "I", nullptr, $PRIVATE | $FINAL, $field(PSSParameterSpec, trailerField)},
-	{"TRAILER_FIELD_BC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PSSParameterSpec, TRAILER_FIELD_BC)},
-	{"DEFAULT", "Ljava/security/spec/PSSParameterSpec;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PSSParameterSpec, DEFAULT)},
-	{}
-};
-
-$MethodInfo _PSSParameterSpec_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(PSSParameterSpec, init$, void)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;II)V", nullptr, $PUBLIC, $method(PSSParameterSpec, init$, void, $String*, $String*, $AlgorithmParameterSpec*, int32_t, int32_t)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(PSSParameterSpec, init$, void, int32_t)},
-	{"getDigestAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PSSParameterSpec, getDigestAlgorithm, $String*)},
-	{"getMGFAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PSSParameterSpec, getMGFAlgorithm, $String*)},
-	{"getMGFParameters", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC, $virtualMethod(PSSParameterSpec, getMGFParameters, $AlgorithmParameterSpec*)},
-	{"getSaltLength", "()I", nullptr, $PUBLIC, $virtualMethod(PSSParameterSpec, getSaltLength, int32_t)},
-	{"getTrailerField", "()I", nullptr, $PUBLIC, $virtualMethod(PSSParameterSpec, getTrailerField, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PSSParameterSpec, toString, $String*)},
-	{}
-};
-
-$ClassInfo _PSSParameterSpec_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.spec.PSSParameterSpec",
-	"java.lang.Object",
-	"java.security.spec.AlgorithmParameterSpec",
-	_PSSParameterSpec_FieldInfo_,
-	_PSSParameterSpec_MethodInfo_
-};
-
-$Object* allocate$PSSParameterSpec($Class* clazz) {
-	return $of($alloc(PSSParameterSpec));
-}
-
 PSSParameterSpec* PSSParameterSpec::DEFAULT = nullptr;
 
 void PSSParameterSpec::init$() {
@@ -66,9 +28,9 @@ void PSSParameterSpec::init$() {
 }
 
 void PSSParameterSpec::init$($String* mdName, $String* mgfName, $AlgorithmParameterSpec* mgfSpec, int32_t saltLen, int32_t trailerField) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(mdName), "digest algorithm is null"_s);
-	$Objects::requireNonNull($of(mgfName), "mask generation function algorithm is null"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(mdName, "digest algorithm is null"_s);
+	$Objects::requireNonNull(mgfName, "mask generation function algorithm is null"_s);
 	if (saltLen < 0) {
 		$throwNew($IllegalArgumentException, $$str({"negative saltLen value: "_s, $$str(saltLen)}));
 	}
@@ -108,13 +70,13 @@ int32_t PSSParameterSpec::getTrailerField() {
 }
 
 $String* PSSParameterSpec::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder, "PSSParameterSpec["_s));
 	sb->append($$str({"hashAlgorithm="_s, this->mdName, ", "_s}))->append($$str({"maskGenAlgorithm="_s, this->mgfSpec, ", "_s}))->append($$str({"saltLength="_s, $$str(this->saltLen), ", "_s}))->append($$str({"trailerField="_s, $$str(this->trailerField)}))->append(u']');
 	return sb->toString();
 }
 
-void clinit$PSSParameterSpec($Class* class$) {
+void PSSParameterSpec::clinit$($Class* clazz) {
 	$init($MGF1ParameterSpec);
 	$assignStatic(PSSParameterSpec::DEFAULT, $new(PSSParameterSpec, "SHA-1"_s, "MGF1"_s, $MGF1ParameterSpec::SHA1, 20, PSSParameterSpec::TRAILER_FIELD_BC));
 }
@@ -123,7 +85,39 @@ PSSParameterSpec::PSSParameterSpec() {
 }
 
 $Class* PSSParameterSpec::load$($String* name, bool initialize) {
-	$loadClass(PSSParameterSpec, name, initialize, &_PSSParameterSpec_ClassInfo_, clinit$PSSParameterSpec, allocate$PSSParameterSpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"mdName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(PSSParameterSpec, mdName)},
+		{"mgfName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(PSSParameterSpec, mgfName)},
+		{"mgfSpec", "Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PRIVATE | $FINAL, $field(PSSParameterSpec, mgfSpec)},
+		{"saltLen", "I", nullptr, $PRIVATE | $FINAL, $field(PSSParameterSpec, saltLen)},
+		{"trailerField", "I", nullptr, $PRIVATE | $FINAL, $field(PSSParameterSpec, trailerField)},
+		{"TRAILER_FIELD_BC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PSSParameterSpec, TRAILER_FIELD_BC)},
+		{"DEFAULT", "Ljava/security/spec/PSSParameterSpec;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PSSParameterSpec, DEFAULT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(PSSParameterSpec, init$, void)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;II)V", nullptr, $PUBLIC, $method(PSSParameterSpec, init$, void, $String*, $String*, $AlgorithmParameterSpec*, int32_t, int32_t)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(PSSParameterSpec, init$, void, int32_t)},
+		{"getDigestAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PSSParameterSpec, getDigestAlgorithm, $String*)},
+		{"getMGFAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PSSParameterSpec, getMGFAlgorithm, $String*)},
+		{"getMGFParameters", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC, $virtualMethod(PSSParameterSpec, getMGFParameters, $AlgorithmParameterSpec*)},
+		{"getSaltLength", "()I", nullptr, $PUBLIC, $virtualMethod(PSSParameterSpec, getSaltLength, int32_t)},
+		{"getTrailerField", "()I", nullptr, $PUBLIC, $virtualMethod(PSSParameterSpec, getTrailerField, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PSSParameterSpec, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.spec.PSSParameterSpec",
+		"java.lang.Object",
+		"java.security.spec.AlgorithmParameterSpec",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PSSParameterSpec, name, initialize, &classInfo$$, PSSParameterSpec::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PSSParameterSpec);
+	});
 	return class$;
 }
 

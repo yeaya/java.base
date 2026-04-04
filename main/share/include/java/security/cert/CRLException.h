@@ -23,10 +23,13 @@ public:
 	void init$($String* message);
 	void init$($String* message, $Throwable* cause);
 	void init$($Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0xA3178B7EDBBD4A65;
+	static const int64_t serialVersionUID = (int64_t)0xa3178b7edbbd4a65;
 	CRLException(const CRLException& e);
 	virtual void throw$() override;
-	inline CRLException* operator ->() {
+	inline CRLException* operator ->() const {
+		return (CRLException*)throwing$;
+	}
+	inline operator CRLException*() const {
 		return (CRLException*)throwing$;
 	}
 };

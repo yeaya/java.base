@@ -24,6 +24,7 @@ class DisabledAlgorithmConstraints$Constraints$Holder : public ::java::lang::Obj
 	$class(DisabledAlgorithmConstraints$Constraints$Holder, 0, ::java::lang::Object)
 public:
 	DisabledAlgorithmConstraints$Constraints$Holder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::regex::Pattern* DENY_AFTER_PATTERN;
 };

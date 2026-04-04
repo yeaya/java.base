@@ -1,5 +1,4 @@
 #include <NullQueue.h>
-
 #include <NullQueue$1.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/ThreadGroup.h>
@@ -16,43 +15,6 @@ using $Runnable = ::java::lang::Runnable;
 using $ThreadGroup = ::java::lang::ThreadGroup;
 using $Reference = ::java::lang::ref::Reference;
 
-$FieldInfo _NullQueue_FieldInfo_[] = {
-	{"r", "Ljava/lang/ref/Reference;", nullptr, $PRIVATE | $STATIC, $staticField(NullQueue, r)},
-	{}
-};
-
-$MethodInfo _NullQueue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NullQueue, init$, void)},
-	{"findThread", "(Ljava/lang/String;)Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC, $staticMethod(NullQueue, findThread, $Thread*, $String*)},
-	{"fork", "(Ljava/lang/Runnable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NullQueue, fork, void, $Runnable*), "java.lang.InterruptedException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullQueue, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _NullQueue_InnerClassesInfo_[] = {
-	{"NullQueue$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NullQueue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NullQueue",
-	"java.lang.Object",
-	nullptr,
-	_NullQueue_FieldInfo_,
-	_NullQueue_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NullQueue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"NullQueue$1"
-};
-
-$Object* allocate$NullQueue($Class* clazz) {
-	return $of($alloc(NullQueue));
-}
-
 $Reference* NullQueue::r = nullptr;
 
 void NullQueue::init$() {
@@ -60,19 +22,20 @@ void NullQueue::init$() {
 
 $Thread* NullQueue::findThread($String* name) {
 	$init(NullQueue);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ThreadGroup, tg, $($Thread::currentThread())->getThreadGroup());
 	{
 		$var($ThreadGroup, tgn, tg);
-		for (; tgn != nullptr; $assign(tg, tgn), $assign(tgn, $nc(tg)->getParent())) {
+		for (; tgn != nullptr; $assign(tg, tgn), $assign(tgn, tg->getParent())) {
+			;
 		}
 	}
-	int32_t nt = tg->activeCount();
+	int32_t nt = $nc(tg)->activeCount();
 	$var($ThreadArray, ts, $new($ThreadArray, nt));
 	tg->enumerate(ts);
 	$var($Thread, refHandler, nullptr);
 	for (int32_t i = 0; i < ts->length; ++i) {
-		if ($nc($($nc(ts->get(i))->getName()))->equals(name)) {
+		if ($$nc($nc(ts->get(i))->getName())->equals(name)) {
 			return ts->get(i);
 		}
 	}
@@ -88,7 +51,7 @@ void NullQueue::fork($Runnable* proc) {
 
 void NullQueue::main($StringArray* args) {
 	$init(NullQueue);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Thread, refHandler, findThread("Reference Handler"_s));
 	if (refHandler == nullptr) {
 		$throwNew($Exception, "Couldn\'t find Reference-handler thread"_s);
@@ -107,12 +70,12 @@ void NullQueue::main($StringArray* args) {
 			$throwNew($Exception, "Couldn\'t cause weak ref to be cleared"_s);
 		}
 	}
-	if (!$nc(refHandler)->isAlive()) {
+	if (!refHandler->isAlive()) {
 		$throwNew($Exception, "Reference-handler thread died"_s);
 	}
 }
 
-void clinit$NullQueue($Class* class$) {
+void NullQueue::clinit$($Class* clazz) {
 	$assignStatic(NullQueue::r, nullptr);
 }
 
@@ -120,7 +83,38 @@ NullQueue::NullQueue() {
 }
 
 $Class* NullQueue::load$($String* name, bool initialize) {
-	$loadClass(NullQueue, name, initialize, &_NullQueue_ClassInfo_, clinit$NullQueue, allocate$NullQueue);
+	$FieldInfo fieldInfos$$[] = {
+		{"r", "Ljava/lang/ref/Reference;", nullptr, $PRIVATE | $STATIC, $staticField(NullQueue, r)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NullQueue, init$, void)},
+		{"findThread", "(Ljava/lang/String;)Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC, $staticMethod(NullQueue, findThread, $Thread*, $String*)},
+		{"fork", "(Ljava/lang/Runnable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NullQueue, fork, void, $Runnable*), "java.lang.InterruptedException"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullQueue, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"NullQueue$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NullQueue",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"NullQueue$1"
+	};
+	$loadClass(NullQueue, name, initialize, &classInfo$$, NullQueue::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NullQueue);
+	});
 	return class$;
 }
 

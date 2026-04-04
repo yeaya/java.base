@@ -1,5 +1,4 @@
 #include <java/math/BitSieve.h>
-
 #include <java/math/BigInteger.h>
 #include <java/math/MutableBigInteger.h>
 #include <java/util/Random.h>
@@ -14,39 +13,6 @@ using $Random = ::java::util::Random;
 
 namespace java {
 	namespace math {
-
-$FieldInfo _BitSieve_FieldInfo_[] = {
-	{"bits", "[J", nullptr, $PRIVATE, $field(BitSieve, bits)},
-	{"length", "I", nullptr, $PRIVATE, $field(BitSieve, length)},
-	{"smallSieve", "Ljava/math/BitSieve;", nullptr, $PRIVATE | $STATIC, $staticField(BitSieve, smallSieve)},
-	{}
-};
-
-$MethodInfo _BitSieve_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(BitSieve, init$, void)},
-	{"<init>", "(Ljava/math/BigInteger;I)V", nullptr, 0, $method(BitSieve, init$, void, $BigInteger*, int32_t)},
-	{"bit", "(I)J", nullptr, $PRIVATE | $STATIC, $staticMethod(BitSieve, bit, int64_t, int32_t)},
-	{"get", "(I)Z", nullptr, $PRIVATE, $method(BitSieve, get, bool, int32_t)},
-	{"retrieve", "(Ljava/math/BigInteger;ILjava/util/Random;)Ljava/math/BigInteger;", nullptr, 0, $virtualMethod(BitSieve, retrieve, $BigInteger*, $BigInteger*, int32_t, $Random*)},
-	{"set", "(I)V", nullptr, $PRIVATE, $method(BitSieve, set, void, int32_t)},
-	{"sieveSearch", "(II)I", nullptr, $PRIVATE, $method(BitSieve, sieveSearch, int32_t, int32_t, int32_t)},
-	{"sieveSingle", "(III)V", nullptr, $PRIVATE, $method(BitSieve, sieveSingle, void, int32_t, int32_t, int32_t)},
-	{"unitIndex", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(BitSieve, unitIndex, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _BitSieve_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.math.BitSieve",
-	"java.lang.Object",
-	nullptr,
-	_BitSieve_FieldInfo_,
-	_BitSieve_MethodInfo_
-};
-
-$Object* allocate$BitSieve($Class* clazz) {
-	return $of($alloc(BitSieve));
-}
 
 BitSieve* BitSieve::smallSieve = nullptr;
 
@@ -64,7 +30,7 @@ void BitSieve::init$() {
 }
 
 void BitSieve::init$($BigInteger* base, int32_t searchLen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, bits, $new($longs, (unitIndex(searchLen - 1) + 1)));
 	this->length = searchLen;
 	int32_t start = 0;
@@ -79,7 +45,7 @@ void BitSieve::init$($BigInteger* base, int32_t searchLen) {
 			start += convertedStep;
 		}
 		sieveSingle(searchLen, (start - 1) / 2, convertedStep);
-		step = $nc(BitSieve::smallSieve)->sieveSearch($nc(BitSieve::smallSieve)->length, step + 1);
+		step = BitSieve::smallSieve->sieveSearch(BitSieve::smallSieve->length, step + 1);
 		convertedStep = (step * 2) + 1;
 	} while (step > 0);
 }
@@ -91,12 +57,12 @@ int32_t BitSieve::unitIndex(int32_t bitIndex) {
 
 int64_t BitSieve::bit(int32_t bitIndex) {
 	$init(BitSieve);
-	return $sl((int64_t)1, (int32_t)(bitIndex & (uint32_t)((1 << 6) - 1)));
+	return $sl((int64_t)1, bitIndex & ((1 << 6) - 1));
 }
 
 bool BitSieve::get(int32_t bitIndex) {
 	int32_t unitIndex = BitSieve::unitIndex(bitIndex);
-	return (((int64_t)($nc(this->bits)->get(unitIndex) & (uint64_t)bit(bitIndex))) != 0);
+	return (($nc(this->bits)->get(unitIndex) & bit(bitIndex)) != 0);
 }
 
 void BitSieve::set(int32_t bitIndex) {
@@ -126,14 +92,14 @@ void BitSieve::sieveSingle(int32_t limit, int32_t start, int32_t step) {
 }
 
 $BigInteger* BitSieve::retrieve($BigInteger* initValue, int32_t certainty, $Random* random) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t offset = 1;
 	for (int32_t i = 0; i < $nc(this->bits)->length; ++i) {
-		int64_t nextLong = ~$nc(this->bits)->get(i);
+		int64_t nextLong = ~this->bits->get(i);
 		for (int32_t j = 0; j < 64; ++j) {
-			if (((int64_t)(nextLong & (uint64_t)(int64_t)1)) == 1) {
-				$var($BigInteger, candidate, $nc(initValue)->add($($BigInteger::valueOf((int64_t)offset))));
-				if ($nc(candidate)->primeToCertainty(certainty, random)) {
+			if ((nextLong & 1) == 1) {
+				$var($BigInteger, candidate, $nc(initValue)->add($($BigInteger::valueOf(offset))));
+				if (candidate->primeToCertainty(certainty, random)) {
 					return candidate;
 				}
 			}
@@ -144,7 +110,7 @@ $BigInteger* BitSieve::retrieve($BigInteger* initValue, int32_t certainty, $Rand
 	return nullptr;
 }
 
-void clinit$BitSieve($Class* class$) {
+void BitSieve::clinit$($Class* clazz) {
 	$assignStatic(BitSieve::smallSieve, $new(BitSieve));
 }
 
@@ -152,7 +118,35 @@ BitSieve::BitSieve() {
 }
 
 $Class* BitSieve::load$($String* name, bool initialize) {
-	$loadClass(BitSieve, name, initialize, &_BitSieve_ClassInfo_, clinit$BitSieve, allocate$BitSieve);
+	$FieldInfo fieldInfos$$[] = {
+		{"bits", "[J", nullptr, $PRIVATE, $field(BitSieve, bits)},
+		{"length", "I", nullptr, $PRIVATE, $field(BitSieve, length)},
+		{"smallSieve", "Ljava/math/BitSieve;", nullptr, $PRIVATE | $STATIC, $staticField(BitSieve, smallSieve)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(BitSieve, init$, void)},
+		{"<init>", "(Ljava/math/BigInteger;I)V", nullptr, 0, $method(BitSieve, init$, void, $BigInteger*, int32_t)},
+		{"bit", "(I)J", nullptr, $PRIVATE | $STATIC, $staticMethod(BitSieve, bit, int64_t, int32_t)},
+		{"get", "(I)Z", nullptr, $PRIVATE, $method(BitSieve, get, bool, int32_t)},
+		{"retrieve", "(Ljava/math/BigInteger;ILjava/util/Random;)Ljava/math/BigInteger;", nullptr, 0, $virtualMethod(BitSieve, retrieve, $BigInteger*, $BigInteger*, int32_t, $Random*)},
+		{"set", "(I)V", nullptr, $PRIVATE, $method(BitSieve, set, void, int32_t)},
+		{"sieveSearch", "(II)I", nullptr, $PRIVATE, $method(BitSieve, sieveSearch, int32_t, int32_t, int32_t)},
+		{"sieveSingle", "(III)V", nullptr, $PRIVATE, $method(BitSieve, sieveSingle, void, int32_t, int32_t, int32_t)},
+		{"unitIndex", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(BitSieve, unitIndex, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.math.BitSieve",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BitSieve, name, initialize, &classInfo$$, BitSieve::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BitSieve);
+	});
 	return class$;
 }
 

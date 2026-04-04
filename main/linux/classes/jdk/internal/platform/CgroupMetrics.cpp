@@ -1,5 +1,4 @@
 #include <jdk/internal/platform/CgroupMetrics.h>
-
 #include <java/util/Objects.h>
 #include <jdk/internal/platform/CgroupSubsystem.h>
 #include <jdk/internal/platform/CgroupSubsystemFactory.h>
@@ -17,58 +16,6 @@ using $Metrics = ::jdk::internal::platform::Metrics;
 namespace jdk {
 	namespace internal {
 		namespace platform {
-
-$FieldInfo _CgroupMetrics_FieldInfo_[] = {
-	{"subsystem", "Ljdk/internal/platform/CgroupSubsystem;", nullptr, $PRIVATE | $FINAL, $field(CgroupMetrics, subsystem)},
-	{}
-};
-
-$MethodInfo _CgroupMetrics_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/platform/CgroupSubsystem;)V", nullptr, 0, $method(CgroupMetrics, init$, void, $CgroupSubsystem*)},
-	{"getBlkIOServiceCount", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getBlkIOServiceCount, int64_t)},
-	{"getBlkIOServiced", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getBlkIOServiced, int64_t)},
-	{"getCpuNumPeriods", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getCpuNumPeriods, int64_t)},
-	{"getCpuNumThrottled", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getCpuNumThrottled, int64_t)},
-	{"getCpuPeriod", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getCpuPeriod, int64_t)},
-	{"getCpuQuota", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getCpuQuota, int64_t)},
-	{"getCpuSetCpus", "()[I", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getCpuSetCpus, $ints*)},
-	{"getCpuSetMems", "()[I", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getCpuSetMems, $ints*)},
-	{"getCpuShares", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getCpuShares, int64_t)},
-	{"getCpuSystemUsage", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getCpuSystemUsage, int64_t)},
-	{"getCpuThrottledTime", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getCpuThrottledTime, int64_t)},
-	{"getCpuUsage", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getCpuUsage, int64_t)},
-	{"getCpuUserUsage", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getCpuUserUsage, int64_t)},
-	{"getEffectiveCpuCount", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getEffectiveCpuCount, int64_t)},
-	{"getEffectiveCpuSetCpus", "()[I", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getEffectiveCpuSetCpus, $ints*)},
-	{"getEffectiveCpuSetMems", "()[I", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getEffectiveCpuSetMems, $ints*)},
-	{"getInstance", "()Ljdk/internal/platform/Metrics;", nullptr, $PUBLIC | $STATIC, $staticMethod(CgroupMetrics, getInstance, $Metrics*)},
-	{"getMemoryAndSwapLimit", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getMemoryAndSwapLimit, int64_t)},
-	{"getMemoryAndSwapUsage", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getMemoryAndSwapUsage, int64_t)},
-	{"getMemoryFailCount", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getMemoryFailCount, int64_t)},
-	{"getMemoryLimit", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getMemoryLimit, int64_t)},
-	{"getMemorySoftLimit", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getMemorySoftLimit, int64_t)},
-	{"getMemoryUsage", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getMemoryUsage, int64_t)},
-	{"getPerCpuUsage", "()[J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getPerCpuUsage, $longs*)},
-	{"getProvider", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getProvider, $String*)},
-	{"getTcpMemoryUsage", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getTcpMemoryUsage, int64_t)},
-	{"isUseContainerSupport", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CgroupMetrics, isUseContainerSupport, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_isUseContainerSupport 27
-
-$ClassInfo _CgroupMetrics_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.platform.CgroupMetrics",
-	"java.lang.Object",
-	"jdk.internal.platform.Metrics",
-	_CgroupMetrics_FieldInfo_,
-	_CgroupMetrics_MethodInfo_
-};
-
-$Object* allocate$CgroupMetrics($Class* clazz) {
-	return $of($alloc(CgroupMetrics));
-}
 
 void CgroupMetrics::init$($CgroupSubsystem* subsystem) {
 	$set(this, subsystem, $cast($CgroupSubsystem, $Objects::requireNonNull(subsystem)));
@@ -184,9 +131,8 @@ $Metrics* CgroupMetrics::getInstance() {
 
 bool CgroupMetrics::isUseContainerSupport() {
 	$init(CgroupMetrics);
-	bool $ret = false;
-	$prepareNativeStatic(CgroupMetrics, isUseContainerSupport, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(isUseContainerSupport, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -195,7 +141,52 @@ CgroupMetrics::CgroupMetrics() {
 }
 
 $Class* CgroupMetrics::load$($String* name, bool initialize) {
-	$loadClass(CgroupMetrics, name, initialize, &_CgroupMetrics_ClassInfo_, allocate$CgroupMetrics);
+	$FieldInfo fieldInfos$$[] = {
+		{"subsystem", "Ljdk/internal/platform/CgroupSubsystem;", nullptr, $PRIVATE | $FINAL, $field(CgroupMetrics, subsystem)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/platform/CgroupSubsystem;)V", nullptr, 0, $method(CgroupMetrics, init$, void, $CgroupSubsystem*)},
+		{"getBlkIOServiceCount", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getBlkIOServiceCount, int64_t)},
+		{"getBlkIOServiced", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getBlkIOServiced, int64_t)},
+		{"getCpuNumPeriods", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getCpuNumPeriods, int64_t)},
+		{"getCpuNumThrottled", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getCpuNumThrottled, int64_t)},
+		{"getCpuPeriod", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getCpuPeriod, int64_t)},
+		{"getCpuQuota", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getCpuQuota, int64_t)},
+		{"getCpuSetCpus", "()[I", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getCpuSetCpus, $ints*)},
+		{"getCpuSetMems", "()[I", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getCpuSetMems, $ints*)},
+		{"getCpuShares", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getCpuShares, int64_t)},
+		{"getCpuSystemUsage", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getCpuSystemUsage, int64_t)},
+		{"getCpuThrottledTime", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getCpuThrottledTime, int64_t)},
+		{"getCpuUsage", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getCpuUsage, int64_t)},
+		{"getCpuUserUsage", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getCpuUserUsage, int64_t)},
+		{"getEffectiveCpuCount", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getEffectiveCpuCount, int64_t)},
+		{"getEffectiveCpuSetCpus", "()[I", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getEffectiveCpuSetCpus, $ints*)},
+		{"getEffectiveCpuSetMems", "()[I", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getEffectiveCpuSetMems, $ints*)},
+		{"getInstance", "()Ljdk/internal/platform/Metrics;", nullptr, $PUBLIC | $STATIC, $staticMethod(CgroupMetrics, getInstance, $Metrics*)},
+		{"getMemoryAndSwapLimit", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getMemoryAndSwapLimit, int64_t)},
+		{"getMemoryAndSwapUsage", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getMemoryAndSwapUsage, int64_t)},
+		{"getMemoryFailCount", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getMemoryFailCount, int64_t)},
+		{"getMemoryLimit", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getMemoryLimit, int64_t)},
+		{"getMemorySoftLimit", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getMemorySoftLimit, int64_t)},
+		{"getMemoryUsage", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getMemoryUsage, int64_t)},
+		{"getPerCpuUsage", "()[J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getPerCpuUsage, $longs*)},
+		{"getProvider", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getProvider, $String*)},
+		{"getTcpMemoryUsage", "()J", nullptr, $PUBLIC, $virtualMethod(CgroupMetrics, getTcpMemoryUsage, int64_t)},
+		{"isUseContainerSupport", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CgroupMetrics, isUseContainerSupport, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.platform.CgroupMetrics",
+		"java.lang.Object",
+		"jdk.internal.platform.Metrics",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CgroupMetrics, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CgroupMetrics);
+	});
 	return class$;
 }
 

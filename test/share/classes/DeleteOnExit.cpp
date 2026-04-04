@@ -1,51 +1,15 @@
 #include <DeleteOnExit.h>
-
 #include <java/io/File.h>
 #include <java/lang/Process.h>
 #include <java/lang/Runtime.h>
 #include <jcpp.h>
 
 using $File = ::java::io::File;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Process = ::java::lang::Process;
 using $Runtime = ::java::lang::Runtime;
-
-$FieldInfo _DeleteOnExit_FieldInfo_[] = {
-	{"tmpdir", "Ljava/lang/String;", nullptr, $STATIC, $staticField(DeleteOnExit, tmpdir)},
-	{"java", "Ljava/lang/String;", nullptr, $STATIC, $staticField(DeleteOnExit, java)},
-	{"file1", "Ljava/io/File;", nullptr, $STATIC, $staticField(DeleteOnExit, file1)},
-	{"file2", "Ljava/io/File;", nullptr, $STATIC, $staticField(DeleteOnExit, file2)},
-	{"file3", "Ljava/io/File;", nullptr, $STATIC, $staticField(DeleteOnExit, file3)},
-	{"dir", "Ljava/io/File;", nullptr, $STATIC, $staticField(DeleteOnExit, dir)},
-	{"file4", "Ljava/io/File;", nullptr, $STATIC, $staticField(DeleteOnExit, file4)},
-	{"file5", "Ljava/io/File;", nullptr, $STATIC, $staticField(DeleteOnExit, file5)},
-	{"file6", "Ljava/io/File;", nullptr, $STATIC, $staticField(DeleteOnExit, file6)},
-	{"file7", "Ljava/io/File;", nullptr, $STATIC, $staticField(DeleteOnExit, file7)},
-	{}
-};
-
-$MethodInfo _DeleteOnExit_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DeleteOnExit, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DeleteOnExit, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _DeleteOnExit_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"DeleteOnExit",
-	"java.lang.Object",
-	nullptr,
-	_DeleteOnExit_FieldInfo_,
-	_DeleteOnExit_MethodInfo_
-};
-
-$Object* allocate$DeleteOnExit($Class* clazz) {
-	return $of($alloc(DeleteOnExit));
-}
 
 $String* DeleteOnExit::tmpdir = nullptr;
 $String* DeleteOnExit::java = nullptr;
@@ -63,10 +27,10 @@ void DeleteOnExit::init$() {
 
 void DeleteOnExit::main($StringArray* args) {
 	$init(DeleteOnExit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(args)->length == 0) {
 		$var($String, cmd, $str({DeleteOnExit::java, " -classpath "_s, $($System::getProperty("test.classes"_s)), " DeleteOnExit -test"_s}));
-		$nc($($nc($($Runtime::getRuntime()))->exec(cmd)))->waitFor();
+		$$nc($$nc($Runtime::getRuntime())->exec(cmd))->waitFor();
 		bool var$6 = $nc(DeleteOnExit::file1)->exists();
 		bool var$5 = var$6 || $nc(DeleteOnExit::file2)->exists();
 		bool var$4 = var$5 || $nc(DeleteOnExit::file3)->exists();
@@ -75,22 +39,46 @@ void DeleteOnExit::main($StringArray* args) {
 		bool var$1 = var$2 || $nc(DeleteOnExit::file5)->exists();
 		bool var$0 = var$1 || $nc(DeleteOnExit::file6)->exists();
 		if (var$0 || $nc(DeleteOnExit::file7)->exists()) {
-			$var($String, var$7, $$str({DeleteOnExit::file1, ", exists = "_s}));
-			$nc($System::out)->println($$concat(var$7, $$str($nc(DeleteOnExit::file1)->exists())));
-			$var($String, var$8, $$str({DeleteOnExit::file2, ", exists = "_s}));
-			$nc($System::out)->println($$concat(var$8, $$str($nc(DeleteOnExit::file2)->exists())));
-			$var($String, var$9, $$str({DeleteOnExit::file3, ", exists = "_s}));
-			$nc($System::out)->println($$concat(var$9, $$str($nc(DeleteOnExit::file3)->exists())));
-			$var($String, var$10, $$str({DeleteOnExit::dir, ", exists = "_s}));
-			$nc($System::out)->println($$concat(var$10, $$str($nc(DeleteOnExit::dir)->exists())));
-			$var($String, var$11, $$str({DeleteOnExit::file4, ", exists = "_s}));
-			$nc($System::out)->println($$concat(var$11, $$str($nc(DeleteOnExit::file4)->exists())));
-			$var($String, var$12, $$str({DeleteOnExit::file5, ", exists = "_s}));
-			$nc($System::out)->println($$concat(var$12, $$str($nc(DeleteOnExit::file5)->exists())));
-			$var($String, var$13, $$str({DeleteOnExit::file6, ", exists = "_s}));
-			$nc($System::out)->println($$concat(var$13, $$str($nc(DeleteOnExit::file6)->exists())));
-			$var($String, var$14, $$str({DeleteOnExit::file7, ", exists = "_s}));
-			$nc($System::out)->println($$concat(var$14, $$str($nc(DeleteOnExit::file7)->exists())));
+			$var($StringBuilder, var$7, $new($StringBuilder));
+			var$7->append(DeleteOnExit::file1);
+			var$7->append(", exists = "_s);
+			var$7->append(DeleteOnExit::file1->exists());
+			$nc($System::out)->println($$str(var$7));
+			$var($StringBuilder, var$8, $new($StringBuilder));
+			var$8->append(DeleteOnExit::file2);
+			var$8->append(", exists = "_s);
+			var$8->append($nc(DeleteOnExit::file2)->exists());
+			$System::out->println($$str(var$8));
+			$var($StringBuilder, var$9, $new($StringBuilder));
+			var$9->append(DeleteOnExit::file3);
+			var$9->append(", exists = "_s);
+			var$9->append($nc(DeleteOnExit::file3)->exists());
+			$System::out->println($$str(var$9));
+			$var($StringBuilder, var$10, $new($StringBuilder));
+			var$10->append(DeleteOnExit::dir);
+			var$10->append(", exists = "_s);
+			var$10->append($nc(DeleteOnExit::dir)->exists());
+			$System::out->println($$str(var$10));
+			$var($StringBuilder, var$11, $new($StringBuilder));
+			var$11->append(DeleteOnExit::file4);
+			var$11->append(", exists = "_s);
+			var$11->append($nc(DeleteOnExit::file4)->exists());
+			$System::out->println($$str(var$11));
+			$var($StringBuilder, var$12, $new($StringBuilder));
+			var$12->append(DeleteOnExit::file5);
+			var$12->append(", exists = "_s);
+			var$12->append($nc(DeleteOnExit::file5)->exists());
+			$System::out->println($$str(var$12));
+			$var($StringBuilder, var$13, $new($StringBuilder));
+			var$13->append(DeleteOnExit::file6);
+			var$13->append(", exists = "_s);
+			var$13->append($nc(DeleteOnExit::file6)->exists());
+			$System::out->println($$str(var$13));
+			$var($StringBuilder, var$14, $new($StringBuilder));
+			var$14->append(DeleteOnExit::file7);
+			var$14->append(", exists = "_s);
+			var$14->append($nc(DeleteOnExit::file7)->exists());
+			$System::out->println($$str(var$14));
 			$nc(DeleteOnExit::dir)->delete$();
 			$throwNew($Exception, "File exists"_s);
 		}
@@ -98,29 +86,29 @@ void DeleteOnExit::main($StringArray* args) {
 		$nc(DeleteOnExit::file1)->createNewFile();
 		$nc(DeleteOnExit::file2)->createNewFile();
 		$nc(DeleteOnExit::file3)->createNewFile();
-		$nc(DeleteOnExit::file1)->deleteOnExit();
-		$nc(DeleteOnExit::file2)->deleteOnExit();
-		$nc(DeleteOnExit::file3)->deleteOnExit();
-		$nc(DeleteOnExit::file3)->delete$();
-		$nc(DeleteOnExit::file2)->deleteOnExit();
-		$nc(DeleteOnExit::file2)->deleteOnExit();
-		$nc(DeleteOnExit::file2)->deleteOnExit();
+		DeleteOnExit::file1->deleteOnExit();
+		DeleteOnExit::file2->deleteOnExit();
+		DeleteOnExit::file3->deleteOnExit();
+		DeleteOnExit::file3->delete$();
+		DeleteOnExit::file2->deleteOnExit();
+		DeleteOnExit::file2->deleteOnExit();
+		DeleteOnExit::file2->deleteOnExit();
 		if ($nc(DeleteOnExit::dir)->mkdir()) {
-			$nc(DeleteOnExit::dir)->deleteOnExit();
+			DeleteOnExit::dir->deleteOnExit();
 			$nc(DeleteOnExit::file4)->createNewFile();
 			$nc(DeleteOnExit::file5)->createNewFile();
 			$nc(DeleteOnExit::file6)->createNewFile();
 			$nc(DeleteOnExit::file7)->createNewFile();
-			$nc(DeleteOnExit::file4)->deleteOnExit();
-			$nc(DeleteOnExit::file5)->deleteOnExit();
-			$nc(DeleteOnExit::file6)->deleteOnExit();
-			$nc(DeleteOnExit::file7)->deleteOnExit();
+			DeleteOnExit::file4->deleteOnExit();
+			DeleteOnExit::file5->deleteOnExit();
+			DeleteOnExit::file6->deleteOnExit();
+			DeleteOnExit::file7->deleteOnExit();
 		}
 	}
 }
 
-void clinit$DeleteOnExit($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void DeleteOnExit::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(DeleteOnExit::tmpdir, $System::getProperty("java.io.tmpdir"_s));
 	$init($File);
 	$assignStatic(DeleteOnExit::java, $str({$($System::getProperty("java.home"_s)), $File::separator, "bin"_s, $File::separator, "java"_s}));
@@ -138,7 +126,35 @@ DeleteOnExit::DeleteOnExit() {
 }
 
 $Class* DeleteOnExit::load$($String* name, bool initialize) {
-	$loadClass(DeleteOnExit, name, initialize, &_DeleteOnExit_ClassInfo_, clinit$DeleteOnExit, allocate$DeleteOnExit);
+	$FieldInfo fieldInfos$$[] = {
+		{"tmpdir", "Ljava/lang/String;", nullptr, $STATIC, $staticField(DeleteOnExit, tmpdir)},
+		{"java", "Ljava/lang/String;", nullptr, $STATIC, $staticField(DeleteOnExit, java)},
+		{"file1", "Ljava/io/File;", nullptr, $STATIC, $staticField(DeleteOnExit, file1)},
+		{"file2", "Ljava/io/File;", nullptr, $STATIC, $staticField(DeleteOnExit, file2)},
+		{"file3", "Ljava/io/File;", nullptr, $STATIC, $staticField(DeleteOnExit, file3)},
+		{"dir", "Ljava/io/File;", nullptr, $STATIC, $staticField(DeleteOnExit, dir)},
+		{"file4", "Ljava/io/File;", nullptr, $STATIC, $staticField(DeleteOnExit, file4)},
+		{"file5", "Ljava/io/File;", nullptr, $STATIC, $staticField(DeleteOnExit, file5)},
+		{"file6", "Ljava/io/File;", nullptr, $STATIC, $staticField(DeleteOnExit, file6)},
+		{"file7", "Ljava/io/File;", nullptr, $STATIC, $staticField(DeleteOnExit, file7)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DeleteOnExit, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DeleteOnExit, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"DeleteOnExit",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DeleteOnExit, name, initialize, &classInfo$$, DeleteOnExit::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DeleteOnExit);
+	});
 	return class$;
 }
 

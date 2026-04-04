@@ -77,6 +77,7 @@ class $export MethodHandles : public ::java::lang::Object {
 	$class(MethodHandles, $PRELOAD, ::java::lang::Object)
 public:
 	MethodHandles();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::invoke::MethodHandle* argumentsWithCombiner(bool filter, ::java::lang::invoke::MethodHandle* target, int32_t position, ::java::lang::invoke::MethodHandle* combiner, $ints* argPositions);
 	static $Class* argumentsWithCombinerChecks(int32_t position, bool filter, ::java::lang::invoke::MethodType* targetType, ::java::lang::invoke::MethodType* combinerType, $ints* argPos);

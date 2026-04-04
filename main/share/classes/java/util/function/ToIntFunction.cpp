@@ -1,5 +1,4 @@
 #include <java/util/function/ToIntFunction.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,35 +9,30 @@ namespace java {
 	namespace util {
 		namespace function {
 
-$CompoundAttribute _ToIntFunction_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _ToIntFunction_MethodInfo_[] = {
-	{"applyAsInt", "(Ljava/lang/Object;)I", "(TT;)I", $PUBLIC | $ABSTRACT, $virtualMethod(ToIntFunction, applyAsInt, int32_t, Object$*)},
-	{}
-};
-
-$ClassInfo _ToIntFunction_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.function.ToIntFunction",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ToIntFunction_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	nullptr,
-	_ToIntFunction_Annotations_
-};
-
-$Object* allocate$ToIntFunction($Class* clazz) {
-	return $of($alloc(ToIntFunction));
-}
-
 $Class* ToIntFunction::load$($String* name, bool initialize) {
-	$loadClass(ToIntFunction, name, initialize, &_ToIntFunction_ClassInfo_, allocate$ToIntFunction);
+	$MethodInfo methodInfos$$[] = {
+		{"applyAsInt", "(Ljava/lang/Object;)I", "(TT;)I", $PUBLIC | $ABSTRACT, $virtualMethod(ToIntFunction, applyAsInt, int32_t, Object$*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.function.ToIntFunction",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(ToIntFunction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ToIntFunction);
+	});
 	return class$;
 }
 

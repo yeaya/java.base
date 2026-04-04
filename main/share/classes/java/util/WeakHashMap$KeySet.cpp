@@ -1,5 +1,4 @@
 #include <java/util/WeakHashMap$KeySet.h>
-
 #include <java/util/AbstractSet.h>
 #include <java/util/Iterator.h>
 #include <java/util/Spliterator.h>
@@ -21,47 +20,6 @@ using $WeakHashMap$KeySpliterator = ::java::util::WeakHashMap$KeySpliterator;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _WeakHashMap$KeySet_FieldInfo_[] = {
-	{"this$0", "Ljava/util/WeakHashMap;", nullptr, $FINAL | $SYNTHETIC, $field(WeakHashMap$KeySet, this$0)},
-	{}
-};
-
-$MethodInfo _WeakHashMap$KeySet_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/WeakHashMap;)V", nullptr, $PRIVATE, $method(WeakHashMap$KeySet, init$, void, $WeakHashMap*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$KeySet, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$KeySet, contains, bool, Object$*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TK;>;", $PUBLIC, $virtualMethod(WeakHashMap$KeySet, iterator, $Iterator*)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$KeySet, remove, bool, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$KeySet, size, int32_t)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TK;>;", $PUBLIC, $virtualMethod(WeakHashMap$KeySet, spliterator, $Spliterator*)},
-	{}
-};
-
-$InnerClassInfo _WeakHashMap$KeySet_InnerClassesInfo_[] = {
-	{"java.util.WeakHashMap$KeySet", "java.util.WeakHashMap", "KeySet", $PRIVATE},
-	{}
-};
-
-$ClassInfo _WeakHashMap$KeySet_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.WeakHashMap$KeySet",
-	"java.util.AbstractSet",
-	nullptr,
-	_WeakHashMap$KeySet_FieldInfo_,
-	_WeakHashMap$KeySet_MethodInfo_,
-	"Ljava/util/AbstractSet<TK;>;",
-	nullptr,
-	_WeakHashMap$KeySet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.WeakHashMap"
-};
-
-$Object* allocate$WeakHashMap$KeySet($Class* clazz) {
-	return $of($alloc(WeakHashMap$KeySet));
-}
 
 void WeakHashMap$KeySet::init$($WeakHashMap* this$0) {
 	$set(this, this$0, this$0);
@@ -101,7 +59,42 @@ WeakHashMap$KeySet::WeakHashMap$KeySet() {
 }
 
 $Class* WeakHashMap$KeySet::load$($String* name, bool initialize) {
-	$loadClass(WeakHashMap$KeySet, name, initialize, &_WeakHashMap$KeySet_ClassInfo_, allocate$WeakHashMap$KeySet);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/WeakHashMap;", nullptr, $FINAL | $SYNTHETIC, $field(WeakHashMap$KeySet, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/WeakHashMap;)V", nullptr, $PRIVATE, $method(WeakHashMap$KeySet, init$, void, $WeakHashMap*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$KeySet, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$KeySet, contains, bool, Object$*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TK;>;", $PUBLIC, $virtualMethod(WeakHashMap$KeySet, iterator, $Iterator*)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$KeySet, remove, bool, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(WeakHashMap$KeySet, size, int32_t)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TK;>;", $PUBLIC, $virtualMethod(WeakHashMap$KeySet, spliterator, $Spliterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.WeakHashMap$KeySet", "java.util.WeakHashMap", "KeySet", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.WeakHashMap$KeySet",
+		"java.util.AbstractSet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractSet<TK;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.WeakHashMap"
+	};
+	$loadClass(WeakHashMap$KeySet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WeakHashMap$KeySet));
+	});
 	return class$;
 }
 

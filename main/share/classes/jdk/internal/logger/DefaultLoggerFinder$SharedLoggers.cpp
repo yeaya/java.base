@@ -1,5 +1,4 @@
 #include <jdk/internal/logger/DefaultLoggerFinder$SharedLoggers.h>
-
 #include <java/lang/System$Logger.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
@@ -21,51 +20,11 @@ using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
-using $Map = ::java::util::Map;
 using $Function = ::java::util::function::Function;
 
 namespace jdk {
 	namespace internal {
 		namespace logger {
-
-$FieldInfo _DefaultLoggerFinder$SharedLoggers_FieldInfo_[] = {
-	{"loggers", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/ref/Reference<Ljava/lang/System$Logger;>;>;", $PRIVATE | $FINAL, $field(DefaultLoggerFinder$SharedLoggers, loggers)},
-	{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/System$Logger;>;", $PRIVATE | $FINAL, $field(DefaultLoggerFinder$SharedLoggers, queue)},
-	{"system", "Ljdk/internal/logger/DefaultLoggerFinder$SharedLoggers;", nullptr, $STATIC | $FINAL, $staticField(DefaultLoggerFinder$SharedLoggers, system)},
-	{"application", "Ljdk/internal/logger/DefaultLoggerFinder$SharedLoggers;", nullptr, $STATIC | $FINAL, $staticField(DefaultLoggerFinder$SharedLoggers, application)},
-	{}
-};
-
-$MethodInfo _DefaultLoggerFinder$SharedLoggers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DefaultLoggerFinder$SharedLoggers, init$, void)},
-	{"get", "(Ljava/util/function/Function;Ljava/lang/String;)Ljava/lang/System$Logger;", "(Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/System$Logger;>;Ljava/lang/String;)Ljava/lang/System$Logger;", $SYNCHRONIZED, $method(DefaultLoggerFinder$SharedLoggers, get, $System$Logger*, $Function*, $String*)},
-	{}
-};
-
-$InnerClassInfo _DefaultLoggerFinder$SharedLoggers_InnerClassesInfo_[] = {
-	{"jdk.internal.logger.DefaultLoggerFinder$SharedLoggers", "jdk.internal.logger.DefaultLoggerFinder", "SharedLoggers", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DefaultLoggerFinder$SharedLoggers_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.logger.DefaultLoggerFinder$SharedLoggers",
-	"java.lang.Object",
-	nullptr,
-	_DefaultLoggerFinder$SharedLoggers_FieldInfo_,
-	_DefaultLoggerFinder$SharedLoggers_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultLoggerFinder$SharedLoggers_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.logger.DefaultLoggerFinder"
-};
-
-$Object* allocate$DefaultLoggerFinder$SharedLoggers($Class* clazz) {
-	return $of($alloc(DefaultLoggerFinder$SharedLoggers));
-}
 
 DefaultLoggerFinder$SharedLoggers* DefaultLoggerFinder$SharedLoggers::system = nullptr;
 DefaultLoggerFinder$SharedLoggers* DefaultLoggerFinder$SharedLoggers::application = nullptr;
@@ -77,17 +36,17 @@ void DefaultLoggerFinder$SharedLoggers::init$() {
 
 $System$Logger* DefaultLoggerFinder$SharedLoggers::get($Function* loggerSupplier, $String* name) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		$var($Reference, ref, $cast($Reference, $nc(this->loggers)->get(name)));
-		$var($System$Logger, w, ref == nullptr ? ($System$Logger*)nullptr : $cast($System$Logger, $nc(ref)->get()));
+		$useLocalObjectStack();
+		$var($Reference, ref, $cast($Reference, this->loggers->get(name)));
+		$var($System$Logger, w, ref == nullptr ? ($System$Logger*)nullptr : $cast($System$Logger, ref->get()));
 		if (w == nullptr) {
 			$assign(w, $cast($System$Logger, $nc(loggerSupplier)->apply(name)));
-			$nc(this->loggers)->put(name, $$new($WeakReference, w, this->queue));
+			this->loggers->put(name, $$new($WeakReference, w, this->queue));
 		}
 		$var($Collection, values, nullptr);
-		while (($assign(ref, $nc(this->queue)->poll())) != nullptr) {
+		while (($assign(ref, this->queue->poll())) != nullptr) {
 			if (values == nullptr) {
-				$assign(values, $nc(this->loggers)->values());
+				$assign(values, this->loggers->values());
 			}
 			$nc(values)->remove(ref);
 		}
@@ -95,7 +54,7 @@ $System$Logger* DefaultLoggerFinder$SharedLoggers::get($Function* loggerSupplier
 	}
 }
 
-void clinit$DefaultLoggerFinder$SharedLoggers($Class* class$) {
+void DefaultLoggerFinder$SharedLoggers::clinit$($Class* clazz) {
 	$assignStatic(DefaultLoggerFinder$SharedLoggers::system, $new(DefaultLoggerFinder$SharedLoggers));
 	$assignStatic(DefaultLoggerFinder$SharedLoggers::application, $new(DefaultLoggerFinder$SharedLoggers));
 }
@@ -104,7 +63,40 @@ DefaultLoggerFinder$SharedLoggers::DefaultLoggerFinder$SharedLoggers() {
 }
 
 $Class* DefaultLoggerFinder$SharedLoggers::load$($String* name, bool initialize) {
-	$loadClass(DefaultLoggerFinder$SharedLoggers, name, initialize, &_DefaultLoggerFinder$SharedLoggers_ClassInfo_, clinit$DefaultLoggerFinder$SharedLoggers, allocate$DefaultLoggerFinder$SharedLoggers);
+	$FieldInfo fieldInfos$$[] = {
+		{"loggers", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/ref/Reference<Ljava/lang/System$Logger;>;>;", $PRIVATE | $FINAL, $field(DefaultLoggerFinder$SharedLoggers, loggers)},
+		{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/System$Logger;>;", $PRIVATE | $FINAL, $field(DefaultLoggerFinder$SharedLoggers, queue)},
+		{"system", "Ljdk/internal/logger/DefaultLoggerFinder$SharedLoggers;", nullptr, $STATIC | $FINAL, $staticField(DefaultLoggerFinder$SharedLoggers, system)},
+		{"application", "Ljdk/internal/logger/DefaultLoggerFinder$SharedLoggers;", nullptr, $STATIC | $FINAL, $staticField(DefaultLoggerFinder$SharedLoggers, application)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DefaultLoggerFinder$SharedLoggers, init$, void)},
+		{"get", "(Ljava/util/function/Function;Ljava/lang/String;)Ljava/lang/System$Logger;", "(Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/System$Logger;>;Ljava/lang/String;)Ljava/lang/System$Logger;", $SYNCHRONIZED, $method(DefaultLoggerFinder$SharedLoggers, get, $System$Logger*, $Function*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.logger.DefaultLoggerFinder$SharedLoggers", "jdk.internal.logger.DefaultLoggerFinder", "SharedLoggers", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.logger.DefaultLoggerFinder$SharedLoggers",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.logger.DefaultLoggerFinder"
+	};
+	$loadClass(DefaultLoggerFinder$SharedLoggers, name, initialize, &classInfo$$, DefaultLoggerFinder$SharedLoggers::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultLoggerFinder$SharedLoggers);
+	});
 	return class$;
 }
 

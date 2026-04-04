@@ -1,5 +1,4 @@
 #include <EqualsIgnoreCase.h>
-
 #include <jcpp.h>
 
 #undef CAPITAL_GREEK_THETA
@@ -9,43 +8,11 @@
 #undef SMALL_DOTLESS_I
 #undef SMALL_I
 
-using $PrintStream = ::java::io::PrintStream;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-
-$FieldInfo _EqualsIgnoreCase_FieldInfo_[] = {
-	{"SMALL_I", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EqualsIgnoreCase, SMALL_I)},
-	{"CAPITAL_I", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EqualsIgnoreCase, CAPITAL_I)},
-	{"SMALL_DOTLESS_I", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EqualsIgnoreCase, SMALL_DOTLESS_I)},
-	{"CAPITAL_I_WITH_DOT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EqualsIgnoreCase, CAPITAL_I_WITH_DOT)},
-	{"LOWER_GREEK_THETA", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EqualsIgnoreCase, LOWER_GREEK_THETA)},
-	{"CAPITAL_GREEK_THETA", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EqualsIgnoreCase, CAPITAL_GREEK_THETA)},
-	{}
-};
-
-$MethodInfo _EqualsIgnoreCase_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(EqualsIgnoreCase, init$, void)},
-	{"compareFuncs", "(Ljava/lang/String;Ljava/lang/String;ZZ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(EqualsIgnoreCase, compareFuncs, void, $String*, $String*, bool, bool)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EqualsIgnoreCase, main, void, $StringArray*)},
-	{"toUpperToLowerOriginals", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(EqualsIgnoreCase, toUpperToLowerOriginals, bool, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _EqualsIgnoreCase_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"EqualsIgnoreCase",
-	"java.lang.Object",
-	nullptr,
-	_EqualsIgnoreCase_FieldInfo_,
-	_EqualsIgnoreCase_MethodInfo_
-};
-
-$Object* allocate$EqualsIgnoreCase($Class* clazz) {
-	return $of($alloc(EqualsIgnoreCase));
-}
 
 $String* EqualsIgnoreCase::SMALL_I = nullptr;
 $String* EqualsIgnoreCase::CAPITAL_I = nullptr;
@@ -66,19 +33,19 @@ void EqualsIgnoreCase::main($StringArray* args) {
 
 void EqualsIgnoreCase::compareFuncs($String* s1, $String* s2, bool expectEquals, bool expectTuTl) {
 	$init(EqualsIgnoreCase);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println($$str({s1, ", "_s, s2}));
 	bool equalsResult = $nc(s1)->equalsIgnoreCase(s2);
-	$nc($System::out)->println($$str({"equalsIgnoreCase:"_s, $$str(equalsResult)}));
+	$System::out->println($$str({"equalsIgnoreCase:"_s, $$str(equalsResult)}));
 	bool tuTlResult = toUpperToLowerOriginals(s1, s2);
-	$nc($System::out)->println($$str({"tUtLO:"_s, $$str(tuTlResult)}));
+	$System::out->println($$str({"tUtLO:"_s, $$str(tuTlResult)}));
 	bool failed = false;
 	if (equalsResult != expectEquals) {
-		$nc($System::out)->println($$str({"Expected "_s, $$str(expectEquals), " from equalsIgnoreCase() but got "_s, $$str(equalsResult)}));
+		$System::out->println($$str({"Expected "_s, $$str(expectEquals), " from equalsIgnoreCase() but got "_s, $$str(equalsResult)}));
 		failed = true;
 	}
 	if (tuTlResult != expectTuTl) {
-		$nc($System::out)->println($$str({"Expected "_s, $$str(expectTuTl), " from toUpperToLowerOriginals() but got "_s, $$str(tuTlResult)}));
+		$System::out->println($$str({"Expected "_s, $$str(expectTuTl), " from toUpperToLowerOriginals() but got "_s, $$str(tuTlResult)}));
 		failed = true;
 	}
 	if (failed) {
@@ -92,9 +59,9 @@ bool EqualsIgnoreCase::toUpperToLowerOriginals($String* str1, $String* str2) {
 	if (var$0 != $nc(str2)->length()) {
 		return false;
 	}
-	for (int32_t i = 0; i < $nc(str1)->length(); ++i) {
+	for (int32_t i = 0; i < str1->length(); ++i) {
 		char16_t c1 = str1->charAt(i);
-		char16_t c2 = $nc(str2)->charAt(i);
+		char16_t c2 = str2->charAt(i);
 		char16_t uc1 = $Character::toUpperCase(c1);
 		char16_t uc2 = $Character::toUpperCase(c2);
 		bool upperMatch = uc1 == uc2;
@@ -111,7 +78,7 @@ bool EqualsIgnoreCase::toUpperToLowerOriginals($String* str1, $String* str2) {
 EqualsIgnoreCase::EqualsIgnoreCase() {
 }
 
-void clinit$EqualsIgnoreCase($Class* class$) {
+void EqualsIgnoreCase::clinit$($Class* clazz) {
 	$assignStatic(EqualsIgnoreCase::SMALL_I, "i"_s);
 	$assignStatic(EqualsIgnoreCase::CAPITAL_I, "I"_s);
 	$assignStatic(EqualsIgnoreCase::SMALL_DOTLESS_I, u"ı"_s);
@@ -121,7 +88,33 @@ void clinit$EqualsIgnoreCase($Class* class$) {
 }
 
 $Class* EqualsIgnoreCase::load$($String* name, bool initialize) {
-	$loadClass(EqualsIgnoreCase, name, initialize, &_EqualsIgnoreCase_ClassInfo_, clinit$EqualsIgnoreCase, allocate$EqualsIgnoreCase);
+	$FieldInfo fieldInfos$$[] = {
+		{"SMALL_I", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EqualsIgnoreCase, SMALL_I)},
+		{"CAPITAL_I", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EqualsIgnoreCase, CAPITAL_I)},
+		{"SMALL_DOTLESS_I", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EqualsIgnoreCase, SMALL_DOTLESS_I)},
+		{"CAPITAL_I_WITH_DOT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EqualsIgnoreCase, CAPITAL_I_WITH_DOT)},
+		{"LOWER_GREEK_THETA", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EqualsIgnoreCase, LOWER_GREEK_THETA)},
+		{"CAPITAL_GREEK_THETA", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EqualsIgnoreCase, CAPITAL_GREEK_THETA)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(EqualsIgnoreCase, init$, void)},
+		{"compareFuncs", "(Ljava/lang/String;Ljava/lang/String;ZZ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(EqualsIgnoreCase, compareFuncs, void, $String*, $String*, bool, bool)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(EqualsIgnoreCase, main, void, $StringArray*)},
+		{"toUpperToLowerOriginals", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(EqualsIgnoreCase, toUpperToLowerOriginals, bool, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"EqualsIgnoreCase",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EqualsIgnoreCase, name, initialize, &classInfo$$, EqualsIgnoreCase::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(EqualsIgnoreCase);
+	});
 	return class$;
 }
 

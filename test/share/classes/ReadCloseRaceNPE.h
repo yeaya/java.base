@@ -47,6 +47,7 @@ class $export ReadCloseRaceNPE : public ::java::lang::Object {
 	$class(ReadCloseRaceNPE, 0, ::java::lang::Object)
 public:
 	ReadCloseRaceNPE();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::io::Reader* lambda$main$2();
 	static ::java::io::Reader* lambda$main$3();

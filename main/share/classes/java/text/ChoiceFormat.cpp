@@ -1,5 +1,4 @@
 #include <java/text/ChoiceFormat.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/lang/Math.h>
@@ -33,51 +32,8 @@ using $Arrays = ::java::util::Arrays;
 namespace java {
 	namespace text {
 
-$FieldInfo _ChoiceFormat_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChoiceFormat, serialVersionUID)},
-	{"choiceLimits", "[D", nullptr, $PRIVATE, $field(ChoiceFormat, choiceLimits)},
-	{"choiceFormats", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(ChoiceFormat, choiceFormats)},
-	{}
-};
-
-$MethodInfo _ChoiceFormat_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ChoiceFormat, init$, void, $String*)},
-	{"<init>", "([D[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ChoiceFormat, init$, void, $doubles*, $StringArray*)},
-	{"applyPattern", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ChoiceFormat, applyPattern, void, $String*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ChoiceFormat, clone, $Object*)},
-	{"doubleArraySize", "([D)[D", nullptr, $PRIVATE | $STATIC, $staticMethod(ChoiceFormat, doubleArraySize, $doubles*, $doubles*)},
-	{"doubleArraySize", "([Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE, $method(ChoiceFormat, doubleArraySize, $StringArray*, $StringArray*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ChoiceFormat, equals, bool, Object$*)},
-	{"format", "(JLjava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(ChoiceFormat, format, $StringBuffer*, int64_t, $StringBuffer*, $FieldPosition*)},
-	{"format", "(DLjava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(ChoiceFormat, format, $StringBuffer*, double, $StringBuffer*, $FieldPosition*)},
-	{"getFormats", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ChoiceFormat, getFormats, $ObjectArray*)},
-	{"getLimits", "()[D", nullptr, $PUBLIC, $virtualMethod(ChoiceFormat, getLimits, $doubles*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ChoiceFormat, hashCode, int32_t)},
-	{"nextDouble", "(D)D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ChoiceFormat, nextDouble, double, double)},
-	{"nextDouble", "(DZ)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ChoiceFormat, nextDouble, double, double, bool)},
-	{"parse", "(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(ChoiceFormat, parse, $Number*, $String*, $ParsePosition*)},
-	{"previousDouble", "(D)D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ChoiceFormat, previousDouble, double, double)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ChoiceFormat, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setChoices", "([D[Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ChoiceFormat, setChoices, void, $doubles*, $StringArray*)},
-	{"toPattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ChoiceFormat, toPattern, $String*)},
-	{}
-};
-
-$ClassInfo _ChoiceFormat_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.text.ChoiceFormat",
-	"java.text.NumberFormat",
-	nullptr,
-	_ChoiceFormat_FieldInfo_,
-	_ChoiceFormat_MethodInfo_
-};
-
-$Object* allocate$ChoiceFormat($Class* clazz) {
-	return $of($alloc(ChoiceFormat));
-}
-
 void ChoiceFormat::applyPattern($String* newPattern) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBufferArray, segments, $new($StringBufferArray, 2));
 	for (int32_t i = 0; i < segments->length; ++i) {
 		segments->set(i, $$new($StringBuffer));
@@ -86,8 +42,7 @@ void ChoiceFormat::applyPattern($String* newPattern) {
 	$var($StringArray, newChoiceFormats, $new($StringArray, 30));
 	int32_t count = 0;
 	int32_t part = 0;
-	double startValue = (double)0;
-	$init($Double);
+	double startValue = 0;
 	double oldStartValue = $Double::NaN;
 	bool inQuote = false;
 	for (int32_t i = 0; i < $nc(newPattern)->length(); ++i) {
@@ -107,7 +62,7 @@ void ChoiceFormat::applyPattern($String* newPattern) {
 				$throwNew($IllegalArgumentException, "Each interval must contain a number before a format"_s);
 			}
 			$var($String, tempBuffer, $nc(segments->get(0))->toString());
-			if ($nc(tempBuffer)->equals(u"∞"_s)) {
+			if (tempBuffer->equals(u"∞"_s)) {
 				startValue = $Double::POSITIVE_INFINITY;
 			} else if (tempBuffer->equals(u"-∞"_s)) {
 				startValue = $Double::NEGATIVE_INFINITY;
@@ -153,40 +108,37 @@ void ChoiceFormat::applyPattern($String* newPattern) {
 }
 
 $String* ChoiceFormat::toPattern() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, result, $new($StringBuilder));
 	for (int32_t i = 0; i < $nc(this->choiceLimits)->length; ++i) {
 		if (i != 0) {
 			result->append(u'|');
 		}
-		double less = previousDouble($nc(this->choiceLimits)->get(i));
-		double tryLessOrEqual = $Math::abs($Math::IEEEremainder($nc(this->choiceLimits)->get(i), 1.0));
+		double less = previousDouble(this->choiceLimits->get(i));
+		double tryLessOrEqual = $Math::abs($Math::IEEEremainder(this->choiceLimits->get(i), 1.0));
 		double tryLess = $Math::abs($Math::IEEEremainder(less, 1.0));
 		if (tryLessOrEqual < tryLess) {
-			result->append($nc(this->choiceLimits)->get(i));
+			result->append(this->choiceLimits->get(i));
 			result->append(u'#');
 		} else {
-			$init($Double);
-			if ($nc(this->choiceLimits)->get(i) == $Double::POSITIVE_INFINITY) {
+			if (this->choiceLimits->get(i) == $Double::POSITIVE_INFINITY) {
 				result->append(u"∞"_s);
+			} else if (this->choiceLimits->get(i) == $Double::NEGATIVE_INFINITY) {
+				result->append(u"-∞"_s);
 			} else {
-				if ($nc(this->choiceLimits)->get(i) == $Double::NEGATIVE_INFINITY) {
-					result->append(u"-∞"_s);
-				} else {
-					result->append(less);
-				}
+				result->append(less);
 			}
 			result->append(u'<');
 		}
 		$var($String, text, $nc(this->choiceFormats)->get(i));
-		bool var$2 = $nc(text)->indexOf((int32_t)u'<') >= 0;
-		bool var$1 = var$2 || $nc(text)->indexOf((int32_t)u'#') >= 0;
-		bool var$0 = var$1 || $nc(text)->indexOf((int32_t)(char16_t)0x2264) >= 0;
-		bool needQuote = var$0 || $nc(text)->indexOf((int32_t)u'|') >= 0;
+		bool var$2 = $nc(text)->indexOf(u'<') >= 0;
+		bool var$1 = var$2 || text->indexOf(u'#') >= 0;
+		bool var$0 = var$1 || text->indexOf((char16_t)0x2264) >= 0;
+		bool needQuote = var$0 || text->indexOf(u'|') >= 0;
 		if (needQuote) {
 			result->append(u'\'');
 		}
-		if (text->indexOf((int32_t)u'\'') < 0) {
+		if (text->indexOf(u'\'') < 0) {
 			result->append(text);
 		} else {
 			for (int32_t j = 0; j < text->length(); ++j) {
@@ -218,8 +170,8 @@ void ChoiceFormat::setChoices($doubles* limits, $StringArray* formats) {
 	if ($nc(limits)->length != $nc(formats)->length) {
 		$throwNew($IllegalArgumentException, "Array and limit arrays must be of the same length."_s);
 	}
-	$set(this, choiceLimits, $Arrays::copyOf(limits, $nc(limits)->length));
-	$set(this, choiceFormats, $fcast($StringArray, $Arrays::copyOf(formats, $nc(formats)->length)));
+	$set(this, choiceLimits, $Arrays::copyOf(limits, limits->length));
+	$set(this, choiceFormats, $cast($StringArray, $Arrays::copyOf(formats, formats->length)));
 }
 
 $doubles* ChoiceFormat::getLimits() {
@@ -239,7 +191,7 @@ $StringBuffer* ChoiceFormat::format(int64_t number, $StringBuffer* toAppendTo, $
 $StringBuffer* ChoiceFormat::format(double number, $StringBuffer* toAppendTo, $FieldPosition* status) {
 	int32_t i = 0;
 	for (i = 0; i < $nc(this->choiceLimits)->length; ++i) {
-		if (!(number >= $nc(this->choiceLimits)->get(i))) {
+		if (!(number >= this->choiceLimits->get(i))) {
 			break;
 		}
 	}
@@ -251,16 +203,15 @@ $StringBuffer* ChoiceFormat::format(double number, $StringBuffer* toAppendTo, $F
 }
 
 $Number* ChoiceFormat::parse($String* text, $ParsePosition* status) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t start = $nc(status)->index;
 	int32_t furthest = start;
-	$init($Double);
 	double bestNumber = $Double::NaN;
 	double tempNumber = 0.0;
 	for (int32_t i = 0; i < $nc(this->choiceFormats)->length; ++i) {
-		$var($String, tempString, $nc(this->choiceFormats)->get(i));
+		$var($String, tempString, this->choiceFormats->get(i));
 		if ($nc(text)->regionMatches(start, tempString, 0, $nc(tempString)->length())) {
-			status->index = start + $nc(tempString)->length();
+			status->index = start + tempString->length();
 			tempNumber = $nc(this->choiceLimits)->get(i);
 			if (status->index > furthest) {
 				furthest = status->index;
@@ -298,7 +249,7 @@ $Object* ChoiceFormat::clone() {
 int32_t ChoiceFormat::hashCode() {
 	int32_t result = $nc(this->choiceLimits)->length;
 	if ($nc(this->choiceFormats)->length > 0) {
-		result ^= $nc($nc(this->choiceFormats)->get($nc(this->choiceFormats)->length - 1))->hashCode();
+		result ^= $nc(this->choiceFormats->get(this->choiceFormats->length - 1))->hashCode();
 	}
 	return result;
 }
@@ -314,8 +265,8 @@ bool ChoiceFormat::equals(Object$* obj) {
 		return false;
 	}
 	$var(ChoiceFormat, other, $cast(ChoiceFormat, obj));
-	bool var$0 = $Arrays::equals(this->choiceLimits, $nc(other)->choiceLimits);
-	return (var$0 && $Arrays::equals(this->choiceFormats, $nc(other)->choiceFormats));
+	bool var$0 = $Arrays::equals(this->choiceLimits, other->choiceLimits);
+	return (var$0 && $Arrays::equals(this->choiceFormats, other->choiceFormats));
 }
 
 void ChoiceFormat::readObject($ObjectInputStream* in) {
@@ -349,7 +300,45 @@ ChoiceFormat::ChoiceFormat() {
 }
 
 $Class* ChoiceFormat::load$($String* name, bool initialize) {
-	$loadClass(ChoiceFormat, name, initialize, &_ChoiceFormat_ClassInfo_, allocate$ChoiceFormat);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ChoiceFormat, serialVersionUID)},
+		{"choiceLimits", "[D", nullptr, $PRIVATE, $field(ChoiceFormat, choiceLimits)},
+		{"choiceFormats", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(ChoiceFormat, choiceFormats)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ChoiceFormat, init$, void, $String*)},
+		{"<init>", "([D[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ChoiceFormat, init$, void, $doubles*, $StringArray*)},
+		{"applyPattern", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ChoiceFormat, applyPattern, void, $String*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ChoiceFormat, clone, $Object*)},
+		{"doubleArraySize", "([D)[D", nullptr, $PRIVATE | $STATIC, $staticMethod(ChoiceFormat, doubleArraySize, $doubles*, $doubles*)},
+		{"doubleArraySize", "([Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE, $method(ChoiceFormat, doubleArraySize, $StringArray*, $StringArray*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ChoiceFormat, equals, bool, Object$*)},
+		{"format", "(JLjava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(ChoiceFormat, format, $StringBuffer*, int64_t, $StringBuffer*, $FieldPosition*)},
+		{"format", "(DLjava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;", nullptr, $PUBLIC, $virtualMethod(ChoiceFormat, format, $StringBuffer*, double, $StringBuffer*, $FieldPosition*)},
+		{"getFormats", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ChoiceFormat, getFormats, $ObjectArray*)},
+		{"getLimits", "()[D", nullptr, $PUBLIC, $virtualMethod(ChoiceFormat, getLimits, $doubles*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ChoiceFormat, hashCode, int32_t)},
+		{"nextDouble", "(D)D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ChoiceFormat, nextDouble, double, double)},
+		{"nextDouble", "(DZ)D", nullptr, $PUBLIC | $STATIC, $staticMethod(ChoiceFormat, nextDouble, double, double, bool)},
+		{"parse", "(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(ChoiceFormat, parse, $Number*, $String*, $ParsePosition*)},
+		{"previousDouble", "(D)D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(ChoiceFormat, previousDouble, double, double)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ChoiceFormat, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"setChoices", "([D[Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ChoiceFormat, setChoices, void, $doubles*, $StringArray*)},
+		{"toPattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ChoiceFormat, toPattern, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.text.ChoiceFormat",
+		"java.text.NumberFormat",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ChoiceFormat, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ChoiceFormat));
+	});
 	return class$;
 }
 

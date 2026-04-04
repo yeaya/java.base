@@ -1,5 +1,4 @@
 #include <java/lang/StackTraceElement.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Module.h>
 #include <java/lang/ModuleLayer.h>
@@ -35,92 +34,23 @@ using $VM = ::jdk::internal::misc::VM;
 namespace java {
 	namespace lang {
 
-$FieldInfo _StackTraceElement_FieldInfo_[] = {
-	{"declaringClassObject", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $TRANSIENT, $field(StackTraceElement, declaringClassObject)},
-	{"classLoaderName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StackTraceElement, classLoaderName)},
-	{"moduleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StackTraceElement, moduleName)},
-	{"moduleVersion", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StackTraceElement, moduleVersion)},
-	{"declaringClass", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StackTraceElement, declaringClass)},
-	{"methodName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StackTraceElement, methodName)},
-	{"fileName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StackTraceElement, fileName)},
-	{"lineNumber", "I", nullptr, $PRIVATE, $field(StackTraceElement, lineNumber)},
-	{"format", "B", nullptr, $PRIVATE, $field(StackTraceElement, format)},
-	{"BUILTIN_CLASS_LOADER", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackTraceElement, BUILTIN_CLASS_LOADER)},
-	{"JDK_NON_UPGRADEABLE_MODULE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackTraceElement, JDK_NON_UPGRADEABLE_MODULE)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackTraceElement, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _StackTraceElement_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(StackTraceElement, init$, void, $String*, $String*, $String*, int32_t)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(StackTraceElement, init$, void, $String*, $String*, $String*, $String*, $String*, $String*, int32_t)},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(StackTraceElement, init$, void)},
-	{"computeFormat", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(StackTraceElement, computeFormat, void)},
-	{"dropClassLoaderName", "()Z", nullptr, $PRIVATE, $method(StackTraceElement, dropClassLoaderName, bool)},
-	{"dropModuleVersion", "()Z", nullptr, $PRIVATE, $method(StackTraceElement, dropModuleVersion, bool)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(StackTraceElement, equals, bool, Object$*)},
-	{"getClassLoaderName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(StackTraceElement, getClassLoaderName, $String*)},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(StackTraceElement, getClassName, $String*)},
-	{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(StackTraceElement, getFileName, $String*)},
-	{"getLineNumber", "()I", nullptr, $PUBLIC, $method(StackTraceElement, getLineNumber, int32_t)},
-	{"getMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(StackTraceElement, getMethodName, $String*)},
-	{"getModuleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(StackTraceElement, getModuleName, $String*)},
-	{"getModuleVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(StackTraceElement, getModuleVersion, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(StackTraceElement, hashCode, int32_t)},
-	{"initStackTraceElement", "(Ljava/lang/StackTraceElement;Ljava/lang/StackFrameInfo;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(StackTraceElement, initStackTraceElement, void, StackTraceElement*, $StackFrameInfo*)},
-	{"initStackTraceElements", "([Ljava/lang/StackTraceElement;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(StackTraceElement, initStackTraceElements, void, $StackTraceElementArray*, $Throwable*)},
-	{"isHashedInJavaBase", "(Ljava/lang/Module;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(StackTraceElement, isHashedInJavaBase, bool, $Module*)},
-	{"isNativeMethod", "()Z", nullptr, $PUBLIC, $method(StackTraceElement, isNativeMethod, bool)},
-	{"of", "(Ljava/lang/Throwable;I)[Ljava/lang/StackTraceElement;", nullptr, $STATIC, $staticMethod(StackTraceElement, of, $StackTraceElementArray*, $Throwable*, int32_t)},
-	{"of", "(Ljava/lang/StackFrameInfo;)Ljava/lang/StackTraceElement;", nullptr, $STATIC, $staticMethod(StackTraceElement, of, StackTraceElement*, $StackFrameInfo*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StackTraceElement, toString, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_initStackTraceElement 15
-#define _METHOD_INDEX_initStackTraceElements 16
-
-$InnerClassInfo _StackTraceElement_InnerClassesInfo_[] = {
-	{"java.lang.StackTraceElement$HashedModules", "java.lang.StackTraceElement", "HashedModules", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _StackTraceElement_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.lang.StackTraceElement",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_StackTraceElement_FieldInfo_,
-	_StackTraceElement_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StackTraceElement_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.StackTraceElement$HashedModules"
-};
-
-$Object* allocate$StackTraceElement($Class* clazz) {
-	return $of($alloc(StackTraceElement));
-}
-
 void StackTraceElement::init$($String* declaringClass, $String* methodName, $String* fileName, int32_t lineNumber) {
 	StackTraceElement::init$(nullptr, nullptr, nullptr, declaringClass, methodName, fileName, lineNumber);
 }
 
 void StackTraceElement::init$($String* classLoaderName, $String* moduleName, $String* moduleVersion, $String* declaringClass, $String* methodName, $String* fileName, int32_t lineNumber) {
-	this->format = (int8_t)0;
+	this->format = 0;
 	$set(this, classLoaderName, classLoaderName);
 	$set(this, moduleName, moduleName);
 	$set(this, moduleVersion, moduleVersion);
-	$set(this, declaringClass, $cast($String, $Objects::requireNonNull($of(declaringClass), "Declaring class is null"_s)));
-	$set(this, methodName, $cast($String, $Objects::requireNonNull($of(methodName), "Method name is null"_s)));
+	$set(this, declaringClass, $cast($String, $Objects::requireNonNull(declaringClass, "Declaring class is null"_s)));
+	$set(this, methodName, $cast($String, $Objects::requireNonNull(methodName, "Method name is null"_s)));
 	$set(this, fileName, fileName);
 	this->lineNumber = lineNumber;
 }
 
 void StackTraceElement::init$() {
-	this->format = (int8_t)0;
+	this->format = 0;
 }
 
 $String* StackTraceElement::getFileName() {
@@ -156,16 +86,16 @@ bool StackTraceElement::isNativeMethod() {
 }
 
 $String* StackTraceElement::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, ""_s);
 	bool var$0 = !dropClassLoaderName() && this->classLoaderName != nullptr;
-	if (var$0 && !$nc(this->classLoaderName)->isEmpty()) {
+	if (var$0 && !this->classLoaderName->isEmpty()) {
 		$plusAssign(s, $$str({this->classLoaderName, "/"_s}));
 	}
-	if (this->moduleName != nullptr && !$nc(this->moduleName)->isEmpty()) {
+	if (this->moduleName != nullptr && !this->moduleName->isEmpty()) {
 		$plusAssign(s, this->moduleName);
 		bool var$1 = !dropModuleVersion() && this->moduleVersion != nullptr;
-		if (var$1 && !$nc(this->moduleVersion)->isEmpty()) {
+		if (var$1 && !this->moduleVersion->isEmpty()) {
 			$plusAssign(s, $$str({"@"_s, this->moduleVersion}));
 		}
 	}
@@ -183,7 +113,7 @@ bool StackTraceElement::equals(Object$* obj) {
 		$assign(e, $cast(StackTraceElement, obj));
 		var$7 = true;
 	}
-	bool var$6 = (var$7);
+	bool var$6 = var$7;
 	bool var$5 = var$6 && $nc(e)->lineNumber == this->lineNumber;
 	bool var$4 = var$5 && $nc(e->declaringClass)->equals(this->declaringClass);
 	bool var$3 = var$4 && $Objects::equals(this->classLoaderName, e->classLoaderName);
@@ -206,39 +136,37 @@ int32_t StackTraceElement::hashCode() {
 
 void StackTraceElement::computeFormat() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$Class* cls = this->declaringClassObject;
-				$var($ClassLoader, loader, $nc(cls)->getClassLoader0());
-				$var($Module, m, cls->getModule());
-				int8_t bits = (int8_t)0;
-				if ($instanceOf($BuiltinClassLoader, loader)) {
-					bits |= StackTraceElement::BUILTIN_CLASS_LOADER;
-				}
-				if (isHashedInJavaBase(m)) {
-					bits |= StackTraceElement::JDK_NON_UPGRADEABLE_MODULE;
-				}
-				this->format = bits;
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$set(this, declaringClassObject, nullptr);
+		$useLocalObjectStack();
+		$var($Throwable, var$0, nullptr);
+		try {
+			$Class* cls = this->declaringClassObject;
+			$var($ClassLoader, loader, $nc(cls)->getClassLoader0());
+			$var($Module, m, cls->getModule());
+			int8_t bits = 0;
+			if ($instanceOf($BuiltinClassLoader, loader)) {
+				bits |= StackTraceElement::BUILTIN_CLASS_LOADER;
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+			if (isHashedInJavaBase(m)) {
+				bits |= StackTraceElement::JDK_NON_UPGRADEABLE_MODULE;
 			}
+			this->format = bits;
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$set(this, declaringClassObject, nullptr);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 bool StackTraceElement::dropClassLoaderName() {
-	return ((int32_t)(this->format & (uint32_t)(int32_t)StackTraceElement::BUILTIN_CLASS_LOADER)) == StackTraceElement::BUILTIN_CLASS_LOADER;
+	return (this->format & StackTraceElement::BUILTIN_CLASS_LOADER) == StackTraceElement::BUILTIN_CLASS_LOADER;
 }
 
 bool StackTraceElement::dropModuleVersion() {
-	return ((int32_t)(this->format & (uint32_t)(int32_t)StackTraceElement::JDK_NON_UPGRADEABLE_MODULE)) == StackTraceElement::JDK_NON_UPGRADEABLE_MODULE;
+	return (this->format & StackTraceElement::JDK_NON_UPGRADEABLE_MODULE) == StackTraceElement::JDK_NON_UPGRADEABLE_MODULE;
 }
 
 bool StackTraceElement::isHashedInJavaBase($Module* m) {
@@ -252,7 +180,7 @@ bool StackTraceElement::isHashedInJavaBase($Module* m) {
 
 $StackTraceElementArray* StackTraceElement::of($Throwable* x, int32_t depth) {
 	$init(StackTraceElement);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StackTraceElementArray, stackTrace, $new($StackTraceElementArray, depth));
 	for (int32_t i = 0; i < depth; ++i) {
 		stackTrace->set(i, $$new(StackTraceElement));
@@ -260,9 +188,7 @@ $StackTraceElementArray* StackTraceElement::of($Throwable* x, int32_t depth) {
 	initStackTraceElements(stackTrace, x);
 	{
 		$var($StackTraceElementArray, arr$, stackTrace);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var(StackTraceElement, ste, arr$->get(i$));
 			{
 				$nc(ste)->computeFormat();
@@ -323,7 +249,67 @@ StackTraceElement::StackTraceElement() {
 }
 
 $Class* StackTraceElement::load$($String* name, bool initialize) {
-	$loadClass(StackTraceElement, name, initialize, &_StackTraceElement_ClassInfo_, allocate$StackTraceElement);
+	$FieldInfo fieldInfos$$[] = {
+		{"declaringClassObject", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $TRANSIENT, $field(StackTraceElement, declaringClassObject)},
+		{"classLoaderName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StackTraceElement, classLoaderName)},
+		{"moduleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StackTraceElement, moduleName)},
+		{"moduleVersion", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StackTraceElement, moduleVersion)},
+		{"declaringClass", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StackTraceElement, declaringClass)},
+		{"methodName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StackTraceElement, methodName)},
+		{"fileName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StackTraceElement, fileName)},
+		{"lineNumber", "I", nullptr, $PRIVATE, $field(StackTraceElement, lineNumber)},
+		{"format", "B", nullptr, $PRIVATE, $field(StackTraceElement, format)},
+		{"BUILTIN_CLASS_LOADER", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackTraceElement, BUILTIN_CLASS_LOADER)},
+		{"JDK_NON_UPGRADEABLE_MODULE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackTraceElement, JDK_NON_UPGRADEABLE_MODULE)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackTraceElement, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(StackTraceElement, init$, void, $String*, $String*, $String*, int32_t)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(StackTraceElement, init$, void, $String*, $String*, $String*, $String*, $String*, $String*, int32_t)},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(StackTraceElement, init$, void)},
+		{"computeFormat", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(StackTraceElement, computeFormat, void)},
+		{"dropClassLoaderName", "()Z", nullptr, $PRIVATE, $method(StackTraceElement, dropClassLoaderName, bool)},
+		{"dropModuleVersion", "()Z", nullptr, $PRIVATE, $method(StackTraceElement, dropModuleVersion, bool)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(StackTraceElement, equals, bool, Object$*)},
+		{"getClassLoaderName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(StackTraceElement, getClassLoaderName, $String*)},
+		{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(StackTraceElement, getClassName, $String*)},
+		{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(StackTraceElement, getFileName, $String*)},
+		{"getLineNumber", "()I", nullptr, $PUBLIC, $method(StackTraceElement, getLineNumber, int32_t)},
+		{"getMethodName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(StackTraceElement, getMethodName, $String*)},
+		{"getModuleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(StackTraceElement, getModuleName, $String*)},
+		{"getModuleVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(StackTraceElement, getModuleVersion, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(StackTraceElement, hashCode, int32_t)},
+		{"initStackTraceElement", "(Ljava/lang/StackTraceElement;Ljava/lang/StackFrameInfo;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(StackTraceElement, initStackTraceElement, void, StackTraceElement*, $StackFrameInfo*)},
+		{"initStackTraceElements", "([Ljava/lang/StackTraceElement;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(StackTraceElement, initStackTraceElements, void, $StackTraceElementArray*, $Throwable*)},
+		{"isHashedInJavaBase", "(Ljava/lang/Module;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(StackTraceElement, isHashedInJavaBase, bool, $Module*)},
+		{"isNativeMethod", "()Z", nullptr, $PUBLIC, $method(StackTraceElement, isNativeMethod, bool)},
+		{"of", "(Ljava/lang/Throwable;I)[Ljava/lang/StackTraceElement;", nullptr, $STATIC, $staticMethod(StackTraceElement, of, $StackTraceElementArray*, $Throwable*, int32_t)},
+		{"of", "(Ljava/lang/StackFrameInfo;)Ljava/lang/StackTraceElement;", nullptr, $STATIC, $staticMethod(StackTraceElement, of, StackTraceElement*, $StackFrameInfo*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StackTraceElement, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.StackTraceElement$HashedModules", "java.lang.StackTraceElement", "HashedModules", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.lang.StackTraceElement",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.StackTraceElement$HashedModules"
+	};
+	$loadClass(StackTraceElement, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StackTraceElement);
+	});
 	return class$;
 }
 

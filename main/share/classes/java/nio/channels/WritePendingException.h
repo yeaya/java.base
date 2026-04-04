@@ -14,10 +14,13 @@ class $export WritePendingException : public ::java::lang::IllegalStateException
 public:
 	WritePendingException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x61963A2E6D864A94;
+	static const int64_t serialVersionUID = (int64_t)0x61963a2e6d864a94;
 	WritePendingException(const WritePendingException& e);
 	virtual void throw$() override;
-	inline WritePendingException* operator ->() {
+	inline WritePendingException* operator ->() const {
+		return (WritePendingException*)throwing$;
+	}
+	inline operator WritePendingException*() const {
 		return (WritePendingException*)throwing$;
 	}
 };

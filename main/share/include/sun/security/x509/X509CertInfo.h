@@ -95,6 +95,7 @@ class $import X509CertInfo : public ::sun::security::x509::CertAttrSet {
 	$class(X509CertInfo, 0, ::sun::security::x509::CertAttrSet)
 public:
 	X509CertInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($bytes* cert);
 	void init$(::sun::security::util::DerValue* derVal);

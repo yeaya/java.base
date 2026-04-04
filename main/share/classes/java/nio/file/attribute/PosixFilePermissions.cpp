@@ -1,9 +1,7 @@
 #include <java/nio/file/attribute/PosixFilePermissions.h>
-
 #include <java/nio/file/attribute/FileAttribute.h>
 #include <java/nio/file/attribute/PosixFilePermission.h>
 #include <java/nio/file/attribute/PosixFilePermissions$1.h>
-#include <java/util/Collection.h>
 #include <java/util/EnumSet.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
@@ -28,7 +26,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $FileAttribute = ::java::nio::file::attribute::FileAttribute;
 using $PosixFilePermission = ::java::nio::file::attribute::PosixFilePermission;
 using $PosixFilePermissions$1 = ::java::nio::file::attribute::PosixFilePermissions$1;
-using $Collection = ::java::util::Collection;
 using $EnumSet = ::java::util::EnumSet;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
@@ -38,43 +35,6 @@ namespace java {
 	namespace nio {
 		namespace file {
 			namespace attribute {
-
-$MethodInfo _PosixFilePermissions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(PosixFilePermissions, init$, void)},
-	{"asFileAttribute", "(Ljava/util/Set;)Ljava/nio/file/attribute/FileAttribute;", "(Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;)Ljava/nio/file/attribute/FileAttribute<Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;>;", $PUBLIC | $STATIC, $staticMethod(PosixFilePermissions, asFileAttribute, $FileAttribute*, $Set*)},
-	{"fromString", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;", $PUBLIC | $STATIC, $staticMethod(PosixFilePermissions, fromString, $Set*, $String*)},
-	{"isR", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(PosixFilePermissions, isR, bool, char16_t)},
-	{"isSet", "(CC)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(PosixFilePermissions, isSet, bool, char16_t, char16_t)},
-	{"isW", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(PosixFilePermissions, isW, bool, char16_t)},
-	{"isX", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(PosixFilePermissions, isX, bool, char16_t)},
-	{"toString", "(Ljava/util/Set;)Ljava/lang/String;", "(Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(PosixFilePermissions, toString, $String*, $Set*)},
-	{"writeBits", "(Ljava/lang/StringBuilder;ZZZ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PosixFilePermissions, writeBits, void, $StringBuilder*, bool, bool, bool)},
-	{}
-};
-
-$InnerClassInfo _PosixFilePermissions_InnerClassesInfo_[] = {
-	{"java.nio.file.attribute.PosixFilePermissions$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PosixFilePermissions_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.nio.file.attribute.PosixFilePermissions",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_PosixFilePermissions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PosixFilePermissions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.nio.file.attribute.PosixFilePermissions$1"
-};
-
-$Object* allocate$PosixFilePermissions($Class* clazz) {
-	return $of($alloc(PosixFilePermissions));
-}
 
 void PosixFilePermissions::init$() {
 }
@@ -98,21 +58,17 @@ void PosixFilePermissions::writeBits($StringBuilder* sb, bool r, bool w, bool x)
 }
 
 $String* PosixFilePermissions::toString($Set* perms) {
-	$useLocalCurrentObjectStackCache();
 	$var($StringBuilder, sb, $new($StringBuilder, 9));
-	$var($StringBuilder, var$0, sb);
 	$init($PosixFilePermission);
-	bool var$1 = $nc(perms)->contains($PosixFilePermission::OWNER_READ);
-	bool var$2 = perms->contains($PosixFilePermission::OWNER_WRITE);
-	writeBits(var$0, var$1, var$2, perms->contains($PosixFilePermission::OWNER_EXECUTE));
-	$var($StringBuilder, var$3, sb);
-	bool var$4 = $nc(perms)->contains($PosixFilePermission::GROUP_READ);
-	bool var$5 = perms->contains($PosixFilePermission::GROUP_WRITE);
-	writeBits(var$3, var$4, var$5, perms->contains($PosixFilePermission::GROUP_EXECUTE));
-	$var($StringBuilder, var$6, sb);
-	bool var$7 = $nc(perms)->contains($PosixFilePermission::OTHERS_READ);
-	bool var$8 = perms->contains($PosixFilePermission::OTHERS_WRITE);
-	writeBits(var$6, var$7, var$8, perms->contains($PosixFilePermission::OTHERS_EXECUTE));
+	bool var$0 = $nc(perms)->contains($PosixFilePermission::OWNER_READ);
+	bool var$1 = perms->contains($PosixFilePermission::OWNER_WRITE);
+	writeBits(sb, var$0, var$1, perms->contains($PosixFilePermission::OWNER_EXECUTE));
+	bool var$2 = perms->contains($PosixFilePermission::GROUP_READ);
+	bool var$3 = perms->contains($PosixFilePermission::GROUP_WRITE);
+	writeBits(sb, var$2, var$3, perms->contains($PosixFilePermission::GROUP_EXECUTE));
+	bool var$4 = perms->contains($PosixFilePermission::OTHERS_READ);
+	bool var$5 = perms->contains($PosixFilePermission::OTHERS_WRITE);
+	writeBits(sb, var$4, var$5, perms->contains($PosixFilePermission::OTHERS_EXECUTE));
 	return sb->toString();
 }
 
@@ -144,39 +100,39 @@ $Set* PosixFilePermissions::fromString($String* perms) {
 	}
 	$load($PosixFilePermission);
 	$var($Set, result, $EnumSet::noneOf($PosixFilePermission::class$));
-	if (isR($nc(perms)->charAt(0))) {
+	if (isR(perms->charAt(0))) {
 		$init($PosixFilePermission);
 		$nc(result)->add($PosixFilePermission::OWNER_READ);
 	}
-	if (isW($nc(perms)->charAt(1))) {
+	if (isW(perms->charAt(1))) {
 		$init($PosixFilePermission);
 		$nc(result)->add($PosixFilePermission::OWNER_WRITE);
 	}
-	if (isX($nc(perms)->charAt(2))) {
+	if (isX(perms->charAt(2))) {
 		$init($PosixFilePermission);
 		$nc(result)->add($PosixFilePermission::OWNER_EXECUTE);
 	}
-	if (isR($nc(perms)->charAt(3))) {
+	if (isR(perms->charAt(3))) {
 		$init($PosixFilePermission);
 		$nc(result)->add($PosixFilePermission::GROUP_READ);
 	}
-	if (isW($nc(perms)->charAt(4))) {
+	if (isW(perms->charAt(4))) {
 		$init($PosixFilePermission);
 		$nc(result)->add($PosixFilePermission::GROUP_WRITE);
 	}
-	if (isX($nc(perms)->charAt(5))) {
+	if (isX(perms->charAt(5))) {
 		$init($PosixFilePermission);
 		$nc(result)->add($PosixFilePermission::GROUP_EXECUTE);
 	}
-	if (isR($nc(perms)->charAt(6))) {
+	if (isR(perms->charAt(6))) {
 		$init($PosixFilePermission);
 		$nc(result)->add($PosixFilePermission::OTHERS_READ);
 	}
-	if (isW($nc(perms)->charAt(7))) {
+	if (isW(perms->charAt(7))) {
 		$init($PosixFilePermission);
 		$nc(result)->add($PosixFilePermission::OTHERS_WRITE);
 	}
-	if (isX($nc(perms)->charAt(8))) {
+	if (isX(perms->charAt(8))) {
 		$init($PosixFilePermission);
 		$nc(result)->add($PosixFilePermission::OTHERS_EXECUTE);
 	}
@@ -184,17 +140,15 @@ $Set* PosixFilePermissions::fromString($String* perms) {
 }
 
 $FileAttribute* PosixFilePermissions::asFileAttribute($Set* perms$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, perms, perms$renamed);
-	$assign(perms, $new($HashSet, static_cast<$Collection*>(perms)));
+	$assign(perms, $new($HashSet, perms));
 	{
 		$var($Iterator, i$, perms->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$PosixFilePermission* p = $cast($PosixFilePermission, i$->next());
-			{
-				if (p == nullptr) {
-					$throwNew($NullPointerException);
-				}
+			if (p == nullptr) {
+				$throwNew($NullPointerException);
 			}
 		}
 	}
@@ -206,7 +160,39 @@ PosixFilePermissions::PosixFilePermissions() {
 }
 
 $Class* PosixFilePermissions::load$($String* name, bool initialize) {
-	$loadClass(PosixFilePermissions, name, initialize, &_PosixFilePermissions_ClassInfo_, allocate$PosixFilePermissions);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(PosixFilePermissions, init$, void)},
+		{"asFileAttribute", "(Ljava/util/Set;)Ljava/nio/file/attribute/FileAttribute;", "(Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;)Ljava/nio/file/attribute/FileAttribute<Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;>;", $PUBLIC | $STATIC, $staticMethod(PosixFilePermissions, asFileAttribute, $FileAttribute*, $Set*)},
+		{"fromString", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;", $PUBLIC | $STATIC, $staticMethod(PosixFilePermissions, fromString, $Set*, $String*)},
+		{"isR", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(PosixFilePermissions, isR, bool, char16_t)},
+		{"isSet", "(CC)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(PosixFilePermissions, isSet, bool, char16_t, char16_t)},
+		{"isW", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(PosixFilePermissions, isW, bool, char16_t)},
+		{"isX", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(PosixFilePermissions, isX, bool, char16_t)},
+		{"toString", "(Ljava/util/Set;)Ljava/lang/String;", "(Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(PosixFilePermissions, toString, $String*, $Set*)},
+		{"writeBits", "(Ljava/lang/StringBuilder;ZZZ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PosixFilePermissions, writeBits, void, $StringBuilder*, bool, bool, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.nio.file.attribute.PosixFilePermissions$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.nio.file.attribute.PosixFilePermissions",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.nio.file.attribute.PosixFilePermissions$1"
+	};
+	$loadClass(PosixFilePermissions, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PosixFilePermissions);
+	});
 	return class$;
 }
 

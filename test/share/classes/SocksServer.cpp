@@ -1,5 +1,4 @@
 #include <SocksServer.h>
-
 #include <SocksServer$ClientHandler.h>
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
@@ -48,79 +47,6 @@ using $Socket = ::java::net::Socket;
 using $SocketAddress = ::java::net::SocketAddress;
 using $HashMap = ::java::util::HashMap;
 
-$FieldInfo _SocksServer_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SocksServer, $assertionsDisabled)},
-	{"PROTO_VERS4", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, PROTO_VERS4)},
-	{"PROTO_VERS", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, PROTO_VERS)},
-	{"DEFAULT_PORT", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, DEFAULT_PORT)},
-	{"NO_AUTH", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, NO_AUTH)},
-	{"GSSAPI", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, GSSAPI)},
-	{"USER_PASSW", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, USER_PASSW)},
-	{"NO_METHODS", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, NO_METHODS)},
-	{"CONNECT", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, CONNECT)},
-	{"BIND", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, BIND)},
-	{"UDP_ASSOC", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, UDP_ASSOC)},
-	{"IPV4", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, IPV4)},
-	{"DOMAIN_NAME", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, DOMAIN_NAME)},
-	{"IPV6", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, IPV6)},
-	{"REQUEST_OK", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, REQUEST_OK)},
-	{"GENERAL_FAILURE", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, GENERAL_FAILURE)},
-	{"NOT_ALLOWED", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, NOT_ALLOWED)},
-	{"NET_UNREACHABLE", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, NET_UNREACHABLE)},
-	{"HOST_UNREACHABLE", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, HOST_UNREACHABLE)},
-	{"CONN_REFUSED", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, CONN_REFUSED)},
-	{"TTL_EXPIRED", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, TTL_EXPIRED)},
-	{"CMD_NOT_SUPPORTED", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, CMD_NOT_SUPPORTED)},
-	{"ADDR_TYPE_NOT_SUP", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, ADDR_TYPE_NOT_SUP)},
-	{"port", "I", nullptr, $PRIVATE, $field(SocksServer, port)},
-	{"server", "Ljava/net/ServerSocket;", nullptr, $PRIVATE, $field(SocksServer, server)},
-	{"useV4", "Z", nullptr, $PRIVATE, $field(SocksServer, useV4)},
-	{"users", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(SocksServer, users)},
-	{"done", "Z", nullptr, $PRIVATE | $VOLATILE, $field(SocksServer, done)},
-	{}
-};
-
-$MethodInfo _SocksServer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(SocksServer, init$, void, int32_t, bool), "java.io.IOException"},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(SocksServer, init$, void, int32_t), "java.io.IOException"},
-	{"<init>", "(Ljava/net/InetAddress;IZ)V", nullptr, $PUBLIC, $method(SocksServer, init$, void, $InetAddress*, int32_t, bool), "java.io.IOException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SocksServer, init$, void), "java.io.IOException"},
-	{"addUser", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SocksServer, addUser, void, $String*, $String*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SocksServer, close, void)},
-	{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(SocksServer, getPort, int32_t)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SocksServer, run, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SocksServer_InnerClassesInfo_[] = {
-	{"SocksServer$ClientHandler", "SocksServer", "ClientHandler", 0},
-	{}
-};
-
-$ClassInfo _SocksServer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"SocksServer",
-	"java.lang.Thread",
-	"java.io.Closeable",
-	_SocksServer_FieldInfo_,
-	_SocksServer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SocksServer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"SocksServer$ClientHandler,SocksServer$ClientHandler$Tunnel"
-};
-
-$Object* allocate$SocksServer($Class* clazz) {
-	return $of($alloc(SocksServer));
-}
-
 $Object* SocksServer::clone() {
 	 return this->$Thread::clone();
 }
@@ -156,15 +82,15 @@ void SocksServer::init$(int32_t port) {
 	this->port = port;
 	$set(this, server, $new($ServerSocket));
 	if (port == 0) {
-		$nc(this->server)->bind(nullptr);
-		this->port = $nc(this->server)->getLocalPort();
+		this->server->bind(nullptr);
+		this->port = this->server->getLocalPort();
 	} else {
-		$nc(this->server)->bind($$new($InetSocketAddress, port));
+		this->server->bind($$new($InetSocketAddress, port));
 	}
 }
 
 void SocksServer::init$($InetAddress* addr, int32_t port, bool useV4) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Thread::init$();
 	this->useV4 = false;
 	$set(this, users, $new($HashMap));
@@ -173,21 +99,21 @@ void SocksServer::init$($InetAddress* addr, int32_t port, bool useV4) {
 	this->useV4 = useV4;
 	$set(this, server, $new($ServerSocket));
 	if (port == 0 && addr == nullptr) {
-		$nc(this->server)->bind(nullptr);
-		this->port = $nc(this->server)->getLocalPort();
+		this->server->bind(nullptr);
+		this->port = this->server->getLocalPort();
 	} else if (port == 0 && addr != nullptr) {
-		$nc(this->server)->bind($$new($InetSocketAddress, addr, 0));
-		this->port = $nc(this->server)->getLocalPort();
+		this->server->bind($$new($InetSocketAddress, addr, 0));
+		this->port = this->server->getLocalPort();
 	} else if (addr == nullptr) {
 		if (!SocksServer::$assertionsDisabled && !(port != 0)) {
 			$throwNew($AssertionError);
 		}
-		$nc(this->server)->bind($$new($InetSocketAddress, port));
+		this->server->bind($$new($InetSocketAddress, port));
 	} else {
 		if (!SocksServer::$assertionsDisabled && !(port != 0)) {
 			$throwNew($AssertionError);
 		}
-		$nc(this->server)->bind($$new($InetSocketAddress, addr, port));
+		this->server->bind($$new($InetSocketAddress, addr, port));
 	}
 }
 
@@ -212,7 +138,7 @@ void SocksServer::close() {
 }
 
 void SocksServer::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SocksServer$ClientHandler, cl, nullptr);
 	while (!this->done) {
 		try {
@@ -227,7 +153,7 @@ void SocksServer::run() {
 	}
 }
 
-void clinit$SocksServer($Class* class$) {
+void SocksServer::clinit$($Class* clazz) {
 	SocksServer::$assertionsDisabled = !SocksServer::class$->desiredAssertionStatus();
 }
 
@@ -235,7 +161,74 @@ SocksServer::SocksServer() {
 }
 
 $Class* SocksServer::load$($String* name, bool initialize) {
-	$loadClass(SocksServer, name, initialize, &_SocksServer_ClassInfo_, clinit$SocksServer, allocate$SocksServer);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SocksServer, $assertionsDisabled)},
+		{"PROTO_VERS4", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, PROTO_VERS4)},
+		{"PROTO_VERS", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, PROTO_VERS)},
+		{"DEFAULT_PORT", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, DEFAULT_PORT)},
+		{"NO_AUTH", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, NO_AUTH)},
+		{"GSSAPI", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, GSSAPI)},
+		{"USER_PASSW", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, USER_PASSW)},
+		{"NO_METHODS", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, NO_METHODS)},
+		{"CONNECT", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, CONNECT)},
+		{"BIND", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, BIND)},
+		{"UDP_ASSOC", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, UDP_ASSOC)},
+		{"IPV4", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, IPV4)},
+		{"DOMAIN_NAME", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, DOMAIN_NAME)},
+		{"IPV6", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, IPV6)},
+		{"REQUEST_OK", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, REQUEST_OK)},
+		{"GENERAL_FAILURE", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, GENERAL_FAILURE)},
+		{"NOT_ALLOWED", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, NOT_ALLOWED)},
+		{"NET_UNREACHABLE", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, NET_UNREACHABLE)},
+		{"HOST_UNREACHABLE", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, HOST_UNREACHABLE)},
+		{"CONN_REFUSED", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, CONN_REFUSED)},
+		{"TTL_EXPIRED", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, TTL_EXPIRED)},
+		{"CMD_NOT_SUPPORTED", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, CMD_NOT_SUPPORTED)},
+		{"ADDR_TYPE_NOT_SUP", "I", nullptr, $STATIC | $FINAL, $constField(SocksServer, ADDR_TYPE_NOT_SUP)},
+		{"port", "I", nullptr, $PRIVATE, $field(SocksServer, port)},
+		{"server", "Ljava/net/ServerSocket;", nullptr, $PRIVATE, $field(SocksServer, server)},
+		{"useV4", "Z", nullptr, $PRIVATE, $field(SocksServer, useV4)},
+		{"users", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(SocksServer, users)},
+		{"done", "Z", nullptr, $PRIVATE | $VOLATILE, $field(SocksServer, done)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(SocksServer, init$, void, int32_t, bool), "java.io.IOException"},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(SocksServer, init$, void, int32_t), "java.io.IOException"},
+		{"<init>", "(Ljava/net/InetAddress;IZ)V", nullptr, $PUBLIC, $method(SocksServer, init$, void, $InetAddress*, int32_t, bool), "java.io.IOException"},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SocksServer, init$, void), "java.io.IOException"},
+		{"addUser", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SocksServer, addUser, void, $String*, $String*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SocksServer, close, void)},
+		{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(SocksServer, getPort, int32_t)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SocksServer, run, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"SocksServer$ClientHandler", "SocksServer", "ClientHandler", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"SocksServer",
+		"java.lang.Thread",
+		"java.io.Closeable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"SocksServer$ClientHandler,SocksServer$ClientHandler$Tunnel"
+	};
+	$loadClass(SocksServer, name, initialize, &classInfo$$, SocksServer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SocksServer));
+	});
 	return class$;
 }
 

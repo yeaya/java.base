@@ -1,5 +1,4 @@
 #include <java/math/MathContext.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/StreamCorruptedException.h>
 #include <java/math/RoundingMode.h>
@@ -29,46 +28,6 @@ using $RoundingMode = ::java::math::RoundingMode;
 namespace java {
 	namespace math {
 
-$FieldInfo _MathContext_FieldInfo_[] = {
-	{"DEFAULT_DIGITS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MathContext, DEFAULT_DIGITS)},
-	{"DEFAULT_ROUNDINGMODE", "Ljava/math/RoundingMode;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MathContext, DEFAULT_ROUNDINGMODE)},
-	{"MIN_DIGITS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MathContext, MIN_DIGITS)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MathContext, serialVersionUID)},
-	{"UNLIMITED", "Ljava/math/MathContext;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MathContext, UNLIMITED)},
-	{"DECIMAL32", "Ljava/math/MathContext;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MathContext, DECIMAL32)},
-	{"DECIMAL64", "Ljava/math/MathContext;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MathContext, DECIMAL64)},
-	{"DECIMAL128", "Ljava/math/MathContext;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MathContext, DECIMAL128)},
-	{"precision", "I", nullptr, $FINAL, $field(MathContext, precision)},
-	{"roundingMode", "Ljava/math/RoundingMode;", nullptr, $FINAL, $field(MathContext, roundingMode)},
-	{}
-};
-
-$MethodInfo _MathContext_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(MathContext, init$, void, int32_t)},
-	{"<init>", "(ILjava/math/RoundingMode;)V", nullptr, $PUBLIC, $method(MathContext, init$, void, int32_t, $RoundingMode*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MathContext, init$, void, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MathContext, equals, bool, Object$*)},
-	{"getPrecision", "()I", nullptr, $PUBLIC, $method(MathContext, getPrecision, int32_t)},
-	{"getRoundingMode", "()Ljava/math/RoundingMode;", nullptr, $PUBLIC, $method(MathContext, getRoundingMode, $RoundingMode*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MathContext, hashCode, int32_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MathContext, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MathContext, toString, $String*)},
-	{}
-};
-
-$ClassInfo _MathContext_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.math.MathContext",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_MathContext_FieldInfo_,
-	_MathContext_MethodInfo_
-};
-
-$Object* allocate$MathContext($Class* clazz) {
-	return $of($alloc(MathContext));
-}
-
 $RoundingMode* MathContext::DEFAULT_ROUNDINGMODE = nullptr;
 MathContext* MathContext::UNLIMITED = nullptr;
 MathContext* MathContext::DECIMAL32 = nullptr;
@@ -93,7 +52,7 @@ void MathContext::init$(int32_t setPrecision, $RoundingMode* setRoundingMode) {
 }
 
 void MathContext::init$($String* val) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool bad = false;
 	int32_t setPrecision = 0;
 	if (val == nullptr) {
@@ -103,7 +62,7 @@ void MathContext::init$($String* val) {
 		if (!$nc(val)->startsWith("precision="_s)) {
 			$throwNew($RuntimeException);
 		}
-		int32_t fence = $nc(val)->indexOf((int32_t)u' ');
+		int32_t fence = val->indexOf(u' ');
 		int32_t off = 10;
 		setPrecision = $Integer::parseInt($(val->substring(10, fence)));
 		if (!val->startsWith("roundingMode="_s, fence + 1)) {
@@ -147,12 +106,12 @@ int32_t MathContext::hashCode() {
 }
 
 $String* MathContext::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"precision="_s, $$str(this->precision), " roundingMode="_s, $(this->roundingMode->toString())});
 }
 
 void MathContext::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultReadObject();
 	if (this->precision < MathContext::MIN_DIGITS) {
 		$var($String, message, "MathContext: invalid digits in stream"_s);
@@ -164,7 +123,7 @@ void MathContext::readObject($ObjectInputStream* s) {
 	}
 }
 
-void clinit$MathContext($Class* class$) {
+void MathContext::clinit$($Class* clazz) {
 	$init($RoundingMode);
 	$assignStatic(MathContext::DEFAULT_ROUNDINGMODE, $RoundingMode::HALF_UP);
 	$assignStatic(MathContext::UNLIMITED, $new(MathContext, 0, $RoundingMode::HALF_UP));
@@ -177,7 +136,42 @@ MathContext::MathContext() {
 }
 
 $Class* MathContext::load$($String* name, bool initialize) {
-	$loadClass(MathContext, name, initialize, &_MathContext_ClassInfo_, clinit$MathContext, allocate$MathContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_DIGITS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MathContext, DEFAULT_DIGITS)},
+		{"DEFAULT_ROUNDINGMODE", "Ljava/math/RoundingMode;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MathContext, DEFAULT_ROUNDINGMODE)},
+		{"MIN_DIGITS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MathContext, MIN_DIGITS)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MathContext, serialVersionUID)},
+		{"UNLIMITED", "Ljava/math/MathContext;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MathContext, UNLIMITED)},
+		{"DECIMAL32", "Ljava/math/MathContext;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MathContext, DECIMAL32)},
+		{"DECIMAL64", "Ljava/math/MathContext;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MathContext, DECIMAL64)},
+		{"DECIMAL128", "Ljava/math/MathContext;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MathContext, DECIMAL128)},
+		{"precision", "I", nullptr, $FINAL, $field(MathContext, precision)},
+		{"roundingMode", "Ljava/math/RoundingMode;", nullptr, $FINAL, $field(MathContext, roundingMode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(MathContext, init$, void, int32_t)},
+		{"<init>", "(ILjava/math/RoundingMode;)V", nullptr, $PUBLIC, $method(MathContext, init$, void, int32_t, $RoundingMode*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MathContext, init$, void, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MathContext, equals, bool, Object$*)},
+		{"getPrecision", "()I", nullptr, $PUBLIC, $method(MathContext, getPrecision, int32_t)},
+		{"getRoundingMode", "()Ljava/math/RoundingMode;", nullptr, $PUBLIC, $method(MathContext, getRoundingMode, $RoundingMode*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MathContext, hashCode, int32_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MathContext, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MathContext, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.math.MathContext",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MathContext, name, initialize, &classInfo$$, MathContext::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MathContext);
+	});
 	return class$;
 }
 

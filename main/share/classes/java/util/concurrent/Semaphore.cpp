@@ -1,5 +1,4 @@
 #include <java/util/concurrent/Semaphore.h>
-
 #include <java/io/Serializable.h>
 #include <java/util/Collection.h>
 #include <java/util/concurrent/Semaphore$FairSync.h>
@@ -24,68 +23,12 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _Semaphore_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Semaphore, serialVersionUID)},
-	{"sync", "Ljava/util/concurrent/Semaphore$Sync;", nullptr, $PRIVATE | $FINAL, $field(Semaphore, sync)},
-	{}
-};
-
-$MethodInfo _Semaphore_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Semaphore, init$, void, int32_t)},
-	{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(Semaphore, init$, void, int32_t, bool)},
-	{"acquire", "()V", nullptr, $PUBLIC, $virtualMethod(Semaphore, acquire, void), "java.lang.InterruptedException"},
-	{"acquire", "(I)V", nullptr, $PUBLIC, $virtualMethod(Semaphore, acquire, void, int32_t), "java.lang.InterruptedException"},
-	{"acquireUninterruptibly", "()V", nullptr, $PUBLIC, $virtualMethod(Semaphore, acquireUninterruptibly, void)},
-	{"acquireUninterruptibly", "(I)V", nullptr, $PUBLIC, $virtualMethod(Semaphore, acquireUninterruptibly, void, int32_t)},
-	{"availablePermits", "()I", nullptr, $PUBLIC, $virtualMethod(Semaphore, availablePermits, int32_t)},
-	{"drainPermits", "()I", nullptr, $PUBLIC, $virtualMethod(Semaphore, drainPermits, int32_t)},
-	{"getQueueLength", "()I", nullptr, $PUBLIC | $FINAL, $method(Semaphore, getQueueLength, int32_t)},
-	{"getQueuedThreads", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/lang/Thread;>;", $PROTECTED, $virtualMethod(Semaphore, getQueuedThreads, $Collection*)},
-	{"hasQueuedThreads", "()Z", nullptr, $PUBLIC | $FINAL, $method(Semaphore, hasQueuedThreads, bool)},
-	{"isFair", "()Z", nullptr, $PUBLIC, $virtualMethod(Semaphore, isFair, bool)},
-	{"reducePermits", "(I)V", nullptr, $PROTECTED, $virtualMethod(Semaphore, reducePermits, void, int32_t)},
-	{"release", "()V", nullptr, $PUBLIC, $virtualMethod(Semaphore, release, void)},
-	{"release", "(I)V", nullptr, $PUBLIC, $virtualMethod(Semaphore, release, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Semaphore, toString, $String*)},
-	{"tryAcquire", "()Z", nullptr, $PUBLIC, $virtualMethod(Semaphore, tryAcquire, bool)},
-	{"tryAcquire", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC, $virtualMethod(Semaphore, tryAcquire, bool, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
-	{"tryAcquire", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Semaphore, tryAcquire, bool, int32_t)},
-	{"tryAcquire", "(IJLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC, $virtualMethod(Semaphore, tryAcquire, bool, int32_t, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
-	{}
-};
-
-$InnerClassInfo _Semaphore_InnerClassesInfo_[] = {
-	{"java.util.concurrent.Semaphore$FairSync", "java.util.concurrent.Semaphore", "FairSync", $STATIC | $FINAL},
-	{"java.util.concurrent.Semaphore$NonfairSync", "java.util.concurrent.Semaphore", "NonfairSync", $STATIC | $FINAL},
-	{"java.util.concurrent.Semaphore$Sync", "java.util.concurrent.Semaphore", "Sync", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Semaphore_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.concurrent.Semaphore",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_Semaphore_FieldInfo_,
-	_Semaphore_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Semaphore_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.Semaphore$FairSync,java.util.concurrent.Semaphore$NonfairSync,java.util.concurrent.Semaphore$Sync"
-};
-
-$Object* allocate$Semaphore($Class* clazz) {
-	return $of($alloc(Semaphore));
-}
-
 void Semaphore::init$(int32_t permits) {
 	$set(this, sync, $new($Semaphore$NonfairSync, permits));
 }
 
 void Semaphore::init$(int32_t permits, bool fair) {
-	$set(this, sync, fair ? static_cast<$Semaphore$Sync*>($new($Semaphore$FairSync, permits)) : static_cast<$Semaphore$Sync*>($new($Semaphore$NonfairSync, permits)));
+	$set(this, sync, fair ? $cast($Semaphore$Sync, $new($Semaphore$FairSync, permits)) : $cast($Semaphore$Sync, $new($Semaphore$NonfairSync, permits)));
 }
 
 void Semaphore::acquire() {
@@ -175,17 +118,70 @@ $Collection* Semaphore::getQueuedThreads() {
 }
 
 $String* Semaphore::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({$($Serializable::toString()), "[Permits = "_s}));
-	$var($String, var$0, $$concat(var$1, $$str($nc(this->sync)->getPermits())));
-	return $concat(var$0, "]"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($Serializable::toString()));
+	var$0->append("[Permits = "_s);
+	var$0->append($nc(this->sync)->getPermits());
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 Semaphore::Semaphore() {
 }
 
 $Class* Semaphore::load$($String* name, bool initialize) {
-	$loadClass(Semaphore, name, initialize, &_Semaphore_ClassInfo_, allocate$Semaphore);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Semaphore, serialVersionUID)},
+		{"sync", "Ljava/util/concurrent/Semaphore$Sync;", nullptr, $PRIVATE | $FINAL, $field(Semaphore, sync)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Semaphore, init$, void, int32_t)},
+		{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(Semaphore, init$, void, int32_t, bool)},
+		{"acquire", "()V", nullptr, $PUBLIC, $virtualMethod(Semaphore, acquire, void), "java.lang.InterruptedException"},
+		{"acquire", "(I)V", nullptr, $PUBLIC, $virtualMethod(Semaphore, acquire, void, int32_t), "java.lang.InterruptedException"},
+		{"acquireUninterruptibly", "()V", nullptr, $PUBLIC, $virtualMethod(Semaphore, acquireUninterruptibly, void)},
+		{"acquireUninterruptibly", "(I)V", nullptr, $PUBLIC, $virtualMethod(Semaphore, acquireUninterruptibly, void, int32_t)},
+		{"availablePermits", "()I", nullptr, $PUBLIC, $virtualMethod(Semaphore, availablePermits, int32_t)},
+		{"drainPermits", "()I", nullptr, $PUBLIC, $virtualMethod(Semaphore, drainPermits, int32_t)},
+		{"getQueueLength", "()I", nullptr, $PUBLIC | $FINAL, $method(Semaphore, getQueueLength, int32_t)},
+		{"getQueuedThreads", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/lang/Thread;>;", $PROTECTED, $virtualMethod(Semaphore, getQueuedThreads, $Collection*)},
+		{"hasQueuedThreads", "()Z", nullptr, $PUBLIC | $FINAL, $method(Semaphore, hasQueuedThreads, bool)},
+		{"isFair", "()Z", nullptr, $PUBLIC, $virtualMethod(Semaphore, isFair, bool)},
+		{"reducePermits", "(I)V", nullptr, $PROTECTED, $virtualMethod(Semaphore, reducePermits, void, int32_t)},
+		{"release", "()V", nullptr, $PUBLIC, $virtualMethod(Semaphore, release, void)},
+		{"release", "(I)V", nullptr, $PUBLIC, $virtualMethod(Semaphore, release, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Semaphore, toString, $String*)},
+		{"tryAcquire", "()Z", nullptr, $PUBLIC, $virtualMethod(Semaphore, tryAcquire, bool)},
+		{"tryAcquire", "(JLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC, $virtualMethod(Semaphore, tryAcquire, bool, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+		{"tryAcquire", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Semaphore, tryAcquire, bool, int32_t)},
+		{"tryAcquire", "(IJLjava/util/concurrent/TimeUnit;)Z", nullptr, $PUBLIC, $virtualMethod(Semaphore, tryAcquire, bool, int32_t, int64_t, $TimeUnit*), "java.lang.InterruptedException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.Semaphore$FairSync", "java.util.concurrent.Semaphore", "FairSync", $STATIC | $FINAL},
+		{"java.util.concurrent.Semaphore$NonfairSync", "java.util.concurrent.Semaphore", "NonfairSync", $STATIC | $FINAL},
+		{"java.util.concurrent.Semaphore$Sync", "java.util.concurrent.Semaphore", "Sync", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.concurrent.Semaphore",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.Semaphore$FairSync,java.util.concurrent.Semaphore$NonfairSync,java.util.concurrent.Semaphore$Sync"
+	};
+	$loadClass(Semaphore, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Semaphore);
+	});
 	return class$;
 }
 

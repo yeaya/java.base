@@ -13,6 +13,7 @@ class SecureKey : public ::java::lang::Object {
 	$class(SecureKey, 0, ::java::lang::Object)
 public:
 	SecureKey();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* key);
 	virtual bool equals(Object$* o) override;
 	virtual $Object* getAppKey();

@@ -1,7 +1,5 @@
 #include <java/lang/StackWalker.h>
-
 #include <java/io/Serializable.h>
-#include <java/lang/Enum.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
 #include <java/lang/StackStreamFactory$CallerClassFinder.h>
@@ -16,7 +14,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/security/Permission.h>
-#include <java/util/Collection.h>
 #include <java/util/EnumSet.h>
 #include <java/util/Objects.h>
 #include <java/util/Set.h>
@@ -33,7 +30,6 @@
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -41,14 +37,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $StackStreamFactory = ::java::lang::StackStreamFactory;
-using $StackStreamFactory$CallerClassFinder = ::java::lang::StackStreamFactory$CallerClassFinder;
-using $StackStreamFactory$StackFrameTraverser = ::java::lang::StackStreamFactory$StackFrameTraverser;
 using $StackWalker$ExtendedOption = ::java::lang::StackWalker$ExtendedOption;
 using $StackWalker$Option = ::java::lang::StackWalker$Option;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $Permission = ::java::security::Permission;
-using $Collection = ::java::util::Collection;
 using $EnumSet = ::java::util::EnumSet;
 using $Objects = ::java::util::Objects;
 using $Set = ::java::util::Set;
@@ -68,108 +60,32 @@ public:
 	virtual $Object* apply(Object$* s) override {
 		 return StackWalker::lambda$forEach$0(action, $cast($Stream, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<StackWalker$$Lambda$lambda$forEach$0>());
-	}
 	$Consumer* action = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo StackWalker$$Lambda$lambda$forEach$0::fieldInfos[2] = {
-	{"action", "Ljava/util/function/Consumer;", nullptr, $PUBLIC, $field(StackWalker$$Lambda$lambda$forEach$0, action)},
-	{}
-};
-$MethodInfo StackWalker$$Lambda$lambda$forEach$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(StackWalker$$Lambda$lambda$forEach$0, init$, void, $Consumer*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackWalker$$Lambda$lambda$forEach$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo StackWalker$$Lambda$lambda$forEach$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.lang.StackWalker$$Lambda$lambda$forEach$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* StackWalker$$Lambda$lambda$forEach$0::load$($String* name, bool initialize) {
-	$loadClass(StackWalker$$Lambda$lambda$forEach$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"action", "Ljava/util/function/Consumer;", nullptr, $PUBLIC, $field(StackWalker$$Lambda$lambda$forEach$0, action)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC, $method(StackWalker$$Lambda$lambda$forEach$0, init$, void, $Consumer*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackWalker$$Lambda$lambda$forEach$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.lang.StackWalker$$Lambda$lambda$forEach$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StackWalker$$Lambda$lambda$forEach$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StackWalker$$Lambda$lambda$forEach$0);
+	});
 	return class$;
 }
 $Class* StackWalker$$Lambda$lambda$forEach$0::class$ = nullptr;
-
-$CompoundAttribute _StackWalker_MethodAnnotations_forEach5[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StackWalker_MethodAnnotations_getCallerClass6[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StackWalker_MethodAnnotations_walk16[] = {
-	{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
-	{}
-};
-
-$FieldInfo _StackWalker_FieldInfo_[] = {
-	{"DEFAULT_EMPTY_OPTION", "Ljava/util/EnumSet;", "Ljava/util/EnumSet<Ljava/lang/StackWalker$Option;>;", $STATIC | $FINAL, $staticField(StackWalker, DEFAULT_EMPTY_OPTION)},
-	{"DEFAULT_WALKER", "Ljava/lang/StackWalker;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackWalker, DEFAULT_WALKER)},
-	{"options", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/StackWalker$Option;>;", $PRIVATE | $FINAL, $field(StackWalker, options)},
-	{"extendedOption", "Ljava/lang/StackWalker$ExtendedOption;", nullptr, $PRIVATE | $FINAL, $field(StackWalker, extendedOption)},
-	{"estimateDepth", "I", nullptr, $PRIVATE | $FINAL, $field(StackWalker, estimateDepth$)},
-	{"retainClassRef", "Z", nullptr, $FINAL, $field(StackWalker, retainClassRef)},
-	{}
-};
-
-$MethodInfo _StackWalker_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/EnumSet;)V", "(Ljava/util/EnumSet<Ljava/lang/StackWalker$Option;>;)V", $PRIVATE, $method(StackWalker, init$, void, $EnumSet*)},
-	{"<init>", "(Ljava/util/EnumSet;I)V", "(Ljava/util/EnumSet<Ljava/lang/StackWalker$Option;>;I)V", $PRIVATE, $method(StackWalker, init$, void, $EnumSet*, int32_t)},
-	{"<init>", "(Ljava/util/EnumSet;ILjava/lang/StackWalker$ExtendedOption;)V", "(Ljava/util/EnumSet<Ljava/lang/StackWalker$Option;>;ILjava/lang/StackWalker$ExtendedOption;)V", $PRIVATE, $method(StackWalker, init$, void, $EnumSet*, int32_t, $StackWalker$ExtendedOption*)},
-	{"checkPermission", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/StackWalker$Option;>;)V", $PRIVATE | $STATIC, $staticMethod(StackWalker, checkPermission, void, $Set*)},
-	{"estimateDepth", "()I", nullptr, 0, $method(StackWalker, estimateDepth, int32_t)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/StackWalker$StackFrame;>;)V", $PUBLIC, $method(StackWalker, forEach, void, $Consumer*), nullptr, nullptr, _StackWalker_MethodAnnotations_forEach5},
-	{"getCallerClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(StackWalker, getCallerClass, $Class*), nullptr, nullptr, _StackWalker_MethodAnnotations_getCallerClass6},
-	{"getInstance", "()Ljava/lang/StackWalker;", nullptr, $PUBLIC | $STATIC, $staticMethod(StackWalker, getInstance, StackWalker*)},
-	{"getInstance", "(Ljava/lang/StackWalker$Option;)Ljava/lang/StackWalker;", nullptr, $PUBLIC | $STATIC, $staticMethod(StackWalker, getInstance, StackWalker*, $StackWalker$Option*)},
-	{"getInstance", "(Ljava/util/Set;)Ljava/lang/StackWalker;", "(Ljava/util/Set<Ljava/lang/StackWalker$Option;>;)Ljava/lang/StackWalker;", $PUBLIC | $STATIC, $staticMethod(StackWalker, getInstance, StackWalker*, $Set*)},
-	{"getInstance", "(Ljava/util/Set;I)Ljava/lang/StackWalker;", "(Ljava/util/Set<Ljava/lang/StackWalker$Option;>;I)Ljava/lang/StackWalker;", $PUBLIC | $STATIC, $staticMethod(StackWalker, getInstance, StackWalker*, $Set*, int32_t)},
-	{"hasLocalsOperandsOption", "()Z", nullptr, 0, $method(StackWalker, hasLocalsOperandsOption, bool)},
-	{"hasOption", "(Ljava/lang/StackWalker$Option;)Z", nullptr, 0, $method(StackWalker, hasOption, bool, $StackWalker$Option*)},
-	{"lambda$forEach$0", "(Ljava/util/function/Consumer;Ljava/util/stream/Stream;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackWalker, lambda$forEach$0, $Object*, $Consumer*, $Stream*)},
-	{"newInstance", "(Ljava/util/Set;Ljava/lang/StackWalker$ExtendedOption;)Ljava/lang/StackWalker;", "(Ljava/util/Set<Ljava/lang/StackWalker$Option;>;Ljava/lang/StackWalker$ExtendedOption;)Ljava/lang/StackWalker;", $STATIC, $staticMethod(StackWalker, newInstance, StackWalker*, $Set*, $StackWalker$ExtendedOption*)},
-	{"toEnumSet", "(Ljava/util/Set;)Ljava/util/EnumSet;", "(Ljava/util/Set<Ljava/lang/StackWalker$Option;>;)Ljava/util/EnumSet<Ljava/lang/StackWalker$Option;>;", $PRIVATE | $STATIC, $staticMethod(StackWalker, toEnumSet, $EnumSet*, $Set*)},
-	{"walk", "(Ljava/util/function/Function;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/function/Function<-Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;+TT;>;)TT;", $PUBLIC, $method(StackWalker, walk, $Object*, $Function*), nullptr, nullptr, _StackWalker_MethodAnnotations_walk16},
-	{}
-};
-
-$InnerClassInfo _StackWalker_InnerClassesInfo_[] = {
-	{"java.lang.StackWalker$ExtendedOption", "java.lang.StackWalker", "ExtendedOption", $STATIC | $FINAL | $ENUM},
-	{"java.lang.StackWalker$Option", "java.lang.StackWalker", "Option", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"java.lang.StackWalker$StackFrame", "java.lang.StackWalker", "StackFrame", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StackWalker_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.lang.StackWalker",
-	"java.lang.Object",
-	nullptr,
-	_StackWalker_FieldInfo_,
-	_StackWalker_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StackWalker_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.StackWalker$ExtendedOption,java.lang.StackWalker$Option,java.lang.StackWalker$StackFrame"
-};
-
-$Object* allocate$StackWalker($Class* clazz) {
-	return $of($alloc(StackWalker));
-}
 
 $EnumSet* StackWalker::DEFAULT_EMPTY_OPTION = nullptr;
 StackWalker* StackWalker::DEFAULT_WALKER = nullptr;
@@ -181,7 +97,7 @@ StackWalker* StackWalker::getInstance() {
 
 StackWalker* StackWalker::getInstance($StackWalker$Option* option) {
 	$init(StackWalker);
-	return getInstance($(static_cast<$Set*>($EnumSet::of($cast($StackWalker$Option, $Objects::requireNonNull(option))))));
+	return getInstance($($EnumSet::of($cast($StackWalker$Option, $Objects::requireNonNull(option)))));
 }
 
 StackWalker* StackWalker::getInstance($Set* options) {
@@ -222,7 +138,7 @@ void StackWalker::init$($EnumSet* options, int32_t estimateDepth, $StackWalker$E
 
 void StackWalker::checkPermission($Set* options) {
 	$init(StackWalker);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(options);
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -239,26 +155,26 @@ $EnumSet* StackWalker::toEnumSet($Set* options) {
 	if (options->isEmpty()) {
 		return StackWalker::DEFAULT_EMPTY_OPTION;
 	} else {
-		return $EnumSet::copyOf(static_cast<$Collection*>(options));
+		return $EnumSet::copyOf(options);
 	}
 }
 
 $Object* StackWalker::walk($Function* function) {
 	$Objects::requireNonNull(function);
-	return $of($nc($($StackStreamFactory::makeStackTraverser(this, function)))->walk());
+	return $$nc($StackStreamFactory::makeStackTraverser(this, function))->walk();
 }
 
 void StackWalker::forEach($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(action);
-	$nc($($StackStreamFactory::makeStackTraverser(this, static_cast<$Function*>($$new(StackWalker$$Lambda$lambda$forEach$0, action)))))->walk();
+	$$nc($StackStreamFactory::makeStackTraverser(this, $$new(StackWalker$$Lambda$lambda$forEach$0, action)))->walk();
 }
 
 $Class* StackWalker::getCallerClass() {
 	if (!this->retainClassRef) {
 		$throwNew($UnsupportedOperationException, "This stack walker does not have RETAIN_CLASS_REFERENCE access"_s);
 	}
-	return $nc($($StackStreamFactory::makeCallerFinder(this)))->findCaller();
+	return $$nc($StackStreamFactory::makeCallerFinder(this))->findCaller();
 }
 
 StackWalker* StackWalker::newInstance($Set* options, $StackWalker$ExtendedOption* extendedOption) {
@@ -284,10 +200,10 @@ bool StackWalker::hasLocalsOperandsOption() {
 $Object* StackWalker::lambda$forEach$0($Consumer* action, $Stream* s) {
 	$init(StackWalker);
 	$nc(s)->forEach(action);
-	return $of(nullptr);
+	return nullptr;
 }
 
-void clinit$StackWalker($Class* class$) {
+void StackWalker::clinit$($Class* clazz) {
 	$load($StackWalker$Option);
 	$assignStatic(StackWalker::DEFAULT_EMPTY_OPTION, $EnumSet::noneOf($StackWalker$Option::class$));
 	$assignStatic(StackWalker::DEFAULT_WALKER, $new(StackWalker, StackWalker::DEFAULT_EMPTY_OPTION));
@@ -298,11 +214,74 @@ StackWalker::StackWalker() {
 
 $Class* StackWalker::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(StackWalker$$Lambda$lambda$forEach$0::classInfo$.name)) {
+		if (name->equals("java.lang.StackWalker$$Lambda$lambda$forEach$0")) {
 			return StackWalker$$Lambda$lambda$forEach$0::load$(name, initialize);
 		}
 	}
-	$loadClass(StackWalker, name, initialize, &_StackWalker_ClassInfo_, clinit$StackWalker, allocate$StackWalker);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_EMPTY_OPTION", "Ljava/util/EnumSet;", "Ljava/util/EnumSet<Ljava/lang/StackWalker$Option;>;", $STATIC | $FINAL, $staticField(StackWalker, DEFAULT_EMPTY_OPTION)},
+		{"DEFAULT_WALKER", "Ljava/lang/StackWalker;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackWalker, DEFAULT_WALKER)},
+		{"options", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/StackWalker$Option;>;", $PRIVATE | $FINAL, $field(StackWalker, options)},
+		{"extendedOption", "Ljava/lang/StackWalker$ExtendedOption;", nullptr, $PRIVATE | $FINAL, $field(StackWalker, extendedOption)},
+		{"estimateDepth", "I", nullptr, $PRIVATE | $FINAL, $field(StackWalker, estimateDepth$)},
+		{"retainClassRef", "Z", nullptr, $FINAL, $field(StackWalker, retainClassRef)},
+		{}
+	};
+	$CompoundAttribute forEachmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute getCallerClassmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$CompoundAttribute walkmethodAnnotations$$[] = {
+		{"Ljdk/internal/reflect/CallerSensitive;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/EnumSet;)V", "(Ljava/util/EnumSet<Ljava/lang/StackWalker$Option;>;)V", $PRIVATE, $method(StackWalker, init$, void, $EnumSet*)},
+		{"<init>", "(Ljava/util/EnumSet;I)V", "(Ljava/util/EnumSet<Ljava/lang/StackWalker$Option;>;I)V", $PRIVATE, $method(StackWalker, init$, void, $EnumSet*, int32_t)},
+		{"<init>", "(Ljava/util/EnumSet;ILjava/lang/StackWalker$ExtendedOption;)V", "(Ljava/util/EnumSet<Ljava/lang/StackWalker$Option;>;ILjava/lang/StackWalker$ExtendedOption;)V", $PRIVATE, $method(StackWalker, init$, void, $EnumSet*, int32_t, $StackWalker$ExtendedOption*)},
+		{"checkPermission", "(Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/StackWalker$Option;>;)V", $PRIVATE | $STATIC, $staticMethod(StackWalker, checkPermission, void, $Set*)},
+		{"estimateDepth", "()I", nullptr, 0, $method(StackWalker, estimateDepth, int32_t)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-Ljava/lang/StackWalker$StackFrame;>;)V", $PUBLIC, $method(StackWalker, forEach, void, $Consumer*), nullptr, nullptr, forEachmethodAnnotations$$},
+		{"getCallerClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $method(StackWalker, getCallerClass, $Class*), nullptr, nullptr, getCallerClassmethodAnnotations$$},
+		{"getInstance", "()Ljava/lang/StackWalker;", nullptr, $PUBLIC | $STATIC, $staticMethod(StackWalker, getInstance, StackWalker*)},
+		{"getInstance", "(Ljava/lang/StackWalker$Option;)Ljava/lang/StackWalker;", nullptr, $PUBLIC | $STATIC, $staticMethod(StackWalker, getInstance, StackWalker*, $StackWalker$Option*)},
+		{"getInstance", "(Ljava/util/Set;)Ljava/lang/StackWalker;", "(Ljava/util/Set<Ljava/lang/StackWalker$Option;>;)Ljava/lang/StackWalker;", $PUBLIC | $STATIC, $staticMethod(StackWalker, getInstance, StackWalker*, $Set*)},
+		{"getInstance", "(Ljava/util/Set;I)Ljava/lang/StackWalker;", "(Ljava/util/Set<Ljava/lang/StackWalker$Option;>;I)Ljava/lang/StackWalker;", $PUBLIC | $STATIC, $staticMethod(StackWalker, getInstance, StackWalker*, $Set*, int32_t)},
+		{"hasLocalsOperandsOption", "()Z", nullptr, 0, $method(StackWalker, hasLocalsOperandsOption, bool)},
+		{"hasOption", "(Ljava/lang/StackWalker$Option;)Z", nullptr, 0, $method(StackWalker, hasOption, bool, $StackWalker$Option*)},
+		{"lambda$forEach$0", "(Ljava/util/function/Consumer;Ljava/util/stream/Stream;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackWalker, lambda$forEach$0, $Object*, $Consumer*, $Stream*)},
+		{"newInstance", "(Ljava/util/Set;Ljava/lang/StackWalker$ExtendedOption;)Ljava/lang/StackWalker;", "(Ljava/util/Set<Ljava/lang/StackWalker$Option;>;Ljava/lang/StackWalker$ExtendedOption;)Ljava/lang/StackWalker;", $STATIC, $staticMethod(StackWalker, newInstance, StackWalker*, $Set*, $StackWalker$ExtendedOption*)},
+		{"toEnumSet", "(Ljava/util/Set;)Ljava/util/EnumSet;", "(Ljava/util/Set<Ljava/lang/StackWalker$Option;>;)Ljava/util/EnumSet<Ljava/lang/StackWalker$Option;>;", $PRIVATE | $STATIC, $staticMethod(StackWalker, toEnumSet, $EnumSet*, $Set*)},
+		{"walk", "(Ljava/util/function/Function;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/util/function/Function<-Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;+TT;>;)TT;", $PUBLIC, $method(StackWalker, walk, $Object*, $Function*), nullptr, nullptr, walkmethodAnnotations$$},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.StackWalker$ExtendedOption", "java.lang.StackWalker", "ExtendedOption", $STATIC | $FINAL | $ENUM},
+		{"java.lang.StackWalker$Option", "java.lang.StackWalker", "Option", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"java.lang.StackWalker$StackFrame", "java.lang.StackWalker", "StackFrame", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.lang.StackWalker",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.StackWalker$ExtendedOption,java.lang.StackWalker$Option,java.lang.StackWalker$StackFrame"
+	};
+	$loadClass(StackWalker, name, initialize, &classInfo$$, StackWalker::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StackWalker);
+	});
 	return class$;
 }
 

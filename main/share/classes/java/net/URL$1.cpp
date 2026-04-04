@@ -1,5 +1,4 @@
 #include <java/net/URL$1.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/SecurityException.h>
 #include <java/net/URL.h>
@@ -18,60 +17,12 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
 using $URLStreamHandlerProvider = ::java::net::spi::URLStreamHandlerProvider;
-using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $ServiceConfigurationError = ::java::util::ServiceConfigurationError;
 using $ServiceLoader = ::java::util::ServiceLoader;
 
 namespace java {
 	namespace net {
-
-$FieldInfo _URL$1_FieldInfo_[] = {
-	{"cl", "Ljava/lang/ClassLoader;", nullptr, 0, $field(URL$1, cl)},
-	{"sl", "Ljava/util/ServiceLoader;", "Ljava/util/ServiceLoader<Ljava/net/spi/URLStreamHandlerProvider;>;", 0, $field(URL$1, sl)},
-	{"i", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/net/spi/URLStreamHandlerProvider;>;", 0, $field(URL$1, i)},
-	{"next", "Ljava/net/spi/URLStreamHandlerProvider;", nullptr, 0, $field(URL$1, next$)},
-	{}
-};
-
-$MethodInfo _URL$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(URL$1, init$, void)},
-	{"getNext", "()Z", nullptr, $PRIVATE, $method(URL$1, getNext, bool)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(URL$1, hasNext, bool)},
-	{"next", "()Ljava/net/spi/URLStreamHandlerProvider;", nullptr, $PUBLIC, $virtualMethod(URL$1, next, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _URL$1_EnclosingMethodInfo_ = {
-	"java.net.URL",
-	"providers",
-	"()Ljava/util/Iterator;"
-};
-
-$InnerClassInfo _URL$1_InnerClassesInfo_[] = {
-	{"java.net.URL$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _URL$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.net.URL$1",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_URL$1_FieldInfo_,
-	_URL$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/net/spi/URLStreamHandlerProvider;>;",
-	&_URL$1_EnclosingMethodInfo_,
-	_URL$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.URL"
-};
-
-$Object* allocate$URL$1($Class* clazz) {
-	return $of($alloc(URL$1));
-}
 
 void URL$1::init$() {
 	$beforeCallerSensitive();
@@ -83,13 +34,13 @@ void URL$1::init$() {
 }
 
 bool URL$1::getNext() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (this->next$ == nullptr) {
 		try {
 			if (!$nc(this->i)->hasNext()) {
 				return false;
 			}
-			$set(this, next$, $cast($URLStreamHandlerProvider, $nc(this->i)->next()));
+			$set(this, next$, $cast($URLStreamHandlerProvider, this->i->next()));
 		} catch ($ServiceConfigurationError& sce) {
 			if ($instanceOf($SecurityException, $(sce->getCause()))) {
 				continue;
@@ -110,14 +61,54 @@ $Object* URL$1::next() {
 	}
 	$var($URLStreamHandlerProvider, n, this->next$);
 	$set(this, next$, nullptr);
-	return $of(n);
+	return n;
 }
 
 URL$1::URL$1() {
 }
 
 $Class* URL$1::load$($String* name, bool initialize) {
-	$loadClass(URL$1, name, initialize, &_URL$1_ClassInfo_, allocate$URL$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"cl", "Ljava/lang/ClassLoader;", nullptr, 0, $field(URL$1, cl)},
+		{"sl", "Ljava/util/ServiceLoader;", "Ljava/util/ServiceLoader<Ljava/net/spi/URLStreamHandlerProvider;>;", 0, $field(URL$1, sl)},
+		{"i", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/net/spi/URLStreamHandlerProvider;>;", 0, $field(URL$1, i)},
+		{"next", "Ljava/net/spi/URLStreamHandlerProvider;", nullptr, 0, $field(URL$1, next$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(URL$1, init$, void)},
+		{"getNext", "()Z", nullptr, $PRIVATE, $method(URL$1, getNext, bool)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(URL$1, hasNext, bool)},
+		{"next", "()Ljava/net/spi/URLStreamHandlerProvider;", nullptr, $PUBLIC, $virtualMethod(URL$1, next, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.net.URL",
+		"providers",
+		"()Ljava/util/Iterator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.URL$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.net.URL$1",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/net/spi/URLStreamHandlerProvider;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.URL"
+	};
+	$loadClass(URL$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(URL$1);
+	});
 	return class$;
 }
 

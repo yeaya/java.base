@@ -1,5 +1,4 @@
 #include <com/sun/crypto/provider/DHPrivateKey.h>
-
 #include <com/sun/crypto/provider/DHPublicKey.h>
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
@@ -51,48 +50,6 @@ namespace com {
 		namespace crypto {
 			namespace provider {
 
-$FieldInfo _DHPrivateKey_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(DHPrivateKey, serialVersionUID)},
-	{"PKCS8_VERSION", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DHPrivateKey, PKCS8_VERSION)},
-	{"x", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHPrivateKey, x)},
-	{"key", "[B", nullptr, $PRIVATE, $field(DHPrivateKey, key)},
-	{"encodedKey", "[B", nullptr, $PRIVATE, $field(DHPrivateKey, encodedKey)},
-	{"p", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHPrivateKey, p)},
-	{"g", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHPrivateKey, g)},
-	{"l", "I", nullptr, $PRIVATE, $field(DHPrivateKey, l)},
-	{}
-};
-
-$MethodInfo _DHPrivateKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, 0, $method(DHPrivateKey, init$, void, $BigInteger*, $BigInteger*, $BigInteger*), "java.security.InvalidKeyException"},
-	{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;I)V", nullptr, 0, $method(DHPrivateKey, init$, void, $BigInteger*, $BigInteger*, $BigInteger*, int32_t)},
-	{"<init>", "([B)V", nullptr, 0, $method(DHPrivateKey, init$, void, $bytes*), "java.security.InvalidKeyException"},
-	{"encode", "()V", nullptr, $PRIVATE, $method(DHPrivateKey, encode, void)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DHPrivateKey, equals, bool, Object$*)},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DHPrivateKey, getAlgorithm, $String*)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DHPrivateKey, getEncoded, $bytes*)},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DHPrivateKey, getFormat, $String*)},
-	{"getParams", "()Ljavax/crypto/spec/DHParameterSpec;", nullptr, $PUBLIC, $virtualMethod(DHPrivateKey, getParams, $DHParameterSpec*)},
-	{"getX", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DHPrivateKey, getX, $BigInteger*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DHPrivateKey, hashCode, int32_t)},
-	{"parseKeyBits", "()V", nullptr, $PRIVATE, $method(DHPrivateKey, parseKeyBits, void), "java.security.InvalidKeyException"},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(DHPrivateKey, writeReplace, $Object*), "java.io.ObjectStreamException"},
-	{}
-};
-
-$ClassInfo _DHPrivateKey_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.crypto.provider.DHPrivateKey",
-	"java.lang.Object",
-	"javax.crypto.interfaces.DHPrivateKey",
-	_DHPrivateKey_FieldInfo_,
-	_DHPrivateKey_MethodInfo_
-};
-
-$Object* allocate$DHPrivateKey($Class* clazz) {
-	return $of($alloc(DHPrivateKey));
-}
-
 $BigInteger* DHPrivateKey::PKCS8_VERSION = nullptr;
 
 void DHPrivateKey::init$($BigInteger* x, $BigInteger* p, $BigInteger* g) {
@@ -100,7 +57,7 @@ void DHPrivateKey::init$($BigInteger* x, $BigInteger* p, $BigInteger* g) {
 }
 
 void DHPrivateKey::init$($BigInteger* x, $BigInteger* p, $BigInteger* g, int32_t l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, x, x);
 	$set(this, p, p);
 	$set(this, g, g);
@@ -118,66 +75,64 @@ void DHPrivateKey::init$($BigInteger* x, $BigInteger* p, $BigInteger* g, int32_t
 }
 
 void DHPrivateKey::init$($bytes* encodedKey) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerValue, val, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$assign(val, $new($DerValue, encodedKey));
-				if (val->tag != $DerValue::tag_Sequence) {
-					$throwNew($InvalidKeyException, "Key not a SEQUENCE"_s);
-				}
-				$var($BigInteger, parsedVersion, $nc(val->data$)->getBigInteger());
-				if (!$nc(parsedVersion)->equals(DHPrivateKey::PKCS8_VERSION)) {
-					$throwNew($IOException, $$str({"version mismatch: (supported: "_s, DHPrivateKey::PKCS8_VERSION, ", parsed: "_s, parsedVersion}));
-				}
-				$var($DerValue, algid, $nc(val->data$)->getDerValue());
-				if ($nc(algid)->tag != $DerValue::tag_Sequence) {
-					$throwNew($InvalidKeyException, "AlgId is not a SEQUENCE"_s);
-				}
-				$var($DerInputStream, derInStream, $nc(algid)->toDerInputStream());
-				$var($ObjectIdentifier, oid, $nc(derInStream)->getOID());
-				if (oid == nullptr) {
-					$throwNew($InvalidKeyException, "Null OID"_s);
-				}
-				if (derInStream->available() == 0) {
-					$throwNew($InvalidKeyException, "Parameters missing"_s);
-				}
-				$var($DerValue, params, derInStream->getDerValue());
-				if ($nc(params)->tag == $DerValue::tag_Null) {
-					$throwNew($InvalidKeyException, "Null parameters"_s);
-				}
-				if ($nc(params)->tag != $DerValue::tag_Sequence) {
-					$throwNew($InvalidKeyException, "Parameters not a SEQUENCE"_s);
-				}
-				$nc($nc(params)->data$)->reset();
-				$set(this, p, $nc(params->data$)->getBigInteger());
-				$set(this, g, $nc(params->data$)->getBigInteger());
-				if ($nc(params->data$)->available() != 0) {
-					this->l = $nc(params->data$)->getInteger();
-				}
-				if ($nc(params->data$)->available() != 0) {
-					$throwNew($InvalidKeyException, "Extra parameter data"_s);
-				}
-				$set(this, key, $nc(val->data$)->getOctetString());
-				parseKeyBits();
-				$set(this, encodedKey, $cast($bytes, $nc(encodedKey)->clone()));
-			} catch ($IOException& e) {
-				$throwNew($InvalidKeyException, "Error parsing key encoding"_s, e);
-			} catch ($NumberFormatException& e) {
-				$throwNew($InvalidKeyException, "Error parsing key encoding"_s, e);
+			$assign(val, $new($DerValue, encodedKey));
+			if (val->tag != $DerValue::tag_Sequence) {
+				$throwNew($InvalidKeyException, "Key not a SEQUENCE"_s);
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (val != nullptr) {
-				val->clear();
+			$var($BigInteger, parsedVersion, $nc(val->data$)->getBigInteger());
+			if (!$nc(parsedVersion)->equals(DHPrivateKey::PKCS8_VERSION)) {
+				$throwNew($IOException, $$str({"version mismatch: (supported: "_s, DHPrivateKey::PKCS8_VERSION, ", parsed: "_s, parsedVersion}));
 			}
+			$var($DerValue, algid, val->data$->getDerValue());
+			if ($nc(algid)->tag != $DerValue::tag_Sequence) {
+				$throwNew($InvalidKeyException, "AlgId is not a SEQUENCE"_s);
+			}
+			$var($DerInputStream, derInStream, algid->toDerInputStream());
+			$var($ObjectIdentifier, oid, $nc(derInStream)->getOID());
+			if (oid == nullptr) {
+				$throwNew($InvalidKeyException, "Null OID"_s);
+			}
+			if (derInStream->available() == 0) {
+				$throwNew($InvalidKeyException, "Parameters missing"_s);
+			}
+			$var($DerValue, params, derInStream->getDerValue());
+			if ($nc(params)->tag == $DerValue::tag_Null) {
+				$throwNew($InvalidKeyException, "Null parameters"_s);
+			}
+			if (params->tag != $DerValue::tag_Sequence) {
+				$throwNew($InvalidKeyException, "Parameters not a SEQUENCE"_s);
+			}
+			$nc(params->data$)->reset();
+			$set(this, p, params->data$->getBigInteger());
+			$set(this, g, params->data$->getBigInteger());
+			if (params->data$->available() != 0) {
+				this->l = params->data$->getInteger();
+			}
+			if (params->data$->available() != 0) {
+				$throwNew($InvalidKeyException, "Extra parameter data"_s);
+			}
+			$set(this, key, val->data$->getOctetString());
+			parseKeyBits();
+			$set(this, encodedKey, $cast($bytes, $nc(encodedKey)->clone()));
+		} catch ($IOException& e) {
+			$throwNew($InvalidKeyException, "Error parsing key encoding"_s, e);
+		} catch ($NumberFormatException& e) {
+			$throwNew($InvalidKeyException, "Error parsing key encoding"_s, e);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (val != nullptr) {
+			val->clear();
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -197,7 +152,7 @@ $bytes* DHPrivateKey::getEncoded() {
 }
 
 void DHPrivateKey::encode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->encodedKey == nullptr) {
 		try {
 			$var($DerOutputStream, tmp, $new($DerOutputStream));
@@ -237,7 +192,7 @@ $DHParameterSpec* DHPrivateKey::getParams() {
 }
 
 void DHPrivateKey::parseKeyBits() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($DerInputStream, in, $new($DerInputStream, this->key));
 		$set(this, x, in->getBigInteger());
@@ -250,14 +205,14 @@ void DHPrivateKey::parseKeyBits() {
 
 int32_t DHPrivateKey::hashCode() {
 	return $Objects::hash($$new($ObjectArray, {
-		$of(this->x),
-		$of(this->p),
-		$of(this->g)
+		this->x,
+		this->p,
+		this->g
 	}));
 }
 
 bool DHPrivateKey::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -266,21 +221,21 @@ bool DHPrivateKey::equals(Object$* obj) {
 	}
 	$var($DHPrivateKey, other, $cast($DHPrivateKey, obj));
 	$var($DHParameterSpec, otherParams, $nc(other)->getParams());
-	bool var$1 = ($nc(this->x)->compareTo($(other->getX())) == 0);
+	bool var$1 = $nc(this->x)->compareTo($(other->getX())) == 0;
 	bool var$0 = var$1 && ($nc(this->p)->compareTo($($nc(otherParams)->getP())) == 0);
-	return (var$0 && ($nc(this->g)->compareTo($($nc(otherParams)->getG())) == 0));
+	return (var$0 && ($nc(this->g)->compareTo($(otherParams->getG())) == 0));
 }
 
 $Object* DHPrivateKey::writeReplace() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	encode();
 	$init($KeyRep$Type);
 	$var($KeyRep$Type, var$0, $KeyRep$Type::PRIVATE);
 	$var($String, var$1, getAlgorithm());
-	return $of($new($KeyRep, var$0, var$1, $(getFormat()), this->encodedKey));
+	return $new($KeyRep, var$0, var$1, $(getFormat()), this->encodedKey);
 }
 
-void clinit$DHPrivateKey($Class* class$) {
+void DHPrivateKey::clinit$($Class* clazz) {
 	$init($BigInteger);
 	$assignStatic(DHPrivateKey::PKCS8_VERSION, $BigInteger::ZERO);
 }
@@ -289,7 +244,44 @@ DHPrivateKey::DHPrivateKey() {
 }
 
 $Class* DHPrivateKey::load$($String* name, bool initialize) {
-	$loadClass(DHPrivateKey, name, initialize, &_DHPrivateKey_ClassInfo_, clinit$DHPrivateKey, allocate$DHPrivateKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(DHPrivateKey, serialVersionUID)},
+		{"PKCS8_VERSION", "Ljava/math/BigInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DHPrivateKey, PKCS8_VERSION)},
+		{"x", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHPrivateKey, x)},
+		{"key", "[B", nullptr, $PRIVATE, $field(DHPrivateKey, key)},
+		{"encodedKey", "[B", nullptr, $PRIVATE, $field(DHPrivateKey, encodedKey)},
+		{"p", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHPrivateKey, p)},
+		{"g", "Ljava/math/BigInteger;", nullptr, $PRIVATE, $field(DHPrivateKey, g)},
+		{"l", "I", nullptr, $PRIVATE, $field(DHPrivateKey, l)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, 0, $method(DHPrivateKey, init$, void, $BigInteger*, $BigInteger*, $BigInteger*), "java.security.InvalidKeyException"},
+		{"<init>", "(Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;I)V", nullptr, 0, $method(DHPrivateKey, init$, void, $BigInteger*, $BigInteger*, $BigInteger*, int32_t)},
+		{"<init>", "([B)V", nullptr, 0, $method(DHPrivateKey, init$, void, $bytes*), "java.security.InvalidKeyException"},
+		{"encode", "()V", nullptr, $PRIVATE, $method(DHPrivateKey, encode, void)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DHPrivateKey, equals, bool, Object$*)},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DHPrivateKey, getAlgorithm, $String*)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DHPrivateKey, getEncoded, $bytes*)},
+		{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DHPrivateKey, getFormat, $String*)},
+		{"getParams", "()Ljavax/crypto/spec/DHParameterSpec;", nullptr, $PUBLIC, $virtualMethod(DHPrivateKey, getParams, $DHParameterSpec*)},
+		{"getX", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(DHPrivateKey, getX, $BigInteger*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DHPrivateKey, hashCode, int32_t)},
+		{"parseKeyBits", "()V", nullptr, $PRIVATE, $method(DHPrivateKey, parseKeyBits, void), "java.security.InvalidKeyException"},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(DHPrivateKey, writeReplace, $Object*), "java.io.ObjectStreamException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.crypto.provider.DHPrivateKey",
+		"java.lang.Object",
+		"javax.crypto.interfaces.DHPrivateKey",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DHPrivateKey, name, initialize, &classInfo$$, DHPrivateKey::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DHPrivateKey));
+	});
 	return class$;
 }
 

@@ -71,6 +71,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	void init$(::java::io::File* file, int32_t mode);
 	void init$(::java::io::File* file);

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CertificateVerify$T13CertificateVerifyConsumer.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/util/HashMap.h>
 #include <java/util/LinkedHashMap.h>
@@ -18,7 +17,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $CertificateVerify$T13CertificateVerifyMessage = ::sun::security::ssl::CertificateVerify$T13CertificateVerifyMessage;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
 using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
@@ -29,49 +27,18 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _CertificateVerify$T13CertificateVerifyConsumer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CertificateVerify$T13CertificateVerifyConsumer, init$, void)},
-	{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T13CertificateVerifyConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _CertificateVerify$T13CertificateVerifyConsumer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertificateVerify$T13CertificateVerifyConsumer", "sun.security.ssl.CertificateVerify", "T13CertificateVerifyConsumer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _CertificateVerify$T13CertificateVerifyConsumer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CertificateVerify$T13CertificateVerifyConsumer",
-	"java.lang.Object",
-	"sun.security.ssl.SSLConsumer",
-	nullptr,
-	_CertificateVerify$T13CertificateVerifyConsumer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CertificateVerify$T13CertificateVerifyConsumer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertificateVerify"
-};
-
-$Object* allocate$CertificateVerify$T13CertificateVerifyConsumer($Class* clazz) {
-	return $of($alloc(CertificateVerify$T13CertificateVerifyConsumer));
-}
-
 void CertificateVerify$T13CertificateVerifyConsumer::init$() {
 }
 
 void CertificateVerify$T13CertificateVerifyConsumer::consume($ConnectionContext* context, $ByteBuffer* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HandshakeContext, hc, $cast($HandshakeContext, context));
 	$init($SSLHandshake);
 	$nc($nc(hc)->handshakeConsumers)->remove($($Byte::valueOf($SSLHandshake::CERTIFICATE_VERIFY->id)));
 	$var($CertificateVerify$T13CertificateVerifyMessage, cvm, $new($CertificateVerify$T13CertificateVerifyMessage, hc, message));
 	$init($SSLLogger);
 	if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
-		$SSLLogger::fine("Consuming CertificateVerify handshake message"_s, $$new($ObjectArray, {$of(cvm)}));
+		$SSLLogger::fine("Consuming CertificateVerify handshake message"_s, $$new($ObjectArray, {cvm}));
 	}
 }
 
@@ -79,7 +46,33 @@ CertificateVerify$T13CertificateVerifyConsumer::CertificateVerify$T13Certificate
 }
 
 $Class* CertificateVerify$T13CertificateVerifyConsumer::load$($String* name, bool initialize) {
-	$loadClass(CertificateVerify$T13CertificateVerifyConsumer, name, initialize, &_CertificateVerify$T13CertificateVerifyConsumer_ClassInfo_, allocate$CertificateVerify$T13CertificateVerifyConsumer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CertificateVerify$T13CertificateVerifyConsumer, init$, void)},
+		{"consume", "(Lsun/security/ssl/ConnectionContext;Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(CertificateVerify$T13CertificateVerifyConsumer, consume, void, $ConnectionContext*, $ByteBuffer*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertificateVerify$T13CertificateVerifyConsumer", "sun.security.ssl.CertificateVerify", "T13CertificateVerifyConsumer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CertificateVerify$T13CertificateVerifyConsumer",
+		"java.lang.Object",
+		"sun.security.ssl.SSLConsumer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertificateVerify"
+	};
+	$loadClass(CertificateVerify$T13CertificateVerifyConsumer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CertificateVerify$T13CertificateVerifyConsumer);
+	});
 	return class$;
 }
 

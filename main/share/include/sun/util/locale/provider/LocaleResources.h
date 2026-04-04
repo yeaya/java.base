@@ -93,6 +93,7 @@ class $import LocaleResources : public ::java::lang::Object {
 	$class(LocaleResources, 0, ::java::lang::Object)
 public:
 	LocaleResources();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::util::locale::provider::ResourceBundleBasedAdapter* adapter, ::java::util::Locale* locale);
 	virtual $Object* getBreakIteratorInfo($String* key);
 	virtual $bytes* getBreakIteratorResources($String* key);

@@ -1,10 +1,8 @@
 #include <sun/security/provider/NativePRNG.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/SecureRandomSpi.h>
 #include <sun/security/provider/NativePRNG$1.h>
 #include <sun/security/provider/NativePRNG$RandomIO.h>
@@ -26,7 +24,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $URL = ::java::net::URL;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $SecureRandomSpi = ::java::security::SecureRandomSpi;
 using $NativePRNG$1 = ::sun::security::provider::NativePRNG$1;
 using $NativePRNG$RandomIO = ::sun::security::provider::NativePRNG$RandomIO;
@@ -38,55 +35,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$FieldInfo _NativePRNG_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativePRNG, serialVersionUID)},
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativePRNG, debug)},
-	{"NAME_RANDOM", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativePRNG, NAME_RANDOM)},
-	{"NAME_URANDOM", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativePRNG, NAME_URANDOM)},
-	{"INSTANCE", "Lsun/security/provider/NativePRNG$RandomIO;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativePRNG, INSTANCE)},
-	{}
-};
-
-$MethodInfo _NativePRNG_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NativePRNG, init$, void)},
-	{"engineGenerateSeed", "(I)[B", nullptr, $PROTECTED, $virtualMethod(NativePRNG, engineGenerateSeed, $bytes*, int32_t)},
-	{"engineNextBytes", "([B)V", nullptr, $PROTECTED, $virtualMethod(NativePRNG, engineNextBytes, void, $bytes*)},
-	{"engineSetSeed", "([B)V", nullptr, $PROTECTED, $virtualMethod(NativePRNG, engineSetSeed, void, $bytes*)},
-	{"getEgdUrl", "()Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(NativePRNG, getEgdUrl, $URL*)},
-	{"initIO", "(Lsun/security/provider/NativePRNG$Variant;)Lsun/security/provider/NativePRNG$RandomIO;", nullptr, $PRIVATE | $STATIC, $staticMethod(NativePRNG, initIO, $NativePRNG$RandomIO*, $NativePRNG$Variant*)},
-	{"isAvailable", "()Z", nullptr, $STATIC, $staticMethod(NativePRNG, isAvailable, bool)},
-	{}
-};
-
-$InnerClassInfo _NativePRNG_InnerClassesInfo_[] = {
-	{"sun.security.provider.NativePRNG$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"sun.security.provider.NativePRNG$RandomIO", "sun.security.provider.NativePRNG", "RandomIO", $PRIVATE | $STATIC},
-	{"sun.security.provider.NativePRNG$NonBlocking", "sun.security.provider.NativePRNG", "NonBlocking", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.NativePRNG$Blocking", "sun.security.provider.NativePRNG", "Blocking", $PUBLIC | $STATIC | $FINAL},
-	{"sun.security.provider.NativePRNG$Variant", "sun.security.provider.NativePRNG", "Variant", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{"sun.security.provider.NativePRNG$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NativePRNG_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.provider.NativePRNG",
-	"java.security.SecureRandomSpi",
-	nullptr,
-	_NativePRNG_FieldInfo_,
-	_NativePRNG_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NativePRNG_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.provider.NativePRNG$2,sun.security.provider.NativePRNG$RandomIO,sun.security.provider.NativePRNG$RandomIO$1,sun.security.provider.NativePRNG$NonBlocking,sun.security.provider.NativePRNG$Blocking,sun.security.provider.NativePRNG$Variant,sun.security.provider.NativePRNG$1"
-};
-
-$Object* allocate$NativePRNG($Class* clazz) {
-	return $of($alloc(NativePRNG));
-}
-
 $Debug* NativePRNG::debug = nullptr;
 $String* NativePRNG::NAME_RANDOM = nullptr;
 $String* NativePRNG::NAME_URANDOM = nullptr;
@@ -94,16 +42,16 @@ $NativePRNG$RandomIO* NativePRNG::INSTANCE = nullptr;
 
 $URL* NativePRNG::getEgdUrl() {
 	$init(NativePRNG);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, egdSource, $SunEntries::getSeedSource());
 	$var($URL, egdUrl, nullptr);
 	if ($nc(egdSource)->length() != 0) {
 		if (NativePRNG::debug != nullptr) {
-			$nc(NativePRNG::debug)->println($$str({"NativePRNG egdUrl: "_s, egdSource}));
+			NativePRNG::debug->println($$str({"NativePRNG egdUrl: "_s, egdSource}));
 		}
 		try {
 			$assign(egdUrl, $new($URL, egdSource));
-			if (!$nc($(egdUrl->getProtocol()))->equalsIgnoreCase("file"_s)) {
+			if (!$$nc(egdUrl->getProtocol())->equalsIgnoreCase("file"_s)) {
 				return nullptr;
 			}
 		} catch ($MalformedURLException& e) {
@@ -118,7 +66,7 @@ $URL* NativePRNG::getEgdUrl() {
 $NativePRNG$RandomIO* NativePRNG::initIO($NativePRNG$Variant* v) {
 	$init(NativePRNG);
 	$beforeCallerSensitive();
-	return $cast($NativePRNG$RandomIO, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($NativePRNG$1, v))));
+	return $cast($NativePRNG$RandomIO, $AccessController::doPrivileged($$new($NativePRNG$1, v)));
 }
 
 bool NativePRNG::isAvailable() {
@@ -145,7 +93,7 @@ $bytes* NativePRNG::engineGenerateSeed(int32_t numBytes) {
 	return $nc(NativePRNG::INSTANCE)->implGenerateSeed(numBytes);
 }
 
-void clinit$NativePRNG($Class* class$) {
+void NativePRNG::clinit$($Class* clazz) {
 	$assignStatic(NativePRNG::NAME_RANDOM, "/dev/random"_s);
 	$assignStatic(NativePRNG::NAME_URANDOM, "/dev/urandom"_s);
 	$assignStatic(NativePRNG::debug, $Debug::getInstance("provider"_s));
@@ -157,7 +105,50 @@ NativePRNG::NativePRNG() {
 }
 
 $Class* NativePRNG::load$($String* name, bool initialize) {
-	$loadClass(NativePRNG, name, initialize, &_NativePRNG_ClassInfo_, clinit$NativePRNG, allocate$NativePRNG);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativePRNG, serialVersionUID)},
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativePRNG, debug)},
+		{"NAME_RANDOM", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativePRNG, NAME_RANDOM)},
+		{"NAME_URANDOM", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativePRNG, NAME_URANDOM)},
+		{"INSTANCE", "Lsun/security/provider/NativePRNG$RandomIO;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NativePRNG, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NativePRNG, init$, void)},
+		{"engineGenerateSeed", "(I)[B", nullptr, $PROTECTED, $virtualMethod(NativePRNG, engineGenerateSeed, $bytes*, int32_t)},
+		{"engineNextBytes", "([B)V", nullptr, $PROTECTED, $virtualMethod(NativePRNG, engineNextBytes, void, $bytes*)},
+		{"engineSetSeed", "([B)V", nullptr, $PROTECTED, $virtualMethod(NativePRNG, engineSetSeed, void, $bytes*)},
+		{"getEgdUrl", "()Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(NativePRNG, getEgdUrl, $URL*)},
+		{"initIO", "(Lsun/security/provider/NativePRNG$Variant;)Lsun/security/provider/NativePRNG$RandomIO;", nullptr, $PRIVATE | $STATIC, $staticMethod(NativePRNG, initIO, $NativePRNG$RandomIO*, $NativePRNG$Variant*)},
+		{"isAvailable", "()Z", nullptr, $STATIC, $staticMethod(NativePRNG, isAvailable, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.NativePRNG$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"sun.security.provider.NativePRNG$RandomIO", "sun.security.provider.NativePRNG", "RandomIO", $PRIVATE | $STATIC},
+		{"sun.security.provider.NativePRNG$NonBlocking", "sun.security.provider.NativePRNG", "NonBlocking", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.NativePRNG$Blocking", "sun.security.provider.NativePRNG", "Blocking", $PUBLIC | $STATIC | $FINAL},
+		{"sun.security.provider.NativePRNG$Variant", "sun.security.provider.NativePRNG", "Variant", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{"sun.security.provider.NativePRNG$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.provider.NativePRNG",
+		"java.security.SecureRandomSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.provider.NativePRNG$2,sun.security.provider.NativePRNG$RandomIO,sun.security.provider.NativePRNG$RandomIO$1,sun.security.provider.NativePRNG$NonBlocking,sun.security.provider.NativePRNG$Blocking,sun.security.provider.NativePRNG$Variant,sun.security.provider.NativePRNG$1"
+	};
+	$loadClass(NativePRNG, name, initialize, &classInfo$$, NativePRNG::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NativePRNG);
+	});
 	return class$;
 }
 

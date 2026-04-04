@@ -1,5 +1,4 @@
 #include <ArgWithSpaceAndFinalBackslash.h>
-
 #include <java/io/File.h>
 #include <java/io/InputStream.h>
 #include <java/lang/Process.h>
@@ -8,38 +7,17 @@
 
 using $File = ::java::io::File;
 using $InputStream = ::java::io::InputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Process = ::java::lang::Process;
 using $Runtime = ::java::lang::Runtime;
 
-$MethodInfo _ArgWithSpaceAndFinalBackslash_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ArgWithSpaceAndFinalBackslash, init$, void)},
-	{"getJavaCommand", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ArgWithSpaceAndFinalBackslash, getJavaCommand, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ArgWithSpaceAndFinalBackslash, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ArgWithSpaceAndFinalBackslash_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ArgWithSpaceAndFinalBackslash",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ArgWithSpaceAndFinalBackslash_MethodInfo_
-};
-
-$Object* allocate$ArgWithSpaceAndFinalBackslash($Class* clazz) {
-	return $of($alloc(ArgWithSpaceAndFinalBackslash));
-}
-
 void ArgWithSpaceAndFinalBackslash::init$() {
 }
 
 $String* ArgWithSpaceAndFinalBackslash::getJavaCommand() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, javaHome, $System::getProperty("java.home"_s));
 	if (javaHome != nullptr && javaHome->length() > 0) {
 		$init($File);
@@ -50,7 +28,7 @@ $String* ArgWithSpaceAndFinalBackslash::getJavaCommand() {
 }
 
 void ArgWithSpaceAndFinalBackslash::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(args)->length > 0) {
 		$nc($System::err)->println(args->get(0));
 		return;
@@ -66,7 +44,7 @@ void ArgWithSpaceAndFinalBackslash::main($StringArray* args) {
 	cmd->set(i++, cp);
 	cmd->set(i++, "ArgWithSpaceAndFinalBackslash"_s);
 	cmd->set(i++, "foo bar\\baz\\"_s);
-	$var($Process, process, $nc($($Runtime::getRuntime()))->exec(cmd));
+	$var($Process, process, $$nc($Runtime::getRuntime())->exec(cmd));
 	$var($InputStream, in, $nc(process)->getErrorStream());
 	$var($bytes, buf, $new($bytes, 1024));
 	int32_t n = 0;
@@ -84,7 +62,23 @@ ArgWithSpaceAndFinalBackslash::ArgWithSpaceAndFinalBackslash() {
 }
 
 $Class* ArgWithSpaceAndFinalBackslash::load$($String* name, bool initialize) {
-	$loadClass(ArgWithSpaceAndFinalBackslash, name, initialize, &_ArgWithSpaceAndFinalBackslash_ClassInfo_, allocate$ArgWithSpaceAndFinalBackslash);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ArgWithSpaceAndFinalBackslash, init$, void)},
+		{"getJavaCommand", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ArgWithSpaceAndFinalBackslash, getJavaCommand, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ArgWithSpaceAndFinalBackslash, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ArgWithSpaceAndFinalBackslash",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ArgWithSpaceAndFinalBackslash, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArgWithSpaceAndFinalBackslash);
+	});
 	return class$;
 }
 

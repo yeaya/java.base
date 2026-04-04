@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/commons/RemappingFieldAdapter.h>
-
 #include <jdk/internal/org/objectweb/asm/AnnotationVisitor.h>
 #include <jdk/internal/org/objectweb/asm/FieldVisitor.h>
 #include <jdk/internal/org/objectweb/asm/Opcodes.h>
@@ -28,41 +27,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace commons {
 
-$CompoundAttribute _RemappingFieldAdapter_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _RemappingFieldAdapter_FieldInfo_[] = {
-	{"remapper", "Ljdk/internal/org/objectweb/asm/commons/Remapper;", nullptr, $PRIVATE | $FINAL, $field(RemappingFieldAdapter, remapper)},
-	{}
-};
-
-$MethodInfo _RemappingFieldAdapter_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/FieldVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PUBLIC, $method(RemappingFieldAdapter, init$, void, $FieldVisitor*, $Remapper*)},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/FieldVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PROTECTED, $method(RemappingFieldAdapter, init$, void, int32_t, $FieldVisitor*, $Remapper*)},
-	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingFieldAdapter, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
-	{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingFieldAdapter, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
-	{}
-};
-
-$ClassInfo _RemappingFieldAdapter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.commons.RemappingFieldAdapter",
-	"jdk.internal.org.objectweb.asm.FieldVisitor",
-	nullptr,
-	_RemappingFieldAdapter_FieldInfo_,
-	_RemappingFieldAdapter_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_RemappingFieldAdapter_Annotations_
-};
-
-$Object* allocate$RemappingFieldAdapter($Class* clazz) {
-	return $of($alloc(RemappingFieldAdapter));
-}
-
 void RemappingFieldAdapter::init$($FieldVisitor* fieldVisitor, $Remapper* remapper) {
 	RemappingFieldAdapter::init$($Opcodes::ASM6, fieldVisitor, remapper);
 }
@@ -73,22 +37,51 @@ void RemappingFieldAdapter::init$(int32_t api, $FieldVisitor* fieldVisitor, $Rem
 }
 
 $AnnotationVisitor* RemappingFieldAdapter::visitAnnotation($String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AnnotationVisitor, annotationVisitor, $nc(this->fv)->visitAnnotation($($nc(this->remapper)->mapDesc(descriptor)), visible));
-	return annotationVisitor == nullptr ? ($AnnotationVisitor*)nullptr : static_cast<$AnnotationVisitor*>($new($RemappingAnnotationAdapter, annotationVisitor, this->remapper));
+	return annotationVisitor == nullptr ? ($AnnotationVisitor*)nullptr : $cast($AnnotationVisitor, $new($RemappingAnnotationAdapter, annotationVisitor, this->remapper));
 }
 
 $AnnotationVisitor* RemappingFieldAdapter::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AnnotationVisitor, annotationVisitor, $FieldVisitor::visitTypeAnnotation(typeRef, typePath, $($nc(this->remapper)->mapDesc(descriptor)), visible));
-	return annotationVisitor == nullptr ? ($AnnotationVisitor*)nullptr : static_cast<$AnnotationVisitor*>($new($RemappingAnnotationAdapter, annotationVisitor, this->remapper));
+	return annotationVisitor == nullptr ? ($AnnotationVisitor*)nullptr : $cast($AnnotationVisitor, $new($RemappingAnnotationAdapter, annotationVisitor, this->remapper));
 }
 
 RemappingFieldAdapter::RemappingFieldAdapter() {
 }
 
 $Class* RemappingFieldAdapter::load$($String* name, bool initialize) {
-	$loadClass(RemappingFieldAdapter, name, initialize, &_RemappingFieldAdapter_ClassInfo_, allocate$RemappingFieldAdapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"remapper", "Ljdk/internal/org/objectweb/asm/commons/Remapper;", nullptr, $PRIVATE | $FINAL, $field(RemappingFieldAdapter, remapper)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/FieldVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PUBLIC, $method(RemappingFieldAdapter, init$, void, $FieldVisitor*, $Remapper*)},
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/FieldVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PROTECTED, $method(RemappingFieldAdapter, init$, void, int32_t, $FieldVisitor*, $Remapper*)},
+		{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingFieldAdapter, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
+		{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(RemappingFieldAdapter, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.commons.RemappingFieldAdapter",
+		"jdk.internal.org.objectweb.asm.FieldVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(RemappingFieldAdapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RemappingFieldAdapter);
+	});
 	return class$;
 }
 

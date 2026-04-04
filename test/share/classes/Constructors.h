@@ -17,6 +17,7 @@ class $export Constructors : public ::java::lang::Thread {
 	$class(Constructors, 0, ::java::lang::Thread)
 public:
 	Constructors();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	virtual void run() override;

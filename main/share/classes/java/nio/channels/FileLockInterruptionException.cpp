@@ -1,5 +1,4 @@
 #include <java/nio/channels/FileLockInterruptionException.h>
-
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace nio {
 		namespace channels {
-
-$FieldInfo _FileLockInterruptionException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileLockInterruptionException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FileLockInterruptionException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FileLockInterruptionException, init$, void)},
-	{}
-};
-
-$ClassInfo _FileLockInterruptionException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.nio.channels.FileLockInterruptionException",
-	"java.io.IOException",
-	nullptr,
-	_FileLockInterruptionException_FieldInfo_,
-	_FileLockInterruptionException_MethodInfo_
-};
-
-$Object* allocate$FileLockInterruptionException($Class* clazz) {
-	return $of($alloc(FileLockInterruptionException));
-}
 
 void FileLockInterruptionException::init$() {
 	$IOException::init$();
@@ -50,7 +26,25 @@ void FileLockInterruptionException::throw$() {
 }
 
 $Class* FileLockInterruptionException::load$($String* name, bool initialize) {
-	$loadClass(FileLockInterruptionException, name, initialize, &_FileLockInterruptionException_ClassInfo_, allocate$FileLockInterruptionException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileLockInterruptionException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FileLockInterruptionException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.nio.channels.FileLockInterruptionException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FileLockInterruptionException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileLockInterruptionException);
+	});
 	return class$;
 }
 

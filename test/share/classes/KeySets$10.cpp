@@ -1,5 +1,4 @@
 #include <KeySets$10.h>
-
 #include <KeySets.h>
 #include <java/nio/channels/SelectionKey.h>
 #include <java/nio/channels/Selector.h>
@@ -13,49 +12,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Selector = ::java::nio::channels::Selector;
 
-$FieldInfo _KeySets$10_FieldInfo_[] = {
-	{"val$sel", "Ljava/nio/channels/Selector;", nullptr, $FINAL | $SYNTHETIC, $field(KeySets$10, val$sel)},
-	{}
-};
-
-$MethodInfo _KeySets$10_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/Selector;)V", "()V", 0, $method(KeySets$10, init$, void, $Selector*)},
-	{"add", "()V", nullptr, $PUBLIC, $virtualMethod(KeySets$10, add, void), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _KeySets$10_EnclosingMethodInfo_ = {
-	"KeySets",
-	"testMutability",
-	"()V"
-};
-
-$InnerClassInfo _KeySets$10_InnerClassesInfo_[] = {
-	{"KeySets$10", nullptr, nullptr, 0},
-	{"KeySets$Adder", "KeySets", "Adder", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _KeySets$10_ClassInfo_ = {
-	$ACC_SUPER,
-	"KeySets$10",
-	"java.lang.Object",
-	"KeySets$Adder",
-	_KeySets$10_FieldInfo_,
-	_KeySets$10_MethodInfo_,
-	nullptr,
-	&_KeySets$10_EnclosingMethodInfo_,
-	_KeySets$10_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"KeySets"
-};
-
-$Object* allocate$KeySets$10($Class* clazz) {
-	return $of($alloc(KeySets$10));
-}
-
 void KeySets$10::init$($Selector* val$sel) {
 	$set(this, val$sel, val$sel);
 }
@@ -68,7 +24,43 @@ KeySets$10::KeySets$10() {
 }
 
 $Class* KeySets$10::load$($String* name, bool initialize) {
-	$loadClass(KeySets$10, name, initialize, &_KeySets$10_ClassInfo_, allocate$KeySets$10);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$sel", "Ljava/nio/channels/Selector;", nullptr, $FINAL | $SYNTHETIC, $field(KeySets$10, val$sel)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/Selector;)V", "()V", 0, $method(KeySets$10, init$, void, $Selector*)},
+		{"add", "()V", nullptr, $PUBLIC, $virtualMethod(KeySets$10, add, void), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"KeySets",
+		"testMutability",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"KeySets$10", nullptr, nullptr, 0},
+		{"KeySets$Adder", "KeySets", "Adder", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"KeySets$10",
+		"java.lang.Object",
+		"KeySets$Adder",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"KeySets"
+	};
+	$loadClass(KeySets$10, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeySets$10);
+	});
 	return class$;
 }
 

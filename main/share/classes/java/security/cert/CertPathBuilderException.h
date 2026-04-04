@@ -23,10 +23,13 @@ public:
 	void init$($String* msg);
 	void init$($Throwable* cause);
 	void init$($String* msg, $Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0x49C7E696BA4607A2;
+	static const int64_t serialVersionUID = (int64_t)0x49c7e696ba4607a2;
 	CertPathBuilderException(const CertPathBuilderException& e);
 	virtual void throw$() override;
-	inline CertPathBuilderException* operator ->() {
+	inline CertPathBuilderException* operator ->() const {
+		return (CertPathBuilderException*)throwing$;
+	}
+	inline operator CertPathBuilderException*() const {
 		return (CertPathBuilderException*)throwing$;
 	}
 };

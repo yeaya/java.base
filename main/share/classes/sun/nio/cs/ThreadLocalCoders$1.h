@@ -13,6 +13,7 @@ class ThreadLocalCoders$1 : public ::sun::nio::cs::ThreadLocalCoders$Cache {
 	$class(ThreadLocalCoders$1, 0, ::sun::nio::cs::ThreadLocalCoders$Cache)
 public:
 	ThreadLocalCoders$1();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t size);
 	virtual $Object* create(Object$* name) override;
 	virtual bool hasName(Object$* ob, Object$* name) override;

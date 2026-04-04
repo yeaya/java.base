@@ -14,10 +14,13 @@ class $import CharacterCodingException : public ::java::io::IOException {
 public:
 	CharacterCodingException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x74DF4AF22A143EC7;
+	static const int64_t serialVersionUID = (int64_t)0x74df4af22a143ec7;
 	CharacterCodingException(const CharacterCodingException& e);
 	virtual void throw$() override;
-	inline CharacterCodingException* operator ->() {
+	inline CharacterCodingException* operator ->() const {
+		return (CharacterCodingException*)throwing$;
+	}
+	inline operator CharacterCodingException*() const {
 		return (CharacterCodingException*)throwing$;
 	}
 };

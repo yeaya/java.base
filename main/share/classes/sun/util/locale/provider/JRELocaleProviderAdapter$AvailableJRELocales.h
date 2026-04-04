@@ -20,6 +20,7 @@ class JRELocaleProviderAdapter$AvailableJRELocales : public ::java::lang::Object
 	$class(JRELocaleProviderAdapter$AvailableJRELocales, 0, ::java::lang::Object)
 public:
 	JRELocaleProviderAdapter$AvailableJRELocales();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Array<::java::util::Locale>* localeList;
 };

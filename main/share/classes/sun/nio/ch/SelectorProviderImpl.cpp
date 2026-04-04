@@ -1,5 +1,4 @@
 #include <sun/nio/ch/SelectorProviderImpl.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/net/ProtocolFamily.h>
 #include <java/net/StandardProtocolFamily.h>
@@ -43,43 +42,16 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$MethodInfo _SelectorProviderImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SelectorProviderImpl, init$, void)},
-	{"openDatagramChannel", "()Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC, $virtualMethod(SelectorProviderImpl, openDatagramChannel, $DatagramChannel*), "java.io.IOException"},
-	{"openDatagramChannel", "(Ljava/net/ProtocolFamily;)Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC, $virtualMethod(SelectorProviderImpl, openDatagramChannel, $DatagramChannel*, $ProtocolFamily*), "java.io.IOException"},
-	{"openPipe", "()Ljava/nio/channels/Pipe;", nullptr, $PUBLIC, $virtualMethod(SelectorProviderImpl, openPipe, $Pipe*), "java.io.IOException"},
-	{"openSelector", "()Ljava/nio/channels/spi/AbstractSelector;", nullptr, $PUBLIC | $ABSTRACT},
-	{"openServerSocketChannel", "()Ljava/nio/channels/ServerSocketChannel;", nullptr, $PUBLIC, $virtualMethod(SelectorProviderImpl, openServerSocketChannel, $ServerSocketChannel*), "java.io.IOException"},
-	{"openServerSocketChannel", "(Ljava/net/ProtocolFamily;)Ljava/nio/channels/ServerSocketChannel;", nullptr, $PUBLIC, $virtualMethod(SelectorProviderImpl, openServerSocketChannel, $ServerSocketChannel*, $ProtocolFamily*), "java.io.IOException"},
-	{"openSocketChannel", "()Ljava/nio/channels/SocketChannel;", nullptr, $PUBLIC, $virtualMethod(SelectorProviderImpl, openSocketChannel, $SocketChannel*), "java.io.IOException"},
-	{"openSocketChannel", "(Ljava/net/ProtocolFamily;)Ljava/nio/channels/SocketChannel;", nullptr, $PUBLIC, $virtualMethod(SelectorProviderImpl, openSocketChannel, $SocketChannel*, $ProtocolFamily*), "java.io.IOException"},
-	{"openUninterruptibleDatagramChannel", "()Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC, $virtualMethod(SelectorProviderImpl, openUninterruptibleDatagramChannel, $DatagramChannel*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _SelectorProviderImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.nio.ch.SelectorProviderImpl",
-	"java.nio.channels.spi.SelectorProvider",
-	nullptr,
-	nullptr,
-	_SelectorProviderImpl_MethodInfo_
-};
-
-$Object* allocate$SelectorProviderImpl($Class* clazz) {
-	return $of($alloc(SelectorProviderImpl));
-}
-
 void SelectorProviderImpl::init$() {
 	$SelectorProvider::init$();
 }
 
 $DatagramChannel* SelectorProviderImpl::openDatagramChannel() {
-	return $new($DatagramChannelImpl, static_cast<$SelectorProvider*>(this), true);
+	return $new($DatagramChannelImpl, this, true);
 }
 
 $DatagramChannel* SelectorProviderImpl::openUninterruptibleDatagramChannel() {
-	return $new($DatagramChannelImpl, static_cast<$SelectorProvider*>(this), false);
+	return $new($DatagramChannelImpl, this, false);
 }
 
 $DatagramChannel* SelectorProviderImpl::openDatagramChannel($ProtocolFamily* family) {
@@ -99,38 +71,30 @@ $SocketChannel* SelectorProviderImpl::openSocketChannel() {
 }
 
 $SocketChannel* SelectorProviderImpl::openSocketChannel($ProtocolFamily* family) {
-	$Objects::requireNonNull($of(family), "\'family\' is null"_s);
+	$Objects::requireNonNull(family, "\'family\' is null"_s);
 	$init($StandardProtocolFamily);
 	if ($equals(family, $StandardProtocolFamily::INET6) && !$Net::isIPv6Available()) {
 		$throwNew($UnsupportedOperationException, "IPv6 not available"_s);
+	} else if ($equals(family, $StandardProtocolFamily::INET) || $equals(family, $StandardProtocolFamily::INET6)) {
+		return $new($SocketChannelImpl, this, family);
+	} else if ($equals(family, $StandardProtocolFamily::UNIX) && $UnixDomainSockets::isSupported()) {
+		return $new($SocketChannelImpl, this, family);
 	} else {
-		if ($equals(family, $StandardProtocolFamily::INET) || $equals(family, $StandardProtocolFamily::INET6)) {
-			return $new($SocketChannelImpl, this, family);
-		} else {
-			if ($equals(family, $StandardProtocolFamily::UNIX) && $UnixDomainSockets::isSupported()) {
-				return $new($SocketChannelImpl, this, family);
-			} else {
-				$throwNew($UnsupportedOperationException, "Protocol family not supported"_s);
-			}
-		}
+		$throwNew($UnsupportedOperationException, "Protocol family not supported"_s);
 	}
 }
 
 $ServerSocketChannel* SelectorProviderImpl::openServerSocketChannel($ProtocolFamily* family) {
-	$Objects::requireNonNull($of(family), "\'family\' is null"_s);
+	$Objects::requireNonNull(family, "\'family\' is null"_s);
 	$init($StandardProtocolFamily);
 	if ($equals(family, $StandardProtocolFamily::INET6) && !$Net::isIPv6Available()) {
 		$throwNew($UnsupportedOperationException, "IPv6 not available"_s);
+	} else if ($equals(family, $StandardProtocolFamily::INET) || $equals(family, $StandardProtocolFamily::INET6)) {
+		return $new($ServerSocketChannelImpl, this, family);
+	} else if ($equals(family, $StandardProtocolFamily::UNIX) && $UnixDomainSockets::isSupported()) {
+		return $new($ServerSocketChannelImpl, this, family);
 	} else {
-		if ($equals(family, $StandardProtocolFamily::INET) || $equals(family, $StandardProtocolFamily::INET6)) {
-			return $new($ServerSocketChannelImpl, this, family);
-		} else {
-			if ($equals(family, $StandardProtocolFamily::UNIX) && $UnixDomainSockets::isSupported()) {
-				return $new($ServerSocketChannelImpl, this, family);
-			} else {
-				$throwNew($UnsupportedOperationException, "Protocol family not supported"_s);
-			}
-		}
+		$throwNew($UnsupportedOperationException, "Protocol family not supported"_s);
 	}
 }
 
@@ -138,7 +102,30 @@ SelectorProviderImpl::SelectorProviderImpl() {
 }
 
 $Class* SelectorProviderImpl::load$($String* name, bool initialize) {
-	$loadClass(SelectorProviderImpl, name, initialize, &_SelectorProviderImpl_ClassInfo_, allocate$SelectorProviderImpl);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SelectorProviderImpl, init$, void)},
+		{"openDatagramChannel", "()Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC, $virtualMethod(SelectorProviderImpl, openDatagramChannel, $DatagramChannel*), "java.io.IOException"},
+		{"openDatagramChannel", "(Ljava/net/ProtocolFamily;)Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC, $virtualMethod(SelectorProviderImpl, openDatagramChannel, $DatagramChannel*, $ProtocolFamily*), "java.io.IOException"},
+		{"openPipe", "()Ljava/nio/channels/Pipe;", nullptr, $PUBLIC, $virtualMethod(SelectorProviderImpl, openPipe, $Pipe*), "java.io.IOException"},
+		{"openSelector", "()Ljava/nio/channels/spi/AbstractSelector;", nullptr, $PUBLIC | $ABSTRACT},
+		{"openServerSocketChannel", "()Ljava/nio/channels/ServerSocketChannel;", nullptr, $PUBLIC, $virtualMethod(SelectorProviderImpl, openServerSocketChannel, $ServerSocketChannel*), "java.io.IOException"},
+		{"openServerSocketChannel", "(Ljava/net/ProtocolFamily;)Ljava/nio/channels/ServerSocketChannel;", nullptr, $PUBLIC, $virtualMethod(SelectorProviderImpl, openServerSocketChannel, $ServerSocketChannel*, $ProtocolFamily*), "java.io.IOException"},
+		{"openSocketChannel", "()Ljava/nio/channels/SocketChannel;", nullptr, $PUBLIC, $virtualMethod(SelectorProviderImpl, openSocketChannel, $SocketChannel*), "java.io.IOException"},
+		{"openSocketChannel", "(Ljava/net/ProtocolFamily;)Ljava/nio/channels/SocketChannel;", nullptr, $PUBLIC, $virtualMethod(SelectorProviderImpl, openSocketChannel, $SocketChannel*, $ProtocolFamily*), "java.io.IOException"},
+		{"openUninterruptibleDatagramChannel", "()Ljava/nio/channels/DatagramChannel;", nullptr, $PUBLIC, $virtualMethod(SelectorProviderImpl, openUninterruptibleDatagramChannel, $DatagramChannel*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.nio.ch.SelectorProviderImpl",
+		"java.nio.channels.spi.SelectorProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SelectorProviderImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SelectorProviderImpl);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <NotBound$1.h>
-
 #include <NotBound.h>
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
@@ -21,54 +20,12 @@ using $SocketAddress = ::java::net::SocketAddress;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $DatagramChannel = ::java::nio::channels::DatagramChannel;
 
-$FieldInfo _NotBound$1_FieldInfo_[] = {
-	{"val$dc", "Ljava/nio/channels/DatagramChannel;", nullptr, $FINAL | $SYNTHETIC, $field(NotBound$1, val$dc)},
-	{}
-};
-
-$MethodInfo _NotBound$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/DatagramChannel;)V", "()V", 0, $method(NotBound$1, init$, void, $DatagramChannel*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NotBound$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _NotBound$1_EnclosingMethodInfo_ = {
-	"NotBound",
-	"wakeupWhenBound",
-	"(Ljava/nio/channels/DatagramChannel;)V"
-};
-
-$InnerClassInfo _NotBound$1_InnerClassesInfo_[] = {
-	{"NotBound$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NotBound$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"NotBound$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_NotBound$1_FieldInfo_,
-	_NotBound$1_MethodInfo_,
-	nullptr,
-	&_NotBound$1_EnclosingMethodInfo_,
-	_NotBound$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"NotBound"
-};
-
-$Object* allocate$NotBound$1($Class* clazz) {
-	return $of($alloc(NotBound$1));
-}
-
 void NotBound$1::init$($DatagramChannel* val$dc) {
 	$set(this, val$dc, val$dc);
 }
 
 void NotBound$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($InetSocketAddress, local, nullptr);
 		do {
@@ -76,21 +33,19 @@ void NotBound$1::run() {
 			$assign(local, $cast($InetSocketAddress, $nc(this->val$dc)->getLocalAddress()));
 		} while (local == nullptr);
 		$var($DatagramChannel, sender, $DatagramChannel::open());
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$var($ByteBuffer, bb, $ByteBuffer::wrap($("hello"_s->getBytes())));
-				$var($InetAddress, lh, $InetAddress::getLocalHost());
-				$var($SocketAddress, target, $new($InetSocketAddress, lh, $nc(local)->getPort()));
-				$nc(sender)->send(bb, target);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(sender)->close();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			$var($ByteBuffer, bb, $ByteBuffer::wrap($("hello"_s->getBytes())));
+			$var($InetAddress, lh, $InetAddress::getLocalHost());
+			$var($SocketAddress, target, $new($InetSocketAddress, lh, $nc(local)->getPort()));
+			$nc(sender)->send(bb, target);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$nc(sender)->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} catch ($Exception& x) {
 		x->printStackTrace();
@@ -101,7 +56,42 @@ NotBound$1::NotBound$1() {
 }
 
 $Class* NotBound$1::load$($String* name, bool initialize) {
-	$loadClass(NotBound$1, name, initialize, &_NotBound$1_ClassInfo_, allocate$NotBound$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$dc", "Ljava/nio/channels/DatagramChannel;", nullptr, $FINAL | $SYNTHETIC, $field(NotBound$1, val$dc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/DatagramChannel;)V", "()V", 0, $method(NotBound$1, init$, void, $DatagramChannel*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(NotBound$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"NotBound",
+		"wakeupWhenBound",
+		"(Ljava/nio/channels/DatagramChannel;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"NotBound$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"NotBound$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"NotBound"
+	};
+	$loadClass(NotBound$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NotBound$1);
+	});
 	return class$;
 }
 

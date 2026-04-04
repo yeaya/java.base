@@ -15,10 +15,13 @@ public:
 	TimeoutException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0x1A6172BDDBE4F56A;
+	static const int64_t serialVersionUID = (int64_t)0x1a6172bddbe4f56a;
 	TimeoutException(const TimeoutException& e);
 	virtual void throw$() override;
-	inline TimeoutException* operator ->() {
+	inline TimeoutException* operator ->() const {
+		return (TimeoutException*)throwing$;
+	}
+	inline operator TimeoutException*() const {
 		return (TimeoutException*)throwing$;
 	}
 };

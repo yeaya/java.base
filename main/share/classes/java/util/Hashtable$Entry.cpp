@@ -1,5 +1,4 @@
 #include <java/util/Hashtable$Entry.h>
-
 #include <java/util/Hashtable.h>
 #include <java/util/Map$Entry.h>
 #include <java/util/Objects.h>
@@ -16,52 +15,6 @@ using $Objects = ::java::util::Objects;
 namespace java {
 	namespace util {
 
-$FieldInfo _Hashtable$Entry_FieldInfo_[] = {
-	{"hash", "I", nullptr, $FINAL, $field(Hashtable$Entry, hash)},
-	{"key", "Ljava/lang/Object;", "TK;", $FINAL, $field(Hashtable$Entry, key)},
-	{"value", "Ljava/lang/Object;", "TV;", 0, $field(Hashtable$Entry, value)},
-	{"next", "Ljava/util/Hashtable$Entry;", "Ljava/util/Hashtable$Entry<TK;TV;>;", 0, $field(Hashtable$Entry, next)},
-	{}
-};
-
-$MethodInfo _Hashtable$Entry_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/Object;Ljava/lang/Object;Ljava/util/Hashtable$Entry;)V", "(ITK;TV;Ljava/util/Hashtable$Entry<TK;TV;>;)V", $PROTECTED, $method(Hashtable$Entry, init$, void, int32_t, Object$*, Object$*, Hashtable$Entry*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(Hashtable$Entry, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Hashtable$Entry, equals, bool, Object$*)},
-	{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(Hashtable$Entry, getKey, $Object*)},
-	{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(Hashtable$Entry, getValue, $Object*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Hashtable$Entry, hashCode, int32_t)},
-	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC, $virtualMethod(Hashtable$Entry, setValue, $Object*, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Hashtable$Entry, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Hashtable$Entry_InnerClassesInfo_[] = {
-	{"java.util.Hashtable$Entry", "java.util.Hashtable", "Entry", $PRIVATE | $STATIC},
-	{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Hashtable$Entry_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Hashtable$Entry",
-	"java.lang.Object",
-	"java.util.Map$Entry",
-	_Hashtable$Entry_FieldInfo_,
-	_Hashtable$Entry_MethodInfo_,
-	"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Map$Entry<TK;TV;>;",
-	nullptr,
-	_Hashtable$Entry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Hashtable"
-};
-
-$Object* allocate$Hashtable$Entry($Class* clazz) {
-	return $of($alloc(Hashtable$Entry));
-}
-
 void Hashtable$Entry::init$(int32_t hash, Object$* key, Object$* value, Hashtable$Entry* next) {
 	this->hash = hash;
 	$set(this, key, key);
@@ -70,15 +23,15 @@ void Hashtable$Entry::init$(int32_t hash, Object$* key, Object$* value, Hashtabl
 }
 
 $Object* Hashtable$Entry::clone() {
-	return $of($new(Hashtable$Entry, this->hash, this->key, this->value, (this->next == nullptr ? (Hashtable$Entry*)nullptr : $cast(Hashtable$Entry, $($nc(this->next)->clone())))));
+	return $new(Hashtable$Entry, this->hash, this->key, this->value, (this->next == nullptr ? (Hashtable$Entry*)nullptr : $$cast(Hashtable$Entry, this->next->clone())));
 }
 
 $Object* Hashtable$Entry::getKey() {
-	return $of(this->key);
+	return this->key;
 }
 
 $Object* Hashtable$Entry::getValue() {
-	return $of(this->value);
+	return this->value;
 }
 
 $Object* Hashtable$Entry::setValue(Object$* value) {
@@ -87,11 +40,11 @@ $Object* Hashtable$Entry::setValue(Object$* value) {
 	}
 	$var($Object, oldValue, this->value);
 	$set(this, value, value);
-	return $of(oldValue);
+	return oldValue;
 }
 
 bool Hashtable$Entry::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map$Entry, e, nullptr);
 	bool var$0 = $instanceOf($Map$Entry, o);
 	if (var$0) {
@@ -101,8 +54,8 @@ bool Hashtable$Entry::equals(Object$* o) {
 	if (!(var$0)) {
 		return false;
 	}
-	bool var$1 = (this->key == nullptr ? $nc(e)->getKey() == nullptr : $nc($of(this->key))->equals($(e->getKey())));
-	return var$1 && (this->value == nullptr ? e->getValue() == nullptr : $nc($of(this->value))->equals($(e->getValue())));
+	bool var$1 = this->key == nullptr ? $nc(e)->getKey() == nullptr : this->key->equals($($nc(e)->getKey()));
+	return var$1 && (this->value == nullptr ? $nc(e)->getValue() == nullptr : this->value->equals($($nc(e)->getValue())));
 }
 
 int32_t Hashtable$Entry::hashCode() {
@@ -110,16 +63,59 @@ int32_t Hashtable$Entry::hashCode() {
 }
 
 $String* Hashtable$Entry::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$($nc($of(this->key))->toString()), "="_s}));
-	return $concat(var$0, $($nc($of(this->value))->toString()));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($nc(this->key)->toString()));
+	var$0->append("="_s);
+	var$0->append($($nc(this->value)->toString()));
+	return $str(var$0);
 }
 
 Hashtable$Entry::Hashtable$Entry() {
 }
 
 $Class* Hashtable$Entry::load$($String* name, bool initialize) {
-	$loadClass(Hashtable$Entry, name, initialize, &_Hashtable$Entry_ClassInfo_, allocate$Hashtable$Entry);
+	$FieldInfo fieldInfos$$[] = {
+		{"hash", "I", nullptr, $FINAL, $field(Hashtable$Entry, hash)},
+		{"key", "Ljava/lang/Object;", "TK;", $FINAL, $field(Hashtable$Entry, key)},
+		{"value", "Ljava/lang/Object;", "TV;", 0, $field(Hashtable$Entry, value)},
+		{"next", "Ljava/util/Hashtable$Entry;", "Ljava/util/Hashtable$Entry<TK;TV;>;", 0, $field(Hashtable$Entry, next)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/lang/Object;Ljava/lang/Object;Ljava/util/Hashtable$Entry;)V", "(ITK;TV;Ljava/util/Hashtable$Entry<TK;TV;>;)V", $PROTECTED, $method(Hashtable$Entry, init$, void, int32_t, Object$*, Object$*, Hashtable$Entry*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(Hashtable$Entry, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Hashtable$Entry, equals, bool, Object$*)},
+		{"getKey", "()Ljava/lang/Object;", "()TK;", $PUBLIC, $virtualMethod(Hashtable$Entry, getKey, $Object*)},
+		{"getValue", "()Ljava/lang/Object;", "()TV;", $PUBLIC, $virtualMethod(Hashtable$Entry, getValue, $Object*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Hashtable$Entry, hashCode, int32_t)},
+		{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TV;)TV;", $PUBLIC, $virtualMethod(Hashtable$Entry, setValue, $Object*, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Hashtable$Entry, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Hashtable$Entry", "java.util.Hashtable", "Entry", $PRIVATE | $STATIC},
+		{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Hashtable$Entry",
+		"java.lang.Object",
+		"java.util.Map$Entry",
+		fieldInfos$$,
+		methodInfos$$,
+		"<K:Ljava/lang/Object;V:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/Map$Entry<TK;TV;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Hashtable"
+	};
+	$loadClass(Hashtable$Entry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Hashtable$Entry);
+	});
 	return class$;
 }
 

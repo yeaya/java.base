@@ -1,5 +1,4 @@
 #include <sun/security/provider/DSA$SHA256withDSA.h>
-
 #include <java/security/MessageDigest.h>
 #include <sun/security/provider/DSA.h>
 #include <jcpp.h>
@@ -14,37 +13,6 @@ namespace sun {
 	namespace security {
 		namespace provider {
 
-$MethodInfo _DSA$SHA256withDSA_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DSA$SHA256withDSA, init$, void), "java.security.NoSuchAlgorithmException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DSA$SHA256withDSA, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _DSA$SHA256withDSA_InnerClassesInfo_[] = {
-	{"sun.security.provider.DSA$SHA256withDSA", "sun.security.provider.DSA", "SHA256withDSA", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DSA$SHA256withDSA_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.provider.DSA$SHA256withDSA",
-	"sun.security.provider.DSA",
-	nullptr,
-	nullptr,
-	_DSA$SHA256withDSA_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DSA$SHA256withDSA_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.DSA"
-};
-
-$Object* allocate$DSA$SHA256withDSA($Class* clazz) {
-	return $of($alloc(DSA$SHA256withDSA));
-}
-
 void DSA$SHA256withDSA::init$() {
 	$DSA::init$($($MessageDigest::getInstance("SHA-256"_s)));
 }
@@ -57,7 +25,33 @@ DSA$SHA256withDSA::DSA$SHA256withDSA() {
 }
 
 $Class* DSA$SHA256withDSA::load$($String* name, bool initialize) {
-	$loadClass(DSA$SHA256withDSA, name, initialize, &_DSA$SHA256withDSA_ClassInfo_, allocate$DSA$SHA256withDSA);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DSA$SHA256withDSA, init$, void), "java.security.NoSuchAlgorithmException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DSA$SHA256withDSA, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.DSA$SHA256withDSA", "sun.security.provider.DSA", "SHA256withDSA", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.provider.DSA$SHA256withDSA",
+		"sun.security.provider.DSA",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.DSA"
+	};
+	$loadClass(DSA$SHA256withDSA, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DSA$SHA256withDSA);
+	});
 	return class$;
 }
 

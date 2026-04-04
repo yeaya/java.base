@@ -1,5 +1,4 @@
 #include <java/util/IllegalFormatWidthException.h>
-
 #include <java/util/IllegalFormatException.h>
 #include <jcpp.h>
 
@@ -11,32 +10,6 @@ using $IllegalFormatException = ::java::util::IllegalFormatException;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _IllegalFormatWidthException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalFormatWidthException, serialVersionUID)},
-	{"w", "I", nullptr, $PRIVATE, $field(IllegalFormatWidthException, w)},
-	{}
-};
-
-$MethodInfo _IllegalFormatWidthException_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(IllegalFormatWidthException, init$, void, int32_t)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IllegalFormatWidthException, getMessage, $String*)},
-	{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(IllegalFormatWidthException, getWidth, int32_t)},
-	{}
-};
-
-$ClassInfo _IllegalFormatWidthException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.IllegalFormatWidthException",
-	"java.util.IllegalFormatException",
-	nullptr,
-	_IllegalFormatWidthException_FieldInfo_,
-	_IllegalFormatWidthException_MethodInfo_
-};
-
-$Object* allocate$IllegalFormatWidthException($Class* clazz) {
-	return $of($alloc(IllegalFormatWidthException));
-}
 
 void IllegalFormatWidthException::init$(int32_t w) {
 	$IllegalFormatException::init$();
@@ -62,7 +35,28 @@ void IllegalFormatWidthException::throw$() {
 }
 
 $Class* IllegalFormatWidthException::load$($String* name, bool initialize) {
-	$loadClass(IllegalFormatWidthException, name, initialize, &_IllegalFormatWidthException_ClassInfo_, allocate$IllegalFormatWidthException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IllegalFormatWidthException, serialVersionUID)},
+		{"w", "I", nullptr, $PRIVATE, $field(IllegalFormatWidthException, w)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(IllegalFormatWidthException, init$, void, int32_t)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IllegalFormatWidthException, getMessage, $String*)},
+		{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(IllegalFormatWidthException, getWidth, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.IllegalFormatWidthException",
+		"java.util.IllegalFormatException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IllegalFormatWidthException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IllegalFormatWidthException);
+	});
 	return class$;
 }
 

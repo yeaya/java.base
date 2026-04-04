@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CipherSuite$MacAlg.h>
-
 #include <java/lang/Enum.h>
 #include <sun/security/ssl/CipherSuite.h>
 #include <jcpp.h>
@@ -20,54 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace security {
 		namespace ssl {
-
-$FieldInfo _CipherSuite$MacAlg_FieldInfo_[] = {
-	{"M_NULL", "Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$MacAlg, M_NULL)},
-	{"M_MD5", "Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$MacAlg, M_MD5)},
-	{"M_SHA", "Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$MacAlg, M_SHA)},
-	{"M_SHA256", "Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$MacAlg, M_SHA256)},
-	{"M_SHA384", "Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$MacAlg, M_SHA384)},
-	{"$VALUES", "[Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CipherSuite$MacAlg, $VALUES)},
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(CipherSuite$MacAlg, name$)},
-	{"size", "I", nullptr, $FINAL, $field(CipherSuite$MacAlg, size)},
-	{"hashBlockSize", "I", nullptr, $FINAL, $field(CipherSuite$MacAlg, hashBlockSize)},
-	{"minimalPaddingSize", "I", nullptr, $FINAL, $field(CipherSuite$MacAlg, minimalPaddingSize)},
-	{}
-};
-
-$MethodInfo _CipherSuite$MacAlg_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CipherSuite$MacAlg, $values, $CipherSuite$MacAlgArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;III)V", "(Ljava/lang/String;III)V", $PRIVATE, $method(CipherSuite$MacAlg, init$, void, $String*, int32_t, $String*, int32_t, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CipherSuite$MacAlg, toString, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PUBLIC | $STATIC, $staticMethod(CipherSuite$MacAlg, valueOf, CipherSuite$MacAlg*, $String*)},
-	{"values", "()[Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PUBLIC | $STATIC, $staticMethod(CipherSuite$MacAlg, values, $CipherSuite$MacAlgArray*)},
-	{}
-};
-
-$InnerClassInfo _CipherSuite$MacAlg_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CipherSuite$MacAlg", "sun.security.ssl.CipherSuite", "MacAlg", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _CipherSuite$MacAlg_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.ssl.CipherSuite$MacAlg",
-	"java.lang.Enum",
-	nullptr,
-	_CipherSuite$MacAlg_FieldInfo_,
-	_CipherSuite$MacAlg_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/ssl/CipherSuite$MacAlg;>;",
-	nullptr,
-	_CipherSuite$MacAlg_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CipherSuite"
-};
-
-$Object* allocate$CipherSuite$MacAlg($Class* clazz) {
-	return $of($alloc(CipherSuite$MacAlg));
-}
 
 CipherSuite$MacAlg* CipherSuite$MacAlg::M_NULL = nullptr;
 CipherSuite$MacAlg* CipherSuite$MacAlg::M_MD5 = nullptr;
@@ -109,7 +60,7 @@ $String* CipherSuite$MacAlg::toString() {
 	return this->name$;
 }
 
-void clinit$CipherSuite$MacAlg($Class* class$) {
+void CipherSuite$MacAlg::clinit$($Class* clazz) {
 	$assignStatic(CipherSuite$MacAlg::M_NULL, $new(CipherSuite$MacAlg, "M_NULL"_s, 0, "NULL"_s, 0, 0, 0));
 	$assignStatic(CipherSuite$MacAlg::M_MD5, $new(CipherSuite$MacAlg, "M_MD5"_s, 1, "MD5"_s, 16, 64, 9));
 	$assignStatic(CipherSuite$MacAlg::M_SHA, $new(CipherSuite$MacAlg, "M_SHA"_s, 2, "SHA"_s, 20, 64, 9));
@@ -122,7 +73,49 @@ CipherSuite$MacAlg::CipherSuite$MacAlg() {
 }
 
 $Class* CipherSuite$MacAlg::load$($String* name, bool initialize) {
-	$loadClass(CipherSuite$MacAlg, name, initialize, &_CipherSuite$MacAlg_ClassInfo_, clinit$CipherSuite$MacAlg, allocate$CipherSuite$MacAlg);
+	$FieldInfo fieldInfos$$[] = {
+		{"M_NULL", "Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$MacAlg, M_NULL)},
+		{"M_MD5", "Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$MacAlg, M_MD5)},
+		{"M_SHA", "Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$MacAlg, M_SHA)},
+		{"M_SHA256", "Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$MacAlg, M_SHA256)},
+		{"M_SHA384", "Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CipherSuite$MacAlg, M_SHA384)},
+		{"$VALUES", "[Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CipherSuite$MacAlg, $VALUES)},
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(CipherSuite$MacAlg, name$)},
+		{"size", "I", nullptr, $FINAL, $field(CipherSuite$MacAlg, size)},
+		{"hashBlockSize", "I", nullptr, $FINAL, $field(CipherSuite$MacAlg, hashBlockSize)},
+		{"minimalPaddingSize", "I", nullptr, $FINAL, $field(CipherSuite$MacAlg, minimalPaddingSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CipherSuite$MacAlg, $values, $CipherSuite$MacAlgArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;III)V", "(Ljava/lang/String;III)V", $PRIVATE, $method(CipherSuite$MacAlg, init$, void, $String*, int32_t, $String*, int32_t, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CipherSuite$MacAlg, toString, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PUBLIC | $STATIC, $staticMethod(CipherSuite$MacAlg, valueOf, CipherSuite$MacAlg*, $String*)},
+		{"values", "()[Lsun/security/ssl/CipherSuite$MacAlg;", nullptr, $PUBLIC | $STATIC, $staticMethod(CipherSuite$MacAlg, values, $CipherSuite$MacAlgArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CipherSuite$MacAlg", "sun.security.ssl.CipherSuite", "MacAlg", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.ssl.CipherSuite$MacAlg",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/ssl/CipherSuite$MacAlg;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CipherSuite"
+	};
+	$loadClass(CipherSuite$MacAlg, name, initialize, &classInfo$$, CipherSuite$MacAlg::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CipherSuite$MacAlg));
+	});
 	return class$;
 }
 

@@ -52,6 +52,7 @@ class $import Charset : public ::java::lang::Comparable {
 	$class(Charset, $PRELOAD, ::java::lang::Comparable)
 public:
 	Charset();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* canonicalName, $StringArray* aliases);
 	::java::util::Set* aliases();
 	static ::java::util::SortedMap* availableCharsets();

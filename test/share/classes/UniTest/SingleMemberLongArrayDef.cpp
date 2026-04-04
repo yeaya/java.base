@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberLongArrayDef.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -10,49 +9,42 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$NamedAttribute SingleMemberLongArrayDef_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$CompoundAttribute _SingleMemberLongArrayDef_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", SingleMemberLongArrayDef_Attribute_var$0},
-	{}
-};
-
-$Attribute SingleMemberLongArrayDef_Attribute_var$1[] = {
-	{'J', "14"},
-	{'-'}
-};
-
-$Attribute _SingleMemberLongArrayDef_DefaultValue_value0 = {
-	'[', SingleMemberLongArrayDef_Attribute_var$1
-};
-
-$MethodInfo _SingleMemberLongArrayDef_MethodInfo_[] = {
-	{"value", "()[J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberLongArrayDef, value, $longs*), nullptr, &_SingleMemberLongArrayDef_DefaultValue_value0},
-	{}
-};
-
-$ClassInfo _SingleMemberLongArrayDef_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"UniTest.SingleMemberLongArrayDef",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_SingleMemberLongArrayDef_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberLongArrayDef_Annotations_
-};
-
-$Object* allocate$SingleMemberLongArrayDef($Class* clazz) {
-	return $of($alloc(SingleMemberLongArrayDef));
-}
-
 $Class* SingleMemberLongArrayDef::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberLongArrayDef, name, initialize, &_SingleMemberLongArrayDef_ClassInfo_, allocate$SingleMemberLongArrayDef);
+	$Attribute $attribute[] = {
+		{'J', "14"},
+		{'-'}
+	};
+
+	$Attribute valuedefaultValue$$ = {
+		'[', $attribute
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"value", "()[J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SingleMemberLongArrayDef, value, $longs*), nullptr, &valuedefaultValue$$},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"UniTest.SingleMemberLongArrayDef",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberLongArrayDef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberLongArrayDef);
+	});
 	return class$;
 }
 

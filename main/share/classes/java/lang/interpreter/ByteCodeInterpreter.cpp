@@ -59,6 +59,7 @@
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/interpreter/opcodes.h>
+#include <java/lang/Machine.h>
 
 #include <jcpp.h>
 #include <cmath>
@@ -2245,6 +2246,45 @@ void ByteCodeInterpreter::virtualCall(MethodCache* methodCache) {
 	}
 }
 
+MethodHandle* ByteCodeInterpreter::makeMetafactory(ByteCodeClass* clazz, BootstrapMethod* bootstrapMethod, String* methodName, $ClassArray* ptypes, Class* returnType, ConstantPool* constantPool) {
+	ConstantMethodType* cmt0 = (ConstantMethodType*)bootstrapMethod->bootstrapArguments->get(0);
+	$var(MethodType, mt0, MethodType::fromMethodDescriptorString(cmt0->descriptor, clazz->classLoader));
+	ConstantMethodHandle* cmh1 = (ConstantMethodHandle*)bootstrapMethod->bootstrapArguments->get(1);
+	ConstantMethodRef* cmref = constantPool->getMethodRef(cmh1->referenceIndex);
+	//Class* methodClazz = Class::forName($(cmref->clazz->replace('/', '.')), false, clazz->classLoader);
+	Class* methodClazz = loadClass(cmref->clazz);
+	$var(Method, method, methodClazz->getMethodEx(cmref->name, cmref->descriptor));
+	$var(MethodHandles$Lookup, lookup, MethodHandles::lookup());
+	$var(MethodHandle, mh, nullptr);
+	$var(MethodType, mt1, MethodType::fromMethodDescriptorString(cmref->descriptor, clazz->classLoader));
+	if (method->isStatic()) {
+		$assign(mh, lookup->findStatic(methodClazz, cmref->name, mt1));
+	} else {
+		$assign(mh, lookup->findVirtual(methodClazz, cmref->name, mt1));
+	}
+	ConstantMethodType* cmt2 = (ConstantMethodType*)bootstrapMethod->bootstrapArguments->get(2);
+	$var(MethodType, mt2, MethodType::fromMethodDescriptorString(cmt2->descriptor, clazz->classLoader));
+	$var(MethodType, mt, MethodType::methodType(returnType, ptypes));
+	$var(CallSite, cs, LambdaMetafactory::metafactory(lookup, methodName, mt, mt0, mh, mt2));
+	return $nc(cs)->getTarget();
+}
+
+Object* ByteCodeInterpreter::invokeBootstrap(ByteCodeClass* clazz, BootstrapMethod* bootstrapMethod, String* methodName, $ObjectArray* args) {
+	ConstantClass* constantClass = (ConstantClass*)bootstrapMethod->bootstrapArguments->get(0);
+	Class* methodClazz = loadClass($nc(constantClass)->utf8);
+	if (methodName->equals("toString"_s)) {
+		args->check(0);
+		return $of(methodClazz->bootstrapToString(args->get(0)));
+	} else if (methodName->equals("hashCode"_s)) {
+		args->check(0);
+		return $of(methodClazz->bootstrapHashCode(args->get(0)));
+	} else if (methodName->equals("equals"_s)) {
+		args->check(1);
+		return $of(methodClazz->bootstrapEquals(args->get(0), args->get(1)));
+	}
+	return nullptr;
+}
+
 void ByteCodeInterpreter::invokeDynamic(uint16_t methodIndex) {
 	ByteCodeClass* clazz = getCurrentClass();
 	WillCallCallerSensitive wccs(clazz);
@@ -2253,51 +2293,53 @@ void ByteCodeInterpreter::invokeDynamic(uint16_t methodIndex) {
 	ConstantInvokeDynamic* constantInvokeDynamic = (ConstantInvokeDynamic*)$nc(base);
 	String* descriptor = constantInvokeDynamic->descriptor;
 	$var(ArrayList, list, ByteCodeClass::parseMethodDescriptor(descriptor));
-	$var($ClassArray, ptypes, $new($ClassArray, list->size() - 1));
-	for (int32_t i = 0; i < list->size() - 1; i++) {
+	int32_t ptypesCount = list->size() - 1;
+	$var($ClassArray, ptypes, $new($ClassArray, ptypesCount));
+	int32_t localIndex = 0;
+	for (int32_t i = 0; i < ptypesCount; i++) {
 		$var(String, type, $fcast<String>(list->get(i)));
 		Class* clazz = loadClass(type);
 		ptypes->set(i, clazz);
 	}
+	$var($ObjectArray, args, $new($ObjectArray, ptypes->length));
+	for (int32_t i = 0; i < ptypes->length; i++) {
+		Class* type = ptypes->get(i);
+		$var(Object, arg, getParameter(type, frame, localIndex));
+		args->set(i, arg);
+		int32_t category = calcCategory0(type);
+		localIndex += category;
+	}
+
 	pushAndCreateFrame4Invokedynamic(ptypes);
 
 	try {
 		String* methodName = constantInvokeDynamic->name;
+		$var(String, returnTypeStr, $fcast<String>(list->get(list->size() - 1)));
+		Class* returnType = loadClass(returnTypeStr);
 		$var($Array<BootstrapMethod>, bootstrapMethods, clazz->getByteCodeClassData(false)->bootstrapMethods);
 		BootstrapMethod* bootstrapMethod = bootstrapMethods->get(constantInvokeDynamic->bootstrapMethodAttrIndex);
 		$nc(bootstrapMethod);
 		ConstantMethodHandle* methodHandle = (ConstantMethodHandle*)bootstrapMethod->methodHandle;
-		ConstantMethodType* cmt0 = (ConstantMethodType*)bootstrapMethod->bootstrapArguments->get(0);
-		$var(MethodType, mt0, MethodType::fromMethodDescriptorString(cmt0->descriptor, clazz->classLoader));
-		ConstantMethodHandle* cmh1 = (ConstantMethodHandle*)bootstrapMethod->bootstrapArguments->get(1);
-		ConstantMethodRef* cmref = constantPool->getMethodRef(cmh1->referenceIndex);
-		Class* methodClazz = Class::forName($(cmref->clazz->replace('/', '.')), false, clazz->classLoader);
-		$var(Method, method, methodClazz->getMethodEx(cmref->name, cmref->descriptor));
-		$var(MethodHandles$Lookup, lookup, MethodHandles::lookup());
-		$var(MethodHandle, mh, nullptr);
-		$var(MethodType, mt1, MethodType::fromMethodDescriptorString(cmref->descriptor, clazz->classLoader));
-		if (method->isStatic()) {
-			$assign(mh, lookup->findStatic(methodClazz, cmref->name, mt1));
+		ConstantMethodRef* methodHandlecmref = constantPool->getMethodRef(methodHandle->referenceIndex);
+		$nc(methodHandlecmref->name);
+		$nc(methodHandlecmref->clazz);
+		$var(Object, ret, nullptr);
+		if (methodHandlecmref->name->equals("metafactory"_s) && methodHandlecmref->clazz->equals("java/lang/invoke/LambdaMetafactory"_s)) {
+			if (bootstrapMethod->resolvedMH == nullptr) {
+				$synchronized(bootstrapMethod) {
+					if (bootstrapMethod->resolvedMH == nullptr) {
+						$set(bootstrapMethod, resolvedMH, makeMetafactory(clazz, bootstrapMethod, methodName, ptypes, returnType, constantPool));
+					}
+				}
+			}
+			$assign(ret, bootstrapMethod->resolvedMH->invokeExact(args));
+		} else if (methodHandlecmref->name->equals("bootstrap"_s) && methodHandlecmref->clazz->equals("java/lang/runtime/ObjectMethods"_s)) {
+			$assign(ret, invokeBootstrap(clazz, bootstrapMethod, methodName, args));
 		} else {
-			$assign(mh, lookup->findVirtual(methodClazz, cmref->name, mt1));
+			// TODO
+			$throwNew(RuntimeException, $$str({"invokeDynamic "_s, methodHandlecmref->name, " is unsupported"_s}));
 		}
-		ConstantMethodType* cmt2 = (ConstantMethodType*)bootstrapMethod->bootstrapArguments->get(2);
-		$var(MethodType, mt2, MethodType::fromMethodDescriptorString(cmt2->descriptor, clazz->classLoader));
-		$var(String, returnType, $fcast<String>(list->get(list->size() - 1)));
-		$var(MethodType, mt, MethodType::methodType(loadClass(returnType), ptypes));
-		$var(CallSite, cs, LambdaMetafactory::metafactory(lookup, methodName, mt, mt0, mh, mt2));
-		$var(MethodHandle, target, cs->getTarget());
-		int32_t localIndex = 0;
-		$var($ObjectArray, args, $new($ObjectArray, ptypes->length));
-		for (int32_t i = 0; i < ptypes->length; i++) {
-			Class* type = ptypes->get(i);
-			$var(Object, arg, getParameter(type, frame, localIndex));
-			args->set(i, arg);
-			int32_t category = calcCategory0(type);
-			localIndex += category;
-		}
-		$var(Object, ret, target->invokeExact(args));
-		frame->setReturn(Object::class$, ret);
+		frame->setReturn(returnType, ret);
 	} catch (InvocationTargetException& ite) {
 		$set(this, currentException, ite->target);
 	} catch (Throwable& e) {

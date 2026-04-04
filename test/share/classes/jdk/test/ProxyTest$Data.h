@@ -19,6 +19,7 @@ class $export ProxyTest$Data : public ::java::lang::Object {
 	$class(ProxyTest$Data, 0, ::java::lang::Object)
 public:
 	ProxyTest$Data();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::Module* m, ::java::lang::ClassLoader* loader, $ClassArray* interfaces);
 	void init$(::java::lang::ClassLoader* loader, $ClassArray* interfaces);
 	virtual $String* toString() override;

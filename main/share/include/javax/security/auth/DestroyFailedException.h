@@ -15,10 +15,13 @@ public:
 	DestroyFailedException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0x93E3D14013AADD16;
+	static const int64_t serialVersionUID = (int64_t)0x93e3d14013aadd16;
 	DestroyFailedException(const DestroyFailedException& e);
 	virtual void throw$() override;
-	inline DestroyFailedException* operator ->() {
+	inline DestroyFailedException* operator ->() const {
+		return (DestroyFailedException*)throwing$;
+	}
+	inline operator DestroyFailedException*() const {
 		return (DestroyFailedException*)throwing$;
 	}
 };

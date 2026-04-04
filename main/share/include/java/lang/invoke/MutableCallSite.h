@@ -35,6 +35,7 @@ class $import MutableCallSite : public ::java::lang::invoke::CallSite {
 	$class(MutableCallSite, 0, ::java::lang::invoke::CallSite)
 public:
 	MutableCallSite();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::invoke::MethodType* type);
 	void init$(::java::lang::invoke::MethodHandle* target);
 	virtual ::java::lang::invoke::MethodHandle* dynamicInvoker() override;

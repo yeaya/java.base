@@ -1,7 +1,5 @@
 #include <sun/security/util/AnchorCertificates.h>
-
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/cert/X509Certificate.h>
 #include <java/util/Collections.h>
 #include <java/util/Set.h>
@@ -18,7 +16,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $Collections = ::java::util::Collections;
 using $Set = ::java::util::Set;
@@ -30,45 +27,6 @@ namespace sun {
 	namespace security {
 		namespace util {
 
-$FieldInfo _AnchorCertificates_FieldInfo_[] = {
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AnchorCertificates, debug)},
-	{"HASH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AnchorCertificates, HASH)},
-	{"certs", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(AnchorCertificates, certs)},
-	{"certIssuers", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/security/auth/x500/X500Principal;>;", $PRIVATE | $STATIC, $staticField(AnchorCertificates, certIssuers)},
-	{}
-};
-
-$MethodInfo _AnchorCertificates_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(AnchorCertificates, init$, void)},
-	{"contains", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(AnchorCertificates, contains, bool, $X509Certificate*)},
-	{"issuerOf", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(AnchorCertificates, issuerOf, bool, $X509Certificate*)},
-	{}
-};
-
-$InnerClassInfo _AnchorCertificates_InnerClassesInfo_[] = {
-	{"sun.security.util.AnchorCertificates$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AnchorCertificates_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.AnchorCertificates",
-	"java.lang.Object",
-	nullptr,
-	_AnchorCertificates_FieldInfo_,
-	_AnchorCertificates_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AnchorCertificates_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.util.AnchorCertificates$1"
-};
-
-$Object* allocate$AnchorCertificates($Class* clazz) {
-	return $of($alloc(AnchorCertificates));
-}
-
 $Debug* AnchorCertificates::debug = nullptr;
 $String* AnchorCertificates::HASH = nullptr;
 $Set* AnchorCertificates::certs = nullptr;
@@ -76,11 +34,11 @@ $Set* AnchorCertificates::certIssuers = nullptr;
 
 bool AnchorCertificates::contains($X509Certificate* cert) {
 	$init(AnchorCertificates);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, key, $X509CertImpl::getFingerprint(AnchorCertificates::HASH, cert));
 	bool result = $nc(AnchorCertificates::certs)->contains(key);
 	if (result && AnchorCertificates::debug != nullptr) {
-		$nc(AnchorCertificates::debug)->println($$str({"AnchorCertificate.contains: matched "_s, $($nc(cert)->getSubjectX500Principal())}));
+		AnchorCertificates::debug->println($$str({"AnchorCertificate.contains: matched "_s, $($nc(cert)->getSubjectX500Principal())}));
 	}
 	return result;
 }
@@ -93,15 +51,15 @@ bool AnchorCertificates::issuerOf($X509Certificate* cert) {
 void AnchorCertificates::init$() {
 }
 
-void clinit$AnchorCertificates($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void AnchorCertificates::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(AnchorCertificates::HASH, "SHA-256"_s);
 	$beforeCallerSensitive();
 	$assignStatic(AnchorCertificates::debug, $Debug::getInstance("certpath"_s));
 	$assignStatic(AnchorCertificates::certs, $Collections::emptySet());
 	$assignStatic(AnchorCertificates::certIssuers, $Collections::emptySet());
 	{
-		$var($Object, dummy, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($AnchorCertificates$1))));
+		$var($Object, dummy, $AccessController::doPrivileged($$new($AnchorCertificates$1)));
 	}
 }
 
@@ -109,7 +67,40 @@ AnchorCertificates::AnchorCertificates() {
 }
 
 $Class* AnchorCertificates::load$($String* name, bool initialize) {
-	$loadClass(AnchorCertificates, name, initialize, &_AnchorCertificates_ClassInfo_, clinit$AnchorCertificates, allocate$AnchorCertificates);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AnchorCertificates, debug)},
+		{"HASH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AnchorCertificates, HASH)},
+		{"certs", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(AnchorCertificates, certs)},
+		{"certIssuers", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/security/auth/x500/X500Principal;>;", $PRIVATE | $STATIC, $staticField(AnchorCertificates, certIssuers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(AnchorCertificates, init$, void)},
+		{"contains", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(AnchorCertificates, contains, bool, $X509Certificate*)},
+		{"issuerOf", "(Ljava/security/cert/X509Certificate;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(AnchorCertificates, issuerOf, bool, $X509Certificate*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.AnchorCertificates$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.AnchorCertificates",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.util.AnchorCertificates$1"
+	};
+	$loadClass(AnchorCertificates, name, initialize, &classInfo$$, AnchorCertificates::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AnchorCertificates);
+	});
 	return class$;
 }
 

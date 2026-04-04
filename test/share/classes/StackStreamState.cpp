@@ -1,5 +1,4 @@
 #include <StackStreamState.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/StackWalker.h>
@@ -12,7 +11,6 @@
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -32,27 +30,24 @@ public:
 	virtual $Object* apply(Object$* s) override {
 		 return StackStreamState::lambda$testStatic$0($cast($Stream, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<StackStreamState$$Lambda$lambda$testStatic$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo StackStreamState$$Lambda$lambda$testStatic$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamState$$Lambda$lambda$testStatic$0, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamState$$Lambda$lambda$testStatic$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo StackStreamState$$Lambda$lambda$testStatic$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"StackStreamState$$Lambda$lambda$testStatic$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* StackStreamState$$Lambda$lambda$testStatic$0::load$($String* name, bool initialize) {
-	$loadClass(StackStreamState$$Lambda$lambda$testStatic$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamState$$Lambda$lambda$testStatic$0, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamState$$Lambda$lambda$testStatic$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"StackStreamState$$Lambda$lambda$testStatic$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StackStreamState$$Lambda$lambda$testStatic$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StackStreamState$$Lambda$lambda$testStatic$0);
+	});
 	return class$;
 }
 $Class* StackStreamState$$Lambda$lambda$testStatic$0::class$ = nullptr;
@@ -66,33 +61,29 @@ public:
 	virtual $Object* apply(Object$* s) override {
 		 return $nc(inst$)->lambda$testInstance$1($cast($Stream, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<StackStreamState$$Lambda$lambda$testInstance$1$1>());
-	}
 	StackStreamState* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo StackStreamState$$Lambda$lambda$testInstance$1$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(StackStreamState$$Lambda$lambda$testInstance$1$1, inst$)},
-	{}
-};
-$MethodInfo StackStreamState$$Lambda$lambda$testInstance$1$1::methodInfos[3] = {
-	{"<init>", "(LStackStreamState;)V", nullptr, $PUBLIC, $method(StackStreamState$$Lambda$lambda$testInstance$1$1, init$, void, StackStreamState*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamState$$Lambda$lambda$testInstance$1$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo StackStreamState$$Lambda$lambda$testInstance$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"StackStreamState$$Lambda$lambda$testInstance$1$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* StackStreamState$$Lambda$lambda$testInstance$1$1::load$($String* name, bool initialize) {
-	$loadClass(StackStreamState$$Lambda$lambda$testInstance$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(StackStreamState$$Lambda$lambda$testInstance$1$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LStackStreamState;)V", nullptr, $PUBLIC, $method(StackStreamState$$Lambda$lambda$testInstance$1$1, init$, void, StackStreamState*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamState$$Lambda$lambda$testInstance$1$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"StackStreamState$$Lambda$lambda$testInstance$1$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StackStreamState$$Lambda$lambda$testInstance$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StackStreamState$$Lambda$lambda$testInstance$1$1);
+	});
 	return class$;
 }
 $Class* StackStreamState$$Lambda$lambda$testInstance$1$1::class$ = nullptr;
@@ -103,65 +94,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(StackStreamState::lambda$testLocal$2($cast($Stream, s)));
+		 return StackStreamState::lambda$testLocal$2($cast($Stream, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<StackStreamState$$Lambda$lambda$testLocal$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo StackStreamState$$Lambda$lambda$testLocal$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamState$$Lambda$lambda$testLocal$2$2, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamState$$Lambda$lambda$testLocal$2$2, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo StackStreamState$$Lambda$lambda$testLocal$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"StackStreamState$$Lambda$lambda$testLocal$2$2",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* StackStreamState$$Lambda$lambda$testLocal$2$2::load$($String* name, bool initialize) {
-	$loadClass(StackStreamState$$Lambda$lambda$testLocal$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamState$$Lambda$lambda$testLocal$2$2, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StackStreamState$$Lambda$lambda$testLocal$2$2, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"StackStreamState$$Lambda$lambda$testLocal$2$2",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StackStreamState$$Lambda$lambda$testLocal$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StackStreamState$$Lambda$lambda$testLocal$2$2);
+	});
 	return class$;
 }
 $Class* StackStreamState$$Lambda$lambda$testLocal$2$2::class$ = nullptr;
-
-$FieldInfo _StackStreamState_FieldInfo_[] = {
-	{"staticStream", "Ljava/util/stream/Stream;", "Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;", $PRIVATE | $STATIC, $staticField(StackStreamState, staticStream)},
-	{"instanceStream", "Ljava/util/stream/Stream;", "Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;", $PRIVATE, $field(StackStreamState, instanceStream)},
-	{"walker", "Ljava/lang/StackWalker;", nullptr, $PRIVATE | $FINAL, $field(StackStreamState, walker)},
-	{}
-};
-
-$MethodInfo _StackStreamState_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamState, init$, void)},
-	{"checkStreamState", "(Ljava/util/stream/Stream;)V", "(Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;)V", 0, $virtualMethod(StackStreamState, checkStreamState, void, $Stream*)},
-	{"lambda$testInstance$1", "(Ljava/util/stream/Stream;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(StackStreamState, lambda$testInstance$1, $Object*, $Stream*)},
-	{"lambda$testLocal$2", "(Ljava/util/stream/Stream;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamState, lambda$testLocal$2, $Stream*, $Stream*)},
-	{"lambda$testStatic$0", "(Ljava/util/stream/Stream;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamState, lambda$testStatic$0, $Object*, $Stream*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(StackStreamState, main, void, $StringArray*)},
-	{"testInstance", "()V", nullptr, 0, $virtualMethod(StackStreamState, testInstance, void)},
-	{"testLocal", "()V", nullptr, 0, $virtualMethod(StackStreamState, testLocal, void)},
-	{"testStatic", "()V", nullptr, 0, $virtualMethod(StackStreamState, testStatic, void)},
-	{}
-};
-
-$ClassInfo _StackStreamState_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"StackStreamState",
-	"java.lang.Object",
-	nullptr,
-	_StackStreamState_FieldInfo_,
-	_StackStreamState_MethodInfo_
-};
-
-$Object* allocate$StackStreamState($Class* clazz) {
-	return $of($alloc(StackStreamState));
-}
 
 $Stream* StackStreamState::staticStream = nullptr;
 
@@ -178,25 +133,25 @@ void StackStreamState::main($StringArray* args) {
 
 void StackStreamState::testStatic() {
 	$beforeCallerSensitive();
-	$nc(this->walker)->walk(static_cast<$Function*>($$new(StackStreamState$$Lambda$lambda$testStatic$0)));
+	$nc(this->walker)->walk($$new(StackStreamState$$Lambda$lambda$testStatic$0));
 	checkStreamState(StackStreamState::staticStream);
 }
 
 void StackStreamState::testInstance() {
 	$beforeCallerSensitive();
-	$nc(this->walker)->walk(static_cast<$Function*>($$new(StackStreamState$$Lambda$lambda$testInstance$1$1, this)));
+	$nc(this->walker)->walk($$new(StackStreamState$$Lambda$lambda$testInstance$1$1, this));
 	checkStreamState(this->instanceStream);
 }
 
 void StackStreamState::testLocal() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($Stream, stream, $cast($Stream, $nc(this->walker)->walk(static_cast<$Function*>($$new(StackStreamState$$Lambda$lambda$testLocal$2$2)))));
+	$var($Stream, stream, $cast($Stream, $nc(this->walker)->walk($$new(StackStreamState$$Lambda$lambda$testLocal$2$2))));
 	checkStreamState(stream);
 }
 
 void StackStreamState::checkStreamState($Stream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$nc(stream)->count();
 		$throwNew($RuntimeException, "IllegalStateException not thrown"_s);
@@ -212,13 +167,13 @@ $Stream* StackStreamState::lambda$testLocal$2($Stream* s) {
 
 $Object* StackStreamState::lambda$testInstance$1($Stream* s) {
 	$set(this, instanceStream, s);
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* StackStreamState::lambda$testStatic$0($Stream* s) {
 	$init(StackStreamState);
 	$assignStatic(StackStreamState::staticStream, s);
-	return $of(nullptr);
+	return nullptr;
 }
 
 StackStreamState::StackStreamState() {
@@ -226,17 +181,45 @@ StackStreamState::StackStreamState() {
 
 $Class* StackStreamState::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(StackStreamState$$Lambda$lambda$testStatic$0::classInfo$.name)) {
+		if (name->equals("StackStreamState$$Lambda$lambda$testStatic$0")) {
 			return StackStreamState$$Lambda$lambda$testStatic$0::load$(name, initialize);
 		}
-		if (name->equals(StackStreamState$$Lambda$lambda$testInstance$1$1::classInfo$.name)) {
+		if (name->equals("StackStreamState$$Lambda$lambda$testInstance$1$1")) {
 			return StackStreamState$$Lambda$lambda$testInstance$1$1::load$(name, initialize);
 		}
-		if (name->equals(StackStreamState$$Lambda$lambda$testLocal$2$2::classInfo$.name)) {
+		if (name->equals("StackStreamState$$Lambda$lambda$testLocal$2$2")) {
 			return StackStreamState$$Lambda$lambda$testLocal$2$2::load$(name, initialize);
 		}
 	}
-	$loadClass(StackStreamState, name, initialize, &_StackStreamState_ClassInfo_, allocate$StackStreamState);
+	$FieldInfo fieldInfos$$[] = {
+		{"staticStream", "Ljava/util/stream/Stream;", "Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;", $PRIVATE | $STATIC, $staticField(StackStreamState, staticStream)},
+		{"instanceStream", "Ljava/util/stream/Stream;", "Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;", $PRIVATE, $field(StackStreamState, instanceStream)},
+		{"walker", "Ljava/lang/StackWalker;", nullptr, $PRIVATE | $FINAL, $field(StackStreamState, walker)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StackStreamState, init$, void)},
+		{"checkStreamState", "(Ljava/util/stream/Stream;)V", "(Ljava/util/stream/Stream<Ljava/lang/StackWalker$StackFrame;>;)V", 0, $virtualMethod(StackStreamState, checkStreamState, void, $Stream*)},
+		{"lambda$testInstance$1", "(Ljava/util/stream/Stream;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(StackStreamState, lambda$testInstance$1, $Object*, $Stream*)},
+		{"lambda$testLocal$2", "(Ljava/util/stream/Stream;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamState, lambda$testLocal$2, $Stream*, $Stream*)},
+		{"lambda$testStatic$0", "(Ljava/util/stream/Stream;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StackStreamState, lambda$testStatic$0, $Object*, $Stream*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(StackStreamState, main, void, $StringArray*)},
+		{"testInstance", "()V", nullptr, 0, $virtualMethod(StackStreamState, testInstance, void)},
+		{"testLocal", "()V", nullptr, 0, $virtualMethod(StackStreamState, testLocal, void)},
+		{"testStatic", "()V", nullptr, 0, $virtualMethod(StackStreamState, testStatic, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"StackStreamState",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StackStreamState, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StackStreamState);
+	});
 	return class$;
 }
 

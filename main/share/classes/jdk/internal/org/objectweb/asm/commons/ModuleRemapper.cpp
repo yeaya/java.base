@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/commons/ModuleRemapper.h>
-
 #include <jdk/internal/org/objectweb/asm/ModuleVisitor.h>
 #include <jdk/internal/org/objectweb/asm/Opcodes.h>
 #include <jdk/internal/org/objectweb/asm/commons/Remapper.h>
@@ -20,37 +19,6 @@ namespace jdk {
 			namespace objectweb {
 				namespace asm$ {
 					namespace commons {
-
-$FieldInfo _ModuleRemapper_FieldInfo_[] = {
-	{"remapper", "Ljdk/internal/org/objectweb/asm/commons/Remapper;", nullptr, $PROTECTED | $FINAL, $field(ModuleRemapper, remapper)},
-	{}
-};
-
-$MethodInfo _ModuleRemapper_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PUBLIC, $method(ModuleRemapper, init$, void, $ModuleVisitor*, $Remapper*)},
-	{"<init>", "(ILjdk/internal/org/objectweb/asm/ModuleVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PROTECTED, $method(ModuleRemapper, init$, void, int32_t, $ModuleVisitor*, $Remapper*)},
-	{"visitExport", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleRemapper, visitExport, void, $String*, int32_t, $StringArray*)},
-	{"visitMainClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleRemapper, visitMainClass, void, $String*)},
-	{"visitOpen", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleRemapper, visitOpen, void, $String*, int32_t, $StringArray*)},
-	{"visitPackage", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleRemapper, visitPackage, void, $String*)},
-	{"visitProvide", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleRemapper, visitProvide, void, $String*, $StringArray*)},
-	{"visitRequire", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleRemapper, visitRequire, void, $String*, int32_t, $String*)},
-	{"visitUse", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleRemapper, visitUse, void, $String*)},
-	{}
-};
-
-$ClassInfo _ModuleRemapper_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.commons.ModuleRemapper",
-	"jdk.internal.org.objectweb.asm.ModuleVisitor",
-	nullptr,
-	_ModuleRemapper_FieldInfo_,
-	_ModuleRemapper_MethodInfo_
-};
-
-$Object* allocate$ModuleRemapper($Class* clazz) {
-	return $of($alloc(ModuleRemapper));
-}
 
 void ModuleRemapper::init$($ModuleVisitor* moduleVisitor, $Remapper* remapper) {
 	ModuleRemapper::init$($Opcodes::ASM8, moduleVisitor, remapper);
@@ -74,7 +42,7 @@ void ModuleRemapper::visitRequire($String* module, int32_t access, $String* vers
 }
 
 void ModuleRemapper::visitExport($String* packaze, int32_t access, $StringArray* modules) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, remappedModules, nullptr);
 	if (modules != nullptr) {
 		$assign(remappedModules, $new($StringArray, modules->length));
@@ -86,7 +54,7 @@ void ModuleRemapper::visitExport($String* packaze, int32_t access, $StringArray*
 }
 
 void ModuleRemapper::visitOpen($String* packaze, int32_t access, $StringArray* modules) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, remappedModules, nullptr);
 	if (modules != nullptr) {
 		$assign(remappedModules, $new($StringArray, modules->length));
@@ -102,7 +70,7 @@ void ModuleRemapper::visitUse($String* service) {
 }
 
 void ModuleRemapper::visitProvide($String* service, $StringArray* providers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, remappedProviders, $new($StringArray, $nc(providers)->length));
 	for (int32_t i = 0; i < providers->length; ++i) {
 		remappedProviders->set(i, $($nc(this->remapper)->mapType(providers->get(i))));
@@ -114,7 +82,33 @@ ModuleRemapper::ModuleRemapper() {
 }
 
 $Class* ModuleRemapper::load$($String* name, bool initialize) {
-	$loadClass(ModuleRemapper, name, initialize, &_ModuleRemapper_ClassInfo_, allocate$ModuleRemapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"remapper", "Ljdk/internal/org/objectweb/asm/commons/Remapper;", nullptr, $PROTECTED | $FINAL, $field(ModuleRemapper, remapper)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/ModuleVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PUBLIC, $method(ModuleRemapper, init$, void, $ModuleVisitor*, $Remapper*)},
+		{"<init>", "(ILjdk/internal/org/objectweb/asm/ModuleVisitor;Ljdk/internal/org/objectweb/asm/commons/Remapper;)V", nullptr, $PROTECTED, $method(ModuleRemapper, init$, void, int32_t, $ModuleVisitor*, $Remapper*)},
+		{"visitExport", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleRemapper, visitExport, void, $String*, int32_t, $StringArray*)},
+		{"visitMainClass", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleRemapper, visitMainClass, void, $String*)},
+		{"visitOpen", "(Ljava/lang/String;I[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleRemapper, visitOpen, void, $String*, int32_t, $StringArray*)},
+		{"visitPackage", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleRemapper, visitPackage, void, $String*)},
+		{"visitProvide", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ModuleRemapper, visitProvide, void, $String*, $StringArray*)},
+		{"visitRequire", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleRemapper, visitRequire, void, $String*, int32_t, $String*)},
+		{"visitUse", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ModuleRemapper, visitUse, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.commons.ModuleRemapper",
+		"jdk.internal.org.objectweb.asm.ModuleVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModuleRemapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleRemapper);
+	});
 	return class$;
 }
 

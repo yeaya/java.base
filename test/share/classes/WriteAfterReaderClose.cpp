@@ -1,5 +1,4 @@
 #include <WriteAfterReaderClose.h>
-
 #include <java/io/IOException.h>
 #include <java/io/PipedReader.h>
 #include <java/io/PipedWriter.h>
@@ -12,35 +11,16 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _WriteAfterReaderClose_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WriteAfterReaderClose, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WriteAfterReaderClose, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _WriteAfterReaderClose_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"WriteAfterReaderClose",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_WriteAfterReaderClose_MethodInfo_
-};
-
-$Object* allocate$WriteAfterReaderClose($Class* clazz) {
-	return $of($alloc(WriteAfterReaderClose));
-}
-
 void WriteAfterReaderClose::init$() {
 }
 
 void WriteAfterReaderClose::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PipedReader, pr, $new($PipedReader));
 	$var($PipedWriter, pw, $new($PipedWriter, pr));
 	pr->close();
 	try {
-		pw->write((int32_t)u'a');
+		pw->write(u'a');
 		$throwNew($Exception, "Should not allow write after close"_s);
 	} catch ($IOException& e) {
 	}
@@ -50,7 +30,22 @@ WriteAfterReaderClose::WriteAfterReaderClose() {
 }
 
 $Class* WriteAfterReaderClose::load$($String* name, bool initialize) {
-	$loadClass(WriteAfterReaderClose, name, initialize, &_WriteAfterReaderClose_ClassInfo_, allocate$WriteAfterReaderClose);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WriteAfterReaderClose, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WriteAfterReaderClose, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"WriteAfterReaderClose",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WriteAfterReaderClose, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WriteAfterReaderClose);
+	});
 	return class$;
 }
 

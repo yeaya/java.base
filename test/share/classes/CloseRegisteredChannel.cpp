@@ -1,9 +1,7 @@
 #include <CloseRegisteredChannel.h>
-
 #include <java/net/InetAddress.h>
 #include <java/net/InetSocketAddress.h>
 #include <java/net/ServerSocket.h>
-#include <java/net/SocketAddress.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/SelectableChannel.h>
 #include <java/nio/channels/SelectionKey.h>
@@ -14,43 +12,22 @@
 
 #undef OP_READ
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InetAddress = ::java::net::InetAddress;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $ServerSocket = ::java::net::ServerSocket;
-using $SocketAddress = ::java::net::SocketAddress;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $Selector = ::java::nio::channels::Selector;
 using $ServerSocketChannel = ::java::nio::channels::ServerSocketChannel;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 
-$MethodInfo _CloseRegisteredChannel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CloseRegisteredChannel, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CloseRegisteredChannel, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _CloseRegisteredChannel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"CloseRegisteredChannel",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_CloseRegisteredChannel_MethodInfo_
-};
-
-$Object* allocate$CloseRegisteredChannel($Class* clazz) {
-	return $of($alloc(CloseRegisteredChannel));
-}
-
 void CloseRegisteredChannel::init$() {
 }
 
 void CloseRegisteredChannel::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerSocketChannel, server, $ServerSocketChannel::open());
 	$var($ServerSocket, s, $nc(server)->socket());
 	$nc(s)->bind($$new($InetSocketAddress, 0));
@@ -73,7 +50,22 @@ CloseRegisteredChannel::CloseRegisteredChannel() {
 }
 
 $Class* CloseRegisteredChannel::load$($String* name, bool initialize) {
-	$loadClass(CloseRegisteredChannel, name, initialize, &_CloseRegisteredChannel_ClassInfo_, allocate$CloseRegisteredChannel);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CloseRegisteredChannel, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CloseRegisteredChannel, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"CloseRegisteredChannel",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CloseRegisteredChannel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CloseRegisteredChannel);
+	});
 	return class$;
 }
 

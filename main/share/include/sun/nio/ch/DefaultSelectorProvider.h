@@ -24,6 +24,7 @@ class $import DefaultSelectorProvider : public ::java::lang::Object {
 	$class(DefaultSelectorProvider, 0, ::java::lang::Object)
 public:
 	DefaultSelectorProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::nio::ch::SelectorProviderImpl* get();
 	static ::sun::nio::ch::SelectorProviderImpl* INSTANCE;

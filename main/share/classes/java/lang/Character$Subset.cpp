@@ -1,5 +1,4 @@
 #include <java/lang/Character$Subset.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,44 +9,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 
 namespace java {
 	namespace lang {
-
-$FieldInfo _Character$Subset_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Character$Subset, name)},
-	{}
-};
-
-$MethodInfo _Character$Subset_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Character$Subset, init$, void, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Character$Subset, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(Character$Subset, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Character$Subset, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Character$Subset_InnerClassesInfo_[] = {
-	{"java.lang.Character$Subset", "java.lang.Character", "Subset", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Character$Subset_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.Character$Subset",
-	"java.lang.Object",
-	nullptr,
-	_Character$Subset_FieldInfo_,
-	_Character$Subset_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Character$Subset_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.Character"
-};
-
-$Object* allocate$Character$Subset($Class* clazz) {
-	return $of($alloc(Character$Subset));
-}
 
 void Character$Subset::init$($String* name) {
 	if (name == nullptr) {
@@ -72,7 +33,39 @@ Character$Subset::Character$Subset() {
 }
 
 $Class* Character$Subset::load$($String* name, bool initialize) {
-	$loadClass(Character$Subset, name, initialize, &_Character$Subset_ClassInfo_, allocate$Character$Subset);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Character$Subset, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Character$Subset, init$, void, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(Character$Subset, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(Character$Subset, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Character$Subset, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Character$Subset", "java.lang.Character", "Subset", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.Character$Subset",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.Character"
+	};
+	$loadClass(Character$Subset, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Character$Subset);
+	});
 	return class$;
 }
 

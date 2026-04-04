@@ -19,12 +19,32 @@
  */
 
 #include <java/lang/ExportsDirective.h>
+#include <jcpp.h>
+#include <string.h>
 
 namespace java {
 	namespace lang {
 
 bool ExportsDirective::isEnd() {
 	return package == nullptr;
+}
+
+ExportsDirective* ExportsDirective::cloneArray(ExportsDirective* array) {
+	if (array == nullptr) {
+		return nullptr;
+	}
+	ExportsDirective* it = array;
+	int32_t count = 0;
+	for (; true; it++) {
+		if (it->isEnd()) {
+			break;
+		}
+		count++;
+	}
+	count++; // for end null
+	ExportsDirective* newArray = $allocRawStatic(ExportsDirective, count);
+	memcpy(newArray, array, sizeof(ExportsDirective) * count);
+	return newArray;
 }
 
 	} // lang

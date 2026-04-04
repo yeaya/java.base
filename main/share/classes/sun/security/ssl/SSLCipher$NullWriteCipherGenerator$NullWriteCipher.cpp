@@ -1,5 +1,4 @@
 #include <sun/security/ssl/SSLCipher$NullWriteCipherGenerator$NullWriteCipher.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <sun/security/ssl/Authenticator$MAC.h>
 #include <sun/security/ssl/Authenticator.h>
@@ -24,49 +23,12 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _SSLCipher$NullWriteCipherGenerator$NullWriteCipher_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;)V", nullptr, 0, $method(SSLCipher$NullWriteCipherGenerator$NullWriteCipher, init$, void, $Authenticator*, $ProtocolVersion*)},
-	{"calculateFragmentSize", "(II)I", nullptr, 0, $virtualMethod(SSLCipher$NullWriteCipherGenerator$NullWriteCipher, calculateFragmentSize, int32_t, int32_t, int32_t)},
-	{"calculatePacketSize", "(II)I", nullptr, 0, $virtualMethod(SSLCipher$NullWriteCipherGenerator$NullWriteCipher, calculatePacketSize, int32_t, int32_t, int32_t)},
-	{"encrypt", "(BLjava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(SSLCipher$NullWriteCipherGenerator$NullWriteCipher, encrypt, int32_t, int8_t, $ByteBuffer*)},
-	{"getExplicitNonceSize", "()I", nullptr, 0, $virtualMethod(SSLCipher$NullWriteCipherGenerator$NullWriteCipher, getExplicitNonceSize, int32_t)},
-	{"isNullCipher", "()Z", nullptr, 0, $virtualMethod(SSLCipher$NullWriteCipherGenerator$NullWriteCipher, isNullCipher, bool)},
-	{}
-};
-
-$InnerClassInfo _SSLCipher$NullWriteCipherGenerator$NullWriteCipher_InnerClassesInfo_[] = {
-	{"sun.security.ssl.SSLCipher$NullWriteCipherGenerator", "sun.security.ssl.SSLCipher", "NullWriteCipherGenerator", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.SSLCipher$NullWriteCipherGenerator$NullWriteCipher", "sun.security.ssl.SSLCipher$NullWriteCipherGenerator", "NullWriteCipher", $STATIC | $FINAL},
-	{"sun.security.ssl.SSLCipher$SSLWriteCipher", "sun.security.ssl.SSLCipher", "SSLWriteCipher", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SSLCipher$NullWriteCipherGenerator$NullWriteCipher_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.SSLCipher$NullWriteCipherGenerator$NullWriteCipher",
-	"sun.security.ssl.SSLCipher$SSLWriteCipher",
-	nullptr,
-	nullptr,
-	_SSLCipher$NullWriteCipherGenerator$NullWriteCipher_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLCipher$NullWriteCipherGenerator$NullWriteCipher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.SSLCipher"
-};
-
-$Object* allocate$SSLCipher$NullWriteCipherGenerator$NullWriteCipher($Class* clazz) {
-	return $of($alloc(SSLCipher$NullWriteCipherGenerator$NullWriteCipher));
-}
-
 void SSLCipher$NullWriteCipherGenerator$NullWriteCipher::init$($Authenticator* authenticator, $ProtocolVersion* protocolVersion) {
 	$SSLCipher$SSLWriteCipher::init$(authenticator, protocolVersion);
 }
 
 int32_t SSLCipher$NullWriteCipherGenerator$NullWriteCipher::encrypt(int8_t contentType, $ByteBuffer* bb) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Authenticator$MAC, signer, $cast($Authenticator$MAC, this->authenticator));
 	if ($nc($($nc(signer)->macAlg()))->size != 0) {
 		$SSLCipher::addMac(signer, bb, contentType);
@@ -83,12 +45,12 @@ int32_t SSLCipher$NullWriteCipherGenerator$NullWriteCipher::getExplicitNonceSize
 }
 
 int32_t SSLCipher$NullWriteCipherGenerator$NullWriteCipher::calculateFragmentSize(int32_t packetLimit, int32_t headerSize) {
-	int32_t macLen = $nc($($nc(($cast($Authenticator$MAC, this->authenticator)))->macAlg()))->size;
+	int32_t macLen = $nc($($nc($cast($Authenticator$MAC, this->authenticator))->macAlg()))->size;
 	return packetLimit - headerSize - macLen;
 }
 
 int32_t SSLCipher$NullWriteCipherGenerator$NullWriteCipher::calculatePacketSize(int32_t fragmentSize, int32_t headerSize) {
-	int32_t macLen = $nc($($nc(($cast($Authenticator$MAC, this->authenticator)))->macAlg()))->size;
+	int32_t macLen = $nc($($nc($cast($Authenticator$MAC, this->authenticator))->macAlg()))->size;
 	return fragmentSize + headerSize + macLen;
 }
 
@@ -100,7 +62,39 @@ SSLCipher$NullWriteCipherGenerator$NullWriteCipher::SSLCipher$NullWriteCipherGen
 }
 
 $Class* SSLCipher$NullWriteCipherGenerator$NullWriteCipher::load$($String* name, bool initialize) {
-	$loadClass(SSLCipher$NullWriteCipherGenerator$NullWriteCipher, name, initialize, &_SSLCipher$NullWriteCipherGenerator$NullWriteCipher_ClassInfo_, allocate$SSLCipher$NullWriteCipherGenerator$NullWriteCipher);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/Authenticator;Lsun/security/ssl/ProtocolVersion;)V", nullptr, 0, $method(SSLCipher$NullWriteCipherGenerator$NullWriteCipher, init$, void, $Authenticator*, $ProtocolVersion*)},
+		{"calculateFragmentSize", "(II)I", nullptr, 0, $virtualMethod(SSLCipher$NullWriteCipherGenerator$NullWriteCipher, calculateFragmentSize, int32_t, int32_t, int32_t)},
+		{"calculatePacketSize", "(II)I", nullptr, 0, $virtualMethod(SSLCipher$NullWriteCipherGenerator$NullWriteCipher, calculatePacketSize, int32_t, int32_t, int32_t)},
+		{"encrypt", "(BLjava/nio/ByteBuffer;)I", nullptr, $PUBLIC, $virtualMethod(SSLCipher$NullWriteCipherGenerator$NullWriteCipher, encrypt, int32_t, int8_t, $ByteBuffer*)},
+		{"getExplicitNonceSize", "()I", nullptr, 0, $virtualMethod(SSLCipher$NullWriteCipherGenerator$NullWriteCipher, getExplicitNonceSize, int32_t)},
+		{"isNullCipher", "()Z", nullptr, 0, $virtualMethod(SSLCipher$NullWriteCipherGenerator$NullWriteCipher, isNullCipher, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.SSLCipher$NullWriteCipherGenerator", "sun.security.ssl.SSLCipher", "NullWriteCipherGenerator", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.SSLCipher$NullWriteCipherGenerator$NullWriteCipher", "sun.security.ssl.SSLCipher$NullWriteCipherGenerator", "NullWriteCipher", $STATIC | $FINAL},
+		{"sun.security.ssl.SSLCipher$SSLWriteCipher", "sun.security.ssl.SSLCipher", "SSLWriteCipher", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.SSLCipher$NullWriteCipherGenerator$NullWriteCipher",
+		"sun.security.ssl.SSLCipher$SSLWriteCipher",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.SSLCipher"
+	};
+	$loadClass(SSLCipher$NullWriteCipherGenerator$NullWriteCipher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLCipher$NullWriteCipherGenerator$NullWriteCipher);
+	});
 	return class$;
 }
 

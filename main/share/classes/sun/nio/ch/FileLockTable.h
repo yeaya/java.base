@@ -54,6 +54,7 @@ class FileLockTable : public ::java::lang::Object {
 	$class(FileLockTable, 0, ::java::lang::Object)
 public:
 	FileLockTable();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::channels::Channel* channel, ::java::io::FileDescriptor* fd);
 	virtual void add(::java::nio::channels::FileLock* fl);
 	void checkList(::java::util::List* list, int64_t position, int64_t size);

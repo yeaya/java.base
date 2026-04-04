@@ -108,8 +108,8 @@ public:
 	int32_t threshold = 0;
 	float loadFactor = 0.0;
 	int32_t modCount = 0;
-	static const int64_t serialVersionUID = (int64_t)0x13BB0F25214AE4B8;
-	static const int32_t MAX_ARRAY_SIZE = 0x7FFFFFF7; // Integer.MAX_VALUE - 8
+	static const int64_t serialVersionUID = (int64_t)0x13bb0f25214ae4b8;
+	static const int32_t MAX_ARRAY_SIZE = 0x7ffffff7; // Integer.MAX_VALUE - 8
 	$volatile(::java::util::Set*) keySet$ = nullptr;
 	$volatile(::java::util::Set*) entrySet$ = nullptr;
 	$volatile(::java::util::Collection*) values$ = nullptr;

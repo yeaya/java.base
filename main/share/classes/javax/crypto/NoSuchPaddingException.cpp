@@ -1,5 +1,4 @@
 #include <javax/crypto/NoSuchPaddingException.h>
-
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 
 namespace javax {
 	namespace crypto {
-
-$FieldInfo _NoSuchPaddingException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NoSuchPaddingException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NoSuchPaddingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NoSuchPaddingException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchPaddingException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _NoSuchPaddingException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.crypto.NoSuchPaddingException",
-	"java.security.GeneralSecurityException",
-	nullptr,
-	_NoSuchPaddingException_FieldInfo_,
-	_NoSuchPaddingException_MethodInfo_
-};
-
-$Object* allocate$NoSuchPaddingException($Class* clazz) {
-	return $of($alloc(NoSuchPaddingException));
-}
 
 void NoSuchPaddingException::init$() {
 	$GeneralSecurityException::init$();
@@ -54,7 +29,26 @@ void NoSuchPaddingException::throw$() {
 }
 
 $Class* NoSuchPaddingException::load$($String* name, bool initialize) {
-	$loadClass(NoSuchPaddingException, name, initialize, &_NoSuchPaddingException_ClassInfo_, allocate$NoSuchPaddingException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NoSuchPaddingException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NoSuchPaddingException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NoSuchPaddingException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.crypto.NoSuchPaddingException",
+		"java.security.GeneralSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NoSuchPaddingException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NoSuchPaddingException);
+	});
 	return class$;
 }
 

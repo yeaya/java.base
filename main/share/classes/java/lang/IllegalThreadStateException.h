@@ -14,10 +14,13 @@ public:
 	IllegalThreadStateException();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x962A2156C7AF3932;
+	static const int64_t serialVersionUID = (int64_t)0x962a2156c7af3932;
 	IllegalThreadStateException(const IllegalThreadStateException& e);
 	virtual void throw$() override;
-	inline IllegalThreadStateException* operator ->() {
+	inline IllegalThreadStateException* operator ->() const {
+		return (IllegalThreadStateException*)throwing$;
+	}
+	inline operator IllegalThreadStateException*() const {
 		return (IllegalThreadStateException*)throwing$;
 	}
 };

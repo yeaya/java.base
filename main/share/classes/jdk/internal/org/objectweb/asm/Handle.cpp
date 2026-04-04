@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/Handle.h>
-
 #include <jdk/internal/org/objectweb/asm/Opcodes.h>
 #include <jcpp.h>
 
@@ -16,47 +15,6 @@ namespace jdk {
 		namespace org {
 			namespace objectweb {
 				namespace asm$ {
-
-$CompoundAttribute _Handle_MethodAnnotations_init$0[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _Handle_FieldInfo_[] = {
-	{"tag", "I", nullptr, $PRIVATE | $FINAL, $field(Handle, tag)},
-	{"owner", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Handle, owner)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Handle, name)},
-	{"descriptor", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Handle, descriptor)},
-	{"isInterface", "Z", nullptr, $PRIVATE | $FINAL, $field(Handle, isInterface$)},
-	{}
-};
-
-$MethodInfo _Handle_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(Handle, init$, void, int32_t, $String*, $String*, $String*), nullptr, nullptr, _Handle_MethodAnnotations_init$0},
-	{"<init>", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Handle, init$, void, int32_t, $String*, $String*, $String*, bool)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Handle, equals, bool, Object$*)},
-	{"getDesc", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Handle, getDesc, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Handle, getName, $String*)},
-	{"getOwner", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Handle, getOwner, $String*)},
-	{"getTag", "()I", nullptr, $PUBLIC, $method(Handle, getTag, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Handle, hashCode, int32_t)},
-	{"isInterface", "()Z", nullptr, $PUBLIC, $method(Handle, isInterface, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Handle, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Handle_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.Handle",
-	"java.lang.Object",
-	nullptr,
-	_Handle_FieldInfo_,
-	_Handle_MethodInfo_
-};
-
-$Object* allocate$Handle($Class* clazz) {
-	return $of($alloc(Handle));
-}
 
 void Handle::init$(int32_t tag, $String* owner, $String* name, $String* descriptor) {
 	Handle::init$(tag, owner, name, descriptor, tag == $Opcodes::H_INVOKEINTERFACE);
@@ -112,7 +70,7 @@ int32_t Handle::hashCode() {
 }
 
 $String* Handle::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({this->owner, $$str(u'.'), this->name, this->descriptor, " ("_s, $$str(this->tag), (this->isInterface$ ? " itf"_s : ""_s), $$str(u')')});
 }
 
@@ -120,7 +78,42 @@ Handle::Handle() {
 }
 
 $Class* Handle::load$($String* name, bool initialize) {
-	$loadClass(Handle, name, initialize, &_Handle_ClassInfo_, allocate$Handle);
+	$FieldInfo fieldInfos$$[] = {
+		{"tag", "I", nullptr, $PRIVATE | $FINAL, $field(Handle, tag)},
+		{"owner", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Handle, owner)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Handle, name)},
+		{"descriptor", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Handle, descriptor)},
+		{"isInterface", "Z", nullptr, $PRIVATE | $FINAL, $field(Handle, isInterface$)},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(Handle, init$, void, int32_t, $String*, $String*, $String*), nullptr, nullptr, init$methodAnnotations$$},
+		{"<init>", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Handle, init$, void, int32_t, $String*, $String*, $String*, bool)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Handle, equals, bool, Object$*)},
+		{"getDesc", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Handle, getDesc, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Handle, getName, $String*)},
+		{"getOwner", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Handle, getOwner, $String*)},
+		{"getTag", "()I", nullptr, $PUBLIC, $method(Handle, getTag, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Handle, hashCode, int32_t)},
+		{"isInterface", "()Z", nullptr, $PUBLIC, $method(Handle, isInterface, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Handle, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.Handle",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Handle, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Handle);
+	});
 	return class$;
 }
 

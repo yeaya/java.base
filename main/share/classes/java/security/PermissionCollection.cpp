@@ -1,5 +1,4 @@
 #include <java/security/PermissionCollection.h>
-
 #include <java/io/Serializable.h>
 #include <java/security/Permission.h>
 #include <java/util/Enumeration.h>
@@ -29,44 +28,13 @@ using $StreamSupport = ::java::util::stream::StreamSupport;
 namespace java {
 	namespace security {
 
-$FieldInfo _PermissionCollection_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PermissionCollection, serialVersionUID)},
-	{"readOnly", "Z", nullptr, $PRIVATE | $VOLATILE, $field(PermissionCollection, readOnly)},
-	{}
-};
-
-$MethodInfo _PermissionCollection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PermissionCollection, init$, void)},
-	{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PermissionCollection, add, void, $Permission*)},
-	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PermissionCollection, elements, $Enumeration*)},
-	{"elementsAsStream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(PermissionCollection, elementsAsStream, $Stream*)},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PermissionCollection, implies, bool, $Permission*)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(PermissionCollection, isReadOnly, bool)},
-	{"setReadOnly", "()V", nullptr, $PUBLIC, $virtualMethod(PermissionCollection, setReadOnly, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PermissionCollection, toString, $String*)},
-	{}
-};
-
-$ClassInfo _PermissionCollection_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.security.PermissionCollection",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_PermissionCollection_FieldInfo_,
-	_PermissionCollection_MethodInfo_
-};
-
-$Object* allocate$PermissionCollection($Class* clazz) {
-	return $of($alloc(PermissionCollection));
-}
-
 void PermissionCollection::init$() {
 }
 
 $Stream* PermissionCollection::elementsAsStream() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t characteristics = isReadOnly() ? $Spliterator::NONNULL | $Spliterator::IMMUTABLE : $Spliterator::NONNULL;
-	return $StreamSupport::stream($($Spliterators::spliteratorUnknownSize($($nc($(elements()))->asIterator()), characteristics)), false);
+	return $StreamSupport::stream($($Spliterators::spliteratorUnknownSize($($$nc(elements())->asIterator()), characteristics)), false);
 }
 
 void PermissionCollection::setReadOnly() {
@@ -78,14 +46,14 @@ bool PermissionCollection::isReadOnly() {
 }
 
 $String* PermissionCollection::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Enumeration, enum_, elements());
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append($$str({$($Serializable::toString()), " (\n"_s}));
 	while ($nc(enum_)->hasMoreElements()) {
 		try {
 			sb->append(" "_s);
-			sb->append($($nc(($cast($Permission, $(enum_->nextElement()))))->toString()));
+			sb->append($($$sure($Permission, enum_->nextElement())->toString()));
 			sb->append("\n"_s);
 		} catch ($NoSuchElementException& e) {
 		}
@@ -98,7 +66,33 @@ PermissionCollection::PermissionCollection() {
 }
 
 $Class* PermissionCollection::load$($String* name, bool initialize) {
-	$loadClass(PermissionCollection, name, initialize, &_PermissionCollection_ClassInfo_, allocate$PermissionCollection);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PermissionCollection, serialVersionUID)},
+		{"readOnly", "Z", nullptr, $PRIVATE | $VOLATILE, $field(PermissionCollection, readOnly)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PermissionCollection, init$, void)},
+		{"add", "(Ljava/security/Permission;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PermissionCollection, add, void, $Permission*)},
+		{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/security/Permission;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PermissionCollection, elements, $Enumeration*)},
+		{"elementsAsStream", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljava/security/Permission;>;", $PUBLIC, $virtualMethod(PermissionCollection, elementsAsStream, $Stream*)},
+		{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PermissionCollection, implies, bool, $Permission*)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(PermissionCollection, isReadOnly, bool)},
+		{"setReadOnly", "()V", nullptr, $PUBLIC, $virtualMethod(PermissionCollection, setReadOnly, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PermissionCollection, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.security.PermissionCollection",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PermissionCollection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PermissionCollection);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/ssl/CertStatusExtension$OCSPStatusRequest.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/security/cert/Extension.h>
@@ -53,53 +52,13 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _CertStatusExtension$OCSPStatusRequest_FieldInfo_[] = {
-	{"EMPTY_OCSP", "Lsun/security/ssl/CertStatusExtension$OCSPStatusRequest;", nullptr, $STATIC | $FINAL, $staticField(CertStatusExtension$OCSPStatusRequest, EMPTY_OCSP)},
-	{"EMPTY_OCSP_MULTI", "Lsun/security/ssl/CertStatusExtension$OCSPStatusRequest;", nullptr, $STATIC | $FINAL, $staticField(CertStatusExtension$OCSPStatusRequest, EMPTY_OCSP_MULTI)},
-	{"responderIds", "Ljava/util/List;", "Ljava/util/List<Lsun/security/provider/certpath/ResponderId;>;", $FINAL, $field(CertStatusExtension$OCSPStatusRequest, responderIds)},
-	{"extensions", "Ljava/util/List;", "Ljava/util/List<Ljava/security/cert/Extension;>;", $FINAL, $field(CertStatusExtension$OCSPStatusRequest, extensions)},
-	{}
-};
-
-$MethodInfo _CertStatusExtension$OCSPStatusRequest_MethodInfo_[] = {
-	{"<init>", "(B[B)V", nullptr, $PRIVATE, $method(CertStatusExtension$OCSPStatusRequest, init$, void, int8_t, $bytes*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertStatusExtension$OCSPStatusRequest, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _CertStatusExtension$OCSPStatusRequest_InnerClassesInfo_[] = {
-	{"sun.security.ssl.CertStatusExtension$OCSPStatusRequest", "sun.security.ssl.CertStatusExtension", "OCSPStatusRequest", $STATIC | $FINAL},
-	{"sun.security.ssl.CertStatusExtension$CertStatusRequest", "sun.security.ssl.CertStatusExtension", "CertStatusRequest", $STATIC},
-	{}
-};
-
-$ClassInfo _CertStatusExtension$OCSPStatusRequest_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.CertStatusExtension$OCSPStatusRequest",
-	"sun.security.ssl.CertStatusExtension$CertStatusRequest",
-	nullptr,
-	_CertStatusExtension$OCSPStatusRequest_FieldInfo_,
-	_CertStatusExtension$OCSPStatusRequest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CertStatusExtension$OCSPStatusRequest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.CertStatusExtension"
-};
-
-$Object* allocate$CertStatusExtension$OCSPStatusRequest($Class* clazz) {
-	return $of($alloc(CertStatusExtension$OCSPStatusRequest));
-}
-
 CertStatusExtension$OCSPStatusRequest* CertStatusExtension$OCSPStatusRequest::EMPTY_OCSP = nullptr;
 CertStatusExtension$OCSPStatusRequest* CertStatusExtension$OCSPStatusRequest::EMPTY_OCSP_MULTI = nullptr;
 
 void CertStatusExtension$OCSPStatusRequest::init$(int8_t statusType, $bytes* encoded) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$CertStatusExtension$CertStatusRequest::init$(statusType, encoded);
-	if (encoded == nullptr || $nc(encoded)->length < 4) {
+	if (encoded == nullptr || encoded->length < 4) {
 		$throwNew($SSLProtocolException, "Invalid OCSP status request: insufficient data"_s);
 	}
 	$var($List, rids, $new($ArrayList));
@@ -130,9 +89,7 @@ void CertStatusExtension$OCSPStatusRequest::init$(int8_t statusType, $bytes* enc
 			$var($DerValueArray, extSeqContents, dis->getSequence(extListBytes->length));
 			{
 				$var($DerValueArray, arr$, extSeqContents);
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
+				for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 					$var($DerValue, extDerVal, arr$->get(i$));
 					{
 						exts->add($$new($Extension, extDerVal));
@@ -148,20 +105,20 @@ void CertStatusExtension$OCSPStatusRequest::init$(int8_t statusType, $bytes* enc
 }
 
 $String* CertStatusExtension$OCSPStatusRequest::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Locale);
 	$var($MessageFormat, messageFormat, $new($MessageFormat, "\"certificate status type\": {0}\n\"OCSP status request\": \'{\'\n{1}\n\'}\'"_s, $Locale::ENGLISH));
 	$var($MessageFormat, requestFormat, $new($MessageFormat, "\"responder_id\": {0}\n\"request extensions\": \'{\'\n{1}\n\'}\'"_s, $Locale::ENGLISH));
 	$var($String, ridStr, "<empty>"_s);
 	if (!$nc(this->responderIds)->isEmpty()) {
-		$assign(ridStr, $nc($of(this->responderIds))->toString());
+		$assign(ridStr, this->responderIds->toString());
 	}
 	$var($String, extsStr, "<empty>"_s);
 	if (!$nc(this->extensions)->isEmpty()) {
 		$var($StringBuilder, extBuilder, $new($StringBuilder, 512));
 		bool isFirst = true;
 		{
-			$var($Iterator, i$, $nc(this->extensions)->iterator());
+			$var($Iterator, i$, this->extensions->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($1Extension, ext, $cast($1Extension, i$->next()));
 				{
@@ -170,42 +127,42 @@ $String* CertStatusExtension$OCSPStatusRequest::toString() {
 					} else {
 						extBuilder->append(",\n"_s);
 					}
-					extBuilder->append("{\n"_s)->append($($Utilities::indent($($nc($of(ext))->toString()))))->append("}"_s);
+					extBuilder->append("{\n"_s)->append($($Utilities::indent($($nc(ext)->toString()))))->append("}"_s);
 				}
 			}
 		}
 		$assign(extsStr, extBuilder->toString());
 	}
 	$var($ObjectArray, requestFields, $new($ObjectArray, {
-		$of(ridStr),
-		$($of($Utilities::indent(extsStr)))
+		ridStr,
+		$($Utilities::indent(extsStr))
 	}));
 	$var($String, ocspStatusRequest, requestFormat->format(requestFields));
 	$var($ObjectArray, messageFields, $new($ObjectArray, {
-		$($of($CertStatusExtension$CertStatusRequestType::nameOf(this->statusType))),
-		$($of($Utilities::indent(ocspStatusRequest)))
+		$($CertStatusExtension$CertStatusRequestType::nameOf(this->statusType)),
+		$($Utilities::indent(ocspStatusRequest))
 	}));
 	return messageFormat->format(messageFields);
 }
 
-void clinit$CertStatusExtension$OCSPStatusRequest($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void CertStatusExtension$OCSPStatusRequest::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$var(CertStatusExtension$OCSPStatusRequest, ocspReq, nullptr);
 		$var(CertStatusExtension$OCSPStatusRequest, multiReq, nullptr);
 		try {
 			$init($CertStatusExtension$CertStatusRequestType);
 			$assign(ocspReq, $new(CertStatusExtension$OCSPStatusRequest, $CertStatusExtension$CertStatusRequestType::OCSP->id, $$new($bytes, {
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)0
+				0,
+				0,
+				0,
+				0
 			})));
 			$assign(multiReq, $new(CertStatusExtension$OCSPStatusRequest, $CertStatusExtension$CertStatusRequestType::OCSP_MULTI->id, $$new($bytes, {
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)0,
-				(int8_t)0
+				0,
+				0,
+				0,
+				0
 			})));
 		} catch ($IOException& ioe) {
 		}
@@ -218,7 +175,41 @@ CertStatusExtension$OCSPStatusRequest::CertStatusExtension$OCSPStatusRequest() {
 }
 
 $Class* CertStatusExtension$OCSPStatusRequest::load$($String* name, bool initialize) {
-	$loadClass(CertStatusExtension$OCSPStatusRequest, name, initialize, &_CertStatusExtension$OCSPStatusRequest_ClassInfo_, clinit$CertStatusExtension$OCSPStatusRequest, allocate$CertStatusExtension$OCSPStatusRequest);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY_OCSP", "Lsun/security/ssl/CertStatusExtension$OCSPStatusRequest;", nullptr, $STATIC | $FINAL, $staticField(CertStatusExtension$OCSPStatusRequest, EMPTY_OCSP)},
+		{"EMPTY_OCSP_MULTI", "Lsun/security/ssl/CertStatusExtension$OCSPStatusRequest;", nullptr, $STATIC | $FINAL, $staticField(CertStatusExtension$OCSPStatusRequest, EMPTY_OCSP_MULTI)},
+		{"responderIds", "Ljava/util/List;", "Ljava/util/List<Lsun/security/provider/certpath/ResponderId;>;", $FINAL, $field(CertStatusExtension$OCSPStatusRequest, responderIds)},
+		{"extensions", "Ljava/util/List;", "Ljava/util/List<Ljava/security/cert/Extension;>;", $FINAL, $field(CertStatusExtension$OCSPStatusRequest, extensions)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(B[B)V", nullptr, $PRIVATE, $method(CertStatusExtension$OCSPStatusRequest, init$, void, int8_t, $bytes*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CertStatusExtension$OCSPStatusRequest, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.CertStatusExtension$OCSPStatusRequest", "sun.security.ssl.CertStatusExtension", "OCSPStatusRequest", $STATIC | $FINAL},
+		{"sun.security.ssl.CertStatusExtension$CertStatusRequest", "sun.security.ssl.CertStatusExtension", "CertStatusRequest", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.CertStatusExtension$OCSPStatusRequest",
+		"sun.security.ssl.CertStatusExtension$CertStatusRequest",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.CertStatusExtension"
+	};
+	$loadClass(CertStatusExtension$OCSPStatusRequest, name, initialize, &classInfo$$, CertStatusExtension$OCSPStatusRequest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CertStatusExtension$OCSPStatusRequest);
+	});
 	return class$;
 }
 

@@ -15,11 +15,14 @@ public:
 	void init$($String* reason);
 	void init$($String* cname, $String* reason);
 	virtual $String* getMessage() override;
-	static const int64_t serialVersionUID = (int64_t)0xC3DCF7C9968B66B0;
+	static const int64_t serialVersionUID = (int64_t)0xc3dcf7c9968b66b0;
 	$String* classname = nullptr;
 	InvalidClassException(const InvalidClassException& e);
 	virtual void throw$() override;
-	inline InvalidClassException* operator ->() {
+	inline InvalidClassException* operator ->() const {
+		return (InvalidClassException*)throwing$;
+	}
+	inline operator InvalidClassException*() const {
 		return (InvalidClassException*)throwing$;
 	}
 };

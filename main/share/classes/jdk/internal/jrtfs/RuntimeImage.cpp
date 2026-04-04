@@ -1,5 +1,4 @@
 #include <jdk/internal/jrtfs/RuntimeImage.h>
-
 #include <jdk/internal/jimage/ImageReader$Node.h>
 #include <jdk/internal/jimage/RuntimeImageReader.h>
 #include <jdk/internal/jrtfs/SystemImage.h>
@@ -15,32 +14,6 @@ using $SystemImage = ::jdk::internal::jrtfs::SystemImage;
 namespace jdk {
 	namespace internal {
 		namespace jrtfs {
-
-$FieldInfo _RuntimeImage_FieldInfo_[] = {
-	{"reader", "Ljdk/internal/jimage/RuntimeImageReader;", nullptr, 0, $field(RuntimeImage, reader)},
-	{}
-};
-
-$MethodInfo _RuntimeImage_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/jimage/RuntimeImageReader;)V", nullptr, $PUBLIC, $method(RuntimeImage, init$, void, $RuntimeImageReader*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(RuntimeImage, close, void), "java.io.IOException"},
-	{"findNode", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, $PUBLIC, $virtualMethod(RuntimeImage, findNode, $ImageReader$Node*, $String*), "java.io.IOException"},
-	{"getResource", "(Ljdk/internal/jimage/ImageReader$Node;)[B", nullptr, $PUBLIC, $virtualMethod(RuntimeImage, getResource, $bytes*, $ImageReader$Node*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _RuntimeImage_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.jrtfs.RuntimeImage",
-	"jdk.internal.jrtfs.SystemImage",
-	nullptr,
-	_RuntimeImage_FieldInfo_,
-	_RuntimeImage_MethodInfo_
-};
-
-$Object* allocate$RuntimeImage($Class* clazz) {
-	return $of($alloc(RuntimeImage));
-}
 
 void RuntimeImage::init$($RuntimeImageReader* reader) {
 	$SystemImage::init$();
@@ -64,7 +37,28 @@ RuntimeImage::RuntimeImage() {
 }
 
 $Class* RuntimeImage::load$($String* name, bool initialize) {
-	$loadClass(RuntimeImage, name, initialize, &_RuntimeImage_ClassInfo_, allocate$RuntimeImage);
+	$FieldInfo fieldInfos$$[] = {
+		{"reader", "Ljdk/internal/jimage/RuntimeImageReader;", nullptr, 0, $field(RuntimeImage, reader)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/jimage/RuntimeImageReader;)V", nullptr, $PUBLIC, $method(RuntimeImage, init$, void, $RuntimeImageReader*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(RuntimeImage, close, void), "java.io.IOException"},
+		{"findNode", "(Ljava/lang/String;)Ljdk/internal/jimage/ImageReader$Node;", nullptr, $PUBLIC, $virtualMethod(RuntimeImage, findNode, $ImageReader$Node*, $String*), "java.io.IOException"},
+		{"getResource", "(Ljdk/internal/jimage/ImageReader$Node;)[B", nullptr, $PUBLIC, $virtualMethod(RuntimeImage, getResource, $bytes*, $ImageReader$Node*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.jrtfs.RuntimeImage",
+		"jdk.internal.jrtfs.SystemImage",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RuntimeImage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RuntimeImage);
+	});
 	return class$;
 }
 

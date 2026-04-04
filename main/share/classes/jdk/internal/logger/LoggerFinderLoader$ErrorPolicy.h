@@ -24,6 +24,7 @@ class LoggerFinderLoader$ErrorPolicy : public ::java::lang::Enum {
 public:
 	LoggerFinderLoader$ErrorPolicy();
 	static $Array<::jdk::internal::logger::LoggerFinderLoader$ErrorPolicy>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::jdk::internal::logger::LoggerFinderLoader$ErrorPolicy* valueOf($String* name);
 	static $Array<::jdk::internal::logger::LoggerFinderLoader$ErrorPolicy>* values();

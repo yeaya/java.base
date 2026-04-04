@@ -23,6 +23,7 @@ class $export IntlTest : public ::java::lang::Object {
 	$class(IntlTest, 0, ::java::lang::Object)
 public:
 	IntlTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void err($String* message);
 	void errImpl($String* message, bool newline);

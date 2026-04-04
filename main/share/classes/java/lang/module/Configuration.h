@@ -47,6 +47,7 @@ class $export Configuration : public ::java::lang::Object {
 	$class(Configuration, $PRELOAD, ::java::lang::Object)
 public:
 	Configuration();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::util::List* parents, ::java::lang::module::Resolver* resolver);
 	void init$(::java::lang::module::ModuleFinder* finder, ::java::util::Map* map);

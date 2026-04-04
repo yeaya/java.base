@@ -1,5 +1,4 @@
 #include <sun/nio/fs/Reflect$1.h>
-
 #include <java/lang/reflect/AccessibleObject.h>
 #include <sun/nio/fs/Reflect.h>
 #include <jcpp.h>
@@ -15,48 +14,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _Reflect$1_FieldInfo_[] = {
-	{"val$ao", "Ljava/lang/reflect/AccessibleObject;", nullptr, $FINAL | $SYNTHETIC, $field(Reflect$1, val$ao)},
-	{}
-};
-
-$MethodInfo _Reflect$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/AccessibleObject;)V", "()V", 0, $method(Reflect$1, init$, void, $AccessibleObject*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Reflect$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Reflect$1_EnclosingMethodInfo_ = {
-	"sun.nio.fs.Reflect",
-	"setAccessible",
-	"(Ljava/lang/reflect/AccessibleObject;)V"
-};
-
-$InnerClassInfo _Reflect$1_InnerClassesInfo_[] = {
-	{"sun.nio.fs.Reflect$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Reflect$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.Reflect$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_Reflect$1_FieldInfo_,
-	_Reflect$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
-	&_Reflect$1_EnclosingMethodInfo_,
-	_Reflect$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.Reflect"
-};
-
-$Object* allocate$Reflect$1($Class* clazz) {
-	return $of($alloc(Reflect$1));
-}
-
 void Reflect$1::init$($AccessibleObject* val$ao) {
 	$set(this, val$ao, val$ao);
 }
@@ -64,14 +21,49 @@ void Reflect$1::init$($AccessibleObject* val$ao) {
 $Object* Reflect$1::run() {
 	$beforeCallerSensitive();
 	$nc(this->val$ao)->setAccessible(true);
-	return $of(nullptr);
+	return nullptr;
 }
 
 Reflect$1::Reflect$1() {
 }
 
 $Class* Reflect$1::load$($String* name, bool initialize) {
-	$loadClass(Reflect$1, name, initialize, &_Reflect$1_ClassInfo_, allocate$Reflect$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$ao", "Ljava/lang/reflect/AccessibleObject;", nullptr, $FINAL | $SYNTHETIC, $field(Reflect$1, val$ao)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/reflect/AccessibleObject;)V", "()V", 0, $method(Reflect$1, init$, void, $AccessibleObject*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Reflect$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.nio.fs.Reflect",
+		"setAccessible",
+		"(Ljava/lang/reflect/AccessibleObject;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.Reflect$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.Reflect$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.Reflect"
+	};
+	$loadClass(Reflect$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Reflect$1);
+	});
 	return class$;
 }
 

@@ -32,6 +32,7 @@ class $export StandardCharsets : public ::java::lang::Object {
 	$class(StandardCharsets, 0, ::java::lang::Object)
 public:
 	StandardCharsets();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::nio::charset::Charset* US_ASCII;
 	static ::java::nio::charset::Charset* ISO_8859_1;

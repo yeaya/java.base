@@ -1,5 +1,4 @@
 #include <java/util/regex/Pattern$SliceS.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/util/regex/Matcher.h>
 #include <java/util/regex/Pattern$Node.h>
@@ -14,44 +13,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Matcher = ::java::util::regex::Matcher;
-using $Pattern$Node = ::java::util::regex::Pattern$Node;
 using $Pattern$Slice = ::java::util::regex::Pattern$Slice;
 
 namespace java {
 	namespace util {
 		namespace regex {
-
-$MethodInfo _Pattern$SliceS_MethodInfo_[] = {
-	{"<init>", "([I)V", nullptr, 0, $method(Pattern$SliceS, init$, void, $ints*)},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$SliceS, match, bool, $Matcher*, int32_t, $CharSequence*)},
-	{}
-};
-
-$InnerClassInfo _Pattern$SliceS_InnerClassesInfo_[] = {
-	{"java.util.regex.Pattern$SliceS", "java.util.regex.Pattern", "SliceS", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$Slice", "java.util.regex.Pattern", "Slice", $STATIC},
-	{}
-};
-
-$ClassInfo _Pattern$SliceS_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.regex.Pattern$SliceS",
-	"java.util.regex.Pattern$Slice",
-	nullptr,
-	nullptr,
-	_Pattern$SliceS_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pattern$SliceS_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.regex.Pattern"
-};
-
-$Object* allocate$Pattern$SliceS($Class* clazz) {
-	return $of($alloc(Pattern$SliceS));
-}
 
 void Pattern$SliceS::init$($ints* buf) {
 	$Pattern$Slice::init$(buf);
@@ -70,7 +36,7 @@ bool Pattern$SliceS::match($Matcher* matcher, int32_t i, $CharSequence* seq) {
 			return false;
 		}
 		x += $Character::charCount(c);
-		if (x > $nc(matcher)->to) {
+		if (x > matcher->to) {
 			matcher->hitEnd$ = true;
 			return false;
 		}
@@ -82,7 +48,34 @@ Pattern$SliceS::Pattern$SliceS() {
 }
 
 $Class* Pattern$SliceS::load$($String* name, bool initialize) {
-	$loadClass(Pattern$SliceS, name, initialize, &_Pattern$SliceS_ClassInfo_, allocate$Pattern$SliceS);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([I)V", nullptr, 0, $method(Pattern$SliceS, init$, void, $ints*)},
+		{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$SliceS, match, bool, $Matcher*, int32_t, $CharSequence*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Pattern$SliceS", "java.util.regex.Pattern", "SliceS", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$Slice", "java.util.regex.Pattern", "Slice", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.regex.Pattern$SliceS",
+		"java.util.regex.Pattern$Slice",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.regex.Pattern"
+	};
+	$loadClass(Pattern$SliceS, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$SliceS);
+	});
 	return class$;
 }
 

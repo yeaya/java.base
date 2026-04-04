@@ -1,5 +1,4 @@
 #include <Resources.h>
-
 #include <java/lang/Runtime.h>
 #include <jcpp.h>
 
@@ -9,30 +8,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runtime = ::java::lang::Runtime;
 
-$FieldInfo _Resources_FieldInfo_[] = {
-	{"out", "Ljava/io/PrintStream;", nullptr, $STATIC, $staticField(Resources, out)},
-	{}
-};
-
-$MethodInfo _Resources_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Resources, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Resources, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Resources_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Resources",
-	"java.lang.Object",
-	nullptr,
-	_Resources_FieldInfo_,
-	_Resources_MethodInfo_
-};
-
-$Object* allocate$Resources($Class* clazz) {
-	return $of($alloc(Resources));
-}
-
 $PrintStream* Resources::out = nullptr;
 
 void Resources::init$() {
@@ -40,15 +15,15 @@ void Resources::init$() {
 
 void Resources::main($StringArray* args) {
 	$init(Resources);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Runtime, rt, $Runtime::getRuntime());
 	$nc(Resources::out)->println($$str({$$str($nc(rt)->freeMemory()), " bytes free"_s}));
-	$nc(Resources::out)->println($$str({$$str($nc(rt)->totalMemory()), "  bytes in use"_s}));
-	$nc(Resources::out)->println($$str({$$str($nc(rt)->maxMemory()), " bytes max"_s}));
-	$nc(Resources::out)->println($$str({$$str($nc(rt)->availableProcessors()), " processors"_s}));
+	Resources::out->println($$str({$$str(rt->totalMemory()), "  bytes in use"_s}));
+	Resources::out->println($$str({$$str(rt->maxMemory()), " bytes max"_s}));
+	Resources::out->println($$str({$$str(rt->availableProcessors()), " processors"_s}));
 }
 
-void clinit$Resources($Class* class$) {
+void Resources::clinit$($Class* clazz) {
 	$assignStatic(Resources::out, $System::err);
 }
 
@@ -56,7 +31,26 @@ Resources::Resources() {
 }
 
 $Class* Resources::load$($String* name, bool initialize) {
-	$loadClass(Resources, name, initialize, &_Resources_ClassInfo_, clinit$Resources, allocate$Resources);
+	$FieldInfo fieldInfos$$[] = {
+		{"out", "Ljava/io/PrintStream;", nullptr, $STATIC, $staticField(Resources, out)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Resources, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Resources, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Resources",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Resources, name, initialize, &classInfo$$, Resources::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Resources);
+	});
 	return class$;
 }
 

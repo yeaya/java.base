@@ -20,6 +20,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* algorithm, int32_t digestLength, int32_t blockSize);
 	virtual $Object* clone() override;
 	virtual $bytes* engineDigest() override;

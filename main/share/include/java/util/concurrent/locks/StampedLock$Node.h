@@ -27,6 +27,7 @@ class $import StampedLock$Node : public ::java::lang::Object {
 	$class(StampedLock$Node, 0, ::java::lang::Object)
 public:
 	StampedLock$Node();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	bool casNext(::java::util::concurrent::locks::StampedLock$Node* c, ::java::util::concurrent::locks::StampedLock$Node* v);
 	bool casPrev(::java::util::concurrent::locks::StampedLock$Node* c, ::java::util::concurrent::locks::StampedLock$Node* v);

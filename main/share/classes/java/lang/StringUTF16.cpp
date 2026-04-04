@@ -1,5 +1,4 @@
 #include <java/lang/StringUTF16.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/ConditionalSpecialCasing.h>
@@ -10,7 +9,6 @@
 #include <java/lang/StringUTF16$LinesSpliterator.h>
 #include <java/util/Arrays.h>
 #include <java/util/Locale.h>
-#include <java/util/Spliterator.h>
 #include <java/util/stream/Stream.h>
 #include <java/util/stream/StreamSupport.h>
 #include <jdk/internal/util/ArraysSupport.h>
@@ -44,212 +42,12 @@ using $StringLatin1 = ::java::lang::StringLatin1;
 using $StringUTF16$LinesSpliterator = ::java::lang::StringUTF16$LinesSpliterator;
 using $Arrays = ::java::util::Arrays;
 using $Locale = ::java::util::Locale;
-using $Spliterator = ::java::util::Spliterator;
 using $Stream = ::java::util::stream::Stream;
 using $StreamSupport = ::java::util::stream::StreamSupport;
 using $ArraysSupport = ::jdk::internal::util::ArraysSupport;
 
 namespace java {
 	namespace lang {
-
-$CompoundAttribute _StringUTF16_MethodAnnotations_compareTo17[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringUTF16_MethodAnnotations_compareToLatin122[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringUTF16_MethodAnnotations_compress27[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringUTF16_MethodAnnotations_compress28[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringUTF16_MethodAnnotations_equals31[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringUTF16_MethodAnnotations_getChar34[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringUTF16_MethodAnnotations_getChars35[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringUTF16_MethodAnnotations_indexOf42[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringUTF16_MethodAnnotations_indexOf43[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringUTF16_MethodAnnotations_indexOfChar44[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringUTF16_MethodAnnotations_indexOfLatin146[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringUTF16_MethodAnnotations_indexOfLatin147[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringUTF16_MethodAnnotations_putChar63[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StringUTF16_MethodAnnotations_toBytes79[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$FieldInfo _StringUTF16_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(StringUTF16, $assertionsDisabled)},
-	{"HI_BYTE_SHIFT", "I", nullptr, $STATIC | $FINAL, $staticField(StringUTF16, HI_BYTE_SHIFT)},
-	{"LO_BYTE_SHIFT", "I", nullptr, $STATIC | $FINAL, $staticField(StringUTF16, LO_BYTE_SHIFT)},
-	{"MAX_LENGTH", "I", nullptr, $STATIC | $FINAL, $constField(StringUTF16, MAX_LENGTH)},
-	{}
-};
-
-$MethodInfo _StringUTF16_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(StringUTF16, init$, void)},
-	{"charAt", "([BI)C", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, charAt, char16_t, $bytes*, int32_t)},
-	{"checkBoundsBeginEnd", "(II[B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, checkBoundsBeginEnd, void, int32_t, int32_t, $bytes*)},
-	{"checkBoundsOffCount", "(II[B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, checkBoundsOffCount, void, int32_t, int32_t, $bytes*)},
-	{"checkIndex", "(I[B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, checkIndex, void, int32_t, $bytes*)},
-	{"checkOffset", "(I[B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, checkOffset, void, int32_t, $bytes*)},
-	{"codePointAt", "([BIIZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, codePointAt, int32_t, $bytes*, int32_t, int32_t, bool)},
-	{"codePointAt", "([BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, codePointAt, int32_t, $bytes*, int32_t, int32_t)},
-	{"codePointAtSB", "([BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, codePointAtSB, int32_t, $bytes*, int32_t, int32_t)},
-	{"codePointBefore", "([BIZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, codePointBefore, int32_t, $bytes*, int32_t, bool)},
-	{"codePointBefore", "([BI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, codePointBefore, int32_t, $bytes*, int32_t)},
-	{"codePointBeforeSB", "([BI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, codePointBeforeSB, int32_t, $bytes*, int32_t)},
-	{"codePointCount", "([BIIZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, codePointCount, int32_t, $bytes*, int32_t, int32_t, bool)},
-	{"codePointCount", "([BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, codePointCount, int32_t, $bytes*, int32_t, int32_t)},
-	{"codePointCountSB", "([BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, codePointCountSB, int32_t, $bytes*, int32_t, int32_t)},
-	{"codePointIncluding", "([BIIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, codePointIncluding, int32_t, $bytes*, int32_t, int32_t, int32_t, int32_t)},
-	{"compareCodePointCI", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, compareCodePointCI, int32_t, int32_t, int32_t)},
-	{"compareTo", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, compareTo, int32_t, $bytes*, $bytes*), nullptr, nullptr, _StringUTF16_MethodAnnotations_compareTo17},
-	{"compareTo", "([B[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, compareTo, int32_t, $bytes*, $bytes*, int32_t, int32_t)},
-	{"compareToCI", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, compareToCI, int32_t, $bytes*, $bytes*)},
-	{"compareToCIImpl", "([BII[BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, compareToCIImpl, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t)},
-	{"compareToCI_Latin1", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, compareToCI_Latin1, int32_t, $bytes*, $bytes*)},
-	{"compareToLatin1", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, compareToLatin1, int32_t, $bytes*, $bytes*), nullptr, nullptr, _StringUTF16_MethodAnnotations_compareToLatin122},
-	{"compareToLatin1", "([B[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, compareToLatin1, int32_t, $bytes*, $bytes*, int32_t, int32_t)},
-	{"compareValues", "([B[BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, compareValues, int32_t, $bytes*, $bytes*, int32_t, int32_t)},
-	{"compress", "([CII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, compress, $bytes*, $chars*, int32_t, int32_t)},
-	{"compress", "([BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, compress, $bytes*, $bytes*, int32_t, int32_t)},
-	{"compress", "([CI[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, compress, int32_t, $chars*, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, _StringUTF16_MethodAnnotations_compress27},
-	{"compress", "([BI[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, compress, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, _StringUTF16_MethodAnnotations_compress28},
-	{"contentEquals", "([B[BI)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, contentEquals, bool, $bytes*, $bytes*, int32_t)},
-	{"contentEquals", "([BLjava/lang/CharSequence;I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, contentEquals, bool, $bytes*, $CharSequence*, int32_t)},
-	{"equals", "([B[B)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, equals, bool, $bytes*, $bytes*), nullptr, nullptr, _StringUTF16_MethodAnnotations_equals31},
-	{"fillNull", "([BII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, fillNull, void, $bytes*, int32_t, int32_t)},
-	{"getBytes", "([BII[BI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, getBytes, void, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
-	{"getChar", "([BI)C", nullptr, $STATIC, $staticMethod(StringUTF16, getChar, char16_t, $bytes*, int32_t), nullptr, nullptr, _StringUTF16_MethodAnnotations_getChar34},
-	{"getChars", "([BII[CI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, getChars, void, $bytes*, int32_t, int32_t, $chars*, int32_t), nullptr, nullptr, _StringUTF16_MethodAnnotations_getChars35},
-	{"getChars", "(III[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, getChars, int32_t, int32_t, int32_t, int32_t, $bytes*)},
-	{"getChars", "(JII[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, getChars, int32_t, int64_t, int32_t, int32_t, $bytes*)},
-	{"getChars", "(II[B)I", nullptr, $STATIC, $staticMethod(StringUTF16, getChars, int32_t, int32_t, int32_t, $bytes*)},
-	{"getChars", "(JI[B)I", nullptr, $STATIC, $staticMethod(StringUTF16, getChars, int32_t, int64_t, int32_t, $bytes*)},
-	{"hashCode", "([B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, hashCode, int32_t, $bytes*)},
-	{"indexOf", "([BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, indexOf, int32_t, $bytes*, int32_t, int32_t)},
-	{"indexOf", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, indexOf, int32_t, $bytes*, $bytes*), nullptr, nullptr, _StringUTF16_MethodAnnotations_indexOf42},
-	{"indexOf", "([BI[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, indexOf, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, _StringUTF16_MethodAnnotations_indexOf43},
-	{"indexOfChar", "([BIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, indexOfChar, int32_t, $bytes*, int32_t, int32_t, int32_t), nullptr, nullptr, _StringUTF16_MethodAnnotations_indexOfChar44},
-	{"indexOfCharUnsafe", "([BIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, indexOfCharUnsafe, int32_t, $bytes*, int32_t, int32_t, int32_t)},
-	{"indexOfLatin1", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, indexOfLatin1, int32_t, $bytes*, $bytes*), nullptr, nullptr, _StringUTF16_MethodAnnotations_indexOfLatin146},
-	{"indexOfLatin1", "([BI[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, indexOfLatin1, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, _StringUTF16_MethodAnnotations_indexOfLatin147},
-	{"indexOfLatin1Unsafe", "([BI[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, indexOfLatin1Unsafe, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
-	{"indexOfNonWhitespace", "([B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, indexOfNonWhitespace, int32_t, $bytes*)},
-	{"indexOfSupplementary", "([BIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, indexOfSupplementary, int32_t, $bytes*, int32_t, int32_t, int32_t)},
-	{"indexOfUnsafe", "([BI[BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, indexOfUnsafe, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
-	{"inflate", "([BI[BII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, inflate, void, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
-	{"isBigEndian", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(StringUTF16, isBigEndian, bool)},
-	{"lastIndexOf", "([BI[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, lastIndexOf, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
-	{"lastIndexOf", "([BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, lastIndexOf, int32_t, $bytes*, int32_t, int32_t)},
-	{"lastIndexOfLatin1", "([BI[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, lastIndexOfLatin1, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
-	{"lastIndexOfNonWhitespace", "([B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, lastIndexOfNonWhitespace, int32_t, $bytes*)},
-	{"lastIndexOfSupplementary", "([BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, lastIndexOfSupplementary, int32_t, $bytes*, int32_t, int32_t)},
-	{"length", "([B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, length, int32_t, $bytes*)},
-	{"lines", "([B)Ljava/util/stream/Stream;", "([B)Ljava/util/stream/Stream<Ljava/lang/String;>;", $STATIC, $staticMethod(StringUTF16, lines, $Stream*, $bytes*)},
-	{"newBytesFor", "(I)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, newBytesFor, $bytes*, int32_t)},
-	{"newString", "([BII)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, newString, $String*, $bytes*, int32_t, int32_t)},
-	{"putChar", "([BII)V", nullptr, $STATIC, $staticMethod(StringUTF16, putChar, void, $bytes*, int32_t, int32_t), nullptr, nullptr, _StringUTF16_MethodAnnotations_putChar63},
-	{"putCharSB", "([BII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, putCharSB, void, $bytes*, int32_t, int32_t)},
-	{"putChars", "([BI[CII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, putChars, void, $bytes*, int32_t, $chars*, int32_t, int32_t)},
-	{"putCharsAt", "([BICCCC)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, putCharsAt, int32_t, $bytes*, int32_t, char16_t, char16_t, char16_t, char16_t)},
-	{"putCharsAt", "([BICCCCC)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, putCharsAt, int32_t, $bytes*, int32_t, char16_t, char16_t, char16_t, char16_t, char16_t)},
-	{"putCharsSB", "([BI[CII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, putCharsSB, void, $bytes*, int32_t, $chars*, int32_t, int32_t)},
-	{"putCharsSB", "([BILjava/lang/CharSequence;II)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, putCharsSB, void, $bytes*, int32_t, $CharSequence*, int32_t, int32_t)},
-	{"regionMatchesCI", "([BI[BII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, regionMatchesCI, bool, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
-	{"regionMatchesCI_Latin1", "([BI[BII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, regionMatchesCI_Latin1, bool, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
-	{"replace", "([BCC)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, replace, $String*, $bytes*, char16_t, char16_t)},
-	{"replace", "([BIZ[BIZ[BIZ)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, replace, $String*, $bytes*, int32_t, bool, $bytes*, int32_t, bool, $bytes*, int32_t, bool)},
-	{"reverse", "([BI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, reverse, void, $bytes*, int32_t)},
-	{"reverseAllValidSurrogatePairs", "([BI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, reverseAllValidSurrogatePairs, void, $bytes*, int32_t)},
-	{"strip", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, strip, $String*, $bytes*)},
-	{"stripLeading", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, stripLeading, $String*, $bytes*)},
-	{"stripTrailing", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, stripTrailing, $String*, $bytes*)},
-	{"toBytes", "([CII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, toBytes, $bytes*, $chars*, int32_t, int32_t), nullptr, nullptr, _StringUTF16_MethodAnnotations_toBytes79},
-	{"toBytes", "([III)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, toBytes, $bytes*, $ints*, int32_t, int32_t)},
-	{"toBytes", "(C)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, toBytes, $bytes*, char16_t)},
-	{"toBytesSupplementary", "(I)[B", nullptr, $STATIC, $staticMethod(StringUTF16, toBytesSupplementary, $bytes*, int32_t)},
-	{"toChars", "([B)[C", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, toChars, $chars*, $bytes*)},
-	{"toLowerCase", "(Ljava/lang/String;[BLjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, toLowerCase, $String*, $String*, $bytes*, $Locale*)},
-	{"toLowerCaseEx", "(Ljava/lang/String;[B[BILjava/util/Locale;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, toLowerCaseEx, $String*, $String*, $bytes*, $bytes*, int32_t, $Locale*, bool)},
-	{"toUpperCase", "(Ljava/lang/String;[BLjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, toUpperCase, $String*, $String*, $bytes*, $Locale*)},
-	{"toUpperCaseEx", "(Ljava/lang/String;[B[BILjava/util/Locale;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, toUpperCaseEx, $String*, $String*, $bytes*, $bytes*, int32_t, $Locale*, bool)},
-	{"trim", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, trim, $String*, $bytes*)},
-	{}
-};
-
-#define _METHOD_INDEX_isBigEndian 53
-
-$InnerClassInfo _StringUTF16_InnerClassesInfo_[] = {
-	{"java.lang.StringUTF16$CodePointsSpliterator", "java.lang.StringUTF16", "CodePointsSpliterator", $STATIC},
-	{"java.lang.StringUTF16$CharsSpliterator", "java.lang.StringUTF16", "CharsSpliterator", $STATIC},
-	{"java.lang.StringUTF16$LinesSpliterator", "java.lang.StringUTF16", "LinesSpliterator", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _StringUTF16_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.StringUTF16",
-	"java.lang.Object",
-	nullptr,
-	_StringUTF16_FieldInfo_,
-	_StringUTF16_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StringUTF16_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.StringUTF16$CodePointsSpliterator,java.lang.StringUTF16$CharsSpliterator,java.lang.StringUTF16$LinesSpliterator"
-};
-
-$Object* allocate$StringUTF16($Class* clazz) {
-	return $of($alloc(StringUTF16));
-}
 
 bool StringUTF16::$assertionsDisabled = false;
 int32_t StringUTF16::HI_BYTE_SHIFT = 0;
@@ -259,8 +57,7 @@ void StringUTF16::init$() {
 }
 
 $bytes* StringUTF16::newBytesFor(int32_t len) {
-	$init(StringUTF16);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (len < 0) {
 		$throwNew($NegativeArraySizeException);
 	}
@@ -271,7 +68,6 @@ $bytes* StringUTF16::newBytesFor(int32_t len) {
 }
 
 void StringUTF16::putChar($bytes* val, int32_t index, int32_t c) {
-	$init(StringUTF16);
 	if (!StringUTF16::$assertionsDisabled && !(index >= 0 && index < length(val))) {
 		$throwNew($AssertionError, $of("Trusted caller missed bounds check"_s));
 	}
@@ -281,22 +77,19 @@ void StringUTF16::putChar($bytes* val, int32_t index, int32_t c) {
 }
 
 char16_t StringUTF16::getChar($bytes* val, int32_t index) {
-	$init(StringUTF16);
 	if (!StringUTF16::$assertionsDisabled && !(index >= 0 && index < length(val))) {
 		$throwNew($AssertionError, $of("Trusted caller missed bounds check"_s));
 	}
 	index <<= 1;
-	int32_t var$0 = ($sl((int32_t)($nc(val)->get(index++) & (uint32_t)255), StringUTF16::HI_BYTE_SHIFT));
-	return (char16_t)(var$0 | ($sl((int32_t)(val->get(index) & (uint32_t)255), StringUTF16::LO_BYTE_SHIFT)));
+	int32_t var$0 = $sl($nc(val)->get(index++) & 0xff, StringUTF16::HI_BYTE_SHIFT);
+	return (char16_t)(var$0 | ($sl(val->get(index) & 0xff, StringUTF16::LO_BYTE_SHIFT)));
 }
 
 int32_t StringUTF16::length($bytes* value) {
-	$init(StringUTF16);
 	return $nc(value)->length >> 1;
 }
 
 int32_t StringUTF16::codePointAt($bytes* value, int32_t index, int32_t end, bool checked) {
-	$init(StringUTF16);
 	if (!StringUTF16::$assertionsDisabled && !(index < end)) {
 		$throwNew($AssertionError);
 	}
@@ -317,12 +110,10 @@ int32_t StringUTF16::codePointAt($bytes* value, int32_t index, int32_t end, bool
 }
 
 int32_t StringUTF16::codePointAt($bytes* value, int32_t index, int32_t end) {
-	$init(StringUTF16);
 	return codePointAt(value, index, end, false);
 }
 
 int32_t StringUTF16::codePointBefore($bytes* value, int32_t index, bool checked) {
-	$init(StringUTF16);
 	--index;
 	if (checked) {
 		checkIndex(index, value);
@@ -342,12 +133,10 @@ int32_t StringUTF16::codePointBefore($bytes* value, int32_t index, bool checked)
 }
 
 int32_t StringUTF16::codePointBefore($bytes* value, int32_t index) {
-	$init(StringUTF16);
 	return codePointBefore(value, index, false);
 }
 
 int32_t StringUTF16::codePointCount($bytes* value, int32_t beginIndex, int32_t endIndex, bool checked) {
-	$init(StringUTF16);
 	if (!StringUTF16::$assertionsDisabled && !(beginIndex <= endIndex)) {
 		$throwNew($AssertionError);
 	}
@@ -367,19 +156,16 @@ int32_t StringUTF16::codePointCount($bytes* value, int32_t beginIndex, int32_t e
 }
 
 int32_t StringUTF16::codePointCount($bytes* value, int32_t beginIndex, int32_t endIndex) {
-	$init(StringUTF16);
 	return codePointCount(value, beginIndex, endIndex, false);
 }
 
 $chars* StringUTF16::toChars($bytes* value) {
-	$init(StringUTF16);
 	$var($chars, dst, $new($chars, $nc(value)->length >> 1));
 	getChars(value, 0, dst->length, dst, 0);
 	return dst;
 }
 
 $bytes* StringUTF16::toBytes($chars* value, int32_t off, int32_t len) {
-	$init(StringUTF16);
 	$var($bytes, val, newBytesFor(len));
 	for (int32_t i = 0; i < len; ++i) {
 		putChar(val, i, $nc(value)->get(off));
@@ -389,7 +175,6 @@ $bytes* StringUTF16::toBytes($chars* value, int32_t off, int32_t len) {
 }
 
 $bytes* StringUTF16::compress($chars* val, int32_t off, int32_t len) {
-	$init(StringUTF16);
 	$var($bytes, ret, $new($bytes, len));
 	if (compress(val, off, ret, 0, len) == len) {
 		return ret;
@@ -398,7 +183,6 @@ $bytes* StringUTF16::compress($chars* val, int32_t off, int32_t len) {
 }
 
 $bytes* StringUTF16::compress($bytes* val, int32_t off, int32_t len) {
-	$init(StringUTF16);
 	$var($bytes, ret, $new($bytes, len));
 	if (compress(val, off, ret, 0, len) == len) {
 		return ret;
@@ -407,7 +191,6 @@ $bytes* StringUTF16::compress($bytes* val, int32_t off, int32_t len) {
 }
 
 int32_t StringUTF16::compress($chars* src, int32_t srcOff, $bytes* dst, int32_t dstOff, int32_t len) {
-	$init(StringUTF16);
 	for (int32_t i = 0; i < len; ++i) {
 		char16_t c = $nc(src)->get(srcOff);
 		if (c > 255) {
@@ -422,7 +205,6 @@ int32_t StringUTF16::compress($chars* src, int32_t srcOff, $bytes* dst, int32_t 
 }
 
 int32_t StringUTF16::compress($bytes* src, int32_t srcOff, $bytes* dst, int32_t dstOff, int32_t len) {
-	$init(StringUTF16);
 	checkBoundsOffCount(srcOff, len, src);
 	for (int32_t i = 0; i < len; ++i) {
 		char16_t c = getChar(src, srcOff);
@@ -438,8 +220,7 @@ int32_t StringUTF16::compress($bytes* src, int32_t srcOff, $bytes* dst, int32_t 
 }
 
 $bytes* StringUTF16::toBytes($ints* val, int32_t index, int32_t len) {
-	$init(StringUTF16);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t end = index + len;
 	int32_t n = len;
 	for (int32_t i = index; i < end; ++i) {
@@ -453,31 +234,25 @@ $bytes* StringUTF16::toBytes($ints* val, int32_t index, int32_t len) {
 		}
 	}
 	$var($bytes, buf, newBytesFor(n));
-	{
-		int32_t i = index;
-		int32_t j = 0;
-		for (; i < end; ++i, ++j) {
-			int32_t cp = $nc(val)->get(i);
-			if ($Character::isBmpCodePoint(cp)) {
-				putChar(buf, j, cp);
-			} else {
-				putChar(buf, j++, $Character::highSurrogate(cp));
-				putChar(buf, j, $Character::lowSurrogate(cp));
-			}
+	for (int32_t i = index, j = 0; i < end; ++i, ++j) {
+		int32_t cp = $nc(val)->get(i);
+		if ($Character::isBmpCodePoint(cp)) {
+			putChar(buf, j, cp);
+		} else {
+			putChar(buf, j++, $Character::highSurrogate(cp));
+			putChar(buf, j, $Character::lowSurrogate(cp));
 		}
 	}
 	return buf;
 }
 
 $bytes* StringUTF16::toBytes(char16_t c) {
-	$init(StringUTF16);
 	$var($bytes, result, $new($bytes, 2));
 	putChar(result, 0, c);
 	return result;
 }
 
 $bytes* StringUTF16::toBytesSupplementary(int32_t cp) {
-	$init(StringUTF16);
 	$var($bytes, result, $new($bytes, 4));
 	putChar(result, 0, $Character::highSurrogate(cp));
 	putChar(result, 1, $Character::lowSurrogate(cp));
@@ -485,7 +260,6 @@ $bytes* StringUTF16::toBytesSupplementary(int32_t cp) {
 }
 
 void StringUTF16::getChars($bytes* value, int32_t srcBegin, int32_t srcEnd, $chars* dst, int32_t dstBegin) {
-	$init(StringUTF16);
 	if (srcBegin < srcEnd) {
 		checkBoundsOffCount(srcBegin, srcEnd - srcBegin, value);
 	}
@@ -495,7 +269,6 @@ void StringUTF16::getChars($bytes* value, int32_t srcBegin, int32_t srcEnd, $cha
 }
 
 void StringUTF16::getBytes($bytes* value, int32_t srcBegin, int32_t srcEnd, $bytes* dst, int32_t dstBegin) {
-	$init(StringUTF16);
 	srcBegin <<= 1;
 	srcEnd <<= 1;
 	for (int32_t i = srcBegin + ($sr(1, StringUTF16::LO_BYTE_SHIFT)); i < srcEnd; i += 2) {
@@ -504,7 +277,6 @@ void StringUTF16::getBytes($bytes* value, int32_t srcBegin, int32_t srcEnd, $byt
 }
 
 bool StringUTF16::equals($bytes* value, $bytes* other) {
-	$init(StringUTF16);
 	if ($nc(value)->length == $nc(other)->length) {
 		int32_t len = value->length >> 1;
 		for (int32_t i = 0; i < len; ++i) {
@@ -519,21 +291,18 @@ bool StringUTF16::equals($bytes* value, $bytes* other) {
 }
 
 int32_t StringUTF16::compareTo($bytes* value, $bytes* other) {
-	$init(StringUTF16);
 	int32_t len1 = length(value);
 	int32_t len2 = length(other);
 	return compareValues(value, other, len1, len2);
 }
 
 int32_t StringUTF16::compareTo($bytes* value, $bytes* other, int32_t len1, int32_t len2) {
-	$init(StringUTF16);
 	checkOffset(len1, value);
 	checkOffset(len2, other);
 	return compareValues(value, other, len1, len2);
 }
 
 int32_t StringUTF16::compareValues($bytes* value, $bytes* other, int32_t len1, int32_t len2) {
-	$init(StringUTF16);
 	int32_t lim = $Math::min(len1, len2);
 	for (int32_t k = 0; k < lim; ++k) {
 		char16_t c1 = getChar(value, k);
@@ -546,26 +315,19 @@ int32_t StringUTF16::compareValues($bytes* value, $bytes* other, int32_t len1, i
 }
 
 int32_t StringUTF16::compareToLatin1($bytes* value, $bytes* other) {
-	$init(StringUTF16);
 	return -$StringLatin1::compareToUTF16(other, value);
 }
 
 int32_t StringUTF16::compareToLatin1($bytes* value, $bytes* other, int32_t len1, int32_t len2) {
-	$init(StringUTF16);
 	return -$StringLatin1::compareToUTF16(other, value, len2, len1);
 }
 
 int32_t StringUTF16::compareToCI($bytes* value, $bytes* other) {
-	$init(StringUTF16);
-	$useLocalCurrentObjectStackCache();
-	$var($bytes, var$0, value);
-	int32_t var$1 = length(value);
-	$var($bytes, var$2, other);
-	return compareToCIImpl(var$0, 0, var$1, var$2, 0, length(other));
+	int32_t var$0 = length(value);
+	return compareToCIImpl(value, 0, var$0, other, 0, length(other));
 }
 
 int32_t StringUTF16::compareToCIImpl($bytes* value, int32_t toffset, int32_t tlen, $bytes* other, int32_t ooffset, int32_t olen) {
-	$init(StringUTF16);
 	int32_t tlast = toffset + tlen;
 	int32_t olast = ooffset + olen;
 	if (!StringUTF16::$assertionsDisabled && !(toffset >= 0 && ooffset >= 0)) {
@@ -577,36 +339,31 @@ int32_t StringUTF16::compareToCIImpl($bytes* value, int32_t toffset, int32_t tle
 	if (!StringUTF16::$assertionsDisabled && !(olast <= length(other))) {
 		$throwNew($AssertionError);
 	}
-	{
-		int32_t k1 = toffset;
-		int32_t k2 = ooffset;
-		for (; k1 < tlast && k2 < olast; ++k1, ++k2) {
-			int32_t cp1 = (int32_t)getChar(value, k1);
-			int32_t cp2 = (int32_t)getChar(other, k2);
-			if (cp1 == cp2 || compareCodePointCI(cp1, cp2) == 0) {
-				continue;
-			}
-			cp1 = codePointIncluding(value, cp1, k1, toffset, tlast);
-			if (cp1 < 0) {
-				++k1;
-				cp1 = -cp1;
-			}
-			cp2 = codePointIncluding(other, cp2, k2, ooffset, olast);
-			if (cp2 < 0) {
-				++k2;
-				cp2 = -cp2;
-			}
-			int32_t diff = compareCodePointCI(cp1, cp2);
-			if (diff != 0) {
-				return diff;
-			}
+	for (int32_t k1 = toffset, k2 = ooffset; k1 < tlast && k2 < olast; ++k1, ++k2) {
+		int32_t cp1 = (int32_t)getChar(value, k1);
+		int32_t cp2 = (int32_t)getChar(other, k2);
+		if (cp1 == cp2 || compareCodePointCI(cp1, cp2) == 0) {
+			continue;
+		}
+		cp1 = codePointIncluding(value, cp1, k1, toffset, tlast);
+		if (cp1 < 0) {
+			++k1;
+			cp1 = -cp1;
+		}
+		cp2 = codePointIncluding(other, cp2, k2, ooffset, olast);
+		if (cp2 < 0) {
+			++k2;
+			cp2 = -cp2;
+		}
+		int32_t diff = compareCodePointCI(cp1, cp2);
+		if (diff != 0) {
+			return diff;
 		}
 	}
 	return tlen - olen;
 }
 
 int32_t StringUTF16::compareCodePointCI(int32_t cp1, int32_t cp2) {
-	$init(StringUTF16);
 	cp1 = $Character::toUpperCase(cp1);
 	cp2 = $Character::toUpperCase(cp2);
 	if (cp1 != cp2) {
@@ -620,7 +377,6 @@ int32_t StringUTF16::compareCodePointCI(int32_t cp1, int32_t cp2) {
 }
 
 int32_t StringUTF16::codePointIncluding($bytes* ba, int32_t cp, int32_t index, int32_t start, int32_t end) {
-	$init(StringUTF16);
 	if (!$Character::isSurrogate((char16_t)cp)) {
 		return cp;
 	}
@@ -641,12 +397,10 @@ int32_t StringUTF16::codePointIncluding($bytes* ba, int32_t cp, int32_t index, i
 }
 
 int32_t StringUTF16::compareToCI_Latin1($bytes* value, $bytes* other) {
-	$init(StringUTF16);
 	return -$StringLatin1::compareToCI_UTF16(other, value);
 }
 
 int32_t StringUTF16::hashCode($bytes* value) {
-	$init(StringUTF16);
 	int32_t h = 0;
 	int32_t length = $nc(value)->length >> 1;
 	for (int32_t i = 0; i < length; ++i) {
@@ -656,7 +410,6 @@ int32_t StringUTF16::hashCode($bytes* value) {
 }
 
 int32_t StringUTF16::indexOf($bytes* value, int32_t ch, int32_t fromIndex) {
-	$init(StringUTF16);
 	int32_t max = $nc(value)->length >> 1;
 	if (fromIndex < 0) {
 		fromIndex = 0;
@@ -671,29 +424,23 @@ int32_t StringUTF16::indexOf($bytes* value, int32_t ch, int32_t fromIndex) {
 }
 
 int32_t StringUTF16::indexOf($bytes* value, $bytes* str) {
-	$init(StringUTF16);
-	$useLocalCurrentObjectStackCache();
 	if ($nc(str)->length == 0) {
 		return 0;
 	}
-	if ($nc(value)->length < $nc(str)->length) {
+	if ($nc(value)->length < str->length) {
 		return -1;
 	}
-	$var($bytes, var$0, value);
-	int32_t var$1 = length(value);
-	$var($bytes, var$2, str);
-	return indexOfUnsafe(var$0, var$1, var$2, length(str), 0);
+	int32_t var$0 = length(value);
+	return indexOfUnsafe(value, var$0, str, length(str), 0);
 }
 
 int32_t StringUTF16::indexOf($bytes* value, int32_t valueCount, $bytes* str, int32_t strCount, int32_t fromIndex) {
-	$init(StringUTF16);
 	checkBoundsBeginEnd(fromIndex, valueCount, value);
 	checkBoundsBeginEnd(0, strCount, str);
 	return indexOfUnsafe(value, valueCount, str, strCount, fromIndex);
 }
 
 int32_t StringUTF16::indexOfUnsafe($bytes* value, int32_t valueCount, $bytes* str, int32_t strCount, int32_t fromIndex) {
-	$init(StringUTF16);
 	if (!StringUTF16::$assertionsDisabled && !(fromIndex >= 0)) {
 		$throwNew($AssertionError);
 	}
@@ -716,25 +463,24 @@ int32_t StringUTF16::indexOfUnsafe($bytes* value, int32_t valueCount, $bytes* st
 					break;
 				}
 				{
+					;
 				}
 			}
 		}
 		if (i <= max) {
 			int32_t j = i + 1;
 			int32_t end = j + strCount - 1;
-			{
-				int32_t k = 1;
-				for (;; ++j, ++k) {
-					bool var$1 = j < end;
-					if (var$1) {
-						char16_t var$2 = getChar(value, j);
-						var$1 = var$2 == getChar(str, k);
-					}
-					if (!(var$1)) {
-						break;
-					}
-					{
-					}
+			for (int32_t k = 1;; ++j, ++k) {
+				bool var$1 = j < end;
+				if (var$1) {
+					char16_t var$2 = getChar(value, j);
+					var$1 = var$2 == getChar(str, k);
+				}
+				if (!(var$1)) {
+					break;
+				}
+				{
+					;
 				}
 			}
 			if (j == end) {
@@ -746,25 +492,22 @@ int32_t StringUTF16::indexOfUnsafe($bytes* value, int32_t valueCount, $bytes* st
 }
 
 int32_t StringUTF16::indexOfLatin1($bytes* value, $bytes* str) {
-	$init(StringUTF16);
 	if ($nc(str)->length == 0) {
 		return 0;
 	}
-	if (length(value) < $nc(str)->length) {
+	if (length(value) < str->length) {
 		return -1;
 	}
-	return indexOfLatin1Unsafe(value, length(value), str, $nc(str)->length, 0);
+	return indexOfLatin1Unsafe(value, length(value), str, str->length, 0);
 }
 
 int32_t StringUTF16::indexOfLatin1($bytes* src, int32_t srcCount, $bytes* tgt, int32_t tgtCount, int32_t fromIndex) {
-	$init(StringUTF16);
 	checkBoundsBeginEnd(fromIndex, srcCount, src);
 	$String::checkBoundsBeginEnd(0, tgtCount, $nc(tgt)->length);
 	return indexOfLatin1Unsafe(src, srcCount, tgt, tgtCount, fromIndex);
 }
 
 int32_t StringUTF16::indexOfLatin1Unsafe($bytes* src, int32_t srcCount, $bytes* tgt, int32_t tgtCount, int32_t fromIndex) {
-	$init(StringUTF16);
 	if (!StringUTF16::$assertionsDisabled && !(fromIndex >= 0)) {
 		$throwNew($AssertionError);
 	}
@@ -777,7 +520,7 @@ int32_t StringUTF16::indexOfLatin1Unsafe($bytes* src, int32_t srcCount, $bytes* 
 	if (!StringUTF16::$assertionsDisabled && !(srcCount >= tgtCount)) {
 		$throwNew($AssertionError);
 	}
-	char16_t first = (char16_t)((int32_t)($nc(tgt)->get(0) & (uint32_t)255));
+	char16_t first = (char16_t)($nc(tgt)->get(0) & 0xff);
 	int32_t max = (srcCount - tgtCount);
 	for (int32_t i = fromIndex; i <= max; ++i) {
 		if (getChar(src, i) != first) {
@@ -787,13 +530,15 @@ int32_t StringUTF16::indexOfLatin1Unsafe($bytes* src, int32_t srcCount, $bytes* 
 					break;
 				}
 				{
+					;
 				}
 			}
 		}
 		if (i <= max) {
 			int32_t j = i + 1;
 			int32_t end = j + tgtCount - 1;
-			for (int32_t k = 1; j < end && getChar(src, j) == ((int32_t)(tgt->get(k) & (uint32_t)255)); ++j, ++k) {
+			for (int32_t k = 1; j < end && getChar(src, j) == (tgt->get(k) & 0xff); ++j, ++k) {
+				;
 			}
 			if (j == end) {
 				return i;
@@ -804,13 +549,11 @@ int32_t StringUTF16::indexOfLatin1Unsafe($bytes* src, int32_t srcCount, $bytes* 
 }
 
 int32_t StringUTF16::indexOfChar($bytes* value, int32_t ch, int32_t fromIndex, int32_t max) {
-	$init(StringUTF16);
 	checkBoundsBeginEnd(fromIndex, max, value);
 	return indexOfCharUnsafe(value, ch, fromIndex, max);
 }
 
 int32_t StringUTF16::indexOfCharUnsafe($bytes* value, int32_t ch, int32_t fromIndex, int32_t max) {
-	$init(StringUTF16);
 	for (int32_t i = fromIndex; i < max; ++i) {
 		if (getChar(value, i) == ch) {
 			return i;
@@ -820,7 +563,6 @@ int32_t StringUTF16::indexOfCharUnsafe($bytes* value, int32_t ch, int32_t fromIn
 }
 
 int32_t StringUTF16::indexOfSupplementary($bytes* value, int32_t ch, int32_t fromIndex, int32_t max) {
-	$init(StringUTF16);
 	if ($Character::isValidCodePoint(ch)) {
 		char16_t hi = $Character::highSurrogate(ch);
 		char16_t lo = $Character::lowSurrogate(ch);
@@ -836,7 +578,6 @@ int32_t StringUTF16::indexOfSupplementary($bytes* value, int32_t ch, int32_t fro
 }
 
 int32_t StringUTF16::lastIndexOf($bytes* src, int32_t srcCount, $bytes* tgt, int32_t tgtCount, int32_t fromIndex) {
-	$init(StringUTF16);
 	if (!StringUTF16::$assertionsDisabled && !(fromIndex >= 0)) {
 		$throwNew($AssertionError);
 	}
@@ -880,7 +621,6 @@ int32_t StringUTF16::lastIndexOf($bytes* src, int32_t srcCount, $bytes* tgt, int
 }
 
 int32_t StringUTF16::lastIndexOf($bytes* value, int32_t ch, int32_t fromIndex) {
-	$init(StringUTF16);
 	if (ch < $Character::MIN_SUPPLEMENTARY_CODE_POINT) {
 		int32_t i = $Math::min(fromIndex, ($nc(value)->length >> 1) - 1);
 		for (; i >= 0; --i) {
@@ -895,7 +635,6 @@ int32_t StringUTF16::lastIndexOf($bytes* value, int32_t ch, int32_t fromIndex) {
 }
 
 int32_t StringUTF16::lastIndexOfSupplementary($bytes* value, int32_t ch, int32_t fromIndex) {
-	$init(StringUTF16);
 	if ($Character::isValidCodePoint(ch)) {
 		char16_t hi = $Character::highSurrogate(ch);
 		char16_t lo = $Character::lowSurrogate(ch);
@@ -911,8 +650,7 @@ int32_t StringUTF16::lastIndexOfSupplementary($bytes* value, int32_t ch, int32_t
 }
 
 $String* StringUTF16::replace($bytes* value, char16_t oldChar, char16_t newChar) {
-	$init(StringUTF16);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = $nc(value)->length >> 1;
 	int32_t i = -1;
 	while (++i < len) {
@@ -943,8 +681,7 @@ $String* StringUTF16::replace($bytes* value, char16_t oldChar, char16_t newChar)
 }
 
 $String* StringUTF16::replace($bytes* value, int32_t valLen, bool valLat1, $bytes* targ, int32_t targLen, bool targLat1, $bytes* repl, int32_t replLen, bool replLat1) {
-	$init(StringUTF16);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!StringUTF16::$assertionsDisabled && !(targLen > 0)) {
 		$throwNew($AssertionError);
 	}
@@ -986,7 +723,7 @@ $String* StringUTF16::replace($bytes* value, int32_t valLen, bool valLat1, $byte
 		int32_t nextPos = pos->get(q);
 		if ($String::COMPACT_STRINGS && valLat1) {
 			while (posFrom < nextPos) {
-				char16_t c = (char16_t)((int32_t)($nc(value)->get(posFrom++) & (uint32_t)255));
+				char16_t c = (char16_t)($nc(value)->get(posFrom++) & 0xff);
 				putChar(result, posTo++, c);
 			}
 		} else {
@@ -997,7 +734,7 @@ $String* StringUTF16::replace($bytes* value, int32_t valLen, bool valLat1, $byte
 		posFrom += targLen;
 		if ($String::COMPACT_STRINGS && replLat1) {
 			for (int32_t k = 0; k < replLen; ++k) {
-				char16_t c = (char16_t)((int32_t)($nc(repl)->get(k) & (uint32_t)255));
+				char16_t c = (char16_t)($nc(repl)->get(k) & 0xff);
 				putChar(result, posTo++, c);
 			}
 		} else {
@@ -1008,7 +745,7 @@ $String* StringUTF16::replace($bytes* value, int32_t valLen, bool valLat1, $byte
 	}
 	if ($String::COMPACT_STRINGS && valLat1) {
 		while (posFrom < valLen) {
-			char16_t c = (char16_t)((int32_t)($nc(value)->get(posFrom++) & (uint32_t)255));
+			char16_t c = (char16_t)($nc(value)->get(posFrom++) & 0xff);
 			putChar(result, posTo++, c);
 		}
 	} else {
@@ -1026,18 +763,15 @@ $String* StringUTF16::replace($bytes* value, int32_t valLen, bool valLat1, $byte
 }
 
 bool StringUTF16::regionMatchesCI($bytes* value, int32_t toffset, $bytes* other, int32_t ooffset, int32_t len) {
-	$init(StringUTF16);
 	return compareToCIImpl(value, toffset, len, other, ooffset, len) == 0;
 }
 
 bool StringUTF16::regionMatchesCI_Latin1($bytes* value, int32_t toffset, $bytes* other, int32_t ooffset, int32_t len) {
-	$init(StringUTF16);
 	return $StringLatin1::regionMatchesCI_UTF16(other, ooffset, value, toffset, len);
 }
 
 $String* StringUTF16::toLowerCase($String* str, $bytes* value, $Locale* locale) {
-	$init(StringUTF16);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (locale == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1069,10 +803,10 @@ $String* StringUTF16::toLowerCase($String* str, $bytes* value, $Locale* locale) 
 	int32_t bits = 0;
 	for (int32_t i = first; i < len; ++i) {
 		int32_t cp = (int32_t)getChar(value, i);
-		if (cp == (char16_t)0x3A3 || $Character::isSurrogate((char16_t)cp)) {
+		if (cp == (char16_t)0x03a3 || $Character::isSurrogate((char16_t)cp)) {
 			return toLowerCaseEx(str, value, result, i, locale, false);
 		}
-		if (cp == (char16_t)0x130) {
+		if (cp == (char16_t)0x0130) {
 			return toLowerCaseEx(str, value, result, i, locale, true);
 		}
 		cp = $Character::toLowerCase(cp);
@@ -1090,8 +824,7 @@ $String* StringUTF16::toLowerCase($String* str, $bytes* value, $Locale* locale) 
 }
 
 $String* StringUTF16::toLowerCaseEx($String* str, $bytes* value, $bytes* result$renamed, int32_t first, $Locale* locale, bool localeDependent) {
-	$init(StringUTF16);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, result, result$renamed);
 	if (!StringUTF16::$assertionsDisabled && !($nc(result)->length == $nc(value)->length)) {
 		$throwNew($AssertionError);
@@ -1111,7 +844,7 @@ $String* StringUTF16::toLowerCaseEx($String* str, $bytes* value, $bytes* result$
 			srcChar = codePointAt(value, i, length);
 			srcCount = $Character::charCount(srcChar);
 		}
-		if (localeDependent || srcChar == (char16_t)0x3A3 || srcChar == (char16_t)0x130) {
+		if (localeDependent || srcChar == (char16_t)0x03a3 || srcChar == (char16_t)0x0130) {
 			lowerChar = $ConditionalSpecialCasing::toLowerCaseEx(str, i, locale);
 		} else {
 			lowerChar = $Character::toLowerCase(srcChar);
@@ -1145,8 +878,7 @@ $String* StringUTF16::toLowerCaseEx($String* str, $bytes* value, $bytes* result$
 }
 
 $String* StringUTF16::toUpperCase($String* str, $bytes* value, $Locale* locale) {
-	$init(StringUTF16);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (locale == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -1196,8 +928,7 @@ $String* StringUTF16::toUpperCase($String* str, $bytes* value, $Locale* locale) 
 }
 
 $String* StringUTF16::toUpperCaseEx($String* str, $bytes* value, $bytes* result$renamed, int32_t first, $Locale* locale, bool localeDependent) {
-	$init(StringUTF16);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, result, result$renamed);
 	if (!StringUTF16::$assertionsDisabled && !($nc(result)->length == $nc(value)->length)) {
 		$throwNew($AssertionError);
@@ -1255,7 +986,6 @@ $String* StringUTF16::toUpperCaseEx($String* str, $bytes* value, $bytes* result$
 }
 
 $String* StringUTF16::trim($bytes* value) {
-	$init(StringUTF16);
 	int32_t length = $nc(value)->length >> 1;
 	int32_t len = length;
 	int32_t st = 0;
@@ -1269,7 +999,6 @@ $String* StringUTF16::trim($bytes* value) {
 }
 
 int32_t StringUTF16::indexOfNonWhitespace($bytes* value) {
-	$init(StringUTF16);
 	int32_t length = $nc(value)->length >> 1;
 	int32_t left = 0;
 	while (left < length) {
@@ -1283,7 +1012,6 @@ int32_t StringUTF16::indexOfNonWhitespace($bytes* value) {
 }
 
 int32_t StringUTF16::lastIndexOfNonWhitespace($bytes* value) {
-	$init(StringUTF16);
 	int32_t length = (int32_t)((uint32_t)$nc(value)->length >> 1);
 	int32_t right = length;
 	while (0 < right) {
@@ -1297,7 +1025,6 @@ int32_t StringUTF16::lastIndexOfNonWhitespace($bytes* value) {
 }
 
 $String* StringUTF16::strip($bytes* value) {
-	$init(StringUTF16);
 	int32_t length = (int32_t)((uint32_t)$nc(value)->length >> 1);
 	int32_t left = indexOfNonWhitespace(value);
 	if (left == length) {
@@ -1309,34 +1036,29 @@ $String* StringUTF16::strip($bytes* value) {
 }
 
 $String* StringUTF16::stripLeading($bytes* value) {
-	$init(StringUTF16);
 	int32_t length = (int32_t)((uint32_t)$nc(value)->length >> 1);
 	int32_t left = indexOfNonWhitespace(value);
 	return (left != 0) ? newString(value, left, length - left) : ($String*)nullptr;
 }
 
 $String* StringUTF16::stripTrailing($bytes* value) {
-	$init(StringUTF16);
 	int32_t length = (int32_t)((uint32_t)$nc(value)->length >> 1);
 	int32_t right = lastIndexOfNonWhitespace(value);
 	return (right != length) ? newString(value, 0, right) : ($String*)nullptr;
 }
 
 $Stream* StringUTF16::lines($bytes* value) {
-	$init(StringUTF16);
 	return $StreamSupport::stream($($StringUTF16$LinesSpliterator::spliterator(value)), false);
 }
 
 void StringUTF16::putChars($bytes* val, int32_t index, $chars* str, int32_t off, int32_t end) {
-	$init(StringUTF16);
 	while (off < end) {
 		putChar(val, index++, $nc(str)->get(off++));
 	}
 }
 
 $String* StringUTF16::newString($bytes* val, int32_t index, int32_t len) {
-	$init(StringUTF16);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (len == 0) {
 		return ""_s;
 	}
@@ -1351,24 +1073,20 @@ $String* StringUTF16::newString($bytes* val, int32_t index, int32_t len) {
 }
 
 void StringUTF16::fillNull($bytes* val, int32_t index, int32_t end) {
-	$init(StringUTF16);
 	$Arrays::fill(val, index << 1, end << 1, (int8_t)0);
 }
 
 void StringUTF16::putCharSB($bytes* val, int32_t index, int32_t c) {
-	$init(StringUTF16);
 	checkIndex(index, val);
 	putChar(val, index, c);
 }
 
 void StringUTF16::putCharsSB($bytes* val, int32_t index, $chars* ca, int32_t off, int32_t end) {
-	$init(StringUTF16);
 	checkBoundsBeginEnd(index, index + end - off, val);
 	putChars(val, index, ca, off, end);
 }
 
 void StringUTF16::putCharsSB($bytes* val, int32_t index, $CharSequence* s, int32_t off, int32_t end) {
-	$init(StringUTF16);
 	checkBoundsBeginEnd(index, index + end - off, val);
 	for (int32_t i = off; i < end; ++i) {
 		putChar(val, index++, $nc(s)->charAt(i));
@@ -1376,22 +1094,18 @@ void StringUTF16::putCharsSB($bytes* val, int32_t index, $CharSequence* s, int32
 }
 
 int32_t StringUTF16::codePointAtSB($bytes* val, int32_t index, int32_t end) {
-	$init(StringUTF16);
 	return codePointAt(val, index, end, true);
 }
 
 int32_t StringUTF16::codePointBeforeSB($bytes* val, int32_t index) {
-	$init(StringUTF16);
 	return codePointBefore(val, index, true);
 }
 
 int32_t StringUTF16::codePointCountSB($bytes* val, int32_t beginIndex, int32_t endIndex) {
-	$init(StringUTF16);
 	return codePointCount(val, beginIndex, endIndex, true);
 }
 
 int32_t StringUTF16::getChars(int32_t i, int32_t begin, int32_t end, $bytes* value) {
-	$init(StringUTF16);
 	checkBoundsBeginEnd(begin, end, value);
 	int32_t pos = getChars(i, end, value);
 	if (!StringUTF16::$assertionsDisabled && !(begin == pos)) {
@@ -1401,7 +1115,6 @@ int32_t StringUTF16::getChars(int32_t i, int32_t begin, int32_t end, $bytes* val
 }
 
 int32_t StringUTF16::getChars(int64_t l, int32_t begin, int32_t end, $bytes* value) {
-	$init(StringUTF16);
 	checkBoundsBeginEnd(begin, end, value);
 	int32_t pos = getChars(l, end, value);
 	if (!StringUTF16::$assertionsDisabled && !(begin == pos)) {
@@ -1411,10 +1124,9 @@ int32_t StringUTF16::getChars(int64_t l, int32_t begin, int32_t end, $bytes* val
 }
 
 bool StringUTF16::contentEquals($bytes* v1, $bytes* v2, int32_t len) {
-	$init(StringUTF16);
 	checkBoundsOffCount(0, len, v2);
 	for (int32_t i = 0; i < len; ++i) {
-		if ((char16_t)((int32_t)($nc(v1)->get(i) & (uint32_t)255)) != getChar(v2, i)) {
+		if ((char16_t)($nc(v1)->get(i) & 0xff) != getChar(v2, i)) {
 			return false;
 		}
 	}
@@ -1422,7 +1134,6 @@ bool StringUTF16::contentEquals($bytes* v1, $bytes* v2, int32_t len) {
 }
 
 bool StringUTF16::contentEquals($bytes* value, $CharSequence* cs, int32_t len) {
-	$init(StringUTF16);
 	checkOffset(len, value);
 	for (int32_t i = 0; i < len; ++i) {
 		char16_t var$0 = getChar(value, i);
@@ -1434,7 +1145,6 @@ bool StringUTF16::contentEquals($bytes* value, $CharSequence* cs, int32_t len) {
 }
 
 int32_t StringUTF16::putCharsAt($bytes* value, int32_t i, char16_t c1, char16_t c2, char16_t c3, char16_t c4) {
-	$init(StringUTF16);
 	int32_t end = i + 4;
 	checkBoundsBeginEnd(i, end, value);
 	putChar(value, i++, c1);
@@ -1448,7 +1158,6 @@ int32_t StringUTF16::putCharsAt($bytes* value, int32_t i, char16_t c1, char16_t 
 }
 
 int32_t StringUTF16::putCharsAt($bytes* value, int32_t i, char16_t c1, char16_t c2, char16_t c3, char16_t c4, char16_t c5) {
-	$init(StringUTF16);
 	int32_t end = i + 5;
 	checkBoundsBeginEnd(i, end, value);
 	putChar(value, i++, c1);
@@ -1463,13 +1172,11 @@ int32_t StringUTF16::putCharsAt($bytes* value, int32_t i, char16_t c1, char16_t 
 }
 
 char16_t StringUTF16::charAt($bytes* value, int32_t index) {
-	$init(StringUTF16);
 	checkIndex(index, value);
 	return getChar(value, index);
 }
 
 void StringUTF16::reverse($bytes* val, int32_t count) {
-	$init(StringUTF16);
 	checkOffset(count, val);
 	int32_t n = count - 1;
 	bool hasSurrogates = false;
@@ -1490,7 +1197,6 @@ void StringUTF16::reverse($bytes* val, int32_t count) {
 }
 
 void StringUTF16::reverseAllValidSurrogatePairs($bytes* val, int32_t count) {
-	$init(StringUTF16);
 	for (int32_t i = 0; i < count - 1; ++i) {
 		char16_t c2 = getChar(val, i);
 		if ($Character::isLowSurrogate(c2)) {
@@ -1504,15 +1210,13 @@ void StringUTF16::reverseAllValidSurrogatePairs($bytes* val, int32_t count) {
 }
 
 void StringUTF16::inflate($bytes* src, int32_t srcOff, $bytes* dst, int32_t dstOff, int32_t len) {
-	$init(StringUTF16);
 	checkBoundsOffCount(dstOff, len, dst);
 	for (int32_t i = 0; i < len; ++i) {
-		putChar(dst, dstOff++, (int32_t)($nc(src)->get(srcOff++) & (uint32_t)255));
+		putChar(dst, dstOff++, $nc(src)->get(srcOff++) & 0xff);
 	}
 }
 
 int32_t StringUTF16::lastIndexOfLatin1($bytes* src, int32_t srcCount, $bytes* tgt, int32_t tgtCount, int32_t fromIndex) {
-	$init(StringUTF16);
 	if (!StringUTF16::$assertionsDisabled && !(fromIndex >= 0)) {
 		$throwNew($AssertionError);
 	}
@@ -1525,7 +1229,7 @@ int32_t StringUTF16::lastIndexOfLatin1($bytes* src, int32_t srcCount, $bytes* tg
 	int32_t min = tgtCount - 1;
 	int32_t i = min + fromIndex;
 	int32_t strLastIndex = tgtCount - 1;
-	char16_t strLastChar = (char16_t)((int32_t)($nc(tgt)->get(strLastIndex) & (uint32_t)255));
+	char16_t strLastChar = (char16_t)($nc(tgt)->get(strLastIndex) & 0xff);
 	checkIndex(i, src);
 	bool startSearchForLastChar$continue = false;
 	while (true) {
@@ -1539,7 +1243,7 @@ int32_t StringUTF16::lastIndexOfLatin1($bytes* src, int32_t srcCount, $bytes* tg
 		int32_t start = j - strLastIndex;
 		int32_t k = strLastIndex - 1;
 		while (j > start) {
-			if (getChar(src, j--) != ((int32_t)(tgt->get(k--) & (uint32_t)255))) {
+			if (getChar(src, j--) != (tgt->get(k--) & 0xff)) {
 				--i;
 				startSearchForLastChar$continue = true;
 				break;
@@ -1559,7 +1263,6 @@ bool StringUTF16::isBigEndian() {
 }
 
 int32_t StringUTF16::getChars(int32_t i, int32_t index, $bytes* buf) {
-	$init(StringUTF16);
 	int32_t q = 0;
 	int32_t r = 0;
 	int32_t charPos = index;
@@ -1571,7 +1274,6 @@ int32_t StringUTF16::getChars(int32_t i, int32_t index, $bytes* buf) {
 		q = i / 100;
 		r = (q * 100) - i;
 		i = q;
-		$init($Integer);
 		putChar(buf, --charPos, $nc($Integer::DigitOnes)->get(r));
 		putChar(buf, --charPos, $nc($Integer::DigitTens)->get(r));
 	}
@@ -1588,7 +1290,6 @@ int32_t StringUTF16::getChars(int32_t i, int32_t index, $bytes* buf) {
 }
 
 int32_t StringUTF16::getChars(int64_t i, int32_t index, $bytes* buf) {
-	$init(StringUTF16);
 	int64_t q = 0;
 	int32_t r = 0;
 	int32_t charPos = index;
@@ -1600,7 +1301,6 @@ int32_t StringUTF16::getChars(int64_t i, int32_t index, $bytes* buf) {
 		q = i / 100;
 		r = (int32_t)((q * 100) - i);
 		i = q;
-		$init($Integer);
 		putChar(buf, --charPos, $nc($Integer::DigitOnes)->get(r));
 		putChar(buf, --charPos, $nc($Integer::DigitTens)->get(r));
 	}
@@ -1610,7 +1310,6 @@ int32_t StringUTF16::getChars(int64_t i, int32_t index, $bytes* buf) {
 		q2 = i2 / 100;
 		r = (q2 * 100) - i2;
 		i2 = q2;
-		$init($Integer);
 		putChar(buf, --charPos, $nc($Integer::DigitOnes)->get(r));
 		putChar(buf, --charPos, $nc($Integer::DigitTens)->get(r));
 	}
@@ -1627,26 +1326,22 @@ int32_t StringUTF16::getChars(int64_t i, int32_t index, $bytes* buf) {
 }
 
 void StringUTF16::checkIndex(int32_t off, $bytes* val) {
-	$init(StringUTF16);
 	$String::checkIndex(off, length(val));
 }
 
 void StringUTF16::checkOffset(int32_t off, $bytes* val) {
-	$init(StringUTF16);
 	$String::checkOffset(off, length(val));
 }
 
 void StringUTF16::checkBoundsBeginEnd(int32_t begin, int32_t end, $bytes* val) {
-	$init(StringUTF16);
 	$String::checkBoundsBeginEnd(begin, end, length(val));
 }
 
 void StringUTF16::checkBoundsOffCount(int32_t offset, int32_t count, $bytes* val) {
-	$init(StringUTF16);
 	$String::checkBoundsOffCount(offset, count, length(val));
 }
 
-void clinit$StringUTF16($Class* class$) {
+void StringUTF16::clinit$($Class* clazz) {
 	StringUTF16::$assertionsDisabled = !StringUTF16::class$->desiredAssertionStatus();
 	{
 		if (StringUTF16::isBigEndian()) {
@@ -1663,7 +1358,184 @@ StringUTF16::StringUTF16() {
 }
 
 $Class* StringUTF16::load$($String* name, bool initialize) {
-	$loadClass(StringUTF16, name, initialize, &_StringUTF16_ClassInfo_, clinit$StringUTF16, allocate$StringUTF16);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(StringUTF16, $assertionsDisabled)},
+		{"HI_BYTE_SHIFT", "I", nullptr, $STATIC | $FINAL, $staticField(StringUTF16, HI_BYTE_SHIFT)},
+		{"LO_BYTE_SHIFT", "I", nullptr, $STATIC | $FINAL, $staticField(StringUTF16, LO_BYTE_SHIFT)},
+		{"MAX_LENGTH", "I", nullptr, $STATIC | $FINAL, $constField(StringUTF16, MAX_LENGTH)},
+		{}
+	};
+	$CompoundAttribute compareTomethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute compareToLatin1methodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute compressmethodAnnotations$$$2[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute compressmethodAnnotations$$$3[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute equalsmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute getCharmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute getCharsmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute indexOfmethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute indexOfmethodAnnotations$$$2[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute indexOfCharmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute indexOfLatin1methodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute indexOfLatin1methodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute putCharmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute toBytesmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(StringUTF16, init$, void)},
+		{"charAt", "([BI)C", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, charAt, char16_t, $bytes*, int32_t)},
+		{"checkBoundsBeginEnd", "(II[B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, checkBoundsBeginEnd, void, int32_t, int32_t, $bytes*)},
+		{"checkBoundsOffCount", "(II[B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, checkBoundsOffCount, void, int32_t, int32_t, $bytes*)},
+		{"checkIndex", "(I[B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, checkIndex, void, int32_t, $bytes*)},
+		{"checkOffset", "(I[B)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, checkOffset, void, int32_t, $bytes*)},
+		{"codePointAt", "([BIIZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, codePointAt, int32_t, $bytes*, int32_t, int32_t, bool)},
+		{"codePointAt", "([BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, codePointAt, int32_t, $bytes*, int32_t, int32_t)},
+		{"codePointAtSB", "([BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, codePointAtSB, int32_t, $bytes*, int32_t, int32_t)},
+		{"codePointBefore", "([BIZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, codePointBefore, int32_t, $bytes*, int32_t, bool)},
+		{"codePointBefore", "([BI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, codePointBefore, int32_t, $bytes*, int32_t)},
+		{"codePointBeforeSB", "([BI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, codePointBeforeSB, int32_t, $bytes*, int32_t)},
+		{"codePointCount", "([BIIZ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, codePointCount, int32_t, $bytes*, int32_t, int32_t, bool)},
+		{"codePointCount", "([BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, codePointCount, int32_t, $bytes*, int32_t, int32_t)},
+		{"codePointCountSB", "([BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, codePointCountSB, int32_t, $bytes*, int32_t, int32_t)},
+		{"codePointIncluding", "([BIIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, codePointIncluding, int32_t, $bytes*, int32_t, int32_t, int32_t, int32_t)},
+		{"compareCodePointCI", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, compareCodePointCI, int32_t, int32_t, int32_t)},
+		{"compareTo", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, compareTo, int32_t, $bytes*, $bytes*), nullptr, nullptr, compareTomethodAnnotations$$},
+		{"compareTo", "([B[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, compareTo, int32_t, $bytes*, $bytes*, int32_t, int32_t)},
+		{"compareToCI", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, compareToCI, int32_t, $bytes*, $bytes*)},
+		{"compareToCIImpl", "([BII[BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, compareToCIImpl, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t)},
+		{"compareToCI_Latin1", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, compareToCI_Latin1, int32_t, $bytes*, $bytes*)},
+		{"compareToLatin1", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, compareToLatin1, int32_t, $bytes*, $bytes*), nullptr, nullptr, compareToLatin1methodAnnotations$$},
+		{"compareToLatin1", "([B[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, compareToLatin1, int32_t, $bytes*, $bytes*, int32_t, int32_t)},
+		{"compareValues", "([B[BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, compareValues, int32_t, $bytes*, $bytes*, int32_t, int32_t)},
+		{"compress", "([CII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, compress, $bytes*, $chars*, int32_t, int32_t)},
+		{"compress", "([BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, compress, $bytes*, $bytes*, int32_t, int32_t)},
+		{"compress", "([CI[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, compress, int32_t, $chars*, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, compressmethodAnnotations$$$2},
+		{"compress", "([BI[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, compress, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, compressmethodAnnotations$$$3},
+		{"contentEquals", "([B[BI)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, contentEquals, bool, $bytes*, $bytes*, int32_t)},
+		{"contentEquals", "([BLjava/lang/CharSequence;I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, contentEquals, bool, $bytes*, $CharSequence*, int32_t)},
+		{"equals", "([B[B)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, equals, bool, $bytes*, $bytes*), nullptr, nullptr, equalsmethodAnnotations$$},
+		{"fillNull", "([BII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, fillNull, void, $bytes*, int32_t, int32_t)},
+		{"getBytes", "([BII[BI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, getBytes, void, $bytes*, int32_t, int32_t, $bytes*, int32_t)},
+		{"getChar", "([BI)C", nullptr, $STATIC, $staticMethod(StringUTF16, getChar, char16_t, $bytes*, int32_t), nullptr, nullptr, getCharmethodAnnotations$$},
+		{"getChars", "([BII[CI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, getChars, void, $bytes*, int32_t, int32_t, $chars*, int32_t), nullptr, nullptr, getCharsmethodAnnotations$$},
+		{"getChars", "(III[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, getChars, int32_t, int32_t, int32_t, int32_t, $bytes*)},
+		{"getChars", "(JII[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, getChars, int32_t, int64_t, int32_t, int32_t, $bytes*)},
+		{"getChars", "(II[B)I", nullptr, $STATIC, $staticMethod(StringUTF16, getChars, int32_t, int32_t, int32_t, $bytes*)},
+		{"getChars", "(JI[B)I", nullptr, $STATIC, $staticMethod(StringUTF16, getChars, int32_t, int64_t, int32_t, $bytes*)},
+		{"hashCode", "([B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, hashCode, int32_t, $bytes*)},
+		{"indexOf", "([BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, indexOf, int32_t, $bytes*, int32_t, int32_t)},
+		{"indexOf", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, indexOf, int32_t, $bytes*, $bytes*), nullptr, nullptr, indexOfmethodAnnotations$$$1},
+		{"indexOf", "([BI[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, indexOf, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, indexOfmethodAnnotations$$$2},
+		{"indexOfChar", "([BIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, indexOfChar, int32_t, $bytes*, int32_t, int32_t, int32_t), nullptr, nullptr, indexOfCharmethodAnnotations$$},
+		{"indexOfCharUnsafe", "([BIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, indexOfCharUnsafe, int32_t, $bytes*, int32_t, int32_t, int32_t)},
+		{"indexOfLatin1", "([B[B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, indexOfLatin1, int32_t, $bytes*, $bytes*), nullptr, nullptr, indexOfLatin1methodAnnotations$$},
+		{"indexOfLatin1", "([BI[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, indexOfLatin1, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t), nullptr, nullptr, indexOfLatin1methodAnnotations$$$1},
+		{"indexOfLatin1Unsafe", "([BI[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, indexOfLatin1Unsafe, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
+		{"indexOfNonWhitespace", "([B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, indexOfNonWhitespace, int32_t, $bytes*)},
+		{"indexOfSupplementary", "([BIII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, indexOfSupplementary, int32_t, $bytes*, int32_t, int32_t, int32_t)},
+		{"indexOfUnsafe", "([BI[BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, indexOfUnsafe, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
+		{"inflate", "([BI[BII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, inflate, void, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
+		{"isBigEndian", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(StringUTF16, isBigEndian, bool)},
+		{"lastIndexOf", "([BI[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, lastIndexOf, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
+		{"lastIndexOf", "([BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, lastIndexOf, int32_t, $bytes*, int32_t, int32_t)},
+		{"lastIndexOfLatin1", "([BI[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, lastIndexOfLatin1, int32_t, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
+		{"lastIndexOfNonWhitespace", "([B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, lastIndexOfNonWhitespace, int32_t, $bytes*)},
+		{"lastIndexOfSupplementary", "([BII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, lastIndexOfSupplementary, int32_t, $bytes*, int32_t, int32_t)},
+		{"length", "([B)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, length, int32_t, $bytes*)},
+		{"lines", "([B)Ljava/util/stream/Stream;", "([B)Ljava/util/stream/Stream<Ljava/lang/String;>;", $STATIC, $staticMethod(StringUTF16, lines, $Stream*, $bytes*)},
+		{"newBytesFor", "(I)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, newBytesFor, $bytes*, int32_t)},
+		{"newString", "([BII)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, newString, $String*, $bytes*, int32_t, int32_t)},
+		{"putChar", "([BII)V", nullptr, $STATIC, $staticMethod(StringUTF16, putChar, void, $bytes*, int32_t, int32_t), nullptr, nullptr, putCharmethodAnnotations$$},
+		{"putCharSB", "([BII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, putCharSB, void, $bytes*, int32_t, int32_t)},
+		{"putChars", "([BI[CII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, putChars, void, $bytes*, int32_t, $chars*, int32_t, int32_t)},
+		{"putCharsAt", "([BICCCC)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, putCharsAt, int32_t, $bytes*, int32_t, char16_t, char16_t, char16_t, char16_t)},
+		{"putCharsAt", "([BICCCCC)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, putCharsAt, int32_t, $bytes*, int32_t, char16_t, char16_t, char16_t, char16_t, char16_t)},
+		{"putCharsSB", "([BI[CII)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, putCharsSB, void, $bytes*, int32_t, $chars*, int32_t, int32_t)},
+		{"putCharsSB", "([BILjava/lang/CharSequence;II)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, putCharsSB, void, $bytes*, int32_t, $CharSequence*, int32_t, int32_t)},
+		{"regionMatchesCI", "([BI[BII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, regionMatchesCI, bool, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
+		{"regionMatchesCI_Latin1", "([BI[BII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, regionMatchesCI_Latin1, bool, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
+		{"replace", "([BCC)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, replace, $String*, $bytes*, char16_t, char16_t)},
+		{"replace", "([BIZ[BIZ[BIZ)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, replace, $String*, $bytes*, int32_t, bool, $bytes*, int32_t, bool, $bytes*, int32_t, bool)},
+		{"reverse", "([BI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, reverse, void, $bytes*, int32_t)},
+		{"reverseAllValidSurrogatePairs", "([BI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, reverseAllValidSurrogatePairs, void, $bytes*, int32_t)},
+		{"strip", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, strip, $String*, $bytes*)},
+		{"stripLeading", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, stripLeading, $String*, $bytes*)},
+		{"stripTrailing", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, stripTrailing, $String*, $bytes*)},
+		{"toBytes", "([CII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, toBytes, $bytes*, $chars*, int32_t, int32_t), nullptr, nullptr, toBytesmethodAnnotations$$},
+		{"toBytes", "([III)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, toBytes, $bytes*, $ints*, int32_t, int32_t)},
+		{"toBytes", "(C)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, toBytes, $bytes*, char16_t)},
+		{"toBytesSupplementary", "(I)[B", nullptr, $STATIC, $staticMethod(StringUTF16, toBytesSupplementary, $bytes*, int32_t)},
+		{"toChars", "([B)[C", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, toChars, $chars*, $bytes*)},
+		{"toLowerCase", "(Ljava/lang/String;[BLjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, toLowerCase, $String*, $String*, $bytes*, $Locale*)},
+		{"toLowerCaseEx", "(Ljava/lang/String;[B[BILjava/util/Locale;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, toLowerCaseEx, $String*, $String*, $bytes*, $bytes*, int32_t, $Locale*, bool)},
+		{"toUpperCase", "(Ljava/lang/String;[BLjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, toUpperCase, $String*, $String*, $bytes*, $Locale*)},
+		{"toUpperCaseEx", "(Ljava/lang/String;[B[BILjava/util/Locale;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(StringUTF16, toUpperCaseEx, $String*, $String*, $bytes*, $bytes*, int32_t, $Locale*, bool)},
+		{"trim", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StringUTF16, trim, $String*, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.StringUTF16$CodePointsSpliterator", "java.lang.StringUTF16", "CodePointsSpliterator", $STATIC},
+		{"java.lang.StringUTF16$CharsSpliterator", "java.lang.StringUTF16", "CharsSpliterator", $STATIC},
+		{"java.lang.StringUTF16$LinesSpliterator", "java.lang.StringUTF16", "LinesSpliterator", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.StringUTF16",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.StringUTF16$CodePointsSpliterator,java.lang.StringUTF16$CharsSpliterator,java.lang.StringUTF16$LinesSpliterator"
+	};
+	$loadClass(StringUTF16, name, initialize, &classInfo$$, StringUTF16::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StringUTF16);
+	});
 	return class$;
 }
 

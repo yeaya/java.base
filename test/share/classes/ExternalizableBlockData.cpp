@@ -1,15 +1,12 @@
 #include <ExternalizableBlockData.h>
-
 #include <Foo4ExternalizableBlockData.h>
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
-#include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/ObjectStreamConstants.h>
-#include <java/io/OutputStream.h>
 #include <java/lang/Error.h>
 #include <java/util/Arrays.h>
 #include <jcpp.h>
@@ -21,43 +18,21 @@ using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
-using $InputStream = ::java::io::InputStream;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $ObjectStreamConstants = ::java::io::ObjectStreamConstants;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
 
-$MethodInfo _ExternalizableBlockData_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExternalizableBlockData, init$, void)},
-	{"getFileBytes", "(Ljava/io/File;)[B", nullptr, $STATIC, $staticMethod(ExternalizableBlockData, getFileBytes, $bytes*, $File*), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExternalizableBlockData, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ExternalizableBlockData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ExternalizableBlockData",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ExternalizableBlockData_MethodInfo_
-};
-
-$Object* allocate$ExternalizableBlockData($Class* clazz) {
-	return $of($alloc(ExternalizableBlockData));
-}
-
 void ExternalizableBlockData::init$() {
 }
 
 void ExternalizableBlockData::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, oldExternalizableBytes, getFileBytes($$new($File, $($System::getProperty("test.src"_s, "."_s)), "old.ser"_s)));
-	$var($Foo4ExternalizableBlockData, foo, $new($Foo4ExternalizableBlockData, 2989, 0x0000BEEF, "burrito"_s));
+	$var($Foo4ExternalizableBlockData, foo, $new($Foo4ExternalizableBlockData, 2989, 0x0000beef, "burrito"_s));
 	$var($ByteArrayOutputStream, bout, $new($ByteArrayOutputStream));
 	$var($ObjectOutputStream, oout, $new($ObjectOutputStream, bout));
 	oout->useProtocolVersion($ObjectStreamConstants::PROTOCOL_VERSION_1);
@@ -80,7 +55,7 @@ void ExternalizableBlockData::main($StringArray* args) {
 }
 
 $bytes* ExternalizableBlockData::getFileBytes($File* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileInputStream, fin, $new($FileInputStream, file));
 	$var($ByteArrayOutputStream, bout, $new($ByteArrayOutputStream));
 	$var($bytes, buf, $new($bytes, 256));
@@ -96,7 +71,23 @@ ExternalizableBlockData::ExternalizableBlockData() {
 }
 
 $Class* ExternalizableBlockData::load$($String* name, bool initialize) {
-	$loadClass(ExternalizableBlockData, name, initialize, &_ExternalizableBlockData_ClassInfo_, allocate$ExternalizableBlockData);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExternalizableBlockData, init$, void)},
+		{"getFileBytes", "(Ljava/io/File;)[B", nullptr, $STATIC, $staticMethod(ExternalizableBlockData, getFileBytes, $bytes*, $File*), "java.io.IOException"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ExternalizableBlockData, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ExternalizableBlockData",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ExternalizableBlockData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExternalizableBlockData);
+	});
 	return class$;
 }
 

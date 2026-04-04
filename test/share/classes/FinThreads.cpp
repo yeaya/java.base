@@ -1,8 +1,6 @@
 #include <FinThreads.h>
-
 #include <FinThreads$1.h>
 #include <FinThreads$Foo.h>
-#include <java/lang/Runnable.h>
 #include <jcpp.h>
 
 using $FinThreads$1 = ::FinThreads$1;
@@ -12,47 +10,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
-
-$FieldInfo _FinThreads_FieldInfo_[] = {
-	{"mainThread", "Ljava/lang/Thread;", nullptr, $STATIC, $staticField(FinThreads, mainThread)},
-	{"lock", "Ljava/lang/Object;", nullptr, $STATIC, $staticField(FinThreads, lock)},
-	{"finalizerThread", "Ljava/lang/Thread;", nullptr, $STATIC, $staticField(FinThreads, finalizerThread)},
-	{"finalizedBy", "Ljava/lang/Thread;", nullptr, $STATIC, $staticField(FinThreads, finalizedBy)},
-	{}
-};
-
-$MethodInfo _FinThreads_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FinThreads, init$, void)},
-	{"alarm", "(Ljava/lang/Thread;J)V", nullptr, $STATIC, $staticMethod(FinThreads, alarm, void, $Thread*, int64_t), "java.lang.InterruptedException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FinThreads, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _FinThreads_InnerClassesInfo_[] = {
-	{"FinThreads$Foo", "FinThreads", "Foo", $STATIC},
-	{"FinThreads$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FinThreads_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"FinThreads",
-	"java.lang.Object",
-	nullptr,
-	_FinThreads_FieldInfo_,
-	_FinThreads_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FinThreads_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"FinThreads$Foo,FinThreads$Foo$1,FinThreads$1"
-};
-
-$Object* allocate$FinThreads($Class* clazz) {
-	return $of($alloc(FinThreads));
-}
 
 $Thread* FinThreads::mainThread = nullptr;
 $Object* FinThreads::lock = nullptr;
@@ -64,8 +21,8 @@ void FinThreads::init$() {
 
 void FinThreads::alarm($Thread* sleeper, int64_t delay) {
 	$init(FinThreads);
-	$useLocalCurrentObjectStackCache();
-	$var($Thread, t, $new($Thread, static_cast<$Runnable*>($$new($FinThreads$1, delay, sleeper))));
+	$useLocalObjectStack();
+	$var($Thread, t, $new($Thread, $$new($FinThreads$1, delay, sleeper)));
 	t->setDaemon(true);
 	t->start();
 }
@@ -98,7 +55,7 @@ void FinThreads::main($StringArray* args) {
 	}
 }
 
-void clinit$FinThreads($Class* class$) {
+void FinThreads::clinit$($Class* clazz) {
 	$assignStatic(FinThreads::lock, $new($Object));
 	$assignStatic(FinThreads::finalizerThread, nullptr);
 	$assignStatic(FinThreads::finalizedBy, nullptr);
@@ -108,7 +65,41 @@ FinThreads::FinThreads() {
 }
 
 $Class* FinThreads::load$($String* name, bool initialize) {
-	$loadClass(FinThreads, name, initialize, &_FinThreads_ClassInfo_, clinit$FinThreads, allocate$FinThreads);
+	$FieldInfo fieldInfos$$[] = {
+		{"mainThread", "Ljava/lang/Thread;", nullptr, $STATIC, $staticField(FinThreads, mainThread)},
+		{"lock", "Ljava/lang/Object;", nullptr, $STATIC, $staticField(FinThreads, lock)},
+		{"finalizerThread", "Ljava/lang/Thread;", nullptr, $STATIC, $staticField(FinThreads, finalizerThread)},
+		{"finalizedBy", "Ljava/lang/Thread;", nullptr, $STATIC, $staticField(FinThreads, finalizedBy)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FinThreads, init$, void)},
+		{"alarm", "(Ljava/lang/Thread;J)V", nullptr, $STATIC, $staticMethod(FinThreads, alarm, void, $Thread*, int64_t), "java.lang.InterruptedException"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FinThreads, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"FinThreads$Foo", "FinThreads", "Foo", $STATIC},
+		{"FinThreads$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"FinThreads",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"FinThreads$Foo,FinThreads$Foo$1,FinThreads$1"
+	};
+	$loadClass(FinThreads, name, initialize, &classInfo$$, FinThreads::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FinThreads);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <NumberFormatRounding.h>
-
 #include <java/lang/Number.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/math/RoundingMode.h>
@@ -24,48 +23,12 @@ using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $Number = ::java::lang::Number;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $RoundingMode = ::java::math::RoundingMode;
 using $ChoiceFormat = ::java::text::ChoiceFormat;
 using $NumberFormat = ::java::text::NumberFormat;
 using $ParseException = ::java::text::ParseException;
-
-$FieldInfo _NumberFormatRounding_FieldInfo_[] = {
-	{"AE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NumberFormatRounding, AE)},
-	{"src", "[D", nullptr, $STATIC | $FINAL, $staticField(NumberFormatRounding, src)},
-	{"up", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NumberFormatRounding, up)},
-	{"down", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NumberFormatRounding, down)},
-	{"ceiling", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NumberFormatRounding, ceiling)},
-	{"floor", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NumberFormatRounding, floor)},
-	{"half_up", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NumberFormatRounding, half_up)},
-	{"half_down", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NumberFormatRounding, half_down)},
-	{"half_even", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NumberFormatRounding, half_even)},
-	{"unnecessary", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NumberFormatRounding, unnecessary)},
-	{}
-};
-
-$MethodInfo _NumberFormatRounding_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NumberFormatRounding, init$, void)},
-	{"basicTest", "()V", nullptr, $STATIC, $staticMethod(NumberFormatRounding, basicTest, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NumberFormatRounding, main, void, $StringArray*)},
-	{"roundTest", "(Ljava/math/RoundingMode;[Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(NumberFormatRounding, roundTest, void, $RoundingMode*, $StringArray*)},
-	{}
-};
-
-$ClassInfo _NumberFormatRounding_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NumberFormatRounding",
-	"java.lang.Object",
-	nullptr,
-	_NumberFormatRounding_FieldInfo_,
-	_NumberFormatRounding_MethodInfo_
-};
-
-$Object* allocate$NumberFormatRounding($Class* clazz) {
-	return $of($alloc(NumberFormatRounding));
-}
 
 $String* NumberFormatRounding::AE = nullptr;
 $doubles* NumberFormatRounding::src = nullptr;
@@ -97,14 +60,14 @@ void NumberFormatRounding::main($StringArray* args) {
 
 void NumberFormatRounding::basicTest() {
 	$init(NumberFormatRounding);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NumberFormat, nf, $NumberFormat::getIntegerInstance());
 	$init($RoundingMode);
 	if ($nc(nf)->getRoundingMode() != $RoundingMode::HALF_EVEN) {
 		$throwNew($RuntimeException, "default rounding is not HALF_EVEN"_s);
 	}
 	try {
-		$nc(nf)->setRoundingMode(nullptr);
+		nf->setRoundingMode(nullptr);
 		$throwNew($RuntimeException, "NullPointerException is not thrown by calling setRoundingMode(null)"_s);
 	} catch ($NullPointerException& npe) {
 	}
@@ -123,25 +86,25 @@ void NumberFormatRounding::basicTest() {
 
 void NumberFormatRounding::roundTest($RoundingMode* rm, $StringArray* expected) {
 	$init(NumberFormatRounding);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NumberFormat, nf, $NumberFormat::getIntegerInstance());
 	$nc(nf)->setRoundingMode(rm);
 	if (nf->getRoundingMode() != rm) {
 		$throwNew($RuntimeException, "set rounding mode is not returned by get method"_s);
 	}
-	for (int32_t i = 0; i < $nc(NumberFormatRounding::src)->length; ++i) {
+	for (int32_t i = 0; i < NumberFormatRounding::src->length; ++i) {
 		$var($String, result, nullptr);
 		try {
-			$assign(result, $nc($of($(nf->parse($(nf->format($nc(NumberFormatRounding::src)->get(i)))))))->toString());
+			$assign(result, $$nc(nf->parse($(nf->format(NumberFormatRounding::src->get(i)))))->toString());
 			if (!$nc(result)->equals($nc(expected)->get(i))) {
-				$throwNew($RuntimeException, $$str({"rounding test #"_s, $$str(i), " failed. mode: "_s, rm, " src: "_s, $$str($nc(NumberFormatRounding::src)->get(i)), " expected: "_s, $nc(expected)->get(i), " result: "_s, result}));
+				$throwNew($RuntimeException, $$str({"rounding test #"_s, $$str(i), " failed. mode: "_s, rm, " src: "_s, $$str(NumberFormatRounding::src->get(i)), " expected: "_s, expected->get(i), " result: "_s, result}));
 			}
 		} catch ($ArithmeticException& ae) {
 			if ($nc($nc(expected)->get(i))->equals(NumberFormatRounding::AE)) {
 				continue;
 			} else {
 				$assign(result, NumberFormatRounding::AE);
-				$throwNew($RuntimeException, $$str({"rounding test #"_s, $$str(i), " failed. mode: "_s, rm, " src: "_s, $$str($nc(NumberFormatRounding::src)->get(i)), " expected: "_s, expected->get(i), " result: "_s, result}));
+				$throwNew($RuntimeException, $$str({"rounding test #"_s, $$str(i), " failed. mode: "_s, rm, " src: "_s, $$str(NumberFormatRounding::src->get(i)), " expected: "_s, expected->get(i), " result: "_s, result}));
 			}
 		} catch ($ParseException& pe) {
 			$throwNew($RuntimeException, "ParseException ocurred."_s, pe);
@@ -149,7 +112,7 @@ void NumberFormatRounding::roundTest($RoundingMode* rm, $StringArray* expected) 
 	}
 }
 
-void clinit$NumberFormatRounding($Class* class$) {
+void NumberFormatRounding::clinit$($Class* clazz) {
 	$assignStatic(NumberFormatRounding::AE, "ArithmeticException"_s);
 	$assignStatic(NumberFormatRounding::src, $new($doubles, {
 		5.5,
@@ -355,7 +318,37 @@ NumberFormatRounding::NumberFormatRounding() {
 }
 
 $Class* NumberFormatRounding::load$($String* name, bool initialize) {
-	$loadClass(NumberFormatRounding, name, initialize, &_NumberFormatRounding_ClassInfo_, clinit$NumberFormatRounding, allocate$NumberFormatRounding);
+	$FieldInfo fieldInfos$$[] = {
+		{"AE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NumberFormatRounding, AE)},
+		{"src", "[D", nullptr, $STATIC | $FINAL, $staticField(NumberFormatRounding, src)},
+		{"up", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NumberFormatRounding, up)},
+		{"down", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NumberFormatRounding, down)},
+		{"ceiling", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NumberFormatRounding, ceiling)},
+		{"floor", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NumberFormatRounding, floor)},
+		{"half_up", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NumberFormatRounding, half_up)},
+		{"half_down", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NumberFormatRounding, half_down)},
+		{"half_even", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NumberFormatRounding, half_even)},
+		{"unnecessary", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NumberFormatRounding, unnecessary)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NumberFormatRounding, init$, void)},
+		{"basicTest", "()V", nullptr, $STATIC, $staticMethod(NumberFormatRounding, basicTest, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NumberFormatRounding, main, void, $StringArray*)},
+		{"roundTest", "(Ljava/math/RoundingMode;[Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(NumberFormatRounding, roundTest, void, $RoundingMode*, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NumberFormatRounding",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NumberFormatRounding, name, initialize, &classInfo$$, NumberFormatRounding::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NumberFormatRounding);
+	});
 	return class$;
 }
 

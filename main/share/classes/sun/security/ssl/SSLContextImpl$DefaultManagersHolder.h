@@ -32,6 +32,7 @@ class SSLContextImpl$DefaultManagersHolder : public ::java::lang::Object {
 	$class(SSLContextImpl$DefaultManagersHolder, 0, ::java::lang::Object)
 public:
 	SSLContextImpl$DefaultManagersHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Array<::javax::net::ssl::KeyManager>* getKeyManagers();
 	static $Array<::javax::net::ssl::TrustManager>* getTrustManagers();

@@ -1,12 +1,10 @@
 #include <sun/security/provider/NativePRNG$RandomIO.h>
-
 #include <java/io/EOFException.h>
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/ProviderException.h>
 #include <java/util/Arrays.h>
 #include <sun/security/provider/FileInputStreamPool.h>
@@ -35,78 +33,16 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ProviderException = ::java::security::ProviderException;
 using $Arrays = ::java::util::Arrays;
 using $FileInputStreamPool = ::sun::security::provider::FileInputStreamPool;
 using $NativePRNG = ::sun::security::provider::NativePRNG;
 using $NativePRNG$RandomIO$1 = ::sun::security::provider::NativePRNG$RandomIO$1;
 using $SecureRandom = ::sun::security::provider::SecureRandom;
-using $Debug = ::sun::security::util::Debug;
 
 namespace sun {
 	namespace security {
 		namespace provider {
-
-$FieldInfo _NativePRNG$RandomIO_FieldInfo_[] = {
-	{"MAX_BUFFER_TIME", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativePRNG$RandomIO, MAX_BUFFER_TIME)},
-	{"MAX_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativePRNG$RandomIO, MAX_BUFFER_SIZE)},
-	{"MIN_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativePRNG$RandomIO, MIN_BUFFER_SIZE)},
-	{"bufferSize", "I", nullptr, $PRIVATE, $field(NativePRNG$RandomIO, bufferSize)},
-	{"seedFile", "Ljava/io/File;", nullptr, 0, $field(NativePRNG$RandomIO, seedFile)},
-	{"seedIn", "Ljava/io/InputStream;", nullptr, $PRIVATE | $FINAL, $field(NativePRNG$RandomIO, seedIn)},
-	{"nextIn", "Ljava/io/InputStream;", nullptr, $PRIVATE | $FINAL, $field(NativePRNG$RandomIO, nextIn)},
-	{"seedOut", "Ljava/io/OutputStream;", nullptr, $PRIVATE, $field(NativePRNG$RandomIO, seedOut)},
-	{"seedOutInitialized", "Z", nullptr, $PRIVATE, $field(NativePRNG$RandomIO, seedOutInitialized)},
-	{"mixRandom", "Lsun/security/provider/SecureRandom;", nullptr, $PRIVATE | $VOLATILE, $field(NativePRNG$RandomIO, mixRandom)},
-	{"nextBuffer", "[B", nullptr, $PRIVATE, $field(NativePRNG$RandomIO, nextBuffer)},
-	{"buffered", "I", nullptr, $PRIVATE, $field(NativePRNG$RandomIO, buffered)},
-	{"lastRead", "J", nullptr, $PRIVATE, $field(NativePRNG$RandomIO, lastRead)},
-	{"change_buffer", "I", nullptr, $PRIVATE, $field(NativePRNG$RandomIO, change_buffer)},
-	{"REQ_LIMIT_INC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativePRNG$RandomIO, REQ_LIMIT_INC)},
-	{"REQ_LIMIT_DEC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativePRNG$RandomIO, REQ_LIMIT_DEC)},
-	{"LOCK_GET_BYTES", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(NativePRNG$RandomIO, LOCK_GET_BYTES)},
-	{"LOCK_GET_SEED", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(NativePRNG$RandomIO, LOCK_GET_SEED)},
-	{"LOCK_SET_SEED", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(NativePRNG$RandomIO, LOCK_SET_SEED)},
-	{}
-};
-
-$MethodInfo _NativePRNG$RandomIO_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/File;Ljava/io/File;)V", nullptr, $PRIVATE, $method(NativePRNG$RandomIO, init$, void, $File*, $File*), "java.io.IOException"},
-	{"ensureBufferValid", "()V", nullptr, $PRIVATE, $method(NativePRNG$RandomIO, ensureBufferValid, void), "java.io.IOException"},
-	{"getMixRandom", "()Lsun/security/provider/SecureRandom;", nullptr, $PRIVATE, $method(NativePRNG$RandomIO, getMixRandom, $SecureRandom*)},
-	{"implGenerateSeed", "(I)[B", nullptr, $PRIVATE, $method(NativePRNG$RandomIO, implGenerateSeed, $bytes*, int32_t)},
-	{"implNextBytes", "([B)V", nullptr, $PRIVATE, $method(NativePRNG$RandomIO, implNextBytes, void, $bytes*)},
-	{"implSetSeed", "([B)V", nullptr, $PRIVATE, $method(NativePRNG$RandomIO, implSetSeed, void, $bytes*)},
-	{"readFully", "(Ljava/io/InputStream;[B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NativePRNG$RandomIO, readFully, void, $InputStream*, $bytes*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _NativePRNG$RandomIO_InnerClassesInfo_[] = {
-	{"sun.security.provider.NativePRNG$RandomIO", "sun.security.provider.NativePRNG", "RandomIO", $PRIVATE | $STATIC},
-	{"sun.security.provider.NativePRNG$RandomIO$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NativePRNG$RandomIO_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.provider.NativePRNG$RandomIO",
-	"java.lang.Object",
-	nullptr,
-	_NativePRNG$RandomIO_FieldInfo_,
-	_NativePRNG$RandomIO_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NativePRNG$RandomIO_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.provider.NativePRNG"
-};
-
-$Object* allocate$NativePRNG$RandomIO($Class* clazz) {
-	return $of($alloc(NativePRNG$RandomIO));
-}
 
 void NativePRNG$RandomIO::init$($File* seedFile, $File* nextFile) {
 	this->bufferSize = 256;
@@ -121,7 +57,7 @@ void NativePRNG$RandomIO::init$($File* seedFile, $File* nextFile) {
 }
 
 $SecureRandom* NativePRNG$RandomIO::getMixRandom() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecureRandom, r, this->mixRandom);
 	if (r == nullptr) {
 		$synchronized(this->LOCK_GET_BYTES) {
@@ -172,25 +108,25 @@ $bytes* NativePRNG$RandomIO::implGenerateSeed(int32_t numBytes) {
 }
 
 void NativePRNG$RandomIO::implSetSeed($bytes* seed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$synchronized(this->LOCK_SET_SEED) {
 		if (this->seedOutInitialized == false) {
 			this->seedOutInitialized = true;
-			$set(this, seedOut, $cast($OutputStream, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($NativePRNG$RandomIO$1, this)))));
+			$set(this, seedOut, $cast($OutputStream, $AccessController::doPrivileged($$new($NativePRNG$RandomIO$1, this))));
 		}
 		if (this->seedOut != nullptr) {
 			try {
-				$nc(this->seedOut)->write(seed);
+				this->seedOut->write(seed);
 			} catch ($IOException& e) {
 			}
 		}
-		$nc($(getMixRandom()))->engineSetSeed(seed);
+		$$nc(getMixRandom())->engineSetSeed(seed);
 	}
 }
 
 void NativePRNG$RandomIO::ensureBufferValid() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t time = $System::currentTimeMillis();
 	int32_t new_buffer_size = 0;
 	if (this->buffered > 0) {
@@ -212,12 +148,12 @@ void NativePRNG$RandomIO::ensureBufferValid() {
 			$set(this, nextBuffer, $new($bytes, new_buffer_size));
 			$init($NativePRNG);
 			if ($NativePRNG::debug != nullptr) {
-				$nc($NativePRNG::debug)->println($$str({"Buffer size changed to "_s, $$str(new_buffer_size)}));
+				$NativePRNG::debug->println($$str({"Buffer size changed to "_s, $$str(new_buffer_size)}));
 			}
 		} else {
 			$init($NativePRNG);
 			if ($NativePRNG::debug != nullptr) {
-				$nc($NativePRNG::debug)->println($$str({"Buffer reached limit: "_s, $$str($nc(this->nextBuffer)->length)}));
+				$NativePRNG::debug->println($$str({"Buffer reached limit: "_s, $$str($nc(this->nextBuffer)->length)}));
 			}
 		}
 		this->change_buffer = 0;
@@ -228,9 +164,9 @@ void NativePRNG$RandomIO::ensureBufferValid() {
 }
 
 void NativePRNG$RandomIO::implNextBytes($bytes* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$nc($(getMixRandom()))->engineNextBytes(data);
+		$$nc(getMixRandom())->engineNextBytes(data);
 		int32_t data_len = $nc(data)->length;
 		int32_t ofs = 0;
 		int32_t len = 0;
@@ -252,7 +188,7 @@ void NativePRNG$RandomIO::implNextBytes($bytes* data) {
 			}
 			localofs = 0;
 			while (len > localofs) {
-				(*data)[ofs] ^= $nc(localBuffer)->get(localofs);
+				(*data)[ofs] ^= localBuffer->get(localofs);
 				++ofs;
 				++localofs;
 			}
@@ -267,7 +203,61 @@ NativePRNG$RandomIO::NativePRNG$RandomIO() {
 }
 
 $Class* NativePRNG$RandomIO::load$($String* name, bool initialize) {
-	$loadClass(NativePRNG$RandomIO, name, initialize, &_NativePRNG$RandomIO_ClassInfo_, allocate$NativePRNG$RandomIO);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_BUFFER_TIME", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativePRNG$RandomIO, MAX_BUFFER_TIME)},
+		{"MAX_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativePRNG$RandomIO, MAX_BUFFER_SIZE)},
+		{"MIN_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativePRNG$RandomIO, MIN_BUFFER_SIZE)},
+		{"bufferSize", "I", nullptr, $PRIVATE, $field(NativePRNG$RandomIO, bufferSize)},
+		{"seedFile", "Ljava/io/File;", nullptr, 0, $field(NativePRNG$RandomIO, seedFile)},
+		{"seedIn", "Ljava/io/InputStream;", nullptr, $PRIVATE | $FINAL, $field(NativePRNG$RandomIO, seedIn)},
+		{"nextIn", "Ljava/io/InputStream;", nullptr, $PRIVATE | $FINAL, $field(NativePRNG$RandomIO, nextIn)},
+		{"seedOut", "Ljava/io/OutputStream;", nullptr, $PRIVATE, $field(NativePRNG$RandomIO, seedOut)},
+		{"seedOutInitialized", "Z", nullptr, $PRIVATE, $field(NativePRNG$RandomIO, seedOutInitialized)},
+		{"mixRandom", "Lsun/security/provider/SecureRandom;", nullptr, $PRIVATE | $VOLATILE, $field(NativePRNG$RandomIO, mixRandom)},
+		{"nextBuffer", "[B", nullptr, $PRIVATE, $field(NativePRNG$RandomIO, nextBuffer)},
+		{"buffered", "I", nullptr, $PRIVATE, $field(NativePRNG$RandomIO, buffered)},
+		{"lastRead", "J", nullptr, $PRIVATE, $field(NativePRNG$RandomIO, lastRead)},
+		{"change_buffer", "I", nullptr, $PRIVATE, $field(NativePRNG$RandomIO, change_buffer)},
+		{"REQ_LIMIT_INC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativePRNG$RandomIO, REQ_LIMIT_INC)},
+		{"REQ_LIMIT_DEC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativePRNG$RandomIO, REQ_LIMIT_DEC)},
+		{"LOCK_GET_BYTES", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(NativePRNG$RandomIO, LOCK_GET_BYTES)},
+		{"LOCK_GET_SEED", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(NativePRNG$RandomIO, LOCK_GET_SEED)},
+		{"LOCK_SET_SEED", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(NativePRNG$RandomIO, LOCK_SET_SEED)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/File;Ljava/io/File;)V", nullptr, $PRIVATE, $method(NativePRNG$RandomIO, init$, void, $File*, $File*), "java.io.IOException"},
+		{"ensureBufferValid", "()V", nullptr, $PRIVATE, $method(NativePRNG$RandomIO, ensureBufferValid, void), "java.io.IOException"},
+		{"getMixRandom", "()Lsun/security/provider/SecureRandom;", nullptr, $PRIVATE, $method(NativePRNG$RandomIO, getMixRandom, $SecureRandom*)},
+		{"implGenerateSeed", "(I)[B", nullptr, $PRIVATE, $method(NativePRNG$RandomIO, implGenerateSeed, $bytes*, int32_t)},
+		{"implNextBytes", "([B)V", nullptr, $PRIVATE, $method(NativePRNG$RandomIO, implNextBytes, void, $bytes*)},
+		{"implSetSeed", "([B)V", nullptr, $PRIVATE, $method(NativePRNG$RandomIO, implSetSeed, void, $bytes*)},
+		{"readFully", "(Ljava/io/InputStream;[B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(NativePRNG$RandomIO, readFully, void, $InputStream*, $bytes*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.NativePRNG$RandomIO", "sun.security.provider.NativePRNG", "RandomIO", $PRIVATE | $STATIC},
+		{"sun.security.provider.NativePRNG$RandomIO$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.provider.NativePRNG$RandomIO",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.provider.NativePRNG"
+	};
+	$loadClass(NativePRNG$RandomIO, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NativePRNG$RandomIO);
+	});
 	return class$;
 }
 

@@ -15,6 +15,7 @@ class $export SampleNest : public ::java::lang::Object {
 	$class(SampleNest, 0, ::java::lang::Object)
 public:
 	SampleNest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void gather($Class* c);
 	static $ClassArray* nestedTypes();

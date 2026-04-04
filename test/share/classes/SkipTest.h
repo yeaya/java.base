@@ -12,6 +12,7 @@ class $export SkipTest : public ::java::lang::Object {
 	$class(SkipTest, 0, ::java::lang::Object)
 public:
 	SkipTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $String* javaExe;

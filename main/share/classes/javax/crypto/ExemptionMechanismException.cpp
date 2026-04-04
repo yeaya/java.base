@@ -1,5 +1,4 @@
 #include <javax/crypto/ExemptionMechanismException.h>
-
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 
 namespace javax {
 	namespace crypto {
-
-$FieldInfo _ExemptionMechanismException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ExemptionMechanismException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ExemptionMechanismException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExemptionMechanismException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ExemptionMechanismException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _ExemptionMechanismException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.crypto.ExemptionMechanismException",
-	"java.security.GeneralSecurityException",
-	nullptr,
-	_ExemptionMechanismException_FieldInfo_,
-	_ExemptionMechanismException_MethodInfo_
-};
-
-$Object* allocate$ExemptionMechanismException($Class* clazz) {
-	return $of($alloc(ExemptionMechanismException));
-}
 
 void ExemptionMechanismException::init$() {
 	$GeneralSecurityException::init$();
@@ -54,7 +29,26 @@ void ExemptionMechanismException::throw$() {
 }
 
 $Class* ExemptionMechanismException::load$($String* name, bool initialize) {
-	$loadClass(ExemptionMechanismException, name, initialize, &_ExemptionMechanismException_ClassInfo_, allocate$ExemptionMechanismException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ExemptionMechanismException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExemptionMechanismException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ExemptionMechanismException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.crypto.ExemptionMechanismException",
+		"java.security.GeneralSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ExemptionMechanismException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExemptionMechanismException);
+	});
 	return class$;
 }
 

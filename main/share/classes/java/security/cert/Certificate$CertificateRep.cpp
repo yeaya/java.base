@@ -1,7 +1,5 @@
 #include <java/security/cert/Certificate$CertificateRep.h>
-
 #include <java/io/ByteArrayInputStream.h>
-#include <java/io/InputStream.h>
 #include <java/io/NotSerializableException.h>
 #include <java/security/cert/Certificate.h>
 #include <java/security/cert/CertificateException.h>
@@ -9,7 +7,6 @@
 #include <jcpp.h>
 
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
-using $InputStream = ::java::io::InputStream;
 using $NotSerializableException = ::java::io::NotSerializableException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -22,54 +19,16 @@ namespace java {
 	namespace security {
 		namespace cert {
 
-$FieldInfo _Certificate$CertificateRep_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Certificate$CertificateRep, serialVersionUID)},
-	{"type", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Certificate$CertificateRep, type)},
-	{"data", "[B", nullptr, $PRIVATE, $field(Certificate$CertificateRep, data)},
-	{}
-};
-
-$MethodInfo _Certificate$CertificateRep_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[B)V", nullptr, $PROTECTED, $method(Certificate$CertificateRep, init$, void, $String*, $bytes*)},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(Certificate$CertificateRep, readResolve, $Object*), "java.io.ObjectStreamException"},
-	{}
-};
-
-$InnerClassInfo _Certificate$CertificateRep_InnerClassesInfo_[] = {
-	{"java.security.cert.Certificate$CertificateRep", "java.security.cert.Certificate", "CertificateRep", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _Certificate$CertificateRep_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.cert.Certificate$CertificateRep",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_Certificate$CertificateRep_FieldInfo_,
-	_Certificate$CertificateRep_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Certificate$CertificateRep_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.security.cert.Certificate"
-};
-
-$Object* allocate$Certificate$CertificateRep($Class* clazz) {
-	return $of($alloc(Certificate$CertificateRep));
-}
-
 void Certificate$CertificateRep::init$($String* type, $bytes* data) {
 	$set(this, type, type);
 	$set(this, data, data);
 }
 
 $Object* Certificate$CertificateRep::readResolve() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($CertificateFactory, cf, $CertificateFactory::getInstance(this->type));
-		return $of($nc(cf)->generateCertificate($$new($ByteArrayInputStream, this->data)));
+		return $nc(cf)->generateCertificate($$new($ByteArrayInputStream, this->data));
 	} catch ($CertificateException& e) {
 		$throwNew($NotSerializableException, $$str({"java.security.cert.Certificate: "_s, this->type, ": "_s, $(e->getMessage())}));
 	}
@@ -80,7 +39,39 @@ Certificate$CertificateRep::Certificate$CertificateRep() {
 }
 
 $Class* Certificate$CertificateRep::load$($String* name, bool initialize) {
-	$loadClass(Certificate$CertificateRep, name, initialize, &_Certificate$CertificateRep_ClassInfo_, allocate$Certificate$CertificateRep);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Certificate$CertificateRep, serialVersionUID)},
+		{"type", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Certificate$CertificateRep, type)},
+		{"data", "[B", nullptr, $PRIVATE, $field(Certificate$CertificateRep, data)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;[B)V", nullptr, $PROTECTED, $method(Certificate$CertificateRep, init$, void, $String*, $bytes*)},
+		{"readResolve", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(Certificate$CertificateRep, readResolve, $Object*), "java.io.ObjectStreamException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.security.cert.Certificate$CertificateRep", "java.security.cert.Certificate", "CertificateRep", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.cert.Certificate$CertificateRep",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.security.cert.Certificate"
+	};
+	$loadClass(Certificate$CertificateRep, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Certificate$CertificateRep);
+	});
 	return class$;
 }
 

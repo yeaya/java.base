@@ -36,6 +36,7 @@ class DoublePipeline$StatefulOp : public ::java::util::stream::DoublePipeline {
 	$class(DoublePipeline$StatefulOp, 0, ::java::util::stream::DoublePipeline)
 public:
 	DoublePipeline$StatefulOp();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::stream::AbstractPipeline* upstream, ::java::util::stream::StreamShape* inputShape, int32_t opFlags);
 	virtual ::java::util::Iterator* iterator() override;
 	virtual ::java::util::Spliterator* lazySpliterator(::java::util::function::Supplier* supplier) override;

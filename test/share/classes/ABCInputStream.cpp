@@ -1,5 +1,4 @@
 #include <ABCInputStream.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <jcpp.h>
@@ -9,39 +8,6 @@ using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _ABCInputStream_FieldInfo_[] = {
-	{"len", "I", nullptr, 0, $field(ABCInputStream, len)},
-	{"chunk", "I", nullptr, 0, $field(ABCInputStream, chunk)},
-	{"count", "I", nullptr, 0, $field(ABCInputStream, count)},
-	{"next", "C", nullptr, 0, $field(ABCInputStream, next)},
-	{}
-};
-
-$MethodInfo _ABCInputStream_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(ABCInputStream, init$, void, int32_t)},
-	{"<init>", "(II)V", nullptr, 0, $method(ABCInputStream, init$, void, int32_t, int32_t)},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ABCInputStream, available, int32_t)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ABCInputStream, close, void), "java.io.IOException"},
-	{"firstChar", "()C", nullptr, $STATIC, $staticMethod(ABCInputStream, firstChar, char16_t)},
-	{"nextChar", "(C)C", nullptr, $STATIC, $staticMethod(ABCInputStream, nextChar, char16_t, char16_t)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ABCInputStream, read, int32_t)},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ABCInputStream, read, int32_t, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _ABCInputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ABCInputStream",
-	"java.io.InputStream",
-	nullptr,
-	_ABCInputStream_FieldInfo_,
-	_ABCInputStream_MethodInfo_
-};
-
-$Object* allocate$ABCInputStream($Class* clazz) {
-	return $of($alloc(ABCInputStream));
-}
 
 void ABCInputStream::init$(int32_t len) {
 	ABCInputStream::init$(len, len);
@@ -113,7 +79,35 @@ ABCInputStream::ABCInputStream() {
 }
 
 $Class* ABCInputStream::load$($String* name, bool initialize) {
-	$loadClass(ABCInputStream, name, initialize, &_ABCInputStream_ClassInfo_, allocate$ABCInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"len", "I", nullptr, 0, $field(ABCInputStream, len)},
+		{"chunk", "I", nullptr, 0, $field(ABCInputStream, chunk)},
+		{"count", "I", nullptr, 0, $field(ABCInputStream, count)},
+		{"next", "C", nullptr, 0, $field(ABCInputStream, next)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(ABCInputStream, init$, void, int32_t)},
+		{"<init>", "(II)V", nullptr, 0, $method(ABCInputStream, init$, void, int32_t, int32_t)},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ABCInputStream, available, int32_t)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ABCInputStream, close, void), "java.io.IOException"},
+		{"firstChar", "()C", nullptr, $STATIC, $staticMethod(ABCInputStream, firstChar, char16_t)},
+		{"nextChar", "(C)C", nullptr, $STATIC, $staticMethod(ABCInputStream, nextChar, char16_t, char16_t)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ABCInputStream, read, int32_t)},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ABCInputStream, read, int32_t, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ABCInputStream",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ABCInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ABCInputStream);
+	});
 	return class$;
 }
 

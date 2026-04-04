@@ -1,5 +1,4 @@
 #include <UniTest/SingleMemberStringArrOvrdDefClass.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -10,43 +9,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 
 namespace UniTest {
 
-$Attribute SingleMemberStringArrOvrdDefClass_Attribute_var$1[] = {
-	{'s', "custom"},
-	{'-'}
-};
-
-$NamedAttribute SingleMemberStringArrOvrdDefClass_Attribute_var$0[] = {
-	{"value", '[', SingleMemberStringArrOvrdDefClass_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _SingleMemberStringArrOvrdDefClass_Annotations_[] = {
-	{"LUniTest/SingleMemberStringArrayDef;", SingleMemberStringArrOvrdDefClass_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _SingleMemberStringArrOvrdDefClass_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SingleMemberStringArrOvrdDefClass, init$, void)},
-	{}
-};
-
-$ClassInfo _SingleMemberStringArrOvrdDefClass_ClassInfo_ = {
-	$ACC_SUPER,
-	"UniTest.SingleMemberStringArrOvrdDefClass",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SingleMemberStringArrOvrdDefClass_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_SingleMemberStringArrOvrdDefClass_Annotations_
-};
-
-$Object* allocate$SingleMemberStringArrOvrdDefClass($Class* clazz) {
-	return $of($alloc(SingleMemberStringArrOvrdDefClass));
-}
-
 void SingleMemberStringArrOvrdDefClass::init$() {
 }
 
@@ -54,7 +16,37 @@ SingleMemberStringArrOvrdDefClass::SingleMemberStringArrOvrdDefClass() {
 }
 
 $Class* SingleMemberStringArrOvrdDefClass::load$($String* name, bool initialize) {
-	$loadClass(SingleMemberStringArrOvrdDefClass, name, initialize, &_SingleMemberStringArrOvrdDefClass_ClassInfo_, allocate$SingleMemberStringArrOvrdDefClass);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SingleMemberStringArrOvrdDefClass, init$, void)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "custom"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LUniTest/SingleMemberStringArrayDef;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"UniTest.SingleMemberStringArrOvrdDefClass",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(SingleMemberStringArrOvrdDefClass, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleMemberStringArrOvrdDefClass);
+	});
 	return class$;
 }
 

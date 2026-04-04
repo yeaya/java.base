@@ -37,6 +37,7 @@ class ConditionalSpecialCasing : public ::java::lang::Object {
 	$class(ConditionalSpecialCasing, 0, ::java::lang::Object)
 public:
 	ConditionalSpecialCasing();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool isAfterI($String* src, int32_t index);
 	static bool isAfterSoftDotted($String* src, int32_t index);

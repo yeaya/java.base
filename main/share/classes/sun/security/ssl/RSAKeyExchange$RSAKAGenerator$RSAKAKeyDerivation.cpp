@@ -1,5 +1,4 @@
 #include <sun/security/ssl/RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation.h>
-
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <javax/crypto/SecretKey.h>
 #include <javax/net/ssl/SSLHandshakeException.h>
@@ -25,56 +24,18 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation_FieldInfo_[] = {
-	{"context", "Lsun/security/ssl/HandshakeContext;", nullptr, $PRIVATE | $FINAL, $field(RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation, context)},
-	{"preMasterSecret", "Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $FINAL, $field(RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation, preMasterSecret)},
-	{}
-};
-
-$MethodInfo _RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)V", nullptr, 0, $method(RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation, init$, void, $HandshakeContext*, $SecretKey*)},
-	{"deriveKey", "(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation, deriveKey, $SecretKey*, $String*, $AlgorithmParameterSpec*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation_InnerClassesInfo_[] = {
-	{"sun.security.ssl.RSAKeyExchange$RSAKAGenerator", "sun.security.ssl.RSAKeyExchange", "RSAKAGenerator", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation", "sun.security.ssl.RSAKeyExchange$RSAKAGenerator", "RSAKAKeyDerivation", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation",
-	"java.lang.Object",
-	"sun.security.ssl.SSLKeyDerivation",
-	_RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation_FieldInfo_,
-	_RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.RSAKeyExchange"
-};
-
-$Object* allocate$RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation($Class* clazz) {
-	return $of($alloc(RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation));
-}
-
 void RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation::init$($HandshakeContext* context, $SecretKey* preMasterSecret) {
 	$set(this, context, context);
 	$set(this, preMasterSecret, preMasterSecret);
 }
 
 $SecretKey* RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation::deriveKey($String* algorithm, $AlgorithmParameterSpec* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SSLMasterKeyDerivation* mskd = $SSLMasterKeyDerivation::valueOf($nc(this->context)->negotiatedProtocol);
 	if (mskd == nullptr) {
-		$throwNew($SSLHandshakeException, $$str({"No expected master key derivation for protocol: "_s, $nc($nc(this->context)->negotiatedProtocol)->name$}));
+		$throwNew($SSLHandshakeException, $$str({"No expected master key derivation for protocol: "_s, $nc(this->context->negotiatedProtocol)->name$}));
 	}
-	$var($SSLKeyDerivation, kd, $nc(mskd)->createKeyDerivation(this->context, this->preMasterSecret));
+	$var($SSLKeyDerivation, kd, mskd->createKeyDerivation(this->context, this->preMasterSecret));
 	return $nc(kd)->deriveKey("MasterSecret"_s, params);
 }
 
@@ -82,7 +43,39 @@ RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation::RSAKeyExchange$RSAKAGenerator$
 }
 
 $Class* RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation::load$($String* name, bool initialize) {
-	$loadClass(RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation, name, initialize, &_RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation_ClassInfo_, allocate$RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation);
+	$FieldInfo fieldInfos$$[] = {
+		{"context", "Lsun/security/ssl/HandshakeContext;", nullptr, $PRIVATE | $FINAL, $field(RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation, context)},
+		{"preMasterSecret", "Ljavax/crypto/SecretKey;", nullptr, $PRIVATE | $FINAL, $field(RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation, preMasterSecret)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/ssl/HandshakeContext;Ljavax/crypto/SecretKey;)V", nullptr, 0, $method(RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation, init$, void, $HandshakeContext*, $SecretKey*)},
+		{"deriveKey", "(Ljava/lang/String;Ljava/security/spec/AlgorithmParameterSpec;)Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation, deriveKey, $SecretKey*, $String*, $AlgorithmParameterSpec*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.RSAKeyExchange$RSAKAGenerator", "sun.security.ssl.RSAKeyExchange", "RSAKAGenerator", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation", "sun.security.ssl.RSAKeyExchange$RSAKAGenerator", "RSAKAKeyDerivation", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation",
+		"java.lang.Object",
+		"sun.security.ssl.SSLKeyDerivation",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.RSAKeyExchange"
+	};
+	$loadClass(RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RSAKeyExchange$RSAKAGenerator$RSAKAKeyDerivation);
+	});
 	return class$;
 }
 

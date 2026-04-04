@@ -1,5 +1,4 @@
 #include <EqualityTest.h>
-
 #include <EqualityTest$AnnotationHost.h>
 #include <TestAnnotation.h>
 #include <java/lang/annotation/Annotation.h>
@@ -17,48 +16,12 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $InvocationHandler = ::java::lang::reflect::InvocationHandler;
 using $Proxy = ::java::lang::reflect::Proxy;
 
-$CompoundAttribute _EqualityTest_Annotations_[] = {
-	{"LTestAnnotation;", nullptr},
-	{}
-};
-
-$MethodInfo _EqualityTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(EqualityTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(EqualityTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"testEquality", "(Ljava/lang/Object;Ljava/lang/Object;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(EqualityTest, testEquality, void, Object$*, Object$*, bool)},
-	{}
-};
-
-$InnerClassInfo _EqualityTest_InnerClassesInfo_[] = {
-	{"EqualityTest$AnnotationHost", "EqualityTest", "AnnotationHost", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _EqualityTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"EqualityTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_EqualityTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_EqualityTest_InnerClassesInfo_,
-	_EqualityTest_Annotations_,
-	nullptr,
-	"EqualityTest$AnnotationHost"
-};
-
-$Object* allocate$EqualityTest($Class* clazz) {
-	return $of($alloc(EqualityTest));
-}
-
 void EqualityTest::init$() {
 }
 
 void EqualityTest::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(EqualityTest);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$load($TestAnnotation);
 	$var($TestAnnotation, annotation, $cast($TestAnnotation, EqualityTest::class$->getAnnotation($TestAnnotation::class$)));
@@ -81,7 +44,37 @@ EqualityTest::EqualityTest() {
 }
 
 $Class* EqualityTest::load$($String* name, bool initialize) {
-	$loadClass(EqualityTest, name, initialize, &_EqualityTest_ClassInfo_, allocate$EqualityTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(EqualityTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(EqualityTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"testEquality", "(Ljava/lang/Object;Ljava/lang/Object;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(EqualityTest, testEquality, void, Object$*, Object$*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"EqualityTest$AnnotationHost", "EqualityTest", "AnnotationHost", $PRIVATE | $STATIC},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"LTestAnnotation;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"EqualityTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"EqualityTest$AnnotationHost"
+	};
+	$loadClass(EqualityTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EqualityTest);
+	});
 	return class$;
 }
 

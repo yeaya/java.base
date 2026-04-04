@@ -1,5 +1,4 @@
 #include <sun/net/www/http/KeepAliveCleanerEntry.h>
-
 #include <sun/net/www/http/HttpClient.h>
 #include <sun/net/www/http/KeepAliveStream.h>
 #include <jcpp.h>
@@ -14,34 +13,6 @@ namespace sun {
 	namespace net {
 		namespace www {
 			namespace http {
-
-$FieldInfo _KeepAliveCleanerEntry_FieldInfo_[] = {
-	{"kas", "Lsun/net/www/http/KeepAliveStream;", nullptr, 0, $field(KeepAliveCleanerEntry, kas)},
-	{"hc", "Lsun/net/www/http/HttpClient;", nullptr, 0, $field(KeepAliveCleanerEntry, hc)},
-	{}
-};
-
-$MethodInfo _KeepAliveCleanerEntry_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/www/http/KeepAliveStream;Lsun/net/www/http/HttpClient;)V", nullptr, $PUBLIC, $method(KeepAliveCleanerEntry, init$, void, $KeepAliveStream*, $HttpClient*)},
-	{"getHttpClient", "()Lsun/net/www/http/HttpClient;", nullptr, $PROTECTED, $virtualMethod(KeepAliveCleanerEntry, getHttpClient, $HttpClient*)},
-	{"getKeepAliveStream", "()Lsun/net/www/http/KeepAliveStream;", nullptr, $PROTECTED, $virtualMethod(KeepAliveCleanerEntry, getKeepAliveStream, $KeepAliveStream*)},
-	{"getQueuedForCleanup", "()Z", nullptr, $PROTECTED, $virtualMethod(KeepAliveCleanerEntry, getQueuedForCleanup, bool)},
-	{"setQueuedForCleanup", "()V", nullptr, $PROTECTED, $virtualMethod(KeepAliveCleanerEntry, setQueuedForCleanup, void)},
-	{}
-};
-
-$ClassInfo _KeepAliveCleanerEntry_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.www.http.KeepAliveCleanerEntry",
-	"java.lang.Object",
-	nullptr,
-	_KeepAliveCleanerEntry_FieldInfo_,
-	_KeepAliveCleanerEntry_MethodInfo_
-};
-
-$Object* allocate$KeepAliveCleanerEntry($Class* clazz) {
-	return $of($alloc(KeepAliveCleanerEntry));
-}
 
 void KeepAliveCleanerEntry::init$($KeepAliveStream* kas, $HttpClient* hc) {
 	$set(this, kas, kas);
@@ -68,7 +39,30 @@ KeepAliveCleanerEntry::KeepAliveCleanerEntry() {
 }
 
 $Class* KeepAliveCleanerEntry::load$($String* name, bool initialize) {
-	$loadClass(KeepAliveCleanerEntry, name, initialize, &_KeepAliveCleanerEntry_ClassInfo_, allocate$KeepAliveCleanerEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"kas", "Lsun/net/www/http/KeepAliveStream;", nullptr, 0, $field(KeepAliveCleanerEntry, kas)},
+		{"hc", "Lsun/net/www/http/HttpClient;", nullptr, 0, $field(KeepAliveCleanerEntry, hc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/www/http/KeepAliveStream;Lsun/net/www/http/HttpClient;)V", nullptr, $PUBLIC, $method(KeepAliveCleanerEntry, init$, void, $KeepAliveStream*, $HttpClient*)},
+		{"getHttpClient", "()Lsun/net/www/http/HttpClient;", nullptr, $PROTECTED, $virtualMethod(KeepAliveCleanerEntry, getHttpClient, $HttpClient*)},
+		{"getKeepAliveStream", "()Lsun/net/www/http/KeepAliveStream;", nullptr, $PROTECTED, $virtualMethod(KeepAliveCleanerEntry, getKeepAliveStream, $KeepAliveStream*)},
+		{"getQueuedForCleanup", "()Z", nullptr, $PROTECTED, $virtualMethod(KeepAliveCleanerEntry, getQueuedForCleanup, bool)},
+		{"setQueuedForCleanup", "()V", nullptr, $PROTECTED, $virtualMethod(KeepAliveCleanerEntry, setQueuedForCleanup, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.www.http.KeepAliveCleanerEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KeepAliveCleanerEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeepAliveCleanerEntry);
+	});
 	return class$;
 }
 

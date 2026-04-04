@@ -1,5 +1,4 @@
 #include <java/util/concurrent/ConcurrentLinkedDeque.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/Serializable.h>
@@ -86,33 +85,29 @@ public:
 	virtual bool test(Object$* e) override {
 		 return ConcurrentLinkedDeque::lambda$removeAll$0(c, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ConcurrentLinkedDeque$$Lambda$lambda$removeAll$0>());
-	}
 	$Collection* c = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ConcurrentLinkedDeque$$Lambda$lambda$removeAll$0::fieldInfos[2] = {
-	{"c", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(ConcurrentLinkedDeque$$Lambda$lambda$removeAll$0, c)},
-	{}
-};
-$MethodInfo ConcurrentLinkedDeque$$Lambda$lambda$removeAll$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(ConcurrentLinkedDeque$$Lambda$lambda$removeAll$0, init$, void, $Collection*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque$$Lambda$lambda$removeAll$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo ConcurrentLinkedDeque$$Lambda$lambda$removeAll$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.concurrent.ConcurrentLinkedDeque$$Lambda$lambda$removeAll$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* ConcurrentLinkedDeque$$Lambda$lambda$removeAll$0::load$($String* name, bool initialize) {
-	$loadClass(ConcurrentLinkedDeque$$Lambda$lambda$removeAll$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"c", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(ConcurrentLinkedDeque$$Lambda$lambda$removeAll$0, c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(ConcurrentLinkedDeque$$Lambda$lambda$removeAll$0, init$, void, $Collection*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque$$Lambda$lambda$removeAll$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.concurrent.ConcurrentLinkedDeque$$Lambda$lambda$removeAll$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ConcurrentLinkedDeque$$Lambda$lambda$removeAll$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ConcurrentLinkedDeque$$Lambda$lambda$removeAll$0);
+	});
 	return class$;
 }
 $Class* ConcurrentLinkedDeque$$Lambda$lambda$removeAll$0::class$ = nullptr;
@@ -126,155 +121,32 @@ public:
 	virtual bool test(Object$* e) override {
 		 return ConcurrentLinkedDeque::lambda$retainAll$1(c, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ConcurrentLinkedDeque$$Lambda$lambda$retainAll$1$1>());
-	}
 	$Collection* c = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ConcurrentLinkedDeque$$Lambda$lambda$retainAll$1$1::fieldInfos[2] = {
-	{"c", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(ConcurrentLinkedDeque$$Lambda$lambda$retainAll$1$1, c)},
-	{}
-};
-$MethodInfo ConcurrentLinkedDeque$$Lambda$lambda$retainAll$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(ConcurrentLinkedDeque$$Lambda$lambda$retainAll$1$1, init$, void, $Collection*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque$$Lambda$lambda$retainAll$1$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo ConcurrentLinkedDeque$$Lambda$lambda$retainAll$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.concurrent.ConcurrentLinkedDeque$$Lambda$lambda$retainAll$1$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* ConcurrentLinkedDeque$$Lambda$lambda$retainAll$1$1::load$($String* name, bool initialize) {
-	$loadClass(ConcurrentLinkedDeque$$Lambda$lambda$retainAll$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"c", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(ConcurrentLinkedDeque$$Lambda$lambda$retainAll$1$1, c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(ConcurrentLinkedDeque$$Lambda$lambda$retainAll$1$1, init$, void, $Collection*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque$$Lambda$lambda$retainAll$1$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.concurrent.ConcurrentLinkedDeque$$Lambda$lambda$retainAll$1$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ConcurrentLinkedDeque$$Lambda$lambda$retainAll$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ConcurrentLinkedDeque$$Lambda$lambda$retainAll$1$1);
+	});
 	return class$;
 }
 $Class* ConcurrentLinkedDeque$$Lambda$lambda$retainAll$1$1::class$ = nullptr;
-
-$FieldInfo _ConcurrentLinkedDeque_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ConcurrentLinkedDeque, serialVersionUID)},
-	{"head", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", $PRIVATE | $VOLATILE | $TRANSIENT, $field(ConcurrentLinkedDeque, head)},
-	{"tail", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", $PRIVATE | $VOLATILE | $TRANSIENT, $field(ConcurrentLinkedDeque, tail)},
-	{"PREV_TERMINATOR", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node<Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ConcurrentLinkedDeque, PREV_TERMINATOR)},
-	{"NEXT_TERMINATOR", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node<Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ConcurrentLinkedDeque, NEXT_TERMINATOR)},
-	{"HOPS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ConcurrentLinkedDeque, HOPS)},
-	{"HEAD", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ConcurrentLinkedDeque, HEAD)},
-	{"TAIL", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ConcurrentLinkedDeque, TAIL)},
-	{"PREV", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ConcurrentLinkedDeque, PREV)},
-	{"NEXT", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ConcurrentLinkedDeque, NEXT)},
-	{"ITEM", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ConcurrentLinkedDeque, ITEM)},
-	{}
-};
-
-$MethodInfo _ConcurrentLinkedDeque_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ConcurrentLinkedDeque, init$, void)},
-	{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+TE;>;)V", $PUBLIC, $method(ConcurrentLinkedDeque, init$, void, $Collection*)},
-	{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, add, bool, Object$*)},
-	{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, addAll, bool, $Collection*)},
-	{"addFirst", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, addFirst, void, Object$*)},
-	{"addLast", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, addLast, void, Object$*)},
-	{"bulkRemove", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PRIVATE, $method(ConcurrentLinkedDeque, bulkRemove, bool, $Predicate*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, contains, bool, Object$*)},
-	{"descendingIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, descendingIterator, $Iterator*)},
-	{"element", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, element, $Object*)},
-	{"first", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", 0, $virtualMethod(ConcurrentLinkedDeque, first, $ConcurrentLinkedDeque$Node*)},
-	{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, forEach, void, $Consumer*)},
-	{"getFirst", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, getFirst, $Object*)},
-	{"getLast", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, getLast, $Object*)},
-	{"initHeadTail", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node;Ljava/util/concurrent/ConcurrentLinkedDeque$Node;)V", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;)V", $PRIVATE, $method(ConcurrentLinkedDeque, initHeadTail, void, $ConcurrentLinkedDeque$Node*, $ConcurrentLinkedDeque$Node*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, isEmpty, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, iterator, $Iterator*)},
-	{"lambda$removeAll$0", "(Ljava/util/Collection;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ConcurrentLinkedDeque, lambda$removeAll$0, bool, $Collection*, Object$*)},
-	{"lambda$retainAll$1", "(Ljava/util/Collection;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ConcurrentLinkedDeque, lambda$retainAll$1, bool, $Collection*, Object$*)},
-	{"last", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", 0, $virtualMethod(ConcurrentLinkedDeque, last, $ConcurrentLinkedDeque$Node*)},
-	{"linkFirst", "(Ljava/lang/Object;)V", "(TE;)V", $PRIVATE, $method(ConcurrentLinkedDeque, linkFirst, void, Object$*)},
-	{"linkLast", "(Ljava/lang/Object;)V", "(TE;)V", $PRIVATE, $method(ConcurrentLinkedDeque, linkLast, void, Object$*)},
-	{"newNode", "(Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "<E:Ljava/lang/Object;>(TE;)Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", $STATIC, $staticMethod(ConcurrentLinkedDeque, newNode, $ConcurrentLinkedDeque$Node*, Object$*)},
-	{"nextTerminator", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", 0, $virtualMethod(ConcurrentLinkedDeque, nextTerminator, $ConcurrentLinkedDeque$Node*)},
-	{"offer", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, offer, bool, Object$*)},
-	{"offerFirst", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, offerFirst, bool, Object$*)},
-	{"offerLast", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, offerLast, bool, Object$*)},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"peek", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, peek, $Object*)},
-	{"peekFirst", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, peekFirst, $Object*)},
-	{"peekLast", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, peekLast, $Object*)},
-	{"poll", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, poll, $Object*)},
-	{"pollFirst", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, pollFirst, $Object*)},
-	{"pollLast", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, pollLast, $Object*)},
-	{"pop", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, pop, $Object*)},
-	{"pred", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node;)Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;)Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", $FINAL, $method(ConcurrentLinkedDeque, pred, $ConcurrentLinkedDeque$Node*, $ConcurrentLinkedDeque$Node*)},
-	{"prevTerminator", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", 0, $virtualMethod(ConcurrentLinkedDeque, prevTerminator, $ConcurrentLinkedDeque$Node*)},
-	{"push", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, push, void, Object$*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ConcurrentLinkedDeque, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"remove", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, remove, $Object*)},
-	{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, remove, bool, Object$*)},
-	{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, removeAll, bool, $Collection*)},
-	{"removeFirst", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, removeFirst, $Object*)},
-	{"removeFirstOccurrence", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, removeFirstOccurrence, bool, Object$*)},
-	{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, removeIf, bool, $Predicate*)},
-	{"removeLast", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, removeLast, $Object*)},
-	{"removeLastOccurrence", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, removeLastOccurrence, bool, Object$*)},
-	{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, retainAll, bool, $Collection*)},
-	{"screenNullResult", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PRIVATE, $method(ConcurrentLinkedDeque, screenNullResult, $Object*, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, size, int32_t)},
-	{"skipDeletedPredecessors", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node;)V", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;)V", $PRIVATE, $method(ConcurrentLinkedDeque, skipDeletedPredecessors, void, $ConcurrentLinkedDeque$Node*)},
-	{"skipDeletedSuccessors", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node;)V", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;)V", $PRIVATE, $method(ConcurrentLinkedDeque, skipDeletedSuccessors, void, $ConcurrentLinkedDeque$Node*)},
-	{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, spliterator, $Spliterator*)},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"succ", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node;)Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;)Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", $FINAL, $method(ConcurrentLinkedDeque, succ, $ConcurrentLinkedDeque$Node*, $ConcurrentLinkedDeque$Node*)},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, toArray, $ObjectArray*)},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, toArray, $ObjectArray*, $ObjectArray*)},
-	{"toArrayInternal", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PRIVATE, $method(ConcurrentLinkedDeque, toArrayInternal, $ObjectArray*, $ObjectArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, toString, $String*)},
-	{"unlink", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node;)V", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;)V", 0, $virtualMethod(ConcurrentLinkedDeque, unlink, void, $ConcurrentLinkedDeque$Node*)},
-	{"unlinkFirst", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node;Ljava/util/concurrent/ConcurrentLinkedDeque$Node;)V", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;)V", $PRIVATE, $method(ConcurrentLinkedDeque, unlinkFirst, void, $ConcurrentLinkedDeque$Node*, $ConcurrentLinkedDeque$Node*)},
-	{"unlinkLast", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node;Ljava/util/concurrent/ConcurrentLinkedDeque$Node;)V", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;)V", $PRIVATE, $method(ConcurrentLinkedDeque, unlinkLast, void, $ConcurrentLinkedDeque$Node*, $ConcurrentLinkedDeque$Node*)},
-	{"updateHead", "()V", nullptr, $PRIVATE | $FINAL, $method(ConcurrentLinkedDeque, updateHead, void)},
-	{"updateTail", "()V", nullptr, $PRIVATE | $FINAL, $method(ConcurrentLinkedDeque, updateTail, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ConcurrentLinkedDeque, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ConcurrentLinkedDeque_InnerClassesInfo_[] = {
-	{"java.util.concurrent.ConcurrentLinkedDeque$CLDSpliterator", "java.util.concurrent.ConcurrentLinkedDeque", "CLDSpliterator", $FINAL},
-	{"java.util.concurrent.ConcurrentLinkedDeque$DescendingItr", "java.util.concurrent.ConcurrentLinkedDeque", "DescendingItr", $PRIVATE},
-	{"java.util.concurrent.ConcurrentLinkedDeque$Itr", "java.util.concurrent.ConcurrentLinkedDeque", "Itr", $PRIVATE},
-	{"java.util.concurrent.ConcurrentLinkedDeque$AbstractItr", "java.util.concurrent.ConcurrentLinkedDeque", "AbstractItr", $PRIVATE | $ABSTRACT},
-	{"java.util.concurrent.ConcurrentLinkedDeque$Node", "java.util.concurrent.ConcurrentLinkedDeque", "Node", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ConcurrentLinkedDeque_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.concurrent.ConcurrentLinkedDeque",
-	"java.util.AbstractCollection",
-	"java.util.Deque,java.io.Serializable",
-	_ConcurrentLinkedDeque_FieldInfo_,
-	_ConcurrentLinkedDeque_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/AbstractCollection<TE;>;Ljava/util/Deque<TE;>;Ljava/io/Serializable;",
-	nullptr,
-	_ConcurrentLinkedDeque_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.ConcurrentLinkedDeque$CLDSpliterator,java.util.concurrent.ConcurrentLinkedDeque$DescendingItr,java.util.concurrent.ConcurrentLinkedDeque$Itr,java.util.concurrent.ConcurrentLinkedDeque$AbstractItr,java.util.concurrent.ConcurrentLinkedDeque$Node"
-};
-
-$Object* allocate$ConcurrentLinkedDeque($Class* clazz) {
-	return $of($alloc(ConcurrentLinkedDeque));
-}
 
 bool ConcurrentLinkedDeque::containsAll($Collection* c) {
 	 return this->$AbstractCollection::containsAll(c);
@@ -326,84 +198,80 @@ $ConcurrentLinkedDeque$Node* ConcurrentLinkedDeque::nextTerminator() {
 
 $ConcurrentLinkedDeque$Node* ConcurrentLinkedDeque::newNode(Object$* item) {
 	$init(ConcurrentLinkedDeque);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentLinkedDeque$Node, node, $new($ConcurrentLinkedDeque$Node));
-	$nc(ConcurrentLinkedDeque::ITEM)->set($$new($ObjectArray, {$of(node), item}));
+	$nc(ConcurrentLinkedDeque::ITEM)->set($$new($ObjectArray, {node, item}));
 	return node;
 }
 
 void ConcurrentLinkedDeque::linkFirst(Object$* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentLinkedDeque$Node, newNode, ConcurrentLinkedDeque::newNode($Objects::requireNonNull(e)));
 	bool restartFromHead$continue = false;
 	for (;;) {
-		{
-			$var($ConcurrentLinkedDeque$Node, h, this->head);
-			$var($ConcurrentLinkedDeque$Node, p, h);
-			$var($ConcurrentLinkedDeque$Node, q, nullptr);
-			for (;;) {
-				bool var$0 = ($assign(q, $nc(p)->prev)) != nullptr;
-				if (var$0 && ($assign(q, $nc(($assign(p, q)))->prev)) != nullptr) {
-					$var($ConcurrentLinkedDeque$Node, var$1, h);
-					$assign(p, (var$1 != ($assign(h, this->head))) ? h : q);
-				} else if (p->next == p) {
-					restartFromHead$continue = true;
-					break;
-				} else {
-					$nc(ConcurrentLinkedDeque::NEXT)->set($$new($ObjectArray, {$of(newNode), $of(p)}));
-					if ($nc(ConcurrentLinkedDeque::PREV)->compareAndSet($$new($ObjectArray, {$of(p), ($Object*)nullptr, $of(newNode)}))) {
-						if (p != h) {
-							$nc(ConcurrentLinkedDeque::HEAD)->weakCompareAndSet($$new($ObjectArray, {$of(this), $of(h), $of(newNode)}));
-						}
-						return;
+		$var($ConcurrentLinkedDeque$Node, h, this->head);
+		$var($ConcurrentLinkedDeque$Node, p, h);
+		$var($ConcurrentLinkedDeque$Node, q, nullptr);
+		for (;;) {
+			bool var$0 = ($assign(q, $nc(p)->prev)) != nullptr;
+			if (var$0 && ($assign(q, $nc(($assign(p, q)))->prev)) != nullptr) {
+				$var($ConcurrentLinkedDeque$Node, var$1, h);
+				$assign(p, (var$1 != ($assign(h, this->head))) ? h : q);
+			} else if (p->next == p) {
+				restartFromHead$continue = true;
+				break;
+			} else {
+				$nc(ConcurrentLinkedDeque::NEXT)->set($$new($ObjectArray, {newNode, p}));
+				if ($nc(ConcurrentLinkedDeque::PREV)->compareAndSet($$new($ObjectArray, {p, nullptr, newNode}))) {
+					if (p != h) {
+						$nc(ConcurrentLinkedDeque::HEAD)->weakCompareAndSet($$new($ObjectArray, {this, h, newNode}));
 					}
+					return;
 				}
 			}
-			if (restartFromHead$continue) {
-				restartFromHead$continue = false;
-				continue;
-			}
+		}
+		if (restartFromHead$continue) {
+			restartFromHead$continue = false;
+			continue;
 		}
 	}
 }
 
 void ConcurrentLinkedDeque::linkLast(Object$* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentLinkedDeque$Node, newNode, ConcurrentLinkedDeque::newNode($Objects::requireNonNull(e)));
 	bool restartFromTail$continue = false;
 	for (;;) {
-		{
-			$var($ConcurrentLinkedDeque$Node, t, this->tail);
-			$var($ConcurrentLinkedDeque$Node, p, t);
-			$var($ConcurrentLinkedDeque$Node, q, nullptr);
-			for (;;) {
-				bool var$0 = ($assign(q, $nc(p)->next)) != nullptr;
-				if (var$0 && ($assign(q, $nc(($assign(p, q)))->next)) != nullptr) {
-					$var($ConcurrentLinkedDeque$Node, var$1, t);
-					$assign(p, (var$1 != ($assign(t, this->tail))) ? t : q);
-				} else if (p->prev == p) {
-					restartFromTail$continue = true;
-					break;
-				} else {
-					$nc(ConcurrentLinkedDeque::PREV)->set($$new($ObjectArray, {$of(newNode), $of(p)}));
-					if ($nc(ConcurrentLinkedDeque::NEXT)->compareAndSet($$new($ObjectArray, {$of(p), ($Object*)nullptr, $of(newNode)}))) {
-						if (p != t) {
-							$nc(ConcurrentLinkedDeque::TAIL)->weakCompareAndSet($$new($ObjectArray, {$of(this), $of(t), $of(newNode)}));
-						}
-						return;
+		$var($ConcurrentLinkedDeque$Node, t, this->tail);
+		$var($ConcurrentLinkedDeque$Node, p, t);
+		$var($ConcurrentLinkedDeque$Node, q, nullptr);
+		for (;;) {
+			bool var$0 = ($assign(q, $nc(p)->next)) != nullptr;
+			if (var$0 && ($assign(q, $nc(($assign(p, q)))->next)) != nullptr) {
+				$var($ConcurrentLinkedDeque$Node, var$1, t);
+				$assign(p, (var$1 != ($assign(t, this->tail))) ? t : q);
+			} else if (p->prev == p) {
+				restartFromTail$continue = true;
+				break;
+			} else {
+				$nc(ConcurrentLinkedDeque::PREV)->set($$new($ObjectArray, {newNode, p}));
+				if ($nc(ConcurrentLinkedDeque::NEXT)->compareAndSet($$new($ObjectArray, {p, nullptr, newNode}))) {
+					if (p != t) {
+						$nc(ConcurrentLinkedDeque::TAIL)->weakCompareAndSet($$new($ObjectArray, {this, t, newNode}));
 					}
+					return;
 				}
 			}
-			if (restartFromTail$continue) {
-				restartFromTail$continue = false;
-				continue;
-			}
+		}
+		if (restartFromTail$continue) {
+			restartFromTail$continue = false;
+			continue;
 		}
 	}
 }
 
 void ConcurrentLinkedDeque::unlink($ConcurrentLinkedDeque$Node* x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentLinkedDeque$Node, prev, $nc(x)->prev);
 	$var($ConcurrentLinkedDeque$Node, next, x->next);
 	if (prev == nullptr) {
@@ -424,7 +292,7 @@ void ConcurrentLinkedDeque::unlink($ConcurrentLinkedDeque$Node* x) {
 					isFirst = false;
 					break;
 				}
-				$var($ConcurrentLinkedDeque$Node, q, $nc(p)->prev);
+				$var($ConcurrentLinkedDeque$Node, q, p->prev);
 				if (q == nullptr) {
 					if (p->next == p) {
 						return;
@@ -447,7 +315,7 @@ void ConcurrentLinkedDeque::unlink($ConcurrentLinkedDeque$Node* x) {
 					isLast = false;
 					break;
 				}
-				$var($ConcurrentLinkedDeque$Node, q, $nc(p)->next);
+				$var($ConcurrentLinkedDeque$Node, q, p->next);
 				if (q == nullptr) {
 					if (p->prev == p) {
 						return;
@@ -470,70 +338,66 @@ void ConcurrentLinkedDeque::unlink($ConcurrentLinkedDeque$Node* x) {
 		if ((isFirst | isLast) && ($nc(activePred)->next == activeSucc) && ($nc(activeSucc)->prev == activePred) && (isFirst ? activePred->prev == nullptr : activePred->item != nullptr) && (isLast ? activeSucc->next == nullptr : activeSucc->item != nullptr)) {
 			updateHead();
 			updateTail();
-			$nc(ConcurrentLinkedDeque::PREV)->setRelease($$new($ObjectArray, {$of(x), isFirst ? $($of(prevTerminator())) : $of(x)}));
-			$nc(ConcurrentLinkedDeque::NEXT)->setRelease($$new($ObjectArray, {$of(x), isLast ? $($of(nextTerminator())) : $of(x)}));
+			$nc(ConcurrentLinkedDeque::PREV)->setRelease($$new($ObjectArray, {x, isFirst ? $(prevTerminator()) : x}));
+			$nc(ConcurrentLinkedDeque::NEXT)->setRelease($$new($ObjectArray, {x, isLast ? $(nextTerminator()) : x}));
 		}
 	}
 }
 
 void ConcurrentLinkedDeque::unlinkFirst($ConcurrentLinkedDeque$Node* first, $ConcurrentLinkedDeque$Node* next) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($ConcurrentLinkedDeque$Node, o, nullptr);
-		$var($ConcurrentLinkedDeque$Node, p, next);
-		$var($ConcurrentLinkedDeque$Node, q, nullptr);
-		for (;;) {
-			if ($nc(p)->item != nullptr || ($assign(q, $nc(p)->next)) == nullptr) {
-				if (o != nullptr && p->prev != p && $nc(ConcurrentLinkedDeque::NEXT)->compareAndSet($$new($ObjectArray, {$of(first), $of(next), $of(p)}))) {
-					skipDeletedPredecessors(p);
-					if ($nc(first)->prev == nullptr && (p->next == nullptr || p->item != nullptr) && p->prev == first) {
-						updateHead();
-						updateTail();
-						$nc(ConcurrentLinkedDeque::NEXT)->setRelease($$new($ObjectArray, {$of(o), $of(o)}));
-						$nc(ConcurrentLinkedDeque::PREV)->setRelease($$new($ObjectArray, {$of(o), $($of(prevTerminator()))}));
-					}
+	$useLocalObjectStack();
+	$var($ConcurrentLinkedDeque$Node, o, nullptr);
+	$var($ConcurrentLinkedDeque$Node, p, next);
+	$var($ConcurrentLinkedDeque$Node, q, nullptr);
+	for (;;) {
+		if ($nc(p)->item != nullptr || ($assign(q, p->next)) == nullptr) {
+			if (o != nullptr && p->prev != p && $nc(ConcurrentLinkedDeque::NEXT)->compareAndSet($$new($ObjectArray, {first, next, p}))) {
+				skipDeletedPredecessors(p);
+				if ($nc(first)->prev == nullptr && (p->next == nullptr || p->item != nullptr) && p->prev == first) {
+					updateHead();
+					updateTail();
+					ConcurrentLinkedDeque::NEXT->setRelease($$new($ObjectArray, {o, o}));
+					$nc(ConcurrentLinkedDeque::PREV)->setRelease($$new($ObjectArray, {o, $(prevTerminator())}));
 				}
-				return;
-			} else if (p == q) {
-				return;
-			} else {
-				$assign(o, p);
-				$assign(p, q);
 			}
+			return;
+		} else if (p == q) {
+			return;
+		} else {
+			$assign(o, p);
+			$assign(p, q);
 		}
 	}
 }
 
 void ConcurrentLinkedDeque::unlinkLast($ConcurrentLinkedDeque$Node* last, $ConcurrentLinkedDeque$Node* prev) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($ConcurrentLinkedDeque$Node, o, nullptr);
-		$var($ConcurrentLinkedDeque$Node, p, prev);
-		$var($ConcurrentLinkedDeque$Node, q, nullptr);
-		for (;;) {
-			if ($nc(p)->item != nullptr || ($assign(q, $nc(p)->prev)) == nullptr) {
-				if (o != nullptr && p->next != p && $nc(ConcurrentLinkedDeque::PREV)->compareAndSet($$new($ObjectArray, {$of(last), $of(prev), $of(p)}))) {
-					skipDeletedSuccessors(p);
-					if ($nc(last)->next == nullptr && (p->prev == nullptr || p->item != nullptr) && p->next == last) {
-						updateHead();
-						updateTail();
-						$nc(ConcurrentLinkedDeque::PREV)->setRelease($$new($ObjectArray, {$of(o), $of(o)}));
-						$nc(ConcurrentLinkedDeque::NEXT)->setRelease($$new($ObjectArray, {$of(o), $($of(nextTerminator()))}));
-					}
+	$useLocalObjectStack();
+	$var($ConcurrentLinkedDeque$Node, o, nullptr);
+	$var($ConcurrentLinkedDeque$Node, p, prev);
+	$var($ConcurrentLinkedDeque$Node, q, nullptr);
+	for (;;) {
+		if ($nc(p)->item != nullptr || ($assign(q, p->prev)) == nullptr) {
+			if (o != nullptr && p->next != p && $nc(ConcurrentLinkedDeque::PREV)->compareAndSet($$new($ObjectArray, {last, prev, p}))) {
+				skipDeletedSuccessors(p);
+				if ($nc(last)->next == nullptr && (p->prev == nullptr || p->item != nullptr) && p->next == last) {
+					updateHead();
+					updateTail();
+					ConcurrentLinkedDeque::PREV->setRelease($$new($ObjectArray, {o, o}));
+					$nc(ConcurrentLinkedDeque::NEXT)->setRelease($$new($ObjectArray, {o, $(nextTerminator())}));
 				}
-				return;
-			} else if (p == q) {
-				return;
-			} else {
-				$assign(o, p);
-				$assign(p, q);
 			}
+			return;
+		} else if (p == q) {
+			return;
+		} else {
+			$assign(o, p);
+			$assign(p, q);
 		}
 	}
 }
 
 void ConcurrentLinkedDeque::updateHead() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentLinkedDeque$Node, h, nullptr);
 	$var($ConcurrentLinkedDeque$Node, p, nullptr);
 	$var($ConcurrentLinkedDeque$Node, q, nullptr);
@@ -547,7 +411,7 @@ void ConcurrentLinkedDeque::updateHead() {
 			for (;;) {
 				bool var$1 = ($assign(q, $nc(p)->prev)) == nullptr;
 				if (var$1 || ($assign(q, $nc(($assign(p, q)))->prev)) == nullptr) {
-					if ($nc(ConcurrentLinkedDeque::HEAD)->compareAndSet($$new($ObjectArray, {$of(this), $of(h), $of(p)}))) {
+					if ($nc(ConcurrentLinkedDeque::HEAD)->compareAndSet($$new($ObjectArray, {this, h, p}))) {
 						return;
 					} else {
 						restartFromHead$continue = true;
@@ -569,7 +433,7 @@ void ConcurrentLinkedDeque::updateHead() {
 }
 
 void ConcurrentLinkedDeque::updateTail() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentLinkedDeque$Node, t, nullptr);
 	$var($ConcurrentLinkedDeque$Node, p, nullptr);
 	$var($ConcurrentLinkedDeque$Node, q, nullptr);
@@ -583,7 +447,7 @@ void ConcurrentLinkedDeque::updateTail() {
 			for (;;) {
 				bool var$1 = ($assign(q, $nc(p)->next)) == nullptr;
 				if (var$1 || ($assign(q, $nc(($assign(p, q)))->next)) == nullptr) {
-					if ($nc(ConcurrentLinkedDeque::TAIL)->compareAndSet($$new($ObjectArray, {$of(this), $of(t), $of(p)}))) {
+					if ($nc(ConcurrentLinkedDeque::TAIL)->compareAndSet($$new($ObjectArray, {this, t, p}))) {
 						return;
 					} else {
 						restartFromTail$continue = true;
@@ -605,7 +469,7 @@ void ConcurrentLinkedDeque::updateTail() {
 }
 
 void ConcurrentLinkedDeque::skipDeletedPredecessors($ConcurrentLinkedDeque$Node* x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool whileActive$continue = false;
 	do {
 		$var($ConcurrentLinkedDeque$Node, prev, $nc(x)->prev);
@@ -616,7 +480,7 @@ void ConcurrentLinkedDeque::skipDeletedPredecessors($ConcurrentLinkedDeque$Node*
 				findActive$break = true;
 				break;
 			}
-			$var($ConcurrentLinkedDeque$Node, q, $nc(p)->prev);
+			$var($ConcurrentLinkedDeque$Node, q, p->prev);
 			if (q == nullptr) {
 				if (p->next == p) {
 					whileActive$continue = true;
@@ -635,14 +499,14 @@ void ConcurrentLinkedDeque::skipDeletedPredecessors($ConcurrentLinkedDeque$Node*
 			whileActive$continue = false;
 			continue;
 		}
-		if (prev == p || $nc(ConcurrentLinkedDeque::PREV)->compareAndSet($$new($ObjectArray, {$of(x), $of(prev), $of(p)}))) {
+		if (prev == p || $nc(ConcurrentLinkedDeque::PREV)->compareAndSet($$new($ObjectArray, {x, prev, p}))) {
 			return;
 		}
-	} while ($nc(x)->item != nullptr || $nc(x)->next == nullptr);
+	} while ($nc(x)->item != nullptr || x->next == nullptr);
 }
 
 void ConcurrentLinkedDeque::skipDeletedSuccessors($ConcurrentLinkedDeque$Node* x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool whileActive$continue = false;
 	do {
 		$var($ConcurrentLinkedDeque$Node, next, $nc(x)->next);
@@ -653,7 +517,7 @@ void ConcurrentLinkedDeque::skipDeletedSuccessors($ConcurrentLinkedDeque$Node* x
 				findActive$break = true;
 				break;
 			}
-			$var($ConcurrentLinkedDeque$Node, q, $nc(p)->next);
+			$var($ConcurrentLinkedDeque$Node, q, p->next);
 			if (q == nullptr) {
 				if (p->prev == p) {
 					whileActive$continue = true;
@@ -672,14 +536,14 @@ void ConcurrentLinkedDeque::skipDeletedSuccessors($ConcurrentLinkedDeque$Node* x
 			whileActive$continue = false;
 			continue;
 		}
-		if (next == p || $nc(ConcurrentLinkedDeque::NEXT)->compareAndSet($$new($ObjectArray, {$of(x), $of(next), $of(p)}))) {
+		if (next == p || $nc(ConcurrentLinkedDeque::NEXT)->compareAndSet($$new($ObjectArray, {x, next, p}))) {
 			return;
 		}
-	} while ($nc(x)->item != nullptr || $nc(x)->prev == nullptr);
+	} while ($nc(x)->item != nullptr || x->prev == nullptr);
 }
 
 $ConcurrentLinkedDeque$Node* ConcurrentLinkedDeque::succ($ConcurrentLinkedDeque$Node* p$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentLinkedDeque$Node, p, p$renamed);
 	$var($ConcurrentLinkedDeque$Node, var$0, p);
 	if (var$0 == ($assign(p, $nc(p)->next))) {
@@ -689,7 +553,7 @@ $ConcurrentLinkedDeque$Node* ConcurrentLinkedDeque::succ($ConcurrentLinkedDeque$
 }
 
 $ConcurrentLinkedDeque$Node* ConcurrentLinkedDeque::pred($ConcurrentLinkedDeque$Node* p$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentLinkedDeque$Node, p, p$renamed);
 	$var($ConcurrentLinkedDeque$Node, var$0, p);
 	if (var$0 == ($assign(p, $nc(p)->prev))) {
@@ -699,57 +563,53 @@ $ConcurrentLinkedDeque$Node* ConcurrentLinkedDeque::pred($ConcurrentLinkedDeque$
 }
 
 $ConcurrentLinkedDeque$Node* ConcurrentLinkedDeque::first() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool restartFromHead$continue = false;
 	for (;;) {
-		{
-			$var($ConcurrentLinkedDeque$Node, h, this->head);
-			$var($ConcurrentLinkedDeque$Node, p, h);
-			$var($ConcurrentLinkedDeque$Node, q, nullptr);
-			for (;;) {
-				bool var$0 = ($assign(q, $nc(p)->prev)) != nullptr;
-				if (var$0 && ($assign(q, $nc(($assign(p, q)))->prev)) != nullptr) {
-					$var($ConcurrentLinkedDeque$Node, var$1, h);
-					$assign(p, (var$1 != ($assign(h, this->head))) ? h : q);
-				} else if (p == h || $nc(ConcurrentLinkedDeque::HEAD)->compareAndSet($$new($ObjectArray, {$of(this), $of(h), $of(p)}))) {
-					return p;
-				} else {
-					restartFromHead$continue = true;
-					break;
-				}
+		$var($ConcurrentLinkedDeque$Node, h, this->head);
+		$var($ConcurrentLinkedDeque$Node, p, h);
+		$var($ConcurrentLinkedDeque$Node, q, nullptr);
+		for (;;) {
+			bool var$0 = ($assign(q, $nc(p)->prev)) != nullptr;
+			if (var$0 && ($assign(q, $nc(($assign(p, q)))->prev)) != nullptr) {
+				$var($ConcurrentLinkedDeque$Node, var$1, h);
+				$assign(p, (var$1 != ($assign(h, this->head))) ? h : q);
+			} else if (p == h || $nc(ConcurrentLinkedDeque::HEAD)->compareAndSet($$new($ObjectArray, {this, h, p}))) {
+				return p;
+			} else {
+				restartFromHead$continue = true;
+				break;
 			}
-			if (restartFromHead$continue) {
-				restartFromHead$continue = false;
-				continue;
-			}
+		}
+		if (restartFromHead$continue) {
+			restartFromHead$continue = false;
+			continue;
 		}
 	}
 }
 
 $ConcurrentLinkedDeque$Node* ConcurrentLinkedDeque::last() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool restartFromTail$continue = false;
 	for (;;) {
-		{
-			$var($ConcurrentLinkedDeque$Node, t, this->tail);
-			$var($ConcurrentLinkedDeque$Node, p, t);
-			$var($ConcurrentLinkedDeque$Node, q, nullptr);
-			for (;;) {
-				bool var$0 = ($assign(q, $nc(p)->next)) != nullptr;
-				if (var$0 && ($assign(q, $nc(($assign(p, q)))->next)) != nullptr) {
-					$var($ConcurrentLinkedDeque$Node, var$1, t);
-					$assign(p, (var$1 != ($assign(t, this->tail))) ? t : q);
-				} else if (p == t || $nc(ConcurrentLinkedDeque::TAIL)->compareAndSet($$new($ObjectArray, {$of(this), $of(t), $of(p)}))) {
-					return p;
-				} else {
-					restartFromTail$continue = true;
-					break;
-				}
+		$var($ConcurrentLinkedDeque$Node, t, this->tail);
+		$var($ConcurrentLinkedDeque$Node, p, t);
+		$var($ConcurrentLinkedDeque$Node, q, nullptr);
+		for (;;) {
+			bool var$0 = ($assign(q, $nc(p)->next)) != nullptr;
+			if (var$0 && ($assign(q, $nc(($assign(p, q)))->next)) != nullptr) {
+				$var($ConcurrentLinkedDeque$Node, var$1, t);
+				$assign(p, (var$1 != ($assign(t, this->tail))) ? t : q);
+			} else if (p == t || $nc(ConcurrentLinkedDeque::TAIL)->compareAndSet($$new($ObjectArray, {this, t, p}))) {
+				return p;
+			} else {
+				restartFromTail$continue = true;
+				break;
 			}
-			if (restartFromTail$continue) {
-				restartFromTail$continue = false;
-				continue;
-			}
+		}
+		if (restartFromTail$continue) {
+			restartFromTail$continue = false;
+			continue;
 		}
 	}
 }
@@ -763,11 +623,11 @@ $Object* ConcurrentLinkedDeque::screenNullResult(Object$* v) {
 
 void ConcurrentLinkedDeque::init$() {
 	$AbstractCollection::init$();
-	$set(this, head, ($set(this, tail, $new($ConcurrentLinkedDeque$Node))));
+	$set(this, head, $set(this, tail, $new($ConcurrentLinkedDeque$Node)));
 }
 
 void ConcurrentLinkedDeque::init$($Collection* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AbstractCollection::init$();
 	$var($ConcurrentLinkedDeque$Node, h, nullptr);
 	$var($ConcurrentLinkedDeque$Node, t, nullptr);
@@ -778,10 +638,10 @@ void ConcurrentLinkedDeque::init$($Collection* c) {
 			{
 				$var($ConcurrentLinkedDeque$Node, newNode, ConcurrentLinkedDeque::newNode($Objects::requireNonNull(e)));
 				if (h == nullptr) {
-					$assign(h, ($assign(t, newNode)));
+					$assign(h, $assign(t, newNode));
 				} else {
-					$nc(ConcurrentLinkedDeque::NEXT)->set($$new($ObjectArray, {$of(t), $of(newNode)}));
-					$nc(ConcurrentLinkedDeque::PREV)->set($$new($ObjectArray, {$of(newNode), $of(t)}));
+					$nc(ConcurrentLinkedDeque::NEXT)->set($$new($ObjectArray, {t, newNode}));
+					$nc(ConcurrentLinkedDeque::PREV)->set($$new($ObjectArray, {newNode, t}));
 					$assign(t, newNode);
 				}
 			}
@@ -791,16 +651,16 @@ void ConcurrentLinkedDeque::init$($Collection* c) {
 }
 
 void ConcurrentLinkedDeque::initHeadTail($ConcurrentLinkedDeque$Node* h$renamed, $ConcurrentLinkedDeque$Node* t$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConcurrentLinkedDeque$Node, t, t$renamed);
 	$var($ConcurrentLinkedDeque$Node, h, h$renamed);
 	if (h == t) {
 		if (h == nullptr) {
-			$assign(h, ($assign(t, $new($ConcurrentLinkedDeque$Node))));
+			$assign(h, $assign(t, $new($ConcurrentLinkedDeque$Node)));
 		} else {
 			$var($ConcurrentLinkedDeque$Node, newNode, $new($ConcurrentLinkedDeque$Node));
-			$nc(ConcurrentLinkedDeque::NEXT)->set($$new($ObjectArray, {$of(t), $of(newNode)}));
-			$nc(ConcurrentLinkedDeque::PREV)->set($$new($ObjectArray, {$of(newNode), $of(t)}));
+			$nc(ConcurrentLinkedDeque::NEXT)->set($$new($ObjectArray, {t, newNode}));
+			$nc(ConcurrentLinkedDeque::PREV)->set($$new($ObjectArray, {newNode, t}));
 			$assign(t, newNode);
 		}
 	}
@@ -827,7 +687,7 @@ bool ConcurrentLinkedDeque::offerLast(Object$* e) {
 }
 
 $Object* ConcurrentLinkedDeque::peekFirst() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool restart$continue = false;
 	for (;;) {
 		$var($Object, item, nullptr);
@@ -850,12 +710,12 @@ $Object* ConcurrentLinkedDeque::peekFirst() {
 		if ($nc(first)->prev != nullptr) {
 			continue;
 		}
-		return $of(item);
+		return item;
 	}
 }
 
 $Object* ConcurrentLinkedDeque::peekLast() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool restart$continue = false;
 	for (;;) {
 		$var($Object, item, nullptr);
@@ -878,104 +738,100 @@ $Object* ConcurrentLinkedDeque::peekLast() {
 		if ($nc(last)->next != nullptr) {
 			continue;
 		}
-		return $of(item);
+		return item;
 	}
 }
 
 $Object* ConcurrentLinkedDeque::getFirst() {
-	return $of(screenNullResult($(peekFirst())));
+	return screenNullResult($(peekFirst()));
 }
 
 $Object* ConcurrentLinkedDeque::getLast() {
-	return $of(screenNullResult($(peekLast())));
+	return screenNullResult($(peekLast()));
 }
 
 $Object* ConcurrentLinkedDeque::pollFirst() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool restart$continue = false;
 	for (;;) {
-		{
-			$var($ConcurrentLinkedDeque$Node, first, this->first());
-			$var($ConcurrentLinkedDeque$Node, p, first);
-			for (;;) {
-				$var($Object, item, nullptr);
-				if (($assign(item, $nc(p)->item)) != nullptr) {
-					if ($nc(first)->prev != nullptr) {
-						restart$continue = true;
-						break;
-					}
-					if ($nc(ConcurrentLinkedDeque::ITEM)->compareAndSet($$new($ObjectArray, {$of(p), item, ($Object*)nullptr}))) {
-						unlink(p);
-						return $of(item);
-					}
-				}
-				$var($ConcurrentLinkedDeque$Node, var$0, p);
-				if (var$0 == ($assign(p, $nc(p)->next))) {
+		$var($ConcurrentLinkedDeque$Node, first, this->first());
+		$var($ConcurrentLinkedDeque$Node, p, first);
+		for (;;) {
+			$var($Object, item, nullptr);
+			if (($assign(item, $nc(p)->item)) != nullptr) {
+				if ($nc(first)->prev != nullptr) {
 					restart$continue = true;
 					break;
 				}
-				if (p == nullptr) {
-					if ($nc(first)->prev != nullptr) {
-						restart$continue = true;
-						break;
-					}
-					return $of(nullptr);
+				if ($nc(ConcurrentLinkedDeque::ITEM)->compareAndSet($$new($ObjectArray, {p, item, nullptr}))) {
+					unlink(p);
+					return item;
 				}
 			}
-			if (restart$continue) {
-				restart$continue = false;
-				continue;
+			$var($ConcurrentLinkedDeque$Node, var$0, p);
+			if (var$0 == ($assign(p, p->next))) {
+				restart$continue = true;
+				break;
 			}
+			if (p == nullptr) {
+				if ($nc(first)->prev != nullptr) {
+					restart$continue = true;
+					break;
+				}
+				return nullptr;
+			}
+		}
+		if (restart$continue) {
+			restart$continue = false;
+			continue;
 		}
 	}
 }
 
 $Object* ConcurrentLinkedDeque::pollLast() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool restart$continue = false;
 	for (;;) {
-		{
-			$var($ConcurrentLinkedDeque$Node, last, this->last());
-			$var($ConcurrentLinkedDeque$Node, p, last);
-			for (;;) {
-				$var($Object, item, nullptr);
-				if (($assign(item, $nc(p)->item)) != nullptr) {
-					if ($nc(last)->next != nullptr) {
-						restart$continue = true;
-						break;
-					}
-					if ($nc(ConcurrentLinkedDeque::ITEM)->compareAndSet($$new($ObjectArray, {$of(p), item, ($Object*)nullptr}))) {
-						unlink(p);
-						return $of(item);
-					}
-				}
-				$var($ConcurrentLinkedDeque$Node, var$0, p);
-				if (var$0 == ($assign(p, $nc(p)->prev))) {
+		$var($ConcurrentLinkedDeque$Node, last, this->last());
+		$var($ConcurrentLinkedDeque$Node, p, last);
+		for (;;) {
+			$var($Object, item, nullptr);
+			if (($assign(item, $nc(p)->item)) != nullptr) {
+				if ($nc(last)->next != nullptr) {
 					restart$continue = true;
 					break;
 				}
-				if (p == nullptr) {
-					if ($nc(last)->next != nullptr) {
-						restart$continue = true;
-						break;
-					}
-					return $of(nullptr);
+				if ($nc(ConcurrentLinkedDeque::ITEM)->compareAndSet($$new($ObjectArray, {p, item, nullptr}))) {
+					unlink(p);
+					return item;
 				}
 			}
-			if (restart$continue) {
-				restart$continue = false;
-				continue;
+			$var($ConcurrentLinkedDeque$Node, var$0, p);
+			if (var$0 == ($assign(p, p->prev))) {
+				restart$continue = true;
+				break;
 			}
+			if (p == nullptr) {
+				if ($nc(last)->next != nullptr) {
+					restart$continue = true;
+					break;
+				}
+				return nullptr;
+			}
+		}
+		if (restart$continue) {
+			restart$continue = false;
+			continue;
 		}
 	}
 }
 
 $Object* ConcurrentLinkedDeque::removeFirst() {
-	return $of(screenNullResult($(pollFirst())));
+	return screenNullResult($(pollFirst()));
 }
 
 $Object* ConcurrentLinkedDeque::removeLast() {
-	return $of(screenNullResult($(pollLast())));
+	return screenNullResult($(pollLast()));
 }
 
 bool ConcurrentLinkedDeque::offer(Object$* e) {
@@ -987,23 +843,23 @@ bool ConcurrentLinkedDeque::add(Object$* e) {
 }
 
 $Object* ConcurrentLinkedDeque::poll() {
-	return $of(pollFirst());
+	return pollFirst();
 }
 
 $Object* ConcurrentLinkedDeque::peek() {
-	return $of(peekFirst());
+	return peekFirst();
 }
 
 $Object* ConcurrentLinkedDeque::remove() {
-	return $of(removeFirst());
+	return removeFirst();
 }
 
 $Object* ConcurrentLinkedDeque::pop() {
-	return $of(removeFirst());
+	return removeFirst();
 }
 
 $Object* ConcurrentLinkedDeque::element() {
-	return $of(getFirst());
+	return getFirst();
 }
 
 void ConcurrentLinkedDeque::push(Object$* e) {
@@ -1011,15 +867,15 @@ void ConcurrentLinkedDeque::push(Object$* e) {
 }
 
 bool ConcurrentLinkedDeque::removeFirstOccurrence(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(o);
 	{
 		$var($ConcurrentLinkedDeque$Node, p, first());
 		for (; p != nullptr; $assign(p, succ(p))) {
 			$var($Object, item, nullptr);
-			bool var$1 = ($assign(item, $nc(p)->item)) != nullptr;
+			bool var$1 = ($assign(item, p->item)) != nullptr;
 			bool var$0 = var$1 && $of(o)->equals(item);
-			if (var$0 && $nc(ConcurrentLinkedDeque::ITEM)->compareAndSet($$new($ObjectArray, {$of(p), item, ($Object*)nullptr}))) {
+			if (var$0 && $nc(ConcurrentLinkedDeque::ITEM)->compareAndSet($$new($ObjectArray, {p, item, nullptr}))) {
 				unlink(p);
 				return true;
 			}
@@ -1029,15 +885,15 @@ bool ConcurrentLinkedDeque::removeFirstOccurrence(Object$* o) {
 }
 
 bool ConcurrentLinkedDeque::removeLastOccurrence(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(o);
 	{
 		$var($ConcurrentLinkedDeque$Node, p, last());
 		for (; p != nullptr; $assign(p, pred(p))) {
 			$var($Object, item, nullptr);
-			bool var$1 = ($assign(item, $nc(p)->item)) != nullptr;
+			bool var$1 = ($assign(item, p->item)) != nullptr;
 			bool var$0 = var$1 && $of(o)->equals(item);
-			if (var$0 && $nc(ConcurrentLinkedDeque::ITEM)->compareAndSet($$new($ObjectArray, {$of(p), item, ($Object*)nullptr}))) {
+			if (var$0 && $nc(ConcurrentLinkedDeque::ITEM)->compareAndSet($$new($ObjectArray, {p, item, nullptr}))) {
 				unlink(p);
 				return true;
 			}
@@ -1047,16 +903,14 @@ bool ConcurrentLinkedDeque::removeLastOccurrence(Object$* o) {
 }
 
 bool ConcurrentLinkedDeque::contains(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (o != nullptr) {
-		{
-			$var($ConcurrentLinkedDeque$Node, p, first());
-			for (; p != nullptr; $assign(p, succ(p))) {
-				$var($Object, item, nullptr);
-				bool var$0 = ($assign(item, $nc(p)->item)) != nullptr;
-				if (var$0 && $of(o)->equals(item)) {
-					return true;
-				}
+		$var($ConcurrentLinkedDeque$Node, p, first());
+		for (; p != nullptr; $assign(p, succ(p))) {
+			$var($Object, item, nullptr);
+			bool var$0 = ($assign(item, p->item)) != nullptr;
+			if (var$0 && $of(o)->equals(item)) {
+				return true;
 			}
 		}
 	}
@@ -1068,7 +922,7 @@ bool ConcurrentLinkedDeque::isEmpty() {
 }
 
 int32_t ConcurrentLinkedDeque::size() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool restart$continue = false;
 	for (;;) {
 		int32_t count = 0;
@@ -1100,7 +954,7 @@ bool ConcurrentLinkedDeque::remove(Object$* o) {
 }
 
 bool ConcurrentLinkedDeque::addAll($Collection* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(c, this)) {
 		$throwNew($IllegalArgumentException);
 	}
@@ -1113,10 +967,10 @@ bool ConcurrentLinkedDeque::addAll($Collection* c) {
 			{
 				$var($ConcurrentLinkedDeque$Node, newNode, ConcurrentLinkedDeque::newNode($Objects::requireNonNull(e)));
 				if (beginningOfTheEnd == nullptr) {
-					$assign(beginningOfTheEnd, ($assign(last, newNode)));
+					$assign(beginningOfTheEnd, $assign(last, newNode));
 				} else {
-					$nc(ConcurrentLinkedDeque::NEXT)->set($$new($ObjectArray, {$of(last), $of(newNode)}));
-					$nc(ConcurrentLinkedDeque::PREV)->set($$new($ObjectArray, {$of(newNode), $of(last)}));
+					$nc(ConcurrentLinkedDeque::NEXT)->set($$new($ObjectArray, {last, newNode}));
+					$nc(ConcurrentLinkedDeque::PREV)->set($$new($ObjectArray, {newNode, last}));
 					$assign(last, newNode);
 				}
 			}
@@ -1127,46 +981,45 @@ bool ConcurrentLinkedDeque::addAll($Collection* c) {
 	}
 	bool restartFromTail$continue = false;
 	for (;;) {
-		{
-			$var($ConcurrentLinkedDeque$Node, t, this->tail);
-			$var($ConcurrentLinkedDeque$Node, p, t);
-			$var($ConcurrentLinkedDeque$Node, q, nullptr);
-			for (;;) {
-				bool var$0 = ($assign(q, $nc(p)->next)) != nullptr;
-				if (var$0 && ($assign(q, $nc(($assign(p, q)))->next)) != nullptr) {
-					$var($ConcurrentLinkedDeque$Node, var$1, t);
-					$assign(p, (var$1 != ($assign(t, this->tail))) ? t : q);
-				} else if (p->prev == p) {
-					restartFromTail$continue = true;
-					break;
-				} else {
-					$nc(ConcurrentLinkedDeque::PREV)->set($$new($ObjectArray, {$of(beginningOfTheEnd), $of(p)}));
-					if ($nc(ConcurrentLinkedDeque::NEXT)->compareAndSet($$new($ObjectArray, {$of(p), ($Object*)nullptr, $of(beginningOfTheEnd)}))) {
-						if (!$nc(ConcurrentLinkedDeque::TAIL)->weakCompareAndSet($$new($ObjectArray, {$of(this), $of(t), $of(last)}))) {
-							$assign(t, this->tail);
-							if ($nc(last)->next == nullptr) {
-								$nc(ConcurrentLinkedDeque::TAIL)->weakCompareAndSet($$new($ObjectArray, {$of(this), $of(t), $of(last)}));
-							}
+		$var($ConcurrentLinkedDeque$Node, t, this->tail);
+		$var($ConcurrentLinkedDeque$Node, p, t);
+		$var($ConcurrentLinkedDeque$Node, q, nullptr);
+		for (;;) {
+			bool var$0 = ($assign(q, $nc(p)->next)) != nullptr;
+			if (var$0 && ($assign(q, $nc(($assign(p, q)))->next)) != nullptr) {
+				$var($ConcurrentLinkedDeque$Node, var$1, t);
+				$assign(p, (var$1 != ($assign(t, this->tail))) ? t : q);
+			} else if (p->prev == p) {
+				restartFromTail$continue = true;
+				break;
+			} else {
+				$nc(ConcurrentLinkedDeque::PREV)->set($$new($ObjectArray, {beginningOfTheEnd, p}));
+				if ($nc(ConcurrentLinkedDeque::NEXT)->compareAndSet($$new($ObjectArray, {p, nullptr, beginningOfTheEnd}))) {
+					if (!$nc(ConcurrentLinkedDeque::TAIL)->weakCompareAndSet($$new($ObjectArray, {this, t, last}))) {
+						$assign(t, this->tail);
+						if ($nc(last)->next == nullptr) {
+							ConcurrentLinkedDeque::TAIL->weakCompareAndSet($$new($ObjectArray, {this, t, last}));
 						}
-						return true;
 					}
+					return true;
 				}
 			}
-			if (restartFromTail$continue) {
-				restartFromTail$continue = false;
-				continue;
-			}
+		}
+		if (restartFromTail$continue) {
+			restartFromTail$continue = false;
+			continue;
 		}
 	}
 }
 
 void ConcurrentLinkedDeque::clear() {
 	while (pollFirst() != nullptr) {
+		;
 	}
 }
 
 $String* ConcurrentLinkedDeque::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, a, nullptr);
 	bool restart$continue = false;
 	for (;;) {
@@ -1179,10 +1032,10 @@ $String* ConcurrentLinkedDeque::toString() {
 				if (($assign(item, p->item)) != nullptr) {
 					if (a == nullptr) {
 						$assign(a, $new($StringArray, 4));
-					} else if (size == $nc(a)->length) {
-						$assign(a, $fcast($StringArray, $Arrays::copyOf(a, 2 * size)));
+					} else if (size == a->length) {
+						$assign(a, $cast($StringArray, $Arrays::copyOf(a, 2 * size)));
 					}
-					$var($String, s, $nc($of(item))->toString());
+					$var($String, s, $nc(item)->toString());
 					$nc(a)->set(size++, s);
 					charLength += $nc(s)->length();
 				}
@@ -1205,7 +1058,7 @@ $String* ConcurrentLinkedDeque::toString() {
 }
 
 $ObjectArray* ConcurrentLinkedDeque::toArrayInternal($ObjectArray* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, x, a);
 	bool restart$continue = false;
 	for (;;) {
@@ -1217,7 +1070,7 @@ $ObjectArray* ConcurrentLinkedDeque::toArrayInternal($ObjectArray* a) {
 				if (($assign(item, p->item)) != nullptr) {
 					if (x == nullptr) {
 						$assign(x, $new($ObjectArray, 4));
-					} else if (size == $nc(x)->length) {
+					} else if (size == x->length) {
 						$assign(x, $Arrays::copyOf(x, 2 * (size + 4)));
 					}
 					$nc(x)->set(size++, item);
@@ -1272,13 +1125,13 @@ $Spliterator* ConcurrentLinkedDeque::spliterator() {
 }
 
 void ConcurrentLinkedDeque::writeObject($ObjectOutputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultWriteObject();
 	{
 		$var($ConcurrentLinkedDeque$Node, p, first());
 		for (; p != nullptr; $assign(p, succ(p))) {
 			$var($Object, item, nullptr);
-			if (($assign(item, $nc(p)->item)) != nullptr) {
+			if (($assign(item, p->item)) != nullptr) {
 				s->writeObject(item);
 			}
 		}
@@ -1287,7 +1140,7 @@ void ConcurrentLinkedDeque::writeObject($ObjectOutputStream* s) {
 }
 
 void ConcurrentLinkedDeque::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultReadObject();
 	$var($ConcurrentLinkedDeque$Node, h, nullptr);
 	$var($ConcurrentLinkedDeque$Node, t, nullptr);
@@ -1296,10 +1149,10 @@ void ConcurrentLinkedDeque::readObject($ObjectInputStream* s) {
 		for (; ($assign(item, s->readObject())) != nullptr;) {
 			$var($ConcurrentLinkedDeque$Node, newNode, ConcurrentLinkedDeque::newNode(item));
 			if (h == nullptr) {
-				$assign(h, ($assign(t, newNode)));
+				$assign(h, $assign(t, newNode));
 			} else {
-				$nc(ConcurrentLinkedDeque::NEXT)->set($$new($ObjectArray, {$of(t), $of(newNode)}));
-				$nc(ConcurrentLinkedDeque::PREV)->set($$new($ObjectArray, {$of(newNode), $of(t)}));
+				$nc(ConcurrentLinkedDeque::NEXT)->set($$new($ObjectArray, {t, newNode}));
+				$nc(ConcurrentLinkedDeque::PREV)->set($$new($ObjectArray, {newNode, t}));
 				$assign(t, newNode);
 			}
 		}
@@ -1314,16 +1167,16 @@ bool ConcurrentLinkedDeque::removeIf($Predicate* filter) {
 
 bool ConcurrentLinkedDeque::removeAll($Collection* c) {
 	$Objects::requireNonNull(c);
-	return bulkRemove(static_cast<$Predicate*>($$new(ConcurrentLinkedDeque$$Lambda$lambda$removeAll$0, c)));
+	return bulkRemove($$new(ConcurrentLinkedDeque$$Lambda$lambda$removeAll$0, c));
 }
 
 bool ConcurrentLinkedDeque::retainAll($Collection* c) {
 	$Objects::requireNonNull(c);
-	return bulkRemove(static_cast<$Predicate*>($$new(ConcurrentLinkedDeque$$Lambda$lambda$retainAll$1$1, c)));
+	return bulkRemove($$new(ConcurrentLinkedDeque$$Lambda$lambda$retainAll$1$1, c));
 }
 
 bool ConcurrentLinkedDeque::bulkRemove($Predicate* filter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool removed = false;
 	{
 		$var($ConcurrentLinkedDeque$Node, p, first());
@@ -1331,9 +1184,9 @@ bool ConcurrentLinkedDeque::bulkRemove($Predicate* filter) {
 		for (; p != nullptr; $assign(p, succ)) {
 			$assign(succ, this->succ(p));
 			$var($Object, item, nullptr);
-			bool var$1 = ($assign(item, $nc(p)->item)) != nullptr;
+			bool var$1 = ($assign(item, p->item)) != nullptr;
 			bool var$0 = var$1 && $nc(filter)->test(item);
-			if (var$0 && $nc(ConcurrentLinkedDeque::ITEM)->compareAndSet($$new($ObjectArray, {$of(p), item, ($Object*)nullptr}))) {
+			if (var$0 && $nc(ConcurrentLinkedDeque::ITEM)->compareAndSet($$new($ObjectArray, {p, item, nullptr}))) {
 				unlink(p);
 				removed = true;
 			}
@@ -1343,7 +1196,7 @@ bool ConcurrentLinkedDeque::bulkRemove($Predicate* filter) {
 }
 
 void ConcurrentLinkedDeque::forEach($Consumer* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(action);
 	$var($Object, item, nullptr);
 	{
@@ -1366,23 +1219,22 @@ bool ConcurrentLinkedDeque::lambda$removeAll$0($Collection* c, Object$* e) {
 	return $nc(c)->contains(e);
 }
 
-void clinit$ConcurrentLinkedDeque($Class* class$) {
+void ConcurrentLinkedDeque::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
 		$assignStatic(ConcurrentLinkedDeque::PREV_TERMINATOR, $new($ConcurrentLinkedDeque$Node));
-		$set($nc(ConcurrentLinkedDeque::PREV_TERMINATOR), next, ConcurrentLinkedDeque::PREV_TERMINATOR);
+		$set(ConcurrentLinkedDeque::PREV_TERMINATOR, next, ConcurrentLinkedDeque::PREV_TERMINATOR);
 		$assignStatic(ConcurrentLinkedDeque::NEXT_TERMINATOR, $new($ConcurrentLinkedDeque$Node));
-		$set($nc(ConcurrentLinkedDeque::NEXT_TERMINATOR), prev, ConcurrentLinkedDeque::NEXT_TERMINATOR);
+		$set(ConcurrentLinkedDeque::NEXT_TERMINATOR, prev, ConcurrentLinkedDeque::NEXT_TERMINATOR);
 		try {
 			$var($MethodHandles$Lookup, l, $MethodHandles::lookup());
-			$load($ConcurrentLinkedDeque$Node);
 			$assignStatic(ConcurrentLinkedDeque::HEAD, $nc(l)->findVarHandle(ConcurrentLinkedDeque::class$, "head"_s, $ConcurrentLinkedDeque$Node::class$));
 			$assignStatic(ConcurrentLinkedDeque::TAIL, l->findVarHandle(ConcurrentLinkedDeque::class$, "tail"_s, $ConcurrentLinkedDeque$Node::class$));
 			$assignStatic(ConcurrentLinkedDeque::PREV, l->findVarHandle($ConcurrentLinkedDeque$Node::class$, "prev"_s, $ConcurrentLinkedDeque$Node::class$));
 			$assignStatic(ConcurrentLinkedDeque::NEXT, l->findVarHandle($ConcurrentLinkedDeque$Node::class$, "next"_s, $ConcurrentLinkedDeque$Node::class$));
 			$assignStatic(ConcurrentLinkedDeque::ITEM, l->findVarHandle($ConcurrentLinkedDeque$Node::class$, "item"_s, $Object::class$));
 		} catch ($ReflectiveOperationException& e) {
-			$throwNew($ExceptionInInitializerError, static_cast<$Throwable*>(e));
+			$throwNew($ExceptionInInitializerError, e);
 		}
 	}
 }
@@ -1392,14 +1244,127 @@ ConcurrentLinkedDeque::ConcurrentLinkedDeque() {
 
 $Class* ConcurrentLinkedDeque::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ConcurrentLinkedDeque$$Lambda$lambda$removeAll$0::classInfo$.name)) {
+		if (name->equals("java.util.concurrent.ConcurrentLinkedDeque$$Lambda$lambda$removeAll$0")) {
 			return ConcurrentLinkedDeque$$Lambda$lambda$removeAll$0::load$(name, initialize);
 		}
-		if (name->equals(ConcurrentLinkedDeque$$Lambda$lambda$retainAll$1$1::classInfo$.name)) {
+		if (name->equals("java.util.concurrent.ConcurrentLinkedDeque$$Lambda$lambda$retainAll$1$1")) {
 			return ConcurrentLinkedDeque$$Lambda$lambda$retainAll$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(ConcurrentLinkedDeque, name, initialize, &_ConcurrentLinkedDeque_ClassInfo_, clinit$ConcurrentLinkedDeque, allocate$ConcurrentLinkedDeque);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ConcurrentLinkedDeque, serialVersionUID)},
+		{"head", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", $PRIVATE | $VOLATILE | $TRANSIENT, $field(ConcurrentLinkedDeque, head)},
+		{"tail", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", $PRIVATE | $VOLATILE | $TRANSIENT, $field(ConcurrentLinkedDeque, tail)},
+		{"PREV_TERMINATOR", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node<Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ConcurrentLinkedDeque, PREV_TERMINATOR)},
+		{"NEXT_TERMINATOR", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "Ljava/util/concurrent/ConcurrentLinkedDeque$Node<Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ConcurrentLinkedDeque, NEXT_TERMINATOR)},
+		{"HOPS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ConcurrentLinkedDeque, HOPS)},
+		{"HEAD", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ConcurrentLinkedDeque, HEAD)},
+		{"TAIL", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ConcurrentLinkedDeque, TAIL)},
+		{"PREV", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ConcurrentLinkedDeque, PREV)},
+		{"NEXT", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ConcurrentLinkedDeque, NEXT)},
+		{"ITEM", "Ljava/lang/invoke/VarHandle;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ConcurrentLinkedDeque, ITEM)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ConcurrentLinkedDeque, init$, void)},
+		{"<init>", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+TE;>;)V", $PUBLIC, $method(ConcurrentLinkedDeque, init$, void, $Collection*)},
+		{"add", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, add, bool, Object$*)},
+		{"addAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, addAll, bool, $Collection*)},
+		{"addFirst", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, addFirst, void, Object$*)},
+		{"addLast", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, addLast, void, Object$*)},
+		{"bulkRemove", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PRIVATE, $method(ConcurrentLinkedDeque, bulkRemove, bool, $Predicate*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, contains, bool, Object$*)},
+		{"descendingIterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, descendingIterator, $Iterator*)},
+		{"element", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, element, $Object*)},
+		{"first", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", 0, $virtualMethod(ConcurrentLinkedDeque, first, $ConcurrentLinkedDeque$Node*)},
+		{"forEach", "(Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<-TE;>;)V", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, forEach, void, $Consumer*)},
+		{"getFirst", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, getFirst, $Object*)},
+		{"getLast", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, getLast, $Object*)},
+		{"initHeadTail", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node;Ljava/util/concurrent/ConcurrentLinkedDeque$Node;)V", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;)V", $PRIVATE, $method(ConcurrentLinkedDeque, initHeadTail, void, $ConcurrentLinkedDeque$Node*, $ConcurrentLinkedDeque$Node*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, isEmpty, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TE;>;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, iterator, $Iterator*)},
+		{"lambda$removeAll$0", "(Ljava/util/Collection;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ConcurrentLinkedDeque, lambda$removeAll$0, bool, $Collection*, Object$*)},
+		{"lambda$retainAll$1", "(Ljava/util/Collection;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ConcurrentLinkedDeque, lambda$retainAll$1, bool, $Collection*, Object$*)},
+		{"last", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", 0, $virtualMethod(ConcurrentLinkedDeque, last, $ConcurrentLinkedDeque$Node*)},
+		{"linkFirst", "(Ljava/lang/Object;)V", "(TE;)V", $PRIVATE, $method(ConcurrentLinkedDeque, linkFirst, void, Object$*)},
+		{"linkLast", "(Ljava/lang/Object;)V", "(TE;)V", $PRIVATE, $method(ConcurrentLinkedDeque, linkLast, void, Object$*)},
+		{"newNode", "(Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "<E:Ljava/lang/Object;>(TE;)Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", $STATIC, $staticMethod(ConcurrentLinkedDeque, newNode, $ConcurrentLinkedDeque$Node*, Object$*)},
+		{"nextTerminator", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", 0, $virtualMethod(ConcurrentLinkedDeque, nextTerminator, $ConcurrentLinkedDeque$Node*)},
+		{"offer", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, offer, bool, Object$*)},
+		{"offerFirst", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, offerFirst, bool, Object$*)},
+		{"offerLast", "(Ljava/lang/Object;)Z", "(TE;)Z", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, offerLast, bool, Object$*)},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"peek", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, peek, $Object*)},
+		{"peekFirst", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, peekFirst, $Object*)},
+		{"peekLast", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, peekLast, $Object*)},
+		{"poll", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, poll, $Object*)},
+		{"pollFirst", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, pollFirst, $Object*)},
+		{"pollLast", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, pollLast, $Object*)},
+		{"pop", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, pop, $Object*)},
+		{"pred", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node;)Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;)Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", $FINAL, $method(ConcurrentLinkedDeque, pred, $ConcurrentLinkedDeque$Node*, $ConcurrentLinkedDeque$Node*)},
+		{"prevTerminator", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "()Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", 0, $virtualMethod(ConcurrentLinkedDeque, prevTerminator, $ConcurrentLinkedDeque$Node*)},
+		{"push", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, push, void, Object$*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ConcurrentLinkedDeque, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"remove", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, remove, $Object*)},
+		{"remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, remove, bool, Object$*)},
+		{"removeAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, removeAll, bool, $Collection*)},
+		{"removeFirst", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, removeFirst, $Object*)},
+		{"removeFirstOccurrence", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, removeFirstOccurrence, bool, Object$*)},
+		{"removeIf", "(Ljava/util/function/Predicate;)Z", "(Ljava/util/function/Predicate<-TE;>;)Z", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, removeIf, bool, $Predicate*)},
+		{"removeLast", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, removeLast, $Object*)},
+		{"removeLastOccurrence", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, removeLastOccurrence, bool, Object$*)},
+		{"retainAll", "(Ljava/util/Collection;)Z", "(Ljava/util/Collection<*>;)Z", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, retainAll, bool, $Collection*)},
+		{"screenNullResult", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TE;)TE;", $PRIVATE, $method(ConcurrentLinkedDeque, screenNullResult, $Object*, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, size, int32_t)},
+		{"skipDeletedPredecessors", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node;)V", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;)V", $PRIVATE, $method(ConcurrentLinkedDeque, skipDeletedPredecessors, void, $ConcurrentLinkedDeque$Node*)},
+		{"skipDeletedSuccessors", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node;)V", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;)V", $PRIVATE, $method(ConcurrentLinkedDeque, skipDeletedSuccessors, void, $ConcurrentLinkedDeque$Node*)},
+		{"spliterator", "()Ljava/util/Spliterator;", "()Ljava/util/Spliterator<TE;>;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, spliterator, $Spliterator*)},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"succ", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node;)Ljava/util/concurrent/ConcurrentLinkedDeque$Node;", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;)Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;", $FINAL, $method(ConcurrentLinkedDeque, succ, $ConcurrentLinkedDeque$Node*, $ConcurrentLinkedDeque$Node*)},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, toArray, $ObjectArray*)},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, toArray, $ObjectArray*, $ObjectArray*)},
+		{"toArrayInternal", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PRIVATE, $method(ConcurrentLinkedDeque, toArrayInternal, $ObjectArray*, $ObjectArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConcurrentLinkedDeque, toString, $String*)},
+		{"unlink", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node;)V", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;)V", 0, $virtualMethod(ConcurrentLinkedDeque, unlink, void, $ConcurrentLinkedDeque$Node*)},
+		{"unlinkFirst", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node;Ljava/util/concurrent/ConcurrentLinkedDeque$Node;)V", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;)V", $PRIVATE, $method(ConcurrentLinkedDeque, unlinkFirst, void, $ConcurrentLinkedDeque$Node*, $ConcurrentLinkedDeque$Node*)},
+		{"unlinkLast", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node;Ljava/util/concurrent/ConcurrentLinkedDeque$Node;)V", "(Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;Ljava/util/concurrent/ConcurrentLinkedDeque$Node<TE;>;)V", $PRIVATE, $method(ConcurrentLinkedDeque, unlinkLast, void, $ConcurrentLinkedDeque$Node*, $ConcurrentLinkedDeque$Node*)},
+		{"updateHead", "()V", nullptr, $PRIVATE | $FINAL, $method(ConcurrentLinkedDeque, updateHead, void)},
+		{"updateTail", "()V", nullptr, $PRIVATE | $FINAL, $method(ConcurrentLinkedDeque, updateTail, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ConcurrentLinkedDeque, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.ConcurrentLinkedDeque$CLDSpliterator", "java.util.concurrent.ConcurrentLinkedDeque", "CLDSpliterator", $FINAL},
+		{"java.util.concurrent.ConcurrentLinkedDeque$DescendingItr", "java.util.concurrent.ConcurrentLinkedDeque", "DescendingItr", $PRIVATE},
+		{"java.util.concurrent.ConcurrentLinkedDeque$Itr", "java.util.concurrent.ConcurrentLinkedDeque", "Itr", $PRIVATE},
+		{"java.util.concurrent.ConcurrentLinkedDeque$AbstractItr", "java.util.concurrent.ConcurrentLinkedDeque", "AbstractItr", $PRIVATE | $ABSTRACT},
+		{"java.util.concurrent.ConcurrentLinkedDeque$Node", "java.util.concurrent.ConcurrentLinkedDeque", "Node", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.concurrent.ConcurrentLinkedDeque",
+		"java.util.AbstractCollection",
+		"java.util.Deque,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/AbstractCollection<TE;>;Ljava/util/Deque<TE;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.ConcurrentLinkedDeque$CLDSpliterator,java.util.concurrent.ConcurrentLinkedDeque$DescendingItr,java.util.concurrent.ConcurrentLinkedDeque$Itr,java.util.concurrent.ConcurrentLinkedDeque$AbstractItr,java.util.concurrent.ConcurrentLinkedDeque$Node"
+	};
+	$loadClass(ConcurrentLinkedDeque, name, initialize, &classInfo$$, ConcurrentLinkedDeque::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ConcurrentLinkedDeque));
+	});
 	return class$;
 }
 

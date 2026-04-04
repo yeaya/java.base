@@ -28,6 +28,7 @@ class Files$FileTypeDetectors : public ::java::lang::Object {
 	$class(Files$FileTypeDetectors, 0, ::java::lang::Object)
 public:
 	Files$FileTypeDetectors();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::nio::file::spi::FileTypeDetector* createDefaultFileTypeDetector();
 	static ::java::util::List* loadInstalledDetectors();

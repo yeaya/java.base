@@ -19,6 +19,7 @@ class DatagramChannelImpl$DefaultOptionsHolder : public ::java::lang::Object {
 	$class(DatagramChannelImpl$DefaultOptionsHolder, 0, ::java::lang::Object)
 public:
 	DatagramChannelImpl$DefaultOptionsHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Set* defaultOptions();
 	static ::java::util::Set* defaultOptions$;

@@ -30,6 +30,7 @@ class ECPointFormatsExtension$ECPointFormatsSpec : public ::sun::security::ssl::
 	$class(ECPointFormatsExtension$ECPointFormatsSpec, 0, ::sun::security::ssl::SSLExtension$SSLExtensionSpec)
 public:
 	ECPointFormatsExtension$ECPointFormatsSpec();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($bytes* formats);
 	void init$(::sun::security::ssl::HandshakeContext* hc, ::java::nio::ByteBuffer* m);
 	bool hasUncompressedFormat();

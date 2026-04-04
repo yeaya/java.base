@@ -1,5 +1,4 @@
 #include <java/io/IOException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,32 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _IOException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(IOException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _IOException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IOException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IOException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(IOException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(IOException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _IOException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.IOException",
-	"java.lang.Exception",
-	nullptr,
-	_IOException_FieldInfo_,
-	_IOException_MethodInfo_
-};
-
-$Object* allocate$IOException($Class* clazz) {
-	return $of($alloc(IOException));
-}
 
 void IOException::init$() {
 	$Exception::init$();
@@ -63,7 +36,28 @@ void IOException::throw$() {
 }
 
 $Class* IOException::load$($String* name, bool initialize) {
-	$loadClass(IOException, name, initialize, &_IOException_ClassInfo_, allocate$IOException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(IOException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IOException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IOException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(IOException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(IOException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.IOException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IOException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IOException);
+	});
 	return class$;
 }
 

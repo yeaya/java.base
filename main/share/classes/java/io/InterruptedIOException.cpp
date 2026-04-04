@@ -1,5 +1,4 @@
 #include <java/io/InterruptedIOException.h>
-
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
@@ -10,31 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace io {
-
-$FieldInfo _InterruptedIOException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InterruptedIOException, serialVersionUID)},
-	{"bytesTransferred", "I", nullptr, $PUBLIC, $field(InterruptedIOException, bytesTransferred)},
-	{}
-};
-
-$MethodInfo _InterruptedIOException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InterruptedIOException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InterruptedIOException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _InterruptedIOException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.io.InterruptedIOException",
-	"java.io.IOException",
-	nullptr,
-	_InterruptedIOException_FieldInfo_,
-	_InterruptedIOException_MethodInfo_
-};
-
-$Object* allocate$InterruptedIOException($Class* clazz) {
-	return $of($alloc(InterruptedIOException));
-}
 
 void InterruptedIOException::init$() {
 	$IOException::init$();
@@ -57,7 +31,27 @@ void InterruptedIOException::throw$() {
 }
 
 $Class* InterruptedIOException::load$($String* name, bool initialize) {
-	$loadClass(InterruptedIOException, name, initialize, &_InterruptedIOException_ClassInfo_, allocate$InterruptedIOException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InterruptedIOException, serialVersionUID)},
+		{"bytesTransferred", "I", nullptr, $PUBLIC, $field(InterruptedIOException, bytesTransferred)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InterruptedIOException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InterruptedIOException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.io.InterruptedIOException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InterruptedIOException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InterruptedIOException);
+	});
 	return class$;
 }
 

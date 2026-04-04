@@ -92,7 +92,7 @@ public:
 	::java::time::chrono::MinguoDate* with(::java::time::LocalDate* newDate);
 	void writeExternal(::java::io::DataOutput* out);
 	$Object* writeReplace();
-	static const int64_t serialVersionUID = (int64_t)0x120BD9BE64A3DE1E;
+	static const int64_t serialVersionUID = (int64_t)0x120bd9be64a3de1e;
 	::java::time::LocalDate* isoDate = nullptr;
 };
 

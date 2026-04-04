@@ -66,6 +66,7 @@ public:
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
 	virtual bool isOpen() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void force(bool metaData) {}
 	virtual ::java::nio::channels::FileLock* lock(int64_t position, int64_t size, bool shared) {return nullptr;}

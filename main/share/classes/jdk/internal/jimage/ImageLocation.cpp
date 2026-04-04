@@ -1,5 +1,4 @@
 #include <jdk/internal/jimage/ImageLocation.h>
-
 #include <java/lang/InternalError.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Objects.h>
@@ -35,65 +34,6 @@ namespace jdk {
 	namespace internal {
 		namespace jimage {
 
-$FieldInfo _ImageLocation_FieldInfo_[] = {
-	{"ATTRIBUTE_END", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageLocation, ATTRIBUTE_END)},
-	{"ATTRIBUTE_MODULE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageLocation, ATTRIBUTE_MODULE)},
-	{"ATTRIBUTE_PARENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageLocation, ATTRIBUTE_PARENT)},
-	{"ATTRIBUTE_BASE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageLocation, ATTRIBUTE_BASE)},
-	{"ATTRIBUTE_EXTENSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageLocation, ATTRIBUTE_EXTENSION)},
-	{"ATTRIBUTE_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageLocation, ATTRIBUTE_OFFSET)},
-	{"ATTRIBUTE_COMPRESSED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageLocation, ATTRIBUTE_COMPRESSED)},
-	{"ATTRIBUTE_UNCOMPRESSED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageLocation, ATTRIBUTE_UNCOMPRESSED)},
-	{"ATTRIBUTE_COUNT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageLocation, ATTRIBUTE_COUNT)},
-	{"attributes", "[J", nullptr, $PROTECTED | $FINAL, $field(ImageLocation, attributes)},
-	{"strings", "Ljdk/internal/jimage/ImageStrings;", nullptr, $PROTECTED | $FINAL, $field(ImageLocation, strings)},
-	{}
-};
-
-$MethodInfo _ImageLocation_MethodInfo_[] = {
-	{"<init>", "([JLjdk/internal/jimage/ImageStrings;)V", nullptr, $PUBLIC, $method(ImageLocation, init$, void, $longs*, $ImageStrings*)},
-	{"buildName", "(ZZZ)Ljava/lang/String;", nullptr, 0, $virtualMethod(ImageLocation, buildName, $String*, bool, bool, bool)},
-	{"compress", "([J)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageLocation, compress, $bytes*, $longs*)},
-	{"decompress", "(Ljava/nio/ByteBuffer;I)[J", nullptr, $STATIC, $staticMethod(ImageLocation, decompress, $longs*, $ByteBuffer*, int32_t)},
-	{"getAttribute", "(I)J", nullptr, 0, $virtualMethod(ImageLocation, getAttribute, int64_t, int32_t)},
-	{"getAttributeString", "(I)Ljava/lang/String;", nullptr, 0, $virtualMethod(ImageLocation, getAttributeString, $String*, int32_t)},
-	{"getBase", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageLocation, getBase, $String*)},
-	{"getBaseOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ImageLocation, getBaseOffset, int32_t)},
-	{"getCompressedSize", "()J", nullptr, $PUBLIC, $virtualMethod(ImageLocation, getCompressedSize, int64_t)},
-	{"getContentOffset", "()J", nullptr, $PUBLIC, $virtualMethod(ImageLocation, getContentOffset, int64_t)},
-	{"getExtension", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageLocation, getExtension, $String*)},
-	{"getExtensionOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ImageLocation, getExtensionOffset, int32_t)},
-	{"getFullName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageLocation, getFullName, $String*)},
-	{"getFullName", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageLocation, getFullName, $String*, bool)},
-	{"getModule", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageLocation, getModule, $String*)},
-	{"getModuleOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ImageLocation, getModuleOffset, int32_t)},
-	{"getParent", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageLocation, getParent, $String*)},
-	{"getParentOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ImageLocation, getParentOffset, int32_t)},
-	{"getStrings", "()Ljdk/internal/jimage/ImageStrings;", nullptr, 0, $virtualMethod(ImageLocation, getStrings, $ImageStrings*)},
-	{"getUncompressedSize", "()J", nullptr, $PUBLIC, $virtualMethod(ImageLocation, getUncompressedSize, int64_t)},
-	{"readFrom", "(Ljdk/internal/jimage/BasicImageReader;I)Ljdk/internal/jimage/ImageLocation;", nullptr, $STATIC, $staticMethod(ImageLocation, readFrom, ImageLocation*, $BasicImageReader*, int32_t)},
-	{"readValue", "(ILjava/nio/ByteBuffer;II)J", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageLocation, readValue, int64_t, int32_t, $ByteBuffer*, int32_t, int32_t)},
-	{"verify", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ImageLocation, verify, bool, $String*)},
-	{"verify", "(Ljava/lang/String;[JLjdk/internal/jimage/ImageStrings;)Z", nullptr, $STATIC, $staticMethod(ImageLocation, verify, bool, $String*, $longs*, $ImageStrings*)},
-	{"verify", "(Ljava/lang/String;Ljava/lang/String;Ljava/nio/ByteBuffer;ILjdk/internal/jimage/ImageStrings;)Z", nullptr, $STATIC, $staticMethod(ImageLocation, verify, bool, $String*, $String*, $ByteBuffer*, int32_t, $ImageStrings*)},
-	{"verify", "(Ljava/lang/String;Ljava/lang/String;[JLjdk/internal/jimage/ImageStrings;)Z", nullptr, $STATIC, $staticMethod(ImageLocation, verify, bool, $String*, $String*, $longs*, $ImageStrings*)},
-	{"verifyName", "(Ljava/lang/String;Ljava/lang/String;IIIIIILjdk/internal/jimage/ImageStrings;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageLocation, verifyName, bool, $String*, $String*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ImageStrings*)},
-	{}
-};
-
-$ClassInfo _ImageLocation_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.jimage.ImageLocation",
-	"java.lang.Object",
-	nullptr,
-	_ImageLocation_FieldInfo_,
-	_ImageLocation_MethodInfo_
-};
-
-$Object* allocate$ImageLocation($Class* clazz) {
-	return $of($alloc(ImageLocation));
-}
-
 void ImageLocation::init$($longs* attributes, $ImageStrings* strings) {
 	$set(this, attributes, $cast($longs, $Objects::requireNonNull(attributes)));
 	$set(this, strings, $cast($ImageStrings, $Objects::requireNonNull(strings)));
@@ -104,12 +44,12 @@ $ImageStrings* ImageLocation::getStrings() {
 }
 
 $longs* ImageLocation::decompress($ByteBuffer* bytes, int32_t offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(bytes);
 	$var($longs, attributes, $new($longs, ImageLocation::ATTRIBUTE_COUNT));
 	int32_t limit = bytes->limit();
 	while (offset < limit) {
-		int32_t data = (int32_t)(bytes->get(offset++) & (uint32_t)255);
+		int32_t data = bytes->get(offset++) & 0xff;
 		if (data <= 7) {
 			break;
 		}
@@ -117,7 +57,7 @@ $longs* ImageLocation::decompress($ByteBuffer* bytes, int32_t offset) {
 		if (ImageLocation::ATTRIBUTE_COUNT <= kind) {
 			$throwNew($InternalError, $$str({"Invalid jimage attribute kind: "_s, $$str(kind)}));
 		}
-		int32_t length = ((int32_t)(data & (uint32_t)7)) + 1;
+		int32_t length = (data & 7) + 1;
 		attributes->set(kind, readValue(length, bytes, offset, limit));
 		offset += length;
 	}
@@ -162,14 +102,14 @@ bool ImageLocation::verify($String* name, $longs* attributes, $ImageStrings* str
 }
 
 bool ImageLocation::verify($String* module, $String* name, $ByteBuffer* locations, int32_t locationOffset, $ImageStrings* strings) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t moduleOffset = 0;
 	int32_t parentOffset = 0;
 	int32_t baseOffset = 0;
 	int32_t extOffset = 0;
 	int32_t limit = $nc(locations)->limit();
 	while (locationOffset < limit) {
-		int32_t data = (int32_t)(locations->get(locationOffset++) & (uint32_t)255);
+		int32_t data = locations->get(locationOffset++) & 0xff;
 		if (data <= 7) {
 			break;
 		}
@@ -177,28 +117,20 @@ bool ImageLocation::verify($String* module, $String* name, $ByteBuffer* location
 		if (ImageLocation::ATTRIBUTE_COUNT <= kind) {
 			$throwNew($InternalError, $$str({"Invalid jimage attribute kind: "_s, $$str(kind)}));
 		}
-		int32_t length = ((int32_t)(data & (uint32_t)7)) + 1;
+		int32_t length = (data & 7) + 1;
 		switch (kind) {
 		case ImageLocation::ATTRIBUTE_MODULE:
-			{
-				moduleOffset = (int32_t)readValue(length, locations, locationOffset, limit);
-				break;
-			}
+			moduleOffset = (int32_t)readValue(length, locations, locationOffset, limit);
+			break;
 		case ImageLocation::ATTRIBUTE_BASE:
-			{
-				baseOffset = (int32_t)readValue(length, locations, locationOffset, limit);
-				break;
-			}
+			baseOffset = (int32_t)readValue(length, locations, locationOffset, limit);
+			break;
 		case ImageLocation::ATTRIBUTE_PARENT:
-			{
-				parentOffset = (int32_t)readValue(length, locations, locationOffset, limit);
-				break;
-			}
+			parentOffset = (int32_t)readValue(length, locations, locationOffset, limit);
+			break;
 		case ImageLocation::ATTRIBUTE_EXTENSION:
-			{
-				extOffset = (int32_t)readValue(length, locations, locationOffset, limit);
-				break;
-			}
+			extOffset = (int32_t)readValue(length, locations, locationOffset, limit);
+			break;
 		}
 		locationOffset += length;
 	}
@@ -212,7 +144,7 @@ int64_t ImageLocation::readValue(int32_t length, $ByteBuffer* buffer, int32_t of
 		if (offset >= limit) {
 			$throwNew($InternalError, "Missing jimage attribute data"_s);
 		}
-		value |= (int32_t)($nc(buffer)->get(offset++) & (uint32_t)255);
+		value |= $nc(buffer)->get(offset++) & 0xff;
 	}
 	return value;
 }
@@ -220,7 +152,7 @@ int64_t ImageLocation::readValue(int32_t length, $ByteBuffer* buffer, int32_t of
 bool ImageLocation::verify($String* module, $String* name, $longs* attributes, $ImageStrings* strings) {
 	$Objects::requireNonNull(module);
 	$Objects::requireNonNull(name);
-	return verifyName(module, name, 0, name->length(), (int32_t)$nc(attributes)->get(ImageLocation::ATTRIBUTE_MODULE), (int32_t)attributes->get(ImageLocation::ATTRIBUTE_PARENT), (int32_t)attributes->get(ImageLocation::ATTRIBUTE_BASE), (int32_t)attributes->get(ImageLocation::ATTRIBUTE_EXTENSION), strings);
+	return verifyName(module, name, 0, name->length(), (int32_t)$nc(attributes)->get(ImageLocation::ATTRIBUTE_MODULE), (int32_t)$nc(attributes)->get(ImageLocation::ATTRIBUTE_PARENT), (int32_t)$nc(attributes)->get(ImageLocation::ATTRIBUTE_BASE), (int32_t)$nc(attributes)->get(ImageLocation::ATTRIBUTE_EXTENSION), strings);
 }
 
 bool ImageLocation::verifyName($String* module, $String* name, int32_t index, int32_t length, int32_t moduleOffset, int32_t parentOffset, int32_t baseOffset, int32_t extOffset, $ImageStrings* strings) {
@@ -259,7 +191,7 @@ bool ImageLocation::verifyName($String* module, $String* name, int32_t index, in
 }
 
 int64_t ImageLocation::getAttribute(int32_t kind) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (kind < ImageLocation::ATTRIBUTE_END || ImageLocation::ATTRIBUTE_COUNT <= kind) {
 		$throwNew($InternalError, $$str({"Invalid jimage attribute kind: "_s, $$str(kind)}));
 	}
@@ -267,11 +199,11 @@ int64_t ImageLocation::getAttribute(int32_t kind) {
 }
 
 $String* ImageLocation::getAttributeString(int32_t kind) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (kind < ImageLocation::ATTRIBUTE_END || ImageLocation::ATTRIBUTE_COUNT <= kind) {
 		$throwNew($InternalError, $$str({"Invalid jimage attribute kind: "_s, $$str(kind)}));
 	}
-	return $nc($(getStrings()))->get((int32_t)$nc(this->attributes)->get(kind));
+	return $$nc(getStrings())->get((int32_t)$nc(this->attributes)->get(kind));
 }
 
 $String* ImageLocation::getModule() {
@@ -311,7 +243,7 @@ $String* ImageLocation::getFullName() {
 }
 
 $String* ImageLocation::getFullName(bool modulesPrefix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, builder, $new($StringBuilder));
 	if (getModuleOffset() != 0) {
 		if (modulesPrefix) {
@@ -334,7 +266,7 @@ $String* ImageLocation::getFullName(bool modulesPrefix) {
 }
 
 $String* ImageLocation::buildName(bool includeModule, bool includeParent, bool includeName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, builder, $new($StringBuilder));
 	if (includeModule && getModuleOffset() != 0) {
 		builder->append("/modules/"_s);
@@ -370,7 +302,7 @@ int64_t ImageLocation::getUncompressedSize() {
 }
 
 ImageLocation* ImageLocation::readFrom($BasicImageReader* reader, int32_t offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(reader);
 	$var($longs, attributes, reader->getAttributes(offset));
 	$var($ImageStringsReader, strings, reader->getStrings());
@@ -381,7 +313,61 @@ ImageLocation::ImageLocation() {
 }
 
 $Class* ImageLocation::load$($String* name, bool initialize) {
-	$loadClass(ImageLocation, name, initialize, &_ImageLocation_ClassInfo_, allocate$ImageLocation);
+	$FieldInfo fieldInfos$$[] = {
+		{"ATTRIBUTE_END", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageLocation, ATTRIBUTE_END)},
+		{"ATTRIBUTE_MODULE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageLocation, ATTRIBUTE_MODULE)},
+		{"ATTRIBUTE_PARENT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageLocation, ATTRIBUTE_PARENT)},
+		{"ATTRIBUTE_BASE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageLocation, ATTRIBUTE_BASE)},
+		{"ATTRIBUTE_EXTENSION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageLocation, ATTRIBUTE_EXTENSION)},
+		{"ATTRIBUTE_OFFSET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageLocation, ATTRIBUTE_OFFSET)},
+		{"ATTRIBUTE_COMPRESSED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageLocation, ATTRIBUTE_COMPRESSED)},
+		{"ATTRIBUTE_UNCOMPRESSED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageLocation, ATTRIBUTE_UNCOMPRESSED)},
+		{"ATTRIBUTE_COUNT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ImageLocation, ATTRIBUTE_COUNT)},
+		{"attributes", "[J", nullptr, $PROTECTED | $FINAL, $field(ImageLocation, attributes)},
+		{"strings", "Ljdk/internal/jimage/ImageStrings;", nullptr, $PROTECTED | $FINAL, $field(ImageLocation, strings)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([JLjdk/internal/jimage/ImageStrings;)V", nullptr, $PUBLIC, $method(ImageLocation, init$, void, $longs*, $ImageStrings*)},
+		{"buildName", "(ZZZ)Ljava/lang/String;", nullptr, 0, $virtualMethod(ImageLocation, buildName, $String*, bool, bool, bool)},
+		{"compress", "([J)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageLocation, compress, $bytes*, $longs*)},
+		{"decompress", "(Ljava/nio/ByteBuffer;I)[J", nullptr, $STATIC, $staticMethod(ImageLocation, decompress, $longs*, $ByteBuffer*, int32_t)},
+		{"getAttribute", "(I)J", nullptr, 0, $virtualMethod(ImageLocation, getAttribute, int64_t, int32_t)},
+		{"getAttributeString", "(I)Ljava/lang/String;", nullptr, 0, $virtualMethod(ImageLocation, getAttributeString, $String*, int32_t)},
+		{"getBase", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageLocation, getBase, $String*)},
+		{"getBaseOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ImageLocation, getBaseOffset, int32_t)},
+		{"getCompressedSize", "()J", nullptr, $PUBLIC, $virtualMethod(ImageLocation, getCompressedSize, int64_t)},
+		{"getContentOffset", "()J", nullptr, $PUBLIC, $virtualMethod(ImageLocation, getContentOffset, int64_t)},
+		{"getExtension", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageLocation, getExtension, $String*)},
+		{"getExtensionOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ImageLocation, getExtensionOffset, int32_t)},
+		{"getFullName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageLocation, getFullName, $String*)},
+		{"getFullName", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageLocation, getFullName, $String*, bool)},
+		{"getModule", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageLocation, getModule, $String*)},
+		{"getModuleOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ImageLocation, getModuleOffset, int32_t)},
+		{"getParent", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageLocation, getParent, $String*)},
+		{"getParentOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ImageLocation, getParentOffset, int32_t)},
+		{"getStrings", "()Ljdk/internal/jimage/ImageStrings;", nullptr, 0, $virtualMethod(ImageLocation, getStrings, $ImageStrings*)},
+		{"getUncompressedSize", "()J", nullptr, $PUBLIC, $virtualMethod(ImageLocation, getUncompressedSize, int64_t)},
+		{"readFrom", "(Ljdk/internal/jimage/BasicImageReader;I)Ljdk/internal/jimage/ImageLocation;", nullptr, $STATIC, $staticMethod(ImageLocation, readFrom, ImageLocation*, $BasicImageReader*, int32_t)},
+		{"readValue", "(ILjava/nio/ByteBuffer;II)J", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageLocation, readValue, int64_t, int32_t, $ByteBuffer*, int32_t, int32_t)},
+		{"verify", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ImageLocation, verify, bool, $String*)},
+		{"verify", "(Ljava/lang/String;[JLjdk/internal/jimage/ImageStrings;)Z", nullptr, $STATIC, $staticMethod(ImageLocation, verify, bool, $String*, $longs*, $ImageStrings*)},
+		{"verify", "(Ljava/lang/String;Ljava/lang/String;Ljava/nio/ByteBuffer;ILjdk/internal/jimage/ImageStrings;)Z", nullptr, $STATIC, $staticMethod(ImageLocation, verify, bool, $String*, $String*, $ByteBuffer*, int32_t, $ImageStrings*)},
+		{"verify", "(Ljava/lang/String;Ljava/lang/String;[JLjdk/internal/jimage/ImageStrings;)Z", nullptr, $STATIC, $staticMethod(ImageLocation, verify, bool, $String*, $String*, $longs*, $ImageStrings*)},
+		{"verifyName", "(Ljava/lang/String;Ljava/lang/String;IIIIIILjdk/internal/jimage/ImageStrings;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageLocation, verifyName, bool, $String*, $String*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ImageStrings*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.jimage.ImageLocation",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ImageLocation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageLocation);
+	});
 	return class$;
 }
 

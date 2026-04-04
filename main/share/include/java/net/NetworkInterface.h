@@ -32,6 +32,7 @@ class $import NetworkInterface : public ::java::lang::Object {
 	$class(NetworkInterface, 0, ::java::lang::Object)
 public:
 	NetworkInterface();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* name, int32_t index, $Array<::java::net::InetAddress>* addrs);
 	static bool boundInetAddress0(::java::net::InetAddress* addr);

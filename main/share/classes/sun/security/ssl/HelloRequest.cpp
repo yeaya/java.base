@@ -1,5 +1,4 @@
 #include <sun/security/ssl/HelloRequest.h>
-
 #include <sun/security/ssl/HandshakeProducer.h>
 #include <sun/security/ssl/HelloRequest$HelloRequestConsumer.h>
 #include <sun/security/ssl/HelloRequest$HelloRequestKickstartProducer.h>
@@ -23,45 +22,6 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$FieldInfo _HelloRequest_FieldInfo_[] = {
-	{"kickstartProducer", "Lsun/security/ssl/SSLProducer;", nullptr, $STATIC | $FINAL, $staticField(HelloRequest, kickstartProducer)},
-	{"handshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(HelloRequest, handshakeConsumer)},
-	{"handshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(HelloRequest, handshakeProducer)},
-	{}
-};
-
-$MethodInfo _HelloRequest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HelloRequest, init$, void)},
-	{}
-};
-
-$InnerClassInfo _HelloRequest_InnerClassesInfo_[] = {
-	{"sun.security.ssl.HelloRequest$HelloRequestConsumer", "sun.security.ssl.HelloRequest", "HelloRequestConsumer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.HelloRequest$HelloRequestProducer", "sun.security.ssl.HelloRequest", "HelloRequestProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.HelloRequest$HelloRequestKickstartProducer", "sun.security.ssl.HelloRequest", "HelloRequestKickstartProducer", $PRIVATE | $STATIC | $FINAL},
-	{"sun.security.ssl.HelloRequest$HelloRequestMessage", "sun.security.ssl.HelloRequest", "HelloRequestMessage", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _HelloRequest_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.HelloRequest",
-	"java.lang.Object",
-	nullptr,
-	_HelloRequest_FieldInfo_,
-	_HelloRequest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HelloRequest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.HelloRequest$HelloRequestConsumer,sun.security.ssl.HelloRequest$HelloRequestProducer,sun.security.ssl.HelloRequest$HelloRequestKickstartProducer,sun.security.ssl.HelloRequest$HelloRequestMessage"
-};
-
-$Object* allocate$HelloRequest($Class* clazz) {
-	return $of($alloc(HelloRequest));
-}
-
 $SSLProducer* HelloRequest::kickstartProducer = nullptr;
 $SSLConsumer* HelloRequest::handshakeConsumer = nullptr;
 $HandshakeProducer* HelloRequest::handshakeProducer = nullptr;
@@ -69,7 +29,7 @@ $HandshakeProducer* HelloRequest::handshakeProducer = nullptr;
 void HelloRequest::init$() {
 }
 
-void clinit$HelloRequest($Class* class$) {
+void HelloRequest::clinit$($Class* clazz) {
 	$assignStatic(HelloRequest::kickstartProducer, $new($HelloRequest$HelloRequestKickstartProducer));
 	$assignStatic(HelloRequest::handshakeConsumer, $new($HelloRequest$HelloRequestConsumer));
 	$assignStatic(HelloRequest::handshakeProducer, $new($HelloRequest$HelloRequestProducer));
@@ -79,7 +39,40 @@ HelloRequest::HelloRequest() {
 }
 
 $Class* HelloRequest::load$($String* name, bool initialize) {
-	$loadClass(HelloRequest, name, initialize, &_HelloRequest_ClassInfo_, clinit$HelloRequest, allocate$HelloRequest);
+	$FieldInfo fieldInfos$$[] = {
+		{"kickstartProducer", "Lsun/security/ssl/SSLProducer;", nullptr, $STATIC | $FINAL, $staticField(HelloRequest, kickstartProducer)},
+		{"handshakeConsumer", "Lsun/security/ssl/SSLConsumer;", nullptr, $STATIC | $FINAL, $staticField(HelloRequest, handshakeConsumer)},
+		{"handshakeProducer", "Lsun/security/ssl/HandshakeProducer;", nullptr, $STATIC | $FINAL, $staticField(HelloRequest, handshakeProducer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HelloRequest, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.HelloRequest$HelloRequestConsumer", "sun.security.ssl.HelloRequest", "HelloRequestConsumer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.HelloRequest$HelloRequestProducer", "sun.security.ssl.HelloRequest", "HelloRequestProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.HelloRequest$HelloRequestKickstartProducer", "sun.security.ssl.HelloRequest", "HelloRequestKickstartProducer", $PRIVATE | $STATIC | $FINAL},
+		{"sun.security.ssl.HelloRequest$HelloRequestMessage", "sun.security.ssl.HelloRequest", "HelloRequestMessage", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.HelloRequest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.HelloRequest$HelloRequestConsumer,sun.security.ssl.HelloRequest$HelloRequestProducer,sun.security.ssl.HelloRequest$HelloRequestKickstartProducer,sun.security.ssl.HelloRequest$HelloRequestMessage"
+	};
+	$loadClass(HelloRequest, name, initialize, &classInfo$$, HelloRequest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HelloRequest);
+	});
 	return class$;
 }
 

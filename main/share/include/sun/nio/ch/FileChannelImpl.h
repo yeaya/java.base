@@ -82,6 +82,7 @@ class $import FileChannelImpl : public ::java::nio::channels::FileChannel {
 	$class(FileChannelImpl, 0, ::java::nio::channels::FileChannel)
 public:
 	FileChannelImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::FileDescriptor* fd, $String* path, bool readable, bool writable, bool direct, Object$* parent);
 	void beginBlocking();
 	void checkMode(::java::nio::channels::FileChannel$MapMode* mode, int32_t prot, bool isSync);

@@ -14,13 +14,14 @@ class $export RandomSupport$DoubleZigguratTables : public ::java::lang::Object {
 	$class(RandomSupport$DoubleZigguratTables, 0, ::java::lang::Object)
 public:
 	RandomSupport$DoubleZigguratTables();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static const int32_t exponentialNumberOfLayers = 252;
 	static const int32_t exponentialLayerMask = 255;
 	static const int32_t exponentialAliasMask = 255;
 	static const int32_t exponentialSignCorrectionMask = 255;
 	static double exponentialX0;
-	static const int64_t exponentialConvexMargin = (int64_t)0x0BD9E55C3077902D;
+	static const int64_t exponentialConvexMargin = (int64_t)0x0bd9e55c3077902d;
 	static $doubles* exponentialX;
 	static $doubles* exponentialY;
 	static $longs* exponentialAliasThreshold;
@@ -31,8 +32,8 @@ public:
 	static const int32_t normalSignCorrectionMask = 255;
 	static double normalX0;
 	static const int32_t normalInflectionIndex = 204;
-	static const int64_t normalConvexMargin = (int64_t)0x0A8DB5B5BE6D786F;
-	static const int64_t normalConcaveMargin = (int64_t)0x1F7DC1DF32286D4C;
+	static const int64_t normalConvexMargin = (int64_t)0x0a8db5b5be6d786f;
+	static const int64_t normalConcaveMargin = (int64_t)0x1f7dc1df32286d4c;
 	static $doubles* normalX;
 	static $doubles* normalY;
 	static $longs* normalAliasThreshold;

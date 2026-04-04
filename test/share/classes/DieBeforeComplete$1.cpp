@@ -1,5 +1,4 @@
 #include <DieBeforeComplete$1.h>
-
 #include <DieBeforeComplete.h>
 #include <java/nio/channels/AsynchronousServerSocketChannel.h>
 #include <java/util/concurrent/Future.h>
@@ -13,49 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AsynchronousServerSocketChannel = ::java::nio::channels::AsynchronousServerSocketChannel;
 using $Future = ::java::util::concurrent::Future;
 
-$FieldInfo _DieBeforeComplete$1_FieldInfo_[] = {
-	{"val$listener", "Ljava/nio/channels/AsynchronousServerSocketChannel;", nullptr, $FINAL | $SYNTHETIC, $field(DieBeforeComplete$1, val$listener)},
-	{}
-};
-
-$MethodInfo _DieBeforeComplete$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/channels/AsynchronousServerSocketChannel;)V", "()V", 0, $method(DieBeforeComplete$1, init$, void, $AsynchronousServerSocketChannel*)},
-	{"run", "()Ljava/util/concurrent/Future;", "()Ljava/util/concurrent/Future<Ljava/nio/channels/AsynchronousSocketChannel;>;", $PUBLIC, $virtualMethod(DieBeforeComplete$1, run, $Future*)},
-	{}
-};
-
-$EnclosingMethodInfo _DieBeforeComplete$1_EnclosingMethodInfo_ = {
-	"DieBeforeComplete",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _DieBeforeComplete$1_InnerClassesInfo_[] = {
-	{"DieBeforeComplete$1", nullptr, nullptr, 0},
-	{"DieBeforeComplete$Task", "DieBeforeComplete", "Task", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DieBeforeComplete$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"DieBeforeComplete$1",
-	"java.lang.Object",
-	"DieBeforeComplete$Task",
-	_DieBeforeComplete$1_FieldInfo_,
-	_DieBeforeComplete$1_MethodInfo_,
-	"Ljava/lang/Object;LDieBeforeComplete$Task<Ljava/nio/channels/AsynchronousSocketChannel;>;",
-	&_DieBeforeComplete$1_EnclosingMethodInfo_,
-	_DieBeforeComplete$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"DieBeforeComplete"
-};
-
-$Object* allocate$DieBeforeComplete$1($Class* clazz) {
-	return $of($alloc(DieBeforeComplete$1));
-}
-
 void DieBeforeComplete$1::init$($AsynchronousServerSocketChannel* val$listener) {
 	$set(this, val$listener, val$listener);
 }
@@ -68,7 +24,43 @@ DieBeforeComplete$1::DieBeforeComplete$1() {
 }
 
 $Class* DieBeforeComplete$1::load$($String* name, bool initialize) {
-	$loadClass(DieBeforeComplete$1, name, initialize, &_DieBeforeComplete$1_ClassInfo_, allocate$DieBeforeComplete$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$listener", "Ljava/nio/channels/AsynchronousServerSocketChannel;", nullptr, $FINAL | $SYNTHETIC, $field(DieBeforeComplete$1, val$listener)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/channels/AsynchronousServerSocketChannel;)V", "()V", 0, $method(DieBeforeComplete$1, init$, void, $AsynchronousServerSocketChannel*)},
+		{"run", "()Ljava/util/concurrent/Future;", "()Ljava/util/concurrent/Future<Ljava/nio/channels/AsynchronousSocketChannel;>;", $PUBLIC, $virtualMethod(DieBeforeComplete$1, run, $Future*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"DieBeforeComplete",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"DieBeforeComplete$1", nullptr, nullptr, 0},
+		{"DieBeforeComplete$Task", "DieBeforeComplete", "Task", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"DieBeforeComplete$1",
+		"java.lang.Object",
+		"DieBeforeComplete$Task",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;LDieBeforeComplete$Task<Ljava/nio/channels/AsynchronousSocketChannel;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"DieBeforeComplete"
+	};
+	$loadClass(DieBeforeComplete$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DieBeforeComplete$1);
+	});
 	return class$;
 }
 

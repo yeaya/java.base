@@ -1,5 +1,4 @@
 #include <java/lang/invoke/VarHandleBooleans$FieldStaticReadWrite.h>
-
 #include <java/lang/invoke/MethodHandleStatics.h>
 #include <java/lang/invoke/VarForm.h>
 #include <java/lang/invoke/VarHandle.h>
@@ -22,194 +21,10 @@ using $MethodHandleStatics = ::java::lang::invoke::MethodHandleStatics;
 using $VarForm = ::java::lang::invoke::VarForm;
 using $VarHandle = ::java::lang::invoke::VarHandle;
 using $VarHandleBooleans$FieldStaticReadOnly = ::java::lang::invoke::VarHandleBooleans$FieldStaticReadOnly;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$CompoundAttribute _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_compareAndExchange2[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_compareAndExchangeAcquire3[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_compareAndExchangeRelease4[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_compareAndSet5[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_getAndBitwiseAnd6[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_getAndBitwiseAndAcquire7[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_getAndBitwiseAndRelease8[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_getAndBitwiseOr9[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_getAndBitwiseOrAcquire10[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_getAndBitwiseOrRelease11[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_getAndBitwiseXor12[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_getAndBitwiseXorAcquire13[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_getAndBitwiseXorRelease14[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_getAndSet15[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_getAndSetAcquire16[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_getAndSetRelease17[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_set18[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_setOpaque19[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_setRelease20[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_setVolatile21[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_weakCompareAndSet22[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_weakCompareAndSetAcquire23[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_weakCompareAndSetPlain24[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_weakCompareAndSetRelease25[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$FieldInfo _VarHandleBooleans$FieldStaticReadWrite_FieldInfo_[] = {
-	{"FORM", "Ljava/lang/invoke/VarForm;", nullptr, $STATIC | $FINAL, $staticField(VarHandleBooleans$FieldStaticReadWrite, FORM)},
-	{}
-};
-
-$MethodInfo _VarHandleBooleans$FieldStaticReadWrite_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;J)V", nullptr, 0, $method(VarHandleBooleans$FieldStaticReadWrite, init$, void, Object$*, int64_t)},
-	{"<init>", "(Ljava/lang/Object;JZ)V", nullptr, $PRIVATE, $method(VarHandleBooleans$FieldStaticReadWrite, init$, void, Object$*, int64_t, bool)},
-	{"compareAndExchange", "(Ljava/lang/invoke/VarHandle;ZZ)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, compareAndExchange, bool, $VarHandle*, bool, bool), nullptr, nullptr, _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_compareAndExchange2},
-	{"compareAndExchangeAcquire", "(Ljava/lang/invoke/VarHandle;ZZ)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, compareAndExchangeAcquire, bool, $VarHandle*, bool, bool), nullptr, nullptr, _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_compareAndExchangeAcquire3},
-	{"compareAndExchangeRelease", "(Ljava/lang/invoke/VarHandle;ZZ)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, compareAndExchangeRelease, bool, $VarHandle*, bool, bool), nullptr, nullptr, _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_compareAndExchangeRelease4},
-	{"compareAndSet", "(Ljava/lang/invoke/VarHandle;ZZ)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, compareAndSet, bool, $VarHandle*, bool, bool), nullptr, nullptr, _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_compareAndSet5},
-	{"getAndBitwiseAnd", "(Ljava/lang/invoke/VarHandle;Z)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, getAndBitwiseAnd, bool, $VarHandle*, bool), nullptr, nullptr, _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_getAndBitwiseAnd6},
-	{"getAndBitwiseAndAcquire", "(Ljava/lang/invoke/VarHandle;Z)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, getAndBitwiseAndAcquire, bool, $VarHandle*, bool), nullptr, nullptr, _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_getAndBitwiseAndAcquire7},
-	{"getAndBitwiseAndRelease", "(Ljava/lang/invoke/VarHandle;Z)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, getAndBitwiseAndRelease, bool, $VarHandle*, bool), nullptr, nullptr, _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_getAndBitwiseAndRelease8},
-	{"getAndBitwiseOr", "(Ljava/lang/invoke/VarHandle;Z)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, getAndBitwiseOr, bool, $VarHandle*, bool), nullptr, nullptr, _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_getAndBitwiseOr9},
-	{"getAndBitwiseOrAcquire", "(Ljava/lang/invoke/VarHandle;Z)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, getAndBitwiseOrAcquire, bool, $VarHandle*, bool), nullptr, nullptr, _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_getAndBitwiseOrAcquire10},
-	{"getAndBitwiseOrRelease", "(Ljava/lang/invoke/VarHandle;Z)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, getAndBitwiseOrRelease, bool, $VarHandle*, bool), nullptr, nullptr, _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_getAndBitwiseOrRelease11},
-	{"getAndBitwiseXor", "(Ljava/lang/invoke/VarHandle;Z)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, getAndBitwiseXor, bool, $VarHandle*, bool), nullptr, nullptr, _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_getAndBitwiseXor12},
-	{"getAndBitwiseXorAcquire", "(Ljava/lang/invoke/VarHandle;Z)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, getAndBitwiseXorAcquire, bool, $VarHandle*, bool), nullptr, nullptr, _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_getAndBitwiseXorAcquire13},
-	{"getAndBitwiseXorRelease", "(Ljava/lang/invoke/VarHandle;Z)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, getAndBitwiseXorRelease, bool, $VarHandle*, bool), nullptr, nullptr, _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_getAndBitwiseXorRelease14},
-	{"getAndSet", "(Ljava/lang/invoke/VarHandle;Z)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, getAndSet, bool, $VarHandle*, bool), nullptr, nullptr, _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_getAndSet15},
-	{"getAndSetAcquire", "(Ljava/lang/invoke/VarHandle;Z)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, getAndSetAcquire, bool, $VarHandle*, bool), nullptr, nullptr, _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_getAndSetAcquire16},
-	{"getAndSetRelease", "(Ljava/lang/invoke/VarHandle;Z)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, getAndSetRelease, bool, $VarHandle*, bool), nullptr, nullptr, _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_getAndSetRelease17},
-	{"set", "(Ljava/lang/invoke/VarHandle;Z)V", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, set, void, $VarHandle*, bool), nullptr, nullptr, _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_set18},
-	{"setOpaque", "(Ljava/lang/invoke/VarHandle;Z)V", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, setOpaque, void, $VarHandle*, bool), nullptr, nullptr, _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_setOpaque19},
-	{"setRelease", "(Ljava/lang/invoke/VarHandle;Z)V", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, setRelease, void, $VarHandle*, bool), nullptr, nullptr, _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_setRelease20},
-	{"setVolatile", "(Ljava/lang/invoke/VarHandle;Z)V", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, setVolatile, void, $VarHandle*, bool), nullptr, nullptr, _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_setVolatile21},
-	{"weakCompareAndSet", "(Ljava/lang/invoke/VarHandle;ZZ)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, weakCompareAndSet, bool, $VarHandle*, bool, bool), nullptr, nullptr, _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_weakCompareAndSet22},
-	{"weakCompareAndSetAcquire", "(Ljava/lang/invoke/VarHandle;ZZ)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, weakCompareAndSetAcquire, bool, $VarHandle*, bool, bool), nullptr, nullptr, _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_weakCompareAndSetAcquire23},
-	{"weakCompareAndSetPlain", "(Ljava/lang/invoke/VarHandle;ZZ)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, weakCompareAndSetPlain, bool, $VarHandle*, bool, bool), nullptr, nullptr, _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_weakCompareAndSetPlain24},
-	{"weakCompareAndSetRelease", "(Ljava/lang/invoke/VarHandle;ZZ)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, weakCompareAndSetRelease, bool, $VarHandle*, bool, bool), nullptr, nullptr, _VarHandleBooleans$FieldStaticReadWrite_MethodAnnotations_weakCompareAndSetRelease25},
-	{"withInvokeBehavior", "()Ljava/lang/invoke/VarHandleBooleans$FieldStaticReadWrite;", nullptr, $PUBLIC, $virtualMethod(VarHandleBooleans$FieldStaticReadWrite, withInvokeBehavior, VarHandleBooleans$FieldStaticReadWrite*)},
-	{"withInvokeExactBehavior", "()Ljava/lang/invoke/VarHandleBooleans$FieldStaticReadWrite;", nullptr, $PUBLIC, $virtualMethod(VarHandleBooleans$FieldStaticReadWrite, withInvokeExactBehavior, VarHandleBooleans$FieldStaticReadWrite*)},
-	{}
-};
-
-$InnerClassInfo _VarHandleBooleans$FieldStaticReadWrite_InnerClassesInfo_[] = {
-	{"java.lang.invoke.VarHandleBooleans$FieldStaticReadWrite", "java.lang.invoke.VarHandleBooleans", "FieldStaticReadWrite", $STATIC | $FINAL},
-	{"java.lang.invoke.VarHandleBooleans$FieldStaticReadOnly", "java.lang.invoke.VarHandleBooleans", "FieldStaticReadOnly", $STATIC},
-	{}
-};
-
-$ClassInfo _VarHandleBooleans$FieldStaticReadWrite_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.lang.invoke.VarHandleBooleans$FieldStaticReadWrite",
-	"java.lang.invoke.VarHandleBooleans$FieldStaticReadOnly",
-	nullptr,
-	_VarHandleBooleans$FieldStaticReadWrite_FieldInfo_,
-	_VarHandleBooleans$FieldStaticReadWrite_MethodInfo_,
-	nullptr,
-	nullptr,
-	_VarHandleBooleans$FieldStaticReadWrite_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.VarHandleBooleans"
-};
-
-$Object* allocate$VarHandleBooleans$FieldStaticReadWrite($Class* clazz) {
-	return $of($alloc(VarHandleBooleans$FieldStaticReadWrite));
-}
 
 $VarForm* VarHandleBooleans$FieldStaticReadWrite::FORM = nullptr;
 
@@ -233,172 +48,171 @@ void VarHandleBooleans$FieldStaticReadWrite::set($VarHandle* ob, bool value) {
 	$init(VarHandleBooleans$FieldStaticReadWrite);
 	$var(VarHandleBooleans$FieldStaticReadWrite, handle, $cast(VarHandleBooleans$FieldStaticReadWrite, ob));
 	$init($MethodHandleStatics);
-	$nc($MethodHandleStatics::UNSAFE)->putBoolean($nc(handle)->base, handle->fieldOffset, value);
+	$nc($MethodHandleStatics::UNSAFE)->putBoolean($nc(handle)->base, $nc(handle)->fieldOffset, value);
 }
 
 void VarHandleBooleans$FieldStaticReadWrite::setVolatile($VarHandle* ob, bool value) {
 	$init(VarHandleBooleans$FieldStaticReadWrite);
 	$var(VarHandleBooleans$FieldStaticReadWrite, handle, $cast(VarHandleBooleans$FieldStaticReadWrite, ob));
 	$init($MethodHandleStatics);
-	$nc($MethodHandleStatics::UNSAFE)->putBooleanVolatile($nc(handle)->base, handle->fieldOffset, value);
+	$nc($MethodHandleStatics::UNSAFE)->putBooleanVolatile($nc(handle)->base, $nc(handle)->fieldOffset, value);
 }
 
 void VarHandleBooleans$FieldStaticReadWrite::setOpaque($VarHandle* ob, bool value) {
 	$init(VarHandleBooleans$FieldStaticReadWrite);
 	$var(VarHandleBooleans$FieldStaticReadWrite, handle, $cast(VarHandleBooleans$FieldStaticReadWrite, ob));
 	$init($MethodHandleStatics);
-	$nc($MethodHandleStatics::UNSAFE)->putBooleanOpaque($nc(handle)->base, handle->fieldOffset, value);
+	$nc($MethodHandleStatics::UNSAFE)->putBooleanOpaque($nc(handle)->base, $nc(handle)->fieldOffset, value);
 }
 
 void VarHandleBooleans$FieldStaticReadWrite::setRelease($VarHandle* ob, bool value) {
 	$init(VarHandleBooleans$FieldStaticReadWrite);
 	$var(VarHandleBooleans$FieldStaticReadWrite, handle, $cast(VarHandleBooleans$FieldStaticReadWrite, ob));
 	$init($MethodHandleStatics);
-	$nc($MethodHandleStatics::UNSAFE)->putBooleanRelease($nc(handle)->base, handle->fieldOffset, value);
+	$nc($MethodHandleStatics::UNSAFE)->putBooleanRelease($nc(handle)->base, $nc(handle)->fieldOffset, value);
 }
 
 bool VarHandleBooleans$FieldStaticReadWrite::compareAndSet($VarHandle* ob, bool expected, bool value) {
 	$init(VarHandleBooleans$FieldStaticReadWrite);
 	$var(VarHandleBooleans$FieldStaticReadWrite, handle, $cast(VarHandleBooleans$FieldStaticReadWrite, ob));
 	$init($MethodHandleStatics);
-	return $nc($MethodHandleStatics::UNSAFE)->compareAndSetBoolean($nc(handle)->base, handle->fieldOffset, expected, value);
+	return $nc($MethodHandleStatics::UNSAFE)->compareAndSetBoolean($nc(handle)->base, $nc(handle)->fieldOffset, expected, value);
 }
 
 bool VarHandleBooleans$FieldStaticReadWrite::compareAndExchange($VarHandle* ob, bool expected, bool value) {
 	$init(VarHandleBooleans$FieldStaticReadWrite);
 	$var(VarHandleBooleans$FieldStaticReadWrite, handle, $cast(VarHandleBooleans$FieldStaticReadWrite, ob));
 	$init($MethodHandleStatics);
-	return $nc($MethodHandleStatics::UNSAFE)->compareAndExchangeBoolean($nc(handle)->base, handle->fieldOffset, expected, value);
+	return $nc($MethodHandleStatics::UNSAFE)->compareAndExchangeBoolean($nc(handle)->base, $nc(handle)->fieldOffset, expected, value);
 }
 
 bool VarHandleBooleans$FieldStaticReadWrite::compareAndExchangeAcquire($VarHandle* ob, bool expected, bool value) {
 	$init(VarHandleBooleans$FieldStaticReadWrite);
 	$var(VarHandleBooleans$FieldStaticReadWrite, handle, $cast(VarHandleBooleans$FieldStaticReadWrite, ob));
 	$init($MethodHandleStatics);
-	return $nc($MethodHandleStatics::UNSAFE)->compareAndExchangeBooleanAcquire($nc(handle)->base, handle->fieldOffset, expected, value);
+	return $nc($MethodHandleStatics::UNSAFE)->compareAndExchangeBooleanAcquire($nc(handle)->base, $nc(handle)->fieldOffset, expected, value);
 }
 
 bool VarHandleBooleans$FieldStaticReadWrite::compareAndExchangeRelease($VarHandle* ob, bool expected, bool value) {
 	$init(VarHandleBooleans$FieldStaticReadWrite);
 	$var(VarHandleBooleans$FieldStaticReadWrite, handle, $cast(VarHandleBooleans$FieldStaticReadWrite, ob));
 	$init($MethodHandleStatics);
-	return $nc($MethodHandleStatics::UNSAFE)->compareAndExchangeBooleanRelease($nc(handle)->base, handle->fieldOffset, expected, value);
+	return $nc($MethodHandleStatics::UNSAFE)->compareAndExchangeBooleanRelease($nc(handle)->base, $nc(handle)->fieldOffset, expected, value);
 }
 
 bool VarHandleBooleans$FieldStaticReadWrite::weakCompareAndSetPlain($VarHandle* ob, bool expected, bool value) {
 	$init(VarHandleBooleans$FieldStaticReadWrite);
 	$var(VarHandleBooleans$FieldStaticReadWrite, handle, $cast(VarHandleBooleans$FieldStaticReadWrite, ob));
 	$init($MethodHandleStatics);
-	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetBooleanPlain($nc(handle)->base, handle->fieldOffset, expected, value);
+	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetBooleanPlain($nc(handle)->base, $nc(handle)->fieldOffset, expected, value);
 }
 
 bool VarHandleBooleans$FieldStaticReadWrite::weakCompareAndSet($VarHandle* ob, bool expected, bool value) {
 	$init(VarHandleBooleans$FieldStaticReadWrite);
 	$var(VarHandleBooleans$FieldStaticReadWrite, handle, $cast(VarHandleBooleans$FieldStaticReadWrite, ob));
 	$init($MethodHandleStatics);
-	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetBoolean($nc(handle)->base, handle->fieldOffset, expected, value);
+	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetBoolean($nc(handle)->base, $nc(handle)->fieldOffset, expected, value);
 }
 
 bool VarHandleBooleans$FieldStaticReadWrite::weakCompareAndSetAcquire($VarHandle* ob, bool expected, bool value) {
 	$init(VarHandleBooleans$FieldStaticReadWrite);
 	$var(VarHandleBooleans$FieldStaticReadWrite, handle, $cast(VarHandleBooleans$FieldStaticReadWrite, ob));
 	$init($MethodHandleStatics);
-	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetBooleanAcquire($nc(handle)->base, handle->fieldOffset, expected, value);
+	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetBooleanAcquire($nc(handle)->base, $nc(handle)->fieldOffset, expected, value);
 }
 
 bool VarHandleBooleans$FieldStaticReadWrite::weakCompareAndSetRelease($VarHandle* ob, bool expected, bool value) {
 	$init(VarHandleBooleans$FieldStaticReadWrite);
 	$var(VarHandleBooleans$FieldStaticReadWrite, handle, $cast(VarHandleBooleans$FieldStaticReadWrite, ob));
 	$init($MethodHandleStatics);
-	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetBooleanRelease($nc(handle)->base, handle->fieldOffset, expected, value);
+	return $nc($MethodHandleStatics::UNSAFE)->weakCompareAndSetBooleanRelease($nc(handle)->base, $nc(handle)->fieldOffset, expected, value);
 }
 
 bool VarHandleBooleans$FieldStaticReadWrite::getAndSet($VarHandle* ob, bool value) {
 	$init(VarHandleBooleans$FieldStaticReadWrite);
 	$var(VarHandleBooleans$FieldStaticReadWrite, handle, $cast(VarHandleBooleans$FieldStaticReadWrite, ob));
 	$init($MethodHandleStatics);
-	return $nc($MethodHandleStatics::UNSAFE)->getAndSetBoolean($nc(handle)->base, handle->fieldOffset, value);
+	return $nc($MethodHandleStatics::UNSAFE)->getAndSetBoolean($nc(handle)->base, $nc(handle)->fieldOffset, value);
 }
 
 bool VarHandleBooleans$FieldStaticReadWrite::getAndSetAcquire($VarHandle* ob, bool value) {
 	$init(VarHandleBooleans$FieldStaticReadWrite);
 	$var(VarHandleBooleans$FieldStaticReadWrite, handle, $cast(VarHandleBooleans$FieldStaticReadWrite, ob));
 	$init($MethodHandleStatics);
-	return $nc($MethodHandleStatics::UNSAFE)->getAndSetBooleanAcquire($nc(handle)->base, handle->fieldOffset, value);
+	return $nc($MethodHandleStatics::UNSAFE)->getAndSetBooleanAcquire($nc(handle)->base, $nc(handle)->fieldOffset, value);
 }
 
 bool VarHandleBooleans$FieldStaticReadWrite::getAndSetRelease($VarHandle* ob, bool value) {
 	$init(VarHandleBooleans$FieldStaticReadWrite);
 	$var(VarHandleBooleans$FieldStaticReadWrite, handle, $cast(VarHandleBooleans$FieldStaticReadWrite, ob));
 	$init($MethodHandleStatics);
-	return $nc($MethodHandleStatics::UNSAFE)->getAndSetBooleanRelease($nc(handle)->base, handle->fieldOffset, value);
+	return $nc($MethodHandleStatics::UNSAFE)->getAndSetBooleanRelease($nc(handle)->base, $nc(handle)->fieldOffset, value);
 }
 
 bool VarHandleBooleans$FieldStaticReadWrite::getAndBitwiseOr($VarHandle* ob, bool value) {
 	$init(VarHandleBooleans$FieldStaticReadWrite);
 	$var(VarHandleBooleans$FieldStaticReadWrite, handle, $cast(VarHandleBooleans$FieldStaticReadWrite, ob));
 	$init($MethodHandleStatics);
-	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseOrBoolean($nc(handle)->base, handle->fieldOffset, value);
+	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseOrBoolean($nc(handle)->base, $nc(handle)->fieldOffset, value);
 }
 
 bool VarHandleBooleans$FieldStaticReadWrite::getAndBitwiseOrRelease($VarHandle* ob, bool value) {
 	$init(VarHandleBooleans$FieldStaticReadWrite);
 	$var(VarHandleBooleans$FieldStaticReadWrite, handle, $cast(VarHandleBooleans$FieldStaticReadWrite, ob));
 	$init($MethodHandleStatics);
-	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseOrBooleanRelease($nc(handle)->base, handle->fieldOffset, value);
+	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseOrBooleanRelease($nc(handle)->base, $nc(handle)->fieldOffset, value);
 }
 
 bool VarHandleBooleans$FieldStaticReadWrite::getAndBitwiseOrAcquire($VarHandle* ob, bool value) {
 	$init(VarHandleBooleans$FieldStaticReadWrite);
 	$var(VarHandleBooleans$FieldStaticReadWrite, handle, $cast(VarHandleBooleans$FieldStaticReadWrite, ob));
 	$init($MethodHandleStatics);
-	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseOrBooleanAcquire($nc(handle)->base, handle->fieldOffset, value);
+	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseOrBooleanAcquire($nc(handle)->base, $nc(handle)->fieldOffset, value);
 }
 
 bool VarHandleBooleans$FieldStaticReadWrite::getAndBitwiseAnd($VarHandle* ob, bool value) {
 	$init(VarHandleBooleans$FieldStaticReadWrite);
 	$var(VarHandleBooleans$FieldStaticReadWrite, handle, $cast(VarHandleBooleans$FieldStaticReadWrite, ob));
 	$init($MethodHandleStatics);
-	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseAndBoolean($nc(handle)->base, handle->fieldOffset, value);
+	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseAndBoolean($nc(handle)->base, $nc(handle)->fieldOffset, value);
 }
 
 bool VarHandleBooleans$FieldStaticReadWrite::getAndBitwiseAndRelease($VarHandle* ob, bool value) {
 	$init(VarHandleBooleans$FieldStaticReadWrite);
 	$var(VarHandleBooleans$FieldStaticReadWrite, handle, $cast(VarHandleBooleans$FieldStaticReadWrite, ob));
 	$init($MethodHandleStatics);
-	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseAndBooleanRelease($nc(handle)->base, handle->fieldOffset, value);
+	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseAndBooleanRelease($nc(handle)->base, $nc(handle)->fieldOffset, value);
 }
 
 bool VarHandleBooleans$FieldStaticReadWrite::getAndBitwiseAndAcquire($VarHandle* ob, bool value) {
 	$init(VarHandleBooleans$FieldStaticReadWrite);
 	$var(VarHandleBooleans$FieldStaticReadWrite, handle, $cast(VarHandleBooleans$FieldStaticReadWrite, ob));
 	$init($MethodHandleStatics);
-	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseAndBooleanAcquire($nc(handle)->base, handle->fieldOffset, value);
+	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseAndBooleanAcquire($nc(handle)->base, $nc(handle)->fieldOffset, value);
 }
 
 bool VarHandleBooleans$FieldStaticReadWrite::getAndBitwiseXor($VarHandle* ob, bool value) {
 	$init(VarHandleBooleans$FieldStaticReadWrite);
 	$var(VarHandleBooleans$FieldStaticReadWrite, handle, $cast(VarHandleBooleans$FieldStaticReadWrite, ob));
 	$init($MethodHandleStatics);
-	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseXorBoolean($nc(handle)->base, handle->fieldOffset, value);
+	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseXorBoolean($nc(handle)->base, $nc(handle)->fieldOffset, value);
 }
 
 bool VarHandleBooleans$FieldStaticReadWrite::getAndBitwiseXorRelease($VarHandle* ob, bool value) {
 	$init(VarHandleBooleans$FieldStaticReadWrite);
 	$var(VarHandleBooleans$FieldStaticReadWrite, handle, $cast(VarHandleBooleans$FieldStaticReadWrite, ob));
 	$init($MethodHandleStatics);
-	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseXorBooleanRelease($nc(handle)->base, handle->fieldOffset, value);
+	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseXorBooleanRelease($nc(handle)->base, $nc(handle)->fieldOffset, value);
 }
 
 bool VarHandleBooleans$FieldStaticReadWrite::getAndBitwiseXorAcquire($VarHandle* ob, bool value) {
 	$init(VarHandleBooleans$FieldStaticReadWrite);
 	$var(VarHandleBooleans$FieldStaticReadWrite, handle, $cast(VarHandleBooleans$FieldStaticReadWrite, ob));
 	$init($MethodHandleStatics);
-	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseXorBooleanAcquire($nc(handle)->base, handle->fieldOffset, value);
+	return $nc($MethodHandleStatics::UNSAFE)->getAndBitwiseXorBooleanAcquire($nc(handle)->base, $nc(handle)->fieldOffset, value);
 }
 
-void clinit$VarHandleBooleans$FieldStaticReadWrite($Class* class$) {
-	$init($Boolean);
+void VarHandleBooleans$FieldStaticReadWrite::clinit$($Class* clazz) {
 	$assignStatic(VarHandleBooleans$FieldStaticReadWrite::FORM, $new($VarForm, VarHandleBooleans$FieldStaticReadWrite::class$, nullptr, $Boolean::TYPE, $$new($ClassArray, 0)));
 }
 
@@ -406,7 +220,160 @@ VarHandleBooleans$FieldStaticReadWrite::VarHandleBooleans$FieldStaticReadWrite()
 }
 
 $Class* VarHandleBooleans$FieldStaticReadWrite::load$($String* name, bool initialize) {
-	$loadClass(VarHandleBooleans$FieldStaticReadWrite, name, initialize, &_VarHandleBooleans$FieldStaticReadWrite_ClassInfo_, clinit$VarHandleBooleans$FieldStaticReadWrite, allocate$VarHandleBooleans$FieldStaticReadWrite);
+	$FieldInfo fieldInfos$$[] = {
+		{"FORM", "Ljava/lang/invoke/VarForm;", nullptr, $STATIC | $FINAL, $staticField(VarHandleBooleans$FieldStaticReadWrite, FORM)},
+		{}
+	};
+	$CompoundAttribute compareAndExchangemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute compareAndExchangeAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute compareAndExchangeReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute compareAndSetmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseAndmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseAndAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseAndReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseOrmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseOrAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseOrReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseXormethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseXorAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndBitwiseXorReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndSetmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndSetAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute getAndSetReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setOpaquemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute setVolatilemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute weakCompareAndSetmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute weakCompareAndSetAcquiremethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute weakCompareAndSetPlainmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute weakCompareAndSetReleasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;J)V", nullptr, 0, $method(VarHandleBooleans$FieldStaticReadWrite, init$, void, Object$*, int64_t)},
+		{"<init>", "(Ljava/lang/Object;JZ)V", nullptr, $PRIVATE, $method(VarHandleBooleans$FieldStaticReadWrite, init$, void, Object$*, int64_t, bool)},
+		{"compareAndExchange", "(Ljava/lang/invoke/VarHandle;ZZ)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, compareAndExchange, bool, $VarHandle*, bool, bool), nullptr, nullptr, compareAndExchangemethodAnnotations$$},
+		{"compareAndExchangeAcquire", "(Ljava/lang/invoke/VarHandle;ZZ)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, compareAndExchangeAcquire, bool, $VarHandle*, bool, bool), nullptr, nullptr, compareAndExchangeAcquiremethodAnnotations$$},
+		{"compareAndExchangeRelease", "(Ljava/lang/invoke/VarHandle;ZZ)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, compareAndExchangeRelease, bool, $VarHandle*, bool, bool), nullptr, nullptr, compareAndExchangeReleasemethodAnnotations$$},
+		{"compareAndSet", "(Ljava/lang/invoke/VarHandle;ZZ)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, compareAndSet, bool, $VarHandle*, bool, bool), nullptr, nullptr, compareAndSetmethodAnnotations$$},
+		{"getAndBitwiseAnd", "(Ljava/lang/invoke/VarHandle;Z)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, getAndBitwiseAnd, bool, $VarHandle*, bool), nullptr, nullptr, getAndBitwiseAndmethodAnnotations$$},
+		{"getAndBitwiseAndAcquire", "(Ljava/lang/invoke/VarHandle;Z)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, getAndBitwiseAndAcquire, bool, $VarHandle*, bool), nullptr, nullptr, getAndBitwiseAndAcquiremethodAnnotations$$},
+		{"getAndBitwiseAndRelease", "(Ljava/lang/invoke/VarHandle;Z)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, getAndBitwiseAndRelease, bool, $VarHandle*, bool), nullptr, nullptr, getAndBitwiseAndReleasemethodAnnotations$$},
+		{"getAndBitwiseOr", "(Ljava/lang/invoke/VarHandle;Z)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, getAndBitwiseOr, bool, $VarHandle*, bool), nullptr, nullptr, getAndBitwiseOrmethodAnnotations$$},
+		{"getAndBitwiseOrAcquire", "(Ljava/lang/invoke/VarHandle;Z)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, getAndBitwiseOrAcquire, bool, $VarHandle*, bool), nullptr, nullptr, getAndBitwiseOrAcquiremethodAnnotations$$},
+		{"getAndBitwiseOrRelease", "(Ljava/lang/invoke/VarHandle;Z)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, getAndBitwiseOrRelease, bool, $VarHandle*, bool), nullptr, nullptr, getAndBitwiseOrReleasemethodAnnotations$$},
+		{"getAndBitwiseXor", "(Ljava/lang/invoke/VarHandle;Z)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, getAndBitwiseXor, bool, $VarHandle*, bool), nullptr, nullptr, getAndBitwiseXormethodAnnotations$$},
+		{"getAndBitwiseXorAcquire", "(Ljava/lang/invoke/VarHandle;Z)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, getAndBitwiseXorAcquire, bool, $VarHandle*, bool), nullptr, nullptr, getAndBitwiseXorAcquiremethodAnnotations$$},
+		{"getAndBitwiseXorRelease", "(Ljava/lang/invoke/VarHandle;Z)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, getAndBitwiseXorRelease, bool, $VarHandle*, bool), nullptr, nullptr, getAndBitwiseXorReleasemethodAnnotations$$},
+		{"getAndSet", "(Ljava/lang/invoke/VarHandle;Z)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, getAndSet, bool, $VarHandle*, bool), nullptr, nullptr, getAndSetmethodAnnotations$$},
+		{"getAndSetAcquire", "(Ljava/lang/invoke/VarHandle;Z)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, getAndSetAcquire, bool, $VarHandle*, bool), nullptr, nullptr, getAndSetAcquiremethodAnnotations$$},
+		{"getAndSetRelease", "(Ljava/lang/invoke/VarHandle;Z)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, getAndSetRelease, bool, $VarHandle*, bool), nullptr, nullptr, getAndSetReleasemethodAnnotations$$},
+		{"set", "(Ljava/lang/invoke/VarHandle;Z)V", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, set, void, $VarHandle*, bool), nullptr, nullptr, setmethodAnnotations$$},
+		{"setOpaque", "(Ljava/lang/invoke/VarHandle;Z)V", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, setOpaque, void, $VarHandle*, bool), nullptr, nullptr, setOpaquemethodAnnotations$$},
+		{"setRelease", "(Ljava/lang/invoke/VarHandle;Z)V", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, setRelease, void, $VarHandle*, bool), nullptr, nullptr, setReleasemethodAnnotations$$},
+		{"setVolatile", "(Ljava/lang/invoke/VarHandle;Z)V", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, setVolatile, void, $VarHandle*, bool), nullptr, nullptr, setVolatilemethodAnnotations$$},
+		{"weakCompareAndSet", "(Ljava/lang/invoke/VarHandle;ZZ)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, weakCompareAndSet, bool, $VarHandle*, bool, bool), nullptr, nullptr, weakCompareAndSetmethodAnnotations$$},
+		{"weakCompareAndSetAcquire", "(Ljava/lang/invoke/VarHandle;ZZ)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, weakCompareAndSetAcquire, bool, $VarHandle*, bool, bool), nullptr, nullptr, weakCompareAndSetAcquiremethodAnnotations$$},
+		{"weakCompareAndSetPlain", "(Ljava/lang/invoke/VarHandle;ZZ)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, weakCompareAndSetPlain, bool, $VarHandle*, bool, bool), nullptr, nullptr, weakCompareAndSetPlainmethodAnnotations$$},
+		{"weakCompareAndSetRelease", "(Ljava/lang/invoke/VarHandle;ZZ)Z", nullptr, $STATIC, $staticMethod(VarHandleBooleans$FieldStaticReadWrite, weakCompareAndSetRelease, bool, $VarHandle*, bool, bool), nullptr, nullptr, weakCompareAndSetReleasemethodAnnotations$$},
+		{"withInvokeBehavior", "()Ljava/lang/invoke/VarHandleBooleans$FieldStaticReadWrite;", nullptr, $PUBLIC, $virtualMethod(VarHandleBooleans$FieldStaticReadWrite, withInvokeBehavior, VarHandleBooleans$FieldStaticReadWrite*)},
+		{"withInvokeExactBehavior", "()Ljava/lang/invoke/VarHandleBooleans$FieldStaticReadWrite;", nullptr, $PUBLIC, $virtualMethod(VarHandleBooleans$FieldStaticReadWrite, withInvokeExactBehavior, VarHandleBooleans$FieldStaticReadWrite*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.VarHandleBooleans$FieldStaticReadWrite", "java.lang.invoke.VarHandleBooleans", "FieldStaticReadWrite", $STATIC | $FINAL},
+		{"java.lang.invoke.VarHandleBooleans$FieldStaticReadOnly", "java.lang.invoke.VarHandleBooleans", "FieldStaticReadOnly", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.lang.invoke.VarHandleBooleans$FieldStaticReadWrite",
+		"java.lang.invoke.VarHandleBooleans$FieldStaticReadOnly",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.VarHandleBooleans"
+	};
+	$loadClass(VarHandleBooleans$FieldStaticReadWrite, name, initialize, &classInfo$$, VarHandleBooleans$FieldStaticReadWrite::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(VarHandleBooleans$FieldStaticReadWrite);
+	});
 	return class$;
 }
 

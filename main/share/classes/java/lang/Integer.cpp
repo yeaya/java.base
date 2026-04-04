@@ -1,5 +1,4 @@
 #include <java/lang/Integer.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/Integer$IntegerCache.h>
@@ -47,173 +46,6 @@ using $Optional = ::java::util::Optional;
 namespace java {
 	namespace lang {
 
-$CompoundAttribute _Integer_Annotations_[] = {
-	{"Ljdk/internal/ValueBased;", nullptr},
-	{}
-};
-
-$NamedAttribute Integer_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _Integer_MethodAnnotations_init$0[] = {
-	{"Ljava/lang/Deprecated;", Integer_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute Integer_Attribute_var$1[] = {
-	{"since", 's', "9"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _Integer_MethodAnnotations_init$1[] = {
-	{"Ljava/lang/Deprecated;", Integer_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _Integer_MethodAnnotations_bitCount2[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Integer_MethodAnnotations_intValue23[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Integer_MethodAnnotations_numberOfLeadingZeros28[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Integer_MethodAnnotations_numberOfTrailingZeros29[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Integer_MethodAnnotations_reverseBytes39[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Integer_MethodAnnotations_toString50[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$CompoundAttribute _Integer_MethodAnnotations_valueOf59[] = {
-	{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
-	{}
-};
-
-$FieldInfo _Integer_FieldInfo_[] = {
-	{"MIN_VALUE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Integer, MIN_VALUE)},
-	{"MAX_VALUE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Integer, MAX_VALUE)},
-	{"TYPE", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Integer, TYPE)},
-	{"digits", "[C", nullptr, $STATIC | $FINAL, $staticField(Integer, digits)},
-	{"DigitTens", "[B", nullptr, $STATIC | $FINAL, $staticField(Integer, DigitTens)},
-	{"DigitOnes", "[B", nullptr, $STATIC | $FINAL, $staticField(Integer, DigitOnes)},
-	{"sizeTable", "[I", nullptr, $STATIC | $FINAL, $staticField(Integer, sizeTable)},
-	{"value", "I", nullptr, $PRIVATE | $FINAL, $field(Integer, value)},
-	{"SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Integer, SIZE)},
-	{"BYTES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Integer, BYTES)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Integer, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Integer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $method(Integer, init$, void, int32_t), nullptr, nullptr, _Integer_MethodAnnotations_init$0},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(Integer, init$, void, $String*), "java.lang.NumberFormatException", nullptr, _Integer_MethodAnnotations_init$1},
-	{"bitCount", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, bitCount, int32_t, int32_t), nullptr, nullptr, _Integer_MethodAnnotations_bitCount2},
-	{"byteValue", "()B", nullptr, $PUBLIC, $virtualMethod(Integer, byteValue, int8_t)},
-	{"compare", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, compare, int32_t, int32_t, int32_t)},
-	{"compareTo", "(Ljava/lang/Integer;)I", nullptr, $PUBLIC, $method(Integer, compareTo, int32_t, Integer*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Integer, compareTo, int32_t, Object$*)},
-	{"compareUnsigned", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, compareUnsigned, int32_t, int32_t, int32_t)},
-	{"decode", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, decode, Integer*, $String*), "java.lang.NumberFormatException"},
-	{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(Integer, describeConstable, $Optional*)},
-	{"divideUnsigned", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, divideUnsigned, int32_t, int32_t, int32_t)},
-	{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(Integer, doubleValue, double)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Integer, equals, bool, Object$*)},
-	{"floatValue", "()F", nullptr, $PUBLIC, $virtualMethod(Integer, floatValue, float)},
-	{"formatUnsignedInt", "(II[BI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Integer, formatUnsignedInt, void, int32_t, int32_t, $bytes*, int32_t)},
-	{"formatUnsignedIntUTF16", "(II[BI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Integer, formatUnsignedIntUTF16, void, int32_t, int32_t, $bytes*, int32_t)},
-	{"getChars", "(II[B)I", nullptr, $STATIC, $staticMethod(Integer, getChars, int32_t, int32_t, int32_t, $bytes*)},
-	{"getInteger", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, getInteger, Integer*, $String*)},
-	{"getInteger", "(Ljava/lang/String;I)Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, getInteger, Integer*, $String*, int32_t)},
-	{"getInteger", "(Ljava/lang/String;Ljava/lang/Integer;)Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, getInteger, Integer*, $String*, Integer*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Integer, hashCode, int32_t)},
-	{"hashCode", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, hashCode, int32_t, int32_t)},
-	{"highestOneBit", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, highestOneBit, int32_t, int32_t)},
-	{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(Integer, intValue, int32_t), nullptr, nullptr, _Integer_MethodAnnotations_intValue23},
-	{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(Integer, longValue, int64_t)},
-	{"lowestOneBit", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, lowestOneBit, int32_t, int32_t)},
-	{"max", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, max, int32_t, int32_t, int32_t)},
-	{"min", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, min, int32_t, int32_t, int32_t)},
-	{"numberOfLeadingZeros", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, numberOfLeadingZeros, int32_t, int32_t), nullptr, nullptr, _Integer_MethodAnnotations_numberOfLeadingZeros28},
-	{"numberOfTrailingZeros", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, numberOfTrailingZeros, int32_t, int32_t), nullptr, nullptr, _Integer_MethodAnnotations_numberOfTrailingZeros29},
-	{"parseInt", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, parseInt, int32_t, $String*, int32_t), "java.lang.NumberFormatException"},
-	{"parseInt", "(Ljava/lang/CharSequence;III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, parseInt, int32_t, $CharSequence*, int32_t, int32_t, int32_t), "java.lang.NumberFormatException"},
-	{"parseInt", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, parseInt, int32_t, $String*), "java.lang.NumberFormatException"},
-	{"parseUnsignedInt", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, parseUnsignedInt, int32_t, $String*, int32_t), "java.lang.NumberFormatException"},
-	{"parseUnsignedInt", "(Ljava/lang/CharSequence;III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, parseUnsignedInt, int32_t, $CharSequence*, int32_t, int32_t, int32_t), "java.lang.NumberFormatException"},
-	{"parseUnsignedInt", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, parseUnsignedInt, int32_t, $String*), "java.lang.NumberFormatException"},
-	{"remainderUnsigned", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, remainderUnsigned, int32_t, int32_t, int32_t)},
-	{"resolveConstantDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(Integer, resolveConstantDesc, $Object*, $MethodHandles$Lookup*)},
-	{"reverse", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, reverse, int32_t, int32_t)},
-	{"reverseBytes", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, reverseBytes, int32_t, int32_t), nullptr, nullptr, _Integer_MethodAnnotations_reverseBytes39},
-	{"rotateLeft", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, rotateLeft, int32_t, int32_t, int32_t)},
-	{"rotateRight", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, rotateRight, int32_t, int32_t, int32_t)},
-	{"shortValue", "()S", nullptr, $PUBLIC, $virtualMethod(Integer, shortValue, int16_t)},
-	{"signum", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, signum, int32_t, int32_t)},
-	{"stringSize", "(I)I", nullptr, $STATIC, $staticMethod(Integer, stringSize, int32_t, int32_t)},
-	{"sum", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, sum, int32_t, int32_t, int32_t)},
-	{"toBinaryString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, toBinaryString, $String*, int32_t)},
-	{"toHexString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, toHexString, $String*, int32_t)},
-	{"toOctalString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, toOctalString, $String*, int32_t)},
-	{"toString", "(II)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, toString, $String*, int32_t, int32_t)},
-	{"toString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, toString, $String*, int32_t), nullptr, nullptr, _Integer_MethodAnnotations_toString50},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Integer, toString, $String*)},
-	{"toStringUTF16", "(II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Integer, toStringUTF16, $String*, int32_t, int32_t)},
-	{"toUnsignedLong", "(I)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, toUnsignedLong, int64_t, int32_t)},
-	{"toUnsignedString", "(II)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, toUnsignedString, $String*, int32_t, int32_t)},
-	{"toUnsignedString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, toUnsignedString, $String*, int32_t)},
-	{"toUnsignedString0", "(II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Integer, toUnsignedString0, $String*, int32_t, int32_t)},
-	{"valueOf", "(Ljava/lang/String;I)Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, valueOf, Integer*, $String*, int32_t), "java.lang.NumberFormatException"},
-	{"valueOf", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, valueOf, Integer*, $String*), "java.lang.NumberFormatException"},
-	{"valueOf", "(I)Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, valueOf, Integer*, int32_t), nullptr, nullptr, _Integer_MethodAnnotations_valueOf59},
-	{}
-};
-
-$InnerClassInfo _Integer_InnerClassesInfo_[] = {
-	{"java.lang.Integer$IntegerCache", "java.lang.Integer", "IntegerCache", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Integer_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.lang.Integer",
-	"java.lang.Number",
-	"java.lang.Comparable,java.lang.constant.Constable,java.lang.constant.ConstantDesc",
-	_Integer_FieldInfo_,
-	_Integer_MethodInfo_,
-	"Ljava/lang/Number;Ljava/lang/Comparable<Ljava/lang/Integer;>;Ljava/lang/constant/Constable;Ljava/lang/constant/ConstantDesc;",
-	nullptr,
-	_Integer_InnerClassesInfo_,
-	_Integer_Annotations_,
-	nullptr,
-	"java.lang.Integer$IntegerCache"
-};
-
-$Object* allocate$Integer($Class* clazz) {
-	return $of($alloc(Integer));
-}
-
 $Object* Integer::clone() {
 	 return this->$Number::clone();
 }
@@ -243,12 +75,10 @@ $String* Integer::toString(int32_t i, int32_t radix) {
 			i = -i;
 		}
 		while (i <= -radix) {
-			$init(Integer);
-			buf->set(charPos--, (int8_t)$nc(Integer::digits)->get(-($mod(i, radix))));
+			buf->set(charPos--, (int8_t)Integer::digits->get(-($mod(i, radix))));
 			i = $div(i, radix);
 		}
-		$init(Integer);
-		buf->set(charPos, (int8_t)$nc(Integer::digits)->get(-i));
+		buf->set(charPos, (int8_t)Integer::digits->get(-i));
 		if (negative) {
 			buf->set(--charPos, (int8_t)u'-');
 		}
@@ -265,12 +95,10 @@ $String* Integer::toStringUTF16(int32_t i, int32_t radix) {
 		i = -i;
 	}
 	while (i <= -radix) {
-		$init(Integer);
-		$StringUTF16::putChar(buf, charPos--, $nc(Integer::digits)->get(-($mod(i, radix))));
+		$StringUTF16::putChar(buf, charPos--, Integer::digits->get(-($mod(i, radix))));
 		i = $div(i, radix);
 	}
-	$init(Integer);
-	$StringUTF16::putChar(buf, charPos, $nc(Integer::digits)->get(-i));
+	$StringUTF16::putChar(buf, charPos, Integer::digits->get(-i));
 	if (negative) {
 		$StringUTF16::putChar(buf, --charPos, u'-');
 	}
@@ -294,7 +122,7 @@ $String* Integer::toBinaryString(int32_t i) {
 }
 
 $String* Integer::toUnsignedString0(int32_t val, int32_t shift) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mag = Integer::SIZE - Integer::numberOfLeadingZeros(val);
 	int32_t chars = $Math::max(($div((mag + (shift - 1)), shift)), 1);
 	if ($String::COMPACT_STRINGS) {
@@ -313,8 +141,7 @@ void Integer::formatUnsignedInt(int32_t val, int32_t shift, $bytes* buf, int32_t
 	int32_t radix = $sl(1, shift);
 	int32_t mask = radix - 1;
 	do {
-		$init(Integer);
-		$nc(buf)->set(--charPos, (int8_t)$nc(Integer::digits)->get((int32_t)(val & (uint32_t)mask)));
+		$nc(buf)->set(--charPos, (int8_t)Integer::digits->get(val & mask));
 		$usrAssign(val, shift);
 	} while (charPos > 0);
 }
@@ -324,14 +151,13 @@ void Integer::formatUnsignedIntUTF16(int32_t val, int32_t shift, $bytes* buf, in
 	int32_t radix = $sl(1, shift);
 	int32_t mask = radix - 1;
 	do {
-		$init(Integer);
-		$StringUTF16::putChar(buf, --charPos, $nc(Integer::digits)->get((int32_t)(val & (uint32_t)mask)));
+		$StringUTF16::putChar(buf, --charPos, Integer::digits->get(val & mask));
 		$usrAssign(val, shift);
 	} while (charPos > 0);
 }
 
 $String* Integer::toString(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = stringSize(i);
 	if ($String::COMPACT_STRINGS) {
 		$var($bytes, buf, $new($bytes, size));
@@ -360,9 +186,8 @@ int32_t Integer::getChars(int32_t i, int32_t index, $bytes* buf) {
 		q = i / 100;
 		r = (q * 100) - i;
 		i = q;
-		$init(Integer);
-		$nc(buf)->set(--charPos, $nc(Integer::DigitOnes)->get(r));
-		buf->set(--charPos, $nc(Integer::DigitTens)->get(r));
+		$nc(buf)->set(--charPos, Integer::DigitOnes->get(r));
+		buf->set(--charPos, Integer::DigitTens->get(r));
 	}
 	q = i / 10;
 	r = (q * 10) - i;
@@ -393,7 +218,7 @@ int32_t Integer::stringSize(int32_t x) {
 }
 
 int32_t Integer::parseInt($String* s, int32_t radix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (s == nullptr) {
 		$throwNew($NumberFormatException, "Cannot parse null string"_s);
 	}
@@ -441,7 +266,7 @@ int32_t Integer::parseInt($String* s, int32_t radix) {
 }
 
 int32_t Integer::parseInt($CharSequence* s, int32_t beginIndex, int32_t endIndex, int32_t radix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(s);
 	if (beginIndex < 0 || beginIndex > endIndex || endIndex > s->length()) {
 		$throwNew($IndexOutOfBoundsException);
@@ -494,7 +319,7 @@ int32_t Integer::parseInt($String* s) {
 }
 
 int32_t Integer::parseUnsignedInt($String* s, int32_t radix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (s == nullptr) {
 		$throwNew($NumberFormatException, "Cannot parse null string"_s);
 	}
@@ -502,15 +327,15 @@ int32_t Integer::parseUnsignedInt($String* s, int32_t radix) {
 	if (len > 0) {
 		char16_t firstChar = s->charAt(0);
 		if (firstChar == u'-') {
-			$throwNew($NumberFormatException, $($String::format("Illegal leading minus sign on unsigned string %s."_s, $$new($ObjectArray, {$of(s)}))));
+			$throwNew($NumberFormatException, $($String::format("Illegal leading minus sign on unsigned string %s."_s, $$new($ObjectArray, {s}))));
 		} else if (len <= 5 || (radix == 10 && len <= 9)) {
 			return parseInt(s, radix);
 		} else {
 			int64_t ell = $Long::parseLong(s, radix);
-			if (((int64_t)(ell & (uint64_t)(int64_t)0xFFFFFFFF00000000)) == 0) {
+			if ((ell & (int64_t)0xffffffff00000000) == 0) {
 				return (int32_t)ell;
 			} else {
-				$throwNew($NumberFormatException, $($String::format("String value %s exceeds range of unsigned int."_s, $$new($ObjectArray, {$of(s)}))));
+				$throwNew($NumberFormatException, $($String::format("String value %s exceeds range of unsigned int."_s, $$new($ObjectArray, {s}))));
 			}
 		}
 	} else {
@@ -519,7 +344,7 @@ int32_t Integer::parseUnsignedInt($String* s, int32_t radix) {
 }
 
 int32_t Integer::parseUnsignedInt($CharSequence* s, int32_t beginIndex, int32_t endIndex, int32_t radix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(s);
 	if (beginIndex < 0 || beginIndex > endIndex || endIndex > s->length()) {
 		$throwNew($IndexOutOfBoundsException);
@@ -529,15 +354,15 @@ int32_t Integer::parseUnsignedInt($CharSequence* s, int32_t beginIndex, int32_t 
 	if (len > 0) {
 		char16_t firstChar = s->charAt(start);
 		if (firstChar == u'-') {
-			$throwNew($NumberFormatException, $($String::format("Illegal leading minus sign on unsigned string %s."_s, $$new($ObjectArray, {$of(s)}))));
+			$throwNew($NumberFormatException, $($String::format("Illegal leading minus sign on unsigned string %s."_s, $$new($ObjectArray, {s}))));
 		} else if (len <= 5 || (radix == 10 && len <= 9)) {
 			return parseInt(s, start, start + len, radix);
 		} else {
 			int64_t ell = $Long::parseLong(s, start, start + len, radix);
-			if (((int64_t)(ell & (uint64_t)(int64_t)0xFFFFFFFF00000000)) == 0) {
+			if ((ell & (int64_t)0xffffffff00000000) == 0) {
 				return (int32_t)ell;
 			} else {
-				$throwNew($NumberFormatException, $($String::format("String value %s exceeds range of unsigned int."_s, $$new($ObjectArray, {$of(s)}))));
+				$throwNew($NumberFormatException, $($String::format("String value %s exceeds range of unsigned int."_s, $$new($ObjectArray, {s}))));
 			}
 		}
 	} else {
@@ -613,17 +438,17 @@ int32_t Integer::hashCode(int32_t value) {
 
 bool Integer::equals(Object$* obj) {
 	if ($instanceOf(Integer, obj)) {
-		return this->value == $nc(($cast(Integer, obj)))->intValue();
+		return this->value == $cast(Integer, obj)->intValue();
 	}
 	return false;
 }
 
 Integer* Integer::getInteger($String* nm) {
-	return getInteger(nm, (Integer*)nullptr);
+	return getInteger(nm, nullptr);
 }
 
 Integer* Integer::getInteger($String* nm, int32_t val) {
-	$var(Integer, result, getInteger(nm, (Integer*)nullptr));
+	$var(Integer, result, getInteger(nm, nullptr));
 	return (result == nullptr) ? Integer::valueOf(val) : result;
 }
 
@@ -644,7 +469,7 @@ Integer* Integer::getInteger($String* nm, Integer* val) {
 }
 
 Integer* Integer::decode($String* nm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t radix = 10;
 	int32_t index = 0;
 	bool negative = false;
@@ -652,7 +477,7 @@ Integer* Integer::decode($String* nm) {
 	if ($nc(nm)->isEmpty()) {
 		$throwNew($NumberFormatException, "Zero length string"_s);
 	}
-	char16_t firstChar = $nc(nm)->charAt(0);
+	char16_t firstChar = nm->charAt(0);
 	if (firstChar == u'-') {
 		negative = true;
 		++index;
@@ -667,19 +492,19 @@ Integer* Integer::decode($String* nm) {
 		++index;
 		radix = 16;
 	} else {
-		bool var$2 = nm->startsWith("0"_s, index);
-		if (var$2 && nm->length() > 1 + index) {
+		bool var$1 = nm->startsWith("0"_s, index);
+		if (var$1 && nm->length() > 1 + index) {
 			++index;
 			radix = 8;
 		}
 	}
-	bool var$3 = nm->startsWith("-"_s, index);
-	if (var$3 || nm->startsWith("+"_s, index)) {
+	bool var$2 = nm->startsWith("-"_s, index);
+	if (var$2 || nm->startsWith("+"_s, index)) {
 		$throwNew($NumberFormatException, "Sign character in wrong position"_s);
 	}
 	try {
 		$assign(result, Integer::valueOf($(nm->substring(index)), radix));
-		$assign(result, negative ? Integer::valueOf(-$nc(result)->intValue()) : result);
+		$assign(result, negative ? Integer::valueOf(-result->intValue()) : result);
 	} catch ($NumberFormatException& e) {
 		$var($String, constant, negative ? ($str({"-"_s, $(nm->substring(index))})) : nm->substring(index));
 		$assign(result, Integer::valueOf(constant, radix));
@@ -700,7 +525,7 @@ int32_t Integer::compareUnsigned(int32_t x, int32_t y) {
 }
 
 int64_t Integer::toUnsignedLong(int32_t x) {
-	return (int64_t)(((int64_t)x) & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+	return ((int64_t)x) & (int64_t)0xffffffff;
 }
 
 int32_t Integer::divideUnsigned(int32_t dividend, int32_t divisor) {
@@ -714,11 +539,11 @@ int32_t Integer::remainderUnsigned(int32_t dividend, int32_t divisor) {
 }
 
 int32_t Integer::highestOneBit(int32_t i) {
-	return (int32_t)(i & (uint32_t)($usr(Integer::MIN_VALUE, numberOfLeadingZeros(i))));
+	return i & ($usr(Integer::MIN_VALUE, numberOfLeadingZeros(i)));
 }
 
 int32_t Integer::lowestOneBit(int32_t i) {
-	return (int32_t)(i & (uint32_t)-i);
+	return i & -i;
 }
 
 int32_t Integer::numberOfLeadingZeros(int32_t i) {
@@ -746,9 +571,9 @@ int32_t Integer::numberOfLeadingZeros(int32_t i) {
 }
 
 int32_t Integer::numberOfTrailingZeros(int32_t i) {
-	i = (int32_t)(~i & (uint32_t)(i - 1));
+	i = ~i & (i - 1);
 	if (i <= 0) {
-		return (int32_t)(i & (uint32_t)32);
+		return i & 0x20;
 	}
 	int32_t n = 1;
 	if (i > 1 << 16) {
@@ -771,12 +596,12 @@ int32_t Integer::numberOfTrailingZeros(int32_t i) {
 }
 
 int32_t Integer::bitCount(int32_t i) {
-	i = i - ((int32_t)(((int32_t)((uint32_t)i >> 1)) & (uint32_t)0x55555555));
-	i = ((int32_t)(i & (uint32_t)0x33333333)) + ((int32_t)(((int32_t)((uint32_t)i >> 2)) & (uint32_t)0x33333333));
-	i = (int32_t)((i + ((int32_t)((uint32_t)i >> 4))) & (uint32_t)0x0F0F0F0F);
+	i = i - (((int32_t)((uint32_t)i >> 1)) & 0x55555555);
+	i = (i & 0x33333333) + (((int32_t)((uint32_t)i >> 2)) & 0x33333333);
+	i = (i + ((int32_t)((uint32_t)i >> 4))) & 0x0f0f0f0f;
 	i = i + ((int32_t)((uint32_t)i >> 8));
 	i = i + ((int32_t)((uint32_t)i >> 16));
-	return (int32_t)(i & (uint32_t)63);
+	return i & 0x3f;
 }
 
 int32_t Integer::rotateLeft(int32_t i, int32_t distance) {
@@ -788,9 +613,9 @@ int32_t Integer::rotateRight(int32_t i, int32_t distance) {
 }
 
 int32_t Integer::reverse(int32_t i) {
-	i = (((int32_t)(i & (uint32_t)0x55555555)) << 1) | ((int32_t)(((int32_t)((uint32_t)i >> 1)) & (uint32_t)0x55555555));
-	i = (((int32_t)(i & (uint32_t)0x33333333)) << 2) | ((int32_t)(((int32_t)((uint32_t)i >> 2)) & (uint32_t)0x33333333));
-	i = (((int32_t)(i & (uint32_t)0x0F0F0F0F)) << 4) | ((int32_t)(((int32_t)((uint32_t)i >> 4)) & (uint32_t)0x0F0F0F0F));
+	i = ((i & 0x55555555) << 1) | (((int32_t)((uint32_t)i >> 1)) & 0x55555555);
+	i = ((i & 0x33333333) << 2) | (((int32_t)((uint32_t)i >> 2)) & 0x33333333);
+	i = ((i & 0x0f0f0f0f) << 4) | (((int32_t)((uint32_t)i >> 4)) & 0x0f0f0f0f);
 	return reverseBytes(i);
 }
 
@@ -799,7 +624,7 @@ int32_t Integer::signum(int32_t i) {
 }
 
 int32_t Integer::reverseBytes(int32_t i) {
-	return (((i << 24) | (((int32_t)(i & (uint32_t)0x0000FF00)) << 8)) | ((int32_t)(((int32_t)((uint32_t)i >> 8)) & (uint32_t)0x0000FF00))) | ((int32_t)((uint32_t)i >> 24));
+	return (((i << 24) | ((i & 0xff00) << 8)) | (((int32_t)((uint32_t)i >> 8)) & 0xff00)) | ((int32_t)((uint32_t)i >> 24));
 }
 
 int32_t Integer::sum(int32_t a, int32_t b) {
@@ -826,7 +651,7 @@ int32_t Integer::compareTo(Object$* anotherInteger) {
 	return this->compareTo($cast(Integer, anotherInteger));
 }
 
-void clinit$Integer($Class* class$) {
+void Integer::clinit$($Class* clazz) {
 	$assignStatic(Integer::TYPE, $Class::getPrimitiveClass("int"_s));
 	$assignStatic(Integer::digits, $new($chars, {
 		u'0',
@@ -1075,11 +900,11 @@ void clinit$Integer($Class* class$) {
 		99,
 		999,
 		9999,
-		0x0001869F,
-		0x000F423F,
-		0x0098967F,
-		0x05F5E0FF,
-		0x3B9AC9FF,
+		99999,
+		999999,
+		9999999,
+		99999999,
+		999999999,
 		Integer::MAX_VALUE
 	}));
 }
@@ -1088,7 +913,156 @@ Integer::Integer() {
 }
 
 $Class* Integer::load$($String* name, bool initialize) {
-	$loadClass(Integer, name, initialize, &_Integer_ClassInfo_, clinit$Integer, allocate$Integer);
+	$FieldInfo fieldInfos$$[] = {
+		{"MIN_VALUE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Integer, MIN_VALUE)},
+		{"MAX_VALUE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Integer, MAX_VALUE)},
+		{"TYPE", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Integer, TYPE)},
+		{"digits", "[C", nullptr, $STATIC | $FINAL, $staticField(Integer, digits)},
+		{"DigitTens", "[B", nullptr, $STATIC | $FINAL, $staticField(Integer, DigitTens)},
+		{"DigitOnes", "[B", nullptr, $STATIC | $FINAL, $staticField(Integer, DigitOnes)},
+		{"sizeTable", "[I", nullptr, $STATIC | $FINAL, $staticField(Integer, sizeTable)},
+		{"value", "I", nullptr, $PRIVATE | $FINAL, $field(Integer, value)},
+		{"SIZE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Integer, SIZE)},
+		{"BYTES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Integer, BYTES)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Integer, serialVersionUID)},
+		{}
+	};
+	$NamedAttribute init$methodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", init$methodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute init$methodAnnotations$$$1$namedAttribute[] = {
+		{"since", 's', "9"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", init$methodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$CompoundAttribute bitCountmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute intValuemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute numberOfLeadingZerosmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute numberOfTrailingZerosmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute reverseBytesmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute toStringmethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$CompoundAttribute valueOfmethodAnnotations$$$2[] = {
+		{"Ljdk/internal/vm/annotation/IntrinsicCandidate;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $method(Integer, init$, void, int32_t), nullptr, nullptr, init$methodAnnotations$$},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(Integer, init$, void, $String*), "java.lang.NumberFormatException", nullptr, init$methodAnnotations$$$1},
+		{"bitCount", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, bitCount, int32_t, int32_t), nullptr, nullptr, bitCountmethodAnnotations$$},
+		{"byteValue", "()B", nullptr, $PUBLIC, $virtualMethod(Integer, byteValue, int8_t)},
+		{"compare", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, compare, int32_t, int32_t, int32_t)},
+		{"compareTo", "(Ljava/lang/Integer;)I", nullptr, $PUBLIC, $method(Integer, compareTo, int32_t, Integer*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Integer, compareTo, int32_t, Object$*)},
+		{"compareUnsigned", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, compareUnsigned, int32_t, int32_t, int32_t)},
+		{"decode", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, decode, Integer*, $String*), "java.lang.NumberFormatException"},
+		{"describeConstable", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(Integer, describeConstable, $Optional*)},
+		{"divideUnsigned", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, divideUnsigned, int32_t, int32_t, int32_t)},
+		{"doubleValue", "()D", nullptr, $PUBLIC, $virtualMethod(Integer, doubleValue, double)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Integer, equals, bool, Object$*)},
+		{"floatValue", "()F", nullptr, $PUBLIC, $virtualMethod(Integer, floatValue, float)},
+		{"formatUnsignedInt", "(II[BI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Integer, formatUnsignedInt, void, int32_t, int32_t, $bytes*, int32_t)},
+		{"formatUnsignedIntUTF16", "(II[BI)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Integer, formatUnsignedIntUTF16, void, int32_t, int32_t, $bytes*, int32_t)},
+		{"getChars", "(II[B)I", nullptr, $STATIC, $staticMethod(Integer, getChars, int32_t, int32_t, int32_t, $bytes*)},
+		{"getInteger", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, getInteger, Integer*, $String*)},
+		{"getInteger", "(Ljava/lang/String;I)Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, getInteger, Integer*, $String*, int32_t)},
+		{"getInteger", "(Ljava/lang/String;Ljava/lang/Integer;)Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, getInteger, Integer*, $String*, Integer*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Integer, hashCode, int32_t)},
+		{"hashCode", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, hashCode, int32_t, int32_t)},
+		{"highestOneBit", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, highestOneBit, int32_t, int32_t)},
+		{"intValue", "()I", nullptr, $PUBLIC, $virtualMethod(Integer, intValue, int32_t), nullptr, nullptr, intValuemethodAnnotations$$},
+		{"longValue", "()J", nullptr, $PUBLIC, $virtualMethod(Integer, longValue, int64_t)},
+		{"lowestOneBit", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, lowestOneBit, int32_t, int32_t)},
+		{"max", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, max, int32_t, int32_t, int32_t)},
+		{"min", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, min, int32_t, int32_t, int32_t)},
+		{"numberOfLeadingZeros", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, numberOfLeadingZeros, int32_t, int32_t), nullptr, nullptr, numberOfLeadingZerosmethodAnnotations$$},
+		{"numberOfTrailingZeros", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, numberOfTrailingZeros, int32_t, int32_t), nullptr, nullptr, numberOfTrailingZerosmethodAnnotations$$},
+		{"parseInt", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, parseInt, int32_t, $String*, int32_t), "java.lang.NumberFormatException"},
+		{"parseInt", "(Ljava/lang/CharSequence;III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, parseInt, int32_t, $CharSequence*, int32_t, int32_t, int32_t), "java.lang.NumberFormatException"},
+		{"parseInt", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, parseInt, int32_t, $String*), "java.lang.NumberFormatException"},
+		{"parseUnsignedInt", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, parseUnsignedInt, int32_t, $String*, int32_t), "java.lang.NumberFormatException"},
+		{"parseUnsignedInt", "(Ljava/lang/CharSequence;III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, parseUnsignedInt, int32_t, $CharSequence*, int32_t, int32_t, int32_t), "java.lang.NumberFormatException"},
+		{"parseUnsignedInt", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, parseUnsignedInt, int32_t, $String*), "java.lang.NumberFormatException"},
+		{"remainderUnsigned", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, remainderUnsigned, int32_t, int32_t, int32_t)},
+		{"resolveConstantDesc", "(Ljava/lang/invoke/MethodHandles$Lookup;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(Integer, resolveConstantDesc, $Object*, $MethodHandles$Lookup*)},
+		{"reverse", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, reverse, int32_t, int32_t)},
+		{"reverseBytes", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, reverseBytes, int32_t, int32_t), nullptr, nullptr, reverseBytesmethodAnnotations$$},
+		{"rotateLeft", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, rotateLeft, int32_t, int32_t, int32_t)},
+		{"rotateRight", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, rotateRight, int32_t, int32_t, int32_t)},
+		{"shortValue", "()S", nullptr, $PUBLIC, $virtualMethod(Integer, shortValue, int16_t)},
+		{"signum", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, signum, int32_t, int32_t)},
+		{"stringSize", "(I)I", nullptr, $STATIC, $staticMethod(Integer, stringSize, int32_t, int32_t)},
+		{"sum", "(II)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, sum, int32_t, int32_t, int32_t)},
+		{"toBinaryString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, toBinaryString, $String*, int32_t)},
+		{"toHexString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, toHexString, $String*, int32_t)},
+		{"toOctalString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, toOctalString, $String*, int32_t)},
+		{"toString", "(II)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, toString, $String*, int32_t, int32_t)},
+		{"toString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, toString, $String*, int32_t), nullptr, nullptr, toStringmethodAnnotations$$$1},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Integer, toString, $String*)},
+		{"toStringUTF16", "(II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Integer, toStringUTF16, $String*, int32_t, int32_t)},
+		{"toUnsignedLong", "(I)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, toUnsignedLong, int64_t, int32_t)},
+		{"toUnsignedString", "(II)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, toUnsignedString, $String*, int32_t, int32_t)},
+		{"toUnsignedString", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, toUnsignedString, $String*, int32_t)},
+		{"toUnsignedString0", "(II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Integer, toUnsignedString0, $String*, int32_t, int32_t)},
+		{"valueOf", "(Ljava/lang/String;I)Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, valueOf, Integer*, $String*, int32_t), "java.lang.NumberFormatException"},
+		{"valueOf", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, valueOf, Integer*, $String*), "java.lang.NumberFormatException"},
+		{"valueOf", "(I)Ljava/lang/Integer;", nullptr, $PUBLIC | $STATIC, $staticMethod(Integer, valueOf, Integer*, int32_t), nullptr, nullptr, valueOfmethodAnnotations$$$2},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Integer$IntegerCache", "java.lang.Integer", "IntegerCache", $PRIVATE | $STATIC},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljdk/internal/ValueBased;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.lang.Integer",
+		"java.lang.Number",
+		"java.lang.Comparable,java.lang.constant.Constable,java.lang.constant.ConstantDesc",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Number;Ljava/lang/Comparable<Ljava/lang/Integer;>;Ljava/lang/constant/Constable;Ljava/lang/constant/ConstantDesc;",
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"java.lang.Integer$IntegerCache"
+	};
+	$loadClass(Integer, name, initialize, &classInfo$$, Integer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Integer));
+	});
 	return class$;
 }
 

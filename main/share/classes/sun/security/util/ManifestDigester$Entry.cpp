@@ -1,5 +1,4 @@
 #include <sun/security/util/ManifestDigester$Entry.h>
-
 #include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -27,9 +26,7 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $MessageDigest = ::java::security::MessageDigest;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Predicate = ::java::util::function::Predicate;
-using $Stream = ::java::util::stream::Stream;
 using $ManifestDigester$Section = ::sun::security::util::ManifestDigester$Section;
 
 namespace sun {
@@ -44,71 +41,27 @@ public:
 	virtual bool test(Object$* inst$) override {
 		 return $sure($ManifestDigester$Section, inst$)->isProperlySectionDelimited();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ManifestDigester$Entry$$Lambda$isProperlySectionDelimited>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ManifestDigester$Entry$$Lambda$isProperlySectionDelimited::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ManifestDigester$Entry$$Lambda$isProperlySectionDelimited, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ManifestDigester$Entry$$Lambda$isProperlySectionDelimited, test, bool, Object$*)},
-	{}
-};
-$ClassInfo ManifestDigester$Entry$$Lambda$isProperlySectionDelimited::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.security.util.ManifestDigester$Entry$$Lambda$isProperlySectionDelimited",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* ManifestDigester$Entry$$Lambda$isProperlySectionDelimited::load$($String* name, bool initialize) {
-	$loadClass(ManifestDigester$Entry$$Lambda$isProperlySectionDelimited, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ManifestDigester$Entry$$Lambda$isProperlySectionDelimited, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ManifestDigester$Entry$$Lambda$isProperlySectionDelimited, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.security.util.ManifestDigester$Entry$$Lambda$isProperlySectionDelimited",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ManifestDigester$Entry$$Lambda$isProperlySectionDelimited, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ManifestDigester$Entry$$Lambda$isProperlySectionDelimited);
+	});
 	return class$;
 }
 $Class* ManifestDigester$Entry$$Lambda$isProperlySectionDelimited::class$ = nullptr;
-
-$FieldInfo _ManifestDigester$Entry_FieldInfo_[] = {
-	{"sections", "Ljava/util/List;", "Ljava/util/List<Lsun/security/util/ManifestDigester$Section;>;", $PRIVATE, $field(ManifestDigester$Entry, sections)},
-	{"oldStyle", "Z", nullptr, 0, $field(ManifestDigester$Entry, oldStyle)},
-	{}
-};
-
-$MethodInfo _ManifestDigester$Entry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ManifestDigester$Entry, init$, void)},
-	{"addSection", "(Lsun/security/util/ManifestDigester$Section;)Lsun/security/util/ManifestDigester$Entry;", nullptr, $PRIVATE, $method(ManifestDigester$Entry, addSection, ManifestDigester$Entry*, $ManifestDigester$Section*)},
-	{"digest", "(Ljava/security/MessageDigest;)[B", nullptr, $PUBLIC, $virtualMethod(ManifestDigester$Entry, digest, $bytes*, $MessageDigest*)},
-	{"digestWorkaround", "(Ljava/security/MessageDigest;)[B", nullptr, $PUBLIC, $virtualMethod(ManifestDigester$Entry, digestWorkaround, $bytes*, $MessageDigest*)},
-	{"isProperlyDelimited", "()Z", nullptr, $PUBLIC, $virtualMethod(ManifestDigester$Entry, isProperlyDelimited, bool)},
-	{"reproduceRaw", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ManifestDigester$Entry, reproduceRaw, void, $OutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ManifestDigester$Entry_InnerClassesInfo_[] = {
-	{"sun.security.util.ManifestDigester$Entry", "sun.security.util.ManifestDigester", "Entry", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _ManifestDigester$Entry_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.util.ManifestDigester$Entry",
-	"java.lang.Object",
-	nullptr,
-	_ManifestDigester$Entry_FieldInfo_,
-	_ManifestDigester$Entry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ManifestDigester$Entry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.util.ManifestDigester"
-};
-
-$Object* allocate$ManifestDigester$Entry($Class* clazz) {
-	return $of($alloc(ManifestDigester$Entry));
-}
 
 void ManifestDigester$Entry::init$() {
 	$set(this, sections, $new($ArrayList));
@@ -120,36 +73,32 @@ ManifestDigester$Entry* ManifestDigester$Entry::addSection($ManifestDigester$Sec
 }
 
 bool ManifestDigester$Entry::isProperlyDelimited() {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc(this->sections)->stream()))->allMatch(static_cast<$Predicate*>($$new(ManifestDigester$Entry$$Lambda$isProperlySectionDelimited)));
+	$useLocalObjectStack();
+	return $$nc($nc(this->sections)->stream())->allMatch($$new(ManifestDigester$Entry$$Lambda$isProperlySectionDelimited));
 }
 
 void ManifestDigester$Entry::reproduceRaw($OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(this->sections)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($ManifestDigester$Section, sec, $cast($ManifestDigester$Section, i$->next()));
-			{
-				$nc(out)->write($nc(sec)->rawBytes, sec->offset, sec->lengthWithBlankLine);
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(this->sections)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($ManifestDigester$Section, sec, $cast($ManifestDigester$Section, i$->next()));
+		{
+			$nc(out)->write($nc(sec)->rawBytes, $nc(sec)->offset, $nc(sec)->lengthWithBlankLine);
 		}
 	}
 }
 
 $bytes* ManifestDigester$Entry::digest($MessageDigest* md) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(md)->reset();
 	{
 		$var($Iterator, i$, $nc(this->sections)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($ManifestDigester$Section, sec, $cast($ManifestDigester$Section, i$->next()));
-			{
-				if (this->oldStyle) {
-					$ManifestDigester$Section::doOldStyle(md, $nc(sec)->rawBytes, sec->offset, sec->lengthWithBlankLine);
-				} else {
-					md->update($nc(sec)->rawBytes, sec->offset, sec->lengthWithBlankLine);
-				}
+			if (this->oldStyle) {
+				$ManifestDigester$Section::doOldStyle(md, $nc(sec)->rawBytes, $nc(sec)->offset, $nc(sec)->lengthWithBlankLine);
+			} else {
+				md->update($nc(sec)->rawBytes, $nc(sec)->offset, $nc(sec)->lengthWithBlankLine);
 			}
 		}
 	}
@@ -157,14 +106,14 @@ $bytes* ManifestDigester$Entry::digest($MessageDigest* md) {
 }
 
 $bytes* ManifestDigester$Entry::digestWorkaround($MessageDigest* md) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(md)->reset();
 	{
 		$var($Iterator, i$, $nc(this->sections)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($ManifestDigester$Section, sec, $cast($ManifestDigester$Section, i$->next()));
 			{
-				md->update($nc(sec)->rawBytes, sec->offset, sec->length);
+				md->update($nc(sec)->rawBytes, $nc(sec)->offset, $nc(sec)->length);
 			}
 		}
 	}
@@ -176,11 +125,46 @@ ManifestDigester$Entry::ManifestDigester$Entry() {
 
 $Class* ManifestDigester$Entry::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ManifestDigester$Entry$$Lambda$isProperlySectionDelimited::classInfo$.name)) {
+		if (name->equals("sun.security.util.ManifestDigester$Entry$$Lambda$isProperlySectionDelimited")) {
 			return ManifestDigester$Entry$$Lambda$isProperlySectionDelimited::load$(name, initialize);
 		}
 	}
-	$loadClass(ManifestDigester$Entry, name, initialize, &_ManifestDigester$Entry_ClassInfo_, allocate$ManifestDigester$Entry);
+	$FieldInfo fieldInfos$$[] = {
+		{"sections", "Ljava/util/List;", "Ljava/util/List<Lsun/security/util/ManifestDigester$Section;>;", $PRIVATE, $field(ManifestDigester$Entry, sections)},
+		{"oldStyle", "Z", nullptr, 0, $field(ManifestDigester$Entry, oldStyle)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ManifestDigester$Entry, init$, void)},
+		{"addSection", "(Lsun/security/util/ManifestDigester$Section;)Lsun/security/util/ManifestDigester$Entry;", nullptr, $PRIVATE, $method(ManifestDigester$Entry, addSection, ManifestDigester$Entry*, $ManifestDigester$Section*)},
+		{"digest", "(Ljava/security/MessageDigest;)[B", nullptr, $PUBLIC, $virtualMethod(ManifestDigester$Entry, digest, $bytes*, $MessageDigest*)},
+		{"digestWorkaround", "(Ljava/security/MessageDigest;)[B", nullptr, $PUBLIC, $virtualMethod(ManifestDigester$Entry, digestWorkaround, $bytes*, $MessageDigest*)},
+		{"isProperlyDelimited", "()Z", nullptr, $PUBLIC, $virtualMethod(ManifestDigester$Entry, isProperlyDelimited, bool)},
+		{"reproduceRaw", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ManifestDigester$Entry, reproduceRaw, void, $OutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.util.ManifestDigester$Entry", "sun.security.util.ManifestDigester", "Entry", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.util.ManifestDigester$Entry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.util.ManifestDigester"
+	};
+	$loadClass(ManifestDigester$Entry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ManifestDigester$Entry);
+	});
 	return class$;
 }
 

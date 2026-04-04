@@ -1,5 +1,4 @@
 #include <java/lang/invoke/MutableCallSite.h>
-
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodType.h>
@@ -22,34 +21,6 @@ using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$FieldInfo _MutableCallSite_FieldInfo_[] = {
-	{"STORE_BARRIER", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MutableCallSite, STORE_BARRIER)},
-	{}
-};
-
-$MethodInfo _MutableCallSite_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodType;)V", nullptr, $PUBLIC, $method(MutableCallSite, init$, void, $MethodType*)},
-	{"<init>", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC, $method(MutableCallSite, init$, void, $MethodHandle*)},
-	{"dynamicInvoker", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MutableCallSite, dynamicInvoker, $MethodHandle*)},
-	{"getTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MutableCallSite, getTarget, $MethodHandle*)},
-	{"setTarget", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC, $virtualMethod(MutableCallSite, setTarget, void, $MethodHandle*)},
-	{"syncAll", "([Ljava/lang/invoke/MutableCallSite;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MutableCallSite, syncAll, void, $MutableCallSiteArray*)},
-	{}
-};
-
-$ClassInfo _MutableCallSite_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.lang.invoke.MutableCallSite",
-	"java.lang.invoke.CallSite",
-	nullptr,
-	_MutableCallSite_FieldInfo_,
-	_MutableCallSite_MethodInfo_
-};
-
-$Object* allocate$MutableCallSite($Class* clazz) {
-	return $of($alloc(MutableCallSite));
-}
 
 $AtomicInteger* MutableCallSite::STORE_BARRIER = nullptr;
 
@@ -75,16 +46,14 @@ $MethodHandle* MutableCallSite::dynamicInvoker() {
 
 void MutableCallSite::syncAll($MutableCallSiteArray* sites) {
 	$init(MutableCallSite);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(sites)->length == 0) {
 		return;
 	}
-	$nc(MutableCallSite::STORE_BARRIER)->lazySet(0);
+	MutableCallSite::STORE_BARRIER->lazySet(0);
 	{
 		$var($MutableCallSiteArray, arr$, sites);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var(MutableCallSite, site, arr$->get(i$));
 			{
 				$Objects::requireNonNull(site);
@@ -93,7 +62,7 @@ void MutableCallSite::syncAll($MutableCallSiteArray* sites) {
 	}
 }
 
-void clinit$MutableCallSite($Class* class$) {
+void MutableCallSite::clinit$($Class* clazz) {
 	$assignStatic(MutableCallSite::STORE_BARRIER, $new($AtomicInteger));
 }
 
@@ -101,7 +70,30 @@ MutableCallSite::MutableCallSite() {
 }
 
 $Class* MutableCallSite::load$($String* name, bool initialize) {
-	$loadClass(MutableCallSite, name, initialize, &_MutableCallSite_ClassInfo_, clinit$MutableCallSite, allocate$MutableCallSite);
+	$FieldInfo fieldInfos$$[] = {
+		{"STORE_BARRIER", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MutableCallSite, STORE_BARRIER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/invoke/MethodType;)V", nullptr, $PUBLIC, $method(MutableCallSite, init$, void, $MethodType*)},
+		{"<init>", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC, $method(MutableCallSite, init$, void, $MethodHandle*)},
+		{"dynamicInvoker", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MutableCallSite, dynamicInvoker, $MethodHandle*)},
+		{"getTarget", "()Ljava/lang/invoke/MethodHandle;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MutableCallSite, getTarget, $MethodHandle*)},
+		{"setTarget", "(Ljava/lang/invoke/MethodHandle;)V", nullptr, $PUBLIC, $virtualMethod(MutableCallSite, setTarget, void, $MethodHandle*)},
+		{"syncAll", "([Ljava/lang/invoke/MutableCallSite;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MutableCallSite, syncAll, void, $MutableCallSiteArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.lang.invoke.MutableCallSite",
+		"java.lang.invoke.CallSite",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MutableCallSite, name, initialize, &classInfo$$, MutableCallSite::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MutableCallSite);
+	});
 	return class$;
 }
 

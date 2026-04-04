@@ -76,7 +76,8 @@ namespace java {
 class $export ObjectStreamConstants : public ::java::lang::Object {
 	$interface(ObjectStreamConstants, 0, ::java::lang::Object)
 public:
-	static const int16_t STREAM_MAGIC = (int16_t)0x0000ACED;
+	static void clinit$(::java::lang::Class* clazz);
+	static const int16_t STREAM_MAGIC = (int16_t)0x0000aced;
 	static const int16_t STREAM_VERSION = 5;
 	static const int8_t TC_BASE = 112;
 	static const int8_t TC_NULL = (int8_t)112;
@@ -95,7 +96,7 @@ public:
 	static const int8_t TC_PROXYCLASSDESC = (int8_t)125;
 	static const int8_t TC_ENUM = (int8_t)126;
 	static const int8_t TC_MAX = (int8_t)126;
-	static const int32_t baseWireHandle = 0x007E0000;
+	static const int32_t baseWireHandle = 0x007e0000;
 	static const int8_t SC_WRITE_METHOD = 1;
 	static const int8_t SC_BLOCK_DATA = 8;
 	static const int8_t SC_SERIALIZABLE = 2;

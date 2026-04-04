@@ -1,5 +1,4 @@
 #include <sun/security/jca/ProviderList$PreferredList.h>
-
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -15,7 +14,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $ProviderList$PreferredEntry = ::sun::security::jca::ProviderList$PreferredEntry;
 using $ProviderList$ServiceList = ::sun::security::jca::ProviderList$ServiceList;
 using $ServiceId = ::sun::security::jca::ServiceId;
@@ -24,64 +22,22 @@ namespace sun {
 	namespace security {
 		namespace jca {
 
-$FieldInfo _ProviderList$PreferredList_FieldInfo_[] = {
-	{"list", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/security/jca/ProviderList$PreferredEntry;>;", 0, $field(ProviderList$PreferredList, list)},
-	{}
-};
-
-$MethodInfo _ProviderList$PreferredList_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ProviderList$PreferredList, init$, void)},
-	{"add", "(Lsun/security/jca/ProviderList$PreferredEntry;)Z", nullptr, $PUBLIC, $method(ProviderList$PreferredList, add, bool, $ProviderList$PreferredEntry*)},
-	{"get", "(I)Lsun/security/jca/ProviderList$PreferredEntry;", nullptr, $PUBLIC, $method(ProviderList$PreferredList, get, $ProviderList$PreferredEntry*, int32_t)},
-	{"getAll", "(Lsun/security/jca/ProviderList$ServiceList;)Ljava/util/ArrayList;", "(Lsun/security/jca/ProviderList$ServiceList;)Ljava/util/ArrayList<Lsun/security/jca/ProviderList$PreferredEntry;>;", 0, $method(ProviderList$PreferredList, getAll, $ArrayList*, $ProviderList$ServiceList*)},
-	{"getAll", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/ArrayList;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/ArrayList<Lsun/security/jca/ProviderList$PreferredEntry;>;", 0, $method(ProviderList$PreferredList, getAll, $ArrayList*, $String*, $String*)},
-	{"implGetAll", "(Ljava/util/ArrayList;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/util/ArrayList<Lsun/security/jca/ProviderList$PreferredEntry;>;Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(ProviderList$PreferredList, implGetAll, void, $ArrayList*, $String*, $String*)},
-	{"size", "()I", nullptr, $PUBLIC, $method(ProviderList$PreferredList, size, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProviderList$PreferredList, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _ProviderList$PreferredList_InnerClassesInfo_[] = {
-	{"sun.security.jca.ProviderList$PreferredList", "sun.security.jca.ProviderList", "PreferredList", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ProviderList$PreferredList_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.jca.ProviderList$PreferredList",
-	"java.lang.Object",
-	nullptr,
-	_ProviderList$PreferredList_FieldInfo_,
-	_ProviderList$PreferredList_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ProviderList$PreferredList_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.jca.ProviderList"
-};
-
-$Object* allocate$ProviderList$PreferredList($Class* clazz) {
-	return $of($alloc(ProviderList$PreferredList));
-}
-
 void ProviderList$PreferredList::init$() {
 	$set(this, list, $new($ArrayList));
 }
 
 $ArrayList* ProviderList$PreferredList::getAll($ProviderList$ServiceList* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(s)->ids == nullptr) {
 		return getAll(s->type, s->algorithm);
 	}
 	$var($ArrayList, l, $new($ArrayList));
 	{
-		$var($Iterator, i$, $nc($nc(s)->ids)->iterator());
+		$var($Iterator, i$, $nc(s->ids)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($ServiceId, id, $cast($ServiceId, i$->next()));
 			{
-				implGetAll(l, $nc(id)->type, id->algorithm);
+				implGetAll(l, $nc(id)->type, $nc(id)->algorithm);
 			}
 		}
 	}
@@ -117,7 +73,7 @@ bool ProviderList$PreferredList::add($ProviderList$PreferredEntry* e) {
 }
 
 $String* ProviderList$PreferredList::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, ""_s);
 	{
 		$var($Iterator, i$, $nc(this->list)->iterator());
@@ -135,7 +91,43 @@ ProviderList$PreferredList::ProviderList$PreferredList() {
 }
 
 $Class* ProviderList$PreferredList::load$($String* name, bool initialize) {
-	$loadClass(ProviderList$PreferredList, name, initialize, &_ProviderList$PreferredList_ClassInfo_, allocate$ProviderList$PreferredList);
+	$FieldInfo fieldInfos$$[] = {
+		{"list", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/security/jca/ProviderList$PreferredEntry;>;", 0, $field(ProviderList$PreferredList, list)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ProviderList$PreferredList, init$, void)},
+		{"add", "(Lsun/security/jca/ProviderList$PreferredEntry;)Z", nullptr, $PUBLIC, $method(ProviderList$PreferredList, add, bool, $ProviderList$PreferredEntry*)},
+		{"get", "(I)Lsun/security/jca/ProviderList$PreferredEntry;", nullptr, $PUBLIC, $method(ProviderList$PreferredList, get, $ProviderList$PreferredEntry*, int32_t)},
+		{"getAll", "(Lsun/security/jca/ProviderList$ServiceList;)Ljava/util/ArrayList;", "(Lsun/security/jca/ProviderList$ServiceList;)Ljava/util/ArrayList<Lsun/security/jca/ProviderList$PreferredEntry;>;", 0, $method(ProviderList$PreferredList, getAll, $ArrayList*, $ProviderList$ServiceList*)},
+		{"getAll", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/ArrayList;", "(Ljava/lang/String;Ljava/lang/String;)Ljava/util/ArrayList<Lsun/security/jca/ProviderList$PreferredEntry;>;", 0, $method(ProviderList$PreferredList, getAll, $ArrayList*, $String*, $String*)},
+		{"implGetAll", "(Ljava/util/ArrayList;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/util/ArrayList<Lsun/security/jca/ProviderList$PreferredEntry;>;Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(ProviderList$PreferredList, implGetAll, void, $ArrayList*, $String*, $String*)},
+		{"size", "()I", nullptr, $PUBLIC, $method(ProviderList$PreferredList, size, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProviderList$PreferredList, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jca.ProviderList$PreferredList", "sun.security.jca.ProviderList", "PreferredList", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.jca.ProviderList$PreferredList",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.jca.ProviderList"
+	};
+	$loadClass(ProviderList$PreferredList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProviderList$PreferredList);
+	});
 	return class$;
 }
 

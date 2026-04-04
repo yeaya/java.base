@@ -1,5 +1,4 @@
 #include <sun/reflect/annotation/TypeAnnotation$LocationInfo$Location.h>
-
 #include <sun/reflect/annotation/TypeAnnotation$LocationInfo.h>
 #include <jcpp.h>
 
@@ -11,44 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace reflect {
 		namespace annotation {
-
-$FieldInfo _TypeAnnotation$LocationInfo$Location_FieldInfo_[] = {
-	{"tag", "B", nullptr, $PUBLIC | $FINAL, $field(TypeAnnotation$LocationInfo$Location, tag)},
-	{"index", "S", nullptr, $PUBLIC | $FINAL, $field(TypeAnnotation$LocationInfo$Location, index)},
-	{}
-};
-
-$MethodInfo _TypeAnnotation$LocationInfo$Location_MethodInfo_[] = {
-	{"<init>", "(BS)V", nullptr, $PUBLIC, $method(TypeAnnotation$LocationInfo$Location, init$, void, int8_t, int16_t)},
-	{"isSameLocation", "(Lsun/reflect/annotation/TypeAnnotation$LocationInfo$Location;)Z", nullptr, 0, $method(TypeAnnotation$LocationInfo$Location, isSameLocation, bool, TypeAnnotation$LocationInfo$Location*)},
-	{}
-};
-
-$InnerClassInfo _TypeAnnotation$LocationInfo$Location_InnerClassesInfo_[] = {
-	{"sun.reflect.annotation.TypeAnnotation$LocationInfo", "sun.reflect.annotation.TypeAnnotation", "LocationInfo", $PUBLIC | $STATIC | $FINAL},
-	{"sun.reflect.annotation.TypeAnnotation$LocationInfo$Location", "sun.reflect.annotation.TypeAnnotation$LocationInfo", "Location", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _TypeAnnotation$LocationInfo$Location_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.reflect.annotation.TypeAnnotation$LocationInfo$Location",
-	"java.lang.Object",
-	nullptr,
-	_TypeAnnotation$LocationInfo$Location_FieldInfo_,
-	_TypeAnnotation$LocationInfo$Location_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TypeAnnotation$LocationInfo$Location_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.reflect.annotation.TypeAnnotation"
-};
-
-$Object* allocate$TypeAnnotation$LocationInfo$Location($Class* clazz) {
-	return $of($alloc(TypeAnnotation$LocationInfo$Location));
-}
 
 bool TypeAnnotation$LocationInfo$Location::isSameLocation(TypeAnnotation$LocationInfo$Location* other) {
 	return this->tag == $nc(other)->tag && this->index == other->index;
@@ -63,7 +24,39 @@ TypeAnnotation$LocationInfo$Location::TypeAnnotation$LocationInfo$Location() {
 }
 
 $Class* TypeAnnotation$LocationInfo$Location::load$($String* name, bool initialize) {
-	$loadClass(TypeAnnotation$LocationInfo$Location, name, initialize, &_TypeAnnotation$LocationInfo$Location_ClassInfo_, allocate$TypeAnnotation$LocationInfo$Location);
+	$FieldInfo fieldInfos$$[] = {
+		{"tag", "B", nullptr, $PUBLIC | $FINAL, $field(TypeAnnotation$LocationInfo$Location, tag)},
+		{"index", "S", nullptr, $PUBLIC | $FINAL, $field(TypeAnnotation$LocationInfo$Location, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(BS)V", nullptr, $PUBLIC, $method(TypeAnnotation$LocationInfo$Location, init$, void, int8_t, int16_t)},
+		{"isSameLocation", "(Lsun/reflect/annotation/TypeAnnotation$LocationInfo$Location;)Z", nullptr, 0, $method(TypeAnnotation$LocationInfo$Location, isSameLocation, bool, TypeAnnotation$LocationInfo$Location*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.reflect.annotation.TypeAnnotation$LocationInfo", "sun.reflect.annotation.TypeAnnotation", "LocationInfo", $PUBLIC | $STATIC | $FINAL},
+		{"sun.reflect.annotation.TypeAnnotation$LocationInfo$Location", "sun.reflect.annotation.TypeAnnotation$LocationInfo", "Location", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.reflect.annotation.TypeAnnotation$LocationInfo$Location",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.reflect.annotation.TypeAnnotation"
+	};
+	$loadClass(TypeAnnotation$LocationInfo$Location, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeAnnotation$LocationInfo$Location);
+	});
 	return class$;
 }
 

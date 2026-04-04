@@ -1,5 +1,4 @@
 #include <sun/nio/fs/ExtendedOptions.h>
-
 #include <java/util/AbstractMap.h>
 #include <java/util/Map.h>
 #include <java/util/concurrent/ConcurrentHashMap.h>
@@ -29,50 +28,6 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _ExtendedOptions_FieldInfo_[] = {
-	{"internalToExternal", "Ljava/util/Map;", "Ljava/util/Map<Lsun/nio/fs/ExtendedOptions$InternalOption<*>;Lsun/nio/fs/ExtendedOptions$Wrapper<*>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ExtendedOptions, internalToExternal)},
-	{"INTERRUPTIBLE", "Lsun/nio/fs/ExtendedOptions$InternalOption;", "Lsun/nio/fs/ExtendedOptions$InternalOption<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedOptions, INTERRUPTIBLE)},
-	{"NOSHARE_READ", "Lsun/nio/fs/ExtendedOptions$InternalOption;", "Lsun/nio/fs/ExtendedOptions$InternalOption<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedOptions, NOSHARE_READ)},
-	{"NOSHARE_WRITE", "Lsun/nio/fs/ExtendedOptions$InternalOption;", "Lsun/nio/fs/ExtendedOptions$InternalOption<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedOptions, NOSHARE_WRITE)},
-	{"NOSHARE_DELETE", "Lsun/nio/fs/ExtendedOptions$InternalOption;", "Lsun/nio/fs/ExtendedOptions$InternalOption<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedOptions, NOSHARE_DELETE)},
-	{"FILE_TREE", "Lsun/nio/fs/ExtendedOptions$InternalOption;", "Lsun/nio/fs/ExtendedOptions$InternalOption<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedOptions, FILE_TREE)},
-	{"DIRECT", "Lsun/nio/fs/ExtendedOptions$InternalOption;", "Lsun/nio/fs/ExtendedOptions$InternalOption<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedOptions, DIRECT)},
-	{"SENSITIVITY_HIGH", "Lsun/nio/fs/ExtendedOptions$InternalOption;", "Lsun/nio/fs/ExtendedOptions$InternalOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedOptions, SENSITIVITY_HIGH)},
-	{"SENSITIVITY_MEDIUM", "Lsun/nio/fs/ExtendedOptions$InternalOption;", "Lsun/nio/fs/ExtendedOptions$InternalOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedOptions, SENSITIVITY_MEDIUM)},
-	{"SENSITIVITY_LOW", "Lsun/nio/fs/ExtendedOptions$InternalOption;", "Lsun/nio/fs/ExtendedOptions$InternalOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedOptions, SENSITIVITY_LOW)},
-	{}
-};
-
-$MethodInfo _ExtendedOptions_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExtendedOptions, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ExtendedOptions_InnerClassesInfo_[] = {
-	{"sun.nio.fs.ExtendedOptions$InternalOption", "sun.nio.fs.ExtendedOptions", "InternalOption", $PUBLIC | $STATIC | $FINAL},
-	{"sun.nio.fs.ExtendedOptions$Wrapper", "sun.nio.fs.ExtendedOptions", "Wrapper", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ExtendedOptions_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.nio.fs.ExtendedOptions",
-	"java.lang.Object",
-	nullptr,
-	_ExtendedOptions_FieldInfo_,
-	_ExtendedOptions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExtendedOptions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.ExtendedOptions$InternalOption,sun.nio.fs.ExtendedOptions$Wrapper"
-};
-
-$Object* allocate$ExtendedOptions($Class* clazz) {
-	return $of($alloc(ExtendedOptions));
-}
-
 $Map* ExtendedOptions::internalToExternal = nullptr;
 $ExtendedOptions$InternalOption* ExtendedOptions::INTERRUPTIBLE = nullptr;
 $ExtendedOptions$InternalOption* ExtendedOptions::NOSHARE_READ = nullptr;
@@ -87,8 +42,8 @@ $ExtendedOptions$InternalOption* ExtendedOptions::SENSITIVITY_LOW = nullptr;
 void ExtendedOptions::init$() {
 }
 
-void clinit$ExtendedOptions($Class* class$) {
-	$assignStatic(ExtendedOptions::internalToExternal, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
+void ExtendedOptions::clinit$($Class* clazz) {
+	$assignStatic(ExtendedOptions::internalToExternal, $cast($AbstractMap, $new($ConcurrentHashMap)));
 	$assignStatic(ExtendedOptions::INTERRUPTIBLE, $new($ExtendedOptions$InternalOption));
 	$assignStatic(ExtendedOptions::NOSHARE_READ, $new($ExtendedOptions$InternalOption));
 	$assignStatic(ExtendedOptions::NOSHARE_WRITE, $new($ExtendedOptions$InternalOption));
@@ -104,7 +59,45 @@ ExtendedOptions::ExtendedOptions() {
 }
 
 $Class* ExtendedOptions::load$($String* name, bool initialize) {
-	$loadClass(ExtendedOptions, name, initialize, &_ExtendedOptions_ClassInfo_, clinit$ExtendedOptions, allocate$ExtendedOptions);
+	$FieldInfo fieldInfos$$[] = {
+		{"internalToExternal", "Ljava/util/Map;", "Ljava/util/Map<Lsun/nio/fs/ExtendedOptions$InternalOption<*>;Lsun/nio/fs/ExtendedOptions$Wrapper<*>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ExtendedOptions, internalToExternal)},
+		{"INTERRUPTIBLE", "Lsun/nio/fs/ExtendedOptions$InternalOption;", "Lsun/nio/fs/ExtendedOptions$InternalOption<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedOptions, INTERRUPTIBLE)},
+		{"NOSHARE_READ", "Lsun/nio/fs/ExtendedOptions$InternalOption;", "Lsun/nio/fs/ExtendedOptions$InternalOption<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedOptions, NOSHARE_READ)},
+		{"NOSHARE_WRITE", "Lsun/nio/fs/ExtendedOptions$InternalOption;", "Lsun/nio/fs/ExtendedOptions$InternalOption<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedOptions, NOSHARE_WRITE)},
+		{"NOSHARE_DELETE", "Lsun/nio/fs/ExtendedOptions$InternalOption;", "Lsun/nio/fs/ExtendedOptions$InternalOption<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedOptions, NOSHARE_DELETE)},
+		{"FILE_TREE", "Lsun/nio/fs/ExtendedOptions$InternalOption;", "Lsun/nio/fs/ExtendedOptions$InternalOption<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedOptions, FILE_TREE)},
+		{"DIRECT", "Lsun/nio/fs/ExtendedOptions$InternalOption;", "Lsun/nio/fs/ExtendedOptions$InternalOption<Ljava/lang/Void;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedOptions, DIRECT)},
+		{"SENSITIVITY_HIGH", "Lsun/nio/fs/ExtendedOptions$InternalOption;", "Lsun/nio/fs/ExtendedOptions$InternalOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedOptions, SENSITIVITY_HIGH)},
+		{"SENSITIVITY_MEDIUM", "Lsun/nio/fs/ExtendedOptions$InternalOption;", "Lsun/nio/fs/ExtendedOptions$InternalOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedOptions, SENSITIVITY_MEDIUM)},
+		{"SENSITIVITY_LOW", "Lsun/nio/fs/ExtendedOptions$InternalOption;", "Lsun/nio/fs/ExtendedOptions$InternalOption<Ljava/lang/Integer;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ExtendedOptions, SENSITIVITY_LOW)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExtendedOptions, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.ExtendedOptions$InternalOption", "sun.nio.fs.ExtendedOptions", "InternalOption", $PUBLIC | $STATIC | $FINAL},
+		{"sun.nio.fs.ExtendedOptions$Wrapper", "sun.nio.fs.ExtendedOptions", "Wrapper", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.nio.fs.ExtendedOptions",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.ExtendedOptions$InternalOption,sun.nio.fs.ExtendedOptions$Wrapper"
+	};
+	$loadClass(ExtendedOptions, name, initialize, &classInfo$$, ExtendedOptions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ExtendedOptions);
+	});
 	return class$;
 }
 

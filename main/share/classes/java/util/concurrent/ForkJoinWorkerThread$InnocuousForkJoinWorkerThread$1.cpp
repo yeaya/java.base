@@ -1,5 +1,4 @@
 #include <java/util/concurrent/ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1.h>
-
 #include <java/lang/ThreadGroup.h>
 #include <jcpp.h>
 
@@ -13,49 +12,11 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$MethodInfo _ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1, init$, void)},
-	{"run", "()Ljava/lang/ThreadGroup;", nullptr, $PUBLIC, $virtualMethod(ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1_EnclosingMethodInfo_ = {
-	"java.util.concurrent.ForkJoinWorkerThread$InnocuousForkJoinWorkerThread",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1_InnerClassesInfo_[] = {
-	{"java.util.concurrent.ForkJoinWorkerThread$InnocuousForkJoinWorkerThread", "java.util.concurrent.ForkJoinWorkerThread", "InnocuousForkJoinWorkerThread", $STATIC | $FINAL},
-	{"java.util.concurrent.ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.concurrent.ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/ThreadGroup;>;",
-	&_ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1_EnclosingMethodInfo_,
-	_ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.concurrent.ForkJoinWorkerThread"
-};
-
-$Object* allocate$ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1($Class* clazz) {
-	return $of($alloc(ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1));
-}
-
 void ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1::init$() {
 }
 
 $Object* ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ThreadGroup, group, $($Thread::currentThread())->getThreadGroup());
 	{
 		$var($ThreadGroup, p, nullptr);
@@ -63,14 +24,46 @@ $Object* ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1::run() {
 			$assign(group, p);
 		}
 	}
-	return $of($new($ThreadGroup, group, "InnocuousForkJoinWorkerThreadGroup"_s));
+	return $new($ThreadGroup, group, "InnocuousForkJoinWorkerThreadGroup"_s);
 }
 
 ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1::ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1() {
 }
 
 $Class* ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1::load$($String* name, bool initialize) {
-	$loadClass(ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1, name, initialize, &_ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1_ClassInfo_, allocate$ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1, init$, void)},
+		{"run", "()Ljava/lang/ThreadGroup;", nullptr, $PUBLIC, $virtualMethod(ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.concurrent.ForkJoinWorkerThread$InnocuousForkJoinWorkerThread",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.ForkJoinWorkerThread$InnocuousForkJoinWorkerThread", "java.util.concurrent.ForkJoinWorkerThread", "InnocuousForkJoinWorkerThread", $STATIC | $FINAL},
+		{"java.util.concurrent.ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.concurrent.ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/ThreadGroup;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.concurrent.ForkJoinWorkerThread"
+	};
+	$loadClass(ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ForkJoinWorkerThread$InnocuousForkJoinWorkerThread$1);
+	});
 	return class$;
 }
 

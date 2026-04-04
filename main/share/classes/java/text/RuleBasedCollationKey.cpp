@@ -1,5 +1,4 @@
 #include <java/text/RuleBasedCollationKey.h>
-
 #include <java/text/CollationKey.h>
 #include <java/text/Collator.h>
 #include <jcpp.h>
@@ -17,36 +16,8 @@ using $Collator = ::java::text::Collator;
 namespace java {
 	namespace text {
 
-$FieldInfo _RuleBasedCollationKey_FieldInfo_[] = {
-	{"key", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RuleBasedCollationKey, key)},
-	{}
-};
-
-$MethodInfo _RuleBasedCollationKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(RuleBasedCollationKey, init$, void, $String*, $String*)},
-	{"compareTo", "(Ljava/text/CollationKey;)I", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollationKey, compareTo, int32_t, $CollationKey*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RuleBasedCollationKey, compareTo, int32_t, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollationKey, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollationKey, hashCode, int32_t)},
-	{"toByteArray", "()[B", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollationKey, toByteArray, $bytes*)},
-	{}
-};
-
-$ClassInfo _RuleBasedCollationKey_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.text.RuleBasedCollationKey",
-	"java.text.CollationKey",
-	nullptr,
-	_RuleBasedCollationKey_FieldInfo_,
-	_RuleBasedCollationKey_MethodInfo_
-};
-
-$Object* allocate$RuleBasedCollationKey($Class* clazz) {
-	return $of($alloc(RuleBasedCollationKey));
-}
-
 int32_t RuleBasedCollationKey::compareTo($CollationKey* target) {
-	int32_t result = $nc(this->key)->compareTo($nc((($cast(RuleBasedCollationKey, target))))->key);
+	int32_t result = $nc(this->key)->compareTo($nc($cast(RuleBasedCollationKey, target))->key);
 	if (result <= $Collator::LESS) {
 		return $Collator::LESS;
 	} else if (result >= $Collator::GREATER) {
@@ -59,7 +30,7 @@ bool RuleBasedCollationKey::equals(Object$* target) {
 	if ($equals(this, target)) {
 		return true;
 	}
-	if (target == nullptr || !$of($of(this)->getClass())->equals($nc($of(target))->getClass())) {
+	if (target == nullptr || !$of(this)->getClass()->equals($of(target)->getClass())) {
 		return false;
 	}
 	$var(RuleBasedCollationKey, other, $cast(RuleBasedCollationKey, target));
@@ -71,13 +42,13 @@ int32_t RuleBasedCollationKey::hashCode() {
 }
 
 $bytes* RuleBasedCollationKey::toByteArray() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, src, $nc(this->key)->toCharArray());
 	$var($bytes, dest, $new($bytes, 2 * src->length));
 	int32_t j = 0;
 	for (int32_t i = 0; i < src->length; ++i) {
 		dest->set(j++, (int8_t)((int32_t)((uint32_t)src->get(i) >> 8)));
-		dest->set(j++, (int8_t)((int32_t)(src->get(i) & (uint32_t)255)));
+		dest->set(j++, (int8_t)(src->get(i) & 0xff));
 	}
 	return dest;
 }
@@ -96,7 +67,30 @@ RuleBasedCollationKey::RuleBasedCollationKey() {
 }
 
 $Class* RuleBasedCollationKey::load$($String* name, bool initialize) {
-	$loadClass(RuleBasedCollationKey, name, initialize, &_RuleBasedCollationKey_ClassInfo_, allocate$RuleBasedCollationKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"key", "Ljava/lang/String;", nullptr, $PRIVATE, $field(RuleBasedCollationKey, key)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $method(RuleBasedCollationKey, init$, void, $String*, $String*)},
+		{"compareTo", "(Ljava/text/CollationKey;)I", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollationKey, compareTo, int32_t, $CollationKey*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RuleBasedCollationKey, compareTo, int32_t, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollationKey, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollationKey, hashCode, int32_t)},
+		{"toByteArray", "()[B", nullptr, $PUBLIC, $virtualMethod(RuleBasedCollationKey, toByteArray, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.text.RuleBasedCollationKey",
+		"java.text.CollationKey",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RuleBasedCollationKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RuleBasedCollationKey);
+	});
 	return class$;
 }
 

@@ -23,6 +23,7 @@ class $export SuppressedException : public ::java::lang::Object {
 	$class(SuppressedException, 0, ::java::lang::Object)
 public:
 	SuppressedException();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::java::io::FilterOutputStream* createOutputStream(::java::io::OutputStream* out, bool isBuffered);
 	static void main($StringArray* args);

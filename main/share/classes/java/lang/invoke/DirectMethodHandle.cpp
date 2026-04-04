@@ -1,5 +1,4 @@
 #include <java/lang/invoke/DirectMethodHandle.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/NoSuchMethodException.h>
@@ -34,7 +33,6 @@
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
 #include <java/util/Objects.h>
-#include <java/util/function/Function.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/invoke/util/ValueConversions.h>
 #include <sun/invoke/util/VerifyAccess.h>
@@ -133,7 +131,6 @@ using $WrapperArray = $Array<::sun::invoke::util::Wrapper>;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
@@ -165,11 +162,9 @@ using $MethodHandleImpl = ::java::lang::invoke::MethodHandleImpl;
 using $MethodHandleNatives = ::java::lang::invoke::MethodHandleNatives;
 using $MethodHandleStatics = ::java::lang::invoke::MethodHandleStatics;
 using $MethodType = ::java::lang::invoke::MethodType;
-using $MethodTypeForm = ::java::lang::invoke::MethodTypeForm;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $Arrays = ::java::util::Arrays;
 using $Objects = ::java::util::Objects;
-using $Function = ::java::util::function::Function;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $ValueConversions = ::sun::invoke::util::ValueConversions;
 using $VerifyAccess = ::sun::invoke::util::VerifyAccess;
@@ -179,171 +174,6 @@ using $Wrapper = ::sun::invoke::util::Wrapper;
 namespace java {
 	namespace lang {
 		namespace invoke {
-
-$CompoundAttribute _DirectMethodHandle_FieldAnnotations_ACCESSOR_FORMS[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DirectMethodHandle_FieldAnnotations_NFS[] = {
-	{"Ljdk/internal/vm/annotation/Stable;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DirectMethodHandle_MethodAnnotations_checkBase3[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DirectMethodHandle_MethodAnnotations_checkCast4[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DirectMethodHandle_MethodAnnotations_fieldOffset13[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DirectMethodHandle_MethodAnnotations_internalMemberName19[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DirectMethodHandle_MethodAnnotations_internalMemberName20[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DirectMethodHandle_MethodAnnotations_nullCheck31[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DirectMethodHandle_MethodAnnotations_staticBase39[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DirectMethodHandle_MethodAnnotations_staticOffset40[] = {
-	{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
-	{}
-};
-
-$FieldInfo _DirectMethodHandle_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectMethodHandle, $assertionsDisabled)},
-	{"member", "Ljava/lang/invoke/MemberName;", nullptr, $FINAL, $field(DirectMethodHandle, member)},
-	{"crackable", "Z", nullptr, $FINAL, $field(DirectMethodHandle, crackable)},
-	{"IMPL_NAMES", "Ljava/lang/invoke/MemberName$Factory;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DirectMethodHandle, IMPL_NAMES)},
-	{"AF_GETFIELD", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, AF_GETFIELD)},
-	{"AF_PUTFIELD", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, AF_PUTFIELD)},
-	{"AF_GETSTATIC", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, AF_GETSTATIC)},
-	{"AF_PUTSTATIC", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, AF_PUTSTATIC)},
-	{"AF_GETSTATIC_INIT", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, AF_GETSTATIC_INIT)},
-	{"AF_PUTSTATIC_INIT", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, AF_PUTSTATIC_INIT)},
-	{"AF_LIMIT", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, AF_LIMIT)},
-	{"FT_LAST_WRAPPER", "I", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, FT_LAST_WRAPPER)},
-	{"FT_UNCHECKED_REF", "I", nullptr, $STATIC | $FINAL, $staticField(DirectMethodHandle, FT_UNCHECKED_REF)},
-	{"FT_CHECKED_REF", "I", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, FT_CHECKED_REF)},
-	{"FT_LIMIT", "I", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, FT_LIMIT)},
-	{"ACCESSOR_FORMS", "[Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DirectMethodHandle, ACCESSOR_FORMS), _DirectMethodHandle_FieldAnnotations_ACCESSOR_FORMS},
-	{"ALL_WRAPPERS", "[Lsun/invoke/util/Wrapper;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DirectMethodHandle, ALL_WRAPPERS)},
-	{"NF_internalMemberName", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, NF_internalMemberName)},
-	{"NF_internalMemberNameEnsureInit", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, NF_internalMemberNameEnsureInit)},
-	{"NF_ensureInitialized", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, NF_ensureInitialized)},
-	{"NF_fieldOffset", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, NF_fieldOffset)},
-	{"NF_checkBase", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, NF_checkBase)},
-	{"NF_staticBase", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, NF_staticBase)},
-	{"NF_staticOffset", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, NF_staticOffset)},
-	{"NF_checkCast", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, NF_checkCast)},
-	{"NF_allocateInstance", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, NF_allocateInstance)},
-	{"NF_constructorMethod", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, NF_constructorMethod)},
-	{"NF_UNSAFE", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, NF_UNSAFE)},
-	{"NF_checkReceiver", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, NF_checkReceiver)},
-	{"NF_LIMIT", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, NF_LIMIT)},
-	{"NFS", "[Ljava/lang/invoke/LambdaForm$NamedFunction;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DirectMethodHandle, NFS), _DirectMethodHandle_FieldAnnotations_NFS},
-	{"OBJ_OBJ_TYPE", "Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DirectMethodHandle, OBJ_OBJ_TYPE)},
-	{"LONG_OBJ_TYPE", "Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DirectMethodHandle, LONG_OBJ_TYPE)},
-	{}
-};
-
-$MethodInfo _DirectMethodHandle_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MemberName;Z)V", nullptr, $PRIVATE, $method(DirectMethodHandle, init$, void, $MethodType*, $LambdaForm*, $MemberName*, bool)},
-	{"afIndex", "(BZI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandle, afIndex, int32_t, int8_t, bool, int32_t)},
-	{"allocateInstance", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(DirectMethodHandle, allocateInstance, $Object*, Object$*), "java.lang.InstantiationException"},
-	{"checkBase", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(DirectMethodHandle, checkBase, $Object*, Object$*), nullptr, nullptr, _DirectMethodHandle_MethodAnnotations_checkBase3},
-	{"checkCast", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(DirectMethodHandle, checkCast, $Object*, Object$*, Object$*), nullptr, nullptr, _DirectMethodHandle_MethodAnnotations_checkCast4},
-	{"checkCast", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectMethodHandle, checkCast, $Object*, Object$*)},
-	{"checkInitialized", "(Ljava/lang/invoke/MemberName;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandle, checkInitialized, bool, $MemberName*)},
-	{"checkReceiver", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectMethodHandle, checkReceiver, $Object*, Object$*)},
-	{"constructorMethod", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(DirectMethodHandle, constructorMethod, $Object*, Object$*)},
-	{"copyWith", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(DirectMethodHandle, copyWith, $MethodHandle*, $MethodType*, $LambdaForm*)},
-	{"createFunction", "(B)Ljava/lang/invoke/LambdaForm$NamedFunction;", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandle, createFunction, $LambdaForm$NamedFunction*, int8_t)},
-	{"ensureInitialized", "()V", nullptr, $PRIVATE, $method(DirectMethodHandle, ensureInitialized, void)},
-	{"ensureInitialized", "(Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(DirectMethodHandle, ensureInitialized, void, Object$*)},
-	{"fieldOffset", "(Ljava/lang/Object;)J", nullptr, $STATIC, $staticMethod(DirectMethodHandle, fieldOffset, int64_t, Object$*), nullptr, nullptr, _DirectMethodHandle_MethodAnnotations_fieldOffset13},
-	{"findDirectMethodHandle", "(Ljava/lang/invoke/LambdaForm$Name;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(DirectMethodHandle, findDirectMethodHandle, $Object*, $LambdaForm$Name*)},
-	{"ftypeKind", "(Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;)I", $STATIC, $staticMethod(DirectMethodHandle, ftypeKind, int32_t, $Class*)},
-	{"getFieldKind", "(ZZLsun/invoke/util/Wrapper;)Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandle, getFieldKind, $LambdaForm$Kind*, bool, bool, $Wrapper*)},
-	{"getFunction", "(B)Ljava/lang/invoke/LambdaForm$NamedFunction;", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandle, getFunction, $LambdaForm$NamedFunction*, int8_t)},
-	{"getNamedFunction", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/LambdaForm$NamedFunction;", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandle, getNamedFunction, $LambdaForm$NamedFunction*, $String*, $MethodType*), "java.lang.ReflectiveOperationException"},
-	{"internalMemberName", "()Ljava/lang/invoke/MemberName;", nullptr, 0, $virtualMethod(DirectMethodHandle, internalMemberName, $MemberName*), nullptr, nullptr, _DirectMethodHandle_MethodAnnotations_internalMemberName19},
-	{"internalMemberName", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(DirectMethodHandle, internalMemberName, $Object*, Object$*), nullptr, nullptr, _DirectMethodHandle_MethodAnnotations_internalMemberName20},
-	{"internalMemberNameEnsureInit", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(DirectMethodHandle, internalMemberNameEnsureInit, $Object*, Object$*)},
-	{"internalProperties", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DirectMethodHandle, internalProperties, $Object*)},
-	{"isCrackable", "()Z", nullptr, 0, $virtualMethod(DirectMethodHandle, isCrackable, bool)},
-	{"make", "(BLjava/lang/Class;Ljava/lang/invoke/MemberName;Ljava/lang/Class;)Ljava/lang/invoke/DirectMethodHandle;", "(BLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;Ljava/lang/Class<*>;)Ljava/lang/invoke/DirectMethodHandle;", $STATIC, $staticMethod(DirectMethodHandle, make, DirectMethodHandle*, int8_t, $Class*, $MemberName*, $Class*)},
-	{"make", "(Ljava/lang/Class;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/DirectMethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/DirectMethodHandle;", $STATIC, $staticMethod(DirectMethodHandle, make, DirectMethodHandle*, $Class*, $MemberName*)},
-	{"make", "(Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/DirectMethodHandle;", nullptr, $STATIC, $staticMethod(DirectMethodHandle, make, DirectMethodHandle*, $MemberName*)},
-	{"makeAllocator", "(Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/DirectMethodHandle;", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandle, makeAllocator, DirectMethodHandle*, $MemberName*)},
-	{"makePreparedFieldLambdaForm", "(BZI)Ljava/lang/invoke/LambdaForm;", nullptr, $STATIC, $staticMethod(DirectMethodHandle, makePreparedFieldLambdaForm, $LambdaForm*, int8_t, bool, int32_t)},
-	{"makePreparedLambdaForm", "(Ljava/lang/invoke/MethodType;I)Ljava/lang/invoke/LambdaForm;", nullptr, $STATIC, $staticMethod(DirectMethodHandle, makePreparedLambdaForm, $LambdaForm*, $MethodType*, int32_t)},
-	{"maybeCompile", "(Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MemberName;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandle, maybeCompile, void, $LambdaForm*, $MemberName*)},
-	{"nullCheck", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(DirectMethodHandle, nullCheck, $Object*, Object$*), nullptr, nullptr, _DirectMethodHandle_MethodAnnotations_nullCheck31},
-	{"preparedFieldLambdaForm", "(Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandle, preparedFieldLambdaForm, $LambdaForm*, $MemberName*)},
-	{"preparedFieldLambdaForm", "(BZLjava/lang/Class;)Ljava/lang/invoke/LambdaForm;", "(BZLjava/lang/Class<*>;)Ljava/lang/invoke/LambdaForm;", $PRIVATE | $STATIC, $staticMethod(DirectMethodHandle, preparedFieldLambdaForm, $LambdaForm*, int8_t, bool, $Class*)},
-	{"preparedLambdaForm", "(Ljava/lang/invoke/MemberName;Z)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandle, preparedLambdaForm, $LambdaForm*, $MemberName*, bool)},
-	{"preparedLambdaForm", "(Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandle, preparedLambdaForm, $LambdaForm*, $MemberName*)},
-	{"preparedLambdaForm", "(Ljava/lang/invoke/MethodType;I)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandle, preparedLambdaForm, $LambdaForm*, $MethodType*, int32_t)},
-	{"rebind", "()Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(DirectMethodHandle, rebind, $BoundMethodHandle*)},
-	{"shouldBeInitialized", "(Ljava/lang/invoke/MemberName;)Z", nullptr, $STATIC, $staticMethod(DirectMethodHandle, shouldBeInitialized, bool, $MemberName*)},
-	{"staticBase", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(DirectMethodHandle, staticBase, $Object*, Object$*), nullptr, nullptr, _DirectMethodHandle_MethodAnnotations_staticBase39},
-	{"staticOffset", "(Ljava/lang/Object;)J", nullptr, $STATIC, $staticMethod(DirectMethodHandle, staticOffset, int64_t, Object$*), nullptr, nullptr, _DirectMethodHandle_MethodAnnotations_staticOffset40},
-	{"viewAsType", "(Ljava/lang/invoke/MethodType;Z)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(DirectMethodHandle, viewAsType, $MethodHandle*, $MethodType*, bool)},
-	{}
-};
-
-$InnerClassInfo _DirectMethodHandle_InnerClassesInfo_[] = {
-	{"java.lang.invoke.DirectMethodHandle$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"java.lang.invoke.DirectMethodHandle$Holder", "java.lang.invoke.DirectMethodHandle", "Holder", $FINAL},
-	{"java.lang.invoke.DirectMethodHandle$StaticAccessor", "java.lang.invoke.DirectMethodHandle", "StaticAccessor", $STATIC},
-	{"java.lang.invoke.DirectMethodHandle$Accessor", "java.lang.invoke.DirectMethodHandle", "Accessor", $STATIC},
-	{"java.lang.invoke.DirectMethodHandle$Constructor", "java.lang.invoke.DirectMethodHandle", "Constructor", $STATIC},
-	{"java.lang.invoke.DirectMethodHandle$Interface", "java.lang.invoke.DirectMethodHandle", "Interface", $STATIC},
-	{"java.lang.invoke.DirectMethodHandle$Special", "java.lang.invoke.DirectMethodHandle", "Special", $STATIC},
-	{"java.lang.invoke.DirectMethodHandle$EnsureInitialized", "java.lang.invoke.DirectMethodHandle", "EnsureInitialized", $PRIVATE | $STATIC},
-	{"java.lang.invoke.DirectMethodHandle$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DirectMethodHandle_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.invoke.DirectMethodHandle",
-	"java.lang.invoke.MethodHandle",
-	nullptr,
-	_DirectMethodHandle_FieldInfo_,
-	_DirectMethodHandle_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DirectMethodHandle_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.lang.invoke.DirectMethodHandle$2,java.lang.invoke.DirectMethodHandle$Holder,java.lang.invoke.DirectMethodHandle$StaticAccessor,java.lang.invoke.DirectMethodHandle$Accessor,java.lang.invoke.DirectMethodHandle$Constructor,java.lang.invoke.DirectMethodHandle$Interface,java.lang.invoke.DirectMethodHandle$Special,java.lang.invoke.DirectMethodHandle$EnsureInitialized,java.lang.invoke.DirectMethodHandle$1"
-};
-
-$Object* allocate$DirectMethodHandle($Class* clazz) {
-	return $of($alloc(DirectMethodHandle));
-}
 
 bool DirectMethodHandle::$assertionsDisabled = false;
 $MemberName$Factory* DirectMethodHandle::IMPL_NAMES = nullptr;
@@ -355,21 +185,21 @@ $MethodType* DirectMethodHandle::OBJ_OBJ_TYPE = nullptr;
 $MethodType* DirectMethodHandle::LONG_OBJ_TYPE = nullptr;
 
 void DirectMethodHandle::init$($MethodType* mtype, $LambdaForm* form, $MemberName* member$renamed, bool crackable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemberName, member, member$renamed);
 	$MethodHandle::init$(mtype, form);
 	if (!$nc(member)->isResolved()) {
 		$throwNew($InternalError);
 	}
-	bool var$2 = $nc($nc(member)->getDeclaringClass())->isInterface();
-	bool var$1 = var$2 && member->getReferenceKind() == (int8_t)9;
+	bool var$2 = $nc(member->getDeclaringClass())->isInterface();
+	bool var$1 = var$2 && member->getReferenceKind() == 9;
 	bool var$0 = var$1 && member->isMethod();
 	if (var$0 && !member->isAbstract()) {
 		$Class* var$3 = $Object::class$;
 		$var($String, var$4, member->getName());
 		$var($MethodType, var$5, member->getMethodType());
 		$var($MemberName, m, $new($MemberName, var$3, var$4, var$5, member->getReferenceKind()));
-		$assign(m, $nc($($MemberName::getFactory()))->resolveOrNull(m->getReferenceKind(), m, nullptr, -1));
+		$assign(m, $$nc($MemberName::getFactory())->resolveOrNull(m->getReferenceKind(), m, nullptr, -1));
 		if (m != nullptr && m->isPublic()) {
 			bool var$6 = !DirectMethodHandle::$assertionsDisabled;
 			if (var$6) {
@@ -388,7 +218,7 @@ void DirectMethodHandle::init$($MethodType* mtype, $LambdaForm* form, $MemberNam
 
 DirectMethodHandle* DirectMethodHandle::make(int8_t refKind, $Class* refc, $MemberName* member$renamed, $Class* callerClass) {
 	$init(DirectMethodHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemberName, member, member$renamed);
 	$var($MethodType, mtype, $nc(member)->getMethodOrFieldType());
 	if (!member->isStatic()) {
@@ -399,42 +229,35 @@ DirectMethodHandle* DirectMethodHandle::make(int8_t refKind, $Class* refc, $Memb
 		$assign(mtype, $nc(mtype)->insertParameterTypes(0, $$new($ClassArray, {refc})));
 	}
 	if (!member->isField()) {
-
-		$var(DirectMethodHandle, var$1, nullptr)
+		$var(DirectMethodHandle, var$1, nullptr);
 		switch (refKind) {
 		case 7:
 			{
-				{
-					$assign(member, member->asSpecial());
-					if (callerClass == nullptr) {
-						$throwNew($InternalError, "callerClass must not be null for REF_invokeSpecial"_s);
-					}
-					$var($LambdaForm, lform, preparedLambdaForm(member, $nc(callerClass)->isInterface()));
-					$assign(var$1, $new($DirectMethodHandle$Special, mtype, lform, member, true, callerClass));
-					break;
+				$assign(member, member->asSpecial());
+				if (callerClass == nullptr) {
+					$throwNew($InternalError, "callerClass must not be null for REF_invokeSpecial"_s);
 				}
+				$var($LambdaForm, lform, preparedLambdaForm(member, $nc(callerClass)->isInterface()));
+				$assign(var$1, $new($DirectMethodHandle$Special, mtype, lform, member, true, callerClass));
+				break;
 			}
 		case 9:
 			{
-				{
-					$var($LambdaForm, lform, preparedLambdaForm(member, true));
-					$assign(var$1, $new($DirectMethodHandle$Interface, mtype, lform, member, true, refc));
-					break;
-				}
+				$var($LambdaForm, lform, preparedLambdaForm(member, true));
+				$assign(var$1, $new($DirectMethodHandle$Interface, mtype, lform, member, true, refc));
+				break;
 			}
 		default:
 			{
-				{
-					$var($LambdaForm, lform, preparedLambdaForm(member));
-					$assign(var$1, $new(DirectMethodHandle, mtype, lform, member, true));
-					break;
-				}
+				$var($LambdaForm, lform, preparedLambdaForm(member));
+				$assign(var$1, $new(DirectMethodHandle, mtype, lform, member, true));
+				break;
 			}
 		}
 		return var$1;
 	} else {
 		$var($LambdaForm, lform, preparedFieldLambdaForm(member));
-		if (member->isStatic()) {
+		if ($nc(member)->isStatic()) {
 			int64_t offset = $MethodHandleNatives::staticFieldOffset(member);
 			$var($Object, base, $MethodHandleNatives::staticFieldBase(member));
 			return $new($DirectMethodHandle$StaticAccessor, mtype, lform, member, true, base, offset);
@@ -451,8 +274,8 @@ DirectMethodHandle* DirectMethodHandle::make(int8_t refKind, $Class* refc, $Memb
 DirectMethodHandle* DirectMethodHandle::make($Class* refc, $MemberName* member) {
 	$init(DirectMethodHandle);
 	int8_t refKind = $nc(member)->getReferenceKind();
-	if (refKind == (int8_t)7) {
-		refKind = (int8_t)5;
+	if (refKind == 7) {
+		refKind = 5;
 	}
 	return make(refKind, refc, member, nullptr);
 }
@@ -462,17 +285,17 @@ DirectMethodHandle* DirectMethodHandle::make($MemberName* member) {
 	if ($nc(member)->isConstructor()) {
 		return makeAllocator(member);
 	}
-	return make($nc(member)->getDeclaringClass(), member);
+	return make(member->getDeclaringClass(), member);
 }
 
 DirectMethodHandle* DirectMethodHandle::makeAllocator($MemberName* ctor$renamed) {
 	$init(DirectMethodHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemberName, ctor, ctor$renamed);
 	bool var$0 = !DirectMethodHandle::$assertionsDisabled;
 	if (var$0) {
 		bool var$1 = $nc(ctor)->isConstructor();
-		var$0 = !(var$1 && $nc($(ctor->getName()))->equals("<init>"_s));
+		var$0 = !(var$1 && $$nc(ctor->getName())->equals("<init>"_s));
 	}
 	if (var$0) {
 		$throwNew($AssertionError);
@@ -481,17 +304,16 @@ DirectMethodHandle* DirectMethodHandle::makeAllocator($MemberName* ctor$renamed)
 	$assign(ctor, ctor->asConstructor());
 	bool var$2 = !DirectMethodHandle::$assertionsDisabled;
 	if (var$2) {
-		bool var$3 = ctor->isConstructor();
-		var$2 = !(var$3 && ctor->getReferenceKind() == (int8_t)8);
+		bool var$3 = $nc(ctor)->isConstructor();
+		var$2 = !(var$3 && ctor->getReferenceKind() == 8);
 	}
 	if (var$2) {
-		$throwNew($AssertionError, $of(ctor));
+		$throwNew($AssertionError, ctor);
 	}
-	$var($MethodType, mtype, $nc($(ctor->getMethodType()))->changeReturnType(instanceClass));
+	$var($MethodType, mtype, $$nc($nc(ctor)->getMethodType())->changeReturnType(instanceClass));
 	$var($LambdaForm, lform, preparedLambdaForm(ctor));
 	$var($MemberName, init, ctor->asSpecial());
-	$init($Void);
-	if (!DirectMethodHandle::$assertionsDisabled && !($cast($Class, $nc($($nc(init)->getMethodType()))->returnType()) == $Void::TYPE)) {
+	if (!DirectMethodHandle::$assertionsDisabled && !($cast($Class, $$nc($nc(init)->getMethodType())->returnType()) == $Void::TYPE)) {
 		$throwNew($AssertionError);
 	}
 	return $new($DirectMethodHandle$Constructor, mtype, lform, ctor, true, init, instanceClass);
@@ -502,7 +324,7 @@ $BoundMethodHandle* DirectMethodHandle::rebind() {
 }
 
 $MethodHandle* DirectMethodHandle::copyWith($MethodType* mt, $LambdaForm* lf) {
-	if (!DirectMethodHandle::$assertionsDisabled && !($of(this)->getClass() == DirectMethodHandle::class$)) {
+	if (!DirectMethodHandle::$assertionsDisabled && !(this->getClass() == DirectMethodHandle::class$)) {
 		$throwNew($AssertionError);
 	}
 	return $new(DirectMethodHandle, mt, lf, this->member, this->crackable);
@@ -512,7 +334,7 @@ $MethodHandle* DirectMethodHandle::viewAsType($MethodType* newType, bool strict)
 	if (!DirectMethodHandle::$assertionsDisabled && !(viewAsTypeChecks(newType, strict))) {
 		$throwNew($AssertionError);
 	}
-	if (!DirectMethodHandle::$assertionsDisabled && !($of(this)->getClass() == DirectMethodHandle::class$)) {
+	if (!DirectMethodHandle::$assertionsDisabled && !(this->getClass() == DirectMethodHandle::class$)) {
 		$throwNew($AssertionError);
 	}
 	return $new(DirectMethodHandle, newType, this->form, this->member, false);
@@ -532,46 +354,33 @@ $MemberName* DirectMethodHandle::internalMemberName() {
 
 $LambdaForm* DirectMethodHandle::preparedLambdaForm($MemberName* m, bool adaptToSpecialIfc) {
 	$init(DirectMethodHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!DirectMethodHandle::$assertionsDisabled && !($nc(m)->isInvocable())) {
-		$throwNew($AssertionError, $of(m));
+		$throwNew($AssertionError, m);
 	}
-	$var($MethodType, mtype, $nc($($nc(m)->getInvocationType()))->basicType());
+	$var($MethodType, mtype, $$nc($nc(m)->getInvocationType())->basicType());
 	if (!DirectMethodHandle::$assertionsDisabled && !(!m->isMethodHandleInvoke())) {
-		$throwNew($AssertionError, $of(m));
+		$throwNew($AssertionError, m);
 	}
-
 	int32_t var$0 = 0;
 	switch (m->getReferenceKind()) {
 	case 5:
-		{
-			var$0 = 0;
-			break;
-		}
+		var$0 = 0;
+		break;
 	case 6:
-		{
-			var$0 = 1;
-			break;
-		}
+		var$0 = 1;
+		break;
 	case 7:
-		{
-			var$0 = 2;
-			break;
-		}
+		var$0 = 2;
+		break;
 	case 9:
-		{
-			var$0 = 4;
-			break;
-		}
+		var$0 = 4;
+		break;
 	case 8:
-		{
-			var$0 = 3;
-			break;
-		}
+		var$0 = 3;
+		break;
 	default:
-		{
-			$throwNew($InternalError, $(m->toString()));
-		}
+		$throwNew($InternalError, $(m->toString()));
 	}
 	int32_t which = var$0;
 	if (which == 1 && shouldBeInitialized(m)) {
@@ -583,13 +392,13 @@ $LambdaForm* DirectMethodHandle::preparedLambdaForm($MemberName* m, bool adaptTo
 	}
 	$var($LambdaForm, lform, preparedLambdaForm(mtype, which));
 	maybeCompile(lform, m);
-	if (!DirectMethodHandle::$assertionsDisabled && !($nc($($cast($MethodType, $nc($($nc(lform)->methodType()))->dropParameterTypes(0, 1))))->equals($($of($nc($(m->getInvocationType()))->basicType()))))) {
-		$throwNew($AssertionError, $($of($Arrays::asList($$new($ObjectArray, {
-			$of(m),
-			$($of($nc($(m->getInvocationType()))->basicType())),
-			$of(lform),
-			$($of(lform->methodType()))
-		})))));
+	if (!DirectMethodHandle::$assertionsDisabled && !($$sure($MethodType, $$nc($nc(lform)->methodType())->dropParameterTypes(0, 1))->equals($$of($$nc(m->getInvocationType())->basicType())))) {
+		$throwNew($AssertionError, $($Arrays::asList($$new($ObjectArray, {
+			m,
+			$($$nc(m->getInvocationType())->basicType()),
+			lform,
+			$(lform->methodType())
+		}))));
 	}
 	return lform;
 }
@@ -601,18 +410,18 @@ $LambdaForm* DirectMethodHandle::preparedLambdaForm($MemberName* m) {
 
 $LambdaForm* DirectMethodHandle::preparedLambdaForm($MethodType* mtype, int32_t which) {
 	$init(DirectMethodHandle);
-	$useLocalCurrentObjectStackCache();
-	$var($LambdaForm, lform, $nc($($nc(mtype)->form()))->cachedLambdaForm(which));
+	$useLocalObjectStack();
+	$var($LambdaForm, lform, $$nc($nc(mtype)->form())->cachedLambdaForm(which));
 	if (lform != nullptr) {
 		return lform;
 	}
 	$assign(lform, makePreparedLambdaForm(mtype, which));
-	return $nc($(mtype->form()))->setCachedLambdaForm(which, lform);
+	return $$nc(mtype->form())->setCachedLambdaForm(which, lform);
 }
 
 $LambdaForm* DirectMethodHandle::makePreparedLambdaForm($MethodType* mtype, int32_t which) {
 	$init(DirectMethodHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool needsInit = (which == 5);
 	bool doesAlloc = (which == 3);
 	bool needsReceiverCheck = (which == 4 || which == 20);
@@ -620,72 +429,55 @@ $LambdaForm* DirectMethodHandle::makePreparedLambdaForm($MethodType* mtype, int3
 	$LambdaForm$Kind* kind = nullptr;
 	switch (which) {
 	case 0:
-		{
-			$assign(linkerName, "linkToVirtual"_s);
-			$init($LambdaForm$Kind);
-			kind = $LambdaForm$Kind::DIRECT_INVOKE_VIRTUAL;
-			break;
-		}
+		$assign(linkerName, "linkToVirtual"_s);
+		$init($LambdaForm$Kind);
+		kind = $LambdaForm$Kind::DIRECT_INVOKE_VIRTUAL;
+		break;
 	case 1:
-		{
-			$assign(linkerName, "linkToStatic"_s);
-			$init($LambdaForm$Kind);
-			kind = $LambdaForm$Kind::DIRECT_INVOKE_STATIC;
-			break;
-		}
+		$assign(linkerName, "linkToStatic"_s);
+		$init($LambdaForm$Kind);
+		kind = $LambdaForm$Kind::DIRECT_INVOKE_STATIC;
+		break;
 	case 5:
-		{
-			$assign(linkerName, "linkToStatic"_s);
-			$init($LambdaForm$Kind);
-			kind = $LambdaForm$Kind::DIRECT_INVOKE_STATIC_INIT;
-			break;
-		}
+		$assign(linkerName, "linkToStatic"_s);
+		$init($LambdaForm$Kind);
+		kind = $LambdaForm$Kind::DIRECT_INVOKE_STATIC_INIT;
+		break;
 	case 20:
-		{
-			$assign(linkerName, "linkToSpecial"_s);
-			$init($LambdaForm$Kind);
-			kind = $LambdaForm$Kind::DIRECT_INVOKE_SPECIAL_IFC;
-			break;
-		}
+		$assign(linkerName, "linkToSpecial"_s);
+		$init($LambdaForm$Kind);
+		kind = $LambdaForm$Kind::DIRECT_INVOKE_SPECIAL_IFC;
+		break;
 	case 2:
-		{
-			$assign(linkerName, "linkToSpecial"_s);
-			$init($LambdaForm$Kind);
-			kind = $LambdaForm$Kind::DIRECT_INVOKE_SPECIAL;
-			break;
-		}
+		$assign(linkerName, "linkToSpecial"_s);
+		$init($LambdaForm$Kind);
+		kind = $LambdaForm$Kind::DIRECT_INVOKE_SPECIAL;
+		break;
 	case 4:
-		{
-			$assign(linkerName, "linkToInterface"_s);
-			$init($LambdaForm$Kind);
-			kind = $LambdaForm$Kind::DIRECT_INVOKE_INTERFACE;
-			break;
-		}
+		$assign(linkerName, "linkToInterface"_s);
+		$init($LambdaForm$Kind);
+		kind = $LambdaForm$Kind::DIRECT_INVOKE_INTERFACE;
+		break;
 	case 3:
-		{
-			$assign(linkerName, "linkToSpecial"_s);
-			$init($LambdaForm$Kind);
-			kind = $LambdaForm$Kind::DIRECT_NEW_INVOKE_SPECIAL;
-			break;
-		}
+		$assign(linkerName, "linkToSpecial"_s);
+		$init($LambdaForm$Kind);
+		kind = $LambdaForm$Kind::DIRECT_NEW_INVOKE_SPECIAL;
+		break;
 	default:
-		{
-			$throwNew($InternalError, $$str({"which="_s, $$str(which)}));
-		}
+		$throwNew($InternalError, $$str({"which="_s, $$str(which)}));
 	}
 	$load($MemberName);
 	$var($MethodType, mtypeWithArg, $nc(mtype)->appendParameterTypes($$new($ClassArray, {$MemberName::class$})));
 	if (doesAlloc) {
-		$init($Void);
-		$assign(mtypeWithArg, $nc($($nc(mtypeWithArg)->insertParameterTypes(0, $$new($ClassArray, {$Object::class$}))))->changeReturnType($Void::TYPE));
+		$assign(mtypeWithArg, $$nc($nc(mtypeWithArg)->insertParameterTypes(0, $$new($ClassArray, {$Object::class$})))->changeReturnType($Void::TYPE));
 	}
 	$load($MethodHandle);
-	$var($MemberName, linker, $new($MemberName, $MethodHandle::class$, linkerName, mtypeWithArg, (int8_t)6));
+	$var($MemberName, linker, $new($MemberName, $MethodHandle::class$, linkerName, mtypeWithArg, 6));
 	try {
 		$load($NoSuchMethodException);
-		$assign(linker, $nc(DirectMethodHandle::IMPL_NAMES)->resolveOrFail((int8_t)6, linker, nullptr, -1, $NoSuchMethodException::class$));
+		$assign(linker, $nc(DirectMethodHandle::IMPL_NAMES)->resolveOrFail(6, linker, nullptr, -1, $NoSuchMethodException::class$));
 	} catch ($ReflectiveOperationException& ex) {
-		$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(ex))));
+		$throw($($MethodHandleStatics::newInternalError(ex)));
 	}
 	int32_t DMH_THIS = 0;
 	int32_t ARG_BASE = 1;
@@ -700,22 +492,21 @@ $LambdaForm* DirectMethodHandle::makePreparedLambdaForm($MethodType* mtype, int3
 		$throwNew($AssertionError);
 	}
 	if (doesAlloc) {
-		$nc(names)->set(NEW_OBJ, $$new($LambdaForm$Name, $(getFunction(DirectMethodHandle::NF_allocateInstance)), $$new($ObjectArray, {$of(names->get(DMH_THIS))})));
-		names->set(GET_MEMBER, $$new($LambdaForm$Name, $(getFunction(DirectMethodHandle::NF_constructorMethod)), $$new($ObjectArray, {$of(names->get(DMH_THIS))})));
+		$nc(names)->set(NEW_OBJ, $$new($LambdaForm$Name, $(getFunction(DirectMethodHandle::NF_allocateInstance)), $$new($ObjectArray, {$nc(names)->get(DMH_THIS)})));
+		names->set(GET_MEMBER, $$new($LambdaForm$Name, $(getFunction(DirectMethodHandle::NF_constructorMethod)), $$new($ObjectArray, {names->get(DMH_THIS)})));
 	} else if (needsInit) {
-		$nc(names)->set(GET_MEMBER, $$new($LambdaForm$Name, $(getFunction(DirectMethodHandle::NF_internalMemberNameEnsureInit)), $$new($ObjectArray, {$of(names->get(DMH_THIS))})));
+		$nc(names)->set(GET_MEMBER, $$new($LambdaForm$Name, $(getFunction(DirectMethodHandle::NF_internalMemberNameEnsureInit)), $$new($ObjectArray, {$nc(names)->get(DMH_THIS)})));
 	} else {
-		$nc(names)->set(GET_MEMBER, $$new($LambdaForm$Name, $(getFunction(DirectMethodHandle::NF_internalMemberName)), $$new($ObjectArray, {$of(names->get(DMH_THIS))})));
+		$nc(names)->set(GET_MEMBER, $$new($LambdaForm$Name, $(getFunction(DirectMethodHandle::NF_internalMemberName)), $$new($ObjectArray, {$nc(names)->get(DMH_THIS)})));
 	}
 	if (!DirectMethodHandle::$assertionsDisabled && !($equals(findDirectMethodHandle($nc(names)->get(GET_MEMBER)), $nc(names)->get(DMH_THIS)))) {
 		$throwNew($AssertionError);
 	}
-	$load($ObjectArray);
 	$var($ObjectArray, outArgs, $Arrays::copyOfRange(names, ARG_BASE, GET_MEMBER + 1, $getClass($ObjectArray)));
 	if (needsReceiverCheck) {
 		$nc(names)->set(CHECK_RECEIVER, $$new($LambdaForm$Name, $(getFunction(DirectMethodHandle::NF_checkReceiver)), $$new($ObjectArray, {
-			$of(names->get(DMH_THIS)),
-			$of(names->get(ARG_BASE))
+			$nc(names)->get(DMH_THIS),
+			$nc(names)->get(ARG_BASE)
 		})));
 		outArgs->set(0, names->get(CHECK_RECEIVER));
 	}
@@ -739,16 +530,16 @@ $LambdaForm* DirectMethodHandle::makePreparedLambdaForm($MethodType* mtype, int3
 
 $Object* DirectMethodHandle::findDirectMethodHandle($LambdaForm$Name* name) {
 	$init(DirectMethodHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$1 = $nc($nc(name)->function)->equals($(getFunction(DirectMethodHandle::NF_internalMemberName)));
-	bool var$0 = var$1 || $nc($nc(name)->function)->equals($(getFunction(DirectMethodHandle::NF_internalMemberNameEnsureInit)));
-	if (var$0 || $nc($nc(name)->function)->equals($(getFunction(DirectMethodHandle::NF_constructorMethod)))) {
+	bool var$0 = var$1 || name->function->equals($(getFunction(DirectMethodHandle::NF_internalMemberNameEnsureInit)));
+	if (var$0 || name->function->equals($(getFunction(DirectMethodHandle::NF_constructorMethod)))) {
 		if (!DirectMethodHandle::$assertionsDisabled && !($nc(name->arguments)->length == 1)) {
 			$throwNew($AssertionError);
 		}
-		return $of($nc(name->arguments)->get(0));
+		return $nc(name->arguments)->get(0);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 void DirectMethodHandle::maybeCompile($LambdaForm* lform, $MemberName* m) {
@@ -761,7 +552,7 @@ void DirectMethodHandle::maybeCompile($LambdaForm* lform, $MemberName* m) {
 
 $Object* DirectMethodHandle::internalMemberName(Object$* mh) {
 	$init(DirectMethodHandle);
-	return $of($nc(($cast(DirectMethodHandle, mh)))->member);
+	return $of($nc($cast(DirectMethodHandle, mh))->member);
 }
 
 $Object* DirectMethodHandle::internalMemberNameEnsureInit(Object$* mh) {
@@ -775,19 +566,12 @@ bool DirectMethodHandle::shouldBeInitialized($MemberName* member) {
 	$init(DirectMethodHandle);
 	switch ($nc(member)->getReferenceKind()) {
 	case 6:
-		{}
 	case 2:
-		{}
 	case 4:
-		{}
 	case 8:
-		{
-			break;
-		}
+		break;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 	$Class* cls = member->getDeclaringClass();
 	$load($ValueConversions);
@@ -801,7 +585,7 @@ bool DirectMethodHandle::shouldBeInitialized($MemberName* member) {
 	if (var$0 || $VerifyAccess::isSamePackage($ValueConversions::class$, cls)) {
 		$init($MethodHandleStatics);
 		if ($nc($MethodHandleStatics::UNSAFE)->shouldBeInitialized(cls)) {
-			$nc($MethodHandleStatics::UNSAFE)->ensureClassInitialized(cls);
+			$MethodHandleStatics::UNSAFE->ensureClassInitialized(cls);
 		}
 		return false;
 	}
@@ -817,7 +601,7 @@ void DirectMethodHandle::ensureInitialized() {
 
 bool DirectMethodHandle::checkInitialized($MemberName* member) {
 	$init(DirectMethodHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Class* defc = $nc(member)->getDeclaringClass();
 	$init($DirectMethodHandle$EnsureInitialized);
 	$var($WeakReference, ref, $cast($WeakReference, $nc($DirectMethodHandle$EnsureInitialized::INSTANCE)->get(defc)));
@@ -837,13 +621,13 @@ bool DirectMethodHandle::checkInitialized($MemberName* member) {
 	if (!DirectMethodHandle::$assertionsDisabled && !(!$nc($MethodHandleStatics::UNSAFE)->shouldBeInitialized(defc))) {
 		$throwNew($AssertionError);
 	}
-	$nc($DirectMethodHandle$EnsureInitialized::INSTANCE)->remove(defc);
+	$DirectMethodHandle$EnsureInitialized::INSTANCE->remove(defc);
 	return true;
 }
 
 void DirectMethodHandle::ensureInitialized(Object$* mh) {
 	$init(DirectMethodHandle);
-	$nc(($cast(DirectMethodHandle, mh)))->ensureInitialized();
+	$nc($cast(DirectMethodHandle, mh))->ensureInitialized();
 }
 
 $Object* DirectMethodHandle::checkReceiver(Object$* recv) {
@@ -861,41 +645,41 @@ $Object* DirectMethodHandle::allocateInstance(Object$* mh) {
 	$init(DirectMethodHandle);
 	$var($DirectMethodHandle$Constructor, dmh, $cast($DirectMethodHandle$Constructor, mh));
 	$init($MethodHandleStatics);
-	return $of($nc($MethodHandleStatics::UNSAFE)->allocateInstance($nc(dmh)->instanceClass));
+	return $nc($MethodHandleStatics::UNSAFE)->allocateInstance($nc(dmh)->instanceClass);
 }
 
 int64_t DirectMethodHandle::fieldOffset(Object$* accessorObj) {
 	$init(DirectMethodHandle);
-	return $nc(($cast($DirectMethodHandle$Accessor, accessorObj)))->fieldOffset;
+	return $nc($cast($DirectMethodHandle$Accessor, accessorObj))->fieldOffset;
 }
 
 $Object* DirectMethodHandle::checkBase(Object$* obj) {
 	$init(DirectMethodHandle);
-	return $of($Objects::requireNonNull(obj));
+	return $Objects::requireNonNull(obj);
 }
 
 $Object* DirectMethodHandle::nullCheck(Object$* obj) {
 	$init(DirectMethodHandle);
-	return $of($Objects::requireNonNull(obj));
+	return $Objects::requireNonNull(obj);
 }
 
 $Object* DirectMethodHandle::staticBase(Object$* accessorObj) {
 	$init(DirectMethodHandle);
-	return $of($nc(($cast($DirectMethodHandle$StaticAccessor, accessorObj)))->staticBase);
+	return $nc($cast($DirectMethodHandle$StaticAccessor, accessorObj))->staticBase;
 }
 
 int64_t DirectMethodHandle::staticOffset(Object$* accessorObj) {
 	$init(DirectMethodHandle);
-	return $nc(($cast($DirectMethodHandle$StaticAccessor, accessorObj)))->staticOffset;
+	return $nc($cast($DirectMethodHandle$StaticAccessor, accessorObj))->staticOffset;
 }
 
 $Object* DirectMethodHandle::checkCast(Object$* mh, Object$* obj) {
 	$init(DirectMethodHandle);
-	return $of($nc(($cast(DirectMethodHandle, mh)))->checkCast(obj));
+	return $nc($cast(DirectMethodHandle, mh))->checkCast(obj);
 }
 
 $Object* DirectMethodHandle::checkCast(Object$* obj) {
-	return $of($nc($nc(this->member)->getReturnType())->cast(obj));
+	return $nc($nc(this->member)->getReturnType())->cast(obj);
 }
 
 int32_t DirectMethodHandle::afIndex(int8_t formOp, bool isVolatile, int32_t ftypeKind) {
@@ -906,7 +690,7 @@ int32_t DirectMethodHandle::afIndex(int8_t formOp, bool isVolatile, int32_t ftyp
 int32_t DirectMethodHandle::ftypeKind($Class* ftype) {
 	$init(DirectMethodHandle);
 	if ($nc(ftype)->isPrimitive()) {
-		return $nc($($Wrapper::forPrimitiveType(ftype)))->ordinal();
+		return $$nc($Wrapper::forPrimitiveType(ftype))->ordinal();
 	} else if ($VerifyType::isNullReferenceConversion($Object::class$, ftype)) {
 		return DirectMethodHandle::FT_UNCHECKED_REF;
 	} else {
@@ -916,51 +700,41 @@ int32_t DirectMethodHandle::ftypeKind($Class* ftype) {
 
 $LambdaForm* DirectMethodHandle::preparedFieldLambdaForm($MemberName* m) {
 	$init(DirectMethodHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Class* ftype = $nc(m)->getFieldType();
 	bool isVolatile = m->isVolatile();
-
 	int8_t var$0 = 0;
 	switch (m->getReferenceKind()) {
 	case 1:
-		{
-			var$0 = DirectMethodHandle::AF_GETFIELD;
-			break;
-		}
+		var$0 = DirectMethodHandle::AF_GETFIELD;
+		break;
 	case 3:
-		{
-			var$0 = DirectMethodHandle::AF_PUTFIELD;
-			break;
-		}
+		var$0 = DirectMethodHandle::AF_PUTFIELD;
+		break;
 	case 2:
-		{
-			var$0 = DirectMethodHandle::AF_GETSTATIC;
-			break;
-		}
+		var$0 = DirectMethodHandle::AF_GETSTATIC;
+		break;
 	case 4:
-		{
-			var$0 = DirectMethodHandle::AF_PUTSTATIC;
-			break;
-		}
+		var$0 = DirectMethodHandle::AF_PUTSTATIC;
+		break;
 	default:
-		{
-			$throwNew($InternalError, $(m->toString()));
-		}
+		$throwNew($InternalError, $(m->toString()));
 	}
 	int8_t formOp = var$0;
 	if (shouldBeInitialized(m)) {
 		preparedFieldLambdaForm(formOp, isVolatile, ftype);
+		;
 		formOp += (DirectMethodHandle::AF_GETSTATIC_INIT - DirectMethodHandle::AF_GETSTATIC);
 	}
 	$var($LambdaForm, lform, preparedFieldLambdaForm(formOp, isVolatile, ftype));
 	maybeCompile(lform, m);
-	if (!DirectMethodHandle::$assertionsDisabled && !($nc($($cast($MethodType, $nc($($nc(lform)->methodType()))->dropParameterTypes(0, 1))))->equals($($of($nc($(m->getInvocationType()))->basicType()))))) {
-		$throwNew($AssertionError, $($of($Arrays::asList($$new($ObjectArray, {
-			$of(m),
-			$($of($nc($(m->getInvocationType()))->basicType())),
-			$of(lform),
-			$($of(lform->methodType()))
-		})))));
+	if (!DirectMethodHandle::$assertionsDisabled && !($$sure($MethodType, $$nc($nc(lform)->methodType())->dropParameterTypes(0, 1))->equals($$of($$nc(m->getInvocationType())->basicType())))) {
+		$throwNew($AssertionError, $($Arrays::asList($$new($ObjectArray, {
+			m,
+			$($$nc(m->getInvocationType())->basicType()),
+			lform,
+			$(lform->methodType())
+		}))));
 	}
 	return lform;
 }
@@ -969,12 +743,12 @@ $LambdaForm* DirectMethodHandle::preparedFieldLambdaForm(int8_t formOp, bool isV
 	$init(DirectMethodHandle);
 	int32_t ftypeKind = DirectMethodHandle::ftypeKind(ftype);
 	int32_t afIndex = DirectMethodHandle::afIndex(formOp, isVolatile, ftypeKind);
-	$var($LambdaForm, lform, $nc(DirectMethodHandle::ACCESSOR_FORMS)->get(afIndex));
+	$var($LambdaForm, lform, DirectMethodHandle::ACCESSOR_FORMS->get(afIndex));
 	if (lform != nullptr) {
 		return lform;
 	}
 	$assign(lform, makePreparedFieldLambdaForm(formOp, isVolatile, ftypeKind));
-	$nc(DirectMethodHandle::ACCESSOR_FORMS)->set(afIndex, lform);
+	DirectMethodHandle::ACCESSOR_FORMS->set(afIndex, lform);
 	return lform;
 }
 
@@ -985,198 +759,126 @@ $LambdaForm$Kind* DirectMethodHandle::getFieldKind(bool isGetter, bool isVolatil
 			$init($DirectMethodHandle$2);
 			switch ($nc($DirectMethodHandle$2::$SwitchMap$sun$invoke$util$Wrapper)->get($nc((wrapper))->ordinal())) {
 			case 1:
-				{
-					$init($LambdaForm$Kind);
-					return $LambdaForm$Kind::GET_BOOLEAN_VOLATILE;
-				}
+				$init($LambdaForm$Kind);
+				return $LambdaForm$Kind::GET_BOOLEAN_VOLATILE;
 			case 2:
-				{
-					$init($LambdaForm$Kind);
-					return $LambdaForm$Kind::GET_BYTE_VOLATILE;
-				}
+				$init($LambdaForm$Kind);
+				return $LambdaForm$Kind::GET_BYTE_VOLATILE;
 			case 3:
-				{
-					$init($LambdaForm$Kind);
-					return $LambdaForm$Kind::GET_SHORT_VOLATILE;
-				}
+				$init($LambdaForm$Kind);
+				return $LambdaForm$Kind::GET_SHORT_VOLATILE;
 			case 4:
-				{
-					$init($LambdaForm$Kind);
-					return $LambdaForm$Kind::GET_CHAR_VOLATILE;
-				}
+				$init($LambdaForm$Kind);
+				return $LambdaForm$Kind::GET_CHAR_VOLATILE;
 			case 5:
-				{
-					$init($LambdaForm$Kind);
-					return $LambdaForm$Kind::GET_INT_VOLATILE;
-				}
+				$init($LambdaForm$Kind);
+				return $LambdaForm$Kind::GET_INT_VOLATILE;
 			case 6:
-				{
-					$init($LambdaForm$Kind);
-					return $LambdaForm$Kind::GET_LONG_VOLATILE;
-				}
+				$init($LambdaForm$Kind);
+				return $LambdaForm$Kind::GET_LONG_VOLATILE;
 			case 7:
-				{
-					$init($LambdaForm$Kind);
-					return $LambdaForm$Kind::GET_FLOAT_VOLATILE;
-				}
+				$init($LambdaForm$Kind);
+				return $LambdaForm$Kind::GET_FLOAT_VOLATILE;
 			case 8:
-				{
-					$init($LambdaForm$Kind);
-					return $LambdaForm$Kind::GET_DOUBLE_VOLATILE;
-				}
+				$init($LambdaForm$Kind);
+				return $LambdaForm$Kind::GET_DOUBLE_VOLATILE;
 			case 9:
-				{
-					$init($LambdaForm$Kind);
-					return $LambdaForm$Kind::GET_REFERENCE_VOLATILE;
-				}
+				$init($LambdaForm$Kind);
+				return $LambdaForm$Kind::GET_REFERENCE_VOLATILE;
 			}
 		} else {
 			$init($DirectMethodHandle$2);
 			switch ($nc($DirectMethodHandle$2::$SwitchMap$sun$invoke$util$Wrapper)->get($nc((wrapper))->ordinal())) {
 			case 1:
-				{
-					$init($LambdaForm$Kind);
-					return $LambdaForm$Kind::GET_BOOLEAN;
-				}
+				$init($LambdaForm$Kind);
+				return $LambdaForm$Kind::GET_BOOLEAN;
 			case 2:
-				{
-					$init($LambdaForm$Kind);
-					return $LambdaForm$Kind::GET_BYTE;
-				}
+				$init($LambdaForm$Kind);
+				return $LambdaForm$Kind::GET_BYTE;
 			case 3:
-				{
-					$init($LambdaForm$Kind);
-					return $LambdaForm$Kind::GET_SHORT;
-				}
+				$init($LambdaForm$Kind);
+				return $LambdaForm$Kind::GET_SHORT;
 			case 4:
-				{
-					$init($LambdaForm$Kind);
-					return $LambdaForm$Kind::GET_CHAR;
-				}
+				$init($LambdaForm$Kind);
+				return $LambdaForm$Kind::GET_CHAR;
 			case 5:
-				{
-					$init($LambdaForm$Kind);
-					return $LambdaForm$Kind::GET_INT;
-				}
+				$init($LambdaForm$Kind);
+				return $LambdaForm$Kind::GET_INT;
 			case 6:
-				{
-					$init($LambdaForm$Kind);
-					return $LambdaForm$Kind::GET_LONG;
-				}
+				$init($LambdaForm$Kind);
+				return $LambdaForm$Kind::GET_LONG;
 			case 7:
-				{
-					$init($LambdaForm$Kind);
-					return $LambdaForm$Kind::GET_FLOAT;
-				}
+				$init($LambdaForm$Kind);
+				return $LambdaForm$Kind::GET_FLOAT;
 			case 8:
-				{
-					$init($LambdaForm$Kind);
-					return $LambdaForm$Kind::GET_DOUBLE;
-				}
+				$init($LambdaForm$Kind);
+				return $LambdaForm$Kind::GET_DOUBLE;
 			case 9:
-				{
-					$init($LambdaForm$Kind);
-					return $LambdaForm$Kind::GET_REFERENCE;
-				}
+				$init($LambdaForm$Kind);
+				return $LambdaForm$Kind::GET_REFERENCE;
 			}
 		}
 	} else if (isVolatile) {
 		$init($DirectMethodHandle$2);
 		switch ($nc($DirectMethodHandle$2::$SwitchMap$sun$invoke$util$Wrapper)->get($nc((wrapper))->ordinal())) {
 		case 1:
-			{
-				$init($LambdaForm$Kind);
-				return $LambdaForm$Kind::PUT_BOOLEAN_VOLATILE;
-			}
+			$init($LambdaForm$Kind);
+			return $LambdaForm$Kind::PUT_BOOLEAN_VOLATILE;
 		case 2:
-			{
-				$init($LambdaForm$Kind);
-				return $LambdaForm$Kind::PUT_BYTE_VOLATILE;
-			}
+			$init($LambdaForm$Kind);
+			return $LambdaForm$Kind::PUT_BYTE_VOLATILE;
 		case 3:
-			{
-				$init($LambdaForm$Kind);
-				return $LambdaForm$Kind::PUT_SHORT_VOLATILE;
-			}
+			$init($LambdaForm$Kind);
+			return $LambdaForm$Kind::PUT_SHORT_VOLATILE;
 		case 4:
-			{
-				$init($LambdaForm$Kind);
-				return $LambdaForm$Kind::PUT_CHAR_VOLATILE;
-			}
+			$init($LambdaForm$Kind);
+			return $LambdaForm$Kind::PUT_CHAR_VOLATILE;
 		case 5:
-			{
-				$init($LambdaForm$Kind);
-				return $LambdaForm$Kind::PUT_INT_VOLATILE;
-			}
+			$init($LambdaForm$Kind);
+			return $LambdaForm$Kind::PUT_INT_VOLATILE;
 		case 6:
-			{
-				$init($LambdaForm$Kind);
-				return $LambdaForm$Kind::PUT_LONG_VOLATILE;
-			}
+			$init($LambdaForm$Kind);
+			return $LambdaForm$Kind::PUT_LONG_VOLATILE;
 		case 7:
-			{
-				$init($LambdaForm$Kind);
-				return $LambdaForm$Kind::PUT_FLOAT_VOLATILE;
-			}
+			$init($LambdaForm$Kind);
+			return $LambdaForm$Kind::PUT_FLOAT_VOLATILE;
 		case 8:
-			{
-				$init($LambdaForm$Kind);
-				return $LambdaForm$Kind::PUT_DOUBLE_VOLATILE;
-			}
+			$init($LambdaForm$Kind);
+			return $LambdaForm$Kind::PUT_DOUBLE_VOLATILE;
 		case 9:
-			{
-				$init($LambdaForm$Kind);
-				return $LambdaForm$Kind::PUT_REFERENCE_VOLATILE;
-			}
+			$init($LambdaForm$Kind);
+			return $LambdaForm$Kind::PUT_REFERENCE_VOLATILE;
 		}
 	} else {
 		$init($DirectMethodHandle$2);
 		switch ($nc($DirectMethodHandle$2::$SwitchMap$sun$invoke$util$Wrapper)->get($nc((wrapper))->ordinal())) {
 		case 1:
-			{
-				$init($LambdaForm$Kind);
-				return $LambdaForm$Kind::PUT_BOOLEAN;
-			}
+			$init($LambdaForm$Kind);
+			return $LambdaForm$Kind::PUT_BOOLEAN;
 		case 2:
-			{
-				$init($LambdaForm$Kind);
-				return $LambdaForm$Kind::PUT_BYTE;
-			}
+			$init($LambdaForm$Kind);
+			return $LambdaForm$Kind::PUT_BYTE;
 		case 3:
-			{
-				$init($LambdaForm$Kind);
-				return $LambdaForm$Kind::PUT_SHORT;
-			}
+			$init($LambdaForm$Kind);
+			return $LambdaForm$Kind::PUT_SHORT;
 		case 4:
-			{
-				$init($LambdaForm$Kind);
-				return $LambdaForm$Kind::PUT_CHAR;
-			}
+			$init($LambdaForm$Kind);
+			return $LambdaForm$Kind::PUT_CHAR;
 		case 5:
-			{
-				$init($LambdaForm$Kind);
-				return $LambdaForm$Kind::PUT_INT;
-			}
+			$init($LambdaForm$Kind);
+			return $LambdaForm$Kind::PUT_INT;
 		case 6:
-			{
-				$init($LambdaForm$Kind);
-				return $LambdaForm$Kind::PUT_LONG;
-			}
+			$init($LambdaForm$Kind);
+			return $LambdaForm$Kind::PUT_LONG;
 		case 7:
-			{
-				$init($LambdaForm$Kind);
-				return $LambdaForm$Kind::PUT_FLOAT;
-			}
+			$init($LambdaForm$Kind);
+			return $LambdaForm$Kind::PUT_FLOAT;
 		case 8:
-			{
-				$init($LambdaForm$Kind);
-				return $LambdaForm$Kind::PUT_DOUBLE;
-			}
+			$init($LambdaForm$Kind);
+			return $LambdaForm$Kind::PUT_DOUBLE;
 		case 9:
-			{
-				$init($LambdaForm$Kind);
-				return $LambdaForm$Kind::PUT_REFERENCE;
-			}
+			$init($LambdaForm$Kind);
+			return $LambdaForm$Kind::PUT_REFERENCE;
 		}
 	}
 	$throwNew($AssertionError, $of("Invalid arguments"_s));
@@ -1184,13 +886,13 @@ $LambdaForm$Kind* DirectMethodHandle::getFieldKind(bool isGetter, bool isVolatil
 
 $LambdaForm* DirectMethodHandle::makePreparedFieldLambdaForm(int8_t formOp, bool isVolatile, int32_t ftypeKind) {
 	$init(DirectMethodHandle);
-	$useLocalCurrentObjectStackCache();
-	bool isGetter = ((int32_t)(formOp & (uint32_t)1)) == ((int32_t)(DirectMethodHandle::AF_GETFIELD & (uint32_t)1));
+	$useLocalObjectStack();
+	bool isGetter = (formOp & 1) == (DirectMethodHandle::AF_GETFIELD & 1);
 	bool isStatic = (formOp >= DirectMethodHandle::AF_GETSTATIC);
 	bool needsInit = (formOp >= DirectMethodHandle::AF_GETSTATIC_INIT);
 	bool needsCast = (ftypeKind == DirectMethodHandle::FT_CHECKED_REF);
 	$init($Wrapper);
-	$Wrapper* fw = (needsCast ? $Wrapper::OBJECT : $nc(DirectMethodHandle::ALL_WRAPPERS)->get(ftypeKind));
+	$Wrapper* fw = (needsCast ? $Wrapper::OBJECT : DirectMethodHandle::ALL_WRAPPERS->get(ftypeKind));
 	$Class* ft = $nc(fw)->primitiveType();
 	if (!DirectMethodHandle::$assertionsDisabled && !(DirectMethodHandle::ftypeKind(needsCast ? $String::class$ : ft) == ftypeKind)) {
 		$throwNew($AssertionError);
@@ -1198,38 +900,34 @@ $LambdaForm* DirectMethodHandle::makePreparedFieldLambdaForm(int8_t formOp, bool
 	$LambdaForm$Kind* kind = getFieldKind(isGetter, isVolatile, fw);
 	$var($MethodType, linkerType, nullptr);
 	if (isGetter) {
-		$init($Long);
 		$assign(linkerType, $MethodType::methodType(ft, $Object::class$, $$new($ClassArray, {$Long::TYPE})));
 	} else {
-		$init($Void);
-		$init($Long);
 		$assign(linkerType, $MethodType::methodType($Void::TYPE, $Object::class$, $$new($ClassArray, {
 			$Long::TYPE,
 			ft
 		})));
 	}
 	$load($Unsafe);
-	$var($MemberName, linker, $new($MemberName, $Unsafe::class$, $nc(kind)->methodName, linkerType, (int8_t)5));
+	$var($MemberName, linker, $new($MemberName, $Unsafe::class$, $nc(kind)->methodName, linkerType, 5));
 	try {
 		$load($NoSuchMethodException);
-		$assign(linker, $nc(DirectMethodHandle::IMPL_NAMES)->resolveOrFail((int8_t)5, linker, nullptr, -1, $NoSuchMethodException::class$));
+		$assign(linker, $nc(DirectMethodHandle::IMPL_NAMES)->resolveOrFail(5, linker, nullptr, -1, $NoSuchMethodException::class$));
 	} catch ($ReflectiveOperationException& ex) {
-		$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(ex))));
+		$throw($($MethodHandleStatics::newInternalError(ex)));
 	}
 	$var($MethodType, mtype, nullptr);
 	if (isGetter) {
 		$assign(mtype, $MethodType::methodType(ft));
 	} else {
-		$init($Void);
 		$assign(mtype, $MethodType::methodType($Void::TYPE, ft));
 	}
 	$assign(mtype, $nc(mtype)->basicType());
 	if (!isStatic) {
-		$assign(mtype, mtype->insertParameterTypes(0, $$new($ClassArray, {$Object::class$})));
+		$assign(mtype, $nc(mtype)->insertParameterTypes(0, $$new($ClassArray, {$Object::class$})));
 	}
 	int32_t DMH_THIS = 0;
 	int32_t ARG_BASE = 1;
-	int32_t ARG_LIMIT = ARG_BASE + mtype->parameterCount();
+	int32_t ARG_LIMIT = ARG_BASE + $nc(mtype)->parameterCount();
 	int32_t OBJ_BASE = isStatic ? -1 : ARG_BASE;
 	int32_t SET_VALUE = isGetter ? -1 : ARG_LIMIT - 1;
 	int32_t nameCursor = ARG_LIMIT;
@@ -1244,12 +942,12 @@ $LambdaForm* DirectMethodHandle::makePreparedFieldLambdaForm(int8_t formOp, bool
 	int32_t RESULT = nameCursor - 1;
 	$var($LambdaForm$NameArray, names, $LambdaForm::arguments(nameCursor - ARG_LIMIT, $(mtype->invokerType())));
 	if (needsInit) {
-		$nc(names)->set(INIT_BAR, $$new($LambdaForm$Name, $(getFunction(DirectMethodHandle::NF_ensureInitialized)), $$new($ObjectArray, {$of(names->get(DMH_THIS))})));
+		$nc(names)->set(INIT_BAR, $$new($LambdaForm$Name, $(getFunction(DirectMethodHandle::NF_ensureInitialized)), $$new($ObjectArray, {$nc(names)->get(DMH_THIS)})));
 	}
 	if (needsCast && !isGetter) {
 		$nc(names)->set(PRE_CAST, $$new($LambdaForm$Name, $(getFunction(DirectMethodHandle::NF_checkCast)), $$new($ObjectArray, {
-			$of(names->get(DMH_THIS)),
-			$of(names->get(SET_VALUE))
+			$nc(names)->get(DMH_THIS),
+			$nc(names)->get(SET_VALUE)
 		})));
 	}
 	$var($ObjectArray, outArgs, $new($ObjectArray, 1 + $nc(linkerType)->parameterCount()));
@@ -1258,20 +956,18 @@ $LambdaForm* DirectMethodHandle::makePreparedFieldLambdaForm(int8_t formOp, bool
 	}
 	outArgs->set(0, $nc(names)->set(U_HOLDER, $$new($LambdaForm$Name, $(getFunction(DirectMethodHandle::NF_UNSAFE)), $$new($ObjectArray, 0))));
 	if (isStatic) {
-		outArgs->set(1, names->set(F_HOLDER, $$new($LambdaForm$Name, $(getFunction(DirectMethodHandle::NF_staticBase)), $$new($ObjectArray, {$of(names->get(DMH_THIS))}))));
-		outArgs->set(2, names->set(F_OFFSET, $$new($LambdaForm$Name, $(getFunction(DirectMethodHandle::NF_staticOffset)), $$new($ObjectArray, {$of(names->get(DMH_THIS))}))));
+		outArgs->set(1, names->set(F_HOLDER, $$new($LambdaForm$Name, $(getFunction(DirectMethodHandle::NF_staticBase)), $$new($ObjectArray, {names->get(DMH_THIS)}))));
+		outArgs->set(2, names->set(F_OFFSET, $$new($LambdaForm$Name, $(getFunction(DirectMethodHandle::NF_staticOffset)), $$new($ObjectArray, {names->get(DMH_THIS)}))));
 	} else {
-		outArgs->set(1, names->set(OBJ_CHECK, $$new($LambdaForm$Name, $(getFunction(DirectMethodHandle::NF_checkBase)), $$new($ObjectArray, {$of(names->get(OBJ_BASE))}))));
-		outArgs->set(2, names->set(F_OFFSET, $$new($LambdaForm$Name, $(getFunction(DirectMethodHandle::NF_fieldOffset)), $$new($ObjectArray, {$of(names->get(DMH_THIS))}))));
+		outArgs->set(1, names->set(OBJ_CHECK, $$new($LambdaForm$Name, $(getFunction(DirectMethodHandle::NF_checkBase)), $$new($ObjectArray, {names->get(OBJ_BASE)}))));
+		outArgs->set(2, names->set(F_OFFSET, $$new($LambdaForm$Name, $(getFunction(DirectMethodHandle::NF_fieldOffset)), $$new($ObjectArray, {names->get(DMH_THIS)}))));
 	}
 	if (!isGetter) {
-		outArgs->set(3, (needsCast ? $of(names->get(PRE_CAST)) : $of(names->get(SET_VALUE))));
+		outArgs->set(3, (needsCast ? names->get(PRE_CAST) : names->get(SET_VALUE)));
 	}
 	{
 		$var($ObjectArray, arr$, outArgs);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Object0, a, arr$->get(i$));
 			if (!DirectMethodHandle::$assertionsDisabled && !(a != nullptr)) {
 				$throwNew($AssertionError);
@@ -1281,15 +977,13 @@ $LambdaForm* DirectMethodHandle::makePreparedFieldLambdaForm(int8_t formOp, bool
 	names->set(LINKER_CALL, $$new($LambdaForm$Name, linker, outArgs));
 	if (needsCast && isGetter) {
 		names->set(POST_CAST, $$new($LambdaForm$Name, $(getFunction(DirectMethodHandle::NF_checkCast)), $$new($ObjectArray, {
-			$of(names->get(DMH_THIS)),
-			$of(names->get(LINKER_CALL))
+			names->get(DMH_THIS),
+			names->get(LINKER_CALL)
 		})));
 	}
 	{
 		$var($LambdaForm$NameArray, arr$, names);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($LambdaForm$Name, n, arr$->get(i$));
 			if (!DirectMethodHandle::$assertionsDisabled && !(n != nullptr)) {
 				$throwNew($AssertionError);
@@ -1303,7 +997,7 @@ $LambdaForm* DirectMethodHandle::makePreparedFieldLambdaForm(int8_t formOp, bool
 		$assign(form, $new($LambdaForm, ARG_LIMIT, names, RESULT, kind));
 	}
 	if ($LambdaForm::debugNames()) {
-		$var($StringBuilder, nameBuilder, $new($StringBuilder, $nc(kind)->methodName));
+		$var($StringBuilder, nameBuilder, $new($StringBuilder, kind->methodName));
 		if (isStatic) {
 			nameBuilder->append("Static"_s);
 		} else {
@@ -1322,12 +1016,12 @@ $LambdaForm* DirectMethodHandle::makePreparedFieldLambdaForm(int8_t formOp, bool
 
 $LambdaForm$NamedFunction* DirectMethodHandle::getFunction(int8_t func) {
 	$init(DirectMethodHandle);
-	$useLocalCurrentObjectStackCache();
-	$var($LambdaForm$NamedFunction, nf, $nc(DirectMethodHandle::NFS)->get(func));
+	$useLocalObjectStack();
+	$var($LambdaForm$NamedFunction, nf, DirectMethodHandle::NFS->get(func));
 	if (nf != nullptr) {
 		return nf;
 	}
-	$assign(nf, ($nc(DirectMethodHandle::NFS)->set(func, $(createFunction(func)))));
+	$assign(nf, DirectMethodHandle::NFS->set(func, $(createFunction(func))));
 	if (!DirectMethodHandle::$assertionsDisabled && !($InvokerBytecodeGenerator::isStaticallyInvocable($$new($LambdaForm$NamedFunctionArray, {nf})))) {
 		$throwNew($AssertionError);
 	}
@@ -1336,87 +1030,58 @@ $LambdaForm$NamedFunction* DirectMethodHandle::getFunction(int8_t func) {
 
 $LambdaForm$NamedFunction* DirectMethodHandle::createFunction(int8_t func) {
 	$init(DirectMethodHandle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		{
-			$var($MemberName, member, nullptr)
-			switch (func) {
-			case DirectMethodHandle::NF_internalMemberName:
-				{
-					return getNamedFunction("internalMemberName"_s, DirectMethodHandle::OBJ_OBJ_TYPE);
-				}
-			case DirectMethodHandle::NF_internalMemberNameEnsureInit:
-				{
-					return getNamedFunction("internalMemberNameEnsureInit"_s, DirectMethodHandle::OBJ_OBJ_TYPE);
-				}
-			case DirectMethodHandle::NF_ensureInitialized:
-				{
-					$init($Void);
-					return getNamedFunction("ensureInitialized"_s, $($MethodType::methodType($Void::TYPE, $Object::class$)));
-				}
-			case DirectMethodHandle::NF_fieldOffset:
-				{
-					return getNamedFunction("fieldOffset"_s, DirectMethodHandle::LONG_OBJ_TYPE);
-				}
-			case DirectMethodHandle::NF_checkBase:
-				{
-					return getNamedFunction("checkBase"_s, DirectMethodHandle::OBJ_OBJ_TYPE);
-				}
-			case DirectMethodHandle::NF_staticBase:
-				{
-					return getNamedFunction("staticBase"_s, DirectMethodHandle::OBJ_OBJ_TYPE);
-				}
-			case DirectMethodHandle::NF_staticOffset:
-				{
-					return getNamedFunction("staticOffset"_s, DirectMethodHandle::LONG_OBJ_TYPE);
-				}
-			case DirectMethodHandle::NF_checkCast:
-				{
-					return getNamedFunction("checkCast"_s, $($MethodType::methodType($Object::class$, $Object::class$, $$new($ClassArray, {$Object::class$}))));
-				}
-			case DirectMethodHandle::NF_allocateInstance:
-				{
-					return getNamedFunction("allocateInstance"_s, DirectMethodHandle::OBJ_OBJ_TYPE);
-				}
-			case DirectMethodHandle::NF_constructorMethod:
-				{
-					return getNamedFunction("constructorMethod"_s, DirectMethodHandle::OBJ_OBJ_TYPE);
-				}
-			case DirectMethodHandle::NF_UNSAFE:
-				{
-					$load($MethodHandleStatics);
-					$load($Unsafe);
-					$assign(member, $new($MemberName, $MethodHandleStatics::class$, "UNSAFE"_s, $Unsafe::class$, (int8_t)1));
-					$load($NoSuchMethodException);
-					return $new($LambdaForm$NamedFunction, $($nc($($MemberName::getFactory()))->resolveOrFail((int8_t)1, member, DirectMethodHandle::class$, -1, $NoSuchMethodException::class$)));
-				}
-			case DirectMethodHandle::NF_checkReceiver:
-				{
-					$assign(member, $new($MemberName, DirectMethodHandle::class$, "checkReceiver"_s, DirectMethodHandle::OBJ_OBJ_TYPE, (int8_t)5));
-					$load($NoSuchMethodException);
-					return $new($LambdaForm$NamedFunction, $($nc($($MemberName::getFactory()))->resolveOrFail((int8_t)5, member, DirectMethodHandle::class$, -1, $NoSuchMethodException::class$)));
-				}
-			default:
-				{
-					$throw($($MethodHandleStatics::newInternalError($$str({"Unknown function: "_s, $$str(func)}))));
-				}
-			}
+		$var($MemberName, member, nullptr);
+		switch (func) {
+		case DirectMethodHandle::NF_internalMemberName:
+			return getNamedFunction("internalMemberName"_s, DirectMethodHandle::OBJ_OBJ_TYPE);
+		case DirectMethodHandle::NF_internalMemberNameEnsureInit:
+			return getNamedFunction("internalMemberNameEnsureInit"_s, DirectMethodHandle::OBJ_OBJ_TYPE);
+		case DirectMethodHandle::NF_ensureInitialized:
+			return getNamedFunction("ensureInitialized"_s, $($MethodType::methodType($Void::TYPE, $Object::class$)));
+		case DirectMethodHandle::NF_fieldOffset:
+			return getNamedFunction("fieldOffset"_s, DirectMethodHandle::LONG_OBJ_TYPE);
+		case DirectMethodHandle::NF_checkBase:
+			return getNamedFunction("checkBase"_s, DirectMethodHandle::OBJ_OBJ_TYPE);
+		case DirectMethodHandle::NF_staticBase:
+			return getNamedFunction("staticBase"_s, DirectMethodHandle::OBJ_OBJ_TYPE);
+		case DirectMethodHandle::NF_staticOffset:
+			return getNamedFunction("staticOffset"_s, DirectMethodHandle::LONG_OBJ_TYPE);
+		case DirectMethodHandle::NF_checkCast:
+			return getNamedFunction("checkCast"_s, $($MethodType::methodType($Object::class$, $Object::class$, $$new($ClassArray, {$Object::class$}))));
+		case DirectMethodHandle::NF_allocateInstance:
+			return getNamedFunction("allocateInstance"_s, DirectMethodHandle::OBJ_OBJ_TYPE);
+		case DirectMethodHandle::NF_constructorMethod:
+			return getNamedFunction("constructorMethod"_s, DirectMethodHandle::OBJ_OBJ_TYPE);
+		case DirectMethodHandle::NF_UNSAFE:
+			$load($MethodHandleStatics);
+			$load($Unsafe);
+			$assign(member, $new($MemberName, $MethodHandleStatics::class$, "UNSAFE"_s, $Unsafe::class$, 1));
+			$load($NoSuchMethodException);
+			return $new($LambdaForm$NamedFunction, $($$nc($MemberName::getFactory())->resolveOrFail(1, member, DirectMethodHandle::class$, -1, $NoSuchMethodException::class$)));
+		case DirectMethodHandle::NF_checkReceiver:
+			$assign(member, $new($MemberName, DirectMethodHandle::class$, "checkReceiver"_s, DirectMethodHandle::OBJ_OBJ_TYPE, 5));
+			$load($NoSuchMethodException);
+			return $new($LambdaForm$NamedFunction, $($$nc($MemberName::getFactory())->resolveOrFail(5, member, DirectMethodHandle::class$, -1, $NoSuchMethodException::class$)));
+		default:
+			$throw($($MethodHandleStatics::newInternalError($$str({"Unknown function: "_s, $$str(func)}))));
 		}
 	} catch ($ReflectiveOperationException& ex) {
-		$throw($($MethodHandleStatics::newInternalError(static_cast<$Exception*>(ex))));
+		$throw($($MethodHandleStatics::newInternalError(ex)));
 	}
 	$shouldNotReachHere();
 }
 
 $LambdaForm$NamedFunction* DirectMethodHandle::getNamedFunction($String* name, $MethodType* type) {
 	$init(DirectMethodHandle);
-	$useLocalCurrentObjectStackCache();
-	$var($MemberName, member, $new($MemberName, DirectMethodHandle::class$, name, type, (int8_t)6));
+	$useLocalObjectStack();
+	$var($MemberName, member, $new($MemberName, DirectMethodHandle::class$, name, type, 6));
 	$load($NoSuchMethodException);
-	return $new($LambdaForm$NamedFunction, $($nc($($MemberName::getFactory()))->resolveOrFail((int8_t)6, member, DirectMethodHandle::class$, -1, $NoSuchMethodException::class$)));
+	return $new($LambdaForm$NamedFunction, $($$nc($MemberName::getFactory())->resolveOrFail(6, member, DirectMethodHandle::class$, -1, $NoSuchMethodException::class$)));
 }
 
-void clinit$DirectMethodHandle($Class* class$) {
+void DirectMethodHandle::clinit$($Class* clazz) {
 	DirectMethodHandle::$assertionsDisabled = !DirectMethodHandle::class$->desiredAssertionStatus();
 	$assignStatic(DirectMethodHandle::IMPL_NAMES, $MemberName::getFactory());
 	$init($Wrapper);
@@ -1425,7 +1090,6 @@ void clinit$DirectMethodHandle($Class* class$) {
 	$assignStatic(DirectMethodHandle::ALL_WRAPPERS, $Wrapper::values());
 	$assignStatic(DirectMethodHandle::NFS, $new($LambdaForm$NamedFunctionArray, DirectMethodHandle::NF_LIMIT));
 	$assignStatic(DirectMethodHandle::OBJ_OBJ_TYPE, $MethodType::methodType($Object::class$, $Object::class$));
-	$init($Long);
 	$assignStatic(DirectMethodHandle::LONG_OBJ_TYPE, $MethodType::methodType($Long::TYPE, $Object::class$));
 	{
 		$init($MethodHandleStatics);
@@ -1438,7 +1102,156 @@ DirectMethodHandle::DirectMethodHandle() {
 }
 
 $Class* DirectMethodHandle::load$($String* name, bool initialize) {
-	$loadClass(DirectMethodHandle, name, initialize, &_DirectMethodHandle_ClassInfo_, clinit$DirectMethodHandle, allocate$DirectMethodHandle);
+	$CompoundAttribute ACCESSOR_FORMSfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$CompoundAttribute NFSfieldAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/Stable;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DirectMethodHandle, $assertionsDisabled)},
+		{"member", "Ljava/lang/invoke/MemberName;", nullptr, $FINAL, $field(DirectMethodHandle, member)},
+		{"crackable", "Z", nullptr, $FINAL, $field(DirectMethodHandle, crackable)},
+		{"IMPL_NAMES", "Ljava/lang/invoke/MemberName$Factory;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DirectMethodHandle, IMPL_NAMES)},
+		{"AF_GETFIELD", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, AF_GETFIELD)},
+		{"AF_PUTFIELD", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, AF_PUTFIELD)},
+		{"AF_GETSTATIC", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, AF_GETSTATIC)},
+		{"AF_PUTSTATIC", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, AF_PUTSTATIC)},
+		{"AF_GETSTATIC_INIT", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, AF_GETSTATIC_INIT)},
+		{"AF_PUTSTATIC_INIT", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, AF_PUTSTATIC_INIT)},
+		{"AF_LIMIT", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, AF_LIMIT)},
+		{"FT_LAST_WRAPPER", "I", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, FT_LAST_WRAPPER)},
+		{"FT_UNCHECKED_REF", "I", nullptr, $STATIC | $FINAL, $staticField(DirectMethodHandle, FT_UNCHECKED_REF)},
+		{"FT_CHECKED_REF", "I", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, FT_CHECKED_REF)},
+		{"FT_LIMIT", "I", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, FT_LIMIT)},
+		{"ACCESSOR_FORMS", "[Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DirectMethodHandle, ACCESSOR_FORMS), ACCESSOR_FORMSfieldAnnotations$$},
+		{"ALL_WRAPPERS", "[Lsun/invoke/util/Wrapper;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DirectMethodHandle, ALL_WRAPPERS)},
+		{"NF_internalMemberName", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, NF_internalMemberName)},
+		{"NF_internalMemberNameEnsureInit", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, NF_internalMemberNameEnsureInit)},
+		{"NF_ensureInitialized", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, NF_ensureInitialized)},
+		{"NF_fieldOffset", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, NF_fieldOffset)},
+		{"NF_checkBase", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, NF_checkBase)},
+		{"NF_staticBase", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, NF_staticBase)},
+		{"NF_staticOffset", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, NF_staticOffset)},
+		{"NF_checkCast", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, NF_checkCast)},
+		{"NF_allocateInstance", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, NF_allocateInstance)},
+		{"NF_constructorMethod", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, NF_constructorMethod)},
+		{"NF_UNSAFE", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, NF_UNSAFE)},
+		{"NF_checkReceiver", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, NF_checkReceiver)},
+		{"NF_LIMIT", "B", nullptr, $STATIC | $FINAL, $constField(DirectMethodHandle, NF_LIMIT)},
+		{"NFS", "[Ljava/lang/invoke/LambdaForm$NamedFunction;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DirectMethodHandle, NFS), NFSfieldAnnotations$$},
+		{"OBJ_OBJ_TYPE", "Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DirectMethodHandle, OBJ_OBJ_TYPE)},
+		{"LONG_OBJ_TYPE", "Ljava/lang/invoke/MethodType;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DirectMethodHandle, LONG_OBJ_TYPE)},
+		{}
+	};
+	$CompoundAttribute checkBasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute checkCastmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute fieldOffsetmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute internalMemberNamemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute internalMemberNamemethodAnnotations$$$1[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute nullCheckmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute staticBasemethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$CompoundAttribute staticOffsetmethodAnnotations$$[] = {
+		{"Ljdk/internal/vm/annotation/ForceInline;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MemberName;Z)V", nullptr, $PRIVATE, $method(DirectMethodHandle, init$, void, $MethodType*, $LambdaForm*, $MemberName*, bool)},
+		{"afIndex", "(BZI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandle, afIndex, int32_t, int8_t, bool, int32_t)},
+		{"allocateInstance", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(DirectMethodHandle, allocateInstance, $Object*, Object$*), "java.lang.InstantiationException"},
+		{"checkBase", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(DirectMethodHandle, checkBase, $Object*, Object$*), nullptr, nullptr, checkBasemethodAnnotations$$},
+		{"checkCast", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(DirectMethodHandle, checkCast, $Object*, Object$*, Object$*), nullptr, nullptr, checkCastmethodAnnotations$$},
+		{"checkCast", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectMethodHandle, checkCast, $Object*, Object$*)},
+		{"checkInitialized", "(Ljava/lang/invoke/MemberName;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandle, checkInitialized, bool, $MemberName*)},
+		{"checkReceiver", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(DirectMethodHandle, checkReceiver, $Object*, Object$*)},
+		{"constructorMethod", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(DirectMethodHandle, constructorMethod, $Object*, Object$*)},
+		{"copyWith", "(Ljava/lang/invoke/MethodType;Ljava/lang/invoke/LambdaForm;)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(DirectMethodHandle, copyWith, $MethodHandle*, $MethodType*, $LambdaForm*)},
+		{"createFunction", "(B)Ljava/lang/invoke/LambdaForm$NamedFunction;", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandle, createFunction, $LambdaForm$NamedFunction*, int8_t)},
+		{"ensureInitialized", "()V", nullptr, $PRIVATE, $method(DirectMethodHandle, ensureInitialized, void)},
+		{"ensureInitialized", "(Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(DirectMethodHandle, ensureInitialized, void, Object$*)},
+		{"fieldOffset", "(Ljava/lang/Object;)J", nullptr, $STATIC, $staticMethod(DirectMethodHandle, fieldOffset, int64_t, Object$*), nullptr, nullptr, fieldOffsetmethodAnnotations$$},
+		{"findDirectMethodHandle", "(Ljava/lang/invoke/LambdaForm$Name;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(DirectMethodHandle, findDirectMethodHandle, $Object*, $LambdaForm$Name*)},
+		{"ftypeKind", "(Ljava/lang/Class;)I", "(Ljava/lang/Class<*>;)I", $STATIC, $staticMethod(DirectMethodHandle, ftypeKind, int32_t, $Class*)},
+		{"getFieldKind", "(ZZLsun/invoke/util/Wrapper;)Ljava/lang/invoke/LambdaForm$Kind;", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandle, getFieldKind, $LambdaForm$Kind*, bool, bool, $Wrapper*)},
+		{"getFunction", "(B)Ljava/lang/invoke/LambdaForm$NamedFunction;", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandle, getFunction, $LambdaForm$NamedFunction*, int8_t)},
+		{"getNamedFunction", "(Ljava/lang/String;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/LambdaForm$NamedFunction;", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandle, getNamedFunction, $LambdaForm$NamedFunction*, $String*, $MethodType*), "java.lang.ReflectiveOperationException"},
+		{"internalMemberName", "()Ljava/lang/invoke/MemberName;", nullptr, 0, $virtualMethod(DirectMethodHandle, internalMemberName, $MemberName*), nullptr, nullptr, internalMemberNamemethodAnnotations$$},
+		{"internalMemberName", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(DirectMethodHandle, internalMemberName, $Object*, Object$*), nullptr, nullptr, internalMemberNamemethodAnnotations$$$1},
+		{"internalMemberNameEnsureInit", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(DirectMethodHandle, internalMemberNameEnsureInit, $Object*, Object$*)},
+		{"internalProperties", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DirectMethodHandle, internalProperties, $Object*)},
+		{"isCrackable", "()Z", nullptr, 0, $virtualMethod(DirectMethodHandle, isCrackable, bool)},
+		{"make", "(BLjava/lang/Class;Ljava/lang/invoke/MemberName;Ljava/lang/Class;)Ljava/lang/invoke/DirectMethodHandle;", "(BLjava/lang/Class<*>;Ljava/lang/invoke/MemberName;Ljava/lang/Class<*>;)Ljava/lang/invoke/DirectMethodHandle;", $STATIC, $staticMethod(DirectMethodHandle, make, DirectMethodHandle*, int8_t, $Class*, $MemberName*, $Class*)},
+		{"make", "(Ljava/lang/Class;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/DirectMethodHandle;", "(Ljava/lang/Class<*>;Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/DirectMethodHandle;", $STATIC, $staticMethod(DirectMethodHandle, make, DirectMethodHandle*, $Class*, $MemberName*)},
+		{"make", "(Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/DirectMethodHandle;", nullptr, $STATIC, $staticMethod(DirectMethodHandle, make, DirectMethodHandle*, $MemberName*)},
+		{"makeAllocator", "(Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/DirectMethodHandle;", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandle, makeAllocator, DirectMethodHandle*, $MemberName*)},
+		{"makePreparedFieldLambdaForm", "(BZI)Ljava/lang/invoke/LambdaForm;", nullptr, $STATIC, $staticMethod(DirectMethodHandle, makePreparedFieldLambdaForm, $LambdaForm*, int8_t, bool, int32_t)},
+		{"makePreparedLambdaForm", "(Ljava/lang/invoke/MethodType;I)Ljava/lang/invoke/LambdaForm;", nullptr, $STATIC, $staticMethod(DirectMethodHandle, makePreparedLambdaForm, $LambdaForm*, $MethodType*, int32_t)},
+		{"maybeCompile", "(Ljava/lang/invoke/LambdaForm;Ljava/lang/invoke/MemberName;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandle, maybeCompile, void, $LambdaForm*, $MemberName*)},
+		{"nullCheck", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(DirectMethodHandle, nullCheck, $Object*, Object$*), nullptr, nullptr, nullCheckmethodAnnotations$$},
+		{"preparedFieldLambdaForm", "(Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandle, preparedFieldLambdaForm, $LambdaForm*, $MemberName*)},
+		{"preparedFieldLambdaForm", "(BZLjava/lang/Class;)Ljava/lang/invoke/LambdaForm;", "(BZLjava/lang/Class<*>;)Ljava/lang/invoke/LambdaForm;", $PRIVATE | $STATIC, $staticMethod(DirectMethodHandle, preparedFieldLambdaForm, $LambdaForm*, int8_t, bool, $Class*)},
+		{"preparedLambdaForm", "(Ljava/lang/invoke/MemberName;Z)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandle, preparedLambdaForm, $LambdaForm*, $MemberName*, bool)},
+		{"preparedLambdaForm", "(Ljava/lang/invoke/MemberName;)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandle, preparedLambdaForm, $LambdaForm*, $MemberName*)},
+		{"preparedLambdaForm", "(Ljava/lang/invoke/MethodType;I)Ljava/lang/invoke/LambdaForm;", nullptr, $PRIVATE | $STATIC, $staticMethod(DirectMethodHandle, preparedLambdaForm, $LambdaForm*, $MethodType*, int32_t)},
+		{"rebind", "()Ljava/lang/invoke/BoundMethodHandle;", nullptr, 0, $virtualMethod(DirectMethodHandle, rebind, $BoundMethodHandle*)},
+		{"shouldBeInitialized", "(Ljava/lang/invoke/MemberName;)Z", nullptr, $STATIC, $staticMethod(DirectMethodHandle, shouldBeInitialized, bool, $MemberName*)},
+		{"staticBase", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(DirectMethodHandle, staticBase, $Object*, Object$*), nullptr, nullptr, staticBasemethodAnnotations$$},
+		{"staticOffset", "(Ljava/lang/Object;)J", nullptr, $STATIC, $staticMethod(DirectMethodHandle, staticOffset, int64_t, Object$*), nullptr, nullptr, staticOffsetmethodAnnotations$$},
+		{"viewAsType", "(Ljava/lang/invoke/MethodType;Z)Ljava/lang/invoke/MethodHandle;", nullptr, 0, $virtualMethod(DirectMethodHandle, viewAsType, $MethodHandle*, $MethodType*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.invoke.DirectMethodHandle$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"java.lang.invoke.DirectMethodHandle$Holder", "java.lang.invoke.DirectMethodHandle", "Holder", $FINAL},
+		{"java.lang.invoke.DirectMethodHandle$StaticAccessor", "java.lang.invoke.DirectMethodHandle", "StaticAccessor", $STATIC},
+		{"java.lang.invoke.DirectMethodHandle$Accessor", "java.lang.invoke.DirectMethodHandle", "Accessor", $STATIC},
+		{"java.lang.invoke.DirectMethodHandle$Constructor", "java.lang.invoke.DirectMethodHandle", "Constructor", $STATIC},
+		{"java.lang.invoke.DirectMethodHandle$Interface", "java.lang.invoke.DirectMethodHandle", "Interface", $STATIC},
+		{"java.lang.invoke.DirectMethodHandle$Special", "java.lang.invoke.DirectMethodHandle", "Special", $STATIC},
+		{"java.lang.invoke.DirectMethodHandle$EnsureInitialized", "java.lang.invoke.DirectMethodHandle", "EnsureInitialized", $PRIVATE | $STATIC},
+		{"java.lang.invoke.DirectMethodHandle$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.invoke.DirectMethodHandle",
+		"java.lang.invoke.MethodHandle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.lang.invoke.DirectMethodHandle$2,java.lang.invoke.DirectMethodHandle$Holder,java.lang.invoke.DirectMethodHandle$StaticAccessor,java.lang.invoke.DirectMethodHandle$Accessor,java.lang.invoke.DirectMethodHandle$Constructor,java.lang.invoke.DirectMethodHandle$Interface,java.lang.invoke.DirectMethodHandle$Special,java.lang.invoke.DirectMethodHandle$EnsureInitialized,java.lang.invoke.DirectMethodHandle$1"
+	};
+	$loadClass(DirectMethodHandle, name, initialize, &classInfo$$, DirectMethodHandle::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DirectMethodHandle);
+	});
 	return class$;
 }
 

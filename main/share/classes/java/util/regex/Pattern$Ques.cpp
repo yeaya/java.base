@@ -1,5 +1,4 @@
 #include <java/util/regex/Pattern$Ques.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/util/regex/Matcher.h>
 #include <java/util/regex/Pattern$1.h>
@@ -26,45 +25,6 @@ namespace java {
 	namespace util {
 		namespace regex {
 
-$FieldInfo _Pattern$Ques_FieldInfo_[] = {
-	{"atom", "Ljava/util/regex/Pattern$Node;", nullptr, 0, $field(Pattern$Ques, atom)},
-	{"type", "Ljava/util/regex/Pattern$Qtype;", nullptr, 0, $field(Pattern$Ques, type)},
-	{}
-};
-
-$MethodInfo _Pattern$Ques_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/regex/Pattern$Node;Ljava/util/regex/Pattern$Qtype;)V", nullptr, 0, $method(Pattern$Ques, init$, void, $Pattern$Node*, $Pattern$Qtype*)},
-	{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$Ques, match, bool, $Matcher*, int32_t, $CharSequence*)},
-	{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$Ques, study, bool, $Pattern$TreeInfo*)},
-	{}
-};
-
-$InnerClassInfo _Pattern$Ques_InnerClassesInfo_[] = {
-	{"java.util.regex.Pattern$Ques", "java.util.regex.Pattern", "Ques", $STATIC | $FINAL},
-	{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
-	{}
-};
-
-$ClassInfo _Pattern$Ques_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.regex.Pattern$Ques",
-	"java.util.regex.Pattern$Node",
-	nullptr,
-	_Pattern$Ques_FieldInfo_,
-	_Pattern$Ques_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Pattern$Ques_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.regex.Pattern"
-};
-
-$Object* allocate$Pattern$Ques($Class* clazz) {
-	return $of($alloc(Pattern$Ques));
-}
-
 void Pattern$Ques::init$($Pattern$Node* node, $Pattern$Qtype* type) {
 	$Pattern$Node::init$();
 	$set(this, atom, node);
@@ -77,7 +37,7 @@ bool Pattern$Ques::match($Matcher* matcher, int32_t i, $CharSequence* seq) {
 	case 1:
 		{
 			bool var$1 = $nc(this->atom)->match(matcher, i, seq);
-			bool var$0 = (var$1 && $nc(this->next)->match(matcher, $nc(matcher)->last, seq));
+			bool var$0 = var$1 && $nc(this->next)->match(matcher, $nc(matcher)->last, seq);
 			return var$0 || $nc(this->next)->match(matcher, i, seq);
 		}
 	case 2:
@@ -85,17 +45,15 @@ bool Pattern$Ques::match($Matcher* matcher, int32_t i, $CharSequence* seq) {
 			bool var$2 = $nc(this->next)->match(matcher, i, seq);
 			if (!var$2) {
 				bool var$3 = $nc(this->atom)->match(matcher, i, seq);
-				var$2 = (var$3 && $nc(this->next)->match(matcher, $nc(matcher)->last, seq));
+				var$2 = var$3 && this->next->match(matcher, $nc(matcher)->last, seq);
 			}
 			return var$2;
 		}
 	case 3:
-		{
-			if ($nc(this->atom)->match(matcher, i, seq)) {
-				i = $nc(matcher)->last;
-			}
-			return $nc(this->next)->match(matcher, i, seq);
+		if ($nc(this->atom)->match(matcher, i, seq)) {
+			i = $nc(matcher)->last;
 		}
+		return $nc(this->next)->match(matcher, i, seq);
 	default:
 		{
 			bool var$4 = $nc(this->atom)->match(matcher, i, seq);
@@ -122,7 +80,40 @@ Pattern$Ques::Pattern$Ques() {
 }
 
 $Class* Pattern$Ques::load$($String* name, bool initialize) {
-	$loadClass(Pattern$Ques, name, initialize, &_Pattern$Ques_ClassInfo_, allocate$Pattern$Ques);
+	$FieldInfo fieldInfos$$[] = {
+		{"atom", "Ljava/util/regex/Pattern$Node;", nullptr, 0, $field(Pattern$Ques, atom)},
+		{"type", "Ljava/util/regex/Pattern$Qtype;", nullptr, 0, $field(Pattern$Ques, type)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/regex/Pattern$Node;Ljava/util/regex/Pattern$Qtype;)V", nullptr, 0, $method(Pattern$Ques, init$, void, $Pattern$Node*, $Pattern$Qtype*)},
+		{"match", "(Ljava/util/regex/Matcher;ILjava/lang/CharSequence;)Z", nullptr, 0, $virtualMethod(Pattern$Ques, match, bool, $Matcher*, int32_t, $CharSequence*)},
+		{"study", "(Ljava/util/regex/Pattern$TreeInfo;)Z", nullptr, 0, $virtualMethod(Pattern$Ques, study, bool, $Pattern$TreeInfo*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.regex.Pattern$Ques", "java.util.regex.Pattern", "Ques", $STATIC | $FINAL},
+		{"java.util.regex.Pattern$Node", "java.util.regex.Pattern", "Node", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.regex.Pattern$Ques",
+		"java.util.regex.Pattern$Node",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.regex.Pattern"
+	};
+	$loadClass(Pattern$Ques, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pattern$Ques);
+	});
 	return class$;
 }
 

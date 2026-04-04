@@ -1,5 +1,4 @@
 #include <sun/nio/ch/NativeThreadSet.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/InterruptedException.h>
 #include <sun/nio/ch/NativeThread.h>
@@ -16,35 +15,6 @@ namespace sun {
 	namespace nio {
 		namespace ch {
 
-$FieldInfo _NativeThreadSet_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NativeThreadSet, $assertionsDisabled)},
-	{"elts", "[J", nullptr, $PRIVATE, $field(NativeThreadSet, elts)},
-	{"used", "I", nullptr, $PRIVATE, $field(NativeThreadSet, used)},
-	{"waitingToEmpty", "Z", nullptr, $PRIVATE, $field(NativeThreadSet, waitingToEmpty)},
-	{}
-};
-
-$MethodInfo _NativeThreadSet_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(NativeThreadSet, init$, void, int32_t)},
-	{"add", "()I", nullptr, 0, $virtualMethod(NativeThreadSet, add, int32_t)},
-	{"remove", "(I)V", nullptr, 0, $virtualMethod(NativeThreadSet, remove, void, int32_t)},
-	{"signalAndWait", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(NativeThreadSet, signalAndWait, void)},
-	{}
-};
-
-$ClassInfo _NativeThreadSet_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.ch.NativeThreadSet",
-	"java.lang.Object",
-	nullptr,
-	_NativeThreadSet_FieldInfo_,
-	_NativeThreadSet_MethodInfo_
-};
-
-$Object* allocate$NativeThreadSet($Class* clazz) {
-	return $of($alloc(NativeThreadSet));
-}
-
 bool NativeThreadSet::$assertionsDisabled = false;
 
 void NativeThreadSet::init$(int32_t n) {
@@ -60,16 +30,16 @@ int32_t NativeThreadSet::add() {
 	$synchronized(this) {
 		int32_t start = 0;
 		if (this->used >= $nc(this->elts)->length) {
-			int32_t on = $nc(this->elts)->length;
+			int32_t on = this->elts->length;
 			int32_t nn = on * 2;
 			$var($longs, nelts, $new($longs, nn));
 			$System::arraycopy(this->elts, 0, nelts, 0, on);
 			$set(this, elts, nelts);
 			start = on;
 		}
-		for (int32_t i = start; i < $nc(this->elts)->length; ++i) {
-			if ($nc(this->elts)->get(i) == 0) {
-				$nc(this->elts)->set(i, th);
+		for (int32_t i = start; i < this->elts->length; ++i) {
+			if (this->elts->get(i) == 0) {
+				this->elts->set(i, th);
 				++this->used;
 				return i;
 			}
@@ -93,13 +63,13 @@ void NativeThreadSet::remove(int32_t i) {
 
 void NativeThreadSet::signalAndWait() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		bool interrupted = false;
 		while (this->used > 0) {
 			int32_t u = this->used;
 			int32_t n = $nc(this->elts)->length;
 			for (int32_t i = 0; i < n; ++i) {
-				int64_t th = $nc(this->elts)->get(i);
+				int64_t th = this->elts->get(i);
 				if (th == 0) {
 					continue;
 				}
@@ -111,22 +81,20 @@ void NativeThreadSet::signalAndWait() {
 				}
 			}
 			this->waitingToEmpty = true;
-			{
-				$var($Throwable, var$0, nullptr);
+			$var($Throwable, var$0, nullptr);
+			try {
 				try {
-					try {
-						$of(this)->wait(50);
-					} catch ($InterruptedException& e) {
-						interrupted = true;
-					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					this->waitingToEmpty = false;
+					$of(this)->wait(50);
+				} catch ($InterruptedException& e) {
+					interrupted = true;
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				this->waitingToEmpty = false;
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 		if (interrupted) {
@@ -135,7 +103,7 @@ void NativeThreadSet::signalAndWait() {
 	}
 }
 
-void clinit$NativeThreadSet($Class* class$) {
+void NativeThreadSet::clinit$($Class* clazz) {
 	NativeThreadSet::$assertionsDisabled = !NativeThreadSet::class$->desiredAssertionStatus();
 }
 
@@ -143,7 +111,31 @@ NativeThreadSet::NativeThreadSet() {
 }
 
 $Class* NativeThreadSet::load$($String* name, bool initialize) {
-	$loadClass(NativeThreadSet, name, initialize, &_NativeThreadSet_ClassInfo_, clinit$NativeThreadSet, allocate$NativeThreadSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NativeThreadSet, $assertionsDisabled)},
+		{"elts", "[J", nullptr, $PRIVATE, $field(NativeThreadSet, elts)},
+		{"used", "I", nullptr, $PRIVATE, $field(NativeThreadSet, used)},
+		{"waitingToEmpty", "Z", nullptr, $PRIVATE, $field(NativeThreadSet, waitingToEmpty)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(NativeThreadSet, init$, void, int32_t)},
+		{"add", "()I", nullptr, 0, $virtualMethod(NativeThreadSet, add, int32_t)},
+		{"remove", "(I)V", nullptr, 0, $virtualMethod(NativeThreadSet, remove, void, int32_t)},
+		{"signalAndWait", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(NativeThreadSet, signalAndWait, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.ch.NativeThreadSet",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NativeThreadSet, name, initialize, &classInfo$$, NativeThreadSet::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NativeThreadSet);
+	});
 	return class$;
 }
 

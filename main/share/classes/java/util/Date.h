@@ -45,6 +45,7 @@ class $export Date : public ::java::io::Serializable, public ::java::lang::Clone
 public:
 	Date();
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int64_t date);
 	void init$(int32_t year, int32_t month, int32_t date);
@@ -98,7 +99,7 @@ public:
 	int64_t fastTime = 0;
 	::sun::util::calendar::BaseCalendar$Date* cdate = nullptr;
 	static int32_t defaultCenturyStart;
-	static const int64_t serialVersionUID = (int64_t)0x686A81014B597419;
+	static const int64_t serialVersionUID = (int64_t)0x686a81014b597419;
 	static $StringArray* wtb;
 	static $ints* ttb;
 };

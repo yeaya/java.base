@@ -1,5 +1,4 @@
 #include <sun/net/www/protocol/ftp/FtpURLConnection$FtpOutputStream.h>
-
 #include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <sun/net/ftp/FtpClient.h>
@@ -20,42 +19,6 @@ namespace sun {
 			namespace protocol {
 				namespace ftp {
 
-$FieldInfo _FtpURLConnection$FtpOutputStream_FieldInfo_[] = {
-	{"ftp", "Lsun/net/ftp/FtpClient;", nullptr, 0, $field(FtpURLConnection$FtpOutputStream, ftp)},
-	{}
-};
-
-$MethodInfo _FtpURLConnection$FtpOutputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/ftp/FtpClient;Ljava/io/OutputStream;)V", nullptr, 0, $method(FtpURLConnection$FtpOutputStream, init$, void, $FtpClient*, $OutputStream*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FtpURLConnection$FtpOutputStream, close, void), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _FtpURLConnection$FtpOutputStream_InnerClassesInfo_[] = {
-	{"sun.net.www.protocol.ftp.FtpURLConnection$FtpOutputStream", "sun.net.www.protocol.ftp.FtpURLConnection", "FtpOutputStream", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _FtpURLConnection$FtpOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.www.protocol.ftp.FtpURLConnection$FtpOutputStream",
-	"java.io.FilterOutputStream",
-	nullptr,
-	_FtpURLConnection$FtpOutputStream_FieldInfo_,
-	_FtpURLConnection$FtpOutputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FtpURLConnection$FtpOutputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.www.protocol.ftp.FtpURLConnection"
-};
-
-$Object* allocate$FtpURLConnection$FtpOutputStream($Class* clazz) {
-	return $of($alloc(FtpURLConnection$FtpOutputStream));
-}
-
 void FtpURLConnection$FtpOutputStream::init$($FtpClient* cl, $OutputStream* fd) {
 	$FilterOutputStream::init$(fd);
 	$set(this, ftp, cl);
@@ -64,7 +27,7 @@ void FtpURLConnection$FtpOutputStream::init$($FtpClient* cl, $OutputStream* fd) 
 void FtpURLConnection$FtpOutputStream::close() {
 	$FilterOutputStream::close();
 	if (this->ftp != nullptr) {
-		$nc(this->ftp)->close();
+		this->ftp->close();
 	}
 }
 
@@ -72,7 +35,37 @@ FtpURLConnection$FtpOutputStream::FtpURLConnection$FtpOutputStream() {
 }
 
 $Class* FtpURLConnection$FtpOutputStream::load$($String* name, bool initialize) {
-	$loadClass(FtpURLConnection$FtpOutputStream, name, initialize, &_FtpURLConnection$FtpOutputStream_ClassInfo_, allocate$FtpURLConnection$FtpOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"ftp", "Lsun/net/ftp/FtpClient;", nullptr, 0, $field(FtpURLConnection$FtpOutputStream, ftp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/ftp/FtpClient;Ljava/io/OutputStream;)V", nullptr, 0, $method(FtpURLConnection$FtpOutputStream, init$, void, $FtpClient*, $OutputStream*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FtpURLConnection$FtpOutputStream, close, void), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.www.protocol.ftp.FtpURLConnection$FtpOutputStream", "sun.net.www.protocol.ftp.FtpURLConnection", "FtpOutputStream", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.www.protocol.ftp.FtpURLConnection$FtpOutputStream",
+		"java.io.FilterOutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.www.protocol.ftp.FtpURLConnection"
+	};
+	$loadClass(FtpURLConnection$FtpOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FtpURLConnection$FtpOutputStream));
+	});
 	return class$;
 }
 

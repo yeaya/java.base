@@ -1,5 +1,4 @@
 #include <sun/util/locale/provider/HostLocaleProviderAdapterImpl$7.h>
-
 #include <java/lang/Math.h>
 #include <java/util/HashMap.h>
 #include <java/util/Locale.h>
@@ -27,46 +26,6 @@ namespace sun {
 		namespace locale {
 			namespace provider {
 
-$MethodInfo _HostLocaleProviderAdapterImpl$7_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HostLocaleProviderAdapterImpl$7, init$, void)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$7, getAvailableLocales, $LocaleArray*)},
-	{"getDisplayName", "(Ljava/lang/String;IIILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$7, getDisplayName, $String*, $String*, int32_t, int32_t, int32_t, $Locale*)},
-	{"getDisplayNames", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map;", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$7, getDisplayNames, $Map*, $String*, int32_t, int32_t, $Locale*)},
-	{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$7, isSupportedLocale, bool, $Locale*)},
-	{}
-};
-
-$EnclosingMethodInfo _HostLocaleProviderAdapterImpl$7_EnclosingMethodInfo_ = {
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl",
-	"getCalendarNameProvider",
-	"()Ljava/util/spi/CalendarNameProvider;"
-};
-
-$InnerClassInfo _HostLocaleProviderAdapterImpl$7_InnerClassesInfo_[] = {
-	{"sun.util.locale.provider.HostLocaleProviderAdapterImpl$7", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HostLocaleProviderAdapterImpl$7_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl$7",
-	"java.util.spi.CalendarNameProvider",
-	nullptr,
-	nullptr,
-	_HostLocaleProviderAdapterImpl$7_MethodInfo_,
-	nullptr,
-	&_HostLocaleProviderAdapterImpl$7_EnclosingMethodInfo_,
-	_HostLocaleProviderAdapterImpl$7_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.util.locale.provider.HostLocaleProviderAdapterImpl"
-};
-
-$Object* allocate$HostLocaleProviderAdapterImpl$7($Class* clazz) {
-	return $of($alloc(HostLocaleProviderAdapterImpl$7));
-}
-
 void HostLocaleProviderAdapterImpl$7::init$() {
 	$CalendarNameProvider::init$();
 }
@@ -80,7 +39,7 @@ bool HostLocaleProviderAdapterImpl$7::isSupportedLocale($Locale* locale) {
 }
 
 $String* HostLocaleProviderAdapterImpl$7::getDisplayName($String* calendarType, int32_t field, int32_t value, int32_t style, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, names, $HostLocaleProviderAdapterImpl::getCalendarDisplayStrings($($nc(locale)->toLanguageTag()), field, style));
 	if (names != nullptr && value >= 0 && value < names->length) {
 		return names->get(value);
@@ -90,7 +49,7 @@ $String* HostLocaleProviderAdapterImpl$7::getDisplayName($String* calendarType, 
 }
 
 $Map* HostLocaleProviderAdapterImpl$7::getDisplayNames($String* calendarType, int32_t field, int32_t style, $Locale* locale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, map, nullptr);
 	$var($StringArray, names, $HostLocaleProviderAdapterImpl::getCalendarDisplayStrings($($nc(locale)->toLanguageTag()), field, style));
 	if (names != nullptr) {
@@ -109,7 +68,41 @@ HostLocaleProviderAdapterImpl$7::HostLocaleProviderAdapterImpl$7() {
 }
 
 $Class* HostLocaleProviderAdapterImpl$7::load$($String* name, bool initialize) {
-	$loadClass(HostLocaleProviderAdapterImpl$7, name, initialize, &_HostLocaleProviderAdapterImpl$7_ClassInfo_, allocate$HostLocaleProviderAdapterImpl$7);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HostLocaleProviderAdapterImpl$7, init$, void)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$7, getAvailableLocales, $LocaleArray*)},
+		{"getDisplayName", "(Ljava/lang/String;IIILjava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$7, getDisplayName, $String*, $String*, int32_t, int32_t, int32_t, $Locale*)},
+		{"getDisplayNames", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map;", "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$7, getDisplayNames, $Map*, $String*, int32_t, int32_t, $Locale*)},
+		{"isSupportedLocale", "(Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(HostLocaleProviderAdapterImpl$7, isSupportedLocale, bool, $Locale*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl",
+		"getCalendarNameProvider",
+		"()Ljava/util/spi/CalendarNameProvider;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.util.locale.provider.HostLocaleProviderAdapterImpl$7", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl$7",
+		"java.util.spi.CalendarNameProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.util.locale.provider.HostLocaleProviderAdapterImpl"
+	};
+	$loadClass(HostLocaleProviderAdapterImpl$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HostLocaleProviderAdapterImpl$7);
+	});
 	return class$;
 }
 

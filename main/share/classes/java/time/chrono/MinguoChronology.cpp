@@ -1,5 +1,4 @@
 #include <java/time/chrono/MinguoChronology.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/lang/ClassCastException.h>
@@ -61,69 +60,6 @@ using $Map = ::java::util::Map;
 namespace java {
 	namespace time {
 		namespace chrono {
-
-$FieldInfo _MinguoChronology_FieldInfo_[] = {
-	{"INSTANCE", "Ljava/time/chrono/MinguoChronology;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MinguoChronology, INSTANCE)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MinguoChronology, serialVersionUID)},
-	{"YEARS_DIFFERENCE", "I", nullptr, $STATIC | $FINAL, $constField(MinguoChronology, YEARS_DIFFERENCE)},
-	{}
-};
-
-$MethodInfo _MinguoChronology_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MinguoChronology, init$, void)},
-	{"date", "(Ljava/time/chrono/Era;III)Ljava/time/chrono/MinguoDate;", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, date, $ChronoLocalDate*, $Era*, int32_t, int32_t, int32_t)},
-	{"date", "(III)Ljava/time/chrono/MinguoDate;", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, date, $ChronoLocalDate*, int32_t, int32_t, int32_t)},
-	{"date", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/MinguoDate;", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, date, $ChronoLocalDate*, $TemporalAccessor*)},
-	{"dateEpochDay", "(J)Ljava/time/chrono/MinguoDate;", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, dateEpochDay, $ChronoLocalDate*, int64_t)},
-	{"dateNow", "()Ljava/time/chrono/MinguoDate;", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, dateNow, $ChronoLocalDate*)},
-	{"dateNow", "(Ljava/time/ZoneId;)Ljava/time/chrono/MinguoDate;", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, dateNow, $ChronoLocalDate*, $ZoneId*)},
-	{"dateNow", "(Ljava/time/Clock;)Ljava/time/chrono/MinguoDate;", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, dateNow, $ChronoLocalDate*, $Clock*)},
-	{"dateYearDay", "(Ljava/time/chrono/Era;II)Ljava/time/chrono/MinguoDate;", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, dateYearDay, $ChronoLocalDate*, $Era*, int32_t, int32_t)},
-	{"dateYearDay", "(II)Ljava/time/chrono/MinguoDate;", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, dateYearDay, $ChronoLocalDate*, int32_t, int32_t)},
-	{"eraOf", "(I)Ljava/time/chrono/MinguoEra;", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, eraOf, $Era*, int32_t)},
-	{"eras", "()Ljava/util/List;", "()Ljava/util/List<Ljava/time/chrono/Era;>;", $PUBLIC, $virtualMethod(MinguoChronology, eras, $List*)},
-	{"getCalendarType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, getCalendarType, $String*)},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, getId, $String*)},
-	{"isLeapYear", "(J)Z", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, isLeapYear, bool, int64_t)},
-	{"localDateTime", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoLocalDateTime;", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoLocalDateTime<Ljava/time/chrono/MinguoDate;>;", $PUBLIC, $virtualMethod(MinguoChronology, localDateTime, $ChronoLocalDateTime*, $TemporalAccessor*)},
-	{"prolepticYear", "(Ljava/time/chrono/Era;I)I", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, prolepticYear, int32_t, $Era*, int32_t)},
-	{"range", "(Ljava/time/temporal/ChronoField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, range, $ValueRange*, $ChronoField*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MinguoChronology, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
-	{"resolveDate", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/MinguoDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/MinguoDate;", $PUBLIC, $virtualMethod(MinguoChronology, resolveDate, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(MinguoChronology, writeReplace, $Object*)},
-	{"zonedDateTime", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoZonedDateTime;", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoZonedDateTime<Ljava/time/chrono/MinguoDate;>;", $PUBLIC, $virtualMethod(MinguoChronology, zonedDateTime, $ChronoZonedDateTime*, $TemporalAccessor*)},
-	{"zonedDateTime", "(Ljava/time/Instant;Ljava/time/ZoneId;)Ljava/time/chrono/ChronoZonedDateTime;", "(Ljava/time/Instant;Ljava/time/ZoneId;)Ljava/time/chrono/ChronoZonedDateTime<Ljava/time/chrono/MinguoDate;>;", $PUBLIC, $virtualMethod(MinguoChronology, zonedDateTime, $ChronoZonedDateTime*, $Instant*, $ZoneId*)},
-	{}
-};
-
-$InnerClassInfo _MinguoChronology_InnerClassesInfo_[] = {
-	{"java.time.chrono.MinguoChronology$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _MinguoChronology_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.time.chrono.MinguoChronology",
-	"java.time.chrono.AbstractChronology",
-	"java.io.Serializable",
-	_MinguoChronology_FieldInfo_,
-	_MinguoChronology_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MinguoChronology_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.time.chrono.MinguoChronology$1"
-};
-
-$Object* allocate$MinguoChronology($Class* clazz) {
-	return $of($alloc(MinguoChronology));
-}
 
 bool MinguoChronology::equals(Object$* obj) {
 	 return this->$AbstractChronology::equals(obj);
@@ -232,35 +168,26 @@ $List* MinguoChronology::eras() {
 }
 
 $ValueRange* MinguoChronology::range($ChronoField* field) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($MinguoChronology$1);
 	switch ($nc($MinguoChronology$1::$SwitchMap$java$time$temporal$ChronoField)->get($nc((field))->ordinal())) {
 	case 1:
 		{
-			{
-				$init($ChronoField);
-				$var($ValueRange, range, $ChronoField::PROLEPTIC_MONTH->range());
-				int64_t var$0 = $nc(range)->getMinimum() - MinguoChronology::YEARS_DIFFERENCE * (int64_t)12;
-				return $ValueRange::of(var$0, range->getMaximum() - MinguoChronology::YEARS_DIFFERENCE * (int64_t)12);
-			}
+			$var($ValueRange, range, $ChronoField::PROLEPTIC_MONTH->range());
+			int64_t var$0 = $nc(range)->getMinimum() - MinguoChronology::YEARS_DIFFERENCE * (int64_t)12;
+			return $ValueRange::of(var$0, range->getMaximum() - MinguoChronology::YEARS_DIFFERENCE * (int64_t)12);
 		}
 	case 2:
 		{
-			{
-				$init($ChronoField);
-				$var($ValueRange, range, $ChronoField::YEAR->range());
-				int64_t var$1 = $nc(range)->getMaximum() - MinguoChronology::YEARS_DIFFERENCE;
-				return $ValueRange::of(1, var$1, -range->getMinimum() + 1 + MinguoChronology::YEARS_DIFFERENCE);
-			}
+			$var($ValueRange, range, $ChronoField::YEAR->range());
+			int64_t var$1 = $nc(range)->getMaximum() - MinguoChronology::YEARS_DIFFERENCE;
+			return $ValueRange::of(1, var$1, -range->getMinimum() + 1 + MinguoChronology::YEARS_DIFFERENCE);
 		}
 	case 3:
 		{
-			{
-				$init($ChronoField);
-				$var($ValueRange, range, $ChronoField::YEAR->range());
-				int64_t var$2 = $nc(range)->getMinimum() - MinguoChronology::YEARS_DIFFERENCE;
-				return $ValueRange::of(var$2, range->getMaximum() - MinguoChronology::YEARS_DIFFERENCE);
-			}
+			$var($ValueRange, range, $ChronoField::YEAR->range());
+			int64_t var$2 = $nc(range)->getMinimum() - MinguoChronology::YEARS_DIFFERENCE;
+			return $ValueRange::of(var$2, range->getMaximum() - MinguoChronology::YEARS_DIFFERENCE);
 		}
 	}
 	return field->range();
@@ -271,14 +198,14 @@ $ChronoLocalDate* MinguoChronology::resolveDate($Map* fieldValues, $ResolverStyl
 }
 
 $Object* MinguoChronology::writeReplace() {
-	return $of($AbstractChronology::writeReplace());
+	return $AbstractChronology::writeReplace();
 }
 
 void MinguoChronology::readObject($ObjectInputStream* s) {
 	$throwNew($InvalidObjectException, "Deserialization via serialization delegate"_s);
 }
 
-void clinit$MinguoChronology($Class* class$) {
+void MinguoChronology::clinit$($Class* clazz) {
 	$assignStatic(MinguoChronology::INSTANCE, $new(MinguoChronology));
 }
 
@@ -286,7 +213,64 @@ MinguoChronology::MinguoChronology() {
 }
 
 $Class* MinguoChronology::load$($String* name, bool initialize) {
-	$loadClass(MinguoChronology, name, initialize, &_MinguoChronology_ClassInfo_, clinit$MinguoChronology, allocate$MinguoChronology);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Ljava/time/chrono/MinguoChronology;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MinguoChronology, INSTANCE)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MinguoChronology, serialVersionUID)},
+		{"YEARS_DIFFERENCE", "I", nullptr, $STATIC | $FINAL, $constField(MinguoChronology, YEARS_DIFFERENCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MinguoChronology, init$, void)},
+		{"date", "(Ljava/time/chrono/Era;III)Ljava/time/chrono/MinguoDate;", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, date, $ChronoLocalDate*, $Era*, int32_t, int32_t, int32_t)},
+		{"date", "(III)Ljava/time/chrono/MinguoDate;", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, date, $ChronoLocalDate*, int32_t, int32_t, int32_t)},
+		{"date", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/MinguoDate;", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, date, $ChronoLocalDate*, $TemporalAccessor*)},
+		{"dateEpochDay", "(J)Ljava/time/chrono/MinguoDate;", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, dateEpochDay, $ChronoLocalDate*, int64_t)},
+		{"dateNow", "()Ljava/time/chrono/MinguoDate;", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, dateNow, $ChronoLocalDate*)},
+		{"dateNow", "(Ljava/time/ZoneId;)Ljava/time/chrono/MinguoDate;", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, dateNow, $ChronoLocalDate*, $ZoneId*)},
+		{"dateNow", "(Ljava/time/Clock;)Ljava/time/chrono/MinguoDate;", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, dateNow, $ChronoLocalDate*, $Clock*)},
+		{"dateYearDay", "(Ljava/time/chrono/Era;II)Ljava/time/chrono/MinguoDate;", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, dateYearDay, $ChronoLocalDate*, $Era*, int32_t, int32_t)},
+		{"dateYearDay", "(II)Ljava/time/chrono/MinguoDate;", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, dateYearDay, $ChronoLocalDate*, int32_t, int32_t)},
+		{"eraOf", "(I)Ljava/time/chrono/MinguoEra;", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, eraOf, $Era*, int32_t)},
+		{"eras", "()Ljava/util/List;", "()Ljava/util/List<Ljava/time/chrono/Era;>;", $PUBLIC, $virtualMethod(MinguoChronology, eras, $List*)},
+		{"getCalendarType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, getCalendarType, $String*)},
+		{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, getId, $String*)},
+		{"isLeapYear", "(J)Z", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, isLeapYear, bool, int64_t)},
+		{"localDateTime", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoLocalDateTime;", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoLocalDateTime<Ljava/time/chrono/MinguoDate;>;", $PUBLIC, $virtualMethod(MinguoChronology, localDateTime, $ChronoLocalDateTime*, $TemporalAccessor*)},
+		{"prolepticYear", "(Ljava/time/chrono/Era;I)I", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, prolepticYear, int32_t, $Era*, int32_t)},
+		{"range", "(Ljava/time/temporal/ChronoField;)Ljava/time/temporal/ValueRange;", nullptr, $PUBLIC, $virtualMethod(MinguoChronology, range, $ValueRange*, $ChronoField*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MinguoChronology, readObject, void, $ObjectInputStream*), "java.io.InvalidObjectException"},
+		{"resolveDate", "(Ljava/util/Map;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/MinguoDate;", "(Ljava/util/Map<Ljava/time/temporal/TemporalField;Ljava/lang/Long;>;Ljava/time/format/ResolverStyle;)Ljava/time/chrono/MinguoDate;", $PUBLIC, $virtualMethod(MinguoChronology, resolveDate, $ChronoLocalDate*, $Map*, $ResolverStyle*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(MinguoChronology, writeReplace, $Object*)},
+		{"zonedDateTime", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoZonedDateTime;", "(Ljava/time/temporal/TemporalAccessor;)Ljava/time/chrono/ChronoZonedDateTime<Ljava/time/chrono/MinguoDate;>;", $PUBLIC, $virtualMethod(MinguoChronology, zonedDateTime, $ChronoZonedDateTime*, $TemporalAccessor*)},
+		{"zonedDateTime", "(Ljava/time/Instant;Ljava/time/ZoneId;)Ljava/time/chrono/ChronoZonedDateTime;", "(Ljava/time/Instant;Ljava/time/ZoneId;)Ljava/time/chrono/ChronoZonedDateTime<Ljava/time/chrono/MinguoDate;>;", $PUBLIC, $virtualMethod(MinguoChronology, zonedDateTime, $ChronoZonedDateTime*, $Instant*, $ZoneId*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.time.chrono.MinguoChronology$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.time.chrono.MinguoChronology",
+		"java.time.chrono.AbstractChronology",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.time.chrono.MinguoChronology$1"
+	};
+	$loadClass(MinguoChronology, name, initialize, &classInfo$$, MinguoChronology::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MinguoChronology));
+	});
 	return class$;
 }
 

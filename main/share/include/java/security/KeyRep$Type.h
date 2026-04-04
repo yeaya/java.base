@@ -21,6 +21,7 @@ class $import KeyRep$Type : public ::java::lang::Enum {
 public:
 	KeyRep$Type();
 	static $Array<::java::security::KeyRep$Type>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::security::KeyRep$Type* valueOf($String* name);
 	static $Array<::java::security::KeyRep$Type>* values();

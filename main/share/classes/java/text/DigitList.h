@@ -31,6 +31,7 @@ class DigitList : public ::java::lang::Cloneable {
 	$class(DigitList, 0, ::java::lang::Cloneable)
 public:
 	DigitList();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void append(char16_t digit);
 	void clear();

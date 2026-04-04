@@ -23,6 +23,7 @@ class $import ProgressSource$State : public ::java::lang::Enum {
 public:
 	ProgressSource$State();
 	static $Array<::sun::net::ProgressSource$State>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::net::ProgressSource$State* valueOf($String* name);
 	static $Array<::sun::net::ProgressSource$State>* values();

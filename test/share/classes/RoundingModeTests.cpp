@@ -1,5 +1,4 @@
 #include <RoundingModeTests.h>
-
 #include <java/math/BigDecimal.h>
 #include <java/math/RoundingMode.h>
 #include <jcpp.h>
@@ -26,44 +25,20 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $BigDecimal = ::java::math::BigDecimal;
 using $RoundingMode = ::java::math::RoundingMode;
 
-$MethodInfo _RoundingModeTests_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RoundingModeTests, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RoundingModeTests, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _RoundingModeTests_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"RoundingModeTests",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_RoundingModeTests_MethodInfo_
-};
-
-$Object* allocate$RoundingModeTests($Class* clazz) {
-	return $of($alloc(RoundingModeTests));
-}
-
 void RoundingModeTests::init$() {
 }
 
 void RoundingModeTests::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($RoundingModeArray, arr$, $RoundingMode::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$RoundingMode* rm = arr$->get(i$);
-			{
-				if (rm != $RoundingMode::valueOf($($nc(rm)->toString()))) {
-					$throwNew($RuntimeException, $$str({"Bad roundtrip conversion of "_s, $($nc(rm)->toString())}));
-				}
+			if (rm != $RoundingMode::valueOf($($nc(rm)->toString()))) {
+				$throwNew($RuntimeException, $$str({"Bad roundtrip conversion of "_s, $(rm->toString())}));
 			}
 		}
 	}
-	$init($RoundingMode);
 	if ($RoundingMode::valueOf($BigDecimal::ROUND_CEILING) != $RoundingMode::CEILING) {
 		$throwNew($RuntimeException, "Bad mapping for ROUND_CEILING"_s);
 	}
@@ -91,7 +66,22 @@ RoundingModeTests::RoundingModeTests() {
 }
 
 $Class* RoundingModeTests::load$($String* name, bool initialize) {
-	$loadClass(RoundingModeTests, name, initialize, &_RoundingModeTests_ClassInfo_, allocate$RoundingModeTests);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RoundingModeTests, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RoundingModeTests, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"RoundingModeTests",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RoundingModeTests, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RoundingModeTests);
+	});
 	return class$;
 }
 

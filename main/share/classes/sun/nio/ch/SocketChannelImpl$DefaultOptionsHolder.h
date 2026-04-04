@@ -19,6 +19,7 @@ class SocketChannelImpl$DefaultOptionsHolder : public ::java::lang::Object {
 	$class(SocketChannelImpl$DefaultOptionsHolder, 0, ::java::lang::Object)
 public:
 	SocketChannelImpl$DefaultOptionsHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Set* defaultInetOptions();
 	static ::java::util::Set* defaultUnixOptions();

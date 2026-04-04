@@ -1,5 +1,4 @@
 #include <java/util/stream/Nodes$IntArrayNode.h>
-
 #include <java/util/Arrays.h>
 #include <java/util/Spliterator$OfInt.h>
 #include <java/util/Spliterator.h>
@@ -21,54 +20,8 @@ namespace java {
 	namespace util {
 		namespace stream {
 
-$FieldInfo _Nodes$IntArrayNode_FieldInfo_[] = {
-	{"array", "[I", nullptr, $FINAL, $field(Nodes$IntArrayNode, array)},
-	{"curSize", "I", nullptr, 0, $field(Nodes$IntArrayNode, curSize)},
-	{}
-};
-
-$MethodInfo _Nodes$IntArrayNode_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, 0, $method(Nodes$IntArrayNode, init$, void, int64_t)},
-	{"<init>", "([I)V", nullptr, 0, $method(Nodes$IntArrayNode, init$, void, $ints*)},
-	{"asPrimitiveArray", "()[I", nullptr, $PUBLIC, $virtualMethod(Nodes$IntArrayNode, asPrimitiveArray, $Object*)},
-	{"copyInto", "([II)V", nullptr, $PUBLIC, $virtualMethod(Nodes$IntArrayNode, copyInto, void, $ints*, int32_t)},
-	{"copyInto", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$IntArrayNode, copyInto, void, Object$*, int32_t)},
-	{"count", "()J", nullptr, $PUBLIC, $virtualMethod(Nodes$IntArrayNode, count, int64_t)},
-	{"forEach", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(Nodes$IntArrayNode, forEach, void, $IntConsumer*)},
-	{"forEach", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$IntArrayNode, forEach, void, Object$*)},
-	{"spliterator", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC, $virtualMethod(Nodes$IntArrayNode, spliterator, $Spliterator*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Nodes$IntArrayNode, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Nodes$IntArrayNode_InnerClassesInfo_[] = {
-	{"java.util.stream.Nodes$IntArrayNode", "java.util.stream.Nodes", "IntArrayNode", $PRIVATE | $STATIC},
-	{"java.util.stream.Node$OfInt", "java.util.stream.Node", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Nodes$IntArrayNode_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.stream.Nodes$IntArrayNode",
-	"java.lang.Object",
-	"java.util.stream.Node$OfInt",
-	_Nodes$IntArrayNode_FieldInfo_,
-	_Nodes$IntArrayNode_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Nodes$IntArrayNode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.stream.Nodes"
-};
-
-$Object* allocate$Nodes$IntArrayNode($Class* clazz) {
-	return $of($alloc(Nodes$IntArrayNode));
-}
-
 void Nodes$IntArrayNode::init$(int64_t size) {
-	if (size >= (int64_t)2147483639) {
+	if (size >= 2147483639) {
 		$throwNew($IllegalArgumentException, "Stream size exceeds max array size"_s);
 	}
 	$set(this, array, $new($ints, (int32_t)size));
@@ -86,9 +39,9 @@ $Spliterator* Nodes$IntArrayNode::spliterator() {
 
 $Object* Nodes$IntArrayNode::asPrimitiveArray() {
 	if ($nc(this->array)->length == this->curSize) {
-		return $of(this->array);
+		return this->array;
 	} else {
-		return $of($Arrays::copyOf(this->array, this->curSize));
+		return $Arrays::copyOf(this->array, this->curSize);
 	}
 }
 
@@ -107,10 +60,10 @@ void Nodes$IntArrayNode::forEach($IntConsumer* consumer) {
 }
 
 $String* Nodes$IntArrayNode::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("IntArrayNode[%d][%s]"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf($nc(this->array)->length - this->curSize))),
-		$($of($Arrays::toString(this->array)))
+		$($Integer::valueOf($nc(this->array)->length - this->curSize)),
+		$($Arrays::toString(this->array))
 	}));
 }
 
@@ -126,7 +79,47 @@ Nodes$IntArrayNode::Nodes$IntArrayNode() {
 }
 
 $Class* Nodes$IntArrayNode::load$($String* name, bool initialize) {
-	$loadClass(Nodes$IntArrayNode, name, initialize, &_Nodes$IntArrayNode_ClassInfo_, allocate$Nodes$IntArrayNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"array", "[I", nullptr, $FINAL, $field(Nodes$IntArrayNode, array)},
+		{"curSize", "I", nullptr, 0, $field(Nodes$IntArrayNode, curSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, 0, $method(Nodes$IntArrayNode, init$, void, int64_t)},
+		{"<init>", "([I)V", nullptr, 0, $method(Nodes$IntArrayNode, init$, void, $ints*)},
+		{"asPrimitiveArray", "()[I", nullptr, $PUBLIC, $virtualMethod(Nodes$IntArrayNode, asPrimitiveArray, $Object*)},
+		{"copyInto", "([II)V", nullptr, $PUBLIC, $virtualMethod(Nodes$IntArrayNode, copyInto, void, $ints*, int32_t)},
+		{"copyInto", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$IntArrayNode, copyInto, void, Object$*, int32_t)},
+		{"count", "()J", nullptr, $PUBLIC, $virtualMethod(Nodes$IntArrayNode, count, int64_t)},
+		{"forEach", "(Ljava/util/function/IntConsumer;)V", nullptr, $PUBLIC, $virtualMethod(Nodes$IntArrayNode, forEach, void, $IntConsumer*)},
+		{"forEach", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Nodes$IntArrayNode, forEach, void, Object$*)},
+		{"spliterator", "()Ljava/util/Spliterator$OfInt;", nullptr, $PUBLIC, $virtualMethod(Nodes$IntArrayNode, spliterator, $Spliterator*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Nodes$IntArrayNode, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.stream.Nodes$IntArrayNode", "java.util.stream.Nodes", "IntArrayNode", $PRIVATE | $STATIC},
+		{"java.util.stream.Node$OfInt", "java.util.stream.Node", "OfInt", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.stream.Nodes$IntArrayNode",
+		"java.lang.Object",
+		"java.util.stream.Node$OfInt",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.stream.Nodes"
+	};
+	$loadClass(Nodes$IntArrayNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Nodes$IntArrayNode);
+	});
 	return class$;
 }
 

@@ -120,6 +120,7 @@ class $import Main : public ::java::lang::Object {
 	$class(Main, 0, ::java::lang::Object)
 public:
 	Main();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	bool addTrustedCert($String* alias, ::java::io::InputStream* in);
 	bool buildChain(::sun::security::tools::keytool::Pair* certToVerify, ::java::util::Vector* chain, ::java::util::Hashtable* certs);

@@ -1,5 +1,4 @@
 #include <sun/security/provider/SecureRandom.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/lang/InternalError.h>
 #include <java/security/MessageDigest.h>
@@ -28,52 +27,6 @@ using $SeedGenerator = ::sun::security::provider::SeedGenerator;
 namespace sun {
 	namespace security {
 		namespace provider {
-
-$FieldInfo _SecureRandom_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SecureRandom, serialVersionUID)},
-	{"DIGEST_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SecureRandom, DIGEST_SIZE)},
-	{"digest", "Ljava/security/MessageDigest;", nullptr, $PRIVATE | $TRANSIENT, $field(SecureRandom, digest)},
-	{"state", "[B", nullptr, $PRIVATE, $field(SecureRandom, state)},
-	{"remainder", "[B", nullptr, $PRIVATE, $field(SecureRandom, remainder)},
-	{"remCount", "I", nullptr, $PRIVATE, $field(SecureRandom, remCount)},
-	{}
-};
-
-$MethodInfo _SecureRandom_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SecureRandom, init$, void)},
-	{"<init>", "([B)V", nullptr, $PRIVATE, $method(SecureRandom, init$, void, $bytes*)},
-	{"engineGenerateSeed", "(I)[B", nullptr, $PUBLIC, $virtualMethod(SecureRandom, engineGenerateSeed, $bytes*, int32_t)},
-	{"engineNextBytes", "([B)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SecureRandom, engineNextBytes, void, $bytes*)},
-	{"engineSetSeed", "([B)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SecureRandom, engineSetSeed, void, $bytes*)},
-	{"init", "([B)V", nullptr, $PRIVATE, $method(SecureRandom, init, void, $bytes*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(SecureRandom, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"updateState", "([B[B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SecureRandom, updateState, void, $bytes*, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _SecureRandom_InnerClassesInfo_[] = {
-	{"sun.security.provider.SecureRandom$SeederHolder", "sun.security.provider.SecureRandom", "SeederHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SecureRandom_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.provider.SecureRandom",
-	"java.security.SecureRandomSpi",
-	nullptr,
-	_SecureRandom_FieldInfo_,
-	_SecureRandom_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SecureRandom_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.provider.SecureRandom$SeederHolder"
-};
-
-$Object* allocate$SecureRandom($Class* clazz) {
-	return $of($alloc(SecureRandom));
-}
 
 void SecureRandom::init$() {
 	$SecureRandomSpi::init$();
@@ -116,8 +69,8 @@ void SecureRandom::engineSetSeed($bytes* seed) {
 	$synchronized(this) {
 		if (this->state != nullptr) {
 			$nc(this->digest)->update(this->state);
-			for (int32_t i = 0; i < $nc(this->state)->length; ++i) {
-				$nc(this->state)->set(i, (int8_t)0);
+			for (int32_t i = 0; i < this->state->length; ++i) {
+				this->state->set(i, 0);
 			}
 		}
 		$set(this, state, $nc(this->digest)->digest(seed));
@@ -139,13 +92,13 @@ void SecureRandom::updateState($bytes* state, $bytes* output) {
 		last = v >> 8;
 	}
 	if (!zf) {
-		++(*$nc(state))[0];
+		++(*state)[0];
 	}
 }
 
 void SecureRandom::engineNextBytes($bytes* result) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		int32_t index = 0;
 		int32_t todo = 0;
 		$var($bytes, output, this->remainder);
@@ -157,22 +110,22 @@ void SecureRandom::engineNextBytes($bytes* result) {
 		}
 		int32_t r = this->remCount;
 		if (r > 0) {
-			todo = ($nc(result)->length - index) < (SecureRandom::DIGEST_SIZE - r) ? ($nc(result)->length - index) : (SecureRandom::DIGEST_SIZE - r);
+			todo = ($nc(result)->length - index) < (SecureRandom::DIGEST_SIZE - r) ? (result->length - index) : (SecureRandom::DIGEST_SIZE - r);
 			for (int32_t i = 0; i < todo; ++i) {
 				result->set(i, $nc(output)->get(r));
-				output->set(r++, (int8_t)0);
+				output->set(r++, 0);
 			}
 			this->remCount += todo;
 			index += todo;
 		}
 		while (index < $nc(result)->length) {
 			$nc(this->digest)->update(this->state);
-			$assign(output, $nc(this->digest)->digest());
+			$assign(output, this->digest->digest());
 			updateState(this->state, output);
 			todo = (result->length - index) > SecureRandom::DIGEST_SIZE ? SecureRandom::DIGEST_SIZE : result->length - index;
 			for (int32_t i = 0; i < todo; ++i) {
 				result->set(index++, $nc(output)->get(i));
-				output->set(i, (int8_t)0);
+				output->set(i, 0);
 			}
 			this->remCount += todo;
 		}
@@ -204,7 +157,47 @@ SecureRandom::SecureRandom() {
 }
 
 $Class* SecureRandom::load$($String* name, bool initialize) {
-	$loadClass(SecureRandom, name, initialize, &_SecureRandom_ClassInfo_, allocate$SecureRandom);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SecureRandom, serialVersionUID)},
+		{"DIGEST_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SecureRandom, DIGEST_SIZE)},
+		{"digest", "Ljava/security/MessageDigest;", nullptr, $PRIVATE | $TRANSIENT, $field(SecureRandom, digest)},
+		{"state", "[B", nullptr, $PRIVATE, $field(SecureRandom, state)},
+		{"remainder", "[B", nullptr, $PRIVATE, $field(SecureRandom, remainder)},
+		{"remCount", "I", nullptr, $PRIVATE, $field(SecureRandom, remCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SecureRandom, init$, void)},
+		{"<init>", "([B)V", nullptr, $PRIVATE, $method(SecureRandom, init$, void, $bytes*)},
+		{"engineGenerateSeed", "(I)[B", nullptr, $PUBLIC, $virtualMethod(SecureRandom, engineGenerateSeed, $bytes*, int32_t)},
+		{"engineNextBytes", "([B)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SecureRandom, engineNextBytes, void, $bytes*)},
+		{"engineSetSeed", "([B)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SecureRandom, engineSetSeed, void, $bytes*)},
+		{"init", "([B)V", nullptr, $PRIVATE, $method(SecureRandom, init, void, $bytes*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(SecureRandom, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"updateState", "([B[B)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SecureRandom, updateState, void, $bytes*, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.SecureRandom$SeederHolder", "sun.security.provider.SecureRandom", "SeederHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.provider.SecureRandom",
+		"java.security.SecureRandomSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.provider.SecureRandom$SeederHolder"
+	};
+	$loadClass(SecureRandom, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SecureRandom);
+	});
 	return class$;
 }
 

@@ -16,6 +16,7 @@ class $export Exceptions4StringBuilder : public ::java::lang::Object {
 	$class(Exceptions4StringBuilder, 0, ::java::lang::Object)
 public:
 	Exceptions4StringBuilder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void fail($Throwable* ex, $String* s, $Throwable* got);
 	static void main($StringArray* args);

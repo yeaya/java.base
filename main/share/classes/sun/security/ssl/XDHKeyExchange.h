@@ -21,6 +21,7 @@ class XDHKeyExchange : public ::java::lang::Object {
 	$class(XDHKeyExchange, 0, ::java::lang::Object)
 public:
 	XDHKeyExchange();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::ssl::SSLKeyAgreementGenerator* xdheKAGenerator;
 };

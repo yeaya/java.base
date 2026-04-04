@@ -1,5 +1,4 @@
 #include <java/net/SocketImplFactory.h>
-
 #include <java/net/SocketImpl.h>
 #include <jcpp.h>
 
@@ -10,26 +9,22 @@ using $SocketImpl = ::java::net::SocketImpl;
 namespace java {
 	namespace net {
 
-$MethodInfo _SocketImplFactory_MethodInfo_[] = {
-	{"createSocketImpl", "()Ljava/net/SocketImpl;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketImplFactory, createSocketImpl, $SocketImpl*)},
-	{}
-};
-
-$ClassInfo _SocketImplFactory_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.net.SocketImplFactory",
-	nullptr,
-	nullptr,
-	nullptr,
-	_SocketImplFactory_MethodInfo_
-};
-
-$Object* allocate$SocketImplFactory($Class* clazz) {
-	return $of($alloc(SocketImplFactory));
-}
-
 $Class* SocketImplFactory::load$($String* name, bool initialize) {
-	$loadClass(SocketImplFactory, name, initialize, &_SocketImplFactory_ClassInfo_, allocate$SocketImplFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"createSocketImpl", "()Ljava/net/SocketImpl;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SocketImplFactory, createSocketImpl, $SocketImpl*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.net.SocketImplFactory",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SocketImplFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketImplFactory);
+	});
 	return class$;
 }
 

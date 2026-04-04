@@ -1,5 +1,4 @@
 #include <java/security/KeyStoreException.h>
-
 #include <java/security/GeneralSecurityException.h>
 #include <jcpp.h>
 
@@ -10,32 +9,6 @@ using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 
 namespace java {
 	namespace security {
-
-$FieldInfo _KeyStoreException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KeyStoreException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _KeyStoreException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyStoreException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KeyStoreException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(KeyStoreException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(KeyStoreException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _KeyStoreException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.security.KeyStoreException",
-	"java.security.GeneralSecurityException",
-	nullptr,
-	_KeyStoreException_FieldInfo_,
-	_KeyStoreException_MethodInfo_
-};
-
-$Object* allocate$KeyStoreException($Class* clazz) {
-	return $of($alloc(KeyStoreException));
-}
 
 void KeyStoreException::init$() {
 	$GeneralSecurityException::init$();
@@ -64,7 +37,28 @@ void KeyStoreException::throw$() {
 }
 
 $Class* KeyStoreException::load$($String* name, bool initialize) {
-	$loadClass(KeyStoreException, name, initialize, &_KeyStoreException_ClassInfo_, allocate$KeyStoreException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KeyStoreException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(KeyStoreException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KeyStoreException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(KeyStoreException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(KeyStoreException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.security.KeyStoreException",
+		"java.security.GeneralSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KeyStoreException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyStoreException);
+	});
 	return class$;
 }
 

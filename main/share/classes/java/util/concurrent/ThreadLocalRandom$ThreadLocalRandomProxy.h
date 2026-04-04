@@ -16,6 +16,7 @@ class ThreadLocalRandom$ThreadLocalRandomProxy : public ::java::util::Random {
 	$class(ThreadLocalRandom$ThreadLocalRandomProxy, 0, ::java::util::Random)
 public:
 	ThreadLocalRandom$ThreadLocalRandomProxy();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	using ::java::util::Random::nextInt;
 	using ::java::util::Random::nextFloat;

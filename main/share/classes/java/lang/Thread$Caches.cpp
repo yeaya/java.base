@@ -1,5 +1,4 @@
 #include <java/lang/Thread$Caches.h>
-
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/util/concurrent/ConcurrentHashMap.h>
 #include <java/util/concurrent/ConcurrentMap.h>
@@ -16,49 +15,13 @@ using $ConcurrentMap = ::java::util::concurrent::ConcurrentMap;
 namespace java {
 	namespace lang {
 
-$FieldInfo _Thread$Caches_FieldInfo_[] = {
-	{"subclassAudits", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/lang/Thread$WeakClassKey;Ljava/lang/Boolean;>;", $STATIC | $FINAL, $staticField(Thread$Caches, subclassAudits)},
-	{"subclassAuditsQueue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Class<*>;>;", $STATIC | $FINAL, $staticField(Thread$Caches, subclassAuditsQueue)},
-	{}
-};
-
-$MethodInfo _Thread$Caches_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Thread$Caches, init$, void)},
-	{}
-};
-
-$InnerClassInfo _Thread$Caches_InnerClassesInfo_[] = {
-	{"java.lang.Thread$Caches", "java.lang.Thread", "Caches", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Thread$Caches_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.Thread$Caches",
-	"java.lang.Object",
-	nullptr,
-	_Thread$Caches_FieldInfo_,
-	_Thread$Caches_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Thread$Caches_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.Thread"
-};
-
-$Object* allocate$Thread$Caches($Class* clazz) {
-	return $of($alloc(Thread$Caches));
-}
-
 $ConcurrentMap* Thread$Caches::subclassAudits = nullptr;
 $ReferenceQueue* Thread$Caches::subclassAuditsQueue = nullptr;
 
 void Thread$Caches::init$() {
 }
 
-void clinit$Thread$Caches($Class* class$) {
+void Thread$Caches::clinit$($Class* clazz) {
 	$assignStatic(Thread$Caches::subclassAudits, $new($ConcurrentHashMap));
 	$assignStatic(Thread$Caches::subclassAuditsQueue, $new($ReferenceQueue));
 }
@@ -67,7 +30,37 @@ Thread$Caches::Thread$Caches() {
 }
 
 $Class* Thread$Caches::load$($String* name, bool initialize) {
-	$loadClass(Thread$Caches, name, initialize, &_Thread$Caches_ClassInfo_, clinit$Thread$Caches, allocate$Thread$Caches);
+	$FieldInfo fieldInfos$$[] = {
+		{"subclassAudits", "Ljava/util/concurrent/ConcurrentMap;", "Ljava/util/concurrent/ConcurrentMap<Ljava/lang/Thread$WeakClassKey;Ljava/lang/Boolean;>;", $STATIC | $FINAL, $staticField(Thread$Caches, subclassAudits)},
+		{"subclassAuditsQueue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Class<*>;>;", $STATIC | $FINAL, $staticField(Thread$Caches, subclassAuditsQueue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Thread$Caches, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Thread$Caches", "java.lang.Thread", "Caches", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.Thread$Caches",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.Thread"
+	};
+	$loadClass(Thread$Caches, name, initialize, &classInfo$$, Thread$Caches::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Thread$Caches);
+	});
 	return class$;
 }
 

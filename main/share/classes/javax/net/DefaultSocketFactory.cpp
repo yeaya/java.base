@@ -1,5 +1,4 @@
 #include <javax/net/DefaultSocketFactory.h>
-
 #include <java/net/InetAddress.h>
 #include <java/net/Socket.h>
 #include <javax/net/SocketFactory.h>
@@ -13,29 +12,6 @@ using $SocketFactory = ::javax::net::SocketFactory;
 
 namespace javax {
 	namespace net {
-
-$MethodInfo _DefaultSocketFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DefaultSocketFactory, init$, void)},
-	{"createSocket", "()Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(DefaultSocketFactory, createSocket, $Socket*)},
-	{"createSocket", "(Ljava/lang/String;I)Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(DefaultSocketFactory, createSocket, $Socket*, $String*, int32_t), "java.io.IOException,java.net.UnknownHostException"},
-	{"createSocket", "(Ljava/net/InetAddress;I)Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(DefaultSocketFactory, createSocket, $Socket*, $InetAddress*, int32_t), "java.io.IOException"},
-	{"createSocket", "(Ljava/lang/String;ILjava/net/InetAddress;I)Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(DefaultSocketFactory, createSocket, $Socket*, $String*, int32_t, $InetAddress*, int32_t), "java.io.IOException,java.net.UnknownHostException"},
-	{"createSocket", "(Ljava/net/InetAddress;ILjava/net/InetAddress;I)Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(DefaultSocketFactory, createSocket, $Socket*, $InetAddress*, int32_t, $InetAddress*, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _DefaultSocketFactory_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.net.DefaultSocketFactory",
-	"javax.net.SocketFactory",
-	nullptr,
-	nullptr,
-	_DefaultSocketFactory_MethodInfo_
-};
-
-$Object* allocate$DefaultSocketFactory($Class* clazz) {
-	return $of($alloc(DefaultSocketFactory));
-}
 
 void DefaultSocketFactory::init$() {
 	$SocketFactory::init$();
@@ -65,7 +41,26 @@ DefaultSocketFactory::DefaultSocketFactory() {
 }
 
 $Class* DefaultSocketFactory::load$($String* name, bool initialize) {
-	$loadClass(DefaultSocketFactory, name, initialize, &_DefaultSocketFactory_ClassInfo_, allocate$DefaultSocketFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DefaultSocketFactory, init$, void)},
+		{"createSocket", "()Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(DefaultSocketFactory, createSocket, $Socket*)},
+		{"createSocket", "(Ljava/lang/String;I)Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(DefaultSocketFactory, createSocket, $Socket*, $String*, int32_t), "java.io.IOException,java.net.UnknownHostException"},
+		{"createSocket", "(Ljava/net/InetAddress;I)Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(DefaultSocketFactory, createSocket, $Socket*, $InetAddress*, int32_t), "java.io.IOException"},
+		{"createSocket", "(Ljava/lang/String;ILjava/net/InetAddress;I)Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(DefaultSocketFactory, createSocket, $Socket*, $String*, int32_t, $InetAddress*, int32_t), "java.io.IOException,java.net.UnknownHostException"},
+		{"createSocket", "(Ljava/net/InetAddress;ILjava/net/InetAddress;I)Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(DefaultSocketFactory, createSocket, $Socket*, $InetAddress*, int32_t, $InetAddress*, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.net.DefaultSocketFactory",
+		"javax.net.SocketFactory",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DefaultSocketFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultSocketFactory);
+	});
 	return class$;
 }
 

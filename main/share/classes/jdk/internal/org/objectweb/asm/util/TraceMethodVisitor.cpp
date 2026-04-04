@@ -1,5 +1,4 @@
 #include <jdk/internal/org/objectweb/asm/util/TraceMethodVisitor.h>
-
 #include <jdk/internal/org/objectweb/asm/AnnotationVisitor.h>
 #include <jdk/internal/org/objectweb/asm/Attribute.h>
 #include <jdk/internal/org/objectweb/asm/Handle.h>
@@ -37,61 +36,6 @@ namespace jdk {
 				namespace asm$ {
 					namespace util {
 
-$FieldInfo _TraceMethodVisitor_FieldInfo_[] = {
-	{"p", "Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC | $FINAL, $field(TraceMethodVisitor, p)},
-	{}
-};
-
-$MethodInfo _TraceMethodVisitor_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/util/Printer;)V", nullptr, $PUBLIC, $method(TraceMethodVisitor, init$, void, $Printer*)},
-	{"<init>", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljdk/internal/org/objectweb/asm/util/Printer;)V", nullptr, $PUBLIC, $method(TraceMethodVisitor, init$, void, $MethodVisitor*, $Printer*)},
-	{"visitAnnotableParameterCount", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitAnnotableParameterCount, void, int32_t, bool)},
-	{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
-	{"visitAnnotationDefault", "()Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitAnnotationDefault, $AnnotationVisitor*)},
-	{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitAttribute, void, $Attribute*)},
-	{"visitCode", "()V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitCode, void)},
-	{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitEnd, void)},
-	{"visitFieldInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitFieldInsn, void, int32_t, $String*, $String*, $String*)},
-	{"visitFrame", "(II[Ljava/lang/Object;I[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitFrame, void, int32_t, int32_t, $ObjectArray*, int32_t, $ObjectArray*)},
-	{"visitIincInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitIincInsn, void, int32_t, int32_t)},
-	{"visitInsn", "(I)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitInsn, void, int32_t)},
-	{"visitInsnAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitInsnAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
-	{"visitIntInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitIntInsn, void, int32_t, int32_t)},
-	{"visitInvokeDynamicInsn", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(TraceMethodVisitor, visitInvokeDynamicInsn, void, $String*, $String*, $Handle*, $ObjectArray*)},
-	{"visitJumpInsn", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitJumpInsn, void, int32_t, $Label*)},
-	{"visitLabel", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitLabel, void, $Label*)},
-	{"visitLdcInsn", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitLdcInsn, void, Object$*)},
-	{"visitLineNumber", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitLineNumber, void, int32_t, $Label*)},
-	{"visitLocalVariable", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;I)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitLocalVariable, void, $String*, $String*, $String*, $Label*, $Label*, int32_t)},
-	{"visitLocalVariableAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;[Ljdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;[ILjava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitLocalVariableAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $LabelArray*, $LabelArray*, $ints*, $String*, bool)},
-	{"visitLookupSwitchInsn", "(Ljdk/internal/org/objectweb/asm/Label;[I[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitLookupSwitchInsn, void, $Label*, $ints*, $LabelArray*)},
-	{"visitMaxs", "(II)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitMaxs, void, int32_t, int32_t)},
-	{"visitMethodInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitMethodInsn, void, int32_t, $String*, $String*, $String*, bool)},
-	{"visitMultiANewArrayInsn", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitMultiANewArrayInsn, void, $String*, int32_t)},
-	{"visitParameter", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitParameter, void, $String*, int32_t)},
-	{"visitParameterAnnotation", "(ILjava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitParameterAnnotation, $AnnotationVisitor*, int32_t, $String*, bool)},
-	{"visitTableSwitchInsn", "(IILjdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(TraceMethodVisitor, visitTableSwitchInsn, void, int32_t, int32_t, $Label*, $LabelArray*)},
-	{"visitTryCatchAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitTryCatchAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
-	{"visitTryCatchBlock", "(Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitTryCatchBlock, void, $Label*, $Label*, $Label*, $String*)},
-	{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
-	{"visitTypeInsn", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitTypeInsn, void, int32_t, $String*)},
-	{"visitVarInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitVarInsn, void, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _TraceMethodVisitor_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.org.objectweb.asm.util.TraceMethodVisitor",
-	"jdk.internal.org.objectweb.asm.MethodVisitor",
-	nullptr,
-	_TraceMethodVisitor_FieldInfo_,
-	_TraceMethodVisitor_MethodInfo_
-};
-
-$Object* allocate$TraceMethodVisitor($Class* clazz) {
-	return $of($alloc(TraceMethodVisitor));
-}
-
 void TraceMethodVisitor::init$($Printer* printer) {
 	TraceMethodVisitor::init$(nullptr, printer);
 }
@@ -107,13 +51,13 @@ void TraceMethodVisitor::visitParameter($String* name, int32_t access) {
 }
 
 $AnnotationVisitor* TraceMethodVisitor::visitAnnotation($String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Printer, annotationPrinter, $nc(this->p)->visitMethodAnnotation(descriptor, visible));
 	return $new($TraceAnnotationVisitor, $($MethodVisitor::visitAnnotation(descriptor, visible)), annotationPrinter);
 }
 
 $AnnotationVisitor* TraceMethodVisitor::visitTypeAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Printer, annotationPrinter, $nc(this->p)->visitMethodTypeAnnotation(typeRef, typePath, descriptor, visible));
 	return $new($TraceAnnotationVisitor, $($MethodVisitor::visitTypeAnnotation(typeRef, typePath, descriptor, visible)), annotationPrinter);
 }
@@ -124,7 +68,7 @@ void TraceMethodVisitor::visitAttribute($Attribute* attribute) {
 }
 
 $AnnotationVisitor* TraceMethodVisitor::visitAnnotationDefault() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Printer, annotationPrinter, $nc(this->p)->visitAnnotationDefault());
 	return $new($TraceAnnotationVisitor, $($MethodVisitor::visitAnnotationDefault()), annotationPrinter);
 }
@@ -135,7 +79,7 @@ void TraceMethodVisitor::visitAnnotableParameterCount(int32_t parameterCount, bo
 }
 
 $AnnotationVisitor* TraceMethodVisitor::visitParameterAnnotation(int32_t parameter, $String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Printer, annotationPrinter, $nc(this->p)->visitParameterAnnotation(parameter, descriptor, visible));
 	return $new($TraceAnnotationVisitor, $($MethodVisitor::visitParameterAnnotation(parameter, descriptor, visible)), annotationPrinter);
 }
@@ -180,12 +124,12 @@ void TraceMethodVisitor::visitMethodInsn(int32_t opcode, $String* owner, $String
 		if (isInterface != (opcode == $Opcodes::INVOKEINTERFACE)) {
 			$throwNew($IllegalArgumentException, "INVOKESPECIAL/STATIC on interfaces require ASM5"_s);
 		}
-		$nc(this->p)->visitMethodInsn(opcode, owner, name, descriptor);
+		this->p->visitMethodInsn(opcode, owner, name, descriptor);
 	} else {
-		$nc(this->p)->visitMethodInsn(opcode, owner, name, descriptor, isInterface);
+		this->p->visitMethodInsn(opcode, owner, name, descriptor, isInterface);
 	}
 	if (this->mv != nullptr) {
-		$nc(this->mv)->visitMethodInsn(opcode, owner, name, descriptor, isInterface);
+		this->mv->visitMethodInsn(opcode, owner, name, descriptor, isInterface);
 	}
 }
 
@@ -230,7 +174,7 @@ void TraceMethodVisitor::visitMultiANewArrayInsn($String* descriptor, int32_t nu
 }
 
 $AnnotationVisitor* TraceMethodVisitor::visitInsnAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Printer, annotationPrinter, $nc(this->p)->visitInsnAnnotation(typeRef, typePath, descriptor, visible));
 	return $new($TraceAnnotationVisitor, $($MethodVisitor::visitInsnAnnotation(typeRef, typePath, descriptor, visible)), annotationPrinter);
 }
@@ -241,7 +185,7 @@ void TraceMethodVisitor::visitTryCatchBlock($Label* start, $Label* end, $Label* 
 }
 
 $AnnotationVisitor* TraceMethodVisitor::visitTryCatchAnnotation(int32_t typeRef, $TypePath* typePath, $String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Printer, annotationPrinter, $nc(this->p)->visitTryCatchAnnotation(typeRef, typePath, descriptor, visible));
 	return $new($TraceAnnotationVisitor, $($MethodVisitor::visitTryCatchAnnotation(typeRef, typePath, descriptor, visible)), annotationPrinter);
 }
@@ -252,7 +196,7 @@ void TraceMethodVisitor::visitLocalVariable($String* name, $String* descriptor, 
 }
 
 $AnnotationVisitor* TraceMethodVisitor::visitLocalVariableAnnotation(int32_t typeRef, $TypePath* typePath, $LabelArray* start, $LabelArray* end, $ints* index, $String* descriptor, bool visible) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Printer, annotationPrinter, $nc(this->p)->visitLocalVariableAnnotation(typeRef, typePath, start, end, index, descriptor, visible));
 	return $new($TraceAnnotationVisitor, $($MethodVisitor::visitLocalVariableAnnotation(typeRef, typePath, start, end, index, descriptor, visible)), annotationPrinter);
 }
@@ -276,7 +220,57 @@ TraceMethodVisitor::TraceMethodVisitor() {
 }
 
 $Class* TraceMethodVisitor::load$($String* name, bool initialize) {
-	$loadClass(TraceMethodVisitor, name, initialize, &_TraceMethodVisitor_ClassInfo_, allocate$TraceMethodVisitor);
+	$FieldInfo fieldInfos$$[] = {
+		{"p", "Ljdk/internal/org/objectweb/asm/util/Printer;", nullptr, $PUBLIC | $FINAL, $field(TraceMethodVisitor, p)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/util/Printer;)V", nullptr, $PUBLIC, $method(TraceMethodVisitor, init$, void, $Printer*)},
+		{"<init>", "(Ljdk/internal/org/objectweb/asm/MethodVisitor;Ljdk/internal/org/objectweb/asm/util/Printer;)V", nullptr, $PUBLIC, $method(TraceMethodVisitor, init$, void, $MethodVisitor*, $Printer*)},
+		{"visitAnnotableParameterCount", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitAnnotableParameterCount, void, int32_t, bool)},
+		{"visitAnnotation", "(Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitAnnotation, $AnnotationVisitor*, $String*, bool)},
+		{"visitAnnotationDefault", "()Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitAnnotationDefault, $AnnotationVisitor*)},
+		{"visitAttribute", "(Ljdk/internal/org/objectweb/asm/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitAttribute, void, $Attribute*)},
+		{"visitCode", "()V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitCode, void)},
+		{"visitEnd", "()V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitEnd, void)},
+		{"visitFieldInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitFieldInsn, void, int32_t, $String*, $String*, $String*)},
+		{"visitFrame", "(II[Ljava/lang/Object;I[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitFrame, void, int32_t, int32_t, $ObjectArray*, int32_t, $ObjectArray*)},
+		{"visitIincInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitIincInsn, void, int32_t, int32_t)},
+		{"visitInsn", "(I)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitInsn, void, int32_t)},
+		{"visitInsnAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitInsnAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
+		{"visitIntInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitIntInsn, void, int32_t, int32_t)},
+		{"visitInvokeDynamicInsn", "(Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Handle;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(TraceMethodVisitor, visitInvokeDynamicInsn, void, $String*, $String*, $Handle*, $ObjectArray*)},
+		{"visitJumpInsn", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitJumpInsn, void, int32_t, $Label*)},
+		{"visitLabel", "(Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitLabel, void, $Label*)},
+		{"visitLdcInsn", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitLdcInsn, void, Object$*)},
+		{"visitLineNumber", "(ILjdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitLineNumber, void, int32_t, $Label*)},
+		{"visitLocalVariable", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;I)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitLocalVariable, void, $String*, $String*, $String*, $Label*, $Label*, int32_t)},
+		{"visitLocalVariableAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;[Ljdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;[ILjava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitLocalVariableAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $LabelArray*, $LabelArray*, $ints*, $String*, bool)},
+		{"visitLookupSwitchInsn", "(Ljdk/internal/org/objectweb/asm/Label;[I[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitLookupSwitchInsn, void, $Label*, $ints*, $LabelArray*)},
+		{"visitMaxs", "(II)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitMaxs, void, int32_t, int32_t)},
+		{"visitMethodInsn", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitMethodInsn, void, int32_t, $String*, $String*, $String*, bool)},
+		{"visitMultiANewArrayInsn", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitMultiANewArrayInsn, void, $String*, int32_t)},
+		{"visitParameter", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitParameter, void, $String*, int32_t)},
+		{"visitParameterAnnotation", "(ILjava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitParameterAnnotation, $AnnotationVisitor*, int32_t, $String*, bool)},
+		{"visitTableSwitchInsn", "(IILjdk/internal/org/objectweb/asm/Label;[Ljdk/internal/org/objectweb/asm/Label;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(TraceMethodVisitor, visitTableSwitchInsn, void, int32_t, int32_t, $Label*, $LabelArray*)},
+		{"visitTryCatchAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitTryCatchAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
+		{"visitTryCatchBlock", "(Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;Ljdk/internal/org/objectweb/asm/Label;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitTryCatchBlock, void, $Label*, $Label*, $Label*, $String*)},
+		{"visitTypeAnnotation", "(ILjdk/internal/org/objectweb/asm/TypePath;Ljava/lang/String;Z)Ljdk/internal/org/objectweb/asm/AnnotationVisitor;", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitTypeAnnotation, $AnnotationVisitor*, int32_t, $TypePath*, $String*, bool)},
+		{"visitTypeInsn", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitTypeInsn, void, int32_t, $String*)},
+		{"visitVarInsn", "(II)V", nullptr, $PUBLIC, $virtualMethod(TraceMethodVisitor, visitVarInsn, void, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.org.objectweb.asm.util.TraceMethodVisitor",
+		"jdk.internal.org.objectweb.asm.MethodVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TraceMethodVisitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TraceMethodVisitor);
+	});
 	return class$;
 }
 

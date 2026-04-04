@@ -14,6 +14,7 @@ class RevocationChecker$2 : public ::java::lang::Object {
 	$class(RevocationChecker$2, 0, ::java::lang::Object)
 public:
 	RevocationChecker$2();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$security$provider$certpath$RevocationChecker$Mode;
 	static $ints* $SwitchMap$java$security$cert$PKIXRevocationChecker$Option;
 };

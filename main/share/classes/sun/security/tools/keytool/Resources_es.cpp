@@ -1,5 +1,4 @@
 #include <sun/security/tools/keytool/Resources_es.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,30 +13,6 @@ namespace sun {
 		namespace tools {
 			namespace keytool {
 
-$FieldInfo _Resources_es_FieldInfo_[] = {
-	{"contents", "[[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Resources_es, contents)},
-	{}
-};
-
-$MethodInfo _Resources_es_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Resources_es, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resources_es, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _Resources_es_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.tools.keytool.Resources_es",
-	"java.util.ListResourceBundle",
-	nullptr,
-	_Resources_es_FieldInfo_,
-	_Resources_es_MethodInfo_
-};
-
-$Object* allocate$Resources_es($Class* clazz) {
-	return $of($alloc(Resources_es));
-}
-
 $ObjectArray2* Resources_es::contents = nullptr;
 
 void Resources_es::init$() {
@@ -48,1060 +23,1060 @@ $ObjectArray2* Resources_es::getContents() {
 	return Resources_es::contents;
 }
 
-void clinit$Resources_es($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Resources_es::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Resources_es::contents, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("NEWLINE"_s),
-			$of("\n"_s)
+			"NEWLINE"_s,
+			"\n"_s
 		}),
 		$$new($ObjectArray, {
-			$of("STAR"_s),
-			$of("*******************************************"_s)
+			"STAR"_s,
+			"*******************************************"_s
 		}),
 		$$new($ObjectArray, {
-			$of("STARNN"_s),
-			$of("*******************************************\n\n"_s)
+			"STARNN"_s,
+			"*******************************************\n\n"_s
 		}),
 		$$new($ObjectArray, {
-			$of(".OPTION."_s),
-			$of(" [OPTION]..."_s)
+			".OPTION."_s,
+			" [OPTION]..."_s
 		}),
 		$$new($ObjectArray, {
-			$of("Options."_s),
-			$of("Opciones:"_s)
+			"Options."_s,
+			"Opciones:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("option.1.set.twice"_s),
-			$of(u"La opción %s se ha especificado varias veces. Se ignorarán todas excepto la última."_s)
+			"option.1.set.twice"_s,
+			u"La opción %s se ha especificado varias veces. Se ignorarán todas excepto la última."_s
 		}),
 		$$new($ObjectArray, {
-			$of("multiple.commands.1.2"_s),
-			$of("Solo se permite un comando: se ha especificado tanto %1$s como %2$s"_s)
+			"multiple.commands.1.2"_s,
+			"Solo se permite un comando: se ha especificado tanto %1$s como %2$s"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Use.keytool.help.for.all.available.commands"_s),
-			$of("Utilice\"keytool -help\" para todos los comandos disponibles"_s)
+			"Use.keytool.help.for.all.available.commands"_s,
+			"Utilice\"keytool -help\" para todos los comandos disponibles"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Key.and.Certificate.Management.Tool"_s),
-			$of(u"Herramienta de Gestión de Certificados y Claves"_s)
+			"Key.and.Certificate.Management.Tool"_s,
+			u"Herramienta de Gestión de Certificados y Claves"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Commands."_s),
-			$of("Comandos:"_s)
+			"Commands."_s,
+			"Comandos:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Use.keytool.command.name.help.for.usage.of.command.name"_s),
-			$of(u"Utilice \"keytool -command_name -help\" para la sintaxis de nombre_comando.\nUtilice la opción -conf <url> para especificar un archivo de opciones preconfigurado."_s)
+			"Use.keytool.command.name.help.for.usage.of.command.name"_s,
+			u"Utilice \"keytool -command_name -help\" para la sintaxis de nombre_comando.\nUtilice la opción -conf <url> para especificar un archivo de opciones preconfigurado."_s
 		}),
 		$$new($ObjectArray, {
-			$of("Generates.a.certificate.request"_s),
-			$of("Genera una solicitud de certificado"_s)
+			"Generates.a.certificate.request"_s,
+			"Genera una solicitud de certificado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Changes.an.entry.s.alias"_s),
-			$of("Cambia un alias de entrada"_s)
+			"Changes.an.entry.s.alias"_s,
+			"Cambia un alias de entrada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Deletes.an.entry"_s),
-			$of("Suprime una entrada"_s)
+			"Deletes.an.entry"_s,
+			"Suprime una entrada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Exports.certificate"_s),
-			$of("Exporta el certificado"_s)
+			"Exports.certificate"_s,
+			"Exporta el certificado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Generates.a.key.pair"_s),
-			$of("Genera un par de claves"_s)
+			"Generates.a.key.pair"_s,
+			"Genera un par de claves"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Generates.a.secret.key"_s),
-			$of("Genera un clave secreta"_s)
+			"Generates.a.secret.key"_s,
+			"Genera un clave secreta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Generates.certificate.from.a.certificate.request"_s),
-			$of("Genera un certificado a partir de una solicitud de certificado"_s)
+			"Generates.certificate.from.a.certificate.request"_s,
+			"Genera un certificado a partir de una solicitud de certificado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Generates.CRL"_s),
-			$of("Genera CRL"_s)
+			"Generates.CRL"_s,
+			"Genera CRL"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Generated.keyAlgName.secret.key"_s),
-			$of("Clave secreta {0} generada"_s)
+			"Generated.keyAlgName.secret.key"_s,
+			"Clave secreta {0} generada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Generated.keysize.bit.keyAlgName.secret.key"_s),
-			$of("Clave secreta {1} de {0} bits generada"_s)
+			"Generated.keysize.bit.keyAlgName.secret.key"_s,
+			"Clave secreta {1} de {0} bits generada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Imports.entries.from.a.JDK.1.1.x.style.identity.database"_s),
-			$of("Importa entradas desde una base de datos de identidades JDK 1.1.x-style"_s)
+			"Imports.entries.from.a.JDK.1.1.x.style.identity.database"_s,
+			"Importa entradas desde una base de datos de identidades JDK 1.1.x-style"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Imports.a.certificate.or.a.certificate.chain"_s),
-			$of("Importa un certificado o una cadena de certificados"_s)
+			"Imports.a.certificate.or.a.certificate.chain"_s,
+			"Importa un certificado o una cadena de certificados"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Imports.a.password"_s),
-			$of(u"Importa una contraseña"_s)
+			"Imports.a.password"_s,
+			u"Importa una contraseña"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Imports.one.or.all.entries.from.another.keystore"_s),
-			$of(u"Importa una o todas las entradas desde otro almacén de claves"_s)
+			"Imports.one.or.all.entries.from.another.keystore"_s,
+			u"Importa una o todas las entradas desde otro almacén de claves"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Clones.a.key.entry"_s),
-			$of("Clona una entrada de clave"_s)
+			"Clones.a.key.entry"_s,
+			"Clona una entrada de clave"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Changes.the.key.password.of.an.entry"_s),
-			$of(u"Cambia la contraseña de clave de una entrada"_s)
+			"Changes.the.key.password.of.an.entry"_s,
+			u"Cambia la contraseña de clave de una entrada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lists.entries.in.a.keystore"_s),
-			$of(u"Enumera las entradas de un almacén de claves"_s)
+			"Lists.entries.in.a.keystore"_s,
+			u"Enumera las entradas de un almacén de claves"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Prints.the.content.of.a.certificate"_s),
-			$of("Imprime el contenido de un certificado"_s)
+			"Prints.the.content.of.a.certificate"_s,
+			"Imprime el contenido de un certificado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Prints.the.content.of.a.certificate.request"_s),
-			$of("Imprime el contenido de una solicitud de certificado"_s)
+			"Prints.the.content.of.a.certificate.request"_s,
+			"Imprime el contenido de una solicitud de certificado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Prints.the.content.of.a.CRL.file"_s),
-			$of("Imprime el contenido de un archivo CRL"_s)
+			"Prints.the.content.of.a.CRL.file"_s,
+			"Imprime el contenido de un archivo CRL"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Generates.a.self.signed.certificate"_s),
-			$of("Genera un certificado autofirmado"_s)
+			"Generates.a.self.signed.certificate"_s,
+			"Genera un certificado autofirmado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Changes.the.store.password.of.a.keystore"_s),
-			$of(u"Cambia la contraseña de almacén de un almacén de claves"_s)
+			"Changes.the.store.password.of.a.keystore"_s,
+			u"Cambia la contraseña de almacén de un almacén de claves"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alias.name.of.the.entry.to.process"_s),
-			$of("nombre de alias de la entrada que se va a procesar"_s)
+			"alias.name.of.the.entry.to.process"_s,
+			"nombre de alias de la entrada que se va a procesar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("destination.alias"_s),
-			$of("alias de destino"_s)
+			"destination.alias"_s,
+			"alias de destino"_s
 		}),
 		$$new($ObjectArray, {
-			$of("destination.key.password"_s),
-			$of(u"contraseña de clave de destino"_s)
+			"destination.key.password"_s,
+			u"contraseña de clave de destino"_s
 		}),
 		$$new($ObjectArray, {
-			$of("destination.keystore.name"_s),
-			$of(u"nombre de almacén de claves de destino"_s)
+			"destination.keystore.name"_s,
+			u"nombre de almacén de claves de destino"_s
 		}),
 		$$new($ObjectArray, {
-			$of("destination.keystore.password.protected"_s),
-			$of(u"almacén de claves de destino protegido por contraseña"_s)
+			"destination.keystore.password.protected"_s,
+			u"almacén de claves de destino protegido por contraseña"_s
 		}),
 		$$new($ObjectArray, {
-			$of("destination.keystore.provider.name"_s),
-			$of(u"nombre de proveedor de almacén de claves de destino"_s)
+			"destination.keystore.provider.name"_s,
+			u"nombre de proveedor de almacén de claves de destino"_s
 		}),
 		$$new($ObjectArray, {
-			$of("destination.keystore.password"_s),
-			$of(u"contraseña de almacén de claves de destino"_s)
+			"destination.keystore.password"_s,
+			u"contraseña de almacén de claves de destino"_s
 		}),
 		$$new($ObjectArray, {
-			$of("destination.keystore.type"_s),
-			$of(u"tipo de almacén de claves de destino"_s)
+			"destination.keystore.type"_s,
+			u"tipo de almacén de claves de destino"_s
 		}),
 		$$new($ObjectArray, {
-			$of("distinguished.name"_s),
-			$of("nombre distintivo"_s)
+			"distinguished.name"_s,
+			"nombre distintivo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("X.509.extension"_s),
-			$of(u"extensión X.509"_s)
+			"X.509.extension"_s,
+			u"extensión X.509"_s
 		}),
 		$$new($ObjectArray, {
-			$of("output.file.name"_s),
-			$of("nombre de archivo de salida"_s)
+			"output.file.name"_s,
+			"nombre de archivo de salida"_s
 		}),
 		$$new($ObjectArray, {
-			$of("input.file.name"_s),
-			$of("nombre de archivo de entrada"_s)
+			"input.file.name"_s,
+			"nombre de archivo de entrada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.algorithm.name"_s),
-			$of("nombre de algoritmo de clave"_s)
+			"key.algorithm.name"_s,
+			"nombre de algoritmo de clave"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.password"_s),
-			$of(u"contraseña de clave"_s)
+			"key.password"_s,
+			u"contraseña de clave"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.bit.size"_s),
-			$of(u"tamaño de bit de clave"_s)
+			"key.bit.size"_s,
+			u"tamaño de bit de clave"_s
 		}),
 		$$new($ObjectArray, {
-			$of("keystore.name"_s),
-			$of(u"nombre de almacén de claves"_s)
+			"keystore.name"_s,
+			u"nombre de almacén de claves"_s
 		}),
 		$$new($ObjectArray, {
-			$of("access.the.cacerts.keystore"_s),
-			$of(u"acceso al almacén de claves cacerts"_s)
+			"access.the.cacerts.keystore"_s,
+			u"acceso al almacén de claves cacerts"_s
 		}),
 		$$new($ObjectArray, {
-			$of("warning.cacerts.option"_s),
-			$of(u"Advertencia: Utilice la opción -cacerts para acceder al almacén de claves cacerts"_s)
+			"warning.cacerts.option"_s,
+			u"Advertencia: Utilice la opción -cacerts para acceder al almacén de claves cacerts"_s
 		}),
 		$$new($ObjectArray, {
-			$of("new.password"_s),
-			$of(u"nueva contraseña"_s)
+			"new.password"_s,
+			u"nueva contraseña"_s
 		}),
 		$$new($ObjectArray, {
-			$of("do.not.prompt"_s),
-			$of("no solicitar"_s)
+			"do.not.prompt"_s,
+			"no solicitar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("password.through.protected.mechanism"_s),
-			$of(u"contraseña a través de mecanismo protegido"_s)
+			"password.through.protected.mechanism"_s,
+			u"contraseña a través de mecanismo protegido"_s
 		}),
 		$$new($ObjectArray, {
-			$of("addprovider.option"_s),
-			$of("agregar proveedor de seguridad por nombre (por ejemplo, SunPKCS11)\nconfigurar elemento para -addprovider"_s)
+			"addprovider.option"_s,
+			"agregar proveedor de seguridad por nombre (por ejemplo, SunPKCS11)\nconfigurar elemento para -addprovider"_s
 		}),
 		$$new($ObjectArray, {
-			$of("provider.class.option"_s),
-			$of("agregar proveedor de seguridad por nombre de clase totalmente cualificado\nconfigurar argumento para -providerclass"_s)
+			"provider.class.option"_s,
+			"agregar proveedor de seguridad por nombre de clase totalmente cualificado\nconfigurar argumento para -providerclass"_s
 		}),
 		$$new($ObjectArray, {
-			$of("provider.name"_s),
-			$of("nombre del proveedor"_s)
+			"provider.name"_s,
+			"nombre del proveedor"_s
 		}),
 		$$new($ObjectArray, {
-			$of("provider.classpath"_s),
-			$of("classpath de proveedor"_s)
+			"provider.classpath"_s,
+			"classpath de proveedor"_s
 		}),
 		$$new($ObjectArray, {
-			$of("output.in.RFC.style"_s),
-			$of("salida en estilo RFC"_s)
+			"output.in.RFC.style"_s,
+			"salida en estilo RFC"_s
 		}),
 		$$new($ObjectArray, {
-			$of("signature.algorithm.name"_s),
-			$of("nombre de algoritmo de firma"_s)
+			"signature.algorithm.name"_s,
+			"nombre de algoritmo de firma"_s
 		}),
 		$$new($ObjectArray, {
-			$of("source.alias"_s),
-			$of("alias de origen"_s)
+			"source.alias"_s,
+			"alias de origen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("source.key.password"_s),
-			$of(u"contraseña de clave de origen"_s)
+			"source.key.password"_s,
+			u"contraseña de clave de origen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("source.keystore.name"_s),
-			$of(u"nombre de almacén de claves de origen"_s)
+			"source.keystore.name"_s,
+			u"nombre de almacén de claves de origen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("source.keystore.password.protected"_s),
-			$of(u"almacén de claves de origen protegido por contraseña"_s)
+			"source.keystore.password.protected"_s,
+			u"almacén de claves de origen protegido por contraseña"_s
 		}),
 		$$new($ObjectArray, {
-			$of("source.keystore.provider.name"_s),
-			$of(u"nombre de proveedor de almacén de claves de origen"_s)
+			"source.keystore.provider.name"_s,
+			u"nombre de proveedor de almacén de claves de origen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("source.keystore.password"_s),
-			$of(u"contraseña de almacén de claves de origen"_s)
+			"source.keystore.password"_s,
+			u"contraseña de almacén de claves de origen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("source.keystore.type"_s),
-			$of(u"tipo de almacén de claves de origen"_s)
+			"source.keystore.type"_s,
+			u"tipo de almacén de claves de origen"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SSL.server.host.and.port"_s),
-			$of("puerto y host del servidor SSL"_s)
+			"SSL.server.host.and.port"_s,
+			"puerto y host del servidor SSL"_s
 		}),
 		$$new($ObjectArray, {
-			$of("signed.jar.file"_s),
-			$of("archivo jar firmado"_s)
+			"signed.jar.file"_s,
+			"archivo jar firmado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("certificate.validity.start.date.time"_s),
-			$of("fecha/hora de inicio de validez del certificado"_s)
+			"certificate.validity.start.date.time"_s,
+			"fecha/hora de inicio de validez del certificado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("keystore.password"_s),
-			$of(u"contraseña de almacén de claves"_s)
+			"keystore.password"_s,
+			u"contraseña de almacén de claves"_s
 		}),
 		$$new($ObjectArray, {
-			$of("keystore.type"_s),
-			$of(u"tipo de almacén de claves"_s)
+			"keystore.type"_s,
+			u"tipo de almacén de claves"_s
 		}),
 		$$new($ObjectArray, {
-			$of("trust.certificates.from.cacerts"_s),
-			$of(u"certificados de protección de cacerts"_s)
+			"trust.certificates.from.cacerts"_s,
+			u"certificados de protección de cacerts"_s
 		}),
 		$$new($ObjectArray, {
-			$of("verbose.output"_s),
-			$of("salida detallada"_s)
+			"verbose.output"_s,
+			"salida detallada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("validity.number.of.days"_s),
-			$of(u"número de validez de días"_s)
+			"validity.number.of.days"_s,
+			u"número de validez de días"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Serial.ID.of.cert.to.revoke"_s),
-			$of("identificador de serie del certificado que se va a revocar"_s)
+			"Serial.ID.of.cert.to.revoke"_s,
+			"identificador de serie del certificado que se va a revocar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("keytool.error."_s),
-			$of("error de herramienta de claves: "_s)
+			"keytool.error."_s,
+			"error de herramienta de claves: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Illegal.option."_s),
-			$of(u"Opción no permitida:  "_s)
+			"Illegal.option."_s,
+			u"Opción no permitida:  "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Illegal.value."_s),
-			$of("Valor no permitido: "_s)
+			"Illegal.value."_s,
+			"Valor no permitido: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Unknown.password.type."_s),
-			$of(u"Tipo de contraseña desconocido: "_s)
+			"Unknown.password.type."_s,
+			u"Tipo de contraseña desconocido: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cannot.find.environment.variable."_s),
-			$of("No se ha encontrado la variable del entorno: "_s)
+			"Cannot.find.environment.variable."_s,
+			"No se ha encontrado la variable del entorno: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cannot.find.file."_s),
-			$of("No se ha encontrado el archivo: "_s)
+			"Cannot.find.file."_s,
+			"No se ha encontrado el archivo: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Command.option.flag.needs.an.argument."_s),
-			$of(u"La opción de comando {0} necesita un argumento."_s)
+			"Command.option.flag.needs.an.argument."_s,
+			u"La opción de comando {0} necesita un argumento."_s
 		}),
 		$$new($ObjectArray, {
-			$of("Warning.Different.store.and.key.passwords.not.supported.for.PKCS12.KeyStores.Ignoring.user.specified.command.value."_s),
-			$of(u"Advertencia: los almacenes de claves en formato PKCS12 no admiten contraseñas de clave y almacenamiento distintas. Se ignorará el valor especificado por el usuario, {0}."_s)
+			"Warning.Different.store.and.key.passwords.not.supported.for.PKCS12.KeyStores.Ignoring.user.specified.command.value."_s,
+			u"Advertencia: los almacenes de claves en formato PKCS12 no admiten contraseñas de clave y almacenamiento distintas. Se ignorará el valor especificado por el usuario, {0}."_s
 		}),
 		$$new($ObjectArray, {
-			$of("the.keystore.or.storetype.option.cannot.be.used.with.the.cacerts.option"_s),
-			$of(u"Las opciones -keystore o -storetype no se pueden utilizar con la opción -cacerts"_s)
+			"the.keystore.or.storetype.option.cannot.be.used.with.the.cacerts.option"_s,
+			u"Las opciones -keystore o -storetype no se pueden utilizar con la opción -cacerts"_s
 		}),
 		$$new($ObjectArray, {
-			$of(".keystore.must.be.NONE.if.storetype.is.{0}"_s),
-			$of("-keystore debe ser NONE si -storetype es {0}"_s)
+			".keystore.must.be.NONE.if.storetype.is.{0}"_s,
+			"-keystore debe ser NONE si -storetype es {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Too.many.retries.program.terminated"_s),
-			$of("Ha habido demasiados intentos, se ha cerrado el programa"_s)
+			"Too.many.retries.program.terminated"_s,
+			"Ha habido demasiados intentos, se ha cerrado el programa"_s
 		}),
 		$$new($ObjectArray, {
-			$of(".storepasswd.and.keypasswd.commands.not.supported.if.storetype.is.{0}"_s),
-			$of(u"Los comandos -storepasswd y -keypasswd no están soportados si -storetype es {0}"_s)
+			".storepasswd.and.keypasswd.commands.not.supported.if.storetype.is.{0}"_s,
+			u"Los comandos -storepasswd y -keypasswd no están soportados si -storetype es {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(".keypasswd.commands.not.supported.if.storetype.is.PKCS12"_s),
-			$of(u"Los comandos -keypasswd no están soportados si -storetype es PKCS12"_s)
+			".keypasswd.commands.not.supported.if.storetype.is.PKCS12"_s,
+			u"Los comandos -keypasswd no están soportados si -storetype es PKCS12"_s
 		}),
 		$$new($ObjectArray, {
-			$of(".keypass.and.new.can.not.be.specified.if.storetype.is.{0}"_s),
-			$of("-keypass y -new no se pueden especificar si -storetype es {0}"_s)
+			".keypass.and.new.can.not.be.specified.if.storetype.is.{0}"_s,
+			"-keypass y -new no se pueden especificar si -storetype es {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("if.protected.is.specified.then.storepass.keypass.and.new.must.not.be.specified"_s),
-			$of("si se especifica -protected, no deben especificarse -storepass, -keypass ni -new"_s)
+			"if.protected.is.specified.then.storepass.keypass.and.new.must.not.be.specified"_s,
+			"si se especifica -protected, no deben especificarse -storepass, -keypass ni -new"_s
 		}),
 		$$new($ObjectArray, {
-			$of("if.srcprotected.is.specified.then.srcstorepass.and.srckeypass.must.not.be.specified"_s),
-			$of("Si se especifica -srcprotected, no se puede especificar -srcstorepass ni -srckeypass"_s)
+			"if.srcprotected.is.specified.then.srcstorepass.and.srckeypass.must.not.be.specified"_s,
+			"Si se especifica -srcprotected, no se puede especificar -srcstorepass ni -srckeypass"_s
 		}),
 		$$new($ObjectArray, {
-			$of("if.keystore.is.not.password.protected.then.storepass.keypass.and.new.must.not.be.specified"_s),
-			$of(u"Si keystore no está protegido por contraseña, no se deben especificar -storepass, -keypass ni -new"_s)
+			"if.keystore.is.not.password.protected.then.storepass.keypass.and.new.must.not.be.specified"_s,
+			u"Si keystore no está protegido por contraseña, no se deben especificar -storepass, -keypass ni -new"_s
 		}),
 		$$new($ObjectArray, {
-			$of("if.source.keystore.is.not.password.protected.then.srcstorepass.and.srckeypass.must.not.be.specified"_s),
-			$of(u"Si el almacén de claves de origen no está protegido por contraseña, no se deben especificar -srcstorepass ni -srckeypass"_s)
+			"if.source.keystore.is.not.password.protected.then.srcstorepass.and.srckeypass.must.not.be.specified"_s,
+			u"Si el almacén de claves de origen no está protegido por contraseña, no se deben especificar -srcstorepass ni -srckeypass"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Illegal.startdate.value"_s),
-			$of("Valor de fecha de inicio no permitido"_s)
+			"Illegal.startdate.value"_s,
+			"Valor de fecha de inicio no permitido"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Validity.must.be.greater.than.zero"_s),
-			$of("La validez debe ser mayor que cero"_s)
+			"Validity.must.be.greater.than.zero"_s,
+			"La validez debe ser mayor que cero"_s
 		}),
 		$$new($ObjectArray, {
-			$of("provclass.not.a.provider"_s),
-			$of("%s no es un proveedor"_s)
+			"provclass.not.a.provider"_s,
+			"%s no es un proveedor"_s
 		}),
 		$$new($ObjectArray, {
-			$of("provider.name.not.found"_s),
-			$of("No se ha encontrado el proveedor denominado \"%s\""_s)
+			"provider.name.not.found"_s,
+			"No se ha encontrado el proveedor denominado \"%s\""_s
 		}),
 		$$new($ObjectArray, {
-			$of("provider.class.not.found"_s),
-			$of("No se ha encontrado el proveedor \"%s\""_s)
+			"provider.class.not.found"_s,
+			"No se ha encontrado el proveedor \"%s\""_s
 		}),
 		$$new($ObjectArray, {
-			$of("Usage.error.no.command.provided"_s),
-			$of(u"Error de sintaxis: no se ha proporcionado ningún comando"_s)
+			"Usage.error.no.command.provided"_s,
+			u"Error de sintaxis: no se ha proporcionado ningún comando"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Source.keystore.file.exists.but.is.empty."_s),
-			$of(u"El archivo de almacén de claves de origen existe, pero está vacío: "_s)
+			"Source.keystore.file.exists.but.is.empty."_s,
+			u"El archivo de almacén de claves de origen existe, pero está vacío: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Please.specify.srckeystore"_s),
-			$of("Especifique -srckeystore"_s)
+			"Please.specify.srckeystore"_s,
+			"Especifique -srckeystore"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Must.not.specify.both.v.and.rfc.with.list.command"_s),
-			$of(u"No se deben especificar -v y -rfc simultáneamente con el comando \'list\'"_s)
+			"Must.not.specify.both.v.and.rfc.with.list.command"_s,
+			u"No se deben especificar -v y -rfc simultáneamente con el comando \'list\'"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Key.password.must.be.at.least.6.characters"_s),
-			$of(u"La contraseña de clave debe tener al menos 6 caracteres"_s)
+			"Key.password.must.be.at.least.6.characters"_s,
+			u"La contraseña de clave debe tener al menos 6 caracteres"_s
 		}),
 		$$new($ObjectArray, {
-			$of("New.password.must.be.at.least.6.characters"_s),
-			$of(u"La nueva contraseña debe tener al menos 6 caracteres"_s)
+			"New.password.must.be.at.least.6.characters"_s,
+			u"La nueva contraseña debe tener al menos 6 caracteres"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Keystore.file.exists.but.is.empty."_s),
-			$of(u"El archivo de almacén de claves existe, pero está vacío: "_s)
+			"Keystore.file.exists.but.is.empty."_s,
+			u"El archivo de almacén de claves existe, pero está vacío: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Keystore.file.does.not.exist."_s),
-			$of(u"El archivo de almacén de claves no existe: "_s)
+			"Keystore.file.does.not.exist."_s,
+			u"El archivo de almacén de claves no existe: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Must.specify.destination.alias"_s),
-			$of("Se debe especificar un alias de destino"_s)
+			"Must.specify.destination.alias"_s,
+			"Se debe especificar un alias de destino"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Must.specify.alias"_s),
-			$of("Se debe especificar un alias"_s)
+			"Must.specify.alias"_s,
+			"Se debe especificar un alias"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Keystore.password.must.be.at.least.6.characters"_s),
-			$of(u"La contraseña del almacén de claves debe tener al menos 6 caracteres"_s)
+			"Keystore.password.must.be.at.least.6.characters"_s,
+			u"La contraseña del almacén de claves debe tener al menos 6 caracteres"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Enter.the.password.to.be.stored."_s),
-			$of(u"Introduzca la contraseña que se va a almacenar:  "_s)
+			"Enter.the.password.to.be.stored."_s,
+			u"Introduzca la contraseña que se va a almacenar:  "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Enter.keystore.password."_s),
-			$of(u"Introduzca la contraseña del almacén de claves:  "_s)
+			"Enter.keystore.password."_s,
+			u"Introduzca la contraseña del almacén de claves:  "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Enter.source.keystore.password."_s),
-			$of(u"Introduzca la contraseña de almacén de claves de origen:  "_s)
+			"Enter.source.keystore.password."_s,
+			u"Introduzca la contraseña de almacén de claves de origen:  "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Enter.destination.keystore.password."_s),
-			$of(u"Introduzca la contraseña de almacén de claves de destino:  "_s)
+			"Enter.destination.keystore.password."_s,
+			u"Introduzca la contraseña de almacén de claves de destino:  "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Keystore.password.is.too.short.must.be.at.least.6.characters"_s),
-			$of(u"La contraseña del almacén de claves es demasiado corta, debe tener al menos 6 caracteres"_s)
+			"Keystore.password.is.too.short.must.be.at.least.6.characters"_s,
+			u"La contraseña del almacén de claves es demasiado corta, debe tener al menos 6 caracteres"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Unknown.Entry.Type"_s),
-			$of("Tipo de Entrada Desconocido"_s)
+			"Unknown.Entry.Type"_s,
+			"Tipo de Entrada Desconocido"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Too.many.failures.Alias.not.changed"_s),
-			$of("Demasiados fallos. No se ha cambiado el alias"_s)
+			"Too.many.failures.Alias.not.changed"_s,
+			"Demasiados fallos. No se ha cambiado el alias"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Entry.for.alias.alias.successfully.imported."_s),
-			$of("La entrada del alias {0} se ha importado correctamente."_s)
+			"Entry.for.alias.alias.successfully.imported."_s,
+			"La entrada del alias {0} se ha importado correctamente."_s
 		}),
 		$$new($ObjectArray, {
-			$of("Entry.for.alias.alias.not.imported."_s),
-			$of("La entrada del alias {0} no se ha importado."_s)
+			"Entry.for.alias.alias.not.imported."_s,
+			"La entrada del alias {0} no se ha importado."_s
 		}),
 		$$new($ObjectArray, {
-			$of("Problem.importing.entry.for.alias.alias.exception.Entry.for.alias.alias.not.imported."_s),
-			$of("Problema al importar la entrada del alias {0}: {1}.\nNo se ha importado la entrada del alias {0}."_s)
+			"Problem.importing.entry.for.alias.alias.exception.Entry.for.alias.alias.not.imported."_s,
+			"Problema al importar la entrada del alias {0}: {1}.\nNo se ha importado la entrada del alias {0}."_s
 		}),
 		$$new($ObjectArray, {
-			$of("Import.command.completed.ok.entries.successfully.imported.fail.entries.failed.or.cancelled"_s),
-			$of(u"Comando de importación completado: {0} entradas importadas correctamente, {1} entradas incorrectas o canceladas"_s)
+			"Import.command.completed.ok.entries.successfully.imported.fail.entries.failed.or.cancelled"_s,
+			u"Comando de importación completado: {0} entradas importadas correctamente, {1} entradas incorrectas o canceladas"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Warning.Overwriting.existing.alias.alias.in.destination.keystore"_s),
-			$of(u"Advertencia: se sobrescribirá el alias {0} en el almacén de claves de destino"_s)
+			"Warning.Overwriting.existing.alias.alias.in.destination.keystore"_s,
+			u"Advertencia: se sobrescribirá el alias {0} en el almacén de claves de destino"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Existing.entry.alias.alias.exists.overwrite.no."_s),
-			$of(u"El alias de entrada existente {0} ya existe, ¿desea sobrescribirlo? [no]:  "_s)
+			"Existing.entry.alias.alias.exists.overwrite.no."_s,
+			u"El alias de entrada existente {0} ya existe, ¿desea sobrescribirlo? [no]:  "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Too.many.failures.try.later"_s),
-			$of(u"Demasiados fallos; inténtelo más adelante"_s)
+			"Too.many.failures.try.later"_s,
+			u"Demasiados fallos; inténtelo más adelante"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certification.request.stored.in.file.filename."_s),
-			$of(u"Solicitud de certificación almacenada en el archivo <{0}>"_s)
+			"Certification.request.stored.in.file.filename."_s,
+			u"Solicitud de certificación almacenada en el archivo <{0}>"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Submit.this.to.your.CA"_s),
-			$of("Enviar a la CA"_s)
+			"Submit.this.to.your.CA"_s,
+			"Enviar a la CA"_s
 		}),
 		$$new($ObjectArray, {
-			$of("if.alias.not.specified.destalias.and.srckeypass.must.not.be.specified"_s),
-			$of("si no se especifica el alias, no se debe especificar destalias ni srckeypass"_s)
+			"if.alias.not.specified.destalias.and.srckeypass.must.not.be.specified"_s,
+			"si no se especifica el alias, no se debe especificar destalias ni srckeypass"_s
 		}),
 		$$new($ObjectArray, {
-			$of("The.destination.pkcs12.keystore.has.different.storepass.and.keypass.Please.retry.with.destkeypass.specified."_s),
-			$of(u"El almacén de claves pkcs12 de destino tiene storepass y keypass diferentes. Vuelva a intentarlo con -destkeypass especificado."_s)
+			"The.destination.pkcs12.keystore.has.different.storepass.and.keypass.Please.retry.with.destkeypass.specified."_s,
+			u"El almacén de claves pkcs12 de destino tiene storepass y keypass diferentes. Vuelva a intentarlo con -destkeypass especificado."_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.stored.in.file.filename."_s),
-			$of("Certificado almacenado en el archivo <{0}>"_s)
+			"Certificate.stored.in.file.filename."_s,
+			"Certificado almacenado en el archivo <{0}>"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.reply.was.installed.in.keystore"_s),
-			$of(u"Se ha instalado la respuesta del certificado en el almacén de claves"_s)
+			"Certificate.reply.was.installed.in.keystore"_s,
+			u"Se ha instalado la respuesta del certificado en el almacén de claves"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.reply.was.not.installed.in.keystore"_s),
-			$of(u"No se ha instalado la respuesta del certificado en el almacén de claves"_s)
+			"Certificate.reply.was.not.installed.in.keystore"_s,
+			u"No se ha instalado la respuesta del certificado en el almacén de claves"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.was.added.to.keystore"_s),
-			$of(u"Se ha agregado el certificado al almacén de claves"_s)
+			"Certificate.was.added.to.keystore"_s,
+			u"Se ha agregado el certificado al almacén de claves"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.was.not.added.to.keystore"_s),
-			$of(u"No se ha agregado el certificado al almacén de claves"_s)
+			"Certificate.was.not.added.to.keystore"_s,
+			u"No se ha agregado el certificado al almacén de claves"_s
 		}),
 		$$new($ObjectArray, {
-			$of(".Storing.ksfname."_s),
-			$of("[Almacenando {0}]"_s)
+			".Storing.ksfname."_s,
+			"[Almacenando {0}]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alias.has.no.public.key.certificate."_s),
-			$of(u"{0} no tiene clave pública (certificado)"_s)
+			"alias.has.no.public.key.certificate."_s,
+			u"{0} no tiene clave pública (certificado)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cannot.derive.signature.algorithm"_s),
-			$of("No se puede derivar el algoritmo de firma"_s)
+			"Cannot.derive.signature.algorithm"_s,
+			"No se puede derivar el algoritmo de firma"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Alias.alias.does.not.exist"_s),
-			$of("El alias <{0}> no existe"_s)
+			"Alias.alias.does.not.exist"_s,
+			"El alias <{0}> no existe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Alias.alias.has.no.certificate"_s),
-			$of("El alias <{0}> no tiene certificado"_s)
+			"Alias.alias.has.no.certificate"_s,
+			"El alias <{0}> no tiene certificado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Key.pair.not.generated.alias.alias.already.exists"_s),
-			$of("No se ha generado el par de claves, el alias <{0}> ya existe"_s)
+			"Key.pair.not.generated.alias.alias.already.exists"_s,
+			"No se ha generado el par de claves, el alias <{0}> ya existe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Generating.keysize.bit.keyAlgName.key.pair.and.self.signed.certificate.sigAlgName.with.a.validity.of.validality.days.for"_s),
-			$of(u"Generando par de claves {1} de {0} bits para certificado autofirmado ({2}) con una validez de {3} días\n\tpara: {4}"_s)
+			"Generating.keysize.bit.keyAlgName.key.pair.and.self.signed.certificate.sigAlgName.with.a.validity.of.validality.days.for"_s,
+			u"Generando par de claves {1} de {0} bits para certificado autofirmado ({2}) con una validez de {3} días\n\tpara: {4}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Enter.key.password.for.alias."_s),
-			$of(u"Introduzca la contraseña de clave para <{0}>"_s)
+			"Enter.key.password.for.alias."_s,
+			u"Introduzca la contraseña de clave para <{0}>"_s
 		}),
 		$$new($ObjectArray, {
-			$of(".RETURN.if.same.as.keystore.password."_s),
-			$of(u"\t(INTRO si es la misma contraseña que la del almacén de claves):  "_s)
+			".RETURN.if.same.as.keystore.password."_s,
+			u"\t(INTRO si es la misma contraseña que la del almacén de claves):  "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Key.password.is.too.short.must.be.at.least.6.characters"_s),
-			$of(u"La contraseña de clave es demasiado corta; debe tener al menos 6 caracteres"_s)
+			"Key.password.is.too.short.must.be.at.least.6.characters"_s,
+			u"La contraseña de clave es demasiado corta; debe tener al menos 6 caracteres"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Too.many.failures.key.not.added.to.keystore"_s),
-			$of(u"Demasiados fallos; no se ha agregado la clave al almacén de claves"_s)
+			"Too.many.failures.key.not.added.to.keystore"_s,
+			u"Demasiados fallos; no se ha agregado la clave al almacén de claves"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Destination.alias.dest.already.exists"_s),
-			$of("El alias de destino <{0}> ya existe"_s)
+			"Destination.alias.dest.already.exists"_s,
+			"El alias de destino <{0}> ya existe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Password.is.too.short.must.be.at.least.6.characters"_s),
-			$of(u"La contraseña es demasiado corta; debe tener al menos 6 caracteres"_s)
+			"Password.is.too.short.must.be.at.least.6.characters"_s,
+			u"La contraseña es demasiado corta; debe tener al menos 6 caracteres"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Too.many.failures.Key.entry.not.cloned"_s),
-			$of("Demasiados fallos. No se ha clonado la entrada de clave"_s)
+			"Too.many.failures.Key.entry.not.cloned"_s,
+			"Demasiados fallos. No se ha clonado la entrada de clave"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.password.for.alias."_s),
-			$of(u"contraseña de clave para <{0}>"_s)
+			"key.password.for.alias."_s,
+			u"contraseña de clave para <{0}>"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Keystore.entry.for.id.getName.already.exists"_s),
-			$of(u"La entrada de almacén de claves para <{0}> ya existe"_s)
+			"Keystore.entry.for.id.getName.already.exists"_s,
+			u"La entrada de almacén de claves para <{0}> ya existe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Creating.keystore.entry.for.id.getName."_s),
-			$of(u"Creando entrada de almacén de claves para <{0}> ..."_s)
+			"Creating.keystore.entry.for.id.getName."_s,
+			u"Creando entrada de almacén de claves para <{0}> ..."_s
 		}),
 		$$new($ObjectArray, {
-			$of("No.entries.from.identity.database.added"_s),
-			$of("No se han agregado entradas de la base de datos de identidades"_s)
+			"No.entries.from.identity.database.added"_s,
+			"No se han agregado entradas de la base de datos de identidades"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Alias.name.alias"_s),
-			$of("Nombre de Alias: {0}"_s)
+			"Alias.name.alias"_s,
+			"Nombre de Alias: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Creation.date.keyStore.getCreationDate.alias."_s),
-			$of(u"Fecha de Creación: {0,date}"_s)
+			"Creation.date.keyStore.getCreationDate.alias."_s,
+			u"Fecha de Creación: {0,date}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alias.keyStore.getCreationDate.alias."_s),
-			$of("{0}, {1,date}, "_s)
+			"alias.keyStore.getCreationDate.alias."_s,
+			"{0}, {1,date}, "_s
 		}),
 		$$new($ObjectArray, {
-			$of("alias."_s),
-			$of("{0}, "_s)
+			"alias."_s,
+			"{0}, "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Entry.type.type."_s),
-			$of("Tipo de Entrada: {0}"_s)
+			"Entry.type.type."_s,
+			"Tipo de Entrada: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.chain.length."_s),
-			$of("Longitud de la Cadena de Certificado: "_s)
+			"Certificate.chain.length."_s,
+			"Longitud de la Cadena de Certificado: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.i.1."_s),
-			$of("Certificado[{0,number,integer}]:"_s)
+			"Certificate.i.1."_s,
+			"Certificado[{0,number,integer}]:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.fingerprint.SHA.256."_s),
-			$of("Huella de certificado (SHA-256): "_s)
+			"Certificate.fingerprint.SHA.256."_s,
+			"Huella de certificado (SHA-256): "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Keystore.type."_s),
-			$of(u"Tipo de Almacén de Claves: "_s)
+			"Keystore.type."_s,
+			u"Tipo de Almacén de Claves: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Keystore.provider."_s),
-			$of(u"Proveedor de Almacén de Claves: "_s)
+			"Keystore.provider."_s,
+			u"Proveedor de Almacén de Claves: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Your.keystore.contains.keyStore.size.entry"_s),
-			$of(u"Su almacén de claves contiene {0,number,integer} entrada"_s)
+			"Your.keystore.contains.keyStore.size.entry"_s,
+			u"Su almacén de claves contiene {0,number,integer} entrada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Your.keystore.contains.keyStore.size.entries"_s),
-			$of(u"Su almacén de claves contiene {0,number,integer} entradas"_s)
+			"Your.keystore.contains.keyStore.size.entries"_s,
+			u"Su almacén de claves contiene {0,number,integer} entradas"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Failed.to.parse.input"_s),
-			$of("Fallo al analizar la entrada"_s)
+			"Failed.to.parse.input"_s,
+			"Fallo al analizar la entrada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Empty.input"_s),
-			$of(u"Entrada vacía"_s)
+			"Empty.input"_s,
+			u"Entrada vacía"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Not.X.509.certificate"_s),
-			$of("No es un certificado X.509"_s)
+			"Not.X.509.certificate"_s,
+			"No es un certificado X.509"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alias.has.no.public.key"_s),
-			$of(u"{0} no tiene clave pública"_s)
+			"alias.has.no.public.key"_s,
+			u"{0} no tiene clave pública"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alias.has.no.X.509.certificate"_s),
-			$of("{0} no tiene certificado X.509"_s)
+			"alias.has.no.X.509.certificate"_s,
+			"{0} no tiene certificado X.509"_s
 		}),
 		$$new($ObjectArray, {
-			$of("New.certificate.self.signed."_s),
-			$of("Nuevo Certificado (Autofirmado):"_s)
+			"New.certificate.self.signed."_s,
+			"Nuevo Certificado (Autofirmado):"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Reply.has.no.certificates"_s),
-			$of("La respuesta no tiene certificados"_s)
+			"Reply.has.no.certificates"_s,
+			"La respuesta no tiene certificados"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.not.imported.alias.alias.already.exists"_s),
-			$of("Certificado no importado, el alias <{0}> ya existe"_s)
+			"Certificate.not.imported.alias.alias.already.exists"_s,
+			"Certificado no importado, el alias <{0}> ya existe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Input.not.an.X.509.certificate"_s),
-			$of("La entrada no es un certificado X.509"_s)
+			"Input.not.an.X.509.certificate"_s,
+			"La entrada no es un certificado X.509"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.already.exists.in.keystore.under.alias.trustalias."_s),
-			$of(u"El certificado ya existe en el almacén de claves con el alias <{0}>"_s)
+			"Certificate.already.exists.in.keystore.under.alias.trustalias."_s,
+			u"El certificado ya existe en el almacén de claves con el alias <{0}>"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Do.you.still.want.to.add.it.no."_s),
-			$of(u"¿Aún desea agregarlo? [no]:  "_s)
+			"Do.you.still.want.to.add.it.no."_s,
+			u"¿Aún desea agregarlo? [no]:  "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.already.exists.in.system.wide.CA.keystore.under.alias.trustalias."_s),
-			$of(u"El certificado ya existe en el almacén de claves de la CA del sistema, con el alias <{0}>"_s)
+			"Certificate.already.exists.in.system.wide.CA.keystore.under.alias.trustalias."_s,
+			u"El certificado ya existe en el almacén de claves de la CA del sistema, con el alias <{0}>"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Do.you.still.want.to.add.it.to.your.own.keystore.no."_s),
-			$of(u"¿Aún desea agregarlo a su propio almacén de claves? [no]:  "_s)
+			"Do.you.still.want.to.add.it.to.your.own.keystore.no."_s,
+			u"¿Aún desea agregarlo a su propio almacén de claves? [no]:  "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Trust.this.certificate.no."_s),
-			$of(u"¿Confiar en este certificado? [no]:  "_s)
+			"Trust.this.certificate.no."_s,
+			u"¿Confiar en este certificado? [no]:  "_s
 		}),
 		$$new($ObjectArray, {
-			$of("YES"_s),
-			$of(u"SÍ"_s)
+			"YES"_s,
+			u"SÍ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("New.prompt."_s),
-			$of("Nuevo {0}: "_s)
+			"New.prompt."_s,
+			"Nuevo {0}: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Passwords.must.differ"_s),
-			$of(u"Las contraseñas deben ser distintas"_s)
+			"Passwords.must.differ"_s,
+			u"Las contraseñas deben ser distintas"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Re.enter.new.prompt."_s),
-			$of("Vuelva a escribir el nuevo {0}: "_s)
+			"Re.enter.new.prompt."_s,
+			"Vuelva a escribir el nuevo {0}: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Re.enter.password."_s),
-			$of(u"Vuelva a introducir la contraseña: "_s)
+			"Re.enter.password."_s,
+			u"Vuelva a introducir la contraseña: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Re.enter.new.password."_s),
-			$of(u"Volver a escribir la contraseña nueva: "_s)
+			"Re.enter.new.password."_s,
+			u"Volver a escribir la contraseña nueva: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("They.don.t.match.Try.again"_s),
-			$of(u"No coinciden. Inténtelo de nuevo"_s)
+			"They.don.t.match.Try.again"_s,
+			u"No coinciden. Inténtelo de nuevo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Enter.prompt.alias.name."_s),
-			$of("Escriba el nombre de alias de {0}:  "_s)
+			"Enter.prompt.alias.name."_s,
+			"Escriba el nombre de alias de {0}:  "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Enter.new.alias.name.RETURN.to.cancel.import.for.this.entry."_s),
-			$of(u"Indique el nuevo nombre de alias\t(INTRO para cancelar la importación de esta entrada):  "_s)
+			"Enter.new.alias.name.RETURN.to.cancel.import.for.this.entry."_s,
+			u"Indique el nuevo nombre de alias\t(INTRO para cancelar la importación de esta entrada):  "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Enter.alias.name."_s),
-			$of("Introduzca el nombre de alias:  "_s)
+			"Enter.alias.name."_s,
+			"Introduzca el nombre de alias:  "_s
 		}),
 		$$new($ObjectArray, {
-			$of(".RETURN.if.same.as.for.otherAlias."_s),
-			$of("\t(INTRO si es el mismo que para <{0}>)"_s)
+			".RETURN.if.same.as.for.otherAlias."_s,
+			"\t(INTRO si es el mismo que para <{0}>)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("What.is.your.first.and.last.name."_s),
-			$of(u"¿Cuáles son su nombre y su apellido?"_s)
+			"What.is.your.first.and.last.name."_s,
+			u"¿Cuáles son su nombre y su apellido?"_s
 		}),
 		$$new($ObjectArray, {
-			$of("What.is.the.name.of.your.organizational.unit."_s),
-			$of(u"¿Cuál es el nombre de su unidad de organización?"_s)
+			"What.is.the.name.of.your.organizational.unit."_s,
+			u"¿Cuál es el nombre de su unidad de organización?"_s
 		}),
 		$$new($ObjectArray, {
-			$of("What.is.the.name.of.your.organization."_s),
-			$of(u"¿Cuál es el nombre de su organización?"_s)
+			"What.is.the.name.of.your.organization."_s,
+			u"¿Cuál es el nombre de su organización?"_s
 		}),
 		$$new($ObjectArray, {
-			$of("What.is.the.name.of.your.City.or.Locality."_s),
-			$of(u"¿Cuál es el nombre de su ciudad o localidad?"_s)
+			"What.is.the.name.of.your.City.or.Locality."_s,
+			u"¿Cuál es el nombre de su ciudad o localidad?"_s
 		}),
 		$$new($ObjectArray, {
-			$of("What.is.the.name.of.your.State.or.Province."_s),
-			$of(u"¿Cuál es el nombre de su estado o provincia?"_s)
+			"What.is.the.name.of.your.State.or.Province."_s,
+			u"¿Cuál es el nombre de su estado o provincia?"_s
 		}),
 		$$new($ObjectArray, {
-			$of("What.is.the.two.letter.country.code.for.this.unit."_s),
-			$of(u"¿Cuál es el código de país de dos letras de la unidad?"_s)
+			"What.is.the.two.letter.country.code.for.this.unit."_s,
+			u"¿Cuál es el código de país de dos letras de la unidad?"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Is.name.correct."_s),
-			$of(u"¿Es correcto {0}?"_s)
+			"Is.name.correct."_s,
+			u"¿Es correcto {0}?"_s
 		}),
 		$$new($ObjectArray, {
-			$of("no"_s),
-			$of("no"_s)
+			"no"_s,
+			"no"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yes"_s),
-			$of(u"sí"_s)
+			"yes"_s,
+			u"sí"_s
 		}),
 		$$new($ObjectArray, {
-			$of("y"_s),
-			$of("s"_s)
+			"y"_s,
+			"s"_s
 		}),
 		$$new($ObjectArray, {
-			$of(".defaultValue."_s),
-			$of("  [{0}]:  "_s)
+			".defaultValue."_s,
+			"  [{0}]:  "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Alias.alias.has.no.key"_s),
-			$of("El alias <{0}> no tiene clave"_s)
+			"Alias.alias.has.no.key"_s,
+			"El alias <{0}> no tiene clave"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Alias.alias.references.an.entry.type.that.is.not.a.private.key.entry.The.keyclone.command.only.supports.cloning.of.private.key"_s),
-			$of(u"El alias <{0}> hace referencia a un tipo de entrada que no es una clave privada. El comando -keyclone sólo permite la clonación de entradas de claves privadas"_s)
+			"Alias.alias.references.an.entry.type.that.is.not.a.private.key.entry.The.keyclone.command.only.supports.cloning.of.private.key"_s,
+			u"El alias <{0}> hace referencia a un tipo de entrada que no es una clave privada. El comando -keyclone sólo permite la clonación de entradas de claves privadas"_s
 		}),
 		$$new($ObjectArray, {
-			$of(".WARNING.WARNING.WARNING."_s),
-			$of("*****************  WARNING WARNING WARNING  *****************"_s)
+			".WARNING.WARNING.WARNING."_s,
+			"*****************  WARNING WARNING WARNING  *****************"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Signer.d."_s),
-			$of("#%d de Firmante:"_s)
+			"Signer.d."_s,
+			"#%d de Firmante:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Timestamp."_s),
-			$of("Registro de Hora:"_s)
+			"Timestamp."_s,
+			"Registro de Hora:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Signature."_s),
-			$of("Firma:"_s)
+			"Signature."_s,
+			"Firma:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CRLs."_s),
-			$of("CRL:"_s)
+			"CRLs."_s,
+			"CRL:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.owner."_s),
-			$of("Propietario del Certificado: "_s)
+			"Certificate.owner."_s,
+			"Propietario del Certificado: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Not.a.signed.jar.file"_s),
-			$of("No es un archivo jar firmado"_s)
+			"Not.a.signed.jar.file"_s,
+			"No es un archivo jar firmado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("No.certificate.from.the.SSL.server"_s),
-			$of(u"Ningún certificado del servidor SSL"_s)
+			"No.certificate.from.the.SSL.server"_s,
+			u"Ningún certificado del servidor SSL"_s
 		}),
 		$$new($ObjectArray, {
-			$of(".The.integrity.of.the.information.stored.in.your.keystore."_s),
-			$of(u"* La integridad de la información almacenada en el almacén de claves  *\n* NO se ha comprobado.  Para comprobar dicha integridad, *\n* debe proporcionar la contraseña del almacén de claves.                  *"_s)
+			".The.integrity.of.the.information.stored.in.your.keystore."_s,
+			u"* La integridad de la información almacenada en el almacén de claves  *\n* NO se ha comprobado.  Para comprobar dicha integridad, *\n* debe proporcionar la contraseña del almacén de claves.                  *"_s
 		}),
 		$$new($ObjectArray, {
-			$of(".The.integrity.of.the.information.stored.in.the.srckeystore."_s),
-			$of(u"* La integridad de la información almacenada en srckeystore*\n* NO se ha comprobado.  Para comprobar dicha integridad, *\n* debe proporcionar la contraseña de srckeystore.                *"_s)
+			".The.integrity.of.the.information.stored.in.the.srckeystore."_s,
+			u"* La integridad de la información almacenada en srckeystore*\n* NO se ha comprobado.  Para comprobar dicha integridad, *\n* debe proporcionar la contraseña de srckeystore.                *"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.reply.does.not.contain.public.key.for.alias."_s),
-			$of(u"La respuesta de certificado no contiene una clave pública para <{0}>"_s)
+			"Certificate.reply.does.not.contain.public.key.for.alias."_s,
+			u"La respuesta de certificado no contiene una clave pública para <{0}>"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Incomplete.certificate.chain.in.reply"_s),
-			$of("Cadena de certificado incompleta en la respuesta"_s)
+			"Incomplete.certificate.chain.in.reply"_s,
+			"Cadena de certificado incompleta en la respuesta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.chain.in.reply.does.not.verify."_s),
-			$of("La cadena de certificado de la respuesta no verifica: "_s)
+			"Certificate.chain.in.reply.does.not.verify."_s,
+			"La cadena de certificado de la respuesta no verifica: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Top.level.certificate.in.reply."_s),
-			$of("Certificado de nivel superior en la respuesta:\n"_s)
+			"Top.level.certificate.in.reply."_s,
+			"Certificado de nivel superior en la respuesta:\n"_s
 		}),
 		$$new($ObjectArray, {
-			$of(".is.not.trusted."_s),
-			$of("... no es de confianza. "_s)
+			".is.not.trusted."_s,
+			"... no es de confianza. "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Install.reply.anyway.no."_s),
-			$of(u"¿Instalar respuesta de todos modos? [no]:  "_s)
+			"Install.reply.anyway.no."_s,
+			u"¿Instalar respuesta de todos modos? [no]:  "_s
 		}),
 		$$new($ObjectArray, {
-			$of("NO"_s),
-			$of("NO"_s)
+			"NO"_s,
+			"NO"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Public.keys.in.reply.and.keystore.don.t.match"_s),
-			$of(u"Las claves públicas en la respuesta y en el almacén de claves no coinciden"_s)
+			"Public.keys.in.reply.and.keystore.don.t.match"_s,
+			u"Las claves públicas en la respuesta y en el almacén de claves no coinciden"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Certificate.reply.and.certificate.in.keystore.are.identical"_s),
-			$of(u"La respuesta del certificado y el certificado en el almacén de claves son idénticos"_s)
+			"Certificate.reply.and.certificate.in.keystore.are.identical"_s,
+			u"La respuesta del certificado y el certificado en el almacén de claves son idénticos"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Failed.to.establish.chain.from.reply"_s),
-			$of("No se ha podido definir una cadena a partir de la respuesta"_s)
+			"Failed.to.establish.chain.from.reply"_s,
+			"No se ha podido definir una cadena a partir de la respuesta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("n"_s),
-			$of("n"_s)
+			"n"_s,
+			"n"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Wrong.answer.try.again"_s),
-			$of("Respuesta incorrecta, vuelva a intentarlo"_s)
+			"Wrong.answer.try.again"_s,
+			"Respuesta incorrecta, vuelva a intentarlo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Secret.key.not.generated.alias.alias.already.exists"_s),
-			$of("No se ha generado la clave secreta, el alias <{0}> ya existe"_s)
+			"Secret.key.not.generated.alias.alias.already.exists"_s,
+			"No se ha generado la clave secreta, el alias <{0}> ya existe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Please.provide.keysize.for.secret.key.generation"_s),
-			$of(u"Proporcione el valor de -keysize para la generación de claves secretas"_s)
+			"Please.provide.keysize.for.secret.key.generation"_s,
+			u"Proporcione el valor de -keysize para la generación de claves secretas"_s
 		}),
 		$$new($ObjectArray, {
-			$of("warning.not.verified.make.sure.keystore.is.correct"_s),
-			$of(u"ADVERTENCIA: no se ha verificado. Asegúrese de que el valor de -keystore es correcto."_s)
+			"warning.not.verified.make.sure.keystore.is.correct"_s,
+			u"ADVERTENCIA: no se ha verificado. Asegúrese de que el valor de -keystore es correcto."_s
 		}),
 		$$new($ObjectArray, {
-			$of("Extensions."_s),
-			$of("Extensiones: "_s)
+			"Extensions."_s,
+			"Extensiones: "_s
 		}),
 		$$new($ObjectArray, {
-			$of(".Empty.value."_s),
-			$of(u"(Valor vacío)"_s)
+			".Empty.value."_s,
+			u"(Valor vacío)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Extension.Request."_s),
-			$of(u"Solicitud de Extensión:"_s)
+			"Extension.Request."_s,
+			u"Solicitud de Extensión:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Unknown.keyUsage.type."_s),
-			$of("Tipo de uso de clave desconocido: "_s)
+			"Unknown.keyUsage.type."_s,
+			"Tipo de uso de clave desconocido: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Unknown.extendedkeyUsage.type."_s),
-			$of("Tipo de uso de clave extendida desconocido: "_s)
+			"Unknown.extendedkeyUsage.type."_s,
+			"Tipo de uso de clave extendida desconocido: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Unknown.AccessDescription.type."_s),
-			$of(u"Tipo de descripción de acceso desconocido: "_s)
+			"Unknown.AccessDescription.type."_s,
+			u"Tipo de descripción de acceso desconocido: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Unrecognized.GeneralName.type."_s),
-			$of("Tipo de nombre general no reconocido: "_s)
+			"Unrecognized.GeneralName.type."_s,
+			"Tipo de nombre general no reconocido: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("This.extension.cannot.be.marked.as.critical."_s),
-			$of(u"Esta extensión no se puede marcar como crítica. "_s)
+			"This.extension.cannot.be.marked.as.critical."_s,
+			u"Esta extensión no se puede marcar como crítica. "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Odd.number.of.hex.digits.found."_s),
-			$of(u"Se ha encontrado un número impar de dígitos hexadecimales: "_s)
+			"Odd.number.of.hex.digits.found."_s,
+			u"Se ha encontrado un número impar de dígitos hexadecimales: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("Unknown.extension.type."_s),
-			$of(u"Tipo de extensión desconocida: "_s)
+			"Unknown.extension.type."_s,
+			u"Tipo de extensión desconocida: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("command.{0}.is.ambiguous."_s),
-			$of("El comando {0} es ambiguo:"_s)
+			"command.{0}.is.ambiguous."_s,
+			"El comando {0} es ambiguo:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("the.certificate.request"_s),
-			$of("La solicitud de certificado"_s)
+			"the.certificate.request"_s,
+			"La solicitud de certificado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("the.issuer"_s),
-			$of("El emisor"_s)
+			"the.issuer"_s,
+			"El emisor"_s
 		}),
 		$$new($ObjectArray, {
-			$of("the.generated.certificate"_s),
-			$of("El certificado generado"_s)
+			"the.generated.certificate"_s,
+			"El certificado generado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("the.generated.crl"_s),
-			$of("La CRL generada"_s)
+			"the.generated.crl"_s,
+			"La CRL generada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("the.generated.certificate.request"_s),
-			$of("La solicitud de certificado generada"_s)
+			"the.generated.certificate.request"_s,
+			"La solicitud de certificado generada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("the.certificate"_s),
-			$of("El certificado"_s)
+			"the.certificate"_s,
+			"El certificado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("the.crl"_s),
-			$of("La CRL"_s)
+			"the.crl"_s,
+			"La CRL"_s
 		}),
 		$$new($ObjectArray, {
-			$of("the.tsa.certificate"_s),
-			$of("El certificado de TSA"_s)
+			"the.tsa.certificate"_s,
+			"El certificado de TSA"_s
 		}),
 		$$new($ObjectArray, {
-			$of("the.input"_s),
-			$of("La entrada"_s)
+			"the.input"_s,
+			"La entrada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("reply"_s),
-			$of("Responder"_s)
+			"reply"_s,
+			"Responder"_s
 		}),
 		$$new($ObjectArray, {
-			$of("one.in.many"_s),
-			$of("%1$s #%2$d de %3$d"_s)
+			"one.in.many"_s,
+			"%1$s #%2$d de %3$d"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alias.in.cacerts"_s),
-			$of("Emisor <%s> en cacerts"_s)
+			"alias.in.cacerts"_s,
+			"Emisor <%s> en cacerts"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alias.in.keystore"_s),
-			$of("Emisor <%s>"_s)
+			"alias.in.keystore"_s,
+			"Emisor <%s>"_s
 		}),
 		$$new($ObjectArray, {
-			$of("with.weak"_s),
-			$of(u"%s (débil)"_s)
+			"with.weak"_s,
+			u"%s (débil)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.bit"_s),
-			$of("Clave %2$s de %1$d bits"_s)
+			"key.bit"_s,
+			"Clave %2$s de %1$d bits"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.bit.weak"_s),
-			$of(u"Clave %2$s de %1$d bits (débil)"_s)
+			"key.bit.weak"_s,
+			u"Clave %2$s de %1$d bits (débil)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("unknown.size.1"_s),
-			$of(u"clave %s de tamaño desconocido"_s)
+			"unknown.size.1"_s,
+			u"clave %s de tamaño desconocido"_s
 		}),
 		$$new($ObjectArray, {
-			$of(".PATTERN.printX509Cert.with.weak"_s),
-			$of(u"Propietario: {0}\nEmisor: {1}\nNúmero de serie: {2}\nVálido desde: {3} hasta: {4}\nHuellas digitales del certificado:\n\t SHA1: {5}\n\t SHA256: {6}\nNombre del algoritmo de firma: {7}\nAlgoritmo de clave pública de asunto: {8}\nVersión: {9}"_s)
+			".PATTERN.printX509Cert.with.weak"_s,
+			u"Propietario: {0}\nEmisor: {1}\nNúmero de serie: {2}\nVálido desde: {3} hasta: {4}\nHuellas digitales del certificado:\n\t SHA1: {5}\n\t SHA256: {6}\nNombre del algoritmo de firma: {7}\nAlgoritmo de clave pública de asunto: {8}\nVersión: {9}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PKCS.10.with.weak"_s),
-			$of(u"Solicitud de certificado PKCS #10 (Versión 1.0)\nAsunto: %1$s\nFormato: %2$s\nClave pública: %3$s\nAlgoritmo de firma: %4$s\n"_s)
+			"PKCS.10.with.weak"_s,
+			u"Solicitud de certificado PKCS #10 (Versión 1.0)\nAsunto: %1$s\nFormato: %2$s\nClave pública: %3$s\nAlgoritmo de firma: %4$s\n"_s
 		}),
 		$$new($ObjectArray, {
-			$of("verified.by.s.in.s.weak"_s),
-			$of("Verificado por %1$s en %2$s con %3$s"_s)
+			"verified.by.s.in.s.weak"_s,
+			"Verificado por %1$s en %2$s con %3$s"_s
 		}),
 		$$new($ObjectArray, {
-			$of("whose.sigalg.risk"_s),
-			$of("%1$s utiliza el algoritmo de firma %2$s, lo que se considera un riesgo de seguridad."_s)
+			"whose.sigalg.risk"_s,
+			"%1$s utiliza el algoritmo de firma %2$s, lo que se considera un riesgo de seguridad."_s
 		}),
 		$$new($ObjectArray, {
-			$of("whose.key.risk"_s),
-			$of("%1$s utiliza %2$s, lo que se considera riesgo de seguridad."_s)
+			"whose.key.risk"_s,
+			"%1$s utiliza %2$s, lo que se considera riesgo de seguridad."_s
 		}),
 		$$new($ObjectArray, {
-			$of("jks.storetype.warning"_s),
-			$of(u"El almacén de claves %1$s utiliza un formato propietario. Se recomienda migrar a PKCS12, que es un formato estándar del sector que utiliza \"keytool -importkeystore -srckeystore %2$s -destkeystore %2$s -deststoretype pkcs12\"."_s)
+			"jks.storetype.warning"_s,
+			u"El almacén de claves %1$s utiliza un formato propietario. Se recomienda migrar a PKCS12, que es un formato estándar del sector que utiliza \"keytool -importkeystore -srckeystore %2$s -destkeystore %2$s -deststoretype pkcs12\"."_s
 		}),
 		$$new($ObjectArray, {
-			$of("migrate.keystore.warning"_s),
-			$of(u"Se ha migrado \"%1$s\" a %4$s. Se ha realizado la copia de seguridad del almacén de claves %2$s como \"%3$s\"."_s)
+			"migrate.keystore.warning"_s,
+			u"Se ha migrado \"%1$s\" a %4$s. Se ha realizado la copia de seguridad del almacén de claves %2$s como \"%3$s\"."_s
 		}),
 		$$new($ObjectArray, {
-			$of("backup.keystore.warning"_s),
-			$of(u"La copia de seguridad del almacén de claves \"%1$s\" se ha realizado como \"%3$s\"..."_s)
+			"backup.keystore.warning"_s,
+			u"La copia de seguridad del almacén de claves \"%1$s\" se ha realizado como \"%3$s\"..."_s
 		}),
 		$$new($ObjectArray, {
-			$of("importing.keystore.status"_s),
-			$of(u"Importando el almacén de claves de %1$s a %2$s..."_s)
+			"importing.keystore.status"_s,
+			u"Importando el almacén de claves de %1$s a %2$s..."_s
 		})
 	}));
 }
@@ -1110,7 +1085,26 @@ Resources_es::Resources_es() {
 }
 
 $Class* Resources_es::load$($String* name, bool initialize) {
-	$loadClass(Resources_es, name, initialize, &_Resources_es_ClassInfo_, clinit$Resources_es, allocate$Resources_es);
+	$FieldInfo fieldInfos$$[] = {
+		{"contents", "[[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Resources_es, contents)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Resources_es, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resources_es, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.tools.keytool.Resources_es",
+		"java.util.ListResourceBundle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Resources_es, name, initialize, &classInfo$$, Resources_es::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Resources_es);
+	});
 	return class$;
 }
 

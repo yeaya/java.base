@@ -40,6 +40,7 @@ class $export TypeAnnotation$TypeAnnotationTarget : public ::java::lang::Enum {
 public:
 	TypeAnnotation$TypeAnnotationTarget();
 	static $Array<::sun::reflect::annotation::TypeAnnotation$TypeAnnotationTarget>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::reflect::annotation::TypeAnnotation$TypeAnnotationTarget* valueOf($String* name);
 	static $Array<::sun::reflect::annotation::TypeAnnotation$TypeAnnotationTarget>* values();

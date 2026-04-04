@@ -47,6 +47,7 @@ class JceSecurityManager : public ::java::lang::SecurityManager {
 	$class(JceSecurityManager, 0, ::java::lang::SecurityManager)
 public:
 	JceSecurityManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::crypto::CryptoPermissions* getAppPermissions(::java::net::URL* callerCodeBase);
 	::javax::crypto::CryptoPermission* getCryptoPermission($String* alg);

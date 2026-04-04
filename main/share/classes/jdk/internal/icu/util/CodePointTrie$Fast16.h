@@ -22,6 +22,7 @@ class CodePointTrie$Fast16 : public ::jdk::internal::icu::util::CodePointTrie$Fa
 public:
 	CodePointTrie$Fast16();
 	using ::jdk::internal::icu::util::CodePointTrie$Fast::getRange;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($chars* index, $chars* data16, int32_t highStart, int32_t index3NullOffset, int32_t dataNullOffset);
 	virtual int32_t bmpGet(int32_t c) override;
 	static ::jdk::internal::icu::util::CodePointTrie$Fast16* fromBinary(::java::nio::ByteBuffer* bytes);

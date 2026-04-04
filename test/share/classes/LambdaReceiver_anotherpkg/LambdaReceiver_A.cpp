@@ -1,30 +1,10 @@
 #include <LambdaReceiver_anotherpkg/LambdaReceiver_A.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace LambdaReceiver_anotherpkg {
-
-$MethodInfo _LambdaReceiver_A_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LambdaReceiver_A, init$, void)},
-	{"f", "()I", nullptr, $PROTECTED | $FINAL, $method(LambdaReceiver_A, f, int32_t)},
-	{}
-};
-
-$ClassInfo _LambdaReceiver_A_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"LambdaReceiver_anotherpkg.LambdaReceiver_A",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_LambdaReceiver_A_MethodInfo_
-};
-
-$Object* allocate$LambdaReceiver_A($Class* clazz) {
-	return $of($alloc(LambdaReceiver_A));
-}
 
 void LambdaReceiver_A::init$() {
 }
@@ -37,7 +17,22 @@ LambdaReceiver_A::LambdaReceiver_A() {
 }
 
 $Class* LambdaReceiver_A::load$($String* name, bool initialize) {
-	$loadClass(LambdaReceiver_A, name, initialize, &_LambdaReceiver_A_ClassInfo_, allocate$LambdaReceiver_A);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LambdaReceiver_A, init$, void)},
+		{"f", "()I", nullptr, $PROTECTED | $FINAL, $method(LambdaReceiver_A, f, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"LambdaReceiver_anotherpkg.LambdaReceiver_A",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LambdaReceiver_A, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaReceiver_A);
+	});
 	return class$;
 }
 

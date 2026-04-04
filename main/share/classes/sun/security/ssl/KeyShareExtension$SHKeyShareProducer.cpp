@@ -1,12 +1,10 @@
 #include <sun/security/ssl/KeyShareExtension$SHKeyShareProducer.h>
-
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <java/util/Map$Entry.h>
 #include <java/util/Map.h>
 #include <sun/security/ssl/ConnectionContext.h>
-#include <sun/security/ssl/HandshakeContext.h>
 #include <sun/security/ssl/HandshakeProducer.h>
 #include <sun/security/ssl/KeyShareExtension$CHKeyShareSpec.h>
 #include <sun/security/ssl/KeyShareExtension$KeyShareEntry.h>
@@ -34,13 +32,9 @@ using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $ConnectionContext = ::sun::security::ssl::ConnectionContext;
-using $HandshakeContext = ::sun::security::ssl::HandshakeContext;
 using $HandshakeProducer = ::sun::security::ssl::HandshakeProducer;
 using $KeyShareExtension$CHKeyShareSpec = ::sun::security::ssl::KeyShareExtension$CHKeyShareSpec;
 using $KeyShareExtension$KeyShareEntry = ::sun::security::ssl::KeyShareExtension$KeyShareEntry;
@@ -48,7 +42,6 @@ using $KeyShareExtension$SHKeyShareSpec = ::sun::security::ssl::KeyShareExtensio
 using $NamedGroup = ::sun::security::ssl::NamedGroup;
 using $NamedGroupCredentials = ::sun::security::ssl::NamedGroupCredentials;
 using $NamedGroupPossession = ::sun::security::ssl::NamedGroupPossession;
-using $SSLConfiguration = ::sun::security::ssl::SSLConfiguration;
 using $SSLCredentials = ::sun::security::ssl::SSLCredentials;
 using $SSLExtension = ::sun::security::ssl::SSLExtension;
 using $SSLHandshake$HandshakeMessage = ::sun::security::ssl::SSLHandshake$HandshakeMessage;
@@ -61,42 +54,11 @@ namespace sun {
 	namespace security {
 		namespace ssl {
 
-$MethodInfo _KeyShareExtension$SHKeyShareProducer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(KeyShareExtension$SHKeyShareProducer, init$, void)},
-	{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(KeyShareExtension$SHKeyShareProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _KeyShareExtension$SHKeyShareProducer_InnerClassesInfo_[] = {
-	{"sun.security.ssl.KeyShareExtension$SHKeyShareProducer", "sun.security.ssl.KeyShareExtension", "SHKeyShareProducer", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _KeyShareExtension$SHKeyShareProducer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.security.ssl.KeyShareExtension$SHKeyShareProducer",
-	"java.lang.Object",
-	"sun.security.ssl.HandshakeProducer",
-	nullptr,
-	_KeyShareExtension$SHKeyShareProducer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeyShareExtension$SHKeyShareProducer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.ssl.KeyShareExtension"
-};
-
-$Object* allocate$KeyShareExtension$SHKeyShareProducer($Class* clazz) {
-	return $of($alloc(KeyShareExtension$SHKeyShareProducer));
-}
-
 void KeyShareExtension$SHKeyShareProducer::init$() {
 }
 
 $bytes* KeyShareExtension$SHKeyShareProducer::produce($ConnectionContext* context, $SSLHandshake$HandshakeMessage* message) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ServerHandshakeContext, shc, $cast($ServerHandshakeContext, context));
 	$init($SSLExtension);
 	$var($KeyShareExtension$CHKeyShareSpec, kss, $cast($KeyShareExtension$CHKeyShareSpec, $nc($nc(shc)->handshakeExtensions)->get($SSLExtension::CH_KEY_SHARE)));
@@ -114,7 +76,7 @@ $bytes* KeyShareExtension$SHKeyShareProducer::produce($ConnectionContext* contex
 		}
 		return nullptr;
 	}
-	if ((shc->handshakeCredentials == nullptr) || $nc(shc->handshakeCredentials)->isEmpty()) {
+	if ((shc->handshakeCredentials == nullptr) || shc->handshakeCredentials->isEmpty()) {
 		$init($SSLLogger);
 		if ($SSLLogger::isOn$ && $SSLLogger::isOn("ssl,handshake"_s)) {
 			$SSLLogger::warning("No available client key share entries"_s, $$new($ObjectArray, 0));
@@ -130,7 +92,7 @@ $bytes* KeyShareExtension$SHKeyShareProducer::produce($ConnectionContext* contex
 				$NamedGroup* ng = nullptr;
 				if ($instanceOf($NamedGroupCredentials, cd)) {
 					$var($NamedGroupCredentials, creds, $cast($NamedGroupCredentials, cd));
-					ng = $nc(creds)->getNamedGroup();
+					ng = creds->getNamedGroup();
 				}
 				if (ng == nullptr) {
 					continue;
@@ -146,9 +108,7 @@ $bytes* KeyShareExtension$SHKeyShareProducer::produce($ConnectionContext* contex
 				$var($SSLPossessionArray, poses, $nc(ke)->createPossessions(shc));
 				{
 					$var($SSLPossessionArray, arr$, poses);
-					int32_t len$ = $nc(arr$)->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
+					for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 						$var($SSLPossession, pos, arr$->get(i$));
 						{
 							if (!($instanceOf($NamedGroupPossession, pos))) {
@@ -162,16 +122,12 @@ $bytes* KeyShareExtension$SHKeyShareProducer::produce($ConnectionContext* contex
 					}
 				}
 				if (keyShare != nullptr) {
-					{
-						$var($Map$EntryArray, arr$, ke->getHandshakeProducers(shc));
-						int32_t len$ = $nc(arr$)->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
-							$var($Map$Entry, me, arr$->get(i$));
-							{
-								$var($Object, var$0, $cast($Byte, $nc(me)->getKey()));
-								$nc(shc->handshakeProducers)->put(var$0, $cast($HandshakeProducer, $(me->getValue())));
-							}
+					$var($Map$EntryArray, arr$, ke->getHandshakeProducers(shc));
+					for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+						$var($Map$Entry, me, arr$->get(i$));
+						{
+							$var($Object, var$0, $cast($Byte, $nc(me)->getKey()));
+							$nc(shc->handshakeProducers)->put(var$0, $$cast($HandshakeProducer, me->getValue()));
 						}
 					}
 					break;
@@ -188,7 +144,7 @@ $bytes* KeyShareExtension$SHKeyShareProducer::produce($ConnectionContext* contex
 	}
 	$var($bytes, extData, $nc(keyShare)->getEncoded());
 	$var($KeyShareExtension$SHKeyShareSpec, spec, $new($KeyShareExtension$SHKeyShareSpec, keyShare));
-	$nc(shc->handshakeExtensions)->put($SSLExtension::SH_KEY_SHARE, spec);
+	shc->handshakeExtensions->put($SSLExtension::SH_KEY_SHARE, spec);
 	return extData;
 }
 
@@ -196,7 +152,33 @@ KeyShareExtension$SHKeyShareProducer::KeyShareExtension$SHKeyShareProducer() {
 }
 
 $Class* KeyShareExtension$SHKeyShareProducer::load$($String* name, bool initialize) {
-	$loadClass(KeyShareExtension$SHKeyShareProducer, name, initialize, &_KeyShareExtension$SHKeyShareProducer_ClassInfo_, allocate$KeyShareExtension$SHKeyShareProducer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(KeyShareExtension$SHKeyShareProducer, init$, void)},
+		{"produce", "(Lsun/security/ssl/ConnectionContext;Lsun/security/ssl/SSLHandshake$HandshakeMessage;)[B", nullptr, $PUBLIC, $virtualMethod(KeyShareExtension$SHKeyShareProducer, produce, $bytes*, $ConnectionContext*, $SSLHandshake$HandshakeMessage*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.ssl.KeyShareExtension$SHKeyShareProducer", "sun.security.ssl.KeyShareExtension", "SHKeyShareProducer", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.security.ssl.KeyShareExtension$SHKeyShareProducer",
+		"java.lang.Object",
+		"sun.security.ssl.HandshakeProducer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.ssl.KeyShareExtension"
+	};
+	$loadClass(KeyShareExtension$SHKeyShareProducer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyShareExtension$SHKeyShareProducer);
+	});
 	return class$;
 }
 

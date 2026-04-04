@@ -1,42 +1,10 @@
 #include <TestReceiverTypeOwnerType$Inner.h>
-
 #include <TestReceiverTypeOwnerType.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$MethodInfo _TestReceiverTypeOwnerType$Inner_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestReceiverTypeOwnerType$Inner, init$, void)},
-	{"method", "()V", nullptr, $PUBLIC, $virtualMethod(TestReceiverTypeOwnerType$Inner, method, void)},
-	{}
-};
-
-$InnerClassInfo _TestReceiverTypeOwnerType$Inner_InnerClassesInfo_[] = {
-	{"TestReceiverTypeOwnerType$Inner", "TestReceiverTypeOwnerType", "Inner", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _TestReceiverTypeOwnerType$Inner_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestReceiverTypeOwnerType$Inner",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestReceiverTypeOwnerType$Inner_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestReceiverTypeOwnerType$Inner_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestReceiverTypeOwnerType"
-};
-
-$Object* allocate$TestReceiverTypeOwnerType$Inner($Class* clazz) {
-	return $of($alloc(TestReceiverTypeOwnerType$Inner));
-}
 
 void TestReceiverTypeOwnerType$Inner::init$() {
 }
@@ -48,7 +16,33 @@ TestReceiverTypeOwnerType$Inner::TestReceiverTypeOwnerType$Inner() {
 }
 
 $Class* TestReceiverTypeOwnerType$Inner::load$($String* name, bool initialize) {
-	$loadClass(TestReceiverTypeOwnerType$Inner, name, initialize, &_TestReceiverTypeOwnerType$Inner_ClassInfo_, allocate$TestReceiverTypeOwnerType$Inner);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestReceiverTypeOwnerType$Inner, init$, void)},
+		{"method", "()V", nullptr, $PUBLIC, $virtualMethod(TestReceiverTypeOwnerType$Inner, method, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestReceiverTypeOwnerType$Inner", "TestReceiverTypeOwnerType", "Inner", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestReceiverTypeOwnerType$Inner",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestReceiverTypeOwnerType"
+	};
+	$loadClass(TestReceiverTypeOwnerType$Inner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestReceiverTypeOwnerType$Inner);
+	});
 	return class$;
 }
 

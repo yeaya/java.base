@@ -1,5 +1,4 @@
 #include <NullCreate.h>
-
 #include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
 #include <jcpp.h>
@@ -10,25 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
-
-$MethodInfo _NullCreate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NullCreate, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullCreate, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _NullCreate_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"NullCreate",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_NullCreate_MethodInfo_
-};
-
-$Object* allocate$NullCreate($Class* clazz) {
-	return $of($alloc(NullCreate));
-}
 
 void NullCreate::init$() {
 }
@@ -46,7 +26,22 @@ NullCreate::NullCreate() {
 }
 
 $Class* NullCreate::load$($String* name, bool initialize) {
-	$loadClass(NullCreate, name, initialize, &_NullCreate_ClassInfo_, allocate$NullCreate);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NullCreate, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(NullCreate, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"NullCreate",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NullCreate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NullCreate);
+	});
 	return class$;
 }
 

@@ -48,6 +48,7 @@ class PKIX : public ::java::lang::Object {
 	$class(PKIX, 0, ::java::lang::Object)
 public:
 	PKIX();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::security::provider::certpath::PKIX$BuilderParams* checkBuilderParams(::java::security::cert::CertPathParameters* params);
 	static ::sun::security::provider::certpath::PKIX$ValidatorParams* checkParams(::java::security::cert::CertPath* cp, ::java::security::cert::CertPathParameters* params);

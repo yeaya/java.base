@@ -47,6 +47,7 @@ class $import ReflectionFactory : public ::java::lang::Object {
 	$class(ReflectionFactory, $PRELOAD, ::java::lang::Object)
 public:
 	ReflectionFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkInitted();
 	virtual ::java::lang::reflect::Constructor* copyConstructor(::java::lang::reflect::Constructor* arg);

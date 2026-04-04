@@ -1,5 +1,4 @@
 #include <TestProvider.h>
-
 #include <TestProvider$TestFileSystem.h>
 #include <java/net/URI.h>
 #include <java/nio/channels/SeekableByteChannel.h>
@@ -44,66 +43,8 @@ using $FileSystemProvider = ::java::nio::file::spi::FileSystemProvider;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 
-$FieldInfo _TestProvider_FieldInfo_[] = {
-	{"defaultProvider", "Ljava/nio/file/spi/FileSystemProvider;", nullptr, $PRIVATE | $FINAL, $field(TestProvider, defaultProvider$)},
-	{"theFileSystem", "LTestProvider$TestFileSystem;", nullptr, $PRIVATE | $FINAL, $field(TestProvider, theFileSystem)},
-	{}
-};
-
-$MethodInfo _TestProvider_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/file/spi/FileSystemProvider;)V", nullptr, $PUBLIC, $method(TestProvider, init$, void, $FileSystemProvider*)},
-	{"checkAccess", "(Ljava/nio/file/Path;[Ljava/nio/file/AccessMode;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider, checkAccess, void, $Path*, $AccessModeArray*), "java.io.IOException"},
-	{"copy", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider, copy, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
-	{"createDirectory", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)V", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute<*>;)V", $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider, createDirectory, void, $Path*, $FileAttributeArray*), "java.io.IOException"},
-	{"createLink", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(TestProvider, createLink, void, $Path*, $Path*), "java.io.IOException"},
-	{"createSymbolicLink", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)V", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute<*>;)V", $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider, createSymbolicLink, void, $Path*, $Path*, $FileAttributeArray*), "java.io.IOException"},
-	{"defaultProvider", "()Ljava/nio/file/spi/FileSystemProvider;", nullptr, 0, $virtualMethod(TestProvider, defaultProvider, $FileSystemProvider*)},
-	{"delete", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(TestProvider, delete$, void, $Path*), "java.io.IOException"},
-	{"getFileAttributeView", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileAttributeView;", "<V::Ljava/nio/file/attribute/FileAttributeView;>(Ljava/nio/file/Path;Ljava/lang/Class<TV;>;[Ljava/nio/file/LinkOption;)TV;", $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider, getFileAttributeView, $FileAttributeView*, $Path*, $Class*, $LinkOptionArray*)},
-	{"getFileStore", "(Ljava/nio/file/Path;)Ljava/nio/file/FileStore;", nullptr, $PUBLIC, $virtualMethod(TestProvider, getFileStore, $FileStore*, $Path*), "java.io.IOException"},
-	{"getFileSystem", "(Ljava/net/URI;)Ljava/nio/file/FileSystem;", nullptr, $PUBLIC, $virtualMethod(TestProvider, getFileSystem, $FileSystem*, $URI*)},
-	{"getPath", "(Ljava/net/URI;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider, getPath, $Path*, $URI*)},
-	{"getScheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestProvider, getScheme, $String*)},
-	{"isHidden", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(TestProvider, isHidden, bool, $Path*), "java.io.IOException"},
-	{"isSameFile", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(TestProvider, isSameFile, bool, $Path*, $Path*), "java.io.IOException"},
-	{"move", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider, move, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
-	{"newByteChannel", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/SeekableByteChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/SeekableByteChannel;", $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider, newByteChannel, $SeekableByteChannel*, $Path*, $Set*, $FileAttributeArray*), "java.io.IOException"},
-	{"newDirectoryStream", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter;)Ljava/nio/file/DirectoryStream;", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(TestProvider, newDirectoryStream, $DirectoryStream*, $Path*, $DirectoryStream$Filter*), "java.io.IOException"},
-	{"newFileSystem", "(Ljava/net/URI;Ljava/util/Map;)Ljava/nio/file/FileSystem;", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/nio/file/FileSystem;", $PUBLIC, $virtualMethod(TestProvider, newFileSystem, $FileSystem*, $URI*, $Map*), "java.io.IOException"},
-	{"readAttributes", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map;", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider, readAttributes, $Map*, $Path*, $String*, $LinkOptionArray*), "java.io.IOException"},
-	{"readAttributes", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/BasicFileAttributes;", "<A::Ljava/nio/file/attribute/BasicFileAttributes;>(Ljava/nio/file/Path;Ljava/lang/Class<TA;>;[Ljava/nio/file/LinkOption;)TA;", $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider, readAttributes, $BasicFileAttributes*, $Path*, $Class*, $LinkOptionArray*), "java.io.IOException"},
-	{"readSymbolicLink", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider, readSymbolicLink, $Path*, $Path*), "java.io.IOException"},
-	{"setAttribute", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/Object;[Ljava/nio/file/LinkOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider, setAttribute, void, $Path*, $String*, Object$*, $LinkOptionArray*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _TestProvider_InnerClassesInfo_[] = {
-	{"TestProvider$TestPath", "TestProvider", "TestPath", $STATIC},
-	{"TestProvider$TestFileSystem", "TestProvider", "TestFileSystem", $STATIC},
-	{}
-};
-
-$ClassInfo _TestProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestProvider",
-	"java.nio.file.spi.FileSystemProvider",
-	nullptr,
-	_TestProvider_FieldInfo_,
-	_TestProvider_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestProvider_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TestProvider$TestPath,TestProvider$TestPath$1,TestProvider$TestFileSystem"
-};
-
-$Object* allocate$TestProvider($Class* clazz) {
-	return $of($alloc(TestProvider));
-}
-
 void TestProvider::init$($FileSystemProvider* defaultProvider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$FileSystemProvider::init$();
 	$set(this, defaultProvider$, defaultProvider);
 	$var($FileSystem, fs, $nc(defaultProvider)->getFileSystem($($URI::create("file:/"_s))));
@@ -164,10 +105,10 @@ void TestProvider::createLink($Path* link, $Path* existing) {
 }
 
 $Path* TestProvider::readSymbolicLink($Path* link) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, delegate, $nc(this->theFileSystem)->unwrap(link));
 	$var($Path, target, $nc(this->defaultProvider$)->readSymbolicLink(delegate));
-	return $nc(this->theFileSystem)->wrap(target);
+	return this->theFileSystem->wrap(target);
 }
 
 void TestProvider::copy($Path* source, $Path* target, $CopyOptionArray* options) {
@@ -216,7 +157,59 @@ TestProvider::TestProvider() {
 }
 
 $Class* TestProvider::load$($String* name, bool initialize) {
-	$loadClass(TestProvider, name, initialize, &_TestProvider_ClassInfo_, allocate$TestProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultProvider", "Ljava/nio/file/spi/FileSystemProvider;", nullptr, $PRIVATE | $FINAL, $field(TestProvider, defaultProvider$)},
+		{"theFileSystem", "LTestProvider$TestFileSystem;", nullptr, $PRIVATE | $FINAL, $field(TestProvider, theFileSystem)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/spi/FileSystemProvider;)V", nullptr, $PUBLIC, $method(TestProvider, init$, void, $FileSystemProvider*)},
+		{"checkAccess", "(Ljava/nio/file/Path;[Ljava/nio/file/AccessMode;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider, checkAccess, void, $Path*, $AccessModeArray*), "java.io.IOException"},
+		{"copy", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider, copy, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
+		{"createDirectory", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)V", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute<*>;)V", $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider, createDirectory, void, $Path*, $FileAttributeArray*), "java.io.IOException"},
+		{"createLink", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(TestProvider, createLink, void, $Path*, $Path*), "java.io.IOException"},
+		{"createSymbolicLink", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)V", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute<*>;)V", $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider, createSymbolicLink, void, $Path*, $Path*, $FileAttributeArray*), "java.io.IOException"},
+		{"defaultProvider", "()Ljava/nio/file/spi/FileSystemProvider;", nullptr, 0, $virtualMethod(TestProvider, defaultProvider, $FileSystemProvider*)},
+		{"delete", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $virtualMethod(TestProvider, delete$, void, $Path*), "java.io.IOException"},
+		{"getFileAttributeView", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileAttributeView;", "<V::Ljava/nio/file/attribute/FileAttributeView;>(Ljava/nio/file/Path;Ljava/lang/Class<TV;>;[Ljava/nio/file/LinkOption;)TV;", $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider, getFileAttributeView, $FileAttributeView*, $Path*, $Class*, $LinkOptionArray*)},
+		{"getFileStore", "(Ljava/nio/file/Path;)Ljava/nio/file/FileStore;", nullptr, $PUBLIC, $virtualMethod(TestProvider, getFileStore, $FileStore*, $Path*), "java.io.IOException"},
+		{"getFileSystem", "(Ljava/net/URI;)Ljava/nio/file/FileSystem;", nullptr, $PUBLIC, $virtualMethod(TestProvider, getFileSystem, $FileSystem*, $URI*)},
+		{"getPath", "(Ljava/net/URI;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider, getPath, $Path*, $URI*)},
+		{"getScheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TestProvider, getScheme, $String*)},
+		{"isHidden", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(TestProvider, isHidden, bool, $Path*), "java.io.IOException"},
+		{"isSameFile", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(TestProvider, isSameFile, bool, $Path*, $Path*), "java.io.IOException"},
+		{"move", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider, move, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
+		{"newByteChannel", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/SeekableByteChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/SeekableByteChannel;", $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider, newByteChannel, $SeekableByteChannel*, $Path*, $Set*, $FileAttributeArray*), "java.io.IOException"},
+		{"newDirectoryStream", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter;)Ljava/nio/file/DirectoryStream;", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(TestProvider, newDirectoryStream, $DirectoryStream*, $Path*, $DirectoryStream$Filter*), "java.io.IOException"},
+		{"newFileSystem", "(Ljava/net/URI;Ljava/util/Map;)Ljava/nio/file/FileSystem;", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/nio/file/FileSystem;", $PUBLIC, $virtualMethod(TestProvider, newFileSystem, $FileSystem*, $URI*, $Map*), "java.io.IOException"},
+		{"readAttributes", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map;", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider, readAttributes, $Map*, $Path*, $String*, $LinkOptionArray*), "java.io.IOException"},
+		{"readAttributes", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/BasicFileAttributes;", "<A::Ljava/nio/file/attribute/BasicFileAttributes;>(Ljava/nio/file/Path;Ljava/lang/Class<TA;>;[Ljava/nio/file/LinkOption;)TA;", $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider, readAttributes, $BasicFileAttributes*, $Path*, $Class*, $LinkOptionArray*), "java.io.IOException"},
+		{"readSymbolicLink", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(TestProvider, readSymbolicLink, $Path*, $Path*), "java.io.IOException"},
+		{"setAttribute", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/Object;[Ljava/nio/file/LinkOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(TestProvider, setAttribute, void, $Path*, $String*, Object$*, $LinkOptionArray*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestProvider$TestPath", "TestProvider", "TestPath", $STATIC},
+		{"TestProvider$TestFileSystem", "TestProvider", "TestFileSystem", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestProvider",
+		"java.nio.file.spi.FileSystemProvider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TestProvider$TestPath,TestProvider$TestPath$1,TestProvider$TestFileSystem"
+	};
+	$loadClass(TestProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestProvider);
+	});
 	return class$;
 }
 

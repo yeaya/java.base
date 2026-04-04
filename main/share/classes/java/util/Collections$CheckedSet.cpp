@@ -1,5 +1,4 @@
 #include <java/util/Collections$CheckedSet.h>
-
 #include <java/util/Collection.h>
 #include <java/util/Collections$CheckedCollection.h>
 #include <java/util/Collections.h>
@@ -28,66 +27,6 @@ using $Stream = ::java::util::stream::Stream;
 
 namespace java {
 	namespace util {
-
-$FieldInfo _Collections$CheckedSet_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$CheckedSet, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Collections$CheckedSet_MethodInfo_[] = {
-	{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/util/Set;Ljava/lang/Class;)V", "(Ljava/util/Set<TE;>;Ljava/lang/Class<TE;>;)V", 0, $method(Collections$CheckedSet, init$, void, $Set*, $Class*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedSet, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedSet, hashCode, int32_t)},
-	{"*size", "()I", nullptr, $PUBLIC},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
-	{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC},
-	{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Collections$CheckedSet_InnerClassesInfo_[] = {
-	{"java.util.Collections$CheckedSet", "java.util.Collections", "CheckedSet", $STATIC},
-	{"java.util.Collections$CheckedCollection", "java.util.Collections", "CheckedCollection", $STATIC},
-	{}
-};
-
-$ClassInfo _Collections$CheckedSet_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$CheckedSet",
-	"java.util.Collections$CheckedCollection",
-	"java.util.Set",
-	_Collections$CheckedSet_FieldInfo_,
-	_Collections$CheckedSet_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/Collections$CheckedCollection<TE;>;Ljava/util/Set<TE;>;Ljava/io/Serializable;",
-	nullptr,
-	_Collections$CheckedSet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$CheckedSet($Class* clazz) {
-	return $of($alloc(Collections$CheckedSet));
-}
 
 int32_t Collections$CheckedSet::size() {
 	 return this->$Collections$CheckedCollection::size();
@@ -193,7 +132,61 @@ Collections$CheckedSet::Collections$CheckedSet() {
 }
 
 $Class* Collections$CheckedSet::load$($String* name, bool initialize) {
-	$loadClass(Collections$CheckedSet, name, initialize, &_Collections$CheckedSet_ClassInfo_, allocate$Collections$CheckedSet);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$CheckedSet, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/util/Set;Ljava/lang/Class;)V", "(Ljava/util/Set<TE;>;Ljava/lang/Class<TE;>;)V", 0, $method(Collections$CheckedSet, init$, void, $Set*, $Class*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedSet, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedSet, hashCode, int32_t)},
+		{"*size", "()I", nullptr, $PUBLIC},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+		{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC},
+		{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$CheckedSet", "java.util.Collections", "CheckedSet", $STATIC},
+		{"java.util.Collections$CheckedCollection", "java.util.Collections", "CheckedCollection", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$CheckedSet",
+		"java.util.Collections$CheckedCollection",
+		"java.util.Set",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/Collections$CheckedCollection<TE;>;Ljava/util/Set<TE;>;Ljava/io/Serializable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$CheckedSet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Collections$CheckedSet));
+	});
 	return class$;
 }
 

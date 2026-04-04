@@ -30,6 +30,7 @@ class $import ProcessBuilder : public ::java::lang::Object {
 	$class(ProcessBuilder, 0, ::java::lang::Object)
 public:
 	ProcessBuilder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::List* command);
 	void init$($StringArray* command);
 	::java::lang::ProcessBuilder* command(::java::util::List* command);

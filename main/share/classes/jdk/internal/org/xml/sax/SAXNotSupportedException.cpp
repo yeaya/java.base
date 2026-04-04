@@ -1,5 +1,4 @@
 #include <jdk/internal/org/xml/sax/SAXNotSupportedException.h>
-
 #include <jdk/internal/org/xml/sax/SAXException.h>
 #include <jcpp.h>
 
@@ -13,30 +12,6 @@ namespace jdk {
 		namespace org {
 			namespace xml {
 				namespace sax {
-
-$FieldInfo _SAXNotSupportedException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SAXNotSupportedException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SAXNotSupportedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SAXNotSupportedException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SAXNotSupportedException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _SAXNotSupportedException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.org.xml.sax.SAXNotSupportedException",
-	"jdk.internal.org.xml.sax.SAXException",
-	nullptr,
-	_SAXNotSupportedException_FieldInfo_,
-	_SAXNotSupportedException_MethodInfo_
-};
-
-$Object* allocate$SAXNotSupportedException($Class* clazz) {
-	return $of($alloc(SAXNotSupportedException));
-}
 
 void SAXNotSupportedException::init$() {
 	$SAXException::init$();
@@ -57,7 +32,26 @@ void SAXNotSupportedException::throw$() {
 }
 
 $Class* SAXNotSupportedException::load$($String* name, bool initialize) {
-	$loadClass(SAXNotSupportedException, name, initialize, &_SAXNotSupportedException_ClassInfo_, allocate$SAXNotSupportedException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SAXNotSupportedException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SAXNotSupportedException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SAXNotSupportedException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.org.xml.sax.SAXNotSupportedException",
+		"jdk.internal.org.xml.sax.SAXException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SAXNotSupportedException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SAXNotSupportedException);
+	});
 	return class$;
 }
 

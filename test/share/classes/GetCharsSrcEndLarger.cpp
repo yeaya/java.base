@@ -1,5 +1,4 @@
 #include <GetCharsSrcEndLarger.h>
-
 #include <java/lang/StringBuffer.h>
 #include <java/lang/StringIndexOutOfBoundsException.h>
 #include <jcpp.h>
@@ -10,30 +9,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $StringIndexOutOfBoundsException = ::java::lang::StringIndexOutOfBoundsException;
 
-$MethodInfo _GetCharsSrcEndLarger_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GetCharsSrcEndLarger, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetCharsSrcEndLarger, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _GetCharsSrcEndLarger_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"GetCharsSrcEndLarger",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_GetCharsSrcEndLarger_MethodInfo_
-};
-
-$Object* allocate$GetCharsSrcEndLarger($Class* clazz) {
-	return $of($alloc(GetCharsSrcEndLarger));
-}
-
 void GetCharsSrcEndLarger::init$() {
 }
 
 void GetCharsSrcEndLarger::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool exceptionOccurred = false;
 	try {
 		$$new($StringBuffer, "abc"_s)->getChars(1, 0, $$new($chars, 10), 0);
@@ -49,7 +29,22 @@ GetCharsSrcEndLarger::GetCharsSrcEndLarger() {
 }
 
 $Class* GetCharsSrcEndLarger::load$($String* name, bool initialize) {
-	$loadClass(GetCharsSrcEndLarger, name, initialize, &_GetCharsSrcEndLarger_ClassInfo_, allocate$GetCharsSrcEndLarger);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GetCharsSrcEndLarger, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GetCharsSrcEndLarger, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"GetCharsSrcEndLarger",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GetCharsSrcEndLarger, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GetCharsSrcEndLarger);
+	});
 	return class$;
 }
 

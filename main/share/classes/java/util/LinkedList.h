@@ -108,7 +108,7 @@ public:
 	int32_t size$ = 0;
 	::java::util::LinkedList$Node* first = nullptr;
 	::java::util::LinkedList$Node* last = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x0C29535D4A608822;
+	static const int64_t serialVersionUID = (int64_t)0x0c29535d4a608822;
 };
 
 	} // util

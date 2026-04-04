@@ -1,5 +1,4 @@
 #include <ClassForName.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/net/URLClassLoader.h>
 #include <java/util/List.h>
@@ -12,30 +11,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $URLClassLoader = ::java::net::URLClassLoader;
 using $List = ::java::util::List;
 
-$MethodInfo _ClassForName_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassForName, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ClassForName, run, void)},
-	{}
-};
-
-$ClassInfo _ClassForName_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ClassForName",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_ClassForName_MethodInfo_
-};
-
-$Object* allocate$ClassForName($Class* clazz) {
-	return $of($alloc(ClassForName));
-}
-
 void ClassForName::init$() {
 }
 
 void ClassForName::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		$load($List);
@@ -46,7 +26,7 @@ void ClassForName::run() {
 	}
 }
 
-void clinit$ClassForName($Class* class$) {
+void ClassForName::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
 		if (!($instanceOf($URLClassLoader, $(ClassForName::class$->getClassLoader())))) {
@@ -59,7 +39,22 @@ ClassForName::ClassForName() {
 }
 
 $Class* ClassForName::load$($String* name, bool initialize) {
-	$loadClass(ClassForName, name, initialize, &_ClassForName_ClassInfo_, clinit$ClassForName, allocate$ClassForName);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ClassForName, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ClassForName, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ClassForName",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ClassForName, name, initialize, &classInfo$$, ClassForName::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassForName);
+	});
 	return class$;
 }
 

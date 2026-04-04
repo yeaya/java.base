@@ -24,6 +24,7 @@ class $export LongSignature : public ::sun::reflect::generics::tree::BaseType {
 	$class(LongSignature, 0, ::sun::reflect::generics::tree::BaseType)
 public:
 	LongSignature();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void accept(::sun::reflect::generics::visitor::TypeTreeVisitor* v) override;
 	static ::sun::reflect::generics::tree::LongSignature* make();

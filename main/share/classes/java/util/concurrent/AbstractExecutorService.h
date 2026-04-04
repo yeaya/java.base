@@ -36,6 +36,7 @@ class $export AbstractExecutorService : public ::java::util::concurrent::Executo
 	$class(AbstractExecutorService, 0, ::java::util::concurrent::ExecutorService)
 public:
 	AbstractExecutorService();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void cancelAll(::java::util::ArrayList* futures);
 	static void cancelAll(::java::util::ArrayList* futures, int32_t j);

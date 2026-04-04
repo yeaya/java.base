@@ -1,5 +1,4 @@
 #include <Bug6609750.h>
-
 #include <java/text/SimpleDateFormat.h>
 #include <java/util/Calendar.h>
 #include <java/util/Date.h>
@@ -11,7 +10,6 @@
 
 using $DateArray = $Array<::java::util::Date>;
 using $StringArray2 = $Array<::java::lang::String, 2>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
@@ -20,30 +18,11 @@ using $Calendar = ::java::util::Calendar;
 using $Date = ::java::util::Date;
 using $Locale = ::java::util::Locale;
 
-$MethodInfo _Bug6609750_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug6609750, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug6609750, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _Bug6609750_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Bug6609750",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Bug6609750_MethodInfo_
-};
-
-$Object* allocate$Bug6609750($Class* clazz) {
-	return $of($alloc(Bug6609750));
-}
-
 void Bug6609750::init$() {
 }
 
 void Bug6609750::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool error = false;
 	$var($Locale, defaultLocale, $Locale::getDefault());
 	$Locale::setDefault($Locale::US);
@@ -120,13 +99,29 @@ void Bug6609750::main($StringArray* args) {
 	if (error) {
 		$throwNew($RuntimeException, "SimpleDateFormat.format() error."_s);
 	}
+	;
 }
 
 Bug6609750::Bug6609750() {
 }
 
 $Class* Bug6609750::load$($String* name, bool initialize) {
-	$loadClass(Bug6609750, name, initialize, &_Bug6609750_ClassInfo_, allocate$Bug6609750);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Bug6609750, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug6609750, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Bug6609750",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Bug6609750, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Bug6609750);
+	});
 	return class$;
 }
 

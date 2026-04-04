@@ -30,6 +30,7 @@ class $export AlgorithmDecomposer : public ::java::lang::Object {
 	$class(AlgorithmDecomposer, 0, ::java::lang::Object)
 public:
 	AlgorithmDecomposer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::util::Set* decompose($String* algorithm);
 	static ::java::util::Set* decomposeImpl($String* algorithm);

@@ -1,5 +1,4 @@
 #include <java/lang/ref/ReferenceQueue$Null.h>
-
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
 #include <jcpp.h>
@@ -14,37 +13,6 @@ namespace java {
 	namespace lang {
 		namespace ref {
 
-$MethodInfo _ReferenceQueue$Null_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ReferenceQueue$Null, init$, void)},
-	{"enqueue", "(Ljava/lang/ref/Reference;)Z", "(Ljava/lang/ref/Reference<*>;)Z", 0, $virtualMethod(ReferenceQueue$Null, enqueue, bool, $Reference*)},
-	{}
-};
-
-$InnerClassInfo _ReferenceQueue$Null_InnerClassesInfo_[] = {
-	{"java.lang.ref.ReferenceQueue$Null", "java.lang.ref.ReferenceQueue", "Null", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ReferenceQueue$Null_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.lang.ref.ReferenceQueue$Null",
-	"java.lang.ref.ReferenceQueue",
-	nullptr,
-	nullptr,
-	_ReferenceQueue$Null_MethodInfo_,
-	"Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;",
-	nullptr,
-	_ReferenceQueue$Null_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.ref.ReferenceQueue"
-};
-
-$Object* allocate$ReferenceQueue$Null($Class* clazz) {
-	return $of($alloc(ReferenceQueue$Null));
-}
-
 void ReferenceQueue$Null::init$() {
 	$ReferenceQueue::init$();
 }
@@ -57,7 +25,33 @@ ReferenceQueue$Null::ReferenceQueue$Null() {
 }
 
 $Class* ReferenceQueue$Null::load$($String* name, bool initialize) {
-	$loadClass(ReferenceQueue$Null, name, initialize, &_ReferenceQueue$Null_ClassInfo_, allocate$ReferenceQueue$Null);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ReferenceQueue$Null, init$, void)},
+		{"enqueue", "(Ljava/lang/ref/Reference;)Z", "(Ljava/lang/ref/Reference<*>;)Z", 0, $virtualMethod(ReferenceQueue$Null, enqueue, bool, $Reference*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.ref.ReferenceQueue$Null", "java.lang.ref.ReferenceQueue", "Null", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.lang.ref.ReferenceQueue$Null",
+		"java.lang.ref.ReferenceQueue",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.ref.ReferenceQueue"
+	};
+	$loadClass(ReferenceQueue$Null, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReferenceQueue$Null);
+	});
 	return class$;
 }
 

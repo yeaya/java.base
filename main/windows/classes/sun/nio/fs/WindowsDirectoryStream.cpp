@@ -1,5 +1,4 @@
 #include <sun/nio/fs/WindowsDirectoryStream.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/nio/file/DirectoryStream$Filter.h>
@@ -23,7 +22,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $DirectoryStream$Filter = ::java::nio::file::DirectoryStream$Filter;
 using $NotDirectoryException = ::java::nio::file::NotDirectoryException;
 using $Iterator = ::java::util::Iterator;
-using $NativeBuffer = ::sun::nio::fs::NativeBuffer;
 using $WindowsDirectoryStream$WindowsDirectoryIterator = ::sun::nio::fs::WindowsDirectoryStream$WindowsDirectoryIterator;
 using $WindowsException = ::sun::nio::fs::WindowsException;
 using $WindowsFileAttributes = ::sun::nio::fs::WindowsFileAttributes;
@@ -35,58 +33,15 @@ namespace sun {
 	namespace nio {
 		namespace fs {
 
-$FieldInfo _WindowsDirectoryStream_FieldInfo_[] = {
-	{"dir", "Lsun/nio/fs/WindowsPath;", nullptr, $PRIVATE | $FINAL, $field(WindowsDirectoryStream, dir)},
-	{"filter", "Ljava/nio/file/DirectoryStream$Filter;", "Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;", $PRIVATE | $FINAL, $field(WindowsDirectoryStream, filter)},
-	{"handle", "J", nullptr, $PRIVATE | $FINAL, $field(WindowsDirectoryStream, handle)},
-	{"firstName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(WindowsDirectoryStream, firstName)},
-	{"findDataBuffer", "Lsun/nio/fs/NativeBuffer;", nullptr, $PRIVATE | $FINAL, $field(WindowsDirectoryStream, findDataBuffer)},
-	{"closeLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(WindowsDirectoryStream, closeLock)},
-	{"isOpen", "Z", nullptr, $PRIVATE, $field(WindowsDirectoryStream, isOpen)},
-	{"iterator", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PRIVATE, $field(WindowsDirectoryStream, iterator$)},
-	{}
-};
-
-$MethodInfo _WindowsDirectoryStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/nio/fs/WindowsPath;Ljava/nio/file/DirectoryStream$Filter;)V", "(Lsun/nio/fs/WindowsPath;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)V", 0, $method(WindowsDirectoryStream, init$, void, $WindowsPath*, $DirectoryStream$Filter*), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsDirectoryStream, close, void), "java.io.IOException"},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(WindowsDirectoryStream, iterator, $Iterator*)},
-	{}
-};
-
-$InnerClassInfo _WindowsDirectoryStream_InnerClassesInfo_[] = {
-	{"sun.nio.fs.WindowsDirectoryStream$WindowsDirectoryIterator", "sun.nio.fs.WindowsDirectoryStream", "WindowsDirectoryIterator", $PRIVATE},
-	{}
-};
-
-$ClassInfo _WindowsDirectoryStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.fs.WindowsDirectoryStream",
-	"java.lang.Object",
-	"java.nio.file.DirectoryStream",
-	_WindowsDirectoryStream_FieldInfo_,
-	_WindowsDirectoryStream_MethodInfo_,
-	"Ljava/lang/Object;Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;",
-	nullptr,
-	_WindowsDirectoryStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.fs.WindowsDirectoryStream$WindowsDirectoryIterator"
-};
-
-$Object* allocate$WindowsDirectoryStream($Class* clazz) {
-	return $of($alloc(WindowsDirectoryStream));
-}
-
 void WindowsDirectoryStream::init$($WindowsPath* dir, $DirectoryStream$Filter* filter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, closeLock, $new($Object));
 	this->isOpen = true;
 	$set(this, dir, dir);
 	$set(this, filter, filter);
 	try {
 		$var($String, search, $nc(dir)->getPathForWin32Calls());
-		char16_t last = $nc(search)->charAt(search->length() - 1);
+		char16_t last = $nc(search)->charAt($nc(search)->length() - 1);
 		if (last == u':' || last == u'\\') {
 			$plusAssign(search, "*"_s);
 		} else {
@@ -137,7 +92,44 @@ WindowsDirectoryStream::WindowsDirectoryStream() {
 }
 
 $Class* WindowsDirectoryStream::load$($String* name, bool initialize) {
-	$loadClass(WindowsDirectoryStream, name, initialize, &_WindowsDirectoryStream_ClassInfo_, allocate$WindowsDirectoryStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"dir", "Lsun/nio/fs/WindowsPath;", nullptr, $PRIVATE | $FINAL, $field(WindowsDirectoryStream, dir)},
+		{"filter", "Ljava/nio/file/DirectoryStream$Filter;", "Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;", $PRIVATE | $FINAL, $field(WindowsDirectoryStream, filter)},
+		{"handle", "J", nullptr, $PRIVATE | $FINAL, $field(WindowsDirectoryStream, handle)},
+		{"firstName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(WindowsDirectoryStream, firstName)},
+		{"findDataBuffer", "Lsun/nio/fs/NativeBuffer;", nullptr, $PRIVATE | $FINAL, $field(WindowsDirectoryStream, findDataBuffer)},
+		{"closeLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(WindowsDirectoryStream, closeLock)},
+		{"isOpen", "Z", nullptr, $PRIVATE, $field(WindowsDirectoryStream, isOpen)},
+		{"iterator", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PRIVATE, $field(WindowsDirectoryStream, iterator$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/nio/fs/WindowsPath;Ljava/nio/file/DirectoryStream$Filter;)V", "(Lsun/nio/fs/WindowsPath;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)V", 0, $method(WindowsDirectoryStream, init$, void, $WindowsPath*, $DirectoryStream$Filter*), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsDirectoryStream, close, void), "java.io.IOException"},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(WindowsDirectoryStream, iterator, $Iterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.fs.WindowsDirectoryStream$WindowsDirectoryIterator", "sun.nio.fs.WindowsDirectoryStream", "WindowsDirectoryIterator", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.fs.WindowsDirectoryStream",
+		"java.lang.Object",
+		"java.nio.file.DirectoryStream",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.fs.WindowsDirectoryStream$WindowsDirectoryIterator"
+	};
+	$loadClass(WindowsDirectoryStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsDirectoryStream));
+	});
 	return class$;
 }
 

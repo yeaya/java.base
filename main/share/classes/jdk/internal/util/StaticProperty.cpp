@@ -1,5 +1,4 @@
 #include <jdk/internal/util/StaticProperty.h>
-
 #include <java/lang/InternalError.h>
 #include <java/util/Properties.h>
 #include <jcpp.h>
@@ -25,50 +24,6 @@ namespace jdk {
 	namespace internal {
 		namespace util {
 
-$FieldInfo _StaticProperty_FieldInfo_[] = {
-	{"JAVA_HOME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StaticProperty, JAVA_HOME)},
-	{"USER_HOME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StaticProperty, USER_HOME)},
-	{"USER_DIR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StaticProperty, USER_DIR)},
-	{"USER_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StaticProperty, USER_NAME)},
-	{"JAVA_LIBRARY_PATH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StaticProperty, JAVA_LIBRARY_PATH)},
-	{"SUN_BOOT_LIBRARY_PATH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StaticProperty, SUN_BOOT_LIBRARY_PATH)},
-	{"JDK_SERIAL_FILTER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StaticProperty, JDK_SERIAL_FILTER)},
-	{"JDK_SERIAL_FILTER_FACTORY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StaticProperty, JDK_SERIAL_FILTER_FACTORY)},
-	{"JAVA_IO_TMPDIR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StaticProperty, JAVA_IO_TMPDIR)},
-	{"NATIVE_ENCODING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StaticProperty, NATIVE_ENCODING)},
-	{}
-};
-
-$MethodInfo _StaticProperty_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(StaticProperty, init$, void)},
-	{"getProperty", "(Ljava/util/Properties;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(StaticProperty, getProperty, $String*, $Properties*, $String*)},
-	{"getProperty", "(Ljava/util/Properties;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(StaticProperty, getProperty, $String*, $Properties*, $String*, $String*)},
-	{"javaHome", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, javaHome, $String*)},
-	{"javaIoTmpDir", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, javaIoTmpDir, $String*)},
-	{"javaLibraryPath", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, javaLibraryPath, $String*)},
-	{"jdkSerialFilter", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, jdkSerialFilter, $String*)},
-	{"jdkSerialFilterFactory", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, jdkSerialFilterFactory, $String*)},
-	{"nativeEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, nativeEncoding, $String*)},
-	{"sunBootLibraryPath", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, sunBootLibraryPath, $String*)},
-	{"userDir", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, userDir, $String*)},
-	{"userHome", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, userHome, $String*)},
-	{"userName", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, userName, $String*)},
-	{}
-};
-
-$ClassInfo _StaticProperty_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.util.StaticProperty",
-	"java.lang.Object",
-	nullptr,
-	_StaticProperty_FieldInfo_,
-	_StaticProperty_MethodInfo_
-};
-
-$Object* allocate$StaticProperty($Class* clazz) {
-	return $of($alloc(StaticProperty));
-}
-
 $String* StaticProperty::JAVA_HOME = nullptr;
 $String* StaticProperty::USER_HOME = nullptr;
 $String* StaticProperty::USER_DIR = nullptr;
@@ -85,7 +40,7 @@ void StaticProperty::init$() {
 
 $String* StaticProperty::getProperty($Properties* props, $String* key) {
 	$init(StaticProperty);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, v, $nc(props)->getProperty(key));
 	if (v == nullptr) {
 		$throwNew($InternalError, $$str({"null property: "_s, key}));
@@ -149,7 +104,7 @@ $String* StaticProperty::nativeEncoding() {
 	return StaticProperty::NATIVE_ENCODING;
 }
 
-void clinit$StaticProperty($Class* class$) {
+void StaticProperty::clinit$($Class* clazz) {
 	{
 		$var($Properties, props, $System::getProperties());
 		$assignStatic(StaticProperty::JAVA_HOME, StaticProperty::getProperty(props, "java.home"_s));
@@ -169,7 +124,46 @@ StaticProperty::StaticProperty() {
 }
 
 $Class* StaticProperty::load$($String* name, bool initialize) {
-	$loadClass(StaticProperty, name, initialize, &_StaticProperty_ClassInfo_, clinit$StaticProperty, allocate$StaticProperty);
+	$FieldInfo fieldInfos$$[] = {
+		{"JAVA_HOME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StaticProperty, JAVA_HOME)},
+		{"USER_HOME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StaticProperty, USER_HOME)},
+		{"USER_DIR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StaticProperty, USER_DIR)},
+		{"USER_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StaticProperty, USER_NAME)},
+		{"JAVA_LIBRARY_PATH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StaticProperty, JAVA_LIBRARY_PATH)},
+		{"SUN_BOOT_LIBRARY_PATH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StaticProperty, SUN_BOOT_LIBRARY_PATH)},
+		{"JDK_SERIAL_FILTER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StaticProperty, JDK_SERIAL_FILTER)},
+		{"JDK_SERIAL_FILTER_FACTORY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StaticProperty, JDK_SERIAL_FILTER_FACTORY)},
+		{"JAVA_IO_TMPDIR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StaticProperty, JAVA_IO_TMPDIR)},
+		{"NATIVE_ENCODING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StaticProperty, NATIVE_ENCODING)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(StaticProperty, init$, void)},
+		{"getProperty", "(Ljava/util/Properties;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(StaticProperty, getProperty, $String*, $Properties*, $String*)},
+		{"getProperty", "(Ljava/util/Properties;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(StaticProperty, getProperty, $String*, $Properties*, $String*, $String*)},
+		{"javaHome", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, javaHome, $String*)},
+		{"javaIoTmpDir", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, javaIoTmpDir, $String*)},
+		{"javaLibraryPath", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, javaLibraryPath, $String*)},
+		{"jdkSerialFilter", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, jdkSerialFilter, $String*)},
+		{"jdkSerialFilterFactory", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, jdkSerialFilterFactory, $String*)},
+		{"nativeEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, nativeEncoding, $String*)},
+		{"sunBootLibraryPath", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, sunBootLibraryPath, $String*)},
+		{"userDir", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, userDir, $String*)},
+		{"userHome", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, userHome, $String*)},
+		{"userName", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(StaticProperty, userName, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.util.StaticProperty",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StaticProperty, name, initialize, &classInfo$$, StaticProperty::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StaticProperty);
+	});
 	return class$;
 }
 

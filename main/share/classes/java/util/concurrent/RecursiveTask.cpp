@@ -1,5 +1,4 @@
 #include <java/util/concurrent/RecursiveTask.h>
-
 #include <java/util/concurrent/ForkJoinTask.h>
 #include <jcpp.h>
 
@@ -12,41 +11,12 @@ namespace java {
 	namespace util {
 		namespace concurrent {
 
-$FieldInfo _RecursiveTask_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RecursiveTask, serialVersionUID)},
-	{"result", "Ljava/lang/Object;", "TV;", 0, $field(RecursiveTask, result)},
-	{}
-};
-
-$MethodInfo _RecursiveTask_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RecursiveTask, init$, void)},
-	{"compute", "()Ljava/lang/Object;", "()TV;", $PROTECTED | $ABSTRACT, $virtualMethod(RecursiveTask, compute, $Object*)},
-	{"exec", "()Z", nullptr, $PROTECTED | $FINAL, $virtualMethod(RecursiveTask, exec, bool)},
-	{"getRawResult", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $FINAL, $virtualMethod(RecursiveTask, getRawResult, $Object*)},
-	{"setRawResult", "(Ljava/lang/Object;)V", "(TV;)V", $PROTECTED | $FINAL, $virtualMethod(RecursiveTask, setRawResult, void, Object$*)},
-	{}
-};
-
-$ClassInfo _RecursiveTask_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.util.concurrent.RecursiveTask",
-	"java.util.concurrent.ForkJoinTask",
-	nullptr,
-	_RecursiveTask_FieldInfo_,
-	_RecursiveTask_MethodInfo_,
-	"<V:Ljava/lang/Object;>Ljava/util/concurrent/ForkJoinTask<TV;>;"
-};
-
-$Object* allocate$RecursiveTask($Class* clazz) {
-	return $of($alloc(RecursiveTask));
-}
-
 void RecursiveTask::init$() {
 	$ForkJoinTask::init$();
 }
 
 $Object* RecursiveTask::getRawResult() {
-	return $of(this->result);
+	return this->result;
 }
 
 void RecursiveTask::setRawResult(Object$* value) {
@@ -62,7 +32,31 @@ RecursiveTask::RecursiveTask() {
 }
 
 $Class* RecursiveTask::load$($String* name, bool initialize) {
-	$loadClass(RecursiveTask, name, initialize, &_RecursiveTask_ClassInfo_, allocate$RecursiveTask);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RecursiveTask, serialVersionUID)},
+		{"result", "Ljava/lang/Object;", "TV;", 0, $field(RecursiveTask, result)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RecursiveTask, init$, void)},
+		{"compute", "()Ljava/lang/Object;", "()TV;", $PROTECTED | $ABSTRACT, $virtualMethod(RecursiveTask, compute, $Object*)},
+		{"exec", "()Z", nullptr, $PROTECTED | $FINAL, $virtualMethod(RecursiveTask, exec, bool)},
+		{"getRawResult", "()Ljava/lang/Object;", "()TV;", $PUBLIC | $FINAL, $virtualMethod(RecursiveTask, getRawResult, $Object*)},
+		{"setRawResult", "(Ljava/lang/Object;)V", "(TV;)V", $PROTECTED | $FINAL, $virtualMethod(RecursiveTask, setRawResult, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.util.concurrent.RecursiveTask",
+		"java.util.concurrent.ForkJoinTask",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<V:Ljava/lang/Object;>Ljava/util/concurrent/ForkJoinTask<TV;>;"
+	};
+	$loadClass(RecursiveTask, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RecursiveTask));
+	});
 	return class$;
 }
 

@@ -1,36 +1,15 @@
 #include <CompareIC.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 
-$MethodInfo _CompareIC_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CompareIC, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CompareIC, main, void, $StringArray*), "java.lang.Exception"},
-	{"testTriplet", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(CompareIC, testTriplet, void, $String*, $String*, $String*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _CompareIC_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"CompareIC",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_CompareIC_MethodInfo_
-};
-
-$Object* allocate$CompareIC($Class* clazz) {
-	return $of($alloc(CompareIC));
-}
-
 void CompareIC::init$() {
 }
 
 void CompareIC::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, test1, "Tess"_s);
 	$var($String, test2, "Test"_s);
 	$var($String, test3, "Tesu"_s);
@@ -61,7 +40,23 @@ CompareIC::CompareIC() {
 }
 
 $Class* CompareIC::load$($String* name, bool initialize) {
-	$loadClass(CompareIC, name, initialize, &_CompareIC_ClassInfo_, allocate$CompareIC);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CompareIC, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CompareIC, main, void, $StringArray*), "java.lang.Exception"},
+		{"testTriplet", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(CompareIC, testTriplet, void, $String*, $String*, $String*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"CompareIC",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CompareIC, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CompareIC);
+	});
 	return class$;
 }
 

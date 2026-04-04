@@ -61,6 +61,7 @@ class SubjectCodeSource : public ::java::security::CodeSource {
 	$class(SubjectCodeSource, 0, ::java::security::CodeSource)
 public:
 	SubjectCodeSource();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::security::auth::Subject* subject, ::java::util::LinkedList* principals, ::java::net::URL* url, $Array<::java::security::cert::Certificate>* certs);
 	virtual bool equals(Object$* obj) override;
 	virtual ::java::util::LinkedList* getPrincipals();
@@ -69,7 +70,7 @@ public:
 	virtual bool implies(::java::security::CodeSource* codesource) override;
 	bool subjectListImpliesPrincipalEntry(::java::util::LinkedList* subjectList, ::sun::security::provider::PolicyParser$PrincipalEntry* pppe);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x53D052C02A89EB0B;
+	static const int64_t serialVersionUID = (int64_t)0x53d052c02a89eb0b;
 	::javax::security::auth::Subject* subject = nullptr;
 	::java::util::LinkedList* principals = nullptr;
 	static $ClassArray* PARAMS;

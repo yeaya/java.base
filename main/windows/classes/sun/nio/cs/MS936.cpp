@@ -1,5 +1,4 @@
 #include <sun/nio/cs/MS936.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -25,45 +24,6 @@ using $StandardCharsets = ::sun::nio::cs::StandardCharsets;
 namespace sun {
 	namespace nio {
 		namespace cs {
-
-$MethodInfo _MS936_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MS936, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(MS936, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MS936, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(MS936, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(MS936, newEncoder, $CharsetEncoder*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{}
-};
-
-$InnerClassInfo _MS936_InnerClassesInfo_[] = {
-	{"sun.nio.cs.MS936$EncodeHolder", "sun.nio.cs.MS936", "EncodeHolder", $STATIC},
-	{"sun.nio.cs.MS936$DecodeHolder", "sun.nio.cs.MS936", "DecodeHolder", $STATIC},
-	{}
-};
-
-$ClassInfo _MS936_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.MS936",
-	"java.nio.charset.Charset",
-	"sun.nio.cs.HistoricallyNamedCharset",
-	nullptr,
-	_MS936_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MS936_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.MS936$EncodeHolder,sun.nio.cs.MS936$DecodeHolder"
-};
-
-$Object* allocate$MS936($Class* clazz) {
-	return $of($alloc(MS936));
-}
 
 int32_t MS936::hashCode() {
 	 return this->$Charset::hashCode();
@@ -94,7 +54,7 @@ $String* MS936::historicalName() {
 }
 
 bool MS936::contains($Charset* cs) {
-	return (($nc($($nc(cs)->name()))->equals("US-ASCII"_s)) || ($instanceOf(MS936, cs)));
+	return (($$nc($nc(cs)->name())->equals("US-ASCII"_s)) || ($instanceOf(MS936, cs)));
 }
 
 $CharsetDecoder* MS936::newDecoder() {
@@ -111,7 +71,41 @@ MS936::MS936() {
 }
 
 $Class* MS936::load$($String* name, bool initialize) {
-	$loadClass(MS936, name, initialize, &_MS936_ClassInfo_, allocate$MS936);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MS936, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(MS936, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MS936, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(MS936, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(MS936, newEncoder, $CharsetEncoder*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.MS936$EncodeHolder", "sun.nio.cs.MS936", "EncodeHolder", $STATIC},
+		{"sun.nio.cs.MS936$DecodeHolder", "sun.nio.cs.MS936", "DecodeHolder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.MS936",
+		"java.nio.charset.Charset",
+		"sun.nio.cs.HistoricallyNamedCharset",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.MS936$EncodeHolder,sun.nio.cs.MS936$DecodeHolder"
+	};
+	$loadClass(MS936, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MS936));
+	});
 	return class$;
 }
 

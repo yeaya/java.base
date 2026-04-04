@@ -1,5 +1,4 @@
 #include <StressNativeSignal.h>
-
 #include <StressNativeSignal$ServerSocketThread.h>
 #include <StressNativeSignal$UDPThread.h>
 #include <jcpp.h>
@@ -12,50 +11,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$FieldInfo _StressNativeSignal_FieldInfo_[] = {
-	{"udpThread", "LStressNativeSignal$UDPThread;", nullptr, $PRIVATE, $field(StressNativeSignal, udpThread)},
-	{"serverSocketThread", "LStressNativeSignal$ServerSocketThread;", nullptr, $PRIVATE, $field(StressNativeSignal, serverSocketThread)},
-	{}
-};
-
-$MethodInfo _StressNativeSignal_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(StressNativeSignal, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StressNativeSignal, main, void, $StringArray*), "java.lang.Throwable"},
-	{"shutdown", "()V", nullptr, $PUBLIC, $virtualMethod(StressNativeSignal, shutdown, void)},
-	{}
-};
-
-$InnerClassInfo _StressNativeSignal_InnerClassesInfo_[] = {
-	{"StressNativeSignal$UDPThread", "StressNativeSignal", "UDPThread", $PUBLIC},
-	{"StressNativeSignal$ServerSocketThread", "StressNativeSignal", "ServerSocketThread", $PUBLIC},
-	{}
-};
-
-$ClassInfo _StressNativeSignal_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"StressNativeSignal",
-	"java.lang.Object",
-	nullptr,
-	_StressNativeSignal_FieldInfo_,
-	_StressNativeSignal_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StressNativeSignal_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"StressNativeSignal$UDPThread,StressNativeSignal$ServerSocketThread"
-};
-
-$Object* allocate$StressNativeSignal($Class* clazz) {
-	return $of($alloc(StressNativeSignal));
-}
-
 void StressNativeSignal::init$() {
 	try {
 		$set(this, serverSocketThread, $new($StressNativeSignal$ServerSocketThread, this));
-		$nc(this->serverSocketThread)->start();
+		this->serverSocketThread->start();
 		$set(this, udpThread, $new($StressNativeSignal$UDPThread, this));
-		$nc(this->udpThread)->start();
+		this->udpThread->start();
 	} catch ($Exception& z) {
 		z->printStackTrace();
 	}
@@ -90,7 +51,39 @@ StressNativeSignal::StressNativeSignal() {
 }
 
 $Class* StressNativeSignal::load$($String* name, bool initialize) {
-	$loadClass(StressNativeSignal, name, initialize, &_StressNativeSignal_ClassInfo_, allocate$StressNativeSignal);
+	$FieldInfo fieldInfos$$[] = {
+		{"udpThread", "LStressNativeSignal$UDPThread;", nullptr, $PRIVATE, $field(StressNativeSignal, udpThread)},
+		{"serverSocketThread", "LStressNativeSignal$ServerSocketThread;", nullptr, $PRIVATE, $field(StressNativeSignal, serverSocketThread)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(StressNativeSignal, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StressNativeSignal, main, void, $StringArray*), "java.lang.Throwable"},
+		{"shutdown", "()V", nullptr, $PUBLIC, $virtualMethod(StressNativeSignal, shutdown, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"StressNativeSignal$UDPThread", "StressNativeSignal", "UDPThread", $PUBLIC},
+		{"StressNativeSignal$ServerSocketThread", "StressNativeSignal", "ServerSocketThread", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"StressNativeSignal",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"StressNativeSignal$UDPThread,StressNativeSignal$ServerSocketThread"
+	};
+	$loadClass(StressNativeSignal, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StressNativeSignal);
+	});
 	return class$;
 }
 

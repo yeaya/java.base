@@ -1,5 +1,4 @@
 #include <java/util/Collections$CheckedList.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -57,113 +56,34 @@ public:
 	virtual $Object* apply(Object$* e) override {
 		 return $nc(inst$)->lambda$replaceAll$0(operator$, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Collections$CheckedList$$Lambda$lambda$replaceAll$0>());
-	}
 	Collections$CheckedList* inst$ = nullptr;
 	$UnaryOperator* operator$ = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Collections$CheckedList$$Lambda$lambda$replaceAll$0::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Collections$CheckedList$$Lambda$lambda$replaceAll$0, inst$)},
-	{"operator", "Ljava/util/function/UnaryOperator;", nullptr, $PUBLIC, $field(Collections$CheckedList$$Lambda$lambda$replaceAll$0, operator$)},
-	{}
-};
-$MethodInfo Collections$CheckedList$$Lambda$lambda$replaceAll$0::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Collections$CheckedList;Ljava/util/function/UnaryOperator;)V", nullptr, $PUBLIC, $method(Collections$CheckedList$$Lambda$lambda$replaceAll$0, init$, void, Collections$CheckedList*, $UnaryOperator*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedList$$Lambda$lambda$replaceAll$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Collections$CheckedList$$Lambda$lambda$replaceAll$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.util.Collections$CheckedList$$Lambda$lambda$replaceAll$0",
-	"java.lang.Object",
-	"java.util.function.UnaryOperator",
-	fieldInfos,
-	methodInfos
 };
 $Class* Collections$CheckedList$$Lambda$lambda$replaceAll$0::load$($String* name, bool initialize) {
-	$loadClass(Collections$CheckedList$$Lambda$lambda$replaceAll$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Collections$CheckedList$$Lambda$lambda$replaceAll$0, inst$)},
+		{"operator", "Ljava/util/function/UnaryOperator;", nullptr, $PUBLIC, $field(Collections$CheckedList$$Lambda$lambda$replaceAll$0, operator$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collections$CheckedList;Ljava/util/function/UnaryOperator;)V", nullptr, $PUBLIC, $method(Collections$CheckedList$$Lambda$lambda$replaceAll$0, init$, void, Collections$CheckedList*, $UnaryOperator*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedList$$Lambda$lambda$replaceAll$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.util.Collections$CheckedList$$Lambda$lambda$replaceAll$0",
+		"java.lang.Object",
+		"java.util.function.UnaryOperator",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Collections$CheckedList$$Lambda$lambda$replaceAll$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Collections$CheckedList$$Lambda$lambda$replaceAll$0);
+	});
 	return class$;
 }
 $Class* Collections$CheckedList$$Lambda$lambda$replaceAll$0::class$ = nullptr;
-
-$FieldInfo _Collections$CheckedList_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$CheckedList, serialVersionUID)},
-	{"list", "Ljava/util/List;", "Ljava/util/List<TE;>;", $FINAL, $field(Collections$CheckedList, list)},
-	{}
-};
-
-$MethodInfo _Collections$CheckedList_MethodInfo_[] = {
-	{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/util/List;Ljava/lang/Class;)V", "(Ljava/util/List<TE;>;Ljava/lang/Class<TE;>;)V", 0, $method(Collections$CheckedList, init$, void, $List*, $Class*)},
-	{"add", "(ILjava/lang/Object;)V", "(ITE;)V", $PUBLIC, $virtualMethod(Collections$CheckedList, add, void, int32_t, Object$*)},
-	{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(Collections$CheckedList, addAll, bool, int32_t, $Collection*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedList, equals, bool, Object$*)},
-	{"get", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(Collections$CheckedList, get, $Object*, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedList, hashCode, int32_t)},
-	{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedList, indexOf, int32_t, Object$*)},
-	{"*isEmpty", "()Z", nullptr, $PUBLIC},
-	{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
-	{"lambda$replaceAll$0", "(Ljava/util/function/UnaryOperator;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(Collections$CheckedList, lambda$replaceAll$0, $Object*, $UnaryOperator*, Object$*)},
-	{"lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedList, lastIndexOf, int32_t, Object$*)},
-	{"listIterator", "()Ljava/util/ListIterator;", "()Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(Collections$CheckedList, listIterator, $ListIterator*)},
-	{"listIterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(Collections$CheckedList, listIterator, $ListIterator*, int32_t)},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
-	{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"remove", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(Collections$CheckedList, remove, $Object*, int32_t)},
-	{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC},
-	{"replaceAll", "(Ljava/util/function/UnaryOperator;)V", "(Ljava/util/function/UnaryOperator<TE;>;)V", $PUBLIC, $virtualMethod(Collections$CheckedList, replaceAll, void, $UnaryOperator*)},
-	{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITE;)TE;", $PUBLIC, $virtualMethod(Collections$CheckedList, set, $Object*, int32_t, Object$*)},
-	{"*size", "()I", nullptr, $PUBLIC},
-	{"sort", "(Ljava/util/Comparator;)V", "(Ljava/util/Comparator<-TE;>;)V", $PUBLIC, $virtualMethod(Collections$CheckedList, sort, void, $Comparator*)},
-	{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
-	{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(Collections$CheckedList, subList, $List*, int32_t, int32_t)},
-	{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Collections$CheckedList_InnerClassesInfo_[] = {
-	{"java.util.Collections$CheckedList", "java.util.Collections", "CheckedList", $STATIC},
-	{"java.util.Collections$CheckedCollection", "java.util.Collections", "CheckedCollection", $STATIC},
-	{"java.util.Collections$CheckedList$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Collections$CheckedList_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.Collections$CheckedList",
-	"java.util.Collections$CheckedCollection",
-	"java.util.List",
-	_Collections$CheckedList_FieldInfo_,
-	_Collections$CheckedList_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/util/Collections$CheckedCollection<TE;>;Ljava/util/List<TE;>;",
-	nullptr,
-	_Collections$CheckedList_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.Collections"
-};
-
-$Object* allocate$Collections$CheckedList($Class* clazz) {
-	return $of($alloc(Collections$CheckedList));
-}
 
 int32_t Collections$CheckedList::size() {
 	 return this->$Collections$CheckedCollection::size();
@@ -267,11 +187,11 @@ int32_t Collections$CheckedList::hashCode() {
 }
 
 $Object* Collections$CheckedList::get(int32_t index) {
-	return $of($nc(this->list)->get(index));
+	return $nc(this->list)->get(index);
 }
 
 $Object* Collections$CheckedList::remove(int32_t index) {
-	return $of($nc(this->list)->remove(index));
+	return $nc(this->list)->remove(index);
 }
 
 int32_t Collections$CheckedList::indexOf(Object$* o) {
@@ -283,7 +203,7 @@ int32_t Collections$CheckedList::lastIndexOf(Object$* o) {
 }
 
 $Object* Collections$CheckedList::set(int32_t index, Object$* element) {
-	return $of($nc(this->list)->set(index, $(typeCheck(element))));
+	return $nc(this->list)->set(index, $(typeCheck(element)));
 }
 
 void Collections$CheckedList::add(int32_t index, Object$* element) {
@@ -309,7 +229,7 @@ $List* Collections$CheckedList::subList(int32_t fromIndex, int32_t toIndex) {
 
 void Collections$CheckedList::replaceAll($UnaryOperator* operator$) {
 	$Objects::requireNonNull(operator$);
-	$nc(this->list)->replaceAll(static_cast<$UnaryOperator*>($$new(Collections$CheckedList$$Lambda$lambda$replaceAll$0, this, operator$)));
+	$nc(this->list)->replaceAll($$new(Collections$CheckedList$$Lambda$lambda$replaceAll$0, this, operator$));
 }
 
 void Collections$CheckedList::sort($Comparator* c) {
@@ -317,7 +237,7 @@ void Collections$CheckedList::sort($Comparator* c) {
 }
 
 $Object* Collections$CheckedList::lambda$replaceAll$0($UnaryOperator* operator$, Object$* e) {
-	return $of(typeCheck($($nc(operator$)->apply(e))));
+	return typeCheck($($nc(operator$)->apply(e)));
 }
 
 Collections$CheckedList::Collections$CheckedList() {
@@ -325,11 +245,80 @@ Collections$CheckedList::Collections$CheckedList() {
 
 $Class* Collections$CheckedList::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Collections$CheckedList$$Lambda$lambda$replaceAll$0::classInfo$.name)) {
+		if (name->equals("java.util.Collections$CheckedList$$Lambda$lambda$replaceAll$0")) {
 			return Collections$CheckedList$$Lambda$lambda$replaceAll$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Collections$CheckedList, name, initialize, &_Collections$CheckedList_ClassInfo_, allocate$Collections$CheckedList);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Collections$CheckedList, serialVersionUID)},
+		{"list", "Ljava/util/List;", "Ljava/util/List<TE;>;", $FINAL, $field(Collections$CheckedList, list)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/util/List;Ljava/lang/Class;)V", "(Ljava/util/List<TE;>;Ljava/lang/Class<TE;>;)V", 0, $method(Collections$CheckedList, init$, void, $List*, $Class*)},
+		{"add", "(ILjava/lang/Object;)V", "(ITE;)V", $PUBLIC, $virtualMethod(Collections$CheckedList, add, void, int32_t, Object$*)},
+		{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<+TE;>;)Z", $PUBLIC, $virtualMethod(Collections$CheckedList, addAll, bool, int32_t, $Collection*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedList, equals, bool, Object$*)},
+		{"get", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(Collections$CheckedList, get, $Object*, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedList, hashCode, int32_t)},
+		{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedList, indexOf, int32_t, Object$*)},
+		{"*isEmpty", "()Z", nullptr, $PUBLIC},
+		{"*iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC},
+		{"lambda$replaceAll$0", "(Ljava/util/function/UnaryOperator;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $SYNTHETIC, $method(Collections$CheckedList, lambda$replaceAll$0, $Object*, $UnaryOperator*, Object$*)},
+		{"lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Collections$CheckedList, lastIndexOf, int32_t, Object$*)},
+		{"listIterator", "()Ljava/util/ListIterator;", "()Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(Collections$CheckedList, listIterator, $ListIterator*)},
+		{"listIterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<TE;>;", $PUBLIC, $virtualMethod(Collections$CheckedList, listIterator, $ListIterator*, int32_t)},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
+		{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"remove", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(Collections$CheckedList, remove, $Object*, int32_t)},
+		{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC},
+		{"replaceAll", "(Ljava/util/function/UnaryOperator;)V", "(Ljava/util/function/UnaryOperator<TE;>;)V", $PUBLIC, $virtualMethod(Collections$CheckedList, replaceAll, void, $UnaryOperator*)},
+		{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITE;)TE;", $PUBLIC, $virtualMethod(Collections$CheckedList, set, $Object*, int32_t, Object$*)},
+		{"*size", "()I", nullptr, $PUBLIC},
+		{"sort", "(Ljava/util/Comparator;)V", "(Ljava/util/Comparator<-TE;>;)V", $PUBLIC, $virtualMethod(Collections$CheckedList, sort, void, $Comparator*)},
+		{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC},
+		{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TE;>;", $PUBLIC, $virtualMethod(Collections$CheckedList, subList, $List*, int32_t, int32_t)},
+		{"*toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.Collections$CheckedList", "java.util.Collections", "CheckedList", $STATIC},
+		{"java.util.Collections$CheckedCollection", "java.util.Collections", "CheckedCollection", $STATIC},
+		{"java.util.Collections$CheckedList$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.Collections$CheckedList",
+		"java.util.Collections$CheckedCollection",
+		"java.util.List",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/util/Collections$CheckedCollection<TE;>;Ljava/util/List<TE;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.Collections"
+	};
+	$loadClass(Collections$CheckedList, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Collections$CheckedList));
+	});
 	return class$;
 }
 

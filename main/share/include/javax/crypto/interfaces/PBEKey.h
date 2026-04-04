@@ -16,7 +16,7 @@ public:
 	virtual int32_t getIterationCount() {return 0;}
 	virtual $chars* getPassword() {return nullptr;}
 	virtual $bytes* getSalt() {return nullptr;}
-	static const int64_t serialVersionUID = (int64_t)0xEC279007D7F7C19F;
+	static const int64_t serialVersionUID = (int64_t)0xec279007d7f7c19f;
 };
 
 		} // interfaces

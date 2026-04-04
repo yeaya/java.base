@@ -29,7 +29,7 @@ public:
 	NTLMException();
 	void init$(int32_t errorCode, $String* msg);
 	int32_t errorCode();
-	static const int64_t serialVersionUID = (int64_t)0xD2393BCB41A1466A;
+	static const int64_t serialVersionUID = (int64_t)0xd2393bcb41a1466a;
 	static const int32_t PACKET_READ_ERROR = 1;
 	static const int32_t NO_DOMAIN_INFO = 2;
 	static const int32_t USER_UNKNOWN = 3;
@@ -39,7 +39,10 @@ public:
 	int32_t errorCode$ = 0;
 	NTLMException(const NTLMException& e);
 	virtual void throw$() override;
-	inline NTLMException* operator ->() {
+	inline NTLMException* operator ->() const {
+		return (NTLMException*)throwing$;
+	}
+	inline operator NTLMException*() const {
 		return (NTLMException*)throwing$;
 	}
 };

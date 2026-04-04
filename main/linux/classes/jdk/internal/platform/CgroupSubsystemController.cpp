@@ -1,5 +1,4 @@
 #include <jdk/internal/platform/CgroupSubsystemController.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
@@ -62,29 +61,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* line) override {
-		 return $of(CgroupSubsystemController::lambda$getLongEntry$0($cast($String, line)));
+		 return CgroupSubsystemController::lambda$getLongEntry$0($cast($String, line));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CgroupSubsystemController$$Lambda$lambda$getLongEntry$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo CgroupSubsystemController$$Lambda$lambda$getLongEntry$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CgroupSubsystemController$$Lambda$lambda$getLongEntry$0, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CgroupSubsystemController$$Lambda$lambda$getLongEntry$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo CgroupSubsystemController$$Lambda$lambda$getLongEntry$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.platform.CgroupSubsystemController$$Lambda$lambda$getLongEntry$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* CgroupSubsystemController$$Lambda$lambda$getLongEntry$0::load$($String* name, bool initialize) {
-	$loadClass(CgroupSubsystemController$$Lambda$lambda$getLongEntry$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CgroupSubsystemController$$Lambda$lambda$getLongEntry$0, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CgroupSubsystemController$$Lambda$lambda$getLongEntry$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.platform.CgroupSubsystemController$$Lambda$lambda$getLongEntry$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CgroupSubsystemController$$Lambda$lambda$getLongEntry$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CgroupSubsystemController$$Lambda$lambda$getLongEntry$0);
+	});
 	return class$;
 }
 $Class* CgroupSubsystemController$$Lambda$lambda$getLongEntry$0::class$ = nullptr;
@@ -98,33 +94,29 @@ public:
 	virtual bool test(Object$* line) override {
 		 return CgroupSubsystemController::lambda$getLongEntry$1(entryname, $cast($StringArray, line));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CgroupSubsystemController$$Lambda$lambda$getLongEntry$1$1>());
-	}
 	$String* entryname = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CgroupSubsystemController$$Lambda$lambda$getLongEntry$1$1::fieldInfos[2] = {
-	{"entryname", "Ljava/lang/String;", nullptr, $PUBLIC, $field(CgroupSubsystemController$$Lambda$lambda$getLongEntry$1$1, entryname)},
-	{}
-};
-$MethodInfo CgroupSubsystemController$$Lambda$lambda$getLongEntry$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CgroupSubsystemController$$Lambda$lambda$getLongEntry$1$1, init$, void, $String*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CgroupSubsystemController$$Lambda$lambda$getLongEntry$1$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo CgroupSubsystemController$$Lambda$lambda$getLongEntry$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.platform.CgroupSubsystemController$$Lambda$lambda$getLongEntry$1$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* CgroupSubsystemController$$Lambda$lambda$getLongEntry$1$1::load$($String* name, bool initialize) {
-	$loadClass(CgroupSubsystemController$$Lambda$lambda$getLongEntry$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"entryname", "Ljava/lang/String;", nullptr, $PUBLIC, $field(CgroupSubsystemController$$Lambda$lambda$getLongEntry$1$1, entryname)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CgroupSubsystemController$$Lambda$lambda$getLongEntry$1$1, init$, void, $String*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CgroupSubsystemController$$Lambda$lambda$getLongEntry$1$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.platform.CgroupSubsystemController$$Lambda$lambda$getLongEntry$1$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CgroupSubsystemController$$Lambda$lambda$getLongEntry$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CgroupSubsystemController$$Lambda$lambda$getLongEntry$1$1);
+	});
 	return class$;
 }
 $Class* CgroupSubsystemController$$Lambda$lambda$getLongEntry$1$1::class$ = nullptr;
@@ -137,63 +129,27 @@ public:
 	virtual $Object* apply(Object$* line) override {
 		 return $of(CgroupSubsystemController::lambda$getLongEntry$2($cast($StringArray, line)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CgroupSubsystemController$$Lambda$lambda$getLongEntry$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo CgroupSubsystemController$$Lambda$lambda$getLongEntry$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CgroupSubsystemController$$Lambda$lambda$getLongEntry$2$2, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CgroupSubsystemController$$Lambda$lambda$getLongEntry$2$2, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo CgroupSubsystemController$$Lambda$lambda$getLongEntry$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.platform.CgroupSubsystemController$$Lambda$lambda$getLongEntry$2$2",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* CgroupSubsystemController$$Lambda$lambda$getLongEntry$2$2::load$($String* name, bool initialize) {
-	$loadClass(CgroupSubsystemController$$Lambda$lambda$getLongEntry$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CgroupSubsystemController$$Lambda$lambda$getLongEntry$2$2, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CgroupSubsystemController$$Lambda$lambda$getLongEntry$2$2, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.platform.CgroupSubsystemController$$Lambda$lambda$getLongEntry$2$2",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CgroupSubsystemController$$Lambda$lambda$getLongEntry$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CgroupSubsystemController$$Lambda$lambda$getLongEntry$2$2);
+	});
 	return class$;
 }
 $Class* CgroupSubsystemController$$Lambda$lambda$getLongEntry$2$2::class$ = nullptr;
-
-$FieldInfo _CgroupSubsystemController_FieldInfo_[] = {
-	{"EMPTY_STR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CgroupSubsystemController, EMPTY_STR)},
-	{}
-};
-
-$MethodInfo _CgroupSubsystemController_MethodInfo_[] = {
-	{"convertStringToLong", "(Ljava/lang/String;JJ)J", nullptr, $PUBLIC | $STATIC, $staticMethod(CgroupSubsystemController, convertStringToLong, int64_t, $String*, int64_t, int64_t)},
-	{"getDoubleValue", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(CgroupSubsystemController, getDoubleValue, double, CgroupSubsystemController*, $String*, double)},
-	{"getLongEntry", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;Ljava/lang/String;J)J", nullptr, $PUBLIC | $STATIC, $staticMethod(CgroupSubsystemController, getLongEntry, int64_t, CgroupSubsystemController*, $String*, $String*, int64_t)},
-	{"getLongValue", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;Ljava/util/function/Function;J)J", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/Long;>;J)J", $PUBLIC | $STATIC, $staticMethod(CgroupSubsystemController, getLongValue, int64_t, CgroupSubsystemController*, $String*, $Function*, int64_t)},
-	{"getLongValueMatchingLine", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Function;J)J", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/Long;>;J)J", $PUBLIC | $STATIC, $staticMethod(CgroupSubsystemController, getLongValueMatchingLine, int64_t, CgroupSubsystemController*, $String*, $String*, $Function*, int64_t)},
-	{"getStringValue", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(CgroupSubsystemController, getStringValue, $String*, CgroupSubsystemController*, $String*)},
-	{"lambda$getLongEntry$0", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CgroupSubsystemController, lambda$getLongEntry$0, $StringArray*, $String*)},
-	{"lambda$getLongEntry$1", "(Ljava/lang/String;[Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CgroupSubsystemController, lambda$getLongEntry$1, bool, $String*, $StringArray*)},
-	{"lambda$getLongEntry$2", "([Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CgroupSubsystemController, lambda$getLongEntry$2, $String*, $StringArray*)},
-	{"path", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CgroupSubsystemController, path, $String*)},
-	{"stringRangeToIntArray", "(Ljava/lang/String;)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(CgroupSubsystemController, stringRangeToIntArray, $ints*, $String*)},
-	{}
-};
-
-$ClassInfo _CgroupSubsystemController_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.platform.CgroupSubsystemController",
-	nullptr,
-	nullptr,
-	_CgroupSubsystemController_FieldInfo_,
-	_CgroupSubsystemController_MethodInfo_
-};
-
-$Object* allocate$CgroupSubsystemController($Class* clazz) {
-	return $of($alloc(CgroupSubsystemController));
-}
 
 $String* CgroupSubsystemController::EMPTY_STR = nullptr;
 
@@ -212,7 +168,7 @@ $String* CgroupSubsystemController::getStringValue(CgroupSubsystemController* co
 
 int64_t CgroupSubsystemController::getLongValueMatchingLine(CgroupSubsystemController* controller, $String* param, $String* match, $Function* conversion, int64_t defaultRetval) {
 	$init(CgroupSubsystemController);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t retval = defaultRetval;
 	if (controller == nullptr) {
 		return retval;
@@ -224,11 +180,9 @@ int64_t CgroupSubsystemController::getLongValueMatchingLine(CgroupSubsystemContr
 			$var($Iterator, i$, $nc(lines)->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($String, line, $cast($String, i$->next()));
-				{
-					if ($nc(line)->startsWith(match)) {
-						retval = $nc(($cast($Long, $($nc(conversion)->apply(line)))))->longValue();
-						break;
-					}
+				if ($nc(line)->startsWith(match)) {
+					retval = $$sure($Long, $nc(conversion)->apply(line))->longValue();
+					break;
 				}
 			}
 		}
@@ -239,12 +193,12 @@ int64_t CgroupSubsystemController::getLongValueMatchingLine(CgroupSubsystemContr
 
 int64_t CgroupSubsystemController::getLongValue(CgroupSubsystemController* controller, $String* param, $Function* conversion, int64_t defaultRetval) {
 	$init(CgroupSubsystemController);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, strval, getStringValue(controller, param));
 	if (strval == nullptr) {
 		return defaultRetval;
 	}
-	return $nc(($cast($Long, $($nc(conversion)->apply(strval)))))->longValue();
+	return $$sure($Long, $nc(conversion)->apply(strval))->longValue();
 }
 
 double CgroupSubsystemController::getDoubleValue(CgroupSubsystemController* controller, $String* param, double defaultRetval) {
@@ -259,45 +213,43 @@ double CgroupSubsystemController::getDoubleValue(CgroupSubsystemController* cont
 
 int64_t CgroupSubsystemController::getLongEntry(CgroupSubsystemController* controller, $String* param, $String* entryname, int64_t defaultRetval) {
 	$init(CgroupSubsystemController);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (controller == nullptr) {
 		return defaultRetval;
 	}
 	try {
 		$var($Stream, lines, $CgroupUtil::readFilePrivileged($($Paths::get($($nc(controller)->path()), $$new($StringArray, {param})))));
-		{
-			$var($Throwable, var$0, nullptr);
-			int64_t var$2 = 0;
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		int64_t var$2 = 0;
+		bool return$1 = false;
+		try {
 			try {
-				try {
-					$var($Optional, result, $nc($($nc($($nc($($nc(lines)->map(static_cast<$Function*>($$new(CgroupSubsystemController$$Lambda$lambda$getLongEntry$0)))))->filter(static_cast<$Predicate*>($$new(CgroupSubsystemController$$Lambda$lambda$getLongEntry$1$1, entryname)))))->map(static_cast<$Function*>($$new(CgroupSubsystemController$$Lambda$lambda$getLongEntry$2$2)))))->findFirst());
-					var$2 = $nc(result)->isPresent() ? $Long::parseLong($cast($String, $($nc(result)->get()))) : defaultRetval;
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& t$) {
-					if (lines != nullptr) {
-						try {
-							lines->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-					}
-					$throw(t$);
-				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
+				$var($Optional, result, $$nc($$nc($$nc($nc(lines)->map($$new(CgroupSubsystemController$$Lambda$lambda$getLongEntry$0)))->filter($$new(CgroupSubsystemController$$Lambda$lambda$getLongEntry$1$1, entryname)))->map($$new(CgroupSubsystemController$$Lambda$lambda$getLongEntry$2$2)))->findFirst());
+				var$2 = $nc(result)->isPresent() ? $Long::parseLong($$cast($String, result->get())) : defaultRetval;
+				return$1 = true;
+				goto $finally;
+			} catch ($Throwable& t$) {
 				if (lines != nullptr) {
-					lines->close();
+					try {
+						lines->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			if (lines != nullptr) {
+				lines->close();
 			}
-			if (return$1) {
-				return var$2;
-			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	} catch ($UncheckedIOException& e) {
 		return defaultRetval;
@@ -309,32 +261,28 @@ int64_t CgroupSubsystemController::getLongEntry(CgroupSubsystemController* contr
 
 $ints* CgroupSubsystemController::stringRangeToIntArray($String* range) {
 	$init(CgroupSubsystemController);
-	$useLocalCurrentObjectStackCache();
-	if (range == nullptr || $nc(CgroupSubsystemController::EMPTY_STR)->equals(range)) {
+	$useLocalObjectStack();
+	if (range == nullptr || CgroupSubsystemController::EMPTY_STR->equals(range)) {
 		return nullptr;
 	}
 	$var($ArrayList, results, $new($ArrayList));
 	$var($StringArray, strs, $nc(range)->split(","_s));
 	{
 		$var($StringArray, arr$, strs);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, str, arr$->get(i$));
-			{
-				if ($nc(str)->contains("-"_s)) {
-					$var($StringArray, lohi, str->split("-"_s));
-					if (lohi->length != 2) {
-						continue;
-					}
-					int32_t lo = $Integer::parseInt(lohi->get(0));
-					int32_t hi = $Integer::parseInt(lohi->get(1));
-					for (int32_t i = lo; i <= hi; ++i) {
-						results->add($($Integer::valueOf(i)));
-					}
-				} else {
-					results->add($($Integer::valueOf($Integer::parseInt(str))));
+			if ($nc(str)->contains("-"_s)) {
+				$var($StringArray, lohi, str->split("-"_s));
+				if (lohi->length != 2) {
+					continue;
 				}
+				int32_t lo = $Integer::parseInt(lohi->get(0));
+				int32_t hi = $Integer::parseInt(lohi->get(1));
+				for (int32_t i = lo; i <= hi; ++i) {
+					results->add($($Integer::valueOf(i)));
+				}
+			} else {
+				results->add($($Integer::valueOf($Integer::parseInt(str))));
 			}
 		}
 	}
@@ -355,7 +303,7 @@ $ints* CgroupSubsystemController::stringRangeToIntArray($String* range) {
 
 int64_t CgroupSubsystemController::convertStringToLong($String* strval, int64_t overflowRetval, int64_t defaultRetval) {
 	$init(CgroupSubsystemController);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t retval = defaultRetval;
 	if (strval == nullptr) {
 		return retval;
@@ -386,23 +334,51 @@ $StringArray* CgroupSubsystemController::lambda$getLongEntry$0($String* line) {
 	return $nc(line)->split(" "_s);
 }
 
-void clinit$CgroupSubsystemController($Class* class$) {
+void CgroupSubsystemController::clinit$($Class* clazz) {
 	$assignStatic(CgroupSubsystemController::EMPTY_STR, ""_s);
 }
 
 $Class* CgroupSubsystemController::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(CgroupSubsystemController$$Lambda$lambda$getLongEntry$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.platform.CgroupSubsystemController$$Lambda$lambda$getLongEntry$0")) {
 			return CgroupSubsystemController$$Lambda$lambda$getLongEntry$0::load$(name, initialize);
 		}
-		if (name->equals(CgroupSubsystemController$$Lambda$lambda$getLongEntry$1$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.platform.CgroupSubsystemController$$Lambda$lambda$getLongEntry$1$1")) {
 			return CgroupSubsystemController$$Lambda$lambda$getLongEntry$1$1::load$(name, initialize);
 		}
-		if (name->equals(CgroupSubsystemController$$Lambda$lambda$getLongEntry$2$2::classInfo$.name)) {
+		if (name->equals("jdk.internal.platform.CgroupSubsystemController$$Lambda$lambda$getLongEntry$2$2")) {
 			return CgroupSubsystemController$$Lambda$lambda$getLongEntry$2$2::load$(name, initialize);
 		}
 	}
-	$loadClass(CgroupSubsystemController, name, initialize, &_CgroupSubsystemController_ClassInfo_, clinit$CgroupSubsystemController, allocate$CgroupSubsystemController);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY_STR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CgroupSubsystemController, EMPTY_STR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"convertStringToLong", "(Ljava/lang/String;JJ)J", nullptr, $PUBLIC | $STATIC, $staticMethod(CgroupSubsystemController, convertStringToLong, int64_t, $String*, int64_t, int64_t)},
+		{"getDoubleValue", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(CgroupSubsystemController, getDoubleValue, double, CgroupSubsystemController*, $String*, double)},
+		{"getLongEntry", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;Ljava/lang/String;J)J", nullptr, $PUBLIC | $STATIC, $staticMethod(CgroupSubsystemController, getLongEntry, int64_t, CgroupSubsystemController*, $String*, $String*, int64_t)},
+		{"getLongValue", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;Ljava/util/function/Function;J)J", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/Long;>;J)J", $PUBLIC | $STATIC, $staticMethod(CgroupSubsystemController, getLongValue, int64_t, CgroupSubsystemController*, $String*, $Function*, int64_t)},
+		{"getLongValueMatchingLine", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Function;J)J", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;Ljava/lang/String;Ljava/util/function/Function<Ljava/lang/String;Ljava/lang/Long;>;J)J", $PUBLIC | $STATIC, $staticMethod(CgroupSubsystemController, getLongValueMatchingLine, int64_t, CgroupSubsystemController*, $String*, $String*, $Function*, int64_t)},
+		{"getStringValue", "(Ljdk/internal/platform/CgroupSubsystemController;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(CgroupSubsystemController, getStringValue, $String*, CgroupSubsystemController*, $String*)},
+		{"lambda$getLongEntry$0", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CgroupSubsystemController, lambda$getLongEntry$0, $StringArray*, $String*)},
+		{"lambda$getLongEntry$1", "(Ljava/lang/String;[Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CgroupSubsystemController, lambda$getLongEntry$1, bool, $String*, $StringArray*)},
+		{"lambda$getLongEntry$2", "([Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CgroupSubsystemController, lambda$getLongEntry$2, $String*, $StringArray*)},
+		{"path", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CgroupSubsystemController, path, $String*)},
+		{"stringRangeToIntArray", "(Ljava/lang/String;)[I", nullptr, $PUBLIC | $STATIC, $staticMethod(CgroupSubsystemController, stringRangeToIntArray, $ints*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.platform.CgroupSubsystemController",
+		nullptr,
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CgroupSubsystemController, name, initialize, &classInfo$$, CgroupSubsystemController::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CgroupSubsystemController);
+	});
 	return class$;
 }
 

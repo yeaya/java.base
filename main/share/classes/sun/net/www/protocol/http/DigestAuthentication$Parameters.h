@@ -21,6 +21,7 @@ class DigestAuthentication$Parameters : public ::java::io::Serializable {
 	$class(DigestAuthentication$Parameters, 0, ::java::io::Serializable)
 public:
 	DigestAuthentication$Parameters();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool authQop();
 	virtual $String* getAlgorithm();
@@ -36,7 +37,7 @@ public:
 	virtual void setNonce($String* s);
 	virtual void setOpaque($String* s);
 	virtual void setQop($String* qop);
-	static const int64_t serialVersionUID = (int64_t)0xCE41247245C915D4;
+	static const int64_t serialVersionUID = (int64_t)0xce41247245c915d4;
 	bool serverQop = false;
 	$String* opaque = nullptr;
 	$String* cnonce = nullptr;
